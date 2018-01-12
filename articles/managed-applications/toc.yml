@@ -12,6 +12,8 @@
   items:
     - name: 관리 응용 프로그램 파일 만들기
       href: publish-service-catalog-app.md
+    - name: 마켓플레이스 응용 프로그램 만들기
+      href: publish-marketplace-app.md
 - name: 샘플
   items:
     - name: Azure CLI

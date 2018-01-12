@@ -125,7 +125,11 @@
         - name: 'C# 사용'
           href: csharp.md
         - name: 특수화된 디스크 사용
-          href: create-vm-specialized.md
+          items:
+            - name: 포털
+              href: create-vm-specialized-portal.md
+            - name: PowerShell
+              href: create-vm-specialized.md
         - name: 'C#과 템플릿 사용'
           href: csharp-template.md
         - name: Chef로 VM 만들기
@@ -414,7 +418,7 @@
           href: performance-diagnostics-vm-extension.md
         - name: 중첩된 가상화 사용
           href: troubleshoot-vm-by-use-nested-virtualization.md
-- name: 참고 자료
+- name: 참조
   items:
     - name: Azure CLI
       href: /cli/azure/vm

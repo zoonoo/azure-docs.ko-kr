@@ -85,7 +85,7 @@
       href: functions-best-practices.md
     - name: Functions 프록시
       href: functions-proxies.md
-    - name: 함수 런타임
+    - name: 온-프레미스 함수
       href: functions-runtime-overview.md
     - name: 지속성 함수
       items:
@@ -175,14 +175,14 @@
           href: durable-functions-counter.md
         - name: 사용자 개입
           href: durable-functions-phone-verification.md
-- name: 참고 자료
+- name: 참조
   items:
     - name: 바인딩
       items:
         - name: Blob 저장소
           href: functions-bindings-storage-blob.md
         - name: Azure Cosmos DB
-          href: functions-bindings-documentdb.md
+          href: functions-bindings-cosmosdb.md
         - name: "Event Hubs\r\n"
           href: functions-bindings-event-hubs.md
         - name: 외부 파일
