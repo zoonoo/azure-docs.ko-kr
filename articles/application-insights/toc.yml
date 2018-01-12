@@ -15,7 +15,7 @@
       href: app-insights-dotnetcore-quick-start.md
     - name: Node.js
       href: app-insights-nodejs-quick-start.md
-    - name: Java
+    - name: 자바
       href: app-insights-java-quick-start.md
     - name: 모바일
       href: app-insights-mobile-center-quickstart.md
@@ -131,7 +131,7 @@
               href: app-insights-java-agent.md
             - name: 필터 원격 분석
               href: app-insights-java-filter-telemetry.md
-        - name: 경고
+        - name: Alerts
           items:
             - name: Availability
               href: app-insights-monitor-web-app-availability.md
@@ -162,7 +162,7 @@
           items:
             - name: 대시보드
               href: app-insights-dashboards.md
-            - name: 검색
+            - name: Search
               href: app-insights-diagnostic-search.md
             - name: 메트릭
               href: app-insights-metrics-explorer.md
@@ -180,7 +180,7 @@
               href: app-insights-visual-studio-trends.md
             - name: CodeLens
               href: app-insights-visual-studio-codelens.md
-        - name: 사용
+        - name: 사용 현황
           items:
             - name: 개요
               href: app-insights-usage-overview.md
@@ -263,15 +263,19 @@
           href: app-insights-troubleshoot-snapshot-debugger.md
         - name: 분석
           href: app-insights-analytics-troubleshooting.md
-        - name: Java
+        - name: 자바
           href: app-insights-java-troubleshoot.md
+- name: 샘플
+  items:
+    - name: 코드 샘플
+      href: 'https://azure.microsoft.com/resources/samples/?service=application-insights&sort=0'
 - name: 참조
   items:
     - name: Analytics 쿼리 언어
       href: 'https://docs.loganalytics.io/'
     - name: .NET
       href: 'https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights'
-    - name: Java
+    - name: 자바
       href: /java/api/com.microsoft.applicationinsights
     - name: JavaScript
       href: 'https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md'
@@ -288,7 +292,7 @@
           href: application-insights-data-model-exception-telemetry.md
         - name: 추적
           href: application-insights-data-model-trace-telemetry.md
-        - name: 이벤트
+        - name: 행사
           href: application-insights-data-model-event-telemetry.md
         - name: 메트릭
           href: application-insights-data-model-metric-telemetry.md
@@ -330,5 +334,5 @@
           href: 'https://visualstudio.uservoice.com/forums/357324-application-insights'
         - name: 지원
           href: 'https://azure.microsoft.com/support/'
-    - name: 비디오
+    - name: 동영상
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=application-insights'
