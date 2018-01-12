@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: sedusch
-ms.openlocfilehash: ed728011f2cb7b6108e19a916010fd5447c07093
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 609b811705bb6f116db055b756910450f8990528
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>SAP 응용 프로그램용 SUSE Linux Enterprise Server의 Azure VM에 있는 SAP NetWeaver에 대한 고가용성
 
@@ -50,8 +50,8 @@ ms.lasthandoff: 10/11/2017
 
 [sap-hana-ha]:sap-hana-high-availability.md
 
-이 문서에서는 가상 컴퓨터를 배포 및 구성하고 클러스터 프레임워크 및 고가용성 SAP NetWeaver 7.50 시스템을 설치하는 방법을 설명합니다.
-그리고 예제 구성, 설치 명령 등을 소개합니다. 여기서는 ASCS 인스턴스 번호 00, ERS 인스턴스 번호 02 및 SAP 시스템 ID NWS를 사용합니다. 예제에 포함된 가상 컴퓨터, 가상 네트워크 등의 리소스 이름은 SAP 시스템 ID가 NWS인 [수렴형 템플릿][template-converged]을 사용하여 리소스를 만들었다고 가정합니다.
+이 문서에서는 가상 머신을 배포 및 구성하고 클러스터 프레임워크 및 고가용성 SAP NetWeaver 7.50 시스템을 설치하는 방법을 설명합니다.
+그리고 예제 구성, 설치 명령 등을 소개합니다. ASCS 인스턴스 번호 00, ERS 인스턴스 번호 02 및 SAP 시스템 ID NWS를 사용합니다. 예제에 포함된 가상 컴퓨터, 가상 네트워크 등의 리소스 이름은 SAP 시스템 ID가 NWS인 [수렴형 템플릿][template-converged]을 사용하여 리소스를 만들었다고 가정합니다.
 
 먼저 다음 SAP 참고와 문서 읽기
 
@@ -152,7 +152,7 @@ Github에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
       Linux 배포판 중 하나를 선택합니다. 이 예제에서는 SLES 12를 선택합니다.
    3. 관리자 사용자 이름 및 관리자 암호 -  
       컴퓨터에 로그온하는 데 사용할 수 있게 만들어진 새 사용자입니다.
-   4. 서브넷 ID -  
+   4. 서브넷 ID  
       가상 컴퓨터를 연결해야 하는 서브넷의 ID입니다. 새 가상 네트워크를 만들려는 경우 비워 두거나, 가상 컴퓨터를 온-프레미스 네트워크에 연결하려는 경우 VPN 또는 ExpressRoute 가상 네트워크의 서브넷을 선택합니다. ID는 대개 /subscriptions/**&lt;구독 ID&gt;**/resourceGroups/**&lt;리소스 그룹 이름&gt;**/providers/Microsoft.Network/virtualNetworks/**&lt;가상 네트워크 이름&gt;**/subnets/**&lt;서브넷 이름&gt;**과 같은 형식입니다.
 
 ### <a name="installation"></a>설치
@@ -475,7 +475,7 @@ Github에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
    sudo crm configure
 
    crm(live)configure# primitive vip_<b>NWS</b>_nfs IPaddr2 \
-     params ip=<b>10.0.0.4</b> cidr_netmask=24 \
+     params ip=<b>10.0.0.4</b> cidr_netmask=<b>24</b> \
      op monitor interval=10 timeout=20
 
    crm(live)configure# primitive nc_<b>NWS</b>_nfs anything \
@@ -503,7 +503,7 @@ STONITH 장치에서는 서비스 주체를 사용하여 Microsoft Azure에 대�
 1. 새 앱을 선택하고 설정 탭에서 키 클릭
 1. 새 키의 설명을 입력하고 “만료되지 않음”을 선택한 다음 저장을 클릭
 1. 값을 기록해 둡니다. 서비스 주체의 **암호**로 사용됨
-1. 응용 프로그램 ID를 적어둡니다. 서비스 주체의 사용자 이름(아래 단계의 **로그인 id**)으로 사용됨
+1. 응용 프로그램 ID를 적어둡니다. 서비스 주체의 사용자 이름(아래 단계의 **로그인 ID**)으로 사용됨
 
 서비스 주체에는 기본적으로 Azure 리소스에 액세스할 권한이 없습니다. 서비스 주체에 클러스터의 모든 가상 컴퓨터를 시작 및 중지(할당 취소)하기 위한 권한을 제공해야 합니다.
 
@@ -523,13 +523,13 @@ STONITH 장치에서는 서비스 주체를 사용하여 Microsoft Azure에 대�
 <pre><code>
 sudo crm configure
 
-# replace the bold string with your subscription id, resource group, tenant id, service principal id and password
+# replace the bold string with your subscription ID, resource group, tenant ID, service principal ID and password
 
 crm(live)configure# primitive rsc_st_azure_1 stonith:fence_azure_arm \
-   params subscriptionId="<b>subscription id</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant id</b>" login="<b>login id</b>" passwd="<b>password</b>"
+   params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>"
 
 crm(live)configure# primitive rsc_st_azure_2 stonith:fence_azure_arm \
-   params subscriptionId="<b>subscription id</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant id</b>" login="<b>login id</b>" passwd="<b>password</b>"
+   params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>"
 
 crm(live)configure# colocation col_st_azure -2000: rsc_st_azure_1:Started rsc_st_azure_2:Started
 
@@ -569,7 +569,7 @@ Github에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
       HA를 선택합니다.
    9. 관리자 사용자 이름 및 관리자 암호 -  
       컴퓨터에 로그온하는 데 사용할 수 있게 만들어진 새 사용자입니다.
-   10. 서브넷 ID -  
+   10. 서브넷 ID  
    가상 컴퓨터를 연결해야 하는 서브넷의 ID입니다.  새 가상 네트워크를 만들려는 경우 비워 두거나, NFS 서버 배포의 일부분으로 사용했거나 만든 것과 같은 서브넷을 선택합니다. ID는 대개 /subscriptions/**&lt;구독 ID&gt;**/resourceGroups/**&lt;리소스 그룹 이름&gt;**/providers/Microsoft.Network/virtualNetworks/**&lt;가상 네트워크 이름&gt;**/subnets/**&lt;서브넷 이름&gt;**과 같은 형식입니다.
 
 ### <a name="installation"></a>설치
@@ -967,7 +967,7 @@ Github에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
      op monitor interval="10s"
 
    crm(live)configure# primitive vip_<b>NWS</b>_ASCS IPaddr2 \
-     params ip=<b>10.0.0.10</b> cidr_netmask=24 \
+     params ip=<b>10.0.0.10</b> cidr_netmask=<b>24</b> \
      op monitor interval=10 timeout=20
 
    crm(live)configure# primitive nc_<b>NWS</b>_ASCS anything \
@@ -1041,7 +1041,7 @@ Github에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
      op monitor interval="10s"
 
    crm(live)configure# primitive vip_<b>NWS</b>_ERS IPaddr2 \
-     params ip=<b>10.0.0.11</b> cidr_netmask=24 \
+     params ip=<b>10.0.0.11</b> cidr_netmask=<b>24</b> \
      op monitor interval=10 timeout=20
 
    crm(live)configure# primitive nc_<b>NWS</b>_ERS anything \
@@ -1101,7 +1101,7 @@ Github에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
    </code></pre>
 
    > [!NOTE]
-   > SWPM SP 20 PL 05 이상을 사용하세요. 그 이전 버전은 권한을 올바르게 설정하지 않으므로 설치가 실패합니다.
+   > SWPM SP 20 PL 05 이상을 사용합니다. 그 이전 버전은 권한을 올바르게 설정하지 않으므로 설치가 실패합니다.
    > 
 
 1. **[1]** ASCS/SCS 및 ERS 인스턴스 프로필 조정
@@ -1236,7 +1236,7 @@ STONITH 장치에서는 서비스 주체를 사용하여 Microsoft Azure에 대�
 1. 새 앱을 선택하고 설정 탭에서 키 클릭
 1. 새 키의 설명을 입력하고 “만료되지 않음”을 선택한 다음 저장을 클릭
 1. 값을 기록해 둡니다. 서비스 주체의 **암호**로 사용됨
-1. 응용 프로그램 ID를 적어둡니다. 서비스 주체의 사용자 이름(아래 단계의 **로그인 id**)으로 사용됨
+1. 응용 프로그램 ID를 적어둡니다. 서비스 주체의 사용자 이름(아래 단계의 **로그인 ID**)으로 사용됨
 
 서비스 주체에는 기본적으로 Azure 리소스에 액세스할 권한이 없습니다. 서비스 주체에 클러스터의 모든 가상 컴퓨터를 시작 및 중지(할당 취소)하기 위한 권한을 제공해야 합니다.
 
@@ -1256,13 +1256,13 @@ STONITH 장치에서는 서비스 주체를 사용하여 Microsoft Azure에 대�
 <pre><code>
 sudo crm configure
 
-# replace the bold string with your subscription id, resource group, tenant id, service principal id and password
+# replace the bold string with your subscription ID, resource group, tenant ID, service principal ID and password
 
 crm(live)configure# primitive rsc_st_azure_1 stonith:fence_azure_arm \
-   params subscriptionId="<b>subscription id</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant id</b>" login="<b>login id</b>" passwd="<b>password</b>"
+   params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>"
 
 crm(live)configure# primitive rsc_st_azure_2 stonith:fence_azure_arm \
-   params subscriptionId="<b>subscription id</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant id</b>" login="<b>login id</b>" passwd="<b>password</b>"
+   params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>"
 
 crm(live)configure# colocation col_st_azure -2000: rsc_st_azure_1:Started rsc_st_azure_2:Started
 
@@ -1326,7 +1326,7 @@ sudo crm configure property stonith-enabled=true
    sudo chattr +i /hana/data
    sudo chattr +i /hana/log
    sudo chattr +i /hana/shared
-   # write down the id of /dev/vg_hana_data/hana_data, /dev/vg_hana_log/hana_log and /dev/vg_hana_shared/hana_shared
+   # write down the ID of /dev/vg_hana_data/hana_data, /dev/vg_hana_log/hana_log and /dev/vg_hana_shared/hana_shared
    sudo blkid
    </code></pre>
    
@@ -1411,7 +1411,7 @@ sudo crm configure property stonith-enabled=true
    hdbuserstore SET <b>hdb</b>haloc localhost:3<b>03</b>15 <b>hdb</b>hasync <b>&lt;passwd&gt;</b>
    </code></pre>
 
-1. **[1]** 루트로 데이터베이스 백업
+1. **[1]** 루트로 데이터베이스 Backup
 
    <pre><code>
    PATH="$PATH:/usr/sap/<b>HDB</b>/HDB<b>03</b>/exe"
@@ -1440,7 +1440,7 @@ sudo crm configure property stonith-enabled=true
    <pre><code>
    sudo crm configure
 
-   # replace the bold string with your instance number and HANA system id
+   # replace the bold string with your instance number and HANA system ID
    
    crm(live)configure# primitive rsc_SAPHanaTopology_<b>HDB</b>_HDB<b>03</b>   ocf:suse:SAPHanaTopology \
      operations $id="rsc_sap2_<b>HDB</b>_HDB<b>03</b>-operations" \
@@ -1461,7 +1461,7 @@ sudo crm configure property stonith-enabled=true
    <pre><code>
    sudo crm configure
 
-   # replace the bold string with your instance number, HANA system id and the frontend IP address of the Azure load balancer. 
+   # replace the bold string with your instance number, HANA system ID and the frontend IP address of the Azure load balancer. 
     
    crm(live)configure# primitive rsc_SAPHana_<b>HDB</b>_HDB<b>03</b> ocf:suse:SAPHana \
      operations $id="rsc_sap_<b>HDB</b>_HDB<b>03</b>-operations" \

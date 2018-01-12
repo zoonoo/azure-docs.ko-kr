@@ -154,6 +154,8 @@
               href: Azure-stack-create-service-principals.md
             - name: 다중 테넌트 사용
               href: azure-stack-enable-multitenancy.md
+        - name: 암호를 회전
+          href: azure-stack-rotate-secrets.md
     - name: 서비스 제공
       items:
         - name: 서비스 제공 개요
@@ -248,6 +250,8 @@
           href: azure-stack-troubleshooting.md
         - name: Azure Stack의 진단
           href: azure-stack-diagnostics.md
+        - name: Azure 스택에 대 한 유효성 검사
+          href: azure-stack-diagnostic-test.md
         - name: Azure Stack 개발 키트 재배포
           href: azure-stack-redeploy.md
 - name: 참조

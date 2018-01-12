@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: ancav
-ms.openlocfilehash: 3e4eca174209eeb9cbce1d45111d1e5cc30af8b0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 012f001356463a8a7d9b95f186111959627f2c28
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="sms-alert-behavior-in-action-groups"></a>작업 그룹에서 SMS 경고 동작
 ## <a name="overview"></a>개요 ##
@@ -37,15 +37,15 @@ ms.lasthandoff: 10/11/2017
 - 경고 제목
 
 ### <a name="unsubscribing-from-sms-alerts-for-one-action-group"></a>한 작업 그룹에 대한 SMS 경고에서 구독 취소
-사용자는 “DISABLE &lt;작업 그룹의 짧은 이름&gt;” 키워드로 짧은 코드 20873에 응답하여 한 작업 그룹의 경고에 대한 SMS에서 구독 취소할 수 있습니다.
+사용자는 "DISABLE &lt;작업 그룹의 짧은 이름&gt;" 키워드로 짧은 코드 29873에 응답하여 한 작업 그룹의 경고에 대한 SMS에서 구독 취소할 수 있습니다.
 
-예: 짧은 이름이 “Azure”인 작업 그룹에 대한 경고를 구독 취소하려는 사용자는 “DISABLE Azure”라고 표시된 짧은 코드 20873에 SMS를 보냅니다.
+예: 짧은 이름이 "Azure"인 작업 그룹에 대한 경고를 구독 취소하려는 사용자는 "DISABLE Azure"라고 표시된 짧은 코드 29873에 SMS를 보냅니다.
 
 ### <a name="unsubscribing-from-sms-alerts-for-all-action-groups"></a>모든 작업 그룹에 대한 SMS 경고에서 구독 취소
-사용자는 다음 키워드로 짧은 코드 20873에 응답하여 모든 작업 그룹에 대한 모든 SMS 경고에서 구독 취소할 수 있습니다.
+사용자는 다음 키워드로 짧은 코드 29873에 응답하여 모든 작업 그룹에 대한 모든 SMS 경고에서 구독 취소할 수 있습니다.
 * STOP
 
-예: 모든 작업 그룹에 대한 모든 SMS 경고를 구독 취소하려는 사용자는 “STOP”이라고 표시된 짧은 코드 20873에 SMS를 보냅니다.
+예: 모든 작업 그룹에 대한 모든 SMS 경고를 구독 취소하려는 사용자는 "STOP"이라고 표시된 짧은 코드 29873에 SMS를 보냅니다.
 
 >[!NOTE]
 >사용자가 SMS 경고를 구독 취소했지만 새 작업 그룹에 추가된 경우 새 작업 그룹에 대한 SMS 경고를 받게 되지만 이전의 모든 작업 그룹에서 구독 취소 상태로 남아 있습니다.
@@ -53,19 +53,19 @@ ms.lasthandoff: 10/11/2017
 >
 
 ### <a name="resubscribing-to-sms-alerts-for-one-action-group"></a>한 작업 그룹에 대한 SMS 경고 재구독
-사용자는 “ENABLE &lt;작업 그룹의 짧은 이름&gt;” 키워드로 짧은 코드 20873에 응답하여 한 작업 그룹의 경고에 대한 SMS를 재구독할 수 있습니다.
+사용자는 "ENABLE &lt;작업 그룹의 짧은 이름&gt;" 키워드로 짧은 코드 29873에 응답하여 한 작업 그룹의 경고에 대한 SMS를 재구독할 수 있습니다.
 
-예: 짧은 이름이 “Azure”인 작업 그룹에 대한 경고를 재구독하려는 사용자는 “ENABLE Azure”라고 표시된 짧은 코드 20873에 SMS를 보냅니다.
+예: 짧은 이름이 "Azure"인 작업 그룹에 대한 경고를 재구독하려는 사용자는 "ENABLE Azure"라고 표시된 짧은 코드 29873에 SMS를 보냅니다.
 
 ### <a name="resubscribing-to-sms-alerts-for-all-action-groups"></a>모든 작업 그룹에 대한 SMS 경고 재구독
-사용자는 다음 키워드로 짧은 코드 20873에 응답하여 모든 작업 그룹에 대한 모든 SMS 경고를 재구독할 수 있습니다.
+사용자는 다음 키워드로 짧은 코드 29873에 응답하여 모든 작업 그룹에 대한 모든 SMS 경고를 재구독할 수 있습니다.
 
 * START
 
-예: 모든 작업 그룹에 대한 모든 SMS 경고를 구독 취소하려는 사용자는 “START”라고 표시된 짧은 코드 20873에 SMS를 보냅니다.
+예: 모든 작업 그룹에 대한 모든 SMS 경고를 구독 취소하려는 사용자는 "START"라고 표시된 짧은 코드 29873에 SMS를 보냅니다.
 
 ### <a name="requesting-help-via-sms"></a>SMS를 통해 도움 요청
-사용자는 다음 키워드로 짧은 코드 20873에 응답하여 수신한 SMS에 대한 자세한 정보를 요청할 수 있습니다.
+사용자는 다음 키워드로 짧은 코드 29873에 응답하여 수신한 SMS에 대한 자세한 정보를 요청할 수 있습니다.
 * HELP
 
 응답은 이 문서에 대한 링크와 함께 사용자에게 전송됩니다.

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 593cb6da3527a32906e8e9faa11dc13a3ef5440f
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: c8a25d64f3925ec963d8d02c827bd2045994feac
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-security-best-practices-and-patterns"></a>Azure 보안 모범 사례 및 패턴
 현재 다음과 같은 Azure 보안 모범 사례 및 패턴 문서가 있습니다. Azure 보안 모범 사례 및 패턴과 관련하여 늘어가는 목록이 업데이트되는 것을 보려면 이 사이트를 정기적으로 방문하도록 합니다.  
@@ -30,7 +30,7 @@ ms.lasthandoff: 11/22/2017
 * [Azure IaaS 보안 모범 사례] (azure-security-iaas.md)
 * [Azure 경계 보안 모범 사례](../best-practices-network-security.md)
 * [Azure에서 보안 하이브리드 네트워크 아키텍처 구현](../guidance/guidance-iaas-ra-secure-vnet-hybrid.md)
-* [Azure PaaS 모범 사례] (https://docs.microsoft.com/en-us/azure/security/security-paas-deployments)
+* [Azure PaaS 모범 사례](https://docs.microsoft.com/azure/security/security-paas-deployments)
 
 Azure는 솔루션을 빌드할 수 있도록 안전한 플랫폼을 제공합니다. Azure의 솔루션을 보다 안전하게 만들기 위한 서비스와 기술도 제공합니다. 사용할 수 있는 옵션이 많기 때문에 많은 분들이 Microsoft가 보안 개선의 모범 사례 및 패턴으로 추천하는 내용에 관해 관심을 표명했습니다.
 

@@ -1,10 +1,10 @@
 ---
 title: FAQ - Azure Active Directory Domain Services | Microsoft Docs
-description: "Azure Active Directory 도메인 서비스에 대해 자주 묻는 질문과 대답입니다."
+description: "Azure Active Directory Domain Services에 대해 자주 묻는 질문과 대답입니다."
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: stevenpo
+manager: mtillman
 editor: curtand
 ms.assetid: 48731820-9e8c-4ec2-95e8-83dba1e58775
 ms.service: active-directory-ds
@@ -12,19 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 12/07/2017
 ms.author: maheshu
-ms.openlocfilehash: 2705e97bd5b259ef68090e5688df57e0d3478f30
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.openlocfilehash: cfab51f985dd0b9db109f1ca8e4030bc9d0de1cc
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-domain-services-frequently-asked-questions-faqs"></a>Azure Active Directory Domain Services: 자주 묻는 질문과 대답(FAQ)
 이 페이지는 Azure Active Directory Domain Services에 대한 자주 묻는 질문을 응답합니다. 업데이트를 계속 확인합니다.
 
 ### <a name="troubleshooting-guide"></a>문제 해결 가이드
-Azure AD 도메인 서비스를 구성 또는 관리할 때 발생하는 일반적인 문제에 대한 솔루션은 [문제 해결 가이드](active-directory-ds-troubleshooting.md) 를 참조합니다.
+Azure AD Domain Services를 구성 또는 관리할 때 나타날 수 있는 일반적인 문제에 대한 해결책은 [문제 해결 가이드](active-directory-ds-troubleshooting.md)를 참조합니다.
 
 ### <a name="configuration"></a>구성
 #### <a name="can-i-create-multiple-managed-domains-for-a-single-azure-ad-directory"></a>단일 Azure AD 디렉터리에 여러 관리되는 도메인을 만들 수 있나요?
@@ -34,10 +34,10 @@ Azure AD 도메인 서비스를 구성 또는 관리할 때 발생하는 일반�
 예. Azure Resource Manager 가상 네트워크에서 Azure AD Domain Services를 사용할 수 있습니다. 이 기능은 현재 미리 보기 상태입니다.
 
 #### <a name="can-i-migrate-my-existing-managed-domain-from-a-classic-virtual-network-to-a-resource-manager-virtual-network"></a>기존 관리되는 도메인을 클래식 가상 네트워크에서 Resource Manager 가상 네트워크로 마이그레이션할 수 있나요?
-현재는 아닙니다. 나중에 기존 관리되는 도메인을 클래식 가상 네트워크에서 Resource Manager 가상 네트워크로 마이그레이션하는 메커니즘을 제공할 예정입니다.
+현재는 아닙니다. Microsoft는 앞으로 클래식 가상 네트워크에서 Resource Manager 가상 네트워크로 기존 관리되는 도메인을 마이그레이션하는 데 관한 메커니즘을 제공할 예정입니다.
 
 #### <a name="can-i-enable-azure-ad-domain-services-in-an-azure-csp-cloud-solution-provider-subscription"></a>Azure CSP(클라우드 솔루션 공급자) 구독에서 Azure AD Domain Services를 사용할 수 있나요?
-아니요. CSP 구독에 지원을 추가하기 위해 노력하고 있습니다.
+아니요. 제품 팀은 CSP 구독에 지원을 추가하기 위해 노력하고 있습니다.
 
 #### <a name="can-i-enable-azure-ad-domain-services-in-a-federated-azure-ad-directory-i-use-adfs-to-authenticate-users-for-access-to-office-365-and-do-not-synchronize-password-hashes-to-azure-ad-can-i-enable-azure-ad-domain-services-for-this-directory"></a>페더레이션된 Azure AD 디렉터리에서 Azure AD Domain Services를 사용할 수 있습니까? ADFS를 사용하여 사용자를 Office 365에 대한 액세스에 인증하고 Azure AD에 암호 해시를 동기화하지 않습니다. 이 디렉터리에 Azure AD Domain Services를 사용할 수 있습니까?
 아니요. Azure AD Domain Services에서는 NTLM 또는 Kerberos를 통해 사용자를 인증하기 위해 사용자 계정의 암호 해시에 액세스해야 합니다. 페더레이션된 디렉터리에서는 Azure AD 디렉터리에 암호 해시가 저장되지 않습니다. 따라서 Azure AD Domain Services는 이러한 Azure AD 디렉터리와 함께 작동하지 않습니다.
@@ -46,13 +46,13 @@ Azure AD 도메인 서비스를 구성 또는 관리할 때 발생하는 일반�
 서비스 자체는 이 시나리오를 직접 지원하지 않습니다. 관리되는 도메인은 한 번에 하나의 가상 네트워크에서만 사용할 수 있습니다. 그러나 다른 가상 네트워크에 Azure AD Domain Services를 노출하기 위해 여러 가상 네트워크 간의 연결을 구성할 수 있습니다. [Azure에서 가상 네트워크를 연결](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)하는 방법을 확인합니다.
 
 #### <a name="can-i-enable-azure-ad-domain-services-using-powershell"></a>PowerShell을 사용하여 Azure AD 도메인 서비스를 사용할 수 있나요?
-Azure AD 도메인 서비스의 PowerShell/자동화된 배포는 현재 사용할 수 없습니다.
+예. [PowerShell을 사용하여 Azure AD Domain Services를 사용하기 위한 방법](active-directory-ds-enable-using-powershell.md)을 참조하세요.
 
 #### <a name="is-azure-ad-domain-services-available-in-the-new-azure-portal"></a>Azure AD 도메인 서비스는 새 Azure 포털에서 사용할 수 있나요?
 예. [Azure Portal](https://portal.azure.com)을 사용하여 Azure AD Domain Services를 구성할 수 있습니다. [Azure 클래식 포털](https://manage.windowsazure.com)은 더 이상 지원되지 않습니다.
 
 #### <a name="can-i-enable-azure-ad-domain-services-using-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 Azure AD Domain Services를 사용할 수 있나요?
-아니요. 일부 작업은 Azure AD Domain Services를 사용하는 설정의 일부분으로 수행되어야 합니다. 이러한 작업은 Resource Manager 템플릿을 통해 수행할 수 없습니다. 새로운 Azure Portal에서 디렉터리에 Azure AD Domain Services를 사용하도록 설정합니다.
+예. [PowerShell을 사용하여 Azure AD Domain Services를 사용하기 위한 방법](active-directory-ds-enable-using-powershell.md)을 참조하세요.
 
 #### <a name="can-i-add-domain-controllers-to-an-azure-ad-domain-services-managed-domain"></a>Azure AD 도메인 서비스 관리되는 도메인에 도메인 컨트롤러를 추가할 수 있나요?
 아니요. Azure AD 도메인 서비스에서 제공하는 도메인은 관리되는 도메인입니다. 이 도메인에 대해 도메인 컨트롤러를 프로비전, 구성 또는 다른 방식으로 관리하지 않아도 됩니다. 이러한 관리 작업은 Microsoft에서 서비스로 제공합니다. 따라서 관리되는 도메인에 대해 추가 도메인 컨트롤러(읽기-쓰기 또는 읽기 전용)를 추가할 수 없습니다.

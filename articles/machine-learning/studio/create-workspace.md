@@ -1,24 +1,22 @@
 ---
-title: "Machine Learning 작업 영역 만들기 | Microsoft Docs"
+title: "Machine Learning Studio 작업 영역 만들기 | Microsoft Docs"
 description: "Azure 기계 학습 스튜디오의 작업 영역을 만드는 방법"
 services: machine-learning
-documentationcenter: 
 author: garyericson
 manager: jhubbard
 editor: cgronlun
 ms.assetid: aa96b784-ac6c-44bc-a28a-85d49fbe90a2
 ms.service: machine-learning
 ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
-ms.author: garye;bradsev;ahgyger
-ms.openlocfilehash: 4e1fa0a9abd4721d15a94923263ff2f521bceee8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/07/2017
+ms.author: garye
+ms.reviewer: garyericson, jasonwhowell, MicrosoftDocs/mlreview
+ms.openlocfilehash: 7aad885b1643ddeb25e5d00a151005b8444315fa
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="create-and-share-an-azure-machine-learning-workspace"></a>Azure 기계 학습 작업 영역 만들기 및 공유
 이 메뉴는 CAPS(Cortana 분석 프로세스)에서 사용하는 다양한 데이터 과학 환경을 설정하는 방법을 설명하는 항목에 연결됩니다.
@@ -39,7 +37,7 @@ Azure 기계 학습 스튜디오를 사용하려면 기계 학습 작업 영역�
 
 2. **+새로 만들기**를 클릭합니다.
 
-3. **인텔리전스 + 분석**을 선택하고 **Machine Learning 작업 영역**을 클릭한 후 **만들기**를 클릭합니다.
+3. 검색 상자에 **Machine Learning Studio 작업 영역**을 입력하고 일치하는 항목을 선택합니다. 그런 다음 페이지 아래쪽에서 **만들기** 클릭을 선택합니다.
 
 4. 작업 영역 정보를 입력합니다.
 
@@ -48,7 +46,7 @@ Azure 기계 학습 스튜디오를 사용하려면 기계 학습 작업 영역�
 
     ![새 작업 영역 만들기](./media/create-workspace/create-new-workspace.png)
 
-5. **만들기**
+5. **만들기**를 클릭합니다.
 
 작업 영역이 배포되면 Machine Learning Studio에서 열 수 있습니다.
 

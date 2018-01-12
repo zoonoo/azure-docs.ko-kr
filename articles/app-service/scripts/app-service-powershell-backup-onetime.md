@@ -15,11 +15,11 @@ ms.topic: sample
 ms.date: 10/30/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: f6e8410eae619977c0ce3779df2e725bd3be5393
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 5984a7707552b2740b48e3c9da40a5e96a3a279b
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="back-up-a-web-app"></a>웹앱 백업
 
@@ -48,7 +48,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 | [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
 | [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) | Storage 계정을 만듭니다. |
 | [New-AzureStorageContainer](/powershell/module/azure.storage/new-azurestoragecontainer) | Azure 저장소 컨테이너를 만듭니다. |
-| [New-AzureStorageContainerSASToken](/powershell/module/azurerm.resources/new-azurermresourcegroup) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
+| [New-AzureStorageContainerSASToken](/powershell/module/azure.storage/new-azurestoragecontainersastoken) | Azure Storage 컨테이너에 대한 SAS 토큰을 생성합니다.  |
 | [New-AzureRmAppServicePlan](/powershell/module/azurerm.websites/new-azurermappserviceplan) | App Service 계획을 만듭니다. |
 | [New-AzureRmWebApp](/powershell/module/azurerm.websites/new-azurermwebapp) | 웹앱을 만듭니다. |
 | [New-AzureRmWebAppBackup](/powershell/module/azurerm.websites/new-azurermwebappbackup) | 웹앱에 대한 백업을 만듭니다. |

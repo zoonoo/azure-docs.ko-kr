@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/10/2017
 ms.author: chackdan;maburlik;dekapur
-ms.openlocfilehash: 6aa2905a97ec6b8c125f2ab9572a8e40bf525b27
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4b3b1e8a368419fe4014802f7b2a35b7ae3fba3c
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>Windows Server에서 실행되는 독립 실행형 클러스터 만들기
 Azure Service Fabric을 사용하면 Windows Server를 실행 중인 가상 컴퓨터 또는 컴퓨터에서 Service Fabric 클러스터를 만들 수 있습니다. 즉, 온-프레미스 또는 클라우드 공급자에 서로 연결된 일련의 Windows Server 컴퓨터가 있는 환경에서 Service Fabric 응용 프로그램을 배포하고 실행할 수 있습니다. 서비스 패브릭은 독립 실행형 Windows Server 패키지라는 서비스 패브릭 클러스터를 만들 수 있는 설치 패키지를 제공합니다.
@@ -36,7 +36,7 @@ Azure Service Fabric을 사용하면 Windows Server를 실행 중인 가상 컴�
 * [Azure Service Fabric 포럼](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureServiceFabric?)에서 Windows Server용 Service Fabric 독립 실행형 패키지에 대해 커뮤니티에 문의합니다.
 * [Service Fabric에 대한 전문 지원](http://support.microsoft.com/oas/default.aspx?prid=16146)에 대한 티켓을 엽니다.  [여기](https://support.microsoft.com/en-us/gp/offerprophone?wa=wsignin1.0)에서 Microsoft의 전문 지원에 대해 자세히 알아봅니다.
 * 또한 [Microsoft 프리미어 지원](https://support.microsoft.com/en-us/premier)의 일부로 이 패키지에 대해 지원을 받을 수도 있습니다.
-* 자세한 내용은 [Azure Service Fabric 지원 옵션](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-support)을 참조하세요.
+* 자세한 내용은 [Azure Service Fabric 지원 옵션](https://docs.microsoft.com/azure/service-fabric/service-fabric-support)을 참조하세요.
 * 지원을 위해 로그를 수집하려면 [Service Fabric 독립 실행형 로그 수집기](service-fabric-cluster-standalone-package-contents.md)를 실행합니다.
 
 <a id="downloadpackage"></a>

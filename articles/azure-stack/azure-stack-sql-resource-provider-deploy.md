@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 01/09/2018
 ms.author: JeffGo
-ms.openlocfilehash: 4d6683a1a80dfdccdc5d46e9bac095a0d9f4d3e1
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: e2f29a1686d0f4baa88b9d37bac0261952f4caa6
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="use-sql-databases-on-microsoft-azure-stack"></a>SQL 데이터베이스를 사용 하 여 Microsoft Azure 스택
 
@@ -60,11 +60,10 @@ SQL Server 리소스 공급자 어댑터를 사용 하 여 SQL 데이터베이�
 
     | Azure 스택 빌드 | SQL RP 설치 관리자 |
     | --- | --- |
-    | 1.0.180102.3 | **추가 정보에 대 한 잠시 기다려 주십시오, 현재 빌드를 설치 하지 것입니다 되지만 multi-node에서 Azure 스택 업그레이드 한 후 실행 계속 됩니다.** |
-    | 1.0.171122.1 | [SQL RP 1.1.12.0 버전](https://aka.ms/azurestacksqlrp) |
+    |1.0.180102.3 또는 1.0.180106.1 (다중 노드) | [SQL RP 1.1.14.0 버전](https://aka.ms/azurestacksqlrp1712) |
+    | 1.0.171122.1 | [SQL RP 1.1.12.0 버전](https://aka.ms/azurestacksqlrp1711) |
     | 1.0.171028.1 | [SQL RP 1.1.8.0 버전](https://aka.ms/azurestacksqlrp1710) |
-    | 1.0.170928.3 | [SQL RP 1.1.3.0 버전](https://aka.ms/azurestacksqlrp1709) |
-   
+  
 
 4. Azure 스택 루트 인증서는 권한 있는 끝점에서 검색 됩니다. ASDK에 대 한 자체 서명 된 인증서는이 프로세스의 일부로 생성 됩니다. 다중 노드에 대 한 적절 한 인증서를 제공 해야 합니다.
 

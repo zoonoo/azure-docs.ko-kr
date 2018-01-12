@@ -4,21 +4,21 @@ description: "이 항목에서는 구독 관리자를 사용하여 전체 Azure 
 services: active-directory
 documentationcenter: 
 author: curtand
-manager: femila
+manager: mtillman
 ms.assetid: 174f1706-b959-4230-9a75-bf651227ebf6
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2017
+ms.date: 12/06/2017
 ms.author: curtand
-ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 9492afeda8c11d9d4df866e416a2c2c7e1684569
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.custom: it-pro;
+ms.openlocfilehash: ad6658aaed55801ac8f6a39a721fb7469892303d
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="understanding-resource-access-in-azure"></a>Azure의 리소스 액세스 이해
 
@@ -26,27 +26,22 @@ Azure의 액세스 제어는 결제 관점에서 시작합니다. [Azure 계정 
 
 <br><br>![Azure 계정][1]
 
-또한 구독은 디렉터리와 연결되어 있습니다. 디렉터리는 사용자 집합을 정의합니다. 사용자 집합은 디렉터리를 만든 회사 또는 학교 사용자가 될 수 있습니다. 또는 외부 사용자(즉, Microsoft 계정)이 될 수 있습니다. 구독은 서비스 관리자(SA) 또는 CA(공동 관리자)로 할당된 해당 디렉터리 사용자의 하위 집합에서 액세스할 수 있습니다. 유일한 예외는 레거시의 이유로 Microsoft 계정(이전의 Windows Live ID)이 디렉터리에 없는 SA 또는 CA로 할당될 수 있다는 점입니다.
+또한 구독은 디렉터리와 연결되어 있습니다. 디렉터리는 사용자 집합을 정의합니다. 디렉터리를 만든 직장 또는 학교의 사용자이거나 외부 게스트 사용자일 수 있습니다. 구독은 서비스 관리자(SA) 또는 CA(공동 관리자)로 할당된 해당 디렉터리 사용자의 하위 집합에서 액세스할 수 있습니다. 유일한 예외는 레거시의 이유로 Microsoft 계정(이전의 Windows Live ID)이 디렉터리에 없는 SA 또는 CA로 할당될 수 있다는 점입니다.
 
 <br><br>![Azure의 Access Control][2]
 
-Azure 클래식 포털 내의 기능은 Microsoft 계정을 통해 로그인하는 SA를 사용하여 구독이 연결되어 있는 디렉터리를 변경합니다. 이 때, **설정**의 **구독** 페이지에서 **디렉터리 편집** 명령을 사용합니다. 이 작업은 해당 구독의 액세스 제어에 영향을 줍니다.
-
-> [!NOTE]
-> 회사 또는 학교 계정은 소속된 디렉터리에만 로그인할 수 있기 때문에 Azure 클래식 포털의 **디렉터리 편집** 명령은 회사 또는 학교 계정을 사용하여 로그인하는 사용자에게 사용할 수 없습니다.
-> 
-> 
+Microsoft 계정을 사용하여 로그인된 SA는 Azure Portal 내 기능을 통해 구독이 연결된 디렉터리를 변경할 수 있습니다. 이 작업은 해당 구독의 액세스 제어에 영향을 줍니다.
 
 <br><br>![간단한 사용자 로그인 흐름][3]
 
-단순한 경우 조직(예: Contoso)은 요금 청구를 적용하고 동일한 집합의 구독에 대해 액세스 제어합니다. 즉, 디렉터리는 단일 Azure 계정에 의해 소유된 구독에 연결됩니다. Azure 클래식 포털에 로그인하면 사용자는 리소스의 두 가지 컬렉션(이전 그림에서 주황색으로 표시)을 볼 수 있습니다.
+단순한 경우 조직(예: Contoso)은 요금 청구를 적용하고 동일한 집합의 구독에 대해 액세스 제어합니다. 즉, 디렉터리는 단일 Azure 계정에 의해 소유된 구독에 연결됩니다. Azure Portal에 로그인하면 사용자는 리소스의 두 가지 컬렉션(이전 그림에서 주황색으로 표시)을 볼 수 있습니다.
 
 * 사용자 계정이 있는 디렉터리 (원본 또는 외래 사용자로 추가). 로그인에 사용되는 디렉터리는 이 계산과 관련이 없으므로 디렉터리는 로그인 위치에 관계없이 항상 표시됩니다.
 * (SA 또는 CA인 경우) 사용자가 액세스 할 수 있는 로그인 AND로 사용되는 디렉터리와 연결된 구독의 일부인 리소스.
 
 <br><br>![여러 구독 및 디렉터리가 있는 사용자][4]
 
-여러 디렉터리에 구독이 있는 사용자는 구독 필터를 사용하여 Azure 클래식 포털의 현재 컨텍스트를 전환할 수 있습니다. 내부적으로 이렇게 하면 다른 디렉터리에 별도로 로그인하게 되지만, single sign-on (SSO)을 사용하여 원활하게 수행할 수 있습니다.
+여러 디렉터리에 구독이 있는 사용자는 구독 필터를 사용하여 Azure Portal의 현재 컨텍스트를 전환할 수 있습니다. 내부적으로 이렇게 하면 다른 디렉터리에 별도로 로그인하게 되지만, single sign-on (SSO)을 사용하여 원활하게 수행할 수 있습니다.
 
 구독 간에 리소스를 이동하는 등의 작업은 구독의 단일 디렉터리 보기의 결과로 더 어려울 수 있습니다. 리소스 전송을 수행하려면 **설정**에서 구독 페이지의 **디렉터리 편집** 명령을 처음 사용하여 동일한 디렉터리에 구독을 연결해야 할 수도 있습니다.
 

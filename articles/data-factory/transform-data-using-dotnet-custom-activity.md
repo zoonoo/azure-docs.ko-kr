@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: shengc
-ms.openlocfilehash: e470071ca0ff45fce0a410b18ea9a91e1925af4b
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: 9673c5ad3ae48f9f2b8a47165b739cc2431060ae
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Azure Data Factory 파이프라인에서 사용자 지정 작업 사용
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -35,9 +35,9 @@ Data Factory에서 지원하지 않는 데이터 저장소 간에 데이터를 �
 > 이 문서는 현재 미리 보기 상태인 Data Factory 버전 2에 적용됩니다. GA(일반 공급) 상태인 Data Factory 버전 1 서비스를 사용 중인 경우 [(사용자 지정) V1의 DotNet 작업](v1/data-factory-use-custom-activities.md)을 참조하세요.
  
 
-Azure 배치 서비스가 처음이라면 다음 항목을 참조하십시오.
+Azure Batch 서비스가 처음이라면 다음 항목을 참조하십시오.
 
-* [Azure 배치 기본 사항](../batch/batch-technical-overview.md) 입니다.
+* [Azure Batch 기본 사항](../batch/batch-technical-overview.md) 입니다.
 * [New-AzureRmBatchAccount](/powershell/module/azurerm.batch/New-AzureRmBatchAccount?view=azurermps-4.3.1) cmdlet을 통해 Azure Portal을 사용하여 Azure Batch 계정을 만들기 위해 Azure Batch 계정 또는 [Azure Portal](../batch/batch-account-create-portal.md)을 만듭니다. 이 cmdlet 사용에 관한 자세한 지침은 [PowerShell을 사용하여 Azure Batch 계정 관리](http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) 항목을 참조하십시오.
 * [New-AzureBatchPool](/powershell/module/azurerm.batch/New-AzureBatchPool?view=azurermps-4.3.1) cmdlet을 사용하여 Azure 배치 풀을 만듭니다.
 
@@ -308,17 +308,33 @@ namespace SampleApp
 
   Azure Data Factory V2 사용자 지정 작업이 변경되면서 이제 기본 설정 언어로 사용자 지정 코드 논리를 자유롭게 쓰고, Azure Batch에서 지원하는 Windows 및 Linux 운영 체제에서 해당 코드를 실행할 수 있습니다. 
 
+  다음 표에서는 Data Factory V2 사용자 지정 작업과 Data Factory V1 (사용자 지정) DotNet 작업 간의 차이점을 설명합니다. 
+
+
+|차이점      |ADFv2 사용자 지정 작업      |ADFv1 (사용자 지정) DotNet 작업      |
+| ---- | ---- | ---- |
+|사용자 지정 논리를 정의하는 방법      |실행 파일을 실행하여(고유한 실행 파일을 존재 또는 구현)      |.Net DLL을 구현하여      |
+|사용자 지정 논리의 실행 환경      |Windows 또는 Linux      |Windows(.Net Framework 4.5.2)      |
+|스크립트 실행      |실행 중인 스크립트 직접 지원(예: Windows VM의 "cmd/c echo hello world")      |.Net DLL에서 구현 필요      |
+|필요한 데이터 집합      |옵션      |작업을 연결하고 정보를 전달하는 데 필요      |
+|작업에서 사용자 지정 논리에 정보 전달      |ReferenceObjects(LinkedServices 및 데이터 집합) 및 ExtendedProperties(사용자 지정 속성)를 통해 및      |ExtendedProperties(사용자 지정 속성), 입력 및 출력 데이터 집합을 통해      |
+|사용자 지정 논리에서 정보 검색      |실행 파일의 동일한 폴더에 저장된 activity.json, linkedServices.json 및 datasets.json 구문 분석      |.Net SDK(.Net 프레임 4.5.2)를 통해      |
+|로깅      |STDOUT에 직접 작성      |.Net DLL에서 로거 구현      |
+
+
   V1(사용자 지정) DotNet 작업용으로 작성된 기존 .Net 코드가 있는 경우 다음과 같은 개괄적인 지침에 따라 V2 사용자 지정 작업을 사용하도록 코드를 수정해야 합니다.  
 
-  > - .NET 클래스 라이브러리의 프로젝트를 콘솔 앱으로 변경합니다. 
-  > - Main 메서드로 응용 프로그램을 시작합니다. 그러면 IDotNetActivity 인터페이스의 Execute 메서드가 더 이상 필요하지 않습니다. 
-  > - 강력한 형식의 개체로서가 아니라 JSON 직렬 변환기로 연결된 서비스, 데이터 집합 및 작업을 읽고 구문 분석한 후 필요한 속성 값을 기본 사용자 지정 코드 논리에 제공합니다. 앞에 나온 SampleApp.exe 코드를 참조하세요. 
-  > - 로거 개체는 더 이상 지원되지 않고 실행 파일 출력을 콘솔에 출력할 수 있습니다. 이 파일은 stdout.txt에 저장됩니다. 
-  > - Microsoft.Azure.Management.DataFactories NuGet 패키지는 더 이상 필요하지 않습니다. 
-  > - 코드를 컴파일하고 실행 파일 및 종속성을 Azure Storage에 업로드한 후 folderPath 속성에 경로를 정의합니다. 
+   - .NET 클래스 라이브러리의 프로젝트를 콘솔 앱으로 변경합니다. 
+   - Main 메서드로 응용 프로그램을 시작합니다. 그러면 IDotNetActivity 인터페이스의 Execute 메서드가 더 이상 필요하지 않습니다. 
+   - 강력한 형식의 개체로서가 아니라 JSON 직렬 변환기로 연결된 서비스, 데이터 집합 및 작업을 읽고 구문 분석한 후 필요한 속성 값을 기본 사용자 지정 코드 논리에 제공합니다. 앞에 나온 SampleApp.exe 코드를 참조하세요. 
+   - 로거 개체는 더 이상 지원되지 않고 실행 파일 출력을 콘솔에 출력할 수 있습니다. 이 파일은 stdout.txt에 저장됩니다. 
+   - Microsoft.Azure.Management.DataFactories NuGet 패키지는 더 이상 필요하지 않습니다. 
+   - 코드를 컴파일하고 실행 파일 및 종속성을 Azure Storage에 업로드한 후 folderPath 속성에 경로를 정의합니다. 
+
+Data Factory V1 문서에서 설명된 종단 간 DLL 및 파이프라인 샘플의 전체 샘플의 경우 [Azure Data Factory 파이프라인에서 사용자 지정 작업 사용](https://docs.microsoft.com/en-us/azure/data-factory/v1/data-factory-use-custom-activities)은 Data Factory V2 사용자 지정 작업 스타일에 다시 작성될 수 있습니다. [Data Factory V2 사용자 지정 작업 샘플](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFv2CustomActivitySample)을 참조하세요. 
 
 ## <a name="auto-scaling-of-azure-batch"></a>Azure Batch의 자동 확장
-**자동 크기 조정** 기능으로 Azure 배치 풀을 만들 수 있습니다. 예를 들어 보류 중인 작업의 수에 따라 전용 VM 0개 및 자동 크기 조정 수식을 사용하여 Azure 배치 풀을 만들 수 있습니다. 
+**자동 크기 조정** 기능으로 Azure Batch 풀을 만들 수 있습니다. 예를 들어 보류 중인 작업의 수에 따라 전용 VM 0개 및 자동 크기 조정 수식을 사용하여 Azure 배치 풀을 만들 수 있습니다. 
 
 여기에 나오는 샘플 수식은 다음과 같은 동작을 구현합니다. 풀이 처음 만들어질 때는 VM 1개로 시작합니다. $PendingTasks 메트릭은 실행되거나 큐에 대기 중인 활성 상태의 작업 수를 정의합니다.  이 수식은 지난 180초 동안에서 보류 중인 작업의 평균 수를 찾은 후 그에 따라 TargetDedicated를 설정합니다. 또한 TargetDedicated가 25개의 VM을 초과하지 않도록 합니다. 따라서 새 작업이 제출되면 풀이 자동으로 커지고, 작업이 완료되면 VM은 하나씩 사용 가능한 상태로 해제된 후 자동 크기 조정에 따라 해당 VM이 축소됩니다. startingNumberOfVMs 및 maxNumberofVMs은 요구에 맞게 조정될 수 있습니다.
 
@@ -332,9 +348,9 @@ pendingTaskSamples = pendingTaskSamplePercent < 70 ? startingNumberOfVMs : avg($
 $TargetDedicated=min(maxNumberofVMs,pendingTaskSamples);
 ```
 
-자세한 내용은 [Azure 배치 풀에서 자동으로 계산 노드 크기 조정](../batch/batch-automatic-scaling.md) 을 참조하세요.
+자세한 내용은 [Azure Batch 풀에서 자동으로 계산 노드 크기 조정](../batch/batch-automatic-scaling.md)을 참조하세요.
 
-풀에 기본 [autoScaleEvaluationInterval](https://msdn.microsoft.com/library/azure/dn820173.aspx)이 사용되는 경우, 배치 서비스가 사용자 지정 작업을 실행하기 전에 VM을 준비하는 데 15~30분이 소요될 수 있습니다.  풀에 다른 autoScaleEvaluationInterval이 사용되는 경우, 배치 서비스는 autoScaleEvaluationInterval +10분이 소요될 수 있습니다.
+풀에 기본 [autoScaleEvaluationInterval](https://msdn.microsoft.com/library/azure/dn820173.aspx)이 사용되는 경우, Batch 서비스가 사용자 지정 작업을 실행하기 전에 VM을 준비하는 데 15~30분이 소요될 수 있습니다.  풀에 다른 autoScaleEvaluationInterval이 사용되는 경우, Batch 서비스는 autoScaleEvaluationInterval +10분이 소요될 수 있습니다.
 
 
 ## <a name="next-steps"></a>다음 단계

@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: mabrigg
-ms.openlocfilehash: 949715317de69064bb66fb470a805e367512bd6f
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 80c3f248edb40b66e3177c512f3caf77295c6c5d
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>권한 있는 끝점을 사용 하 여 Azure 스택
 
 *적용 대상: Azure 스택 통합 시스템과 Azure 스택 개발 키트*
 
-Azure 스택 연산자로 가장 일상적인 관리 작업에 대 한 관리자 포털, PowerShell 또는 Azure 리소스 관리자 Api를 사용 해야 합니다. 그러나 일부 덜 일반적인 작업에 대 한 사용 해야는 *권한 있는 끝점*합니다. 이 끝점은 필요한 작업을 수행할 수 있도록 충분 한 기능을 제공 하는 미리 구성 된 원격 PowerShell 콘솔. 끝점의 cmdlet 집합을 제한 된 노출 하도록 PowerShell JEA (Just Enough Administration)를 활용 합니다. 권한 있는 끝점에 액세스 하 고 제한 된 여러 cmdlet 호출 하려면 권한이 낮은 계정 사용 됩니다. 없는 관리자 계정이 필요 합니다. 추가 보안에 대 한 스크립팅을 허용 되지 않습니다.
+Azure 스택 연산자로 가장 일상적인 관리 작업에 대 한 관리자 포털, PowerShell 또는 Azure 리소스 관리자 Api를 사용 해야 합니다. 그러나 일부 덜 일반적인 작업에 대 한 사용 해야는 *권한 있는 끝점* (PEP). 이 끝점은 필요한 작업을 수행할 수 있도록 충분 한 기능을 제공 하는 미리 구성 된 원격 PowerShell 콘솔. 끝점의 cmdlet 집합을 제한 된 노출 하도록 PowerShell JEA (Just Enough Administration)를 활용 합니다. 권한 있는 끝점에 액세스 하 고 제한 된 여러 cmdlet 호출 하려면 권한이 낮은 계정 사용 됩니다. 없는 관리자 계정이 필요 합니다. 추가 보안에 대 한 스크립팅을 허용 되지 않습니다.
 
 다음과 같은 작업을 수행 하는 권한 있는 끝점을 사용할 수 있습니다.
 
@@ -98,6 +98,7 @@ Azure 스택 연산자로 가장 일상적인 관리 작업에 대 한 관리자
     - CloudAdminUser 제거
     - 개체 선택
     - 집합 CloudAdminUserPassword
+    - 테스트 AzureStack
     - 중지 AzureStack
     - Get-clusterlog
 

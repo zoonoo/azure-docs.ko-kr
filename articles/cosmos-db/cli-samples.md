@@ -13,22 +13,24 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: database
-ms.date: 11/02/2017
+ms.date: 11/29/2017
 ms.author: mimig
-ms.openlocfilehash: 989ef9915028c42a4da817bf2dd3aa5ad2beb2ef
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 432ffc80d602a9e4eaf83fba15f0e6ebabd13603
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-cli-samples-for-azure-cosmos-db"></a>Azure Cosmos DB에 대한 Azure CLI 샘플
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)] 
 
 다음 표는 Azure Cosmos DB의 Azure CLI 샘플 스크립트에 대한 링크를 포함합니다. 모든 Azure Cosmos DB CLI 명령에 대한 참조 페이지는 [Azure CLI 2.0 참조](https://docs.microsoft.com/cli/azure/cosmosdb)에서 제공됩니다.
 
 | |  |
 |---|---|
 |**Azure Cosmos DB 계정, 데이터베이스 및 컨테이너 만들기**||
-|[DocumentDB API 계정 만들기](scripts/create-database-account-collections-cli.md?toc=%2fcli%2fazure%2ftoc.json)| DocumentDB API와 함께 사용하기 위해 단일 Azure Cosmos DB API 계정, 데이터베이스 및 컨테이너를 만듭니다. |
+|[SQL API 계정 만들기](scripts/create-database-account-collections-cli.md?toc=%2fcli%2fazure%2ftoc.json)| SQL API와 함께 사용하기 위해 단일 Azure Cosmos DB API 계정, 데이터베이스 및 컨테이너를 만듭니다. |
 | [MongoDB API 계정 만들기](scripts/create-mongodb-database-account-cli.md?toc=%2fcli%2fazure%2ftoc.json) | 단일 Azure Cosmos DB MongoDB API 계정, 데이터베이스 및 컬렉션을 만듭니다. |
 |**Azure Cosmos DB 확장**||
 | [컨테이너 처리량 확장](scripts/scale-collection-throughput-cli.md?toc=%2fcli%2fazure%2ftoc.json) | 컨테이너의 프로비전된 처리량을 변경합니다.|

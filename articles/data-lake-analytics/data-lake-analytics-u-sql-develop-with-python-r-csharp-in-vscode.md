@@ -1,6 +1,6 @@
 ---
-title: "Visual Studio Code에서 Python, R 및 CSharp를 사용하여 Azure Data Lake Analytics용 U-SQL 개발 | Microsoft Docs"
-description: "Python, R 및 CSharp와 함께 코드 숨김을 사용하여 Azure Data Lake에 작업을 제출하는 방법을 알아봅니다."
+title: "Visual Studio Code에서 Python, R 및 C#를 사용하여 Azure Data Lake Analytics용 U-SQL 개발 | Microsoft Docs"
+description: "Python, R 및 C#에서 코드 숨김을 사용하여 Azure Data Lake에 작업을 제출하는 방법을 알아봅니다."
 services: data-lake-analytics
 documentationcenter: 
 author: jejiang
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/22/2017
 ms.author: jejiang
-ms.openlocfilehash: 82f6527388017aadecf761871f5acb25eb100acb
-ms.sourcegitcommit: 21a58a43ceceaefb4cd46c29180a629429bfcf76
+ms.openlocfilehash: 8fd8decfde1220be6aaa099c3afb24e8c1eecce4
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 12/07/2017
 ---
-# <a name="develop-u-sql-with-python-r-and-csharp-for-azure-data-lake-analytics-in-visual-studio-code"></a>Visual Studio Code에서 Python, R 및 CSharp를 사용하여 Azure Data Lake Analytics용 U-SQL 개발
-VSCode(Visual Studio Code)를 사용하여 U-SQL이 포함된 Python, R 및 CSharp 코드 숨김을 작성하고 Azure Data Lake 서비스에 작업을 제출하는 방법에 대해 알아봅니다. Azure Data Lake Tools for VSCode에 대한 자세한 내용은 [Azure Data Lake Tools for Visual Studio Code 사용](data-lake-analytics-data-lake-tools-for-vscode.md)을 참조하세요.
+# <a name="develop-u-sql-with-python-r-and-c-for-azure-data-lake-analytics-in-visual-studio-code"></a>Visual Studio Code에서 Python, R 및 C#를 사용하여 Azure Data Lake Analytics용 U-SQL 개발
+VSCode(Visual Studio Code)를 사용하여 U-SQL이 포함된 Python, R 및 C# 코드 숨김을 작성하고 Azure Data Lake 서비스에 작업을 제출하는 방법에 대해 알아봅니다. Azure Data Lake Tools for VSCode에 대한 자세한 내용은 [Azure Data Lake Tools for Visual Studio Code 사용](data-lake-analytics-data-lake-tools-for-vscode.md)을 참조하세요.
 
 코드 숨김 사용자 지정 코드를 작성하기 전에 VSCode에서 폴더 또는 작업 영역을 열어야 합니다.
 

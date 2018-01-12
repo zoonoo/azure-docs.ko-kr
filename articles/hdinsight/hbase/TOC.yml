@@ -7,7 +7,7 @@
     - name: HDInsight의 Hadoop 구성 요소
       href: ../hdinsight-component-versioning.md
       maintainContext: true
-- name: 시작
+- name: 시작하기
   items:
     - name: HBase 및 NoSQL로 시작
       href: apache-hbase-tutorial-get-started-linux.md
@@ -121,6 +121,8 @@
         - name: Hadoop 작업용 데이터 업로드
           href: ../hdinsight-upload-data.md
           maintainContext: true
+        - name: psql을 사용하여 Phoenix로 데이터 대량 로드
+          href: apache-hbase-phoenix-psql.md
         - name: Data Lake Store가 있는 다중 HDInsight 클러스터
           href: ../hdinsight-multiple-clusters-data-lake-store.md
           maintainContext: true

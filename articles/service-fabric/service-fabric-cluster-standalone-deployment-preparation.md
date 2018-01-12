@@ -13,11 +13,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/12/2017
 ms.author: dekapur;maburlik;chackdan
-ms.openlocfilehash: 67d47739c27081c4e10bf11988ed121ff02d8bb0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b1190ec5a3ff70a368b29465699f9082d2b989bf
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 <a id="preparemachines"></a>
 
@@ -161,7 +161,7 @@ Passed                     : True
 현재 이 구성 테스트 모듈은 보안 구성을 확인하지 않으므로 독립적으로 수행되어야 합니다.  
 
 > [!NOTE]
-> 이 모듈을 더욱 강력하게 만들도록 계속해서 개선하고 있으므로 현재 TestConfiguration에서 감지하지 못한다고 생각하는 결함 또는 누락된 사례가 있는 경우 [지원 채널](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-support)을 통해 알려 주세요.   
+> 이 모듈을 더욱 강력하게 만들도록 계속해서 개선하고 있으므로 현재 TestConfiguration에서 감지하지 못한다고 생각하는 결함 또는 누락된 사례가 있는 경우 [지원 채널](https://docs.microsoft.com/azure/service-fabric/service-fabric-support)을 통해 알려 주세요.   
 > 
 > 
 

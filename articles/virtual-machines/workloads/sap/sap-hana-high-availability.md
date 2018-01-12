@@ -13,11 +13,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/25/2017
 ms.author: sedusch
-ms.openlocfilehash: 951150e621d21037b0adde7287b9f985290d8d11
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5f6ef18e93b8f77162b3524f31cb632e1db38f80
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="high-availability-of-sap-hana-on-azure-virtual-machines-vms"></a>Azure VM(Virtual Machines)의 SAP HANA 고가용성
 
@@ -79,27 +79,27 @@ Azure Marketplace에는 새 가상 컴퓨터를 배포하는 데 사용할 수 �
 
 1. 리소스 그룹 만들기
 1. Virtual Network 만들기
-1. 두 개의 저장소 계정 만들기
+1. 두 개의 Storage 계정 만들기
 1. 가용성 집합 만들기  
    최대 업데이트 도메인 설정
 1. 부하 분산 장치(내부) 만들기  
    위의 VNET 단계 선택
 1. 가상 컴퓨터 1 만들기  
-   https://portal.azure.com/#create/suse-byos.sles-for-sap-byos12-sp1  
+   최소한 SLES4SAP 12 SP1을 사용합니다. 이 예제에서는 SLES4SAP 12 SP1 BYOS 이미지를 사용합니다(https://portal.azure.com/#create/suse-byos.sles-for-sap-byos12-sp1).  
    SAP 응용 프로그램 12 SP1용 SLES(BYOS)  
-   저장소 계정 1 선택  
+   Storage 계정 1 선택  
    가용성 집합 선택  
 1. 가상 컴퓨터 2 만들기  
-   https://portal.azure.com/#create/suse-byos.sles-for-sap-byos12-sp1  
+   최소한 SLES4SAP 12 SP1을 사용합니다. 이 예제에서는 SLES4SAP 12 SP1 BYOS 이미지를 사용합니다(https://portal.azure.com/#create/suse-byos.sles-for-sap-byos12-sp1).  
    SAP 응용 프로그램 12 SP1용 SLES(BYOS)  
-   저장소 계정 2 선택   
+   Storage 계정 2 선택   
    가용성 집합 선택  
 1. 데이터 디스크 추가
 1. 부하 분산 장치 구성
     1. 프런트 엔드 IP 풀 만들기
         1. 부하 분산 장치 열기, 프런트 엔드 IP 풀 선택 및 추가 클릭
         1. 새 프런트 엔드 IP 풀의 이름 입력(예: hana-frontend)
-       1. 확인 클릭
+        1. 확인 클릭
         1. 새 프런트 엔드 IP 풀을 만든 다음 IP 주소를 적어 두기
     1. 백 엔드 풀 만들기
         1. 부하 분산 장치를 열고 백 엔드 풀을 선택한 다음 추가 클릭
@@ -109,7 +109,7 @@ Azure Marketplace에는 새 가상 컴퓨터를 배포하는 데 사용할 수 �
         1. SAP HANA 클러스터의 가상 컴퓨터 선택
         1. 확인 클릭
     1. 상태 프로브 만들기
-       1. 부하 분산 장치를 열고 상태 프로브를 선택한 다음 추가 클릭
+        1. 부하 분산 장치를 열고 상태 프로브를 선택한 다음 추가 클릭
         1. 새 상태 프로브의 이름 입력(예: hana-hp)
         1. 프로토콜로 TCP를 선택하고 포트 625**03**을 선택한 다음 간격은 5, 비정상 임계값은 2로 유지
         1. 확인 클릭
@@ -119,18 +119,18 @@ Azure Marketplace에는 새 가상 컴퓨터를 배포하는 데 사용할 수 �
         1. 이전에 만든 프런트 엔드 IP 주소, 백 엔드 풀 및 상태 프로브 선택(예: hana-frontend)
         1. 프로토콜 TCP를 유지하고 포트 3**03**15 입력
         1. 유휴 상태 시간 제한을 30분으로 증가
-       1. **부동 IP를 사용하도록 설정**
+        1. **부동 IP를 사용하도록 설정**
         1. 확인 클릭
         1. 포트 3**03**17에 대해 다음 단계 반복
 
 ### <a name="deploy-with-template"></a>템플릿을 사용하여 배포
 Github에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든 리소스를 배포할 수 있습니다. 템플릿에서 가상 컴퓨터, 부하 분산 장치, 가용성 집합 등을 배포합니다. 다음 단계를 따라 템플릿을 배포합니다.
 
-1. Azure Portal에서 [데이터베이스 템플릿][template-multisid-db] 또는 [수렴형 템플릿][template-converged]을 엽니다. 데이터베이스 템플릿은 데이터베이스의 부하 분산 규칙만 만드는 반면 수렴 템플릿은 ASCS/SCS 및 ERS(Linux만 해당) 인스턴스의 부하 분산 규칙도 만듭니다. SAP NetWeaver 기반 시스템을 설치하려 하고 동일한 컴퓨터에 ASCS/SCS 인스턴스도 설치하려면 [수렴 템플릿][template-converged]을 사용합니다.
+1. Azure Portal에서 [데이터베이스 템플릿][template-multisid-db] 또는 [수렴형 템플릿][template-converged]을 엽니다. 데이터베이스 템플릿은 데이터베이스의 부하 분산 규칙만 만드는 반면 수렴형 템플릿은 ASCS/SCS 및 ERS(Linux만 해당) 인스턴스의 부하 분산 규칙도 만듭니다. SAP NetWeaver 기반 시스템을 설치하려 하고 동일한 컴퓨터에 ASCS/SCS 인스턴스도 설치하려면 [수렴형 템플릿][template-converged]을 사용합니다.
 1. 다음 매개 변수를 입력합니다.
-    1. SAP 시스템 ID -  
+    1. SAP 시스템 ID  
        설치하려는 SAP 시스템의 SAP 시스템 ID를 입력합니다. 이 ID는 배포되는 리소스의 접두사로 사용됩니다.
-    1. 스택 유형(수렴 템플릿을 사용하는 경우에만 해당)  
+    1. 스택 유형(수렴형 템플릿을 사용하는 경우에만 해당)  
        SAP NetWeaver 스택 유형 선택
     1. OS 종류 -  
        Linux 배포판 중 하나를 선택합니다. 이 예에서는 SLES 12 BYOS 선택
@@ -144,8 +144,8 @@ Github에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
        컴퓨터에 로그온하는 데 사용할 수 있게 만들어진 새 사용자입니다.
     1. 기존 또는 새 서브넷 -  
        새 가상 네트워크와 서브넷을 만들어야 하는지 또는 기존 서브넷을 사용해야 하는지 결정합니다. 온-프레미스 네트워크에 연결되어 있는 가상 네트워크가 이미 있는 경우 기존 항목을 선택합니다.
-    1. 서브넷 ID -  
-    가상 컴퓨터를 연결해야 하는 서브넷의 ID입니다. 온-프레미스 네트워크에 가상 컴퓨터를 연결할 Express 경로 가상 네트워크의 서브넷 또는 VPN을 선택합니다. ID는 일반적으로 /subscriptions/`<subscription id`>/resourceGroups/`<resource group name`>/providers/Microsoft.Network/virtualNetworks/`<virtual network name`>/subnets/`<subnet name`> 형태입니다.
+    1. 서브넷 ID  
+    가상 컴퓨터를 연결해야 하는 서브넷의 ID입니다. 온-프레미스 네트워크에 가상 컴퓨터를 연결할 Express 경로 가상 네트워크의 서브넷 또는 VPN을 선택합니다. ID는 일반적으로 /subscriptions/`<subscription ID`>/resourceGroups/`<resource group name`>/providers/Microsoft.Network/virtualNetworks/`<virtual network name`>/subnets/`<subnet name`> 형태입니다.
 
 ## <a name="setting-up-linux-ha"></a>Linux HA 설정
 
@@ -201,7 +201,7 @@ Github에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
 
 1. [A] 설치 디스크 레이아웃
     1. LVM  
-    일반적으로 데이터와 로그 파일을 저장하는 볼륨의 LVM을 사용하는 것이 좋습니다. 아래 예에서는 가상 컴퓨터에 두 개의 볼륨을 만드는 데 사용해야 하는 4개의 데이터 디스크가 연결되어 있다고 가정합니다.
+    일반적으로는 데이터와 로그 파일을 저장하는 볼륨의 LVM을 사용하는 것이 좋습니다. 아래 예에서는 가상 컴퓨터에 두 개의 볼륨을 만드는 데 사용해야 하는 4개의 데이터 디스크가 연결되어 있다고 가정합니다.
         * 사용하려는 모든 디스크의 물리적 볼륨을 만듭니다.
     <pre><code>
     sudo pvcreate /dev/sdc
@@ -229,7 +229,7 @@ Github에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
     sudo mkdir -p /hana/data
     sudo mkdir -p /hana/log
     sudo mkdir -p /hana/shared
-    # write down the id of /dev/vg_hana_data/hana_data, /dev/vg_hana_log/hana_log and /dev/vg_hana_shared/hana_shared
+    # write down the ID of /dev/vg_hana_data/hana_data, /dev/vg_hana_log/hana_log and /dev/vg_hana_shared/hana_shared
     sudo blkid
     </code></pre>
         * 세 개의 논리 볼륨에 대한 fstab 항목 만들기
@@ -403,7 +403,7 @@ Github에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
     PATH="$PATH:/usr/sap/<b>HDB</b>/HDB<b>03</b>/exe"
     hdbuserstore SET <b>hdb</b>haloc localhost:3<b>03</b>15 <b>hdb</b>hasync <b>passwd</b>
     </code></pre>
-1. [1] 루트로 데이터베이스 백업
+1. [1] 루트로 데이터베이스 Backup
     <pre><code>
     PATH="$PATH:/usr/sap/<b>HDB</b>/HDB<b>03</b>/exe"
     hdbsql -u system -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackup</b>')" 
@@ -458,7 +458,7 @@ STONITH 장치에서는 서비스 주체를 사용하여 Microsoft Azure에 대�
 1. 새 앱을 선택하고 설정 탭에서 키 클릭
 1. 새 키의 설명을 입력하고 “만료되지 않음”을 선택한 다음 저장을 클릭
 1. 값을 기록해 둡니다. 서비스 주체의 **암호**로 사용됨
-1. 응용 프로그램 ID를 적어둡니다. 서비스 주체의 사용자 이름(아래 단계의 **로그인 id**)으로 사용됨
+1. 응용 프로그램 ID를 적어둡니다. 서비스 주체의 사용자 이름(아래 단계의 **로그인 ID**)으로 사용됨
 
 서비스 주체에는 기본적으로 Azure 리소스에 액세스할 권한이 없습니다. 서비스 주체에 클러스터의 모든 가상 컴퓨터를 시작 및 중지(할당 취소)하기 위한 권한을 제공해야 합니다.
 
@@ -476,13 +476,13 @@ STONITH 장치에서는 서비스 주체를 사용하여 Microsoft Azure에 대�
 <pre>
 sudo vi crm-fencing.txt
 # enter the following to crm-fencing.txt
-# replace the bold string with your subscription id, resource group, tenant id, service principal id and password
+# replace the bold string with your subscription ID, resource group, tenant ID, service principal ID and password
 <code>
 primitive rsc_st_azure_1 stonith:fence_azure_arm \
-    params subscriptionId="<b>subscription id</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant id</b>" login="<b>login id</b>" passwd="<b>password</b>"
+    params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>"
 
 primitive rsc_st_azure_2 stonith:fence_azure_arm \
-    params subscriptionId="<b>subscription id</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant id</b>" login="<b>login id</b>" passwd="<b>password</b>"
+    params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>"
 
 colocation col_st_azure -2000: rsc_st_azure_1:Started rsc_st_azure_2:Started
 </code>
@@ -496,7 +496,7 @@ sudo crm configure load update crm-fencing.txt
 <pre>
 sudo vi crm-saphanatop.txt
 # enter the following to crm-saphana.txt
-# replace the bold string with your instance number and HANA system id
+# replace the bold string with your instance number and HANA system ID
 <code>
 primitive rsc_SAPHanaTopology_<b>HDB</b>_HDB<b>03</b> ocf:suse:SAPHanaTopology \
     operations $id="rsc_sap2_<b>HDB</b>_HDB<b>03</b>-operations" \
@@ -516,7 +516,7 @@ sudo crm configure load update crm-saphanatop.txt
 <pre>
 sudo vi crm-saphana.txt
 # enter the following to crm-saphana.txt
-# replace the bold string with your instance number, HANA system id and the frontend IP address of the Azure load balancer. 
+# replace the bold string with your instance number, HANA system ID and the frontend IP address of the Azure load balancer. 
 <code>
 primitive rsc_SAPHana_<b>HDB</b>_HDB<b>03</b> ocf:suse:SAPHana \
     operations $id="rsc_sap_<b>HDB</b>_HDB<b>03</b>-operations" \
@@ -627,7 +627,7 @@ hdbnsutil -sr_register --remoteHost=<b>saphanavm2</b> --remoteInstance=<b>03</b>
 <pre><code>
 crm configure edited
 
-# delete location contraints that are named like the following contraint. You should have two contraints, one for the SAP HANA resource and one for the IP address group.
+# delete location constraints that are named like the following contraint. You should have two constraints, one for the SAP HANA resource and one for the IP address group.
 location cli-prefer-g_ip_<b>HDB</b>_HDB<b>03</b> g_ip_<b>HDB</b>_HDB<b>03</b> role=Started inf: <b>saphanavm2</b>
 </code></pre>
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/10/2017
 ms.author: mabrigg
-ms.openlocfilehash: ed62f2f8441220eb37aea7f4c848702e9821698b
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: f88ac4da58279ea9642bd93ac5f971d8047e310b
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="add-the-windows-server-2016-vm-image-to-the-azure-stack-marketplace"></a>Azure 스택 마켓플레이스로 Windows Server 2016 VM 이미지를 추가 합니다.
 
@@ -34,11 +34,11 @@ ms.lasthandoff: 12/11/2017
 
 2. 선택 **더 많은 서비스** > **마켓플레이스 관리** > **Azure에서 추가**합니다. 
 
-3. 찾기 및 검색은 **Windows Server 2016 Datacenter Eval** 이미지를 선택한 후 **다운로드**합니다.
+3. 찾기 및 검색은 **Windows Server 2016 Datacenter** 이미지를 선택한 후 **다운로드**합니다.
 
    ![Azure에서 이미지를 다운로드 합니다.](media/azure-stack-add-default-image/download-image.png)
 
-이미지의 크기는 아래에서 사용 가능한 다운로드가 완료 되 면 **마켓플레이스 관리**합니다. 이미지의 크기 또한 아래에서 사용할 수는 **가상 컴퓨터**합니다.
+이미지의 크기는 아래에서 사용 가능한 다운로드가 완료 되 면 **마켓플레이스 관리**합니다. 이미지의 크기 또한 아래에서 사용할 수는 **계산** 는 새 가상 컴퓨터를 만드는 데 사용할 수 있습니다.
 
 ## <a name="add-the-image-by-using-powershell"></a>PowerShell을 사용 하 여 이미지를 추가 합니다.
 
@@ -113,7 +113,7 @@ ms.lasthandoff: 12/11/2017
       -GraphAudience $GraphAudience `
       -EnableAdfsAuthentication:$true
 
-   $TenantID = Get-AzsDirectoryTenantId `
+    $TenantID = Get-AzsDirectoryTenantId `
      -ADFS `
      -EnvironmentName "AzureStackAdmin" 
 
@@ -137,7 +137,7 @@ Windows Server 2016 VM 이미지의 최신 누적 업데이트를 갖도록 하�
 
 ## <a name="parameters"></a>매개 변수
 
-|새 AzsServer2016VMImage 매개 변수|Required?|설명|
+|새 AzsServer2016VMImage 매개 변수|필수|설명|
 |-----|-----|------|
 |ISOPath|예|다운로드 한 Windows Server 2016 ISO에 정규화 된 경로입니다.|
 |net35|아니요|Windows Server 2016 이미지에.NET 3.5 runtime을 설치합니다. 기본적으로이 값 설정 **true**합니다.|
@@ -145,10 +145,10 @@ Windows Server 2016 VM 이미지의 최신 누적 업데이트를 갖도록 하�
 |VHDSizeInMB|아니요|Azure 스택 환경에 추가 될 VHD 이미지의 mb 단위로 크기를 설정 합니다. 기본적으로이 값은 40,960 MB로 설정 됩니다.|
 |CreateGalleryItem|아니요|Windows Server 2016 이미지에 대 한 마켓플레이스 항목을 만들어야 하는지 여부를 지정 합니다. 기본적으로이 값 설정 **true**합니다.|
 |location |아니요 |Windows Server 2016 이미지를 게시 해야 하는 위치를 지정 합니다.|
-|IncludeLatestCU|아니요|새 VHD에 최신 Windows Server 2016 누적 업데이트를 적용합니다.|
+|IncludeLatestCU|아니요|새 VHD에 최신 Windows Server 2016 누적 업데이트가 적용 (최신 업데이트 또는 사용 하 여 다음 두 가지 옵션 중 하나를 가리키는지 확인 하는 스크립트를 확인 하십시오). |
 |CUUri |아니요 |특정 URI에서 실행 되도록 누적 업데이트를 Windows Server 2016 설정 합니다. |
 |CUPath |아니요 |로컬 경로에서 실행 되도록 누적 업데이트를 Windows Server 2016 설정 합니다. 이 옵션은 연결이 끊어진된 환경에서 Azure 스택 인스턴스에 배포한 경우에 유용 합니다.|
 
 ## <a name="next-steps"></a>다음 단계
 
-[가상 컴퓨터 프로비전](azure-stack-provision-vm.md)
+[가상 머신 프로비전](azure-stack-provision-vm.md)

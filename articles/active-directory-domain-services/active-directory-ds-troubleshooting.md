@@ -4,7 +4,7 @@ description: "Azure AD 도메인 서비스에 대한 문제 해결 가이드"
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: mahesh-unnikrishnan
+manager: mtillman
 editor: curtand
 ms.assetid: 4bc8c604-f57c-4f28-9dac-8b9164a0cf0b
 ms.service: active-directory-ds
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 12/07/2017
 ms.author: maheshu
-ms.openlocfilehash: 3acecdf753162ad703ff51acf40c34335bf6cdcb
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: 5fe36241efc11cbb85231137649f7b97e23cc0a5
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-domain-services---troubleshooting-guide"></a>Azure AD Domain Services - 문제 해결 가이드
 이 문서는 Azure AD(Active Directory) 도메인 서비스를 설치하거나 관리할 때 발생할 수 있는 문제에 대한 문제 해결 힌트를 제공합니다.
@@ -57,13 +57,10 @@ Azure AD 디렉터리에 'Azure AD Domain Services Sync'라는 이름의 응용 
 
 다음 단계를 수행하여 응용 프로그램이 있는지 확인하고 있는 경우 삭제합니다.
 
-1. **Azure 클래식 포털** ([https://manage.windowsazure.com](https://manage.windowsazure.com))로 이동합니다.
-2. 왼쪽 창에서 **Active Directory** 노드를 선택합니다.
-3. Azure AD 도메인 서비스를 사용하도록 설정할 Azure AD 테넌트(디렉터리)를 선택합니다.
-4. **응용 프로그램** 탭으로 이동합니다.
-5. 드롭다운에서 **회사가 보유한 응용 프로그램** 옵션을 선택합니다.
-6. **Azure AD Domain Services 동기화**라는 응용 프로그램이 있는지 확인합니다. 응용 프로그램이 있는 경우 삭제를 진행합니다.
-7. 응용 프로그램을 삭제한 후에는 Azure AD 도메인 서비스를 다시 사용하도록 설정합니다.
+1. [Azure Portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/)의 Azure AD 디렉터리에 있는 **응용 프로그램** 섹션으로 이동합니다.
+2. **표시** 드롭다운에서 **모든 응용 프로그램**을 선택합니다. **응용 프로그램 상태** 드롭다운에서 **모두**를 선택합니다. **응용 프로그램 표시** 드롭다운에서 **모두**를 선택합니다.
+3. 검색 상자에 **Azure AD Domain Services 동기화**를 입력합니다. 응용 프로그램이 있는 경우 클릭한 다음 도구 모음에서 **삭제** 단추를 클릭하여 삭제합니다.
+4. 응용 프로그램을 삭제한 후에는 Azure AD 도메인 서비스를 다시 사용하도록 설정합니다.
 
 ### <a name="invalid-configuration"></a>유효하지 않은 구성
 **오류 메시지:**
@@ -153,7 +150,7 @@ Azure AD에서는 사용자 개체를 실수로 삭제하지 못하도록 보호
 
 Azure AD 디렉터리에서 동일한 UPN을 사용하여 사용자 계정을 다시 만든 경우에도 사용자 계정은 관리되는 도메인에서 사용할 수 없는 상태로 유지됩니다. 관리되는 도메인에서 사용자 계정을 제거하려면 Azure AD 테넌트에서 해당 사용자를 강제로 삭제해야 합니다.
 
-관리되는 도메인에서 사용자 계정을 완전히 제거하려면 Azure AD 테넌트에서 사용자를 영구적으로 삭제합니다. 이 [MSDN 문서](https://msdn.microsoft.com/library/azure/dn194132.aspx)에서 설명한 대로 '-RemoveFromRecycleBin' 옵션을 포함한 Remove-MsolUser PowerShell cmdlet을 사용합니다.
+관리되는 도메인에서 사용자 계정을 완전히 제거하려면 Azure AD 테넌트에서 사용자를 영구적으로 삭제합니다. 이 [MSDN 문서](https://msdn.microsoft.com/library/azure/dn194132.aspx)에 설명된 대로 `Remove-MsolUser` PowerShell cmdlet을 `-RemoveFromRecycleBin` 옵션과 함께 사용합니다.
 
 ## <a name="contact-us"></a>문의처
 [지원이 필요하거나 피드백을 공유하려면](active-directory-ds-contact-us.md)Azure Active Directory Domain Services 제품 팀에 문의하세요.

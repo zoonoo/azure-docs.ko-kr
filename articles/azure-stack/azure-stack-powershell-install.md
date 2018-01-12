@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: mabrigg
-ms.openlocfilehash: b44129400e878e9032623e4d0962153d50303660
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 25b89571277e393fbad7cdd6e193d9b3f02f3ee5
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="install-powershell-for-azure-stack"></a>Azure 스택에 대 한 PowerShell을 설치 합니다.  
 
@@ -31,7 +31,7 @@ Azure 스택 호환 Azure PowerShell 모듈은 Azure 스택이 작동 해야 합
 > [!NOTE]
 > 다음 단계에는 PowerShell 5.0 있어야합니다. 사용 중인 버전을 확인 하려면 $PSVersionTable.PSVersion 실행 하 고 "주" 버전을 비교 합니다.
 
-Azure 스택에 대 한 PowerShell 명령이 PowerShell 갤러리를 통해 설치 됩니다. Regiser PSGallery 저장소를 열거나 관리자 권한 PowerShell 세션 개발 키트의 Windows 기반 외부 클라이언트에서 VPN을 통해 연결 되 고 다음 명령을 실행 하는 경우:
+Azure 스택에 대 한 PowerShell 명령이 PowerShell 갤러리를 통해 설치 됩니다. PSGallery 리포지토리를 등록 하려면 관리자 권한 PowerShell 세션에서에서 열거나 개발 키트 Windows 기반 외부 클라이언트에서 VPN을 통해 연결 되 고 다음 명령을 실행 하는 경우:
 
 ```powershell
 Set-PSRepository `
@@ -49,7 +49,7 @@ Set-PSRepository `
    Get-Module -ListAvailable | where-Object {$_.Name -like “Azure*”} | Uninstall-Module
    ```
 
-* 또는에 로그인 개발 키트를 통해 외부 액세스에 VPN 연결을 설정 하려는 경우. "Azure"로 시작 하는 모든 폴더에서 삭제 된 `C:\Program Files (x86)\WindowsPowerShell\Modules` 및 `C:\Users\AzureStackAdmin\Documents\WindowsPowerShell\Modules` 폴더입니다. 이 폴더를 삭제 "AzureStackAdmin" 및 "전역" 사용자 범위에서 기존 PowerShell 모듈을 제거 합니다. 
+* 또는에 로그인 개발 키트를 통해 외부 액세스에 VPN 연결을 설정 하려는 경우. "Azure"로 시작 하는 모든 폴더에서 삭제 된 `C:\Program Files\WindowsPowerShell\Modules` 및 `C:\Users\AzureStackAdmin\Documents\WindowsPowerShell\Modules` 폴더입니다. 이 폴더를 삭제 "AzureStackAdmin" 및 "전역" 사용자 범위에서 기존 PowerShell 모듈을 제거 합니다. 
 
 다음 섹션에서는 Azure 스택에 대 한 PowerShell을 설치 하는 데 필요한 단계를 설명 합니다. 연결 된, 부분적으로 연결에서 운영 하는 Azure 스택 또는 연결이 끊긴된 시나리오에서 PowerShell은 설치할 수 있습니다. 
 
@@ -126,7 +126,6 @@ Azure 스택 호환 AzureRM 모듈 API 버전 프로필을 통해 설치 됩니�
      -SourceLocation $SourceLocation `
      -InstallationPolicy Trusted
 
-   ```powershell
    Install-Module AzureRM `
      -Repository $RepoName
 

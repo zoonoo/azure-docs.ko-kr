@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 9a4a839e7b5cc772fb9d4c57ed70484d90a87fdd
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: a6d3c89f0f99128e2bf754391c79c3d616f0730a
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="navigation-and-dashboards-in-the-application-insights-portal"></a>Application Insights 포털에서 탐색 및 대시보드
 [프로젝트에서 Application Insights를 설정](app-insights-overview.md)하면 앱의 성능 및 사용에 대한 원격 분석 데이터가 [Azure Portal](https://portal.azure.com)에서 프로젝트의 Application Insights 리소스에 나타납니다.
@@ -98,6 +98,9 @@ ms.lasthandoff: 11/01/2017
 
 [역할 및 액세스 제어](app-insights-resources-roles-access-control.md)에 대해 알아보세요.
 
+## <a name="create-dashboards-programmatically"></a>대시보드를 프로그래밍 방식으로 만들기
+[Azure Resource Manager](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards-create-programmatically) 및 간단한 JSON 편집기를 사용하여 대시보드 생성을 자동화할 수 있습니다.
+
 ## <a name="app-navigation"></a>앱 탐색
 개요 블레이드는 앱에 대한 자세한 정보를 제공하는 게이트웨이입니다.
 
@@ -150,8 +153,7 @@ ms.lasthandoff: 11/01/2017
 설정
 
 * [**잠금**](../azure-resource-manager/resource-group-lock-resources.md) - Azure 리소스를 잠급니다.
-* [
-            **스크립트 Automation**](app-insights-powershell.md) - Azure 리소스의 정의를 내보내서 새로운 리소스의 템플릿으로 사용합니다.
+* [**스크립트 Automation**](app-insights-powershell.md) - Azure 리소스의 정의를 내보내서 새로운 리소스의 템플릿으로 사용합니다.
 
 
 ## <a name="video"></a>비디오

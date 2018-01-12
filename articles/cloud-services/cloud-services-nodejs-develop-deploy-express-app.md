@@ -1,6 +1,6 @@
 ---
-title: "Express를 사용하여 웹앱 빌드(Node.js) | Microsoft Docs"
-description: "클라우드 서비스 자습서를 기반으로 웹앱을 빌드하고 Express 모듈 사용 방법을 보여 주는 자습서입니다."
+title: "Azure Cloud Services에 Node.js 앱 빌드 및 배포"
+description: "Azure Cloud Services에 Express.js 응용 프로그램 빌드 및 배포"
 services: cloud-services
 documentationcenter: nodejs
 author: craigshoemaker
@@ -14,15 +14,16 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: cshoe
-ms.openlocfilehash: aa62438732db9e8df129440e6949858d9a61f65f
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: befca8d95880936e96d1b3618c172f87499627ed
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/07/2017
 ---
-# <a name="build-a-nodejs-web-application-using-express-on-an-azure-cloud-service"></a>Azure 클라우드 서비스에서 Express를 사용하여 Node.js 웹 응용 프로그램 빌드
+# <a name="build-and-deploy-a-nodejs-web-application-using-express-on-an-azure-cloud-services"></a>Azure Cloud Services에서 Express를 사용하여 Node.js 웹 응용 프로그램 빌드 및 배포
+
 Node.js에는 핵심 런타임에 최소한의 기능이 들어 있습니다.
-개발자는 Node.js 응용 프로그램을 개발할 때 추가 기능을 제공하기 위해 종종 타사 모듈을 사용합니다. 이 자습서에서는 Node.js 웹 응용 프로그램을 만들기 위한 MVC 프레임워크를 제공하는 [Express][Express] 모듈을 사용하여 새 응용 프로그램을 만들어봅니다.
+개발자는 Node.js 응용 프로그램을 개발할 때 추가 기능을 제공하기 위해 종종 타사 모듈을 사용합니다. 이 자습서에서는 Node.js 웹 응용 프로그램을 만들기 위해 MVC 프레임워크를 제공하는 [Express](https://github.com/expressjs/express) 모듈을 사용하여 새 응용 프로그램을 만듭니다.
 
 아래에는 완성된 응용 프로그램의 스크린샷이 표시되어 있습니다.
 

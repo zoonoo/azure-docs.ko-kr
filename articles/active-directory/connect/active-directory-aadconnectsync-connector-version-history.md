@@ -4,7 +4,7 @@ description: "이 항목에서는 FIM(Forefront Identity Manager) 및 MIM(Micros
 services: active-directory
 documentationcenter: 
 author: fimguy
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 6a0c66ab-55df-4669-a0c7-1fe1a091a7f9
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/06/2017
 ms.author: fimguy
-ms.openlocfilehash: e6df124a38c748294e92183df272dc266a0afc51
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 3fbdc60a21aa16926bc4db00f41ade8ecda415f1
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="connector-version-release-history"></a>커넥터 버전 릴리스 내역
 FIM(Forefront Identity Manager) 및 MIM(Microsoft Identity Manager)의 커넥터는 자주 업데이트됩니다.
@@ -44,7 +44,7 @@ FIM(Forefront Identity Manager) 및 MIM(Microsoft Identity Manager)의 커넥터
 
 * Lotus Notes:
   * 사용자 지정 인증자 필터링 옵션
-  * ImportOperations 클래스 가져오기에서는 '보기' 모드에서 실행할 수 있는 작업과 '검색' 모드에서 실행할 수 있는 작업의 정의가 수정되었습니다.
+  * ImportOperations 클래스 가져오기에서는 ‘보기’ 모드에서 실행할 수 있는 작업과 ‘검색’ 모드에서 실행할 수 있는 작업의 정의가 수정되었습니다.
 * 일반 LDAP:
   * OpenLDAP Directory는 entryUUI 대신 DN을 앵커로 사용합니다. 앵커 수정이 가능한 GLDAP 커넥터의 새로운 옵션
 * 일반 SQL:
@@ -123,7 +123,7 @@ Lotus:
 
 * 일반 SQL:</br>
   **시나리오 증상:** 하나의 개체 형식에 대한 참조만 허용하고 멤버와 상호 참조하는 SQL 커넥터의 잘 알려진 제한입니다. </br>
-  **솔루션 설명:** "*" 옵션을 선택한 참조를 위한 처리 단계에서 모든 개체 형식 조합은 동기화 엔진으로 다시 반환됩니다.
+  **솔루션 설명:** “*” 옵션을 선택한 참조를 위한 처리 단계에서 모든 개체 형식 조합은 동기화 엔진으로 다시 반환됩니다.
 
 >[!Important]
 - 그러면 자리 표시자가 많이 생성됩니다.

@@ -6,7 +6,7 @@
 ### [테스트 환경용 랩 사용](devtest-lab-test-env.md)
 ### [학습에 랩 사용](devtest-lab-training-lab.md)
 
-# 시작
+# 시작하기
 ## [랩 만들기](devtest-lab-create-lab.md)
 ## [첫 번째 VM 만들기](devtest-lab-create-first-vm.md)
 ## [시작 정책 설정](devtest-lab-get-started-with-lab-policies.md)
@@ -16,6 +16,7 @@
 ### [VM 만들기](devtest-lab-add-vm.md)
 ### [클레임할 수 있는 VM 만들기 및 관리](devtest-lab-add-claimable-vm.md)
 ### [Azure CLI로 VM 만들기 및 관리](devtest-lab-vmcli.md)
+### [Resource Manager 템플릿을 사용하여 VM 만들기](devtest-lab-use-resource-manager-template.md)
 ### [VM 다시 시작](devtest-lab-restart-vm.md)
 
 ## 랩에서 환경 사용
@@ -46,7 +47,6 @@
 
 ## 재사용 가능한 템플릿 관리
 ### [아티팩트 및 템플릿에 Git 리포지토리 추가](devtest-lab-add-artifact-repo.md)
-### [Resource Manager 템플릿 사용](devtest-lab-use-resource-manager-template.md)
 ### [수식 관리](devtest-lab-manage-formulas.md)
 
 ## 아티팩트 관리
@@ -80,7 +80,7 @@
 ## [팀 블로그](https://blogs.msdn.microsoft.com/devtestlab/)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-devtest-labs)
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=devtest-lab)
-## [가격 책정](https://azure.microsoft.com/pricing/details/devtest-lab/)
+## [가격](https://azure.microsoft.com/pricing/details/devtest-lab/)
 
 
 # 리소스

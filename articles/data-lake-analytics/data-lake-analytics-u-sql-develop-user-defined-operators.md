@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
-ms.openlocfilehash: fdee02fb60b633c26704fc1774dfc3a7825b5e0d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5e534f96b908d2aa1f4d7c48655509ece8dcf43e
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="develop-u-sql-user-defined-operators-udos"></a>U-SQL UDO(사용자 정의 연산자) 개발
 U-SQL 작업에서 데이터를 처리하기 위한 사용자 정의 연산자를 개발하는 방법에 대해 알아봅니다.
@@ -126,10 +126,9 @@ U-SQL에 대한 일반적인 용도의 어셈블리 개발에 대한 지침은 [
 
 **출력을 보려면**
 
-1. **서버 탐색기**, **Azure** 확장, **데이터 레이크 분석** 확장, 사용자 데이터 레이크 분석 계정 확장, **저장소 계정** 확장에서 기본 저장소를 오른 클릭하고 **탐색기**를 클릭합니다.
+1. **서버 탐색기**, **Azure** 확장, **데이터 레이크 분석** 확장, 사용자 데이터 레이크 분석 계정 확장, **Storage 계정** 확장에서 기본 저장소를 오른 클릭하고 **탐색기**를 클릭합니다.
 2. 샘플 및 출력을 확장하고 **Drivers.csv**를 두 번 클릭합니다.
 
 ## <a name="see-also"></a>참고 항목
-* [PowerShell을 사용하여 데이터 레이크 분석 시작하기](data-lake-analytics-get-started-powershell.md)
-* [Azure 포털을 사용하여 데이터 레이크 분석 시작하기](data-lake-analytics-get-started-portal.md)
+* [사용자 코드를 사용하여 U-SQL 식 확장](https://msdn.microsoft.com/en-us/library/azure/mt621316.aspx)
 * [U-SQL 응용 프로그램 개발에 Visual Studio용 데이터 레이크 도구 사용하기](data-lake-analytics-data-lake-tools-get-started.md)

@@ -1,6 +1,6 @@
 ---
 title: "리소스 모니터링을 위해 Azure 활동 로그 보기 | Microsoft Docs"
-description: "활동 로그를 사용하여 사용자 작업 및 오류를 검토합니다. Azure 포털, PowerShell, Azure CLI 및 REST를 보여 줍니다."
+description: "활동 로그를 사용하여 사용자 작업 및 오류를 검토합니다. Azure Portal, PowerShell, Azure CLI 및 REST를 보여 줍니다."
 services: azure-resource-manager
 documentationcenter: 
 author: tfitzmac
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: tomfitz
-ms.openlocfilehash: 9f90bc80c146c6c2da04aacbc110f7d389c0baa2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ecfb7f726d5447710948405b2dd83fcd1db3dff2
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="view-activity-logs-to-audit-actions-on-resources"></a>리소스에 대한 작업을 감사하기 위해 활동 로그 보기
 활동 로그를 통해 다음 사항을 확인할 수 있습니다.
@@ -38,10 +38,10 @@ ms.lasthandoff: 10/11/2017
    
     ![활동 로그 선택](./media/resource-group-audit/select-monitor.png)
 
-   또는 특정 리소스 또는 리소스 그룹에 대해 활동 로그를 자동으로 필터링하려면 해당 리소스 블레이드에서 **활동 로그** 를 선택합니다. 활동 로그는 선택한 리소스에 의해 자동으로 필터링됩니다.
+   또는 특정 리소스 또는 리소스 그룹에 대해 활동 로그를 자동으로 필터링하려면 **활동 로그**를 선택합니다. 활동 로그는 선택한 리소스에 의해 자동으로 필터링됩니다.
    
     ![리소스로 필터링](./media/resource-group-audit/filtered-by-resource.png)
-2. **활동 로그** 블레이드에 최근 작업에 대한 요약이 표시됩니다.
+2. **활동 로그**에 최근 작업에 대한 요약이 표시됩니다.
    
     ![작업 표시](./media/resource-group-audit/audit-summary.png)
 3. 여러 조건을 선택하여 표시되는 작업의 수를 제한할 수 있습니다. 예를 들어 다음 이미지는 지난 달에 특정 사용자 또는 응용 프로그램이 수행한 작업을 표시하도록 변경된 **시간 간격** 및 **이벤트를 시작한 사람** 필드를 보여줍니다. 쿼리 결과를 확인하려면 **적용** 을 선택합니다.
@@ -144,7 +144,8 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="next-steps"></a>다음 단계
 * Power BI와 함께 Azure 활동 로그를 사용하면 구독의 작업을 면밀하게 살펴볼 수 있습니다. [Power BI 등에서 Azure 활동 로그 보기 및 분석](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/)을 참조하세요.
-* 보안 정책 설정에 대해 자세히 알아보려면 [Azure 역할 기반 액세스 제어](../active-directory/role-based-access-control-configure.md)를 참조하세요.
+* 보안 정책 설정에 대해 자세히 알아보려면 [Azure 역할 기반 Access Control](../active-directory/role-based-access-control-configure.md)을 참조하세요.
 * 배포 작업을 보는 명령에 대해 자세히 알아보려면 [배포 작업 보기](resource-manager-deployment-operations.md)를 참조하세요.
 * 모든 사용자의 리소스에서 삭제 작업을 방지하는 방법을 알아보려면 [Azure Resource Manager를 사용하여 리소스 잠그기](resource-group-lock-resources.md)를 참조하세요.
+* 각 Microsoft Azure Resource Manager 공급자에 대해 사용 가능한 작업의 목록을 보려면 [Azure Resource Manager 리소스 공급자 작업](~/articles/active-directory/role-based-access-control-resource-provider-operations.md)을 참조하세요.
 

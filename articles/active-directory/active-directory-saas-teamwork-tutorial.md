@@ -4,7 +4,7 @@ description: "Azure Active Directory와 Teamwork.com 간에 Single Sign-On을 �
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: bd4413c2-0d7c-41a7-aba4-b7a7a28c9448
 ms.service: active-directory
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 8e8ea13167ab4f1a43f753a91f9398582d519c6d
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 00292d0aed24ea034eba8686bcd9cbdd1ef676e3
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="tutorial-azure-active-directory-integration-with-teamworkcom"></a>자습서: Teamwork.com과 Azure Active Directory 통합
+# <a name="tutorial-azure-active-directory-integration-with-teamworkcomhttpswwwteamworkcomprojects"></a>자습서: [Teamwork.com](https://www.teamwork.com/projects)과 Azure Active Directory 통합
 
 이 자습서에서는 Azure AD(Azure Active Directory)와 Teamwork.com을 통합하는 방법에 대해 알아봅니다.
 
@@ -37,7 +37,7 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 Teamwork.com과 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
 - Azure AD 구독
-- Teamwork.com Single Sign-on이 설정된 구독
+- Pro 계획 이상에서 [Teamwork.com](https://www.teamwork.com/projects) 구독
 
 > [!NOTE]
 > 이 자습서의 단계를 테스트하기 위해 프로덕션 환경을 사용하는 것은 바람직하지 않습니다.

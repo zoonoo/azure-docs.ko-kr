@@ -4,7 +4,7 @@ description: "이 페이지에는 Azure AD Connect에 대해 자주 묻는 질�
 services: active-directory
 documentationcenter: 
 author: billmath
-manager: femila
+manager: mtillman
 ms.assetid: 4e47a087-ebcd-4b63-9574-0c31907a39a3
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/12/2017
 ms.author: billmath
-ms.openlocfilehash: 9d11795aa8b768a8574c3f8bc375b74402825ba3
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 13f12f39fb72bd7d4e32056753a012c38034f807
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="frequently-asked-questions-for-azure-active-directory-connect"></a>Azure Active Directory Connect에 대한 질문과 대답
 
@@ -35,6 +35,11 @@ ms.lasthandoff: 11/22/2017
 예. 에이전트를 설치한 후 다음 PowerShell cmdlet을 사용하여 등록 프로세스를 완료할 수 있습니다. 
 
 `Register-AzureADConnectHealthADDSAgent -Credentials $cred`
+
+**Q: AADConnect는 두 도메인에서 Azure AD로의 동기화를 지원하나요?**</br>
+예, 지원됩니다. [여러 도메인](active-directory-aadconnect-multiple-domains.md)을 참조하세요.
+ 
+**Q: Azure AD Connect에 동일한 Active Directory 도메인에 대한 여러 커넥터를 지원하나요?**</br> 아니요, 지원되지 않습니다. 
 
 ## <a name="network"></a>네트워크
 **Q: 방화벽, 네트워크 장치 또는 네트워크에서 열려 있는 상태로 유지할 수 있는 최대 시간 연결을 제한하는 다른 요소가 있습니다. Azure AD Connect를 사용하는 경우 클라이언트 쪽 기간 내 클라이언트 쪽 시간 제한 임계값은 얼마나 길어야 합니까?**  
@@ -78,8 +83,6 @@ ms.lasthandoff: 11/22/2017
 **Q: 기존 Azure AD Group/Contact 개체의 ImmutableId 특성을 온-프레미스 AD Group/Contact 개체에 하드 매칭하도록 수동 설정하는 것이 지원되나요?**  
 아니요. 현재는 지원되지 않습니다.
 
-
-
 ## <a name="custom-configuration"></a>사용자 지정 구성
 **Q: Azure AD Connect에 대한 PowerShell cmdlet 설명서는 어디에 있나요?**  
 이 사이트에 설명되어 있는 cmdlet을 제외하고, Azure AD Connect에 나오는 다른 PowerShell cmdlet은 고객 사용이 지원되지 않습니다.
@@ -95,8 +98,6 @@ ms.lasthandoff: 11/22/2017
 
 **Q: 동시 세션을 방지하는 방법이 있나요?**</br>
 아니요.
-
-
 
 ## <a name="troubleshooting"></a>문제 해결
 **Q: Azure AD Connect에 대한 도움을 받으려면 어떻게 합니까?**

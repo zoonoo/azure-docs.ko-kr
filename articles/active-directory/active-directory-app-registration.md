@@ -4,7 +4,7 @@ description: "이 문서에서는 Azure Portal을 사용하여 Azure Active Dire
 services: active-directory
 documentationcenter: .net
 author: priyamohanram
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 7dc7b89f-653f-405a-b5f4-2c1288720c15
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: priyamo
 ms.reviewer: elisol
-ms.openlocfilehash: 2f2817688beb2028fd0bba8522827d87a0097f21
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4f32f57d4c8b3e13d2aa31b04ee10bb46a6c71f7
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="register-your-application-with-your-azure-active-directory-tenant"></a>Azure Active Directory 테넌트로 응용 프로그램 등록
 
@@ -45,7 +45,7 @@ Azure Portal을 사용하여 기존 응용 프로그램 설정을 쉽게 수정�
   * **속성** 페이지에서 응용 프로그램의 일반 정보를 수정할 수 있습니다. 여기에는 응용 프로그램 이름, 로그인 URL 및 로그아웃 URL이 포함되어 있습니다.
   * **회신 URL** 페이지에서 Azure AD가 토큰 응답을 보내는 회신 URL을 추가할 수 있습니다.
   * **소유자** 페이지에서 응용 프로그램 소유자를 추가할 수 있습니다.
-  * **권한** 페이지에서 앱에 대한 권한을 구성할 수 있습니다. 예를 들어 Microsoft Graph API에 액세스하려면 API 선택기에서 **추가**를 클릭하고 **Microsoft Graph**를 선택한 다음 필요한 권한을 선택합니다(예: **디렉터리 데이터 읽기**).
+  * **필요한 권한** 페이지에서 앱에 대한 권한을 구성할 수 있습니다. 예를 들어 Microsoft Graph API에 액세스하려면 API 선택기에서 **추가**를 클릭하고 **Microsoft Graph**를 선택한 다음 필요한 권한을 선택합니다(예: **디렉터리 데이터 읽기**).
   * **키** 페이지에서 응용 프로그램 비밀을 추가할 수 있습니다. 비밀은 만든 직후에 한 번만 표시되므로 나중에 사용하기 위해 복사해 둡니다.
 
 ## <a name="use-the-inline-manifest-editor"></a>인라인 매니페스트 편집기 사용

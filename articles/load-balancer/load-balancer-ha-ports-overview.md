@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: kumud
-ms.openlocfilehash: f72f4a3a81fc3a03c86805787caeeacbe6135c5e
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 46e284d1636988390f3533d93bfd07399f45dc92
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="high-availability-ports-overview"></a>고가용성 포트 개요
 
@@ -74,7 +74,7 @@ Load Balancer 표준에서 HA 포트 기능의 미리 보기에 참여하려면 
 
 다음은 HA 포트 기능에 대해 지원되는 구성 또는 예외 사항입니다.
 
-- 단일 프런트엔드 IP 구성에는 HA 포트가 있는 단일 DSR Load Balancer 규칙이나 HA 포트가 있는 단일 비 DSR Load Balancer 규칙을 설정할 수 있습니다. 둘 다 사용할 수는 없습니다.
+- 단일 프런트엔드 IP 구성에는 HA 포트가 있는 단일 DSR(Direct Server Return - Azure의 부동 IP) Load Balancer 규칙이나 HA 포트가 있는 단일 비 DSR Load Balancer 규칙을 설정할 수 있습니다. 둘 다 사용할 수는 없습니다.
 - 단일 네트워크 인터페이스 IP 구성에는 HA 포트가 있는 비 DSR 부하 분산 장치 규칙 하나만 설정할 수 있습니다. 이 ipconfig에 대해 다른 규칙을 구성할 수는 없습니다.
 - 단일 네트워크 인터페이스 IP 구성에 HA 포트가 있는 하나 이상의 DSR 부하 분산 장치 규칙을 설정할 수 있습니다. 단, 각각의 프런트 엔드 IP 구성은 고유해야 합니다.
 - 모든 부하 분산 규칙이 HA 포트(DSR 전용)인 경우 동일한 백엔드 풀을 가리키는 두 개(또는 그 이상)의 Load Balancer 규칙이 공존할 수 있습니다. 모든 규칙이 비 HA 포트(DSR 및 비 DSR)인 경우에도 마찬가지입니다. 하지만 HA 포트와 비 HA 포트 규칙의 조합이 있는 경우 이러한 두 가지 부하 분산 규칙은 공존할 수 없습니다.
