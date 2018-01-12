@@ -12,25 +12,25 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/23/2017
+ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: f5dd263a2e925989069c3b0257cfafa4c43e6157
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 19760b743e7cdcba3e30503090b61243911441ee
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="media-services-development-with-net"></a>.NET을 사용한 Media Services 개발
 [!INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
 
-이 항목에서는.NET을 사용하여 Media Services 응용 프로그램 개발을 시작하는 방법을 설명합니다.
+이 문서에서는 .NET을 사용하여 Media Services 응용 프로그램 개발을 시작하는 방법을 설명합니다.
 
 **Azure Media Services .NET SDK** 라이브러리를 사용하면 .NET을 사용하여 Media Services를 프로그래밍 할 수 있습니다. .NET을 사용한 개발을 더욱 쉽게 도와주는 **Azure Media Services .NET SDK 확장** 라이브러리가 제공 됩니다. 이 라이브러리는 .NET 코드를 단순화하는 일련의 확장 방법 및 도우미 함수를 포함합니다. 두 라이브러리 모두 **NuGet** 및 **GitHub**를 통해 사용할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
-* 신규 또는 기존 Azure 구독의 Media Services 계정. [Media Services 계정을 만드는 방법](media-services-portal-create-account.md) 토픽을 참조하세요.
+* 신규 또는 기존 Azure 구독의 Media Services 계정. [Media Services 계정을 만드는 방법](media-services-portal-create-account.md) 문서를 참조하세요.
 * 운영 체제: Windows 10, Windows 7, Windows 2008 R2 또는 Windows 8.
-* .NET Framework 4.5.
+* .NET Framework 4.5 이상
 * 있습니다.
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Visual Studio 프로젝트 만들기 및 구성
@@ -60,27 +60,20 @@ ms.lasthandoff: 12/05/2017
    
     2. 참조 관리 대화 상자가 나타납니다.
     3. .NET Framework 어셈블리에서 System.Configuration 어셈블리를 찾아 선택하고 **확인**을 누릅니다.
-6. App.config 파일을 열고 파일에 **appSettings** 섹션을 추가합니다.     
-   
-    Media Services API에 연결하는 데 필요한 값을 설정합니다. 자세한 내용은 [Azure AD 인증을 사용하여 Azure Media Services API 액세스](media-services-use-aad-auth-to-access-ams-api.md)를 참조하세요. 
+6. App.config 파일을 열고 파일에 **appSettings** 섹션을 추가합니다. Media Services API에 연결하는 데 필요한 값을 설정합니다. 자세한 내용은 [Azure AD 인증을 사용하여 Azure Media Services API 액세스](media-services-use-aad-auth-to-access-ams-api.md)를 참조하세요. 
 
-    [사용자 인증](media-services-use-aad-auth-to-access-ams-api.md#types-of-authentication)을 사용 중인 경우 구성 파일에 Azure AD 테넌트 도메인과 AMS REST API 끝점에 대한 값이 포함되어 있을 것입니다.
-    
-    >[!Note]
-    >Azure Media Services 설명서 모음의 코드 샘플은 대부분 사용자(대화형) 유형의 인증을 사용하여 AMS API에 연결합니다. 이 인증 방법은 네이티브 앱(모바일 앱, Windows 앱 및 콘솔 응용 프로그램)의 관리 또는 모니터링에 적합합니다.
-    
-    >[!Important]
-    > **대화형** 인증 방법은 서버, 웹 서비스, API 유형의 응용 프로그램에는 적합하지 않습니다. 이러한 유형의 응용 프로그램에는 **서비스 사용자** 인증 방법을 사용합니다. 자세한 내용은 [Azure AD 인증을 사용하여 AMS API 액세스](media-services-use-aad-auth-to-access-ams-api.md)를 참조하세요.
+**서비스 사용자** 인증 방법을 사용하여 연결하는 데 필요한 값을 설정합니다.  
 
         <configuration>
         ...
             <appSettings>
-              <add key="AADTenantDomain" value="YourAADTenantDomain" />
-              <add key="MediaServiceRESTAPIEndpoint" value="YourRESTAPIEndpoint" />
+                <add key="AMSAADTenantDomain" value="tenant"/>
+                <add key="AMSRESTAPIEndpoint" value="endpoint"/>
+                <add key="AMSClientId" value="id"/>
+                <add key="AMSClientSecret" value="secret"/>
             </appSettings>
-
         </configuration>
-
+7. 프로젝트에 **System.Configuration** 참조를 추가합니다.
 7. 다음 코드를 사용하여 Program.cs 파일의 앞부분에 있는 기존 **using** 문을 덮어씁니다.
            
         using System;
@@ -100,17 +93,26 @@ ms.lasthandoff: 12/05/2017
     class Program
     {
         // Read values from the App.config file.
+
         private static readonly string _AADTenantDomain =
-            ConfigurationManager.AppSettings["AADTenantDomain"];
+            ConfigurationManager.AppSettings["AMSAADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =
-            ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+            ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+        private static readonly string _AMSClientId =
+            ConfigurationManager.AppSettings["AMSClientId"];
+        private static readonly string _AMSClientSecret =
+            ConfigurationManager.AppSettings["AMSClientSecret"];
     
         private static CloudMediaContext _context = null;
         static void Main(string[] args)
         {
-            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+            AzureAdTokenCredentials tokenCredentials = 
+                new AzureAdTokenCredentials(_AADTenantDomain,
+                    new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                    AzureEnvironments.AzureCloudEnvironment);
+
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
-    
+
             _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
     
             // List all available Media Processors

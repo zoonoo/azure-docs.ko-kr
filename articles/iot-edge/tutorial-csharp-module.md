@@ -9,11 +9,11 @@ ms.author: v-jamebr
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: b8afc266cd416f39a895285d05b8ff323fb46330
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: bf57fa11c63930c594c63043ab4b695f586d9e1b
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="develop-and-deploy-a-c-iot-edge-module-to-your-simulated-device---preview"></a>C# IoT Edge 모듈을 개발하여 시뮬레이트된 장치에 배포 - 미리 보기
 
@@ -219,7 +219,7 @@ ms.lasthandoff: 12/01/2017
         
    만들 때 Azure Container Registry에서 복사한 사용자 이름, 암호 및 로그인 서버를 사용합니다.
 
-3. Docker 리포지토리에 이미지를 푸시합니다. **보기** > **명령 팔레트**를 선택하고 **Edge: IoT Edge 모듈 Docker 이미지 푸시** 메뉴 명령을 검색합니다. VS Code 창의 맨 위에 있는 팝업 텍스트 상자에 이미지 이름을 입력합니다. 1.d단계에서 사용한 동일한 이미지 이름을 사용하세요.
+3. Docker 리포지토리에 이미지를 푸시합니다. **보기** > **명령 팔레트**를 선택하고 **Edge: IoT Edge 모듈 Docker 이미지 푸시** 메뉴 명령을 검색합니다. VS Code 창의 맨 위에 있는 팝업 텍스트 상자에 이미지 이름을 입력합니다. 4단계에서 사용한 동일한 이미지 이름을 사용하세요.
 
 ## <a name="add-registry-credentials-to-edge-runtime"></a>Edge 런타임에 레지스트리 자격 증명 추가
 Edge 장치를 실행 중인 컴퓨터의 Edge 런타임에 레지스트리의 자격 증명을 추가합니다. 이러한 자격 증명을 지정하면 컨테이너를 끌어오기 위한 런타임 액세스 권한이 제공됩니다. 

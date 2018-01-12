@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.openlocfilehash: f9bdc28349c540ee68b421b7643e4bed099c9fdd
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 357937aad5eb13ca87267629eb542cc43119dc0a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="create-and-manage-sql-database-elastic-jobs-using-powershell-preview"></a>PowerShell을 사용하여 SQL Database 탄력적 작업 만들기 및 관리(미리 보기)
 
@@ -203,7 +203,7 @@ Elastic Database 작업에 대한 연결을 엽니다.
 ## <a name="encrypted-credentials-within-the-elastic-database-jobs"></a>Elastic Database 작업 내의 암호화된 자격 증명
 암호를 암호화하여 작업 *제어 데이터베이스*에 데이터베이스 자격 증명을 삽입할 수 있습니다. 나중에 작업을 실행할 수 있도록 자격 증명을 저장해야 합니다(작업 일정 사용).
 
-암호화는 설치 스크립트의 일부로 생성된 인증서를 통해 작동합니다. 설치 스크립트는 저장된 암호화된 암호 해독을 위해 인증서를 만들고 Azure 클라우드 서비스에 업로드합니다. Azure 클라우드 서비스는 나중에 작업 *제어 데이터베이스* 내에 공개 키를 저장합니다. 그러면 PowerShell API 또는 Azure 클래식 포털 인터페이스에서 인증서를 로컬에 설치하도록 요구하지 않고 제공된 암호를 암호화할 수 있습니다.
+암호화는 설치 스크립트의 일부로 생성된 인증서를 통해 작동합니다. 설치 스크립트는 저장된 암호화된 암호 해독을 위해 인증서를 만들고 Azure 클라우드 서비스에 업로드합니다. Azure 클라우드 서비스는 나중에 작업 *제어 데이터베이스* 내에 공개 키를 저장합니다. 그러면 PowerShell API 또는 Azure Portal 인터페이스에서 인증서를 로컬에 설치하도록 요구하지 않고 제공된 암호를 암호화할 수 있습니다.
 
 자격 증명 암호가 암호화되고 Elastic Database 작업 개체에 대한 읽기 전용 액세스 권한이 있는 사용자로부터 보호됩니다. 하지만 Elastic Database 작업 개체에 대한 읽기-쓰기 액세스 권한이 있는 악의적인 사용자가 암호를 추출할 수 있습니다. 자격 증명은 작업 실행 간에 다시 사용되도록 설계되었습니다. 연결을 설정할 때 자격 증명이 대상 데이터베이스에 전달됩니다. 현재 각 자격 증명에 사용되는 대상 데이터베이스에 제한이 없으며 악의적인 사용자는 자신이 제어할 수 있는 데이터베이스에 대한 데이터베이스 대상을 추가할 수 있습니다. 사용자는 이후 이 데이터베이스를 대상으로 작업을 시작하여 자격 증명의 암호를 얻습니다.
 

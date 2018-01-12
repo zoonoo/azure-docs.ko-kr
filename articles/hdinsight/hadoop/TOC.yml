@@ -86,10 +86,16 @@
           href: submit-apache-hadoop-jobs-programmatically.md
     - name: 개발
       items:
+        - name: 사용자 지정 MapReduce 프로그램 실행
+          href: apache-hadoop-run-custom-programs.md
         - name: 'C# 스트리밍 MapReduce 프로그램 개발'
           href: apache-hadoop-dotnet-csharp-mapreduce-streaming.md
         - name: Java MapReduce 프로그램 개발
           href: apache-hadoop-develop-deploy-java-mapreduce-linux.md
+        - name: 'Apache Hive를 ETL(추출, 변환 및 로드) 도구로 사용'
+          href: apache-hadoop-using-apache-hive-as-an-etl-tool.md
+        - name: '규모에 따라 추출, 변환 및 로드'
+          href: apache-hadoop-etl-at-scale.md
         - name: 빈 에지 노드 사용
           href: ../hdinsight-apps-use-edge-node.md
           maintainContext: true
@@ -145,6 +151,8 @@
         - name: Application Insights 원격 분석 로그 분석
           href: ../spark/apache-spark-analyze-application-insight-logs.md
           maintainContext: true
+        - name: HDInsight에 대한 고급 분석
+          href: apache-hadoop-deep-dive-advanced-analytics.md
     - name: 클러스터 확장
       items:
         - name: 부트스트랩을 사용하여 클러스터 사용자 지정
@@ -378,7 +386,9 @@
         - name: 클러스터 성능 모니터링
           href: ../hdinsight-key-scenarios-to-monitor.md
           maintainContext: true
-- name: 참고 자료
+        - name: Hadoop 로그 분석
+          href: apache-hadoop-debug-jobs.md
+- name: 참조
   items:
     - name: 코드 샘플
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight'

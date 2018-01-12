@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: aafcc818af4c6e5d141d3633b31b913802a21752
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 863277294fc0462e9221edffab1dd4e2001d7493
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="azure-storage-solutions-for-r-server-on-hdinsight"></a>HDInsight의 R Server에 대한 Azure Storage 솔루션
 
@@ -43,19 +43,25 @@ Azure Storage 솔루션에 대한 자세한 내용은 [Microsoft Azure Storage �
 
 ## <a name="use-azure-blob-storage-accounts-with-r-server"></a>R Server에 Azure Blob Storage 계정 사용
 
-필요한 경우 HDI 클러스터가 있는 여러 Azure 저장소 계정 또는 컨테이너에 액세스할 수 있습니다. 이렇게 하려면 클러스터를 만들 때 UI에서 추가 저장소 계정을 지정하고 다음 단계에 따라 R Server에서 사용해야 합니다.
+R Server 클러스터를 만들 때 둘 이상의 저장소 계정을 지정한 경우 다음 지침에서는 R Server에서 데이터 액세스 및 작업에 보조 계정을 사용하는 방법을 설명합니다. **storage1** 및 **container1**라는 기본 컨테이너 및 **storage2**와 같은 저장소 계정 및 컨테이너를 가정합니다.
 
 > [!WARNING]
 > 성능을 위해 HDInsight 클러스터는 사용자가 지정한 기본 저장소 계정과 동일한 데이터 센터에 만들어집니다. HDInsight 클러스터와 다른 위치에서는 저장소 계정을 사용할 수 없습니다.
 
-1. 저장소 계정 이름이 **storage1**이고 기본 컨테이너가 **container1**인 HDInsight 클러스터를 만듭니다.
-2. **storage2**라는 추가 저장소 계정을 지정합니다.  
-3. /share 디렉터리로 mycsv.csv 파일을 복사하고 해당 파일에 대한 분석을 수행합니다.  
+1. SSH 클라이언트를 사용하여 원격 사용자로 클러스터의 에지 노드에 연결합니다.  
+
+  + Azure Portal > HDI 클러스터 서비스 페이지 > 개요에서 **SSH(Secure Shell)**를 클릭합니다.
+  + 호스트 이름에서 에지 노드를 선택합니다(이름에 *ed-ssh.azurehdinsight.net* 포함).
+  + 호스트 이름을 복사합니다.
+  + PutTY 또는 SmartTY와 같은 SSH 클라이언트를 열고 호스트 이름을 입력합니다.
+  + 클러스터 암호 뒤에 사용자 이름에 원격 사용자를 입력합니다.
+  
+2. /share 디렉터리에 mycsv.csv 파일을 복사합니다. 
 
         hadoop fs –mkdir /share
         hadoop fs –copyFromLocal myscsv.scv /share  
 
-4. R 코드에서 이름 노드를 **default** 로 설정하고 처리할 디렉터리 및 파일을 설정합니다.  
+3. R Studio 또는 다른 R 콘솔로 전환하고 R 코드를 작성하여 이름 노드를 **기본값** 및 액세스하려는 파일의 위치로 설정합니다.  
 
         myNameNode <- "default"
         myPort <- 0
@@ -64,7 +70,7 @@ Azure Storage 솔루션에 대한 자세한 내용은 [Microsoft Azure Storage �
         bigDataDirRoot <- "/share"  
 
         #Define Spark compute context:
-        mySparkCluster <- RxSpark(consoleOutput=TRUE)
+        mySparkCluster <- RxSpark(nameNode=myNameNode, consoleOutput=TRUE)
 
         #Set compute context:
         rxSetComputeContext(mySparkCluster)

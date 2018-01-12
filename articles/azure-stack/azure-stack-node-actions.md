@@ -12,19 +12,23 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/09/2017
+ms.date: 01/09/2018
 ms.author: mabrigg
-ms.openlocfilehash: 4b94092f1284abfa2462ddef04b6e84136e54dde
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 55cc0eb3cc187d87e0d2ae96e2433cb9682ab370
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Azure 스택에서 배율 단위 노드 작업
 
 *적용 대상: Azure 스택 시스템 통합*
 
 이 문서는 배율 단위와 해당 관련된 노드에의 상태를 확인 하는 방법 및 사용 가능한 노드 동작을 사용 하는 방법을 설명 합니다. 전원이 켜져 있고, 전원 끄기 포함 하 방전, 다시 시작 및 복구 하는 노드 동작 합니다. 일반적으로 부분으로 또는 노드 복구 시나리오에 대 한 필드 교체 하는 동안 이러한 노드 동작을 사용 합니다.
+
+> [!Important]  
+> 이 문서에 설명 된 모든 노드 작업은 한 번에 대상 하나의 노드만이 있어야 합니다.
+
 
 ## <a name="view-the-status-of-a-scale-unit-and-its-nodes"></a>배율 단위와 해당 노드에 대 한 상태 확인
 
@@ -75,13 +79,17 @@ ms.lasthandoff: 12/11/2017
 
 **전원을 끄고** 동작으로 기록 디버깅이 노드. 패턴은 전원 단추를 눌러 마치는 같습니다. 그렇게 **하지** 운영 체제에 종료 신호를 보냅니다. 계획 된 작업 끄지, 먼저 배율 단위 노드를 드레이닝 있는지 확인 합니다.
 
-이 작업은 일반적으로 노드 응답 하지 않는 상태 이며 더 이상 요청에 응답 하는 경우에 사용 됩니다.  
+이 작업은 일반적으로 노드 응답 하지 않는 상태 이며 더 이상 요청에 응답 하는 경우에 사용 됩니다.
+
+> [!Important] 
+> 이 기능은 PowerShell을 통해 사용할 수만 있습니다. 나중에 다시로 Azure 스택 관리자 포털에서 사용할 수 있습니다.
+
 
 전원 끄기 PowerShell 통해를 실행 합니다.
 
-  ````PowerShell
+````PowerShell
   Stop-AzsScaleUnitNode -Region <RegionName> -Name <NodeName>
-  ```` 
+```` 
 
 전원 끄기 작동 하지 않는 경우으 나 가능성이, BMC 웹 인터페이스를 대신 사용 합니다.
 
@@ -89,11 +97,14 @@ ms.lasthandoff: 12/11/2017
 
 **전원을 켜 세요** 동작으로 기록 디버깅이 노드. 패턴은 전원 단추를 눌러 마치는 같습니다. 
 
+> [!Important] 
+> 이 기능은 PowerShell을 통해 사용할 수만 있습니다. 나중에 다시로 Azure 스택 관리자 포털에서 사용할 수 있습니다.
+
 실행 하려면 전원 PowerShell 통해 작업에서:
 
-  ````PowerShell
+````PowerShell
   Start-AzsScaleUnitNode -Region <RegionName> -Name <NodeName>
-  ````
+````
 
 전원 동작에 작동 하지 않는 경우으 나 가능성이, BMC 웹 인터페이스를 대신 사용 합니다.
 

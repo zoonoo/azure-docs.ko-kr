@@ -12,18 +12,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: a54ea21ea2d5ce62aabaeca7c5d25281a7d3f4be
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9815e01dffb0342979f17974527b559de8146fed
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="use-azure-webhooks-to-monitor-media-services-job-notifications-with-net"></a>Azure Webhooks를 사용하여 .NET으로 Media Services 작업 알림 모니터링
-작업을 실행할 때 작업 진행 상태를 추적하는 방법이 종종 필요합니다. Azure Webhooks 또는 [Azure Queue Storage](media-services-dotnet-check-job-progress-with-queues.md)를 사용하여 Media Services 작업 알림을 모니터링할 수 있습니다 이 항목에서는 웹후크를 사용하는 방법을 보여 줍니다.
+작업을 실행할 때 작업 진행 상태를 추적하는 방법이 종종 필요합니다. Azure Webhooks 또는 [Azure Queue Storage](media-services-dotnet-check-job-progress-with-queues.md)를 사용하여 Media Services 작업 알림을 모니터링할 수 있습니다 이 문서에서는 웹후크를 사용하는 방법을 보여 줍니다.
 
-이 항목에서는 다음을 수행하는 방법을 보여 줍니다.
+이 문서는 방법을 안내합니다.
 
 *  Webhook에 응답하도록 사용자 지정된 Azure Function을 정의합니다. 
     
@@ -33,9 +33,9 @@ ms.lasthandoff: 10/11/2017
     >계속 진행하기 전에 [Azure Functions HTTP 및 Webhook 바인딩](../azure-functions/functions-bindings-http-webhook.md) 작동 방법에 대해 이해해야 합니다.
     >
     
-* 인코딩 태스크에 Webhook을 추가하고 Webhook URL 및 이 Webhook이 응답하는 암호 키를 지정합니다. 이 항목의 끝에서 인코딩 작업에 웹후크를 추가하는 예제를 찾을 수 있습니다.  
+* 인코딩 태스크에 Webhook을 추가하고 Webhook URL 및 이 Webhook이 응답하는 암호 키를 지정합니다. 이 문서의 끝에서 인코딩 작업에 웹후크를 추가하는 예제를 찾을 수 있습니다.  
 
-[여기](https://github.com/Azure-Samples/media-services-dotnet-functions-integration)에서는 이 항목에 나와 있는 항목을 포함하여 다양한 Media Services .NET Azure Functions의 정의를 찾을 수 있습니다.
+[여기](https://github.com/Azure-Samples/media-services-dotnet-functions-integration)에서는 이 문서에 나와 있는 항목을 포함하여 다양한 Media Services .NET Azure Functions의 정의를 찾을 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -54,7 +54,7 @@ ms.lasthandoff: 10/11/2017
 
 Media Services 함수를 개발하는 경우 함수 전체에서 사용할 환경 변수를 쉽게 추가할 수 있습니다. 앱 설정을 구성하려면 앱 설정 구성 링크를 클릭합니다. 
 
-[응용 프로그램 설정](media-services-dotnet-how-to-use-azure-functions.md#configure-function-app-settings) 섹션은 이 항목에 정의된 웹후크에서 사용되는 매개 변수를 정의합니다. 또한 다음 매개 변수를 앱 설정에 추가합니다. 
+[응용 프로그램 설정](media-services-dotnet-how-to-use-azure-functions.md#configure-function-app-settings) 섹션은 이 문서에 정의된 웹후크에서 사용되는 매개 변수를 정의합니다. 또한 다음 매개 변수를 앱 설정에 추가합니다. 
 
 |이름|정의|예제| 
 |---|---|---|

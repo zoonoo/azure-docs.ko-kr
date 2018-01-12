@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: 26ab8f9ab561cc218f3dcb249741a96d8f14c579
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: bd152cc79c08124a1acab2aefc8652c7d162ea2c
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configuring-azure-machine-learning-experimentation-service"></a>Azure Machine Learning 실험 서비스 구성
 
@@ -221,7 +221,8 @@ _**Python 스크립트를 위한 원격 VM 실행 개요:**_
 ## <a name="running-a-script-on-an-hdinsight-cluster"></a>HDInsight 클러스터에서 스크립트 실행
 HDInsight는 Apache Spark를 지원하는 인기 있는 빅 데이터 분석용 플랫폼입니다. Workbench를 사용하면 HDInsight Spark 클러스터를 사용하여 빅 데이터에 대해 실험할 수 있습니다. 
 
->![참고] HDInsight 클러스터는 Azure Blob을 주 저장소로 사용해야 합니다. 아직 Azure Data Lake Storage를 사용하도록 지원되지 않습니다.
+>[!NOTE]
+>HDInsight 클러스터는 Azure Blob을 주 저장소로 사용해야 합니다. 아직 Azure Data Lake Storage를 사용하도록 지원되지 않습니다.
 
 다음 명령을 사용하여 HDInsight Spark 클러스터에 대한 계산 대상 및 실행 구성을 만들 수 있습니다.
 
@@ -269,7 +270,8 @@ az ml computetarget attach remotedocker --name "remotevm" --address "remotevm_IP
 ```
 - 연결된 계산 대상의 ~/.ssh/authorized_keys 파일에 Workbench에서 생성한 공개 키를 추가합니다. 
 
-[!IMPORTANT] 계산 대상을 만드는 데 사용한 것과 동일한 사용자 이름을 사용하여 계산 대상에 로그온해야 합니다. 
+>[!IMPORTANT]
+>계산 대상을 만드는 데 사용한 것과 동일한 사용자 이름을 사용하여 계산 대상에 로그온해야 합니다. 
 
 - 이제 SSH 키 기반 인증을 사용하여 계산 대상을 준비하고 사용할 수 있습니다.
 

@@ -11,18 +11,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/03/2017
 ms.author: divacc@microsoft.com
-ms.openlocfilehash: 0985c7da429202cc6003df73c6ca17714b5a1287
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 9a9e9b3116c0d787162284197c8dbbd77374cff3
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-marketplace-seller-guide"></a>Azure Marketplace 판매자 가이드
 
 Azure Marketplace 판매자 가이드를 시작합니다. 이 가이드는 Azure Certified Virtual Machine 이미지 및 관리되는 응용 프로그램을 IT 전문가 및 개발자에게 판매하려는 ISV(독립 소프트웨어 공급업체)의 비즈니스 사용자 및 제품 관리자를 위해 작성되었습니다. 전 세계에 있는 Azure 고객을 통해 [Azure Marketplace](https://azuremarketplace.microsoft.com/)는 제품에 대한 풍부한 도달률 및 노출을 제공할 수 있습니다.
 
 > [!NOTE]
-> [관리되는 응용 프로그램](https://docs.microsoft.com/en-us/azure/managed-applications/overview)의 판매에 관심이 있는 경우 [여기](https://docs.microsoft.com/en-us/azure/managed-applications/publish-marketplace-app)에서 Azure Marketplace에서 프로그램을 나열하기 위한 지침을 따릅니다.
+> [관리되는 응용 프로그램](https://docs.microsoft.com/azure/managed-applications/overview)의 판매에 관심이 있는 경우 [여기](https://docs.microsoft.com/azure/managed-applications/publish-marketplace-app)에서 Azure Marketplace에서 프로그램을 나열하기 위한 지침을 따릅니다.
 
 > [!NOTE]
 > 완성된 SaaS(Software as a Service) 제품을 _IT 전문가 개발자_에게 판매하는 데 관심이 있는 경우 saas-on-amp@microsoft.com에 문의하여 사용 가능한 옵션에 대해 자세히 알아볼 수 있습니다.
@@ -100,7 +100,7 @@ Azure Marketplace가 실제로 제품에 적합하다고 생각할 수도 있습
 게시하려는 워크로드(가상 컴퓨터 또는 관리되는 응용 프로그램)에 따라, 다른 프로세스를 수행하여 제품을 게시합니다. 다음 콘텐츠는 _가상 컴퓨터 제품_을 게시하는 방법을 주로 설명합니다.
 
 > [!NOTE]
-> [관리되는 응용 프로그램](https://docs.microsoft.com/en-us/azure/managed-applications/overview)의 판매에 관심이 있는 경우 [여기](https://docs.microsoft.com/en-us/azure/managed-applications/publish-marketplace-app)에서 Azure Marketplace에서 프로그램을 나열하기 위한 지침을 따릅니다.
+> [관리되는 응용 프로그램](https://docs.microsoft.com/azure/managed-applications/overview)의 판매에 관심이 있는 경우 [여기](https://docs.microsoft.com/azure/managed-applications/publish-marketplace-app)에서 Azure Marketplace에서 프로그램을 나열하기 위한 지침을 따릅니다.
 
 > [!NOTE]
 > 완성된 SaaS(Software as a Service) 제품을 _IT 전문가 개발자_에게 판매하는 데 관심이 있는 경우 saas-on-amp@microsoft.com에 문의하여 사용 가능한 옵션에 대해 자세히 알아볼 수 있습니다.
@@ -210,7 +210,7 @@ Azure Marketplace에 제품을 나열할 때 얻을 수 있는 주요 장점 중
 시작하기 전에 Marketplace 제품을 신속하게 구동할 수 있는 몇 가지 단계를 수행하는 것이 좋습니다. 이 검사 목록을 사용하여 준비가 되었는지 확인합니다.
 
 - 블로그를 게시하거나, 메일을 보내거나, 보도 자료를 발행하여 **Marketplace에서 내 제품을 사용할 수 있다고 발표했습니다.**
-- **내 웹 사이트에서 제품 홍보**, Marketplace에서 고객을 내 제품으로 안내합니다.
+- **내 웹 사이트에서 제품을 홍보하고** Marketplace에서 고객을 내 제품으로 안내합니다.
 - **시험 사용을 게시**하여 고객이 휴식 시간에 Azure에서 실시간으로 내 제품을 경험할 수 있습니다.
 - **주문형 리드 생성을 활성화**하여 고객이 내 응용 프로그램을 배포하기 위해 클릭할 때마다 해당 이름과 연락처 정보를 받습니다.
 - Microsoft에서 **내 파트너 관리자와 연락**(있는 경우)하여 추가 기회를 탐색했습니다.

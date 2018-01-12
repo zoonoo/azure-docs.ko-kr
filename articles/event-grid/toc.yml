@@ -38,7 +38,9 @@
       href: event-grid-event-hubs-integration.md
     - name: 이벤트 구독을 위한 템플릿
       href: event-subscription-template.md
-- name: 참고 자료
+    - name: 이벤트 전달 모니터링
+      href: monitor-event-delivery.md
+- name: 참조
   items:
     - name: Azure CLI
       href: /cli/azure/eventgrid

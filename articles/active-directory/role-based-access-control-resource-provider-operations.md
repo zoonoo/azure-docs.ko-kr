@@ -4,7 +4,7 @@ description: "Microsoft Azure Resource Manager 리소스 공급자에서 사용 
 services: active-directory
 documentationcenter: 
 author: jboeshart
-manager: 
+manager: mtillman
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -12,15 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/28/2017
 ms.author: jaboes
-ms.openlocfilehash: 9fe7a5f254d8b384cae10ecd34e0bdafa433ff13
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 27880402d377701448d095a1295ece875729cd67
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager 리소스 공급자 작업
 
-이 문서에서는 각 Microsoft Azure Resource Manager 리소스 공급자에 대해 사용할 수 있는 작업을 설명합니다. 이러한 작업은 Azure의 리소스에 대해 보다 세분화된 RBAC(역할 기반 Access Control) 권한을 제공하기 위해 사용자 지정 역할에서 사용할 수 있습니다. 여기에 제공되는 목록이 전체 목록은 아니며 각 공급자가 업데이트될 때 작업이 추가되거나 제거될 수 있습니다. 작업 문자열은 `Microsoft.<ProviderName>/<ChildResourceType>/<action>` 형식을 따릅니다. 전체 및 현재 목록을 보려면 `Get-AzureRmProviderOperation`(PowerShell) 또는 `azure provider operations show`(Azure CLI)를 사용하여 Azure 리소스 공급자에 대한 작업을 나열합니다.
+이 문서에서는 각 Microsoft Azure Resource Manager 리소스 공급자에 대해 사용할 수 있는 작업을 설명합니다. 이러한 작업은 Azure의 리소스에 대해 보다 세분화된 RBAC(역할 기반 Access Control) 권한을 제공하기 위해 사용자 지정 역할에서 사용할 수 있습니다. 여기에 제공되는 목록이 전체 목록은 아니며 각 공급자가 업데이트될 때 작업이 추가되거나 제거될 수 있습니다. 작업 문자열은 `Microsoft.<ProviderName>/<ChildResourceType>/<action>` 형식을 따릅니다. 
+
+> [!NOTE]
+> 전체 및 현재 목록을 보려면 `Get-AzureRmProviderOperation`(PowerShell) 또는 `az provider operation list`(Azure CLI v2)를 사용하여 Azure 리소스 공급자에 대한 작업을 나열합니다.
 
 ## <a name="microsoftadhybridhealthservice"></a>Microsoft.ADHybridHealthService
 
@@ -2194,7 +2197,6 @@ ms.lasthandoff: 11/02/2017
 ## <a name="next-steps"></a>다음 단계
 
 - [사용자 지정 역할을 만드는](role-based-access-control-custom-roles.md) 방법을 알아봅니다.
-
 - [기본 제공 RBAC 역할](role-based-access-built-in-roles.md)을 검토합니다.
-
 - [사용자](role-based-access-control-manage-assignments.md) 또는 [리소스](role-based-access-control-configure.md)를 기준으로 액세스 할당을 관리하는 방법을 알아봅니다. 
+- [리소스에 대한 작업을 감사하기 위해 활동 로그를 보는](~/articles/azure-resource-manager/resource-group-audit.md) 방법을 알아봅니다.

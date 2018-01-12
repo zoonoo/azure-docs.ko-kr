@@ -33,9 +33,9 @@
       href: how-to-search-for-address.md
 - name: 참조
   items:
-    - name: 기능 API - REST
+    - name: 기능 API
       href: 'https://docs.microsoft.com/en-us/rest/api/location-based-services/'
-    - name: 관리 API - REST
+    - name: 관리 API
       href: 'https://docs.microsoft.com/en-us/rest/api/location-based-services-management/'
     - name: 맵 컨트롤 API - Javascript
       href: 'https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/'
@@ -57,5 +57,5 @@
       href: 'http://stackoverflow.com/questions/tagged/azure-location-based-services'
     - name: 기술 사례 연구
       href: 'https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured'
-    - name: 비디오
+    - name: 동영상
       href: 'https://azure.microsoft.com/documentation/videos'

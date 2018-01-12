@@ -3,7 +3,7 @@ title: "Azure 스택 1712 업데이트 | Microsoft Docs"
 description: "Azure 스택 1712 업데이트에 포함 된 내용에 대 한 자세한 내용은 시스템, 알려진된 문제 및 업데이트를 다운로드 위치에 통합 합니다."
 services: azure-stack
 documentationcenter: 
-author: andredm7
+author: brenduns
 manager: femila
 editor: 
 ms.assetid: b14f79ad-025f-45d8-9e1d-e53d2b420bb1
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/08/2018
-ms.author: andredm
-ms.openlocfilehash: 344fe7496a9129ea1653881a72139fea8a202ff0
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.date: 01/11/2018
+ms.author: brenduns
+ms.openlocfilehash: 0456a202990d383370051d99112f829533b1b101
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="azure-stack-1712-update"></a>Azure 스택 1712 업데이트
 
@@ -58,7 +58,7 @@ Azure 스택을 먼저 설치 해야 [1711 업데이트](https://docs.microsoft.
 - Azure 스택 클라우드의 권한 있는 끝점을 통해 사용할 수 있는 유효성 검사 테스트 AzureStack cmdlet
 - Azure 스택의 연결이 끊긴된 배포를 등록할 수 있는 기능
 - 인증서 및 사용자 계정 만료 기간에 대 한 모니터링 경고
-- PEP BMC 암호 회전에 대 한 추가 업데이트 BMCCredential cmdlet
+- PEP BMC 암호 회전에 대 한 추가 집합 BmcPassword cmdlet
 - 요청 시 로깅을 지 원하는 네트워크 로깅 업데이트
 - 가상 컴퓨터 크기 집합 (VMSS)에 대 한 이미지로 다시 설치 작업을 지원
 - ERCS VM에서 CloudAdmin 로그인에 대 한 키오스크 모드를 사용 하도록 설정

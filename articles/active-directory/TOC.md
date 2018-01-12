@@ -217,7 +217,7 @@
 #### [사용자 계정 프로비전 관리](active-directory-enterprise-apps-manage-provisioning.md)
 #### [엔터프라이즈 앱에 대한 Single Sign-On 관리](active-directory-enterprise-apps-manage-sso.md)
 #### [SAML 앱에 대한 고급 인증서 서명](active-directory-enterprise-apps-advance-certificate-options.md)
-#### [사용자의 환경에서 타사 앱 숨기기](active-directory-coreapps-hide-third-party-app.md)
+#### [사용자의 환경에서 응용 프로그램 숨기기](active-directory-coreapps-hide-third-party-app.md)
 ### [HRD 정책을 사용하여 로그인 자동 가속 구성](active-directory-auto-acceleration-using-hrd.md)
 
 ### [앱에 대한 액세스 관리](active-directory-managing-access-to-apps.md)
@@ -283,6 +283,7 @@
 ## ID 보안
 ### [조건부 액세스](active-directory-conditional-access-azure-portal.md)
 #### [컨트롤](active-directory-conditional-access-controls.md)
+#### [위치 조건](active-directory-conditional-access-locations.md)
 #### [시작](active-directory-conditional-access-azure-portal-get-started.md)
 #### [모범 사례](active-directory-conditional-access-best-practices.md)
 #### [Office 365 서비스에 대한 장치 정책 이해](active-directory-conditional-access-device-policies.md)
@@ -361,7 +362,7 @@
 ## [Azure 피드백 포럼](https://feedback.azure.com/forums/169401-azure-active-directory)
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
-## [가격 책정](https://azure.microsoft.com/pricing/details/active-directory/)
+## [가격](https://azure.microsoft.com/pricing/details/active-directory/)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=active-directory)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-active-directory)

@@ -1,6 +1,6 @@
 ---
 title: "웹 응용 프로그램에서 Azure Key Vault 사용 | Microsoft Docs"
-description: "이 자습서에서는 웹 응용 프로그램에서 Azure 주요 자격 증명 모음을 사용하는 방법을 알아볼 수 있습니다."
+description: "이 자습서에서는 웹 응용 프로그램에서 Azure Key Vault를 사용하는 방법을 알아볼 수 있습니다."
 services: key-vault
 author: adhurwit
 manager: mbaldwin
@@ -11,47 +11,47 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: adhurwit
-ms.openlocfilehash: 1846305e6834145046cf9903714c68e9a6fd4f7d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 107be940b4c105056c63f793fb0111b03469bf66
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
-# <a name="use-azure-key-vault-from-a-web-application"></a>웹 응용 프로그램에서 Azure 주요 자격 증명 모음 사용
+# <a name="use-azure-key-vault-from-a-web-application"></a>웹 응용 프로그램에서 Azure Key Vault 사용
 
 ## <a name="introduction"></a>소개
 
-이 자습서에서는 Azure의 웹 응용 프로그램에서 Azure 주요 자격 증명 모음을 사용하는 방법을 알아볼 수 있습니다. 웹 응용 프로그램에서 사용할 수 있도록 Azure 주요 자격 증명 모음의 암호에 액세스하는 과정을 안내합니다.
+이 자습서에서는 Azure의 웹 응용 프로그램에서 Azure Key Vault를 사용하는 방법을 알아볼 수 있습니다. 웹 응용 프로그램에서 사용할 수 있도록 Azure Key Vault의 암호에 액세스하는 과정을 안내합니다.
 
 **예상 완료 시간:** 15분
 
-Azure 키 자격 증명 모음에 대한 개요는 [Azure 키 자격 증명 모음이란?](key-vault-whatis.md)
+Azure Key Vault에 대한 개요는 [Azure Key Vault란?](key-vault-whatis.md)
 
 ## <a name="prerequisites"></a>필수 조건
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-* Azure 주요 자격 증명 모음의 암호에 대한 URI
+* Azure Key Vault의 암호에 대한 URI
 * 주요 자격 증명 모음에 액세스할 수 있는, Azure Active Directory에 등록된 웹 응용 프로그램의 클라이언트 ID 및 클라이언트 암호
 * 웹 응용 프로그램. Azure에 웹앱으로 배포된 ASP.NET MVC 응용 프로그램에 대한 단계를 살펴보겠습니다.
 
 >[!IMPORTANT]
->* 이 샘플은 수동으로 AAD ID를 프로비저닝하는 이전 방식을 사용합니다. 현재는 AAD ID를 자동으로 프로비저닝할 수 있는 [MSI(관리 서비스 ID)](https://docs.microsoft.com/azure/active-directory/msi-overview)라는 새로운 기능이 미리 보기에 포함되어 있습니다. 자세한 내용은 [github](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/)의 다음 샘플을 참조하세요.
+>* 이 샘플은 수동으로 AAD ID를 프로비저닝하는 이전 방식을 사용합니다. 현재는 AAD ID를 자동으로 프로비저닝할 수 있는 [MSI(관리 서비스 ID)](https://docs.microsoft.com/azure/active-directory/msi-overview)라는 새로운 기능이 미리 보기에 포함되어 있습니다. 자세한 내용은 [GitHub](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/)의 다음 샘플을 참조하세요.
 
 > [!NOTE]
->* 이 자습서에 대해 [Azure 주요 자격 증명 모음 시작](key-vault-get-started.md) 에 나열된 단계를 완료하여 웹 응용 프로그램의 클라이언트 ID 및 클라이언트 암호에 대한 URI가 있어야 합니다.
+>* 이 자습서에 대해 [Azure Key Vault 시작](key-vault-get-started.md)에 나열된 단계를 완료하여 웹 응용 프로그램의 클라이언트 ID 및 클라이언트 암호에 대한 URI가 있어야 합니다.
 
 
 Azure Active Directory에 등록되고 주요 자격 증명 모음에 대한 액세스 권한이 부여된 웹 응용 프로그램에서 주요 자격 증명 모음에 액세스합니다. 그렇지 않은 경우 시작 자습서의 응용 프로그램 등록으로 돌아가서 나열된 단계를 반복합니다.
 
-이 자습서는 Azure에서 웹 응용 프로그램을 만들기 위한 기본 사항을 잘 알고 있는 웹 개발자를 대상으로 합니다. Azure 웹앱에 대한 자세한 내용은 [웹앱 개요](../app-service/app-service-web-overview.md)를 참조하세요.
+이 자습서는 Azure에서 웹 응용 프로그램을 만들기 위한 기본 사항을 잘 알고 있는 웹 개발자를 대상으로 합니다. Azure Web Apps에 대한 자세한 내용은 [Web Apps 개요](../app-service/app-service-web-overview.md)를 참조하세요.
 
 ## <a id="packages"></a>NuGet 패키지 추가
 
 웹 응용 프로그램을 위해 설치해야 하는 2개의 패키지가 있습니다.
 
 * Active Directory 인증 라이브러리 - Azure Active Directory를 조작하고 사용자 ID를 관리하기 위한 메서드를 포함합니다.
-* Azure 주요 자격 증명 모음 라이브러리 - Azure 주요 자격 증명 모음을 조작하기 위한 메서드를 포함합니다.
+* Azure Key Vault 라이브러리 - Azure Key Vault를 조작하기 위한 메서드를 포함합니다.
 
 패키지 관리자 콘솔에서 Install-Package 명령을 사용하여 이러한 패키지를 모두 설치할 수 있습니다.
 
@@ -107,7 +107,7 @@ public static async Task<string> GetToken(string authority, string resource, str
 ```
 
 > [!NOTE]
->* 현재 새 기능 MSI(관리 서비스 ID)는 인증하는 가장 쉬운 방법입니다. 자세한 내용은 [.NET의 응용 프로그램에서 MSI로 Key Vault](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/)를 사용하는 샘플에 대한 다음 링크 및 관련 [App Service 및 함수 자습서로 MSI](https://docs.microsoft.com/en-us/azure/app-service/app-service-managed-service-identity)를 참조하세요. 
+>* 현재 새 기능 MSI(관리 서비스 ID)는 인증하는 가장 쉬운 방법입니다. 자세한 내용은 [.NET의 응용 프로그램에서 MSI로 Key Vault](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/)를 사용하는 샘플에 대한 다음 링크 및 관련 [App Service 및 함수 자습서로 MSI](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity)를 참조하세요. 
 >* 클라이언트 ID 및 클라이언트 암호를 사용하는 것은 Azure AD 응용 프로그램을 인증하는 또 다른 방법입니다. 웹 응용 프로그램에서 클라이언트 ID 및 클라이언트 암호를 사용하여 의무를 분리하고 키 관리를 보다 세밀하게 제어할 수 있습니다. 하지만 이 방법은 클라이언트 암호를 구성 설정에 배치하는 것을 기반으로 하며 이것은 보호할 암호를 구성 설정에 배치하는 것 만큼이나 위험할 수 있습니다. 클라이언트 ID 및 클라이언트 암호 대신 클라이언트 ID 및 인증서를 사용하여 Azure AD 응용 프로그램을 인증하는 방법에 대한 설명은 다음을 참조하세요.
 
 ## <a id="appstart"></a>응용 프로그램 시작 시 암호 검색
@@ -147,11 +147,11 @@ Azure 웹앱이 있는 경우 이제 Azure Portal에서 AppSettings의 실제 �
 여기서는 테스트 인증서를 만듭니다. 다음은 개발자 명령 프롬프트에서 인증서를 만들기 위해 사용할 수 있는 몇 가지 명령입니다. 인증서 파일을 만들 디렉터리로 변경합니다.  또한 인증서의 시작 및 종료 날짜는 현재 날짜 더하기 1년을 사용합니다.
 
 ```
-makecert -sv mykey.pvk -n "cn=KVWebApp" KVWebApp.cer -b 03/07/2017 -e 03/07/2018 -r
+makecert -sv mykey.pvk -n "cn=KVWebApp" KVWebApp.cer -b 07/31/2017 -e 07/31/2018 -r
 pvk2pfx -pvk mykey.pvk -spc KVWebApp.cer -pfx KVWebApp.pfx -po test123
 ```
 
-.pfx에 대한 종료 날짜와 암호를 메모해 둡니다(이 예에서는 07/31/2016 및 test123). 아래에서 필요합니다.
+.pfx에 대한 종료 날짜와 암호를 메모해 둡니다(이 예에서는 07/31/2017 및 test123). 아래에서 필요합니다.
 
 테스트 인증서 만들기에 대한 자세한 내용은 [방법: 사용자 고유의 테스트 인증서 만들기](https://msdn.microsoft.com/library/ff699202.aspx)
 
@@ -252,7 +252,7 @@ var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(Utils.GetA
 
 마지막으로 수행해야 하는 일은 응용 프로그램 설정을 이름이 WEBSITE\_LOAD\_CERTIFICATES이고 값이 *인 웹앱에 추가하는 것입니다. 이렇게 하면 모든 인증서가 로드됩니다. 업로드한 인증서만 로드하려면 지문 복사의  쉼표로 구분된 목록을 입력하면 됩니다.
 
-웹앱에 인증서 추가에 대해 자세히 알아보려면 [Azure 웹 사이트 응용 프로그램에서 인증서 사용](https://azure.microsoft.com/blog/2014/10/27/using-certificates-in-azure-websites-applications/)
+Web App에 인증서 추가에 대해 자세히 알아보려면 [Azure Websites 응용 프로그램에서 인증서 사용](https://azure.microsoft.com/blog/2014/10/27/using-certificates-in-azure-websites-applications/)
 
 ### <a name="add-a-certificate-to-key-vault-as-a-secret"></a>Key Vault에 인증서를 비밀로 추가
 
@@ -260,7 +260,7 @@ var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(Utils.GetA
 
 ## <a id="next"></a>다음 단계
 
-프로그래밍 참조는 [Azure 주요 자격 증명 모음 C# 클라이언트 API 참조](https://msdn.microsoft.com/library/azure/dn903628.aspx)를 참조하세요.
+프로그래밍 참조는 [Azure Key Vault C# 클라이언트 API 참조](https://msdn.microsoft.com/library/azure/dn903628.aspx)를 참조하세요.
 
 <!--Image references-->
 [1]: ./media/key-vault-use-from-web-application/PortalAppSettings.png

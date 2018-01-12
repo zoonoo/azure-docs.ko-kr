@@ -4,7 +4,7 @@ description: "사용자 지정 설정을 위한 Azure AD Connect 사용자 로�
 services: active-directory
 documentationcenter: 
 author: billmath
-manager: femila
+manager: mtillman
 editor: curtand
 ms.assetid: 547b118e-7282-4c7f-be87-c035561001df
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: billmath
-ms.openlocfilehash: 1d580ae43925bfb2cbe0fd9461cfb7e207fa56ec
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4670ec3cacd8d69a4ed59aa2bbbeb2e5c893f173
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Azure AD Connect 사용자 로그인 옵션
 Azure Active Directory(Azure AD) Connect를 사용하면 사용자가 동일한 암호를 사용하여 온-프레미스 및 클라우드 리소스 모두에 로그인할 수 있습니다. 이 문서에서는 Azure AD에 로그인할 때 사용하려는 ID 선택에 도움이 되도록 모든 ID 모델의 주요 개념에 대해 설명합니다.
@@ -28,6 +28,10 @@ Azure Active Directory(Azure AD) Connect를 사용하면 사용자가 동일한 
 * [Seamless SSO(Single Sign-on)](active-directory-aadconnect-sso.md)를 사용한 [암호 해시 동기화](#password-synchronization)
 * [Seamless SSO(Single Sign-on)](active-directory-aadconnect-sso.md)를 사용한 [통과 인증](active-directory-aadconnect-pass-through-authentication.md)
 * [Federated SSO(Active Directory Federation Services(AD FS) 지원)](#federation-that-uses-a-new-or-existing-farm-with-ad-fs-in-windows-server-2012-r2)
+
+> [!NOTE] 
+> Azure AD에 대한 페더레이션을 구성하여 Azure AD 테넌트와 페더레이션된 도메인 간 신뢰를 수립하는 것이 중요합니다. 이 신뢰를 통해 페더레이션된 도메인 사용자는 테넌트 내 Azure AD 클라우드 리소스에 액세스할 수 있습니다.  
+>
 
 ## <a name="choosing-the-user-sign-in-method-for-your-organization"></a>사용자 조직에 대한 사용자 로그인 메서드 선택
 Office 365, SaaS 응용 프로그램 및 기타 Azure AD 기반 리소스에 사용자가 로그인할 수 있도록 하려는 대부분의 조직의 경우, 기본 암호 해시 동기화 옵션이 좋습니다. 그러나 일부 조직에서는 이 옵션을 사용할 수 없는 특정 이유가 있습니다. AD FS 등의 페더레이션된 로그인 옵션 또는 통과 인증 중에서 선택할 수 있습니다. 다음 표를 사용하여 올바른 선택을 할 수 있습니다.

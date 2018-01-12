@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: b7ce6f353cf8cf48d5fb038ee77b0d3fdae16fb7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c0d90f7c6ad136cd1a558f6158cf734de51b9538
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="security-frame-input-validation--mitigations"></a>보안 프레임: 입력 유효성 검사 | 완화 
 | 제품/서비스 | 문서 |
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 | **웹 응용 프로그램** | <ul><li>[신뢰할 수 없는 스타일시트를 사용하는 모든 변환에 대해 XSLT 스크립팅을 사용하지 않도록 설정](#disable-xslt)</li><li>[사용자가 제어할 수 있는 콘텐츠를 포함할 수 있는 각 페이지가 자동 MIME 스니핑에서 옵트아웃하는지 확인](#out-sniffing)</li><li>[XML 엔터티 확인 확정 또는 사용 중지](#xml-resolution)</li><li>[http.sys를 활용하는 응용 프로그램에서 URL 정형화 확인 수행](#app-verification)</li><li>[사용자의 파일을 허용할 때 적절한 제어가 수행되는지 확인](#controls-users)</li><li>[웹 응용 프로그램에서 데이터 액세스를 위해 형식이 안전한 매개 변수를 사용하는지 확인](#typesafe)</li><li>[별도의 모델 바인딩 클래스 또는 바인딩 필터 목록을 사용하여 MVC 대량 할당 취약성 방지](#binding-mvc)</li><li>[렌더링하기 전에 신뢰할 수 없는 웹 출력 인코딩](#rendering)</li><li>[모든 문자열 형식 모델 속성에 대한 입력 유효성 검사 및 필터링 수행](#typemodel)</li><li>[모든 문자를 허용하는 양식 필드(예: 서식 있는 텍스트 편집기)에서 삭제 적용](#richtext)</li><li>[기본 제공 인코딩이 없는 싱크에 DOM 요소 할당 금지](#inbuilt-encode)</li><li>[응용 프로그램 내의 모든 리디렉션이 폐쇄되어 있거나 안전하게 수행되는지 확인](#redirect-safe)</li><li>[컨트롤러 메서드에서 허용하는 모든 문자열 형식 매개 변수에 대한 입력 유효성 검사 구현](#string-method)</li><li>[정규식 처리에 대한 시간 제한 상한값을 설정하여 잘못된 정규식으로 인한 DoS 방지](#dos-expression)</li><li>[Razor 보기에서 Html.Raw 사용 방지](#html-razor)</li></ul> | 
 | **데이터베이스** | <ul><li>[저장 프로시저에서 동적 쿼리 사용 금지](#stored-proc)</li></ul> |
 | **앱 API** | <ul><li>[모델 유효성 검사가 Web API 메서드에서 수행되는지 확인](#validation-api)</li><li>[Web API 메서드에서 허용하는 모든 문자열 형식 매개 변수에 대한 입력 유효성 검사 구현](#string-api)</li><li>[Web API에서 데이터 액세스를 위해 형식이 안전한 매개 변수를 사용하는지 확인](#typesafe-api)</li></ul> | 
-| **Azure Document DB** | <ul><li>[DocumentDB에 매개 변수가 있는 SQL 쿼리 사용](#sql-docdb)</li></ul> | 
+| **Azure Document DB** | <ul><li>[Azure Cosmos DB에 매개 변수가 있는 SQL 쿼리 사용](#sql-docdb)</li></ul> | 
 | **WCF** | <ul><li>[WCF - 스키마 바인딩을 통한 입력 유효성 검사](#schema-binding)</li><li>[WCF - 매개 변수 검사기를 통한 입력 유효성 검사](#parameters)</li></ul> |
 
 ## <a id="disable-xslt"></a>신뢰할 수 없는 스타일시트를 사용하는 모든 변환에 대해 XSLT 스크립팅을 사용하지 않도록 설정
@@ -201,7 +201,7 @@ MSXML6에서 ProhibitDTD는 기본적으로 true(DTD 처리 비활성화)로 설
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
 | **참조**              | 해당 없음  |
-| **단계** | <p>http.sys를 사용하는 모든 응용 프로그램은 다음 지침을 따라야 합니다.</p><ul><li>URL 길이를 16,384자(ASCII 또는 유니코드) 이하로 제한합니다. 이 값은 기본 IIS(인터넷 정보 서비스) 6 설정에 따른 절대 최대 URL 길이입니다. 웹 사이트에서는 가능한 경우 이 길이보다 더 짧도록 노력해야 합니다.</li><li>.NET FX의 정규화 규칙을 활용할 수 있으므로 표준 .NET Framework 파일 I/O 클래스(예: FileStream)를 사용합니다.</li><li>알려진 파일 이름의 허용 목록을 명시적으로 작성합니다.</li><li>UrlScan 거부를 제공하지 않는 것으로 알려진 파일 형식(exe, bat, cmd, com, htw, ida, idq, htr, idc, shtm[l], stm, printer, ini, pol, dat 파일)을 명시적으로 거부합니다.</li><li>다음 예외를 catch합니다.<ul><li>System.ArgumentException(장치 이름의 경우)</li><li>System.NotSupportedException(데이터 스트림의 경우)</li><li>System.IO.FileNotFoundException(잘못된 이스케이프 문자를 사용한 파일 이름의 경우)</li><li>System.IO.DirectoryNotFoundException(잘못된 이스케이프 문자를 사용한 디렉터리의 경우)</li></ul></li><li>Win32 파일 I/O API를 호출하면 *안됩니다*. 잘못된 URL인 경우 사용자에게 400 오류를 정상적으로 반환하고 실제 오류를 기록합니다.</li></ul>|
+| **단계** | <p>http.sys를 사용하는 모든 응용 프로그램은 다음 지침을 따라야 합니다.</p><ul><li>URL 길이를 16,384자(ASCII 또는 유니코드) 이하로 제한합니다. 이 값은 기본 IIS(인터넷 정보 서비스) 6 설정에 따른 절대 최대 URL 길이입니다. Websites에서는 가능한 경우 이 길이보다 더 짧도록 노력해야 합니다.</li><li>.NET FX의 정규화 규칙을 활용할 수 있으므로 표준 .NET Framework 파일 I/O 클래스(예: FileStream)를 사용합니다.</li><li>알려진 파일 이름의 허용 목록을 명시적으로 작성합니다.</li><li>UrlScan 거부를 제공하지 않는 것으로 알려진 파일 형식(exe, bat, cmd, com, htw, ida, idq, htr, idc, shtm[l], stm, printer, ini, pol, dat 파일)을 명시적으로 거부합니다.</li><li>다음 예외를 catch합니다.<ul><li>System.ArgumentException(장치 이름의 경우)</li><li>System.NotSupportedException(데이터 스트림의 경우)</li><li>System.IO.FileNotFoundException(잘못된 이스케이프 문자를 사용한 파일 이름의 경우)</li><li>System.IO.DirectoryNotFoundException(잘못된 이스케이프 문자를 사용한 디렉터리의 경우)</li></ul></li><li>Win32 파일 I/O API를 호출하면 *안됩니다*. 잘못된 URL인 경우 사용자에게 400 오류를 정상적으로 반환하고 실제 오류를 기록합니다.</li></ul>|
 
 ## <a id="controls-users"></a>사용자의 파일을 허용할 때 적절한 제어가 수행되는지 확인
 
@@ -405,7 +405,7 @@ myCommand.Fill(userDataset);
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
 | **참조**              | [안전하지 않은 입력 인코딩](https://msdn.microsoft.com/library/ff647397.aspx#paght000003_step3)(영어), [HTML 삭제기](https://github.com/mganss/HtmlSanitizer)(영어) |
-| **단계** | <p>사용하려는 정적 태그를 모두 식별합니다. 일반적으로 `<b>`(굵게) 및 `<i>`(기울임꼴)와 같은 안전한 HTML 요소로 서식 지정을 제한하는 것입니다.</p><p>데이터를 작성하기 전에 HTML로 인코딩합니다. 이렇게 하면 악성 스크립트를 실행 코드가 아닌 텍스트로 처리하므로 안전하게 됩니다.</p><ol><li>@ Page 지시문에 ValidateRequest="false" 특성을 추가하여 ASP.NET 요청 유효성 검사를 사용하지 않도록 설정합니다.</li><li>HtmlEncode 메서드로 문자열 입력을 인코딩합니다.</li><li>StringBuilder를 사용하고 해당 Replace 메서드를 호출하여 허용하려는 HTML 요소의 인코딩을 선택적으로 제거합니다.</li></ol><p>page-in 참조는 `ValidateRequest="false"`를 설정하여 ASP.NET 요청 유효성 검사를 비활성화합니다. 입력을 HTML로 인코딩하고 선택적으로 `<b>` 및 `<i>`를 허용합니다. 또는 HTML 삭제를 위한 .NET 라이브러리를 사용할 수도 있습니다.</p><p>HtmlSanitizer는 XSS 공격을 일으킬 수 있는 구문에서 HTML 조각과 문서를 정리하는 .NET 라이브러리입니다. AngleSharp를 사용하여 HTML 및 CSS를 구문 분석, 조작 및 렌더링합니다. HtmlSanitizer는 NuGet 패키지로 설치할 수 있으며, 사용자 입력은 관련 HTML 또는 CSS 삭제 메서드를 통해 서버 쪽에서 전달할 수 있습니다. 보안 제어로서의 삭제는 마지막 옵션으로만 고려해야 합니다.</p><p>입력 유효성 검사 및 출력 인코딩은 보다 효과적인 보안 제어로 간주됩니다.</p> |
+| **단계** | <p>사용하려는 정적 태그를 모두 식별합니다. 일반적으로 `<b>`(굵게) 및 `<i>`(기울임꼴)와 같은 안전한 HTML 요소로 서식 지정을 제한하는 것입니다.</p><p>데이터를 작성하기 전에 HTML로 인코딩합니다. 이렇게 하면 악성 스크립트를 실행 코드가 아닌 텍스트로 처리하므로 안전하게 됩니다.</p><ol><li>@ Page 지시문에 ValidateRequest="false" 특성을 추가하여 ASP.NET 요청 유효성 검사를 사용하지 않도록 설정합니다.</li><li>HtmlEncode 메서드로 문자열 입력을 인코딩합니다.</li><li>StringBuilder를 사용하고 해당 Replace 메서드를 호출하여 허용하려는 HTML 요소의 인코딩을 선택적으로 제거합니다.</li></ol><p>page-in 참조는 `ValidateRequest="false"`를 설정하여 ASP.NET 요청 유효성 검사를 비활성화합니다. 입력을 HTML로 인코딩하고 선택적으로 `<b>` 및 `<i>`를 허용합니다. 또는 HTML 삭제를 위한 .NET 라이브러리를 사용할 수도 있습니다.</p><p>HtmlSanitizer는 XSS 공격을 일으킬 수 있는 구문에서 HTML 조각과 문서를 정리하는 .NET 라이브러리입니다. AngleSharp를 사용하여 HTML 및 CSS를 구문 분석, 조작 및 렌더링합니다. HtmlSanitizer는 NuGet 패키지로 설치할 수 있으며, 사용자 입력은 관련 HTML 또는 CSS 삭제 메서드를 통해 서버 쪽에서 전달할 수 있습니다. 보안 제어로서의 삭제는 마지막 옵션으로만 고려해야 합니다.</p><p>입력 유효성 검사 및 출력 Encoding은 보다 효과적인 보안 제어로 간주됩니다.</p> |
 
 ## <a id="inbuilt-encode"></a>기본 제공 인코딩이 없는 싱크에 DOM 요소 할당 금지
 
@@ -660,8 +660,8 @@ myCommand.Fill(userDataset);
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
-| **참조**              | [DocumentDB에서 SQL 매개 변수 지정 발표](https://azure.microsoft.com/blog/announcing-sql-parameterization-in-documentdb/)(영문) |
-| **단계** | DocumentDB는 읽기 전용 쿼리만 지원하지만 사용자 입력과 연결하여 쿼리를 구성하면 여전히 SQL 삽입이 가능합니다. 사용자가 악성 SQL 쿼리를 만들어 동일한 컬렉션 내에서 액세스하면 안되는 데이터에 액세스할 수 있습니다. 사용자 입력을 기반으로 하여 쿼리를 구성한 경우 매개 변수가 있는 SQL를 사용합니다. |
+| **참조**              | [Azure Cosmos DB에서 SQL 매개 변수 지정 발표](https://azure.microsoft.com/blog/announcing-sql-parameterization-in-documentdb/) |
+| **단계** | Azure Cosmos DB는 읽기 전용 쿼리만 지원하지만 사용자 입력과 연결하여 쿼리를 구성하면 여전히 SQL 삽입이 가능합니다. 사용자가 악성 SQL 쿼리를 만들어 동일한 컬렉션 내에서 액세스하면 안되는 데이터에 액세스할 수 있습니다. 사용자 입력을 기반으로 하여 쿼리를 구성한 경우 매개 변수가 있는 SQL를 사용합니다. |
 
 ## <a id="schema-binding"></a>WCF - 스키마 바인딩을 통한 입력 유효성 검사
 

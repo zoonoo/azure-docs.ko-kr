@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: ab38f6866519aabe1b4740cfaa26d7ff570d78de
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 246032701d97fc7d16e6cb38ee79fbd5470f65d9
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>클래식에서 Azure Resource Manager로 IaaS 리소스의 마이그레이션 계획
 Azure Resource Manager는 수많은 놀라운 기능을 제공하지만, 유연하게 이전할 수 있도록 마이그레이션 과정을 계획하는 것이 매우 중요합니다. 계획에 시간을 들이면 마이그레이션 활동을 수행하는 동안 문제가 발생하지 않습니다. 
@@ -96,7 +96,7 @@ Azure Resource Manager는 수많은 놀라운 기능을 제공하지만, 유연�
 - **VM 확장** - 가상 컴퓨터 확장은 실행 중인 VM을 마이그레이션하는 데 있어 잠재적으로 가장 큰 장애물 중 하나입니다. VM 확장을 재구성하는 데 1-2일이 걸릴 수 있으므로 이에 따라 적절히 계획해야 합니다.  실행 중인 VM의 VM 확장 상태를 다시 보고하려면 작업 Azure 에이전트가 필요합니다. 실행 중인 VM의 상태가 나쁘다고 반환되면 마이그레이션이 중지됩니다. 에이전트 자체는 마이그레이션에 사용할 수 있도록 제대로 작동하지 않아도 되지만, VM에 확장이 있으면 마이그레이션을 진행하는 데 있어 작업 에이전트와 아웃바운드 인터넷 연결(DNS 사용)이 모두 필요합니다.
   - 마이그레이션 중에 DNS 서버에 대한 연결이 끊어지면, 마이그레이션을 준비하기 전에 먼저 모든 VM에서 BGInfo v1.\*을 제외한 모든 VM 확장을 제거한 다음, Azure Resource Manager 마이그레이션 후에 해당 확장을 VM에 다시 추가해야 합니다.  **이 작업은 실행 중인 VM에만 해당됩니다.**  VM의 할당 취소가 중지되면 VM 확장을 제거할 필요가 없습니다. **참고:** 다양한 확장 프로그램(예: Azure 진단 및 보안 센터 모니터링)은 마이그레이션 후에 다시 설치되므로 제거하더라도 문제가 되지 않습니다.
   - 또한 네트워크 보안 그룹이 아웃바운드 인터넷 액세스를 제한하지 않는지 확인합니다. 이는 일부 네트워크 보안 그룹 구성에서 발생할 수 있습니다. VM 확장을 Azure Resource Manager로 마이그레이션하려면 아웃바운드 인터넷 액세스(및 DNS)가 필요합니다. 
-  - BGInfo 확장에는 두 가지 버전, 즉 v1과 v2가 있습니다.  클래식 포털이나 PowerShell을 사용하여 VM을 만들었으면 VM에 v1 확장이 있을 것입니다. 이 확장은 제거할 필요가 없으며, 마이그레이션 API에서 건너뜁니다(마이그레이션되지 않음). 그러나 새 Azure Portal을 사용하여 클래식 VM을 만든 경우 에이전트가 작동하고 아웃바운드 인터넷 액세스(및 DNS)가 있으면 Azure Resource Manager로 마이그레이션할 수 있는 JSON 기반 BGInfo v2 버전이 있을 것입니다. 
+  - BGInfo 확장에는 두 가지 버전, 즉 v1과 v2가 있습니다.  Azure Portal이나 PowerShell을 사용하여 VM을 만들었으면 VM에 v1 확장이 있을 것입니다. 이 확장은 제거할 필요가 없으며, 마이그레이션 API에서 건너뜁니다(마이그레이션되지 않음). 그러나 새 Azure Portal을 사용하여 클래식 VM을 만든 경우 에이전트가 작동하고 아웃바운드 인터넷 액세스(및 DNS)가 있으면 Azure Resource Manager로 마이그레이션할 수 있는 JSON 기반 BGInfo v2 버전이 있을 것입니다. 
   - **재구성 옵션 1**: VM에 아웃바운드 인터넷 액세스, 작업 DNS 서비스 및 작업 Azure 에이전트가 없음을 알고 있으면, 준비하기 전에 마이그레이션의 일환으로 모든 VM 확장을 제거한 다음, 마이그레이션 후에 VM 확장을 다시 설치합니다. 
   - **재구성 옵션 2**: VM 확장이 너무 큰 장애물이라면 마이그레이션 이전에 모든 VM을 종료/할당 취소할 수 있습니다. 할당 취소된 VM을 마이그레이션한 다음 Azure Resource Manager 쪽에서 해당 VM을 다시 시작합니다. 여기서 이점은 VM 확장이 마이그레이션된다는 것입니다. 단점은 모든 공용 가상 IP가 손실된다는 것이며(시동 장치가 아닐 수도 있음), 분명히 VM이 종료되어 작업 응용 프로그램에 매우 큰 영향을 미치게 됩니다.
 

@@ -4,7 +4,7 @@ description: "Azure Active Directory 및 Cezanne HR Software 간에 Single Sign-
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 62b42e15-c282-492d-823a-a7c1c539f2cc
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: jeedes
-ms.openlocfilehash: 620b0f62bceeda6fac87c31b325a078260f7d3d0
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 3934f814a9060adf275a4bdcc83403da4b2a4075
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cezanne-hr-software"></a>자습서: Cezanne HR Software와 Azure Active Directory 통합
 
@@ -125,25 +125,29 @@ Cezanne HR Software에서 Azure AD Single Sign-on을 구성하고 테스트하�
 
     ![Single Sign-On 구성 저장 단추](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_general_400.png)
 
-6. **Cezanne HR Software 구성** 섹션에서 **Cezanne HR Software 구성**을 클릭하여 **로그온 구성** 창을 엽니다. **빠른 참조 섹션**에서 **SAML 엔터티 ID 및 SAML Single Sign-On 서비스 URL**을 복사합니다.
+6. **Cezanne HR Software 구성** 섹션에서 **Cezanne HR Software 구성**을 클릭하여 **로그온 구성** 창을 엽니다.
 
-    ![Cezanne HR Software 구성](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_configure.png) 
+    ![Cezanne HR Software 구성](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_configure.png)
 
-7. 다른 웹 브라우저 창에서 Cezanne HR Software 테넌트에 관리자로 로그인합니다.
+7. **빠른 참조** 섹션으로 스크롤합니다. **빠른 참조 섹션**에서 **SAML Single Sign-On Service URL 및 SAML 엔터티 ID**를 복사합니다.
 
-8. 왼쪽 탐색 창에서 **시스템 설정**을 클릭합니다. **보안 설정**으로 이동합니다. 그런 다음 **Single Sign-On 구성**으로 이동합니다.
+    ![Cezanne HR Software 구성](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_configure1.png)
+
+8. 다른 웹 브라우저 창에서 Cezanne HR Software 테넌트에 관리자로 로그인합니다.
+
+9. 왼쪽 탐색 창에서 **시스템 설정**을 클릭합니다. **보안 설정**으로 이동합니다. 그런 다음 **Single Sign-On 구성**으로 이동합니다.
 
     ![앱 쪽에서 Single Sign-On 구성](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_000.png)
 
-9. **다음 SSO(Single Sign-On) Service를 사용한 사용자 로그온 허용** 패널에서 **SAML 2.0** 상자를 선택하고 **고급 구성** 옵션을 선택합니다.
+10. **다음 SSO(Single Sign-On) Service를 사용한 사용자 로그온 허용** 패널에서 **SAML 2.0** 상자를 선택하고 **고급 구성** 옵션을 선택합니다.
 
     ![앱 쪽에서 Single Sign-On 구성](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_001.png)
 
-10. **새로 추가** 단추를 클릭합니다.
+11. **새로 추가** 단추를 클릭합니다.
 
     ![앱 쪽에서 Single Sign-On 구성](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_002.png)
 
-11. **SAML 2.0 ID 공급자** 섹션에서 다음 단계를 수행합니다.
+12. **SAML 2.0 ID 공급자** 섹션에서 다음 단계를 수행합니다.
 
     ![앱 쪽에서 Single Sign-On 구성](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_003.png)
     
@@ -161,7 +165,7 @@ Cezanne HR Software에서 Azure AD Single Sign-on을 구성하고 테스트하�
     
     g. **확인** 단추를 클릭합니다. 
 
-12. **저장** 단추를 클릭합니다.
+13. **저장** 단추를 클릭합니다.
 
     ![앱 쪽에서 Single Sign-On 구성](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_004.png)
 

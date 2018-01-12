@@ -7,18 +7,20 @@ author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.reviewer: veyalla
-ms.date: 11/17/2017
+ms.date: 12/06/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: d3ff260b4ac238ce7aaa2a63538dede7bd21a19c
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: cc34e5cecafe485608ba428395b690ba57f71e9c
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="install-the-iot-edge-runtime-on-windows-iot-core---preview"></a>Windows IoT Core에 IoT Edge 런타임 설치 - 미리 보기
 
-Azure IoT Edge 런타임은 IoT 업계에서 매우 널리 사용되는 아주 작은 SBC(단일 보드 컴퓨터) 장치에서도 실행할 수 있습니다. 이 문서에서는 Windows IoT Core를 실행하는 [MinnowBoard Turbot][lnk-minnow] 개발 보드에서 런타임을 프로비전하는 과정을 단계별로 안내합니다.
+Azure IoT Edge 및 [Windows IoT Core](https://docs.microsoft.com/windows/iot-core/)가 함께 작동하여 소형 장치에서 에지를 계산할 수 있습니다. Azure IoT Edge 런타임은 IoT 업계에서 매우 널리 사용되는 아주 작은 SBC(단일 보드 컴퓨터) 장치에서도 실행할 수 있습니다. 
+
+이 문서에서는 Windows IoT Core를 실행하는 [MinnowBoard Turbot][lnk-minnow] 개발 보드에서 런타임을 프로비전하는 과정을 단계별로 안내합니다. Windows IoT Core는 Intel x64 기반 프로세서에서만 Azure IoT Edge를 지원합니다. 
 
 ## <a name="install-the-runtime"></a>런타임 설치
 

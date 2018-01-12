@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.openlocfilehash: 564c06c5017a77431b7d6fed7b43c47141b12252
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8f1477c5fd8f57a815eeb603d2bde580bf78cca2
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="data-science-virtual-machine-data-ingestion-tools"></a>데이터 과학 가상 컴퓨터 데이터 수집 도구
 
@@ -35,8 +35,8 @@ ms.lasthandoff: 10/11/2017
 | 지원되는 DSVM 버전      | Windows      |
 | 일반적인 사용 용도      | Azure Storage에서 Azure Data Lake Store로 여러 BLOB 가져오기.      |
 |  사용/실행 방법    |   명령 프롬프트를 연 다음 `adlcopy`을 입력하여 도움말을 봅니다.    |
-| 샘플에 대한 링크      | [AdlCopy 사용]https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob)      |
-| DSVM에 관련된 도구      | AzCopy, Azure 명령줄     |
+| 샘플에 대한 링크      | [AdlCopy 사용]https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob)      |
+| DSVM의 관련 도구      | AzCopy, Azure 명령줄     |
 
 ## <a name="azure-command-line"></a>Azure 명령줄
 
@@ -58,19 +58,19 @@ ms.lasthandoff: 10/11/2017
 | 지원되는 DSVM 버전      | Windows      |
 | 일반적인 사용 용도      | 파일을 Blob Storage에 복사, 계정 간에 BLOB 복사.      |
 |  사용/실행 방법    |   명령 프롬프트를 연 다음 `azcopy`을 입력하여 도움말을 봅니다.    |
-| 샘플에 대한 링크      | [Windows에서 AzCopy](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy)      |
+| 샘플에 대한 링크      | [Windows에서 AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy)      |
 | DSVM의 관련 도구      | AdlCopy     |
 
 
-## <a name="azure-cosmos-db-documentdb-api-data-migration-tool"></a>Azure Cosmos DB: DocumentDB API Data Migration 도구
+## <a name="azure-cosmos-db-data-migration-tool"></a>Azure Cosmos DB 데이터 마이그레이션 도구
 
 |    |           |
 | ------------- | ------------- |
-| 무엇인가요?   | JSON files, CSV files, SQL, MongoDB, Azure Table storage, Amazon DynamoDB 및 Azure Cosmos DB DocumentDB API 컬렉션을 비롯한 다양한 원본에서 데이터를 Azure Cosmos DB 또는 Azure DocumentDB로 가져오는 도구입니다.      |
+| 무엇인가요?   | JSON 파일, CSV 파일, SQL, MongoDB, Azure Table Storage, Amazon DynamoDB 및 Azure Cosmos DB SQL API 컬렉션을 비롯한 다양한 원본에서 데이터를 Azure Cosmos DB로 가져오는 도구입니다.      |
 | 지원되는 DSVM 버전      | Windows      |
 | 일반적인 사용 용도      | VM에서 CosmosDB로 파일 가져오기, Azure 테이블 저장소에서 CosmosDB로 데이터 가져오기 또는 SQL Server 데이터베이스에서 CosmosDB로 데이터 가져오기.     |
 |  사용/실행 방법    |   명령줄을 버전을 사용하려면, 명령 프롬프트를 연 다음 `dt`을 입력합니다. GUI 도구를 사용하려면, 명령 프롬프트를 연 다음 `dtui`을 입력합니다.    |
-| 샘플에 대한 링크      | [CosmosDB 데이터 가져오기](https://docs.microsoft.com/en-us/azure/cosmos-db/import-data)      |
+| 샘플에 대한 링크      | [CosmosDB 데이터 가져오기](https://docs.microsoft.com/azure/cosmos-db/import-data)      |
 | DSVM에 관련된 도구      | AzCopy, AdlCopy      |
 
 
@@ -82,7 +82,7 @@ ms.lasthandoff: 10/11/2017
 | 지원되는 DSVM 버전      | Windows      |
 | 일반적인 사용 용도      | CSV 파일을 SQL Server 표로 가져오고, SQL Server 표를 파일로 내보냅니다.      |
 |  사용/실행 방법    |   명령 프롬프트를 연 다음 `bcp`을 입력하여 도움말을 봅니다.    |
-| 샘플에 대한 링크      | [대량 복사 유틸리티](https://docs.microsoft.com/en-us/sql/tools/bcp-utility)      |
+| 샘플에 대한 링크      | [대량 복사 유틸리티](https://docs.microsoft.com/sql/tools/bcp-utility)      |
 | DSVM에 관련된 도구      | SQL Server, sqlcmd      |
 
 

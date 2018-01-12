@@ -1,6 +1,6 @@
 ---
 title: "Stream Analytics Data Lake Store 출력 | Microsoft Docs"
-description: "스트림 분석 작업에서 Azure Data Lake 저장소의 인증 및 권한 부여 구성"
+description: "Stream Analytics 작업에서 Azure Data Lake 저장소의 인증 및 권한 부여 구성"
 keywords: 
 services: stream-analytics
 documentationcenter: 
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/28/2017
 ms.author: samacha
-ms.openlocfilehash: 3d867df3ef875d5cc41de418c3d1d269ff751fda
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e2010e86e56c1ce7a98fae97a8f6f00c30b61035
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="stream-analytics-data-lake-store-output"></a>스트림 분석 Data Lake 저장소 출력
-스트림 분석 작업은 여러 출력 메서드를 지원하며 그 중 하나는 [Azure Data Lake 저장소](https://azure.microsoft.com/services/data-lake-store/)입니다. Azure 데이터 레이크 저장소는 빅 데이터 분석 작업을 위한 엔터프라이즈 수준 하이퍼 스케일 리포지토리입니다. Data Lake 저장소를 사용하면 작동 및 예비 분석에 대해 모든 크기, 형식 및 수집 속도의 데이터를 저장할 수 있습니다.
+# <a name="stream-analytics-data-lake-store-output"></a>Stream Analytics Data Lake 저장소 출력
+Stream Analytics 작업은 여러 출력 메서드를 지원하며 그 중 하나는 [Azure Data Lake 저장소](https://azure.microsoft.com/services/data-lake-store/)입니다. Azure 데이터 레이크 저장소는 빅 데이터 분석 작업을 위한 엔터프라이즈 수준 하이퍼 스케일 리포지토리입니다. Data Lake 저장소를 사용하면 작동 및 예비 분석에 대해 모든 크기, 형식 및 수집 속도의 데이터를 저장할 수 있습니다.
 
 ## <a name="authorize-a-data-lake-store-account"></a>Data Lake 저장소 계정 권한 부여
-1. Data Lake Store를 Azure Portal에서 출력으로 선택하는 경우 기존 Data Lake Store의 사용 권한을 부여하거나 클래식 포털을 통해 Data Lake Store에 대한 액세스를 요청하는 메시지가 표시됩니다.
+1. Data Lake Store를 Azure Portal에서 출력으로 선택하는 경우 기존 Data Lake Store의 사용 권한을 부여하거나 Data Lake Store에 대한 액세스를 요청하는 메시지가 표시됩니다.
    
    ![](media/stream-analytics-data-lake-output/stream-analytics-data-lake-output-authorization.png)  
    
@@ -67,12 +67,12 @@ Data Lake 저장소 계정을 인증하면 사용자가 Data Lake 저장소 출�
 <td>출력 데이터에 대한 직렬화 형식입니다. JSON, CSV 및 Avro를 지원합니다.</td>
 </tr>
 <tr>
-<td>인코딩</td>
+<td>Encoding</td>
 <td>CSV 또는 JSON 형식인 경우 인코딩을 지정해야 합니다. 지금은 지원되는 인코딩 형식이 UTF-8뿐입니다.</td>
 </tr>
 <tr>
 <td>구분 기호</td>
-<td>CSV 직렬화에만 적용됩니다. 스트림 분석은 CSV 데이터를 직렬화하기 위해 다양하고 일반적인 구분 기호를 지원합니다. 지원되는 값은 쉼표, 세미콜론, 공백, 탭 및 세로 막대입니다.</td>
+<td>CSV 직렬화에만 적용됩니다. Stream Analytics는 CSV 데이터를 직렬화하기 위해 다양하고 일반적인 구분 기호를 지원합니다. 지원되는 값은 쉼표, 세미콜론, 공백, 탭 및 세로 막대입니다.</td>
 </tr>
 <tr>
 <td>형식</td>

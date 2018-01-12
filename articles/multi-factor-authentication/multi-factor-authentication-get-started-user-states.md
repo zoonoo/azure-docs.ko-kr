@@ -4,7 +4,7 @@ description: "Azure MFA의 사용자 상태에 대해 알아보세요."
 services: multi-factor-authentication
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.assetid: 0b9fde23-2d36-45b3-950d-f88624a68fbd
 ms.service: multi-factor-authentication
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.date: 06/26/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: b73b5e47e3e14742e5094b8b0e979de7835cb9c7
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: b7fb5135ac1ae776851d79f936eb860b4b121c71
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-require-two-step-verification-for-a-user-or-group"></a>사용자 또는 그룹에 대해 2단계 인증을 요구하는 방법
 
@@ -40,11 +40,11 @@ ms.lasthandoff: 11/29/2017
 
 Azure Multi-Factor Authentication의 사용자 계정은 다음과 같은 3가지 상태를 갖습니다.
 
-| 가동 상태 | 설명 | 영향 받는 비브라우저 앱 | 영향 받는 브라우저 앱 및 최신 인증 |
-|:---:|:---:|:---:|:--:|
-| 사용 안 함 |Azure MFA(Multi-Factor Authentication)에 등록되지 않은 새 사용자에 대한 기본 상태입니다. |아니요 |아니요 |
-| 사용 |사용자가 Azure MFA에 등록되었지만 등록하지 않았습니다. 이 경우 다음에 로그인할 때 등록하라는 메시지가 표시됩니다. |아니요.  등록 프로세스가 완료될 때까지 계속 작업합니다. | 예. 세션에 대한 새로 고침 토큰이 만료되면 MFA 등록이 필요합니다.|
-| 적용 |사용자가 등록되었으며 Azure MFA를 위한 등록 프로세스를 완료했습니다. |예.  앱에 앱 암호가 필요합니다. |예. 로그인할 때 MFA가 필요합니다. |
+| 가동 상태 | 설명 | 영향 받는 비브라우저 앱 | 영향 받는 브라우저 앱 | 영향 받는 최신 인증 |
+|:---:|:---:|:---:|:--:|:--:|
+| 사용 안 함 |Azure MFA(Multi-Factor Authentication)에 등록되지 않은 새 사용자에 대한 기본 상태입니다. |아니요 |아니요 |아니요 |
+| 사용 |사용자가 Azure MFA에 등록되었지만 등록하지 않았습니다. 이 경우 다음에 로그인할 때 등록하라는 메시지가 표시됩니다. |아니요.  등록 프로세스가 완료될 때까지 계속 작업합니다. | 예. 세션이 만료되면 MFA 등록이 필요합니다.| 예. 액세스 토큰이 만료되면 MFA 등록이 필요합니다. |
+| 적용 |사용자가 등록되었으며 Azure MFA를 위한 등록 프로세스를 완료했습니다. |예.  앱에 앱 암호가 필요합니다. |예. 로그인할 때 MFA가 필요합니다. | 예. 로그인할 때 MFA가 필요합니다. |
 
 사용자의 상태는 관리자가 사용자를 Azure MFA에 등록했는지 그리고 사용자가 등록 프로세스를 완료했는지 여부를 반영합니다.
 

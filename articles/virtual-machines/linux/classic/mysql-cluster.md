@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2015
 ms.author: jparrel
-ms.openlocfilehash: be178a59f7c3558cc0fef89e5529893f160c649b
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 8b39da7b96002e14c7d9a567ddc4f1dbc9d45c60
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="use-load-balanced-sets-to-clusterize-mysql-on-linux"></a>부하 분산 집합을 사용하여 Linux에서 MySQL 클러스터화
 > [!IMPORTANT]
@@ -52,7 +52,7 @@ MySQL(NBD Cluster, Percona 및 Galera 포함) 및 여러 개의 미들웨어 솔
   * Corosync 및 Pacemaker
 
 ### <a name="affinity-group"></a>선호도 그룹
-Azure 클래식 포털에 로그인하고 **설정**을 선택하고 선호도 그룹을 만들어 솔루션에 대한 선호도 그룹을 만듭니다. 나중에 만들어진 할당된 리소스는 이 선호도 그룹에 할당됩니다.
+Azure Portal에 로그인하고 **설정**을 선택하고 선호도 그룹을 만들어 솔루션에 대한 선호도 그룹을 만듭니다. 나중에 만들어진 할당된 리소스는 이 선호도 그룹에 할당됩니다.
 
 ### <a name="networks"></a>네트워크
 새 네트워크가 만들어지고 네트워크 내에 서브넷이 만들어집니다. 이 예제에서는 내부에 /24 서브넷 하나만 있는 10.10.10.0/24 네트워크를 사용합니다.

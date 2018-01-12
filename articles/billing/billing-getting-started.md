@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/14/2017
 ms.author: tonguyen
-ms.openlocfilehash: d74f649a8b5f35ffe16479576959e5ebb2857bf1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4bbb13f31c42a57815dca176408d5c2e82feb5e0
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Azure 청구 및 비용 관리를 사용하여 예기치 않은 비용 방지
 
@@ -28,6 +28,8 @@ Azure에 등록하면 몇 가지 방법을 통해 지출을 보다 명확히 파
 - 구독이 EA(기업 계약)인 경우 Azure Portal에서 비용을 확인하기 위한 공개 미리 보기를 사용할 수 있습니다. CSP(클라우드 솔루션 공급자) 또는 Azure 스폰서쉽을 통한 구독인 경우 다음 기능 중 일부는 적용되지 않습니다. 자세한 내용은 [EA, CSP 및 스폰서쉽에 대한 추가 리소스](#other-offers)를 참조하세요.
 
 - 구독이 평가판, [Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), AIO(Azure in Open) 또는 BizSpark인 경우, 크레딧을 모두 사용하면 구독이 자동으로 사용되지 않도록 설정됩니다. 구독이 예상치 않게 사용할 수 없도록 설정되는 것을 방지하려면 [지출 한도](#spending-limit)에 대해 자세히 알아보세요.
+
+- [Azure 체험 계정](https://azure.microsoft.com/en-us/free/)에 등록하는 경우 [12개월 동안 체험용으로 가장 널리 사용되는 Azure 서비스의 일부를 사용할 수 있습니다](billing-create-free-services-included-free-account.md). 아래에 나열된 권장 사항과 함께 [체험 계정에서 요금 청구 방지](billing-avoid-charges-free-account.md)를 참조하세요.
 
 ## <a name="get-estimated-costs-before-adding-azure-services"></a>Azure 서비스를 추가하기 전에 예상 비용 얻기
 
@@ -169,7 +171,7 @@ Advisor 대시보드의 **비용** 탭에서 실행 가능한 권장 지침을 �
 
 ![Azure Portal의 구독 보기에 표시되는 역할의 스크린 샷](./media/billing-getting-started/sub-blade-view.PNG)
 
-계정 관리자가 아니면 경우 누군가가 [Azure Active Directory RBAC(역할 기반 액세스 제어)](../active-directory/role-based-access-control-configure.md)를 통해 부분적인 액세스 권한을 부여한 것입니다. 구독을 관리하고 청구 정보를 변경하려면 [계정 관리자를 찾고](billing-subscription-transfer.md#whoisaa) 작업을 수행하거나 [구독을 전송](billing-subscription-transfer.md)하도록 요청합니다.
+계정 관리자가 아니면 경우 누군가가 [Azure Active Directory RBAC(역할 기반 Access Control)](../active-directory/role-based-access-control-configure.md)를 통해 부분적인 액세스 권한을 부여한 것입니다. 구독을 관리하고 청구 정보를 변경하려면 [계정 관리자를 찾고](billing-subscription-transfer.md#whoisaa) 작업을 수행하거나 [구독을 전송](billing-subscription-transfer.md)하도록 요청합니다.
 
 계정 관리자가 더 이상 조직에 있지 않은 상태에서 청구를 관리해야 할 경우 [지원 서비스에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하세요. 
 ## <a name="need-help-contact-support"></a>도움이 필요하세요? 지원에 문의

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: mfussell
-ms.openlocfilehash: aae828489b708a5b538df1d63c12be23d0423da7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b2ff715d8225bd0a9c7f6108f8804cdfa3189cc8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configure-security-policies-for-your-application"></a>응용 프로그램에 대한 보안 정책 구성
 Azure Service Fabric을 사용하여 다른 사용자 계정으로 클러스터에서 실행 중인 응용 프로그램을 보호할 수 있습니다. 또한 Service Fabric으로 배포 시 파일, 디렉터리, 인증서 등과 같은 사용자 계정을 통해 응용 프로그램에서 사용하는 리소스도 보호합니다. 따라서 공유되는 호스티드 환경에서도 서로 더욱 안전하게 응용 프로그램을 실행할 수 있습니다.
@@ -30,7 +30,7 @@ Azure Service Fabric을 사용하여 다른 사용자 계정으로 클러스터�
 사용자 그룹을 정의하고 만들었으므로 각 그룹에 사용자를 한 명 이상 추가하여 한꺼번에 관리할 수 있습니다. 이 기능은 여러 서비스 진입점에 대한 사용자가 여러 명 있고 그 사용자들에게 그룹 수준에서 특정 공통 권한을 부여해야 하는 경우 유용합니다.
 
 ## <a name="configure-the-policy-for-a-service-setup-entry-point"></a>서비스 설치 진입점에 대한 정책 구성
-[응용 프로그램 모델](service-fabric-application-model.md)에서 설명한 것처럼 설치 진입점인 **SetupEntryPoint**는 Service Fabric과 같은 자격 증명(일반적으로 *NetworkService* 계정)을 사용하여 다른 진입점보다 먼저 실행되는 권한 있는 진입점입니다. **EntryPoint**로 지정되는 실행 파일은 일반적으로 장기 실행 서비스 호스트입니다. 별도의 설치 진입점이 있으면 한동안은 높은 권한을 사용하여 서비스 호스트를 실행하지 않아도 됩니다. **EntryPoint**로 지정된 실행 파일은 **SetupEntryPoint**가 성공적으로 종료된 후 실행됩니다. 종료되지 않거나 충돌하는 경우 결과 프로세스를 모니터링하여 다시 시작합니다(**SetupEntryPoint**를 사용하여 다시 시작).
+[응용 프로그램 및 서비스 매니페스트](service-fabric-application-and-service-manifests.md)에서 설명한 것처럼 설치 진입점인 **SetupEntryPoint**는 Service Fabric과 같은 자격 증명(일반적으로 *NetworkService* 계정)을 사용하여 다른 진입점보다 먼저 실행되는 권한 있는 진입점입니다. **EntryPoint**로 지정되는 실행 파일은 일반적으로 장기 실행 서비스 호스트입니다. 별도의 설치 진입점이 있으면 한동안은 높은 권한을 사용하여 서비스 호스트를 실행하지 않아도 됩니다. **EntryPoint**로 지정된 실행 파일은 **SetupEntryPoint**가 성공적으로 종료된 후 실행됩니다. 종료되지 않거나 충돌하는 경우 결과 프로세스를 모니터링하여 다시 시작합니다(**SetupEntryPoint**를 사용하여 다시 시작).
 
 다음은 서비스에 대한 SetupEntryPoint 및 기본 EntryPoint를 보여주는 서비스 매니페스트의 간단한 예입니다.
 
@@ -119,7 +119,7 @@ C:\SfDevCluster\Data\_App\Node.2\MyApplicationType_App\work\out.txt
 ```
 
 ### <a name="configure-the-policy-by-using-local-system-accounts"></a>로컬 시스템 계정을 사용하여 정책 구성
-관리자 계정이 아닌 로컬 시스템 계정을 사용하여 스크립트의 시작을 실행하는 것이 일반적으로 더 좋습니다. 컴퓨터는 기본적으로 UAC(사용자 액세스 제어)를 사용하도록 설정되어 있기 때문에 관리자 그룹의 구성원으로 RunAs 정책을 실행하면 일반적으로 잘 작동하지 않습니다. 이러한 경우 **관리자 그룹에 추가된 로컬 사용자 대신 LocalSystem으로 SetupEntryPoint를 실행하는 것이 좋습니다**. 다음 예제에서는 LocalSystem으로 실행하도록 SetupEntryPoint를 설정합니다.
+관리자 계정이 아닌 로컬 시스템 계정을 사용하여 스크립트의 시작을 실행하는 것이 일반적으로 더 좋습니다. 컴퓨터는 기본적으로 UAC(사용자 Access Control)를 사용하도록 설정되어 있기 때문에 관리자 그룹의 구성원으로 RunAs 정책을 실행하면 일반적으로 잘 작동하지 않습니다. 이러한 경우 **관리자 그룹에 추가된 로컬 사용자 대신 LocalSystem으로 SetupEntryPoint를 실행하는 것이 좋습니다**. 다음 예제에서는 LocalSystem으로 실행하도록 SetupEntryPoint를 설정합니다.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 01/10/2018
 ms.author: JeffGo
-ms.openlocfilehash: 065d4cbc9a324f00a0985c4ebed3d4dffc79d91a
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: d0394fd1edf21cdbb863a88a1d3ecef118a7d886
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>MySQL 데이터베이스를 사용 하 여 Microsoft Azure 스택
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 01/05/2018
 
 Azure 스택 MySQL 리소스 공급자를 배포할 수 있습니다. 리소스 공급자를 배포 하면 MySQL server 및 Azure 리소스 관리자 배포 템플릿을 통해 데이터베이스를 만들 수 있으며 MySQL 데이터베이스를 서비스로 제공. 웹 사이트에 공통적으로 적용 되는 MySQL 데이터베이스는 많은 웹 사이트 플랫폼 지원. 예를 들어, 리소스 공급자를 배포 하 고 나면 만들 수 있습니다 WordPress 웹 사이트에서 Azure 웹 앱 플랫폼 서비스 (PaaS) 추가 기능으로 Azure 스택에 대 한.
 
-인터넷에 연결 되지 않은 시스템에서 MySQL 공급자를 배포 하려면 파일을 복사할 수 [mysql 커넥터-net 6.9.9.msi](https://dev.mysql.com/get/Download/sConnector-Net/mysql-connector-net-6.9.9.msi) 로컬 공유에 있습니다. 그런 다음 메시지가 표시 되 면 해당 공유 이름을 제공 합니다. Azure 및 Azure 스택 PowerShell 모듈을 설치 해야 합니다.
+인터넷에 연결 되지 않은 시스템에서 MySQL 공급자를 배포 하려면 파일을 복사할 수 [mysql 커넥터-net 6.10.5.msi](https://dev.mysql.com/get/Download/sConnector-Net/mysql-connector-net-6.10.5.msi) 로컬 공유에 있습니다. 그런 다음 메시지가 표시 되 면 해당 공유 이름을 제공 합니다. Azure 및 Azure 스택 PowerShell 모듈을 설치 해야 합니다.
 
 
 ## <a name="mysql-server-resource-provider-adapter-architecture"></a>MySQL Server 리소스 공급자 어댑터 아키텍처
@@ -71,10 +71,9 @@ Azure 스택 MySQL 리소스 공급자를 배포할 수 있습니다. 리소스 
 
     | Azure 스택 빌드 | MySQL RP 설치 관리자 |
     | --- | --- |
-    | 1.0.180102.3 | **추가 정보에 대 한 잠시 기다려 주십시오, 현재 빌드를 설치 하지 것입니다 되지만 multi-node에서 Azure 스택 업그레이드 한 후 실행 계속 됩니다.** |
-    | 1.0.171122.1 | [MySQL RP 1.1.12.0 버전](https://aka.ms/azurestackmysqlrp) |
+    | 1.0.180102.3 또는 1.0.180106.1 (다중 노드) | [MySQL RP 1.1.14.0 버전](https://aka.ms/azurestackmysqlrp1712) |
+    | 1.0.171122.1 | [MySQL RP 1.1.12.0 버전](https://aka.ms/azurestackmysqlrp1711) |
     | 1.0.171028.1 | [MySQL RP 1.1.8.0 버전](https://aka.ms/azurestackmysqlrp1710) |
-    | 1.0.170928.3 | [MySQL RP 1.1.3.0 버전](https://aka.ms/azurestackmysqlrp1709) |
 
 4.  Azure 스택 루트 인증서는 권한 있는 끝점에서 검색 됩니다. ASDK에 대 한 자체 서명 된 인증서는이 프로세스의 일부로 생성 됩니다. 다중 노드에 대 한 적절 한 인증서를 제공 해야 합니다.
 
@@ -165,7 +164,7 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 | **AzCredential** | Azure 스택 서비스 관리자 계정에 대 한 자격 증명을 제공 합니다. 사용 하 여 동일한 자격 증명 Azure 스택을 배포 하는 데 사용). | _필수_ |
 | **VMLocalCredential** | VM의 MySQL 리소스 공급자의 로컬 관리자 계정의 자격 증명을 정의 합니다. | _필수_ |
 | **PrivilegedEndpoint** | 권한 있는 끝점의 DNS 이름 또는 IP 주소를 입력 합니다. |  _필수_ |
-| **DependencyFilesLocalPath** | 경로를 포함 하는 로컬 공유 [mysql 커넥터-net 6.9.9.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.9.9.msi)합니다. 하나를 제공 하는 경우 인증서 파일을이 디렉터리에 배치 되어야 합니다. | _선택적_ (_필수_ 다중 노드) |
+| **DependencyFilesLocalPath** | 경로를 포함 하는 로컬 공유 [mysql 커넥터-net 6.10.5.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.10.5.msi)합니다. 하나를 제공 하는 경우 인증서 파일을이 디렉터리에 배치 되어야 합니다. | _선택적_ (_필수_ 다중 노드) |
 | **DefaultSSLCertificatePassword** | .Pfx 인증서에 대 한 암호 | _필수_ |
 | **MaxRetryCount** | 오류가 없는 경우 각 작업을 다시 시도 하려면 실패 한 횟수를 정의 합니다.| 2 |
 | **RetryDuration** | 초 후에 다시 시도 대기 중 제한 시간을 정의 합니다. | 120 |

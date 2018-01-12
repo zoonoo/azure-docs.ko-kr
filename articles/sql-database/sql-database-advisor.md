@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 09/20/2017
 ms.author: sstein
-ms.openlocfilehash: 9b6c60a14578842f4b3b1a9e4724eab6de3f8815
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 84706837aeb416d13dab617f51a33d62a934c016
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="performance-recommendations"></a>성능 권장 사항
 
@@ -57,7 +57,12 @@ SQL Server에 대해 실행되는 모든 쿼리는 실행 계획을 생성하기
 
 이 권장 사항을 적용하면 몇 분 이내에 데이터베이스에 대해 강제 매개 변수화가 설정되며, 모니터링 프로세스가 시작됩니다. 이 프로세스는 약 24시간 동안 진행됩니다. 이 기간 후에는 권장 사항을 적용하기 24시간 전 및 24시간 후의 데이터베이스 CPU 사용량을 보여 주는 유효성 검사 보고서를 볼 수 있습니다. SQL Database 관리자는 성능 저하가 감지될 경우 적용된 권장 사항을 자동으로 되돌리는 안전 메커니즘을 제공합니다.
 
-## <a name="fix-schema-issues-recommendations"></a>스키마 문제 해결 권장 사항
+## <a name="fix-schema-issues-recommendations-preview"></a>스키마 문제 해결 권장 사항(미리 보기)
+
+> [!IMPORTANT]
+> Microsoft는 "스키마 문제 해결" 권장 사항을 사용하지 않도록 지정하고 있습니다. "스키마 문제 해결" 권장 사항에서 다룬 스키마 문제를 비롯한 데이터베이스 성능 문제를 자동 모니터링하기 위해 [인텔리전스 Insights](sql-database-intelligent-insights.md)를 사용하여 시작해야 합니다.
+> 
+
 **스키마 문제 해결** 권장 사항은 SQL Database 서비스가 Azure SQL Database에서 발생하는 여러 스키마 관련 SQL 오류에서 이상을 확인하면 나타납니다. 이 권장 사항은 데이터베이스에서 한 시간 내에 여러 스키마 관련 오류(잘못된 열 이름, 잘못된 개체 이름 등...)를 발견한 경우에 일반적으로 나타납니다.
 
 "스키마 문제"는 SQL 쿼리 정의와 데이터베이스 스키마 정의가 잘 맞지 않을 때 발생하는 SQL Server의 구문 오류 클래스입니다. 예를 들어 쿼리에서 예상하는 열 중 하나가 대상 테이블에서 누락될 수 있고 그 반대의 경우도 마찬가지입니다. 
