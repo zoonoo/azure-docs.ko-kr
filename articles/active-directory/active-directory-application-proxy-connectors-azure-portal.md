@@ -3,7 +3,7 @@ title: "Azure AD 응용 프로그램 프록시에서 커넥터 그룹을 사용�
 description: "Azure AD 응용 프로그램 프록시에서 커넥터 그룹을 만들고 관리하는 방법에 대해 설명합니다."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: daveba
 manager: mtillman
 ms.assetid: 
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2017
-ms.author: kgremban
+ms.author: daveba
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: afa710e2605bc1416b082f266010c52d13e83973
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7c409e5419a2bd393cb5c7ec265e44310f7e9027
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>커넥터 그룹을 사용하여 별도의 네트워크 및 위치에서 응용 프로그램 게시
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 12/11/2017
 >[!TIP] 
 >대규모 응용 프로그램 프록시 배포가 있는 경우 기본 커넥터 그룹에 응용 프로그램을 할당하지 마십시오. 이런 방식으로 새 커넥터는 활성 커넥터 그룹에 할당될 때까지 라이브 트래픽을 수신하지 않습니다. 또한 이 구성을 통해 사용자에 영향을 주지 않고 유지 관리를 수행할 수 있도록 기본 그룹으로 다시 이동하여 커넥터를 유휴 모드로 전환할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 커넥터를 그룹화하려면 [여러 커넥터를 설치](active-directory-application-proxy-enable.md)해야 합니다. 새 커넥터를 설치하면 자동으로 **기본** 커넥터 그룹을 조인합니다.
 
 ## <a name="create-connector-groups"></a>커넥터 그룹 만들기
@@ -72,7 +72,7 @@ ms.lasthandoff: 12/11/2017
 
 클라우드 액세스를 위해 IaaS에 설치된 응용 프로그램의 경우 커넥터 그룹은 모든 앱에 대한 액세스를 보호하는 일반적인 서비스를 제공합니다. 커넥터 그룹은 회사 네트워크에 추가 종속성을 만들거나 앱 경험을 조각화하지 않습니다. 커넥터는 각 클라우드 데이터 센터에 설치될 수 있으며 해당 네트워크에 있는 응용 프로그램만 처리할 수 있습니다. 고가용성을 얻기 위해 커넥터를 여러 개 설치할 수 있습니다.
 
-예를 들어 IaaS 호스팅된 고유한 가상 네트워크에 연결된 가상 컴퓨터가 여러 개 있는 조직을 사용합니다. 직원들이 해당 응용 프로그램을 사용할 수 있도록 하기 위해 이러한 사설망은 사이트 간 VPN을 사용하여 회사 네트워크에 연결됩니다. 이는 온-프레미스에 있는 직원들에게 좋은 경험을 제공합니다. 그러나 원격 직원에게는 아래 다이어그램과 같이 추가 온-프레미스 인프라가 액세스를 라우팅해야 하기 때문에 이상적이지 않을 수 있습니다.
+예를 들어 IaaS 호스팅된 고유한 가상 네트워크에 연결된 가상 머신이 여러 개 있는 조직을 사용합니다. 직원들이 해당 응용 프로그램을 사용할 수 있도록 하기 위해 이러한 사설망은 사이트 간 VPN을 사용하여 회사 네트워크에 연결됩니다. 이는 온-프레미스에 있는 직원들에게 좋은 경험을 제공합니다. 그러나 원격 직원에게는 아래 다이어그램과 같이 추가 온-프레미스 인프라가 액세스를 라우팅해야 하기 때문에 이상적이지 않을 수 있습니다.
 
 ![Azure Ad Iaas 네트워크](./media/application-proxy-publish-apps-separate-networks/application-proxy-iaas-network.png)
   

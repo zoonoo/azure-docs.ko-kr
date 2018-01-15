@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 10/05/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 6f9ca3d9b0f41210a3f43a8ae505f0a90b130b34
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: f3bc2f14b182e502c651ff44ef49b88cd34e1f50
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="understand-how-iot-edge-modules-can-be-used-configured-and-reused---preview"></a>IoT Edge 모듈을 사용, 구성 및 다시 사용하는 방법에 대한 이해 - 미리 보기
 
@@ -99,7 +99,7 @@ sink는 다음 중 하나일 수 있습니다.
 | sink | 설명 |
 | ---- | ----------- |
 | `$upstream` | 메시지를 IoT Hub로 보냅니다. |
-| `BrokeredEndpoint(/modules/{moduleId}/inputs/{input})` | 메시지를 `{moduleId}` 모듈의 `{input}` 입력으로 보냅니다. |
+| `BrokeredEndpoint("/modules/{moduleId}/inputs/{input}")` | 메시지를 `{moduleId}` 모듈의 `{input}` 입력으로 보냅니다. |
 
 Edge 허브는 한 번 이상의 보증을 제공한다는 점에 유의해야 합니다. 이는 경로에서 싱크에 메시지를 전달할 수 없는 경우, 예를 들어 Edge 허브에서 IoT Hub에 연결할 수 없거나 대상 모듈이 연결되어 있지 않으면, 메시지가 로컬에 저장된다는 것을 의미합니다.
 
@@ -193,26 +193,26 @@ Edge 에이전트에 대한 모듈 쌍은 `$edgeAgent`라고 하며, 장치에�
 
 ### <a name="edge-agent-twin-desired-properties"></a>Edge 에이전트 쌍 desired 속성
 
-| 속성 | 설명 | 필수 |
+| 자산 | 설명 | 필수 |
 | -------- | ----------- | -------- |
-| schemaVersion | "1.0"이어야 합니다. | 예 |
-| runtime.type | "docker"여야 합니다. | 예 |
-| runtime.settings.minDockerVersion | 이 배포 매니페스트에 필요한 최소 Docker 버전으로 설정합니다. | 예 |
+| schemaVersion | "1.0"이어야 합니다. | 적용 |
+| runtime.type | "docker"여야 합니다. | 적용 |
+| runtime.settings.minDockerVersion | 이 배포 매니페스트에 필요한 최소 Docker 버전으로 설정합니다. | 적용 |
 | runtime.settings.loggingOptions | Edge 에이전트 컨테이너에 대한 로깅 옵션을 포함하는 문자열 형식 JSON입니다. [Docker 로깅 옵션][lnk-docker-logging-options] | 아니요 |
-| systemModules.edgeAgent.type | "docker"여야 합니다. | 예 |
-| systemModules.edgeAgent.settings.image | Edge 에이전트의 이미지에 대한 URI입니다. 현재 Edge 에이전트는 자체적으로 업데이트할 수 없습니다. | 예 |
+| systemModules.edgeAgent.type | "docker"여야 합니다. | 적용 |
+| systemModules.edgeAgent.settings.image | Edge 에이전트의 이미지에 대한 URI입니다. 현재 Edge 에이전트는 자체적으로 업데이트할 수 없습니다. | 적용 |
 | systemModules.edgeAgent.settings.createOptions | Edge 에이전트 컨테이너에 대한 만들기 옵션을 포함하는 문자열 형식 JSON입니다. [Docker 만들기 옵션][lnk-docker-create-options] | 아니요 |
 | systemModules.edgeAgent.configuration.id | 이 모듈을 배포한 배포의 ID입니다. | 이 매니페스트가 배포를 사용하여 적용될 때 IoT Hub에서 이 속성을 설정합니다. 배포 매니페스트의 일부가 아닙니다. |
-| systemModules.edgeHub.type | "docker"여야 합니다. | 예 |
-| systemModules.edgeHub.status | "running"이어야 합니다. | 예 |
-| systemModules.edgeHub.restartPolicy | "always"여야 합니다. | 예 |
-| systemModules.edgeHub.settings.image | Edge 허브의 이미지에 대한 URI입니다. | 예 |
+| systemModules.edgeHub.type | "docker"여야 합니다. | 적용 |
+| systemModules.edgeHub.status | "running"이어야 합니다. | 적용 |
+| systemModules.edgeHub.restartPolicy | "always"여야 합니다. | 적용 |
+| systemModules.edgeHub.settings.image | Edge 허브의 이미지에 대한 URI입니다. | 적용 |
 | systemModules.edgeHub.settings.createOptions | Edge 허브 컨테이너에 대한 만들기 옵션을 포함하는 문자열 형식 JSON입니다. [Docker 만들기 옵션][lnk-docker-create-options] | 아니요 |
 | systemModules.edgeHub.configuration.id | 이 모듈을 배포한 배포의 ID입니다. | 이 매니페스트가 배포를 사용하여 적용될 때 IoT Hub에서 이 속성을 설정합니다. 배포 매니페스트의 일부가 아닙니다. |
-| modules.{moduleId}.version | 이 모듈의 버전을 나타내는 사용자 정의 문자열입니다. | 예 |
-| modules.{moduleId}.type | "docker"여야 합니다. | 예 |
-| modules.{moduleId}.restartPolicy | {"never" \| "on-failed" \| "on-unhealthy" \| "always"} | 예 |
-| modules.{moduleId}.settings.image | 모듈 이미지에 대한 URI입니다. | 예 |
+| modules.{moduleId}.version | 이 모듈의 버전을 나타내는 사용자 정의 문자열입니다. | 적용 |
+| modules.{moduleId}.type | "docker"여야 합니다. | 적용 |
+| modules.{moduleId}.restartPolicy | {"never" \| "on-failed" \| "on-unhealthy" \| "always"} | 적용 |
+| modules.{moduleId}.settings.image | 모듈 이미지에 대한 URI입니다. | 적용 |
 | modules.{moduleId}.settings.createOptions | 모듈 컨테이너에 대한 만들기 옵션을 포함하는 문자열 형식 JSON입니다. [Docker 만들기 옵션][lnk-docker-create-options] | 아니요 |
 | modules.{moduleId}.configuration.id | 이 모듈을 배포한 배포의 ID입니다. | 이 매니페스트가 배포를 사용하여 적용될 때 IoT Hub에서 이 속성을 설정합니다. 배포 매니페스트의 일부가 아닙니다. |
 
@@ -231,7 +231,7 @@ Edge 에이전트 reported 속성에는 다음 세 가지 주요 정보가 포�
 
 다음 표에는 desired 속성에서 복사한 정보가 포함되어 있지 않습니다.
 
-| 속성 | 설명 |
+| 자산 | 설명 |
 | -------- | ----------- |
 | lastDesiredVersion | 이 int는 Edge 에이전트에서 처리하는 desired 속성의 마지막 버전을 나타냅니다. |
 | lastDesiredStatus.code | Edge 에이전트에서 마지막으로 표시한 desired 속성을 나타내는 상태 코드입니다. 허용되는 값: `200` 성공, `400` 잘못된 구성, `412` 잘못된 스키마 버전, `417` 비어 있는 desired 속성, `500` 실패 |
@@ -264,15 +264,15 @@ Edge 허브에 대한 모듈 쌍은 `$edgeHub`라고 하며, 장치에서 실행
 
 ### <a name="edge-hub-twin-desired-properties"></a>Edge 허브 쌍 desired 속성
 
-| 속성 | 설명 | 배포 매니페스트에 필요합니다. |
+| 자산 | 설명 | 배포 매니페스트에 필요합니다. |
 | -------- | ----------- | -------- |
-| schemaVersion | "1.0"이어야 합니다. | 예 |
+| schemaVersion | "1.0"이어야 합니다. | 적용 |
 | routes.{routeName} | Edge 허브 경로를 나타내는 문자열입니다. | `routes` 요소는 존재하지만 비어 있을 수 있습니다. |
-| storeAndForwardConfiguration.timeToLiveSecs | 연결이 끊긴 라우팅 끝점의 경우(예: IoT Hub 또는 로컬 모듈에서 연결이 끊김) Edge 허브에서 메시지를 유지하는 시간(초)입니다. | 예 |
+| storeAndForwardConfiguration.timeToLiveSecs | 연결이 끊긴 라우팅 끝점의 경우(예: IoT Hub 또는 로컬 모듈에서 연결이 끊김) Edge 허브에서 메시지를 유지하는 시간(초)입니다. | 적용 |
 
 ### <a name="edge-hub-twin-reported-properties"></a>Edge 허브 쌍 reported 속성
 
-| 속성 | 설명 |
+| 자산 | 설명 |
 | -------- | ----------- |
 | lastDesiredVersion | 이 int는 Edge 허브에서 처리하는 desired 속성의 마지막 버전을 나타냅니다. |
 | lastDesiredStatus.code | Edge 허브에서 마지막으로 표시한 desired 속성을 나타내는 상태 코드입니다. 허용되는 값: `200` 성공, `400` 잘못된 구성, `500` 실패 |

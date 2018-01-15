@@ -1,18 +1,18 @@
 ---
-title: "인벤토리 수집을 사용하여 Azure 가상 컴퓨터 관리 | Microsoft Docs"
+title: "인벤토리 수집을 사용하여 Azure 가상 머신 관리 | Microsoft Docs"
 description: "인벤토리 수집을 사용하여 가상 컴퓨터 관리"
 services: automation
 keywords: "인벤토리, 자동화, 변경, 추적"
 author: jennyhunter-msft
 ms.author: jehunte
 ms.date: 09/13/2017
-ms.topic: hero-article
+ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 275e4e9103808710e2a71168a05b3440bb288c6a
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 7b0e39e98a81231b68414f36ac5c1fc0897304a1
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>인벤토리 수집을 사용하여 Azure 가상 컴퓨터 관리
 
@@ -20,15 +20,15 @@ ms.lasthandoff: 12/08/2017
 
 ## <a name="before-you-begin"></a>시작하기 전에
 Azure 구독이 아직 없는 경우 [무료 계정을 만듭니다](https://azure.microsoft.com/free/).
-Azure 가상 컴퓨터가 없는 경우 [가상 컴퓨터를 만듭니다](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal).
+Azure 가상 머신이 없는 경우 [가상 머신을 만듭니다](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure 포털에 로그인합니다.
 [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 
-## <a name="enable-inventory-collection-from-the-virtual-machine-resource-page"></a>가상 컴퓨터 리소스 페이지에서 인벤토리 수집 활성화
+## <a name="enable-inventory-collection-from-the-virtual-machine-resource-page"></a>가상 머신 리소스 페이지에서 인벤토리 수집 활성화
 
-1. Azure Portal의 왼쪽 창에서 **가상 컴퓨터**를 선택합니다.
-2. 가상 컴퓨터 목록에서 가상 컴퓨터를 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **가상 머신**를 선택합니다.
+2. 가상 머신 목록에서 가상 머신을 선택합니다.
 3. **작업** 아래의 **리소스** 메뉴에서 **인벤토리(미리 보기)**를 선택합니다.  
     솔루션이 활성화하지 않았음을 알려 주는 배너가 창 맨 위에 나타납니다. 
 4. 솔루션을 사용하도록 설정하려면 배너를 선택합니다.
@@ -52,18 +52,18 @@ Azure 가상 컴퓨터가 없는 경우 [가상 컴퓨터를 만듭니다](https
 3. 창의 위쪽에서 **추가**를 선택합니다.
 4. 각 설정 속성에 대한 세부 정보와 설명을 보려면 [인벤토리 설명서 페이지](https://aka.ms/configinventorydocs)를 방문하세요.
 
-## <a name="disconnect-your-virtual-machine-from-management"></a>관리에서 가상 컴퓨터 분리
+## <a name="disconnect-your-virtual-machine-from-management"></a>관리에서 가상 머신 분리
 
-인벤토리 관리에서 가상 컴퓨터를 제거하려면 다음을 수행합니다.
+인벤토리 관리에서 가상 머신을 제거하려면 다음을 수행합니다.
 
-1. Azure Portal의 왼쪽 창에서 **Log Analytics**를 선택한 다음 가상 컴퓨터를 온보딩할 때 사용한 작업 영역을 선택합니다.
-2. **Log Analytics** 창의 **리소스** 메뉴에서 **작업 영역 데이터 소스** 범주에 있는 **가상 컴퓨터**를 선택합니다. 
-3. 목록에서 분리할 가상 컴퓨터를 선택합니다. 가상 컴퓨터는 **OMS 연결** 열의 **이 작업 영역** 옆에 녹색 확인 표시가 있습니다. 
+1. Azure Portal의 왼쪽 창에서 **Log Analytics**를 선택한 다음 가상 머신을 온보딩할 때 사용한 작업 영역을 선택합니다.
+2. **Log Analytics** 창의 **리소스** 메뉴에서 **작업 영역 데이터 소스** 범주에 있는 **가상 머신**를 선택합니다. 
+3. 목록에서 분리할 가상 머신을 선택합니다. 가상 머신은 **OMS 연결** 열의 **이 작업 영역** 옆에 녹색 확인 표시가 있습니다. 
 4. 다음 페이지 맨 위에서 **연결 끊기**를 선택합니다.
 5. 확인 창에서 **예**를 선택합니다.  
     이 작업으로 관리에서 컴퓨터 연결이 끊깁니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* 가상 컴퓨터의 파일 및 레지스트리 설정에서 변경 관리에 대해 알아보려면 [변경 내용 추적 솔루션으로 사용자 환경에서 소프트웨어 변경 추적](../log-analytics/log-analytics-change-tracking.md)을 참조하세요.
-* 가상 컴퓨터에서 Windows 및 패키지 업데이트 관리에 대해 알아보려면 [OMS의 업데이트 관리 솔루션](../operations-management-suite/oms-solution-update-management.md)을 참조하세요.
+* 가상 머신의 파일 및 레지스트리 설정에서 변경 관리에 대해 알아보려면 [변경 내용 추적 솔루션으로 사용자 환경에서 소프트웨어 변경 추적](../log-analytics/log-analytics-change-tracking.md)을 참조하세요.
+* 가상 머신에서 Windows 및 패키지 업데이트 관리에 대해 알아보려면 [OMS의 업데이트 관리 솔루션](../operations-management-suite/oms-solution-update-management.md)을 참조하세요.

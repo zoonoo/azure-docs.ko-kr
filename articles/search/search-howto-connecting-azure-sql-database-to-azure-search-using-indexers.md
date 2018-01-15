@@ -14,11 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 07/13/2017
 ms.author: eugenesh
-ms.openlocfilehash: 8b0f3941526214455992ba2f0f6299df24323c9c
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 2ec1e02ccc8d8916f6d9d50ce787f2562f33fd7d
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="connecting-azure-sql-database-to-azure-search-using-indexers"></a>인덱서를 사용하여 Azure Search에 Azure SQL Database 연결
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/08/2017
 
 이 문서에서는 [인덱서](search-indexer-overview.md) 사용 원리를 다루지만 Azure SQL 데이터베이스에서만 사용할 수 있는 기능(예: 통합 변경 내용 추적)에 대해서도 설명합니다. 
 
-Azure SQL 데이터베이스 외에도 Azure Search는 [Azure Cosmos DB](search-howto-index-documentdb.md), [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md) 및 [Azure Table Storage](search-howto-indexing-azure-tables.md)에 대한 인덱서를 제공합니다. 다른 데이터 원본에 대한 지원을 요청하려면 [Azure Search 피드백 포럼](https://feedback.azure.com/forums/263029-azure-search/)에 의견을 남겨 주시기 바랍니다.
+Azure SQL 데이터베이스 외에도 Azure Search는 [Azure Cosmos DB](search-howto-index-cosmosdb.md), [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md) 및 [Azure Table Storage](search-howto-indexing-azure-tables.md)에 대한 인덱서를 제공합니다. 다른 데이터 원본에 대한 지원을 요청하려면 [Azure Search 피드백 포럼](https://feedback.azure.com/forums/263029-azure-search/)에 의견을 남겨 주시기 바랍니다.
 
 ## <a name="indexers-and-data-sources"></a>인덱서 및 데이터 원본
 
@@ -283,7 +283,7 @@ SQL 통합 변경 내용 추적 정책을 사용할 때는 별도의 데이터 �
 <a name="TypeMapping"></a>
 
 ## <a name="mapping-between-sql-and-azure-search-data-types"></a>SQL과 Azure Search 데이터 형식 사이의 매핑
-| SQL 데이터 형식 | 허용되는 대상 인덱스 필드 유형 | 참고 사항 |
+| SQL 데이터 형식 | 허용되는 대상 인덱스 필드 유형 | 메모 |
 | --- | --- | --- |
 | bit |Edm.Boolean, Edm.String | |
 | int, smallint, tinyint |Edm.Int32, Edm.Int64, Edm.String | |
@@ -302,7 +302,7 @@ SQL 인덱서는 여러 구성 설정을 노출합니다.
 
 | 설정 | 데이터 형식 | 목적 | 기본값 |
 | --- | --- | --- | --- |
-| queryTimeout |string |SQL 쿼리 실행의 제한 시간 설정 |5분("00:05:00") |
+| queryTimeout |문자열 |SQL 쿼리 실행의 제한 시간 설정 |5분("00:05:00") |
 | disableOrderByHighWaterMarkColumn |bool |상위 워터 마크 정책에서 사용하는 SQL 쿼리에서 ORDER BY 절이 생략되도록 합니다. [상위 워터 마크 정책](#HighWaterMarkPolicy)을 참조하세요. |false |
 
 이러한 설정은 인덱서 정의의 `parameters.configuration` 개체에 사용됩니다. 예를 들어 쿼리 제한 시간을 10분으로 설정하려면 다음 구성을 사용하여 인덱서를 만들거나 업데이트합니다.

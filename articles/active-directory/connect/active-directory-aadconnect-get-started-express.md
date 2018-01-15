@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/12/2017
+ms.date: 01/03/2018
 ms.author: billmath
-ms.openlocfilehash: 638e654cb9e7a2454b37beb6067cb5a2fb9a57b5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7d180a83d7b0a8e02ed04d8771d2ad2c6fa386c6
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="getting-started-with-azure-ad-connect-using-express-settings"></a>기본 설정을 사용하여 Azure AD Connect 시작
 인증을 위한 단일 포리스트 토폴로지 및 **암호 동기화**가 있는 경우 Azure AD Connect [Express 설정](active-directory-aadconnectsync-implement-password-synchronization.md)을 사용합니다. **Express 설정** 은 기본 옵션이며 가장 일반적으로 배포된 시나리오에 사용됩니다. 몇 번의 클릭만으로 온-프레미스 디렉터리를 클라우드로 확장할 수 있습니다.
@@ -35,9 +35,10 @@ Express 설정이 토폴로지와 일치하지 않는 경우 다른 시나리오
 3. 시작 화면에서 사용권 계약에 동의하는 상자를 선택하고 **계속**을 클릭합니다.  
 4. 기본 설정 화면에서 **Use express settings**(기본 설정 사용)를 클릭합니다.  
    ![Azure AD Connect 시작](./media/active-directory-aadconnect-get-started-express/express.png)
-5. Azure AD에 연결 화면에서 Azure AD에 대한 전역 관리자의 사용자 이름 및 암호를 입력합니다. **다음**을 누릅니다.  
-   ![Azure AD에 연결](./media/active-directory-aadconnect-get-started-express/connectaad.png) 오류가 발생하고 연결에 문제가 있는 경우 [연결 문제 해결](active-directory-aadconnect-troubleshoot-connectivity.md)의 필수 구성 요소 단계를 완료하도록 합니다.
-6. AD DS에 연결 화면에서 엔터프라이즈 관리자 계정의 사용자 이름 및 암호를 입력합니다. NetBios 또는 FQDN 형식으로 도메인 부분을 입력할 수 있습니다(예: FABRIKAM\administrator 또는 fabrikam.com\administrator). **다음**을 누릅니다.  
+5. Azure AD에 연결 화면에서 Azure AD에 대한 전역 관리자의 사용자 이름 및 암호를 입력합니다. **다음**을 클릭합니다.  
+   ![Azure AD에 연결](./media/active-directory-aadconnect-get-started-express/connectaad.png)  
+   오류가 발생하고 연결에 문제가 있는 경우 [연결 문제 해결](active-directory-aadconnect-troubleshoot-connectivity.md)을 참조하세요.
+6. AD DS에 연결 화면에서 엔터프라이즈 관리자 계정의 사용자 이름 및 암호를 입력합니다. NetBios 또는 FQDN 형식으로 도메인 부분을 입력할 수 있습니다(예: FABRIKAM\administrator 또는 fabrikam.com\administrator). **다음**을 클릭합니다.  
    ![AD DS에 연결](./media/active-directory-aadconnect-get-started-express/connectad.png)
 7. [필수 구성 요소](active-directory-aadconnect-prerequisites.md)에서 [도메인 확인](../active-directory-domains-add-azure-portal.md)을 완료하지 않은 경우 [**Azure AD 로그인 구성**](active-directory-aadconnect-user-signin.md#azure-ad-sign-in-configuration) 페이지가 표시됩니다.
    ![확인되지 않은 도메인](./media/active-directory-aadconnect-get-started-express/unverifieddomain.png)  
@@ -49,12 +50,12 @@ Express 설정이 토폴로지와 일치하지 않는 경우 다른 시나리오
 9. 설치가 완료되면 **끝내기**를 클릭합니다.
 10. 설치가 완료된 후 로그아웃하고 동기화 서비스 관리자 또는 동기화 규칙 편집기를 사용하기 전에 다시 로그인합니다.
 
-## <a name="videos"></a>비디오
+## <a name="videos"></a>동영상
 빠른 설치 사용에 대한 비디오는 다음을 참조하세요.
 
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Azure-Active-Directory-Connect-Express-Settings/player]
-> 
-> 
+>
+>
 
 ## <a name="next-steps"></a>다음 단계
 Azure AD Connect를 설치했으므로 [설치를 확인하고 라이선스를 할당](active-directory-aadconnect-whats-next.md)할 수 있습니다.
@@ -66,10 +67,10 @@ Azure AD Connect를 설치했으므로 [설치를 확인하고 라이선스를 �
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
 ## <a name="related-documentation"></a>관련 설명서
-| 항목 |
-| --- | --- |
-| Azure AD Connect 개요 |
-| 사용자 지정된 설정을 사용하여 설치 |
-| DirSync에서 업그레이드 |
-| 설치에 사용되는 계정 |
 
+| 항목 | 링크 |
+| --- | --- |
+| Azure AD Connect 개요 | [Azure Active Directory와 온-프레미스 디렉터리 통합](active-directory-aadconnect.md)
+| 사용자 지정된 설정을 사용하여 설치 | [Azure AD Connect의 사용자 지정 설치](active-directory-aadconnect-get-started-custom.md) |
+| DirSync에서 업그레이드 | [Azure AD Sync 도구(DirSync)에서 업그레이드](./active-directory-aadconnect-dirsync-upgrade-get-started.md)|
+| 설치에 사용되는 계정 | [Azure AD Connect 자격 증명 및 사용 권한에 대한 자세한 정보](active-directory-aadconnect-accounts-permissions.md) |

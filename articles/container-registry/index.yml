@@ -13,11 +13,11 @@ metadata:
   ms.topic: landing-page
   ms.date: 07/26/2017
   ms.author: carolz
-  ms.openlocfilehash: cdd33e3aed48cc94f91962b78f17628a6e29657d
-  ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+  ms.openlocfilehash: d6f7bc786b4239f93983a039f2ae8b82ee90ed5b
+  ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 12/07/2017
+  ms.lasthandoff: 01/12/2018
 abstract:
   description: "Azure Container Registry를 사용하면 모든 유형의 컨테이너 배포에 대한 이미지를 저장하고 관리할 수 있습니다. 이러한 빠른 시작, 자습서 및 샘플을 통해 Azure Container Registry를 사용하는 방법을 알아봅니다."
 sections:
@@ -29,15 +29,15 @@ sections:
     style: icon48
     items:
     - image:
-        src: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/cli.svg
+        src: https://docs.microsoft.com/azure/virtual-machines/linux/media/index/cli.svg
       text: Azure CLI
       href: /azure/container-registry/container-registry-get-started-azure-cli
     - image:
-        src: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/portal.svg
+        src: https://docs.microsoft.com/azure/virtual-machines/linux/media/index/portal.svg
       text: Azure Portal
       href: /azure/container-registry/container-registry-get-started-portal
     - image:
-        src: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/logo_powershell.svg
+        src: https://docs.microsoft.com/azure/virtual-machines/linux/media/index/logo_powershell.svg
       text: Azure PowerShell
       href: /azure/container-registry/container-registry-get-started-powershell
 - title: "단계별 자습서"
@@ -61,6 +61,6 @@ sections:
     - title: "명령줄"
       html: <p><a href="/cli/azure/acr">Azure CLI</a></p><p><a href="/powershell/module/azurerm.containerregistry">PowerShell</a></p>
     - title: "언어"
-      html: <p><a href="/dotnet/api/overview/azure/containerregistry">.NET</a></p><p><a href="/python/api/overview/azure/container-registry">Python</a></p><p><a href="/javascript/api/overview/azure/container-registry">Node.JS</a></p>
+      html: <p><a href="/dotnet/api/overview/azure/containerregistry">.NET</a></p><p><a href="/python/api/overview/azure/container-registry">Python</a></p><p><a href="/javascript/api/overview/azure/container-registry">Node.js</a></p>
     - title: "REST (영문)"
       html: "<p><a href=\"/rest/api/containerregistry\">REST API 참조</a></p><p><a href=\"/azure/templates/microsoft.containerregistry/registries\">Resource Manager 템플릿</a></p><p><a href=\"/azure/container-registry/container-registry-webhook-reference\">웹후크 스키마</a></p>"

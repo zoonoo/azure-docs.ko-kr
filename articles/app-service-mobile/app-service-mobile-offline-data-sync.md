@@ -1,9 +1,9 @@
 ---
 title: "Azure Mobile Apps에서 오프라인 데이터 동기화 | Microsoft Docs"
-description: "Azure 모바일 앱에 대한 오프라인 데이터 동기화 기능의 개념 참조 및 개요"
+description: "Azure Mobile Apps에 대한 오프라인 데이터 동기화 기능의 개념 참조 및 개요"
 documentationcenter: windows
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: 
 services: app-service\mobile
 ms.assetid: 982fb683-8884-40da-96e6-77eeca2500e3
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 ms.date: 10/30/2016
-ms.author: glenga
-ms.openlocfilehash: 8e2bd755d14319f8c66f7ae7ec64fbd10801b39d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: crdun
+ms.openlocfilehash: 5ea1d655f50da49be88f7b6ae91231c4d2258fa7
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
-# <a name="offline-data-sync-in-azure-mobile-apps"></a>Azure 모바일 앱에서 오프라인 데이터 동기화
+# <a name="offline-data-sync-in-azure-mobile-apps"></a>Azure Mobile Apps에서 오프라인 데이터 동기화
 ## <a name="what-is-offline-data-sync"></a>오프라인 데이터 동기화 정의
 오프라인 데이터 동기화는 개발자가 네트워크 연결 없이 작동하는 앱을 쉽게 만들 수 있는 Azure Mobile Apps의 클라이언트 및 서버 SDK 기능입니다.
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 10/11/2017
 * 여러 장치 간에 데이터를 동기화하고 동일한 레코드를 두 개의 장치에서 수정할 때 충돌 감지
 * 지연 시간이 길거나 요금제인 네트워크에 대한 네트워크 사용 제한
 
-다음 자습서는 Azure 모바일 앱을 사용하여 모바일 클라이언트에 오프라인 동기화를 추가하는 방법을 보여줍니다.
+다음 자습서는 Azure Mobile Apps를 사용하여 모바일 클라이언트에 오프라인 동기화를 추가하는 방법을 보여줍니다.
 
 * [Android: 오프라인 동기화 사용]
 * [Apache Cordova: 오프라인 동기화 사용](app-service-mobile-cordova-get-started-offline-data.md)

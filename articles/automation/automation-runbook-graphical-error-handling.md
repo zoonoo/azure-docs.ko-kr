@@ -11,14 +11,14 @@ ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 12/26/2016
 ms.author: magoedte
-ms.openlocfilehash: 9bbaf7bac013dffb941f15bdccd2ab2996f1576e
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: afe7043e31c05444dded089dc02689a3b0c94659
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="error-handling-in-azure-automation-graphical-runbooks"></a>Azure Automation 그래픽 runbook의 오류 처리
 
@@ -61,7 +61,7 @@ runbook 작성자는 오류를 발생시킬 수 있는 각 활동에 대해 다�
 
 이 설정을 구성한 후에는 오류를 처리하는 활동을 만듭니다. 활동이 오류를 생성하면 활동에서 일반 출력을 생성했더라도 일반 링크가 아니라 나가는 오류 링크를 따릅니다.<br><br> ![Automation runbook 오류 링크 예제](media/automation-runbook-graphical-error-handling/error-link-example.png)
 
-다음 예제에서 runbook은 가상 컴퓨터의 컴퓨터 이름을 포함하는 변수를 검색합니다. 다음 작업으로 가상 컴퓨터를 시작하려고 시도합니다.<br><br> ![Automation runbook 오류 처리 예제](media/automation-runbook-graphical-error-handling/runbook-example-error-handling.png)<br><br>      
+다음 예제에서 runbook은 가상 머신의 컴퓨터 이름을 포함하는 변수를 검색합니다. 다음 작업으로 가상 머신을 시작하려고 시도합니다.<br><br> ![Automation runbook 오류 처리 예제](media/automation-runbook-graphical-error-handling/runbook-example-error-handling.png)<br><br>      
 
 **Get-AutomationVariable** 활동과 **Start-AzureRmVm**은 예외를 오류로 변환하도록 구성됩니다.  변수를 가져오거나 VM을 시작하는 데 문제가 있으면 오류가 생성됩니다.<br><br> ![Automation runbook 오류 처리 활동 설정](media/automation-runbook-graphical-error-handling/activity-blade-convertexception-option.png)
 

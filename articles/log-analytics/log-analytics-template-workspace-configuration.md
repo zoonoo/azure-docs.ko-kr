@@ -14,11 +14,11 @@ ms.devlang: json
 ms.topic: article
 ms.date: 12/06/2017
 ms.author: richrund
-ms.openlocfilehash: 7fffaf3861feebc0cf3537ca096b1eebb252b7d6
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: cea25429dc6e5f9f12f472d17e8743d272135257
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿 사용한 Log Analytics 관리
 [Azure Resource Manager 템플릿](../azure-resource-manager/resource-group-authoring-templates.md)을 사용하여 Log Analytics 작업 영역 만들고 구성할 수 있습니다. 템플릿을 사용하여 수행할 수 있는 작업의 예:
@@ -32,7 +32,7 @@ ms.lasthandoff: 12/08/2017
 * Linux 컴퓨터의 syslog에서 이벤트 수집 
 * Windows 이벤트 로그에서 이벤트 수집
 * 사용자 지정 이벤트 로그 수집
-* Azure 가상 컴퓨터에 Log Analytics 에이전트 추가
+* Azure 가상 머신에 Log Analytics 에이전트 추가
 * Azure 진단을 사용하여 수집된 데이터를 인덱싱하도록 Log Analytics 구성
 
 이 문서에서는 템플릿에서 수행할 수 있는 몇 가지 구성을 보여 주는 템플릿 샘플을 제공합니다.
@@ -43,7 +43,7 @@ ms.lasthandoff: 12/08/2017
 | 리소스 | 리소스 종류 | 레거시 API 버전 | 업그레이드된 API 버전 |
 |:---|:---|:---|:---|
 | 작업 영역   | workspaces    | 2015-11-01-preview | 2017-03-15-preview |
-| 검색      | savedSearches | 2015-11-01-preview | 2017-03-15-preview |
+| Search      | savedSearches | 2015-11-01-preview | 2017-03-15-preview |
 | 데이터 원본 | datasources   | 2015-11-01-preview | 2015-11-01-preview |
 | 해결 방법    | solutions     | 2015-11-01-preview | 2015-11-01-preview |
 
@@ -63,7 +63,7 @@ ms.lasthandoff: 12/08/2017
 10. 사용자 지정 로그 수집 
 11. Azure 진단을 통해 저장소 계정에 기록한 Windows 이벤트 로그 및 IIS 로그 수집
 
-```
+```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
@@ -469,10 +469,12 @@ ms.lasthandoff: 12/08/2017
 3. PowerShell 또는 명령줄을 사용하여 템플릿을 배포합니다.
 
 #### <a name="powershell"></a>PowerShell
-`New-AzureRmResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile azuredeploy.json`
+```powershell
+New-AzureRmResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile azuredeploy.json
+```
 
 #### <a name="command-line"></a>명령 줄
-```
+```cmd
 azure config mode arm
 azure group deployment create <my-resource-group> <my-deployment-name> --TemplateFile azuredeploy.json
 ```
@@ -482,7 +484,7 @@ azure group deployment create <my-resource-group> <my-deployment-name> --Templat
 Azure 빠른 시작 템플릿 갤러리에는 다음과 같이 Log Analytics를 위한 여러 템플릿이 포함되어 있습니다.
 
 * [Log Analytics VM 확장을 사용하여 Windows를 실행하는 가상 컴퓨터 배포](https://azure.microsoft.com/documentation/templates/201-oms-extension-windows-vm/)
-* [Log Analytics VM 확장을 사용하여 Linux를 실행하는 가상 컴퓨터 배포](https://azure.microsoft.com/documentation/templates/201-oms-extension-ubuntu-vm/)
+* [Log Analytics VM 확장을 사용하여 Linux를 실행하는 가상 머신 배포](https://azure.microsoft.com/documentation/templates/201-oms-extension-ubuntu-vm/)
 * [기존 Log Analytics 작업 영역을 사용하여 Azure Site Recovery 모니터링](https://azure.microsoft.com/documentation/templates/asr-oms-monitoring/)
 * [기존 Log Analytics 작업 영역을 사용하여 Azure Web Apps 모니터링](https://azure.microsoft.com/documentation/templates/101-webappazure-oms-monitoring/)
 * [기존 Log Analytics 작업 영역을 사용하여 SQL Azure 모니터링](https://azure.microsoft.com/documentation/templates/101-sqlazure-oms-monitoring/)

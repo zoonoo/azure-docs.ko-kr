@@ -14,11 +14,11 @@ ms.workload: web
 ms.date: 12/11/2017
 ms.author: tarcher
 ms.custom: jenkins
-ms.openlocfilehash: 269e936cb79ba4138285f5dbd326413d70d5924d
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 04a60bf021ec6e265a3880264386ad32ec7e8177
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="build-a-project-in-azure-using-jenkins-and-azure-container-instances"></a>Jenkins 및 Azure Container Instances를 사용하여 Azure에서 프로젝트 빌드
 
@@ -30,7 +30,7 @@ Azure Container Instances를 사용하면 가상 머신을 프로비전하거나
 > * Jenkins용 Azure 컨테이너 에이전트 플러그 인 설치 및 구성
 > * Azure Container Instances를 사용하여 [Spring PetClinic 샘플 응용 프로그램](https://github.com/spring-projects/spring-petclinic) 빌드
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - **Azure 구독** - Azure 구입 옵션에 대해 알아보려면 [Azure 구입 방법](https://azure.microsoft.com/pricing/purchase-options/) 또는 [1개월 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
@@ -329,4 +329,4 @@ az group delete -n <resourceGroup>
 
 ## <a name="next-steps"></a>다음 단계
 > [!div class="nextstepaction"]
-> [최신 문서 및 샘플을 보려면 Azure 허브의 Jenkins를 방문하세요.](https://docs.microsoft.com/en-us/azure/jenkins/)
+> [최신 문서 및 샘플을 보려면 Azure 허브의 Jenkins를 방문하세요.](https://docs.microsoft.com/azure/jenkins/)

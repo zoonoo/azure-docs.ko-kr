@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
 ms.openlocfilehash: c11b59f8ea432075b147a391de4b7bd3331e639e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="how-to-use-the-azure-slave-plug-in-with-hudson-continuous-integration"></a>Hudson Continuous Integration과 함께 Azure 슬레이브 플러그인을 사용하는 방법
 Hudson용 Azure 슬레이브 플러그인을 사용하면 분산된 빌드를 실행할 때 슬레이브 노드를 프로비전할 수 있습니다.
@@ -81,13 +81,13 @@ Hudson용 Azure 슬레이브 플러그인을 사용하면 분산된 빌드를 �
 6. **Verify configuration**을 클릭합니다.
 7. 구성이 성공적으로 확인되면 **Save**를 클릭합니다.
 
-## <a name="set-up-a-virtual-machine-template-for-the-azure-slave-plug-in"></a>Azure 슬레이브 플러그인용 가상 컴퓨터 템플릿 설정
-가상 컴퓨터 템플릿은 플러그인이 Azure에 슬레이브 노드를 만들 때 사용할 매개 변수를 정의합니다. 다음 단계에서는 Ubuntu VM용 템플릿을 만들 것입니다.
+## <a name="set-up-a-virtual-machine-template-for-the-azure-slave-plug-in"></a>Azure 슬레이브 플러그인용 가상 머신 템플릿 설정
+가상 머신 템플릿은 플러그인이 Azure에 슬레이브 노드를 만들 때 사용할 매개 변수를 정의합니다. 다음 단계에서는 Ubuntu VM용 템플릿을 만들 것입니다.
 
 1. Hudson 대시보드에서 **Manage Hudson**을 클릭합니다.
 2. **Configure System**을 클릭합니다.
 3. 페이지를 아래로 스크롤해서 **Cloud** 섹션을 찾습니다.
-4. **Cloud** 섹션 내에서 **Add Azure Virtual Machine Template**를 찾은 후 **Add** 단추를 클릭합니다.
+4. **Cloud** 섹션 내에서 **Azure Virtual Machine Template 추가**를 찾은 후 **Add** 단추를 클릭합니다.
    
     ![VM 템플릿 추가][add vm template]
 5. **Name** 필드에서 클라우드 서비스 이름을 지정합니다. 지정한 이름이 기존 클라우드 서비스를 참조하는 경우, VM은 해당 서비스를 프로비전합니다. 그렇지 않은 경우 Azure는 새로운 서비스를 만듭니다.
@@ -149,7 +149,7 @@ Hudson용 Azure 슬레이브 플러그인을 사용하면 분산된 빌드를 �
 3. 작업 유형에 대해서는 **Build a free-style software job**을 선택합니다.
 4. **확인**을 클릭합니다.
 5. 작업 구성 페이지에서 **Restrict where this project can be run**을 선택합니다.
-6. **Node and label menu**를 선택하고 **linux**를 선택합니다(이전 섹션에서 가상 컴퓨터 템플릿을 만들 때 이 레이블을 지정했습니다).
+6. **Node and label menu**를 선택하고 **linux**를 선택합니다(이전 섹션에서 가상 머신 템플릿을 만들 때 이 레이블을 지정했습니다).
 7. **빌드** 섹션에서 **빌드 단계 추가**를 클릭하고 **셸 실행**을 선택합니다.
 8. 다음 스크립트를 편집하여 **{github 계정 이름}**, **{프로젝트 이름}** 및 **{프로젝트 디렉터리}**를 적절한 값으로 대체하고, 편집한 스크립트를 표시되는 텍스트 영역에 붙여넣습니다.
    

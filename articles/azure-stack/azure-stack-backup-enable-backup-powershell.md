@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: mabrigg
-ms.openlocfilehash: 5326aa5af174c9027729b98eac62a314e3ecc122
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: cbec6242fb4e185c9801a93fc2c4b35721269c2f
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="enable-backup-for-azure-stack-with-powershell"></a>Azure 스택 powershell에 대 한 백업을 사용 하도록 설정
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 01/11/2018
 
 ## <a name="download-azure-stack-tools"></a>Azure 스택 도구 다운로드
 
-설치 하 고 Azure 스택에 대해 구성 된 PowerShell 및 Azure 스택 도구. 참조 [스택에서 Azure PowerShell을 시작 하 고 실행](https://review.docs.microsoft.com/en-us/azure/azure-stack/azure-stack-powershell-configure-quickstart)합니다.
+설치 하 고 Azure 스택에 대해 구성 된 PowerShell 및 Azure 스택 도구. 참조 [스택에서 Azure PowerShell을 시작 하 고 실행](https://docs.microsoft.com/azure/azure-stack/azure-stack-powershell-configure-quickstart)합니다.
 
 ##  <a name="load-the-connect-and-infrastructure-modules"></a>연결 및 인프라 모듈 로드
 

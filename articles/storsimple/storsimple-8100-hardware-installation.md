@@ -4,7 +4,7 @@ description: "소프트웨어를 배포하고 구성하기 전에 StorSimple 810
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: jeconnoc
 editor: 
 ms.assetid: 6098a01e-c031-488a-a8d7-0b607ce665e1
 ms.service: storsimple
@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/17/2016
+ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 102dffcd73f3d3b9362d7b2853faa060e9c645dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5fbc407a9792d033037fdaa2b14f4055d94c15ab
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8100-device"></a>StorSimple 8100 장치 개봉, 랙 탑재, 케이블 연결
 ## <a name="overview"></a>개요
@@ -38,7 +38,7 @@ Microsoft Azure StorSimple 8100은 단일 인클로저의 랙 탑재 장치입�
 다음 단계를 따라 장치의 포장을 풉니다.
 
 #### <a name="to-unpack-your-device"></a>장치를 개봉하려면
-1. 상자와 포장 발포 폼에 찌그러짐, 자르기, 물에 의한 손상 또는 기타 손상이 없는지 검사합니다. 상자나 포장이 심각하게 손상된 경우에는 상자를 열지 마세요. 장치가 올바르게 작동하는지 여부를 평가하려면 [Microsoft 지원에 문의](storsimple-contact-microsoft-support.md) 하세요.
+1. 상자와 포장 발포 폼에 찌그러짐, 자르기, 물에 의한 손상 또는 기타 손상이 없는지 검사합니다. 상자나 포장이 심각하게 손상된 경우에는 상자를 열지 마세요. 장치가 올바르게 작동하는지 여부를 평가하려면 [Microsoft 지원에 문의](storsimple-8000-contact-microsoft-support.md) 하세요.
 2. 상자를 개봉합니다. 다음 이미지는 StorSimple 장치의 개봉된 모습을 보여 줍니다.
    
      ![저장소 장치 개봉하기](./media/storsimple-8100-hardware-installation/HCSUnpackyour2Udevice.png)
@@ -64,7 +64,7 @@ Microsoft Azure StorSimple 8100은 단일 인클로저의 랙 탑재 장치입�
    * 랙 탑재 키트 1개(탑재 하드웨어가 있는 사이드 레일 2개)
    * 시작 설명서
      
-     위에 나열된 항목 중에 수신하지 않은 것이 있다면 [Microsoft 지원에 문의하세요](storsimple-contact-microsoft-support.md).
+     위에 나열된 항목 중에 수신하지 않은 것이 있다면 [Microsoft 지원에 문의하세요](storsimple-8000-contact-microsoft-support.md).
 
 다음 단계는 장치를 랙에 탑재하는 것입니다.
 
@@ -156,7 +156,7 @@ Microsoft Azure StorSimple 8100은 단일 인클로저의 랙 탑재 장치입�
 ## <a name="cable-your-storsimple-8100-device"></a>StorSimple 8100 장치 케이블 연결
 다음 절차는 StorSimple 8100 장치를 전원, 네트워크 및 직렬 연결을 위해 케이블로 연결하는 방법을 설명합니다.
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>필수 구성 요소
 장치를 케이블로 연결하려면 다음이 필요합니다.
 
 * 저장소 장치는 완전히 개봉되고 랙이 탑재되었습니다.
@@ -200,7 +200,7 @@ Microsoft Azure StorSimple 8100은 단일 인클로저의 랙 탑재 장치입�
 
    |레이블 | 설명 |
    |----- | ----------- |
-   | 문자열(UTF-8 형식) 또는    | 인터넷 액세스 LAN |
+   | A    | 인터넷 액세스 LAN |
    | B    | 컨트롤러 0 |
    | C    | PCM 0 |
    | D    | 컨트롤러 1 |
@@ -220,7 +220,7 @@ Microsoft Azure StorSimple 8100은 단일 인클로저의 랙 탑재 장치입�
 * 가능하면 각 컨트롤러에서 클라우드 액세스(1GbE)에 대한 네트워크 인터페이스의 쌍 및 iSCSI(10GbE 권장)에 대한 다른 쌍을 구성합니다.
 * 가능하면 각 컨트롤러의 네트워크 인터페이스를 2개의 다른 스위치에 연결하여 스위치 장애 시 가용성을 보장합니다. 이 그림은 2개의 다른 스위치에 연결된 각 컨트롤러에서 2개의 10GbE 네트워크 인터페이스, DATA 2 및 DATA 3을 나타냅니다.
 
-자세한 정보는 **StorSimple 장치에 대한 고가용성 요구 사항** 아래의 [네트워크 인터페이스](storsimple-system-requirements.md#high-availability-requirements-for-storsimple)를 참조하세요.
+자세한 정보는 **StorSimple 장치에 대한 고가용성 요구 사항** 아래의 [네트워크 인터페이스](storsimple-8000-system-requirements.md#high-availability-requirements-for-storsimple)를 참조하세요.
 
 > [!NOTE]
 > 10GbE 네트워크 인터페이스로 SFP+ 트랜시버를 사용하는 경우 제공된 QSFP-SFP+ 어댑터를 사용합니다. 자세한 내용은 [StorSimple 장치의 10GbE 네트워크 인터페이스에 대해 지원되는 하드웨어](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)로 이동합니다.
@@ -246,5 +246,5 @@ Microsoft Azure StorSimple 8100은 단일 인클로저의 랙 탑재 장치입�
 이제 장치가 케이블로 전원, 네트워크 액세스 및 직렬 장치에 연결되었습니다. 다음 단계는 소프트웨어를 구성하고 장치를 배포하는 것입니다.
 
 ## <a name="next-steps"></a>다음 단계
-[온-프레미스 StorSimple 장치를 배포 및 구성](storsimple-deployment-walkthrough-u2.md)하는 방법에 대해 알아봅니다.
+[온-프레미스 StorSimple 장치를 배포 및 구성](storsimple-8000-deployment-walkthrough-u2.md)하는 방법에 대해 알아봅니다.
 

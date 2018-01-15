@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: jingwang
-ms.openlocfilehash: 54afc7d993058ac2b3d2990ba131d334e9332555
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: cdf4e808045bb649b3a2406e8f7c1ef30e34fe7b
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-http-endpoint-using-azure-data-factory"></a>Azure Data Factory를 사용하여 HTTP 끝점에서 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -42,7 +42,8 @@ HTTP 원본에서 지원되는 모든 싱크 데이터 저장소로 데이터를
 이 커넥터와 [웹 테이블 커넥터](connector-web-table.md) 간의 차이는, 후자가 웹 HTML 페이지에서 테이블 콘텐츠를 추출하는 데 사용된다는 것입니다.
 
 ## <a name="getting-started"></a>시작
-.NET SDK, Python SDK, Azure PowerShell, REST API 또는 Azure Resource Manager 템플릿을 사용하여 복사 작업으로 파이프라인을 만들 수 있습니다. 복사 작업을 사용하여 파이프라인을 만드는 단계별 지침은 [복사 작업 자습서](quickstart-create-data-factory-dot-net.md)를 참조하세요.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 다음 섹션에서는 HTTP 커넥터에 한정된 Data Factory 엔터티를 정의하는 데 사용되는 속성에 대해 자세히 설명합니다.
 
@@ -50,22 +51,22 @@ HTTP 원본에서 지원되는 모든 싱크 데이터 저장소로 데이터를
 
 HTTP 연결된 서비스에 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 형식 속성은 **HttpServer**로 설정해야 합니다. | 예 |
-| url | 웹 서버에 대한 기본 URL입니다. | 예 |
+| 형식 | 형식 속성은 **HttpServer**로 설정해야 합니다. | 적용 |
+| URL | 웹 서버에 대한 기본 URL입니다. | 적용 |
 | enableServerCertificateValidation | HTTP 끝점으로 연결할 때 서버 SSL 인증서 유효성 검사를 사용할지 지정합니다. | 아니요. 기본값은 True입니다. |
-| authenticationType | 인증 유형을 지정합니다. 허용되는 값: **Anonymous**, **Basic**, **Digest**, **Windows**, **ClientCertificate**. <br><br> 각 인증 형식에 대한 더 많은 속성 및 JSON 샘플은 표 아래 섹션을 참조하세요. | 예 |
+| authenticationType | 인증 유형을 지정합니다. 허용되는 값: **Anonymous**, **Basic**, **Digest**, **Windows**, **ClientCertificate**. <br><br> 각 인증 형식에 대한 더 많은 속성 및 JSON 샘플은 표 아래 섹션을 참조하세요. | 적용 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 Integration Runtime을 사용할 수 있습니다(데이터 저장소가 개인 네트워크에 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아니요 |
 
 ### <a name="using-basic-digest-or-windows-authentication"></a>Basic, Digest 또는 Windows 인증 사용
 
 “authenticationType” 속성을 **Basic**, **Digest** 또는 **Windows**로 설정하고, 이전 섹션에서 설명한 일반 속성과 함께 다음 속성을 지정합니다.
 
-| 속성 | 설명 | 필수 |
+| 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| userName | HTTP 끝점에 액세스하는 사용자 이름입니다. | 예 |
-| 암호 | 사용자(userName) 암호입니다. 이 필드를 SecureString으로 표시합니다. | 예 |
+| userName | HTTP 끝점에 액세스하는 사용자 이름입니다. | 적용 |
+| 암호 | 사용자(userName) 암호입니다. 이 필드를 SecureString으로 표시합니다. | 적용 |
 
 **예제**
 
@@ -95,11 +96,11 @@ HTTP 연결된 서비스에 다음 속성이 지원됩니다.
 
 ClientCertificate 인증을 사용하려면 “authenticationType” 속성을 **ClientCertificate**로 설정하고, 이전 섹션에서 설명한 일반 속성과 함께 다음 속성을 지정합니다.
 
-| 속성 | 설명 | 필수 |
+| 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | embeddedCertData | Base64 인코딩 인증서 데이터입니다. | `embeddedCertData` 또는 `certThumbprint`를 지정합니다. |
 | certThumbprint | 자체 호스팅 Integration Runtime 컴퓨터의 인증서 저장소에 설치된 인증서의 지문입니다. 자체 호스팅된 유형의 Integration Runtime이 connectVia에 지정된 경우에만 적용됩니다. | `embeddedCertData` 또는 `certThumbprint`를 지정합니다. |
-| password | 인증서와 연결된 암호입니다. 이 필드를 SecureString으로 표시합니다. | 아니요 |
+| 암호 | 인증서와 연결된 암호입니다. 이 필드를 SecureString으로 표시합니다. | 아니요 |
 
 인증에 “certThumbprint”를 사용하고 인증서가 로컬 컴퓨터의 개인 저장소에 설치된 경우 자체 호스팅된 Integration Runtime에 읽기 권한을 부여해야 합니다.
 
@@ -158,9 +159,9 @@ ClientCertificate 인증을 사용하려면 “authenticationType” 속성을 *
 
 HTTP에서 데이터를 복사하려면 데이터 집합의 형식 속성을 **HttpFile**로 설정합니다. 다음과 같은 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 데이터 집합의 형식 속성을 **HttpFile**로 설정해야 합니다. | 예 |
+| 형식 | 데이터 집합의 형식 속성을 **HttpFile**로 설정해야 합니다. | 적용 |
 | relativeUrl | 데이터를 포함하는 리소스에 대한 상대 URL입니다. 이 속성을 지정하지 않으면 연결된 서비스 정의에 지정된 URL만 사용됩니다. | 아니요 |
 | requestMethod | HTTP 메서드입니다.<br/>허용되는 값은 **Get**(기본값) 또는 **Post**입니다. | 아니요 |
 | additionalHeaders | 추가 HTTP 요청 헤더입니다. | 아니요 |
@@ -215,9 +216,9 @@ HTTP에서 데이터를 복사하려면 데이터 집합의 형식 속성을 **H
 
 HTTP에서 데이터를 복사하려면 복사 작업의 원본 형식을 **HttpSource**로 설정합니다. 복사 작업 **source** 섹션에서 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 작업 원본의 형식 속성을 **HttpSource**로 설정해야 합니다. | 예 |
+| 형식 | 복사 작업 원본의 형식 속성을 **HttpSource**로 설정해야 합니다. | 적용 |
 | httpRequestTimeout | HTTP 요청이 응답을 받을 시간 제한(TimeSpan)입니다. 응답 데이터를 읽는 시간 제한이 아니라, 응답을 받을 시간 제한입니다.<br/> 기본값은 00:01:40입니다.  | 아니요 |
 
 **예제:**

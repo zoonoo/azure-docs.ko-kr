@@ -13,17 +13,15 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: 1496e4523154ba791bf55a0708a1a77132f5257c
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 5fb0e2dd56e373ecf723a3672d9538bcc6dc68e3
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="lesson-11-create-roles"></a>단원 11: 역할 만들기
-
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+# <a name="create-roles"></a>역할 만들기
 
 이 단원에서는 역할을 만듭니다. 역할은 역할 멤버인 Sa 사용자로만 액세스를 제한하여 모델 데이터베이스 개체 및 데이터 보안을 제공합니다. 각 역할은 단일 사용 권한(없음, 읽기, 읽기 및 프로세스, 프로세스 또는 관리자)으로 정의됩니다. 역할 관리자를 사용하여 모델 작성 중에 역할을 정의할 수 있습니다. 모델을 배포한 후에는 SSMS(SQL Server Management Studio)를 사용하여 역할을 관리할 수 있습니다. 자세한 내용은 [역할](https://docs.microsoft.com/sql/analysis-services/tabular-models/roles-ssas-tabular)을 참조하세요.
   
@@ -42,7 +40,7 @@ ms.lasthandoff: 11/02/2017
   
 이 단원을 완료하기 위한 예상 시간: **15분**  
   
-## <a name="prerequisites"></a>필수 조건  
+## <a name="prerequisites"></a>필수 구성 요소  
 이 항목은 테이블 형식 모델링 자습서에 포함되며 순서대로 완료해야 합니다. 이 단원의 작업을 수행하기 전에 이전 단원인 [단원 10: 파티션 만들기](../tutorials/aas-lesson-10-create-partitions.md)를 완료해야 합니다.  
   
 ## <a name="create-roles"></a>역할 만들기  

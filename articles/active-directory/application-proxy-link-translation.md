@@ -3,7 +3,7 @@ title: "Azure AD 앱 프록시 링크 및 URL 변환 | Microsoft Docs"
 description: "Azure AD 응용 프로그램 프록시 커넥터에 대한 기본 사항을 제공합니다."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: daveba
 manager: mtillman
 ms.assetid: 
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
-ms.author: kgremban
+ms.author: daveba
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 877c4491b3ebc2164f7cb2ecb9392d9c71e1667a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e4d143b4937a1f6c1c21783ae357dbe617816e73
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Azure AD 응용 프로그램 프록시를 사용하여 게시된 앱에 대해 하드 코드된 링크 리디렉션
 
@@ -77,7 +77,7 @@ Benefits 앱에 대해 링크 변환을 사용하도록 설정하면 Expenses �
 2. **Azure Active Directory** > **Enterprise 응용 프로그램** > **모든 응용 프로그램** > 관리할 앱 선택 > **응용 프로그램 프록시**로 이동합니다.
 3. **Translate URLs in application body**(응용 프로그램 본문의 URL 변환)를 **예**로 설정합니다.
 
-   ![[예]를 선택하여 응용 프로그램 본문의 URL 변환](./media/application-proxy-link-translation/select_yes.png)등 4가지 유형의 클러스터가 제공됩니다.
+   ![[예]를 선택하여 응용 프로그램 본문의 URL 변환](./media/application-proxy-link-translation/select_yes.png)에서도 확인할 수 있습니다.
 4. **저장**을 선택하여 변경 내용을 적용합니다.
 
 이제 사용자가 이 응용 프로그램에 액세스하면 프록시는 테넌트에서 응용 프로그램 프록시를 통해 게시된 내부 URL을 자동으로 검사합니다.

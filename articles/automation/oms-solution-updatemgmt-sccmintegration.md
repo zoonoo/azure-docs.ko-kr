@@ -11,14 +11,14 @@ ms.service: operations-management-suite
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 09/25/2017
 ms.author: gwallace
-ms.openlocfilehash: 40e343ab75a2c2508d64ec0aeb293f5154813135
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 4696f3b9602c1da01d9706f15f38cdf5bc0f3372
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="integrate-system-center-configuration-manager-with-oms-update-management"></a>OMS 업데이트 관리와 System Center Configuration Manager 통합
 
@@ -26,7 +26,7 @@ PC, 서버 및 모바일 장치를 관리하기 위해 System Center Configurati
 
 현재 OMS와 Configuration Manager 간의 기존 통합에 빌드하면 Configuration Manager에서 소프트웨어 업데이트 배포를 만들고 미리 준비하여 관리되는 Windows 서버를 보고 및 업데이트하고, [업데이트 관리 솔루션](../operations-management-suite/oms-solution-update-management.md)을 사용하여 완성된 업데이트 배포의 자세한 상태를 확인할 수 있습니다. Windows 서버로 업데이트 배포 관리가 아닌 업데이트 준수 보고를 위해 Configuration Manager를 사용하는 경우 OMS 업데이트 관리 솔루션으로 보안 업데이트가 관리되는 동안 Configuration Manager로 보고를 계속할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * [업데이트 관리 솔루션](../operations-management-suite/oms-solution-update-management.md)을 Log Analytics 작업 영역에 추가하고 동일한 리소스 그룹 및 지역에서 자동화 계정을 함께 연결해야 합니다.   
 * 현재 System Center Configuration Manager 환경에서 관리되는 Windows 서버는 업데이트 관리 솔루션을 사용하도록 설정되어 있는 Log Analytics 작업 영역에 보고해야 합니다.  

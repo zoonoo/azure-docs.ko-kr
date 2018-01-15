@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: d26adec8c273d015a671c745f2136fc6251fd291
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 6a3941efcc7d9cebe49024fa7aa792cf12e9937d
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-odata-source-using-azure-data-factory"></a>Azure Data Factory를 사용하여 OData 원본에서 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -39,7 +39,8 @@ OData 원본에서 지원되는 모든 싱크 데이터 저장소로 데이터�
 - **Anonymous**, **Basic** 및 **Windows** 인증을 사용한 데이터 복사
 
 ## <a name="getting-started"></a>시작
-.NET SDK, Python SDK, Azure PowerShell, REST API 또는 Azure Resource Manager 템플릿을 사용하여 복사 작업으로 파이프라인을 만들 수 있습니다. 복사 작업을 사용하여 파이프라인을 만드는 단계별 지침은 [복사 작업 자습서](quickstart-create-data-factory-dot-net.md)를 참조하세요.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 다음 섹션에서는 OData 커넥터에 한정된 Data Factory 엔터티를 정의하는 데 사용되는 속성에 대해 자세히 설명합니다.
 
@@ -47,11 +48,11 @@ OData 원본에서 지원되는 모든 싱크 데이터 저장소로 데이터�
 
 OData 연결된 서비스에 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 형식 속성은 **OData** |예 |
-| url | OData 서비스의 루트 URL입니다. |예 |
-| authenticationType | OData 소스에 연결하는 데 사용되는 인증 형식입니다.<br/>가능한 값은 **Anonymous**, **Basic** 및 **Windows**입니다. OAuth는 지원되지 않습니다. | 예 |
+| 형식 | 형식 속성은 **OData** |적용 |
+| URL | OData 서비스의 루트 URL입니다. |적용 |
+| authenticationType | OData 소스에 연결하는 데 사용되는 인증 형식입니다.<br/>가능한 값은 **Anonymous**, **Basic** 및 **Windows**입니다. OAuth는 지원되지 않습니다. | 적용 |
 | userName | 기본 또는 Windows 인증을 사용하는 경우 사용자 이름을 지정합니다. | 아니요 |
 | 암호 | userName에 지정한 사용자 계정의 암호를 지정합니다. 이 필드를 SecureString으로 표시합니다. | 아니요 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 Integration Runtime을 사용할 수 있습니다(데이터 저장소가 개인 네트워크에 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아니요 |
@@ -129,10 +130,10 @@ OData 연결된 서비스에 다음 속성이 지원됩니다.
 
 OData에서 데이터를 복사하려면 데이터 집합의 형식 속성을 **ODataResource**로 설정합니다. 다음과 같은 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 데이터 집합의 형식 속성을 **ODataResource**로 설정해야 합니다. | 예 |
-| path | OData 리소스에 대한 경로입니다. | 아니요 |
+| 형식 | 데이터 집합의 형식 속성을 **ODataResource**로 설정해야 합니다. | 적용 |
+| 경로 | OData 리소스에 대한 경로입니다. | 아니요 |
 
 **예제**
 
@@ -162,9 +163,9 @@ OData에서 데이터를 복사하려면 데이터 집합의 형식 속성을 **
 
 OData에서 데이터를 복사하려면 복사 작업의 원본 형식을 **RelationalSource**로 설정합니다. 복사 작업 **source** 섹션에서 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 작업 원본의 형식 속성을 **RelationalSource**로 설정해야 합니다. | 예 |
+| 형식 | 복사 작업 원본의 형식 속성을 **RelationalSource**로 설정해야 합니다. | 적용 |
 | 쿼리 | 데이터를 필터링하는 OData 쿼리 옵션입니다. 예: “?$select=Name,Description&$top=5”.<br/><br/>마지막에 OData 커넥터가 결합된 URL(`[url specified in linked service]/[path specified in dataset][query specified in copy activity source]`)에서 데이터를 복사합니다. [OData URL 구성 요소](http://www.odata.org/documentation/odata-version-3-0/url-conventions/)를 참조하세요. | 아니요 |
 
 **예제:**
@@ -203,15 +204,15 @@ OData에서 데이터를 복사하려면 복사 작업의 원본 형식을 **Rel
 
 OData에서 데이터를 복사하는 경우 OData 데이터 형식에서 Azure Data Factory 중간 데이터 형식으로 다음 매핑이 사용됩니다. 복사 작업에서 원본 스키마 및 데이터 형식을 싱크에 매핑하는 방법에 대한 자세한 내용은 [스키마 및 데이터 형식 매핑](copy-activity-schema-and-type-mapping.md)을 참조하세요.
 
-| OData 데이터 형식 | 데이터 팩터리 중간 데이터 형식 |
+| OData 데이터 형식 | Data Factory 중간 데이터 형식 |
 |:--- |:--- |
 | Edm.Binary | Byte[] |
 | Edm.Boolean | Bool |
 | Edm.Byte | Byte[] |
-| Edm.DateTime | DateTime |
+| Edm.DateTime | Datetime |
 | Edm.Decimal | 10진수 |
 | Edm.Double | Double |
-| Edm.Single | Single |
+| Edm.Single | 단일 |
 | Edm.Guid | Guid |
 | Edm.Int16 | Int16 |
 | Edm.Int32 | Int32 |
@@ -219,7 +220,7 @@ OData에서 데이터를 복사하는 경우 OData 데이터 형식에서 Azure 
 | Edm.SByte | Int16 |
 | Edm.String | 문자열 |
 | Edm.Time | timespan |
-| Edm.DateTimeOffset | Datetimeoffset |
+| Edm.DateTimeOffset | DateTimeOffset |
 
 > [!Note]
 > OData 복합 데이터 형식(예: Object)은 지원되지 않습니다.

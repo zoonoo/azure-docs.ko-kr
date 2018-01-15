@@ -11,14 +11,14 @@ ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 09/26/2016
 ms.author: magoedte
-ms.openlocfilehash: b7b27ca64d9aacabf96fdff8e7dca16f13000d19
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: e1734bdd22ecfc4e54074f02582f5a8eca7d4f59
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="azure-automation-scenario---automate-removal-of-resource-groups"></a>Azure Automation 시나리오 - 리소스 그룹 제거 자동화
 많은 고객이 하나 이상의 리소스 그룹을 만듭니다. 일부는 프로덕션 응용 프로그램을 관리하는 데 사용하고 일부는 환경을 개발, 테스트 및 스테이징하는 데 사용할 수 있습니다. 이러한 리소스의 배포를 자동화하는 것이 중요하지만 단추를 한 번 클릭하여 리소스 그룹을 해제하는 것도 중요합니다. Azure Automation를 사용하여 이 일반 관리 태스크를 간소화할 수 있습니다. MSDN 또는 Microsoft 파트너 네트워크 Cloud Essentials 프로그램과 같은 구성원 혜택을 통해 지출 한도가 있는 Azure 구독을 사용하는 경우에도 유용합니다.
@@ -41,7 +41,7 @@ ms.lasthandoff: 12/14/2017
 | PreviewMode(선택 사항) |runbook을 실행하여 삭제되지만 아무 작업도 수행하지 않는 리소스 그룹을 확인합니다.<br>기본값은 **true** 로 runbook에 전달된 하나 이상의 리소스 그룹을 실수로 삭제하지 않도록 합니다. |
 
 ## <a name="install-and-configure-this-scenario"></a>이 시나리오 설치 및 구성
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>필수 구성 요소
 이 Runbook은 [Azure 실행 계정](automation-sec-configure-azure-runas-account.md)을 사용하여 인증합니다.    
 
 ### <a name="install-and-publish-the-runbooks"></a>Runbook 설치 및 게시

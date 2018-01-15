@@ -11,14 +11,14 @@ ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 08/18/2017
 ms.author: magoedte
-ms.openlocfilehash: dc4bfa4a94eaa2fb4e0e821c4931dcd1963f3109
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 0397b45753ea64d1a33916d5e0dff12d6e1d80aa
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>독립 실행형 Azure Automation 계정 만들기
 이 항목에서는 Runbook 작업의 고급 모니터링을 제공하기 위해 OMS Log Analytics에서 추가 관리 솔루션 또는 통합을 포함하지 않고 Azure Automation을 평가하고 알아보려는 경우 Azure Portal에서 Automation 계정을 만드는 방법을 보여 줍니다.  해당 관리 솔루션을 추가하거나 나중에 언제든지 Log Analytics를 통합할 수 있습니다.  Automation 계정을 사용하여 Azure Resource Manager 또는 Azure 클래식 배포 중 하나에서 리소스를 관리하는 Runbook을 인증할 수 있습니다.

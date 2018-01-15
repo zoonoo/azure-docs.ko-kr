@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2017
 ms.author: jingwang
-ms.openlocfilehash: 2b6219dc509b1af8f196f056b489a31fa331acaf
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 844efa74aba8a5dbc3a116456900d59dab3bafab
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-to-an-azure-search-index-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Search 인덱스에 데이터 복사
 
@@ -35,7 +35,8 @@ ms.lasthandoff: 11/15/2017
 모든 지원되는 원본 데이터 저장소에서 Azure Search 인덱스로 데이터를 복사할 수 있습니다. 복사 작업의 원본/싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 표를 참조하세요.
 
 ## <a name="getting-started"></a>시작
-.NET SDK, Python SDK, Azure PowerShell, REST API 또는 Azure Resource Manager 템플릿을 사용하여 복사 작업으로 파이프라인을 만들 수 있습니다. 복사 작업을 사용하여 파이프라인을 만드는 단계별 지침은 [복사 작업 자습서](quickstart-create-data-factory-dot-net.md)를 참조하세요.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 다음 섹션에서는 Azure Search 커넥터에 한정된 Data Factory 엔터티를 정의하는 데 사용되는 속성에 대해 자세히 설명합니다.
 
@@ -43,11 +44,11 @@ ms.lasthandoff: 11/15/2017
 
 Azure Search 연결된 서비스에 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 형식 속성은 **AzureSearch**로 설정되어야 합니다. | 예 |
-| URL | Azure Search 서비스의 URL입니다. | 예 |
-| key | Azure Search 서비스의 관리자 키입니다. 이 필드를 SecureString으로 표시합니다. | 예 |
+| 형식 | 형식 속성은 **AzureSearch**로 설정되어야 합니다. | 적용 |
+| URL | Azure Search 서비스의 URL입니다. | 적용 |
+| key | Azure Search 서비스의 관리자 키입니다. 이 필드를 SecureString으로 표시합니다. | 적용 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 Integration Runtime을 사용할 수 있습니다(데이터 저장소가 개인 네트워크에 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아니요 |
 
 > [!IMPORTANT]
@@ -81,10 +82,10 @@ Azure Search 연결된 서비스에 다음 속성이 지원됩니다.
 
 Azure Search에 데이터를 복사하려면 데이터 집합의 type 속성을 **RelationalTable**로 설정합니다. 다음과 같은 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 데이터 집합의 type 속성을 **AzureSearchIndex**로 설정해야 합니다. | 예 |
-| indexName | Azure Search 인덱스의 이름입니다. Data Factory는 인덱스를 만들지 않습니다. Azure Search에는 인덱스가 있어야 합니다. | 예 |
+| 형식 | 데이터 집합의 type 속성을 **AzureSearchIndex**로 설정해야 합니다. | 적용 |
+| indexName | Azure Search 인덱스의 이름입니다. Data Factory는 인덱스를 만들지 않습니다. Azure Search에는 인덱스가 있어야 합니다. | 적용 |
 
 **예제:**
 
@@ -112,9 +113,9 @@ Azure Search에 데이터를 복사하려면 데이터 집합의 type 속성을 
 
 Azure Search에 데이터를 복사하려면 복사 작업의 원본 형식을 **AzureSearchIndexSink**로 설정합니다. 복사 작업 **sink** 섹션에서 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 작업 원본의 type 속성을 **AzureSearchIndexSink**로 설정해야 합니다. | 예 |
+| 형식 | 복사 작업 원본의 type 속성을 **AzureSearchIndexSink**로 설정해야 합니다. | 적용 |
 | writeBehavior | 문서가 인덱스에 이미 있는 경우 병합할지 또는 바꿀지를 지정합니다. [WriteBehavior 속성](#writebehavior-property)을 참조하세요.<br/><br/>허용되는 값은 **Merge**(기본값) 및 **Upload**입니다. | 아니요 |
 | writeBatchSize | 버퍼 크기가 writeBatchSize에 도달한 경우 Azure Search 인덱스에 데이터를 업로드합니다. 자세한 내용은 [WriteBatchSize 속성](#writebatchsize-property)을 참조하세요.<br/><br/>허용되는 값은 정수 1~1,000이고 기본값은 1,000입니다. | 아니요 |
 
@@ -171,11 +172,11 @@ Azure Search 서비스는 일괄 처리로 문서 작성을 지원합니다. 일
 
 | Azure Search 데이터 형식 | Azure Search 싱크에서 지원됨 |
 | ---------------------- | ------------------------------ |
-| String | Y |
+| 문자열 | Y |
 | Int32 | Y |
 | Int64 | Y |
 | Double | Y |
-| Boolean | Y |
+| BOOLEAN | Y |
 | DataTimeOffset | Y |
 | 문자열 배열 | N |
 | GeographyPoint | N |

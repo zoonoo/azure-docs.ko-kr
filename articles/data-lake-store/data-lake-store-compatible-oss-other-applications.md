@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/03/2017
+ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 4877258c128d00f621eb198b0f0ec7d197e757ba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5c00dc99950c25dedc94c17444881a049138a7c5
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="open-source-big-data-applications-that-work-with-azure-data-lake-store"></a>Azure 데이터 레이크 저장소에서 작동하는 공개 소스 빅 데이터 응용 프로그램
 이 문서는 Azure 데이터 레이크 저장소에서 작동하는 공개 소스 빅 데이터 응용 프로그램 목록을 보여줍니다. 아래 표의 응용 프로그램은 지원되는 나열된 배포의 버전에서만 사용할 수 있습니다. HDInsight와 함께 사용할 수 있는 응용 프로그램의 버전에 대한 자세한 정보는 [HDInsight 구성 요소 버전 관리](../hdinsight/hdinsight-component-versioning.md)를 참조하세요.

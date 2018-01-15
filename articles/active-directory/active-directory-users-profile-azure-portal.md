@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 01/03/2017
 ms.author: curtand
 ms.reviewer: jeffsta
-ms.openlocfilehash: 6f1085a8b434aca18499e17ba1c1d086edfc302e
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 1f82f0f867173da10907d06c6c093ddcc569565f
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="add-or-change-profile-information-for-a-user-in-azure-active-directory"></a>Azure Active Directory에서 사용자에 대한 프로필 정보 추가 또는 변경
 이 문서에서는 Azure AD(Azure Active Directory)에서 프로필 사진 또는 전화 및 전자 메일 인증 정보와 같은 사용자 프로필 정보를 추가하는 방법을 설명합니다. 조직 내에서 새 사용자 추가에 대한 자세한 내용은 [Azure Active Directory에 새 사용자 추가](active-directory-users-create-azure-portal.md)를 참조하세요.

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/03/2017
+ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 43582ae805d560e72fb8d03ab8e0abee4c4325b7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ec0d1fa9c422dbe4958c5d5f0b7a6e093aeb32da
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="access-control-in-azure-data-lake-store"></a>Azure Data Lake Store에서 액세스 제어
 
@@ -274,7 +274,7 @@ Data Lake Store의 ACL에 대해 자주 제기하는 몇 가지 질문은 다음
 
 ### <a name="do-i-have-to-enable-support-for-acls"></a>ACL에 대한 지원을 사용하도록 설정해야 하나요?
 
-아니요. ACL을 통한 액세스 제어는 항상 Data Lake Store 계정에 대하여 켜져 있습니다.
+번호 ACL을 통한 액세스 제어는 항상 Data Lake Store 계정에 대하여 켜져 있습니다.
 
 ### <a name="which-permissions-are-required-to-recursively-delete-a-folder-and-its-contents"></a>폴더 및 해당 내용을 재귀적으로 삭제하는 데 필요한 권한은 무엇인가요?
 
@@ -308,7 +308,7 @@ ACL의 항목은 Azure AD의 사용자에 해당하는 GUID로 저장됩니다. 
 
 ### <a name="does-data-lake-store-support-inheritance-of-acls"></a>Data Lake Store는 ACL의 상속을 지원하나요?
 
-아니요.
+번호
 
 ### <a name="what-is-the-difference-between-mask-and-umask"></a>마스크와 umask 간의 차이는 무엇인가요?
 
@@ -321,7 +321,7 @@ ACL의 항목은 Azure AD의 사용자에 해당하는 GUID로 저장됩니다. 
 
 ### <a name="where-can-i-learn-more-about-posix-access-control-model"></a>POSIX 액세스 제어 모델에 대한 어디서 자세히 알아볼 수 있나요?
 
-* [Linux의 POSIX 액세스 제어 목록](http://www.vanemery.com/Linux/ACL/POSIX_ACL_on_Linux.html)(영문)
+* [Linux의 POSIX Access Control 목록](http://www.vanemery.com/Linux/ACL/POSIX_ACL_on_Linux.html)(영문)
 
 * [HDFS 권한 가이드](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html)(영문)
 

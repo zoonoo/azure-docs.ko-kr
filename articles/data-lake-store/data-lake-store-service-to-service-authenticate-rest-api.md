@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/28/2017
+ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 754e65c4bcf8574a16b9620e2f21938ecc62b735
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 80934d3e5ded5c01e473f8450a3484d84c46e94e
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="service-to-service-authentication-with-data-lake-store-using-rest-api"></a>REST API를 사용하여 Data Lake Store로 서비스 간 인증
 > [!div class="op_single_selector"]
@@ -30,8 +30,8 @@ ms.lasthandoff: 12/21/2017
 
 이 문서에서는 REST API를 사용하여 Azure Data Lake Store로 서비스 간 인증을 수행하는 방법을 배웁니다. REST API를 사용한 Data Lake Store 최종 사용자 인증의 경우 [REST API를 사용하여 Data Lake Store로 최종 사용자 인증](data-lake-store-end-user-authenticate-rest-api.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
-* **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
+## <a name="prerequisites"></a>필수 구성 요소
+* **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
 * **Azure Active Directory "웹" 응용 프로그램 만들기**. [Azure Active Directory를 사용하여 Data Lake Store로 서비스 간 인증](data-lake-store-service-to-service-authenticate-using-active-directory.md)의 단계를 완료해야 합니다.
 
@@ -55,5 +55,4 @@ ms.lasthandoff: 12/21/2017
 
 * [REST API를 사용한 Data Lake Store에서의 계정 관리 작업](data-lake-store-get-started-rest-api.md)
 * [REST API를 사용한 Data Lake Store에서의 데이터 작업](data-lake-store-data-operations-rest-api.md)
-
 

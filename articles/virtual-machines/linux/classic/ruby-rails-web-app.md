@@ -1,6 +1,6 @@
 ---
 title: "Linux VM에서 Ruby on Rails 웹 사이트 호스트 | Microsoft Docs"
-description: "Azure에서 Linux 가상 컴퓨터를 사용하여 Ruby on Rails 기반 웹 사이트를 설정 및 호스트하는 방법에 대해 알아봅니다."
+description: "Azure에서 Linux 가상 머신을 사용하여 Ruby on Rails 기반 웹 사이트를 설정 및 호스트하는 방법에 대해 알아봅니다."
 services: virtual-machines-linux
 documentationcenter: ruby
 author: rmcmurray
@@ -16,13 +16,13 @@ ms.topic: article
 ms.date: 06/27/2017
 ms.author: robmcm
 ms.openlocfilehash: fb6ded1dcba2ac0f78fc6f1f4f7de9238cd752bd
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="ruby-on-rails-web-application-on-an-azure-vm"></a>Azure VM의 Ruby on Rails 웹 응용 프로그램
-이 자습서에서는 Azure에서 Linux 가상 컴퓨터를 사용하여 Ruby on Rails 웹 사이트를 호스트하는 방법을 보여줍니다.  
+이 자습서에서는 Azure에서 Linux 가상 머신을 사용하여 Ruby on Rails 웹 사이트를 호스트하는 방법을 보여줍니다.  
 
 이 자습서의 내용은 Ubuntu Server 14.04 LTS를 사용하여 유효성이 검사되었습니다. 다른 Linux 배포를 사용하는 경우, Rails를 설치하는 단계를 수정해야 합니다.
 
@@ -36,7 +36,7 @@ Linux 이미지와 Azure VM을 만들어 시작합니다.
 
 VM을 만들려면 Azure Portal 또는 Azure CLI(명령줄 인터페이스)를 사용할 수 있습니다.
 
-### <a name="azure-portal"></a>Azure 포털
+### <a name="azure-portal"></a>Azure portal
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **새로 만들기**를 클릭한 다음 검색 상자에 "Ubuntu Server 14.04"를 입력합니다. 검색에서 반환된 항목을 클릭합니다. 배포 모델에서 **클래식**을 선택한 다음 "만들기"를 클릭합니다.
 3. 기본 블레이드에서 이름(VM), 사용자 이름, 인증 형식과 해당 자격 증명, Azure 구독, 리소스 그룹 및 위치와 같은 필수 필드에 대한 값을 제공합니다.
@@ -48,7 +48,7 @@ VM을 만들려면 Azure Portal 또는 Azure CLI(명령줄 인터페이스)를 �
    ![기본 끝점](./media/virtual-machines-linux-classic-ruby-rails-web-app/endpointsnewportal.png)
 
 ### <a name="azure-cli"></a>Azure CLI
-[Linux를 실행하는 가상 컴퓨터 만들기][vm-instructions]의 단계를 따릅니다.
+[Linux를 실행하는 Virtual Machine 만들기][vm-instructions]의 단계를 따릅니다.
 
 VM이 프로비전된 후, 다음 명령을 실행하여 SSH 끝점을 가져올 수 있습니다.
 
@@ -123,7 +123,7 @@ SSH를 통해 로그인한 경우.다음 명령을 실행합니다.
 
 5. 확인을 클릭하여 끝점을 저장합니다.
 
-6. 메시지가 **가상 컴퓨터 끝점 저장**을 표시해야 합니다. 이 메시지가 사라지면 끝점이 활성 상태가 됩니다. 이제 가상 컴퓨터의 DNS 이름으로 이동하여 응용 프로그램을 테스트할 수 있습니다. 웹 사이트는 다음과 유사합니다.
+6. 메시지가 **가상 머신 끝점 저장**을 표시해야 합니다. 이 메시지가 사라지면 끝점이 활성 상태가 됩니다. 이제 가상 머신의 DNS 이름으로 이동하여 응용 프로그램을 테스트할 수 있습니다. 웹 사이트는 다음과 유사합니다.
 
     ![기본 Rails 페이지][default-rails-cloud]
 

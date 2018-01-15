@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: dubansal
-ms.openlocfilehash: db72b1ca936e69a049d64f939d3399bfd9cdf89c
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: ff8571c6447f32ef9a435f5200803e76f6013ffa
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="using-the-anomalydetection-operator"></a>ANOMALYDETECTION 연산자 사용
 
@@ -78,7 +78,7 @@ ms.lasthandoff: 12/14/2017
 - SlowPosTrendScore
 - SlowNegTrendScore
 
-레코드에서 개별 값을 추출하려면 **GetRecordPropertyValue** 함수를 사용합니다. 예:
+레코드에서 개별 값을 추출하려면 **GetRecordPropertyValue** 함수를 사용합니다. 예: 
 
 `SELECT id, val FROM input WHERE (GetRecordPropertyValue(ANOMALYDETECTION(val) OVER(LIMIT DURATION(hour, 1)), 'BiLevelChangeScore')) > 3.25` 
 
@@ -89,7 +89,7 @@ ms.lasthandoff: 12/14/2017
 
 **ANOMALYDETECTION**은 슬라이딩 윈도우 의미 체계를 사용합니다. 즉, 계산은 함수를 시작하는 이벤트에 따라 실행되고 해당 이벤트에 대해 점수가 생성됩니다. 계산은 이벤트 값의 분포가 변경되었는지 확인하는 방식으로 작동하는 Exchangeability Martingales를 기준으로 합니다. 이러한 경우 잠재적인 변칙이 검색된 것입니다. 반환된 점수는 해당 변칙의 신뢰 수준을 나타냅니다. 내부 최적화로서, **ANOMALYDETECTION**은 이벤트의 *2d*에 대한 *d* 값을 기준으로 이벤트의 비정상 점수를 계산합니다. 여기서 *d*는 지정된 검색 기간 크기입니다.
 
-**ANOMALYDETECTION**은 입력 시계열이 균일할 것으로 예상합니다. 연속 또는 도약 기간에 대해 집계를 수행하여 이벤트 스트림을 균일하게 만들 수 있습니다. 이벤트 간 간격이 항상 집계 기간보다 작은 시나리오에서는 연속 기간만으로 충분히 시계열을 균일하게 만들 수 있습니다. 간격은 더 커질 수 있는 경우 도약 기간을 사용하여 마지막 값을 반복함으로써 간격을 채울 수 있습니다. 이러한 두 시나리오는 다음에 나오는 예제를 통해 처리할 수 있습니다. 현재 `FillInMissingValuesStep` 단계는 건너뛸 수 없습니다. 이 단계를 생략하면 컴파일 오류가 발생합니다.
+**ANOMALYDETECTION**은 입력 시계열이 균일할 것으로 예상합니다. 연속 또는 도약 기간에 대해 집계를 수행하여 이벤트 스트림을 균일하게 만들 수 있습니다. 이벤트 간 간격이 항상 집계 기간보다 작은 시나리오에서는 연속 기간만으로 충분히 시계열을 균일하게 만들 수 있습니다. 간격은 더 커질 수 있는 경우 도약 기간을 사용하여 마지막 값을 반복함으로써 간격을 채울 수 있습니다. 이러한 두 시나리오는 다음에 나오는 예제를 통해 처리할 수 있습니다.
 
 ## <a name="performance-guidance"></a>성능 지침
 
@@ -101,12 +101,10 @@ ms.lasthandoff: 12/14/2017
     - 검색 기간에 데이터 요소가 60개 있으면 3MBps의 처리량으로 10초가 지연될 수 있습니다. 
     - 600개의 데이터 요소에서는 0.4MBps의 처리량으로 약 80초가 지연될 수 있습니다.
 
-## <a name="example"></a>예제
+## <a name="example"></a>예
 
 다음 쿼리는 변칙이 검색될 경우 경고를 출력하는 데 사용할 수 있습니다.
 입력 스트림이 균일하지 않은 경우 집계 단계를 통해 균일한 시계열로 변환할 수 있습니다. 이 예제에서는 **AVG**를 사용하지만 구체적인 집계 형식은 사용자 시나리오에 따라 다릅니다. 또한 시계열에 집계 기간보다 큰 간격이 있으면 시계열이 변칙 검색을 트리거하는 이벤트가 없게 됩니다(슬라이딩 윈도우 의미 체계에 따름). 결과적으로 다음 이벤트가 도착할 때 균일할 것이라는 가정이 중단됩니다. 이러한 경우에는 시계열의 간격을 채울 방법이 필요합니다. 가능한 한 가지 방법은 아래와 같이 모든 도약 기간에 마지막 이벤트를 가져오는 것입니다.
-
-앞에서 설명한 것처럼 지금은 `FillInMissingValuesStep` 단계를 건너뛰지 않도록 합니다. 이 단계를 생략하면 컴파일 오류가 발생합니다.
 
     WITH AggregationStep AS 
     (
@@ -181,7 +179,7 @@ ms.lasthandoff: 12/14/2017
 
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)
 * [Azure Stream Analytics 사용 시작](stream-analytics-real-time-fraud-detection.md)
-* [Azure Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
-* [Azure Stream Analytics 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure  Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
+* [Azure  Stream Analytics 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 

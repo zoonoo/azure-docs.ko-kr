@@ -14,25 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/29/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: f2e34e6a4d3d2f29fe6320d805e38e6fccbb74de
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 0484b1f230a8544e3de2388df2cbdab3b54f9d3d
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="creating-or-importing-a-runbook-in-azure-automation"></a>Azure Automation에서 Runbook 만들기 또는 가져오기
 [새로 만들거나](#creating-a-new-runbook)[파일 또는Runbook 갤러리에서 기존 Runbook](automation-runbook-gallery.md)을 가져와서 Azure Automation에 Runbook을 추가할 수 있습니다. 이 문서에서는 파일로부터 Runbook을 만들고 가져오는 것과 관련한 정보를 제공합니다.  [Azure Automation에 대한 Runbook 및 모듈 갤러리](automation-runbook-gallery.md)에서 커뮤니티 Runbook과 모듈 액세스에 대한 모든 상세 정보를 확인할 수 있습니다.
 
 ## <a name="creating-a-new-runbook"></a>새 Runbook 만들기
 Azure Portal 또는 Windows PowerShell 중 하나를 사용하여 Azure Automation에서 새 Runbook을 만들 수 있습니다. Runbook를 만든 후에는 [PowerShell 워크플로 학습](automation-powershell-workflow.md) 및 [Azure Automation에서 그래픽 제작](automation-graphical-authoring-intro.md)의 정보를 사용하여 편집할 수 있습니다.
-
-### <a name="to-create-a-new-azure-automation-runbook-with-the-azure-classic-portal"></a>Azure 클래식 포털에서 새 Azure Automation Runbook을 만들려면
-Azure Portal에서는 [PowerShell 워크플로 Runbook](automation-runbook-types.md#powershell-workflow-runbooks) 을 사용한 작업만 가능합니다.
-
-1. Azure 클래식 포털에서 **새로 만들기**, **App Services**, **Automation**, **Runbook**, **빨리 만들기**를 차례로 클릭합니다.
-2. 필요한 정보를 입력한 다음 **만들기**를 클릭합니다. Runbook 이름은 문자로 시작해야 하며 문자, 숫자, 언더바, 대시 등이 포함될 수 있습니다.
-3. 지금 runbook을 편집하려면 **Runbook 편집**을 클릭합니다. 그렇지 않은 경우 **확인**을 클릭합니다.
-4. 새 Runbook이 **Runbook** 탭에 표시됩니다.
 
 ### <a name="to-create-a-new-azure-automation-runbook-with-the-azure-portal"></a>Azure Portal에서 새 Azure Automation  Runbook을 만들려면
 1. Azure Portal에서 Automation 계정을 엽니다.
@@ -55,16 +47,6 @@ PowerShell 스크립트나 PowerShell 워크플로(.ps1 확장명), 내보낸 �
 * .graphrunbook 파일은 새 [그래픽 Runbook](automation-runbook-types.md#graphical-runbooks)에만 가져올 수 있으며 그래픽 Runbook은 .graphrunbook 파일을 통해서만 만들 수 있습니다.
 * PowerShell 워크플로를 포함하는.ps1 파일은 [PowerShell 워크플로 Runbook](automation-runbook-types.md#powershell-workflow-runbooks)에만 가져올 수 있습니다.  파일에 여러 PowerShell 워크플로 있으면 가져오기가 실패합니다. 각 워크플로를 자체 파일에 저장하 고 각각 개별적으로 가져와야 합니다.
 * 워크플로를 포함하지 않은 .ps1 파일은 [PowerShell Runbook](automation-runbook-types.md#powershell-runbooks) 또는 [PowerShell Workflow Runbook](automation-runbook-types.md#powershell-workflow-runbooks)으로 가져올 수 있습니다.  PowerShell 워크플로 Runbook에 가져오면 워크플로로 변환되며 Runbook에 적용된 변경 내용을 명시하는 메모가 포함됩니다.
-
-### <a name="to-import-a-runbook-from-a-file-with-the-azure-classic-portal"></a>Azure 클래식 포털로 파일에서 Runbook을 가져오려면
-Azure Automation에 스크립트 파일을 가져오려면 다음 절차를 사용할 수 있습니다.  이 포털을 사용하는 PowerShell 워크플로 Runbook에만 .ps1 파일을 가져올 수 있습니다.  다른 유형에는 Azure Portal을 사용해야 합니다.
-
-1. Azure 클래식 포털에서 **Automation**을 선택한 다음 Automation 계정을 선택합니다.
-2. **가져오기**를 클릭합니다.
-3. **파일 찾아보기** 를 클릭하고 가져올 스크립트 파일을 찾습니다.
-4. 지금 runbook을 편집하려면 **Runbook 편집**을 클릭합니다. 그렇지 않은 경우 확인을 클릭합니다.
-5. 새 Runbook은 Automation 계정의 **Runbook** 탭에 표시됩니다.
-6. 실행에 앞서 [Runbook을 게시](#publishing-a-runbook) 해야 합니다.
 
 ### <a name="to-import-a-runbook-from-a-file-with-the-azure-portal"></a>Azure Portal을 사용하여 파일에서 Runbook을 가져오려면
 Azure Automation에 스크립트 파일을 가져오려면 다음 절차를 사용할 수 있습니다.  
@@ -106,11 +88,6 @@ Azure Automation에 스크립트 파일을 가져오려면 다음 절차를 사�
 ## <a name="publishing-a-runbook"></a>Runbook 게시
 새 Runbook을 만들거나 가져올 때는 게시해야 실행할 수 있습니다.  Automation의 각 Runbook에는 초안 버전과 게시된 버전이 있습니다. 게시된 버전만 실행할 수 있으며 초안 버전만 편집할 수 있습니다. 초안 버전을 변경해도 게시된 버전은 영향을 받지 않습니다. 초안 버전을 사용할 수 있게 되면 이를 게시합니다. 그러면 초안 버전이 게시된 버전을 덮어씁니다.
 
-## <a name="to-publish-a-runbook-using-the-azure-classic-portal"></a>Azure 클래식 포털을 사용하여 Runbook을 게시하려면
-1. Azure 클래식 포털에서 Runbook을 엽니다.
-2. 화면 맨 위에서 **작성자**를 클릭합니다.
-3. 화면 아래쪽에서 **게시**를 클릭한 다음 확인 메시지에서 **예**를 클릭합니다.
-
 ## <a name="to-publish-a-runbook-using-the-azure-portal"></a>Azure Portal을 사용하여 Runbook을 게시하려면
 1. Azure Portal에서 Runbook을 엽니다.
 2. **Edit** 단추를 클릭합니다.
@@ -130,5 +107,5 @@ Azure Automation에 스크립트 파일을 가져오려면 다음 절차를 사�
 ## <a name="next-steps"></a>다음 단계
 * Runbook 및 PowerShell 모듈 갤러리를 활용하는 방법을 알아보려면 [Azure Automation에 대한 Runbook 및 모듈 갤러리](automation-runbook-gallery.md)
 * 텍스트 편집기를 사용하여 PowerShell 및 PowerShell 워크플로 Runbook을 편집하는 방법을 알아보려면 [Azure Automation에서 텍스트 Runbook 편집](automation-edit-textual-runbook.md)
-* 그래픽 Runbook 작성에 대해 자세히 알아보려면 [Azure Automation에서 그래픽 작성](automation-graphical-authoring-intro.md)
+* 그래픽 Runbook 작성에 대한 자세한 내용은 [Azure Automation에서 그래픽 제작](automation-graphical-authoring-intro.md)
 

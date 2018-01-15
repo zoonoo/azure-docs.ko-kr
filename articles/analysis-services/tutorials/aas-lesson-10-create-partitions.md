@@ -13,23 +13,21 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: 99f7fcbd3a2d3b6f6fe48c7fb2703d35d3b3a8fd
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: a73836b784a5e86d01df51fb83d619890d56502a
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="lesson-10-create-partitions"></a>단원 10: 파티션 만들기
-
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+# <a name="create-partitions"></a>파티션 만들기
 
 이 단원에서는 FactInternetSales 테이블을 다른 파티션과 독립적으로 처리(새로 고침)할 수 있는 더 작은 논리적 부분으로 나누는 파티션을 만듭니다. 기본적으로 모델에 포함된 모든 테이블에는 테이블의 행과 열을 모두 포함하는 한 개의 파티션이 있습니다. FactInternetSales 테이블에 대해, 5년마다 한 개의 파티션으로, 연도별로 데이터를 나누려고 합니다. 그러면 각 파티션은 독립적으로 처리할 수 있습니다. 자세한 내용은 [파티션](https://docs.microsoft.com/sql/analysis-services/tabular-models/partitions-ssas-tabular)을 참조하세요. 
   
 이 단원을 완료하기 위한 예상 시간: **15분**  
   
-## <a name="prerequisites"></a>필수 조건  
+## <a name="prerequisites"></a>필수 구성 요소  
 이 항목은 테이블 형식 모델링 자습서에 포함되며 순서대로 완료해야 합니다. 이 단원의 작업을 수행하기 전에 이전 단원인 [단원 9: 계층 구조 만들기](../tutorials/aas-lesson-9-create-hierarchies.md)를 완료해야 합니다.  
   
 ## <a name="create-partitions"></a>파티션 만들기  
