@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: billmath
-ms.openlocfilehash: f259474e8e3ba8b9a3d9d1ad83c8d848e06cff8c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b71a2f19fee370ab1d732becd1c3b644505e2233
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory Seamless Single Sign-On
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/11/2017
 
 Azure AD Seamless SSO(Azure Active Directory Seamless Single Sign-On)는 회사 네트워크에 연결된 회사 장치에 있을 때 사용자를 자동으로 서명합니다. 이 기능을 사용하도록 설정되면 사용자가 Azure AD에 로그인하는 데 암호를 입력할 필요가 없고, 일반적으로 사용자 이름으로도 입력할 수 있습니다. 추가 온-프레미스 구성 요소가 없어도 사용자가 클라우드 기반 응용 프로그램에 쉽게 액세스할 수 있습니다.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/PyeAC85Gm7w" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/PyeAC85Gm7w]
 
 Seamless SSO는 [암호 해시 동기화](active-directory-aadconnectsync-implement-password-synchronization.md) 또는 [통과 인증](active-directory-aadconnect-pass-through-authentication.md) 로그인 방법과 결합할 수 있습니다.
 
@@ -57,10 +57,10 @@ Seamless SSO는 [암호 해시 동기화](active-directory-aadconnectsync-implem
 
 | OS\Browser |Internet Explorer|Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
-|Windows 10|예|아니요|예|예\*|해당 없음
-|Windows 8.1|예|해당 없음|예|예\*|해당 없음
-|Windows 8|예|해당 없음|예|예\*|해당 없음
-|Windows 7|예|해당 없음|예|예\*|해당 없음
+|윈도우 10|적용|아니요|적용|예\*|해당 없음
+|Windows 8.1|적용|해당 없음|적용|예\*|해당 없음
+|Windows 8|적용|해당 없음|적용|예\*|해당 없음
+|Windows 7|적용|해당 없음|적용|예\*|해당 없음
 |Mac OS X|해당 없음|해당 없음|예\*|예\*|예\*
 
 \*[추가 구성](active-directory-aadconnect-sso-quick-start.md#browser-considerations)이 필요합니다.

@@ -29,6 +29,8 @@
           maintainContext: true
     - name: 개발
       items:
+        - name: HBase.NET SDK 사용
+          href: apache-hbase-rest-sdk.md
         - name: Java 응용 프로그램 배포
           href: apache-hbase-build-java-maven-linux.md
         - name: 빈 에지 노드 사용
@@ -39,6 +41,8 @@
           maintainContext: true
         - name: Phoenix 및 SQLLine 사용
           href: apache-hbase-phoenix-squirrel-linux.md
+        - name: Phoenix Query Server REST SDK 사용
+          href: apache-hbase-using-phoenix-query-server-rest-sdk.md
     - name: 클러스터 확장
       items:
         - name: 부트스트랩을 사용하여 클러스터 사용자 지정
@@ -112,9 +116,15 @@
           href: ../hdinsight-hadoop-manage-ambari.md
           maintainContext: true
           items:
+            - name: Ambari 웹 UI를 사용하여 클러스터 최적화
+              href: ../hdinsight-changing-configs-via-ambari.md
+              maintainContext: true
             - name: Ambari REST API 사용
               href: ../hdinsight-hadoop-manage-ambari-rest-api.md
               maintainContext: true
+        - name: HDInsight 클러스터에 대한 로그 관리
+          href: ../hdinsight-log-management.md
+          maintainContext: true
         - name: 저장소 계정 추가
           href: ../hdinsight-hadoop-add-storage.md
           maintainContext: true
@@ -154,6 +164,9 @@
       href: ../hdinsight-troubleshoot-guide.md
       maintainContext: true
       items:
+        - name: 저속 또는 문제 발생 HDInsight 클러스터 문제 해결
+          href: ../hdinsight-troubleshoot-failed-cluster.md
+          maintainContext: true
         - name: HDFS 문제 해결
           href: ../hdinsight-troubleshoot-hdfs.md
           maintainContext: true

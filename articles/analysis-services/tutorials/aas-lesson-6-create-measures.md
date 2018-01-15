@@ -13,17 +13,15 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: a80500e806d85d0c1dd01d10fea74f59c92fb50a
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: fa47d4ea9aa019464e465c051b016dac7c224dc9
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="lesson-6-create-measures"></a>단원 6: 측정값 만들기
-
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+# <a name="create-measures"></a>측정값 만들기
 
 이 단원에서는 모델에 포함할 측정값을 만듭니다. 생성한 계산된 열과 마찬가지로, 측정값은 DAX 수식을 사용하여 만든 계산입니다. 그러나 계산된 열과 달리 측정값은 사용자가 선택한 *필터*를 기반으로 평가됩니다. 예를 들어 특정 열 또는 슬라이서가 피벗 테이블의 행 레이블 필드에 추가되었습니다. 그러면 필터의 각 셀에 대한 값이 적용된 측정값으로 계산됩니다. 측정값은 수치 데이터에 동적인 계산을 수행하기 위해 거의 모든 테이블 형식 모델에 포함하려는 강력하고 유연한 계산입니다. 자세한 내용은 [측정값](https://docs.microsoft.com/sql/analysis-services/tabular-models/measures-ssas-tabular)을 참조하세요.
   
@@ -35,7 +33,7 @@ ms.lasthandoff: 11/02/2017
   
 이 단원을 완료하기 위한 예상 시간: **30분**  
   
-## <a name="prerequisites"></a>필수 조건  
+## <a name="prerequisites"></a>필수 구성 요소  
 이 항목은 테이블 형식 모델링 자습서에 포함되며 순서대로 완료해야 합니다. 이 단원의 작업을 수행하기 전에 이전 단원인 [단원 5: 계산된 열 만들기](../tutorials/aas-lesson-5-create-calculated-columns.md)를 완료해야 합니다.  
   
 ## <a name="create-measures"></a>측정값 만들기  

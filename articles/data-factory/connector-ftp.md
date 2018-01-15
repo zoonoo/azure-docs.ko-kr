@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 925171ab00bcf2e36e1f8109dceac72ad33be51e
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: a2706a1cfa2a99faf20860b23cd6bd401f6f7233
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-ftp-server-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 FTP 서버에서 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -38,8 +38,9 @@ FTP 서버에서 지원되는 모든 싱크 데이터 저장소로 데이터를 
 - **Basic** 또는 **Anonymous** 인증을 사용하여 파일을 복사합니다.
 - 파일을 있는 그대로 복사 또는 [지원되는 파일 형식 및 압축 코덱](supported-file-formats-and-compression-codecs.md)을 사용한 파일 구문 분석
 
-## <a name="get-started"></a>시작
-.NET SDK, Python SDK, Azure PowerShell, REST API 또는 Azure Resource Manager 템플릿을 사용하여 복사 작업으로 파이프라인을 만들 수 있습니다. 복사 작업을 사용하여 파이프라인을 만드는 단계별 지침은 [복사 작업 자습서](create-self-hosted-integration-runtime.md)를 참조하세요.
+## <a name="get-started"></a>시작하기
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 다음 섹션에서는 FTP에 한정된 Data Factory 엔터티를 정의하는 데 사용되는 속성에 대해 자세히 설명합니다.
 
@@ -47,14 +48,14 @@ FTP 서버에서 지원되는 모든 싱크 데이터 저장소로 데이터를 
 
 FTP 연결된 서비스에 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 형식 속성은 **FtpServer**로 설정해야 합니다. | 예 |
-| host | FTP 서버의 이름 또는 IP 주소를 지정합니다. | 예 |
+| 형식 | 형식 속성은 **FtpServer**로 설정해야 합니다. | 적용 |
+| host | FTP 서버의 이름 또는 IP 주소를 지정합니다. | 적용 |
 | 포트 | FTP 서버가 수신 대기하는 포트를 지정합니다.<br/>허용되는 값은 정수이며 기본값은 **21**입니다. | 아니요 |
 | enableSsl | SSL/TLS 채널을 통해 FTP를 사용할지 여부를 지정합니다.<br/>허용되는 값은 **true**(기본값), **false**입니다. | 아니요 |
 | enableServerCertificateValidation | SSL/TLS 채널을 통해 FTP를 사용할 때 서버 SSL 인증서 유효성 검사를 사용할지 여부를 지정합니다.<br/>허용되는 값은 **true**(기본값), **false**입니다. | 아니요 |
-| authenticationType | 인증 유형을 지정합니다.<br/>허용되는 값은 **Basic**, **Anonymous**입니다. | 예 |
+| authenticationType | 인증 유형을 지정합니다.<br/>허용되는 값은 **Basic**, **Anonymous**입니다. | 적용 |
 | userName | FTP 서버에 액세스하는 사용자를 지정합니다. | 아니요 |
 | 암호 | 사용자(사용자 이름)의 암호를 지정합니다. 이 필드를 SecureString으로 표시합니다. | 아니요 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 Integration Runtime을 사용할 수 있습니다(데이터 저장소가 개인 네트워크에 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아니요 |
@@ -114,10 +115,10 @@ FTP 연결된 서비스에 다음 속성이 지원됩니다.
 
 FTP에서 데이터를 복사하려면 데이터 집합의 형식 속성을 **FileShare**로 설정합니다. 다음과 같은 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 데이터 집합의 형식 속성을 **FileShare**로 설정해야 합니다. |예 |
-| folderPath | 파일의 경로입니다. 예: 폴더/하위 폴더/ |예 |
+| 형식 | 데이터 집합의 형식 속성을 **FileShare**로 설정해야 합니다. |적용 |
+| folderPath | 파일의 경로입니다. 예: 폴더/하위 폴더/ |적용 |
 | fileName | 특정 파일에서 복사하려는 경우 **folderPath**에 있는 파일의 이름을 지정합니다. 이 속성에 값을 지정하지 않으면 데이터 집합이 폴더에 있는 모든 파일을 원본으로 가리킵니다. |아니요 |
 | fileFilter | 모든 파일이 아닌 folderPath의 파일 하위 집합을 선택하는데 사용할 필터를 지정합니다. fileName이 지정되어 있지 않은 경우에만 적용됩니다. <br/><br/>허용되는 와일드카드는 `*`(여러 문자) 및 `?`(단일 문자)입니다.<br/>- 예 1: `"fileFilter": "*.log"`<br/>- 예 2: `"fileFilter": 2017-09-??.txt"` |아니요 |
 | format | 파일 기반 저장소(이진 복사) 간에 **파일을 있는 그대로 복사**하려는 경우 입력 및 출력 데이터 집합 정의 둘 다에서 형식 섹션을 건너뜁니다.<br/><br/>특정 형식으로 파일을 구문 분석하려는 경우 **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**과 같은 파일 형식 유형이 지원됩니다. 이 값 중 하나로 서식에서 **type** 속성을 설정합니다. 자세한 내용은 [텍스트 형식](supported-file-formats-and-compression-codecs.md#text-format), [Json 형식](supported-file-formats-and-compression-codecs.md#json-format), [Avro 형식](supported-file-formats-and-compression-codecs.md#avro-format), [Orc 형식](supported-file-formats-and-compression-codecs.md#orc-format) 및 [Parquet 형식](supported-file-formats-and-compression-codecs.md#parquet-format) 섹션을 참조하세요. |아니요(이진 복사 시나리오에만 해당) |
@@ -160,9 +161,9 @@ FTP에서 데이터를 복사하려면 데이터 집합의 형식 속성을 **Fi
 
 FTP에서 데이터를 복사하려면 복사 작업의 원본 형식을 **FileSystemSource**로 설정합니다. 복사 작업 **source** 섹션에서 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 작업 원본의 형식 속성을 **FileSystemSource**로 설정해야 합니다. |예 |
+| 형식 | 복사 작업 원본의 형식 속성을 **FileSystemSource**로 설정해야 합니다. |적용 |
 | recursive | 하위 폴더에서 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다.<br/>허용되는 값은 **true**(기본값), **false**입니다. | 아니요 |
 
 **예제:**

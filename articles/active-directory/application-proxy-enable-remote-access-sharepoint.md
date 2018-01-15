@@ -3,7 +3,7 @@ title: "Azure AD 응용 프로그램 프록시를 통해 SharePoint에 원격 �
 description: "온-프레미스 SharePoint 서버를 Azure AD 응용 프로그램 프록시과 통합하는 방법에 대한 기본 사항을 다룹니다."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: daveba
 manager: mtillman
 ms.assetid: 
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2017
-ms.author: kgremban
+ms.author: daveba
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: edc5602586ae2397bc039f252be09df969b06925
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c6a1b82b82dc89378533e375bd8a5d4868ae5308
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="enable-remote-access-to-sharepoint-with-azure-ad-application-proxy"></a>Azure AD 응용 프로그램 프록시를 통해 SharePoint에 원격 액세스를 사용하도록 설정
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 12/11/2017
 
 Azure AD 응용 프로그램 프록시를 통해 SharePoint에 원격 액세스를 사용하도록 설정하려면 단계별로 이 문서의 섹션을 따릅니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서에서는 사용자 환경에 SharePoint 2013 이상이 이미 있다고 가정합니다. 또한 다음 필수 조건도 고려하세요.
 
@@ -198,7 +198,7 @@ KCD를 구성하려면 각 커넥터 컴퓨터에 대해 다음 단계를 반복
 
   ![경로 입력](./media/application-proxy-remote-sharepoint/alternate-access3.png)
 
-7. **Save**를 클릭합니다.
+7. **저장**을 클릭합니다.
 
 Azure AD 응용 프로그램 프록시를 통해 SharePoint 사이트를 외부에서 액세스할 수 있습니다.
 

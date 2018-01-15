@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 01/05/2018
 ms.author: billmath
-ms.openlocfilehash: d25f682d3c42f95752d09454f778c3975f551cca
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b842791be74094c87643528c0b4d3a65be6b3cb1
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Azure Active Directory 통과 인증 문제 해결
 
@@ -165,7 +165,7 @@ Azure AD Connect가 설치된 서버가 [여기](active-directory-aadconnect-pas
     </QueryList>
 ```
 
-### <a name="performance-monitor-counters"></a>성능 모니터 카운터
+## <a name="performance-monitor-counters"></a>성능 모니터 카운터
 
 인증 에이전트를 모니터링하는 다른 방법은 인증 에이전트가 설치된 각 서버에서 특정 성능 모니터 카운터를 추적하는 것입니다. 다음 전역 카운터(**# PTA 인증**, **#PTA 실패 인증** 및 **#PTA 성공 인증**) 및 오류 카운터(**# PTA 인증 오류**)를 사용합니다.
 

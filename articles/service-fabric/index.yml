@@ -15,11 +15,11 @@ metadata:
   ms.topic: landing-page
   ms.date: 11/03/2017
   ms.author: carolz
-  ms.openlocfilehash: d50c30ccb4fe6d5d6c56edb2a53d4822796af6d4
-  ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+  ms.openlocfilehash: b9f76a98894485f48d495f32f352672784b86316
+  ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 12/08/2017
+  ms.lasthandoff: 01/12/2018
 abstract:
   description: "Azure Service Fabric은 손쉽게 패키지하고 배포하며 확장 가능하고 안정성이 뛰어난 마이크로 서비스 및 컨테이너를 관리하도록 배포된 시스템 플랫폼입니다. 개발자와 관리자가 복잡한 인프라 문제를 피하고 업무 수행에 필수적인 까다로운 워크로드를 확장 가능하고 신뢰할 수 있으며 관리가 가능하도록 구현하는 데 집중할 수 있습니다. 빠른 시작, 자습서 및 샘플을 통해 Azure Service Fabric을 사용하는 방법을 알아보세요."
 sections:
@@ -86,7 +86,7 @@ sections:
     - html: "<a href=\"service-fabric-content-roadmap\">큰 그림</a>"
     - html: "<a href=\"service-fabric-application-scenarios\">응용 프로그램 시나리오</a>"
     - html: "<a href=\"service-fabric-patterns-and-scenarios\">패턴 및 시나리오</a>"
-    - html: "<a href=\"service-fabric-architecture\">아키텍처</a>"
+    - html: <a href="service-fabric-architecture">Architecture</a>
     - html: "<a href=\"service-fabric-technical-overview\">용어</a>"
 - title: "샘플"
   items:
@@ -109,7 +109,7 @@ sections:
     className: cardsD
     items:
     - title: "명령줄"
-      html: <p><a href="/cli/azure/sf">Azure CLI</a></p><p><a href="https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-sfctl">Service Fabric CLI</a></p><p><a href="/powershell/module/azurerm.servicefabric">Azure PowerShell</a></p><p><a href="/powershell/module/servicefabric/?view=azureservicefabricps">PowerShell</a></p>
+      html: <p><a href="/cli/azure/sf">Azure CLI</a></p><p><a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-sfctl">Service Fabric CLI</a></p><p><a href="/powershell/module/azurerm.servicefabric">Azure PowerShell</a></p><p><a href="/powershell/module/servicefabric/?view=azureservicefabricps">PowerShell</a></p>
     - title: "언어"
       html: "<p><a href=\"/java/api/overview/azure/servicefabric\">Java API</a></p><p><a href=\"/dotnet/api/overview/azure/service-fabric?view=azure-dotnet\">.NET</a></p><p><a href=\"/azure/service-fabric/service-fabric-service-model-schema\">서비스 모델 XML 스키마</a></p>"
     - title: "REST (영문)"

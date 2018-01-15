@@ -4,7 +4,7 @@ description: "스트림 분석 및 실시간 데이터 처리와 IoT 센서 태�
 keywords: "IoT 솔루션, IoT 시작"
 services: stream-analytics
 documentationcenter: 
-author: samacha
+author: SnehaGunda
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 3e829055-75ed-469f-91f5-f0dc95046bdb
@@ -14,28 +14,24 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: samacha
-ms.openlocfilehash: 3146604dd2dbc626d8179d5c91e3cf895b9f67da
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: sngun
+ms.openlocfilehash: a4b2fda6c5cc5ea341618ec5fa8638a5c887bf84
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/05/2018
 ---
-# <a name="get-started-with-azure-stream-analytics-to-process-data-from-iot-devices"></a>IoT 장치에서 데이터를 처리하도록 Azure 스트림 분석 시작
+# <a name="get-started-with-azure-stream-analytics-to-process-data-from-iot-devices"></a>IoT 장치에서 데이터를 처리하도록 Azure Stream Analytics 시작
 이 자습서에서는 IoT(사물 인터넷) 장치에서 데이터를 수집하기 위한 스트림 처리 논리를 만드는 방법을 배웁니다. 실제, IoT(사물 인터넷) 사용 사례를 사용하여 솔루션을 신속하고 경제적으로 구축하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 * [Azure 구독](https://azure.microsoft.com/pricing/free-trial/)
 * 샘플 쿼리 및 데이터 파일은 [GitHub](https://aka.ms/azure-stream-analytics-get-started-iot)
 
 ## <a name="scenario"></a>시나리오
 Contoso는 산업용 자동화 공간의 회사로, 제조 프로세스를 완전히 자동화했습니다. 이 공장의 기계에는 실시간으로 데이터 스트림을 내보낼 수 있는 센서가 있습니다. 이 시나리오에서 생산 작업장 관리자는 센서 데이터로부터 실시간으로 정보를 얻어 패턴을 파악하고 조치를 취하고 싶어합니다. 센서 데이터에 대해 SAQL(Stream Analytics 쿼리 언어)를 사용하여 들어오는 스트림 데이터에서 주목할 만한 패턴을 파악합니다.
 
-여기서 데이터는 Texas Instrument 센서 태그 장치에서 생성됩니다.
-
-![Texas Instruments 센서 태그](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-01.jpg)
-
-데이터의 페이로드는 JSON 형식이며 다음과 같습니다.
+여기서 데이터는 Texas Instrument 센서 태그 장치에서 생성됩니다. 데이터의 페이로드는 JSON 형식이며 다음과 같습니다.
 
     {
         "time": "2016-01-26T20:47:53.0000000",  
@@ -44,14 +40,14 @@ Contoso는 산업용 자동화 공간의 회사로, 제조 프로세스를 완�
         "hmdt": 34  
     }  
 
-실제 시나리오에서는 이러한 센서가 수백 개 있으며 이벤트를 스트림으로 생성할 수 있습니다. 이상적으로 게이트웨이 장치는 이러한 이벤트를 [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) 또는 [Azure IoT Hubs](https://azure.microsoft.com/services/iot-hub/)로 푸시하는 코드를 실행합니다. 스트림 분석 작업은 이벤트 허브에서 이러한 이벤트를 수집하고 스트림에 대해 실시간 분석 쿼리를 실행합니다. [지원되는 출력](stream-analytics-define-outputs.md) 중 하나에 결과를 보낼 수 있습니다.
+실제 시나리오에서는 이러한 센서가 수백 개 있으며 이벤트를 스트림으로 생성할 수 있습니다. 이상적으로 게이트웨이 장치는 이러한 이벤트를 [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) 또는 [Azure IoT Hubs](https://azure.microsoft.com/services/iot-hub/)로 푸시하는 코드를 실행합니다. Stream Analytics 작업은 Event Hubs에서 이러한 이벤트를 수집하고 스트림에 대해 실시간 분석 쿼리를 실행합니다. [지원되는 출력](stream-analytics-define-outputs.md) 중 하나에 결과를 보낼 수 있습니다.
 
 사용 편의성을 위해 이 시작 가이드는 실제 센서 태그 장치에서 캡처된 샘플 데이터 파일을 제공합니다. 샘플 데이터에서 쿼리를 실행하고 결과를 볼 수 있습니다. 이후 자습서에서는 작업을 입력 및 출력에 연결하고 이를 Azure 서비스에 배포하는 방법을 알아봅니다.
 
-## <a name="create-a-stream-analytics-job"></a>스트림 분석 작업 만들기
+## <a name="create-a-stream-analytics-job"></a>Stream Analytics 작업 만들기
 1. [Azure 포털](http://portal.azure.com)에서 더하기 기호를 클릭한 다음 오른쪽에 있는 텍스트 창에서 **Stream Analytics**을 입력합니다. 그런 다음 결과 목록에서 **Stream Analytics 작업**을 선택합니다.
    
-    ![새 스트림 분석 작업 만들기](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-02.png)
+    ![새 Stream Analytics 작업 만들기](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-02.png)
 2. 고유한 작업 이름을 입력하고 해당 작업에 대한 구독이 유효한지 확인합니다. 그런 다음 새 리소스 그룹을 만들거나 구독에 속한 기존 리소스 그룹을 선택합니다.
 3. 작업의 위치를 선택합니다. 데이터 전송의 처리 속도와 비용 감소를 위해 리소스 그룹 및 의도한 저장소 계정으로 동일한 위치를 선택하는 것이 좋습니다.
    
@@ -68,7 +64,7 @@ Contoso는 산업용 자동화 공간의 회사로, 제조 프로세스를 완�
    
     ![진행 중인 작업 만들기](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-03b.png)
 
-### <a name="create-an-azure-stream-analytics-query"></a>Azure Stream Analytics 쿼리 만들기
+## <a name="create-an-azure-stream-analytics-query"></a>Azure Stream Analytics 쿼리 만들기
 작업이 만들어졌으면 이제는 해당 작업을 열고 쿼리를 빌드할 시간입니다. 작업의 타일을 클릭하면 해당 작업에 쉽게 액세스할 수 있습니다.
 
 ![작업 타일](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-04.png)

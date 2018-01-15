@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/27/2017
+ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 8fae7bb357f8e5e8eff249edfe3a2aaafe04283c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7199009553eb7aae31db3f913fe4de87e03d74ba
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="use-the-storsimple-diagnostics-tool-to-troubleshoot-8000-series-device-issues"></a>StorSimple 진단 도구를 사용하여 8000 시리즈 장치 문제 해결
 
@@ -32,15 +32,15 @@ StorSimple 진단 도구는 StorSimple 장치에 대한 시스템, 성능, 네�
 
 이 도구는 사용자의 StorSimple 장치의 Windows PowerShell 인터페이스를 통해 실행할 수 있습니다. 사용자 장치의 로컬 인터페이스에 액세스하는 방법에는 두 가지가 있습니다.
 
-* [PuTTY를 사용하여 장치 직렬 콘솔에 연결합니다](storsimple-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
-* [StorSimple용 Windows PowerShell을 통해 도구에 원격으로 액세스합니다](storsimple-remote-connect.md).
+* [PuTTY를 사용하여 장치 직렬 콘솔에 연결합니다](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
+* [StorSimple용 Windows PowerShell을 통해 도구에 원격으로 액세스합니다](storsimple-8000-remote-connect.md).
 
 이 문서에서는 PuTTY를 통해 장치 직렬 콘솔에 연결한 것으로 가정합니다.
 
 #### <a name="to-run-the-diagnostics-tool"></a>진단 도구를 실행하려면 다음을 수행합니다.
 
 장치의 Windows PowerShell 인터페이스에 연결한 후 다음 단계를 수행하여 cmdlet을 실행합니다.
-1. [장치 직렬 콘솔 연결에 PuTTY 사용](storsimple-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console)단계를 수행하여 장치 직렬 콘솔에 로그온합니다.
+1. [장치 직렬 콘솔 연결에 PuTTY 사용](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console)단계를 수행하여 장치 직렬 콘솔에 로그온합니다.
 
 2. 다음 명령을 입력합니다.
 
@@ -85,11 +85,11 @@ StorSimple 진단 도구는 StorSimple 장치에 대한 시스템, 성능, 네�
 * 보고된 하드웨어 구성 요소는 테스트에 실패하였거나 시스템에 존재하지 않는 구성 요소입니다.
 * USM 펌웨어 및 디스크 펌웨어 버전은 사용자의 시스템에서 Controller 0, Controller 1 및 공유 구성 요소에 대해 보고됩니다. 하드웨어 구성 요소의 전체 목록은 다음으로 이동합니다.
 
-    * [기본 인클로저의 구성 요소](storsimple-monitor-hardware-status.md#component-list-for-primary-enclosure-of-storsimple-device)
-    * [EBOD 인클로저의 구성 요소](storsimple-monitor-hardware-status.md#component-list-for-ebod-enclosure-of-storsimple-device)
+    * [기본 인클로저의 구성 요소](storsimple-8000-monitor-hardware-status.md#component-list-for-primary-enclosure-of-storsimple-device)
+    * [EBOD 인클로저의 구성 요소](storsimple-8000-monitor-hardware-status.md#component-list-for-ebod-enclosure-of-storsimple-device)
 
 > [!NOTE]
-> 하드웨어 테스트에서 실패한 구성 요소를 보고하는 경우 [Microsoft 지원으로 서비스 요청에 로그인](storsimple-contact-microsoft-support.md)합니다.
+> 하드웨어 테스트에서 실패한 구성 요소를 보고하는 경우 [Microsoft 지원으로 서비스 요청에 로그인](storsimple-8000-contact-microsoft-support.md)합니다.
 
 #### <a name="sample-output-of-hardware-test-run-on-an-8100-device"></a>8100 장치에서 실행되는 하드웨어 테스트의 샘플 출력
 
@@ -210,7 +210,7 @@ DisksFirmware       : SmrtStor:TXA2D20400GA6XYR:KZ50
 * 시스템 정보에는 시스템에서 실행되는 모델, 장치 일련 번호, 표준 시간대, 컨트롤러 상태 및 자세한 소프트웨어 버전이 포함됩니다. 출력으로 보고된 다양한 시스템 매개 변수를 이해하려면 [시스템 정보 해석](#appendix-interpreting-system-information)으로 이동하세요.
 
 * 업데이트 가용성은 일반 및 유지 관리 모드를 사용할 수 있는지 여부와 연결된 패키지 이름을 보고합니다. `RegularUpdates` 및 `MaintenanceModeUpdates`가 `false`인 경우 이는 업데이트를 사용할 수 없음을 나타냅니다. 사용자 장치가 최신 상태입니다.
-* 클러스터 정보에는 모든 HCS 클러스터 그룹 및 해당 상태의 여러 논리 구성 요소에 대한 정보가 포함됩니다. 보고서의 이 섹션에 오프라인 클러스터 그룹이 있는 경우 [Microsoft 지원으로 문의하세요](storsimple-contact-microsoft-support.md).
+* 클러스터 정보에는 모든 HCS 클러스터 그룹 및 해당 상태의 여러 논리 구성 요소에 대한 정보가 포함됩니다. 보고서의 이 섹션에 오프라인 클러스터 그룹이 있는 경우 [Microsoft 지원으로 문의하세요](storsimple-8000-contact-microsoft-support.md).
 * 서비스 정보에는 사용자 장치에서 실행 중인 모든 HCS 및 CiS 서비스의 이름 및 상태가 포함됩니다. 이 정보는 장치 문제 해결 시 Microsoft 지원에 유용합니다.
 
 #### <a name="sample-output-of-system-test-run-on-an-8100-device"></a>8100 장치에서 실행되는 시스템 테스트의 샘플 출력

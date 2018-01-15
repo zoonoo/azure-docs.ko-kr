@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 7c1505f93b28008d51ad4a8cd3516ee5c4271071
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 960365d4dc842cf5ce5587599a155861390ebb26
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Azure Data Factory를 사용하여 MongoDB에서 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -39,12 +39,13 @@ MongoDB 데이터베이스에서 지원되는 모든 싱크 데이터 저장소�
 - MongoDB **버전 2.4, 2.6, 3.0 및 3.2**
 - **Basic** 또는 **Anonymous** 인증을 사용하여 데이터를 복사합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 공개적으로 액세스할 수 없는 MongoDB 데이터베이스에서 데이터를 복사하려면 자체 호스팅 통합 런타임을 설정해야 합니다. 자세한 내용은 [자체 호스팅 통합 런타임](create-self-hosted-integration-runtime.md) 문서를 참조하세요. 통합 런타임은 기본 제공 MongoDB 드라이버를 제공하므로 MongoDB 간에 데이터를 복사할 때 수동으로 드라이버를 설치할 필요가 없습니다.
 
 ## <a name="getting-started"></a>시작
-.NET SDK, Python SDK, Azure PowerShell, REST API 또는 Azure Resource Manager 템플릿을 사용하여 복사 작업으로 파이프라인을 만들 수 있습니다. 복사 작업을 사용하여 파이프라인을 만드는 단계별 지침은 [복사 작업 자습서](quickstart-create-data-factory-dot-net.md)를 참조하세요.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 다음 섹션에서는 MongoDB 커넥터에 한정된 Data Factory 엔터티를 정의하는 데 사용되는 속성에 대해 자세히 설명합니다.
 
@@ -52,16 +53,16 @@ MongoDB 데이터베이스에서 지원되는 모든 싱크 데이터 저장소�
 
 MongoDB 연결된 서비스에 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type |형식 속성은 **MongoDb**로 설정해야 합니다. |예 |
-| server |MongoDB 서버의 IP 주소 또는 호스트 이름입니다. |예 |
+| 형식 |형식 속성은 **MongoDb**로 설정해야 합니다. |적용 |
+| 서버 |MongoDB 서버의 IP 주소 또는 호스트 이름입니다. |적용 |
 | 포트 |MongoDB 서버가 클라이언트 연결을 수신하는 데 사용하는 TCP 포트입니다. |아니요(기본값: 27017) |
-| databaseName |액세스하려는 MongoDB 데이터베이스의 이름입니다. |예 |
-| authenticationType | MongoDB 데이터베이스에 연결하는 데 사용되는 인증 형식입니다.<br/>허용되는 값은 **Basic** 및 **Anonymous**입니다. |예 |
-| username |MongoDB에 액세스하는 사용자 계정입니다. |예(기본 인증을 사용하는 경우) |
-| password |사용자에 대한 암호입니다. 이 필드를 SecureString으로 표시합니다. |예(기본 인증을 사용하는 경우) |
-| authSource |인증에 대한 자격 증명을 확인하는 데 사용하려는 MongoDB 데이터베이스의 이름입니다. |아니요. 기본 인증의 경우 기본값은 관리자 계정 및 databaseName 속성을 사용하여 지정된 데이터베이스를 사용하는 것입니다. |
+| databaseName |액세스하려는 MongoDB 데이터베이스의 이름입니다. |적용 |
+| authenticationType | MongoDB 데이터베이스에 연결하는 데 사용되는 인증 형식입니다.<br/>허용되는 값은 **Basic** 및 **Anonymous**입니다. |적용 |
+| 사용자 이름 |MongoDB에 액세스하는 사용자 계정입니다. |예(기본 인증을 사용하는 경우) |
+| 암호 |사용자에 대한 암호입니다. 이 필드를 SecureString으로 표시합니다. |예(기본 인증을 사용하는 경우) |
+| authSource |인증에 대한 자격 증명을 확인하는 데 사용하려는 MongoDB 데이터베이스의 이름입니다. |번호 기본 인증의 경우 기본값은 관리자 계정 및 databaseName 속성을 사용하여 지정된 데이터베이스를 사용하는 것입니다. |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. 자체 호스팅 Integration Runtime 또는 Azure Integration Runtime을 사용할 수 있습니다(데이터 저장소를 공개적으로 액세스할 수 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아니요 |
 
 **예제:**
@@ -95,10 +96,10 @@ MongoDB 연결된 서비스에 다음 속성이 지원됩니다.
 
 MongoDB에서 데이터를 복사하려면 데이터 집합의 type 속성을 **MongoDbCollection**으로 설정합니다. 다음과 같은 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 데이터 집합의 type 속성을 **MongoDbCollection**으로 설정해야 합니다. | 예 |
-| collectionName |MongoDB 데이터베이스에 있는 컬렉션의 이름입니다. |예 |
+| 형식 | 데이터 집합의 type 속성을 **MongoDbCollection**으로 설정해야 합니다. | 적용 |
+| collectionName |MongoDB 데이터베이스에 있는 컬렉션의 이름입니다. |적용 |
 
 **예제:**
 
@@ -126,9 +127,9 @@ MongoDB에서 데이터를 복사하려면 데이터 집합의 type 속성을 **
 
 MongoDB에서 데이터를 복사하려면 복사 작업의 원본 형식을 **MongoDbSource**로 설정합니다. 복사 작업 **source** 섹션에서 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 작업 원본의 type 속성을 **MongoDbSource**로 설정해야 합니다. | 예 |
+| 형식 | 복사 작업 원본의 type 속성을 **MongoDbSource**로 설정해야 합니다. | 적용 |
 | 쿼리 |사용자 지정 SQL-92 쿼리를 사용하여 데이터를 읽습니다. 예: select * from MyTable. |아니요(데이터 집합의 "collectionName"이 지정된 경우) |
 
 **예제:**
@@ -174,11 +175,11 @@ Azure Data Factory 서비스는 컬렉션에 있는 **최신 100개의 문서**�
 
 MongoDB에서 데이터를 복사하는 경우 MongoDB 데이터 형식에서 Azure Data Factory 중간 데이터 형식으로 다음 매핑이 사용됩니다. 복사 작업에서 원본 스키마 및 데이터 형식을 싱크에 매핑하는 방법에 대한 자세한 내용은 [스키마 및 데이터 형식 매핑](copy-activity-schema-and-type-mapping.md)을 참조하세요.
 
-| MongoDB 데이터 형식 | 데이터 팩터리 중간 데이터 형식 |
+| MongoDB 데이터 형식 | Data Factory 중간 데이터 형식 |
 |:--- |:--- |
 | 이진 |Byte[] |
-| Boolean |Boolean |
-| Date |DateTime |
+| BOOLEAN |BOOLEAN |
+| Date |Datetime |
 | NumberDouble |Double |
 | NumberInt |Int32 |
 | NumberLong |Int64 |
@@ -201,7 +202,7 @@ Azure Data Factory는 기본 제공 ODBC 드라이버를 사용하여 MongoDB �
 
 가상 테이블은 실제 테이블의 데이터를 나타내며, 드라이버가 정규화되지 않은 데이터에 액세스할 수 있도록 합니다. 가상 테이블을 쿼리 및 조인하여 MongoDB 배열의 콘텐츠에 액세스할 수 있습니다.
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 예를 들어 여기 ExampleTable은 MongoDB 테이블로, 각 셀의 개체 배열이 있는 하나의 열(송장)과 스칼라 형식의 배열이 있는 하나의 열(등급)이 있습니다.
 

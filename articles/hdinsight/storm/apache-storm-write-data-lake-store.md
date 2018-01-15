@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/11/2017
+ms.date: 01/04/2018
 ms.author: larryfr
-ms.openlocfilehash: efb0a19e0793a93b2bfab93adb747e6f130341df
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 5550dc2ffc53c6ccd30ecb4901ec98c4d38e366b
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="write-to-hdfs-from-apache-storm-on-hdinsight"></a>HDInsight의 Apache Storm에서 HDFS에 쓰기
 
@@ -34,7 +34,7 @@ Storm을 사용하여 HDInsight의 Apache Storm에서 사용하는 HDFS 호환 �
 
 이 프로젝트를 컴파일하기 위해 개발 환경에 필요한 구성 요소는 다음과 같습니다.
 
-* [Java JDK 1.8](https://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) 이상 - HDInsight 3.5 이상에는 Java 8이 필요합니다.
+* [Java JDK 1.8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) 이상 - HDInsight 3.5 이상에는 Java 8이 필요합니다.
 
 * [Maven 3.x](https://maven.apache.org/download.cgi)
 
@@ -59,7 +59,7 @@ HdfsBolt는 사용자가 제공하는 파일 구성표를 사용하여 HDFS에 �
 
 다음 표에서는 여러 시나리오에 대한 파일 구성표를 사용하는 경우의 예를 제공합니다.
 
-| 구성표 | 참고 사항 |
+| 구성표 | 메모 |
 | ----- | ----- |
 | `wasb:///` | 기본 저장소 계정은 Azure Storage 계정의 Blob 컨테이너입니다. |
 | `adl:///` | 기본 저장소 계정은 Azure Data Lake Store의 디렉터리입니다. 클러스터를 만드는 동안 클러스터의 HDFS 루트인 Data Lake Store의 디렉터리를 지정합니다. 예를 들어 `/clusters/myclustername/` 디렉터리가 있습니다. |
@@ -140,7 +140,7 @@ Flux 프레임워크에 대한 자세한 내용은 [https://storm.apache.org/rel
 
 기본적으로 HDInsight의 Storm에는 HdfsBolt에서 Storm의 클래스 경로에 있는 Azure Storage 또는 Data Lake Store와 통신하는 데 사용하는 구성 요소가 포함되지 않습니다. 다음 스크립트 동작을 사용하여 클러스터의 Storm에 대한 `extlib` 디렉터리에 이러한 구성 요소를 추가합니다.
 
-* 스크립트 URI: `https://000aarperiscus.blob.core.windows.net/certs/stormextlib.sh`
+* 스크립트 URI: `https://hdiconfigactions.blob.core.windows.net/linuxstormextlibv01/stormextlib.sh`
 * 다음에 적용할 노드: Nimbus, Supervisor
 * 매개 변수: 없음
 

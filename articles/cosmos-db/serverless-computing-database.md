@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
 ms.author: mimig
-ms.openlocfilehash: 8ec4cf774306a5b74627adc0d405bab09645ec9a
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: aeef39294bbf3ad4192fe116c6972e52bfa1c816
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="azure-cosmos-db-serverless-database-computing-using-azure-functions"></a>Azure Cosmos DB: Azure Functions를 통한, 서버를 사용하지 않는 데이터베이스 컴퓨팅
 
@@ -34,6 +34,9 @@ Azure Cosmos DB 및 Azure Functions를 사용하면 다음과 같은 방법으�
 * 또는 **입력 바인딩**을 사용하여 Azure Functions를 Azure Cosmos DB 컬렉션에 바인딩합니다. 입력 바인딩은 함수가 실행될 때 컨테이너에서 데이터를 읽습니다.
 * **출력 바인딩**을 사용하여 함수를 Azure Cosmos DB 컬렉션에 바인딩합니다. 출력 바인딩은 함수가 완료될 때 컨테이너에 데이터를 씁니다.
 
+> [!NOTE]
+> 이때 Azure Cosmos DB 트리거, 입력 바인딩 및 출력 바인딩은 SQL API 및 Graph API 계정에서만 작동합니다.
+
 다음 다이어그램은 다음 세 가지 통합을 각각 보여 줍니다. 
 
 ![Azure Cosmos DB 및 Azure Functions의 통합 방법](./media/serverless-computing-database/cosmos-db-azure-functions-integration.png)
@@ -42,9 +45,6 @@ Azure Cosmos DB 트리거, 입력 바인딩 및 출력 바인딩을 다음과 �
 * Azure Cosmos DB 트리거를 다른 Azure Cosmos DB 컨테이너에 대한 출력 바인딩과 함께 사용할 수 있습니다. 함수가 변경 피드의 항목에 대해 작업을 수행하는 경우 다른 컨테이너에 쓸 수 있습니다(원본 컨테이너와 동일한 컨테이너에 쓰면 재귀 루프가 생성됨). 또는 Azure Cosmos DB 트리거를 사용하여 출력 바인딩을 통해 변경된 모든 항목을 컨테이너 간에 마이그레이션할 수 있습니다.
 * Azure Cosmos DB에 대한 입력 바인딩 및 출력 바인딩을 동일한 Azure Functions에 사용할 수 있습니다. 이 기능은 입력 바인딩을 사용하여 특정 데이터를 찾고 Azure Functions에서 수정한 다음 수정 후 동일한 컨테이너 또는 다른 컨테이너에 저장하려는 경우에 효과적입니다.
 * Azure Cosmos DB 컨테이너에 대한 입력 바인딩을 Azure Cosmos DB 트리거와 동일한 함수에 사용할 수 있으며, 출력 바인딩과 함께 또는 출력 바인딩 없이 사용할 수 있습니다. 이 조합을 사용하여 입력 바인딩과 함께 환율 컨테이너로 가져온 최신 통화 환율 정보를 쇼핑 카트 서비스의 새 주문 변경 피드에 적용할 수 있습니다. 출력 바인딩을 사용하여 현재 통화 변환이 적용된 업데이트된 쇼핑 카트 합계를 세 번째 컨테이너에 쓸 수 있습니다.
-
-> [!NOTE]
-> 이때 Azure Cosmos DB 트리거, 입력 바인딩 및 출력 바인딩은 SQL API 및 Graph API 계정에서만 작동합니다.
 
 ## <a name="use-cases"></a>사용 사례
 
@@ -153,7 +153,7 @@ Flow, Logic Apps, Azure Functions 또는 WebJobs가 구현에 가장 적합한�
 * [Azure Portal에서 Azure Cosmos DB 트리거 만들기](https://aka.ms/cosmosdbtriggerportalfunc)
 * [Azure Cosmos DB 입력 바인딩을 사용하여 Azure Functions HTTP 트리거 만들기](https://aka.ms/cosmosdbinputbind)
 * [Azure Functions 및 Cosmos DB를 사용하여 구조화되지 않은 데이터 저장](../azure-functions/functions-integrate-store-unstructured-data-cosmosdb.md)
-* [Azure Cosmos DB 바인딩 및 트리거](../azure-functions/functions-bindings-documentdb.md)
+* [Azure Cosmos DB 바인딩 및 트리거](../azure-functions/functions-bindings-cosmosdb.md)
 
 
  

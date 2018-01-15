@@ -44,7 +44,7 @@
 - name: 예
   href: walkthroughs.md
   items:
-    - name: Azure 기계 학습
+    - name: Azure Machine Learning
       href: walkthroughs-aml-with-tdsp.md
       items:
         - name: 감정 분류
@@ -223,7 +223,7 @@
 - name: 관련 항목
   items:
     - name: Microsoft Cognitive 도구 키트 - CNTK
-      href: 'https://docs.microsoft.com/en-us/cognitive-toolkit/'
+      href: 'https://docs.microsoft.com/cognitive-toolkit/'
       maintainContext: true
     - name: Cortana Intelligence 파트너 솔루션
       items:
@@ -240,12 +240,12 @@
             - name: 이상 감지
               href: apps-anomaly-detection-api.md
             - name: Cognitive Services
-              href: 'https://docs.microsoft.com/en-us/azure/cognitive-services/'
+              href: 'https://docs.microsoft.com/azure/cognitive-services/'
             - name: 예측 유지 관리
               items:
                 - name: 개요
                   href: cortana-analytics-playbook-predictive-maintenance.md
-                - name: 아키텍처
+                - name: 건축
                   href: cortana-analytics-architecture-predictive-maintenance.md
                 - name: 기술 가이드
                   href: cortana-analytics-technical-guide-predictive-maintenance.md
@@ -291,5 +291,5 @@
           href: 'https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning'
         - name: 스택 오버플로
           href: 'http://stackoverflow.com/questions/tagged/azure-machine-learning'
-        - name: 비디오
+        - name: 동영상
           href: 'https://azure.microsoft.com/resources/videos/index/?services=machine-learning'

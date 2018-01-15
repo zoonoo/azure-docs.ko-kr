@@ -12,13 +12,13 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/19/2017
+ms.date: 01/04/2018
 ms.author: yurid
-ms.openlocfilehash: f4614ac55cde26e921edfe41160e2766aef6bb2c
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: b304ce8c60aefc417993574a0baa43cfc2298d66
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="understanding-security-alerts-in-azure-security-center"></a>Azure Security Center에서 보안 경고 이해
 이 문서를 통해 Azure Security Center에서 사용할 수 있는 다양한 유형의 보안 경고 및 관련된 정보를 이해할 수 있습니다. 경고 및 인시던트를 관리하는 방법에 대한 자세한 내용은 [Azure Security Center에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md)을 참조하세요.
@@ -144,7 +144,6 @@ Security Center는 고급 분석을 사용하여 가상 머신 이벤트 로그�
 * **의심스러운 문서 자격 증명**: 이 경고는 맬웨어가 파일을 실행하는 데 사용되는 일반적으로 의심스러운 미리 계산된 암호 해시를 나타냅니다.
 * **동적 PS 스크립트 생성**:이 경고는 PowerShell 스크립트가 동적으로 생성됨을 나타냅니다. 공격자는 이 기술을 사용하여 IDS 시스템을 피하도록 스크립트를 점진적으로 작성합니다.
 * **Metaploit 지표**: 이 경고는 다양한 공격자 기능 및 도구를 제공하는 Metasploit 프레임워크와 관련된 작업을 나타냅니다.
-* **SENSE 변조**: 이 경고는 Windows Defender ATP의 보안 모니터링 서비스인 SENSE를 사용하지 않도록 설정하려는 시도를 나타냅니다.
 * **의심스러운 계정 활동**: 이 경고는 최근에 손상된 계정을 사용하여 컴퓨터에 연결하려는 시도를 나타냅니다.
 * **의심스러운 예약 작업 액세스 가능성이 있음**: 이 경고는 cron 작업이 실행되었음을 나타냅니다. 이 작업은 공격자가 정기적으로 악성 프로그램을 실행하는 데 사용할 수 있습니다.
 * **의심스러운 명령 기록 파일 액세스 가능성이 있음**: 이 경고는 명령 기록 파일에 대한 비정상적인 액세스를 나타냅니다.
@@ -189,7 +188,7 @@ Security Center 네트워크 위협 감지는 Azure IPFIX(인터넷 프로토콜
 
 Security Center 리소스 분석은 [Azure SQL Database 위협 요소 탐지](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection) 기능과의 통합 같은 PaaS(Platform as a Service) 서비스에 집중합니다. 이러한 영역에서 분석의 결과에 따라 Security Center는 리소스 관련 경고를 트리거합니다.
 
-* **잠재적인 SQL 삽입**: SQL 삽입은 구문 분석 및 실행을 위해 나중에 SQL Server의 인스턴스로 전달된 문자열에 악성 코드를 삽입한 공격입니다. SQL Server가 수신하는 모든 구문상 유효한 쿼리를 실행하기 때문에 SQL 문을 생성하는 모든 프로시저에 삽입 취약성이 있는지 검토해야 합니다. SQL 위협 요소 탐지는 기계 학습, 동작 분석 및 이상 탐지를 사용하여 Azure SQL Databases에서 발생할 수 있는 의심스러운 이벤트를 확인합니다. 예: 
+* **잠재적인 SQL 삽입**: SQL 삽입은 구문 분석 및 실행을 위해 나중에 SQL Server의 인스턴스로 전달된 문자열에 악성 코드를 삽입한 공격입니다. SQL Server가 수신하는 모든 구문상 유효한 쿼리를 실행하기 때문에 SQL 문을 생성하는 모든 프로시저에 삽입 취약성이 있는지 검토해야 합니다. SQL 위협 요소 탐지는 기계 학습, 동작 분석 및 이상 탐지를 사용하여 Azure SQL Databases에서 발생할 수 있는 의심스러운 이벤트를 확인합니다. 예:  
     * 이전 직원이 데이터베이스 액세스 시도
     * SQL 삽입 공격
     * 집에 있는 사용자로부터 프로덕션 데이터베이스에 대한 비정상적인 액세스

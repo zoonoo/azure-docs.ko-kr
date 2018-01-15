@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: jingwang
-ms.openlocfilehash: 72a4a82ab16ddc290a911428f95ddbf851595721
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: dac4e926868e76d73512bc8b16856bfff2a889aa
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-hbase-using-azure-data-factory"></a>Azure Data Factory를 사용하여 HBase에서 데이터 복사 
 
@@ -34,7 +34,7 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 
 ## <a name="getting-started"></a>시작
 
-.NET SDK, Python SDK, Azure PowerShell, REST API 또는 Azure Resource Manager 템플릿을 사용하여 복사 작업으로 파이프라인을 만들 수 있습니다. 복사 작업을 사용하여 파이프라인을 만드는 단계별 지침은 [복사 작업 자습서](quickstart-create-data-factory-dot-net.md)를 참조하세요.
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 다음 섹션에서는 HBase 커넥터에 한정된 Data Factory 엔터티를 정의하는 데 사용되는 속성에 대해 자세히 설명합니다.
 
@@ -42,14 +42,14 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 
 다음은 HBase 연결된 서비스에 대해 지원되는 속성입니다.
 
-| 속성 | 설명 | 필수 |
+| 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | type 속성은 **HBase**로 설정해야 합니다. | 예 |
-| host | HBase 서버의 IP 주소 또는 호스트 이름입니다. 즉, 192.168.222.160입니다.  | 예 |
+| 형식 | type 속성은 **HBase**로 설정해야 합니다. | 적용 |
+| host | HBase 서버의 IP 주소 또는 호스트 이름입니다. 즉, 192.168.222.160입니다.  | 적용 |
 | 포트 | HBase 인스턴스가 클라이언트 연결을 수신하는 데 사용하는 TCP 포트입니다. 기본값은 9090입니다.  | 아니요 |
 | httpPath | HBase 서버에 해당하는 부분 URL입니다. 즉, /gateway/sandbox/hbase/version입니다.  | 아니요 |
-| authenticationType | HBase 서버에 연결하는 데 사용할 인증 메커니즘입니다. <br/>허용되는 값은 **Anonymous**, **Basic**입니다. | 예 |
-| username | HBase 인스턴스에 연결하는 데 사용되는 사용자 이름입니다.  | 아니요 |
+| authenticationType | HBase 서버에 연결하는 데 사용할 인증 메커니즘입니다. <br/>허용되는 값은 **Anonymous**, **Basic**입니다. | 적용 |
+| 사용자 이름 | HBase 인스턴스에 연결하는 데 사용되는 사용자 이름입니다.  | 아니요 |
 | 암호 | 사용자 이름에 해당하는 암호입니다. 이 필드를 SecureString으로 표시하여 ADF에 안전하게 저장하도록 선택하거나, Azure Key Vault에 암호를 저장하고 복사 작업이 데이터 복사를 수행할 때 거기에서 끌어오도록 할 수 있습니다. [Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md)에서 자세히 알아보세요. | 아니요 |
 | enableSsl | 서버에 대한 연결이 SSL을 사용하여 암호화되는지 여부를 지정합니다. 기본값은 False입니다.  | 아니요 |
 | trustedCertPath | SSL을 통해 연결할 때 서버를 확인하기 위한 신뢰할 수 있는 CA 인증서를 포함하는 .pem 파일의 전체 경로입니다. 이 속성은 자체 호스팅 IR에서 SSL을 사용하는 경우에만 설정할 수 있습니다. 기본값은 IR과 함께 설치된 cacerts.pem 파일입니다.  | 아니요 |
@@ -116,10 +116,10 @@ HBase에서 데이터를 복사하려면 데이터 집합의 type 속성을 **HB
 
 HBase에서 데이터를 복사하려면 복사 작업의 원본 형식을 **HBaseSource**로 설정합니다. 복사 작업 **source** 섹션에서 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 작업 원본의 type 속성은 **HBaseSource**로 설정해야 합니다. | 예 |
-| 쿼리 | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM MyTable"` | 예 |
+| 형식 | 복사 작업 원본의 type 속성은 **HBaseSource**로 설정해야 합니다. | 적용 |
+| 쿼리 | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM MyTable"` | 적용 |
 
 **예제:**
 

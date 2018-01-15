@@ -4,7 +4,7 @@
 ## [Resource Manager 및 클래식 배포](resource-manager-deployment-model.md)
 ## [구독 거버넌스](resource-manager-subscription-governance.md)
 
-# 시작
+# 시작하기
 ## [템플릿 만들기 및 배포](resource-manager-create-first-template.md)
 ## [템플릿에 VS Code 확장](resource-manager-vscode-extension.md)
 ## [Resource Manager와 Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
@@ -16,7 +16,7 @@
 #### [변수](resource-manager-templates-variables.md)
 #### [리소스](resource-manager-templates-resources.md)
 #### [Outputs](resource-manager-templates-outputs.md)
-### [다른 템플릿에 대한 연결](resource-group-linked-templates.md)
+### [연결된 템플릿 및 중첩된 템플릿](resource-group-linked-templates.md)
 ### [리소스 간 종속성 정의](resource-group-define-dependencies.md)
 ### [여러 인스턴스 만들기](resource-group-create-multiple.md)
 ### [리소스 업데이트](/azure/architecture/building-blocks/extending-templates/update-resource)
@@ -32,7 +32,7 @@
 #### [템플릿 배포](resource-group-template-deploy-cli.md)
 #### [SAS 토큰으로 개인 템플릿 배포](resource-manager-cli-sas-token.md)
 #### [템플릿 내보내기 및 재배포](resource-manager-export-template-cli.md)
-### Azure 포털
+### Azure portal
 #### [리소스 배포](resource-group-template-deploy-portal.md)
 #### [템플릿 내보내기](resource-manager-export-template.md)
 ### [REST API](resource-group-template-deploy-rest.md)
@@ -43,7 +43,7 @@
 ## 관리
 ### [Azure PowerShell](powershell-azure-resource-manager.md)
 ### [Azure CLI](xplat-cli-azure-resource-manager.md)
-### [Azure Portal](resource-group-portal.md)
+### [Azure 포털](resource-group-portal.md)
 ### [REST API](resource-manager-rest-api.md)
 ### [태그를 사용하여 리소스 구성](resource-group-using-tags.md)
 ### [새 그룹 또는 구독으로 리소스 이동](resource-group-move-resources.md)
@@ -95,7 +95,7 @@
 ## [.NET](/dotnet/api/microsoft.azure.management.resourcemanager)
 ## [Java](/java/api/com.microsoft.azure.management.resources)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagement.html)
-## [REST (영문)](/rest/api/resources/)
+## [REST](/rest/api/resources/)
 
 # 리소스
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=monitoring-management)

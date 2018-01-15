@@ -3,19 +3,19 @@ title: "Azure Time Series Insights 환경 만들기 | Microsoft Docs"
 description: "이 문서에서는 Azure Portal을 사용하여 새로운 Time Series Insights 환경을 만드는 방법을 설명합니다."
 services: time-series-insights
 ms.service: time-series-insights
-author: op-ravi
-ms.author: omravi
+author: ashannon7
+ms.author: anshan
 manager: jhubbard
 editor: MicrosoftDocs/tsidocs
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/15/2017
-ms.openlocfilehash: 6dba703851161a1eebce0101be8076682f09c76f
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 20156432e17d5eca90779271bd18dc49fa988d7c
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="create-a-new-time-series-insights-environment-in-the-azure-portal"></a>Azure Portal에서 Time Series Insights 환경 만들기
 이 문서에서는 Azure Portal을 사용하여 새로운 Time Series Insights 환경을 만드는 방법을 설명합니다.
@@ -25,7 +25,7 @@ Time Series Insights를 사용하여 Azure IoT Hub 및 Event Hubs로 이동하�
 ## <a name="steps-to-create-the-environment"></a>환경을 만드는 단계
 다음 단계에 따라 환경을 만듭니다.
 
-1.  [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1.  [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 2.  **+새로 만들기** 단추를 선택합니다.
 

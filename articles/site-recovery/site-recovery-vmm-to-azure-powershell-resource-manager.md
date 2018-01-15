@@ -14,17 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: rajanaki
-ms.openlocfilehash: cc832d06611c10901d4370dc7467f0b681d89cbd
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 28f35498593c896a5ad1fe7030c96c38bd4a48a9
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure-using-powershell-and-azure-resource-manager"></a>PowerShell 및 Azure Resource Manager를 사용하여 Azure에 VMM 클라우드의 Hyper-V 가상 머신 복제
 > [!div class="op_single_selector"]
 > * [Azure Portal](site-recovery-vmm-to-azure.md)
 > * [PowerShell - Resource Manager](site-recovery-vmm-to-azure-powershell-resource-manager.md)
-> * [클래식 포털](site-recovery-vmm-to-azure-classic.md)
 > * [PowerShell - 클래식](site-recovery-deploy-with-powershell.md)
 >
 >
@@ -47,7 +46,7 @@ Azure Site Recovery는 여러 배포 시나리오에서 가상 머신의 복제,
 이 시나리오를 설정하는 동안 문제가 발생할 경우 [Azure Recovery Services 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)에 문의 사항을 게시하세요.
 
 > [!NOTE]
-> Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../azure-resource-manager/resource-manager-deployment-model.md)라는 두 가지 배포 모델이 있습니다. 이 문서에서는 리소스 관리자 배포 모델 사용에 대해 설명합니다.
+> Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../azure-resource-manager/resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 리소스 관리자 배포 모델 사용에 대해 설명합니다.
 >
 >
 
@@ -264,7 +263,7 @@ Azure 저장소 계정이 없는 경우 다음 명령을 실행하여 자격 증
 
 작동 완료 여부를 확인하려면 [작업 모니터](#monitor)의 단계를 따릅니다.
 
-### <a name="run-a-test-failover"></a>테스트 장애 조치(Failover) 실행
+### <a name="run-a-test-failover"></a>테스트 장애 조치(failover) 실행
 - 다음 명령을 실행하여 테스트 장애 조치(Failover)를 시작합니다.
 
        $protectionEntity = Get-AzureRmSiteRecoveryProtectionEntity -Name $VMName -ProtectionContainer $protectionContainer

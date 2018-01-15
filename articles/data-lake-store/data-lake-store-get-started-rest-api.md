@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/28/2017
+ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 6c43f2b341280731707e486ba6f22f11560102c6
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 5fafde870a01a6ceb5e86f7b00b0ca11b748c68a
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="account-management-operations-on-azure-data-lake-store-using-rest-api"></a>REST API를 사용한 Azure Data Lake Store의 계정 관리 작업
 > [!div class="op_single_selector"]
@@ -30,8 +30,8 @@ ms.lasthandoff: 12/18/2017
 
 이 문서에서는 REST API를 사용하여 Data Lake Store에서 계정 관리 작업을 수행하는 방법을 알아 봅니다. 계정 관리 작업에는 Data Lake Store 계정 만들기, Data Lake Store 계정 삭제 등이 포함됩니다. REST API를 사용하여 Data Lake Store에서 파일 시스템 작업을 수행하는 방법에 대한 지침은 [REST API를 사용한 Data Lake Store의 파일 시스템 작업](data-lake-store-data-operations-rest-api.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
-* **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
+## <a name="prerequisites"></a>필수 구성 요소
+* **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
 * **[cURL](http://curl.haxx.se/)**. 이 문서에서는 cURL을 사용하여 Data Lake 저장소 계정에 대해 REST API 호출을 수행하는 방법을 설명합니다.
 

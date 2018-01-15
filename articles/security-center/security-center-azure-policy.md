@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/13/2017
+ms.date: 01/05/2018
 ms.author: yurid
-ms.openlocfilehash: 045cf83caa15cb2487b4781f3c1f42752880580c
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 5dedad4fa3695d1b210e1174d8f29966d2259889
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="integrate-security-center-security-policies-with-azure-policy"></a>Azure Policy를 사용하여 Security Center 보안 정책 통합
-이 문서를 사용하면 Azure Policy에서 제공하는 Azure Security Center 보안 정책을 구성할 수 있습니다. 
+이 문서를 사용하면 Azure Policy에서 제공하는 Azure Security Center 보안 정책을 구성할 수 있습니다.
 
 ## <a name="how-security-policies-work"></a>보안 정책 작동 방법
 Security Center는 각 Azure 구독에 대한 기본 보안 정책을 자동으로 만듭니다. Security Center에서 정책을 편집하거나 [Azure Policy](http://docs.microsoft.com/azure/azure-policy/azure-policy-introduction)를 사용하여 다음을 수행할 수 있습니다.
@@ -50,8 +50,8 @@ Security Center에서 각 Azure 구독에 대한 기본 보안 정책을 편집�
 
 5. 정책 정의를 삭제하려면 **정책 및 매개 변수** 아래에서 삭제하려는 정의 옆에 있는 **삭제**를 선택합니다.
 
-6. **Save**를 클릭합니다.  
-    **사용 가능한 정의** 창이 열리고 Azure Policy를 통해 Security Center에 할당된 기본 정책이 표시됩니다. 
+6. **저장**을 클릭합니다.  
+    **사용 가능한 정의** 창이 열리고 Azure Policy를 통해 Security Center에 할당된 기본 정책이 표시됩니다.
 
 7. (선택 사항) **사용 가능한 정의** 창에서 다음 중 하나를 수행합니다.
 
@@ -68,12 +68,12 @@ Security Center에서 각 Azure 구독에 대한 기본 보안 정책을 편집�
 
 ## <a name="available-security-policy-definitions"></a>사용 가능한 보안 정책 정의
 
-기본 보안 정책에서 사용할 수 있는 정책 정의를 이해하려면 다음 표를 참조하세요. 
+기본 보안 정책에서 사용할 수 있는 정책 정의를 이해하려면 다음 표를 참조하세요.
 
 | 정책 | 활성화된 정책에서 수행하는 작업 |
 | --- | --- |
 | 시스템 업데이트 |Windows 업데이트 또는 Windows Server Update Services에서 사용 가능한 보안 및 중요 업데이트의 일일 목록을 검색합니다. 검색된 목록은 가상 머신에 구성된 서비스에 따라 다르며, 누락된 업데이트를 적용하도록 권장합니다. Linux 시스템의 경우 정책은 배포판에서 제공하는 패키지 관리 시스템을 사용하여 사용 가능한 업데이트가 있는 패키지를 확인합니다. 또한 [Azure Cloud Services](../cloud-services/cloud-services-how-to-configure-portal.md) 가상 머신에서 보안 및 중요 업데이트를 확인합니다. |
-| OS 취약성 |운영 체제 구성을 매일 분석하여 가상 머신을 공격에 취약하게 만들 수 있는 문제를 확인합니다. 또한 정책은 이러한 취약점을 해결하는 구성 변경 내용을 권장합니다. 모니터링되는 특정 구성에 대한 자세한 내용은 [권장되는 기준 목록](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335)을 참조하세요. (현재는 Windows Server 2016이 완전히 지원되지 않습니다.) |
+| 보안 구성 |운영 체제 구성을 매일 분석하여 가상 머신을 공격에 취약하게 만들 수 있는 문제를 확인합니다. 또한 정책은 이러한 취약점을 해결하는 구성 변경 내용을 권장합니다. 모니터링되는 특정 구성에 대한 자세한 내용은 [권장되는 기준 목록](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335)을 참조하세요. (현재는 Windows Server 2016이 완전히 지원되지 않습니다.) |
 | Endpoint Protection |바이러스, 스파이웨어 및 기타 악성 소프트웨어를 식별하고 제거하도록 모든 Windows VM(가상 머신)에 끝점 보호를 설정하는 것이 좋습니다. |
 | 디스크 암호화 |모든 가상 머신에서 디스크 암호화를 사용하여 휴지 상태의 데이터 보호 기능을 향상시키는 것이 좋습니다. |
 | 네트워크 보안 그룹 |공용 끝점을 사용하여 VM에 대한 인바운드 및 아웃바운드 트래픽을 제어할 수 있도록 [네트워크 보안 그룹](../virtual-network/virtual-networks-nsg.md)을 구성하는 것이 좋습니다. 서브넷에 대해 구성된 네트워크 보안 그룹은 별도로 지정하지 않는 한 모든 가상 컴퓨터 네트워크 인터페이스에 상속됩니다. 이 정책은 네트워크 보안 그룹이 구성되었는지 확인하는 것 외에도 인바운드 보안 규칙을 평가하여 들어오는 트래픽을 허용하는 규칙을 식별합니다. |

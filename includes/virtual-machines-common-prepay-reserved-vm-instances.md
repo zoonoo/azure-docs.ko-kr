@@ -33,5 +33,5 @@
 ## <a name="next-steps-after-buying-a-reservation"></a>예약 구매 후 다음 단계
 예약 할인은 예약 범위 및 특성과 일치하는 실행 중인 가상 머신 수에 자동으로 적용됩니다. [Azure Portal](https://portal.azure.com), PowerShell, CLI 또는 API를 통해 예약의 범위를 업데이트할 수 있습니다. 
 
-예약을 관리하는 방법을 알아보려면 [Azure Reserved Virtual Machine Instances 관리](https://go.microsoft.com/fwlink/?linkid=861613)를 참조합니다.
+예약을 관리하는 방법을 알아보려면 [Azure Reserved Virtual Machine Instances 관리](../articles/billing/billing-manage-reserved-vm-instance.md)를 참조합니다.
 

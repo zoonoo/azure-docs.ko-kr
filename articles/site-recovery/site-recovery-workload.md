@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 12/15/2017
 ms.author: raynew
-ms.openlocfilehash: 3105eaa9e97f02f2337832bef538959a94263ea4
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: 03d311f84a4b9bc5f3a4c3c488ee7c84b1ef49ad
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Azure Site Recovery로 어떤 워크로드를 보호할 수 있습니까?
 
@@ -110,11 +110,11 @@ Azure Site Recovery를 사용하면 다음과 같이 Dynamics AX ERP 솔루션�
 
 | **RDS** |**Azure VM을 Azure에 복제** | **Hyper-V VM을 보조 사이트로 복제** | **Hyper-V VM을 Azure에 복제** | **VMware VM을 보조 사이트에 복제** | **VMware VM을 Azure에 복제** | **물리적 서버를 보조 사이트에 복제** | **물리적 서버를 Azure에 복제** |
 |---| --- | --- | --- | --- | --- | --- | --- |
-| **풀링된 가상 데스크톱(관리되지 않음)** |아니요|예 |아니요 |예 |아니요 |예 |아니요 |
-| **풀링된 가상 데스크톱(관리됨/UPD 없음)** |아니요|예 |아니요 |예 |아니요 |예 |아니요 |
-| **원격 응용 프로그램 및 데스크톱 세션(UPD 없음)** |예|예 |예 |예 |예 |예 |예 |
+| **풀링된 가상 데스크톱(관리되지 않음)** |아니요|적용 |아니요 |적용 |아니요 |적용 |아니요 |
+| **풀링된 가상 데스크톱(관리됨/UPD 없음)** |아니요|적용 |아니요 |적용 |아니요 |적용 |아니요 |
+| **원격 응용 프로그램 및 데스크톱 세션(UPD 없음)** |적용|적용 |적용 |적용 |적용 |적용 |적용 |
 
-[Azure Site Recovery를 사용하여 RDS에 대한 재해 복구를 설정합니다](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds-disaster-recovery-with-azure).
+[Azure Site Recovery를 사용하여 RDS에 대한 재해 복구를 설정합니다](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-disaster-recovery-with-azure).
 
 [자세히 알아봅니다](https://gallery.technet.microsoft.com/Remote-Desktop-DR-Solution-bdf6ddcb) .
 

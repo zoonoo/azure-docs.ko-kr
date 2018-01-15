@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: jingwang
-ms.openlocfilehash: c0a6a19cffafb940b13135fb3df4d7bdf57aa7ce
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: f6d1b556a1b9ea806e4738acda99c5aa11c9438a
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-or-to-azure-file-storage-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure File Storage 간에 데이터 복사
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 11/10/2017
 
 ## <a name="getting-started"></a>시작
 
-.NET SDK, Python SDK, Azure PowerShell, REST API 또는 Azure Resource Manager 템플릿을 사용하여 복사 작업으로 파이프라인을 만들 수 있습니다. 복사 작업을 사용하여 파이프라인을 만드는 단계별 지침은 [복사 작업 자습서](quickstart-create-data-factory-dot-net.md)를 참조하세요.
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 다음 섹션에서는 Azure File Storage에 한정된 Data Factory 엔터티를 정의하는 데 사용되는 속성에 대해 자세히 설명합니다.
 
@@ -42,12 +42,12 @@ ms.lasthandoff: 11/10/2017
 
 Azure File Storage 연결된 서비스에 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 형식 속성은 **FileServer**로 설정해야 합니다. | 예 |
-| host | Azure File Storage 끝점을 `"host": "\\\\<storage name>.file.core.windows.net\\<file service name>"`로 지정합니다. | 예 |
-| userid | Azure File Storage에 `"userid": "AZURE\\<storage name>"`로 액세스할 사용자를 지정합니다. | 예 |
-| 암호 | 저장소 액세스 키를 지정합니다. 이 필드를 SecureString으로 표시합니다.<br/> | 예 |
+| 형식 | 형식 속성은 **FileServer**로 설정해야 합니다. | 적용 |
+| host | Azure File Storage 끝점을 `"host": "\\\\<storage name>.file.core.windows.net\\<file service name>"`로 지정합니다. | 적용 |
+| userId | Azure File Storage에 `"userid": "AZURE\\<storage name>"`로 액세스할 사용자를 지정합니다. | 적용 |
+| 암호 | 저장소 액세스 키를 지정합니다. 이 필드를 SecureString으로 표시합니다.<br/> | 적용 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 Integration Runtime을 사용할 수 있습니다(데이터 저장소가 개인 네트워크에 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |원본에는 아니요이고 싱크에는 예입니다 |
 
 >[!IMPORTANT]
@@ -83,10 +83,10 @@ Azure File Storage 연결된 서비스에 다음 속성이 지원됩니다.
 
 Azure File Storage 간 데이터를 복사하려면 데이터 집합의 형식 속성을 **FileShare**로 설정합니다. 다음과 같은 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 데이터 집합의 형식 속성을 **FileShare**로 설정해야 합니다. |예 |
-| folderPath | 파일의 경로입니다. |예 |
+| 형식 | 데이터 집합의 형식 속성을 **FileShare**로 설정해야 합니다. |적용 |
+| folderPath | 파일의 경로입니다. |적용 |
 | fileName | 특정 파일 간에 복사하려는 경우 **folderPath**에 있는 파일의 이름을 지정합니다. 이 속성에 값을 지정하지 않으면 데이터 집합이 폴더에 있는 모든 파일을 원본으로 가리키고 자동으로 파일 이름을 생성합니다.<br/><br/>**싱크에 대한 fileName 자동 생성:** fileName이 출력 데이터 집합에 대해 지정되지 않고 **preserveHierarchy**가 작업 싱크에 지정되지 않은 경우 복사 작업은 다음과 같은 패턴으로 파일 이름을 생성합니다. <br/>- `Data_[activity run id]_[GUID].[format].[compression if configured]` 예: `Data_0a405f8a-93ff-4c6f-b3be-f69616f1df7a_0d143eda-d5b8-44df-82ec-95c50895ff80.txt.gz` <br/>- 또는 쿼리가 지정되지 않은 경우 관계형 원본에 대해 `[Table name].[format].[compression if configured]` 예: MySourceTable.orc |아니요 |
 | fileFilter | 모든 파일이 아닌 folderPath의 파일 하위 집합을 선택하는데 사용할 필터를 지정합니다. fileName이 지정되어 있지 않은 경우에만 적용됩니다. <br/><br/>허용되는 와일드카드는 `*`(여러 문자) 및 `?`(단일 문자)입니다.<br/>- 예 1: `"fileFilter": "*.log"`<br/>- 예 2: `"fileFilter": 2017-09-??.txt"` |아니요 |
 | format | 파일 기반 저장소(이진 복사) 간에 **파일을 있는 그대로 복사**하려는 경우 입력 및 출력 데이터 집합 정의 둘 다에서 형식 섹션을 건너뜁니다.<br/><br/>특정 형식으로 파일을 생성하거나 구문 분석하려는 경우 **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**과 같은 파일 형식 유형이 지원됩니다. 이 값 중 하나로 서식에서 **type** 속성을 설정합니다. 자세한 내용은 [텍스트 형식](supported-file-formats-and-compression-codecs.md#text-format), [Json 형식](supported-file-formats-and-compression-codecs.md#json-format), [Avro 형식](supported-file-formats-and-compression-codecs.md#avro-format), [Orc 형식](supported-file-formats-and-compression-codecs.md#orc-format) 및 [Parquet 형식](supported-file-formats-and-compression-codecs.md#parquet-format) 섹션을 참조하세요. |아니요(이진 복사 시나리오에만 해당) |
@@ -128,9 +128,9 @@ Azure File Storage 간 데이터를 복사하려면 데이터 집합의 형식 �
 
 Azure File Storage에서 데이터를 복사하려면 복사 작업의 원본 형식을 **FileSystemSource**로 설정합니다. 복사 작업 **source** 섹션에서 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 작업 원본의 형식 속성을 **FileSystemSource**로 설정해야 합니다. |예 |
+| 형식 | 복사 작업 원본의 형식 속성을 **FileSystemSource**로 설정해야 합니다. |적용 |
 | recursive | 하위 폴더에서 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다.<br/>허용되는 값은 **true**(기본값), **false**입니다. | 아니요 |
 
 **예제:**
@@ -169,9 +169,9 @@ Azure File Storage에서 데이터를 복사하려면 복사 작업의 원본 �
 
 Azure File Storage로 데이터를 복사하려면 복사 작업의 싱크 형식을 **FileSystemSink**로 설정합니다. **sink** 섹션에서 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 작업 싱크의 type 속성은 **FileSystemSink**로 설정해야 합니다. |예 |
+| 형식 | 복사 작업 싱크의 type 속성은 **FileSystemSink**로 설정해야 합니다. |적용 |
 | copyBehavior | 원본이 파일 기반 데이터 저장소의 파일인 경우 복사 동작을 정의합니다.<br/><br/>허용되는 값은 다음과 같습니다.<br/><b>- PreserveHierarchy(기본값)</b>: 대상 폴더에서 파일 계층 구조를 유지합니다. 원본 폴더의 원본 파일 상대 경로는 대상 폴더의 대상 파일 상대 경로와 동일합니다.<br/><b>- FlattenHierarchy</b>: 원본 폴더의 모든 파일은 대상 폴더의 첫 번째 수준에 있게 됩니다. 대상 파일은 자동 생성된 이름을 갖습니다. <br/><b>- MergeFiles</b>: 원본 폴더의 모든 파일을 하나의 파일로 병합합니다. 파일/Blob 이름이 지정된 경우 지정된 이름이 병합된 파일 이름이 됩니다. 그렇지 않으면 자동 생성된 파일 이름이 병합된 파일 이름이 됩니다. | 아니요 |
 
 **예제:**

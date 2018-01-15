@@ -3,7 +3,7 @@ title: "네이티브 클라이언트 앱 게시 - Azure AD | Microsoft Docs"
 description: "Azure AD 응용 프로그램 프록시 커넥터와 통신하는 네이티브 클라이언트 앱을 사용하여 온-프레미스 앱에 대한 보안된 원격 액세스를 제공하는 방법에 대해 설명합니다."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: daveba
 manager: mtillman
 ms.assetid: f0cae145-e346-4126-948f-3f699747b96e
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/31/2017
-ms.author: kgremban
+ms.author: daveba
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: de49a8343a3db6c8b890050e7791f77105a09a3a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2be62c00d144e47cef8ea4df5aa82554f2bbcc18
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="how-to-enable-native-client-apps-to-interact-with-proxy-applications"></a>네이티브 클라이언트 앱을 사용하여 프록시 응용 프로그램과 상호 작용하는 방법
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 12/11/2017
 ## <a name="step-2-configure-your-application"></a>2단계: 응용 프로그램 구성
 네이티브 응용 프로그램을 다음과 같이 구성합니다.
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **Azure Active Directory** > **앱 등록**으로 이동합니다.
 3. **새 응용 프로그램 등록**을 선택합니다.
 4. 응용 프로그램에 대한 이름을 지정하고 응용 프로그램 형식으로 **네이티브**를 선택하고 응용 프로그램에 대한 리디렉션 URI를 제공합니다. 

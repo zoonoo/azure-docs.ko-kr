@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/01/2017
-ms.author: nitinme
-ms.openlocfilehash: e9467523da10333f1bb3c888f6e2768c2fdee4c1
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.date: 01/09/2018
+ms.author: maxluk
+ms.openlocfilehash: 55ff40165a1b25949cb202d9a5174e1f52fe4630
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="run-spark-from-the-spark-shell"></a>Spark 셸에서 Spark 실행
 
@@ -66,7 +66,7 @@ SparkSession 인스턴스에 액세스하려면 `spark`를 입력합니다. Spar
 
 Spark 셸 명령(`spark-shell`, `pyspark` 또는 `sparkR`)은 여러 명령줄 매개 변수를 지원합니다. 매개 변수의 전체 목록을 보려면 스위치 `--help`를 사용하여 Spark 셸을 시작합니다. 이러한 매개 변수 중 일부는 Spark 셸에서 래핑하는 `spark-submit`에만 적용될 수 있습니다.
 
-| 스위치 | 설명 | 예제 |
+| 스위치 | description | 예제 |
 | --- | --- | --- |
 | --master MASTER_URL | 마스터 URL을 지정합니다. HDInsight에서 이 값은 항상 `yarn`입니다. | `--master yarn`|
 | --jars JAR_LIST | 드라이버 및 실행기 클래스 경로에서 포함하도록 쉼표로 구분된 로컬 jar의 목록입니다. HDInsight에서 이 목록은 Azure Storage 또는 Data Lake Store에서 기본 파일 시스템에 대한 경로로 구성됩니다. | `--jars /path/to/examples.jar` |

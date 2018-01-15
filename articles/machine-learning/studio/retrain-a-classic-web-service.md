@@ -1,6 +1,6 @@
 ---
 title: "클래식 웹 서비스 재학습 | Microsoft Docs"
-description: "Azure 기계 학습에서 프로그래밍 방식으로 모델을 다시 학습하고 새로 학습된 모델을 사용하도록 웹 서비스를 업데이트하는 방법을 알아봅니다."
+description: "Azure Machine Learning에서 프로그래밍 방식으로 모델을 다시 학습하고 새로 학습된 모델을 사용하도록 웹 서비스를 업데이트하는 방법을 알아봅니다."
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: v-donglo
-ms.openlocfilehash: 75b1862f288152fa2ff4619f807b86f94dc00e3f
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: ad18d82109e3048625f32d90af9677956350fb84
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="retrain-a-classic-web-service"></a>기존 웹 서비스 재학습
 배포한 예측 웹 서비스는 기본 점수 매기기 끝점입니다. 기본 끝점은 원래 학습 및 점수 매기기 실험과 동기화 상태를 유지하므로 기본 끝점에 대한 학습된 모델을 바꿀 수 없습니다. 웹 서비스를 다시 학습하려면 웹 서비스에 새 끝점을 추가해야 합니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 학습 실험 및 예측 실험을 [프로그래밍 방식으로 Machine Learning 모델 재학습](retrain-models-programmatically.md)에서 보듯이 설정해야 합니다. 
 
 > [!IMPORTANT]
@@ -66,7 +66,7 @@ ms.lasthandoff: 12/09/2017
 
 1. URL을 복사하여 브라우저에 붙여 넣습니다.
 2. 업데이트 리소스 링크를 클릭합니다.
-3. PATCH 요청의 POST URL을 복사합니다. 예:
+3. PATCH 요청의 POST URL을 복사합니다. 예: 
    
      패치 URL: https://management.azureml.net/workspaces/00bf70534500b34rebfa1843d6/webservices/af3er32ad393852f9b30ac9a35b/endpoints/newendpoint2
 
@@ -116,8 +116,8 @@ ms.lasthandoff: 12/09/2017
 
 *리소스*의 *Name* 매개 변수의 값은 예측 실험의 저장된 학습된 모델의 리소스 이름과 일치해야 합니다. 리소스 이름을 가져오려면:
 
-1. [기존 Azure Portal](https://manage.windowsazure.com)에 로그인합니다.
-2. 왼쪽 메뉴에서 **기계 학습**을 클릭합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+2. 왼쪽 메뉴에서 **Machine Learning**을 클릭합니다.
 3. 이름 아래에서 작업 영역을 클릭한 다음 **웹 서비스**를 클릭합니다.
 4. 이름 아래에서 **Census Model[예측 exp.]**을 클릭합니다.
 5. 추가한 새 끝점을 클릭합니다.
@@ -135,5 +135,6 @@ ms.lasthandoff: 12/09/2017
 * 자신의 데이터를 사용하여 모델을 다시 학습할 수 있도록 하는 것을 목표로 고객에게 모델 배포.
 
 ## <a name="next-steps"></a>다음 단계
-[Azure 기계 학습 기존 웹 서비스의 재학습 문제 해결](troubleshooting-retraining-models.md)
+
+            [Azure Machine Learning 기존 웹 서비스의 재학습 문제 해결](troubleshooting-retraining-models.md)
 

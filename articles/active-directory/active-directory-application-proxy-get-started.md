@@ -3,7 +3,7 @@ title: "온-프레미스 앱에 대한 보안된 원격 액세스를 제공하�
 description: "Azure AD 응용 프로그램 프록시를 사용하여 온-프레미스 앱에 대한 보안된 원격 액세스를 제공하는 방법을 설명합니다."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: daveba
 manager: mtillman
 ms.assetid: d5450da1-9e06-4d08-8146-011c84922ab5
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/04/2017
-ms.author: kgremban
+ms.author: daveba
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 3ca7c7919f6cfcece38073520162dc44bbfd748e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 24def898f282c4e122ae53932ae86047e815595c
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="how-to-provide-secure-remote-access-to-on-premises-applications"></a>온-프레미스 응용 프로그램에 보안된 원격 액세스를 제공하는 방법
 
@@ -81,7 +81,7 @@ Kerberos에 대한 자세한 내용은 [KCD(Kerberos Constrained Delegation)에 
 ### <a name="managing-apps"></a>앱 관리
 응용 프로그램 프록시를 사용하여 앱이 게시되면 Azure Portal에서 다른 엔터프라이즈 앱처럼 관리할 수 있습니다. 조건부 액세스 및 2단계 인증과 같은 Azure Active Directory 보안 기능을 사용하고, 사용자 권한을 제어하고, 앱에 대한 브랜딩을 사용자 지정할 수 있습니다. 
 
-## <a name="get-started"></a>시작
+## <a name="get-started"></a>시작하기
 
 응용 프로그램 프록시를 구성하기 전에 지원되는 [Azure Active Directory 버전](https://azure.microsoft.com/pricing/details/active-directory/) 및 전역 관리자 권한이 있는 Azure AD 디렉터리가 있는지 확인합니다.
 

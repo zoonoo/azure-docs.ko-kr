@@ -13,23 +13,21 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: 8cff85337ac7f5d1c0e00f09128cbbd4fa79741e
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 57b3a172445047291f0aea5b1616b9dcbf6bf745
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="lesson-4-create-relationships"></a>단원 4: 관계 만들기
-
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+# <a name="create-relationships"></a>관계 만들기
 
 이 단원에서는 데이터를 가져오고 서로 다른 테이블 간에 새 관계를 추가할 때 자동으로 생성된 관계를 확인합니다. 관계는 해당 테이블의 데이터가 상호 관련되는 방식을 설정하는 두 테이블 간의 연결입니다. 예를 들어 DimProduct 테이블과 DimProductSubcategory 테이블은 각 제품이 하위 범주에 속한다는 사실에 따라 관계를 포함합니다. 자세한 내용은 [관계](https://docs.microsoft.com/sql/analysis-services/tabular-models/relationships-ssas-tabular)를 참조하세요.
   
 이 단원을 완료하기 위한 예상 시간: **10분**  
   
-## <a name="prerequisites"></a>필수 조건  
+## <a name="prerequisites"></a>필수 구성 요소  
 이 항목은 테이블 형식 모델링 자습서에 포함되며 순서대로 완료해야 합니다. 이 단원의 작업을 수행하기 전에 이전 단원인 [단원 3: 날짜 테이블로 표시](../tutorials/aas-lesson-3-mark-as-date-table.md)를 모두 완료해야 합니다. 
   
 ## <a name="review-existing-relationships-and-add-new-relationships"></a>기존 관계 검토 및 새 관계 추가  
@@ -62,11 +60,11 @@ ms.lasthandoff: 11/02/2017
   
     |Active|테이블|관련된 조회 테이블|  
     |----------|---------|------------------------|  
-    |예|**DimCustomer [GeographyKey]**|**DimGeography [GeographyKey]**|  
-    |예|**DimProduct [ProductSubcategoryKey]**|**DimProductSubcategory [ProductSubcategoryKey]**|  
-    |예|**DimProductSubcategory [ProductCategoryKey]**|**DimProductCategory [ProductCategoryKey]**|  
-    |예|**FactInternetSales [CustomerKey]**|**DimCustomer [CustomerKey]**|  
-    |예|**FactInternetSales [ProductKey]**|**DimProduct [ProductKey]**|  
+    |적용|**DimCustomer [GeographyKey]**|**DimGeography [GeographyKey]**|  
+    |적용|**DimProduct [ProductSubcategoryKey]**|**DimProductSubcategory [ProductSubcategoryKey]**|  
+    |적용|**DimProductSubcategory [ProductCategoryKey]**|**DimProductCategory [ProductCategoryKey]**|  
+    |적용|**FactInternetSales [CustomerKey]**|**DimCustomer [CustomerKey]**|  
+    |적용|**FactInternetSales [ProductKey]**|**DimProduct [ProductKey]**|  
   
     관계가 없는 경우 사용자 모델에 DimCustomer, DimDate, DimGeography, DimProduct, DimProductCategory, DimProductSubcategory 및 FactInternetSales 테이블이 포함되어 있는지 확인합니다. 동일한 데이터 원본 연결의 테이블을 별도의 시간에 가져오는 경우 해당 테이블 간의 관계가 만들어지지 않으므로 수동으로 만들어야 합니다. 관계 없음이 표시되는 경우 데이터 원본에 관계가 없음을 의미합니다. 데이터 모델에서 수동으로 만들 수 있습니다.
 

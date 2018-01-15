@@ -10,17 +10,17 @@ keywords: "자동화 보안, 안전한 자동화, 자동화 인증"
 ms.assetid: 4a6bc2f5-c5a2-4dfb-b10d-7950d750dee8
 ms.service: automation
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/01/2017
 ms.author: magoedte
 ROBOTS: NOINDEX
-ms.openlocfilehash: 79e049d7bfe66c31c0e5854614bfbeb492d16ef3
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 99882c1ff7517beec2ca827c63620f773d7d07c3
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="introduction-to-authentication-in-azure-automation"></a>Azure Automation의 인증 소개  
 Azure Automation을 사용하여 Azure, 온-프레미스 및 AWS(Amazon 웹 서비스)와 같은 기타 클라우드 공급자의 리소스에 대해 작업을 자동화할 수 있습니다.  Runbook이 필요한 작업을 수행하려면 구독 내에서 최소의 권한으로 리소스에 안전하게 액세스할 수 있는 권한이 있어야 합니다.
@@ -31,10 +31,6 @@ Azure Automation을 사용하여 Azure, 온-프레미스 및 AWS(Amazon 웹 서�
 Azure Automation을 처음 시작하려면 Automation 계정을 하나 이상 만들어야 합니다. Automation 계정을 사용하면 다른 Automation 계정에 포함된 리소스에서 사용자의 Automation 리소스(Runbook, 자산, 구성)를 격리할 수 있습니다. Automation 계정을 사용하여 리소스를 별도의 논리적 환경으로 구분할 수 있습니다. 예를 들어 개발, 프로덕션, 온-프레미스 환경에 서로 다른 계정을 사용할 수 있습니다.  Azure Automation 계정은 Microsoft 계정 또는 Azure 구독에서 만든 계정과 다릅니다.
 
 각 Automation 계정의 Automation 리소스는 단일 Azure 지역과 연결되지만 Automation 계정은 구독 내 모든 리소스를 관리할 수 있습니다. 여러 지역에서 Automation 계정을 만드는 주된 이유는 데이터 및 리소스를 특정 지역으로 격리해야 하는 정책이 있을 수 있기 때문입니다.
-
-> [!NOTE]
-> Azure Portal에서 작성된 Automation 계정 및 Automation 계정이 포함하는 리소스는 Azure 클래식 포털에서 액세스할 수 없습니다. 이러한 계정 또는 해당 리소스를 Windows PowerShell을 사용하여 관리하려는 경우 Azure 리소스 관리자 모듈을 사용해야 합니다.
->
 
 Azure Automation에서 Azure Resource Manager 및 Azure cmdlet을 사용하여 리소스에 대해 수행하는 모든 작업은 Azure Active Directory 조직 ID 자격 증명 기반 인증을 사용하여 Azure에 인증해야 합니다.  원래는 Azure 클래식에서 인증서 기반 인증을 사용했지만 설치 방법이 복잡합니다.  Azure AD 사용자로 Azure에 인증하는 방법은 2014년에 인증 계정 구성을 간소화하는 한편 Azure Resource Manager와 클래식 리소스와 연동하는 단일 사용자 계정으로 Azure에 비 대화식으로 인증하는 기능을 지원하기 위해 도입되었습니다.   
 
@@ -50,7 +46,7 @@ Azure Resource Manager에서 역할 기반 액세스 제어를 사용하여 Azur
 ## <a name="authentication-methods"></a>인증 방법
 다음 테이블에는 Azure Automation에서 지원하는 각 환경에 대한 다양한 인증 방법과 Runbook에 대한 인증 설정 방법을 설명하는 문서가 요약되어 있습니다.
 
-| 메서드 | Environment | 문서 |
+| 방법 | Environment | 문서 |
 | --- | --- | --- |
 | Azure AD 사용자 계정 만들기 |Azure Resource Manager 및 Azure 클래식 |[Azure AD 사용자 계정으로 Runbook 인증](automation-create-aduser-account.md) |
 | Azure 실행 계정 |Azure 리소스 관리자 |[Azure 실행 계정으로 Runbook 인증](automation-sec-configure-azure-runas-account.md) |

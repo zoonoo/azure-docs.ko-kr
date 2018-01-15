@@ -10,11 +10,11 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 09/26/2017
 ms.author: jingwang
-ms.openlocfilehash: 2bfc59931bbbb08ad1cd0328cf624b7350f92ec0
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 6f4d958779b709c6fa1c8e632224b073db382ba5
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Amazon 단순 저장소 서비스에서 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -42,7 +42,8 @@ Amazon S3에서 데이터를 복사하려면 다음과 같은 권한이 부여�
 Amazon S3 사용 권한의 전체 목록은 [정책에서 사용 권한 지정](http://docs.aws.amazon.com/amazons3/latest/dev/using-with-s3-actions.html)을 참조하세요.
 
 ## <a name="getting-started"></a>시작
-.NET SDK, Python SDK, Azure PowerShell, REST API 또는 Azure Resource Manager 템플릿을 사용하여 복사 작업으로 파이프라인을 만들 수 있습니다. 복사 작업을 사용하여 파이프라인을 만드는 단계별 지침은 [복사 작업 자습서](quickstart-create-data-factory-dot-net.md)를 참조하세요. 
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)] 
 
 다음 섹션에서는 Amazon S3에 한정된 Data Factory 엔터티를 정의하는 데 사용되는 속성에 대해 자세히 설명합니다.
 
@@ -50,11 +51,11 @@ Amazon S3 사용 권한의 전체 목록은 [정책에서 사용 권한 지정](
 
 Amazon S3 연결된 서비스에 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 형식 속성은 **AmazonS3**으로 설정되어야 합니다. | 예 |
-| accessKeyId | 비밀 액세스 키의 ID입니다. |예 |
-| secretAccessKey | 비밀 액세스 키 자체입니다. 이 필드를 SecureString으로 표시합니다. |예 |
+| 형식 | 형식 속성은 **AmazonS3**으로 설정되어야 합니다. | 적용 |
+| accessKeyId | 비밀 액세스 키의 ID입니다. |적용 |
+| secretAccessKey | 비밀 액세스 키 자체입니다. 이 필드를 SecureString으로 표시합니다. |적용 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 Integration Runtime을 사용할 수 있습니다(데이터 저장소가 개인 네트워크에 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아니요 |
 
 >[!NOTE]
@@ -89,10 +90,10 @@ Amazon S3 연결된 서비스에 다음 속성이 지원됩니다.
 
 Amazon S3에서 데이터를 복사하려면 데이터 집합의 type 속성을 **AmazonS3Object**로 설정합니다. 다음과 같은 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 데이터 집합의 type 속성을 **AmazonS3Object**로 설정해야 합니다. |예 |
-| bucketName | S3 버킷 이름입니다. |예 |
+| 형식 | 데이터 집합의 type 속성을 **AmazonS3Object**로 설정해야 합니다. |적용 |
+| bucketName | S3 버킷 이름입니다. |적용 |
 | key | S3 개체 키입니다. 접두사가 지정되어 있지 않은 경우에만 적용됩니다. |아니요 |
 | 접두사 | S3 개체 키에 대한 접두사입니다. 이 접두사로 시작하는 키를 가진 개체가 선택됩니다. 키가 지정되어 있지 않은 경우에만 적용됩니다. |아니요 |
 | 버전 | S3 버전 관리를 사용하도록 설정하면 S3 개체의 버전입니다. |아니요 |
@@ -167,9 +168,9 @@ Amazon S3에서 데이터를 복사하려면 데이터 집합의 type 속성을 
 
 Amazon S3에서 데이터를 복사하려면 복사 작업의 원본 형식을 **FileSystemSource**로 설정합니다(Amazon S3 포함). 복사 작업 **source** 섹션에서 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 작업 원본의 형식 속성을 **FileSystemSource**로 설정해야 합니다. |예 |
+| 형식 | 복사 작업 원본의 형식 속성을 **FileSystemSource**로 설정해야 합니다. |적용 |
 | recursive | 하위 폴더에서 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다.<br/>허용되는 값은 **true**(기본값), **false**입니다. | 아니요 |
 
 **예제:**

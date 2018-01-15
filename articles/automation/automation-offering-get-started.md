@@ -11,14 +11,14 @@ ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 08/31/2017
 ms.author: magoedte
-ms.openlocfilehash: 2a57b60a2222d6e2ea864410edc6a32a0bf0c76c
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 69670d789d75a99d69538821d88427bd8ac397be
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="getting-started-with-azure-automation"></a>Azure Automation 시작
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 12/14/2017
 
 Azure Automation은 Azure, 다른 클라우드 서비스 또는 온-프레미스에서 Runbook을 사용하여 프로세스를 자동화하고 DSC(필요한 상태 구성)를 사용하여 Windows 및 Linux 시스템의 구성 변경 사항을 관리하는 안정적이며 확장성이 있는 다중 테넌트 환경을 제공하는 SaaS(software as a service)입니다. Runbook, 자산, 실행 계정과 같은 Automation 계정 내에 포함된 엔터티는 사용자 구독 및 다른 구독 내의 다른 Automation 계정으로부터 격리됩니다.  
 
-Azure에서 실행하는 Runbook은 Azure PaaS(platform as a service) 가상 컴퓨터에서 호스팅되는 Automation 샌드박스에서 실행됩니다.  Automation 샌드박스는 모듈, 저장소, 메모리, 네트워크 통신, 작업 스트림 등의 Runbook을 실행하는 모든 측면에서 테넌트를 격리합니다. 이 역할은 서비스에 의해 관리되고 사용자가 제어할 Azure 또는 Azure Automation 계정에서 액세스할 수 없습니다.         
+Azure에서 실행하는 Runbook은 Azure PaaS(platform as a service) 가상 머신에서 호스팅되는 Automation 샌드박스에서 실행됩니다.  Automation 샌드박스는 모듈, 저장소, 메모리, 네트워크 통신, 작업 스트림 등의 Runbook을 실행하는 모든 측면에서 테넌트를 격리합니다. 이 역할은 서비스에 의해 관리되고 사용자가 제어할 Azure 또는 Azure Automation 계정에서 액세스할 수 없습니다.         
 
 로컬 데이터 센터 또는 다른 클라우드 서비스에서 리소스의 배포 및 관리를 자동화하려면 Automation 계정을 만든 후 하나 이상의 컴퓨터에서 [HRW(Hybrid Runbook Worker)](automation-hybrid-runbook-worker.md) 역할을 실행하도록 지정할 수 있습니다.  각 HRW에는 Log Analytics 작업 영역 및 Automation 계정에 연결된 Microsoft Management Agent가 필요합니다.  Log Analytics는 설치를 부트스트랩하고 Microsoft Management Agent를 유지 관리하며 HRW의 기능을 모니터링하는 데 사용됩니다.  Runbook 및 Runbook 실행 지침은 Azure Automation에 의해 전달됩니다.
 
@@ -39,16 +39,16 @@ Azure에서 실행하는 Runbook은 Azure PaaS(platform as a service) 가상 컴
 
 HRW에서 실행되는 Runbook은 컴퓨터의 로컬 시스템 계정이라는 컨텍스트에서 실행되며 로컬 Windows 컴퓨터에서 관리 작업을 수행할 때 권장되는 보안 컨텍스트입니다. Runbook이 로컬 컴퓨터 외부에서 리소스에 대한 작업을 실행하려면 Runbook에서 액세스할 수 있는 Automation 계정에서 보안 자격 증명 자산을 정의하고 외부 리소스를 사용하여 인증하는 데 사용할 수도 있습니다. 이를 인증할 수 있도록 자격 증명을 지정할 수 있는 cmdlet과 함께 Runbook의 [자격 증명](automation-credentials.md), [인증서](automation-certificates.md) 및 [연결](automation-connections.md) 자산을 사용할 수 있습니다.
 
-Azure Automation에 저장된 DSC 구성은 Azure 가상 컴퓨터에 직접 적용할 수 있습니다. 기타 물리적 및 가상 컴퓨터는 Azure Automation DSC 풀 서버에서 구성을 요청할 수 있습니다.  온-프레미스 물리적 또는 가상 Windows 및 Linux 시스템의 구성을 관리하려면 OMS 서비스에 TCP 포트 443을 통해 통신하기 때문에 Automation DSC에 의해 관리되는 각 시스템의 아웃바운드 인터넷 액세스인 Automation DSC 끌어오기 서버를 지원하는 인프라를 배포할 필요가 없습니다.   
+Azure Automation에 저장된 DSC 구성은 Azure 가상 머신에 직접 적용할 수 있습니다. 기타 물리적 및 가상 머신은 Azure Automation DSC 풀 서버에서 구성을 요청할 수 있습니다.  온-프레미스 물리적 또는 가상 Windows 및 Linux 시스템의 구성을 관리하려면 OMS 서비스에 TCP 포트 443을 통해 통신하기 때문에 Automation DSC에 의해 관리되는 각 시스템의 아웃바운드 인터넷 액세스인 Automation DSC 끌어오기 서버를 지원하는 인프라를 배포할 필요가 없습니다.   
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 ### <a name="automation-dsc"></a>Automation DSC
 Azure Automation DSC를 다양한 컴퓨터의 관리에 사용할 수 있습니다.
 
-* Windows 또는 Linux를 실행 중인 Azure 가상 컴퓨터(클래식)
-* Windows 또는 Linux를 실행 중인 Azure 가상 컴퓨터
-* Windows 또는 Linux를 실행 중인 AWS(Amazon Web Services) 가상 컴퓨터
+* Windows 또는 Linux를 실행 중인 Azure 가상 머신(클래식)
+* Windows 또는 Linux를 실행 중인 Azure 가상 머신
+* Windows 또는 Linux를 실행 중인 AWS(Amazon Web Services) 가상 머신
 * 온-프레미스 또는 Azure나 AWS 이외의 클라우드에 있는 Windows 실제/가상 컴퓨터
 * 온-프레미스 또는 Azure나 AWS 이외의 클라우드에 있는 Linux 실제/가상 컴퓨터
 
@@ -88,10 +88,6 @@ Azure Automation에서 Azure cmdlet을 사용하여 리소스에 대해 수행�
 
 각 Automation 계정의 Automation 리소스는 단일 Azure 지역과 연결되지만 Automation 계정은 구독 내 모든 리소스를 관리할 수 있습니다. 데이터 및 리소스를 특정 지역으로 격리해야 하는 정책이 있는 경우 여러 지역에서 Automation 계정을 만듭니다.
 
-> [!NOTE]
-> Azure Portal에서 작성된 Automation 계정 및 Automation 계정이 포함하는 리소스는 Azure 클래식 포털에서 액세스할 수 없습니다. 이러한 계정 또는 해당 리소스를 Windows PowerShell을 사용하여 관리하려는 경우 Azure 리소스 관리자 모듈을 사용해야 합니다.
-> 
-
 Azure Portal에서 Automation 계정을 만들 경우 두 개의 인증 엔터티를 자동으로 만듭니다.
 
 * 실행 계정 이 계정은 Azure AD(Azure Active Directory)의 서비스 주체 및 인증서를 만듭니다. 또한 Runbook을 사용하여 Resource Manager 리소스를 관리하는 참가자 역할 기반 액세스 제어(RBAC)를 할당합니다.
@@ -102,7 +98,7 @@ Azure Resource Manager에서 역할 기반 액세스 제어를 사용하여 Azur
 #### <a name="authentication-methods"></a>인증 방법
 다음 표에는 Azure Automation에서 지원하는 각 환경에 대한 다양한 인증 방법이 요약되어 있습니다.
 
-| 메서드 | Environment 
+| 방법 | Environment 
 | --- | --- | 
 | Azure 실행 또는 클래식 실행 계정 |Azure Resource Manager 및 Azure 클래식 배포 |  
 | Azure AD 사용자 계정 |Azure Resource Manager 및 Azure 클래식 배포 |  
@@ -139,14 +135,14 @@ Hybrid Runbook Worker를 사용하여 Microsoft Operations Management Suite(OMS)
 이름 대신 IP 주소 목록을 보려면 Microsoft 다운로드 센터에서 [Azure 데이터 센터 IP 주소](https://www.microsoft.com/download/details.aspx?id=41653) xml 파일을 다운로드하여 검토하세요. 
 
 > [!NOTE]
-> 이 파일에는 Microsoft Azure 데이터 센터에서 사용되는 IP 주소 범위(Compute, SQL 및 Storage 범위 포함)가 포함되어 있습니다. 현재 배포된 범위와 향후 예정된 IP 범위 변경 내용을 반영하는 업데이트 파일이 매주 게시됩니다. 파일에 표시되는 새 범위는 적어도 1주일 동안 데이터 센터에서 사용되지 않습니다. Azure에서 실행되는 서비스를 정확하게 식별할 수 있도록 매주 새로운 xml 파일을 다운로드하고 사이트에서 필요한 변경 작업을 수행하세요. ExpressRoute 사용자는 각 달의 첫 번째 주에 Azure 공간의 BGP 광고를 업데이트하는 데 이 파일이 사용되는 것을 보게 될 수도 있습니다. 
+> 이 파일에는 Microsoft Azure 데이터 센터에서 사용되는 IP 주소 범위(Compute, SQL 및 Storage 범위 포함)가 포함되어 있습니다. 현재 배포된 범위와 향후 예정된 IP 범위 변경 내용을 반영하는 업데이트 파일이 매주 게시됩니다. 파일에 표시되는 새 범위는 적어도 1주일 동안 데이터 센터에서 사용되지 않습니다. Azure에서 실행되는 서비스를 정확하게 식별할 수 있도록 매주 새로운 xml 파일을 다운로드하고 사이트에서 필요한 변경 작업을 수행하세요. ExpressRoute 사용자는 매월 첫 번째 주에 Azure 공간의 BGP 광고를 업데이트하는 데 이 파일이 사용되고 있음을 알 수 있습니다. 
 > 
 
 ## <a name="creating-an-automation-account"></a>Automation 계정 만들기
 
 여러 가지 방법으로 Azure Portal에서 Automation 계정을 만들 수 있습니다.  다음 표에서는 각 유형의 배포 환경 및 이들 간의 차이점을 소개합니다.  
 
-|메서드 | 설명 |
+|방법 | 설명 |
 |-------|-------------|
 | Marketplace에서 Automation 및 컨트롤 선택 | 제품을 사용하여 동일한 리소스 그룹 및 지역에서 서로 연결된 Automation 계정 및 OMS 작업 영역을 모두 만듭니다.  OMS와 통합하면 Log Analytics를 사용하여 시간이 지남에 따라 Runbook 작업 상태 및 작업 스트림을 모니터링 및 분석하고 고급 기능을 활용하여 문제를 보고하거나 조사할 수 있는 이점이 있습니다. 또한 기본적으로 사용되는 변경 내용 추적 및 업데이트 관리 솔루션도 배포합니다. |
 | Marketplace에서 Automation 선택 | OMS 작업 영역에 연결되지 않고 Automation 및 컨트롤 제품에서 사용 가능한 솔루션을 포함하지 않는 새로운 또는 기존 리소스 그룹에서 Automation 계정을 만듭니다. Automation를 소개하는 기본 구성이며 이를 통해 Runbook, DSC 구성을 작성하고 서비스의 기능을 사용하는 방법을 알아볼 수 있습니다. |

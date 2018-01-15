@@ -14,11 +14,11 @@ ms.topic: tutorial
 ms.date: 12/05/2017
 ms.author: gwallace
 ms.custom: mvc
-ms.openlocfilehash: f709e216f9308c4405776b25ca44b0aaddd3d3f8
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 151e875bd72598b0b788d68eee7fb186fca86f46
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="simulate-a-failure-in-accessing-read-access-redundant-storage"></a>읽기 액세스 중복 저장소 액세스 오류 시뮬레이션
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 12/13/2017
 > * 오류 시뮬레이션
 > * 기본 끝점 복원 시뮬레이션
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -88,7 +88,7 @@ Fiddler로 이동하여 **규칙** -> **규칙 사용자 지정...**을 선택�
 
 응용 프로그램을 다시 시작하려면 **아무 키**나 누릅니다.
 
-응용 프로그램이 다시 실행되기 시작하면 기본 끝점에 대한 요청이 실패하기 시작합니다. 응용 프로그램이 기본 끝점으로 다시 연결을 5회 시도합니다. 5회의 실패 임계값 후에는 보조 읽기 전용 끝점에서 이미지를 요청합니다. 응용 프로그램이 보조 끝점에서 이미지를 20회 성공적으로 검색하면 응용 프로그램이 기본 끝점에 연결을 시도합니다. 그래도 기본 끝점에 연결할 수 없는 경우 응용 프로그램은 보조 끝점에서 읽기를 다시 시작합니다. 이 패턴은 이전 자습서에서 설명한 [회로 차단기](/azure/architecture/patterns/circuit-breaker.md) 패턴입니다.
+응용 프로그램이 다시 실행되기 시작하면 기본 끝점에 대한 요청이 실패하기 시작합니다. 응용 프로그램이 기본 끝점으로 다시 연결을 5회 시도합니다. 5회의 실패 임계값 후에는 보조 읽기 전용 끝점에서 이미지를 요청합니다. 응용 프로그램이 보조 끝점에서 이미지를 20회 성공적으로 검색하면 응용 프로그램이 기본 끝점에 연결을 시도합니다. 그래도 기본 끝점에 연결할 수 없는 경우 응용 프로그램은 보조 끝점에서 읽기를 다시 시작합니다. 이 패턴은 이전 자습서에서 설명한 [회로 차단기](https://docs.microsoft.com/azure/architecture/patterns/circuit-breaker) 패턴입니다.
 
 ![사용자 지정된 규칙 붙여넣기](media/storage-simulate-failure-ragrs-account-app/figure3.png)
 

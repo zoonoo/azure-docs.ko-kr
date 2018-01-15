@@ -9,12 +9,12 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 09/26/2017
-ms.openlocfilehash: 9ba2cbe1d6ce4b2010decb8bff4fa46faf0852b3
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.date: 01/12/2018
+ms.openlocfilehash: f978805f800a35908629a6febb59d7db50d14023
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="how-to-use-microsoft-machine-learning-library-for-apache-spark"></a>Apache Spark에 대한 Microsoft Machine Learning 라이브러리를 사용하는 방법
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 12/08/2017
  * 미리 학습된 심층 학습 모델을 사용하여 이미지 및 텍스트를 기능화
  * 암시적 기능화를 사용하여 분류 및 회귀 모델을 학습하고 점수 매기기
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 방법 가이드를 단계별로 실행하려면 다음을 수행해야 합니다.
 - [Azure Machine Learning Workbench 설치](quickstart-installation.md)
@@ -56,7 +56,7 @@ repositories:
 packages:
   - group: "com.microsoft.ml.spark"
     artifact: "mmlspark_2.11"
-    version: "0.7.9"
+    version: "0.9.9"
 ```
 
 [스크립트 작업](https://github.com/Azure/mmlspark#hdinsight)을 사용하여 HDInsight Spark 클러스터에 직접 MMLSpark를 설치할 수도 있습니다.

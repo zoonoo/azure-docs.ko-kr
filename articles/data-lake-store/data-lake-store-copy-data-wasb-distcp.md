@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/03/2017
+ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 1c9e100b4a0e7781f0782a49835d50492895ded1
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 8a5052f69eee7f53bb304524fc3ea4d375c76227
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-data-lake-store"></a>Distcp를 사용하여 Azure Storage Blob과 데이터 레이크 저장소 간에 데이터 복사
 > [!div class="op_single_selector"]
@@ -29,9 +29,9 @@ ms.lasthandoff: 12/21/2017
 
 Data Lake Store에 액세스할 수 있는 HDInsight 클러스터를 갖고 있다면 Distcp 같은 Hadoop 에코시스템 도구를 사용하여 HDInsight 클러스터 저장소(WASB)와 **주고 받는** 데이터를 Data Lake Store 계정에 복사할 수 있습니다. 이 문서에서는 Distcp 도구 사용 방법에 대한 지침을 제공합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
-* **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
+* **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 * **Azure 데이터 레이크 저장소 계정**. 만드는 방법에 대한 지침은 [Azure 데이터 레이크 저장소 시작](data-lake-store-get-started-portal.md)
 * **Azure HDInsight 클러스터** 입니다. [Data Lake Store가 있는 HDInsight 클러스터 만들기](data-lake-store-hdinsight-hadoop-use-portal.md)를 참조하세요. 클러스터에 대한 원격 데스크톱을 사용하도록 설정해야 합니다.
 
@@ -44,13 +44,13 @@ HDInsight 클러스터는 서로 다른 원본에서 HDInsight 클러스터로 �
 
 1. 데스크탑에서 SSH를 사용하여 클러스터에 연결합니다. [Linux 기반 HDInsight 클러스터에 연결](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요. SSH 프롬프트에서 명령을 실행합니다.
 
-2. Azure Storage Blob(WASB)에 액세스할 수 있는지 여부를 확인합니다. 다음 명령을 실행합니다.
+2. Azure Storage Blob(WASB)에 액세스할 수 있는지 여부를 확인합니다. 다음 명령 실행:
 
         hdfs dfs –ls wasb://<container_name>@<storage_account_name>.blob.core.windows.net/
 
     출력에 저장소 BLOB의 콘텐츠 목록이 제공되어야 합니다.
 
-3. 마찬가지로 클러스터에서 데이터 레이크 저장소 계정에 액세스할 수 있는지 확인합니다. 다음 명령을 실행합니다.
+3. 마찬가지로 클러스터에서 데이터 레이크 저장소 계정에 액세스할 수 있는지 확인합니다. 다음 명령 실행:
 
         hdfs dfs -ls adl://<data_lake_store_account>.azuredatalakestore.net:443/
 
@@ -117,5 +117,5 @@ DistCp의 가장 낮은 세분성은 단일 파일이므로 최대 동시 복사
 ## <a name="see-also"></a>참고 항목
 * [Azure Storage Blob에서 데이터 레이크 저장소로 데이터 복사](data-lake-store-copy-data-azure-storage-blob.md)
 * [데이터 레이크 저장소의 데이터 보호](data-lake-store-secure-data.md)
-* [Azure 데이터 레이크 분석에 데이터 레이크 저장소 사용](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+* [Azure 데이터 레이크 분석에 Data Lake Store 사용](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Azure HDInsight에 데이터 레이크 저장소 사용](data-lake-store-hdinsight-hadoop-use-portal.md)

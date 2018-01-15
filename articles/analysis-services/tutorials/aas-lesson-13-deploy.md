@@ -13,23 +13,21 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: 926b1b71ca27ede23e36dcf313ef51d4ea73fc02
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 3442de96f346ef211672064584700a7ce183d929
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="lesson-13-deploy"></a>단원 13: 배포
-
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+# <a name="deploy"></a>배포
 
 이 단원에서는 배포 속성을 구성합니다. 즉, 배포할 Azure Analysis Services 서버 및 모델 이름을 지정합니다. 그런 다음 해당 인스턴스에 모델을 배포합니다. 모델을 배포한 후에는 사용자가 보고 클라이언트 응용 프로그램을 사용하여 모델에 연결할 수 있습니다. 자세한 내용은 [Azure Analysis Services에 배포](https://docs.microsoft.com/azure/analysis-services/analysis-services-deploy)를 참조하세요.  
   
 이 단원을 완료하기 위한 예상 시간: **5분**  
   
-## <a name="prerequisites"></a>필수 조건  
+## <a name="prerequisites"></a>필수 구성 요소  
 이 항목은 테이블 형식 모델링 자습서에 포함되며 순서대로 완료해야 합니다. 이 단원의 작업을 수행하기 전에 이전 단원인 [단원 12: Excel에서 분석](../tutorials/aas-lesson-12-analyze-in-excel.md)을 완료해야 합니다.  
 
 > [!IMPORTANT]  
@@ -70,7 +68,7 @@ ms.lasthandoff: 11/02/2017
 3. 배포가 성공적으로 완료되면 진행하고 **닫기**를 클릭합니다.  
   
 ## <a name="conclusion"></a>결론  
-축하합니다. 첫 번째 Analysis Services 테이블 형식 모델의 작성 및 배포가 완료되었습니다. 이 자습서는 테이블 형식 모델을 만드는 가장 일반적인 작업을 완료하는 과정을 안내합니다. 이제 Adventure Works Internet Sales 모델을 배포했으므로, SQL Server Management Studio를 사용하여 모델을 관리하고 프로세스 스크립트 및 백업 계획을 만들 수 있습니다. 이제 사용자가 Microsoft Excel 또는 Power BI와 같은 보고 클라이언트 응용 프로그램을 사용하여 모델에 연결할 수 있습니다.  
+축하합니다! 첫 번째 Analysis Services 테이블 형식 모델의 작성 및 배포가 완료되었습니다. 이 자습서는 테이블 형식 모델을 만드는 가장 일반적인 작업을 완료하는 과정을 안내합니다. 이제 Adventure Works Internet Sales 모델을 배포했으므로, SQL Server Management Studio를 사용하여 모델을 관리하고 프로세스 스크립트 및 백업 계획을 만들 수 있습니다. 이제 사용자가 Microsoft Excel 또는 Power BI와 같은 보고 클라이언트 응용 프로그램을 사용하여 모델에 연결할 수 있습니다.  
 
 ![aas-lesson13-ssms](../tutorials/media/aas-lesson13-ssms.png)
   
