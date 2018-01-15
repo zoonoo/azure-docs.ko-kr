@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 12/13/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 2afdb257421b1333f451eb9d0dd4c2af5a12e946
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: a0131fdbbf926d59eae06089cde109649a1433b8
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="deploy-azure-machine-learning-as-an-iot-edge-module---preview"></a>Azure Machine Learning을 IoT Edge 모듈로 배포 - 미리 보기
 
@@ -30,12 +30,12 @@ ms.lasthandoff: 12/13/2017
 이 자습서에서 만든 Azure Machine Learning 모듈은 장치에서 생성된 온도 데이터를 판독하고 오류를 예측할 경우에만 Azure IoT Hub로 메시지 업스트림을 보냅니다. 
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 빠른 시작 또는 첫 번째 자습서에서 만든 Azure IoT Edge 장치
 * IoT Edge 장치를 연결할 IoT Hub용 IoT Hub 연결 문자열
 * Azure Machine Learning 계정입니다. 계정을 만들려면 [Azure Machine Learning 미리 보기 계정 만들기 및 Azure Machine Learning Workbench 설치](../machine-learning/preview/quickstart-installation.md#create-azure-machine-learning-accounts)의 지침을 따릅니다. 이 자습서에 사용하기 위해 워크벤치 응용 프로그램을 설치할 필요는 없습니다. 
-* 컴퓨터에 있는 Azure ML용 모듈 관리입니다. 환경을 설정하고 계정을 만들려면 [모델 관리 설정](https://docs.microsoft.com/en-us/azure/machine-learning/preview/deployment-setup-configuration)의 지침을 따릅니다.
+* 컴퓨터에 있는 Azure ML용 모듈 관리입니다. 환경을 설정하고 계정을 만들려면 [모델 관리 설정](https://docs.microsoft.com/azure/machine-learning/preview/deployment-setup-configuration)의 지침을 따릅니다.
 
 ## <a name="create-the-azure-ml-container"></a>Azure ML 컨테이너 만들기
 이 섹션에서는 학습된 모델 파일을 다운로드하고 이를 Azure ML 컨테이너로 변환합니다.  

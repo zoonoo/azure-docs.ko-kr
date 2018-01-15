@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/18/2017
+ms.date: 12/11/2017
 ms.author: oanapl
-ms.openlocfilehash: 42dca05c4d7d104ed0e7e21f1e53411e5983cd38
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: cd9a144baf06422b425a0bc6c516600d6fcd4b97
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>시스템 상태 보고서를 사용하여 문제 해결
 Azure Service Fabric 구성 요소가 클러스터 내의 모든 엔터티에 대해 즉각적으로 시스템 상태 보고서를 제공합니다. [Health 스토어](service-fabric-health-introduction.md#health-store) 는 시스템 보고서를 기반으로 엔터티를 만들고 삭제합니다. 또한 엔터티 상호 작용을 캡처하는 계층 구조에서 보고서를 구성합니다.
@@ -48,7 +48,7 @@ Azure Service Fabric 구성 요소가 클러스터 내의 모든 엔터티에 �
 클러스터 상태 엔터티는 Health 스토어에서 자동으로 만들어집니다. 모든 것이 제대로 작동하면 시스템 보고서는 없습니다.
 
 ### <a name="neighborhood-loss"></a>환경 손실
-**System.Federation**은 환경 손실을 감지하면 오류를 보고합니다. 보고서는 개별 노드에서 나오며 노드 ID는 속성 이름에 포함됩니다. 전체 Service Fabric 링에서 하나의 환경이 손실되면 일반적으로 간격 보고서의 양측을 나타내는 두 이벤트를 예상할 수 있습니다. 더 많은 환경이 손실된 경우 더 많은 이벤트가 있습니다.
+**System.Federation** 은 환경 손실을 감지하면 오류를 보고합니다. 보고서는 개별 노드에서 나오며 노드 ID는 속성 이름에 포함됩니다. 전체 Service Fabric 링에서 하나의 환경이 손실되면 일반적으로 간격 보고서의 양측을 나타내는 두 이벤트를 예상할 수 있습니다. 더 많은 환경이 손실된 경우 더 많은 이벤트가 있습니다.
 
 보고서는 전역 임대 시간 제한을 TTL(Time to live)로 지정합니다. 조건이 활성인 한 보고서는 TTL 기간의 절반마다 다시 보내집니다. 이벤트는 만료되면 자동으로 제거됩니다. 보고 노드가 다운되었더라도 보고서가 Health 스토어에서 제대로 정리된 것을 만료된 동작이 보장하면 제거합니다.
 
@@ -101,7 +101,7 @@ HealthEvents          :
 
 
 ### <a name="certificate-expiration"></a>인증서가 만료
-**System.FabricNode**는 노드에 의해 사용되는 인증서가 만료가 가까워질 경우 경고를 보고합니다. 노드당 **Certificate_cluster**, **Certificate_server** 및 **Certificate_default_client**의 3가지 인증서가 있습니다. 적어도 2주 후에 만료될 때 보고서 상태는 확인입니다. 2주 이내에 만료되면 보고서 형식은 경고입니다. 이러한 이벤트의 TTL은 무한대이며 노드가 클러스터를 벗어나면 제거됩니다
+**System.FabricNode** 는 노드에 의해 사용되는 인증서가 만료가 가까워질 경우 경고를 보고합니다. 노드당 **Certificate_cluster**, **Certificate_server** 및 **Certificate_default_client**의 3가지 인증서가 있습니다. 적어도 2주 후에 만료될 때 보고서 상태는 확인입니다. 2주 이내에 만료되면 보고서 형식은 경고입니다. 이러한 이벤트의 TTL은 무한대이며 노드가 클러스터를 벗어나면 제거됩니다
 
 * **SourceId**: System.FabricNode
 * **Property**: **인증서**로 시작하고 인증서 유형에 대한 추가 정보를 포함합니다.
@@ -632,9 +632,9 @@ HealthEvents          :
 
 - **IStatefulServiceReplica.ChangeRole(P)**: 가장 일반적인 경우는 서비스가 `RunAsync`에서 작업을 반환하지 않은 경우입니다.
 
-멈출 수 있는 다른 API 호출은 **IReplicator** 인터페이스에 있습니다. 예:
+멈출 수 있는 다른 API 호출은 **IReplicator** 인터페이스에 있습니다. 예: 
 
-- **IReplicator.CatchupReplicaSet**: 이 경고는 다음 두 가지 중 하나를 나타냅니다. 시작된 복제본이 부족하거나(멈춘 재구성에 대한 System.FM 상태 보고서 또는 파티션에서 복제본의 복제본 상태를 살펴 판단할 수 있음) 복제본이 작업을 승인하고 있지 않습니다. PowerShell cmdlet `Get-ServiceFabricDeployedReplicaDetail`은 모든 복제본의 진행 상황을 확인하는 데 사용될 수 있습니다. 문제는 `LastAppliedReplicationSequenceNumber`가 주 복제본의 `CommittedSequenceNumber` 뒤에 있는 복제본에 있습니다.
+- **IReplicator.CatchupReplicaSet**:이 경고는 다음 두 가지 중 하나를 나타냅니다. 시작된 복제본이 부족하거나(멈춘 재구성에 대한 System.FM 상태 보고서 또는 파티션에서 복제본의 복제본 상태를 살펴 판단할 수 있음) 복제본이 작업을 승인하고 있지 않습니다. PowerShell cmdlet `Get-ServiceFabricDeployedReplicaDetail`은 모든 복제본의 진행 상황을 확인하는 데 사용될 수 있습니다. 문제는 `LastAppliedReplicationSequenceNumber`가 주 복제본의 `CommittedSequenceNumber` 뒤에 있는 복제본에 있습니다.
 
 - **IReplicator.BuildReplica(<Remote ReplicaId>)**: 이 경고는 빌드 프로세스 중의 문제를 나타냅니다. 자세한 내용은 [복제본 수명 주기](service-fabric-concepts-replica-lifecycle.md)를 참조하세요. 복제기 주소의 잘못된 구성이 원인일 수 있습니다. 자세한 내용은 [상태 저장 신뢰할 수 있는 서비스 구성](service-fabric-reliable-services-configuration.md) 및 [서비스 매니페스트에서 리소스 지정](service-fabric-service-manifest-resources.md)을 참조하세요. 원격 노드의 문제일 수도 있습니다.
 

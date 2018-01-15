@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2017
 ms.author: v-jysur
-ms.openlocfilehash: 991f86c328aba9aa184658c7da748f24ee2d6506
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 6a08f042aad8ad00d712420d8f4d3b17305188e1
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="centrally-manage-itsm-work-items-using-it-service-management-connector-preview"></a>IT Service Management Connector(미리 보기)를 사용하여 ITSM 작업 항목을 중앙에서 관리
 
@@ -110,7 +110,7 @@ ServiceDeskWorkItemType_s="Incident"
 - 종결한 날짜
 - 해결한 날짜
 - 마지막으로 수정한 날짜
-- 컴퓨터
+- Computer
 
 
 **작업 항목:** **변경 요청**
@@ -125,7 +125,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - 원본
 - 할당 대상
 - 제목
-- 형식
+- type
 - Category
 - 시스템 상태
 - 에스컬레이션
@@ -144,7 +144,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - 작업 시작 날짜
 - 작업 종료 날짜
 - 설명
-- 컴퓨터
+- Computer
 
 ## <a name="output-data-for-a-servicenow-incident"></a>ServiceNow 인시던트에 대한 출력 데이터
 
@@ -162,11 +162,11 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | AssignedTo_s | 할당 대상  |
 | Category_s | Category |
 | Title_s|  간단한 설명 |
-| Description_s|  참고 사항 |
+| Description_s|  메모 |
 | CreatedDate_t|  열림 |
 | ClosedDate_t| closed|
 | ResolvedDate_t|해결됨|
-| 컴퓨터  | 구성 항목 |
+| Computer  | 구성 항목 |
 
 ## <a name="output-data-for-a-servicenow-change-request"></a>ServiceNow 변경 요청에 대한 출력 데이터
 
@@ -177,7 +177,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | ClosedBy_s | 종결한 사람 |
 | AssignedTo_s | 할당 대상  |
 | Title_s|  간단한 설명 |
-| Type_s|  형식 |
+| Type_s|  type |
 | Category_s|  Category |
 | CRState_s|  시스템 상태|
 | Urgency_s|  긴급도 |
@@ -191,7 +191,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | WorkStartDate_t  | 실제 시작 날짜 |
 | WorkEndDate_t | 실제 종료 날짜|
 | Description_s | 설명 |
-| 컴퓨터  | 구성 항목 |
+| Computer  | 구성 항목 |
 
 **ITSM 데이터에 대한 샘플 Log Analytics 화면:**
 
@@ -227,7 +227,7 @@ ITSM 솔루션을 사용하면 연결된 ITSM 도구에서 작업 항목 만들�
 
     이 경고에서 제한없는 수의 로그 항목에 대해 하나의 작업 항목만 만들려면 이 확인란을 선택 취소합니다.
 
-7. **Save**를 클릭합니다.
+7. **저장**을 클릭합니다.
 
 만든 OMS 경고는 **설정**>**경고** 아래에 표시됩니다. 지정된 경고 조건이 충족되면 해당 ITSM 연결의 작업 항목이 만들어집니다.
 
@@ -292,11 +292,11 @@ Azure 경고 규칙을 만들거나 편집할 때는 ITSM 작업이 있는 작�
 
 ## <a name="troubleshoot-itsm-connections-in-oms"></a>OMS에서 ITSM 연결 문제 해결
 1.  연결된 원본의 UI에서 **연결을 저장하는 동안 오류 발생** 메시지와 함께 연결에 실패하는 경우 다음 단계를 수행합니다.
- - ServiceNow, Cherwell 및 Provence 연결의 경우  
-        - 각 연결에 대한 사용자 이름, 암호 클라이언트 ID 및 클라이언트 암호를 올바르게 입력했는지 확인합니다.  
-        - 해당 ITSM 제품에 연결하는 데 충분한 권한이 있는지 확인합니다.  
- - Service Manager 연결의 경우  
-        - 웹앱이 성공적으로 배포되고 하이브리드 연결이 만들어졌는지 확인합니다. 온-프레미스 Service Manager 컴퓨터와의 연결이 성공적으로 설정되었는지 확인하려면 [하이브리드 연결](log-analytics-itsmc-connections.md#configure-the-hybrid-connection) 설정 설명서에 따라 웹앱 URL을 방문합니다.  
+- ServiceNow, Cherwell 및 Provence 연결의 경우  
+       - 각 연결에 대한 사용자 이름, 암호 클라이언트 ID 및 클라이언트 암호를 올바르게 입력했는지 확인합니다.  
+       - 해당 ITSM 제품에 연결하는 데 충분한 권한이 있는지 확인합니다.  
+- Service Manager 연결의 경우  
+       - 웹앱이 성공적으로 배포되고 하이브리드 연결이 만들어졌는지 확인합니다. 온-프레미스 Service Manager 컴퓨터와의 연결이 성공적으로 설정되었는지 확인하려면 [하이브리드 연결](log-analytics-itsmc-connections.md#configure-the-hybrid-connection) 설정 설명서에 따라 웹앱 URL을 방문합니다.  
 
 2.  ServiceNow의 데이터가 Log Analytics와 동기화되지 않으면 ServiceNow 인스턴스가 중지 상태가 아닌지 확인합니다. ServiceNow Dev 인스턴스가 오랫동안 유휴 상태일 때 중지 상태로 전환되는 경우가 있습니다. 다른 문제를 보고합니다.
 3.  OMS 경고가 발생하지만 ITSM 제품에 작업 항목이 만들어지지 않거나 구성 항목이 작업 항목에 또는 기타 일반적인 정보에 대해 만들어지거나 연결되지 않는 경우 다음 위치를 확인합니다.

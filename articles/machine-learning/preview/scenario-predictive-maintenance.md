@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.topic: article
 ms.custom: mvc
 ms.date: 10/05/2017
-ms.openlocfilehash: d8e34924cb29e2e6469d009e40b04d5cee8930a6
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 0299e73aecca3b3e5714b37c8b0b776ec8561e29
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="predictive-maintenance-real-world-scenario"></a>예측 유지 관리 실제 시나리오.
 
@@ -32,17 +32,17 @@ ms.lasthandoff: 12/13/2017
 
 많은 자산이 필요한 분야의 기업들이 직면한 주요 문제는 기계적 문제에 대한 지연과 관련된 상당한 비용입니다. 대부분의 기업은 이러한 문제가 발생하기 전에 예방하기 위해 이러한 문제가 언제 발생하는지 예측하는 데 관심이 있습니다. 목표는 가동 중지 시간을 줄여서 비용을 줄이고 잠재적으로 안전성을 높이는 것입니다. 
 
-이 시나리오에서는 [예측 유지 관리 플레이 북](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/cortana-analytics-playbook-predictive-maintenance)의 아이디어를 활용해 시뮬레이트된 데이터 집합에 대한 예측 모델을 빌드하는 방법을 보여 줍니다. 예제 데이터는 여러 예측 유지 관리 사용 사례에서 관측된 일반 요소에서 얻었습니다.
+이 시나리오에서는 [예측 유지 관리 플레이 북](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/cortana-analytics-playbook-predictive-maintenance)의 아이디어를 활용해 시뮬레이트된 데이터 집합에 대한 예측 모델을 빌드하는 방법을 보여 줍니다. 예제 데이터는 여러 예측 유지 관리 사용 사례에서 관측된 일반 요소에서 얻었습니다.
 
 이 시뮬레이션된 데이터의 비즈니스 문제는 구성 요소 오류로 인한 문제를 예측하는 것입니다. 따라서 비즈니스 질문은 "*구성 요소의 실패로 인해 컴퓨터가 작동 중지될 확률은 얼마인가요*?"입니다. 이 문제는 여러 클래스 분류 문제(컴퓨터당 여러 구성 요소)로 형식이 지정되며 기계 학습 알고리즘이 예측 모델을 만드는 데 사용됩니다. 모델은 기계에서 수집된 기록 데이터에 대해 학습됩니다. 이 시나리오에서 사용자는 Azure Machine Learning Workbench 환경에서 이러한 모델을 구현하는 다양한 단계를 수행합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * [Azure 계정](https://azure.microsoft.com/en-us/free/)(평가판 사용 가능)
 * 프로그램을 설치하고 작업 영역을 만들기 위한, [빠른 시작 설치 가이드](./quickstart-installation.md)에 따라 설치된 [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md)의 복사본
 * Azure Machine Learning 운용화를 사용하려면 로컬 배포 환경과 [모델 관리 계정](https://docs.microsoft.com/azure/machine-learning/preview/model-management-overview)이 필요합니다.
 
-이 예제는 모든 AML Workbench 계산 컨텍스트에서 실행할 수 있습니다. 하지만 16GB 이상의 메모리로 실행하는 것이 좋습니다. 이 시나리오는 원격 DS4_V2 표준 [Linux(Ubuntu)용 데이터 과학 가상 컴퓨터](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu)을 실행하는 Windows 10 컴퓨터에서 빌드되고 테스트되었습니다.
+이 예제는 모든 AML Workbench 계산 컨텍스트에서 실행할 수 있습니다. 하지만 16GB 이상의 메모리로 실행하는 것이 좋습니다. 이 시나리오는 원격 DS4_V2 표준 [Linux(Ubuntu)용 데이터 과학 Virtual Machine](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu)을 실행하는 Windows 10 컴퓨터에서 빌드되고 테스트되었습니다.
 
 모델 운용화는 이 Azure ML CLI 버전 0.1.0a22를 사용하여 구현되었습니다.
 
