@@ -1,10 +1,10 @@
 ---
 title: "Azure Linux VM 크기 - 저장소 | Microsoft Docs"
-description: "Azure의 Linux 가상 컴퓨터에 사용할 수 있는 다양한 저장소에 최적화 크기를 나열합니다. 이 시리즈의 크기에 대한 저장소 처리량 및 네트워크 대역폭뿐만 아니라 vCPU, 데이터 디스크 및 NIC의 수에 대한 정보를 제공합니다."
+description: "Azure의 Linux 가상 머신에 사용할 수 있는 다양한 저장소에 최적화 크기를 나열합니다. 이 시리즈의 크기에 대한 저장소 처리량 및 네트워크 대역폭뿐만 아니라 vCPU, 데이터 디스크 및 NIC의 수에 대한 정보를 제공합니다."
 services: virtual-machines-linux
 documentationcenter: 
 author: jonbeck7
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager,azure-service-management
 ms.assetid: 
@@ -13,20 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/28/2017
+ms.date: 01/11/2018
 ms.author: jonbeck
-ms.openlocfilehash: 1a2107f0f813c39ec3e9676ec952803f6be2ebf9
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 48830f72d2ed7774a0ee4492bc9a52ba6a1fb502
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="storage-optimized-virtual-machine-sizes"></a>저장소 최적화 가상 컴퓨터 크기
 
 [!INCLUDE [virtual-machines-common-sizes-general](../../../includes/virtual-machines-common-sizes-storage.md)]
 
-
-[!INCLUDE [virtual-machines-common-sizes-table-defs](../../../includes/virtual-machines-common-sizes-table-defs.md)]
 
 
 ## <a name="other-sizes"></a>기타 크기

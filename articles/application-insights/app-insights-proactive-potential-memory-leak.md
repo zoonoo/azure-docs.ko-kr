@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: 452d0a9d0231e54df2a7f1df76c3c2c0fcd94d87
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: e98caaa387418d746905990436b69925a591b260
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="memory-leak-detection-preview"></a>메모리 누수 검색(미리 보기)
 
 Application Insights는 응용 프로그램에서 각 프로세스의 메모리 사용을 자동으로 분석하고 잠재적 메모리 누수 또는 메모리 사용 증가에 대해 경고할 수 있습니다.
 
-이 기능을 사용하려면 앱에 대한 [성능 카운터 구성](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-performance-counters) 이외의 특별한 설정이 필요하지 않습니다. 앱이 충분한 메모리 성능 카운터 원격 분석(예: 전용 바이트)을 생성할 때 활성 상태입니다.
+이 기능을 사용하려면 앱에 대한 [성능 카운터 구성](https://docs.microsoft.com/azure/application-insights/app-insights-performance-counters) 이외의 특별한 설정이 필요하지 않습니다. 앱이 충분한 메모리 성능 카운터 원격 분석(예: 전용 바이트)을 생성할 때 활성 상태입니다.
 
 
 ## <a name="when-would-i-get-this-type-of-smart-detection-notification"></a>이 유형의 스마트 검색 알림은 언제 받게 되나요?

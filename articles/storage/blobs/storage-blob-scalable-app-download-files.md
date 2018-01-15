@@ -14,11 +14,11 @@ ms.topic: tutorial
 ms.date: 12/12/2017
 ms.author: gwallace
 ms.custom: mvc
-ms.openlocfilehash: 46b0cf3666088175372b6a2e73b3dd421a4bff8b
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 3842860acb1c0fdd9e07f6d2f678ac5d5304003b
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="download-large-amounts-of-random-data-from-azure-storage"></a>Azure Storage에서 대량의 임의 데이터 다운로드
 
@@ -31,13 +31,13 @@ ms.lasthandoff: 12/13/2017
 > * 응용 프로그램 실행
 > * 연결 수의 유효성 검사
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 완료하려면 먼저 이전 Storage 자습서: [Azure Storage에 병렬로 대규모 임의 데이터 업로드][previous-tutorial]를 완료해야 합니다.
 
 ## <a name="remote-into-your-virtual-machine"></a>가상 머신에 원격으로 연결
 
- 가상 머신과의 원격 데스크톱 세션을 만들려면 로컬 컴퓨터에서 다음 명령을 사용합니다. 해당 IP 주소를 가상 머신의 publicIPAddress로 바꿉니다. 가상 컴퓨터를 만들 때 사용되는 자격 증명을 묻는 메시지가 표시되면 입력합니다.
+ 가상 머신과의 원격 데스크톱 세션을 만들려면 로컬 컴퓨터에서 다음 명령을 사용합니다. 해당 IP 주소를 가상 머신의 publicIPAddress로 바꿉니다. 가상 머신을 만들 때 사용되는 자격 증명을 묻는 메시지가 표시되면 입력합니다.
 
 ```
 mstsc /v:<publicIpAddress>
@@ -63,7 +63,7 @@ public static void Main(string[] args)
         UploadFilesAsync().GetAwaiter().GetResult();
 
         // Uncomment the following line to enable downloading of files from the storage account.  This is commented out
-        // initially to support the tutorial at https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-scaleable-app-download-files.
+        // initially to support the tutorial at https://docs.microsoft.com/azure/storage/blobs/storage-blob-scaleable-app-download-files.
         // DownloadFilesAsync().GetAwaiter().GetResult();
     }
     catch (Exception ex)
@@ -74,7 +74,7 @@ public static void Main(string[] args)
     finally
     {
         // The following function will delete the container and all files contained in them.  This is commented out initialy
-        // As the tutorial at https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-scaleable-app-download-files has you upload only for one tutorial and download for the other. 
+        // As the tutorial at https://docs.microsoft.com/azure/storage/blobs/storage-blob-scaleable-app-download-files has you upload only for one tutorial and download for the other. 
         if (!exception)
         {
             // DeleteExistingContainersAsync().GetAwaiter().GetResult();
@@ -104,7 +104,7 @@ dotnet run
 응용 프로그램은 **storageconnectionstring**에 지정된 저장소 계정에 있는 컨테이너를 읽습니다. 컨테이너에 있는 [ListBlobsSegmented](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobssegmented?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlobContainer_ListBlobsSegmented_System_String_System_Boolean_Microsoft_WindowsAzure_Storage_Blob_BlobListingDetails_System_Nullable_System_Int32__Microsoft_WindowsAzure_Storage_Blob_BlobContinuationToken_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) 메서드를 사용하여 한 번에 Blob을 10개 반복하고 [DownloadToFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadToFileAsync_System_String_System_IO_FileMode_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) 메서드를 사용하여 로컬 컴퓨터로 다운로드합니다.
 다음 표에서는 다운로드된 각 Blob에 대해 정의된 [BlobRequestOptions](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions?view=azure-dotnet)를 보여 줍니다.
 
-|속성|값|설명|
+|자산|값|설명|
 |---|---|---|
 |[DisableContentMD5Validation](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.disablecontentmd5validation?view=azure-dotnet)| true| 이 속성은 업로드된 콘텐츠의 MD5 해시를 검사하지 않도록 설정합니다. MD5 유효성 검사를 사용하지 않으면 더 빠른 전송이 생성됩니다. 그러나 전송 중인 파일의 유효성 또는 무결성을 확인하지 않습니다. |
 |[StorBlobContentMD5](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.storeblobcontentmd5?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_StoreBlobContentMD5)| false| 이 속성은 MD5 해시를 계산하고 저장할지를 결정합니다.   |

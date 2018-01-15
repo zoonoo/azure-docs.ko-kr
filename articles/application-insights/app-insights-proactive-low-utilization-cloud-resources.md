@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: 4c852d07d771a1eef0e6c2e4ef27cd36f31d8ddd
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 8382f6047ae222a01cc0e8d6ca9dcf5593d0dff6
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="low-utilization-of-cloud-resources-preview"></a>클라우드 리소스의 낮은 사용률(미리 보기)
 
 Application Insights는 응용 프로그램에서 각 역할 인스턴스의 CPU 사용을 자동으로 분석하고 CPU 사용률이 낮은 인스턴스를 검색합니다. 이 검색을 사용하면 각 역할이 사용하는 역할 인스턴스 수를 줄이거나 역할 수를 줄여 Azure 리소스를 줄이고 비용을 절감할 수 있습니다.
 
-이 기능을 사용하려면 앱에 대한 [성능 카운터 구성](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-performance-counters) 이외의 특별한 설정이 필요하지 않습니다. 앱에서 충분한 CPU 성능 카운터 원격 분석(% 프로세서 시간)을 생성하면 이 기능이 활성화됩니다.
+이 기능을 사용하려면 앱에 대한 [성능 카운터 구성](https://docs.microsoft.com/azure/application-insights/app-insights-performance-counters) 이외의 특별한 설정이 필요하지 않습니다. 앱에서 충분한 CPU 성능 카운터 원격 분석(% 프로세서 시간)을 생성하면 이 기능이 활성화됩니다.
 
 ## <a name="when-would-i-get-this-type-of-smart-detection-notification"></a>이 유형의 스마트 검색 알림은 언제 받게 되나요?
 많은 웹/작업자 역할 인스턴스의 CPU 사용률이 낮을 경우 일반적인 알림이 발생합니다.
