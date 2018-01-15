@@ -13,17 +13,15 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 10/16/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: 89a0f388815b3a0e2a6e020690f9a644e73bbcad
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: c5c4a687ffe512b15372d152b517834771e46328
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="supplemental-lesson---ragged-hierarchies"></a>추가 단원 - 불규칙한 계층 구조
-
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
 이 추가 단원에서는 다양한 수준에서 빈 값(멤버)을 포함하는 계층 구조를 피벗할 때 발생하는 일반적인 문제를 해결합니다. 예를 들어, 고위 관리자가 부하 직원으로 부서별 관리자와 비관리자를 포함하는 조직을 들 수 있습니다. 또는 워싱턴 D.C., 바티칸 시티처럼 일부 도시는 상위 시/도가 없는 국가-지역-도시로 구성된 지리적 계층 구조가 있습니다. 계층 구조에 빈 멤버가 있는 경우 보통 서로 다르거나 불규칙한 수준으로 내려갑니다.
 
@@ -33,7 +31,7 @@ ms.lasthandoff: 11/02/2017
   
 이 단원을 완료하기 위한 예상 시간: **20분**  
   
-## <a name="prerequisites"></a>필수 조건  
+## <a name="prerequisites"></a>필수 구성 요소  
 이 추가 단원 항목은 테이블 형식 모델링 자습서에 포함됩니다. 이 추가 단원의 작업을 수행하기 전에 이전의 모든 단원을 완료하거나 완료된 Adventure Works Internet Sales 샘플 모델 프로젝트가 있어야 합니다. 
 
 자습서의 일부로 AW Internet Sales 프로젝트를 만들었으면 모델에는 아직 데이터 또는 불규칙한 계층 구조가 포함되지 않습니다. 이 추가 단원을 완료하려면 먼저 몇 가지 테이블을 더 추가하고, 관계, 계산된 열, 측정값 및 새 조직 계층 구조를 만들어서 문제를 만들어야 합니다. 이 부분에는 약 15분 정도 걸립니다. 그런 다음 몇 분 안에 문제를 해결합니다.  
@@ -52,11 +50,11 @@ ms.lasthandoff: 11/02/2017
 
     | 표 1           | 열       | 필터 방향   | 표 2     | 열      | Active |
     |-------------------|--------------|--------------------|-------------|-------------|--------|
-    | FactResellerSales | OrderDateKey | 기본값            | DimDate     | Date        | 예    |
+    | FactResellerSales | OrderDateKey | 기본값            | DimDate     | Date        | 적용    |
     | FactResellerSales | DueDate      | 기본값            | DimDate     | Date        | 아니요     |
     | FactResellerSales | ShipDateKey  | 기본값            | DimDate     | Date        | 아니요     |
-    | FactResellerSales | ProductKey   | 기본값            | DimProduct  | ProductKey  | 예    |
-    | FactResellerSales | EmployeeKey  | 두 테이블로 | DimEmployee | EmployeeKey | 예    |
+    | FactResellerSales | ProductKey   | 기본값            | DimProduct  | ProductKey  | 적용    |
+    | FactResellerSales | EmployeeKey  | 두 테이블로 | DimEmployee | EmployeeKey | 적용    |
 
 5. **DimEmployee** 테이블에서 다음 [계산된 열](../tutorials/aas-lesson-5-create-calculated-columns.md)을 만듭니다. 
 
