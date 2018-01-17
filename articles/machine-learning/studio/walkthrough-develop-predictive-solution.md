@@ -1,6 +1,6 @@
 ---
-title: "기계 학습을 사용한 신용 위험에 대 한 예측 솔루션 | Microsoft Docs"
-description: "Azure 기계 학습 스튜디오의 신용 위험 평가에 대한 예측 분석 솔루션을 만드는 방법을 보여주는 자세한 연습."
+title: "Machine Learning을 사용한 신용 위험에 대 한 예측 솔루션 | Microsoft Docs"
+description: "Azure Machine Learning Studio의 신용 위험 평가에 대한 예측 분석 솔루션을 만드는 방법을 보여주는 자세한 연습."
 keywords: "신용 위험, 예측 분석 솔루션, 위험 평가"
 services: machine-learning
 documentationcenter: 
@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/23/2017
 ms.author: garye
-ms.openlocfilehash: fe504d826b6c40099f1f8706ef7e8780eed5cf9a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ea5274f6bfd2d6c68509f52d93b6875d3a43a5a0
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
-# <a name="walkthrough-develop-a-predictive-analytics-solution-for-credit-risk-assessment-in-azure-machine-learning"></a>연습: Azure 기계 학습의 신용 위험 평가에 대한 예측 분석 솔루션 개발
+# <a name="walkthrough-develop-a-predictive-analytics-solution-for-credit-risk-assessment-in-azure-machine-learning"></a>연습: Azure Machine Learning의 신용 위험 평가에 대한 예측 분석 솔루션 개발
 
 이 연습에서는 Machine Learning Studio에서 예측 분석 솔루션을 개발하는 과정을 자세히 살펴보겠습니다. Machine Learning Studio에서 간단한 모델을 개발한 다음 이 모델에서 새로운 데이터를 사용하여 예측할 수 있는 Azure Machine Learning 웹 서비스로 배포합니다. 
 
@@ -47,7 +47,8 @@ ms.lasthandoff: 10/11/2017
 
 이 신용 위험 평가 솔루션을 만들려면 다음 단계를 따릅니다.  
 
-1. [기계 학습 작업 영역 만들기](walkthrough-1-create-ml-workspace.md)
+1. 
+            [Machine Learning 작업 영역 만들기](walkthrough-1-create-ml-workspace.md)
 2. [기존 데이터 업로드](walkthrough-2-upload-data.md)
 3. [실험 만들기](walkthrough-3-create-new-experiment.md)
 4. [모델 학습 및 평가](walkthrough-4-train-and-evaluate-models.md)
@@ -55,6 +56,6 @@ ms.lasthandoff: 10/11/2017
 6. [웹 서비스 액세스](walkthrough-6-access-web-service.md)
 
 > [!TIP] 
-> [Cortana Intelligence 갤러리](https://gallery.cortanaintelligence.com)의 이 연습에서 개발하는 실험의 작업 복사본을 찾을 수 있습니다. **[연습 - 신용 위험 예측](https://gallery.cortanaintelligence.com/Experiment/Walkthrough-Credit-risk-prediction-1)**으로 이동하고 **Studio에서 열기**를 클릭하여 Machine Learning Studio 작업 영역으로 실험의 복사본을 다운로드합니다.
+> 이 연습에서 개발한 실험의 작업 복사본은 [Azure AI Gallery](https://gallery.cortanaintelligence.com)에서 찾을 수 있습니다. Go to **[Walkthrough - Credit risk prediction](https://gallery.cortanaintelligence.com/Experiment/Walkthrough-Credit-risk-prediction-1)** and click **Open in Studio** to download a copy of the experiment into your Machine Learning Studio workspace.
 > 
 > 이 연습은 [이진 분류: 신용 위험 예측](http://go.microsoft.com/fwlink/?LinkID=525270) 샘플 실험의 간소화된 버전을 기반으로 하며 [갤러리](http://gallery.cortanaintelligence.com/)에서 사용 가능합니다.

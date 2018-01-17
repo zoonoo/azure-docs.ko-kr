@@ -13,31 +13,29 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: fbc6187e80a42330c96ebaa1195ea188430894cc
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 5a4dc7004245923fa6bda779114166ecf08d075f
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="supplemental-lesson---detail-rows"></a>추가 단원 - 세부 정보 행
-
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
 이 추가 단원에서는 DAX 편집기를 사용하여 사용자 지정 세부 정보 행 식을 정의합니다. 세부 정보 행 식은 최종 사용자에게 측정값의 집계된 결과에 대한 더 많은 정보를 제공하는 측정값에 대한 속성입니다. 
   
 이 단원을 완료하기 위한 예상 시간: **10분**  
   
-## <a name="prerequisites"></a>필수 조건  
-이 추가 단원 항목은 테이블 형식 모델링 자습서에 포함됩니다. 이 추가 단원의 작업을 수행하기 전에 이전의 모든 단원을 완료하거나 완료된 Adventure Works Internet Sales 샘플 모델 프로젝트가 있어야 합니다.  
+## <a name="prerequisites"></a>필수 구성 요소  
+이 추가 단원은 테이블 형식 모델링 자습서의 일부입니다. 이 추가 단원의 작업을 수행하기 전에 이전의 모든 단원을 완료하거나 완료된 Adventure Works Internet Sales 샘플 모델 프로젝트가 있어야 합니다.  
   
-## <a name="what-do-we-need-to-solve"></a>해결을 위해 무엇을 해야 하나요?
+## <a name="whats-the-issue"></a>무엇이 문제인가요?
 세부 정보 행 식을 추가하기 전에 InternetTotalSales 측정값에 대한 세부 정보를 살펴보겠습니다.
 
 1.  SSDT에서 **모델** 메뉴 > **Excel에서 분석**을 클릭하여 Excel을 열고 빈 피벗 테이블을 만듭니다.
   
-2.  **피벗 테이블 필드**에서, FactInternetSales 테이블의 **InternetTotalSales** 측정값을 **Values**로, DimDate 테이블의 **CalendarYear**를 **Columns**로, **EnglishCountryRegionName**을 **Rows**로 추가합니다. 이제 피벗 테이블은 InternetTotalSales 측정값으로부터 지역 및 연도별로 집계된 결과를 제공합니다. 
+2.  **피벗 테이블 필드**에서, FactInternetSales 테이블의 **InternetTotalSales** 측정값을 **Values**로, DimDate 테이블의 **CalendarYear**를 **Columns**로, **EnglishCountryRegionName**을 **Rows**로 추가합니다. 이제 피벗 테이블은 InternetTotalSales 측정값에서 지역 및 연도별로 집계된 결과를 제공합니다. 
 
     ![aas-lesson-detail-rows-pivottable](../tutorials/media/aas-lesson-detail-rows-pivottable.png)
 
@@ -51,7 +49,7 @@ ms.lasthandoff: 11/02/2017
 
 #### <a name="to-create-a-detail-rows-expression"></a>세부 정보 행 식을 만들려면 
   
-1. SSDT의 FactInternetSales 테이블 측정값 표에서 **InternetTotalSales** 측정값을 클릭합니다. 
+1. FactInternetSales 테이블의 측정값 표에서 **InternetTotalSales** 측정값을 클릭합니다. 
 
 2. **속성** > **세부 정보 행 식**에서 편집기 단추를 클릭하여 DAX 편집기를 엽니다.
 
@@ -82,6 +80,6 @@ ms.lasthandoff: 11/02/2017
 
   
 ## <a name="see-also"></a>참고 항목  
-[SELECTCOLUMNS 함수(DAX)](https://msdn.microsoft.com/library/mt761759.aspx)   
+[SELECTCOLUMNS 함수(DAX)](https://msdn.microsoft.com/library/mt761759.aspx)  
 [추가 단원 - 동적 보안](../tutorials/aas-supplemental-lesson-dynamic-security.md)  
 [추가 단원 - 불규칙한 계층 구조](../tutorials/aas-supplemental-lesson-ragged-hierarchies.md)  

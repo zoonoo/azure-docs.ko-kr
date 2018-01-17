@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/10/2017
 ms.author: tamram
-ms.openlocfilehash: ff0f6446b51c4549e5a367b5b767d4777a1d946d
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: e0da76d1c99de94762a54f552e49f7ee75eba26f
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="introduction-to-microsoft-azure-storage"></a>Microsoft Azure Storage 소개
 
@@ -35,9 +35,7 @@ Azure Storage는 Blob Storage, File Storage 및 Queue Storage라는 세 개의 �
 * 저장소 간에 데이터 전송
 * 사용할 수 있는 여러 저장소 클라이언트 라이브러리
 
-Azure Storage에서 빠르게 설정하고 실행하려면 다음 빠른 시작 중 하나를 확인합니다.
-* [PowerShell을 사용하여 저장소 계정 만들기](storage-quickstart-create-storage-account-powershell.md)
-* [CLI를 사용하여 저장소 계정 만들기](storage-quickstart-create-storage-account-cli.md)
+Azure Storage를 사용하여 가동하고 실행하려면 [저장소 계정 만들기](storage-quickstart-create-account.md)를 참조하세요.
 
 ## <a name="introducing-the-azure-storage-services"></a>Azure Storage 서비스 소개
 
@@ -84,7 +82,7 @@ Azure Table Storage는 이제 Azure Cosmos DB의 일부입니다. Azure Table St
 
 ## <a name="disk-storage"></a>디스크 저장소
 
-또한 Azure Storage는 가상 컴퓨터에서 사용하는 관리되는 디스크 및 관리되지 않는 디스크 기능을 포함합니다. 이러한 기능에 대한 자세한 내용은 [Compute Service 설명서](https://docs.microsoft.com/azure/#pivot=services&panel=Compute)를 참조하세요.
+또한 Azure Storage는 가상 머신에서 사용하는 관리되는 디스크 및 관리되지 않는 디스크 기능을 포함합니다. 이러한 기능에 대한 자세한 내용은 [Compute Service 설명서](https://docs.microsoft.com/azure/#pivot=services&panel=Compute)를 참조하세요.
 
 ## <a name="types-of-storage-accounts"></a>저장소 계정 유형
 
@@ -219,9 +217,7 @@ Azure Storage 리소스는 HTTP/HTTPS 요청을 수행할 수 있는 모든 언�
 * [File Storage에 대한 세부 정보](../storage-files-introduction.md)
 * [Queue Storage에 대한 세부 정보](../queues/storage-queues-introduction.md)
 
-Azure Storage에서 빠르게 설정하고 실행하려면 다음 빠른 시작 중 하나를 확인합니다.
-* [PowerShell을 사용하여 저장소 계정 만들기](storage-quickstart-create-storage-account-powershell.md)
-* [CLI를 사용하여 저장소 계정 만들기](storage-quickstart-create-storage-account-cli.md)
+Azure Storage를 사용하여 가동하고 실행하려면 [저장소 계정 만들기](storage-quickstart-create-account.md)를 참조하세요.
 
 <!-- FIGURE OUT WHAT TO DO WITH ALL THESE LINKS.
 

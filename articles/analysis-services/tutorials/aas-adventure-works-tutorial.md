@@ -13,27 +13,25 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: 0e223222c482d6d3aeaed85388f3a1ce1b53a78d
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 9b81e011d3e1ed23465bbd554a0c7376b432b585
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-analysis-services---adventure-works-tutorial"></a>Azure Analysis Services - Adventure Works 자습서
 
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+이 자습서에서는 [SSDT(SQL Server Data Tools)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)가 있는 Visual Studio를 사용하여 1400 호환성 수준에서 테이블 형식 모델을 만들고 배포하는 방법에 대한 단원을 제공합니다.  
 
-이 자습서에서는 [SSDT(SQL Server 데이터 도구)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)를 사용하여 1400 호환성 수준에서 테이블 형식 모델을 만들고 배포하는 방법에 대한 단원을 제공합니다.  
-
-Analysis Services 및 테이블 형식 모델링을 처음 접하는 경우 이 자습서를 완료하는 것이 기본 테이블 형식 모델을 만들고 배포하는 가장 빠른 방법입니다. 필수 구성 요소를 마련한 후 완료하는 데 2-3시간 사이가 소요됩니다.  
+Analysis Services 및 테이블 형식 모델링을 처음 사용하는 경우 이 자습서를 완료하는 것이 Visual Studio를 사용하여 기본 테이블 형식 모델을 만들고 배포하는 방법을 익힐 수 있는 가장 빠른 방법입니다. 필수 구성 요소를 마련한 후 완료하는 데 2-3시간 사이가 소요됩니다.  
   
 ## <a name="what-you-learn"></a>학습 내용   
   
--   SSDT에서 **1400 호환성 수준**으로 새 테이블 형식 모델 프로젝트를 만드는 방법
+-   SSDT가 있는 Visual Studio에서 **1400 호환성 수준**으로 새 테이블 형식 모델 프로젝트를 만드는 방법
   
--   관계형 데이터베이스에서 테이블 형식 모델 프로젝트로 데이터를 가져오는 방법  
+-   관계형 데이터베이스에서 테이블 형식 모델 프로젝트 작업 영역 데이터베이스로 데이터를 가져오는 방법  
   
 -   모델의 테이블 간에 관계를 만들고 관리하는 방법  
   
@@ -47,16 +45,16 @@ Analysis Services 및 테이블 형식 모델링을 처음 접하는 경우 이 
   
 -   테이블 형식 모델을 **Azure Analysis Services** 서버나 온-프레미스 SQL Server 2017 Analysis Services 서버에 배포하는 방법  
   
-## <a name="prerequisites"></a>필수 조건  
+## <a name="prerequisites"></a>필수 구성 요소  
 이 자습서를 완료하려면 다음이 필요합니다.  
   
--   모델을 배포할 Azure Analysis Services 또는 SQL Server 2017 Analysis Services 인스턴스 [Azure Analysis Services 평가판](https://azure.microsoft.com/services/analysis-services/)을 등록하고 [서버를 만듭니다](../analysis-services-create-server.md). 또는 [SQL Server 2017 Community Technology Preview](https://www.microsoft.com/evalcenter/evaluate-sql-server-vnext-ctp)를 등록하여 다운로드합니다. 
+-   Azure Analysis Services 서버. [Azure Analysis Services 평가판](https://azure.microsoft.com/services/analysis-services/)을 등록하고 [서버를 만듭니다](../analysis-services-create-server.md). 
 
--   [AdventureWorksDW2014 예제 데이터베이스](http://go.microsoft.com/fwlink/?LinkID=335807)가 있는 SQL Server 또는 Azure SQL Data Warehouse 이 예제 데이터베이스에는 이 자습서를 완료하는 데 필요한 데이터가 포함되어 있습니다. [SQL Server 평가판](https://www.microsoft.com/sql-server/sql-server-downloads)을 다운로드합니다. 또는 [Azure SQL Database 평가판](https://azure.microsoft.com/services/sql-database/)을 등록합니다. 
+-   **AdventureWorksDW 샘플 데이터베이스**가 있는 [Azure SQL 데이터 웨어하우스](../../sql-data-warehouse/create-data-warehouse-portal.md) 또는 [Adventure Works 샘플 데이터베이스](http://go.microsoft.com/fwlink/?LinkID=335807)가 있는 SQL Server 데이터 웨어하우스
 
-    **중요:** 온-프레미스 SQL Server에 예제 데이터베이스를 설치하고 Azure Analysis Services 서버에 모델을 배포하는 경우 [온-프레미스 데이터 게이트웨이](../analysis-services-gateway.md)가 필요합니다.
+    **중요:** 샘플 데이터베이스를 온-프레미스 SQL Server 데이터 웨어하우스에 설치하고, 모델을 Azure Analysis Services 서버에 배포하는 경우 [온-프레미스 데이터 게이트웨이](../analysis-services-gateway.md)가 필요합니다.
 
--   최신 버전의 [SSDT(SQL Server 데이터 도구)](https://msdn.microsoft.com/library/mt204009.aspx).
+-   최신 버전의 Visual Studio용 [SSDT(SQL Server 데이터 도구)](https://msdn.microsoft.com/library/mt204009.aspx).
 
 -   최신 버전의 [SSMS(SQL Server Management Studio)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).    
 

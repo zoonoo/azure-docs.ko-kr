@@ -14,11 +14,11 @@ ms.devlang: Java
 ms.topic: hero-article
 ms.date: 08/10/2016
 ms.author: piyushjo;ricksal
-ms.openlocfilehash: 4acd06591b05b9328b35400e0932cfcf92cb7e80
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 2c5d9c5458b77263a5d1da93e5305e61999f229f
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-android-apps"></a>Android 앱용 Azure Mobile Engagement 시작
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
@@ -26,13 +26,13 @@ ms.lasthandoff: 12/20/2017
 이 항목에서는 Azure Mobile Engagement를 사용하여 앱 사용을 이해하고 Android 응용 프로그램의 분할된 사용자에게 푸시 알림을 보내는 방법을 보여 줍니다.
 이 자습서에서는 Mobile Engagement를 사용하는 간단한 브로드캐스트 시나리오를 보여 줍니다. 해당 시나리오에서 기본 데이터를 수집하고 GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Android 앱을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 이 자습서를 완료하려면 Android Studio 통합 개발 환경이 포함된 [Android 개발자 도구](https://developer.android.com/sdk/index.html)및 최신 Android 플랫폼이 필요합니다.
 
 [Mobile Engagement Android SDK](https://aka.ms/vq9mfn)도 필요합니다.
 
 > [!IMPORTANT]
-> 이 자습서를 완료하려면 활성 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-android-get-started)을 참조하세요.
+> 이 자습서를 완료하려면 활성 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-android-get-started)을 참조하세요.
 >
 >
 
@@ -48,7 +48,7 @@ ms.lasthandoff: 12/20/2017
 1. **Android Studio**를 시작하고 팝업에서 **새 Android Studio 프로젝트 시작**을 선택합니다.
 
     ![][1]
-2. 앱 이름 및 회사 도메인을 제공합니다. 나중에 필요하기 때문에 입력한 내용을 적어둡니다. **다음**을 누릅니다.
+2. 앱 이름 및 회사 도메인을 제공합니다. 나중에 필요하기 때문에 입력한 내용을 적어둡니다. **다음**을 클릭합니다.
 
     ![][2]
 3. 대상 폼 팩터 및 API 수준을 선택하고 **다음**을 클릭합니다.
@@ -91,7 +91,7 @@ ms.lasthandoff: 12/20/2017
 
         import com.microsoft.azure.engagement.EngagementAgent;
         import com.microsoft.azure.engagement.EngagementConfiguration;
-3. 앱 **연결 정보** 페이지의 Azure 클래식 포털로 돌아가서 **연결 문자열**을 복사합니다.
+3. Azure Portal의 앱 **연결 정보** 페이지로 돌아가서 **연결 문자열**을 복사합니다.
 
       ![](../../includes/media/mobile-engagement-create-app-in-portal-new/app-connection-info.png)
 

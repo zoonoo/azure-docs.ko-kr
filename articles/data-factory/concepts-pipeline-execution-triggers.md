@@ -11,28 +11,28 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/10/2017
+ms.date: 01/03/2018
 ms.author: shlo
-ms.openlocfilehash: c472cf080f8138ec6d0210f3ca4a8b3f3c33e7ae
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 88ae5dfbf6246ecf92d6528ad3d9a8e5fb57e4b0
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/06/2018
 ---
-# <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Azure Data Factory에서 파이프라인 실행 및 트리거 
+# <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Azure Data Factory에서 파이프라인 실행 및 트리거
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [버전 1 - GA](v1/data-factory-scheduling-and-execution.md)
 > * [버전 2 - 미리 보기](concepts-pipeline-execution-triggers.md)
 
-**파이프라인 실행**은 파이프라인 실행의 인스턴스를 정의하는 Azure Data Factory 버전 2의 용어입니다. 예를 들어 오전 8시, 오전 9시 및 오전 10시에 실행하는 파이프라인이 있다고 하겠습니다. 이 경우 파이프라인의 별도 실행(파이프라인 실행) 3개가 있습니다. 각 파이프라인 실행은 특정 파이프라인 실행을 고유하게 정의하는 GUID인 고유 파이프라인 실행 ID가 있습니다. 파이프라인 실행은 일반적으로 파이프라인에 정의된 매개 변수에 인수를 전달하여 인스턴스화합니다. 파이프라인을 실행하는 두 가지 방법, 즉 **수동** 또는 **트리거**를 통한 방법이 있습니다. 이 문서는 파이프라인을 실행하는 두 가지 방법 모두에 대한 자세한 정보를 제공합니다. 
+**파이프라인 실행**은 파이프라인 실행의 인스턴스를 정의하는 Azure Data Factory 버전 2의 용어입니다. 예를 들어 오전 8시, 오전 9시 및 오전 10시에 실행하는 파이프라인이 있다고 하겠습니다. 이 경우 파이프라인의 별도 실행(파이프라인 실행) 3개가 있습니다. 각 파이프라인 실행은 특정 파이프라인 실행을 고유하게 정의하는 GUID인 고유 파이프라인 실행 ID가 있습니다. 파이프라인 실행은 일반적으로 파이프라인에 정의된 매개 변수에 인수를 전달하여 인스턴스화합니다. 파이프라인을 실행하는 두 가지 방법, 즉 **수동** 또는 **트리거**를 통한 방법이 있습니다. 이 문서는 파이프라인을 실행하는 두 가지 방법 모두에 대한 자세한 정보를 제공합니다.
 
 > [!NOTE]
 > 이 문서는 현재 미리 보기 상태인 Data Factory 버전 2에 적용됩니다. GA(일반 공급) 상태인 Data Factory 버전 1 서비스를 사용 중인 경우 [Data Factory V1 일정 계획 및 실행](v1/data-factory-scheduling-and-execution.md)을 참조하세요.
 
 ## <a name="run-pipeline-on-demand"></a>요청 시 파이프라인 실행
-이 방법에서는 파이프라인을 수동으로 실행합니다. 또한 이 방법은 파이프라인의 요청 시 실행으로 간주됩니다. 
+이 방법에서는 파이프라인을 수동으로 실행합니다. 또한 이 방법은 파이프라인의 요청 시 실행으로 간주됩니다.
 
-예를 들어 실행하려는 **copyPipeline**이라는 파이프라인이 있다고 하겠습니다. 이 파이프라인은 Azure Blob Storage의 소스 폴더에서 같은 저장소의 대상 폴더에 복사하는 단일 작업을 가진 간단한 파이프라인입니다. 샘플 파이프라인 정의는 다음과 같습니다. 
+예를 들어 실행하려는 **copyPipeline**이라는 파이프라인이 있다고 하겠습니다. 이 파이프라인은 Azure Blob Storage의 소스 폴더에서 같은 저장소의 대상 폴더에 복사하는 단일 작업을 가진 간단한 파이프라인입니다. 샘플 파이프라인 정의는 다음과 같습니다.
 
 ```json
 {
@@ -76,9 +76,9 @@ ms.lasthandoff: 12/07/2017
 }
 
 ```
-이 파이프라인은 JSON 정의와 같이 sourceBlobContainer 및 sinkBlobContainer 두 매개 변수를 취합니다. 런타임 시 이 매개 변수에 값을 전달합니다. 
+이 파이프라인은 JSON 정의와 같이 sourceBlobContainer 및 sinkBlobContainer 두 매개 변수를 취합니다. 런타임 시 이 매개 변수에 값을 전달합니다.
 
-파이프라인을 수동으로 실행 하려면 .NET, PowerShell, REST 및 Python 방법 중 하나를 사용할 수 있습니다. 
+파이프라인을 수동으로 실행 하려면 .NET, PowerShell, REST 및 Python 방법 중 하나를 사용할 수 있습니다.
 
 ### <a name="rest-api"></a>REST API
 다음은 샘플 REST 명령입니다.  
@@ -90,7 +90,7 @@ https://management.azure.com/subscriptions/mySubId/resourceGroups/myResourceGrou
 전체 샘플은 [빠른 시작: REST API를 사용하여 데이터 팩터리 만들기](quickstart-create-data-factory-rest-api.md)를 참조하세요.
 
 ### <a name="powershell"></a>PowerShell
-다음은 샘플 PowerShell 명령입니다. 
+다음은 샘플 PowerShell 명령입니다.
 
 ```powershell
 Invoke-AzureRmDataFactoryV2Pipeline -DataFactory $df -PipelineName "Adfv2QuickStartPipeline" -ParameterFile .\PipelineParameters.json
@@ -116,8 +116,8 @@ Invoke-AzureRmDataFactoryV2Pipeline -DataFactory $df -PipelineName "Adfv2QuickSt
 
 전체 샘플은 [빠른 시작: PowerShell을 사용하여 데이터 팩터리 만들기](quickstart-create-data-factory-powershell.md)를 참조하세요.
 
-### <a name="net"></a>.NET 
-다음은 샘플 .NET 호출입니다. 
+### <a name="net"></a>.NET
+다음은 샘플 .NET 호출입니다.
 
 ```csharp
 client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, pipelineName, parameters)
@@ -129,11 +129,11 @@ client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, 
 > .NET API를 사용하여 Azure Functions, 사용자 자신의 웹 서비스 등에서 Data Factory 파이프라인을 호출할 수 있습니다.
 
 ## <a name="triggers"></a>트리거
-트리거는 파이프라인 실행을 실행하는 두 번째 방법을 제공합니다. 트리거는 파이프라인 실행을 시작해야 하는 시기를 결정하는 처리 단위를 나타냅니다. 현재 Data Factory는 벽시계 일정에 따라 파이프라인을 호출하는 트리거를 지원합니다. 이것을 **스케줄러 트리거**라고 합니다. 현재 Data Factory는 파일 도착 이벤트에 파이프라인 실행 트리거와 같은 이벤트 기반 트리거를 지원하지 않습니다.
+트리거는 파이프라인 실행을 실행하는 두 번째 방법을 제공합니다. 트리거는 파이프라인 실행을 시작해야 하는 시기를 결정하는 처리 단위를 나타냅니다. 현재 Data Factory는 두 가지 유형의 트리거, 1) 벽시계 일정에 따라 파이프라인을 호출하는 **스케줄러 트리거**, 2) 상태를 유지하면서 주기적인 간격에 따라 작동하는 **연속 창 트리거**를 지원합니다. 현재 Data Factory는 파일 도착 이벤트에 파이프라인 실행 트리거와 같은 이벤트 기반 트리거를 지원하지 않습니다.
 
 파이프라인 및 트리거는 다 대 다 관계를 가지고 있습니다. 다중 트리거는 단일 파이프라인을 시작할 수 있고, 단일 트리거는 여러 파이프라인을 시작할 수 있습니다. 트리거에 대한 다음 JSON 정의에서 **pipelines** 속성은 특정 트리거가 트리거한 파이프라인의 목록 및 파이프라인 매개 변수에 대한 값을 가리킵니다.
 
-### <a name="basic-trigger-definition"></a>기본 트리거 정의: 
+### <a name="basic-trigger-definition"></a>기본 트리거 정의:
 ```json
     "properties": {
         "name": "MyTrigger",
@@ -159,8 +159,14 @@ client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, 
     }
 ```
 
-## <a name="scheduler-trigger"></a>스케줄러 트리거
-스케줄러 트리거는 벽시계 일정에 따라 파이프라인을 실행합니다. 이 트리거는 정기적인 고급 일정 옵션(주간, 월요일 오후 5시 및 목요일 오후 9시)을 지원합니다. 이는 시계열 데이터와 비시계열 데이터를 구분하지 않아서 데이터 집합 패턴 독립적이므로 유연합니다.
+## <a name="schedule-trigger"></a>일정 트리거
+일정 트리거는 벽시계 일정에 따라 파이프라인을 실행합니다. 이 트리거는 정기적인 고급 일정 옵션(주간, 월요일 오후 5시 및 목요일 오후 9시)을 지원합니다. 이는 시계열 데이터와 비시계열 데이터를 구분하지 않아서 데이터 집합 패턴 독립적이므로 유연합니다.
+
+일정 트리거 및 예제에 대한 자세한 내용은 [방법: 일정 트리거 만들기](how-to-create-schedule-trigger.md)를 참조하세요.
+
+## <a name="tumbling-window-trigger"></a>연속 창 트리거
+연속 창 트리거는 상태를 유지하면서 지정된 시작 시간부터 주기적인 시간 간격으로 실행되는 트리거 형식입니다. 연속 창은 일련의 고정된 크기의 겹치지 않는 연속적인 시간 간격입니다.
+연속 창 트리거 및 예제에 대한 자세한 내용은 [방법: 연속 창 트리거 만들기](how-to-create-tumbling-window-trigger.md)를 참조하세요.
 
 ### <a name="scheduler-trigger-json-definition"></a>스케줄러 트리거 JSON 정의
 스케줄러 트리거를 만들 때 이 섹션의 예제와 같이 JSON을 사용하여 일정 계획 및 되풀이를 지정할 수 있습니다. 
@@ -174,7 +180,7 @@ client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, 
     "typeProperties": {
       "recurrence": {
         "frequency": <<Minute, Hour, Day, Week, Year>>,
-        "interval": <<int>>,             // optional, how often to fire (default to 1)
+        "interval": <<int>>,             // how often to fire
         "startTime": <<datetime>>,
         "endTime": <<datetime>>,
         "timeZone": "UTC"
@@ -229,6 +235,16 @@ interval | interval은 양의 정수입니다. 이는 트리거가 실행하는 
 schedule | 지정된 빈도를 가진 트리거는 되풀이 일정을 기반으로 되풀이를 변경합니다. schedule에는 분, 시간, 요일, 날짜, 주차를 기반으로 하는 조건이 포함됩니다.
 
 
+## <a name="tumbling-window-trigger-vs-schedule-trigger"></a>연속 창 트리거 및 일정 트리거
+연속 창 트리거와 일정 트리거가 둘 다 시간 하트비트에서 작동하는 경우 어떻게 다를까요?
+연속 창 트리거의 경우 다음과 같습니다.
+* **백필 시나리오**: 연속 창 트리거는 과거의 창에 대한 실행을 예약할 수 있어 백필 시나리오를 지원합니다. 일정 트리거는 현재 이후로의 기간에만 실행할 수 있습니다.
+* **안정성**: 연속 창 트리거는 100% 안정성으로 차이가 없이 시작 날짜부터 모든 창에 대한 파이프라인 실행을 예약합니다.
+* **다시 시도**: 연속 창 트리거에는 다시 시도 기능이 있습니다. 실패한 파이프라인 실행에는 사용자가 트리거 정의의 일부로 지정한 0 또는 하나의 기본 다시 시도 정책이 있습니다. 또한 400(사용자 오류), 429(너무 많은 요청), 500(내부 서버 오류) 등의 상태 코드와 같은 동시성/서버/조정 제한으로 인해 실행이 실패하면 인스턴스에서 자동으로 다시 시도합니다.
+* **동시성**: 연속 창 트리거를 사용하면 사용자가 트리거에 대한 동시성 제한을 명시적으로 설정할 수 있습니다(동시에 트리거되는 최대 파이프라인 실행 수: 1~50개).
+* **창 시작 및 창 종료 변수**: 연속 창 트리거의 경우 사용자는 트리거 정의에서 트리거 시스템 변수로 triggerOutputs().windowStartTime(창 시작 시간) 및 triggerOutputs().windowEndTime(창 종료 시간)에 액세스할 수 있습니다. 예를 들어 매시간마다 실행하는 연속 창 트리거가 있는 경우, 오전 1시~오전 2시 창에 대해 triggerOutputs().WindowStartTime = 2017-09-01T01:00:00Z 및 triggerOutputs().WindowEndTime = 2017-09-01T02:00:00Z입니다.
+* **관계를 트리거하는 파이프라인**: 일정 트리거에는 파이프라인과 n:m 관계가 있습니다. 이에 따라 일정 트리거는 여러 파이프라인을 트리거할 수 있습니다. 하지만 연속 창 트리거는 파이프라인과 1:1 관계가 있습니다. 이에 따라 연속 창 트리거는 하나의 파이프라인만 트리거할 수 있습니다.
+
 ### <a name="schedule-trigger-example"></a>일정 트리거 예제
 
 ```json
@@ -265,12 +281,12 @@ schedule | 지정된 빈도를 가진 트리거는 되풀이 일정을 기반으
 
 ### <a name="overview-scheduler-trigger-schema-defaults-limits-and-examples"></a>개요: 스케줄러 트리거 스키마 기본값, 제한 및 예
 
-JSON 이름 | 값 형식 | Required? | 기본값 | 유효한 값 | 예제
+JSON 이름 | 값 형식 | Required? | 기본값 | 유효한 값 | 예
 --------- | ---------- | --------- | ------------- | ------------ | -------
-startTime | 문자열 | 예 | 없음 | ISO-8601 날짜-시간 | ```"startTime" : "2013-01-09T09:30:00-08:00"```
-되풀이 | Object | 예 | 없음 | 되풀이 개체 | ```"recurrence" : { "frequency" : "monthly", "interval" : 1 }```
-interval | Number | 아니요 | 1 | 1 ~ 1000입니다. | ```"interval":10```
-endTime | 문자열 | 예 | 없음 | 현재 이후의 시간을 나타내는 날짜-시간입니다. | `"endTime" : "2013-02-09T09:30:00-08:00"`
+startTime | 문자열 | 적용 | 없음 | ISO-8601 날짜-시간 | ```"startTime" : "2013-01-09T09:30:00-08:00"```
+되풀이 | Object | 적용 | 없음 | 되풀이 개체 | ```"recurrence" : { "frequency" : "monthly", "interval" : 1 }```
+interval | Number | 적용 | 없음 | 1 ~ 1000입니다. | ```"interval":10```
+endTime | 문자열 | 적용 | 없음 | 현재 이후의 시간을 나타내는 날짜-시간입니다. | `"endTime" : "2013-02-09T09:30:00-08:00"`
 schedule | Object | 아니요 | 없음 | 일정 개체 | `"schedule" : { "minute" : [30], "hour" : [8,17] }`
 
 ### <a name="deep-dive-starttime"></a>자세히 알아보기: startTime
@@ -301,11 +317,11 @@ startTime이 이전이고 recurrence가 있으나 schedule이 없는 경우에 �
 
 JSON 이름 | 설명 | 유효한 값
 --------- | ----------- | ------------
-minutes | 트리거가 실행될 시간(분)입니다. | <ul><li>Integer</li><li>정수 배열</li></ul>
-hours | 트리거가 실행될 일(시간)입니다. | <ul><li>Integer</li><li>정수 배열</li></ul>
-weekDays | 트리거가 실행될 요일입니다. 빈도가 주인 경우에만 지정할 수 있습니다. | <ul><li>Monday, Tuesday, Wednesday, Thursday, Friday, Saturday 또는 Sunday</li><li>값의 배열(최대 배열 크기는 7)</li></p>대/소문자 구분 안 함</p>
-monthlyOccurrences | 며칠에 트리거를 실행할지 결정합니다. 빈도가 월인 경우에만 지정할 수 있습니다. | monthlyOccurence 개체의 배열: `{ "day": day,  "occurrence": occurence }`. <p> day는 트리거를 실행할 요일입니다. 예를 들어 `{Sunday}`는 해당 월의 매주 일요일입니다. 필수입니다.<p>occurrence는 월 중에 되풀이되는 날입니다. 예를 들어 `{Sunday, -1}`은 해당 월의 마지막 일요일입니다. 선택 사항입니다.
-monthDays | 트리거가 실행될 날짜입니다. 빈도가 월인 경우에만 지정할 수 있습니다. | <ul><li>1 이상 31 이하 사이의 모든 값</li><li>1 이하 및 31 이상의 모든 값</li><li>값의 배열</li>
+minutes | 트리거가 실행될 시간(분)입니다. | <ul><li>정수 배열</li></ul>
+hours | 트리거가 실행될 일(시간)입니다. | <ul><li>정수 배열</li></ul>
+weekDays | 트리거가 실행될 요일입니다. 빈도가 주인 경우에만 지정할 수 있습니다. | <ul><li>아래 값의 배열(최대 배열 크기: 7)<ul><li>월요일</li><li>화요일</li><li>수요일</li><li>목요일</li><li>금요일</li><li>토요일</li><li>일요일</li></ul></li></p>대/소문자 구분 안 함</p>
+monthlyOccurrences | 며칠에 트리거를 실행할지 결정합니다. 빈도가 월인 경우에만 지정할 수 있습니다. | monthlyOccurence 개체의 배열: `{ "day": day,  "occurrence": occurence }`. <p> day는 트리거를 실행할 요일입니다. 예를 들어 `{Sunday}`는 해당 월의 매주 일요일입니다. 필수 사항입니다.<p>occurrence는 월 중에 되풀이되는 날입니다. 예를 들어 `{Sunday, -1}`은 해당 월의 마지막 일요일입니다. 선택 사항입니다.
+monthDays | 트리거가 실행될 날짜입니다. 빈도가 월인 경우에만 지정할 수 있습니다. | <ul><li>아래 값의 배열</li><ul><li>1 이상 31 이하 사이의 모든 값</li><li>1 이하 및 31 이상의 모든 값</li></ul></ul> |
 
 
 ## <a name="examples-recurrence-schedules"></a>예제: 되풀이 일정
@@ -313,7 +329,7 @@ monthDays | 트리거가 실행될 날짜입니다. 빈도가 월인 경우에�
 
 이 예제 일정에서는 간격이 1로 설정된 것으로 가정합니다. 또한 일정에 속하는 내용에 따라 정확한 빈도를 가정합니다. 예를 들어 빈도 "day"를 사용하거나 일정의 "monthDays"를 수정할 수 없습니다. 이러한 제한 사항은 이전 섹션의 테이블에서 언급했습니다. 
 
-예제 | 설명
+예 | 설명
 ------- | -----------
 `{"hours":[5]}` | 매일 오전 5시에 실행
 `{"minutes":[15], "hours":[5]}` | 매일 오전 5시 15분에 실행
@@ -346,6 +362,8 @@ monthDays | 트리거가 실행될 날짜입니다. 빈도가 월인 경우에�
 
 
 ## <a name="next-steps"></a>다음 단계
-다음 자습서를 참조하세요. 
+다음 자습서를 참조하세요.
 
 - [빠른 시작: .NET을 사용하여 데이터 팩터리 만들기](quickstart-create-data-factory-dot-net.md)
+- [방법: 일정 트리거 만들기](how-to-create-schedule-trigger.md)
+- [방법: 연속 창 트리거 만들기](how-to-create-tumbling-window-trigger.md)

@@ -3,7 +3,7 @@ title: "Azure App Service의 Mobile Apps 정보"
 description: "App Service가 엔터프라이즈 모바일 앱에 제공하는 이점을 알아봅니다."
 services: app-service\mobile
 documentationcenter: 
-author: ggailey777
+author: conceptdev
 manager: yochayk
 editor: 
 ms.assetid: 4e96cb9d-a632-4cf6-8219-0810d8ade3f9
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/01/2016
-ms.author: glenga
-ms.openlocfilehash: f0731237c9376d5f762eea1c7559bc6a70a2025d
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.author: crdun
+ms.openlocfilehash: b55d186aba49e91bab6814da2380a372f61f39cb
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="getting-started"> </a>Azure App Service의 Mobile Apps 정보
 Azure App Service는 완전히 관리되는 PaaS([platform as a service](https://azure.microsoft.com/overview/what-is-paas/))로써 전문 개발자를 위해 제공됩니다. 이 서비스는 웹, 모바일 및 통합 시나리오에 풍부한 기능 집합을 제공합니다. 
@@ -65,7 +65,7 @@ Mobile Apps 기능을 사용하면 다음을 수행할 수 있습니다.
 
   [스테이징 환경]에 대해 자세히 알아보세요.
 
-* **지속적인 배포**: App Service는 일반 SCM(공급 체인 관리) 시스템과 통합할 수 있으므로 SCM 시스템의 분기에 푸시하여 새 버전의 백 엔드를 자동으로 배포할 수 있습니다.
+* **지속적인 배포**: App Service는 일반 SCM(원본 제어 관리) 시스템과 통합할 수 있으므로 SCM 시스템의 분기에 푸시하여 새 버전의 백 엔드를 자동으로 배포할 수 있습니다.
 
   [배포 옵션](../app-service/app-service-deploy-local-git.md)에 대해 자세히 알아보세요.
 

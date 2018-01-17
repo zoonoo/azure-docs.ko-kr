@@ -13,28 +13,26 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: 0bf5eb51d3fea8ff4a62d9e7f6d76c771aaaaf77
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 138f9f6e85d5e206c8b09d5c93822cfef5dd1246
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="lesson-2-get-data"></a>단원 2: 데이터 가져오기
+# <a name="get-data"></a>데이터 가져오기
 
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
-
-이 단원에서는 SSDT의 데이터 가져오기를 사용하여 AdventureWorksDW2014 예제 데이터베이스에 연결하고 데이터를 선택하며, 미리 보기 및 필터를 수행한 후 모델 작업 영역으로 가져옵니다.  
+이 단원에서는 SSDT의 데이터 가져오기를 사용하여 Adventure Works 샘플 데이터베이스에 연결하고, 데이터, 미리 보기 및 필터를 선택한 다음, 모델 작업 영역으로 가져옵니다.  
   
 데이터 가져오기를 사용하여 Azure SQL Database, Oracle, Sybase, OData Feed, Teradata, 파일 등 다양한 원본에서 데이터를 가져올 수 있습니다. 파워 쿼리 M 수식을 사용하여 데이터를 쿼리할 수도 있습니다.
 
 > [!NOTE]
-> 이 자습서의 작업 및 이미지는 온-프레미스 서버에서 AdventureWorksDW2014 데이터베이스에 대한 연결을 보여 줍니다. 경우에 따라 Azure에서 AdventureWorksDW2014 데이터베이스는 달라질 수 있습니다.
+> 이 자습서의 작업 및 이미지는 온-프레미스 서버에서 AdventureWorksDW2014 데이터베이스에 대한 연결을 보여 줍니다. 경우에 따라 Azure의 Adventure Works 데이터베이스가 다를 수 있습니다.
   
 이 단원을 완료하기 위한 예상 시간: **10분**  
   
-## <a name="prerequisites"></a>필수 조건  
+## <a name="prerequisites"></a>필수 구성 요소  
 이 항목은 테이블 형식 모델링 자습서에 포함되며 순서대로 완료해야 합니다. 이 단원의 작업을 수행하기 전에 이전 단원인 [단원 1: 새 테이블 형식 모델 프로젝트 만들기](../tutorials/aas-lesson-1-create-a-new-tabular-model-project.md)를 완료해야 합니다.  
   
 ## <a name="create-a-connection"></a>연결 만들기  

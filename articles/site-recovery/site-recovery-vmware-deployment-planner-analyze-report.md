@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/04/2017
 ms.author: nisoneji
-ms.openlocfilehash: fe50f159baedf5455c2ea3cfe825d6d826e70851
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: d8c4f5431d8e2d406cd5b203b468c447d4dd6e17
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-site-recovery-deployment-planner-report"></a>Azure Site Recovery Deployment Planner 보고서
 생성된 Microsoft Excel 보고서에는 다음과 같은 시트가 포함되어 있습니다.
@@ -182,7 +182,7 @@ Site Recovery 복제를 위해 x Mbps 이상의 대역폭을 설정할 수 없�
 
 **VM 이름**: 보고서가 생성될 때 VMListFile에 사용되는 VM 이름 또는 IP 주소입니다. 또한 이 열은 VM에 연결된 디스크(VMDK)를 나열합니다. 중복 이름 또는 IP 주소와 vCenter VM을 구분하기 위해 이름에 ESXi 호스트 이름을 포함합니다. 나열된 ESXi 호스트는 도구가 프로 파일링 기간 중에 발견한 VM을 배치하는 호스트입니다.
 
-**VM 호환성**: 값은 **예** 및 **예**\*입니다. **예**\*는 VM이 [Azure Premium Storage](https://aka.ms/premium-storage-workload)에 적합한 인스턴스에 대한 값입니다. 여기서 프로파일링된 높은 변동량 또는 IOPS 디스크는 P20 또는 P30 범주에 적합하지만 디스크의 크기 때문에 P10 또는 P20에 낮게 매핑됩니다. 저장소 계정 크기에 따라 디스크를 매핑할 프리미엄 저장소 디스크 유형이 결정됩니다. 예:
+**VM 호환성**: 값은 **예** 및 **예**\*입니다. **예**\*는 VM이 [Azure Premium Storage](https://aka.ms/premium-storage-workload)에 적합한 인스턴스에 대한 값입니다. 여기서 프로파일링된 높은 변동량 또는 IOPS 디스크는 P20 또는 P30 범주에 적합하지만 디스크의 크기 때문에 P10 또는 P20에 낮게 매핑됩니다. 저장소 계정 크기에 따라 디스크를 매핑할 프리미엄 저장소 디스크 유형이 결정됩니다. 예: 
 * 128GB 미만은 P10입니다.
 * 128GB ~ 256GB는 P15입니다.
 * 256GB ~ 512GB는 P20입니다.
@@ -214,9 +214,9 @@ Site Recovery 복제를 위해 x Mbps 이상의 대역폭을 설정할 수 없�
 
 **NIC 수**: VM의 NIC 수입니다.
 
-**부팅 유형**: VM의 부팅 유형입니다. BIOS 또는 EFI일 수 있습니다. 현재 Azure Site Recovery는 BIOS 부팅 유형만 지원합니다. EFI 부팅 유형의 모든 가상 머신은 호환되지 않는 VM 워크시트에 나열됩니다.
+**부팅 유형**: VM의 부팅 유형입니다. BIOS 또는 EFI일 수 있습니다.  현재 Azure Site Recovery는 부팅 디스크의 파티션 수가 4개 미만이고 부팅 섹터 크기가 512바이트인 경우 Windows Server EFI VM(Windows Server 2012, 2012 R2 및 2016)을 지원합니다. EFI VM을 보호하려면 Azure Site Recovery 모바일 서비스 버전이 9.13 이상이어야 합니다. EFI VM에서는 장애 조치만 지원되고, 장애 복구는 지원되지 않습니다.  
 
-**OS 종류**: VM의 OS 종류입니다. Windows, Linux 또는 기타일 수 있습니다.
+**OS 종류**: VM의 OS 종류입니다. Windows, Linux 또는 VM을 만드는 동안 VMware vSphere에서 선택된 템플릿을 기반으로 하는 다른 OS일 수도 있습니다.  
 
 ## <a name="incompatible-vms"></a>호환되지 않는 VM
 
@@ -228,20 +228,31 @@ Site Recovery 복제를 위해 x Mbps 이상의 대역폭을 설정할 수 없�
 **VM 호환성**: 지정된 VM을 Site Recovery에서 사용할 수 없는 이유를 나타냅니다. 이유는 게시된 [저장소 한도](https://aka.ms/azure-storage-scalbility-performance)를 기반으로 VM의 각 호환되지 않는 디스크에 대해 설명되며 다음 중 하나일 수 있습니다.
 
 * 디스크 크기가 4,095GB보다 큽니다. Azure Storage는 현재 4,095GB보다 큰 디스크 크기를 지원하지 않습니다.
+
 * OS 디스크는 2,048GB보다 큽니다. Azure Storage는 현재 2,048GB보다 큰 OS 디스크 크기를 지원하지 않습니다.
-* 부팅 유형은 EFI입니다. 현재 Azure Site Recovery는 BIOS 부팅 유형 가상 머신만 지원합니다.
 
 * 총 VM 크기(복제 + TFO)가 지원되는 저장소 계정 크기 한도(35TB)를 초과합니다. 이러한 비호환성은 일반적으로 VM의 단일 디스크가 표준 저장소에 대해 지원되는 최대 Azure 또는 Site Recovery 한도를 초과하는 성능 특성을 가지고 있는 경우에 발생합니다. 이러한 인스턴스는 VM을 프리미엄 저장소 영역에 푸시합니다. 그러나 프리미엄 저장소 계정의 최대 지원 크기는 35TB이며, 보호된 단일 VM을 여러 저장소 계정에서 보호할 수 없습니다. 또한 보호되는 VM에 대해 테스트 장애 조치를 실행하면 복제가 진행 중인 저장소 계정과 동일한 계정에서 실행된다는 점에 유의해야 합니다. 이 인스턴스에서 복제 진행과 테스트 장애 조치를 동시에 성공하려면 디스크 크기를 2배로 설정합니다.
-* 원본 IOPS가 디스크당 지원되는 저장소 IOPS 한도(5000)를 초과합니다.
+
+* 원본 IOPS가 디스크당 지원되는 저장소 IOPS 한도(7500)를 초과합니다.
+
 * 원본 IOPS가 VM당 지원되는 저장소 IOPS 한도(80,000)를 초과합니다.
+
 * 평균 데이터 변동률이 디스크의 평균 I/O 크기에 대해 지원되는 Site Recovery 데이터 변동률 한도(10MB/s)를 초과합니다.
-* VM의 모든 디스크의 총 데이터 변동률이 지원되는 최대 Site Recovery 데이터 변동률 한도(54MB/s)를 초과합니다.
+
+* 평균 데이터 변동률이 VM의 평균 I/O 크기(모든 디스크 변동률의 합계)에 지원되는 Site Recovery 데이터 변동률 한도(25MB/s)를 초과합니다.
+
+* VM의 모든 디스크에 대한 최고 데이터 변동률이 지원되는 Site Recovery 최고 데이터 변동률 한도(54MB/s)를 초과합니다.
+
 * 평균 유효 쓰기 IOPS가 디스크에 대해 지원되는 Site Recovery IOPS 한도(840)를 초과합니다.
+
 * 계산된 스냅숏 저장소가 지원되는 스냅숏 저장소 한도(10TB)를 초과합니다.
 
-**읽기/쓰기 IOPS(증가율 포함)**: 향후 증가율(기본값: 30%)을 포함한 디스크의 최고 워크로드 IOPS(기본값: 95번째 백분위수)입니다. 참고로 VM의 최고 읽기/쓰기 IOPS는 프로파일링 기간의 매분마다 개별 디스크의 읽기/쓰기 IOPS를 합친 최고값이기 때문에 VM의 총 읽기/쓰기 IOPS가 항상 VM에 속한 개별 디스크의 읽기/쓰기 IOPS 합계가 되는 것은 아닙니다.
+* 1일 총 데이터 변동률이 프로세스 서버에서 지원되는 2TB의 1일 변동률 한도(2TB)를 초과합니다.
 
-**데이터 변동률(Mbps)(증가율 포함)**: 향후 증가율(기본값: 30%)을 포함한 디스크의 최고 변동률(기본값: 95번째 백분위 수)입니다. VM의 총 데이터 변동은 프로파일링 기간의 매분마다 개별 디스크 변동 합계의 최고값이기 때문에 VM의 총 데이터 변동이 항상 VM에 속한 개별 디스크의 데이터 변동 합계가 되는 것은 아닙니다.
+
+**최고 읽기/쓰기 IOPS(증가율 포함)**: 향후 증가율(기본값: 30%)을 포함한 디스크의 최고 워크로드 IOPS(기본값: 95번째 백분위수)입니다. 참고로 VM의 최고 읽기/쓰기 IOPS는 프로파일링 기간의 매분마다 개별 디스크의 읽기/쓰기 IOPS를 합친 최고값이기 때문에 VM의 총 읽기/쓰기 IOPS가 항상 VM에 속한 개별 디스크의 읽기/쓰기 IOPS 합계가 되는 것은 아닙니다.
+
+**최고 데이터 변동률(Mbps)(증가율 포함)**: 향후 증가율(기본값: 30%)을 포함한 디스크의 최고 변동률(기본값: 95번째 백분위수)입니다. VM의 총 데이터 변동은 프로파일링 기간의 매분마다 개별 디스크 변동 합계의 최고값이기 때문에 VM의 총 데이터 변동이 항상 VM에 속한 개별 디스크의 데이터 변동 합계가 되는 것은 아닙니다.
 
 **디스크 수**: VM의 총 VMDK 수입니다.
 
@@ -253,14 +264,13 @@ Site Recovery 복제를 위해 x Mbps 이상의 대역폭을 설정할 수 없�
 
 **NIC 수**: VM의 NIC 수입니다.
 
-**부팅 유형**: VM의 부팅 유형입니다. BIOS 또는 EFI일 수 있습니다. 현재 Azure Site Recovery는 BIOS 부팅 유형만 지원합니다. EFI 부팅 유형의 모든 가상 머신은 호환되지 않는 VM 워크시트에 나열됩니다.
+**부팅 유형**: VM의 부팅 유형입니다. BIOS 또는 EFI일 수 있습니다.  현재 Azure Site Recovery는 부팅 디스크의 파티션 수가 4개 미만이고 부팅 섹터 크기가 512바이트인 경우 Windows Server EFI VM(Windows Server 2012, 2012 R2 및 2016)을 지원합니다. EFI VM을 보호하려면 Azure Site Recovery 모바일 서비스 버전이 9.13 이상이어야 합니다. EFI VM에서는 장애 조치만 지원되고, 장애 복구는 지원되지 않습니다.
 
-**OS 종류**: VM의 OS 종류입니다. Windows, Linux 또는 기타일 수 있습니다.
-
+**OS 종류**: VM의 OS 종류입니다. Windows, Linux 또는 VM을 만드는 동안 VMware vSphere에서 선택된 템플릿을 기반으로 하는 다른 OS일 수도 있습니다. 
 
 ## <a name="azure-site-recovery-limits"></a>Azure Site Recovery 제한
 다음 테이블에는 Azure Site Recovery 제한이 제공됩니다. 이러한 한도는 테스트를 기반으로 하지만 모든 가능한 응용 프로그램 I/O 조합을 다룰 수는 없습니다. 실제 결과는 응용 프로그램 I/O 조합에 따라 달라질 수 있습니다. 최상의 결과를 얻으려면 배포를 계획한 후에도 항상 테스트 장애 조치를 통해 광범위한 응용 프로그램 테스트를 수행하여 응용 프로그램의 진정한 성능 상황을 이해하는 것이 좋습니다.
- 
+
 **복제 저장소 대상** | **평균 원본 디스크 I/O 크기** |**평균 원본 디스크 데이터 변동** | **일일 총 원본 디스크 데이터 변동**
 ---|---|---|---
 Standard Storage | 8KB | 2MB/초 | 디스크당 168GB
@@ -270,7 +280,14 @@ Standard Storage | 8KB | 2MB/초 | 디스크당 168GB
 프리미엄 P20 또는 P30 또는 P40 또는 P50 디스크 | 8KB    | 5MB/초 | 디스크당 421GB
 프리미엄 P20 또는 P30 또는 P40 또는 P50 디스크 | 16KB 이상 |10MB/초 | 디스크당 842GB
 
+**원본 데이터 변동률** | **최대 한도**
+---|---
+VM당 평균 데이터 변동률| 25MB/초 
+VM의 모든 디스크에 대한 최고 데이터 변동률 | 54MB/초
+프로세스 서버에서 지원하는 1일 최대 데이터 변동률 | 2TB 
+
 여기서는 I/O가 30% 겹치고 있다고 가정하는 평균 숫자입니다. Site Recovery는 중첩 비율, 더 큰 쓰기 크기 및 실제 워크로드 I/O 동작에 따라 더 높은 처리량을 다룰 수 있습니다. 앞의 숫자는 약 5분의 일반적인 백로그가 있다고 가정합니다. 즉, 데이터를 업로드한 후에 처리되며 5분 내에 복구 지점이 생성됩니다.
+
 
 ## <a name="cost-estimation"></a>비용 예측
 [비용 예측](site-recovery-vmware-deployment-planner-cost-estimation.md)에 대해 자세히 알아봅니다. 
