@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: briz
-ms.openlocfilehash: 6d667d42bfef2ec61b055009210d5621f51c17df
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 458b316ba76ff7cace56eb21eaf105233e508741
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="overview-of-device-management-with-iot-hub"></a>IoT Hub를 사용한 장치 관리 개요
 ## <a name="introduction"></a>소개
@@ -57,7 +57,7 @@ IoT는 특유의 장치 관리 과제를 수반하며 모든 기업 수준의 �
     *추가 정보*: [장치 쌍 시작][lnk-twins-getstarted], [장치 쌍 이해][lnk-twins-devguide], [장치 쌍 속성 사용 방법][lnk-twin-properties]
 * **프로비전**: 새 장치를 IoT Hub에 안전하게 프로비전하고 운영자가 장치의 기능을 즉시 검색할 수 있도록 합니다.  IoT Hub ID 레지스트리를 사용하여 유연한 장치 ID 및 자격 증명을 만들고 작업을 사용하여 대량으로 이 작업을 수행합니다. 장치 쌍에서 장치 속성을 통해 기능 및 조건을 보고하도록 장치를 빌드합니다.
   
-    *추가 정보*: [장치 ID 관리][lnk-identity-registry], [장치 ID 대량 관리][lnk-bulk-identity], [장치 쌍 속성 사용 방법][lnk-twin-properties]
+    *추가 정보*: [장치 ID 관리][lnk-identity-registry], [장치 ID 대량 관리][lnk-bulk-identity], [장치 쌍 속성 사용 방법][lnk-twin-properties], [Azure IoT Hub Device Provisioning 서비스][lnk-dps]
 * **구성**: 정상적인 상태와 보안을 유지하면서 장치에 대한 일괄 구성 변경 및 펌웨어 업데이트를 가능하게 합니다. 원하는 속성 또는 직접 메서드와 브로드캐스트 작업을 사용하여 대량으로 이러한 장치 관리 작업을 수행합니다.
   
     *추가 정보*:  [직접 메서드 사용][lnk-c2d-methods], [장치에서 직접 메서드 호출][lnk-methods-devguide], [장치 쌍 속성 사용 방법][lnk-twin-properties], [작업 예약 및 브로드캐스트][lnk-jobs], [여러 장치에서 작업 예약][lnk-jobs-devguide]
@@ -113,3 +113,4 @@ IoT Hub 장치 관리 기능에 대해 계속 알아보려면 [장치 관리 시
 [lnk-methods-devguide]: iot-hub-devguide-direct-methods.md
 [lnk-jobs]: iot-hub-node-node-schedule-jobs.md
 [lnk-jobs-devguide]: iot-hub-devguide-jobs.md
+[lnk-dps]: https://azure.microsoft.com/documentation/services/iot-dps

@@ -16,11 +16,11 @@ ms.date: 12/12/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 4f5275584d75c88ce3ef5b607f315f3b425d2c3f
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: e063e6a46b6b99c4bbe749347e6887a930adb882
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="how-to-associate-or-add-an-azure-subscription-to-azure-active-directory"></a>Azure Active Directory에 Azure 구독을 연결하거나 추가하는 방법
 
@@ -46,7 +46,7 @@ ms.lasthandoff: 12/16/2017
 
     ![디렉터리 변경 UI를 보여 주는 스크린샷](./media/active-directory-how-subscriptions-associated-directory/edit-directory-ui.PNG)
 5. **변경**을 클릭합니다.
-6. 성공! 디렉터리 전환기를 사용하여 새 디렉터리로 이동합니다.
+6. 성공! 디렉터리 전환기를 사용하여 새 디렉터리로 이동합니다. 모든 항목이 제대로 표시되는 데 최대 10분이 걸릴 수 있습니다.
 
     ![디렉터리 변경 성공 알림을 보여 주는 스크린샷](./media/active-directory-how-subscriptions-associated-directory/edit-directory-success.PNG)
 
@@ -59,7 +59,7 @@ ms.lasthandoff: 12/16/2017
 
 * 새 Azure AD 디렉터리를 무료로 만드는 방법에 대해 자세히 알아보려면 [Azure Active Directory 테넌트를 얻는 방법](develop/active-directory-howto-tenant.md)을 참조하세요.
 * Azure 구독에 대한 청구 소유권 이전에 대해 자세히 알아보려면 [Azure 구독의 소유권을 다른 계정으로 이전](../billing/billing-subscription-transfer.md)을 참조하세요.
-* Microsoft Azure에서 리소스 액세스를 제어하는 방법에 대해 자세히 알아보려면 [Azure의 리소스 액세스 이해](active-directory-understanding-resource-access.md)
+* Microsoft Azure에서 리소스 액세스를 제어하는 방법을 자세히 알아보려면 [Azure에서 리소스 액세스 이해](active-directory-understanding-resource-access.md)
 * Azure AD에서 역할을 할당하는 방법에 대한 자세한 내용은 [Azure Active Directory에서 관리자 역할 할당](active-directory-assign-admin-roles-azure-portal.md)
 
 <!--Image references-->

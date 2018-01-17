@@ -1,5 +1,5 @@
 ---
-title: "Azure Analysis Services란? | Microsoft Docs"
+title: "Azure Analysis Services 개요 | Microsoft Docs"
 description: "Azure에서 Analysis Services의 큰 그림을 가져옵니다."
 services: analysis-services
 documentationcenter: 
@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 12/08/2017
+ms.date: 01/04/2017
 ms.author: owend
-ms.openlocfilehash: 60097a18afc76e09ecd7d69eececea53e9712bec
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: fe46b3c099c4fd4e04a39e2b2f127c1206711e60
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/05/2018
 ---
-# <a name="what-is-azure-analysis-services"></a>Azure Analysis Services란?
+# <a name="azure-analysis-services-overview"></a>Azure Analysis Services 개요
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
 
 Azure Analysis Services는 클라우드에서 엔터프라이즈급 데이터 모델링을 제공합니다. Azure 데이터 플랫폼 서비스와 통합된 서비스로서 완벽하게 관리되는 플랫폼(PaaS)입니다. 
@@ -123,10 +123,10 @@ Power BI, Excel, SQL Server 2017 Reporting Services 및 타사 도구와 같은 
 
 ## <a name="get-help"></a>도움말 보기
 
-#### <a name="documentation"></a>설명서
+#### <a name="documentation"></a>문서화
 Azure Analysis Services에서는 간단하게 설정하고 관리할 수 있습니다. 서버 서비스를 만들고 관리하는 데 필요한 모든 정보는 여기서 찾을 수 있습니다. 서버에 배포할 데이터 모델을 만드는 것은 온-프레미스 서버에 배포할 데이터 모델을 만드는 것과 매우 비슷합니다. 개념, 절차, 자습서 및 참조 문서에 대한 광범위한 자료는 [SQL Server Analysis Services 도움말](https://docs.microsoft.com/sql/analysis-services/analysis-services)에 있습니다.
 
-#### <a name="videos"></a>비디오
+#### <a name="videos"></a>동영상
 [Channel 9의 Azure Analysis Services](https://channel9.msdn.com/series/Azure-Analysis-Services)에서 유용한 동영상을 확인하세요.
 
 #### <a name="blogs"></a>블로그

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/02/2017
 ms.author: nisoneji
-ms.openlocfilehash: bb4ec5cfd455ab0cc22ab693c2a07eed9883dc76
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 5c7ff99c2f67f82f9a7d605d9960960f84e96900
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="run-azure-site-recovery-deployment-planner-for-hyper-v-to-azure"></a>Hyper-V에서 Azure로 Azure Site Recovery Deployment Planner 실행
 
@@ -107,6 +107,15 @@ VM을 7일 이상 프로파일링하는 것이 좋습니다. 한 달 내에 변�
 
 여러 VM 집합에 대해서는 도구의 여러 인스턴스를 실행할 수 있습니다. VM 이름이 프로파일링 집합에서 반복되지 않도록 합니다. 예를 들어 10개의 VM(VM1 - VM10)을 프로파일링하고 며칠 후에 다른 5개의 VM(VM11 - VM15)을 프로파일링하려는 경우, 두 번째 VM 집합(VM11 - VM15)에 대한 다른 명령줄 콘솔에서 도구를 실행할 수 있습니다. 그러나 두 번째 VM 집합에 첫 번째 프로파일링 인스턴스의 VM 이름이 없어야 하거나 두 번째 실행을 위해 다른 출력 디렉터리를 사용해야 합니다. 도구의 두 인스턴스가 동일한 VM을 프로파일링하고 동일한 출력 디렉터리를 사용하는 경우 생성된 보고서는 올바르지 않습니다. 
 
+기본적으로 이 도구는 최대 1,000개의 VM에 대한 보고서를 프로파일링하고 생성하도록 구성됩니다. *ASRDeploymentPlanner.exe.config* 파일에서 MaxVMsSupported 키 값을 변경하여 제한을 변경할 수 있습니다.
+```
+<!-- Maximum number of vms supported-->
+<add key="MaxVmsSupported" value="1000"/>
+```
+예를 들어 기본 설정을 사용하여 1,500개 VM을 프로파일링하려면 두 개의 VMList.txt 파일을 만듭니다. 하나는 1,000개 VM이 포함된 목록이고, 다른 하나는 500개 VM이 포함된 목록입니다. VMList1.txt 및 VMList2.txt를 각각 사용하여 ASR Deployment Planner의 두 인스턴스를 실행합니다. 동일한 디렉터리 경로를 사용하여 두 VMList VM의 프로파일링된 데이터를 저장할 수 있습니다. 
+
+보고서를 생성하기 위해 도구를 실행하는 서버의 하드웨어 구성, 특히 RAM 크기를 기반으로 하면 메모리가 부족하여 작업이 실패할 수 있음을 확인했습니다. 하드웨어가 좋은 경우 MaxVMsSupported를 더 높은 값으로 변경할 수 있습니다.  
+
 VM 구성은 프로파일링 작업을 시작할 때 한 번 캡처되어 VMDetailList.xml이라는 파일에 저장됩니다. 이 정보는 보고서를 생성할 때 사용 됩니다. 프로파일링을 시작할 때부터 종료할 때까지 VM 구성의 변경 내용(예를 들어 코어, 디스크 또는 NIC 수 증가)은 캡처되지 않습니다. 프로파일링 중에 프로파일링된 VM 구성이 변경된 경우 보고서를 생성할 때 최신 VM 세부 정보를 가져오기 위한 해결 방법은 다음과 같습니다.
 
 * VMdetailList.xml을 백업하고 현재 위치에서 파일을 삭제합니다.
@@ -163,11 +172,17 @@ ASRDeploymentPlanner.exe -Operation GenerateReport /?
 | -StartDate | (선택 사항) MM-DD-YYYY:HH:MM 단위의 시작 날짜 및 시간(24시간 형식)입니다. *StartDate*는 *EndDate*와 함께 지정해야 합니다. StartDate를 지정한 경우 StartDate와 EndDate 사이에 수집한 프로파일링된 데이터에 대한 보고서를 생성합니다. |
 | -EndDate | (선택 사항) MM-DD-YYYY:HH:MM 형식(24시간 형식)의 종료 날짜 및 시간입니다. *EndDate*는 *StartDate*와 함께 지정해야 합니다. EndDate를 지정한 경우 StartDate와 EndDate 사이에 수집한 프로파일링된 데이터에 대한 보고서가 생성됩니다. |
 | -GrowthFactor | (선택 사항) 백분율로 표시된 증가율입니다. 기본값은 30%입니다. |
-| -UseManagedDisks | (선택 사항)UseManagedDisks - 예/아니요. 기본값은 [예]입니다. 단일 저장소 계정에 배치할 수 있는 가상 컴퓨터의 수는 가상 컴퓨터의 장애 조치/테스트 장애 조치가 관리되지 않는 디스크가 아닌 Managed Disk에서 수행되었음을 고려하여 계산됩니다. |
+| -UseManagedDisks | (선택 사항)UseManagedDisks - 예/아니요. 기본값은 [예]입니다. 단일 저장소 계정에 배치할 수 있는 가상 머신의 수는 가상 머신의 장애 조치/테스트 장애 조치가 관리되지 않는 디스크가 아닌 Managed Disk에서 수행되었음을 고려하여 계산됩니다. |
 |-SubscriptionId |(선택 사항) 구독 GUID입니다. 구독, 구독과 연결된 제품 및 특정 대상 Azure 지역의 제품에 기반한 최신 가격과 지정된 통화로 비용 예측 보고서를 생성하려면 이 매개 변수를 사용합니다.|
 |-TargetRegion|(선택 사항) 복제 대상이 되는 Azure 지역입니다. Azure는 지역마다 비용이 다르기 때문에 특정 대상 Azure 지역으로 보고서를 생성하려면 이 매개 변수를 사용합니다.<br>기본값은 WestUS2 또는 마지막으로 사용된 대상 지역입니다.<br>[지원되는 대상 지역](site-recovery-hyper-v-deployment-planner-cost-estimation.md#supported-target-regions) 목록을 참조하세요.|
 |-OfferId|(선택 사항) 주어진 구독과 연결된 제품입니다. 기본값은 MS-AZR-0003P(종량제)입니다.|
 |-Currency|(선택 사항) 생성된 보고서의 비용 표시에 사용되는 통화입니다. 기본값은 미국 달러($) 또는 마지막 사용한 통화입니다.<br>[지원되는 통화](site-recovery-hyper-v-deployment-planner-cost-estimation.md#supported-currencies) 목록을 참조하세요.|
+
+기본적으로 이 도구는 최대 1,000개의 VM에 대한 보고서를 프로파일링하고 생성하도록 구성됩니다. *ASRDeploymentPlanner.exe.config* 파일에서 MaxVMsSupported 키 값을 변경하여 제한을 변경할 수 있습니다.
+```
+<!-- Maximum number of vms supported-->
+<add key="MaxVmsSupported" value="1000"/>
+```
 
 ### <a name="examples"></a>예
 #### <a name="example-1-generate-a-report-with-default-values-when-the-profiled-data-is-on-the-local-drive"></a>예제 1: 프로파일링된 데이터가 로컬 드라이브에 있는 경우 기본값으로 보고서 생성
@@ -206,6 +221,7 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization Hyper-V -Dire
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization Hyper-V -Directory “E:\Hyper-V_ProfiledData” -VMListFile “E:\Hyper-V_ProfiledData\ProfileVMList1.txt”  -SubscriptionID 4d19f16b-3e00-4b89-a2ba-8645edf42fe5 -OfferID MS-AZR-0148P -TargetRegion southindia -Currency INR
 ```
+
 
 ## <a name="percentile-value-used-for-the-calculation"></a>계산에 사용된 백분위 수 값
 **도구가 보고서를 생성할 때 사용하는 프로파일링 중에 수집된 성능 메트릭의 기본 백분위수 값은 얼마인가요?**
@@ -268,7 +284,7 @@ ASRDeploymentPlanner.exe -Operation GetThroughput /?
 
 처리량은 특정 시점에서 측정되며, 다른 모든 요소가 동일하게 유지된다는 조건 하에 복제 중에 Azure Site Recovery에서 달성할 수 있는 최대 처리량입니다. 예를 들어 응용 프로그램이 동일한 네트워크에서 더 많은 대역폭을 사용하기 시작하면 복제 중에 실제 처리량이 달라집니다. VM에 높은 데이터 변동이 있을 때 GetThroughput 작업이 실행되는 경우 측정된 처리량의 결과가 다릅니다. 프로파일링 중에 여러 시점에서 도구를 실행하여 다양한 시간에서 어떤 처리량 수준을 달성할 수 있는지 이해하는 것이 좋습니다. 보고서에는 도구에서 마지막으로 측정한 처리량이 표시됩니다.
     
-### <a name="example"></a>예제
+### <a name="example"></a>예
 ```
 ASRDeploymentPlanner.exe -Operation GetThroughput -Virtualization Hyper-V -Directory E:\Hyp-erV_ProfiledData -VMListFile E:\Hyper-V_ProfiledData\ProfileVMList1.txt  -StorageAccountName  asrspfarm1 -StorageAccountKey by8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==
 ```

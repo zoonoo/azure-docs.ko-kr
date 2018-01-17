@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/17/2017
 ms.author: juliako
-ms.openlocfilehash: e3090da9b2c5b8f99545a1f7f9601bfd8d5221f1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 707d5db04d66760a12d0c947c8a86347fd0c73d9
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="upload-files-into-a-media-services-account-using-the-aspera-server-on-demand-service-on-azure"></a>Azure에서 Aspera Server On Demand 서비스를 사용하여 Media Services 계정에 파일 업로드
 
@@ -28,15 +28,15 @@ ms.lasthandoff: 10/11/2017
   
 Azure용 **Aspera Server On Demand**는 [Azure Marketplace](https://azure.microsoft.com/en-us/marketplace/)에서 구매할 수 있습니다. Azure용 **Aspera Server On Demand**의 구매를 완료하려면 Windows Live ID를 사용하여 Azure Marketplace에 로그인하세요.
 
-이 자습서에서는 Azure에서 **Aspera Server On Demand** 서비스를 사용하여 Media Services 계정과 연결된 저장소 계정에 파일을 업로드하는 단계를 안내합니다. 
+이 자습서에서는 Azure에서 **Aspera Server On-Demand** 서비스를 사용하여 Media Services 계정과 연결된 저장소 계정에 파일을 업로드하는 단계를 안내합니다. 
 
 [여기](https://github.com/Azure-Samples/media-services-dotnet-functions-integration/tree/master/103-aspera-ingest)에서는 Aspera 및 Media Services와 함께 Azure Functions를 사용하는 방법을 보여 주는 예제를 찾을 수 있습니다.
 
 >[!NOTE]
->Azure Media Services MP(미디어 프로세서)에서 처리할 수 있는 최대 파일 크기에 제한이 있습니다. 파일 크기 제한에 대한 세부 정보는 [이](media-services-quotas-and-limitations.md) 항목을 참조하세요.
+>Azure Media Services MP(미디어 프로세서)에서 처리할 수 있는 최대 파일 크기에 제한이 있습니다. 파일 크기 제한에 대한 세부 정보는 [이](media-services-quotas-and-limitations.md) 문서를 참조하세요.
 >
 
-## <a name="prerequisites"></a>필수 조건 
+## <a name="prerequisites"></a>필수 구성 요소 
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -56,7 +56,7 @@ Azure Marketplace에 로그인하고 나서 다음 기본 단계를 따라 Azure
 
    ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera002.png)
 
-3. Server on Demand 구독에 대한 세부 사항을 입력합니다.
+3. Server on Demand 구독에 대한 세부 정보를 입력합니다.
 
    ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera003.png)
 
@@ -131,7 +131,7 @@ Azure Marketplace에 로그인하고 나서 다음 기본 단계를 따라 Azure
 
 이제 [Blob을 저장소 계정에서 AMS 계정으로 복사](media-services-copying-existing-blob.md#copy-blobs-from-a-storage-account-into-an-ams-account)할 수 있습니다.
 
-## <a name="media-services-learning-paths"></a>미디어 서비스 학습 경로
+## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>피드백 제공

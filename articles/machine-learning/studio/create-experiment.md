@@ -1,5 +1,5 @@
 ---
-title: "기계 학습 스튜디오에서 간단한 실험 | Microsoft Docs"
+title: "Machine Learning Studio에서 간단한 실험 | Microsoft Docs"
 description: "이 기계 학습 자습서에서는 쉬운 데이터 과학 실험을 안내합니다. 회귀 알고리즘을 사용하여 자동차의 가격을 예측합니다."
 keywords: "실험, 선형 회귀, 기계 학습 알고리즘, 기계 학습 자습서, 예측 모델링 기술, 데이터 과학 실험"
 services: machine-learning
@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 03/20/2017
 ms.author: garye
-ms.openlocfilehash: 4cc8e78e3ce22d70546d8a25da17b56f4b7cc166
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 11496f0ca225baf0e6647a62aae09b8992f825c8
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
-# <a name="machine-learning-tutorial-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>기계 학습 자습서: Azure 기계 학습 스튜디오에서 첫 번째 데이터 과학 실험 만들기
+# <a name="machine-learning-tutorial-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>기계 학습 자습서: Azure Machine Learning Studio에서 첫 번째 데이터 과학 실험 만들기
 
 **Azure Machine Learning Studio**를 사용한 경험이 없는 경우 이 자습서는 도움이 됩니다.
 
@@ -34,9 +34,11 @@ ms.lasthandoff: 10/11/2017
 >
 >기계 학습에 익숙하지만 Machine Learning Studio에 대한 일반 상세 정보와 이러한 정보가 포함된 기계 학습 알고리즘을 찾고 있는 경우 다음과 같은 몇 가지 유용한 자료를 참고하세요.
 >
-- [기계 학습 스튜디오란 무엇인가요?](what-is-ml-studio.md) - Studio의 차원 높은 개요입니다.
+- 
+            [Machine Learning Studio란 무엇인가요?](what-is-ml-studio.md) - Studio의 차원 높은 개요입니다.
 - [알고리즘 예제가 포함된 기계 학습 기본 사항](basics-infographic-with-algorithm-examples.md) - 이 인포그래픽은 Machine Learning Studio에 포함된 기계 학습 알고리즘의 다양한 유형에 대해 자세히 알아보고자 할 경우에 유용합니다.
-- [기계 학습 가이드](https://gallery.cortanaintelligence.com/Tutorial/Machine-Learning-Guide-1) -이 가이드에서는 위의 인포그래픽과 유사한 정보를 대화형 형식으로 다룹니다.
+- 
+            [Machine Learning 가이드](https://gallery.cortanaintelligence.com/Tutorial/Machine-Learning-Guide-1) -이 가이드에서는 위의 인포그래픽과 유사한 정보를 대화형 형식으로 다룹니다.
 - [기계 학습 알고리즘 치트 시트](algorithm-cheat-sheet.md) 및 [Microsoft Azure Machine Learning용 알고리즘 선택 방법](algorithm-choice.md) - 다운로드 가능한 이 포스터 및 관련 문서는 Studio 알고리즘을 깊이 있게 설명합니다.
 - [Machine Learning Studio: 알고리즘 및 모듈 도움말](https://msdn.microsoft.com/library/azure/dn905974.aspx) -기계 학습 알고리즘을 포함하여 모든 Studio 모듈에 대 한 완전한 참조입니다.
 
@@ -44,9 +46,9 @@ ms.lasthandoff: 10/11/2017
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
-## <a name="how-does-machine-learning-studio-help"></a>기계 학습 스튜디오는 도움이 되나요?
+## <a name="how-does-machine-learning-studio-help"></a>Machine Learning Studio는 도움이 되나요?
 
-기계 학습 스튜디오를 사용하면 예측 모델링 기술로 프로그램한 끌어서 놓기 모듈을 사용하여 실험을 쉽게 설정할 수 있습니다.
+Machine Learning Studio를 사용하면 예측 모델링 기술로 프로그램한 끌어서 놓기 모듈을 사용하여 실험을 쉽게 설정할 수 있습니다.
 
 대화형 시각적 작업 영역을 사용하여 ***데이터 집합*** 및 분석 ***모듈***을 대화형 캔버스로 끌어서 놓습니다. Machine Learning Studio에서 실행할***실험***을 구성하려면 이들을 함께 연결합니다.
 ***모델을 만들고*** ***학습하고*** ***점수를 매기고 테스트***합니다.
@@ -81,7 +83,7 @@ Studio를 시작하려면 [https://studio.azureml.net](https://studio.azureml.ne
 [5단계: 새 자동차 가격 예측]: #step-5-predict-new-automobile-prices
 
 > [!TIP] 
-> [Cortana Intelligence 갤러리](https://gallery.cortanaintelligence.com)에서 다음 실험의 작업 복사본을 찾을 수 있습니다. **[첫 번째 데이터 과학 실험-자동차 가격 예측](https://gallery.cortanaintelligence.com/Experiment/Your-first-data-science-experiment-Automobile-price-prediction-1)**으로 이동하고 **Studio에서 열기**를 클릭하여 Machine Learning Studio 작업 영역으로 실험의 복사본을 다운로드합니다.
+> 다음 실험의 작업 복사본은 [Azure AI Gallery](https://gallery.cortanaintelligence.com)에서 찾을 수 있습니다. Go to **[Walkthrough - Credit risk prediction](https://gallery.cortanaintelligence.com/Experiment/Your-first-data-science-experiment-Automobile-price-prediction-1)** and click **Open in Studio** to download a copy of the experiment into your Machine Learning Studio workspace.
 
 
 ## <a name="step-1-get-data"></a>1단계: 데이터 가져오기
@@ -327,7 +329,7 @@ Machine Learning Studio에는 사용할 수 있고 다양한 원본에서 데이
 이제 첫 번째 기계 학습 자습서를 완료하고 실험을 설정했으므로 계속 모델을 향상시킨 후 예측 웹 서비스로서 배포할 수 있습니다.
 
 - **모델을 개선 하기 위해 반복** - 예를 들어 예측에 사용하는 기능을 변경할 수 있습니다. 또는 [선형 회귀][linear-regression] 알고리즘의 속성을 수정하거나 다른 알고리즘을 시도해 볼 수 있습니다. 한 번에 여러 Machine Learning 알고리즘을 실험에 추가하고 [모델 평가][evaluate-model] 모듈을 사용하여 둘을 비교할 수도 있습니다.
-단일 실험에서는 여러 모델을 비교하는 방법의 예제에서 [회귀 비교](https://gallery.cortanaintelligence.com/Experiment/Compare-Regressors-5) [Cortana Intelligence 갤러리](https://gallery.cortanaintelligence.com)를 참조합니다.
+단일 실험에서 여러 모델을 비교하는 방법에 대한 예제는 [Azure AI Gallery](https://gallery.cortanaintelligence.com)의 [회귀 변수 비교](https://gallery.cortanaintelligence.com/Experiment/Compare-Regressors-5)를 참조합니다.
 
     > [!TIP]
     > 실험 반복을 복사하려면 페이지 아래쪽의 **다른 이름으로 저장** 단추를 사용합니다. 페이지 아래쪽의 **실행 기록 보기**를 클릭하여 실험의 모든 반복을 볼 수 있습니다. 자세한 내용은 [Azure Machine Learning 스튜디오에서 실험 반복 관리][runhistory]를 참조하세요.

@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/04/2017
+ms.date: 1/09/2018
 ms.author: ryanwi
-ms.openlocfilehash: 3649cc2800e774f8dca1b88a1704744b4663a68d
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 4bd20cc9a553952ad86b662fa763e220cb8d8081
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Linux에서 첫 번째 Service Fabric 컨테이너 응용 프로그램 만들기
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.lasthandoff: 12/18/2017
 
 Service Fabric 클러스터의 Linux 컨테이너에서 기존 응용 프로그램을 실행하더라도 응용 프로그램을 변경할 필요가 없습니다. 이 문서에서는 Python [Flask](http://flask.pocoo.org/) 웹 응용 프로그램을 포함하는 Docker 이미지를 만들어 Service Fabric 클러스터에 배포하는 과정을 안내합니다.  또한 [Azure Container Registry](/azure/container-registry/)를 통해 컨테이너화된 응용 프로그램을 공유할 수도 있습니다.  이 문서에서는 Docker에 대한 기본적으로 이해하고 있다고 가정합니다. [Docker 개요](https://docs.docker.com/engine/understanding-docker/)를 참고하여 Docker에 대해 알아볼 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 * 다음을 실행하는 개발 컴퓨터
   * [Service Fabric SDK 및 도구](service-fabric-get-started-linux.md)
   * [Linux용 Docker CE](https://docs.docker.com/engine/installation/#prior-releases) 
@@ -90,7 +90,7 @@ if __name__ == "__main__":
 ```
 
 ## <a name="build-the-image"></a>이미지 빌드
-`docker build` 명령을 실행하여 웹 응용 프로그램을 실행하는 이미지를 만듭니다. PowerShell 창을 열고 *c:\temp\helloworldapp*으로 이동합니다. 다음 명령을 실행합니다.
+`docker build` 명령을 실행하여 웹 응용 프로그램을 실행하는 이미지를 만듭니다. PowerShell 창을 열고 *c:\temp\helloworldapp*으로 이동합니다. 다음 명령 실행:
 
 ```bash
 docker build -t helloworldapp .
@@ -202,6 +202,30 @@ ApplicationManifest.xml 파일의 `ContainerHostPolicies`에서 `PortBinding` �
     </Policies>
    </ServiceManifestImport>
 ``` 
+## <a name="configure-docker-healthcheck"></a>Docker HEALTHCHECK 구성 
+v6.1을 시작하면 Service Fabric에서 자동으로 [Docker HEALTHCHECK](https://docs.docker.com/engine/reference/builder/#healthcheck) 이벤트를 시스템 상태 보고서에 통합합니다. 즉 컨테이너에 **HEALTHCHECK**를 사용하도록 설정된 경우, Docker에서 보고한 대로 컨테이너의 상태가 변경될 때마다 Service Fabric에서 상태를 보고합니다. *health_status*가 *healthy*이면 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)에서 **OK** 상태 보고서가 표시되고, *health_status*가 *unhealthy*이면 **경고**가 표시됩니다. 컨테이너 상태를 모니터링하기 위해 수행되는 실제 검사를 가리키는 **HEALTHCHECK** 명령은 컨테이너 이미지를 생성하는 동안 사용된 **dockerfile**에 있어야 합니다. 
+
+![HealthCheckHealthy][1]
+
+![HealthCheckUnealthyApp][2]
+
+![HealthCheckUnhealthyDsp][3]
+
+ApplicationManifest에서 **ContainerHostPolicies**의 일부로 **HealthConfig** 옵션을 지정하여 각 컨테이너에 대한 **HEALTHCHECK** 동작을 구성할 수 있습니다.
+
+```xml
+<ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="ContainerServicePkg" ServiceManifestVersion="2.0.0" />
+    <Policies>
+      <ContainerHostPolicies CodePackageRef="Code">
+        <HealthConfig IncludeDockerHealthStatusInSystemHealthReport="true" RestartContainerOnUnhealthyDockerHealthStatus="false" />
+      </ContainerHostPolicies>
+    </Policies>
+</ServiceManifestImport>
+```
+기본적으로 *IncludeDockerHealthStatusInSystemHealthReport*는 **true**로 설정되고, *RestartContainerOnUnhealthyDockerHealthStatus*는 **false**로 설정됩니다. *RestartContainerOnUnhealthyDockerHealthStatus*가 **true**로 설정된 경우, 반복적으로 비정상으로 보고하는 컨테이너가 다시 시작됩니다(다른 노드에서도 가능).
+
+전체 Service Fabric 클러스터에 대해 **HEALTHCHECK** 통합을 사용하지 않도록 설정하려면 [EnableDockerHealthCheckIntegration](service-fabric-cluster-fabric-settings.md)을 **false**로 설정해야 합니다.
 
 ## <a name="build-and-package-the-service-fabric-application"></a>Service Fabric 응용 프로그램 빌드 및 패키징
 Service Fabric Yeoman 템플릿은 [Gradle](https://gradle.org/)에 대한 빌드 스크립트를 포함하며 이것을 사용하여 터미널에서 응용 프로그램을 빌드할 수 있습니다. 응용 프로그램을 빌드하고 패키징하려면 다음을 실행합니다.
@@ -231,6 +255,7 @@ sfctl cluster select --endpoint http://localhost:19080
 실행 중인 컨테이너에 연결합니다.  포트 4000에서 반환되는 IP 주소(예: " http://localhost:4000 ")를 가리키는 웹 브라우저를 엽니다. 제목인 "Hello World!"가 브라우저에 표시됩니다.
 
 ![Hello World!][hello-world]
+
 
 ## <a name="clean-up"></a>정리
 템플릿에 제공된 제거 스크립트를 사용하여 로컬 배포 클러스터에서 응용 프로그램 인스턴스를 삭제하고 응용 프로그램 유형을 등록 해제합니다.
@@ -359,7 +384,6 @@ yeoman을 사용하여 다른 컨테이너 서비스를 이미 만든 응용 프
 ```
 기본 시간 간격은 10초로 설정됩니다. 이 구성은 동적이므로 클러스터에 대한 구성 전용 업그레이드만 시간 제한을 업데이트합니다. 
 
-
 ## <a name="configure-the-runtime-to-remove-unused-container-images"></a>사용하지 않는 컨테이너 이미지를 제거할 런타임 구성
 
 노드에서 사용하지 않는 컨테이너 이미지를 제거하기 위해 Service Fabric 클러스터를 구성할 수 있습니다. 이 구성을 통해 노드에 너무 많은 컨테이너 이미지가 있는 경우 디스크 공간을 다시 캡처할 수 있습니다.  이 기능을 사용하려면 다음 코드 조각에 표시된 것처럼 클러스터 매니페스트에서 `Hosting` 섹션을 업데이트합니다. 
@@ -380,6 +404,33 @@ yeoman을 사용하여 다른 컨테이너 서비스를 이미 만든 응용 프
 
 삭제하지 않아야 하는 이미지의 경우 `ContainerImagesToSkip` 매개 변수 아래에 지정할 수 있습니다. 
 
+## <a name="configure-container-image-download-time"></a>컨테이너 이미지 다운로드 시간 구성
+
+기본적으로 Service Fabric 런타임은 대부분의 컨테이너 이미지에 대해 작동하는 컨테이너 이미지를 다운로드하고 추출하는 데 20분의 시간을 할당합니다. 큰 이미지의 경우 또는 네트워크 연결이 느린 경우, 이미지 다운로드 및 추출을 중단하기 전에 기다리는 시간을 늘려야 할 수 있습니다. 이는 다음 코드 조각과 같이 클러스터 매니페스트의 **Hosting** 섹션에 있는 **ContainerImageDownloadTimeout** 특성을 사용하여 설정할 수 있습니다.
+
+```json
+{
+"name": "Hosting",
+        "parameters": [
+          {
+              "name": " ContainerImageDownloadTimeout ",
+              "value": "1200"
+          }
+]
+}
+```
+
+
+## <a name="set-container-retention-policy"></a>컨테이너 보존 정책 설정
+
+컨테이너 시작 오류 진단을 지원하기 위해 Service Fabric(버전 6.1 이상)에서 종료되었거나 시작하지 못한 컨테이너를 보존하도록 지원합니다. 이 정책은 **ApplicationManifest.xml** 파일에서 다음 코드 조각과 같이 설정할 수 있습니다.
+
+```xml
+ <ContainerHostPolicies CodePackageRef="NodeService.Code" Isolation="process" ContainersRetentionCount="2"  RunInteractive="true"> 
+```
+
+**ContainersRetentionCount** 설정은 실패할 때 유지할 컨테이너의 수를 지정합니다. 음수 값을 지정하면 실패한 모든 컨테이너가 유지됩니다. **ContainersRetentionCount** 특성을 지정하지 않으면 유지되는 컨테이너가 없습니다. 또한 **ContainersRetentionCount** 특성은 응용 프로그램 매개 변수도 지원하므로 사용자는 테스트 및 프로덕션 클러스터에 대해 다른 값을 지정할 수 있습니다. 이 기능을 사용하여 컨테이너 서비스가 다른 노드로 이동하지 않도록 방지하려면 배치 제한 조건을 사용하여 컨테이너 서비스를 대상으로 특정 노드에 지정하는 것이 좋습니다. 이 기능을 사용하여 유지된 컨테이너는 수동으로 제거해야 합니다.
+
 
 ## <a name="next-steps"></a>다음 단계
 * [Service Fabric의 컨테이너](service-fabric-containers-overview.md)를 실행하는 방법에 대해 자세히 알아봅니다.
@@ -389,3 +440,7 @@ yeoman을 사용하여 다른 컨테이너 서비스를 이미 만든 응용 프
 
 [hello-world]: ./media/service-fabric-get-started-containers-linux/HelloWorld.png
 [sf-yeoman]: ./media/service-fabric-get-started-containers-linux/YoSF.png
+
+[1]: ./media/service-fabric-get-started-containers/HealthCheckHealthy.png
+[2]: ./media/service-fabric-get-started-containers/HealthCheckUnhealthy_App.png
+[3]: ./media/service-fabric-get-started-containers/HealthCheckUnhealthy_Dsp.png

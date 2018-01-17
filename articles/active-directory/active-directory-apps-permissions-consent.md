@@ -13,23 +13,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/31/2017
+ms.date: 01/03/2018
 ms.author: billmath
 ms.reviewer: jesakowi
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 9f51f46b0dc942bb9749f8e962a2872a8618245a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d3e14c18d5e4cd77f4c68d8a5d9d0b915e896695
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="apps-permissions-and-consent-in-azure-active-directory"></a>Azure Active Directory에서 앱, 사용 권한 및 동의
-Azure Active Directory 내에서 디렉터리에 응용 프로그램을 추가할 수 있습니다.  응용 프로그램은 응용 프로그램 유형에 따라 다를 수 있습니다.  클래식 포털에서 응용 프로그램을 보려면 디렉터리와 응용 프로그램을 선택합니다.
-
-![](media/active-directory-apps-permissions-consent/apps1.png)
+Azure Active Directory 내에서 디렉터리에 응용 프로그램을 추가할 수 있습니다.  응용 프로그램은 응용 프로그램 유형에 따라 다를 수 있습니다.  포털에서 응용 프로그램을 보려면 디렉터리와 응용 프로그램을 선택합니다.
 
 > [!IMPORTANT]
-> 이 문서에서 참조되는 Azure 클래식 포털을 사용하는 대신 Azure Portal에서 [Azure AD 관리 센터](https://aad.portal.azure.com)를 사용하여 Azure AD를 관리하는 것이 좋습니다.
+> 이 문서에서 참조되는 Azure Portal을 사용하는 대신, Azure Portal에서 [Azure AD 관리 센터](https://aad.portal.azure.com)를 사용하여 Azure AD를 관리하는 것이 좋습니다.
 
 ## <a name="types-of-apps"></a>앱 형식
 
@@ -73,9 +71,7 @@ Azure Active Directory 내에서 디렉터리에 응용 프로그램을 추가�
 
 ## <a name="controls"></a>컨트롤
 
-이러한 모든 동작에 사용할 수 있는 다양한 관리 컨트롤 목록은 다음과 같습니다. 관리 컨트롤은 클래식 포털에서 해당 디렉터리의 구성에서 액세스할 수 있습니다.
-
-![](media/active-directory-apps-permissions-consent/apps7.png)
+이러한 모든 동작에 사용할 수 있는 다양한 관리 컨트롤 목록은 다음과 같습니다.
 
 Azure Portal의 **관리**, **사용자 설정**에서는 다음을 수행할 수 있습니다.
 
@@ -85,18 +81,14 @@ Azure Portal의 **관리**, **사용자 설정**에서는 다음을 수행할 �
 
 - 사용자가 앱에 동의할 수 있는지 여부를 제어할 수 있습니다.
 
-클래식 포털에서 **사용자가 자신의 데이터에 액세스할 수 있는 권한을 응용 프로그램에게 부여할 수 있음**
-![](media/active-directory-apps-permissions-consent/apps8.png)을 선택합니다.
-
 Azure Portal에서 **사용자가 앱이 데이터에 액세스하도록 허용할 수 있음**을 선택합니다.
 ![](media/active-directory-apps-permissions-consent/apps12.png)
 
 
 
-- 사용자가 자신의 단일 테넌트 LOB 앱을 등록할 수 있는지 여부를 제어할 수 있습니다. 클래식 포털에서 **사용자가 통합 응용 프로그램을 추가할 수 있음**
-![](media/active-directory-apps-permissions-consent/apps9.png)을 선택합니다.
+- 사용자가 자신의 단일 테넌트 LOB 앱을 등록할 수 있는지 여부를 제어할 수 있습니다.
 
-Azure Portal에서 **사용자가 앱이 데이터에 액세스하도록 허용할 수 있음**을 선택합니다.
+Azure Portal에서 **사용자가 응용 프로그램을 등록할 수 있음**을 선택합니다.
 ![](media/active-directory-apps-permissions-consent/apps13.png)
 
 >[!NOTE]
@@ -108,20 +100,6 @@ Azure Portal에서 **사용자가 앱이 데이터에 액세스하도록 허용�
 >- 단일 테넌트 LOB 앱을 등록할 때 사용자는 위임된 권한을 다른 앱에 요청할 수 없습니다(해당 권한에 관리자 동의가 필요한 경우).
 >- 사용자는 자신의 소유자가 아닌 앱을 변경할 수 없습니다.
 
-
-
-- 사용자가 스스로 암호 SSO(즉, “암호 보관”)를 사용하는 사전 통합된 앱을 추가할 수 있는지 여부를 제어할 수 있습니다. ![](media/active-directory-apps-permissions-consent/apps10.png)
-
-
-
-- 응용 프로그램에 액세스할 수 있는 조건(즉, 조건부 액세스)을 제어할 수 있습니다. 이 내용은 클라이언트 앱과 리소스 앱 모두에 해당합니다. 따라서 조건부 액세스 정책을 설정했다면 컴퓨터에서 호환되는 “Office 365 Exchange Online” 앱에만 액세스할 수 있는 것입니다.  이 정책은 사용자가 Exchange Online에 대한 권한을 요청하는 클라이언트 앱을 사용하려고 시도할 때에도 시작됩니다.
-
-
-
-- 동의한 앱과 사용된 권한이 표시됩니다.
-
-1.  사용자가 앱에 동의하면 ServicePrincipal 개체가 테넌트에 생성됩니다. ServicePrincipal 생성은 감사 보고서에 포함됩니다.
-2.  사용자 로그인 활동 보고서를 통해 사용자가 로그인한 앱을 알 수 있습니다. 
 
 ## <a name="example"></a>예
 

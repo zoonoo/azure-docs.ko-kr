@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/03/2017
 ms.author: jgao
-ms.openlocfilehash: e4f2a4d5263b30b16ffd137c47fb63caa8340e16
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 1073c8eb0bfb8176f81826c4ea8967d5c04098ec
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="get-started-with-an-apache-hbase-example-in-hdinsight"></a>HDInsight에서 Apache HBase 예제 시작
 
@@ -28,17 +28,17 @@ HDInsight에서 HBase 클러스터를 만들고, HBase 테이블을 만들고 Hi
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 이 HBase 예제를 시작하기 전에 다음 항목이 있어야 합니다.
 
-* **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
+* **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
 * [SSH(Secure Shell)](../hdinsight-hadoop-linux-use-ssh-unix.md). 
 * [curl](http://curl.haxx.se/download.html).
 
 ## <a name="create-hbase-cluster"></a>HBase 클러스터 만들기
 다음 절차에서는 Azure Resource Manager 템플릿을 사용하여 HBase 클러스터 및 종속된 기본 Azure Storage 계정을 만듭니다. 절차에 사용되는 매개 변수와 다른 클러스터 생성 메서드를 이해하려면 [HDInsight에서 Linux 기반 Hadoop 클러스터 만들기](../hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요.
 
-1. Azure 포털에서 템플릿을 열려면 다음 이미지를 클릭합니다. 템플릿은 공용 Blob 컨테이너에 있습니다. 
+1. Azure 포털에서 템플릿을 열려면 다음 이미지를 클릭합니다. 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/)에 있습니다.
    
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-tutorial-get-started-linux/deploy-to-azure.png" alt="Deploy to Azure"></a>
 2. **사용자 지정 배포** 블레이드에서 다음 값을 입력합니다.
@@ -52,7 +52,7 @@ HDInsight에서 HBase 클러스터를 만들고, HBase 테이블을 만들고 Hi
      
      다른 매개 변수는 선택 사항입니다.  
      
-     각 클러스터에는 Azure Storage 계정 종속성이 있습니다. 클러스터를 삭제한 후에는 데이터가 저장소 계정에 유지됩니다. 클러스터 기본 저장소 계정 이름은 "저장소"가 추가된 클러스터 이름입니다. 템플릿 변수 섹션에 하드 코딩됩니다.
+     각 클러스터에는 Azure Storage 계정 종속성이 있습니다. 클러스터를 삭제한 후에는 데이터가 저장소 계정에 유지됩니다. 클러스터 기본 저장소 계정 이름은 "저장소"가 추가된 클러스터 이름이입니다. 템플릿 변수 섹션에 하드 코딩됩니다.
 3. **위에 명시된 사용 약관에 동의함**을 선택한 다음 **구매**를 클릭합니다. 클러스터를 만들려면 20분 정도가 걸립니다.
 
 > [!NOTE]

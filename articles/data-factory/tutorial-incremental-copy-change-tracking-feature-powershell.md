@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/01/2017
 ms.author: jingwang
-ms.openlocfilehash: efe34835d20e3b0aa679ceaa4a6428848c735a3e
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: b7f8836fb792151dbfdd156735d3e2c297c80cd8
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>변경 내용 추적 정보를 사용하여 Azure SQL Database에서 Azure Blob Storage로 데이터 증분 로드 
 이 자습서에서는 원본 Azure SQL 데이터베이스의 **변경 내용 추적** 정보를 기반으로 Azure Blob 저장소에 델타 데이터를 로드하는 파이프라인이 있는 Azure 데이터 팩터리를 만듭니다.  
@@ -70,7 +70,7 @@ ms.lasthandoff: 12/07/2017
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 * Azure PowerShell. [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/install-azurerm-ps)의 지침에 따라 최신 Azure PowerShell 모듈을 설치합니다.
 * **Azure SQL Database**. 데이터베이스를 **원본** 데이터 저장소로 사용합니다. 아직 없는 경우 Azure SQL Database를 만드는 단계는 [Azure SQL Database 만들기](../sql-database/sql-database-get-started-portal.md) 문서를 참조하세요.
 * **Azure Storage 계정**. Blob 저장소를 **싱크** 데이터 저장소로 사용합니다. 아직 없는 경우 Azure Storage 계정을 만드는 단계는 [저장소 계정 만들기](../storage/common/storage-create-storage-account.md#create-a-storage-account) 문서를 참조하세요. **adftutorial**이라는 컨테이너를 만듭니다. 
@@ -384,12 +384,12 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     DataFactoryName   : IncCopyChgTrackingDF
     Structure         :
     Properties        : Microsoft.Azure.Management.DataFactory.Models.AzureSqlTableDataset
-        ```
+    ```
 
-## Create a pipeline for the full copy
-In this step, you create a pipeline with a copy activity that copies the entire data from the source data store (Azure SQL Database) to the destination data store (Azure Blob Storage).
+## <a name="create-a-pipeline-for-the-full-copy"></a>전체 복사본에 대한 파이프라인 만들기
+이 단계에서는 원본 데이터 저장소(Azure SQL Database)에서 대상 데이터 저장소(Azure Blob Storage)로 전체 데이터를 복사하는 복사 작업이 있는 파이프라인을 만듭니다.
 
-1. Create a JSON file: FullCopyPipeline.json in same folder with the following content: 
+1. JSON 파일 만들기: 동일한 폴더에 다음 내용이 있는 FullCopyPipeline.json을 만듭니다. 
 
     ```json
     {

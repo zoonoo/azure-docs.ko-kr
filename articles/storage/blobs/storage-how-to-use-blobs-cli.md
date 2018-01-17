@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 06/15/2017
 ms.author: tamram
-ms.openlocfilehash: 0c3fc2d73a0caf0e0331cb9073bfcc0574240dac
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: bd96cf7eb1c0c7f51b110da848a8df7914ad85c7
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="perform-blob-storage-operations-with-azure-cli"></a>Azure CLI를 사용하여 Blob Storage 작업 수행
 
@@ -74,7 +74,7 @@ az storage container set-permission \
 
 ## <a name="upload-a-blob-to-a-container"></a>컨테이너에 Blob 업로드
 
-Blob Storage는 블록 Blob, 추가 Blob 및 페이지 Blob을 지원합니다. 블록 Blob은 Azure Storage에 저장된 가장 일반적인 유형의 Blob입니다. 추가 Blob은 로깅과 같이 기존 내용을 수정하지 않고 기존 Blob에 데이터를 추가해야 할 때 사용됩니다. 페이지 Blob은 IaaS 가상 컴퓨터의 VHD 파일을 백업합니다.
+Blob Storage는 블록 Blob, 추가 Blob 및 페이지 Blob을 지원합니다. 블록 Blob은 Azure Storage에 저장된 가장 일반적인 유형의 Blob입니다. 추가 Blob은 로깅과 같이 기존 내용을 수정하지 않고 기존 Blob에 데이터를 추가해야 할 때 사용됩니다. 페이지 Blob은 IaaS 가상 머신의 VHD 파일을 백업합니다.
 
 이 예에서는 [az storage blob upload](/cli/azure/storage/blob#upload) 명령으로, 마지막 단계에서 만든 컨테이너에 Blob을 업로드합니다.
 
@@ -165,7 +165,7 @@ az storage blob delete \
 
 ## <a name="set-the-content-type"></a>콘텐츠 형식 설정
 
-MIME 형식이라고도 알려진 콘텐츠 형식은 BLOB에서 데이터 형식을 식별합니다. 브라우저 및 기타 소프트웨어는 콘텐츠 형식을 사용하여 데이터를 처리할 방법을 결정합니다. 다음 예제는 콘텐츠 형식을 `image/png`로 설정합니다.
+콘텐츠 형식((MIME 형식이라고도 함))은 Blob의 데이터 형식을 식별합니다. 브라우저 및 기타 소프트웨어는 콘텐츠 형식을 사용하여 데이터를 처리할 방법을 결정합니다. 다음 예제는 콘텐츠 형식을 `image/png`로 설정합니다.
 
 ```azurecli-interactive
 # Set the content type

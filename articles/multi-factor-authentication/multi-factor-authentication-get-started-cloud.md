@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/24/2017
 ms.author: joflore
-ms.openlocfilehash: 9d78bfc8c7872e3a248ee2deb19fa1bc40b8ee5b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b7c82dc6f09b147651d999a831c657864fa59134
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="getting-started-with-azure-multi-factor-authentication-in-the-cloud"></a>클라우드에서 Azure Multi-Factor Authentication 시작
 이 문서에서는 클라우드에서 Azure Multi-Factor Authentication을 사용하기 시작하는 방법에 대해 설명합니다.
 
 > [!NOTE]
-> 다음 문서는 **Azure 클래식 포털**사용자에 대해 사용하도록 설정하는 방법에 대해 설명합니다. O365 사용자를 위해 Azure Multi-Factor Authentication을 설정하는 방법을 찾는 경우 [Office 365용 Multi-Factor Authentication 설정](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6?ui=en-US&rs=en-US&ad=US)을 참조하세요.
+> 다음 설명서에서는 **Azure Portal**을 통해 사용자를 사용하도록 설정하는 방법에 대해 설명합니다. O365 사용자를 위해 Azure Multi-Factor Authentication을 설정하는 방법을 찾는 경우 [Office 365용 Multi-Factor Authentication 설정](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6?ui=en-US&rs=en-US&ad=US)을 참조하세요.
 
 ![클라우드의 MFA](./media/multi-factor-authentication-get-started-cloud/mfa_in_cloud.png)
 

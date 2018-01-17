@@ -13,25 +13,23 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: be23d25fe9765025b86e86687fb38b2dab61269e
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 8d7f79db612ee02eaf585f9b45d888b3533a91b2
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="lesson-12-analyze-in-excel"></a>단원 12: Excel에서 분석
-
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+# <a name="analyze-in-excel"></a>Excel에서 분석
 
 이 단원에서는 Excel에서 분석 기능을 사용하여 Microsoft Excel을 열고 모델 작업 영역에 대한 연결을 자동으로 만들고 피벗 테이블을 워크시트에 자동으로 추가합니다. Excel에서 분석 기능은 모델을 배포하기 전에 모델 디자인의 효율성을 테스트하기 위한 쉽고 빠른 방법을 제공합니다. 이 단원에서는 어떠한 데이터 분석도 수행하지 않습니다. 이 단원의 목적은 모델 작성자인 사용자가 모델 디자인을 테스트하는 데 사용할 수 있는 도구를 습득하게 하는 것입니다.   
   
-이 단원을 완료하려면 SSDT와 같은 컴퓨터에 Excel이 설치되어 있어야 합니다.
+이 단원을 완료하려면 Excel이 Visual Studio와 동일한 컴퓨터에 설치되어 있어야 합니다.
   
 이 단원을 완료하기 위한 예상 시간: **5분**  
   
-## <a name="prerequisites"></a>필수 조건  
+## <a name="prerequisites"></a>필수 구성 요소  
 이 항목은 테이블 형식 모델링 자습서에 포함되며 순서대로 완료해야 합니다. 이 단원의 작업을 수행하기 전에 이전 단원인 [단원 11: 역할 만들기](../tutorials/aas-lesson-11-create-roles.md)를 완료해야 합니다.  
   
 ## <a name="browse-using-the-default-and-internet-sales-perspectives"></a>기본 및 인터넷 판매 큐브 뷰를 사용하여 찾아보기  

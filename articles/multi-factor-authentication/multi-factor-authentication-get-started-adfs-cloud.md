@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/29/2017
 ms.author: joflore
-ms.openlocfilehash: 99052718d268135e1b9c51d019513aa59afede84
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c94b20ec984c96cfb8e7339826ee933ea4194bfc
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Azure Multi-Factor Authentication 및 AD FS를 사용하여 클라우드 리소스 보안 유지
 조직이 Azure Active Directory와 페더레이션되어 있는 경우 Azure Multi-Factor Authentication 또는 AD FS(Active Directory Federation Services)를 사용하여 Azure AD에서 액세스하는 리소스를 보호합니다. Azure Multi-Factor Authentication 또는 Active Directory Federation Services를 사용하여 Azure Active Directory 리소스를 보호하려면 다음 절차를 따르세요.
@@ -66,7 +66,7 @@ ms.lasthandoff: 12/11/2017
 6. 클레임 규칙 이름 옆에 있는 상자에 규칙의 이름을 지정합니다. 예를 들어 InsideCorpNet입니다.
 7. 들어오는 클레임 형식 옆의 드롭다운 목록에서 **회사 네트워크 내부**를 선택합니다.
    ![클라우드](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip4.png)
-8. **마침**을 클릭합니다.
+8. **Finish**를 클릭합니다.
 9. 발급 변환 규칙에서 **규칙 추가**를 클릭합니다.
 10. 변환 클레임 규칙 추가 마법사의 드롭다운 목록에서 **사용자 지정 규칙을 사용하여 클레임 보내기**를 선택하고 **다음**을 클릭합니다.
 11. 클레임 규칙 이름 아래에 있는 상자에 *로그인한 사용자 유지*를 입력합니다.
@@ -83,16 +83,13 @@ ms.lasthandoff: 12/11/2017
 ### <a name="configure-azure-multi-factor-authentication-trusted-ips-with-federated-users"></a>페더레이션 사용자로 Azure Multi-Factor Authentication 신뢰할 수 있는 IP 구성
 이제 클레임이 적용되었으므로 신뢰할 수 있는 IP를 구성할 수 있습니다.
 
-1. [Azure 클래식 포털](https://manage.windowsazure.com)에 로그인합니다.
-2. 왼쪽에서 **Active Directory**를 클릭합니다.
-3. 디렉터리에서 신뢰할 수 있는 IP를 설정하려는 디렉터리를 선택합니다.
-4. 선택한 디렉터리에서 **구성**을 클릭합니다.
-5. Multi-Factor Authentication 섹션에서 **서비스 설정 관리**를 클릭합니다.
-6. 서비스 설정 페이지의 신뢰할 수 있는 IP에서 **내 인트라넷에서 페더레이션 사용자의 요청에 대한 Multi-Factor Authentication 건너뛰기**를 선택합니다.  
+1. [Azure Portal](https://portal.com)에 로그인합니다.
+2. **Azure Active Directory** > **조건부 액세스** > **명명된 위치**를 차례로 선택합니다.
+3. **조건부 액세스 - 명명된 위치** 블레이드에서 **MFA에서 신뢰할 수 있는 IP 구성**을 선택합니다.
 
-   ![클라우드](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip6.png)
-   
-7. **저장**을 클릭합니다.
-8. 업데이트를 적용하면 **닫기**를 클릭합니다.
+   ![Azure AD 조건부 - 액세스 명명된 위치 - MFA 신뢰할 수 있는 IP 구성](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip6.png)
+
+4. [서비스 설정] 페이지의 **신뢰할 수 있는 IP**에서 **인트라넷의 페더레이션 사용자로부터 발생한 요청인 경우 다단계 인증 건너뛰기**를 선택합니다.  
+5. **저장**을 클릭합니다.
 
 끝났습니다. 이제 회사 인트라넷 외부에서 클레임이 시작하는 경우 Office 365 페더레이션 사용자만 MFA를 사용해야 합니다.

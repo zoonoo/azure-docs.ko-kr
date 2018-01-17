@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/28/2017
+ms.date: 01/03/2018
 ms.author: yurid
-ms.openlocfilehash: a14528013b34b912f4f2e1bc07094c7b20a0f63c
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 04f2dd3dcaa44a243cb9620ab8192e15aae82a01
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="security-health-monitoring-in-azure-security-center"></a>Azure Security Center에서 보안 상태 모니터링
 이 문서는 Azure Security Center의 모니터링 기능을 사용하여 정책 준수를 모니터링하는 데 도움이 됩니다.
@@ -48,11 +48,11 @@ ms.lasthandoff: 01/02/2018
 각 탭에는 여러 섹션이 있으며, 각 섹션에서 개별 옵션을 선택하면 특정 문제를 해결하는 권장 단계에 관한 자세한 내용을 볼 수 있습니다.
 
 #### <a name="monitoring-recommendations"></a>권장 사항 모니터링
-이 섹션은 자동 프로비전을 위해 초기화된 가상 머신 및 컴퓨터의 총 수 및 해당 현재 상태를 보여줍니다. 이 항목을 클릭하면 **에이전트 상태 문제 모니터링**이 열립니다.
+이 섹션은 자동 프로비전을 위해 초기화된 가상 머신 및 컴퓨터의 총 수 및 해당 현재 상태를 보여줍니다. 이 예제에는 **에이전트 상태 문제 모니터링** 권장 사항이 있습니다.  이 권장 사항을 선택합니다.
 
 ![에이전트 상태 문제 모니터링](./media/security-center-monitoring/security-center-monitoring-fig1-new003-2017.png)
 
-Security Center에서 성공적으로 모니터링할 수 없는 VM 및 컴퓨터가 나열됩니다. 자세한 내용을 보려면 VM 또는 컴퓨터를 선택합니다. **모니터링 상태**는 문제를 정의합니다.
+**에이전트 상태 문제 모니터링**이 열립니다. Security Center에서 성공적으로 모니터링할 수 없는 VM 및 컴퓨터가 나열됩니다. 자세한 내용을 보려면 VM 또는 컴퓨터를 선택합니다. **모니터링 상태**는 Security Center에서 모니터링할 수 없는 이유를 제공합니다. **모니터링 상태** 값, 설명 및 해결 단계에 대한 목록은 [Security Center 문제 해결 가이드](security-center-troubleshooting-guide.md#monitoring-agent-health-issues)를 참조하세요.
 
 #### <a name="recommendations"></a>권장 사항
 이 섹션에는 Azure Security Center에서 모니터링하는 [각 가상 머신 및 컴퓨터에 대한 권장 사항](security-center-virtual-machine-recommendations.md)이 있습니다. 첫 번째 열에는 권장 사항이 나열되고, 두 번째 열에는 해당 권장 사항의 영향을 받은 가상 머신 및 컴퓨터의 총 수가 표시되며, 세 번째 열에는 아래와 같이 문제의 심각도가 표시됩니다.
