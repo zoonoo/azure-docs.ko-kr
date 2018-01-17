@@ -11,6 +11,10 @@
   items:
     - name: 데이터 팩터리 만들기
       items:
+        - name: 사용자 인터페이스(UI)
+          href: quickstart-create-data-factory-portal.md
+        - name: 데이터 복사 도구
+          href: quickstart-create-data-factory-copy-data-tool.md
         - name: PowerShell
           href: quickstart-create-data-factory-powershell.md
         - name: .NET
@@ -19,35 +23,75 @@
           href: quickstart-create-data-factory-python.md
         - name: REST (영문)
           href: quickstart-create-data-factory-rest-api.md
-        - name: 포털
-          href: quickstart-create-data-factory-portal.md
         - name: Resource Manager 템플릿
           href: quickstart-create-data-factory-resource-manager-template.md
 - name: 자습서
   items:
     - name: 1 - Azure에 SSIS 패키지 배포
-      href: tutorial-deploy-ssis-packages-azure.md
+      items:
+        - name: 사용자 인터페이스(UI)
+          href: tutorial-create-azure-ssis-runtime-portal.md
+        - name: PowerShell
+          href: tutorial-deploy-ssis-packages-azure.md
     - name: 2 - 클라우드에서 데이터 복사
-      href: tutorial-copy-data-dot-net.md
+      items:
+        - name: 데이터 복사 도구
+          href: tutorial-copy-data-tool.md
+        - name: 사용자 인터페이스(UI)
+          href: tutorial-copy-data-portal.md
+        - name: PowerShell
+          href: tutorial-copy-data-dot-net.md
     - name: 3 - 클라우드에 온-프레미스 데이터 복사
-      href: tutorial-hybrid-copy-powershell.md
+      items:
+        - name: 데이터 복사 도구
+          href: tutorial-hybrid-copy-data-tool.md
+        - name: 사용자 인터페이스(UI)
+          href: tutorial-hybrid-copy-portal.md
+        - name: PowerShell
+          href: tutorial-hybrid-copy-powershell.md
     - name: 4 - 대량 데이터 복사
-      href: tutorial-bulk-copy.md
+      items:
+        - name: 사용자 인터페이스(UI)
+          href: tutorial-bulk-copy-portal.md
+        - name: PowerShell
+          href: tutorial-bulk-copy.md
     - name: 5 - 증분 방식으로 데이터 복사
       href: tutorial-incremental-copy-overview.md
       items:
         - name: 5.1 - 한 테이블에서 복사
-          href: tutorial-incremental-copy-powershell.md
+          items:
+            - name: 사용자 인터페이스(UI)
+              href: tutorial-incremental-copy-portal.md
+            - name: PowerShell
+              href: tutorial-incremental-copy-powershell.md
         - name: 5.2 - 여러 테이블에서 복사
-          href: tutorial-incremental-copy-multiple-tables-powershell.md
+          items:
+            - name: PowerShell
+              href: tutorial-incremental-copy-multiple-tables-powershell.md
         - name: 5.3 - 변경 내용 추적 기능 사용
-          href: tutorial-incremental-copy-change-tracking-feature-powershell.md
+          items:
+            - name: 사용자 인터페이스(UI)
+              href: tutorial-incremental-copy-change-tracking-feature-portal.md
+            - name: PowerShell
+              href: tutorial-incremental-copy-change-tracking-feature-powershell.md
     - name: 6 - 클라우드에서 데이터 변환
-      href: tutorial-transform-data-spark-powershell.md
+      items:
+        - name: 사용자 인터페이스(UI)
+          href: tutorial-transform-data-spark-portal.md
+        - name: PowerShell
+          href: tutorial-transform-data-spark-powershell.md
     - name: 7 - 가상 네트워크에서 데이터 변환
-      href: tutorial-transform-data-hive-virtual-network.md
+      items:
+        - name: 사용자 인터페이스(UI)
+          href: tutorial-transform-data-hive-virtual-network-portal.md
+        - name: PowerShell
+          href: tutorial-transform-data-hive-virtual-network.md
     - name: 8 - 흐름 제어
-      href: tutorial-control-flow.md
+      items:
+        - name: 사용자 인터페이스(UI)
+          href: tutorial-control-flow-portal.md
+        - name: PowerShell
+          href: tutorial-control-flow.md
 - name: 샘플
   items:
     - name: 코드 샘플
@@ -66,10 +110,14 @@
       href: concepts-integration-runtime.md
 - name: 방법 가이드
   items:
+    - name: 데이터 팩터리 시각화
+      href: author-visually.md
     - name: 데이터 복사
       items:
-        - name: 대상에 지원되는 원본에서 데이터 복사
+        - name: 복사 작업을 사용하여 데이터 복사
           href: copy-activity-overview.md
+        - name: 데이터 복사 도구
+          href: copy-data-tool.md
         - name: 분할된 데이터 읽기 또는 쓰기
           href: how-to-read-write-partitioned-data.md
         - name: 커넥터
@@ -86,6 +134,9 @@
               href: connector-azure-cosmos-db.md
             - name: Azure Data Lake Store
               href: connector-azure-data-lake-store.md
+              items:
+                - name: Data Lake Store 로드
+                  href: load-azure-data-lake-store.md
             - name: Azure Database for MySQL
               href: connector-azure-database-for-mysql.md
             - name: Azure Database for PostgreSQL
@@ -98,6 +149,9 @@
               href: connector-azure-sql-database.md
             - name: Azure SQL Data Warehouse
               href: connector-azure-sql-data-warehouse.md
+              items:
+                - name: SQL Data Warehouse 로드
+                  href: load-azure-sql-data-warehouse.md
             - name: Azure Table Storage
               href: connector-azure-table-storage.md
             - name: Cassandra
@@ -289,8 +343,6 @@
           href: create-azure-ssis-integration-runtime.md
     - name: Azure에서 SSIS 패키지 실행
       items:
-        - name: Azure SSIS 통합 런타임 만들기
-          href: create-azure-ssis-integration-runtime.md
         - name: VNET에 Azure SSIS 통합 런타임 조인
           href: join-azure-ssis-integration-runtime-virtual-network.md
         - name: Azure SSIS 통합 런타임 관리

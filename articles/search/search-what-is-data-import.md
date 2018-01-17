@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 11/01/2017
+ms.date: 01/05/2018
 ms.author: ashmaka
-ms.openlocfilehash: ebf7319f0017b4adef25fe5840864e002c88fea7
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 8394475572502df9d57256dc5123fcdfa72765a6
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/13/2018
 ---
-# <a name="data-import-in-azure-search"></a>Azure Search에서 데이터 가져오기
+# <a name="indexing-in-azure-search"></a>Azure Search의 인덱싱
 > [!div class="op_single_selector"]
 > * [개요](search-what-is-data-import.md)
 > * [.NET](search-import-data-dotnet.md)
@@ -51,7 +51,7 @@ Azure Search에서는 [검색 인덱스](search-what-is-an-index.md)에 로드�
 ## <a name="pulling-data-into-an-index"></a>인덱스로 데이터 끌어오기
 끌어오기 모델은 지원되는 데이터 원본을 탐색하고 인덱스에 데이터를 자동으로 업로드합니다. Azure Search에서는 *인덱서*를 통해 이 기능이 구현되며 현재 다음 플랫폼에서 사용할 수 있습니다.
 
-+ [Blob 저장소](search-howto-indexing-azure-blob-storage.md)
++ [Blob storage](search-howto-indexing-azure-blob-storage.md)
 + [Table Storage](search-howto-indexing-azure-tables.md)
 + [Azure Cosmos DB](http://aka.ms/documentdb-search-indexer)
 + [Azure SQL 데이터베이스 및 Azure VM의 SQL Server](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
