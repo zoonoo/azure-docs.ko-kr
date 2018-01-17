@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 12/15/2017
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: fdbf9b1b77c2c64b3ebfcdbc5463916f317e4881
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: e823aeb4291b3e765b35181c24b41fa58c170cca
+ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Azure 스택 진단 도구
 
@@ -135,7 +135,7 @@ if($s)
    | 했습니다.                     | WASPUBLIC              | WDS                |
 
 
-### <a name="collect-logs-using-a-graphical-user-interface"></a>그래픽 사용자 인터페이스를 사용 하 여 로그를 수집 합니다.
+### <a name="bkmk_gui"></a>그래픽 사용자 인터페이스를 사용 하 여 로그를 수집 합니다.
 Azure 스택 로그를 검색할 Get AzureStackLog cmdlet에 대 한 필수 매개 변수를 제공 하는 대신 주 Azure 스택 도구 GitHub 도구에서 리포지토리 http://aka.ms/AzureStackTools에 사용할 수 있는 오픈 소스 Azure 스택 도구를 활용할 수 있습니다.
 
 **ERCS_AzureStackLogs.ps1** PowerShell 스크립트 GitHub 도구 저장소에 저장 되 고 정기적으로 업데이트 됩니다. 사용 가능한 최신 버전을 보장 하려면 http://aka.ms/ERCS에서 직접 다운로드 해야 합니다. 관리자 PowerShell 세션에서 시작 스크립트가 권한 있는 끝점에 연결 하 고 제공 된 매개 변수를 사용 하 여 Get AzureStackLog를 실행 합니다. 매개 변수를 제공 하는 스크립트 기본적으로 그래픽 사용자 인터페이스를 통해 매개 변수에 대 한 메시지를 표시 합니다.
@@ -159,3 +159,4 @@ ERCS_AzureStackLogs.ps1 PowerShell 스크립트에 대 한 자세한 내용은 �
 
 ## <a name="next-steps"></a>다음 단계
 [Microsoft Azure Stack 문제 해결](azure-stack-troubleshooting.md)
+

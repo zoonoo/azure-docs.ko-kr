@@ -5,14 +5,14 @@ services: azure-stack
 author: troettinger
 ms.service: azure-stack
 ms.topic: article
-ms.date: 10/18/2017
+ms.date: 01/16/2018
 ms.author: victorh
 keywords: 
-ms.openlocfilehash: 0d15252079b62f6a74a1279309fb9b1b3ed5711e
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 1cc74cb2214918d6bfd0c0827cf5d9832b84f317
+ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure 데이터 센터 통합 스택-끝점 게시
 
@@ -37,19 +37,19 @@ Azure 스택 게시에 필요 하지 않기 때문에 내부 인프라 Vip 나�
 
 |끝점 (VIP)|DNS 호스트 A 레코드|프로토콜|포트|
 |---------|---------|---------|---------|
-|AD FS|`Adfs.[Region].[External FQDN]`|HTTPS|443|
-|포털 (관리자)|`Adminportal.[Region].[External FQDN]`|HTTPS|443<br>12495<br>12499<br>12646<br>12647<br>12648<br>12649<br>12650<br>13001<br>13003<br>13010<br>13011<br>13020<br>13021<br>13026<br>30015|
-|Azure 리소스 관리자 (관리자)|`Adminmanagement.[Region].[External FQDN]`|HTTPS|443<br>30024|
-|포털 (사용자)|`Portal. [Region].[External FQDN]`|HTTPS|443<br>12495<br>12649<br>13001<br>13010<br>13011<br>13020<br>13021<br>30015<br>13003|
-|Azure 리소스 관리자 (사용자)|`Management.[Region].[External FQDN]`|HTTPS|443<br>30024|
-|그래프|`Graph.[Region].[External FQDN]`|HTTPS|443|
-|인증서 해지 목록|`Crl.[Region].[External FQDN]`|HTTP|80|
-|DNS|`*.[Region].[External FQDN]`|TCP 및 UDP|53|
-|주요 자격 증명 모음 (사용자)|`*.vault.[Region].[External FQDN]`|TCP|443|
-|주요 자격 증명 모음 (관리자)|`*.adminvault.[Region].[External FQDN]`|TCP|443|
-|저장소 큐|`*.queue.[Region].[External FQDN]`|HTTP<br>HTTPS|80<br>443|
-|저장소 테이블|`*.table.[Region].[External FQDN]`|HTTP<br>HTTPS|80<br>443|
-|저장소 Blob|`*.blob.[Region].[External FQDN]`|HTTP<br>HTTPS|80<br>443|
+|AD FS|Adfs.*&lt;region>.&lt;fqdn>*|HTTPS|443|
+|포털 (관리자)|Adminportal.*&lt;region>.&lt;fqdn>*|HTTPS|443<br>12495<br>12499<br>12646<br>12647<br>12648<br>12649<br>12650<br>13001<br>13003<br>13010<br>13011<br>13020<br>13021<br>13026<br>30015|
+|Azure 리소스 관리자 (관리자)|Adminmanagement.*&lt;region>.&lt;fqdn>*|HTTPS|443<br>30024|
+|포털 (사용자)|Portal.*&lt;region>.&lt;fqdn>*|HTTPS|443<br>12495<br>12649<br>13001<br>13010<br>13011<br>13020<br>13021<br>30015<br>13003|
+|Azure 리소스 관리자 (사용자)|Management.*&lt;region>.&lt;fqdn>*|HTTPS|443<br>30024|
+|그래프|Graph.*&lt;region>.&lt;fqdn>*|HTTPS|443|
+|인증서 해지 목록|Crl.*&lt;region>.&lt;fqdn>*|HTTP|80|
+|DNS|&#42;.*&lt;region>.&lt;fqdn>*|TCP 및 UDP|53|
+|주요 자격 증명 모음 (사용자)|*.vault.*&lt;region>.&lt;fqdn>*|TCP|443|
+|주요 자격 증명 모음 (관리자)|&#42;.adminvault.*&lt;region>.&lt;fqdn>*|TCP|443|
+|저장소 큐|&#42;.queue.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
+|저장소 테이블|&#42;.table.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
+|저장소 Blob|&#42;.blob.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
 
 ## <a name="ports-and-urls-outbound"></a>포트 및 Url (아웃 바운드)
 
@@ -58,11 +58,11 @@ Azure 스택 투명 프록시 서버만 지원합니다. 배포에서 여기서 
 
 |목적|URL|프로토콜|포트|
 |---------|---------|---------|---------|
-|ID|`login.windows.net`<br>`login.microsoftonline.com`<br>`graph.windows.net`|HTTP<br>HTTPS|80<br>443|
-|마켓플레이스에서 배포|`https://management.azure.com`<br>`https://*.blob.core.windows.net`<br>`https://*.azureedge.net`<br>`https://*.microsoftazurestack.com`|HTTPS|443|
-|패치 및 업데이트|`https://*.azureedge.net`|HTTPS|443|
-|등록|`https://management.azure.com`|HTTPS|443|
-|사용|`https://*.microsoftazurestack.com`<br>`https://*.trafficmanager.com`|HTTPS|443|
+|ID|login.windows.net<br>login.microsoftonline.com<br>graph.windows.net|HTTP<br>HTTPS|80<br>443|
+|마켓플레이스에서 배포|https://management.azure.com<br>https://&#42;.blob.core.windows.net<br>https://*.azureedge.net<br>https://&#42;.microsoftazurestack.com|HTTPS|443|
+|패치 및 업데이트|https://&#42;.azureedge.net|HTTPS|443|
+|등록|https://management.azure.com|HTTPS|443|
+|사용 현황|https://&#42;.microsoftazurestack.com<br>https://*.trafficmanager.com|HTTPS|443|
 
 ## <a name="firewall-publishing"></a>방화벽 게시
 
