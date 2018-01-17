@@ -1,6 +1,6 @@
 ---
 title: "Azure 빠른 시작 - Azure CLI에서 VM 백업 | Microsoft Docs"
-description: "Azure CLI를 사용하여 가상 컴퓨터를 백업하는 방법을 알아봅니다."
+description: "Azure CLI를 사용하여 가상 머신을 백업하는 방법을 알아봅니다."
 services: backup, virtual-machines-linux
 documentationcenter: virtual-machines
 author: markgalioto
@@ -13,17 +13,17 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: storage-backup-recovery
-ms.date: 10/02/2017
+ms.date: 1/12/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: e9e5c378ac304a7b594a3ed113bb3a5d5b643750
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 675ebb56496846c5d00ecb5af0e4a69c092b74c6
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/13/2018
 ---
-# <a name="back-up-a-virtual-machine-in-azure-with-the-cli"></a>CLI를 사용하여 Azure에서 가상 컴퓨터 백업
-명령줄 또는 스크립트에서 Azure 리소스를 만들고 관리하는 데 Azure CLI가 사용됩니다. 정기적으로 백업을 수행하여 데이터를 보호할 수 있습니다. Azure Backup은 지역 중복 복구 자격 증명 모음에 저장될 수 있는 복구 지점을 만듭니다. 이 문서에서는 Azure CLI를 사용하여 Azure에서 VM(가상 컴퓨터)을 백업하는 방법을 자세히 설명합니다. [Azure PowerShell](quick-backup-vm-powershell.md)을 사용하거나 [Azure Portal](quick-backup-vm-portal.md)에서 이 단계를 수행할 수도 있습니다.
+# <a name="back-up-a-virtual-machine-in-azure-with-the-cli"></a>CLI를 사용하여 Azure에서 가상 머신 백업
+명령줄 또는 스크립트에서 Azure 리소스를 만들고 관리하는 데 Azure CLI가 사용됩니다. 정기적으로 백업을 수행하여 데이터를 보호할 수 있습니다. Azure Backup은 지역 중복 복구 자격 증명 모음에 저장될 수 있는 복구 지점을 만듭니다. 이 문서에서는 Azure CLI를 사용하여 Azure에서 VM(가상 머신)을 백업하는 방법을 자세히 설명합니다. [Azure PowerShell](quick-backup-vm-powershell.md)을 사용하거나 [Azure Portal](quick-backup-vm-portal.md)에서 이 단계를 수행할 수도 있습니다.
 
 이 빠른 시작을 사용하면 기존 Azure VM에서 백업할 수 있습니다. VM을 생성해야 하는 경우 [Azure CLI를 사용하여 VM을 만들](../virtual-machines/linux/quick-create-cli.md) 수 있습니다.
 

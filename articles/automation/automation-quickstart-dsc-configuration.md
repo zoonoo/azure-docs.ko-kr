@@ -6,14 +6,14 @@ keywords: "DSC, 구성, 자동화"
 author: KrisBash
 ms.author: krbash
 ms.date: 12/17/2017
-ms.topic: hero-article
+ms.topic: quickstart
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: e9e75f1714217f452d55aba49929fec767df3353
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: 7f35acc0d8d553a3f5d1576ae18cbafd1dcbb225
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="configure-a-linux-virtual-machine-with-desired-state-configuration"></a>DSC를 사용하여 Linux 가상 머신 구성
 
@@ -31,7 +31,7 @@ DSC(Desired State Configuration)를 사용하면 Windows 및 Linux 서버의 구
 https://portal.azure.com에서 Azure에 로그인합니다.
 
 ## <a name="onboard-a-virtual-machine"></a>가상 머신 등록
-여러 가지 방법으로 컴퓨터를 등록하고 DSC를 사용하도록 설정할 수 있습니다. 이 빠른 시작에서는 Automation 계정을 통한 등록에 대해 설명합니다. [등록](https://docs.microsoft.com/en-us/azure/automation/automation-dsc-onboarding) 문서를 참조하여 컴퓨터를 DSC에 등록하는 방법에 대해 자세히 알아볼 수 있습니다.
+여러 가지 방법으로 컴퓨터를 등록하고 DSC를 사용하도록 설정할 수 있습니다. 이 빠른 시작에서는 Automation 계정을 통한 등록에 대해 설명합니다. [등록](https://docs.microsoft.com/azure/automation/automation-dsc-onboarding) 문서를 참조하여 컴퓨터를 DSC에 등록하는 방법에 대해 자세히 알아볼 수 있습니다.
 
 1. Azure Portal의 왼쪽 창에서 **Automation 계정**을 선택합니다. 왼쪽 창에 표시되지 않으면 **모든 서비스**를 클릭하고 결과 보기에서 검색합니다.
 1. 목록에서 Automation 계정을 선택합니다.
@@ -39,7 +39,7 @@ https://portal.azure.com에서 Azure에 로그인합니다.
 1. **Azure VM 추가** 메뉴 옵션을 클릭합니다.
 1. DSC를 사용하도록 설정하려는 가상 머신을 찾습니다. 검색 필드와 필터 옵션을 사용하여 특정 가상 머신을 찾을 수 있습니다.
 1. 가상 머신을 클릭한 다음 **연결**을 선택합니다.
-1. 가상 머신에 적합한 DSC 설정을 선택합니다. 이미 구성을 준비한 경우 해당 구성을 *노드 구성 이름*으로 지정할 수 있습니다. [구성 모드](https://docs.microsoft.com/en-us/powershell/dsc/metaconfig)를 설정하여 컴퓨터의 구성 동작을 제어할 수 있습니다.
+1. 가상 머신에 적합한 DSC 설정을 선택합니다. 이미 구성을 준비한 경우 해당 구성을 *노드 구성 이름*으로 지정할 수 있습니다. [구성 모드](https://docs.microsoft.com/powershell/dsc/metaconfig)를 설정하여 컴퓨터의 구성 동작을 제어할 수 있습니다.
 1. **확인**
 
 ![DSC에 Azure VM 등록](./media/automation-quickstart-dsc-configuration/dsc-onboard-azure-vm.png)
@@ -105,7 +105,7 @@ configuration LAMPServer {
 
 ## <a name="compile-a-configuration"></a>구성 컴파일
 
-DSC 구성은 노드에 할당하기 전에 먼저 노드 구성(MOF 문서)으로 컴파일해야 합니다. 컴파일은 구성에 대한 유효성을 검사하고 매개 변수 값의 입력을 허용합니다. 구성 컴파일에 대한 자세한 내용은 [Azure 자동화 DSC에서 구성 컴파일](https://docs.microsoft.com/en-us/azure/automation/automation-dsc-compile)을 참조하세요.
+DSC 구성은 노드에 할당하기 전에 먼저 노드 구성(MOF 문서)으로 컴파일해야 합니다. 컴파일은 구성에 대한 유효성을 검사하고 매개 변수 값의 입력을 허용합니다. 구성 컴파일에 대한 자세한 내용은 [Azure 자동화 DSC에서 구성 컴파일](https://docs.microsoft.com/azure/automation/automation-dsc-compile)을 참조하세요.
 
 구성을 컴파일하려면:
 
@@ -141,6 +141,6 @@ DSC 구성은 노드에 할당하기 전에 먼저 노드 구성(MOF 문서)으�
 > [!div class="nextstepaction"]
 > [DSC 및 Chocolatey를 사용하여 VM에 지속적으로 배포](./automation-dsc-cd-chocolatey.md)
 
-* PowerShell DSC에 대한 자세한 내용은 [PowerShell DSC(Desired State Configuration) 개요](https://docs.microsoft.com/en-us/powershell/dsc/overview)를 참조하세요.
-* PowerShell에서 자동화 DSC를 관리하는 방법에 대한 자세한 내용은 [Azure PowerShell](https://docs.microsoft.com/en-us/powershell/module/azurerm.automation/?view=azurermps-5.0.0)을 참조하세요.
-* 보고 및 경고를 위해 Log Analytics에 DSC 보고서를 전달하는 방법에 대한 자세한 내용은 [Log Analytics에 DSC 보고서 전달](https://docs.microsoft.com/en-us/azure/automation/automation-dsc-diagnostics)을 참조하세요. 
+* PowerShell DSC에 대한 자세한 내용은 [PowerShell DSC(Desired State Configuration) 개요](https://docs.microsoft.com/powershell/dsc/overview)를 참조하세요.
+* PowerShell에서 자동화 DSC를 관리하는 방법에 대한 자세한 내용은 [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.automation/?view=azurermps-5.0.0)을 참조하세요.
+* 보고 및 경고를 위해 Log Analytics에 DSC 보고서를 전달하는 방법에 대한 자세한 내용은 [Log Analytics에 DSC 보고서 전달](https://docs.microsoft.com/azure/automation/automation-dsc-diagnostics)을 참조하세요. 

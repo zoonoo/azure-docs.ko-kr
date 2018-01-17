@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 01/02/2018
+ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: 29153180da576f144a3f21718c3044b7b843eafb
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: c7fff37e1b59fd90952826a1410a8dd8c6931e77
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-cosmos-db-build-a-net-framework-or-core-application-using-the-graph-api"></a>Azure Cosmos DB: Graph API를 사용한 .NET Framework 또는 Core 응용 프로그램 빌드
 
@@ -65,7 +65,7 @@ Visual Studio 2017이 이미 설치되어 있는 경우 [Visual Studio 2017 업�
 
 앱에서 어떤 상황이 발생하고 있는지 빠르게 살펴보겠습니다. Program.cs 파일을 열어 보면 이러한 코드 줄에서 Azure Cosmos DB 리소스를 만드는 것을 알 수 있습니다. 
 
-* DocumentClient가 초기화됩니다. 미리 보기에서는 Azure Cosmos DB 클라이언트에 그래프 확장 API를 추가했습니다. Azure Cosmos DB 클라이언트 및 리소스에서 분리된 독립 실행형 그래프 클라이언트를 개발하고 있습니다.
+* DocumentClient가 초기화됩니다. 
 
     ```csharp
     using (DocumentClient client = new DocumentClient(
@@ -122,17 +122,11 @@ Visual Studio 2017이 이미 설치되어 있는 경우 [Visual Studio 2017 업�
 
     `"endpoint": "https://testgraphacct.documents.azure.com:443/",`
 
-3. 2017년 11월 27일 이전에 그래프 데이터베이스 계정을 만든 경우 `endpoint` 값에서 `documents`를 `graphs`로 변경합니다. 2017년 11월 27일 또는 그 이후에 그래프 데이터베이스 계정을 만든 경우 `endpoint` 값에서 `documents`를 `gremlin.cosmosdb`로 변경합니다.
-
-    엔드포인트 값은 이제 다음과 같이 표시됩니다.
-
-    `"endpoint": "https://testgraphacct.graphs.azure.com:443/",` 또는 `"endpoint": "https://testgraphacct.gremlin.cosmosdb.azure.com:443/",`
-
-4. 포털에서 **기본 키** 값을 복사하고 이 값을 web.config의 AuthKey 값으로 만든 후 변경 내용을 저장합니다. 
+3. 포털에서 **기본 키** 값을 복사하고 이 값을 web.config의 AuthKey 값으로 만든 후 변경 내용을 저장합니다. 
 
     `"authkey": "FILLME"`
 
-5. appsettings.json 파일을 저장합니다. 
+4. appsettings.json 파일을 저장합니다. 
 
 이제 Azure Cosmos DB와 통신하는 데 필요한 모든 정보로 앱이 업데이트되었습니다. 
 
