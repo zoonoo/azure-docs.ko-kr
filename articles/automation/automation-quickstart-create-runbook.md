@@ -7,11 +7,12 @@ ms.author: csand
 ms.date: 12/14/2017
 ms.topic: quickstart
 ms.service: automation
-ms.openlocfilehash: 55bed1bc4788799465e87e65b136ff9e51318fbd
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.custom: mvc
+ms.openlocfilehash: 34ae160c5e19e161f4412838e377a844c737728d
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="create-an-azure-automation-runbook"></a>Azure Automation Runbook 만들기
 
@@ -71,7 +72,7 @@ Runbook이 만들어지면 이 Runbook을 테스트하여 작동하는지 확인
 
 1. **PowerShell Runbook 편집** 페이지에서 **게시**를 클릭하여 이 Runbook을 계정의 공식적인 Runbook 버전으로 게시합니다.
 
-   ![Runbook 개요](./media/automation-quickstart-create-runbook/automation-hello-world-runbook-overview.png)
+   ![Runbook 테스트 작업](./media/automation-quickstart-create-runbook/automation-hello-world-runbook-job.png)
 
 ## <a name="run-the-runbook"></a>Runbook 실행
 
@@ -83,11 +84,11 @@ Runbook이 게시되면 개요 페이지가 표시됩니다.
 
 1. 기본값이 사용되도록 **이름**은 비워 두고, **확인**을 클릭합니다. Runbook 작업이 제출되고 작업 페이지가 표시됩니다.
 
-   ![Runbook 테스트 작업](./media/automation-quickstart-create-runbook/automation-hello-world-runbook-job.png)
+   ![Runbook 테스트 작업](./media/automation-quickstart-create-runbook/automation-job-page.png)
 
 1. **작업 상태**가 **실행 중** 또는 **완료됨**이면 **출력**을 클릭하여 **출력** 창을 열고 Runbook 출력을 봅니다.
 
-    ![Runbook 테스트 작업](./media/automation-quickstart-create-runbook/automation-hello-world-runbook-job-output.png)
+   ![Runbook 테스트 작업](./media/automation-quickstart-create-runbook/automation-hello-world-runbook-job-output.png)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
