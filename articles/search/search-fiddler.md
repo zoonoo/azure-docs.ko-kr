@@ -4,7 +4,7 @@ description: "Fiddler 또는 Postman을 사용하여 Azure Search에 HTTP 요청
 services: search
 documentationcenter: 
 author: HeidiSteen
-manager: jhubbard
+manager: cgronlun
 editor: 
 ms.assetid: 
 ms.service: search
@@ -12,17 +12,17 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 10/17/2017
+ms.date: 01/04/2018
 ms.author: heidist
-ms.openlocfilehash: d8da3f02fab90e0c690e320736409a4d113d634c
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: a9a6bc035ba9f02057e3086a9682b54282da19f3
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="explore-azure-search-rest-apis-using-fiddler-or-postman"></a>Fiddler 또는 Postman을 사용하여 Azure Search REST API 탐
 
-[Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice)를 탐색하는 가장 쉬운 방법 중 하나는 Fiddler 또는 Postman을 사용하여 HTTP 요청을 공식으로 만들고 응답을 검사하는 것입니다. 이 문서에서는 코드를 전혀 작성할 필요 없이 요청 및 응답 페이로드를 실험합니다.
+[Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice)를 탐색하는 가장 쉬운 방법 중 하나는 Fiddler 또는 Postman을 사용하여 HTTP 요청을 공식으로 만들고 응답을 검사하는 것입니다. 적절한 도구와 이러한 지침을 사용하면 코드를 작성하기 전에 요청을 전송하고 응답을 볼 수 있습니다.
 
 > [!div class="checklist"]
 > * 웹 API 테스트 도구 다운로드
@@ -244,7 +244,7 @@ Postman에서 요청은 다음과 유사하며 응답에는 문서 수와 사용
 
  ![Postman 시스템 쿼리][12]
 
-api-version 구문이 다른 점에 유의하세요. 이 요청의 경우 `?`를 사용하여 api-version을 추가합니다. ?는 쿼리 문자열에서 URL 경로를 구분하고 &는 쿼리 문자열에서 각 'name = value' 쌍을 구분합니다. separates the URL path from the query string, while &amp; separates each 'name=value' pair in the query string. 이 쿼리에서 api-version은 쿼리 문자열의 처음이자 유일한 항목입니다.
+api-version 구문이 다른 점에 유의하세요. 이 요청의 경우 `?`를 사용하여 api-version을 추가합니다. ?는 쿼리 문자열에서 URL 경로를 구분하고 &는 쿼리 문자열에서 각 ‘name=value’ 쌍을 구분합니다. 이 쿼리에서 api-version은 쿼리 문자열의 처음이자 유일한 항목입니다.
 
 이 API에 대한 자세한 내용은 [인덱스 통계 가져오기(REST)](https://docs.microsoft.com/rest/api/searchservice/get-index-statistics)를 참조하세요.
 

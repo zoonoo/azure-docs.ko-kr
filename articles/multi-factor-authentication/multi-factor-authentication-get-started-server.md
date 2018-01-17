@@ -16,11 +16,11 @@ ms.date: 10/02/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: 4a3e7bd851c2b7e082caeeb451c865eab4fe6635
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f0209142da5d94e0ed863a07c9ea694232421cfb
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication 서버로 시작하기
 
@@ -53,7 +53,7 @@ Azure Multi-Factor Authentication에 사용 중인 서버가 다음 요구 사�
 | Azure Multi-Factor Authentication 서버 요구 사항 | 설명 |
 |:--- |:--- |
 | 하드웨어 |<li>200MB의 하드 디스크 공간</li><li>x32 또는 x64 지원 프로세서</li><li>1GB 이상 RAM</li> |
-| 소프트웨어 |<li>Windows Server 2016</li><li>Windows Server 2012 R2</li><li>Windows Server 2012</li><li>Windows Server 2008 R2</li><li>Windows Server 2008, SP1, SP2</li><li>Windows Server 2003 R2</li><li>Windows Server 2003, SP1, SP2</li><li>Windows 10</li><li>Windows 8.1, 모든 버전</li><li>Windows 8, 모든 버전</li><li>Windows 7, 모든 버전</li><li>Windows Vista, 모든 버전, SP1, SP2</li><li>Microsoft .NET 4.0 Framework</li><li>사용자 포털 또는 웹 서비스 SDK를 설치하는 경우 IIS 7.0 이상</li> |
+| 소프트웨어 |<li>Windows Server 2016</li><li>Windows Server 2012 R2</li><li>Windows Server 2012</li><li>Windows Server 2008 R2</li><li>Windows Server 2008, SP1, SP2</li><li>Windows Server 2003 R2</li><li>Windows Server 2003, SP1, SP2</li><li>윈도우 10</li><li>Windows 8.1, 모든 버전</li><li>Windows 8, 모든 버전</li><li>Windows 7, 모든 버전</li><li>Windows Vista, 모든 버전, SP1, SP2</li><li>Microsoft .NET 4.0 Framework</li><li>사용자 포털 또는 웹 서비스 SDK를 설치하는 경우 IIS 7.0 이상</li> |
 
 ### <a name="azure-mfa-server-components"></a>Azure MFA 서버 구성 요소
 
@@ -94,7 +94,7 @@ Azure MFA 서버를 구성하는 세 가지 웹 구성 요소가 있습니다.
 다음 단계를 따라 Azure Portal에서 Azure Multi-Factor Authentication 서버를 다운로드합니다.
 
 1. 관리자로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. **Active Directory** > **Multi-Factor Authentication**을 선택합니다.
+2. **Azure Active Directory** > **MFA 서버**를 선택합니다.
 3. **서버 설정**을 선택합니다.
 4. **다운로드**를 선택하고 다운로드 페이지의 지침을 따라 설치 관리자를 저장합니다. 
 

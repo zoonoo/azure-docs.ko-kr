@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/03/2017
+ms.date: 1/09/2018
 ms.author: ryanwi
-ms.openlocfilehash: 23e8b1023aebd5381fc89535ce265883d6a8fceb
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: ca0817b37b6baaa4ef63dfb76790fb3b3735b55f
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Windows에서 첫 번째 Service Fabric 컨테이너 응용 프로그램 만들기
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.lasthandoff: 12/18/2017
 
 Service Fabric 클러스터의 Windows 컨테이너에서 기존 응용 프로그램을 실행하더라도 응용 프로그램을 변경할 필요가 없습니다. 이 문서에서는 Python [Flask](http://flask.pocoo.org/) 웹 응용 프로그램을 포함하는 Docker 이미지를 만들어 Service Fabric 클러스터에 배포하는 과정을 안내합니다.  또한 [Azure Container Registry](/azure/container-registry/)를 통해 컨테이너화된 응용 프로그램을 공유할 수도 있습니다.  이 문서에서는 Docker에 대한 기본적으로 이해하고 있다고 가정합니다. [Docker 개요](https://docs.docker.com/engine/understanding-docker/)를 참고하여 Docker에 대해 알아볼 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 다음을 실행하는 개발 컴퓨터
 * Visual Studio 2015 또는 Visual Studio 2017.
 * [Service Fabric SDK 및 도구](service-fabric-get-started.md)
@@ -36,6 +36,14 @@ Service Fabric 클러스터의 Windows 컨테이너에서 기존 응용 프로�
 컨테이너를 사용하여 Windows Server 2016에서 실행되는 3개 이상의 노드가 있는 Windows 클러스터 - [클러스터를 만들](service-fabric-cluster-creation-via-portal.md)거나 [체험판으로 Service Fabric을 사용](https://aka.ms/tryservicefabric)하세요.
 
 Azure Container Registry의 레지스트리 - Azure 구독 내에서 [컨테이너 레지스트리를 만듭니다](../container-registry/container-registry-get-started-portal.md).
+
+> [!NOTE]
+> Windows 10에서 또는 Docker CE를 사용한 클러스터에서 Service Fabric 클러스터에 대한 컨테이너 배포는 아직 지원되지 않습니다. 이 연습에서는 Windows 10에서 Docker 엔진을 사용하여 로컬로 테스트하고, 마지막으로 컨테이너 서비스를 Docker EE를 실행하는 Azure에서 Windows Server 클러스터로 배포합니다. 
+>   
+
+> [!NOTE]
+> Service Fabric 버전 6.1은 Windows Server 버전 1709에 대한 미리 보기 지원을 포함합니다. 오픈 네트워킹 및 Service Fabric DNS Service는 Windows Server 버전 1709와 작동하지 않습니다. 
+> 
 
 ## <a name="define-the-docker-container"></a>Docker 컨테이너 정의
 Docker 허브에 있는 [Python 이미지](https://hub.docker.com/_/python/)를 기반으로 하는 이미지를 빌드합니다.
@@ -294,7 +302,8 @@ Windows는 컨테이너, 즉 프로세스 및 Hyper-V에 대한 두 가지 격�
 <ContainerHostPolicies CodePackageRef="Code" Isolation="hyperv">
 ```
    > [!NOTE]
-   > hyperv 격리 모드는 중첩된 가상화 지원을 포함하는 Ev3 및 Dv3 Azure SKU에서 사용할 수 있습니다. 호스트에 hyperv 역할이 설치되어 있는지 확인합니다. 호스트에 연결하여 이를 확인합니다.
+   > hyperv 격리 모드는 중첩된 가상화 지원을 포함하는 Ev3 및 Dv3 Azure SKU에서 사용할 수 있습니다. 
+   >
    >
 
 ## <a name="configure-resource-governance"></a>리소스 관리 구성
@@ -309,6 +318,31 @@ Windows는 컨테이너, 즉 프로세스 및 Hyper-V에 대한 두 가지 격�
   </Policies>
 </ServiceManifestImport>
 ```
+## <a name="configure-docker-healthcheck"></a>Docker HEALTHCHECK 구성 
+
+v6.1을 시작하면 Service Fabric에서 자동으로 [Docker HEALTHCHECK](https://docs.docker.com/engine/reference/builder/#healthcheck) 이벤트를 시스템 상태 보고서에 통합합니다. 즉 컨테이너에 **HEALTHCHECK**를 사용하도록 설정된 경우, Docker에서 보고한 대로 컨테이너의 상태가 변경될 때마다 Service Fabric에서 상태를 보고합니다. *health_status*가 *healthy*이면 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)에서 **OK** 상태 보고서가 표시되고, *health_status*가 *unhealthy*이면 **경고**가 표시됩니다. 컨테이너 상태를 모니터링하기 위해 수행되는 실제 검사를 가리키는 **HEALTHCHECK** 명령은 컨테이너 이미지를 생성하는 동안 사용된 **dockerfile**에 있어야 합니다. 
+
+![HealthCheckHealthy][3]
+
+![HealthCheckUnealthyApp][4]
+
+![HealthCheckUnhealthyDsp][5]
+
+ApplicationManifest에서 **ContainerHostPolicies**의 일부로 **HealthConfig** 옵션을 지정하여 각 컨테이너에 대한 **HEALTHCHECK** 동작을 구성할 수 있습니다.
+
+```xml
+<ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="ContainerServicePkg" ServiceManifestVersion="2.0.0" />
+    <Policies>
+      <ContainerHostPolicies CodePackageRef="Code">
+        <HealthConfig IncludeDockerHealthStatusInSystemHealthReport="true" RestartContainerOnUnhealthyDockerHealthStatus="false" />
+      </ContainerHostPolicies>
+    </Policies>
+</ServiceManifestImport>
+```
+기본적으로 *IncludeDockerHealthStatusInSystemHealthReport*는 **true**로 설정되고, *RestartContainerOnUnhealthyDockerHealthStatus*는 **false**로 설정됩니다. *RestartContainerOnUnhealthyDockerHealthStatus*가 **true**로 설정된 경우, 반복적으로 비정상으로 보고하는 컨테이너가 다시 시작됩니다(다른 노드에서도 가능).
+
+전체 Service Fabric 클러스터에 대해 **HEALTHCHECK** 통합을 사용하지 않도록 설정하려면 [EnableDockerHealthCheckIntegration](service-fabric-cluster-fabric-settings.md)을 **false**로 설정해야 합니다.
 
 ## <a name="deploy-the-container-application"></a>컨테이너 응용 프로그램 배포
 모든 변경 내용을 저장하고 응용 프로그램을 빌드합니다. 응용 프로그램을 게시하려면 [솔루션 탐색기]에서 **MyFirstContainer**를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
@@ -324,7 +358,7 @@ Windows는 컨테이너, 즉 프로세스 및 Hyper-V에 대한 두 가지 격�
 브라우저를 열고 http://containercluster.westus2.cloudapp.azure.com:8081로 이동합니다. 제목인 "Hello World!"가 브라우저에 표시됩니다.
 
 ## <a name="clean-up"></a>정리
-클러스터가 실행되는 동안 요금이 계속 청구되므로 [클러스터를 삭제](service-fabric-tutorial-create-vnet-and-windows-cluster.md#clean-up-resources)하는 것이 좋습니다.  [파티 클러스터](https://try.servicefabric.azure.com/)는 몇 시간 후 자동으로 삭제됩니다.
+클러스터가 실행되는 동안 요금이 계속 청구되므로 [클러스터를 삭제](service-fabric-cluster-delete.md)하는 것이 좋습니다.  [파티 클러스터](https://try.servicefabric.azure.com/)는 몇 시간 후 자동으로 삭제됩니다.
 
 이미지를 컨테이너 레지스트리에 푸시한 후에 개발 컴퓨터에서 로컬 이미지를 삭제할 수 있습니다.
 
@@ -332,6 +366,34 @@ Windows는 컨테이너, 즉 프로세스 및 Hyper-V에 대한 두 가지 격�
 docker rmi helloworldapp
 docker rmi myregistry.azurecr.io/samples/helloworldapp
 ```
+
+## <a name="specify-os-build-version-specific-container-images"></a>OS 빌드 버전 관련 컨테이너 이미지 지정 
+
+Windows Server 컨테이너(프로세스 격리 모드)는 새로운 OS 버전과 호환되지 않을 수도 있습니다. 예를 들어 Windows Server 2016을 사용하여 빌드된 Windows Server 컨테이너는 Windows Server 버전 1709에서 작동하지 않습니다. 따라서 클러스터 노드가 최신 버전으로 업데이트되는 경우 OS의 이전 버전을 사용하여 빌드된 컨테이너 서비스는 실패할 수 있습니다. 런타임의 버전 6.1 및 새로운 버전으로 이 문제를 우회하기 위해 Service Fabric은 컨테이너당 여러 OS 이미지를 지정하고, OS의 빌드 버전으로 태그를 지정하는 것을 지원합니다(Windows 명령 프롬프트에서 `winver` 실행으로 가져옴).  노드에서 OS를 업데이트하기 전에 먼저 응용 프로그램 매니페스트를 업데이트하고 OS 버전별로 이미지 재정의를 지정하는 것이 좋습니다. 다음 코드 조각에서는 응용 프로그램 매니페스트 **ApplicationManifest.xml**에 여러 컨테이너 이미지를 지정하는 방법을 보여 줍니다.
+
+
+```xml
+<ContainerHostPolicies> 
+         <ImageOverrides> 
+               <Image Name="myregistry.azurecr.io/samples/helloworldapp1701" Os="14393" /> 
+               <Image Name="myregistry.azurecr.io/samples/helloworldapp1709" Os="16299" /> 
+         </ImageOverrides> 
+     </ContainerHostPolicies> 
+```
+WIndows Server 2016에 대한 빌드 버전은 14393이며 Windows Server 버전 1709의 빌드 버전은 16299입니다. 서비스 매니페스트는 다음과 같이 컨테이너 서비스당 하나의 이미지만 계속 지정합니다.
+
+```xml
+<ContainerHost>
+    <ImageName>myregistry.azurecr.io/samples/helloworldapp</ImageName> 
+</ContainerHost>
+```
+
+   > [!NOTE]
+   > OS 빌드 버전 태깅 기능은 Windows에서 Service Fabric에만 사용할 수 있습니다.
+   >
+
+VM에서 기본 OS가 16299(버전 1709)에 빌드되면 Service Fabric은 해당 Windows Server 버전에 해당하는 컨테이너 이미지를 선택합니다.  응용 프로그램 매니페스트에서 태그가 지정되지 않은 컨테이너 이미지가 태그가 지정된 컨테이너 이미지와 함께 제공되는 경우, Service Fabric은 태그가 지정되지 않은 이미지를 버전 간 작동하는 것으로 처리합니다. 컨테이너 이미지에 명시적으로 태그를 지정하는 것이 좋습니다.
+
 
 ## <a name="complete-example-service-fabric-application-and-service-manifests"></a>Service Fabric 응용 프로그램 및 서비스 매니페스트의 전체 예제
 이 문서에서 사용한 전체 서비스 및 응용 프로그램 매니페스트는 다음과 같습니다.
@@ -451,7 +513,7 @@ NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==
 노드에서 사용하지 않는 컨테이너 이미지를 제거하기 위해 Service Fabric 클러스터를 구성할 수 있습니다. 이 구성을 통해 노드에 너무 많은 컨테이너 이미지가 있는 경우 디스크 공간을 다시 캡처할 수 있습니다.  이 기능을 사용하려면 다음 코드 조각에 표시된 것처럼 클러스터 매니페스트에서 `Hosting` 섹션을 업데이트합니다. 
 
 
-```xml
+```json
 {
         "name": "Hosting",
         "parameters": [
@@ -467,6 +529,33 @@ NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==
 삭제하지 않아야 하는 이미지의 경우 `ContainerImagesToSkip` 매개 변수 아래에 지정할 수 있습니다. 
 
 
+## <a name="configure-container-image-download-time"></a>컨테이너 이미지 다운로드 시간 구성
+
+기본적으로 Service Fabric 런타임은 대부분의 컨테이너 이미지에 대해 작동하는 컨테이너 이미지를 다운로드하고 추출하는 데 20분의 시간을 할당합니다. 큰 이미지의 경우 또는 네트워크 연결이 느린 경우, 이미지 다운로드 및 추출을 중단하기 전에 기다리는 시간을 늘려야 할 수 있습니다. 이는 다음 코드 조각과 같이 클러스터 매니페스트의 **Hosting** 섹션에 있는 **ContainerImageDownloadTimeout** 특성을 사용하여 설정할 수 있습니다.
+
+```json
+{
+"name": "Hosting",
+        "parameters": [
+          {
+              "name": " ContainerImageDownloadTimeout ",
+              "value": "1200"
+          }
+]
+}
+```
+
+
+## <a name="set-container-retention-policy"></a>컨테이너 보존 정책 설정
+
+컨테이너 시작 오류 진단을 지원하기 위해 Service Fabric(버전 6.1 이상)은 종료되었거나 시작하지 못한 컨테이너를 보존하도록 지원합니다. 이 정책은 다음 코드 조각과 같이 **ApplicationManifest.xml** 파일에서 설정할 수 있습니다.
+
+```xml
+ <ContainerHostPolicies CodePackageRef="NodeService.Code" Isolation="process" ContainersRetentionCount="2"  RunInteractive="true"> 
+```
+
+**ContainersRetentionCount** 설정은 실패할 때 유지할 컨테이너의 수를 지정합니다. 음수 값을 지정하면 실패한 모든 컨테이너가 유지됩니다. **ContainersRetentionCount** 특성을 지정하지 않으면 컨테이너는 유지되지 않습니다. 또한 **ContainersRetentionCount** 특성은 응용 프로그램 매개 변수도 지원하므로 사용자는 테스트 및 프로덕션 클러스터에 대해 다른 값을 지정할 수 있습니다. 이 기능을 사용하여 컨테이너 서비스가 다른 노드로 이동하지 않도록 방지하려면 배치 제한 조건을 사용하여 컨테이너 서비스를 대상으로 특정 노드에 지정하는 것이 좋습니다. 이 기능을 사용하여 유지된 컨테이너는 수동으로 제거해야 합니다.
+
 
 ## <a name="next-steps"></a>다음 단계
 * [Service Fabric의 컨테이너](service-fabric-containers-overview.md)를 실행하는 방법에 대해 자세히 알아봅니다.
@@ -476,3 +565,6 @@ NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==
 
 [1]: ./media/service-fabric-get-started-containers/MyFirstContainerError.png
 [2]: ./media/service-fabric-get-started-containers/MyFirstContainerReady.png
+[3]: ./media/service-fabric-get-started-containers/HealthCheckHealthy.png
+[4]: ./media/service-fabric-get-started-containers/HealthCheckUnhealthy_App.png
+[5]: ./media/service-fabric-get-started-containers/HealthCheckUnhealthy_Dsp.png

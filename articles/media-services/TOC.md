@@ -135,8 +135,9 @@
 ### [AES-128 암호화](media-services-protect-with-aes128.md)
 ### [스트리밍에 대한 PlayReady/Widevine](media-services-protect-with-playready-widevine.md)
 ### [스트리밍에 대한 FairPlay](media-services-protect-hls-with-fairplay.md)
-### [오프라인 PlayReady](https://blogs.msdn.microsoft.com/playready4/2016/10/26/does-azure-media-services-support-offline-mode/)
-### [오프라인 FairPlay](media-services-protect-hls-with-offline-fairplay.md)
+### [Windows 10용 오프라인 PlayReady](https://blogs.msdn.microsoft.com/playready4/2016/10/26/does-azure-media-services-support-offline-mode/)
+### [iOS용 오프라인 Fairplay](media-services-protect-hls-with-offline-fairplay.md)
+### [Android용 오프라인 Widevine](offline-widevine-for-android.md)
 ### [Azure Portal에서 구성](media-services-portal-protect-content.md)
 ### [DRM 라이선스 제공](media-services-deliver-keys-and-licenses.md)
 ### Contentkey 만들기

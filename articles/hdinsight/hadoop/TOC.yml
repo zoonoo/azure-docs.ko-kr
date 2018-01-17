@@ -285,6 +285,9 @@
               href: apache-hadoop-use-sqoop-dotnet-sdk.md
             - name: Azure PowerShell을 사용하여 실행
               href: apache-hadoop-use-sqoop-powershell.md
+        - name: 데이터 분석 파이프라인 운영
+          href: ../hdinsight-operationalize-data-pipeline.md
+          maintainContext: true
         - name: 워크플로에 대해 Oozie 사용
           href: ../hdinsight-use-oozie-linux-mac.md
           maintainContext: true
@@ -397,7 +400,7 @@
           maintainContext: true
         - name: Hadoop 로그 분석
           href: apache-hadoop-debug-jobs.md
-- name: 참조
+- name: 참고 자료
   items:
     - name: 코드 샘플
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight'

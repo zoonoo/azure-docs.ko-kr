@@ -44,7 +44,7 @@
 ## [큰 그림](service-fabric-content-roadmap.md)
 ## [응용 프로그램 시나리오](service-fabric-application-scenarios.md)
 ## [패턴 및 시나리오](service-fabric-patterns-and-scenarios.md)
-## [아키텍처](service-fabric-architecture.md)
+## [Architecture](service-fabric-architecture.md)
 ## [용어](service-fabric-technical-overview.md)
 
 ## [지원되는 프로그래밍 모델](service-fabric-choose-framework.md)
@@ -64,7 +64,7 @@
 #### [고급 사용](service-fabric-reliable-services-advanced-usage.md)
 
 ### [Reliable Actors](service-fabric-reliable-actors-introduction.md)
-#### [아키텍처](service-fabric-reliable-actors-platform.md)
+#### [Architecture](service-fabric-reliable-actors-platform.md)
 #### [수명 주기 및 가비지 수집](service-fabric-reliable-actors-lifecycle.md)
 #### [상태 관리](service-fabric-reliable-actors-state-management.md)
 #### [다형성](service-fabric-reliable-actors-polymorphism.md)
@@ -96,6 +96,7 @@
 ##### [응용 프로그램 업그레이드 매개 변수](service-fabric-application-upgrade-parameters.md)
 ##### [응용 프로그램 업그레이드에서 데이터 직렬화](service-fabric-application-upgrade-data-serialization.md)
 ##### [응용 프로그램 업그레이드 고급 토픽](service-fabric-application-upgrade-advanced.md)
+#### [여러 환경에 대한 응용 프로그램 관리](service-fabric-manage-multiple-environment-app-configuration.md)
 #### [오류 분석을 사용하여 앱 테스트](service-fabric-testability-overview.md)
 #### [ImageStoreConnectionString 설정](service-fabric-image-store-connection-string.md)
 
@@ -108,7 +109,7 @@
 #### [노드 유형 및 VM Scale Sets](service-fabric-cluster-nodetypes.md)
 #### [클러스터 네트워킹 패턴](service-fabric-patterns-networking.md)
 ### [클러스터 리소스 관리자](service-fabric-cluster-resource-manager-introduction.md)
-#### [아키텍처](service-fabric-cluster-resource-manager-architecture.md)
+#### [Architecture](service-fabric-cluster-resource-manager-architecture.md)
 #### [클러스터 설명](service-fabric-cluster-resource-manager-cluster-description.md)
 #### [응용 프로그램 그룹 개요](service-fabric-cluster-resource-manager-application-groups.md)
 #### [클러스터 Resource Manager 설정 구성](service-fabric-cluster-resource-manager-configure-services.md)
@@ -226,7 +227,6 @@
 ## Windows/VS 개발 환경에서 작업
 ### [Visual Studio에서 응용 프로그램 관리](service-fabric-manage-application-in-visual-studio.md)
 ### [Visual Studio에서 보안 연결 구성](service-fabric-visualstudio-configure-secure-connections.md)
-### [여러 환경에 대한 응용 프로그램 구성](service-fabric-manage-multiple-environment-app-configuration.md)
 ### [VS에서 .NET 서비스 디버그](service-fabric-debugging-your-application.md)
 ### [일반적인 오류 및 예외](service-fabric-errors-and-exceptions.md)
 ### [로컬로 모니터링 및 진단](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
@@ -244,6 +244,9 @@
 
 ## 응용 프로그램 수명 주기 관리
 ### [응용 프로그램 패키지 작성](service-fabric-package-apps.md)
+### [구성 파일과 매개 변수 사용](service-fabric-how-to-parameterize-configuration-files.md)
+### [매개 변수를 사용하여 포트 번호 지정](service-fabric-how-to-specify-port-number-using-parameters.md)
+### [환경 변수 지정](service-fabric-how-to-specify-environment-variables.md)
 
 ### 응용 프로그램 배포 또는 제거
 #### [로컬 클러스터에 응용 프로그램 배포](service-fabric-get-started-with-a-local-cluster.md)
@@ -308,7 +311,7 @@
 ### 성능 모니터링
 #### [WAD를 사용하여 성능 모니터링](service-fabric-diagnostics-perf-wad.md)
 
-# 참조
+# 참고 자료
 ## [Azure PowerShell](/powershell/module/azurerm.servicefabric/)
 ## [PowerShell](/powershell/module/servicefabric/?view=azureservicefabricps)
 ## [Azure CLI(az sf)](/cli/azure/sf)
@@ -326,8 +329,9 @@
 ### [sfctl store](service-fabric-sfctl-store.md)
 ## [Java API](/java/api/overview/azure/servicefabric)
 ## [.NET](/dotnet/api/overview/azure/service-fabric?view=azure-dotnet)
-## [REST (영문)](/rest/api/servicefabric)
+## [REST](/rest/api/servicefabric)
 ## [서비스 모델 XML 스키마](service-fabric-service-model-schema.md)
+## [환경 변수](service-fabric-environment-variables-reference.md)
 
 # 리소스
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
