@@ -3,10 +3,9 @@ title: "Azure Active Directory와 응용 프로그램 통합"
 description: "Azure Active Directory(Azure AD)에서 응용 프로그램을 추가, 업데이트 또는 제거하는 방법"
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: PatAltimore
 manager: mtillman
 editor: mbaldwin
-ms.assetid: ae637be5-0b71-4b1e-b1fe-b83df3eb4845
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -16,11 +15,11 @@ ms.date: 10/04/2017
 ms.author: bryanla
 ms.custom: aaddev
 ms.reviewer: luleon
-ms.openlocfilehash: b4e2ff19cb14ac0abdea1d76ee965b542f6fa7ec
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e398536ff6f660c75e4e063040eab33a831d65c6
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="integrating-applications-with-azure-active-directory"></a>Azure Active Directory와 응용 프로그램 통합
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -35,7 +34,7 @@ ms.lasthandoff: 12/11/2017
 Azure AD의 기능을 사용하려는 모든 응용프로그램이 먼저 Azure AD 테넌트에 등록되어야 합니다. 이 등록 프로세스는 응용 프로그램이 위치한 URL, 사용자가 인증된 후 회신을 보낼 URL, 앱을 식별하는 URI 등과 같이 응용 프로그램에 대한 Azure AD 세부 정보의 제공이 포함됩니다.
 
 ### <a name="to-register-a-new-application-using-the-azure-portal"></a>Azure Portal을 사용하여 새 응용 프로그램을 등록하려면
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 계정이 하나 이상의 액세스를 제공하는 경우 오른쪽 위 모서리에 있는 계정을 클릭하여 원하는 Azure AD 테넌트로 포털 세션을 설정합니다.
 3. 왼쪽의 탐색 창에서 **Azure Active Directory** 서비스, **앱 등록** 및 **새 응용 프로그램 등록**을 차례로 클릭합니다.
 
@@ -111,10 +110,10 @@ Oauth 2.0 권한 부여에서 동의 프레임워크를 사용하는 방법에 �
 - 위임된 권한: 클라이언트 응용 프로그램이 로그인된 사용자로 웹 API에 액세스해야 하지만 이 액세스는 선택한 권한에 따라 제한됩니다. 이 형식의 사용 권한은 관리자의 동의를 필요로 하지 않는 한 사용자가 부여할 수 있습니다. 
 
   > [!NOTE]
-  > 위임된 권한을 응용 프로그램에 추가할 경우 Azure 클래식 포털에서 수행한 것처럼 테넌트 내의 사용자에게 자동으로 동의를 부여하지 않습니다. 관리자가 Azure Portal의 응용 프로그램 페이지에 있는 **필수 사용 권한** 섹션에서 **권한 부여** 단추를 클릭하지 않는다면, 사용자는 런타임에 추가된 위임 권한에 직접 동의해야 합니다. 
+  > 위임된 권한을 응용 프로그램에 추가할 경우 테넌트 내의 사용자에게 자동으로 동의를 부여하지 않습니다. 관리자가 Azure Portal의 응용 프로그램 페이지에 있는 **필수 사용 권한** 섹션에서 **권한 부여** 단추를 클릭하지 않는다면, 사용자는 런타임에 추가된 위임 권한에 직접 동의해야 합니다. 
 
 #### <a name="to-add-application-credentials-or-permissions-to-access-web-apis"></a>웹 API에 액세스할 수 있는 응용 프로그램 자격 증명 또는 권한을 추가하려면
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 계정이 하나 이상의 액세스를 제공하는 경우 오른쪽 위 모서리에 있는 계정을 클릭하여 원하는 Azure AD 테넌트로 포털 세션을 설정합니다.
 3. 왼쪽의 탐색 창에서 **Azure Active Directory** 서비스, **앱 등록**을 차례로 클릭하고 구성하려는 새 응용 프로그램을 찾아 클릭합니다.
 
@@ -124,7 +123,7 @@ Oauth 2.0 권한 부여에서 동의 프레임워크를 사용하는 방법에 �
   - **설정** 페이지에서 **키** 섹션을 클릭합니다.  
   - 키에 대한 설명을 추가합니다.
   - 1년 또는 2년 중에 선택합니다.
-  - **Save**를 클릭합니다. 구성 변경 사항을 저장하면 맨 오른쪽 열에 키 값이 포함됩니다. 이 페이지를 벗어나면 액세스할 수 없으므로 클라이언트 응용 프로그램 코드에서 사용할 **키를 복사해야 합니다**.
+  - **저장**을 클릭합니다. 구성 변경 사항을 저장하면 맨 오른쪽 열에 키 값이 포함됩니다. 이 페이지를 벗어나면 액세스할 수 없으므로 클라이언트 응용 프로그램 코드에서 사용할 **키를 복사해야 합니다**.
 
   ![응용 프로그램의 등록 업데이트 - 키](./media/active-directory-integrating-applications/update-app-registration-settings-keys.png)
 
@@ -154,7 +153,7 @@ Oauth 2.0 권한 부여에서 동의 프레임워크를 사용하는 방법에 �
 
 #### <a name="adding-access-scopes-to-your-resource-application"></a>리소스 응용 프로그램에 액세스 범위 추가
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 계정이 하나 이상의 액세스를 제공하는 경우 오른쪽 위 모서리에 있는 계정을 클릭하여 원하는 Azure AD 테넌트로 포털 세션을 설정합니다.
 
 3. 왼쪽의 탐색 창에서 **Azure Active Directory** 서비스, **앱 등록**을 차례로 클릭하고 구성하려는 새 응용 프로그램을 찾아 클릭합니다.
@@ -239,7 +238,7 @@ Azure AD에서 응용 프로그램을 등록하는 경우 조직 내의 사용�
 
 응용 프로그램에 액세스하는 기능을 외부 사용자에게 부여하려면: 
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 계정이 하나 이상의 액세스를 제공하는 경우 오른쪽 위 모서리에 있는 계정을 클릭하여 원하는 Azure AD 테넌트로 포털 세션을 설정합니다.
 3. 왼쪽의 탐색 창에서 **Azure Active Directory** 서비스, **앱 등록**을 차례로 클릭하고 구성하려는 새 응용 프로그램을 찾아 클릭합니다. 응용 프로그램의 기본 등록 페이지로 이동하면 응용 프로그램의 **설정** 페이지를 엽니다.
 4. **설정** 페이지에서 **속성**을 클릭하고 **다중 테넌트** 스위치를 **예**로 변경합니다.
@@ -276,7 +275,7 @@ SPA(단일 페이지 응용 프로그램)는 일반적으로 브라우저에서 
 > 응용 프로그램 매니페스트를 편집하는 방법에 대한 세부 정보는 먼저 이전 섹션인 [웹 API를 노출하도록 리소스 응용 프로그램 구성](#configuring-a-resource-application-to-expose-web-apis)을 검토해야 합니다.
 >
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 계정이 하나 이상의 액세스를 제공하는 경우 오른쪽 위 모서리에 있는 계정을 클릭하여 원하는 Azure AD 테넌트로 포털 세션을 설정합니다.
 3. 왼쪽의 탐색 창에서 **Azure Active Directory** 서비스, **앱 등록**을 차례로 클릭하고 구성하려는 새 응용 프로그램을 찾아 클릭합니다. 응용 프로그램의 기본 등록 페이지로 이동하면 응용 프로그램의 **설정** 페이지를 엽니다.
 4. 응용 프로그램의 등록 페이지에서 **매니페스트**를 클릭하여 **매니페스트 편집** 페이지로 전환합니다. 웹 기반 매니페스트 편집기가 열리면 포털 내에서 매니페스트를 **편집**할 수 있습니다. "oauth2AllowImplicitFlow" 값을 찾아 "true"로 설정합니다. 기본적으로 "false"로 설정됩니다.
@@ -293,14 +292,14 @@ SPA(단일 페이지 응용 프로그램)는 일반적으로 브라우저에서 
 조직에서 등록한 응용 프로그램은 테넌트의 기본 "앱 등록" 페이지에 있는 "내 앱" 필터 아래에 표시됩니다. 이러한 응용 프로그램은 Azure Portal을 통해 수동으로 또는 PowerShell 또는 Graph API를 통해 프로그래밍 방식으로 등록한 응용 프로그램입니다. 구체적으로 말하면, 테넌트의 응용프로그램 및 서비스 주체 개체 모두에 의해 제공됩니다. 자세한 내용은 [응용 프로그램 개체 및 서비스 사용자 개체](active-directory-application-objects.md)를 참조하세요.
 
 #### <a name="to-remove-a-single-tenant-application-from-your-directory"></a>디렉터리에서 단일 테넌트 응용 프로그램을 제거하려면
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 계정이 하나 이상의 액세스를 제공하는 경우 오른쪽 위 모서리에 있는 계정을 클릭하여 원하는 Azure AD 테넌트로 포털 세션을 설정합니다.
 3. 왼쪽의 탐색 창에서 **Azure Active Directory** 서비스, **앱 등록**을 차례로 클릭하고 구성하려는 새 응용 프로그램을 찾아 클릭합니다. 응용 프로그램의 기본 등록 페이지로 이동하면 응용 프로그램의 **설정** 페이지를 엽니다.
 4. 응용 프로그램의 기본 등록 페이지에서 **삭제**를 클릭합니다.
 5. 확인 메시지에서 **예** 를 클릭합니다.
 
 #### <a name="to-remove-a-multi-tenant-application-from-its-home-directory"></a>홈 디렉터리에서 다중 테넌트 응용 프로그램을 제거하려면
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 계정이 하나 이상의 액세스를 제공하는 경우 오른쪽 위 모서리에 있는 계정을 클릭하여 원하는 Azure AD 테넌트로 포털 세션을 설정합니다.
 3. 왼쪽의 탐색 창에서 **Azure Active Directory** 서비스, **앱 등록**을 차례로 클릭하고 구성하려는 새 응용 프로그램을 찾아 클릭합니다. 응용 프로그램의 기본 등록 페이지로 이동하면 응용 프로그램의 **설정** 페이지를 엽니다.
 4. **설정** 페이지에서 **속성**을 선택하고 **다중 테넌트** 스위치를 **아니요**로 변경하여 먼저 응용 프로그램을 단일 테넌트로 변경한 다음 **저장**을 클릭합니다. 응용 프로그램의 서비스 주체 개체는 이미 동의한 모든 조직의 테넌트에 남아 있습니다.

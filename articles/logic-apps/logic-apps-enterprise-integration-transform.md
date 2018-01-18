@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: f09819a1bfd380cd826a478471e673b6d5ff9ee7
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: f4ca7004432d28233888483424164456b008e992
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="enterprise-integration-with-xml-transforms"></a>XML 변환과 엔터프라이즈 통합
 ## <a name="overview"></a>개요
@@ -35,7 +35,7 @@ Visual Studio [엔터프라이즈 통합 SDK](https://aka.ms/vsmapsandschemas)�
 
 **변환을 사용하는 단계는 다음과 같습니다**.
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>필수 구성 요소
 
 * 통합 계정을 만든 후 맵 추가  
 
@@ -72,6 +72,28 @@ Visual Studio [엔터프라이즈 통합 SDK](https://aka.ms/vsmapsandschemas)�
 * 맵 테스트 기능을 사용하여 샘플 XML 메시지를 추가합니다. 한 번만 클릭하면 만든 맵을 테스트하고 생성된 출력을 확인할 수 있습니다.  
 * 기존 데이터 업로드  
 * XML 형식 지원을 포함합니다.
+
+## <a name="adanced-features"></a>고급 기능
+다음과 같은 기능은 코드 보기에서만 액세스할 수 있습니다.
+
+### <a name="byte-order-mark"></a>바이트 순서 표시
+기본적으로 변환의 응답은 BOM(바이트 순서 표시)으로 시작됩니다. 이 기능을 사용하지 않도록 설정하려면 `transformOptions` 속성에 대해 `disableByteOrderMark`를 지정합니다.
+
+````json
+"Transform_XML": {
+    "inputs": {
+        "content": "@{triggerBody()}",
+        "integrationAccount": {
+            "map": {
+                "name": "TestMap"
+            }
+        },
+        "transformOptions": "disableByteOrderMark"
+    },
+    "runAfter": {},
+    "type": "Xslt"
+}
+````
 
 ## <a name="learn-more"></a>자세한 정보
 * [엔터프라이즈 통합 팩에 대해 자세히 알아보기](../logic-apps/logic-apps-enterprise-integration-overview.md "엔터프라이즈 통합 팩에 대해 알아보기")  

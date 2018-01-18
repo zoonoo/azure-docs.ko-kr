@@ -1,6 +1,6 @@
 ---
 title: "Runbook 설정 | Microsoft Docs"
-description: "Azure Automation의 Runbook에 대한 구성 설정 및 Azure 관리 포털과 Windows PowerShell을 사용하여 이를 변경하는 방법에 대해 설명합니다."
+description: "Azure Automation의 Runbook에 대한 구성 설정 및 Azure Portal과 Windows PowerShell을 사용하여 이를 변경하는 방법에 대해 설명합니다."
 services: automation
 documentationcenter: 
 author: georgewallace
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/11/2016
 ms.author: bwren
-ms.openlocfilehash: 8d626465bcfdb4efa9cf85c41a2ee679e30eadaf
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 527c40c4a0c5c9a0eb4745f542a8afcc63281416
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="runbook-settings"></a>Runbook 설정
 Azure Automation의 각 Runbook에는 해당 로깅 동작을 쉽게 식별하고 변경하는 데 유용한 여러 설정이 있습니다. 이러한 각 설정은 아래에서 해당 설정을 수정하는 방법에 대한 절차 다음에 설명되어 있습니다.
@@ -27,7 +27,7 @@ Azure Automation의 각 Runbook에는 해당 로깅 동작을 쉽게 식별하�
 ### <a name="name-and-description"></a>이름 및 설명
 Runbook을 만든 후에는 이름을 변경할 수 없습니다. 이 설명은 선택 사항이며, 최대 512자일 수 있습니다.
 
-### <a name="tags"></a>태그
+### <a name="tags"></a>태그들
 태그를 사용하면 Runbook을 쉽게 식별할 수 있는 고유한 단어 및 구를 할당할 수 있습니다. 예를 들어 [PowerShell 갤러리](https://www.powershellgallery.com/)에 Runbook을 제출할 때 Runbook이 나열되어야 하는 범주를 식별하는 특정 태그를 지정합니다. 쉼표로 구분하여 Runbook에 대한 여러 태그를 지정할 수 있습니다.
 
 ### <a name="logging"></a>로깅

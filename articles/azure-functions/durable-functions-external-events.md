@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 23c99031ae3146a83867d10bd97d4eee8878188a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1f581be0abaff542285abc0d4c2f4bffe7281d20
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="handling-external-events-in-durable-functions-azure-functions"></a>지속성 함수의 외부 이벤트 처리(Azure Functions)
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="wait-for-events"></a>이벤트 대기
 
-[WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_) 메서드를 사용하면 오케스트레이터 함수에서 비동기적으로 대기하고 외부 이벤트를 수신 대기할 수 있습니다. 호출자는 이벤트의 *이름*과 수신할 것으로 예상되는 *데이터의 셰이프*를 선언합니다.
+[WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_) 메서드를 사용하면 오케스트레이터 함수에서 비동기적으로 대기하고 외부 이벤트를 수신 대기할 수 있습니다. 수신 오케스트레이터는 이벤트의 *이름*과 수신할 것으로 예상되는 *데이터의 셰이프*를 선언합니다.
 
 ```csharp
 [FunctionName("BudgetApproval")]
@@ -45,7 +45,7 @@ public static async Task Run(
 }
 ```
 
-앞의 예제에서는 단일 이벤트를 수신 대기하고, 이 이벤트가 수신되면 작업을 수행합니다.
+앞의 예제에서는 특정 단일 이벤트를 수신 대기하고, 이 이벤트가 수신되면 작업을 수행합니다.
 
 수신 가능한 세 가지 이벤트 알림 중 하나를 기다리는 다음 예제와 같이 여러 이벤트를 동시에 수신 대기할 수 있습니다.
 
@@ -97,7 +97,7 @@ public static async Task Run(
 [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_)는 일부 입력을 무기한으로 기다립니다.  함수 앱은 기다리는 동안 안전하게 언로드될 수 있습니다. 이 오케스트레이션 인스턴스에 이벤트가 도착하면 인스턴스가 자동으로 활성화하고 해당 이벤트를 즉시 처리합니다.
 
 > [!NOTE]
-> 지연 시간에 관계 없이 오케스트레이터 함수에서 `WaitForExternalEvent`의 작업을 기다리는 동안에 대한 요금은 청구되지 않습니다.
+> 함수 앱이 소비 계획을 사용하는 경우 지연 시간에 관계 없이 오케스트레이터 함수에서 `WaitForExternalEvent`의 작업을 기다리는 동안에 대한 요금은 청구되지 않습니다.
 
 이벤트 페이로드를 필요한 `T` 형식으로 변환할 수 없으면 예외가 throw됩니다.
 

@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc
 ms.topic: article
-ms.date: 11/03/2017
-ms.openlocfilehash: dbb88e033d5be73b7b069d69c095d8df2c1faf1b
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.date: 12/04/2017
+ms.openlocfilehash: 6dbed1a834d74047178a9f996683d65520047e66
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>PostgreSQL용 Azure 데이터베이스의 제한 사항
 PostgreSQL용 Azure 데이터베이스 서비스는 공개 미리 보기 상태입니다. 다음 섹션에서는 데이터베이스 서비스의 용량 및 기능 제한에 대해 설명합니다.
@@ -27,12 +27,12 @@ PostgreSQL용 Azure 데이터베이스에는 서버를 만들 때 선택할 수 
 | | |
 | :------------------------- | :---------------- |
 | **최대 연결**        |                   |
-| 기본 50 Compute 단위     | 50개 연결    |
-| 기본 100 Compute 단위    | 100개 연결   |
-| 표준 100 Compute 단위 | 200개 연결   |
-| 표준 200 Compute 단위 | 300개 연결   |
-| 표준 400 Compute 단위 | 400개 연결   |
-| 표준 800 Compute 단위 | 500개 연결   |
+| 기본 50 Compute 단위     | 55개의 연결    |
+| 기본 100 Compute 단위    | 105개의 연결   |
+| 표준 100 Compute 단위 | 150개의 연결   |
+| 표준 200 Compute 단위 | 250개의 연결   |
+| 표준 400 Compute 단위 | 480개의 연결   |
+| 표준 800 Compute 단위 | 950개의 연결   |
 | **최대 Compute 단위**      |                   |
 | 기본 서비스 계층         | 100 Compute 단위 |
 | 표준 서비스 계층      | 800 Compute 단위 |
@@ -40,8 +40,9 @@ PostgreSQL용 Azure 데이터베이스에는 서버를 만들 때 선택할 수 
 | 기본 서비스 계층         | 1TB              |
 | 표준 서비스 계층      | 1TB              |
 
-너무 많은 연결에 도달하면 다음 오류가 나타날 수 있습니다.
+Azure 시스템에는 Azure Database for PostgreSQL 서버를 모니터링하기 위해 5개의 연결이 필요합니다. 너무 많은 연결에 도달하면 다음 오류가 나타날 수 있습니다.
 > 오류: 너무 많은 클라이언트가 이미 연결되어 있습니다.
+
 
 ## <a name="preview-functional-limitations"></a>미리 보기 기능 제한 사항
 ### <a name="scale-operations"></a>크기 조정 작업

@@ -1,5 +1,5 @@
 ---
-title: "Log Analytics를 사용하여 Azure 활동 로그 보기 | Microsoft Docs"
+title: "Log Analytics에서 Azure 활동 로그 수집 및 분석 | Microsoft Docs"
 description: "Azure 활동 로그 솔루션을 사용하여 모든 Azure 구독에서 Azure 활동 로그를 분석하고 검색할 수 있습니다."
 services: log-analytics
 documentationcenter: 
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: banders
-ms.openlocfilehash: fa8f51d621bc262ec72ef03929689c4af3c339a6
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: e4f112a221221c7f68cc31c80fb43417bb617632
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="view-azure-activity-logs"></a>Azure 활동 로그 보기
+# <a name="collect-and-analyze-azure-activity-logs-in-log-analytics"></a>Log Analytics에서 Azure 활동 로그 수집 및 분석
 
 ![Azure 활동 로그 기호](./media/log-analytics-activity/activity-log-analytics.png)
 
@@ -57,7 +57,7 @@ Log Analytics는 무료로 활동 로그를 수집하고 90일 동안 무료로 
 | [SCOM 관리 그룹](log-analytics-om-agents.md) | 아니요 | 솔루션이 연결된 SCOM 관리 그룹의 에이전트에서 정보를 수집하지 않습니다. |
 | [Azure 저장소 계정](log-analytics-azure-storage.md) | 아니요 | 솔루션이 Azure 저장소에서 정보를 수집하지 않습니다. |
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 활동 로그 정보에 액세스하려면 Azure 구독이 있어야 합니다.
 

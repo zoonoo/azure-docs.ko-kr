@@ -9,11 +9,11 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 05/09/2017
 ms.author: jasonzio
-ms.openlocfilehash: 7d5252cab8c6238126c802b8c6a5293bb448e65e
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 1eae6d302827c977b9258174dec68fd8f3009a11
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Linux 진단 확장을 사용하여 메트릭 및 로그 모니터링
 
@@ -50,7 +50,7 @@ Azure Portal은 LAD 3.0을 사용하도록 설정하거나 구성하는 데 사�
 
 다운로드 가능한 구성은 예로 든 것일 뿐입니다. 사용자 요구 사항에 맞게 수정합니다.
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>필수 구성 요소
 
 * **Azure Linux 에이전트 버전 2.2.0 이상**. 대부분의 Azure VM Linux 갤러리 이미지에는 2.2.7 이후 버전이 포함되어 있습니다. VM에 설치된 버전을 확인하려면 `/usr/sbin/waagent -version`을 실행합니다. VM이 게스트 에이전트의 이전 버전을 실행 중인 경우 [이 지침](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent)에 따라 업데이트합니다.
 * **Azure CLI**. 컴퓨터에 [Azure CLI 2.0 환경을 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)합니다.
@@ -135,6 +135,10 @@ storageAccountSasToken | Blob service 및 Table service(`ss='bt'`)용으로, 컨
 mdsdHttpProxy | (선택 사항) 지정된 저장소 계정 및 끝점에 연결할 확장을 사용하도록 설정하는 데 필요한 HTTP 프록시 정보입니다.
 sinksConfig | (선택 사항) 메트릭 및 이벤트를 전달할 수 있는 대체 대상의 세부 정보입니다. 확장에서 지원되는 각 데이터 싱크의 특정 세부 정보는 다음에 나오는 섹션에 설명되어 있습니다.
 
+
+> [!NOTE]
+> Azure 배포 템플릿을 사용하여 확장을 배포할 때는 저장소 계정 및 SAS 토큰을 미리 만든 후 템플릿에 전달해야 합니다. 단일 템플릿에서 VM, 저장소 계정 배포와 확장 구성을 함께 수행할 수 없습니다. 템플릿 내에서 SAS 토큰을 만드는 방식은 현재 지원되지 않습니다.
+
 Azure Portal을 통해 필요한 SAS 토큰을 쉽게 생성할 수 있습니다.
 
 1. 확장에서 쓰게 할 범용 저장소 계정을 선택합니다.
@@ -165,8 +169,8 @@ Azure Portal을 통해 필요한 SAS 토큰을 쉽게 생성할 수 있습니다
 
 요소 | 값
 ------- | -----
-name | 확장 구성의 다른 위치에서 이 싱크를 참조하는 데 사용되는 문자열입니다.
-type | 정의 중인 싱크 유형입니다. 이 유형의 인스턴스에서 다른 값(있는 경우)을 결정합니다.
+이름 | 확장 구성의 다른 위치에서 이 싱크를 참조하는 데 사용되는 문자열입니다.
+형식 | 정의 중인 싱크 유형입니다. 이 유형의 인스턴스에서 다른 값(있는 경우)을 결정합니다.
 
 Linux 진단 확장 3.0 버전에서는 두 개의 싱크 유형(EventHub 및 JsonBlob)을 지원합니다.
 
@@ -267,7 +271,7 @@ sampleRateInSeconds | (선택 사항) 원시(집계되지 않은) 메트릭 컬�
 
 요소 | 값
 ------- | -----
-resourceId | VM 또는 VM이 속한 가상 컴퓨터 확장 집합의 Azure Resource Manager 리소스 ID입니다. JsonBlob 싱크가 구성에 사용되는 경우 이 설정도 지정해야 합니다.
+ResourceId | VM 또는 VM이 속한 가상 머신 확장 집합의 Azure Resource Manager 리소스 ID입니다. JsonBlob 싱크가 구성에 사용되는 경우 이 설정도 지정해야 합니다.
 scheduledTransferPeriod | 집계 메트릭이 계산되어 Azure Metrics로 전송되는 빈도이며 IS 8601 시간 간격으로 표시됩니다. 최소 전송 기간은 60초, 즉 PT1M입니다. 하나 이상의 scheduledTransferPeriod를 지정해야 합니다.
 
 performanceCounters 섹션에 지정된 메트릭 샘플은 15초마다 또는 카운터에 명시적으로 정의된 샘플 속도로 수집됩니다. 예제와 같이 여러 scheduledTransferPeriod 빈도가 나타날 경우 각 집계는 독립적으로 계산됩니다.
@@ -308,7 +312,7 @@ performanceCounters 섹션에 지정된 메트릭 샘플은 15초마다 또는 �
 요소 | 값
 ------- | -----
 sinks | (선택 사항) LAD가 집계된 메트릭 결과를 보내는 쉼표로 구분된 싱크 이름 목록입니다. 모든 집계된 메트릭은 나열된 각 싱크에 게시됩니다. [sinksConfig](#sinksconfig)를 참조하세요. 예: `"EHsink1, myjsonsink"`.
-type | 메트릭의 실제 공급자를 식별합니다.
+형식 | 메트릭의 실제 공급자를 식별합니다.
 class | "counter"와 함께 공급자의 네임스페이스 내에서 특정 메트릭을 식별합니다.
 counter | "class"와 함께 공급자의 네임스페이스 내에서 특정 메트릭을 식별합니다.
 counterSpecifier | Azure Metrics 네임스페이스 내에서 특정 메트릭을 식별합니다.
@@ -672,7 +676,7 @@ az vm extension set *resource_group_name* *vm_name* LinuxDiagnostic Microsoft.Az
 }
 ```
 
-구성에서 `resourceId`는 VM 또는 가상 컴퓨터 확장 집합의 resourceId와 일치해야 합니다.
+구성에서 `resourceId`는 VM 또는 가상 머신 확장 집합의 resourceId와 일치해야 합니다.
 
 * Azure 플랫폼 메트릭 차트 및 경고에서는 작업 중인 VM의 resourceId를 알고 있습니다. 조회 키 resourceId를 사용하여 VM에 대한 데이터를 찾을 수 있을 것으로 예상합니다.
 * Azure 자동 크기 조정을 사용하는 경우 자동 크기 조정 구성에서 resourceId는 LAD에서 사용하는 resourceId와 일치해야 합니다.
@@ -703,4 +707,4 @@ EventHubs 끝점에 게시된 메시지를 사용하는 방법에 대해 알아�
 
 * [Azure Monitor](../../monitoring-and-diagnostics/insights-alerts-portal.md)에 수집하는 메트릭에 대한 메트릭 경고를 만듭니다.
 * 메트릭에 대한 [모니터링 차트](../../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md)를 만듭니다.
-* 메트릭을 사용해 [가상 컴퓨터 확장 집합 만들기](/azure/virtual-machines/linux/tutorial-create-vmss)를 수행하여 자동 크기 조정을 제어하는 방법에 대해 알아봅니다.
+* 메트릭을 사용해 [가상 머신 확장 집합 만들기](/azure/virtual-machines/linux/tutorial-create-vmss)를 수행하여 자동 크기 조정을 제어하는 방법에 대해 알아봅니다.

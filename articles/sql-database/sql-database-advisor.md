@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 09/20/2017
 ms.author: sstein
-ms.openlocfilehash: 84706837aeb416d13dab617f51a33d62a934c016
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: ea1069d4ec29ad66562a6798a8b13998d0d2ef89
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="performance-recommendations"></a>성능 권장 사항
 
@@ -36,7 +36,7 @@ Azure SQL Database는 지속적으로 실행되는 쿼리를 모니터링하고 
 
 인덱스 만들기 권장 사항이 적용되면 Azure SQL Database는 초기 성능과 쿼리의 성능을 비교합니다. 새 인덱스가 성능을 향상시킨 경우 권장 사항은 성공한 것으로 플래그가 지정되고 영향 보고서를 사용할 수 있습니다. 인덱스로 인해 이점이 발생하지 않은 경우 자동으로 되돌려집니다. 이러한 방식으로 Azure SQL Database를 사용하면 권장 사항을 사용하여 데이터베이스 성능을 향상하도록 할 수 있습니다.
 
-**인덱스 만들기** 권장 사항에는 데이터베이스 또는 풀 DTU 사용이 최근 20분에 80%를 넘거나 저장소가 사용의 90%를 넘는 경우 권장 사항을 적용하지 않는 백 오프 정책이 있습니다. 이 경우에 권장 사항은 연기됩니다.
+모든 **인덱스 만들기** 권장 사항에는 데이터베이스 또는 풀의 리소스 사용량이 높은 경우 권장 사항을 적용하지 않는 백 오프 정책이 있습니다. 백 오프 정책은 CPU, 데이터 IO, 로그 IO 및 사용 가능한 저장소를 고려합니다. CPU, 데이터 IO 또는 로그 IO가 지난 30분 이내에 80%보다 높은 경우 인덱스 만들기가 연기됩니다. 인덱스를 만든 후에 사용 가능한 저장소가 10% 아래로 떨어지면 권장 사항은 오류 상태로 전환됩니다. 며칠 후에도 자동 조정 기능이 인덱스가 유용할 것이라고 판단할 경우 프로세스가 다시 시작됩니다. 이 프로세스는 인덱스를 만드는 데 사용할 수 있는 저장소가 충분하거나, 인덱스가 더 이상 유용하지 않을 것으로 확인될 때까지 반복됩니다.
 
 ## <a name="drop-index-recommendations"></a>인덱스 삭제 권장 사항
 Azure SQL Database는 누락된 인덱스를 검색하는 작업 이외에도 기존 인덱스의 성능을 지속적으로 분석합니다. 인덱스를 사용하지 않으면 Azure SQL Database에서는 삭제하도록 권장합니다. 다음과 같은 두 가지 경우에는 인덱스를 삭제하는 것이 좋습니다.

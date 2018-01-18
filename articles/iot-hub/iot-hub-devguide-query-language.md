@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/24/2017
 ms.author: elioda
-ms.openlocfilehash: fd047b8618f6e6814e0656ac2ab19e30016016fa
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 450f2d38f7b641bcf6b8be061969404a1b582b4c
+ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="iot-hub-query-language-for-device-twins-jobs-and-message-routing"></a>장치 쌍, 작업 및 메시지 라우팅에 대한 IoT Hub 쿼리 언어
 
@@ -35,6 +35,17 @@ IoT Hub는 [장치 쌍][lnk-twins] 및 [작업][lnk-jobs] 그리고 [메시지 �
 {
     "deviceId": "myDeviceId",
     "etag": "AAAAAAAAAAc=",
+    "status": "enabled",
+    "statusUpdateTime": "0001-01-01T00:00:00",    
+    "connectionState": "Disconnected",    
+    "lastActivityTime": "0001-01-01T00:00:00",
+    "cloudToDeviceMessageCount": 0,
+    "authenticationType": "sas",    
+    "x509Thumbprint": {    
+        "primaryThumbprint": null,
+        "secondaryThumbprint": null
+    },
+    "version": 2,
     "tags": {
         "location": {
             "region": "US",
@@ -137,6 +148,12 @@ GROUP BY properties.reported.telemetryConfig.status
         "status": "Error"
     }
 ]
+```
+
+개발자는 프로젝션 쿼리를 사용하여 관심 있는 속성만 반환할 수 있습니다. 예를 들어, 연결된 모든 장치의 마지막 작업 시간을 검색하려면 다음 쿼리를 사용합니다.
+
+```sql
+SELECT LastActivityTime FROM devices WHERE status = 'enabled'
 ```
 
 ### <a name="c-example"></a>C# 예제
@@ -466,7 +483,7 @@ GROUP BY <group_by_element>
 | 논리 |AND, OR, NOT |
 | 비교 |=, !=, <, >, <=, >=, <> |
 
-### <a name="functions"></a>함수
+### <a name="functions"></a>Functions
 쌍과 작업을 쿼리할 때 지원되는 유일한 함수는 다음과 같습니다.
 
 | 함수 | 설명 |
@@ -512,7 +529,7 @@ GROUP BY <group_by_element>
 | INDEX_OF(string, fragment) | 지정된 첫 번째 문자열 식 내의 두 번째 문자열 식에서 첫 번째로 나타나는 시작 위치를 반환하거나 문자열을 찾을 수 없는 경우 -1을 반환합니다.|
 | STARTS_WITH(x, y) | 첫 번째 문자열 식이 두 번째 문자열 식에서 시작하는지 여부를 나타내는 부울 값을 반환합니다. |
 | ENDS_WITH(x, y) | 첫 번째 문자열 식이 두 번째 문자열 식에서 끝나는지 여부를 나타내는 부울 값을 반환합니다. |
-| CONTAINS(x,y) | 첫번째 문자열 식이 두 번째를 포함하는지를 나타내는 부울 값을 반환합니다. |
+| CONTAINS(x,y) | 첫 번째 문자열 식이 두 번째를 포함하는지를 나타내는 부울 값을 반환합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 [Azure IoT SDK][lnk-hub-sdks]를 사용하여 앱에서 쿼리를 수행하는 방법을 알아봅니다.

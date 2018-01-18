@@ -1,5 +1,5 @@
 ---
-title: "Azure 청구서 이해 | Microsoft Docs"
+title: "Azure 요금 청구 방식 이해"
 description: "Azure 구독에 대한 사용량 및 청구를 읽고 이해하는 방법에 대해 알아봅니다."
 services: 
 documentationcenter: 
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
 ms.author: tonguyen
-ms.openlocfilehash: ade40f8937d56cc561741e251095c4f14b4bb304
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: be15c74456b0cec64455f03dd72b8b64eef2bd5d
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="understand-your-bill-for-microsoft-azure"></a>Microsoft Azure 청구서 이해
 Azure 청구서를 이해하려면 Azure Portal에서 자세한 일별 사용 현황 파일 및 비용 관리 보고서와 청구서를 비교합니다.
@@ -34,9 +34,8 @@ Azure 청구서를 이해하려면 Azure Portal에서 자세한 일별 사용 �
 비용 관리 보고서에 대한 세부 정보는 [Azure Portal 비용 관리](https://docs.microsoft.com/azure/billing/billing-getting-started)를 참조하세요.
 
 ## <a name="charges"></a>청구서의 요금이 맞는지 확인하려면 어떻게 할까요?
-<div style="padding-top: 56.25%; position: relative; width: 100%;">
-<iframe style="position: absolute;top: 0;left: 0;right: 0;bottom: 0;" width="100%" height="100%" src="https://www.youtube.com/embed/3YegFD769Pk" frameborder="0" allowfullscreen></iframe>
-</div>
+
+>[!VIDEO https://www.youtube.com/embed/3YegFD769Pk]
 
 자세한 내용을 보려는 청구서에 대한 요금이 청구되는 경우 다음과 같은 두 가지 옵션이 있습니다.
 
@@ -50,7 +49,7 @@ Azure 청구서를 이해하려면 Azure Portal에서 자세한 일별 사용 �
  | --- | --- |
 |대금 청구 주기 | 청구 기간 |
  |이름 |측정기 범주 |
- |형식 |미터 하위 범주 |
+ |type |미터 하위 범주 |
  |리소스 |측정기 이름 |
  |지역 |측정기 영역 |
  |사용 |소비된 수량 |

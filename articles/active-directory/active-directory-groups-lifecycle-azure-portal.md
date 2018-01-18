@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2017
+ms.date: 01/05/2018
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
-ms.openlocfilehash: d485d2e7d22ea79a87dc52dbc063a811f4a1a2ec
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6b454ed7257e8d3f91e585cee2b559c54371fb15
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="configure-expiration-for-office-365-groups-preview"></a>Office 365 그룹 만료 구성(미리 보기)
 
@@ -30,9 +30,7 @@ ms.lasthandoff: 12/11/2017
 -   삭제된 Office 365 그룹은 그룹 소유자 또는 관리자에 의해 30일 이내로 복원될 수 있습니다.
 
 > [!NOTE]
-> Office 365 그룹에 대한 만료를 설정하려면 만료 설정이 적용될 그룹의 모든 구성원에 대해 Azure AD Premium 라이선스 또는 Azure AD Basic EDU 라이선스가 있어야 합니다.
-> 
-> Azure AD Basic EDU 라이선스 고객의 경우 이 정책을 처음으로 구성하려면 Azure Active Directory PowerShell cmdlet을 사용합니다. 그런 후에는 PowerShell 또는 Azure AD 포털에서 Azure AD 테넌트에서 사용자 계정 관리자 또는 전역 관리자에 해당하는 계정으로 만료 설정을 업데이트할 수 있습니다.
+> Office 365 그룹에 대한 만료를 설정하려면 만료 설정이 적용될 그룹의 모든 구성원에 대해 Azure AD Premium 라이선스가 있어야 합니다.
 
 Azure AD PowerShell cmdlet을 다운로드하여 설치하는 방법에 대한 내용은 [Azure Active Directory PowerShell for Graph - 공개 미리 보기 릴리스 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137)을 참조하세요.
 

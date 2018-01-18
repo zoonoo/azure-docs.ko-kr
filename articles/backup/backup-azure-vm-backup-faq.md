@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/18/2017
 ms.author: trinadhk;pullabhk;
-ms.openlocfilehash: bc5b97192e0d4ad896d6d74a8745a3866d053a25
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 5ba381e366bea78e2d0ace3651c52b7c03e18275
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="questions-about-the-azure-vm-backup-service"></a>Azure VM Backup 서비스에 대한 질문
 이 문서에서는 Azure VM Backup 구성 요소를 빨리 이해하는 데 도움이 되는 일반적인 질문에 대한 대답을 제공합니다. 대답 중 일부에는 포괄적인 정보를 포함하는 문서에 대한 링크가 있습니다. 또한 [토론 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)에 Azure Backup 서비스에 대한 질문도 게시할 수 있습니다.
@@ -51,6 +51,9 @@ Key Vault에 액세스하려면 Azure Backup 서비스에 대한 권한을 부�
 
 ### <a name="can-i-cancel-an-in-progress-backup-job"></a>진행 중인 백업 작업을 취소할 수 있나요?
 예. "스냅숏 만들기" 단계에 있는 경우 백업 작업을 취소할 수 있습니다. **스냅숏에서 데이터 전송이 진행 중인 경우 작업을 취소할 수 없습니다**. 
+
+### <a name="i-enabled-resource-group-lock-on-my-backed-up-managed-disk-vms-will-my-backups-continue-to-work"></a>백업한 관리 디스크 VM에서 리소스 그룹 잠금을 사용하도록 설정했습니다. 내 백업이 계속 작동하나요?
+사용자가 리소스 그룹을 잠그는 경우 Backup 서비스는 이전 복원 지점을 삭제할 수 없습니다. 이로 인해, 백 엔드에서 적용된 최대 18개의 복원 지점 제한에 도달했으므로 새 백업이 시작되지 못합니다. RG 잠금 후에 내부 오류로 인해 백업이 실패하는 경우 다음 [단계에 따라 복원 지점 컬렉션을 제거](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock)합니다.
 
 ## <a name="restore"></a>복원
 ### <a name="how-do-i-decide-between-restoring-disks-versus-full-vm-restore"></a>디스크 복원과 전체 VM 복원 중에서 어떻게 결정해야 하나요?

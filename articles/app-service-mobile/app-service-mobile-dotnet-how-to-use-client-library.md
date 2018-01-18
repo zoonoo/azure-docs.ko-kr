@@ -3,8 +3,8 @@ title: "App Service Mobile Apps로 관리되는 클라이언트 라이브러리 
 description: "Windows 및 Xamarin 앱에서 Azure App Service Mobile Apps용 .NET 클라이언트를 사용하는 방법에 대해 알아봅니다."
 services: app-service\mobile
 documentationcenter: 
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: 
 ms.assetid: 0280785c-e027-4e0d-aaf2-6f155e5a6197
 ms.service: app-service-mobile
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/04/2017
-ms.author: glenga
-ms.openlocfilehash: cbd2a53a7ba30915ed95cf6b0cb73b07a4f48a24
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.author: crdun
+ms.openlocfilehash: c80265432f4ee3120e3125b45712dc0e7a434708
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>Azure Mobile Apps에 관리되는 클라이언트를 사용하는 방법
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -374,7 +374,7 @@ await table.DeleteAsync(jo);
 
 Mobile Apps는 Mobile App 백 엔드의 각 테이블에 대해 정의된 `version` 시스템 속성 열을 사용하는 각 항목의 변경 내용을 추적하여 낙관적 동시성 제어를 지원합니다. 레코드가 업데이트될 때마다 Mobile Apps는 해당 레코드의 `version` 속성을 새 값으로 설정합니다. 각 업데이트 요청 중에 요청에 포함된 레코드의 `version` 속성이 서버에 있는 레코드의 동일 속성과 비교됩니다. 요청과 함께 전달된 버전이 백 엔드와 일치하지 않는 경우 클라이언트 라이브러리는 `MobileServicePreconditionFailedException<T>` 예외를 발생시킵니다. 예외에 포함된 형식은 백 엔드의 레코드이며 서버 버전의 레코드를 포함하고 있습니다. 그러면 응용 프로그램은 이 정보를 사용하여 변경을 커밋하기 위해 백 엔드의 올바른 `version` 값으로 업데이트 요청을 다시 실행할지 여부를 결정할 수 있습니다.
 
-낙관적 동시성을 사용하기 위해 `version` 시스템 속성의 테이블 클래스에 대해 열을 정의합니다. 예:
+낙관적 동시성을 사용하기 위해 `version` 시스템 속성의 테이블 클래스에 대해 열을 정의합니다. 예: 
 
 ```
 public class TodoItem
@@ -428,7 +428,7 @@ private async void UpdateToDoItem(TodoItem item)
 
 private async Task ResolveConflict(TodoItem localItem, TodoItem serverItem)
 {
-    //Ask user to choose the resoltion between versions
+    //Ask user to choose the resolution between versions
     MessageDialog msgDialog = new MessageDialog(
         String.Format("Server Text: \"{0}\" \nLocal Text: \"{1}\"\n",
         serverItem.Text, localItem.Text),
@@ -612,7 +612,7 @@ var result = await client.InvokeApiAsync<MarkAllResult>("completeAll", System.Ne
 이 양식은 형식화된 메서드 호출이며 **MarkAllResult** 반환 형식을 정의해야 합니다. 형식화된 메서드와 형식화되지 않은 메서드가 모두 지원됩니다.
 
 InvokeApiAsync() 메소드는 API가 '/'로 시작하는 경우를 제외하고 호출하려는 API 앞에 '/api/'를 추가합니다.
-예:
+예: 
 
 * `InvokeApiAsync("completeAll",...)` - 백 엔드에서 /api/completeAll 호출
 * `InvokeApiAsync("/.auth/me",...)` - 백 엔드에서 /.auth/me 호출

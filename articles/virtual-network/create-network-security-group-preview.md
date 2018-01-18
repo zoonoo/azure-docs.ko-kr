@@ -1,6 +1,6 @@
 ---
 title: "Azure 네트워크 및 응용 프로그램 보안 그룹(미리 보기)을 사용하여 네트워크 트래픽 필터링 | Microsoft Docs"
-description: "네트워크 및 응용 프로그램 보안 그룹(미리 보기)을 만들어 가상 컴퓨터에서 네트워크 트래픽 유형을 제한하는 방법에 대해 알아봅니다."
+description: "네트워크 및 응용 프로그램 보안 그룹(미리 보기)을 만들어 가상 머신에서 네트워크 트래픽 유형을 제한하는 방법에 대해 알아봅니다."
 services: virtual-network
 documentationcenter: 
 author: jimdial
@@ -16,22 +16,22 @@ ms.workload: infrastructure-services
 ms.date: 11/03/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 9aea299738eb5cac6fe6d3b633707862d978fff0
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: ac9a1a8c59a26393d32f9c543e630c302b7ced9d
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="filter-network-traffic-with-network-and-application-security-groups-preview"></a>네트워크 및 응용 프로그램 보안 그룹(미리 보기)을 사용하여 네트워크 트래픽 필터링
 
-이 자습서에서는 네트워크 보안 그룹을 만들어 응용 프로그램 보안 그룹이 있는 가상 컴퓨터 그룹 간의 네트워크 트래픽을 필터링하는 방법에 대해 알아봅니다. 네트워크 보안 그룹 및 응용 프로그램 보안 그룹에 대한 자세한 내용은 [보안 개요](security-overview.md)를 참조하세요. 
+이 자습서에서는 네트워크 보안 그룹을 만들어 응용 프로그램 보안 그룹이 있는 가상 머신 그룹 간의 네트워크 트래픽을 필터링하는 방법에 대해 알아봅니다. 네트워크 보안 그룹 및 응용 프로그램 보안 그룹에 대한 자세한 내용은 [보안 개요](security-overview.md)를 참조하세요. 
 
 다음 섹션에는 Azure 명령줄 인터페이스([Azure CLI](#azure-cli)) 및 [Azure PowerShell](#powershell)을 사용하여 네트워크 보안 그룹을 만들 수 있는 단계가 나와 있습니다. 네트워크 보안 그룹을 만드는 데 어떤 도구를 선택하든지 간에 결과는 동일합니다. 도구 링크를 클릭하면 자습서의 해당 섹션으로 이동합니다. 
 
 이 문서에서는 네트워크 보안 그룹을 만들 때 권장되는 배포 모델인 Resource Manager 배포 모델을 통해 네트워크 보안 그룹을 만드는 단계를 설명합니다. 네트워크 보안 그룹(클래식)을 만들어야 할 경우 [네트워크 보안 그룹(클래식) 만들기](virtual-networks-create-nsg-classic-ps.md)를 참조하세요. Azure 배포 모델에 대해 잘 모르는 경우에는 [Azure 배포 모델 이해](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 참조하세요.
 
 > [!NOTE]
-> 이 자습서에서는 현재 미리 보기 릴리스 상태인 네트워크 보안 그룹 기능을 활용합니다. 미리 보기 릴리스의 기능은 일반 릴리스의 기능과 동일한 가용성 및 안정성을 제공하지 않습니다. 미리 보기 상태에서의 기능은 WestCentralUS 지역에서만 사용할 수 있습니다. 일반 릴리스의 기능만 사용하여 네트워크 보안 그룹을 구현하려는 경우 [네트워크 보안 그룹 만들기](virtual-networks-create-nsg-arm-pportal.md)를 참조하세요. 
+> 이 자습서에서는 현재 미리 보기 릴리스 상태인 네트워크 보안 그룹 기능을 활용합니다. 미리 보기 릴리스의 기능은 일반 릴리스의 기능과 동일한 가용성 및 안정성을 제공하지 않습니다. 일반 릴리스의 기능만 사용하여 네트워크 보안 그룹을 구현하려는 경우 [네트워크 보안 그룹 만들기](virtual-networks-create-nsg-arm-pportal.md)를 참조하세요. 
 
 ## <a name="azure-cli"></a>Azure CLI
 
@@ -42,14 +42,14 @@ Azure CLI 명령은 Windows, Linux 또는 macOS에서 실행하는지 여부에 
 3. `az login` 명령을 사용하여 Azure에 로그인합니다.
 4. 다음 명령을 입력하여 미리 보기에 등록합니다.
     
-    ```azurecli-interactive
+    ```azurecli
     az feature register --name AllowApplicationSecurityGroups --namespace Microsoft.Network
     az provider register --namespace Microsoft.Network
     ``` 
 
 5. 다음 명령을 입력하여 미리 보기에 등록되었는지 확인합니다.
 
-    ```azurecli-interactive
+    ```azurecli
     az feature show --name AllowApplicationSecurityGroups --namespace Microsoft.Network
     ```
 
@@ -58,7 +58,7 @@ Azure CLI 명령은 Windows, Linux 또는 macOS에서 실행하는지 여부에 
 
 6. 다음 bash스크립트를 실행하여 리소스 그룹을 만듭니다.
 
-    ```azurecli-interactive
+    ```azurecli
     #!/bin/bash
     
     az group create \
@@ -68,7 +68,7 @@ Azure CLI 명령은 Windows, Linux 또는 macOS에서 실행하는지 여부에 
 
 7. 각 서버 유형에 대해 하나씩 세 개의 응용 프로그램 보안 그룹을 만듭니다.
 
-    ```azurecli-interactive
+    ```azurecli
     az network asg create \
       --resource-group myResourceGroup \
       --name WebServers \
@@ -87,7 +87,7 @@ Azure CLI 명령은 Windows, Linux 또는 macOS에서 실행하는지 여부에 
 
 8. 네트워크 보안 그룹 만들기:
 
-    ```azurecli-interactive
+    ```azurecli
     az network nsg create \
       --resource-group myResourceGroup \
       --name myNsg \
@@ -96,7 +96,7 @@ Azure CLI 명령은 Windows, Linux 또는 macOS에서 실행하는지 여부에 
 
 9. NSG 내에 응용 프로그램 보안 그룹을 대상으로 설정하는 보안 규칙을 만듭니다.
     
-    ```azurecli-interactive    
+    ```azurecli    
     az network nsg rule create \
       --resource-group myResourceGroup \
       --nsg-name myNsg \
@@ -136,7 +136,7 @@ Azure CLI 명령은 Windows, Linux 또는 macOS에서 실행하는지 여부에 
 
 10. 가상 네트워크 만들기: 
     
-    ```azurecli-interactive
+    ```azurecli
     az network vnet create \
       --name myVnet \
       --resource-group myResourceGroup \
@@ -147,7 +147,7 @@ Azure CLI 명령은 Windows, Linux 또는 macOS에서 실행하는지 여부에 
 
 11. 네트워크 보안 그룹을 가상 네트워크의 서브넷에 연결합니다.
 
-    ```azurecli-interactive
+    ```azurecli
     az network vnet subnet update \
       --name mySubnet \
       --resource-group myResourceGroup \
@@ -157,7 +157,7 @@ Azure CLI 명령은 Windows, Linux 또는 macOS에서 실행하는지 여부에 
     
 12. 각 서버 유형에 대해 하나씩 세 개의 네트워크 인터페이스를 만듭니다. 
 
-    ```azurecli-interactive
+    ```azurecli
     az network nic create \
       --resource-group myResourceGroup \
       --name myNic1 \
@@ -183,11 +183,11 @@ Azure CLI 명령은 Windows, Linux 또는 macOS에서 실행하는지 여부에 
       --application-security-groups "DatabaseServers"
     ```
 
-    9단계에서 만든 해당 보안 규칙만 네트워크 인터페이스를 구성원으로 하는 응용 프로그램 보안 그룹을 기반으로 네트워크 인터페이스에 적용됩니다. 예를 들어 *WebRule*만 *myNic1*에 적용됩니다. 왜냐하면 네트워크 인터페이스는 *WebServers* 응용 프로그램 보안 그룹의 구성원이고 규칙에서 *WebServers* 응용 프로그램 보안 그룹을 대상으로 지정하기 때문입니다. *AppRule* 및 *DatabaseRule* 규칙은 *myNic1*에 적용되지 않습니다. 왜냐하면 네트워크 인터페이스는 *AppServers* 및 *DatabaseServers* 응용 프로그램 보안 그룹의 구성원이 아니기 때문입니다.
+    9단계에서 만든 해당 보안 규칙만 네트워크 인터페이스를 구성원으로 하는 응용 프로그램 보안 그룹을 기반으로 네트워크 인터페이스에 적용됩니다. 예를 들어 *AppRule*만 *myNic2*에 적용됩니다. 왜냐하면 네트워크 인터페이스는 *AppServers* 응용 프로그램 보안 그룹의 구성원이고 규칙에서 *AppServers* 응용 프로그램 보안 그룹을 대상으로 지정하기 때문입니다. *WebRule* 및 *DatabaseRule* 규칙은 *myNic2*에 적용되지 않습니다. 왜냐하면 네트워크 인터페이스는 *WebServers* 및 *DatabaseServers* 응용 프로그램 보안 그룹의 구성원이 아니기 때문입니다. 그러나 *WebRule* 및 *AppRule* 규칙은 *myNic1*에 적용됩니다. *myNic1* 네트워크 인터페이스가 *WebServers* 및 *AppServers* 응용 프로그램 보안 그룹 둘 다의 구성원이고, 규칙이 *WebServers* 및 *AppServers* 응용 프로그램 보안 그룹을 대상으로 지정하기 때문입니다. 
 
-13. 각 서버 유형에 대해 하나의 가상 컴퓨터를 만들고 각 가상 컴퓨터에 해당 네트워크 인터페이스를 연결합니다. 이 예제에서는 Windows 가상 컴퓨터를 만들지만 *win2016datacenter*를 *UbuntuLTS*로 변경하면 Linux 가상 컴퓨터를 만들 수 있습니다.
+13. 각 서버 유형에 대해 하나의 가상 머신을 만들고 각 가상 머신에 해당 네트워크 인터페이스를 연결합니다. 이 예제에서는 Windows 가상 머신을 만들지만 *win2016datacenter*를 *UbuntuLTS*로 변경하면 Linux 가상 머신을 만들 수 있습니다.
 
-    ```azurecli-interactive
+    ```azurecli
     # Update for your admin password
     AdminPassword=ChangeYourAdminPassword1
 
@@ -198,7 +198,8 @@ Azure CLI 명령은 Windows, Linux 또는 macOS에서 실행하는지 여부에 
       --nics myNic1 \
       --image win2016datacenter \
       --admin-username azureuser \
-      --admin-password $AdminPassword
+      --admin-password $AdminPassword \
+      --no-wait
 
     az vm create \
       --resource-group myResourceGroup \
@@ -207,7 +208,8 @@ Azure CLI 명령은 Windows, Linux 또는 macOS에서 실행하는지 여부에 
       --nics myNic2 \
       --image win2016datacenter \
       --admin-username azureuser \
-      --admin-password $AdminPassword
+      --admin-password $AdminPassword \
+      --no-wait
 
     az vm create \
       --resource-group myResourceGroup \
@@ -281,8 +283,8 @@ Azure CLI 명령은 Windows, Linux 또는 macOS에서 실행하는지 여부에 
       -SourceAddressPrefix Internet `
       -SourcePortRange * `
       -DestinationApplicationSecurityGroupId $webAsg.id `
-      -DestinationPortRange 80  
-
+      -DestinationPortRange 80
+    
     $appRule = New-AzureRmNetworkSecurityRuleConfig `
       -Name "AppRule" `
       -Access Allow `
@@ -292,8 +294,8 @@ Azure CLI 명령은 Windows, Linux 또는 macOS에서 실행하는지 여부에 
       -SourceApplicationSecurityGroupId $webAsg.id `
       -SourcePortRange * `
       -DestinationApplicationSecurityGroupId $appAsg.id `
-      -DestinationPortRange 443 
-
+      -DestinationPortRange 443
+      
     $databaseRule = New-AzureRmNetworkSecurityRuleConfig `
       -Name "DatabaseRule" `
       -Access Allow `
@@ -303,7 +305,7 @@ Azure CLI 명령은 Windows, Linux 또는 macOS에서 실행하는지 여부에 
       -SourceApplicationSecurityGroupId $appAsg.id `
       -SourcePortRange * `
       -DestinationApplicationSecurityGroupId $databaseAsg.id `
-      -DestinationPortRange 1336    
+      -DestinationPortRange 1336
     ``` 
 
 9. 네트워크 보안 그룹 만들기:
@@ -361,9 +363,9 @@ Azure CLI 명령은 Windows, Linux 또는 macOS에서 실행하는지 여부에 
       -ApplicationSecurityGroup $databaseAsg
     ```
 
-    8단계에서 만든 해당 보안 규칙만 네트워크 인터페이스를 구성원으로 하는 응용 프로그램 보안 그룹을 기반으로 네트워크 인터페이스에 적용됩니다. 예를 들어 *WebRule*만 *myNic1*에 적용됩니다. 왜냐하면 네트워크 인터페이스는 *WebServers* 응용 프로그램 보안 그룹의 구성원이고 규칙에서 *WebServers* 응용 프로그램 보안 그룹을 대상으로 지정하기 때문입니다. *AppRule* 및 *DatabaseRule* 규칙은 *myNic1*에 적용되지 않습니다. 왜냐하면 네트워크 인터페이스는 *AppServers* 및 *DatabaseServers* 응용 프로그램 보안 그룹의 구성원이 아니기 때문입니다.
+    8단계에서 만든 해당 보안 규칙만 네트워크 인터페이스를 구성원으로 하는 응용 프로그램 보안 그룹을 기반으로 네트워크 인터페이스에 적용됩니다. 예를 들어 *AppRule*만 *myNic2*에 적용됩니다. 왜냐하면 네트워크 인터페이스는 *AppServers* 응용 프로그램 보안 그룹의 구성원이고 규칙에서 *AppServers* 응용 프로그램 보안 그룹을 대상으로 지정하기 때문입니다. *WebRule* 및 *DatabaseRule* 규칙은 *myNic2*에 적용되지 않습니다. 왜냐하면 네트워크 인터페이스는 *WebServers* 및 *DatabaseServers* 응용 프로그램 보안 그룹의 구성원이 아니기 때문입니다. 그러나 *WebRule* 및 *AppRule* 규칙은 *myNic1*에 적용됩니다. *myNic1* 네트워크 인터페이스가 *WebServers* 및 *AppServers* 응용 프로그램 보안 그룹 둘 다의 구성원이고, 규칙이 *WebServers* 및 *AppServers* 응용 프로그램 보안 그룹을 대상으로 지정하기 때문입니다. 
 
-13. 각 서버 유형에 대해 하나의 가상 컴퓨터를 만들고 각 가상 컴퓨터에 해당 네트워크 인터페이스를 연결합니다. 이 예제에서는 Windows 가상 컴퓨터를 만들지만 스크립트를 실행하기 전에 *-Windows*를 *-Linux*로, *MicrosoftWindowsServer*를 *Canonical*로, *windowsServer*를 *UbuntuServer*로, *2016-Datacenter*를 *14.04.2-LTS*로 변경하면 Linux 가상 컴퓨터를 만들 수 있습니다.
+13. 각 서버 유형에 대해 하나의 가상 머신을 만들고 각 가상 머신에 해당 네트워크 인터페이스를 연결합니다. 이 예제에서는 Windows 가상 머신을 만들지만 스크립트를 실행하기 전에 *-Windows*를 *-Linux*로, *MicrosoftWindowsServer*를 *Canonical*로, *windowsServer*를 *UbuntuServer*로, *2016-Datacenter*를 *14.04.2-LTS*로 변경하면 Linux 가상 머신을 만들 수 있습니다.
 
     ```powershell
     # Create user object
@@ -429,6 +431,33 @@ Azure CLI 명령은 Windows, Linux 또는 macOS에서 실행하는지 여부에 
 
 14. **선택 사항:** [리소스 삭제](#delete-cli)의 단계를 완료하여 이 자습서에서 만든 리소스를 삭제합니다.
 
+## <a name="remove-a-nic-from-an-asg"></a>ASG에서 NIC 제거
+응용 프로그램 보안 그룹에서 네트워크 인터페이스를 제거하면, 응용 프로그램 보안 그룹을 지정하는 어떤 규칙도 제거된 네트워크 인터페이스에 적용되지 않습니다.
+
+### <a name="azure-cli"></a>Azure CLI
+
+모든 응용 프로그램 보안 그룹에서 *myNic3*를 제거하려면 다음 명령을 입력합니다.
+
+```azurecli
+az network nic update \
+  --name myNic3 \
+  --resource-group myResourceGroup \
+  --remove ipConfigurations[0].applicationSecurityGroups
+```
+
+### <a name="powershell"></a>PowerShell
+
+모든 응용 프로그램 보안 그룹에서 *myNic3*를 제거하려면 다음 명령을 입력합니다.
+
+```powershell
+$nic=Get-AzureRmNetworkInterface `
+  -Name myNic3 `
+  -ResourceGroupName myResourceGroup
+
+$nic.IpConfigurations[0].ApplicationSecurityGroups = $null
+$nic | Set-AzureRmNetworkInterface 
+```
+
 ## <a name="delete"></a>리소스 삭제
 
 이 자습서를 마친 후에는 사용 요금이 발생하지 않도록 작성했던 리소스를 삭제할 수 있습니다. 리소스 그룹을 삭제하면 리소스 그룹에 있는 리소스도 모두 삭제됩니다.
@@ -443,7 +472,7 @@ Azure CLI 명령은 Windows, Linux 또는 macOS에서 실행하는지 여부에 
 
 CLI 세션에서 다음 명령을 입력합니다.
 
-```azurecli-interactive
+```azurecli
 az group delete --name myResourceGroup --yes
 ```
 

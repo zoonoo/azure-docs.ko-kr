@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: aa8a053e6b3b6fcf6e026f2fd65942a943e12a08
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 945b985e69c14bb513477fc740652f13236d7518
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="frequently-asked-questions-for-iot-suite"></a>IoT Suite에 대한 질문과 대답
 
@@ -84,7 +84,10 @@ ms.lasthandoff: 11/10/2017
 
 ### <a name="can-i-create-a-preconfigured-solution-if-i-have-microsoft-azure-for-dreamspark"></a>DreamSpark용 Microsoft Azure가 있는 경우 사전 구성된 솔루션을 만들 수 있나요?
 
-현재는 [DreamSpark용 Microsoft Azure](https://www.dreamspark.com/Product/Product.aspx?productid=99) 계정으로 미리 구성된 솔루션을 만들 수 없습니다. 하지만 몇 분 이내에 [Azure용 평가판 계정](https://azure.microsoft.com/free/)을 만들면 미리 구성된 솔루션을 만들 수 있습니다.
+> [!NOTE]
+> Microsoft Azure for DreamSpark는 현재 학생용 Microsoft Imagine이라고 합니다.
+
+현재는 [DreamSpark용 Microsoft Azure](https://azure.microsoft.com/pricing/member-offers/imagine/) 계정으로 미리 구성된 솔루션을 만들 수 없습니다. 하지만 몇 분 이내에 [Azure용 평가판 계정](https://azure.microsoft.com/free/)을 만들면 미리 구성된 솔루션을 만들 수 있습니다.
 
 ### <a name="can-i-create-a-preconfigured-solution-if-i-have-cloud-solution-provider-csp-subscription"></a>CSP(클라우드 솔루션 공급자) 구독이 있는 경우 미리 구성된 솔루션을 만들 수 있나요?
 

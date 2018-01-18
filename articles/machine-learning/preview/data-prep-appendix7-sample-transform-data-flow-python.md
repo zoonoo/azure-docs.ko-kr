@@ -12,11 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/11/2017
-ms.openlocfilehash: 9139866b0dffd102f9b7c34835443d6337e7d39a
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 4a716c1934258e687eb48ecb4077c6be7b269c1f
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="sample-of-custom-data-flow-transforms-python"></a>사용자 지정 데이터 흐름 변환 예제(Python) 
 메뉴의 변환 이름은 **Transform Dataflow(스크립트)**입니다. 이 부록을 읽기 전에 [Python 확장성 개요](data-prep-python-extensibility-overview.md)를 참조하세요.
@@ -82,3 +82,8 @@ score 열에 대해 계산된 첫 번째 및 마지막 집계가 있는 새 프�
 |              |텍사스         |샌안토니오|
 |              |텍사스         |휴스턴    |
 
+
+### <a name="min-max-normalization"></a>최소 최대 정규화
+```python
+    df["NewCol"] = (df["Col1"]-df["Col1"].mean())/df["Col1"].std()
+```

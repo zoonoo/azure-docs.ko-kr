@@ -16,15 +16,15 @@ ms.workload: app-service
 ms.date: 03/08/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: e2f6f764372b1a9786847c9382abfd18fe5b87c0
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: ba2bd2b185c395e54f2f085317a424a2aa1b4421
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-powershell-samples"></a>Azure PowerShell 샘플
 
-다음 테이블은 Azure PowerShell을 사용하여 빌드된 bash 셸에 대한 링크를 포함합니다.
+다음 테이블은 Azure PowerShell을 사용하여 빌드된 PowerShell 스크립트에 대한 링크를 포함합니다.
 
 | | |
 |-|-|

@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 08/04/2017
 ms.author: yoelh
-ms.openlocfilehash: 54bf10acfb885042278c4457a70ec86248c96c1c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d389a44ce38d84e510060f3b0a53cda58513dee5
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-active-directory-b2c-add-google-as-an-oauth2-identity-provider-using-custom-policies"></a>Azure Active Directory B2C: 사용자 지정 정책을 사용하여 OAuth2 ID 공급자로 Google+ 추가
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/11/2017
 
 이 가이드에서는 [사용자 지정 정책](active-directory-b2c-overview-custom.md)을 사용하여 Google+ 계정의 사용자가 로그인할 수 있도록 하는 방법을 설명합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 [사용자 지정 정책 시작](active-directory-b2c-get-started-custom.md) 문서의 단계를 완료합니다.
 
@@ -175,7 +175,7 @@ ID 공급자가 설정되었습니다.  그러나 등록/로그인 화면에서 
 1.  정책의 기본 파일(예: TrustFrameworkBase.xml)을 엽니다.
 2.  `<UserJourneys>` 요소를 찾고 `<UserJourneys>` 노드의 전체 콘텐츠를 복사합니다.
 3.  확장 파일(예: TrustFrameworkExtensions.xml)을 열고 `<UserJourneys>` 요소를 찾습니다. 요소가 존재하지 않는 경우 추가합니다.
-4.  복사한 `<UserJournesy>` 노드의 전체 콘텐츠를 `<UserJourneys>` 요소의 자식으로 붙여넣습니다.
+4.  복사한 `<UserJourney>` 노드의 전체 콘텐츠를 `<UserJourneys>` 요소의 자식으로 붙여넣습니다.
 
 ### <a name="display-the-button"></a>단추 표시
 `<ClaimsProviderSelections>` 요소는 클레임 공급자 선택 옵션 목록과 해당 순서를 정의합니다.  `<ClaimsProviderSelection>` 요소는 등록/로그인 페이지에서 ID 공급자 단추를 사용하는 것과 유사합니다. Google+ 계정에 `<ClaimsProviderSelection>` 요소를 추가하면 사용자가 페이지를 열 때 새 단추가 표시됩니다. 이 요소를 추가하려면 다음을 수행합니다.
@@ -243,6 +243,14 @@ ID 공급자가 설정되었습니다.  그러나 등록/로그인 화면에서 
 ```xml
 <ClaimsExchange Id="GoogleExchange" TechnicalProfileReferenceId="Google-OAUTH" />
 ```
+
+### <a name="upload-the-policy-to-your-tenant"></a>테넌트에 정책 업로드
+1.  [Azure Portal](https://portal.azure.com)에서 [Azure AD B2C 테넌트의 컨텍스트](active-directory-b2c-navigate-to-b2c-context.md)로 전환하고 **Azure AD B2C** 블레이드를 엽니다.
+2.  **ID 경험 프레임워크**를 선택합니다.
+3.  **모든 정책** 블레이드를 엽니다.
+4.  **정책 업로드**를 선택합니다.
+5.  **정책이 있는 경우 덮어쓰기** 확인란을 선택합니다.
+6.  TrustFrameworkExtensions.xml을 **업로드**하고 유효성 검사가 실패하지 않았는지 확인합니다.
 
 ### <a name="test-the-custom-profile-edit-policy-by-using-run-now"></a>지금 실행을 사용하여 사용자 지정 프로필-편집 정책 테스트
 

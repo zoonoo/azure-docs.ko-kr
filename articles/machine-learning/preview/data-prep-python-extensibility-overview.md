@@ -12,11 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/07/2017
-ms.openlocfilehash: 4b888facdba2eb5ff48bcbf43c93c1b75183cbad
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 3c3864480d2fcba4f6d388d4e0d00b917cb62d2b
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="data-preparations-python-extensions"></a>데이터 준비 Python 확장
 기본 제공 기능 사이의 격차를 해소하기 위해 Azure Machine Learning 데이터 준비에는 여러 수준의 확장성이 포함되어 있습니다. 이 문서에서는 Python 스크립트를 통해 확장성을 설명합니다. 
@@ -123,6 +123,31 @@ Mac에서 해당 위치를 찾으려면 Python의 앱별 설치와 해당 스크
 또는 
 
 `./pip install <libraryname>`
+
+## <a name="use-custom-modules"></a>사용자 지정 모듈 사용
+데이터 흐름 변환(스크립트)에서 다음과 같은 python 코드를 작성합니다.
+
+```python
+import sys
+sys.path.append(*<absolute path to the directory containing UserModule.py>*)
+
+from UserModule import ExtensionFunction1
+df = ExtensionFunction1(df)
+```
+
+열 추가(스크립트)에서 Code Block Type = Module을 설정하고 다음과 같이 python 코드를 작성합니다.
+
+```python 
+import sys
+sys.path.append(*<absolute path to the directory containing UserModule.py>*)
+
+from UserModule import ExtensionFunction2
+
+def newvalue(row):
+    return ExtensionFunction2(row)
+```
+다른 실행 컨텍스트(로컬, Docker spark)의 경우 절대 경로로 적절한 위치를 가리킵니다. “os.getcwd() + relativePath”를 사용하여 해당 위치를 지정할 수도 있습니다.
+
 
 ## <a name="column-data"></a>열 데이터 
 열 데이터는 점 표기법을 사용하거나 키-값 표기법을 사용하여 행에서 액세스할 수 있습니다. 공백이나 특수 문자가 포함된 열 이름은 점 표기법을 사용하여 액세스할 수 없습니다. `row` 변수는 항상 두 모드의 Python 확장(모듈 및 식)에서 정의해야 합니다. 

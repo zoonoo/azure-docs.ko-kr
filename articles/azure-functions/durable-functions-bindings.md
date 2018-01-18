@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 02c3e0e919b556bc6d4bb41d9c66b4a6d29bdd68
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 3be59e32de22e0939ee887fba1d20829f1ef22eb
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>지속성 함수의 바인딩(Azure Functions)
 
@@ -85,7 +85,7 @@ public static string Run([OrchestrationTrigger] DurableOrchestrationContext cont
 }
 ```
 
-대부분의 오케스트레이터 함수에서 다른 함수를 호출하므로 함수를 호출하는 방법을 보여 주는 "Hello World" 예제가 여기에 있습니다.
+대부분의 오케스트레이터 함수에서 작업 함수를 호출하므로 작업 함수를 호출하는 방법을 보여 주는 "Hello World" 예제가 여기에 있습니다.
 
 ```csharp
 [FunctionName("HelloWorld")]
@@ -141,7 +141,7 @@ Visual Studio를 사용하는 경우 작업 트리거는 [ActvityTriggerAttribut
 작업 트리거 바인딩은 오케스트레이션 트리거와 마찬가지로 입력과 출력을 모두 지원합니다. 다음은 입력 및 출력 처리에 대해 알고 있어야 할 몇 가지 사항입니다.
 
 * **입력** - 작업 함수는 본질적으로 [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html)를 매개 변수 형식으로 사용합니다. 또는 JSON 직렬화 가능 매개 변수 형식으로 선언될 수 있습니다. `DurableActivityContext`를 사용하면 [GetInput\<T>](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html#Microsoft_Azure_WebJobs_DurableActivityContext_GetInput__1)를 호출하여 작업 함수 입력을 가져오고 역직렬화할 수 있습니다.
-* **출력** - 작업 트리거는 입력뿐만 아니라 출력 값도 지원합니다. 함수의 반환 값은 출력 값을 할당하는 데 사용되며 JSON 직렬화 가능해야 합니다. 함수에서 `Task` 또는 `void`를 반환하면 `null` 값이 출력으로 저장됩니다.
+* **출력** - 작업 함수는 입력뿐만 아니라 출력 값도 지원합니다. 함수의 반환 값은 출력 값을 할당하는 데 사용되며 JSON 직렬화 가능해야 합니다. 함수에서 `Task` 또는 `void`를 반환하면 `null` 값이 출력으로 저장됩니다.
 * **메타데이터** - 작업 함수는 `string instanceId` 매개 변수에 바인딩하여 부모 오케스트레이션의 인스턴스 ID를 가져올 수 있습니다.
 
 > [!NOTE]
@@ -180,7 +180,7 @@ public static string SayHello([ActivityTrigger] string name)
 
 Visual Studio를 사용하는 경우 [OrchestrationClientAttribute](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.OrchestrationClientAttribute.html) .NET 특성을 사용하여 오케스트레이션 클라이언트에 바인딩할 수 있습니다.
 
-개발을 위해 스크립팅 언어(예: *.csx* 파일)를 사용하는 경우 오케스트레이션 트리거는 function.json의 `bindings` 배열에 있는 다음 JSON 개체에서 정의됩니다.
+개발을 위해 스크립팅 언어(예: *.csx* 파일)를 사용하는 경우 오케스트레이션 트리거는 *function.json*의 `bindings` 배열에 있는 다음 JSON 개체에서 정의됩니다.
 
 ```json
 {
@@ -193,7 +193,7 @@ Visual Studio를 사용하는 경우 [OrchestrationClientAttribute](https://azur
 ```
 
 * `taskHub` - 여러 함수 앱에서 동일한 저장소 계정을 공유하지만 서로 격리되어야 하는 시나리오에 사용됩니다. 지정하지 않으면 `host.json`의 기본값이 사용됩니다. 이 값은 대상 오케스트레이터 함수에서 사용하는 값과 일치해야 합니다.
-* `connectionName` - 저장소 연결 문자열을 포함하는 앱 설정의 이름입니다. 이 연결 문자열에서 나타내는 저장소 계정은 대상 오케스트레이터 함수에서 사용하는 계정과 동일해야 합니다. 지정하지 않으면 함수 앱에 대한 기본 연결 문자열이 사용됩니다.
+* `connectionName` - 저장소 계정 연결 문자열을 포함하는 앱 설정의 이름입니다. 이 연결 문자열에서 나타내는 저장소 계정은 대상 오케스트레이터 함수에서 사용하는 계정과 동일해야 합니다. 지정하지 않으면 함수 앱에 대한 기본 저장소 계정 연결 문자열이 사용됩니다.
 
 > [!NOTE]
 > 대부분의 경우 이러한 속성을 생략하고 기본 동작을 사용하는 것이 좋습니다.
@@ -228,7 +228,7 @@ public static Task Run(
 
 ### <a name="client-sample-not-visual-studio"></a>클라이언트 샘플(Visual Studio 사용 안 함)
 
-개발을 위해 Visual Studio를 사용하지 않는 경우 다음 function.json 파일을 만들 수 있습니다. 이 예제에서는 지속성 함수 오케스트레이션 클라이언트 바인딩을 사용하는 큐 트리거 함수를 구성하는 방법을 보여 줍니다.
+개발을 위해 Visual Studio를 사용하지 않는 경우 다음 *function.json* 파일을 만들 수 있습니다. 이 예제에서는 지속성 함수 오케스트레이션 클라이언트 바인딩을 사용하는 큐 트리거 함수를 구성하는 방법을 보여 줍니다.
 
 ```json
 {

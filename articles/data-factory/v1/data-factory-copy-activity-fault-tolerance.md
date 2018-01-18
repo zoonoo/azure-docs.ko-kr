@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 5c32d4ac2c1179a83a82bd5deb41047b82e43b7e
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 6e7923e2e0a23f22f7dff8c316050a1757310456
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="add-fault-tolerance-in-copy-activity-by-skipping-incompatible-rows"></a>호환되지 않는 행을 건너뛰어 복사 작업에 내결함성 추가
 > [!NOTE]
@@ -44,6 +44,9 @@ Azure Data Factory [복사 작업](data-factory-data-movement-activities.md)은 
 
     예제: SQL Server에서 SQL Database로 데이터를 복사합니다. 기본 키가 싱크 SQL Database에 정의되어 있지만 이러한 기본 키가 원본 SQL Server에 정의되어 있지 않습니다. 원본에 있는 중복된 행을 싱크로 복사할 수 없습니다. 복사 작업은 원본 데이터의 첫 번째 행만 싱크에 복사합니다. 중복된 기본 키 값을 포함하는 후속 원본 행을 호환되지 않는 것으로 감지하고 건너뜁니다.
 
+>[!NOTE]
+>이 기능은 복사 작업이 [Azure SQL Data Warehouse PolyBase](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) 또는 [Amazon Redshift Unload](data-factory-amazon-redshift-connector.md#use-unload-to-copy-data-from-amazon-redshift)를 포함하는 외부 데이터 로드 메커니즘을 호출하도록 구성된 경우에는 적용되지 않습니다. PolyBase를 사용하여 SQL Data Warehouse로 데이터를 로드하려는 경우, 복사 작업에서 "[polyBaseSettings](data-factory-azure-sql-data-warehouse-connector.md#sqldwsink)"를 지정하여 PolyBase의 네이티브 내결함성 지원을 사용합니다.
+
 ## <a name="configuration"></a>구성
 다음 예제에서는 복사 작업에서 호환되지 않는 행을 건너뛰도록 구성하기 위한 JSON 정의를 제공합니다.
 
@@ -63,7 +66,7 @@ Azure Data Factory [복사 작업](data-factory-data-movement-activities.md)은 
 }
 ```
 
-| 속성 | 설명 | 허용되는 값 | 필수 |
+| 자산 | 설명 | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
 | **enableSkipIncompatibleRow** | 복사 중 호환되지 않는 행을 건너뛸지 여부를 설정합니다. | True<br/>False(기본값) | 아니요 |
 | **redirectIncompatibleRowSettings** | 호환되지 않는 행을 기록하려는 경우 지정할 수 있는 속성 그룹입니다. | &nbsp; | 아니요 |

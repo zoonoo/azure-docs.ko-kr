@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/03/2017
 ms.author: dobett
-ms.openlocfilehash: f3fbccdbd00fb64348e2132ca6adc3a06ad18535
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: d2a6660b93fee1e1fc24269eb7075e5243ce88ed
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="manage-your-iot-hub-device-identities-in-bulk"></a>대량으로 IoT Hub 장치 ID를 관리합니다.
 
@@ -27,6 +27,8 @@ ms.lasthandoff: 11/18/2017
 가져오기 및 내보내기 작업은 사용자가 IoT Hub에 대해 대량 서비스 작업을 실행할 수 있는 *작업* 상황에서 이루어집니다.
 
 **RegistryManager** 클래스는 **Job** 프레임워크를 사용하는 **ExportDevicesAsync** 및 **ImportDevicesAsync** 메서드를 포함합니다. 이러한 메서드를 사용하면 전체 IoT Hub ID 레지스트리를 내보내고, 가져오고, 동기화할 수 있습니다.
+
+이 항목에서는 **RegistryManager** 클래스 및 **Job** 시스템을 사용하여 IoT Hub의 ID 레지스트리로 장치를 대량으로 내보내거나 이러한 레지스트리에서 장치를 대량으로 가져오는 작업에 대해 설명합니다. 또한 Azure IoT Hub Device Provisioning 서비스를 사용하여 사용자 개입 없이, 하나 이상의 IoT Hub에 대해 무인 Just-In-Time 프로비저닝을 수행할 수도 있습니다. 자세한 내용은 [프로비저닝 서비스 설명서][lnk-dps]를 참조하세요.
 
 ## <a name="what-are-jobs"></a>작업이란?
 
@@ -407,8 +409,14 @@ IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 * [IoT Hub 개발자 가이드][lnk-devguide]
 * [Azure IoT Edge를 사용하여 에지 장치에 AI 배포][lnk-iotedge]
 
+IoT Hub Device Provisioning 서비스를 사용하여 무인 Just-In-Time 프로비저닝을 수행하는 방법을 알아보려면 다음을 참조하세요. 
+
+* [Azure IoT Hub Device Provisioning 서비스][lnk-dps]
+
+
 [lnk-metrics]: iot-hub-metrics.md
 [lnk-monitor]: iot-hub-operations-monitoring.md
 
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
+[lnk-dps]: https://azure.microsoft.com/documentation/services/iot-dps

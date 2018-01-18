@@ -9,11 +9,11 @@ ms.author: v-jamebr
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: bf57fa11c63930c594c63043ab4b695f586d9e1b
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: bd186341329721ee097a5b3ad3e7ad11b8e189f9
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="develop-and-deploy-a-c-iot-edge-module-to-your-simulated-device---preview"></a>C# IoT Edge 모듈을 개발하여 시뮬레이트된 장치에 배포 - 미리 보기
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 12/11/2017
 
 이 자습서에서 만드는 IoT Edge 모듈은 장치에서 생성된 온도 데이터를 필터링합니다. 온도가 지정된 임계값을 초과하는 경우에만 메시지 업스트림을 전송합니다. 에지에서 이 유형의 분석은 클라우드로 전송되고 저장되는 데이터 양을 줄이는 데 유용합니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 빠른 시작 또는 첫 번째 자습서에서 만든 Azure IoT Edge 장치
 * IoT Edge 장치에 대한 기본 키 연결 문자열입니다.  
@@ -98,11 +98,19 @@ ms.lasthandoff: 12/11/2017
     }
     ```
 
-8. **Init** 메서드에서 코드는 **DeviceClient** 개체를 만들고 구성합니다. 이 개체를 사용하면 메시지를 주고받기 위해 로컬 Azure IoT Edge 런타임에 모듈을 연결할 수 있습니다. **Init** 메서드에 사용된 연결 문자열이 IoT Edge 런타임에 의해 모듈로 제공됩니다. **DeviceClient**를 만든 후 코드는 **input1** 끝점을 통해 IoT Edge 허브로부터 메시지를 수신하기 위한 콜백을 등록합니다. `SetInputMessageHandlerAsync` 메서드를 새 메서드로 바꾸로 원하는 속성 업데이트에 대한 `SetDesiredPropertyUpdateCallbackAsync` 메서드를 추가합니다. 이 변경을 수행하려면 **Init** 메서드의 마지막 줄을 다음 코드로 바꾸세요.
+8. **Init** 메서드에서 코드는 **DeviceClient** 개체를 만들고 구성합니다. 이 개체를 사용하면 메시지를 주고받기 위해 로컬 Azure IoT Edge 런타임에 모듈을 연결할 수 있습니다. **Init** 메서드에 사용된 연결 문자열이 IoT Edge 런타임에 의해 모듈로 제공됩니다. **DeviceClient**를 만든 후 코드는 Module Twin의 원하는 속성에서 TemperatureThreshold를 읽고 **input1** 끝점을 통해 IoT Edge 허브로부터 메시지를 수신하기 위한 콜백을 등록합니다. `SetInputMessageHandlerAsync` 메서드를 새 메서드로 바꾸로 원하는 속성 업데이트에 대한 `SetDesiredPropertyUpdateCallbackAsync` 메서드를 추가합니다. 이 변경을 수행하려면 **Init** 메서드의 마지막 줄을 다음 코드로 바꾸세요.
 
     ```csharp
     // Register callback to be called when a message is received by the module
     // await ioTHubModuleClient.SetImputMessageHandlerAsync("input1", PipeMessage, iotHubModuleClient);
+
+    // Read TemperatureThreshold from Module Twin Desired Properties
+    var moduleTwin = await ioTHubModuleClient.GetTwinAsync();
+    var moduleTwinCollection = moduleTwin.Properties.Desired;
+    if (moduleTwinCollection["TemperatureThreshold"] != null)
+    {
+        temperatureThreshold = moduleTwinCollection["TemperatureThreshold"];
+    }
 
     // Attach callback for Twin desired properties updates
     await ioTHubModuleClient.SetDesiredPropertyUpdateCallbackAsync(onDesiredPropertiesUpdate, null);
@@ -261,8 +269,8 @@ Edge 장치를 실행 중인 컴퓨터의 Edge 런타임에 레지스트리의 �
         }
         ```
  
-    6. **Save**를 클릭합니다.
-12. **다음**을 누릅니다.
+    6. **저장**을 클릭합니다.
+12. **다음**을 클릭합니다.
 13. **경로 지정** 단계에서 다음 JSON을 텍스트 상자에 복사합니다. 모듈은 모든 메시지를 Edge 런타임에 게시합니다. 런타임의 선언적 규칙은 메시지가 어디로 흐르는지를 정의합니다. 이 자습서에서는 두 개의 경로가 필요합니다. 첫 번째 경로는 **FilterMessages** 핸들러로 구성한 엔드포인트인 “input1” 엔드포인트를 통해 온도 센서에서 필터 모듈로 메시지를 전송합니다. 두 번째 경로는 필터 모듈에서 IoT Hub로 메시지를 전송합니다. 이 경로에서 `upstream`은 메시지를 IoT Hub로 보내라고 Edge Hub에 알리는 특수 대상입니다. 
 
     ```json
@@ -274,7 +282,7 @@ Edge 장치를 실행 중인 컴퓨터의 Edge 런타임에 레지스트리의 �
     }
     ```
 
-4. **다음**을 누릅니다.
+4. **다음**을 클릭합니다.
 5. **템플릿 검토** 단계에서 **제출**을 클릭합니다. 
 6. IoT Edge 장치 세부 정보 페이지로 돌아가서 **새로 고침**을 클릭합니다. **tempSensor** 모듈 및 **IoT Edge runtime**과 함께 실행되는 새로운 **filtermodule**이 표시됩니다. 
 

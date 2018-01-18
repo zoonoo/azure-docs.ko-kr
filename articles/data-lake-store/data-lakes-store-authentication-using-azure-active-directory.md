@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/11/2017
+ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 6cbdda98c079d25c9cce1342c79dea6e66aec3ad
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: 7e6e37c0f5c8447b0e6d147a297b460d323b8894
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="authentication-with-data-lake-store-using-azure-active-directory"></a>Azure Active Directory를 사용하여 Data Lake Store 인증
 
@@ -36,7 +36,7 @@ Azure Data Lake Store는 인증을 위해 Azure Active Directory를 사용합니
 * 빈 셀은 인증 옵션이 지원되지 않는다는 의미입니다.
 
 
-|다음에서 이 인증 옵션 사용...                   |.NET         |Java     |PowerShell |CLI 2.0 | Python   |REST (영문)     |
+|다음에서 이 인증 옵션 사용...                   |.NET         |자바     |PowerShell |CLI 2.0 | 파이썬   |REST (영문)     |
 |:---------------------------------------------|:------------|:--------|:----------|:-------------|:---------|:--------|
 |최종 사용자(MFA 없이**)                        |   ✔ |    ✔    |    ✔      |       ✔      |    **[✔*](data-lake-store-end-user-authenticate-python.md#end-user-authentication-without-multi-factor-authentication)**(사용되지 않음)     |    **[✔*](data-lake-store-end-user-authenticate-rest-api.md)**    |
 |최종 사용자(MFA 사용)                           |    **[✔*](data-lake-store-end-user-authenticate-net-sdk.md)**        |    **[✔*](data-lake-store-end-user-authenticate-java-sdk.md)**     |    ✔      |       **[✔*](data-lake-store-get-started-cli-2.0.md)**      |    **[✔*](data-lake-store-end-user-authenticate-python.md#end-user-authentication-with-multi-factor-authentication)**     |    ✔    |

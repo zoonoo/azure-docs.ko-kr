@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2017
+ms.date: 01/15/2018
 ms.author: asteen
 ms.reviewer: japere
-ms.openlocfilehash: 66e002b092e02f92a33c6e498b176331ebdc190f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 26dc5d5ffce84206450123132c0633c2aa323e9f
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="problem-installing-the-application-access-panel-browser-extension"></a>응용 프로그램 액세스 패널 브라우저 확장 설치 관련 문제
 
@@ -32,14 +32,13 @@ ms.lasthandoff: 12/11/2017
 
 암호 기반 SSO의 경우 최종 사용자 브라우저는 다음 중 하나일 수 있습니다.
 
--   Internet Explorer 8, 9, 10, 11 - Windows 7 이상
-
 -   Windows 10 Anniversary Edition 이상 Edge 
 
 -   Chrome - Windows 7 이상 및 Mac OS X 이상
 
 -   Firefox 26.0 이상 - Windows XP SP2 이상 및 Mac OS X 10.6 이상
 
+-   Internet Explorer 8, 9, 10, 11 - Windows 7 이상(지원 제한)
 ## <a name="how-to-install-the-access-panel-browser-extension"></a>액세스 패널 브라우저 확장을 설치하는 방법
 
 액세스 패널 브라우저 확장을 설치하려면 아래 단계를 수행합니다.
@@ -64,6 +63,31 @@ ms.lasthandoff: 12/11/2017
 
 -   [Edge 액세스 패널 확장](https://www.microsoft.com/store/apps/9pc9sckkzk84) 
 
+## <a name="how-do-i-use-the-my-apps-secure-sign-in-extension"></a>내 앱 보안 로그인 확장을 사용하려면 어떻게 해야 하나요?
+확장에 대한 내 앱 기본 URL 변경
+
+Https://myapps.microsoft.com이 아닌 다른 앱 URL을 사용하는 경우 다음 단계를 통해 기본 URL을 구성해야 합니다.
+1. 확장에 로그인되지 않은 상태에서 확장 아이콘을 **마우스 오른쪽 단추로 클릭**합니다.
+2. 메뉴에서 **내 앱 URL 선택**을 클릭합니다.
+3. 기본 URL을 **선택**합니다.
+4. 확장 아이콘을 클릭합니다.
+5. **시작하려면 로그인하세요.**를 선택하여 확장에 로그인합니다.
+
+브라우저에서 앱에 직접 로그인
+1. 확장을 설치한 후에 **시작하려면 로그인하세요.**를 선택하여 확장에 로그인합니다.
+2. 로그인하려면 앱의 **로그온 URL**로 이동합니다. 이 URL은 일반적으로 로그인 양식을 표시하는 앱의 URL입니다.
+3. 확장 상태가 변경되고 암호를 사용할 수 있다고 표시되면 **확장 아이콘**을 클릭하여 로그인합니다.
+
+확장에서 앱 시작
+1. 확장을 설치한 후에 **시작하려면 로그인하세요.**를 선택하여 확장에 로그인합니다.
+2. 확장 아이콘을 클릭하여 해당 **메뉴**를 엽니다.
+3. 내 앱 포털에서 사용할 수 있는 앱을 **검색**합니다.
+4. **검색 결과**에서 앱을 클릭하여 시작합니다.
+5. 시작된 마지막 3개 앱은 **최근에 사용됨** 바로 가기 목록에도 표시됩니다.
+
+> [!NOTE]
+> 이러한 옵션은 Edge, Chrome, Firefox에서만 사용할 수 있습니다.
+
 ## <a name="setting-up-a-group-policy-for-internet-explorer"></a>Internet Explorer에 대한 그룹 정책 설정
 
 사용자의 컴퓨터에 Internet Explorer용 액세스 패널 확장을 원격으로 설치할 수 있는 그룹 정책을 설정할 수 있습니다.
@@ -76,9 +100,12 @@ ms.lasthandoff: 12/11/2017
 
 자습서에 따라 그룹 정책을 구성하고 사용자에게 배포하는 방법에 대한 단계별 지침은 [그룹 정책을 사용하여 Internet Explorer용 액세스 패널 확장을 배포하는 방법](active-directory-saas-ie-group-policy.md)을 따릅니다.
 
-## <a name="troubleshoot-the-access-panel-in-internet-explorer"></a>Internet Explorer에서 액세스 패널 문제 해결
+## <a name="troubleshoot-the-access-panel-extension-in-internet-explorer"></a>Internet Explorer에서 액세스 패널 확장 문제 해결
 
 진단 도구 및 IE용 확장을 구성하는 방법에 대한 단계별 지침에 액세스하려면 [Internet Explorer의 액세스 패널 확장 문제 해결](active-directory-saas-ie-troubleshooting.md) 가이드를 따릅니다.
+
+> [!NOTE]
+> IE는 지원이 제한되며, 더 이상 새 소프트웨어 업데이트가 수신되지 않습니다. Edge가 권장되는 브라우저입니다.
 
 ## <a name="if-these-troubleshooting-steps-do-not-resolve-the-issue"></a>이러한 문제 해결 단계로 문제가 해결되지 않는 경우
 
@@ -97,4 +124,4 @@ ms.lasthandoff: 12/11/2017
 -   Fiddler 추적
 
 ## <a name="next-steps"></a>다음 단계
-[Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)
+[Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](active-directory-appssoaccess-whatis.md)
