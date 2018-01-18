@@ -1,32 +1,32 @@
 ---
-title: "함수 앱 만들기 및 Visual Studio Team Services의 함수 코드 배포 | Microsoft Docs"
+title: "Azure에서 Visual Studio Team Services에서 배포되는 함수 만들기 | Microsoft Docs"
 description: "함수 앱 만들기 및 Visual Studio Team Services의 함수 코드 배포"
 services: functions
 keywords: 
 author: syntaxc4
 ms.author: cfowler
-ms.date: 04/28/2017
+ms.date: 01/09/2018
 ms.topic: sample
 ms.service: functions
 ms.custom: mvc
-ms.openlocfilehash: 5851b5219b6e25a5a2b005fc3d3c3b44d98ed746
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bf9428f23e851bae3485ec3d724dfb9ccd2af4c1
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
-# <a name="create-an-app-service"></a>App Service 만들기
+# <a name="create-a-function-in-azure-that-is-deployed-from-visual-studio-team-services"></a>Azure에서 Visual Studio Team Services에서 배포되는 함수 만들기
 
-이 시나리오에서는 관련 리소스를 통해 [소비 계획](../functions-scale.md#consumption-plan)을 사용하여 함수 앱을 만들고 VSTS(Visual Studio Team Services) 리포지토리의 함수 코드를 지속적으로 배포하는 방법에 대해 배우게 됩니다. 이 샘플에는 다음이 필요합니다.
+이 항목에서는 Azure Functions를 사용하여 [소비 계획](../functions-scale.md#consumption-plan)을 사용하는 [서버 없는](https://azure.microsoft.com/overview/serverless-computing/) 함수 앱을 만드는 방법을 보여 줍니다. 함수의 컨테이너에 해당하는 함수 앱은 VSTS(Visual Studio Team Services) 리포지토리에서 지속적으로 배포됩니다. 이 항목을 완료하려면 다음 항목이 필요합니다.
 
-* 관리 권한이 있는 함수 코드를 포함하는 VSTS 리포지토리
-* GitHub 계정에 대한 [PAT(개인 액세스 토큰)](https://help.github.com/articles/creating-an-access-token-for-command-line-use)
+* 함수 앱 프로젝트를 포함하고 사용자에게 관리 권한이 있는 VSTS 리포지토리
+* VSTS 리포지토리에 액세스하기 위한 [PAT(개인용 액세스 토큰)](https://docs.microsoft.com/vsts/accounts/use-personal-access-tokens-to-authenticate)
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 항목에서 Azure CLI 버전 2.0 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
+Azure CLI를 로컬로 사용하는 경우 버전 2.0 이상을 설치해서 사용해야 합니다. Azure CLI 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
 
 ## <a name="sample-script"></a>샘플 스크립트
 
@@ -38,9 +38,9 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 항목에서 
 
 ## <a name="script-explanation"></a>스크립트 설명
 
-이 스크립트는 다음 명령을 사용하여 리소스 그룹, 웹앱, documentdb 및 모든 관련된 리소스를 만듭니다. 테이블에 있는 각 명령은 명령에 해당하는 문서에 연결됩니다.
+이 스크립트는 다음 명령을 사용하여 리소스 그룹, 저장소 계정, 함수 앱 및 모든 관련된 리소스를 만듭니다. 테이블에 있는 각 명령은 명령에 해당하는 문서에 연결됩니다.
 
-| 명령 | 참고 사항 |
+| 명령 | 메모 |
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
 | [az storage account create](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) | App Service 계획을 만듭니다. |

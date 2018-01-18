@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2017
+ms.date: 01/04/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: f503f373ec32ffcdd9be3ca03da6ec5e1b10e35a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ec6489f796dab0fa24bbadf542429d4cf853c414
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>하이브리드 Azure Active Directory 가입 장치를 구성하는 방법
 
@@ -32,11 +32,12 @@ Azure AD(Active Directory)의 장치 관리를 사용하면 보안 및 규정 �
 
 환경에서 하이브리드 Azure AD 가입 장치 구성을 시작하기 전에 지원되는 시나리오와 제약 조건을 숙지해야 합니다.  
 
+[시스템 준비 도구(Sysprep)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-vista/cc721940(v=ws.10))를 사용하는 경우에는 Azure AD에 아직 등록되지 않은 Windows 설치에서 이미지를 만들어야 합니다.
+
 설명의 가독성을 높이기 위해 이 토픽에서는 다음 용어를 사용합니다. 
 
 - **Windows 현재 장치** - 이 용어는 Windows 10 또는 Windows Server 2016을 실행하는 도메인에 가입 된 장치를 말합니다.
 - **Windows 하위 수준 장치** - 이 용어는 Windows 10과 Windows Server 2016 중 어떤 것도 실행하지 않는 **지원되는** 도메인에 가입된 Windows 장치를 말합니다.  
-
 
 ### <a name="windows-current-devices"></a>Windows 현재 장치
 
@@ -57,7 +58,7 @@ Azure AD(Active Directory)의 장치 관리를 사용하면 보안 및 규정 �
 
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 조직에서 하이브리드 Azure AD 가입 장치를 사용하도록 설정하기 전에 최신 버전의 Azure AD 연결을 실행해야 합니다.
 
@@ -66,6 +67,15 @@ Azure AD Connect:
 - 온-프레미스 AD(Active Directory)의 컴퓨터 계정과 Azure AD의 장치 개체 간 연결을 유지합니다. 
 - 비즈니스용 Windows Hello 같은 기타 장치 관련 기능을 지원합니다.
 
+Azure AD에 컴퓨터를 등록하려면 조직 네트워크 내에 있는 컴퓨터에서 다음 URL에 액세스할 수 있는지 확인합니다.
+
+- https://enterpriseregistration.windows.net
+
+- https://login.microsoftonline.com
+
+- https://device.login.microsoftonline.com
+
+조직이 아웃바운드 프록시를 통해 인터넷에 액세스해야 하는 경우 Windows 10 컴퓨터에서 Azure AD에 등록할 수 있게 WPAD(웹 프록시 자동 검색)을 구현해야 합니다.
 
 
 ## <a name="configuration-steps"></a>구성 단계

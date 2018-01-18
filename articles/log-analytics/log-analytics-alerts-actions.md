@@ -1,6 +1,6 @@
 ---
-title: "OMS Log Analytics에서 경고에 대한 응답 | Microsoft Docs"
-description: "Log Analytics의 경고는 OMS 저장소의 중요한 정보를 식별하며 문제를 미리 알리거나 작업을 호출하여 문제 해결을 시도합니다.  이 문서에서는 경고 규칙을 만드는 방법을 설명하고 규칙에서 실행할 수 있는 여러 가지 작업을 자세히 설명합니다."
+title: "Azure Log Analytics에서 경고에 대한 응답 | Microsoft Docs"
+description: "Log Analytics의 경고는 Azure 작업 영역의 중요한 정보를 식별하며 문제를 미리 알리거나 작업을 호출하여 문제 해결을 시도합니다.  이 문서에서는 경고 규칙을 만드는 방법을 설명하고 규칙에서 실행할 수 있는 여러 가지 작업을 자세히 설명합니다."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/24/2017
+ms.date: 01/08/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d936cf467ee7043b171cfc845f247f891f52f599
-ms.sourcegitcommit: 4d90200f49cc60d63015bada2f3fc4445b34d4cb
+ms.openlocfilehash: e80481f074bc196caae7c03f54134eaef0fb46d5
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="add-actions-to-alert-rules-in-log-analytics"></a>Log Analytics에서 경고 규칙에 작업 추가
 [경고가 Log Analytics에서 생성](log-analytics-alerts.md)될 때 하나 이상의 작업을 수행하는 [경고 규칙 구성](log-analytics-alerts.md)의 옵션이 있습니다.  이 문서에서는 사용 가능한 다양한 작업 및 각 종류를 구성하는 세부 정보를 설명합니다.
 
-| 작업 | 설명 |
+| 조치 | 설명 |
 |:--|:--|
 | [Email](#email-actions) | 한 명 이상의 수신자에게 경고의 세부 정보가 포함된 전자 메일을 보냅니다. |
 | [웹후크](#webhook-actions) | 단일 HTTP POST 요청을 통해 외부 프로세스를 호출합니다. |
@@ -36,7 +36,7 @@ ms.lasthandoff: 10/24/2017
 
 전자 메일 작업에는 다음 표의 속성이 필요합니다.
 
-| 속성 | 설명 |
+| 자산 | 설명 |
 |:--- |:--- |
 | 제목 |전자 메일의 제목입니다.  메일의 본문을 수정할 수 없습니다. |
 | 받는 사람 |모든 전자 메일 받는 사람의 주소입니다.  둘 이상의 주소를 지정하는 경우 주소를 세미콜론(;)으로 구분합니다. |
@@ -48,7 +48,7 @@ ms.lasthandoff: 10/24/2017
 
 웹후크 작업에는 다음 표의 속성이 필요합니다.
 
-| 속성 | 설명 |
+| 자산 | 설명 |
 |:--- |:--- |
 | Webhook URL |웹후크의 URL입니다. |
 | 사용자 지정 JSON 페이로드 |웹후크와 함께 보낼 사용자 지정 페이로드입니다.  자세한 내용은 다음을 참조하세요. |
@@ -71,7 +71,7 @@ ms.lasthandoff: 10/24/2017
 | SearchIntervalStartTimeUtc |#searchintervalstarttimeutc |UTC 형식의 쿼리에 대한 시작 시간입니다. |
 | SearchQuery |#searchquery |경고 규칙에서 사용하는 로그 검색 쿼리입니다. |
 | SearchResults |아래 참조 |JSON 형식의 쿼리에서 반환된 레코드입니다.  처음 5,000 개의 레코드로 제한됩니다. |
-| WorkspaceID |#workspaceid |OMS 작업 영역의 ID입니다. |
+| WorkspaceID |#workspaceid |Log Analytics 작업 영역의 ID입니다. |
 
 예를 들어 *text*라는 단일 매개변수를 포함하는 다음과 같은 사용자 지정 페이로드를 지정할 수 있습니다.  이 웹후크가 호출하는 서비스는 이 매개 변수를 예상합니다.
 
@@ -97,15 +97,15 @@ ms.lasthandoff: 10/24/2017
     }
 
 
-웹후크를 통해 경고 규칙을 생성하여 [OMS Log Analytics에서 Slack에 메시지를 보내는 경고 웹후크 작업 만들기](log-analytics-alerts-webhooks.md)에서 외부 서비스를 시작하는 전체 예제를 연습할 수 있습니다.
+웹후크를 통해 경고 규칙을 생성하여 [Log Analytics에서 Slack에 메시지를 보내는 경고 웹후크 작업 만들기](log-analytics-alerts-webhooks.md)에서 외부 서비스를 시작하는 전체 예제를 연습할 수 있습니다.
 
 
 ## <a name="runbook-actions"></a>Runbook 작업
-Runbook 작업은 Azure 자동화에서 Runbook을 시작합니다.  이 유형의 작업을 사용하려면 OMS 작업 영역에 [자동화 솔루션](log-analytics-add-solutions.md) 을 설치하고 구성해야 합니다.  자동화 솔루션에서 구성한 자동화 계정의 Runbook 중에서 선택할 수 있습니다.
+Runbook 작업은 Azure Automation에서 Runbook을 시작합니다.  이 유형의 작업을 사용하려면 Log Analytics 작업 영역에 [Automation 솔루션](log-analytics-add-solutions.md) 을 설치하고 구성해야 합니다.  Automation 솔루션에서 구성한 자동화 계정의 Runbook 중에서 선택할 수 있습니다.
 
 Runbook 작업에는 다음 표의 속성이 필요합니다.
 
-| 속성 | 설명 |
+| 자산 | 설명 |
 |:--- |:---|
 | Runbook | 경고가 생성될 때 시작하려는 Runbook입니다. |
 | 실행 | 클라우드에서 Runbook을 실행하려면 **Azure**를 지정합니다.  [Hybrid Runbook Worker](../automation/automation-hybrid-runbook-worker.md )가 설치된 에이전트에서 Runbook을 실행할 **Hybrid Worker**를 지정합니다.  |
@@ -121,7 +121,7 @@ Runbook의 매개 변수를 직접 채울 수는 없으나 [$WebhookData 매개 
 |:--- |:--- |
 | id |경로와, 검색의 GUID입니다. |
 | __metadata |레코드 수 및 검색 결과 상태를 포함하는 경고 관련 정보입니다. |
-| value |검색 결과의 각 레코드에 대해 개별 항목입니다.  항목의 상세 정보는 레코드의 속성 및 값과 일치합니다. |
+| 값 |검색 결과의 각 레코드에 대해 개별 항목입니다.  항목의 상세 정보는 레코드의 속성 및 값과 일치합니다. |
 
 예를 들어 다음 Runbook은 로그 검색에서 반환된 레코드를 추출하고 각 레코드 유형에 따라 서로 다른 속성을 할당합니다.  Runbook은 JSON에서 **RequestBody**를 변환하여 시작되므로 PowerShell의 개체로 작동할 수 있습니다.
 
@@ -622,4 +622,4 @@ Runbook의 매개 변수를 직접 채울 수는 없으나 [$WebhookData 매개 
 
 ## <a name="next-steps"></a>다음 단계
 - 경고 규칙을 사용하여 [웹후크를 구성](log-analytics-alerts-webhooks.md) 하는 연습을 완료합니다.  
-- 경고에 의해 식별된 문제를 수정하는 [Azure 자동화의 Runbook](https://azure.microsoft.com/documentation/services/automation) 을 작성하는 방법에 대해 알아봅니다.
+- 경고에 의해 식별된 문제를 수정하는 [Azure Automation의 Runbook](https://azure.microsoft.com/documentation/services/automation) 을 작성하는 방법에 대해 알아봅니다.

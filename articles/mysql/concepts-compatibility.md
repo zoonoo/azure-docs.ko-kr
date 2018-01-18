@@ -9,11 +9,11 @@ manager: jhubbard
 ms.service: mysql-database
 ms.topic: article
 ms.date: 10/27/2017
-ms.openlocfilehash: 1042f7919b8761bdbc23ae19871703c53dff28f0
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.openlocfilehash: 7578ae710a3d6c81fdfa2952c53a20c2cdccb6d0
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="mysql-drivers-and-management-tools-compatible-with-azure-database-for-mysql"></a>Azure Database for MySQL과 호환되는 MySQL 드라이버 및 관리 도구
 이 문서에서는 Azure Database for MySQL과 호환되는 드라이버 및 관리 도구를 설명합니다.
@@ -24,11 +24,11 @@ Azure Database for MySQL은 전 세계에서 가장 인기 있는 커뮤니티 �
 | **드라이버** | **연결** | **호환되는 버전** | **호환되지 않는 버전** | **참고 사항** |
 | :-------- | :------------------------ | :----------- | :---------------------- | :--------------------------------------- |
 | PHP | http://php.net/downloads.php | 5.5 5.6 7.x | 5.3 | PHP 7.0과 SSL MySQLi 연결의 경우 연결 문자열에 MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT를 추가합니다. <br> ```mysqli_real_connect($conn, $host, $username, $password, $db_name, 3306, NULL, MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT);```<br> PDO 집합: ```PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT``` 옵션을 false로 설정합니다.|
-| .Net | [MySqlConnector on Github]: https://github.com/mysql-net/MySqlConnector/releases <br> [Nuget의 설치 패키지]:<br> https://www.nuget.org/packages/MySqlConnector/ | 0.27 이상 | 0.26.5 이하 | |
-| Nodejs |  [Github의 MySQLjs]:<br> https://github.com/mysqljs/mysql/releases <br> [NPM의 설치 패키지]:<br> NPM에서 “npm install mysql” 실행 | 2.15 | 2.14.1 이하 | |
+| .Net | [GitHub의 MySqlConnector](https://github.com/mysql-net/MySqlConnector) <br> [Nuget의 설치 패키지](https://www.nuget.org/packages/MySqlConnector/) | 0.27 이상 | 0.26.5 이하 | |
+| Nodejs |  [Github의 MySQLjs](https://github.com/mysqljs/mysql/releases) <br> NPM의 설치 패키지:<br> NPM에서 `npm install mysql` 실행 | 2.15 | 2.14.1 이하 | |
 | 이동 | https://github.com/go-sql-driver/mysql/releases | 1.3 | 1.2 이하 | 연결 문자열에 allowNativePasswords=true 사용 |
-| Python | https://pypi.python.org/pypi/mysql-connector-python | 1.2.3, 2.0, 2.1, 2.2 | 1.2.2 이하 | |
-| Java | https://downloads.mariadb.org/connector-java/ | 2.1 2.0 1.6 | 1.5.5 이하 | |
+| 파이썬 | https://pypi.python.org/pypi/mysql-connector-python | 1.2.3, 2.0, 2.1, 2.2 | 1.2.2 이하 | |
+| 자바 | https://downloads.mariadb.org/connector-java/ | 2.1 2.0 1.6 | 1.5.5 이하 | |
 
 ## <a name="management-tools"></a>관리 도구
 호환성 장점은 데이터베이스 관리 도구까지 확장됩니다. 데이터베이스 조작이 사용자 권한의 범위 내에서 이루어지는 한, 기존 도구가 Azure Database for MySQL과 계속 호환됩니다. 다음 표에는 테스트를 통해 Azure Database for MySQL 5.6 및 5.7과 호환되는 것으로 확인된 세 가지 일반적인 데이터베이스 관리 도구가 정리되어 있습니다.

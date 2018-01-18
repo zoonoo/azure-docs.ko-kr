@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/07/2017
+ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: a80a947f5dc6176aaa6334a10eabf1a2b4be5847
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 9aa0a1ed7bb07609e087e82d64f5f1c80bb590d9
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-to-or-from-azure-table-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure 테이블 간 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -35,8 +35,9 @@ ms.lasthandoff: 12/01/2017
 
 특히 이 Azure Table 커넥터는 **계정 키** 및 **서비스 SAS**(공유 액세스 서명) 인증을 모두 사용하여 데이터를 복사할 수 있습니다.
 
-## <a name="get-started"></a>시작
-.NET SDK, Python SDK, Azure PowerShell, REST API 또는 Azure Resource Manager 템플릿을 사용하여 복사 작업으로 파이프라인을 만들 수 있습니다. 복사 작업을 사용하여 파이프라인을 만드는 단계별 지침은 [복사 작업 자습서](quickstart-create-data-factory-dot-net.md)를 참조하세요.
+## <a name="get-started"></a>시작하기
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 다음 섹션에서는 Azure Table Storage에 한정된 Data Factory 엔터티를 정의하는 데 사용되는 속성에 대해 자세히 설명합니다.
 
@@ -46,10 +47,10 @@ ms.lasthandoff: 12/01/2017
 
 계정 키를 사용하여 Azure Storage에 대한 전역 액세스로 데이터 팩터리를 제공하는 Azure Storage 연결된 서비스를 만들 수 있습니다. 다음과 같은 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 형식 속성은 **AzureStorage** |예 |
-| connectionString | connectionString 속성에 대한 Azure 저장소에 연결하는 데 필요한 정보를 지정합니다. 이 필드를 SecureString으로 표시합니다. |예 |
+| 형식 | 형식 속성은 **AzureStorage** |적용 |
+| connectionString | connectionString 속성에 대한 Azure 저장소에 연결하는 데 필요한 정보를 지정합니다. 이 필드를 SecureString으로 표시합니다. |적용 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 Integration Runtime을 사용할 수 있습니다(데이터 저장소가 개인 네트워크에 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아니요 |
 
 **예제:**
@@ -81,14 +82,17 @@ SAS(공유 액세스 서명)는 저장소 계정의 리소스에 대한 위임�
 
 > [!IMPORTANT]
 > Azure Data Factory는 이제 **서비스 SAS**만 지원하며 계정 SAS는 지원하지 않습니다. 이러한 두 가지 형식과 생성 방법에 대한 자세한 내용은 [공유 액세스 서명 형식](../storage/common/storage-dotnet-shared-access-signature-part-1.md#types-of-shared-access-signatures) 을 참조하세요. Azure Portal 또는 Storage 탐색기에서 생성할 수 있는 SAS URL는 지원되지 않는 계정 SAS입니다.
->
+
+> [!TIP]
+> 아래의 PowerShell 명령을 실행하여 저장소 계정에 대한 서비스 SAS를 생성할 수 있습니다(자리 표시자를 바꾸고 필요한 권한 부여).`$context = New-AzureStorageContext -StorageAccountName <accountName> -StorageAccountKey <accountKey>`
+> `New-AzureStorageContainerSASToken -Name <containerName> -Context $context -Permission rwdl -StartTime <startTime> -ExpiryTime <endTime> -FullUri`
 
 서비스 SAS 인증을 사용하기 위해 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 형식 속성은 **AzureStorage** |예 |
-| sasUri | BLOB, 컨테이너, 테이블 등의 Azure Storage 리소스에 공유 액세스 서명 URI를 지정합니다. 이 필드를 SecureString으로 표시합니다. |예 |
+| 형식 | 형식 속성은 **AzureStorage** |적용 |
+| sasUri | BLOB, 컨테이너, 테이블 등의 Azure Storage 리소스에 공유 액세스 서명 URI를 지정합니다. 이 필드를 SecureString으로 표시합니다. |적용 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 Integration Runtime을 사용할 수 있습니다(데이터 저장소가 개인 네트워크에 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아니요 |
 
 **예제:**
@@ -124,10 +128,10 @@ SAS(공유 액세스 서명)는 저장소 계정의 리소스에 대한 위임�
 
 Azure Table 간에 데이터를 복사하려면 데이터 집합의 type 속성을 **AzureTable**로 설정합니다. 다음과 같은 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 데이터 집합의 type 속성을 **AzureTable**로 설정해야 합니다. |예 |
-| tableName |연결된 서비스가 참조하는 Azure 테이블 데이터베이스 인스턴스에서 테이블의 이름입니다. |예 |
+| 형식 | 데이터 집합의 type 속성을 **AzureTable**로 설정해야 합니다. |적용 |
+| tableName |연결된 서비스가 참조하는 Azure 테이블 데이터베이스 인스턴스에서 테이블의 이름입니다. |적용 |
 
 **예제:**
 
@@ -165,9 +169,9 @@ Azure 테이블과 같은 스키마 없는 데이터 저장소의 경우 Data Fa
 
 Azure Table에서 데이터를 복사하려면 복사 작업의 원본 형식을 **AzureTableSource**로 설정합니다. 복사 작업 **source** 섹션에서 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 작업 원본의 type 속성을 **AzureTableSource**로 설정해야 합니다. |예 |
+| 형식 | 복사 작업 원본의 type 속성을 **AzureTableSource**로 설정해야 합니다. |적용 |
 | AzureTableSourceQuery |사용자 지정 Azure Table 쿼리를 사용하여 데이터를 읽습니다. 다음 섹션의 예제를 참조하세요. |아니요 |
 | azureTableSourceIgnoreTableNotFound |존재하지 않는 테이블의 예외를 받아들이는지를 나타냅니다.<br/>허용되는 값은 **True** 및 **False**(기본값)입니다. |아니요 |
 
@@ -191,9 +195,9 @@ Azure 테이블 열이 문자열 형식인 경우:
 
 Azure 테이블로 데이터를 복사하려면 복사 작업의 싱크 형식을 **AzureTableSink**로 설정합니다. 복사 작업 **sink** 섹션에서 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 작업 싱크의 type 속성을 **AzureTableSink**로 설정해야 합니다. |예 |
+| 형식 | 복사 작업 싱크의 type 속성을 **AzureTableSink**로 설정해야 합니다. |적용 |
 | azureTableDefaultPartitionKeyValue |싱크에서 사용할 수 있는 기본 파티션 키 값입니다. |아니요 |
 | azureTablePartitionKeyName |해당 값이 파티션 키로 사용되는 열의 이름을 지정합니다. 지정하지 않으면 "AzureTableDefaultPartitionKeyValue"가 파티션 키로 사용됩니다. |아니요 |
 | azureTableRowKeyName |해당 열 값이 행 키로 사용되는 열의 이름을 지정합니다. 지정하지 않으면 각 행에 GUID를 사용합니다. |아니요 |
@@ -262,11 +266,11 @@ Azure Table 간에 데이터를 복사하는 경우 Azure Table 데이터 형식
 
 Azure 테이블에서 데이터를 이동하는 경우 다음 [Azure Table service에서 정의된 매핑](https://msdn.microsoft.com/library/azure/dd179338.aspx)은 Azure 테이블 OData 형식에서 .NET 유형에 또는 그 반대로 사용됩니다.
 
-| Azure Table 데이터 형식 | 데이터 팩터리 중간 데이터 형식 | 세부 정보 |
+| Azure Table 데이터 형식 | Data Factory 중간 데이터 형식 | 세부 정보 |
 |:--- |:--- |:--- |
 | Edm.Binary |byte[] |바이트 배열은 최대 64KB입니다. |
 | Edm.Boolean |bool |부울 값입니다. |
-| Edm.DateTime |DateTime |UTC(협정 세계시)로 표현되는 64비트 값입니다. 지원되는 DateTime 범위는 서기 1601년 1월 1일 자정 12시부터 시작합니다. (서기), UTC입니다. 범위는 9999년 12월 31일에 끝납니다. |
+| Edm.DateTime |Datetime |UTC(협정 세계시)로 표현되는 64비트 값입니다. 지원되는 DateTime 범위는 서기 1601년 1월 1일 자정 12시부터 시작합니다. (서기), UTC입니다. 범위는 9999년 12월 31일에 끝납니다. |
 | Edm.Double |double |64비트 부동 소수점 값입니다. |
 | Edm.Guid |Guid |전역적으로 고유한 128 비트 식별자입니다. |
 | Edm.Int32 |Int32 |32비트 정수입니다. |

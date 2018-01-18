@@ -14,21 +14,73 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/25/2016
+ms.date: 01/11/2018
 ms.author: saurinsh
-ms.openlocfilehash: 0fc32960fc2f1ae69315dbfd6bfb8c34c4adc0fa
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 6a43ea602052b9b3338567571075742adc5a3ca0
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="manage-domain-joined-hdinsight-clusters"></a>도메인에 가입된 HDInsight 클러스터 관리
 도메인에 가입된 HDInsight의 사용자 및 역할에 대해 알아보고 도메인에 가입된 HDInsight 클러스터를 관리하는 방법을 알아봅니다.
 
+## <a name="access-the-clusters-with-enterprise-security-package"></a>엔터프라이즈 보안 패키지를 사용하여 클러스터에 액세스합니다.
+
+엔터프라이즈 보안 패키지(이전의 HDInsight Premium)은 클러스터에 대해 다중 사용자 액세스를 제공합니다. 여기서는 Active Directory에 의해 인증이 수행되고 Apache Ranger 및 Storage ACL(ADLS ACL)에 의해 권한 부여가 수행됩니다. 권한 부여는 여러 사용자 간에 보안 경계를 제공하고, 권한 부여 정책에 따라 권한 있는 사용자만 데이터에 액세스할 수 있도록 허용합니다.
+
+보안 및 사용자 격리는 엔터프라이즈 보안 패키지를 사용하는 HDInsight 클러스터에 중요합니다. 이러한 요구 사항을 충족하기 위해 엔터프라이즈 보안 패키지를 사용하는 클러스터에 대한 SSH 액세스가 차단됩니다. 다음 표에서는 각 클러스터 유형에 대해 권장되는 액세스 방법을 보여 줍니다.
+
+|워크로드|시나리오|액세스 방법|
+|--------|--------|-------------|
+|Hadoop은|Hive – 대화형 작업/쿼리 |<ul><li>[Beeline](#beeline)</li><li>[Hive 보기](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Visual Studio Tools](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
+|Spark|대화형 작업/쿼리, PySpark 대화형|<ul><li>[Beeline](#beeline)</li><li>[Livy를 사용한 Zeppelin](../spark/apache-spark-zeppelin-notebook.md)</li><li>[Hive 보기](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Visual Studio Tools](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
+|Spark|일괄 처리 시나리오 – Spark 제출, PySpark|<ul><li>[Livy](../spark/apache-spark-livy-rest-interface.md)</li></ul>|
+|대화형 쿼리(LLAP)|대화형|<ul><li>[Beeline](#beeline)</li><li>[Hive 보기](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Visual Studio Tools](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
+|모두|사용자 지정 응용 프로그램 설치|<ul><li>[스크립트 작업](../hdinsight-hadoop-customize-cluster-linux.md)</li></ul>|
+
+
+표준 API를 사용하면 보안 측면에서 도움이 됩니다. 또한 다음과 같은 이점도 얻을 수 있습니다.
+
+1.  **관리** – 표준 API(Livy, HS2 등)를 사용하여 코드를 관리하고 작업을 자동화할 수 있습니다.
+2.  **감사** – SSH를 사용하면 클러스터에 대해 SSH를 수행한 사용자를 감사할 방법이 없습니다. 작업이 사용자 컨텍스트에서 실행될 때처럼 표준 끝점을 통해 생성되는 경우는 여기에 해당되지 않습니다. 
+
+
+
+### <a name="beeline"></a>Beeline 사용 
+컴퓨터에 Beeline을 설치하고 공용 인터넷을 통해 연결한 후 다음 매개 변수를 사용합니다. 
+
+```
+- Connection string: -u 'jdbc:hive2://&lt;clustername&gt;.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2'
+- Cluster login name: -n admin
+- Cluster login password -p 'password'
+```
+
+Beeline을 로컬로 설치했고 Azure Virtual Network를 통해 연결하는 경우 다음 매개 변수를 사용합니다. 
+
+```
+- Connection string: -u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'
+```
+
+헤드 노드의 정규화된 도메인 이름을 찾으려면 Ambari REST API를 사용하여 HDInsight 관리 문서의 정보를 사용합니다.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## <a name="users-of-domain-joined-hdinsight-clusters"></a>도메인에 가입된 HDInsight 클러스터의 사용자
 도메인 가입되어 있지 않은 HDInsight 클러스터에는 클러스터를 만드는 중에 생성되는 두 개의 사용자 계정이 있습니다.
 
-* **Ambari 관리자**: 이 계정을 *Hadoop 사용자* 또는 *HTTP 사용자*라고도 합니다. 이 계정은 https://&lt;clustername>.azurehdinsight.net에서 Ambari에 로그온할 때 사용할 수 있습니다. 또한 Ambari 뷰에서 쿼리를 실행하고, 외부 도구(즉, PowerShell, Templeton, Visual Studio)를 통해 작업을 실행하고, Hive ODBC 드라이버와 BI 도구(즉, Excel, PowerBI 또는 Tableau)를 인증할 때에도 사용할 수 있습니다.
+* **Ambari 관리자**: 이 계정을 *Hadoop 사용자* 또는 *HTTP 사용자*라고도 합니다. 이 계정은 https://&lt;clustername>.azurehdinsight.net에서 Ambari에 로그온할 때 사용할 수 있습니다. 또한 Ambari 뷰에서 쿼리를 실행하고, 외부 도구(예: PowerShell, Templeton, Visual Studio)를 통해 작업을 실행하고, Hive ODBC 드라이버와 BI 도구(예: Excel, PowerBI 또는 Tableau)를 인증할 때에도 사용할 수 있습니다.
 * **SSH 사용자**: 이 계정은 SSH와 함께 사용할 수 있으며, sudo 명령을 실행합니다. 그리고 Linux VM에 대한 루트 권한이 있습니다.
 
 도메인에 가입된 HDInsight 클러스터에는 Ambari 관리자와 SSH 사용자 외에도 3개의 새로운 사용자가 있습니다.
@@ -63,8 +115,9 @@ ms.lasthandoff: 12/01/2017
     ![도메인에 가입된 HDInsight 클러스터의 역할 사용 권한](./media/apache-domain-joined-manage/hdinsight-domain-joined-roles-permissions.png)
 
 ## <a name="open-the-ambari-management-ui"></a>Ambari 관리 UI 열기
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
-2. 블레이드에서 HDInsight 클러스터를 엽니다. [클러스터 나열 및 표시](../hdinsight-administer-use-management-portal.md#list-and-show-clusters)를 참조하세요.
+
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+2. HDInsight 클러스터를 엽니다. [클러스터 나열 및 표시](../hdinsight-administer-use-management-portal.md#list-and-show-clusters)를 참조하세요.
 3. 위쪽 메뉴에서 **대시보드** 를 클릭하여 Ambari를 엽니다.
 4. 클러스터 관리자 도메인 사용자 이름 및 암호를 사용하여 Ambari에 로그온합니다.
 5. 오른쪽 상단 모서리에서 **관리자** 드롭다운 메뉴를 클릭한 다음 **Ambari 관리**를 클릭합니다.

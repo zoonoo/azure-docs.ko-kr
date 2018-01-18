@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: d06dd0a8ec63202825be347c4b69e21a6dd4b7db
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 637b380dacc91e4ad55044c1d92936be2435138d
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Azure 네트워크 인터페이스용 IP 주소 추가, 변경 또는 제거
 
@@ -50,9 +50,9 @@ ms.lasthandoff: 12/20/2017
 
     |설정|Required?|세부 정보|
     |---|---|---|
-    |Name|예|네트워크 인터페이스에 대해 고유해야 합니다.|
-    |type|예|기존 네트워크 인터페이스에 IP 구성을 추가할 것이며, 각 NIC에는 [기본](#primary) IP 구성이 있어야 하므로 **보조** 옵션만 선택 가능합니다.|
-    |개인 IP 주소 할당 방법|예|[**동적**](#dynamic): Azure는 네트워크 인터페이스가 배포된 서브넷 주소 범위에 대해 사용 가능한 다음 주소를 할당합니다. [**정적**](#static): 네트워크 인터페이스가 배포된 서브넷 주소 범위에 대해 사용되지 않는 주소를 할당합니다.|
+    |이름|적용|네트워크 인터페이스에 대해 고유해야 합니다.|
+    |type|적용|기존 네트워크 인터페이스에 IP 구성을 추가할 것이며, 각 NIC에는 [기본](#primary) IP 구성이 있어야 하므로 **보조** 옵션만 선택 가능합니다.|
+    |개인 IP 주소 할당 방법|적용|[**동적**](#dynamic): Azure는 네트워크 인터페이스가 배포된 서브넷 주소 범위에 대해 사용 가능한 다음 주소를 할당합니다. [**정적**](#static): 네트워크 인터페이스가 배포된 서브넷 주소 범위에 대해 사용되지 않는 주소를 할당합니다.|
     |공용 IP 주소|아니요|**사용 안 함:** 현재 공용 IP 주소 리소스는 IP 구성과 연결되지 않습니다. **사용:** 기존 IPv4 공용 IP 주소를 선택하거나 새 공용 IP 주소를 만듭니다. 공용 IP 주소를 만드는 방법에 대한 자세한 내용은 [공용 IP 주소](virtual-network-public-ip-address.md#create-a-public-ip-address) 문서를 참조하세요.|
 7. [가상 머신 운영 체제에 여러 IP 주소 할당](virtual-network-multiple-ip-addresses-portal.md#os-config) 문서의 지침을 수행하여 가상 머신 운영 체제에 보조 개인 IP 주소를 수동으로 추가합니다. 가상 머신 운영 체제에 IP 주소를 수동으로 추가하기 전에 고려해야 하는 특수한 사항은 [개인](#private) IP 주소를 참조하세요. 가상 머신 운영 체제에는 공용 IP 주소를 추가하지 마세요.
 
@@ -138,9 +138,9 @@ IPv4 주소의 할당 방법을 변경하거나, 고정 IPv4 주소를 변경하
 > [!WARNING]
 > 가상 머신의 운영 체제 내에서 네트워크 인터페이스의 기본 IP 주소로 설정된 IPv4 주소가 Azure 내에서 가상 머신에 연결된 기본 네트워크 인터페이스의 기본 IP 구성에 할당되어 있는 개인 IPv4 주소와 다르면 가상 머신 연결이 끊어집니다.
 
-가상 컴퓨터 운영 체제 내에서 네트워크 인터페이스의 IP 주소를 수동으로 설정해야 하는 시나리오도 있습니다. 예를 들어 Azure 가상 머신에 여러 IP 주소를 추가할 때는 Windows 운영 체제의 기본 및 보조 IP 주소를 수동으로 설정해야 합니다. Linux 가상 머신의 경우에는 보조 IP 주소만 수동으로 설정하면 됩니다. 자세한 내용은 [VM 운영 체제에 IP 주소 추가](virtual-network-multiple-ip-addresses-portal.md#os-config)를 참조하세요. 운영 체제 내에서 IP 주소를 수동으로 설정할 때는 항상 동적 할당이 아닌 정적 할당 방법을 사용하여 네트워크 인터페이스의 IP 구성에 주소를 할당하는 것이 좋습니다. 정적 방법을 사용하여 주소를 할당하면 Azure 내에서 주소가 변경되지 않습니다. IP 구성에 할당된 주소를 변경해야 하는 경우에는 다음을 수행하는 것이 좋습니다.
+가상 컴퓨터 운영 체제 내에서 네트워크 인터페이스의 IP 주소를 수동으로 설정해야 하는 시나리오도 있습니다. 예를 들어 Azure 가상 머신에 여러 IP 주소를 추가할 때는 Windows 운영 체제의 기본 및 보조 IP 주소를 수동으로 설정해야 합니다. Linux 가상 머신의 경우에는 보조 IP 주소만 수동으로 설정하면 됩니다. 자세한 내용은 [VM 운영 체제에 IP 주소 추가](virtual-network-multiple-ip-addresses-portal.md#os-config)를 참조하세요. IP 구성에 할당된 주소를 변경해야 하는 경우에는 다음을 수행하는 것이 좋습니다.
 
-1. 가상 머신이 Azure DHCP 서버에서 주소를 받으려면 운영 체제 내에서 IP 주소 할당을 DHCP로 다시 변경하고 가상 머신을 다시 시작합니다.
+1. 가상 머신이 Azure DHCP 서버에서 주소를 받는지 확인합니다. 일단 주소를 받으면, 해당 IP 주소의 할당을 운영 체제 내의 DHCP로 다시 변경하고 가상 머신을 다시 시작합니다.
 2. 가상 머신을 중지(할당 취소)합니다.
 3. Azure 내에서 IP 구성의 IP 주소를 변경합니다.
 4. 가상 머신을 시작합니다.

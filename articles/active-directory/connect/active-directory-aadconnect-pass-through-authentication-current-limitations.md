@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 01/09/2018
 ms.author: billmath
-ms.openlocfilehash: 98de47eab2636277acfd6393a7574ae18487bc6a
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: aee90f278476a899e0d47fc572c4f375bf926de2
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Azure Active Directory 통과 인증: 현재 제한 사항
 
@@ -45,6 +45,8 @@ ms.lasthandoff: 12/13/2017
 - Multi-Factor Authentication에 사용할 앱 암호.
 - [자격 증명이 손실된](../active-directory-reporting-risk-events.md#leaked-credentials) 사용자 검색
 - Azure AD Domain Services를 사용하려면 테넌트에서 암호 해시 동기화를 사용하도록 설정해야 합니다. 따라서 통과 인증_만_ 사용하는 테넌트는 Azure AD Domain Services가 필요한 시나리오에서 사용할 수 없습니다.
+- 통과 인증은 [Azure AD Connect Health](../connect-health/active-directory-aadconnect-health.md)와 통합되지 않습니다.
+- Apple DEP(Apple 장치 등록 프로그램)는 최신 인증을 지원하지 않습니다.  Apple DEP 장치는 통과 인증을 사용하여 도메인에 대해 Intune에 등록하지 못합니다.
 
 >[!IMPORTANT]
 >지원되지 않는 시나리오에_만_ 해당하는 해결 방법으로, Azure AD Connect 마법사의 [선택적 기능](active-directory-aadconnect-get-started-custom.md#optional-features) 페이지에서 암호 해시 동기화를 사용하도록 설정합니다.

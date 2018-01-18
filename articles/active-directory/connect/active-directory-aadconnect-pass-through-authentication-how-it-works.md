@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 01/04/2018
 ms.author: billmath
-ms.openlocfilehash: e8eb95649d9af1c8bf801df82f0f78aae0656d9e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: cd42278048b8162a06af21de04397a959be33586
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-technical-deep-dive"></a>Azure Active Directory 통과 인증: 기술 심층 분석
 이 문서에서는 Azure AD(Azure Active Directory) 통과 인증이 작동하는 방식에 대해 간략히 설명합니다. 심층적인 기술 및 보안 정보는 [보안 심층 분석](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md) 문서를 참조하세요.
@@ -31,7 +31,7 @@ ms.lasthandoff: 12/11/2017
 2. 사용자가 아직 로그인하지 않았으면 해당 사용자는 Azure AD **사용자 로그인** 페이지로 리디렉션됩니다.
 3. 사용자가 Azure AD 로그인 페이지에 사용자 이름과 암호를 입력하고 **로그인** 단추를 선택합니다.
 4. Azure AD에서 로그인 요청을 받으면 공개 키로 암호화된 사용자 이름과 암호를 큐에 넣습니다.
-5. 온-프레미스 인증 에이전트는 큐에서 사용자 이름 및 암호화된 암호를 검색합니다.
+5. 온-프레미스 인증 에이전트는 큐에서 사용자 이름 및 암호화된 암호를 검색합니다. 에이전트는 큐의 요청을 자주 폴링하지 않고, 미리 설정된 영구 연결을 통해 요청을 검색합니다.
 6. 에이전트에서 해당 개인 키를 사용하여 암호를 해독합니다.
 7. 에이전트에서 표준 Windows API(AD FS(Active Directory Federation Services)에서 사용하는 것과 비슷한 메커니즘)를 사용하여 Active Directory에 대한 사용자 이름과 암호의 유효성을 검사합니다. 사용자 이름은 온-프레미스 기본 사용자 이름(일반적으로 `userPrincipalName`) 또는 Azure AD Connect에 구성된 또 다른 특성(`Alternate ID`라고 함) 중 하나일 수 있습니다.
 8. 온-프레미스 Active Directory DC(도메인 컨트롤러)에서 요청을 평가하고, 적절한 응답(성공, 실패, 암호가 만료됨 또는 사용자가 잠겨 있음)을 에이전트에 반환합니다.

@@ -12,23 +12,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 01/05/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 5875cf4cc0938607fa1ff6adf840d513d1fb85bd
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1d0ad06fc7eec07f8e1e0ba47121b6eec01c87df
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="find-unmanaged-cloud-applications-with-cloud-app-discovery"></a>Cloud App Discovery를 사용하여 관리되지 않는 클라우드 응용 프로그램 찾기
 ## <a name="summary"></a>요약
 
-Cloud App Discovery는 Azure Active Directory Premium의 기능으로 조직의 사람들이 사용하는 관리되지 않는 클라우드 응용 프로그램을 검색할 수 있도록 합니다. 오늘날 기업에서 IT 부서가 해당 조직 멤버가 일을 위해 사용하고 있는 클라우드 앱을 일부 인지하지 못하는 경우가 있습니다. 관리자가 회사 데이터에 대한 무단 액세스, 데이터 유출 가능성 및 기타 보안 위험에 대해 우려하는 원인을 쉽게 확인합니다. 인식이 부족하여 이러한 보안 위험을 다루는 계획 수립이 어려울 수 있습니다.
+Azure Active Directory의 Cloud App Discovery는 이제 Microsoft Cloud App Security에서 제공하는 개선된 에이전트 없는 검색 환경을 제공합니다. Cloud App Discovery를 사용하려면 Azure AD Premium P1 자격 증명으로 로그인하기만 하면 됩니다. 이 업데이트는 모든 Azure AD Premium P1 고객이 추가 비용 없이 사용할 수 있습니다. [Azure ad에서 Cloud App Discovery 설정](https://docs.microsoft.com/azure/active-directory/cloudappdiscovery-get-started) 문서부터 시작한 후 [Microsoft Cloud App Security](https://portal.cloudappsecurity.com/)를 시도하세요.
 
-> [!TIP] 
-> [Microsoft Cloud App Security와의 통합](https://portal.cloudappsecurity.com)으로 향상된 Azure AD(Azure Active Directory)의 Cloud App Discovery에 대한 개선 사항을 확인해 보세요.
-
+> [!IMPORTANT] 
+> 에이전트 기반 검색을 제공하는 현재 Azure AD Cloud App Discovery 환경은 2018년 3월 5일에 해제될 예정이며, 이후부터 에이전트는 비활성화되고 데이터는 삭제됩니다. 서비스 중단을 방지하려면 3월 5일 이전에 조치를 취하여 새 환경을 작동하세요.  
+ 
 **클라우드 앱 검색으로 다음을 할 수 있습니다.**
 
 * 사용되고 있는 클라우드 응용 프로그램을 찾고 사용자 수, 트래픽 볼륨 또는 응용 프로그램에 대한 웹 요청 수로 사용 현황을 측정합니다.

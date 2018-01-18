@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/9/2017
+ms.date: 1/5/2018
 ms.author: subramar
-ms.openlocfilehash: 1dacbbef915580b0095ef588f3dafad35daf1bde
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: d541e5a1af5e57cd5956a026d7772076509c8514
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="service-fabric-container-networking-modes"></a>Service Fabric 컨테이너 네트워킹 모드
 
@@ -183,7 +183,7 @@ ms.lasthandoff: 12/08/2017
    |원본 |VirtualNetwork | |
    |대상 | VirtualNetwork | |
    |서비스 | DNS(UDP/53) | |
-   |동작 | 허용  | |
+   |조치 | 허용  | |
    | | |
 
 4. 각 서비스에 대해 응용 프로그램 매니페스트에서 네트워킹 모드를 지정합니다. `<NetworkConfig NetworkType="Open">` **오픈** 네트워킹 모드에서는 서비스가 전용 IP 주소를 갖게 됩니다. 모드를 지정하지 않으면 서비스는 기본적으로 **nat** 모드가 됩니다. 다음 매니페스트 예제에서 `NodeContainerServicePackage1` 및 `NodeContainerServicePackage2` 서비스는 동일한 포트에서 각각 수신 대기할 수 있습니다(두 서비스는 모두 `Endpoint1`에서 수신 대기 중). 오픈 네트워킹 모드를 지정하면 `PortBinding` 구성을 지정할 수 없습니다.
@@ -220,6 +220,16 @@ ms.lasthandoff: 12/08/2017
     >[!NOTE]
     >Linux 클러스터에서는 다른 서비스에 네트워킹 모드를 혼합하는 것이 지원되지 않습니다. 
     >
+
+5. **열기** 모드를 선택하면 서비스 패키지에 코드 패키지가 하나만 있어도, 서비스 매니페스트의 **끝점** 정의가 끝점에 해당하는 코드 패키지를 명시적으로 가리켜야 합니다. 
+   
+   ```xml
+   <Resources>
+     <Endpoints>
+       <Endpoint Name="ServiceEndpoint" Protocol="http" Port="80" CodePackageRef="Code"/>
+     </Endpoints>
+   </Resources>
+   ```
 
 ## <a name="next-steps"></a>다음 단계
 * [Service Fabric 응용 프로그램 모델 이해](service-fabric-application-model.md)

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: joflore
-ms.openlocfilehash: c7cfd156faf6e4cd56f2b9094c3d63515f86cfde
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7ae89241c67655fbcaa747c4cac224b898947f39
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="building-multi-factor-authentication-into-custom-apps-sdk"></a>Multi-Factor Authentication을 사용자 지정 앱(SDK)으로 빌드하기
 
@@ -38,7 +38,7 @@ Azure Active Directory에 등록된 사용자에 대한 액세스 권한이 API�
 
 
 ## <a name="download-the-sdk"></a>SDK 다운로드
-Azure Multi-Factor SDK를 다운로드하려면 [Azure Multi-Factor Auth 공급자](multi-factor-authentication-get-started-auth-provider.md)가 필요합니다.  따라서 Azure MFA, Azure AD Premium 또는 Enterprise Mobility Suite 라이선스가 있는 경우에도 전체 Azure 구독이 필요합니다. SDK가 사용 중단된 이후 SDK 다운로드에 대한 공개 방법이 해제되었습니다. SDK를 다운로드해야 하는 경우 Microsoft에 지원 사례를 열어야 합니다.
+Azure Multi-Factor SDK를 다운로드하려면 [Azure Multi-Factor Auth 공급자](multi-factor-authentication-get-started-auth-provider.md)가 필요합니다.  따라서 Azure MFA, Azure AD Premium 또는 Enterprise Mobility Suite 라이선스가 있는 경우에도 전체 Azure 구독이 필요합니다. SDK가 사용 중단된 이후 SDK 다운로드에 대한 공개 방법이 해제되었습니다. SDK를 다운로드해야 하는 경우 Microsoft에 지원 사례를 열어야 합니다. SDK는 이미 SDK를 사용하는 고객에게만 제공됩니다. 새 고객은 등록되지 않습니다.
 
 ## <a name="whats-in-the-sdk"></a>SDK의 새로운 기능
 SDK에는 다음 항목이 포함되어 있습니다.

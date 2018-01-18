@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: c136016ba885ec9ba999cb72ee6c1d4fc8770a0b
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 5c18444b5a2767ccdd9a61a3bc9218fa4c0aac04
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="child-runbooks-in-azure-automation"></a>Azure Automation의 자식 runbook
 다른 runbook에서 사용할 수 있는 불연속 함수를 사용하여 다시 사용할 수 있는 모듈식 runbook을 작성하는 Azure Automation의 모범 사례입니다. 부모 runbook은 하나 이상의 자식 runbook를 자주 호출하여 필요한 기능을 수행합니다. 두 가지 방법으로 자식 runbook을 호출하고 각각 서로 다른 차이점을 이해하여 다양한 시나리오에 가장 적합하게 결정하도록 합니다.
@@ -30,7 +30,7 @@ runbook 인라인을 호출하면 동일한 작업에서 부모 runbook으로 �
 
 runbook이 게시되면 호출하는 모든 자식 runbook은 이미 게시되어야 합니다. runbook이 컴파일될 때 Azure Automation이 모든 자식 runbook과 연결을 빌드하기 때문입니다. 그렇지 않은 경우 부모 runbook은 올바르게 게시되도록 표시하지만 시작되면 예외를 생성합니다. 이 경우 자식 runbook을 제대로 참조하기 위해 부모 runbook을 다시 게시할 수 있습니다. 자식 runbook 중 하나가 변경되면 연결이 이미 만들어지기 때문에 부모 runbook을 다시 게시할 필요가 없습니다.
 
-인라인을 호출하는 자식 runbook의 매개 변수는 복잡한 개체를 포함한 모든 데이터 형식이 될 수 있습니다. 그리고 Azure 관리 포털을 사용하거나 Start-AzureRmAutomationRunbook cmdlet과 함께 runbook을 시작하는 경우 [JSON 직렬화](automation-starting-a-runbook.md#runbook-parameters)는 없습니다.
+인라인을 호출하는 자식 runbook의 매개 변수는 복잡한 개체를 포함한 모든 데이터 형식이 될 수 있습니다. 그리고 Azure Portal을 사용하거나 Start-AzureRmAutomationRunbook cmdlet과 함께 Runbook을 시작하는 경우 [JSON 직렬화](automation-starting-a-runbook.md#runbook-parameters)는 없습니다.
 
 ### <a name="runbook-types"></a>Runbook 형식
 서로를 호출할 수 있는 형식:
@@ -45,7 +45,7 @@ runbook이 게시되면 호출하는 모든 자식 runbook은 이미 게시되�
 
 인라인 실행을 사용하여 그래픽 또는 PowerShell 워크플로 자식 Runbook을 호출하는 경우 Runbook의 이름만 사용합니다.  PowerShell 자식 Runbook을 호출할 때 이름 앞에 *를 두어야 합니다.\\* 스크립트가 로컬 디렉터리에 위치하는 것을 지정하기 위해. 
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 다음 예제는 세 매개 변수인 복잡한 개체, 정수 및 부울 값을 허용하는 테스트 자식 runbook을 호출합니다. 자식 runbook의 출력을 변수에 할당합니다.  이 경우 자식 Runbook은 PowerShell 워크플로 Runbook입니다.
 
     $vm = Get-AzureRmVM –ResourceGroupName "LabRG" –Name "MyVM"

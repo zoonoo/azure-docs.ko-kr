@@ -14,16 +14,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: 84d6c6b134d74e3d739fd1d65134672f2285787f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 40b684fe5681123f3c32d3984b2725f97b427f1b
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-instance-metadata-service"></a>Azure Instance Metadata Service
 
 
-Azure Instance Metadata Service는 가상 컴퓨터를 관리 및 구성하는 데 사용할 수 있는 가상 컴퓨터 인스턴스를 실행하는 방법에 대한 정보를 제공합니다.
+Azure Instance Metadata Service는 가상 머신을 관리 및 구성하는 데 사용할 수 있는 가상 머신 인스턴스를 실행하는 방법에 대한 정보를 제공합니다.
 여기에는 SKU, 네트워크 구성, 예정된 유지 관리 이벤트 등의 정보가 포함됩니다. 사용 가능한 정보 유형에 대한 자세한 내용은 [메타데이터 범주](#instance-metadata-data-categories)를 참조하세요.
 
 Azure의 Instance Metadata Service는 [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/)를 통해 생성된 모든 IaaS VM에 액세스할 수 있는 REST 끝점입니다. 이 끝점은 VM 내부에서만 액세스할 수 있는 잘 알려진 라우팅이 불가능한 IP 주소(`169.254.169.254`) 에서 사용할 수 있습니다.
@@ -60,7 +60,7 @@ Instance Metadata Service를 쿼리할 때 요청이 실수로 리디렉션되�
 
 ### <a name="retrieving-metadata"></a>메타데이터 검색
 
-인스턴스 메타데이터는 [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/)를 사용하여 생성/관리되는 VM을 실행하는 데 사용할 수 있습니다. 다음 요청을 사용하여 가상 컴퓨터 인스턴스의 모든 데이터 범주에 액세스합니다.
+인스턴스 메타데이터는 [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/)를 사용하여 생성/관리되는 VM을 실행하는 데 사용할 수 있습니다. 다음 요청을 사용하여 가상 머신 인스턴스의 모든 데이터 범주에 액세스합니다.
 
 ```
 curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-04-02"
@@ -85,7 +85,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 ```
 
 ### <a name="security"></a>보안
-Instance Metadata Service 끝점은 라우팅이 불가능한 IP 주소에서 실행 중인 가상 컴퓨터 인스턴스 내부에서만 액세스할 수 있습니다. 또한 `X-Forwarded-For` 헤더가 포함된 모든 요청은 서비스에 의해 거부됩니다.
+Instance Metadata Service 끝점은 라우팅이 불가능한 IP 주소에서 실행 중인 가상 머신 인스턴스 내부에서만 액세스할 수 있습니다. 또한 `X-Forwarded-For` 헤더가 포함된 모든 요청은 서비스에 의해 거부됩니다.
 또한 실제 요청이 의도치 않은 리디렉션의 일환이 아니라 직접적으로 의도된 것이라는 것을 확인하기 위해 요청에 `Metadata: true` 헤더가 포함되어야 합니다. 
 
 ### <a name="error"></a>오류
@@ -211,7 +211,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 }
 ```
 
-#### <a name="retrieving-metadata-in-windows-virtual-machine"></a>Windows 가상 컴퓨터에서 메타데이터 검색
+#### <a name="retrieving-metadata-in-windows-virtual-machine"></a>Windows Virtual Machine에서 메타데이터 검색
 
 **요청**
 
@@ -282,7 +282,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 Data | 설명 | 도입된 버전 
 -----|-------------|-----------------------
 location | VM을 실행하는 Azure 지역 | 2017-04-02 
-name | VM의 이름 | 2017-04-02
+이름 | VM의 이름 | 2017-04-02
 offer | VM 이미지에 대한 정보를 제공합니다. 이 값은 Azure 이미지 갤러리에서 배포된 이미지에 대해서만 표시됩니다. | 2017-04-02
 publisher | VM 이미지 게시자 | 2017-04-02
 sku | VM 이미지에 해당하는 SKU | 2017-04-02
@@ -292,10 +292,10 @@ platformUpdateDomain |  VM을 실행 중인 [업데이트 도메인](manage-avai
 platformFaultDomain | VM을 실행 중인 [장애 도메인](manage-availability.md) | 2017-04-02
 vmId | VM의 [고유 식별자](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) | 2017-04-02
 vmSize | [VM 크기](sizes.md) | 2017-04-02
-subscriptionId | 가상 컴퓨터에 대한 Azure 구독 | 2017-08-01
-tags | 가상 컴퓨터에 대한 [태그](../../azure-resource-manager/resource-group-using-tags.md)  | 2017-08-01
-resourceGroupName | 가상 컴퓨터에 대한 [리소스 그룹](../../azure-resource-manager/resource-group-overview.md) | 2017-08-01
-placementGroupId | 가상 컴퓨터 크기 집합의 [배치 그룹](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) | 2017-08-01
+subscriptionId | Virtual Machine에 대한 Azure 구독 | 2017-08-01
+tags | Virtual Machine에 대한 [태그](../../azure-resource-manager/resource-group-using-tags.md)  | 2017-08-01
+resourceGroupName | Virtual Machine에 대한 [리소스 그룹](../../azure-resource-manager/resource-group-overview.md) | 2017-08-01
+placementGroupId | Virtual Machine 크기 집합의 [배치 그룹](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) | 2017-08-01
 ipv4/privateIpAddress | VM의 로컬 IPv4 주소 | 2017-04-02
 ipv4/publicIpAddress | VM의 공용 IPv4 주소 | 2017-04-02
 subnet/address | VM의 서브넷 주소 | 2017-04-02 
@@ -377,13 +377,16 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 언어 | 예제 
 ---------|----------------
 Ruby     | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.rb
-Go Lang  | https://github.com/Microsoft/azureimds/blob/master/imdssample.go            
-Python   | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.py
+Go  | https://github.com/Microsoft/azureimds/blob/master/imdssample.go            
+파이썬   | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.py
 C++      | https://github.com/Microsoft/azureimds/blob/master/IMDSSample-windows.cpp
 C#       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.cs
 JavaScript | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.js
 PowerShell | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.ps1
 Bash       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.sh
+Perl       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.pl
+자바       | https://github.com/Microsoft/azureimds/blob/master/imdssample.java
+Visual Basic | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.vb
     
 
 ## <a name="faq"></a>FAQ
@@ -391,7 +394,7 @@ Bash       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.sh
    * Instance Metadata Service에서는 `Metadata: true` 헤더를 요청에 포함시켜 전달해야 합니다. REST 호출에서 이 헤더를 전달하면 Instance Metadata Service에 액세스가 허용됩니다. 
 2. VM에 대한 계산 정보를 구할 수 없는 이유가 무엇인가요?
    * 현재 Instance Metadata Service는 Azure Resource Manager를 사용하여 만든 인스턴스만 지원합니다. 나중에 Cloud Service VM에 대한 지원을 추가할 수 있습니다.
-3. 잠시 전에 Azure Resource Manager를 통해 내 가상 컴퓨터를 만들었습니다. 계산 메타데이터 정보가 왜 표시되지 않나요?
+3. 잠시 전에 Azure Resource Manager를 통해 내 Virtual Machine을 만들었습니다. 계산 메타데이터 정보가 왜 표시되지 않나요?
    * 2016년 9월 이후에 생성된 VM의 경우 계산 메타데이터를 표시하려면 [태그](../../azure-resource-manager/resource-group-using-tags.md)를 추가하세요. 이전 VM(2016년 9월 전에 생성된)의 경우 메타데이터를 새로 고치도록 VM에 확장 또는 데이터 디스크를 추가/제거하세요.
 4. 새 버전 2017-08-01용으로 채워진 데이터 중 일부만 표시됩니다.
    * 2016년 9월 이후에 생성된 VM의 경우 계산 메타데이터를 표시하려면 [태그](../../azure-resource-manager/resource-group-using-tags.md)를 추가하세요. 이전 VM(2016년 9월 전에 생성된)의 경우 메타데이터를 새로 고치도록 VM에 확장 또는 데이터 디스크를 추가/제거하세요.
@@ -399,7 +402,7 @@ Bash       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.sh
    * 지수 백오프 시스템을 기반으로 요청을 다시 시도하세요. 문제가 지속되면 Azure 지원에 문의하세요.
 6. 추가 질문/의견은 어디에 공유하나요?
    * 의견은 http://feedback.azure.com에서 알려주세요.
-7. 가상 컴퓨터 확장 집합 인스턴스에 작동하나요?
+7. Virtual Machine Scale Set 인스턴스에 작동하나요?
    * 예, 메타데이터 서비스는 확장 집합 인스턴스에 사용할 수 있습니다. 
 8. 서비스에 대한 지원을 받으려면 어떻게 하나요?
    * 서비스에 대한 지원을 받으려면 Azure Portal에서 긴 다시 시도 후 메타데이터 응답을 받을 수 없는 VM에 대한 지원 요청을 만듭니다. 

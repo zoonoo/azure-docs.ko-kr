@@ -9,24 +9,24 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 10/19/2017
-ms.openlocfilehash: 9e22d96d20f3201a8d1618c5ff1878e99d50ad79
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: a2f67b21293a1a0456b27cad9043be01fdd5274a
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="configure-and-access-server-logs-in-the-azure-portal"></a>Azure Portal에서 서버 로그 구성 및 액세스
 
 Azure Portal에서 [Azure Database for PostgreSQL 서버 로그](concepts-server-logs.md)를 구성, 나열 및 다운로드할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 이 방법 가이드를 단계별로 실행하려면 다음이 필요합니다.
 - [Azure Database for PostgreSQL 서버](quickstart-create-server-database-portal.md)
 
 ## <a name="configure-logging"></a>로깅 구성
 쿼리 로그 및 오류 로그에 대한 액세스를 구성합니다. 
 
-1. [Azure 포털](http://portal.azure.com/)에 로그인합니다.
+1. [Azure Portal](http://portal.azure.com/)에 로그인합니다.
 
 2. Azure Database for PostgreSQL 서버를 선택합니다.
 

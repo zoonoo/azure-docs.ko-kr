@@ -1,5 +1,5 @@
 ---
-title: "Azure 청구서 이해 | Microsoft Docs"
+title: "Azure 청구서 이해"
 description: "Azure 구독에 대한 사용량 및 청구를 읽고 이해하는 방법에 대해 알아봅니다."
 services: 
 documentationcenter: 
@@ -14,13 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
 ms.author: tonguyen
-ms.openlocfilehash: edd4702ccab9162329bf83993d236eec9ec40b3f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 54de5e123dbb51948eb62d90b444ebd78f9879cb
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="understand-terms-on-your-microsoft-azure-invoice"></a>Microsoft Azure 청구서의 조건 이해
+
 청구서는 요금에 대한 요약을 제공하고 결제에 대한 지침을 제공합니다. [Azure Portal](https://portal.azure.com/)에서 .pdf(Portable Document Format)로 다운로드하고 전자 메일을 통해 전송할 수 있습니다. 자세한 내용은 [Azure 청구서 및 일간 사용 현황 데이터를 받는 방법](billing-download-azure-invoice-daily-usage-date.md)을 참조하세요.
 
 주의할 몇 가지 사항:
@@ -31,9 +32,7 @@ ms.lasthandoff: 10/11/2017
 
 -   전 세계 고객용 청구 명세서에 나열된 요금은 예측 용도로만 사용합니다. 은행이 전환율에 대해 서로 다른 비용을 부과하기 때문입니다.
 
-<div style="padding-top: 56.25%; position: relative; width: 100%;">
-<iframe style="position: absolute;top: 0;left: 0;right: 0;bottom: 0;" width="100%" height="100%" src="https://www.youtube.com/embed/jWG1lyJe3Mg" frameborder="0" allowfullscreen></iframe>
-</div>
+>[!VIDEO https://www.youtube.com/embed/jWG1lyJe3Mg]
 
 ## <a name="detailed-terms-and-descriptions-of-your-invoice"></a>청구서에 대한 자세한 용어 및 설명
 다음 섹션에서는 청구서에 표시되는 중요한 용어와 각 용어에 대한 설명을 제공합니다.
@@ -100,7 +99,7 @@ ms.lasthandoff: 10/11/2017
 | 용어 |설명 |
 | --- | --- |
 | 이름 |사용 현황의 최상위 서비스를 식별합니다. |
-| 형식 |요율에 영향을 줄 수 있는 Azure 서비스 유형을 정의합니다. |
+| type |요율에 영향을 줄 수 있는 Azure 서비스 유형을 정의합니다. |
 | 리소스 |사용 중인 미터에 대한 측정 단위를 식별합니다. |
 | 지역 |데이터 센터 위치에 따라 가격이 책정되는 특정 서비스에 대한 데이터 센터의 위치를 식별합니다. |
 | 사용 |청구 기간 동안 사용된 미터의 양입니다. |

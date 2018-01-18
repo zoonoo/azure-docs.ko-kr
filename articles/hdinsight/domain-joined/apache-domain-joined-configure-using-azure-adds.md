@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/10/2017
 ms.author: saurinsh
-ms.openlocfilehash: cf8532334f03f72691fa09e8dbdd02b78072cf38
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: c5ab129e87c8c7903972bd94286ba0368037a738
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="configure-domain-joined-hdinsight-clusters-using-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services를 사용하여 도메인에 가입된 HDInsight 클러스터 구성
 
@@ -50,7 +50,7 @@ Azure AD 도메인 서비스와 HDInsight 클러스터를 동일한 Azure VNet(�
 도메인에 가입된 HDInsight 클러스터를 만드는 경우 다음 매개 변수를 제공해야 합니다.
 
 - **도메인 이름**: Azure AD DS와 연결된 도메인 이름입니다. 예: contoso.onmicrosoft.com.
-- **도메인 사용자 이름**: 이전 섹션에서 만든 Azure AD DC Administrators 그룹의 서비스 계정입니다. 예: hdiadmin@contoso.onmicrosoft.com. 이 도메인 사용자는 이 도메인에 가입된 HDInsight 클러스터의 관리자입니다.
+- **도메인 사용자 이름**: 이전 섹션에서 만든 Azure AD DC Administrators 그룹의 서비스 계정입니다. 예: hdiadmin@contoso.onmicrosoft.com 이 도메인 사용자는 이 도메인에 가입된 HDInsight 클러스터의 관리자입니다.
 - **도메인 암호**: 서비스 계정의 암호입니다.
 - **조직 구성 단위**: HDInsight 클러스터에 사용하려는 OU의 고유한 이름입니다. 예: OU=HDInsightOU,DC=contoso,DC=onmicrosohift,DC=com. 이 OU가 없을 경우 HDInsight 클러스터는 이 OU를 만들려고 시도합니다. 
 - **LDAPS URL**: 예, ldaps://contoso.onmicrosoft.com:636

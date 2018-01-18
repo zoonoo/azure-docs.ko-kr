@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/13/2017
 ms.author: mbullwin
-ms.openlocfilehash: 384f875702f2dee3bf0e806675a7df9f190d93bd
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: afdef7898ef68930ef702ddf67baaadae9360236
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Application Insights 및 Log Analytics에 사용된 IP 주소
 [Azure Application Insights](app-insights-overview.md) 서비스는 많은 IP 주소를 사용합니다. 모니터링하는 앱이 방화벽 뒤에서 호스팅되는 경우 이러한 주소를 알아야 할 수도 있습니다.
@@ -135,6 +135,7 @@ SE : Stockholm
 94.245.78.41
 94.245.78.42
 94.245.78.45
+GB : United Kingdom
 51.141.25.219
 51.141.32.101
 51.141.35.167
@@ -262,7 +263,7 @@ US : VA-Ashburn
 
 | 목적 | URI | IP | 포트 |
 | --- | --- | --- | --- |
-| 에이전트 | agent.azureserviceprofiler.net<br/>*.agent.azureserviceprofiler.net | 동적 | 443
+| 에이전트 | agent.azureserviceprofiler.net<br/>*.agent.azureserviceprofiler.net | 51.143.96.206<br/>51.143.98.157<br/>52.161.8.88<br/>52.161.29.225<br/>52.178.149.106<br/>52.178.147.66<br/>40.68.32.221<br/>104.40.217.71 | 443
 | 포털 | gateway.azureserviceprofiler.net | 동적 | 443
 | Storage | *.core.windows.net | 동적 | 443
 
@@ -270,6 +271,6 @@ US : VA-Ashburn
 
 | 목적 | URI | IP | 포트 |
 | --- | --- | --- | --- |
-| 에이전트 | ppe.azureserviceprofiler.net<br/>*.ppe.azureserviceprofiler.net | 동적 | 443
+| 에이전트 | ppe.azureserviceprofiler.net<br/>*.ppe.azureserviceprofiler.net | 23.101.68.84<br/>52.174.44.101<br/>52.250.121.195<br/>51.143.88.187<br/> | 443
 | 포털 | ppe.gateway.azureserviceprofiler.net | 동적 | 443
 | Storage | *.core.windows.net | 동적 | 443

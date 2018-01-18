@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2015
 ms.author: mbullwin
-ms.openlocfilehash: e935350fbcdeb7a3192778b3dafb288aac281886
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 8d008727d964df56d128265b632dafa4ab776f98
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>연습: Stream Analytics를 사용하여 Application Insights에서 SQL로 내보내기
 이 문서에서는 [연속 내보내기][export] 및 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)을 사용하여 [Azure Application Insights][start]에서 Azure SQL Database로 원격 분석 데이터를 이동하는 방법을 보여줍니다. 
@@ -141,29 +141,29 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 이 샘플에서 페이지 보기에서 데이터를 사용합니다. 사용 가능한 다른 데이터를 보려면 JSON 출력을 검사하고 [데이터 모델 내보내기](app-insights-export-data-model.md)를 참조합니다.
 
 ## <a name="create-an-azure-stream-analytics-instance"></a>Azure Stream Analytics 인스턴스 만들기
-[클래식 Azure Portal](https://manage.windowsazure.com/)에서 Azure Stream Analytics 서비스를 선택하고 새 Stream Analytics 작업을 만듭니다.
+[Azure Portal](https://portal.azure.com/)에서 Azure Stream Analytics 서비스를 선택하고 새 Stream Analytics 작업을 만듭니다.
 
-![](./media/app-insights-code-sample-export-sql-stream-analytics/37-create-stream-analytics.png)
+![](./media/app-insights-code-sample-export-sql-stream-analytics/SA001.png)
 
-![](./media/app-insights-code-sample-export-sql-stream-analytics/38-create-stream-analytics-form.png)
+![](./media/app-insights-code-sample-export-sql-stream-analytics/SA002.png)
 
-새 작업이 만들어지면 해당 세부 정보를 확장합니다.
+새 작업이 만들어질 때 **리소스로 이동**을 선택합니다.
 
-![](./media/app-insights-code-sample-export-sql-stream-analytics/41-sa-job.png)
+![](./media/app-insights-code-sample-export-sql-stream-analytics/SA003.png)
 
-#### <a name="set-blob-location"></a>Blob 위치 설정
+#### <a name="add-a-new-input"></a>새 입력 추가
+
+![](./media/app-insights-code-sample-export-sql-stream-analytics/SA004.png)
+
 연속 내보내기 Blob에서 입력을 가져오도록 설정합니다.
 
-![](./media/app-insights-code-sample-export-sql-stream-analytics/42-sa-wizard1.png)
+![](./media/app-insights-code-sample-export-sql-stream-analytics/SA005.png)
 
 이제 앞에서 기록해 둔 Storage 계정의 기본 액세스 키가 필요합니다. 이 키를 Storage 계정 키로 설정합니다.
 
-![](./media/app-insights-code-sample-export-sql-stream-analytics/46-sa-wizard2.png)
-
 #### <a name="set-path-prefix-pattern"></a>경로 접두사 패턴 설정
-![](./media/app-insights-code-sample-export-sql-stream-analytics/47-sa-wizard3.png)
 
-날짜 형식을 **YYYY-MM-DD**(**파선** 포함)로 설정해야 합니다.
+**날짜 형식을 YYYY-MM-DD(파선 포함)로 설정해야 합니다.**
 
 경로 접두사 패턴은 Stream Analytics가 저장소에서 입력 파일을 찾는 방법을 지정합니다. 연속 내보내기에서 데이터를 저장하는 방법과 일치하도록 설정해야 합니다. 다음과 같이 설정합니다.
 
@@ -178,22 +178,12 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 
 Application Insights 리소스의 이름 및 iKey를 가져오려면 해당 개요 페이지에서 필수 항목을 열거나 설정을 엽니다.
 
-#### <a name="finish-initial-setup"></a>초기 설치 완료
-직렬화 형식을 확인합니다.
-
-![마법사 확인 후 닫기](./media/app-insights-code-sample-export-sql-stream-analytics/48-sa-wizard4.png)
-
-마법사를 닫고 설치가 완료될 때까지 기다립니다.
-
 > [!TIP]
 > 샘플 함수를 사용하여 입력 경로가 올바르게 설정되었는지 확인합니다. 실패한 경우 선택한 샘플 시간 범위에 대한 저장소에 데이터가 있는지 확인합니다. 입력 정의를 편집하고 저장소 계정, 경로 접두사 및 날짜 형식이 올바르게 설정되었는지 확인합니다.
 > 
 > 
-
 ## <a name="set-query"></a>쿼리 설정
 쿼리 섹션을 엽니다.
-
-![스트림 분석에서 쿼리 선택](./media/app-insights-code-sample-export-sql-stream-analytics/51-query.png)
 
 기본 쿼리를 다음으로 바꿉니다.
 
@@ -238,22 +228,20 @@ Application Insights 리소스의 이름 및 iKey를 가져오려면 해당 개�
 ## <a name="set-up-output-to-database"></a>데이터베이스에 출력 설정
 SQL을 출력으로 선택합니다.
 
-![스트림 분석에서 출력 선택](./media/app-insights-code-sample-export-sql-stream-analytics/53-store.png)
+![스트림 분석에서 출력 선택](./media/app-insights-code-sample-export-sql-stream-analytics/SA006.png)
 
 SQL 데이터베이스를 지정합니다.
 
-![데이터베이스의 세부 정보 채우기](./media/app-insights-code-sample-export-sql-stream-analytics/55-output.png)
+![데이터베이스의 세부 정보 채우기](./media/app-insights-code-sample-export-sql-stream-analytics/SA007.png)
 
 마법사를 닫고 출력이 설정되었다는 알림이 표시될 때까지 기다립니다.
 
 ## <a name="start-processing"></a>처리 시작
 작업 모음에서 작업을 시작합니다.
 
-![스트림 분석에서 시작 클릭](./media/app-insights-code-sample-export-sql-stream-analytics/61-start.png)
+![스트림 분석에서 시작 클릭](./media/app-insights-code-sample-export-sql-stream-analytics/SA008.png)
 
 지금부터의 데이터를 처리할 것인지 아니면 이전 데이터부터 처리할 것인지를 선택할 수 있습니다. 후자는 연속 내보내기를 이미 한동안 실행한 경우 유용합니다.
-
-![스트림 분석에서 시작 클릭](./media/app-insights-code-sample-export-sql-stream-analytics/63-start.png)
 
 몇 분 후에 SQL Server 관리 도구로 돌아가서 데이터 흐름을 확인합니다. 예를 들어 다음과 같은 쿼리를 사용합니다.
 
@@ -261,7 +249,7 @@ SQL 데이터베이스를 지정합니다.
     FROM [dbo].[PageViewsTable]
 
 
-## <a name="related-articles"></a>관련된 문서
+## <a name="related-articles"></a>관련 문서
 * [Stream Analytics를 사용하여 PowerBI로 내보내기](app-insights-export-power-bi.md)
 * [속성 형식 및 값에 대한 자세한 데이터 모델 참조입니다.](app-insights-export-data-model.md)
 * [Application Insights에서 연속 내보내기](app-insights-export-telemetry.md)

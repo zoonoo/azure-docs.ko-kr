@@ -9,11 +9,11 @@ ms.author: v-masebo
 ms.date: 11/28/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 5c9231f400b00f455f30692c58f007bd63d3cc76
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: f40fb81fc03e796b906db12bf3bf6904b27b46eb
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="deploy-azure-stream-analytics-as-an-iot-edge-module---preview"></a>Azure Stream Analytics를 IoT Edge 모듈로 배포 - 미리 보기
 
@@ -36,7 +36,7 @@ ASA(Azure Stream Analytics)는 클라우드 및 IoT Edge 장치 둘 다에서 �
 > * 새 Azure Stream Analytics 작업을 다른 IoT Edge 모듈에 연결합니다.
 > * Azure Stream Analytics 작업을 IoT Edge 장치에 배포합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * IoT Hub 
 * 빠른 시작 또는 [Windows][lnk-tutorial1-win] 및 [Linux][lnk-tutorial1-lin]의 시뮬레이트된 장치에 Azure IoT Edge 배포하는 작업에 대한 문서에서 만들어 구성한 장치 장치 연결 키 및 장치 ID를 알고 있어야 합니다. 
@@ -75,9 +75,9 @@ Azure Stream Analytics 작업에서 출력으로 사용할 끝점을 제공하�
 
     a. **작업 이름** 상자에 작업 이름을 입력합니다.
     
-    b. **호스팅 환경** 아래에서 **에지**를 선택합니다.
+    나. **호스팅 환경** 아래에서 **에지**를 선택합니다.
     
-    c. 나머지 필드에서 기본값을 사용합니다.
+    다. 나머지 필드에서 기본값을 사용합니다.
 
     > [!NOTE]
     > 현재 IoT Edge의 Azure Stream Analytics 작업은 미국 서부 2 지역에서 지원되지 않습니다. 
@@ -90,9 +90,9 @@ Azure Stream Analytics 작업에서 출력으로 사용할 끝점을 제공하�
 
     a. **입력 별칭** 상자에 **온도**를 입력합니다.
     
-    b. **원본 형식** 상자에서 **데이터 스트림**을 선택합니다.
+    나. **원본 형식** 상자에서 **데이터 스트림**을 선택합니다.
     
-    c. 나머지 필드에서 기본값을 사용합니다.
+    다. 나머지 필드에서 기본값을 사용합니다.
 
    ![Azure Stream Analytics 입력](./media/tutorial-deploy-stream-analytics/asa_input.png)
 
@@ -104,9 +104,9 @@ Azure Stream Analytics 작업에서 출력으로 사용할 끝점을 제공하�
 
     a. **출력 별칭** 상자에서 **경고**를 입력합니다.
     
-    b. 나머지 필드에서 기본값을 사용합니다. 
+    나. 나머지 필드에서 기본값을 사용합니다. 
     
-    c. **만들기**를 선택합니다.
+    다. **만들기**를 선택합니다.
 
    ![Azure Stream Analytics 출력](./media/tutorial-deploy-stream-analytics/asa_output.png)
 
@@ -137,9 +137,9 @@ Azure Stream Analytics 작업에서 출력으로 사용할 끝점을 제공하�
 
    a. **IoT Edge 모듈 추가**를 선택합니다.
 
-   b. 이름으로 **tempSensor**를 입력합니다.
+   나. 이름으로 **tempSensor**를 입력합니다.
     
-   c. 이미지의 URI로 **microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview**를 입력합니다. 
+   다. 이미지의 URI로 **microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview**를 입력합니다. 
 
    d. 다른 설정은 변경하지 말고 그대로 둡니다.
    
@@ -153,7 +153,7 @@ Azure Stream Analytics 작업에서 출력으로 사용할 끝점을 제공하�
 
     ![모듈 설정][6]
 
-6. Azure Stream Analytics 모듈에 대해 자동으로 생성된 이름을 복사합니다. 
+6. Azure Stream Analytics 모듈의 이름을 복사합니다. 
 
     ![온도 모듈][11]
 

@@ -15,15 +15,16 @@ ms.workload: na
 ms.date: 10/19/2017
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: afadedf72562452e4d57d4545efe59cd8d37c907
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 3b2b2877efe5f898b5759c03ac0ddcf3ecc03901
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>IoT Hub의 장치 쌍 이해 및 사용
 
 *장치 쌍*은 메타데이터, 상태 및 조건을 포함하는 장치의 상태 정보를 저장하는 JSON 문서입니다. Azure IoT Hub는 IoT Hub에 연결하는 각 장치에 대해 하나의 장치 쌍을 유지합니다. 이 문서에서는 다음을 설명합니다.
+
 
 * 장치 쌍의 구조: *태그*, *desired* 및 *reported 속성*
 * 장치 앱과 백 엔드가 장치 쌍에 수행할 수 있는 작업
@@ -51,8 +52,7 @@ desired 속성, 직접 메서드 또는 클라우드-장치 메시지 사용에 
 * **태그**. 솔루션 백 엔드에서 읽고 쓸 수 있는 JSON 문서의 섹션입니다. 태그는 장치 앱에 표시되지 않습니다.
 * **desired 속성**. reported 속성과 함께 장치 구성 또는 상황을 동기화하는 데 사용됩니다. 솔루션 백 엔드는 원하는 속성을 설정할 수 있으며 장치 앱에서 이를 읽을 수 있습니다. 장치 앱에서도 desired 속성의 변경 내용 알림을 수신할 수 있습니다.
 * **reported 속성**. desired 속성과 함께 장치 구성 또는 상황을 동기화하는 데 사용됩니다. 장치 앱은 reported 속성을 설정할 수 있으며 솔루션 백 엔드는 이를 읽고 쿼리할 수 있습니다.
-
-또한 장치 쌍 JSON 문서의 루트에는 [ID 레지스트리][lnk-identity]에 포함된 해당 장치 ID의 읽기 전용 속성이 포함됩니다.
+* **장치 ID 속성**. 장치 쌍 JSON 문서의 루트에는 [ID 레지스트리][lnk-identity]에 포함된 해당 장치 ID의 읽기 전용 속성이 포함됩니다.
 
 ![][img-twin]
 
@@ -60,13 +60,19 @@ desired 속성, 직접 메서드 또는 클라우드-장치 메시지 사용에 
 
         {
             "deviceId": "devA",
-            "generationId": "123",
+            "etag": "AAAAAAAAAAc=", 
             "status": "enabled",
             "statusReason": "provisioned",
+            "statusUpdateTime": "0001-01-01T00:00:00",
             "connectionState": "connected",
-            "connectionStateUpdatedTime": "2015-02-28T16:24:48.789Z",
             "lastActivityTime": "2015-02-30T16:24:48.789Z",
-
+            "cloudToDeviceMessageCount": 0, 
+            "authenticationType": "sas",
+            "x509Thumbprint": {     
+                "primaryThumbprint": null, 
+                "secondaryThumbprint": null 
+            }, 
+            "version": 2, 
             "tags": {
                 "$etag": "123",
                 "deploymentLocation": {
@@ -94,7 +100,7 @@ desired 속성, 직접 메서드 또는 클라우드-장치 메시지 사용에 
             }
         }
 
-루트 개체에는 시스템 속성과 `tags`, `reported` 및 `desired` 속성의 컨테이너 개체가 있습니다. `properties` 컨테이너에는 [장치 쌍 메타데이터][lnk-twin-metadata] 및 [낙관적 동시성][lnk-concurrency] 섹션에서 설명한 몇 가지 읽기 전용 요소(`$metadata`, `$etag` 및 `$version`)가 포함됩니다.
+루트 개체에는 장치 ID 속성과 `tags`, `reported` 및 `desired` 속성의 컨테이너 개체가 있습니다. `properties` 컨테이너에는 [장치 쌍 메타데이터][lnk-twin-metadata] 및 [낙관적 동시성][lnk-concurrency] 섹션에서 설명한 몇 가지 읽기 전용 요소(`$metadata`, `$etag` 및 `$version`)가 포함됩니다.
 
 ### <a name="reported-property-example"></a>reported 속성 예
 이전 예제에서 장치 쌍에 `batteryLevel` 속성이 포함되어 있으며 이것은 장치 앱에 의해 보고됩니다. 이 속성은 마지막으로 보고된 배터리 수준에 기반하여 장치에서 쿼리 및 작업을 가능하게 합니다. 다른 예제에는 장치 앱 보고 장치 기능 또는 연결 옵션이 포함됩니다.
@@ -103,7 +109,7 @@ desired 속성, 직접 메서드 또는 클라우드-장치 메시지 사용에 
 > reported 속성은 솔루션 백 엔드가 마지막으로 알려진 속성 값에 관여하는 시나리오를 간소화합니다. 솔루션 백 엔드에서 타임스탬프가 적용된 이벤트 시퀀스(예: 시계열)의 형태로 장치 원격 분석을 처리해야 하는 경우 [장치-클라우드 메시지][lnk-d2c]를 사용합니다.
 
 ### <a name="desired-property-example"></a>desired 속성 예제
-이전 예제에서 `telemetryConfig` 장치 쌍 desired 및 reported 속성은 솔루션 백 엔드 및 장치 앱에서 이 장치의 원격 분석 구성을 동기화하는 데 사용됩니다. 예:
+이전 예제에서 `telemetryConfig` 장치 쌍 desired 및 reported 속성은 솔루션 백 엔드 및 장치 앱에서 이 장치의 원격 분석 구성을 동기화하는 데 사용됩니다. 예: 
 
 1. 솔루션 백 엔드는 desired 구성 값으로 desired 속성을 설정합니다. 다음은 desired 속성 집합이 포함된 문서의 일부분입니다.
    
@@ -240,13 +246,13 @@ desired 속성, 직접 메서드 또는 클라우드-장치 메시지 사용에 
 * 모든 문자열 값의 길이는 최대 4KB입니다.
 
 ## <a name="device-twin-size"></a>장치 쌍 크기
-IoT Hub는 `tags`, `properties/desired` 및 `properties/reported`의 총 값에 8KB의 크기 제한을 적용합니다. 읽기 전용 요소는 제외됩니다.
+IoT Hub는 `tags`, `properties/desired` 및 `properties/reported`의 총 값 각각에 8KB의 크기 제한을 적용합니다. 읽기 전용 요소는 제외됩니다.
 크기는 문자열 상수 외부의 유니코드 제어 문자(세그먼트 C0 및 C1) 및 공백을 제외한 모든 문자의 개수를 세어서 계산됩니다.
 IoT Hub는 한도 이상으로 해당 문서의 크기를 증가시키는 모든 작업을 오류와 함께 거부합니다.
 
 ## <a name="device-twin-metadata"></a>장치 쌍 메타데이터
 IoT Hub는 장치 쌍 desired 또는 reported 속성의 각 JSON 개체에 대한 마지막 업데이트의 타임스탬프를 유지합니다. 타임스탬프는 UTC 형식이며 [ISO8601] 형식 `YYYY-MM-DDTHH:MM:SS.mmmZ`로 인코딩됩니다.
-예:
+예: 
 
         {
             ...

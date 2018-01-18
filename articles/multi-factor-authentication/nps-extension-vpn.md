@@ -16,11 +16,11 @@ ms.date: 08/15/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: 1879fc3d45e1a79fe5edd1ae1cf0d7060fd327ae
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1141245739f86a482bb0b5f550fd3b89d1213ce1
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Azure용 네트워크 정책 서버 확장을 사용하여 VPN 인프라를 Azure MFA와 통합
 
@@ -84,7 +84,7 @@ Azure용 NPS 확장을 NPS와 통합한 경우 성공적인 인증 흐름 결과
 
 8. 사용자가 VPN 서버의 가상 포트에 대한 액세스 권한을 부여받고 암호화된 VPN 터널을 설정합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 이 섹션에서는 MFA와 원격 데스크톱 게이트웨이를 통합하기 전에 완료해야 하는 필수 조건에 대해 자세히 설명합니다. 이 문서를 시작하기 전에 다음과 같은 필수 조건이 있어야 합니다.
 
 * VPN 인프라
@@ -171,8 +171,7 @@ NPS 확장을 설치하려면 Azure Active Directory의 GUID를 알고 있어야
 
 4. **전화 접속 또는 VPN 서버 지정** 창에서 **추가**를 선택합니다.
 
-5. **새 RADIUS 클라이언트** 창에서 친숙한 이름을 제공하고, VPN 서버의 확인할 수 있는 이름 또는 IP 주소를 입력한 다음, 공유 비밀 암호를 입력합니다.  
-    이 공유 비밀 암호는 길고 복잡하게 만들고, 다음 섹션에서 필요하므로 적어둡니다.
+5. **새 RADIUS 클라이언트** 창에서 친숙한 이름을 제공하고, VPN 서버의 확인할 수 있는 이름 또는 IP 주소를 입력한 다음, 공유 비밀 암호를 입력합니다. 이 공유 비밀 암호는 길고 복잡하게 만들고, 다음 섹션에서 필요하므로 적어둡니다.
 
     ![새 RADIUS 클라이언트](./media/nps-extension-vpn/image5.png)
 
@@ -183,8 +182,7 @@ NPS 확장을 설치하려면 Azure Active Directory의 GUID를 알고 있어야
     > [!NOTE]
     > EAP(Extensible Authentication Protocol)를 구성하는 경우 Microsoft CHAPv2(Challenge Handshake Authentication Protocol) 또는 PEAP(Protected Extensible Authentication Protocol)를 사용해야 합니다. 다른 EAP는 지원되지 않습니다.
  
-8. **사용자 그룹 지정** 창에서 **추가**를 선택하고 해당 그룹을 선택합니다.  
-    그룹이 없으면 선택 사항을 비워 두어 모든 사용자에게 액세스 권한을 부여합니다.
+8. **사용자 그룹 지정** 창에서 **추가**를 선택하고 해당 그룹을 선택합니다. 그룹이 없으면 선택 사항을 비워 두어 모든 사용자에게 액세스 권한을 부여합니다.
 
     ![사용자 그룹 지정 창](./media/nps-extension-vpn/image7.png)
 
@@ -209,20 +207,17 @@ NPS 확장을 설치하려면 Azure Active Directory의 GUID를 알고 있어야
 
 1. 네트워크 정책 서버의 NPS(로컬) 콘솔에서 **RADIUS 클라이언트**를 펼치고 **RADIUS 클라이언트**를 선택합니다.
 
-2. 세부 정보 창에서 만든 RADIUS 클라이언트를 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다.  
-    RADIUS 클라이언트(VPN 서버)의 속성은 아래와 같습니다.
+2. 세부 정보 창에서 만든 RADIUS 클라이언트를 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다. RADIUS 클라이언트(VPN 서버)의 속성은 아래와 같습니다.
 
     ![VPN 속성](./media/nps-extension-vpn/image11.png)
 
 3. **취소**를 선택합니다.
 
-4. 네트워크 정책 서버의 NPS(로컬) 콘솔에서 **정책**을 펼치고 **연결 요청 정책**을 선택합니다.  
-    아래 이미지와 같이 VPN 연결 정책이 표시됩니다.
+4. 네트워크 정책 서버의 NPS(로컬) 콘솔에서 **정책**을 펼치고 **연결 요청 정책**을 선택합니다. 아래 이미지와 같이 VPN 연결 정책이 표시됩니다.
 
     ![연결 요청](./media/nps-extension-vpn/image12.png)
 
-5. **정책** 아래에서 **네트워크 정책**을 선택합니다.  
-    아래 이미지의 정책과 비슷한 VPN(가상 사설망) 연결 정책이 표시됩니다.
+5. **정책** 아래에서 **네트워크 정책**을 선택합니다. 아래 이미지의 정책과 비슷한 VPN(가상 사설망) 연결 정책이 표시됩니다.
 
     ![네트워크 정책](./media/nps-extension-vpn/image13.png)
 
@@ -254,9 +249,9 @@ NPS 확장을 설치하려면 Azure Active Directory의 GUID를 알고 있어야
 
     a. **서버 이름** 상자에서 이전 섹션에서 구성한 RADIUS 서버의 이름 또는 IP 주소를 입력합니다.
 
-    b. **공유 비밀**에서 **변경**을 선택하고 이전에 만들어 기록해 둔 공유 비밀 암호를 입력합니다.
+    나. **공유 비밀**에서 **변경**을 선택하고 이전에 만들어 기록해 둔 공유 비밀 암호를 입력합니다.
 
-    c. **시간 제한(초)** 상자에서 **30** ~ **60** 사이의 값을 선택합니다.  
+    다. **시간 제한(초)** 상자에서 **30** ~ **60** 사이의 값을 선택합니다.  
     이 시간 제한 값은 두 번째 인증 요소를 완료할 수 있을 만큼 충분한 시간을 허용하는 데 필요합니다.
  
     ![RADIUS 서버 추가 창](./media/nps-extension-vpn/image16.png)
@@ -305,7 +300,8 @@ NPS 확장을 설치하려면 Azure Active Directory의 GUID를 알고 있어야
 
     ![이벤트 속성 창](./media/nps-extension-vpn/image21.png)
 
-## <a name="troubleshooting-guide"></a>문제 해결 가이드
+## <a name="troubleshooting-radius"></a>RADIUS 문제 해결
+
 인증 및 권한 부여를 위해 중앙 집중식 RADIUS 서버를 사용하도록 VPN 서버를 구성하기 전에 VPN 구성이 작동하고 있다고 가정합니다. 구성이 작동하는 경우 RADIUS 서버의 잘못된 구성 또는 잘못된 사용자 이름 또는 암호의 사용으로 인해 문제가 발생한 것일 수 있습니다. 예를 들어 사용자 이름에 대체 UPN 접미사를 사용하는 경우 로그인 시도가 실패할 수 있습니다. 최상의 결과를 얻으려면 동일한 계정 이름을 사용합니다. 
 
 이러한 문제를 해결하려면 RADIUS 서버에서 보안 이벤트 로그를 검사하는 것이 가장 이상적입니다. 이벤트 검색 시간을 줄이기 위해 아래와 같이 이벤트 뷰어에서 역할 기반 네트워크 정책 및 액세스 서버 사용자 지정 보기를 사용할 수 있습니다. 6273 이벤트 ID는 NPS에서 사용자에 대한 액세스를 거부한 이벤트를 나타냅니다. 
@@ -313,96 +309,8 @@ NPS 확장을 설치하려면 Azure Active Directory의 GUID를 알고 있어야
 ![이벤트 뷰어](./media/nps-extension-vpn/image22.png)
  
 ## <a name="configure-multi-factor-authentication"></a>Multi-Factor Authentication 구성
-이 섹션에서는 사용자가 MFA를 사용하도록 설정하고 2단계 인증에 대한 계정을 설정하기 위한 지침을 제공합니다. 
 
-### <a name="enable-multi-factor-authentication"></a>다단계 인증 사용
-이 섹션에서는 Azure AD 계정에서 MFA를 사용하도록 설정할 수 있습니다. Azure 클래식 포털을 사용하여 사용자가 MFA를 사용하도록 설정합니다. 
-
-1. [Microsoft Azure](https://manage.windowsazure.com) 웹 사이트로 이동합니다. 
-
-2. 관리자 권한으로 로그인합니다.
-
-3. 왼쪽 창에서 **Active Directory**를 선택합니다.
-
-    ![기본 디렉터리](./media/nps-extension-vpn/image23.png)
-
-4. **이름** 열에서 **기본 디렉터리**(또는 해당되는 경우 다른 디렉터리)를 선택합니다.
-
-5. **기본 디렉터리** 창에서 **구성**을 선택합니다.
-
-    ![기본 디렉터리 구성](./media/nps-extension-vpn/image24.png)
-
-6. **구성** 창의 **Multi-Factor Authentication** 아래에서 **서비스 설정 관리**를 선택합니다.
-
-    ![Multi-Factor Authentication 설정 관리](./media/nps-extension-vpn/image25.png)
- 
-7. **Multi-Factor Authentication** 창에서 기본 서비스 설정을 검토한 다음 **사용자** 탭을 선택합니다. 
-
-    ![Multi-Factor Authentication 사용자 탭](./media/nps-extension-vpn/image26.png)
- 
-8. **사용자** 탭에서 MFA를 사용하도록 설정할 사용자를 선택한 다음 **사용**을 선택합니다.
-
-    ![properties](./media/nps-extension-vpn/image27.png)
- 
-9. 메시지가 표시되는 경우 **Multi-Factor Auth 사용**을 선택합니다.
-
-    ![다단계 인증 사용](./media/nps-extension-vpn/image28.png)
- 
-10. **닫기**를 선택합니다. 
-
-11. 페이지를 새로 고칩니다.  
-    Multi-Factor Authentication 상태가 *사용*으로 변경됩니다.
-
-사용자가 MFA를 사용하도록 설정하는 방법에 대한 자세한 내용은 [클라우드에서 Azure Multi-Factor Authentication 시작](multi-factor-authentication-get-started-cloud.md)을 참조하세요. 
-
-### <a name="configure-accounts-for-two-step-verification"></a>2단계 인증에 대한 계정 구성
-계정에서 MFA를 사용하도록 설정하면 두 번째 인증 요소에 사용할 신뢰할 수 있는 장치를 성공적으로 구성할 때까지는 사용자가 MFA 정책이 적용되는 리소스에 로그인할 수 없습니다.
-
-이 섹션에서는 2단계 인증에 사용할 신뢰할 수 있는 장치를 구성합니다. 다음과 같은 여러 가지 장치 옵션이 제공됩니다.
-
-* **모바일 앱**: Windows Phone, Android 또는 iOS 장치에 Microsoft Authenticator 앱을 설치합니다. 조직의 정책에 따라 다음 두 가지 모드 중 하나에서 앱을 사용해야 합니다. 
-    * 확인 시 알림 수신(장치로 알림이 푸시됨)
-    * 확인 코드 사용(30초마다 업데이트되는 확인 코드를 입력해야 함) 
-
-* **휴대폰 통화 또는 문자**: 자동 전화 통화 또는 문자 메시지를 받을 수 있습니다. 전화 통화 옵션을 사용하면 호출에 응답하고 파운드(#) 기호를 선택하여 인증합니다. 문자 메시지 옵션을 사용하면 문자 메시지에 회신하거나 로그인 인터페이스에 확인 코드를 입력할 수 있습니다.
-
-* **사무실 전화 통화**: 이 프로세스는 자동 전화 통화에 대해 앞서 설명한 프로세스와 동일합니다.
-
-모바일 앱을 사용하여 확인 시 푸시 알림을 수신하도록 장치를 설정하려면 다음을 수행합니다.
-
-1. MFA 지원 자격 증명을 사용하여 인증을 받아야 하는 [Microsoft Azure](https://aka.ms/mfasetup) 또는 임의 사이트(예: [Azure Portal](https://portal.azure.com))에 로그인합니다.  
-    다음과 같이 추가 보안 확인을 위한 계정을 설정하라는 메시지가 표시됩니다.
-
-    ![추가 보안](./media/nps-extension-vpn/image29.png)
-
-2. **지금 설정**을 선택합니다.
-
-3. **추가 보안 인증** 창에서 연락처 유형(**인증 전화**, **사무실 전화** 또는 **모바일 앱**)을 선택하고 국가 또는 지역을 선택한 후 방법을 선택합니다. **연락처**는 아직 선택하지 않도록 합니다.  
-    방법은 연락처 유형에 따라 다릅니다. 예를 들어 **모바일 앱**을 선택하면 확인 시 알림을 수신할지 또는 확인 코드를 사용할지를 선택할 수 있습니다. 
-
-    ![“추가 보안 인증” 창](./media/nps-extension-vpn/image30.png)
-
-    다음 단계에서는 연락처 유형으로 **모바일 앱**을 선택했다고 가정합니다.
-
-4. **모바일 앱**을 선택하고 **확인 시 알림 수신**을 클릭한 다음 **설정**을 선택합니다. 
-
-    ![“추가 보안 인증” 창](./media/nps-extension-vpn/image31.png)
- 
-5. 장치에 Microsoft Authenticator 모바일 앱을 아직 설치하지 않았으면 설치합니다. 
-
-6. 모바일 앱에서 표시된 바코드를 스캔하거나 정보를 수동으로 입력한 다음 **수행**을 선택합니다.
-
-    ![Microsoft Authenticator 모바일 앱 구성](./media/nps-extension-vpn/image32.png)
-
-7. **추가 보안 인증** 창에서 **연락처**를 선택하고 장치로 전송된 알림에 회신합니다.
-
-8. **추가 보안 인증** 창의 **3단계: 모바일 앱에 액세스할 방법을 잊은 경우**에서 모바일 앱에 액세스할 방법을 잊은 경우 전화할 연락처 번호를 입력하고  **다음**을 선택합니다.
-
-    ![“추가 보안 인증” 창](./media/nps-extension-vpn/image33.png)
- 
-9. **추가 보안 인증** 창에서 **완료**를 선택합니다.
-
-이제 장치는 두 번째 인증 방법을 제공하도록 구성됩니다. 2단계 인증을 위한 계정 설정에 대한 자세한 내용은 [2단계 인증을 위한 계정 설정](./end-user/multi-factor-authentication-end-user-first-time.md)을 참조하세요.
+Multi-Factor Authentication에 대해 사용자를 구성할 때 도움이 필요한 경우 [사용자 또는 그룹에 대해 2단계 인증을 요구하는 방법](multi-factor-authentication-get-started-user-states.md) 및 [2단계 인증에 내 계정 설정](multi-factor-authentication-end-user-first-time.md) 문서를 참조하세요.
 
 ## <a name="install-and-configure-the-nps-extension"></a>NPS 확장 설치 및 구성
 
@@ -470,8 +378,7 @@ NPS 확장은 네트워크 정책 및 액세스 서비스 역할이 설치되고
 
 2. PowerShell 명령 프롬프트에서 **cd c:\Program Files\Microsoft\AzureMfa\Config**를 입력하고 Enter 키를 누릅니다.
 
-3. 다음 명령 프롬프트에서 **.\AzureMfsNpsExtnConfigSetup.ps1**을 입력한 다음 Enter 키를 선택합니다.  
-    스크립트에서 Azure AD PowerShell 모듈이 설치되어 있는지 확인합니다. 설치되어 있지 않으면 스크립트에서 해당 모듈을 설치합니다.
+3. 다음 명령 프롬프트에서 **.\AzureMfsNpsExtnConfigSetup.ps1**을 입력한 다음 Enter 키를 선택합니다. 스크립트에서 Azure AD PowerShell 모듈이 설치되어 있는지 확인합니다. 설치되어 있지 않으면 스크립트에서 해당 모듈을 설치합니다.
  
     ![PowerShell](./media/nps-extension-vpn/image38.png)
  

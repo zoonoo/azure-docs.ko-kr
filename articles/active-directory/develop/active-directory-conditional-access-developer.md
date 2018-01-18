@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory 조건부 액세스를 위한 개발자 지침 | Microsoft Docs"
+title: "Azure Active Directory 조건부 액세스를 위한 개발자 지침"
 description: "Azure AD 조건부 액세스를 위한 개발자 지침 및 시나리오"
 services: active-directory
 keywords: 
@@ -8,17 +8,16 @@ manager: mtillman
 editor: PatAltimore
 ms.author: dadobali
 ms.date: 07/19/2017
-ms.assetid: 115bdab2-e1fd-4403-ac15-d4195e24ac95
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.openlocfilehash: c3b691022b02aa2f3836c4e3a96dd5db7affad76
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 346f19b01460aaa4aeb2c2d97c07ef11924ec80f
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Azure Active Directory 조건부 액세스를 위한 개발자 지침
 
@@ -28,7 +27,7 @@ Azure AD(Active Directory)는 앱과 서비스를 보호하기 위한 여러 가
 * Intune 등록 장치만 특정 서비스에 액세스할 수 있도록 허용
 * 사용자 위치 및 IP 범위 제한
 
-조건부 액세스의 전체 기능에 자세한 내용은 [Azure 클래식 포털에서 조건부 액세스](../active-directory-conditional-access-azure-portal.md)를 참조하세요. 
+조건부 액세스의 전체 기능에 자세한 내용은 [Azure Active Directory의 조건부 액세스](../active-directory-conditional-access-azure-portal.md)를 참조하세요. 
 
 이 문서에서는 조건부 액세스가 Azure AD용 앱을 빌드하는 개발자에게 어떤 의미인지 중점적으로 설명합니다.  [단일](active-directory-integrating-applications.md) 및 [다중 테넌트](active-directory-devhowto-multi-tenant-overview.md) 앱과 [일반 인증 패턴](active-directory-authentication-scenarios.md)에 대한 지식이 있다고 가정합니다.
 
@@ -74,7 +73,7 @@ claims={"access_token":{"polids":{"essential":true,"Values":["<GUID>"]}}}
 
 ## <a name="scenarios"></a>시나리오
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>필수 구성 요소
 
 Azure AD 조건부 액세스는 [Azure AD Premium](../active-directory-whatis.md#choose-an-edition)에 포함된 기능입니다.  [허가되지 않은 사용 현황 보고서](../active-directory-conditional-access-unlicensed-usage-report.md)에서 라이선스 요구 사항에 대해 자세히 알아볼 수 있습니다.  개발자는 Azure AD Premium을 포함하는 Enterprise Mobility Suite에 대한 평가판 구독을 포함하는 [Microsoft Developer Network](https://msdn.microsoft.com/dn308572.aspx)에 참여할 수 있습니다.
 
@@ -218,7 +217,7 @@ error_description=AADSTS50076: Due to a configuration change made by your admini
 
 ## <a name="see-also"></a>참고 항목
 
-* 기능에 대해 자세히 알아보려면 [Azure AD의 조건부 액세스](../active-directory-conditional-access-azure-portal.md)를 참조하세요.
+* 기능에 대해 자세히 알아보려면 [Azure Active Directory의 조건부 액세스](../active-directory-conditional-access-azure-portal.md)를 참조하세요.
 * 더 많은 Azure AD 샘플 코드를 보려면 [샘플의 Github 리포지토리](https://github.com/azure-samples?utf8=%E2%9C%93&q=active-directory)를 참조하세요. 
 * ADAL SDK에 대한 자세한 내용을 보고 참조 설명서에 액세스하려면 [라이브러리 가이드](active-directory-authentication-libraries.md)를 참조하세요.
 * 다중 테넌트 시나리오에 대한 자세한 내용은 [다중 테넌트 패턴을 사용하여 사용자를 로그인하는 방법](active-directory-devhowto-multi-tenant-overview.md)을 참조하세요.

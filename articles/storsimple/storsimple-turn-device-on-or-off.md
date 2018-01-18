@@ -4,7 +4,7 @@ description: "새 StorSimple 장치를 켜고, 종료되었거나 전원이 손�
 services: storsimple
 documentationcenter: 
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 8e9c6e6c-965c-4a81-81bd-e1c523a14c82
 ms.service: storsimple
@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 11/03/2017
+ms.date: 01/09/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e6a6b0ab5c493aa99438f27222d1112053951c97
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 95fd00608be9cfafb4c703c32ec3ed4713855ca5
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="turn-on-or-turn-off-your-storsimple-8000-series-device"></a>StorSimple 8000 시리즈 장치 켜기 또는 끄기
 
@@ -147,16 +147,16 @@ EBOD 인클로저의 두 전원 공급 장치가 실패한 경우 시스템이 �
 * [EBOD 인클로저가 있는 장치](#8600a)
 
 ### <a name="device-with-primary-enclosure-a-name8100a"></a>기본 인클로저가 있는 장치 <a name="8100a">
-제어된 방식으로 올바른 순서에 따라 장치를 종료하려는 경우 Azure 클래식 포털 또는 StorSimple용 Windows PowerShell을 통해 종료할 수 있습니다. 
+제어된 방식으로 올바른 순서에 따라 장치를 종료하려는 경우 Azure Portal 또는 StorSimple용 Windows PowerShell을 통해 종료할 수 있습니다. 
 
 > [!IMPORTANT]
 > 장치 뒷면의 전원 단추를 사용하여 실행 중인 장치를 종료하지 마십시오.
 > 
-> 장치를 종료하기 전에 모든 장치 구성 요소가 올바르게 작동하는지 확인합니다. Azure 클래식 포털에서 **장치** > **유지 관리** > **하드웨어 상태**로 이동한 다음, 모든 구성 요소의 상태가 녹색인지 확인합니다. 양호한 시스템에 대해서만 적용됩니다. 시스템이 종료되어 작동하지 않는 구성 요소를 교체하는 경우 **하드웨어 상태**의 해당 구성 요소에 실패(빨간색) 또는 성능 저하(노란색) 상태가 표시됩니다.
+> 장치를 종료하기 전에 모든 장치 구성 요소가 올바르게 작동하는지 확인합니다. Azure Portal에서 **장치** > **모니터** > **하드웨어 상태**로 이동한 다음, 모든 구성 요소의 상태가 녹색인지 확인합니다. 양호한 시스템에 대해서만 적용됩니다. 시스템이 종료되어 작동하지 않는 구성 요소를 교체하는 경우 **하드웨어 상태**의 해당 구성 요소에 실패(빨간색) 또는 성능 저하(노란색) 상태가 표시됩니다.
 > 
 > 
 
-StorSimple용 Windows PowerShell 또는 Azure 클래식 포털에 액세스한 후 [StorSimple 장치 종료](storsimple-manage-device-controller.md#shut-down-a-storsimple-device)의 단계를 수행합니다. 
+StorSimple용 Windows PowerShell 또는 Azure Portal에 액세스한 후 [StorSimple 장치 종료](storsimple-8000-manage-device-controller.md#shut-down-a-storsimple-device)의 단계를 수행합니다. 
 
 ### <a name="device-with-ebod-enclosure-a-name8600a"></a>EBOD 인클로저가 있는 장치 <a name="8600a">
 > [!IMPORTANT]

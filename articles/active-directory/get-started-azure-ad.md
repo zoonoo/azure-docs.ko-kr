@@ -15,18 +15,18 @@ ms.technology:
 ms.assetid: 
 services: active-directory
 ms.custom: it-pro
-ms.openlocfilehash: eb428b6ce8af85f06506fb9edc2696477d87c70e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9e1a7337c2477455aa0b56f2147f46f3bf5293a8
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="get-started-with-azure-ad"></a>Azure AD 시작
 인증된 사용자에게만 응용 프로그램 및 서비스의 고가용성을 보장하기 위해 최신 ID 관리에는 확장 가능하고 일관된 안정성이 필요합니다. 사용자의 ID 관리 요구를 적절하게 지원하기 위해 IT 부서에는 승인된 공용 SaaS(software as a service) 앱에 대한 액세스를 제공하는 방법, 내부 기간 업무 앱을 호스트하는 방법 및 온-프레미스 앱 개발 및 사용을 강화하는 방법이 필요합니다. 이러한 요구 사항은 모두 클라우드 기반 ID 관리 솔루션의 필요성을 의미합니다.      
 
 Azure AD(Azure Active Directory)는 Microsoft의 다중 테넌트 클라우드 기반 디렉터리 및 ID 관리 서비스입니다. Azure AD는 핵심 디렉터리 서비스, 고급 ID 통제 및 응용 프로그램 액세스 관리 기능을 모두 제공합니다. Azure AD의 다중 테넌트, 지리적으로 분산된 고가용성 디자인은, 중요한 비즈니스 요구사항이 있을 때 Azure AD를 신뢰할 수 있음을 의미합니다.
 
-Azure AD에는 온-프레미스 리소스 정보, 사용자 지정 가능한 회사 브랜딩, 간단한 라이선스 관리 및 셀프서비스 암호 관리를 동기화할 수 있는 기능을 포함한 ID 관리 기능의 전체 도구 모음이 포함됩니다.  이러한 쉽게 설정할 수 있는 기능을 통해 Azure AD를 시작하여 클라우드 기반 응용 프로그램을 보호하고, IT 프로세스를 간소화하고, 비용을 절감하고, 회사의 규정 준수 목표를 충족할 수 있도록 합니다.
+Azure AD에는 온-프레미스 리소스 정보, 사용자 지정 가능한 회사 브랜딩, 간단한 라이선스 관리 및 셀프서비스 암호 관리를 동기화할 수 있는 기능을 포함한 ID 관리 기능의 전체 도구 모음이 포함됩니다. 이러한 쉽게 배포할 수 있는 기능을 통해 Azure AD를 시작하여 클라우드 기반 응용 프로그램을 보호하고, IT 프로세스를 간소화하고, 비용을 절감하고, 회사의 규정 준수 목표를 충족할 수 있도록 합니다.
 
 ![Azure AD ](./media/get-started-azure-ad/Azure_Active_Directory.png)
 
@@ -88,6 +88,6 @@ IT 관리자는 [SSPR(셀프 서비스 암호 재설정)](active-directory-passw
 
 
 ## <a name="next-steps"></a>다음 단계
-[Azure Active Directory 제품 페이지](https://azure.microsoft.com/services/active-directory/)
+[Azure Active Directory 서비스 페이지](https://azure.microsoft.com/services/active-directory/).
 
 [Azure Active Directory 가격 책정 정보 페이지](https://azure.microsoft.com/pricing/details/active-directory/)
