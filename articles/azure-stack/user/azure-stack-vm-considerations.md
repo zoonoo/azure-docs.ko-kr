@@ -3,7 +3,7 @@ title: "차이점 및 스택 Azure의에서 가상 컴퓨터에 대 한 고려 �
 description: "스택에서 Azure 가상 컴퓨터와 작업 하는 경우의 차이점과 고려 사항에 알아봅니다."
 services: azure-stack
 documentationcenter: 
-author: mattbriggs
+author: brenduns
 manager: femila
 editor: 
 ms.assetid: 6613946D-114C-441A-9F74-38E35DF0A7D7
@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2017
-ms.author: mabrigg
-ms.openlocfilehash: 8367f7897581ff9599b763c7a39232bbe6860b8f
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.date: 11/17/2018
+ms.author: brenduns
+ms.openlocfilehash: 6eafa2a5058ef1309cbf50be069ea1bb12f7e5b9
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="considerations-for-virtual-machines-in-azure-stack"></a>Azure 스택의 가상 컴퓨터에 대 한 고려 사항
 
@@ -46,20 +46,20 @@ Azure 스택 다음 크기를 지원합니다.
 
 | type | 크기 | 지원 되는 크기의 범위 |
 | --- | --- | --- |
-|범용 가상 컴퓨터 |Basic A|A0-A 4|
+|범용 가상 컴퓨터 |Basic A|A0 - A4|
 |범용 가상 컴퓨터 |표준 A|A0 - A7|
-|범용 가상 컴퓨터 |D 시리즈|D1-D 4|
-|범용 가상 컴퓨터 |Dv2 시리즈|D1_v2-D5_v2|
-|범용 가상 컴퓨터 |DS 시리즈|DS1-DS4|
-|범용 가상 컴퓨터 |DSv2 시리즈|DS1_v2-DS5_v2|
-|메모리에 최적화|DS 시리즈|DS11-DS14|
-|메모리에 최적화 |DSv2 시리즈|DS11_v2-DS14_v2|
+|범용 가상 컴퓨터 |D 시리즈|D1 - D4|
+|범용 가상 컴퓨터 |Dv2 시리즈|D1_v2 - D5_v2|
+|범용 가상 컴퓨터 |DS 시리즈|DS1 - DS4|
+|범용 가상 컴퓨터 |DSv2 시리즈|DS1_v2 - DS5_v2|
+|메모리에 최적화|DS 시리즈|DS11 - DS14|
+|메모리에 최적화 |DSv2 시리즈|DS11_v2 - DS14_v2|
 
 가상 컴퓨터 크기와 해당 관련된 리소스 수량 Azure 스택와 Azure 간에 일치 됩니다. 예를 들어이 일관성 메모리, 코어 수 및 만들 수 있는 데이터 디스크의 수/크기 걸린 시간이 포함 됩니다. 그러나 Azure 스택에는 동일한 VM 크기의 성능을 특정 Azure 스택 환경의 기본 특성에 따라 달라 집니다.
 
 ## <a name="virtual-machine-extensions"></a>가상 머신 확장
 
- Azure 스택 개발 키트 다음 가상 컴퓨터 확장 버전을 지원합니다.
+ Azure 스택 다음 가상 컴퓨터 확장 버전을 지원합니다.
 
 ![VM 확장](media/azure-stack-vm-considerations/vm-extensions.png)
 
@@ -75,7 +75,7 @@ Get-AzureRmVmImagePublisher -Location local | `
 
 ## <a name="api-versions"></a>API 버전
 
-Azure 스택 개발 키트에 가상 컴퓨터 기능이 다음 API 버전을 지원합니다.
+Azure 스택에서 가상 컴퓨터 기능이 다음 API 버전을 지원합니다.
 
 ![VM 리소스 종류](media/azure-stack-vm-considerations/vm-resoource-types.png)
 

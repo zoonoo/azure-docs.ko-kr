@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: mabrigg
-ms.openlocfilehash: daea97c0f5ee6ef855dc50c1ed6c7934aa85a1c4
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 955b286967ca2bc8450e8988ec16c6a5c352aa8a
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="back-up-azure-stack"></a>Azure 스택 백업
 
@@ -26,13 +26,22 @@ ms.lasthandoff: 01/10/2018
 
 Azure 스택 위치에 백업을 사용 하 여 요청 시 백업을 수행 합니다. 인프라 백업 서비스를 사용 하도록 설정 해야 하는 경우 참조 [관리 포털에서 Azure 스택에 대 한 백업 사용](azure-stack-backup-enable-backup-console.md)합니다.
 
+> [!Note]  
+>  Azure 스택 도구 포함 된 **시작 AzSBackup** cmdlet. 도구를 설치 하는 방법에 지침은 [스택에서 Azure PowerShell을 시작 하 고 실행](https://docs.microsoft.com/azure/azure-stack/azure-stack-powershell-configure-quickstart)합니다.
+
 ## <a name="start-azure-stack-backup"></a>Azure 스택 백업 시작
 
-관리자 권한 프롬프트를 통한 Windows PowerShell을 열고 다음 명령을 실행 합니다.
+연산자 관리 환경에서 관리자 권한 프롬프트를 통한 Windows PowerShell을 열고 다음 명령을 실행 합니다.
 
-   ```powershell
-   Start-AzSBackup -Location $location.Name
-   ```
+```powershell
+    cd C:\tools\AzureStack-Tools-master\Connect
+    Import-Module .\AzureStack.Connect.psm1
+
+    cd C:\tools\AzureStack-Tools-master\Infrastructure
+    Import-Module .\AzureStack.Infra.psm1 
+    
+    Start-AzSBackup -Location $location.Name
+```
 
 ## <a name="confirm-backup-completed-in-the-administration-portal"></a>관리 포털에서 완료 된 백업 확인
 
