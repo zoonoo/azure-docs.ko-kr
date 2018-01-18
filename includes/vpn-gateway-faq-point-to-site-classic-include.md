@@ -10,11 +10,11 @@
 * Windows 8.1(32비트 및 64비트)
 * Windows Server 2012(64비트 전용)
 * Windows Server 2012 R2(64비트 전용)
-* Windows 10
+* 윈도우 10
 
 ### <a name="can-i-use-any-software-vpn-client-for-point-to-site-that-supports-sstp"></a>SSTP를 지원하는 지점 및 사이트 간 연결에 소프트웨어 VPN 클라이언트를 사용할 수 있습니까?
 
-아니요. 위에 나열된 Windows 운영 체제 버전만 지원됩니다.
+번호 위에 나열된 Windows 운영 체제 버전만 지원됩니다.
 
 ### <a name="how-many-vpn-client-endpoints-can-i-have-in-my-point-to-site-configuration"></a>지점 및 사이트 간 구성에서 VPN 클라이언트 끝점을 몇 개까지 지정할 수 있습니까?
 

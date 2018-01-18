@@ -265,11 +265,13 @@
           href: app-insights-analytics-troubleshooting.md
         - name: 자바
           href: app-insights-java-troubleshoot.md
+        - name: 사용 현황 분석
+          href: app-insights-usage-troubleshoot.md
 - name: 샘플
   items:
     - name: 코드 샘플
       href: 'https://azure.microsoft.com/resources/samples/?service=application-insights&sort=0'
-- name: 참조
+- name: 참고 자료
   items:
     - name: Analytics 쿼리 언어
       href: 'https://docs.loganalytics.io/'
