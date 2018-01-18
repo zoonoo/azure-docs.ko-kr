@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/10/2017
+ms.date: 17/01/2018
 ms.author: dobett
-ms.openlocfilehash: c9e0441ec42e5710f43bbe7fa8af4a9fe7447a69
-ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
+ms.openlocfilehash: 0ac6226b1e5773b1212b70172e2c13a0a5c925a8
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="what-is-azure-iot-suite"></a>Azure IoT Suite란?
 
@@ -62,7 +62,7 @@ Azure IoT Suite는 다음과 같이 *미리 구성된 솔루션*의 집합입니
 | ------------------------------------------------------------ | -- | -- | -- | -- | -- | -- | -- |
 | [원격 모니터링](iot-suite-remote-monitoring-explore.md)  |예 |예 |예 |-   |예 |예 |-   |
 | [예측 유지 관리](iot-suite-predictive-overview.md)   |예 |예 |-   |-   |예 |예 |예 |
-| [연결된 팩터리](iot-suite-connected-factory-overview.md) |예 |예 |예 |예 |예 |예 |-   |
+| [연결된 팩터리](iot-suite-connected-factory-overview.md) |예 |- |- |예 |예 |예 |-   |
 
 * *데이터 수집*: 클라우드에 대한 대규모 데이터의 수신입니다.
 * *장치 ID*: 고유한 장치 ID를 관리하고 솔루션에 대한 장치 액세스를 제어합니다.
@@ -84,11 +84,11 @@ Azure IoT Suite는 다음과 같이 *미리 구성된 솔루션*의 집합입니
 | Event Hubs
            |                    | 예                    |                   |
 | Time Series Insights |                    |                        | 예               |
-| Container Services   | 예                |                        | 예               |
+| Container Services   | 예                |                        |                   |
 | Stream Analytics     |                    | 예                    |                   |
 | Web Apps             | 예                | 예                    | 예               |
-| Cosmos DB            | 예                | 예                    | 예               |
-| Azure Tables         |                    | 예                    | 예               |
+| Cosmos DB            | 예                | 예                    |                    |
+| Azure Storage         |                    | 예                    | 예               |
 
 > [!NOTE]
 > 이 미리 구성된 원격 모니터링 솔루션에 배포된 리소스에 대한 자세한 내용은 GitHub에서 이 [문서](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/blob/master/README.md#basic-vs-standard-deployments)를 참조하세요.

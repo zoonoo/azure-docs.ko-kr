@@ -15,19 +15,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
-ms.openlocfilehash: 974d89aa96cba94fedfd1acbaf4f1d30ac8e6257
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ROBOTS: NOINDEX
+ms.openlocfilehash: 995437f5a4a6fe1bc99bfe7fee555d0ac53101a8
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>저장소 계정의 특수한 VHD에서 VM 만들기
 
 Powershell을 사용하여 특수한 비관리 디스크를 OS 디스크로 연결하여 새 VM을 만듭니다. 특수한 디스크는 기존 VM의 VHD 복사본으로 사용자 계정, 응용 프로그램 및 원본 VM의 기타 상태 데이터를 유지합니다. 
 
 다음 두 가지 옵션을 사용할 수 있습니다.
-* [VHD 업로드](create-vm-specialized.md#option-1-upload-a-specialized-vhd)
-* [기존 Azure VM의 VHD 복사](create-vm-specialized.md#option-2-copy-an-existing-azure-vm)
+* [VHD 업로드](sa-create-vm-specialized.md#option-1-upload-a-specialized-vhd)
+* [기존 Azure VM의 VHD 복사](sa-create-vm-specialized.md#option-2-copy-an-existing-azure-vm)
 
 ## <a name="before-you-begin"></a>시작하기 전에
 PowerShell을 사용하는 경우 AzureRM.Compute PowerShell 모듈이 최신 버전인지 확인합니다. 다음 명령을 실행하여 PowerShell을 설치합니다.
@@ -123,7 +124,7 @@ C:\Users\Public\Doc...  https://mystorageaccount.blob.core.windows.net/mycontain
 ### <a name="deallocate-the-vm"></a>VM 할당을 취소합니다.
 VM 할당을 취소하여 복사할 VHD를 해제합니다. 
 
-* **포털**: **가상 컴퓨터** > **myVM** > 중지를 클릭합니다.
+* **포털**: **가상 머신** > **myVM** > 중지를 클릭합니다.
 * **Powershell**: [Stop-AzureRmVM](/powershell/module/azurerm.compute/stop-azurermvm)을 사용하여 **myResourceGroup** 리소스 그룹에서 **myVM**으로 명명된 VM을 중지(할당 취소)합니다.
 
 ```powershell
@@ -138,7 +139,7 @@ Azure Portal의 VM에 대한 **상태**가 **중지됨**에서 **중지됨(할�
 Azure 포털 또는 Azure PowerShell을 사용하여 URL을 가져옵니다.
 
 * **포털**: **>** **추가 서비스** > **저장소 계정** > *저장소 계정* > **Blob**을 클릭하면 원본 VHD 파일이 **vhds** 컨테이너에 있을 것입니다. 컨테이너의 **속성**을 클릭하고 레이블이 **URL**인 텍스트를 복사합니다. 원본 및 대상 컨테이너의 URL이 모두 필요합니다. 
-* **Powershell**: [Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm)을 사용하여 **myResourceGroup** 리소스 그룹에서 **myVM**으로 명명된 VM에 대한 정보를 가져옵니다. 결과에서 **Vhd Uri**에 대한 **저장소 프로필** 섹션을 살펴봅니다. Uri의 첫 번째 부분은 컨테이너에 대한 URL이고 마지막 부분은 VM에 대한 OS VHD 이름입니다.
+* **Powershell**: [Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm)을 사용하여 **myResourceGroup** 리소스 그룹에서 **myVM**으로 명명된 VM에 대한 정보를 가져옵니다. 결과에서 **Vhd Uri**에 대한 **Storage 프로필** 섹션을 살펴봅니다. Uri의 첫 번째 부분은 컨테이너에 대한 URL이고 마지막 부분은 VM에 대한 OS VHD 이름입니다.
 
 ```powershell
 Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"
@@ -218,7 +219,7 @@ Elapsed time:            00.00:13:07
     ```    
 
 ### <a name="create-a-public-ip-address-and-nic"></a>공용 IP 주소 및 NIC 만들기
-가상 네트워크에서 가상 컴퓨터와 통신하려면 [공용 IP 주소](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) 및 네트워크 인터페이스가 필요합니다.
+가상 네트워크에서 가상 머신과 통신하려면 [공용 IP 주소](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) 및 네트워크 인터페이스가 필요합니다.
 
 1. 공용 IP를 만듭니다. 이 예제에서는 공용 IP 주소 이름을 **myIP**로 설정합니다.
    
@@ -236,7 +237,7 @@ Elapsed time:            00.00:13:07
     ```
 
 ### <a name="create-the-network-security-group-and-an-rdp-rule"></a>네트워크 보안 그룹 및 RDP 규칙 만들기
-RDP를 사용하여 VM에 로그인할 수 있으려면 포트 3389에 대한 RDP 액세스를 허용하는 보안 규칙이 필요합니다. 새 VM의 VHD가 기존의 특수한 VM에서 생성되었기 때문에 VM이 만들어진 후에 RDP를 사용하여 로그온할 사용 권한을 갖고 있던 원본 가상 컴퓨터에서 기존 계정을 사용할 수 있습니다.
+RDP를 사용하여 VM에 로그인할 수 있으려면 포트 3389에 대한 RDP 액세스를 허용하는 보안 규칙이 필요합니다. 새 VM의 VHD가 기존의 특수한 VM에서 생성되었기 때문에 VM이 만들어진 후에 RDP를 사용하여 로그온할 사용 권한을 갖고 있던 원본 가상 머신에서 기존 계정을 사용할 수 있습니다.
 이 예제에서는 NSG 이름을 **myNsg**로 설정하고 RDP 규칙 이름을 **myRdpRule**로 설정합니다.
 
 ```powershell
@@ -311,7 +312,7 @@ RequestId IsSuccessStatusCode StatusCode ReasonPhrase
 ```
 
 ### <a name="verify-that-the-vm-was-created"></a>VM이 만들어졌는지 확인
-새로 만든 VM은 [Azure Portal](https://portal.azure.com)에서 **찾아보기** > **가상 컴퓨터**에 표시되며 다음 PowerShell 명령을 사용해도 표시할 수 있습니다.
+새로 만든 VM은 [Azure Portal](https://portal.azure.com)에서 **찾아보기** > **가상 머신**에 표시되며 다음 PowerShell 명령을 사용해도 표시할 수 있습니다.
 
 ```powershell
 $vmList = Get-AzureRmVM -ResourceGroupName $rgName
@@ -319,5 +320,5 @@ $vmList.Name
 ```
 
 ## <a name="next-steps"></a>다음 단계
-새 가상 컴퓨터에 로그인하려면 [포털](https://portal.azure.com)에서 VM으로 이동한 다음 **연결**을 클릭하고 원격 데스크톱 RDP 파일을 엽니다. 원본 가상 컴퓨터의 계정 자격 증명을 사용하여 새 가상 컴퓨터에 로그인합니다. 자세한 내용은 [Windows를 실행하는 Azure 가상 컴퓨터에 연결하고 로그온하는 방법](connect-logon.md)을 참조하세요.
+새 가상 머신에 로그인하려면 [포털](https://portal.azure.com)에서 VM으로 이동한 다음 **연결**을 클릭하고 원격 데스크톱 RDP 파일을 엽니다. 원본 가상 머신의 계정 자격 증명을 사용하여 새 가상 머신에 로그인합니다. 자세한 내용은 [Windows를 실행하는 Azure 가상 머신에 연결하고 로그온하는 방법](connect-logon.md)을 참조하세요.
 

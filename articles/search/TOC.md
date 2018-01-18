@@ -54,7 +54,10 @@
 ### [.NET으로 작성된 개발](search-howto-dotnet-sdk.md)
 ### [Node.js로 작성된 개발](search-get-started-nodejs.md)
 ### [Java로 작성된 개발](search-get-started-java.md)
-### [SDK 업그레이드](search-dotnet-sdk-migration.md)
+### SDK 업그레이드
+#### [.NET SDK 3.0](search-dotnet-sdk-migration.md)
+#### [.NET SDK 1.1](search-dotnet-sdk-migration-version-1.md)
+#### [.NET 관리 SDK](search-dotnet-mgmt-sdk-migration.md)
 ### [REST API 업그레이드](search-api-migration.md)
 ### [복합 데이터 형식 모델링](search-howto-complex-data-types.md)
 ### [동시 업데이트 처리](search-howto-concurrency.md)
@@ -94,7 +97,7 @@
 ### [사용량 및 통계 모니터링](search-monitor-usage.md)
 ### [트래픽 분석 검색](search-traffic-analytics.md)
 
-# 참조
+# 참고 자료
 
 ## [.NET](/dotnet/api/?term=microsoft.azure.search)
 ## [.NET(관리)](/dotnet/api/?term=microsoft.azure.management.search)

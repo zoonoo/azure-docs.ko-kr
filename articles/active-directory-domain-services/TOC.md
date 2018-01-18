@@ -8,7 +8,7 @@
 ## [동기화 작동 방법](active-directory-ds-synchronization.md)
 ## [호환 가능한 타사 소프트웨어](active-directory-ds-compatible-software.md)
 
-# 시작
+# 시작하기
 ## [작업 1: 기본 설정 구성](active-directory-ds-getting-started.md)
 ## [작업 2: 네트워크 설정 구성](active-directory-ds-getting-started-network.md)
 ## [작업 3: 관리자 그룹 구성 및 Azure AD Domain Services 활성화](active-directory-ds-getting-started-admingroup.md)
@@ -44,9 +44,14 @@
 ## 문제 해결
 ### [FAQ](active-directory-ds-faqs.md)
 ### [문제 해결 가이드](active-directory-ds-troubleshooting.md)
+### [경고 문제 해결](active-directory-ds-troubleshoot-alerts.md)
+#### [손상된 NSG 구성 수정](active-directory-ds-troubleshoot-nsg.md)
+#### [누락된 서비스 주체 복원](active-directory-ds-troubleshoot-service-principals.md)
+#### [보안 LDAP 오류](active-directory-ds-troubleshoot-ldaps.md)
 ### [일치하지 않는 테넌트 오류 해결](active-directory-ds-mismatched-tenant-error.md)
 
-# 참조
+
+# 참고 자료
 ## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 
 # 관련 항목
@@ -58,6 +63,6 @@
 ## [Azure AD 피드백 포럼](https://feedback.azure.com/forums/169401-azure-active-directory)
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [문의처](active-directory-ds-contact-us.md)
-## [가격](https://azure.microsoft.com/pricing/details/active-directory-ds/)
+## [가격 책정](https://azure.microsoft.com/pricing/details/active-directory-ds/)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=active-directory-ds)

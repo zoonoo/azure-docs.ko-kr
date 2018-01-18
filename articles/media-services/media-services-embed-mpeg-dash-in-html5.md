@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
-ms.openlocfilehash: 27ce6325773ba1f9fd9cd9ab9e07ea9f5e2488ac
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: be0fc51574950cad0558a85b3f20f8b14eafda13
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
-# <a name="embedding-a-mpeg-dash-adaptive-streaming-video-in-an-html5-application-with-dashjs"></a>DASH.js를 사용하여 HTML5 응용 프로그램에 MPEG-DASH 적응 스트리밍 비디오 포함
+# <a name="embedding-an-mpeg-dash-adaptive-streaming-video-in-an-html5-application-with-dashjs"></a>DASH.js를 사용하여 HTML5 응용 프로그램에 MPEG-DASH 적응 스트리밍 비디오 포함
 ## <a name="overview"></a>개요
 MPEG-DASH는 고품질 적응 비디오 스트리밍 출력을 전달하려는 사용자에게 많은 혜택을 제공하는 비디오 콘텐츠의 적응 스트리밍을 위한 ISO 표준입니다. MPEG-DASH를 사용하면 네트워크 정체 상태일 때 비디오 스트림이 자동으로 낮은 화질로 떨어집니다. 따라서 플레이어가 재생할 다음 몇 초를 다운로드(버퍼링)하는 동안 뷰어에 "일시 중지된" 비디오가 표시될 가능성을 줄여줍니다. 네트워크 정체가 줄어들면 비디오 플레이어가 높은 품질의 스트림에 다시 돌아갑니다. 또한 이렇게 필요한 대역폭으로 조정하는 기능 덕분에 비디오의 시작 시간이 더욱 빨라집니다. 즉, 처음 몇 초는 낮은 품질로 세그먼트를 빠르게 다운로드하여 재생한 다음 충분한 콘텐츠가 버퍼링되고 나면 높은 품질로 설정할 수 있습니다.
 
@@ -79,7 +79,7 @@ Dash.js는 JavaScript로 작성된 오픈 소스 MPEG-DASH 비디오 플레이�
 
 플레이어가 비디오를 재생할 준비가 되도록 MediaPlayer 클래스의 startup() 함수가 호출됩니다. 무엇보다도 이 함수는 컨텍스트에 정의된 대로 필요한 모든 클래스가 로드되었는지 확인합니다. 플레이어가 준비되면 attachView() 함수를 사용하여 비디오 요소를 연결할 수 있습니다. 그러면 MediaPlayer가 비디오 스트림을 요소에 주입하고 필요에 따라 재생을 제어할 수도 있습니다.
 
-재생하려는 비디오에 대해 알 수 있도록 MediaPlayer에 MPD 파일의 URL을 전달합니다. 방금 만든 setupVideo() 함수는 페이지가 완전히 로드된 후 실행되어야 합니다. body 요소의 onload 이벤트를 사용하여 이 작업을 수행합니다. <body> 요소를 다음으로 변경합니다.
+MediaPlayer에 MPD 파일의 URL을 전달하여 재생해야 하는 비디오를 알립니다. 페이지가 완전히 로드되면 방금 만든 setupVideo() 함수가 실행되어야 합니다. body 요소의 onload 이벤트를 사용하여 이 작업을 수행합니다. <body> 요소를 다음으로 변경합니다.
 
     <body onload="setupVideo()">
 
@@ -95,7 +95,7 @@ Dash.js는 JavaScript로 작성된 오픈 소스 MPEG-DASH 비디오 플레이�
 ## <a name="playing-a-video"></a>비디오 재생
 비디오를 재생하려면 브라우저가 basicPlayback.html 파일을 가리키도록 지정하고 표시된 비디오 플레이어에서 재생을 클릭합니다.
 
-## <a name="media-services-learning-paths"></a>미디어 서비스 학습 경로
+## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>피드백 제공

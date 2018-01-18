@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 07/05/2017
 ms.author: sstein
-ms.openlocfilehash: 3c621fc557ed466ddf2b514136a32d98be454325
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 2b725c60dbcb9737b00ffd5fb43273b26dda1ea8
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="find-and-apply-performance-recommendations"></a>성능 권장 사항 찾기 및 적용
 
@@ -91,6 +91,10 @@ Azure SQL Database는 다음 세 가지 옵션을 사용하여 권장 사항을 
 2. 자세히 보기 목록에서 삭제된 항목을 선택합니다.
 3. 필요에 따라 **권장 사항**의 기본 목록에 인덱스를 다시 추가하려면 **삭제 취소**를 클릭하세요.
 
+> [!NOTE]
+> SQL Database [자동 조정](sql-database-automatic-tuning.md)을 사용하며 목록에서 권장 사항을 수동으로 삭제한 경우 해당 권장 사항은 자동으로 적용되지 않습니다. 권장 사항 삭제는 특정 권장 사항이 적용되지 않도록 해야 하는 경우 사용자가 자동 조정을 사용할 수 있는 편리한 방법입니다.
+> 삭제 취소 옵션을 선택하여 삭제된 권장 사항을 권장 사항 목록에 다시 추가하면 이 동작을 되돌릴 수 있습니다.
+> 
 
 ### <a name="enable-automatic-tuning"></a>자동 조정 사용
 Azure SQL Database가 권장 사항을 자동으로 구현하도록 설정할 수 있습니다. 권장 구성은 사용할 수 있을 때 자동으로 적용됩니다. 서비스에서 관리되는 권장 사항처럼 권장 사항이 성능에 좋지 않은 영향을 주는 경우 되돌려집니다.

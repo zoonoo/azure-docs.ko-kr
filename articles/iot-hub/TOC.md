@@ -35,6 +35,7 @@
 ### [Web Apps를 사용하여 데이터 시각화](iot-hub-live-data-visualization-in-web-apps.md)
 ### [Azure Machine Learning을 사용한 날씨 예측](iot-hub-weather-forecast-machine-learning.md)
 ### [iothub-explorer를 사용하여 장치 관리](iot-hub-device-management-iothub-explorer.md)
+### [Azure CLI 2.0용 IoT 확장을 사용하여 장치 관리](iot-hub-device-management-iot-extension-azure-cli-2-0.md)
 ### [Logic Apps를 사용하여 원격 모니터링 및 알림](iot-hub-monitoring-notifications-with-azure-logic-apps.md)
 
 # 방법 가이드
@@ -176,7 +177,7 @@
 ## [iothub-explorer 도구](https://github.com/Azure/iothub-explorer)
 ## [학습 경로](https://azure.microsoft.com/documentation/learning-paths/iot-hub/)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureiothub)
-## [가격](https://azure.microsoft.com/pricing/details/iot-hub/)
+## [가격 책정](https://azure.microsoft.com/pricing/details/iot-hub/)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=iot-hub)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-iot-hub)
