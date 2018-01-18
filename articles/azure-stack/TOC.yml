@@ -233,9 +233,9 @@
               href: azure-stack-supported-os.md
             - name: 사용자 지정 가상 머신 이미지 추가
               href: azure-stack-add-vm-image.md
-            - name: 가상 머신 확장 집합 추가
+            - name: 가상 컴퓨터 크기 집합을 제공 합니다.
               href: azure-stack-compute-add-scalesets.md
-            - name: Linux 가상 머신 배포
+            - name: Linux 가상 컴퓨터를 제공 합니다.
               href: azure-stack-linux.md
         - name: 사용량 및 결제
           items:
