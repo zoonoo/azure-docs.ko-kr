@@ -113,6 +113,8 @@
           href: log-analytics-computer-groups.md
         - name: 흐름 커넥터
           href: log-analytics-flow-tutorial.md
+        - name: 로그 검색 API
+          href: 'https://dev.loganalytics.io/'
     - name: 레거시 로그 검색
       items:
         - name: 로그 검색 개요
@@ -122,6 +124,11 @@
           items:
             - name: 정규식
               href: log-analytics-log-searches-regex.md
+        - name: 로그 검색 API
+          href: log-analytics-log-search-api.md
+          items:
+            - name: 파이썬
+              href: log-analytics-log-search-api-python.md
     - name: 데이터 분석
       items:
         - name: 대시보드
@@ -258,14 +265,9 @@
           href: log-analytics-powershell-workspace-configuration.md
         - name: 리소스 관리자 템플릿
           href: log-analytics-template-workspace-configuration.md
-        - name: 로그 검색 API
-          href: log-analytics-log-search-api.md
-          items:
-            - name: 파이썬
-              href: log-analytics-log-search-api-python.md
         - name: 알림 API
           href: log-analytics-api-alerts.md
-- name: 참조
+- name: 참고 자료
   items:
     - name: 언어 참조
       href: 'https://docs.loganalytics.io/docs/Language-Reference'

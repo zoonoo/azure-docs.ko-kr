@@ -235,8 +235,6 @@
               items:
                 - name: SQL 문법 치트 시트
                   href: sql-api-sql-query-cheat-sheet.md
-                - name: 스택 오버플로
-                  href: 'http://stackoverflow.com/questions/tagged/azure-cosmosdb'
                 - name: 동영상
                   href: 'https://azure.microsoft.com/documentation/videos/index/?services=cosmos-db'
                 - name: 서비스 업데이트
@@ -382,7 +380,7 @@
           href: odbc-driver.md
         - name: SQL API에 Spring Boot Starter 사용
           href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db.md
-- name: 참조
+- name: 참고 자료
   items:
     - name: 코드 샘플
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=cosmos-db'
@@ -430,7 +428,5 @@
       href: 'https://azure.microsoft.com/pricing/details/cosmos-db/'
     - name: FAQ
       href: faq.md
-    - name: 스택 오버플로
-      href: 'http://stackoverflow.com/questions/tagged/azure-cosmosdb'
     - name: 야구를 통해 설명하는 데이터 일관성
       href: 'http://research.microsoft.com/apps/pubs/default.aspx?id=206913'

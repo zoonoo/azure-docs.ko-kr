@@ -4,11 +4,11 @@ hide_bc: True
 title: "Microsoft Azure 설명서"
 description: "Microsoft Azure 클라우드 서비스를 사용하여 강력한 응용 프로그램을 관리하는 방법을 알아봅니다. 설명서, 샘플 코드, 자습서 등을 가져옵니다."
 featureFlags: clicktale
-ms.openlocfilehash: 7a707abdb949927e5f3affe208001f245ace51f2
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 301a88918d96d94a8e3878cd5d8d33cbabcffdc1
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/18/2018
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -3918,7 +3918,7 @@ ms.lasthandoff: 01/12/2018
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="/nodejs/azure/node-sdk-azure-install">Node.js용 Azure 라이브러리 가져오기</a>
+                                                    <a href="/javascript/azure/node-sdk-azure-get-started">Node.js용 Azure 라이브러리 가져오기</a>
                                                 </h3>
                                                 <p>
                                                     <a href="/nodejs/azure/">시작</a>

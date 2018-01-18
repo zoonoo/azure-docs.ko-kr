@@ -1,6 +1,6 @@
 ---
-title: "Azure Search 보안 조정"
-description: "Azure Search 필터를 사용하여 보안 조정을 구현합니다."
+title: "Azure Search의 결과를 한정하기 위한 보안 필터 | Microsoft Docs"
+description: "보안 필터 및 사용자 ID를 사용하여 Azure Search 콘텐츠에 대한 액세스 제어"
 ms.custom: 
 ms.date: 08/07/2017
 ms.service: search
@@ -11,15 +11,15 @@ caps.latest.revision: "26"
 author: revitalbarletz
 ms.author: revitalb
 manager: jlembicz
-ms.openlocfilehash: 7ca5502efa281dcc0f374312d8f36f8c64d9c6c9
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: c829399f9c21846d8ee5b43945e2565565279820
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/15/2017
 ---
-# <a name="security-trimming-with-azure-search"></a>Azure Search 보안 조정
+# <a name="security-filters-for-trimming-results-in-azure-search"></a>Azure Search의 결과를 한정하기 위한 보안 필터
 
-사용자 ID에 따라 문서 액세스를 제한하기 위해 검색 결과에 보안 필터를 적용할 수 있습니다. 이 검색 환경에서는 일반적으로 검색을 요청하는 사람의 ID를 누가 문서에 대한 권한을 갖는지에 대한 원칙을 포함하는 필드와 비교해 보는 것이 필요합니다. 일치하는 항목이 발견되면, 사용자 또는 보안 주체(예: 그룹 또는 역할)는 해당 문서에 액세스할 수 있습니다.
+사용자 ID에 따라 Azure Search에서 검색 결과를 한정하기 위해 보안 필터를 적용할 수 있습니다. 이 검색 환경에서는 일반적으로 검색을 요청하는 사람의 ID를 누가 문서에 대한 권한을 갖는지에 대한 원칙을 포함하는 필드와 비교해 보는 것이 필요합니다. 일치하는 항목이 발견되면, 사용자 또는 보안 주체(예: 그룹 또는 역할)는 해당 문서에 액세스할 수 있습니다.
 
 보안 필터링을 달성할 한 가지 방법은 예를 들어 `Id eq 'id1' or Id eq 'id2'`와 같은 같음 표현의 복잡한 분리를 통해서입니다. 이 방법은 오류가 발생하기 쉽고, 유지 관리가 어려우며, 목록에 수백 수천 개의 값이 있는 경우 쿼리 응답 시간(초)이 느려집니다. 
 
@@ -155,3 +155,8 @@ api-key: [admin or query key]
 
 사용자 Id와 Azure Search `search.in()` 함수에 따라 결과를 필터링할 수 있는 방법입니다. 이 함수를 사용하면 요청하는 사용자가 각 대상 문서와 연결된 보안 주체 식별자에 맞출 보안 주체 식별자를 전달할 수 있습니다. 검색 요청이 처리될 때, `search.in` 함수는 사용자의 보안 주체 중 아무도 읽기 권한이 없는 검색 결과를 필터링합니다. 보안 주체 식별자는 보안 그룹, 역할 또는 심지어 사용자 본인 ID와 같은 것을 나타낼 수 있습니다.
  
+## <a name="see-also"></a>참고 항목
+
++ [Azure Search 필터를 사용하여 Active Directory ID 기반 액세스 제어](search-security-trimming-for-azure-search-with-aad.md)
++ [Azure Search의 필터](search-filters.md)
++ [Azure Search 작업의 데이터 보안 및 액세스 제어](search-security-overview.md)

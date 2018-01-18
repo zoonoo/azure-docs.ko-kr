@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 12/15/2017
 ms.author: maheshu
-ms.openlocfilehash: e070dfad6ca51b941f1af60f85463f4534493dff
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d55abe651f69e3539e7584b40a7aedf419bccda1
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Azure AD Domain Services 관리되는 도메인에 대해 보안 LDAP(LDAPS) 구성
 
@@ -117,6 +117,7 @@ ms.lasthandoff: 12/11/2017
 * LDAP 클라이언트(예: ldp.exe)가 IP 주소가 아닌 DNS 이름을 사용하여 보안 LDAP 끝점에 연결되는지 확인합니다.
 * LDAP 클라이언트가 연결할 DNS 이름이 관리되는 도메인의 보안 LDAP에 대한 공용 IP 주소로 확인되는지 확인합니다.
 * 관리되는 도메인의 보안 LDAP 인증서의 주체 또는 주체 대체 이름 특성에 DNS 이름이 있는지 확인합니다.
+* 인터넷을 통해 보안 LDAP에 연결할 경우 가상 네트워크에 대한 NSG 설정에서 인터넷으로부터 포트 636으로 가는 트래픽을 허용하는지 확인합니다.
 
 보안 LDAP를 사용하여 관리되는 도메인에 연결하는 데 계속 문제가 발생하면 [제품 팀에 도움을 요청](active-directory-ds-contact-us.md)하세요. 문제를 진단하는 데 도움이 되도록 다음 정보를 포함합니다.
 * 연결을 만들고 실패하는 ldp.exe의 스크린샷
