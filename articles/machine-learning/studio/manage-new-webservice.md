@@ -1,6 +1,6 @@
 ---
 title: "Azure Machine Learning 웹 서비스 포털 사용 | Microsoft Docs"
-description: "Azure 기계 학습 작업 영역에 대한 액세스를 관리하고, ML API 웹 서비스를 배포 및 관리합니다."
+description: "Azure Machine Learning 작업 영역에 대한 액세스를 관리하고, ML API 웹 서비스를 배포 및 관리합니다."
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2017
 ms.author: v-donglo
-ms.openlocfilehash: 9024bc82c0de5b8058a848cc809a2571baa7ce83
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: 2e71fa46f88ce219bee96a223a034078a037b4d3
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="manage-a-web-service-using-the-azure-machine-learning-web-services-portal"></a>Azure Machine Learning 웹 서비스 포털에서 웹 서비스 관리
 Microsoft Azure Machine Learning 웹 서비스 포털을 사용하여 Machine Learning 새 웹 서비스 및 기존 웹 서비스를 관리할 수 있습니다. 기존 웹 서비스와 새 웹 서비스는 서로 다른 기본 기술에 기반하고 있으므로 서비스 각각에는 약간씩 다른 관리 기능이 있습니다.
@@ -88,7 +88,7 @@ Machine Learning 웹 서비스 포털에서 수행할 수 있는 작업은 다�
 * **제목** 웹 서비스에 대한 제목을 입력할 수 있습니다.
 * **키** 를 사용하면 기본 API 키와 보조 API 키를 회전할 수 있습니다.
 * **Storage 계정 키** 웹 서비스 변경 내용과 연결된 Storage 계정 키를 업데이트할 수 있습니다. 
-* **샘플 데이터 사용** 요청-응답 서비스 테스트에 사용할 수 있는 샘플 데이터를 제공할 수 있습니다. 기계 학습 스튜디오에서 웹 서비스를 만든 경우 샘플 데이터는 모델을 학습하는 데 사용된 데이터에서 가져옵니다. 서비스를 프로그래밍 방식으로 만들 경우 JSON 패키지의 일부로 제공된 예제 데이터에서 가져온 데이터를 사용합니다.
+* **샘플 데이터 사용** 요청-응답 서비스 테스트에 사용할 수 있는 샘플 데이터를 제공할 수 있습니다. Machine Learning Studio에서 웹 서비스를 만든 경우 샘플 데이터는 모델을 학습하는 데 사용된 데이터에서 가져옵니다. 서비스를 프로그래밍 방식으로 만들 경우 JSON 패키지의 일부로 제공된 예제 데이터에서 가져온 데이터를 사용합니다.
 
 ### <a name="managing-billing-plans"></a>청구 계획 관리
 웹 서비스 빠른 시작 페이지에서 **계획** 메뉴 옵션을 클릭합니다. 특정 웹 서비스와 연결된 계획을 선택하면 해당 계획을 관리할 수도 있습니다.
@@ -110,7 +110,7 @@ Machine Learning 웹 서비스 포털에서 수행할 수 있는 작업은 다�
 
 ## <a name="manage-classic-web-services"></a>기존 웹 서비스 관리
 > [!NOTE]
-> 이 섹션의 절차는 Azure Machine Learning 웹 서비스 포털을 통해 기본 웹 서비스를 관리하는 것과 관련됩니다. Machine Learning Studio 및 Azure 클래식 포털을 통한 기존 웹 서비스 관리에 대한 내용은 [Azure Machine Learning 작업 영역 관리](manage-workspace.md)를 참조하세요.
+> 이 섹션의 절차는 Azure Machine Learning 웹 서비스 포털을 통해 기본 웹 서비스를 관리하는 것과 관련됩니다. Machine Learning Studio 및 Azure Portal을 통해 기존 웹 서비스를 관리하는 방법에 대한 자세한 내용은 [Azure Machine Learning 작업 영역 관리](manage-workspace.md)를 참조하세요.
 > 
 > 
 
@@ -153,6 +153,6 @@ Machine Learning 웹 서비스 포털에서 수행할 수 있는 작업은 다�
 
 * **설명** 웹 서비스에 대한 설명을 입력할 수 있습니다. 설명은 필수 필드입니다.
 * **로깅** 오류 끝점에 대한 로깅을 사용하거나 사용하지 않도록 설정할 수 있습니다. 로깅에 대한 자세한 내용은 [Machine Learning 웹 서비스에 대한 로깅 사용](web-services-logging.md)을 참조하세요.
-* **샘플 데이터 사용** 요청-응답 서비스 테스트에 사용할 수 있는 샘플 데이터를 제공할 수 있습니다. 기계 학습 스튜디오에서 웹 서비스를 만든 경우 샘플 데이터는 모델을 학습하는 데 사용된 데이터에서 가져옵니다. 서비스를 프로그래밍 방식으로 만들 경우 JSON 패키지의 일부로 제공된 예제 데이터에서 가져온 데이터를 사용합니다.
+* **샘플 데이터 사용** 요청-응답 서비스 테스트에 사용할 수 있는 샘플 데이터를 제공할 수 있습니다. Machine Learning Studio에서 웹 서비스를 만든 경우 샘플 데이터는 모델을 학습하는 데 사용된 데이터에서 가져옵니다. 서비스를 프로그래밍 방식으로 만들 경우 JSON 패키지의 일부로 제공된 예제 데이터에서 가져온 데이터를 사용합니다.
 
 

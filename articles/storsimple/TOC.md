@@ -202,7 +202,7 @@
 ### [StorSimple용 Windows PowerShell cmdlet](https://technet.microsoft.com/library/dn688168.aspx)
 
 
-# StorSimple 데이터 관리자(비공개 미리 보기)
+# StorSimple 데이터 관리자
 
 ## 개요
 ### [솔루션이란?](storsimple-data-manager-overview.md)
@@ -236,7 +236,7 @@
 ## [마케팅 블로그](http://blogs.technet.com/b/cis/)
 ## [Marketing](https://www.microsoft.com/server-cloud/products/storsimple/explore.aspx)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=StorSimple)
-## [가격 책정](https://azure.microsoft.com/pricing/details/storsimple/)
+## [가격](https://azure.microsoft.com/pricing/details/storsimple/)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=storsimple)
 ## [지원 블로그](http://blogs.msdn.com/b/storsimple/)

@@ -15,20 +15,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: juliako
-ms.openlocfilehash: 89b4f7cee6d00b5bbbca4799eeca74a280147fc7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e6f551a7970f226ba40753009b24bd4c5eeb67fb
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="manage-streaming-endpoints-with-the-azure-portal"></a>Azure 포털을 통해 스트리밍 끝점 관리
 
-이 항목은 Azure Portal을 사용하여 스트리밍 끝점을 관리하는 방법을 보여 줍니다. 
+이 문서에서는 Azure Portal을 사용하여 스트리밍 끝점을 관리하는 방법을 보여 줍니다. 
 
 >[!NOTE]
->[개요](media-services-streaming-endpoints-overview.md) 항목을 살펴보세요. 
+>[개요](media-services-streaming-endpoints-overview.md) 문서를 검토해야 합니다. 
 
-스트리밍 끝점의 크기를 조정하는 방법에 대한 자세한 내용은 [이 항목](media-services-portal-scale-streaming-endpoints.md) 을 참조하세요.
+스트리밍 끝점의 크기를 조정하는 방법에 대한 자세한 내용은 [이 문서](media-services-portal-scale-streaming-endpoints.md)를 참조하세요.
 
 ## <a name="start-managing-streaming-endpoints"></a>스트리밍 끝점 관리 시작 
 
@@ -62,7 +62,7 @@ Azure 포털을 사용하여 스트리밍 끝점을 추가/삭제하려면 다�
 ## <a id="configure_streaming_endpoints"></a>스트리밍 끝점 구성
 스트리밍 끝점을 사용하면 다음 속성을 구성할 수 있습니다.
 
-* 액세스 제어
+* Access Control
 * 캐시 제어
 * 교차 사이트 액세스 정책
 
@@ -86,17 +86,17 @@ Azure 포털을 사용하여 스트리밍 끝점을 추가/삭제하려면 다�
 
 ## <a name="scale-your-premium-streaming-endpoint"></a>프리미엄 스트리밍 끝점 규모 조정
 
-자세한 내용은 [이 항목](media-services-portal-scale-streaming-endpoints.md) 을 참조하세요.
+자세한 내용은 [이](media-services-portal-scale-streaming-endpoints.md) 문서를 참조하세요.
 
 ## <a id="enable_cdn"></a>Azure CDN 통합 사용
 
 새 계정을 만들면 기본 스트리밍 끝점 Azure CDN 통합이 기본적으로 설정됩니다.
 
-나중에 CDN을 사용/사용 안 함으로 설정하려면 스트리밍 끝점이 **중지됨** 상태여야 합니다. Azure CDN 통합이 사용하도록 설정되고 변경 내용이 모든 CDN POP에 활성화되려면 최대 2시간이 걸릴 수 있습니다. 그러나 스트리밍 끝점을 시작하고 스트리밍 끝점에서 중단 없이 스트리밍할 수 있으며 통합이 완료되면 CDN에서 스트림이 전송됩니다. 프로비전 기간 동안에는 스트리밍 끝점이 **시작** 상태가 되고 성능 저하를 보일 수 있습니다.
+나중에 CDN을 사용/사용 안 함으로 설정하려면 스트리밍 끝점이 **중지됨** 상태여야 합니다. Azure CDN 통합이 사용하도록 설정되고 변경 내용이 모든 CDN POP에서 활성화되려면 최대 2시간이 걸릴 수 있습니다. 그러나 스트리밍 끝점을 시작하고 스트리밍 끝점에서 중단 없이 스트리밍할 수 있으며, 통합이 완료되면 CDN에서 스트림이 전송됩니다. 프로비전 기간 동안에는 스트리밍 끝점이 **시작** 상태가 되고 성능 저하를 보일 수 있습니다.
 
-CDN 통합은 중국 및 연방 정부 지역을 제외한 모든 Azure 데이터 센터에서 설정됩니다.
+CDN 통합은 중국 및 연방 정부 지역을 제외한 모든 Azure 데이터 센터에서 사용됩니다.
 
-CDN 통합이 설정되면 **액세스 제어**, **사용자 지정 호스트 이름** 및 **Akamai 서명 인증** 구성이 해제됩니다.
+CDN 통합을 사용하는 경우 **액세스 제어**, 사용자 지정 호스트 이름 및 **Akamai 서명 인증** 구성은 비활성화됩니다.
  
 > [!IMPORTANT]
 > Azure Media Services와 Azure CDN의 통합은 **Verizon의 Azure CDN**에서 표준 스트리밍 끝점에 구현됩니다. 프리미엄 스트리밍 끝점은 모든 **Azure CDN 가격 책정 및 공급자**를 사용하여 구성할 수 있습니다. Azure CDN 기능에 대한 자세한 내용은 [CDN 개요](../cdn/cdn-overview.md)를 참조하세요.
@@ -106,7 +106,7 @@ CDN 통합이 설정되면 **액세스 제어**, **사용자 지정 호스트 �
 * 스트리밍 끝점에 CDN이 사용되면 클라이언트에서는 원점으로부터 직접 콘텐츠를 요청할 수 없습니다. CDN을 사용하거나 사용하지 않고 콘텐츠를 테스트하는 기능이 필요하면 CDN이 사용하도록 설정되지 않은 또 다른 스트리밍 끝점을 만들 수 있습니다.
 * 스트리밍 끝점 호스트 이름은 CDN을 사용하도록 설정한 후에도 동일하게 유지됩니다. CDN을 사용하도록 설정한 후 미디어 서비스 워크플로에 변경 내용을 적용할 필요가 없습니다. 예를 들어 스트리밍 끝점 호스트 이름이 strasbourg.streaming.mediaservices.windows.net이면 CDN을 사용하도록 설정한 후에 똑같은 호스트 이름이 사용됩니다.
 * 새 스트리밍 끝점의 경우 새 끝점을 만들어서 CDN을 사용하도록 설정할 수 있습니다. 기본 스트리밍 끝점의 경우 먼저 끝점을 중지하고 CDN을 사용/사용 안 함으로 설정해야 합니다.
-* 표준 스트리밍 끝점은 Azure 관리 포털에서 **Verizon 표준 CDN 공급자**를 통해서만 구성할 수 있습니다. 그러나 REST API를 사용하여 다른 Azure CDN 공급자를 사용하도록 설정할 수 있습니다.
+* 표준 스트리밍 끝점은 Azure 클래식 포털에서 **Verizon 표준 CDN 공급자**를 통해서만 구성할 수 있습니다. 그러나 REST API를 사용하여 다른 Azure CDN 공급자를 사용하도록 설정할 수 있습니다.
 
 ## <a name="configure-cdn-profile"></a>CDN 프로필 구성
 

@@ -1,6 +1,6 @@
 ---
 title: "Azure Machine Learning 스튜디오에서 텍스트 분석 모델 만들기 | Microsoft Docs"
-description: "텍스트 전처리, N-Gram 또는 특성 해시를 위한 모듈을 사용하여 Azure 기계 학습 스튜디오에서 텍스트 분석 모델을 만드는 방법"
+description: "텍스트 전처리, N-Gram 또는 특성 해시를 위한 모듈을 사용하여 Azure Machine Learning Studio에서 텍스트 분석 모델을 만드는 방법"
 services: machine-learning
 documentationcenter: 
 author: rastala
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: roastala
-ms.openlocfilehash: 5f45a500c7cc28b6d6ad3fcac780791d43067ff3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a43dc7162be4b2f3cfd122c6a87921caf2e3e418
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
-# <a name="create-text-analytics-models-in-azure-machine-learning-studio"></a>Azure 기계 학습 스튜디오에서 텍스트 분석 모델 만들기
-Azure 기계 학습을 사용하여 텍스트 분석 모델을 빌드하고 작동할 수 있습니다. 예를 들어 이러한 모델은 문서 분류 또는 정서 분석 문제를 해결하는 데 유용할 수 있습니다.
+# <a name="create-text-analytics-models-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio에서 텍스트 분석 모델 만들기
+Azure Machine Learning을 사용하여 텍스트 분석 모델을 빌드하고 작동할 수 있습니다. 예를 들어 이러한 모델은 문서 분류 또는 정서 분석 문제를 해결하는 데 유용할 수 있습니다.
 
 텍스트 분석 실험에서는 일반적으로 다음을 수행합니다.
 
@@ -33,7 +33,7 @@ Azure 기계 학습을 사용하여 텍스트 분석 모델을 빌드하고 작�
 
 이 자습서에서는 Amazon 도서 리뷰 데이터 집합을 사용하여 정서 분석을 진행하면서 이러한 단계를 배우게 됩니다(연구 논문 “Biographies, Bollywood, Boom-boxes and Blenders: Domain Adaptation for Sentiment Classification”(저자: John Blitzer, Mark Dredze 및 Fernando Pereira), Association of Computational Linguistics(ACL), 2007) 참조). 이 데이터 집합은 리뷰 점수(1-2 또는 4-5) 및 자유 형식 텍스트로 구성됩니다. 그 목표는 리뷰 점수: 낮음(1-2) 또는 높음(4-5)를 예측하는 것입니다.
 
-Cortana Intelligence Gallery에서 이 자습서에 나오는 실험을 찾을 수 있습니다.
+Azure AI 갤러리에서 이 자습서에 나오는 실험을 찾을 수 있습니다.
 
 [도서 리뷰 예측](https://gallery.cortanaintelligence.com/Experiment/Predict-Book-Reviews-1)
 
@@ -68,7 +68,7 @@ N-Gram 특성 추출을 사용하는 대신, 특성 해시 모듈을 사용할 �
 ## <a name="step-3-train-classification-or-regression-model"></a>3단계: 분류 또는 회귀 모델 학습
 이제 텍스트가 숫자 특성 열로 변환되었습니다. 데이터 집합에는 여전히 이전 단계의 문자열 열이 포함되어 있으므로 데이터 집합의 열 선택을 사용하여 제외시킵니다.
 
-[2클래스 로지스틱 회귀](https://msdn.microsoft.com/library/azure/dn905994.aspx) 를 사용하여 목표: 높음 또는 낮음 리뷰 점수를 예측합니다. 현재 텍스트 분석 문제가 일반 분류 문제로 변환되었습니다. Azure 기계 학습에서 사용할 수 있는 도구를 사용하여 모델을 개선할 수 있습니다. 예를 들어 다양한 분류자로 실험하여 얼마나 정확한 결과를 제공하는지 확인하거나, 하이퍼 매개 변수 조정을 사용하여 정확도를 향상시킬 수 있습니다.
+[2클래스 로지스틱 회귀](https://msdn.microsoft.com/library/azure/dn905994.aspx) 를 사용하여 목표: 높음 또는 낮음 리뷰 점수를 예측합니다. 현재 텍스트 분석 문제가 일반 분류 문제로 변환되었습니다. Azure Machine Learning에서 사용할 수 있는 도구를 사용하여 모델을 개선할 수 있습니다. 예를 들어 다양한 분류자로 실험하여 얼마나 정확한 결과를 제공하는지 확인하거나, 하이퍼 매개 변수 조정을 사용하여 정확도를 향상시킬 수 있습니다.
 
 ![학습 및 점수 매기기](./media/text-analytics-module-tutorial/scoring-text.png)
 

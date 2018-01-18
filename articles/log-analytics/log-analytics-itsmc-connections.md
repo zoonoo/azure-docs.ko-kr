@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2017
 ms.author: v-jysur
-ms.openlocfilehash: d1f6d3af5fc414d06f4a6d3aeda660b759a88353
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: ee5d8d118234ca0335922be1a29c6ce1e68eb7b6
+ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector-preview"></a>ITSM 제품/서비스를 IT Service Management Connector(미리 보기)에 연결
 이 문서에서는 ITSM 제품/서비스를 OMS의 ITSMC(IT Service Management Connector)에 연결하고 작업 항목을 중앙에서 관리하는 방법에 대한 정보를 제공합니다. ITSMC에 대한 자세한 내용은 [개요](log-analytics-itsmc-overview.md)를 참조하세요.
@@ -33,7 +33,7 @@ ms.lasthandoff: 11/16/2017
 
 다음 섹션에서는 System Center Service Manager 제품을 OMS의 ITSMC에 연결하는 방법을 자세히 설명합니다.
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>필수 구성 요소
 
 다음 필수 조건이 충족되는지 확인합니다.
 
@@ -153,7 +153,7 @@ Service Manager에 대해 ITSM 웹앱을 설정하려면 다음을 수행합니�
 
 3. Azure 자격 증명으로 로그인하고 하이브리드 연결이 만들어진 구독을 선택합니다.
 
-4. **Save**를 클릭합니다.
+4. **저장**을 클릭합니다.
 
 하이브리드 연결이 성공적으로 설정됩니다.
 
@@ -170,18 +170,22 @@ Service Manager에 대해 ITSM 웹앱을 설정하려면 다음을 수행합니�
 
 다음 섹션에서는 ServiceNow 제품을 OMS의 ITSMC에 연결하는 방법을 자세히 설명합니다.
 
-### <a name="prerequisites"></a>필수 조건
-
+### <a name="prerequisites"></a>필수 구성 요소
 다음 필수 조건이 충족되는지 확인합니다.
-
 - ITSMC가 설치되어 있습니다. 자세한 내용은 [IT Service Management Connector 솔루션 추가](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution)를 참조하세요.
-- ServiceNow 지원 버전 – Fuji, Geneva, Helsinki
+- ServiceNow 지원 버전: Jakarta, Istanbul, Helsinki, Geneva
 
-ServiceNow 관리자는 ServiceNow 인스턴스에서 다음을 수행해야 합니다.
-- ServiceNow 제품에 대한 클라이언트 ID 및 클라이언트 암호를 생성합니다. 클라이언트 ID 및 암호를 생성하는 방법에 대한 자세한 내용은 [OAuth 설정](http://wiki.servicenow.com/index.php?title=OAuth_Setup)을 참조하세요.
-- Microsoft OMS 통합용 사용자 앱(ServiceNow 앱)을 설치합니다. [자세히 알아보세요](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.0 )을 확인하세요.
+**ServiceNow 관리자는 ServiceNow 인스턴스에서 다음을 수행해야 합니다.**
+- ServiceNow 제품에 대한 클라이언트 ID 및 클라이언트 암호를 생성합니다. 클라이언트 ID와 비밀을 생성하는 방법에 대한 자세한 내용은 필요에 따라 다음을 참조하세요.
+
+    - [Jakarta에 대해 OAuth 설정](https://docs.servicenow.com/bundle/jakarta-servicenow-platform/page/administer/security/task/t_SettingUpOAuth.html)
+    - [Istanbul에 대해 OAuth 설정](https://docs.servicenow.com/bundle/istanbul-servicenow-platform/page/administer/security/task/t_SettingUpOAuth.html)
+    - [Helsinki에 대해 OAuth 설정](https://docs.servicenow.com/bundle/helsinki-servicenow-platform/page/administer/security/task/t_SettingUpOAuth.html)
+    - [Geneva에 대해 OAuth 설정](https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/administer/security/task/t_SettingUpOAuth.html)
+
+
+- Microsoft OMS 통합용 사용자 앱(ServiceNow 앱)을 설치합니다. [자세히 알아보기](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1).
 - 설치된 사용자 앱에 대한 통합 사용자 역할을 만듭니다. 통합 사용자 역할을 만드는 방법에 대한 자세한 내용은 [여기](#create-integration-user-role-in-servicenow-app)에 나와 있습니다.
-
 
 ### <a name="connection-procedure"></a>**연결 절차**
 다음 절차에 따라 ServiceNow 연결을 만듭니다.
@@ -263,7 +267,7 @@ ServiceNow 관리자는 ServiceNow 인스턴스에서 다음을 수행해야 합
 다음 섹션에서는 Provance 제품을 OMS의 ITSMC에 연결하는 방법을 자세히 설명합니다.
 
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>필수 구성 요소
 
 다음 필수 조건이 충족되는지 확인합니다.
 
@@ -309,7 +313,7 @@ ServiceNow 관리자는 ServiceNow 인스턴스에서 다음을 수행해야 합
 
 다음 섹션에서는 Cherwell 제품을 OMS의 ITSMC에 연결하는 방법을 자세히 설명합니다.
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>필수 구성 요소
 
 다음 필수 조건이 충족되는지 확인합니다.
 

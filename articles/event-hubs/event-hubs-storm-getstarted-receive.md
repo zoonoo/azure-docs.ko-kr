@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: sethm
-ms.openlocfilehash: cabfbda3ea31a81248e7f87b79a5637063091be0
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 5a120cc38b8ecfc6ec29be35eda12978ca8b035e
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="receive-events-from-event-hubs-using-apache-storm"></a>Apache Storm을 사용하여 Event Hubs에서 이벤트 수신
 
@@ -130,7 +130,7 @@ Event Hubs 수신기 패턴에 대한 자세한 내용은 [Event Hubs 개요][Ev
     }
     ```
     
-    이 Storm 볼트는 수신된 이벤트의 콘텐츠를 기록합니다. 튜플을 저장소 서비스에 저장하도록 간단히 확장할 수 있습니다. [HDInsight 센서 분석 자습서]에서는 동일한 방법을 사용하여 데이터를 HBase에 저장합니다.
+    이 Storm 볼트는 수신된 이벤트의 콘텐츠를 기록합니다. 튜플을 저장소 서비스에 저장하도록 간단히 확장할 수 있습니다. [이벤트 허브를 사용한 HDInsight Storm 예제]에서도 이와 동일한 방법을 사용하여 Azure Storage 및 Power BI에 데이터를 저장합니다.
 11. 다음 코드를 포함하는 **LogTopology**라는 클래스를 만듭니다.
     
     ```java
@@ -247,7 +247,7 @@ Event Hubs에 대한 자세한 내용은 다음 링크를 참조하세요.
 <!-- Links -->
 [Event Hubs overview]: event-hubs-what-is-event-hubs.md
 [HDInsight Storm]: ../hdinsight/storm/apache-storm-overview.md
-[HDInsight 센서 분석 자습서]:../hdinsight/storm/apache-storm-sensor-data-analysis.md
+[이벤트 허브를 사용한 HDInsight Storm 예제]: https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/
 
 <!-- Images -->
 

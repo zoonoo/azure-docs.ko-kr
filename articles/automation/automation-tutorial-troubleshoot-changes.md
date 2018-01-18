@@ -6,14 +6,14 @@ keywords: "변경 내용, 추적, 자동화"
 author: jennyhunter-msft
 ms.author: jehunte
 ms.date: 12/14/2017
-ms.topic: hero-article
+ms.topic: tutorial
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: ae9ac6baaaeca418fcd3478145c50d1fa7917d7e
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: 0aefa175d676bd7e98841d3a1e9ff5a8c90b7deb
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>환경 변경 문제 해결
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 12/22/2017
 > * 이벤트 트리거
 > * 변경 내용 보기
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -158,7 +158,7 @@ VM을 중지하고 시작하면 활동 로그에 이벤트가 기록됩니다. *
 
 VM 내에서 **작업** 아래에 있는 **변경 내용 추적**을 선택합니다.
 
-![OMS 클래식 포털에서 경고 만들기](./media/automation-tutorial-troubleshoot-changes/change-tracking-list.png)
+![VM에 대한 변경 내용 목록을 보여 주는 스크린샷](./media/automation-tutorial-troubleshoot-changes/change-tracking-list.png)
 
 차트에는 시간이 지남에 따라 발생한 변경 내용이 표시됩니다.
 활동 로그 연결을 추가하면 위쪽의 선 그래프에 Azure 활동 로그 이벤트가 표시됩니다.

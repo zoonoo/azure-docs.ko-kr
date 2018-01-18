@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: johnkem
-ms.openlocfilehash: b0e301f58ec0b5a14254935d6c269cc8006f4eff
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 7816efd44c01c3ed60c95d8699042f89cf6de5ec
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Azure 활동 로그 경고에 대한 웹후크
 작업 그룹 정의의 일부로 활동 로그 경고 알림을 받도록 웹후크 끝점을 구성할 수 있습니다. 웹후크를 사용하면 사후 처리 또는 사용자 지정 작업을 위해 이러한 알림을 다른 시스템으로 라우팅할 수 있습니다. 이 문서는 Webhook에 대한 HTTP POST의 페이로드 형태를 보여 줍니다.
@@ -137,12 +137,12 @@ POST 작업에 포함된 JSON 페이로드는 페이로드 data.context.activity
 | context |이벤트에 대한 컨텍스트입니다. |
 | resourceProviderName |영향을 받는 리소스의 리소스 공급자입니다. |
 | conditionType |항상 "Event"입니다. |
-| name |경고 규칙의 이름입니다. |
+| 이름 |경고 규칙의 이름입니다. |
 | id |경고의 리소스 ID입니다. |
-| 설명 |경고를 만들 때 설정하는 경고 설명입니다. |
+| description |경고를 만들 때 설정하는 경고 설명입니다. |
 | subscriptionId |Azure 구독 ID입니다. |
 | timestamp |요청을 처리하는 Azure 서비스에서 이벤트를 생성한 시간입니다. |
-| resourceId |영향을 받는 리소스의 리소스 ID입니다. |
+| ResourceId |영향을 받는 리소스의 리소스 ID입니다. |
 | resourceGroupName |영향을 받는 리소스의 리소스 그룹 이름입니다. |
 | properties |이벤트에 대한 세부 정보를 포함하는 `<Key, Value>` 쌍의 집합(즉, `Dictionary<String, String>`)입니다. |
 | event |이벤트에 대한 메타데이터가 포함된 요소입니다. |
@@ -154,7 +154,7 @@ POST 작업에 포함된 JSON 페이로드는 페이로드 data.context.activity
 | eventDataId |이벤트에 대한 고유 식별자입니다. |
 | eventSource |이벤트를 생성한 Azure 서비스 또는 인프라의 이름입니다. |
 | httpRequest |요청은 일반적으로 clientRequestId, clientIpAddress 및 HTTP 메서드(예: PUT)를 포함합니다. |
-| level |Critical, Error, Warning, Informational 및 Verbose 값 중 하나입니다. |
+| level |Critical, Error, Warning 및 Informational 값 중 하나입니다. |
 | operationId |일반적으로 이벤트 간에 공유되는 GUID로서 단일 작업에 해당합니다. |
 | operationName |작업의 이름입니다. |
 | properties |이벤트의 속성입니다. |
@@ -164,6 +164,6 @@ POST 작업에 포함된 JSON 페이로드는 페이로드 data.context.activity
 ## <a name="next-steps"></a>다음 단계
 * [활동 로그에 대해 자세히 알아보세요](monitoring-overview-activity-logs.md).
 * [Azure 경고에 대한 Azure Automation 스크립트(Runbook)를 실행하세요](http://go.microsoft.com/fwlink/?LinkId=627081).
-* [논리 앱을 사용하여 Azure 경고에서 Twilio를 통해 SMS를 보냅니다](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app). 이 예제는 메트릭 경고를 위한 것이지만 활동 로그 경고도 지원하도록 수정될 수 있습니다.
-* [논리 앱을 사용하여 Azure 경고에서 Slack 메시지를 보냅니다](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app). 이 예제는 메트릭 경고를 위한 것이지만 활동 로그 경고도 지원하도록 수정될 수 있습니다.
-* [논리 앱을 사용하여 Azure 경고에서 Azure Queue에 메시지를 보냅니다](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app). 이 예제는 메트릭 경고를 위한 것이지만 활동 로그 경고도 지원하도록 수정될 수 있습니다.
+* [Logic App을 사용하여 Azure 경고에서 Twilio를 통해 SMS를 보냅니다](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app). 이 예제는 메트릭 경고를 위한 것이지만 활동 로그 경고도 지원하도록 수정될 수 있습니다.
+* [Logic App을 사용하여 Azure 경고에서 Slack 메시지를 보냅니다](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app). 이 예제는 메트릭 경고를 위한 것이지만 활동 로그 경고도 지원하도록 수정될 수 있습니다.
+* [Logic App을 사용하여 Azure 경고에서 Azure Queue에 메시지를 보냅니다](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app). 이 예제는 메트릭 경고를 위한 것이지만 활동 로그 경고도 지원하도록 수정될 수 있습니다.

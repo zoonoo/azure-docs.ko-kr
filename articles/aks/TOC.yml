@@ -29,6 +29,10 @@
       href: tutorial-kubernetes-monitor.md
     - name: 8 - 클러스터 업그레이드
       href: tutorial-kubernetes-upgrade-cluster.md
+- name: 개념
+  items:
+    - name: 할당량 및 국가별 제한
+      href: container-service-quotas.md
 - name: 방법 가이드
   items:
     - name: AKS 클러스터 크기 조정
@@ -49,11 +53,13 @@
       href: kubernetes-service-principal.md
     - name: 데이터 볼륨 구성
       items:
+        - name: Azure 디스크 - 영구 볼륨
+          href: azure-disks-dynamic-pv.md
         - name: Azure 파일 - 영구 볼륨
           href: azure-files-dynamic-pv.md
         - name: Azure 파일 - 볼륨
           href: azure-files.md
-- name: 참조
+- name: 참고 자료
   items:
     - name: Azure CLI
       href: /cli/azure/aks
