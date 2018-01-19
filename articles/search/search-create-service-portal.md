@@ -13,15 +13,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 11/07/2017
 ms.author: heidist
-ms.openlocfilehash: eaf317b42026298cc42edcc907bc48169f869460
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: b31844dd0dad1168b12d91ce536589099ab16a7e
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>포털에서 Azure Search서비스 만들기
 
-포털에서 Azure Search 서비스를 만들거나 프로비전하는 방법에 대해 알아봅니다. PowerShell 지침에 대한 자세한 내용은 [PowerShell을 사용하여 Azure Search 관리](search-manage-powershell.md)를 참조하세요.
+포털에서 Azure Search 서비스를 만들거나 프로비전하는 방법에 대해 알아봅니다. 
+
+PowerShell을 선호합니까? Azure Resource Manager [서비스 템플릿](https://azure.microsoft.com/resources/templates/101-azure-search-create/)을 사용합니다. 시작하기 도움말은 배경에 대한 [PowerShell로 Azure Search 관리](search-manage-powershell.md)를 참조하세요.
 
 ## <a name="subscribe-free-or-paid"></a>구독(무료 또는 유료)
 

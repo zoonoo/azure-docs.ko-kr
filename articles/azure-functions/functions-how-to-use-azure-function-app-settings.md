@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/23/2017
 ms.author: glenga
-ms.openlocfilehash: a6cfcd939cb0f21d01fe849ef04619ec9c1c972a
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: f174766d4ab909fea0feea517a17b9d648722c2a
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>Azure Portal에서 함수 앱을 관리하는 방법 
 
@@ -49,7 +49,7 @@ Functions는 소비 호스팅 및 App Service 호스팅 계획을 모두 지원�
 
 + [App Service 편집기](#editor)
 + [응용 프로그램 설정](#settings) 
-+ [Console](#console)
++ [콘솔](#console)
 + [고급 도구(Kudu)](#kudu)
 + [배포 옵션](#deployment)
 + [CORS](#cors)
@@ -70,7 +70,7 @@ App Service 설정을 사용하는 방법에 대한 자세한 내용은 [Azure A
 
 | | |
 |-|-|
-| ![함수 앱 응용 프로그램 설정](./media/functions-how-to-use-azure-function-app-settings/function-app-application-settings.png) | App Service **응용 프로그램 설정** 블레이드에서 프레임워크 버전, 원격 디버깅, 앱 설정 및 연결 문자열을 구성 및 관리합니다. 다른 Azure 및 타사 서비스에 함수 앱을 통합할 경우 이 블레이드에서 해당 설정을 수정할 수 있습니다. |
+| ![함수 앱 응용 프로그램 설정](./media/functions-how-to-use-azure-function-app-settings/function-app-application-settings.png) | App Service **응용 프로그램 설정** 블레이드에서 프레임워크 버전, 원격 디버깅, 앱 설정 및 연결 문자열을 구성 및 관리합니다. 다른 Azure 및 타사 서비스에 함수 앱을 통합할 경우 이 블레이드에서 해당 설정을 수정할 수 있습니다. 설정을 삭제하려면 오른쪽으로 스크롤하고 줄 오른쪽 끝에서 **X** 아이콘을 선택합니다(다음 이미지에 표시되지 않음).
 
 ![응용 프로그램 설정 구성](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-settings.png)
 

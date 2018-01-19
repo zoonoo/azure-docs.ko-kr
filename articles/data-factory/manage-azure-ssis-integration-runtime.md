@@ -13,40 +13,64 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: spelluru
-ms.openlocfilehash: 19a81917ade977a0d04934b77e8213ef6d9e0f12
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: c1743a0d06f911122ed0aba586aec837f81c578c
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/13/2018
 ---
-# <a name="reconfigure-an-azure-ssis-integration-runtime"></a>Azure-SSIS Integration Runtime 다시 구성
-[Azure-SSIS 통합 런타임 만들기](create-azure-ssis-integration-runtime.md) 문서는 Azure Data Factory를 사용하여 Azure-SSIS 통합 런타임을 만드는 방법을 보여줍니다. 이 문서에서는 기존 Azure-SSIS Integration Runtime을 다시 구성하는 방법을 설명합니다.  
+# <a name="manage-an-azure-ssis-integration-runtime"></a>Azure-SSIS 통합 런타임 관리
+[Azure-SSIS Integration Runtime 만들기](create-azure-ssis-integration-runtime.md) 문서는 Azure Data Factory를 사용하여 Azure-SSIS 통합 런타임을 만드는 방법을 보여줍니다. 이 문서에서는 기존 Azure-SSIS Integration Runtime을 다시 구성하는 방법을 설명합니다.  
 
 > [!NOTE]
 > 이 문서는 현재 미리 보기 상태인 Data Factory 버전 2에 적용됩니다. GA(일반 공급) 상태인 Data Factory 버전 1 서비스를 사용 중인 경우 [Data Factory 버전 1 설명서](v1/data-factory-introduction.md)를 참조하세요.
 
 Azure-SSIS 통합 런타임 인스턴스를 프로비전하고 시작한 후에는 일련의 `Stop` - `Set` - `Start` PowerShell cmdlet을 연속적으로 실행하여 다시 구성할 수 있습니다. 예를 들어 다음 PowerShell 스크립트는 Azure-SSIS 통합 런타임 인스턴스에 할당된 노드 수를 5로 변경합니다.
 
-## <a name="stop-azure-ssis-ir"></a>Azure-SSIS IR 중지
-먼저 [Stop-AzureRmDataFactoryV2IntegrationRuntime](/powershell/module/azurerm.datafactoryv2/stop-azurermdatafactoryv2integrationruntime?view=azurermps-4.4.1) cmdlet을 사용하여 Azure-SSIS Integration Runtime을 중지합니다. 이 명령은 모든 노드를 해제하고 청구를 중지합니다.
+## <a name="reconfigure-an-azure-ssis-ir"></a>Azure-SSIS IR 다시 구성
 
-```powershell
-Stop-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName 
-```
+1. 먼저 [Stop-AzureRmDataFactoryV2IntegrationRuntime](/powershell/module/azurerm.datafactoryv2/stop-azurermdatafactoryv2integrationruntime?view=azurermps-4.4.1) cmdlet을 사용하여 Azure-SSIS Integration Runtime을 중지합니다. 이 명령은 모든 노드를 해제하고 청구를 중지합니다.
 
-## <a name="reconfigure-azure-ssis-ir"></a>Azure-SSIS IR 다시 구성
-[Set-AzureRmDataFactoryV2IntegrationRuntime](/powershell/module/azurerm.datafactoryv2/set-azurermdatafactoryv2integrationruntime?view=azurermps-4.4.1) cmdlet을 사용하여 Azure-SSIS IR을 다시 구성합니다. 다음 샘플 명령은 Azure-SSIS Integration Runtime을 5개 노드로 확장합니다.
+    ```powershell
+    Stop-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName 
+    ```
+2. 다음으로 [Set-AzureRmDataFactoryV2IntegrationRuntime](/powershell/module/azurerm.datafactoryv2/set-azurermdatafactoryv2integrationruntime?view=azurermps-4.4.1) cmdlet을 사용하여 Azure-SSIS IR을 다시 구성합니다. 다음 샘플 명령은 Azure-SSIS Integration Runtime을 5개 노드로 확장합니다.
 
-```powershell
-Set-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName -NodeCount 5
-```  
+    ```powershell
+    Set-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName -NodeCount 5
+    ```  
+3. [Start-AzureRmDataFactoryV2IntegrationRuntime](/powershell/module/azurerm.datafactoryv2/start-azurermdatafactoryv2integrationruntime?view=azurermps-4.4.1) cmdlet을 사용하여 Azure-SSIS Integration Runtime을 시작합니다. 이 명령은 SSIS 패키지 실행을 위한 모든 노드를 할당합니다.   
 
-## <a name="start-azure-ssis-ir"></a>Azure-SSIS IR 시작
-[Start-AzureRmDataFactoryV2IntegrationRuntime](/powershell/module/azurerm.datafactoryv2/start-azurermdatafactoryv2integrationruntime?view=azurermps-4.4.1) cmdlet을 사용하여 Azure-SSIS Integration Runtime을 시작합니다. 이 명령은 SSIS 패키지 실행을 위한 모든 노드를 할당합니다.   
+    ```powershell
+    Start-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName
+    ```
 
-```powershell
-Start-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName
-```
+## <a name="delete-an-azure-ssis-ir"></a>Azure-SSIS IR 삭제
+1. 먼저 데이터 팩터리에 기존의 모든 Azure SSIS IRs를 나열합니다.
+
+    ```powershell
+    Get-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName -Status
+    ```
+2. 다음으로 데이터 팩터리에서 기존의 모든 Azure SSIS IRs를 중지합니다.
+
+    ```powershell
+    Stop-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName -Force
+    ```
+3. 다음으로 데이터 팩터리에서 기존의 모든 Azure SSIS IRs를 제거합니다.
+
+    ```powershell
+    Remove-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName -Force
+    ```
+4. 마지막으로 데이터 팩터리를 제거합니다.
+
+    ```powershell
+    Remove-AzureRmDataFactoryV2 -Name $DataFactoryName -ResourceGroupName $ResourceGroupName -Force
+    ```
+5. 새 리소스 그룹을 만들 때 리소스 그룹을 제거합니다.
+
+    ```powershell
+    Remove-AzureRmResourceGroup -Name $ResourceGroupName -Force 
+    ```
 
 ## <a name="next-steps"></a>다음 단계
 Azure-SSIS 런타임에 대한 자세한 내용은 다음 항목을 참조하세요. 
