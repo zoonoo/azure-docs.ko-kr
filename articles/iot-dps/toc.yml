@@ -15,33 +15,33 @@
           items:
             - name: C
               href: quick-create-simulated-device.md
-            - name: Java
+            - name: 자바
               href: quick-create-simulated-device-tpm-java.md
             - name: 'C#'
               href: quick-create-simulated-device-tpm-csharp.md
-            - name: Python
+            - name: 파이썬
               href: quick-create-simulated-device-tpm-python.md
         - name: X.509
           items:
             - name: C
               href: quick-create-simulated-device-x509.md
-            - name: Java
+            - name: 자바
               href: quick-create-simulated-device-x509-java.md
             - name: 'C#'
               href: quick-create-simulated-device-x509-csharp.md
-            - name: Python
+            - name: 파이썬
               href: quick-create-simulated-device-x509-python.md
     - name: 장치 등록
       items:
         - name: TPM
           items:
-            - name: Java
+            - name: 자바
               href: quick-enroll-device-tpm-java.md
             - name: Node.js
               href: quick-enroll-device-tpm-node.md
         - name: X.509
           items:
-            - name: Java
+            - name: 자바
               href: quick-enroll-device-x509-java.md
             - name: Node.js
               href: quick-enroll-device-x509-node.md
@@ -77,7 +77,9 @@
       href: use-hsm-with-sdk.md
     - name: 프로비전 서비스에 대한 액세스 제어
       href: how-to-control-access.md
-- name: 참조
+    - name: Azure CLI를 사용하여 장치 프로비전 서비스 관리
+      href: how-to-manage-dps-with-cli.md
+- name: 참고 자료
   items:
     - name: REST (영문)
       href: /rest/api/iot-dps
@@ -111,5 +113,5 @@
       href: 'http://stackoverflow.com/questions/tagged/azure-iot-hub'
     - name: 기술 사례 연구
       href: 'https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured'
-    - name: 비디오
+    - name: 동영상
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=iot-hub'

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: trinadhk;markgal;jpallavi;
 ms.openlocfilehash: d09208596de4609faace67e11926ad30f68cd901
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Azure 가상 머신 백업 문제 해결
 아래 표에 나열된 정보를 참조하여 Azure Backup을 사용하는 동안 발생하는 오류를 해결할 수 있습니다.
@@ -69,7 +69,7 @@ ms.lasthandoff: 12/21/2017
 | Visual Studio 2012용 Visual C++ 재배포 가능 패키지의 설치 실패로 인해 스냅숏 작업이 실패함 | C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion으로 이동한 후 vcredist2012_x64를 설치합니다. 이 서비스 설치를 허용하는 레지스트리 키 값이 올바른 값으로 설정되어 있는지 확인합니다. 예를 들어 레지스트리 키 _HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Msiserver_의 값은 4가 아닌 3으로 설정되어야 합니다. 설치하는 데 여전히 문제가 발생할 경우 관리자 권한 명령 프롬프트에서 _MSIEXEC /UNREGISTER_를 실행한 후 _MSIEXEC /REGISTER_를 실행하여 설치 서비스를 다시 시작합니다.  |
 
 
-## <a name="jobs"></a>작업
+## <a name="jobs"></a>교육
 | 오류 세부 정보 | 해결 방법 |
 | --- | --- |
 | 이 작업 유형에 대해서는 취소가 지원되지 않습니다. 작업이 완료될 때까지 기다려주세요. |없음 |
