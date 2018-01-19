@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: sergkanz
-ms.openlocfilehash: 18712b1c19fc81e290ead62f73a177874ebe86cd
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 5c6f7521614d7c8337ef31fb8102c5715f83a58d
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Application Insights .NET SDK를 통한 사용자 지정 작업 추적
 
@@ -40,14 +40,14 @@ Application Insights 웹 SDK는 IIS 파이프라인과 모든 ASP.NET Core 응�
 
 사용자 지정 추적이 필요한 또 다른 예로 큐에서 항목을 받는 작업자가 있습니다. 일부 큐의 경우 이 큐에 메시지를 추가하는 호출이 종속성으로 추적됩니다. 그러나 메시지 처리를 설명하는 상위 수준 작업은 자동으로 수집되지 않습니다.
 
-이러한 작업을 어떻게 추적할 수 있는지 살펴보겠습니다.
+이러한 작업을 추적할 수 있는 방법을 살펴보겠습니다.
 
 상위 수준에서 작업은 `RequestTelemetry`를 만들고 알려진 속성을 설정하는 것입니다. 작업이 완료되면 원격 분석을 추적합니다. 다음 예제에서는 이 작업을 보여 줍니다.
 
 ### <a name="http-request-in-owin-self-hosted-app"></a>Owin 자체 호스팅 앱의 HTTP 요청
-이 예제에서는 [상관 관계에 대한 HTTP 프로토콜(영문)](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md)을 따릅니다. 여기서 설명하는 헤더를 받아야 합니다.
+이 예제에서 추적 컨텍스트는 [상관 관계에 대한 HTTP 프로토콜](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md)에 따라 전파됩니다. 여기서 설명하는 헤더를 받아야 합니다.
 
-``` C#
+```csharp
 public class ApplicationInsightsMiddleware : OwinMiddleware
 {
     private readonly TelemetryClient telemetryClient = new TelemetryClient(TelemetryConfiguration.Active);
@@ -121,16 +121,18 @@ public class ApplicationInsightsMiddleware : OwinMiddleware
 상관 관계에 대한 HTTP 프로토콜도 `Correlation-Context` 헤더를 선언하지만, 여기서는 간소화하기 위해 생략했습니다.
 
 ## <a name="queue-instrumentation"></a>큐 계측
-HTTP 통신을 위해 상관 관계 세부 정보를 전달하는 프로토콜을 만들었습니다. 일부 큐의 프로토콜을 사용하면 메시지와 함께 추가 메타데이터를 전달할 수 있지만, 다른 프로토콜을 사용하면 전달할 수 없습니다.
+HTTP 요청으로 상관 관계 세부 정보를 전달하는 [상관 관계에 대한 HTTP 프로토콜](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md)이 있지만 모든 큐 프로토콜은 동일한 세부 정보가 큐 메시지를 따라 전달되는 방식을 정의해야 합니다. 일부 큐 프로토콜(예: AMQP)은 추가 메타데이터 전달을 허용하며 일부 다른 큐 프로토콜(예: Azure Storage 큐)은 메시지 페이로드로 인코딩될 컨텍스트가 필요합니다.
 
 ### <a name="service-bus-queue"></a>Service Bus 큐
-Azure [Service Bus 큐](../service-bus-messaging/index.md)를 사용하면 메시지와 함께 속성 모음을 전달할 수 있습니다. 이 큐는 상관 관계 ID를 전달하는 데 사용됩니다.
+Application Insights는 새 [.NET용 Microsoft Azure Service Bus 클라이언트](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus/) 버전 3.0.0 이상을 사용하여 Service Bus 메시징 호출을 추적합니다.
+[메시지 처리기 패턴](/dotnet/api/microsoft.azure.servicebus.queueclient.registermessagehandler)을 사용하여 메시지를 처리하는 경우 특별히 수행할 작업이 없습니다. 서비스에서 수행하는 모든 Service Bus 호출이 자동으로 추적되고 다른 원격 분석 항목과 상호 연결됩니다. 수동으로 메시지를 처리하는 경우 [Microsoft Application Insights를 사용하여 Service Bus 클라이언트 추적](../service-bus-messaging/service-bus-end-to-end-tracing.md)을 참조하세요.
 
-Service Bus 큐는 TCP 기반 프로토콜을 사용합니다. Application Insights에서는 큐 작업을 자동으로 추적하지 않으므로 수동으로 추적하겠습니다. 큐에서 제거 작업은 푸시 스타일 API이며, 이를 추적할 수 없습니다.
+[WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) 패키지를 사용하는 경우 더 참조합니다. Service Bus 큐는 AMQP 프로토콜을 사용하여 Application Insights는 큐 작업을 자동으로 추적하지 않으므로 다음 예제는 Service Bus에 대한 호출을 추적(및 상관 관계 지정)하는 방법을 보여 줍니다.
+상관 관계 식별자는 메시지 속성에서 전달됩니다.
 
 #### <a name="enqueue"></a>큐에 넣기
 
-```C#
+```csharp
 public async Task Enqueue(string payload)
 {
     // StartOperation is a helper method that initializes the telemetry item
@@ -168,7 +170,7 @@ public async Task Enqueue(string payload)
 ```
 
 #### <a name="process"></a>Process
-```C#
+```csharp
 public async Task Process(BrokeredMessage message)
 {
     // After the message is taken from the queue, create RequestTelemetry to track its processing.
@@ -208,7 +210,7 @@ Storage 큐에는 HTTP API가 있습니다. 큐에 대한 모든 호출은 HTTP 
 
 Application Insights를 수동으로 구성하는 경우 다음과 비슷하게 `Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule`을 만들고 초기화해야 합니다.
  
-``` C#
+```csharp
 DependencyTrackingTelemetryModule module = new DependencyTrackingTelemetryModule();
 
 // You can prevent correlation header injection to some domains by adding it to the excluded list.
@@ -224,14 +226,14 @@ module.Initialize(TelemetryConfiguration.Active);
 #### <a name="enqueue"></a>큐에 넣기
 Storage 큐는 HTTP API를 지원하므로 큐를 통한 모든 작업은 Application Insights에서 자동으로 추적됩니다. 대부분의 경우 이 계측으로 충분합니다. 그러나 생산자 추적과 소비자 쪽 추적 사이의 상관 관계를 지정하려면 상관 관계에 대한 HTTP 프로토콜에서 수행하는 것과 비슷한 일부 상관 관계 컨텍스트를 전달해야 합니다. 
 
-이 예제에서는 선택적인 `Enqueue` 작업을 추적합니다. 다음을 수행할 수 있습니다.
+이 예제는 `Enqueue` 작업을 추적하는 방법을 보여 줍니다. 다음을 수행할 수 있습니다.
 
  - **상관 관계 지정 재시도(있는 경우)**: 모든 작업에는 `Enqueue` 작업인 하나의 공통 부모가 있습니다. 그렇지 않으면 들어오는 요청의 자식으로 추적됩니다. 큐에 대한 논리적 요청이 여러 개 있으면 재시도가 발생한 호출을 찾는 것이 어려울 수 있습니다.
  - **저장소 상관 관계 지정 로그(필요한 경우)**: Application Insights 원격 분석과의 상관 관계가 지정됩니다.
 
 `Enqueue` 작업은 부모 작업의 자식(예 : 들어오는 HTTP 요청)입니다. HTTP 종속성 호출은 `Enqueue` 작업의 자식 및 들어오는 요청의 손자입니다.
 
-```C#
+```csharp
 public async Task Enqueue(CloudQueue queue, string message)
 {
     var operation = telemetryClient.StartOperation<DependencyTelemetry>("enqueue " + queue.Name);
@@ -285,7 +287,7 @@ public async Task Enqueue(CloudQueue queue, string message)
 
 대부분의 경우 큐에 대한 HTTP 요청과 다른 추적 사이의 상관 관계를 지정하는 것도 유용할 수 있습니다. 다음 예제에서는 이를 수행하는 방법을 보여 줍니다.
 
-``` C#
+```csharp
 public async Task<MessagePayload> Dequeue(CloudQueue queue)
 {
     var telemetry = new DependencyTelemetry
@@ -334,9 +336,9 @@ public async Task<MessagePayload> Dequeue(CloudQueue queue)
 
 #### <a name="process"></a>Process
 
-다음 예제에서는 들어오는 HTTP 요청을 추적하는 방법과 비슷한 방식으로 들어오는 메시지를 추적합니다.
+다음 예제에서 들어오는 메시지는 들어오는 HTTP 요청과 비슷한 방식으로 추적됩니다.
 
-```C#
+```csharp
 public async Task Process(MessagePayload message)
 {
     // After the message is dequeued from the queue, create RequestTelemetry to track its processing.
@@ -366,7 +368,7 @@ public async Task Process(MessagePayload message)
 
 마찬가지로 다른 큐 작업도 계측할 수 있습니다. 피크 작업은 큐에서 제거 작업과 비슷한 방식으로 계측해야 합니다. 큐 관리 작업 계측은 필요하지 않습니다. Application Insights는 HTTP와 같은 작업을 추적하며, 이는 대부분의 경우에 충분합니다.
 
-메시지 삭제를 계측할 때는 작업(상관 관계) 식별자를 설정해야 합니다. 또는 `Activity` API를 사용할 수 있습니다. 그러면 Application Insights에서 사용자를 대신하여 이 작업을 수행하므로 원격 분석 항목에서 작업 식별자를 설정할 필요가 없습니다.
+메시지 삭제를 계측할 때는 작업(상관 관계) 식별자를 설정해야 합니다. 또는 `Activity` API를 사용할 수 있습니다. 그러면 Application Insights SDK에서 사용자를 대신하여 이 작업을 수행하므로 원격 분석 항목에서 작업 식별자를 설정할 필요가 없습니다.
 
 - 큐에서 항목을 가져온 후 새 `Activity`를 만듭니다.
 - `Activity.SetParentId(message.ParentId)`를 사용하여 소비자와 생산자 로그의 상관 관계를 지정합니다.
@@ -383,7 +385,7 @@ public async Task Process(MessagePayload message)
 ## <a name="long-running-background-tasks"></a>장기 실행 백그라운드 작업 실행 
 일부 응용 프로그램은 사용자 요청으로 인해 발생할 수 있는 장기 실행 작업을 시작합니다. 추적/계측 관점에서 이는 요청이나 종속성 계측과 다르지 않습니다. 
 
-``` C#
+```csharp
 async Task BackgroundTask()
 {
     var operation = telemetryClient.StartOperation<RequestTelemetry>(taskName);
@@ -411,7 +413,7 @@ async Task BackgroundTask()
 }
 ```
 
-이 예에서는 `telemetryClient.StartOperation`을 사용하여 `RequestTelemetry`를 만들고 상관 컨텍스트를 채웁니다. 작업을 예약한 들어오는 요청으로 만들어진 부모 작업이 있다고 가정해 보겠습니다. 들어오는 요청과 동일한 비동기 제어 흐름에서 `BackgroundTask`가 시작되는 한 해당 부모 작업과 상관 관계가 지정됩니다. `BackgroundTask` 및 모든 중첩된 원격 분석 항목은 요청이 종료된 후에도 원인이 된 요청과의 상관 관계가 자동으로 지정됩니다.
+이 예제에서 `telemetryClient.StartOperation`은 `RequestTelemetry`를 만들고 상관 컨텍스트를 채웁니다. 작업을 예약한 들어오는 요청으로 만들어진 부모 작업이 있다고 가정해 보겠습니다. 들어오는 요청과 동일한 비동기 제어 흐름에서 `BackgroundTask`가 시작되는 한 해당 부모 작업과 상관 관계가 지정됩니다. `BackgroundTask` 및 모든 중첩된 원격 분석 항목은 요청이 종료된 후에도 원인이 된 요청과의 상관 관계가 자동으로 지정됩니다.
 
 연결된 작업(`Activity`)이 없는 백그라운드 스레드에서 작업이 시작되면 `BackgroundTask`에는 부모가 없습니다. 그러나 중첩된 작업이 있을 수 있습니다. 이 작업에서 보고되는 모든 원격 분석 항목과 `BackgroundTask`에서 만들어진 `RequestTelemetry` 사이의 상관 관계가 지정됩니다.
 
@@ -428,9 +430,33 @@ Service Bus 큐의 `Enqueue` 메서드 또는 Azure Storage 큐는 이러한 사
 - 완료되면 `StopOperation`을 통해 작업을 중지합니다.
 - 예외를 처리합니다.
 
+```csharp
+public async Task RunMyTaskAsync()
+{
+    using (var operation = telemetryClient.StartOperation<DependencyTelemetry>("task 1"))
+    {
+        try 
+        {
+            var myTask = await StartMyTaskAsync();
+            // Update status code and success as appropriate.
+        }
+        catch(...) 
+        {
+            // Update status code and success as appropriate.
+        }
+    }
+}
+```
+
+작업을 삭제하면 작업이 중지되므로 `StopOperation`을 호출하는 대신 수행할 수 있습니다.
+
+*경고*: 일부 경우에 처리되지 않은 예외는 `finally`가 호출되는 것을 [방지](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/try-finally)하므로 작업은 추적되지 않을 수 있습니다.
+
+### <a name="parallel-operations-processing-and-tracking"></a>병렬 작업 처리 및 추적
+
 `StopOperation`은 시작된 작업만 중지합니다. 현재 실행 중인 작업이 중지하려는 작업과 일치하지 않으면 `StopOperation`에서 아무 작업도 수행하지 않습니다. 이 경우 동일한 실행 컨텍스트에서 여러 작업을 동시에 시작하면 발생할 수 있습니다.
 
-```C#
+```csharp
 var firstOperation = telemetryClient.StartOperation<DependencyTelemetry>("task 1");
 var firstOperation = telemetryClient.StartOperation<DependencyTelemetry>("task 1");
 var firstTask = RunMyTaskAsync();
@@ -440,31 +466,31 @@ var secondTask = RunMyTaskAsync();
 
 await firstTask;
 
-// This will do nothing and will not report telemetry for the first operation
+// FAILURE!!! This will do nothing and will not report telemetry for the first operation
 // as currently secondOperation is active.
 telemetryClient.StopOperation(firstOperation); 
 
 await secondTask;
 ```
 
-항상 `StartOperation`을 호출하고 자체 컨텍스트에서 작업을 실행해야 합니다.
-```C#
-public async Task RunMyTaskAsync()
+항상 `StartOperation`을 호출하고 동일한 **async** 메서드에서 작업을 처리하여 병렬로 실행 중인 작업을 격리해야 합니다. 작업이 동기이면(또는 비동기가 아님) 프로세스를 래핑하고 `Task.Run`을 사용하여 추적합니다.
+
+```csharp
+public void RunMyTask(string name)
 {
-    var operation = telemetryClient.StartOperation<DependencyTelemetry>("task 1");
-    try 
+    using (var operation = telemetryClient.StartOperation<DependencyTelemetry>(name))
     {
-        var myTask = await StartMyTaskAsync();
+        Process();
         // Update status code and success as appropriate.
     }
-    catch(...) 
-    {
-        // Update status code and success as appropriate.
-    }
-    finally 
-    {
-        telemetryClient.StopOperation(operation);
-    }
+}
+
+public async Task RunAllTasks()
+{
+    var task1 = Task.Run(() => RunMyTask("task 1"));
+    var task2 = Task.Run(() => RunMyTask("task 2"));
+    
+    await Task.WhenAll(task1, task2);
 }
 ```
 

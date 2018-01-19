@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/22/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: c07290a5003189b0b773bd9b9c995400b424c7f4
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 993dff7657a73803ca21677e19b08946fb89bfa2
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="use-the-service-map-solution-in-operations-management-suite"></a>Operations Management Suite에서 서비스 맵 솔루션 사용
 서비스 맵은 Windows 및 Linux 시스템에서 응용 프로그램 구성 요소를 자동으로 검색하고 서비스 간 통신을 매핑합니다. 서비스 맵을 사용하면 생각하는 방식 즉 중요한 서비스를 제공하는 상호 연결된 시스템으로 서버를 볼 수 있습니다. 서비스 맵은 서버, 프로세스 및 에이전트 설치 이외에 구성이 필요 없는 TCP 연결 아키텍처의 포트 간 연결을 보여 줍니다.
@@ -49,7 +49,7 @@ Azure Site Recovery를 사용 중이고 응용 프로그램 환경에 대한 복
 
 ![서비스 맵 개요](media/oms-service-map/service-map-overview.png)
 
-선택한 시간 범위 동안 활성 네트워크 연결을 통해 실행 중인 프로세스를 표시 하도록 맵에서 컴퓨터를 확장할 수 있습니다. 서비스 맵 에이전트가 있는 원격 컴퓨터를 확장하여 프로세스 세부 정보를 표시하면 포커스 시스템과 통신하는 프로세스만 표시됩니다. 포커스 컴퓨터에 연결되는 에이전트 없는 프런트 엔드 컴퓨터의 수가 연결되는 프로세스의 왼쪽에 표시됩니다. 포커스 컴퓨터가 에이전트 없는 백 엔드 컴퓨터에 연결하는 경우 백 엔드 서버는 동일한 포트 번호에 대한 다른 연결과 함께 서버 포트 그룹에 포함됩니다.
+선택한 시간 범위 동안 활성 네트워크 연결을 통해 실행 중인 프로세스 그룹 및 프로세스를 표시하도록 맵에서 컴퓨터를 확장할 수 있습니다. 서비스 맵 에이전트가 있는 원격 컴퓨터를 확장하여 프로세스 세부 정보를 표시하면 포커스 시스템과 통신하는 프로세스만 표시됩니다. 포커스 컴퓨터에 연결되는 에이전트 없는 프런트 엔드 컴퓨터의 수가 연결되는 프로세스의 왼쪽에 표시됩니다. 포커스 컴퓨터가 에이전트 없는 백 엔드 컴퓨터에 연결하는 경우 백 엔드 서버는 동일한 포트 번호에 대한 다른 연결과 함께 서버 포트 그룹에 포함됩니다.
 
 기본적으로 서비스 맵 맵은 최근 30분 간의 종속성 정보를 표시합니다. 왼쪽 상단의 시간 컨트롤을 사용하여 최대 1시간의 기록 시간 범위에 대한 맵을 쿼리하여 과거의 종속성(예: 인시던트 중 또는 변경되기 전)을 보여줍니다. 서비스 맵 데이터는 유료 작업 영역에서 30일 동안, 무료 작업 영역에서는 7일 동안 저장됩니다.
 
@@ -59,6 +59,9 @@ Azure Site Recovery를 사용 중이고 응용 프로그램 환경에 대한 복
 상태 배지의 심각도에 따라 컴퓨터 노드 경계는 빨간색(위험), 노란색(경고) 또는 파란색(정보)으로 지정될 수 있습니다. 색은 상태 배지 중 가장 심각한 상태를 나타냅니다. 회색 테두리는 상태 표시기가 없는 노드를 나타냅니다.
 
 ![상태 배지](media/oms-service-map/status-badges.png)
+
+## <a name="process-groups"></a>프로세스 그룹
+프로세스 그룹은 공통 제품 또는 서비스와 연결된 프로세스를 프로세스 그룹으로 결합합니다.  컴퓨터 노드를 확장하는 경우 프로세스 그룹과 함께 독립 실행형 프로세스를 표시합니다.  프로세스 그룹 내의 프로세스에 대한 인바운드 및 아웃바운드 연결이 실패한 경우 연결은 전체 프로세스 그룹에 대해 실패한 것으로 표시됩니다.
 
 ## <a name="machine-groups"></a>컴퓨터 그룹
 컴퓨터 그룹을 사용하면 하나의 서버가 아닌 여러 서버를 중심으로 맵을 볼 수 있으므로 하나의 맵에서 다중 계층 응용 프로그램 또는 서버 클러스터의 모든 멤버를 볼 수 있습니다.
@@ -279,7 +282,7 @@ Linux:
 
 | 자산 | 설명 |
 |:--|:--|
-| 형식 | *ServiceMapComputer_CL* |
+| type | *ServiceMapComputer_CL* |
 | SourceSystem | *OpsManager* |
 | ResourceId | 작업 영역 내 컴퓨터에 대한 고유 식별자 |
 | ResourceName_s | 작업 영역 내 컴퓨터에 대한 고유 식별자 |
@@ -306,7 +309,7 @@ Linux:
 
 | 자산 | 설명 |
 |:--|:--|
-| 형식 | *ServiceMapProcess_CL* |
+| type | *ServiceMapProcess_CL* |
 | SourceSystem | *OpsManager* |
 | ResourceId | 작업 영역 내 프로세스에 대한 고유 식별자 |
 | ResourceName_s | 프로세스를 실행 중인 컴퓨터 내의 프로세스에 대한 고유 식별자|
@@ -330,34 +333,34 @@ Linux:
 ## <a name="sample-log-searches"></a>샘플 로그 검색
 
 ### <a name="list-all-known-machines"></a>알려진 모든 컴퓨터 나열
-Type=ServiceMapComputer_CL | dedup ResourceId
+ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId
 
 ### <a name="list-the-physical-memory-capacity-of-all-managed-computers"></a>모든 관리되는 컴퓨터의 실제 메모리 용량을 나열합니다.
-Type=ServiceMapComputer_CL | select PhysicalMemory_d, ComputerName_s | Dedup ResourceId
+ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId | project PhysicalMemory_d, ComputerName_s
 
 ### <a name="list-computer-name-dns-ip-and-os"></a>컴퓨터 이름, DNS, IP 및 OS를 나열합니다.
-Type=ServiceMapComputer_CL | select ComputerName_s, OperatingSystemFullName_s, DnsNames_s, IPv4Addresses_s  | dedup ResourceId
+ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId | project ComputerName_s, OperatingSystemFullName_s, DnsNames_s, Ipv4Addresses_s
 
 ### <a name="find-all-processes-with-sql-in-the-command-line"></a>명령줄에서 "sql"로 모든 프로세스 찾기
-Type=ServiceMapProcess_CL CommandLine_s = \*sql\* | dedup ResourceId
+ServiceMapProcess_CL | where CommandLine_s contains_cs "sql" | summarize arg_max(TimeGenerated, *) by ResourceId
 
 ### <a name="find-a-machine-most-recent-record-by-resource-name"></a>리소스 이름으로 컴퓨터(가장 최근 레코드) 찾기
-Type=ServiceMapComputer_CL "m-4b9c93f9-bc37-46df-b43c-899ba829e07b" | dedup ResourceId
+search in (ServiceMapComputer_CL) "m-4b9c93f9-bc37-46df-b43c-899ba829e07b" | summarize arg_max(TimeGenerated, *) by ResourceId
 
 ### <a name="find-a-machine-most-recent-record-by-ip-address"></a>IP 주소로 컴퓨터(가장 최근 레코드) 찾기
-Type=ServiceMapComputer_CL "10.229.243.232" | dedup ResourceId
+search in (ServiceMapComputer_CL) "10.229.243.232" | summarize arg_max(TimeGenerated, *) by ResourceId
 
 ### <a name="list-all-known-processes-on-a-specified-machine"></a>특정 컴퓨터의 알려진 프로세스 모두 나열
-Type=ServiceMapProcess_CL MachineResourceName_s="m-4b9c93f9-bc37-46df-b43c-899ba829e07b" | dedup ResourceId
+ServiceMapProcess_CL | where MachineResourceName_s == "m-559dbcd8-3130-454d-8d1d-f624e57961bc" | summarize arg_max(TimeGenerated, *) by ResourceId
 
 ### <a name="list-all-computers-running-sql"></a>SQL을 실행하는 모든 컴퓨터를 나열합니다.
-Type=ServiceMapComputer_CL ResourceName_s IN {Type=ServiceMapProcess_CL \*sql\* | Distinct MachineResourceName_s} | dedup ResourceId | Distinct ComputerName_s
+ServiceMapComputer_CL | where ResourceName_s in ((search in (ServiceMapProcess_CL) "\*sql\*" | distinct MachineResourceName_s)) | distinct ComputerName_s
 
 ### <a name="list-all-unique-product-versions-of-curl-in-my-datacenter"></a>내 데이터 센터에서 curl의 고유한 제품 버전 모두 나열
-Type=ServiceMapProcess_CL ExecutableName_s=curl | Distinct ProductVersion_s
+ServiceMapProcess_CL | where ExecutableName_s == "curl" | distinct ProductVersion_s
 
 ### <a name="create-a-computer-group-of-all-computers-running-centos"></a>CentOS를 실행하는 모든 컴퓨터의 컴퓨터 그룹 만들기
-Type=ServiceMapComputer_CL OperatingSystemFullName_s = \*CentOS\* | Distinct ComputerName_s
+ServiceMapComputer_CL | where OperatingSystemFullName_s contains_cs "CentOS" | distinct ComputerName_s
 
 
 ## <a name="rest-api"></a>REST API

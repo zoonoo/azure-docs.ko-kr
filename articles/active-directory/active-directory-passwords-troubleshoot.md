@@ -1,5 +1,5 @@
 ---
-title: "문제 해결: Azure AD SSPR | Microsoft Docs"
+title: "셀프 서비스 암호 재설정 문제 해결 - Azure Active Directory"
 description: "Azure AD 셀프 서비스 암호 재설정 문제 해결"
 services: active-directory
 keywords: 
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/21/2017
+ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 73c8ea046a5bdbeaca1b3f357fc41f0a6938db1e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c489cf13574c49161b2dde22500f4ab7478a928b
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>셀프 서비스 암호 재설정의 문제 해결
 
@@ -165,7 +165,18 @@ Azure AD Connect의 비밀번호 쓰기 저장 구성 요소로 서비스 중단
 
 ### <a name="confirm-network-connectivity"></a>네트워크 연결 확인
 
-가장 일반적인 오류 지점은 방화벽 및 또는 프록시 포트 및 유휴 시간 제한이 올바르지 않게 구성된 것입니다. 자세한 내용은 [Azure AD Connect에 대한 필수 조건](./connect/active-directory-aadconnect-prerequisites.md) 문서에서 연결 필수 조건을 검토하세요.
+가장 일반적인 오류 지점은 방화벽 및 또는 프록시 포트 및 유휴 시간 제한이 올바르지 않게 구성된 것입니다. 
+
+Azure AD Connect 버전 1.1.443.0 이상의 경우 다음 항목에 대한 아웃바운드 HTTPS 액세스가 필요합니다.
+
+   - passwordreset.microsoftonline.com
+   - servicebus.windows.net
+
+세분성의 경우 수요일마다 업데이트되는 [Microsoft Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653) 목록을 참조하고 다음 월요일에 적용할 수 있습니다.
+
+자세한 내용은 [Azure AD Connect에 대한 필수 조건](./connect/active-directory-aadconnect-prerequisites.md) 문서에서 연결 필수 조건을 검토하세요.
+
+
 
 ### <a name="restart-the-azure-ad-connect-sync-service"></a>Azure AD Connect 동기화 서비스 다시 시작
 

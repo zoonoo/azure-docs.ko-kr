@@ -12,14 +12,14 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 543e8a591acc76918aa7159e6a31b67d85849148
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: a16c5011986c16aae26efaaa6191568b04f46567
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="azure-location-based-services---geocoding-coverage"></a>Azure Location Based Services - 지오코딩 검사
-Azure Location Based Services(LBS)는 전 세계 주소, 장소 및 기타 지리적 엔터티를 찾아보기 위한 자세한 지오코딩 정보를 제공합니다. 이는 Search Service에서 주소를 검색할 때 여러 충실도 수준을 찾을 것으로 기대할 수 있는지 없는지 알고자 하는 고객에게 중요합니다. 낮은 충실도 검사를 사용하여 지역을 검사할 경우 더 낮은 신뢰도 검색 결과를 기대할 수 없습니다. 다음 표는 Azure LBS Search Geocoding에 대한 검사 정보를 제공합니다.
+Azure Location Based Services(LBS)는 전 세계 주소, 장소 및 기타 지리적 엔터티를 찾아보기 위한 자세한 지오코딩 정보를 제공합니다. 이는 Search Service에서 주소를 검색할 때 여러 충실도 수준을 찾을 것으로 기대할 수 있는지 없는지 알고자 하는 고객에게 중요합니다. 낮은 충실도 검사를 사용하여 지역을 검사할 경우 더 낮은 신뢰도 검색 결과를 기대할 수 있습니다. 다음 표는 Azure LBS Search Geocoding에 대한 검사 정보를 제공합니다.
 
 
 |지역  |주소 지점  |번지 |거리 수준|

@@ -7,16 +7,16 @@ author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.reviewer: elioda
-ms.date: 10/16/2017
+ms.date: 01/11/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 327a959ad97897fd19f45a0599f37492938df104
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.openlocfilehash: 55770c92f5d5959e83066b425bc6ccf2b9dcc62e
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 01/12/2018
 ---
-# <a name="deploy-azure-iot-edge-on-a-simulated-device-in-linux---preview"></a>Linux에서 시뮬레이션트된 장치에 Azure IoT Edge 배포 - 미리 보기
+# <a name="deploy-azure-iot-edge-on-a-simulated-device-in-linux-or-macos---preview"></a>Linux 또는 MacOS에서 시뮬레이션된 장치에 Azure IoT Edge 배포 - 미리 보기
 
 Azure IoT Edge에서는 클라우드로 모든 데이터를 푸시하는 대신, 사용자 장치에서 분석 및 데이터 처리를 수행할 수 있습니다. IoT Edge 자습서에는 Azure 서비스 또는 사용자 지정 코드에서 작성된 다양한 유형의 모듈을 배포하는 방법이 설명되어 있으나 먼저 테스트할 장치가 필요합니다. 
 
@@ -31,12 +31,16 @@ Azure IoT Edge에서는 클라우드로 모든 데이터를 푸시하는 대신,
 
 이 자습서에서 만드는 시뮬레이트된 장치는 온도, 습도 및 압력 데이터를 생성하는 모니터입니다. 다른 Azure IoT Edge 자습서에서는 비즈니스 정보를 위해 데이터를 분석하는 모듈을 배포하는 과정을 설명하므로 여기에서 수행하는 작업을 토대로 진행됩니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
-이 자습서에서는 사용자가 Linux를 실행하는 컴퓨터 또는 가상 컴퓨터를 사용하여 사물 인터넷 장치를 시뮬레이트한다고 가정합니다. IoT Edge 장치를 정상적으로 배포하려면 다음 서비스가 필요합니다.
+이 자습서에서는 IoT(사물 인터넷) 장치와 같은 컴퓨터 또는 가상 머신을 사용합니다. 컴퓨터를 IoT Edge 장치로 전환하려면 다음 서비스가 필요합니다.
 
-- [Linux용 Docker][lnk-docker-ubuntu]를 설치하고, 지금 실행 중인지 확인합니다. 
-- Ubuntu를 포함한 대부분의 Linux 배포에는 Python 2.7이 이미 설치되어 있습니다. 다음 명령을 사용하여 pip가 설치되었는지 확인합니다. `sudo apt-get install python-pip`
+* Python pip - IoT Edge 런타임을 설치합니다.
+   * Linux: `sudo apt-get install python-pip`
+   * MacOS: `sudo easy_install pip`
+* Docker - IoT Edge 모듈을 실행합니다.
+   * [Linux용 Docker를 설치][lnk-docker-ubuntu]하고 실행 중인지 확인합니다. 
+   * [Mac용 Docker를 설치][lnk-docker-mac]하고 실행 중인지 확인합니다. 
 
 ## <a name="create-an-iot-hub"></a>IoT Hub 만들기
 
@@ -92,7 +96,7 @@ sudo docker ps
 
 이 자습서에서는 새 IoT Edge 장치를 만들고 여기에 IoT Edge 런타임을 설치했습니다. 그런 다음 장치 자체를 변경하지 않고도 장치에서 실행할 IoT Edge 모듈을 푸시할 수 있도록 Azure Portal을 사용했습니다. 이 경우 푸시한 모듈에서는 자습서에 대해 사용할 수 있는 환경 데이터를 만듭니다. 
 
-시뮬레이션된 장치를 실행중인 컴퓨터에서 명령 프롬프트를 다시 엽니다. 클라우드에서 배포된 모듈을 IoT Edge 장치에서 실행 중인지 확인합니다.
+시뮬레이션된 장치를 실행 중인 컴퓨터에서 명령 프롬프트를 다시 엽니다. 클라우드에서 배포된 모듈을 IoT Edge 장치에서 실행 중인지 확인합니다.
 
 ```cmd
 sudo docker ps
@@ -130,4 +134,5 @@ sudo docker logs -f tempSensor
 
 <!-- Links -->
 [lnk-docker-ubuntu]: https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/ 
+[lnk-docker-mac]: https://docs.docker.com/docker-for-mac/install/
 [lnk-iothub-explorer]: https://github.com/azure/iothub-explorer

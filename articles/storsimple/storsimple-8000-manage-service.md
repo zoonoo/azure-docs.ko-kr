@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/04/2017
 ms.author: alkohli
-ms.openlocfilehash: 5f31e32bb7cbd747af2e03699cfb2c6418828f8d
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 96dcda25cde2473387842fd01421b6bb619e4ece
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>StorSimple 8000 시리즈 장치에 StorSimple 장치 관리자 서비스 배포
 
@@ -27,6 +27,9 @@ ms.lasthandoff: 11/17/2017
 StorSimple Device Manager 서비스는 Microsoft Azure에서 실행되며 여러 StorSimple 장치에 연결됩니다. 서비스를 만든 후에 단일 중앙 위치에서 StorSimple 장치 관리자 서비스에 연결된 모든 장치를 관리하는 데 사용하여 관리 부담을 최소화할 수 있습니다.
 
 이 자습서에서는 서비스 만들기, 삭제, 마이그레이션 및 서비스 등록 키 관리에 필요한 단계를 설명합니다. 이 문서에 포함된 정보는 StorSimple 8000 시리즈 장치에만 적용됩니다. StorSimple 가상 배열에 대한 자세한 내용은 [StorSimple 가상 배열에 StorSimple 장치 관리자 서비스 배포](storsimple-virtual-array-manage-service.md)로 이동합니다.
+
+> [!NOTE]
+> 모든 클래식 StorSimple 장치 관리자는 자동으로 새 Azure Portal로 이동되었습니다. 질문이 있는 경우 [FAQ: Azure Portal로 이동](storsimple-8000-move-azure-portal-faq.md)을 참조하세요. 새 Azure Portal로 이동한 후에는 ASM(Azure Service Management) PowerShell cmdlet이 지원되지 않습니다. 장치를 관리할 스크립트를 업데이트한 후 [Azure Resource Manager SDK 기반 스크립트를 사용하여 StorSimple 장치 관리](storsimple-8000-automation-azurerm-scripts.md)로 이동하여 자세한 내용을 알아보세요. 새 Azure Portal은 업데이트 5.0 이상을 실행하는 장치를 지원합니다. 장치가 최신 상태가 아니면 즉시 업데이트 5를 설치합니다. 자세한 내용은 [업데이트 5 설치](storsimple-8000-install-update-5.md)를 참조하세요. StorSimple Cloud Appliance(8010/8020)를 사용하는 경우 클라우드 어플라이언스를 업데이트할 수 없습니다. 최신 버전의 소프트웨어를 사용하여 업데이트 5.0으로 새 클라우드 어플라이언스를 만든 다음 만들어진 새 클라우드 어플라이언스로 장애 조치(failover)합니다. 업데이트 4.0 이하를 실행하는 장치는 [관리 기능이 축소됩니다](storsimple-8000-manage-service.md#supported-operations-on-devices-running-versions-prior-to-update-5.0). 
 
 ## <a name="create-a-service"></a>서비스 만들기
 StorSimple 장치 관리자 서비스를 만들려면 다음 항목이 필요합니다.
@@ -57,86 +60,6 @@ StorSimple 장치 관리자 서비스를 만들려면 다음 항목이 필요합
 * **상태** – **활성**, **만들기** 또는 **온라인** 등의 서비스 상태입니다.
 * **위치** – StorSimple 장치를 배포할 지리적 위치입니다.
 * **구독** – 서비스와 연관된 청구 구독입니다.
-
-## <a name="move-a-service-to-azure-portal"></a>Azure Portal에 서비스 이동
-이제 Azure Portal에서 StorSimple 8000 시리즈를 관리할 수 있습니다. 기존 서비스로 StorSimple 장치를 관리하는 경우 Azure Portal에 서비스를 이동하는 것이 좋습니다. 2017년 9월 30일 이후에 Azure 클래식 포털에서 StorSimple Manager 서비스를 지원하지 않습니다. 새 Azure Portal로 이동하려는 경우 [전환에 대한 고려 사항](#considerations-for-transition)을 참조하세요. 
-
-> [!NOTE]
-> 2017 년 10 월 5일부터 클래식 StorSimple 장치 관리자는 자동으로 새 Azure Portal로 이동합니다. 이 과정은 단계적으로 이루어지며 이메일 및 포털 알림을 통해 해당 이동에 관한 정보를 업데이트해 드릴 것입니다. 질문이 있는 경우 [FAQ: Azure Portal로 이동](storsimple-8000-move-azure-portal-faq.md)을 참조하세요.
-
-### <a name="considerations-for-transition"></a>전환에 대한 고려 사항
-
-서비스를 이동하기 전에 새 Azure Portal로 마이그레이션하는 작업의 영향을 검토합니다.
-
-> [!NOTE]
-> 새 Azure Portal로 이동한 후에는 기존 ASM(Azure Service Management) PowerShell cmdlet이 지원되지 않습니다. Azure Resource Manager SDK를 통해 장치를 관리하려면 스크립트를 업데이트하십시오. 자세한 내용은 [Azure Resource Manager SDK 기반 스크립트를 사용하여 StorSimple 장치 관리](storsimple-8000-automation-azurerm-scripts.md)로 이동하세요.
-> 새 Azure Portal은 업데이트 3.0 이상을 실행하는 장치를 지원합니다. 장치가 최신 상태가 아닌 경우 가능하면 빨리 업데이트 5를 적용할 것을 적극 권장합니다.
-
-#### <a name="before-you-transition"></a>전환하기 전에
-
-* 장치가 업데이트 3.0 이상을 실행하고 있습니다. 장치가 그 이전 버전을 실행 중인 경우 핫픽스 메서드를 통해 업데이트 5를 설치하는 것이 좋습니다. 자세한 내용은 [업데이트 5 설치](storsimple-8000-install-update-5.md)를 참조하세요. StorSimple Cloud Appliance(8010/8020)를 사용하는 경우 클라우드 어플라이언스를 업데이트할 수 없습니다. 최신 버전의 소프트웨어를 사용하여 업데이트 5.0으로 새 클라우드 어플라이언스를 만든 다음 만들어진 새 클라우드 어플라이언스로 장애 조치합니다.
-
-* 새 Azure Portal로 전환하면 StorSimple 장치를 관리하는 데 Azure 클래식 포털을 사용할 수 없습니다.
-
-* 전환은 중단되지 않으며 장치에 대한 가동 중지 시간이 없습니다.
-
-* 지정된 구독에서 모든 StorSimple 장치 관리자가 전환됩니다.
-
-#### <a name="during-the-transition"></a>전환 중
-
-* 포털에서 장치를 관리할 수 없습니다.
-* 계층화 및 예약된 백업 등의 작업이 계속 진행됩니다.
-* 전환이 진행 중인 동안 이전 StorSimple 장치 관리자를 삭제하지 마십시오.
-
-#### <a name="after-the-transition"></a>전환 후
-
-* 클래식 포털에서 장치를 더 이상 관리할 수 없습니다.
-
-* 기존 ASM(Azure Service Management) PowerShell cmdlet이 지원되지 않습니다. Azure Resource Manager를 통해 장치를 관리하기 위해 스크립트를 업데이트합니다. 리소스 관리자 SDK를 사용한 샘플 스크립트는 [storsimpledevicemgmttools github](https://github.com/anoobbacker/storsimpledevicemgmttools)를 참조하세요.
-
-* 서비스 및 장치 구성이 유지됩니다. 또한 모든 볼륨과 백업이 Azure Portal로 전환됩니다.
-
-### <a name="begin-transition"></a>전환 시작
-
-Azure Portal로 서비스를 전환하려면 다음 단계를 수행합니다.
-
-1. 새 Azure Portal에서 기존 StorSimple Manager 서비스로 이동합니다.
-    ![추가 서비스](./media/storsimple-8000-manage-service/service-browse01.png) ![장치 관리자 선택](./media/storsimple-8000-manage-service/service-browse02.png)
-
-2. StorSimple 장치 관리자 서비스를 지금 Azure Portal에서 사용할 수 있는지를 알려 주는 알림이 표시됩니다. Azure Portal에서는 서비스를 StorSimple 장치 관리자 서비스라고 합니다.
-    ![마이그레이션 알림](./media/storsimple-8000-manage-service/service-transition1.jpg)
-    
-    1. 마이그레이션의 전체 영향을 검토했는지 확인합니다.
-    2. 클래식 포털에서 이동된 StorSimple 장치 관리자의 목록을 검토합니다.
-
-3. **마이그레이션**을 클릭합니다. 전환이 시작되고 완료하는 데 몇 분이 소요됩니다.
-
-전환이 완료되면 Azure Portal에서 StorSimple 장치 관리자 서비스를 통해 장치를 관리할 수 있습니다. Azure Portal로 마이그레이션하지만 이동하려는 옵션이 보이지 않으면 [요청을 제출](https://aka.ms/ss8000-cx-signup)할 수 있습니다.
-
-## <a name="supported-operations-on-devices-running-versions-prior-to-update-30"></a>업데이트 3.0 이전 버전을 실행하는 장치에서 지원되는 작업
-Azure Portal에서는 업데이트 3.0 이상을 실행하는 StorSimple 장치만이 지원됩니다. 이전 버전을 실행하는 장치에는 제한된 지원을 제공합니다. Azure Portal로 마이그레이션한 후 다음 테이블을 사용하여 업데이트3.0 이전 버전을 실행하는 장치에서 지원되는 작업을 알아볼 수 있습니다.
-
-| 작업                                                                                                                       | 지원됨      |
-|---------------------------------------------------------------------------------------------------------------------------------|----------------|
-| 장치 등록                                                                                                               | 예            |
-| 일반, 네트워크 및 보안과 같은 장치 설정 구성                                                                | 예            |
-| 업데이트 검사, 다운로드 및 설치                                                                                             | 예            |
-| 장치 비활성화                                                                                                               | 예            |
-| 장치 삭제                                                                                                                   | 예            |
-| 볼륨 컨테이너 만들기, 수정 및 삭제                                                                                   | 아니요             |
-| 볼륨 만들기, 수정 및 삭제                                                                                             | 아니요             |
-| 백업 정책 만들기, 수정 및 삭제                                                                                      | 아니요             |
-| 수동 백업 수행                                                                                                            | 아니요             |
-| 예약된 백업 수행                                                                                                         | 해당 없음 |
-| backupset에서 복원                                                                                                        | 아니요             |
-| 업데이트 3.0 이상을 실행하는 장치에 복제 <br> 원본 장치는 업데이트 3.0 이전 버전을 실행하고 있습니다.                                | 예            |
-| 업데이트 3.0 이전 버전을 실행하는 장치에 복제합니다.                                                                          | 아니요             |
-| 원본 장치로 장애 조치 <br> (업데이트 3.0 이전 버전을 실행하는 장치에서 업데이트 3.0 이후 버전을 실행하는 장치로)                                                               | 예            |
-| 대상 장치로 장애 조치 <br> (업데이트 3.0 이전 소프트웨어 버전을 실행하는 장치로)                                                                                   | 아니요             |
-| 경고 지우기                                                                                                                  | 예            |
-| 클래식 포털에서 생성된 백업 정책, 백업 카탈로그, 볼륨, 볼륨 컨테이너, 모니터링 차트, 작업 및 경고 보기 | 예            |
-| 장치 컨트롤러 설정 및 해제                                                                                              | 예            |
-
 
 ## <a name="delete-a-service"></a>서비스 삭제
 
@@ -262,6 +185,31 @@ Azure Resource Manager 기반 스크립트를 사용하여 이 단계를 수행�
 2. PowerShell을 열고 명령 프롬프트에서 다음을 입력 합니다. `Update-CloudApplianceServiceEncryptionKey.ps1 -SubscriptionId [subscription] -TenantId [tenantid] -ResourceGroupName [resource group] -ManagerName [device manager]`
 
 이 스크립트는 장치 관리자 아래의 모든 8010/8020 클라우드 어플라이언스에 서비스 데이터 암호화 키가 설정되었는지 확인합니다.
+
+## <a name="supported-operations-on-devices-running-versions-prior-to-update-50"></a>업데이트 5.0 이전 버전을 실행하는 장치에서 지원되는 작업
+Azure Portal에서는 업데이트 5.0 이상을 실행하는 StorSimple 장치만이 지원됩니다. 이전 버전을 실행하는 장치에는 제한된 지원을 제공합니다. Azure Portal로 마이그레이션한 후 다음 테이블을 사용하여 업데이트 5.0 이전 버전을 실행하는 장치에서 지원되는 작업을 알아볼 수 있습니다.
+
+| 작업                                                                                                                       | 지원됨      |
+|---------------------------------------------------------------------------------------------------------------------------------|----------------|
+| 장치 등록                                                                                                               | 적용            |
+| 일반, 네트워크 및 보안과 같은 장치 설정 구성                                                                | 적용            |
+| 업데이트 검사, 다운로드 및 설치                                                                                             | 적용            |
+| 장치 비활성화                                                                                                               | 적용            |
+| 장치 삭제                                                                                                                   | 적용            |
+| 볼륨 컨테이너 만들기, 수정 및 삭제                                                                                   | 아니요             |
+| 볼륨 만들기, 수정 및 삭제                                                                                             | 아니요             |
+| 백업 정책 만들기, 수정 및 삭제                                                                                      | 아니요             |
+| 수동 백업 수행                                                                                                            | 아니요             |
+| 예약된 백업 수행                                                                                                         | 해당 없음 |
+| backupset에서 복원                                                                                                        | 아니요             |
+| 업데이트 3.0 이상을 실행하는 장치에 복제 <br> 원본 장치는 업데이트 3.0 이전 버전을 실행하고 있습니다.                                | 적용            |
+| 업데이트 3.0 이전 버전을 실행하는 장치에 복제합니다.                                                                          | 아니요             |
+| 원본 장치로 장애 조치 <br> (업데이트 3.0 이전 버전을 실행하는 장치에서 업데이트 3.0 이후 버전을 실행하는 장치로)                                                               | 적용            |
+| 대상 장치로 장애 조치 <br> (업데이트 3.0 이전 소프트웨어 버전을 실행하는 장치로)                                                                                   | 아니요             |
+| 경고 지우기                                                                                                                  | 적용            |
+| 클래식 포털에서 생성된 백업 정책, 백업 카탈로그, 볼륨, 볼륨 컨테이너, 모니터링 차트, 작업 및 경고 보기 | 적용            |
+| 장치 컨트롤러 설정 및 해제                                                                                              | 적용            |
+
 
 ## <a name="next-steps"></a>다음 단계
 * [StorSimple 배포 프로세스](storsimple-8000-deployment-walkthrough-u2.md)에 대해 자세히 알아봅니다.

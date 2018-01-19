@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: japere
-ms.openlocfilehash: 5887dbd606acd1df47be1c421bee1a1008dc91d1
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9bec51e1d49308baecc76143ec80902d2da418e8
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="do-you-need-help-with-the-my-apps-portal"></a>MyApps portal에 대한 도움이 필요합니까?
 
@@ -51,17 +51,17 @@ ms.lasthandoff: 12/11/2017
 최종 사용자로서 SSPR(셀프 서비스 암호 재설정)을 사용하는 사람에게 문의하지 않고도 암호를 재설정하거나 계정 잠금을 해제할 수 있습니다. 이 기능을 사용하려면 먼저 인증 방법을 등록하거나 관리자가 입력한 미리 정의된 인증 방법을 확인해야 합니다. 자세한 내용은 [셀프 서비스 암호 재설정 등록](active-directory-passwords-reset-register.md)을 참조하세요.
 
 
-## <a name="i-am-having-trouble-installing-the-my-apps-portal-browser-extension"></a>My Apps portal 브라우저 확장을 설치하는 데 문제가 발생했습니다.
+## <a name="i-am-having-trouble-installing-the-my-apps-secure-sign-in-extension"></a>내 앱 보안 로그인 확장을 설치하는 데 문제가 있습니다.
 
 브라우저 요구 사항을 충족하는지를 확인합니다.
 
 - 포털에는 JavaScript를 지원하고 CSS를 사용하도록 설정한 브라우저가 필요합니다. 암호 기반 Single Sign-On 앱을 사용하는 경우 포함되는 확장도 설치해야 합니다. 사용자가 암호 기반 Single Sign-On 앱에 구성된 응용 프로그램을 시작할 때 이 확장이 자동으로 다운로드됩니다.
 
 - 확장에 대한 브라우저 요구 사항은 다음과 같습니다.
-    - Windows 7 이상 Internet Explorer 8, 9, 10, 11
     - Windows 10 Anniversary Edition 이상 Edge
     - Windows 7 이상 및 Mac OS X 이상 Chrome
     - Windows XP SP2 이상 및 Mac OS X 10.6 이상 Firefox 26.0 이상
+    - Windows 7 이상에서 Internet Explorer 8, 9, 10, 11(지원 제한)
 
 아래와 같은 직접 링크에서 Chrome 및 Edge에 대한 확장을 다운로드할 수 있습니다.
 
@@ -76,6 +76,32 @@ ms.lasthandoff: 12/11/2017
 - 브라우저를 다시 시작하고 My Apps portal에 로그합니다.
 
 - 브라우저의 쿠키를 지우고 My Apps portal에 로그인합니다.
+- 진단 도구 및 IE용 확장을 구성하는 방법에 대한 단계별 지침에 액세스하려면 [Internet Explorer의 액세스 패널 확장 문제 해결](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-troubleshooting) 가이드를 따릅니다.
+
+## <a name="how-do-i-use-the-my-apps-secure-sign-in-extension"></a>내 앱 보안 로그인 확장을 사용하려면 어떻게 해야 하나요?
+확장에 대한 내 앱 기본 URL 변경
+
+Https://myapps.microsoft.com이 아닌 다른 앱 URL을 사용하는 경우 다음 단계를 통해 기본 URL을 구성해야 합니다.
+1. 확장에 로그인되지 않은 상태에서 확장 아이콘을 **마우스 오른쪽 단추로 클릭**합니다.
+2. 메뉴에서 **내 앱 URL 선택**을 클릭합니다.
+3. 기본 URL을 **선택**합니다.
+4. 확장 아이콘을 클릭합니다.
+5. **시작하려면 로그인하세요.**를 선택하여 확장에 로그인합니다.
+
+브라우저에서 앱에 직접 로그인
+1. 확장을 설치한 후에 **시작하려면 로그인하세요.**를 선택하여 확장에 로그인합니다.
+2. 로그인하려면 앱의 **로그온 URL**로 이동합니다. 이 URL은 일반적으로 로그인 양식을 표시하는 앱의 URL입니다.
+3. 확장 상태가 변경되고 암호를 사용할 수 있다고 표시되면 **확장 아이콘**을 클릭하여 로그인합니다.
+
+확장에서 앱 시작
+1. 확장을 설치한 후에 **시작하려면 로그인하세요.**를 선택하여 확장에 로그인합니다.
+2. 확장 아이콘을 클릭하여 해당 메뉴를 엽니다.
+3. 내 앱 포털에서 사용할 수 있는 앱을 **검색**합니다.
+4. **검색 결과**에서 앱을 클릭하여 시작합니다.
+5. 시작된 마지막 3개 앱은 **최근에 사용됨** 바로 가기 목록에도 표시됩니다.
+
+> [!NOTE]
+> 이러한 옵션은 Edge, Chrome, Firefox에서만 사용할 수 있습니다.
 
 ## <a name="how-do-i-add-a-new-app"></a>새 앱을 추가하려면 어떻게 할까요?
 
@@ -92,9 +118,9 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="how-do-i-manage-my-group-memberships"></a>그룹 멤버 자격을 관리하려면 어떻게 할까요?
 
-1. 그룹 앱 타일을 클릭합니다. 
-2. 그룹을 만들려면 내가 소유한 그룹에서 그룹 만들기를 클릭하고 지침을 따릅니다.
-3. 그룹에 가입하려면 내가 속한 그룹에서 그룹 조인을 클릭하고 지침을 따릅니다.
+1. **그룹** 타일을 클릭합니다. 
+2. 그룹을 만들려면 내가 소유한 그룹에서 **그룹 만들기**를 클릭하고 지침을 따릅니다.
+3. 그룹에 가입하려면 내가 속한 그룹에서 **그룹 조인**을 클릭하고 지침을 따릅니다.
 
 **설명**
 

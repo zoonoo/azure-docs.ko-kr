@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d40f67c354e29f3a58c9d0f1967e0154b5b998d0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6b5c139766af9e166b12e8833c2ced8be08e743a
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="what-is-the-access-panel"></a>액세스 패널이란?
 
@@ -62,7 +62,7 @@ Azure AD와 통합된 응용 프로그램에 로그인하는 모든 사용자에
 
 액세스 패널에 도달하려면 Azure AD에서 회사 또는 학교 계정을 통해 인증을 받아야 합니다. Azure AD에서 직접 인증을 받을 수 있습니다. 또는 조직에서 AD FS(Active Directory Federation Services) 또는 다른 기술을 사용하여 페더레이션을 구성한 경우 Windows Server Active Directory에서 인증을 받을 수도 있습니다.
 
-Azure 또는 Office 365에 대한 구독을 가지고 있고 Azure Portal 또는 Office 365 응용 프로그램을 사용하고 있으면, 다시 로그인하지 않고 응용 프로그램의 목록을 볼 수 있습니다. 인증되지 않은 경우 Azure AD 계정에 대한 사용자 이름과 암호를 사용하여 로그인하도록 요청받습니다. 조직에서 페더레이션을 구성한 경우 사용자 이름만 입력하면 됩니다.
+Azure 또는 Office 365에 대한 구독을 가지고 있고 Azure Portal 또는 Office 365 응용 프로그램을 사용하고 있으면, 다시 로그인하지 않고 응용 프로그램의 목록을 볼 수 있습니다. 인증되지 않은 경우 Azure AD 계정에 대한 사용자 이름과 암호를 사용하여 로그인하라는 메시지가 표시됩니다. 조직에서 페더레이션을 구성한 경우 사용자 이름만 입력하면 됩니다.
 
 인증되면 관리자에 의해 디렉터리와 통합된 응용 프로그램과 상호 작용할 수 있습니다. 응용 프로그램을 Azure AD와 통합하는 방법을 보려면 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](active-directory-appssoaccess-whatis.md)을 참조하세요.
 
@@ -70,7 +70,33 @@ Azure 또는 Office 365에 대한 구독을 가지고 있고 Azure Portal 또는
 
 액세스 패널에는 최소한 JavaScript를 지원하고 CSS를 사용하도록 설정된 브라우저가 필요합니다. 사용자가 암호 기반 SSO(Single Sign-On)를 통해 응용 프로그램에 로그인하려면 사용자의 브라우저에 액세스 패널 확장이 설치되어 있어야 합니다. 암호 기반 SSO에 구성된 응용 프로그램을 선택할 때 확장이 자동으로 다운로드됩니다.
 
-액세스 패널 확장은 현재 Internet Explorer 8 이상, Edge, Chrome 및 Firefox 브라우저에서 사용할 수 있습니다.
+액세스 패널 확장은 현재 다음과 같은 경우 사용할 수 있습니다.
+-   Windows 10 Anniversary Edition 이상 Edge 
+
+-   Chrome - Windows 7 이상 및 Mac OS X 이상
+
+-   Firefox 26.0 이상 - Windows XP SP2 이상 및 Mac OS X 10.6 이상
+
+-   Internet Explorer 8, 9, 10, 11 - Windows 7 이상(지원 제한)
+
+## <a name="my-apps-secure-sign-in-extension"></a>내 앱 보안 로그인 확장
+확장은 암호 기반 Single Sign-On에 로그인하는 사용자에게 필요합니다. 설치된 사용자가 **시작할 로그인**을 클릭하면 해당 확장에 로그인하여 추가 기능을 활성화할 수도 있습니다. 
+
+- 사용자가 직접 앱의 **로그온 URL**을 방문하여 앱에 로그인할 수합니다. 사용자가 앱의 로그온 URL을 탐색할 때 확장에서는 이를 감지하고 사용자에게 확장에서 로그인하는 옵션을 제공합니다.
+- 사용자가 확장의 **빠른 검색** 기능을 사용하여 액세스 패널에서 해당 앱을 시작할 수도 있습니다. 
+- 확장은 사용자에게 **최근에 사용함** 섹션 아래에서 시작한 최근 세 개의 응용 프로그램도 표시합니다.
+
+> [!NOTE]
+> 추가 기능은 Edge, Chrome 및 Firefox에서만 사용할 수 있습니다.
+>
+>
+
+https://myapps.microsoft.com이 아닌 다른 앱 URL을 사용하는 경우 다음 단계를 통해 기본 URL을 구성해야 합니다.
+1. 확장에 로그인되지 않은 상태에서 확장 아이콘을 **마우스 오른쪽 단추로 클릭**합니다.
+2. 메뉴에서 **내 앱 URL 선택**을 클릭합니다.
+3. 기본 URL을 **선택**합니다.
+4. 확장 아이콘을 클릭합니다.
+5. **시작하려면 로그인하세요.**를 선택하여 확장에 로그인합니다.
 
 ## <a name="mobile-app-support"></a>모바일 앱 지원
 

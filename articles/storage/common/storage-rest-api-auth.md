@@ -13,26 +13,26 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 11/27/2017
 ms.author: robinsh
-ms.openlocfilehash: 73921f7fd4de65513f647db92b737a79f1043182
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 521487c3ed38f191308e14e4d542358438945556
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="using-the-azure-storage-rest-api"></a>Azure Storage REST API 사용
 
 이 문서에서는 Blob Storage Service REST API를 사용하는 방법 및 서비스에 대한 호출을 인증하는 방법을 보여 줍니다. 개발자이긴 하지만 REST에 대해 아무 것도 모르고 REST를 호출하는 방법조차 모르는 사람들의 관점에서 작성되었습니다. REST 호출에 대한 참조 설명서를 살펴보고 실제 REST 호출로 변환하는 방법을 살펴보겠습니다. 어떤 필드가 어디로 이동할까요? REST 호출을 설정하는 방법을 배우고 나면 이 지식을 활용하여 Storage Service REST API를 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건 
+## <a name="prerequisites"></a>필수 구성 요소 
 
 응용 프로그램이 저장소 계정에 대한 BLOB 저장소의 컨테이너를 나열합니다. 이 문서의 코드를 사용해 보려면 다음 항목이 필요합니다. 
 
 * 다음 워크로드와 함께 [Visual Studio 2017](https://www.visualstudio.com/visual-studio-homepage-vs.aspx)을 설치합니다.
     - Azure 개발
 
-* Azure 구독. Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+* Azure 구독. Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-* 범용 저장소 계정. 저장소 계정이 없는 경우 [Azure Portal](https://portal.azure.com), [PowerShell](storage-quickstart-create-storage-account-powershell.md) 또는 [Azure CLI](storage-quickstart-create-storage-account-cli.md)를 사용하여 만들 수 있습니다.
+* 범용 저장소 계정. 저장소 계정이 아직 없는 경우 [저장소 계정 만들기](storage-quickstart-create-account.md)를 참조하세요.
 
 * 이 문서의 예제는 저장소 계정의 컨테이너를 나열하는 방법을 보여 줍니다. 출력을 보려면 시작하기 전에 저장소 계정의 BLOB 저장소에 컨테이너를 몇 개 추가합니다.
 

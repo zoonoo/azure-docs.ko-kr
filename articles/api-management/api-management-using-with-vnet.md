@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: b37c9d9de171e69e38a4bae58f9fbac99eae2091
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 81634b366f5b66444d1e5474b4ab517208b50375
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>가상 네트워크에서 Azure API Management를 사용하는 방법
 Azure VNET(Virtual Network)을 사용하면 인터넷에서 사용할 수 없고 라우팅할 있는 네트워크(액세스를 제어하는)에 다수의 Azure 리소스를 배치할 수 있습니다. 이러한 네트워크는 다양한 VPN 기술을 사용하여 온-프레미스 네트워크에 연결될 수 있습니다. Azure Virtual Network에 대해 자세히 알아보려면 [Azure Virtual Network 개요](../virtual-network/virtual-networks-overview.md)부터 참조하세요.
@@ -28,7 +28,7 @@ Azure API Management가 네트워크 내의 백 엔드 서비스에 액세스할
 > Azure API Management는 클래식 및 Azure Resource Manager Vnet을 모두 지원합니다.
 >
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서에 설명한 단계를 수행하려면 다음 항목이 있어야 합니다.
 
@@ -111,13 +111,11 @@ API Management 서비스 인스턴스가 VNET에 호스트된 경우 다음 표�
 | * / 3443 |인바운드 |TCP |인터넷 / VIRTUAL_NETWORK|Azure Portal 및 Powershell용 관리 끝점 |내부 |
 | * / 80, 443 |아웃바운드 |TCP |VIRTUAL_NETWORK / 인터넷|Azure Storage, Azure Service Bus 및 Azure Active Directory에 대한 종속성(해당되는 경우).|외부 및 내부 | 
 | * / 1433 |아웃바운드 |TCP |VIRTUAL_NETWORK / 인터넷|**Azure SQL 끝점에 대한 액세스** |외부 및 내부 |
-| * / 11000 - 11999 |아웃바운드 |TCP |VIRTUAL_NETWORK / 인터넷|**Azure SQL V12에 대한 액세스** |외부 및 내부 |
-| * / 14000 - 14999 |아웃바운드 |TCP |VIRTUAL_NETWORK / 인터넷|**Azure SQL V12에 대한 액세스** |외부 및 내부 |
 | * / 5671, 5672 |아웃바운드 |TCP |VIRTUAL_NETWORK / 인터넷|이벤트 허브 정책 및 모니터링 에이전트에 대한 로그의 종속성 |외부 및 내부 |
 | * / 445 |아웃바운드 |TCP |VIRTUAL_NETWORK / 인터넷|GIT의 Azure 파일 공유에 대한 종속성 |외부 및 내부 |
 | * / 25028 |아웃바운드 |TCP |VIRTUAL_NETWORK / 인터넷|전자 메일을 보내기 위한 SMTP 릴레이에 연결 |외부 및 내부 |
 | * / 6381 - 6383 |인바운드 및 아웃바운드 |TCP |VIRTUAL_NETWORK / VIRTUAL_NETWORK|역할 인스턴스 간 Redis 캐시 인스턴스에 대한 액세스 |외부 및 내부 |
-| * / *  | 인바운드 |TCP |AZURE_LOAD_BALANCER / VIRTUAL_NETWORK| Azure 인프라 부하 분산 장치 |외부 및 내부 |
+| * / * | 인바운드 |TCP |AZURE_LOAD_BALANCER / VIRTUAL_NETWORK| Azure 인프라 부하 분산 장치 |외부 및 내부 |
 
 >[!IMPORTANT]
 > * API Management 서비스를 성공적으로 배포하려면 *목적*이 **볼드**인 포트가 필요합니다. 하지만 다른 포트를 차단할 경우 실행 중인 서비스사를 용 및 모니터링하는 기능이 저하됩니다.
@@ -141,7 +139,7 @@ API Management 서비스 인스턴스가 VNET에 호스트된 경우 다음 표�
 
 
 ## <a name="troubleshooting"> </a>문제 해결
-* **초기 설정**: API Management 서비스를 서브넷으로 초기 배포하는 작업이 성공하지 않는 경우 먼저 동일한 서브넷에 가상 컴퓨터를 배포하는 것이 좋습니다. 그런 다음 원격 데스크톱을 가상 컴퓨터에 연결하고 사용자의 Azure 구독 아래 각 리소스에 대한 연결이 구축되었는지 확인합니다. 
+* **초기 설정**: API Management 서비스를 서브넷으로 초기 배포하는 작업이 성공하지 않는 경우 먼저 동일한 서브넷에 가상 머신을 배포하는 것이 좋습니다. 그런 다음 원격 데스크톱을 가상 머신에 연결하고 사용자의 Azure 구독 아래 각 리소스에 대한 연결이 구축되었는지 확인합니다. 
     * Azure Storage Blob
     * Azure SQL Database
 

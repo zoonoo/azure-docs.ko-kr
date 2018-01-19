@@ -5,7 +5,7 @@ services: active-directory
 keywords: "엔터프라이즈 상태 로밍 설정, windows 클라우드, 엔터프라이즈 상태 로밍에 대한 질문과 대답"
 documentationcenter: 
 author: tanning
-manager: swadhwa
+manager: mtillman
 editor: curtand
 ms.assetid: c0824f5c-129b-4240-969f-921f6a64eae7
 ms.service: active-directory
@@ -13,13 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2017
+ms.date: 12/14/2017
 ms.author: markvi
-ms.openlocfilehash: 9968d9fa1ebbc92b5647a23c75e75fb819f5d5ab
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 054705e802867fda666c80217396db197c60f50e
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="settings-and-data-roaming-faq"></a>설정 및 데이터 로밍 FAQ
 이 토픽에서는 설정 및 앱 데이터 동기화에 대한 IT 관리자의 질문에 답변합니다.
@@ -72,7 +72,7 @@ Windows 10의 2015년 11월 이후 릴리스에서 엔터프라이즈 상태 로
 ## <a name="do-settings-sync-for-azure-ad-accounts-from-multiple-tenants"></a>여러 테넌트의 Azure AD 계정에 대한 설정이 동기화됩니까?
 여러 Azure AD 테넌트의 여러 Azure 계정이 동일한 장치에 있는 경우 각 Azure AD 테넌트의 Azure RMS(Azure Rights Management)와 통신하도록 장치 레지스트리를 업데이트해야 합니다.  
 
-1. 각 Azure AD 테넌트에 대한 GUID를 확인합니다. Azure 클래식 포털을 열고 Azure AD 테넌트를 선택합니다. 테넌트에 대한 GUID는 브라우저 주소 표시줄의 URL에 있습니다. 예: `https://manage.windowsazure.com/YourAccount.onmicrosoft.com#Workspaces/ActiveDirectoryExtension/Directory/Tenant GUID/directoryQuickStart`
+1. 각 Azure AD 테넌트에 대한 GUID를 확인합니다. Azure Portal을 열고 Azure AD 테넌트를 선택합니다. 테넌트의 GUID는 선택한 테넌트의 속성 페이지에 있으며(https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties) **디렉터리 ID**라는 레이블이 지정됩니다. 
 2. GUID를 확인한 후에는 레지스트리 키 **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\SettingSync\WinMSIPC\<테넌트 ID GUID>**를 추가해야 합니다.
    **테넌트 ID GUID** 키에서 **AllowedRMSServerUrls**라는 새 다중 문자열 값(REG-MULTI-SZ)을 만듭니다. 해당 데이터에 대해 장치에서 액세스하는 다른 Azure 테넌트의 라이선스 배포 지점 URL을 지정합니다.
 3. **Get-AadrmConfiguration** cmdlet을 실행하여 라이선싱 배포 지점 URL을 찾을 수 있습니다. **LicensingIntranetDistributionPointUrl** 및 **LicensingExtranetDistributionPointUrl**의 값이 다르면 두 값을 모두 지정합니다. 값이 같으면 값을 한 번만 지정합니다.
@@ -114,7 +114,7 @@ Microsoft에서는 사용자 프로필 로밍, UE-V, 엔터프라이즈 상태 �
 * Windows 설정 및 최신 UWP 앱 데이터는 이미 엔터프라이즈 상태 로밍을 통해 다루었으므로 UE-V 그룹 정책을 사용하여 비활성화해야 합니다.
 
 ## <a name="how-does-enterprise-state-roaming-support-virtual-desktop-infrastructure-vdi"></a>엔터프라이즈 상태 로밍은 VDI(가상 데스크톱 인프라)를 어떻게 지원하나요?
-엔터프라이즈 상태 로밍은 서버 SKU가 아니라 Windows 10 클라이언트 SKU에서 지원됩니다. 클라이언트 VM이 하이퍼바이저 컴퓨터에서 호스트되는 경우 사용자가 가상 컴퓨터에 원격으로 로그인하면 사용자의 데이터가 로밍됩니다. 여러 사용자가 동일한 OS를 공유하고 전체 데스크톱 환경을 위해 서버에 원격으로 로그인하는 경우 로밍이 작동하지 않을 수 있습니다. 두 번째 세션 기반 시나리오는 공식적으로 지원되지 않습니다.
+엔터프라이즈 상태 로밍은 서버 SKU가 아니라 Windows 10 클라이언트 SKU에서 지원됩니다. 클라이언트 VM이 하이퍼바이저 컴퓨터에서 호스트되는 경우 사용자가 가상 머신에 원격으로 로그인하면 사용자의 데이터가 로밍됩니다. 여러 사용자가 동일한 OS를 공유하고 전체 데스크톱 환경을 위해 서버에 원격으로 로그인하는 경우 로밍이 작동하지 않을 수 있습니다. 두 번째 세션 기반 시나리오는 공식적으로 지원되지 않습니다.
 
 ## <a name="what-happens-when-my-organization-purchases-azure-rms-after-using-roaming"></a>조직에서 로밍을 사용하다가 Azure RMS를 구입하면 어떻게 되나요?
 조직에서 Azure RMS 사용 제한된 무료 구독을 통해 Windows 10에서 이미 로밍을 사용 중인 경우에는 유료 Azure RMS 구독을 구입해도 로밍 기능에 영향을 주지 않으며 IT 관리자가 구성을 변경할 필요가 없습니다.

@@ -9,10 +9,10 @@ ms.date: 01/07/2018
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: ee9397406cbca21d8bd53019d9daac5a037f508c
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Azure로 온-프레미스 컴퓨터 마이그레이션
 
@@ -37,7 +37,7 @@ BCDR(비즈니스 지속성 및 재해 복구)을 위해 [Azure Site Recovery](s
 시작하기 전에 재해 복구를 위한 [VMware](concepts-vmware-to-azure-architecture.md) 또는 [Hyper-V](concepts-hyper-v-to-azure-architecture.md) 아키텍처를 검토하는 것이 좋습니다.
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 반가상화 드라이버에서 내보낸 장치는 지원되지 않습니다.
 
