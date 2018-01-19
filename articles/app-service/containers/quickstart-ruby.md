@@ -16,11 +16,11 @@ ms.topic: quickstart
 ms.date: 10/10/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 29c2f897cbc5affcd6b2a70ec95a1a8855a5db69
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: f160a3291357387fcef75d8c2257e6e37274b0e7
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="create-a-ruby-app-in-app-service-on-linux"></a>Linux의 App Service에서 Ruby 앱 만들기
 
@@ -169,4 +169,5 @@ http://<app name>.azurewebsites.net
 
 ## <a name="next-steps"></a>다음 단계
 
-[Linux의 Azure App Service에 대한 FAQ](https://docs.microsoft.com/azure/app-service-web/app-service-linux-faq)
+> [!div class="nextstepaction"]
+> [MySQL과 Ruby on Rails](tutorial-ruby-mysql-app.md)

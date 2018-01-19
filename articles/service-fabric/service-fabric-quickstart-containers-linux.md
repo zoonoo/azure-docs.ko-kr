@@ -2,24 +2,24 @@
 title: "Linux에서 Azure Service Fabric 컨테이너 응용 프로그램 만들기 | Microsoft Docs"
 description: "Azure Service Fabric에서 첫 번째 Linux 컨테이너 응용 프로그램을 만듭니다.  응용 프로그램을 사용하여 Docker 이미지를 빌드하고, 이미지를 컨테이너 레지스트리로 푸시하고, Service Fabric 컨테이너 응용 프로그램을 빌드하고 배포합니다."
 services: service-fabric
-documentationcenter: .net
-author: rwike77
+documentationcenter: linux
+author: suhuruli
 manager: timlt
 editor: 
 ms.assetid: 
 ms.service: service-fabric
-ms.devlang: dotNet
+ms.devlang: python
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/05/2017
-ms.author: ryanwi
+ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: a3fa592e08ab05dfc56cf0c0c13eb6a64a7e2052
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 23cc9ce855eeba9e9a365e42beeee01b09f0fee3
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="deploy-an-azure-service-fabric-linux-container-application-on-azure"></a>Azure에서 Azure Service Fabric Linux 컨테이너 응용 프로그램 배포
 Azure Service Fabric은 확장성 있고 안정성이 뛰어난 마이크로 서비스 및 컨테이너를 배포 및 관리하기 위한 분산 시스템 플랫폼입니다. 
@@ -34,7 +34,7 @@ Azure Service Fabric은 확장성 있고 안정성이 뛰어난 마이크로 서
 > * Service Fabric에서 컨테이너 크기 조정 및 장애 조치
 
 ## <a name="prerequisite"></a>필수 요소
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/)을 만듭니다.
   
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -66,30 +66,41 @@ cd service-fabric-containers/Linux/container-tutorial/Voting
 > 웹 프런트 엔드 서비스는 들어오는 트래픽에 대해 포트 80에서 수신 대기하도록 구성됩니다. 클러스터에 대해 포트가 열려 있는지 확인합니다. 파티 클러스터를 사용하는 경우 이 포트가 열려 있습니다.
 >
 
-### <a name="deploy-the-application-manifests"></a>응용 프로그램 매니페스트 배포 
+### <a name="install-service-fabric-command-line-interface-and-connect-to-your-cluster"></a>Service Fabric 명령줄 인터페이스 설치 및 클러스터에 연결
 CLI 환경에서 [Service Fabric CLI(sfctl)](service-fabric-cli.md) 설치
 
 ```azurecli-interactive
 pip3 install --user sfctl 
 export PATH=$PATH:~/.local/bin
 ```
+
 Azure CLI를 사용하여 Azure에서 Service Fabric 클러스터에 연결합니다. 끝점은 클러스터의 관리 끝점입니다. 예: `http://linh1x87d1d.westus.cloudapp.azure.com:19080`
 
 ```azurecli-interactive
 sfctl cluster select --endpoint http://linh1x87d1d.westus.cloudapp.azure.com:19080
 ```
 
+### <a name="deploy-the-service-fabric-application"></a>Service Fabric 응용 프로그램 배포 
+Service Fabric 컨테이너 응용 프로그램은 설명하는 Service Fabric 응용 프로그램 패키지나 Docker Compose를 사용하여 배포할 수 있습니다. 
+
+#### <a name="deploy-using-service-fabric-application-package"></a>Service Fabric 응용 프로그램 패키지를 사용하여 배포
 제공된 설치 스크립트를 사용하여 클러스터에 선택 응용 프로그램 정의를 복사하고, 응용 프로그램 유형을 등록하며, 응용 프로그램의 인스턴스를 만듭니다.
 
 ```azurecli-interactive
 ./install.sh
 ```
 
+#### <a name="deploy-the-application-using-docker-compose"></a>Docker Compose를 사용하여 응용 프로그램 배포
+다음 명령을 통해 Docker Compose를 사용하여 Service Fabric 클러스터에 응용 프로그램을 배포 및 설치합니다.
+```azurecli-interactive
+sfctl compose create --deployment-name TestApp --file-path docker-compose.yml
+```
+
 브라우저를 열고 http://\<my-azure-service-fabric-cluster-url>:19080/Explorer에서 Service Fabric Explorer로 이동합니다. 예: `http://linh1x87d1d.westus.cloudapp.azure.com:19080/Explorer` 응용 프로그램 노드를 확장하여 만든 선택 응용 프로그램 유형 및 인스턴스에 대한 항목이 표시되는지 확인합니다.
 
 ![Service Fabric Explorer][sfx]
 
-실행 중인 컨테이너에 연결합니다.  클러스터의 URL을 가리키는 웹 브라우저를 엽니다. 예: `http://linh1x87d1d.westus.cloudapp.azure.com:80` 브라우저에서 선택 응용 프로그램이 표시됩니다.
+실행 중인 컨테이너에 연결합니다.  `http://linh1x87d1d.westus.cloudapp.azure.com:80`처럼 클러스터의 URL을 가리키는 웹 브라우저를 엽니다. 브라우저에서 선택 응용 프로그램이 표시됩니다.
 
 ![quickstartpic][quickstartpic]
 

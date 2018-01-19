@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: 
 ms.topic: quickstart
-ms.date: 12/15/2017
+ms.date: 01/05/2018
 ms.author: lbosq
-ms.openlocfilehash: 75be5be0bef4dd07c8560076f47055105a70ee05
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 3f80e682a89dcf6b5d3d5d6f2f15c4eeab2046e7
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-php-and-the-azure-portal"></a>Azure Cosmos DB: PHP 및 Azure Portal을 사용하여 그래프 데이터베이스 만들기
 
@@ -137,7 +137,9 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
     ]);
     ```
 
-3. 연결 개체의 `username` 매개 변수를 자신의 데이터베이스 및 그래프 이름으로 변경합니다. 권장 값 `sample-database` 및 `sample-graph`를 사용한 경우 다음과 같이 표시됩니다.
+3. 그래프 데이터베이스 계정이 2017년 12월 20일 당일 및 그 이후에 만들어진 경우 호스트 이름에서 `graphs.azure.com`을 `gremlin.cosmosdb.azure.com`으로 변경합니다.
+
+4. 연결 개체의 `username` 매개 변수를 자신의 데이터베이스 및 그래프 이름으로 변경합니다. 권장 값 `sample-database` 및 `sample-graph`를 사용한 경우 다음과 같이 표시됩니다.
 
     `'username' => '/dbs/sample-database/colls/sample-graph'`
 
@@ -155,7 +157,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
     ]);
     ```
 
-4. Azure Portal에서 복사 단추로 기본 키를 복사하여 암호 매개 변수의 `your_primary_key`에 붙여넣습니다.
+5. Azure Portal에서 복사 단추로 기본 키를 복사하여 암호 매개 변수의 `your_primary_key`에 붙여넣습니다.
 
     이제 연결 개체 초기화는 다음과 비슷하게 표시됩니다.
 
@@ -171,7 +173,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
     ]);
     ```
 
-5. `connect.php` 파일을 저장합니다.
+6. `connect.php` 파일을 저장합니다.
 
 ## <a name="run-the-console-app"></a>콘솔 앱 실행
 

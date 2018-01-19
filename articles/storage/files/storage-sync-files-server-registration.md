@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 8e707c193c5a8e294710973e128e1cf96d4f6461
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 10c8b708cad245f4ac0304489beb36dcf63cd4b1
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="manage-registered-servers-with-azure-file-sync-preview"></a>Azure File Sync(미리 보기)로 등록된 서버 관리
 Azure File Sync(미리 보기)를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 희생하지 않고 Azure 파일에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. 이 작업은 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환하여 수행합니다. Windows Server에서 사용할 수 있는 아무 프로토콜이나 사용하여 데이터를 로컬로(SMB, NFS 및 FTPS 포함) 액세스할 수 있으며 세계 전역에 걸쳐 필요한 만큼 캐시를 보유할 수 있습니다.
@@ -28,7 +28,7 @@ Azure File Sync(미리 보기)를 사용하여 온-프레미스 파일 서버의
 ## <a name="registerunregister-a-server-with-storage-sync-service"></a>저장소 동기화 서비스로 서버 등록/등록 취소
 Azure File Sync를 사용하여 서버를 등록하면 Windows Server와 Azure 간에 트러스트 관계가 설정됩니다. 그런 다음 이 관계를 사용하여 Azure 파일 공유(*클라우드 엔드포인트*라고도 함)와 동기화해야 하는 특정 폴더를 나타내는 *서버 엔드포인트*를 서버에 만들 수 있습니다. 
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>필수 구성 요소
 저장소 동기화 서비스를 사용하여 서버를 등록하려면 먼저 필요한 필수 구성 요소를 갖춘 서버를 준비해야 합니다.
 
 * 서버에서 지원되는 Windows Server 버전을 실행해야 합니다. 자세한 내용은 [지원되는 Windows Server 버전](storage-sync-files-planning.md#supported-versions-of-windows-server)을 참조하세요.
@@ -147,9 +147,9 @@ Azure File Sync는 거의 데이터 센터에서 실행되는 유일한 서비�
 > 한도를 너무 낮게 설정하면 Azure File Sync 동기화 및 회수 성능에 영향을 줍니다.
 
 ### <a name="set-azure-file-sync-network-limits"></a>Azure File Sync 네트워크 제한 설정
-'StorageSyncNetworkLimit` cmdlet을 사용하여 Azure File Sync의 네트워크 활용도를 제한할 수 있습니다. 
+`StorageSyncNetworkLimit`cmdlets을 사용하여 Azure File Sync의 네트워크 사용률을 조절할수 있습니다. 
 
-예를 들어 Azure File Sync에서 작업 주간 동안 오전 9시에서 오후 5시(17:00) 사이에 10Mbps를 초과하여 사용하지 않도록 새 네트워크 제한을 만들 수 있습니다. 
+예를 들어 Azure File Sync에서 작업 주간 동안 오전 9시에서 오후 5시(17:00) 사이에 10Mbps를 초과하여 사용하지 않도록 새 스로틀 제한을 만들 수 있습니다. 
 
 ```PowerShell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"

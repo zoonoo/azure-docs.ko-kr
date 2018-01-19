@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 01/02/2018
+ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: faec967c1f5405cd9a5b49c16fed575f6675478c
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: 95c0ac43e468d3655cfddc7ae0de6cefb649131d
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-cosmos-db-build-a-nodejs-application-by-using-graph-api"></a>Azure Cosmos DB: Graph API를 사용하여 Node.js 응용 프로그램 빌드
 
@@ -129,9 +129,9 @@ Azure Cosmos DB는 Microsoft에서 제공하는 전 세계로 분산된 다중 �
 
     ![Azure Portal에서 선택 키 보기 및 복사, 키 블레이드](./media/create-graph-nodejs/gremlin-uri.png)
 
-   **Gremlin URI** 값이 비어 있는 경우 포털의 **키** 페이지에서 값을 생성할 수 있습니다. **URI** 값을 사용하고, https://를 제거하고, 문서를 그래프로 변경합니다.
+   **Gremlin URI** 값이 비어 있는 경우 포털의 **키** 페이지에서 값을 생성할 수 있습니다. **URI** 값을 사용하고, https://를 제거하고, 문서를 gremlin.cosmosdb로 변경합니다. 그래프 계정이 2017년 12월 20일 이전에 만들어진 경우 문서를 그래프로 변경합니다. 
 
-   Gremlin 끝점은 `mygraphdb.graphs.azure.com`과 같이(`https://mygraphdb.graphs.azure.com` 또는 `mygraphdb.graphs.azure.com:433`이 아님) 프로토콜/포트 번호가 없는 호스트 이름이어야 합니다.
+   Gremlin 끝점은 `mygraphdb.gremlin.cosmosdb.azure.com`과 같이(`https://mygraphdb.gremlin.cosmosdb.azure.com` 또는 `mygraphdb.gremlin.cosmosdb.azure.com:433`이 아님) 프로토콜/포트 번호가 없는 호스트 이름이어야 합니다.
 
 3. config.js에서는 Azure Portal의 **키** 페이지에 있는 **기본 키** 값을 config.primaryKey 값에 입력합니다. 
 
@@ -147,7 +147,7 @@ Azure Cosmos DB는 Microsoft에서 제공하는 전 세계로 분산된 다중 �
 var config = {}
 
 // Note that this must not have HTTPS or the port number
-config.endpoint = "testgraphacct.graphs.azure.com";
+config.endpoint = "testgraphacct.gremlin.cosmosdb.azure.com";
 config.primaryKey = "Pams6e7LEUS7LJ2Qk0fjZf3eGo65JdMWHmyn65i52w8ozPX2oxY3iP0yu05t9v1WymAHNcMwPIqNAEv3XDFsEg==";
 config.database = "graphdb"
 config.collection = "Persons"

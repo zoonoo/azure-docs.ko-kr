@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 12/15/2017
+ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: e90879c70e47d2bc5034b4fbf2b0ed7172fe131e
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: b28300c4ed0a0c6f35bf49808b8ed12d4e180610
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB: Java 및 Azure Portal을 사용하여 그래프 데이터베이스 만들기
 
@@ -129,13 +129,19 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
     `hosts: [test-graph.graphs.azure.com]`
 
-3. Azure Portal에서 복사 단추를 사용하여 기본 키를 복사하고 `password: $masterKey$`의 `$masterKey$`에 붙여넣습니다.
+3. `endpoint` 값에서 `graphs`를 `gremlin.cosmosdb`로 변경합니다. 2017년 12월 20일 이전에 그래프 데이터베이스 계정을 만든 경우 엔드포인트 값을 변경하지 말고 다음 단계를 진행합니다.
+
+    엔드포인트 값은 이제 다음과 같이 표시됩니다.
+
+    `"endpoint": "https://testgraphacct.gremlin.cosmosdb.azure.com:443/"`
+
+4. Azure Portal에서 복사 단추를 사용하여 기본 키를 복사하고 `password: $masterKey$`의 `$masterKey$`에 붙여넣습니다.
 
     이제 remote.yaml의 4줄이 다음과 비슷하게 표시됩니다. 
 
     `password: 2Ggkr662ifxz2Mg==`
 
-4. 다음에서 remote.yaml의 3줄을 변경합니다.
+5. 다음에서 remote.yaml의 3줄을 변경합니다.
 
     `username: /dbs/$database$/colls/$collection$`
 
@@ -143,7 +149,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
     `username: /dbs/sample-database/colls/sample-graph`
 
-5. remote.yaml 파일을 저장합니다.
+6. remote.yaml 파일을 저장합니다.
 
 ## <a name="run-the-console-app"></a>콘솔 앱 실행
 

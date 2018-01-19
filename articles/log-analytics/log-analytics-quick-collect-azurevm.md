@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 11/28/2017
+ms.date: 01/04/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 60e90fbce525f4328671ecded9ad96583c4c3c9e
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 5ce4e530dde0f7a050e3b43f469154d679f25a34
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="collect-data-about-azure-virtual-machines"></a>Azure Virtual Machines에 대한 데이터 수집
 [Azure Log Analytics](log-analytics-overview.md)는 상세한 분석 및 상관 관계 파악을 위해 Azure Virtual Machines 및 사용자 환경의 다른 리소스의 데이터를 단일 저장소로 직접 수집할 수 있습니다.  이 빠른 시작 가이드에서는 몇 가지 간단한 단계로 Azure Linux 또는 Windows VM에서 데이터를 구성 및 수집하는 방법을 보여 줍니다.  
@@ -45,19 +45,19 @@ ms.lasthandoff: 11/29/2017
 정보가 확인되고 작업 영역이 만들어지는 동안 메뉴의 **알림**에서 진행 상황을 추적할 수 있습니다. 
 
 ## <a name="enable-the-log-analytics-vm-extension"></a>Log Analytics VM 확장 사용
-Azure에 이미 배포된 Windows 및 Linux 가상 컴퓨터에 대해, Log Analytics VM 확장을 사용하여 Log Analytics 에이전트를 설치합니다.  이 확장을 사용하면 설치 프로세스가 간소화되고 지정한 Log Analytics 작업 영역에 데이터를 전송하도록 에이전트가 자동으로 구성됩니다. 에이전트도 자동으로 업그레이드되므로 최신 기능 및 수정 사항을 받아볼 수 있습니다.
+Azure에 이미 배포된 Windows 및 Linux 가상 머신에 대해, Log Analytics VM 확장을 사용하여 Log Analytics 에이전트를 설치합니다.  이 확장을 사용하면 설치 프로세스가 간소화되고 지정한 Log Analytics 작업 영역에 데이터를 전송하도록 에이전트가 자동으로 구성됩니다. 에이전트도 자동으로 업그레이드되므로 최신 기능 및 수정 사항을 받아볼 수 있습니다.
 
 >[!NOTE]
 >Linux용 OMS 에이전트는 여러 Log Analytics 작업 공간에 보고하도록 구성할 수 없습니다. 
 
-포털의 Log Analytics 리소스 페이지 맨 위에는 업그레이드를 위해 사용자를 초대하는 배너가 표시될 수 있습니다.  이 빠른 시작 가이드에서는 업그레이드가 필요하지 않습니다.<br>
+Azure Government 클라우드에서 작업 영역을 만든 경우 포털의 Log Analytics 리소스 페이지 맨 위에는 업그레이드를 위해 사용자를 초대하는 배너가 표시될 수 있습니다.  이 빠른 시작 가이드에서는 업그레이드가 필요하지 않습니다.<br>
 
-![Azure Portal의 Log Analytics 업그레이드 알림](media/log-analytics-quick-collect-azurevm/log-analytics-portal-upgradebanner.png).    
+![Azure Portal의 Log Analytics 업그레이드 알림](media/log-analytics-quick-collect-azurevm/log-analytics-portal-upgradebanner.png)에서도 확인할 수 있습니다.    
 1. Azure Portal의 왼쪽 아래 모서리에 있는 **추가 서비스**를 클릭합니다. 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Log Analytics**를 선택합니다.
 2. Log Analytics 작업 영역 목록에서 이전에 만든 *DefaultLAWorkspace*를 선택합니다.
-3. 왼쪽 메뉴의 작업 영역 데이터 원본에서 **가상 컴퓨터**를 클릭합니다.  
-4. **가상 컴퓨터** 목록에서 에이전트를 설치할 가상 컴퓨터를 선택합니다. VM에 대한 **OMS 연결 상태**가 **연결되지 않음**을 나타냅니다.
-5. 가상 컴퓨터에 대한 세부 정보에서 **연결**을 선택합니다. Log Analytics 작업 영역에 대해 에이전트가 자동적으로 설치되고 구성됩니다. 이 프로세스는 몇 분 정도 걸리며 이 동안 **상태**는 **연결 중**입니다.
+3. 왼쪽 메뉴의 작업 영역 데이터 원본에서 **가상 머신**를 클릭합니다.  
+4. **가상 머신** 목록에서 에이전트를 설치할 가상 머신을 선택합니다. VM에 대한 **OMS 연결 상태**가 **연결되지 않음**을 나타냅니다.
+5. 가상 머신에 대한 세부 정보에서 **연결**을 선택합니다. Log Analytics 작업 영역에 대해 에이전트가 자동적으로 설치되고 구성됩니다. 이 프로세스는 몇 분 정도 걸리며 이 동안 **상태**는 **연결 중**입니다.
 6. 에이전트가 설치 및 연결된 후에는 **OMS 연결** 상태가 **이 작업 영역**으로 업데이트됩니다.
 
 ## <a name="collect-event-and-performance-data"></a>이벤트 및 성능 데이터 수집
@@ -87,13 +87,19 @@ Log Analytics는 Windows 이벤트 로그 또는 Linux Syslog에서 이벤트를
 데이터 수집을 사용하도록 설정했으므로 대상 VM의 일부 데이터를 확인하는 간단한 로그 검색 예제를 실행해보겠습니다.  
 
 1. Azure Portal에서 Log Analytics로 이동한 후 앞서 만든 작업 영역을 선택합니다.
-2. **로그 검색** 타일을 클릭하고 로그 검색 창의 쿼리 필드에 `Type=Perf`를 입력한 후 Enter 키를 누르거나 쿼리 필드의 오른쪽의 검색 단추를 클릭합니다.<br> ![Log Analytics 로그 검색 쿼리 예제](./media/log-analytics-quick-collect-azurevm/log-analytics-portal-queryexample.png)<br> 예를 들어 다음 그림의 쿼리는 78,000개의 성능 레코드를 반환했습니다.  결과는 훨씬 더 적습니다.<br> ![Log Analytics 로그 검색 결과](media/log-analytics-quick-collect-azurevm/log-analytics-search-perf.png)
+2. **로그 검색** 타일을 클릭하고 로그 검색 창의 쿼리 필드에 `Perf`를 입력한 후 Enter 키를 누르거나 쿼리 필드의 오른쪽의 검색 단추를 클릭합니다.<br> ![Log Analytics 로그 검색 쿼리 예제](./media/log-analytics-quick-collect-azurevm/log-analytics-portal-perf-query.png)<br> 
+
+   >[!NOTE]
+   >Azure Government 클라우드에서 작업 영역을 만들 경우 `Type=Perf` 쿼리를 사용합니다.  
+   >
+
+예를 들어 다음 그림의 쿼리는 78,000개의 성능 레코드를 반환했습니다.  결과는 훨씬 더 적습니다.<br> ![Log Analytics 로그 검색 결과](media/log-analytics-quick-collect-azurevm/log-analytics-search-perf.png)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 더 이상 필요하지 않은 경우 Log Analytics 작업 영역을 삭제합니다. 이렇게 하려면 앞서 만든 Log Analytics 작업 영역을 선택하고 리소스 페이지에서 **삭제**를 클릭합니다.<br> ![Log Analytics 리소스 삭제](media/log-analytics-quick-collect-azurevm/log-analytics-portal-delete-resource.png)
 
 ## <a name="next-steps"></a>다음 단계
-Windows 또는 Linux 가상 컴퓨터에서 운영 및 성능 데이터를 수집하도록 구성했으므로 이제 *무료*로 수집하는 데이터를 쉽게 탐색하고 분석하고 관련 작업을 수행할 수 있습니다.  
+Windows 또는 Linux 가상 머신에서 운영 및 성능 데이터를 수집하도록 구성했으므로 이제 *무료*로 수집하는 데이터를 쉽게 탐색하고 분석하고 관련 작업을 수행할 수 있습니다.  
 
 데이터를 보고 분석하는 방법을 알아보려면 자습서를 계속 진행합니다.   
 

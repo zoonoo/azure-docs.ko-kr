@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 01/02/2018
 ms.author: mikhegn
 ms.custom: mvc, devcenter
-ms.openlocfilehash: bdf73cc13cbdbe75c426fc17fce2828164297826
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 70167322f1576b4a9cbd5f499edfc934b8a9a799
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="create-a-net-service-fabric-application-in-azure"></a>Azure에서 .NET Service Fabric 응용 프로그램 만들기
 Azure Service Fabric은 확장성 있고 안정성이 뛰어난 마이크로 서비스 및 컨테이너를 배포 및 관리하기 위한 분산 시스템 플랫폼입니다. 
@@ -47,6 +47,10 @@ Azure Service Fabric은 확장성 있고 안정성이 뛰어난 마이크로 서
     ```powershell
     Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
     ```
+
+>[!NOTE]
+> 이 빠른 시작의 샘플 응용 프로그램은 Windows 7에서 제공되지 않는 기능을 사용합니다.
+>
 
 ## <a name="download-the-sample"></a>샘플 다운로드
 명령 창에서 다음 명령을 실행하여 로컬 컴퓨터에 샘플 앱 리포지토리를 복제합니다.
