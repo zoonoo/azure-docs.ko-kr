@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 12/15/2017
+ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: b5160aec6504dfa924279286d9676a97716f5a6c
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 68cc1a3b69e3e2d59a791a9241a1a8b4b3062673
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-python-and-the-azure-portal"></a>Azure Cosmos DB: Python 및 Azure Portal을 사용하여 그래프 데이터베이스 만들기
 
@@ -135,28 +135,30 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
         password="<YOUR_PASSWORD>")
     ```
 
-3. `<YOUR_DATABASE>` 및 `<YOUR_COLLECTION_OR_GRAPH>` 문자열을 대체할 `client` 개체의 두 번째 매개 변수를 변경합니다. 제안된 값을 사용한 경우 매개 변수가 이 코드와 비슷하게 표시됩니다.
+3. 클라우드 이름에서 `graphs.azure.com`을 `gremlin.cosmosdb.azure.com`으로 변경합니다. 그래프 데이터베이스 계정이 2017년 12월 20일 이전에 만들어진 경우 변경하지 않고 다음 단계를 진행합니다.
+
+4. `<YOUR_DATABASE>` 및 `<YOUR_COLLECTION_OR_GRAPH>` 문자열을 대체할 `client` 개체의 두 번째 매개 변수를 변경합니다. 제안된 값을 사용한 경우 매개 변수가 이 코드와 비슷하게 표시됩니다.
 
     `username="/dbs/sample-database/colls/sample-graph"`
 
     전체 `client` 개체가 이 코드처럼 표시됩니다.
 
     ```python
-    client = client.Client('wss://test.graphs.azure.com:443/','g', 
+    client = client.Client('wss://test.gremlin.cosmosdb.azure.com:443/','g', 
         username="/dbs/sample-database/colls/sample-graph", 
         password="<YOUR_PASSWORD>")
     ```
 
-4. Azure Portal에서 복사 단추로 기본 키를 복사하여 `password=<YOUR_PASSWORD>` 매개 변수의 `<YOUR_PASSWORD>`에 붙여넣습니다.
+5. Azure Portal에서 복사 단추로 기본 키를 복사하여 `password=<YOUR_PASSWORD>` 매개 변수의 `<YOUR_PASSWORD>`에 붙여넣습니다.
 
     전체 `client` 개체 정의가 이 코드처럼 표시됩니다.
     ```python
-    client = client.Client('wss://test.graphs.azure.com:443/','g', 
+    client = client.Client('wss://test.gremlin.cosmosdb.azure.com:443/','g', 
         username="/dbs/sample-database/colls/sample-graph", 
         password="asdb13Fadsf14FASc22Ggkr662ifxz2Mg==")
     ```
 
-5. `connect.py` 파일을 저장합니다.
+6. `connect.py` 파일을 저장합니다.
 
 ## <a name="run-the-console-app"></a>콘솔 앱 실행
 

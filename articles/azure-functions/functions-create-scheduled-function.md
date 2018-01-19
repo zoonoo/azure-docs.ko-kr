@@ -13,18 +13,18 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 12/07/2017
+ms.date: 01/03/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: b1c5ef3868a14f42d75720984ea19bb495b887e4
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 33f6cd9e10782bb8ff1b0ddf6d047aebc83f8008
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="create-a-function-in-azure-that-is-triggered-by-a-timer"></a>Azure에서 타이머에 따라 트리거되는 함수 만들기
 
-Azure Functions를 사용하여 정의한 일정에 따라 실행되는 함수를 만드는 방법을 알아봅니다.
+Azure Functions를 사용하여 정의한 일정에 따라 실행되는 [서버를 사용하지 않는](https://azure.microsoft.com/overview/serverless-computing/) 함수를 만드는 방법을 알아봅니다.
 
 ![Azure Portal에서 함수 앱 만들기](./media/functions-create-scheduled-function/function-app-in-portal-editor.png)
 
@@ -32,7 +32,7 @@ Azure Functions를 사용하여 정의한 일정에 따라 실행되는 함수�
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-+ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
++ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 [!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 
@@ -71,13 +71,13 @@ Azure Functions를 사용하여 정의한 일정에 따라 실행되는 함수�
 
     ![Azure Portal에서 함수 로그 뷰어.](./media/functions-create-scheduled-function/functions-timer-trigger-view-logs2.png)
 
-이제 함수의 일정을 변경하여 1시간에 한 번처럼 덜 자주 실행되도록 할 수 있습니다. 
+이제 함수의 일정을 변경하여 1분이 아니라 1시간에 한 번 실행되도록 합니다. 
 
 ## <a name="update-the-timer-schedule"></a>타이머 일정 업데이트
 
 1. 함수를 확장하고 **통합**을 클릭합니다. 여기서 함수에 대한 입력 및 출력 바인딩을 정의하고 일정도 설정합니다. 
 
-2. `0 0 */1 * * *`의 새 **일정** 값을 입력한 후 **저장**을 클릭합니다.  
+2. `0 0 */1 * * *`의 새 시간 단위 **일정** 값을 입력한 후 **저장**을 클릭합니다.  
 
 ![Azure Portal에서 함수 업데이트 타이머 일정.](./media/functions-create-scheduled-function/functions-timer-trigger-change-schedule.png)
 

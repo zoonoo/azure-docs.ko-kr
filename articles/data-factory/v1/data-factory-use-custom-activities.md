@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/01/2017
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 0794952fdfbcc49cc66273be2d46484014ae1677
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: c741f995c32bf6fa9ba4e0646573be8cdb67a7c3
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Azure Data Factory 파이프라인에서 사용자 지정 작업 사용
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -36,21 +36,20 @@ Azure Data Factory 파이프라인에서 사용할 수 있는 두 가지 작업 
 
 Data Factory에서 지원되지 않는 데이터 저장소에서 다른 위치로 또는 그 반대로 데이터를 이동하려면 고유의 데이터 이동 논리가 포함된 **사용자 지정 작업**을 만들어서 파이프라인에 해당 작업을 사용합니다. 마찬가지로, Data Factory에서 지원되지 않는 방식으로 데이터를 변환/처리하려면 고유의 데이터 변환 논리가 포함된 사용자 지정 작업을 만들어서 파이프라인에 해당 작업을 사용합니다. 
 
-Virtual Machines의 **Azure Batch** 풀 또는 Windows 기반 **Azure HDInsight** 클러스터에서 실행할 사용자 지정 작업을 구성할 수 있습니다. Azure Batch를 사용할 때는 기존 Azure Batch 풀만 사용할 수 있습니다. 반면, HDInsight를 사용할 때는 기존 HDInsight 클러스터 또는 필요 시 런타임에 자동으로 생성된 클러스터를 사용할 수 있습니다.  
+가상 머신의 **Azure Batch**풀에서 실행할 사용자 지정 작업을 구성할 수 있습니다. Azure Batch를 사용할 때는 기존 Azure Batch 풀만 사용할 수 있습니다.
 
-다음 연습에서는 사용자 지정 .NET 작업을 만들어서 해당 사용자 작업을 파이프라인에 사용하는 단계별 지침을 제공합니다. 이 연습에서는 **Azure Batch** 연결된 서비스를 사용합니다. Azure HDInsight 연결된 서비스를 대신 사용하려면 **HDInsight**(사용자 고유의 HDInsight 클러스터) 또는 **HDInsightOnDemand**(Data Factory에서 필요 시 HDInsight 클러스터 생성) 형식의 연결된 서비스를 만듭니다. 그런 다음 HDInsight 연결된 서비스를 사용하도록 사용자 지정 작업을 구성합니다. Azure HDInsight를 사용하여 사용자 지정 작업을 실행하는 방법에 대한 자세한 내용은 [Azure HDInsight 연결된 서비스 사용](#use-hdinsight-compute-service) 을 참조하세요.
+다음 연습에서는 사용자 지정 .NET 작업을 만들어서 해당 사용자 작업을 파이프라인에 사용하는 단계별 지침을 제공합니다. 이 연습에서는 **Azure Batch** 연결된 서비스를 사용합니다. 
 
 > [!IMPORTANT]
-> - 사용자 지정 .NET 작업은 Windows 기반 HDInsight 클러스터에서만 실행됩니다. 이 제한 사항에 대한 해결 방법은 MapReduce 작업을 사용하여 Linux 기반 HDInsight 클러스터에서 사용자 지정 Java 코드를 실행하는 것입니다. 또 다른 옵션은 VM의 Azure Batch 풀을 사용하여 HDInsight 클러스터를 사용하는 대신 사용자 지정 작업을 실행하는 것입니다.
 > - 사용자 지정 작업에서 데이터 관리 게이트웨이를 사용하여 온-프레미스 데이터 원본에 액세스할 수는 없습니다. 현재 [데이터 관리 게이트웨이](data-factory-data-management-gateway.md)에서는 Data Factory의 복사 작업 및 저장 프로시저 작업만 지원합니다.   
 
 ## <a name="walkthrough-create-a-custom-activity"></a>연습: 사용자 지정 작업 만들기
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>필수 구성 요소
 * Visual Studio 2012/2013/2015
 * [Azure .NET SDK](https://azure.microsoft.com/downloads/)
 
 ### <a name="azure-batch-prerequisites"></a>Azure Batch 필수 조건
-이 연습에서는 Azure Batch를 계산 리소스로 사용하여 사용자 지정 .NET 작업을 실행할 것입니다. **Azure Batch**는 클라우드에서 대규모 병렬 및 HPC(고성능 컴퓨팅) 응용 프로그램을 효율적으로 실행하기 위한 플랫폼 서비스입니다. Azure Batch는 **가상 컴퓨터의 관리되는 컬렉션**에서 실행되는 계산 집약적 작업을 예약하고, 작업 요구에 맞게 계산 리소스의 규모를 자동으로 조정할 수 있습니다. Azure Batch 서비스의 개요에 대한 자세한 내용은 [Azure Batch 기본 사항][batch-technical-overview] 문서를 참조하세요.
+이 연습에서는 Azure Batch를 계산 리소스로 사용하여 사용자 지정 .NET 작업을 실행할 것입니다. **Azure Batch**는 클라우드에서 대규모 병렬 및 HPC(고성능 컴퓨팅) 응용 프로그램을 효율적으로 실행하기 위한 플랫폼 서비스입니다. Azure Batch는 **가상 머신의 관리되는 컬렉션**에서 실행되는 계산 집약적 작업을 예약하고, 작업 요구에 맞게 계산 리소스의 규모를 자동으로 조정할 수 있습니다. Azure Batch 서비스의 개요에 대한 자세한 내용은 [Azure Batch 기본 사항][batch-technical-overview] 문서를 참조하세요.
 
 자습서를 위해 VM 풀과 함께 Azure Batch 계정을 만듭니다. 단계는 다음과 같습니다.
 
@@ -106,14 +105,16 @@ public IDictionary<string, string> Execute(
 1. **.NET 클래스 라이브러리** 프로젝트를 만듭니다.
    <ol type="a">
      <li><b>Visual Studio 2017</b> 또는 <b>Visual Studio 2015</b> 또는 <b>Visual Studio 2013</b> 또는 <b>Visual Studio 2012</b>를 시작합니다.</li>
-     <li><b>파일</b>을 클릭하고 <b>새로 만들기</b>를 가리킨 다음 <b>프로젝트</b>를 클릭합니다.</li>
+     <li><b>File</b>을 클릭하고 <b>New</b>를 가리킨 다음 <b>프로젝트</b>를 클릭합니다.</li>
      <li><b>템플릿</b>을 확장하고 <b>Visual C#</b>를 선택합니다. 이 연습에서는 C#을 사용하지만 다른 .NET 언어를 사용하여 사용자 지정 작업을 개발할 수도 있습니다.</li>
      <li>오른쪽의 프로젝트 형식 목록에서 <b>클래스 라이브러리</b>를 선택합니다. VS 2017에서 <b>클래스 라이브러리(.NET Framework)</b> 를 선택합니다.</li>
      <li><b>이름</b>에 <b>MyDotNetActivity</b>를 입력합니다.</li>
      <li><b>위치</b>에 <b>C:\ADFGetStarted</b>를 선택합니다.</li>
-     <li><b>확인</b> 을 클릭하여 프로젝트를 만듭니다.</li>
+     <li><b>확인</b>을 클릭하여 프로젝트를 만듭니다.</li>
    </ol>
+   
 2. **도구**를 클릭하고 **NuGet 패키지 관리자**를 가리킨 다음 **패키지 관리자 콘솔**을 클릭합니다.
+
 3. 패키지 관리자 콘솔에서 다음 명령을 실행하여 **Microsoft.Azure.Management.DataFactories**를 가져옵니다.
 
     ```PowerShell
@@ -420,7 +421,7 @@ adftutorial\customactivityoutput 폴더에 1개 이상의 줄(입력 폴더에�
 
 ### <a name="step-1-create-the-data-factory"></a>1단계: 데이터 팩터리 만들기
 1. Azure Portal에 로그인한 후에 다음 단계를 수행합니다.
-   1. 왼쪽 메뉴에서 **새로 만들기** 를 클릭합니다.
+   1. 왼쪽 메뉴에서 **새로 만들기**를 클릭합니다.
    2. **새** 블레이드에서 **데이터 + 분석**을 클릭합니다.
    3. **데이터 분석** 블레이드에서 **Data Factory**를 클릭합니다.
    
@@ -479,8 +480,6 @@ adftutorial\customactivityoutput 폴더에 1개 이상의 줄(입력 폴더에�
 
        **poolName** 속성의 경우 풀 이름 대신 풀 ID를 지정할 수도 있습니다.
 
-      > [!IMPORTANT]
-      > 데이터 팩터리 서비스는 HDInsight에 대해서와 마찬가지로 Azure Batch에 대한 주문형 옵션을 지원하지 않습니다. Azure Data Factory에서는 사용자 고유의 Azure Batch 풀만 사용할 수 있습니다.   
     
 
 ### <a name="step-3-create-datasets"></a>3단계: 데이터 집합 만들기
@@ -786,115 +785,6 @@ $TargetDedicated=min(maxNumberofVMs,pendingTaskSamples);
 
 풀에 기본 [autoScaleEvaluationInterval](https://msdn.microsoft.com/library/azure/dn820173.aspx)이 사용되는 경우, Batch 서비스가 사용자 지정 작업을 실행하기 전에 VM을 준비하는 데 15~30분이 소요될 수 있습니다.  풀에 다른 autoScaleEvaluationInterval이 사용되는 경우, Batch 서비스는 autoScaleEvaluationInterval +10분이 소요될 수 있습니다.
 
-## <a name="use-hdinsight-compute-service"></a>HDInsight 계산 서비스 사용
-이 연습에서는 Azure Batch 계산을 사용하여 사용자 지정 작업을 실행했습니다. 또한 사용자 고유의 Windows 기반 HDInsight 클러스터를 사용할 수도 있고, 데이터 팩터리가 주문형 Windows 기반 HDInsight 클러스터를 만들고 그 HDInsight 클러스터에서 사용자 지정 작업을 실행하게 할 수도 있습니다. 다음은 HDInsight 클러스터를 사용하는 고급 단계입니다.
-
-> [!IMPORTANT]
-> 사용자 지정 .NET 작업은 Windows 기반 HDInsight 클러스터에서만 실행됩니다. 이 제한 사항에 대한 해결 방법은 MapReduce 작업을 사용하여 Linux 기반 HDInsight 클러스터에서 사용자 지정 Java 코드를 실행하는 것입니다. 또 다른 옵션은 VM의 Azure Batch 풀을 사용하여 HDInsight 클러스터를 사용하는 대신 사용자 지정 작업을 실행하는 것입니다.
- 
-
-1. Azure HDInsight 연결된 서비스 만들기   
-2. 파이프라인 JSON에 **AzureBatchLinkedService** 대신 HDInsight 연결된 서비스를 사용합니다.
-
-연습을 테스트해 보려면 Azure HDInsight 서비스를 사용하는 시나리오를 테스트할 수 있도록 파이프라인의 **start** 및 **end** 시간을 변경하는 것이 좋습니다.
-
-#### <a name="create-azure-hdinsight-linked-service"></a>Azure HDInsight 연결된 서비스 만들기
-Azure Data Factory 서비스는 주문형 클러스터 만들기를 지원하며 이 클러스터를 사용하여 입력을 처리하고 출력 데이터를 생성합니다. 또한 고유한 클러스터를 사용하여 같은 작업을 할 수도 있습니다. 주문형 HDInsight 클러스터를 사용하면 각 조각에 대해 클러스터가 생성됩니다. 반면 고유한 HDInsight 클러스터를 사용하는 경우에는 클러스터에서 조각을 즉시 처리할 수 있습니다. 따라서 주문형 클러스터를 사용하는 경우 출력 데이터가 고유한 클러스터를 사용할 때처럼 빠르게 표시되지 않을 수 있습니다.
-
-> [!NOTE]
-> 런타임에 .NET 작업의 한 인스턴스는 HDInsight 클러스터의 작업자 노드 하나에서만 실행됩니다. 여러 노드에서 실행되도록 확장할 수 없습니다. .NET 작업의 여러 인스턴스는 HDInsight 클러스터의 서로 다른 노드에서 병렬로 실행될 수 있습니다.
->
->
-
-##### <a name="to-use-an-on-demand-hdinsight-cluster"></a>주문형 HDInsight 클러스터를 사용하려면
-1. **Azure 배치 계정**에서 왼쪽의 **작성자 및 배포** 를 클릭합니다.
-2. Data Factory 편집기의 명령 모음에서 **새 계산**을 클릭하고 메뉴에서 **주문형 HDInsight 클러스터**를 선택합니다.
-3. JSON 스크립트를 다음과 같이 변경합니다.
-
-   1. **clusterSize** 속성에 대해 HDInsight 클러스터의 크기를 지정합니다.
-   2. **timeToLive** 속성에 대해 고객이 삭제되기 전에 유휴 상태로 유지될 수 있는 기간을 지정합니다.
-   3. **version** 속성에 대해 사용할 HDInsight 버전을 지정합니다. 이 속성을 제외하면 최신 버전이 사용됩니다.  
-   4. **linkedServiceName**에 대해 **AzureStorageLinkedService**를 지정합니다.
-
-        ```JSON
-        {
-           "name": "HDInsightOnDemandLinkedService",
-           "properties": {
-               "type": "HDInsightOnDemand",
-               "typeProperties": {
-                   "clusterSize": 4,
-                   "timeToLive": "00:05:00",
-                   "osType": "Windows",
-                   "linkedServiceName": "AzureStorageLinkedService",
-               }
-           }
-        }
-        ```
-
-    > [!IMPORTANT]
-    > 사용자 지정 .NET 작업은 Windows 기반 HDInsight 클러스터에서만 실행됩니다. 이 제한 사항에 대한 해결 방법은 MapReduce 작업을 사용하여 Linux 기반 HDInsight 클러스터에서 사용자 지정 Java 코드를 실행하는 것입니다. 또 다른 옵션은 VM의 Azure Batch 풀을 사용하여 HDInsight 클러스터를 사용하는 대신 사용자 지정 작업을 실행하는 것입니다.
-
-4. 명령 모음에서 **배포**를 클릭하여 연결된 서비스를 배포합니다.
-
-##### <a name="to-use-your-own-hdinsight-cluster"></a>고유한 HDInsight 클러스터를 사용하려면
-1. **Azure 배치 계정**에서 왼쪽의 **작성자 및 배포** 를 클릭합니다.
-2. **Data Factory 편집기**의 명령 모음에서 **새 계산**을 클릭하고 메뉴에서 **HDInsight 클러스터**를 선택합니다.
-3. JSON 스크립트를 다음과 같이 변경합니다.
-
-   1. **clusterUri** 속성에 대해 HDInsight의 URL을 입력합니다. 예를 들어 https://<clustername>.azurehdinsight.net/을 입력합니다.     
-   2. **UserName** 속성에 대해 HDInsight 클러스터에 액세스할 수 있는 사용자 이름을 입력합니다.
-   3. **password** 속성에 대해 사용자 암호를 입력합니다.
-   4. **LinkedServiceName** 속성에 대해 **AzureStorageLinkedService**를 입력합니다.
-4. 명령 모음에서 **배포**를 클릭하여 연결된 서비스를 배포합니다.
-
-자세한 내용은 [Compute 연결된 서비스](data-factory-compute-linked-services.md)를 참조하세요.
-
-**파이프라인 JSON**에서 HDInsight(주문형 또는 사용자 고유의) 연결된 서비스를 사용합니다.
-
-```JSON
-{
-  "name": "ADFTutorialPipelineCustom",
-  "properties": {
-    "description": "Use custom activity",
-    "activities": [
-      {
-        "Name": "MyDotNetActivity",
-        "Type": "DotNetActivity",
-        "Inputs": [
-          {
-            "Name": "InputDataset"
-          }
-        ],
-        "Outputs": [
-          {
-            "Name": "OutputDataset"
-          }
-        ],
-        "LinkedServiceName": "HDInsightOnDemandLinkedService",
-        "typeProperties": {
-          "AssemblyName": "MyDotNetActivity.dll",
-          "EntryPoint": "MyDotNetActivityNS.MyDotNetActivity",
-          "PackageLinkedService": "AzureStorageLinkedService",
-          "PackageFile": "customactivitycontainer/MyDotNetActivity.zip",
-          "extendedProperties": {
-            "SliceStart": "$$Text.Format('{0:yyyyMMddHH-mm}', Time.AddMinutes(SliceStart, 0))"
-          }
-        },
-        "Policy": {
-          "Concurrency": 2,
-          "ExecutionPriorityOrder": "OldestFirst",
-          "Retry": 3,
-          "Timeout": "00:30:00",
-          "Delay": "00:00:00"
-        }
-      }
-    ],
-    "start": "2016-11-16T00:00:00Z",
-    "end": "2016-11-16T05:00:00Z",
-    "isPaused": false
-  }
-}
-```
 
 ## <a name="create-a-custom-activity-by-using-net-sdk"></a>.NET SDK를 사용하여 사용자 지정 작업 만들기
 이 문서의 연습에서는 Azure Portal을 사용하여 사용자 지정 작업을 사용하는 파이프라인이 포함된 데이터 팩터리를 만듭니다. 다음 코드는 .NET SDK를 대신 사용하여 데이터 팩터리를 만드는 방법을 보여 줍니다. SDK를 사용하여 프로그래밍 방식으로 파이프라인을 만드는 방법에 대한 자세한 내용은 [.NET API를 사용하여 복사 작업이 포함된 파이프라인 만들기](data-factory-copy-activity-tutorial-using-dotnet-api.md) 문서를 참조하세요. 

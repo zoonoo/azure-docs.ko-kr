@@ -9,17 +9,17 @@ ms.topic: quickstart
 ms.date: 01/02/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 3d8516c0f3f6cc8185b16f4cdabcc391e31cc605
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 18a342fed7e99e82082764d6f5a3429a3ce794b7
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="create-your-first-container-in-azure-container-instances"></a>Azure Container Instances에서 첫 번째 컨테이너 만들기
 
 Azure Container Instances를 사용하면 가상 머신을 프로비전하거나 상위 수준 서비스를 도입하지 않고도 Azure에서 Docker 컨테이너를 쉽게 만들고 관리할 수 있습니다.
 
-이 빠른 시작에서는 Azure에서 Windows 컨테이너를 만들고 공용 IP 주소를 사용하여 인터넷에 공개합니다. 이 작업은 단일 명령으로 완료됩니다. 단 몇 분 안에 브라우저에서 응용 프로그램이 실행됩니다.
+이 빠른 시작에서는 Azure에서 Windows 컨테이너를 만들고 공용 IP 주소를 사용하여 인터넷에 공개합니다. 이 작업은 단일 명령으로 완료됩니다. 곧 브라우저에서 응용 프로그램이 실행됩니다.
 
 ![Azure Container Instances를 사용하여 배포된 앱이 브라우저에 표시됨][qs-powershell-01]
 
@@ -29,7 +29,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 PowerShell을 로컬로 설치하고 사용하도록 선택한 경우 이 자습서에서는 Azure PowerShell 모듈 버전 3.6 이상을 실행해야 합니다. `Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Login-AzureRmAccount`를 실행하여 Azure와 연결해야 합니다.
 
-## <a name="create-resource-group"></a>리소스 그룹 만들기
+## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
 [New-AzureRmResourceGroup][New-AzureRmResourceGroup]을 사용하여 Azure 리소스 그룹을 만듭니다. 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다.
 
@@ -39,7 +39,7 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 
 ## <a name="create-a-container"></a>컨테이너 만들기
 
-[New-AzureRmContainerGroup][New-AzureRmContainerGroup] cmdlet에 이름, Docker 이미지 및 Azure 리소스 그룹을 제공하여 컨테이너를 만들 수 있습니다. 선택적으로 공용 IP 주소로 컨테이너를 인터넷에 공개할 수 있습니다. 이 경우 IIS(인터넷 정보 서비스)를 실행하는 Windows Nano Server 컨테이너를 사용합니다.
+[New-AzureRmContainerGroup][New-AzureRmContainerGroup] cmdlet에 이름, Docker 이미지 및 Azure 리소스 그룹을 제공하여 컨테이너를 만들 수 있습니다. 선택적으로 공용 IP 주소로 컨테이너를 인터넷에 공개할 수 있습니다. 이 경우 IIS(인터넷 정보 서비스)를 실행하는 Nano Server 컨테이너를 사용합니다.
 
  ```azurepowershell-interactive
 New-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer -Image microsoft/iis:nanoserver -OsType Windows -IpAddressType Public

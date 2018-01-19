@@ -5,15 +5,15 @@ services: azure-policy
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 12/06/2017
+ms.date: 01/03/2018
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: ba425e938f81ffb37a2c8bc2a764a4db074e9106
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 882cf3cde71f5154efcd88f055984e72463b3099
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>규정 준수를 적용하는 정책 만들기 및 관리
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 12/07/2017
 > * 규정 비준수 또는 거부된 리소스 해결
 > * 조직 전체에서 새 정책 구현
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="assign-a-policy"></a>정책 할당
 
@@ -51,7 +51,7 @@ Azure Policy 준수를 적용하기 위한 첫 번째 단계는 정책 정의를
 6. 정책 할당에 대한 표시 **이름**을 제공합니다. 여기서는 *SQL Server 버전 12.0 필요*를 사용하겠습니다. 선택적인 **설명**을 추가할 수도 있습니다. 설명은 이 정책 할당이 이 환경에서 만드는 모든 SQL Server가 버전 12.0이 되도록 하는 방법에 대한 세부 정보를 제공합니다.
 7. 정책이 기존 리소스에 적용되도록 하려면 가격 책정 계층을 **표준**으로 변경합니다.
 
-   Azure Policy 내에는 *체험* 및 *표준*의 두 가지 가격 책정 계층이 있습니다. 체험 계층을 사용하면 미래의 리소스에만 정책을 적용할 수 있지만, 표준 계층을 사용하면 기존 리소스에도 정책을 적용하여 규정 준수 상태를 보다 더 잘 파악할 수 있습니다. 제한된 미리 보기로 인해 아직 가격 책정 모델이 공개되지 않아 *표준*을 선택해도 요금이 청구되지 않습니다. 가격 책정에 대한 자세한 내용은 [Azure Policy 가격](https://acom-milestone-ignite.azurewebsites.net/pricing/details/azure-policy/)을 참조하세요.
+   Azure Policy 내에는 *체험* 및 *표준*의 두 가지 가격 책정 계층이 있습니다. 체험 계층을 사용하면 미래의 리소스에만 정책을 적용할 수 있지만, 표준 계층을 사용하면 기존 리소스에도 정책을 적용하여 규정 준수 상태를 보다 더 잘 파악할 수 있습니다. 제한된 미리 보기로 인해 아직 가격 책정 모델이 공개되지 않아 *표준*을 선택해도 요금이 청구되지 않습니다. 가격 책정에 대한 자세한 내용은 [Azure Policy 가격](https://azure.microsoft.com/pricing/details/azure-policy)을 참조하세요.
 
 8. 이전에 등록한 구독(또는 리소스 그룹)인 **범위**를 선택합니다. 범위는 정책 할당이 적용되는 리소스 또는 리소스 그룹을 결정합니다. 구독에서 리소스 그룹까지 다양한 범위가 있습니다.
 
@@ -73,12 +73,12 @@ Azure Policy 준수를 적용하기 위한 첫 번째 단계는 정책 정의를
    - 정책 정의 이름 - *G 시리즈보다 작은 VM SKU 필요*
    - 정책 정의의 용도에 대한 설명 - 여기서는 이 범위에서 만든 모든 VM에서 G 시리즈보다 작은 SKU를 사용하여 비용을 줄인다는 것을 정책 정의에 적용하고 있습니다.
    - 정책 정의가 배치되는 구독 - 여기서는 정책 정의가 사용자의 구독 목록과 다를 수 있는 **Advisor Analytics 용량 개발**에 배치됩니다.
-   - 작성되는 json 코드에 포함되는 항목은 다음과 같습니다.
+   - 다음 json 코드를 복사한 다음 필요에 맞게 업데이트합니다.
       - 정책 매개 변수
       - 정책 규칙/조건 - 여기서는 'VM SKU 크기가 G 시리즈와 같음'입니다.
       - 정책 효과 - 여기서는 **거부**입니다.
 
-    json 코드는 다음과 같습니다.
+    json 코드는 다음과 같습니다. 수정된 코드를 Azure Portal에 붙여 넣습니다.
 
     ```json
 {
