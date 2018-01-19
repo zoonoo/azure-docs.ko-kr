@@ -9,12 +9,12 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 08/29/2017
-ms.openlocfilehash: 61ecea71874b05c2c5f7572aa6128fc320422b1f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/6/2017
+ms.openlocfilehash: c8949e4f66623951ef66005b3acc2b2279486b4d
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="model-management-setup"></a>모델 관리 설치
 
@@ -25,13 +25,13 @@ Azure ML 모델 관리를 사용하면 SparkML, Keras, TensorFlow, Microsoft Cog
 이 문서를 마치면 모델 관리 환경을 설치하고 Machine Learning 모델을 배포할 준비를 갖추게 됩니다.
 
 ## <a name="what-you-need-to-get-started"></a>시작에 필요한 항목
-이 가이드를 최대한 활용하려면 모델을 배포할 수 있는 Azure 구독에 대해 소유자 권한이 있어야 합니다.
-CLI는 Azure Machine Learning Workbench 및 [Azure DSVM](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-virtual-machine-overview)이 미리 설치되어 있습니다.
+이 가이드를 최대한 활용하려면 모델을 배포할 수 있는 Azure 구독 또는 리소스 그룹에 참여자로 액세스할 수 있어야 합니다.
+CLI는 Azure Machine Learning Workbench 및 [Azure DSVM](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-virtual-machine-overview)이 미리 설치되어 있습니다.
 
 ## <a name="using-the-cli"></a>CLI 사용
 Workbench에서 CLI(명령줄 인터페이스)를 사용하려면 **파일** -> **명령 프롬프트 열기**를 클릭합니다. 
 
-데이터 과학 가상 컴퓨터에서 명령 프롬프트를 연결하고 엽니다. `az ml -h`를 입력하여 옵션을 표시합니다. 명령에 대한 자세한 내용을 보려면 --help 플래그를 사용합니다.
+데이터 과학 Virtual Machine에서 명령 프롬프트를 연결하고 엽니다. `az ml -h`를 입력하여 옵션을 표시합니다. 명령에 대한 자세한 내용을 보려면 --help 플래그를 사용합니다.
 
 다른 모든 시스템에는 CLI를 설치해야 합니다.
 
@@ -81,13 +81,15 @@ CLI를 사용하여 모델을 웹 서비스로 배포합니다. 웹 서비스는
 
 환경 설치를 완료한 경우:
 - Azure에 로그인하라는 메시지가 표시됩니다. 로그인하려면 웹 브라우저를 사용하여 https://aka.ms/devicelogin 페이지를 열고 인증을 위해 제공된 코드를 입력합니다.
-- 인증 프로세스 중에 인증하기 위한 계정을 입력하라는 메시지가 표시됩니다. 중요: 유효한 Azure 구독 및 계정에서 리소스를 만들 수 있는 충분한 권한이 있는 계정을 선택합니다. 로그인이 완료되면 구독 정보가 표시되며 선택한 계정으로 계속 작업할지 묻는 메시지가 표시됩니다.
+- 인증 프로세스 중에 인증하기 위한 계정을 입력하라는 메시지가 표시됩니다. 중요: 유효한 Azure 구독과 계정에 리소스를 만들 수 있는 충분한 권한이 있는 계정을 선택해야 합니다. 로그인이 완료되면 구독 정보가 표시되고 선택한 계정으로 계속할 것인지 물어보는 메시지가 나타납니다.
 
 ### <a name="environment-setup"></a>환경 설정
-설치 프로세스를 시작하려면 다음 명령을 입력하여 환경 공급자를 등록해야 합니다.
+설치 프로세스를 시작하려면 다음 명령을 입력하여 몇 가지 환경 공급자를 등록해야 합니다.
 
 ```azurecli
 az provider register -n Microsoft.MachineLearningCompute
+az provider register -n Microsoft.ContainerRegistry
+az provider register -n Microsoft.ContainerService
 ```
 #### <a name="local-deployment"></a>로컬 배포
 로컬 컴퓨터에서 웹 서비스를 배포 및 테스트하려면 다음 명령을 사용하여 로컬 환경을 설치합니다. 리소스 그룹 이름은 선택 사항입니다.
@@ -128,7 +130,7 @@ az ml env setup --cluster -n [your environment name] -l [Azure region e.g. eastu
 - Application Insights 계정
 
 >[!IMPORTANT]
-> 클러스터 환경을 성공적으로 만들려면 Azure 구독에서 소유자여야 하고 서비스 주체를 만들 수 있는 능력이 있어야 합니다. 충분한 권한이 있는지 확인하려면 [Azure에서 서비스 주체 만들기](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal) 페이지의 지침을 따르세요.
+> 클러스터 환경을 만들려면 Azure 구독 또는 리소스 그룹에 참가자로 액세스할 수 있어야 합니다.
 
 리소스 그룹, 저장소 계정 및 ACR은 빠르게 생성됩니다. ACS 배포에는 20분까지 걸릴 수 있습니다. 
 
