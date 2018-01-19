@@ -21,7 +21,6 @@
 ### [PHP](service-bus-php-how-to-use-topics-subscriptions.md)
 ### [Python](service-bus-python-how-to-use-topics-subscriptions.md)
 ### [Ruby](service-bus-ruby-how-to-use-topics-subscriptions.md)
-## [다중 계층 Service Bus 응용 프로그램 빌드](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 
 # 방법
 ## 계획 및 디자인
@@ -29,6 +28,7 @@
 ### [Role-Based Access Control(미리 보기)](service-bus-role-based-access-control.md)
 ### [프리미엄 메시징](service-bus-premium-messaging.md)
 ### [Azure 큐와 Service Bus 큐 비교](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
+### [다중 계층 Service Bus 응용 프로그램 빌드](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 ### [성능 최적화](service-bus-performance-improvements.md)
 ### [지역에서 재해 복구 및 지역에서 복제](service-bus-geo-dr.md)
 ### [비동기 메시징 및 고가용성](service-bus-async-messaging.md)
@@ -79,7 +79,7 @@
 #### 
 ### [Azure PowerShell을 사용하여 엔터티 프로비전](service-bus-manage-with-ps.md)
 
-# 참조
+# 참고 자료
 ## .NET
 ### [Microsoft.ServiceBus.Messaging(.NET Framework)](/dotnet/api/microsoft.servicebus.messaging)
 ### [Microsoft.Azure.ServiceBus(.NET 표준)](/dotnet/api/microsoft.azure.servicebus)

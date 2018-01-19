@@ -12,7 +12,7 @@
 
 # 방법
 ## 데이터 로드 및 이동
-### [Azure Data Factory 사용](../data-factory/connector-azure-data-lake-store.md)
+### [Azure Data Factory 사용](../data-factory/load-azure-data-lake-store.md)
 ### [AdlCopy 사용](data-lake-store-copy-data-azure-storage-blob.md)
 ### [DistCp 사용](data-lake-store-copy-data-wasb-distcp.md)
 ### [Sqoop 사용](data-lake-store-data-transfer-sql-sqoop.md)
@@ -66,7 +66,7 @@
 ### [Azure VNET의 Vm에서 액세스](data-lake-store-connectivity-from-vnets.md)
 ### [Data Lake Analytics와 함께 사용](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 ### [Azure Event Hubs와 함께 사용](data-lake-store-archive-eventhub-capture.md)
-### [데이터 팩터리와 함께 사용](../data-factory/connector-azure-data-lake-store.md)
+### [데이터 팩터리와 함께 사용](../data-factory/load-azure-data-lake-store.md)
 ### [Stream Analytics와 함께 사용](data-lake-store-stream-analytics.md)
 ### [Power BI와 함께 사용](data-lake-store-power-bi.md)
 ### [데이터 카탈로그와 함께 사용](data-lake-store-with-data-catalog.md)
