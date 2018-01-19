@@ -1,4 +1,4 @@
----
+﻿---
 title: "Azure에서 Windows VM에 예정된 이벤트 | Microsoft Docs"
 description: "Windows 가상 컴퓨터에서 Azure 메타데이터 서비스를 사용하여 예정된 이벤트입니다."
 services: virtual-machines-windows, virtual-machines-linux, cloud-services
