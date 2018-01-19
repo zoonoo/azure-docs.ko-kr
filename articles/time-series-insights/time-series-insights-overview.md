@@ -3,25 +3,32 @@ title: "Azure Time Series Insights란? | Microsoft Docs"
 description: "시계열 데이터 분석 및 IoT 솔루션을 위한 새로운 서비스인 Azure Time Series Insights를 소개합니다."
 services: time-series-insights
 ms.service: time-series-insights
-author: op-ravi
-ms.author: omravi
+author: ashannon7
+ms.author: anshan
 manager: jhubbard
 editor: MarkMcGeeAtAquent
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/15/2017
-ms.openlocfilehash: 95cb26ada6f8ea39bc1a437a755f80ee7ddb7698
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 2a0d3e829ed28912b56a022aa6aa82ade1718e35
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="what-is-azure-time-series-insights"></a>Azure Time Series Insights란?
 
 Time Series Insights는 IoT 장치에 의해 생성된 것과 같은 대량의 시계열 데이터를 저장하고, 시각화하고, 쿼리하기 위해 구축되었습니다.  클라우드의 시계열 데이터를 저장, 관리, 쿼리 또는 시각화하려면 Time Series Insights를 사용하는 것이 좋습니다.  
 
-내부에서 사용하거나 외부 고객을 위해 응용 프로그램을 빌드하는 경우 Time Series Insights를 시계열 데이터를 인덱싱, 저장 및 집계하기 위한 백 엔드로 사용할 수 있습니다.  맨 위에 사용자 지정 시각화 및 사용자 환경을 빌드할 수 있습니다.  Time Series Insights는 이 시나리오가 가능하도록 REST 쿼리 API를 공개합니다.  
+Time Series Insights에는 다음 4가지 핵심 작업이 포함됩니다.
+
+- 첫째, Azure IoT Hub 및 Azure Event Hubs와 같은 클라우드 게이트웨이와 완전하게 통합되었습니다. 이러한 이벤트 소스에 쉽게 연결해서 깨끗한 행 및 열에 있는 데이터가 포함된 메시지 및 구조체에서 JSON을 구문 분석할 수 있습니다. 메타데이터를 원격 분석과 조인하고 열 형식 저장소에 데이터를 인덱싱합니다.
+- 둘째, Time Series Insights는 데이터 저장소를 관리합니다. 데이터에 항상 쉽게 액세스할 수 있도록 데이터를 메모리 및 SSD에 최대 400일까지 저장합니다. 사용자는 요청 시 수십억 개의 이벤트를 수초 내에 대화식으로 쿼리할 수 있습니다.
+- 셋째, Time Series Insights는 TSI 탐색기를 통해 즉시 사용 가능한 시각화를 제공합니다.  
+- 넷째, Time Series Insights는 TSI 탐색기에서 그리고 시계열 데이터를 사용자 지정 응용 프로그램에 포함시키기 위해 쉽게 통합할 수 있는 API를 사용하여 쿼리 서비스를 제공합니다.  
+
+내부에서 사용하거나 외부 고객을 위해 응용 프로그램을 빌드하는 경우 Time Series Insights는 시계열 데이터를 인덱싱, 저장 및 집계하기 위한 백 엔드로 사용할 수 있습니다. 맨 위에 사용자 지정 시각화 및 사용자 환경을 빌드할 수 있습니다.  Time Series Insights는 이 시나리오가 가능하도록 쿼리 API를 공개합니다.  
 
 데이터가 시계열인지 잘 모를 경우 알아야 할 항목은 다음과 같습니다.  시계열 데이터는 자산 또는 프로세스가 시간이 지남에 따라 어떻게 달라지는지를 나타냅니다.  타임스탬프가 있으며 시간이 축처럼 가장 중요하다는 점이 독특합니다.  시계열 데이터는 일반적으로 시간 순서대로 도착하며, 데이터베이스에 대한 업데이트보다는 삽입으로 처리됩니다.  Time Series Insights는 모든 새 이벤트를 캡처하여 행으로 저장하고, 변경 내용이 시간에 따라 측정되므로 이전 데이터를 보고 향후 변화를 예측할 수 있습니다.  대용량인 경우 시계열 데이터를 저장, 인덱싱, 쿼리, 분석 및 시각화하는 것이 어려울 수 있습니다.  
 
