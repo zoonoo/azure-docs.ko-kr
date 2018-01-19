@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/03/2017
+ms.date: 01/11/2018
 ms.author: terrylan
-ms.openlocfilehash: e71d407050f210c770bcac30259b9c2f2fb27aa3
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 2bbd0a8be891bd472cdc631a1f8dc79471d66a77
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Azure Security Center FAQ(질문과 대답)
 이 FAQ는 증가된 가시성으로 위협을 예방, 감지 및 대응하고 Microsoft Azure 리소스의 보안을 제어하는 서비스인 Azure Security Center에 관한 질문에 답변합니다.
@@ -51,16 +51,20 @@ Security Center는 리소스 구성을 평가하여 보안 문제 및 취약성�
 Security Center의 역할 및 허용된 작업에 대한 자세한 내용은 [Azure Security Center의 권한](security-center-permissions.md)을 참조하세요.
 
 ## <a name="data-collection"></a>데이터 수집
-Security Center는 해당 보안 상태를 평가하고 보안 권장 사항을 제공하며 위협에 경고하기 위해 Virtual Machines에서 데이터를 수집합니다. 보안 센터에 처음 액세스할 경우 구독의 모든 가상 컴퓨터에서 데이터 수집을 활성화합니다. Security Center 정책에서 데이터 수집을 사용하도록 설정할 수도 있습니다.
+Security Center는 해당 보안 상태를 평가하고 보안 권장 사항을 제공하며 위협에 경고하기 위해 Virtual Machines에서 데이터를 수집합니다. 보안 센터에 처음 액세스할 경우 구독의 모든 가상 머신에서 데이터 수집을 활성화합니다. Security Center 정책에서 데이터 수집을 사용하도록 설정할 수도 있습니다.
 
 ### <a name="how-do-i-disable-data-collection"></a>데이터 컬렉션을 사용하지 않도록 설정하려면 어떻게 해야 하나요?
-Azure Security Center 무료 계층을 사용하는 경우 언제든지 가상 컴퓨터에서 데이터 수집을 사용하지 않도록 설정할 수 있습니다. 데이터 수집은 표준 계층의 구독에 필요합니다. 보안 정책에서 구독에 대해 데이터 수집을 사용하지 않도록 설정할 수 있습니다. 이렇게 하려면 [Azure Portal에 로그인](https://portal.azure.com)하여 **찾아보기**, **Security Center**, **정책**을 차례로 선택합니다.  구독을 선택하면 새 블레이드가 열리고 **데이터 수집**을 해제하는 옵션이 제공됩니다.
+Azure Security Center 무료 계층을 사용하는 경우 언제든지 가상 머신에서 데이터 수집을 사용하지 않도록 설정할 수 있습니다. 데이터 수집은 표준 계층의 구독에 필요합니다. 보안 정책에서 구독에 대해 데이터 수집을 사용하지 않도록 설정할 수 있습니다. 이렇게 하려면 [Azure Portal에 로그인](https://portal.azure.com)하여 **찾아보기**, **Security Center**, **정책**을 차례로 선택합니다.  구독을 선택하면 새 블레이드가 열리고 **데이터 수집**을 해제하는 옵션이 제공됩니다.
 
 ### <a name="how-do-i-enable-data-collection"></a>데이터 컬렉션을 사용하도록 설정하려면 어떻게 해야 하나요?
 보안 정책에서 Azure 구독에 대한 데이터 수집을 사용하도록 설정할 수 있습니다. 데이터 수집을 사용하도록 설정하려면 [Azure Portal에 로그인](https://portal.azure.com)하고 **찾아보기**, **Security Center**, **정책**을 차례로 선택합니다. **데이터 수집**을 **켜기**로 설정합니다.
 
 ### <a name="what-happens-when-data-collection-is-enabled"></a>데이터 수집을 사용하도록 설정하면 어떻게 될까요?
-데이터 수집을 사용하도록 설정하면 Microsoft Monitoring Agent가 구독에 배포되는 모든 지원되는 새 가상 컴퓨터와 기존 가상 컴퓨터에 자동으로 프로비전됩니다.
+데이터 수집을 사용하도록 설정하면 Microsoft Monitoring Agent가 구독에 배포되는 모든 지원되는 새 가상 머신과 기존 가상 머신에 자동으로 프로비전됩니다.
+
+에이전트는 프로세스 생성 이벤트 4688 및 이벤트 4688 내의 *CommandLine* 필드를 활성화합니다. VM에서 생성된 새로운 프로세스는 이벤트 로그에서 기록되고 Security Center의 검색 서비스에 의해 모니터링됩니다. 각 새 프로세스에 대해 기록된 세부 정보에 대한 내용은 [4688의 설명 필드](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=4688#fields)를 참조하세요. 또한 에이전트는 VM에서 생성되는 4688 이벤트를 수집하고 검색에 저장합니다.
+
+Security Center가 VM에서 의심스러운 작업을 감지하면 고객은 경우 [보안 연락처 정보](security-center-provide-security-contact-details.md)가 제공된 경우 전자 메일을 통해 알림을 받습니다. 경고는 또한 Security Center의 보안 경고 대시보드에 표시됩니다.
 
 ### <a name="does-the-monitoring-agent-impact-the-performance-of-my-servers"></a>Monitoring Agent가 서버의 성능에 미치는 영향
 에이전트는 시스템 리소스의 명목 양을 소비하며 성능에 거의 영향을 미치지 않습니다. 성능 영향과 에이전트 및 확장에 대한 자세한 내용은 [계획 및 작업 가이드](security-center-planning-and-operations-guide.md#data-collection-and-storage)를 참조하세요.
@@ -83,7 +87,7 @@ Azure Security Center에서 사용하도록 설정한 보안 정책에 따라 �
 Azure Security Center에서는 Azure 리소스의 보안 상태를 분석합니다. 잠재적인 보안 취약성이 식별되면 권장 사항이 생성됩니다. 권장 사항은 필요한 컨트롤을 구성하는 과정을 안내합니다. 예:
 
 * 맬웨어 방지 프로그램을 프로비전하면 악성 소프트웨어를 식별하여 제거하는 데 도움이 됩니다.
-* [네트워크 보안 그룹](../virtual-network/virtual-networks-nsg.md) 및 가상 컴퓨터에 대한 트래픽 제어 규칙 구성
+* [네트워크 보안 그룹](../virtual-network/virtual-networks-nsg.md) 및 가상 머신에 대한 트래픽 제어 규칙 구성
 * 웹 응용 프로그램의 대상을 지정한 공격에 대해 방어하는 데 도움이 되는 웹 응용 프로그램 방화벽 프로비전
 * 누락된 시스템 업데이트 배포
 * 권장 기준과 일치하지 않는 OS 구성 해결
@@ -96,9 +100,9 @@ Azure Security Center에서는 Azure 리소스의 보안 상태를 분석합니�
 ### <a name="what-triggers-a-security-alert"></a>보안 경고를 트리거하는 것은 무엇인가요?
 Azure Security Center는 리소스, 네트워크 및 맬웨어 방지 프로그램과 방화벽 같은 파트너 솔루션에서 자동으로 로그 데이터를 수집, 분석 및 결합합니다. 위협이 감지되었을 때 보안 경고가 생성됩니다. 감지되는 사항의 예:
 
-* 알려진 악성 IP 주소와 통신하는 손상된 가상 컴퓨터
+* 알려진 악성 IP 주소와 통신하는 손상된 가상 머신
 * Windows 오류 보고를 사용 하여 감지된 고급 맬웨어
-* 가상 컴퓨터에 대한 무작위 공격
+* 가상 머신에 대한 무작위 공격
 * 맬웨어 방지 프로그램 또는 웹 응용 프로그램 방화벽 등과 같은 통합된 파트너 보안 솔루션에서의 보안 경고
 
 ### <a name="whats-the-difference-between-threats-detected-and-alerted-on-by-microsoft-security-response-center-versus-azure-security-center"></a>Microsoft 보안 응답 센터와 Azure Security Center에서 감지 및 경고된 위협 간의 차이점은 무엇입니까?
@@ -109,7 +113,7 @@ Microsoft 보안 대응 센터(MSRC)는 Azure 네트워크 및 인프라의 선�
 ### <a name="which-azure-resources-are-monitored-by-azure-security-center"></a>Azure Security Center에서는 어떤 Azure 리소스를 모니터링하나요?
 Azure Security Center에서는 다음과 같은 Azure 리소스를 모니터링합니다.
 
-* 가상 컴퓨터(VM)( [Cloud Services](../cloud-services/cloud-services-choose-me.md)포함)
+* 가상 머신(VM)( [Cloud Services](../cloud-services/cloud-services-choose-me.md)포함)
 * Azure Virtual Networks
 * Azure SQL 서비스
 * Azure Storage 계정
@@ -117,13 +121,13 @@ Azure Security Center에서는 다음과 같은 Azure 리소스를 모니터링�
 * VM 및 App Service Environment에서 웹 응용 프로그램 방화벽 같이 Azure 구독과 통합된 파트너 솔루션
 
 ## <a name="virtual-machines"></a>Virtual Machines
-### <a name="what-types-of-virtual-machines-are-supported"></a>어떤 유형의 가상 컴퓨터가 지원되나요?
-[클래식 및 Resource Manager 배포 모델](../azure-classic-rm.md)을 모두 사용하여 작성된 VM(가상 컴퓨터)에 대해 모니터링 및 권장 사항이 제공됩니다.
+### <a name="what-types-of-virtual-machines-are-supported"></a>어떤 유형의 가상 머신이 지원되나요?
+[클래식 및 Resource Manager 배포 모델](../azure-classic-rm.md)을 모두 사용하여 작성된 VM(가상 머신)에 대해 모니터링 및 권장 사항이 제공됩니다.
 
 지원되는 플랫폼 목록은 [Azure Security Center에서 지원되는 플랫폼](security-center-os-coverage.md)을 참조하세요.
 
 ### <a name="why-doesnt-azure-security-center-recognize-the-antimalware-solution-running-on-my-azure-vm"></a>Azure Security Center가 내 Azure VM에서 실행 중인 맬웨어 방지 솔루션을 인식하지 못하는 이유는 무엇인가요?
-Azure Security Center는 Azure 확장을 통해 설치된 맬웨어 방지 프로그램을 확인할 수 있습니다. 예를 들어 보안 센터는 사용자가 제공한 이미지에 미리 설치되어 있거나, 구성 관리 시스템 등의 고유한 프로세스를 사용하여 가상 컴퓨터에 설치한 맬웨어 방지 프로그램을 검색할 수 없습니다.
+Azure Security Center는 Azure 확장을 통해 설치된 맬웨어 방지 프로그램을 확인할 수 있습니다. 예를 들어 보안 센터는 사용자가 제공한 이미지에 미리 설치되어 있거나, 구성 관리 시스템 등의 고유한 프로세스를 사용하여 가상 머신에 설치한 맬웨어 방지 프로그램을 검색할 수 없습니다.
 
 ### <a name="why-do-i-get-the-message-missing-scan-data-for-my-vm"></a>VM에 대해 "검사 데이터 누락" 메시지가 표시되는 이유는 무엇인가요?
 VM에 대한 검색 데이터가 없는 경우 이 메시지가 표시됩니다. Azure Security Center에서 데이터 수집을 사용하도록 설정한 후 검사 데이터가 입력될 때까지는 다소 시간이 걸릴 수 있습니다(1시간 이내). 검색 데이터를 처음 입력한 후에는 검색 데이터가 전혀 없거나 최근 검색 데이터가 없기 때문에 이 메시지가 나타날 수 있습니다. VM이 중지된 상태이면 검사를 수행해도 데이터가 입력되지 않습니다. Windows 에이전트의 보존 정책에 따라 최근에(기본값은 30일) 검색 데이터가 입력되지 않은 경우에도 이 메시지가 나타날 수 있습니다.
@@ -131,7 +135,7 @@ VM에 대한 검색 데이터가 없는 경우 이 메시지가 표시됩니다.
 ### <a name="how-often-does-security-center-scan-for-operating-system-vulnerabilities-system-updates-and-endpoint-protection-issues"></a>Security Center는 운영 체제 취약점, 시스템 업데이트 및 Endpoint Protection 문제를 얼마나 자주 검사합니까?
 Security Center에서 취약점, 업데이트 및 문제를 검색하는 대기 시간은 다음과 같습니다.
 
-- 운영 체제 취약점(Microsoft) – 데이터가 48시간 이내 업데이트됩니다.
+- 운영 체제 보안 구성 - 데이터가 48시간 이내 업데이트됩니다.
 - 시스템 업데이트 – 데이터가 24시간 이내 업데이트됩니다.
 - Endpoint Protection 문제 – 데이터가 8시간 이내 업데이트됩니다.
 

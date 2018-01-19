@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/07/2017
 ms.author: chackdan
-ms.openlocfilehash: 0065874c2f992ad9c18f68303878fb580ee8b391
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: e5dd1ebd290c950c7f2bda3dae088f3ee7f836fd
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="create-a-service-fabric-cluster-by-using-azure-resource-manager"></a>Azure Resource Manager를 사용하여 Service Fabric 클러스터 만들기 
 > [!div class="op_single_selector"]
 > * [Azure 리소스 관리자](service-fabric-cluster-creation-via-arm.md)
-> * [Azure Portal](service-fabric-cluster-creation-via-portal.md)
+> * [Azure 포털](service-fabric-cluster-creation-via-portal.md)
 >
 >
 
@@ -74,7 +74,7 @@ Linux나 Windows 클러스터 모두 보안 클러스터를 만드는 개념은 
 관리자 또는 사용자 클라이언트 작업에 임의 개수의 추가 인증서를 지정할 수 있습니다. 기본적으로 클러스터 인증서에는 관리자 클라이언트 권한이 있습니다. 이러한 추가 클라이언트 인증서를 클러스터에 설치하지 않고 클러스터 구성에서 허용되도록 지정해야 합니다. 하지만 클라이언트 컴퓨터에 설치하여 클러스터에 연결하고 모든 관리 작업을 수행해야 합니다.
 
 
-## <a name="prerequisites"></a>필수 조건 
+## <a name="prerequisites"></a>필수 구성 요소 
 Linux나 Windows 클러스터 모두 보안 클러스터를 만드는 개념은 같습니다. 이 가이드에서는 Azure PowerShell 또는 Azure CLI를 사용하여 새 클러스터를 만드는 방법을 다룹니다. 필수 조건은 다음과 같습니다. 
 
 -  [Azure PowerShell 4.1 이상][azure-powershell] 또는 [Azure CLI 2.0 이상][azure-CLI]
@@ -362,7 +362,7 @@ Service Fabric 클러스터로 Azure AD를 구성하는 데 포함되는 일부 
 1. 컴퓨터에 [스크립트를 다운로드][sf-aad-ps-script-download]합니다.
 2. zip 파일을 마우스 오른쪽 단추로 클릭하고 **속성**, **차단 해제** 확인란을 차례로 선택한 다음 **적용**을 클릭합니다.
 3. zip 파일의 압축을 풉니다.
-4. `SetupApplications.ps1`을 실행하고 TenantId, ClusterName 및 WebApplicationReplyUrl을 매개 변수로 제공합니다. 예:
+4. `SetupApplications.ps1`을 실행하고 TenantId, ClusterName 및 WebApplicationReplyUrl을 매개 변수로 제공합니다. 예: 
 
 ```powershell
     .\SetupApplications.ps1 -TenantId '690ec069-8200-4068-9d01-5aaf188e557a' -ClusterName 'mycluster' -WebApplicationReplyUrl 'https://mycluster.westus.cloudapp.azure.com:19080/Explorer/index.html'
@@ -377,7 +377,7 @@ WebApplicationReplyUrl은 로그인을 마친 후 Azure AD가 사용자를 돌�
 
 https://&lt;cluster_domain&gt;:19080/Explorer
 
-Azure AD 테넌트에 대한 관리자 권한이 있는 계정으로 로그인하라는 메시지가 표시됩니다. 로그인한 후에는 스크립트가 Service Fabric 클러스터를 나타내는 웹 및 네이티브 응용 프로그램을 만듭니다. [Azure 클래식 포털][azure-classic-portal]에서 테넌트의 응용 프로그램을 보면 두 개의 새 항목이 표시됩니다.
+Azure AD 테넌트에 대한 관리자 권한이 있는 계정으로 로그인하라는 메시지가 표시됩니다. 로그인한 후에는 스크립트가 Service Fabric 클러스터를 나타내는 웹 및 네이티브 응용 프로그램을 만듭니다. [Azure Portal][azure-portal]에서 테넌트의 응용 프로그램을 보면 두 개의 새 항목이 표시됩니다.
 
    * *ClusterName*\_클러스터
    * *ClusterName*\_클라이언트
@@ -405,7 +405,7 @@ Service Fabric 클러스터 Resource Manager 템플릿을 사용자 지정 작�
 ### <a name="add-certificates"></a>인증서 추가
 인증서 키를 포함하는 Key Vault 참조하여 Cluster Resource Manager 템플릿에 인증서를 추가합니다. Resource Manager 템플릿 매개 변수 파일(azuredeploy.parameters.json)에 해당 키 자격 증명 모음 매개 변수 및 값을 추가합니다. 
 
-#### <a name="add-all-certificates-to-the-virtual-machine-scale-set-osprofile"></a>가상 컴퓨터 확장 집합 osProfile에 모든 인증서 추가
+#### <a name="add-all-certificates-to-the-virtual-machine-scale-set-osprofile"></a>가상 머신 확장 집합 osProfile에 모든 인증서 추가
 클러스터에 설치된 모든 인증서는 확장 집합 리소스(Microsoft.Compute/virtualMachineScaleSets)의 osProfile 섹션에 구성되어야 합니다. 이 작업은 리소스 공급자에게 인증서를 VM에 설치하도록 지시합니다. 이 설치에는 클러스터 인증서와, 응용 프로그램에 사용하려는 모든 응용 프로그램 보안 인증서가 포함됩니다.
 
 ```json
@@ -441,7 +441,7 @@ Service Fabric 클러스터 Resource Manager 템플릿을 사용자 지정 작�
 ```
 
 #### <a name="configure-the-service-fabric-cluster-certificate"></a>Service Fabric 클러스터 인증서 구성
-또한 클러스터 인증 인증서는 서비스 패브릭 클러스터 리소스(Microsoft.ServiceFabric/clusters)와, 가상 컴퓨터 확장 집합 리소스의 가상 컴퓨터 확장 집합에 대해 Service Fabric 확장에서 모두 구성되어야 합니다. 이렇게 해야 Service Fabric 리소스 공급자는 클러스터 인증에 대한 사용 및 관리 끝점에 대한 서버 인증을 위해 그것을 구성할 수 있습니다.
+또한 클러스터 인증 인증서는 서비스 패브릭 클러스터 리소스(Microsoft.ServiceFabric/clusters)와, 가상 머신 확장 집합 리소스의 가상 머신 확장 집합에 대해 Service Fabric 확장에서 모두 구성되어야 합니다. 이렇게 해야 Service Fabric 리소스 공급자는 클러스터 인증에 대한 사용 및 관리 끝점에 대한 서버 인증을 위해 그것을 구성할 수 있습니다.
 
 ##### <a name="add-the-certificate-information-the-virtual-machine-scale-set-resource"></a>인증서 정보를 가상 머신 확장 집합 리소스에 추가합니다.
 ```json
@@ -615,17 +615,22 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -Templat
 <a name="assign-roles"></a>
 
 ## <a name="assign-users-to-roles"></a>역할에 사용자 할당
-클러스터를 나타내는 응용 프로그램을 만들었으면 사용자를 Service Fabric에서 지원하는 역할(읽기 전용 및 관리자)에 할당합니다. [Azure 클래식 포털][azure-classic-portal]을 사용하여 역할을 할당할 수 있습니다.
+클러스터를 나타내는 응용 프로그램을 만들었으면 사용자를 Service Fabric에서 지원하는 역할(읽기 전용 및 관리자)에 할당합니다. [Azure Portal][azure-portal]을 사용하여 역할을 할당할 수 있습니다.
 
-1. Azure Portal에서 테넌트로 이동한 다음 **응용 프로그램**을 선택합니다.
-2. 이름이 `myTestCluster_Cluster` 같은 웹 응용 프로그램을 선택합니다.
-3. **사용자** 탭을 클릭합니다.
-4. 할당할 사용자를 선택하고 화면 아래쪽에 있는 **할당** 단추를 클릭합니다.
+1. Azure Portal의 상단 오른쪽 모서리에서 테넌트를 선택합니다.
 
-    ![역할에 사용자 할당 단추][assign-users-to-roles-button]
-5. 사용자에게 할당할 역할을 선택합니다.
+    ![테넌트 단추 선택][select-tenant-button]
+2. 왼쪽 탭에서 **Azure Active Directory**를 선택한 후 “엔터프라이즈 응용 프로그램”을 선택합니다.
+3. “모든 응용 프로그램”을 선택한 다음, 이름이 `myTestCluster_Cluster`인 웹 응용 프로그램을 찾아 선택합니다.
+4. **사용자 및 그룹** 탭을 클릭합니다.
 
-    !["사용자 지정" 대화 상자][assign-users-to-roles-dialog]
+    ![사용자 및 그룹 탭][users-and-groups-tab]
+5. 새 페이지에서 **사용자 추가** 단추를 클릭하고, 할당할 사용자 및 역할을 선택한 다음, 페이지의 맨 아래에서 **선택** 단추를 클릭합니다.
+
+    ![사용자를 역할에 할당 페이지][assign-users-to-roles-page]
+6. 페이지 맨 아래에 있는 **할당** 단추를 클릭합니다.
+
+    ![할당 추가 확인][assign-users-to-roles-confirm]
 
 > [!NOTE]
 > 서비스 패브릭의 역할에 대한 자세한 내용은 [서비스 패브릭 클라이언트의 역할 기반 액세스 제어](service-fabric-cluster-security-roles.md)를 참조하세요.
@@ -665,7 +670,7 @@ Service Fabric Explorer에서 Azure AD에 로그인할 때 페이지가 "AADSTS5
 Service Fabric Explorer를 나타내는 클러스터(웹) 응용 프로그램이 Azure AD에 대해 인증을 시도하며, 해당 요청의 일부로 리디렉션 반환 URL을 제공합니다. 그렇지만 Azure AD 응용 프로그램 **REPLY URL** 목록에 표시되지 않습니다.
 
 #### <a name="solution"></a>해결 방법
-클러스터(웹) 응용 프로그램의 **Configure** 탭에서 **REPLY URL** 목록에 Service Fabric Explorer URL을 추가하거나 목록의 항목 중 하나를 대체합니다. 마친 후 변경 사항을 저장합니다.
+AAD 페이지에서 “앱 등록”을 선택하고, 클러스터 응용 프로그램을 선택한 다음, **회신 URL** 단추를 선택합니다. “회신 URL” 페이지에서 Service Fabric Explorer URL을 목록에 추가하거나 목록의 항목 중 하나를 대체합니다. 마친 후 변경 사항을 저장합니다.
 
 ![웹 응용 프로그램 회신 URL][web-application-reply-url]
 
@@ -690,10 +695,10 @@ FabricClient와 FabricGateway는 상호 인증을 수행합니다. Azure AD 인�
 
 <!-- Links -->
 [azure-powershell]:https://docs.microsoft.com/powershell/azure/install-azurerm-ps
-[azure-CLI]:https://docs.microsoft.com/en-us/cli/azure/get-started-with-azure-cli?view=azure-cli-latest
+[azure-CLI]:https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest
 [key-vault-get-started]:../key-vault/key-vault-get-started.md
 [aad-graph-api-docs]:https://msdn.microsoft.com/library/azure/ad/graph/api/api-catalog
-[azure-classic-portal]: https://portal.azure.com/
+[azure-portal]: https://portal.azure.com/
 [service-fabric-cluster-security]: service-fabric-cluster-security.md
 [active-directory-howto-tenant]: ../active-directory/active-directory-howto-tenant.md
 [service-fabric-visualizing-your-cluster]: service-fabric-visualizing-your-cluster.md
@@ -703,13 +708,15 @@ FabricClient와 FabricGateway는 상호 인증을 수행합니다. Azure AD 인�
 [service-fabric-secure-cluster-5-node-1-nodetype]: https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure
 [resource-group-template-deploy]: https://azure.microsoft.com/documentation/articles/resource-group-template-deploy/
 [x509-certificates-and-service-fabric]: service-fabric-cluster-security.md#x509-certificates-and-service-fabric
-[customize-your-cluster-template]: service-fabric-cluster-creation-via-arm.md#Create-a-Service-Fabric-cluster- Resource-Manager-template
+[customize-your-cluster-template]: service-fabric-cluster-creation-via-arm.md#create-a-service-fabric-cluster-resource-manager-template
 
 <!-- Images -->
 [cluster-security-arm-dependency-map]: ./media/service-fabric-cluster-creation-via-arm/cluster-security-arm-dependency-map.png
 [cluster-security-cert-installation]: ./media/service-fabric-cluster-creation-via-arm/cluster-security-cert-installation.png
-[assign-users-to-roles-button]: ./media/service-fabric-cluster-creation-via-arm/assign-users-to-roles-button.png
-[assign-users-to-roles-dialog]: ./media/service-fabric-cluster-creation-via-arm/assign-users-to-roles.png
+[select-tenant-button]: ./media/service-fabric-cluster-creation-via-arm/select-tenant-button.png
+[users-and-groups-tab]: ./media/service-fabric-cluster-creation-via-arm/users-and-groups-tab.png
+[assign-users-to-roles-page]: ./media/service-fabric-cluster-creation-via-arm/assign-users-to-roles-page.png
+[assign-users-to-roles-confirm]: ./media/service-fabric-cluster-creation-via-arm/assign-users-to-roles-confirm.png
 [sfx-select-certificate-dialog]: ./media/service-fabric-cluster-creation-via-arm/sfx-select-certificate-dialog.png
 [sfx-reply-address-not-match]: ./media/service-fabric-cluster-creation-via-arm/sfx-reply-address-not-match.png
 [web-application-reply-url]: ./media/service-fabric-cluster-creation-via-arm/web-application-reply-url.png

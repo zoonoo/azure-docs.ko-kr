@@ -1,5 +1,5 @@
 ---
-title: "보고: Azure AD SSPR | Microsoft Docs"
+title: "셀프 서비스 암호 재설정 보고서 - Azure Active Directory"
 description: "Azure AD 셀프 서비스 암호 재설정 이벤트에 대한 보고"
 services: active-directory
 keywords: 
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 1d27dd77547c62a3c2f77aeba214f05326c9cab4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c1f8beaf73bfa424c9a5c86df430822b5626282b
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Azure AD 암호 관리에 대한 보고 옵션
 
@@ -64,6 +64,12 @@ Azure Portal 환경에서 암호 재설정 및 암호 재설정 등록 활동을
 
 Azure AD 보고서 및 이벤트 API는 암호 재설정 및 암호 재설정 등록 보고서에 포함된 모든 정보를 검색하도록 지원하고 있습니다. 이 API를 사용하면 개별 암호 재설정 및 암호 재설정 등록 이벤트를 다운로드하여 선택한 보고 기술과 통합할 수 있습니다.
 
+> [!IMPORTANT]
+> 현재 Azure AD 보고서 및 이벤트 API는 [SsprActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent) 및 [SsprRegistrationActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprRegistrationActivityEvent) 유형의 최대 *75,000개의 개별 이벤트*를 검색합니다. API 범위는 지난 30일 동안입니다.
+> 
+> 이 창에서 미치지 않는 데이터를 검색하거나 저장해야 하는 경우 외부 데이터베이스에서 이 데이터를 유지하고 API를 사용하여 그 결과인 델타를 쿼리하는 것이 좋습니다. 조직에서 SSPR을 사용하기 시작할 때 이 데이터 검색을 시작하는 것이 좋습니다. 외부적으로 지속하면서, 해당 위치부터 계속 델타를 추적합니다.
+>
+
 ### <a name="how-to-get-started-with-the-reporting-api"></a>보고 API를 시작하는 방법
 
 이 데이터에 액세스하려면 작은 응용 프로그램 또는 스크립트를 작성하여 서버에서 검색해야 합니다. 자세한 내용은 [Azure AD 보고 API 시작](active-directory-reporting-api-getting-started.md)을 참조하세요.
@@ -72,12 +78,6 @@ Azure AD 보고서 및 이벤트 API는 암호 재설정 및 암호 재설정 �
 
 * [SsprActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent): 암호 재설정 이벤트에 대해 사용 가능한 열을 나열합니다.
 * [SsprRegistrationActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprRegistrationActivityEvent): 암호 재설정 등록 이벤트에 대해 사용 가능한 열을 나열합니다.
-
-### <a name="reporting-api-data-retrieval-limitations"></a>보고 API 데이터 검색 제한
-
-현재 Azure AD 보고서 및 이벤트 API는 [SsprActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent) 및 [SsprRegistrationActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprRegistrationActivityEvent) 유형의 최대 *75,000개의 개별 이벤트*를 검색합니다. API 범위는 *지난 30일 동안*입니다.
-
-이 창에서 미치지 않는 데이터를 검색하거나 저장해야 하는 경우 외부 데이터베이스에서 이 데이터를 유지하고 API를 사용하여 그 결과인 델타를 쿼리하는 것이 좋습니다. 조직에서 SSPR을 사용하기 시작할 때 이 데이터 검색을 시작하는 것이 좋습니다. 외부적으로 지속하면서, 해당 위치부터 계속 델타를 추적합니다.
 
 ## <a name="description-of-the-report-columns-in-the-azure-portal"></a>Azure Portal의 보고서 열 설명
 

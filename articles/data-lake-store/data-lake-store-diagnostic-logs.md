@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: f6496fb62670c480ce543a51225856f0fb5d89b5
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.openlocfilehash: 5e1c3df24b0fc3e733981ab3f8814a9e6641f5f1
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-store"></a>Azure Data Lake Store에 대한 진단 로그에 액세스
 Data Lake Store 계정에 대한 진단 로깅을 사용하는 방법 및 계정에 대해 수집된 로그를 보는 방법에 대해 알아봅니다.
 
-조직에서는 Azure Data Lake Store 계정에 대한 진단 로깅을 사용하도록 설정하여 데이터에 액세스하는 사용자의 목록, 데이터가 액세스되는 빈도, 계정에 저장된 데이터 양과 같은 정보를 제공하는 데이터 액세스 감사 추적을 수집할 수 있습니다.
+조직에서는 Azure Data Lake Store 계정에 대한 진단 로깅을 사용하도록 설정하여 데이터에 액세스하는 사용자의 목록, 데이터가 액세스되는 빈도, 계정에 저장된 데이터 양과 같은 정보를 제공하는 데이터 액세스 감사 추적을 수집할 수 있습니다. 활성화되면 요청은 최상의 노력을 기준으로 기록됩니다. 서비스 끝점에 대한 요청이 있는 경우에만 요청 및 진단 로그 항목이 만들어집니다.
 
-## <a name="prerequisites"></a>필수 조건
-* **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
+## <a name="prerequisites"></a>필수 구성 요소
+* **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 * **Azure Data Lake Store 계정**. [Azure Portal을 사용하여 Azure Data Lake Store 시작](data-lake-store-get-started-portal.md)에 있는 지침을 따릅니다.
 
 ## <a name="enable-diagnostic-logging-for-your-data-lake-store-account"></a>Data Lake Store 계정에 대한 진단 로깅 사용
@@ -47,11 +47,11 @@ Data Lake Store 계정에 대한 진단 로깅을 사용하는 방법 및 계정
         
         * Azure Event Hub에 로그 데이터를 스트리밍하려면 **이벤트 허브로 스트리밍** 옵션을 선택합니다. 들어오는 로그를 실시간으로 분석하는 다운스트림 처리 파이프라인을 사용하는 경우 대개 이 옵션을 사용합니다. 이 옵션을 선택하는 경우 사용하려는 Azure 이벤트 허브에 대한 세부 정보를 제공해야 합니다.
 
-        * Azure Log Analytics 서비스를 사용하여 생성된 로그 데이터를 분석하려면 **Log Analytics으로 전송** 옵션을 선택합니다. 이 옵션을 선택하는 경우 로그 분석을 수행하는 데 사용하는 Operations Management Suite 작업 영역에 세부 정보를 제공해야 합니다.
+        * Azure Log Analytics 서비스를 사용하여 생성된 로그 데이터를 분석하려면 **Log Analytics으로 전송** 옵션을 선택합니다. 이 옵션을 선택하는 경우 로그 분석을 수행하는 데 사용하는 Operations Management Suite 작업 영역에 세부 정보를 제공해야 합니다. Log Analytics를 사용하는 자세한 내용은 [Log Analytics 로그 검색을 사용하여 수집한 데이터 보기 및 분석](../log-analytics/log-analytics-tutorial-viewdata.md)을 참조하세요.
      
    * 감사 로그 또는 요청 로그를 가져올지, 혹은 둘 모두를 가져올지를 지정합니다.
    * 데이터를 유지해야 하는 일 수를 지정합니다. Azure Storage 계정을 사용하여 로그 데이터를 보관하는 경우에만 보존 기능이 적용됩니다.
-   * **Save**를 클릭합니다.
+   * **저장**을 클릭합니다.
 
 진단 설정을 사용하도록 설정했으면 **진단 로그** 탭에서 로그를 볼 수 있습니다.
 
@@ -114,12 +114,12 @@ Data Lake Store 계정에 대한 진단 로깅을 사용하는 방법 및 계정
     }
 
 #### <a name="request-log-schema"></a>요청 로그 스키마
-| Name | 형식 | 설명 |
+| 이름 | type | 설명 |
 | --- | --- | --- |
 | 실시간 |문자열 |로그의 타임스탬프(UTC) |
-| resourceId |문자열 |작업이 수행되는 리소스의 ID |
+| ResourceId |문자열 |작업이 수행되는 리소스의 ID |
 | 카테고리 |문자열 |로그 범주 예: **Requests** |
-| operationName |String |기록된 작업의 이름 예를 들어 getfilestatus |
+| operationName |문자열 |기록된 작업의 이름 예를 들어 getfilestatus |
 | resultType |문자열 |작업의 상태, 예를 들어 200 |
 | callerIpAddress |문자열 |요청한 클라이언트의 IP 주소 |
 | CorrelationId |문자열 |관련된 로그 항목의 집합을 그룹화하는 데 사용할 수 있는 로그의 ID |
@@ -127,10 +127,10 @@ Data Lake Store 계정에 대한 진단 로깅을 사용하는 방법 및 계정
 | properties |JSON |자세한 내용은 다음을 참조하세요. |
 
 #### <a name="request-log-properties-schema"></a>요청 로그 속성 스키마
-| Name | 형식 | 설명 |
+| 이름 | type | 설명 |
 | --- | --- | --- |
-| HttpMethod |String |작업에 사용된 HTTP 메서드 예를 들어 GET |
-| Path |문자열 |작업이 수행된 경로 |
+| HttpMethod |문자열 |작업에 사용된 HTTP 메서드 예를 들어 GET |
+| path |문자열 |작업이 수행된 경로 |
 | RequestContentLength |int |HTTP 요청의 콘텐츠 길이 |
 | ClientRequestId |문자열 |이 요청을 고유하게 식별하는 ID |
 | StartTime |문자열 |서버가 요청을 받은 시간 |
@@ -160,23 +160,32 @@ Data Lake Store 계정에 대한 진단 로깅을 사용하는 방법 및 계정
     }
 
 #### <a name="audit-log-schema"></a>감사 로그 스키마
-| Name | 형식 | 설명 |
+| 이름 | type | 설명 |
 | --- | --- | --- |
 | 실시간 |문자열 |로그의 타임스탬프(UTC) |
-| resourceId |문자열 |작업이 수행되는 리소스의 ID |
+| ResourceId |문자열 |작업이 수행되는 리소스의 ID |
 | 카테고리 |문자열 |로그 범주 예: **Audit**. |
-| operationName |String |기록된 작업의 이름 예를 들어 getfilestatus |
+| operationName |문자열 |기록된 작업의 이름 예를 들어 getfilestatus |
 | resultType |문자열 |작업의 상태, 예를 들어 200 |
 | CorrelationId |문자열 |관련된 로그 항목의 집합을 그룹화하는 데 사용할 수 있는 로그의 ID |
 | ID |Object |로그를 생성하는 ID |
 | properties |JSON |자세한 내용은 다음을 참조하세요. |
 
 #### <a name="audit-log-properties-schema"></a>감사 로그 속성 스키마
-| Name | 형식 | 설명 |
+| 이름 | type | 설명 |
 | --- | --- | --- |
 | StreamName |문자열 |작업이 수행된 경로 |
 
 ## <a name="samples-to-process-the-log-data"></a>로그 데이터를 처리하는 샘플
+Azure Data Lake Store에서 Azure Log Analytics로 로그를 보낼 때(Log Analytics를 사용하는 자세한 내용은 [Log Analytics 로그 검색을 사용하여 수집한 데이터 보기 및 분석](../log-analytics/log-analytics-tutorial-viewdata.md) 참조) 다음 쿼리는 시각적 개체 차트와 함께 사용자 표시 이름 목록, 이벤트의 시간 및 이벤트의 시간에 대한 이벤트 수를 포함하는 테이블을 반환합니다. 사용자 GUID 또는 기타 특성을 표시하도록 쉽게 수정할 수 있습니다.
+
+```
+search *
+| where ( Type == "AzureDiagnostics" )
+| summarize count(TimeGenerated) by identity_s, TimeGenerated
+```
+
+
 Azure Data Lake Store에서는 로그 데이터를 처리하고 분석하는 방법에 대한 샘플을 제공합니다. [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample)에서 샘플을 찾을 수 있습니다. 
 
 ## <a name="see-also"></a>참고 항목

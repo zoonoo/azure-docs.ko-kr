@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/02/2017
 ms.author: bruceper
-ms.openlocfilehash: c5b5fd7f16faf17d16ecc82269fb1264adf4dd06
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5b03f5092ee4236ca3e7b12db37dc47bd6d3a309
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="azure-key-vault-net-20---release-notes-and-migration-guide"></a>Azure Key Vault .NET 2.0 - 릴리스 정보 및 마이그레이션 가이드
 다음 참고 사항과 지침은 Azure Key Vault .NET/C# 라이브러리로 작업하는 개발자를 위한 것입니다. 1.0 버전에서 2.0 버전으로 전환되면 업데이트할 경우 대부분 **Key Vault 인증서** 지원과 같은 기능 향상 및 추가 기능의 이점을 제공하기 위해 코드에서 마이그레이션 작업을 수행해야 했습니다.
@@ -36,8 +36,9 @@ Key Vault 인증서 지원은 x509 인증서 및 다음 동작의 관리를 위�
 
 ## <a name="net-support"></a>.NET 지원
 
-* **.NET 4.0**은 Azure Key Vault .NET/C# 라이브러리의 2.0 버전에서 지원되지 않습니다.
-* **.NET Core**는 Azure Key Vault .NET/C# 라이브러리의 2.0 버전에서 지원되지 않습니다.
+* **.NET 4.0**은 Azure Key Vault .NET 라이브러리의 2.0 버전에서 지원되지 않습니다.
+* **.NET Framework 4.5.2**는 Azure Key Vault .NET 라이브러리의 2.0 버전에서 지원되지 않습니다.
+* **.NET Standard 1.4**는 Azure Key Vault .NET 라이브러리의 2.0 버전에서 지원되지 않습니다.
 
 ## <a name="namespaces"></a>네임스페이스
 

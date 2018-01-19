@@ -13,19 +13,19 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/05/2016
 ms.author: dariagrigoriu
-ms.openlocfilehash: 2f8691b0aadbd97e87996c2683849a6db3b74618
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d66b5aa4eb2ad90596dfe9e26bbc18996c967295
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Azure App Service의 배포 자격 증명 구성
 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)는 [로컬 Git 배포](app-service-deploy-local-git.md) 및 [FTP/S 배포](app-service-deploy-ftp.md)를 위해 두 가지 유형의 자격 증명을 지원합니다. 이들은 Azure Active Directory 자격 증명과 동일하지 않습니다.
 
-* **사용자 수준 자격 증명** - 전체 Azure 계정에 대한 자격 증명 집합입니다. 모든 구독에서 Azure 계정에 액세스할 수 있는 권한이 있는 모든 앱의 App Service에 배포하는 데 사용할 수 있습니다. 이는 **App Services** > **&lt;app_name>** > **배포 자격 증명**에서 구성하는 기본 자격 증명 집합이며, 포털 GUI에서 볼 수 있는 기본 집합이기도 입니다(예: **개요** 및 **속성**의 [리소스 블레이드](../azure-resource-manager/resource-group-portal.md#manage-resources)).
+* **사용자 수준 자격 증명** - 전체 Azure 계정에 대한 자격 증명 집합입니다. 모든 구독에서 Azure 계정에 액세스할 수 있는 권한이 있는 모든 앱의 App Service에 배포하는 데 사용할 수 있습니다. 이는 **App Services** > **&lt;app_name>** > **배포 자격 증명**에서 구성하는 기본 자격 증명 집합이며, 포털 GUI에서 볼 수 있는 기본 집합이기도 입니다(예: **개요** 및 **속성**의 [리소스 페이지](../azure-resource-manager/resource-group-portal.md#manage-resources)).
 
     > [!NOTE]
-    > RBAC(역할 기반 액세스 제어) 또는 공동 관리자 권한을 통해 Azure 리소스에 대한 액세스 권한을 위임하는 경우 앱에 대한 액세스 권한을 받은 각 Azure 사용자는 액세스 권한이 취소될 때까지 개인 사용자 수준 자격 증명을 사용할 수 있습니다. 이러한 배포 자격 증명은 다른 Azure 사용자와 공유하지 말아야 합니다.
+    > RBAC(역할 기반 Access Control) 또는 공동 관리자 권한을 통해 Azure 리소스에 대한 액세스 권한을 위임하는 경우 앱에 대한 액세스 권한을 받은 각 Azure 사용자는 액세스 권한이 취소될 때까지 개인 사용자 수준 자격 증명을 사용할 수 있습니다. 이러한 배포 자격 증명은 다른 Azure 사용자와 공유하지 말아야 합니다.
     >
     >
 
@@ -38,14 +38,14 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="userscope"></a>사용자 수준 자격 증명 설정 및 다시 설정
 
-모든 앱의 [리소스 블레이드](../azure-resource-manager/resource-group-portal.md#manage-resources)에서 사용자 수준 자격 증명을 구성할 수 있습니다. 이러한 자격 증명을 구성하는 앱에 관계 없이 Azure 계정의 모든 앱과 모든 구독에 적용됩니다. 
+모든 앱의 [리소스 페이지](../azure-resource-manager/resource-group-portal.md#manage-resources)에서 사용자 수준 자격 증명을 구성할 수 있습니다. 이러한 자격 증명을 구성하는 앱에 관계 없이 Azure 계정의 모든 앱과 모든 구독에 적용됩니다. 
 
 사용자 수준 자격 증명을 구성하려면
 
 1. [Azure Portal](https://portal.azure.com)에서 App Service> **&lt;any_app>** > **배포 자격 증명**을 차례로 클릭합니다.
 
     > [!NOTE]
-    > 포털에서 배포 자격 증명 블레이드에 액세스하려면 앱이 하나 이상 있어야 합니다. 그러나 [Azure CLI](/cli/azure/webapp/deployment/user#set)를 사용하면 기존 앱 없이 사용자 수준 자격 증명을 구성할 수 있습니다.
+    > 포털에서 배포 자격 증명 페이지에 액세스하려면 앱이 하나 이상 있어야 합니다. 그러나 [Azure CLI](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az_webapp_deployment_user_set)를 사용하면 기존 앱 없이 사용자 수준 자격 증명을 구성할 수 있습니다.
 
 2. 사용자 이름과 암호를 구성한 다음 **저장**을 클릭합니다.
 

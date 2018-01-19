@@ -9,13 +9,13 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial
-ms.topic: hero-article
+ms.topic: tutorial
 ms.date: 11/29/2017
-ms.openlocfilehash: 70286104db1b70aebd2f8b0feb4a0854b3cc2bb9
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: b8e245f13af1dd011a92bbf0584b1689a1a0399f
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="classify-iris-part-3-deploy-a-model"></a>아이리스 분류 3부: 모델 배포
 Azure Machine Learning 서비스(미리 보기)는 전문 데이터 과학자를 위한 종단 간 데이터 과학 및 고급 분석 통합 솔루션입니다. 데이터 과학자는 클라우드 규모로 데이터를 준비하고, 실험을 개발하며, 모델을 배포하는 데 사용할 수 있습니다.
@@ -32,7 +32,7 @@ Azure Machine Learning 서비스(미리 보기)는 전문 데이터 과학자를
 
  이 자습서에서는 변함 없는 [아이리스 꽃 데이터 집합](https://en.wikipedia.org/wiki/iris_flower_data_set)을 사용합니다. 스크린샷은 Windows 전용이지만 Mac OS 환경에서도 거의 동일합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 다음과 같이 이 자습서 시리즈의 제1부 및 제2부를 완료해야 합니다.
 
    * [데이터 준비 자습서](tutorial-classifying-iris-part-1.md)에 따라 Machine Learning 리소스를 만들고 Azure Machine Learning Workbench 응용 프로그램을 설치합니다.
@@ -161,6 +161,9 @@ _로컬 모드_ 배포를 사용하여 로컬 컴퓨터의 Docker 컨테이너�
 
    출력의 세 번째 줄에 **“registrationState”: “Registering”**이 표시됩니다. 몇 분 정도 기다렸다가 출력에 **"registrationState": "Registered"**가 표시될 때까지 **show** 명령을 반복합니다.
 
+   >[!NOTE] 
+   ACS 클러스터를 배포하는 경우 정확히 동일한 방법을 사용하여 **Microsoft.ContainerService** 리소스 공급자를 등록해야 합니다.
+
 3. 환경을 만듭니다. 환경당 한 번씩 이 단계를 실행해야 합니다. 예를 들어, 개발 환경에 대해 한 번, 프로덕션에 대해 한 번씩 실행합니다. 첫 번째 환경에는 _로컬 모드_를 사용합니다. 나중에 다음 명령에서 `-c` 또는 `--cluster` 스위치를 사용하여 환경을 _클러스터 모드_로 설정할 수 있습니다.
 
    다음 설정 명령에서는 구독에 대한 참가자 액세스 권한이 있어야 합니다. 해당 권한이 없는 경우 적어도 배포하는 리소스 그룹에 대한 참가자 액세스 권한이 필요합니다. 후자를 수행하려면 `-g` 플래그를 사용하여 설치 명령의 일부로 리소스 그룹 이름을 지정해야 합니다. 
@@ -206,7 +209,7 @@ _로컬 모드_ 배포를 사용하여 로컬 컴퓨터의 Docker 컨테이너�
 1. 실시간 웹 서비스를 만들려면 다음 명령을 사용합니다.
 
    ```azurecli
-   az ml service create realtime -f score_iris.py --model-file model.pkl -s service_schema.json -n irisapp -r python --collect-model-data true -c amlconfig\conda_dependencies.yml
+   az ml service create realtime -f score_iris.py --model-file model.pkl -s service_schema.json -n irisapp -r python --collect-model-data true -c aml_config\conda_dependencies.yml
    ```
    이 명령은 나중에 사용할 수 있는 웹 서비스 ID를 생성합니다.
 
@@ -298,7 +301,7 @@ _로컬 모드_ 배포를 사용하여 로컬 컴퓨터의 Docker 컨테이너�
 
 ## <a name="view-the-collected-data-in-azure-blob-storage"></a>Azure Blob 저장소에서 수집된 데이터 보기
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 2. 저장소 계정을 찾습니다. 이렇게 하려면 **추가 서비스**를 선택합니다.
 

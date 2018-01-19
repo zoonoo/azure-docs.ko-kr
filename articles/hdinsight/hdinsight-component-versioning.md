@@ -15,17 +15,17 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/14/2017
+ms.date: 01/09/2018
 ms.author: bprakash
-ms.openlocfilehash: d1098ea7f7ab7765f9769dd2e398eb3b62c5557b
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 009b909f9d92c6a21babffae3984be36a7682476
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>HDInsight에서 사용할 수 있는 Hadoop 구성 요소 및 버전은 무엇인가요?
 
-Microsoft Azure HDInsight에서 표준 및 프리미엄 서비스 수준을 비롯하여 Apache Hadoop 에코 시스템 구성 요소 및 버전에 대해 알아봅니다. 또한 HDInsight에서 Hadoop 구성 요소 버전을 확인하는 방법을 알아봅니다. 
+엔터프라이즈 보안 패키지뿐만 아니라 Microsoft Azure HDInsight의 Apache Hadoop 에코시스템 구성 요소 및 버전에 대해 알아봅니다. 또한 HDInsight에서 Hadoop 구성 요소 버전을 확인하는 방법을 알아봅니다. 
 
 각 HDInsight 버전은 클라우드 배포판의 HDP(Hortonworks Data Platform) 버전입니다.
 
@@ -74,25 +74,79 @@ Windows 클러스터의 경우 구성 요소 버전을 확인하는 다른 방�
 최신 HDInsight 버전과 관련된 추가 릴리스 정보에 대해서는 [HDInsight 릴리스 정보](hdinsight-release-notes.md) 를 참조하세요.
 
 ## <a name="supported-hdinsight-versions"></a>지원되는 HDInsight 버전
-다음 표는 현재 Azure Portal에서 사용 가능한 HDInsight 버전을 나열합니다. 각 HDInsight 버전에 해당하는 HDP 버전은 제품 출시 날짜와 함께 나열되어 있습니다. 알려진 경우 지원 만료 날짜와 사용 중지 날짜도 나와 있습니다.
+다음 표에서는 HDInsight 버전을 보여줍니다. 각 HDInsight 버전에 해당하는 HDP 버전은 제품 출시 날짜와 함께 나열되어 있습니다. 알려진 경우 지원 만료 날짜와 사용 중지 날짜도 나와 있습니다.
+
+### <a name="available-versions"></a>사용 가능한 버전
+
+다음 표에서는 PowerShell 및 .NET SDK와 같은 다른 배포 메서드를 비롯하여 Azure Portal에서 사용할 수 있는 HDInsight 버전을 나열합니다.
+
+| HDInsight 버전 | HDP 버전 | VM OS | 릴리스 날짜 | 지원 만료 날짜 | 사용 중지 날짜 | 고가용성 |  Azure Portal에 대한 사용 가용성 | 
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| HDInsight 3.6 |HDP 2.6 |Ubuntu 16.0.4 LTS |2017년 4월 4일 | | |적용 |적용 |
+| HDInsight 3.5 |HDP 2.5 |Ubuntu 16.0.4 LTS |2016년 9월 30일 |2017년 9월 5일 |2018년 5월 31일 |적용 |적용 |
+| HDInsight 3.3 |HDP 2.3 |Windows Server 2012 R2 |2015년 12월 2일 |2016년 6월 27일 |2018년 7월 31일 |적용 |아니요 |
 
 > [!NOTE]
-> 버전에 대한 지원이 만료되면 Microsoft Azure 클래식 포털을 통해 사용하지 못할 수도 있습니다. 그러나 클러스터 버전은 버전 사용 중지 날짜까지 Windows PowerShell [New-AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) 명령의 `Version` 매개 변수 및 .NET SDK를 사용하여 계속 사용할 수 있습니다.
-> 
+> 버전에 대한 지원이 만료되면 Microsoft Azure Portal을 통해 사용하지 못할 수도 있습니다. 그러나 클러스터 버전은 버전 사용 중지 날짜까지 Windows PowerShell [New-AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) 명령의 `Version` 매개 변수 및 .NET SDK를 사용하여 계속 사용할 수 있습니다.
+>
+
+### <a name="retired-versions"></a>사용 중지된 버전
+
+다음 표는 현재 Azure Portal에서 사용할 수 **없는** HDInsight 버전을 나열합니다.
+
+| HDInsight 버전 | HDP 버전 | VM OS | 릴리스 날짜 | 지원 만료 날짜 | 사용 중지 날짜 | 고가용성 |  Azure Portal에 대한 사용 가용성 | 
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| HDInsight 3.4 |HDP 2.4 |Ubuntu 14.0.4 LTS |2016년 3월 29일 |2016년 12월 29일 |2018년 1월 9일 |적용 |아니요 |
+| HDInsight 3.3 |HDP 2.3 |Ubuntu 14.0.4 LTS |2015년 12월 2일 |2016년 6월 27일 |2017년 7월 31일 |적용 |아니요 |
+| HDInsight 3.2 |HDP 2.2 |Ubuntu 12.04 LTS 또는 Windows Server 2012 R2 |2015년 2월 18일 |2016년 3월 1일 |2017년 4월 1일 |적용 |아니요 |
+| HDInsight 3.1 |HDP 2.1 |Windows Server 2012 R2 |2014년 6월 24일 |2015년 5월 18일 |2016년 6월 30일 |적용 |아니요 |
+| HDInsight 3.0 |HDP 2.0 |Windows Server 2012 R2 |2014년 2월 11일 |2014년 9월 17일 |2015년 6월 30일 |적용 |아니요 |
+| HDInsight 2.1 |HDP 1.3 |Windows Server 2012 R2 |2013년 10월 28일 |2014년 5월 12일 |2015년 5월 31일 |적용 |아니요 |
+| HDInsight 1.6 |HDP 1.1 | |2013년 10월 28일 |2014년 4월 26일 |2015년 5월 31일 |아니요 |아니요 |
+
+> [!NOTE]
 > 헤드 노드가 2개 있는 고가용성 클러스터는 기본적으로 HDInsight 버전 2.1 이상에 배포됩니다. HDInsight 버전 1.6 클러스터에서는 사용할 수 없습니다.
 
-| HDInsight 버전 | HDP 버전 | VM OS | 고가용성 | 릴리스 날짜 | Azure Portal에 대한 사용 가용성 | 지원 만료 날짜 | 사용 중지 날짜 |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| HDInsight 3.6 |HDP 2.6 |Ubuntu 16 |예 |2017년 4월 4일 |예 | | |
-| HDInsight 3.5 |HDP 2.5 |Ubuntu 16 |예 |2016년 9월 30일 |예 |2017년 9월 5일 |2018년 5월 31일 |
-| HDInsight 3.4 |HDP 2.4 |Ubuntu 14.0.4 LTS |예 |2016년 3월 29일 |예 |2016년 12월 29일 |2018년 1월 9일 |
-| HDInsight 3.3 |HDP 2.3 |Windows Server 2012 R2 |예 |2015년 12월 2일 |예 |2016년 6월 27일 |2018년 7월 31일 |
-| HDInsight 3.3 |HDP 2.3 |Ubuntu 14.0.4 LTS |예 |2015년 12월 2일 |예 |2016년 6월 27일 |2017년 7월 31일 |
-| HDInsight 3.2 |HDP 2.2 |Ubuntu 12.04 LTS 또는 Windows Server 2012 R2 |예 |2015년 2월 18일 |아니요 |2016년 3월 1일 |2017년 4월 1일 |
-| HDInsight 3.1 |HDP 2.1 |Windows Server 2012 R2 |예 |2014년 6월 24일 |아니요 |2015년 5월 18일 |2016년 6월 30일 |
-| HDInsight 3.0 |HDP 2.0 |Windows Server 2012 R2 |예 |2014년 2월 11일 |아니요 |2014년 9월 17일 |2015년 6월 30일 |
-| HDInsight 2.1 |HDP 1.3 |Windows Server 2012 R2 |예 |2013년 10월 28일 |아니요 |2014년 5월 12일 |2015년 5월 31일 |
-| HDInsight 1.6 |HDP 1.1 | |아니요 |2013년 10월 28일 |아니요 |2014년 4월 26일 |2015년 5월 31일 |
+## <a name="enterprise-security-package-for-hdinsight"></a>HDInsight용 엔터프라이즈 보안 패키지
+
+Azure HDInsight는 HDInsight 클러스터에서 클러스터 워크플로 생성의 일부로 추가할 수 있는 선택적 패키지입니다. 엔터프라이즈 보안 패키지는 다음을 지원합니다.
+
+- 인증을 위한 Active Directory와 통합
+
+    이전에 로컬 관리 사용자 및 로컬 SSH 사용자인 경우에만 HDInsight 클러스터를 만들 수 있었습니다. 로컬 관리 사용자는 모든 파일, 폴더, 테이블 및 열에 액세스할 수 있습니다.  엔터프라이즈 보안 패키지에서 HDInsight 클러스터를 고유한 Active Directory와 통합하여 역할 기반 액세스 제어를 사용할 수 있습니다. 여기에는 온-프레미스 Active Directory, Azure Active Directory Domain Services 또는 IaaS 가상 머신의 Active Directory가 포함됩니다. 클러스터의 도메인 관리자는 사용자가 클러스터에 액세스하도록 고유한 회사 (도메인) 사용자 이름 및 암호를 부여할 수 있습니다. 
+
+    자세한 내용은 다음을 참조하세요.
+
+    - [도메인 조인 HDInsight 클러스터 소개를 사용한 Hadoop 보안 소개](./domain-joined/apache-domain-joined-introduction.md)
+    - [HDInsight에서 Azure 도메인에 가입된 Hadoop 클러스터 계획](./domain-joined/apache-domain-joined-architecture.md)
+    - [도메인 가입 샌드박스 환경 구성](./domain-joined/apache-domain-joined-configure.md)
+    - [Azure Active Directory Domain Services를 사용하여 도메인에 가입된 HDInsight 클러스터 구성](./domain-joined/apache-domain-joined-configure-using-azure-adds.md)
+
+- 데이터에 대한 권한 부여
+
+    - Hive, Spark SQL 및 Yarn 큐의 권한 부여를 위해 Apache Ranger와 통합합니다.
+    - 파일 및 폴더에 대한 액세스 제어를 설정할 수 있습니다.
+
+    자세한 내용은 다음을 참조하세요.
+
+    - [도메인에 가입된 HDInsight에서 Hive 정책 구성](./domain-joined/apache-domain-joined-run-hive.md)
+
+- 감사 로그를 보고 액세스 및 구성된 정책을 모니터링합니다. 
+
+### <a name="supported-cluster-types"></a>지원되는 클러스터 형식
+
+현재 다음과 같은 클러스터 형식만이 엔터프라이즈 보안 패키지를 지원합니다.
+
+- Hadoop(HDInsight 3.6에만 해당)
+- Spark
+- 대화형 쿼리
+
+### <a name="support-for-azure-data-lake-store"></a>Azure Data Lake 저장소에 대한 지원
+
+엔터프라이즈 보안 패키지는 Azure Data Lake Store를 기본 저장소 및 추가 기능 저장소 둘 다로 사용하도록 지원합니다.
+
+### <a name="pricing-and-sla"></a>가격 및 SLA
+엔터프라이즈 보안 패키지의 가격 책정 및 SLA에 대한 자세한 내용은 [HDInsight 가격 책정](https://azure.microsoft.com/pricing/details/hdinsight/)을 참조하세요.
 
 ## <a name="hdinsight-windows-retirement"></a>HDInsight Windows 사용 중지
 Microsoft Azure HDInsight 버전 3.3은 Windows에 대한 HDInsight의 마지막 버전이었습니다. Windows HDInsight의 사용 중지 날짜는 2018년 7월 31일입니다. 또는 Windows 3.3 이전 버전의 HDInsight 클러스터가 설치된 경우 2018년 7월 31일 이전에 Linux HDInsight로 마이그레이션해야 합니다(HDInsight 버전 3.5 이상). Linux OS로 마이그레이션하면 HDInsight 클러스터를 만들거나 크기를 조정하는 기능을 유지할 수 있습니다. Windows의 HDInsight 버전 3.3에 대한 지원은 2016년 6월 27일에 만료되었습니다.
@@ -165,39 +219,13 @@ _사용 중지 날짜_는 HDInsight에서 해당 클러스터 버전을 만들 �
 * HDInsight 클러스터 버전 2.1에서는 [Hortonworks Data Platform 1.3][hdp-1-3-0]을 기반으로 하는 Hadoop 배포를 사용합니다.
 * HDInsight 클러스터 버전 1.6에서는 [Hortonworks Data Platform 1.1][hdp-1-1-0]을 기반으로 하는 Hadoop 배포를 사용합니다.
 
-## <a name="hdinsight-standard-and-hdinsight-premium"></a>HDInsight Standard 및 HDInsight Premium
 
-Azure HDInsight는 빅 데이터 클라우드 제품을 _Standard_ 및 _Premium_의 두 범주로 제공합니다. 다음 표에서는 HDInsight Premium에서_만_ 사용할 수 있는 기능을 나열합니다. 테이블에 명시적으로 설명되지 않은 기능은 HDInsight Standard 및 Premium에서 사용할 수 있습니다.
 
-> [!NOTE]
-> HDInsight Premium 제품은 현재 미리 보기 상태이며 Linux 클러스터에서만 사용할 수 있습니다.
 
-| HDInsight Premium 기능 | 설명 |
-| --- | --- |
-| 도메인에 가입된 HDInsight 클러스터 |엔터프라이즈 수준의 보안을 위해 Azure Active Directory(Azure AD) 도메인에 HDInsight 클러스터를 연결합니다. HDInsight Premium에서 HDInsight 클러스터에 로그온하기 위해 Azure AD를 통해 인증할 수 있는 기업의 직원 목록을 구성할 수 있습니다. 기업 관리자는 [Apache Ranger](http://hortonworks.com/apache/ranger/)를 사용하여 Hive 보안을 위한 역할 기반 액세스 제어를 구성하고 필요한 만큼 사용할 데이터 액세스를 제한할 수 있습니다. 마지막으로 관리자는 직원이 액세스하는 데이터 및 액세스 제어 정책에 대한 변경 내용을 감사할 수 있으므로 회사 리소스를 고도로 관리할 수 있습니다. 자세한 내용은 [도메인에 가입된 HDInsight 클러스터 구성](./domain-joined/apache-domain-joined-configure.md)을 참조하세요. |
 
-### <a name="cluster-types-supported-in-hdinsight-premium"></a>HDInsight Premium에서 지원되는 클러스터 형식
-다음 표에서는 HDInsight Premium에서 지원되는 클러스터 형식을 나열합니다.
 
-| 클러스터 유형 | Standard | Premium(미리 보기) |
-| --- | --- | --- |
-| Hadoop은 |예 |예(HDInsight 3.6만 해당) |
-| Spark |예 |아니요 |
-| HBase |예 |아니요 |
-| Storm |예 |아니요 |
-| R 서버 |예 |아니요 |
-| 대화형 쿼리 |예 |아니요 |
-| Kafka(미리 보기) |예 |아니요 | 
-
-### <a name="support-for-azure-data-lake-store-in-hdinsight-premium"></a>HDInsight Premium에서 Azure Data Lake Store에 대한 지원
-
-HDInsight Premium 클러스터는 Azure Data Lake Store를 기본 저장소로 사용하도록 지원하지 않습니다. 그러나 HDInsight Premium 클러스터에서 Azure Data Lake Store를 추가 기능 저장소로 사용할 수 있습니다.
-
-### <a name="pricing-and-sla"></a>가격 및 SLA
-HDInsight Premium의 가격 및 SLA에 대한 자세한 내용은 [HDInsight 가격](https://azure.microsoft.com/pricing/details/hdinsight/)을 참조하세요.
-
-## <a name="default-node-configuration-and-virtual-machine-sizes-for-clusters"></a>클러스터에 대한 기본 노드 구성 및 가상 컴퓨터 크기
-다음 표에는 HDInsight 클러스터에 대한 기본 VM(가상 컴퓨터) 크기가 나와 있습니다.
+## <a name="default-node-configuration-and-virtual-machine-sizes-for-clusters"></a>클러스터에 대한 기본 노드 구성 및 가상 머신 크기
+다음 표에는 HDInsight 클러스터에 대한 기본 VM(가상 머신) 크기가 나와 있습니다.
 
 > [!IMPORTANT]
 > 클러스터에 필요한 작업자 노드 수가 32개를 초과하는 경우 최소한 코어 8개와 14GB RAM을 가진 헤드 노드 크기를 선택해야 합니다.
@@ -206,28 +234,28 @@ HDInsight Premium의 가격 및 SLA에 대한 자세한 내용은 [HDInsight 가
 
 * 브라질 남부 및 일본 서부를 제외하고 지원되는 모든 지역:
 
-  | 클러스터 유형 | Hadoop은 | HBase | Storm | Spark | R 서버 |
-  | --- | --- | --- | --- | --- | --- |
-  | 헤드: 기본 VM 크기 |D3 v2 |D3 v2 |A3 |D12 v2 |D12 v2 |
-  | 헤드: 권장되는 VM 크기 |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2 |A3, A4, A5 |D12 v2, D13 v2, D14 v2 |D12 v2, D13 v2, D14 v2 |
-  | 작업자: 기본 VM 크기 |D3 v2 |D3 v2 |D3 v2 |Windows: D12 v2; Linux: D4 v2 |Windows: D12 v2; Linux: D4 v2 |
-  | 작업자: 권장되는 VM 크기 |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2 |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |
-  | Zookeeper: 기본 VM 크기 | |A3 |A2 | | |
-  | Zookeeper: 권장되는 VM 크기 | |A3, A4, A5 |A2, A3, A4 | | |
-  | Edge: 기본 VM 크기 | | | | |Windows: D12 v2; Linux: D4 v2 |
-  | Edge: 권장되는 VM 크기 | | | | |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |
+  | 클러스터 유형 | Hadoop은 | HBase | 대화형 쿼리 | Storm | Spark | R 서버 |
+  | --- | --- | --- | --- | --- | --- | --- |
+  | 헤드: 기본 VM 크기 |D3 v2 |D3 v2 | D13, D14 |A3 |D12 v2 |D12 v2 |
+  | 헤드: 권장되는 VM 크기 |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2  | D13, D14 |A3, A4, A5 |D12 v2, D13 v2, D14 v2 |D12 v2, D13 v2, D14 v2 |
+  | 작업자: 기본 VM 크기 |D3 v2 |D3 v2  | D13, D14 |D3 v2 |Windows: D12 v2; Linux: D4 v2 |Windows: D12 v2; Linux: D4 v2 |
+  | 작업자: 권장되는 VM 크기 |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2  | D13, D14 |D3 v2, D4 v2, D12 v2 |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |
+  | Zookeeper: 기본 VM 크기 | |A3 | |A2 | | |
+  | Zookeeper: 권장되는 VM 크기 | |A3, A4, A5 | | A2, A3, A4 | | |
+  | Edge: 기본 VM 크기 | | | | | |Windows: D12 v2; Linux: D4 v2 |
+  | Edge: 권장되는 VM 크기 | | | | | |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |
 * 브라질 남부 및 일본 서부만 해당(v2 크기 제외):
 
-  | 클러스터 유형 | Hadoop은 | HBase | Storm | Spark | R 서버 |
-  | --- | --- | --- | --- | --- | --- |
-  | 헤드: 기본 VM 크기 |D3 |D3 |A3 |D12 |D12 |
-  | 헤드: 권장되는 VM 크기 |D3, D4, D12 |D3, D4, D12 |A3, A4, A5 |D12, D13, D14 |D12, D13, D14 |
-  | 작업자: 기본 VM 크기 |D3 |D3 |D3 |Windows: D12; Linux: D4 |Windows: D12; Linux: D4 |
-  | 작업자: 권장되는 VM 크기 |D3, D4, D12 |D3, D4, D12 |D3, D4, D12 |Windows: D12, D13, D14; Linux: D4, D12, D13, D14 |Windows: D12, D13, D14; Linux: D4, D12, D13, D14 |
-  | Zookeeper: 기본 VM 크기 | |A2 |A2 | | |
-  | Zookeeper: 권장되는 VM 크기 | |A2, A3, A4 |A2, A3, A4 | | |
-  | Edge: 기본 VM 크기 | | | | |Windows: D12; Linux: D4 |
-  | Edge: 권장되는 VM 크기 | | | | |Windows: D12, D13, D14; Linux: D4, D12, D13, D14 |
+  | 클러스터 유형 | Hadoop은 | HBase | 대화형 쿼리 |Storm | Spark | R 서버 |
+  | --- | --- | --- | --- | --- | --- | --- |
+  | 헤드: 기본 VM 크기 |D3 |D3  | D13, D14 |A3 |D12 |D12 |
+  | 헤드: 권장되는 VM 크기 |D3, D4, D12 |D3, D4, D12  | D13, D14 |A3, A4, A5 |D12, D13, D14 |D12, D13, D14 |
+  | 작업자: 기본 VM 크기 |D3 |D3  | D13, D14 |D3 |Windows: D12; Linux: D4 |Windows: D12; Linux: D4 |
+  | 작업자: 권장되는 VM 크기 |D3, D4, D12 |D3, D4, D12  | D13, D14 |D3, D4, D12 |Windows: D12, D13, D14; Linux: D4, D12, D13, D14 |Windows: D12, D13, D14; Linux: D4, D12, D13, D14 |
+  | Zookeeper: 기본 VM 크기 | |A2 | | A2 | | |
+  | Zookeeper: 권장되는 VM 크기 | |A2, A3, A4 | |A2, A3, A4 | | |
+  | Edge: 기본 VM 크기 | | | | | |Windows: D12; Linux: D4 |
+  | Edge: 권장되는 VM 크기 | | | | | |Windows: D12, D13, D14; Linux: D4, D12, D13, D14 |
 
 > [!NOTE]
 > - 헤드는 Storm 클러스터 유형에 대한 *Nimbus*로 알려져 있습니다.

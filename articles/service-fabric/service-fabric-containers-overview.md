@@ -14,16 +14,20 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/20/2017
 ms.author: msfussell
-ms.openlocfilehash: 9389ab5c3c67525703538cee644af9399417ffd5
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 412107db2dc446eb5a6a433bfb7fc3bc5e760c27
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="service-fabric-and-containers"></a>Service Fabric 및 컨테이너
 > [!NOTE]
-> Windows 10에서 Service Fabric 클러스터에 컨테이너 배포는 아직 지원되지 않습니다. 
+> Windows 10에서 또는 Docker CE를 사용하여 Service Fabric 클러스터에 컨테이너를 배포하는 기능은 지원되지 않습니다. 
 >   
+
+> [!NOTE]
+> Service Fabric 버전 6.1은 Windows Server 버전 1709에 대한 미리 보기 지원을 포함합니다. 오픈 네트워킹 및 Service Fabric DNS Service는 Windows Server 버전 1709와 작동하지 않습니다. 
+> 
 
 ## <a name="introduction"></a>소개
 Azure Service Fabric은 컴퓨터 클러스터에서 사용되는 여러 서비스의 [Orchestrator](service-fabric-cluster-resource-manager-introduction.md)로, Microsoft의 방대한 서비스에서 수년 동안 사용되면서 최적화 과정을 거친 기능입니다. 서비스는 [Service Fabric 프로그래밍 모델](service-fabric-choose-framework.md) 사용부터 [게스트 실행 파일](service-fabric-deploy-existing-app.md) 배포에 이르는 다양한 방식으로 개발될 수 있습니다. 기본적으로 Service Fabric은 이러한 서비스를 프로세스로 배포하고 활성화합니다. 프로세스는 클러스터 내에서 리소스의 최고밀도 사용과 가장 신속한 활성화를 제공합니다. Service Fabric도 컨테이너 이미지에 서비스를 배포할 수 있습니다. 중요한 점은 프로세스의 서비스와 동일한 응용 프로그램의 컨테이너의 서비스를 혼합할 수 있습니다.   
@@ -31,11 +35,11 @@ Azure Service Fabric은 컴퓨터 클러스터에서 사용되는 여러 서비�
 ## <a name="what-are-containers"></a>컨테이너란?
 컨테이너는 캡슐화되어 개별적으로 배포가 가능한 구성 요소로, 운영 체제가 제공하는 가상화를 활용하기 위해 동일한 커널에서 격리된 인스턴스로 실행됩니다. 따라서 각 응용 프로그램, 해당 런타임, 종속성, 시스템 라이브러리는 운영 체제 구성물의 컨테이너의 자체적으로 격리된 뷰에 대해 전체, 개인 액세스 권한이 있는 컨테이너 내에서 실행됩니다. 이식성과 더불어 이러한 수준의 보안 및 리소스 격리는 서비스를 프로세스에서 실행하지 않고 Service Fabric에서 컨테이너를 사용하는 주요 장점입니다.
 
-컨테이너는 응용 프로그램에서 기본 운영 체제를 가상화하는 가상화 기술입니다. 컨테이너는 응용 프로그램을 다양한 격리 수준에서 실행하도록 변경이 불가능한 환경을 제공합니다. 컨테이너는 커널 바로 위에서 실행되며 파일 시스템 및 기타 리소스에 대한 격리된 뷰를 갖습니다. 가상 컴퓨터에 비해 컨테이너는 다음과 같은 이점이 있습니다.
+컨테이너는 응용 프로그램에서 기본 운영 체제를 가상화하는 가상화 기술입니다. 컨테이너는 응용 프로그램을 다양한 격리 수준에서 실행하도록 변경이 불가능한 환경을 제공합니다. 컨테이너는 커널 바로 위에서 실행되며 파일 시스템 및 기타 리소스에 대한 격리된 뷰를 갖습니다. 가상 머신에 비해 컨테이너는 다음과 같은 이점이 있습니다.
 
 * **소규모**: 컨테이너는 효율성을 높이기 위해 단일 저장소 공간, 레이어 버전 및 업데이트를 사용합니다.
 * **신속성**: 컨테이너는 전체 운영 체제를 부팅할 필요가 없으므로 일반적으로 몇 초 내로 훨씬 빠르게 시작할 수 있습니다.
-* **이식성**: 컨테이너화된 응용 프로그램 이미지는 클라우드 내, 온-프레미스에서, 가상 컴퓨터 내부 또는 실제 컴퓨터에서 바로 실행하도록 이식될 수 있습니다.
+* **이식성**: 컨테이너화된 응용 프로그램 이미지는 클라우드 내, 온-프레미스에서, 가상 머신 내부 또는 실제 컴퓨터에서 바로 실행하도록 이식될 수 있습니다.
 * **리소스 관리**: 컨테이너는 호스트에서 사용할 수 있는 물리적 리소스를 제한할 수 있습니다.
 
 ## <a name="container-types-and-supported-environments"></a>컨테이너 유형 및 지원되는 환경

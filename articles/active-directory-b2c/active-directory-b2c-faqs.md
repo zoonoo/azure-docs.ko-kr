@@ -1,12 +1,11 @@
 ---
-title: "FAQ(질문과 대답) - Azure AD B2C | Microsoft Docs"
-description: "Azure Active Directory B2C에 대해 자주 묻는 질문과 대답입니다."
+title: "자주 묻는 질문과 대답 - Azure Active Directory B2C"
+description: "Azure Active Directory B2C에 대한 FAQ(자주 묻는 질문과 대답)"
 services: active-directory-b2c
-documentationcenter: 
-author: saeeda
+author: PatAltimore
 manager: mtillman
-editor: bryanla
-ms.assetid: ed33c2ca-76d0-442a-abb1-8b7b7bb92d6a
+editor: saeeda
+ms.custom: seo
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeeda
-ms.openlocfilehash: 8bc487bdcc33f70d39d884830bfaf9187828694e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 38f33f2a5d0bba4686cfeef121f2087326e1897d
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: FAQ(질문과 대답) 
 이 페이지는 Azure AD(Azure Active Directory) B2C에 대한 자주 묻는 질문에 응답합니다. 업데이트를 계속 확인합니다.
@@ -64,9 +63,9 @@ Azure Portal의 왼쪽 메뉴에서 'Azure AD B2C'를 열기 전에 관리하려
 
     ![사용자 지정된 확인 전자 메일의 스크린샷](./media/active-directory-b2c-faqs/company-branded-verification-email.png)
 
-전자 메일 서명에는 B2C 테넌트를 처음 만들 때 제공한 B2C 테넌트의 이름이 포함됩니다. 다음 지침을 사용하여 이름을 변경할 수 있습니다.
+전자 메일 서명에는 Azure AD B2C 테넌트를 처음 만들 때 제공한 Azure AD B2C 테넌트의 이름이 포함됩니다. 다음 지침을 사용하여 이름을 변경할 수 있습니다.
 
-1. [Azure Portal](https://portal.azure.com/)에 구독 관리자로 로그인합니다.
+1. 전역 관리자 권한으로 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 1. **Azure Active Directory** 블레이드를 엽니다.
 1. **속성** 탭을 클릭합니다.
 1. **이름** 필드를 변경합니다.
@@ -106,22 +105,22 @@ Azure AD B2C는 SharePoint 외부 파트너 공유 시나리오에 해당하지 
 예!  공개 미리 보기로 제공되는 [언어 사용자 지정](active-directory-b2c-reference-language-customization.md)을 참조하세요.  36개 언어에 대한 번역이 제공되며, 모든 문자열을 요구에 맞게 재정의할 수 있습니다.
 
 ### <a name="can-i-use-my-own-urls-on-my-sign-up-and-sign-in-pages-that-are-served-by-azure-ad-b2c-for-instance-can-i-change-the-url-from-loginmicrosoftonlinecom-to-logincontosocom"></a>Azure AD B2C에서 제공하는 등록 및 로그인 페이지에 고유 URL을 사용할 수 있나요? 예를 들어 login.microsoftonline.com에서 login.contoso.com으로 URL을 변경할 수 있나요?
-현재는 아닙니다. 이 기능은 우리의 로드맵입니다. Azure 클래식 포털의 **도메인** 탭에서 도메인을 확인할 경우 이 작업이 수행되지 않습니다.
+현재는 아닙니다. 이 기능은 우리의 로드맵입니다. Azure Portal의 **도메인** 탭에서 도메인을 확인할 경우 이 작업이 수행되지 않습니다.
 
 ### <a name="how-do-i-delete-my-azure-ad-b2c-tenant"></a>Azure AD B2C 테넌트를 삭제하려면 어떻게 해야 하나요?
 Azure AD B2C 테넌트를 삭제하려면 다음 단계를 수행합니다.
 
 1. 다음 단계에 따라 Azure Portal의 [Azure AD B2C 설정으로 이동](active-directory-b2c-app-registration.md#navigate-to-b2c-settings)합니다.
 1. **응용 프로그램**, **ID 공급자** 및 **모든 정책**으로 이동하여 각 블레이드에서 모든 항목을 삭제합니다.
-1. 이제 [Azure 클래식 포털](https://manage.windowsazure.com/) 에 구독 관리자로 로그인합니다. Azure에 등록하는 데 사용한 동일한 Microsoft 계정이나 동일한 회사 또는 학교 계정을 사용합니다.
-1. 왼쪽에서 Active Directory 확장으로 이동하고 B2C 테넌트를 클릭합니다.
-1. **사용자** 탭을 클릭합니다.
-1. 각 사용자를 차례로 선택합니다(현재 로그인에 사용한 구독 관리자 사용자 제외). 페이지의 아래쪽에서 **삭제**를 클릭한 다음 메시지가 나타나면 **예**를 클릭합니다.
-1. **응용 프로그램** 탭을 클릭합니다.
-1. **표시** 드롭다운 필드에서 **회사가 보유한 응용 프로그램**을 선택하고 확인 표시를 클릭합니다.
-1. **b2c-extensions-app**이라는 응용 프로그램. 페이지의 아래쪽에서 **삭제**를 클릭한 다음 메시지가 나타나면 **예**를 클릭합니다.
-1. Active Directory 확장으로 다시 이동하고 B2C 테넌트를 선택합니다.
-1. 페이지 맨 아래에서 **삭제** 를 클릭합니다. 프로세스를 완료하려면 화면의 지시를 따릅니다.
+1. 이제 [Azure Portal](https://portal.azure.com/)에 구독 관리자로 로그인합니다. Azure에 등록하는 데 사용한 동일한 Microsoft 계정이나 동일한 회사 또는 학교 계정을 사용합니다.
+1. 삭제하려는 Azure AD B2C 테넌트로 전환합니다.
+2. 왼쪽에서 Active Directory 메뉴로 이동합니다.
+3. **사용자 및 그룹**을 선택합니다.
+4. 각 사용자를 차례로 선택합니다(현재 로그인에 사용한 구독 관리자 사용자 제외). 페이지의 아래쪽에서 **삭제**를 클릭한 다음 메시지가 나타나면 **예**를 클릭합니다.
+5. **앱 등록**을 클릭합니다.
+6. **b2c-extensions-app**이라는 응용 프로그램을 선택합니다. **삭제**를 클릭하고 대화 상자가 나타나면 **예**를 클릭합니다.
+7. **개요**를 선택합니다.
+8. **디렉터리 삭제**를 클릭합니다. 프로세스를 완료하려면 화면의 지시를 따릅니다.
 
 ### <a name="can-i-get-azure-ad-b2c-as-part-of-enterprise-mobility-suite"></a>Enterprise Mobility Suite의 일부로 Azure AD B2C를 가져올 수 있나요?
 아니요, Azure AD B2C는 종량제 Azure 서비스이며 Enterprise Mobility Suite의 일부가 아닙니다.

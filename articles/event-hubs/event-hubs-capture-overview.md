@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/21/2017
+ms.date: 12/19/2017
 ms.author: sethm;darosa
-ms.openlocfilehash: c4fd365ec8eeb389f0df9f53cd2f2a18f4c9b52a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fbd4aef62891341ad3760b74cd8aaee7abf7b827
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-event-hubs-capture"></a>Azure Event Hubs 캡처
 
@@ -39,7 +39,13 @@ Event Hubs 캡처를 사용하면 캡처된 데이터를 저장하는 데 사용
 Event Hubs 캡처를 사용하면 기간을 설정하여 캡처를 제어할 수 있습니다. 이 기간은 발견된 첫 번째 트리거에서 캡처 작업이 발생하도록 하는 "첫 번째 우선 정책"이 포함된 최소 크기 및 시간 구성입니다. 15분/100MB 캡처 기간을 사용하고 초당 1MB로 전송할 경우 크기 기간이 시간 기간보다 먼저 트리거됩니다. 각 파티션이 독립적으로 캡처하며, 캡처 시점에 완료된 블록 Blob을 작성하고 캡처 간격이 발생한 시간을 따라 명명합니다. 저장소 명명 규칙은 다음과 같습니다.
 
 ```
-[namespace]/[event hub]/[partition]/[YYYY]/[MM]/[DD]/[HH]/[mm]/[ss]
+{Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}
+```
+
+날짜 값은 0으로 채워집니다. 파일 이름의 예는 다음과 같습니다.
+
+```
+https://mystorageaccount.blob.core.windows.net/mycontainer/mynamespace/myeventhub/0/2017/12/08/03/03/17.avro
 ```
 
 ### <a name="scaling-to-throughput-units"></a>처리량 단위로 크기 조정

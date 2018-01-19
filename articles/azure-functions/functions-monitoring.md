@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/15/2017
 ms.author: tdykstra
-ms.openlocfilehash: 1a8158dd60b6e2eb15a16bf3efb60ef30d602fd6
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: 6f38fe1e99c734bf09a403ea93b6487a71110cac
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="monitor-azure-functions"></a>Azure Functions 모니터링
 
@@ -37,7 +37,7 @@ Functions도 Application Insights를 사용하지 않는 기본 모니터링을 
 
 * [함수 앱을 만들 때 연결된 Application Insights 인스턴스 만들기](#new-function-app)합니다.
 * [Application Insights 인스턴스를 기존 함수 앱에 연결](#existing-function-app).
- 
+
 ### <a name="new-function-app"></a>새 함수 앱
 
 함수 앱 **만들기** 페이지에서 Application Insights 사용:
@@ -64,7 +64,15 @@ Functions도 Application Insights를 사용하지 않는 기본 모니터링을 
 
    ![앱 설정에 계측 키 추가](media/functions-monitoring/add-ai-key.png)
 
-1. **Save**를 클릭합니다.
+1. **저장**을 클릭합니다.
+
+## <a name="disable-built-in-logging"></a>기본 제공 로깅을 사용하지 않도록 설정
+
+Application Insight를 사용하도록 설정하면 [Azure 저장소를 사용하는 기본 제공 로깅](#logging-to-storage)을 사용하지 않도록 설정하는 것이 좋습니다. 기본 제공 로깅은 가벼운 워크로드를 테스트하기에 유용하지만 부하가 높은 프로덕션 용도로는 적합하지 않습니다. 프로덕션 모니터링에는 Application Insights를 사용하는 것이 좋습니다. 프로덕션에 기본 제공 로깅이 사용되면 Azure Storage의 제한으로 인해 로깅 레코드가 불완전할 수 있습니다.
+
+기본 제공 로깅을 사용하지 않도록 설정하려면 `AzureWebJobsDashboard` 앱 설정을 삭제합니다. Azure Portal에서 앱 설정을 삭제하는 방법에 대한 자세한 내용은 [함수 앱을 관리하는 방법](functions-how-to-use-azure-function-app-settings.md#settings)의 **응용 프로그램 설정** 섹션을 참조하세요.
+
+Application Insights를 사용하도록 설정하고 기본 제공 로깅을 사용하지 않도록 설정하면 Azure Portal의 함수에 대한 **모니터** 탭에 Application Insights가 열립니다.
 
 ## <a name="view-telemetry-data"></a>원격 분석 데이터 보기
 
@@ -464,58 +472,41 @@ Application Insights의 Functions 통합 문제를 보고하거나 제안 사항
 
 ## <a name="monitoring-without-application-insights"></a>Application Insights 없이 모니터링
 
-함수 모니터링에는 Application Insights를 권장합니다. 더 많은 데이터와 보다 나은 데이터 분석 방법을 제공하기 때문입니다. 하지만 함수 앱에 대한 Azure Portal 페이지에서 원격 분석 및 로깅 데이터를 찾을 수도 있습니다. 
+함수 모니터링에는 Application Insights를 권장합니다. 더 많은 데이터와 보다 나은 데이터 분석 방법을 제공하기 때문입니다. 하지만 함수 앱에 대한 Azure Portal 페이지에서 로크 및 원격 분석 데이터를 찾을 수도 있습니다.
 
-함수에 대한 **모니터** 탭을 선택하면 함수 실행 목록을 가져올 수 있습니다. 함수 실행을 선택하면 기간, 입력 데이터, 오류 및 관련 로그 파일을 검토할 수 있습니다.
+### <a name="logging-to-storage"></a>저장소에 로깅
 
-> [!IMPORTANT]
-> Azure Functions에 [소비 호스팅 계획](functions-overview.md#pricing)을 사용하는 경우 함수 앱의 **모니터링** 타일에서 데이터를 표시하지 않습니다. 플랫폼이 동적으로 확장되고 계산 인스턴스를 관리하기 때문입니다. 이러한 메트릭은 소비 계획에서 의미가 없습니다.
+기본 로깅은 `AzureWebJobsDashboard` 앱 설정의 연결 문자열에 지정된 저장소 계정을 사용합니다. 해당 앱 설정이 구성되면 Azure Portal에서 로깅 데이터를 볼 수 있습니다. 함수 앱 페이지에서 함수를 선택한 다음 **모니터** 탭을 선택하면 함수 실행 목록이 표시됩니다. 함수 실행을 선택하면 기간, 입력 데이터, 오류 및 관련 로그 파일을 검토할 수 있습니다.
+
+Application Insights를 사용하면서 [기본 제공 로깅을 사용하지 않도록 설정](#disable-built-in-logging)하면 **모니터** 탭에 Application Insights가 열립니다.
 
 ### <a name="real-time-monitoring"></a>실시간 모니터링
 
-함수 **모니터** 탭에서 **라이브 이벤트 스트림**을 클릭하면 실시간 모니터링을 사용할 수 있습니다. 라이브 이벤트 스트림은 새 브라우저 탭에 그래프로 표시됩니다.
+[Azure CLI(Command Line Interface) 2.0](/cli/azure/install-azure-cli)이나 [Azure PowerShell](/powershell/azure/overview)을 사용하여 로그 파일을 로컬 워크스테이션의 명령줄 세션으로 스트리밍할 수 있습니다.  
 
-> [!NOTE]
-> 데이터를 채우지 못하게 하는 알려진 문제점이 있습니다. 라이브 이벤트 스트림을 포함하고 있는 브라우저 탭을 닫은 다음 **라이브 이벤트 스트림**을 다시 클릭하여 이벤트 스트림 데이터를 제대로 채울 수 있도록 해야 합니다. 
-
-이러한 통계는 실시간이지만 실행 데이터의 실제 그래프표시에는 약 10초의 대기 시간이 있을 수 있습니다.
-
-### <a name="monitor-log-files-from-a-command-line"></a>명령줄에서 로그 파일 모니터링
-
-Azure CLI(명령줄 인터페이스) 1.0 또는 PowerShell을 사용하여 로그 파일을 로컬 워크스테이션의 명령줄 세션으로 스트림할 수 있습니다.
-
-### <a name="monitor-function-app-log-files-with-the-azure-cli-10"></a>Azure CLI 1.0으로 함수 앱 로그 파일 모니터링
-
-시작하려면 [Azure CLI 1.0을 설치](../cli-install-nodejs.md)하고 [Azure에 로그인](/cli/azure/authenticate-azure-cli)합니다.
-
-다음 명령을 사용하여 클래식 서비스 관리 모드를 사용하도록 설정하고, 구독을 선택하고, 로그 파일을 스트림합니다.
+Azure CLI 2.0의 경우 다음 명령을 사용하여 로그인하고, 구독을 선택하고, 로그 파일을 스트리밍합니다.
 
 ```
-azure config mode asm
-azure account list
-azure account set <subscriptionNameOrId>
-azure site log tail -v <function app name>
+az login
+az account list
+az account set <subscriptionNameOrId>
+az appservice web log tail --resource-group <resource group name> --name <function app name>
 ```
 
-### <a name="monitor-function-app-log-files-with-powershell"></a>PowerShell로 함수 앱 로그 파일 모니터링
-
-시작하려면 [Azure PowerShell을 설치 및 구성](/powershell/azure/overview)합니다.
-
-다음 명령을 사용하여 Azure 계정을 추가하고, 구독을 선택하고, 로그 파일을 스트림합니다.
+Azure PowerShell의 경우 다음 명령을 사용하여 Azure 계정을 추가하고, 구독을 선택하고, 로그 파일을 스트리밍합니다.
 
 ```
 PS C:\> Add-AzureAccount
 PS C:\> Get-AzureSubscription
-PS C:\> Get-AzureSubscription -SubscriptionName "MyFunctionAppSubscription" | Select-AzureSubscription
-PS C:\> Get-AzureWebSiteLog -Name MyFunctionApp -Tail
+PS C:\> Get-AzureSubscription -SubscriptionName "<subscription name>" | Select-AzureSubscription
+PS C:\> Get-AzureWebSiteLog -Name <function app name> -Tail
 ```
 
-자세한 내용은 [방법: 웹앱의 로그 스트리밍](../app-service/web-sites-enable-diagnostic-log.md#streamlogs)을 참조하세요. 
+자세한 내용은 [로그를 스트리밍하는 방법](../app-service/web-sites-enable-diagnostic-log.md#streamlogs)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-> [!div class="nextstepaction"]
-> [Application Insights 자세히 알아보기](https://docs.microsoft.com/azure/application-insights/)
+자세한 내용은 다음 리소스를 참조하세요.
 
-> [!div class="nextstepaction"]
-> [Functions에서 사용하는 로깅 프레임워크 자세히 알아보기](https://docs.microsoft.com/aspnet/core/fundamentals/logging?tabs=aspnetcore2x)
+* [Application Insights](/azure/application-insights/)
+* [ASP.NET Core 로깅](/aspnet/core/fundamentals/logging/)

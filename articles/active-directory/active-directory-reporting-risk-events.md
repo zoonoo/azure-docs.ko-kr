@@ -4,21 +4,21 @@ description: "이 항목에서는 위험 이벤트의 자세한 개요를 제공
 services: active-directory
 keywords: "Azure Active Directory ID 보호, 보안, 위험, 위험 이벤트, 취약점, 보안 정책"
 author: MarkusVi
-manager: femila
+manager: mtillman
 ms.assetid: fa2c8b51-d43d-4349-8308-97e87665400b
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 12/07/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 5ff0bcf9bdf9eaf1b4f0084acf9e5ee6ccfeba19
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 59c8932f7676a5388413baf2edb5d9e259769f93
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="azure-active-directory-risk-events"></a>Azure Active Directory 위험 이벤트
 
@@ -31,9 +31,13 @@ ms.lasthandoff: 12/06/2017
 - [비정상적 위치로 불가능한 이동](#impossible-travel-to-atypical-locations) 
 - [감염된 장치에서 로그인](#sign-ins-from-infected-devices) 
 - [의심스러운 작업이 있는 IP 주소에서 로그인](#sign-ins-from-ip-addresses-with-suspicious-activity) 
-- [알 수 없는 위치에서 로그인](#sign-in-from-unfamiliar-locations)(**Azure Active Directory Premium P2** 버전 전용)
+- [알 수 없는 위치에서 로그인](#sign-in-from-unfamiliar-locations) 
+
 
 ![위험 이벤트](./media/active-directory-reporting-risk-events/91.png)
+
+감지된 위험 이벤트에 대해 얻은 정보는 Azure AD 구독에 연결됩니다. Azure AD Premium P2 버전에서 모든 기본 감지에 대한 가장 자세한 정보를 가져옵니다. Azure AD Premium P1 버전에서 라이선스에서 다루지 않는 감지는 **추가 위험이 있는 로그인이 감지됨** 위험 이벤트로 표시됩니다.
+
 
 이 항목에서는 위험 이벤트의 자세한 개요와 이를 사용하여 Azure AD ID를 보호하는 방법을 제공합니다.
 

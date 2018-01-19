@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/07/2017
 ms.author: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 6e8b9e61f0417e365fb68a7de7135965ca43ab86
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a7d93fe6289ade7fbdf3050d49184feb8b370bb5
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>ADAL을 사용하여 iOS에서 앱 간 SSO를 사용하도록 설정하는 방법
 사용자가 자격 증명을 한 번만 입력하고 응용 프로그램에서 자동으로 작동되도록 SSO(Single Sign-on)를 제공하는 것은 이제 고객에게 필요합니다. 종종 전화 통화 또는 문자로 전송하는 코드와 같은 추가 요소(2FA)로 결합된 작은 화면에서 자신의 사용자 이름 및 암호를 입력하는 어려움은 사용자가 제품에 대해 이를 한 번 이상 수행해야 하는 경우 빠른 불만족을 가져 옵니다.
@@ -294,10 +294,7 @@ Microsoft ID 플랫폼은 URL을 사용하여 브로커를 호출한 다음 응�
 #### <a name="step-4-ios9-add-a-configuration-parameter-to-your-app"></a>4단계: iOS9: 앱에 구성 매개 변수 추가
 ADAL은 canOpenURL을 사용하여 브로커가 장치에 설치되어 있는지 확인합니다. iOS 9에서 Apple은 응용 프로그램에서 쿼리할 수 있는 구성표를 잠궜습니다. `info.plist file`의 LSApplicationQueriesSchemes 섹션에 "Msauth"를 추가해야 합니다.
 
-<key>LSApplicationQueriesSchemes</key>
-
-<array><string>msauth</string>
-</array>
+<key>LSApplicationQueriesSchemes</key> <array><string>msauth</string></array>
 
 ### <a name="youve-configured-sso"></a>SSO를 구성했습니다.
 이제 Microsoft ID SDK는 자동으로 응용 프로그램에서 자격 증명을 공유하고 장치에 있는 경우 브로커를 호출합니다.

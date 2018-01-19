@@ -6,14 +6,14 @@ author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: article
-ms.date: 07/24/2017
+ms.date: 01/09/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: a51e746c501cca0521972b09d145439348d1d22d
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 4954dcb4cb03407b85ad35aec94920e39644844b
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="azure-container-instances-and-container-orchestrators"></a>Azure Container Instances 및 컨테이너 오케스트레이터
 
@@ -40,8 +40,6 @@ Azure Container Instances를 사용하여 계층화된 접근 방식을 오케�
 
 Container Instances에 대한 기본 인프라가 모두 Azure에서 관리되는 때문에 오케스트레이터 플랫폼은 단일 컨테이너를 실행하는 적절한 호스트 컴퓨터를 찾는 작업을 처리할 필요가 없습니다. 클라우드의 탄력성을 항상 사용할 수 있도록 합니다. 대신, 오케스트레이터는 크기 조정 및 조정된 업그레이드를 비롯한 다중 컨테이너 아키텍처의 개발을 간소화하는 작업에 집중할 수 있습니다.
 
-
-
 ## <a name="potential-scenarios"></a>잠재적 시나리오
 
 Azure Container Instances를 포함한 오케스트레이터 통합이 여전히 초기 상태인 동안 몇 가지 다양한 환경이 제공됩니다.
@@ -52,7 +50,7 @@ Azure Container Instances를 포함한 오케스트레이터 통합이 여전히
 
 ### <a name="combination-of-container-instances-and-containers-in-virtual-machines"></a>Virtual Machines에서 Container Instances 및 컨테이너 조합
 
-안정된 장기 실행 작업의 경우 전용 가상 컴퓨터의 클러스터에 있는 컨테이너를 조정하는 작업은 일반적으로 Container Instances와 동일한 컨테이너를 실행하는 것보다 비용이 더 적게 듭니다. 그러나 Container Instances는 예기치 않은 단기 사용량 급증을 다루는 전체 수용작업량을 신속하게 확장하고 축소하는 최고의 솔루션을 제공합니다. 클러스터에서 가상 컴퓨터의 수를 확장하고 해당 컴퓨터에 추가 컨테이너를 배포하는 대신 오케스트레이터는 단순하게 Container Instances를 사용하여 추가 컨테이너를 예약하고 더 이상 필요하지 않은 경우 삭제할 수 있습니다.
+안정된 장기 실행 작업의 경우 전용 가상 머신의 클러스터에 있는 컨테이너를 조정하는 작업은 일반적으로 Container Instances와 동일한 컨테이너를 실행하는 것보다 비용이 더 적게 듭니다. 그러나 Container Instances는 예기치 않은 단기 사용량 급증을 다루는 전체 수용작업량을 신속하게 확장하고 축소하는 최고의 솔루션을 제공합니다. 클러스터에서 가상 머신의 수를 확장하고 해당 컴퓨터에 추가 컨테이너를 배포하는 대신 오케스트레이터는 단순하게 Container Instances를 사용하여 추가 컨테이너를 예약하고 더 이상 필요하지 않은 경우 삭제할 수 있습니다.
 
 ## <a name="sample-implementation-azure-container-instances-connector-for-kubernetes"></a>샘플 구현: Kubernetes의 Azure Container Instances 커넥터
 
@@ -75,6 +73,6 @@ Kubernetes의 커넥터는 수용작업량이 무제한인 노드로 등록하�
 [aci-connector-k8s-gif]: ./media/container-instances-orchestrator-relationship/aci-connector-k8s.gif
 
 <!-- LINKS -->
-[aci-connector-k8s]: https://github.com/azure/aci-connector-k8s
+[aci-connector-k8s]: https://github.com/virtual-kubelet/virtual-kubelet/tree/master/providers/azure
 [kubelet-doc]: https://kubernetes.io/docs/admin/kubelet/
 [pod-doc]: https://kubernetes.io/docs/concepts/workloads/pods/pod/

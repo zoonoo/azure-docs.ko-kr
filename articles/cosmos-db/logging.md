@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: mimig
-ms.openlocfilehash: 407a9a3be4ae8a9b00a953914e6b4414d8dac8b6
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 835f6ffce9b2e1bb4b6cfd7476bb3fdb24a4f092
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Azure DB Cosmos DB 진단 로깅
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 10/14/2017
 
 ## <a name="what-is-logged"></a>로깅되는 내용
 
-* 액세스 권한, 시스템 오류 또는 잘못된 요청으로 인해 실패한 요청을 포함하는 모든 인증된 REST DocumentDB(SQL) API 요청이 로깅됩니다. MongoDB, Graph 및 테이블 API에 대한 지원은 현재 사용할 수 없습니다.
+* 액세스 권한, 시스템 오류 또는 잘못된 요청으로 인해 실패한 요청을 포함하는 모든 인증된 REST SQL API 요청이 로깅됩니다. MongoDB, Graph 및 테이블 API에 대한 지원은 현재 사용할 수 없습니다.
 * 모든 문서, 컨테이너 및 데이터베이스에 대한 CRUD 작업을 포함하는 데이터베이스 자체에 대한 작업입니다.
 * 이러한 키 만들기, 수정 또는 삭제를 포함하는 계정 키에 대한 작업입니다.
 * 401 응답이 발생하는 인증되지 않은 요청. 예를 들어 전달자 토큰이 없거나 형식이 잘못되거나 만료되거나 토큰이 잘못된 요청이 해당합니다.
@@ -38,7 +38,7 @@ ms.lasthandoff: 10/14/2017
 ## <a name="prerequisites"></a>필수 조건
 이 자습서를 완료하려면 다음 리소스가 필요합니다.
 
-* 기존 Azure Cosmos DB 계정, 데이터베이스 및 컨테이너. 이러한 리소스를 만드는 방법에 대한 지침은 [Azure Portal을 사용하여 데이터베이스 계정 만들기](create-documentdb-dotnet.md#create-a-database-account), [CLI 샘플](cli-samples.md) 또는 [PowerShell 샘플](powershell-samples.md)을 참조하세요.
+* 기존 Azure Cosmos DB 계정, 데이터베이스 및 컨테이너. 이러한 리소스를 만드는 방법에 대한 지침은 [Azure Portal을 사용하여 데이터베이스 계정 만들기](create-sql-api-dotnet.md#create-a-database-account), [CLI 샘플](cli-samples.md) 또는 [PowerShell 샘플](powershell-samples.md)을 참조하세요.
 
 <a id="#turn-on"></a>
 ## <a name="turn-on-logging-in-the-azure-portal"></a>Azure Portal에서 로깅 켜기
@@ -54,13 +54,13 @@ ms.lasthandoff: 10/14/2017
     * **저장소 계정에 보관**. 이 옵션을 사용하려면 연결할 기존 저장소 계정이 필요합니다. 포털에서 새 저장소 계정을 만들려면 [저장소 계정 만들기](../storage/common/storage-create-storage-account.md)를 참조하고 지침에 따라 Resource Manager, 범용 계정을 만듭니다. 그런 다음 포털의 이 페이지로 돌아가 저장소 계정을 선택합니다. 새로 만든 저장소 계정이 드롭다운 메뉴에 나타나기까지 몇 분 정도 걸릴 수 있습니다.
     * **이벤트 허브로 스트림**. 이 옵션을 사용하려면 연결할 기존 Event Hub 네임스페이스 및 이벤트 허브가 필요합니다. Event Hubs 네임스페이스를 만들려면 [Azure Portal을 사용하여 Event Hubs 네임스페이스 및 이벤트 허브 만들기](../event-hubs/event-hubs-create.md)를 참조하세요. 그런 다음 포털의 이 페이지로 돌아가 Event Hub 네임스페이스 및 정책 이름을 선택합니다.
     * **Log Analytics에 보내기**.     이 옵션을 사용하려면 기존 작업 영역을 사용하거나 포털에서 [새 작업 영역 만들기](../log-analytics/log-analytics-quick-collect-azurevm.md#create-a-workspace) 단계를 따라 새 Log Analytics 작업 영역을 만듭니다. Log Analytics에서 로그를 보는 방법에 대한 자세한 내용은 [Log Analytics에서 로그 보기](#view-in-loganalytics)를 참조하세요.
-    * **DataPlaneRequests 로그**. DocumentDB, 그래프, 테이블 API 계정에 대한 진단을 로깅하려면 이 옵션을 선택합니다. 저장소 계정으로 보관하려는 경우 진단 로그의 보존 기간을 선택할 수 있습니다. 보존 기간이 만료되면 로그가 자동으로 삭제됩니다.
+    * **DataPlaneRequests 로그**. SQL, Graph 및 Table API 계정에 대한 진단을 로깅하려면 이 옵션을 선택합니다. 저장소 계정으로 보관하려는 경우 진단 로그의 보존 기간을 선택할 수 있습니다. 보존 기간이 만료되면 로그가 자동으로 삭제됩니다.
     * **MongoRequests 로깅**. MongoDB API 계정의 진단을 로깅하려면 이 옵션을 선택합니다. 저장소 계정으로 보관하려는 경우 진단 로그의 보존 기간을 선택할 수 있습니다. 보존 기간이 만료되면 로그가 자동으로 삭제됩니다.
-    * **메트릭 요청**. [Azure Metrics](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftdocumentdbdatabaseaccounts-cosmosdb)에 자세한 데이터를 저장하려면 이 옵션을 선택합니다. 저장소 계정으로 보관하려는 경우 진단 로그의 보존 기간을 선택할 수 있습니다. 보존 기간이 만료되면 로그가 자동으로 삭제됩니다.
+    * **메트릭 요청**. [Azure Metrics](../monitoring-and-diagnostics/monitoring-supported-metrics.md)에 자세한 데이터를 저장하려면 이 옵션을 선택합니다. 저장소 계정으로 보관하려는 경우 진단 로그의 보존 기간을 선택할 수 있습니다. 보존 기간이 만료되면 로그가 자동으로 삭제됩니다.
 
-3. **Save**를 클릭합니다.
+3. **저장**을 클릭합니다.
 
-    “\<작업 영역 이름>의 진단을 업데이트하지 못했습니다. \<subscription id> 구독은 microsoft.insights를 사용하도록 등록되지 않았습니다.” 오류를 수신하는 경우 [Azure 진단 문제 해결](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-storage) 지침을 따라 계정을 등록한 다음 이 절차를 다시 시도합니다.
+    “\<작업 영역 이름>의 진단을 업데이트하지 못했습니다. \<subscription id> 구독은 microsoft.insights를 사용하도록 등록되지 않았습니다.” 오류를 수신하는 경우 [Azure 진단 문제 해결](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage) 지침을 따라 계정을 등록한 다음 이 절차를 다시 시도합니다.
 
     나중에 진단 로그를 저장하는 방식을 변경하려면 언제든지 이 페이지로 돌아와 사용자 계정의 진단 로그 설정을 수정합니다.
 
@@ -68,7 +68,7 @@ ms.lasthandoff: 10/14/2017
 
 Azure CLI를 사용하여 메트릭 및 진단 로깅을 사용하도록 설정하려면 다음 명령을 사용합니다.
 
-- 저장소 계정에서 진단 로그의 저장소를 사용하도록 설정하려면 다음 명령을 사용합니다.
+- Storage 계정에서 진단 로그의 저장소를 사용하도록 설정하려면 다음 명령을 사용합니다.
 
    ```azurecli-interactive
    azure insights diagnostic set --resourceId <resourceId> --storageId <storageAccountId> --enabled true
@@ -239,7 +239,7 @@ Name              : resourceId=/SUBSCRIPTIONS/<subscription-ID>/RESOURCEGROUPS/C
 
 여러 리소스에 대한 로그를 수집하는 데 동일한 저장소 계정을 사용할 수 있으므로 Blob 이름에 있는 정규화된 리소스 ID는 필요한 Blob에 액세스하거나 다운로드하는 데 매우 유용합니다. 하지만 그 전에 먼저 모든 Blob을 다운로드하는 방법을 다룹니다.
 
-먼저 Blob을 다운로드할 폴더를 만듭니다. 예:
+먼저 Blob을 다운로드할 폴더를 만듭니다. 예: 
 
 ```powershell
 New-Item -Path 'C:\Users\username\ContosoCosmosDBLogs'`
@@ -261,7 +261,7 @@ $blobs | Get-AzureStorageBlobContent `
 
 이 두 번째 명령을 실행할 때 Blob 이름의 **/** 구분 기호는 대상 폴더 아래에 전체 폴더 구조를 만듭니다. 이 폴더 구조는 Blob을 파일로 다운로드하고 저장하는 데 사용됩니다.
 
-선택적으로 Blob을 다운로드하려면 와일드카드를 사용합니다. 예:
+선택적으로 Blob을 다운로드하려면 와일드카드를 사용합니다. 예: 
 
 * 여러 데이터베이스가 있고 CONTOSOCOSMOSDB3이라는 하나의 데이터베이스에 대한 로그를 다운로드하려는 경우:
 
@@ -383,7 +383,7 @@ Log Analytics에서 진단 데이터를 보려면 다음 그림과 같이 왼쪽
 * 3밀리초보다 오래 소요되는 작업.
 
     ```
-    AzureDiagnostics | where toint(duration_s) > 3000 and ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | summarize count() by clientIpAddress_s, TimeGenerated
+    AzureDiagnostics | where toint(duration_s) > 30000 and ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | summarize count() by clientIpAddress_s, TimeGenerated
     ```
 
 * 작업을 실행 중인 에이전트.
@@ -409,7 +409,7 @@ Azure Storage 및 Log Analytics에 저장된 진단 데이터는 매우 유사�
 | Azure Storage 필드 또는 속성 | Log Analytics 속성 | 설명 |
 | --- | --- | --- |
 | 실시간 | TimeGenerated | 작업이 발생한 날짜 및 시간(UTC)입니다. |
-| resourceId | 리소스 | 로그가 사용하도록 설정된 Azure Cosmos DB 계정입니다.|
+| ResourceId | 리소스 | 로그가 사용하도록 설정된 Azure Cosmos DB 계정입니다.|
 | 카테고리 | Category | Azure Cosmos DB 로그의 경우 DataPlaneRequests가 사용 가능한 유일한 값입니다. |
 | operationName | OperationName | 작업의 이름입니다. 이 값은 Create, Update, Read, ReadFeed, Delete, Replace, Execute, SqlQuery, Query, JSQuery, Head, HeadFeed 또는 Upsert 작업 중 하나일 수 있습니다.   |
 | properties | 해당 없음 | 이 필드의 내용은 다음 표에 설명되어 있습니다. |
@@ -431,6 +431,6 @@ Azure Storage 및 Log Analytics에 저장된 진단 데이터는 매우 유사�
 - 로깅 사용뿐 아니라 여러 Azure 서비스에서 지원하는 메트릭 및 로그 카테고리에 대해서도 파악하려면 [Microsoft Azure의 메트릭 개요](../monitoring-and-diagnostics/monitoring-overview-metrics.md) 및 [Azure 진단 로그 개요](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) 문서를 읽어보세요.
 - Event Hubs에 대한 자세한 내용은 다음 문서를 참조하세요.
    - [Azure Event Hubs란?](../event-hubs/event-hubs-what-is-event-hubs.md)
-   - [이벤트 허브 시작](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
+   - [Event Hubs 시작](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 - [Azure Storage에서 메트릭 및 진단 로그 다운로드](../storage/blobs/storage-dotnet-how-to-use-blobs.md#download-blobs) 참조
 - [Log Analytics의 로그 검색 이해](../log-analytics/log-analytics-log-search-new.md) 참조

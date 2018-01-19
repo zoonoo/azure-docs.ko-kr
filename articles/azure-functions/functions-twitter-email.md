@@ -17,10 +17,10 @@ ms.date: 12/08/2017
 ms.author: glenga
 ms.custom: mvc
 ms.openlocfilehash: 9402dbbf66bbbf7ff23f3fc29cbb38f8aa8615e6
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Azure Logic Apps와 통합하는 함수 만들기
 
@@ -234,7 +234,7 @@ Cognitive Services API는 Azure에서 개별 리소스로 사용할 수 있습�
     | **제목** | 부정적인 트윗 감정 검색  | 전자 메일 알림의 제목 줄입니다.  |
     | **본문** | 트윗 텍스트, 위치 | **트윗 텍스트** 및 **위치** 매개 변수를 클릭합니다. |
 
-5.  **Save**를 클릭합니다.
+5.  **저장**을 클릭합니다.
 
 이제 워크플로를 완료했으므로 논리 앱을 활성화하고 작업 시 함수를 확인할 수 있습니다.
 

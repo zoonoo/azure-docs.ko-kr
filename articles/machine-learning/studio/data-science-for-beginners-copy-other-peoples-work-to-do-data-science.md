@@ -1,6 +1,6 @@
 ---
 title: "다른 사용자의 데이터 과학 예제 복사 - Azure Machine Learning | Microsoft Docs"
-description: "데이터 과학의 비밀: 다른 사람들이 사용자의 작업을 수행하도록 유도 Cortana Analytics 갤러리에서 Machine Learning 예제를 가져옵니다."
+description: "데이터 과학의 비밀: 다른 사람들이 사용자의 작업을 수행하도록 유도 Azure AI 갤러리에서 Machine Learning 예제를 가져옵니다."
 keywords: "데이터 과학 예제,Machine Learning 예제,클러스터링 알고리즘,클러스터링 알고리즘 예제"
 services: machine-learning
 documentationcenter: na
@@ -13,17 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/13/2017
+ms.date: 01/05/2018
 ms.author: cgronlun
-ms.openlocfilehash: 1c767a3fc6605c3e2400bda637d91031393360a5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 52edc2158e5e74fc544d03efbba2f7e29290e424
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>데이터 과학을 수행하기 위해 다른 사람의 작품 복사
 ## <a name="video-5-data-science-for-beginners-series"></a>비디오 5: 초급자를 위한 데이터 과학 시리즈
-데이터 과학의 비밀 중 하나는 다른 사람들이 사용자의 작업을 수행하도록 하는 것입니다. Cortana Analytics 갤러리에서 사용자 고유의 Machine Learning 실험에 사용할 클러스터링 알고리즘 예제를 찾습니다.
+데이터 과학의 비밀 중 하나는 다른 사람들이 사용자의 작업을 수행하도록 하는 것입니다. Azure AI 갤러리에서 사용자 고유의 Machine Learning 실험에 사용할 클러스터링 알고리즘 예제를 찾습니다.
+
+> [!IMPORTANT]
+> **Cortana Intelligence 갤러리**는 **Azure AI 갤러리**로 이름이 바뀌었습니다. 결과적으로 이 대화의 텍스트 및 이미지는 비디오에 따라 조금씩 다릅니다. 여기서는 이전 이름을 사용합니다.
+>
 
 시리즈를 최대한 활용하려면 모두 시청하는 것이 좋습니다. [비디오 목록으로 이동](#other-videos-in-this-series)
 <br>
@@ -48,14 +52,13 @@ ms.lasthandoff: 10/11/2017
 
 데이터 과학의 비밀 중 하나는 다른 사람들이 사용자의 작업을 수행하도록 하는 것입니다.
 
-## <a name="find-examples-in-the-cortana-intelligence-gallery"></a>Cortana Intelligence Gallery에서 예제 찾기
-Microsoft에는 무료로 사용해 볼 수 있는 [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/)이라는 클라우드 기반 서비스가 있습니다. 이 서비스는 여러 다른 기계 학습 알고리즘을 시험해 볼 수 있는 작업 영역을 제공하며, 솔루션을 계획할 때 웹 서비스로 실행될 수 있습니다.
+## <a name="find-examples-in-the-azure-ai-gallery"></a>Azure AI 갤러리에서 예제 찾기
 
-이 서비스의 일부를 **[Cortana 인텔리전스 갤러리](http://aka.ms/CortanaIntelligenceGallery)**라고 합니다. 여기에는 사용자들이 작성한 후 다른 사용자를 위해 제공한 Azure Machine Learning 실험 또는 모델 컬렉션을 비롯한 리소스가 포함됩니다. 이러한 실험은 다른 사람이 생각한 내용과 힘들게 작업한 결과를 자신의 솔루션에 활용할 수 있는 좋은 방법입니다.
+Microsoft에는 무료로 사용해 볼 수 있는 [Azure Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio/)라는 클라우드 기반 서비스가 있습니다. 이 서비스는 여러 다른 기계 학습 알고리즘을 시험해 볼 수 있는 작업 영역을 제공하며, 솔루션을 계획할 때 웹 서비스로 실행될 수 있습니다.
 
-갤러리([aka.ms/CortanaIntelligenceGallery](http://aka.ms/CortanaIntelligenceGallery))에서 찾을 수 있습니다. 누구나 검색할 수 있습니다.
+이 서비스의 일부를 **[Azure AI 갤러리](https://gallery.cortanaintelligence.com/)**라고 합니다. 여기에는 사용자들이 작성한 후 다른 사용자를 위해 제공한 Azure Machine Learning 실험 또는 모델 컬렉션을 비롯한 리소스가 포함됩니다. 이러한 실험은 다른 사람이 생각한 내용과 힘들게 작업한 결과를 자신의 솔루션에 활용할 수 있는 좋은 방법입니다. 누구나 검색할 수 있습니다.
 
-![Cortana 인텔리전스 갤러리](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/cortana-intelligence-gallery.png)
+![Azure AI 갤러리](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/azure-ai-gallery.png)
 
 맨 위에 있는 **실험** 을 클릭하면 갤러리에 가장 최근 및 인기 있는 실험이 다양하게 표시됩니다. 화면 맨 위에 있는 **모두 찾아보기** 를 클릭하여 나머지 실험을 검색하고 여기서 검색 용어를 입력하고 검색 필터를 선택할 수 있습니다.
 
@@ -76,21 +79,23 @@ Microsoft에는 무료로 사용해 볼 수 있는 [Azure Machine Learning](http
 
 ![Open in Studio 단추](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/open-in-studio.png)
 
-이 링크를 클릭하면 **Azure 기계 학습 스튜디오**로 바로 이동됩니다. 실험 복사본이 만들어진 후 내 작업 영역에 배치됩니다. 여기에는 참여자의 데이터 집합, 수행된 모든 처리, 사용된 모든 알고리즘 및 결과 저장 방법이 포함됩니다.
+이 링크를 클릭하면 **Azure Machine Learning Studio**로 바로 이동됩니다. 실험 복사본이 만들어진 후 내 작업 영역에 배치됩니다. 여기에는 참여자의 데이터 집합, 수행된 모든 처리, 사용된 모든 알고리즘 및 결과 저장 방법이 포함됩니다.
 
 ![Machine Learning Studio-클러스터링 알고리즘 예제에서 갤러리 실험을 엽니다.](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/cluster-experiment-open-in-studio.png)
 
 이제 시작점을 얻게 되었습니다. 해당 데이터를 내 데이터를 교체하고 모델을 직접 조정합니다. 이렇게 하면 좀 더 유리한 고지에서 작업을 시작할 수 있으며 해당 작업을 잘 아는 다른 사람들의 작업을 토대로 구축할 수 있습니다.
 
 ## <a name="find-experiments-that-demonstrate-machine-learning-techniques"></a>기계 학습 방법을 보여 주는 실험 찾기
-[Cortana 인텔리전스 갤러리](http://aka.ms/CortanaIntelligenceGallery) 에는 데이터 과학을 처음 사용하는 사람들에게 방법 예제를 알려주기 위해 특수하게 제공된 다른 실험도 많이 있습니다. 예를 들어 이 갤러리에는 누락된 값을 처리하는 방법을 보여 주는 실험([누락된 값 처리 방법](https://gallery.cortanaintelligence.com/Experiment/Methods-for-handling-missing-values-1))도 있습니다. 여기서는 비어 있는 값을 대체하는 15가지 방법을 안내하고 각 방법의 이점과 사용해야 하는 경우를 설명합니다.
+[Azure AI 갤러리](https://gallery.cortanaintelligence.com)에는 데이터 과학을 처음 사용하는 사람들에게 방법 예제를 알려주기 위해 특수하게 제공된 다른 실험도 있습니다. 예를 들어 이 갤러리에는 누락된 값을 처리하는 방법을 보여 주는 실험([누락된 값 처리 방법](https://gallery.cortanaintelligence.com/Experiment/Methods-for-handling-missing-values-1))도 있습니다. 여기서는 비어 있는 값을 대체하는 15가지 방법을 안내하고 각 방법의 이점과 사용해야 하는 경우를 설명합니다.
 
 ![Machine Learning Studio에서 갤러리 실험은 누락된 값에 대한 메서드를 엽니다.](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/experiment-methods-for-handling-missing-values.png)
 
-[Cortana 인텔리전스 갤러리](http://aka.ms/CortanaIntelligenceGallery) 는 자체 솔루션에 대한 시작점으로 사용할 수 있는 작동 중인 실험을 찾을 수 있는 위치입니다.
+[Azure AI 갤러리](https://gallery.cortanaintelligence.com)에서는 자체 솔루션에 대한 시작점으로 사용할 수 있는 작동 중인 실험을 찾을 수 있습니다.
 
-Microsoft Azure 기계 학습의 “초급자를 위한 데이터 과학”에 포함된 다른 비디오도 확인해보세요.
+Microsoft Azure Machine Learning의 “초급자를 위한 데이터 과학”에 있는 다른 비디오도 확인해보세요.
 
 ## <a name="next-steps"></a>다음 단계
-* [Azure 기계 학습으로 첫 번째 데이터 과학 실험 시도](create-experiment.md)
-* [Microsoft Azure의 기계 학습 소개 보기](what-is-machine-learning.md)
+* 
+            [Azure Machine Learning으로 첫 번째 데이터 과학 실험 시도](create-experiment.md)
+* 
+            [Microsoft Azure의 Machine Learning 소개 보기](what-is-machine-learning.md)

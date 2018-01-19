@@ -17,10 +17,10 @@ ms.workload: big-data
 ms.date: 10/25/2016
 ms.author: saurinsh
 ms.openlocfilehash: 35a74ffb6a30fe2ae7db686be5b6774800ce37b1
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="configure-hive-policies-in-domain-joined-hdinsight"></a>도메인에 가입된 HDInsight에서 Hive 정책 구성
 Hive에 대한 Apache Ranger 정책을 구성하는 방법에 대해 알아봅니다. 이 문서에서는 hivesampletable에 대한 액세스를 제한하는 두 개의 Ranger 정책을 만들 수 있습니다. hivesampletable은 HDInsight 클러스터와 함께 제공됩니다. 정책을 구성한 경우 Excel 및 ODBC 드라이버를 사용하여 HDInsight의 Hive 테이블에 연결합니다.
@@ -63,7 +63,7 @@ Hive에 대한 Apache Ranger 정책을 구성하는 방법에 대해 알아봅�
    * 사용자 선택: hiveuser1
    * 사용 권한: 선택
 
-     ![HDInsight 도메인에 가입된 Ranger Hive 정책 구성](./media/apache-domain-joined-run-hive/hdinsight-domain-joined-configure-ranger-policy.png)을 참조하세요.
+     ![HDInsight 도메인에 가입된 Ranger Hive 정책 구성](./media/apache-domain-joined-run-hive/hdinsight-domain-joined-configure-ranger-policy.png)에서도 확인할 수 있습니다.
 
      > [!NOTE]
      > 사용자 선택에서 도메인 사용자가 채워지지 않으면 Ranger가 AAD와 동기화되기를 몇 분 정도 기다립니다.
@@ -82,7 +82,7 @@ Hive에 대한 Apache Ranger 정책을 구성하는 방법에 대해 알아봅�
 ## <a name="create-hive-odbc-data-source"></a>Hive ODBC 데이터 원본 만들기
 [Hive ODBC 데이터 원본 만들기](../hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md)에서 지침을 찾을 수 있습니다.  
 
- | 속성  |설명 |
+ | 자산  |설명 |
  | --- | --- |
  | 데이터 원본 이름 | 데이터 원본에 이름 지정 |
  | 호스트 | &lt;HDInsightClusterName>.azurehdinsight.net을 입력합니다. 예를 들면 myHDICluster.azurehdinsight.net과 같습니다. |
@@ -107,7 +107,7 @@ Hive에 대한 Apache Ranger 정책을 구성하는 방법에 대해 알아봅�
 4. ODBC 데이터 원본에서 이전 단계에서 만든 데이터 원본 이름을 선택한 후 **다음**을 클릭합니다.
 5. 마법사에서 클러스터의 암호를 다시 입력한 후 **확인**을 클릭합니다. **데이터베이스 및 테이블 선택** 대화 상자가 열릴 때까지 기다립니다. 몇 초 정도 걸릴 수 있습니다.
 6. **hivesampletable**을 선택하고 **다음**을 클릭합니다.
-7. **마침**을 클릭합니다.
+7. **Finish**를 클릭합니다.
 8. **데이터 가져오기** 대화 상자에서 쿼리를 변경하거나 지정할 수 있습니다. 이렇게 하려면 **속성**을 클릭합니다. 몇 초 정도 걸릴 수 있습니다.
 9. **정의** 탭을 클릭합니다. 명령 텍스트는 다음과 같습니다.
 

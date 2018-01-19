@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: 62b1bf66647c762b17410c37fe6ebd996f577d25
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 91de03f3472244341f4cf086bc8a2f56f7d2e487
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-fromto-dynamics-365dynamics-crm-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Dynamics 365/Dynamics CRM 간에 데이터 복사
 
@@ -46,11 +46,11 @@ Dynamics 365/Dynamics CRM에서 지원되는 싱크 데이터 저장소로 또�
 - Dynamics 365 for Marketing
 
 > [!NOTE]
-> Dynamics 커넥터를 사용하려면 Azure Key Vault에 암호를 저장하고 ADF 복사 작업에서 데이터 복사를 수행할 때 거기에서 끌어올 수 있도록 합니다. [연결된 서비스 속성](#linked-service-properties) 섹션에서 구성하는 방법을 참조하세요.
+> Dynamics 커넥터를 사용하려면 Azure Key Vault에 암호를 저장하고 복사 작업에서 데이터 복사를 수행할 때 거기에서 끌어올 수 있도록 합니다. [연결된 서비스 속성](#linked-service-properties) 섹션에서 구성하는 방법을 참조하세요.
 
 ## <a name="getting-started"></a>시작
 
-.NET SDK, Python SDK, Azure PowerShell, REST API 또는 Azure Resource Manager 템플릿을 사용하여 복사 작업으로 파이프라인을 만들 수 있습니다. 복사 작업을 사용하여 파이프라인을 만드는 단계별 지침은 [복사 작업 자습서](quickstart-create-data-factory-dot-net.md)를 참조하세요.
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 다음 섹션에서는 Dynamics에 한정된 Data Factory 엔터티를 정의하는 데 사용되는 속성에 대해 자세히 설명합니다.
 
@@ -60,18 +60,18 @@ Dynamics 연결된 서비스에 다음 속성이 지원됩니다.
 
 ### <a name="dynamics-365-and-dynamics-crm-online"></a>Dynamics 365 및 Dynamics CRM Online
 
-| 속성 | 설명 | 필수 |
+| 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 형식 속성은 **Dynamics**로 설정해야 합니다. | 예 |
-| deploymentType | Dynamics 인스턴스의 배포 유형입니다. Dynamics Online에 대해 **"Online"**이어야 합니다. | 예 |
+| 형식 | 형식 속성은 **Dynamics**로 설정해야 합니다. | 적용 |
+| deploymentType | Dynamics 인스턴스의 배포 유형입니다. Dynamics Online에 대해 **"Online"**이어야 합니다. | 적용 |
 | organizationName | Dynamics 인스턴스의 조직 이름입니다. | 아니요. 사용자와 연결된 둘 이상의 Dynamics 인스턴스가 있을 경우 지정해야 합니다. |
-| authenticationType | Dynamics 서버에 연결하기 위한 인증 유형입니다. Dynamics Online에 대해 **"Office 365"**를 지정합니다. | 예 |
-| username | Dynamics에 연결할 사용자 이름을 지정합니다. | 예 |
-| 암호 | 사용자 이름에 지정한 사용자 계정의 암호를 지정합니다. Azure Key Vault에 암호를 입력하고 "AzureKeyVaultSecret"으로 암호를 구성해야 합니다. [Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md)에서 자세히 알아봅니다. | 예 |
-| connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. | 원본에는 아니요이고 싱크에는 예입니다 |
+| authenticationType | Dynamics 서버에 연결하기 위한 인증 유형입니다. Dynamics Online에 대해 **"Office 365"**를 지정합니다. | 적용 |
+| 사용자 이름 | Dynamics에 연결할 사용자 이름을 지정합니다. | 적용 |
+| 암호 | 사용자 이름에 지정한 사용자 계정의 암호를 지정합니다. Azure Key Vault에 암호를 입력하고 "AzureKeyVaultSecret"으로 암호를 구성해야 합니다. [Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md)에서 자세히 알아봅니다. | 적용 |
+| connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. | 원본에 연결된 서비스에 IR이 없는 경우 원본에는 아니요이고 싱크에는 예입니다. |
 
 >[!IMPORTANT]
->Dynamics에 데이터를 복사하려면 다음 예제와 같이 Dynamics 근처 위치를 사용하여 명시적으로 [Azure IR을 만들고](create-azure-integration-runtime.md#create-azure-ir) 연결된 서비스에서 연결합니다.
+>데이터를 Dynamics**에** 복사할 때 기본 Azure Integration Runtime을 복사를 실행하는 데 사용할 수 없습니다. 즉, 원본에 연결된 서비스에 지정된 IR이 없는 경우 다음 예제와 같이 Dynamics 근처 위치를 사용하여 명시적으로 [Azure IR을 만들고](create-azure-integration-runtime.md#create-azure-ir) Dynamics 연결된 서비스에서 연결합니다.
 
 **예제: Office365 인증을 사용하여 Dynamics 온라인**
 
@@ -107,16 +107,16 @@ Dynamics 연결된 서비스에 다음 속성이 지원됩니다.
 
 *Dyanmics 온라인과 비교하는 추가 속성은 "hostName" 및 "port"입니다.*
 
-| 속성 | 설명 | 필수 |
+| 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 형식 속성은 **Dynamics**로 설정해야 합니다. | 예 |
-| deploymentType | Dynamics 인스턴스의 배포 유형입니다. IFD를 사용하는 Dynamics 온-프레미스에 대해 **"OnPremisesWithIfd"**여야 합니다.| 예 |
-| **hostName** | 온-프레미스 Dynamics 서버의 호스트 이름입니다. | 예 |
+| 형식 | 형식 속성은 **Dynamics**로 설정해야 합니다. | 적용 |
+| deploymentType | Dynamics 인스턴스의 배포 유형입니다. IFD를 사용하는 Dynamics 온-프레미스에 대해 **"OnPremisesWithIfd"**여야 합니다.| 적용 |
+| **hostName** | 온-프레미스 Dynamics 서버의 호스트 이름입니다. | 적용 |
 | **port** | 온-프레미스 Dynamics 서버의 포트입니다. | 아니요(기본값: 443) |
-| organizationName | Dynamics 인스턴스의 조직 이름입니다. | 예 |
-| authenticationType | Dynamics 서버에 연결하기 위한 인증 유형입니다. IFD를 사용하는 Dynamics 온-프레미스에 대해 **"Ifd"**를 지정합니다. | 예 |
-| username | Dynamics에 연결할 사용자 이름을 지정합니다. | 예 |
-| 암호 | 사용자 이름에 지정한 사용자 계정의 암호를 지정합니다. Azure Key Vault에 암호를 입력하고 "AzureKeyVaultSecret"으로 암호를 구성해야 합니다. [Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md)에서 자세히 알아봅니다. | 예 |
+| organizationName | Dynamics 인스턴스의 조직 이름입니다. | 적용 |
+| authenticationType | Dynamics 서버에 연결하기 위한 인증 유형입니다. IFD를 사용하는 Dynamics 온-프레미스에 대해 **"Ifd"**를 지정합니다. | 적용 |
+| 사용자 이름 | Dynamics에 연결할 사용자 이름을 지정합니다. | 적용 |
+| 암호 | 사용자 이름에 지정한 사용자 계정의 암호를 지정합니다. Azure Key Vault에 암호를 입력하고 "AzureKeyVaultSecret"으로 암호를 구성해야 합니다. [Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md)에서 자세히 알아봅니다. | 적용 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. | 원본에는 아니요이고 싱크에는 예입니다 |
 
 >[!IMPORTANT]
@@ -160,9 +160,9 @@ Dynamics 연결된 서비스에 다음 속성이 지원됩니다.
 
 Dynamics 간에 데이터를 복사하려면 데이터 집합의 type 속성을 **DynamicsEntity**로 설정합니다. 다음과 같은 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 데이터 집합의 type 속성을 **DynamicsEntity**로 설정해야 합니다. |예 |
+| 형식 | 데이터 집합의 type 속성을 **DynamicsEntity**로 설정해야 합니다. |적용 |
 | entityName | 검색할 엔터티의의 논리적 이름입니다. | 원본에는 아니요(작업 원본에서 "query"가 지정된 경우)이고 싱크에는 예입니다. |
 
 > [!IMPORTANT]
@@ -213,9 +213,9 @@ Dynamics 간에 데이터를 복사하려면 데이터 집합의 type 속성을 
 
 Dynamics에서 데이터를 복사하려면 복사 작업의 원본 형식을 **DynamicsSource**로 설정합니다. 복사 작업 **source** 섹션에서 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 작업 원본의 형식 속성을 **DynamicsSource**로 설정해야 합니다.  | 예 |
+| 형식 | 복사 작업 원본의 형식 속성을 **DynamicsSource**로 설정해야 합니다.  | 적용 |
 | 쿼리  | FetchXML은 Microsoft Dynamics에 사용되는 전용 쿼리 언어(온라인 및 온-프레미스)입니다. 아래 예제를 참조하고 [FeachXML로 쿼리 작성](https://msdn.microsoft.com/en-us/library/gg328332.aspx)에서 자세히 알아봅니다. | 아니요(데이터 집합의 "entityName"이 지정된 경우)  |
 
 **예제:**
@@ -274,10 +274,10 @@ Dynamics에서 데이터를 복사하려면 복사 작업의 원본 형식을 **
 
 Dynamics에 데이터를 복사하려면 복사 작업의 싱크 형식을 **DynamicsSink**로 설정합니다. 복사 작업 **sink** 섹션에서 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 작업 싱크의 형식 속성은 **DynamicsSink**로 설정해야 합니다.  | 예 |
-| writeBehavior | 작업의 쓰기 동작입니다.<br/>허용되는 값은 **"Upsert"**입니다. | 예 |
+| 형식 | 복사 작업 싱크의 형식 속성은 **DynamicsSink**로 설정해야 합니다.  | 적용 |
+| writeBehavior | 작업의 쓰기 동작입니다.<br/>허용되는 값은 **"Upsert"**입니다. | 적용 |
 | writeBatchSize | 각 일괄 처리에서 Dynamics에 작성된 데이터의 행 수입니다. | 아니요(기본값: 10) |
 | ignoreNullValues | 쓰기 작업 중에 (키 필드를 제외한) 입력 데이터에서 null 값을 무시할지를 나타냅니다.<br/>허용되는 값은 **true** 및 **false**입니다.<br>- true: upsert/업데이트 작업을 수행하는 경우 대상 개체의 데이터를 변경하지 않고, 삽입 작업을 수행하는 경우 정의된 기본값을 삽입합니다.<br/>- false: upsert/업데이트 작업을 수행하는 경우 대상 개체의 데이터를 NULL로 업데이트하고, 삽입 작업을 수행하는 경우 NULL 값을 삽입합니다.  | 아니요(기본값: false) |
 
@@ -322,28 +322,28 @@ Dynamics에 데이터를 복사하려면 복사 작업의 싱크 형식을 **Dyn
 
 Dynamics에서 데이터를 복사하는 경우 Dynamics 데이터 형식에서 Azure Data Factory 중간 데이터 형식으로 다음 매핑이 사용됩니다. 복사 작업에서 원본 스키마 및 데이터 형식을 싱크에 매핑하는 방법에 대한 자세한 내용은 [스키마 및 데이터 형식 매핑](copy-activity-schema-and-type-mapping.md)을 참조하세요.
 
-아래 매핑 테이블을 사용하여 원본 Dynamics 데이터 형식에 따라 데이터 집합 구조에 해당 ADF 데이터 형식을 구성합니다.
+아래 매핑 테이블을 사용하여 원본 Dynamics 데이터 형식에 따라 데이터 집합 구조에 해당 Data Factory 데이터 형식을 구성합니다.
 
-| Dynamics 데이터 형식 | 데이터 팩터리 중간 데이터 형식 | 원본으로 지원됨 | 싱크로 지원됨 |
+| Dynamics 데이터 형식 | Data Factory 중간 데이터 형식 | 원본으로 지원됨 | 싱크로 지원됨 |
 |:--- |:--- |:--- |:--- |
 | AttributeTypeCode.BigInt | long | ✓ | ✓ |
-| AttributeTypeCode.Boolean | Boolean | ✓ | ✓ |
+| AttributeTypeCode.Boolean | BOOLEAN | ✓ | ✓ |
 | AttributeType.Customer | Guid | ✓ |  |
-| AttributeType.DateTime | Datetime | ✓ | ✓ |
+| AttributeType.DateTime | DateTime | ✓ | ✓ |
 | AttributeType.Decimal | 10진수 | ✓ | ✓ |
 | AttributeType.Double | Double | ✓ | ✓ |
 | AttributeType.EntityName | 문자열 | ✓ | ✓ |
 | AttributeType.Integer | Int32 | ✓ | ✓ |
 | AttributeType.Lookup | Guid | ✓ |  |
-| AttributeType.ManagedProperty | Boolean | ✓ |  |
+| AttributeType.ManagedProperty | BOOLEAN | ✓ |  |
 | AttributeType.Memo | 문자열 | ✓ | ✓ |
-| AttributeType.Money | 10진수 | ✓ |  |
+| AttributeType.Money | 10진수 | ✓ | ✓ |
 | AttributeType.Owner | Guid | ✓ | |
 | AttributeType.Picklist | Int32 | ✓ | ✓ |
 | AttributeType.Uniqueidentifier | Guid | ✓ | ✓ |
 | AttributeType.String | 문자열 | ✓ | ✓ |
-| AttributeType.State | Int32 | ✓ |  |
-| AttributeType.Status | Int32 | ✓ |  |
+| AttributeType.State | Int32 | ✓ | ✓ |
+| AttributeType.Status | Int32 | ✓ | ✓ |
 
 
 > [!NOTE]

@@ -1,5 +1,5 @@
 ---
-title: "정책: Azure AD SSPR | Microsoft Docs"
+title: "셀프 서비스 암호 재설정 정책 - Azure Active Directory"
 description: "Azure AD 셀프 서비스 암호 재설정 정책 옵션"
 services: active-directory
 keywords: "Active Directory 암호 관리, 암호 관리, Azure AD 셀프 서비스 암호 재설정"
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 6b1abd23c6f578a3a776e6174d1ea0f47b3ba27d
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 51eb7c594c02310c083b42b6c0d964b4af239d76
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Azure Active Directory에서 암호 정책 및 제한
 
@@ -83,9 +83,9 @@ Microsoft에서는 Azure 관리자 역할에 강력한 기본 *두 게이트* �
 
 Azure AD에 로그인해야 하는 모든 사용자 계정에는 해당 계정에 연결된 고유한 UPN(사용자 계정 이름) 특성 값이 있어야 합니다. 다음 표에서는 클라우드와 동기화되는 온-프레미스 Active Directory 사용자 계정 및 클라우드 전용 사용자 계정에 모두 적용되는 정책을 간략하게 요약하고 있습니다.
 
-| 속성 | UserPrincipalName 요구 사항 |
+| 자산 | UserPrincipalName 요구 사항 |
 | --- | --- |
-| 허용되는 문자 |<ul> <li>A-Z</li> <li>a-z</li><li>0-9</li> <li> 등 4가지 유형의 클러스터가 제공됩니다. - \_ ! \# ^ \~</li></ul> |
+| 허용되는 문자 |<ul> <li>A-Z</li> <li>a-z</li><li>0-9</li> <li> 에서도 확인할 수 있습니다. - \_ ! \# ^ \~</li></ul> |
 | 허용되지 않는 문자 |<ul> <li>도메인에서 사용자 이름을 구분하지 않는 모든 "@" 문자입니다.</li> <li>"@" 기호 바로 앞에는 “.”(마침표) 문자를 사용할 수 없습니다.</li></ul> |
 | 길이 제약 조건 |<ul> <li>총 길이는 113자를 초과할 수 없습니다.</li><li>"@" 기호 앞에는 최대 64자가 올 수 있습니다.</li><li>"@" 기호 뒤에는 최대 48자가 올 수 있습니다.</li></ul> |
 
@@ -93,7 +93,7 @@ Azure AD에 로그인해야 하는 모든 사용자 계정에는 해당 계정�
 
 다음 표에서는 Azure AD에서 생성 및 관리되는 사용자 계정에 적용할 수 있는 사용 가능 암호 정책 설정에 대해 설명합니다.
 
-| 속성 | 요구 사항 |
+| 자산 | 요구 사항 |
 | --- | --- |
 | 허용되는 문자 |<ul><li>A-Z</li><li>a-z</li><li>0-9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / ` ~ “ ( ) ;</li></ul> |
 | 허용되지 않는 문자 |<ul><li>유니코드 문자</li><li>공백</li><li> 강력한 암호만: “@” 기호 바로 앞에 “.”(점) 문자를 사용할 수 없습니다.</li></ul> |

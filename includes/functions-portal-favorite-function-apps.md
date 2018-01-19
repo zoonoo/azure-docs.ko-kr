@@ -2,7 +2,7 @@
 
 아직 수행하지 않은 경우 Azure Portal에서 즐겨찾기에 함수 앱을 추가합니다. 이렇게 하면 함수 앱을 보다 쉽게 찾을 수 있습니다. 이미 이 작업을 수행한 경우 다음 섹션으로 건너뜁니다. 
 
-1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 2. 맨 아래 왼쪽에서 화살표를 클릭하여 모든 서비스를 확장하고 **필터** 필드에 `Functions`를 입력한 후 **Function Apps** 옆의 별 모양을 클릭합니다.  
  

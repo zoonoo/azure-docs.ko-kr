@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 05/22/2017
 ms.author: ponatara
 ms.openlocfilehash: 7658bedc0bd5c4a289f3271504a006ba54c783b6
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="replicate-azure-vms-to-another-region-after-migration-to-azure-by-using-azure-site-recovery"></a>Azure Site Recovery를 사용하여 Azure로 마이그레이션한 후 Azure VM을 다른 지역에 복제
 
 >[!NOTE]
-> Azure VM(가상 컴퓨터)에 대한 Azure Site Recovery 복제는 현재 미리 보기로 제공됩니다.
+> Azure VM(가상 머신)에 대한 Azure Site Recovery 복제는 현재 미리 보기로 제공됩니다.
 
 ## <a name="overview"></a>개요
 
@@ -44,17 +44,17 @@ ms.lasthandoff: 11/30/2017
 
 ### <a name="step-1-migrate-workloads-running-on-hyper-v-vms-vmware-vms-and-physical-servers-to-run-on-azure-vms"></a>1단계: Hyper-V VM, VMware VM 및 물리적 서버에서 실행 중인 워크로드를 마이그레이션하여 Azure VM에서 실행할 수 있습니다.
 
-복제를 설정하고 온-프레미스 Hyper-V, VMware 및 실제 워크로드를 Azure로 마이그레이션하려면 [Azure Site Recovery를 사용하여 Azure 지역 간에 Azure IaaS 가상 컴퓨터 마이그레이션](site-recovery-migrate-azure-to-azure.md) 문서의 단계를 따르세요. 
+복제를 설정하고 온-프레미스 Hyper-V, VMware 및 실제 워크로드를 Azure로 마이그레이션하려면 [Azure Site Recovery를 사용하여 Azure 지역 간에 Azure IaaS 가상 머신 마이그레이션](site-recovery-migrate-azure-to-azure.md) 문서의 단계를 따르세요. 
 
 마이그레이션 후 장애 조치를 커밋하거나 삭제할 필요가 없습니다. 대신 마이그레이션할 각 컴퓨터에 대해 **마이그레이션 완료** 옵션을 선택합니다.
 1. **복제된 항목**에서 VM를 마우스 오른쪽 단추로 클릭하고 **마이그레이션 완료**를 클릭합니다. **확인**을 클릭하여 단계를 완료합니다. **Site Recovery 작업**의 마이그레이션 완료 작업을 모니터링하여 VM 속성에서 진행률을 추적할 수 있습니다.
 2. **마이그레이션 완료** 작업은 마이그레이션 프로세스를 완료하고 가상 컴퓨터에 대한 복제를 제거하며 컴퓨터에 대한 Site Recovery 청구를 중지합니다.
 
 ### <a name="step-2-install-the-azure-vm-agent-on-the-virtual-machine"></a>2단계 - 가상 컴퓨터에 Azure VM 에이전트 설치
-Site Recovery 확장이 작동하고 VM을 보호하려면 Azure [VM 에이전트](../../virtual-machines/windows/classic/agents-and-extensions.md#azure-vm-agents-for-windows-and-linux)를 가상 컴퓨터에 설치해야 합니다.
+Site Recovery 확장이 작동하고 VM을 보호하려면 Azure [VM 에이전트](../../virtual-machines/windows/classic/agents-and-extensions.md#azure-vm-agents-for-windows-and-linux)를 가상 머신에 설치해야 합니다.
 
 >[!IMPORTANT]
->9.7.0.0 버전부터 모바일 서비스 설치 관리자는 Windows 가상 컴퓨터에 사용 가능한 최신 Azure VM 에이전트도 설치합니다. 마이그레이션 시 가상 컴퓨터는 Site Recovery 확장을 포함하여 모든 VM 확장을 사용하기 위한 에이전트 설치 필수 구성 요소를 충족합니다. Azure VM 에이전트는 마이그레이션된 컴퓨터에 설치된 모바일 서비스가 버전 9.6 이하인 경우에만 수동으로 설치해야 합니다.
+>9.7.0.0 버전부터 모바일 서비스 설치 관리자는 Windows 가상 머신에 사용 가능한 최신 Azure VM 에이전트도 설치합니다. 마이그레이션 시 가상 컴퓨터는 Site Recovery 확장을 포함하여 모든 VM 확장을 사용하기 위한 에이전트 설치 필수 구성 요소를 충족합니다. Azure VM 에이전트는 마이그레이션된 컴퓨터에 설치된 모바일 서비스가 버전 9.6 이하인 경우에만 수동으로 설치해야 합니다.
 
 다음 표에서는 VM 에이전트를 설치하고 설치 유효성을 검사하는 방법에 대한 추가 정보를 제공합니다.
 
@@ -64,9 +64,9 @@ Site Recovery 확장이 작동하고 VM을 보호하려면 Azure [VM 에이전�
 | VM 에이전트 설치 유효성 검사 |1. Azure VM에서 C:\WindowsAzure\Packages 폴더로 이동합니다. WaAppAgent.exe 파일을 확인해야 합니다. <br>2. 파일을 마우스 오른쪽 단추로 클릭하고 **속성**으로 이동한 다음 **세부 정보** 탭을 선택합니다. **제품 버전** 필드가 2.6.1198.718 이상이어야 합니다. |해당 없음 |
 
 
-### <a name="step-3-remove-the-mobility-service-from-the-migrated-virtual-machine"></a>3단계: 마이그레이션된 가상 컴퓨터에서 모바일 서비스 제거
+### <a name="step-3-remove-the-mobility-service-from-the-migrated-virtual-machine"></a>3단계: 마이그레이션된 가상 머신에서 모바일 서비스 제거
 
-온-프레미스 VMware 컴퓨터 또는 물리적 Windows/Linux 서버를 마이그레이션한 경우 마이그레이션된 가상 컴퓨터에서 모바일 서비스를 수동으로 제거해야 합니다.
+온-프레미스 VMware 컴퓨터 또는 물리적 Windows/Linux 서버를 마이그레이션한 경우 마이그레이션된 가상 머신에서 모바일 서비스를 수동으로 제거해야 합니다.
 
 >[!IMPORTANT]
 >Azure로 마이그레이션된 Hyper-V VM에는 이 단계가 필요하지 않습니다.
@@ -101,5 +101,5 @@ Windows Server 컴퓨터에서 모바일 서비스를 제거하려면 다음 방
 
 
 ## <a name="next-steps"></a>다음 단계
-- [Azure Virtual Machines를 복제](azure-to-azure-quickstart.md)하여 워크로드 보호를 시작합니다.
+- [Azure 가상 머신을 복제](azure-to-azure-quickstart.md)하여 워크로드 보호를 시작합니다.
 - [Azure Virtual Machines 복제를 위한 네트워킹 지침](site-recovery-azure-to-azure-networking-guidance.md)에 대해 자세히 알아봅니다.

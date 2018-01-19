@@ -12,16 +12,48 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/8/2017
+ms.date: 1/4/2018
 ms.author: raiye
-ms.openlocfilehash: f753a30fa833aaf19069b01607c8beaadcc667f5
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: 675a304e2ca913c8b9cd18fb2f2a41abfd8f28d4
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-guest-os"></a>Azure 게스트 OS
 다음 테이블에서 Azure 게스트 OS에 적용된 Microsoft 보안 대응 센터(MSRC) 업데이트를 보여줍니다. 사용 중인 게스트 OS에 특정 업데이트가 적용되는 경우 이 문서를 검색합니다. 도입된 특정 [제품군][family-explain] 설명에 업데이트가 항상 수행됩니다.
+
+## <a name="january-guest-os"></a>게스트 OS 1월
+| 제품 범주 | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
+| --- | --- | --- | --- | --- |
+| 해당 없음 | [4056898] |Windows 보안 전용 |4.50 |2018년 1월 3일 |
+| 해당 없음 | [4056890] |Windows 보안 전용 |5.15 |2018년 1월 3일 |
+
+## <a name="december-guest-os"></a>게스트 OS 12월
+| 제품 범주 | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
+| --- | --- | --- | --- | --- |
+| Rel 17-12 | [4053579], [4054517] |Windows 10 보안 업데이트 |4.49, 5.14 |2017년 12월 12일 |
+| Rel 17-12 | [4054521], [4054522], [4054523] |Windows 보안 전용 |2.69, 3.56, 4.49 |2017년 12월 12일 |
+| Rel 17-12 | [4052978] |Internet Explorer |2.69, 3.56, 4.49 |2017년 12월 12일 |
+| Rel 17-12 | [4052978] |깜박임 |3.56, 4.49, 5.14 |2017년 12월 12일 |
+| 해당 없음 | [4048957] |11월 비보안 롤업 |2.67 |2017년 11월 14일 |
+| 해당 없음 | [4048959] |11월 비보안 롤업 |3.56 |2017년 11월 14일 |
+| 해당 없음 | [4048958] |11월 비보안 롤업 |4.49 |2017년 11월 14일 |
+| 해당 없음 | [4049068] |12월 표준 시간대 업데이트 |2.69, 3.56, 4.49 |2017년 12월 12일 |
+
+## <a name="november-guest-os"></a>게스트 OS 11월
+| 제품 범주 | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
+| --- | --- | --- | --- | --- |
+| Rel 17-11 | [4048953] |Windows 10 업데이트 |5.13 |2017년 11월 14일 |
+| Rel 17-11 | [4048960], [4048962], [4048961] |Windows 보안 전용 |2.68, 3.55, 4.48 |2017년 11월 14일 |
+| Rel 17-11 | [4047206] |Internet Explorer |2.68, 3.55, 4.48 |2017년 11월 14일 |
+| Rel 17-11 | [4048951] |깜박임 |3.55, 4.48, 5.13 |2017년 11월 14일 |
+| 해당 없음 | [4041681] |10월 비보안 롤업 |2.67 |2017년 10월 10일 |
+| 해당 없음 | [4041690] |10월 비보안 롤업 |3.55 |2017년 10월 10일 |
+| 해당 없음 | [4041693] |10월 비보안 롤업 |4.48 |2017년 10월 10일 |
+| 해당 없음 | [3191566] |Windows Management Framework 5.1의 업데이트  |2.68 |2017년 11월 14일 |
+| 해당 없음 | [3191565] |Windows Management Framework 5.1의 업데이트  |3.55 |2017년 11월 14일 |
+| 해당 없음 | [3191564] |Windows Management Framework 5.1의 업데이트  |4.48 |2017년 11월 14일 |
 
 ## <a name="october-guest-os"></a>게스트 OS 10월
 | 제품 범주 | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
@@ -317,7 +349,7 @@ ms.lasthandoff: 11/09/2017
 | MS16-067 |[3155784] |볼륨 관리자 드라이버용 보안 업데이트 |4.32, 3.39 |2016년 5월 10일 |
 | 해당 없음 |[3148851] |Windows에서 러시아에 대한 표준 시간대 변경  |4.32, 3.39, 2.51 |2016년 5월 10일 |
 | 해당 없음 |[3133977] |BitLocker는 Windows 7 또는 Windows Server 2008 R2 내 svchost.exe 프로세스의 서비스가 충돌하기 때문에 드라이브를 암호화할 수 없습니다.  |2.51 |2016년 5월 10일 |
-| 해당 없음 |[3133681] |가상 컴퓨터가 Windows Server 2012 R2의 SCVMM 작업에 응답하지 않습니다.  |4.32 |2016년 5월 10일 |
+| 해당 없음 |[3133681] |가상 머신이 Windows Server 2012 R2의 SCVMM 작업에 응답하지 않습니다.  |4.32 |2016년 5월 10일 |
 | 해당 없음 |[3123245] |업데이트는 Windows Server 2012 R2의 포트 소진 식별을 향상시킵니다.  |4.32 |2016년 5월 10일 |
 | 해당 없음 |[RC4 비활성화] | Microsoft 보안 공지: RC4 비활성화를 위한 업데이트  |4.32, 3.39, 2.51 |2016년 5월 10일 |
 
@@ -540,7 +572,7 @@ ms.lasthandoff: 11/09/2017
 | 해당 없음 |[3013776] |도메인 계정을 사용하여 응용 프로그램을 시작하는 경우 시스템 중지 |4.15, 3.22, 2.34 |2015년 1월 13일 |
 | 해당 없음 |[3013043] |파일 시스템 데이터가 둘 이상의 NUMA 노드가 있는 Windows 기반 컴퓨터에서 손상됨 |4.15, 3.22, 2.34 |2015년 1월 13일 |
 | 해당 없음 |[3012712] |차이점 보관용 VHD가 확장되는 경우 새 데이터 블록을 올바르게 초기화하지 못함 |4.15, 3.22, 2.34 |2015년 1월 13일 |
-| 해당 없음 |[3004905] |2TB를 초과하는 파일 시스템에 있는 Linux 가상 컴퓨터용 Windows Hyper-V 개선 |4.15, 3.22, 2.34 |2015년 1월 13일 |
+| 해당 없음 |[3004905] |2TB를 초과하는 파일 시스템에 있는 Linux 가상 머신용 Windows Hyper-V 개선 |4.15, 3.22, 2.34 |2015년 1월 13일 |
 | 해당 없음 |[3004394] |2014년 2월 Windows에서 Windows 루트 인증서 프로그램에 대한 업데이트 |4.15, 3.22, 2.34 |2015년 1월 13일 |
 | 해당 없음 |[2999323] |이벤트 ID 17에 대한 텍스트가 변경됨 |4.15, 3.22, 2.34 |2015년 1월 13일 |
 | 해당 없음 |[3013488] |Windows Server 2012 R2 또는 Windows Server 2012에서 CSA 파일을 가져올 때 WSUS 서버 재설정의 긴 대기 시간 |4.15, 3.22, 2.34 |2015년 1월 13일 |
@@ -548,6 +580,36 @@ ms.lasthandoff: 11/09/2017
 | 해당 없음 |[3007054] |Windows에서 Windows 스토어 응용 프로그램 내 문서를 인쇄할 때 PIN으로 보호된 인쇄 옵션을 항상 표시 |4.15, 3.22, 2.34 |2015년 1월 13일 |
 | 해당 없음 |[2999802] |점선 대신 실선이 Windows에서 인쇄됨 |4.15, 3.22, 2.34 |2015년 1월 13일 |
 | 해당 없음 |[2896881] |Windows에서 로그온 프로세스 중 사용자에 대한 프린터를 매핑하도록 AddPrinterConnection VBScript 명령을 사용하는 경우 로그온에 오랜 시간이 걸림 |4.15, 3.22, 2.34 |2015년 1월 13일 |
+
+[4056898]: http://support.microsoft.com/kb/4056898
+[4056890]: http://support.microsoft.com/kb/4056890 
+
+[4053579]: http://support.microsoft.com/kb/4053579
+[4054517]: http://support.microsoft.com/kb/4054517 
+[4054521]: http://support.microsoft.com/kb/4054521
+[4054522]: http://support.microsoft.com/kb/4054522
+[4054523]: http://support.microsoft.com/kb/4054523
+[4052978]: http://support.microsoft.com/kb/4052978
+[4048951]: http://support.microsoft.com/kb/4048951
+[4048957]: http://support.microsoft.com/kb/4048957
+[4048959]: http://support.microsoft.com/kb/4048959
+[4048958]: http://support.microsoft.com/kb/4048958
+[4049068]: http://support.microsoft.com/kb/4049068
+
+
+[4048953]: http://support.microsoft.com/kb/4048953
+[4048960]: http://support.microsoft.com/kb/4048960 
+[4048962]: http://support.microsoft.com/kb/4048962
+[4048961]: http://support.microsoft.com/kb/4048961
+[4047206]: http://support.microsoft.com/kb/4047206
+[4048951]: http://support.microsoft.com/kb/4048951
+[4041681]: http://support.microsoft.com/kb/4041681
+[4041693]: http://support.microsoft.com/kb/4041693
+[4041690]: http://support.microsoft.com/kb/4041690
+[3191566]: http://support.microsoft.com/kb/3191566
+[3191565]: http://support.microsoft.com/kb/3191565
+[3191564]: http://support.microsoft.com/kb/3191564
+
 
 [4041691]: http://support.microsoft.com/kb/4041691 
 [4041678]: http://support.microsoft.com/kb/4041678 

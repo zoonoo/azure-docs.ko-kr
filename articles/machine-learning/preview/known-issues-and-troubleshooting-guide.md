@@ -9,12 +9,12 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 09/20/2017
-ms.openlocfilehash: 54038785f513e56b07f5f3fafa3dbd6d4b6e7400
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.date: 01/12/2018
+ms.openlocfilehash: d1e3a4fd4415afb995f614ac687096f6fb8ece95
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning Workbench - 알려진 문제 및 문제 해결 가이드 
 이 문서는 Azure Machine Learning Workbench 응용 프로그램 사용의 일부로 발생하는 오류 또는 실패를 찾고 수정하는 데 도움을 줍니다. 
@@ -28,7 +28,7 @@ ms.lasthandoff: 12/02/2017
 ## <a name="gather-diagnostics-information"></a>진단 정보 수집
 도움말을 요청할 때 진단 정보를 제공할 수 있는 경우에 유용할 수 있습니다. 로그 파일 위치는 다음과 같습니다.
 
-### <a name="installer"></a>설치 관리자
+### <a name="installer-log"></a>설치 관리자 로그
 설치 중 문제가 발생하는 경우 설치 관리자 로그 파일은 다음 위치에 추가됩니다.
 
 ```
@@ -40,18 +40,7 @@ ms.lasthandoff: 12/02/2017
 ```
 이러한 디렉터리의 내용을 zip으로 압축하고 진단을 위해 Microsoft로 보낼 수 있습니다.
 
-### <a name="app-update"></a>앱 업데이트 
-#### <a name="no-update-notification-on-windows-desktop"></a>Windows 바탕 화면에서 업데이트 알림 없음 
-이 문제는 향후 업데이트에서 해결될 것입니다. 그 동안 해결 방법은 작업 표시줄에 고정된 바로 가기에서 앱을 시작하지 않는 것입니다. 시작 메뉴나 검색 시작 버튼을 사용하거나 바탕 화면의 바로 가기(있는 경우)를 사용하여 앱을 시작하세요. 
-
-#### <a name="no-update-notification-on-an-ubuntu-data-sciece-virtual-machine-dsvm"></a>Ubuntu Data Science Virtual Machine(DSVM)에서 업데이트 알림 없음
-최신 응용 프로그램을 다운로드하려면 다음 단계를 수행합니다.   
-   - \Users\AppData\Local\amlworkbench 폴더 제거
-   - 스크립트 `c:\dsvm\tools\setup\InstallAMLFromLocal.ps1` 제거
-   - 위의 스크립트를 시작하는 바탕 화면 바로 가기 제거
-   - [https://aka.ms/azureml-wb-msi](https://aka.ms/azureml-wb-msi)를 통해 깔끔하게 설치
-
-### <a name="workbench-desktop-app"></a>워크벤치 데스크톱 앱
+### <a name="workbench-desktop-app-log"></a>워크벤치 데스크톱 앱 로그
 로그인하는 데 문제가 있거나 Workbench 데스크톱이 충돌하면 다음에서 로그 파일을 찾을 수 있습니다.
 ```
 # Windows
@@ -62,7 +51,7 @@ ms.lasthandoff: 12/02/2017
 ``` 
 이러한 디렉터리의 내용을 zip으로 압축하고 진단을 위해 Microsoft로 보낼 수 있습니다.
 
-### <a name="experiment-execution"></a>실험 실행
+### <a name="experiment-execution-log"></a>실험 실행 로그
 데스크톱 앱을 제출하는 동안 특정 스크립트에 오류가 발생하면 `az ml experiment submit` 명령을 사용하여 CLI를 통해 다시 제출해보세요. 이렇게 하면 JSON 형식으로 전체 오류 메시지가 표시되며, **작업 ID** 값이 포함되어 있다는 장점이 있습니다. **작업 ID**를 포함하는 JSON 파일을 보내주시면 진단하는 데 도움을 드릴 수 있습니다. 
 
 특정 스크립트를 성공적으로 제출했으나 실행하지 못할 경우 해당 특정 실행을 식별하기 위한 **실행 ID**가 출력됩니다. 다음 명령을 사용하여 관련 로그 파일을 패키지로 만들 수 있습니다.
@@ -96,6 +85,8 @@ Azure ML Workbench에서 작업할 경우, 응용 프로그램 셸의 왼쪽 하
 
 - RevoScalePy 라이브러리는 (Docker 컨테이너의) Windows 또는 Linux에서만 지원됩니다. macOS에서는 지원되지 않습니다.
 
+- Jupyter 노트북을 Workbench 앱에서 여는 경우 최대 크기가 5MB로 제한됩니다. 큰 노트북은 CLI에서 'az ml notebook start' 명령을 사용하여 열고 셀 출력을 정리하여 파일 크기를 줄일 수 있습니다.
+
 ## <a name="cant-update-workbench"></a>Workbench를 업데이트할 수 없음
 새 업데이트를 사용할 수 있는 경우 Workbench 앱 홈페이지에 새 업데이트에 대한 정보를 제공하는 메시지가 표시됩니다. 앱의 왼쪽 아래 구석에 있는 종 모양 아이콘에 업데이트 배지가 표시됩니다. 이 배지를 클릭하고 설치 마법사에 따라 업데이트를 설치합니다. 
 
@@ -113,7 +104,7 @@ Azure ML Workbench에서 작업할 경우, 응용 프로그램 셸의 왼쪽 하
    - 위의 스크립트를 시작하는 바탕 화면 바로 가기 제거
    - https://aka.ms/azureml-wb-msi에서 설치 관리자를 다운로드하고 다시 설치
 
-## <a name="get-stuck-at-checking-experimentation-account-screen-after-logging-in"></a>로그인한 후에 "실험 계정 검사" 화면에서 중단되었습니다.
+## <a name="stuck-at-checking-experimentation-account-screen-after-logging-in"></a>로그인한 후에 "실험 계정 검사" 화면에서 중단됨
 로그인한 후에 Workbench 앱은 회전 휠을 포함한 "실험 계정 검사"를 보여주는 메시지를 표시한 빈 화면에서 중단되었을 수 있습니다. 이 문제를 해결하려면, 다음 단계를 사용하세요.
 1. 앱 종료
 2. 다음 파일을 삭제합니다.
@@ -127,7 +118,7 @@ Azure ML Workbench에서 작업할 경우, 응용 프로그램 셸의 왼쪽 하
 3. 앱을 다시 시작합니다.
 
 ## <a name="cant-delete-experimentation-account"></a>실험 계정을 삭제할 수 없음
-CLI를 사용하여 실험 계정을 삭제할 수 있지만 먼저 하위 작업 영역과 해당 하위 작업 영역 내의 하위 프로젝트를 먼저 삭제해야 합니다. 그렇지 않으면 오류가 발생합니다.
+CLI를 사용하여 실험 계정을 삭제할 수 있지만 먼저 하위 작업 영역과 해당 하위 작업 영역 내의 하위 프로젝트를 먼저 삭제해야 합니다. 그렇지 않으면 "중첩 리소스를 삭제하기 전에 리소스를 삭제할 수 없습니다."라는 오류가 표시됩니다.
 
 ```azure-cli
 # delete a project
@@ -147,6 +138,15 @@ Windows 10 Fall Creators Update가 있으며 프로젝트를 OneDrive에 매핑�
 
 ## <a name="file-name-too-long-on-windows"></a>Windows에서 파일 이름이 너무 깁니다.
 Windows에서 Workbench를 사용하는 경우 기본 최대 260자 파일 이름 길이 제한이 발생할 수 있습니다. 그러면 "시스템이 지정된 경로를 찾을 수 없습니다."라는 오류가 표시될 수 있습니다. 레지스트리 키 설정을 수정하여 긴 파일 경로 이름을 늘릴 수 있습니다. _MAX_PATH_ 레지스트리 키를 설정하는 방법에 대한 자세한 내용은 [이 문서](https://msdn.microsoft.com/en-us/library/windows/desktop/aa365247%28v=vs.85%29.aspx?#maxpath)를 검토하세요.
+
+## <a name="interrupt-cli-execution-output"></a>CLI 실행 출력 중단
+`az ml experiment submit` 또는 `az ml notebook start`를 사용하여 실험을 실행하기 시작한 상태에서 출력을 중단하려면: 
+- Windows의 경우 키보드의 Ctrl-Break 키 조합을 사용합니다.
+- macOS의 경우, Ctrl-C를 사용합니다.
+
+이렇게 하면 CLI 창의 출력 스트림만 중단됩니다. 실행 중인 작업은 실제로 중지되지 않습니다. 진행 중인 작업을 취소하려면 `az ml experiment cancel -r <run_id> -t <target name>` 명령을 사용합니다.
+
+키보드에 Break 키가 없는 Windows 컴퓨터의 경우 가능한 대안에는 Fn-B, Ctrl-Fn-B 또는 Fn+Esc가 있습니다. 구체적인 키 조합에 대해서는 하드웨어 공급업체의 설명서를 참조하세요.
 
 ## <a name="docker-error-read-connection-refused"></a>Docker 오류 “읽기: 연결이 거부되었습니다”
 로컬 Docker 컨테이너에 대해 실행할 때 경우에 따라 다음과 같은 오류가 표시될 수 있습니다. 
@@ -198,9 +198,20 @@ Azure에서 Ubuntu 기반 Linux VM을 실행 대상으로 사용하지 않는 �
 $ docker system prune -a
 ```
 
-데이터 디스크를 추가하고 이미지 저장에 데이터 디스크를 사용하도록 Docker 엔진을 구성할 수도 있습니다. [데이터 디스크를 추가하는 방법](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/add-disk)은 다음과 같습니다. 그런 다음 [Docker에서 이미지를 저장하는 위치를 변경](https://forums.docker.com/t/how-do-i-change-the-docker-image-installation-directory/1169)합니다.
+데이터 디스크를 추가하고 이미지 저장에 데이터 디스크를 사용하도록 Docker 엔진을 구성할 수도 있습니다. [데이터 디스크를 추가하는 방법](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk)은 다음과 같습니다. 그런 다음 [Docker에서 이미지를 저장하는 위치를 변경](https://forums.docker.com/t/how-do-i-change-the-docker-image-installation-directory/1169)합니다.
 
-또는 OS 디스크를 확장할 수 있으며 Docker 엔진 구성을 손대지 않아도 됩니다. [OS 디스크를 확장하는 방법](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/add-disk)은 다음과 같습니다.
+또는 OS 디스크를 확장할 수 있으며 Docker 엔진 구성을 손대지 않아도 됩니다. [OS 디스크를 확장하는 방법](https://docs.microsoft.com/azure/virtual-machines/linux/expand-disks)은 다음과 같습니다.
+
+```azure-cli
+#Deallocate VM (stopping will not work)
+$ az vm deallocate --resource-group myResourceGroup  --name myVM
+
+# Update Disc Size
+$ az disk update --resource-group myResourceGroup --name myVM --size-gb 250
+    
+# Start VM    
+$ az vm start --resource-group myResourceGroup  --name myVM
+```
 
 ## <a name="sharing-c-drive-on-windows"></a>Windows에서 C 드라이브 공유
 Windows의 로컬 Docker 컨테이너에서 실행하는 경우 `aml_config` 아래 `docker.compute` 파일에서 `sharedVolumes`를 `true`로 설정하면 실행 성능을 향상시킬 수 있습니다. 그러나 이를 위해서는 _Docker for Windows Tool_에서 C 드라이브를 공유해야 합니다. C 드라이브를 공유할 수 없는 경우 다음 팁을 시도해 보세요.
@@ -213,6 +224,18 @@ Windows의 로컬 Docker 컨테이너에서 실행하는 경우 `aml_config` 아
 * 도메인 자격 증명을 사용하여 C 드라이브를 공유하는 경우 도메인 컨트롤러에 연결할 수 없는 네트워크에서 공유가 작동을 중지할 수 있습니다(예: 홈 네트워크, 공용 wifi 등). 자세한 내용은 [이 게시물](https://blogs.msdn.microsoft.com/stevelasker/2016/06/14/configuring-docker-for-windows-volumes/)을 참조하세요.
 
 또한 `docker.compute` 파일에서 `sharedVolumne`을 `false`로 설정하여 적은 성능 비용으로 공유 문제를 피할 수도 있습니다.
+
+## <a name="wipe-clean-workbench-installation"></a>Workbench 새로 설치 제거
+대개 이 작업은 수행할 필요가 없습니다. 하지만 설치를 완전히 초기화해야 하는 경우, 다음 단계를 따르십시오.
+
+- Windows에서:
+  - 먼저 _제어판_에서 _프로그램 추가/제거_ 애플릿을 사용하여 _Azure Machine Learning Workbench_ 응용 프로그램 항목을 제거해야 합니다.  
+  - 그런 다음, 다음 스크립트 중 하나를 다운로드하여 실행합니다.
+    - [Windows 명령줄 스크립트](https://github.com/Azure/MachineLearning-Scripts/blob/master/cleanup/cleanup_win.cmd).
+    - [Windows PowerShell 스크립트](https://github.com/Azure/MachineLearning-Scripts/blob/master/cleanup/cleanup_win.ps1). (스크립트를 실행하기 전에 상승된 권한(관리자)으로 PowerShell 창에서 `Set-ExecutionPolicy Unrestricted`를 실행해야 할 수도 있습니다.)
+- macOS에서:
+  - [macOS bash 셸 스크립트](https://github.com/Azure/MachineLearning-Scripts/blob/master/cleanup/cleanup_mac.sh)를 다운로드하여 실행합니다.
+
 
 ## <a name="some-useful-docker-commands"></a>몇 가지 유용한 Docker 명령
 
