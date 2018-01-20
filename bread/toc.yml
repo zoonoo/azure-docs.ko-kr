@@ -86,7 +86,7 @@
     - name: Azure China 21Vianet
       tocHref: /azure/china/
       topicHref: /azure/china/
-    - name: Azure 포털
+    - name: Azure portal
       tocHref: /azure/azure-portal/
       topicHref: /azure/azure-portal/
     - name: 리소스 관리자
@@ -141,7 +141,7 @@
         - name: Computer Vision
           tocHref: /azure/cognitive-services/computer-vision/
           topicHref: /azure/cognitive-services/computer-vision/
-        - name: 사용자 지정 음성 서비스
+        - name: Custom Speech Service
           tocHref: /azure/cognitive-services/custom-speech-service/
           topicHref: /azure/cognitive-services/custom-speech-service/
         - name: 사용자 지정 시각 서비스
@@ -202,7 +202,7 @@
     - name: Event Grid
       tocHref: /azure/event-grid/
       topicHref: /azure/event-grid
-    - name: Event Hubs
+    - name: "Event Hubs\r\n"
       tocHref: /azure/event-hubs/
       topicHref: /azure/event-hubs/
     - name: ExpressRoute
@@ -239,6 +239,9 @@
         - name: Storm
           tocHref: /azure/hdinsight/storm
           topicHref: /azure/hdinsight/storm/apache-storm-overview
+    - name: IoT Edge
+      tocHref: /azure/iot-edge/
+      topicHref: /azure/iot-edge/
     - name: IoT 허브
       tocHref: /azure/iot-hub/
       topicHref: /azure/iot-hub/
@@ -248,7 +251,7 @@
     - name: Key Vault
       tocHref: /azure/key-vault/
       topicHref: /azure/key-vault/
-    - name: 부하 분산 장치
+    - name: Load Balancer
       tocHref: /azure/load-balancer/
       topicHref: /azure/load-balancer/
     - name: Log Analytics
@@ -282,7 +285,7 @@
     - name: Media Services
       tocHref: /azure/media-services/
       topicHref: /azure/media-services/
-    - name: 모바일 고객 관리
+    - name: Mobile Engagement
       tocHref: /azure/mobile-engagement/
       topicHref: /azure/mobile-engagement/
     - name: Mobile Services
@@ -362,13 +365,13 @@
     - name: Scheduler
       tocHref: /azure/scheduler/
       topicHref: /azure/scheduler/
-    - name: 검색
+    - name: Search
       tocHref: /azure/search/
       topicHref: /azure/search/
     - name: 보안
       tocHref: /azure/security/
       topicHref: /azure/security/
-    - name: 보안 센터
+    - name: Security Center
       tocHref: /azure/security-center/
       topicHref: /azure/security-center/
     - name: Service Bus
@@ -395,7 +398,7 @@
     - name: SQL Server Stretch Database
       tocHref: /azure/sql-server-stretch-database/
       topicHref: /azure/sql-server-stretch-database/
-    - name: 저장소
+    - name: Storage
       tocHref: /azure/storage/
       topicHref: /azure/storage/
       items:
