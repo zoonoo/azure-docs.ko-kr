@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/17/2018
 ms.author: mabrigg
-ms.openlocfilehash: 3b228452d416bbb2c54243b95292f7e1198af14f
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 0ba0bc4e8350a65a95dc41788c93d5c89fc48334
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="make-a-custom-virtual-machine-image-available-in-azure-stack"></a>이미지를 사용자 지정 가상 컴퓨터에서에서 사용할 수 있도록 Azure 스택
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 01/18/2018
    Azure 스택 VHD 형식의 고정된 디스크를 지원합니다. 고정된 형식은 디스크 오프셋 X가 blob 오프셋 X에 저장 되므로 파일 내에 선형적으로 논리적 디스크를 구조 합니다. Blob 끝에는 작은 바닥글에서는 VHD의 속성을 설명합니다. 디스크의 해결 여부를 확인 하려면 사용 하 여는 [GET-VHD](https://docs.microsoft.com/powershell/module/hyper-v/get-vhd?view=win10-ps) PowerShell 명령입니다.  
 
    > [!IMPORTANT]
-   >  Azure 스택 동적 디스크 Vhd를 지원 하지 않습니다. 동적 디스크는 VM에 연결 하는 크기 조정 실패 상태에 VM이 종료 됩니다. 이 문제를 해결 하려면 VM의 디스크를 저장소 계정에 VHD blob을 삭제 하지 않고 VM을 삭제 합니다. 동적 디스크에서 VHD 고정된 디스크와 가상 컴퓨터를 다시 만들를 변환 합니다.
+   >  Azure 스택 동적 디스크 Vhd를 지원 하지 않습니다. 동적 디스크는 VM에 연결 하는 크기 조정 실패 상태에 VM이 종료 됩니다. 이 문제를 해결 하려면 VM의 디스크를 저장소 계정에 VHD blob을 삭제 하지 않고 VM을 삭제 합니다. 다음 동적 디스크에서 VHD를 고정된 디스크로 변환 하 고 가상 컴퓨터를 다시 만듭니다.
 
 Azure 스택 마켓플레이스 이미지를 추가 하려면 다음 단계를 수행 합니다.
 
