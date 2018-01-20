@@ -128,6 +128,8 @@
           href: azure-stack-manage-storage-shares.md
         - name: Windows Azure 팩 VM 관리
           href: azure-stack-manage-windows-azure-pack.md
+        - name: 시작 및 중지 Azure 스택
+          href: azure-stack-start-and-stop.md
         - name: 하드웨어 교체
           items:
             - name: 노드 작업
