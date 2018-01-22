@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/28/2017
 ms.author: ryanwi, mikhegn
-ms.openlocfilehash: 323c1e7bb4703833cfc3047db9e6116eb7237162
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 6cfc9891af9de88dddca717711148cbb53276e84
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Windows에서 개발 환경 준비
 > [!div class="op_single_selector"]
@@ -34,16 +34,17 @@ ms.lasthandoff: 12/18/2017
 ### <a name="supported-operating-system-versions"></a>지원되는 운영 체제 버전
 개발을 위해 다음 운영 체제 버전이 지원됩니다.
 
-* 윈도우 7
+* Windows 7
 * Windows 8/Windows 8.1
 * Windows Server 2012 R2
 * Windows Server 2016
 * 윈도우 10
 
 > [!NOTE]
-> Windows 7은 기본적으로 Windows PowerShell 2.0만을 포함합니다. 서비스 패브릭 PowerShell cmdlet에는 PowerShell 3.0 이상이 필요합니다. Microsoft 다운로드 센터에서 [Windows PowerShell 5.0을 다운로드][powershell5-download]할 수 있습니다.
-> 
-> 
+> Windows 7 지원:
+> - Windows 7은 기본적으로 Windows PowerShell 2.0만을 포함합니다. 서비스 패브릭 PowerShell cmdlet에는 PowerShell 3.0 이상이 필요합니다. Microsoft 다운로드 센터에서 [Windows PowerShell 5.0을 다운로드][powershell5-download]할 수 있습니다.
+> - Service Fabric 역방향 프록시는 Windows 7에서 사용할 수 없습니다.
+>
 
 ## <a name="install-the-sdk-and-tools"></a>SDK 및 도구 설치
 ### <a name="to-use-visual-studio-2017"></a>Visual Studio 2017을 사용하려면 다음을 수행합니다.
