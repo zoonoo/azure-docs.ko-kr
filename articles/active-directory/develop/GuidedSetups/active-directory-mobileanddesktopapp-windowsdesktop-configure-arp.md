@@ -16,10 +16,10 @@ ms.date: 05/09/2017
 ms.author: andret
 ms.custom: aaddev
 ms.openlocfilehash: 922fd0e24334eb45995b66dfaaa49d3d4f835e9a
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/22/2018
 ---
 ## <a name="add-the-applications-registration-information-to-your-app"></a>앱에 응용 프로그램의 등록 정보 추가
 이 단계에서는 프로젝트에 응용 프로그램 ID를 추가해야 합니다.
