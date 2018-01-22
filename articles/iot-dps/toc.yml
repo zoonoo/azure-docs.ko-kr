@@ -52,9 +52,15 @@
     - name: 2 - 장치 설정
       href: tutorial-set-up-device.md
     - name: 3 - IoT Hub에 장치 프로비전
-      href: tutorial-provision-device-to-hub.md
+      items:
+        - name: C
+          href: tutorial-provision-device-to-hub.md
+        - name: 'C#'
+          href: tutorial-net-provision-device-to-hub.md
     - name: 4 - 여러 허브에 장치 프로비전
       href: tutorial-provision-multiple-hubs.md
+    - name: 5 - 그룹 등록 프로비전
+      href: tutorial-group-enrollments.md
 - name: 개념
   items:
     - name: 장치 개념
@@ -73,6 +79,8 @@
           href: how-to-manage-enrollments-sdks.md
     - name: 장치 액세스 철회
       href: how-to-revoke-device-access-portal.md
+    - name: 장치 프로비전 해제
+      href: how-to-unprovision-devices.md
     - name: SDK로 HSM 사용
       href: use-hsm-with-sdk.md
     - name: 프로비전 서비스에 대한 액세스 제어

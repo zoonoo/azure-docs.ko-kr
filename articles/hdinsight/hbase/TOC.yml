@@ -43,6 +43,11 @@
           href: apache-hbase-phoenix-squirrel-linux.md
         - name: Phoenix Query Server REST SDK 사용
           href: apache-hbase-using-phoenix-query-server-rest-sdk.md
+    - name: 빅 데이터 분석
+      items:
+        - name: Spark를 사용하여 HBase 데이터 읽기 및 쓰기
+          href: ../hdinsight-using-spark-query-hbase.md
+          maintainContext: true
     - name: 클러스터 확장
       items:
         - name: 부트스트랩을 사용하여 클러스터 사용자 지정
@@ -164,7 +169,7 @@
       href: ../hdinsight-troubleshoot-guide.md
       maintainContext: true
       items:
-        - name: 저속 또는 문제 발생 HDInsight 클러스터 문제 해결
+        - name: 속도가 느리거나 오류가 발생하는 HDInsight 클러스터 문제 해결
           href: ../hdinsight-troubleshoot-failed-cluster.md
           maintainContext: true
         - name: HDFS 문제 해결
@@ -233,7 +238,7 @@
         - name: 클러스터 성능 모니터링
           href: ../hdinsight-key-scenarios-to-monitor.md
           maintainContext: true
-- name: 참조
+- name: 참고 자료
   items:
     - name: 코드 샘플
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight'

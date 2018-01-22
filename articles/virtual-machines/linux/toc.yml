@@ -369,6 +369,8 @@
           href: copy-files-to-linux-vm-using-scp.md
         - name: Azure Site Recovery를 사용하여 프리미엄 저장소로 마이그레이션
           href: migrate-to-premium-storage-using-azure-site-recovery.md
+        - name: 연결되지 않은 디스크 찾기
+          href: find-unattached-disks.md
         - name: 파일 저장소 사용
           href: mount-azure-file-storage-on-linux-using-smb.md
         - name: 템플릿을 사용하여 디스크 배포
