@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/11/2017
 ms.author: jirwin
-ms.openlocfilehash: 7f07734433694999d38429ca264c58c5f3c619e1
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 1b1770e25b4b423466120cb74c08edacf2de3977
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-storage-account-options"></a>Azure Storage 계정 옵션
 
@@ -31,7 +31,7 @@ Azure Storage에서는 다양한 가격 책정 및 기능을 지원하는 세 �
 * **범용 v1(GPv1)** 계정은 모든 Azure Storage 서비스를 사용하도록 제공하지만 최신 기능 또는 가장 낮은 GB 가격 책정이 포함되지 않을 수 있습니다. 예를 들어 쿨 및 보관 저장소는 GPv1에서 지원되지 않습니다.  트랜잭션의 경우 가격 책정이 낮으므로 높은 변동 또는 높은 읽기 비율을 가진 워크로드가 이 계정 형식에서 유용할 수 있습니다.
 
 ### <a name="changing-account-kind"></a>계정 종류 변경
-사용자는 포털, CLI 또는 PowerShell을 통해 언제든지 GPv1 또는 Blob Storage 계정을 GPv2 계정으로 업그레이드할 수 있습니다. 이 변경 내용은 되돌릴 수 없으며 다른 변경 내용이 허용되지 않습니다.
+사용자는 언제든지 포털, CLI 또는 PowerShell을 통해 GPv1 계정을 GPv2 계정으로 업그레이드할 수 있습니다. 이 변경 내용은 되돌릴 수 없으며 다른 변경 내용이 허용되지 않습니다. Blob Storage 계정을 GPv2로 업그레이드하는 기능은 곧 제공됩니다.
 
 ## <a name="general-purpose-v2"></a>범용 v2
 **범용 v2(GPv2)**는 Blob, 파일, 큐 및 테이블을 포함하여 모든 저장소 서비스에서 모든 기능을 지원하는 저장소 계정입니다. 블록 Blob의 경우 액세스 패턴에 따라 계정 수준에서 핫 및 쿨 저장소 계정 중에 하나를 선택하고 Blob 수준에서 핫, 쿨 및 보관 계층 중에 하나를 선택할 수 있습니다. 핫, 쿨 및 보관 저장소 계층에 매우 드물게, 드물게 그리고 자주 액세스하는 데이터를 저장하여 비용을 최적화합니다. GPv1 계정은 포털, PowerShell 또는 CLI에서 GPv2 계정으로 업그레이드할 수 있습니다. GPv2 계정은 Blob Storage 및 GPv1 계정에서 지원되는 모든 API 및 기능을 지원하고, 해당 계정 형식에서 훌륭한 내구성, 가용성, 확장성 및 성능을 공유합니다.
@@ -96,7 +96,7 @@ Blob Storage 계정은 계정 수준에서 **액세스 계층** 특성을 노출
 
 ### <a name="create-a-gpv2-storage-account-using-the-azure-portal"></a>Azure Portal을 사용하여 GPv2 저장소 계정 만들기
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 2. 허브 메뉴에서 **새로 만들기** > **데이터 + 저장소** > **Storage 계정**을 차례로 선택합니다.
 
@@ -130,9 +130,9 @@ Blob Storage 계정은 계정 수준에서 **액세스 계층** 특성을 노출
 
 11. **만들기** 를 클릭하여 저장소 계정을 만들 수 있습니다.
 
-### <a name="convert-a-gpv1-or-blob-storage-account-to-a-gpv2-storage-account-using-the-azure-portal"></a>Azure Portal을 사용하여 GPv1 또는 Blob Storage 계정을 GPv2 저장소 계정으로 변환
+### <a name="convert-a-gpv1-account-to-a-gpv2-storage-account-using-the-azure-portal"></a>Azure Portal을 사용하여 GPv1 저장소 계정을 GPv2 저장소 계정으로 변환
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 2. 저장소 계정으로 이동하려면 모든 리소스를 선택하고 저장소 계정을 선택합니다.
 
@@ -146,7 +146,7 @@ Blob Storage 계정은 계정 수준에서 **액세스 계층** 특성을 노출
 
 ### <a name="change-the-storage-tier-of-a-gpv2-storage-account-using-the-azure-portal"></a>Azure Portal을 사용하여 GPv2 저장소 계정의 저장소 계층 변경
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 2. 저장소 계정으로 이동하려면 모든 리소스를 선택하고 저장소 계정을 선택합니다.
 
@@ -158,7 +158,7 @@ Blob Storage 계정은 계정 수준에서 **액세스 계층** 특성을 노출
 
 ### <a name="change-the-storage-tier-of-a-blob-using-the-azure-portal"></a>Azure Portal을 사용하여 Blob의 저장소 계층 변경
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 2. 저장소 계정에서 Blob으로 이동하려면 모든 리소스를 선택하고 저장소 계정을 선택하고 컨테이너를 선택한 다음 Blob을 선택합니다.
 
@@ -247,7 +247,7 @@ Blob Storage 계정에 대한 지역에서 복제 데이터 전송의 비용은 
 
 ## <a name="migrating-existing-data"></a>기존 데이터 마이그레이션
 
-GPv1 또는 Blob Storage 계정은 가동 중지 시간 또는 API 변경 없이, 데이터를 이동할 필요 없이 쉽게 GPv2로 업그레이드할 수 있습니다. GPv2 및 Blob Storage 계정의 주요 이점 중 하나입니다.
+GPv1 계정은 가동 중지 시간 또는 API를 변경하거나 데이터를 이동할 필요 없이 GPv2로 쉽게 업그레이드할 수 있습니다. GPv2 및 Blob Storage 계정의 주요 이점 중 하나입니다.
 
 그러나 Blob Storage 계정으로 마이그레이션해야 하는 경우 아래 지침을 사용할 수 있습니다.
 
@@ -280,15 +280,19 @@ Azure 클라이언트 라이브러리 또는 Azure Storage 서비스 REST API �
 
 **기존 저장소 계정을 계속 사용할 수 있나요?**
 
-예, 기존 저장소 계정은 계속 사용할 수 있으며 가격 책정이나 기능은 바뀌지 않습니다.  저장소 계층을 선택할 수 있는 기능이 없으며, 향후에도 계층 지정 기능을 사용할 수 없을 것입니다.
+예, 기존 저장소 계정(GPv1)은 계속 사용할 수 있으며, 가격 책정이나 기능은 변경되지 않습니다.  GPv1 계정에는 저장소 계층을 선택할 수 있는 기능이 없으며, 앞으로는 기능을 계층화하지 않습니다.
 
 **GPv2 저장소 계정을 왜 사용해야 하며 언제 사용을 시작해야 하나요?**
 
 GPv2 저장소 계정은 업계에서 경쟁력 있는 트랜잭션 및 데이터 액세스 비용을 제공하는 동시에 가장 낮은 GB 저장소 비용을 제공하는 데 전문화되어 있습니다. 앞으로 변경 알림 등과 같은 기능이 이 계정 형식에 따라 도입될 것이므로 Blob을 저장하는 데 GPv2 저장소 계정을 사용하는 것이 좋습니다. 그러나 비즈니스 요구 사항에 따라 업그레이드 시점을 결정하는 것은 사용자의 몫입니다.  예를 들어 업그레이드하기 전에 트랜잭션 패턴을 최적화할 수 있습니다.
 
+GPv2에서 다운그레이드는 지원되지 않으므로 계정을 GPv2로 업그레이드하기 전에 먼저 모든 가격 책정에 미치는 영향을 고려해야 합니다.
+
 **기존 저장소 계정을 GPv2 저장소 계정으로 업그레이드할 수 있나요?**
 
-예. GPv1 또는 Blob Storage 계정을 포털에서 GPv2로 쉽게 업그레이드할 수 있습니다.
+예. GPv1 계정은 포털, PowerShell 또는 CLI를 사용하여 GPv2로 쉽게 업그레이드할 수 있습니다. Blob Storage 계정은 PowerShell 또는 CLI를 사용하여 GPv2로 업그레이드할 수 있습니다. 포털에서 Blob Storage 계정을 GPv2로 업그레이드하는 기능은 곧 제공됩니다.
+
+GPv2에서 다운그레이드는 지원되지 않으므로 계정을 GPv2로 업그레이드하기 전에 먼저 모든 가격 책정에 미치는 영향을 고려해야 합니다.
 
 **동일한 계정에서 두 저장소 계층에 모두 데이터를 저장할 수 있나요?**
 
@@ -310,11 +314,13 @@ GPv2 및 Blob Storage 계정인 핫 저장소 계층의 Blob에는 GPv1 저장�
 
 **페이지 Blob과 가상 머신 디스크를 Blob Storage 계정에서 저장할 수 있나요?**
 
-아니요. Blob Storage 계정은 블록 및 추가 Blob만을 지원하고 페이지 Blob은 지원하지 않습니다. Azure 가상 머신 디스크는 페이지 Blob에 의해 지원되며, 결과적으로 Blob Storage 계정은 가상 머신 디스크를 저장하는 데 사용될 수 없습니다. 하지만 가상 머신 디스크의 백업을 Blob Storage 계정의 블록 Blob으로 저장하는 것은 가능합니다. Blob Storage 계정 대신 GPv2를 사용하도록 고려해야 하는 여러 가지 이유 중 하나입니다.
+번호 Blob Storage 계정은 블록 및 추가 Blob만을 지원하고 페이지 Blob은 지원하지 않습니다. Azure 가상 머신 디스크는 페이지 Blob에 의해 지원되며, 결과적으로 Blob Storage 계정은 가상 머신 디스크를 저장하는 데 사용될 수 없습니다. 하지만 가상 머신 디스크의 백업을 Blob Storage 계정의 블록 Blob으로 저장하는 것은 가능합니다. Blob Storage 계정 대신 GPv2를 사용하도록 고려해야 하는 여러 가지 이유 중 하나입니다.
 
 **GPv2 저장소 계정을 사용하려면 기존 응용 프로그램을 변경해야 하나요?**
 
 GPv2 저장소 계정은 GPv1 및 Blob Storage 계정과 100% 일치하는 API입니다. 응용 프로그램에서 블록 Blob 또는 추가 Blob을 사용하고 [Storage 서비스 REST API](https://msdn.microsoft.com/library/azure/dd894041.aspx) 2014-02-14 버전 이상을 사용하는 한 응용 프로그램은 작동합니다. 이전 프로토콜 버전을 사용할 경우 응용 프로그램을 업데이트하여 새 버전을 사용해야 두 저장소 계정에서 모두 원활하게 작업할 수 있습니다. 일반적으로 사용하는 저장소 계정 유형에 관계없이 항상 최신 버전을 권장합니다.
+
+일반적으로 트랜잭션 및 대역폭 측면에서 GPv2 가격은 GPv1보다 더 높습니다. 따라서 전체 청구 비용이 증가하지 않도록 업그레이드하기 전에 트랜잭션 패턴을 최적화해야 합니다.
 
 **사용자 환경이 변경되었나요?**
 

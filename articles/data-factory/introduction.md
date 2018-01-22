@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/29/2017
+ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: 7961f998b59991b47e1c22d826bf0a50fcd09099
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: ac1ecf8ef9f1e30eb5bdd2fe86433a4981d73d8d
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="introduction-to-azure-data-factory"></a>Azure Data Factory 소개 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -127,4 +127,13 @@ Azure 데이터 팩터리 자체는 데이터를 저장하지 않습니다. 데�
 Data Factory 서비스 버전 1과 버전 2 사이의 차이점 목록은 [버전 1과 비교](compare-versions.md)를 참조하세요. 
 
 ## <a name="next-steps"></a>다음 단계
-다음 빠른 시작의 단계별 지침에 따라 데이터 팩터리를 만드는 방법에 대해 알아보기: [PowerShell](quickstart-create-data-factory-powershell.md), [.NET](quickstart-create-data-factory-dot-net.md), [Python](quickstart-create-data-factory-python.md), [REST API](quickstart-create-data-factory-rest-api.md) 및 Azure Portal. 
+다음 도구/SDK 중 하나를 사용하여 Data Factory 파이프라인을 만들기 시작합니다. 
+
+- [Azure Portal의 Data Factory UI](quickstart-create-data-factory-portal.md)
+- [Azure Portal의 데이터 복사 도구](quickstart-create-data-factory-copy-data-tool.md)
+- [PowerShell](quickstart-create-data-factory-powershell.md)
+- [.NET](quickstart-create-data-factory-dot-net.md)
+- [Python](quickstart-create-data-factory-python.md)
+- [REST](quickstart-create-data-factory-rest-api.md)
+- [Azure Resource Manager 템플릿](quickstart-create-data-factory-resource-manager-template.md)
+ 

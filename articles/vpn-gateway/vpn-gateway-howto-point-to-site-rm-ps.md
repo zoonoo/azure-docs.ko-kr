@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/04/2017
+ms.date: 01/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 367288e313ae5517b126b17c905ae291b5b37975
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: bbaa5a6bbc01af4529c657aee3b2916942b4269f
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-powershell"></a>네이티브 Azure 인증서 인증을 사용하여 VNet에 지점 및 사이트 간 연결 구성: PowerShell
 
 이 문서에서는 Resource Manager 배포 모델에서 PowerShell을 사용하여 지점 및 사이트 간 연결로 VNet을 만드는 방법을 보여줍니다. 이 구성에서는 인증에 인증서를 사용합니다. 이 구성에서 Azure VPN Gateway는 RADIUS 서버 대신 인증서의 유효성 검사를 수행합니다. 다른 배포 도구 또는 배포 모델을 사용하는 경우 다음 목록에서 별도의 옵션을 선택하여 이 구성을 만들 수도 있습니다.
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+> * [Azure 포털](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
 > * [Azure Portal(클래식)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
 >
@@ -165,7 +165,7 @@ VNet용 가상 네트워크 게이트웨이를 구성하고 만듭니다.
 
 * -GatewayType은  **Vpn**이어야 하고 -VpnType은 **RouteBased**여야 합니다.
 * -VpnClientProtocol은 사용하려는 터널의 유형을 지정하는 데 사용됩니다. 터널 옵션은 **SSTP** 및 **IKEv2**입니다. 그 중 하나 또는 둘 다를 사용하도록 선택할 수 있습니다. 둘 다 사용하려는 경우 쉼표로 구분된 이름을 지정합니다. Android 및 Linux의 Strongswan 클라이언트 및 iOS 및 OSX의 네이티브 IKEv2 VPN 클라이언트는 IKEv2 터널을 연결하는 데만 사용됩니다. Windows 클라이언트는 IKEv2를 먼저 시도하고 연결되지 않는 경우 SSTP로 대체합니다.
-* VPN 게이트웨이는 선택한 [게이트웨이 SKU](vpn-gateway-about-vpn-gateway-settings.md)에 따라 완료하는 데 최대 45분이 걸릴 수 있습니다. 이 예제에서는 현재 미리 보기에서 사용 가능한 IKEv2를 사용합니다.
+* VPN 게이트웨이는 선택한 [게이트웨이 SKU](vpn-gateway-about-vpn-gateway-settings.md)에 따라 완료하는 데 최대 45분이 걸릴 수 있습니다. 이 예제에서는 IKEv2를 사용합니다.
 
 ```powershell
 New-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `

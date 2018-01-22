@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/02/2017
 ms.author: nisoneji
-ms.openlocfilehash: 5c7ff99c2f67f82f9a7d605d9960960f84e96900
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 34f0b641abcf4231655d74da46f1bdcadc5642f6
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="run-azure-site-recovery-deployment-planner-for-hyper-v-to-azure"></a>Hyper-V에서 Azure로 Azure Site Recovery Deployment Planner 실행
 
@@ -97,7 +97,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 |-Virtualization|가상화 유형(VMware 또는 Hyper-V)을 지정합니다.|
 |-Directory|(선택 사항) 프로파일링 중에 생성된 프로파일링 데이터를 저장하기 위한 범용 명명 규칙(UNC) 또는 로컬 디렉터리 경로입니다. 지정하지 않으면 현재 경로 아래에 'ProfiledData'라는 디렉터리가 기본 디렉터리로 사용됩니다.|
 |-Password|(선택 사항) Hyper-V 호스트에 연결할 암호입니다. 지금 지정하지 않으면 나중에 명령을 실행할 때 지정하라는 메시지가 나타납니다.|
-|-StorageAccountName|(선택 사항) 온-프레미스 환경에서 Azure로의 데이터 복제에서 달성할 수 있는 처리량을 확인하기 위해 사용되는 저장소 계정 이름입니다. 도구에서 이 저장소 계정에 테스트 데이터를 업로드하여 처리량을 계산합니다.|
+|-StorageAccountName|(선택 사항) 온-프레미스 환경에서 Azure로의 데이터 복제에서 달성할 수 있는 처리량을 확인하기 위해 사용되는 저장소 계정 이름입니다. 도구에서 이 저장소 계정에 테스트 데이터를 업로드하여 처리량을 계산합니다. 저장소 계정은 범용 v1 또는 storageV2(범용 v2) 중 하나여야 합니다.|
 |-StorageAccountKey|(선택 사항) 저장소 계정에 액세스하는 데 사용되는 저장소 계정 키입니다. Azure Portal> Storage 계정> <Storage account name>> 설정> 액세스 키 > Key1(또는 클래식 Storage 계정의 기본 액세스 키)로 차례로 이동합니다.|
 |-Environment|(선택 사항) 대상 Azure Storage 계정 환경입니다. AzureCloud, AzureUSGovernment, AzureChinaCloud의 3가지 값 중 하나일 수 있습니다. 기본값은 AzureCloud입니다. 대상 Azure 지역이 Azure 미국 정부 또는 Azure 중국 클라우드인 경우 매개 변수를 사용하세요.|
 
@@ -274,7 +274,7 @@ ASRDeploymentPlanner.exe -Operation GetThroughput /?
 | -Operation | GetThroughtput |
 |-Virtualization|가상화 유형(VMware 또는 Hyper-V)을 지정합니다.|
 |-Directory|(선택 사항) 프로파일링된 데이터(프로파일링 중에 생성된 파일)가 저장되는 UNC( 범용 명명 규칙) 또는 로컬 디렉터리 경로입니다. 이 데이터는 보고서를 생성하는 데 필요합니다. 이름을 지정하지 않으면 현재 경로 아래에 'ProfiledData'라는 디렉터리가 기본 디렉터리로 사용됩니다.|
-| -StorageAccountName | 온-프레미스 환경에서 Azure로의 데이터 복제에서 사용되는 대역폭을 확인하기 위해 사용하는 저장소 계정 이름입니다. 도구에서 이 저장소 계정에 테스트 데이터를 업로드하여 사용되는 대역폭을 찾습니다. |
+| -StorageAccountName | 온-프레미스 환경에서 Azure로의 데이터 복제에서 사용되는 대역폭을 확인하기 위해 사용하는 저장소 계정 이름입니다. 도구에서 이 저장소 계정에 테스트 데이터를 업로드하여 사용되는 대역폭을 찾습니다. 저장소 계정은 범용 v1 또는 storageV2(범용 v2) 중 하나여야 합니다. |
 | -StorageAccountKey | 저장소 계정에 액세스하는 데 사용되는 저장소 계정 키입니다. Azure Portal > 저장소 계정 > <*저장소 계정 이름*> > 설정> 액세스 키 > Key1로 이동합니다.|
 | -VMListFile | 사용되는 대역폭을 계산하기 위해 프로파일링할 VM의 목록을 포함하고 있는 파일입니다. 파일 경로는 절대 경로 또는 상대 경로일 수 있습니다. Hyper-V의 경우 이 파일은 GetVMList 작업의 출력 파일입니다. 수동으로 준비하는 경우 파일에 1개의 서버 이름이나 IP 주소와 그 뒤에 VM 이름이 \으로 구분되어 줄마다 포함되어야 합니다. 파일에 지정된 VM 이름은 Hyper-V 호스트의 VM 이름과 동일해야 합니다.<ul>예를 들어 "VMList.txt" 파일에는 다음과 같은 VM이 포함됩니다.<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
 |-Environment|(선택 사항) 대상 Azure Storage 계정 환경입니다. AzureCloud, AzureUSGovernment, AzureChinaCloud의 3가지 값 중 하나일 수 있습니다. 기본값은 AzureCloud입니다. 대상 Azure 지역이 Azure 미국 정부 또는 Azure 중국 클라우드인 경우 매개 변수를 사용하세요.|

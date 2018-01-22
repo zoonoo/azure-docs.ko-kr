@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: ambapat
-ms.openlocfilehash: d00c6e0acf437d2bfc3c27e948f4646a6685b08f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ad31e869d998d29d403ff97c17150c5078ce856d
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="access-azure-key-vault-behind-a-firewall"></a>방화벽 뒤에 있는 Azure Key Vault 액세스
 ### <a name="q-my-key-vault-client-application-needs-to-be-behind-a-firewall-what-ports-hosts-or-ip-addresses-should-i-open-to-enable-access-to-a-key-vault"></a>Q: 내 주요 자격 증명 모음 클라이언트 응용 프로그램은 방화벽 뒤에 있어야 합니다. 주요 자격 증명 모음에 대한 액세스를 활성화하려면 어떤 포트, 호스트 또는 IP 주소를 열어야 합니까?
@@ -38,8 +38,8 @@ ms.lasthandoff: 10/11/2017
 
 | 주체 유형 | 끝점:포트 |
 | --- | --- |
-| Microsoft 계정을 사용하는 사용자<br> (예: user@hotmail.com) |**전역:**<br> login.microsoftonline.com:443<br><br> **Azure 중국:**<br> login.chinacloudapi.cn:443<br><br>**Azure 미국 정부:**<br> login-us.microsoftonline.com:443<br><br>**Azure 독일:**<br> login.microsoftonline.de:443<br><br> and <br>login.live.com:443 |
-| Azure AD로 회사 또는 학교 계정을 사용하는 사용자 또는 서비스 주체(예: user@contoso.com) |**전역:**<br> login.microsoftonline.com:443<br><br> **Azure 중국:**<br> login.chinacloudapi.cn:443<br><br>**Azure 미국 정부:**<br> login-us.microsoftonline.com:443<br><br>**Azure 독일:**<br> login.microsoftonline.de:443 |
+| Microsoft 계정을 사용하는 사용자<br> (예: user@hotmail.com) |**전역:**<br> login.microsoftonline.com:443<br><br> **Azure 중국:**<br> login.chinacloudapi.cn:443<br><br>**Azure 미국 정부:**<br> login.microsoftonline.us:443<br><br>**Azure 독일:**<br> login.microsoftonline.de:443<br><br> and <br>login.live.com:443 |
+| Azure AD로 회사 또는 학교 계정을 사용하는 사용자 또는 서비스 주체(예: user@contoso.com) |**전역:**<br> login.microsoftonline.com:443<br><br> **Azure 중국:**<br> login.chinacloudapi.cn:443<br><br>**Azure 미국 정부:**<br> login.microsoftonline.us:443<br><br>**Azure 독일:**<br> login.microsoftonline.de:443 |
 | 회사 또는 학교 계정을 사용하는 사용자 또는 서비스 주체 및 AD FS(Active Directory Federation Services) 또는 다른 페더레이션된 끝점(예: user@contoso.com) |회사 또는 학교 계정에 대한 모든 끝점 및 AD FS 또는 다른 페더레이션된 끝점 |
 
 다른 복잡한 시나리오도 가능합니다. 추가 정보는 [Azure Active Directory 인증 흐름](/documentation/articles/active-directory-authentication-scenarios/), [Azure Active Directory와 응용 프로그램 통합](/documentation/articles/active-directory-integrating-applications/) 및 [Active Directory 인증 프로토콜](https://msdn.microsoft.com/library/azure/dn151124.aspx)을 참조하세요.  
