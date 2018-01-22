@@ -115,6 +115,9 @@
           href: apache-spark-microsoft-cognitive-toolkit.md
     - name: 빅 데이터 분석
       items:
+        - name: Spark를 사용하여 HBase 데이터 읽기 및 쓰기
+          href: ../hdinsight-using-spark-query-hbase.md
+          maintainContext: true
         - name: Application Insights 원격 분석 로그 분석
           href: apache-spark-analyze-application-insight-logs.md
     - name: 클러스터 확장
@@ -178,6 +181,8 @@
           maintainContext: true
     - name: 관리
       items:
+        - name: Spark 작업 최적화
+          href: apache-spark-perf.md
         - name: 클러스터 용량 계획
           href: ../hdinsight-capacity-planning.md
           maintainContext: true
@@ -280,7 +285,7 @@
           maintainContext: true
     - name: 문제 해결
       items:
-        - name: 저속 또는 문제 발생 HDInsight 클러스터 문제 해결
+        - name: 속도가 느리거나 오류가 발생하는 HDInsight 클러스터 문제 해결
           href: ../hdinsight-troubleshoot-failed-cluster.md
           maintainContext: true
         - name: Spark 문제 해결

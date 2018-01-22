@@ -45,6 +45,10 @@
           maintainContext: true
     - name: 개발
       items:
+        - name: Kafka 생산자 및 소비자 API 사용
+          href: apache-kafka-producer-consumer-api.md
+        - name: Kafka 스트림 API 사용
+          href: apache-kafka-streams-api.md
         - name: 빈 에지 노드 사용
           href: ../hdinsight-apps-use-edge-node.md
           maintainContext: true
@@ -152,7 +156,7 @@
       href: ../hdinsight-troubleshoot-guide.md
       maintainContext: true
       items:
-        - name: 저속 또는 문제 발생 HDInsight 클러스터 문제 해결
+        - name: 속도가 느리거나 오류가 발생하는 HDInsight 클러스터 문제 해결
           href: ../hdinsight-troubleshoot-failed-cluster.md
           maintainContext: true
         - name: HDFS 문제 해결

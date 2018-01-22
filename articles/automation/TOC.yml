@@ -131,10 +131,10 @@
       items:
         - name: Runbook 갤러리
           href: automation-runbook-gallery.md
+        - name: Azure 경고에서 Runbook 시작
+          href: automation-create-alert-triggered-runbook.md
         - name: Amazon 웹 서비스 VM 만들기
           href: automation-scenario-aws-deployment.md
-        - name: Azure VM 경고 수정
-          href: automation-azure-vm-alert-integration.md
         - name: JSON 태그가 있는 VM 시작/중지
           href: automation-scenario-start-stop-vm-wjson-tags.md
         - name: 리소스 그룹 제거
@@ -181,7 +181,7 @@
           href: automation-troubleshooting-automation-errors.md
         - name: Hybrid Runbook Worker 문제 해결
           href: automation-troubleshooting-hybrid-runbook-worker.md
-- name: 참조
+- name: 참고 자료
   items:
     - name: Azure PowerShell
       href: /powershell/module/azurerm.automation
@@ -215,5 +215,5 @@
       href: 'https://azure.microsoft.com/updates/?product=automation'
     - name: 스택 오버플로
       href: 'http://stackoverflow.com/questions/tagged/azure-automation'
-    - name: 비디오
+    - name: 동영상
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=automation'
