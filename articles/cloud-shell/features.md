@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: juluk
-ms.openlocfilehash: 79c3f376c2800e2ce9123c31af6e1aa2aacfcf00
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: a6627ab6febc763ae3f1cd464f26ad641f7c717d
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="features--tools-for-bash-in-azure-cloud-shell"></a>Azure Cloud Shell의 Bash 기능 및 도구
 
-[!include [features-introblock](../../includes/cloud-shell-features-introblock.md)]
+[!INCLUDE [features-introblock](../../includes/cloud-shell-features-introblock.md)]
 
 > [!TIP]
 > 또한 [PowerShell](features-powershell.md)에 대한 기능 및 도구를 사용할 수 있습니다.
@@ -35,7 +35,7 @@ Azure Cloud Shell의 Bash는 `Ubuntu 16.04 LTS`에서 실행됩니다.
 
 Azure Cloud Shell의 Bash는 Azure CLI 2.0에 대한 계정 액세스를 안전하고 자동으로 인증합니다.
 
-### <a name="ssh-into-azure-linux-virtual-machines"></a>Azure Linux 가상 컴퓨터에 SSH
+### <a name="ssh-into-azure-linux-virtual-machines"></a>Azure Linux 가상 머신에 SSH
 
 Azure CLI 2.0에서 Linux VM을 만들면 기본 SSH 키를 만들고 `$Home` 디렉터리에 배치할 수 있습니다. SSH 키를 `$Home`에 배치하면 Azure Cloud Shell에서 Azure Linux VM에 직접 SSH 연결을 할 수 있습니다. 키는 파일 공유에서 acc_<user>.img에 보관되어, 파일 공유나 키에 대한 액세스를 사용하거나 공유할 때 모범 사례를 활용합니다.
 
@@ -50,7 +50,7 @@ Azure CLI 2.0에서 Linux VM을 만들면 기본 SSH 키를 만들고 `$Home` �
 
 ## <a name="tools"></a>도구
 
-|Category   |이름   |
+|Category   |Name   |
 |---|---|
 |Linux 도구            |bash<br> sh<br> tmux<br> dig<br>               |
 |Azure 도구            |[Azure CLI 2.0](https://github.com/Azure/azure-cli) 및 [1.0](https://github.com/Azure/azure-xplat-cli)<br> [AZCopy](https://docs.microsoft.com/azure/storage/storage-use-azcopy)<br> [Batch Shipyard](https://github.com/Azure/batch-shipyard) <br> [Service Fabric CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli) <br> [blobxfer](https://github.com/Azure/blobxfer#blobxfer) |
@@ -59,18 +59,18 @@ Azure CLI 2.0에서 Linux VM을 만들면 기본 SSH 키를 만들고 `$Home` �
 |빌드 도구            |make<br> maven<br> npm<br> pip         |
 |컨테이너             |[Docker CLI](https://github.com/docker/cli)/[Docker Machine](https://github.com/docker/machine)<br> [Kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)<br> [Helm](https://github.com/kubernetes/helm)<br> [DC/OS CLI](https://github.com/dcos/dcos-cli)         |
 |데이터베이스              |MySQL 클라이언트<br> PostgreSql 클라이언트<br> [sqlcmd 유틸리티](https://docs.microsoft.com/sql/tools/sqlcmd-utility)<br> [mssql-scripter](https://github.com/Microsoft/sql-xplat-cli) |
-|기타                  |iPython 클라이언트<br> [Cloud Foundry CLI](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)|
+|기타                  |iPython 클라이언트<br> [Cloud Foundry CLI](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/) |
 
 ## <a name="language-support"></a>언어 지원
 
-|language   |버전   |
+|언어   |버전   |
 |---|---|
 |.NET       |2.0.0       |
 |Go         |1.7        |
 |자바       |1.8        |
 |Node.js    |6.9.4      |
 |PowerShell |[6.0(베타)](https://github.com/PowerShell/powershell/releases)       |
-|Python     |2.7 및 3.5(기본값)|
+|파이썬     |2.7 및 3.5(기본값)|
 
 ## <a name="next-steps"></a>다음 단계
 [Azure Cloud Shell의 Bash 빠른 시작](quickstart.md) <br>
