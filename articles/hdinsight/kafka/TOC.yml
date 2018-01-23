@@ -34,7 +34,7 @@
         - name: Kafka 및 Spark(구조적 스트림)
           href: ../hdinsight-apache-kafka-spark-structured-streaming.md
           maintainContext: true
-        - name: Kafka에서 CosmosDB로의 구조적 스트림
+        - name: Kafka에서 Azure Cosmos DB로의 구조적 스트림
           href: ../apache-kafka-spark-structured-streaming-cosmosdb.md
           maintainContext: true
         - name: Kafka 및 Spark(DStream)

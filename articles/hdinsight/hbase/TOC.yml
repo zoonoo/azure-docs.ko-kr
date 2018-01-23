@@ -39,6 +39,9 @@
         - name: 비대화형 인증 .NET HDInsight 응용 프로그램 만들기
           href: ../hdinsight-create-non-interactive-authentication-dotnet-applications.md
           maintainContext: true
+        - name: HDInsight의 Apache Phoenix
+          href: ../hdinsight-phoenix-in-hdinsight.md
+          maintainContext: true
         - name: Phoenix 및 SQLLine 사용
           href: apache-hbase-phoenix-squirrel-linux.md
         - name: Phoenix Query Server REST SDK 사용

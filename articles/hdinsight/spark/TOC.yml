@@ -113,6 +113,8 @@
           href: apache-spark-deep-learning-caffe.md
         - name: Microsoft Cognitive 도구 키트와 함께 사용
           href: apache-spark-microsoft-cognitive-toolkit.md
+        - name: Spark Machine Learning 파이프라인 만들기
+          href: apache-spark-creating-ml-pipelines.md
     - name: 빅 데이터 분석
       items:
         - name: Spark를 사용하여 HBase 데이터 읽기 및 쓰기

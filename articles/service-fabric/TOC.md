@@ -311,6 +311,7 @@
 ### 성능 모니터링
 #### [WAD를 사용하여 성능 모니터링](service-fabric-diagnostics-perf-wad.md)
 
+
 # 참고 자료
 ## [Azure PowerShell](/powershell/module/azurerm.servicefabric/)
 ## [PowerShell](/powershell/module/servicefabric/?view=azureservicefabricps)
@@ -328,6 +329,7 @@
 ### [sfctl service](service-fabric-sfctl-service.md)
 ### [sfctl store](service-fabric-sfctl-store.md)
 ## [Java API](/java/api/overview/azure/servicefabric)
+### [Java REST 클라이언트 API](service-fabric-java-rest-api-usage.md)
 ## [.NET](/dotnet/api/overview/azure/service-fabric?view=azure-dotnet)
 ## [REST](/rest/api/servicefabric)
 ## [서비스 모델 XML 스키마](service-fabric-service-model-schema.md)
@@ -338,7 +340,7 @@
 ## [일반적인 질문](service-fabric-common-questions.md)
 ## [학습 경로](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/home?forum=AzureServiceFabric)
-## [가격](https://azure.microsoft.com/pricing/details/service-fabric/)
+## [가격 책정](https://azure.microsoft.com/pricing/details/service-fabric/)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [샘플 코드](http://aka.ms/servicefabricsamples)
 ## [지원 옵션](service-fabric-support.md)
