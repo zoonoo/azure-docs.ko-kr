@@ -265,7 +265,7 @@
           href: site-recovery-manage-registration-and-protection.md
         - name: 자격 증명 모음 삭제
           href: delete-vault.md
-    - name: 문제 해결
+    - name: 모니터링 및 문제 해결
       items:
         - name: Azure 간 복제 문제
           href: site-recovery-azure-to-azure-troubleshoot-errors.md
@@ -275,8 +275,8 @@
           href: site-recovery-vmware-to-azure-push-install-error-codes.md
         - name: Azure 장애 조치(failover) 문제
           href: site-recovery-failover-to-azure-troubleshoot.md
-        - name: 로그 수집 및 온-프레미스 문제 해결
-          href: site-recovery-monitoring-and-troubleshooting.md
+        - name: Azure Site Recovery 모니터링
+          href: site-recovery-monitor-and-troubleshoot.md
 - name: 참고 자료
   items:
     - name: Azure PowerShell
