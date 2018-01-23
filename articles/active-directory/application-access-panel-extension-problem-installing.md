@@ -66,7 +66,7 @@ ms.lasthandoff: 01/06/2018
 ## <a name="how-do-i-use-the-my-apps-secure-sign-in-extension"></a>내 앱 보안 로그인 확장을 사용하려면 어떻게 해야 하나요?
 확장에 대한 내 앱 기본 URL 변경
 
-Https://myapps.microsoft.com이 아닌 다른 앱 URL을 사용하는 경우 다음 단계를 통해 기본 URL을 구성해야 합니다.
+https://myapps.microsoft.com 이 아닌 다른 앱 URL을 사용하는 경우 다음 단계를 통해 기본 URL을 구성해야 합니다.
 1. 확장에 로그인되지 않은 상태에서 확장 아이콘을 **마우스 오른쪽 단추로 클릭**합니다.
 2. 메뉴에서 **내 앱 URL 선택**을 클릭합니다.
 3. 기본 URL을 **선택**합니다.

@@ -173,7 +173,7 @@ while (query.HasMoreResults)
 ```
 
 **query** 개체가 페이지 크기(최대 100)로 인스턴스화되는 방식과, **GetNextAsTwinAsync** 메서드를 여러 번 호출하여 여러 페이지를 가져오는 방식에 주목합니다.
-쿼리 개체는 장치 쌍이나 작업 개체 또는 프로젝션을 사용할 때 사용되는 일반 JSON과 같은 쿼리에 필요한 역직렬화 옵션에 따라 여러 **Next***를 표시합니다.
+쿼리 개체는 장치 쌍이나 작업 개체 또는 프로젝션을 사용할 때 사용되는 일반 JSON과 같은 쿼리에 필요한 역직렬화 옵션에 따라 여러 **Next** \*를 표시합니다.
 
 ### <a name="nodejs-example"></a>Node.js 예제
 쿼리 기능은 [Node.js용 Azure IoT 서비스 SDK][lnk-hub-sdks]의 **Registry** 개체에서 공개합니다.
@@ -199,7 +199,7 @@ query.nextAsTwin(onResults);
 ```
 
 **query** 개체가 페이지 크기(최대 100)로 인스턴스화되는 방식과, **nextAsTwin** 메서드를 여러 번 호출하여 여러 페이지를 가져오는 방식에 주목합니다.
-쿼리 개체는 장치 쌍이나 작업 개체 또는 프로젝션을 사용할 때 사용되는 일반 JSON과 같은 쿼리에 필요한 역직렬화 옵션에 따라 여러 **next***를 표시합니다.
+쿼리 개체는 장치 쌍이나 작업 개체 또는 프로젝션을 사용할 때 사용되는 일반 JSON과 같은 쿼리에 필요한 역직렬화 옵션에 따라 여러 **next** \*를 표시합니다.
 
 ### <a name="limitations"></a>제한 사항
 > [!IMPORTANT]
@@ -400,7 +400,7 @@ SELECT [TOP <max number>] <projection list>
 
 **Attribute_name**은 FROM 컬렉션에 있는 JSON 문서의 속성을 참조합니다. SELECT 절에 대한 예제는 [장치 쌍 쿼리 시작][lnk-query-getstarted] 섹션에서 찾을 수 있습니다.
 
-현재 **SELECT***와 다른 선택 절은 장치 쌍에 대한 집계 쿼리에서만 지원됩니다.
+현재 **SELECT** \*와 다른 선택 절은 장치 쌍에 대한 집계 쿼리에서만 지원됩니다.
 
 ## <a name="group-by-clause"></a>GROUP BY 절
 **GROUP BY <group_specification>** 절은 WHERE 절에 지정된 필터 뒤에서, 그리고 SELECT에 지정된 프로젝션 앞에서 실행될 수 있는 선택적 단계입니다. 특성의 값을 기반으로 문서를 그룹화합니다. 이러한 그룹은 SELECT 절에 지정된 대로 집계된 값을 생성하는 데 사용됩니다.
