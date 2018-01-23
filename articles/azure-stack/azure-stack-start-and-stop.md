@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: mabrigg
-ms.openlocfilehash: 2a18d278702c47597fd6896fb507849ef5e8e786
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 09c22b22b49664a55b8a9e77936df3b1362d5b88
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="start-and-stop-azure-stack"></a>시작 및 중지 Azure 스택
 
-*적용 대상: Azure 스택 시스템 통합*
+*적용 대상: Azure 스택 통합 시스템 (1712 이상 버전)*
 
 ## <a name="stop-azure-stack"></a>Azure 스택 중지 
 

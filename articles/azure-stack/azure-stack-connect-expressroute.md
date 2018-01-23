@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: victorh
-ms.openlocfilehash: aa6973939c6cfe0688f5781fdcea5d39670249df
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 248e9cb521975e9c982684668a68214ce5a1c827
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="connect-azure-stack-to-azure-using-expressroute"></a>Azure 스택 ExpressRoute를 사용 하 여 Azure에 연결
 
@@ -97,9 +97,9 @@ Azure에서 가상 네트워크를 Azure 스택에서 가상 네트워크를 연
 
     a. 리소스 그룹에 대 한 리소스 그룹을 만들 하거나 이미 있는 경우 하나를 선택 **기존 항목 사용**합니다.
 
-    b. 기본 위치를 확인합니다.
+    나. 기본 위치를 확인합니다.
 
-    c. **대시보드에 고정**을 클릭합니다.
+    다. **대시보드에 고정**을 클릭합니다.
 
     d. **만들기**를 클릭합니다.
 
@@ -162,7 +162,7 @@ Azure에서 가상 네트워크를 Azure 스택에서 가상 네트워크를 연
 
     ![](media/azure-stack-connect-expressroute/GWPublicIP.png)
 
-#### <a name="create-a-virtual-machine"></a>가상 컴퓨터 만들기
+#### <a name="create-a-virtual-machine"></a>가상 머신 만들기
 VPN 연결을 통해 전송 되는 데이터의 유효성을 검사 하려면 가상 컴퓨터를 Azure 스택 Vnet에 데이터를 송수신 해야 합니다. 가상 컴퓨터를 지금 만들고 가상 네트워크에 VM 서브넷에 배치 합니다.
 
 1. Azure 스택 사용자 포털에서 클릭 **새로**합니다.
@@ -205,19 +205,22 @@ Azure 스택 개발 키트는 완전히 물리적 호스트 배포 된 네트워
    예제 다이어그램에는 *외부 BGPNAT 주소* 10.10.0.62은 및 *내부 IP 주소* 192.168.102.1 됩니다.
 
    ```
+   $ExtBgpNat = '<External BGPNAT address>'
+   $IntBgpNat = '<Internal IP address>'
+
    # Designate the external NAT address for the ports that use the IKE authentication.
    Invoke-Command `
     -ComputerName azs-bgpnat01 `
      {Add-NetNatExternalAddress `
       -NatName BGPNAT `
-      -IPAddress <External BGPNAT address> `
+      -IPAddress $Using:ExtBgpNat `
       -PortStart 499 `
       -PortEnd 501}
    Invoke-Command `
     -ComputerName azs-bgpnat01 `
      {Add-NetNatExternalAddress `
       -NatName BGPNAT `
-      -IPAddress <External BGPNAT address> `
+      -IPAddress $Using:ExtBgpNat `
       -PortStart 4499 `
       -PortEnd 4501}
    # create a static NAT mapping to map the external address to the Gateway
@@ -227,8 +230,8 @@ Azure 스택 개발 키트는 완전히 물리적 호스트 배포 된 네트워
      {Add-NetNatStaticMapping `
       -NatName BGPNAT `
       -Protocol UDP `
-      -ExternalIPAddress <External BGPNAT address> `
-      -InternalIPAddress <Internal IP address> `
+      -ExternalIPAddress $Using:ExtBgpNat `
+      -InternalIPAddress $Using:IntBgpNat `
       -ExternalPort 500 `
       -InternalPort 500}
    # Finally, configure NAT traversal which uses port 4500 to
@@ -238,8 +241,8 @@ Azure 스택 개발 키트는 완전히 물리적 호스트 배포 된 네트워
      {Add-NetNatStaticMapping `
       -NatName BGPNAT `
       -Protocol UDP `
-      -ExternalIPAddress <External BGPNAT address> `
-      -InternalIPAddress <Internal IP address> `
+      -ExternalIPAddress $Using:ExtBgpNat `
+      -InternalIPAddress $Using:IntBgpNat `
       -ExternalPort 4500 `
       -InternalPort 4500}
    ```
@@ -247,7 +250,7 @@ Azure 스택 개발 키트는 완전히 물리적 호스트 배포 된 네트워
 ## <a name="configure-azure"></a>Azure 구성
 Azure 스택 구성을 완료 하 한 했으므로 일부 Azure 리소스를 배포할 수 있습니다. 다음 그림에 샘플 테 넌 트 Azure의 가상 네트워크입니다. Azure의 VNet에 대 한 다른 이름 및 주소 지정 체계를 사용할 수 있습니다. 그러나 Azure 및 Azure 스택의 Vnet의 주소 범위 고유 해야 하며 겹치면 안 됩니다.
 
-![Azure Vnet](media/azure-stack-connect-expressroute/AzureArchitecture.png)
+![Azure Vnets](media/azure-stack-connect-expressroute/AzureArchitecture.png)
 
 **다이어그램 3**
 
@@ -292,7 +295,7 @@ Azure에서 가상 네트워크 만들기에 대 한 자세한 내용은 참조 
    * 스포크 허브에서: **게이트웨이 전송 허용**
    * 허브에 스포크: **원격 게이트웨이 사용**
 
-### <a name="create-a-virtual-machine"></a>가상 컴퓨터 만들기
+### <a name="create-a-virtual-machine"></a>가상 머신 만들기
 
 * 스포크 VNet에 작업 가상 컴퓨터를 배포 합니다.
 

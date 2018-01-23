@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: helaw
-ms.openlocfilehash: c99e5ebc2612e10f42bddbbd2f1c17d7404305d3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c30b0a78cf3421554cf8f7c887c7973c7b9f4b9c
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="check-your-templates-for-azure-stack-with-template-validator"></a>Azure 스택 템플릿 검사기에 대 한 서식 파일을 확인 하십시오.
 
@@ -93,7 +93,7 @@ test-AzureRMTemplate -TemplatePath C:\AzureStack-Quickstart-Templates `
 3.  서비스 버전을 검색 하 고 클라우드 기능 JSON 파일을 만들도록 하려면 Get CloudCapabilities cmdlet을 사용 합니다.
 
     ```PowerShell
-    Get-AzureRMCloudCapabilities -Location 'local' -Verbose
+    Get-AzureRMCloudCapability -Location 'local' -Verbose
     ```             
 
 
