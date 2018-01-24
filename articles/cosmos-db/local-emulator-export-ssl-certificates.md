@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 06/06/2017
 ms.author: tvoellm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bafbd43d65a0f46f87a13cea4a2a6299d3bf43ef
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0d3811a9d59e388a1ceaacdefebc17afeda5b07d
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="export-the-azure-cosmos-db-emulator-certificates-for-use-with-java-python-and-nodejs"></a>Java, Python 및 Node.js에서 사용할 Azure Cosmos DB 에뮬레이터 인증서 내보내기
 
@@ -57,7 +57,7 @@ Windows 트레이에서 실행 중인 Azure Cosmos DB 에뮬레이터에서 아�
 
     ![Azure Cosmos DB 로컬 에뮬레이터 내보내기 3단계](./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-3.png)
 
-4. **다음**을 누릅니다.
+4. **다음**을 클릭합니다.
 
     ![Azure Cosmos DB 로컬 에뮬레이터 내보내기 4단계](./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-4.png)
 
@@ -87,11 +87,11 @@ X.509 인증서를 Java 기본 인증서 저장소로 가져 오려면 [Java CA 
 
 ## <a name="how-to-use-the-certificate-in-python"></a>Python에서 인증서를 사용하는 방법
 
-기본적으로 DocumentDB API용 [Python SDK(버전 2.0.0 이상)](documentdb-sdk-python.md)는 로컬 에뮬레이터에 연결할 때 SSL 인증서를 사용하지 않습니다. 그러나 SSL 유효성 검사를 사용하려면 [Python 소켓 래퍼 ](https://docs.python.org/2/library/ssl.html) 설명서의 예제를 따르면 됩니다.
+기본적으로 SQL API용 [Python SDK(버전 2.0.0 이상)](sql-api-sdk-python.md)는 로컬 에뮬레이터에 연결할 때 SSL 인증서를 사용하지 않습니다. 그러나 SSL 유효성 검사를 사용하려면 [Python 소켓 래퍼 ](https://docs.python.org/2/library/ssl.html) 설명서의 예제를 따르면 됩니다.
 
 ## <a name="how-to-use-the-certificate-in-nodejs"></a>Node.js에서 인증서를 사용하는 방법
 
-기본적으로 DocumentDB API용 [Node.js SDK(버전 1.10.1 이상)](documentdb-sdk-node.md)는 로컬 에뮬레이터에 연결할 때 SSL 인증서를 사용하지 않습니다. 그러나 SSL 유효성 검사를 사용하려면 [Node.js 설명서](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback)의 예제를 따르면 됩니다.
+기본적으로 SQL API용 [Node.js SDK(버전 1.10.1 이상)](sql-api-sdk-node.md)는 로컬 에뮬레이터에 연결할 때 SSL 인증서를 사용하지 않습니다. 그러나 SSL 유효성 검사를 사용하려면 [Node.js 설명서](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback)의 예제를 따르면 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

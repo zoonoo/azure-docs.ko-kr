@@ -15,21 +15,21 @@ ms.workload: web
 ms.date: 7/24/2017
 ms.author: mlearned
 ms.custom: Jenkins
-ms.openlocfilehash: e38c69ec55d894053792fbf284d07944d7f44dc0
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 9b79e3b498e51e626e7e9a87d2bb1a66366acff5
+ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Jenkins 플러그 인을 사용하여 Azure App Service에 배포 
 
 Azure에 Java 웹앱을 배포하려면 [Jenkins 파이프라인](/azure/jenkins/execute-cli-jenkins-pipeline)의 Azure CLI를 사용하거나 [Azure App Service Jenkins 플러그 인](https://plugins.jenkins.io/azure-app-service)을 사용할 수 있습니다. Jenkins 플러그 인 버전 1.0은 다음을 통해 Azure App Service의 Web Apps 기능을 사용하여 지속적인 배포를 지원합니다.
-* Git 및 FTP.
+* Git 또는 FTP.
 * Linux의 Web Apps용 Docker.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
-> * Git 및 FTP를 통해 Web Apps를 배포하도록 Jenkins 구성.
+> * Git 또는 FTP를 통해 Web Apps를 배포하도록 Jenkins 구성
 > * Web App for Containers를 배포하도록 Jenkins 구성.
 
 ## <a name="create-and-configure-a-jenkins-instance"></a>Jenkins 인스턴스 만들기 및 구성
@@ -64,7 +64,7 @@ Azure에 배포하려면 Azure 서비스 주체가 필요합니다.
 3. Microsoft Azure 서비스 주체를 추가하려면 **자격 증명 추가**를 선택합니다. **구독 ID**, **클라이언트 ID**, **클라이언트 암호** 및 **OAuth 2.0 토큰 끝점** 필드에 대한 값을 제공합니다. **ID** 필드를 **mySp**로 설정합니다. 이 ID는 이 문서의 후속 단계에서 사용됩니다.
 
 
-## <a name="configure-jenkins-to-deploy-web-apps-through-git-and-ftp"></a>Git 및 FTP를 통해 Web Apps를 배포하도록 Jenkins 구성
+## <a name="configure-jenkins-to-deploy-web-apps-by-uploading-files"></a>파일을 업로드하여 Web Apps를 배포하도록 Jenkins 구성
 
 Web Apps에 프로젝트를 배포하려면 Git 또는 FTP를 사용하여 빌드 아티팩트(예: Java의 WAR 파일)를 업로드할 수 있습니다.
 
@@ -104,7 +104,7 @@ Jenkins에서 작업을 설정하기 전에 Java 앱을 실행하려면 웹앱�
 8. 프로덕션 이외의 슬롯에 배포하려는 경우 **슬롯** 이름도 설정할 수 있습니다.
 9. 프로젝트를 저장하고 빌드합니다. 빌드가 완료되면 웹앱이 Azure에 배포됩니다.
 
-### <a name="deploy-web-apps-through-ftp-by-using-jenkins-pipeline"></a>Jenkins 파이프라인을 사용하여 FTP를 통해 Web Apps 배포
+### <a name="deploy-web-apps-by-uploading-files-using-jenkins-pipeline"></a>Jenkins 파이프라인을 사용하여 파일을 업로드해 Web Apps 배포
 
 Azure App Service Jenkins 플러그 인은 파이프 라인을 지원합니다. GitHub 리포지토리에서 다음 샘플을 참조할 수 있습니다.
 

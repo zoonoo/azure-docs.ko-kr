@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 05/23/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cf1482ae7b1070023703f5dbe861d151f5d64fd8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e02b286db42d8a9de8f1df8263f40c3732484038
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="multi-master-globally-replicated-database-architectures-with-azure-cosmos-db"></a>Azure Cosmos DB를 사용하는 다중 마스터 전역 복제 데이터베이스 아키텍처
 Azure Cosmos DB는 턴키 [전역 복제](distribute-data-globally.md)를 지원하므로 워크로드 어디서나 여러 지역에 데이터를 분산할 수 있으며 액세스 대기 시간이 짧습니다. 이 모델은 한 지역에 기록기가 있고 다른 (읽기) 지역에 지리적으로 분산된 판독기가 있는 게시자/소비자 워크로드에 주로 사용됩니다. 
@@ -317,7 +317,7 @@ Azure Cosmos DB로 전역에 분산된 다중 지역/다중 마스터 읽기 쓰
 
 * Azure Cosmos DB에서 [전역 배포](distribute-data-globally.md)를 지원하는 방법 알아보기
 * [Azure Cosmos DB의 자동 및 수동 장애 조치(failover)](regional-failover.md) 알아보기
-* [Azure Cosmos DB를 통한 전역 일관성](consistency-levels.md) 알아보기
-* [Azure Cosmos DB - DocumentDB API](tutorial-global-distribution-documentdb.md)를 사용하여 여러 지역으로 개발
+* [Azure Cosmos DB를 통한 전역 일관성](consistency-levels.md)에 대한 자세한 정보
+* [Azure Cosmos DB - SQL API](tutorial-global-distribution-sql-api.md)를 사용하여 여러 지역으로 개발
 * [Azure Cosmos DB - MongoDB API](tutorial-global-distribution-MongoDB.md)를 사용하여 여러 지역으로 개발
 * [Azure Cosmos DB - Table API](tutorial-global-distribution-table.md)를 사용하여 여러 지역으로 개발

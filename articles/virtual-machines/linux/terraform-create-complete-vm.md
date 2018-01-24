@@ -1,6 +1,6 @@
 ---
 title: "Azure에서 Terraform을 사용하여 전체 Linux VM 만들기 | Microsoft Docs"
-description: "Azure에서 Terraform을 사용하여 전체 Linux 가상 컴퓨터 환경을 만들고 관리하는 방법을 알아봅니다."
+description: "Azure에서 Terraform을 사용하여 전체 Linux 가상 머신 환경을 만들고 관리하는 방법을 알아봅니다."
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: echuvyrov
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/14/2017
 ms.author: echuvyrov
-ms.openlocfilehash: aa0c762d883b5860d7ac088cc143fb7e9e9028b6
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 13390c2db203332433e7e3c39c8d9ed5f688448c
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/03/2018
 ---
-# <a name="create-a-complete-linux-virtual-machine-infrastructure-in-azure-with-terraform"></a>Azure에서 Terraform을 사용하여 전체 Linux 가상 컴퓨터 인프라 만들기
+# <a name="create-a-complete-linux-virtual-machine-infrastructure-in-azure-with-terraform"></a>Azure에서 Terraform을 사용하여 전체 Linux 가상 머신 인프라 만들기
 
 Terraform을 사용하면 Azure에서 완전한 인프라를 정의하고 만들 수 있습니다. 일관되고 재현 가능한 방식으로 Azure 리소스를 만들고 구성하는 Terraform 템플릿을 이해하기 쉬운 형태로 빌드할 수 있습니다. 이 문서에서는 Terraform을 사용하여 전체 Linux 환경 및 지원 리소스를 만드는 방법을 보여 줍니다. 또한 [Terraform을 설치하고 구성하는](terraform-install-configure.md) 방법도 알아봅니다.
 
@@ -132,7 +132,7 @@ resource "azurerm_network_security_group" "temyterraformpublicipnsg" {
 
 
 ## <a name="create-virtual-network-interface-card"></a>가상 네트워크 인터페이스 카드 만들기
-가상 NIC(네트워크 인터페이스 카드)는 지정된 가상 네트워크, 공용 IP 주소 및 네트워크 보안 그룹에 VM을 연결합니다. Ansible Playbook의 다음 섹션에서는 사용자가 만든 가상 네트워킹 리소스에 연결된 *myNIC*라는 가상 NIC를 만듭니다.
+가상 NIC(네트워크 인터페이스 카드)는 지정된 가상 네트워크, 공용 IP 주소 및 네트워크 보안 그룹에 VM을 연결합니다. Terraform 템플릿의 다음 섹션에서는 사용자가 만든 가상 네트워킹 리소스에 연결된 *myNIC*라는 가상 NIC를 만듭니다.
 
 ```tf
 resource "azurerm_network_interface" "myterraformnic" {
@@ -469,4 +469,4 @@ ssh azureuser@<publicIps>
 ```
 
 ## <a name="next-steps"></a>다음 단계
-Terraform을 사용하여 Azure에서 기본 인프라를 만들었습니다. 부하 분산 장치 및 가상 컴퓨터 확장 집합을 사용하는 예제를 비롯한 보다 복잡한 시나리오는 여러 가지 [Azure에 대한 Terraform 예제](https://github.com/hashicorp/terraform/tree/master/examples)를 참조하세요. 지원되는 최신 Azure 공급자 전체 목록은 [Terraform 설명서](https://www.terraform.io/docs/providers/azurerm/index.html)를 참조하세요.
+Terraform을 사용하여 Azure에서 기본 인프라를 만들었습니다. 부하 분산 장치 및 가상 머신 확장 집합을 사용하는 예제를 비롯한 보다 복잡한 시나리오는 여러 가지 [Azure에 대한 Terraform 예제](https://github.com/hashicorp/terraform/tree/master/examples)를 참조하세요. 지원되는 최신 Azure 공급자 전체 목록은 [Terraform 설명서](https://www.terraform.io/docs/providers/azurerm/index.html)를 참조하세요.

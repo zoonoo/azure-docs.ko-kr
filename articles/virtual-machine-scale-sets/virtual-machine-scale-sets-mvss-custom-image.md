@@ -4,7 +4,7 @@ description: "기존 Azure Virtual Machine Scale Set 템플릿에 사용자 지�
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: gatneil
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/10/2017
 ms.author: negat
-ms.openlocfilehash: cf52fc9e95267c4bc5c0106aadf626685ddd5c24
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 28d2c080048a7f82e83ad9c1794c9757b330a8c7
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="add-a-custom-image-to-an-azure-scale-set-template"></a>Azure 확장 집합 템플릿에 사용자 지정 이미지 추가
 
@@ -27,13 +27,13 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="change-the-template-definition"></a>템플릿 정의 변경
 
-실행 가능한 최소 크기 집합 템플릿은 [여기](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json)에 있으며, 사용자 지정 이미지에서 크기 집합을 배포하기 위한 템플릿은 [여기](https://raw.githubusercontent.com/gatneil/mvss/custom-image/azuredeploy.json)에 있습니다. 이 템플릿(`git diff minimum-viable-scale-set custom-image`)을 하나씩 만드는 데 사용되는 diff에 대해 살펴보겠습니다.
+실행 가능한 최소 확장 집합 템플릿은 [여기](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json)에 있으며, 사용자 지정 이미지에서 확장 집합을 배포하기 위한 템플릿은 [여기](https://raw.githubusercontent.com/gatneil/mvss/custom-image/azuredeploy.json)에 있습니다. 이 템플릿(`git diff minimum-viable-scale-set custom-image`)을 하나씩 만드는 데 사용되는 diff에 대해 살펴보겠습니다.
 
 ### <a name="creating-a-managed-disk-image"></a>Managed Disk 이미지 만들기
 
 사용자 지정 Managed Disk 이미지가 이미 있는 경우(`Microsoft.Compute/images` 형식 리소스) 이 섹션을 건너뛰어도 됩니다.
 
-먼저 배포를 시작할 사용자 지정 이미지를 포함하는 Azure Storage의 일반화된 Blob에 대한 URI에 해당하는 `sourceImageVhdUri` 매개 변수를 추가합니다.
+먼저 배포를 시작할 사용자 지정 이미지를 포함하는 Azure Storage의 일반화된 Blob의 URI에 해당하는 `sourceImageVhdUri` 매개 변수를 추가합니다.
 
 
 ```diff
@@ -51,7 +51,7 @@ ms.lasthandoff: 10/11/2017
    "variables": {},
 ```
 
-다음으로 `sourceImageVhdUri` URI에 있는 일반화된 Blob를 기준으로 하는 Managed Disk 이미지에 해당하는 `Microsoft.Compute/images` 형식의 리소스를 추가합니다. 이 이미지는 사용되는 확장 집합과 동일한 하위 지역에 있어야 합니다. 이미지의 속성에서 OS 운영 체제, blob의 위치(`sourceImageVhdUri` 매개 변수) 및 저장소 계정 유형을 지정합니다.
+다음으로 `sourceImageVhdUri` URI에 있는 일반화된 Blob을 기준으로 하는 Managed Disk 이미지에 해당하는 `Microsoft.Compute/images` 형식의 리소스를 추가합니다. 이 이미지는 사용되는 확장 집합과 동일한 하위 지역에 있어야 합니다. 이미지의 속성에서 OS 운영 체제, blob의 위치(`sourceImageVhdUri` 매개 변수) 및 저장소 계정 유형을 지정합니다.
 
 ```diff
    "resources": [

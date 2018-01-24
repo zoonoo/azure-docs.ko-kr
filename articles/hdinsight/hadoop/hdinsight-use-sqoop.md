@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: 96d6d707d69f80a866f6ac17addabc0db076b079
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: e2f4601daf9aa3537f9170c3516d62ab1bd602e5
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="use-sqoop-with-hadoop-in-hdinsight"></a>HDInsight에서 Hadoop과 Sqoop 사용
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -47,14 +47,14 @@ HDInsight 클러스터는 일부 샘플 데이터와 함께 제공됩니다. 다
   
   | 필드 | 데이터 형식 |
   | --- | --- |
-  | clientid |string |
-  | querytime |string |
-  | market |string |
-  | deviceplatform |string |
-  | devicemake |string |
-  | devicemodel |string |
-  | state |string |
-  | country |string |
+  | clientid |문자열 |
+  | querytime |문자열 |
+  | market |문자열 |
+  | deviceplatform |문자열 |
+  | devicemake |문자열 |
+  | devicemodel |문자열 |
+  | state |문자열 |
+  | country |문자열 |
   | querydwelltime |double |
   | sessionid |bigint |
   | sessionpagevieworder |bigint |
@@ -94,7 +94,7 @@ Azure PowerShell을 사용하여 클러스터 및 SQL Database를 만들려면 [
      
         다음 값은 변수 섹션에서 하드 코드합니다.
         
-        |이름|값|
+        |Name|값|
         |----|-----|
         | 기본 저장소 계정 이름 | &lt;CluterName>store |
         | Azure SQL 데이터베이스 서버 이름 | &lt;ClusterName>dbserver |
@@ -126,7 +126,7 @@ Azure PowerShell을 사용하여 클러스터 및 SQL Database를 만들려면 [
       > **지점 및 사이트 간** 가상 네트워크의 경우 SQL Server가 VPN 클라이언트 구성 응용 프로그램을 실행해야 합니다. 이 응용 프로그램은 Azure 가상 네트워크 구성의 **대시보드**에서 사용 가능합니다.
       > 
       > 
-    * Azure 가상 컴퓨터에서 SQL Server를 사용할 때는 SQL Server를 호스트하는 가상 컴퓨터가 HDInsight와 같은 가상 네트워크의 멤버이면 모든 가상 네트워크 구성을 사용할 수 있습니다.
+    * Azure 가상 머신에서 SQL Server를 사용할 때는 SQL Server를 호스트하는 가상 머신이 HDInsight와 같은 가상 네트워크의 멤버이면 모든 가상 네트워크 구성을 사용할 수 있습니다.
   * 가상 네트워크에 HDInsight 클러스터를 만들려면 [사용자 지정 옵션을 사용하여 HDInsight의 Hadoop 클러스터 만들기](../hdinsight-hadoop-provision-linux-clusters.md)
     
     > [!NOTE]
@@ -164,7 +164,7 @@ HDInsight는 다양한 메서드를 사용하여 Sqoop 작업을 실행할 수 �
 ## <a name="next-steps"></a>다음 단계
 이제 Sqoop을 사용하는 방법에 대해 알아봤습니다. 자세한 내용은 다음을 참조하세요.
 
-* [HDInsight에서 Hive 사용](../hdinsight-use-hive.md)
+* [HDInsight에서 하이브 사용](../hdinsight-use-hive.md)
 * [HDInsight에서 Pig 사용](../hdinsight-use-pig.md)
 * [HDInsight에 데이터 업로드][hdinsight-upload-data]: HDInsight/Azure Blob Storage에 데이터를 업로드하는 다른 방법을 찾습니다.
 
@@ -221,7 +221,7 @@ PowerShell 샘플은 다음 단계를 수행합니다.
    > 연결 문자열 정보를 제외하면 이 섹션의 단계는 Azure SQL 데이터베이스 또는 SQL Server에 대해 작동합니다. 이러한 단계는 다음 구성을 사용하여 테스트했습니다.
    > 
    > * **Azure 가상 네트워크 지점 및 사이트 간 구성**: 개인 데이터 센터에서 HDInsight 클러스터를 SQL Server에 연결하는 가상 네트워크입니다. 자세한 내용은 [관리 포털에서 지점 및 사이트 간 VPN 구성](../../vpn-gateway/vpn-gateway-point-to-site-create.md) 을 참조하세요.
-   > * **Azure HDInsight 3.1**: 가상 네트워크에서 클러스터를 만드는 방법에 대한 자세한 내용은 [사용자 지정 옵션을 사용하여 HDInsight의 Hadoop 클러스터 만들기](../hdinsight-hadoop-provision-linux-clusters.md) 를 참조하세요.
+   > * **Azure HDInsight**: 가상 네트워크에서 클러스터를 만드는 방법에 대한 자세한 내용은 [사용자 지정 옵션을 사용하여 HDInsight의 Hadoop 클러스터 만들기](../hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요.
    > * **SQL Server 2014**: 인증을 허용하고 VPN 클라이언트 구성 패키지를 실행하여 가상 네트워크에 안전하게 연결할 수 있도록 구성됩니다.
    > 
    > 

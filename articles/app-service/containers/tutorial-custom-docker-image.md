@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 08503a7f6f32125c324173636dbda0548f3ccb8c
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 2580c2109ce33b1ce99aa491f7d0002edf060693
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="use-a-custom-docker-image-for-web-app-for-containers"></a>Web App for Containers에 사용자 지정 Docker 이미지 사용
 
@@ -192,7 +192,7 @@ Azure Web Apps를 사용하여 클라우드에서 네이티브 Linux 응용 프�
 
 ### <a name="create-a-web-app"></a>웹앱 만들기
 
-Cloud Shell에서 [az webapp create](/cli/azure/webapp#create) 명령을 사용하여 `myAppServicePlan` App Service 계획에 [웹앱](app-service-linux-intro.md)을 만듭니다. `<app_name>`을 고유한 앱 이름으로, <docker-ID>를 Docker ID로 바꾸어야 합니다.
+Cloud Shell에서 [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) 명령을 사용하여 `myAppServicePlan` App Service 계획에 [웹앱](app-service-linux-intro.md)을 만듭니다. `<app_name>`을 고유한 앱 이름으로, <docker-ID>를 Docker ID로 바꾸어야 합니다.
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --deployment-container-image-name <docker-ID>/mydockerimage:v1.0.0
@@ -219,7 +219,7 @@ az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name
 
 대부분의 Docker 이미지에는 환경 변수가 구성되어야 합니다. 다른 사용자가 빌드한 기존 Docker 이미지를 사용하는 경우 이미지에서 80 포트 이외의 포트를 사용할 수 있습니다. `WEBSITES_PORT` 앱 설정을 사용하여 이미지에서 사용하는 포트를 Azure에 알려줍니다. [이 자습서의 Python 샘플](https://github.com/Azure-Samples/docker-django-webapp-linux)에 대한 GitHub 페이지에서 `WEBSITES_PORT`를 _8000_으로 설정해야 함을 보여 줍니다.
 
-앱 설정을 지정하려면 Cloud Shell에서 [az webapp config appsettings update](/cli/azure/webapp/config/appsettings#update) 명령을 사용합니다. 앱 설정은 대/소문자를 구분하고 공백으로 구분합니다.
+앱 설정을 지정하려면 Cloud Shell에서 [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) 명령을 사용합니다. 앱 설정은 대/소문자를 구분하고 공백으로 구분합니다.
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WEBSITES_PORT=8000
@@ -294,10 +294,15 @@ SSH를 사용하면 컨테이너와 클라이언트 간의 보안 통신을 설�
 
     ```docker
     EXPOSE 8000 2222
-
-    RUN service ssh start
     ```
 
+* /bin 디렉터리의 셸 스크립트를 사용하여 [ssh 서비스를 시작](https://github.com/Azure-App-Service/node/blob/master/6.9.3/startup/init_container.sh)해야 합니다.
+ 
+    ```bash
+    #!/bin/bash
+    service ssh start
+    ```
+     
 ### <a name="open-ssh-connection-to-container"></a>컨테이너에 대한 SSH 연결 열기
 
 Web App for Containers는 컨테이너에 대한 외부 연결을 허용하지 않습니다. SSH는 `https://<app_name>.scm.azurewebsites.net`에서 액세스할 수 있는 Kudu 사이트를 통해서만 사용할 수 있습니다.
@@ -329,13 +334,13 @@ PID USER      PR  NI    VIRT    RES    SHR S %CPU %MEM     TIME+ COMMAND
 77 root      20   0   21920   2304   1972 R  0.0  0.1   0:00.00 top
 ```
 
-축하합니다. Web App for Containers에 사용자 지정 Docker 이미지가 구성되었습니다.
+축하합니다! Web App for Containers에 사용자 지정 Docker 이미지가 구성되었습니다.
 
 ## <a name="use-a-private-image-from-docker-hub-optional"></a>Docker 허브의 개인 이미지 사용(선택 사항)
 
 [웹앱 만들기](#create-a-web-app)에서 Docker 허브에 대한 이미지를 `az webapp create` 명령에 지정했습니다. 공용 이미지에는 이것으로 충분합니다. 개인 이미지를 사용하려면 Azure 웹앱에서 Docker 계정 ID와 암호를 구성해야 합니다.
 
-Cloud Shell에서 `az webapp create` 명령과 [az webapp config container set](/cli/azure/webapp/config/container#az_webapp_config_container_set)를 수행합니다. *\<app_name>*, _<docker-id>_ 및 _<password>_를 Docker ID 및 암호로 바꿉니다.
+Cloud Shell에서 `az webapp create` 명령과 [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set)를 수행합니다. *\<app_name>*, _<docker-id>_ 및 _<password>_를 Docker ID 및 암호로 바꿉니다.
 
 ```azurecli-interactive
 az webapp config container set --name <app_name> --resource-group myResourceGroup --docker-registry-server-user <docker-id> --docker-registry-server-password <password>
@@ -375,7 +380,7 @@ Azure Container Registry는 개인 이미지를 호스트하기 위해 Azure에�
 
 ### <a name="create-an-azure-container-registry"></a>Azure Container Registry 만들기
 
-Cloud Shell에서 [az acr create](https://docs.microsoft.com/cli/azure/acr#az_acr_create) 명령을 사용하여 Azure Container Registry를 만듭니다. 이름, 리소스 그룹 및 SKU의 `Basic`을 전달합니다. 사용 가능한 SKU는 `Classic`, `Basic`, `Standard`, `Premium`입니다.
+Cloud Shell에서 [az acr create](/cli/azure/acr?view=azure-cli-latest#az_acr_create) 명령을 사용하여 Azure Container Registry를 만듭니다. 이름, 리소스 그룹 및 SKU의 `Basic`을 전달합니다. 사용 가능한 SKU는 `Classic`, `Basic`, `Standard`, `Premium`입니다.
 
 ```azurecli-interactive
 az acr create --name <azure-container-registry-name> --resource-group myResourceGroup --sku Basic --admin-enabled true
@@ -413,7 +418,7 @@ Use an existing service principal and assign access:
 
 ### <a name="log-in-to-azure-container-registry"></a>Azure Container Registry에 로그인
 
-이미지를 레지스트리로 푸시하려면 레지스트리가 푸시를 수락하도록 자격 증명을 제공해야 합니다. Cloud Shell에서 [az acr show](https://docs.microsoft.com/cli/azure/acr/credential#az_acr_credential_show) 명령을 사용하여 이러한 자격 증명을 검색할 수 있습니다. 
+이미지를 레지스트리로 푸시하려면 레지스트리가 푸시를 수락하도록 자격 증명을 제공해야 합니다. Cloud Shell에서 [az acr show](/cli/azure/acr?view=azure-cli-latest#az_acr_show) 명령을 사용하여 이러한 자격 증명을 검색할 수 있습니다. 
 
 ```azurecli-interactive
 az acr credential show --name <azure-container-registry-name>
@@ -477,7 +482,7 @@ az acr repository list -n <azure-container-registry-name>
 
 Azure Container Registry에 저장된 컨테이너를 실행하도록 Web App for Containers를 구성할 수 있습니다. Azure Container Registry를 사용하는 것이 개인 레지스트리를 사용하는 것과 같으므로, 사용자 고유의 개인 레지스트리를 사용해야 하는 경우 이 작업을 완료하는 단계도 비슷합니다.
 
-Cloud Shell에서 [az acr credential show](/cli/azure/acr/credential#az_acr_credential_show)를 실행하여 Azure Container Registry의 사용자 이름과 암호를 표시합니다. 다음 단계에서 웹앱을 구성하는 데 사용할 수 있도록 사용자 이름 및 하나의 암호를 복사합니다.
+Cloud Shell에서 [az acr credential show](/cli/azure/acr/credential?view=azure-cli-latest#az_acr_credential_show)를 실행하여 Azure Container Registry의 사용자 이름과 암호를 표시합니다. 다음 단계에서 웹앱을 구성하는 데 사용할 수 있도록 사용자 이름 및 하나의 암호를 복사합니다.
 
 ```bash
 az acr credential show --name <azure-container-registry-name>
@@ -499,7 +504,7 @@ az acr credential show --name <azure-container-registry-name>
 }
 ```
 
-Cloud Shell에서 [az webapp config container set](/cli/azure/webapp/config/container#az_webapp_config_container_set) 명령을 실행하여 사용자 지정 Docker 이미지를 웹앱에 할당합니다. *\<app_name>*, *\<docker-registry-server-url>*, _\<registry-username>_ 및 _\<password>_를 바꿉니다. Azure Container Registry의 경우 *\<docker-registry-server-url>*은 `https://<azure-container-registry-name>.azurecr.io` 형식입니다. 
+Cloud Shell에서 [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set) 명령을 실행하여 사용자 지정 Docker 이미지를 웹앱에 할당합니다. *\<app_name>*, *\<docker-registry-server-url>*, _\<registry-username>_ 및 _\<password>_를 바꿉니다. Azure Container Registry의 경우 *\<docker-registry-server-url>*은 `https://<azure-container-registry-name>.azurecr.io` 형식입니다. 
 
 ```azurecli-interactive
 az webapp config container set --name <app_name> --resource-group myResourceGroup --docker-custom-image-name mydockerimage --docker-registry-server-url https://<azure-container-registry-name>.azurecr.io --docker-registry-server-user <registry-username> --docker-registry-server-password <password>

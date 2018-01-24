@@ -14,21 +14,21 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: 390342eb08ae970fa760b414674b1a6783404d80
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 8b4347fde274d0d7520ef3acbd081fdb83d7dc7d
+ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/04/2018
 ---
-# <a name="visualize-hive-data-with-microsoft-power-bi-in-azure-hdinsight"></a>Azure HDInsight에서 Microsoft Power BI를 사용하여 Hive 데이터 시각화
+# <a name="visualize-hive-data-with-microsoft-power-bi-using-odbc-in-azure-hdinsight"></a>Azure HDInsight의 ODBC를 사용하여 Microsoft Power BI로 Hive 데이터 시각화
 
-Microsoft Power BI를 Azure HDInsight에 연결하고 Hive 데이터를 시각화하는 방법에 대해 알아봅니다. 현재 Power BI는 HDInsight에 대해 ODBC 연결만 지원합니다. 이 자습서에서는 hivesampletable Hive 테이블의 데이터를 Power BI에 로드합니다. Hive 테이블에는 일부 휴대폰 사용 현황 데이터가 포함되어 있습니다. 그런 다음 전 세계 맵에 사용 현황 데이터를 그림으로 나타냅니다.
+ODBC를 사용하여 Microsoft Power BI를 Azure HDInsight에 연결하고 Hive 데이터를 시각화하는 방법에 대해 알아봅니다. 이 자습서에서는 hivesampletable Hive 테이블의 데이터를 Power BI에 로드합니다. Hive 테이블에는 일부 휴대폰 사용 현황 데이터가 포함되어 있습니다. 그런 다음 전 세계 맵에 사용 현황 데이터를 그림으로 나타냅니다.
 
 ![HDInsight Power BI 맵 보고서](./media/apache-hadoop-connect-hive-power-bi/hdinsight-power-bi-visualization.png)
 
-정보는 새 [대화형 쿼리](../interactive-query/apache-interactive-query-get-started.md) 클러스터 유형에도 적용됩니다.
+정보는 새 [대화형 쿼리](../interactive-query/apache-interactive-query-get-started.md) 클러스터 유형에도 적용됩니다. 직접 쿼리를 사용하여 HDInsight 대화형 쿼리에 연결하는 방법은 [Visualize Interactive Query Hive data with Microsoft Power BI using direct query in Azure HDInsight](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md)(Azure HDInsight의 직접 쿼리를 사용하여 Microsoft Power BI로 대화형 쿼리 Hive 데이터 시각화)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 이 문서를 시작하기 전에 다음 항목이 있어야 합니다.
@@ -52,7 +52,7 @@ hivesampletable Hive 테이블은 모든 HDInsight 클러스터와 함께 제공
 4. **ODBC에서** 창에서 마지막 섹션에서 만든 데이터 원본 이름을 선택한 다음 **확인**을 클릭합니다.
 5. **탐색기** 창에서 **ODBC->HIVE->기본값**을 확장하여 **hivesampletable**을 선택한 다음 **로드**를 클릭합니다.
 
-## <a name="visualize-date"></a>날짜 시각화
+## <a name="visualize-data"></a>데이터 가상화
 
 마지막 절차에서 계속 진행합니다.
 
@@ -65,7 +65,7 @@ hivesampletable Hive 테이블은 모든 HDInsight 클러스터와 함께 제공
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 Power BI를 사용하여 HDInsight에서 데이터를 시각화하는 방법을 알아보았습니다.  자세한 내용은 다음 문서를 참조하세요.
 
-* [Azure HDInsight에서 Zeppelin을 사용하여 Hive 쿼리 실행](./../hdinsight-connect-hive-zeppelin.md)
+* [Azure HDInsight에서 Zeppelin을 사용하여 Hive 쿼리 실행](./../hdinsight-connect-hive-zeppelin.md).
 * [Microsoft Hive ODBC Driver로 HDInsight에 Excel 연결](./apache-hadoop-connect-excel-hive-odbc-driver.md)
 * [파워 쿼리를 사용하여 Hadoop에 Excel 연결](apache-hadoop-connect-excel-power-query.md)
 * [Data Lake Tools for Visual Studio를 사용하여 Azure HDInsight에 연결하고 Hive 쿼리 실행](apache-hadoop-visual-studio-tools-get-started.md)

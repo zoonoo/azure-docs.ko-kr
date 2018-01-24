@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: arramac
-ms.openlocfilehash: f09c96aabe637582ef43b863f8381a6ecfbebbf5
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 0be81802996f27a4c063e4e728a3c95ad757bea0
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="how-to-distribute-data-globally-with-azure-cosmos-db"></a>Azure Cosmos DB로 데이터를 글로벌 배포하는 방법
 Azure는 어디에나 존재합니다. 전 세계 30개 이상의 지역에서 사용되며 계속해서 확장 중입니다. 이처럼 전 세계에서 사용되기 때문에 Azure가 개발자에게 제공하는 차별화된 이점 중 하나는 전 세계에 분산된 응용 프로그램을 간편하게 빌드, 배포 및 관리할 수 있다는 점입니다. 
@@ -88,7 +88,7 @@ Azure Cosmos DB는 하나 이상의 하위 지역에서 가동 중단이 발생�
 ### <a id="MultiHomingAPIs"></a>Azure Cosmos DB의 멀티 호밍 API
 Azure Cosmos DB는 논리적(지역에 관계없음) 또는 물리적(지역에 한정) 끝점을 사용하여 데이터베이스와 상호 작용할 수 있습니다. 논리적 끝점을 사용하면 장애 조치(Failover) 시 응용 프로그램을 투명하게 멀티 호밍할 수 있습니다. 물리적 끝점은 읽기와 쓰기를 특정 지역에 리디렉션할 수 있는 세분화된 응용 프로그램 제어 기능을 제공합니다.
 
-[DocumentDB API](../cosmos-db/tutorial-global-distribution-documentdb.md), [Graph API](../cosmos-db/tutorial-global-distribution-graph.md), [테이블 API](../cosmos-db/tutorial-global-distribution-table.md) 및 [MongoDB API](../cosmos-db/tutorial-global-distribution-mongodb.md)에 대한 읽기 기본 설정을 구성하는 방법은 연결된 각 문서에서 찾을 수 있습니다.
+[SQL API](../cosmos-db/tutorial-global-distribution-sql-api.md), [Graph API](../cosmos-db/tutorial-global-distribution-graph.md), [테이블 API](../cosmos-db/tutorial-global-distribution-table.md) 및 [MongoDB API](../cosmos-db/tutorial-global-distribution-mongodb.md)에 대한 읽기 기본 설정을 구성하는 방법은 연결된 각 문서에서 찾을 수 있습니다.
 
 ### <a id="TransparentSchemaMigration"></a>투명하고 일관적인 데이터베이스 스키마 및 인덱스 마이그레이션 
 Azure Cosmos DB는 [스키마에 구애받지 않습니다](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf). 고유한 디자인의 데이터베이스 엔진은 사용자에게 스키마 또는 모조 인덱스를 요청하지 않고도 수집하는 모든 데이터를 자동으로 그리고 동적으로 인덱싱할 수 있습니다. 따라서 데이터베이스 스키마 및 인덱스 마이그레이션에 대해 걱정하거나 스키마 변경의 다단계 응용 프로그램 출시를 조정하는 일 없이 전역에 분산된 응용 프로그램을 신속하게 반복할 수 있습니다. Azure Cosmos DB는 사용자가 명시적으로 수행한 인덱싱 정책 변경이 성능 또는 가용성 저하로 이어지지 않도록 보장합니다.  
@@ -219,7 +219,7 @@ Azure Cosmos DB는 처리량, 대기 시간, 일관성 및 가용성 메트릭�
 ![Azure Cosmos DB 고객에게 표시되는 SLA 메트릭](./media/distribute-data-globally/customer-slas.png)
 
 ## <a id="Next Steps"></a>다음 단계
-* Azure Portal을 사용하여 Azure Cosmos DB 계정에 전역 복제를 구현하려면 [Azure Portal을 사용하여 Azure Cosmos DB 전역 데이터베이스 복제를 수행하는 방법](tutorial-global-distribution-documentdb.md)을 참조하세요.
+* Azure Portal을 사용하여 Azure Cosmos DB 계정에 전역 복제를 구현하려면 [Azure Portal을 사용하여 Azure Cosmos DB 전역 데이터베이스 복제를 수행하는 방법](tutorial-global-distribution-sql-api.md)을 참조하세요.
 * Azure Cosmos DB를 사용하여 다중 마스터 아키텍처를 구현하는 방법을 알아보려면 [Azure Cosmos DB를 사용하는 다중 마스터 데이터베이스 아키텍처](multi-region-writers.md)를 참조하세요.
 * Azure Cosmos DB에서 자동 및 수동 장애 조치(failover)가 작동하는 방식을 알아보려면 [Azure Cosmos DB의 지역별 장애 조치(failover)](regional-failover.md)를 참조하세요.
 

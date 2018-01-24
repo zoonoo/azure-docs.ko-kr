@@ -1,6 +1,6 @@
 ---
-title: "Azure Resource Manager 템플릿을 사용하여 Service Bus 네임스페이스 만들기 | Microsoft Docs"
-description: "Azure Resource Manager 템플릿을 사용하여 Service Bus 네임스페이스 만들기"
+title: "Azure Resource Manager 템플릿을 사용하여 Service Bus 메시징 네임스페이스 만들기 | Microsoft Docs"
+description: "Azure Resource Manager 템플릿을 사용하여 Service Bus 메시징 네임스페이스 만들기"
 services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
@@ -12,13 +12,13 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 08/07/2017
+ms.date: 12/21/2017
 ms.author: sethm;shvija
-ms.openlocfilehash: c8a42638c79a8a53f80102fc344eccb521e4c1c5
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: f184cc9418e4af95423c0ede65bca312dfca7393
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="create-a-service-bus-namespace-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 Service Bus 네임스페이스 만들기
 
@@ -41,6 +41,7 @@ ms.lasthandoff: 11/11/2017
 > 
 
 ## <a name="what-will-you-deploy"></a>배포할 항목
+
 이 템플릿을 사용하여 [표준 또는 프리미엄](https://azure.microsoft.com/pricing/details/service-bus/) SKU가 있는 Service Bus 네임스페이스를 배포합니다.
 
 배포를 자동으로 실행하려면 다음 단추를 클릭합니다.
@@ -48,11 +49,13 @@ ms.lasthandoff: 11/11/2017
 [![Azure에 배포](./media/service-bus-resource-manager-namespace/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-servicebus-create-namespace%2Fazuredeploy.json)
 
 ## <a name="parameters"></a>매개 변수
+
 Azure 리소스 관리자와 함께 템플릿을 배포할 때 지정하고자 하는 값으로 매개 변수를 정의합니다. 템플릿은 모든 매개 변수 값이 포함된 `Parameters` 라는 섹션을 포함합니다. 배포하는 프로젝트에 따라 또는 환경에 따라 달라지는 이러한 값에 대한 매개 변수를 정의해야 합니다. 항상 동일하게 유지되는 값으로 매개 변수를 정의하지 마십시오. 각 매개 변수 값은 배포되는 리소스를 정의하는 템플릿에 사용됩니다.
 
 이 템플릿은 다음 매개 변수를 정의합니다.
 
 ### <a name="servicebusnamespacename"></a>serviceBusNamespaceName
+
 만들 Service Bus 네임스페이스 이름입니다.
 
 ```json
@@ -65,6 +68,7 @@ Azure 리소스 관리자와 함께 템플릿을 배포할 때 지정하고자 �
 ```
 
 ### <a name="servicebussku"></a>serviceBusSKU
+
 만들 Service Bus [SKU](https://azure.microsoft.com/pricing/details/service-bus/) 이름입니다.
 
 ```json
@@ -86,6 +90,7 @@ Azure 리소스 관리자와 함께 템플릿을 배포할 때 지정하고자 �
 Service Bus 가격에 대한 자세한 내용은 [Service Bus 가격 및 대금 청구][Service Bus pricing and billing]를 참조하세요.
 
 ### <a name="servicebusapiversion"></a>serviceBusApiVersion
+
 템플릿의 Service Bus API 버전입니다.
 
 ```json
@@ -98,7 +103,9 @@ Service Bus 가격에 대한 자세한 내용은 [Service Bus 가격 및 대금 
 ```
 
 ## <a name="resources-to-deploy"></a>배포할 리소스
+
 ### <a name="service-bus-namespace"></a>Service Bus 네임스페이스
+
 **메시징**형식의 표준 Service Bus 네임스페이스를 만듭니다.
 
 ```json
@@ -120,15 +127,18 @@ Service Bus 가격에 대한 자세한 내용은 [Service Bus 가격 및 대금 
 ```
 
 ## <a name="commands-to-run-deployment"></a>배포 실행 명령
+
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ### <a name="powershell"></a>PowerShell
+
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateFile https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-servicebus-create-namespace/azuredeploy.json
 ```
 
 ### <a name="azure-cli"></a>Azure CLI
-```azurecli
+
+```azurecli-interactive
 azure config mode arm
 
 azure group deployment create <my-resource-group> <my-deployment-name> --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-servicebus-create-namespace/azuredeploy.json

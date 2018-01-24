@@ -1,6 +1,6 @@
 ---
-title: "DocumentDB API 성능 수준 | Microsoft Docs"
-description: "DocumentDB API 성능 수준을 통해 컨테이너별 기준에 따라 처리량을 예약하는 방법을 알아봅니다."
+title: "사용 중지된 Azure Cosmos DB 성능 수준 | Microsoft Docs"
+description: "Azure Cosmos DB에서 이전에 사용할 수 있는 S1, S2 및 S3 성능 수준에 대해 알아봅니다."
 services: cosmos-db
 author: mimig1
 manager: jhubbard
@@ -15,17 +15,19 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 62767163213383c577e74e0aa8fbd07f891cb694
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 9ddce64b53e8c5627050ca77f11de2ba144276a1
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>S1, S2 및 S3 성능 수준 사용 중지
 
 > [!IMPORTANT] 
-> 이 문서에서 설명하는 S1, S2 및 S3 성능 수준은 이제 사용 중지되어 새 DocumentDB API 계정에 더 이상 사용할 수 없습니다.
+> 이 문서에서 설명하는 S1, S2 및 S3 성능 수준은 이제 사용 중지되어 새 Azure Cosmos DB 계정에 더 이상 사용할 수 없습니다.
 >
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 이 문서에서는 S1, S2 및 S3 성능 수준에 대한 개요를 간략히 설명하고, 이러한 성능 수준을 사용하는 컬렉션을 2017년 말부터 단일 파티션 컬렉션으로 마이그레이션하는 방법에 대해 설명합니다. 이 문서를 읽은 다음에는 다음과 같은 질문에 답할 수 있습니다.
 
@@ -44,7 +46,7 @@ ms.lasthandoff: 11/30/2017
 
 ## <a name="why-are-the-s1-s2-and-s3-performance-levels-being-retired"></a>S1, S2 및 S3 성능 수준의 사용이 중지되는 이유는?
 
-S1, S2 및 S3 성능 수준은 DocumentDB API 컬렉션에서 제공하는 유연성을 제공하지 않습니다. S1, S2, S3 성능 수준에서는 처리량과 저장소 용량이 둘 다 미리 설정되었으며 탄력성을 제공하지 않았습니다. 이제 Azure Cosmos DB는 처리량과 저장소를 사용자 지정할 수 있는 기능을 제공하므로 크기 조정 기능을 필요에 따라 훨씬 더 유연하게 제공할 수 있습니다.
+S1, S2 및 S3 성능 수준은 표준 Azure Cosmos DB 제품이 제공하는 유연성을 제공하지 않습니다. S1, S2, S3 성능 수준에서는 처리량과 저장소 용량이 둘 다 미리 설정되었으며 탄력성을 제공하지 않았습니다. 이제 Azure Cosmos DB는 처리량과 저장소를 사용자 지정할 수 있는 기능을 제공하므로 크기 조정 기능을 필요에 따라 훨씬 더 유연하게 제공할 수 있습니다.
 
 <a name="compare"></a>
 
@@ -93,7 +95,7 @@ S3 컬렉션이 있는 경우 2,500RU/s 단일 파티션 컬렉션으로 마이�
 
 ## <a name="what-if-i-need-more-than-10-gb-of-storage"></a>저장 용량이 10GB 이상 필요한 경우 어떻게 해야 합니까?
 
-S1, S2 또는 S3 성능 수준 컬렉션 또는 단일 파티션 컬렉션이 있든 간에 모두 10GB 저장소를 사용할 수 있는 경우 Cosmos DB 데이터 마이그레이션 도구를 사용하여 거의 무제한 저장소가 있는 분할된 컬렉션으로 데이터를 마이그레이션할 수 있습니다. 분할된 컬렉션의 이점에 대한 자세한 내용은 [Azure Cosmos DB의 분할 및 크기 조정](documentdb-partition-data.md)을 참조하세요. 
+S1, S2 또는 S3 성능 수준 컬렉션 또는 단일 파티션 컬렉션이 있든 간에 모두 10GB 저장소를 사용할 수 있는 경우 Cosmos DB 데이터 마이그레이션 도구를 사용하여 거의 무제한 저장소가 있는 분할된 컬렉션으로 데이터를 마이그레이션할 수 있습니다. 분할된 컬렉션의 이점에 대한 자세한 내용은 [Azure Cosmos DB의 분할 및 크기 조정](sql-api-partition-data.md)을 참조하세요. 
 
 <a name="change-before"></a>
 
@@ -132,7 +134,7 @@ Azure Portal을 사용하거나 프로그래밍 방식으로 S1, S2 및 S3 성�
 
 4. **저장**을 클릭하여 변경 내용을 저장합니다.
 
-    더 많은 처리량(10,000RU/s 초과) 또는 더 많은 저장소(10GB 초과)가 필요하다고 판단되는 경우 분할된 컬렉션을 만들 수 있습니다. 단일 파티션 컬렉션을 분할된 컬렉션으로 마이그레이션하려면 [단일 파티션에서 분할된 컬렉션으로 마이그레이션](documentdb-partition-data.md#migrating-from-single-partition)을 참조하세요.
+    더 많은 처리량(10,000RU/s 초과) 또는 더 많은 저장소(10GB 초과)가 필요하다고 판단되는 경우 분할된 컬렉션을 만들 수 있습니다. 단일 파티션 컬렉션을 분할된 컬렉션으로 마이그레이션하려면 [단일 파티션에서 분할된 컬렉션으로 마이그레이션](sql-api-partition-data.md#migrating-from-single-partition)을 참조하세요.
 
     > [!NOTE]
     > S1, S2 또는 S3에서 표준 계층으로 변경하는 데에는 최대 2분 정도 걸릴 수 있습니다.
@@ -141,7 +143,7 @@ Azure Portal을 사용하거나 프로그래밍 방식으로 S1, S2 및 S3 성�
 
 **.NET SDK를 사용하여 단일 파티션 컬렉션으로 마이그레이션하려면**
 
-컬렉션의 성능 수준 변경에 대한 다른 옵션은 Azure Cosmos DB SDK를 통하는 것입니다. 이 섹션에서는 [DocumentDB .NET API](documentdb-sdk-dotnet.md)를 사용한 컬렉션의 성능 수준 변경에 대해서만 다루고 있으나, 다른 SDK의 경우에도 프로세스는 유사합니다.
+컬렉션의 성능 수준 변경에 대한 다른 옵션은 Azure Cosmos DB SDK를 통하는 것입니다. 이 섹션에서는 [SQL .NET API](sql-api-sdk-dotnet.md)를 사용한 컬렉션의 성능 수준 변경에 대해서만 다루고 있으나, 다른 SDK의 경우에도 프로세스는 유사합니다.
 
 다음 코드 조각에서는 컬렉션 처리량을 5,000RU/s로 변경합니다.
     
@@ -175,6 +177,6 @@ EA 고객에게 적용한 가격은 현재 계약이 종료될 때까지 보호�
 ## <a name="next-steps"></a>다음 단계
 Azure Cosmos DB의 가격 책정 및 데이터 관리에 대한 자세한 내용은 다음 리소스를 참조하세요.
 
-1.  [Cosmos DB의 데이터 분할](documentdb-partition-data.md). 단일 파티션 컨테이너와 분할된 컨테이너 간의 차이점을 이해하고 매끄럽게 크기를 조정하는 분할 전략을 구현하는 데 유용한 팁을 알아봅니다.
+1.  [Cosmos DB의 데이터 분할](sql-api-partition-data.md). 단일 파티션 컨테이너와 분할된 컨테이너 간의 차이점을 이해하고 매끄럽게 크기를 조정하는 분할 전략을 구현하는 데 유용한 팁을 알아봅니다.
 2.  [Cosmos DB 가격 책정](https://azure.microsoft.com/pricing/details/cosmos-db/). 처리량 프로비전 및 저장소 소비 비용에 대해 알아봅니다.
 3.  [요청 단위](request-units.md) 읽기, 쓰기, 쿼리와 같은 다양한 작업 유형의 처리량 사용에 대해 알아봅니다.

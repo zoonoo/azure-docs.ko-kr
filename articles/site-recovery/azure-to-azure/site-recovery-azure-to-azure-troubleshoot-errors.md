@@ -1,6 +1,6 @@
 ---
 title: "Azure Site Recovery의 Azure 간 복제 문제 및 오류 해결 | Microsoft Docs"
-description: "재해 복구를 위해 Azure 가상 컴퓨터를 복제할 때 오류 및 문제 해결"
+description: "재해 복구를 위해 Azure 가상 머신을 복제할 때 오류 및 문제 해결"
 services: site-recovery
 documentationcenter: 
 author: sujayt
@@ -14,22 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 11/21/2017
 ms.author: sujayt
-ms.openlocfilehash: 726c12d3c91a6e4fdc77397a736aaa161f0e830c
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 02d68d091cbbe02e1b5b628924ded1c2155f7119
+ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Azure 간 VM 복제 문제 해결
 
-이 문서에서는 지역 간에 Azure 가상 컴퓨터를 복제 및 복구할 때 Azure Site Recovery에서 발생하는 일반적인 문제와 해결 방법을 설명합니다. 지원되는 구성에 대한 자세한 내용은 [Azure VM을 복제하기 위한 지원 매트릭스](site-recovery-support-matrix-azure-to-azure.md)를 참조하세요.
+이 문서에서는 지역 간에 Azure 가상 머신을 복제 및 복구할 때 Azure Site Recovery에서 발생하는 일반적인 문제와 해결 방법을 설명합니다. 지원되는 구성에 대한 자세한 내용은 [Azure VM을 복제하기 위한 지원 매트릭스](site-recovery-support-matrix-azure-to-azure.md)를 참조하세요.
 
 ## <a name="azure-resource-quota-issues-error-code-150097"></a>Azure 리소스 할당량 문제(오류 코드 150097)
 재해 복구 지역으로 사용할 대상 위치에 Azure VM을 만들려면 구독이 사용되도록 설정되어 있어야 합니다. 또한 구독은 특정 크기의 VM을 만들 수 있도록 할당량이 충분해야 합니다. 기본적으로 Site Recovery는 대상 VM에 대해 원본 VM과 동일한 크기를 선택합니다. 일치하는 크기를 사용할 수 없는 경우 가능한 가장 근접한 크기가 자동으로 선택됩니다. 원본 VM 구성을 지원하는 일치하는 크기가 없는 경우 다음 오류 메시지가 나타납니다.
 
 **오류 코드** | **가능한 원인** | **권장 사항**
 --- | --- | ---
-150097<br></br>**메시지**: 가상 컴퓨터 VmName에 대해 복제를 사용하도록 설정할 수 없습니다. | - 대상 영역 위치에 VM을 만드는 구독 ID가 사용하도록 설정되어 있지 않을 수 있습니다.</br></br>- 대상 지역 위치에 특정 VM 크기를 만드는 구독 ID가 사용하도록 설정되어 있지 않거나 할당량이 충분하지 않습니다.</br></br>- 대상 지역 위치에서 구독 ID에 대해 원본 VM NIC 수(2)와 일치하는 적합한 대상 VM 크기를 찾을 수 없습니다.| [Azure 청구 지원](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request)에 문의하여 대상 위치에서 구독에 대해 필요한 VM 크기의 VM 만들기를 사용하도록 설정할 수 있습니다. 사용하도록 설정되면 실패한 작업은 다시 시도하세요.
+150097<br></br>**메시지**: 가상 머신 VmName에 대해 복제를 사용하도록 설정할 수 없습니다. | - 대상 영역 위치에 VM을 만드는 구독 ID가 사용하도록 설정되어 있지 않을 수 있습니다.</br></br>- 대상 지역 위치에 특정 VM 크기를 만드는 구독 ID가 사용하도록 설정되어 있지 않거나 할당량이 충분하지 않습니다.</br></br>- 대상 지역 위치에서 구독 ID에 대해 원본 VM NIC 수(2)와 일치하는 적합한 대상 VM 크기를 찾을 수 없습니다.| [Azure 청구 지원](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request)에 문의하여 대상 위치에서 구독에 대해 필요한 VM 크기의 VM 만들기를 사용하도록 설정할 수 있습니다. 사용하도록 설정되면 실패한 작업은 다시 시도하세요.
 
 ### <a name="fix-the-problem"></a>문제 해결
 [Azure 청구 지원](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request)에 문의하여 구독을 사용하도록 설정하면 대상 위치에 필요한 크기의 VM을 만들 수 있습니다.
@@ -97,7 +97,7 @@ Site Recovery 복제가 작동하려면 VM에서 특정 URL 또는 IP 범위에 
 
 **오류 코드** | **가능한 원인** | **권장 사항**
 --- | --- | ---
-151037<br></br>**메시지**: Site Recovery에 Azure 가상 컴퓨터를 등록하지 못했습니다. | - VM에서 NSG를 사용하여 아웃바운드 액세스를 제어하고 있으며 아웃바운드 액세스에 필요한 IP 범위가 허용 목록에 없습니다.</br></br>- 타사 방화벽 도구를 사용하고 있으며 필요한 IP 범위/URL이 허용 목록에 없습니다.</br>| - 방화벽 프록시를 사용하여 VM에서 아웃바운드 네트워크 연결을 제어하는 경우 필수 구성 요소 URL 또는 데이터 센터 IP 범위가 허용 목록에 있는지 확인합니다. 자세한 내용은 [방화벽 프록시 지침](https://aka.ms/a2a-firewall-proxy-guidance)을 참조하세요.</br></br>- NSG 규칙을 사용하여 VM에서 아웃바운드 네트워크 연결을 제어하는 경우 필수 구성 요소 데이터 센터 IP 범위가 허용 목록에 있는지 확인합니다. 자세한 내용은 [네트워크 보안 그룹 지침](https://aka.ms/a2a-nsg-guidance)을 참조하세요.
+151037<br></br>**메시지**: Site Recovery에 Azure 가상 머신을 등록하지 못했습니다. | - VM에서 NSG를 사용하여 아웃바운드 액세스를 제어하고 있으며 아웃바운드 액세스에 필요한 IP 범위가 허용 목록에 없습니다.</br></br>- 타사 방화벽 도구를 사용하고 있으며 필요한 IP 범위/URL이 허용 목록에 없습니다.</br>| - 방화벽 프록시를 사용하여 VM에서 아웃바운드 네트워크 연결을 제어하는 경우 필수 구성 요소 URL 또는 데이터 센터 IP 범위가 허용 목록에 있는지 확인합니다. 자세한 내용은 [방화벽 프록시 지침](https://aka.ms/a2a-firewall-proxy-guidance)을 참조하세요.</br></br>- NSG 규칙을 사용하여 VM에서 아웃바운드 네트워크 연결을 제어하는 경우 필수 구성 요소 데이터 센터 IP 범위가 허용 목록에 있는지 확인합니다. 자세한 내용은 [네트워크 보안 그룹 지침](https://aka.ms/a2a-nsg-guidance)을 참조하세요.
 151072<br></br>**메시지**: Site Recovery 구성이 실패했습니다. | Site Recovery 서비스 끝점에 연결할 수 없습니다. | - 방화벽 프록시를 사용하여 VM에서 아웃바운드 네트워크 연결을 제어하는 경우 필수 구성 요소 URL 또는 데이터 센터 IP 범위가 허용 목록에 있는지 확인합니다. 자세한 내용은 [방화벽 프록시 지침](https://aka.ms/a2a-firewall-proxy-guidance)을 참조하세요.</br></br>- NSG 규칙을 사용하여 VM에서 아웃바운드 네트워크 연결을 제어하는 경우 필수 구성 요소 데이터 센터 IP 범위가 허용 목록에 있는지 확인합니다. 자세한 내용은 [네트워크 보안 그룹 지침](https://aka.ms/a2a-nsg-guidance)을 참조하세요.
 
 ### <a name="fix-the-problem"></a>문제 해결
@@ -131,6 +131,20 @@ VM에 연결된 새 디스크는 초기화되어야 합니다.
 
 [부실 ASR 구성 스크립트를 제거](https://gallery.technet.microsoft.com/Azure-Recovery-ASR-script-3a93f412)하고 Azure VM의 부실 Site Recovery 구성을 제거할 수 있습니다. 부실 구성을 제거한 후 복제를 활성화할 때 VM이 표시되어야 합니다.
 
+## <a name="vms-provisioning-state-is-not-valid-error-code-150019"></a>VM의 프로비전 상태가 잘못되었습니다(오류 코드 150019).
+
+VM에서 복제를 사용하도록 설정하려면 프로비전 상태가 **성공**이어야 합니다. 다음 단계를 수행하여 VM 상태를 확인할 수 있습니다.
+
+1.  Azure Portal의 **모든 서비스**에서 **리소스 탐색기**를 선택합니다.
+2.  **구독** 목록을 확장하고 본인의 구독을 선택합니다.
+3.  **리소스 그룹** 목록을 확장하고 VM의 리소스 그룹을 선택합니다.
+4.  **리소스** 목록을 확장하고 사용하는 가상 머신을 선택합니다.
+5.  오른쪽의 인스턴스 보기에서 **provisioningState** 필드를 선택합니다.
+
+### <a name="fix-the-problem"></a>문제 해결
+
+- **provisioningState**가 **실패**이면 지원 서비스에 문제 해결을 위한 세부 정보를 문의합니다.
+- **provisioningState**가 **업데이트 중**이면 또 다른 확장을 배포할 수 있습니다. VM에서 계속 진행되는 작업이 있는지 확인한 후, 해당 작업이 완료될 때까지 기다렸다가 실패한 Site Recovery **복제 사용** 작업을 다시 시도합니다.
 
 ## <a name="next-steps"></a>다음 단계
-[Azure 가상 컴퓨터 복제](azure-to-azure-quickstart.md)
+[Azure 가상 머신 복제](azure-to-azure-quickstart.md)

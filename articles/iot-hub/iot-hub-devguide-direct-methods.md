@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/19/2017
 ms.author: nberdy
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d23bf20e4483b102fe5d946cb017dce1769b39a1
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: f0520e97a8b4f218b87683464d342bf7a08b2383
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>IoT Hub의 직접 메서드 호출 및 이해
 IoT Hub를 사용하면 클라우드의 장치에서 직접 메서드를 호출할 수 있습니다. 직접 메서드는 사용자가 지정한 시간 제한을 초과하는 즉시 성공하거나 실패한다는 점에서 HTTP 호출과 비슷한 디바이스와의 요청-응답 상호 작용을 나타냅니다. 이 접근 방법은 즉각적인 작업 과정이 장치의 응답 가능성 여부에 따라 달라지는 시나리오에 유용합니다. 예를 들어 장치가 오프라인일 때 장치에 SMS 깨우기(wake-up)를 보내는 경우가 여기에 해당됩니다.(SMS가 메서드 호출보다 비용이 높아지고 있습니다.)
@@ -33,7 +33,7 @@ IoT Hub에 **서비스 연결** 권한만 있다면 누구든 장치에서 메�
 desired 속성, 직접 메서드 또는 클라우드-장치 메시지 사용에 대해 궁금한 점이 있으면 [클라우드-장치 통신 지침][lnk-c2d-guidance]을 참조하세요.
 
 ## <a name="method-lifecycle"></a>메서드 수명 주기
-직접 메서드는 장치에서 구현되며, 제대로 인스턴스화하기 위해 메서드 페이로드에 0개 이상의 입력이 필요할 수 있습니다. 직접 메서드는 서비스 지향 URI를 통해 호출합니다(`{iot hub}/twins/{device id}/methods/`). 장치는 장치별 MQTT 토픽을 통해 직접 메서드를 수신합니다(`$iothub/methods/POST/{method name}/`). 향후 추가적인 장치 쪽 네트워킹 프로토콜에서 직접 메서드를 지원할 예정입니다.
+직접 메서드는 장치에서 구현되며, 제대로 인스턴스화하기 위해 메서드 페이로드에 0개 이상의 입력이 필요할 수 있습니다. 직접 메서드는 서비스 지향 URI를 통해 호출합니다(`{iot hub}/twins/{device id}/methods/`). 장치는 장치별 MQTT 항목(`$iothub/methods/POST/{method name}/`) 또는 AMQP 링크(`IoThub-methodname` 및 `IoThub-status` 응용 프로그램 속성)를 통해 직접 메서드를 수신합니다. 
 
 > [!NOTE]
 > 장치에서 직접 메서드를 호출할 때 속성 이름과 값은 US-ASCII로 출력 가능한 영숫자만 포함할 수 있으며 다음 집합은 제외됩니다. ``{'$', '(', ')', '<', '>', '@', ',', ';', ':', '\', '"', '/', '[', ']', '?', '=', '{', '}', SP, HT}``
@@ -68,15 +68,14 @@ desired 속성, 직접 메서드 또는 클라우드-장치 메시지 사용에 
 
 시간 제한은 초 단위입니다. 시간 제한이 설정되지 않으면 기본값이 30초로 설정됩니다.
 
-### <a name="response"></a>응답
+### <a name="response"></a>response
 백 엔드 앱은 다음을 포함하는 응답을 수신합니다.
 
 * *HTTP 상태 코드* - 현재 연결되지 않은 장치에 대한 404 오류를 비롯한 IoT Hub에서 오는 오류에 사용됩니다.
 * *헤더* - ETag, 요청 ID, 콘텐츠 형식, 콘텐츠 인코딩을 포함합니다.
 * 다음과 같은 형식의 JSON *본문*:
 
-   ```
-   {
+   ```   {
        "status" : 201,
        "payload" : {...}
    }
@@ -85,7 +84,8 @@ desired 속성, 직접 메서드 또는 클라우드-장치 메시지 사용에 
    `status`와 `body`는 모두 장치에 의해 제공되며 장치 자체의 상태 코드 및/또는 설명으로 응답하는 데 사용됩니다.
 
 ## <a name="handle-a-direct-method-on-a-device"></a>장치에서 직접 메서드 처리
-### <a name="method-invocation"></a>메서드 호출
+### <a name="mqtt"></a>MQTT
+#### <a name="method-invocation"></a>메서드 호출
 장치는 MQTT 토픽으로 직접 메서드 요청을 수신합니다. `$iothub/methods/POST/{method name}/?$rid={request id}`
 
 장치가 수신하는 본문은 다음과 같은 형식입니다.
@@ -99,13 +99,30 @@ desired 속성, 직접 메서드 또는 클라우드-장치 메시지 사용에 
 
 메서드 요청은 QoS 0입니다.
 
-### <a name="response"></a>응답
+#### <a name="response"></a>response
 장치는 `$iothub/methods/res/{status}/?$rid={request id}`에 응답을 보내는데 여기서:
 
 * `status` 속성은 장치가 제공하는 메서드 실행 상태입니다.
 * `$rid` 속성은 IoT Hub로부터 수신한 메서드 호출의 요청 ID입니다.
 
 본문은 장치에 의해 설정되며 모든 상태가 될 수 있습니다.
+
+### <a name="amqp"></a>AMQP
+#### <a name="method-invocation"></a>메서드 호출
+장치는 주소 `amqps://{hostname}:5671/devices/{deviceId}/methods/deviceBound`에서 수신 링크를 만들어 직접 메서드 요청을 수신합니다.
+
+AMQP 메시지는 메서드 요청을 나타내는 수신 링크에 도착하며 다음과 같은 항목을 포함합니다.
+* 해당하는 메서드 응답과 함께 다시 전달해야 하는 요청 ID가 포함된 상관 관계 ID 속성
+* 호출 중인 메서드의 이름이 포함된 응용 프로그램 속성 `IoThub-methodname`
+* 메서드 페이로드(JSON)가 포함된 AMQP 메시지 본문
+
+#### <a name="response"></a>response
+장치는 주소 `amqps://{hostname}:5671/devices/{deviceId}/methods/deviceBound`에서 메서드 응답을 반환하기 위한 전송 링크를 만듭니다.
+
+전송 링크에서 반환되는 메서드의 응답은 다음과 같은 항목으로 구성됩니다.
+* 메서드의 요청 메시지에서 전달된 요청 ID를 포함하는 상관 관계 ID 속성
+* 사용자가 제공한 메서드 상태가 포함된 응용 프로그램 속성 `IoThub-status`
+* 메서드 응답(JSON)이 포함된 AMQP 메시지 본문
 
 ## <a name="additional-reference-material"></a>추가 참조 자료
 이 IoT Hub 개발자 가이드의 다른 참조 자료:

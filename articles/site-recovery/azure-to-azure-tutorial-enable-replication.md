@@ -12,11 +12,11 @@ ms.workload: storage-backup-recovery
 ms.date: 12/08/2017
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 5464eea75c89a95e6bf74b3f24fe92f3652f5db9
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 3db1ead1f1a8b83cc47f53b915ed54bb78db7ab3
+ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region-preview"></a>보조 Azure 지역에 Azure VM의 재해 복구 설정(미리 보기)
 
@@ -101,20 +101,20 @@ Azure Site Recovery는 Site Recovery 관리 작업을 제어하는 3가지 기�
 
 - **Site Recovery 참가자** - 이 역할에는 Recovery Services 자격 증명 모음에서 Azure Site Recovery 작업을 관리하는 데 필요한 모든 사용 권한이 있습니다. 그러나 이 역할의 사용자는 Recovery Services 자격 증명 모음을 만들거나 삭제할 수 없고 액세스 권한을 다른 사용자에게 할당할 수 없습니다. 이 역할은 응용 프로그램이나 전체 조직에 재해 복구를 사용하도록 설정하고 관리할 수 있는 재해 복구 관리자에게 가장 적합합니다.
 
-- **Site Recovery 연산자** - 이 역할에는 장애 조치 및 장애 복구 작업을 실행하고 관리하는 사용 권한이 있습니다. 이 역할의 사용자는 복제를 활성화하거나 비활성화할 수 없고, 자격 증명 모음을 만들거나 삭제할 수 없으며, 새로운 인프라를 등록하거나 다른 사용자에게 액세스 권한을 할당할 수 없습니다. 이 역할은 응용 프로그램 소유자 및 IT 관리자가 지시하는 경우 가상 컴퓨터 또는 응용 프로그램을 장애 조치할 수 있는 재해 복구 운영자에게 가장 적합합니다. 재해를 해결한 후에 DR 운영자는 가상 컴퓨터를 다시 보호하고 장애 복구(failback)할 수 있습니다.
+- **Site Recovery 연산자** - 이 역할에는 장애 조치 및 장애 복구 작업을 실행하고 관리하는 사용 권한이 있습니다. 이 역할의 사용자는 복제를 활성화하거나 비활성화할 수 없고, 자격 증명 모음을 만들거나 삭제할 수 없으며, 새로운 인프라를 등록하거나 다른 사용자에게 액세스 권한을 할당할 수 없습니다. 이 역할은 응용 프로그램 소유자 및 IT 관리자가 지시하는 경우 가상 머신 또는 응용 프로그램을 장애 조치할 수 있는 재해 복구 운영자에게 가장 적합합니다. 재해를 해결한 후에 DR 운영자는 가상 머신을 다시 보호하고 장애 복구(failback)할 수 있습니다.
 
 - **Site Recovery 읽기 권한자** - 이 역할은 모든 Site Recovery 관리 작업을 볼 수 있는 권한을 갖습니다. 이 역할은 현재 보호 상태를 모니터링하고 지원 티켓을 발행할 수 있는 IT 모니터링 임원에게 가장 적합합니다.
 
 [Azure RBAC 기본 제공 역할](../active-directory/role-based-access-built-in-roles.md)에 대해 알아보기
 
-## <a name="enable-replication"></a>복제 활성화
+## <a name="enable-replication"></a>복제 사용
 
 ### <a name="select-the-source"></a>원본 선택
 
 1. Recovery Services 자격 증명 모음에서 자격 증명 모음 이름 > **+복제**를 클릭합니다.
 2. **원본**에서 **Azure - 미리 보기**를 선택합니다.
 3. **원본 위치**에서 VM이 현재 실행 중인 원본 Azure 지역을 선택합니다.
-4. VM의 **Azure 가상 컴퓨터 배포 모델**(**Resource Manager** 또는 **클래식**)을 선택합니다.
+4. VM의 **Azure 가상 머신 배포 모델**(**Resource Manager** 또는 **클래식**)을 선택합니다.
 5. **원본 리소스 그룹**(Resource Manager VM의 경우) 또는 **클라우드 서비스**(클래식 VM의 경우)를 선택합니다.
 6. **확인**을 클릭하여 설정을 저장합니다.
 
@@ -129,10 +129,10 @@ Site Recovery는 구독 및 리소스 그룹/클라우드 서비스와 연결된
 
 Site Recovery는 대상 지역에 대한 기본 설정 및 복제 정책을 만듭니다. 요구 사항에 따라 설정을 변경할 수 있습니다.
 
-1. 대상 설정을 보려면 **설정**을 클릭합니다.
-2. 기본 대상 설정을 재정의하려면 **사용자 지정**을 클릭합니다. 
+1. **설정**을 클릭하여 대상 및 복제 설정을 확인합니다.
+2. 기본 대상 설정을 재정의하려면 **리소스 그룹, 네트워크, 저장소 및 가용성 집합** 옆의 **사용자 지정**을 클릭합니다.
 
-![설정 구성](./media/azure-to-azure-tutorial-enable-replication/settings.png)
+  ![설정 구성](./media/azure-to-azure-tutorial-enable-replication/settings.png)
 
 
 - **대상 위치**: 재해 복구에 사용되는 대상 지역입니다. 대상 위치가 Site Recovery 자격 증명 모음의 위치와 일치하는 것이 좋습니다.
@@ -148,11 +148,23 @@ Site Recovery는 대상 지역에 대한 기본 설정 및 복제 정책을 만�
 
 - **대상 가용성 집합**: 기본적으로 Site Recovery는 “asr” 접미사를 사용하여 대상 지역에 새 가용성 집합을 만듭니다. VM이 원본 영역에 있는 집합의 일부인 경우 가용성 집합만 추가할 수 있습니다.
 
+기본 복제 정책 설정을 재정의하려면 **복제 정책** 옆의 **사용자 지정**을 클릭합니다.  
+
 - **복제 정책 이름**: 정책 이름입니다.
 
 - **복구 지점 유지**: 기본적으로 Site Recovery는 복구 지점을 24시간 동안 유지합니다. 이 값을 1-72시간 사이에서 구성할 수 있습니다.
 
 - **앱 일치 스냅숏 빈도**: 기본적으로 Site Recovery는 4시간마다 앱 일치 스냅숏을 만듭니다. 이 값을 1-12시간 사이에서 구성할 수 있습니다. 앱 일치 스냅숏은 VM 내 응용 프로그램 데이터의 지정 시간 스냅숏입니다. VSS(볼륨 섀도 복사본 서비스)는 스냅숏을 만들 때 VM의 앱이 일관된 상태가 되도록 합니다.
+
+- **복제 그룹**: 응용 프로그램이 여러 VM에서 다중 VM 일관성을 지켜야 하는 경우 해당 VM용 복제 그룹을 만들 수 있습니다. 선택한 VM은 기본적으로 복제 그룹에 포함되지 않습니다.
+
+  **복제 정책** 옆의 **사용자 지정**을 클릭하고 다중 VM 일관성에 대해 **예**를 선택하면 VM이 복제 그룹에 포함됩니다. 새 복제 그룹을 만들거나 기존 복제 그룹을 사용할 수 있습니다. 복제 그룹에 포함할 VM을 선택하고 **확인**을 클릭합니다.
+
+> [!IMPORTANT]
+  복제 그룹의 모든 컴퓨터는 장애 조치(failover) 시에 충돌 일치/앱 일치 복구 지점을 공유합니다. 다중 VM 일관성을 사용하도록 설정하면 워크로드 성능에 영향을 줄 수 있습니다. 따라서 컴퓨터가 동일한 워크로드를 실행하며 여러 컴퓨터에서 일관성을 지켜야 하는 경우에만 다중 VM 일관성을 사용해야 합니다.
+
+> [!IMPORTANT]
+  다중 VM 일관성을 사용하도록 설정하면 복제 그룹의 컴퓨터는 20004 포트를 통해 서로 통신하게 됩니다. 20004 포트를 통한 VM 간의 내부 통신을 차단하는 방화벽 어플라이언스가 없는지 확인합니다. Linux VM을 복제 그룹에 포함하고 싶다면 특정 Linux 버전의 지침에 따라 20004 포트의 아웃바운드 트래픽을 수동으로 열어야 합니다.
 
 ### <a name="track-replication-status"></a>복제 상태 추적
 
@@ -164,7 +176,7 @@ Site Recovery는 대상 지역에 대한 기본 설정 및 복제 정책을 만�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 Azure VM에 대해 재해 복구를 구성했습니다. 다음 단계는 구성을 테스트하는 것입니다.
+이 자습서에서는 Azure VM의 재해 복구를 구성해 보았습니다. 다음 단계는 구성을 테스트하는 것입니다.
 
 > [!div class="nextstepaction"]
-> [재해 복구 훈련 실행](azure-to-azure-tutorial-dr-drill.md)
+> [재해 복구 드릴 실행](azure-to-azure-tutorial-dr-drill.md)

@@ -1,29 +1,21 @@
 ---
-title: "Azure 지역 간 Azure VM 복제를 위한 아키텍처 검토 | Microsoft Docs"
+title: "Azure Site Recovery의 Azure 간 복제 아키텍처 | Microsoft Docs"
 description: "이 문서에서는 Azure Site Recovery 서비스를 사용하여 Azure 지역 간에 Azure VM을 복제하는 경우 사용되는 구성 요소와 아키텍처에 대해 간략히 설명합니다."
-services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: 
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 12/08/2017
+ms.date: 12/19/2017
 ms.author: raynew
-ms.openlocfilehash: 8251534b2e1e0d223f5e1df5dbd33831604615cb
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: b37af3462a58f4418653d0e1b2300b5805e0a864
+ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="azure-to-azure-replication-architecture"></a>Azure 간 복제 아키텍처
 
 
-이 문서에서는 [Azure Site Recovery](site-recovery-overview.md) 서비스를 사용하여 Azure 지역 간에 Azure VM(가상 컴퓨터)을 복제, 장애 조치(failover) 및 복구할 때 사용되는 아키텍처와 프로세스에 대해 설명합니다.
+이 문서에서는 [Azure Site Recovery](site-recovery-overview.md) 서비스를 사용하여 Azure 지역 간에 Azure VM(가상 머신)을 복제, 장애 조치(Failover) 및 복구할 때 사용되는 아키텍처에 대해 설명합니다.
 
 >[!NOTE]
 >Site Recovery 서비스를 사용하는 Azure VM 복제는 현재 미리 보기로 제공됩니다.
@@ -43,9 +35,9 @@ ms.lasthandoff: 12/08/2017
 
 ## <a name="replication-process"></a>복제 프로세스
 
-### <a name="step-1"></a>1단계
+### <a name="step-1"></a>1단계:
 
-Azure VM 복제를 사용하도록 설정하면 아래에 표시된 리소스가 원본 지역 설정에 따라 대상 지역에 자동으로 생성됩니다. 필요에 따라 대상 리소스 설정을 사용자 지정할 수 있습니다. 
+Azure VM 복제를 사용하도록 설정하면 다음 리소스가 원본 지역 설정에 따라 대상 지역에 자동으로 생성됩니다. 필요에 따라 대상 리소스 설정을 사용자 지정할 수 있습니다.
 
 ![복제를 사용하도록 설정하는 프로세스, 1단계](./media/concepts-azure-to-azure-architecture/enable-replication-step-1.png)
 
@@ -53,11 +45,11 @@ Azure VM 복제를 사용하도록 설정하면 아래에 표시된 리소스가
 --- | ---
 **대상 리소스 그룹** | 장애 조치(failover) 후 복제된 VM이 속하게 되는 리소스 그룹입니다.
 **대상 가상 네트워크** | 장애 조치(failover) 후 복제된 VM이 있는 가상 네트워크입니다. 네트워크 매핑은 원본 및 대상 가상 네트워크 간에 만들어집니다.
-**캐시 저장소 계정** | 원본 VM 변경 내용이 대상 저장소 계정에 복제되기 전에 추적되어 대상 위치의 캐시 저장소 계정으로 전송됩니다. 이렇게 하면 VM에서 실행 중인 프로덕션 앱에 미치는 영향을 최소화합니다.
+**캐시 저장소 계정** | 원본 VM 변경 내용이 대상 저장소 계정에 복제되기 전에 추적되어 원본 위치의 캐시 저장소 계정으로 전송됩니다. 이 단계를 통해 VM에서 실행 중인 프로덕션 애플리케이션에 미치는 영향이 최소화됩니다.
 **대상 저장소 계정**  | 데이터가 복제되는 대상 위치의 Storage 계정입니다.
 **대상 가용성 집합**  | 장애 조치(failover) 후 복제된 VM이 있는 가용성 집합입니다.
 
-### <a name="step-2"></a>2단계
+### <a name="step-2"></a>2단계:
 
 복제를 사용하도록 설정하면 Site Recovery 확장 이동성 서비스가 VM에 자동으로 설치됩니다.
 
@@ -67,10 +59,19 @@ Azure VM 복제를 사용하도록 설정하면 아래에 표시된 리소스가
 
    ![복제를 사용하도록 설정하는 프로세스, 2단계](./media/concepts-azure-to-azure-architecture/enable-replication-step-2.png)
 
-  
- Site Recovery에는 VM에 대한 인바운드 연결이 필요하지 않습니다. Site Recovery 서비스 URL/IP 주소, Office 365 인증 URL/IP 주소 및 캐시 저장소 계정 IP 주소에 대한 아웃바운드 연결만 필요합니다.
 
-### <a name="step-3"></a>3단계
+ Site Recovery에는 VM에 대한 인바운드 연결이 필요하지 않습니다. 다음에 대해서는 아웃바운드 연결만 필요합니다.
+
+ - Site Recovery 서비스 URL/IP 주소
+ - Office 365 인증 URL/IP 주소
+ - 캐시 저장소 계정 IP 주소
+
+다중 VM 일관성을 사용하도록 설정하면 복제 그룹의 컴퓨터는 20004 포트를 통해 서로 통신하게 됩니다. 20004 포트를 통한 VM 간의 내부 통신을 차단하는 방화벽 어플라이언스가 없는지 확인합니다.
+
+> [!IMPORTANT]
+Linux VM을 복제 그룹에 포함하고 싶다면 특정 Linux 버전의 지침에 따라 20004 포트의 아웃바운드 트래픽을 수동으로 열어야 합니다.
+
+### <a name="step-3"></a>3단계:
 
 연속 복제가 진행된 후에는 디스크 쓰기가 캐시 저장소 계정으로 즉시 전송됩니다. Site Recovery는 데이터를 처리하여 대상 저장소 계정으로 보냅니다. 데이터가 처리된 후에는 몇 분마다 대상 저장소 계정에 복구 지점이 생성됩니다.
 
@@ -82,5 +83,4 @@ Azure VM 복제를 사용하도록 설정하면 아래에 표시된 리소스가
 
 ## <a name="next-steps"></a>다음 단계
 
-지원 매트릭스 검토. 자습서에 따라 보조 지역으로 Azure VM 복제를 사용하도록 설정합니다.
-장애 조치(failover) 및 장애 복구(failback) 실행
+Azure VM을 보조 지역에 [신속하게 복제](azure-to-azure-quickstart.md)합니다.
