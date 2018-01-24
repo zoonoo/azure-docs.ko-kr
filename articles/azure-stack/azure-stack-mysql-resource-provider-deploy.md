@@ -3,7 +3,7 @@ title: "MySQL 데이터베이스를 사용 하 여 Azure 스택에 PaaS로 | Mic
 description: "MySQL 리소스 공급자를 배포 Azure 스택에 서비스로 MySQL 데이터베이스를 제공 하는 방법에 대해 알아봅니다"
 services: azure-stack
 documentationCenter: 
-author: JeffGoldner
+author: mattbriggs
 manager: bradleyb
 editor: 
 ms.service: azure-stack
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
-ms.author: JeffGo
-ms.openlocfilehash: d0394fd1edf21cdbb863a88a1d3ecef118a7d886
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.author: mabrigg
+ms.openlocfilehash: 97344009ffb42d99824d053652594546f9f53374
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>MySQL 데이터베이스를 사용 하 여 Microsoft Azure 스택
 
@@ -90,7 +90,7 @@ Azure 스택 MySQL 리소스 공급자를 배포할 수 있습니다. 리소스 
 
 6. [Azure PowerShell 버전 1.2.11 설치](azure-stack-powershell-install.md)합니다.
 
-7. DeploySqlProvider.ps1 스크립트를 실행 합니다.
+7. `DeployMySqlProvider.ps1` 스크립트를 실행합니다.
 
 스크립트는 다음이 단계를 수행합니다.
 
@@ -155,12 +155,12 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
  ```
 
 
-### <a name="deploysqlproviderps1-parameters"></a>DeploySqlProvider.ps1 매개 변수
+### <a name="deploymysqlproviderps1-parameters"></a>DeployMySqlProvider.ps1 parameters
 명령줄에서 이러한 매개 변수를 지정할 수 있습니다. 그렇지 않고 모든 매개 변수 유효성 검사에 실패할 경우 필요한 것을 제공 하 라는 메시지가 표시 됩니다.
 
 | 매개 변수 이름 | 설명 | 주석이 나 기본값 |
 | --- | --- | --- |
-| **CloudAdminCredential** | Privleged 끝점에 액세스 하는 데 필요한 클라우드 관리자에 대 한 자격 증명입니다. | _필수_ |
+| **CloudAdminCredential** | 권한 있는 끝점에 액세스 하는 데 필요한 클라우드 관리자에 대 한 자격 증명입니다. | _필수_ |
 | **AzCredential** | Azure 스택 서비스 관리자 계정에 대 한 자격 증명을 제공 합니다. 사용 하 여 동일한 자격 증명 Azure 스택을 배포 하는 데 사용). | _필수_ |
 | **VMLocalCredential** | VM의 MySQL 리소스 공급자의 로컬 관리자 계정의 자격 증명을 정의 합니다. | _필수_ |
 | **PrivilegedEndpoint** | 권한 있는 끝점의 DNS 이름 또는 IP 주소를 입력 합니다. |  _필수_ |
@@ -315,7 +315,7 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
   -AcceptLicense
  ```
 
-### <a name="updatemysqlproviderps1-parameters"></a>UpdateMySQLProvider.ps1 매개 변수
+### <a name="updatemysqlproviderps1-parameters"></a>UpdateMySQLProvider.ps1 parameters
 명령줄에서 이러한 매개 변수를 지정할 수 있습니다. 그렇지 않고 모든 매개 변수 유효성 검사에 실패할 경우 필요한 것을 제공 하 라는 메시지가 표시 됩니다.
 
 | 매개 변수 이름 | 설명 | 주석이 나 기본값 |
@@ -323,7 +323,7 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 | **CloudAdminCredential** | 권한 있는 끝점에 액세스 하는 데 필요한 클라우드 관리자에 대 한 자격 증명입니다. | _필수_ |
 | **AzCredential** | Azure 스택 서비스 관리자 계정에 대 한 자격 증명을 제공 합니다. 사용 하 여 동일한 자격 증명 Azure 스택을 배포 하는 데 사용). | _필수_ |
 | **VMLocalCredential** | VM의 SQL 리소스 공급자의 로컬 관리자 계정의 자격 증명을 정의 합니다. | _필수_ |
-| **PrivilegedEndpoint** | Privleged 끝점의 DNS 이름 또는 IP 주소를 입력 합니다. |  _필수_ |
+| **PrivilegedEndpoint** | 권한 있는 끝점의 DNS 이름 또는 IP 주소를 입력 합니다. |  _필수_ |
 | **DependencyFilesLocalPath** | 인증서 PFX 파일에이 디렉터리에 배치 되어야 합니다. | _선택적_ (_필수_ 다중 노드) |
 | **DefaultSSLCertificatePassword** | .Pfx 인증서에 대 한 암호 | _필수_ |
 | **MaxRetryCount** | 오류가 없는 경우 각 작업을 다시 시도 하려면 실패 한 횟수를 정의 합니다.| 2 |
