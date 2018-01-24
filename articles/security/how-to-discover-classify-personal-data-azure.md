@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: 39dea03ef9f42a3ff06dadd94c8d70541cbdc06c
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 0d99df534da4575f3c34ec6b3475cdd1bdc3308a
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="discover-identify-and-classify-personal-data-in-microsoft-azure"></a>Microsoft Azure에서 개인 데이터 검색, 식별 및 분류
 
@@ -183,9 +183,9 @@ HDInsight 자습서에서는 이 전체 과정을 설명합니다. 필수 구성
 
 기본 사항을 시작하려면 [Azure CosmosD DB: SQL을 사용하여 쿼리하는 방법](../cosmos-db/tutorial-query-documentdb.md) 자습서를 방문합니다. 이 자습서에서는 샘플 문서 및 두 가지 샘플 SQL 쿼리와 결과를 제공합니다.
 
-SQL 쿼리를 빌드하는 방법에 대한 자세한 지침은 [Azure Cosmos DB Document DB API에 대한 SQL 쿼리](../cosmos-db/documentdb-sql-query.md)를 방문합니다.
+SQL 쿼리를 빌드하는 방법에 대한 자세한 지침은 [Azure Cosmos DB Document DB API에 대한 SQL 쿼리](../cosmos-db/sql-api-sql-query.md)를 방문합니다.
 
-Azure Cosmos DB 처음 사용하고 데이터베이스 만들기, 컬렉션 추가, 데이터 추가 방법을 알아보려는 경우 [Azure Cosmos DB: DocumentDB API 웹앱 빌드](../cosmos-db/create-documentdb-dotnet.md) 빠른 시작 자습서를 방문합니다. Java, Python과 같은 .NET 이외의 언어로 작업을 수행하려는 경우 사이트를 가져오면 기본 설정된 언어를 선택하기만 합니다.
+Azure Cosmos DB 처음 사용하고 데이터베이스 만들기, 컬렉션 추가, 데이터 추가 방법을 알아보려는 경우 [Azure Cosmos DB: SQL API 웹앱 빌드](../cosmos-db/create-sql-api-dotnet.md) 빠른 시작 자습서를 방문합니다. Java, Python과 같은 .NET 이외의 언어로 작업을 수행하려는 경우 사이트를 가져오면 기본 설정된 언어를 선택하기만 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

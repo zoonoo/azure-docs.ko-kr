@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/23/2017
 ms.author: robb
 ms.custom: mvc
-ms.openlocfilehash: 8de1eca5a3e52533e05d93cfe30de612e3d0c648
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: ed9ace24778f000b42013cc0ce4d7dacf4a1d4fb
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="overview-of-azure-monitor"></a>Azure Monitor 개요
 이 문서에서는 Microsoft Azure의 Azure Monitor 서비스에 대해 간략히 설명합니다. Azure Monitor 기능에 대해 설명하고 Azure Monitor를 사용하는 방법에 대한 추가 정보를 제공합니다.  소개하는 비디오를 사용하려면 이 문서의 아래쪽에 있는 다음 단계 링크를 참조하세요. 
@@ -43,7 +43,7 @@ Azure Monitor 서비스가 릴리스되는 동안 시작 개요 페이지는 미
 
 페이지를 열 때 읽기 액세스 권한이 있는 구독 중에 선택할 수 있습니다. 선택한 구독에서 다음을 확인할 수 있습니다.
 
-- **트리거된 경고 및 경고 원본** - 이 표에서는 요약 수, 경고 원본 및 선택한 기간 동안 발생한 경고 횟수를 보여줍니다. 메트릭과 활동 로그 경고에 모두 적용됩니다.
+- **트리거된 경고 및 경고 원본** - 이 표에서는 요약 수, 경고 원본 및 선택한 기간 동안 발생한 경고 횟수를 보여줍니다. 메트릭과 활동 로그 경고에 모두 적용됩니다. *<편집: 모든 경고에 대해 표시된 통합된 환경을 사용하는 경고(미리 보기) - 이벤트, 메트릭 및 로그>*
 - **활동 로그 오류** - Azure 리소스 중에 오류 수준의 심각도를 가진 이벤트가 기록된 경우 대략적인 수를 보고 활동 로그 페이지를 클릭하여 각 이벤트를 조사할 수 있습니다.
 - **Azure Service Health** - Service Health 서비스 문제, 계획된 유지 관리 이벤트 및 상태 권고의 수를 확인할 수 있습니다. Azure Service Health는 Azure 인프라의 문제가 서비스에 영향을 줄 때 개인 설정된 정보를 제공합니다.  자세한 내용은 [Azure Service Health](../service-health/service-health-overview.md)를 참조하세요.  
 - **Application Insights** - 현재 구독에서 각 AppInsights 리소스는 KPI를 참조하세요. KPI는 ASP.NET 웹앱, Java, Node 및 일반 응용 프로그램 유형인 서버 쪽 응용 프로그램 모니터링에 대해 최적화됩니다. KPI는 요청 속도, 응답 기간, 실패 속도 및 가용성 %에 대한 메트릭을 포함합니다. 
@@ -56,11 +56,12 @@ Log Analytics 또는 Application Insights에 등록하지 않았거나 현재 �
 
 ![비 계산 리소스의 모니터링 및 진단을 위한 모델](./media/monitoring-overview-azure-monitor/Monitoring_Azure_Resources-compute_v6.png)
 
+
 Compute 서비스에는 다음이 포함됩니다. 
 - Cloud Services 
 - Virtual Machines 
-- 가상 컴퓨터 확장 집합 
-- 서비스 패브릭
+- Virtual Machine 확장 집합 
+- Service Fabric
 
 ### <a name="application---diagnostics-logs-application-logs-and-metrics"></a>응용 프로그램 - 진단 로그, 응용 프로그램 로그 및 메트릭
 응용 프로그램은 계산 모델의 게스트 OS에서 실행될 수 있으며, 고유한 로그 및 메트릭 집합을 제공합니다. Azure Monitor는 Azure 진단 확장(Windows 또는 Linux)을 사용하여 대부분의 응용 프로그램 수준 메트릭과 로그를 수집합니다. 유형에는 다음이 포함됩니다.
@@ -102,7 +103,7 @@ Azure 인프라에 표시되는 대로 리소스에 대한 자세한 내용은 �
 ### <a name="route"></a>라우팅
 모니터링 데이터를 다른 위치에 스트리밍할 수 있습니다. 
 
-예를 들면 다음과 같습니다.
+이러한 예로 다음이 포함됩니다.
 
 - 다양한 시각화 및 분석 도구를 사용할 수 있도록 Application Insights에 보냅니다.
 - 타사 도구로 라우팅할 수 있도록 Event Hubs로 보냅니다. 
@@ -141,7 +142,10 @@ Azure Monitor REST API, 플랫폼 간 CLI(명령줄 인터페이스), PowerShell
 
 
 ### <a name="automate"></a>자동화
-모니터링 데이터를 사용하여 경고를 트리거하거나 전체 프로세스를 트리거할 수 있습니다. 예를 들면 다음과 같습니다.
+> [!NOTE]
+> Microsoft Azure에서 경고의 지속적인 변화의 일환으로, 이제 경고에 대한 통합된 환경이 미리보기로 지원됩니다. [Azure Alerts(미리 보기)](monitoring-overview-unified-alerts.md)에 대한 자세한 내용
+
+표준 Azure Alerts에서 모니터링 데이터를 사용하여 경고를 트리거하거나 전체 프로세스를 트리거할 수 있습니다. 이러한 예로 다음이 포함됩니다.
 
 * 데이터를 사용하여 응용 프로그램 부하에 따라 계산 인스턴스 크기를 자동으로 조정
 * 메트릭이 미리 결정된 임계값을 초과하는 경우 전자 메일 보내기
@@ -163,7 +167,7 @@ Azure Monitor REST API, 플랫폼 간 CLI(명령줄 인터페이스), PowerShell
 [Azure Monitor 시작](https://channel9.msdn.com/Blogs/Azure-Monitoring/Get-Started-with-Azure-Monitor)에서 제공됩니다. 
 - Azure Monitor를 사용할 수 있는 시나리오를 설명하는 비디오는 [Microsoft Azure 모니터링 및 진단 탐색](https://channel9.msdn.com/events/Ignite/2016/BRK2234) 및 [Azure Monitor(Ignite 2016 비디오)](https://myignite.microsoft.com/videos/4977)에서 제공됩니다.
 - [Azure Monitor 시작](monitoring-get-started.md)에서 Azure Monitor 인터페이스를 통해 실행합니다.
-- 클라우드 서비스, 가상 컴퓨터, 가상 컴퓨터 확장 집합 또는 Service Fabric 응용 프로그램에서 문제를 진단하려는 경우 [Azure 진단 확장](../azure-diagnostics.md)을 설정합니다.
+- 클라우드 서비스, Virtual Machine, 가상 머신 확장 집합 또는 Service Fabric 응용 프로그램에서 문제를 진단하려는 경우 [Azure 진단 확장](../azure-diagnostics.md)을 설정합니다.
 - [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) - App Service 웹앱에서 문제를 진단하려는 경우
 - [Azure Storage 문제 해결](../storage/common/storage-e2e-troubleshooting.md) - 저장소 Blob, 테이블 및 큐를 사용하는 경우
 - [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) 및 [Operations Management Suite](https://www.microsoft.com/oms/)

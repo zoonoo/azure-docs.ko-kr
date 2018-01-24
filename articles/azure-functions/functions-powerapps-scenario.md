@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/25/2017
+ms.date: 12/14/2017
 ms.author: mblythe
 ms.custom: 
-ms.openlocfilehash: 1e262fde37b68bcfcee3c974deb91bd07965de19
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 28c2fc8246851807e1f65911d6a5d56322c5ea16
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="call-a-function-from-powerapps"></a>PowerApps에서 함수 호출
 [PowerApps](https://powerapps.microsoft.com) 플랫폼은 비즈니스 전문가가 기존 응용 프로그램 코드 없이도 앱을 빌드할 수 있도록 디자인되었습니다. 전문 개발자는 Azure Functions를 사용하여 PowerApps 앱 작성자에게 기술적 세부 사항은 숨기면서 PowerApps의 기능을 확장할 수 있습니다.
@@ -45,34 +45,8 @@ Microsoft Flow에서 동일한 함수 호출에 대한 내용은 [Microsoft Flow
 ## <a name="prerequisites"></a>필수 조건
 
 + Azure 계정과 동일한 로그인 자격 증명을 사용하는 활성 [PowerApps 계정](https://powerapps.microsoft.com/tutorials/signup-for-powerapps.md) 
-+ Excel: Excel을 앱의 데이터 원본으로 사용합니다.
++ 앱에 대한 데이터 원본으로 사용할 Excel 및 [Excel 샘플 파일](https://procsi.blob.core.windows.net/docs/turbine-data.xlsx)입니다.
 + [함수에 대한 OpenAPI 정의 만들기](functions-openapi-definition.md) 자습서를 완료합니다.
-
-
-## <a name="prepare-sample-data-in-excel"></a>Excel에서 샘플 데이터를 준비합니다.
-먼저 앱에서 사용 하는 샘플 데이터를 준비합니다. 다음 표를 Excel로 복사합니다. 
-
-| 제목      | 위도  | Longtitude  | LastServiceDate | MaxOutput | ServiceRequired | EstimatedEffort | InspectionNotes                            |
-|------------|-----------|-------------|-----------------|-----------|-----------------|-----------------|--------------------------------------------|
-| Turbine 1  | 47.438401 | -121.383767 | 2/23/2017       | 2850      | 예             | 6               | 이번 달의 두 번째 문제입니다.       |
-| Turbine 4  | 47.433385 | -121.383767 | 5/8/2017        | 5400      | 예             | 6               |                                            |
-| Turbine 33 | 47.428229 | -121.404641 | 6/20/2017       | 2800      |                 |                 |                                            |
-| Turbine 34 | 47.463637 | -121.358824 | 2/19/2017       | 2800      | 예             | 7               |                                            |
-| Turbine 46 | 47.471993 | -121.298949 | 3/2/2017        | 1200      |                 |                 |                                            |
-| Turbine 47 | 47.484059 | -121.311171 | 8/2/2016        | 3350      |                 |                 |                                            |
-| Turbine 55 | 47.438403 | -121.383767 | 10/2/2016       | 2400      | 예             | 40               | 이 터빈을 위해 일부 부품을 들여왔습니다. |
-
-1. Excel에서 해당 데이터를 선택하고 **홈** 탭에서 **표 서식**을 클릭합니다.
-
-    ![표 서식](media/functions-powerapps-scenario/format-table.png)
-
-1. 스타일을 선택하고 **확인**을 클릭합니다.
-
-1. 표가 선택된 상태로 **디자인** 탭에서 **표 이름**으로 `Turbines`을 입력합니다.
-
-    ![테이블 이름](media/functions-powerapps-scenario/table-name.png)
-
-1. Excel 통합 문서를 저장합니다.
 
 [!INCLUDE [Export an API definition](../../includes/functions-export-api-definition.md)]
 
@@ -97,35 +71,35 @@ Microsoft Flow에서 동일한 함수 호출에 대한 내용은 [Microsoft Flow
 ## <a name="create-an-app-and-add-data-sources"></a>앱 만들기 및 데이터 원본 추가
 이제 PowerApps에서 앱을 만들 준비가 되었으므로 Excel 데이터 및 사용자 지정 API를 앱의 데이터 원본으로 추가합니다.
 
-1. [web.powerapps.com](https://web.powerapps.com)의 왼쪽 창에서 **새 앱**을 클릭합니다.
+1. [web.powerapps.com](https://web.powerapps.com)에서 **비어 있는 상태에서 시작** > ![전화 앱 아이콘](media/functions-powerapps-scenario/icon-phone-app.png)(전화) > **이 앱 만들기**를 차례로 선택합니다.
 
-1. **빈 앱**에서 **휴대폰 레이아웃**을 클릭합니다.
+    ![비어 있는 상태에서 시작 - 전화 앱](media/functions-powerapps-scenario/create-phone-app.png)
 
-    ![태블릿 앱 만들기](media/functions-powerapps-scenario/create-phone-app.png)
-
-    앱은 웹용 PowerApps Studio에서 열립니다. 다음 그림에서는 PowerApps Studio의 다른 부분을 보여 줍니다. 이 이미지는 완성된 앱에 대한 것입니다. 가운데 창에는 맨 처음 표시되는 빈 화면이 나와 있습니다.
+    앱은 웹용 PowerApps Studio에서 열립니다. 다음 그림에서는 PowerApps Studio의 다른 부분을 보여 줍니다.
 
     ![PowerApps Studio](media/functions-powerapps-scenario/powerapps-studio.png)
 
-    **(1) 왼쪽 탐색 모음**: 각 화면의 모든 컨트롤에 대한 계층 보기가 표시됩니다.
+    **(A) 왼쪽 탐색 모음**: 각 화면의 모든 컨트롤에 대한 계층 보기가 표시됩니다.
 
-    **(2) 가운데 창**: 작업 중인 화면이 표시됩니다.
+    **(B) 가운데 창**: 작업 중인 화면이 표시됩니다.
 
-    **(3) 오른쪽 창**: 레이아웃 및 데이터 원본과 같은 옵션을 설정합니다.
+    **(C) 오른쪽 창**: 레이아웃 및 데이터 원본과 같은 옵션을 설정합니다.
 
-    **(4) 속성**: 수식이 적용되는 속성을 선택하는 드롭다운 목록
+    **(D) 속성**: 수식이 적용되는 속성을 선택하는 드롭다운 목록
 
-    **(5) 수식 입력줄**: 앱 동작을 정의하는 수식을 추가합니다(예: Excel).
+    **(E) 수식 입력줄**: 앱 동작을 정의하는 수식을 추가합니다(예: Excel).
     
-    **(6) 리본**: 컨트롤을 추가하고 디자인 요소를 사용자 지정합니다.
+    **(F) 리본**: 컨트롤을 추가하고 디자인 요소를 사용자 지정합니다.
 
 1. Excel 파일을 데이터 원본으로 추가합니다.
 
-    1. 오른쪽 창의 **데이터** 탭에서 **데이터 원본 추가**를 클릭합니다.
+    가져오려는 데이터는 다음과 같습니다.
 
-        ![데이터 원본 추가](media/functions-powerapps-scenario/add-data-source.png)
+    ![가져올 Excel 데이터](media/functions-powerapps-scenario/excel-table.png)
 
-    1. **앱에 정적 데이터 추가**를 클릭합니다.
+    1. 앱 캔버스에서 **데이터에 연결**을 선택합니다.
+
+    1. **데이터** 패널에서 **앱에 정적 데이터 추가**를 클릭합니다.
 
         ![데이터 원본 추가](media/functions-powerapps-scenario/add-static-data.png)
 
@@ -135,9 +109,10 @@ Microsoft Flow에서 동일한 함수 호출에 대한 내용은 [Microsoft Flow
 
         ![데이터 원본 추가](media/functions-powerapps-scenario/choose-table.png)
 
+
 1. 사용자 지정 API를 데이터 원본으로 추가합니다.
 
-    1. **데이터** 탭에서 **데이터 원본 추가**를 클릭합니다.
+    1. **데이터** 패널에서 **데이터 원본 추가**를 클릭합니다.
 
     1. **Turbine Repair**를 클릭합니다.
 
@@ -156,17 +131,21 @@ Microsoft Flow에서 동일한 함수 호출에 대한 내용은 [Microsoft Flow
 
     ![제목 변경 및 갤러리 크기 조정](media/functions-powerapps-scenario/gallery-title.png)
 
-1. 갤러리가 선택된 상태에서 오른쪽 창의 **데이터** 탭에서 데이터 원본을 **CustomGallerySample**에서 **Turbines**로 변경합니다.
+1. 선택한 갤러리 오른쪽 창의 **속성** 아래에서 **CustomGallerySample**을 클릭합니다.
 
     ![데이터 원본 변경](media/functions-powerapps-scenario/change-data-source.png)
 
+1. **데이터** 패널의 목록에서 **터빈**을 선택합니다.
+
+    ![데이터 원본 선택](media/functions-powerapps-scenario/select-data-source.png)
+
     데이터 집합에는 이미지가 포함되어 있지 않으므로 다음에는 데이터에 더 잘 맞게 레이아웃을 변경합니다. 
 
-1. 오른쪽 창에서 **레이아웃**을 **제목, 부제목 및 본문**으로 변경합니다.
+1. **데이터** 패널에서 **레이아웃**을 **제목, 부제목 및 본문**으로 변경합니다.
 
     ![갤러리 레이아웃 변경](media/functions-powerapps-scenario/change-layout.png)
 
-1. 오른쪽 창에서 수행하는 마지막 단계로, 갤러리에 표시되는 필드를 변경합니다.
+1. **데이터** 패널에서 수행하는 마지막 단계로, 갤러리에 표시되는 필드를 변경합니다.
 
     ![갤러리 필드 변경](media/functions-powerapps-scenario/change-fields.png)
     
@@ -185,6 +164,8 @@ Microsoft Flow에서 동일한 함수 호출에 대한 내용은 [Microsoft Flow
 1. 앱에서 원래 화면은 필요하지 않습니다. 왼쪽 창에서 **Screen1**으로 마우스를 가져간 후 **. . .**를 클릭하고 **삭제**를 클릭합니다.
 
     ![삭제 화면](media/functions-powerapps-scenario/delete-screen.png)
+
+1. **파일**을 클릭하고 앱 이름을 지정합니다. 왼쪽 메뉴에서 **저장**을 클릭한 다음 오른쪽 아래 모서리에서 **저장**을 클릭합니다.
 
 일반적으로 프로덕션 앱에서 수행하는 기타 서식이 많이 있지만 이 시나리오에 중요한 함수 호출을 진행할 것입니다.
 

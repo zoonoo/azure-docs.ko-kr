@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 11/07/2017
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 4dd24e4dddfedf58f1016511dfad087f91a0dbf8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 3ca9157823a52bd0e4e8dd3b2656fc2724c8b4b6
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Azure Active Directory 조건부 액세스
 
@@ -209,6 +209,9 @@ Azure Active Directory의 현재 구현에서 다음 영역에 대한 조건을 
 사용자 환경에서 Intune을 사용하는 경우 Azure 콘솔에서 조건부 액세스 정책 인터페이스를 즉시 사용할 수 있습니다.
 
 많은 Intune 고객이 조건부 액세스를 사용하여 신뢰할 수 있는 장치만 Office 365 서비스에 액세스할 수 있도록 합니다. 즉 모바일 장치가 Intune에 등록되고 준수 정책 요구 사항을 충족하며 Windows PC가 온-프레미스 도메인에 가입되어 있음을 의미합니다. 주요 개선 사항은 각 Office 365 서비스마다 동일한 정책을 설정할 필요가 없다는 것입니다.  즉, 새 정책을 만들 때 조건부 액세스로 보호하려는 각 O365 앱을 포함하도록 클라우드 앱을 구성합니다.
+
+### <a name="switching-a-device-from-corporate-owned-to-bring-your-own-device-byod"></a>회사 소유 장치에서 BYOD로 전환
+장치 소유권을 회사에서 개인으로 변경하여 등록된 장치를 차단하려면 AAD(Azure Active Directory) 조건부 액세스를 사용하면 됩니다. 먼저 조건부 액세스 정책을 만들고 액세스 제어 **권한 부여** 블레이드에서 **액세스 차단**을 선택합니다. 다음으로 **deviceOwnership** 속성을 **개인**으로 설정하여 **동적 장치** 그룹을 만듭니다. 그런 다음 위의 정책 대상을 새 그룹으로 지정합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -13,16 +13,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/13/2017
-ms.author: pajosh;markgal;trinadhk
+ms.author: pajosh;markgal;trinadhk; sogup
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f2425523dacd9a0e1e078ec8cd082ac40534d25a
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: 509e891207d1469ed244eab4512ec66420284fd5
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 12/21/2017
 ---
-# <a name="back-up-and-restore-encrypted-virtual-machines-with-azure-backup"></a>Azure Backup으로 암호화된 가상 컴퓨터를 백업 및 복원 
-이 문서에서는 Azure Backup을 사용하여 VM(가상 컴퓨터)을 백업하고 복원하는 단계에 대해 설명합니다. 또한 지원되는 시나리오, 필수 조건 및 오류 사례에 대한 문제 해결 조치에 대한 자세한 정보도 제공합니다.
+# <a name="back-up-and-restore-encrypted-virtual-machines-with-azure-backup"></a>Azure Backup으로 암호화된 가상 머신을 백업 및 복원 
+이 문서에서는 Azure Backup을 사용하여 VM(가상 머신)을 백업하고 복원하는 단계에 대해 설명합니다. 또한 지원되는 시나리오, 필수 조건 및 오류 사례에 대한 문제 해결 조치에 대한 자세한 정보도 제공합니다.
 
 ## <a name="supported-scenarios"></a>지원되는 시나리오
 
@@ -50,13 +50,13 @@ ms.lasthandoff: 10/13/2017
 ### <a name="configure-backup"></a>백업 구성
 1. 이미 Recovery Services 자격 증명 모음이 열려 있으면 다음 단계로 진행합니다. Recovery Services 자격 증명 모음이 열려 있지 않지만 Azure Portal에 있는 경우 **허브** 메뉴에서 **찾아보기**를 클릭합니다.
 
-   a. 리소스 목록에서 **복구 서비스**를 입력합니다.
+   a. 리소스 목록에서 **Recovery Services**를 입력합니다.
 
-   b. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **복구 서비스 자격 증명 모음**이 표시되면 이를 선택합니다.
+   나. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Recovery Services 자격 증명 모음**이 표시되면 이를 선택합니다.
 
       ![Recovery Services 자격 증명 모음](./media/backup-azure-vms-encryption/browse-to-rs-vaults.png) <br/>
 
-    c. 복구 서비스 자격 증명 모음의 목록이 표시됩니다. 목록에서 자격 증명 모음을 선택합니다.
+    다. Recovery Services 자격 증명 모음의 목록이 표시됩니다. 목록에서 자격 증명 모음을 선택합니다.
 
      선택한 자격 증명 모음 대시보드가 열립니다.
 2. 자격 증명 모음 아래쪽에 나타나는 항목 목록에서 **백업**을 선택하여 암호화된 VM 백업을 시작합니다.
@@ -77,11 +77,17 @@ ms.lasthandoff: 10/13/2017
 6. 지정된 정책과 연결할 암호화된 VM을 선택하고 **확인**을 선택합니다.
 
       ![암호화된 VM 선택](./media/backup-azure-vms-encryption/selected-encrypted-vms.png)
-7. 이 페이지에서는 선택한 암호화된 VM에 연결된 키 자격 증명 모음에 대한 메시지를 보여 줍니다. 백업을 사용하려면 키 자격 증명 모음의 키와 비밀에 대한 읽기 전용 액세스 권한이 있어야 합니다. 이 권한을 사용하여 연결된 VM과 함께 키와 비밀을 백업합니다. *백업이 작동하려면 키 자격 증명 모음에 액세스하기 위한 권한을 백업 서비스에 제공해야 합니다*. [다음 섹션에 설명된 단계](#provide-permissions-to-azure-backup)를 사용하여 이러한 권한을 제공할 수 있습니다.
+7. 이 페이지에서는 선택한 암호화된 VM에 연결된 키 자격 증명 모음에 대한 메시지를 보여 줍니다. 백업을 사용하려면 키 자격 증명 모음의 키와 비밀에 대한 읽기 전용 액세스 권한이 있어야 합니다. 이 권한을 사용하여 연결된 VM과 함께 키와 비밀을 백업합니다.<br>
+**멤버 사용자**인 경우, 백업 사용 프로세스는 원활하게 키 자격 증명 모음에 대한 액세스를 가져와서 사용자 간섭을 물어보지 않고도 암호화된 VM을 백업할 수 있게 됩니다.
 
-      ![암호화된 VM 메시지](./media/backup-azure-vms-encryption/encrypted-vm-warning-message.png)
+   ![암호화된 VM 메시지](./media/backup-azure-vms-encryption/member-user-encrypted-vm-warning-message.png)
 
-      이제 자격 증명 모음의 모든 설정을 정의했으므로 페이지 아래쪽의 **백업 사용**을 선택합니다. **백업 사용**은 해당 정책을 자격 증명 모음 및 VM에 배포합니다.
+   **게스트 사용자**인 경우 백업 서비스에 대한 권한이 있어야 백업을 수행하는 데 필요한 키 자격 증명 모음에 액세스할 수 있습니다. [다음 섹션에 설명된 단계](#provide-permissions-to-backup)를 수행하여 이러한 권한을 제공할 수 있습니다.
+
+   ![암호화된 VM 메시지](./media/backup-azure-vms-encryption/guest-user-encrypted-vm-warning-message.png)
+ 
+    이제 자격 증명 모음의 모든 설정을 정의했으므로 페이지 아래쪽의 **백업 사용**을 선택합니다. **백업 사용**은 정책을 자격 증명 모음 및 VM에 배포합니다.
+  
 8. 다음 준비 단계는 VM 에이전트를 설치하거나 VM 에이전트가 설치되었는지 확인하는 단계입니다. 똑같이 하려면 [백업 환경 준비](backup-azure-arm-vms-prepare.md)의 단계를 따릅니다.
 
 ### <a name="trigger-a-backup-job"></a>백업 작업 트리거
@@ -135,7 +141,7 @@ Recovery Services 자격 증명 모음에서 VM이 이미 백업되었으며 나
 ## <a name="troubleshooting-errors"></a>문제 해결 오류
 | 작업 | 오류 세부 정보 | 해결 방법 |
 | --- | --- | --- |
-|백업 | Backup에 암호화된 VM의 백업을 위한 Key Vault에 대한 충분한 권한이 없습니다. | [이전 섹션의 단계](#provide-permissions-to-azure-backup)에 따라 이러한 권한을 Backup에 제공해야 합니다. 또는 PowerShell 설명서의 [ AzureRM.RecoveryServices.Backup cmdlet을 사용하여 가상 컴퓨터 백업](backup-azure-vms-automation.md#back-up-azure-vms)에서 “보호 사용” 섹션의 PowerShell 단계를 따를 수 있습니다. |  
+|Backup | Backup에 암호화된 VM의 백업을 위한 Key Vault에 대한 충분한 권한이 없습니다. | [이전 섹션의 단계](#provide-permissions-to-azure-backup)에 따라 이러한 권한을 Backup에 제공해야 합니다. 또는 PowerShell 설명서의 [ AzureRM.RecoveryServices.Backup cmdlet을 사용하여 가상 머신 백업](backup-azure-vms-automation.md#back-up-azure-vms)에서 “보호 사용” 섹션의 PowerShell 단계를 따를 수 있습니다. |  
 | 복원 |이 VM과 연결된 키 자격 증명 모음이 없기 때문에 이 암호화된 VM을 복원할 수 없습니다. |키 자격 증명 모음을 만들려면 [Azure Key Vault 시작](../key-vault/key-vault-get-started.md)을 사용합니다. 없는 경우 이를 복원하려면 [Azure Backup으로 키 자격 증명 모음 키 및 비밀 복원](backup-azure-restore-key-secret.md)을 참조하여 키와 비밀을 복원합니다. |
 | 복원 |이 VM과 연결된 키와 비밀이 없기 때문에 이 암호화된 VM을 복원할 수 없습니다. |없는 경우 이를 복원하려면 [Azure Backup으로 키 자격 증명 모음 키 및 비밀 복원](backup-azure-restore-key-secret.md)을 참조하여 키와 비밀을 복원합니다. |
 | 복원 |Backup은 구독의 리소스에 액세스할 수 있는 권한이 없습니다. |앞에서 설명한 대로 [VM 복원 구성 선택](backup-azure-arm-restore-vms.md#choose-a-vm-restore-configuration)의 "백업된 디스크 복원" 섹션의 단계를 따라 먼저 디스크를 복원합니다.  그런 후에 PowerShell을 사용하여 [복원된 디스크에서 VM을 만듭니다](backup-azure-vms-automation.md#create-a-vm-from-restored-disks). |

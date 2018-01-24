@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: mobile-windows-phone
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 5edaee6a4adedc440b16e936462df5e224fe8609
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 87cf0464a515c8616363d13a16844220acaa51f3
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
-# <a name="integrate-azure-ad-with-a-windows-phone-app"></a>Azure AD와 Windows Phone 앱 통합
+# <a name="azure-ad-windows-phone-getting-started"></a>Azure AD Windows Phone 시작
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -53,7 +53,7 @@ Windows Phone 8.1 앱을 개발하는 경우 Azure AD를 사용하면 간단하�
 ## <a name="1-register-the-directory-searcher-application"></a>1. Directory Searcher 응용 프로그램 등록
 앱에서 토큰을 가져올 수 있게 하려면 먼저 Azure AD 테넌트에 등록하고 Azure AD Graph API에 액세스할 수 있는 권한을 부여해야 합니다.
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 오른쪽 위에서 계정을 클릭하고 **디렉터리** 목록에서 응용 프로그램을 등록하려는 Active Directory 테넌트를 선택합니다.
 3. 왼쪽 탐색 창에서 **더 많은 서비스**를 클릭하고 **Azure Active Directory**를 선택합니다.
 4. **앱 등록**을 클릭하고 **추가**를 선택합니다.
@@ -174,7 +174,7 @@ private void SignOut()
 }
 ```
 
-축하합니다. 이제 사용자를 인증하고 OAuth 2.0을 사용하여 Web API를 안전하게 호출하고, 사용자에 대한 기본 정보를 가져올 수 있는 Windows Phone 앱이 작성되었습니다.  아직 일부 사용자로 테넌트를 채우지 않은 경우 지금 할 수 있습니다.  DirectorySearcher 앱을 실행하고 해당 사용자 중 하나로 로그인합니다.  해당 UPN에 따라 다른 사용자를 검색합니다.  앱을 닫았다가 다시 실행합니다.  사용자의 세션을 그대로 유지하는 방법을 알아두세요.  로그아웃했다가 다른 사용자로 다시 로그인합니다.
+축하합니다! 이제 사용자를 인증하고 OAuth 2.0을 사용하여 Web API를 안전하게 호출하고, 사용자에 대한 기본 정보를 가져올 수 있는 Windows Phone 앱이 작성되었습니다.  아직 일부 사용자로 테넌트를 채우지 않은 경우 지금 할 수 있습니다.  DirectorySearcher 앱을 실행하고 해당 사용자 중 하나로 로그인합니다.  해당 UPN에 따라 다른 사용자를 검색합니다.  앱을 닫았다가 다시 실행합니다.  사용자의 세션을 그대로 유지하는 방법을 알아두세요.  로그아웃했다가 다른 사용자로 다시 로그인합니다.
 
 ADAL은 응용 프로그램에 이러한 모든 일반적인 ID 기능을 쉽게 통합할 수 있습니다.  또한 캐시 관리, OAuth 프로토콜 지원, 사용자에게 로그인 UI 제공, 만료된 토큰 새로 고침 등의 모든 귀찮은 작업을 관리해줍니다.  실제로 알아두어야 할 모든 항목은 단일 API 호출, `authContext.AcquireToken*(…)`입니다.
 

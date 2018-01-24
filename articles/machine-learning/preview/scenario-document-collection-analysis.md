@@ -2,22 +2,23 @@
 title: "문서 컬렉션 분석 ‑ Azure | Microsoft Docs"
 description: "Azure ML Workbench를 사용한 문구 학습, 토픽 모델링, 토픽 모델 분석과 같은 기법을 포함하는, 여러 문서 컬렉션을 요약하고 분석하는 방법."
 services: machine-learning
-documentationcenter: 
 author: kehuan
 ms.author: kehuan
-ms.reviewer: garyericson, jasonwhowell, mldocs
+manager: mwinkle
+ms.reviewer: garyericson, jasonwhowell, MicrosoftDocs/mlreview, mldocs
 ms.service: machine-learning
+ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 5ef1589e28c01d750641873d3c8482f61d90a887
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: a6034652f27765bb20db4dbbb4c25741b261e50a
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="document-collection-analysis"></a>문서 컬렉션 분석
 
-이 시나리오에서는 Azure ML Workbench를 사용한 문구 학습, 토픽 모델링, 토픽 모델 분석과 같은 기법을 포함하는, 여러 문서 컬렉션을 요약하고 분석하는 방법을 보여줍니다. Azure Machine Learning Workbench는 방대한 문서 컬렉션에 대한 손쉬운 크기 조정을 제공하며, 로컬 컴퓨터에서 데이터 과학 가상 컴퓨터, Spark 클러스터에 이르는 다양한 컴퓨팅 컨텍스트에서 모델을 교육하고 조정할 메커니즘을 제공합니다. Azure Machine Learning Workbench의 Jupyter 노트북을 통해 쉽게 개발할 수 있습니다.
+이 시나리오에서는 Azure ML Workbench를 사용한 문구 학습, 토픽 모델링, 토픽 모델 분석과 같은 기법을 포함하는, 여러 문서 컬렉션을 요약하고 분석하는 방법을 보여줍니다. Azure Machine Learning Workbench는 방대한 문서 컬렉션에 대한 손쉬운 크기 조정을 제공하며, 로컬 컴퓨터에서 데이터 과학 Virtual Machines, Spark 클러스터에 이르는 다양한 컴퓨팅 컨텍스트에서 모델을 교육하고 조정할 메커니즘을 제공합니다. Azure Machine Learning Workbench의 Jupyter 노트북을 통해 쉽게 개발할 수 있습니다.
 
 ## <a name="link-to-the-gallery-github-repository"></a>갤러리 GitHub 리포지토리에 연결
 
@@ -61,7 +62,7 @@ ms.lasthandoff: 10/27/2017
 
 * 이 예를 모든 계산 컨텍스트에서 실행할 수 있습니다. 그렇지만 적어도 16GB 메모리와 5GB 디스크 공간이 있는 다중 코어 컴퓨터에서 실행하는 것이 좋습니다 .
 
-## <a name="create-a-new-workbench-project"></a>새 워크벤치 프로젝트 만들기
+## <a name="create-a-new-workbench-project"></a>새 Workbench 프로젝트 만들기
 
 이 예제를 템플릿으로 사용하여 새 프로젝트를 만듭니다.
 1.  Azure Machine Learning Workbench 열기
@@ -82,15 +83,15 @@ ms.lasthandoff: 10/27/2017
 
 데이터 파일에 9개의 데이터 필드가 있습니다. 데이터 필드 이름 및 설명은 다음과 같이 나열됩니다.
 
-| 필드 이름 | 형식 | 설명 | 누락된 값 포함 |
+| 필드 이름 | type | 설명 | 누락된 값 포함 |
 |------------|------|-------------|---------------|
 | `ID` | 문자열 | 법안/결의안 ID. 이 필드의 형식은 [bill_type][number]-[congress]입니다. 예를 들어 "hconres1 93"은 법안 유형이 "hconres"(상하 양원 동일 결의를 의미함, [이 문서](https://github.com/unitedstates/congress/wiki/bills#basic-information) 참조), 법안 번호는 1, 의회 번호는 93임을 나타냅니다. | 아니요 |
 | `Text` | 문자열 | 법안/결의안 내용. | 아니요 |
-| `Date` | 문자열 | 처음 제안된 청구서/해결 날짜. 'yyyy-mm-dd' 형식. | 아니요 |
+| `Date` | 문자열 | 처음 제안된 청구서/해결 날짜. 'yyyy-mm-dd' 형식. | 아니오 |
 | `SponsorName` | 문자열 | 법안/결의안을 제안한 주요 발기인 이름. | 예 |
 | `Type` | 문자열 | 주요 발기인의 직함, 'rep'(하원 의원) 또는 'sen'(상원 의원) 중 하나입니다. | 예 |
 | `State` | 문자열 | 주요 발기인의 주. | 예 |
-| `District` | Integer | 발기인의 직함이 하원 의원일 경우 주요 발기인의 지구 번호. | 예 |
+| `District` | 정수  | 발기인의 직함이 하원 의원일 경우 주요 발기인의 지구 번호. | 예 |
 | `Party` | 문자열 | 주요 발기인의 당. | 예 |
 | `Subjects` | 문자열 | 의회 도서관에서 법안에 점증적으로 추가한 주제어. 주제어는 쉼표로 연결됩니다. 이러한 용어는 의회 도서관 직원에 의해 작성되며 법안의 정보가 처음 게시될 때 일반적으로 제공되지 않습니다. 이러한 용어는 언제든지 추가될 수 있습니다. 따라서 법안의 수명이 다하면 일부 주체는 더 이상 관련이 없을 수도 있습니다. | 예 |
 
@@ -100,7 +101,7 @@ ms.lasthandoff: 10/27/2017
 
 이 예제에 있는 파일은 다음과 같이 구성됩니다.
 
-| 파일 이름 | 형식 | 설명 |
+| 파일 이름 | type | 설명 |
 |-----------|------|-------------|
 | `aml_config` | 폴더 | Azure Machine Learning Workbench 구성 폴더는 자세한 실험 실행 구성에 대해 [이 설명서](./experimentation-service-configuration-reference.md)를 참조합니다. |
 | `Code` | 폴더 | Python 스크립트 및 Python 패키지를 저장하는 데 사용하는 코드 폴더 |

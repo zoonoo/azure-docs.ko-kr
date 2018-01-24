@@ -7,6 +7,7 @@ author: anta
 manager: ireiter
 editor: anta
 ms.assetid: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: anta
-ms.openlocfilehash: bd0ddfcffdb6f946f9a3786f3d0add1740be861b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 17903df93e11b8d1a5b9c6fbe5fd8e53302f45f4
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="energy-demand-time-series-forecasting"></a>에너지 수요 시계열 예측
 
@@ -56,13 +57,11 @@ Azure Machine Learning Workbench는 모든 단계에서 모델링 프로세스�
 - [Azure 계정](https://azure.microsoft.com/free/)(평가판 사용 가능)
 - [빠른 시작 설치 가이드](./quickstart-installation.md)에 따라 [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md)의 설치 복사본으로 프로그램을 설치하고 작업 공간을 만듭니다.
 - 이 샘플에서는 [Docker 엔진](https://www.docker.com/)이 로컬에 설치된 Windows 10에서 Azure ML Workbench를 실행 중이라고 가정합니다. macOS를 사용하는 경우 지침은 거의 같습니다.
-- 이 [가이드](https://github.com/Azure/Machine-Learning-Operationalization/blob/master/documentation/getting-started.md)에 설명된 대로 Azure Machine Learning 운영화가 로컬 배포 환경 설정으로 설치되고 모델 관리 계정이 생성되어야 합니다.
+- 이 [가이드](./model-management-configuration.md)에 설명된 대로 Azure Machine Learning 운영화가 로컬 배포 환경 설정으로 설치되고 모델 관리 계정이 생성되어야 합니다.
 - 이 샘플에서는 Pandas 설치를 버전 0.20.3 이상으로 업데이트하고 matplotlib를 설치해야 합니다. Workbench의 *파일* 메뉴에서 *명령 프롬프트 열기*를 클릭하고 다음 명령을 실행하여 이러한 종속 항목을 설치합니다.
 
     ```
-    conda install "pandas>=0.20.3"
-
-    conda install matplotlib
+    conda install "pandas>=0.21.1"
     ```
     
 ## <a name="create-a-new-workbench-project"></a>새 Workbench 프로젝트 만들기
@@ -77,7 +76,7 @@ Azure Machine Learning Workbench는 모든 단계에서 모델링 프로세스�
 
 ## <a name="data-description"></a>데이터 설명
 
-`nyc_demand.csv` 및 `nyc_weather.csv` 데이터 집합이 있습니다.
+두 개의 데이터 집합이 이 샘플과 함께 제공되고 `1-data-preparation.ipynb` 노트북: `nyc_demand.csv` 및 `nyc_weather.csv`를 사용하여 다운로드됩니다.
 
 **nyc_demand.csv**에는 2012-2017년 동안 뉴욕시의 시간당 에너지 수요 값이 포함되어 있습니다. 데이터의 구조는 다음과 같이 간단합니다.
 

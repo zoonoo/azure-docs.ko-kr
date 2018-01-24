@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/22/2017
+ms.date: 12/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 4117414f4605b73d8aab8acc2e788720deff8b99
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9c4b8364f88548cfc4595261302248cc2840c233
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>Azure Active Directory 장치 등록을 사용하여 온-프레미스 조건부 액세스 설정
 사용자가 Azure AD(Azure Active Directory) 장치 등록 서비스에 자신의 개인 장치를 작업 공간에 연결하도록 요구하면 해당 장치가 조직에 알려진 것으로 표시될 수 있습니다. 다음은 Windows Server 2012 R2에서 AD FS(Active Directory Federation Services)를 사용하여 온-프레미스 응용 프로그램에 대한 조건부 액세스를 사용하도록 설정하는 단계별 가이드입니다.
@@ -69,7 +69,7 @@ Azure Active Directory 테넌트에 Azure Active Directory 장치 등록 서비�
 ## <a name="part-1-enable-azure-active-directory-device-registration"></a>1부: Azure Active Directory 장치 등록 사용
 검사 목록의 단계에 따라 Azure Active Directory 장치 등록 서비스를 사용하도록 설정하고 구성합니다.
 
-| 작업 | 참조 | 
+| Task | 참고 자료 | 
 | --- | --- |
 | Azure Active Directory 테넌트에서 장치 등록을 사용하도록 설정하여 장치에서 작업 공간에 연결할 수 있게 합니다. 기본적으로 Multi-Factor Authentication은 서비스에서 사용되지 않습니다. 그러나 장치를 등록할 때는 Multi-Factor Authentication을 사용하는 것이 좋습니다. Active Directory 등록 서비스에서 Multi-Factor Authentication을 사용하도록 설정하기 전에 먼저 AD FS가 Multi-Factor Authentication 공급자에 대해 구성되어 있는지 확인합니다. |[Azure Active Directory 장치 등록 사용](active-directory-device-registration-get-started.md)| 
 |장치에서 잘 알려진 DNS 레코드를 찾아 Azure Active Directory 장치 등록 서비스를 검색합니다. 장치에서 Azure Active Directory 장치 등록 서비스를 검색할 수 있도록 회사 DNS를 구성합니다. |[Azure Active Directory 장치 등록 검색 구성](active-directory-device-registration-get-started.md)| 
@@ -77,13 +77,13 @@ Azure Active Directory 테넌트에 Azure Active Directory 장치 등록 서비�
 
 ## <a name="part-2-deploy-and-configure-windows-server-2012-r2-active-directory-federation-services-and-set-up-a-federation-relationship-with-azure-ad"></a>2부: Windows Server 2012 R2 Active Directory Federation Services를 배포 및 구성하고 Azure AD와의 페더레이션 관계를 설정합니다.
 
-| 작업 | 참조 |
+| Task | 참고 자료 |
 | --- | --- |
 | Windows Server 2012 R2 스키마 확장을 사용하여 Active Directory Domain Services를 배포합니다. 도메인 컨트롤러는 Windows Server 2012 R2로 업그레이드할 필요가 없습니다. 스키마 업그레이드만 수행하면 됩니다. |[Active Directory Domain Services 스키마 업그레이드](#upgrade-your-active-directory-domain-services-schema) |
 | 장치에서 잘 알려진 DNS 레코드를 찾아 Azure Active Directory 장치 등록 서비스를 검색합니다. 장치에서 Azure Active Directory 장치 등록 서비스를 검색할 수 있도록 회사 DNS를 구성합니다. |[Active Directory 지원 장치 준비](#prepare-your-active-directory-to-support-devices) |
 
 ## <a name="part-3-enable-device-writeback-in-azure-ad"></a>3부: Azure AD에서 장치 쓰기 저장 사용
-| 작업 | 참조 |
+| Task | 참고 자료 |
 | --- | --- |
 | "Azure AD Connect에서 장치 쓰기 저장 사용"의 2부를 완료합니다. 완료한 후에 이 가이드로 돌아옵니다. |[Azure AD Connect에서 장치 쓰기 저장 사용](#upgrade-your-active-directory-domain-services-schema) |
 
@@ -93,7 +93,7 @@ Multi-Factor Authentication을 위한 여러 옵션 중 하나를 구성하는 �
 ## <a name="part-5-verification"></a>5부: 확인
 이제 배포가 완료되었으므로 몇 가지 시나리오를 체험할 수 있습니다. 다음 링크를 사용하여 서비스를 시험해 보고 기능을 익혀 보세요.
 
-| 작업 | 참조 |
+| Task | 참고 자료 |
 | --- | --- |
 | Azure Active Directory 장치 등록을 사용하여 일부 장치를 작업 공간에 연결합니다. iOS, Windows 및 Android 장치를 연결할 수 있습니다. |[Azure Active Directory 장치 등록 서비스를 사용하여 작업 공간에 장치 연결](#join-devices-to-your-workplace-using-azure-active-directory-device-registration) |
 | 관리자 포털을 사용하여 등록된 장치를 보고 사용하거나 사용하지 않도록 설정할 수 있습니다. 이 작업에서는 관리자 포털을 사용하여 등록된 장치 일부를 확인합니다. |[Azure Active Directory 장치 등록 서비스 개요](active-directory-device-registration-get-started.md) |
@@ -101,19 +101,13 @@ Multi-Factor Authentication을 위한 여러 옵션 중 하나를 구성하는 �
 | 이제 사용자가 장치를 등록할 수 있으므로 등록된 장치만 허용하도록 AD FS에서 응용 프로그램 액세스 정책을 만들 수 있습니다. 이 작업에서는 응용 프로그램 액세스 규칙과 사용자 지정 액세스 거부 메시지를 만듭니다. |[응용 프로그램 액세스 정책 및 사용자 지정 액세스 거부 메시지 만들기](#create-an-application-access-policy-and-custom-access-denied-message) |
 
 ## <a name="integrate-azure-active-directory-with-on-premises-active-directory"></a>온-프레미스 Active Directory와 Azure Active Directory 통합
-이 단계에서는 Azure AD Connect를 사용하여 Azure AD 테넌트와 온-프레미스 Active Directory를 통합할 수 있습니다. 이 단계는 Azure 클래식 포털에서도 사용할 수 있지만 이 섹션에서 나열하는 특별 지침에 유의하세요.
 
-1. Azure AD의 전역 관리자인 계정을 사용하여 Azure 클래식 포털에 로그인합니다.
-2. 왼쪽 창에서 **Active Directory**를 선택합니다.
-3. **디렉터리** 탭에서 해당 디렉터리를 선택합니다.
-4. **디렉터리 통합** 탭을 선택합니다.
-5. **배포 및 관리** 섹션 아래에서 1-3단계에 따라 온-프레미스 디렉터리와 Azure Active Directory를 통합합니다.
-   
-   1. 도메인을 추가합니다.
-   2. [Azure AD Connect의 사용자 지정 설치](connect/active-directory-aadconnect-get-started-custom.md) 지침을 사용하여 Azure AD Connect를 설치하고 실행합니다.
-   3. 디렉터리 동기화를 확인하고 관리합니다. 이 단계에는 SSO(Single Sign-On) 지침이 포함되어 있습니다.
-   
-   또한 [Azure AD Connect의 사용자 지정 설치](connect/active-directory-aadconnect-get-started-custom.md)에서 설명한 대로 AD FS를 사용하여 페더레이션을 구성합니다.
+**다음을 참조하세요.**
+
+- 개념 정보를 검토하려면 [Azure Active Directory에 온-프레미스 디렉터리 통합](./connect/active-directory-aadconnect.md)을 참조하세요.
+
+- 설치 지침은 [Azure AD Connect의 사용자 지정 설치](./connect/active-directory-aadconnect-get-started-custom.md)를 참조하세요.
+
 
 ## <a name="upgrade-your-active-directory-domain-services-schema"></a>Active Directory Domain Services 스키마 업그레이드
 > [!NOTE]

@@ -9,17 +9,17 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 084c6bf3855bdc757c3f2926b35eaf7bba0ef389
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: b01aa01df198ce75b2f8b66d28a2db68b1c30b87
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="monitor-azure-container-service-aks"></a>AKS(Azure Container Service) 모니터링
 
 Kubernetes 클러스터 및 컨테이너를 모니터링하는 것은 중요하며, 특히 여러 응용 프로그램을 사용하여 대규모의 프로덕션 클러스터를 실행하는 경우 그렇습니다.
 
-이 자습서에서는 [Log Analytics용 컨테이너 솔루션](../log-analytics/log-analytics-containers.md)을 사용하여 AKS 클러스터의 모니터링을 구성합니다.
+이 자습서에서는 [Log Analytics용 컨테이너 솔루션][log-analytics-containers]을 사용하여 AKS 클러스터의 모니터링을 구성합니다.
 
 총 8부 중 7부인 이 자습서에서는 다음과 같은 작업을 다룹니다.
 
@@ -32,7 +32,7 @@ Kubernetes 클러스터 및 컨테이너를 모니터링하는 것은 중요하�
 
 이전 자습서에서는 응용 프로그램을 컨테이너 이미지에 패키지하고, Azure Container Registry에 이러한 이미지를 업로드하고, Kubernetes 클러스터를 만들었습니다.
 
-이러한 단계를 수행하지 않은 경우 수행하려면 [자습서 1 - 컨테이너 이미지 만들기](./tutorial-kubernetes-prepare-app.md)로 돌아갑니다.
+이러한 단계를 아직 수행하지 않았으나 수행하려는 경우 [자습서 1 - 컨테이너 이미지 만들기][aks-tutorial-prepare-app]로 돌아갑니다.
 
 ## <a name="configure-the-monitoring-solution"></a>모니터링 솔루션 구성
 
@@ -58,7 +58,7 @@ Log Analytics 작업 영역 ID 및 키는 Kubernetes 노드에서 솔루션 에�
 
 ## <a name="configure-monitoring-agents"></a>모니터링 에이전트 구성
 
-다음 Kubernetes 매니페스트 파일을 사용하여 Kubernetes 클러스터에서 컨테이너 모니터링 에이전트를 구성할 수 있습니다. 그러면 각 클러스터 노드에서 단일 Pod를 실행하는 Kubernetes [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/)이 만들어집니다.
+다음 Kubernetes 매니페스트 파일을 사용하여 Kubernetes 클러스터에서 컨테이너 모니터링 에이전트를 구성할 수 있습니다. 그러면 각 클러스터 노드에서 단일 Pod를 실행하는 Kubernetes [DaemonSet][kubernetes-daemonset]이 만들어집니다.
 
 다음 텍스트를 `oms-daemonset.yaml`이라는 파일에 저장하고, `WSID` 및 `KEY`의 자리 표시자 값을 해당 Log Analytics 작업 영역 ID 및 키로 바꿉니다.
 
@@ -98,6 +98,8 @@ spec:
           name: container-hostname
         - mountPath: /var/log
           name: host-log
+        - mountPath: /var/lib/docker/containers/
+          name: container-log
        livenessProbe:
         exec:
          command:
@@ -124,6 +126,9 @@ spec:
     - name: host-log
       hostPath:
        path: /var/log
+    - name: container-log
+      hostPath:
+       path: /var/lib/docker/containers/
 ```
 
 다음 명령을 사용하여 DaemonSet를 만듭니다.
@@ -153,7 +158,7 @@ Azure Portal에서 포털 대시보드에 고정된 Log Analytics 작업 영역�
 
 ![대시보드](./media/container-service-tutorial-kubernetes-monitor/oms-containers-dashboard.png)
 
-모니터링 데이터 쿼리 및 분석에 대한 자세한 지침은 [Azure Log Analytics 설명서](../log-analytics/index.yml)를 참조하세요.
+모니터링 데이터 쿼리 및 분석에 대한 자세한 지침은 [Azure Log Analytics 설명서][log-analytics-docs]를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -167,4 +172,14 @@ Azure Portal에서 포털 대시보드에 고정된 Log Analytics 작업 영역�
 다음 자습서로 이동하여 Kubernetes를 새 버전으로 업그레이드 하는 방법에 대해 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [Kubernetes 업그레이드](./tutorial-kubernetes-upgrade-cluster.md)
+> [Kubernetes 업그레이드][aks-tutorial-upgrade]
+
+<!-- LINKS - external -->
+[kubernetes-daemonset]: https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/
+
+<!-- LINKS - internal -->
+[aks-tutorial-deploy-app]: ./tutorial-kubernetes-deploy-application.md
+[aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
+[aks-tutorial-upgrade]: ./tutorial-kubernetes-upgrade-cluster.md
+[log-analytics-containers]: ../log-analytics/log-analytics-containers.md
+[log-analytics-docs]: ../log-analytics/index.yml

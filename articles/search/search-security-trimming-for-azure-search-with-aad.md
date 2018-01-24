@@ -1,6 +1,6 @@
 ---
-title: "Azure Search에서 Azure Active Directory를 사용하여 보안 조정 | Microsoft Docs"
-description: "Azure Search 필터와 Azure Active Directory를 사용하여 보안 조정을 구현합니다."
+title: "Active Directory ID를 사용하여 Azure Search 결과를 자르는 보안 필터 | Microsoft Docs"
+description: "보안 필터 및 Active Directory ID를 사용하는 Azure Search 콘텐츠에 대한 액세스 제어입니다."
 services: search
 author: revitalbarletz
 manager: jlembicz
@@ -8,15 +8,15 @@ ms.service: search
 ms.topic: article
 ms.date: 11/07/2017
 ms.author: revitalb
-ms.openlocfilehash: 8d277ff43aa0d5d14471426632b5aa369df0e316
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 2113b59d6fec15067acbef8b4d4c1fc34c141e62
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/15/2017
 ---
-# <a name="security-trimming-in-azure-search-with-azure-active-directory"></a>Azure Search에서 Azure Active Directory를 사용하여 보안 조정
+# <a name="security-filters-for-trimming-azure-search-results-using-active-directory-identities"></a>Active Directory ID를 사용하여 Azure Search 결과를 자르는 보안 필터
 
-이 문서에서는 AAD(Azure Active Directory)를 Azure Search와 함께 사용하여 사용자 그룹 멤버 자격에 따라 문서 액세스를 제한하는 방법을 보여 줍니다.
+이 문서에서는 Azure Search에서 필터와 함께 AAD(Azure Active Directory)를 사용하여 사용자 그룹 멤버 자격에 따라 검색 결과를 자르는 방법을 보여줍니다.
 
 이 문서에서 다루는 작업은 다음과 같습니다.
 > [!div class="checklist"]
@@ -187,5 +187,6 @@ DocumentSearchResult<SecuredFiles> results = _indexClient.Documents.Search<Secur
 
 ## <a name="see-also"></a>참고 항목
 
-+ [Azure Search 보안 조정](search-security-trimming-for-azure-search.md)
++ [Azure Search 필터를 사용하여 ID 기반 액세스 제어](search-security-trimming-for-azure-search.md)
 + [Azure Search의 필터](search-filters.md)
++ [Azure Search 작업의 데이터 보안 및 액세스 제어](search-security-overview.md)

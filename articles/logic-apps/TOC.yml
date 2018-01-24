@@ -222,7 +222,7 @@
           href: logic-apps-enterprise-integration-xml-validation.md
     - name: 관리
       items:
-        - name: 논리 앱 관리 - VS
+        - name: 논리 앱 관리 - Visual Studio
           href: logic-apps-manage-from-vs.md
         - name: 통합 계정 관리
           href: logic-apps-enterprise-integration-accounts.md

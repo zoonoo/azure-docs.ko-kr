@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: b6bc12c407a32388b7155a815b099b3b285fef18
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 081da55bb956db2879d7f2c5c91d25f5c36d5507
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Azure Functions를 로컬에서 코딩 및 테스트
 
@@ -132,7 +132,7 @@ local.settings.json 파일은 앱 설정, 연결 문자열 및 Azure Functions �
 | **값** | 로컬에서 실행될 때 사용되는 응용 프로그램 설정의 컬렉션입니다. **AzureWebJobsStorage** 및 **AzureWebJobsDashboard**는 예입니다. 전체 목록은 [app settings reference](functions-app-settings.md)를 참조하세요.  |
 | **호스트** | 이 섹션의 설정은 로컬에서 실행할 때 Functions 호스트 프로세스를 사용자 지정합니다. | 
 | **LocalHttpPort** | 로컬 Functions 호스트(`func host start` 및 `func run`)를 실행할 때 사용되는 기본 포트를 설정합니다. `--port` 명령줄 옵션이 이 값보다 우선합니다. |
-| **CORS** | [CORS(원본 간 리소스 공유)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)에 허용된 원본을 정의합니다. 원본은 공백 없이 쉼표로 구분된 목록으로 제공됩니다. 와일드카드 값(**\***)이 지원되므로 모든 원본에서 요청할 수 있습니다. |
+| **CORS** | [CORS(원본 간 리소스 공유)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)에 허용된 원본을 정의합니다. 원본은 공백 없이 쉼표로 구분된 목록으로 제공됩니다. 와일드카드 값(\*)이 지원되므로 모든 원본에서 요청할 수 있습니다. |
 | **ConnectionStrings** | 함수에 대한 데이터베이스 연결 문자열을 포함합니다. 이 개체의 연결 문자열은 공급자 유형이 **System.Data.SqlClient**인 환경에 추가됩니다.  | 
 
 대부분의 트리거와 바인딩에는 환경 변수 또는 앱 설정의 이름에 매핑되는 **연결** 속성이 있습니다. 각 연결 속성에 대해 local.settings.json 파일에 정의된 앱 설정이 있어야 합니다. 

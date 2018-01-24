@@ -75,10 +75,12 @@
 #### [.NET](iot-hub-csharp-csharp-process-d2c.md)
 #### [Java](iot-hub-java-java-process-d2c.md)
 #### [Node.js](iot-hub-node-node-process-d2c.md)
+#### [Python](iot-hub-python-python-process-d2c.md)
 ### 클라우드-장치 메시지 보내기
 #### [.NET](iot-hub-csharp-csharp-c2d.md)
 #### [Java](iot-hub-java-java-c2d.md)
 #### [Node.js](iot-hub-node-node-c2d.md)
+#### [Python](iot-hub-python-python-c2d.md)
 ### 장치에서 파일 업로드
 #### [.NET](iot-hub-csharp-csharp-file-upload.md)
 #### [Java](iot-hub-java-java-file-upload.md)
@@ -88,11 +90,13 @@
 #### [.NET 백 엔드/Node.js 장치](iot-hub-csharp-node-twin-getstarted.md)
 #### [.NET 백 엔드/.NET 장치](iot-hub-csharp-csharp-twin-getstarted.md)
 #### [Java 백 엔드/Java 장치](iot-hub-java-java-twin-getstarted.md)
+#### [Python 백 엔드/Python 장치](iot-hub-python-twin-getstarted.md)
 ### 직접 메서드 사용
 #### [Node.js 백 엔드/Node.js 장치](iot-hub-node-node-direct-methods.md)
 #### [.NET 백 엔드/Node.js 장치](iot-hub-csharp-node-direct-methods.md)
 #### [.NET 백 엔드/.NET 장치](iot-hub-csharp-csharp-direct-methods.md)
 #### [Java 백 엔드/Java 장치](iot-hub-java-java-direct-methods.md)
+#### [Python 백 엔드/Python 장치](iot-hub-python-python-direct-methods.md)
 ### 장치 관리 시작
 #### [Node.js 백 엔드/Node.js 장치](iot-hub-node-node-device-management-get-started.md)
 #### [.NET 백 엔드/Node.js 장치](iot-hub-csharp-node-device-management-get-started.md)

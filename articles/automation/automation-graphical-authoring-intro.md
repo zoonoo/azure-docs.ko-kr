@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/14/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 59f1f8c544c7ab3dce9373d65e0f6cbaa62c8f67
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 5cf9ef392a5a4e33f6413495e1c81e969d50dcad
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Azure Automation에서 그래픽 작성
 ## <a name="introduction"></a>소개
@@ -105,7 +105,7 @@ Azure Automation의 각 Runbook에는 초안 버전과 게시된 버전이 있�
 ### <a name="parameter-sets"></a>매개 변수 집합
 매개 변수 집합은 특정 cmdlet에 대한 값을 허용하는 필수 및 선택적 매개 변수를 정의합니다.  모든 cmdlet에는 적어도 하나의 매개 변수 집합이 있으며, 여러 매개 변수 집합이 있는 cmdlet도 있습니다.  cmdlet에 여러 매개 변수 집합이 있는 경우 매개 변수를 구성하려면 먼저 사용할 매개 변수 집합을 선택해야 합니다.  구성할 수 있는 매개 변수는 선택한 매개 변수 집합에 따라 달라집니다.  **매개 변수 집합** 을 선택하고 다른 집합을 선택하여 활동에서 사용하는 매개 변수 집합을 변경할 수 있습니다.  이 경우 구성한 모든 매개 변수 값이 손실됩니다.
 
-다음 예제에서 Get-AzureRmVM cmdlet에는 세 개의 매개 변수 집합이 있습니다.  매개 변수 집합 중 하나를 선택할 때까지 매개 변수 값을 구성할 수 없습니다.  ListVirtualMachineInResourceGroupParamSet 매개 변수 집합은 리소스 그룹에 모든 가상 컴퓨터를 반환하는 데 사용되며 단일 선택적 매개 변수를 가지고 있습니다.  GetVirtualMachineInResourceGroupParamSet은 반환할 가상 컴퓨터를 지정하는 데 사용되며, 두개의 필수 매개 변수와 하나의 개의 선택적 매개 변수를 가집니다.
+다음 예제에서 Get-AzureRmVM cmdlet에는 세 개의 매개 변수 집합이 있습니다.  매개 변수 집합 중 하나를 선택할 때까지 매개 변수 값을 구성할 수 없습니다.  ListVirtualMachineInResourceGroupParamSet 매개 변수 집합은 리소스 그룹에 모든 가상 머신을 반환하는 데 사용되며 단일 선택적 매개 변수를 가지고 있습니다.  GetVirtualMachineInResourceGroupParamSet은 반환할 가상 컴퓨터를 지정하는 데 사용되며, 두개의 필수 매개 변수와 하나의 개의 선택적 매개 변수를 가집니다.
 
 ![매개 변수 집합](media/automation-graphical-authoring-intro/get-azurermvm-parameter-sets.png)
 
@@ -140,7 +140,7 @@ Azure Automation의 각 Runbook에는 초안 버전과 게시된 버전이 있�
 
 다시 시도 조건은 작업 다시 시도에 대한 정보에 액세스를 제공하는 $RetryData라는 변수를 사용할 수 있습니다.  이 변수는 다음 테이블의 속성을 가집니다.
 
-| 속성 | 설명 |
+| 자산 | 설명 |
 |:--- |:--- |
 | NumberOfAttempts |활동이 실행된 횟수입니다. |
 | 출력 |활동의 마지막 실행에서 출력입니다. |
@@ -193,7 +193,7 @@ Azure Automation의 각 Runbook에는 초안 버전과 게시된 버전이 있�
 ### <a name="conditions"></a>조건
 링크에 대한 조건을 지정하면 조건이 true로 확인된 경우에만 대상 활동이 실행됩니다.  일반적으로 조건에서 $ActivityOutput 변수를 사용하여 원본 활동의 출력을 검색합니다.  
 
-파이프라인 링크의 경우 단일 개체에 대한 조건을 지정하면 원본 활동의 각 개체 출력에 대해 조건이 평가됩니다.  그런 다음 조건을 충족하는 각 개체에 대해 대상 활동이 실행됩니다.  예를 들어 원본 활동이 Get-AzureRmVm인 경우 조건부 파이프라인 링크에 다음 구문을 사용하여 *그룹1*이라는 리소스 그룹의 가상 컴퓨터만을 검색할 수 있습니다.  
+파이프라인 링크의 경우 단일 개체에 대한 조건을 지정하면 원본 활동의 각 개체 출력에 대해 조건이 평가됩니다.  그런 다음 조건을 충족하는 각 개체에 대해 대상 활동이 실행됩니다.  예를 들어 원본 활동이 Get-AzureRmVm인 경우 조건부 파이프라인 링크에 다음 구문을 사용하여 *그룹1*이라는 리소스 그룹의 가상 머신만을 검색할 수 있습니다.  
 
     $ActivityOutput['Get Azure VMs'].Name -match "Group1"
 
@@ -211,18 +211,18 @@ Azure Automation의 각 Runbook에는 초안 버전과 게시된 버전이 있�
 
 조건부 링크를 사용하면 원본 활동에서 해당 분기의 다른 활동까지 사용 가능한 데이터가 조건별로 필터링됩니다.  활동이 여러 링크의 원본인 경우에는 각 분기의 활동에 사용할 수 있는 데이터가 해당 분기에 연결된 링크의 조건에 따라 달라집니다.
 
-예를 들어 아래 Runbook의 **Start-AzureRmVm** 작업은 모든 가상 컴퓨터를 시작합니다.  두 개의 조건부 링크가 있습니다.  첫 번째 조건부 링크는 *$ActivityOutput['Start-AzureRmVM'].IsSuccessStatusCode -eq $true* 식을 사용하여 Start-AzureRmVm 작업이 성공적으로 완료된 경우 필터링합니다.  두 번째 조건부 링크는 *$ActivityOutput['Start-AzureRmVM'].IsSuccessStatusCode -ne $true* 식을 사용하여 Start-AzureRmVm 작업이 가상 컴퓨터를 시작하는 데 실패한 경우 필터링합니다.  
+예를 들어 아래 Runbook의 **Start-AzureRmVm** 작업은 모든 가상 머신을 시작합니다.  두 개의 조건부 링크가 있습니다.  첫 번째 조건부 링크는 *$ActivityOutput['Start-AzureRmVM'].IsSuccessStatusCode -eq $true* 식을 사용하여 Start-AzureRmVm 작업이 성공적으로 완료된 경우 필터링합니다.  두 번째 조건부 링크는 *$ActivityOutput['Start-AzureRmVM'].IsSuccessStatusCode -ne $true* 식을 사용하여 Start-AzureRmVm 작업이 가상 머신을 시작하는 데 실패한 경우 필터링합니다.  
 
 ![조건부 링크 예제](media/automation-graphical-authoring-intro/runbook-conditional-links.png)
 
-첫 번째 링크를 따르고 Get-AzureVM의 활동 출력을 사용하는 모든 활동은 Get-AzureVM이 실행될 당시에 시작된 가상 컴퓨터만 가져옵니다.  두 번째 링크를 따르는 모든 활동은 Get-AzureVM이 실행될 당시에 중지된 가상 컴퓨터만 가져옵니다.  세 번째 링크를 따르는 모든 활동은 실행 상태에 상관없이 모든 가상 컴퓨터를 가져옵니다.
+첫 번째 링크를 따르고 Get-AzureVM의 활동 출력을 사용하는 모든 활동은 Get-AzureVM이 실행될 당시에 시작된 가상 머신만 가져옵니다.  두 번째 링크를 따르는 모든 활동은 Get-AzureVM이 실행될 당시에 중지된 가상 머신만 가져옵니다.  세 번째 링크를 따르는 모든 활동은 실행 상태에 상관없이 모든 가상 머신을 가져옵니다.
 
 ### <a name="junctions"></a>분기 동기화
 분기 동기화는 들어오는 모든 분기가 완료될 때까지 대기하는 특별한 활동입니다.  이를 통해 여러 활동을 병렬로 실행하고 모든 활동이 완료된 후 다음 단계를 진행할 수 있습니다.
 
 분기 동기화에서는 들어오는 링크의 개수에 제한이 없지만 이러한 링크가 두 개 이상이 아닌 경우에는 파이프라인일 수 있습니다.  들어오는 시퀀스 링크의 수는 제한되지 않습니다.  여러 개의 들어오는 파이프라인 링크가 있는 분기 동기화를 만들고 Runbook을 저장할 수 있지만 이를 실행하면 오류가 발생합니다.
 
-아래 예제는 가상 컴퓨터 집합을 시작하고 이와 동시에 해당 컴퓨터에 적용할 패치를 다운로드하는 Runbook의 일부입니다.  두 프로세스 모두 완료된 후 Runbook을 계속하기 위해 분기 동기화가 사용되었습니다.
+아래 예제는 가상 머신 집합을 시작하고 이와 동시에 해당 컴퓨터에 적용할 패치를 다운로드하는 Runbook의 일부입니다.  두 프로세스 모두 완료된 후 Runbook을 계속하기 위해 분기 동기화가 사용되었습니다.
 
 ![분기 동기화](media/automation-graphical-authoring-intro/runbook-junction.png)
 
@@ -272,7 +272,7 @@ Runbook을 시작할 때와 각 검사점 이후에 인증해야 합니다.  즉
 ## <a name="runbook-input-and-output"></a>Runbook 입력 및 출력
 ### <a name="runbook-input"></a>Runbook 입력
 Runbook에는 사용자의 입력(사용자가 Azure 포털을 통해 Runbook을 시작하는 경우) 또는 다른 Runbook의 입력(현재 Runbook이 자식 Runbook으로 사용되는 경우)이 필요할 수 있습니다.
-예를 들어 가상 컴퓨터를 만드는 Runbook이 있는 경우 Runbook을 시작할 때마다 가상 컴퓨터의 이름 및 기타 속성과 같은 정보를 제공해야 할 수 있습니다.  
+예를 들어 가상 머신을 만드는 Runbook이 있는 경우 Runbook을 시작할 때마다 가상 머신의 이름 및 기타 속성과 같은 정보를 제공해야 할 수 있습니다.  
 
 하나 이상의 입력 매개 변수를 정의하여 Runbook에 대한 입력을 허용합니다.  Runbook을 시작할 때마다 이러한 매개 변수의 값을 제공합니다.  Azure 포털을 사용하여 Runbook을 시작하는 경우 Runbook의 각 입력 매개 변수 값을 제공하라는 메시지가 표시됩니다.
 
@@ -286,11 +286,11 @@ Runbook 도구 모음에서 **입력 및 출력** 단추를 클릭하여 Runbook
 
 각 입력 매개 변수는 다음 표의 속성으로 정의됩니다.
 
-| 속성 | 설명 |
+| 자산 | 설명 |
 |:--- |:--- |
-| 이름 |매개 변수의 고유한 이름입니다.  영숫자 문자만 포함할 수 있으며, 공백을 포함할 수 없습니다. |
+| Name |매개 변수의 고유한 이름입니다.  영숫자 문자만 포함할 수 있으며, 공백을 포함할 수 없습니다. |
 | 설명 |입력 매개 변수에 대한 선택적 설명입니다. |
-| 형식 |매개 변수 값에 필요한 데이터 형식입니다.  Azure 포털에서는 입력 메시지를 표시할 때 각 매개 변수의 데이터 형식에 대한 적절한 컨트롤을 제공합니다. |
+| type |매개 변수 값에 필요한 데이터 형식입니다.  Azure 포털에서는 입력 메시지를 표시할 때 각 매개 변수의 데이터 형식에 대한 적절한 컨트롤을 제공합니다. |
 | 필수 |매개 변수에 대해 값을 제공해야 하는지 여부를 지정합니다.  기본값이 정의되지 않은 각 필수 매개 변수의 값을 제공하지 않으면 Runbook을 시작할 수 없습니다. |
 | 기본값 |값을 제공하지 않은 경우 매개 변수에 사용되는 값을 지정합니다.  Null 또는 특정 값일 수 있습니다. |
 
@@ -324,15 +324,15 @@ Runbook의 이전 작업에서 출력을 사용하려면 다음 구문을 사용
 
     $ActivityOutput['Activity Label'].PropertyName
 
-예를 들어 가상 컴퓨터의 이름이 필요한 속성을 사용하는 활동이 있는 경우 다음 식을 사용할 수 있습니다.
+예를 들어 가상 머신의 이름이 필요한 속성을 사용하는 활동이 있는 경우 다음 식을 사용할 수 있습니다.
 
     $ActivityOutput['Get-AzureVm'].Name
 
-속성이 속성 대신 가상 컴퓨터 개체를 필요로 하는 경우 다음 구문을 사용하여 전체 개체를 반환합니다.
+속성이 속성 대신 가상 머신 개체를 필요로 하는 경우 다음 구문을 사용하여 전체 개체를 반환합니다.
 
     $ActivityOutput['Get-AzureVm']
 
-또한 가상 컴퓨터 이름에 텍스트를 연결하는 다음과 같은 보다 복잡한 식에서 활동의 출력을 사용할 수 있습니다.
+또한 가상 머신 이름에 텍스트를 연결하는 다음과 같은 보다 복잡한 식에서 활동의 출력을 사용할 수 있습니다.
 
     "The computer name is " + $ActivityOutput['Get-AzureVm'].Name
 
@@ -340,15 +340,15 @@ Runbook의 이전 작업에서 출력을 사용하려면 다음 구문을 사용
 ### <a name="conditions"></a>조건
 [비교 연산자](https://technet.microsoft.com/library/hh847759.aspx) 를 사용하여 값을 비교 하거나 값이 지정된 패턴과 일치하는지를 확인합니다.  비교는 $true 또는 $false의 값을 반환합니다.
 
-예를 들어 다음 조건은 *Get-AzureVM*이라는 활동에서 가상 컴퓨터가 현재 *중지*되었는지 확인합니다. 
+예를 들어 다음 조건은 *Get-AzureVM*이라는 활동에서 가상 머신이 현재 *중지*되었는지 확인합니다. 
 
     $ActivityOutput["Get-AzureVM"].PowerState –eq "Stopped"
 
-다음 조건은 동일한 가상 컴퓨터가 *중지*이외의 상태인지를 확인합니다.
+다음 조건은 동일한 가상 머신이 *중지*이외의 상태인지를 확인합니다.
 
     $ActivityOutput["Get-AzureVM"].PowerState –ne "Stopped"
 
-**-and** 또는 **-or**와 같은 [논리 연산자](https://technet.microsoft.com/library/hh847789.aspx)를 사용하여 여러 조건을 조인할 수 있습니다.  예를 들어 다음 조건은 이전 예제에서 동일한 가상 컴퓨터가 *중지됨* 또는 *중지 중* 중에 어떤 상태인지 확인합니다.
+**-and** 또는 **-or**와 같은 [논리 연산자](https://technet.microsoft.com/library/hh847789.aspx)를 사용하여 여러 조건을 조인할 수 있습니다.  예를 들어 다음 조건은 이전 예제에서 동일한 가상 머신이 *중지됨* 또는 *중지 중* 중에 어떤 상태인지 확인합니다.
 
     ($ActivityOutput["Get-AzureVM"].PowerState –eq "Stopped") -or ($ActivityOutput["Get-AzureVM"].PowerState –eq "Stopping") 
 

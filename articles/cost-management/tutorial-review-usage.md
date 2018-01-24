@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 36ebffb41211e443cc1619df46f50247945cc57c
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: 363a7e8a5b5be2175cb2f6d3539878673a2b469a
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="review-usage-and-costs"></a>사용량 및 비용 검토
 
@@ -29,7 +29,7 @@ Cloudyn에서 개발한 Azure Cost Management는 사용량과 비용을 보여 �
 
 ## <a name="open-the-cloudyn-portal"></a>Cloudyn 포털 열기
 
-Cloudyn 포털에서 모든 사용량 및 비용을 검토합니다. Azure Portal에서 Cloudyn 포털을 열거나 https://app.cloudyn.com으로 이동하여 로그인합니다.
+Cloudyn 포털에서 모든 사용량 및 비용을 검토합니다. Azure Portal에서 Cloudyn 포털을 열거나 https://azure.cloudyn.com으로 이동하여 로그인합니다.
 
 ## <a name="track-usage-and-cost-trends"></a>사용량 및 비용 추세 추적
 
@@ -55,7 +55,7 @@ Cloudyn 포털에서 모든 사용량 및 비용을 검토합니다. Azure Porta
 
 최적화 프로그램 보고서는 효율성을 향상시키고, 사용량을 최적화하며, 클라우드 리소스에 지출되는 비용을 절감하는 방법을 식별합니다. 유휴 상태 또는 비용이 많이 드는 VM을 줄이는 데 도움이 되는 비용 효율적인 크기 조정 권장 사항에 특히 유용합니다.
 
-조직에서 리소스를 클라우드로 처음 이동할 때 조직에 영향을 주는 일반적인 문제는 가상화 전략입니다. 조직에서는 종종 온-프레미스 가상화 환경에 대한 가상 컴퓨터를 만드는 데 사용한 것과 비슷한 방법을 사용합니다. 그리고 온-프레미스 VM을 있는 그대로 클라우드로 이동하여 비용을 절감한다고 가정합니다. 그러나 이러한 방법은 비용을 절감하지 못할 것입니다.
+조직에서 리소스를 클라우드로 처음 이동할 때 조직에 영향을 주는 일반적인 문제는 가상화 전략입니다. 조직에서는 종종 온-프레미스 가상화 환경에 대한 가상 머신을 만드는 데 사용한 것과 비슷한 방법을 사용합니다. 그리고 온-프레미스 VM을 있는 그대로 클라우드로 이동하여 비용을 절감한다고 가정합니다. 그러나 이러한 방법은 비용을 절감하지 못할 것입니다.
 
 문제는 기존 인프라에 대한 비용이 이미 지출되었다는 것입니다. 사용자는 원하는 경우 큰 VM을 만들고 유지할 수 있지만, 유휴 상태에 있거나 실행되지 않는 VM으로 인해 영향력이 거의 없는 결과만 있을 것입니다. 크거나 유휴 상태인 VM을 클라우드로 이동하면 비용이 *증가*할 가능성이 있습니다. 클라우드 서비스 공급자와 계약을 맺을 때 리소스에 대한 비용 할당은 중요합니다. 리소스를 완벽하게 사용하는지의 약속에 대한 대가를 치러야 합니다.
 

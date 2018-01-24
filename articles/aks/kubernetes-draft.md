@@ -9,35 +9,35 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: df5614d8a708b49ee1368c4d7983f45d29920fd8
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: a77e214c1138ce936b2ec6c521950704e5beb3ff
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="use-draft-with-azure-container-service-aks"></a>Azure Container Service(AKS)에서 Draft 사용
 
-Draft는 Kubernetes 클러스터에서 코드를 패키지화하고 실행하는 데 도움이 되는 오픈 소스 도구입니다. Draft는 개발 반복 주기(코드 개발 중이지만 버전 제어에 커밋하기 전)를 목표로 합니다. Draft를 사용하면 코드가 변경될 때 Kubernetes에 응용 프로그램을 신속하게 재배포할 수 있습니다. Draft에 대한 자세한 내용은 [Github의 Draft 문서](https://github.com/Azure/draft/tree/master/docs)를 참조하세요.
+Draft는 Kubernetes 클러스터에서 코드를 패키지화하고 실행하는 데 도움이 되는 오픈 소스 도구입니다. Draft는 개발 반복 주기(코드 개발 중이지만 버전 제어에 커밋하기 전)를 목표로 합니다. Draft를 사용하면 코드가 변경될 때 Kubernetes에 응용 프로그램을 신속하게 재배포할 수 있습니다. Draft에 대한 자세한 내용은 [Github의 Draft 설명서][draft-documentation]를 참조하세요.
 
 이 문서에서는 AKS에서 Kubernetes 클러스터와 함께 Draft를 사용하는 방법에 대해 자세히 설명합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 문서에서는 AKS 클러스터를 만들고 클러스터와 kubectl 연결을 설정했다고 가정합니다. 이러한 항목이 필요한 경우 [AKS 빠른 시작](./kubernetes-walkthrough.md)을 참조하세요.
+이 문서에서는 AKS 클러스터를 만들고 클러스터와 kubectl 연결을 설정했다고 가정합니다. 이러한 항목이 필요한 경우 [AKS 빠른 시작][aks-quickstart]을 참조하세요.
 
-ACR(Azure Container Registry)에서 개인 Docker 레지스트리도 필요합니다. ACR 인스턴스를 배포하는 지침은 [Azure Container Registry 빠른 시작](../container-registry/container-registry-get-started-azure-cli.md)을 참조하세요.
+ACR(Azure Container Registry)에서 개인 Docker 레지스트리도 필요합니다. ACR 인스턴스를 배포하는 지침은 [Azure Container Registry 빠른 시작][acr-quickstart]을 참조하세요.
 
 ## <a name="install-helm"></a>Helm 설치
 
 Helm CLI는 개발 시스템에서 실행되는 클라이언트로, Helm 차트가 있는 응용 프로그램을 시작, 중지 및 관리할 수 있습니다.
 
-Mac에서 Helm CLI를 설치하려면 `brew`를 사용합니다. 추가 설치 옵션에 대해서는 [Helm 설치](https://github.com/kubernetes/helm/blob/master/docs/install.md)를 참조하세요.
+Mac에서 Helm CLI를 설치하려면 `brew`를 사용합니다. 추가 설치 옵션은 [Helm 설치][install-helm]를 참조하세요.
 
 ```console
 brew install kubernetes-helm
 ```
 
-출력:
+출력
 
 ```
 ==> Downloading https://homebrew.bintray.com/bottles/kubernetes-helm-2.6.2.sierra.bottle.1.tar.gz
@@ -54,13 +54,13 @@ Bash completion has been installed to:
 
 Draft CLI는 개발 시스템에서 실행되는 클라이언트로, Kubernetes 클러스터에 코드를 신속하게 배포할 수 있습니다.
 
-Mac에서 Draft CLI를 설치하려면 `brew`를 사용합니다. 추가 설치 옵션에 대해서는 [Draft 설치 가이드](https://github.com/Azure/draft/blob/master/docs/install.md)를 참조하세요.
+Mac에서 Draft CLI를 설치하려면 `brew`를 사용합니다. 추가 설치 옵션에 대해서는 [Draft 설치 가이드][install-draft]를 참조하세요.
 
 ```console
 brew install draft
 ```
 
-출력:
+출력
 
 ```
 ==> Installing draft from azure/draft
@@ -129,7 +129,7 @@ cd draft/examples/java/
 draft create
 ```
 
-출력:
+출력
 
 ```
 --> Draft detected the primary language as Java with 92.205567% certainty.
@@ -142,7 +142,7 @@ Kubernetes 클러스터에서 응용 프로그램을 실행하려면 `draft up` 
 draft up
 ```
 
-출력:
+출력
 
 ```
 Draft Up Started: 'open-jaguar'
@@ -162,7 +162,7 @@ open-jaguar: Build ID: 01BW3VVNZYQ5NQ8V1QSDGNVD0S
 draft connect
 ```
 
-출력:
+출력
 
 ```
 Connecting to your app...SUCCESS...Connect to your app on localhost:46143
@@ -178,7 +178,7 @@ SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further detail
 
 ## <a name="expose-application"></a>응용 프로그램 공개
 
-Kubernetes에서 응용 프로그램을 테스트할 때 인터넷에서 응용 프로그램을 사용할 수 있도록 하는 것이 좋습니다. 이 작업은 [수신 컨트롤러](https://kubernetes.io/docs/concepts/services-networking/ingress/) 또는 [LoadBalancer](https://kubernetes.io/docs/concepts/services-networking/service/#type-loadbalancer) 유형의 Kubernetes 서비스를 사용하여 수행할 수 있습니다. 이 문서는 Kubernetes 서비스를 사용하여 자세히 설명합니다.
+Kubernetes에서 응용 프로그램을 테스트할 때 인터넷에서 응용 프로그램을 사용할 수 있도록 하는 것이 좋습니다. 이 작업은 [수신 컨트롤러][kubernetes-ingress] 또는 [LoadBalancer][kubernetes-service-loadbalancer] 유형의 Kubernetes 서비스를 사용하여 수행할 수 있습니다. 이 문서는 Kubernetes 서비스를 사용하여 자세히 설명합니다.
 
 
 먼저, `LoadBalancer` 유형의 서비스를 만들도록 지정하기 위해 Draft 팩을 업데이트해야 합니다. 이렇게 하려면 `values.yaml` 파일에서 서비스 유형을 업데이트합니다.
@@ -239,7 +239,7 @@ deadly-squid-java   10.0.141.72   52.175.224.118   80:32150/TCP   17m
 curl 52.175.224.118
 ```
 
-출력:
+출력
 
 ```
 Hello World, I'm Java
@@ -291,7 +291,7 @@ deadly-squid: Build ID: 01BWK8C8X922F5C0HCQ8FT12RR
 curl 52.175.224.118
 ```
 
-출력:
+출력
 
 ```
 Hello World, I'm Java - Draft Rocks!
@@ -302,4 +302,15 @@ Hello World, I'm Java - Draft Rocks!
 Draft 사용에 대한 자세한 내용은 Github의 Draft 문서를 참조하세요.
 
 > [!div class="nextstepaction"]
-> [Draft 설명서](https://github.com/Azure/draft/tree/master/docs)
+> [Draft 설명서][draft-documentation]
+
+<!-- LINKS - external -->
+[draft-documentation]: https://github.com/Azure/draft/tree/master/docs
+[install-draft]: https://github.com/Azure/draft/blob/master/docs/install.md
+[install-helm]: https://github.com/kubernetes/helm/blob/master/docs/install.md
+[kubernetes-ingress]: https://kubernetes.io/docs/concepts/services-networking/ingress/
+[kubernetes-service-loadbalancer]: https://kubernetes.io/docs/concepts/services-networking/service/#type-loadbalancer
+
+<!-- LINKS - internal -->
+[acr-quickstart]: ../container-registry/container-registry-get-started-azure-cli.md
+[aks-quickstart]: ./kubernetes-walkthrough.md

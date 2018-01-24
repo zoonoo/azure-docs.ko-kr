@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: rafats
-ms.openlocfilehash: 127b42b67a3e29022ac5d9535751a1b2a3be250e
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: c530b34edf9bfa0651b7b114dcf7e8add0d906ed
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="unique-keys-in-azure-cosmos-db"></a>Azure Cosmos DB의 고유 키
 
 개발자는 고유 키를 사용하여 데이터베이스에 데이터 무결성 레이어를 추가할 수 있습니다. 컨테이너를 만들 때 고유 키 정책을 만들면 [파티션 키](partition-data.md)마다 하나 이상의 값이 고유하도록 보장됩니다. 고유 키 정책을 사용하여 컨테이너가 생성되면 고유 키 제약 조건으로 지정된 값을 가진 새 항목 또는 업데이트된 항목을 생성할 수 없습니다.   
 
 > [!NOTE]
-> 고유 키는 최신 버전의 [.NET](documentdb-sdk-dotnet.md) 및 [.NET Core](documentdb-sdk-dotnet-core.md) DocumentDB(SQL) SDK와 [MongoDB API](mongodb-feature-support.md#unique-indexes)에서 지원됩니다. Table API 및 Graph API는 아직 고유 키를 지원하지 않습니다. 
+> 고유 키는 최신 버전의 [.NET](sql-api-sdk-dotnet.md) 및 [.NET Core](sql-api-sdk-dotnet-core.md) SQL SDK와 [MongoDB API](mongodb-feature-support.md#unique-indexes)에서 지원됩니다. Table API 및 Graph API는 아직 고유 키를 지원하지 않습니다. 
 > 
 >
 
@@ -54,7 +54,7 @@ ms.lasthandoff: 12/04/2017
 
 고유 키를 사용하도록 기존 컨테이너를 업데이트할 수 없습니다.
 
-고유 키 정책을 사용하여 컨테이너를 만들면 컨테이너를 다시 만들기 전에는 정책을 변경할 수 없습니다. 고유 키를 구현하고 싶은 기존 데이터가 있는 경우 새 컨테이너를 만든 다음 적절한 데이터 마이그레이션 도구를 사용하여 데이터를 새 컨테이너로 이동합니다. DocumentDB(SQL) 컨테이너의 경우 [데이터 마이그레이션 도구](import-data.md)를 사용합니다. MongoDB 컨테이너의 경우 [mongoimport.exe 또는 mongorestore.exe](mongodb-migrate.md)를 사용합니다.
+고유 키 정책을 사용하여 컨테이너를 만들면 컨테이너를 다시 만들기 전에는 정책을 변경할 수 없습니다. 고유 키를 구현하고 싶은 기존 데이터가 있는 경우 새 컨테이너를 만든 다음 적절한 데이터 마이그레이션 도구를 사용하여 데이터를 새 컨테이너로 이동합니다. SQL 컨테이너의 경우 [데이터 마이그레이션 도구](import-data.md)를 사용합니다. MongoDB 컨테이너의 경우 [mongoimport.exe 또는 mongorestore.exe](mongodb-migrate.md)를 사용합니다.
 
 각 고유 키에 최대 16경로 값(예: /firstName, /lastName, /address/zipCode 등)을 포함할 수 있습니다. 
 
@@ -64,9 +64,9 @@ ms.lasthandoff: 12/04/2017
 
 스파스 고유 키는 지원되지 않습니다. 일부 고유 경로의 값이 누락되면 특수 null 값으로 간주되어 고유성 제약 조건에 포함됩니다.
 
-## <a name="documentdb-sql-api-sample"></a>DocumentDB(SQL) API 샘플
+## <a name="sql-api-sample"></a>SQL API 샘플
 
-다음 코드 샘플에서는 두 개의 고유 키 제약 조건이 있는 새 DocumentDB(SQL) 컨테이너를 만드는 방법을 보여 줍니다. 첫 번째 제약 조건은 이전 예제에서 설명한 이름, 성, 이메일 주소입니다. 두 번째 제약 조건은 사용자 주소/우편 번호입니다. 이 고유 키 정책의 경로를 사용하는 샘플 JSON 파일은 코드 예제를 따릅니다. 
+다음 코드 샘플에서는 두 개의 고유 키 제약 조건이 있는 새 SQL 컨테이너를 만드는 방법을 보여 줍니다. 첫 번째 제약 조건은 이전 예제에서 설명한 이름, 성, 이메일 주소입니다. 두 번째 제약 조건은 사용자 주소/우편 번호입니다. 이 고유 키 정책의 경로를 사용하는 샘플 JSON 파일은 코드 예제를 따릅니다. 
 
 ```csharp
 // Create a collection with two separate UniqueKeys, one compound key for /firstName, /lastName,

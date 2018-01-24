@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/21/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: caa13099b22311502f7a527e4fa017aefeee73c7
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 90a8229b3d4974b8385039c7d85f916a168947d8
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>Automation runbook에 대한 주요 Windows PowerShell 워크플로 개념 학습 
 Azure Automation의 Runbook은 Windows PowerShell 워크플로로 구현됩니다.  Windows PowerShell 워크플로는 Windows PowerShell 스크립트와 비슷해 보이지만 신규 사용자가 혼동할 수 있는 중요한 차이점이 있습니다.  이 문서는 PowerShell 워크플로를 사용하여 runbook을 작성하는 데 도움을 주기 위해 작성되었으나 검사점이 필요한 경우가 아니면 PowerShell을 사용하여 runbook을 작성하는 것이 좋습니다.  PowerShell 워크플로 runbook을 작성할 경우 몇 가지 구문 차이가 있으며 이러한 차이점으로 인해 효과적인 워크플로를 작성하기 위해 좀 더 많은 작업이 필요합니다.  
@@ -199,7 +199,7 @@ Windows PowerShell 워크플로의 한 가지 장점은 일반적인 스크립�
 >
 
 ## <a name="checkpoints"></a>검사점
-*검사점* 은 워크플로의 현재 상태에 대한 스냅숏으로, 변수의 현재 값 및 해당 지점에 생성된 모든 출력을 포함합니다. 워크플로가 오류 때문에 종료되었거나 일시 중단한 다음 실행하면 워크플로 처음부터 시작하는 게 아니라 해당 마지막 검사점에서 시작됩니다.  **Checkpoint-Workflow** 활동을 사용하여 워크플로에서 검사점을 설정할 수 있습니다.
+*검사점* 은 워크플로의 현재 상태에 대한 스냅숏으로, 변수의 현재 값 및 해당 지점에 생성된 모든 출력을 포함합니다. 워크플로가 오류 때문에 종료되었거나 일시 중단한 다음 실행하면 워크플로의 처음부터 시작하는 게 아니라 마지막 검사점에서 시작됩니다.  **Checkpoint-Workflow** 활동을 사용하여 워크플로에서 검사점을 설정할 수 있습니다.
 
 다음 샘플 코드에서는 Activity2 이후에 예외가 발생하여 워크플로가 끝납니다. 설정된 마지막 검사점 직후이므로 워크플로를 다시 시작하면 Activity2를 실행하는 것으로 작업이 시작됩니다.
 
@@ -209,7 +209,7 @@ Windows PowerShell 워크플로의 한 가지 장점은 일반적인 스크립�
     <Exception>
     <Activity3>
 
-예외가 발생할 수 있으며 워크플로를 다시 시작한 경우 반복되지 않아야 하는 활동 뒤에 R워크플로의 검사점을 설정해야 합니다. 예를 들어 Runbook에서 가상 컴퓨터를 만들 수 있습니다. 가상 컴퓨터를 만드는 명령 앞뒤 모두에 검사점을 설정할 수 있습니다. 만들기에 실패하면, 워크플로가 다시 시작하는 경우 명령을 반복합니다. 생성 후 워크플로가 실패하는 경우, 워크플로를 재시작할 때에도 가상 컴퓨터는 다시 생성되지 않습니다.
+예외가 발생할 수 있으며 워크플로를 다시 시작한 경우 반복되지 않아야 하는 활동 뒤에 R워크플로의 검사점을 설정해야 합니다. 예를 들어 Runbook에서 가상 머신을 만들 수 있습니다. 가상 머신을 만드는 명령 앞뒤 모두에 검사점을 설정할 수 있습니다. 만들기에 실패하면, 워크플로가 다시 시작하는 경우 명령을 반복합니다. 생성 후 워크플로가 실패하는 경우 워크플로를 재시작할 때에도 가상 머신은 다시 생성되지 않습니다.
 
 다음 예제는 네트워크 위치에 여러 파일들을 복사하고 각 파일에 검사점을 설정합니다.  네트워크 위치가 손실된 경우 워크플로가 오류로 종료됩니다.  다시 시작될 경우 마지막 검사점에서 재시작되는 데 이것은 이미 복사된 파일만 생략된다는 것을 의미합니다.
 

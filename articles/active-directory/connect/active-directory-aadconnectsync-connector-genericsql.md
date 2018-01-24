@@ -3,8 +3,8 @@ title: "일반 SQL 커넥터 | Microsoft Docs"
 description: "이 문서에서는 Microsoft의 일반 SQL 커넥터를 구성하는 방법을 설명합니다."
 services: active-directory
 documentationcenter: 
-author: AndKjell
-manager: mtillman
+author: fimguy
+manager: bhu
 editor: 
 ms.assetid: fd8ccef3-6605-47ba-9219-e0c74ffc0ec9
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2017
-ms.author: billmath
-ms.openlocfilehash: 04a6b7290c4a17d60145355ef1374960a8b6c5ca
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.date: 12/19/2017
+ms.author: davidste
+ms.openlocfilehash: a365219e433f4876401a9c35b8a656060508efbd
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="generic-sql-connector-technical-reference"></a>일반 SQL 커넥터 기술 참조
 이 문서에서는 일반 SQL 커넥터를 설명합니다. 이 문서는 다음 제품에 적용됩니다.
@@ -231,7 +231,11 @@ ODBC 드라이버가 작동하는 데 필요한 포트는 데이터베이스 공
 ![runstep1](./media/active-directory-aadconnectsync-connector-genericsql/runstep1.png)
 
 **테이블/뷰**  
-개체에 대한 다중값 특성을 가져오려면 **다중값 테이블/뷰의 이름**에서 쉼표로 구분된 테이블/뷰 이름 및 상위 테이블을 통해 **조인 조건**에서 해당하는 조인 조건을 제공해야 합니다.
+개체에 대한 다중값 특성을 가져오려면 **다중값 테이블/뷰의 이름**에서 테이블/뷰 이름 및 상위 테이블을 통해 **조인 조건**에서 해당하는 조인 조건을 제공해야 합니다. 데이터 원본에 둘 이상의 다중값 테이블이 있는 경우 단일 보기에 union을 사용할 수 있습니다.
+
+>[!IMPORTANT]
+일반 SQL 관리 에이전트는 하나의 다중값 테이블과만 작동할 수 있습니다. 다중값 테이블/뷰의 이름에 둘 이상의 테이블 이름을 넣지 마십시오. 일반 SQL의 제한입니다.
+
 
 예제: Employee 개체 및 해당하는 모든 다중값 특성을 가져오려고 합니다. 직원(주 테이블) 및 부서(다중값)라는 두 개의 테이블이 있습니다.
 다음을 수행합니다.

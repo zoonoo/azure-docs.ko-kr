@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 7031409aa63f5d64d5bb7a1b9dcac50a97718630
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 835a54f147b9ea543df21e7dfeb226ac42aceda3
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>Azure IoT Hub Device Provisioning Service를 사용하여 장치 프로비전
 
@@ -55,17 +55,17 @@ Device Provisioning Service 클라이언트 SDK는 소프트웨어에서 선택�
 1. 명령 프롬프트에서 다음 명령 중 하나를 사용하여 장치에 대해 선택한 HSM 형식에 대한 SDK를 빌드합니다.
     - TPM 장치의 경우:
         ```cmd/sh
-        cmake -Ddps_auth_type=tpm ..
+        cmake -Duse_prov_client:BOOL=ON ..
         ```
 
     - TPM 시뮬레이터의 경우:
         ```cmd/sh
-        cmake -Ddps_auth_type=tpm_simulator ..
+        cmake -Duse_prov_client:BOOL=ON -Duse_tpm_simulator:BOOL=ON ..
         ```
 
     - X.509 장치 및 시뮬레이터의 경우:
         ```cmd/sh
-        cmake -Ddps_auth_type=x509 ..
+        cmake -Duse_prov_client:BOOL=ON ..
         ```
 
 1. SDK는 TPM 및 X.509 HSM에 대한 Windows 또는 Ubuntu 구현을 실행하는 장치에 대한 기본 지원을 제공합니다. 이러한 지원되는 HSM의 경우 아래 [보안 아티팩트 추출](#extractsecurity) 섹션으로 이동합니다. 
@@ -76,27 +76,25 @@ Device Provisioning System 클라이언트 SDK는 Windows 또는 Ubuntu를 실�
 
 ### <a name="develop-your-custom-repository"></a>사용자 지정 리포지토리 개발
 
-1. GitHub 리포지토리를 개발하여 HSM에 액세스합니다. 이 프로젝트에서는 사용할 Device Provisioning SDK에 대한 정적 라이브러리를 생성해야 합니다.
-1. 라이브러리는 다음 헤더 파일에 정의된 함수를 구현해야 합니다. a. 사용자 지정 TPM의 경우 `\azure-iot-sdk-c\dps_client\adapters\custom_hsm_tpm_impl.h`에 정의된 함수를 구현합니다.
-    b. 사용자 지정 X.509의 경우 `\azure-iot-sdk-c\dps_client\adapters\custom_hsm_x509_impl.h`에 정의된 함수를 구현합니다. 
-1. HSM 리포지토리는 빌드해야 하는 리포지토리에 대한 루트에 `CMakeLists.txt` 파일을 포함해야 합니다.
+1. HSM에 액세스하는 라이브러리를 개발합니다. 이 프로젝트에서는 사용할 Device Provisioning SDK에 대한 정적 라이브러리를 생성해야 합니다.
+1. 라이브러리는 다음 헤더 파일에 정의된 함수를 구현해야 합니다. a. 사용자 지정 TPM의 경우 [사용자 지정 HSM 문서](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_custom_hsm.md#hsm-tpm-api)에 정의된 함수를 구현합니다.
+    나. 사용자 지정 X.509의 경우 [사용자 지정 HSM 문서](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_custom_hsm.md#hsm-x509-api)에 정의된 함수를 구현합니다. 
 
 ### <a name="integrate-with-the-device-provisioning-service-client"></a>Device Provisioning Service 클라이언트 통합
 
-라이브러리를 성공적으로 빌드하면 IoThub C-SDK로 이동하여 리포지토리로 끌어올 수 있습니다.
+라이브러리를 성공적으로 빌드하면 IoThub C-SDK로 이동하여 라이브러리에 대해 연결할 수 있습니다.
 
 1. 다음 cmake 명령에 사용자 지정 HSM GitHub 리포지토리, 라이브러리 경로 및 해당 이름을 입력합니다.
     ```cmd/sh
-    cmake -Ddps_auth_type=<custom_hsm> -Ddps_hsm_custom_repo=<github_repo_name> -Ddps_hsm_custom_lib=<path_and_name_of library> <PATH_TO_AZURE_IOT_SDK>
+    cmake -Duse_prov_client:BOOL=ON -Dhsm_custom_lib=<path_and_name_of_library> <PATH_TO_AZURE_IOT_SDK>
     ```
-   `<custom_hsm>`을 `tpm` 또는 `x509`를 사용하여 이 명령으로 바꿉니다. 이 명령은 `cmake` 디렉터리 내 사용자 지정 HSM 리포지토리에 대한 표식을 만듭니다. 사용자 지정 HSM은 여전히 TPM 또는 X.509 보안 메커니즘을 기반으로 해야 합니다.
-
+   
 1. Visual Studio에서 SDK를 열고 빌드합니다. 
 
-    - 빌드 프로세스는 사용자 지정 리포지토리를 복제하고 라이브러리를 빌드합니다.
+    - 빌드 프로세스에서는 SDK 라이브러리를 컴파일합니다.
     - SDK는 cmake 명령에 정의된 사용자 지정 HSM에 대한 연결을 시도합니다.
 
-1. `\azure-iot-sdk-c\dps_client\samples\dps_client_sample\dps_client_sample.c` 샘플을 실행하여 HSM이 올바르게 구현되었는지 확인합니다.
+1. `\azure-iot-sdk-c\provisioning_client\samples\prov_dev_client_ll_sample\prov_dev_client_ll_sample.c` 샘플을 실행하여 HSM이 올바르게 구현되었는지 확인합니다.
 
 <a id="extractsecurity"></a>
 ## <a name="extract-the-security-artifacts"></a>보안 아티팩트 추출
@@ -116,21 +114,30 @@ Device Provisioning System 클라이언트 SDK는 Windows 또는 Ubuntu를 실�
 장치 제조 프로세스의 마지막 단계에서는 서비스에 장치를 등록하기 위해 Device Provisioning Service 클라이언트 SDK를 사용하는 응용 프로그램을 작성하는 것입니다. 이 SDK는 사용할 응용 프로그램에 대해 다음과 같은 API를 제공합니다.
 
 ```C
-typedef void(*DPS_REGISTER_DEVICE_CALLBACK)(DPS_RESULT register_result, const char* iothub_uri, const char* device_id, void* user_context); // Callback to notify user of device registration results.
-DPS_CLIENT_LL_HANDLE DPS_Client_LL_Create (const char* dps_uri, const char* scope_id, DPS_TRANSPORT_PROVIDER_FUNCTION protocol, DPS_CLIENT_ON_ERROR_CALLBACK on_error_callback, void* user_ctx); // Creates the IOTHUB_DPS_LL_HANDLE to be used in subsequent calls.
-void DPS_Client_LL_Destroy(DPS_CLIENT_LL_HANDLE handle); // Frees any resources created by the IoTHub Device Provisioning Service module.
-DPS_RESULT DPS_LL_Register_Device(DPS_LL_HANDLE handle, DPS_REGISTER_DEVICE_CALLBACK register_callback, void* user_context, DPS_CLIENT_REGISTER_STATUS_CALLBACK status_cb, void* status_ctx); // Registers a device that has been previously registered with Device Provisioning Service
-void DPS_Client_LL_DoWork(DPS_LL_HANDLE handle); // Processes the communications with the Device Provisioning Service and calls any user callbacks that are required.
+// Creates a Provisioning Client for communications with the Device Provisioning Client Service
+PROV_DEVICE_LL_HANDLE Prov_Device_LL_Create(const char* uri, const char* scope_id, PROV_DEVICE_TRANSPORT_PROVIDER_FUNCTION protocol)
+
+// Disposes of resources allocated by the provisioning Client.
+void Prov_Device_LL_Destroy(PROV_DEVICE_LL_HANDLE handle)
+
+// Asynchronous call initiates the registration of a device.
+PROV_DEVICE_RESULT Prov_Device_LL_Register_Device(PROV_DEVICE_LL_HANDLE handle, PROV_DEVICE_CLIENT_REGISTER_DEVICE_CALLBACK register_callback, void* user_context, PROV_DEVICE_CLIENT_REGISTER_STATUS_CALLBACK reg_status_cb, void* status_user_ctext)
+
+// Api to be called by user when work (registering device) can be done
+void Prov_Device_LL_DoWork(PROV_DEVICE_LL_HANDLE handle)
+
+// API sets a runtime option identified by parameter optionName to a value pointed to by value
+PROV_DEVICE_RESULT Prov_Device_LL_SetOption(PROV_DEVICE_LL_HANDLE handle, const char* optionName, const void* value)
 ```
 
-[이 빠른 시작의 장치를 위한 첫 부팅 시퀀스 시뮬레이션 섹션](./quick-create-simulated-device.md#firstbootsequence)에서 설명한 것처럼 변수 `dps_uri` 및 `dps_scope_id`를 사용하기 전에 초기화해야 합니다. Device Provisioning 클라이언트 등록 API `DPS_Client_LL_Create`는 전역 Device Provisioning Service에 연결합니다. *ID 범위*는 서비스에 의해 생성되고 고유성이 보장됩니다. 이는 변경할 수 없으며 등록 ID를 고유하게 식별하는 데 사용됩니다. `iothub_uri`를 사용하면 IoT Hub 클라이언트 등록 API `IoTHubClient_LL_CreateFromDeviceAuth`를 올바른 IoT Hub로 연결할 수 있습니다. 
+[이 빠른 시작의 장치를 위한 첫 부팅 시퀀스 시뮬레이션 섹션](./quick-create-simulated-device.md#firstbootsequence)에서 설명한 것처럼 변수 `uri` 및 `id_scope`를 사용하기 전에 초기화해야 합니다. Device Provisioning 클라이언트 등록 API `Prov_Device_LL_Create`는 전역 Device Provisioning Service에 연결합니다. *ID 범위*는 서비스에 의해 생성되고 고유성이 보장됩니다. 이는 변경할 수 없으며 등록 ID를 고유하게 식별하는 데 사용됩니다. `iothub_uri`를 사용하면 IoT Hub 클라이언트 등록 API `IoTHubClient_LL_CreateFromDeviceAuth`를 올바른 IoT Hub로 연결할 수 있습니다. 
 
 
-이러한 API는 장치를 부팅할 때 Device Provisioning Service에 연결하고 등록하는 데 유용합니다. IoT Hub에 대한 정보를 살펴보고 연결하세요. 파일 `dps_client/samples/dps_client_sample/dps_client_sample.c`에는 이러한 API를 사용하는 방법이 나와 있습니다. 일반적으로 클라이언트 등록을 위해 다음과 같은 프레임워크를 만들어야 합니다.
+이러한 API는 장치를 부팅할 때 Device Provisioning Service에 연결하고 등록하는 데 유용합니다. IoT Hub에 대한 정보를 살펴보고 연결하세요. 파일 `provisioning_client/samples/prov_client_ll_sample/prov_client_ll_sample.c`에는 이러한 API를 사용하는 방법이 나와 있습니다. 일반적으로 클라이언트 등록을 위해 다음과 같은 프레임워크를 만들어야 합니다.
 
 ```C
-static const char* dps_uri = "global.azure-devices-provisioning.net";
-static const char* dps_scope_id = "[ID scope for your provisioning service]";
+static const char* global_uri = "global.azure-devices-provisioning.net";
+static const char* id_scope = "[ID scope for your provisioning service]";
 ...
 static void register_callback(DPS_RESULT register_result, const char* iothub_uri, const char* device_id, void* context)
 {
@@ -143,18 +150,23 @@ static void registation_status(DPS_REGISTRATION_STATUS reg_status, void* user_co
 }
 int main()
 {
-    ...    
-    security_device_init(); // initialize your HSM 
+    ...
+    SECURE_DEVICE_TYPE hsm_type;
+    hsm_type = SECURE_DEVICE_TYPE_TPM;
+    //hsm_type = SECURE_DEVICE_TYPE_X509;
+    prov_dev_security_init(hsm_type); // initialize your HSM 
 
-    DPS_CLIENT_LL_HANDLE handle = DPS_Client_LL_Create(dps_uri, dps_scope_id, dps_transport, on_dps_error_callback, &user_info); // Create your DPS client
+    prov_transport = Prov_Device_HTTP_Protocol;
+    
+    PROV_CLIENT_LL_HANDLE handle = Prov_Device_LL_Create(global_uri, id_scope, prov_transport); // Create your provisioning client
 
-    if (DPS_Client_LL_Register_Device(handle, register_callback, &user_info, register_status, &user_info) == IOTHUB_DPS_OK) {
+    if (Prov_Client_LL_Register_Device(handle, register_callback, &user_info, register_status, &user_info) == IOTHUB_DPS_OK) {
         do {
-            // The dps_register_callback is called when registration is complete or fails
-            DPS_Client_LL_DoWork(handle);
+        // The register_callback is called when registration is complete or fails
+            Prov_Client_LL_DoWork(handle);
         } while (user_info.reg_complete == 0);
     }
-    DPS_Client_LL_Destroy(handle); // Clean up the DPS client
+    Prov_Client_LL_Destroy(handle); // Clean up the Provisioning client
     ...
     iothub_client = IoTHubClient_LL_CreateFromDeviceAuth(user_info.iothub_uri, user_info.device_id, transport); // Create your IoT hub client and connect to your hub
     ...

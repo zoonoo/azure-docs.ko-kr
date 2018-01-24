@@ -87,6 +87,8 @@
       href: how-to-control-access.md
     - name: Azure CLI를 사용하여 장치 프로비전 서비스 관리
       href: how-to-manage-dps-with-cli.md
+    - name: SDK 도구를 사용하여 개발
+      href: how-to-use-sdk-tools.md
 - name: 참고 자료
   items:
     - name: REST (영문)

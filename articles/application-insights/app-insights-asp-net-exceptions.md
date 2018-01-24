@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: mbullwin
-ms.openlocfilehash: cb87b166a32c47395f99c9cd59442a7ccd65b7ed
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: d6a0b945bad36842142d16a4840c9c3d69e1564e
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Application Insights를 사용하여 웹앱에서 예외 진단
 라이브 웹앱의 예외는 [Application Insights](app-insights-overview.md)에서 보고됩니다. 클라이언트와 서버에서 실패한 요청을 예외 및 다른 이벤트와 상호 연결하여 원인을 신속하게 진단할 수 있습니다.
@@ -301,7 +301,7 @@ System.Web.Http.Filters.ExceptionFilterAttribute를 재정의합니다.
 
 [샘플](https://github.com/AppInsightsSamples/WebApi_1.x_UnhandledExceptions)
 
-예외 필터에서 처리할 수 없는 다양한 경우가 있습니다. 예:
+예외 필터에서 처리할 수 없는 다양한 경우가 있습니다. 예: 
 
 * 컨트롤러 생성자에서 throw된 예외
 * 메시지 처리기에서 throw된 예외

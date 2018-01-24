@@ -4,7 +4,7 @@ description: "최신 릴리스 정보, 알려진 문제, 버그 수정, 사용�
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: 
 featureFlags: clicktale
 ms.assetid: 06a149f7-4aa1-4fb9-a8ec-ac2633b031fb
@@ -13,21 +13,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 12/19/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: f1538e1c26cfe658c7f42ccdd57d8bf5aca0b1fb
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 6e1cf6e2ee717ef7629e1388d7bca2090eed46fa
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory의 새로운 기능
 
 
 
 
-> 즐겨찾는 RSS 피드 판독기에서 이 [피드](https://docs.microsoft.com/api/search/rss?search=%22what%27s%20new%20in%20azure%20active%20directory%3F%22&locale=en-us)를 구독하여 Azure Active Directory의 새로운 기능을 최신 상태로 유지합니다.
+> [![RSS](./media/whats-new/feed-icon-16x16.png)](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us) [피드](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us)를 구독하여 Azure Active Directory의 새로운 기능에 대한 최신 정보를 얻으세요.
 
 
 
@@ -41,6 +41,163 @@ Azure Active Directory는 지속적으로 개선되고 있습니다. 최신 개�
 
 이 페이지는 매월 업데이트되므로 정기적으로 다시 방문하세요.
 
+
+## <a name="december-2017"></a>2017년 12월
+ 
+
+### <a name="terms-of-use-in-the-access-panel-for-end-users"></a>최종 사용자 액세스 패널의 사용 약관
+
+**유형:** 새로운 기능  
+**서비스 범주:** 사용 약관  
+**제품 기능:** 거버넌스/준수
+ 
+최종 사용자는 이제 액세스 패널로 이동하여 이전에 동의한 사용 약관을 확인할 수 있습니다.
+
+사용자는 자신이 동의한 사용 약관을 검토하고 볼 수 있습니다. 이렇게 하려면 다음 프로시저를 사용합니다.
+
+1. [MyApps 포털](https://myapps.microsoft.com)로 이동하여 로그인합니다.
+
+2. 오른쪽 위 모서리에서 자신의 이름을 클릭하고 드롭다운에서 **프로필**을 선택합니다. 
+
+3. 프로필에서 **사용 약관 검토**를 클릭합니다. 
+
+4. 여기에서 사용자가 동의한 사용 약관을 검토할 수 있습니다. 
+
+자세한 내용은 [Azure Active Directory 사용 약관 기능(미리 보기)](https://docs.microsoft.com/azure/active-directory/active-directory-tou)을 참조하세요.
+ 
+---
+ 
+
+### <a name="new-azure-ad-sign-in-experience"></a>새 Azure AD 로그인 환경
+
+**유형:** 새로운 기능  
+**서비스 범주:** Azure AD  
+**제품 기능:** 사용자 인증
+ 
+Azure AD와 Microsoft 계정 ID 시스템을 통합하기 위한 과정의 일환으로 Microsoft는 두 시스템의 UI를 모양과 느낌이 일관되도록 새로 디자인했습니다. 또한 Azure AD 로그인 페이지의 번호를 매겨 먼저 사용자 이름을 수집하고 두 번째 화면에서 자격 증명을 수집하도록 했습니다.
+
+자세한 내용은 [The new Azure AD Signin Experience is now in Public Preview](https://cloudblogs.microsoft.com/enterprisemobility/2017/08/02/the-new-azure-ad-signin-experience-is-now-in-public-preview/)(새 Azure AD 로그인 환경을 공개 미리 보기로 제공)를 참조하세요.
+ 
+---
+ 
+
+### <a name="fewer-login-prompts-a-new-keep-me-signed-in-experience-for-azure-ad-login"></a>몇 가지 로그인 프롬프트: Azure AD 로그인의 새로운 “로그인 상태 유지” 환경
+
+**유형:** 새로운 기능  
+**서비스 범주:** Azure AD  
+**제품 기능:** 사용자 인증
+ 
+Azure AD 로그인 페이지의 **로그인 상태 유지** 확인란을 사용자가 인증된 후에 표시되는 새 프롬프트로 바꾸었습니다. 
+
+사용자가 이 프롬프트에 **예**로 응답하면 영구 새로 고침 토큰이 제공됩니다. 이는 사용자가 이전 환경에서 **로그인 상태 유지** 확인란을 선택하는 경우와 동일한 동작입니다. 페더레이션된 테넌트의 경우 이 프롬프트는 사용자가 페더레이션된 서비스에 인증된 후 표시됩니다.
+
+자세한 내용은 [Fewer login prompts: The new “Keep me signed in” experience for Azure AD is in preview](https://cloudblogs.microsoft.com/enterprisemobility/2017/09/19/fewer-login-prompts-the-new-keep-me-signed-in-experience-for-azure-ad-is-in-preview/)(몇 가지 로그인 프롬프트: Azure AD 로그인의 새로운 “로그인 상태 유지” 환경이 미리 보기로 제공)를 참조하세요. 
+
+---
+ 
+
+### <a name="add-configuration-to-require-the-tou-to-be-expanded-prior-to-accepting"></a>동의하기 전에 TOU를 확장해야 하는 구성 추가
+
+**유형:** 새로운 기능  
+**서비스 범주:** 사용 약관  
+**제품 기능:** 거버넌스
+ 
+이제 관리자가 최종 사용자에게 사용 약관에 동의하기 전에 사용 약관을 확장하도록 요구하는 옵션을 추가했습니다.
+
+사용자가 사용 약관을 확장해야 함에 대해 설정 또는 해제를 선택합니다. 이것을 설정하면 최종 사용자가 사용 약관에 동의하기 전에 사용 약관을 봐야 합니다.
+
+자세한 내용은 [Azure Active Directory 사용 약관 기능(미리 보기)](active-directory-tou.md)을 참조하세요.
+ 
+---
+ 
+
+### <a name="scoped-activation-for-eligible-role-assignments"></a>적격 역할 할당에 대한 범위 지정 활성화
+
+**유형:** 새로운 기능  
+**서비스 범주:** Privileged Identity Management  
+**제품 기능:** Privileged Identity Management
+ 
+범위 지정 활성화를 사용하면 원래 활성화 기본값보다 자율성을 더 적게 부여하여 적격 Azure 리소스 역할 할당을 활성화할 수 있습니다. 테넌트의 구독 소유자로 할당하는 경우를 예로 들 수 있습니다. 범위 지정 활성화를 사용하면 구독 내에 포함된 리소스(리소스 그룹, Virtual Machines 등...) 최대 5개에 대해 소유자를 활성화할 수 있습니다. 활성화의 범위를 지정하면 중요한 Azure 리소스가 원치 않게 변경될 가능성을 줄일 수 있습니다.
+
+자세한 내용은 [Azure AD Privileged Identity Management란?](active-directory-privileged-identity-management-configure.md)을 참조하세요.
+ 
+---
+ 
+
+### <a name="new-federated-apps-in-azure-ad-app-gallery"></a>Azure AD 앱 갤러리의 새로운 페더레이션된 앱
+
+**유형:** 새로운 기능  
+**서비스 범주**: 엔터프라이즈 앱  
+**제품 기능**: 타사 통합
+ 
+2017년 12월에 앱 갤러리에 페더레이션 지원이 제공되는 다음과 같은 새 앱을 추가했습니다.
+
+|Name|통합 형식|설명|
+|:-- |----------------|:----------|
+|EFI Digital StoreFront|SAML 2.0|[웹 2 인쇄 응용 프로그램](https://go.microsoft.com/fwlink/?linkid=861685)|
+|Vodeclic|SAML 2.0|[Azure AD를 사용하여 사용자 액세스를 관리하고 Vodeclic에서 Single Sign-On을 사용할 수 있습니다.](https://go.microsoft.com/fwlink/?linkid=863522)  기존 Vodeclic 계정이 필요합니다.|
+|Accredible|SAML 2.0|[인증서, 배지 및 블록체인 자격 증명을 만들고, 관리하고, 제공합니다.](https://go.microsoft.com/fwlink/?linkid=863523)|
+|FactSet|SAML 2.0|[FactSet의 FDSWeb 응용 프로그램에 대한 Single Sign-on을 수행합니다.](https://go.microsoft.com/fwlink/?linkid=863525)|
+|MobileIron Azure AD 통합|SAML 2.0|[MobileIron](https://go.microsoft.com/fwlink/?linkid=858027)은 현대 기업이 모바일과 클라우드로 정보를 이동할 때 정보를 보호 및 관리하는 동시에 최종 사용자 개인 정보 보호와 신뢰를 유지할 수 있도록 하기 위해 노력합니다.|
+|IMAGE WORKS|SAML 2.0|Azure AD를 사용하여 사용자 액세스를 관리하고, 사용자 계정을 프로비전하며[IMAGE WORKS](https://go.microsoft.com/fwlink/?linkid=863517)에서 Single Sign-On을 수행합니다. 기존 IMAGE WORKS 구독이 필요합니다.|
+|SAML SSO for Bitbucket by resolution GmbH|SAML 2.0|[SSO Bitbucket](https://go.microsoft.com/fwlink/?linkid=863519)은 인증을 Azure AD에 위임하므로, Azure AD에 이미 로그인한 사용자는 Bitbucket에 바로 액세스할 수 있습니다. SAML 특성의 데이터를 사용하여 신속하게 사용자를 만들고 업데이트할 수 있습니다.|
+|SAML SSO for Bamboo by resolution GmbH|SAML 2.0|[SSO Bamboo](https://go.microsoft.com/fwlink/?linkid=863520)는 인증을 Azure AD에 위임하므로, Azure AD에 이미 로그인한 사용자는 Bamboo에 바로 액세스할 수 있습니다.|
+|Communifire|SAML 2.0|[Communifire](https://go.microsoft.com/fwlink/?linkid=861676)는 직원과 비즈니스를 지원하는 모든 기능을 갖춘 최신 소셜 인트라넷 소프트웨어입니다.|
+|MOBI|SAML 2.0|[전체 장치 에코시스템을 중앙 집중화하고 이해하고 제어합니다](https://go.microsoft.com/fwlink/?linkid=863521).|
+|Reflektive|SAML 2.0|[Reflektive](https://go.microsoft.com/fwlink/?linkid=863518)는 성능 관리, 실시간 피드백 및 목표 설정을 위한 최신 플랫폼입니다. 직원의 자기 개발을 강화하여 더욱 전략적으로 비즈니스를 수행할 수 있습니다.|
+|CybSafe|OpenID Connect 및 OAuth|CybSafe는 GCHQ 인증을 받은 사이버 인식 플랫폼입니다. 고급 기술과 데이터 분석을 사용하여 사람으로 인한 사이버 보안 및 데이터 보호 위험을 획기적으로 줄입니다.|
+|WebHR|OpenID Connect 및 OAuth|누구나 즐겨 사용하는 올인원 소셜 HR 소프트웨어입니다. 197 국가에서 20,000개가 넘는 회사가 신뢰합니다.|
+ |Zenegy Azure AD 통합|OpenID Connect 및 OAuth|이 앱을 사용하면 회사의 Azure Active Directory 자격 증명을 사용하여 Zenegy에 로그인할 수 있습니다.|
+|Adobe Experience Manager|SAML 2.0|AEM(Adobe Experience Manager)은 웹 사이트, 모바일 앱 및 양식을 빌드하기 위한 포괄적인 콘텐츠 관리 플랫폼 솔루션으로, 마케팅 콘텐츠 및 자산을 쉽게 관리할 수 있도록 해줍니다.|
+
+ 
+---
+ 
+
+### <a name="approval-workflows-for-azure-ad-directory-roles"></a>Azure AD 디렉터리 역할에 대한 승인 워크플로
+
+**유형:** 변경된 기능  
+**서비스 범주:** Privileged Identity Management  
+**제품 기능:** Privileged Identity Management
+ 
+Azure AD 디렉터리 역할의 승인 워크플로가 일반 공급됩니다.
+
+승인 워크플로에 따라 권한 있는 역할 관리자가 관리자는 적격 역할 구성원에게 권한 있는 역할을 사용하려면 먼저 역할을 활성화하도록 요구할 수 있습니다.
+여러 사용자와 그룹에 승인 책임이 위임될 수 있습니다. 승인이 완료되고 역할이 활성화되면 적격 역할 구성원은 알림을 받습니다.
+
+---
+ 
+
+### <a name="pass-through-authentication---skype-for-business-support"></a>통과 인증 - 비즈니스용 Skype 지원
+
+**유형:** 변경된 기능  
+**서비스 범주**: 인증(로그인)  
+**제품 기능:** 사용자 인증
+
+
+통과 인증에서는 이제 사용자가 온라인 및 하이브리드 토폴로지를 비롯한 최신 인증을 지원하는 비즈니스용 Skype 클라이언트 응용 프로그램에 로그인하도록 지원합니다. 
+
+자세한 내용은 [Skype for Business topologies supported with Modern Authentication](https://technet.microsoft.com/library/mt803262.aspx)(최신 인증에서 비즈니스용 Skype 토폴로지 지원됨)을 참조하세요.
+ 
+---
+ 
+
+### <a name="updates-to-azure-active-directory-privileged-identity-management-pim-for-azure-rbac-preview"></a>Azure RBAC에 대한 Azure Active Directory PIM(Privileged Identity Management) 업데이트(미리 보기)
+
+**유형:** 변경된 기능  
+**서비스 범주:** PIM  
+**제품 기능:** Privileged Identity Management
+ 
+Azure RBAC에 대한 Azure Active Directory PIM(Privileged Identity Management)의 공개 미리 보기 새로 고침을 사용하면 다음을 수행할 수 있습니다.
+
+Just Enough Administration 사용 리소스 역할 활성화를 위한 승인 요구 AAD 및 Azure RBAC 역할 모두에 대한 승인이 필요한 역할의 향후 활성화 예약
+
+ 
+자세한 내용은 [Azure 리소스에 대한 PIM(미리 보기)](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/azure-pim-resource-rbac)을 참조하세요.
+
+ 
+---
+ 
 ## <a name="november-2017"></a>2017년 11월
  
 ### <a name="retiring-acs"></a>사용 중지 ACS
@@ -513,6 +670,6 @@ Azure Portal에서 Azure RBAC(역할 기반 액세스 제어) 기능을 사용�
 - Microsoft Identity Manager 2016용 빌드 4.4.1459.0까지 모든 MIM 2016 SP1 업데이트를 대체하는 누적 업데이트입니다. 
 - **Microsoft Identity Manager 2016 빌드 4.4.1302.0**이 필요합니다. 
 
-자세한 내용은 [Microsoft Identity Manager 2016 SP1용 핫픽스 롤업 패키지(빌드 4.4.1642.0) 가능](https://support.microsoft.com/en-us/help/4021562)을 참조하세요. 
+자세한 내용은 [Microsoft Identity Manager 2016 SP1용 핫픽스 롤업 패키지(빌드 4.4.1642.0) 가능](https://support.microsoft.com/help/4021562)을 참조하세요. 
 
 ---

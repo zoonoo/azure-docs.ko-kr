@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: shlo
-ms.openlocfilehash: 13e9b951c46ae1cd16c7f38d5ade8a4f8a156e63
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eee276f2bcf6a8b7b2c79139bfeb01e1ebf761c9
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Azure Data Factory의 식과 함수
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -27,17 +27,18 @@ ms.lasthandoff: 10/11/2017
 이 문서에서는 Azure Data Factory(버전 2)에서 지원하는 식과 함수에 대한 정보를 제공합니다. 
 
 ## <a name="introduction"></a>소개
-정의의 JSON 값은 리터럴일 수도 있고 정의가 런타임에 평가되는 식일 수도 있습니다. 예:  
+정의의 JSON 값은 리터럴일 수도 있고 정의가 런타임에 평가되는 식일 수도 있습니다. 예:   
   
 ```json
 "name": "value"
 ```
 
- 또는  
+ (또는)  
   
 ```json
-"name": "@parameters('password') "
+"name": "@pipeline().parameters.password"
 ```
+
 
 > [!NOTE]
 > 이 문서는 현재 미리 보기 상태인 Data Factory 버전 2에 적용됩니다. GA(일반 공급) 상태인 Data Factory 버전 1 서비스를 사용 중인 경우 [Data Factory V1의 함수와 변수](v1/data-factory-functions-variables.md)를 참조하세요.
@@ -53,22 +54,98 @@ ms.lasthandoff: 10/11/2017
 |"@@"|'@'를 포함하는 1개 문자열이 반환됩니다.|  
 |" @"|' @'를 포함하는 2개 문자열이 반환됩니다.|  
   
- *문자열 보간*이라는 기능을 사용하면 식이 `@{ ... }`로 묶인 문자열 내부에 나타날 수도 있습니다. 예: `"name" : "First Name: @{parameters('firstName')} Last Name: @{parameters('lastName'}"`  
+ *문자열 보간*이라는 기능을 사용하면 식이 `@{ ... }`로 묶인 문자열 내부에 나타날 수도 있습니다. 예: `"name" : "First Name: @{pipeline().parameters.firstName} Last Name: @{pipeline().parameters.lastName}"`  
   
- 문자열 보간을 사용하면 결과는 항상 문자열입니다. `myNumber`를 `42`로, `myString`을 foo로 정의했다고 가정해 보겠습니다.  
+ 문자열 보간을 사용하면 결과는 항상 문자열입니다. `myNumber`를 `42`로 정의하고 `myString`을 `foo`로 정의했다고 가정합니다.  
   
 |JSON 값|결과|  
 |----------------|------------|  
-|"@parameters('myString')"|`foo`을 문자열로 반환합니다.|  
-|"@{parameters('myString')}"|`foo`을 문자열로 반환합니다.|  
-|"@parameters('myNumber')"|`42`를 *숫자*로 반환합니다.|  
-|"@{parameters('myNumber')}"|`42`를 *문자열*로 반환합니다.|  
-|"Answer is: @{parameters('myNumber')}"|`Answer is: 42` 문자열을 반환합니다.|  
-|"@concat('Answer is: ', string(parameters('myNumber')))"|`Answer is: 42` 문자열을 반환합니다.|  
-|"Answer is: @@{parameters('myNumber')}"|`Answer is: @{parameters('myNumber')}` 문자열을 반환합니다.|  
+|"@pipeline().parameters.myString"| `foo`을 문자열로 반환합니다.|  
+|"@{pipeline().parameters.myString}"| `foo`을 문자열로 반환합니다.|  
+|"@pipeline().parameters.myNumber"| `42`를 *숫자*로 반환합니다.|  
+|"@{pipeline().parameters.myNumber}"| `42`를 *문자열*로 반환합니다.|  
+|"Answer is: @{pipeline().parameters.myNumber}"| `Answer is: 42` 문자열을 반환합니다.|  
+|"@concat('Answer is: ', string(pipeline().parameters.myNumber))"| `Answer is: 42` 문자열을 반환합니다.|  
+|"Answer is: @@{pipeline().parameters.myNumber}"| `Answer is: @{pipeline().parameters.myNumber}` 문자열을 반환합니다.|  
   
+### <a name="examples"></a>예
+
+#### <a name="a-dataset-with-a-parameter"></a>매개 변수가 포함된 데이터 집합
+다음 예제에서는 BlobDataset은 **경로**라는 매개 변수를 사용합니다. `@{dataset().path}` 식을 사용하여 **folderPath** 속성에 대한 값을 설정하도록 해당 값을 사용합니다. 
+
+```json
+{
+    "name": "BlobDataset",
+    "properties": {
+        "type": "AzureBlob",
+        "typeProperties": {
+            "folderPath": "@dataset().path"
+        },
+        "linkedServiceName": {
+            "referenceName": "AzureStorageLinkedService",
+            "type": "LinkedServiceReference"
+        },
+        "parameters": {
+            "path": {
+                "type": "String"
+            }
+        }
+    }
+}
+```
+
+#### <a name="a-pipeline-with-a-parameter"></a>매개 변수가 포함된 파이프라인
+다음 예에서 파이프라인은 **inputPath** 및 **outputPath** 매개 변수를 사용합니다. 매개 변수가 있는 Blob 데이터 집합의 **경로**는 이러한 매개 변수의 값을 사용하여 설정됩니다. 여기에 사용된 구문은 `pipeline().parameters.parametername`입니다. 
+
+```json
+{
+    "name": "Adfv2QuickStartPipeline",
+    "properties": {
+        "activities": [
+            {
+                "name": "CopyFromBlobToBlob",
+                "type": "Copy",
+                "inputs": [
+                    {
+                        "referenceName": "BlobDataset",
+                        "parameters": {
+                            "path": "@pipeline().parameters.inputPath"
+                        },
+                        "type": "DatasetReference"
+                    }
+                ],
+                "outputs": [
+                    {
+                        "referenceName": "BlobDataset",
+                        "parameters": {
+                            "path": "@pipeline().parameters.outputPath"
+                        },
+                        "type": "DatasetReference"
+                    }
+                ],
+                "typeProperties": {
+                    "source": {
+                        "type": "BlobSource"
+                    },
+                    "sink": {
+                        "type": "BlobSink"
+                    }
+                }
+            }
+        ],
+        "parameters": {
+            "inputPath": {
+                "type": "String"
+            },
+            "outputPath": {
+                "type": "String"
+            }
+        }
+    }
+}
+```
   
-## <a name="functions"></a>함수  
+## <a name="functions"></a>Functions  
  식 내에서 함수를 호출할 수 있습니다. 다음 섹션에서는 식에서 사용할 수 있는 함수에 대한 정보를 제공합니다.  
 
 ## <a name="string-functions"></a>문자열 함수  
@@ -76,9 +153,9 @@ ms.lasthandoff: 10/11/2017
   
 |함수 이름|설명|  
 |-------------------|-----------------|  
-|concat|임의 개수 문자열을 함께 결합합니다. 예를 들어, parameter1이 `foo,`이면 다음 식이 `somevalue-foo-somevalue`: `concat('somevalue-',parameters('parameter1'),'-somevalue')`를 반환합니다.<br /><br /> **매개 변수 번호**: 1 ... *n*<br /><br /> **이름**: String *n*<br /><br /> **설명**: 필수. 단일 문자열로 결합할 문자열입니다.|  
+|concat|임의 개수 문자열을 함께 결합합니다. 예를 들어, parameter1이 `foo,`이면 다음 식이 `somevalue-foo-somevalue`: `concat('somevalue-',pipeline().parameters.parameter1,'-somevalue')`를 반환합니다.<br /><br /> **매개 변수 번호**: 1 ... *n*<br /><br /> **이름**: String *n*<br /><br /> **설명**: 필수. 단일 문자열로 결합할 문자열입니다.|  
 |substring|문자열의 하위 집합을 반환합니다. 예를 들어 다음 식은<br /><br /> `substring('somevalue-foo-somevalue',10,3)`<br /><br /> 다음을 반환합니다.<br /><br /> `foo`<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: String<br /><br /> **설명**: 필수. 부분 문자열을 가져올 원래 문자열입니다.<br /><br /> **매개 변수 번호**: 2<br /><br /> **이름**: Start index<br /><br /> **설명**: 필수. 매개 변수 1에서 하위 문자열이 시작되는 위치의 인덱스입니다.<br /><br /> **매개 변수 번호**: 3<br /><br /> **이름**: Length<br /><br /> **설명**: 필수. 부분 문자열의 길이입니다.|  
-|replace|문자열을 지정된 문자열로 바꿉니다. 예를 들어 다음 식은<br /><br /> `replace('the old string', 'old', 'new')`<br /><br /> 다음을 반환합니다.<br /><br /> `the new string`<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: string<br /><br /> **설명**: 필수.  매개 변수 2가 매개 변수 1에 있으면 매개 변수 2에 대해 문자열을 검색하고 매개 변수 3으로 업데이트됩니다.<br /><br /> **매개 변수 번호**: 2<br /><br /> **이름**: Old string<br /><br /> **설명**: 필수. 매개 변수 1에 일치 항목이 있으면 매개 변수 3으로 바꿀 문자열입니다.<br /><br /> **매개 변수 번호**: 3<br /><br /> **이름**: New string<br /><br /> **설명**: 필수. 매개 변수 1에 일치 항목이 있으면 매개 변수 2의 문자열을 바꾸는 데 사용할 문자열입니다.|  
+|바꾸기|문자열을 지정된 문자열로 바꿉니다. 예를 들어 다음 식은<br /><br /> `replace('the old string', 'old', 'new')`<br /><br /> 다음을 반환합니다.<br /><br /> `the new string`<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: string<br /><br /> **설명**: 필수.  매개 변수 2가 매개 변수 1에 있으면 매개 변수 2에 대해 문자열을 검색하고 매개 변수 3으로 업데이트됩니다.<br /><br /> **매개 변수 번호**: 2<br /><br /> **이름**: Old string<br /><br /> **설명**: 필수. 매개 변수 1에 일치 항목이 있으면 매개 변수 3으로 바꿀 문자열입니다.<br /><br /> **매개 변수 번호**: 3<br /><br /> **이름**: New string<br /><br /> **설명**: 필수. 매개 변수 1에 일치 항목이 있으면 매개 변수 2의 문자열을 바꾸는 데 사용할 문자열입니다.|  
 |GUID| 전역적으로 고유한 문자열(GUID)을  생성합니다. 예를 들어 다음 출력을 생성할 수 있습니다.`c2ecc88d-88c8-4096-912c-d6f2e2b138ce`<br /><br /> `guid()`<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: Format<br /><br /> **설명**: 선택 사항. [이 Guid 값의 형식을 지정하는 방법](https://msdn.microsoft.com/library/97af8hh4%28v=vs.110%29.aspx)을 나타내는 단일 형식 지정자입니다. 형식 매개 변수는 "N", "D", "B", "P" 또는 "X"일 수 있습니다. 형식이 제공되지 않으면 "D"가 사용됩니다.|  
 |toLower|문자열을 소문자로 변환합니다. 예를 들어 다음은 `two by two is four`: `toLower('Two by Two is Four')`을 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: String<br /><br /> **설명**: 필수. 소문자로 변환할 문자열입니다. 문자열에 있는 문자에 소문자로 변환할 항목이 없으면 반환된 문자열에서 해당 문자가 변경되지 않고 포함됩니다.|  
 |toUpper|문자열을 대문자로 변환합니다. 예를 들어 다음 식은 `TWO BY TWO IS FOUR`:  `toUpper('Two by Two is Four')`를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: String<br /><br /> **설명**: 필수. 대문자로 변환할 문자열입니다. 문자열에 있는 문자에 대문자로 변환할 항목이 없으면 반환된 문자열에서 해당 문자가 변경되지 않고 포함됩니다.|  
@@ -100,7 +177,7 @@ ms.lasthandoff: 10/11/2017
 |교집합|전달된 배열 또는 개체 간에 공통의 요소가 있는 단일 배열 또는 개체를 반환합니다. 예를 들어 이 함수는 `[1, 2]`을 반환합니다.<br /><br /> `intersection([1, 2, 3], [101, 2, 1, 10],[6, 8, 1, 2])`<br /><br /> 이 함수의 매개 변수는 개체 또는 배열 집합일 수 있습니다(이들의 혼합은 아님). 같은 이름의 개체가 두 개 있는 경우 해당 이름을 가진 마지막 개체가 최종 개체에 나타납니다.<br /><br /> **매개 변수 번호**: 1 ... *n*<br /><br /> **이름**: Collection *n*<br /><br /> **설명**: 필수. 평가할 컬렉션입니다. 개체는 결과에 표시하기 위해 전달된 모든 컬렉션에 있어야 합니다.|  
 |union|여기에 전달된 배열 또는 개체에 있는 모든 요소를 포함하는 단일 배열 또는 개체를 반환합니다. 예를 들어 이 함수는 `[1, 2, 3, 10, 101]:`<br /><br /> :  `union([1, 2, 3], [101, 2, 1, 10])`를 반환합니다.<br /><br /> 이 함수의 매개 변수는 개체 또는 배열 집합일 수 있습니다(이들의 혼합은 아님). 최종 출력에 같은 이름의 개체가 두 개 있는 경우 해당 이름을 가진 마지막 개체가 최종 개체에 나타납니다.<br /><br /> **매개 변수 번호**: 1 ... *n*<br /><br /> **이름**: Collection *n*<br /><br /> **설명**: 필수. 평가할 컬렉션입니다. 컬렉션에 나타나는 개체가 결과에 나타납니다.|  
 |first|전달된 배열 또는 문자열의 첫 번째 요소를 반환합니다. 예를 들어 이 함수는 `0`을 반환합니다.<br /><br /> `first([0,2,3])`<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: Collection<br /><br /> **설명**: 필수. 첫 번째 개체를 가져올 컬렉션입니다.|  
-|last|전달된 배열 또는 문자열의 마지막 요소를 반환합니다. 예를 들어 이 함수는 `3`를 반환합니다.<br /><br /> `last('0123')`<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: Collection<br /><br /> **설명**: 필수. 마지막 개체를 가져올 컬렉션입니다.|  
+|last|전달된 배열 또는 문자열의 마지막 요소를 반환합니다. 예를 들어 이 함수는 `3`을 반환합니다.<br /><br /> `last('0123')`<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: Collection<br /><br /> **설명**: 필수. 마지막 개체를 가져올 컬렉션입니다.|  
 |take|전달된 배열 또는 문자열의 첫 번째 **Count** 요소를 반환합니다. 예를 들어 이 함수는 `[1, 2]`:  `take([1, 2, 3, 4], 2)`를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: Collection<br /><br /> **설명**: 필수. 첫 번째 **Count** 개체를 취할 컬렉션입니다.<br /><br /> **매개 변수 번호**: 2<br /><br /> **이름**: Count<br /><br /> **설명**: 필수. **Collection**에서 가져올 개체 수입니다. 양의 정수여야 합니다.|  
 |skip|인덱스 **Count**에서 시작하는 배열의 요소를 반환합니다. 예를 들어 이 함수는 `[3, 4]`를 반환합니다.<br /><br /> `skip([1, 2 ,3 ,4], 2)`<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: Collection<br /><br /> **설명**: 필수. 첫 번째 **Count** 개체를 건너뛸 컬렉션입니다.<br /><br /> **매개 변수 번호**: 2<br /><br /> **이름**: Count<br /><br /> **설명**: 필수. **Collection**의 앞에서 제거할 개체 수입니다. 양의 정수여야 합니다.|  
   
@@ -109,7 +186,7 @@ ms.lasthandoff: 10/11/2017
   
 |함수 이름|설명|  
 |-------------------|-----------------|  
-|equals|두 값이 같으면 true를 반환합니다. 예를 들어, parameter1이 foo이면 다음 식이 `true`: `equals(parameters('parameter1'), 'foo')`를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: Object 1<br /><br /> **설명**: 필수. **Object 2**와 비교할 개체입니다.<br /><br /> **매개 변수 번호**: 2<br /><br /> **이름**: Object 2<br /><br /> **설명**: 필수. **Object 1**과 비교할 개체입니다.|  
+|equals|두 값이 같으면 true를 반환합니다. 예를 들어, parameter1이 foo이면 다음 식이 `true`: `equals(pipeline().parameters.parameter1), 'foo')`를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: Object 1<br /><br /> **설명**: 필수. **Object 2**와 비교할 개체입니다.<br /><br /> **매개 변수 번호**: 2<br /><br /> **이름**: Object 2<br /><br /> **설명**: 필수. **Object 1**과 비교할 개체입니다.|  
 |less|첫 번째 인수가 두 번째 인수보다 작으면 true를 반환합니다. 값은 integer, float 또는 string 형식만 가능합니다. 예를 들어 다음 식은 `true`:  `less(10,100)`를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: Object 1<br /><br /> **설명**: 필수. **Object 2**보다 작은지 확인할 개체입니다.<br /><br /> **매개 변수 번호**: 2<br /><br /> **이름**: Object 2<br /><br /> **설명**: 필수. **Object 1**보다 큰지 확인할 개체입니다.|  
 |lessOrEquals|첫 번째 인수가 두 번째 인수보다 작거나 같으면 true를 반환합니다. 값은 integer, float 또는 string 형식만 가능합니다. 예를 들어 다음 식은 `true`:  `lessOrEquals(10,10)`를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: Object 1<br /><br /> **설명**: 필수. **Object 2**보다 작거나 같은지 확인할 개체입니다.<br /><br /> **매개 변수 번호**: 2<br /><br /> **이름**: Object 2<br /><br /> **설명**: 필수. **Object 1**보다 크거나 같은지 확인할 개체입니다.|  
 |greater|첫 번째 인수가 두 번째 인수보다 크면 true를 반환합니다. 값은 integer, float 또는 string 형식만 가능합니다. 예를 들어 다음 식은 `false`:  `greater(10,10)`를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: Object 1<br /><br /> **설명**: 필수. **Object 2**보다 큰지 확인할 개체입니다.<br /><br /> **매개 변수 번호**: 2<br /><br /> **이름**: Object 2<br /><br /> **설명**: 필수. **Object 1**보다 작은지 확인할 개체입니다.|  
@@ -122,7 +199,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="conversion-functions"></a>변환 함수  
  이 함수는 언어의 각 기본 형식 간에 변환하는 데 사용됩니다.  
   
--   string  
+-   문자열  
   
 -   정수  
   
@@ -137,11 +214,11 @@ ms.lasthandoff: 10/11/2017
 |함수 이름|설명|  
 |-------------------|-----------------|  
 |int|매개 변수를 정수로 변환합니다. 예를 들어 다음 식은 문자열 `int('100')`이 아닌 숫자로 100을 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: Value<br /><br /> **설명**: 필수. 정수로 변환할 값입니다.|  
-|string|매개 변수를 문자열로 변환합니다. 예를 들어 다음 식은 `'10'`:  `string(10)`를 반환합니다. 개체를 문자열로 변환할 수도 있습니다. 예를 들어 **foo** 매개 변수가 한 속성 `bar : baz`가 있는 개체이면 다음은 `{"bar" : "baz"}` `string(parameters('foo'))`을 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: Value<br /><br /> **설명**: 필수. 문자열로 변환할 값입니다.|  
+|문자열|매개 변수를 문자열로 변환합니다. 예를 들어 다음 식은 `'10'`:  `string(10)`를 반환합니다. 개체를 문자열로 변환할 수도 있습니다. 예를 들어 **foo** 매개 변수가 한 속성 `bar : baz`가 있는 개체이면 다음은 `{"bar" : "baz"}` `string(pipeline().parameters.foo)`을 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: Value<br /><br /> **설명**: 필수. 문자열로 변환할 값입니다.|  
 |json :|매개 변수를 JSON 형식 값으로 변환합니다. String()의 반대입니다. 예를 들어 다음 식은 문자열이 아닌 배열로 `[1,2,3]`를 반환합니다.<br /><br /> `parse('[1,2,3]')`<br /><br /> 마찬가지로, 문자열을 개체로 변환할 수 있습니다. 예를 들어 `json('{"bar" : "baz"}')`는 다음을 반환합니다.<br /><br /> `{ "bar" : "baz" }`<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: String<br /><br /> **설명**: 필수. 기본 형식 값으로 변환할 문자열입니다.<br /><br /> JSON 함수는 XML 입력도 지원합니다. 예를 들어 다음 매개 변수 값은<br /><br /> `<?xml version="1.0"?> <root>   <person id='1'>     <name>Alan</name>     <occupation>Engineer</occupation>   </person> </root>`<br /><br /> 다음 json으로 변환됩니다.<br /><br /> `{ "?xml": { "@version": "1.0" },   "root": {     "person": [     {       "@id": "1",       "name": "Alan",       "occupation": "Engineer"     }   ]   } }`|  
 |float|매개 변수 인수를 부동 소수점 숫자로 변환합니다. 예를 들어 다음 식은 `10.333`:  `float('10.333')`를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: Value<br /><br /> **설명**: 필수. 부동 소수점 숫자로 변환할 값입니다.|  
 |bool|매개 변수를 부울로 변환합니다. 예를 들어 다음 식은 `false`:  `bool(0)`를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: Value<br /><br /> **설명**: 필수. 부울로 변환할 값입니다.|  
-|coalesce|전달된 인수에서 첫 번째 null이 아닌 개체를 반환합니다. 참고: 빈 문자열은 null이 아닙니다. 예를 들어 매개 변수 1 및 2가 정의되지 않은 경우 이 함수는 `fallback`:  `coalesce(parameters('parameter1'), parameters('parameter2') ,'fallback')`을 반환합니다.<br /><br /> **매개 변수 번호**: 1 ... *n*<br /><br /> **이름**: Object*n*<br /><br /> **설명**: 필수. `null`에 대해 검사할 개체입니다.|  
+|coalesce|전달된 인수에서 첫 번째 null이 아닌 개체를 반환합니다. 참고: 빈 문자열은 null이 아닙니다. 예를 들어 매개 변수 1 및 2가 정의되지 않은 경우 이 함수는 `fallback`:  `coalesce(pipeline().parameters.parameter1', pipeline().parameters.parameter2 ,'fallback')`을 반환합니다.<br /><br /> **매개 변수 번호**: 1 ... *n*<br /><br /> **이름**: Object*n*<br /><br /> **설명**: 필수. `null`에 대해 검사할 개체입니다.|  
 |base64|입력 문자열의 base64 표현을 반환합니다. 예를 들어 다음 식은 `c29tZSBzdHJpbmc=`:  `base64('some string')`를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: String 1<br /><br /> **설명**: 필수. base64 표현으로 인코딩할 문자열입니다.|  
 |base64ToBinary|base64 인코딩 문자열의 이진 표현을 반환합니다. 예를 들어 다음 식 `base64ToBinary('c29tZSBzdHJpbmc=')`은 일부 문자열의 이진 표현을 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: String<br /><br /> **설명**: 필수. Base64 인코딩된 문자열입니다.|  
 |base64ToString|based64 인코딩 문자열의 문자열 표현을 반환합니다. 예를 들어 다음 식은 일부 문자열 `base64ToString('c29tZSBzdHJpbmc=')` 를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: String<br /><br /> **설명**: 필수. Base64 인코딩된 문자열입니다.|  
@@ -157,8 +234,8 @@ ms.lasthandoff: 10/11/2017
 |uriComponentToBinary|URI 인코딩 문자열의 이진 표현을 반환합니다. 예를 들어 다음 식은 `You Are:Cool/Awesome`: `uriComponentToBinary('You+Are%3ACool%2FAwesome')`의 이진 표현을 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: String<br /><br />**설명**: 필수. URI 인코딩된 문자열입니다.|  
 |uriComponentToString|URI 인코딩 문자열의 문자열 표현을 반환합니다. 예를 들어 다음 식은 `You Are:Cool/Awesome`: `uriComponentToBinary('You+Are%3ACool%2FAwesome')`를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br />**이름**: String<br /><br />**설명**: 필수. URI 인코딩된 문자열입니다.|  
 |xml|값의 XML 표현을 반환합니다. 예를 들어 다음 식은 `'\<name>Alan\</name>'`: `xml('\<name>Alan\</name>')`으로 표현되는 xml 콘텐츠를 반환합니다. xml 함수는 JSON 개체 입력도 지원합니다. 예를 들어 `{ "abc": "xyz" }` 매개 변수는 XML 콘텐츠 `\<abc>xyz\</abc>`로 변환됩니다. <br /><br /> **매개 변수 번호**: 1<br /><br />**이름**: Value<br /><br />**설명**: 필수. XML로 변환할 값입니다.|  
-|xpath|xpath 식을 평가할 값의 xpath 식과 일치하는 XML 노드 배열을 반환합니다.<br /><br />  **예 1**<br /><br /> 매개 변수 ‘p1’ 값이 다음 XML의 문자열 표현이라고 가정합니다.<br /><br /> `<?xml version="1.0"?> <lab>   <robot>     <parts>5</parts>     <name>R1</name>   </robot>   <robot>     <parts>8</parts>     <name>R2</name>   </robot> </lab>`<br /><br /> 1. 다음 코드는 `xpath(xml(parameters('p1'), '/lab/robot/name')`<br /><br /> 다음을 반환합니다.<br /><br /> `[ <name>R1</name>, <name>R2</name> ]`<br /><br /> 반면<br /><br /> 2. 다음 코드는 `xpath(xml(parameters('p1'), ' sum(/lab/robot/parts)')`<br /><br /> 다음을 반환합니다.<br /><br /> `13`<br /><br /> <br /><br /> **예 2**<br /><br /> 다음 XML 콘텐츠를 가정한다면:<br /><br /> `<?xml version="1.0"?> <File xmlns="http://foo.com">   <Location>bar</Location> </File>`<br /><br /> 1.  다음 코드는 `@xpath(xml(body('Http')), '/*[name()=\"File\"]/*[name()=\"Location\"]')`<br /><br /> 또는<br /><br /> 2. 다음 코드는 `@xpath(xml(body('Http')), '/*[local-name()=\"File\" and namespace-uri()=\"http://foo.com\"]/*[local-name()=\"Location\" and namespace-uri()=\"\"]')`<br /><br /> 다음을 반환합니다.<br /><br /> `<Location xmlns="http://foo.com">bar</Location>`<br /><br /> and<br /><br /> 3. 다음 코드는 `@xpath(xml(body('Http')), 'string(/*[name()=\"File\"]/*[name()=\"Location\"])')`<br /><br /> 다음을 반환합니다.<br /><br /> ``bar``<br /><br /> **매개 변수 번호**: 1<br /><br />**이름**: Xml<br /><br />**설명**: 필수. XPath 식을 평가할 XML입니다.<br /><br /> **매개 변수 번호**: 2<br /><br />**이름**: XPath<br /><br />**설명**: 필수. 평가할 XPath 식입니다.|  
-|array|매개 변수를 배열로 변환합니다.  예를 들어 다음 식은  `["abc"]`: `array('abc')`를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: Value<br /><br /> **설명**: 필수. 배열로 변환할 값입니다.|
+|xpath|xpath 식을 평가할 값의 xpath 식과 일치하는 XML 노드 배열을 반환합니다.<br /><br />  **예 1**<br /><br /> 매개 변수 ‘p1’ 값이 다음 XML의 문자열 표현이라고 가정합니다.<br /><br /> `<?xml version="1.0"?> <lab>   <robot>     <parts>5</parts>     <name>R1</name>   </robot>   <robot>     <parts>8</parts>     <name>R2</name>   </robot> </lab>`<br /><br /> 1. 다음 코드는 `xpath(xml(pipeline().parameters.p1), '/lab/robot/name')`<br /><br /> 다음을 반환합니다.<br /><br /> `[ <name>R1</name>, <name>R2</name> ]`<br /><br /> 반면<br /><br /> 2. 다음 코드는 `xpath(xml(pipeline().parameters.p1, ' sum(/lab/robot/parts)')`<br /><br /> 다음을 반환합니다.<br /><br /> `13`<br /><br /> <br /><br /> **예 2**<br /><br /> 다음 XML 콘텐츠를 가정한다면:<br /><br /> `<?xml version="1.0"?> <File xmlns="http://foo.com">   <Location>bar</Location> </File>`<br /><br /> 1.  다음 코드는 `@xpath(xml(body('Http')), '/*[name()=\"File\"]/*[name()=\"Location\"]')`<br /><br /> 또는<br /><br /> 2. 다음 코드는 `@xpath(xml(body('Http')), '/*[local-name()=\"File\" and namespace-uri()=\"http://foo.com\"]/*[local-name()=\"Location\" and namespace-uri()=\"\"]')`<br /><br /> 다음을 반환합니다.<br /><br /> `<Location xmlns="http://foo.com">bar</Location>`<br /><br /> and<br /><br /> 3. 다음 코드는 `@xpath(xml(body('Http')), 'string(/*[name()=\"File\"]/*[name()=\"Location\"])')`<br /><br /> 다음을 반환합니다.<br /><br /> ``bar``<br /><br /> **매개 변수 번호**: 1<br /><br />**이름**: Xml<br /><br />**설명**: 필수. XPath 식을 평가할 XML입니다.<br /><br /> **매개 변수 번호**: 2<br /><br />**이름**: XPath<br /><br />**설명**: 필수. 평가할 XPath 식입니다.|  
+|array|매개 변수를 배열로 변환합니다.  예를 들어 다음 식은 `["abc"]`: `array('abc')`를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: Value<br /><br /> **설명**: 필수. 배열로 변환할 값입니다.|
 |createArray|매개 변수에서 배열을 만듭니다.  예를 들어 다음 식은 `["a", "c"]`: `createArray('a', 'c')`를 반환합니다.<br /><br /> **매개 변수 번호**: 1 ... n<br /><br /> **이름**: 임의의 n<br /><br /> **설명**: 필수. 배열로 결합할 값입니다.|
 
 ## <a name="math-functions"></a>수학 함수  
@@ -170,8 +247,8 @@ ms.lasthandoff: 10/11/2017
 |sub|두 숫자를 차감한 결과를 반환합니다. 예를 들어 이 함수는 `-0.333`을 반환합니다.<br /><br /> `sub(10,10.333)`<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: Minuend<br /><br /> **설명**: 필수. **Subtrahend**를 뺄 숫자입니다.<br /><br /> **매개 변수 번호**: 2<br /><br /> **이름**: Subtrahend<br /><br /> **설명**: 필수. **Minuend**에서 뺄 숫자입니다.|  
 |mul|두 숫자를 곱한 결과를 반환합니다. 예를 들어 다음은 `103.33`을 반환합니다.<br /><br /> `mul(10,10.333)`<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: Multiplicand 1<br /><br /> **설명**: 필수. **Multiplicand 2**를 곱할 숫자입니다.<br /><br /> **매개 변수 번호**: 2<br /><br /> **이름**: Multiplicand 2<br /><br /> **설명**: 필수. **Multiplicand 1**을 곱할 숫자입니다.|  
 |div|두 숫자를 나눈 결과를 반환합니다. 예를 들어 다음은 `1.0333`을 반환합니다.<br /><br /> `div(10.333,10)`<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: Dividend<br /><br /> **설명**: 필수. **Divisor**로 나눌 숫자입니다.<br /><br /> **매개 변수 번호**: 2<br /><br /> **이름**: Divisor<br /><br /> **설명**: 필수. **Dividend**로 나누어지는 숫자입니다.|  
-|mod|두 숫자를 나눈 후 나머지 값을 반환합니다(modulo). 예를 들어 다음 식은 `2`를 반환합니다.<br /><br /> `mod(10,4)`<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: Dividend<br /><br /> **설명**: 필수. **Divisor**로 나눌 숫자입니다.<br /><br /> **매개 변수 번호**: 2<br /><br /> **이름**: Divisor<br /><br /> **설명**: 필수. **Dividend**로 나누어지는 숫자입니다. 나눈 후 나머지를 취합니다.|  
-|Min|이 함수를 호출하는 데는 두 가지 다른 패턴이 있습니다. `min([0,1,2])`에서는 min이 배열을 취합니다. 이 식은 `0`을 반환합니다. 또는 이 함수는 `min(0,1,2)`처럼 쉼표로 구분된 값 목록을 사용합니다. 이 함수도 0을 반환합니다. 모든 값은 숫자여야 하므로 매개 변수가 배열이면 배열에 숫자만 포함되어야 합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: Collection 또는 Value<br /><br /> **설명**: 필수. 최소값을 찾을 값 배열이거나 집합의 첫 번째 값입니다.<br /><br /> **매개 변수 번호**: 2 ... *n*<br /><br /> **이름**: Value *n*<br /><br /> **설명**: 선택 사항. 첫 번째 매개 변수가 Value인 경우 추가 값을 전달할 수 있으며 전달된 모든 값의 최소값이 반환됩니다.|  
+|mod|두 숫자를 나눈 후 나머지 값을 반환합니다(modulo). 예를 들어 다음 식은 `2`를 반환합니다.<br /><br /> `mod(10,4)`<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: Dividend<br /><br /> **설명**: 필수. **Divisor**로 나눌 숫자입니다.<br /><br /> **매개 변수 번호**: 2<br /><br /> **이름**: Divisor<br /><br /> **설명**: 필수. **Dividend**로 나누어지는 숫자입니다. 나눈 후 나머지를 가져옵니다.|  
+|min|이 함수를 호출하는 데는 두 가지 다른 패턴이 있습니다. `min([0,1,2])`에서는 min이 배열을 취합니다. 이 식은 `0`을 반환합니다. 또는 이 함수는 `min(0,1,2)`처럼 쉼표로 구분된 값 목록을 사용합니다. 이 함수도 0을 반환합니다. 모든 값은 숫자여야 하므로 매개 변수가 배열이면 배열에 숫자만 포함되어야 합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: Collection 또는 Value<br /><br /> **설명**: 필수. 최소값을 찾을 값 배열이거나 집합의 첫 번째 값입니다.<br /><br /> **매개 변수 번호**: 2 ... *n*<br /><br /> **이름**: Value *n*<br /><br /> **설명**: 선택 사항. 첫 번째 매개 변수가 Value인 경우 추가 값을 전달할 수 있으며 전달된 모든 값의 최소값이 반환됩니다.|  
 |max|이 함수를 호출하는 데는 두 가지 다른 패턴이 있습니다. `max([0,1,2])`:<br /><br /> 여기서는 max가 배열을 취합니다. 이 식은 `2`를 반환합니다. 또는 이 함수는 `max(0,1,2)`처럼 쉼표로 구분된 값 목록을 사용합니다. 이 함수도 2를 반환합니다. 모든 값은 숫자여야 하므로 매개 변수가 배열이면 배열에 숫자만 포함되어야 합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: Collection 또는 Value<br /><br /> **설명**: 필수. 최대값을 찾을 값 배열이거나 집합의 첫 번째 값입니다.<br /><br /> **매개 변수 번호**: 2 ... *n*<br /><br /> **이름**: Value *n*<br /><br /> **설명**: 선택 사항. 첫 번째 매개 변수가 Value인 경우 추가 값을 전달할 수 있으며 전달된 모든 값의 최대값이 반환됩니다.|  
 |range| 특정 번호로 시작하는 정수 배열을 생성합니다. 반환된 배열의 길이는 사용자가 정의합니다. 예를 들어 이 함수는 `[3,4,5,6]`을 반환합니다.<br /><br /> `range(3,4)`<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: Start index<br /><br /> **설명**: 필수. 배열의 첫 번째 정수입니다.<br /><br /> **매개 변수 번호**: 2<br /><br /> **이름**: Count<br /><br /> **설명**: 필수. 배열에 있는 정수의 수입니다.|  
 |rand| 지정된 범위 내에서 정수를 임의로 생성합니다(양쪽 끝 포함). 예를 들어 여기서는 `42`를 반환합니다.<br /><br /> `rand(-1000,1000)`<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: Minimum<br /><br /> **설명**: 필수. 반환 가능한 가장 작은 정수입니다.<br /><br /> **매개 변수 번호**: 2<br /><br /> **이름**: Maximum<br /><br /> **설명**: 필수. 반환 가능한 가장 큰 정수입니다.|  

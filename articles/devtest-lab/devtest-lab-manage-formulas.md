@@ -3,7 +3,7 @@ title: "VM을 만드는 Azure DevTest Labs 수식 관리 | Microsoft 문서"
 description: "Azure DevTest Labs 수식을 업데이트하고 제거하는 방법 알아보기"
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 841dd95a-657f-4d80-ba26-59a9b5104fe4
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2017
-ms.author: tarcher
+ms.author: v-craic
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bfdab5def50158f9b764bbb1e50c2624cc6d5fb3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3dcd285761774c3cd1050976894f1f15db61b52c
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="manage-azure-devtest-labs-formulas"></a>Azure DevTest Labs 수식 관리
 
@@ -36,7 +36,7 @@ DevTest Lab *사용자* 권한이 있으면 수식을 기준으로 사용하여 
 사용자 및 사용 권한을 추가하는 방법에 대한 자세한 내용은 [Azure DevTest Labs에 소유자 및 사용자 추가](./devtest-lab-add-devtest-user.md)를 참조하세요.
 
 ### <a name="create-a-formula-from-a-base"></a>기준에서 수식 만들기
-다음 단계에서는 사용자 지정 이미지, 마켓플레이스 이미지 또는 다른 수식에서 수식을 만드는 과정을 안내합니다.
+다음 단계에서는 사용자 지정 이미지, Marketplace 이미지 또는 다른 수식에서 수식을 만드는 과정을 안내합니다.
 
 1. [Azure 포털](http://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
 
@@ -52,7 +52,7 @@ DevTest Lab *사용자* 권한이 있으면 수식을 기준으로 사용하여 
    
     ![수식 추가](./media/devtest-lab-create-formulas/add-formula.png)
 
-6. **기준 선택** 블레이드에서 수식을 만들 때 사용할 기준(사용자 지정 이미지, 마켓플레이스 이미지 또는 수식)을 선택합니다.
+6. **기준 선택** 블레이드에서 수식을 만들 때 사용할 기준(사용자 지정 이미지, Marketplace 이미지 또는 수식)을 선택합니다.
    
     ![기본 목록](./media/devtest-lab-create-formulas/base-list.png)
 
@@ -62,9 +62,9 @@ DevTest Lab *사용자* 권한이 있으면 수식을 기준으로 사용하여 
     * **설명** - 수식에 대한 의미 있는 설명을 입력합니다. 이 값은 VM을 만들 때 수식의 상황에 맞는 메뉴에서 볼 수 있습니다.
     * **사용자 이름** - 관리자 권한이 부여된 사용자 이름을 입력합니다.
     * **암호** - 지정된 사용자에 대해 사용하려는 암호와 연결된 값을 입력하거나 드롭다운 목록에서 선택합니다. 비밀에 대한 자세한 내용은 [Azure DevTest Labs: 개인 비밀 저장소](https://azure.microsoft.com/updates/azure-devtest-labs-keep-your-secrets-safe-and-easy-to-use-with-the-new-personal-secret-store/)를 참조하세요.
-    * **가상 컴퓨터 디스크 유형** - HDD(하드 디스크 드라이브) 또는 SSD(반도체 드라이브)를 지정하여 이 기본 이미지를 사용하여 프로비전된 가상 컴퓨터에 허용된 저장소 디스크 유형을 나타냅니다.
-    * **가상 컴퓨터 크기** - 만들려는 VM의 프로세서 코어, RAM 크기 및 하드 드라이브 크기를 지정하는 미리 정의된 항목 중 하나를 선택합니다. 
-    * **아티팩트** - **아티팩트 추가** 블레이드를 선택하여 열고 여기에서 기본 이미지에 추가하려는 아티팩트를 선택하고 구성합니다. 아티팩트에 대한 자세한 내용은 [Azure DevTest Labs에서 VM 아티팩트 관리](./devtest-lab-add-vm-with-artifacts.md)를 참조하세요.
+    * **가상 머신 디스크 유형** - HDD(하드 디스크 드라이브) 또는 SSD(반도체 드라이브)를 지정하여 이 기본 이미지를 사용하여 프로비전된 가상 머신에 허용된 저장소 디스크 유형을 나타냅니다.
+    * **가상 머신 크기** - 만들려는 VM의 프로세서 코어, RAM 크기 및 하드 드라이브 크기를 지정하는 미리 정의된 항목 중 하나를 선택합니다. 
+    * **아티팩트** - **아티팩트 추가** 블레이드를 선택하여 열고 여기에서 기본 이미지에 추가하려는 아티팩트를 선택하고 구성합니다. 아티팩트에 대한 자세한 내용은 [Azure DevTest Labs 가상 머신에 대한 사용자 지정 아티팩트 만들기](devtest-lab-artifact-author.md)를 참조하세요.
     * **고급 설정** - **고급** 블레이드를 선택하여 열고 다음 설정을 구성합니다.
         * **가상 네트워크** - 원하는 가상 네트워크를 선택합니다.
         * **서브넷** - 원하는 서브넷을 지정합니다.    
@@ -135,5 +135,5 @@ DevTest Lab *사용자* 권한이 있으면 수식을 기준으로 사용하여 
 * [사용자 지정 이미지 또는 수식?](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
 
 ## <a name="next-steps"></a>다음 단계
-VM을 만들 때 사용할 수식을 만들었으면 다음 단계는 [VM을 랩에 추가](devtest-lab-add-vm-with-artifacts.md)하는 것입니다.
+VM을 만들 때 사용할 수식을 만들었으면 다음 단계는 [VM을 랩에 추가](devtest-lab-add-vm.md)하는 것입니다.
 

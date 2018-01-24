@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: fa0d5cf7469a1a36fe0ab9a712cd4f8c963ceb48
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: f1def2a43edee58bc8b5a33880e206130a1b4687
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="durable-functions-overview-preview"></a>지속성 함수 개요(미리 보기)
 
@@ -215,7 +215,7 @@ public static async Task Run(DurableOrchestrationContext ctx)
         if (approvalEvent == await Task.WhenAny(approvalEvent, durableTimeout))
         {
             timeoutCts.Cancel();
-            await ctx.CallActivityAsync("HandleApproval", approvalEvent.Result);
+            await ctx.CallActivityAsync("ProcessApproval", approvalEvent.Result);
         }
         else
         {
@@ -235,7 +235,7 @@ public static async Task Run(DurableOrchestrationContext ctx)
 
 오케스트레이터 함수는 [이벤트 소싱](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing)으로 알려진 클라우드 디자인 패턴을 사용하여 실행 상태를 안정적으로 유지합니다. 지속성 확장에서는 오케스트레이션의 *현재* 상태를 직접 저장하는 대신, 함수 오케스트레이션에서 수행한 *일련의 전체 작업*을 기록하기 위해 추가 전용 저장소를 사용합니다. 이렇게 하면 전체 런타임 상태를 "덤프"하는 것에 비해 성능, 확장성 및 응답성 향상을 포함한 많은 이점이 있습니다. 다른 이점으로 트랜잭션 데이터에 대한 최종 일관성 제공과 전체 감사 내역 및 기록 유지가 있습니다. 감사 내역 자체는 신뢰할 수 있는 보정 작업을 가능하게 합니다.
 
-이 확장에서 사용하는 이벤트 소싱 사용은 투명합니다. 내부적으로 오케스트레이터 함수의 `await` 연산자는 오케스트레이터 스레드의 제어를 지속성 작업 프레임워크 디스패처에 다시 생성합니다. 그런 다음 디스패처는 오케스트레이터에서 예약한 새 작업(예: 하나 이상의 자식 함수 호출 또는 지속성 타이머 예약)을 저장소에 커밋합니다. 이 투명한 커밋 작업은 오케스트레이션 인스턴스의 *실행 기록*에 추가됩니다. 기록은 지속성 저장소에 저장됩니다. 그런 다음 커밋 작업은 실제 작업을 예약하는 큐에 메시지를 추가합니다. 이 시점에서 오케스트레이터 함수는 메모리에서 언로드할 수 있습니다. Azure Functions 소비 계획을 사용하는 경우 이에 대한 청구가 중지됩니다.  수행할 작업이 더 많이 있으면 함수가 다시 시작되고 해당 상태도 다시 구성됩니다.
+이 확장에서 사용하는 이벤트 소싱 사용은 투명합니다. 내부적으로 오케스트레이터 함수의 `await` 연산자는 오케스트레이터 스레드의 제어를 지속성 작업 프레임워크 디스패처에 다시 생성합니다. 그런 다음 디스패처는 오케스트레이터에서 예약한 새 작업(예: 하나 이상의 자식 함수 호출 또는 지속성 타이머 예약)을 저장소에 커밋합니다. 이 투명한 커밋 작업은 오케스트레이션 인스턴스의 *실행 기록*에 추가됩니다. 기록은 저장소 테이블에 저장됩니다. 그런 다음 커밋 작업은 실제 작업을 예약하는 큐에 메시지를 추가합니다. 이 시점에서 오케스트레이터 함수는 메모리에서 언로드할 수 있습니다. Azure Functions 소비 계획을 사용하는 경우 이에 대한 청구가 중지됩니다.  수행할 작업이 더 많이 있으면 함수가 다시 시작되고 해당 상태도 다시 구성됩니다.
 
 오케스트레이션 함수에서 더 많은 작업(예: 응답 메시지 수신 또는 영구 타이머 만료)을 수행해야 하는 경우, 오케스트레이터가 다시 활성화하고 로컬 상태를 다시 작성하기 위해 전체 함수를 처음부터 다시 실행합니다. 이 재생 중에 코드에서 함수를 호출하려고 하면(또는 다른 비동기 작업을 수행하는 경우) 지속성 작업 프레임워크는 현재 오케스트레이션의 *실행 기록*을 참조합니다. 작업 함수가 이미 실행되었음을 알고 있고 일부 결과를 생성한 경우 해당 함수의 결과를 재생하고 오케스트레이터 코드는 계속 실행됩니다. 함수 코드가 끝나거나 새 비동기 작업을 예약한 지점에 도달할 때까지 이 작업은 계속됩니다.
 
@@ -249,7 +249,7 @@ public static async Task Run(DurableOrchestrationContext ctx)
 
 ## <a name="monitoring-and-diagnostics"></a>모니터링 및 진단
 
-지속성 함수 확장은 Application Insights 키로 함수 앱을 구성할 때 [Application Insights](functions-monitoring.md)에 구조적 추적 데이터를 자동으로 내보냅니다. 이 추적 데이터는 오케스트레이션의 동작 및 진행 상황을 모니터링하는 데 사용할 수 있습니다.
+지속성 함수 확장은 Application Insights 계측 키로 함수 앱을 구성할 때 [Application Insights](functions-monitoring.md)에 구조적 추적 데이터를 자동으로 내보냅니다. 이 추적 데이터는 오케스트레이션의 동작 및 진행 상황을 모니터링하는 데 사용할 수 있습니다.
 
 다음은 [Application Insights 분석](https://docs.microsoft.com/azure/application-insights/app-insights-analytics)을 사용하여 Application Insights 포털에서 지속성 함수 추적 이벤트를 보여 주는 예제입니다.
 

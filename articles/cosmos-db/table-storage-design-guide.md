@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 11/03/2017
 ms.author: mimig
-ms.openlocfilehash: eaa9d2208406afece5c77859546e888c1e49e902
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: d93b6a25c1781c7d4f1f0534eda146963f439dd5
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Azure Storage 테이블 디자인 가이드: 확장성이 뛰어난 디자인 및 성능이 뛰어난 테이블
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
@@ -41,7 +41,7 @@ Table service란? 이름에서 알 수 있듯이, Table service에서는 테이�
 <tr>
 <th>PartitionKey</th>
 <th>RowKey</th>
-<th>Timestamp</th>
+<th>타임 스탬프</th>
 <th></th>
 </tr>
 <tr>
@@ -86,7 +86,7 @@ Table service란? 이름에서 알 수 있듯이, Table service에서는 테이�
 </tr>
 <tr>
 <td>Marketing</td>
-<td>부서</td>
+<td>department</td>
 <td>2014-08-22T00:50:30Z</td>
 <td>
 <table>
@@ -204,12 +204,12 @@ Table service 솔루션은 읽기 집중적이거나, 쓰기 집중적이거나,
 
 | *열 이름* | *데이터 형식* |
 | --- | --- |
-| **PartitionKey** (부서 이름) |String |
-| **RowKey** (직원 Id) |String |
-| **FirstName** |String |
-| **LastName** |String |
-| **Age** |Integer |
-| **EmailAddress** |String |
+| **PartitionKey** (부서 이름) |문자열 |
+| **RowKey** (직원 Id) |문자열 |
+| **FirstName** |문자열 |
+| **LastName** |문자열 |
+| **Age** |정수  |
+| **EmailAddress** |문자열 |
 
 이전 섹션 [Azure Table service 개요](#overview) 에서는 쿼리를 위한 디자인에 직접적인 영향을 미치는 Azure Table service의 주요 기능에 대해 설명했습니다. 이 섹션의 내용은 Table service 쿼리 디자인에 대한 다음과 같은 일반적인 지침으로 요약됩니다. 아래 예제에 사용된 필터 구문은 Table service REST API에서 가져온 것입니다(자세한 내용은 [엔터티 쿼리](http://msdn.microsoft.com/library/azure/dd179421.aspx)참조).  
 
@@ -251,7 +251,7 @@ Table service는 단일 클러스터형 인덱스의 **PartitionKey** 및 **RowK
 대부분의 디자인은 여러 조건을 기반으로 엔터티를 조회할 수 있어야 한다는 요구 사항을 준수해야 합니다. 예를 들어 전자 메일, 직원 ID 또는 성을 기반으로 직원 엔터티를 찾을 수 있어야 합니다. [테이블 디자인 패턴](#table-design-patterns) 섹션에 있는 다음 패턴은 이러한 유형의 요구 사항을 다루며, Table service에서 보조 인덱스를 제공하지 않는 부분을 해결하는 방법을 설명합니다.  
 
 * [파티션 간 보조 인덱스 패턴](#intra-partition-secondary-index-pattern) - 서로 다른 **RowKey** 값을 사용하여 각 엔터티의 여러 복사본을 동일한 파티션에 저장하여 빠르고 효율적인 조회를 지원하며, 서로 다른 **RowKey** 값을 사용하여 대체 정렬 순서를 허용합니다.  
-* [파티션 간 보조 인덱스 패턴](#inter-partition-secondary-index-pattern) - 서로 다른 RowKey 값을 사용하여 각 엔터티의 여러 복사본을 별도의 파티션과 별도의 테이블에 저장하여 빠르고 효율적인 조회를 지원하며, 서로 다른 **RowKey** 값을 사용하여 대체 정렬 순서를 허용합니다.  
+* [파티션 간 보조 인덱스 패턴](#inter-partition-secondary-index-pattern) - 서로 다른 **RowKey** 값을 사용하여 각 엔터티의 여러 복사본을 별도의 파티션과 별도의 테이블에 저장하여 빠르고 효율적인 조회를 지원하며, 서로 다른 **RowKey** 값을 사용하여 대체 정렬 순서를 허용합니다.  
 * [인덱스 엔터티 패턴](#index-entities-pattern) - 인덱스 엔터티를 유지 관리하여 엔터티 목록을 반환하는 효율적인 검색을 지원합니다.  
 
 ### <a name="sorting-data-in-the-table-service"></a>Table service에서 데이터 정렬
@@ -651,7 +651,7 @@ Table service는 **PartitionKey** 및 **RowKey** 값을 사용하여 엔터티�
 ![][16]
 
 #### <a name="solution"></a>해결 방법
-두 개의 별도 엔터티에 데이터를 저장하는 대신 데이터를 비정규화하여 부서 엔터티에 관리자 세부 정보의 복사본을 유지합니다. 예:  
+두 개의 별도 엔터티에 데이터를 저장하는 대신 데이터를 비정규화하여 부서 엔터티에 관리자 세부 정보의 복사본을 유지합니다. 예:   
 
 ![][17]
 

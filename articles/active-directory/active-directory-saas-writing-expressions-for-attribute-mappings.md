@@ -4,7 +4,7 @@ description: "Azure Active Directory에서 SaaS 앱 개체의 자동화된 프�
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 ms.assetid: b13c51cd-1bea-4e5e-9791-5d951a518943
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: markvi
-ms.openlocfilehash: 2811b4d57f69425ef119c88f80b32d24c6c32195
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: b916d71cfed55c9e904caa07e8f2167d684639aa
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Azure Active Directory의 특성 매핑에 대한 식 작성
 SaaS 응용 프로그램에 프로비전을 구성하면 식 매핑은 지정할 수 있는 특성 매핑의 유형 중 하나입니다. 이러한 경우, 사용자의 데이터를 SaaS 응용 프로그램에 대해 사용하는 형식으로 변환할 수 있는 스크립트 방식의 식을 작성해야 합니다.
@@ -26,8 +26,8 @@ SaaS 응용 프로그램에 프로비전을 구성하면 식 매핑은 지정할
 특성 매핑을 위한 식의 구문은 VBA(Visual Basic Applications) 함수를 연상시킵니다.
 
 * 전체 식은  <br>
-  *FunctionName (<<인수 1>>,<<argument N>>)*
-* 서로 함수를 중첩할 수 있습니다. 예: <br> *FunctionOne(FunctionTwo(<<argument1>>))*
+  *FunctionName(<<argument 1>>,<<argument N>>)*
+* 서로 함수를 중첩할 수 있습니다. 예:  <br> *FunctionOne(FunctionTwo(<<argument1>>))*
 * 함수에 3가지 다른 유형의 인수를 전달할 수 있습니다.
   
   1. 특성은 대괄호로 묶어야 합니다. 예: [attributeName]
@@ -36,7 +36,7 @@ SaaS 응용 프로그램에 프로비전을 구성하면 식 매핑은 지정할
 * 문자열 상수의 경우, 백슬래시 (\) 또는 따옴표(")가 문자열에 필요한 경우 백슬래시(\) 기호로 이스케이프되어야 합니다. 예: "회사 이름: \"Contoso\""
 
 ## <a name="list-of-functions"></a>함수 목록
-[추가](#append) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)
+[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)
 
 - - -
 ### <a name="append"></a>추가
@@ -46,10 +46,10 @@ SaaS 응용 프로그램에 프로비전을 구성하면 식 매핑은 지정할
 
 **매개 변수:**<br> 
 
-| 이름 | 필수/ 반복 | 형식 | 참고 사항 |
+| Name | 필수/ 반복 | type | 메모 |
 | --- | --- | --- | --- |
-| **원본** |필수 |String |대개는 원본 개체의 특성 이름 |
-| **접미사** |필수 |String |원본 값의 끝에 추가하려는 문자열입니다. |
+| **원본** |필수 |문자열 |대개는 원본 개체의 특성 이름 |
+| **접미사** |필수 |문자열 |원본 값의 끝에 추가하려는 문자열입니다. |
 
 - - -
 ### <a name="formatdatetime"></a>FormatDateTime
@@ -59,11 +59,11 @@ SaaS 응용 프로그램에 프로비전을 구성하면 식 매핑은 지정할
 
 **매개 변수:**<br> 
 
-| 이름 | 필수/ 반복 | 형식 | 참고 사항 |
+| Name | 필수/ 반복 | type | 메모 |
 | --- | --- | --- | --- |
-| **원본** |필수 |String |대개는 원본 개체의 특성 이름입니다. |
-| **inputFormat** |필수 |String |원본 값의 예상된 형식입니다. 지원되는 형식은 [http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx)를 참조하세요. |
-| **outputFormat** |필수 |String |출력 날짜의 형식입니다. |
+| **원본** |필수 |문자열 |대개는 원본 개체의 특성 이름입니다. |
+| **inputFormat** |필수 |문자열 |원본 값의 예상된 형식입니다. 지원되는 형식은 [http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx)를 참조하세요. |
+| **outputFormat** |필수 |문자열 |출력 날짜의 형식입니다. |
 
 - - -
 ### <a name="join"></a>Join
@@ -75,10 +75,10 @@ SaaS 응용 프로그램에 프로비전을 구성하면 식 매핑은 지정할
 
 **매개 변수:**<br> 
 
-| 이름 | 필수/ 반복 | 형식 | 참고 사항 |
+| Name | 필수/ 반복 | type | 메모 |
 | --- | --- | --- | --- |
-| **구분 기호** |필수 |String |문자열이 하나의 문자열로 연결되면 원본 값을 구분하는데 문자열을 사용합니다. 구분 기호가 필요하지 않은 경우 ""일 수 있습니다. |
-| **source1  … sourceN ** |필수, 시간 변수 |String |값이 함께 조인될 문자열입니다. |
+| **구분 기호** |필수 |문자열 |문자열이 하나의 문자열로 연결되면 원본 값을 구분하는데 문자열을 사용합니다. 구분 기호가 필요하지 않은 경우 ""일 수 있습니다. |
+| **source1  … sourceN ** |필수, 시간 변수 |문자열 |값이 함께 조인될 문자열입니다. |
 
 - - -
 ### <a name="mid"></a>Mid
@@ -88,9 +88,9 @@ SaaS 응용 프로그램에 프로비전을 구성하면 식 매핑은 지정할
 
 **매개 변수:**<br> 
 
-| 이름 | 필수/ 반복 | 형식 | 참고 사항 |
+| Name | 필수/ 반복 | type | 메모 |
 | --- | --- | --- | --- |
-| **원본** |필수 |String |일반적으로 특성 이름입니다. |
+| **원본** |필수 |문자열 |일반적으로 특성 이름입니다. |
 | **시작** |필수 |정수 |부분 문자열이 시작될 **원본** 문자열의 인덱스입니다. 문자열의 첫번째 문자에는 인덱스 1이 있고, 두번째 문자에는 인덱스 2가 있습니다. |
 | **length** |필수 |정수 |부분 문자열의 길이입니다. 길이가 **원본** 문자열 외부에서 종료되면 함수는 **시작** 인덱스부터 **원본** 문자열 끝까지의 부분 문자열을 반환합니다. |
 
@@ -102,7 +102,7 @@ SaaS 응용 프로그램에 프로비전을 구성하면 식 매핑은 지정할
 
 **매개 변수:**<br> 
 
-| 이름 | 필수/ 반복 | 형식 | 참고 사항 |
+| Name | 필수/ 반복 | type | 메모 |
 | --- | --- | --- | --- |
 | **원본** |필수 |부울 문자열 |예상 **원본** 값은 "True" 또는 "False"입니다. |
 
@@ -129,15 +129,27 @@ SaaS 응용 프로그램에 프로비전을 구성하면 식 매핑은 지정할
 
 **매개 변수:**<br> 
 
-| 이름 | 필수/ 반복 | 형식 | 참고 사항 |
+| Name | 필수/ 반복 | type | 메모 |
 | --- | --- | --- | --- |
-| **원본** |필수 |String |대개는 원본 개체의 특성 이름입니다. |
-| **oldValue** |옵션 |String |**원본** 또는 **템플릿**에서 대체될 값입니다. |
+| **원본** |필수 |문자열 |대개는 원본 개체의 특성 이름입니다. |
+| **oldValue** |옵션 |문자열 |**원본** 또는 **템플릿**에서 대체될 값입니다. |
 | **regexPattern** |옵션 |String |**원본**에서 대체될 값에 대한 Regex 패턴입니다. 또는 replacementPropertyName를 사용하면 대체 속성에서 값을 추출하는 패턴입니다. |
-| **regexGroupName** |옵션 |String |**regexPattern**내 그룹의 이름입니다. replacementPropertyName를 사용하는 경우에만 replacement 속성에서 replacementValue로 이 그룹의 값을 추출합니다. |
-| **replacementValue** |옵션 |String |이전 값과 대체할 새로운 값입니다. |
-| **replacementAttributeName** |옵션 |String |원본에 값이 없는 경우 대체 값에 사용할 특성의 이름입니다. |
-| **template** |옵션 |String |**template** 값이 제공되면, 템플릿 내에서 **oldValue**를 찾아 원본 값으로 바꿉니다. |
+| **regexGroupName** |옵션 |문자열 |**regexPattern**내 그룹의 이름입니다. replacementPropertyName를 사용하는 경우에만 replacement 속성에서 replacementValue로 이 그룹의 값을 추출합니다. |
+| **replacementValue** |옵션 |문자열 |이전 값과 대체할 새로운 값입니다. |
+| **replacementAttributeName** |옵션 |문자열 |원본에 값이 없는 경우 대체 값에 사용할 특성의 이름입니다. |
+| **template** |옵션 |문자열 |**template** 값이 제공되면, 템플릿 내에서 **oldValue**를 찾아 원본 값으로 바꿉니다. |
+
+- - -
+### <a name="singleapproleassignment"></a>SingleAppRoleAssignment
+**함수:**<br> SingleAppRoleAssignment([appRoleAssignments])
+
+**설명:**<br> 지정된 응용 프로그램에 대해 사용자에게 할당된 모든 appRoleAssignment 목록에서 단일 appRoleAssignment를 반환합니다. 이 함수는 appRoleAssignments 개체를 단일 역할 이름 문자열로 변환하는 데 필요합니다. 모범 사례는 한 번에 하나의 appRoleAssignment만 하나의 사용자에게 할당되도록 하는 것이고 여러 역할이 할당된 경우에는 반환된 역할 문자열을 예측할 수 없습니다.
+
+**매개 변수:**<br> 
+
+| Name | 필수/ 반복 | type | 메모 |
+| --- | --- | --- | --- |
+| **[appRoleAssignments]** |필수 |문자열 |**[appRoleAssignments]** 개체. |
 
 - - -
 ### <a name="stripspaces"></a>StripSpaces
@@ -147,9 +159,9 @@ SaaS 응용 프로그램에 프로비전을 구성하면 식 매핑은 지정할
 
 **매개 변수:**<br> 
 
-| 이름 | 필수/ 반복 | 형식 | 참고 사항 |
+| Name | 필수/ 반복 | type | 메모 |
 | --- | --- | --- | --- |
-| **원본** |필수 |String |**원본** 값입니다. |
+| **원본** |필수 |문자열 |**원본** 값입니다. |
 
 - - -
 ### <a name="switch"></a>Switch
@@ -159,12 +171,12 @@ SaaS 응용 프로그램에 프로비전을 구성하면 식 매핑은 지정할
 
 **매개 변수:**<br> 
 
-| 이름 | 필수/ 반복 | 형식 | 참고 사항 |
+| Name | 필수/ 반복 | type | 메모 |
 | --- | --- | --- | --- |
-| **원본** |필수 |String |**Source** 값입니다. |
-| **defaultValue** |옵션 |String |원본이 모든 키와 일치하지 않는 경우 사용할 기본값입니다. 빈 문자열("")일 수 있습니다. |
-| **key** |필수 |String |**원본** 값과 비교할 **Key**입니다. |
-| **값** |필수 |String |키와 일치하는 **원본** 의 대체 값입니다. |
+| **원본** |필수 |문자열 |**Source** 값입니다. |
+| **defaultValue** |옵션 |문자열 |원본이 모든 키와 일치하지 않는 경우 사용할 기본값입니다. 빈 문자열("")일 수 있습니다. |
+| **key** |필수 |문자열 |**원본** 값과 비교할 **Key**입니다. |
+| **값** |필수 |문자열 |키와 일치하는 **원본** 의 대체 값입니다. |
 
 ## <a name="examples"></a>예
 ### <a name="strip-known-domain-name"></a>알려진 도메인 이름 제거

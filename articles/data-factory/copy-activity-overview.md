@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/22/2017
+ms.date: 12/15/2017
 ms.author: jingwang
-ms.openlocfilehash: a2f370998ea219f9d36a6cda26405b6023666f92
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 7786fc785afa745da28b1da644ec58568d0cf424
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Azure Data Factory의 복사 작업
 
@@ -130,9 +130,9 @@ Azure Data Factory에서 복사 작업을 사용하려면 다음이 필요합니
 
 ### <a name="syntax-details"></a>구문 세부 정보
 
-| 속성 | 설명 | 필수 |
+| 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 작업의 type 속성은 **Copy**로 설정해야 합니다. | 예 |
+| 형식 | 복사 작업의 type 속성은 **Copy**로 설정해야 합니다. | 예 |
 | inputs | 원본 데이터를 가리키는 만든 데이터 집합을 지정합니다. 복사 작업에서는 하나의 입력만 지원합니다. | 예 |
 | outputs | 싱크 데이터를 가리키는 만든 데이터 집합을 지정합니다. 복사 작업에서는 하나의 출력만 지원합니다. | 예 |
 | typeProperties | 복사 작업을 구성하는 속성의 그룹입니다. | 예 |
@@ -156,9 +156,9 @@ Azure Data Factory에서 복사 작업을 사용하려면 다음이 필요합니
 | rowsSkipped | 생략되는 비호환 행 수. "enableSkipIncompatibleRow"를 true로 설정하여 이 기능을 실행할 수 있습니다. | Int64 값(단위 없음) |
 | throughput | 데이터 전송 비율 | 부동 소수점 숫자(KB/s) |
 | copyDuration | 복사본의 기간 | Int32 값(초) |
-| sqlDwPolyBase | 데이터를 SQL Data Warehouse에 복사할 때 PolyBase를 사용합니다. | Boolean |
-| redshiftUnload | 데이터를 Redshift로부터 복사할 때 UNLOAD를 사용합니다. | Boolean |
-| hdfsDistcp | 데이터를 HDFS로부터 복사할 때 DistCp를 사용합니다. | Boolean |
+| sqlDwPolyBase | 데이터를 SQL Data Warehouse에 복사할 때 PolyBase를 사용합니다. | BOOLEAN |
+| redshiftUnload | 데이터를 Redshift로부터 복사할 때 UNLOAD를 사용합니다. | BOOLEAN |
+| hdfsDistcp | 데이터를 HDFS로부터 복사할 때 DistCp를 사용합니다. | BOOLEAN |
 | effectiveIntegrationRuntime | 활동 실행을 제공하는 데 사용할 Integration Runtime을 `<IR name> (<region if it's Azure IR>)` 형식으로 표시합니다. | 텍스트(문자열) |
 | usedCloudDataMovementUnits | 복사 중 유효 클라우드 데이터 이동 단위입니다. | Int32 값 |
 | redirectRowPath | "RedirectIncompatibleRowSettings"에서 구성한 Blob Storage에서 생략된 비호환 행의 로그에 대한 경로입니다. 아래 예제를 참조하십시오. | 텍스트(문자열) |
@@ -192,6 +192,12 @@ Azure Data Factory에서 복사 작업을 사용하려면 다음이 필요합니
 ## <a name="performance-and-tuning"></a>성능 및 튜닝
 
 Azure Data Factory의 데이터 이동(복사 활동) 성능에 영향을 주는 주요 요인에 대해 설명하는 [복사 작업 성능 및 튜닝 가이드](copy-activity-performance.md)를 참조하세요. 이 문서에서는 내부 테스트 중에 관찰되는 성능 관련 정보도 제공하며, 복사 활동의 성능을 최적화하는 여러 가지 방법에 대해서도 설명합니다.
+
+## <a name="incremental-copy"></a>증분 복사 
+Data Factory 버전 2에서는 원본 데이터 저장소에서 대상 데이터 저장소로 델타 데이터를 증분 방식으로 복사하기 위한 시나리오를 지원합니다. [자습서: 증분 방식으로 데이터 복사](tutorial-incremental-copy-overview.md)를 참조하세요. 
+
+## <a name="read-and-write-partitioned-data"></a>분할된 데이터 읽기 및 쓰기
+버전 1에서 Azure Data Factory는 SliceStart/SliceEnd/WindowStart/WindowEnd 시스템 변수를 사용하여 분할된 데이터 읽기 또는 쓰기를 지원했습니다. 버전 2에서는 파이프라인 매개 변수와 트리거의 시작 시간/예약된 시간을 매개 변수의 값으로 사용하여 이 동작을 수행할 수 있습니다. 자세한 내용은 [분할된 데이터를 읽거나 쓰는 방법](how-to-read-write-partitioned-data.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 다음 퀵 스타트, 자습서 및 샘플을 참조하세요.

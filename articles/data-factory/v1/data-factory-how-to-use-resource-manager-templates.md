@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/15/2017
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: c80281a520159965066c6cd166f47ecac66e552b
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: e0f4a284a46ba56ba4e3229a72e99efef0cf9dc2
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="use-templates-to-create-azure-data-factory-entities"></a>템플릿을 사용하여 Azure Data Factory 엔터티 만들기
 > [!NOTE]
@@ -231,7 +231,7 @@ dataFactoryName은 “variables”에 다음과 같이 정의됩니다.
 }
 ```
 ## <a name="parameterizing-data-factory-template"></a>데이터 팩터리 템플릿 매개 변수화
-매개 변수화의 모범 사례는 [Azure Resource Manager 템플릿 만들기 모범 사례](../../azure-resource-manager/resource-manager-template-best-practices.md#parameters)를 참조하세요. 일반적으로 매개 변수는 최소로 사용해야 합니다. 특히 그 대신 변수를 사용할 수 있는 경우가 그렇습니다. 다음 시나리오에서는 매개 변수만 제공합니다.
+매개 변수화의 모범 사례는 [Azure Resource Manager 템플릿 생성 모범 사례](../../azure-resource-manager/resource-manager-template-best-practices.md)를 참조하세요. 일반적으로 매개 변수는 최소로 사용해야 합니다. 특히 그 대신 변수를 사용할 수 있는 경우가 그렇습니다. 다음 시나리오에서는 매개 변수만 제공합니다.
 
 * 설정은 환경에 따라 달라집니다(예: 개발, 테스트, 프러덕션 환경).
 * 암호(Secret)(예: 암호(password))

@@ -130,7 +130,7 @@
           href: scenario-image-classification-using-cntk.md
         - name: 예측 유지 관리에 대한 딥 러닝
           href: scenario-deep-learning-for-predictive-maintenance.md
-- name: 참조
+- name: 참고 자료
   items:
     - name: 데이터 준비
       items:
@@ -182,6 +182,8 @@
           href: release-notes-sprint-2.md
         - name: 스프린트 2 QFE - 2017년 12월
           href: release-notes-sprint-2.1.md
+        - name: 스프린트 3 - 2018년 1월
+          href: release-notes-sprint-3.md
 - name: 리소스
   items:
     - name: 질문과 대답
@@ -200,7 +202,7 @@
       href: 'https://social.msdn.microsoft.com/Forums/windowsdesktop/home?forum=MachineLearning'
     - name: 스택 오버플로
       href: 'https://stackoverflow.com/questions/tagged/azure-machine-learning'
-    - name: 비디오
+    - name: 동영상
       href: 'https://azure.microsoft.com/resources/videos/index/?services=machine-learning'
     - name: 피드백 포럼
       href: 'https://feedback.azure.com/forums/257792-machine-learning'

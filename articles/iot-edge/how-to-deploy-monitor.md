@@ -6,14 +6,14 @@ keywords:
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 12/05/2017
+ms.date: 12/07/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: b507b9108dca2fd3aee4acdac231acad9c9154e8
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: cc7d1e290465d9254cbd7fe9e8ba71cc740b0368
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale---preview"></a>대규모 IoT Edge 모듈 배포 및 모니터링 - 미리 보기
 
@@ -40,7 +40,7 @@ Azure IoT Edge를 사용하면 분석을 에지로 이동할 수 있고 클라�
 
 ## <a name="create-a-deployment"></a>배포 만들기
 
-1. [Azure Portal][lnk-portal]에 로그인하고 IoT 허브로 이동합니다. 
+1. [Azure Portal][lnk-portal]에서 IoT Hub로 이동합니다. 
 1. **IoT Edge(미리 보기)**를 선택합니다.
 1. **IoT Edge 배포 추가**를 선택합니다.
 
@@ -61,26 +61,25 @@ Azure IoT Edge를 사용하면 분석을 에지로 이동할 수 있고 클라�
 >[!NOTE]
 >Azure Machine Learning 및 Azure Functions는 아직 자동화된 Azure 서비스 배포를 지원하지 않습니다. 사용자 지정 모듈 배포를 사용하여 이러한 서비스를 배포에 수동으로 추가합니다. 
 
-Azure 서비스에서 모듈을 추가하려면 다음 단계를 수행합니다.
-1. **Azure 서비스 IoT Edge 모듈 추가**를 선택합니다.
+Azure Stream Analytics에서 모듈을 추가하려면 다음 단계를 수행합니다.
+1. **Azure Stream Analytics IoT Edge 모듈 가져오기**를 선택합니다.
 1. 드롭다운 메뉴를 사용하여 배포하려는 Azure 서비스 인스턴스를 선택합니다.
 1. **저장**을 선택하여 모듈을 배포에 추가합니다. 
 
 사용자 지정 코드를 모듈로 추가하거나 Azure 서비스 모듈을 수동으로 추가하려면 다음 단계를 수행합니다.
-1. **사용자 지정 IoT Edge 모듈 추가**를 선택합니다.
+1. **IoT Edge 모듈 추가**를 선택합니다.
 1. 모듈에 **이름**을 지정합니다.
-1. **이미지** 필드에 대해 이 모듈의 Docker 컨테이너 이미지(`microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview`)를 입력합니다.
-1. **OS** 및 **아키텍처** 아래의 드롭다운 메뉴를 사용하여 이 모듈을 나타내는 Docker 컨테이너의 속성을 식별합니다. 
-1. 컨테이너에 전달되어야 하는 **만들기 옵션**을 지정합니다. 자세한 내용은 [docker create][lnk-docker-create]를 참조하세요.
+1. **이미지 URI** 필드에 대해 이 모듈의 Docker 컨테이너 이미지를 입력합니다. 
+1. 컨테이너에 전달되어야 하는 **컨테이너 만들기 옵션**을 지정합니다. 자세한 내용은 [docker create][lnk-docker-create]를 참조하세요.
 1. 드롭다운 메뉴를 사용하여 **다시 시작 정책**을 선택합니다. 다음 옵션 중에서 선택합니다. 
    * **Always(항상 다시 시작)** - 모듈이 어떤 이유로든 종료되면 항상 다시 시작됩니다.
    * **Never(다시 시작 안 함)** - 모듈이 어떤 이유로든 종료되면 다시 시작되지 않습니다.
    * **On-failed(실패)** - 모듈이 충돌하면 다시 시작되지만 완전히 종료되지는 않습니다. 
    * **On-unhealthy(비정상)** - 모듈이 충돌하거나 비정상 상태를 반환하면 다시 시작됩니다. 상태 기능을 구현하는 것은 각 모듈에 달려 있습니다. 
-1. 드롭다운 메뉴를 사용하여 모듈에 대한 시작 **상태**를 선택합니다. 다음 옵션 중에서 선택합니다.
+1. 드롭다운 메뉴를 사용하여 모듈에 대한 **원하는 상태**를 선택합니다. 다음 옵션 중에서 선택합니다.
    * **실행 중** - 기본 옵션입니다. 모듈이 배포된 직후에 실행됩니다.
    * **중지됨** - 모듈이 배포된 후에 사용자 또는 다른 모듈에서 시작하도록 호출할 때까지 유휴 상태를 유지합니다.
-1. 모듈에 태그 또는 desired 속성을 추가하려면 **모듈 쌍 편집**을 선택합니다. 
+1. 모듈에 태그 또는 원하는 속성을 추가하려면 **사용**을 선택합니다. 
 1. **저장**을 선택하여 모듈을 배포에 추가합니다. 
 
 배포에 대해 모든 모듈을 구성했으면 **다음**을 선택하여 3단계로 이동합니다.
@@ -96,7 +95,7 @@ Azure 서비스에서 모듈을 추가하려면 다음 단계를 수행합니다
 여러 배포에서 동일한 장치를 대상으로 할 수 있으므로 각 배포에 우선 순위 번호를 부여해야 합니다. 충돌하는 경우 우선 순위가 가장 높은 배포가 먼저 적용됩니다. 두 배포의 우선 순위 번호가 동일하면 가장 최근에 만든 배포가 먼저 적용됩니다. 
 
 1. 배포 **우선 순위**에 대해 양의 정수를 입력합니다.
-1. **대상 조건**을 입력하여 이 배포의 대상으로 지정할 장치를 결정합니다. 조건은 장치 쌍 태그를 기반으로 하며, 표현 형식과 일치해야 합니다. 예: `tags.environment='test'`. 
+1. **대상 조건**을 입력하여 이 배포의 대상으로 지정할 장치를 결정합니다. 조건은 장치 쌍 태그를 기반으로 하며, 표현 형식과 일치해야 합니다. 예: `tags.environment='test'` 
 1. **다음**을 선택하여 최종 단계로 이동합니다.
 
 ### <a name="step-5-review-template"></a>5단계: 템플릿 검토
@@ -172,7 +171,7 @@ Azure 서비스에서 모듈을 추가하려면 다음 단계를 수행합니다
 [Edge 장치에 모듈 배포][lnk-deployments]를 자세히 알아봅니다.
 
 <!-- Images -->
-[1]: ./media/how-to-deploy-monitor/view-deployments.png
+[1]: ./media/how-to-deploy-monitor/iot-edge-deployments.png
 
 <!-- Links -->
 [lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md
