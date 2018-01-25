@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: mabrigg
-ms.openlocfilehash: 9bbfffe15dc23d5d7d7b17aa4c79edc8a2aaab8c
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 98bf75f5883b734c785ed1a3ed924afca1737c56
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="start-and-stop-azure-stack"></a>시작 및 중지 Azure 스택
 
@@ -64,7 +64,7 @@ Azure 스택 다음 단계를 시작 합니다. Azure 스택 중지 하는 방�
 
 ## <a name="troubleshoot-startup-and-shutdown-of-azure-stack"></a>Azure 스택 요소의 시작 및 종료 문제 해결
 
-Azure 스택 환경에서 전원 다음 인프라 및 테 넌 트 서비스를 시작 성공적으로 하지 않는 다음 단계를 수행 합니다. 
+인프라 및 테 넌 트 서비스 Azure 스택 환경에서 전원 이후 2 시간을 성공적으로 시작 하지 않는 다음 단계를 수행 합니다. 
 
 1. Azure 스택 ERCS Vm에 대 한 네트워크 액세스 된 컴퓨터에서 권한 있는 끝점 세션을 엽니다.
 
