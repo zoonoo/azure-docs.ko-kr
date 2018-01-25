@@ -3,7 +3,7 @@ title: "ID 동기화 및 중복 특성 복원력 | Microsoft Docs"
 description: "Azure AD Connect를 사용하여 디렉터리 동기화 동안 UPN 또는 ProxyAddress 충돌을 사용하여 개체를 처리하는 방법의 새 동작입니다."
 services: active-directory
 documentationcenter: 
-author: MarkusVi
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 537a92b7-7a84-4c89-88b0-9bce0eacd931
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/15/2018
 ms.author: markvi
-ms.openlocfilehash: 1ceb2cbe728d2b3bf21f441a595b7ed8e91e3795
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 975abed469a78573553c0879b33181d2a58ec48c
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="identity-synchronization-and-duplicate-attribute-resiliency"></a>ID 동기화 및 중복 특성 복원력
 중복 특성 복원력은 Microsoft의 동기화 도구 중 하나를 실행하는 경우 **UserPrincipalName** 및 **ProxyAddress**의 충돌로 발생하는 마찰을 제거하는 Azure Active Directory의 기능입니다.
@@ -139,25 +139,25 @@ ProxyAddress 충돌에 대한 메일 알림의 예제는 다음과 같습니다.
 **핵심 동작:**
 
 1. 특정 특성 구성이 있는 개체는 격리되는 중복 특성과 달리 내보내기 오류가 계속 수신됩니다.  
-   예:
+   예: 
    
     a. 새로운 사용자가 **Joe@contoso.com**의 UPN과 ProxyAddress **smtp:Joe@contoso.com**로 AD에서 만들어집니다.
    
-    b. 이 개체의 속성이 ProxyAddress가 **SMTP:Joe@contoso.com**인 기존 그룹과 충돌합니다.
+    나. 이 개체의 속성이 ProxyAddress가 **SMTP:Joe@contoso.com**인 기존 그룹과 충돌합니다.
    
-    c. 내보낼 때 충돌 특성이 격리되는 대신 **ProxyAddress 충돌** 오류가 발생합니다. 복구 기능이 활성화되기 전에 수행되므로 각 후속 동기화 주기 시 작업이 다시 시도됩니다.
+    다. 내보낼 때 충돌 특성이 격리되는 대신 **ProxyAddress 충돌** 오류가 발생합니다. 복구 기능이 활성화되기 전에 수행되므로 각 후속 동기화 주기 시 작업이 다시 시도됩니다.
 2. 두 그룹이 동일한 SMTP 주소로 온-프레미스가 생성되는 경우 하나는 첫 번째 시도에서 표준 중복 **ProxyAddress** 오류로 프로비전하지 못합니다. 그러나 다음 동기화 주기 시 중복 값은 제대로 격리됩니다.
 
 **Office 포털 보고서**:
 
 1. UPN 충돌 집합에서 두 개체에 대한 자세한 오류 메시지는 같습니다. 이는 실제로 하나에만 변경된 데이터가 있는 경우 둘 모두 해당 UPN을 변경 / 격리했음을 나타냅니다.
-2. UPN 충돌에 대한 자세한 오류 메시지는 해당 UPN을 변경하고 격리한 사용자에 대한 잘못된 displayName을 보여 줍니다. 예:
+2. UPN 충돌에 대한 자세한 오류 메시지는 해당 UPN을 변경하고 격리한 사용자에 대한 잘못된 displayName을 보여 줍니다. 예: 
    
     a. **사용자 A**는 먼저 **UPN = User@contoso.com**과 동기화합니다.
    
-    b. **사용자 B**는 **UPN = User@contoso.com**과 동기화하려고 시도합니다.
+    나. **사용자 B**는 **UPN = User@contoso.com**과 동기화하려고 시도합니다.
    
-    c. **사용자 B**의 UPN은 **User1234@contoso.onmicrosoft.com**로 변경되며 **User@contoso.com**이 **DirSyncProvisioningErrors**에 추가됩니다.
+    다. **사용자 B**의 UPN은 **User1234@contoso.onmicrosoft.com**로 변경되며 **User@contoso.com**이 **DirSyncProvisioningErrors**에 추가됩니다.
    
     d. **사용자 B**에 대한 오류 메시지는 **사용자 A**가 이미 **User@contoso.com**을 UPN으로 가지고 있음을 나타내야 하지만 **사용자 B** 고유의 displayName을 보여 줍니다.
 

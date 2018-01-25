@@ -248,7 +248,7 @@
           items:
             - name: MongoDB 계정에 연결
               href: connect-mongodb-account.md
-            - name: MongoChef 사용
+            - name: Studio 3T 사용
               href: mongodb-mongochef.md
             - name: Robomongo 사용
               href: mongodb-robomongo.md

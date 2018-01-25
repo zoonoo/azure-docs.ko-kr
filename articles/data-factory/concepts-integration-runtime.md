@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/05/2017
+ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: 5c78f61074258c734cefade28d6aca1055519758
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 5285cddcb64e44cb61c99cc18f8a66d60cd1c0fc
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Azure Data Factory의 통합 런타임
 IR(통합 런타임)은 서로 다른 네트워크 환경 간에 다음과 같은 데이터 통합 기능을 제공하기 위해 Azure Data Factory에서 사용하는 계산 인프라입니다.
@@ -83,7 +83,7 @@ Azure IR 만들기 및 구성에 대한 자세한 내용은 방법 가이드 아
 공용 클라우드 환경에서 직접 시야를 가지고 있지 않은 개인 네트워크 환경에서 데이터 통합을 안전하게 수행하려면 회사 방화벽 뒤에 또는 가상 사설망 내에 온-프레미스 환경에 자체 호스팅 IR을 설치할 수 있습니다.  자체 호스팅 통합 런타임은 아웃바운드 HTTP 기반 연결만이 인터넷을 열게 만듭니다.
 
 ### <a name="compute-resource-and-scaling"></a>계산 리소스 및 크기 조정
-자체 호스팅 IR은 온-프레미스 컴퓨터 또는 개인 네트워크 내의 가상 컴퓨터에 설치해야 합니다. 현재 Windows 운영 체제에서만 자체 호스팅 IR의 실행을 지원합니다.  
+자체 호스팅 IR은 온-프레미스 컴퓨터 또는 개인 네트워크 내의 가상 머신에 설치해야 합니다. 현재 Windows 운영 체제에서만 자체 호스팅 IR의 실행을 지원합니다.  
 
 고가용성과 확장성을 위해 논리 인스턴스를 활성-활성 모드의 여러 온-프레미스 컴퓨터와 연결하여 자체 호스팅 IR을 확장할 수 있습니다.  자세한 내용은 세부 정보 방법 가이드 아래의 자체 호스팅 IR 만들기 및 구성 방법 문서를 참조하세요.
 
@@ -91,7 +91,7 @@ Azure IR 만들기 및 구성에 대한 자세한 내용은 방법 가이드 아
 기존 SSIS 워크로드를 올리고 이동하려면 SSIS 패키지를 고유하게 실행하는 Azure-SSIS IR을 만들 수 있습니다.
 
 ### <a name="network-environment"></a>네트워크 환경
-Azure SSIS IR은 공용 네트워크 또는 개인 네트워크에서 프로비전할 수 있습니다.  온-프레미스 데이터 액세스는 Azure-SSIS IR을 온-프레미스 네트워크에 연결된 VNet(가상 네트워크)에 조인하면 지원됩니다. 현재 클래식 VNet만 지원됩니다. 
+Azure SSIS IR은 공용 네트워크 또는 개인 네트워크에서 프로비전할 수 있습니다.  온-프레미스 데이터 액세스는 Azure-SSIS IR을 온-프레미스 네트워크에 연결된 VNet(가상 네트워크)에 조인하면 지원됩니다.  
 
 ### <a name="compute-resource-and-scaling"></a>계산 리소스 및 크기 조정
 Azure-SSIS IR은 SSIS 패키지 실행을 전담하는 완전히 관리되는 Azure VM 클러스터입니다. 자기만의 Azure SQL Database 또는 관리되는 인스턴스(개인 미리 보기) 서버를 해당 서버에 연결할 SSIS 프로젝트/패키지(SSISDB)의 카탈로그를 호스팅하게 만들 수 있습니다. 노드 크기를 지정하여 계산 능력을 확장하고 클러스터의 노드 수를 지정하여 확장할 수 있습니다. Azure-SSIS 통합 런타임을 중단하고 적합해 보일 때 시작하여 그 실행 비용을 관리할 수 있습니다.

@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/22/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: c3a2d4b126d43017ec004bde82deb190584455c4
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 41ead775c8ce1919d8c3813b58c8a4d648c8bc64
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="tutorial-copy-data-from-blob-storage-to-sql-database-using-data-factory"></a>자습서: 데이터 팩터리를 사용하여 Blob Storage에서 SQL Database로 데이터 복사
 > [!div class="op_single_selector"]
@@ -55,7 +55,7 @@ ms.lasthandoff: 12/21/2017
 ## <a name="collect-blob-storage-account-name-and-key"></a>Blob 저장소 계정 이름 및 키 수집
 이 자습서를 수행하려면 Azure Storage 계정의 계정 이름과 계정 키가 필요합니다. Azure Storage 계정의 **계정 이름**과 **계정 키**를 적어둡니다.
 
-1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. 왼쪽 메뉴의 **더 많은 서비스**를 클릭하고 **Storage 계정**을 선택합니다.
 
     ![찾아보기 - Storage 계정](media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/browse-storage-accounts.png)

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
-ms.openlocfilehash: 720a5bd7fc3335e96570268c983578aad0774d7e
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: 268844eae8dc06937529e79d52515cad2f6da3f4
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="azure-app-service-plan-overview"></a>Azure App Service 계획 개요
 
@@ -54,7 +54,7 @@ App Service 계획의 _가격 책정 계층_은 가져올 App Service 기능 및
 > - 중간(두 개의 CPU 코어, 7GiB 메모리) 
 > - 대규모(네 개의 CPU 코어, 14GiB 메모리)  
 >
-> **PremiumV2** 가격 책정에 대한 자세한 내용은 [App Service 가격 책정](/pricing/details/app-service/)을 참조하세요.
+> **PremiumV2** 가격 책정에 대한 자세한 내용은 [App Service 가격 책정](https://azure.microsoft.com/pricing/details/app-service/)을 참조하세요.
 >
 > 새 **PremiumV2** 가격 책정 계층을 시작하려면 [App Service에 대해 PremiumV2 계층 구성](app-service-configure-premium-tier.md)을 참조하세요.
 

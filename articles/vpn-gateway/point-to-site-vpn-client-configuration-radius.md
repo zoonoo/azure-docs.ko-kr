@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2017
+ms.date: 01/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 3ab1094c7cf99e105bc0a08d9f84332010f5afd5
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 37951a04bbfd266717490dd1752d0be04d2231a5
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/18/2018
 ---
-# <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication-preview"></a>P2S RADIUS 인증용 VPN 클라이언트 구성 파일 만들기 및 설치(미리 보기)
+# <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>P2S RADIUS 인증용 VPN 클라이언트 구성 파일 만들기 및 설치
 
-VPN 클라이언트 구성 파일은 zip 파일에 포함되어 있습니다. 구성 파일은 원시 Windows 또는 Mac IKEv2 VPN 클라이언트가 지점 및 사이트 간 연결을 통해 VNet에 연결하는 데 필요한 설정을 제공합니다. RADIUS 서버는 여러 인증 옵션을 제공하며, 따라서 VPN 클라이언트 구성은 각 옵션에 따라 다릅니다.
+VPN 클라이언트 구성 파일은 zip 파일에 포함됩니다. 구성 파일은 원시 Windows 또는 Mac IKEv2 VPN 클라이언트가 지점 및 사이트 간 연결을 통해 VNet에 연결하는 데 필요한 설정을 제공합니다. RADIUS 서버는 여러 인증 옵션을 제공하며, 따라서 VPN 클라이언트 구성은 각 옵션에 따라 다릅니다.
 
 ### <a name="workflow"></a>워크플로
 

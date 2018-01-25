@@ -3,7 +3,7 @@ title: "Azure AD Connect: 선언적 프로비전 이해 | Microsoft Docs"
 description: "Azure AD connect에서 선언적 프로비전 구성 모델을 설명합니다."
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: cfbb870d-be7d-47b3-ba01-9e78121f0067
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 7e299fb33bdbd514a8fbc96c6953c9a8ca70f54a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 50fce526d667fa829551425edff4bd3863429ef2
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Azure AD Connect 동기화: 선언적 프로비전 이해
 이 항목에서는 Azure AD Connect에서 구성 모델을 설명합니다. 이 모델은 선언적 프로비전이라고 하고 구성을 쉽게 변경할 수 있습니다. 이 항목에서 설명하는 여러 가지 항목은 고급이며 대부분의 고객 시나리오에 필요하지 않습니다.

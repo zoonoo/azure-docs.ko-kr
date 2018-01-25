@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/26/2016
 ms.author: mbullwin
-ms.openlocfilehash: 1d80796073c0e85bb3475f9182c79ad2129ace8b
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 3b91996c12a27847befcacf6daf14457a0e066aa
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="monitoring-usage-and-performance-in-windows-desktop-apps"></a>Windows 데스크톱 앱에서 사용량 및 성능 모니터링
 
@@ -48,7 +48,7 @@ ms.lasthandoff: 11/01/2017
 6. 앱을 실행하고 Azure Portal에서 만든 리소스의 원격 분석을 참조하세요.
 
 ## <a name="telemetry"></a>예제 코드
-```C#
+```csharp
 
     public partial class Form1 : Form
     {

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: cshoe
-ms.openlocfilehash: 9782df5a5c94169b42d476b0c478fedd3465e3d0
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 00e42a00dffd1be37073f10f6ff7bff619fdee85
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="run-a-cassandra-cluster-on-linux-in-azure-with-nodejs"></a>Node.js를 사용하여 Azure의 Linux에서 Cassandra 클러스터 실행
 
@@ -292,7 +292,7 @@ Cassandra 시작 스크립트에서 이러한 jar을 찾을 수 있도록 $CASS_
 다음 작업 시퀀스를 실행하여 이미지를 캡처합니다.
 
 ##### <a name="1-deprovision"></a>1. 프로비전 해제
-"sudo waagent –deprovision+user" 명령을 사용하여 Virtual Machine 인스턴스 특정 정보를 제거합니다. 이미지 캡처 프로세스에 대한 자세한 내용은 템플릿으로 사용할 [Linux Virtual Machine을 캡처하는 방법](capture-image.md)을 참조하세요.
+"sudo waagent –deprovision+user" 명령을 사용하여 Virtual Machine 인스턴스 특정 정보를 제거합니다. 이미지 캡처 프로세스에 대한 자세한 내용은 템플릿으로 사용할 [Linux Virtual Machine을 캡처하는 방법](capture-image-classic.md)을 참조하세요.
 
 ##### <a name="2-shut-down-the-vm"></a>2: VM 종료
 가상 머신을 강조 표시하고 아래쪽 명령 모음에서 종료 링크를 클릭합니다.
@@ -332,11 +332,11 @@ Data 및 Web 서브넷은 이 문서를 범위를 벗어난 네트워크 보안 
 <tr><td>hk-c1-west-us    </td><td>데이터    </td><td>10.1.2.4    </td><td>hk-c-aset-1    </td><td>dc =WESTUS rack =rack1 </td><td>예</td></tr>
 <tr><td>hk-c2-west-us    </td><td>데이터    </td><td>10.1.2.5    </td><td>hk-c-aset-1    </td><td>dc =WESTUS rack =rack1    </td><td>아니오 </td></tr>
 <tr><td>hk-c3-west-us    </td><td>데이터    </td><td>10.1.2.6    </td><td>hk-c-aset-1    </td><td>dc =WESTUS rack =rack2    </td><td>예</td></tr>
-<tr><td>hk-c4-west-us    </td><td>데이터    </td><td>10.1.2.7    </td><td>hk-c-aset-1    </td><td>dc =WESTUS rack =rack2    </td><td>아니요 </td></tr>
+<tr><td>hk-c4-west-us    </td><td>데이터    </td><td>10.1.2.7    </td><td>hk-c-aset-1    </td><td>dc =WESTUS rack =rack2    </td><td>아니오 </td></tr>
 <tr><td>hk-c5-west-us    </td><td>데이터    </td><td>10.1.2.8    </td><td>hk-c-aset-2    </td><td>dc =WESTUS rack =rack3    </td><td>예</td></tr>
 <tr><td>hk-c6-west-us    </td><td>데이터    </td><td>10.1.2.9    </td><td>hk-c-aset-2    </td><td>dc =WESTUS rack =rack3    </td><td>아니요 </td></tr>
 <tr><td>hk-c7-west-us    </td><td>데이터    </td><td>10.1.2.10    </td><td>hk-c-aset-2    </td><td>dc =WESTUS rack =rack4    </td><td>예</td></tr>
-<tr><td>hk-c8-west-us    </td><td>데이터    </td><td>10.1.2.11    </td><td>hk-c-aset-2    </td><td>dc =WESTUS rack =rack4    </td><td>아니요 </td></tr>
+<tr><td>hk-c8-west-us    </td><td>데이터    </td><td>10.1.2.11    </td><td>hk-c-aset-2    </td><td>dc =WESTUS rack =rack4    </td><td>아니오 </td></tr>
 <tr><td>hk-w1-west-us    </td><td>web    </td><td>10.1.1.4    </td><td>hk-w-aset-1    </td><td>                       </td><td>해당 없음</td></tr>
 <tr><td>hk-w2-west-us    </td><td>web    </td><td>10.1.1.5    </td><td>hk-w-aset-1    </td><td>                       </td><td>해당 없음</td></tr>
 </table>
@@ -527,7 +527,7 @@ Azure Portal에서 두 가상 네트워크의 “대시보드” 메뉴를 사�
 | 컴퓨터 이름 | 서브넷 | IP 주소 | 가용성 집합 | DC/랙 | 시드 여부 |
 | --- | --- | --- | --- | --- | --- |
 | hk-c1-east-us |데이터 |10.2.2.4 |hk-c-aset-1 |dc =EASTUS rack =rack1 |예 |
-| hk-c2-east-us |데이터 |10.2.2.5 |hk-c-aset-1 |dc =EASTUS rack =rack1 |아니요 |
+| hk-c2-east-us |데이터 |10.2.2.5 |hk-c-aset-1 |dc =EASTUS rack =rack1 |아니오 |
 | hk-c3-east-us |데이터 |10.2.2.6 |hk-c-aset-1 |dc =EASTUS rack =rack2 |예 |
 | hk-c5-east-us |데이터 |10.2.2.8 |hk-c-aset-2 |dc =EASTUS rack =rack3 |예 |
 | hk-c6-east-us |데이터 |10.2.2.9 |hk-c-aset-2 |dc =EASTUS rack =rack3 |아니요 |

@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/01/2017
+ms.date: 01/22/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 320df0586d9f4391bb8ad6add80a48daa7979aa9
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 4f517a4be012f88d9b7a5e19042ce22493cfe5f3
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-visual-studio"></a>자습서: Visual Studio를 사용하여 복사 작업이 있는 파이프라인 만들기
 > [!div class="op_single_selector"]
@@ -79,7 +79,7 @@ ms.lasthandoff: 12/18/2017
     ![새 프로젝트 대화 상자](./media/data-factory-copy-activity-tutorial-using-visual-studio/new-project-dialog.png)
 3. 프로젝트 이름, 솔루션 위치 및 솔루션 이름을 지정한 다음 **확인**을 클릭합니다.
    
-    ![솔루션 탐색기](./media/data-factory-copy-activity-tutorial-using-visual-studio/solution-explorer.png)    
+    ![Controllers\HomeController.cs](./media/data-factory-copy-activity-tutorial-using-visual-studio/solution-explorer.png)    
 
 ## <a name="create-linked-services"></a>연결된 서비스 만들기
 데이터 팩터리에서 연결된 서비스를 만들어 데이터 저장소를 연결하고 계산 서비스를 데이터 팩터리에 연결합니다. 이 자습서에서는 Azure HDInsight 또는 Azure Data Lake Analytics와 같은 계산 서비스를 사용하지 않습니다. Azure Storage(원본) 및 Azure SQL Database(대상) 유형의 두 데이터 저장소를 사용합니다. 
@@ -162,9 +162,9 @@ Azure 저장소 연결된 서비스는 런타임에 Data Factory 서비스에서
   ``` 
     다음 테이블은 코드 조각에 사용된 JSON 속성에 대한 설명을 제공합니다.
 
-    | 속성 | 설명 |
+    | 자산 | 설명 |
     |:--- |:--- |
-    | type | Azure Blob 저장소에 데이터가 있기 때문에 type 속성은 **AzureBlob**으로 설정됩니다. |
+    | 형식 | Azure Blob 저장소에 데이터가 있기 때문에 type 속성은 **AzureBlob**으로 설정됩니다. |
     | linkedServiceName | 이전에 만든 **AzureStorageLinkedService**를 참조합니다. |
     | folderPath | 입력 Blob이 포함된 Blob **컨테이너**와 **폴더**를 지정합니다. 이 자습서에서 adftutorial은 Blob 컨테이너이며, 폴더는 루트 폴더입니다. | 
     | fileName | 이 속성은 선택 사항입니다. 이 속성을 생략하면 folderPath의 모든 파일이 선택됩니다. 이 자습서에서는 fileName에 대해 **emp.txt**를 지정하므로 해당 파일만 처리를 위해 선택됩니다. |
@@ -210,9 +210,9 @@ Azure 저장소 연결된 서비스는 런타임에 Data Factory 서비스에서
     ```
     다음 테이블은 코드 조각에 사용된 JSON 속성에 대한 설명을 제공합니다.
 
-    | 속성 | 설명 |
+    | 자산 | 설명 |
     |:--- |:--- |
-    | type | Azure SQL 데이터베이스의 테이블에 데이터가 복사되기 때문에 type 속성은 **AzureSqlTable**로 설정됩니다. |
+    | 형식 | Azure SQL 데이터베이스의 테이블에 데이터가 복사되기 때문에 type 속성은 **AzureSqlTable**로 설정됩니다. |
     | linkedServiceName | 이전에 만든 **AzureSqlLinkedService**를 참조합니다. |
     | tableName | 데이터가 복사되는 **테이블**을 지정했습니다. | 
     | frequency/interval | frequency는 **Hour**로 설정되고, interval은 **1**입니다. 즉 출력 조각이 이러한 시간 이전 또는 이후가 아니라 파이프라인의 시작 시간과 종료 시간 사이에서 **매시간** 생성됩니다.  |

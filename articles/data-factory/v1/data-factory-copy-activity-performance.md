@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1f774bb881c66ceeb9f3223b735b3f34462b6a8d
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 2bec612b1d67eceb0e62b28524b98e852d31ad0f
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>복사 작업 성능 및 조정 가이드
 > [!NOTE]
@@ -410,7 +410,7 @@ Data Factory에서 동시에 동일한 데이터 저장소에 연결해야 하�
 
 ![시나리오 3](./media/data-factory-copy-activity-performance/scenario-3.png)
 
-## <a name="reference"></a>참조
+## <a name="reference"></a>참고 자료
 다음은 지원되는 데이터 저장소에 대한 몇 가지 성능 모니터링 및 튜닝 참조입니다.
 
 * Azure Storage(Blob 저장소 및 테이블 저장소 포함): [Azure Storage 확장성 목표](../../storage/common/storage-scalability-targets.md) 및 [Azure Storage 성능 및 확장성 검사 목록](../../storage/common/storage-performance-checklist.md)

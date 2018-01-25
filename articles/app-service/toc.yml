@@ -31,6 +31,8 @@
   items:
     - name: 1 - DB를 사용한 앱
       items:
+        - name: SQL DB를 사용한 .NET Core
+          href: app-service-web-tutorial-dotnetcore-sqldb.md
         - name: SQL DB를 사용하는 .NET
           href: app-service-web-tutorial-dotnet-sqldatabase.md
         - name: MySQL을 사용하는 PHP
@@ -81,7 +83,7 @@
           href: web-sites-java-add-app.md
         - name: PHP 구성
           href: web-sites-php-configure.md
-        - name: Python
+        - name: 파이썬
           href: web-sites-python-configure.md
         - name: 온-프레미스 리소스에 연결
           href: web-sites-integrate-with-vnet.md
@@ -167,7 +169,7 @@
           href: web-sites-create-web-jobs.md
         - name: VS를 사용하여 WebJob 개발
           href: websites-dotnet-deploy-webjobs.md
-- name: 참조
+- name: 참고 자료
   items:
     - name: Azure CLI
       href: /cli/azure/appservice
@@ -215,7 +217,7 @@
       href: app-service-best-practices.md
     - name: 샘플
       href: 'https://azure.microsoft.com/resources/samples/?service=app-service'
-    - name: 비디오
+    - name: 동영상
       href: 'https://azure.microsoft.com/resources/videos/index/?services=app-service'
     - name: 쿡북
       items:

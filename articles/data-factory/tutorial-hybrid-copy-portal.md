@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: jingwang
-ms.openlocfilehash: 7b734a76545dbcbddac3c7ad7beae60d662a9129
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 64cd758e2f40ff2b18abbff1194a7e57389d8a54
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="tutorial-copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>자습서: 온-프레미스 SQL Server 데이터베이스에서 Azure Blob Storage로 데이터 복사
 이 자습서에서는 Azure Data Factory UI(사용자 인터페이스)를 사용하여 온-프레미스 SQL Server 데이터베이스에서 Azure Blob 저장소로 데이터를 복사하는 데이터 팩터리 파이프라인을 만듭니다. 온-프레미스와 클라우드 데이터 저장소 간에 데이터를 이동하는, 자체 호스팅된 통합 런타임을 생성하고 사용합니다. 
@@ -191,7 +191,7 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
 11. **Integration Runtime(자체 호스팅) 빠른 설치** 창에서 **닫기**를 클릭합니다. 
 
    ![Integration Runtime 설정 - 성공](./media/tutorial-hybrid-copy-portal/integration-runtime-setup-successful.png)
-12. 웹 브라우저의 **Integration Runtime 설정** 창에서 **마침**을 클릭합니다. **새 연결된 서비스** 창으로 다시 전환됩니다.
+12. 웹 브라우저의 **Integration Runtime 설정** 창에서 **마침**을 클릭합니다. 
 
    ![통합 런타임 설정 - 완료](./media/tutorial-hybrid-copy-portal/click-finish-integration-runtime-setup.png)
 13. **새 연결된 서비스** 창에서 다음 단계를 수행합니다.

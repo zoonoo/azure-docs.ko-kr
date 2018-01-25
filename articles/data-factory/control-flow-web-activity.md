@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2017
+ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: b5661dea3a63f6e7e5b67261bc9704061ae9c5b6
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 04b542bf1f77b75c1c92b147b578df630b86d0ac
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Azure Data Factory에서 웹 작업
 웹 작업은 Data Factory 파이프라인에서 사용자 지정 REST 끝점을 호출하는 데 사용할 수 있습니다. 작업에서 사용하고 액세스하도록 데이터 집합 및 연결된 서비스를 전달할 수 있습니다. 
@@ -64,14 +64,14 @@ ms.lasthandoff: 10/26/2017
 
 ## <a name="type-properties"></a>형식 속성
 
-속성 | 설명 | 허용되는 값 | 필수
+자산 | 설명 | 허용되는 값 | 필수
 -------- | ----------- | -------------- | --------
-name | 웹 작업의 이름입니다. | 문자열 | 예
-type | **WebActivity**로 설정해야 합니다. | 문자열 | 예
+이름 | 웹 작업의 이름입니다. | 문자열 | 예
+형식 | **WebActivity**로 설정해야 합니다. | 문자열 | 예
 메서드 | 대상 끝점에 대한 Rest API 메서드입니다. | 문자열입니다. <br/><br/>지원되는 형식: "GET", "POST", "PUT" | 예
-url | 대상 끝점 및 경로입니다. | 문자열(또는 resultType 문자열이 있는 식) | 예
+URL | 대상 끝점 및 경로입니다. | 문자열(또는 resultType 문자열이 있는 식) | 예
 headers | 요청에 전송되는 헤더입니다. 예를 들어 요청에 언어 및 형식을 설정하려면 다음과 같이 합니다. `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 문자열(또는 resultType 문자열이 있는 식) | 예, Content-Type 헤더가 필요합니다. `"headers":{ "Content-Type":"application/json"}`
-body | 끝점에 전송된 페이로드를 나타냅니다. POST/PUT 메서드에 필요합니다.  | 문자열(또는 resultType 문자열이 있는 식). <br/><br/>[요청 페이로드 스키마](#request-payload-schema) 섹션에서 요청 페이로드의 스키마를 참조하세요. | 아니요
+본문 | 끝점에 전송된 페이로드를 나타냅니다. POST/PUT 메서드에 필요합니다.  | 문자열(또는 resultType 문자열이 있는 식). <br/><br/>[요청 페이로드 스키마](#request-payload-schema) 섹션에서 요청 페이로드의 스키마를 참조하세요. | 아니오
 인증 | 끝점을 호출하는 데 사용되는 인증 방법입니다. 지원되는 형식은 "Basic" 또는 "ClientCertificate"입니다. 자세한 내용은 [인증](#authentication) 섹션을 참조하세요. 인증이 필요 없는 경우 이 속성을 제외합니다. | 문자열(또는 resultType 문자열이 있는 식) | 아니요
 데이터 집합 | 끝점에 전달되는 데이터 집합의 목록입니다. | 데이터 집합 참조의 배열입니다. 빈 배열일 수 있습니다. | 예
 linkedServices | 끝점에 전달되는 연결된 서비스 목록입니다. | 연결된 서비스 참조의 배열입니다. 빈 배열일 수 있습니다. | 예
@@ -128,7 +128,7 @@ POST/PUT 메서드를 사용하는 경우 body 속성은 끝점에 전송되는 
 } 
 ```
 
-## <a name="example"></a>예제
+## <a name="example"></a>예
 이 예제에서 파이프라인의 웹 작업은 REST 끝점을 호출하고 Azure SQL 연결된 서비스 및 Azure SQL 데이터 집합을 끝점에 전달합니다. REST 끝점은 Azure SQL 연결 문자열을 사용하여 Azure SQL Server에 연결하고 SQL Server의 인스턴스 이름을 반환합니다. 
 
 ### <a name="pipeline-definition"></a>파이프라인 정의

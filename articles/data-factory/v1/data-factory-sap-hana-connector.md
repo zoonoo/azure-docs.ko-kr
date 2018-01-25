@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: ee0564ad3eae3cc902ce596aceb5c218efabd43e
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 108b6e3ae704a99e5c050fea07c72300ab948905
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-sap-hana-using-azure-data-factory"></a>Azure Data Factory를 사용하여 SAP HANA에서 데이터 이동
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -36,7 +36,7 @@ ms.lasthandoff: 11/03/2017
 이 커넥터는 모든 버전의 SAP HANA 데이터베이스를 지원합니다. SQL 쿼리를 사용한 행/열 테이블 및 HANA 정보 모델(예: 분석 및 계산 보기)의 데이터 복사를 지원합니다.
 
 SAP HANA 인스턴스에 대한 연결을 사용하도록 설정하려면 다음 구성 요소를 설치합니다.
-- **데이터 관리 게이트웨이**: Data Factory 서비스는 데이터 관리 게이트웨이라는 구성 요소를 사용하여 온-프레미스 데이터 저장소(SAP HANA 포함)에 연결을 지원합니다. 데이터 관리 게이트웨이 및 게이트웨이 설정에 대한 단계별 지침을 알아보려면 [온-프레미스 데이터 저장소와 클라우드 데이터 저장소 간에 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md) 문서를 참조하세요. 게이트웨이는 SAP HANA가 Azure IaaS 가상 컴퓨터(VM)에 호스팅되더라도 필요합니다. 게이트웨이를 데이터베이스에 연결할 수 있는 한 데이터 저장소와 동일한 VM 또는 다른 VM에 게이트웨이를 설치할 수 있습니다.
+- **데이터 관리 게이트웨이**: Data Factory 서비스는 데이터 관리 게이트웨이라는 구성 요소를 사용하여 온-프레미스 데이터 저장소(SAP HANA 포함)에 연결을 지원합니다. 데이터 관리 게이트웨이 및 게이트웨이 설정에 대한 단계별 지침을 알아보려면 [온-프레미스 데이터 저장소와 클라우드 데이터 저장소 간에 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md) 문서를 참조하세요. 게이트웨이는 SAP HANA가 Azure IaaS 가상 머신(VM)에 호스팅되더라도 필요합니다. 게이트웨이를 데이터베이스에 연결할 수 있는 한 데이터 저장소와 동일한 VM 또는 다른 VM에 게이트웨이를 설치할 수 있습니다.
 - 게이트웨이 컴퓨터의 **SAP HANA ODBC 드라이버**. SAP HANA ODBC 드라이버는 [SAP 소프트웨어 다운로드 센터](https://support.sap.com/swdc)에서 다운로드할 수 있습니다. **SAP HANA CLIENT for Windows**라는 키워드를 사용하여 검색합니다. 
 
 ## <a name="getting-started"></a>시작
@@ -51,21 +51,21 @@ SAP HANA 인스턴스에 대한 연결을 사용하도록 설정하려면 다음
 2. 복사 작업의 입력 및 출력 데이터를 나타내는 **데이터 집합**을 만듭니다. 
 3. 입력으로 데이터 집합을, 출력으로 데이터 집합을 사용하는 복사 작업을 통해 **파이프라인**을 만듭니다. 
 
-마법사를 사용하는 경우 이러한 Data Factory 엔터티(연결된 서비스, 데이터 집합 및 파이프라인)에 대한 JSON 정의가 자동으로 생성됩니다. 도구/API를 사용하는 경우(.NET API 제외) JSON 형식을 사용하여 데이터 팩터리 엔터티를 직접 정의합니다.  온-프레미스 SAP HANA의 데이터를 복사하는 데 사용되는 데이터 팩터리 엔터티의 JSON 정의에 대한 샘플은 이 문서의 [JSON의 예: SAP HANA에서 Azure Blob으로 데이터 복사](#json-example-copy-data-from-sap-hana-to-azure-blob) 섹션을 참조하세요. 
+마법사를 사용하는 경우 이러한 Data Factory 엔터티(연결된 서비스, 데이터 집합 및 파이프라인)에 대한 JSON 정의가 자동으로 생성됩니다. 도구/API(.NET API 제외)를 사용하는 경우 JSON 형식을 사용하여 이러한 Data Factory 엔터티를 정의합니다.  온-프레미스 SAP HANA의 데이터를 복사하는 데 사용되는 데이터 팩터리 엔터티의 JSON 정의에 대한 샘플은 이 문서의 [JSON의 예: SAP HANA에서 Azure Blob으로 데이터 복사](#json-example-copy-data-from-sap-hana-to-azure-blob) 섹션을 참조하세요. 
 
 다음 섹션에서는 SAP HANA 데이터 저장소에 한정된 데이터 팩터리 엔터티를 정의하는 데 사용되는 JSON 속성에 대해 자세히 설명합니다.
 
 ## <a name="linked-service-properties"></a>연결된 서비스 속성
 다음 표에서는 SAP HANA 연결된 서비스에 해당하는 JSON 요소에 대한 설명을 제공합니다.
 
-속성 | 설명 | 허용되는 값 | 필수
+자산 | 설명 | 허용되는 값 | 필수
 -------- | ----------- | -------------- | --------
-server | SAP HANA 인스턴스가 상주하는 서버의 이름. 서버에서 사용자 지정된 포트를 사용하는 경우 `server:port`를 지정합니다. | string | 예
+서버 | SAP HANA 인스턴스가 상주하는 서버의 이름. 서버에서 사용자 지정된 포트를 사용하는 경우 `server:port`를 지정합니다. | string | 예
 authenticationType | 인증 유형입니다. | string. "Basic" 또는 "Windows" | 예 
-username | SAP 서버에 대한 액세스 권한이 있는 사용자의 이름 | string | 예
-password | 사용자에 대한 암호입니다. | string | 예
+사용자 이름 | SAP 서버에 대한 액세스 권한이 있는 사용자의 이름 | string | 예
+암호 | 사용자에 대한 암호입니다. | string | 예
 gatewayName | Data Factory 서비스가 온-프레미스 SAP HANA 인스턴스에 연결하는 데 사용해야 하는 게이트웨이의 이름. | string | 예
-encryptedCredential | 암호화된 자격 증명 문자열. | string | 아니요
+encryptedCredential | 암호화된 자격 증명 문자열. | string | 아니오
 
 ## <a name="dataset-properties"></a>데이터 집합 속성
 데이터 집합 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 집합 만들기](data-factory-create-datasets.md) 문서를 참조하세요. 구조, 가용성 및 JSON 데이터 집합의 정책과 같은 섹션이 모든 데이터 집합 형식에 대해 유사합니다(Azure SQL, Azure blob, Azure 테이블 등).
@@ -80,7 +80,7 @@ encryptedCredential | 암호화된 자격 증명 문자열. | string | 아니요
 
 활동 복사의 원본이 **RelationalSource**(SAP HANA 포함) 형식인 경우 typeProperties 섹션에서 다음과 같은 속성을 사용할 수 있습니다.
 
-| 속성 | 설명 | 허용되는 값 | 필수 |
+| 자산 | 설명 | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
 | 쿼리 | SAP HANA 인스턴스에서 데이터를 읽을 SQL 쿼리를 지정합니다. | SQL 쿼리. | 예 |
 
@@ -293,14 +293,14 @@ DOUBLE | 단일
 DECIMAL | 10진수
 BOOLEAN | Byte
 VARCHAR | 문자열
-NVARCHAR | string
+NVARCHAR | 문자열
 CLOB | Byte[]
 ALPHANUM | 문자열
 BLOB | Byte[]
-DATE | DateTime
+DATE | Datetime
 TIME | timespan
-TIMESTAMP | DateTime
-SECONDDATE | DateTime
+TIMESTAMP | Datetime
+SECONDDATE | Datetime
 
 ## <a name="known-limitations"></a>알려진 제한 사항
 SAP HANA에서 데이터를 복사하는 경우 몇 가지 알려진 제한 사항이 있습니다.

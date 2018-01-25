@@ -2,7 +2,6 @@
 
 ## 개요
 ### [솔루션이란?](storsimple-ova-overview.md)
-### [지역 가용성](storsimple-regions.md)
 
 ## 시작하기
 ### 계획
@@ -13,6 +12,7 @@
 ### 배포
 #### [배포 준비](storsimple-virtual-array-deploy1-portal-prep.md)
 ##### [StorSimple Manager 서비스 배포](storsimple-virtual-array-manage-service.md)
+##### [새 인증](storsimple-virtual-array-aad-registration-key.md)
 #### [Hyper-V에서 프로비전](storsimple-virtual-array-deploy2-provision-hyperv.md)
 #### [VMware에서 프로비전](storsimple-virtual-array-deploy2-provision-vmware.md)
 #### [파일 서버로 설정](storsimple-virtual-array-deploy3-fs-setup.md)
@@ -79,6 +79,7 @@
 
 ### 배포
 #### [StorSimple 장치 관리자 서비스](storsimple-8000-manage-service.md)
+#### [서비스에 대한 새 인증](storsimple-8000-aad-registration-key.md)
 #### [Azure의 물리적 장치](storsimple-8000-deployment-walkthrough-u2.md)
 #### [정부 포털의 물리적 장치](storsimple-8000-deployment-walkthrough-gov-u2.md)
 #### [Azure에서 클라우드 어플라이언스](storsimple-8000-cloud-appliance-u2.md)
@@ -236,7 +237,7 @@
 ## [마케팅 블로그](http://blogs.technet.com/b/cis/)
 ## [Marketing](https://www.microsoft.com/server-cloud/products/storsimple/explore.aspx)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=StorSimple)
-## [가격](https://azure.microsoft.com/pricing/details/storsimple/)
+## [가격 책정](https://azure.microsoft.com/pricing/details/storsimple/)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=storsimple)
 ## [지원 블로그](http://blogs.msdn.com/b/storsimple/)

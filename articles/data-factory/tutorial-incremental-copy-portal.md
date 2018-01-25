@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: af01fac2c552e038377f5b394fecbe3ad9fd3acc
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: ff26d3ae159320f8c726b37eb0c68e6c5f2c2cc3
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Azure SQL 데이터베이스에서 Azure Blob 저장소로 데이터 증분 로드
 이 자습서에서는 Azure SQL 데이터베이스의 테이블에서 Azure Blob 저장소로 델타 데이터를 로드하는 파이프라인이 있는 Azure 데이터 팩터리를 만듭니다. 
@@ -309,9 +309,9 @@ END
     1. **저장 프로시저 이름**에 대해 **sp_write_watermark**를 입력합니다. 
     2. 저장 프로시저 매개 변수의 값을 지정하려면, **저장 프로시저 매개 변수** 섹션에서 **+ 새로 만들기**를 클릭하고 다음 값을 입력합니다. 
 
-        | Name | type | 값 | 
+        | Name | 형식 | 값 | 
         | ---- | ---- | ----- | 
-        | LastModifiedtime | Datetime | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue |
+        | LastModifiedtime | Datetime | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue} |
         | TableName | 문자열 | @{activity('LookupOldWaterMarkActivity').output.firstRow.TableName} |
 
     ![저장 프로시저 활동 - 저장 프로시저 설정](./media/tutorial-incremental-copy-portal/sproc-activity-stored-procedure-settings.png)
@@ -446,7 +446,7 @@ PersonID | Name | LastModifytime
 이 자습서에서는 파이프라인이 SQL 데이터베이스의 단일 테이블에서 Blob 저장소로 데이터를 복사했습니다. 온-프레미스 SQL Server 데이터베이스의 여러 테이블에서 SQL 데이터베이스로 데이터를 복사하는 방법을 알아보려면 다음 자습서로 이동하세요. 
 
 > [!div class="nextstepaction"]
->[SQL Server의 여러 테이블에서 Azure SQL Database로 데이터 증분 로드](tutorial-incremental-copy-multiple-tables-powershell.md)
+>[SQL Server의 여러 테이블에서 Azure SQL Database로 데이터 증분 로드](tutorial-incremental-copy-multiple-tables-portal.md)
 
 
 

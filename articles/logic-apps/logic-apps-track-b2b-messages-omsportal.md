@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 3ef7a4054be80547b0d91ad1f13777d915005f8b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 128abd504785227c1f27debd329d46d358e6e516
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="track-b2b-communication-in-the-microsoft-operations-management-suite-oms"></a>Microsoft OMS(Operations Management Suite)에서 B2B 통신 추적
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="requirements"></a>요구 사항
 
-* 진단 로깅과 함께 설정된 논리 앱. [논리 앱을 만드는 방법](logic-apps-create-a-logic-app.md) 및 [해당 논리 앱에 대한 로깅을 설정하는 방법](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics)을 알아봅니다.
+* 진단 로깅과 함께 설정된 논리 앱. [논리 앱을 만드는 방법](quickstart-create-first-logic-app-workflow.md) 및 [해당 논리 앱에 대한 로깅을 설정하는 방법](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics)을 알아봅니다.
 
 * 모니터링 및 로깅을 사용하여 설정된 통합 계정. [통합 계정을 만드는 방법](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) 및 [해당 계정에 대한 모니터링 및 로깅을 설정하는 방법](../logic-apps/logic-apps-monitor-b2b-message.md)을 알아봅니다.
 
@@ -147,17 +147,17 @@ ms.lasthandoff: 10/11/2017
 
 다음은 각 AS2 메시지에 대한 속성 설명입니다.
 
-| 속성 | 설명 |
+| 자산 | 설명 |
 | --- | --- |
 | 보낸 사람 | **수신 설정**에 지정된 게스트 파트너 또는 AS2 규약의 **송신 설정**에 지정된 호스트 파트너 |
 | 받는 사람 | **수신 설정**에 지정된 호스트 파트너 또는 AS2 규약의 **송신 설정**에 지정된 게스트 파트너 |
 | 논리 앱 | AS2 작업이 설정된 논리 앱 |
-| 가동 상태 | AS2 메시지 상태 <br>성공 = 유효한 AS2 메시지를 받거나 보냈습니다. MDN이 설정되지 않습니다. <br>성공 = 유효한 AS2 메시지를 받거나 보냈습니다. MDN이 설정 및 수신됩니다. 또는 MDN이 전송됩니다. <br>실패 = 유효하지 않은 AS2 메시지를 받았습니다. MDN이 설정되지 않습니다. <br>보류 중 = 유효한 AS2 메시지를 받거나 보냈습니다. MDN이 설정되었고 MDN을 기다립니다. |
+| 상태 | AS2 메시지 상태 <br>성공 = 유효한 AS2 메시지를 받거나 보냈습니다. MDN이 설정되지 않습니다. <br>성공 = 유효한 AS2 메시지를 받거나 보냈습니다. MDN이 설정 및 수신됩니다. 또는 MDN이 전송됩니다. <br>실패 = 유효하지 않은 AS2 메시지를 받았습니다. MDN이 설정되지 않습니다. <br>보류 중 = 유효한 AS2 메시지를 받거나 보냈습니다. MDN이 설정되었고 MDN을 기다립니다. |
 | Ack | MDN 메시지 상태 <br>수락됨 = 양의 MDN을 받거나 보냈습니다. <br>보류 중 = MDN을 받거나 보낼 때까지 대기 중입니다. <br>거부됨 = 음의 MDN을 받거나 보냈습니다. <br>필요하지 않음 = 규약에 MDN이 설정되지 않습니다. |
 | 방향 | AS2 메시지 방향 |
 | 상관관계 ID | 논리 앱의 모든 트리거와 작업을 상호 연결하는 ID |
 | 메시지 ID | AS2 메시지 헤더의 AS2 메시지 ID |
-| Timestamp | AS2 작업이 메시지를 처리한 시간 |
+| 타임 스탬프 | AS2 작업이 메시지를 처리한 시간 |
 |          |             |
 
 <a name="as2-folder-file-names"></a>
@@ -178,19 +178,19 @@ ms.lasthandoff: 10/11/2017
 
 다음은 각 X12 메시지에 대한 속성 설명입니다.
 
-| 속성 | 설명 |
+| 자산 | 설명 |
 | --- | --- |
 | 보낸 사람 | **수신 설정**에 지정된 게스트 파트너 또는 X12 규약의 **송신 설정**에 지정된 호스트 파트너 |
 | 받는 사람 | **수신 설정**에 지정된 호스트 파트너 또는 X12 규약의 **송신 설정**에 지정된 게스트 파트너 |
 | 논리 앱 | X12 작업이 설정된 논리 앱 |
-| 가동 상태 | X12 메시지 상태 <br>성공 = 유효한 X12 메시지를 받거나 보냈습니다. 기능 Ack가 설정되지 않습니다. <br>성공 = 유효한 X12 메시지를 받거나 보냈습니다. 기능 Ack가 설정되고 수신되었거나 기능 Ack가 전송되었습니다. <br>실패 = 유효하지 않은 X12 메시지를 받거나 보냈습니다. <br>보류 중 = 유효한 X12 메시지를 받거나 보냈습니다. 기능 Ack가 설정되었고 기능 Ack를 기다립니다. |
+| 상태 | X12 메시지 상태 <br>성공 = 유효한 X12 메시지를 받거나 보냈습니다. 기능 Ack가 설정되지 않습니다. <br>성공 = 유효한 X12 메시지를 받거나 보냈습니다. 기능 Ack가 설정되고 수신되었거나 기능 Ack가 전송되었습니다. <br>실패 = 유효하지 않은 X12 메시지를 받거나 보냈습니다. <br>보류 중 = 유효한 X12 메시지를 받거나 보냈습니다. 기능 Ack가 설정되었고 기능 Ack를 기다립니다. |
 | Ack | 기능 Ack(997) 상태 <br>수락됨 = 양의 기능 Ack를 받거나 보냈습니다. <br>거부됨 = 음의 기능 Ack를 받거나 보냈습니다. <br>보류 중 = 기능 Ack를 기다렸지만 받지 못했습니다. <br>보류 중 = 기능 Ack를 생성했지만 파트너에게 보낼 수 없습니다. <br>필요하지 않음 = 기능 Ack가 설정되지 않습니다. |
 | 방향 | X12 메시지 방향 |
 | 상관관계 ID | 논리 앱의 모든 트리거와 작업을 상호 연결하는 ID |
 | 메시지 유형 | EDI X12 메시지 유형 |
 | ICN | X12 메시지의 교환 컨트롤 번호 |
 | TSCN | X12 메시지의 트랜잭션 집합 컨트롤 번호 |
-| Timestamp | X12 작업이 메시지를 처리한 시간 |
+| 타임 스탬프 | X12 작업이 메시지를 처리한 시간 |
 |          |             |
 
 <a name="x12-folder-file-names"></a>
@@ -211,19 +211,19 @@ ms.lasthandoff: 10/11/2017
 
 다음은 각 EDIFACT 메시지에 대한 속성 설명입니다.
 
-| 속성 | 설명 |
+| 자산 | 설명 |
 | --- | --- |
 | 보낸 사람 | **수신 설정**에 지정된 게스트 파트너 또는 EDIFACT 규약의 **송신 설정**에 지정된 호스트 파트너 |
 | 받는 사람 | **수신 설정**에 지정된 호스트 파트너 또는 EDIFACT 규약의 **송신 설정**에 지정된 게스트 파트너 |
 | 논리 앱 | EDIFACT 작업이 설정된 논리 앱 |
-| 가동 상태 | EDIFACT 메시지 상태 <br>성공 = 유효한 EDIFACT 메시지를 받거나 보냈습니다. 기능 Ack가 설정되지 않습니다. <br>성공 = 유효한 EDIFACT 메시지를 받거나 보냈습니다. 기능 Ack가 설정되고 수신되었거나 기능 Ack가 전송되었습니다. <br>실패 = 유효하지 않은 EDIFACT 메시지를 받거나 보냈습니다. <br>보류 중 = 유효한 EDIFACT 메시지를 받거나 보냈습니다. 기능 Ack가 설정되었고 기능 Ack를 기다립니다. |
+| 상태 | EDIFACT 메시지 상태 <br>성공 = 유효한 EDIFACT 메시지를 받거나 보냈습니다. 기능 Ack가 설정되지 않습니다. <br>성공 = 유효한 EDIFACT 메시지를 받거나 보냈습니다. 기능 Ack가 설정되고 수신되었거나 기능 Ack가 전송되었습니다. <br>실패 = 유효하지 않은 EDIFACT 메시지를 받거나 보냈습니다. <br>보류 중 = 유효한 EDIFACT 메시지를 받거나 보냈습니다. 기능 Ack가 설정되었고 기능 Ack를 기다립니다. |
 | Ack | 기능 Ack(997) 상태 <br>수락됨 = 양의 기능 Ack를 받거나 보냈습니다. <br>거부됨 = 음의 기능 Ack를 받거나 보냈습니다. <br>보류 중 = 기능 Ack를 기다렸지만 받지 못했습니다. <br>보류 중 = 기능 Ack를 생성했지만 파트너에게 보낼 수 없습니다. <br>필요하지 않음 = 기능 Ack가 설정되지 않습니다. |
 | 방향 | EDIFACT 메시지 방향 |
 | 상관관계 ID | 논리 앱의 모든 트리거와 작업을 상호 연결하는 ID |
 | 메시지 유형 | EDIFACT 메시지 형식 |
 | ICN | EDIFACT 메시지의 교환 컨트롤 번호 |
 | TSCN | EDIFACT 메시지의 트랜잭션 집합 컨트롤 번호 |
-| Timestamp | EDIFACT 작업이 메시지를 처리한 시간 |
+| 타임 스탬프 | EDIFACT 작업이 메시지를 처리한 시간 |
 |          |               |
 
 <a name="edifact-folder-file-names"></a>

@@ -3,7 +3,7 @@ title: "Azure AD Connect: 선언적 프로비전 식 | Microsoft Docs"
 description: "선언적 프로비전 식에 대해 설명합니다."
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: e3ea53c8-3801-4acf-a297-0fb9bb1bf11d
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 83fe949468a67318c766f0070498c35300af4deb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 797c0949aceea415652a72df5ee23ef9888ab975
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning-expressions"></a>Azure AD Connect 동기화: 선언적 프로비전 식 이해
 Azure AD Connect 동기화는 Forefront Identity Manager 2010에 처음 도입된 선언적 프로비전을 기반으로 합니다. 컴파일된 코드를 작성할 필요 없이 전체 ID 통합 비즈니스 논리를 구현할 수 있습니다.
@@ -38,7 +38,7 @@ Azure AD Connect 동기화는 Forefront Identity Manager 2010에 처음 도입�
 * 부울 값은 다음과 같은 상수로 표시됩니다. True, False
 * 기본 제공 상수 및 리터럴은 자신의 이름으로만 표현됩니다. NULL, CRLF, IgnoreThisFlow
 
-### <a name="functions"></a>함수
+### <a name="functions"></a>Functions
 선언적 프로비전은 여러 함수를 사용하여 특성 값을 변환할 수 있도록 합니다. 함수의 결과가 다른 함수로 전달되도록 이러한 함수는 중첩될 수 있습니다.
 
 `Function1(Function2(Function3()))`

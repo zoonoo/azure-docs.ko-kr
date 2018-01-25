@@ -8,17 +8,17 @@ manager: jhubbard
 editor: 
 ms.assetid: 047cd9ff-17d3-4c15-9284-1b5cc61a3224
 ms.service: cosmos-db
-ms.workload: storage
+ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: mimig
-ms.openlocfilehash: b1ad9fc7b609209ca867e64226c3a0e393081408
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: decc6ffb38a4358d3593642f9cedb59d08f6bfef
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="how-to-use-azure-table-storage-with-ruby"></a>Ruby에서 Azure Table Storage를 사용하는 방법
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -32,7 +32,7 @@ ms.lasthandoff: 11/06/2017
 [!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-ruby-application"></a>Ruby 응용 프로그램 만들기
-Ruby 응용 프로그램을 만드는 방법에 대한 지침은 [Azure VM의 Ruby on Rails 웹 응용 프로그램](../virtual-machines/linux/classic/virtual-machines-linux-classic-ruby-rails-web-app.md)을 참조하세요.
+Ruby 응용 프로그램을 만드는 방법에 대한 지침은 [Azure VM의 Ruby on Rails 웹 응용 프로그램](../virtual-machines/linux/classic/ruby-rails-web-app.md)을 참조하세요.
 
 ## <a name="configure-your-application-to-access-storage"></a>저장소에 액세스하도록 응용 프로그램 구성
 Azure Storage를 사용하려면 저장소 REST 서비스와 통신하는 편리한 라이브러리 집합이 포함된 Ruby Azure 패키지를 다운로드하여 사용해야 합니다.
@@ -58,7 +58,7 @@ Azure.config.storage_access_key = "<your azure storage access key>"
 
 Azure 포털의 클래식 또는 Resource Manager 저장소 계정에서 이러한 값을 가져오려면
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure 포털](https://portal.azure.com) 에 로그인합니다.
 2. 사용하려는 저장소 계정으로 이동합니다.
 3. 오른쪽의 설정 블레이드에서 **액세스 키**를 클릭합니다.
 4. 나타나는 액세스 키 블레이드에 액세스 키 1 및 액세스 키 2가 표시되어 있습니다. 이 둘 중 하나를 사용할 수 있습니다.

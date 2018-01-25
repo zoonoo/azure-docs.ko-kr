@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: e5fd49c6b269b5f247440c2bc91680fc77fc296c
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 5961395f5ca4e9a6efb019a77dbdf5db5ff1ee38
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="invoke-mapreduce-programs-from-data-factory"></a>데이터 팩터리에서 MapReduce 프로그램 호출
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -183,9 +183,9 @@ HDInsight MapReduce 작업을 사용하는 샘플은 [GitHub의 데이터 팩터
 ### <a name="pipeline"></a>파이프라인
 이 예제의 파이프라인은 HDInsightMapReduce 형식의 작업을 하나만 포함합니다. JSON의 중요한 속성에 대한 예를 들면 다음과 같습니다. 
 
-| 속성 | 참고 사항 |
+| 자산 | 메모 |
 |:--- |:--- |
-| type |type은 **HDInsightMapReduce**로 설정되어야 합니다. |
+| 형식 |type은 **HDInsightMapReduce**로 설정되어야 합니다. |
 | className |클래스 이름은 **wordcount** |
 | jarFilePath  |클래스를 포함하는 jar 파일의 경로입니다. 다음 코드를 복사하여 붙여넣는 경우 클러스터의 이름을 변경해야 합니다. |
 | jarLinkedService |jar 파일을 포함하는 Azure Storage 연결된 서비스입니다. 이 연결된 서비스는 HDInsight 클러스터와 연결되는 저장소를 지칭합니다. |

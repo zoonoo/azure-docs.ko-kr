@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2017
+ms.date: 01/19/2018
 ms.author: garye
-ms.openlocfilehash: d93c7c0bdad930bba679d705b012f1567da1da8a
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: 3339d3b3bab2c0ce210950c178ef03fc6c0ecab9
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio에서 샘플 데이터 집합 사용
 [top]: #machine-learning-sample-datasets
@@ -102,15 +102,6 @@ CSV 데이터로 변환된 공개 사용 가능한 이미지 파일.
 <b>관련 조사:</b> Yeh, I.C., (2008). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science 
 <p></p>
 Yeh, I-Cheng, Yang, King-Jang, and Ting, Tao-Ming, "Knowledge discovery on RFM model using Bernoulli sequence, "Expert Systems with Applications, 2008, <a href="http://dx.doi.org/10.1016/j.eswa.2008.07.018">http://dx.doi.org/10.1016/j.eswa.2008.07.018</a>
-  </td>
-</tr>
-
-<tr>
-  <td>Amazon의 도서 리뷰</td>
-  <td>
-University of Pennsylvania 연구원이 amazon.com에서 가져온 Amazon의 서평(<a href="http://www.cs.jhu.edu/~mdredze/datasets/sentiment/">감정</a>). John Blitzer, Mark Dredze 및 Fernando Pereira(Association of Computational Linguistics (ACL), 2007)의 연구 논문, “Biographies, Bollywood, Boom-boxes and Blenders: Domain Adaptation for Sentiment Classification”을 참조하세요.
-<p></p>
-원본 데이터 집합에는 1, 2, 3, 4 또는 5 등급으로 평가된 975,000개 서평이 있습니다. 서평은 영어로 작성되었고 1997-2007 기간에 해당합니다. 이 데이터 집합은 10,000개 서평으로 샘플 수를 줄였습니다.
   </td>
 </tr>
 

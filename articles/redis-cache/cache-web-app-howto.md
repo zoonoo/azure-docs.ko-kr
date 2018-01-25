@@ -3,8 +3,8 @@ title: "Redis Cache를 사용하여 웹앱을 만드는 방법 | Microsoft 문�
 description: "Redis Cache를 사용하여 웹앱을 만드는 방법 알아보기"
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: 454e23d7-a99b-4e6e-8dd7-156451d2da7c
 ms.service: cache
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 05/09/2017
-ms.author: sdanie
-ms.openlocfilehash: 21dc87b3e8c26bfbda36202b31b3b4d44be32179
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.author: wesmc
+ms.openlocfilehash: c0cf5baa71ce599cd5c20d34c42bd2c578114efe
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="how-to-create-a-web-app-with-redis-cache"></a>Redis Cache를 사용하여 웹앱을 만드는 방법
 > [!div class="op_single_selector"]
@@ -72,7 +72,7 @@ Visual Studio 2013이 있는 경우 [최신 Visual Studio 2013용 Azure SDK를 �
     Visual Studio 2015에서 수행하는 경우 **클라우드에서 호스트** 확인란을 선택 취소합니다. 자습서의 이후 단계에서는 [Azure 리소스를 프로비전](#provision-the-azure-resources)하고 [응용 프로그램을 Azure에 게시](#publish-the-application-to-azure)합니다. **클라우드에서 호스트**를 선택된 채로 두고 Visual Studio에서 App Service Web App을 프로비전하는 예제는 [ASP.NET 및 Visual Studio를 사용하여 Azure App Service에서 Web Apps 시작하기](../app-service/app-service-web-get-started-dotnet.md)를 참조하세요.
    
     ![프로젝트 템플릿 선택][cache-select-template]
-4. **확인** 을 클릭하여 프로젝트를 만듭니다.
+4. **확인**을 클릭하여 프로젝트를 만듭니다.
 
 ## <a name="create-the-aspnet-mvc-application"></a>ASP.NET MVC 응용 프로그램 만들기
 자습서의 이 섹션에서는 데이터베이스에서 팀 통계를 읽고 표시하는 기본 응용 프로그램을 만듭니다.
@@ -102,7 +102,7 @@ Visual Studio 2013이 있는 경우 [최신 Visual Studio 2013용 Azure SDK를 �
     ![모델 클래스 추가][cache-model-add-class-dialog]
 3. `Team.cs` 파일의 위쪽에 있는 `using` 문을 다음 `using` 문으로 바꿉니다.
 
-    ```c#
+    ```csharp
     using System;
     using System.Collections.Generic;
     using System.Data.Entity;
@@ -112,7 +112,7 @@ Visual Studio 2013이 있는 경우 [최신 Visual Studio 2013용 Azure SDK를 �
 
 1. `Team` 클래스의 정의를 업데이트된 `Team` 클래스 정의뿐만 아니라 몇몇 다른 Entity Framework 도우미 클래스도 포함하고 있는 다음 코드 조각으로 바꿉니다. 이 자습서에 사용되는 Entity Framework에 대한 Code First 접근방식에 대한 자세한 내용은 [새 데이터베이스에 대한 Code First](https://msdn.microsoft.com/data/jj193542)를 참조하세요.
 
-    ```c#
+    ```csharp
     public class Team
     {
         public int ID { get; set; }
@@ -226,7 +226,7 @@ Visual Studio 2013이 있는 경우 [최신 Visual Studio 2013용 Azure SDK를 �
     ![Global.asax.cs][cache-global-asax]
 6. 파일의 위쪽에 있는 다음 두 `using` 문을 다른 `using` 문 아래에 추가합니다.
 
-    ```c#
+    ```csharp
     using System.Data.Entity;
     using ContosoTeamStats.Models;
     ```
@@ -234,7 +234,7 @@ Visual Studio 2013이 있는 경우 [최신 Visual Studio 2013용 Azure SDK를 �
 
 1. 다음 코드 줄을 `Application_Start` 메서드의 끝에 추가합니다.
 
-    ```c#
+    ```csharp
     Database.SetInitializer<TeamContext>(new TeamInitializer());
     ```
 
@@ -244,7 +244,7 @@ Visual Studio 2013이 있는 경우 [최신 Visual Studio 2013용 Azure SDK를 �
     ![RouteConfig.cs][cache-RouteConfig-cs]
 2. 다음 예제와 같이 `RegisterRoutes` 메서드의 다음 코드에 있는 `controller = "Home"`을 `controller = "Teams"`로 바꿉니다.
 
-    ```c#
+    ```csharp
     routes.MapRoute(
         name: "Default",
         url: "{controller}/{action}/{id}",
@@ -296,14 +296,14 @@ Visual Studio 2013이 있는 경우 [최신 Visual Studio 2013용 Azure SDK를 �
     ![팀 컨트롤러][cache-teamscontroller]
 4. **TeamsController.cs**에 다음 두 `using` 문을 추가합니다.
 
-    ```c#   
+    ```csharp   
     using System.Configuration;
     using StackExchange.Redis;
     ```
 
 5. `TeamsController` 클래스에 다음 두 속성을 추가합니다.
 
-    ```c#   
+    ```csharp   
     // Redis Connection string info
     private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
     {
@@ -351,14 +351,14 @@ Visual Studio 2013이 있는 경우 [최신 Visual Studio 2013용 Azure SDK를 �
 
 1. 다음 `using` 문을 다른 `using` 문과 함께 위쪽의 `TeamsController.cs` 파일에 추가합니다.
 
-    ```c#   
+    ```csharp   
     using System.Diagnostics;
     using Newtonsoft.Json;
     ```
 
 2. 현재 `public ActionResult Index()` 메서드 구현을 다음 구현으로 바꿉니다.
 
-    ```c#
+    ```csharp
     // GET: Teams
     public ActionResult Index(string actionType, string resultType)
     {
@@ -417,7 +417,7 @@ Visual Studio 2013이 있는 경우 [최신 Visual Studio 2013용 Azure SDK를 �
    
     `PlayGames` 메서드는 게임 시즌을 시뮬레이션하여 팀 통계를 업데이트하고 결과를 데이터베이스에 저장하고 이제 만료된 데이터를 캐시에서 지웁니다.
 
-    ```c#
+    ```csharp
     void PlayGames()
     {
         ViewBag.msg += "Updating team statistics. ";
@@ -436,7 +436,7 @@ Visual Studio 2013이 있는 경우 [최신 Visual Studio 2013용 Azure SDK를 �
 
     `RebuildDB` 메서드는 데이터베이스를 기본 팀 집합으로 다시 초기화하고 그에 대한 통계를 생성하고 이제 만료된 데이터를 캐시에서 지웁니다.
 
-    ```c#
+    ```csharp
     void RebuildDB()
     {
         ViewBag.msg += "Rebuilding DB. ";
@@ -451,7 +451,7 @@ Visual Studio 2013이 있는 경우 [최신 Visual Studio 2013용 Azure SDK를 �
 
     `ClearCachedTeams` 메서드는 캐시된 모든 팀 통계를 캐시에서 제거합니다.
 
-    ```c#
+    ```csharp
     void ClearCachedTeams()
     {
         IDatabase cache = Connection.GetDatabase();
@@ -466,7 +466,7 @@ Visual Studio 2013이 있는 경우 [최신 Visual Studio 2013용 Azure SDK를 �
    
     `GetFromDB` 메서드는 팀 통계를 데이터베이스에서 읽습니다.
    
-    ```c#
+    ```csharp
     List<Team> GetFromDB()
     {
         ViewBag.msg += "Results read from DB. ";
@@ -480,7 +480,7 @@ Visual Studio 2013이 있는 경우 [최신 Visual Studio 2013용 Azure SDK를 �
 
     `GetFromList` 메서드는 팀 통계를 직렬화된 `List<Team>`으로 캐시에서 읽습니다. 캐시 누락이 있는 경우 팀 통계를 데이터베이스에서 읽은 후 다음에 캐시에 저장합니다. 이 샘플에서는 JSON.NET 직렬화를 사용하여 .NET 개체를 캐시에 대해 직렬화합니다. 자세한 내용은 [Azure Redis Cache에서 .NET 개체로 작업하는 방법](cache-dotnet-how-to-use-azure-redis-cache.md#work-with-net-objects-in-the-cache)을 참조하세요.
 
-    ```c#
+    ```csharp
     List<Team> GetFromList()
     {
         List<Team> teams = null;
@@ -508,7 +508,7 @@ Visual Studio 2013이 있는 경우 [최신 Visual Studio 2013용 Azure SDK를 �
 
     `GetFromSortedSet` 메서드는 캐시된 정렬된 집합에서 팀 통계를 읽습니다. 캐시 누락이 있는 경우 팀 통계를 데이터베이스에서 읽은 후 정렬된 집합으로 캐시에 저장합니다.
 
-    ```c#
+    ```csharp
     List<Team> GetFromSortedSet()
     {
         List<Team> teams = null;
@@ -545,7 +545,7 @@ Visual Studio 2013이 있는 경우 [최신 Visual Studio 2013용 Azure SDK를 �
 
     `GetFromSortedSetTop5` 메서드는 캐시된 정렬된 집합에서 상위 5개 팀을 읽습니다. 먼저 캐시에서 `teamsSortedSet` 키의 유무를 확인합니다. 이 키가 없는 경우 `GetFromSortedSet` 메서드를 호출하여 팀 통계를 읽고 캐시에 저장합니다. 그런 다음 캐시된 정렬된 집합에 대해 반환된 상위 5개 팀을 쿼리합니다.
 
-    ```c#
+    ```csharp
     List<Team> GetFromSortedSetTop5()
     {
         List<Team> teams = null;
@@ -578,7 +578,7 @@ Visual Studio 2013이 있는 경우 [최신 Visual Studio 2013용 Azure SDK를 �
 
 1. `TeamsController` 클래스의 `Create(Team team)` 메서드를 찾아갑니다. 다음 예제와 같이 `ClearCachedTeams` 메서드 호출을 추가합니다.
 
-    ```c#
+    ```csharp
     // POST: Teams/Create
     // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
     // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -603,7 +603,7 @@ Visual Studio 2013이 있는 경우 [최신 Visual Studio 2013용 Azure SDK를 �
 
 1. `TeamsController` 클래스의 `Edit(Team team)` 메서드를 찾아갑니다. 다음 예제와 같이 `ClearCachedTeams` 메서드 호출을 추가합니다.
 
-    ```c#
+    ```csharp
     // POST: Teams/Edit/5
     // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
     // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -627,7 +627,7 @@ Visual Studio 2013이 있는 경우 [최신 Visual Studio 2013용 Azure SDK를 �
 
 1. `TeamsController` 클래스의 `DeleteConfirmed(int id)` 메서드를 찾아갑니다. 다음 예제와 같이 `ClearCachedTeams` 메서드 호출을 추가합니다.
 
-    ```c#
+    ```csharp
     // POST: Teams/Delete/5
     [HttpPost, ActionName("Delete")]
     [ValidateAntiForgeryToken]
@@ -733,7 +733,7 @@ Visual Studio 2013이 있는 경우 [최신 Visual Studio 2013용 Azure SDK를 �
 
 **Microsoft.Template** 블레이드에서 배포의 상태를 볼 수 있습니다.
 
-![Azure에 배포][cache-deploy-to-azure-step-3]
+![Deploy to Azure][cache-deploy-to-azure-step-3]
 
 프로비전이 완료되면 Visual Studio에서 Azure에 응용 프로그램을 게시할 수 있습니다.
 
@@ -760,7 +760,7 @@ Visual Studio 2013이 있는 경우 [최신 Visual Studio 2013용 Azure SDK를 �
 
 다음 테이블은 샘플 응용 프로그램에서 각 작업 링크를 설명합니다.
 
-| 작업 | 설명 |
+| 조치 | 설명 |
 | --- | --- |
 | 새로 만들기 |새 팀을 만듭니다. |
 | 시즌 재생 |게임 시즌을 재생하고 팀 통계를 업데이트하고 만료된 팀 데이터를 캐시에서 지웁니다. |

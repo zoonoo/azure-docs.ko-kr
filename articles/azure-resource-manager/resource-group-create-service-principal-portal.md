@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2017
+ms.date: 01/16/2018
 ms.author: tomfitz
-ms.openlocfilehash: 9b5b33f61021bf4b0ae238e88c2926c0d17b4929
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 89f2f834c84cd5ae50b2d5b9d46e792065080d8a
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>포털을 사용하여 리소스에 액세스할 수 있는 Azure Active Directory 응용 프로그램 및 서비스 주체 만들기
 
@@ -188,10 +188,10 @@ Azure 구독 권한을 확인하려면
 
 * [PowerShell](resource-group-authenticate-service-principal.md#provide-credentials-through-powershell)
 * [Azure CLI](resource-group-authenticate-service-principal-cli.md)
-* [REST (영문)](/rest/api/#create-the-request)
+* [REST](/rest/api/#create-the-request)
 * [.NET](/dotnet/azure/dotnet-sdk-azure-authenticate?view=azure-dotnet)
 * [Java](/java/azure/java-sdk-azure-authenticate)
-* [Node.JS](/nodejs/azure/node-sdk-azure-get-started?view=azure-node-2.0.0)
+* [Node.js](/nodejs/azure/node-sdk-azure-get-started?view=azure-node-2.0.0)
 * [Python](/python/azure/python-sdk-azure-authenticate?view=azure-python)
 * [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
 

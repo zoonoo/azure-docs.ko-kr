@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/02/2017
 ms.author: jdial
-ms.openlocfilehash: 802658b50d8e398451507ad11c76fedd0db697df
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 271d3fa858e9178bef37a7d7c859557b29af3c75
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="check-connectivity-with-azure-network-watcher-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Network Watcher를 통해 연결 확인
 
@@ -41,33 +41,8 @@ PowerShell을 사용하여 REST API를 호출하는 데 ARMclient가 사용됩�
 
 이 시나리오에서는 사용자가 Network Watcher를 만드는 [Network Watcher 만들기](network-watcher-create.md)의 단계를 이미 수행했다고 가정합니다.
 
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
-
 > [!IMPORTANT]
 > 연결 확인에는 가상 머신 확장 `AzureNetworkWatcherExtension`이 필요합니다. Windows VM에서 확장을 설치하려면 [Windows용 Azure Network Watcher 에이전트 가상 머신 확장](../virtual-machines/windows/extensions-nwa.md)을 방문하고 Linux VM인 경우 [Linux용 Azure Network Watcher 에이전트 가상 머신 확장](../virtual-machines/linux/extensions-nwa.md)을 방문하세요.
-
-## <a name="register-the-preview-capability"></a>미리 보기 기능 등록
-
-연결 확인은 현재 공개 미리 보기로, 등록해야 이 기능을 사용할 수 있습니다. 이 작업을 수행하려면 다음 PowerShell 샘플을 실행합니다.
-
-```powershell
-Register-AzureRmProviderFeature -FeatureName AllowNetworkWatcherConnectivityCheck  -ProviderNamespace Microsoft.Network
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
-```
-
-등록이 성공했는지 확인하려면 다음 Powershell 샘플을 실행합니다.
-
-```powershell
-Get-AzureRmProviderFeature -FeatureName AllowNetworkWatcherConnectivityCheck  -ProviderNamespace  Microsoft.Network
-```
-
-기능이 올바르게 등록된 경우 출력은 다음과 일치해야 합니다.
-
-```
-FeatureName                             ProviderName      RegistrationState
------------                             ------------      -----------------
-AllowNetworkWatcherConnectivityCheck    Microsoft.Network Registered
-```
 
 ## <a name="log-in-with-armclient"></a>ARMClient에 로그인
 
@@ -112,7 +87,7 @@ armclient get https://management.azure.com/subscriptions/${subscriptionId}/Resou
 
 이 예제에서는 포트 80을 통해 대상 가상 머신에 대한 연결을 확인합니다.
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 ```powershell
 $subscriptionId = "00000000-0000-0000-0000-000000000000"
@@ -160,7 +135,7 @@ Date: Fri, 02 Jun 2017 20:21:16 GMT
 null
 ```
 
-### <a name="response"></a>응답
+### <a name="response"></a>response
 
 다음 응답은 이전 예제에서 가져온 것입니다.  이 응답에서 `ConnectionStatus`는 **Unreachable**입니다. 전송된 모든 프로브가 실패한 것을 볼 수 있습니다. 포트 80에서 들어오는 트래픽을 차단하도록 구성된, 사용자가 구성한 **UserRule_Port80**이라는 `NetworkSecurityRule`로 인해 가상 어플라이언스에서 연결이 실패했습니다. 이 정보는 연결 문제를 조사하는 데 사용할 수 있습니다.
 
@@ -228,7 +203,7 @@ null
 
 이 예제에서는 가상 컴퓨터와 원격 끝점 간의 연결을 확인합니다.
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 ```powershell
 $subscriptionId = "00000000-0000-0000-0000-000000000000"
@@ -276,7 +251,7 @@ Date: Fri, 02 Jun 2017 20:26:05 GMT
 null
 ```
 
-### <a name="response"></a>응답
+### <a name="response"></a>response
 
 다음 예제에서 `connectionStatus`는 **Unreachable**로 표시됩니다. `hops` 세부 정보의 `issues`에서 트래픽이 `UserDefinedRoute`로 인해 차단되었음을 알 수 있습니다.
 
@@ -324,7 +299,7 @@ null
 
 다음 예제에서는 웹 사이트에 대한 연결을 확인합니다.
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 ```powershell
 $subscriptionId = "00000000-0000-0000-0000-000000000000"
@@ -372,7 +347,7 @@ Date: Fri, 02 Jun 2017 20:31:00 GMT
 null
 ```
 
-### <a name="response"></a>응답
+### <a name="response"></a>response
 
 다음 응답에서 `connectionStatus`가 **Reachable**로 표시된 것을 볼 수 있습니다. 연결에 성공하면 대기 시간 값이 제공됩니다.
 
@@ -411,7 +386,7 @@ null
 
 다음 예제에서는 가상 컴퓨터에서 BLOB 저장소 계정으로의 연결을 확인합니다.
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 ```powershell
 $subscriptionId = "00000000-0000-0000-0000-000000000000"
@@ -459,7 +434,7 @@ Date: Fri, 02 Jun 2017 20:05:03 GMT
 null
 ```
 
-### <a name="response"></a>응답
+### <a name="response"></a>response
 
 다음 예제는 이전 API 호출 실행에서 가져온 응답입니다. 확인에 성공했으므로 `connectionStatus` 속성이 **Reachable**로 표시됩니다.  저장소 BLOB 및 대기 시간에 도달하는 데 필요한 홉 수에 대한 세부 정보가 제공됩니다.
 

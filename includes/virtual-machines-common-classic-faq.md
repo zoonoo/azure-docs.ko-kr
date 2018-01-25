@@ -33,8 +33,7 @@ Azure 저장소 계정은 운영 체제 디스크 및 모든 데이터 디스크
 ## <a name="which-virtual-hard-disk-types-can-i-use"></a>어떤 가상 하드 디스크 유형을 사용할 수 있습니까?
 Azure는 고정된 VHD 형식 가상 하드 디스크를 지원합니다. VHDX가 있고 Azure에서 사용하려는 경우 먼저 Hyper-V 관리자 또는 [convert-VHD](http://go.microsoft.com/fwlink/p/?LinkId=393656) cmdlet을 사용하여 변환해야 합니다. 이를 수행한 후, 가상 머신과 사용할 수 있도록 Azure의 저장소 계정에 VHD를 업로드하기 위해 [Add-AzureVHD](https://msdn.microsoft.com/library/azure/dn495173.aspx) cmdlet(서비스 관리 모드)를 사용합니다.
 
-* Linux 지침에 대한 내용은 [Linux 운영 체제를 포함하는 가상 하드 디스크 만들기 및 업로드](../articles/virtual-machines/linux/classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)를 참조하세요.
-* Windows 지침에 대한 내용은 [Windows Server VHD를 만들어 Azure에 업로드](../articles/virtual-machines/windows/classic/createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)를 참조하세요.
+* Linux 지침에 대한 내용은 [Linux 운영 체제를 포함하는 가상 하드 디스크 만들기 및 업로드](../articles/virtual-machines/linux/classic/create-upload-vhd-classic.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)를 참조하세요.
 
 ## <a name="are-these-virtual-machines-the-same-as-hyper-v-virtual-machines"></a>이 가상 머신들은 HYPER-V 가상 머신들과 동일합니까?
 많은 측면에서, “1 세대” Hyper-V VM과 유사하지만, 정확히 동일하지는 않습니다. 두 형식 모두 가상화된 하드웨어를 제공하지만, VHD-형식 가상 하드 디스크는 호환이 가능합니다. 이 의미는 사용자가 Hyper-V 및 Azure 사이를 이동할 수 있다는 것입니다. Hyper-V 사용자에게 중요한 세 가지 차이점이 있습니다.

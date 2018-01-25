@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2017
+ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 183880d2225c1dcc628349733c4fcaa8ddefe6eb
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: b9a151ac04bc539e337b0007a264e196dc0ae6a3
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>Azure Data Factory의 ForEach 작업
 ForEach 작업은 파이프라인의 반복 제어 흐름을 정의합니다. 이 작업을 사용하여 컬렉션을 반복하고 루프의 지정된 작업을 실행합니다. 이 작업의 루프 구현은 프로그래밍 언어에서 구조를 반복하는 Foreach와 비슷합니다.
@@ -72,11 +72,11 @@ ForEach 작업은 파이프라인의 반복 제어 흐름을 정의합니다. �
 
 ## <a name="type-properties"></a>형식 속성
 
-속성 | 설명 | 허용되는 값 | 필수
+자산 | 설명 | 허용되는 값 | 필수
 -------- | ----------- | -------------- | --------
-name | for-each 작업의 이름입니다. | 문자열 | 예
-type | **ForEach**로 설정되어야 합니다. | 문자열 | 예
-isSequential | 순차 또는 병렬로 루프를 실행할지 지정합니다.  한 번에 최대 20개의 루프 반복을 병렬로 실행할 수 있습니다. 예를 들어 **isSequential**이 False로 설정된 10개의 다른 원본과 싱크 데이터 집합이 있는 복사 작업에 대해 반복되는 ForEach 작업의 경우, 모든 복사가 한 번에 실행됩니다. 기본값은 False입니다. <br/><br/> "IsSequential"이 False로 설정된 경우 여러 실행 파일을 실행하기 위해 정확한 구성이 있는지 확인합니다. 그렇지 않으면 쓰기 충돌이 발생하지 않도록 이 속성을 주의하여 사용해야 합니다. 자세한 내용은 [병렬 실행](#parallel-execution) 섹션을 참조하세요. | Boolean | 아니요. 기본값은 False입니다.
+이름 | for-each 작업의 이름입니다. | 문자열 | 예
+형식 | **ForEach**로 설정되어야 합니다. | 문자열 | 예
+isSequential | 순차 또는 병렬로 루프를 실행할지 지정합니다.  한 번에 최대 20개의 루프 반복을 병렬로 실행할 수 있습니다. 예를 들어 **isSequential**이 False로 설정된 10개의 다른 원본과 싱크 데이터 집합이 있는 복사 작업에 대해 반복되는 ForEach 작업의 경우, 모든 복사가 한 번에 실행됩니다. 기본값은 False입니다. <br/><br/> "IsSequential"이 False로 설정된 경우 여러 실행 파일을 실행하기 위해 정확한 구성이 있는지 확인합니다. 그렇지 않으면 쓰기 충돌이 발생하지 않도록 이 속성을 주의하여 사용해야 합니다. 자세한 내용은 [병렬 실행](#parallel-execution) 섹션을 참조하세요. | BOOLEAN | 번호 기본값은 False입니다.
 항목 | 반복되는 JSON 배열을 반환하는 식 | 식(JSON 배열 반환)  | 예
 활동 | 실행할 작업 | 작업 목록 | 예
 
@@ -237,7 +237,7 @@ ForEach 작업에서는 여러 작업(예: 복사 및 웹 작업)에 대해 반�
 }
 
 ```
-### <a name="example"></a>예제
+### <a name="example"></a>예
 **시나리오:** 실행 파이프라인 작업으로 ForEach  작업 내 InnerPipeline에 대해 반복 내부 파이프라인이 매개 변수화된 스키마 정의로 복사합니다.
 
 #### <a name="master-pipeline-definition"></a>마스터 파이프라인 정의

@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 95c2f4fe40590a8d809f634fb5b2c92d07421bb0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 099e3c259f0b63e4376847727eb8e185aeb37380
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-a-virtual-network-classic-with-multiple-subnets"></a>여러 서브넷이 있는 가상 네트워크(클래식) 만들기
 
@@ -38,15 +38,15 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="portal"></a>포털
 
-1. 인터넷 브라우저에서 [Azure Portal](https://portal.azure.com)로 이동합니다. [Azure 계정](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account)을 사용하여 로그인합니다. Azure 계정이 없으면 [무료 평가판](https://azure.microsoft.com/offers/ms-azr-0044p)에 등록할 수 있습니다.
+1. 인터넷 브라우저에서 [Azure Portal](https://portal.azure.com)로 이동합니다. [Azure 계정](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account)을 사용하여 로그인합니다. Azure 계정이 없으면 [평가판](https://azure.microsoft.com/offers/ms-azr-0044p)에 등록할 수 있습니다.
 2. 포털에서 **+ 새로 만들기**를 클릭합니다.
 3. 표시되는 **새로 만들기** 블레이드의 맨 위에 있는 **Marketplace 검색** 상자에 *가상 네트워크*를 입력합니다.  **가상 네트워크**가 검색 결과에 표시되면 클릭합니다.
-4. 표시되는 **가상 네트워크** 블레이드의 **배포 모델 선택** 상자에서 **클래식**을 선택한 다음 **만들기**를 클릭합니다. 
+4. 표시되는 **Virtual Network** 블레이드의 **배포 모델 선택** 상자에서 **클래식**을 선택한 다음 **만들기**를 클릭합니다. 
 5. **가상 네트워크 만들기(클래식)** 블레이드에서 다음 값을 입력한 다음 **만들기**를 클릭합니다.
 
     |설정|값|
     |---|---|
-    |이름|myVnet|
+    |Name|myVnet|
     |주소 공간|10.0.0.0/16|
     |서브넷 이름|공용|
     |서브넷 주소 범위|10.0.0.0/24|
@@ -163,6 +163,6 @@ ms.lasthandoff: 10/11/2017
 
 - 모든 가상 네트워크 및 서브넷 설정에 대해 알아보려면 [가상 네트워크 관리](virtual-network-manage-network.md) 및 [가상 네트워크 서브넷 관리](virtual-network-manage-subnet.md)를 참조하세요. 프로덕션 환경에서 가상 네트워크 및 서브넷을 사용할 때 다양한 요구 사항을 충족하기 위한 여러 옵션이 있습니다.
 - 인바운드 및 아웃바운드 서브넷 트래픽을 필터링하려면 [네트워크 보안 그룹](virtual-networks-nsg.md)을 만들고 서브넷에 적용합니다.
-- [Windows](../virtual-machines/windows/classic/createportal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [Linux](../virtual-machines/linux/classic/createportal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 가상 컴퓨터를 만든 다음, 기존 가상 네트워크에 연결합니다.
+- [Windows](../virtual-machines/windows/classic/createportal-classic.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [Linux](../virtual-machines/linux/classic/createportal-classic.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 가상 머신을 만든 다음, 기존 가상 네트워크에 연결합니다.
 - 같은 Azure 위치의 두 가상 네트워크를 연결하려면 가상 네트워크 간에 [가상 네트워크 피어링](create-peering-different-deployment-models.md)을 만듭니다. 가상 네트워크(Resource Manager)를 가상 네트워크(클래식)에 피어링할 수 있지만 두 가상 네트워크(클래식) 간 피어링은 만들 수 없습니다.
 - [VPN Gateway](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [Azure ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 회로를 사용하여 가상 네트워크를 온-프레미스 네트워크에 연결합니다.

@@ -251,8 +251,6 @@
           href: 'site-recovery-workload.md#workload-summary'
     - name: 관리
       items:
-        - name: Recovery Services 자격 증명 모음으로 업그레이드
-          href: upgrade-site-recovery-vaults.md
         - name: Azure에서 프로세스 서버 관리
           href: site-recovery-vmware-setup-azure-ps-resource-manager.md
         - name: 구성 서버 관리

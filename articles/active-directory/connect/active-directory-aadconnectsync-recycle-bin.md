@@ -4,7 +4,7 @@ description: "이 항목에서는 Azure AD connect에서 AD 휴지통 기능을 
 services: active-directory
 keywords: "AD 휴지통, 실수로 삭제, 원본 앵커"
 documentationcenter: 
-author: cychua
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: afec4207-74f7-4cdd-b13a-574af5223a90
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 36a9b5a50a18b73626b0c6e03ed258e387d5c20b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 45bff0585eb6f1990a7300ae3d16632eab78a83c
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-enable-ad-recycle-bin"></a>Azure AD Connect 동기화: AD 휴지통 사용
 Azure AD와 동기화되는 온-프레미스 Active Directory에 대해 AD 휴지통 기능을 사용하도록 설정하는 것이 좋습니다. 

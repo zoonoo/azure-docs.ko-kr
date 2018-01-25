@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/04/2018
 ms.author: shengc
-ms.openlocfilehash: 0414ee0f93b71446992bb5687795b75cd2e32386
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 4b8f7a66f220b57ac914a9f5475c680679b8bf03
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>Azure Data Factory에서 Hive 작업을 사용하여 Azure Virtual Network에서 데이터 변환
 이 자습서에서는 Azure Portal을 사용하여 Azure VNet(Virtual Network)에 있는 HDInsight 클러스터에서 Hive 활동을 통해 데이터를 변환하는 Data Factory 파이프라인을 만듭니다. 이 자습서에서 수행하는 단계는 다음과 같습니다.
@@ -272,7 +272,7 @@ Hadoop 클러스터는 가상 네트워크 내에 있으므로 동일한 가상 
 Azure에서 Spark 클러스터를 사용하여 데이터를 변환하는 방법을 알아보려면 다음 자습서로 진행하세요.
 
 > [!div class="nextstepaction"]
->[Data Factory 제어 흐름 분기 및 연결](tutorial-control-flow.md)
+>[Data Factory 제어 흐름 분기 및 연결](tutorial-control-flow-portal.md)
 
 
 

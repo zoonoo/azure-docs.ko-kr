@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: iainfou
-ms.openlocfilehash: a03c71d2691478b17864d6cc5ec4c0c55caef477
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: b47451bb8e53154760b893e452649f15ffdff7f9
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-attach-a-data-disk-to-a-linux-virtual-machine"></a>Linux Virtual Machine에 데이터 디스크를 연결하는 방법
 > [!IMPORTANT] 
@@ -227,7 +227,7 @@ Linux VM에서 TRIM 지원을 사용하는 두 가지 방법이 있습니다. �
 다음 문서에서 Linux VM을 사용하는 방법을 읽어볼 수 있습니다.
 
 * [Linux를 실행하는 가상 머신에 로그온하는 방법][Logon]
-* [Linux 가상 머신에서 디스크를 분리하는 방법](detach-disk.md)
+* [Linux 가상 머신에서 디스크를 분리하는 방법](detach-disk-classic.md)
 * [클래식 배포 모델에서 Azure CLI 사용](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
 * [Azure에서 Linux VM에 RAID 구성](../configure-raid.md)
 * [Azure에서 Linux VM에 LVM 구성](../configure-lvm.md)

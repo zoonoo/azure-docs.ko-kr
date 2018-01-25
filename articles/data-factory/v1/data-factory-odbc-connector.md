@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: cbacf8b73f1eea520000f9406044b072fe36235f
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 381069f8d8b5fef0d283fcfc6bc3f82fcf119c0e
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-odbc-data-stores-using-azure-data-factory"></a>Azure 데이터 팩터리를 사용하여 ODBC 데이터 저장소에서 데이터 이동
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -32,7 +32,7 @@ ms.lasthandoff: 11/02/2017
 
 이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 온-프레미스 ODBC 데이터 저장소에서 데이터를 이동하는 방법을 설명합니다. 이 문서는 복사 작업을 사용한 데이터 이동의 일반적인 개요를 보여주는 [데이터 이동 작업](data-factory-data-movement-activities.md) 문서를 기반으로 합니다.
 
-ODBC 데이터 저장소에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복사할 수 있습니다. 복사 작업의 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 표를 참조하세요. 현재 데이터 팩터리는 다른 데이터 저장소에서 ODBC 데이터 저장소로 데이터 이동이 아닌 ODBC 데이터 저장소에서 다른 데이터 저장소로 데이터 이동만을 지원합니다. 
+ODBC 데이터 저장소에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복사할 수 있습니다. 복사 작업의 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 테이블을 참조하세요. 현재 데이터 팩터리는 다른 데이터 저장소에서 ODBC 데이터 저장소로 데이터 이동이 아닌 ODBC 데이터 저장소에서 다른 데이터 저장소로 데이터 이동만을 지원합니다. 
 
 ## <a name="enabling-connectivity"></a>연결 사용
 데이터 팩터리 서비스는 데이터 관리 게이트웨이를 사용하여 온-프레미스 ODBC 원본에 연결을 지원합니다. 데이터 관리 게이트웨이 및 게이트웨이 설정에 대한 단계별 지침을 알아보려면 [온-프레미스 위치 및 클라우드 간 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md) 문서를 참조하세요. Azure IaaS VM에서 호스팅되는 경우 ODBC 데이터 저장소에 연결하려면 게이트웨이를 사용합니다.
@@ -64,14 +64,14 @@ ODBC 데이터 저장소에서 지원되는 모든 싱크 데이터 저장소로
 ## <a name="linked-service-properties"></a>연결된 서비스 속성
 다음 테이블은 ODBC 연결된 서비스에 특정된 JSON 요소에 대한 설명을 제공합니다.
 
-| 속성 | 설명 | 필수 |
+| 자산 | 설명 | 필수 |
 | --- | --- | --- |
-| type |형식 속성은 다음으로 설정해야 함: **OnPremisesOdbc** |예 |
+| 형식 |형식 속성은 다음으로 설정해야 함: **OnPremisesOdbc** |예 |
 | connectionString |선택적 암호화된 자격 증명 및 연결 문자열의 비 액세스 자격 증명 부분입니다. 다음 섹션의 예제를 참조하십시오. <br/><br/>`"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"`와 같은 패턴으로 연결 문자열을 지정하거나 `"DSN=<name of the DSN>;"`을 사용하여 게이트웨이 컴퓨터에서 설정한 시스템 DSN(데이터 원본 이름)을 사용할 수 있습니다(그에 따라 연결된 서비스에 자격 증명 부분을 지정해야 함). |예 |
 | 자격 증명 |드라이버 관련 속성 값 형식에 지정된 연결 문자열의 액세스 자격 증명 부분입니다. 예: `"Uid=<user ID>;Pwd=<password>;RefreshToken=<secret refresh token>;"`. |아니요 |
 | authenticationType |ODBC 데이터 저장소에 연결하는 데 사용되는 인증 형식입니다. 가능한 값은 익명 및 기본입니다. |예 |
-| username |기본 인증을 사용하는 경우 사용자 이름을 지정합니다. |아니요 |
-| password |사용자 이름에 지정한 사용자 계정의 암호를 지정합니다. |아니요 |
+| 사용자 이름 |기본 인증을 사용하는 경우 사용자 이름을 지정합니다. |아니오 |
+| 암호 |사용자 이름에 지정한 사용자 계정의 암호를 지정합니다. |아니오 |
 | gatewayName |데이터 팩터리 서비스가 ODBC 데이터 저장소에 연결하는 데 사용해야 하는 게이트웨이의 이름. |예 |
 
 ### <a name="using-basic-authentication"></a>기본 인증 사용
@@ -137,7 +137,7 @@ ODBC 데이터 저장소에서 지원되는 모든 싱크 데이터 저장소로
 
 **typeProperties** 섹션은 데이터 집합의 각 형식에 따라 다르며 데이터 저장소에 있는 데이터의 위치에 대한 정보를 제공합니다. **RelationalTable** 형식(ODBC 데이터 집합을 포함)의 데이터 집합에 대한 typeProperties 섹션에는 다음 속성이 있습니다.
 
-| 속성 | 설명 | 필수 |
+| 자산 | 설명 | 필수 |
 | --- | --- | --- |
 | tableName |ODBC 데이터 저장소에 있는 테이블의 이름입니다. |예 |
 
@@ -148,7 +148,7 @@ ODBC 데이터 저장소에서 지원되는 모든 싱크 데이터 저장소로
 
 원본이 **RelationalSource** 형식인 복사 작업(ODBC 포함)에서 typeProperties 섹션에서 다음과 같은 속성을 사용할 수 있습니다.
 
-| 속성 | 설명 | 허용되는 값 | 필수 |
+| 자산 | 설명 | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
 | 쿼리 |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예: select * from MyTable. |예 |
 
@@ -234,7 +234,7 @@ ODBC 데이터 저장소에서 지원되는 모든 싱크 데이터 저장소로
 
 **Azure Blob 출력 데이터 집합**
 
-데이터는 매시간 새 blob에 기록됩니다(frequency: hour, interval: 1). Blob에 대한 폴더 경로는 처리 중인 조각의 시작 시간에 기반하여 동적으로 평가됩니다. 폴더 경로는 시작 시간에서 연도, 월, 일 및 시간 부분을 사용합니다.
+데이터는 매시간 새 blob에 기록됩니다.(빈도: 1시간, 간격:1회) Blob에 대한 폴더 경로는 처리 중인 조각의 시작 시간에 기반하여 동적으로 평가됩니다. 폴더 경로는 시작 시간에서 연도, 월, 일 및 시간 부분을 사용합니다.
 
 ```json
 {

@@ -5,20 +5,15 @@ services: site-recovery
 documentationcenter: 
 author: AnoopVasudavan
 manager: gauravd
-editor: 
-ms.assetid: 
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: backup-recovery
-ms.date: 10/30/2017
+ms.date: 01/11/2018
 ms.author: anoopkv
-ms.openlocfilehash: aa7bb25387efbc603dac9aaa0a56b3e30d0bfb4d
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 939115aedd624dde637f00c02865b1adab47c7c4
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="install-mobility-service-vmware-or-physical-to-azure"></a>모바일 서비스(VMware/Azure 물리적 서버) 설치
 Azure Site Recovery 모바일 서비스는 컴퓨터에서 데이터 쓰기를 캡처하여 프로세스 서버로 전달합니다. Azure에 복제하려는 모든 컴퓨터에 모바일 서비스(VMware VM 또는 물리적 서버)를 배포합니다. 다음 방법을 사용하여 보호하려는 서버에 모바일 서비스를 배포할 수 있습니다.
@@ -32,7 +27,7 @@ Azure Site Recovery 모바일 서비스는 컴퓨터에서 데이터 쓰기를 �
 
 
 >[!IMPORTANT]
-> 9.7.0.0 버전부터 모바일 서비스 설치 관리자는 Windows 가상 컴퓨터에 사용 가능한 최신 [Azure VM 에이전트](../virtual-machines/windows/extensions-features.md#azure-vm-agent)도 설치합니다. 컴퓨터가 Azure로 장애 조치되는 경우에는 VM 확장 사용에 대한 에이전트 설치 필수 조건을 충족합니다.
+> 9.7.0.0 버전부터 모바일 서비스 설치 관리자는 Windows 가상 머신에 사용 가능한 최신 [Azure VM 에이전트](../virtual-machines/windows/extensions-features.md#azure-vm-agent)도 설치합니다. 컴퓨터가 Azure로 장애 조치되는 경우에는 VM 확장 사용에 대한 에이전트 설치 필수 조건을 충족합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 서버에 모바일 서비스를 수동으로 설치하기 전에 이러한 필수 조건 단계를 완료합니다.
@@ -65,7 +60,7 @@ Azure Site Recovery 모바일 서비스는 컴퓨터에서 데이터 쓰기를 �
 ## <a name="install-mobility-service-manually-by-using-the-gui"></a>GUI를 사용하여 수동으로 모바일 서비스 설치
 
 >[!IMPORTANT]
-> **구성 서버**를 사용하여 Azure 구독/지역 간에 **Azure IaaS 가상 컴퓨터**를 복제하는 경우 **명령줄 기반 설치 메서드를 사용**합니다.
+> **구성 서버**를 사용하여 Azure 구독/지역 간에 **Azure IaaS 가상 머신**를 복제하는 경우 **명령줄 기반 설치 메서드를 사용**합니다.
 
 [!INCLUDE [site-recovery-install-mob-svc-gui](../../includes/site-recovery-install-mob-svc-gui.md)]
 
@@ -92,17 +87,17 @@ Site Recovery를 사용하여 모바일 서비스의 강제 설치를 수행하�
 ## <a name="update-mobility-service"></a>모바일 서비스를 업데이트합니다.
 
 > [!WARNING]
-> 보호된 서버에서 모바일 서비스의 업데이트를 시작하기 전에 배포의 일부인 구성 서버, 확장 프로세스 서버 및 마스터 대상 서버를 업데이트했는지 확인하세요. [구성 서버를 업데이트하는 방법](site-recovery-vmware-to-azure-manage-configuration-server.md#upgrading-a-configuration-server) 및 [확장 프로세스 서버를 업데이트하는 방법](site-recovery-vmware-to-azure-manage-scaleout-process-server.md#upgrading-a-scale-out-process-server)에 대해 자세히 알아봅니다.
+> 보호된 서버에서 모바일 서비스의 업데이트를 시작하기 전에 배포의 일부인 구성 서버, 확장 프로세스 서버 및 마스터 대상 서버를 업데이트했는지 확인하세요.
 
 1. Azure Portal에서 <Your Vault> -> 복제된 항목 보기로 이동합니다.
 2. **구성 서버**를 최신 버전으로 업데이트한 경우 읽을 수 있는 *새 Site recovery 복제 에이전트 업데이트를 사용할 수 있습니다.라는 알림이 표시됩니다. 클릭하여 설치합니다.*
 
      ![ReplicatedItems](.\media\site-recovery-vmware-to-azure-install-mob-svc\replicated-item-notif.png)
-3. 알림을 클릭하여 가상 컴퓨터 선택 페이지를 엽니다.
-4. 모바일 서비스를 업그레이드하려는 가상 컴퓨터를 선택하고 확인 단추를 클릭합니다.
+3. 알림을 클릭하여 가상 머신 선택 페이지를 엽니다.
+4. 모바일 서비스를 업그레이드하려는 가상 머신을 선택하고 확인 단추를 클릭합니다.
 
      ![ReplicatedItemsVMList](.\media\site-recovery-vmware-to-azure-install-mob-svc\update-okpng.png)
-5. 선택한 가상 컴퓨터 각각에 대한 모바일 서비스 업데이트 작업을 시작합니다.
+5. 선택한 가상 머신 각각에 대한 모바일 서비스 업데이트 작업을 시작합니다.
 
 > [!NOTE]
 > 모바일 서비스를 설치하는 데 사용되는 계정의 암호를 업데이트하는 방법에 대해 [자세히 알아봅니다](site-recovery-vmware-to-azure-manage-configuration-server.md).

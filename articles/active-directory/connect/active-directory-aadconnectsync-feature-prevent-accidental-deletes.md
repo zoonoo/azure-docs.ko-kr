@@ -3,7 +3,7 @@ title: "Azure AD Connect 동기화: 실수로 인한 삭제 방지 | Microsoft D
 description: "이 항목에서는 Azure AD Connect의 실수로 인한 삭제 방지 기능을 설명합니다."
 services: active-directory
 documentationcenter: 
-author: AndKjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 6b852cb4-2850-40a1-8280-8724081601f7
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 72283424ab750d10f9a0739347650d0a9eee1520
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 57ce7b2fcece751b1386ef1d57762ad8d1c27c62
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-prevent-accidental-deletes"></a>Azure AD Connect 동기화: 실수로 인한 삭제 방지
 이 항목에서는 Azure AD Connect의 실수로 인한 삭제 방지 기능을 설명합니다.

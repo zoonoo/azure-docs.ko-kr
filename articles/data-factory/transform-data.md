@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 01/16/2018
 ms.author: shengc
-ms.openlocfilehash: 88ff71956c82d79fb244f1a687debeb726291ae8
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: de9b054a9ef7d6efc64049059f581741eef39035
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Azure Data Factory의 데이터 변환
 > [!div class="op_single_selector"]
@@ -26,8 +26,7 @@ ms.lasthandoff: 12/21/2017
 > * [MapReduce](transform-data-using-hadoop-map-reduce.md)  
 > * [Hadoop 스트리밍](transform-data-using-hadoop-streaming.md)
 > * [Spark](transform-data-using-spark.md)
-> * 
-            [Machine Learning](transform-data-using-machine-learning.md) 
+> * [Machine Learning](transform-data-using-machine-learning.md) 
 > * [저장 프로시저](transform-data-using-stored-procedure.md)
 > * [데이터 레이크 분석 U-SQL](transform-data-using-data-lake-analytics.md)
 > * [.NET 사용자 지정](transform-data-using-dotnet-custom-activity.md)

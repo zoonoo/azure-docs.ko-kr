@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/10/2018
 ms.author: shengc
-ms.openlocfilehash: 8bd9382ed5a855368533c6bf2305682861c109c0
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: c2ec6706c92f229bb05ad9a19246c6ffe5f615c9
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="transform-data-in-the-cloud-by-using-spark-activity-in-azure-data-factory"></a>Azure Data Factory에서 Spark 작업을 사용하여 클라우드의 데이터 변환
 이 자습서에서는 Azure Portal을 사용하여 Spark 활동 및 주문형 HDInsight 연결된 서비스를 사용하여 데이터를 변환하는 Data Factory 파이프라인을 만듭니다. 이 자습서에서 수행하는 단계는 다음과 같습니다.
@@ -180,6 +180,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     
     ![유효성 검사 단추](./media/tutorial-transform-data-spark-portal/validate-button.png)
 7. **게시**를 클릭합니다. Data Factory UI는 엔터티(연결된 서비스 및 파이프라인)를 Azure Data Factory 서비스에 게시합니다. 
+    
+    ![게시 단추](./media/tutorial-transform-data-spark-portal/publish-button.png)
 
 ## <a name="trigger-a-pipeline-run"></a>파이프라인 실행 트리거
 도구 모음에서 **트리거**, **지금 트리거**를 차례로 클릭합니다. 

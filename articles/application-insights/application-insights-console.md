@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: lmolkova
-ms.openlocfilehash: 1b6bef88d729a2febfca2bd236a5382d2c11bd69
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 57f5670eec36ff2c4332da592dd2a3eef73fdefc
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="application-insights-for-net-console-applications"></a>.NET 콘솔 응용 프로그램용 Application Insights
 [Application Insights](app-insights-overview.md)를 사용하여 웹 응용 프로그램의 가용성, 성능 및 사용량을 모니터링할 수 있습니다.
@@ -31,7 +31,7 @@ ms.lasthandoff: 01/03/2018
 * 최신 [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) 패키지를 설치합니다.
 * 원격 분석을 추적하기 전에 코드에서 계측 키를 설정합니다(또는 APPINSIGHTS_INSTRUMENTATIONKEY 환경 변수 설정). 그런 다음, 수동으로 원격 분석을 추적하고 Azure Portal에서 확인할 수 있습니다.
 
-```C#
+```csharp
 TelemetryConfiguration.Active.InstrumentationKey = " *your key* ";
 var telemetryClient = new TelemetryClient();
 telemetryClient.TrackTrace("Hello World!");
@@ -45,13 +45,13 @@ telemetryClient.TrackTrace("Hello World!");
 
 기본적으로 Application Insights SDK는 `TelemetryConfiguration`을 만들 때 작업 디렉터리에서 `ApplicationInsights.config` 파일을 찾습니다.
 
-```C#
+```csharp
 TelemetryConfiguration config = TelemetryConfiguration.Active; // Read ApplicationInsights.config file if present
 ```
 
 구성 파일의 경로를 지정할 수도 있습니다.
 
-```C#
+```csharp
 TelemetryConfiguration configuration = TelemetryConfiguration.CreateFromConfiguration("ApplicationInsights.config");
 ```
 
@@ -90,7 +90,7 @@ TelemetryConfiguration configuration = TelemetryConfiguration.CreateFromConfigur
 
 * 응용 프로그램이 시작하는 동안 `DependencyTrackingTelemetryModule` 인스턴스를 만들고 구성합니다. 이 인스턴스는 단일 항목이어야 하며 응용 프로그램 수명 동안 유지되어야 합니다.
 
-```C#
+```csharp
 var module = new DependencyTrackingTelemetryModule();
 
 // prevent Correlation Id to be sent to certain endpoints. You may add other domains as needed.
@@ -109,7 +109,7 @@ module.Initialize(configuration);
 
 * 공용 원격 분석 이니셜라이저 추가
 
-```C#
+```csharp
 // stamps telemetry with correlation identifiers
 TelemetryConfiguration.Active.TelemetryInitializers.Add(new OperationCorrelationTelemetryInitializer());
 
@@ -121,7 +121,7 @@ TelemetryConfiguration.Active.TelemetryInitializers.Add(new HttpDependenciesPars
 
 #### <a name="full-example"></a>전체 예제
 
-```C#
+```csharp
 static void Main(string[] args)
 {
     TelemetryConfiguration configuration = TelemetryConfiguration.Active;
@@ -174,4 +174,4 @@ static DependencyTrackingTelemetryModule IntitializeDependencyTracking(Telemetry
 
 ## <a name="next-steps"></a>다음 단계
 * [종속성을 모니터링](app-insights-asp-net-dependencies.md)하여 REST, SQL 또는 다른 외부 리소스의 속도가 느려지는지 확인합니다.
-* [API를 사용](app-insights-api-custom-events-metrics.md)하여 자체 이벤트 및 메트릭을 보내 앱의 성능 및 사용량을 더 자세히 확인합니다.
+* [API를 사용](app-insights-api-custom-events-metrics.md) 합니다.

@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 12/15/2017
 ms.author: mblythe; glenga
 ms.custom: mvc
-ms.openlocfilehash: 2bf1a3e80e96d76b15340f87166b2b4762271cf3
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 29e78bbb8e3d4d4feb3f7d32cf0a5ef1b02a6268
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="create-an-openapi-definition-for-a-function"></a>함수에 대한 OpenAPI 정의 만들기
 REST API는 종종 OpenAPI 정의를 사용하여 설명됩니다(이전의 [Swagger](http://swagger.io/) 파일). 이 정의에는 API에서 사용할 수 있는 작업 및 API에 대한 요청 및 응답 데이터가 구성되는 방식에 대한 정보가 포함됩니다.
@@ -62,7 +62,7 @@ REST API는 종종 OpenAPI 정의를 사용하여 설명됩니다(이전의 [Swa
 
 1. run.csx 파일 내용을 다음 코드로 바꾼 다음 **저장**을 클릭합니다.
 
-    ```c#
+    ```csharp
     using System.Net;
 
     const double revenuePerkW = 0.12; 

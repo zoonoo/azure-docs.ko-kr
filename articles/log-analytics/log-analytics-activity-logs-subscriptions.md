@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/08/2018
 ms.author: richrund; bwren
-ms.openlocfilehash: d8c970b322be7f735e51c7b246b2421589c91813
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: ded0b4cdcbac747d52435023a24b5719f3c58758
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="collect-azure-activity-logs-into-log-analytics-across-subscriptions"></a>구독 전체의 Azure 활동 로그를 Log Analytics에 수집
 
@@ -27,7 +27,7 @@ Log Analytics 작업 영역이 동일한 Azure 구독에 있거나 동일한 Azu
 
 ## <a name="overview"></a>개요
 
-이 시나리오에서 사용된 전략은 Azure 활동 로그가 [이벤트 허브](../event-hubs/event-hubs-what-is-event-hubs.md)에 이벤트를 보내게 하고, 여기서 [Logic App](../logic-apps/logic-apps-what-are-logic-apps.md)이 이벤트를 Log Analytics 작업 영역으로 보내는 것입니다. 
+이 시나리오에서 사용된 전략은 Azure 활동 로그가 [이벤트 허브](../event-hubs/event-hubs-what-is-event-hubs.md)에 이벤트를 보내게 하고, 여기서 [Logic App](../logic-apps/logic-apps-overview.md)이 이벤트를 Log Analytics 작업 영역으로 보내는 것입니다. 
 
 ![활동 로그에서 Log Analytics로의 데이터 흐름 이미지](media/log-analytics-activity-logs-subscriptions/data-flow-overview.png)
 
@@ -124,14 +124,14 @@ Logic App을 만들기 전에 이전 단계에서 다음 정보가 있는지 확
 
 2. 아래 표에 있는 설정을 입력합니다.
 
-    ![Logic App 만들기](media/log-analytics-activity-logs-subscriptions/create-logic-app.png)
+    ![논리 앱 만들기](media/log-analytics-activity-logs-subscriptions/create-logic-app.png)
 
    |설정 | 설명  |
    |:---|:---|
-   | 이름           | Logic App의 고유 이름입니다. |
+   | Name           | Logic App의 고유 이름입니다. |
    | 구독   | Logic App이 포함될 Azure 구독을 선택합니다. |
    | 리소스 그룹 | 기존 Azure 리소스 그룹을 선택하거나 Logic App에 사용할 리소스 그룹을 새로 만듭니다. |
-   | 위치       | Logic App을 배포하기 위한 데이터 센터 지역을 선택합니다. |
+   | 위치       | 논리 앱을 배포하기 위한 데이터 센터 지역을 선택합니다. |
    | Log Analytics  | Logic App의 각 실행 상태를 Log Analytics에 기록할지 여부를 선택합니다.  |
 
     
@@ -141,7 +141,7 @@ Logic App을 만들기 전에 이전 단계에서 다음 정보가 있는지 확
 
 이제 Logic Apps 디자이너에 사용 가능한 커넥터 및 해당 트리거가 표시됩니다. 이는 Logic App 워크플로를 시작하는 데 사용합니다.
 
-<!-- Learn [how to create a logic app](../logic-apps/logic-apps-create-a-logic-app.md). -->
+<!-- Learn [how to create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). -->
 
 ### <a name="add-event-hub-trigger"></a>이벤트 허브 트리거 추가
 

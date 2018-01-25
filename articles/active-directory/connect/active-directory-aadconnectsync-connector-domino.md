@@ -3,7 +3,7 @@ title: "Lotus Domino 커넥터 | Microsoft Docs"
 description: "이 문서에서는 Microsoft의 Lotus Domino 커넥터를 구성하는 방법을 설명합니다."
 services: active-directory
 documentationcenter: 
-author: AndKjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: e07fd469-d862-470f-a3c6-3ed2a8d745bf
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/119/2017
 ms.author: barclayn
-ms.openlocfilehash: 80151134821c6106382c58bf0ec68ea0f6d4646a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6c412be1c54e0378166791c61469c951bca3a583
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="lotus-domino-connector-technical-reference"></a>Lotus Domino 커넥터 기술 참조
 이 문서에서는 Lotus Domino 커넥터를 설명합니다. 이 문서는 다음 제품에 적용됩니다.
@@ -69,7 +69,7 @@ Lotus Domino 커넥터에서 지원되는 작업을 수행하려면 다음 그�
 
 **기본 주소록**
 
-| Object | 생성 | 업데이트 | 삭제 |
+| Object | 생성 | 주 지역에서 | 삭제 |
 | --- | --- | --- | --- |
 | 사람 |AdminP |직접 |AdminP |
 | 그룹 |AdminP |직접 |AdminP |
@@ -78,7 +78,7 @@ Lotus Domino 커넥터에서 지원되는 작업을 수행하려면 다음 그�
 
 **보조 주소록**
 
-| Object | 생성 | 업데이트 | 삭제 |
+| Object | 생성 | 주 지역에서 | 삭제 |
 | --- | --- | --- | --- |
 | 사람 |해당 없음 |직접 |직접 |
 | 그룹 |직접 |직접 |직접 |
@@ -155,7 +155,7 @@ Domino 서버 속성은 서버 이름에 대한 다음 두 가지 형식을 지�
 #### <a name="import-settings-method"></a>설정 가져오기 메서드
 **다음으로 전체 가져오기 수행** 에는 다음과 같은 옵션이 있습니다.
 
-* 검색
+* Search
 * 보기(권장)
 
 **검색** 은 Domino의 인덱싱을 사용하지만 인덱스가 실시간으로 업데이트되지 않고 서버에서 반환된 데이터가 항상 올바르지 않은 것이 일반적입니다. 변경 사항이 많은 시스템의 경우 이 옵션은 일반적으로 잘 작동하지 않고 상황에 따라 잘못된 삭제가 발생합니다. 그러나 **검색**은 **보기**보다 빠릅니다.
@@ -261,7 +261,7 @@ Lotus Domino의 많은 특성은 다중값입니다. 해당하는 메타버스 �
 Lotus Domino 커넥터를 구성할 때 이 대화 상자 페이지를 건너뜁니다. Lotus Domino 커넥터가 계층 구조 프로비전을 지원하지 않습니다.  
 ![프로비전 계층 구조](./media/active-directory-aadconnectsync-connector-domino/provisioninghierarchy.png)
 
-### <a name="configure-partitions-and-hierarchies"></a>파티션 및 계층 구조 구성
+### <a name="configure-partitions-and-hierarchies"></a>파티션 및 계층 구성
 파티션 및 계층 구조를 구성할 때 NAB=names.nsf라는 기본 주소록을 선택해야 합니다. 기본 주소록 외에도 존재하는 경우 보조 주소록을 선택할 수 있습니다.  
 ![파티션](./media/active-directory-aadconnectsync-connector-domino/partitions.png)
 
@@ -371,7 +371,7 @@ Lotus Domino 디렉터리에 사용자 개체를 프로비전할 때 개체에�
 
 다음 테이블에서는 이러한 속성을 나열하고 설명을 제공합니다.
 
-| 속성 | 설명 |
+| 자산 | 설명 |
 | --- | --- |
 | \_MMS_AltFullName |사용자의 대체 전체 이름입니다. |
 | \_MMS_AltFullNameLanguage |사용자의 대체 전체 이름을 지정하는 데 사용할 언어입니다. |
@@ -416,7 +416,7 @@ Lotus Domino 커넥터는 주로 다음 형식의 개체(문서 형식)를 지�
 | Main-In 데이터베이스 |<li>FullName</li><li>MailFile</li><li>MailServer</li><li>MailDomain</li> |
 | 사람 |<li>LastName</li><li>MailFile</li><li>ShortName</li><li>\_MMS_Password</li><li>\_MMS_IDStoreType</li><li>\_MMS_Certifier</li><li>\_MMS_IDRegType</li><li>\_MMS_UseAdminP</li> |
 | 연락처(인증자가 없는 사용자) |<li>\_MMS_IDRegType</li> |
-| 리소스 |<li>FullName</li><li>ResourceType</li><li>ConfDB</li><li>ResourceCapacity</li><li>사이트</li><li>displayName</li><li>MailFile</li><li>MailServer</li><li>MailDomain</li> |
+| 리소스 |<li>FullName</li><li>ResourceType</li><li>ConfDB</li><li>ResourceCapacity</li><li>사이트</li><li>DisplayName</li><li>MailFile</li><li>MailServer</li><li>MailDomain</li> |
 
 ## <a name="common-issues-and-questions"></a>일반적인 문제 및 질문
 ### <a name="schema-detection-does-not-work"></a>스키마 검색이 작동하지 않습니다.

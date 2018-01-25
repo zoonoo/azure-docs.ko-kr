@@ -15,24 +15,24 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/19/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: a790ac51b0fea7e3fa379d20e0e094e7ce0d7696
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 50361a3342a0d14ae02b2cb478bbb0f74b61bba0
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-twilio-connector"></a>Twilio 커넥터 시작
 Twilio에 연결하여 전역 SMS, MMS 및 IP 메시지를 보내고 받습니다. Twilio를 사용하여 다음을 수행할 수 있습니다.
 
 * Twilio에서 가져온 데이터를 기반으로 비즈니스 흐름을 빌드합니다. 
-* 메시지 가져오기, 메시지 나열 등의 작업을 사용합니다. 이러한 작업을 사용하여 응답을 가져오고 출력을 다른 작업에 사용할 수 있도록 설정합니다. 예를 들어 새 Twilio 메시지를 받은 경우 이 메시지를 가져와 서비스 버스 워크플로에서 사용할 수 있습니다. 
+* 메시지 가져오기, 메시지 나열 등의 작업을 사용합니다. 이러한 작업을 사용하여 응답을 가져오고 출력을 다른 작업에 사용할 수 있도록 설정합니다. 예를 들어 새 Twilio 메시지를 받은 경우 이 메시지를 가져와 Service Bus 워크플로에서 사용할 수 있습니다. 
 
-논리 앱을 만들어 시작할 수 있습니다. [논리 앱 만들기](../logic-apps/logic-apps-create-a-logic-app.md)를 참조하세요.
+논리 앱을 만들어 시작할 수 있습니다. [논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)를 참조하세요.
 
 ## <a name="create-a-connection-to-twilio"></a>Twilio에 대한 연결 만들기
 논리 앱에 이 커넥터를 추가할 때 다음 Twilio 값을 입력합니다.
 
-| 속성 | 필수 | 설명 |
+| 자산 | 필수 | 설명 |
 | --- | --- | --- |
 | 계정 ID |예 |Twilio 계정 ID 입력 |
 | 액세스 토큰 |예 |Twilio 액세스 토큰 입력 |

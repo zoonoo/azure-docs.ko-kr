@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 13b317b05e56554e4f6b74a3ecfd3bc268333db0
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 1e1c8e03bbfc2a07f4d4faee4c3b171c44fa312d
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Amazon Redshift에서 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -39,7 +39,7 @@ Amazon Redshift에서 지원되는 모든 싱크 데이터 저장소로 데이�
 > [!TIP]
 > Redshift에서 많은 양의 데이터를 복사할 때 최상의 성능을 위해 Amazon S3을 통해 기본 제공 Redshift UNLOAD를 사용하는 것이 좋습니다. 자세한 내용은 [UNLOAD를 사용하여 Amazon Redshift에서 데이터 복사](#use-unload-to-copy-data-from-amazon-redshift)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 * [자체 호스팅 통합 런타임](create-self-hosted-integration-runtime.md)을 사용하여 데이터를 온-프레미스 데이터 저장소로 복사하는 경우 통합 런타임에(컴퓨터의 IP 주소 사용) Amazon Redshift 클러스터에 대한 액세스 권한을 부여합니다. 자세한 내용은 [클러스터에 대한 액세스 권한 부여](http://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) 를 참조하세요.
 * Azure 데이터 저장소에 데이터를 복사하는 경우, Azure 데이터 센터에서 사용하는 IP 주소 및 SQL 범위를 계산하기 위해 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)를 참조하세요.
@@ -56,12 +56,12 @@ Amazon Redshift 연결된 서비스에 다음 속성이 지원됩니다.
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 형식 속성은 **AmazonRedshift**로 설정되어야 합니다. | 적용 |
-| 서버 |Amazon Redshift 서버의 IP 주소 또는 호스트 이름입니다. |적용 |
+| 형식 | 형식 속성은 **AmazonRedshift**로 설정되어야 합니다. | 예 |
+| 서버 |Amazon Redshift 서버의 IP 주소 또는 호스트 이름입니다. |예 |
 | 포트 |Amazon Redshift 서버가 클라이언트 연결을 수신하는 데 사용하는 TCP 포트 수입니다. |아니요(기본값: 5439) |
-| 데이터베이스 |Amazon Redshift 데이터베이스의 이름입니다. |적용 |
-| 사용자 이름 |데이터베이스에 대한 액세스 권한이 있는 사용자의 이름입니다. |적용 |
-| 암호 |사용자 계정의 password입니다. 이 필드를 SecureString으로 표시합니다. |적용 |
+| 데이터베이스 |Amazon Redshift 데이터베이스의 이름입니다. |예 |
+| 사용자 이름 |데이터베이스에 대한 액세스 권한이 있는 사용자의 이름입니다. |예 |
+| 암호 |사용자 계정의 password입니다. 이 필드를 SecureString으로 표시합니다. |예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 Integration Runtime을 사용할 수 있습니다(데이터 저장소가 개인 네트워크에 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아니요 |
 
 **예제:**
@@ -98,7 +98,7 @@ Amazon Redshift에서 데이터를 복사하려면 데이터 집합의 type 속�
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 데이터 집합의 type 속성을 **RelationalTable**로 설정해야 합니다. | 적용 |
+| 형식 | 데이터 집합의 type 속성을 **RelationalTable**로 설정해야 합니다. | 예 |
 | tableName | Amazon Redshift에서 테이블의 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
 
 **예제**
@@ -128,9 +128,9 @@ Amazon Redshift에서 데이터를 복사하려면 복사 작업의 원본 형�
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 복사 작업 원본의 type 속성을 **AmazonRedshiftSource**로 설정해야 합니다. | 적용 |
+| 형식 | 복사 작업 원본의 type 속성을 **AmazonRedshiftSource**로 설정해야 합니다. | 예 |
 | 쿼리 |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예: select * from MyTable. |아니요(데이터 집합의 "tableName"이 지정된 경우) |
-| redshiftUnloadSettings | Amazon Redshift UNLOAD를 사용하는 경우 속성 그룹입니다. | 아니요 |
+| redshiftUnloadSettings | Amazon Redshift UNLOAD를 사용하는 경우 속성 그룹입니다. | 아니오 |
 | s3LinkedServiceName | “AmazonS3” 형식의 연결된 서비스 이름을 지정하여 중간 저장소로 사용하려는 Amazon S3을 참조합니다. | 예(UNLOAD를 사용하는 경우) |
 | bucketName | 중간 데이터를 저장할 S3 버킷을 지정합니다. 제공되지 않은 경우 Data Factory 서비스는 자동으로 생성합니다.  | 예(UNLOAD를 사용하는 경우) |
 

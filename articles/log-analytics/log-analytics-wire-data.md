@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 01/16/2018
 ms.author: magoedte;banders
-ms.openlocfilehash: 331cc9d27dd416900e0145f3e453dfd3bfcfbcb5
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: b7cb178a24b043fe2c884ef0e4b3ad14ca0d73e4
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="wire-data-20-preview-solution-in-log-analytics"></a>Log Analytics에서 Wire Data 2.0(미리 보기) 솔루션
 
@@ -61,7 +61,7 @@ Wire Data는 Microsoft 종속성 에이전트에서 해당 데이터를 가져�
 | Windows 에이전트 | 예 | Wire Data는 Windows 에이전트 컴퓨터에서 데이터를 분석하고 수집합니다. <br><br> [OMS 에이전트](log-analytics-windows-agent.md) 외에도 Windows 에이전트에는 Microsoft 종속성 에이전트가 필요합니다. 운영 체제 버전의 전체 목록은 [지원되는 운영 체제](../operations-management-suite/operations-management-suite-service-map-configure.md#supported-operating-systems)를 참조하세요. |
 | Linux 에이전트 | 예 | Wire Data는 Linux 에이전트 컴퓨터에서 데이터를 분석하고 수집합니다.<br><br> [OMS 에이전트](log-analytics-quick-collect-linux-computer.md) 외에도 Linux 에이전트에는 Microsoft 종속성 에이전트가 필요합니다. 운영 체제 버전의 전체 목록은 [지원되는 운영 체제](../operations-management-suite/operations-management-suite-service-map-configure.md#supported-operating-systems)를 참조하세요. |
 | System Center Operations Manager 관리 그룹 | 예 | Wire Data는 연결된 [System Center Operations Manager 관리 그룹](log-analytics-om-agents.md)의 Windows 및 Linux 에이전트에서 데이터를 분석하고 수집합니다. <br><br> System Center Operations Manager 에이전트 컴퓨터에서 Log Analytics로의 직접 연결이 필요합니다. 데이터는 관리 그룹에서 Log Analytics로 전달됩니다. |
-| Azure 저장소 계정 | 아니요 | Wire Data는 에이전트 컴퓨터에서 데이터를 수집하므로 Azure Storage에서 수집할 데이터는 없습니다. |
+| Azure Storage 계정 | 아니요 | Wire Data는 에이전트 컴퓨터에서 데이터를 수집하므로 Azure Storage에서 수집할 데이터는 없습니다. |
 
 Windows에서 System Center Operations Manager와 Log Analytics는 MMA(Microsoft Monitoring Agent)를 사용하여 데이터를 수집하고 전송합니다. 에이전트는 컨텍스트에 따라 System Center Operations Manager 에이전트, OMS 에이전트, Log Analytics 에이전트, MMA 또는 직접 에이전트라고 합니다. System Center Operations Manager와 Log Analytics는 MMA의 약간 다른 버전을 제공합니다. 이러한 버전은 각각 System Center Operations Manager, Log Analytics 또는 양쪽 모두에 보고할 수 있습니다.
 
@@ -100,7 +100,7 @@ Log Analytics에 연결된 관리 그룹을 사용하는 System Center Operation
 
 #### <a name="windows-desktop"></a>Windows 데스크톱
 
-- Windows 10
+- 윈도우 10
 - Windows 8.1
 - Windows 8
 - Windows 7
@@ -252,7 +252,7 @@ InstallDependencyAgent-Linux64.bin -help
 
 종속성 에이전트에 대한 파일은 다음 디렉터리에 있습니다.
 
-| **파일** | **위치** |
+| **파일** | **위치**: |
 | --- | --- |
 | 코어 파일 | /opt/microsoft/dependency-agent |
 | 로그 파일 | /var/opt/microsoft/dependency-agent/log |
@@ -375,9 +375,6 @@ Log Analytics 작업 영역에서 Wire Data가 활성화되면 해당 작업 영
 
 에이전트를 설치한 후 솔루션을 설치하면 Wire Data 2.0 타일이 작업 영역에 나타납니다.
 
-> [!NOTE]
-> 현재 실시간 데이터를 보려면 OMS 포털을 사용해야 합니다. Azure Portal을 사용하여 실시간 데이터를 볼 수 없습니다.
-
 ![Wire Data 타일](./media/log-analytics-wire-data/wire-data-tile.png)
 
 ## <a name="using-the-wire-data-20-solution"></a>Wire Data 2.0 솔루션 사용
@@ -420,9 +417,9 @@ OMS 포털에서 **Wire Data 2.0** 타일을 클릭하여 Wire Data 대시보드
 
 각 형식의 입력 데이터에 대해 종류가 _WireData_인 레코드가 만들어집니다. WireData 레코드는 다음 테이블에 표시된 속성을 가집니다.
 
-| 속성 | 설명 |
+| 자산 | 설명 |
 |---|---|
-| 컴퓨터 | 데이터가 수집된 컴퓨터 이름 |
+| Computer | 데이터가 수집된 컴퓨터 이름 |
 | TimeGenerated | 레코드 시간 |
 | LocalIP | 로컬 컴퓨터의 IP 주소 |
 | SessionState | 연결 또는 연결 끊김 |

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: powershell
 ms.topic: hero-article
-ms.date: 11/30/2017
+ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: aec3f107cc94fba2e9b478d86a848c762f1f8b0e
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 40a8e3a0ac0130eb12193a07c4bf367efe29b9d9
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="create-an-azure-data-factory-using-powershell"></a>PowerShell을 사용하여 Azure Data Factory 만들기 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -117,7 +117,7 @@ ms.lasthandoff: 12/14/2017
         }
     }
     ```
-    메모장을 사용하는 경우 **다른 이름으로 저장** 대화 상자의 **파일 형식** 필드에서 **모든 파일**을 선택합니다. 선택하지 않으면 파일에 `.txt` 확장이 추가됩니다. 예: `AzureStorageLinkedService.json.txt`. 메모장에서 파일을 열기 전에 파일 탐색기에서 파일을 만들면 **알려진 파일 형식의 확장명 숨기기** 옵션이 기본적으로 설정되어 `.txt` 확장이 보이지 않을 수 있습니다. `.txt` 확장을 제거한 후 다음 단계로 넘어갑니다.
+    메모장을 사용하는 경우 **다른 이름으로 저장** 대화 상자의 **파일 형식** 필드에서 **모든 파일**을 선택합니다. 선택하지 않으면 파일에 `.txt` 확장이 추가됩니다. 예: `AzureStorageLinkedService.json.txt` 메모장에서 파일을 열기 전에 파일 탐색기에서 파일을 만들면 **알려진 파일 형식의 확장명 숨기기** 옵션이 기본적으로 설정되어 `.txt` 확장이 보이지 않을 수 있습니다. `.txt` 확장을 제거한 후 다음 단계로 넘어갑니다.
 2. **PowerShell**에서 **ADFv2QuickStartPSH** 폴더로 전환합니다.
 
     ```powershell

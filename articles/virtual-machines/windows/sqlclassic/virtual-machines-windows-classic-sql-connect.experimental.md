@@ -15,11 +15,11 @@ ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: jroth
 experimental_id: d51f3cc6-753b-4e
-ms.openlocfilehash: 67b328cb754e49fe1dea9d57f74dd31793acd93c
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 8602decfa35a21e88885fda1a4c70264bb38444b
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure-classic-deployment"></a>Azure에서 SQL Server Virtual Machine 연결(클래식 배포)
 > [!div class="op_single_selector"]
@@ -47,7 +47,7 @@ ms.lasthandoff: 01/18/2018
 > 
 
 ### <a name="connect-to-sql-server-in-the-same-cloud-service"></a>동일한 클라우드 서비스의 SQL Server에 연결
-한 클라우드 서비스에 여러 가상 머신을 만들 수 있습니다. 가상 머신 시나리오를 이해하려면 [가상 머신을 가상 네트워크 또는 클라우드 서비스와 연결하는 방법](../classic/connect-vms.md#connect-vms-in-a-standalone-cloud-service)을 참조하세요. 이 시나리오에서 한 가상 머신의 클라이언트는 동일한 클라우드 서비스의 다른 가상 머신에서 실행 중인 SQL Server에 연결하려고 합니다.
+한 클라우드 서비스에 여러 가상 머신을 만들 수 있습니다. 가상 머신 시나리오를 이해하려면 [가상 머신을 가상 네트워크 또는 클라우드 서비스와 연결하는 방법](../classic/connect-vms-classic.md#connect-vms-in-a-standalone-cloud-service)을 참조하세요. 이 시나리오에서 한 가상 머신의 클라이언트는 동일한 클라우드 서비스의 다른 가상 머신에서 실행 중인 SQL Server에 연결하려고 합니다.
 
 이 시나리오에서는 VM **이름**(포털에 **컴퓨터 이름** 또는 **호스트 이름**으로도 표시됨)을 사용하여 연결할 수 있습니다. 이 이름은 VM을 만들 때 제공된 이름입니다. 예를 들어 SQL VM 이름을 **mysqlvm**으로 지정하면 동일한 클라우드 서비스의 클라이언트 VM은 다음 연결 문자열을 사용하여 연결할 수 있습니다.
 

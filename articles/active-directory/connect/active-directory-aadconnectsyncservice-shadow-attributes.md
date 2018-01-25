@@ -3,7 +3,7 @@ title: "Azure AD Connect 동기화 서비스 섀도 특성 | Microsoft Docs"
 description: "Azure AD Connect 동기화 서비스에서 섀도 특성이 작동하는 방식을 설명합니다."
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 00488391c496f06cfcad12e67f5a874313c57e08
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 19d5ae46955ecc094c340d141485d3eb54c8e9b2
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-service-shadow-attributes"></a>Azure AD Connect 동기화 서비스 섀도 특성
 대부분의 특성은 온-프레미스 Active Directory에 있을 때와 동일한 방식으로 Azure AD에 표현됩니다. 하지만 일부 특성은 조작 방법이 특별하며 Azure AD의 특성 값이 Azure AD Connect가 동기화하는 값과 다를 수 있습니다.

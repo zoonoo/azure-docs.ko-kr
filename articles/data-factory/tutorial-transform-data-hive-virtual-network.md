@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/06/2017
+ms.date: 01/22/2018
 ms.author: shengc
-ms.openlocfilehash: c15d723efdcf273c86f54ddce04904ce1a274631
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 30456a30c12d39ceb14dec6cd60015916cb7ae27
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>Azure Data Factory에서 Hive 작업을 사용하여 Azure Virtual Network에서 데이터 변환
 이 자습서에서는 Azure PowerShell을 사용하여 Azure VNet(Virtual Network)에 있는 HDInsight 클러스터에서 Hive 작업을 통해 데이터를 변환하는 Data Factory 파이프라인을 만듭니다. 이 자습서에서 수행하는 단계는 다음과 같습니다.
@@ -150,7 +150,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
    }
    ```
     **AuthKey1** 값을 따옴표 없이 적어 둡니다. 
-3. Azure VM을 만들고 HDInsight 클러스터가 포함된 동일한 가상 네트워크에 연결합니다. 자세한 내용은 [가상 컴퓨터를 만드는 방법](../virtual-network/virtual-network-get-started-vnet-subnet.md#create-vms)을 참조하세요. Azure Virtual Network에 조인합니다. 
+3. Azure VM을 만들고 HDInsight 클러스터가 포함된 동일한 가상 네트워크에 연결합니다. 자세한 내용은 [가상 머신을 만드는 방법](../virtual-network/virtual-network-get-started-vnet-subnet.md#create-vms)을 참조하세요. Azure Virtual Network에 조인합니다. 
 4. Azure VM에서 [자체 호스팅 통합 런타임](https://www.microsoft.com/download/details.aspx?id=39717)을 다운로드합니다. 이전 단계에서 얻은 인증 키를 사용하여 자체 호스팅 통합 런타임을 수동으로 등록합니다. 
 
    ![통합 런타임 등록](media/tutorial-transform-data-using-hive-in-vnet/register-integration-runtime.png)

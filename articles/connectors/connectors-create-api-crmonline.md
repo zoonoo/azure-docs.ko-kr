@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 02/10/2017
 ms.author: matp; LADocs
 ms.openlocfilehash: d35647921ff540167a3a591fb489d3bab031a5c1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="connect-to-dynamics-365-from-logic-app-workflows"></a>논리 앱 워크플로에서 Dynamics 365에 연결
 
@@ -40,7 +40,7 @@ Logic Apps를 사용하여 Dynamics 365(온라인)에 연결하고 레코드를 
 
 2.  Azure 검색 상자에 `Logic apps`를 입력하고 ENTER 키를 누릅니다.
 
-      ![논리 앱 찾기](./media/connectors-create-api-crmonline/find-logic-apps.png)
+      ![Logic Apps 찾기](./media/connectors-create-api-crmonline/find-logic-apps.png)
 
 3.  **논리 앱** 아래에서 **추가**를 클릭합니다.
 
@@ -113,7 +113,7 @@ Logic Apps를 사용하여 Dynamics 365(온라인)에 연결하고 레코드를 
 
 필드에 값을 추가할 경우 값을 입력하거나 표시된 동적 콘텐츠 목록에서 선택하거나 어떤 방법에서든, 해당 필드 형식과 일치해야 합니다.
 
-필드 형식  |사용 방법  |찾는 위치  |이름  |데이터 형식  
+필드 형식  |사용 방법  |찾는 위치  |Name  |데이터 형식  
 ---------|---------|---------|---------|---------
 텍스트 필드|텍스트 필드에는 한 줄의 텍스트 또는 텍스트 형식 필드인 동적 콘텐츠가 필요합니다. 이러한 예로 범주, 하위 범주 필드가 있습니다.|설정 > 사용자 지정 > 시스템 사용자 지정 > 엔터티 > 작업 > 필드 |카테고리 |한 줄의 텍스트        
 정수 필드 | 일부 필드에는 정수 또는 정수 형식 필드인 동적 콘텐츠가 필요합니다. 이러한 예로 완료율, 기간이 있습니다. |설정 > 사용자 지정 > 시스템 사용자 지정 > 엔터티 > 작업 > 필드 |percentcomplete |정수         
@@ -150,7 +150,7 @@ Logic Apps를 사용하여 Dynamics 365(온라인)에 연결하고 레코드를 
 ## <a name="troubleshooting"></a>문제 해결
 논리 앱에서 실패한 단계의 문제를 해결하려면 이벤트의 상태 세부 정보를 확인하세요.
 
-1. **논리 앱** 아래에서 논리 앱을 선택한 다음 **개요**를 클릭합니다. 
+1. **Logic Apps** 아래에서 논리 앱을 선택한 다음 **개요**를 클릭합니다. 
 
    [요약] 영역이 표시되고 논리 앱에 대한 실행 상태를 제공합니다. 
 

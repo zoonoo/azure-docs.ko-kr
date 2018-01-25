@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/01/2017
+ms.date: 01/22/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: dda7a18625fbabb3fcf44261753aa523bb010615
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 66e054aa13c7a3555758268be676e93ff7a3b5d1
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="tutorial-create-a-data-factory-pipeline-that-moves-data-by-using-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 데이터를 이동하는 Data Factory 파이프라인 만들기
 > [!div class="op_single_selector"]
@@ -273,9 +273,9 @@ Azure 저장소 연결된 서비스는 런타임에 Data Factory 서비스에서
 
     다음 테이블은 코드 조각에 사용된 JSON 속성에 대한 설명을 제공합니다.
 
-    | 속성 | 설명 |
+    | 자산 | 설명 |
     |:--- |:--- |
-    | type | Azure Blob 저장소에 데이터가 있기 때문에 type 속성은 **AzureBlob**으로 설정됩니다. |
+    | 형식 | Azure Blob 저장소에 데이터가 있기 때문에 type 속성은 **AzureBlob**으로 설정됩니다. |
     | linkedServiceName | 이전에 만든 **AzureStorageLinkedService**를 참조합니다. |
     | folderPath | 입력 Blob이 포함된 Blob **컨테이너**와 **폴더**를 지정합니다. 이 자습서에서 adftutorial은 Blob 컨테이너이며, 폴더는 루트 폴더입니다. | 
     | fileName | 이 속성은 선택 사항입니다. 이 속성을 생략하면 folderPath의 모든 파일이 선택됩니다. 이 자습서에서는 fileName에 대해 **emp.txt**를 지정하므로 해당 파일만 처리를 위해 선택됩니다. |
@@ -338,9 +338,9 @@ Azure 저장소 연결된 서비스는 런타임에 Data Factory 서비스에서
 
     다음 테이블은 코드 조각에 사용된 JSON 속성에 대한 설명을 제공합니다.
 
-    | 속성 | 설명 |
+    | 자산 | 설명 |
     |:--- |:--- |
-    | type | Azure SQL 데이터베이스의 테이블에 데이터가 복사되기 때문에 type 속성은 **AzureSqlTable**로 설정됩니다. |
+    | 형식 | Azure SQL 데이터베이스의 테이블에 데이터가 복사되기 때문에 type 속성은 **AzureSqlTable**로 설정됩니다. |
     | linkedServiceName | 이전에 만든 **AzureSqlLinkedService**를 참조합니다. |
     | tableName | 데이터가 복사되는 **테이블**을 지정했습니다. | 
     | frequency/interval | frequency는 **Hour**로 설정되고, interval은 **1**입니다. 즉 출력 조각이 이러한 시간 이전 또는 이후가 아니라 파이프라인의 시작 시간과 종료 시간 사이에서 **매시간** 생성됩니다.  |
@@ -460,7 +460,7 @@ Azure 저장소 연결된 서비스는 런타임에 Data Factory 서비스에서
     $df=Get-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name <DataFactoryName>
     ```
 
-    예:
+    예: 
     ```PowerShell
     $df=Get-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name ADFTutorialDataFactoryPSH0516
     ```
@@ -559,7 +559,7 @@ Data Factory cmdlet에 대한 포괄적인 설명서는 [Data Factory cmdlet 참
 2. **연결된 서비스**를 만들었습니다.
 
    a. 입력 데이터를 보유하는 Azure Storage 계정을 연결하는 **Azure Storage**에 연결된 서비스입니다.     
-   b. 출력 데이터를 보유하는 SQL Database를 연결하는 **Azure SQL** 연결된 서비스입니다.
+   나. 출력 데이터를 보유하는 SQL Database를 연결하는 **Azure SQL** 연결된 서비스입니다.
 3. 파이프라인의 입력 데이터와 출력 데이터를 설명하는 **데이터 집합** 을 만들었습니다.
 4. 원본으로 **BlobSource**를 사용하고 싱크로 **SqlSink**를 사용하는 **복사 작업**으로 **파이프라인**을 만들었습니다.
 

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 01/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 459c792028d3eede059814324597811b24e65ac2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c1fde0abd2f5fa8e36c71707d14cd5afeb3a0d2d
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="schema-mapping-in-copy-activity"></a>복사 작업의 스키마 매핑
 이 문서에서는 Azure Data Factory 복사 작업에서 데이터 복사를 수행할 때 원본 데이터의 스키마 매핑과 데이터 형식을 싱크 데이터에 매핑하는 방법을 설명합니다. 
@@ -151,8 +151,8 @@ ms.lasthandoff: 10/11/2017
 데이터 팩터리는 다음 중간 데이터 형식을 지원합니다. [데이터 집합 구조](concepts-datasets-linked-services.md#dataset-structure) 구성에서 형식 정보를 입력할 때 아래 값을 지정할 수 있습니다.
 
 * Byte[]
-* Boolean
-* Datetime
+* BOOLEAN
+* DateTime
 * Datetimeoffset
 * 10진수
 * Double

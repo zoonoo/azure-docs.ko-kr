@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 9a291a42d72985b9fe8f9083b265807122ae6343
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 30cf3911d0f22e2d9351fc606cd6697ef437e452
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="azure-active-directory-identity-protection-glossary"></a>Azure Active Directory ID 보호 용어집
 ### <a name="at-risk-user"></a>위험(사용자)
@@ -37,7 +37,7 @@ ms.lasthandoff: 12/11/2017
 ### <a name="credentials"></a>자격 증명
 로컬 및 네트워크 리소스에 대한 액세스 권한을 얻는 데 사용되는 ID 및 ID의 증명을 포함하는 정보입니다. 자격 증명의 예는 사용자 이름 및 암호, 스마트 카드 및 인증서가 있습니다.
 
-### <a name="event"></a>이벤트
+### <a name="event"></a>행사
 Azure Active Directory에서 작업의 기록입니다.
 
 ### <a name="false-positive-risk-event"></a>가양성(위험 이벤트)

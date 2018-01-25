@@ -3,7 +3,7 @@ title: "Java SDK에서 Maven로 마이그레이션 - 이전 Azure Service Fabric
 description: "Service Fabric Java SDK를 사용하기 위해 사용되는 이전 Java 응용 프로그램을 업데이트하여 Maven에서 Service Fabric Java 종속성을 페치합니다. 이 설정을 완료한 후에 이전 Java 응용 프로그램을 빌드할 수 있습니다."
 services: service-fabric
 documentationcenter: java
-author: sayantancs
+author: rapatchi
 manager: timlt
 editor: 
 ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
@@ -13,12 +13,12 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/23/2017
-ms.author: saysa
-ms.openlocfilehash: 2123c5f26d77045bd22af56a844fdbf222930e7b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: rapatchi
+ms.openlocfilehash: 229a2cd7c0bb355006349e80b12b0142de6b5cda
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="update-your-previous-java-service-fabric-application-to-fetch-java-libraries-from-maven"></a>이전 Java Service Fabric 응용 프로그램을 업데이트하여 Maven에서 Java 라이브러리 페치
 최근에 Service Fabric Java 이진 파일을 Service Fabric Java SDK에서 Maven 호스트로 이동했습니다. 이제 **mavencentral**을 사용하여 최신 Service Fabric Java 종속성을 페치할 수 있습니다. 이 빠른 시작을 통해 Yeoman 템플릿이나 Eclipse 중 하나를 사용하여 Maven 기반 빌드와 호환하도록 Service Fabric Java SDK에서 사용하기 위해 이전에 만들어진 기존 Java 응용 프로그램을 업데이트할 수 있습니다.

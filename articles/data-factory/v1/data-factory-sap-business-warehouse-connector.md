@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 6bbae79e59a200897f465e1381fea57a7ecde3f1
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: b81dc9f13533eaeec56625ede0e4c534b83e7cf7
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-sap-business-warehouse-using-azure-data-factory"></a>Azure Data Factory를 사용하여 SAP Business Warehouse에서 데이터 이동
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -37,7 +37,7 @@ ms.lasthandoff: 11/03/2017
 이 커넥터는 SAP Business Warehouse 버전 7.x를 지원합니다. MDX 쿼리를 사용하여 InfoCubes 및 QueryCubes(BEx 쿼리 포함)에서 데이터를 복사하도록 지원합니다.
 
 SAP BW 인스턴스에 대한 연결을 사용하도록 설정하려면 다음 구성 요소를 설치합니다.
-- **데이터 관리 게이트웨이**: Data Factory 서비스는 데이터 관리 게이트웨이라는 구성 요소를 사용하여 온-프레미스 데이터 저장소(SAP Business Warehouse 포함)에 연결을 지원합니다. 데이터 관리 게이트웨이 및 게이트웨이 설정에 대한 단계별 지침을 알아보려면 [온-프레미스 데이터 저장소와 클라우드 데이터 저장소 간에 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md) 문서를 참조하세요. 게이트웨이는 SAP Business Warehouse가 Azure IaaS 가상 컴퓨터(VM)에 호스팅되더라도 필요합니다. 게이트웨이를 데이터베이스에 연결할 수 있는 한 데이터 저장소와 동일한 VM 또는 다른 VM에 게이트웨이를 설치할 수 있습니다.
+- **데이터 관리 게이트웨이**: Data Factory 서비스는 데이터 관리 게이트웨이라는 구성 요소를 사용하여 온-프레미스 데이터 저장소(SAP Business Warehouse 포함)에 연결을 지원합니다. 데이터 관리 게이트웨이 및 게이트웨이 설정에 대한 단계별 지침을 알아보려면 [온-프레미스 데이터 저장소와 클라우드 데이터 저장소 간에 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md) 문서를 참조하세요. 게이트웨이는 SAP Business Warehouse가 Azure IaaS 가상 머신(VM)에 호스팅되더라도 필요합니다. 게이트웨이를 데이터베이스에 연결할 수 있는 한 데이터 저장소와 동일한 VM 또는 다른 VM에 게이트웨이를 설치할 수 있습니다.
 - 게이트웨이 컴퓨터의 **SAP NetWeaver 라이브러리**. SAP Netweaver 라이브러리는 SAP 관리자를 통해 구하거나 [SAP 소프트웨어 다운로드 센터](https://support.sap.com/swdc)에서 바로 구할 수 있습니다. 최신 버전에 대한 다운로드 위치를 찾으려면 **SAP Note #1025361**을 검색합니다. SAP NetWeaver 라이브러리(32비트 또는 64비트)의 아키텍처가 게이트웨이 설치와 일치하는지 확인합니다. 그런 다음 SAP Note에 따라 SAP NetWeaver RFC SDK에 포함된 모든 파일을 설치합니다. SAP NetWeaver 라이브러리는 SAP Client Tools 설치에도 포함됩니다.
 
 > [!TIP]
@@ -55,22 +55,22 @@ SAP BW 인스턴스에 대한 연결을 사용하도록 설정하려면 다음 �
 2. 복사 작업의 입력 및 출력 데이터를 나타내는 **데이터 집합**을 만듭니다. 
 3. 입력으로 데이터 집합을, 출력으로 데이터 집합을 사용하는 복사 작업을 통해 **파이프라인**을 만듭니다. 
 
-마법사를 사용하는 경우 이러한 Data Factory 엔터티(연결된 서비스, 데이터 집합 및 파이프라인)에 대한 JSON 정의가 자동으로 생성됩니다. 도구/API를 사용하는 경우(.NET API 제외) JSON 형식을 사용하여 데이터 팩터리 엔터티를 직접 정의합니다.  온-프레미스 SAP Business Warehouse의 데이터를 복사하는 데 사용되는 데이터 팩터리 엔터티의 JSON 정의에 대한 샘플은 이 문서의 [JSON의 예: SAP Business Warehouse에서 Azure Blob으로 데이터 복사](#json-example-copy-data-from-sap-business-warehouse-to-azure-blob) 섹션을 참조하세요. 
+마법사를 사용하는 경우 이러한 Data Factory 엔터티(연결된 서비스, 데이터 집합 및 파이프라인)에 대한 JSON 정의가 자동으로 생성됩니다. 도구/API(.NET API 제외)를 사용하는 경우 JSON 형식을 사용하여 이러한 Data Factory 엔터티를 정의합니다.  온-프레미스 SAP Business Warehouse의 데이터를 복사하는 데 사용되는 데이터 팩터리 엔터티의 JSON 정의에 대한 샘플은 이 문서의 [JSON의 예: SAP Business Warehouse에서 Azure Blob으로 데이터 복사](#json-example-copy-data-from-sap-business-warehouse-to-azure-blob) 섹션을 참조하세요. 
 
 다음 섹션에서는 SAP BW 데이터 저장소에 한정된 데이터 팩터리 엔터티를 정의하는 데 사용되는 JSON 속성에 대해 자세히 설명합니다.
 
 ## <a name="linked-service-properties"></a>연결된 서비스 속성
 다음 테이블은 SAP Business Warehouse(BW) 연결된 서비스에 특정의 JSON 요소에 대한 설명을 제공합니다.
 
-속성 | 설명 | 허용되는 값 | 필수
+자산 | 설명 | 허용되는 값 | 필수
 -------- | ----------- | -------------- | --------
-server | SAP BW 인스턴스가 상주하는 서버의 이름. | string | 예
+서버 | SAP BW 인스턴스가 상주하는 서버의 이름. | string | 예
 systemNumber | SAP BW 시스템의 시스템 번호. | 문자열로 표현되는 두 자리 10진수. | 예
 clientId | SAP W 시스템에 있는 클라이언트의 클라이언트 ID. | 문자열로 표현되는 세 자리 10진수. | 예
-username | SAP 서버에 대한 액세스 권한이 있는 사용자의 이름 | string | 예
-password | 사용자에 대한 암호입니다. | string | 예
+사용자 이름 | SAP 서버에 대한 액세스 권한이 있는 사용자의 이름 | string | 예
+암호 | 사용자에 대한 암호입니다. | string | 예
 gatewayName | Data Factory 서비스가 온-프레미스 SAP BW 인스턴스에 연결하는 데 사용해야 하는 게이트웨이의 이름. | string | 예
-encryptedCredential | 암호화된 자격 증명 문자열. | string | 아니요
+encryptedCredential | 암호화된 자격 증명 문자열. | string | 아니오
 
 ## <a name="dataset-properties"></a>데이터 집합 속성
 데이터 집합 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 집합 만들기](data-factory-create-datasets.md) 문서를 참조하세요. 구조, 가용성 및 JSON 데이터 집합의 정책과 같은 섹션이 모든 데이터 집합 형식에 대해 유사합니다(Azure SQL, Azure blob, Azure 테이블 등).
@@ -85,13 +85,13 @@ encryptedCredential | 암호화된 자격 증명 문자열. | string | 아니요
 
 활동 복사의 원본이 **RelationalSource**(SAP BW 포함) 형식인 경우 typeProperties 섹션에서 다음과 같은 속성을 사용할 수 있습니다.
 
-| 속성 | 설명 | 허용되는 값 | 필수 |
+| 자산 | 설명 | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
 | 쿼리 | SAP BW 인스턴스에서 데이터를 읽을 MDX 쿼리를 지정합니다. | MDX 쿼리. | 예 |
 
 
 ## <a name="json-example-copy-data-from-sap-business-warehouse-to-azure-blob"></a>JSON 샘플: SAP Business Warehouse에서 Azure Blob에 데이터 복사
-다음 예제에서는 [Azure 포털](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 또는 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)을 사용하여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공합니다. 이 샘플은 온-프레미스 SAP Business Warehouse에서 Azure Blob Storage로 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure Data Factory의 복사 작업을 사용하여 **여기**에 설명한 싱크로 [직접](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 데이터를 복사할 수 있습니다.  
+다음 예제에서는 [Azure 포털](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 또는 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)을 사용하여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공합니다. 이 샘플은 온-프레미스 SAP Business Warehouse에서 Azure Blob Storage로 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure Data Factory의 복사 작업을 사용하여 **여기** 에 설명한 싱크로 [직접](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 데이터를 복사할 수 있습니다.  
 
 > [!IMPORTANT]
 > 이 샘플은 JSON 코드 조각을 제공합니다. 데이터 팩터리를 만들기 위한 단계별 지침은 포함하지 않습니다. 단계별 지침은 [온-프레미스 위치와 클라우드 간에 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md) 문서를 참조하세요.
@@ -292,27 +292,27 @@ SAP BW의 데이터를 이동하는 경우 SAP BW 형식에서 .NET 형식으로
 ABAP 사전의 데이터 형식 | .Net 데이터 형식
 -------------------------------- | --------------
 ACCP |  int
-CHAR | string
-CLNT | string
+CHAR | 문자열
+CLNT | 문자열
 CURR | 10진수
-CUKY | string
+CUKY | 문자열
 DEC | 10진수
 FLTP | Double
 INT1 | Byte
 INT2 | Int16
 INT4 | int
-LANG | String
-LCHR | String
+LANG | 문자열
+LCHR | 문자열
 LRAW | Byte[]
 PREC | Int16
 QUAN | 10진수
 RAW | Byte[]
 RAWSTRING | Byte[]
-STRING | String
-단위 | string
-DATS | string
-NUMC | string
-TIMS | string
+STRING | 문자열
+단위 | 문자열
+DATS | 문자열
+NUMC | 문자열
+TIMS | 문자열
 
 > [!NOTE]
 > 원본 데이터 집합의 열을 싱크 데이터 집합의 열로 매핑하려면 [Azure Data Factory의 데이터 집합 열 매핑](data-factory-map-columns.md)을 참조하세요.

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: rest-api
 ms.topic: hero-article
-ms.date: 09/26/2017
+ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 5535bc0438c650fdf0e03229359bc8bf4a1f6990
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 9c12c5e016e6bfa5dceab6dc77086fe018c43f59
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="create-an-azure-data-factory-and-pipeline-by-using-the-rest-api"></a>REST API를 사용하여 Azure Data Factory 및 파이프라인 만들기
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -39,7 +39,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 * **Azure Storage 계정**. Blob Storage를 **원본** 및 **싱크** 데이터 저장소 모두로 사용합니다. Azure Storage 계정이 없는 경우 새로 만드는 단계는 [저장소 계정 만들기](../storage/common/storage-create-storage-account.md#create-a-storage-account) 문서를 참조하세요.
 * Blob Storage에 **Blob 컨테이너**를 만들고 컨테이너에 입력 **폴더**를 만들고 폴더에 일부 파일을 업로드합니다. [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)와 같은 도구를 사용하여 Azure Blob Storage에 연결, Blob 컨테이너 만들기, 입력 파일 업로드 및 출력 파일 확인을 수행할 수 있습니다.
 * **Azure PowerShell**을 설치합니다. [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/install-azurerm-ps)의 지침을 따르세요. 이 빠른 시작은 PowerShell을 사용하여 REST API 호출을 호출합니다.
-* [이러한 지침](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application)에 따라 **Azure Active Directory에 응용 프로그램을 만듭니다**. 나중에 나오는 단계에서 사용하는 다음 값을 기록해 둡니다. **응용 프로그램 ID**, **인증 키** 및 **테넌트 ID**. 응용 프로그램을 “**참가자**” 역할에 할당합니다.
+* [이 지침](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application)에 따라 **Azure Active Directory에 응용 프로그램을 만듭니다**. 나중에 나오는 단계에서 사용하는 다음 값을 기록해 둡니다. **응용 프로그램 ID**, **인증 키** 및 **테넌트 ID**. 응용 프로그램을 “**참가자**” 역할에 할당합니다.
 
 ## <a name="set-global-variables"></a>전역 변수 설정
 

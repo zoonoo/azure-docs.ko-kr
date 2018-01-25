@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: f633e76ea7c0df456bff41c450eb136809de12a8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0e227d6e15789b29b40197a9ff71b2116312da78
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="cloud-app-discovery-registry-settings-for-proxy-services"></a>프록시 서비스용 클라우드 앱 검색 레지스트리 설정
 이 항목의 목적은 Cloud App Discovery 에이전트를 실행하는 컴퓨터에서 필요한 포트를 설정하는 방법을 알려주는 것입니다. 클라우드 앱 검색 에이전트는 기본적으로 80 또는 443 포트만 사용하도록 구성됩니다. 사용자 지정 포트(80이나 443이 아닌)를 사용하는 프록시 서버가 있는 환경에 클라우드 앱 검색을 설치하고자 한다면 이 포트를 사용하도록 에이전트를 구성해야 합니다. 구성은 레지스트리 키를 기반으로 합니다.

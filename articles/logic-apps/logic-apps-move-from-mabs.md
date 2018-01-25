@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: ladocs; jonfan; mandia
-ms.openlocfilehash: df26e4669158e5aa9e3b9a7af888d0dbbba273dd
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 01c5376ac5ba9125eede9deb5ee0a7a006a91bb4
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="move-from-biztalk-services-to-logic-apps"></a>BizTalk Services에서 Logic Apps로 이동
 
@@ -37,7 +37,7 @@ EAI 및 EDI 브리지 기반 통합의 경우 Logic Apps가 대체합니다. Log
 
 다음 표에는 BizTalk Services 기능과 Logic Apps 기능이 매핑되어 있습니다.
 
-| BizTalk 서비스   | Logic Apps            | 목적                  |
+| BizTalk Services   | Logic Apps            | 목적                  |
 | ------------------ | --------------------- | ---------------------------- |
 | 커넥터          | 커넥터             | 데이터 송수신   |
 | 브리지             | 논리 앱             | 파이프라인 프로세서           |
@@ -126,6 +126,6 @@ Logic Apps는 이동 중에 사물을 주시하는 모바일 앱을 포함하여
 BizTalk Services에서 HA(고가용성)를 실현하려면 지정된 지역에서 둘 이상의 인스턴스를 사용하여 처리 로드를 공유합니다. Logic Apps를 사용하면 지역 내 HA가 기본 제공되므로 추가 비용이 들지 않습니다. BizTalk Services에서 B2B 처리를 위한 지역 외 재해 복구의 경우 백업 및 복원 프로세스가 필요합니다. Logic Apps에서는 지역 간 능동/수동 [DR 기능](../logic-apps/logic-apps-enterprise-integration-b2b-business-continuity.md)이 제공됩니다. 이를 통해 비즈니스 연속성을 위해 여러 지역의 통합 계정에서 B2B 데이터를 동기화할 수 있습니다.
 
 ## <a name="next"></a>다음
-* [Logic Apps란?](logic-apps-what-are-logic-apps.md)
-* [첫 번째 논리 앱 만들기](logic-apps-create-a-logic-app.md) 또는 [미리 빌드된 템플릿](logic-apps-create-logic-apps-from-templates.md)을 사용하여 신속하게 시작  
+* [Logic Apps란?](logic-apps-overview.md)
+* [첫 번째 논리 앱 만들기](quickstart-create-first-logic-app-workflow.md) 또는 [미리 빌드된 템플릿](logic-apps-create-logic-apps-from-templates.md)을 사용하여 신속하게 시작  
 * 논리 앱에서 사용할 수 있는 [사용 가능한 모든 커넥터 보기](../connectors/apis-list.md)

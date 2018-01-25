@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: 8e2b886f7e12791a6aab9feec67adfa30ac3bad1
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: c5d2fdb3ed3c00114437b0be9759bf8bea2521b7
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="copy-data-from-web-table-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 웹 테이블의 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -35,13 +35,13 @@ ms.lasthandoff: 01/11/2018
 
 특히 이 웹 테이블 커넥터는 **HTML 페이지에서 테이블 콘텐츠를 추출**하도록 지원합니다. HTTP/s 끝점에서 데이터를 검색하려면 [HTTP 커넥터](connector-http.md)를 대신 사용합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 이 웹 테이블 커넥터를 사용하려면 자체 호스팅 Integration Runtime을 설정해야 합니다. 자세한 내용은 [자체 호스팅 Integration Runtime](create-self-hosted-integration-runtime.md)을 참조하세요.
 
 ## <a name="getting-started"></a>시작
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
 
 다음 섹션에서는 웹 테이블 커넥터에 한정된 Data Factory 엔터티를 정의하는 데 사용되는 속성에 대해 자세히 설명합니다.
 
@@ -51,10 +51,10 @@ ms.lasthandoff: 01/11/2018
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 형식 속성은 **웹** |적용 |
-| URL | 웹 원본에 대한 URL입니다. |적용 |
-| authenticationType | 허용되는 값은 **Anonymous**입니다. |적용 |
-| connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. [필수 조건](#prerequisites)에 설명된 대로 자체 호스팅 Integration Runtime이 필요합니다. |적용 |
+| 형식 | 형식 속성은 **웹** |예 |
+| URL | 웹 원본에 대한 URL입니다. |예 |
+| authenticationType | 허용되는 값은 **Anonymous**입니다. |예 |
+| connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. [필수 조건](#prerequisites)에 설명된 대로 자체 호스팅 Integration Runtime이 필요합니다. |예 |
 
 **예제:**
 
@@ -83,9 +83,9 @@ ms.lasthandoff: 01/11/2018
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 데이터 집합의 type 속성을 **WebTable**로 설정해야 합니다. | 적용 |
+| 형식 | 데이터 집합의 type 속성을 **WebTable**로 설정해야 합니다. | 예 |
 | 경로 |테이블을 포함하는 리소스에 대한 상대 URL입니다. |번호 경로를 지정하지 않으면 연결된 서비스 정의에 지정된 URL만 사용됩니다. |
-| index |리소스에 있는 테이블의 인덱스입니다. HTML 페이지에서 테이블의 인덱스를 가져오는 단계는 [HTML 페이지에서 테이블의 인덱스 가져오기](#get-index-of-a-table-in-an-html-page) 섹션을 참조하세요. |적용 |
+| index |리소스에 있는 테이블의 인덱스입니다. HTML 페이지에서 테이블의 인덱스를 가져오는 단계는 [HTML 페이지에서 테이블의 인덱스 가져오기](#get-index-of-a-table-in-an-html-page) 섹션을 참조하세요. |예 |
 
 **예제:**
 

@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/01/2017
+ms.date: 01/22/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: a6cf954c57f653c031d8f3bee9a84cd57ad3ecc5
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: f6fc7e0597176e2c23bc82581c86b951542fbc23
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard"></a>자습서: 데이터 팩터리 복사 마법사를 사용하여 복사 작업이 있는 파이프라인 만들기
 > [!div class="op_single_selector"]
@@ -84,7 +84,7 @@ Azure Data Factory **복사 마법사**를 사용하면 지원되는 원본 데�
    1. **태스크 이름**에 **CopyFromBlobToAzureSql**을 입력합니다.
    2. **설명** 을 입력합니다(선택 사항).
    3. 종료 날짜가 오늘로 설정되고 시작 날짜가 5일 전으로 설정되도록 **시작 날짜 시간** 및 **종료 날짜 시간**을 변경합니다.  
-   4. **다음**을 누릅니다.  
+   4. **다음**을 클릭합니다.  
       
       ![복사 도구 - 속성 페이지](./media/data-factory-copy-data-wizard-tutorial/copy-tool-properties-page.png) 
 3. **원본 데이터 저장소** 페이지에서 **Azure Blob Storage** 타일을 클릭합니다. 이 페이지를 사용하여 복사 작업에 사용할 원본 데이터 저장소를 지정합니다. 
@@ -120,7 +120,7 @@ Azure Data Factory **복사 마법사**를 사용하면 지원되는 원본 데�
    3. Azure **구독**을 선택합니다.  
    4. **서버 이름** 및 **데이터베이스**를 선택합니다.
    5. **사용자 이름** 및 **암호**를 입력합니다.
-   6. **다음**을 누릅니다.  
+   6. **다음**을 클릭합니다.  
       
       ![복사 도구 - Azure SQL Database 지정](./media/data-factory-copy-data-wizard-tutorial/specify-azure-sql-database.png)
 10. **테이블 매핑** 페이지에 있는 드롭다운 목록의 **대상** 필드에서 **emp**를 선택하고 **아래쪽 화살표**를 클릭하여(선택 사항) 스키마를 확인하고 데이터를 미리 봅니다.

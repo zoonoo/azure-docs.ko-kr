@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 65b5389837dc1d1693b1c4326b98264c8d75fd06
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 0678e9bf6ea9e4161fc291729f1480ac7082796a
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>모니터링 및 관리 앱을 사용하여 Azure Data Factory 파이프라인 모니터링 및 관리
 > [!div class="op_single_selector"]
@@ -161,7 +161,7 @@ Ctrl 키를 사용하여 두 개 이상의 파이프라인을 다중 선택할 �
 
 <table>
 <tr>
-    <th align="left">가동 상태</th><th align="left">하위 상태</th><th align="left">설명</th>
+    <th align="left">상태</th><th align="left">하위 상태</th><th align="left">설명</th>
 </tr>
 <tr>
     <td rowspan="8">대기</td><td>ScheduleTime</td><td>활동 기간을 실행할 시간이 아직 되지 않습니다.</td>
@@ -195,7 +195,7 @@ Ctrl 키를 사용하여 두 개 이상의 파이프라인을 다중 선택할 �
 <td>작업 창을 처리 중입니다.</td>
 </tr>
 <tr>
-<td rowspan="4">Failed</td><td>TimedOut</td><td>활동 실행이 활동에서 허용하는 것보다 오래 걸렸습니다.</td>
+<td rowspan="4">실패</td><td>TimedOut</td><td>활동 실행이 활동에서 허용하는 것보다 오래 걸렸습니다.</td>
 </tr>
 <tr>
 <td>Canceled</td><td>활동 기간이 사용자 작업으로 인해 취소되었습니다.</td>
@@ -322,7 +322,7 @@ Ctrl 키를 사용하여 두 개 이상의 파이프라인을 다중 선택할 �
 ### <a name="eventstatussubstatus"></a>이벤트/상태/하위 상태
 다음 테이블은 사용 가능한 이벤트 및 상태(및 하위 상태) 목록을 제공합니다.
 
-| 이벤트 이름 | 가동 상태 | 하위 상태 |
+| 이벤트 이름 | 상태 | 하위 상태 |
 | --- | --- | --- |
 | 작업 실행 시작 |Started |시작 중 |
 | 작업 실행 완료 |Succeeded |Succeeded |

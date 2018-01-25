@@ -3,7 +3,7 @@ title: "Azure AD Connect 동기화: 기본 구성 이해 | Microsoft Docs"
 description: "이 문서에서는 Azure AD Connect 동기화의 기본 구성을 설명합니다."
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: ed876f22-6892-4b9d-acbe-6a2d112f1cd1
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 6ba1739825a6f0898e417ca37fa6bf370ef17d6c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 87f513ffd2e8854085d9dfcd399148082de37698
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Azure AD Connect 동기화: 기본 구성 이해
 이 문서는 기본 구성 규칙을 설명합니다. 규칙 및 해당 규칙이 구성에 어떤 영향을 주는지를 문서화합니다. 또한 Azure AD Connect 동기화의 기본 구성을 안내합니다. 목표는 판독기로 선언적 프로비전이라고 명명된 구성 모델이 실제 예제에서 작동하는 방식을 이해하는 것입니다. 이 문서에서는 설치 마법사를 사용하여 Azure AD Connect 동기화를 설치한 뒤 구성하는 상황을 가정합니다.
@@ -57,7 +57,7 @@ ms.lasthandoff: 12/11/2017
   * 비유니버설 그룹(사용자에 대해 적용하지 않지만 레거시를 지원하기 위해 존재합니다)
   * 사서함 계획
   * 검색 사서함
-* `CBool(InStr(DNComponent(CRef([dn]),1),"\\0ACNF:")>0)`. 복제 피해 개체를 동기화하지 않습니다.
+* `CBool(InStr(DNComponent(CRef([dn]),1),"\\0ACNF:")>0)` 복제 피해 개체를 동기화하지 않습니다.
 
 다음 특성 규칙이 적용됩니다.
 
@@ -81,7 +81,7 @@ ms.lasthandoff: 12/11/2017
 
 다음 연락처 개체는 Azure AD에 동기화되지 **않습니다** .
 
-* `IsPresent([isCriticalSystemObject])`. 중요로 표시된 연락처 개체가 동기화되지 않도록 합니다. 기본 구성을 사용하지 않아야 합니다.
+* `IsPresent([isCriticalSystemObject])` 중요로 표시된 연락처 개체가 동기화되지 않도록 합니다. 기본 구성을 사용하지 않아야 합니다.
 * `((InStr([displayName], "(MSOL)") > 0) && (CBool([msExchHideFromAddressLists])))`.
 * `(Left([mailNickname], 4) = "CAS_" && (InStr([mailNickname], "}") > 0))`. 해당 개체는 Exchange Online에서 작동하지 않습니다.
 * `CBool(InStr(DNComponent(CRef([dn]),1),"\\0ACNF:")>0)`. 복제 피해 개체를 동기화하지 않습니다.
@@ -97,10 +97,10 @@ ms.lasthandoff: 12/11/2017
 
 다음 그룹 개체는 Azure AD에 동기화되지 **않습니다** .
 
-* `IsPresent([isCriticalSystemObject])`. 기본 제공 관리자 그룹과 같은 Active Directory의 많은 기본 개체가 동기화되지 않도록 합니다.
+* `IsPresent([isCriticalSystemObject])` 기본 제공 관리자 그룹과 같은 Active Directory의 많은 기본 개체가 동기화되지 않도록 합니다.
 * `[sAMAccountName] = "MSOL_AD_Sync_RichCoexistence"`. DirSync에서 사용하는 레거시 그룹입니다.
 * `BitAnd([msExchRecipientTypeDetails],&amp;H40000000)`. 역할 그룹입니다.
-* `CBool(InStr(DNComponent(CRef([dn]),1),"\\0ACNF:")>0)`. 복제 피해 개체를 동기화하지 않습니다.
+* `CBool(InStr(DNComponent(CRef([dn]),1),"\\0ACNF:")>0)` 복제 피해 개체를 동기화하지 않습니다.
 
 ### <a name="foreignsecurityprincipal-out-of-box-rules"></a>ForeignSecurityPrincipal 기본 규칙
 FSP는 메타버스에서 "어떤"(\*) 개체에 조인됩니다. 실제로 이 조인은 사용자 및 보안 그룹의 경우에만 발생합니다. 이 구성을 통해 포리스트 간 멤버 자격을 확인하고 Azure AD에 올바르게 표시합니다.
@@ -217,7 +217,7 @@ NULL
 ### <a name="putting-it-all-together"></a>모든 항목 요약
 이제 다른 동기화 규칙을 사용하여 구성이 작동하는 방식을 이해할 수 있을 만큼 동기화 규칙에 대해 충분히 알고 있습니다. 메타버스에도 제공된 사용자와 특성을 보면 다음과 같은 순서로 규칙이 적용됩니다.
 
-| 이름 | 주석 |
+| Name | 주석 |
 |:--- |:--- |
 | AD에서 들어오기 – 사용자 조인 |메타버스를 사용하여 커넥터 공간 개체에 조인시키기 위한 규칙. |
 | AD에서 들어오기 – 사용하도록 설정된 UserAccount |Azure AD 및 Office 365에 로그인하는 데 필요한 속성. 사용된 계정에서 이러한 특성이 필요합니다. |

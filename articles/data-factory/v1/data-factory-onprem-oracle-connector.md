@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 8ff071ed1ce5a3e9927e4c24d23efae3ae0cd6c6
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: 82fe637b46decfc9c8d09b5c7e03f328a8636263
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-tofrom-on-premises-oracle-using-azure-data-factory"></a>Azure Data Factory를 사용하여 온-프레미스 Oracle 간 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -85,17 +85,17 @@ Data Factory는 데이터 관리 게이트웨이를 사용하여 온-프레미�
 3. 복사 작업의 입력 및 출력 데이터를 나타내는 **데이터 집합**을 만듭니다. 마지막 단계에서 설명한 예에서는 입력 데이터가 포함된 Oracle 데이터베이스의 테이블을 지정하는 데이터 집합을 만듭니다. 그리고 Blob 컨테이너와 Oracle 데이터베이스에서 복사된 데이터가 저장되는 폴더를 지정하는 또 다른 데이터 집합을 만듭니다. Oracle과 관련된 데이터 집합 속성은 [데이터 집합 속성](#dataset-properties) 섹션을 참조하세요.
 4. 입력으로 데이터 집합을, 출력으로 데이터 집합을 사용하는 복사 작업을 통해 **파이프라인**을 만듭니다. 앞에서 언급한 예에서는 OracleSource를 원본으로, BlobSink를 복사 작업의 싱크로 사용합니다. 마찬가지로, Azure Blob Storage에서 Oracle 데이터베이스로 복사하는 경우 복사 작업에 BlobSource 및 OracleSink를 사용합니다. Oracle 데이터베이스와 관련된 복사 작업 속성은 [복사 작업 속성](#copy-activity-properties) 섹션을 참조하세요. 원본 또는 싱크로 데이터 저장소를 사용하는 방법에 대 한 자세한 내용을 보려면 데이터 저장소에 대한 이전 섹션의 링크를 클릭하세요. 
 
-마법사를 사용하는 경우 이러한 Data Factory 엔터티(연결된 서비스, 데이터 집합 및 파이프라인)에 대한 JSON 정의가 자동으로 생성됩니다. 도구/API를 사용하는 경우(.NET API 제외) JSON 형식을 사용하여 데이터 팩터리 엔터티를 직접 정의합니다.  다른 곳에서 온-프레미스 Oracle 데이터베이스로 또는 그 반대로 데이터를 복사하는 데 사용되는 데이터 팩터리 엔터티의 JSON 정의가 포함된 샘플은 이 문서의 [JSON 예](#json-examples-for-copying-data-to-and-from-oracle-database) 섹션을 참조하세요.
+마법사를 사용하는 경우 이러한 Data Factory 엔터티(연결된 서비스, 데이터 집합 및 파이프라인)에 대한 JSON 정의가 자동으로 생성됩니다. 도구/API(.NET API 제외)를 사용하는 경우 JSON 형식을 사용하여 이러한 Data Factory 엔터티를 정의합니다.  다른 곳에서 온-프레미스 Oracle 데이터베이스로 또는 그 반대로 데이터를 복사하는 데 사용되는 데이터 팩터리 엔터티의 JSON 정의가 포함된 샘플은 이 문서의 [JSON 예](#json-examples-for-copying-data-to-and-from-oracle-database) 섹션을 참조하세요.
 
 다음 섹션에서는 데이터 팩터리 엔터티를 정의하는 데 사용되는 JSON 속성에 대해 자세히 설명합니다.
 
 ## <a name="linked-service-properties"></a>연결된 서비스 속성
 다음 표에서는 Oracle 연결된 서비스와 관련된 JSON 요소에 대한 설명을 제공합니다.
 
-| 속성 | 설명 | 필수 |
+| 자산 | 설명 | 필수 |
 | --- | --- | --- |
-| type |type 속성은 **OnPremisesOracle** |예 |
-| driverType | Oracle Database로 데이터를 복사하거나 Oracle Database에서 데이터를 복사하는 데 사용할 드라이버를 지정합니다. 허용되는 값은 **Microsoft** 또는 **ODP**(기본값)입니다. 드라이버 세부 정보에 대해서는 [지원되는 버전 및 설치](#supported-versions-and-installation) 섹션을 참조하세요. | 아니요 |
+| 형식 |type 속성은 **OnPremisesOracle** |예 |
+| driverType | Oracle Database로 데이터를 복사하거나 Oracle Database에서 데이터를 복사하는 데 사용할 드라이버를 지정합니다. 허용되는 값은 **Microsoft** 또는 **ODP**(기본값)입니다. 드라이버 세부 정보에 대해서는 [지원되는 버전 및 설치](#supported-versions-and-installation) 섹션을 참조하세요. | 아니오 |
 | connectionString | connectionString 속성에 대한 Oracle 데이터베이스 인스턴스에 연결하는 데 필요한 정보를 지정합니다. | 예 |
 | gatewayName | 온-프레미스 Oracle 서버에 연결하는 데 사용할 게이트웨이 이름입니다. |예 |
 
@@ -137,7 +137,7 @@ User Id=<username>;Password=<password>;",
 
 typeProperties 섹션은 데이터 집합의 각 형식에 따라 다르며 데이터 저장소에 있는 데이터의 위치에 대한 정보를 제공합니다. OracleTable 데이터 집합 형식의 데이터 집합에 대한 typeProperties 섹션에는 다음 속성이 있습니다.
 
-| 속성 | 설명 | 필수 |
+| 자산 | 설명 | 필수 |
 | --- | --- | --- |
 | tableName |연결된 서비스가 참조하는 Oracle 데이터베이스에 있는 테이블의 이름입니다. |아니요(**OracleSource**의 **oracleReaderQuery**가 지정된 경우) |
 
@@ -152,16 +152,16 @@ typeProperties 섹션은 데이터 집합의 각 형식에 따라 다르며 데�
 ### <a name="oraclesource"></a>oracleReaderQuery
 원본이 **OracleSource** 형식인 복사 작업의 경우 **typeProperties** 섹션에서 다음과 같은 속성을 사용할 수 있습니다.
 
-| 속성 | 설명 | 허용되는 값 | 필수 |
+| 자산 | 설명 | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
 | oracleReaderQuery |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예: select * from MyTable <br/><br/>지정하지 않는 경우 실행되는 SQL 문: select * from MyTable |아니요(**데이터 집합**의 **tableName**이 지정된 경우) |
 
 ### <a name="oraclesink"></a>파이프라인
 **OracleSink** 는 다음 속성을 지원합니다.
 
-| 속성 | 설명 | 허용되는 값 | 필수 |
+| 자산 | 설명 | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
-| writeBatchTimeout |시간이 초과되기 전에 완료하려는 배치 삽입 작업을 위한 대기 시간입니다. |timespan<br/><br/> 예: “00:30:00”(30분). |아니요 |
+| writeBatchTimeout |시간이 초과되기 전에 완료하려는 배치 삽입 작업을 위한 대기 시간입니다. |timespan<br/><br/> 예: “00:30:00”(30분). |아니오 |
 | writeBatchSize |버퍼 크기가 writeBatchSize에 도달하는 경우 SQL 테이블에 데이터 삽입 |정수(행 수) |아니요(기본값: 100) |
 | sqlWriterCleanupScript |특정 조각의 데이터를 정리하기 위해 복사 활동에 대해 실행할 쿼리를 지정합니다. |쿼리 문입니다. |아니요 |
 | sliceIdentifierColumnName |자동 생성된 조각 식별자를 입력할 복사 활동의 열 이름을 지정합니다. 이 식별자는 복사 활동을 다시 실행할 때 특정 조각의 데이터를 정리하는 데 사용됩니다. |이진(32) 데이터 형식이 있는 열의 열 이름입니다. |아니요 |
@@ -174,7 +174,7 @@ typeProperties 섹션은 데이터 집합의 각 형식에 따라 다르며 데�
 이 샘플에는 다음 데이터 팩터리 엔터티가 있습니다.
 
 1. [OnPremisesOracle](data-factory-onprem-oracle-connector.md#linked-service-properties)형식의 연결된 서비스
-2. [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties)형식의 연결된 서비스
+2. [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties) 형식의 연결된 서비스
 3. [OracleTable](data-factory-onprem-oracle-connector.md#dataset-properties) 형식의 입력 [데이터 집합](data-factory-create-datasets.md)
 4. [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties) 형식의 출력 [데이터 집합](data-factory-create-datasets.md)
 5. [OracleSource](data-factory-onprem-oracle-connector.md#copy-activity-properties)를 소스로, [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties)를 싱크로 사용하는 복사 작업의 [파이프라인](data-factory-create-pipelines.md)
@@ -361,7 +361,7 @@ typeProperties 섹션은 데이터 집합의 각 형식에 따라 다르며 데�
 이 샘플에는 다음 데이터 팩터리 엔터티가 있습니다.
 
 1. [OnPremisesOracle](data-factory-onprem-oracle-connector.md#linked-service-properties)형식의 연결된 서비스
-2. [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties)형식의 연결된 서비스
+2. [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties) 형식의 연결된 서비스
 3. [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties) 형식의 입력 [데이터 집합](data-factory-create-datasets.md)입니다.
 4. [OracleTable](data-factory-onprem-oracle-connector.md#dataset-properties) 형식의 출력 [데이터 집합](data-factory-create-datasets.md).
 5. [BlobSource](data-factory-azure-blob-connector.md#copy-activity-properties)를 소스로, [OracleSink](data-factory-onprem-oracle-connector.md#copy-activity-properties)를 싱크로 사용하는 복사 작업의 [파이프라인](data-factory-create-pipelines.md)입니다.
@@ -576,7 +576,7 @@ Oracle에서 데이터를 이동하는 경우 Oracle 데이터 형식에서 .NET
 | BLOB |Byte[]<br/>(Microsoft 드라이버를 사용하는 경우 Oracle 10g 이상에서만 지원됨) |
 | CHAR |문자열 |
 | CLOB |문자열 |
-| DATE |DateTime |
+| DATE |Datetime |
 | FLOAT |Decimal, 문자열(전체 자릿수의 경우 > 28) |
 | INTEGER |Decimal, 문자열(전체 자릿수의 경우 > 28) |
 | INTERVAL YEAR TO MONTH |Int32 |
@@ -589,12 +589,12 @@ Oracle에서 데이터를 이동하는 경우 Oracle 데이터 형식에서 .NET
 | NVARCHAR2 |문자열 |
 | RAW |Byte[] |
 | ROWID |문자열 |
-| TIMESTAMP |DateTime |
-| TIMESTAMP WITH LOCAL TIME ZONE |DateTime |
-| TIMESTAMP WITH TIME ZONE |DateTime |
+| TIMESTAMP |Datetime |
+| TIMESTAMP WITH LOCAL TIME ZONE |Datetime |
+| TIMESTAMP WITH TIME ZONE |Datetime |
 | UNSIGNED INTEGER |NUMBER |
 | VARCHAR2 |문자열 |
-| XML |String |
+| XML |문자열 |
 
 > [!NOTE]
 > 데이터 형식 **INTERVAL YEAR TO MONTH** 및 **INTERVAL DAY TO SECOND**는 Microsoft 드라이버를 사용할 때 지원되지 않습니다.

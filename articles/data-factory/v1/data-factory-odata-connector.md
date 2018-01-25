@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 3a94b02ad2296ba1be6a4194dc49c76bc7332e08
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 8ab68fddfd93a92f0f4f5a2904b8e35c409299d1
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-a-odata-source-using-azure-data-factory"></a>Azure Data Factory를 사용하여 OData 소스에서 데이터 이동
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -32,7 +32,7 @@ ms.lasthandoff: 11/02/2017
 
 이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 OData 소스에서 데이터를 이동하는 방법을 설명합니다. 이 문서는 복사 작업을 사용한 데이터 이동의 일반적인 개요를 보여주는 [데이터 이동 작업](data-factory-data-movement-activities.md) 문서를 기반으로 합니다.
 
-OData 소스에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복사할 수 있습니다. 복사 작업의 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 표를 참조하세요. 현재 데이터 팩터리는 OData 소스에서 다른 데이터 저장소로의 데이터 이동만 지원하며, 다른 데이터 저장소에서 OData 소스로의 데이터 이동은 지원하지 않습니다. 
+OData 소스에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복사할 수 있습니다. 복사 작업의 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 테이블을 참조하세요. 현재 데이터 팩터리는 OData 소스에서 다른 데이터 저장소로의 데이터 이동만 지원하며, 다른 데이터 저장소에서 OData 소스로의 데이터 이동은 지원하지 않습니다. 
 
 ## <a name="supported-versions-and-authentication-types"></a>지원되는 버전 및 인증 형식
 이 OData 커넥터는 OData 버전 3.0 및 4.0을 지원하며, 클라우드 OData 소스와 온-프레미스 OData 소스에서 데이터를 복사할 수 있습니다. 후자의 경우 데이터 관리 게이트웨이를 설치해야 합니다. 데이터 관리 게이트웨이에 대한 자세한 내용은 [온-프레미스 및 클라우드 간 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md) 을 참조하세요.
@@ -62,13 +62,13 @@ OData 소스에서 지원되는 모든 싱크 데이터 저장소로 데이터�
 ## <a name="linked-service-properties"></a>연결된 서비스 속성
 다음 테이블은 OData 연결된 서비스에 특정된 JSON 요소에 대한 설명을 제공합니다.
 
-| 속성 | 설명 | 필수 |
+| 자산 | 설명 | 필수 |
 | --- | --- | --- |
-| type |형식 속성은 **OData** |예 |
+| 형식 |형식 속성은 **OData** |예 |
 | URL |OData 서비스의 URL입니다. |예 |
 | authenticationType |OData 소스에 연결하는 데 사용되는 인증 형식입니다. <br/><br/> 클라우드 OData의 경우 가능한 값은 익명, 기본 및 OAuth입니다(Azure Data Factory는 현재 Azure Active Directory 기반 OAuth만 지원). <br/><br/> 온-프레미스 OData의 경우 가능한 값은 익명, 기본 및 Windows입니다. |예 |
-| username |기본 인증을 사용하는 경우 사용자 이름을 지정합니다. |예(기본 인증을 사용하는 경우에만) |
-| password |사용자 이름에 지정한 사용자 계정의 암호를 지정합니다. |예(기본 인증을 사용하는 경우에만) |
+| 사용자 이름 |기본 인증을 사용하는 경우 사용자 이름을 지정합니다. |예(기본 인증을 사용하는 경우에만) |
+| 암호 |사용자 이름에 지정한 사용자 계정의 암호를 지정합니다. |예(기본 인증을 사용하는 경우에만) |
 | authorizedCredential |OAuth를 사용하는 경우 Data Factory Copy Wizard 또는 Editor에서 **권한 부여** 단추를 클릭하고 자격 증명을 입력합니다. 그러면 이 속성의 값이 자동으로 생성됩니다. |예(OAuth 인증을 사용하는 경우에만) |
 | gatewayName |데이터 팩터리 서비스가 온-프레미스 OData 서비스에 연결하는 데 사용해야 하는 게이트웨이의 이름 온-프레미스 OData 소스의 데이터를 복사하는 경우에만 지정합니다. |아니요 |
 
@@ -147,7 +147,7 @@ OData 소스에서 지원되는 모든 싱크 데이터 저장소로 데이터�
 
 **typeProperties** 섹션은 데이터 집합의 각 형식에 따라 다르며 데이터 저장소에 있는 데이터의 위치에 대한 정보를 제공합니다. **ODataResource** 형식(OData 데이터 집합 포함)의 데이터 집합에 대한 typeProperties 섹션에는 다음 속성이 있습니다.
 
-| 속성 | 설명 | 필수 |
+| 자산 | 설명 | 필수 |
 | --- | --- | --- |
 | 경로 |OData 리소스에 대한 경로 |아니요 |
 
@@ -158,9 +158,9 @@ OData 소스에서 지원되는 모든 싱크 데이터 저장소로 데이터�
 
 원본이 **RelationalSource** (OData 포함) 형식인 경우 typeProperties섹션에서 다음과 같은 속성을 사용할 수 있습니다.
 
-| 속성 | 설명 | 예 | 필수 |
+| 자산 | 설명 | 예 | 필수 |
 | --- | --- | --- | --- |
-| 쿼리 |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |"?$select=Name, Description&$top=5" |아니요 |
+| 쿼리 |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |"?$select=Name, Description&$top=5" |아니오 |
 
 ## <a name="type-mapping-for-odata"></a>OData에 대한 형식 매핑
 [데이터 이동 활동](data-factory-data-movement-activities.md) 문서에서 설명한 것처럼 복사 작업은 다음 2단계 접근 방법을 사용하여 원본 형식에서 싱크 형식으로 자동 형식 변환을 수행합니다.
@@ -175,10 +175,10 @@ OData의 데이터를 이동하는 경우 OData 형식에서 .NET 형식으로 �
 | Edm.Binary |Byte[] |
 | Edm.Boolean |Bool |
 | Edm.Byte |Byte[] |
-| Edm.DateTime |DateTime |
+| Edm.DateTime |Datetime |
 | Edm.Decimal |10진수 |
 | Edm.Double |Double |
-| Edm.Single |Single |
+| Edm.Single |단일 |
 | Edm.Guid |Guid |
 | Edm.Int16 |Int16 |
 | Edm.Int32 |Int32 |
@@ -186,7 +186,7 @@ OData의 데이터를 이동하는 경우 OData 형식에서 .NET 형식으로 �
 | Edm.SByte |Int16 |
 | Edm.String |문자열 |
 | Edm.Time |timespan |
-| Edm.DateTimeOffset |Datetimeoffset |
+| Edm.DateTimeOffset |DateTimeOffset |
 
 > [!Note]
 > OData 복합 데이터 형식 예: 개체는 지원되지 않습니다.

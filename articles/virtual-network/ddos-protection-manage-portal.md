@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2017
 ms.author: jdial
-ms.openlocfilehash: 958533079c0e0864ff0e561ad865114ef2a415a8
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.openlocfilehash: ee418537fb52dbfb3eacca6e99d8572152a60910
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure DDoS 보호 표준 관리
 
@@ -72,7 +72,7 @@ Azure Monitor 경고 구성을 사용하면 사용 가능한 DDoS 보호 메트�
 
     ![공격 경고](./media/ddos-protection-manage-portal/ddos-alert.png) 
 
-경고를 만들기 위해 [웹후크 구성](../monitoring-and-diagnostics/insights-webhooks-alerts.md) 및 [Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md)에 대해 자세히 알아볼 수도 있습니다.
+경고를 만들기 위해 [웹후크 구성](../monitoring-and-diagnostics/insights-webhooks-alerts.md) 및 [Logic Apps](../logic-apps/logic-apps-overview.md)에 대해 자세히 알아볼 수도 있습니다.
 
 ## <a name="configure-logging-on-ddos-protection-standard-metrics"></a>DDoS 보호 표준 메트릭에 대한 로깅 구성
 

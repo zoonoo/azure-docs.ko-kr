@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: f903b786635213b93769a54ec69964a2fe212172
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 47aabaf8512a7fffc189255212010efb5389f38a
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-sybase-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Sybase에서 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -38,7 +38,7 @@ Sybase 데이터베이스에서 지원되는 모든 싱크 데이터 저장소�
 - Sybase **버전 16 이상**
 - **Basic** 또는 **Windows** 인증을 사용한 데이터 복사
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 이 Sybase 커넥터를 사용하려면 다음을 수행해야 합니다.
 
@@ -57,14 +57,14 @@ Sybase 연결된 서비스에 다음 속성이 지원됩니다.
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 형식 속성은 **Sybase**로 설정되어야 합니다. | 적용 |
-| 서버 | Sybase 서버의 이름입니다. |적용 |
-| 데이터베이스 | Sybase 데이터베이스의 이름입니다. |적용 |
+| 형식 | 형식 속성은 **Sybase**로 설정되어야 합니다. | 예 |
+| 서버 | Sybase 서버의 이름입니다. |예 |
+| 데이터베이스 | Sybase 데이터베이스의 이름입니다. |예 |
 | schema | 데이터베이스에서 스키마의 이름입니다. |아니요 |
-| authenticationType | Sybase 데이터베이스에 연결하는 데 사용되는 인증 형식입니다.<br/>허용되는 값은 **Basic** 및 **Windows**입니다. |적용 |
-| 사용자 이름 | Sybase 데이터베이스에 연결할 사용자 이름을 지정합니다. |적용 |
-| 암호 | 사용자 이름에 지정한 사용자 계정의 암호를 지정합니다. 이 필드를 SecureString으로 표시합니다. |적용 |
-| connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. [필수 조건](#prerequisites)에 설명된 대로 자체 호스팅 Integration Runtime이 필요합니다. |적용 |
+| authenticationType | Sybase 데이터베이스에 연결하는 데 사용되는 인증 형식입니다.<br/>허용되는 값은 **Basic** 및 **Windows**입니다. |예 |
+| 사용자 이름 | Sybase 데이터베이스에 연결할 사용자 이름을 지정합니다. |예 |
+| 암호 | 사용자 이름에 지정한 사용자 계정의 암호를 지정합니다. 이 필드를 SecureString으로 표시합니다. |예 |
+| connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. [필수 조건](#prerequisites)에 설명된 대로 자체 호스팅 Integration Runtime이 필요합니다. |예 |
 
 **예제:**
 
@@ -99,7 +99,7 @@ Sybase에서 데이터를 복사하려면 데이터 집합의 type 속성을 **R
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 데이터 집합의 type 속성을 **RelationalTable**로 설정해야 합니다. | 적용 |
+| 형식 | 데이터 집합의 type 속성을 **RelationalTable**로 설정해야 합니다. | 예 |
 | tableName | Sybase 데이터베이스의 테이블 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
 
 **예제**
@@ -128,7 +128,7 @@ Sybase에서 데이터를 복사하려면 복사 작업의 원본 형식을 **Re
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 복사 작업 원본의 형식 속성을 **RelationalSource**로 설정해야 합니다. | 적용 |
+| 형식 | 복사 작업 원본의 형식 속성을 **RelationalSource**로 설정해야 합니다. | 예 |
 | 쿼리 | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM MyTable"` | 아니요(데이터 집합의 "tableName"이 지정된 경우) |
 
 **예제:**

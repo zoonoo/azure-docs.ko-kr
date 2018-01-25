@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: 91de03f3472244341f4cf086bc8a2f56f7d2e487
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: d577db2b2f14da61baccfb6230b0c6e03a62b9b1
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="copy-data-fromto-dynamics-365dynamics-crm-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Dynamics 365/Dynamics CRM 간에 데이터 복사
 
@@ -50,7 +50,7 @@ Dynamics 365/Dynamics CRM에서 지원되는 싱크 데이터 저장소로 또�
 
 ## <a name="getting-started"></a>시작
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
 
 다음 섹션에서는 Dynamics에 한정된 Data Factory 엔터티를 정의하는 데 사용되는 속성에 대해 자세히 설명합니다.
 
@@ -62,12 +62,12 @@ Dynamics 연결된 서비스에 다음 속성이 지원됩니다.
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 형식 속성은 **Dynamics**로 설정해야 합니다. | 적용 |
-| deploymentType | Dynamics 인스턴스의 배포 유형입니다. Dynamics Online에 대해 **"Online"**이어야 합니다. | 적용 |
+| 형식 | 형식 속성은 **Dynamics**로 설정해야 합니다. | 예 |
+| deploymentType | Dynamics 인스턴스의 배포 유형입니다. Dynamics Online에 대해 **"Online"**이어야 합니다. | 예 |
 | organizationName | Dynamics 인스턴스의 조직 이름입니다. | 아니요. 사용자와 연결된 둘 이상의 Dynamics 인스턴스가 있을 경우 지정해야 합니다. |
-| authenticationType | Dynamics 서버에 연결하기 위한 인증 유형입니다. Dynamics Online에 대해 **"Office 365"**를 지정합니다. | 적용 |
-| 사용자 이름 | Dynamics에 연결할 사용자 이름을 지정합니다. | 적용 |
-| 암호 | 사용자 이름에 지정한 사용자 계정의 암호를 지정합니다. Azure Key Vault에 암호를 입력하고 "AzureKeyVaultSecret"으로 암호를 구성해야 합니다. [Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md)에서 자세히 알아봅니다. | 적용 |
+| authenticationType | Dynamics 서버에 연결하기 위한 인증 유형입니다. Dynamics Online에 대해 **"Office 365"**를 지정합니다. | 예 |
+| 사용자 이름 | Dynamics에 연결할 사용자 이름을 지정합니다. | 예 |
+| 암호 | 사용자 이름에 지정한 사용자 계정의 암호를 지정합니다. Azure Key Vault에 암호를 입력하고 "AzureKeyVaultSecret"으로 암호를 구성해야 합니다. [Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md)에서 자세히 알아봅니다. | 예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. | 원본에 연결된 서비스에 IR이 없는 경우 원본에는 아니요이고 싱크에는 예입니다. |
 
 >[!IMPORTANT]
@@ -109,14 +109,14 @@ Dynamics 연결된 서비스에 다음 속성이 지원됩니다.
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 형식 속성은 **Dynamics**로 설정해야 합니다. | 적용 |
-| deploymentType | Dynamics 인스턴스의 배포 유형입니다. IFD를 사용하는 Dynamics 온-프레미스에 대해 **"OnPremisesWithIfd"**여야 합니다.| 적용 |
-| **hostName** | 온-프레미스 Dynamics 서버의 호스트 이름입니다. | 적용 |
+| 형식 | 형식 속성은 **Dynamics**로 설정해야 합니다. | 예 |
+| deploymentType | Dynamics 인스턴스의 배포 유형입니다. IFD를 사용하는 Dynamics 온-프레미스에 대해 **"OnPremisesWithIfd"**여야 합니다.| 예 |
+| **hostName** | 온-프레미스 Dynamics 서버의 호스트 이름입니다. | 예 |
 | **port** | 온-프레미스 Dynamics 서버의 포트입니다. | 아니요(기본값: 443) |
-| organizationName | Dynamics 인스턴스의 조직 이름입니다. | 적용 |
-| authenticationType | Dynamics 서버에 연결하기 위한 인증 유형입니다. IFD를 사용하는 Dynamics 온-프레미스에 대해 **"Ifd"**를 지정합니다. | 적용 |
-| 사용자 이름 | Dynamics에 연결할 사용자 이름을 지정합니다. | 적용 |
-| 암호 | 사용자 이름에 지정한 사용자 계정의 암호를 지정합니다. Azure Key Vault에 암호를 입력하고 "AzureKeyVaultSecret"으로 암호를 구성해야 합니다. [Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md)에서 자세히 알아봅니다. | 적용 |
+| organizationName | Dynamics 인스턴스의 조직 이름입니다. | 예 |
+| authenticationType | Dynamics 서버에 연결하기 위한 인증 유형입니다. IFD를 사용하는 Dynamics 온-프레미스에 대해 **"Ifd"**를 지정합니다. | 예 |
+| 사용자 이름 | Dynamics에 연결할 사용자 이름을 지정합니다. | 예 |
+| 암호 | 사용자 이름에 지정한 사용자 계정의 암호를 지정합니다. Azure Key Vault에 암호를 입력하고 "AzureKeyVaultSecret"으로 암호를 구성해야 합니다. [Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md)에서 자세히 알아봅니다. | 예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. | 원본에는 아니요이고 싱크에는 예입니다 |
 
 >[!IMPORTANT]
@@ -162,7 +162,7 @@ Dynamics 간에 데이터를 복사하려면 데이터 집합의 type 속성을 
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 데이터 집합의 type 속성을 **DynamicsEntity**로 설정해야 합니다. |적용 |
+| 형식 | 데이터 집합의 type 속성을 **DynamicsEntity**로 설정해야 합니다. |예 |
 | entityName | 검색할 엔터티의의 논리적 이름입니다. | 원본에는 아니요(작업 원본에서 "query"가 지정된 경우)이고 싱크에는 예입니다. |
 
 > [!IMPORTANT]
@@ -215,7 +215,7 @@ Dynamics에서 데이터를 복사하려면 복사 작업의 원본 형식을 **
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 복사 작업 원본의 형식 속성을 **DynamicsSource**로 설정해야 합니다.  | 적용 |
+| 형식 | 복사 작업 원본의 형식 속성을 **DynamicsSource**로 설정해야 합니다.  | 예 |
 | 쿼리  | FetchXML은 Microsoft Dynamics에 사용되는 전용 쿼리 언어(온라인 및 온-프레미스)입니다. 아래 예제를 참조하고 [FeachXML로 쿼리 작성](https://msdn.microsoft.com/en-us/library/gg328332.aspx)에서 자세히 알아봅니다. | 아니요(데이터 집합의 "entityName"이 지정된 경우)  |
 
 **예제:**
@@ -276,8 +276,8 @@ Dynamics에 데이터를 복사하려면 복사 작업의 싱크 형식을 **Dyn
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 복사 작업 싱크의 형식 속성은 **DynamicsSink**로 설정해야 합니다.  | 적용 |
-| writeBehavior | 작업의 쓰기 동작입니다.<br/>허용되는 값은 **"Upsert"**입니다. | 적용 |
+| 형식 | 복사 작업 싱크의 형식 속성은 **DynamicsSink**로 설정해야 합니다.  | 예 |
+| writeBehavior | 작업의 쓰기 동작입니다.<br/>허용되는 값은 **"Upsert"**입니다. | 예 |
 | writeBatchSize | 각 일괄 처리에서 Dynamics에 작성된 데이터의 행 수입니다. | 아니요(기본값: 10) |
 | ignoreNullValues | 쓰기 작업 중에 (키 필드를 제외한) 입력 데이터에서 null 값을 무시할지를 나타냅니다.<br/>허용되는 값은 **true** 및 **false**입니다.<br>- true: upsert/업데이트 작업을 수행하는 경우 대상 개체의 데이터를 변경하지 않고, 삽입 작업을 수행하는 경우 정의된 기본값을 삽입합니다.<br/>- false: upsert/업데이트 작업을 수행하는 경우 대상 개체의 데이터를 NULL로 업데이트하고, 삽입 작업을 수행하는 경우 NULL 값을 삽입합니다.  | 아니요(기본값: false) |
 

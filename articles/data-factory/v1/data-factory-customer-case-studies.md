@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 47889c42160c8d4a8dce042497388827369b0a08
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: b388aa0257877446cfec5be1252c0a740f9d478c
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-data-factory---customer-case-studies"></a>Azure Data Factory - 고객 사례 연구
 데이터 팩터리는 데이터의 이동과 변환을 자동화하는 클라우드 기반 정보 관리 서비스입니다. 많은 산업 분야의 고객들이 분석 파이프라인을 제작하고 비즈니스 문제를 해결하기 위해 데이터 팩터리와 기타 Azure 서비스를 사용합니다.  고객으로부터 직접 데이터 팩터리를 사용하는 이유와 방법에 대해 알아봅니다.
@@ -43,7 +43,8 @@ ms.lasthandoff: 11/02/2017
 [Microsoft Cloud를 통해 전 세계 4억5천만 명에 이르는 팬들을 경기장에 끌어모으는 레알 마드리드](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=20522)
 
 ## <a name="pier-1-imports"></a>Pier 1 Imports
-[클라우드 기계 학습을 통한 고객 파악으로 관계 개선](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=11257)
+
+            [클라우드 Machine Learning을 통한 고객 파악으로 관계 개선](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=11257)
 
 ## <a name="microsoft-studio"></a>Microsoft Studio
 [매일 수억 개의 게임 이벤트를 분석하여 장엄한 Xbox 환경 제공](https://customers.microsoft.com/en-us/story/xboxunlimited)

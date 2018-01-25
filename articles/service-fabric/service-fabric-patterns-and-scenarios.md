@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/04/2017
+ms.date: 01/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: 7808493ca984277a939f04098799dbbd8287cc0c
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: d0b385c10df61e9719d95b29b60e0f92766b2637
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="service-fabric-patterns-and-scenarios"></a>Service Fabric 패턴 및 시나리오
 Azure Service Fabric을 사용하여 대규모 마이크로 서비스를 빌드하려면 PaaS(platform as a service)를 디자인하고 빌드한 전문가에게 알아봅니다. 적절한 아키텍처를 시작한 다음 응용 프로그램에 대한 리소스를 최적화하는 방법을 알아봅니다. [Service Fabric 패턴 및 사례](https://mva.microsoft.com/en-US/training-courses/service-fabric-patterns-and-practices-16925?l=mudwqISGD_6005167344) 과정에서는 Service Fabric 시나리오 및 응용 프로그램 영역에 대해 실제 고객이 가장 자주 묻는 질문에 답변합니다.

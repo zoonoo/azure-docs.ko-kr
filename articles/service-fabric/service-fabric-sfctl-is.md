@@ -9,16 +9,16 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: cli
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 09/22/2017
+ms.date: 12/22/2017
 ms.author: ryanwi
-ms.openlocfilehash: 11c7a10c6448248ffacee2b519f48b6ca7e4e188
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b611a447dd6669a09ca16c816de74acd7f3e8c7e
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="sfctl-is"></a>sfctl is
 쿼리하고 인프라 서비스에 명령을 보냅니다.
@@ -52,7 +52,7 @@ ms.lasthandoff: 10/11/2017
 | --help -h        | 이 도움말 메시지 및 종료를 표시합니다.|
 | --output -o      | 출력 형식.  허용되는 값: json, jsonc, 테이블, tsv.  기본값: json.|
 | --query          | JMESPath 쿼리 문자열입니다. 자세한 내용 및 예제는 http://jmespath.org/를 참조하세요.|
-| --verbose        | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다.|
+| --verbose        | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다.|
 
 ## <a name="sfctl-is-query"></a>sfctl is 쿼리
 지정된 인프라 서비스 인스턴스에 대한 읽기 전용 쿼리를 호출합니다.
@@ -74,7 +74,7 @@ ms.lasthandoff: 10/11/2017
 | --debug          | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다.|
 | --help -h        | 이 도움말 메시지 및 종료를 표시합니다.|
 | --output -o      | 출력 형식.  허용되는 값: json, jsonc, 테이블, tsv.  기본값: json.|
-| --query          | JMESPath 쿼리 문자열입니다. 자세한 내용은 http://jmespath.org/를 참조하세요.|
+| --query          | JMESPath 쿼리 문자열. 자세한 내용은 http://jmespath.org/를 참조하세요.|
 | --verbose        | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다.|
 
 ## <a name="next-steps"></a>다음 단계

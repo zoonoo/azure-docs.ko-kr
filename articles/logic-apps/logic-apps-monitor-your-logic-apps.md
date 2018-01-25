@@ -15,15 +15,15 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/21/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 4795f5728d4ce6ff21b97bc3fefd6a53e0c6a11b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8ad8281744293a05b50f8664a7e5a3fea7aa7b33
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>상태 모니터링, 진단 로깅 설정, Azure Logic Apps에 대한 경고 설정
 
-[논리 앱을 만들고 실행](../logic-apps/logic-apps-create-a-logic-app.md)한 후 해당 실행 기록, 트리거 기록, 상태 및 성능을 확인할 수 있습니다. 실시간 이벤트 모니터링 및 보다 풍부한 디버깅은 논리 앱에 대한 [진단 로깅](#azure-diagnostics)을 설정합니다. 이런 방식으로 트리거 이벤트, 실행 이벤트 및 작업 이벤트와 같은 [이벤트를 찾고 볼](#find-events) 수 있습니다. 또한 Azure Storage 및 Azure Event Hub와 같은 [다른 서비스와 함께 진단 데이터를 사용](#extend-diagnostic-data)할 수도 있습니다. 
+[논리 앱을 만들고 실행](../logic-apps/quickstart-create-first-logic-app-workflow.md)한 후 해당 실행 기록, 트리거 기록, 상태 및 성능을 확인할 수 있습니다. 실시간 이벤트 모니터링 및 보다 풍부한 디버깅은 논리 앱에 대한 [진단 로깅](#azure-diagnostics)을 설정합니다. 이런 방식으로 트리거 이벤트, 실행 이벤트 및 작업 이벤트와 같은 [이벤트를 찾고 볼](#find-events) 수 있습니다. 또한 Azure Storage 및 Azure Event Hub와 같은 [다른 서비스와 함께 진단 데이터를 사용](#extend-diagnostic-data)할 수도 있습니다. 
 
 오류 또는 가능한 다른 문제에 대한 알림을 받으려면 [경고](#add-azure-alerts)를 설정합니다. 예를 들어 "한 시간에 5개 이상의 실행이 실패하는 경우"를 검색하는 경고를 만들 수 있습니다. [Azure 진단 이벤트 설정 및 속성](#diagnostic-event-properties)을 사용하여 프로그래밍 방식으로 모니터링, 추적 및 로깅을 설정할 수도 있습니다.
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 10/11/2017
 
 2. 논리 앱을 선택한 후 **개요**를 선택합니다.
 
-   Azure Portal에서는 논리 앱에 대한 실행 기록 및 트리거 기록을 보여 줍니다. 예:
+   Azure Portal에서는 논리 앱에 대한 실행 기록 및 트리거 기록을 보여 줍니다. 예: 
 
    ![논리 앱 실행 기록 및 트리거 기록](media/logic-apps-monitor-your-logic-apps/overview.png)
 
@@ -51,7 +51,7 @@ ms.lasthandoff: 10/11/2017
 
 3. 특정 실행의 단계를 보려면 **실행 기록** 아래에서 해당 실행을 선택합니다. 
 
-   모니터링 보기는 해당 실행의 각 단계를 표시합니다. 예:
+   모니터링 보기는 해당 실행의 각 단계를 표시합니다. 예: 
 
    ![특정 실행에 대한 작업](media/logic-apps-monitor-your-logic-apps/monitor-view-updated.png)
 
@@ -61,12 +61,12 @@ ms.lasthandoff: 10/11/2017
 
    예를 들어 [Logic Apps에 대한 REST API](https://docs.microsoft.com/rest/api/logic)를 사용할 때 필요할 수 있는 실행의 **상관 관계 ID**를 가져올 수 있습니다.
 
-5. 특정 단계에 대한 세부 정보를 얻으려면 해당 단계를 선택합니다. 이제 해당 단계에 대해 발생한 입력, 출력 및 모든 오류와 같은 세부 정보를 검토할 수 있습니다. 예:
+5. 특정 단계에 대한 세부 정보를 얻으려면 해당 단계를 선택합니다. 이제 해당 단계에 대해 발생한 입력, 출력 및 모든 오류와 같은 세부 정보를 검토할 수 있습니다. 예: 
 
    ![단계 세부 정보](media/logic-apps-monitor-your-logic-apps/monitor-view-details.png)
    
    > [!NOTE]
-   > 모든 런타임 세부 정보 및 이벤트는 Logic Apps 서비스 내에서 암호화됩니다. 사용자가 해당 데이터를 보기 위해 요청하는 경우에만 해독됩니다. [Azure RBAC(역할 기반 액세스 제어)](../active-directory/role-based-access-control-what-is.md)를 통해서 이러한 이벤트에 대한 액세스를 제어할 수도 있습니다.
+   > 모든 런타임 세부 정보 및 이벤트는 Logic Apps 서비스 내에서 암호화됩니다. 사용자가 해당 데이터를 보기 위해 요청하는 경우에만 해독됩니다. [Azure 역할 기반 Access Control(RBAC)](../active-directory/role-based-access-control-what-is.md)을 통해서 이러한 이벤트에 대한 액세스를 제어할 수도 있습니다.
 
 6. 특정 트리거 이벤트에 대한 세부 정보를 얻으려면 **개요** 창으로 돌아갑니다. **트리거 기록** 아래에서 트리거 이벤트를 선택합니다. 이제 입력 및 출력과 같은 세부 정보를 검토할 수 있습니다. 예를 들어 다음과 같습니다.
 
@@ -166,9 +166,9 @@ ms.lasthandoff: 10/11/2017
 Azure Log Analytics와 마찬가지로 다른 Azure 서비스와 함께 논리 앱의 진단 데이터를 사용하는 방법을 다음과 같이 확장할 수 있습니다. 
 
 * [Azure Storage에 Azure 진단 로그 보관](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md)
-* [Azure Event Hub로 Azure 진단 로그 스트림](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md) 
+* [Azure Event Hubs로 Azure 진단 로그 스트림](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md) 
 
-그런 다음 [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) 및 [Power BI](../log-analytics/log-analytics-powerbi.md)와 같은 다른 서비스의 원격 분석 및 분석을 사용하여 실시간으로 모니터링할 수 있습니다. 예:
+그런 다음 [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) 및 [Power BI](../log-analytics/log-analytics-powerbi.md)와 같은 다른 서비스의 원격 분석 및 분석을 사용하여 실시간으로 모니터링할 수 있습니다. 예: 
 
 * [Event Hub에서 Stream Analytics로 데이터 스트림](../stream-analytics/stream-analytics-define-inputs.md)
 * [Stream Analytics를 사용하여 스트리밍 데이터 분석 및 Power BI에서 실시간 분석 대시보드 만들기](../stream-analytics/stream-analytics-power-bi-dashboard.md)

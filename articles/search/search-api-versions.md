@@ -6,19 +6,18 @@ documentationcenter:
 author: brjohnstmsft
 manager: pablocas
 editor: 
-ms.assetid: 0458053a-164e-4682-a802-00097ecde981
 ms.service: search
 ms.devlang: dotnet
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 01/11/2017
+ms.date: 01/15/2018
 ms.author: brjohnst
-ms.openlocfilehash: 4b4cb2d168676d52a90942a116905e6669b16639
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 1a7f5b9c53d3258e5f8eda40401c61a85971d8c7
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="api-versions-in-azure-search"></a>Azure Search의 API 버전
 Azure Search는 정기적으로 기능 업데이트를 공개합니다. 항상 그렇지는 않지만 경우에 따라 이전 버전과 호환성을 유지하기 위해 API의 새 버전을 게시하기 위해 이러한 업데이트가 필요하기도 합니다. 새 버전을 게시하면 코드에서 검색 서비스 업데이트를 통합 하는 시기와 방법을 제어할 수 있습니다.
@@ -33,13 +32,13 @@ SDK 업데이트와 동일한 규칙을 따릅니다. Azure Search SDK는 버전
 ## <a name="snapshot-of-current-versions"></a>현재 버전의 스냅숏
 아래는 Azure Search에 대한 모든 프로그래밍 인터페이스의 현재 버전의 스냅숏입니다.
 
-| 인터페이스 | 가장 최근의 주 버전 | 가동 상태 |
+| 인터페이스 | 가장 최근의 주 버전 | 상태 |
 | --- | --- | --- |
 | [.NET SDK](https://aka.ms/search-sdk) |3.0 |일반 공급, 2016년 11월 릴리스됨 |
 | [.NET SDK 미리 보기](https://aka.ms/search-sdk-preview) |4.0.1-preview |미리 보기, 2017년 5월 릴리스 |
 | [서비스 REST API](https://docs.microsoft.com/rest/api/searchservice/) |2016-09-01 |일반 공급 |
 | [서비스 REST API 미리 보기](search-api-2016-09-01-preview.md) |2016-09-01-Preview |미리 보기 |
-| [.NET 관리 SDK](https://aka.ms/search-mgmt-sdk) |2015-08-19 |일반 공급 |
+| [.NET 관리 SDK](https://aka.ms/search-mgmt-sdk) |2.0 |일반 공급 |
 | [관리 REST API](https://docs.microsoft.com/rest/api/searchmanagement/) |2015-08-19 |일반 공급 |
 
 REST API의 경우 각 호출의 `api-version` 을 포함해야 합니다. 이렇게 하면 API 미리 보기 등 특정 버전을 대상으로 하기 쉽습니다. 다음 예제에서는 `api-version` 매개 변수를 지정하는 방법을 보여 줍니다.

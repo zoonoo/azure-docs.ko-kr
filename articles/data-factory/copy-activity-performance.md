@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 01/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 841e053418dedb6b41262d1277ab4bdc9d4800c6
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 53f2b59e57d49a409552aebbdb1b0e81ccd5200c
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>복사 작업 성능 및 조정 가이드
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -384,7 +384,7 @@ Data Factory에서 동시에 동일한 데이터 저장소에 연결해야 하�
 
 이 경우 bzip2 데이터 압축은 전체 파이프라인을 느리게 만들 수 있습니다. gzip 압축 코덱을 전환하면 병목 상태를 완화할 수 있습니다.
 
-## <a name="reference"></a>참조
+## <a name="reference"></a>참고 자료
 
 다음은 지원되는 데이터 저장소에 대한 몇 가지 성능 모니터링 및 튜닝 참조입니다.
 

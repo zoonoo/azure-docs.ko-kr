@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/23/2017
+ms.date: 01/10/2018
 ms.author: aprameyr
-ms.openlocfilehash: b4a01752cf2658bcc8dea663462336ca5c610d70
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4037fc869d3e26d52f33baa62c626f4621cd11f5
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="replicas-and-instances"></a>복제본 및 인스턴스 
 이 문서에서는 상태 저장 서비스의 복제본과 상태 비저장 서비스의 인스턴스 수명 주기에 대한 개요를 제공합니다.

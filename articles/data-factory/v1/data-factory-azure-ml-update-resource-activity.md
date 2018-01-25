@@ -1,6 +1,6 @@
 ---
 title: "Azure Data Factory를 사용하여 Machine Learning 모델 업데이트 | Microsoft Docs"
-description: "Azure Data Factory 및 Azure 기계 학습을 사용하여 예측 파이프라인을 만드는 방법을 설명합니다."
+description: "Azure Data Factory 및 Azure Machine Learning을 사용하여 예측 파이프라인을 만드는 방법을 설명합니다."
 services: data-factory
 documentationcenter: 
 author: sharonlo101
@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 009c7349e82194f9b7f0c8a0c49c427fc78bba85
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 502bf8771bf7854755ccd72c7002110f1e25bd40
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="updating-azure-machine-learning-models-using-update-resource-activity"></a>업데이트 리소스 작업을 사용하여 Azure Machine Learning 모델 업데이트
 
@@ -46,7 +46,7 @@ ms.lasthandoff: 11/02/2017
 1. [Azure ML Studio](https://studio.azureml.net)에서 실험을 만듭니다.
 2. 모델에 만족하면 Azure ML Studio를 사용하여 **학습 실험** 및 점수 매기기/**예측 실험** 모두에 대해 웹 서비스를 게시합니다.
 
-다음 표에서는 이 예제에 사용된 웹 서비스에 대해 설명합니다.  자세한 내용은 [프로그래밍 방식으로 기계 학습 모델 다시 학습](../../machine-learning/machine-learning-retrain-models-programmatically.md) 을 참조하세요.
+다음 표에서는 이 예제에 사용된 웹 서비스에 대해 설명합니다.  자세한 내용은 [프로그래밍 방식으로 Machine Learning 모델 다시 학습](../../machine-learning/machine-learning-retrain-models-programmatically.md)을 참조하세요.
 
 - **학습 웹 서비스** - 학습 데이터를 수신하고 학습된 모델을 생성합니다. 재학습의 출력은 Azure Blob 저장소에서 .ilearner 파일입니다. 웹 서비스로 학습 실험을 게시할 때 사용자에 대한 **기본 끝점** 이 자동으로 만들어집니다. 더 많은 끝점을 만들 수 있지만 예제에서는 기본 끝점만 사용합니다.
 - **점수 매기기 웹 서비스** - 레이블이 지정되지 않은 데이터 예제를 수신하고 예측을 합니다. 예측의 출력은 실험의 구성에 따라 .csv 파일 또는 Azure SQL 데이터베이스의 행과 같은 다양한 형태를 포함할 수 있습니다. 웹 서비스로 예측 실험을 게시할 때 사용자에 대한 기본 끝점이 자동으로 만들어집니다. 
@@ -195,7 +195,7 @@ Azure Storage는 다음 데이터를 보관합니다.
 ```
 
 ### <a name="linked-service-for-azure-ml-training-endpoint"></a>Azure ML 학습 끝점에 대한 연결된 서비스
-다음 JSON 코드 조각은 학습 웹 서비스의 기본 끝점을 가리키는 Azure 기계 학습 연결된 서비스를 정의합니다.
+다음 JSON 코드 조각은 학습 웹 서비스의 기본 끝점을 가리키는 Azure Machine Learning에 연결된 서비스를 정의합니다.
 
 ```JSON
 {    
@@ -219,7 +219,7 @@ Azure Storage는 다음 데이터를 보관합니다.
 5. **요청** 섹션에서 **요청 URI**를 복사하여 Data Factory JSON 편집기에 붙여넣습니다.   
 
 ### <a name="linked-service-for-azure-ml-updatable-scoring-endpoint"></a>Azure ML 업데이트 가능한 점수 매기기 끝점에 대한 연결된 서비스:
-다음 JSON 코드 조각은 점수 매기기 웹 서비스의 기본이 아닌 업데이트 가능한 끝점을 가리키는 Azure 기계 학습 연결된 서비스를 정의합니다.  
+다음 JSON 코드 조각은 점수 매기기 웹 서비스의 기본이 아닌 업데이트 가능한 끝점을 가리키는 Azure Machine Learning에 연결된 서비스를 정의합니다.  
 
 ```JSON
 {

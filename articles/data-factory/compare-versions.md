@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/20/2017
+ms.date: 01/24/2018
 ms.author: makromer
-ms.openlocfilehash: 8ae6c1eabf87b51dd04b6b6c9686bb89efff3bc0
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 83065e6cacd784a3914cfac3ff2552a712688366
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="compare-azure-data-factory-v1-and-v2"></a>Azure Data Factory V1과 V2 비교
 이 문서에서는 Azure Data Factory V1과 V2를 비교합니다. V1에 대한 소개는 [Azure Data Factory 소개](v1/data-factory-introduction.md)를 참조하세요. V2에 대한 소개는 [Data Factory(V2 - 미리 보기) 소개](introduction.md)를 참조하세요.
@@ -128,7 +128,16 @@ V2 사용자 지정 작업에서는 .NET 인터페이스를 구현할 필요가 
 V2용으로 업데이트된 SDK는 V1 클라이언트와 호환되지 않습니다. 
 
 ## <a name="authoring-experience"></a>작성 환경
-Data Factory V1을 사용하면 Azure Portal에서 Data Factory Editor를 사용하여 파이프라인을 작성할 수 있습니다. 현재 Data Factory V2는 프로그래밍 방식(.NET SDK, REST API, PowerShell, Python 등)으로 데이터 팩터리를 만드는 방법만 지원합니다. 아직 사용자 인터페이스가 지원되지 않습니다.  Data Factory V1은 SDK, REST 및 PowerShell 작성도 지원합니다.
+
+| &nbsp; | V2 | V1 |
+| ------ | -- | -- | 
+| Azure portal | [예](quickstart-create-data-factory-portal.md) | [예](data-factory-build-your-first-pipeline-using-editor.md) |
+| Azure PowerShell | [예](quickstart-create-data-factory-powershell.md) | [예](data-factory-build-your-first-pipeline-using-powershell.md) |
+| .NET SDK | [예](quickstart-create-data-factory-dot-net.md) | [예](data-factory-build-your-first-pipeline-using-vs.md) |
+| REST API | [예](quickstart-create-data-factory-rest-api.md) | [예](data-factory-build-your-first-pipeline-using-rest-api.md) |
+| Python SDK | [예](quickstart-create-data-factory-python.md) | 아니요 |
+| Resource Manager 템플릿 | [예](quickstart-create-data-factory-resource-manager-template.md) | [예](data-factory-build-your-first-pipeline-using-arm.md) | 
+
 
 ## <a name="monitoring-experience"></a>모니터링 환경
 V2에서는 [Azure Monitor](monitor-using-azure-monitor.md)를 사용하여 데이터 팩터리를 모니터링할 수도 있습니다. 새로운 PowerShell cmdlet은 [통합 런타임](monitor-integration-runtime.md)에 대한 모니터링을 지원합니다. V1과 V2 모두 Azure Portal에서 시작할 수 있는 모니터링 응용 프로그램을 통해 시각적인 모니터링을 지원합니다.

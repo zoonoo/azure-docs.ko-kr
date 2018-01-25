@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: jingwang
-ms.openlocfilehash: 20cac53847f9f93805f8064bd8ad5c682b5a8452
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: dc4e8b8682e686abc77f43427615c7069585f327
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="copy-data-from-marketo-using-azure-data-factory-beta"></a>Azure Data Factory(베타)를 사용하여 Marketo에서 데이터 복사
 
@@ -37,7 +37,7 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 
 ## <a name="getting-started"></a>시작
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
 
 다음 섹션에서는 Marketo 커넥터에 한정된 Data Factory 엔터티를 정의하는 데 사용되는 속성에 대해 자세히 설명합니다.
 
@@ -47,13 +47,13 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 형식 속성은 **Marketo**로 설정해야 합니다. | 적용 |
-| endpoint | Marketo 서버의 엔드포인트입니다. (즉, 123-ABC-321.mktorest.com)  | 적용 |
-| clientId | Marketo 서비스의 클라이언트 ID입니다.  | 적용 |
-| clientSecret | Marketo 서비스의 클라이언트 암호입니다. 이 필드를 SecureString으로 표시하거나, ADF에 안전하게 저장하거나, Azure Key Vault에 암호를 저장하도록 선택하고 데이터 복사를 수행하는 경우 여기에서 ADF 복사 작업을 끌어올 수 있습니다. [Key Vault에서 자격 증명 저장](store-credentials-in-key-vault.md)에서 자세히 알아봅니다. | 적용 |
+| 형식 | 형식 속성은 **Marketo**로 설정해야 합니다. | 예 |
+| endpoint | Marketo 서버의 엔드포인트입니다. (즉, 123-ABC-321.mktorest.com)  | 예 |
+| clientId | Marketo 서비스의 클라이언트 ID입니다.  | 예 |
+| clientSecret | Marketo 서비스의 클라이언트 암호입니다. 이 필드를 SecureString으로 표시하거나, ADF에 안전하게 저장하거나, Azure Key Vault에 암호를 저장하도록 선택하고 데이터 복사를 수행하는 경우 여기에서 ADF 복사 작업을 끌어올 수 있습니다. [Key Vault에서 자격 증명 저장](store-credentials-in-key-vault.md)에서 자세히 알아봅니다. | 예 |
 | useEncryptedEndpoints | 데이터 원본 끝점이 HTTPS를 사용하여 암호화되는지 여부를 지정합니다. 기본값은 true입니다.  | 아니요 |
 | useHostVerification | SSL을 통해 연결할 때 서버 인증서의 호스트 이름이 서버의 호스트 이름과 일치하도록 할지 여부를 지정합니다. 기본값은 true입니다.  | 아니요 |
-| usePeerVerification | SSL을 통해 연결할 때 서버의 ID를 확인할지 여부를 지정합니다. 기본값은 true입니다.  | 아니요 |
+| usePeerVerification | SSL을 통해 연결할 때 서버의 ID를 확인할지 여부를 지정합니다. 기본값은 true입니다.  | 아니오 |
 
 **예제:**
 
@@ -105,8 +105,8 @@ MarketoSource에서 데이터를 복사하려면 복사 작업의 원본 형식�
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 복사 작업 원본의 type 속성은 **MarketoSource**로 설정해야 합니다. | 적용 |
-| 쿼리 | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM Activitiy_Types"` | 적용 |
+| 형식 | 복사 작업 원본의 type 속성은 **MarketoSource**로 설정해야 합니다. | 예 |
+| 쿼리 | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM Activitiy_Types"` | 예 |
 
 **예제:**
 

@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/11/2017
 ms.custom: 
-ms.openlocfilehash: b6cf7bbb1ae41fcdf16601af87ec1b573866639a
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 275ab65569a1861f046c8ee77914e0859d41d5f7
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>ADAL(Azure Active Directory 인증 라이브러리) 클라이언트에 대한 오류 처리 모범 사례
 
@@ -576,6 +576,7 @@ window.Logging = {
 
 아래의 의견 섹션을 사용하여 피드백을 제공하고 콘텐츠를 구체화하고 모양을 갖출 수 있습니다.
 
+[![로그인 단추][AAD-Sign-In]][AAD-Sign-In]
 <!--Reference style links -->
 [AAD-Auth-Libraries]: ./active-directory-authentication-libraries.md
 [AAD-Auth-Scenarios]: ./active-directory-authentication-scenarios.md
@@ -584,5 +585,5 @@ window.Logging = {
 [AZURE-portal]: https://portal.azure.com
 
 <!--Image references-->
-[![로그인 단추][AAD-Sign-In]][AAD-Sign-In] [AAD-Sign-In]: ./media/active-directory-devhowto-multi-tenant-overview/sign-in-with-microsoft-light.png
+[AAD-Sign-In]:./media/active-directory-devhowto-multi-tenant-overview/sign-in-with-microsoft-light.png
 

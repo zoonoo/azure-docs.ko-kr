@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 9605fc3a1096d053bfeffb2544499935601b2c0f
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: bc2e5c2b351fb87cb763459a9e24368a422ada1b
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="decode-x12-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>엔터프라이즈 통합 팩이 포함된 Azure Logic Apps에 대한 X12 메시지 디코딩
 
@@ -35,7 +35,7 @@ X12 메시지 디코드 커넥터를 사용하여 거래 업체 규약과 비교
 
 ## <a name="decode-x12-messages"></a>X12 디코딩 메시지
 
-1. [논리 앱 만들기](logic-apps-create-a-logic-app.md)
+1. [논리 앱 만들기](quickstart-create-first-logic-app-workflow.md)
 
 2. X12 메시지 디코딩 커넥터에는 트리거가 없으므로 요청 트리거와 마찬가지로 논리 앱을 시작하는 트리거를 추가해야 합니다. Logic App Designer에서 트리거를 추가하고 작업을 논리 앱에 추가합니다.
 
@@ -49,7 +49,7 @@ X12 메시지 디코드 커넥터를 사용하여 거래 업체 규약과 비교
 
     별표가 있는 속성은 필수 사항입니다.
 
-    | 속성 | 세부 정보 |
+    | 자산 | 세부 정보 |
     | --- | --- |
     | 연결 이름 * |연결의 이름을 입력합니다. |
     | 통합 계정 * |통합 계정의 이름을 입력합니다. 통합 계정 및 논리 앱이 동일한 Azure 위치에 있어야 합니다. |
@@ -62,7 +62,7 @@ X12 메시지 디코드 커넥터를 사용하여 거래 업체 규약과 비교
 
     ![통합 계정 연결 생성](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage6.png) 
 
-    예:
+    예: 
 
     ![디코딩할 X12 플랫 파일 메시지를 선택합니다.](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage7.png) 
 

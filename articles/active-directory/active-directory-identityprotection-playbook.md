@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: e274a9364dcb7bf4d220159e1f906bbd015369aa
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b76d6a31dfe600a4639b830bfbbb5cacfc158dd6
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="azure-active-directory-identity-protection-playbook"></a>Azure Active Directory ID 보호 플레이 북
 이 플레이 북은 다음 작업을 수행하는 데 도움이 됩니다.
@@ -64,7 +64,7 @@ Azure Active Directory ID 보호:
    
    a. VPN을 사용하는 동안 [https://myapps.microsoft.com](https://myapps.microsoft.com) 로 이동하고 위험 이벤트를 시뮬레이트하려는 계정의 자격 증명을 입력합니다.
    
-   b. 계정의 자격 증명을 사용하여 로그인하는 다른 위치에 연결을 요청합니다(권장하지 않음).
+   나. 계정의 자격 증명을 사용하여 로그인하는 다른 위치에 연결을 요청합니다(권장하지 않음).
 
 로그인이 5분 이내에 ID 보호 대시보드에 나타납니다.
 
@@ -105,7 +105,7 @@ Azure Active Directory ID 보호:
     
     a. 차단하려면 **로그인 차단**에서 **보통**을 선택합니다.
     
-    b. 보안 암호 변경을 적용하려면 **Multi-Factor Authentication 요구**에서 **보통**을 선택합니다.
+    나. 보안 암호 변경을 적용하려면 **Multi-Factor Authentication 요구**에서 **보통**을 선택합니다.
 11. **저장**을 클릭합니다.
 12. 이제 위험 수준이 상승한 사용자로 로그인하여 위험 기반 조건부 액세스를 테스트할 수 있습니다. 사용자 위험이 보통인 경우 정책 구성에 따라 로그인이 차단되거나 암호를 변경하도록 강제됩니다. 
     <br><br>
@@ -124,7 +124,7 @@ Azure Active Directory ID 보호:
    
    a. 차단하려면 **로그인 차단**에서 **보통**을 선택합니다.
    
-   b. 보안 암호 변경을 적용하려면 **Multi-Factor Authentication 요구**에서 **보통**을 선택합니다.
+   나. 보안 암호 변경을 적용하려면 **Multi-Factor Authentication 요구**에서 **보통**을 선택합니다.
 7. 차단하려면 로그인 차단에서 보통을 선택합니다.
 8. Multi-Factor Authentication을 적용하려면 **Multi-Factor Authentication 요구**에서 **보통**을 선택합니다.
 9. **Save**를 클릭합니다.

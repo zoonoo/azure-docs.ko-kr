@@ -3,7 +3,7 @@ title: "Azure AD Connect: 미리 보기의 기능 | Microsoft Docs"
 description: "이 항목에서는 Azure AD Connect에서 미리 보기 상태인 기능을 더 자세하게 설명합니다."
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: c75cd8cf-3eff-4619-bbca-66276757cc07
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: cba65b0fe2c2fa0ed92cd2f95464e300a29a7f54
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7173c87dec980130992438954650227c16ad7292
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="more-details-about-features-in-preview"></a>미리 보기 기능에 대한 자세한 내용
 이 항목에서는 현재 미리 보기 상태인 기능을 사용하는 방법에 대해 설명합니다.

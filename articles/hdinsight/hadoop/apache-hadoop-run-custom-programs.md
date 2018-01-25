@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/04/2017
 ms.author: ashishth
-ms.openlocfilehash: 59c7a65ff4eb35b3ea462962163b7b6ee94f521f
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 8e65c946d2cfcc830a1b9fa59b3f7886857f4f7d
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="run-custom-mapreduce-programs"></a>사용자 지정 MapReduce 프로그램 실행
 
@@ -77,7 +77,7 @@ Map/Reduce 코드는 **Map** 및 **Reduce** 구성 요소로 구현된 두 개�
 
     이 명령은 MapReduce 작업을 YARN에 제출합니다. 입력된 파일은 `/example/data/sample.log`이며 출력 디렉터리는 `/example/data/logoutput`입니다. 입력 파일과 모든 출력 파일은 클러스터의 기본 저장소에 저장됩니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="next-steps"></a>다음 단계
 
 * [HDInsight의 Hadoop에서 MapReduce 스트리밍과 함께 C# 사용](apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
 * [HDInsight에서 Hadoop용 Java MapReduce 프로그램 개발](apache-hadoop-develop-deploy-java-mapreduce-linux.md)
