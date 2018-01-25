@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: e1ca92b1d1ae015add539ef03a358f7a53bc3a6d
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 9b1118b0159437e179b09b179571ed1460c3daf6
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-ad-net-desktop-wpf-getting-started"></a>Azure AD .NET Desktop(WPF) 시작
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -74,7 +74,7 @@ ADAL에서 확인되는 기본 원칙은 액세스 토큰이 필요할 때마다
 
 * `DirectorySearcher` 프로젝트에서 `MainWindow.xaml.cs`를 열고 `MainWindow()` 메서드를 찾습니다.  첫 번째 단계는 앱의 `AuthenticationContext` , 즉 ADAL의 기본 클래스를 초기화하는 것입니다.  이 클래스에서 Azure AD와 통신하는 데 필요한 좌표를 ADAL에 전달하고 토큰 캐시 방법을 알려줍니다.
 
-```C#
+```csharp
 public MainWindow()
 {
     InitializeComponent();
@@ -87,7 +87,7 @@ public MainWindow()
 
 * 이제 사용자가 앱의 UI에서 "검색" 단추를 클릭할 때 호출되는 `Search(...)` 메서드를 찾습니다.  이 메서드는 Azure AD Graph API에 해당 UPN이 지정된 검색어로 시작하는 사용자를 쿼리하라는 GET 요청을 만듭니다.  그렇지만 Graph API를 쿼리하려면 ADAL이 연결되는 요청의 `Authorization` 헤더에 access_token을 포함해야 합니다.
 
-```C#
+```csharp
 private async void Search(object sender, RoutedEventArgs e)
 {
     // Validate the Input String
@@ -121,7 +121,7 @@ private async void Search(object sender, RoutedEventArgs e)
 * `AuthenticationResult` 개체에는 사용자 앱에 필요할 수 있는 정보를 수집하는 데 사용할 수 있는 `UserInfo` 개체가 포함되어 있습니다.  DirectorySearcher에서 `UserInfo` 는 사용자 ID로 앱 UI를 사용자 지정하는 데 사용됩니다.
 * 여기서는 사용자가 "로그아웃" 단추를 클릭한 경우 다음 `AcquireTokenAsync(...)` 호출 시 사용자에게 로그인하라는 메시지가 표시되도록 하려고 합니다.  ADAL을 사용하면 이 작업은 토큰 캐시를 지우는 것 만큼 쉽습니다.
 
-```C#
+```csharp
 private void SignOut(object sender = null, RoutedEventArgs args = null)
 {
     // Clear the token cache
@@ -133,7 +133,7 @@ private void SignOut(object sender = null, RoutedEventArgs args = null)
 
 * 그러나 사용자가 "로그아웃" 단추를 클릭하지 않으면 다음에 DirectorySearcher를 실행할 때 사용자 세션이 유지되도록 하려고 합니다.  앱이 시작되면 ADAL의 토큰 캐시에서 기존 토큰이 있는지 확인하고 그에 따라 UI를 업데이트할 수 있습니다.  `CheckForCachedToken()` 메서드에서 `AcquireTokenAsync(...)`를 다시 호출합니다. 이번에는 `PromptBehavior.Never` 매개 변수를 전달합니다.  `PromptBehavior.Never` 는 사용자가 로그인하라는 메시지를 표시하지 않도록 ADAL에 지시하고, 대신 토큰을 반환할 수 없는 경우 ADAL에서는 예외를 발생해야 합니다.
 
-```C#
+```csharp
 public async void CheckForCachedToken() 
 {
     // As the application starts, try to get an access token without prompting the user.  If one exists, show the user as signed in.

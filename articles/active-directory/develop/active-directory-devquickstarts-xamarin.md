@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: e3d0a07323189599cb86dd2bf1347c2107efa842
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 94a7d35115420d455fe94e1173abf76622172f6f
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-ad-xamarin-getting-started"></a>Azure AD Xamarin 시작
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -98,7 +98,7 @@ Azure AD에 앱이 있으므로 ADAL을 설치하고 ID 관련 코드를 작성�
 
 1. DirectorySearcher.cs를 연 다음 새 매개 변수를 `SearchByAlias(...)` 메서드에 추가합니다. `IPlatformParameters`는 ADAL이 인증을 수행하는 데 필요한 플랫폼별 개체를 캡슐화하는 컨텍스트 매개 변수입니다.
 
-    ```C#
+    ```csharp
     public static async Task<List<User>> SearchByAlias(string alias, IPlatformParameters parent)
     {
     ```
@@ -107,7 +107,7 @@ Azure AD에 앱이 있으므로 ADAL을 설치하고 ID 관련 코드를 작성�
 이 작업을 수행하면 Azure AD와 통신하는 데 필요한 좌표가 ADAL에 전달됩니다.
 3. 그런 다음 `AcquireTokenAsync(...)`를 호출합니다. 이 메서드는 `IPlatformParameters` 개체를 수락하고 앱에 토큰을 반환하는 데 필요한 인증 흐름을 호출합니다.
 
-    ```C#
+    ```csharp
     ...
         AuthenticationResult authResult = null;
         try
@@ -126,7 +126,7 @@ Azure AD에 앱이 있으므로 ADAL을 설치하고 ID 관련 코드를 작성�
     `AcquireTokenAsync(...)`는 먼저 사용자에게 자격 증명을 요구하지 않고(이전 토큰을 캐시하거나 새로 고침) 요청된 리소스(이 경우 Graph API)에 대한 토큰을 반환하려고 합니다. 필요한 경우에만 요청된 토큰을 획득하기 전에 사용자에게 Azure AD 로그인 페이지를 표시합니다.
 4. **Authorization** 헤더의 Graph API GET 요청에 액세스 토큰을 연결합니다.
 
-    ```C#
+    ```csharp
     ...
         request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", authResult.AccessToken);
     ...
@@ -137,12 +137,12 @@ Azure AD에 앱이 있으므로 ADAL을 설치하고 ID 관련 코드를 작성�
 ### <a name="android"></a>Android
 1. MainActivity.cs의 단추 클릭 처리기에서 `SearchByAlias(...)` 호출을 추가합니다.
 
-    ```C#
+    ```csharp
     List<User> results = await DirectorySearcher.SearchByAlias(searchTermText.Text, new PlatformParameters(this));
     ```
 2. `OnActivityResult` 수명 주기 메서드를 재정의하여 인증 리디렉션을 해당 메서드로 다시 전달해야 합니다. ADAL은 Android에서 이 작업을 위한 도우미 메서드를 제공합니다.
 
-    ```C#
+    ```csharp
     ...
     protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
     {
@@ -155,7 +155,7 @@ Azure AD에 앱이 있으므로 ADAL을 설치하고 ID 관련 코드를 작성�
 ### <a name="windows-desktop"></a>Windows Desktop
 MainWindow.xaml.cs에서 데스크톱의 `PlatformParameters` 개체에 `WindowInteropHelper`를 전달하여 `SearchByAlias(...)`를 호출하면 됩니다.
 
-```C#
+```csharp
 List<User> results = await DirectorySearcher.SearchByAlias(
   SearchTermText.Text,
   new PlatformParameters(PromptBehavior.Auto, this.Handle));
@@ -164,7 +164,7 @@ List<User> results = await DirectorySearcher.SearchByAlias(
 #### <a name="ios"></a>iOS
 DirSearchClient_iOSViewController.cs에서 iOS `PlatformParameters` 개체는 보기 컨트롤러에 대한 참조를 사용합니다.
 
-```C#
+```csharp
 List<User> results = await DirectorySearcher.SearchByAlias(
   SearchTermText.Text,
   new PlatformParameters(PromptBehavior.Auto, this.Handle));
@@ -173,7 +173,7 @@ List<User> results = await DirectorySearcher.SearchByAlias(
 ### <a name="windows-universal"></a>Windows 범용
 Windows 유니버설에서 MainPage.xaml.cs를 열고 `Search` 메서드를 구현합니다. 이 메서드는 공유 프로젝트의 도우미 메서드를 사용하여 필요에 따라 UI를 업데이트합니다.
 
-```C#
+```csharp
 ...
 List<User> results = await DirectorySearcherLib.DirectorySearcher.SearchByAlias(SearchTermText.Text, new PlatformParameters(PromptBehavior.Auto, false));
 ...

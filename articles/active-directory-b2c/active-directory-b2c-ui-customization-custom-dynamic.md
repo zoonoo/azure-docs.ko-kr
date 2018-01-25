@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 09/20/2017
 ms.author: yoelh
-ms.openlocfilehash: 342e82071778156477d216c9b624a938c48cb37f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 3a2310ae6266709df6677c55f11b15239c0425a2
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C: 사용자 지정 정책을 사용하여 동적 콘텐츠로 UI 구성
 Azure AD B2C(Azure Active Directory B2C) 사용자 지정 정책을 사용하면 쿼리 문자열에 매개 변수를 보낼 수 있습니다. 매개 변수를 HTML 끝점으로 전달하면 페이지 콘텐츠를 동적으로 변경할 수 있습니다. 예를 들어 웹 또는 모바일 응용 프로그램에서 전달한 매개 변수를 기반으로 Azure AD B2C 등록 또는 로그인 페이지에서 배경 이미지를 변경할 수 있습니다. 
@@ -105,7 +105,7 @@ Azure AD B2C(Azure Active Directory B2C) 사용자 지정 정책을 사용하면
 
 7. 이 연습에서는 레이아웃 페이지에 대한 참조를 제거합니다. 다음 코드 조각을 _unified.cshtml_에 추가합니다.
 
-    ```C#
+    ```csharp
     @{
         Layout = null;
     }
@@ -264,7 +264,7 @@ HomeController `unified` 메서드를 수정하여 campaignId 매개 변수를 �
 
 1. *Controllers\HomeController.cs* 파일을 열어서 다음 코드 조각을 추가하여 `unified` 메서드를 변경합니다.
 
-    ```C#
+    ```csharp
     public IActionResult unified(string campaignId)
     {
         // If campaign ID is Hawaii, show Hawaii background
@@ -321,9 +321,9 @@ HomeController `unified` 메서드를 수정하여 campaignId 매개 변수를 �
 
     a. *selfasserted* 파일을 다운로드합니다.
 
-    b. 파일 내용을 복사합니다.
+    나. 파일 내용을 복사합니다.
 
-    c. 새 보기 *selfasserted*를 만듭니다.
+    다. 새 보기 *selfasserted*를 만듭니다.
 
     d. *selfasserted*를 **Home** 컨트롤러에 추가합니다.
 
@@ -331,7 +331,7 @@ HomeController `unified` 메서드를 수정하여 campaignId 매개 변수를 �
 
     a. 확장 정책에서 `Id="api.selfasserted"`, `Id="api.localaccountsignup"` 및 `Id="api.localaccountpasswordreset"`를 포함하는 `<ContentDefinition>` 노드를 찾습니다.
 
-    b. `LoadUri` 특성을 *selfasserted* URI로 설정합니다.
+    나. `LoadUri` 특성을 *selfasserted* URI로 설정합니다.
 
 3. "8.2단계"로 돌아가서 쿼리 문자열 매개 변수를 수락하도록 코드를 변경합니다. 하지만 이번에는 *selfasserted* 함수로 변경합니다. 
 

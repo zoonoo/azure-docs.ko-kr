@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: f124748434be1b8f0c4704fe6ffba70414c47916
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 963e5cfd929f57b34dcb045df82b64f870e897e2
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="import-data-into-analytics"></a>Analytics로 데이터 가져오기
 
@@ -196,7 +196,7 @@ JSON은 데이터의 부분 매핑을 허용합니다. 따라서 JSON 형식의 
 
 ### <a name="classes"></a>클래스
 
-```C#
+```csharp
 namespace IngestionClient 
 { 
     using System; 
@@ -355,7 +355,7 @@ namespace IngestionClient
 
 각 blob에 대한 이 코드를 사용합니다. 
 
-```C#
+```csharp
    AnalyticsDataSourceClient client = new AnalyticsDataSourceClient(); 
 
    var ingestionRequest = new AnalyticsDataSourceIngestionRequest("iKey", "sourceId", "blobUrlWithSas"); 

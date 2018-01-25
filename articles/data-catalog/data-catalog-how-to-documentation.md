@@ -13,17 +13,17 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 11/01/2017
+ms.date: 01/18/2018
 ms.author: spelluru
-ms.openlocfilehash: ea17dc0914966b9c3ca611c3d359635216ecf1ca
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 1901ac534c46e4de0446543de4a40de040b8d51e
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="document-data-sources"></a>데이터 원본 문서화
 ## <a name="introduction"></a>소개
-**Microsoft Azure 데이터 카탈로그** 는 등록 시스템 및 기업 데이터 원본을 위한 검색 시스템 역할을 하는 완전히 관리되는 클라우드 서비스입니다. 다시 말해서 **Azure Data Catalog** 는 사람들이 데이터 원본을 검색하고 *이해*하고 사용하도록 하면서 조직의 기존 데이터로부터 더 많은 가치를 얻어내도록 돕는 역할을 합니다.
+**Microsoft Azure 데이터 카탈로그**는 등록 시스템 및 기업 데이터 원본을 위한 검색 시스템 역할을 하는 완전히 관리되는 클라우드 서비스입니다. 다시 말해서 **Azure Data Catalog** 는 사람들이 데이터 원본을 검색하고 *이해*하고 사용하도록 하면서 조직의 기존 데이터로부터 더 많은 가치를 얻어내도록 돕는 역할을 합니다.
 
 **Azure Data Catalog**를 사용하여 데이터 원본을 등록하면 해당 메타데이터를 복사하고 서비스로 인덱싱하지만 여기서 끝이 아닙니다. **Azure Data Catalog** 를 사용하면 사용자에게 데이터 원본에 대한 사용 현황 및 일반적인 시나리오를 설명할 수 있는 고유한 전체 설명서를 제공할 수도 있습니다.
 

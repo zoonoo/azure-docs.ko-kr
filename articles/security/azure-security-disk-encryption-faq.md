@@ -3,9 +3,9 @@ title: Azure Disk Encryption FAQ | Microsoft Docs
 description: "이 문서에서는 Windows 및 Linux IaaS VM용 Microsoft Azure Disk Encryption에 대한 질문과 대답을 제공합니다."
 services: security
 documentationcenter: na
-author: deventiwari
+author: DevTiw
 manager: avibm
-editor: yuridio
+editor: barclayn
 ms.assetid: 7188da52-5540-421d-bf45-d124dee74979
 ms.service: security
 ms.devlang: na
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2017
-ms.author: devtiw
-ms.openlocfilehash: db82c2b8f0f9acec41b0b0f87b8839d3d7f49c68
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: devtiw;ejarvi;mayank88mahajan;vermashi;sudhakarareddyevuri;aravindthoram
+ms.openlocfilehash: 1144533cd64e80ed2b15c70732c94e332ea06c3d
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-disk-encryption-faq"></a>Azure Disk Encryption FAQ
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 12/08/2017
 
 **A:** Azure Disk Encryption을 사용하여 VM 디스크를 암호화하는 데 요금이 부과되지 않습니다.
 
-**Q:** Azure Disk Encryption에서 지원하는 가상 컴퓨터 계층은 무엇인가요?
+**Q:** Azure Disk Encryption에서 지원하는 가상 머신 계층은 무엇인가요?
 
 **A:** Azure Disk Encryption은 [A, D, DS, G, GS 및 F](https://azure.microsoft.com/pricing/details/virtual-machines/) 시리즈 IaaS VM을 포함하여 표준 계층 VM에서 사용할 수 있습니다. 프리미엄 저장소가 있는 VM에 사용할 수도 있습니다. 기본 계층 VM에서는 사용할 수 없습니다.
 
@@ -129,11 +129,11 @@ ms.lasthandoff: 12/08/2017
 
 **Q:** 질문을 하거나 의견을 제출할 수 있는 곳은 어디인가요?
 
-**A:** [Azure Disk Encryption 포럼](https://social.msdn.microsoft.com/Forums/home?forum=AzureDiskEncryption)에서 질문하거나 피드백을 제출할 수 있습니다.
+**A:** [Azure Disk Encryption 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDiskEncryption)에서 질문하거나 피드백을 제출할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 Azure Disk Encryption와 관련하여 가장 자주 묻는 질문에 대해 자세히 알아 보았습니다. 이 서비스 및 기능에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 - [Azure Security Center에서 디스크 암호화 적용](https://docs.microsoft.com/azure/security-center/security-center-apply-disk-encryption)
-- [Azure 가상 컴퓨터 암호화](https://docs.microsoft.com/azure/security-center/security-center-disk-encryption)
+- [Azure 가상 머신 암호화](https://docs.microsoft.com/azure/security-center/security-center-disk-encryption)
 - [휴지 상태의 Azure 데이터 암호화](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest)

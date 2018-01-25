@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: xpouyat;anilmur;juliako
-ms.openlocfilehash: 7dc149f55c2caf4c3ab3a4782fd71affde0694ca
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: a55d6dc212da05d7c14679579258e28921fecdc8
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="using-multiple-input-files-and-component-properties-with-premium-encoder"></a>프리미엄 인코더로 여러 입력 파일 및 구성 요소 속성 사용
 ## <a name="overview"></a>개요
@@ -47,7 +47,7 @@ ms.lasthandoff: 11/07/2017
 
 다음은 파일에서 XML 구성을 읽고 적절한 비디오 파일 이름으로 업데이트한 후 해당 작업에 전달하는 C# 코드입니다.
 
-```c#
+```csharp
 string premiumConfiguration = ReadAllText(@"D:\home\site\wwwroot\Presets\SetRuntime.xml").Replace("VideoFileName", myVideoFileName);
 
 // Declare a new job.
@@ -81,7 +81,7 @@ task.OutputAssets.AddNew("Output asset", AssetCreationOptions.None);
 
 **setRuntimeProperties** 가 사용됩니다.
 
-예제:
+예:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -97,7 +97,7 @@ task.OutputAssets.AddNew("Output asset", AssetCreationOptions.None);
 ### <a name="property-with-an-xml-value"></a>XML 값이 있는 속성
 XML 값이 예상되는 속성을 설정하려면 `<![CDATA[ and ]]>`를 사용하여 캡슐화하세요.
 
-예제:
+예:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -139,7 +139,7 @@ XML 값이 예상되는 속성을 설정하려면 `<![CDATA[ and ]]>`를 사용�
 
 ![작업/편집](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture6_actionedit.png)
 
-![속성](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture7_viewproperty.png)
+![자산](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture7_viewproperty.png)
 
 ## <a name="multiple-input-files"></a>여러 입력 파일
 **미디어 인코더 Premium 워크플로** 에 제출하는 각 작업에는 두 개의 자산이 필요합니다.
@@ -415,7 +415,7 @@ AAC 인코더를 설정하고 오디오 형식 변환/사전 설정 : 2.0 (L, R)
 
 .NET SDK를 사용하여 작업을 만들고 실행한 경우 이 XML 데이터를 구성 문자열로 전달해야 합니다.
 
-```c#
+```csharp
 public ITask AddNew(string taskName, IMediaProcessor mediaProcessor, string configuration, TaskOptions options);
 ```
 

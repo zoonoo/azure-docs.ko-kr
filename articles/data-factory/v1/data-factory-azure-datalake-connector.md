@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: cc3128d3d07210d5c8e3ebe70c6c1d8ebaa9b863
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: f4ba8288c1efd443310b4efc305c6f397c8163a0
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-to-and-from-data-lake-store-by-using-data-factory"></a>Data Factory를 사용하여 Data Lake Store 간 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -241,10 +241,10 @@ Data Lake Store에서 입력 데이터를 표시할 데이터 집합을 지정�
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | **folderPath** |Data Lake Store의 컨테이너 및 폴더에 대한 경로입니다. |예 |
-| **fileName** |Azure Data Lake Store에 있는 파일의 이름입니다. **fileName** 속성은 선택 사항이며 대/소문자를 구분합니다. <br/><br/>**fileName**을 지정하는 경우 활동(복사 포함)은 특정 파일에서 작동합니다.<br/><br/>**fileName**을 지정하지 않으면 복사는 입력 데이터 집합에 대한 **folderPath**에 모든 파일을 포함합니다.<br/><br/>**fileName**이 출력 데이터 집합에 대해 지정되지 않았고 **preserveHierarchy**가 활동 싱크에 지정되지 않은 경우 생성된 파일의 이름은 Data._Guid_.txt' 형식입니다. 예제: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |아니오 |
-| **partitionedBy** |**partitionedBy** 속성은 선택 사항입니다. 시계열 데이터에 대한 동적 경로 및 파일 이름을 지정하는 데 사용할 수 있습니다. 예를 들어 **folderPath**는 매시간 데이터에 대한 매개 변수화됩니다. 자세한 내용과 예제는 [partitionedBy 속성](#using-partitionedby-property)을 참조하세요. |아니오 |
+| **fileName** |Azure Data Lake Store에 있는 파일의 이름입니다. **fileName** 속성은 선택 사항이며 대/소문자를 구분합니다. <br/><br/>**fileName**을 지정하는 경우 활동(복사 포함)은 특정 파일에서 작동합니다.<br/><br/>**fileName**을 지정하지 않으면 복사는 입력 데이터 집합에 대한 **folderPath**에 모든 파일을 포함합니다.<br/><br/>**fileName**이 출력 데이터 집합에 대해 지정되지 않았고 **preserveHierarchy**가 활동 싱크에 지정되지 않은 경우 생성된 파일의 이름은 Data._Guid_.txt' 형식입니다. 예제: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |아니요 |
+| **partitionedBy** |**partitionedBy** 속성은 선택 사항입니다. 시계열 데이터에 대한 동적 경로 및 파일 이름을 지정하는 데 사용할 수 있습니다. 예를 들어 **folderPath**는 매시간 데이터에 대한 매개 변수화됩니다. 자세한 내용과 예제는 [partitionedBy 속성](#using-partitionedby-property)을 참조하세요. |아니요 |
 | **format** | **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** 및 **ParquetFormat** 서식 유형이 지원됩니다. **format**의 **type** 속성을 이 값 중 하나로 설정합니다. 자세한 내용은 [Azure Data Factory에서 지원하는 파일 및 압축 형식](data-factory-supported-file-and-compression-formats.md) 문서의 [텍스트 형식](data-factory-supported-file-and-compression-formats.md#text-format), [JSON 형식](data-factory-supported-file-and-compression-formats.md#json-format), [Avro 형식](data-factory-supported-file-and-compression-formats.md#avro-format), [ORC 형식](data-factory-supported-file-and-compression-formats.md#orc-format) 및 [Parquet 형식](data-factory-supported-file-and-compression-formats.md#parquet-format) 섹션을 참조하세요. <br><br> 파일 기반 저장소(이진 복사) 간에 파일을 “있는 그대로” 복사하려는 경우 입력 및 출력 데이터 집합 정의 둘 다에서 `format` 섹션을 건너뜁니다. |아니요 |
-| **compression** | 데이터에 대한 압축 유형 및 수준을 지정합니다. 지원되는 형식은 **GZip**, **Deflate**, **BZip2** 및 **ZipDeflate**입니다. **Optimal** 및 **Fastest** 수준이 지원됩니다. 자세한 내용은 [Azure Data Factory에서 지원되는 파일 및 압축 형식](data-factory-supported-file-and-compression-formats.md#compression-support)을 참조하세요. |아니오 |
+| **compression** | 데이터에 대한 압축 유형 및 수준을 지정합니다. 지원되는 형식은 **GZip**, **Deflate**, **BZip2** 및 **ZipDeflate**입니다. **Optimal** 및 **Fastest** 수준이 지원됩니다. 자세한 내용은 [Azure Data Factory에서 지원되는 파일 및 압축 형식](data-factory-supported-file-and-compression-formats.md#compression-support)을 참조하세요. |아니요 |
 
 ### <a name="the-partitionedby-property"></a>partitionedBy 속성
 **partitionedBy** 속성, Data Factory 함수 및 시스템 변수를 사용하여 시계열 데이터의 동적 **folderPath** 및 **fileName** 속성을 지정할 수 있습니다. 자세한 내용은 [Azure Data Factory - 함수 및 시스템 변수](data-factory-functions-variables.md) 문서를 참조하세요.

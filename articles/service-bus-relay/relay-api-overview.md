@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/05/2017
+ms.date: 01/23/2018
 ms.author: sethm
-ms.openlocfilehash: 60413bd110fd4021b070f94d6338a50e1b321dea
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fc6db8aba887b186961da9b12e7c5f32afa4355b
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="available-relay-apis"></a>사용 가능한 Relay API
 
@@ -37,9 +37,11 @@ ms.lasthandoff: 10/11/2017
 ### <a name="additional-information"></a>추가 정보
 
 #### <a name="net"></a>.NET
+
 .NET 에코 시스템에는 여러 개의 런타임이 있으므로 Event Hubs용 .NET 라이브러리도 여러 개 있습니다. .NET Framework 라이브러리는 .NET Framework 환경에서만 실행될 수 있지만 .NET Standard 라이브러리는 .NET Core 또는 .NET Framework를 사용하여 실행할 수 있습니다. .NET Framework에 대한 자세한 내용은 [프레임워크 버전](/dotnet/articles/standard/frameworks#framework-versions)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
+
 Azure Relay에 대한 자세한 내용은 다음 링크를 방문하세요.
 * [Azure 릴레이란?](relay-what-is-it.md)
 * [릴레이 FAQ](relay-faq.md)

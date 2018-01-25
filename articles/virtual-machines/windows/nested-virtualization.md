@@ -11,37 +11,37 @@ ms.topic: howto
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.openlocfilehash: 8372817b00d8a5f9e4203b072dbc143185639120
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 180b87e18d98bb1e7ddefdcce09fc45d2fc26d0f
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Azure VM에서 중첩된 가상화를 사용하는 방법
 
 중첩된 가상화는 Azure Virtual Machines의 Dv3 및 Ev3 시리즈에서 지원됩니다. 이 기능은 개발, 테스트, 교육 및 데모 환경과 같은 시나리오를 지원하는 데 큰 유연성을 제공합니다. 
 
-이 문서에서는 Azure VM에서 중첩된 가상화를 사용하도록 설정하고 해당 게스트 가상 컴퓨터에 인터넷 연결을 구성하는 방법을 단계별로 설명합니다.
+이 문서에서는 Azure VM에서 중첩된 가상화를 사용하도록 설정하고 해당 게스트 가상 머신에 인터넷 연결을 구성하는 방법을 단계별로 설명합니다.
 
 ## <a name="create-a-dv3-or-ev3-series-azure-vm"></a>Dv3 또는 Ev3 시리즈 Azure VM 만들기
 
-새 Windows Server 2016 Azure VM을 만들고 Dv3 또는 Ev3 시리즈에서 크기를 선택합니다. 게스트 가상 컴퓨터의 수요를 지원할 만큼 큰 크기를 선택합니다. 이 예제에서는 D3_v3 크기의 Azure VM을 사용합니다. 
+새 Windows Server 2016 Azure VM을 만들고 Dv3 또는 Ev3 시리즈에서 크기를 선택합니다. 게스트 가상 머신의 수요를 지원할 만큼 큰 크기를 선택합니다. 이 예제에서는 D3_v3 크기의 Azure VM을 사용합니다. 
 
-Dv3 또는 Ev3 시리즈 가상 컴퓨터의 지역별 가용성은 [여기](https://azure.microsoft.com/regions/services/)에서 볼 수 있습니다.
+Dv3 또는 Ev3 시리즈 가상 머신의 지역별 가용성은 [여기](https://azure.microsoft.com/regions/services/)에서 볼 수 있습니다.
 
 >[!NOTE]
 >
->새 가상 컴퓨터를 만드는 방법에 대한 자세한 내용은 [Azure PowerShell 모듈을 사용하여 Windows VM 만들기 및 관리](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)를 참조하세요.
+>새 가상 머신을 만드는 방법에 대한 자세한 내용은 [Azure PowerShell 모듈을 사용하여 Windows VM 만들기 및 관리](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)를 참조하세요.
     
 ## <a name="connect-to-your-azure-vm"></a>Azure VM에 연결
 
-가상 컴퓨터에 대한 원격 데스크톱 연결을 만듭니다.
+가상 머신에 대한 원격 데스크톱 연결을 만듭니다.
 
-1. 가상 컴퓨터 속성에서 **연결** 단추를 클릭합니다. 원격 데스크톱 프로토콜 파일(.rdp 파일)이 생성되고 다운로드됩니다.
+1. 가상 머신 속성에서 **연결** 단추를 클릭합니다. 원격 데스크톱 프로토콜 파일(.rdp 파일)이 생성되고 다운로드됩니다.
 
 2. VM에 연결하려면 다운로드한 RDP 파일을 엽니다. 메시지가 표시되면 **연결**을 클릭합니다. Mac의 Mac 앱 스토어에서 이 [원격 데스크톱 클라이언트](https://itunes.apple.com/us/app/microsoft-remote-desktop/id715768417?mt=12)와 같은 RDP 클라이언트가 필요합니다.
 
-3. 가상 컴퓨터를 만들 때 지정한 사용자 이름 및 암호를 입력하고 **확인**을 클릭합니다.
+3. 가상 머신을 만들 때 지정한 사용자 이름 및 암호를 입력하고 **확인**을 클릭합니다.
 
 4. 로그인 프로세스 중에 인증서 경고가 나타날 수 있습니다. **예** 또는 **계속**을 클릭하여 연결을 진행합니다.
 
@@ -67,7 +67,7 @@ Windows Server 2016 호스트에서 중첩된 가상화를 사용하도록 설�
     
 3. Azure VM이 다시 시작되면 RDP를 사용하여 VM에 다시 연결합니다.
 
-## <a name="set-up-internet-connectivity-for-the-guest-virtual-machine"></a>게스트 가상 컴퓨터에 대한 인터넷 연결 설정
+## <a name="set-up-internet-connectivity-for-the-guest-virtual-machine"></a>게스트 가상 머신에 대한 인터넷 연결 설정
 게스트 가상 컴퓨터용 새 가상 네트워크 어댑터를 만들고 인터넷 연결이 가능하도록 NAT 게이트웨이를 구성합니다.
 
 ### <a name="create-a-nat-virtual-network-switch"></a>NAT 가상 네트워크 스위치 만들기
@@ -77,7 +77,7 @@ Windows Server 2016 호스트에서 중첩된 가상화를 사용하도록 설�
 2. 내부 스위치를 만듭니다.
 
     ```powershell
-    New-VMSwitch -SwitchName "InternalNATSwitch" -SwitchType Internal
+    New-VMSwitch -Name "InternalNATSwitch" -SwitchType Internal
     ```
 
 3. 스위치의 속성을 확인하고 새 어댑터에 대한 ifIndex를 기록합니다.
@@ -117,21 +117,21 @@ New-NetNat -Name "InternalNat" -InternalIPInterfaceAddressPrefix 192.168.0.0/24
 
 ## <a name="create-the-guest-virtual-machine"></a>게스트 가상 컴퓨터 만들기
 
-1. Hyper-V 관리자를 열고 새 가상 컴퓨터를 만듭니다. 새로 만든 내부 네트워크를 사용하도록 가상 컴퓨터를 구성합니다.
+1. Hyper-V 관리자를 열고 새 가상 머신을 만듭니다. 새로 만든 내부 네트워크를 사용하도록 가상 머신을 구성합니다.
     
     ![NetworkConfig](./media/virtual-machines-nested-virtualization/configure-networking.png)
     
-2. 게스트 가상 컴퓨터에 운영 체제를 설치합니다.
+2. 게스트 가상 머신에 운영 체제를 설치합니다.
     
     >[!NOTE] 
     >
     >VM에 설치할 운영 체제의 설치 미디어가 필요합니다. 이 경우 Windows 10 Enterprise를 사용합니다.
 
-## <a name="assign-an-ip-address-to-the-guest-virtual-machine"></a>게스트 가상 컴퓨터에 IP 주소 할당
+## <a name="assign-an-ip-address-to-the-guest-virtual-machine"></a>게스트 가상 머신에 IP 주소 할당
 
 게스트 가상 시스템에서 고정 IP 주소를 수동으로 설정하거나 Azure VM에서 IP 주소를 동적으로 할당하도록 DHCP를 구성하여 게스트 가상 시스템에 IP 주소를 할당할 수 있습니다.
 
-###  <a name="option-1-configure-dhcp-to-dynamically-assign-an-ip-address-to-the-guest-virtual-machine"></a>옵션 1: 게스트 가상 컴퓨터에 동적으로 IP 주소를 할당하도록 DHCP 구성
+###  <a name="option-1-configure-dhcp-to-dynamically-assign-an-ip-address-to-the-guest-virtual-machine"></a>옵션 1: 게스트 가상 머신에 동적으로 IP 주소를 할당하도록 DHCP 구성
 동적 주소 할당을 위해 호스트 가상 시스템에 DHCP를 구성하려면 아래 단계를 수행합니다.
 
 #### <a name="install-dchp-server-on-the-azure-vm"></a>Azure VM에 DCHP 서버 설치
@@ -158,14 +158,14 @@ New-NetNat -Name "InternalNat" -InternalIPInterfaceAddressPrefix 192.168.0.0/24
   
 6. 모든 기본값을 유지한 채 마법사가 완료될 때까지 **다음**을 클릭한 다음 **마침**을 클릭합니다.
     
-### <a name="option-2-manually-set-a-static-ip-address-on-the-guest-virtual-machine"></a>옵션 2: 게스트 가상 컴퓨터에서 수동으로 고정 IP 주소 설정
+### <a name="option-2-manually-set-a-static-ip-address-on-the-guest-virtual-machine"></a>옵션 2: 게스트 가상 머신에서 수동으로 고정 IP 주소 설정
 게스트 가상 머신에 IP 주소를 동적으로 할당하도록 DHCP를 구성하지 않은 경우 다음 단계에 따라 고정 IP 주소를 설정합니다.
 
 1. Azure VM에서 관리자 권한으로 PowerShell을 엽니다.
 
-2. 게스트 가상 컴퓨터를 마우스 오른쪽 단추로 클릭하고 연결을 클릭합니다.
+2. 게스트 가상 머신을 마우스 오른쪽 단추로 클릭하고 연결을 클릭합니다.
 
-3. 게스트 가상 컴퓨터에 로그온합니다.
+3. 게스트 가상 머신에 로그온합니다.
 
 4. 게스트 가상 컴퓨터에서 네트워크 및 공유 센터를 엽니다.
 
@@ -173,7 +173,7 @@ New-NetNat -Name "InternalNat" -InternalIPInterfaceAddressPrefix 192.168.0.0/24
 
 이 예제에서는 192.168.0.0/24 범위의 주소를 사용합니다.
 
-## <a name="test-connectivity-in-guest-virtual-machine"></a>게스트 가상 컴퓨터에서 연결 테스트
+## <a name="test-connectivity-in-guest-virtual-machine"></a>게스트 가상 머신에서 연결 테스트
 
-게스트 가상 컴퓨터에서 브라우저를 열고 웹 페이지로 이동합니다.
+게스트 가상 머신에서 브라우저를 열고 웹 페이지로 이동합니다.
     ![GuestVM](./media/virtual-machines-nested-virtualization/guest-virtual-machine.png)

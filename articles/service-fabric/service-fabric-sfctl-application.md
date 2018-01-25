@@ -9,16 +9,16 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: cli
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 09/22/2017
 ms.author: ryanwi
-ms.openlocfilehash: 82d2024f567768e784d9d8697784d06b56bc08ed
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 9008a29a5ca94b92669277ab3a2f68b3f129396b
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="sfctl-application"></a>sfctl application
 응용 프로그램 및 응용 프로그램 종류를 만들고, 삭제하고, 관리합니다.
@@ -39,7 +39,7 @@ ms.lasthandoff: 11/03/2017
 | manifest     | 응용 프로그램 유형을 설명하는 매니페스트를 가져옵니다.|
 | provision    | 클러스터와 함께 Microsoft Azure Service Fabric 응용 프로그램 형식을 프로비전 또는 레지스터합니다.|
 | report-health| Microsoft Azure Service Fabric 응용 프로그램에 대한 상태 보고서를 보냅니다.|
-| type         | 지정된 이름과 정확히 일치하는 Microsoft Azure Service Fabric 클러스터에서 응용 프로그램 종류의 목록을 가져옵니다.|
+| 형식         | 지정된 이름과 정확히 일치하는 Microsoft Azure Service Fabric 클러스터에서 응용 프로그램 종류의 목록을 가져옵니다.|
 | type-list    | Microsoft Azure Service Fabric 클러스터에서 응용 프로그램의 유형 목록을 가져옵니다.|
 | unprovision  | 클러스터에서 Microsoft Azure Service Fabric 응용 프로그램 유형을 제거하거나 등록 취소합니다.|
 | 업그레이드      | Microsoft Azure Service Fabric 클러스터에서 응용 프로그램 업그레이드를 시작합니다.|

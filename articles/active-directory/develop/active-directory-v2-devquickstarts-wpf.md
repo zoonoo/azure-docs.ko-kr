@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/30/2016
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 7436db2943a6b3de6ec53cdaa6692aa05d2f2f69
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 88679e7dd71011f767cbe4de295c284516375d20
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="add-sign-in-to-a-windows-desktop-app"></a>Windows 데스크톱 앱에 로그인 추가
 v2.0 끝점에서는 개인 Microsoft 계정과 회사 또는 학교 계정 둘 다를 지원하는 인증을 데스크톱 앱에 빠르게 추가할 수 있습니다.  또한 앱이 백 엔드 웹 API 그리고 [Microsoft Graph](https://graph.microsoft.io) 및 [Office 365 통합 API](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) 중 일부와 안전하게 통신할 수 있도록 합니다.
@@ -69,7 +69,7 @@ MSAL의 기본 원칙은 앱에 액세스 토큰이 필요할 때마다 `app.Acq
 
 * `TodoListClient` 프로젝트에서 `MainWindow.xaml.cs`를 열고 `OnInitialized(...)` 메서드를 찾습니다.  첫 번째 단계는 앱의 `PublicClientApplication` - 네이티브 응용 프로그램을 나타내는 MSAL의 기본 클래스를 초기화하는 것입니다.  이 클래스에서 Azure AD와 통신하는 데 필요한 좌표를 MSAL에 전달하고 토큰 캐시 방법을 알려줍니다.
 
-```C#
+```csharp
 protected override async void OnInitialized(EventArgs e)
 {
         base.OnInitialized(e);
@@ -82,7 +82,7 @@ protected override async void OnInitialized(EventArgs e)
 
 * 앱이 시작되면 사용자가 앱에 이미 로그인했는지 여부를 확인하려고 합니다.  그러나 로그인 UI는 아직 호출하지 않고 사용자가 "로그인"을 클릭하여 호출하도록 합니다.  또한 `OnInitialized(...)` 메서드에서
 
-```C#
+```csharp
 // As the app starts, we want to check to see if the user is already signed in.
 // You can do so by trying to get a token from MSAL, using the method
 // AcquireTokenSilent.  This forces MSAL to throw an exception if it cannot
@@ -119,7 +119,7 @@ catch (MsalException ex)
 
 * 사용자가 로그인하지 않았으며 "로그인" 단추를 클릭하는 경우 로그인 UI를 호출하고 사용자가 해당 자격 증명을 입력하도록 합니다.  로그인 단추 처리기를 구현합니다.
 
-```C#
+```csharp
 private async void SignIn(object sender = null, RoutedEventArgs args = null)
 {
         // TODO: Sign the user out if they clicked the "Clear Cache" button
@@ -167,7 +167,7 @@ catch (MsalException ex)
 
 * 사용자가 로그인하면 MSAL이 자동으로 토큰을 받아서 캐시하며, `GetTodoList()` 메서드를 호출할 수 있습니다.  `GetTodoList()` 메서드만 구현하면 사용자 작업을 가져올 수 있습니다.
 
-```C#
+```csharp
 private async void GetTodoList()
 {
 
@@ -219,7 +219,7 @@ httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("
 
 - When the user is done managing their To-Do List, they may finally sign out of the app by clicking the "Clear Cache" button.
 
-```C#
+```csharp
 private async void SignIn(object sender = null, RoutedEventArgs args = null)
 {
         // If the user clicked the 'clear cache' button,
@@ -240,7 +240,7 @@ private async void SignIn(object sender = null, RoutedEventArgs args = null)
 ```
 
 ## <a name="run"></a>실행
-축하합니다. 이제 OAuth 2.0을 사용하여 사용자를 인증하고 웹 API를 안전하게 호출하는 기능이 있는 .NET WPF 앱이 작동합니다.  두 프로젝트를 실행하고, 개인 Microsoft 계정이나 회사 또는 학교 계정으로 로그인합니다.  작업을 사용자의 할 일 모음에 추가합니다.   다른 사용자의 할 일 목록을 보려면 로그아웃하고 해당 사용자로 다시 로그인합니다.  앱을 닫았다가 다시 실행합니다.  사용자의 세션이 원래 상태로 유지됩니다. 이는 앱이 로컬 파일의 토큰을 캐시하기 때문입니다.
+축하합니다! 이제 OAuth 2.0을 사용하여 사용자를 인증하고 웹 API를 안전하게 호출하는 기능이 있는 .NET WPF 앱이 작동합니다.  두 프로젝트를 실행하고, 개인 Microsoft 계정이나 회사 또는 학교 계정으로 로그인합니다.  작업을 사용자의 할 일 모음에 추가합니다.   다른 사용자의 할 일 목록을 보려면 로그아웃하고 해당 사용자로 다시 로그인합니다.  앱을 닫았다가 다시 실행합니다.  사용자의 세션이 원래 상태로 유지됩니다. 이는 앱이 로컬 파일의 토큰을 캐시하기 때문입니다.
 
 MSAL은 개인 및 회사 계정을 사용하여 공통 ID 기능을 앱에 쉽게 통합합니다.  또한 캐시 관리, OAuth 프로토콜 지원, 사용자에게 로그인 UI 제공, 만료된 토큰 새로 고침 등의 모든 귀찮은 작업을 관리해줍니다.  실제로 알아두어야 할 모든 항목은 단일 API 호출, `app.AcquireTokenAsync(...)`입니다.
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/06/2017
 ms.author: mbullwin
-ms.openlocfilehash: a33fedd765acde666eef280ba7dfa72536bf1bd2
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 271ccc126eeb9411646b68b32fd30ce32b5eef5c
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="a-tour-of-analytics-in-application-insights"></a>Application Insights의 Analytics 둘러보기
 [분석](app-insights-analytics.md)은 [Application Insights](app-insights-overview.md)의 강력한 검색 기능입니다. 다음 페이지에서는 Log Analytics 쿼리 언어에 대해 설명합니다.
@@ -31,7 +31,7 @@ ms.lasthandoff: 11/13/2017
 ## <a name="connect-to-your-application-insights-data"></a>Application Insights 데이터에 연결
 Application Insights의 앱 [개요 블레이드](app-insights-dashboards.md) 에서 분석을 엽니다.
 
-![portal.azure.com을 열고 Application Insights 리소스를 열고 Analytics를 클릭합니다.](./media/app-insights-analytics-tour/001.png)
+![portal.azure.com에서 Application Insights 리소스를 열고 분석을 클릭합니다.](./media/app-insights-analytics-tour/001.png)
 
 ## <a name="takehttpsdocsloganalyticsioquerylanguagequerylanguagetakeoperatorhtml-show-me-n-rows"></a>[Take](https://docs.loganalytics.io/queryLanguage/query_language_takeoperator.html): n개의 행 표시
 사용자 작업(일반적으로 웹앱에서 받는 HTTP 요청)을 기록하는 데이터 요소는 `requests`라는 테이블에 저장됩니다. 각 행은 앱의 Application Insights SDK에서 수신된 원격 분석 데이터 요소입니다.
@@ -134,7 +134,7 @@ Application Insights의 앱 [개요 블레이드](app-insights-dashboards.md) �
 
 ![](./media/app-insights-analytics-tour/change-time-range.png)
 
-where 절에서 `timestamp`를 언급하는 쿼리를 작성하여 시간 범위를 재정의합니다. 예:
+where 절에서 `timestamp`를 언급하는 쿼리를 작성하여 시간 범위를 재정의합니다. 예: 
 
 ```AIQL
 
@@ -502,7 +502,7 @@ requests
 ```
 
 
-### <a name="functions"></a>함수
+### <a name="functions"></a>Functions
 
 *Let*을 사용하여 함수를 정의합니다.
 
@@ -538,7 +538,7 @@ requests
 
 예를 들어 앱이 다음을 포함한 경우입니다.
 
-```C#
+```csharp
 
     var dimensions = new Dictionary<string, string>
                      {{"p1", "v1"},{"p2", "v2"}};
@@ -611,7 +611,7 @@ requests
 
 응용 프로그램 코드에 이러한 줄을 포함하는 사례:
 
-```C#
+```csharp
 
     telemetry.TrackEvent("Query",
        new Dictionary<string,string> {{"query", sqlCmd}},
@@ -629,7 +629,7 @@ requests
 ![사용자 지정 이벤트의 표시 속도](./media/app-insights-analytics-tour/analytics-custom-events-dimensions.png)
 
 ### <a name="custom-metrics-table"></a>사용자 지정 메트릭 테이블
-사용자 지정 메트릭 값을 보내기 위해 [TrackMetric()](app-insights-api-custom-events-metrics.md#trackmetric)을 사용하면 **customMetrics** 스트림에 결과가 나타납니다. 예:  
+사용자 지정 메트릭 값을 보내기 위해 [TrackMetric()](app-insights-api-custom-events-metrics.md#trackmetric)을 사용하면 **customMetrics** 스트림에 결과가 나타납니다. 예:   
 
 ![Application Insights 분석의 사용자 지정 메트릭](./media/app-insights-analytics-tour/analytics-custom-metrics.png)
 

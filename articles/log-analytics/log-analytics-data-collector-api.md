@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 01/23/2018
 ms.author: bwren
-ms.openlocfilehash: 5b4b31b58c7a4bcb93277333502bc082da2062ed
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 88d9c4b23eb676743c004c0d1b3ab45f6cd66055
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="send-data-to-log-analytics-with-the-http-data-collector-api-public-preview"></a>HTTP 데이터 수집기 API로 Log Analytics에 데이터 전송(공개 미리 보기)
 이 문서에서는 HTTP 데이터 수집기 API를 사용하여 REST API 클라이언트에서 Log Analytics로 데이터를 전송하는 방법을 보여 줍니다.  스크립트 또는 응용 프로그램에서 수집하는 데이터를 포맷하고 요청에 포함하며 해당 요청을 Log Analytics에서 승인하게 하는 방법을 설명합니다.  PowerShell, C# 및 Python에 예가 제공됩니다.
@@ -40,9 +40,9 @@ Log Analytics 저장소의 모든 데이터는 특정 레코드 형식의 레코
 HTTP 데이터 수집기 API를 사용하려면 JSON(JavaScript Object Notation)에서 전송할 데이터가 포함된 POST 요청을 만듭니다.  다음 세 개 표에는 각 요청에 필요한 속성이 나와 있습니다. 이 문서의 뒷부분에서 각각의 속성에 대해 자세히 설명합니다.
 
 ### <a name="request-uri"></a>요청 URI
-| 특성 | 속성 |
+| 특성 | 자산 |
 |:--- |:--- |
-| 메서드 |POST |
+| 방법 |POST |
 | URI |https://\<CustomerId\>.ods.opinsights.azure.com/api/logs?api-version=2016-04-01 |
 | 콘텐츠 형식 |application/json |
 
@@ -135,7 +135,7 @@ Log Analytics API에 대한 각각의 요청은 레코드 형식의 이름과 �
 | 속성 데이터 형식 | 접미사 |
 |:--- |:--- |
 | 문자열 |_s |
-| Boolean |_b |
+| BOOLEAN |_b |
 | Double |_d |
 | 날짜/시간 |_t |
 | GUID |_g |
@@ -173,7 +173,7 @@ HTTP 상태 코드 200는 처리를 위한 요청을 받았다는 것을 의미�
 
 이 표는 서비스에서 반환할 수 있는 전체 상태 코드 집합을 보여 줍니다.
 
-| 코드 | 가동 상태 | 오류 코드 | 설명 |
+| 코드 | 상태 | 오류 코드 | 설명 |
 |:--- |:--- |:--- |:--- |
 | 200 |확인 | |요청이 성공적으로 수락되었습니다. |
 | 400 |잘못된 요청 |InactiveCustomer |작업 영역이 닫혔습니다. |
@@ -260,7 +260,7 @@ Function Build-Signature ($customerId, $sharedKey, $date, $contentLength, $metho
 
 
 # Create the function to create and post the request
-Function Post-OMSData($customerId, $sharedKey, $body, $logType)
+Function Post-LogAnalyticsData($customerId, $sharedKey, $body, $logType)
 {
     $method = "POST"
     $contentType = "application/json"
@@ -291,7 +291,7 @@ Function Post-OMSData($customerId, $sharedKey, $body, $logType)
 }
 
 # Submit the data to the API endpoint
-Post-OMSData -customerId $customerId -sharedKey $sharedKey -body ([System.Text.Encoding]::UTF8.GetBytes($json)) -logType $logType  
+Post-LogAnalyticsData -customerId $customerId -sharedKey $sharedKey -body ([System.Text.Encoding]::UTF8.GetBytes($json)) -logType $logType  
 ```
 
 ### <a name="c-sample"></a>C# 샘플

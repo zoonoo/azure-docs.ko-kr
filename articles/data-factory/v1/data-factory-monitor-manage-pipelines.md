@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: ccc0755385d2f170939e5c19f32b168132b6839b
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: d9e7b1d020a99e939ea01c43c7e5e935188b212e
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Azure Portal 및 PowerShell을 사용하여 Azure Data Factory 파이프라인 모니터링 및 관리
 > [!div class="op_single_selector"]
@@ -45,7 +45,7 @@ Azure Portal을 사용하여 다음을 수행할 수 있습니다.
 이 섹션은 데이터 집합 조각이 하나의 상태에서 다른 상태로 전환되는 방식을 설명합니다.   
 
 ### <a name="navigate-to-your-data-factory"></a>데이터 팩터리로 이동
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 왼쪽의 메뉴에서 **데이터 팩터리**를 클릭합니다. 데이터 팩터리가 보이지 않으면 **더 많은 서비스 >**를 클릭하고 **인텔리전스 + 분석** 범주 아래에 있는 **데이터 팩터리**를 클릭합니다.
 
    ![모두 찾아보기 -> 데이터 팩터리](./media/data-factory-monitor-manage-pipelines/browseall-data-factories.png)
@@ -120,7 +120,7 @@ Azure Portal을 사용하여 다음을 수행할 수 있습니다.
 <td>조각이 처리되고 있습니다.</td>
 </tr>
 <tr>
-<td rowspan="4">Failed</td><td>TimedOut</td><td>활동 실행이 활동에서 허용하는 것보다 오래 걸렸습니다.</td>
+<td rowspan="4">실패</td><td>TimedOut</td><td>활동 실행이 활동에서 허용하는 것보다 오래 걸렸습니다.</td>
 </tr>
 <tr>
 <td>Canceled</td><td>이 조각은 사용자 동작으로 취소되었습니다.</td>
@@ -177,7 +177,7 @@ Azure PowerShell을 사용하여 파이프라인을 관리할 수 있습니다. 
 ```powershell
 Suspend-AzureRmDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 ```
-예:
+예: 
 
 ```powershell
 Suspend-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline
@@ -188,7 +188,7 @@ Suspend-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName produ
 ```powershell
 Resume-AzureRmDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 ```
-예:
+예: 
 
 ```powershell
 Resume-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline
@@ -220,7 +220,7 @@ Azure Data Factory는 Azure Portal 및 Azure PowerShell을 사용하여 파이�
     ```powershell   
     Get-AzureRmDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-DatasetName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
     ```   
-   예:
+   예: 
 
     ```powershell   
     Get-AzureRmDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
@@ -234,7 +234,7 @@ Azure Data Factory는 Azure Portal 및 Azure PowerShell을 사용하여 파이�
     <DateTime> [-Profile <AzureProfile> ] [ <CommonParameters>]
     ```
 
-    예:
+    예: 
 
     ```powershell   
     Get-AzureRmDataFactoryRun -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime "5/5/2014 12:00:00 AM"
@@ -366,9 +366,9 @@ Azure 이벤트는 Azure 리소스에서 일어나는 일에 대한 유용한 �
 
 다음 테이블은 사용 가능한 작업 및 상태(및 하위 상태) 목록을 제공합니다.
 
-| 작업 이름 | 가동 상태 | 하위 상태 |
+| 작업 이름 | 상태 | 하위 상태 |
 | --- | --- | --- |
-| RunStarted |Started |Starting |
+| RunStarted |Started |시작 중 |
 | RunFinished |Failed / Succeeded |FailedResourceAllocation<br/><br/>Succeeded<br/><br/>FailedExecution<br/><br/>TimedOut<br/><br/><Canceled<br/><br/>FailedValidation<br/><br/>Abandoned |
 | OnDemandClusterCreateStarted |Started | |
 | OnDemandClusterCreateSuccessful |Succeeded | |

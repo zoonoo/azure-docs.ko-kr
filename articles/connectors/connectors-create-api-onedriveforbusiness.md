@@ -15,21 +15,21 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: 783d6a640d9626508bcabc5f991dc5b6fc22eaf4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8bd447b59e8fd3573dad26ae6600e4b5c9cb7a7e
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-onedrive-for-business-connector"></a>비즈니스용 OneDrive 커넥터 시작
 비즈니스용 OneDrive에 연결하여 파일을 관리합니다. 파일에 대해 업로드, 업데이트, 가져오기 및 삭제와 같은 다양한 작업을 수행할 수 있습니다.
 
-이제 논리 앱을 만들어 시작할 수 있습니다. [논리 앱 만들기](../logic-apps/logic-apps-create-a-logic-app.md)를 참조하세요.
+이제 논리 앱을 만들어 시작할 수 있습니다. [논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)를 참조하세요.
 
 ## <a name="create-a-connection-to-onedrive-for-business"></a>비즈니스용 OneDrive에 대한 연결 만들기
 비즈니스용 OneDrive로 논리 앱을 만들려면 먼저 **연결**을 만든 후에 다음 속성에 대한 세부 정보를 제공해야 합니다.
 
-| 속성 | 필수 | 설명 |
+| 자산 | 필수 | 설명 |
 | --- | --- | --- |
 | 신뢰 |예 |비즈니스용 OneDrive 자격 증명 제공 |
 

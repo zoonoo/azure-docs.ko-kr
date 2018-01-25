@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: 9a63a15782b85a48552fd913d5d3f8aaaae7db44
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: d4f78c63117e5c54eb855178c75d6c294957f2a1
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="build-a-web-service-front-end-for-your-application-using-aspnet-core"></a>ASP.NET Core를 사용하여 응용 프로그램에 대한 웹 서비스 프런트 엔드 구축
 기본적으로 Azure 서비스 패브릭 서비스는 웹에 공용 인터페이스를 제공하지 않습니다. HTTP 클라이언트에 응용 프로그램의 기능을 표시하려면 진입점 역할을 할 웹 프로젝트를 만든 후 그 곳에서 개별 서비스와 통신해야 합니다.
@@ -91,7 +91,7 @@ ASP.NET Core는 최신 웹 UI 및 Web API를 만드는 데 사용할 수 있는 
 
 4. 클래스 라이브러리에서 단일 메서드 `GetCountAsync`를 사용하여 인터페이스를 만들고, `Microsoft.ServiceFabric.Services.Remoting.IService`에서 해당 인터페이스를 확장합니다. 원격 인터페이스는 서비스 원격 인터페이스임을 나타내기 위해 이 인터페이스에서 파생되어야 합니다.
    
-    ```c#
+    ```csharp
     using Microsoft.ServiceFabric.Services.Remoting;
     using System.Threading.Tasks;
         
@@ -114,7 +114,7 @@ ASP.NET Core는 최신 웹 UI 및 Web API를 만드는 데 사용할 수 있는 
     ![상태 저장 서비스의 클래스 라이브러리 프로젝트에 참조 추가][vs-add-class-library-reference]
 2. `MyStatefulService`처럼 `StatefulService`에서 상속하는 클래스를 찾아 확장하여 `ICounter` 인터페이스를 구현합니다.
    
-    ```c#
+    ```csharp
     using MyStatefulService.Interface;
    
     ...
@@ -126,7 +126,7 @@ ASP.NET Core는 최신 웹 UI 및 Web API를 만드는 데 사용할 수 있는 
     ```
 3. 이제 `ICounter` 인터페이스인 `GetCountAsync`에 정의된 단일 메서드를 구현합니다.
    
-    ```c#
+    ```csharp
     public async Task<long> GetCountAsync()
     {
         var myDictionary = 
@@ -150,7 +150,7 @@ ASP.NET Core는 최신 웹 UI 및 Web API를 만드는 데 사용할 수 있는 
 
 `IService` 인터페이스의 `CreateServiceRemotingListener` 확장 메서드를 통해 모든 기본 설정을 사용하여 `ServiceRemotingListener`를 쉽게 만들 수 있습니다. 이 확장 메서드를 사용하려면 `Microsoft.ServiceFabric.Services.Remoting.Runtime` 네임스페이스를 가져왔는지 확인합니다. 
 
-```c#
+```csharp
 using Microsoft.ServiceFabric.Services.Remoting.Runtime;
 
 ...
@@ -176,7 +176,7 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 
 4. **Controllers** 폴더에서 `ValuesController` 클래스를 엽니다. `Get` 메서드가 현재는 하드 코드된 문자열 배열 "value1" 및 "value2"만 반환하며 이 문자열은 앞서 브라우저에서 본 것과 일치합니다. 이것을 다음 코드로 바꿉니다.
    
-    ```c#
+    ```csharp
     using MyStatefulService.Interface;
     using Microsoft.ServiceFabric.Services.Client;
     using Microsoft.ServiceFabric.Services.Remoting.Client;

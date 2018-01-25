@@ -9,16 +9,16 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: cli
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 09/22/2017
+ms.date: 12/22/2017
 ms.author: ryanwi
-ms.openlocfilehash: 66649bb6ae317eb227dcdf45aa084905967c117f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5c1f485812918397b5b52e650611032c9058e3ee
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="sfctl-service"></a>sfctl service
 서비스, 서비스 유형 및 서비스 패키지를 생성, 삭제 및 관리합니다.
@@ -33,7 +33,7 @@ ms.lasthandoff: 10/11/2017
 |    delete         | 기존 Service Fabric 서비스를 삭제합니다.|
 |    deployed-type  | Service Fabric 클러스터의 노드에 배포된 응용 프로그램의 지정된 서비스 유형에 대한 정보를 가져옵니다.|
 |    deployed-type-list| Service Fabric 클러스터의 노드에 배포된 응용 프로그램의 서비스 유형에 대한 정보가 포함된 목록을 가져옵니다.|
-|    설명    | 기존 Service Fabric서비스에 대한 설명을 가져옵니다.|
+|    description    | 기존 Service Fabric서비스에 대한 설명을 가져옵니다.|
 |    health         | 지정된 Service Fabric 서비스의 상태를 가져옵니다.|
 |    info           | Service Fabric 응용 프로그램에 속하는 특정 서비스에 대한 정보를 가져옵니다.|
 |    list           | 응용 프로그램 ID로 지정된 응용 프로그램에 속하는 모든 서비스에 대한 정보를 가져옵니다.|
@@ -93,7 +93,7 @@ ms.lasthandoff: 10/11/2017
 | --help -h             | 이 도움말 메시지 및 종료를 표시합니다.|
 | --output -o           | 출력 형식.  허용되는 값: json, jsonc, 테이블, tsv.  기본값:           json.|
 | --query               | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http://jmespath.org/를 참조하세요.|
-| --verbose             | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다.|
+| --verbose             | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다.|
 
 ## <a name="sfctl-service-delete"></a>sfctl service delete
 기존 Service Fabric 서비스를 삭제합니다.
@@ -116,7 +116,7 @@ ms.lasthandoff: 10/11/2017
 | --help -h           | 이 도움말 메시지 및 종료를 표시합니다.|
 | --output -o         | 출력 형식.  허용되는 값: json, jsonc, 테이블, tsv.  기본값:           json.|
 | --query             | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http://jmespath.org/를 참조하세요.|
-| --verbose           | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다.|
+| --verbose           | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다.|
 
 ## <a name="sfctl-service-description"></a>sfctl service description
 기존 Service Fabric서비스에 대한 설명을 가져옵니다.
@@ -127,7 +127,7 @@ ms.lasthandoff: 10/11/2017
 
 |인수|설명|
 | --- | --- |
-| --service-id [필수]| 서비스 id입니다. 일반적으로 'fabric:' URI 스키마가 없는 서비스의 전체 이름입니다. 버전 6.0부터 계층 이름은 "~" 문자로 구분됩니다. 예를 들어 서비스 이름이 "fabric://myapp/app1/svc1"인 경우 서비스 ID가 6.0 이상에서는 "myapp~app1~svc1"이고 이전 버전에서는 "myapp/app1/svc1"입니다.|
+| --service-id [필수]| 서비스 id입니다. 일반적으로 'fabric:' URI 스키마가 없는 서비스의 전체 이름입니다. 버전 6.0부터 계층 이름은 "~" 문자로 구분됩니다. 예를 들어 서비스 이름이 "fabric://myapp/app1/svc1"이면 서비스 id는 6.0+에서 "myapp~app1~svc1"이고 이전 버전에서 "myapp/app1/svc1"입니다.|
 | --timeout -t        | 서버 시간 제한(초).  기본값: 60.|
 
 ### <a name="global-arguments"></a>전역 인수
@@ -138,7 +138,7 @@ ms.lasthandoff: 10/11/2017
 | --help -h           | 이 도움말 메시지 및 종료를 표시합니다.|
 | --output -o         | 출력 형식.  허용되는 값: json, jsonc, 테이블, tsv.  기본값:           json.|
 | --query             | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http://jmespath.org/를 참조하세요.|
-| --verbose           | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다.|
+| --verbose           | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다.|
 
 ## <a name="sfctl-service-health"></a>sfctl service health
 지정된 Service Fabric 서비스의 상태를 가져옵니다.
@@ -149,7 +149,7 @@ ms.lasthandoff: 10/11/2017
 
 |인수|설명|
 | --- | --- |
-| --service-id          [필수]| 서비스 ID입니다. 일반적으로 'fabric:' URI 스키마가 없는 서비스의 전체 이름입니다. 버전 6.0부터 계층 이름은 "~" 문자로 구분됩니다. 예를 들어 서비스 이름이 "fabric://myapp/app1/svc1"인 경우 서비스 ID가 6.0 이상에서는 "myapp~app1~svc1"이 되고 이전 버전에서는 "myapp/app1/svc1"이 됩니다.|
+| --service-id          [필수]| 서비스 id입니다. 일반적으로 'fabric:' URI 스키마가 없는 서비스의 전체 이름입니다. 버전 6.0부터 계층 이름은 "~" 문자로 구분됩니다. 예를 들어 서비스 이름이 "fabric://myapp/app1/svc1"인 경우 서비스 ID가 6.0 이상에서는 "myapp~app1~svc1"이 되고 이전 버전에서는 "myapp/app1/svc1"이 됩니다.|
 | --events-health-state-filter | 상태에 따라 반환된 HealthEvent 개체의 컬렉션을 필터링할 수 있습니다. 이 매개 변수에 사용할 수 있는 값은 다음 상태 중 하나의 정수 값을 포함합니다. 필터와 일치하는 이벤트만 반환됩니다. 모든 이벤트는 집계된 상태를 평가하는 데 사용됩니다. 지정하지 않으면 모든 항목이 반환됩니다. 상태 값은 플래그 기반 열거형이므로 값은 비트 OR 연산자를 사용하여 구한 값의 조합일 수 있습니다. 예를 들어 제공된 값이 6이면 HealthState 값이 OK(2) 및 Warning(4)인 모든 이벤트가 반환됩니다. - Default - 기본값입니다. 모든 HealthState와 일치합니다. 값은 0입니다. - 없음 - HealthState 값과 일치하지 않는 필터입니다. 주어진 상태 컬렉션에 대해 결과를 반환하지 않기 위해 사용됩니다. 값은 1입니다. - Ok – HealthState 값이 Ok인 입력과 일치하는 필터입니다. 값은 2입니다. - Warning – HealthState 값이 Warning인 입력과 일치하는 필터입니다. 값은 4입니다. - Error - HealthState 값이 Error인 입력과 일치하는 필터입니다. 값은 8입니다. - All - 모든 HealthState 값의 입력과 일치하는 필터입니다. 값은 65535입니다.|
 |--exclude-health-statistics     | 쿼리 결과의 일부로 상태 통계를 반환해야 하는지 여부를 나타냅니다. 기본값은 False입니다. 통계에는 상태가 Ok, Warning 및 Error인 자식 엔터티 수가 표시됩니다.|
 | --partitions-health-state-filter| 상태에 따라 서비스 상태 쿼리의 결과로 반환된 파티션 상태 개체를 필터링할 수 있습니다. 이 매개 변수에 사용할 수 있는 값은 다음 상태 중 하나의 정수 값을 포함합니다. 필터와 일치하는 파티션만 반환됩니다. 모든 파티션은 집계된 상태를 평가하는 데 사용됩니다. 지정하지 않으면 모든 항목이 반환됩니다. 상태 값은 플래그 기반 열거형이므로 값은 비트 OR 연산자를 사용하여 구한 값의 조합일 수 있습니다. 예를 들어 제공된 값이 "6"이면 HealthState 값이 OK(2) 및 Warning(4)인 파티션의 상태가 반환됩니다. - Default - 기본값입니다. 모든 HealthState와 일치합니다.                  값은 0입니다. - 없음 - HealthState 값과 일치하지 않는 필터입니다. 주어진 상태 컬렉션에 대해 결과를 반환하지 않기 위해 사용됩니다. 값은 1입니다. - Ok – HealthState 값이 Ok인 입력과 일치하는 필터입니다. 값은 2입니다. - Warning – HealthState 값이 Warning인 입력과 일치하는 필터입니다. 값은 4입니다. - Error - HealthState 값이 Error인 입력과 일치하는 필터입니다. 값은 8입니다. - All - 모든 HealthState 값의 입력과 일치하는 필터입니다. 값은 65535입니다.|
@@ -163,7 +163,7 @@ ms.lasthandoff: 10/11/2017
 | --help -h                    | 이 도움말 메시지 및 종료를 표시합니다.|
 | --output -o                  | 출력 형식.  허용되는 값: json, jsonc, 테이블, tsv.                  기본값: json.|
 | --query                      | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http://jmespath.org/를 참조하세요.|
-| --verbose                    | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다.|
+| --verbose                    | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다.|
 
 ## <a name="sfctl-service-info"></a>sfctl service info
 Service Fabric 응용 프로그램에 속하는 특정 서비스에 대한 정보를 가져옵니다.
@@ -186,7 +186,7 @@ Service Fabric 응용 프로그램에 속하는 특정 서비스에 대한 정�
 | --help -h               | 이 도움말 메시지 및 종료를 표시합니다.|
 | --output -o             | 출력 형식.  허용되는 값: json, jsonc, 테이블, tsv.  기본값:           json.|
 | --query                 | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http://jmespath.org/를 참조하세요.|
-| --verbose               | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다.|
+| --verbose               | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다.|
 
 ## <a name="sfctl-service-list"></a>sfctl service list
 응용 프로그램 ID로 지정된 응용 프로그램에 속하는 모든 서비스에 대한 정보를 가져옵니다.
@@ -210,7 +210,7 @@ Service Fabric 응용 프로그램에 속하는 특정 서비스에 대한 정�
 | --help -h               | 이 도움말 메시지 및 종료를 표시합니다.|
 | --output -o             | 출력 형식.  허용되는 값: json, jsonc, 테이블, tsv.  기본값:           json.|
 | --query                 | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http://jmespath.org/를 참조하세요.|
-| --verbose               | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다.|
+| --verbose               | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다.|
 
 ## <a name="sfctl-service-manifest"></a>sfctl service manifest
 서비스 유형을 설명하는 매니페스트를 가져옵니다.
@@ -256,7 +256,7 @@ Service Fabric 응용 프로그램에 속하는 특정 서비스에 대한 정�
 | --help -h           | 이 도움말 메시지 및 종료를 표시합니다.|
 | --output -o         | 출력 형식.  허용되는 값: json, jsonc, 테이블, tsv.  기본값:           json.|
 | --query             | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http://jmespath.org/를 참조하세요.|
-| --verbose           | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다.|
+| --verbose           | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다.|
 
 ## <a name="sfctl-service-resolve"></a>sfctl service resolve
 Service Fabric 파티션을 해결합니다.
@@ -281,7 +281,7 @@ Service Fabric 서비스 파티션을 확인하여 서비스 복제본의 끝점
 | --help -h           | 이 도움말 메시지 및 종료를 표시합니다.|
 | --output -o         | 출력 형식.  허용되는 값: json, jsonc, 테이블, tsv.  기본값:           json.|
 | --query             | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http://jmespath.org/를 참조하세요.|
-| --verbose           | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다.|
+| --verbose           | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다.|
 
 ## <a name="sfctl-service-update"></a>sfctl service update
 지정된 업데이트 설명을 사용하여 지정된 서비스를 업데이트합니다.

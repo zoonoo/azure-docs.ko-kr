@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 07/15/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: 1cf96bbf8bd215d7ddb3c99860a5cb4e668be3c2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6544a8e81a1c84fbd09e60b3f06c5fd308a18dcf
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-smtp-connector"></a>SMTP 커넥터 시작
 SMTP에 연결하여 전자 메일을 보냅니다.
 
-[커넥터](apis-list.md)를 사용하려면 먼저 논리 앱을 만들어야 합니다. [지금 논리 앱을 만들어](../logic-apps/logic-apps-create-a-logic-app.md) 시작할 수 있습니다.
+[커넥터](apis-list.md)를 사용하려면 먼저 논리 앱을 만들어야 합니다. [지금 논리 앱을 만들어](../logic-apps/quickstart-create-first-logic-app-workflow.md) 시작할 수 있습니다.
 
 ## <a name="connect-to-smtp"></a>SMTP에 연결
 논리 앱에서 서비스에 액세스하려면 먼저 서비스에 대한 *연결*을 만들어야 합니다. [연결](connectors-overview.md)은 논리 앱과 다른 서비스 간의 연결을 제공합니다. 예를 들어 SMTP에 연결하려면 먼저 SMTP *연결*이 필요합니다. 연결을 만들려면 연결하려는 서비스에 액세스할 때 일반적으로 사용하는 자격 증명을 입력합니다. 따라서 SMTP 예제에서는 SMTP에 대한 연결을 만들기 위해 연결 이름, SMTP 서버 주소 및 사용자 로그인 정보에 대한 자격 증명이 필요합니다.  
@@ -35,7 +35,7 @@ SMTP에 연결하여 전자 메일을 보냅니다.
 > 
 
 ## <a name="use-an-smtp-trigger"></a>SMTP 트리거 사용
-트리거는 논리 앱에 정의된 워크플로를 시작하는 데 사용할 수 있는 이벤트입니다. [트리거에 대해 자세히 알아보세요.](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts)
+트리거는 논리 앱에 정의된 워크플로를 시작하는 데 사용할 수 있는 이벤트입니다. [트리거에 대해 자세히 알아보세요.](../logic-apps/logic-apps-overview.md#logic-app-concepts)
 
 이 예제에서는 SMTP가 자체 트리거를 포함하지 않으므로 **Salesforce - 개체를 만들 때** 트리거를 사용합니다. 이 트리거는 Salesforce에서 새 개체를 만들 때 활성화됩니다. 예제에서는 Salesforce에서 새 잠재 고객이 생성될 때마다 새 잠재 고객이 생성되었다는 알림과 함께 SMTP 커넥터를 통해 *메일 보내기* 작업이 발생하도록 설정합니다.
 
@@ -49,7 +49,7 @@ SMTP에 연결하여 전자 메일을 보냅니다.
    ![](../../includes/media/connectors-create-api-salesforce/trigger-4.png)  
 
 ## <a name="use-an-smtp-action"></a>SMTP 작업 사용
-작업은 논리 앱에 정의된 워크플로에 의해 수행되는 작업입니다. [작업에 대해 자세히 알아봅니다.](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts)
+작업은 논리 앱에 정의된 워크플로에 의해 수행되는 작업입니다. [작업에 대해 자세히 알아봅니다.](../logic-apps/logic-apps-overview.md#logic-app-concepts)
 
 이제 트리거가 추가되었고 다음 단계에 따라 Salesforce에 새 잠재 고객이 생성될 대 발생할 SMTP 작업을 추가합니다.
 

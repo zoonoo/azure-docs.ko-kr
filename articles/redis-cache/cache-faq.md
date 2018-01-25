@@ -3,8 +3,8 @@ title: Azure Redis Cache FAQ | Microsoft Docs
 description: "Azure Redis Cache에 대한 일반적인 질문과 대답, 패턴 및 모범 사례를 알아봅니다."
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: c2c52b7d-b2d1-433a-b635-c20180e5cab2
 ms.service: cache
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
-ms.author: sdanie
-ms.openlocfilehash: dcabdb789489af1996276d8838afde410473738d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: wesmc
+ms.openlocfilehash: af185725433b0eacc5d57b90fb2e75edd143a59a
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-redis-cache-faq"></a>Azure Redis Cache FAQ
 Azure Redis Cache에 대한 일반적인 질문과 대답, 패턴 및 모범 사례를 알아봅니다.
@@ -107,9 +107,9 @@ Azure 계정이 없는 경우 다음을 수행할 수 있습니다.
 * **네트워크 성능**: 높은 처리량이 필요한 워크로드가 있는 경우 프리미엄 계층이 표준이나 기본에 비해 더 높은 대역폭을 제공합니다. 또한 각 계층 안에서는 캐시를 호스팅하는 기본 VM으로 인해 캐시 크기가 클수록 대역폭이 큽니다. 자세한 내용은 [다음 테이블](#cache-performance)을 참조하세요.
 * **처리량**: 프리미엄 계층은 사용 가능한 최대 처리량을 제공합니다. 캐시 서버 또는 클라이언트가 대역폭 제한에 도달하면 클라이언트 측에서 시간 초과를 수신할 수 있습니다. 자세한 내용은 다음 표를 참조하세요.
 * **고가용성/SLA**: Azure Redis Cache는 표준/프리미엄 캐시가 최소 99.9% 시간 동안 사용할 수 있도록 보장합니다. SLA에 대한 자세한 내용은 [Azure Redis Cache 가격 책정](https://azure.microsoft.com/support/legal/sla/cache/v1_0/)을 참조하세요. SLA에서는 캐시 끝점에 대한 연결만 다룹니다. SLA는 데이터 손실로부터의 보호는 다루지 않습니다. 데이터 손실에 대한 복원력을 늘리기 위해 프리미엄 계층에서 Redis 데이터 지속성 기능을 사용하는 것이 좋습니다.
-* **Redis 데이터 지속성**: 프리미엄 계층을 사용하면 Azure 저장소 계정에서 캐시 데이터를 유지할 수 있습니다. 기본/표준 캐시에서 모든 데이터는 메모리에만 저장됩니다. 기본 인프라 문제가 있는 경우 잠재적인 데이터 손실이 있을 수 있습니다. 데이터 손실에 대한 복원력을 늘리기 위해 프리미엄 계층에서 Redis 데이터 지속성 기능을 사용하는 것이 좋습니다. Azure Redis Cache는 Redis 지속성에서 RDB 및 AOF(출시 예정) 옵션을 제공합니다. 자세한 내용은 [프리미엄 Azure Redis Cache에 지속성을 구성하는 방법](cache-how-to-premium-persistence.md)을 참조하세요.
+* **Redis 데이터 지속성**: 프리미엄 계층을 사용하면 Azure Storage 계정에서 캐시 데이터를 유지할 수 있습니다. 기본/표준 캐시에서 모든 데이터는 메모리에만 저장됩니다. 기본 인프라 문제가 있는 경우 잠재적인 데이터 손실이 있을 수 있습니다. 데이터 손실에 대한 복원력을 늘리기 위해 프리미엄 계층에서 Redis 데이터 지속성 기능을 사용하는 것이 좋습니다. Azure Redis Cache는 Redis 지속성에서 RDB 및 AOF(출시 예정) 옵션을 제공합니다. 자세한 내용은 [프리미엄 Azure Redis Cache에 지속성을 구성하는 방법](cache-how-to-premium-persistence.md)을 참조하세요.
 * **Redis Cluster**: 53GB보다 큰 캐시를 만들거나 여러 Redis 노드에서 데이터를 분할하려면 프리미엄 계층에서 사용 가능한 Redis 클러스터링을 사용할 수 있습니다. 각 노드는 고가용성을 위해 주/복제본 캐시 쌍으로 구성됩니다. 자세한 내용은 [프리미엄 Azure Redis Cache에 클러스터링을 구성하는 방법](cache-how-to-premium-clustering.md)을 참조하세요.
-* **보안 및 네트워크 격리 향상**: Azure VNET(가상 네트워크) 배포는 Azure Redis Cache의 보안과 격리를 강화하며 액세스를 추가적으로 제한하기 위한 서브넷, 액세스 제어 정책 및 기타 기능을 제공합니다. 자세한 내용은 [프리미엄 Azure Redis Cache에 가상 네트워크 지원을 구성하는 방법](cache-how-to-premium-vnet.md)을 참조하세요.
+* **보안 및 네트워크 격리 향상**: Azure VNET(Virtual Network) 배포는 Azure Redis Cache의 보안과 격리를 강화하며 액세스를 추가적으로 제한하기 위한 서브넷, 액세스 제어 정책 및 기타 기능을 제공합니다. 자세한 내용은 [프리미엄 Azure Redis Cache에 Virtual Network 지원을 구성하는 방법](cache-how-to-premium-vnet.md)을 참조하세요.
 * **Redis 구성**: 표준과 프리미엄 계층에서 Redis Keyspace 알림을 구성할 수 있습니다.
 * **최대 클라이언트 연결 수**: 프리미엄 계층은 더 큰 캐시에 대해 더 많은 수의 연결과, Redis에 연결 가능한 최대 클라이언트 수를 제공합니다. 자세한 내용은 [Azure Redis Cache 가격 책정](https://azure.microsoft.com/pricing/details/cache/)을 참조하세요.
 * **Redis 서버에 대한 전용 코어**: 프리미엄 계층에서는 모든 캐시 크기에 Redis 전용 코어가 있습니다. 기본/표준 계층에서는 C1 크기 이상에 Redis 서버 전용 코어가 있습니다.
@@ -132,7 +132,7 @@ Azure 계정이 없는 경우 다음을 수행할 수 있습니다.
 * Redis 클러스터를 사용하여 클러스터에서 분할된 데이터베이스(노드) 수를 늘림에 따라 처리량이 선형으로 늘어납니다. 예를 들어 10개의 분할된 데이터베이스에 P4 클러스터를 만드는 경우 가능한 처리량은 400,000 * 10 = 4백만 RPS입니다.
 * 큰 크기의 키에 대한 처리량이 표준 계층에 비해 프리미엄 계층에서 더 높습니다.
 
-| 가격 책정 계층 | 크기 | CPU 코어 | 사용 가능한 대역폭 | 1KB 값 크기 |
+| 가격 책정 계층  | 크기 | CPU 코어 | 사용 가능한 대역폭 | 1KB 값 크기 |
 | --- | --- | --- | --- | --- |
 | **표준 캐시 크기** | | |**Mb/s(초당 메가비트) / MB/s(초당 메가바이트)** |**초당 요청 수(RPS)** |
 | C0 |250MB |공유됨 |5/0.625 |600 |
@@ -192,7 +192,7 @@ StackExchange.Redis에는 많은 옵션이 있습니다. 이 섹션에서는 몇
 보통은 클라이언트의 기본값으로 충분합니다. 워크로드에 따라 옵션을 미세 조정할 수 있습니다.
 
 * **재시도**
-  * ConnectRetry 및 ConnectTimeout에 대한 일반적인 지침은 빠른 오류 및 다시 시도입니다. 이 지침은 클라이언트가 Redis 명령을 실행하고 응답을 수신하는 데 걸리는 평균 시간 및 워크로드에 따라 달라집니다.
+  * ConnectRetry 및 ConnectTimeout에 대한 일반적인 지침은 페일 패스트 및 다시 시도입니다. 이 지침은 클라이언트가 Redis 명령을 실행하고 응답을 수신하는 데 걸리는 평균 시간 및 워크로드에 따라 달라집니다.
   * 연결 상태를 확인하고 직접 다시 연결하는 대신 StackExchange.Redis가 자동으로 다시 연결하도록 합니다. **ConnectionMultiplexer.IsConnected 속성을 사용하지 마세요**.
   * 때로는 사용자가 다시 시도하면 사태가 더욱 심각해지고 결코 복구되지 않는 문제가 발생할 수도 있습니다. 이 경우 Microsoft Patterns & Practices 그룹이 게시한 [다시 시도 일반 지침](../best-practices-retry-general.md)의 설명에 따라 지수 백오프 다시 시도 알고리즘 사용을 고려해야 합니다.
 * **시간 제한 값**
@@ -201,7 +201,7 @@ StackExchange.Redis에는 많은 옵션이 있습니다. 이 섹션에서는 몇
   * 응용 프로그램에 단일 ConnectionMultiplexer 인스턴스를 사용합니다. [ConnectionMultiplexer 클래스를 사용하여 캐시에 연결](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache)에 표시된 대로, LazyConnection을 사용하여 Connection 속성에 의해 반환되는 단일 인스턴스를 만들 수 있습니다.
   * 진단 목적으로 `ConnectionMultiplexer.ClientName` 속성을 앱 인스턴스 고유 이름으로 설정합니다.
   * 사용자 지정 작업에 여러 개의 `ConnectionMultiplexer` 인스턴스를 사용합니다.
-      * 응용 프로그램에 다양한 부하가 있는 경우 이 모델을 따를 수 있습니다. 예:
+      * 응용 프로그램에 다양한 부하가 있는 경우 이 모델을 따를 수 있습니다. 예: 
       * 큰 키를 처리하기 위한 멀티플렉서 1개가 있습니다.
       * 작은 키를 처리하기 위한 멀티플렉서 1개가 있습니다.
       * 사용하는 각 ConnectionMultiplexer의 연결 시간 제한 및 다시 시도 논리에 대해 다른 값을 설정할 수 있습니다.
@@ -437,7 +437,7 @@ Redis 캐시 **리소스 메뉴**에도 캐시 문제를 모니터링하고 해�
 * 클라이언트 쪽 원인
   * 클라이언트 응용 프로그램이 다시 배포되었습니다.
   * 클라이언트 응용 프로그램이 크기 조정 작업을 수행했습니다.
-    * 클라우드 서비스나 웹앱의 경우 자동 크기 조정 때문일 수 있습니다.
+    * Cloud Services나 Web Apps의 경우 자동 크기 조정 때문일 수 있습니다.
   * 클라이언트 쪽의 네트워킹 계층이 변경되었습니다.
   * 클라이언트 또는 클라이언트와 서버 간의 네트워크 노드에서 일시적인 오류가 발생했습니다.
   * 대역폭 임계값 제한에 도달했습니다.
@@ -449,11 +449,11 @@ Redis 캐시 **리소스 메뉴**에도 캐시 문제를 모니터링하고 해�
 
 ### <a name="which-azure-cache-offering-is-right-for-me"></a>내게 적합한 Azure 캐시 기능
 > [!IMPORTANT]
-> 작년 [공지](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)에 따라 Azure Managed Cache Service 및 Azure In-Role Cache Service가 2016년 11월 30일에 **중지되었습니다**. [Azure Redis Cache](https://azure.microsoft.com/services/cache/)를 사용할 것을 권장합니다. 마이그레이션에 대한 자세한 내용은 [관리된 캐시 서비스에서 Azure Redis Cache로 마이그레이션](cache-migrate-to-redis.md)을 참조하세요.
+> 작년 [공지](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)에 따라 Azure Managed Cache Service 및 Azure In-Role Cache Service가 2016년 11월 30일에 **중지되었습니다**. [Azure Redis Cache](https://azure.microsoft.com/services/cache/)를 사용할 것을 권장합니다. 마이그레이션에 대한 자세한 내용은 [Managed Cache Service에서 Azure Redis Cache로 마이그레이션](cache-migrate-to-redis.md)을 참조하세요.
 >
 >
 
-### <a name="azure-redis-cache"></a>Azure Redis Cache
+### <a name="azure-redis-cache"></a>Azure Redis 캐시(영문)
 Azure Redis Cache가 이제 최대 53GB 크기로 출시되었으며 99.9%의 가용성 SLA를 제공합니다. 새 [프리미엄 계층](cache-premium-tier-intro.md) 은 99.9%의 SLA와 함께 최대 530GB 크기를 제공하며 클러스터링, VNET, 지속성 등을 지원합니다.
 
 Azure Redis Cache에서 고객은 Microsoft에서 관리하는 안전한 전용 Redis Cache를 사용할 수 있습니다. Redis에서 제공하는 다양한 기능 집합 및 에코시스템을 활용하면서 Microsoft의 안정적인 호스팅 및 모니터링 기능을 이용할 수 있습니다.

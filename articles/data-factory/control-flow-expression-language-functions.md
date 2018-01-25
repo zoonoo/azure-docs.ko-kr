@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: eee276f2bcf6a8b7b2c79139bfeb01e1ebf761c9
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 78f21576bb7d839e5b5c4d8c2b721e381d663406
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Azure Data Factory의 식과 함수
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -155,7 +155,7 @@ ms.lasthandoff: 12/15/2017
 |-------------------|-----------------|  
 |concat|임의 개수 문자열을 함께 결합합니다. 예를 들어, parameter1이 `foo,`이면 다음 식이 `somevalue-foo-somevalue`: `concat('somevalue-',pipeline().parameters.parameter1,'-somevalue')`를 반환합니다.<br /><br /> **매개 변수 번호**: 1 ... *n*<br /><br /> **이름**: String *n*<br /><br /> **설명**: 필수. 단일 문자열로 결합할 문자열입니다.|  
 |substring|문자열의 하위 집합을 반환합니다. 예를 들어 다음 식은<br /><br /> `substring('somevalue-foo-somevalue',10,3)`<br /><br /> 다음을 반환합니다.<br /><br /> `foo`<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: String<br /><br /> **설명**: 필수. 부분 문자열을 가져올 원래 문자열입니다.<br /><br /> **매개 변수 번호**: 2<br /><br /> **이름**: Start index<br /><br /> **설명**: 필수. 매개 변수 1에서 하위 문자열이 시작되는 위치의 인덱스입니다.<br /><br /> **매개 변수 번호**: 3<br /><br /> **이름**: Length<br /><br /> **설명**: 필수. 부분 문자열의 길이입니다.|  
-|바꾸기|문자열을 지정된 문자열로 바꿉니다. 예를 들어 다음 식은<br /><br /> `replace('the old string', 'old', 'new')`<br /><br /> 다음을 반환합니다.<br /><br /> `the new string`<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: string<br /><br /> **설명**: 필수.  매개 변수 2가 매개 변수 1에 있으면 매개 변수 2에 대해 문자열을 검색하고 매개 변수 3으로 업데이트됩니다.<br /><br /> **매개 변수 번호**: 2<br /><br /> **이름**: Old string<br /><br /> **설명**: 필수. 매개 변수 1에 일치 항목이 있으면 매개 변수 3으로 바꿀 문자열입니다.<br /><br /> **매개 변수 번호**: 3<br /><br /> **이름**: New string<br /><br /> **설명**: 필수. 매개 변수 1에 일치 항목이 있으면 매개 변수 2의 문자열을 바꾸는 데 사용할 문자열입니다.|  
+|replace|문자열을 지정된 문자열로 바꿉니다. 예를 들어 다음 식은<br /><br /> `replace('the old string', 'old', 'new')`<br /><br /> 다음을 반환합니다.<br /><br /> `the new string`<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: string<br /><br /> **설명**: 필수.  매개 변수 2가 매개 변수 1에 있으면 매개 변수 2에 대해 문자열을 검색하고 매개 변수 3으로 업데이트됩니다.<br /><br /> **매개 변수 번호**: 2<br /><br /> **이름**: Old string<br /><br /> **설명**: 필수. 매개 변수 1에 일치 항목이 있으면 매개 변수 3으로 바꿀 문자열입니다.<br /><br /> **매개 변수 번호**: 3<br /><br /> **이름**: New string<br /><br /> **설명**: 필수. 매개 변수 1에 일치 항목이 있으면 매개 변수 2의 문자열을 바꾸는 데 사용할 문자열입니다.|  
 |GUID| 전역적으로 고유한 문자열(GUID)을  생성합니다. 예를 들어 다음 출력을 생성할 수 있습니다.`c2ecc88d-88c8-4096-912c-d6f2e2b138ce`<br /><br /> `guid()`<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: Format<br /><br /> **설명**: 선택 사항. [이 Guid 값의 형식을 지정하는 방법](https://msdn.microsoft.com/library/97af8hh4%28v=vs.110%29.aspx)을 나타내는 단일 형식 지정자입니다. 형식 매개 변수는 "N", "D", "B", "P" 또는 "X"일 수 있습니다. 형식이 제공되지 않으면 "D"가 사용됩니다.|  
 |toLower|문자열을 소문자로 변환합니다. 예를 들어 다음은 `two by two is four`: `toLower('Two by Two is Four')`을 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: String<br /><br /> **설명**: 필수. 소문자로 변환할 문자열입니다. 문자열에 있는 문자에 소문자로 변환할 항목이 없으면 반환된 문자열에서 해당 문자가 변경되지 않고 포함됩니다.|  
 |toUpper|문자열을 대문자로 변환합니다. 예를 들어 다음 식은 `TWO BY TWO IS FOUR`:  `toUpper('Two by Two is Four')`를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: String<br /><br /> **설명**: 필수. 대문자로 변환할 문자열입니다. 문자열에 있는 문자에 대문자로 변환할 항목이 없으면 반환된 문자열에서 해당 문자가 변경되지 않고 포함됩니다.|  
@@ -199,7 +199,7 @@ ms.lasthandoff: 12/15/2017
 ## <a name="conversion-functions"></a>변환 함수  
  이 함수는 언어의 각 기본 형식 간에 변환하는 데 사용됩니다.  
   
--   문자열  
+-   string  
   
 -   정수  
   
@@ -214,7 +214,7 @@ ms.lasthandoff: 12/15/2017
 |함수 이름|설명|  
 |-------------------|-----------------|  
 |int|매개 변수를 정수로 변환합니다. 예를 들어 다음 식은 문자열 `int('100')`이 아닌 숫자로 100을 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: Value<br /><br /> **설명**: 필수. 정수로 변환할 값입니다.|  
-|문자열|매개 변수를 문자열로 변환합니다. 예를 들어 다음 식은 `'10'`:  `string(10)`를 반환합니다. 개체를 문자열로 변환할 수도 있습니다. 예를 들어 **foo** 매개 변수가 한 속성 `bar : baz`가 있는 개체이면 다음은 `{"bar" : "baz"}` `string(pipeline().parameters.foo)`을 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: Value<br /><br /> **설명**: 필수. 문자열로 변환할 값입니다.|  
+|string|매개 변수를 문자열로 변환합니다. 예를 들어 다음 식은 `'10'`:  `string(10)`를 반환합니다. 개체를 문자열로 변환할 수도 있습니다. 예를 들어 **foo** 매개 변수가 한 속성 `bar : baz`가 있는 개체이면 다음은 `{"bar" : "baz"}` `string(pipeline().parameters.foo)`을 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: Value<br /><br /> **설명**: 필수. 문자열로 변환할 값입니다.|  
 |json :|매개 변수를 JSON 형식 값으로 변환합니다. String()의 반대입니다. 예를 들어 다음 식은 문자열이 아닌 배열로 `[1,2,3]`를 반환합니다.<br /><br /> `parse('[1,2,3]')`<br /><br /> 마찬가지로, 문자열을 개체로 변환할 수 있습니다. 예를 들어 `json('{"bar" : "baz"}')`는 다음을 반환합니다.<br /><br /> `{ "bar" : "baz" }`<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: String<br /><br /> **설명**: 필수. 기본 형식 값으로 변환할 문자열입니다.<br /><br /> JSON 함수는 XML 입력도 지원합니다. 예를 들어 다음 매개 변수 값은<br /><br /> `<?xml version="1.0"?> <root>   <person id='1'>     <name>Alan</name>     <occupation>Engineer</occupation>   </person> </root>`<br /><br /> 다음 json으로 변환됩니다.<br /><br /> `{ "?xml": { "@version": "1.0" },   "root": {     "person": [     {       "@id": "1",       "name": "Alan",       "occupation": "Engineer"     }   ]   } }`|  
 |float|매개 변수 인수를 부동 소수점 숫자로 변환합니다. 예를 들어 다음 식은 `10.333`:  `float('10.333')`를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: Value<br /><br /> **설명**: 필수. 부동 소수점 숫자로 변환할 값입니다.|  
 |bool|매개 변수를 부울로 변환합니다. 예를 들어 다음 식은 `false`:  `bool(0)`를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: Value<br /><br /> **설명**: 필수. 부울로 변환할 값입니다.|  

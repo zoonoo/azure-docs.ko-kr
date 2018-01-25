@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 185780da206e4d0ed0d8e5f8b24a546e3d9b3800
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f59c9e2c523db319565c1cca13eb85f809b2bdd6
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="calling-a-web-api-from-a-net-web-app"></a>.NET 웹앱에서 Web API 호출
 v2.0 끝점에서는 개인 Microsoft 계정과 회사 또는 학교 계정 둘 다를 지원하는 인증을 웹앱 및 Web API에 빠르게 추가할 수 있습니다.  여기서는 Microsoft OWIN 미들웨어를 활용하여 OpenID Connect로 사용자를 로그인하는 MVC 웹앱을 만듭니다.  이 웹앱은 OAuth 2.0에서 보호 된 웹 API에 대한 OAuth 2.0 액세스 토큰을 가져와서 지정된 사용자의 “할 일 목록"을 만들고, 읽고, 삭제할 수 있도록 합니다.
@@ -68,7 +68,7 @@ PM> Install-Package Microsoft.Owin.Host.SystemWeb -ProjectName TodoList-WebApp
 * `App_Start\Startup.Auth.cs` 파일을 열고 위의 라이브러리에 대한 `using` 문을 추가합니다.
 * 동일한 파일에서 `ConfigureAuth(...)` 메서드를 구현합니다.  `OpenIDConnectAuthenticationOptions` 에 제공하는 매개 변수는 앱이 Azure AD와 통신하기 위한 좌표로 사용됩니다.
 
-```C#
+```csharp
 public void ConfigureAuth(IAppBuilder app)
 {
     app.SetDefaultSignInAsAuthenticationType(CookieAuthenticationDefaults.AuthenticationType);
@@ -116,7 +116,7 @@ public void ConfigureAuth(IAppBuilder app)
 * 또 다른 `using` 문을 MSAL용 `App_Start\Startup.Auth.cs` 파일에 추가합니다.
 * 이제 새 메서드인 `OnAuthorizationCodeReceived` 이벤트 처리기를 추가합니다.  이 처리기는 MSAL을 사용하여 할 일 목록 API에 대한 액세스 토큰을 가져오는 데 사용하며, 나중에 MSAL의 토큰 캐시에 토큰을 저장합니다.
 
-```C#
+```csharp
 private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotification notification)
 {
         string userObjectId = notification.AuthenticationTicket.Identity.FindFirst("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier").Value;
@@ -144,7 +144,7 @@ private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotifica
     `using Microsoft.Identity.Client;`
 * `Index` 작업에 MSAL의 `AcquireTokenSilentAsync` 메서드를 사용하여 To-Do List 서비스에서 데이터를 읽는 데 사용할 수 있는 access_token을 가져옵니다.
 
-```C#
+```csharp
 // ...
 string userObjectID = ClaimsPrincipal.Current.FindFirst("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier").Value;
 string tenantID = ClaimsPrincipal.Current.FindFirst("http://schemas.microsoft.com/identity/claims/tenantid").Value;
@@ -160,7 +160,7 @@ result = await app.AcquireTokenSilentAsync(new string[] { Startup.clientId });
 * 그런 다음 샘플에서는 결과 토큰을 `Authorization` 헤더로 HTTP GET 요청에 추가합니다. To-Do List 서비스는 이 헤더를 사용하여 요청을 인증합니다.
 * To-Do List 서비스에서 `401 Unauthorized` 응답을 반환하는 경우 MSAL의 access_token이 어떤 이유로든 잘못된 것입니다.  이 경우 MSAL 캐시에서 모든 access_token을 삭제하고 사용자에게 다시 로그인해야 할 수도 있다는 메시지를 표시해야 합니다. 다시 로그인하면 토큰 획득 흐름이 다시 시작됩니다.
 
-```C#
+```csharp
 // ...
 // If the call failed with access denied, then drop the current access token from the cache,
 // and show the user an error indicating they might need to sign-in again.
@@ -175,7 +175,7 @@ if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
 
 * 마찬가지로, MSAL이 어떤 이유로든 access_token을 반환할 수 없는 경우 다시 로그인하도록 사용자에게 지시해야 합니다.  이는 `MSALException` catch만큼 단순합니다.
 
-```C#
+```csharp
 // ...
 catch (MsalException ee)
 {

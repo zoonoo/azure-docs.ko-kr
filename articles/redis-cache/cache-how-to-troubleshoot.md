@@ -3,8 +3,8 @@ title: "Azure Redis Cache 문제를 해결하는 방법 | Microsoft Docs"
 description: "Azure Redis Cache와 관련된 일반적인 문제를 해결하는 방법을 알아봅니다."
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: 928b9b9c-d64f-4252-884f-af7ba8309af6
 ms.service: cache
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
-ms.author: sdanie
-ms.openlocfilehash: 2e9d1b644f1e80c7d916a261a6c47fcc11a1ffe0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: wesmc
+ms.openlocfilehash: a88adc300e52c74f2a1fcd2e546ab879000d877e
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="how-to-troubleshoot-azure-redis-cache"></a>Azure Redis Cache 문제를 해결하는 방법
 이 문서에서는 다음 범주의 Azure Redis Cache 문제를 해결하는 것에 대한 지침을 제공합니다.
@@ -76,7 +76,7 @@ ms.lasthandoff: 10/11/2017
 클라이언트 쪽에서의 높은 CPU 사용량은 수행하도록 요청된 작업을 시스템이 처리할 수 없음을 나타냅니다. 이는 Redis가 응답을 매우 신속하게 전송하더라도 클라이언트가 Redis의 응답을 적시에 처리하지 못할 수도 있음을 의미합니다.
 
 #### <a name="measurement"></a>측정
-Azure 포털을 통해 또는 연결된 성능 카운터를 통해 시스템 전반 CPU 사용량을 모니터링합니다. 단일 프로세스는 CUP 사용량이 낮은 동시에 전체 시스템 CPU 사룡량을 높을 수 있기 때문에 *프로세스* CPU를 모니터링 하지 않도록 주의합니다. CPU 사용량에서 제한 시간에 해당 하는 급증을 확인합니다. 높은 CPU 사용량으로 인해 [트래픽 폭주](#burst-of-traffic) 섹션에서 설명한 대로 `TimeoutException` 오류 메시지에서 높은 `in: XXX` 값을 보게 될 것입니다.
+Azure Portal을 통해 또는 연결된 성능 카운터를 통해 시스템 전반 CPU 사용량을 모니터링합니다. 단일 프로세스는 CUP 사용량이 낮은 동시에 전체 시스템 CPU 사룡량을 높을 수 있기 때문에 *프로세스* CPU를 모니터링 하지 않도록 주의합니다. CPU 사용량에서 제한 시간에 해당 하는 급증을 확인합니다. 높은 CPU 사용량으로 인해 [트래픽 폭주](#burst-of-traffic) 섹션에서 설명한 대로 `TimeoutException` 오류 메시지에서 높은 `in: XXX` 값을 보게 될 것입니다.
 
 > [!NOTE]
 > StackExchange.Redis 1.1.603 이상은 `TimeoutException` 오류 메시지에 `local-cpu` 매트릭을 포함합니다. [StackExchange.Redis NuGet 패키지](https://www.nuget.org/packages/StackExchange.Redis/)최신 버전을 사용 중인지 확인합니다. 제한 시간에 더욱 견고하도록 만들기 위해 코드 속의 버그를 지속적으로 수정하고 있으므로 최신 버전을 갖는 것이 중요합니다.
@@ -157,7 +157,7 @@ Redis는 이 문제를 식별하는 데 도움이 되는 두 개의 메트릭을
 높은 CPU 사용량은 Redis가 응답을 매우 신속하게 전송하더라도 클라이언트 쪽이 Redis의 응답을 적시에 처리하지 못할 수도 있음을 의미할 수 있습니다.
 
 #### <a name="measurement"></a>측정
-Azure 포털을 통해 또는 연결된 성능 카운터를 통해 시스템 전반 CPU 사용량을 모니터링합니다. 단일 프로세스는 CUP 사용량이 낮은 동시에 전체 시스템 CPU 사룡량을 높을 수 있기 때문에 *프로세스* CPU를 모니터링 하지 않도록 주의합니다. CPU 사용량에서 제한 시간에 해당 하는 급증을 확인합니다.
+Azure Portal을 통해 또는 연결된 성능 카운터를 통해 시스템 전반 CPU 사용량을 모니터링합니다. 단일 프로세스는 CUP 사용량이 낮은 동시에 전체 시스템 CPU 사룡량을 높을 수 있기 때문에 *프로세스* CPU를 모니터링 하지 않도록 주의합니다. CPU 사용량에서 제한 시간에 해당 하는 급증을 확인합니다.
 
 #### <a name="resolution"></a>해결 방법
 [확장합니다](cache-how-to-scale.md) 하거나 CPU 스파이크의 원인이 무엇인지 확인합니다. 
@@ -194,7 +194,7 @@ StackExchange.Redis는 기본값이 1000ms인 동기 작업에 대해 `synctimeo
 ### <a name="steps-to-investigate"></a>조사 단계
 1. 모범 사례로 StackExchange.Redis 클리이언트를 사용할 때 연결하기 위해 다음 패턴을 사용하는지 확인합니다.
 
-    ```c#
+    ```csharp
     private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
     {
         return ConnectionMultiplexer.Connect("cachename.redis.cache.windows.net,abortConnect=false,ssl=true,password=...");

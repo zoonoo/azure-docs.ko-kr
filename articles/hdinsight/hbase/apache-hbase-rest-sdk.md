@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/13/2017
 ms.author: ashishth
-ms.openlocfilehash: 2175a009f084b07c10ca3a32d43c2df216cd3c2f
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 083150fe5f8787ba791d3d692db73c5156f11e55
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="use-the-hbase-net-sdk"></a>HBase.NET SDK 사용
 
@@ -38,7 +38,7 @@ HBase .NET SDK는 다음 명령으로 Visual Studio **NuGet 패키지 관리자 
 
 SDK를 사용하려면 `Uri`로 구성된 `ClusterCredentials`를 클러스터와 Hadoop 사용자 이름 및 암호로 전달해 새 `HBaseClient` 개체를 인스턴스화합니다.
 
-```c#
+```csharp
 var credentials = new ClusterCredentials(new Uri("https://CLUSTERNAME.azurehdinsight.net"), "USERNAME", "PASSWORD");
 client = new HBaseClient(credentials);
 ```
@@ -53,7 +53,7 @@ HBase는 테이블에 데이터를 저장합니다. 테이블은 *Rowkey*, 기�
 
 새 테이블을 만들려면 `TableSchema` 및 열을 지정하세요. 다음 코드는 'RestSDKTable' 테이블이 이미 존재하는 지 여부와 존재하지 않는 경우 테이블을 만들지 여부를 확인합니다.
 
-```c#
+```csharp
 if (!client.ListTablesAsync().Result.name.Contains("RestSDKTable"))
 {
     // Create the table
@@ -71,7 +71,7 @@ if (!client.ListTablesAsync().Result.name.Contains("RestSDKTable"))
 
 테이블을 삭제하려면
 
-```c#
+```csharp
 await client.DeleteTableAsync("RestSDKTable");
 ```
 
@@ -79,7 +79,7 @@ await client.DeleteTableAsync("RestSDKTable");
 
 데이터를 삽입하려면 고유한 행 키를 행 식별자로 지정합니다. 모든 데이터는 `byte[]` 배열에 저장됩니다. 다음 코드는 `title`, `director` 및 `release_date` 열이 가장 자주 액세스되기 때문에 이러한 열을 정의하고 T1 열 패밀리에 추가합니다. `description` 및 `tagline` 열은 T2 열 패밀리에 추가됩니다. 필요에 따라 열 패밀리에 데이터를 분할할 수 있습니다.
 
-```c#
+```csharp
 var key = "fifth_element";
 var row = new CellSet.Row { key = Encoding.UTF8.GetBytes(key) };
 var value = new Cell
@@ -127,7 +127,7 @@ HBase는 데이터 형식이 다음처럼 표시되도록 BigTable을 구현합�
 
 HBase 테이블에서 데이터를 읽으려면 테이블 이름과 행 키를 `CellSet`를 반환하는 `GetCellsAsync` 메서드로 전달합니다.
 
-```c#
+```csharp
 var key = "fifth_element";
 
 var cells = await client.GetCellsAsync("RestSDKTable", key);
@@ -141,7 +141,7 @@ Console.WriteLine(Encoding.UTF8.GetString(cells.rows[0].values
 
 이 경우 코드는 고유 키 하나에 한 행만 있어야 하므로 처음 일치하는 행만을 반환합니다. 반환된 값은 `byte[]` 배열로부터 `string` 형식으로 변경됩니다. 또한 해당 값을 영화 출시 날짜에 대한 정수처럼 다른 형식으로 변환할 수 있습니다.
 
-```c#
+```csharp
 var releaseDateField = cells.rows[0].values
     .Find(c => Encoding.UTF8.GetString(c.column) == "t1:release_date");
 int releaseDate = 0;
@@ -158,7 +158,7 @@ Console.WriteLine(releaseDate);
 
 HBase는 `scan`을 사용해 하나 이상의 행을 검색합니다. 이 예제에서는 10개 행 일괄 처리에서 여러 행을 요청하고 25-35 사이의 키 값을 갖는 데이터를 검색합니다. 모든 행을 검색한 후 스캐너를 삭제하여 리소스를 정리합니다.
 
-```c#
+```csharp
 var tableName = "mytablename";
 
 // Assume the table has integer keys and we want data between keys 25 and 35

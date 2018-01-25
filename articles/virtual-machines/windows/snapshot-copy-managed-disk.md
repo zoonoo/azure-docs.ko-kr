@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/09/2017
 ms.author: cynthn
-ms.openlocfilehash: dba70db512d88dfc57107bade0df50d1834eb883
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 10b5eb0062e4a029b0f233ee8af17d590d59c8d4
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-a-snapshot"></a>스냅숏 만들기
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/14/2017
 
 ## <a name="use-azure-portal-to-take-a-snapshot"></a>Azure Portal을 사용하여 스냅숏 만들기 
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 왼쪽 위에서 **새로 만들기**를 클릭하고 **스냅숏**을 검색합니다.
 3. 스냅숏 블레이드에서 **만들기**를 클릭합니다.
 4. 스냅숏의 **이름**을 입력합니다.
@@ -42,7 +42,7 @@ ms.lasthandoff: 10/14/2017
 AzureRM.Compute PowerShell 모듈의 최신 버전이 설치되어 있는지 확인합니다. 다음 명령을 실행하여 PowerShell을 설치합니다.
 
 ```
-Install-Module AzureRM.Compute -RequiredVersion 2.6.0
+Install-Module AzureRM.Compute -MinimumVersion 2.6.0
 ```
 자세한 내용은 [Azure PowerShell 버전 관리](/powershell/azure/overview)를 참조하세요.
 
@@ -75,4 +75,4 @@ New-AzureRmSnapshot -Snapshot $snapshot -SnapshotName $snapshotName -ResourceGro
 
 ## <a name="next-steps"></a>다음 단계
 
-스냅숏에서 관리되는 디스크를 만들고 새 관리되는 디스크를 OS 디스크로 연결하여 스냅숏에서 가상 컴퓨터를 만듭니다. 자세한 내용은 [스냅숏에서 VM 만들기](./../scripts/virtual-machines-windows-powershell-sample-create-vm-from-snapshot.md?toc=%2fpowershell%2fmodule%2ftoc.json) 샘플을 참조하세요.
+스냅숏에서 관리되는 디스크를 만들고 새 관리되는 디스크를 OS 디스크로 연결하여 스냅숏에서 가상 머신을 만듭니다. 자세한 내용은 [스냅숏에서 VM 만들기](./../scripts/virtual-machines-windows-powershell-sample-create-vm-from-snapshot.md?toc=%2fpowershell%2fmodule%2ftoc.json) 샘플을 참조하세요.

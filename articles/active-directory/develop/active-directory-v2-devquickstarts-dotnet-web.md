@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 44691f7c06aede764c3bf0dcc99848a4f22ce08d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a23b3b1084cf6776cee8583891ae3d879183d072
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="add-sign-in-to-an-net-mvc-web-app"></a>.NET MVC 웹앱에 로그인 추가
 v2.0 끝점을 사용하면 개인 Microsoft 계정과 회사 또는 학교 계정 둘 다를 지원하는 인증을 웹앱에 빠르게 추가할 수 있습니다.  Asp.NET 웹앱에서는 .NET Framework 4.5에 포함된 Microsoft OWIN 미들웨어를 사용하여 이 작업을 수행할 수 있습니다.
@@ -64,7 +64,7 @@ v2.0 끝점을 사용하면 개인 Microsoft 계정과 회사 또는 학교 계�
 3. `Startup.cs` 프로젝트에 "OWIN Startup 클래스"를 추가하고, 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가** --> **새 항목** --> "OWIN" 검색을 클릭합니다.  OWIN 미들웨어는 앱이 시작되면 `Configuration(...)` 메서드를 호출합니다.
 4. 클래스 선언을 이미 다른 파일에서 이 클래스의 일부를 구현했던 `public partial class Startup` 으로 변경합니다.  `Configuration(...)` 메서드에서 ConfigureAuth(...)를 호출하여 웹앱에 대한 인증을 설정합니다.  
 
-        ```C#
+        ```csharp
         [assembly: OwinStartup(typeof(Startup))]
         
         namespace TodoList_WebApp
@@ -81,7 +81,7 @@ v2.0 끝점을 사용하면 개인 Microsoft 계정과 회사 또는 학교 계�
 
 5. `App_Start\Startup.Auth.cs` 파일을 열고 `ConfigureAuth(...)` 메서드를 구현합니다.  `OpenIdConnectAuthenticationOptions` 에 제공하는 매개 변수는 앱이 Azure AD와 통신하기 위한 좌표로 사용됩니다.  보이지 않지만 OpenID Connect 미들웨어는 쿠키를 사용하므로 쿠키 인증도 설정해야 합니다.
 
-        ```C#
+        ```csharp
         public void ConfigureAuth(IAppBuilder app)
                      {
                              app.SetDefaultSignInAsAuthenticationType(CookieAuthenticationDefaults.AuthenticationType);
@@ -118,7 +118,7 @@ v2.0 끝점을 사용하면 개인 Microsoft 계정과 회사 또는 학교 계�
 
 - 컨트롤러에서 권한 부여 태그를 사용하여 사용자가 특정 페이지에 액세스하기 전에 로그인하도록 요구할 수 있습니다.  `Controllers\HomeController.cs`를 열고 About 컨트롤러에 `[Authorize]` 태그를 추가합니다.
         
-        ```C#
+        ```csharp
         [Authorize]
         public ActionResult About()
         {
@@ -127,7 +127,7 @@ v2.0 끝점을 사용하면 개인 Microsoft 계정과 회사 또는 학교 계�
 
 - 또한 OWIN을 사용하여 코드 내에서 직접 인증 요청을 실행할 수도 있습니다.  `Controllers\AccountController.cs`을(를) 엽니다.  SignIn() 및 SignOut() 작업에서 각각 OpenID Connect 챌린지 및 로그아웃 요청을 실행합니다.
 
-        ```C#
+        ```csharp
         public void SignIn()
         {
             // Send an OpenID Connect sign-in request.
@@ -178,7 +178,7 @@ OpenID Connect로 사용자를 인증할 때 v2.0 끝점은 클레임 또는 사
 
 - `Controllers\HomeController.cs` 파일을 엽니다.  `ClaimsPrincipal.Current` 보안 주체 개체를 통해 컨트롤러의 사용자 클레임에 액세스할 수 있습니다.
 
-        ```C#
+        ```csharp
         [Authorize]
         public ActionResult About()
         {

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 87cf0464a515c8616363d13a16844220acaa51f3
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: c078ae22255190a37d75a4100ebfffcb6288c4cb
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-ad-windows-phone-getting-started"></a>Azure AD Windows Phone 시작
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -93,7 +93,7 @@ ADAL에서 확인되는 기본 원칙은 액세스 토큰이 필요할 때마다
 
 * 첫 번째 단계는 앱의 `AuthenticationContext` , 즉 ADAL의 기본 클래스를 초기화하는 것입니다.  이 클래스에서 Azure AD와 통신하는 데 필요한 좌표를 ADAL에 전달하고 토큰 캐시 방법을 알려줍니다.
 
-```C#
+```csharp
 public MainPage()
 {
     ...
@@ -105,7 +105,7 @@ public MainPage()
 
 * 이제 사용자가 앱의 UI에서 "검색" 단추를 클릭할 때 호출되는 `Search(...)` 메서드를 찾습니다.  이 메서드는 Azure AD Graph API에 해당 UPN이 지정된 검색어로 시작하는 사용자를 쿼리하라는 GET 요청을 만듭니다.  그렇지만 Graph API를 쿼리하려면 ADAL이 연결되는 요청의 `Authorization` 헤더에 access_token을 포함해야 합니다.
 
-```C#
+```csharp
 private async void Search(object sender, RoutedEventArgs e)
 {
     ...
@@ -128,7 +128,7 @@ private async void Search(object sender, RoutedEventArgs e)
 ```
 * 대화형 인증이 필요한 경우 ADAL은 Windows Phone의 WAB(Web Authentication Broker) 및 [연속 모델](http://www.cloudidentity.com/blog/2014/06/16/adal-for-windows-phone-8-1-deep-dive/) 을 사용하여 Azure AD 로그인 페이지를 표시합니다.  사용자가 로그인하는 경우 앱은 WAB 상호 작용의 결과를 ADAL에 전달해야 합니다.  이 작업은 `ContinueWebAuthentication` 인터페이스를 구현하는 것만큼 간단합니다.
 
-```C#
+```csharp
 // This method is automatically invoked when the application
 // is reactivated after an authentication interaction through WebAuthenticationBroker.
 public async void ContinueWebAuthentication(WebAuthenticationBrokerContinuationEventArgs args)
@@ -141,7 +141,7 @@ public async void ContinueWebAuthentication(WebAuthenticationBrokerContinuationE
 
 * 이제 ADAL이 앱에 반환한 `AuthenticationResult` 를 사용할 것입니다.  `QueryGraph(...)` 콜백에서 획득한 access_token을 Authorization 헤더의 GET 요청에 연결합니다.
 
-```C#
+```csharp
 private async void QueryGraph(AuthenticationResult result)
 {
     if (result.Status != AuthenticationStatus.Success)
@@ -158,13 +158,13 @@ private async void QueryGraph(AuthenticationResult result)
 ```
 * `AuthenticationResult` 개체를 사용하여 앱에 사용자에 대한 정보를 표시할 수도 있습니다. `QueryGraph(...)` 메서드에서 해당 결과를 사용하여 페이지에 사용자의 ID를 표시합니다.
 
-```C#
+```csharp
 // Update the Page UI to represent the signed in user
 ActiveUser.Text = result.UserInfo.DisplayableId;
 ```
 * 마지막으로 ADAL을 사용하여 응용 프로그램에서 사용자를 로그아웃할 수 있습니다.  여기서는 사용자가 "로그아웃" 단추를 클릭한 경우 다음 `AcquireTokenSilentAsync(...)` 호출이 실패하도록 하려고 합니다.  ADAL을 사용하면 이 작업은 토큰 캐시를 지우는 것 만큼 쉽습니다.
 
-```C#
+```csharp
 private void SignOut()
 {
     // Clear session state from the token cache.

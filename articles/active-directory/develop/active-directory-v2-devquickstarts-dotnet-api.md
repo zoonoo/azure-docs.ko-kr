@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 5d56e74c6344580760f55506d7d90dac3e90721d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 65f25e2496065ca1aaba443a9d6b3e29239e0218
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="secure-an-mvc-web-api"></a>MVC 웹 API 보안 유지
 Azure Active Directory v2.0 끝점을 사용하면 [OAuth 2.0](active-directory-v2-protocols.md) 액세스 토큰을 사용하여 Web API를 보호함으로써 개인 Microsoft 계정과 회사 또는 학교 계정 둘 다를 가진 사용자가 Web API에 안전하게 액세스할 수 있도록 합니다.
@@ -69,7 +69,7 @@ PM> Install-Package Microsoft.IdentityModel.Protocol.Extensions -ProjectName Tod
 * OWIN Startup 클래스를 `Startup.cs`라는 TodoListService 프로젝트에 추가합니다.  프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가** --> **새 항목** --> "OWIN" 검색을 클릭합니다.  OWIN 미들웨어는 앱이 시작되면 `Configuration(…)` 메서드를 호출합니다.
 * 클래스 선언을 이미 다른 파일에서 이 클래스의 일부를 구현했던 `public partial class Startup`으로 변경합니다.  `Configuration(…)` 메서드에서 ConfgureAuth(...)를 호출하여 웹앱에 대한 인증을 설정합니다.
 
-```C#
+```csharp
 public partial class Startup
 {
     public void Configuration(IAppBuilder app)
@@ -81,7 +81,7 @@ public partial class Startup
 
 * `App_Start\Startup.Auth.cs` 파일을 열고 v2.0 끝점의 토큰을 허용하도록 Web API를 설정하는 `ConfigureAuth(…)` 메서드를 구현합니다.
 
-```C#
+```csharp
 public void ConfigureAuth(IAppBuilder app)
 {
         var tvps = new TokenValidationParameters
@@ -118,7 +118,7 @@ public void ConfigureAuth(IAppBuilder app)
 
 * 이제 `[Authorize]` 특성을 사용하여 OAuth 2.0 전달자 인증으로 컨트롤러 및 작업을 보호할 수 있습니다.  authorize 태그를 사용하여 `Controllers\TodoListController.cs` 클래스를 데코레이팅합니다.  이렇게 하면 사용자는 해당 페이지에 액세스하기 전에 강제로 로그인됩니다.
 
-```C#
+```csharp
 [Authorize]
 public class TodoListController : ApiController
 {
@@ -126,7 +126,7 @@ public class TodoListController : ApiController
 
 * 권한 있는 호출자가 `TodoListController` API 중 하나를 호출하면 작업은 호출자에 대한 정보에 액세스해야 합니다.  OWIN은 `ClaimsPrincipal` 개체를 통해 전달자 토큰 내의 클레임에 액세스할 수 있도록 합니다.  
 
-```C#
+```csharp
 public IEnumerable<TodoItem> Get()
 {
     // You can use the ClaimsPrincipal to access information about the
