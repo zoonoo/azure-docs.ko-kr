@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 01/25/2018
 ms.author: alfredop
-ms.openlocfilehash: 9ec0b0456a0e7bc5f86f33981d4be6289f5fbc71
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: 65b9ff0881e46836d9f19a04cf470835679e7b2f
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="frequently-asked-questions-in-azure-stack-usage-api"></a>질문과 대답 Azure 스택 사용량 API
 이 문서 Azure 스택 사용량 API에 대 한 몇 가지 자주 묻는 질문에 대답 합니다.
 
 ## <a name="what-meter-ids-can-i-see"></a>어떤 미터 Id를 볼 수 있습니까?
-다음 리소스 공급자에 대 한 사용 보고 됩니다.
+다음 리소스 공급자에 대 한 사용 현황 보고 됩니다.
 
 | **리소스 공급자** | **측정기 ID** | **측정 이름** | **단위** | **추가 정보** |
 | --- | --- | --- | --- | --- |
@@ -43,11 +43,21 @@ ms.lasthandoff: 01/05/2018
 | |EB43DD12-1AA6-4C4B-872C-FAF15A6785EA |QueueTransactions |000's 10에서 요청 수 |큐 서비스 요청 (10, 000's) |
 | |E518E809-E369-4A45-9274-2017B29FFF25 |QueueDataTransIn |Gb에서는 송 데이터 |큐 서비스 데이터 유입 gb |
 | |DD0A10BA-A5D6-4CB6-88C0-7D585CEF9FC2 |QueueDataTransOut |Gb에서 송신 |큐 서비스 데이터 유출을 gb |
+| **Sql RP**            | CBCFEF9A-B91F-4597-A4D3-01FE334BED82 | DatabaseSizeHourSqlMeter   | MB\*시간   | 만들기, 1 시간 마다 보고에서 총 DB 용량입니다.  |
+| **MySql RP**          | E6D8CFCD-7734-495E-B1CC-5AB0B9C24BD3 | DatabaseSizeHourMySqlMeter | MB\*시간    | 만들기, 1 시간 마다 보고에서 총 DB 용량입니다. |
 | **Compute** |FAB6EB84-500B-4A09-A8CA-7358F8BBAEA5 |기본 VM 크기 시간 |가상 코어 시간 (분) | 횟수입니다. 가상 코어 VM에서 실행 하는 시간 (분) |
 | |9CD92D4C-BAFD-4492-B278-BEDC2DE8232A |Windows VM 크기 시간 |가상 코어 시간 (분) | 횟수입니다. 가상 코어 VM에서 실행 하는 시간 (분) |
 | |6DAB500F-A4FD-49C4-956D-229BB9C8C793 |VM 크기 시간 |VM 시간 |자료와 Windows VM을 캡처합니다. 코어에 대 한 조정 되지 않습니다. |
 | **Key Vault** |EBF13B9F-B3EA-46FE-BF54-396E93D48AB4 |주요 자격 증명 모음 트랜잭션 | 000's 10에서 요청 수| 주요 자격 증명 모음 데이터 평면에서 수신 하는 REST API 요청 수 |
 | **앱 서비스** |190C935E-9ADA-48FF-9AB8-56EA1CF9ADAA  | App Service   | 가상 코어 시간  | 응용 프로그램 서비스를 실행 하는 데 사용 되는 가상 코어 수 |
+|             | 67CC4AFC-0691-48E1-A4B8-D744D1FEDBDE | 계산 요청 함수-      | 10 개 요청              | 함수에 적용 됩니다.  |
+|             | 957E9F36-2C14-45A1-B6A1-1723EF71A01D | 공유 앱 서비스 시간          | 1시간                   |                       |
+|             | 539CDEC7-B4F5-49F6-AAC4-1F15CFF0EDA9 | 무료 앱 서비스 시간            | 1시간                   |                       |
+|             | 88039D51-A206-3A89-E9DE-C5117E2D10A6 | 표준 소량 앱 서비스 시간  | 1시간                   |                       |
+|             | 83A2A13E-4788-78DD-5D55-2831B68ED825 | 표준 중간 앱 서비스 시간 | 1시간                   |                       |
+|             | 1083B9DB-E9BB-24BE-A5E9-D6FDD0DDEFE6 | 표준 대량 앱 서비스 시간  | 1시간                   |                       |
+|             | 264ACB47-AD38-47F8-ADD3-47F01DC4F473 | SNI SSL                           | SNI SSL 바인딩 당      | 앱 서비스에 적용 됩니다. |
+|             | 60B42D72-DC1C-472C-9895-6C516277EDB4 | IP SSL                            | 각 IP 기반 SSL 바인딩을 | 앱 서비스에 적용 됩니다. |
 
 ## <a name="how-do-the-azure-stack-usage-apis-compare-to-the-azure-usage-apihttpsmsdnmicrosoftcomlibraryazure1ea5b323-54bb-423d-916f-190de96c6a3c-currently-in-public-preview"></a>Azure 스택 사용량 Api와 비교 하는 방법의 [Azure 사용량 API](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c) (현재 공개 미리 보기)에 있습니까?
 * 테 넌 트 사용량 API는 한 가지 예외로 Azure API와 일치:는 *showDetails* 플래그 현재 Azure 스택에서 지원 되지 않습니다.

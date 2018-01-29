@@ -1,5 +1,6 @@
 # 개요
 ## [Database Migration Service 정보](dms-overview.md)
+## [필수 구성 요소의 개요](pre-reqs.md)
 
 # 빠른 시작
 ## [서비스 만들기 - 포털](quickstart-create-data-migration-service-portal.md)
@@ -16,3 +17,4 @@
 ## [데이터베이스 마이그레이션 가이드](https://aka.ms/datamigration)
 ## [데이터 Migration Assistant](https://aka.ms/dma)
 ## [가격](https://aka.ms/dms-pricing)
+## [FAQ](faq.md)

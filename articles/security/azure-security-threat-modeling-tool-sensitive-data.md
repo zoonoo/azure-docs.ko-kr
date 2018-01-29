@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 60fcb24ffe813d7fb633c5398252dc8ea7d7a19f
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 8d7189ea4b01d43cea709e3300d8ed71d266f5c9
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>보안 프레임: 중요한 데이터 | Mitigations 
 | 제품/서비스 | 문서 |
@@ -79,7 +79,7 @@ ms.lasthandoff: 12/11/2017
 | **참조**              | 해당 없음  |
 | **단계** | 브라우저는 캐싱 및 기록을 목적으로 정보를 저장할 수 있습니다. 이러한 캐시된 파일은 Internet Explorer의 경우 임시 인터넷 파일 폴더와 같은 폴더에 저장됩니다. 이러한 페이지를 다시 참조하는 경우 브라우저는 해당 캐시의 페이지를 표시합니다. 중요한 정보를 사용자에게 표시하는 경우(예: 해당 주소, 신용 카드 정보, 주민 등록 번호 또는 사용자 이름) 이 정보를 브라우저의 캐시에 저장할 수 있습니다. 따라서 브라우저의 캐시를 검사하거나 브라우저의 "뒤로" 단추를 눌러서 검색할 수 있습니다. 캐시 제어 응답 헤더 값을 모든 페이지에 대해 “no-store”로 설정합니다. |
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 ```XML
 <configuration>
   <system.webServer>
@@ -94,9 +94,9 @@ ms.lasthandoff: 12/11/2017
 </configuration>
 ```
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 이 예제는 필터를 통해 구현될 수 있습니다. 다음 예제를 사용할 수 있습니다. 
-```C#
+```csharp
 public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
             if (filterContext == null || (filterContext.HttpContext != null && filterContext.HttpContext.Response != null && filterContext.HttpContext.Response.IsRequestBeingRedirected))
@@ -143,8 +143,8 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | **참조**              | [MSDN: 자동 완성 특성](http://msdn.microsoft.com/library/ms533486(VS.85).aspx), [HTML에서 자동 완성 기능 사용](http://msdn.microsoft.com/library/ms533032.aspx), [HTML 삭제 취약점](http://technet.microsoft.com/security/bulletin/MS10-071), [자동 완성., 다시?!](http://blog.mindedsecurity.com/2011/10/autocompleteagain.html) |
 | **단계** | 자동 완성 특성은 양식이 자동 완성을 사용해야 할지 여부를 지정합니다. 자동 완성이 켜져 있으면 브라우저는 사용자가 이전에 입력한 값을 기반으로 값을 자동으로 완성합니다. 예를 들어 양식에 새 이름 및 암호를 입력하고 양식을 제출하면 브라우저는 암호를 저장해야 하는지 묻습니다. 이후로 양식이 표시되면 이름 및 암호가 자동으로 채워지거나 이름을 입력하는 대로 완성합니다. 로컬 액세스 권한이 있는 공격자는 브라우저 캐시에서 일반 텍스트 암호를 얻을 수 있습니다. 기본적으로 자동 완성은 활성화되어 있으므로 명시적으로 비활성화되어야 합니다. |
 
-### <a name="example"></a>예제
-```C#
+### <a name="example"></a>예
+```csharp
 <form action="Login.aspx" method="post " autocomplete="off" >
       Social Security Number: <input type="text" name="ssn" />
       <input type="submit" value="Submit" />    
@@ -228,7 +228,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | **참조**              | 해당 없음  |
 | **단계** | <p>특정 구현에서 Web API의 인증과 관련된 중요한 아티팩트는 브라우저의 로컬 저장소에 저장됩니다. 예를 들어, adal.idtoken, adal.nonce.idtoken, adal.access.token.key, adal.token.keys, adal.state.login, adal.session.state, adal.expiration.key 등과 같은 Azure AD 인증 아티팩트입니다.</p><p>이러한 아티팩트는 모두 로그아웃 또는 브라우저가 닫힌 후에도 사용할 수 있습니다. 악의적 사용자가 이러한 아티팩트에 대한 액세스 권한을 가져온 경우 보호된 리소스(API)에 액세스하기 위해 다시 사용할 수 있습니다. Web API와 관련된 중요한 아티팩트가 모두 브라우저의 저장소에 저장되지 않았는지 확인합니다. 클라이언트 쪽 저장소를 피할 수 없는 경우(예: 암시적 OpenIdConnect/OAuth 흐름을 활용하는 SPA(단일 페이지 응용 프로그램)는 액세스 토큰을 로컬로 저장함) 저장소 선택 항목 사용은 지속성을 갖지 않습니다. 예를 들어, LocalStorage보다 SessionStorage를 선호합니다.</p>| 
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 아래 JavaScript 코드 조각은 로컬 저장소에 인증 아티팩트를 저장하는 사용자 지정 인증 라이브러리에서 비롯됩니다. 이렇게 구현하지 않아야 합니다. 
 ```javascript
 ns.AuthHelper.Authenticate = function () {
@@ -260,8 +260,8 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 | **SDL 단계**               | 배포 |  
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
-| **참조**              | [Azure Disk Encryption를 사용하여 가상 컴퓨터에 사용되는 디스크 암호화](https://azure.microsoft.com/documentation/articles/storage-security-guide/#_using-azure-disk-encryption-to-encrypt-disks-used-by-your-virtual-machines) |
-| **단계** | <p>Azure 디스크 암호화는 현재 미리 보기에 포함되어 있는 새로운 기능입니다. 이 기능을 사용하면 IaaS 가상 컴퓨터에서 사용되는 OS 디스크 및 데이터 디스크를 암호화할 수 있습니다. Windows의 경우 업계 표준의 BitLocker 암호화 기술을 사용하여 드라이브가 암호화됩니다. Linux의 경우 DM-Crypt 기술을 사용하여 디스크가 암호화됩니다. 이 기술은 Azure Key Vault와 통합되어 디스크 암호화 키를 제어 및 관리할 수 있도록 합니다. Azure 디스크 암호화 솔루션은 다음 3가지 고객 암호화 시나리오를 지원합니다.</p><ul><li>Azure Key Vault에 저장되는 고객 암호화 VHD 파일 및 고객 제공 암호화 키에서 만든 새 IaaS VM에 대해 암호화를 사용하도록 설정합니다.</li><li>Azure Marketplace에서 만든 새 IaaS VM에 대해 암호화를 사용하도록 설정합니다.</li><li>Azure에서 이미 실행 중인 기존 IaaS VM에 대해 암호화를 사용하도록 설정합니다.</li></ul>| 
+| **참조**              | [Azure Disk Encryption를 사용하여 가상 머신에 사용되는 디스크 암호화](https://azure.microsoft.com/documentation/articles/storage-security-guide/#_using-azure-disk-encryption-to-encrypt-disks-used-by-your-virtual-machines) |
+| **단계** | <p>Azure 디스크 암호화는 현재 미리 보기에 포함되어 있는 새로운 기능입니다. 이 기능을 사용하면 IaaS Virtual Machine에서 사용되는 OS 디스크 및 데이터 디스크를 암호화할 수 있습니다. Windows의 경우 업계 표준의 BitLocker 암호화 기술을 사용하여 드라이브가 암호화됩니다. Linux의 경우 DM-Crypt 기술을 사용하여 디스크가 암호화됩니다. 이 기술은 Azure Key Vault와 통합되어 디스크 암호화 키를 제어 및 관리할 수 있도록 합니다. Azure 디스크 암호화 솔루션은 다음 3가지 고객 암호화 시나리오를 지원합니다.</p><ul><li>Azure Key Vault에 저장되는 고객 암호화 VHD 파일 및 고객 제공 암호화 키에서 만든 새 IaaS VM에 대해 암호화를 사용하도록 설정합니다.</li><li>Azure Marketplace에서 만든 새 IaaS VM에 대해 암호화를 사용하도록 설정합니다.</li><li>Azure에서 이미 실행 중인 기존 IaaS VM에 대해 암호화를 사용하도록 설정합니다.</li></ul>| 
 
 ## <a id="fabric-apps"></a>Service Fabric 응용 프로그램에서 암호 암호화
 
@@ -351,17 +351,17 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 | **참조**              | [Microsoft Intune 정책을 사용하여 장치에서 설정 및 기능 관리](https://docs.microsoft.com/intune/deploy-use/manage-settings-and-features-on-your-devices-with-microsoft-intune-policies#create-a-configuration-policy), [키 집합 Valet](https://components.xamarin.com/view/square.valet) |
 | **단계** | <p>응용 프로그램이 모바일의 파일 시스템에 사용자의 PII(전자 메일, 전화 번호, 이름, 성, 선호도 등)와 같은 중요한 정보를 기록하는 경우 로컬 파일 시스템에 쓰기 전에 암호화되어야 합니다. 엔터프라이즈 응용 프로그램인 응용 프로그램을 사용하는 경우 Windows Intune을 사용하여 응용 프로그램을 게시하는 가능성을 탐색합니다.</p>|
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 Intune은 중요한 데이터를 보호하는 다음과 같은 보안 정책을 사용하여 구성될 수 있습니다. 
-```C#
+```csharp
 Require encryption on mobile device    
 Require encryption on storage cards
 Allow screen capture
 ```
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 엔터프라이즈 응용 프로그램이 아닌 응용 프로그램을 사용하는 경우 파일 시스템에서 수행될 수 있는 암호화 작업을 사용하여 플랫폼 제공 키 저장소, 키 집합을 사용하여 암호화 키를 저장합니다. 다음 코드 조각에서는 xamarin을 사용하는 키 집합에서 키에 액세스하는 방법을 보여 줍니다. 
-```C#
+```csharp
         protected static string EncryptionKey
         {
             get
@@ -412,7 +412,7 @@ Allow screen capture
 | **참조**              | [강화](https://vulncat.fortify.com/en/vulncat/index.html) |
 | **단계** | 암호화되지 않은 채널을 통해 일반 텍스트 암호를 사용한 UsernameToken를 사용하면 SOAP 메시지를 찾아낼 수 있는 공격자에게 암호를 노출하게 됩니다. UsernameToken를 사용하는 서비스 공급자는 일반 텍스트로 전송된 암호를 허용할 수 있습니다. 암호화되지 않은 채널을 통해 일반 텍스트 암호는 보내면 SOAP 메시지를 찾아낼 수 있는 공격자에게 자격 증명을 노출할 수 있습니다. | 
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 다음 WCF 서비스 공급자 구성에서는 UsernameToken을 사용합니다. 
 ```
 <security mode="Message"> 
@@ -431,7 +431,7 @@ clientCredentialType을 인증서 또는 Windows로 설정
 | **참조**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [보안 강화](https://vulncat.fortify.com/en/vulncat/index.html), [WCF 보안 CoDe Magazine의 기본 사항](http://www.codemag.com/article/0611051) |
 | **단계** | 전송 또는 메시지 보안이 거부되지 않았습니다. 전송 또는 메시지 보안 없이 메시지를 전송하는 응용 프로그램은 메시지의 무결성이나 기밀성을 보장할 수 없습니다. WCF 보안 바인딩이 없음으로 설정되면 전송 및 메시지 보안이 모두 비활성화됩니다. |
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 다음 구성에서는 보안 모드를 없음으로 설정합니다. 
 ```
 <system.serviceModel> 
@@ -444,7 +444,7 @@ clientCredentialType을 인증서 또는 Windows로 설정
 </system.serviceModel> 
 ```
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 5개의 가능한 보안 모드가 있는 모든 서비스 바인딩에 대한 보안 모드는 다음과 같습니다. 
 * 없음. 보안 해제. 
 * 전송. 상호 인증과 메시지 보호를 위해 전송 보안 사용. 

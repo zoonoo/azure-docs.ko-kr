@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 68bf128824a40afb25b3e088965f38a4cb4d1332
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 71bbe53595f2afab50d6220f335d615ada957a85
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="security-frame-communication-security--mitigations"></a>보안 프레임: 통신 보안 | 완화 
 | 제품/서비스 | 문서 |
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/11/2017
 | **Identity Server** | <ul><li>[Identity Server에 대한 모든 트래픽이 HTTPS 연결을 통과하는지 확인](#identity-https)</li></ul> |
 | **웹 응용 프로그램** | <ul><li>[X.509 인증서를 사용하여 SSL, TLS 및 DTLS 연결을 인증하는지 확인](#x509-ssltls)</li><li>[Azure App Service에서 사용자 지정 도메인에 대한 SSL 인증서 구성](#ssl-appservice)</li><li>[Azure App Service에 대한 모든 트래픽이 HTTPS 연결을 통과하도록 강제 적용](#appservice-https)</li><li>[HSTS(HTTP 엄격한 전송 보안)를 사용하도록 설정](#http-hsts)</li></ul> |
 | **데이터베이스** | <ul><li>[SQL 서버 연결 암호화 및 인증서 유효성 검사 확인](#sqlserver-validation)</li><li>[SQL 서버에 암호화된 통신 강제 적용](#encrypted-sqlserver)</li></ul> |
-| **Azure 저장소** | <ul><li>[Azure Storage에 대한 통신이 HTTPS를 통과하는지 확인](#comm-storage)</li><li>[HTTPS를 사용할 수 없는 경우 Blob을 다운로드한 후 MD5 해시 유효성 검사](#md5-https)</li><li>[SMB 3.0 호환 클라이언트를 사용하여 Azure 파일 공유에 대한 전송 중 데이터 암호화 보장](#smb-shares)</li></ul> |
+| **Azure Storage** | <ul><li>[Azure Storage에 대한 통신이 HTTPS를 통과하는지 확인](#comm-storage)</li><li>[HTTPS를 사용할 수 없는 경우 Blob을 다운로드한 후 MD5 해시 유효성 검사](#md5-https)</li><li>[SMB 3.0 호환 클라이언트를 사용하여 Azure 파일 공유에 대한 전송 중 데이터 암호화 보장](#smb-shares)</li></ul> |
 | **모바일 클라이언트** | <ul><li>[인증서 고정 구현](#cert-pinning)</li></ul> |
 | **WCF** | <ul><li>[HTTPS 사용 설정 - 보안 전송 채널](#https-transport)</li><li>[WCF: 메시지 보안 보호 수준을 EncryptAndSign으로 설정](#message-protection)</li><li>[WCF: 최소 권한 계정을 사용하여 WCF 서비스 실행](#least-account-wcf)</li></ul> |
 | **앱 API** | <ul><li>[Web API에 대한 모든 트래픽이 HTTPS 연결을 통과하도록 강제 적용](#webapi-https)</li></ul> |
@@ -114,7 +114,7 @@ ms.lasthandoff: 10/11/2017
 | **참조**              | [Azure App Service에서 HTTPS 적용](../app-service/app-service-web-tutorial-custom-ssl.md#enforce-https) |
 | **단계** | <p>Azure는 *.azurewebsites.net 도메인에 대해 와일드카드 인증서를 사용하는 Azure 앱 서비스에 대해 HTTPS를 이미 사용하도록 설정하지만 HTTPS를 적용하지는 않습니다. 방문자는 여전히 HTTP를 사용하여 앱에 액세스할 수 있습니다. 이 경우 앱 보안을 손상시킬 수 있으므로 HTTPS를 명시적으로 적용해야 합니다. ASP.NET MVC 응용 프로그램에서는 안전하지 않은 HTTP 요청을 HTTPS를 통해 다시 보내도록 하는 [RequireHttps 필터](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx)를 사용해야 합니다.</p><p>또는 Azure App Service에 포함된 URL 다시 쓰기 모듈을 사용하여 HTTPS를 적용할 수 있습니다. URL 다시 쓰기 모듈을 사용하면 개발자가 요청을 응용 프로그램으로 전달하기 전에 들어오는 요청에 적용되는 규칙을 정의할 수 있습니다. URL 다시 쓰기 규칙은 응용 프로그램 루트에 저장된 web.config 파일에 정의되어 있습니다.</p>|
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 다음 예제에는 들어오는 모든 트래픽이 강제로 HTTPS를 사용하도록 하는 기본 URL 다시 쓰기 규칙이 포함되어 있습니다.
 ```XML
 <?xml version="1.0" encoding="UTF-8"?>
@@ -173,7 +173,7 @@ ms.lasthandoff: 10/11/2017
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
-| **구성 요소**               | Azure 저장소 | 
+| **구성 요소**               | Azure Storage | 
 | **SDL 단계**               | 배포 |  
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
@@ -184,12 +184,12 @@ ms.lasthandoff: 10/11/2017
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
-| **구성 요소**               | Azure 저장소 | 
+| **구성 요소**               | Azure Storage | 
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반 |
 | **특성**              | StorageType - Blob |
 | **참조**              | [Microsoft Azure Blob의 MD5 개요](https://blogs.msdn.microsoft.com/windowsazurestorage/2011/02/17/windows-azure-blob-md5-overview/)(영문) |
-| **단계** | <p>Microsoft Azure Blob 서비스는 응용 프로그램 계층과 전송 계층 모두에서 데이터 무결성을 보장하는 메커니즘을 제공합니다. 어떤 이유로든 HTTPS 대신 HTTP를 사용해야 하고 블록 Blob을 사용하고 있는 경우, MD5 확인을 사용하면 전송되는 Blob의 무결성을 확인할 수 있습니다.</p><p>이렇게 하면 네트워크/전송 계층 오류로부터 보호되지만 항상 중간 공격을 막을 수 있는 것은 아닙니다. 전송 수준 보안을 제공하는 HTTPS를 사용할 수 있는 경우 MD5 확인을 사용하는 것은 중복된 작업으로 불필요합니다.</p>|
+| **단계** | <p>Microsoft Azure Blob service는 응용 프로그램 계층과 전송 계층 모두에서 데이터 무결성을 보장하는 메커니즘을 제공합니다. 어떤 이유로든 HTTPS 대신 HTTP를 사용해야 하고 블록 Blob을 사용하고 있는 경우, MD5 확인을 사용하면 전송되는 Blob의 무결성을 확인할 수 있습니다.</p><p>이렇게 하면 네트워크/전송 계층 오류로부터 보호되지만 항상 중간 공격을 막을 수 있는 것은 아닙니다. 전송 수준 보안을 제공하는 HTTPS를 사용할 수 있는 경우 MD5 확인을 사용하는 것은 중복된 작업으로 불필요합니다.</p>|
 
 ## <a id="smb-shares"></a>SMB 3.0 호환 클라이언트를 사용하여 Azure 파일 공유에 대한 전송 중 데이터 암호화 보장
 
@@ -200,21 +200,21 @@ ms.lasthandoff: 10/11/2017
 | **적용 가능한 기술** | 일반 |
 | **특성**              | StorageType - 파일 |
 | **참조**              | [Azure File Storage](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/#comment-2529238931), [Windows 클라이언트에 대한 Azure File Storage SMB 지원](https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-files/#_mount-the-file-share) |
-| **단계** | Azure 파일 저장소는 REST API를 사용하는 경우 HTTPS를 지원하지만, VM에 연결된 SMB 파일 공유로 사용되는 경우가 더 일반적입니다. SMB 2.1은 암호화를 지원하지 않으므로 Azure의 동일한 지역 내에서만 연결이 허용됩니다. 그러나 SMB 3.0은 암호화를 지원하고, Windows Server 2012 R2, Windows 8, Windows 8.1 및 Windows 10에서 사용할 수 있으며 지역 간 액세스 및 데스크톱에 대한 액세스도 허용합니다. |
+| **단계** | Azure File Storage는 REST API를 사용하는 경우 HTTPS를 지원하지만, VM에 연결된 SMB 파일 공유로 사용되는 경우가 더 일반적입니다. SMB 2.1은 암호화를 지원하지 않으므로 Azure의 동일한 지역 내에서만 연결이 허용됩니다. 그러나 SMB 3.0은 암호화를 지원하고, Windows Server 2012 R2, Windows 8, Windows 8.1 및 Windows 10에서 사용할 수 있으며 지역 간 액세스 및 데스크톱에 대한 액세스도 허용합니다. |
 
 ## <a id="cert-pinning"></a>인증서 고정 구현
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
-| **구성 요소**               | Azure 저장소 | 
+| **구성 요소**               | Azure Storage | 
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반, Windows Phone |
 | **특성**              | 해당 없음  |
 | **참조**              | [인증서 및 공개 키 고정](https://www.owasp.org/index.php/Certificate_and_Public_Key_Pinning#.Net)(영문) |
 | **단계** | <p>인증서 고정은 MITM(메시지 가로채기) 공격을 방어합니다. 고정은 예상되는 X509 인증서 또는 공개 키와 호스트를 연결하는 프로세스입니다. 호스트에 대한 인증서 또는 공개 키를 알고 있거나 확인하면 해당 인증서 또는 공개 키가 호스트에 연결되거나 '고정'됩니다. </p><p>따라서 악의적 사용자가 SSL MITM 공격을 시도하면 SSL 핸드셰이크 중에 공격자 서버의 키가 고정된 인증서 키와 다르고 요청이 무시되므로 ServicePointManager의 `ServerCertificateValidationCallback` 위임을 구현함으로써 MITM 인증서 고정을 방지할 수 있습니다.</p>|
 
-### <a name="example"></a>예제
-```C#
+### <a name="example"></a>예
+```csharp
 using System;
 using System.Net;
 using System.Net.Security;
@@ -301,7 +301,7 @@ namespace CertificatePinningExample
 | **참조**              | [MSDN](https://msdn.microsoft.com/library/ff650862.aspx) |
 | **단계** | <ul><li>**설명:** 보호 수준을 "none"으로 설정하면 메시지 보호를 사용하지 않도록 설정됩니다. 적절한 수준의 설정을 통해 기밀성과 무결성을 보장합니다.</li><li>**권장 사항:**<ul><li>`Mode=None`인 경우 - 메시지 보호를 사용하지 않도록 설정</li><li>`Mode=Sign`인 경우 - 메시지를 서명하지만 암호화하지 않습니다. 데이터 무결성이 중요한 경우에 사용해야 합니다.</li><li>`Mode=EncryptAndSign`인 경우 - 메시지를 서명하고 암호화합니다.</li></ul></li></ul><p>기밀성에 대한 우려 없이 정보 무결성의 유효성을 검사하기만 하면 암호화를 해제하고 메시지에 서명하는 것이 좋습니다. 이렇게 하면 원래 보낸 사람의 유효성을 검사해야 하지만 중요한 데이터는 전송되지 않는 작업 또는 서비스 계약에 유용할 수 있습니다. 보호 수준을 낮출 때는 메시지에 PII(개인 식별이 가능한 정보)가 포함되지 않도록 주의합니다.</p>|
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 다음 예제에서는 메시지 서명만 수행하도록 서비스와 작업을 구성합니다. `ProtectionLevel.Sign`의 서비스 계약 예제: 다음은 서비스 계약 수준에서 ProtectionLevel.Sign을 사용합니다. 
 ```
 [ServiceContract(Protection Level=ProtectionLevel.Sign] 
@@ -311,7 +311,7 @@ public interface IService
   } 
 ```
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 `ProtectionLevel.Sign`의 작업 계약 예제(세부적 제어의 경우): 다음은 OperationContract 수준에서 `ProtectionLevel.Sign`을 사용합니다.
 
 ```
@@ -341,9 +341,9 @@ string GetData(int value);
 | **참조**              | [Web API 컨트롤러에서 SSL 적용](http://www.asp.net/web-api/overview/security/working-with-ssl-in-web-api) |
 | **단계** | 응용 프로그램에 HTTPS와 HTTP 바인딩이 모두 있는 경우 클라이언트에서 HTTP를 계속 사용하여 사이트에 액세스할 수 있습니다. 이를 방지하려면 작업 필터를 사용하여 보호된 API에 대한 요청이 항상 HTTPS를 통과하도록 합니다.|
 
-### <a name="example"></a>예제 
+### <a name="example"></a>예 
 다음 코드에서는 SSL을 확인하는 Web API 인증 필터를 보여 줍니다. 
-```C#
+```csharp
 public class RequireHttpsAttribute : AuthorizationFilterAttribute
 {
     public override void OnAuthorization(HttpActionContext actionContext)
@@ -363,7 +363,7 @@ public class RequireHttpsAttribute : AuthorizationFilterAttribute
 }
 ```
 SSL이 필요한 모든 Web API 작업에 이 필터를 추가합니다. 
-```C#
+```csharp
 public class ValuesController : ApiController
 {
     [RequireHttps]
