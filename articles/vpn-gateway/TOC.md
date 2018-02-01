@@ -39,7 +39,7 @@
 ### [Azure 포털](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 ### [Azure PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 ### [Azure CLI](vpn-gateway-howto-vnet-vnet-cli.md)
-### [Azure 포털(클래식)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
+### [Azure Portal(클래식)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
 ## 배포 모델 간 VNet-VNet 연결 구성
 ### [Azure 포털](vpn-gateway-connect-different-deployment-models-portal.md)
 ### [Azure PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
@@ -76,7 +76,7 @@
 ### [개요 및 Azure 구성](vpn-gateway-3rdparty-device-config-overview.md)
 ### [샘플: Cisco ASA 장치(IKEv2/BGP 아님)](vpn-gateway-3rdparty-device-config-cisco-asa.md)
 ## [클래식에서 Resource Manager로 마이그레이션](vpn-gateway-classic-resource-manager-migration.md)
-## 문제 해결
+## [문제 해결](vpn-gateway-troubleshoot.md)
 ### [VNet에 대한 VPN 처리량의 유효성 검사](vpn-gateway-validate-throughput-to-vnet.md)
 ### [커뮤니티에서 제안한 VPN 또는 방화벽 장치 설정](vpn-gateway-third-party-settings.md)
 ### [지점 및 사이트 간 연결 문제](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)
@@ -84,10 +84,10 @@
 ### [사이트 간 연결을 사용할 수 없음](vpn-gateway-troubleshoot-site-to-site-cannot-connect.md) 
 ### [VNet 또는 VPN 연결 구성 및 유효성 검사](https://support.microsoft.com/help/4032151/configuring-and-validating-vnet-or-vpn-connections)
 
-# 참조
+# 참고 자료
 ## [Azure PowerShell](/powershell/module/azurerm.network/?view=azurermps-4.0.0#vpn)
 ## [Azure PowerShell(클래식)](/powershell/module/azure/?view=azuresmps-3.7.0#networking)
-## [REST (영문)](/rest/api/network/virtualnetworkgateways)
+## [REST](/rest/api/network/virtualnetworkgateways)
 ## [REST(클래식)](https://msdn.microsoft.com/library/jj154113)
 ## [Azure CLI](/cli/azure/network/vnet-gateway)
 
@@ -103,7 +103,7 @@
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=networking)
 ## [블로그](https://azure.microsoft.com/blog/topics/networking)
 ## [포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)
-## [가격](https://azure.microsoft.com/pricing/details/vpn-gateway)
+## [가격 책정](https://azure.microsoft.com/pricing/details/vpn-gateway)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [SLA](https://azure.microsoft.com/support/legal/sla)
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=vpn-gateway)

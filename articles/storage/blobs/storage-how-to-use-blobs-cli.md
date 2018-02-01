@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 06/15/2017
 ms.author: tamram
-ms.openlocfilehash: bd96cf7eb1c0c7f51b110da848a8df7914ad85c7
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: d47d85af7412def342437aedf35c3d129662451d
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="perform-blob-storage-operations-with-azure-cli"></a>Azure CLI를 사용하여 Blob Storage 작업 수행
 
@@ -44,7 +44,7 @@ Azure Blob 저장소는 HTTP 또는 HTTPS를 통해 전 세계 어디에서든 �
 
 컨테이너는 마치 컴퓨터의 디렉터리와 같습니다. 즉, 디렉터리에 파일을 정리하는 것과 마찬가지로 컨테이너에 Blob 그룹을 구성할 수 있습니다. 저장소 계정의 컨테이너 수에는 제한이 없습니다. 한 컨테이너에 최대 500TB(저장소 계정에 허용된 최대 데이터 크기)의 Blob 데이터를 저장할 수 있습니다.
 
-Blob 저장을 위한 컨테이너는 [az storage container create](/cli/azure/storage/container#create) 명령을 사용하여 만듭니다.
+[az storage container create](/cli/azure/storage/container#az_storage_container_create) 명령으로 Blob을 저장하기 위한 컨테이너를 만듭니다.
 
 ```azurecli-interactive
 az storage container create --name mystoragecontainer
@@ -64,7 +64,7 @@ az storage container create --name mystoragecontainer
 
 공용 액세스를 `blob` 또는 `container`로 설정하면 인터넷의 모든 사용자에 대해 읽기 전용 액세스가 설정됩니다. 예를 들어, 웹 사이트에 Blob으로 저장된 이미지를 표시하려면 공용 읽기 액세스를 설정해야 합니다. 읽기/쓰기 액세스를 사용하도록 설정하려면 대신 [SAS(공유 액세스 서명)](#create-a-shared-access-signature-sas)를 사용해야 합니다.
 
-[az storage container set-permission](/cli/azure/storage/container#create) 명령을 사용하여 컨테이너에 대한 공용 읽기 액세스를 설정합니다.
+[az storage container set-permission](/cli/azure/storage/container#az_storage_container_create) 명령을 사용하여 컨테이너에 대한 공용 읽기 권한을 사용하도록 설정합니다.
 
 ```azurecli-interactive
 az storage container set-permission \
@@ -76,7 +76,7 @@ az storage container set-permission \
 
 Blob Storage는 블록 Blob, 추가 Blob 및 페이지 Blob을 지원합니다. 블록 Blob은 Azure Storage에 저장된 가장 일반적인 유형의 Blob입니다. 추가 Blob은 로깅과 같이 기존 내용을 수정하지 않고 기존 Blob에 데이터를 추가해야 할 때 사용됩니다. 페이지 Blob은 IaaS 가상 머신의 VHD 파일을 백업합니다.
 
-이 예에서는 [az storage blob upload](/cli/azure/storage/blob#upload) 명령으로, 마지막 단계에서 만든 컨테이너에 Blob을 업로드합니다.
+이 예에서는 [az storage blob upload](/cli/azure/storage/blob#az_storage_blob_upload) 명령으로, 마지막 단계에서 만든 컨테이너에 Blob을 업로드합니다.
 
 ```azurecli-interactive
 az storage blob upload \
@@ -89,7 +89,7 @@ az storage blob upload \
 
 ## <a name="list-the-blobs-in-a-container"></a>컨테이너의 Blob 나열
 
-[az storage blob list](/cli/azure/storage/blob#list) 명령으로 컨테이너에 있는 Blob을 나열합니다.
+[az storage blob list](/cli/azure/storage/blob#az_storage_blob_list) 명령으로 컨테이너에 있는 Blob을 나열합니다.
 
 ```azurecli-interactive
 az storage blob list \
@@ -111,7 +111,7 @@ dir1/file1.txt  BlockBlob        6700  application/octet-stream  2017-04-21T18:3
 
 ## <a name="download-a-blob"></a>Blob 다운로드
 
-[az storage blob download](/cli/azure/storage/blob#download) 명령을 사용하여 이전 단계에서 업로드한 Blob을 다운로드합니다.
+[az storage blob download](/cli/azure/storage/blob#az_storage_blob_download) 명령을 사용하여 이전 단계에서 업로드한 Blob을 다운로드합니다.
 
 ```azurecli-interactive
 az storage blob download \
@@ -155,7 +155,7 @@ az storage blob copy start \
 
 ## <a name="delete-a-blob"></a>Blob 삭제
 
-[az storage blob delete](/cli/azure/storage/blob#delete) 명령을 사용하여 컨테이너에서 Blob을 삭제합니다.
+[az storage blob delete](/cli/azure/storage/blob#az_storage_blob_delete) 명령을 사용하여 컨테이너에서 Blob을 삭제합니다.
 
 ```azurecli-interactive
 az storage blob delete \
@@ -177,9 +177,9 @@ az storage blob update
 
 ## <a name="display-and-modify-blob-properties-and-metadata"></a>Blob 속성 및 메타데이터 표시 및 수정
 
-각 Blob에는 이름, 형식, 길이 등을 포함한 여러 개의 서비스 정의 속성이 있으며, 이러한 속성은 [az storage blob show](/cli/azure/storage/blob#show) 명령으로 표시할 수 있습니다. 또한 [az storage blob metadata update](/cli/azure/storage/blob/metadata#update) 명령을 사용하여 속성 및 해당 값이 사용자 지정된 Blob을 구성할 수도 있습니다.
+각 Blob에는 해당 이름, 형식, 길이 등을 포함하여 [az storage blob show](/cli/azure/storage/blob#az_storage_blob_show) 명령으로 표시할 수 있는 여러 개의 서비스 정의 속성이 있습니다. [az storage blob metadata update](/cli/azure/storage/blob/metadata#az_storage_blob_metadata_update) 명령을 사용하여 사용자 고유의 속성 및 해당 값으로 Blob을 구성할 수도 있습니다.
 
-이 예제에서는 먼저 Blob의 서비스 정의 속성을 표시한 후 사용자 고유의 메타데이터 속성 중 두 개로 Blob을 업데이트합니다. 마지막으로 [az storage blob metadata show](/cli/azure/storage/blob/metadata#show) 명령을 사용하여 Blob의 메타데이터 속성과 해당 값을 표시합니다.
+이 예제에서는 먼저 Blob의 서비스 정의 속성을 표시한 후 사용자 고유의 메타데이터 속성 중 두 개로 Blob을 업데이트합니다. 마지막으로 [az storage blob metadata show](/cli/azure/storage/blob/metadata#az_storage_blob_metadata_show) 명령을 사용하여 Blob의 메타데이터 속성과 해당 값을 표시합니다.
 
 ```azurecli-interactive
 # Show properties of a blob
@@ -218,7 +218,7 @@ az storage container set-permission \
 
 ### <a name="verify-private-access"></a>개인 액세스 확인
 
-해당 컨테이너의 Blob에 대한 공용 읽기 권한이 없음을 확인하려면 [az storage blob url](/cli/azure/storage/blob#url) 명령을 사용하여 해당 Blob 중 하나에 대한 URL을 가져옵니다.
+해당 컨테이너의 Blob에 대한 공용 읽기 권한이 없음을 확인하려면 [az storage blob url](/cli/azure/storage/blob#az_storage_blob_url) 명령을 사용하여 해당 Blob 중 하나에 대한 URL을 가져옵니다.
 
 ```azurecli-interactive
 az storage blob url \
@@ -231,7 +231,7 @@ az storage blob url \
 
 ### <a name="create-a-sas-uri"></a>SAS URI 만들기
 
-이제 Blob에 대한 액세스를 허용하는 SAS URI를 만들어 보겠습니다. 다음 예제에서는 먼저, [az storage blob url](/cli/azure/storage/blob#url)명령을 사용하여 Blob에 대한 URL로 변수를 채운 다음, [az storage blob generate-sas](/cli/azure/storage/blob#generate-sas) 명령을 사용하여 생성된 SAS 토큰으로 다른 변수를 채웁니다. 마지막으로 `?` 쿼리 문자열 구분 기호로 분리된 둘을 연결하여 Blob에 대한 전체 SAS URI를 출력합니다.
+이제 Blob에 대한 액세스를 허용하는 SAS URI를 만들어 보겠습니다. 다음 예제에서는 먼저, [az storage blob url](/cli/azure/storage/blob#az_storage_blob_url)로 Blob에 대한 URL로 변수를 채운 다음 [az storage blob generate-sas](/cli/azure/storage/blob#az_storage_blob_generate_sas) 명령으로 생성된 SAS 토큰으로 다른 변수를 채웁니다. 마지막으로 `?` 쿼리 문자열 구분 기호로 분리된 둘을 연결하여 Blob에 대한 전체 SAS URI를 출력합니다.
 
 ```azurecli-interactive
 # Get UTC datetimes for SAS start and expiry (Example: 1994-11-05T13:15:30Z)
@@ -266,7 +266,7 @@ URL이 만료될 때까지 충분히 기다린 후(이 예제의 경우 2분) �
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-사용자가 만든 저장소 계정 및 이 자습서에서 업로드한 Blob을 비롯하여 리소스 그룹의 어떠한 리소스도 더 이상 필요하지 않은 경우 [az group delete](/cli/azure/group#delete) 명령으로 리소스 그룹을 삭제합니다.
+사용자가 만든 저장소 계정 및 이 자습서에서 업로드한 Blob을 비롯하여 리소스 그룹의 어떠한 리소스도 더 이상 필요하지 않은 경우 [az group delete](/cli/azure/group#az_group_delete) 명령으로 리소스 그룹을 삭제합니다.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup

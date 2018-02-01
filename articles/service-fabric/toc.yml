@@ -159,8 +159,6 @@
               href: service-fabric-reverseproxy-configure-secure-communication.md
             - name: 역방향 프록시 진단
               href: service-fabric-reverse-proxy-diagnostics.md
-            - name: ASP.NET Core
-              href: service-fabric-reliable-services-communication-aspnetcore.md
         - name: 응용 프로그램 수명 주기
           href: service-fabric-application-lifecycle.md
           items:
@@ -388,8 +386,8 @@
           href: service-fabric-migrate-old-javaapp-to-use-maven.md
         - name: 보안 통신에 대한 역방향 프록시 구성
           href: service-fabric-reverseproxy-configure-secure-communication.md
-        - name: ASP.NET Core 서비스 빌드
-          href: service-fabric-add-a-web-frontend.md
+        - name: ASP.NET Core
+          href: service-fabric-reliable-services-communication-aspnetcore.md
         - name: 보안 구성
           items:
             - name: 응용 프로그램 비밀 관리

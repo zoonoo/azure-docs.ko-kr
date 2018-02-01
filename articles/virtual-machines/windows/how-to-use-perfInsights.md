@@ -149,7 +149,7 @@ Windows VM, 디스크 또는 저장소 풀 구성, 성능 카운터, 로그 및 
 > [!NOTE] 
 > 현재 .NET Framework 3.5 이상 버전이 포함된 Windows 버전이 지원됩니다.
 
-### <a name="performance-counter-trace-"></a>성능 카운터 추적 (**)
+### <a name="performance-counter-trace-"></a>성능 카운터 추적 (\*\*)
 
 다음 성능 카운터를 수집합니다.
 

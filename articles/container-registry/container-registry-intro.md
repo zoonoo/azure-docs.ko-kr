@@ -9,11 +9,11 @@ ms.topic: overview
 ms.date: 01/22/2018
 ms.author: stevelas
 ms.custom: mvc
-ms.openlocfilehash: b92fd225e32749b87a065ab9048938059c42f265
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 7d9c259e6fb48189faef2a49fdba2578c9accfe9
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Azure의 개인 Docker 컨테이너 레지스트리 소개
 
@@ -25,7 +25,7 @@ Docker 및 컨테이너에 대한 기본 지식은 [Docker 사용자 가이드](
 Azure Container Registry에서 다양한 배포 대상으로 이미지 끌어오기:
 
 * **확장성 있는 오케스트레이션 시스템**: [DC/OS](https://docs.mesosphere.com/), [Docker Swarm](https://docs.docker.com/swarm/) 및 [Kubernetes](http://kubernetes.io/docs/)를 포함하는 호스트 클러스터에서 컨테이너화된 응용 프로그램을 관리합니다.
-* **Azure 서비스**는 [컨테이너 서비스](../container-service/index.yml), [App Service](/app-service/index.md), [Batch](../batch/index.md) 및 [Service Fabric](/azure/service-fabric/)을 포함하는 대규모 응용 프로그램 빌드 및 실행을 지원합니다.
+* **Azure 서비스**는 [컨테이너 서비스](../container-service/index.yml), [App Service](/app-service/index.md), [Batch](../batch/index.yml) 및 [Service Fabric](/azure/service-fabric/)을 포함하는 대규모 응용 프로그램 빌드 및 실행을 지원합니다.
 
 개발자는 컨테이너 개발 워크플로의 일환으로 컨테이너 레지스트리에 밀어넣을 수도 있습니다. 예를 들어 [Visual Studio Team Services](https://www.visualstudio.com/docs/overview) 또는 [Jenkins](https://jenkins.io/)와 같은 배포 도구 및 지속적인 통합의 컨테이너 레지스트리를 대상으로 합니다.
 

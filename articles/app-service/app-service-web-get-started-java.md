@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 11/08/2017
 ms.author: cephalin;robmcm
 ms.custom: mvc, devcenter
-ms.openlocfilehash: d44fff1e59198d662356c4d7739c05e538ba57b9
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: de72b97051daef675ceae7c7af08fb04e21cf849
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-your-first-java-web-app-in-azure"></a>Azure에서 첫 번째 Java 웹앱 만들기
 
@@ -29,14 +29,14 @@ Azure [Web Apps](app-service-web-overview.md)는 확장성 있는 자체 패치 
 
 !["Hello Azure!" 예제 웹앱](./media/app-service-web-get-started-java/browse-web-app-1.png)
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
 ## <a name="prerequisites"></a>필수 조건
 
 이 빠른 시작을 완료하려면 다음을 설치합니다.
 
 * 무료 <a href="http://www.eclipse.org/downloads/" target="_blank">Eclipse IDE for Java EE Developers</a>. 이 빠른 시작은 Eclipse Neon을 사용합니다.
 * <a href="/java/azure/eclipse/azure-toolkit-for-eclipse-installation" target="_blank">Eclipse용 Azure 도구 키트</a>.
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="create-a-dynamic-web-project-in-eclipse"></a>Eclipse에서 동적 웹 프로젝트 만들기
 
@@ -149,7 +149,7 @@ Azure 도구 키트는 웹앱을 만들고 진행률 대화 상자를 표시합�
 
 ![Azure 활동 로그 대화 상자](./media/app-service-web-get-started-java/aal.png)
 
-축하합니다. Azure에 웹앱을 배포했습니다. 
+축하합니다! Azure에 웹앱을 배포했습니다. 
 
 !["Hello Azure!" 예제 웹앱](./media/app-service-web-get-started-java/browse-web-app-1.png)
 

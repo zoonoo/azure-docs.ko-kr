@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 06/09/2017
 ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: db3be8068ef9e560614daa0e7f0dcf62467fd338
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: bd5aa5186bdec84e1943887ef0980fa50cd26324
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="build-an-aspnet-app-in-azure-with-sql-database"></a>SQL Database를 사용하여 Azure에서 ASP.NET 앱 빌드
 
@@ -37,6 +37,8 @@ ms.lasthandoff: 10/27/2017
 > * Azure에서 터미널로 로그 스트림
 > * Azure Portal에서 앱 관리
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
 ## <a name="prerequisites"></a>필수 조건
 
 이 자습서를 완료하려면 다음이 필요합니다.
@@ -46,8 +48,6 @@ ms.lasthandoff: 10/27/2017
   - **Azure 개발**
 
   ![ASP.NET 및 웹 개발 및 Azure 개발(웹 & 클라우드에서)](media/app-service-web-tutorial-dotnet-sqldatabase/workloads.png)
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="download-the-sample"></a>샘플 다운로드
 
@@ -121,7 +121,7 @@ Visual Studio에서 *dotnet-sqldb-tutorial-master/DotNetAppSqlDb.sln* 파일을 
 | 설정  | 제안 값 | Blob에 대한 자세한 내용은 |
 | ----------------- | ------------ | ----|
 |**App Service 계획**| myAppServicePlan | [App Service 계획](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) |
-|**위치**| 서유럽 | [Azure 지역](https://azure.microsoft.com/regions/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) |
+|**위치**:| 서유럽 | [Azure 지역](https://azure.microsoft.com/regions/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) |
 |**크기**| 무료 | [가격 책정 계층](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)|
 
 ### <a name="create-a-sql-server-instance"></a>SQL Server 인스턴스 만들기
@@ -168,7 +168,7 @@ Visual Studio에서 *dotnet-sqldb-tutorial-master/DotNetAppSqlDb.sln* 파일을 
 
 ![Azure 웹앱의 게시된 ASP.NET 응용 프로그램](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
 
-축하합니다. 데이터 기반 ASP.NET 응용 프로그램이 Azure App Service에서 라이브로 실행되고 있습니다.
+축하합니다! 데이터 기반 ASP.NET 응용 프로그램이 Azure App Service에서 라이브로 실행되고 있습니다.
 
 ## <a name="access-the-sql-database-locally"></a>로컬에서 SQL Database에 액세스
 
@@ -367,7 +367,7 @@ Azure 웹앱을 마우스 오른쪽 단추로 클릭하고 **스트리밍 로그
 
 Azure 웹앱을 마우스 오른쪽 단추로 다시 클릭하고 **설정 보기**를 선택합니다.
 
-**응용 프로그램 로깅(파일 시스템)** 드롭다운에서 **자세한 정보 표시**를 선택합니다. **Save**를 클릭합니다.
+**응용 프로그램 로깅(파일 시스템)** 드롭다운에서 **자세한 정보 표시**를 선택합니다. **저장**을 클릭합니다.
 
 ![추적 수준을 자세한 정보 표시로 설정](./media/app-service-web-tutorial-dotnet-sqldatabase/trace-level-verbose.png)
 
@@ -415,7 +415,7 @@ Application: 2017-04-06T23:30:54  PID[8132] Verbose     GET /Todos/Index
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서 학습한 방법은 다음과 같습니다.
+이 자습서에서는 다음 방법에 대해 알아보았습니다.
 
 > [!div class="checklist"]
 > * Azure에서 SQL Database 만들기
