@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 2100b5d1804f81f7c5a9dacfbb133e8d14dee39e
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 6aa5d4aa032ef4dc3583bf76b9c451874b74f9a6
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 여러 테이블 대량 복사
 이 자습서에서는 **Azure SQL Database에서 Azure SQL Data Warehouse로 여러 테이블을 복사**하는 방법을 보여 줍니다. 다른 복사 시나리오에도 동일한 패턴을 적용할 수 있습니다. 예를 들어 SQL Server/Oracle에서 Azure SQL Database/Data Warehouse/Azure Blob으로 테이블을 복사하고, Blob에서 Azure SQL Database 테이블로 다른 경로를 복사합니다.
@@ -195,7 +195,7 @@ AzureSqlDWDataset 출력 데이터 집합은 AzureSqlDWLinkedService를 참조�
 5. **매개 변수** 탭으로 전환하고 **+ 새로 만들기**를 클릭합니다.
 
     ![원본 데이터 집합 연결 페이지](./media/tutorial-bulk-copy-portal/sink-dataset-new-parameter-button.png)
-6. 매개 변수 이름으로 **DWTableName**을 입력합니다. 
+6. 매개 변수 이름으로 **DWTableName**을 입력합니다. 페이지에서 이 이름을 복사/붙여넣는 경우 **DWTableName** 끝에 **후행 공백 문자**가 없는지 확인합니다. 
 7. **매개 변수화된 속성** 섹션에서 **tableName** 속성에 대해 `@{dataset().DWTableName}`을 입력합니다. 데이터 집합의 **tableName** 속성은 **DWTableName** 매개 변수에 대한 인수로 전달되는 값으로 설정됩니다. ForEach 활동은 테이블 목록을 반복하여 복사 활동에 값을 하나씩 전달합니다. 
    
     ![매개 변수 이름](./media/tutorial-bulk-copy-portal/dwtablename-tablename.png)

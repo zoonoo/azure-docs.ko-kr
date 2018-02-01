@@ -123,6 +123,8 @@
           href: site-recovery-create-recovery-plans.md
         - name: Azure Runbook을 복구 계획에 추가
           href: site-recovery-runbook-automation.md
+        - name: VMM 스크립트를 복구 계획에 추가
+          href: site-recovery-how-to-add-vmmscript.md
         - name: 장애 조치
           items:
             - name: 장애 조치 정보

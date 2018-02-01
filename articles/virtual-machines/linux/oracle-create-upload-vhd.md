@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2017
 ms.author: szark
-ms.openlocfilehash: c631ddf3acf6df7364c03eb4691b78be0493e0d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a592dfbc6f19afe255cee1a8dfb48e3c96d7baf8
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/22/2018
 ---
-# <a name="prepare-an-oracle-linux-virtual-machine-for-azure"></a>Azure용 Oracle Linux 가상 컴퓨터 준비
+# <a name="prepare-an-oracle-linux-virtual-machine-for-azure"></a>Azure용 Oracle Linux 가상 머신 준비
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 ## <a name="prerequisites"></a>필수 조건
-이 문서에서는 가상 하드 디스크에 Oracle Linux 운영 체제를 이미 설치했다고 가정합니다. .vhd 파일을 만드는 여러 도구가 있습니다(예: Hyper-V와 같은 가상화 솔루션). 자세한 내용은 [Hyper-V 역할 설치 및 가상 시스템 구성](http://technet.microsoft.com/library/hh846766.aspx)을 참조하십시오.
+이 문서에서는 가상 하드 디스크에 Oracle Linux 운영 체제를 이미 설치했다고 가정합니다. .vhd 파일을 만드는 여러 도구가 있습니다(예: Hyper-V와 같은 가상화 솔루션). 자세한 내용은 [Hyper-V 역할 설치 및 Virtual Machine 구성](http://technet.microsoft.com/library/hh846766.aspx)을 참조하십시오.
 
 ### <a name="oracle-linux-installation-notes"></a>Oracle Linux 설치 참고 사항
 * Azure용 Linux를 준비하는 방법에 대한 추가 팁은 [일반 Linux 설치 참고 사항](create-upload-generic.md#general-linux-installation-notes) 을 참조하세요.
@@ -41,8 +41,8 @@ ms.lasthandoff: 10/11/2017
 ## <a name="oracle-linux-64"></a>Oracle Linux 6.4 이상
 가상 컴퓨터를 Azure에서 실행하려면 운영 체제에서 특정 구성 단계를 완료해야 합니다.
 
-1. Hyper-V 관리자의 가운데 창에서 가상 컴퓨터를 선택합니다.
-2. **연결** 을 클릭하여 가상 컴퓨터 창을 엽니다.
+1. Hyper-V 관리자의 가운데 창에서 가상 머신을 선택합니다.
+2. **연결** 을 클릭하여 가상 머신 창을 엽니다.
 3. 다음 명령을 실행하여 NetworkManager를 제거합니다.
    
         # sudo rpm -e --nodeps NetworkManager
@@ -61,7 +61,7 @@ ms.lasthandoff: 10/11/2017
         USERCTL=no
         PEERDNS=yes
         IPV6INIT=no
-6. 이더넷 인터페이스에 대한 정적 규칙을 생성하지 않도록 방지하는 udev 규칙을 수정합니다. 이러한 규칙은 Microsoft Azure 또는 Hyper-V에서 가상 컴퓨터를 복제하는 경우 문제를 발생시킬 수 있습니다.
+6. 이더넷 인터페이스에 대한 정적 규칙을 생성하지 않도록 방지하는 udev 규칙을 수정합니다. 이러한 규칙은 Microsoft Azure 또는 Hyper-V에서 가상 머신을 복제하는 경우 문제를 발생시킬 수 있습니다.
    
         # sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
         # sudo rm -f /etc/udev/rules.d/70-persistent-net.rules
@@ -99,7 +99,7 @@ ms.lasthandoff: 10/11/2017
         ResourceDisk.MountPoint=/mnt/resource
         ResourceDisk.EnableSwap=y
         ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
-13. 다음 명령을 실행하여 가상 컴퓨터의 프로비전을 해제하고 Azure에서 프로비전할 준비를 합니다.
+13. 다음 명령을 실행하여 가상 머신의 프로비전을 해제하고 Azure에서 프로비전할 준비를 합니다.
     
         # sudo waagent -force -deprovision
         # export HISTSIZE=0
@@ -119,7 +119,7 @@ Azure용으로 Oracle Linux 7 가상 컴퓨터를 준비하는 작업은 Oracle 
 
 **구성 단계**
 
-1. Hyper-V 관리자에서 가상 컴퓨터를 선택합니다.
+1. Hyper-V 관리자에서 가상 머신을 선택합니다.
 2. **연결** 을 클릭하여 가상 컴퓨터의 콘솔 창을 엽니다.
 3. 다음 텍스트가 포함된 **network** in the `/etc/sysconfig/` 디렉터리에 만듭니다.
    
@@ -134,7 +134,7 @@ Azure용으로 Oracle Linux 7 가상 컴퓨터를 준비하는 작업은 Oracle 
         USERCTL=no
         PEERDNS=yes
         IPV6INIT=no
-5. 이더넷 인터페이스에 대한 정적 규칙을 생성하지 않도록 방지하는 udev 규칙을 수정합니다. 이러한 규칙은 Microsoft Azure 또는 Hyper-V에서 가상 컴퓨터를 복제하는 경우 문제를 발생시킬 수 있습니다.
+5. 이더넷 인터페이스에 대한 정적 규칙을 생성하지 않도록 방지하는 udev 규칙을 수정합니다. 이러한 규칙은 Microsoft Azure 또는 Hyper-V에서 가상 머신을 복제하는 경우 문제를 발생시킬 수 있습니다.
    
         # sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
 6. 다음 명령을 실행하여 부팅 시 네트워크 서비스가 시작되도록 합니다.
@@ -175,7 +175,7 @@ Azure용으로 Oracle Linux 7 가상 컴퓨터를 준비하는 작업은 Oracle 
         ResourceDisk.MountPoint=/mnt/resource
         ResourceDisk.EnableSwap=y
         ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
-14. 다음 명령을 실행하여 가상 컴퓨터의 프로비전을 해제하고 Azure에서 프로비전할 준비를 합니다.
+14. 다음 명령을 실행하여 가상 머신의 프로비전을 해제하고 Azure에서 프로비전할 준비를 합니다.
     
         # sudo waagent -force -deprovision
         # export HISTSIZE=0
@@ -183,5 +183,5 @@ Azure용으로 Oracle Linux 7 가상 컴퓨터를 준비하는 작업은 Oracle 
 15. Hyper-V 관리자에서 **작업 -> 종료**를 클릭합니다. 이제 Linux VHD를 Azure에 업로드할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-이제 Oracle Linux .vhd를 사용하여 Azure에서 새 가상 컴퓨터를 만들 준비가 되었습니다. .vhd 파일을 Azure에 처음으로 업로드하는 경우 [Linux 운영 체제를 포함하는 가상 하드 디스크 만들기 및 업로드](classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)에서 2단계 및 3단계를 참조하세요.
+이제 Oracle Linux .vhd를 사용하여 Azure에서 새 가상 머신을 만들 준비가 되었습니다. .vhd 파일을 Azure에 처음 업로드하는 경우 [사용자 지정 디스크에서 Linux VM 만들기](upload-vhd.md#option-1-upload-a-vhd)를 참조하세요.
 

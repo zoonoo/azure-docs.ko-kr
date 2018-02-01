@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/25/2017
 ms.author: obloch
-ms.openlocfilehash: 6e64d2238c36c8f122bbe29b937eeea156df30e0
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 99a430810b915f4ca06d9c07182319eff1fa299e
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>C용 Azure IoT 장치 SDK
 
@@ -68,9 +68,9 @@ C 용 Azure IoT 장치 SDK에서 샘플을 실행하려면 먼저 Azure 구독�
 IoT Hub를 관리하는 데 도움이 되는 몇 가지 오픈 소스 도구가 있습니다.
 
 * [장치 탐색기](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer)라는 Windows 응용 프로그램
-* [iothub-explorer](https://github.com/azure/iothub-explorer)라는 플랫폼 간 node.js CLI 도구
+* [Azure CLI 2.0에 대한 IoT 확장](https://github.com/Azure/azure-iot-cli-extension)이라고 하는 플랫폼 간 Python CLI 도구
 
-이 자습서에서는 그래픽 *장치 탐색기* 도구를 사용합니다. 또한 CLI 도구를 사용하려면 *iothub-explorer* 도구를 사용하면 됩니다.
+이 자습서에서는 그래픽 *장치 탐색기* 도구를 사용합니다. 또한 CLI 도구를 사용하려면 *Azure CLI 2.0에 대한 IoT 확장* 도구를 사용할 수도 있습니다.
 
 장치 탐색기 도구는 Azure IoT 서비스 라이브러리를 사용하여 IoT Hub에서 장치 추가를 포함하여 다양한 기능을 수행합니다. 장치 탐색기 도구를 사용하여 장치를 추가하면 장치에 대한 연결 문자열을 얻습니다. 이 연결 문자열은 샘플 응용 프로그램을 실행하는 데 필요합니다.
 

@@ -1,24 +1,24 @@
 ---
 title: "자습서: Halosys와 Azure Active Directory 통합 | Microsoft Docs"
-description: "Azure Active Directory에서 Halosys를 사용하여 Single Sign-On, 자동화된 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다."
+description: "Azure Active Directory 및 Halosys 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
 services: active-directory
+documentationCenter: na
 author: jeevansd
-documentationcenter: na
-manager: mtillman
+manager: femila
+ms.reviewer: joflore
 ms.assetid: 42a0eb7c-5cb7-44a9-b00b-b0e7df4b63e8
 ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 01/03/2018
+ms.date: 01/18/2018
 ms.author: jeedes
-ms.reviewer: jeedes
-ms.openlocfilehash: 6e8167c1152fe80813d5c13706a72badce0a0ce9
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: f0ea14d5a7b954c08fb37f22d2c2fd8fe0618cde
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-halosys"></a>자습서: Halosys와 Azure Active Directory 통합
 
@@ -30,34 +30,28 @@ Halosys를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 - 사용자가 해당 Azure AD 계정으로 Halosys에 자동으로 로그온(Single Sign-On)되도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](active-directory-appssoaccess-whatis.md)을 참조하세요.
+Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](active-directory-appssoaccess-whatis.md)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 Halosys와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
 - Azure AD 구독
 - Halosys Single Sign-On이 설정된 구독
 
-
-> [!NOTE] 
+> [!NOTE]
 > 이 자습서의 단계를 테스트하기 위해 프로덕션 환경을 사용하는 것은 바람직하지 않습니다.
-
 
 이 자습서의 단계를 테스트하려면 다음 권장 사항을 준수해야 합니다.
 
-- 꼭 필요한 경우가 아니면 프로덕션 환경을 사용하지 않도록 합니다.
-- Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다.
-
+- 꼭 필요한 경우가 아니면 프로덕션 환경을 사용하지 마세요.
+- Azure AD 평가판 환경이 없으면 [1개월 평가판을 얻을](https://azure.microsoft.com/pricing/free-trial/) 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.
-
-이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 Halosys 추가
 2. Azure AD Single Sign-on 구성 및 테스트
-
 
 ## <a name="adding-halosys-from-the-gallery"></a>갤러리에서 Halosys 추가
 Halosys의 Azure AD 통합을 구성하려면 갤러리의 Halosys를 관리되는 SaaS 앱 목록에 추가해야 합니다.
@@ -66,121 +60,119 @@ Halosys의 Azure AD 통합을 구성하려면 갤러리의 Halosys를 관리되�
 
 1. **[Azure Portal](https://portal.azure.com)**의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
 
-    ![Active Directory][1]
+    ![Azure Active Directory 단추][1]
 
 2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
 
-    ![응용 프로그램][2]
+    ![엔터프라이즈 응용 프로그램 블레이드][2]
     
 3. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
 
-    ![응용 프로그램][3]
+    ![새 응용 프로그램 단추][3]
 
-6. 검색 상자에 **Halosys**를 입력합니다.
+4. 검색 상자에 **Halosys**를 입력하고 결과 패널에서 **Halosys**를 선택한 후 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
 
-    ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-Halosys-tutorial/tutorial_Halosys_01.png)
-    
-7. 결과 창에서 **Halosys**를 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다.
+    ![결과 목록의 Halosys](./media/active-directory-saas-halosys-tutorial/tutorial_halosys_addfromgallery.png)
 
-    ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-Halosys-tutorial/tutorial_Halosys_011.png)
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성 및 테스트
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Azure AD Single Sign-on 구성 및 테스트
 이 섹션에서는 "Britta Simon"이라는 테스트 사용자를 기반으로 Halosys에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
 
 Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하는 Halosys 사용자가 누구인지 알고 있어야 합니다. 즉, Azure AD 사용자와 Halosys의 관련 사용자 간에 연결이 형성되어야 합니다.
 
-이 연결 관계는 Azure AD의 **사용자 이름** 값을 Halosys의 **Username** 값으로 할당하여 설정합니다.
+Halosys에서 Azure AD의 **사용자 이름** 값을 **Username** 값으로 할당하여 링크 관계를 설정합니다.
 
 Halosys에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
-2. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On 테스트하는 데 사용합니다.
-3. **[Halosys 테스트 사용자 만들기](#creating-a-halosys-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Halosys에 만듭니다.
-4. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
-5. **[Single Sign-On 테스트](#testing-single-sign-on)** - 구성이 작동하는지 확인합니다.
+1. **[Azure AD Single Sign-On 구성](#configure-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
+2. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
+3. **[Halosys 테스트 사용자 만들기](#create-a-halosys-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Halosys에 만듭니다.
+4. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
+5. **[Single Sign-On 테스트](#test-single-sign-on)** - 구성이 작동하는지 여부를 확인합니다.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 포털에서 Azure AD Single Sign-On을 사용하도록 설정하고 Halosys 응용 프로그램에서 Single Sign-On을 구성합니다.
-
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Halosys 응용 프로그램에서 Single Sign-On을 구성합니다.
 
 **Halosys에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal의 **SCC LifeCycle** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 클릭합니다.
+1. Azure Portal의 **Halosys** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 클릭합니다.
 
-    ![Configure Single Sign-On][4]
+    ![Single Sign-On 구성 링크][4]
 
 2. **Single Sign-On** 대화 상자에서 **모드**를 **SAML 기반 로그온**으로 선택하여 Single Sign-On을 사용하도록 설정합니다.
  
-    ![Configure Single Sign-On](./media/active-directory-saas-scclifecycle-tutorial/tutorial_scclifecycle_samlbase.png)
+    ![Single Sign-On 대화 상자](./media/active-directory-saas-halosys-tutorial/tutorial_halosys_samlbase.png)
 
 3. **Halosys 도메인 및 URL** 섹션에서 다음 단계를 수행합니다.
-    1. **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://<sub-domain>.hs.com/ic7/welcome/customer/PICTtest.aspx`
 
-    2. **식별자** 텍스트 상자에서 다음 패턴을 사용하여 URL을 입력합니다.
-    | |
-    |--|--|
-    | `https://bs1.hs.com/<entity>`|
-    | `https://lifecycle.hs.com/<entity>`|
-    
+    ![Halosys 도메인 및 URL Single Sign-On 정보](./media/active-directory-saas-halosys-tutorial/tutorial_halosys_url.png)
+
+    a. **식별자** 텍스트 상자에서 `https://<company-name>.halosys.com` 패턴을 사용하여 URL을 입력합니다.
+
+    나. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://<company-name>.halosys.com/<instance name>`
+
     > [!NOTE] 
-    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 값을 업데이트합니다. 이러한 값을 얻으려면 [SCC LifeCycle 클라이언트 지원 팀](mailto:lifecycle.support@scc.com)에 문의하세요. 
-         
-4. **SAML 서명 인증서** 섹션에서 **다운로드** 아래의 **메타데이터 XML**을 선택한 후 컴퓨터에 메타데이터 파일을 저장합니다.
-   
-5. 응용 프로그램에 대해 Single Sign-On을 구성하려면 Halosys 지원 팀에 문의하고 다음을 제공하세요.
+    > 이러한 값은 실제 값이 아닙니다. 실제 식별자 및 회신 URL로 해당 값을 업데이트합니다. 이러한 값을 얻으려면 [Halosys 지원 팀](http://halosys.com/halosys#contact)에 문의하세요.
+ 
+4. **SAML 서명 인증서** 섹션에서 **메타데이터 XML**을 클릭한 후 컴퓨터에 메타데이터 파일을 저장합니다.
 
-  * 다운로드한 **메타데이터 파일**
-  * **SAML SSO URL**
-    
+    ![인증서 다운로드 링크](./media/active-directory-saas-halosys-tutorial/tutorial_halosys_certificate.png) 
 
-  >[!NOTE]
-  >Single Sign-on은 Halosys 지원 팀에서 사용할 수 있어야 합니다.
+5. **저장** 단추를 클릭합니다.
 
+    ![Single Sign-On 구성 저장 단추](./media/active-directory-saas-halosys-tutorial/tutorial_general_400.png)
 
-### <a name="creating-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
-이 섹션에서는 포털에서 Britta Simon이라는 테스트 사용자를 만듭니다.
+6. **Halosys 구성** 섹션에서 **Halosys 구성**을 클릭하여 **로그온 구성** 창을 엽니다. **빠른 참조 섹션**에서 **SAML Single Sign-On 서비스 URL**을 복사합니다.
 
+    ![Halosys 구성](./media/active-directory-saas-halosys-tutorial/tutorial_halosys_configure.png) 
 
-![Azure AD 사용자 만들기][20]
+7. **Halosys** 쪽에서 Single Sign-On을 구성하려면 다운로드한 **메타데이터 XML** 및 **SAML Single Sign-On 서비스 URL**을 [Halosys 지원 팀](http://halosys.com/halosys#contact)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
+
+> [!TIP]
+> 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
+
+### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
+
+이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
+
+   ![Azure AD 테스트 사용자 만들기][100]
 
 **Azure AD에서 테스트 사용자를 만들려면 다음 단계를 수행하세요.**
 
-1. **Azure Portal**의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** 단추를 클릭합니다.
 
-    ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-scclifecycle-tutorial/create_aaduser_01.png) 
+    ![Azure Active Directory 단추](./media/active-directory-saas-halosys-tutorial/create_aaduser_01.png)
 
 2. 사용자 목록을 표시하려면 **사용자 및 그룹**으로 이동한 후 **모든 사용자**를 클릭합니다.
-    
-    ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-scclifecycle-tutorial/create_aaduser_02.png) 
 
-3. **사용자** 대화 상자를 열려면 대화 상자 위쪽에서 **추가**를 클릭합니다.
- 
-    ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-scclifecycle-tutorial/create_aaduser_03.png) 
+    !["사용자 및 그룹" 및 "모든 사용자" 링크](./media/active-directory-saas-halosys-tutorial/create_aaduser_02.png)
 
-4. **사용자** 대화 상자 페이지에서 다음 단계를 수행합니다.
- 
-    ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-scclifecycle-tutorial/create_aaduser_04.png) 
+3. **사용자** 대화 상자를 열려면 **모든 사용자** 대화 상자 위쪽에서 **추가**를 클릭합니다.
 
-    a. **이름** 텍스트 상자에 **BrittaSimon**을 입력합니다.
+    ![추가 단추](./media/active-directory-saas-halosys-tutorial/create_aaduser_03.png)
 
-    나. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
+4. **사용자** 대화 상자에서 다음 단계를 수행합니다.
 
-    다. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
+    ![사용자 대화 상자](./media/active-directory-saas-halosys-tutorial/create_aaduser_04.png)
+
+    a. **이름** 상자에 **BrittaSimon**을 입력합니다.
+
+    나. **사용자 이름** 상자에 사용자인 Britta Simon의 전자 메일 주소를 입력합니다.
+
+    다. **암호 표시** 확인란을 선택한 다음 **암호** 상자에 표시된 값을 적어둡니다.
 
     d. **만들기**를 클릭합니다.
+  
+### <a name="create-a-halosys-test-user"></a>Halosys 테스트 사용자 만들기
 
+이 섹션에서는 Halosys에서 Britta Simon이라는 사용자를 만듭니다. Halosys 플랫폼에서 사용자를 추가하려면 [Halosys 지원 팀](http://halosys.com/halosys#contact)에 문의하세요. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
 
-### <a name="creating-a-halosys-test-user"></a>Halosys 테스트 사용자 만들기
-
-이 섹션에서는 Halosys에서 Britta Simon이라는 사용자를 만듭니다. Halosys 플랫폼에서 사용자를 추가하려면 Halosys 지원 팀에 문의하세요.
-
-
-### <a name="assigning-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
+### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 Halosys에 대한 액세스를 허용합니다.
 
-![사용자 할당][200] 
+![사용자 역할 할당][200] 
 
 **Britta Simon을 Halosys에 할당하려면 다음 단계를 수행합니다.**
 
@@ -190,26 +182,28 @@ Halosys에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
 2. 응용 프로그램 목록에서 **Halosys**를 선택합니다.
 
+    ![응용 프로그램 목록의 Halosys 링크](./media/active-directory-saas-halosys-tutorial/tutorial_halosys_app.png)  
+
 3. 왼쪽 메뉴에서 **사용자 및 그룹**을 클릭합니다.
 
-    ![사용자 할당][202] 
+    !["사용자 및 그룹" 링크][202]
 
 4. **추가** 단추를 클릭합니다. 그런 후 **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
 
-    ![사용자 할당][203]
+    ![할당 추가 창][203]
 
 5. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon**을 선택합니다.
 
 6. **사용자 및 그룹** 대화 상자에서 **선택** 단추를 클릭합니다.
 
 7. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
-
-### <a name="testing-single-sign-on"></a>Single Sign-On 테스트
+    
+### <a name="test-single-sign-on"></a>Single Sign-On 테스트
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 Halosys 타일을 클릭하면 Halosys 응용 프로그램에 자동으로 로그온됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하세요.
-
+액세스 패널에서 Halosys 타일을 클릭하면 Halosys 응용 프로그램에 자동으로 로그온됩니다.
+액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하세요. 
 
 ## <a name="additional-resources"></a>추가 리소스
 
@@ -217,22 +211,18 @@ Halosys에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 * [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](active-directory-appssoaccess-whatis.md)
 
 
+
 <!--Image references-->
 
-[1]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_01.png
-[2]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_02.png
-[3]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_03.png
-[4]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_04.png
+[1]: ./media/active-directory-saas-halosys-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-halosys-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-halosys-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-halosys-tutorial/tutorial_general_04.png
 
-[6]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_05.png
-[10]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_06.png
-[11]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_07.png
-[20]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_100.png
+[100]: ./media/active-directory-saas-halosys-tutorial/tutorial_general_100.png
 
-[200]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_200.png
-[201]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_201.png
-[202]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_202.png
-[203]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_203.png
-[204]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_204.png
-[205]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_205.png
- 
+[200]: ./media/active-directory-saas-halosys-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-halosys-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-halosys-tutorial/tutorial_general_202.png
+[203]: ./media/active-directory-saas-halosys-tutorial/tutorial_general_203.png
+

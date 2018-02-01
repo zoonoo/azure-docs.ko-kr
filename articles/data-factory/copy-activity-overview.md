@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 01/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 7786fc785afa745da28b1da644ec58568d0cf424
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 2095d75ed042ae8be02ae0a1570f8e77d06a3563
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Azure Data Factory의 복사 작업
 
@@ -146,38 +146,80 @@ Azure Data Factory에서 복사 작업을 사용하려면 다음이 필요합니
 
 ## <a name="monitoring"></a>모니터링
 
-복사 작업 실행 세부 정보와 성능 특징은 복사 작업 실행 결과 -> 출력 섹션에 반환됩니다. 다음은 모두 사용된 목록입니다. [퀵 스타트 모니터링 섹션](quickstart-create-data-factory-dot-net.md#monitor-a-pipeline-run)에서 작업 실행을 모니터링하는 방법을 알아봅니다. 시나리오의 성능과 구성을 사내 테스트에서 얻은 복사 작업의 [성능 참조](copy-activity-performance.md#performance-reference)와 비교할 수 있습니다.
+Azure Data Factory "작성자/모니터" UI에서 또는 프로그래밍 방식으로 복사 작업 실행을 모니터링할 수 있습니다. 그런 후 시나리오의 성능과 구성을 사내 테스트에서 얻은 복사 작업의 [성능 참조](copy-activity-performance.md#performance-reference)와 비교할 수 있습니다.
+
+### <a name="monitor-visually"></a>시각적으로 모니터링
+
+복사 작업 실행을 시각적으로 모니터링하려면 데이터 팩터리 -> **작성자 및 모니터** -> **모니터 탭**으로 이동합니다. 그러면  **작업** 열에 "작업 실행 보기"링크가 있는 파이프라인 실행 목록이 표시됩니다. 
+
+![파이프라인 실행 모니터링](./media/load-data-into-azure-data-lake-store/monitor-pipeline-runs.png)
+
+이 파이프라인 실행에서 작업 목록을 보려면 클릭합니다. **동작** 열에는 복사 작업 입력, 출력, 오류(복사 작업 실행이 실패한 경우) 및 세부 정보에 대한 링크가 포함되어 있습니다.
+
+![작업 실행 모니터링](./media/load-data-into-azure-data-lake-store/monitor-activity-runs.png)
+
+**동작** 아래의 "**세부 정보**" 링크를 클릭하여 복사 작업의 실행 세부 정보 및 성능 특성을 볼 수 있습니다. 원본에서 복사된 데이터 볼륨/행/파일부터, 싱크, 처리량 및 거쳐 지나가는 단계를 포함하는 정보와 복사 시나리오의 해당 기간 및 사용된 구성이 표시됩니다.
+
+**예: Amazon S3에서 Azure Data Lake Store로 복사**
+![작업 실행 세부 정보 모니터링](./media/copy-activity-overview/monitor-activity-run-details-adls.png)
+
+**예: 단계적 복사를 사용하여 Azure SQL Database에서 Azure SQL Data Warehouse로 복사**
+![작업 실행 세부 정보 모니터링](./media/copy-activity-overview/monitor-activity-run-details-sql-dw.png)
+
+### <a name="monitor-programmatically"></a>프로그래밍 방식으로 모니터링
+
+복사 작업 실행 세부 정보와 성능 특징은 복사 작업 실행 결과 -> 출력 섹션에도 반환됩니다. 다음은 전체 목록입니다. 해당 복사 시나리오에 해당되는 항목만 표시됩니다. [퀵 스타트 모니터링 섹션](quickstart-create-data-factory-dot-net.md#monitor-a-pipeline-run)에서 작업 실행을 모니터링하는 방법을 알아봅니다.
 
 | 속성 이름  | 설명 | 단위 |
 |:--- |:--- |:--- |
-| DataRead | 원본에서 읽은 데이터 크기 | Int64 값(바이트) |
-| DataWritten | 싱크에 쓴 데이터 크기 | Int64 값(바이트) |
+| DataRead | 원본에서 읽은 데이터 크기 | Int64 값(**바이트**) |
+| DataWritten | 싱크에 쓴 데이터 크기 | Int64 값(**바이트**) |
+| filesRead | 파일 저장소에서 데이터를 복사할 경우 복사되는 파일 수입니다. | Int64 값(단위 없음) |
+| filesWritten | 파일 저장소로 데이터를 복사할 경우 복사되는 파일 수입니다. | Int64 값(단위 없음) |
 | rowsCopied | 복사된 행 수(이진 복사에 적용되지 않음) | Int64 값(단위 없음) |
 | rowsSkipped | 생략되는 비호환 행 수. "enableSkipIncompatibleRow"를 true로 설정하여 이 기능을 실행할 수 있습니다. | Int64 값(단위 없음) |
-| throughput | 데이터 전송 비율 | 부동 소수점 숫자(KB/s) |
+| throughput | 데이터 전송 비율 | 부동 소수점 숫자(**KB/s**) |
 | copyDuration | 복사본의 기간 | Int32 값(초) |
 | sqlDwPolyBase | 데이터를 SQL Data Warehouse에 복사할 때 PolyBase를 사용합니다. | BOOLEAN |
 | redshiftUnload | 데이터를 Redshift로부터 복사할 때 UNLOAD를 사용합니다. | BOOLEAN |
 | hdfsDistcp | 데이터를 HDFS로부터 복사할 때 DistCp를 사용합니다. | BOOLEAN |
 | effectiveIntegrationRuntime | 활동 실행을 제공하는 데 사용할 Integration Runtime을 `<IR name> (<region if it's Azure IR>)` 형식으로 표시합니다. | 텍스트(문자열) |
 | usedCloudDataMovementUnits | 복사 중 유효 클라우드 데이터 이동 단위입니다. | Int32 값 |
+| usedParallelCopies | 복사 동안 유효한 parallelCopies입니다. | Int32 값|
 | redirectRowPath | "RedirectIncompatibleRowSettings"에서 구성한 Blob Storage에서 생략된 비호환 행의 로그에 대한 경로입니다. 아래 예제를 참조하십시오. | 텍스트(문자열) |
-| billedDuration | 데이터 이동에 대해 청구되는 기간입니다. | Int32 값(초) |
+| executionDetails | 복사 작업이 거치는 단계 및 해당 하위 단계, 기간 및 사용되는 구성 등에 대한 세부 정보입니다. 변경 될 수 있으므로 이 섹션의 구문 분석은 권장되지 않습니다. | 배열 |
 
 ```json
 "output": {
-    "dataRead": 1024,
-    "dataWritten": 2048,
-    "rowsCopies": 100,
-    "rowsSkipped": 2,
-    "throughput": 1024.0,
-    "copyDuration": 3600,
-    "redirectRowPath": "https://<account>.blob.core.windows.net/<path>/<pipelineRunID>/",
-    "redshiftUnload": true,
-    "sqlDwPolyBase": true,
-    "effectiveIntegrationRuntime": "DefaultIntegrationRuntime (West US)",
-    "usedCloudDataMovementUnits": 8,
-    "billedDuration": 28800
+    "dataRead": 107280845500,
+    "dataWritten": 107280845500,
+    "filesRead": 10,
+    "filesWritten": 10,
+    "copyDuration": 224,
+    "throughput": 467707.344,
+    "errors": [],
+    "effectiveIntegrationRuntime": "DefaultIntegrationRuntime (East US 2)",
+    "usedCloudDataMovementUnits": 32,
+    "usedParallelCopies": 8,
+    "executionDetails": [
+        {
+            "source": {
+                "type": "AmazonS3"
+            },
+            "sink": {
+                "type": "AzureDataLakeStore"
+            },
+            "status": "Succeeded",
+            "start": "2018-01-17T15:13:00.3515165Z",
+            "duration": 221,
+            "usedCloudDataMovementUnits": 32,
+            "usedParallelCopies": 8,
+            "detailedDurations": {
+                "queuingDuration": 2,
+                "transferDuration": 219
+            }
+        }
+    ]
 }
 ```
 

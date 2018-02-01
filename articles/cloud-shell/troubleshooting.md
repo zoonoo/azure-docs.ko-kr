@@ -12,19 +12,23 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 11/2/2017
+ms.date: 01/17/2018
 ms.author: damaerte
-ms.openlocfilehash: 233569303ea3651192aafe9681f58a9582625d29
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.openlocfilehash: ca11a0db4cdb435aef26e7ae214cca24679c6ea1
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="troubleshooting-azure-cloud-shell"></a>Azure Cloud Shell 문제 해결
 
 Azure Cloud Shell의 문제에 대해 알려진 해결책은 다음과 같습니다.
 
 ## <a name="general-resolutions"></a>일반적인 해결 방법
+
+### <a name="early-timeouts-in-firefox"></a>FireFox의 조기 시간 초과
+- **세부 정보**: Cloud Shell은 개방형 WebSocket을 사용하여 브라우저에 입/출력을 전달합니다. FireFox에는 Cloud Shell에서 조기 시간 초과를 야기하는 WebSocket을 닫을 수 있는 미리 설정된 정책이 있습니다.
+- **해결 방법**: FireFox를 열고 URL 상자의 "about:config"로 이동합니다. "network.websocket.timeout.ping.request"를 검색하고 값을 0에서 10으로 변경합니다.
 
 ### <a name="storage-dialog---error-403-requestdisallowedbypolicy"></a>저장소 대화 상자 - 오류: 403 RequestDisallowedByPolicy
 - **세부 정보**: Cloud Shell에서 저장소 계정을 만들 경우 관리자가 배치한 Azure 정책 때문에 실패합니다. 오류 메시지에는 다음이 포함됩니다. `The resource action 'Microsoft.Storage/storageAccounts/write' is disallowed by one or more policies.`

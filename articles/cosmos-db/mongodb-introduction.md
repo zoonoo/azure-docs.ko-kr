@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/08/2017
 ms.author: anhoh
-ms.openlocfilehash: 9acc3268bc6a043852cadfafa40c0a54ecc66e59
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: d39ca60438ce5f49ed411eded22583438706dc8c
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="introduction-to-azure-cosmos-db-api-for-mongodb"></a>Azure Cosmos DB 소개: MongoDB API
 
@@ -63,7 +63,7 @@ MongoDB 빠른 시작에 따라 Azure Cosmos DB 계정을 만들고, Azure Cosmo
 Azure Cosmos DB의 MongoDB API에 대한 정보는 전체 Azure Cosmos DB 설명서에 통합되어 있지만 여기서는 시작하기 위한 몇 가지 사항을 다룹니다.
 
 * [MongoDB 계정에 연결](connect-mongodb-account.md) 자습서에 따라 계정 연결 문자열 정보를 가져오는 방법을 알아봅니다.
-* [Azure Cosmos DB로 MongoChef 사용](mongodb-mongochef.md) 자습서를 따라 MongoChef에서 Azure Cosmos DB 데이터베이스와 MongoDB 앱 간에 연결을 만드는 방법을 알아봅니다.
+* [Azure Cosmos DB로 Studio 3T(MongoChef) 사용](mongodb-mongochef.md) 자습서를 따라 Studio 3T에서 Azure Cosmos DB 데이터베이스와 MongoDB 앱 간에 연결을 만드는 방법을 알아봅니다.
 * [MongoDB에 대한 프로토콜 지원을 사용하여 데이터를 Azure Cosmos DB로 마이그레이션](mongodb-migrate.md) 자습서를 따라 데이터를 MongoDB API 데이터베이스로 가져옵니다.
 * [Robomongo](mongodb-robomongo.md)를 사용하여 MongoDB API 계정에 연결합니다.
 * [GetLastRequestStatistics 명령 및 Azure Portal 메트릭](request-units.md#GetLastRequestStatistics)을 사용하여 작업에서 사용하는 RU 수에 대해 알아봅니다.

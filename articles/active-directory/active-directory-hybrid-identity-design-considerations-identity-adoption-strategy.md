@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory 하이브리드 ID 디자인 고려 사항 - 하이브리드 ID 채택 전략 정의 | Microsoft Docs"
+title: "Azure의 하이브리드 ID 디자인 - 채택 전략 | Microsoft Docs"
 description: "조건부 액세스 제어를 통해 Azure Active Directory는 사용자를 인증할 때 및 응용 프로그램에 대한 액세스를 허용하기 전에 선택한 특정 조건을 확인합니다. 이러한 조건이 충족되면 사용자가 인증되고 응용 프로그램에 대한 액세스가 허용됩니다."
 documentationcenter: 
 services: active-directory
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 28d10cd6be93226c93bda98c88cee454ec5cb2c7
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: 238f8451f1d00b14563486ca5df9e77612a32654
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>하이브리드 ID 채택 전략 정의
 이 작업에서 하이브리드 ID 솔루션에 대한 하이브리드 ID 채택 전략을 정의하여 다음에서 설명한 비즈니스 요구 사항을 충족합니다.
@@ -178,11 +179,11 @@ Multi-Factor 설계 옵션:
 
 | 보호할 자산 | 클라우드의 MFA | 온-프레미스에서 MFA |
 | --- | --- | --- |
-| Microsoft 앱 |yes |yes |
-| 앱 갤러리의 SaaS 앱 |yes |yes |
-| Azure AD 응용프로그램 프록시를 통해 IIS 응용프로그램 게시됨 |yes |yes |
-| Azure AD 응용 프로그램 프록시를 통해 IIS 응용 프로그램이 게시되지 않음 |no |yes |
-| VPN 및 RDG와 같은 원격 액세스 |no |yes |
+| Microsoft 앱 |예 |예 |
+| 앱 갤러리의 SaaS 앱 |예 |예 |
+| Azure AD 응용프로그램 프록시를 통해 IIS 응용프로그램 게시됨 |예 |예 |
+| Azure AD 응용 프로그램 프록시를 통해 IIS 응용 프로그램이 게시되지 않음 |no |예 |
+| VPN 및 RDG와 같은 원격 액세스 |no |예 |
 
 전략에 대한 솔루션에 적응했더라도 여전히 사용자가 있는 위치의 위쪽에서 평가를 사용해야 합니다.  솔루션을 변경할 수 있습니다.  아래 테이블을 사용하여 다음을 결정하는 데 도움이 됩니다.
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/28/2017
 ms.author: tamram
-ms.openlocfilehash: b6814eea9120e0ee86afe333c11354fe49821978
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.openlocfilehash: 0097f1c02b88343a135b6489130a6e0d35cf6fba
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="introduction-to-blob-storage"></a>Blob 저장소 소개
 
@@ -42,9 +42,9 @@ Blob service에는 다음 구성 요소가 포함됩니다.
 
 * **컨테이너:** 컨테이너는 Blob 집합 그룹화를 제공합니다. 모든 Blob은 컨테이너에 있어야 합니다. 한 계정에 포함될 수 있는 컨테이너 수에는 제한이 없습니다. 한 컨테이너에 저장될 수 있는 Blob 수에도 제한이 없습니다. 컨테이너 이름은 소문자여야 합니다.
 
-* **Blob:** 모든 형식과 크기의 파일입니다. Azure Storage에는 블록 Blob, 페이지 Blob 및 추가 Blob의 세 가지 Blob 유형이 있습니다.
+* **Blob:** 모든 형식과 크기의 파일입니다. Azure Storage는 세 가지 유형의 Blob, 즉 블록 Blob, [페이지 Blob](storage-blob-pageblob-overview.md) 및 추가 Blob을 제공합니다.
   
-    *블록 Blob* 은 문서 및 미디어 파일과 같은 텍스트 또는 이진 파일을 저장하기에 적합합니다. *추가 Blob* 은 블록으로 구성된다는 점에서 블록 Blob과 유사하지만 추가 작업에 최적화되었으므로 로깅 시나리오에 유용합니다. 단일 블록 Blob은 각각 100MB까지 최대 50,000개 블록을 포함할 수 있으며, 총 크기는 4.75TB(100MBx50,000)보다 약간 큽니다.  단일 추가 Blob은 각각 4MB까지 최대 50,000개 블록을 포함할 수 있으며, 총 크기는 195GB(4MBx50,000)보다 약간 큽니다.
+    **블록 Blob* 은 문서 및 미디어 파일과 같은 텍스트 또는 이진 파일을 저장하기에 적합합니다. *추가 Blob* 은 블록으로 구성된다는 점에서 블록 Blob과 유사하지만 추가 작업에 최적화되었으므로 로깅 시나리오에 유용합니다. 단일 블록 Blob은 각각 100MB까지 최대 50,000개 블록을 포함할 수 있으며, 총 크기는 4.75TB(100MBx50,000)보다 약간 큽니다.  단일 추가 Blob은 각각 4MB까지 최대 50,000개 블록을 포함할 수 있으며, 총 크기는 195GB(4MBx50,000)보다 약간 큽니다.
   
     *페이지 Blob*은 최대 8TB 크기까지 가능하며 빈번한 읽기/쓰기 작업에 대해 더 효율적입니다. Azure Virtual Machines는 OS 및 데이터 디스크로 페이지 Blob을 사용합니다.
   

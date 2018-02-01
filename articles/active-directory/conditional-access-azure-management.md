@@ -3,7 +3,7 @@ title: "Azure Active Directory에서 조건부 액세스로 Azure Management에 
 description: "Azure AD에서 조건부 액세스를 사용하여 Azure Management에 대한 액세스를 관리하는 방법을 알아봅니다."
 services: active-directory
 documentationcenter: 
-author: skwan
+author: daveba
 manager: mtillman
 editor: bryanla
 ms.assetid: 0adc8b11-884e-476c-8c43-84f9bf12a34b
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/22/2017
 ms.author: skwan
-ms.openlocfilehash: 6b5ca97c0a6360a250bc3e91f6a8ece179a7725f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 22d0e53c201853e2c316089479ffbd4d9e5d92be
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="manage-access-to-azure-management-with-conditional-access"></a>조건부 액세스로 Azure Management에 대한 액세스 관리
 
@@ -30,7 +30,7 @@ Azure Management에 대한 정책을 만들려면 정책을 적용할 앱을 선
 
 ![Azure 관리에 대한 조건부 액세스](./media/conditional-access-azure-mgmt.png)
 
-만든 정책은 클래식 Azure Portal, Azure Portal, Azure Resource Manager 공급자, 클래식 서비스 관리 API 등을 비롯한 모든 Azure Management 끝점에 적용됩니다.
+만든 정책은 클래식 Azure Portal, Azure Resource Manager 공급자, 클래식 Service Management API 및 Azure PowerShell 등을 비롯한 모든 Azure Management 끝점에 적용됩니다.
 
 > [!CAUTION]
 > Azure Management에 대한 액세스를 관리하는 정책을 설정하기 전에 조건부 액세스가 어떻게 작동하는지 이해해야 합니다. 포털에 대한 자신의 액세스를 차단할 수 있는 조건은 만들지 않아야 합니다.

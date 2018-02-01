@@ -4,7 +4,7 @@ description: "Azure Search 보안은 Azure Search 필터에서 사용자 및 그
 services: search
 documentationcenter: 
 author: HeidiSteen
-manager: jhubbard
+manager: cgronlun
 editor: 
 ms.assetid: 
 ms.service: search
@@ -12,23 +12,19 @@ ms.devlang:
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 12/14/2017
+ms.date: 01/19/2018
 ms.author: heidist
-ms.openlocfilehash: 23616c70a5fd336b743f5acfad2601a6c3e23fc4
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: c3aa4883e33b1f3494f8502fe7f8b12f7d64a72f
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/23/2018
 ---
-# <a name="data-security-and-controlled-access-to-azure-search-operations"></a>Azure Search 작업에 대한 데이터 보안 및 제어된 액세스
+# <a name="security-and-controlled-access-in-azure-search"></a>Azure Search의 보안 및 제어된 액세스
 
 Azure Search는 물리적 보안, 암호화된 전송, 암호화된 저장소 및 플랫폼 전체 소프트웨어 보호 기능이라는 광범위한 보안 아키텍처로 확장된 [SOC 2와 호환](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuide?command=Download&downloadType=Document&downloadId=93292f19-f43e-4c4e-8615-c38ab953cf95&docTab=4ce99610-c9c0-11e7-8c2c-f908a777fa4d_SOC%20%2F%20SSAE%2016%20Reports)됩니다. 운영상 Azure Search는 인증된 요청을 허용합니다. 필요에 따라 콘텐츠에 사용자당 액세스 제어를 추가할 수 있습니다. 이 문서에서는 각 계층의 보안에 대해 다루지만 주로 Azure Search에서 데이터 및 작업을 보호하는 방법을 중점적으로 설명합니다.
 
 ![보안 계층의 블록 다이어그램](media/search-security-overview/azsearch-security-diagram.png)
-
-Azure Search가 Azure 플랫폼의 보호 및 보호 기능을 상속하는 반면 서비스 자체에서 사용되는 기본 메커니즘은 키 기반 인증입니다. 여기서 키 형식은 액세스 수준을 결정합니다. 키는 읽기 전용 액세스에 대한 관리자 키 또는 쿼리 키입니다.
-
-서비스에 대한 액세스 권한은 키에 의해 제공된 사용 권한(전체 또는 읽기 전용) 및 작업 범위를 정의하는 컨텍스트의 교집합 영역을 기반으로 합니다. 모든 요청은 필수 키, 작업 및 개체로 구성됩니다. 함께 연결하는 경우 두 개의 사용 권한 수준 및 컨텍스트는 서비스 작업에 전체 스펙트럼 보안을 충분히 제공할 수 있습니다. 
 
 ## <a name="physical-security"></a>물리적 보안
 
@@ -38,11 +34,17 @@ Microsoft 데이터 센터는 업계 최고의 물리적 보안을 제공하고 
 
 ## <a name="encrypted-transmission-and-storage"></a>암호화된 전송 또는 저장
 
-Azure Search는 HTTPS 포트 443에서 수신 대기합니다. 플랫폼 전체에서 Azure 서비스에 대한 연결이 암호화됩니다. 
+암호화는 전송을 통해 연결에서 Azure Search에 저장된 인덱싱된 데이터로 전체 인덱싱 파이프라인에 확장됩니다.
 
-Azure Search는 인덱스 및 다른 구문에 사용되는 백 엔드 저장소에서 해당 플랫폼의 암호화 기능을 활용합니다. 전체 [AICPA SOC 2 준수](https://www.aicpa.org/interestareas/frc/assuranceadvisoryservices/aicpasoc2report.html)는 Azure Search를 제공하는 모든 데이터 센터에서 모든 검색 서비스(신규 및 기존)에 제공됩니다. 전체 보고서를 검토하려면 [Azure - 및 Azure Government SOC 2 형식 II 보고서](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuide?command=Download&downloadType=Document&downloadId=93292f19-f43e-4c4e-8615-c38ab953cf95&docTab=4ce99610-c9c0-11e7-8c2c-f908a777fa4d_SOC%20%2F%20SSAE%2016%20Reports)로 이동하세요.
+| 보안 계층 | 설명 |
+|----------------|-------------|
+| 전송 중 암호화 | Azure Search는 HTTPS 포트 443에서 수신 대기합니다. 플랫폼 전체에서 Azure 서비스에 대한 연결이 암호화됩니다. |
+| 휴지 상태의 암호화 | 암호화는 인덱싱 시간 완료 또는 인덱스 크기에 측정 가능한 영향을 주지 않고 인덱싱 프로세스에 완벽하게 내부화됩니다. 완전하게 암호화되지 않은 인덱스(2018년 1월 전에 생성됨)에 대한 증분 업데이트를 비롯한 모든 인덱싱에서 자동으로 수행됩니다.<br><br>내부적으로 암호화는 256비트 [AES 암호화](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)를 사용하여 [Azure Storage 서비스 암호화](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)를 기반으로 합니다.|
+| [SOC 2 준수](https://www.aicpa.org/interestareas/frc/assuranceadvisoryservices/aicpasoc2report.html) | 모든 검색 서비스는 Azure Search를 제공하는 모든 데이터 센터에서 AICPA SOC 2를 완벽하게 준수합니다. 전체 보고서를 검토하려면 [Azure - 및 Azure Government SOC 2 형식 II 보고서](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuide?command=Download&downloadType=Document&downloadId=93292f19-f43e-4c4e-8615-c38ab953cf95&docTab=4ce99610-c9c0-11e7-8c2c-f908a777fa4d_SOC%20%2F%20SSAE%2016%20Reports)로 이동하세요. |
 
-암호화는 내부적으로 관리되고 전역적으로 적용되는 암호화 키를 사용하므로 투명하게 유지됩니다. 특정 검색 서비스 또는 인덱스에서 해제하거나 키를 직접 관리하고 고유한 기능을 직접 제공할 수 없습니다. 
+암호화는 Microsoft에서 내부적으로 관리하고 전역적으로 적용되는 인증서 및 암호화 키를 사용하여 Azure Search에 포함됩니다. 포털에서 또는 프로그래밍 방식으로 암호화를 켜고 끄거나, 고유한 키를 관리하고 대체하거나, 암호화 설정을 볼 수 없습니다. 
+
+미사용 암호화는 2018년 1월 24일에 발표되었으며 공유(체험) 서비스를 포함하여 모든 지역에서 모든 서비스 계층에 적용됩니다. 전체 암호화의 경우 해당 날짜 이전에 만든 인덱스를 삭제하고 암호화를 수행하기 위해 다시 빌드해야 합니다. 그렇지 않으면 1월 24일 이후에 추가된 새 데이터만이 암호화됩니다.
 
 ## <a name="azure-wide-logical-security"></a>Azure 전체 논리 보안
 
@@ -53,15 +55,15 @@ Azure Search는 인덱스 및 다른 구문에 사용되는 백 엔드 저장소
 
 모든 Azure 서비스는 모든 서비스에서 일관된 수준의 액세스를 설정하기 위해 RBAC(역할 기반 액세스 제어)를 지원합니다. 예를 들어 관리 키와 같은 중요한 데이터는 소유자 및 참가자 역할에서만 확인할 수 있는 반면 서비스 상태는 역할에 관계없이 모든 구성원이 확인할 수 있습니다. RBAC는 소유자, 참가자 및 독자 역할을 제공합니다. 기본적으로 모든 서비스 관리자는 소유자 역할의 구성원입니다.
 
-## <a name="service-authentication"></a>서비스 인증
+## <a name="service-access-and-authentication"></a>서비스 액세스 및 인증
 
-Azure Search는 자체 인증 방법을 제공합니다. 인증은 각 요청에서 발생하고 작업 범위를 결정하는 액세스 키를 기반으로 합니다. 유효한 액세스 키는 요청이 신뢰할 수 있는 엔터티에서 시작된 증명으로 간주됩니다. 
+Azure Search이 Azure 플랫폼의 보안 보호 기능을 상속하는 동시에 고유한 키 기반 인증도 제공합니다. 키의 형식(관리자 또는 쿼리)은 액세스 수준을 결정합니다. 유효한 키를 제출하면 요청이 신뢰할 수 있는 엔터티에서 시작되었다는 증명으로 간주됩니다. 
 
-서비스당 인증은 모든 권한 또는 쿼리 전용이라는 두 가지 수준으로 존재합니다. 키의 형식은 적용할 액세스 수준을 결정합니다.
+인증은 필수 키, 작업 및 개체로 구성된 각 요청에 필요합니다. 함께 연결하는 경우 두 개의 사용 권한 수준(전체 및 읽기 전용) 및 컨텍스트는 서비스 작업에 전체 스펙트럼 보안을 충분히 제공할 수 있습니다. 
 
 |키|설명|제한|  
 |---------|-----------------|------------|  
-|관리자|서비스를 관리하며 **인덱스**, **인덱서** 및 **데이터 원본**을 만들고 삭제하는 기능을 비롯한 모든 작업에 전체 권한을 부여합니다.<br /><br /> 포털에서 *기본* 및 *보조* 키라고 하는 두 개의 관리자 **api-key**는 서비스를 만들 때 생성되고 요청 시 개별적으로 다시 생성할 수 있습니다. 키가 두 개이면 서비스에 대해 액세스를 지속하는 데 하나의 키를 사용하는 동안 다른 키를 롤오버할 수 있습니다.<br /><br /> 관리자 키는 HTTP 요청 헤더에서만 지정됩니다. URL에 관리자 **api-key**를 배치할 수 없습니다.|서비스당 최대 2개|  
+|관리자|서비스를 관리하며 인덱스, 인덱서 및 데이터 원본을 만들고 삭제하는 기능을 비롯한 모든 작업에 전체 권한을 부여합니다.<br /><br /> 포털에서 *기본* 및 *보조* 키라고 하는 두 개의 관리자 **api-key**는 서비스를 만들 때 생성되고 요청 시 개별적으로 다시 생성할 수 있습니다. 키가 두 개이면 서비스에 대해 액세스를 지속하는 데 하나의 키를 사용하는 동안 다른 키를 롤오버할 수 있습니다.<br /><br /> 관리자 키는 HTTP 요청 헤더에서만 지정됩니다. URL에 관리자 api-key를 배치할 수 없습니다.|서비스당 최대 2개|  
 |쿼리|인덱스 및 문서에 대한 읽기 전용 액세스를 부여하며 일반적으로 검색 요청을 수행하는 클라이언트 응용 프로그램에 배포됩니다.<br /><br /> 쿼리 키는 요청 시 생성됩니다. 포털에서 수동으로 만들거나 [관리 REST API](https://docs.microsoft.com/rest/api/searchmanagement/)를 통해 프로그래밍 방식으로 만들 수 있습니다.<br /><br /> 검색, 제안 또는 조회 작업의 HTTP 요청 헤더에서 쿼리 키를 지정할 수 있습니다. 또는 쿼리 키를 URL에 매개 변수로 전달할 수 있습니다. 클라이언트 응용 프로그램이 요청을 생성하는 방법에 따라 키를 쿼리 매개 변수로 전달하는 것이 쉬울 수 있습니다.<br /><br /> `GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2016-09-01&api-key=A8DA81E03F809FE166ADDB183E9ED84D`|서비스당 50개|  
 
  시각적으로는 관리자 키 및 쿼리 키 간의 구분이 없습니다. 두 키는 임의로 생성된 32개의 영숫자 문자로 구성된 문자열입니다. 응용 프로그램에서 지정된 키의 형식을 잃어버린 경우 [포털에서 키 값을 확인](https://portal.azure.com)하거나 [REST API](https://docs.microsoft.com/rest/api/searchmanagement/)를 사용하여 값 및 키 형식을 반환할 수 있습니다.  

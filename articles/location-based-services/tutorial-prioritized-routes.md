@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 19cf9da839d9d3a1ec78c8d1f6994628684f4e31
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 78e911d17fe8c468cf89ec1477f1c5144e6669b6
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="find-routes-for-different-modes-of-travel-using-azure-location-based-services"></a>Azure Location Based Services를 사용하여 여러 여행 모드에 대한 경로 찾기
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 01/02/2018
 
 ## <a name="prerequisites"></a>필수 조건
 
-계속 진행하기에 앞서 [Azure Location Based Services 계정 만들기](./tutorial-search-location.md#createaccount) 및 [계정에 대한 구독 키 가져오기](./tutorial-search-location.md#getkey)를 수행해야 합니다. 또한 [Azure Location Based Services를 사용하여 주변 관심 지점 검색](./tutorial-search-location.md) 자습서에서 배운 내용에 따라 맵 컨트롤 및 Search Service API를 사용하는 방법과 [Azure Location Based Services를 사용해 관심 지점까지 라우팅](./tutorial-route-location.md) 자습서의 설명에 따라 Route Service API의 기본 사용법을 숙지해야 합니다.
+계속 진행하기에 앞서 [Azure Location Based Services 계정 만들기](./tutorial-search-location.md#createaccount) 및 [계정에서 키 가져오기](./tutorial-search-location.md#getkey)를 수행해야 합니다. 또한 [Azure Location Based Services를 사용하여 주변 관심 지점 검색](./tutorial-search-location.md) 자습서에서 배운 내용에 따라 맵 컨트롤 및 Search Service API를 사용하는 방법과 [Azure Location Based Services를 사용해 관심 지점까지 라우팅](./tutorial-route-location.md) 자습서의 설명에 따라 Route Service API의 기본 사용법을 숙지해야 합니다.
 
 
 <a id="queryroutes"></a>
@@ -80,9 +80,9 @@ Location Based Services의 맵 컨트롤 API가 포함된 정적 HTML 페이지�
 
     ```JavaScript
     // Instantiate map to the div with id "map"
-    var subscriptionKey = "<insert-key>";
+    var LBSAccountKey = "<_your account key_>";
     var map = new atlas.Map("map", {
-        "subscription-key": subscriptionKey
+        "subscription-key": LBSAccountKey
     });
     ```
     **atlas Map**은 시각적 및 대화형 웹 맵에 대한 컨트롤을 제공하고 Azure 맵 컨트롤 API의 구성 요소입니다.
@@ -195,7 +195,7 @@ Location Based Services의 맵 컨트롤 API가 포함된 정적 HTML 페이지�
 
     var truckRouteUrl = "https://atlas.microsoft.com/route/directions/json?";
     truckRouteUrl += "&api-version=1.0";
-    truckRouteUrl += "&subscription-key=" + subscriptionKey;
+    truckRouteUrl += "&subscription-key=" + LBSAccountKey;
     truckRouteUrl += "&query=" + startPoint.coordinates[1] + "," + startPoint.coordinates[0] + ":" +
         destinationPoint.coordinates[1] + "," + destinationPoint.coordinates[0];
     truckRouteUrl += "&travelMode=truck";
@@ -209,7 +209,7 @@ Location Based Services의 맵 컨트롤 API가 포함된 정적 HTML 페이지�
     ```
     이 코드 조각은 [XMLHttpRequest](https://xhr.spec.whatwg.org/)를 생성하고, 들어오는 응답을 구문 분석하는 이벤트 처리기를 추가합니다. 응답이 성공하면 반환된 경로에 대한 좌표 배열을 만들고 맵의 `truckRouteLayerName` 레이어에 추가합니다. 
     
-    또한 이 코드 조각은 계정의 구독 키에 대한 Route Service에 쿼리를 보내고, 지정된 출발점 및 도착점에 대한 경로를 가져옵니다. 다음 선택형 매개 변수는 중형 트럭의 경로를 표시하는 데 사용됩니다. `travelMode=truck` 매개 변수는 운송 모드를 *truck*으로 지정합니다. 지원되는 다른 운송 모드로는 *taxi*, *bus*, *van*, *motorcycle* 및 기본값인 *car*가 있습니다.  
+    또한 이 코드 조각은 계정 키에 대한 Route Service에 쿼리를 보내고, 지정된 출발점 및 도착점에 대한 경로를 가져옵니다. 다음 선택형 매개 변수는 중형 트럭의 경로를 표시하는 데 사용됩니다. `travelMode=truck` 매개 변수는 운송 모드를 *truck*으로 지정합니다. 지원되는 다른 운송 모드로는 *taxi*, *bus*, *van*, *motorcycle* 및 기본값인 *car*가 있습니다.  
         - `vehicleWidth`, `vehicleHeight` 및 `vehicleLength` 매개 변수는 차량의 크기를 미터 단위로 지정하며, 운송 모드가 *truck*인 경우에만 고려합니다.  
         - `vehicleLoadType`은 화물차를 위험으로 분류하며 일부 도로에서는 제한됩니다. 마찬가지로 현재는 *truck* 모드에서만 고려합니다.  
 
@@ -238,7 +238,7 @@ Location Based Services의 맵 컨트롤 API가 포함된 정적 HTML 페이지�
 
     var carRouteUrl = "https://atlas.microsoft.com/route/directions/json?";
     carRouteUrl += "&api-version=1.0";
-    carRouteUrl += "&subscription-key=" + subscriptionKey;
+    carRouteUrl += "&subscription-key=" + LBSAccountKey;
     carRouteUrl += "&query=" + startPoint.coordinates[1] + "," + startPoint.coordinates[0] + ":" +
         destinationPoint.coordinates[1] + "," + destinationPoint.coordinates[0];
 
@@ -247,7 +247,7 @@ Location Based Services의 맵 컨트롤 API가 포함된 정적 HTML 페이지�
     ```
     이 코드 조각은 또 다른 [XMLHttpRequest](https://xhr.spec.whatwg.org/)를 생성하고, 들어오는 응답을 구문 분석하는 이벤트 처리기를 추가합니다. 응답이 성공하면 반환된 경로에 대한 좌표 배열을 만들고 맵의 `carRouteLayerName` 레이어에 추가합니다. 
     
-    또한 이 코드 조각은 계정의 구독 키에 대한 Route Service에 쿼리를 보내고, 지정된 출발점 및 도착점에 대한 경로를 가져옵니다. 다른 매개 변수가 사용되지 않으므로 기본 여행 모드인 *car*가 반환됩니다. 
+    또한 이 코드 조각은 계정 키에 대한 Route Service에 쿼리를 보내고, 지정된 출발점 및 도착점에 대한 경로를 가져옵니다. 다른 매개 변수가 사용되지 않으므로 기본 여행 모드인 *car*가 반환됩니다. 
 
 3. **MapTruckRoute.html** 파일을 로컬로 저장한 다음 선택한 웹 브라우저에서 열고 결과를 확인합니다. Location Based Services의 API를 사용해 성공적으로 연결한 경우 다음과 유사한 맵이 표시됩니다. 
 

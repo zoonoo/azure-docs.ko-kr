@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: rest-api
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 01/16/2018
 ms.author: mimig
-ms.openlocfilehash: 2df792c00b7a789dbefa64bfe0245f1ad73c3faa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3892f698ec2b0b45f71dc38491687897559821ba
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>ODBC 드라이버와 함께 BI 분석 도구를 사용하여 Azure Cosmos DB에 연결
 
@@ -38,9 +38,11 @@ Azure Cosmos DB는 스키마 없는 데이터베이스이기 때문에 응용 �
 
 1. 다음 중에서 환경에 맞는 드라이버를 다운로드합니다.
 
-    * Windows 64비트용 [Microsoft Azure Cosmos DB ODBC 64-bit.msi](https://aka.ms/documentdb-odbc-64x64)
-    * Windows 32비트 또는 64비트용 [Microsoft Azure Cosmos DB ODBC 32x64-bit.msi](https://aka.ms/documentdb-odbc-32x64)
-    * Windows 32비트용 [Microsoft Azure Cosmos DB ODBC 32-bit.msi](https://aka.ms/documentdb-odbc-32x32)
+    | 설치 관리자 | 지원되는 운영 체제| 
+    |---|---| 
+    |Windows 64비트용 [Microsoft Azure Cosmos DB ODBC 64-bit.msi](https://aka.ms/documentdb-odbc-64x64)| 64비트 버전의 Windows 8.1 이상, Windows 8, Windows 7, Windows Server 2012 R2, Windows Server 2012 및 Windows Server 2008 R2| 
+    |Windows 32비트 또는 64비트용 [Microsoft Azure Cosmos DB ODBC 32x64-bit.msi](https://aka.ms/documentdb-odbc-32x64)| 64비트 버전의 Windows 8.1 이상, Windows 8, Windows 7, Windows XP, Windows Vista, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 및 Windows Server 2003| 
+    |Windows 32비트용 [Microsoft Azure Cosmos DB ODBC 32-bit.msi](https://aka.ms/documentdb-odbc-32x32)|32비트 버전의 Windows 8.1 이상, Windows 8, Windows 7, Windows XP 및 Windows Vista|
 
     msi 파일을 로컬로 실행합니다. 그러면 **Microsoft Azure Cosmos DB ODBC 드라이버 설치 마법사**가 시작됩니다. 
 2. 기본 입력으로 ODBC 드라이버를 설치하여 설치 마법사를 완료합니다.
@@ -58,9 +60,9 @@ Azure Cosmos DB는 스키마 없는 데이터베이스이기 때문에 응용 �
     ![Azure Cosmos DB ODBC 드라이버 DSN 설정 창](./media/odbc-driver/odbc-driver-dsn-setup.png)
     - **데이터 원본 이름**: ODBC DSN에 대한 고유한 이름입니다 이 이름은 Azure Cosmos DB 계정에 고유하므로 여러 계정이 있는 경우 적절히 이름을 지정합니다.
     - **설명**: 데이터 원본에 대한 짧은 설명입니다.
-    - **호스트**: Azure Cosmos DB 계정에 대한 URI입니다. 다음 스크린샷처럼 Azure Portal의 Azure Cosmos DB 키 블레이드에서 이 URI를 검색할 수 있습니다. 
-    - **액세스 키**: 다음 스크린샷처럼 Azure Portal의 Azure Cosmos DB 키 블레이드에 있는 기본 또는 보조 읽기-쓰기/읽기 전용 키입니다. DSN가 읽기 전용 데이터 처리 및 보고에 사용되는 경우 읽기 전용 키를 사용하는 것이 좋습니다.
-    ![Azure Cosmos DB 키 블레이드](./media/odbc-driver/odbc-driver-keys.png)
+    - **호스트**: Azure Cosmos DB 계정에 대한 URI입니다. 다음 스크린샷처럼 Azure Portal의 Azure Cosmos DB 키 페이지에서 이 URI를 검색할 수 있습니다. 
+    - **액세스 키**: 다음 스크린샷처럼 Azure Portal의 Azure Cosmos DB 키 페이지에 있는 기본 또는 보조 읽기-쓰기/읽기 전용 키입니다. DSN가 읽기 전용 데이터 처리 및 보고에 사용되는 경우 읽기 전용 키를 사용하는 것이 좋습니다.
+    ![Azure Cosmos DB 키 페이지](./media/odbc-driver/odbc-driver-keys.png)
     - **액세스 키 암호화**: 이 컴퓨터의 사용자 수에 따라 가장 적합한 옵션을 선택합니다. 
 4. Azure Cosmos DB 계정에 연결할 수 있는지 확인하려면 **테스트** 단추를 클릭합니다. 
 5. **고급 옵션**을 클릭하고 다음 값을 설정합니다.
@@ -106,7 +108,7 @@ Azure Cosmos DB는 스키마 없는 데이터베이스이기 때문에 응용 �
 
     a. **특성** 상자에 구분 기호 속성의 이름을 입력합니다. 이것은 문서에서 샘플링 범위로 지정하려는 속성(예: City)입니다. 그런 후 Enter 키를 누릅니다. 
 
-    b. 방금 입력한 특성에 대한 특정 값으로 샘플링 범위를 지정하려는 경우 선택 상자에서 해당 특성을 선택하고 **값** 상자에 값(예: Seattle)을 입력하고 Enter 키를 누릅니다. 특성에 대해 여러 값을 계속 추가할 수 있습니다. 값을 입력할 때 올바른 속성이 선택되어 있는지 확인하기만 하면 됩니다.
+    나. 방금 입력한 특성에 대한 특정 값으로 샘플링 범위를 지정하려는 경우 선택 상자에서 해당 특성을 선택하고 **값** 상자에 값(예: Seattle)을 입력하고 Enter 키를 누릅니다. 특성에 대해 여러 값을 계속 추가할 수 있습니다. 값을 입력할 때 올바른 속성이 선택되어 있는지 확인하기만 하면 됩니다.
 
     예를 들어 **특성** 값으로 City를 포함하고 city 값이 New York과 Dubai인 행만 포함하도록 테이블을 제한하려면 특성 상자에 City를 입력하고 **값** 상자에 New York을 입력한 후 Dubai를 입력합니다.
 4. **확인**을 클릭합니다. 
@@ -148,4 +150,4 @@ Azure Cosmos DB는 스키마 없는 데이터베이스이기 때문에 응용 �
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Cosmos DB에 대한 자세한 내용은 [Azure Cosmos DB란?](introduction.md)을 참조하세요.
+Azure Cosmos DB에 대한 자세한 내용은 [Azure Cosmos DB 시작](introduction.md)을 참조하세요.

@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 11/06/2017
+ms.date: 01/17/2018
 ms.author: juluk
-ms.openlocfilehash: 65a5c40ce0a4d0cfdc0a325476bea6e8ccebe8c6
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 7e498582d78d2807070c943dfd838dd9efeb4ed2
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="limitations-of-azure-cloud-shell"></a>Azure Cloud Shell의 제한 사항
 
@@ -56,7 +56,9 @@ Cloud Shell은 대화형 사용 사례를 위한 것입니다. 따라서 비대�
 ### <a name="user-permissions"></a>사용자 권한
 
 권한은 sudo 액세스 권한이 없는 일반 사용자로 설정됩니다. 사용자 `$Home` 디렉터리 외부에서의 설치는 유지되지 않습니다.
-`git clone`와 같이 `clouddrive` 디렉터리 내 특정 명령에 적절한 권한이 없어도 사용자의 `$Home` 디렉터리에는 권한이 있습니다.
+
+### <a name="clouddrive-smb-limited-permissions"></a>Clouddrive SMB 제한된 사용 권한
+`git clone`과 같이 `clouddrive` 디렉터리 내 특정 명령에 특정 파일을 읽고 쓰기 위한 적절한 권한이 없습니다. 이 문제가 발생할 경우 SMB 제한이 없는 `$Home` 디렉터리에서 다시 시도하세요.
 
 ### <a name="editing-bashrc"></a>.bashrc 편집
 

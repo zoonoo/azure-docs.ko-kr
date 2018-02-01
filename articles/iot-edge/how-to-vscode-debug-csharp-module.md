@@ -9,11 +9,11 @@ ms.author: xshi
 ms.date: 12/06/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 01d321dce439e153b494dfd0de52c100dab78f39
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 1ab67cd8aaf59cde3157fcb877ce13f10cb432bb
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="use-visual-studio-code-to-debug-c-module-with-azure-iot-edge"></a>Visual Studio Code를 사용하여 Azure IoT Edge에서 C# 모듈 디버그
 이 문서에서는 [Visual Studio Code](https://code.visualstudio.com/)를 주 개발 도구로 사용하여 IoT Edge 모듈을 디버그하기 위한 자세한 지침을 제공합니다.
@@ -32,6 +32,9 @@ ms.lasthandoff: 12/18/2017
 
 ## <a name="build-your-iot-edge-module-for-debugging-purpose"></a>디버깅을 위한 IoT Edge 모듈 빌드
 1. 디버깅을 시작하려면 **dockerfile.debug**를 사용하여 docker 이미지를 다시 빌드하고 Edge 솔루션을 배포합니다. VS Code 탐색기에서 Docker 폴더를 클릭하여 엽니다. 그런 후 `linux-x64` 폴더를 클릭하고 **Dockerfile.debug**를 마우스 오른쪽 단추로 클릭한 후 **IoT Edge 모듈 Docker 이미지 빌드**를 클릭합니다.
+
+    ![디버그 이미지 빌드](./media/how-to-debug-csharp-module/build-debug-image.png)
+
 3. **폴더 선택** 창에서 `./bin/Debug/netcoreapp2.0/publish`로 이동하거나 이 항목을 입력합니다. **Select Folder as EXE_DIR**(EXE_DIR로 폴더 선택)을 클릭합니다.
 4. VS Code 창의 맨 위에 있는 팝업 텍스트 상자에 이미지 이름을 입력합니다. 예: `<your container registry address>/filtermodule:latest` 로컬 레지스트리를 배포하는 경우 `localhost:5000/filtermodule:latest`를 입력해야 합니다.
 5. Docker 리포지토리에 이미지를 푸시합니다. **Edge: IoT Edge 모듈 Docker 이미지 푸시** 명령을 사용하여 VS Code 창의 맨 위에 있는 팝업 텍스트 상자에 이미지 URL을 입력합니다. 위 단계에서 사용한 동일한 이미지 URL을 사용하세요.
@@ -39,9 +42,18 @@ ms.lasthandoff: 12/18/2017
 
 ## <a name="start-debugging-in-vs-code"></a>VS Code에서 디버깅 시작
 1. VS Code 디버그 창으로 이동합니다. **F5** 키를 누르고 **IoT Edge(.Net Core)**를 선택합니다.
+
+    ![F5키 누르기](./media/how-to-debug-csharp-module/f5-debug-option.png)
+
 2. `launch.json`에서 **IoT Edge 사용자 지정 모듈 디버그(.NET Core)** 섹션으로 이동한 후 `pipeArgs` 아래에 `<container_name>`을 입력합니다. 이것은 이 자습서에서는 `filtermodule`이어야 합니다.
+
+    ![pipeArgs 수정](./media/how-to-debug-csharp-module/f5-debug-option.png)
+
 3. Program.cs로 이동합니다. `method static async Task<MessageResponse> FilterModule(Message message, object userContext)`에 중단점을 추가합니다.
 4. **F5** 키를 다시 누릅니다. 그런 후 연결할 프로세스를 선택합니다. 이 자습서에서 프로세스 이름은 `FilterModule.dll`이어야 합니다.
+
+    ![프로세스 연결](./media/how-to-debug-csharp-module/attach-process.png)
+
 5. VS 코드 디버그 창의 왼쪽 패널에서 변수를 볼 수 있습니다. 
 
 > [!NOTE]

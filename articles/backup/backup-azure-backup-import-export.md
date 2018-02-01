@@ -93,7 +93,7 @@ Azure에 백업 데이터 업로드를 완료한 후 Azure Backup이 백업 데�
 ### <a name="prepare-a-sata-drive-and-create-an-azure-import-job-by-using-the-azure-disk-preparation-tool"></a>Azure 디스크 준비 도구를 사용하여 SATA 드라이브 준비 및 Azure 가져오기 작업 만들기
 Azure 디스크 준비 도구는 다음 경로에 있는 Recovery Services 에이전트(2016년 8월 업데이트 및 그 이상)의 설치 디렉터리에서 사용할 수 있습니다.
 
-   *\Microsoft* *Azure* *Recovery* *Services* *Agent\Utils\*
+   *\Microsoft* *Azure* *Recovery* *Services* \*Agent\Utils\*
 
 1. 디렉터리로 이동하고 준비할 드라이브가 탑재될 복사 컴퓨터에 **AzureOfflineBackupDiskPrep** 디렉터리를 복사합니다. 복사 컴퓨터를 기준으로 다음 사항을 확인합니다.
 

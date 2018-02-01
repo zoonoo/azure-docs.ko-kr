@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 09/15/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 9ea5be818cfc104c243ce31cc0e2d0f10135259f
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: e1d110aea526c4632219ef8fd2a9681b1b6c330f
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="create-container-images-for-service-fabric"></a>Service Fabric에 대한 컨테이너 이미지 만들기
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 01/11/2018
 > * [컨테이너를 사용하여 Service Fabric 응용 프로그램 빌드 및 실행](service-fabric-tutorial-package-containers.md)
 > * [Service Fabric에서 장애 조치(failover) 및 크기 조정이 처리되는 방법](service-fabric-tutorial-containers-failover.md)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 - Service Fabric에 대한 Linux 개발 환경 설정 [여기](service-fabric-get-started-linux.md)의 지침을 따라 Linux 환경을 설정합니다. 
 - 이 자습서에는 Azure CLI 버전 2.0.4 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
@@ -58,7 +58,7 @@ git clone https://github.com/Azure-Samples/service-fabric-containers.git
 cd service-fabric-containers/Linux/container-tutorial/
 ```
 
-솔루션은 두 개의 폴더 및 'docker-compse.yml' 파일을 포함합니다. 'azure-vote' 폴더는 이미지를 빌드하는 데 사용되는 Dockerfile과 함께 Python 프런트 엔드 서비스를 포함합니다. 'Voting' 디렉터리는 클러스터에 배포된 Service Fabric 응용 프로그램 패키지를 포함합니다. 이러한 디렉터리는 이 자습서에 필요한 자산을 포함합니다.  
+솔루션에는 두 개의 폴더 및 ‘docker-compse.yml’ 파일이 포함됩니다. 'azure-vote' 폴더는 이미지를 빌드하는 데 사용되는 Dockerfile과 함께 Python 프런트 엔드 서비스를 포함합니다. 'Voting' 디렉터리는 클러스터에 배포된 Service Fabric 응용 프로그램 패키지를 포함합니다. 이러한 디렉터리는 이 자습서에 필요한 자산을 포함합니다.  
 
 ## <a name="create-container-images"></a>컨테이너 이미지 만들기
 

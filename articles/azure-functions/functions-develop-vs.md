@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2017
 ms.author: glenga
-ms.openlocfilehash: ed1d8298123597fe8330b54f89fd580095f21ec7
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: 4681138dfc7ed67c8c9da0c55abfc27351736be4
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-functions-tools-for-visual-studio"></a>Azure Functions Tools for Visual Studio  
 
-Azure Functions Tools for Visual Studio 2017은 C# 함수를 Azure에 개발, 테스트 및 배포할 수 있는 Visual Studio에 대한 확장입니다. Azure Functions을 처음으로 접하는 경우라면 [Azure Functions 소개](functions-overview.md)에서 자세한 내용을 확인할 수 있습니다.
+Azure Functions Tools for Visual Studio 2017은 C# 함수를 Azure에 개발, 테스트 및 배포할 수 있는 Visual Studio에 대한 확장입니다. Azure Functions를 처음으로 접하는 경우라면 [Azure Functions 소개](functions-overview.md)에서 자세한 내용을 확인할 수 있습니다.
 
 Azure Functions 도구는 다음과 같은 이점을 제공합니다. 
 
@@ -36,7 +36,7 @@ Azure Functions 도구는 다음과 같은 이점을 제공합니다.
 > [!IMPORTANT]
 > 로컬 개발과 포털 개발을 동일한 함수 앱에 혼합하지 않도록 합니다. 로컬 프로젝트에서 함수 앱에 게시할 때 배포 프로세스는 포털에서 개발한 모든 기능을 덮어씁니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 Azure Functions 도구는 [Visual Studio 2017 버전 15.4](https://www.visualstudio.com/vs/) 이상에서 Azure 개발 워크로드에 포함되어 있습니다. Visual Studio 2017 설치에 **Azure 개발** 워크로드가 포함되어 있는지 확인합니다.
 
@@ -61,9 +61,9 @@ Azure Functions 템플릿을 사용하여 새 프로젝트를 만들 때 다음 
     
 * **local.settings.json**: 함수를 로컬로 실행할 때 사용되는 설정을 유지합니다. 이러한 설정은 Azure에서 사용되지 않으며, [Azure Functions 핵심 도구](functions-run-local.md)에서 사용됩니다. 이 파일을 사용하여 연결 문자열과 같은 설정을 다른 Azure 서비스에 지정합니다. 프로젝트에서 함수에 필요한 각 연결에 대한 **값** 배열에 새 키를 추가합니다. 자세한 내용은 Azure Functions 핵심 도구 토픽의 [로컬 설정 파일](functions-run-local.md#local-settings-file)을 참조하세요.
 
-함수 런타임에서 Azure Storage 계정을 내부적으로 사용합니다. HTTP 및 웹후크 이외의 모든 트리거 형식을 위해 **Values.AzureWebJobsStorage** 키를 유효한 Azure Storage 계정 연결 문자열에 설정해야 합니다.
+함수 런타임에서 Azure Storage 계정을 내부적으로 사용합니다. HTTP 및 웹후크 이외의 모든 트리거 형식을 위해 **Values.AzureWebJobsStorage** 키를 유효한 Azure Storage 계정 연결 문자열에 설정해야 합니다. 
 
-[!INCLUDE [Note to not use local storage](../../includes/functions-local-settings-note.md)]
+[!INCLUDE [Note on local storage](../../includes/functions-local-settings-note.md)]
 
  저장소 계정 연결 문자열을 설정하려면 다음을 수행합니다.
 
@@ -83,7 +83,7 @@ Azure Functions 템플릿을 사용하여 새 프로젝트를 만들 때 다음 
 
     ![](./media/functions-develop-vs/functions-vstools-create-queuetrigger.png)
     
-    local.settings.json 파일에 정의된 **QueueStorage**라고 명명된 연결 문자열 키가 제공됩니다. 
+    이 트리거 예제에서는 키 이름이 **QueueStorage**인 연결 문자열을 사용합니다. 이 연결 문자열 설정은 local.settings.json 파일에서 정의해야 합니다. 
  
 3. 새로 추가된 클래스를 검사합니다. **FunctionName** 특성으로 보이는 정적 **실행** 메서드가 표시됩니다. 이 특성은 메서드가 함수에 대한 진입점임을 나타냅니다. 
 
@@ -113,7 +113,7 @@ Azure Functions 템플릿을 사용하여 새 프로젝트를 만들 때 다음 
 
 Azure Functions Core 도구를 사용하면 로컬 개발 컴퓨터에서 Azure Functions 프로젝트를 실행할 수 있습니다. Visual Studio에서 처음으로 함수를 시작할 때 이 도구를 설치하도록 요구하는 메시지가 표시됩니다.  
 
-함수를 테스트하려면 F5 키를 누릅니다. 메시지가 표시되면 Visual Studio에서 Azure Functions Core(CLI) 도구를 다운로드하여 설치하도록 요구하는 요청을 수락합니다.  또한 도구에서 HTTP 요청을 처리할 수 있도록 방화벽 예외를 사용하도록 설정해야 합니다.
+함수를 테스트하려면 F5 키를 누릅니다. 메시지가 표시되면 Visual Studio에서 Azure Functions Core(CLI) 도구를 다운로드하여 설치하도록 요구하는 요청을 수락합니다. 또한 도구에서 HTTP 요청을 처리할 수 있도록 방화벽 예외를 사용하도록 설정해야 합니다.
 
 실행 중인 프로젝트와 함께 배포된 함수를 테스트할 때 코드를 테스트할 수 있습니다. 자세한 내용은 [Azure Functions에서 코드를 테스트하기 위한 전략](functions-test-a-function.md)을 참조하세요. 디버그 모드에서 실행할 때 중단점이 예상대로 Visual Studio에서 적중됩니다. 
 
@@ -125,12 +125,23 @@ Azure Functions 핵심 도구 사용에 대한 자세한 내용은 [Azure Functi
 
 [!INCLUDE [Publish the project to Azure](../../includes/functions-vstools-publish.md)]
 
->[!NOTE]  
->local.settings.json에서 추가한 모든 설정을 Azure의 함수 앱에도 추가해야 합니다. 이러한 설정은 자동으로 추가되지 않습니다. 다음 방법 중 하나로 필요한 설정을 함수 앱에 추가할 수 있습니다.
->
->* [Azure Portal 사용](functions-how-to-use-azure-function-app-settings.md#settings)
->* [`--publish-local-settings` Azure Functions 핵심 도구의 게시 옵션](functions-run-local.md#publish) 사용
->* [Azure CLI 사용](/cli/azure/functionapp/config/appsettings#set) 
+## <a name="function-app-settings"></a>함수 앱 설정   
+
+local.settings.json에서 추가한 모든 설정을 Azure의 함수 앱에도 추가해야 합니다. 이러한 설정은 프로젝트를 게시할 때 자동으로 업로드되지 않습니다. 
+
+Azure에서 함수 앱에 필요한 설정을 업로드하는 가장 쉬운 방법은 프로젝트를 성공적으로 게시한 후에 표시되는 **응용 프로그램 설정 관리...** 링크를 사용하는 것입니다. 
+
+![](./media/functions-develop-vs/functions-vstools-app-settings.png)
+
+그러면 새로운 응용 프로그램 설정을 추가하거나 기존 응용 프로그램 설정을 수정할 수 있는 함수 앱에 대한 **응용 프로그램 설정** 대화 상자가 표시됩니다.
+
+![](./media/functions-develop-vs/functions-vstools-app-settings2.png)
+
+또한 다음 다른 방법 중 하나로 응용 프로그램 설정을 관리할 수도 있습니다.
+
+* [Azure Portal 사용](functions-how-to-use-azure-function-app-settings.md#settings)
+* [`--publish-local-settings` Azure Functions 핵심 도구의 게시 옵션](functions-run-local.md#publish) 사용
+* [Azure CLI 사용](/cli/azure/functionapp/config/appsettings#set) 
 
 ## <a name="next-steps"></a>다음 단계
 

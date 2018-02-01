@@ -1,7 +1,7 @@
 ---
-title: "데이터 과학 가상 컴퓨터에 대한 샘플 및 연습 - Azure | Microsoft Docs"
-description: "데이터 과학 가상 컴퓨터에 대한 샘플.및 연습"
-keywords: "데이터 과학 도구, 데이터 과학 가상 컴퓨터, 데이터 과학용 도구, linux 데이터 과학"
+title: "데이터 과학 Virtual Machine에 대한 샘플 및 연습 - Azure | Microsoft Docs"
+description: "데이터 과학 Virtual Machine에 대한 샘플.및 연습"
+keywords: "데이터 과학 도구, 데이터 과학 가상 머신, 데이터 과학용 도구, linux 데이터 과학"
 services: machine-learning
 documentationcenter: 
 author: bradsev
@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.openlocfilehash: 89bb5d255db9ab266d04169a3101e2b694236029
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fb9a7e900c489b3d22594dfcb6e1faa736c3c490
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
-# <a name="samples-on-the-data-science-virtual-machines-dsvm"></a>데이터 과학 가상 컴퓨터 (DSVM)의 샘플
+# <a name="samples-on-the-data-science-virtual-machines-dsvm"></a>데이터 과학 Virtual Machine(DSVM)의 샘플
 
 DSVM은 Jupyter 노트북 형식의 아주 잘 작동하는 샘플과 Jupyter 기반이 아닌 샘플을 포함하여 제공합니다. 바탕화면 또는 응용 프로그램 메뉴에서 `Jupyter` 아이콘을 클릭하여 Jupyter를 액세스할 수 있습니다.  
 > [!NOTE]
@@ -34,13 +34,13 @@ DSVM은 Jupyter 노트북 형식의 아주 잘 작동하는 샘플과 Jupyter �
 | **Python** 언어  | Azure 클라우드 데이터 저장소와 연결 및 **Azure Machine Learning** 작업과 같은 시나리오를 설명하는 **Python** 예제.  <br/> [스크린샷](#python-language) | <br/>`~notebooks` <br/><br/>|
 | **Julia** 언어  | Julia에서 그리기, Julia에서 심층 학습, Julia에서 C 및 Python 호출 등을 자세히 설명하는 **Julia** 샘플. <br/> [스크린샷](#julia-language) |<br/> **Windows**:<br/> `~notebooks/Julia_notebooks`<br/><br/>`~notebooks`<br/><br/> **Linux**:<br/> `~notebooks/julia`<br/><br/> |
 | **CNTK** <br/> (Microsoft Cognitive 도구 키트)  | Microsoft에서 Cognitive Toolkit 팀에서 게시한 심층 학습 샘플.  <br/> [스크린샷](#cntk) | <br/>**Windows**:<br/> `~notebooks/CNTK/Tutorials`<br/><br/>`~/samples/CNTK-Samples-2-0/Examples`<br/><br/> **Linux**:<br/> `~notebooks/CNTK`<br/> <br/>|
-| **MXnet** 노트북  | 신경망 기반 **MXNet**을 활용하는 심층 학습 샘플. 초보자용부터 고급 시나리오에 이르기까지 다양한 노트북이 있습니다.  <br/> [스크린샷](#mxnet) | <br/>`~notebooks/mxnet`<br/> <br/>|
+| **MXNet** Notebooks  | 신경망 기반 **MXNet**을 활용하는 심층 학습 샘플 초보자용부터 고급 시나리오에 이르기까지 다양한 노트북이 있습니다.  <br/> [스크린샷](#mxnet) | <br/>`~notebooks/mxnet`<br/> <br/>|
 | **Azure Machine Learning** AzureML  | 클라우드 기반 점수 매기기 워크플로에 대한 **Azure Machine Learning** Studio와 상호 작용 및 로컬에서 훈련된 모델에서 웹 서비스 끝점 생성. <br/> [스크린샷](#azureml) | <br/>`~notebooks/azureml`<br/> <br/>|
 | **caffe2** | 신경망 기반 **caffe2**를 활용하는 심층 학습 샘플. 사용자가 이미지 전처리, 데이터 집합 만들기, 회귀, 미리 학습된 모델 사용과 같은 예제를 포함하여 caffe2 및 그것을 효과적으로 사용하는 방법을 익히도록 디자인된 여러 노트북이 있습니다. <br/> [스크린샷](#caffe2) | <br/>`~notebooks/caffe2`<br/><br/> |
 | **H2O**   | 많은 실제 시나리오 문제에 대해 **H2O**를 활용하는 Python 기반 샘플. <br/> [스크린샷](#h2o) | <br/>`~notebooks/h2o`<br/><br/> |
 | **SparkML** 언어  | **Apache Spark 2.0**에서 **pySpark 2.0**을 통해 Spark의 **MLlib** 도구 키트의 특징 및 기능을 활용 하는 샘플.  <br/> [스크린샷](#sparkml) | <br/>`~notebooks/SparkML/pySpark`<br/><br/> |
 | **MMLSpark** 언어  | **Apache Spark**에 대한 여러 심층 학습 및 데이터 과학 도구를 제공하는 프레임워크인 **MMLSpark-Apache Spark에 대한 Microsoft Machine Learning**을 활용하는 다양한 샘플. <br/> [스크린샷](#sparkml) | <br/>`~notebooks/MMLSpark`<br/><br/> |
-| **TensorFlow**  | **TensorFlow** 프레임워크를 사용하여 구현된 서로 다른 여러 신경망 샘플 및 기법 <br/> [스크린샷](#tensorflow) | <br/>`~notebooks/tensorflow`<br/><br/> |
+| **Tensorflow**  | **TensorFlow** 프레임워크를 사용하여 구현된 서로 다른 여러 신경망 샘플 및 기법 <br/> [스크린샷](#tensorflow) | <br/>`~notebooks/tensorflow`<br/><br/> |
 | **XGBoost** | 분류, 회귀 등과 같은 시나리오에 대해 **XGBoost**에 들어 있는 Standard Machine Learning 샘플. <br/> [스크린샷](#xgboost) | <br/>`~samples/xgboost/demo`<br/><br/> |
 
 <br/>

@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 12/14/2017
+ms.date: 01/23/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: fae88e44ee763a0c59b4ad2c731d77db379aa1ee
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 839fc3a326dca8b60c6750231b06d2369c3de2fc
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="collect-data-from-linux-computers-hosted-in-your-environment"></a>사용자 환경에서 호스팅되는 Linux 컴퓨터에서 데이터 수집
 [Azure Log Analytics](log-analytics-overview.md)는 상세한 분석 및 상관 관계 파악을 위해 물리적 또는 가상 Linux 컴퓨터 및 사용자 환경의 다른 리소스의 데이터를 단일 저장소로 직접 수집할 수 있습니다.  이 빠른 시작 가이드에서는 몇 가지 간단한 단계로 Linux 컴퓨터에서 데이터를 구성 및 수집하는 방법을 보여 줍니다.  Azure Linux VM의 경우 다음 항목 [Azure Virtual Machines에 대한 데이터 수집](log-analytics-quick-collect-azurevm.md)을 참조하세요.  
@@ -75,7 +75,7 @@ Linux용 OMS 에이전트를 설치하기 전에 Log Analytics 작업 영역에 
 
 ## <a name="configure-agent-to-communicate-with-a-proxy-server"></a>프록시 서버와 통신하도록 에이전트 구성
 
-Linux 컴퓨터가 프록시 서버를 통해 Log Analytics와 통신해야 하는 경우 다음 단계를 수행합니다.  프록시 구성 값은 다음 구문 `[protocol://][user:password@]proxyhost[:port]`를 갖습니다.
+Linux 컴퓨터가 프록시 서버를 통해 Log Analytics와 통신해야 하는 경우 다음 단계를 수행합니다.  프록시 구성 값은 다음 구문 `[protocol://][user:password@]proxyhost[:port]`를 갖습니다.  *proxyhost* 속성은 정규화된 도메인 이름 또는 프록시 서버의 IP 주소를 허용합니다.    
 
 1. 다음 명령을 실행하여 `/etc/opt/microsoft/omsagent/proxy.conf` 파일을 편집하고 특정 설정으로 값을 변경합니다.
 

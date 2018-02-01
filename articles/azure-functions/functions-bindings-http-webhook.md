@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: mahender
-ms.openlocfilehash: 080712e0a6c05348e7163f3c8e2055e6ff2806b2
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: fe0958b8a548e72df17f257e5700c28d3ebae79c
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Azure Functions HTTP 및 WebHook 바인딩
 
@@ -527,6 +527,10 @@ HTTP 트리거를 통해 키를 사용하여 보안을 강화할 수 있습니�
 
 - **쿼리 문자열**: 공급자에서 `clientid` 쿼리 문자열 매개 변수에 키 이름을 전달합니다(예: `https://<yourapp>.azurewebsites.net/api/<funcname>?clientid=<keyname>`).
 - **요청 헤더**: 공급자에서 `x-functions-clientid` 헤더에 키 이름을 전달합니다.
+
+## <a name="trigger---limits"></a>트리거 - 제한
+
+HTTP 요청 길이는 100K(102,400) 바이트로 제한되고 URL 길이는 4k(4,096) 바이트로 제한됩니다. 이러한 제한은 런타임의 [Web.config 파일](https://github.com/Azure/azure-webjobs-sdk-script/blob/v1.x/src/WebJobs.Script.WebHost/Web.config)의 `httpRuntime` 요소에 의해 지정됩니다.
 
 ## <a name="trigger---hostjson-properties"></a>트리거 - host.json 속성
 

@@ -9,11 +9,11 @@ ms.author: v-jamebr
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: bd186341329721ee097a5b3ad3e7ad11b8e189f9
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 4fd84904fb264fc61d0059d389347e05839162d2
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="develop-and-deploy-a-c-iot-edge-module-to-your-simulated-device---preview"></a>C# IoT Edge 모듈을 개발하여 시뮬레이트된 장치에 배포 - 미리 보기
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 01/04/2018
 
 이 자습서에서 만드는 IoT Edge 모듈은 장치에서 생성된 온도 데이터를 필터링합니다. 온도가 지정된 임계값을 초과하는 경우에만 메시지 업스트림을 전송합니다. 에지에서 이 유형의 분석은 클라우드로 전송되고 저장되는 데이터 양을 줄이는 데 유용합니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 * 빠른 시작 또는 첫 번째 자습서에서 만든 Azure IoT Edge 장치
 * IoT Edge 장치에 대한 기본 키 연결 문자열입니다.  
@@ -70,6 +70,14 @@ ms.lasthandoff: 01/04/2018
 5. VS Code 탐색기에서 **Program.cs**를 클릭하여 엽니다.
 
    ![Program.cs 열기][1]
+
+6. **FilterModule** 네임스페이스의 맨 위에서 나중에 사용되는 유형에 `using` 문을 3개 추가합니다.
+
+    ```csharp
+    using System.Collections.Generic;     // for KeyValuePair<>
+    using Microsoft.Azure.Devices.Shared; // for TwinCollection
+    using Newtonsoft.Json;                // for JsonConvert
+    ```
 
 6. `temperatureThreshold` 변수를 **Program** 클래스에 추가합니다. 이 변수는 데이터가 IoT Hub로 전송되기 위해 측정된 온도가 초과해야 하는 값을 설정합니다. 
 

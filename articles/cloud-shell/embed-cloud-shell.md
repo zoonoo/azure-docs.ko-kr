@@ -14,17 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2017
 ms.author: juluk
-ms.openlocfilehash: 78b539136971aa282e5447d7882ecb02f73f346b
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 3ceddb94336fc2703e6f916f05ab1ec3676cb50d
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="embed-azure-cloud-shell"></a>Azure Cloud Shell 포함
 
 Cloud Shell을 포함하면 개발자 및 콘텐츠 작성자가 전용 URL, [shell.azure.com](https://shell.azure.com)에서 Cloud Shell을 직접 열 수 있습니다. 이렇게 하면 Cloud Shell 인증, 도구 및 최신 Azure CLI/Azure PowerShell 도구의 전체 기능을 사용자가 즉시 사용할 수 있습니다.
 
+일반 크기 단추
+
 [![](https://shell.azure.com/images/launchcloudshell.png "Azure Cloud Shell 시작")](https://shell.azure.com)
+
+큰 크기 단추
+
+[![](https://shell.azure.com/images/launchcloudshell@2x.png "Azure Cloud Shell 시작")](https://shell.azure.com)
 
 ## <a name="how-to"></a>방법
 

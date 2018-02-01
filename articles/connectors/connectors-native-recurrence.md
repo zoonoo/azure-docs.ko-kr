@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: LADocs; estfan
-ms.openlocfilehash: 77567302c529e6e06e58534ffc9db44c9a85bdb7
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 9384752c7f12074aae6ff165241e954eb2a4a01e
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="schedule-tasks-and-workflows-that-run-regularly-with-logic-apps"></a>논리 앱을 사용하여 정기적으로 실행하는 작업 및 워크플로 예약
 
-정기적으로 실행하는 작업, 워크로드 또는 프로세스를 예약하기 위해 **예약 - 되풀이** [트리거](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts)로 시작하는 논리 앱 워크플로를 만들 수 있습니다. 이 트리거를 사용하면 되풀이를 시작할 날짜 및 시간과 다음 예제 등의 작업을 수행할 되풀이 일정을 설정할 수 있습니다.
+정기적으로 실행하는 작업, 워크로드 또는 프로세스를 예약하기 위해 **예약 - 되풀이** [트리거](../logic-apps/logic-apps-overview.md#logic-app-concepts)로 시작하는 논리 앱 워크플로를 만들 수 있습니다. 이 트리거를 사용하면 되풀이를 시작할 날짜 및 시간과 다음 예제 등의 작업을 수행할 되풀이 일정을 설정할 수 있습니다.
 
 * 내부 데이터 가져오기: 매일 [SQL 저장 프로시저를 실행합니다](../connectors/connectors-create-api-sqlazure.md).
 * 외부 데이터 가져오기: 15분마다 NOAA에서 날씨 보고서를 가져옵니다.
@@ -46,11 +46,11 @@ ms.lasthandoff: 11/02/2017
 
 * Azure 구독. 구독이 없는 경우 [Azure 계정을 사용하여 시작](https://azure.microsoft.com/free/)할 수 있습니다. 그렇지 않으면 [종량제 구독에 등록](https://azure.microsoft.com/pricing/purchase-options/)할 수 있습니다.
 
-* [논리 앱 만드는 방법](../logic-apps/logic-apps-create-a-logic-app.md)에 관한 기본 지식 
+* [논리 앱 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md)에 관한 기본 지식 
 
 ## <a name="add-a-recurrence-trigger-to-your-logic-app"></a>논리 앱에 되풀이 트리거 추가
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다. 빈 논리를 만들거나 [빈 논리 앱을 만드는 방법](../logic-apps/logic-apps-create-a-logic-app.md)을 알아봅니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 빈 논리를 만들거나 [빈 논리 앱을 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md)을 알아봅니다.
 
 2. Logic Apps 디자이너가 표시되면 검색 상자에 필터로 “되풀이”를 입력합니다. **예약 - 되풀이** 트리거를 선택합니다. 
 
@@ -96,13 +96,13 @@ ms.lasthandoff: 11/02/2017
 
 되풀이 트리거에 대한 이러한 속성을 구성할 수 있습니다.
 
-| 이름 | 필수 | 속성 이름 | 형식 | 설명 | 
+| Name | 필수 | 속성 이름 | 형식 | 설명 | 
 |----- | -------- | ------------- | ---- | ----------- | 
 | **Frequency(빈도)** | 예 | frequency | 문자열 | 되풀이 시간 단위: **초**, **분**, **시간**, **일**, **주** 또는 **월** | 
-| **간격** | 예 | interval | Integer | 빈도에 따라 워크플로가 얼마나 자주 실행되는지를 설명하는 양의 정수입니다. <p>기본 간격은 1입니다. 다음은 최소 및 최대 간격입니다. <p>- 월: 1-16개월 </br>- 일: 1-500일 </br>- 시간: 1-12,000시간 </br>- 분: 1-72,000분 </br>- 초: 1-9,999,999초<p>예를 들어 간격이 6이고 빈도가 “월”이면 되풀이 간격은 6개월마다입니다. | 
-| **표준 시간대** | 아니요 | timeZone | 문자열 | 이 트리거는 [UTC 오프셋](https://en.wikipedia.org/wiki/UTC_offset)을 허용하지 않으므로 시작 시간을 지정할 때만 적용됩니다. 적용하려는 표준 시간대를 선택합니다. | 
+| **간격** | 예 | interval | 정수  | 빈도에 따라 워크플로가 얼마나 자주 실행되는지를 설명하는 양의 정수입니다. <p>기본 간격은 1입니다. 다음은 최소 및 최대 간격입니다. <p>- 월: 1-16개월 </br>- 일: 1-500일 </br>- 시간: 1-12,000시간 </br>- 분: 1-72,000분 </br>- 초: 1-9,999,999초<p>예를 들어 간격이 6이고 빈도가 “월”이면 되풀이 간격은 6개월마다입니다. | 
+| **표준 시간대** | 아니오 | timeZone | 문자열 | 이 트리거는 [UTC 오프셋](https://en.wikipedia.org/wiki/UTC_offset)을 허용하지 않으므로 시작 시간을 지정할 때만 적용됩니다. 적용하려는 표준 시간대를 선택합니다. | 
 | **시작 시간** | 아니요 | startTime | 문자열 | 시작 시간을 다음 형식으로 입력합니다. <p>표준 시간대를 선택하는 경우 YYYY-MM-DDThh:mm:ss <p>또는 <p>표준 시간대를 선택하지 않은 경우 YYYY-MM-DDThh:mm:ssZ <p>예를 들어 2017년 9월 18일, 2:00 PM을 원할 경우 “2017-09-18T14:00:00”을 지정하고 태평양 표준시와 같은 표준 시간대를 선택합니다. 또는 표준 시간대 없이 “2017-09-18T14:00:00Z”를 지정합니다. <p>**참고:** 이 시작 시간은 [UTC 오프셋](https://en.wikipedia.org/wiki/UTC_offset) 없이 [UTC 날짜 시간 형식](https://en.wikipedia.org/wiki/Coordinated_Universal_Time)의 [ISO 8601 날짜 시간 사양](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)을 따라야 합니다. 표준 시간대를 선택하지 않으면 공백 없이 맨 끝에 문자 “Z”를 추가해야 합니다. 이 “Z”는 해당 [항해 시간](https://en.wikipedia.org/wiki/Nautical_time)을 나타냅니다. <p>단순 일정의 경우 시작 시간은 첫 번째 발생이지만 복잡한 일정의 경우 트리거는 시작 시간보다 더 일찍 발생하지 않습니다. [*시작 날짜 및 시간을 사용할 수 있는 방법에는 무엇이 있나요?*](#start-time) | 
-| **요일 선택** | 아니요 | weekDays | 문자열 또는 문자열 배열 | “주”를 선택하는 경우 워크플로를 실행하려는 요일을 하나 이상 선택할 수 있습니다.**월요일**, **화요일**, **수요일**, **목요일**, **금요일**, **토요일** 및 **일요일** | 
+| **요일 선택** | 아니오 | weekDays | 문자열 또는 문자열 배열 | “주”를 선택하는 경우 워크플로를 실행하려는 요일을 하나 이상 선택할 수 있습니다.**월요일**, **화요일**, **수요일**, **목요일**, **금요일**, **토요일** 및 **일요일** | 
 | **시간 선택** | 아니요 | hours | 정수 또는 정수 배열 | “일” 또는 “주”를 선택하는 경우 워크플로를 실행하려는 하루 시간으로 0~23 사이의 정수를 하나 이상 선택할 수 있습니다. <p>예를 들어 “10”, “12” 및 “14”를 지정하면 10 AM, 12 PM 및 2 PM이 시간 표시로 제공됩니다. | 
 | **분 선택** | 아니요 | minutes | 정수 또는 정수 배열 | “일” 또는 “주”를 선택하는 경우 워크플로를 실행하려는 시간의 분으로 0~59 사이의 정수를 하나 이상 선택할 수 있습니다. <p>예를 들어 분 표시로 “30”을 지정하고, 앞에 나온 하루 시간 예제를 사용하면 10:30 AM, 12:30 PM 및 2:30 PM이 표시됩니다. | 
 ||||| 
@@ -175,7 +175,7 @@ ms.lasthandoff: 11/02/2017
 <a name="start-time"></a>
 
 **Q:**시작 날짜 및 시간을 사용할 수 있는 방법에는 무엇이 있나요? </br>
-**A:** 시작 날짜와 시간으로 되풀이를 제어하는 방법 및 Logic Apps 엔진이 이러한 되풀이를 어떻게 실행하는지를 보여주는 몇 가지 패턴이 있습니다.
+**A:** 시작 날짜와 시간으로 되풀이를 제어하는 방법 및 Logic Apps 엔진이 이러한 되풀이를 어떻게 실행하는지를 보여 주는 몇 가지 패턴이 있습니다.
 
 | 시작 시간 | 일정 없이 되풀이 | 일정대로 되풀이 | 
 | ---------- | --------------------------- | ------------------------ | 

@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 11/16/2017
 ms.author: markgal
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications).
-ms.openlocfilehash: c3a1758ab965d22eabfe44a410e9f72420e0148b
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: a0e654637bc4aca4230c56cc7c1706f5cd73622e
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="overview-of-availability-zones-in-azure-preview"></a>Azure(미리 보기)의 가용성 영역 개요
 
@@ -31,6 +31,7 @@ ms.lasthandoff: 01/08/2018
 ## <a name="regions-that-support-availability-zones"></a>가용성 영역을 지원하는 지역
 
 - 미국 동부 2
+- 미국 중부
 - 서유럽
 - 프랑스 중부
 
@@ -40,14 +41,15 @@ ms.lasthandoff: 01/08/2018
 
 - Linux 가상 머신
 - Windows 가상 머신
-- 영역 Virtual Machine Scale Sets
+- Virtual Machine Scale Sets
 - Managed Disks
 - Load Balancer
 - 공용 IP 주소
+- 영역 중복 저장소
 
 ## <a name="get-started-with-the-availability-zones-preview"></a>가용성 영역 미리 보기 시작
 
-특정 Azure 서비스의 경우 미국 동부 2, 유럽 서부 및 프랑스 중부 지역에서 가용성 영역 미리 보기를 사용할 수 있습니다. 
+특정 Azure 서비스의 경우 미국 동부 2, 미국 중부, 유럽 서부 및 프랑스 중부 지역에서 가용성 영역 미리 보기를 사용할 수 있습니다. 
 
 1. [가용성 영역 미리 보기에 등록합니다](http://aka.ms/azenroll). 
 2. Azure 구독에 로그인합니다.

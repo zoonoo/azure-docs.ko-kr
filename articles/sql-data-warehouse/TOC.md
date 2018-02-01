@@ -6,6 +6,10 @@
 # 빠른 시작
 
 ## [만들기 및 연결 - 포털](create-data-warehouse-portal.md)
+## 계산 일지 중지 및 다시 시작
+### [포털](pause-and-resume-compute-portal.md)
+### [PowerShell](pause-and-resume-compute-powershell.md)
+
 
 # 자습서
 ## [1 - blob에서 데이터 로드](load-data-from-azure-blob-storage-using-polybase.md)

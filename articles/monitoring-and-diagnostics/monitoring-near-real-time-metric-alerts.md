@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 12/06/2017
 ms.author: snmuvva
 ms.custom: 
-ms.openlocfilehash: cd1002929ad749ac1742e914a9f2411f09ec91d5
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: d3e88a98e0ba93a630d131c25ca4dd5cb16f1b1a
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="near-real-time-metric-alerts-preview"></a>근 실시간 메트릭 경고(미리 보기)
 이제 Azure Monitor는 근 실시간 메트릭 경고(미리 보기)라는 새로운 유형의 메트릭 경고를 지원합니다. 이 기능은 현재 공개 미리 보기로 제공됩니다.
@@ -34,7 +34,7 @@ ms.lasthandoff: 12/19/2017
 > 근 실시간 메트릭 경고 기능은 현재 공개 미리 보기로 제공됩니다. 기능 및 사용자 환경을 변경할 수 있습니다.
 >
 
-## <a name="what-resources-can-i-create-near-real-time-metric-alerts-for"></a>근 실시간 메트릭 경고를 만들 수 있는 리소스는 무엇인가요?
+## <a name="what-resources-can-i-create-near-real-time-metric-alerts-for"></a>근 실시간 메트릭 경고을 만들 수 있는 리소스는 무엇인가요?
 근 실시간 메트릭 경고에서 지원되는 리소스 종류의 전체 목록:
 
 * Microsoft.ApiManagement/service
@@ -74,6 +74,52 @@ ms.lasthandoff: 12/19/2017
 
 ## <a name="managing-near-real-time-metric-alerts"></a>근 실시간 메트릭 경고 관리
 **근 실시간 메트릭 경고**를 만들면 [여기](monitor-alerts-unified-usage.md#managing-your-alerts-in-azure-portal)에 설명된 단계를 사용하여 관리할 수 있습니다.
+
+## <a name="payload-schema"></a>페이로드 스키마
+
+POST 작업에는 모든 근 실시간 메트릭 경고에 대해 다음과 같은 JSON 페이로드와 스키마가 포함됩니다.
+
+```json
+{
+    "WebhookName": "Alert1510875839452",
+    "RequestBody": {
+        "status": "Activated",
+        "context": {
+            "condition": {
+                "metricName": "Percentage CPU",
+                "metricUnit": "Percent",
+                "metricValue": "17.7654545454545",
+                "threshold": "1",
+                "windowSize": "10",
+                "timeAggregation": "Average",
+                "operator": "GreaterThan"
+            },
+            "resourceName": "ContosoVM1",
+            "resourceType": "microsoft.compute/virtualmachines",
+            "resourceRegion": "westus",
+            "portalLink": "https://portal.azure.com/#resource/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/automationtest/providers/Microsoft.Compute/virtualMachines/ContosoVM1",
+            "timestamp": "2017-11-16T23:54:03.9517451Z",
+            "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ContosoVM/providers/microsoft.insights/alertrules/VMMetricAlert1",
+            "name": "VMMetricAlert1",
+            "description": "A metric alert for the VM Win2012R2",
+            "conditionType": "Metric",
+            "subscriptionId": "00000000-0000-0000-0000-000000000000",
+            "resourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ContosoVM/providers/Microsoft.Compute/virtualMachines/ContosoVM1",
+            "resourceGroupName": "ContosoVM"
+        },
+        "properties": {
+                "key1": "value1",
+                "key2": "value2"
+        }
+    },
+    "RequestHeader": {
+        "Connection": "Keep-Alive",
+        "Host": "s1events.azure-automation.net",
+        "User-Agent": "azure-insights/0.9",
+        "x-ms-request-id": "00000000-0000-0000-0000-000000000000"
+    }
+}
+```
 
 ## <a name="next-steps"></a>다음 단계
 

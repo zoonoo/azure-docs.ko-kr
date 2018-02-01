@@ -14,11 +14,11 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.date: 07/14/2016
 ms.author: evboyle
-ms.openlocfilehash: f6ca06a0349def97b38a1bf6d0d8f36236077e92
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 8b253ef1eccfbc6ca703657b124d17d1482c2eed
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="get-started-with-azure-search-in-java"></a>Java에서 Azure Search 시작
 > [!div class="op_single_selector"]
@@ -72,7 +72,7 @@ Azure Search에 대한 모든 REST API 호출에는 서비스 URL 및 api-key를
 5. 서비스 URL 및 관리 키를 복사합니다. 나중에 **config.properties** 파일에 추가할 때 필요합니다.
 
 ## <a name="download-the-sample-files"></a>샘플 파일 다운로드
-1. GitHub의 [AzureSearchJavaDemo](https://github.com/AzureSearch/AzureSearchJavaIndexerDemo)로 이동합니다.
+1. GitHub에서 [search-java-indexer-demo](https://github.com/Azure-Samples/search-java-indexer-demo)로 이동합니다.
 2. **Download ZIP**을 클릭하고 .zip 파일을 디스크에 저장한 다음 포함된 모든 파일을 추출합니다. 나중에 프로젝트를 쉽게 찾을 수 있도록 Java 작업 영역에 파일을 추출하는 것이 좋습니다.
 3. 샘플 파일은 읽기 전용입니다. 폴더 속성을 마우스 오른쪽 단추로 클릭하고 읽기 전용 특성을 지웁니다.
 
@@ -85,7 +85,7 @@ Azure Search에 대한 모든 REST API 호출에는 서비스 URL 및 api-key를
 2. **Select root directory**에서 샘플 파일이 들어 있는 폴더를 찾습니다. .project 폴더가 포함된 폴더를 선택합니다. **Projects** 목록에 선택한 항목으로 프로젝트가 표시됩니다.
    
     ![][12]
-3. **마침**을 클릭합니다.
+3. **Finish**를 클릭합니다.
 4. **Project Explorer** 를 사용하여 파일을 보고 편집합니다. 아직 열지 않은 경우 **Window** > **Show View** > **Project Explorer**를 클릭하거나 바로 가기를 사용하여 엽니다.
 
 ## <a name="configure-the-service-url-and-api-key"></a>서비스 URL 및 api-key 구성
@@ -106,10 +106,10 @@ Azure Search에 대한 모든 REST API 호출에는 서비스 URL 및 api-key를
    
     ![][7]
 6. 다음 페이지에서 Tomcat 설치 디렉터리를 지정합니다. Windows 컴퓨터의 경우 일반적으로 C:\Program Files\Apache Software Foundation\Tomcat *버전*입니다.
-7. **마침**을 클릭합니다.
+7. **Finish**를 클릭합니다.
 8. **Window** > **Preferences** > **Java** > **Installed JREs** > **Add**를 선택합니다.
 9. **Add JRE**에서 **Standard VM**을 선택합니다.
-10. **다음**을 누릅니다.
+10. **다음**을 클릭합니다.
 11. JRE 정의의 JRE 홈에서 **Directory**를 클릭합니다.
 12. **Program Files** > **Java**로 이동하여 이전에 설치한 JDK를 선택합니다. JDK를 JRE로 선택해야 합니다.
 13. Installed JREs에서 **JDK**를 선택합니다. 설정은 다음 스크린샷과 유사해야 합니다.

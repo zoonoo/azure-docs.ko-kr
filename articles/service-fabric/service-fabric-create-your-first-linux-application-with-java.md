@@ -12,13 +12,13 @@ ms.devlang: java
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/20/2017
+ms.date: 01/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: c7625a5670aca5d105601432fedfd0d7a78bb53c
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: afa7f569853df15a5d52e38f476665e34781acfd
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>Linux에서 첫 번째 Java Service Fabric Reliable Actors 응용 프로그램 만들기
 > [!div class="op_single_selector"]
@@ -143,11 +143,16 @@ public interface HelloWorldActor extends Actor {
 `HelloWorldActor/src/reliableactor/HelloWorldActorImpl`:
 
 ```java
-@ActorServiceAttribute(name = "HelloWorldActor.HelloWorldActorService")
+@ActorServiceAttribute(name = "HelloWorldActorService")
 @StatePersistenceAttribute(statePersistence = StatePersistence.Persisted)
-public class HelloWorldActorImpl extends ReliableActor implements HelloWorldActor {
-    Logger logger = Logger.getLogger(this.getClass().getName());
+public class HelloWorldActorImpl extends FabricActor implements HelloWorldActor {
+    private Logger logger = Logger.getLogger(this.getClass().getName());
 
+    public HelloWorldActorImpl(FabricActorService actorService, ActorId actorId){
+        super(actorService, actorId);
+    }
+
+    @Override
     protected CompletableFuture<?> onActivateAsync() {
         logger.log(Level.INFO, "onActivateAsync");
 
@@ -176,15 +181,16 @@ public class HelloWorldActorImpl extends ReliableActor implements HelloWorldActo
 ```java
 public class HelloWorldActorHost {
 
-    public static void main(String[] args) throws Exception {
-
+private static final Logger logger = Logger.getLogger(HelloWorldActorHost.class.getName());
+    
+public static void main(String[] args) throws Exception {
+        
         try {
-            ActorRuntime.registerActorAsync(HelloWorldActorImpl.class, (context, actorType) -> new ActorServiceImpl(context, actorType, ()-> new HelloWorldActorImpl()), Duration.ofSeconds(10));
 
+            ActorRuntime.registerActorAsync(HelloWorldActorImpl.class, (context, actorType) -> new FabricActorService(context, actorType, (a,b)-> new HelloWorldActorImpl(a,b)), Duration.ofSeconds(10));
             Thread.sleep(Long.MAX_VALUE);
-
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.log(Level.SEVERE, "Exception occured", e);
             throw e;
         }
     }
@@ -203,14 +209,14 @@ Maven에서 Service Fabric Java 종속성을 가져옵니다. Service Fabric Jav
 응용 프로그램을 빌드하고 패키징하려면 다음을 실행합니다.
 
   ```bash
-  cd myapp
+  cd HelloWorldActorApplication
   gradle
   ```
 
 ## <a name="deploy-the-application"></a>응용 프로그램 배포
 응용 프로그램이 빌드되면 로컬 클러스터에 배포할 수 있습니다.
 
-1. 로컬 Service Fabric 클러스터에 연결합니다.
+1. 로컬 Service Fabric 클러스터에 연결합니다(클러스터를 [설정 및 실행](service-fabric-get-started-linux.md#set-up-a-local-cluster)해야 함).
 
     ```bash
     sfctl cluster select --endpoint http://localhost:19080
@@ -235,7 +241,7 @@ Maven에서 Service Fabric Java 종속성을 가져옵니다. Service Fabric Jav
 1. 행위자 서비스의 출력을 확인하려면 조사식 유틸리티를 사용하여 스크립트를 실행합니다.  테스트 스크립트는 행위자의 `setCountAsync()` 메서드를 호출하여 카운터를 증가시키고 행위자의 `getCountAsync()` 메서드를 호출하여 새 카운터 값을 가져오고 해당 값을 콘솔에 표시합니다.
 
     ```bash
-    cd myactorsvcTestClient
+    cd HelloWorldActorTestClient
     watch -n 1 ./testclient.sh
     ```
 

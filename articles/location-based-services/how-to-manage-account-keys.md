@@ -9,15 +9,15 @@ ms.date: 11/14/2017
 ms.topic: article
 ms.service: location-based-services
 manager: timlt
-ms.openlocfilehash: ccdeafeaf869768f4094aaa31fe2a69d52d7cf9d
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 3bc28d6744725e7c58d78c5262d9e50d3bb674e8
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="how-to-manage-your-azure-location-based-services-account-and-keys"></a>Azure Location Based Services 계정 및 키를 관리하는 방법
 
-Azure Portal을 통해 Azure Location Based Services 계정 및 키를 관리할 수 있습니다. 계정과 구독 키가 있으면 웹 사이트 또는 모바일 응용 프로그램에서 API를 구현할 수 있습니다.
+Azure Portal을 통해 Azure Location Based Services 계정 및 키를 관리할 수 있습니다. 계정과 키가 있으면 웹 사이트 또는 모바일 응용 프로그램에서 API를 구현할 수 있습니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 

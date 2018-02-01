@@ -7,15 +7,15 @@ manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 12/12/2017
+ms.date: 01/19/2018
 ms.author: tamram
-ms.openlocfilehash: c97e1b5115a8a97b8d9345c02d12b55b1d7a58fd
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 926b78bbe1ec8efaf6529a084af47747325f6096
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/24/2018
 ---
-# <a name="create-a-new-storage-account"></a>새 저장소 계정 만들기
+# <a name="create-a-storage-account"></a>저장소 계정 만들기
 
 Azure Storage 계정은 Azure Storage 데이터 개체의 저장 및 액세스를 위해 클라우드에서 고유한 네임스페이스를 제공합니다. 저장소 계정은 해당 계정에서 만든 모든 BLOB, 파일, 큐, 테이블 및 디스크를 포함합니다. 
 
@@ -138,9 +138,19 @@ az account list-locations \
 
 ---
 
-# <a name="create-a-general-purpose-storage-account"></a>범용 저장소 계정 만들기
+## <a name="create-a-general-purpose-storage-account"></a>범용 저장소 계정 만들기
 
-범용 저장소 계정은 모든 Azure Storage 서비스(BLOB, 파일, 큐, 테이블)에 대한 액세스를 제공합니다. 범용 저장소 계정은 표준 또는 프리미엄 계층에서 만들 수 있습니다. 이 문서의 예제에서는 표준 계층(기본값)에서 범용 저장소 계정을 만드는 방법을 보여 줍니다. 저장소 계정 옵션에 대한 자세한 내용은 [Microsoft Azure Storage 소개](storage-introduction.md)를 참조하세요.
+범용 저장소 계정은 모든 Azure Storage 서비스(BLOB, 파일, 큐, 테이블)에 대한 액세스를 제공합니다. 범용 저장소 계정은 표준 또는 프리미엄 계층에서 만들 수 있습니다. 이 문서의 예제에서는 표준 계층(기본값)에서 범용 저장소 계정을 만드는 방법을 보여 줍니다.
+
+Azure Storage는 두 가지 유형의 범용 저장소 계정을 제공합니다.
+
+- 범용 v2 계정 
+- 범용 v1 계정 
+
+> [!NOTE]
+> 해당 계정에 사용할 수 있는 새로운 기능을 활용하도록 **범용 v2 계정**으로 새 저장소 계정을 만드는 것이 좋습니다.  
+
+저장소 계정 유형에 대한 자세한 내용은 [Azure Storage 계정 옵션](storage-account-options.md)을 참조하세요.
 
 저장소 계정의 이름을 지정할 때는 다음 규칙에 유의하세요.
 
@@ -149,43 +159,72 @@ az account list-locations \
 
 # <a name="portaltabportal"></a>[포털](#tab/portal)
 
-Azure Portal에서 범용 저장소 계정을 만들려면 다음 단계를 수행합니다.
+Azure Portal에서 범용 v2 저장소 계정을 만들려면 다음 단계를 수행합니다.
 
 1. Azure Portal에서 왼쪽의 메뉴를 확장하여 서비스의 메뉴를 열고 **더 많은 서비스**를 선택합니다. 그런 다음 **Storage**로 스크롤하고 **Storage 계정**을 선택합니다. 나타나는 **Storage 계정** 창에서 **추가**를 선택합니다.
 2. 저장소 계정의 이름을 입력합니다.
-3. **배포 모델**, **계정 종류**, **성능**, **복제**, **보안 전송 필요** 등의 필드는 기본값을 그대로 둡니다.
-4. 저장소 계정을 만들려는 구독을 선택합니다.
-5. **리소스 그룹** 섹션에서 **기존 항목 사용**을 선택한 다음 이전 섹션에서 만든 리소스 그룹을 선택합니다.
-6. 새 저장소 계정의 위치를 선택합니다.
-7. **만들기** 를 클릭하여 저장소 계정을 만들 수 있습니다.      
+3. **계정 종류** 필드를 **StorageV2(범용 v2)**로 설정합니다.
+4. **복제** 필드를 **LRS(로컬 중복 저장소)**로 설정된 채로 둡니다. 또는 **영역 중복 저장소(ZRS 미리 보기)**, **GRS(지역 중복 저장소)** 또는 **RA-GRS(읽기 액세스 지역 중복 저장소)**를 선택할 수 있습니다.
+5. **배포 모델**, **성능**, **보안 전송 필요** 등의 필드는 기본값을 그대로 둡니다.
+6. 저장소 계정을 만들려는 구독을 선택합니다.
+7. **리소스 그룹** 섹션에서 **기존 항목 사용**을 선택한 다음 이전 섹션에서 만든 리소스 그룹을 선택합니다.
+8. 새 저장소 계정의 위치를 선택합니다.
+9. **만들기** 를 클릭하여 저장소 계정을 만들 수 있습니다.      
 
 ![Azure Portal에서 저장소 계정을 표시하는 스크린샷](./media/storage-quickstart-create-account/create-account-portal.png)
 
 # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
 
-PowerShell에서 범용 저장소 계정을 만들려면 [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount) 명령을 사용합니다. 
+PowerShell에서 LRS(로컬 중복 저장소)를 사용하여 범용 v2 저장소 계정을 만들려면 [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount) 명령을 사용합니다. 
 
 ```powershell
 New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
   -Name "storagequickstart" `
   -Location $location `
   -SkuName Standard_LRS `
-  -Kind Storage 
+  -Kind StorageV2 
 ```
+
+영역 중복 저장소(ZRS 미리 보기), GRS(지역 중복 저장소) 또는 RA-GRS(읽기 액세스 지역 중복 저장소)를 사용하여 범용 v2 저장소 계정을 만들려면 아래 표에서 **SkuName**매개 변수에 대해 원하는 값을 대체합니다. 
+
+|복제 옵션  |SkuName 매개 변수  |
+|---------|---------|
+|LRS(로컬 중복 저장소)     |Standard_LRS         |
+|ZRS(영역 중복 저장소)     |Standard_ZRS         |
+|GRS(지역 중복 저장소)     |Standard_GRS         |
+|읽기 액세스 GRS(지역 중복 저장소)     |Standard_RAGRS         |
 
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Azure CLI에서 범용 저장소 계정을 만들려면 [az storage account create](/cli/azure/storage/account#create) 명령을 사용합니다.
+Azure CLI에서 로컬 중복 저장소를 사용하여 범용 v2 저장소 계정을 만들려면 [az storage account create](/cli/azure/storage/account#create) 명령을 사용합니다.
 
 ```azurecli-interactive
 az storage account create \
     --name storagequickstart \
     --resource-group storage-quickstart-resource-group \
     --location westus \
-    --sku Standard_LRS 
+    --sku Standard_LRS \
+    --kind StorageV2
 ```
 
+영역 중복 저장소(ZRS 미리 보기), GRS(지역 중복 저장소) 또는 RA-GRS(읽기 액세스 지역 중복 저장소)를 사용하여 범용 v2 저장소 계정을 만들려면 아래 표에서 **sku**매개 변수에 대해 원하는 값을 대체합니다. 
+
+|복제 옵션  |sku 매개 변수  |
+|---------|---------|
+|LRS(로컬 중복 저장소)     |Standard_LRS         |
+|ZRS(영역 중복 저장소)     |Standard_ZRS         |
+|GRS(지역 중복 저장소)     |Standard_GRS         |
+|읽기 액세스 GRS(지역 중복 저장소)     |Standard_RAGRS         |
+
 ---
+
+> [!NOTE]
+> [영역 중복 저장소](https://azure.microsoft.com/blog/announcing-public-preview-of-azure-zone-redundant-storage/preview/)는 현재 미리 보기로 제공되며 다음 위치에서만 사용할 수 있습니다.
+>    - 미국 동부 2
+>    - 미국 중부
+>    - 프랑스 중부(이 지역은 현재 미리 보기로 제공됩니다. 액세스를 요청하려면 [프랑스에서 현재 열려 있는 Azure 가용성 영역을 사용하여 Microsoft Azure 미리 보기](https://azure.microsoft.com/blog/microsoft-azure-preview-with-azure-availability-zones-now-open-in-france)를 참조하세요.)
+    
+사용 가능한 다양한 유형의 복제에 대한 자세한 내용은 [저장소 복제 옵션](storage-redundancy.md)을 참조하세요.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

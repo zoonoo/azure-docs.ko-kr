@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/11/2017
+ms.date: 01/17/2018
 ms.author: dobett
-ms.openlocfilehash: c9854c68a95c2c1cc584503eb2f0b0dba6091016
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 4606cb676c3ab7c8c8511579f43d251ff7d2ae8a
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="deploy-an-edge-gateway-for-the-connected-factory-preconfigured-solution-on-windows-or-linux"></a>연결된 팩터리 미리 구성된 솔루션을 위해 Windows 또는 Linux에 경계 게이트웨이 배포
 
@@ -57,7 +57,7 @@ Windows용 Docker를 설치하는 동안 Docker와 공유할 호스트 컴퓨터
 ![Windows용 Docker 설치](./media/iot-suite-connected-factory-gateway-deployment/image1.png)
 
 > [!NOTE]
-> 또한 **설정** 대화 상자에서 Docker를 설치한 후 이 단계를 수행할 수 있습니다. Windows 시스템 트레이에서 **Docker** 아이콘을 마우스 오른쪽 단추로 클릭하고 **설정**을 선택합니다.
+> 또한 **설정** 대화 상자에서 Docker를 설치한 후 이 단계를 수행할 수 있습니다. Windows 시스템 트레이에서 **Docker** 아이콘을 마우스 오른쪽 단추로 클릭하고 **설정**을 선택합니다. Windows Fall Creators Update와 같은 주요 Windows 업데이트가 시스템에 배포된 경우 드라이브의 공유를 해제한 후 다시 공유하여 액세스 권한을 새로 고칩니다.
 
 Linux를 사용하는 경우 추가 구성 없이 파일 시스템에 대한 액세스를 사용하도록 설정할 수 있습니다.
 
@@ -65,7 +65,7 @@ Windows에서 Docker를 공유하는 드라이브에 폴더를 만듭니다. Lin
 
 Docker 명령의 `<SharedFolder>`를 참조하는 경우 운영 체제에 올바른 구문을 사용해야 합니다. 다음은 Windows 및 Linux를 위한 두 가지 예입니다.
 
-- Windows에서 `D:\shared` 폴더를 `<SharedFolder>`로 사용하는 경우 Docker 명령 구문은 `//d/shared`입니다.
+- Windows에서 `D:\shared` 폴더를 `<SharedFolder>`로 사용하는 경우 Docker 명령 구문은 `d:/shared`입니다.
 
 - Linux에서 `/shared` 폴더를 `<SharedFolder>`로 사용하는 경우 Docker 명령 구문은 `/shared`입니다.
 
@@ -108,30 +108,16 @@ docker run --rm -it -v <SharedFolder>:/docker -v x509certstores:/root/.dotnet/co
 
 - `<IoTHubOwnerConnectionString>`은 Azure Portal의 **iothubowner** 공유 액세스 정책 연결 문자열입니다. 이전 단계에서 이 연결 문자열을 복사했습니다. OPC 게시자를 처음 실행할 때 이 연결 문자열만 필요합니다. 다음 실행 시에는 보안 위험이 제기되므로 이를 생략해야 합니다.
 
-- 사용하는 `<SharedFolder>` 및 해당 구문은 [Docker 설치 및 구성](#install-and-configure-docker) 섹션에 설명되어 있습니다. OPC 게시자는 `<SharedFolder>`를 사용하여 OPC 게시자 구성 파일을 읽고, 로그 파일을 작성하고, 이러한 파일 모두 컨테이너 외부에서 사용할 수 있도록 설정합니다.
+- 사용하는 `<SharedFolder>` 및 해당 구문은 [Docker 설치 및 구성](#install-and-configure-docker) 섹션에 설명되어 있습니다. OPC 게시자는 `<SharedFolder>`를 사용하여 OPC 게시자 구성 파일을 읽고 쓰며, 로그 파일을 작성하고, 이러한 파일 모두 컨테이너 외부에서 사용할 수 있도록 설정합니다.
 
-- OPC 게시자는 `<SharedFolder>/docker` 폴더에 배치해야 하는 **publishednodes.json** 파일에서 해당 구성을 읽습니다. 이 구성 파일은 지정된 OPC UA 서버에서 OPC 게시자가 구독해야 하는 OPC UA 노드 데이터가 무엇인지 정의합니다.
-
-- OPC UA 서버가 OPC 게시자에게 데이터 변경에 대해 알릴 때마다 새 값이 IoT Hub에 전송됩니다. 일괄 처리 설정에 따라 OPC 게시자는 일괄 처리에서 IoT Hub로 데이터를 보내기 전에 먼저 데이터를 누적할 수도 있습니다.
-
-- **publishednodes.json** 파일의 전체 구문은 GitHub의 [OPC 게시자](https://github.com/Azure/iot-edge-opc-publisher) 페이지에 설명되어 있습니다.
-
-    다음 코드 조각은 **publishednodes.json** 파일의 간단한 예를 보여 줍니다. 이 예제는 호스트 이름이 **win10pc**인 OPC UA 서버에서 **CurrentTime** 값을 게시하는 방법을 보여 줍니다.
+- OPC 게시자는 `<SharedFolder>/docker` 폴더에서 읽고 쓰는 **publishednodes.json** 파일에서 해당 구성을 읽습니다. 이 구성 파일은 지정된 OPC UA 서버에서 OPC 게시자가 구독해야 하는 OPC UA 노드 데이터가 무엇인지 정의합니다. **publishednodes.json** 파일의 전체 구문은 GitHub의 [OPC 게시자](https://github.com/Azure/iot-edge-opc-publisher) 페이지에 설명되어 있습니다. 게이트웨이를 추가할 때 빈 **publishednodes.json**을 폴더에 배치합니다.
 
     ```json
     [
-      {
-        "EndpointUrl": "opc.tcp://win10pc:48010",
-        "OpcNodes": [
-          {
-            "ExpandedNodeId": "nsu=http://opcfoundation.org/UA/;i=2258"
-          }
-        ]
-      }
     ]
     ```
 
-    **publishednodes.json** 파일에서 OPC UA 서버는 엔드포인트 URL에서 지정됩니다. 이전 예제와 같이 IP 주소 대신 호스트 이름 레이블(예: **win10pc**)을 사용하여 호스트 이름을 지정하는 경우 컨테이너의 네트워크 주소 확인을 통해 IP 주소에 대한 이 호스트 이름 레이블을 확인할 수 있어야 합니다.
+- OPC UA 서버가 OPC 게시자에게 데이터 변경에 대해 알릴 때마다 새 값이 IoT Hub에 전송됩니다. 일괄 처리 설정에 따라 OPC 게시자는 일괄 처리에서 IoT Hub로 데이터를 보내기 전에 먼저 데이터를 누적할 수도 있습니다.
 
 - Docker는 NetBIOS 이름 확인이 아닌 DNS 이름 확인만 지원합니다. 네트워크에서 DNS 서버가 없다면 이전 명령줄 예제에 나온 해결책을 사용할 수 있습니다. 이전 명령줄 예제는 `--add-host` 매개 변수를 사용하여 컨테이너 호스트 파일에 항목을 추가합니다. 이 항목은 지정한 IP 주소 `<IpAddressOfOpcServerHostname>`을 확인하여 제공된 `<OpcServerHostname>`에 대한 호스트 이름 조회가 가능합니다.
 
@@ -169,11 +155,16 @@ OPC 프록시는 설치하는 동안 연결 문자열을 저장합니다. 다음
 
 사용자 자신의 OPC UA 서버를 연결된 팩터리 미리 구성된 솔루션에 추가하려면 다음을 수행합니다.
 
-1. 연결된 팩터리 솔루션 포털에서 **사용자 자신의 OPC UA 서버 연결** 페이지로 이동합니다. 이전 섹션과 동일한 단계를 수행하여 연결된 팩터리 포털과 OPC UA 서버 간에 신뢰 관계를 설정합니다.
+1. 연결된 팩터리 솔루션 포털에서 **사용자 자신의 OPC UA 서버 연결** 페이지로 이동합니다.
 
-    ![솔루션 포털](./media/iot-suite-connected-factory-gateway-deployment/image4.png)
+    1. 연결하려는 OPC UA 서버를 시작합니다. OPC 게시자와 컨테이너에서 실행되는 OPC 프록시에서 OPC UA 서버에 연결할 수 있는지 확인합니다(이름 확인에 대한 이전 설명 참조).
+    1. OPC UA 서버의 끝점 URL(`opc.tcp://<host>:<port>`)을 입력하고 **연결**을 클릭합니다.
+    1. 연결 설정의 일부로, 연결된 팩터리 포털(OPC UA 클라이언트)과 연결하려는 OPC UA 서버 간에 트러스트 관계가 설정됩니다. 연결된 팩터리 대시보드에서 **연결하려는 서버의 인증서를 확인할 수 없음** 경고가 표시됩니다. 인증서 경고가 표시되면 **계속**을 클릭합니다.
+    1. 설치하기 더 어려운 것은 연결하려는 OPC UA 서버의 인증서 구성입니다. PC 기반 OPC UA 서버의 경우, 대시보드에 승인할 수는 경고 대화 상자만 표시될 수 있습니다. 포함된 OPC UA 서버 시스템의 경우, OPC UA 서버의 설명서를 참조하여 이 작업이 완료되는 방식을 확인할 수 있습니다. 이 작업을 완료하려면 연결된 팩터리 포털의 OPC UA 클라이언트 인증서가 필요할 수 있습니다. 관리자는 **사용자 자신의 OPC UA 서버 연결** 페이지에서 이 인증서를 다운로드할 수 있습니다.
 
-1. OPC UA 서버의 OPC UA 노드 트리로 이동한 후 연결된 팩터리로 전송할 OPC 노드를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
+        ![솔루션 포털](./media/iot-suite-connected-factory-gateway-deployment/image4.png)
+
+1. OPC UA 서버의 OPC UA 노드 트리로 이동한 후 연결된 팩터리로 값을 전송할 OPC 노드를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
 
 1. 이제 원격 분석이 게이트웨이 장치로 진행됩니다. **새 팩터리** 아래에 있는 연결된 팩터리 포털의 **팩터리 위치** 보기에서 원격 분석을 볼 수 있습니다.
 

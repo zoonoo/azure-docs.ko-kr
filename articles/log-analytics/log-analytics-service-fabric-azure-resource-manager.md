@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 01/19/2018
 ms.author: nini
-ms.openlocfilehash: 8c564c0dcbb2f9be286917b2f4d8a40da5406fae
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: cc29a8ac6369560d37466d69fad272cef2337732
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="assess-service-fabric-applications-and-micro-services-with-the-azure-portal"></a>Azure Portal에서 Service Fabric 응용 프로그램 및 마이크로 서비스 평가
 
@@ -37,7 +37,7 @@ Service Fabric 솔루션은 Azure WAD 테이블에서 이 데이터를 수집하
 솔루션을 시작하려면 Service Fabric 클러스터를 Log Analytics 작업 영역에 연결해야 합니다. 세 가지 시나리오를 고려해야 합니다.
 
 1. Service Fabric 클러스터를 배포하지 않은 경우 ***Log Analytics 작업 영역에 연결된 Service Fabric 클러스터 배포***의 단계에 따라 새 클러스터를 배포하고 Log Analytics에 보고하도록 구성합니다.
-2. Service Fabric 클러스터의 보안과 같은 다른 OMS 솔루션을 사용하기 위해 호스트에서 성능 카운터를 수집해야 할 경우 ***VM 확장이 설치된 Log Analytics 작업 영역에 연결된 Service Fabric 클러스터 배포***의 단계를 따릅니다.
+2. Service Fabric 클러스터의 보안과 같은 다른 관리 솔루션을 사용하기 위해 호스트에서 성능 카운터를 수집해야 하는 경우, ***VM 확장이 설치된 Log Analytics 작업 영역에 연결된 Service Fabric 클러스터 배포***의 단계를 따릅니다.
 3. Service Fabric 클러스터를 이미 배포했고 Log Analytics에 연결하려는 경우 ***기존 저장소 계정을 Log Analytics에 추가***의 단계를 따릅니다.
 
 ## <a name="deploy-a-service-fabric-cluster-connected-to-a-log-analytics-workspace"></a>Log Analytics 작업 영역에 연결된 Service Fabric 클러스터를 배포합니다.
@@ -94,7 +94,7 @@ Service Fabric 솔루션은 Azure WAD 테이블에서 이 데이터를 수집하
 
     ![Service Fabric](./media/log-analytics-service-fabric/10.png)
 
-    b. 다음 쿼리로 각 노드에서 사용 가능한 메모리에 대한 비슷한 꺾은선형 차트를 확인합니다.
+    나. 다음 쿼리로 각 노드에서 사용 가능한 메모리에 대한 비슷한 꺾은선형 차트를 확인합니다.
 
     ```
     Type=Perf ObjectName=Memory CounterName="Available MBytes Memory" | measure avg(CounterValue) by Computer Interval 1HOUR.
@@ -108,7 +108,7 @@ Service Fabric 솔루션은 Azure WAD 테이블에서 이 데이터를 수집하
 
     ![Service Fabric](./media/log-analytics-service-fabric/11.png)
 
-    c. 시간별 평균, 최소, 최대 및 75 백분위 CPU 사용량을 검사하여 특정 노드로 드릴 다운하려는 경우 다음 쿼리(컴퓨터 필드 대체)를 사용하여 수행할 수 있습니다.
+    다. 시간별 평균, 최소, 최대 및 75 백분위 CPU 사용량을 검사하여 특정 노드로 드릴 다운하려는 경우 다음 쿼리(컴퓨터 필드 대체)를 사용하여 수행할 수 있습니다.
 
     ```
     Type=Perf CounterName="% Processor Time" InstanceName=_Total Computer="BaconDC01.BaconLand.com"| measure min(CounterValue), avg(CounterValue), percentile75(CounterValue), max(CounterValue) by Computer Interval 1HOUR

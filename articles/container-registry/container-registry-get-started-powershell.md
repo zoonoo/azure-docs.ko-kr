@@ -5,15 +5,15 @@ services: container-registry
 author: neilpeterson
 manager: timlt
 ms.service: container-registry
-ms.topic: quicksart
+ms.topic: quickstart
 ms.date: 10/08/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: fbf643ad342d712452d39c71b8706b6213198512
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: c7d74395b1c8b386ce190906aa5b63b48c1bb1bf
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="create-an-azure-container-registry-using-powershell"></a>PowerShell을 사용하여 Azure Container Registry 만들기
 
@@ -43,7 +43,7 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 
 [New-AzureRMContainerRegistry](/powershell/module/containerregistry/New-AzureRMContainerRegistry) 명령을 사용하여 ACR 인스턴스를 만듭니다.
 
-레지스트리의 이름은 **고유해야 합니다**. 다음 예제에서는 *myContainerRegistry007*을 사용합니다. 이를 고유한 값으로 업데이트합니다.
+레지스트리 이름은 Azure 내에서 고유해야 하며, 5-50자의 영숫자만 포함해야 합니다. 다음 예제에서는 *myContainerRegistry007*을 사용합니다. 이를 고유한 값으로 업데이트합니다.
 
 ```powershell
 $registry = New-AzureRMContainerRegistry -ResourceGroupName "myResourceGroup" -Name "myContainerRegistry007" -EnableAdminUser -Sku Basic

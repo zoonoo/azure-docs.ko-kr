@@ -6,14 +6,14 @@ author: stevelas
 manager: timlt
 ms.service: container-registry
 ms.topic: overview
-ms.date: 10/13/2017
+ms.date: 01/22/2018
 ms.author: stevelas
 ms.custom: mvc
-ms.openlocfilehash: e4bca1cc09d115cf0b1b13f7675645ef1ef5ec53
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: b92fd225e32749b87a065ab9048938059c42f265
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Azure의 개인 Docker 컨테이너 레지스트리 소개
 
@@ -30,11 +30,11 @@ Azure Container Registry에서 다양한 배포 대상으로 이미지 끌어오
 개발자는 컨테이너 개발 워크플로의 일환으로 컨테이너 레지스트리에 밀어넣을 수도 있습니다. 예를 들어 [Visual Studio Team Services](https://www.visualstudio.com/docs/overview) 또는 [Jenkins](https://jenkins.io/)와 같은 배포 도구 및 지속적인 통합의 컨테이너 레지스트리를 대상으로 합니다.
 
 ## <a name="key-concepts"></a>주요 개념
-* **레지스트리** - Azure 구독 내에서 하나 이상의 컨테이너 레지스트리를 만듭니다. 레지스트리는 세 개의 SKU, [Basic, Standard 및 Premium](container-registry-skus.md)에서 사용할 수 있으며 각각은 webhook 통합, Azure Active Directory와 리포지토리 인증 및 삭제 기능을 지원합니다. 컨테이너 이미지의 네트워크에 가까운 로컬 저장소의 장점을 활용하려면 배포와 동일한 Azure 위치에 레지스트리를 만듭니다. 고급 복제 및 컨테이너 이미지 배포 시나리오에 대해 프리미엄 등록의 [지역에서 복제](container-registry-geo-replication.md) 기능을 사용합니다. 정규화된 레지스트리 이름의 형식은 `myregistry.azurecr.io`입니다.
+* **레지스트리** - Azure 구독 내에서 하나 이상의 컨테이너 레지스트리를 만듭니다. 레지스트리는 세 개의 SKU, [기본, 표준 및 프리미엄](container-registry-skus.md)에서 사용할 수 있으며 각각은 webhook 통합, Azure Active Directory와 리포지토리 인증 및 삭제 기능을 지원합니다. 컨테이너 이미지의 네트워크에 가까운 로컬 저장소의 장점을 활용하려면 배포와 동일한 Azure 위치에 레지스트리를 만듭니다. 고급 복제 및 컨테이너 이미지 배포 시나리오에 대해 프리미엄 등록의 [지역에서 복제](container-registry-geo-replication.md) 기능을 사용합니다. 정규화된 레지스트리 이름의 형식은 `myregistry.azurecr.io`입니다.
 
   컨테이너 레지스트리에 대한 [액세스 제어](container-registry-authentication.md)는 Azure Active Directory에서 지원하는 [서비스주체](../active-directory/active-directory-application-objects.md) 또는 제공된 관리자 계정을 사용하여 수행합니다. 레지스트리로 인증하려면 표준 `docker login` 명령을 실행합니다.
 
-* **리포지토리** - 레지스트리는 컨테이너 이미지 그룹인 하나 이상의 리포지토리를 포함합니다. Azure Container Registry는 다단계 리포지토리 네임스페이스를 지원합니다. 다단계 네임스페이스를 통해 특정 앱과 관련된 이미지 컬렉션 또는 특정 배포 또는 작업 팀에 대한 앱 컬렉션을 그룹화할 수 있습니다. 예:
+* **리포지토리** - 레지스트리는 컨테이너 이미지 그룹인 하나 이상의 리포지토리를 포함합니다. Azure Container Registry는 다단계 리포지토리 네임스페이스를 지원합니다. 다단계 네임스페이스를 통해 특정 앱과 관련된 이미지 컬렉션 또는 특정 배포 또는 작업 팀에 대한 앱 컬렉션을 그룹화할 수 있습니다. 예: 
 
   * `myregistry.azurecr.io/aspnetcore:1.0.1`은 회사 차원의 이미지를 나타냅니다.
   * `myregistry.azurecr.io/warrantydept/dotnet-build`는 보증 부서 차원에서 공유되는 .NET 앱을 빌드하는 데 사용되는 이미지를 나타냅니다.

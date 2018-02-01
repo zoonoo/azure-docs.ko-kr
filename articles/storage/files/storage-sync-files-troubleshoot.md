@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 23f111bef6a68115e4474f3c13e91d69d7e89e1c
-ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
+ms.openlocfilehash: 7562e43f58f303ea34a08b8b9e056a0c3d0c10d0
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Azure 파일 동기화(미리 보기) 문제 해결
 Azure File Sync(미리 보기)를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화합니다. Azure File Sync는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -135,6 +135,8 @@ Azure 파일 공유가 다른 클라우드 엔드포인트에서 이미 사용�
 
     > [!NOTE]
     > Azure File Sync는 VSS 스냅샷을 주기적으로 생성하여 열린 핸들이 있는 파일을 동기화합니다.
+
+현재, 리소스를 다른 구독 또는 다른 Azure AD 테넌트로 이동하는 것은 지원되지 않습니다.  구독이 다른 테넌트를 이동되면, 소유권 변경에 따라, Azure 파일 공유에서 서비스에 액세스할 수 없게 됩니다. 테넌트가 변경되면 서버 끝점 및 클라우드 끝점을 삭제하고(재사용할 Azure 파일 공유를 정리하는 방법에 대한 지침은 동기화 그룹 관리 참조) 동기화 그룹을 다시 만듭니다.
 
 ## <a name="cloud-tiering"></a>클라우드 계층화 
 클라우드 계층화에는 다음 두 가지 경로가 있습니다.

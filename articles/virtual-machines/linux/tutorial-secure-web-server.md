@@ -16,14 +16,14 @@ ms.workload: infrastructure
 ms.date: 12/14/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 6b333b75f571e367470037ab9ce8b273fcae5498
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: 2cebe6dd35e2a20738e2766447451ee32807eb4d
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="secure-a-web-server-with-ssl-certificates-on-a-linux-virtual-machine-in-azure"></a>Azure에서 Linux 가상 머신의 SSL 인증서로 웹 서버 보호
-웹 서버를 보호하기 위해 웹 트래픽을 암호화하는 데 SSL(Secure Sockets Later) 인증서를 사용할 수 있습니다. 이러한 SSL 인증서는 Azure Key Vault에 저장될 수 있으며 Azure에서 Linux VM(가상 머신)에 인증서의 보안 배포를 허용합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
+웹 서버를 보호하기 위해 웹 트래픽을 암호화하는 데 SSL(Secure Sockets Layer) 인증서를 사용할 수 있습니다. 이러한 SSL 인증서는 Azure Key Vault에 저장될 수 있으며 Azure에서 Linux VM(가상 머신)에 인증서의 보안 배포를 허용합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * Azure Key Vault 만들기
@@ -158,4 +158,5 @@ az vm open-port \
 미리 빌드된 가상 머신 스크립트 샘플을 보려면 이 링크를 따릅니다.
 
 > [!div class="nextstepaction"]
-> [Windows 가상 컴퓨터 스크립트 샘플 ](./cli-samples.md)
+> [Linux 가상 머신 스크립트 샘플](./cli-samples.md)
+

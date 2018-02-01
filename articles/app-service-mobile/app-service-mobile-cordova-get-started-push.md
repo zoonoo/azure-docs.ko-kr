@@ -14,11 +14,11 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
-ms.openlocfilehash: c4fd425ab479121fff80bb2c2eef016662ec3bfe
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 05fa692f9331cf6b5178c3e9dca60ad2598dc609
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="add-push-notifications-to-your-apache-cordova-app"></a>Apache Cordova 앱에 푸시 알림 추가
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
@@ -79,6 +79,7 @@ Apache Cordova 응용 프로그램에서는 기본적으로 장치 또는 네트
 
 2. 설치 원본 옆의 화살표를 클릭합니다.
 3. **SENDER_ID**에서 Google 개발자 콘솔 프로젝트에 대해 숫자 프로젝트 ID가 이미 지정된 경우 여기에 추가할 수 있습니다. 그렇지 않으면 자리 표시자 값(예: 777777)을 입력합니다.  Android를 대상으로 하는 경우 나중에 config.xml에서 이 값을 업데이트할 수 있습니다.
+     버전 2.0.0에서 SENDER_ID가 설치 시에 제거되었으며, google-services.json을 프로젝트의 루트 폴더에 설치해야 합니다.  자세한 내용은 [여기](https://github.com/phonegap/phonegap-plugin-push/blob/master/docs/INSTALLATION.md)를 참조하세요.
 4. **추가**를 클릭합니다.
 
 이제 푸시 플러그 인이 설치되었습니다.

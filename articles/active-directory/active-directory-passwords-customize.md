@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
-ms.custom: it-pro
-ms.openlocfilehash: 6d8a2f2106e57bdf84bc3bead70d379691b79742
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.custom: it-pro;seohack1
+ms.openlocfilehash: 526286c7f6b62d165af43487ca63fe9055623d0c
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="customize-the-azure-ad-functionality-for-self-service-password-reset"></a>Azure AD의 셀프 서비스 암호 재설정 기능 사용자 지정
 
@@ -74,31 +74,7 @@ AD FS 로그인 페이지에 링크를 추가하려면 AD FS 서버에서 아래
     * 암호 재설정 페이지로 *whr* 매개 변수를 전달하는 경우(예: “https://login.microsoftonline.com/?whr=contoso.com”)
     * 암호 재설정 페이지로 *username* 매개 변수를 전달하는 경우(예: “https://login.microsoftonline.com/?username=admin@contoso.com”)
 
-### <a name="graphics-details"></a>그래픽 정보
-
-아래 설정을 사용하여 로그인 페이지의 시각적 특성을 변경합니다. **Azure Active Directory** > **회사 브랜딩** > **회사 브랜딩 편집**으로 이동합니다.
-
-* 로그인 페이지 이미지는 1420 x 1200픽셀의 최대 500KB 크기의 .png 또는 .jpg 파일이어야 합니다. 최상의 결과를 위해 약 200KB가 가장 좋습니다.
-* 로그인 페이지 배경색은 대기 시간이 긴 연결에서 사용되며, RGB 16진수 형식이어야 합니다.
-* 배너 이미지는 60 x 280픽셀의 최대 10KB 크기의 .png 또는 .jpg 파일이어야 합니다.
-* 정사각형 로고(일반 테마와 어두운 테마)는 (크기 조정 가능한) 240 x 240픽셀의 최대 10KB 크기의 .png 또는 .jpg 파일이어야 합니다.
-
-### <a name="sign-in-text-options"></a>로그인 텍스트 옵션
-
-아래 설정을 사용하여 로그인 페이지에 조직과 관련 있는 텍스트를 추가합니다. **Azure Active Directory** > **회사 브랜딩** > **회사 브랜딩 편집**으로 이동합니다.
-
-* **사용자 이름 힌트**: *someone@example.com*이라는 예제 텍스트를 사용자에게 의미 있는 텍스트로 바꾸어 보세요. 단, 내부 사용자와 외부 사용자를 모두 지원하는 경우에는 기본값을 그대로 두는 것이 좋습니다.
-* **로그인 페이지 텍스트**: 최대 256자까지 작성할 수 있습니다. 이 텍스트는 사용자가 온라인에서 로그인하는 모든 곳에 그리고 Windows 10의 Azure AD Workplace Join 환경에 표시됩니다. 사용 약관, 지침, 사용자를 위한 팁에 이 텍스트를 사용합니다. 
-
-   >[!IMPORTANT]
-   >로그인 페이지는 누구나 볼 수 있으므로 여기에 중요한 정보를 포함하지 않도록 합니다.
-   >
-
-### <a name="the-keep-me-signed-in-disabled-setting"></a>“로그인 사용 안 함” 설정
-
-**로그인 사용 안 함** 옵션을 사용하면 사용자가 브라우저 창을 닫고 다시 열 때 로그인 상태가 유지됩니다. 이 옵션은 세션 수명에 영향을 주지 않습니다. **Azure Active Directory** > **회사 브랜딩** > **회사 브랜딩 편집**으로 이동합니다.
-
-사용자가 이 확인란을 선택할 수 있는지 여부에 따라 SharePoint Online 및 Office 2010의 일부 기능이 영향을 받습니다. 이 옵션을 숨기면 사용자에게 로그인 프롬프트가 과도하게 많이 표시될 수 있습니다.
+회사 브랜딩을 구성하는 방법에 대한 자세한 내용은 문서 [Azure AD에서 로그인 페이지에 회사 브랜딩 추가](customize-branding.md)에서 찾습니다.
 
 ### <a name="directory-name"></a>디렉터리 이름
 

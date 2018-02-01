@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory에서 개별 라이선스 사용자를 그룹으로 마이그레이션하는 방법 | Microsoft Docs"
+title: "Azure Active Directory에서 사용자 라이선스 사용자를 그룹 기반 라이선스로 마이그레이션 | Microsoft Docs"
 description: "Azure Active Directory를 사용하여 개별 라이선스 사용자를 그룹 기반 라이선스로 전환하는 방법"
 services: active-directory
 keywords: "Azure AD 라이선스"
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/05/2017
+ms.date: 01/14/2018
 ms.author: curtand
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 08bcde92ecc3c834d4c6a36e73a720c170b8fcf2
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: 47d7bf5a41c140c6d6769b549163a3dadfa5ef1c
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="how-to-add-licensed-users-to-a-group-for-licensing-in-azure-active-directory"></a>Azure Active Directory에서 라이선스에 대해 라이선스 사용자를 그룹에 추가하는 방법
 

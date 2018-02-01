@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: 82b2bcf5b05288888714339af15ff2796d9660bd
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 66fc8bac46decacdd2214475e94980c447045935
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="detailed-ssh-troubleshooting-steps-for-issues-connecting-to-a-linux-vm-in-azure"></a>Azure에서 Linux VM에 연결할 때의 문제에 대한 자세한 SSH 문제 해결 단계
 SSH 클라이언트가 VM의 SSH 서비스에 도달할 수 없는 데에는 여러 원인이 있습니다. 추가적인 [일반 SSH 문제 해결 단계](troubleshoot-ssh-connection.md)를 진행한 경우 연결 문제를 추가적으로 해결해야 합니다. 이 문서에서는 SSH 연결에 문제가 있는지 확인하는 자세한 문제 해결 단계와 해결 방법을 안내합니다.
@@ -118,9 +118,9 @@ IP 확인을 사용하여 NSG 구성이 유효한지 검사할 수도 있습니�
 ## <a name="source-5-linux-based-azure-virtual-machine"></a>발생지 5: Linux 기반 Azure 가상 컴퓨터
 마지막 가능한 문제 발생지는 Azure 가상 머신 자체입니다.
 
-![Linux 기반 Azure 가상 컴퓨터를 강조하는 다이어그램](./media/detailed-troubleshoot-ssh-connection/ssh-tshoot5.png)
+![Linux 기반 Azure 가상 머신을 강조하는 다이어그램](./media/detailed-troubleshoot-ssh-connection/ssh-tshoot5.png)
 
-아직 수행하지 않은 경우 [지침에 따라 Linux 기반 가상 머신에 대한 암호 또는 SSH를 다시 설정](classic/reset-access.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)합니다.
+아직 수행하지 않은 경우 지침에 따라 [Linux 기반 가상 머신에 대한 암호를 다시 설정](reset-password.md)합니다.
 
 컴퓨터에서 다시 연결을 시도하세요. 문제가 계속 발생하면 다음과 같은 문제가 있는 것일 수 있습니다.
 

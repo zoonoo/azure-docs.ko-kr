@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2018
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: ec6489f796dab0fa24bbadf542429d4cf853c414
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 5eb53d13ed85093616f43b79b58d43ba62ffbd67
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>하이브리드 Azure Active Directory 가입 장치를 구성하는 방법
 
@@ -41,7 +41,7 @@ Azure AD(Active Directory)의 장치 관리를 사용하면 보안 및 규정 �
 
 ### <a name="windows-current-devices"></a>Windows 현재 장치
 
-- Windows 데스크톱 운영 체제를 실행하는 장치의 경우 Windows 10주년 업데이트(버전 1607) 이상을 사용할 것을 권장합니다. 
+- Windows 데스크톱 운영 체제를 실행하는 장치의 경우 지원되는 버전은 Windows 10주년 업데이트(버전 1607) 이상입니다. 
 - Windows 현재 장치의 등록은 암호 해시 동기화 구성처럼 페더레이션되지 않은 환경에서 **지원됩니다**.  
 
 
@@ -58,7 +58,7 @@ Azure AD(Active Directory)의 장치 관리를 사용하면 보안 및 규정 �
 
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 조직에서 하이브리드 Azure AD 가입 장치를 사용하도록 설정하기 전에 최신 버전의 Azure AD 연결을 실행해야 합니다.
 

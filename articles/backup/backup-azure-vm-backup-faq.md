@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/18/2017
 ms.author: trinadhk;pullabhk;
-ms.openlocfilehash: f69cbbab19acbc4e71445012d262896275a7d768
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 9a08495c1b395871c04c0c2b06a6efbdb4bfeaa2
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="questions-about-the-azure-vm-backup-service"></a>Azure VM Backup 서비스에 대한 질문
 이 문서에서는 Azure VM Backup 구성 요소를 빨리 이해하는 데 도움이 되는 일반적인 질문에 대한 대답을 제공합니다. 대답 중 일부에는 포괄적인 정보를 포함하는 문서에 대한 링크가 있습니다. 또한 [토론 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)에 Azure Backup 서비스에 대한 질문도 게시할 수 있습니다.
@@ -68,6 +68,13 @@ Azure 전체 VM 복원을 빠른 만들기 옵션으로 생각해 볼 수 있습
   
 ### <a name="can-i-use-backups-of-unmanaged-disk-vm-to-restore-after-i-upgrade-my-disks-to-managed-disks"></a>내 디스크를 관리 디스크로 업그레이드한 후 관리되지 않는 디스크 VM의 백업을 사용하여 복원할 수 있나요?
 예, 관리되지 않는 디스크에서 관리 디스크로 마이그레이션하기 전에 수행한 백업을 사용할 수 있습니다. 기본적으로 VM 복원 작업은 관리되지 않는 디스크가 있는 VM을 만듭니다. 디스크 복원 기능을 사용하여 디스크를 복원하고 이를 사용하여 관리 디스크에 VM을 만들 수 있습니다. 
+
+### <a name="what-is-the-procedure-to-restore-a-vm-to-a-restore-point-taken-before-the-conversion-from-unmanaged-to-managed-disks-was-done-for-a-vm"></a>VM에 대해 관리되지 않는 디스크에서 관리 디스크로 변환하기 전에 선택한 복원 지점으로 VM을 복원하는 절차는 무엇인가요?
+이 시나리오에서는 기본적으로 VM 복원 작업을 통해 관리되지 않는 디스크가 있는 VM을 만듭니다. 관리 디스크가 있는 VM을 만들려면 다음을 수행합니다.
+1. [관리되지 않는 디스크에 복원](tutorial-restore-disk.md#restore-a-vm-disk)
+2. [복원된 디스크를 관리 디스크로 변환](tutorial-restore-disk.md#convert-the-restored-disk-to-a-managed-disk)
+3. [관리 디스크가 있는 VM 만들기](tutorial-restore-disk.md#create-a-vm-from-the-restored-disk) <br>
+Powershell cmdlet의 경우 [여기](backup-azure-vms-automation.md#restore-an-azure-vm)를 참조하세요.
 
 ## <a name="manage-vm-backups"></a>VM 백업 관리
 ### <a name="what-happens-when-i-change-a-backup-policy-on-vms"></a>VM에서 백업 정책을 변경하면 어떻게 되나요?

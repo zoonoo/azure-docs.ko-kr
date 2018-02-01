@@ -1,8 +1,8 @@
 ---
-title: "Azure Active Directory를 사용하여 개발자 계정에 권한 부여 - Azure API Management | Microsoft Docs"
-description: "API Management에서 Azure Active Directory를 사용하여 권한을 부여하는 방법"
+title: "Azure API Management에서 그룹을 사용하여 개발자 계정 관리 | Microsoft Docs"
+description: "Azure API Management에서 그룹을 사용하여 개발자 계정을 관리하는 방법에 대해 알아봅니다."
 services: api-management
-documentationcenter: API Management
+documentationcenter: 
 author: juliako
 manager: cfowler
 editor: 
@@ -11,235 +11,98 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2017
+ms.date: 01/17/2018
 ms.author: apimpm
-ms.openlocfilehash: 45c8632f4e03c86cf4e32c6d1151977792f32add
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 5fa4825db7216f4b6e2d833c64d5835d6cef93a6
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 01/22/2018
 ---
-> [!WARNING]
-> Azure Active Directory 통합은 [개발자, 표준 및 프리미엄](https://azure.microsoft.com/en-us/pricing/details/api-management/) 계층에서만 사용 가능합니다.
+# <a name="how-to-create-and-use-groups-to-manage-developer-accounts-in-azure-api-management"></a>Azure API Management에서 개발자 계정을 관리하는 그룹을 만들고 사용하는 방법
+API Management에서 그룹은 개발자에 대한 제품 표시 여부를 관리하는 데 사용됩니다. 제품이 먼저 그룹에 표시된 다음, 이러한 그룹의 개발자가 그룹과 연결된 제품을 보고 구독할 수 있습니다. 
 
-# <a name="how-to-authorize-developer-accounts-using-azure-active-directory-in-azure-api-management"></a>Azure API Management에서 Azure Active Directory를 사용하여 개발자 계정에 권한을 부여하는 방법
-## <a name="overview"></a>개요
-이 가이드에서는 Azure Active Directory의 사용자에게 개발자 포털에 액세스할 수 있도록 하는 방법을 보여 줍니다. 또한 이 가이드에서는 Azure Active Directory의 사용자를 포함하는 외부 그룹을 추가하여 Azure Active Directory 사용자 그룹을 관리하는 방법을 보여줍니다.
+API Management에는 다음과 같은 변경할 수 없는 시스템 그룹이 있습니다.
 
-> 이 가이드의 단계를 완료하려면 먼저 응용 프로그램을 만들 Azure Active Directory가 있어야 합니다.
-> 
+* **관리자** - Azure 구독 관리자가 이 그룹의 구성원입니다. 관리자는 API Management 서비스 인스턴스를 관리하며 개발자가 사용하는 API, 작업 및 제품을 만듭니다.
+* **개발자** - 인증된 개발자 포털 사용자가 이 그룹에 속합니다. 개발자는 API를 사용하여 응용 프로그램을 빌드하는 고객입니다. 개발자는 개발자 포털에 액세스할 수 있는 권한을 받으며 API의 작업을 호출하는 응용 프로그램을 빌드합니다.
+* **게스트** - API Management 인스턴스의 개발자 포털을 방문하는 인증되지 않은 개발자 포털 사용자(예: 잠재 고객)가 이 그룹에 속합니다. 예를 들어 API를 볼 수 있지만 호출할 수는 없는 기능과 같이 특정 읽기 전용 액세스 권한을 받을 수 있습니다.
 
-## <a name="how-to-authorize-developer-accounts-using-azure-active-directory"></a>Azure Active Directory를 사용하여 개발자 계정에 권한을 부여하는 방법
-시작하려면 Azure Portal에서 API Management 서비스에 대한 **게시자 포털**을 클릭합니다. API Management 게시자 포털로 이동됩니다.
+이러한 시스템 그룹 외에도 관리자는 사용자 지정 그룹을 만들거나 [연관된 Azure Active Directory 테넌트에서 외부 그룹을 가져올 수 있습니다][leverage external groups in associated Azure Active Directory tenants]. 사용자 지정 및 외부 그룹은 시스템 그룹과 함께 사용되어 개발자에게 API 제품에 대한 표시 여부 및 액세스를 제공합니다. 예를 들어, 특정 파트너 조직과 관련된 개발자를 위한 하나의 사용자 지정 그룹을 만들고 관련 API만을 포함한 제품에서 API에 대한 액세스를 허용합니다. 사용자는 두 그룹 이상의 구성원이 될 수 있습니다.
 
-![게시자 포털][api-management-management-console]
+이 가이드에서는 API Management 인스턴스의 관리자가 새 그룹을 추가하고 이 그룹과 새 제품 및 개발자를 연결하는 방법을 보여 줍니다.
 
-> 아직 API Management 서비스 인스턴스를 만들지 않은 경우 [Azure API Management 시작][Get started with Azure API Management] 자습서의 [API Management 서비스 인스턴스 만들기][Create an API Management service instance]를 참조하세요.
-> 
-> 
+게시자 포털에서 그룹 만들기 및 관리 외에도 API Management REST API [그룹](https://msdn.microsoft.com/library/azure/dn776329.aspx) 엔터티를 사용하여 그룹을 만들고 관리할 수 있습니다.
 
-왼쪽의 **API Management** 메뉴에서 **보안**을 클릭하고 **외부 ID**를 클릭합니다.
+## <a name="prerequisites"></a>필수 조건
 
-![외부 ID][api-management-security-external-identities]
+문서 [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)의 작업을 완료합니다.
 
-**Azure Active Directory**를 클릭합니다. **리디렉션 URL** 을 기록해 두고 Azure 클래식 포털에서 Azure Active Directory로 전환합니다.
+[!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
-![외부 ID][api-management-security-aad-new]
+## <a name="create-group"> </a>그룹 만들기
 
-**추가** 단추를 클릭하여 새 Azure Active Directory 응용 프로그램을 만들고 **내 조직에서 개발 중인 응용 프로그램 추가**를 선택합니다.
+이 섹션에서는 API Management 계정에 새 그룹을 추가하는 방법을 보여 줍니다.
 
-![새 Azure Active Directory 응용 프로그램 추가][api-management-new-aad-application-menu]
+1. 화면 왼쪽의 **그룹** 탭을 선택합니다.
+2. **+추가**를 클릭합니다.
+3. 그룹의 고유한 이름 및 선택적 설명을 입력합니다.
+4. **만들기**를 누릅니다.
 
-응용 프로그램의 이름을 입력하고 **웹 응용 프로그램 및/또는 Web API**를 선택한 후 다음 단추를 클릭합니다.
+    ![새 그룹 추가](./media/api-management-howto-create-groups/groups001.png)
 
-![새 Azure Active Directory 응용 프로그램][api-management-new-aad-application-1]
+만든 그룹은 **그룹** 목록에 추가됩니다. <br/>그룹의 **이름** 또는 **설명**을 편집하려면 그룹 이름 및 **설정**을 클릭합니다.<br/>그룹을 삭제하려면 그룹 이름을 클릭하고 **삭제**를 누릅니다.
 
-**로그온 URL**에는 개발자 포털의 로그온 URL을 입력합니다. 이 예제에서 **로그온 URL**은 `https://aad03.portal.current.int-azure-api.net/signin`입니다. 
+그룹이 생성되었으므로, 제품 및 개발자와 연결할 수 있습니다.
 
-**앱 ID URL**의 경우 Azure Active Directory에서 기본 도메인 또는 사용자 지정 도메인을 입력하고 고유 문자열을 추가합니다. 이 예제에서 **https://contoso5api.onmicrosoft.com**이라는 기본 도메인은 지정된 **/api** 접미사와 함께 사용됩니다.
+## <a name="associate-group-product"> </a>그룹과 제품 연결
 
-![새 Azure Active Directory 응용 프로그램 속성][api-management-new-aad-application-2]
+1. 왼쪽의 **제품** 탭을 선택합니다.
+2. 원하는 제품의 이름을 클릭합니다.
+3. **액세스 제어**를 누릅니다.
+4. **+ 그룹 추가**를 클릭합니다.
 
-확인 단추를 클릭하여 응용 프로그램을 저장하여 만들고 **구성** 탭으로 전환하여 새 응용 프로그램을 구성합니다.
+    ![새 그룹 추가](./media/api-management-howto-create-groups/groups002.png)
+5. 추가하려는 그룹을 선택합니다.
 
-![새 Azure Active Directory 응용 프로그램 만들어짐][api-management-new-aad-app-created]
+    ![새 그룹 추가](./media/api-management-howto-create-groups/groups003.png)
 
-이 응용 프로그램에 여러 Azure Active Directory를 사용하려는 경우 **응용 프로그램이 다중 테넌트임**에 **예**를 클릭합니다. 기본값은 **아니요**입니다.
+    제품에서 그룹을 제거하려면 **삭제**를 클릭합니다.
 
-![예][api-management-aad-app-multi-tenant]
+    ![그룹 삭제](./media/api-management-howto-create-groups/groups004.png)
 
-게시자 포털의 **외부 ID** 탭에 있는 **Azure Active Directory** 섹션에서 **리디렉션 URL**을 복사하여 **회신 URL** 텍스트 상자에 붙여 넣습니다. 
+제품이 그룹과 연결되면 그룹의 개발자가 제품을 보고 구독할 수 있습니다.
 
-![회신 URL][api-management-aad-reply-url]
+> [!NOTE]
+> Azure Active Directory 그룹을 추가하려면 [Azure API Management에서 Azure Active Directory를 사용하여 개발자 계정에 권한을 부여하는 방법](api-management-howto-aad.md)을 참조하세요.
 
-구성 탭의 아래쪽으로 스크롤하고 **응용 프로그램 권한** 드롭다운을 선택하고 **디렉터리 데이터 읽기**를 선택합니다.
+## <a name="associate-group-developer"> </a>그룹과 개발자 연결
 
-![응용 프로그램 권한][api-management-aad-app-permissions]
+이 섹션에서는 그룹을 구성원과 연결하는 방법을 보여 줍니다.
 
-**권한 위임** 드롭다운을 선택하고 **로그온 사용 및 사용자 프로필 읽기**를 선택합니다.
+1. 화면 왼쪽의 **그룹** 탭을 선택합니다.
+2. **구성원**을 선택합니다.
 
-![위임된 권한][api-management-aad-delegated-permissions]
+    ![구성원 추가](./media/api-management-howto-create-groups/groups005.png)
+3. **+추가**를 누르고 구성원을 선택합니다.
 
-> 응용 프로그램 및 위임된 권한에 대한 자세한 내용은 [Graph API 액세스][Accessing the Graph API]를 참조하세요.
-> 
-> 
+    ![구성원 추가](./media/api-management-howto-create-groups/groups006.png)
+4. **선택**을 누릅니다.
 
-**클라이언트 ID** 를 클립보드에 복사합니다.
 
-![클라이언트 ID][api-management-aad-app-client-id]
+개발자와 그룹 간의 연결을 추가한 후에는 **사용자** 탭에서 확인할 수 있습니다.
 
-게시자 포털로 다시 전환하고 Azure Active Directory 응용 프로그램 구성에서 복사한 **클라이언트 ID** 를 붙여넣습니다.
+## <a name="next-steps"> </a>다음 단계
+* 그룹에 개발자를 추가하면 개발자가 해당 그룹과 연결된 제품을 보고 구독할 수 있습니다. 자세한 내용은 [Azure API Management에서 제품을 만들고 게시하는 방법][How create and publish a product in Azure API Management]을 참조하세요.
+* 게시자 포털에서 그룹 만들기 및 관리 외에도 API Management REST API [그룹](https://msdn.microsoft.com/library/azure/dn776329.aspx) 엔터티를 사용하여 그룹을 만들고 관리할 수 있습니다.
 
-![클라이언트 ID][api-management-client-id]
-
-Azure Active Directory 구성으로 다시 전환하고 **키** 섹션에서 **기간 선택** 드롭다운 목록을 클릭하여 간격을 지정합니다. 이 예제에서는 **1년**을 사용합니다.
-
-![키][api-management-aad-key-before-save]
-
-**저장** 을 클릭하여 구성을 저장하고 키를 표시합니다. 키를 클립보드에 복사합니다.
-
-> 이 키를 기록해 둡니다. Azure Active Directory 구성 창을 닫으면 키를 다시 표시할 수 없습니다.
-> 
-> 
-
-![키][api-management-aad-key-after-save]
-
-게시자 포털로 다시 전환하고 키를 **클라이언트 암호** 텍스트 상자에 붙여 넣습니다.
-
-![클라이언트 암호][api-management-client-secret]
-
-**허용된 테넌트**는 어느 디렉터리를 API Management 서비스 인스턴스의 API에 액세스할지 지정합니다. 액세스 권한을 부여하려는 Azure Active Directory 인스턴스의 도메인을 지정합니다. 줄바꿈, 공백 또는 쉼표로 여러 도메인을 구분할 수 있습니다.
-
-![허용된 테넌트][api-management-client-allowed-tenants]
-
-
-원하는 구성이 지정되면 **저장**을 클릭합니다.
-
-![저장][api-management-client-allowed-tenants-save]
-
-변경 내용이 저장되면 지정된 Azure Active Directory의 사용자는 [Azure Active Directory 계정을 사용하여 개발자 포털에 로그인][Log in to the Developer portal using an Azure Active Directory account]의 단계를 수행하여 개발자 포털에 로그인할 수 있습니다.
-
-여러 도메인은 **허용된 테넌트** 섹션에서 지정할 수 있습니다. 사용자가 응용 프로그램이 등록되었던 원래 도메인이 아닌 다른 도메인에서 로그인하려면, 다른 도메인의 전역 관리자가 디렉터리 데이터에 액세스할 수 있도록 응용 프로그램에 권한을 부여해야 합니다. 권한을 부여하려면 전역 관리자는 `https://<URL of your developer portal>/aadadminconsent`로 이동하고(예: https://contoso.portal.azure-api.net/aadadminconsent) 액세스를 지정하려는 Active Directory 테넌트의 도메인 이름을 입력하여 제출을 클릭합니다. 다음 예제에서 `miaoaad.onmicrosoft.com`의 전역 관리자는 이 특정 개발자 포털에 있는 사용 권한을 부여하려고 합니다. 
-
-![권한][api-management-aad-consent]
-
-다음 화면에서 전역 관리자에게는 사용 권한의 부여를 확인하는 메시지가 표시됩니다. 
-
-![권한][api-management-permissions-form]
-
-> 전역 관리자에게 권한이 부여되기 전에 비 전역 관리자가 로그인을 시도하는 경우, 로그인 시도에 실패하며 오류 화면이 표시됩니다.
-> 
-> 
-
-## <a name="how-to-add-an-external-azure-active-directory-group"></a>외부 Azure Active Directory 그룹을 추가하는 방법
-Azure Active Directory의 사용자가 액세스할 수 있게 되면 Azure Active Directory 그룹을 API Management에 추가하여 원하는 제품이 있는 그룹에서 개발자와의 연계를 보다 쉽게 관리할 수 있습니다.
-
-> 외부 Azure Active Directory 그룹을 구성하려면 이전 섹션의 과정을 수행하여 ID 탭에서 먼저 Azure Active Directory가 구성되어야 합니다. 
-> 
-> 
-
-그룹에 대한 액세스 권한을 부여하려는 제품의 **표시 여부** 탭에 외부 Azure Active Directory 그룹이 추가됩니다. **제품**을 클릭한 다음 원하는 제품의 이름을 클릭합니다.
-
-![제품 구성][api-management-configure-product]
-
-**표시 여부** 탭으로 전환하고 **Azure Active Directory에서 그룹 추가**를 클릭합니다.
-
-![그룹 추가][api-management-add-groups]
-
-드롭다운 목록에서 **Azure Active Directory 테넌트**를 선택한 다음 **그룹**에 원하는 그룹 이름을 입력하여 텍스트 상자에 추가합니다.
-
-![그룹 선택][api-management-select-group]
-
-이 그룹 이름은 다음 예제에서 보이는 대로 Azure Active Directory의 **그룹** 목록에서 찾을 수 있습니다.
-
-![Azure Active Directory 그룹 목록][api-management-aad-groups-list]
-
-**추가** 를 클릭하여 그룹 이름의 유효성을 검사하고 그룹을 추가합니다. 이 예제에서는 **Contoso 5 개발자** 외부 그룹이 추가됩니다. 
-
-![그룹 추가됨][api-management-aad-group-added]
-
-**저장** 을 클릭하여 새 그룹 선택 내용을 저장합니다.
-
-Azure Active Directory 그룹이 한 제품에서 구성되면 API Management 서비스 인스턴스에 있는 다른 제품의 **표시 여부** 탭에서 확인할 수 있습니다.
-
-추가된 외부 그룹의 속성을 검토 및 구성하려면 **그룹** 탭에서 그룹 이름을 클릭합니다.
-
-![그룹 관리][api-management-groups]
-
-여기서 그룹의 **이름** 및 **설명**을 편집할 수 있습니다.
-
-![그룹 편집][api-management-edit-group]
-
-구성된 Azure Active Directory의 사용자는 개발자 포털에 로그인할 수 있으며 다음 섹션의 지침을 수행하여 표시 여부가 있는 그룹을 보고 구독할 수 있습니다.
-
-## <a name="how-to-log-in-to-the-developer-portal-using-an-azure-active-directory-account"></a>Azure Active Directory 계정을 사용하여 개발자 포털에 로그인하는 방법
-이전 섹션에서 구성된 Azure Active Directory 계정을 사용하여 개발자 포털에 로그인하려면 Active Directory 응용 프로그램 구성에서 **로그온 URL**을 사용하여 새 브라우저 창을 열고 **Azure Active Directory**를 클릭합니다.
-
-![개발자 포털][api-management-dev-portal-signin]
-
-Azure Active Directory에서 사용자 중 하나의 자격 증명을 입력하고 **로그인**을 클릭합니다.
-
-![로그인][api-management-aad-signin]
-
-추가 정보가 필요한 경우 등록 양식과 함께 메시지가 표시될 수 있습니다. 등록 양식을 완성하고 **등록**을 클릭합니다.
-
-![등록][api-management-complete-registration]
-
-사용자는 이제 API Management 서비스 인스턴스에 대한 개발자 포털에 로그인됩니다.
-
-![등록 완료][api-management-registration-complete]
-
-[api-management-management-console]: ./media/api-management-howto-aad/api-management-management-console.png
-[api-management-security-external-identities]: ./media/api-management-howto-aad/api-management-security-external-identities.png
-[api-management-security-aad-new]: ./media/api-management-howto-aad/api-management-security-aad-new.png
-[api-management-new-aad-application-menu]: ./media/api-management-howto-aad/api-management-new-aad-application-menu.png
-[api-management-new-aad-application-1]: ./media/api-management-howto-aad/api-management-new-aad-application-1.png
-[api-management-new-aad-application-2]: ./media/api-management-howto-aad/api-management-new-aad-application-2.png
-[api-management-new-aad-app-created]: ./media/api-management-howto-aad/api-management-new-aad-app-created.png
-[api-management-aad-app-permissions]: ./media/api-management-howto-aad/api-management-aad-app-permissions.png
-[api-management-aad-app-client-id]: ./media/api-management-howto-aad/api-management-aad-app-client-id.png
-[api-management-client-id]: ./media/api-management-howto-aad/api-management-client-id.png
-[api-management-aad-key-before-save]: ./media/api-management-howto-aad/api-management-aad-key-before-save.png
-[api-management-aad-key-after-save]: ./media/api-management-howto-aad/api-management-aad-key-after-save.png
-[api-management-client-secret]: ./media/api-management-howto-aad/api-management-client-secret.png
-[api-management-client-allowed-tenants]: ./media/api-management-howto-aad/api-management-client-allowed-tenants.png
-[api-management-client-allowed-tenants-save]: ./media/api-management-howto-aad/api-management-client-allowed-tenants-save.png
-[api-management-aad-delegated-permissions]: ./media/api-management-howto-aad/api-management-aad-delegated-permissions.png
-[api-management-dev-portal-signin]: ./media/api-management-howto-aad/api-management-dev-portal-signin.png
-[api-management-aad-signin]: ./media/api-management-howto-aad/api-management-aad-signin.png
-[api-management-complete-registration]: ./media/api-management-howto-aad/api-management-complete-registration.png
-[api-management-registration-complete]: ./media/api-management-howto-aad/api-management-registration-complete.png
-[api-management-aad-app-multi-tenant]: ./media/api-management-howto-aad/api-management-aad-app-multi-tenant.png
-[api-management-aad-reply-url]: ./media/api-management-howto-aad/api-management-aad-reply-url.png
-[api-management-aad-consent]: ./media/api-management-howto-aad/api-management-aad-consent.png
-[api-management-permissions-form]: ./media/api-management-howto-aad/api-management-permissions-form.png
-[api-management-configure-product]: ./media/api-management-howto-aad/api-management-configure-product.png
-[api-management-add-groups]: ./media/api-management-howto-aad/api-management-add-groups.png
-[api-management-select-group]: ./media/api-management-howto-aad/api-management-select-group.png
-[api-management-aad-groups-list]: ./media/api-management-howto-aad/api-management-aad-groups-list.png
-[api-management-aad-group-added]: ./media/api-management-howto-aad/api-management-aad-group-added.png
-[api-management-groups]: ./media/api-management-howto-aad/api-management-groups.png
-[api-management-edit-group]: ./media/api-management-howto-aad/api-management-edit-group.png
-
-[How to add operations to an API]: api-management-howto-add-operations.md
-[How to add and publish a product]: api-management-howto-add-products.md
-[Monitoring and analytics]: api-management-monitoring.md
-[Add APIs to a product]: api-management-howto-add-products.md#add-apis
-[Publish a product]: api-management-howto-add-products.md#publish-product
-[Get started with Azure API Management]: get-started-create-service-instance.md
-[API Management policy reference]: api-management-policy-reference.md
-[Caching policies]: api-management-policy-reference.md#caching-policies
-[Create an API Management service instance]: get-started-create-service-instance.md
-
-[http://oauth.net/2/]: http://oauth.net/2/
-[WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet
-[Accessing the Graph API]: http://msdn.microsoft.com/library/azure/dn132599.aspx#BKMK_Graph
-
-[Prerequisites]: #prerequisites
-[Configure an OAuth 2.0 authorization server in API Management]: #step1
-[Configure an API to use OAuth 2.0 user authorization]: #step2
-[Test the OAuth 2.0 user authorization in the Developer Portal]: #step3
+[Create a group]: #create-group
+[Associate a group with a product]: #associate-group-product
+[Associate groups with developers]: #associate-group-developer
 [Next steps]: #next-steps
 
-[Log in to the Developer portal using an Azure Active Directory account]: #Log-in-to-the-Developer-portal-using-an-Azure-Active-Directory-account
+[How create and publish a product in Azure API Management]: api-management-howto-add-products.md
 
+[Get started with Azure API Management]: get-started-create-service-instance.md
+[Create an API Management service instance]: get-started-create-service-instance.md
+[leverage external groups in associated Azure Active Directory tenants]: api-management-howto-aad.md#how-to-add-an-external-azure-active-directory-group

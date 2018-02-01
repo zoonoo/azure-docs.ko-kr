@@ -16,11 +16,11 @@ ms.topic: quickstart
 ms.date: 08/30/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 529ddd23d144ef8edf7f3ec7c91da60a7ca8ac01
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: d5364dbc1a155c7852b5581d563e4938ad116402
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="create-a-net-core-web-app-in-app-service-on-linux"></a>Linux의 App Service에서 .NET Core 웹앱 만들기
 
@@ -140,11 +140,11 @@ To https://cephalin-dotnetcore.scm.azurewebsites.net/cephalin-dotnetcore.git
 http://<app_name>.azurewebsites.net
 ```
 
-Node.js 샘플 코드가 기본 제공 이미지가 있는 웹앱에서 실행됩니다.
+.NET Core 샘플 코드가 기본 제공 이미지가 있는 웹앱에서 실행됩니다.
 
 ![Azure에서 실행되는 샘플 앱](media/quickstart-dotnetcore/dotnet-browse-azure.png)
 
-**축하합니다.** Linux의 App Service에 첫 번째 Node.js 앱을 배포했습니다.
+**축하합니다.** Linux의 App Service에 첫 번째 .NET Core 앱을 배포했습니다.
 
 ## <a name="update-and-redeploy-the-code"></a>코드 업데이트 및 다시 배포
 

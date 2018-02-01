@@ -5,14 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 12/31/2017
+ms.date: 01/16/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 71d740107eb2082e3f112941e1d4abd715d25807
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 63290127b298efced14ad34e9223840f3229f046
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="prepare-azure-resources-for-replication-of-on-premises-machines"></a>온-프레미스 컴퓨터 복제를 위한 Azure 리소스 준비
 
@@ -46,9 +46,9 @@ Azure 체험 계정을 방금 만든 경우 자신이 구독에 대한 관리자
 복제된 컴퓨터의 이미지는 Azure Storage에 유지됩니다. 온-프레미스에서 Azure로 장애 조치할 때 저장소에서 Azure VM이 만들어집니다.
 
 1. [Azure Portal](https://portal.azure.com) 메뉴에서 **새로 만들기** -> **저장소** -> **저장소 계정**을 클릭합니다.
-2. 저장소 계정의 이름을 입력합니다. 이 자습서에서는 **contosovmsacct1910171607**이라는 이름을 사용합니다. 이름은 Azure 내에서 고유해야 하며 길이가 3자에서 24자 사이이고 숫자 및 소문자만 사용해야 합니다.
+2. **저장소 계정 만들기**에서 계정의 이름을 입력합니다. 이 자습서에서는 **contosovmsacct1910171607**이라는 이름을 사용합니다. 이름은 Azure 내에서 고유해야 하며 길이가 3자에서 24자 사이이고 숫자 및 소문자만 사용해야 합니다.
 3. **리소스 관리자** 배포 모델을 사용합니다.
-4. **범용** > **표준**을 선택합니다.
+4. **범용** > **표준**을 선택합니다. Blob Storage를 선택하지 마세요.
 5. 저장소 중복에 대해 기본 **RA-GRS**를 선택합니다.
 6. 새 저장소 계정을 만들려는 구독을 선택합니다.
 7. 새 리소스 그룹을 선택합니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 이 자습서에서는 **ContosoRG**라는 이름을 사용합니다.

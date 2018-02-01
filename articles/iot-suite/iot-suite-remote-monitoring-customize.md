@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 11/10/2017
+ms.date: 01/17/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 886a4412ac348869563a03d697f4363cb3dea8f9
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: f5d38091b59110859d4376a5cd16a19f24dad65b
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="customize-the-remote-monitoring-preconfigured-solution"></a>미리 구성된 원격 모니터링 솔루션 사용자 지정
 
@@ -24,6 +24,10 @@ ms.lasthandoff: 11/10/2017
 
 * 미리 구성된 솔루션을 구성하는 마이크로 서비스에 대한 소스 코드 및 리소스를 포함하는 GitHub 리포지토리
 * 새 장치 유형 추가와 같은 일반적인 사용자 지정 시나리오
+
+다음 비디오는 미리 구성된 원격 모니터링 솔루션을 사용자 지정하기 위한 옵션의 개요를 제공합니다.
+
+>[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/How-to-customize-the-Remote-Monitoring-Preconfigured-Solution-for-Azure-IoT/Player]
 
 ## <a name="project-overview"></a>프로젝트 개요
 
@@ -42,7 +46,7 @@ ms.lasthandoff: 11/10/2017
 
 <!-- please add links for each of the repos in the table, you can find them here https://github.com/Azure/azure-iot-pcs-team/wiki/Repositories-->
 
-| 마이크로 서비스      | 설명 | Java | .NET |
+| 마이크로 서비스      | 설명 | 자바 | .NET |
 | ----------------- | ----------- | ---- | ---- |
 | 웹 UI            | 원격 모니터링 솔루션에 대한 웹앱 React.js 프레임워크를 사용하여 UI 구현 | [해당 없음(React.js)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-webui) | [해당 없음(React.js)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-webui) |
 | IoT Hub 관리자   | IoT Hub와의 통신을 처리합니다.        | [사용 가능](https://github.com/Azure/iothub-manager-java) | [사용 가능](https://github.com/Azure/iothub-manager-dotnet)   |
@@ -78,7 +82,7 @@ Java 솔루션은 현재 .NET 인증, 시뮬레이션 및 역방향 프록시 �
     CONTOSO: 'Contoso',
     ```
 
-1. `Contoso`를 회사의 이름으로 바꿉니다. 예:
+1. `Contoso`를 회사의 이름으로 바꿉니다. 예: 
 
     ```js
     CONTOSO: 'YourCo',
@@ -96,7 +100,7 @@ Java 솔루션은 현재 .NET 인증, 시뮬레이션 및 역방향 프록시 �
     import ContosoIcon from '../../../assets/icons/Contoso.svg';
     ```
 
-1. `Contoso.svg`를 로고 파일의 이름으로 바꿉니다. 예:
+1. `Contoso.svg`를 로고 파일의 이름으로 바꿉니다. 예: 
 
     ```js
     import ContosoIcon from '../../../assets/icons/YourCo.svg';
@@ -108,7 +112,7 @@ Java 솔루션은 현재 .NET 인증, 시뮬레이션 및 역방향 프록시 �
     alt="ContosoIcon"
     ```
 
-1. `ContosoIcon`을 `alt` 텍스트로 바꿉니다. 예:
+1. `ContosoIcon`을 `alt` 텍스트로 바꿉니다. 예: 
 
     ```js
     alt="YourCoIcon"

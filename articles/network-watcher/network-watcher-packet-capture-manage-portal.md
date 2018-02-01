@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 818f6513625a2677668dd6b6869ef969fe015bf7
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: c283fb4d1a390de88b425ce51a312b5404503f0d
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>포털에서 Azure Network Watcher를 사용하여 패킷 캡처 관리
 
@@ -83,7 +83,7 @@ Network Watcher 패킷 캡처를 사용하면 가상 컴퓨터 간에 트래픽�
 - **Storage 계정** - 패킷 캡처를 Storage 계정에 저장할지 여부를 결정합니다.
 - **파일** - 패킷 캡처를 가상 머신에 로컬로 저장할지 여부를 결정합니다.
 - **Storage 계정** - 패킷 캡처를 저장할 선택한 Storage 계정입니다. 기본 위치는 https://{저장소 계정 이름}.blob.core.windows.net/network-watcher-logs/subscriptions/{구독 ID}/resourcegroups/{리소스 그룹 이름}/providers/microsoft.compute/virtualmachines/{가상 머신 이름}/{YY}/{MM}/{DD}/packetcapture_{HH}_{MM}_{SS}_{XXX}.cap입니다. (**저장소**를 선택한 경우에만 사용됨)
-- **로컬 파일 경로** - 패킷 캡처를 저장할 가상 머신의 로컬 경로입니다. (**파일**을 선택한 경우에만 사용됨). 유효한 경로를 제공해야 합니다.
+- **로컬 파일 경로** - 패킷 캡처를 저장할 가상 머신의 로컬 경로입니다. (**파일**을 선택한 경우에만 사용됨). 유효한 경로를 제공해야 합니다. Linux 가상 머신의 경우 경로는 */var/captures*로 시작해야 합니다.
 - **패킷당 최대 바이트** - 캡처된 각 패킷의 바이트 수이며 비어 있으면 모든 바이트가 캡처됩니다.
 - **세션당 최대 바이트** - 값이 패킷 캡처 종료일에 도달한 후 캡처된 총 바이트 수입니다.
 - **시간 제한(초)** - 중지할 패킷 캡처에 대한 시간 제한을 설정합니다. 기본값은 18000초입니다.

@@ -7,7 +7,7 @@
 ## [보안 그룹 보기](network-watcher-security-group-view-overview.md)
 ## [다음 홉](network-watcher-next-hop-overview.md)
 ## [VPN 연결 문제 해결](network-watcher-troubleshoot-overview.md)
-## [연결 확인](network-watcher-connectivity-overview.md)
+## [연결 문제 해결](network-watcher-connectivity-overview.md)
 ## [서비스 한도](../azure-subscription-service-limits.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#network-watcher-limits)
 
 # 시작
@@ -46,7 +46,7 @@
 ### [Azure CLI 1.0](network-watcher-security-group-view-cli-nodejs.md)
 ### [Azure CLI](network-watcher-security-group-view-cli.md)
 ### [REST](network-watcher-security-group-view-rest.md)
-## 연결 테스트
+## 연결 문제 해결
 ### [Azure 포털](network-watcher-connectivity-portal.md)
 ### [Azure PowerShell](network-watcher-connectivity-powershell.md)
 ### [Azure CLI](network-watcher-connectivity-cli.md)
@@ -92,7 +92,7 @@
 # 리소스
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
-## [가격](https://azure.microsoft.com/pricing/details/network-watcher/)
+## [가격 책정](https://azure.microsoft.com/pricing/details/network-watcher/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=network-watcher)
 ## [SLA](https://azure.microsoft.com/support/legal/sla/)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/network-watcher)

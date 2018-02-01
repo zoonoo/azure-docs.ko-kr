@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2017
 ms.author: byvinyal
-ms.openlocfilehash: 1ae97b47d306640f09a535975b8e4461f51dea9e
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: f2c747f29d1e35b430b30d9aa4ca0bff2e78476f
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 구독 및 서비스 제한, 할당량 및 제약 조건
 이 문서는 때때로 할당량이라고도 하는 가장 일반적인 Microsoft Azure 제한의 일부를 나열합니다. 현재 이 문서에서는 일부 Azure 서비스에 대해 다룹니다. 시간 경과에 따라 이 목록은 더 많은 플랫폼에 적용되도록 확장 및 업데이트됩니다.
@@ -61,6 +61,7 @@ Azure 가격에 대한 자세한 정보는 [Azure 가격 책정 개요](https://
 * [Cloud Services](#cloud-services-limits)
 * [Container Instances](#container-instances-limits)
 * [컨테이너 레지스트리](#container-registry-limits)
+* [컨테이너 서비스(AKS)](#container-service-aks-limits)
 * [Data Factory](#data-factory-limits)
 * [Data Lake Analytics](#data-lake-analytics-limits)
 * [Data Lake Store](#data-lake-store-limits)
@@ -83,7 +84,7 @@ Azure 가격에 대한 자세한 정보는 [Azure 가격 책정 개요](https://
 * [Scheduler](#scheduler-limits)
 * [이를 통해 검색](#search-limits)
 * [Service Bus](#service-bus-limits)
-* [Site Recovery](#site-recovery-limits)
+* [사이트 복구](#site-recovery-limits)
 * [SQL Database](#sql-database-limits)
 * [SQL Data Warehouse](#sql-data-warehouse-limits)
 * [Storage](#storage-limits)
@@ -92,7 +93,7 @@ Azure 가격에 대한 자세한 정보는 [Azure 가격 책정 개요](https://
 * [구독](#subscription-limits)
 * [Traffic Manager](#traffic-manager-limits)
 * [Virtual Machines](#virtual-machines-limits)
-* [가상 컴퓨터 크기 집합](#virtual-machine-scale-sets-limits)
+* [Virtual Machine Scale Sets](#virtual-machine-scale-sets-limits)
 
 ### <a name="subscription-limits"></a>구독 제한
 #### <a name="subscription-limits"></a>구독 제한
@@ -109,7 +110,7 @@ Azure 리소스 관리자 및 Azure 리소스 그룹을 사용하는 경우 다�
 [!INCLUDE [azure-resource-groups-limits](../includes/azure-resource-groups-limits.md)]
 
 ### <a name="virtual-machines-limits"></a>Virtual Machines 제한
-#### <a name="virtual-machine-limits"></a>가상 컴퓨터 제한
+#### <a name="virtual-machine-limits"></a>Virtual Machine 제한
 [!INCLUDE [azure-virtual-machines-limits](../includes/azure-virtual-machines-limits.md)]
 
 #### <a name="virtual-machines-limits---azure-resource-manager"></a>Virtual Machines 제한 - Azure 리소스 관리자
@@ -117,7 +118,7 @@ Azure 리소스 관리자 및 Azure 리소스 그룹을 사용하는 경우 다�
 
 [!INCLUDE [azure-virtual-machines-limits-azure-resource-manager](../includes/azure-virtual-machines-limits-azure-resource-manager.md)]
 
-### <a name="virtual-machine-scale-sets-limits"></a>가상 컴퓨터 크기 집합 제한
+### <a name="virtual-machine-scale-sets-limits"></a>Virtual Machine Scale Sets 제한
 [!INCLUDE [virtual-machine-scale-sets-limits](../includes/azure-virtual-machine-scale-sets-limits.md)]
 
 ### <a name="container-instances-limits"></a>Container Instances 제한
@@ -127,6 +128,9 @@ Azure 리소스 관리자 및 Azure 리소스 그룹을 사용하는 경우 다�
 다음 표에서는 기본, 표준 및 프리미엄 [서비스 계층](./container-registry/container-registry-skus.md)의 기능 및 제한에 대해 자세히 설명합니다.
 
 [!INCLUDE [container-registry-limits](../includes/container-registry-limits.md)]
+
+### <a name="container-service-aks-limits"></a>컨테이너 서비스(AKS) 제한
+[!INCLUDE [container-service-limits](../includes/container-service-limits.md)]
 
 ### <a name="networking-limits"></a>네트워킹 제한
 [!INCLUDE [expressroute-limits](../includes/expressroute-limits.md)]
@@ -172,16 +176,16 @@ Azure Files 한도에 대한 자세한 내용은 [Azure Files 확장성 및 성�
 [!INCLUDE [storage-tables-scale-targets](../includes/storage-tables-scale-targets.md)]
 
 <!-- conceptual info about disk limits -- applies to unmanaged and managed -->
-#### <a name="virtual-machine-disk-limits"></a>가상 컴퓨터 디스크 제한
+#### <a name="virtual-machine-disk-limits"></a>가상 머신 디스크 제한
 [!INCLUDE [azure-storage-limits-vm-disks](../includes/azure-storage-limits-vm-disks.md)]
 
-자세한 내용은 [가상 컴퓨터 크기](virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
+자세한 내용은 [가상 머신 크기](virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
 
 #### <a name="managed-virtual-machine-disks"></a>관리되는 가상 컴퓨터 디스크
 
 [!INCLUDE [azure-storage-limits-vm-disks-managed](../includes/azure-storage-limits-vm-disks-managed.md)]
 
-#### <a name="unmanaged-virtual-machine-disks"></a>관리되지 않는 가상 컴퓨터 디스크
+#### <a name="unmanaged-virtual-machine-disks"></a>관리되지 않는 가상 머신 디스크
 
 [!INCLUDE [azure-storage-limits-vm-disks-standard](../includes/azure-storage-limits-vm-disks-standard.md)]
 
@@ -316,6 +320,6 @@ SQL Data Warehouse 제한은 [SQL Data Warehouse 리소스 제한](sql-data-ware
 ## <a name="see-also"></a>참고 항목
 [Azure 제한 및 증가 이해](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 
-[Azure를 위한 가상 컴퓨터 및 클라우드 서비스 크기](virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Azure를 위한 Virtual Machine 및 클라우드 서비스 크기](virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 [Cloud Services 크기](cloud-services/cloud-services-sizes-specs.md)

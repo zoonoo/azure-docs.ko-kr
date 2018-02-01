@@ -13,11 +13,11 @@ ms.devlang:
 ms.topic: hero-article
 ms.date: 01/09/2018
 ms.author: spelluru
-ms.openlocfilehash: b6a795f8a26340f24f9e09aea371ba90afe50101
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 281fe65393086ec6a04dcba5aae868f4fec097ad
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="provision-an-azure-ssis-integration-runtime-by-using-the-data-factory-ui"></a>Data Factory UI를 사용하여 Azure SSIS 통합 런타임 프로비전
 이 자습서에서는 Azure Portal을 사용하여 Azure Data Factory에서 Azure-SSIS IR(통합 런타임)을 프로비전하는 단계를 제공합니다. 그런 다음 SSDT(SQL Server Data Tools) 또는 SSMS(SQL Server Management Studio)를 사용하여 Azure에서 이 런타임에 SSIS(SQL Server Integration Services) 패키지를 배포할 수 있습니다. Azure-SSIS IR의 개념 정보는 [Azure-SSIS 통합 런타임 개요](concepts-integration-runtime.md#azure-ssis-integration-runtime)를 참조하세요.
@@ -36,7 +36,8 @@ ms.lasthandoff: 01/17/2018
 - **Azure 구독**. Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다. 
 - **Azure SQL Database 서버**. 데이터베이스 서버가 아직 없는 경우 시작하기 전에 Azure Portal에서 이 서버를 만듭니다. Azure Data Factory는 이 데이터베이스 서버에 SSISDB(SSIS 카탈로그 데이터베이스)를 만듭니다. Integration Runtime과 동일한 Azure 지역에 데이터베이스 서버를 만드는 것이 좋습니다. 이 구성을 사용하면 Integration Runtime에서 Azure 지역을 벗어나지 않고 SSISDB에 실행 로그를 쓸 수 있습니다. 
     - 데이터베이스 서버에 대해 "**Azure 서비스 방문 허용**" 설정을 사용하도록 설정되어 있는지 확인합니다. 자세한 내용은 [Azure SQL Database 보호](../sql-database/sql-database-security-tutorial.md#create-a-server-level-firewall-rule-in-the-azure-portal)를 참조하세요. PowerShell을 사용하여 이 설정을 사용하려면 [New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule?view=azurermps-4.4.1)을 참조하세요.
-    - 데이터베이스 서버에 대한 방화벽 설정에서 클라이언트 IP 주소 목록에 클라이언트 컴퓨터의 IP 주소를 포함하는 클라이언트 컴퓨터의 IP 주소 또는 IP 주소의 범위를 추가합니다. 자세한 내용은 [Azure SQL Database 서버 수준 및 데이터베이스 수준 방화벽 규칙 구성](../sql-database/sql-database-firewall-configure.md)을 참조하세요. 
+    - 데이터베이스 서버에 대한 방화벽 설정에서 클라이언트 IP 주소 목록에 클라이언트 컴퓨터의 IP 주소를 포함하는 클라이언트 컴퓨터의 IP 주소 또는 IP 주소의 범위를 추가합니다. 자세한 내용은 [Azure SQL Database 서버 수준 및 데이터베이스 수준 방화벽 규칙 구성](../sql-database/sql-database-firewall-configure.md)을 참조하세요.
+    - Azure SQL Database 서버에 SSIS 카탈로그(SSIDB 데이터베이스)가 없는지 확인합니다. Asure-SSIS IR 프로비전은 기존 SSIS 카탈로그 사용을 지원하지 않습니다.
  
 ## <a name="create-a-data-factory"></a>데이터 팩터리를 만듭니다.
 
@@ -109,6 +110,8 @@ ms.lasthandoff: 01/17/2018
     > [!IMPORTANT]
     > - 이 프로세스를 완료하는 데 약 20분이 걸립니다.
     > - Data Factory 서비스는 Azure SQL Database에 연결하여 SSISDB(SSIS 카탈로그 데이터베이스)를 준비합니다. 또한 이 스크립트는 VNet에 대한 권한 및 설정을 구성하고(지정된 경우) Azure-SSIS Integration Runtime의 새 인스턴스를 VNet에 조인합니다.
+    > - SSISDB를 호스트하기 위해 SQL Database의 인스턴스를 프로비전하는 경우 Azure Feature Pack for SSIS 및 Access 재배포 가능 패키지도 설치됩니다. 이러한 구성 요소는 기본 제공 구성 요소가 지원하는 데이터 원본 외에도 Excel 및 Access 파일 및 다양한 Azure 데이터 원본에 대한 연결을 제공합니다. 이 시점에서는 SSIS에 대한 타사 구성 요소를 설치할 수 없습니다(Attunity 제공 Oracle 및 Teradata 구성 요소 및 SAP BI 구성 요소와 같은 Microsoft로부터의 타사 구성 요소 포함).
+
 7. 필요한 경우 **연결** 창에서 **Integration Runtime**으로 전환합니다. **새로 고침**을 클릭하여 상태를 새로 고칩니다. 
 
     ![만들기 상태](./media/tutorial-create-azure-ssis-runtime-portal/azure-ssis-ir-creation-status.png)
@@ -134,7 +137,7 @@ ms.lasthandoff: 01/17/2018
     ![통합 런타임 유형 지정](./media/tutorial-create-azure-ssis-runtime-portal/integration-runtime-setup-options.png)
 4. Azure-SSIS IR을 설정하기 위한 나머지 단계는 [Azure SSIS 통합 런타임 프로비전](#provision-an-azure-ssis-integration-runtime) 섹션을 참조하세요. 
 
-    
+ 
 ## <a name="deploy-ssis-packages"></a>SSIS 패키지 배포
 이제 SSDT(SQL Server Data Tools) 또는 SSMS(SQL Server Management Studio)를 사용하여 Azure에 SSIS 패키지를 배포합니다. SSISDB(SSIS 카탈로그 데이터베이스)를 호스팅하는 Azure SQL Server에 연결합니다. Azure SQL Server 이름의 형식은 `<servername>.database.windows.net`(Azure SQL Database의 경우)입니다. 
 

@@ -3,7 +3,7 @@ title: "도메인 가입 HDInsight 클러스터 관리 - Azure | Microsoft Docs"
 description: "도메인에 가입된 HDInsight 클러스터를 관리하는 방법을 알아봅니다."
 services: hdinsight
 documentationcenter: 
-author: saurinsh
+author: bprakash
 manager: jhubbard
 editor: cgronlun
 tags: 
@@ -15,12 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/11/2018
-ms.author: saurinsh
-ms.openlocfilehash: 6a43ea602052b9b3338567571075742adc5a3ca0
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.author: bhanupr
+ms.openlocfilehash: 68166be98acc64326a4053b45f0039ae54d930e4
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="manage-domain-joined-hdinsight-clusters"></a>도메인에 가입된 HDInsight 클러스터 관리
 도메인에 가입된 HDInsight의 사용자 및 역할에 대해 알아보고 도메인에 가입된 HDInsight 클러스터를 관리하는 방법을 알아봅니다.
@@ -81,9 +81,8 @@ Beeline을 로컬로 설치했고 Azure Virtual Network를 통해 연결하는 �
 도메인 가입되어 있지 않은 HDInsight 클러스터에는 클러스터를 만드는 중에 생성되는 두 개의 사용자 계정이 있습니다.
 
 * **Ambari 관리자**: 이 계정을 *Hadoop 사용자* 또는 *HTTP 사용자*라고도 합니다. 이 계정은 https://&lt;clustername>.azurehdinsight.net에서 Ambari에 로그온할 때 사용할 수 있습니다. 또한 Ambari 뷰에서 쿼리를 실행하고, 외부 도구(예: PowerShell, Templeton, Visual Studio)를 통해 작업을 실행하고, Hive ODBC 드라이버와 BI 도구(예: Excel, PowerBI 또는 Tableau)를 인증할 때에도 사용할 수 있습니다.
-* **SSH 사용자**: 이 계정은 SSH와 함께 사용할 수 있으며, sudo 명령을 실행합니다. 그리고 Linux VM에 대한 루트 권한이 있습니다.
 
-도메인에 가입된 HDInsight 클러스터에는 Ambari 관리자와 SSH 사용자 외에도 3개의 새로운 사용자가 있습니다.
+도메인에 가입된 HDInsight 클러스터에는 Ambari 관리자 외에도 3개의 새로운 사용자가 있습니다.
 
 * **Ranger 관리자**: 이 계정은 로컬 Apache Ranger 관리자 계정입니다. 이 계정은 Active Directory 도메인 사용자가 아닙니다. 이 계정은 정책을 설정하고 다른 사용자를 관리자 또는 위임된 관리자로 만드는 데(해당 사용자가 정책을 관리할 수 있도록) 사용할 수 있습니다. 기본적으로 사용자 이름은 *admin*이고 암호는 Ambari 관리자 암호와 동일합니다. 암호는 Ranger의 설정 페이지에서 업데이트할 수 있습니다.
 * **클러스터 관리 도메인 사용자**: 이 계정은 Ambari 및 Ranger를 포함하여 Hadoop 클러스터 관리자로 지정된 Active Directory 도메인 사용자입니다. 클러스터를 만드는 동안 이 사용자의 자격 증명을 입력해야 합니다. 이 사용자는 다음과 같은 권한을 갖고 있습니다.
@@ -162,4 +161,3 @@ Beeline을 로컬로 설치했고 Azure Virtual Network를 통해 연결하는 �
 ## <a name="next-steps"></a>다음 단계
 * 도메인에 가입된 HDInsight 클러스터 구성에 대한 자세한 내용은 [도메인에 가입된 HDInsight 클러스터 구성](apache-domain-joined-configure.md)을 참조하세요.
 * Hive 정책 및 Hive 쿼리 실행에 대한 자세한 내용은 [도메인에 가입된 HDInsight 클러스터에 대한 Hive 정책 구성](apache-domain-joined-run-hive.md)을 참조하세요.
-* 도메인에 가입된 HDInsight 클러스터에서 SSH를 사용하여 Hive 쿼리를 실행하려면 [HDInsight와 함께 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined)을 참조하세요.

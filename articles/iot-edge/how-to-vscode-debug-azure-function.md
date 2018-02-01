@@ -9,11 +9,11 @@ ms.author: xshi
 ms.date: 12/20/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 4344a450d218a7424cd055cf086c1e4865c9af10
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: db86a08a19e97f8f415849aa060fe87d77cccf68
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="use-visual-studio-code-to-debug-azure-functions-with-azure-iot-edge"></a>Visual Studio Code를 사용하여 Azure IoT Edge에서 Azure Functions 디버그
 
@@ -33,17 +33,36 @@ ms.lasthandoff: 12/21/2017
 
 ## <a name="build-your-iot-edge-module-for-debugging-purpose"></a>디버깅을 위한 IoT Edge 모듈 빌드
 1. 디버깅을 시작하려면 **dockerfile.debug**를 사용하여 docker 이미지를 다시 빌드하고 Edge 솔루션을 배포합니다. VS Code 탐색기에서 Docker 폴더를 클릭하여 엽니다. 그런 후 `linux-x64` 폴더를 클릭하고 **Dockerfile.debug**를 마우스 오른쪽 단추로 클릭한 후 **IoT Edge 모듈 Docker 이미지 빌드**를 클릭합니다.
-3. **폴더 선택** 창에서 **FilterFunction** 프로젝트로 이동한 후 **EXE_DIR로 폴더 선택**을 클릭합니다.
-4. VS Code 창의 맨 위에 있는 팝업 텍스트 상자에 이미지 이름을 입력합니다. 예: `<your container registry address>/filterfunction:latest` 로컬 레지스트리를 배포하는 경우 `localhost:5000/filterfunction:latest`을 입력해야 합니다.
-5. Docker 리포지토리에 이미지를 푸시합니다. **Edge: IoT Edge 모듈 Docker 이미지 푸시** 명령을 사용하여 VS Code 창의 맨 위에 있는 팝업 텍스트 상자에 이미지 URL을 입력합니다. 위 단계에서 사용한 동일한 이미지 URL을 사용하세요.
-6. `deployment.json`을 다시 사용하여 다시 배포할 수 있습니다. 명령 팔레트에서 **Edge: Edge 다시 시작**을 입력한 후 선택하여 필터 함수가 디버그 버전으로 실행되도록 합니다.
+
+    ![디버그 이미지 빌드](./media/how-to-debug-csharp-function/build-debug-image.png)
+
+2. **폴더 선택** 창에서 **FilterFunction** 프로젝트로 이동한 후 **EXE_DIR로 폴더 선택**을 클릭합니다.
+3. VS Code 창의 맨 위에 있는 팝업 텍스트 상자에 이미지 이름을 입력합니다. 예: `<your container registry address>/filterfunction:latest` 로컬 레지스트리를 배포하는 경우 `localhost:5000/filterfunction:latest`를 입력해야 합니다.
+
+    ![푸시 이미지](./media/how-to-debug-csharp-function/push-image.png)
+
+4. Docker 리포지토리에 이미지를 푸시합니다. **Edge: IoT Edge 모듈 Docker 이미지 푸시** 명령을 사용하여 VS Code 창의 맨 위에 있는 팝업 텍스트 상자에 이미지 URL을 입력합니다. 위 단계에서 사용한 동일한 이미지 URL을 사용하세요.
+5. `deployment.json`을 다시 사용하여 다시 배포할 수 있습니다. 명령 팔레트에서 **Edge: Edge 다시 시작**을 입력한 후 선택하여 필터 함수가 디버그 버전으로 실행되도록 합니다.
 
 ## <a name="start-debugging-in-vs-code"></a>VS Code에서 디버깅 시작
 1. VS Code 디버그 창으로 이동합니다. **F5** 키를 누르고 **IoT Edge(.Net Core)**를 선택합니다.
+
+    ![F5 키 누르기](./media/how-to-debug-csharp-function/f5-debug-option.png)
+
 2. `launch.json`에서 **IoT Edge 함수 디버그(.NET Core)** 섹션으로 이동한 후 `pipeArgs` 아래에 `<container_name>`을 입력합니다. 이것은 이 자습서에서는 `filterfunction`이어야 합니다.
+
+    ![launch.json 업데이트](./media/how-to-debug-csharp-function/update-launch-json.png)
+
 3. run.csx로 이동합니다. 함수에 중단점을 추가합니다.
-4. **F5** 키를 다시 누릅니다. 그런 후 연결할 프로세스를 선택합니다.
-5. VS 코드 디버그 창의 왼쪽 패널에서 변수를 볼 수 있습니다. 
+4. 디버그 창(Ctrl + Shift + D)으로 이동하고, 드롭다운 목록에서 **IoT Edge 함수 디버그(.NET Core)**를 선택합니다. 
+
+    ![디버그 모드 선택](./media/how-to-debug-csharp-function/choose-debug-mode.png)
+
+5. 디버깅 시작 단추를 클릭하거나 **F5** 키를 누르고, 연결할 프로세스를 선택합니다.
+
+    ![함수 프로세스 연결](./media/how-to-debug-csharp-function/attach-function-process.png)
+
+6. VS 코드 디버그 창의 왼쪽 패널에서 변수를 볼 수 있습니다. 
 
 > [!NOTE]
 > 위 예제에서는 컨테이너에서 .NET Core IoT Edge 함수를 디버그하는 방법을 보여 줍니다. 이 방법은 빌드하는 동안 컨테이너 이미지에 VSDBG(.NET Core 명령줄 디버거)를 포함하는 디버그 버전의 `Dockerfile.debug`를 기준으로 합니다. C# 함수의 디버그가 끝나면 프로덕션에서 사용할 준비가 완료된 IoT Edge 함수를 얻기 위해 VSDBG를 사용하지 않고 `Dockerfile`을 직접 사용하거나 사용자 지정하는 것이 좋습니다.

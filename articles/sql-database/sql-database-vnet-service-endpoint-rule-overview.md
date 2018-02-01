@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: On Demand
-ms.date: 11/13/2017
+ms.date: 01/23/2018
 ms.author: genemi
-ms.openlocfilehash: ce223fbd6a69bc789f902f9478b5255edfd44844
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 6294216568e1d4c50ef6e6b6d2348a2a221406b0
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Azure SQL Database에 대한 Virtual Network 서비스 끝점 및 규칙 사용
 
@@ -184,6 +184,15 @@ PolyBase는 대개 저장소 계정에서 Azure SQLDW로 데이터를 로드하�
 
 #### <a name="azure-sqldb-blob-auditing"></a>Azure SQLDB Blob 감사
 Blob 감사는 사용자 고유의 저장소 계정에 감사 로그를 푸시합니다. 이 저장소 계정이 VENT 서비스 엔드포인트 기능을 사용하는 경우 Azure SQLDB에서 저장소 계정으로의 연결은 중단됩니다.
+
+
+## <a name="adding-a-vnet-firewall-rule-to-your-server-without-turning-on-vnet-service-endpoints"></a>VNET 서비스 엔드포인트를 켜지 않고 서버에 VNET 방화벽 규칙 추가
+
+이 기능을 강화하기 오래 전에는 VNet 서비스 엔드포인트를 켜야 방화벽에 라이브 VNet 규칙을 구현할 수 있었습니다. 엔드포인트는 Azure SQL Database에 지정된 VNet 서브넷과 관련이 있었습니다. 하지만 2018년 1월 현재는 **IgnoreMissingServiceEndpoint** 플래그를 설정하면 이 요구 사항을 우회할 수 있습니다.
+
+단순히 방화벽 규칙을 설정하는 것은 서버 보안에 도움이 되지 않습니다. 보안이 효력을 나타내려면 VNet 서비스 엔드포인트도 켜야 합니다. 서비스 엔드포인트를 켜면 전환을 끈 상태에서 켠 상태로 완료할 때까지 VNet 서브넷에서 가동 중지 시간이 발생합니다. 이는 특히 대규모 VNet의 컨텍스트에 적용됩니다. **IgnoreMissingServiceEndpoint** 플래그를 사용하여 전환 시 가동 중지 시간을 줄이거나 없앨 수 있습니다.
+
+PowerShell을 사용하여 **IgnoreMissingServiceEndpoint** 플래그를 설정할 수 있습니다. 자세한 내용은 [PowerShell을 사용하여 Azure SQL Database에 대한 Virtual Network 서비스 엔드포인트 및 규칙 만들기][sql-db-vnet-service-endpoint-rule-powershell-md-52d]를 참조하세요.
 
 
 ## <a name="errors-40914-and-40615"></a>오류 40914 및 40615

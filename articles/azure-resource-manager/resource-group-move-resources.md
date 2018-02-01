@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/05/2017
 ms.author: tomfitz
-ms.openlocfilehash: 5a28914d967e77d6c8881cd6e56b798269d3df3e
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 7d500d20dcce3e472e3e1e15b9ce307874caf22a
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>새 리소스 그룹 또는 구독으로 리소스 이동
 
@@ -100,51 +100,53 @@ ms.lasthandoff: 10/18/2017
 
 새 리소스 그룹 및 구독으로 이동할 수 있게 하는 서비스는 다음과 같습니다.
 
-* API 관리
-* 앱 서비스 앱(웹앱) - [앱 서비스 제한](#app-service-limitations)
+* API Management
+* App Service 앱(웹앱) - [App Service 제한](#app-service-limitations)
 * Application Insights
 * Automation
 * Azure Cosmos DB
-* 배치
+* Batch
 * Bing 지도
 * CDN
-* 클라우드 서비스 - [클래식 배포 제한 사항](#classic-deployment-limitations)
+* Cloud Services - [클래식 배포 제한 사항](#classic-deployment-limitations)
 * Cognitive Services
 * Content Moderator
-* 데이터 카탈로그
-* 데이터 팩터리
-* 데이터 레이크 분석
-* 데이터 레이크 저장소
+* Data Catalog
+* Data Factory
+* Data Lake Analytics
+
+* Data Lake Store
 * DNS
 * Event Hubs
+
 * HDInsight 클러스터 - [HDInsight 제한 사항](#hdinsight-limitations) 참조
 * IoT Hub
-* 키 자격 증명 모음
+* Key Vault
 * 부하 분산 장치
 * Logic Apps
-* 기계 학습
-* 미디어 서비스
+* Machine Learning
+* Media Services
 * 모바일 고객 관리
-* 알림 허브
+* Notification Hubs
 * Operational Insights
 * 운영 관리
 * Power BI
-* Redis 캐시
-* 스케줄러
-* 검색
+* Redis Cache
+* Scheduler
+* Search
 * 서버 관리
-* 서비스 버스
-* 서비스 패브릭
-* 저장소
+* Service Bus
+* Service Fabric
+* Storage
 * 저장소(클래식) - [클래식 배포 제한 사항](#classic-deployment-limitations)
 * Stream Analytics - 실행 중 상태일 때는 Stream Analytics 작업을 이동할 수 없습니다.
 * SQL Database 서버 - 데이터베이스와 서버는 동일한 리소스 그룹에 있어야 합니다. SQL Server를 이동하면 모든 해당 데이터베이스도 함께 이동합니다.
-* 트래픽 관리자
+* Traffic Manager
 * Virtual Machines - 관리 디스크가 있는 VM은 이동할 수 없습니다. [Virtual Machines 제한 사항](#virtual-machines-limitations) 참조
-* 가상 컴퓨터(클래식) - [클래식 배포 제한 사항](#classic-deployment-limitations)
+* Virtual Machines(클래식) - [클래식 배포 제한 사항](#classic-deployment-limitations)
 * Virtual Machine Scale Sets - [Virtual Machines 제한 사항](#virtual-machines-limitations) 참조
 * Virtual Networks - [Virtual Networks 제한 사항](#virtual-networks-limitations) 참조
-* VPN 게이트웨이
+* VPN Gateway
 
 ## <a name="services-that-do-not-enable-move"></a>이동을 사용하지 않는 서비스
 
@@ -152,8 +154,8 @@ ms.lasthandoff: 10/18/2017
 
 * AD Domain Services
 * AD 하이브리드 상태 관리 서비스
-* 응용 프로그램 게이트웨이
-* BizTalk 서비스
+* Application Gateway
+* BizTalk Services
 * 컨테이너 서비스
 * Express 경로
 * DevTest Labs - 동일한 구독에서 새 리소스 그룹으로 이동이 가능하지만, 구독 간 이동은 사용 가능하지 않습니다.
@@ -163,19 +165,19 @@ ms.lasthandoff: 10/18/2017
 * Recovery Services 자격 증명 모음 - Recovery Services 자격 증명 모음과 연결된 Compute, Network 및 Storage 리소스도 이동하지 않습니다. [Recovery Services 제한 사항](#recovery-services-limitations)을 참조하세요.
 * 보안
 * StorSimple 장치 관리자
-* 가상 네트가상 네트워크(클래식) - [클래식 배포 제한 사항](#classic-deployment-limitations)
+* Virtual Networks(클래식) - [클래식 배포 제한 사항](#classic-deployment-limitations)
 
 ## <a name="virtual-machines-limitations"></a>Virtual Machines 제한 사항
 
 관리 디스크는 이동을 지원하지 않습니다. 이 제한 사항은 여러 관련 리소스도 이동할 수 없음을 의미합니다. 이동할 수 없는 디스크:
 
 * 관리 디스크
-* 관리 디스크가 있는 가상 컴퓨터
+* 관리 디스크가 있는 가상 머신
 * 관리 디스크에서 만든 이미지
 * 관리 디스크에서 만든 스냅숏
-* 관리 디스크가 있는 가상 컴퓨터가 포함된 가용성 집합
+* 관리 디스크가 있는 가상 머신이 포함된 가용성 집합
 
-Marketplace 리소스에서 만든 가상 컴퓨터는 구독 간에 이동할 수 없습니다. 현재 구독의 가상 컴퓨터를 프로비전 해제하고 새 구독에 다시 배포합니다.
+Marketplace 리소스에서 만든 가상 머신은 구독 간에 이동할 수 없습니다. 현재 구독의 가상 머신을 프로비전 해제하고 새 구독에 다시 배포합니다.
 
 Key Vault에 저장된 인증서가 있는 Virtual Machines는 동일한 구독에서 새 리소스 그룹으로 이동할 수 있지만 구독 간에는 이동할 수 없습니다.
 
@@ -185,12 +187,12 @@ Key Vault에 저장된 인증서가 있는 Virtual Machines는 동일한 구독�
 
 리소스 탐색 링크가 있는 서브넷이 가상 네트워크에 있는 경우 가상 네트워크를 다른 구독으로 이동할 수 없습니다. 예를 들어 Redis Cache 리소스가 서브넷에 배포된 경우 해당 서브넷에는 리소스 탐색 링크가 있습니다.
 
-## <a name="app-service-limitations"></a>앱 서비스 제한
+## <a name="app-service-limitations"></a>App Service 제한
 
-앱 서비스 앱으로 작업할 경우에는 앱 서비스 계획만 이동할 수 없습니다. 앱 서비스 앱을 이동할 때는 다음 옵션을 사용할 수 있습니다.
+App Service 앱으로 작업할 경우에는 App Service 계획만 이동할 수 없습니다. App Service 앱을 이동할 때는 다음 옵션을 사용할 수 있습니다.
 
-* 앱 서비스 계획과 해당 리소스 그룹에 있는 모든 기타 앱 서비스 리소스를 이미 앱 서비스 리소스가 없는 새 리소스 그룹으로 이동합니다. 이 요구 사항은 App Service 계획에 연결되지 않은 App Service 리소스도 이동해야 함을 의미합니다.
-* 앱을 다른 리소스 그룹으로 이동하지만 모든 앱 서비스는 원래 리소스 그룹에 유지합니다.
+* App Service 계획과 해당 리소스 그룹에 있는 모든 기타 App Service 리소스를 이미 App Service 리소스가 없는 새 리소스 그룹으로 이동합니다. 이 요구 사항은 App Service 계획에 연결되지 않은 App Service 리소스도 이동해야 함을 의미합니다.
+* 앱을 다른 리소스 그룹으로 이동하지만 모든 App Service는 원래 리소스 그룹에 유지합니다.
 
 App Service 계획은 제대로 기능하기 위해 해당 앱에 대해 앱과 같은 리소스 그룹에 상주하지 않아도 됩니다.
 
@@ -208,7 +210,7 @@ App Service 계획은 제대로 기능하기 위해 해당 앱에 대해 앱과 
 
 다른 모든 조합에는 App Service 계획 이동 시 그대로 남겨 둘 수 없는 리소스 형식(App Service 리소스 형식)을 남겨두는 것이 있습니다.
 
-웹앱이 해당 앱 서비스 계획과는 다른 리소스 그룹에 상주하지만 이 두 가지를 새로운 리소스 그룹으로 이동하려는 경우에는 두 단계로 이동을 수행해야 합니다. 예:
+웹앱이 해당 App Service 계획과는 다른 리소스 그룹에 상주하지만 이 두 가지를 새로운 리소스 그룹으로 이동하려는 경우에는 두 단계로 이동을 수행해야 합니다. 예: 
 
 * **web-a**가 **web-group**에 상주하는 경우
 * **plan-a**가 **plan-group**에 상주하는 경우
@@ -234,11 +236,11 @@ App Service 계획은 제대로 기능하기 위해 해당 앱에 대해 앱과 
 한 리소스 그룹에서 같은 구독 내 다른 리소스 그룹으로 리소스를 이동할 경우 다음 제한 사항이 적용됩니다.
 
 * 가상 네트워크(클래식)은 이동할 수 없습니다.
-* 가상 컴퓨터(클래식)는 클라우드 서비스로 이동해야 합니다.
-* 클라우드 서비스는 이동에 모든 가상 컴퓨터가 포함된 경우에만 이동할 수 있습니다.
+* 가상 머신(클래식)은 클라우드 서비스로 이동해야 합니다.
+* 클라우드 서비스는 이동에 모든 가상 머신이 포함된 경우에만 이동할 수 있습니다.
 * 한 번에 하나의 클라우드 서비스만 이동할 수 있습니다.
 * 한 번에 하나의 저장소 계정(클래식)만 이동할 수 있습니다.
-* 저장소 계정(클래식)은 가상 컴퓨터 또는 클라우드 서비스와 같은 작업으로 이동할 수 없습니다.
+* Storage 계정(클래식)은 가상 머신 또는 클라우드 서비스와 같은 작업으로 이동할 수 없습니다.
 
 클래식 리소스를 동일한 구독 내의 새 리소스 그룹으로 이동하려면, [포털](#use-portal), [Azure PowerShell](#use-powershell), [Azure CLI](#use-azure-cli) 또는 [REST API](#use-rest-api)를 통해 표준 이동 작업을 사용합니다. Resource Manager 리소스 이동을 위해 사용하는 동일한 작업을 사용합니다.
 
@@ -313,11 +315,17 @@ App Service 계획은 제대로 기능하기 위해 해당 앱에 대해 앱과 
 
 Azure Site Recovery로 재해 복구를 설정하는 데 사용된 Storage, Network 또는 Compute 리소스에 대해서는 이동이 사용되지 않습니다.
 
-예를 들어, 온-프레미스 컴퓨터에서 저장소 계정(Storage1)으로 복제를 설정했고 Azure에 장애 조치(failover) 후 가상 네트워크(Network1)에 연결된 가상 컴퓨터(VM1)로 보호되는 컴퓨터를 실행하려고 한다고 가정합니다. 같은 구독 내에 있거나 여러 구독에 있는 리소스 그룹에 대해 이러한 Azure 리소스(Storage1, VM1, Network1) 작업 중 어떠한 것도 이동할 수 없습니다.
+예를 들어, 온-프레미스 컴퓨터에서 저장소 계정(Storage1)으로 복제를 설정했고 Azure에 장애 조치(failover) 후 가상 네트워크(Network1)에 연결된 가상 머신(VM1)로 보호되는 컴퓨터를 실행하려고 한다고 가정합니다. 같은 구독 내에 있거나 여러 구독에 있는 리소스 그룹에 대해 이러한 Azure 리소스(Storage1, VM1, Network1) 작업 중 어떠한 것도 이동할 수 없습니다.
+
+리소스 그룹 간에 **Azure Backup**에 등록된 VM을 이동하려면 다음을 수행합니다.
+ 1. 일시적으로 백업을 중지하고 백업 데이터를 보존합니다.
+ 2. VM을 대상 리소스 그룹으로 이동합니다.
+ 3. 사용자가 이동 작업 이전에 만든 사용 가능한 복원 지점에서 복원할 수 있는 VM을 동일하거나 새로운 자격 증명 모음으로 다시 보호합니다.
+사용자가 백업된 VM을 구독 간에 이동하는 경우 1단계와 2단계는 동일합니다. 3단계에서는 사용자가 대상 구독에 있거나 만들어진 VM을 새 자격 증명 모음으로 보호해야 합니다. Recovery Services 자격 증명 모음은 구독 간 백업을 지원하지 않습니다.
 
 ## <a name="hdinsight-limitations"></a>HDInsight 제한 사항
 
-새 구독 또는 리소스 그룹에 HDInsight 클러스터를 이동할 수 있습니다. 그러나 HDInsight 클러스터에 연결된 네트워킹 리소스(예: Virtual Network, NIC, 또는 부하 분산 장치)는 구독 간에 이동할 수 없습니다. 또한 클러스터에 대한 가상 컴퓨터에 연결된 NIC를 새 리소스 그룹으로 이동할 수 없습니다.
+새 구독 또는 리소스 그룹에 HDInsight 클러스터를 이동할 수 있습니다. 그러나 HDInsight 클러스터에 연결된 네트워킹 리소스(예: Virtual Network, NIC, 또는 부하 분산 장치)는 구독 간에 이동할 수 없습니다. 또한 클러스터에 대한 가상 머신에 연결된 NIC를 새 리소스 그룹으로 이동할 수 없습니다.
 
 HDInsight 클러스터를 새 구독으로 이동할 때 먼저 다른 리소스(예: 저장소 계정)를 이동합니다. 그런 다음 자체적으로 HDInsight 클러스터를 이동합니다.
 

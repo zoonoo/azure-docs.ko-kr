@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory 하이브리드 ID 설계 고려 사항 - 액세스 제어 요구 사항 확인 | Microsoft Docs"
+title: "Azure의 하이브리드 ID 디자인 액세스 제어 요구 사항 | Microsoft Docs"
 description: "하이브리드 환경에서 ID의 기본 요소 및 사용자의 리소스에 대한 액세스 요구 사항 식별에 대해 설명합니다."
 documentationcenter: 
 services: active-directory
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 069c83a0bbbb21ba85aea07375c186fe0b11c781
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: 161820e69b0c9d0dc376a62cecceb9cc5e83c8ce
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="determine-access-control-requirements-for-your-hybrid-identity-solution"></a>하이브리드 ID 솔루션에 대한 액세스 제어 요구 사항 확인
 또한 조직이 해당 하이브리드 ID 솔루션을 설계하는 경우 사용자는 이 기회를 사용하여 사용자가 사용할 수 있게 하려는 리소스에 대한 액세스 요구 사항을 검토할 수 있습니다. ID의 네 가지 기본 요소에 대한 데이터 액세스는 다음과 같습니다.

@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 01/08/2018
+ms.date: 01/22/2018
 ms.author: lbosq
-ms.openlocfilehash: 68cc1a3b69e3e2d59a791a9241a1a8b4b3062673
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: bb39cc25cc1c431c7ab98bfc3ed816934cb03e45
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-python-and-the-azure-portal"></a>Azure Cosmos DB: Python 및 Azure Portal을 사용하여 그래프 데이터베이스 만들기
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 01/08/2018
 Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터베이스 서비스입니다. Azure Cosmos DB의 핵심인 전역 배포 및 수평적 크기 조정 기능의 이점을 활용하여 문서, 테이블, 키/값 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있습니다.  
 
 > [!NOTE]
-> 이 빠른 시작에는 2017년 11월 27일 이후에 생성된 그래프 데이터베이스 계정이 필요합니다. 기존 계정이 일반 공급으로 마이그레이션된 후에는 Python을 지원합니다.
+> 이 빠른 시작에는 2017년 12월 20일 이후에 생성된 그래프 데이터베이스 계정이 필요합니다. 기존 계정이 일반 공급으로 마이그레이션된 후에는 Python을 지원합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 

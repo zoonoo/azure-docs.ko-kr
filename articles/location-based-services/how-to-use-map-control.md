@@ -9,17 +9,17 @@ ms.date: 11/22/2017
 ms.topic: article
 ms.service: location-based-services
 manager: timlt
-ms.openlocfilehash: 06743640aae5e06d0160105458d9a3cfa35d5040
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 494a8308a5ed4ae37ed9561d051155e7433e6193
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="how-to-use-the-azure-location-based-services-map-control"></a>Azure Location Based Services 맵 컨트롤 사용 방법
 맵 컨트롤 클라이언트 쪽 Javascript 라이브러리를 사용하면 맵 및 포함된 Azure Location Based Services 기능을 웹 또는 모바일 응용 프로그램에 렌더링할 수 있습니다. 
 
 ## <a name="prerequisites"></a>필수 조건
-Azure Location Based Services 계정 및 구독 키. 계정 만들기 및 구독 키 검색에 대한 자세한 내용은 [Azure Location Based Services 계정 및 키](how-to-manage-account-keys.md)를 참조하세요. 
+Azure Location Based Services 계정 및 키 계정 만들기 및 구독 키 검색에 대한 자세한 내용은 [Azure Location Based Services 계정 및 키를 관리하는 방법](how-to-manage-account-keys.md)을 참조하세요. 
 
 ## <a name="create-a-new-map-in-a-web-page-using-the-map-control-api"></a>맵 컨트롤 API를 사용하여 웹 페이지에 새 맵 만들기
 맵 컨트롤 클라이언트 쪽 Javascript 라이브러리를 사용하여 웹 페이지에 지도를 포함할 수 있습니다.
@@ -42,19 +42,19 @@ Azure Location Based Services 계정 및 구독 키. 계정 만들기 및 구독
             }
     ``` 
     
-4. 맵 컨트롤을 초기화하기 위해 html 본문에 새 섹션을 정의하고 스크립트를 만듭니다. Azure Location Based Services 계정에서 개발자 고유의 구독 키를 사용합니다. 
+4. 맵 컨트롤을 초기화하기 위해 html 본문에 새 섹션을 정의하고 스크립트를 만듭니다. 스크립트에서 고유한 Azure Location Based Services 계정 키를 사용합니다. 
 
     ```html
     <div id="map">
         <script>
-            var subscriptionKey = "<_subscriptionKey_>";
+            var LBSAccountKey = "<_your account key_>";
             var map = new atlas.Map("map", {
-                "subscription-key": subscriptionKey,
+                "subscription-key": LBSAccountKey,
                 center: [47.59093,-122.33263],
                 zoom: 12
             });
-        <script>
-    <div>
+        </script>
+    </div>
     ```
     
 5. 웹 브라우저에서 파일을 열고 렌더링된 맵을 봅니다.

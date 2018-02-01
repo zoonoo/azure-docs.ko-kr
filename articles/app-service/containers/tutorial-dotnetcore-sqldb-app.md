@@ -2,7 +2,7 @@
 title: "Linux의 Azure App Service에서 .NET Core 및 SQL Database 웹앱 빌드 | Microsoft Docs"
 description: "SQL Database에 연결하여 Linux의 Azure App Service에서 .NET Core 앱이 작동하도록 하는 방법에 대해 알아봅니다."
 services: app-service\web
-documentationcenter: nodejs
+documentationcenter: dotnet
 author: cephalin
 manager: syntaxc4
 editor: 
@@ -10,16 +10,16 @@ ms.assetid: 0b4d7d0e-e984-49a1-a57a-3c0caa955f0e
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: nodejs
+ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 10/10/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: d6c679518bfc712e6a08ffae722b0cc5d2b038aa
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 1418914b2886ce3f896e62b5b4a3da573655e274
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="build-a-net-core-and-sql-database-web-app-in-azure-app-service-on-linux"></a>Linux의 Azure App Service에서 .NET Core 및 SQL Database 웹앱 빌드
 
@@ -172,7 +172,7 @@ Azure 앱에 연결 문자열을 설정하려면 Cloud Shell에서 [az webapp co
 az webapp config connection-string set --resource-group myResourceGroup --name <app name> --settings MyDbConnection='<connection_string>' --connection-string-type SQLServer
 ```
 
-다음으로 `ASPNETCORE_ENVIRONMENT` 앱 설정을 _프로덕션_으로 지정합니다. 로컬 개발 환경에 SQLLite를 사용하고 Azure 환경에 SQL Database를 사용하기 때문에 이 설정을 통해 Azure에서 실행 중인지 여부를 알 수 있습니다.
+다음으로 `ASPNETCORE_ENVIRONMENT` 앱 설정을 _프로덕션_으로 지정합니다. 로컬 개발 환경에 SQLite를 사용하고 Azure 환경에 SQL Database를 사용하기 때문에 이 설정을 통해 Azure에서 실행 중인지 여부를 알 수 있습니다.
 
 다음 예제에서는 Azure 웹앱에 `ASPNETCORE_ENVIRONMENT` 앱 설정을 구성합니다. *\<app_name>* 자리 표시자를 바꿉니다.
 
@@ -192,23 +192,27 @@ services.AddDbContext<MyDatabaseContext>(options =>
 이전에 구성된 환경 변수를 사용하는 다음 코드로 바꿉니다.
 
 ```csharp
-// Use SQL Database if in Azure, otherwise, use SQLLite
+// Use SQL Database if in Azure, otherwise, use SQLite
 if(Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Production")
-    services.AddDbContext<DotNetCoreSqlDbContext>(options =>
+    services.AddDbContext<MyDatabaseContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("MyDbConnection")));
 else
-    services.AddDbContext<DotNetCoreSqlDbContext>(options =>
+    services.AddDbContext<MyDatabaseContext>(options =>
             options.UseSqlite("Data Source=MvcMovie.db"));
 
 // Automatically perform database migration
-services.BuildServiceProvider().GetService<DotNetCoreSqlDbContext>().Database.Migrate();
+services.BuildServiceProvider().GetService<MyDatabaseContext>().Database.Migrate();
 ```
 
 이코드가 프로덕션(즉, Azure 환경)에서 실행되고 있다고 감지되는 경우 구성한 연결 문자열을 사용하여 SQL Database에 연결합니다.
 
 Azure에서 실행되는 경우 `Database.Migrate()` 호출이 해당 마이그레이션 구성에 따라 .NET Core 앱이 필요한 데이터베이스를 자동으로 생성하기 때문에 도움을 받을 수 있습니다. 
 
-변경 내용을 저장합니다.
+변경 내용을 저장한 후 Git 리포지토리로 커밋합니다. 
+
+```bash
+git commit -am "connect to SQLDB in Azure"
+```
 
 ### <a name="push-to-azure-from-git"></a>Git에서 Azure에 푸시
 

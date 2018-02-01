@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
-ms.date: 01/05/2018
+ms.date: 01/18/2018
 ms.author: barbkess
-ms.openlocfilehash: 8e48d771ffcefe31c89a0d70f65ca867653a2163
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 5c163880a7508d69bce0019cc5379bca8c704d59
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="introduction-to-designing-tables-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse의 테이블 디자인 소개
 
@@ -28,43 +28,36 @@ Azure SQL Data Warehouse의 테이블 디자인에 대한 주요 개념을 알�
 
 [스타 스키마](https://en.wikipedia.org/wiki/Star_schema)는 데이터를 팩트 및 차원 테이블로 구성합니다. 일부 테이블은 팩트 또는 차원 테이블로 이동하기 전의 통합 또는 준비 데이터에 사용됩니다. 테이블을 디자인할 때 테이블 데이터가 팩트, 차원 또는 통합 테이블에 속하는지를 결정합니다. 이 결정은 적절한 테이블 구조 및 배포를 알려줍니다. 
 
-- **팩트 테이블**에는 일반적으로 트랜잭션 시스템에서 생성된 다음 데이터 웨어하우스에 로드되는 정량적 데이터가 있습니다. 예를 들어 소매 비즈니스는 매일 판매 트랜잭션을 생성한 다음 분석을 위해 데이터 웨어하우스 팩트 테이블에 데이터를 로드합니다.
+- **팩트 테이블**에는 일반적으로 트랜잭션 시스템에서 생성된 다음, 데이터 웨어하우스에 로드된 정량적 데이터가 있습니다. 예를 들어 소매점에서 판매 트랜잭션을 매일 생성한 다음 분석을 위해 데이터 웨어하우스의 팩트 테이블에 데이터를 로드합니다.
 
-- **차원 테이블**에는 변경될 수 있지만 일반적으로 드물게 변경되는 특성 데이터가 있습니다. 예를 들어 고객의 이름과 주소는 차원 테이블에 저장되고 고객 프로필이 변경되는 경우에만 업데이트됩니다. 대형 팩트 테이블의 크기를 최소화하기 위해 고객의 이름과 주소는 팩트 테이블의 모든 행에 있지 않아도 됩니다. 대신, 팩트 테이블과 차원 테이블에서 고객 ID를 공유할 수 있습니다. 쿼리는 두 테이블을 조인하여 고객 프로필과 트랜잭션을 연결할 수 있습니다. 
+- **차원 테이블**에는 변경될 수 있지만 일반적으로 드물게 변경되는 특성 데이터가 있습니다. 예를 들어 고객의 이름과 주소는 차원 테이블에 저장되고, 고객 프로필이 변경될 때만 업데이트됩니다. 대형 팩트 테이블의 크기를 최소화하기 위해 고객의 이름과 주소는 팩트 테이블의 모든 행에 있지 않아도 됩니다. 대신, 팩트 테이블과 차원 테이블에서 고객 ID를 공유할 수 있습니다. 쿼리는 두 테이블을 조인하여 고객 프로필과 트랜잭션을 연결할 수 있습니다. 
 
-- **통합 테이블**에서는 데이터를 통합하거나 준비할 수 있습니다. 이 테이블은 일반 테이블, 외부 테이블 또는 임시 테이블로 만들 수 있습니다. 예를 들어 준비 테이블에 데이터를 로드하고 준비 중인 데이터에 대한 변환을 수행한 다음 프로덕션 테이블에 데이터를 삽입할 수 있습니다.
+- **통합 테이블**에서는 데이터를 통합하거나 준비할 수 있습니다. 통합 테이블을 일반 테이블, 외부 테이블 또는 임시 테이블로 만들 수 있습니다. 예를 들어 준비 테이블에 데이터를 로드하고 준비 중인 데이터에 대한 변환을 수행한 다음 프로덕션 테이블에 데이터를 삽입할 수 있습니다.
 
 ## <a name="schema-and-table-names"></a>스키마 및 테이블 이름
 SQL Data Warehouse에서 데이터 웨어하우스는 데이터베이스 유형 중 하나입니다. 데이터 웨어하우스의 모든 테이블은 동일한 데이터베이스에 포함됩니다.  여러 데이터 웨어하우스에서 테이블을 조인할 수 없습니다. 이 동작은 데이터베이스 간 조인을 지원하는 SQL Server와 다릅니다. 
 
-SQL Server 데이터베이스에서는 스키마 이름에 fact, dim 또는 integrate를 사용할 수 있습니다. SQL Server 데이터베이스를 SQL Data Warehouse로 전송하는 경우 모든 팩트, 차원 및 통합 테이블을 SQL Data Warehouse의 한 스키마로 마이그레이션하여 저장하는 것이 가장 좋습니다. 예를 들어 [WideWorldImportersDW](/sql/sample/world-wide-importers/database-catalog-wwi-olap) 샘플 데이터 웨어하우스의 모든 테이블을 WWI라는 한 스키마에 저장할 수 있습니다. 다음 코드는 WWI라는 [사용자 정의 스키마](/sql/t-sql/statements/create-schema-transact-sql)를 만듭니다.
+SQL Server 데이터베이스에서는 스키마 이름에 fact, dim 또는 integrate를 사용할 수 있습니다. SQL Server 데이터베이스를 SQL Data Warehouse로 마이그레이션하는 경우 모든 팩트, 차원 및 통합 테이블을 SQL Data Warehouse의 한 스키마로 마이그레이션하는 것이 가장 좋습니다. 예를 들어 [WideWorldImportersDW](/sql/sample/world-wide-importers/database-catalog-wwi-olap) 샘플 데이터 웨어하우스의 모든 테이블을 wwi라는 하나의 스키마 내에 저장할 수 있습니다. 다음 코드에서는 wwi라는 [사용자 정의 스키마](/sql/t-sql/statements/create-schema-transact-sql)를 만듭니다.
 
 ```sql
-CREATE SCHEMA WWI;
+CREATE SCHEMA wwi;
 ```
 
-SQL Data Warehouse의 테이블 구성을 표시하려면 fact, dim 및 int를 테이블 이름에 접두사로 사용합니다. 다음 표는 WideWorldImportersDW의 일부 스키마 및 테이블 이름을 보여 줍니다. SQL Server 및 SQL Data Warehouse의 이름을 비교합니다. 
+SQL Data Warehouse의 테이블 구성을 표시하려면 fact, dim 및 int를 테이블 이름의 접두사로 사용할 수 있습니다. 다음 표는 WideWorldImportersDW의 일부 스키마 및 테이블 이름을 보여 줍니다. SQL Server의 이름과 SQL Data Warehouse의 이름을 비교합니다. 
 
-| WWI 차원 테이블  | SQL Server | SQL Data Warehouse |
+| WideWorldImportersDW 테이블  | 테이블 형식 | SQL Server | SQL Data Warehouse |
 |:-----|:-----|:------|
-| City | Dimension.City | WWI.DimCity |
-| 고객 | Dimension.Customer | WWI.DimCustomer |
-| Date | Dimension.Date | WWI.DimDate |
-
-| WWI 팩트 테이블 | SQL Server | SQL Data Warehouse |
-|:---|:---|:---|
-| 순서 | Fact.Order | WWI.FactOrder |
-| Sale  | Fact.Sale  | WWI.FactSale  |
-| Purchase | Fact | WWI.FactPurchase |
+| City | 차원 | Dimension.City | wwi.DimCity |
+| 순서 | 팩트 | Fact.Order | wwi.FactOrder |
 
 
-## <a name="table-definition"></a>테이블 정의 
+## <a name="table-persistence"></a>테이블 지속성 
 
-다음 개념은 테이블 정의의 주요 측면을 설명합니다. 
+테이블의 데이터는 Azure Storage에 영구적으로 또는 일시적으로 저장되거나 데이터 웨어하우스 외부의 데이터 저장소에 저장됩니다.
 
-### <a name="standard-table"></a>표준 테이블
+### <a name="regular-table"></a>일반 테이블
 
-표준 테이블은 데이터 웨어하우스의 일부로 Azure Storage에 저장됩니다. 세션이 열려 있는지 여부에 관계없이 테이블과 데이터가 지속됩니다.  이 예제에서는 두 개의 열이 있는 테이블을 만듭니다. 
+일반 테이블의 데이터는 데이터 웨어하우스의 일부로 Azure Storage에 저장됩니다. 세션이 열려 있는지 여부에 관계없이 테이블과 데이터가 지속됩니다.  다음 예제에서는 두 개의 열이 있는 일반 테이블을 만듭니다. 
 
 ```sql
 CREATE TABLE MyTable (col1 int, col2 int );  
@@ -74,19 +67,32 @@ CREATE TABLE MyTable (col1 int, col2 int );
 임시 테이블은 세션 기간 동안만 유지됩니다. 임시 테이블을 사용하여 다른 사용자가 임시 결과를 볼 수 없게 하고 정리할 필요를 줄일 수 있습니다.  임시 테이블은 로컬 저장소를 활용하므로 일부 작업에 대해 더 빠른 성능을 제공할 수 있습니다.  자세한 내용은 [임시 테이블](sql-data-warehouse-tables-temporary.md)을 참조하세요.
 
 ### <a name="external-table"></a>외부 테이블
-외부 테이블은 Azure Blob Storage 또는 Azure Data Lake Store에 있는 데이터를 가리킵니다. CREATE TABLE AS SELECT 문과 함께 사용하는 경우 외부 테이블에서 선택하면 데이터를 SQL Data Warehouse로 가져옵니다. 따라서 외부 테이블은 데이터 로드에 유용합니다. 로드 자습서는 [PolyBase를 사용하여 Azure Blob Storage에서 데이터 로드](load-data-from-azure-blob-storage-using-polybase.md)를 참조하세요.
+외부 테이블은 Azure Storage Blob 또는 Azure Data Lake Store에 있는 데이터를 가리킵니다. CREATE TABLE AS SELECT 문과 함께 사용하는 경우 외부 테이블에서 선택하면 데이터를 SQL Data Warehouse로 가져옵니다. 따라서 외부 테이블은 데이터 로드에 유용합니다. 로드 자습서는 [PolyBase를 사용하여 Azure Blob Storage에서 데이터 로드](load-data-from-azure-blob-storage-using-polybase.md)를 참조하세요.
 
-### <a name="data-types"></a>데이터 형식
-SQL Data Warehouse는 가장 일반적으로 사용되는 데이터 형식을 지원합니다. 지원되는 데이터 형식의 목록은 CREATE TABLE 문에서 [데이터 형식](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse#DataTypes)을 참조하세요. 데이터 형식의 크기를 최소화하면 쿼리 성능 향상에 도움이 됩니다. 데이터 형식에 대한 지침은 [데이터 형식](sql-data-warehouse-tables-data-types.md)을 참조하세요.
+## <a name="data-types"></a>데이터 형식
+SQL Data Warehouse는 가장 일반적으로 사용되는 데이터 형식을 지원합니다. 지원되는 데이터 형식의 목록은 CREATE TABLE 문의 [CREATE TABLE 참조의 데이터 형식](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse#DataTypes)을 참조하세요. 데이터 형식의 크기를 최소화하면 쿼리 성능 향상에 도움이 됩니다. 데이터 형식 사용에 대한 지침은 [데이터 형식](sql-data-warehouse-tables-data-types.md)을 참조하세요.
 
-### <a name="distributed-tables"></a>분산 테이블
-SQL Data Warehouse의 기본 기능은 분산 시스템에 있는 배포라는 분산 위치 60개에 테이블을 저장할 수 있는 방법입니다.  SQL Data Warehouse는 다음 세 가지 방법 중 하나로 테이블을 저장할 수 있습니다.
+## <a name="distributed-tables"></a>분산 테이블
+SQL Data Warehouse의 기본 기능은 60개의 [분산](massively-parallel-processing-mpp-architecture.md#distributions)에 걸쳐 있는 테이블에 저장하고 운영할 수 있는 방법입니다.  테이블은 라운드 로빈, 해시 또는 복제 방법을 사용하여 분산됩니다.
 
-- **라운드 로빈**은 테이블 행을 임의로 저장하지만 배포에 균등하게 저장합니다. 라운드 로빈 테이블은 빠른 로드 성능을 획득하지만 열을 조인하는 쿼리를 위해 다른 방법보다 많은 데이터 이동이 필요합니다. 
-- **해시** 배포는 배포 열의 값을 기준으로 행을 배포합니다. 해시 분산 테이블은 대형 테이블에서 높은 쿼리 조인 성능을 획득할 가능성이 가장 큽니다. 배포 열의 선택에 영향을 주는 여러 요인이 있습니다. 자세한 내용은 [분산 테이블](sql-data-warehouse-tables-distribute.md)을 참조하세요.
-- **복제된** 테이블은 모든 계산 노드에서 사용할 수 있는 전체 테이블 사본을 만듭니다. 복제된 테이블을 조인할 때는 데이터를 이동할 필요가 없으므로 복제된 테이블에 대한 쿼리는 빠르게 실행됩니다. 하지만 복제 시 추가 저장소가 필요하며 대형 테이블에는 비효율적입니다. 자세한 내용은 [복제된 테이블에 대한 디자인 지침](design-guidance-for-replicated-tables.md)을 참조하세요.
+### <a name="hash-distributed-tables"></a>해시 분산 테이블
+해시 분산은 분산 열의 값에 따라 행을 분산합니다. 해시 분산 테이블은 대형 테이블에서 쿼리 조인에 대해 높은 성능을 달성하도록 설계되었습니다. 배포 열의 선택에 영향을 주는 여러 요인이 있습니다. 
 
-테이블 범주에 따라 선택할 테이블 배포 옵션이 결정되는 경우가 많습니다.  
+자세한 내용은 [분산 테이블에 대한 디자인 지침](sql-data-warehouse-tables-distribute.md)을 참조하세요.
+
+### <a name="replicated-tables"></a>복제된 테이블
+복제된 테이블에는 모든 계산 노드에서 사용할 수 있는 테이블의 전체 복사본이 있습니다. 복제된 테이블을 조인할 때는 데이터를 이동할 필요가 없으므로 복제된 테이블에 대한 쿼리는 빠르게 실행됩니다. 하지만 복제 시 추가 저장소가 필요하며 대형 테이블에는 비효율적입니다. 
+
+자세한 내용은 [복제된 테이블에 대한 디자인 지침](design-guidance-for-replicated-tables.md)을 참조하세요.
+
+### <a name="round-robin-tables"></a>라운드 로빈 테이블
+라운드 로빈 테이블은 테이블 행을 모든 분산에서 균일하게 배포합니다. 행은 무작위로 분산됩니다. 라운드 로빈 테이블에 대한 데이터 로드는 빠릅니다.  그러나 쿼리에는 다른 배포 방법보다 더 많은 데이터 이동이 필요할 수 있습니다. 
+
+자세한 내용은 [분산 테이블에 대한 디자인 지침](sql-data-warehouse-tables-distribute.md)을 참조하세요.
+
+
+### <a name="common-distribution-methods-for-tables"></a>테이블에 대한 일반적인 분산 방법
+테이블 범주에 따라 선택할 테이블 배포 옵션이 결정되는 경우가 많습니다. 
 
 | 테이블 범주 | 권장 배포 옵션 |
 |:---------------|:--------------------|
@@ -94,18 +100,18 @@ SQL Data Warehouse의 기본 기능은 분산 시스템에 있는 배포라는 �
 | 차원      | 작은 테이블에는 복제를 사용합니다. 테이블이 너무 커서 각 계산 노드에 저장할 수 없는 경우 해시 분산을 사용합니다. |
 | 스테이징        | 준비 테이블에는 라운드 로빈을 사용합니다. CTAS를 사용하면 빠르게 로드됩니다. 데이터가 준비 테이블에 있으면 INSERT...SELECT를 사용하여 데이터를 프로덕션 테이블로 이동합니다. |
 
-### <a name="table-partitions"></a>테이블 파티션
-분할된 테이블은 데이터 범위에 따라 테이블 행에 저장하고 작업을 수행합니다. 예를 들어 테이블을 일, 월 또는 연도별로 분할할 수 있습니다. 쿼리 성능 파티션 제거를 개선할 수 있으며, 쿼리 검사가 한 파티션 내의 데이터로 제한됩니다. 파티션 전환을 통해 데이터를 유지 관리할 수도 있습니다. SQL Data Warehouse의 데이터는 이미 분산되어 있으므로 파티션이 너무 많으면 쿼리 성능이 느려질 수 있습니다. 자세한 내용은 [분할 지침](sql-data-warehouse-tables-partition.md)을 참조하세요.
+## <a name="table-partitions"></a>테이블 파티션
+분할된 테이블은 데이터 범위에 따라 테이블 행에 저장하고 작업을 수행합니다. 예를 들어 테이블을 일, 월 또는 연도별로 분할할 수 있습니다. 쿼리 검색을 파티션 내의 데이터로 제한하는 파티션 제거를 통해 쿼리 성능을 향상시킬 수 있습니다. 파티션 전환을 통해 데이터를 유지 관리할 수도 있습니다. SQL Data Warehouse의 데이터는 이미 분산되어 있으므로 파티션이 너무 많으면 쿼리 성능이 느려질 수 있습니다. 자세한 내용은 [분할 지침](sql-data-warehouse-tables-partition.md)을 참조하세요.
 
-### <a name="columnstore-indexes"></a>Columnstore 인덱스
+## <a name="columnstore-indexes"></a>Columnstore 인덱스
 기본적으로 SQL Data Warehouse는 테이블을 클러스터형 columnstore 인덱스로 저장합니다. 이러한 형태의 데이터 저장소는 대형 테이블에서 데이터 압축률과 쿼리 성능이 높습니다.  일반적으로 클러스터형 columnstore 인덱스가 가장 좋은 옵션이지만 클러스터형 인덱스 또는 힙이 적절한 저장소 구조인 경우도 있습니다.
 
 columnstore 기능 목록은 [columnstore 인덱스의 새로운 기능](/sql/relational-databases/indexes/columnstore-indexes-what-s-new)을 참조하세요. columnstore 인덱스 성능을 향상하려면 [columnstore 인덱스의 행 그룹 품질 최대화](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)를 참조하세요.
 
-### <a name="statistics"></a>통계
+## <a name="statistics"></a>통계
 쿼리 최적화 프로그램은 쿼리 실행 계획을 만들 때 열 수준 통계를 사용합니다. 쿼리 성능을 향상하려면 개별 열, 특히 쿼리 조인에 사용되는 열에 대한 통계를 만드는 것이 중요합니다. 통계 생성 및 업데이트는 자동으로 수행되지 않습니다. 테이블을 만든 후 [통계를 생성](/sql/t-sql/statements/create-statistics-transact-sql)합니다. 많은 행을 추가하거나 변경한 후에는 통계를 업데이트합니다. 예를 들어 로드 후 통계를 업데이트합니다. 자세한 내용은 [통계 가이드](sql-data-warehouse-tables-statistics.md)를 참조하세요.
 
-## <a name="ways-to-create-tables"></a>테이블을 만드는 방법
+## <a name="commands-for-creating-tables"></a>테이블을 만드는 명령
 테이블을 새로운 빈 테이블로 만들 수 있습니다. 테이블을 만들고 select 문의 결과로 채울 수도 있습니다. 다음은 테이블을 만드는 T-SQL 명령입니다.
 
 | T-SQL 문 | 설명 |
@@ -119,7 +125,7 @@ columnstore 기능 목록은 [columnstore 인덱스의 새로운 기능](/sql/re
 
 데이터 웨어하우스 테이블은 다른 데이터 원본의 데이터를 로드하여 채워집니다. 로드를 성공적으로 수행하려면 원본 데이터에 있는 열의 개수와 데이터 형식이 데이터 웨어하우스의 테이블 정의와 일치해야 합니다. 맞출 데이터를 가져오는 것이 테이블 디자인의 가장 어려운 부분일 수 있습니다. 
 
-여러 데이터 저장소에서 데이터를 가져오는 경우 데이터 웨어하우스로 데이터를 가져와 통합 테이블에 저장할 수 있습니다. 데이터가 통합 테이블에 저장되면 SQL Data Warehouse의 기능을 사용하여 변환 작업을 수행할 수 있습니다.
+여러 데이터 저장소에서 데이터를 가져오는 경우 데이터 웨어하우스로 데이터를 가져와 통합 테이블에 저장할 수 있습니다. 데이터가 통합 테이블에 저장되면 SQL Data Warehouse의 기능을 사용하여 변환 작업을 수행할 수 있습니다. 데이터가 준비되면 프로덕션 테이블에 삽입할 수 있습니다.
 
 ## <a name="unsupported-table-features"></a>지원되지 않는 테이블 기능
 SQL Data Warehouse는 다른 데이터베이스에서 제공하는 테이블 기능을 모두는 아니지만 대부분 지원합니다.  다음 목록은 SQL Data Warehouse에서 지원되지 않는 일부 테이블 기능을 보여 줍니다.
@@ -259,7 +265,7 @@ FROM size
 
 ### <a name="table-space-summary"></a>테이블 공간 요약
 
-이 쿼리는 테이블에 의해 행 및 공간을 반환합니다.  가장 큰 테이블이 어느 테이블인지, 해당 테이블이 라운드 로빈, 복제 또는 해시 분산인지 확인할 수 있습니다.  해시 분산 테이블의 경우 쿼리에서 배포 열을 보여 줍니다.  대부분의 경우 가장 큰 테이블은 클러스터형 columnstore 인덱스로 해시 분산해야 합니다.
+이 쿼리는 테이블에 의해 행 및 공간을 반환합니다.  가장 큰 테이블이 어느 테이블인지, 해당 테이블이 라운드 로빈, 복제 또는 해시 분산인지 확인할 수 있습니다.  해시 분산 테이블의 경우 쿼리에서 배포 열을 보여 줍니다.  
 
 ```sql
 SELECT 

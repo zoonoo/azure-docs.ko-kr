@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory ID 보호 및 Microsoft Graph 시작 | Microsoft Docs"
+title: "Azure Active Directory ID 보호를 위한 Microsoft Graph | Microsoft Docs"
 description: "Azure Active Directory에서 위험 이벤트 및 관련된 정보의 목록에 대한 Microsoft Graph를 쿼리하는 방법을 알아봅니다."
 services: active-directory
 keywords: "Azure Active Directory ID 보호, 위험 이벤트, 취약점, 보안 정책, Microsoft Graph"
@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 12/08/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: fafad74f46baaf56a8220dab05028781b2f2258e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: df0d89fc93f1b9c19d669c29306398a8b25ee425
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Azure Active Directory ID 보호 및 Microsoft Graph 시작
 Microsoft Graph는 Microsoft의 통합된 API 끝점이며 [Azure Active Directory ID 보호](active-directory-identityprotection.md) API의 시작점입니다. 첫 번째 API인 **identityRiskEvents**를 사용하면 [위험 이벤트](active-directory-identityprotection-risk-events-types.md) 및 관련 정보의 목록에 대한 Microsoft Graph를 쿼리할 수 있습니다. 이 문서는 이 API를 쿼리하는 작업부터 시작합니다. 자세한 소개, 전체 설명서 및 Graph Explorer에 대한 액세스는 [Microsoft Graph 사이트](https://graph.microsoft.io/)를 참조하세요.
@@ -71,9 +72,9 @@ Microsoft Graph를 통해 ID 보호 데이터에 액세스하려면 네 가지 �
 
     a. **이름** 텍스트 상자에 응용 프로그램의 이름으 입력합니다(예: AADIP 위험 이벤트 API 응용 프로그램).
    
-    b. **유형**으로 **웹 응용 프로그램 및/또는 Web API**를 선택합니다.
+    나. **유형**으로 **웹 응용 프로그램 및/또는 Web API**를 선택합니다.
    
-    c. **로그온 URL** 텍스트 상자에 `http://localhost`을(를) 입력합니다.
+    다. **로그온 URL** 텍스트 상자에 `http://localhost`을(를) 입력합니다.
 
     d. **만들기**를 클릭합니다.
 
@@ -130,9 +131,9 @@ Microsoft Graph를 통해 ID 보호 데이터에 액세스하려면 네 가지 �
 
     a. **키 설명** 텍스트 상자에서 설명을 입력합니다(예: *AADIP 위험 이벤트*).
     
-    b. **기간**으로 **1년**을 선택합니다.
+    나. **기간**으로 **1년**을 선택합니다.
 
-    c. **Save**를 클릭합니다.
+    다. **저장**을 클릭합니다.
    
     d. 키 값을 복사한 다음 안전한 위치에 붙여넣습니다.   
    
@@ -151,7 +152,7 @@ Microsoft Graph를 통해 ID 보호 데이터에 액세스하려면 네 가지 �
 - 키 
 
 
-인증하려면 본문에서 다음 매개 변수를 사용하여 `https://login.microsoft.com`에 게시 요청을 전송합니다.
+인증하려면 본문에서 다음 매개 변수를 ㅏ용하여 `https://login.microsoft.com` 에 게시 요청을 전송합니다.
 
 - grant_type: “**client_credentials**”
 

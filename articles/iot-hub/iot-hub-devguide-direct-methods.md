@@ -15,15 +15,14 @@ ms.workload: na
 ms.date: 10/19/2017
 ms.author: nberdy
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f0520e97a8b4f218b87683464d342bf7a08b2383
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: 243845139c7ae0389333d7490098ef73f95dceac
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>IoT Hub의 직접 메서드 호출 및 이해
 IoT Hub를 사용하면 클라우드의 장치에서 직접 메서드를 호출할 수 있습니다. 직접 메서드는 사용자가 지정한 시간 제한을 초과하는 즉시 성공하거나 실패한다는 점에서 HTTP 호출과 비슷한 디바이스와의 요청-응답 상호 작용을 나타냅니다. 이 접근 방법은 즉각적인 작업 과정이 장치의 응답 가능성 여부에 따라 달라지는 시나리오에 유용합니다. 예를 들어 장치가 오프라인일 때 장치에 SMS 깨우기(wake-up)를 보내는 경우가 여기에 해당됩니다.(SMS가 메서드 호출보다 비용이 높아지고 있습니다.)
-
 각 장치 메서드는 단일 장치를 대상으로 합니다. [jobs][lnk-devguide-jobs]는 여러 장치에서 직접 메서드를 호출하고 연결되지 않은 장치에 대한 메서드 호출을 예약하는 방법을 제공합니다.
 
 IoT Hub에 **서비스 연결** 권한만 있다면 누구든 장치에서 메서드를 호출할 수 있습니다.
@@ -44,7 +43,7 @@ desired 속성, 직접 메서드 또는 클라우드-장치 메시지 사용에 
 
 직접 메서드는 클라우드 쪽에서는 HTTPS 전용, 장치 쪽에서는 MQTT 또는 AMQP입니다.
 
-메서드 요청 및 응답에 대한 페이로드는 최대 8KB의 JSON 문서입니다.
+메서드 요청 및 응답에 대한 페이로드는 최대 128KB의 JSON 문서입니다.
 
 ## <a name="invoke-a-direct-method-from-a-back-end-app"></a>백 엔드 앱에서 직접 메서드 호출
 ### <a name="method-invocation"></a>메서드 호출

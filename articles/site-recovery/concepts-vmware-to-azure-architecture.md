@@ -4,13 +4,13 @@ description: "이 문서에서는 Azure Site Recovery 서비스를 사용하여 
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 12/19/2017
+ms.date: 01/15/2018
 ms.author: raynew
-ms.openlocfilehash: 1c991298d8f59c7f161b965541571b4c8ac3d8f9
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 7999f23d167c6e8a7bcaf3a817e0cd2e80a1d649
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="vmware-to-azure-replication-architecture"></a>VMware에서 Azure로 복제 아키텍처
 
@@ -24,11 +24,9 @@ ms.lasthandoff: 12/19/2017
 **구성 요소** | **요구 사항** | **세부 정보**
 --- | --- | ---
 **Azure** | Azure 구독, Azure Storage 계정 및 Azure 네트워크  | 온-프레미스 VM에서 복제된 데이터는 저장소 계정에 저장됩니다. 온-프레미스에서 Azure로의 장애 조치가 발생한 경우 복제된 데이터를 사용하여 Azure VM을 만듭니다. Azure VM을 만들 때 Azure 가상 네트워크에 연결합니다.
-**구성 서버** | 모든 온-프레미스 Site Recovery 구성 요소를 실행하도록 단일 온-프레미스 VMware VM이 배포됩니다. VM은 구성 서버, 프로세스 서버 및 마스터 대상 서버를 실행합니다. | 구성 서버는 온-프레미스와 Azure 간의 통신을 조정하여 데이터 복제를 관리합니다.
- **프로세스 서버**:  | 기본적으로 구성 서버와 함께 설치됩니다. | 복제 게이트웨이의 역할을 합니다. 복제 데이터를 수신하고 캐싱, 압축 및 암호화를 사용하여 최적화하며 복제 데이터를 Azure Storage로 전송합니다.<br/><br/> 또한 프로세스 서버는 복제하려는 VM에 모바일 서비스를 설치하고 온-프레미스 VMware 서버에서 VM의 자동 검색을 수행합니다.<br/><br/> 배포가 늘어나면 프로세스 서버로 실행하는 별도의 프로세스 서버를 추가하여 더 큰 복제 트래픽을 처리할 수 있습니다.
- **마스터 대상 서버** | 기본적으로 구성 서버와 함께 설치됩니다. | Azure에서 장애 복구 중에 복제 데이터를 처리합니다.<br/><br/> 대규모 배포의 경우 장애 복구를 위해 추가적인 별도의 마스터 대상 서버를 추가할 수 있습니다.
+**구성 서버 컴퓨터** | 단일 온-프레미스 컴퓨터입니다. 다운로드된 OVF 템플릿에서 배포할 수 있는 VMware VM으로 실행하는 것이 좋습니다.<br/><br/> 이 컴퓨터는 구성 서버, 프로세스 서버 및 마스터 대상 서버를 포함하는 모든 온-프레미스 Site Recovery 구성 요소를 실행합니다. | **구성 서버**: 온-프레미스와 Azure 간의 통신을 조정하여 데이터 복제를 관리합니다.<br/><br/> **프로세스 서버**: 기본적으로 구성 서버에 설치됩니다. 복제 데이터를 수신하고 캐싱, 압축 및 암호화를 사용하여 최적화하며 복제 데이터를 Azure Storage로 전송합니다. 또한 프로세스 서버는 복제하려는 VM에 모바일 서비스를 설치하고 온-프레미스 컴퓨터의 자동 검색을 수행합니다. 배포가 늘어나면 프로세스 서버로 실행하는 별도의 프로세스 서버를 추가하여 더 큰 복제 트래픽을 처리할 수 있습니다.<br/><br/>  **마스터 대상 서버**: 기본적으로 구성 서버에 설치됩니다. Azure에서 장애 복구(Failback) 중에 복제 데이터를 처리합니다. 대규모 배포의 경우 장애 복구를 위해 추가적인 별도의 마스터 대상 서버를 추가할 수 있습니다.
 **VMware 서버** | VMware VM은 온-프레미스 vSphere ESXi 서버에서 호스트됩니다. 호스트를 관리하려면 vCenter 서버를 사용하는 것이 좋습니다. | Site Recovery 배포 중에 VMware 서버를e Recovery Services 자격 증명 모음에 추가합니다.
-**복제된 컴퓨터** | 복제하는 각 VMware VM에 모바일 서비스가 설치됩니다. | 프로세스 서버에서 자동 설치를 허용하는 것이 좋습니다. 또는 서비스를 수동으로 설치하거나 System Center Configuration Manager와 같은 자동화된 배포 방법을 사용할 수 있습니다. 
+**복제된 컴퓨터** | 복제하는 각 VMware VM에 모바일 서비스가 설치됩니다. | 프로세스 서버에서 자동 설치를 허용하는 것이 좋습니다. 또는 서비스를 수동으로 설치하거나 System Center Configuration Manager와 같은 자동화된 배포 방법을 사용할 수 있습니다.
 
 **VMware에서 Azure로 아키텍처**
 
@@ -36,15 +34,17 @@ ms.lasthandoff: 12/19/2017
 
 ## <a name="replication-process"></a>복제 프로세스
 
-1. 온-프레미스 및 Azure 구성 요소를 포함하여 배포를 설정합니다. Recovery Services 자격 증명 모음에서 복제 원본 및 대상을 지정하고 구성 서버를 설정하며 복제 정책을 만들고 모바일 서비스를 배포하며 복제를 사용하도록 설정합니다.
-2. 컴퓨터는 복제 정책에 따라 복제를 시작하고 VM 데이터의 초기 복사본은 Azure Storage로 복제됩니다.
-3. 초기 복제가 완료되면 Azure에 대한 델타 변경 내용의 복제가 시작됩니다. .hrl 파일에는 컴퓨터에 대한 추적된 변경 내용이 유지됩니다.
+1.  Azure 리소스와 온-프레미스 구성 요소를 준비합니다.
+2.  Recovery Services 자격 증명 모음에 원본 복제 설정을 지정합니다. 이 과정의 일환으로, 온-프레미스 구성 서버를 설정합니다. 이 서버를 VMware VM으로 배포하려면 준비된 OVF 템플릿을 다운로드한 후 VMware로 가져와 VM을 만듭니다.
+3. 대상 복제 설정을 지정하고, 복제 정책을 만들고, VMware VM에 대한 복제를 사용하도록 설정합니다.
+4.  컴퓨터는 복제 정책에 따라 복제를 시작하고 VM 데이터의 초기 복사본은 Azure Storage로 복제됩니다.
+5.  초기 복제가 완료되면 Azure에 대한 델타 변경 내용의 복제가 시작됩니다. .hrl 파일에는 컴퓨터에 대한 추적된 변경 내용이 유지됩니다.
     - 컴퓨터는 복제 관리를 위해 HTTPS 443 인바운드 포트에 대한 구성 서버와 통신합니다.
     - 컴퓨터는 복제 데이터를 HTTPS 9443 인바운드 포트(수정될 수 있음)에 대한 프로세스 서버로 전달합니다.
     - 구성 서버는 HTTPS 443 아웃바운드 포트를 통해 Azure를 사용하는 복제 관리를 오케스트레이션합니다.
     - 프로세스 서버가 원본 컴퓨터에서 데이터를 수신하고 이를 최적화 및 암호화하며 443 아웃바운드 포트를 통해 Azure Storage로 전송합니다.
     - 다중 VM 일관성을 사용하도록 설정하면 복제 그룹의 컴퓨터는 20004 포트를 통해 서로 통신하게 됩니다. 다중 VM은 장애 조치 시(failover) 크래시 일관성 및 앱 일관성 복구 지점을 공유하는 복제 그룹에 여러 컴퓨터를 그룹화하는 경우 사용됩니다. 이 기능은 컴퓨터가 동일한 워크로드를 실행하고 일관성을 유지해야 할 경우에 유용합니다.
-4. 트래픽은 인터넷을 통해 Azure Storage 공용 끝점에 복제됩니다. Azure ExpressRoute [공용 피어링](../expressroute/expressroute-circuit-peerings.md#azure-public-peering)을 사용할 수도 있습니다. 온-프레미스 사이트에서 Azure로의 사이트 간 VPN을 통한 트래픽 복제는 지원되지 않습니다.
+6.  트래픽은 인터넷을 통해 Azure Storage 공용 끝점에 복제됩니다. Azure ExpressRoute [공용 피어링](../expressroute/expressroute-circuit-peerings.md#azure-public-peering)을 사용할 수도 있습니다. 온-프레미스 사이트에서 Azure로의 사이트 간 VPN을 통한 트래픽 복제는 지원되지 않습니다.
 
 
 **VMware에서 Azure로 복제 프로세스**

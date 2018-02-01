@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: genli;markgal;sogup;
-ms.openlocfilehash: 5eb326dfd89d9cc64eb0e05286e64c87e090e0a1
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 0be2391268e11593802cb0f455e8c4553f0d4731
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-agent-andor-extension"></a>Azure Backup 오류 문제 해결: 에이전트 및/또는 확장 관련 문제
 
@@ -78,7 +78,7 @@ Azure Backup 서비스에 대한 VM을 등록하고 예약하면 백업은 VM �
 ## <a name="the-specified-disk-configuration-is-not-supported"></a>지정된 디스크 구성은 지원되지 않습니다.
 
 > [!NOTE]
-> >1TB 관리되지 않는 디스크를 포함하는 VM에 대한 백업은 비공개 미리 보기 상태로 지원됩니다. 세부 정보는 [대형 디스크 VM 백업 지원에 대한 비공개 미리 보기](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)를 참조하세요.
+> 1TB보다 큰 디스크를 사용하는 VM에 대한 백업을 지원하는 비공개 미리 보기가 있습니다. 세부 정보는 [대형 디스크 VM 백업 지원에 대한 비공개 미리 보기](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)를 참조하세요.
 >
 >
 
@@ -97,11 +97,14 @@ Azure Backup 서비스에 대한 VM을 등록하고 예약하면 백업은 VM �
 
 ####  <a name="solution"></a>해결 방법
 문제를 해결하려면 다음 방법 중 하나를 사용해 보세요.
-##### <a name="allow-access-to-the-azure-datacenter-ip-ranges"></a>Azure 데이터 센터 IP 범위에 대한 액세스 허용
+##### <a name="allow-access-to-the-azure-storage-corresponding-to-the-region"></a>지역에 해당하는 Azure 저장소에 대한 액세스 허용
 
-1. [Azure 데이터 센터 IP 목록](https://www.microsoft.com/download/details.aspx?id=41653)을 가져와서 액세스를 허용합니다.
-2. 표시된 PowerShell 창의 Azure VM에서 **New-NetRoute** cmdlet을 실행하여 IP를 차단 해제합니다. 관리자 권한으로 cmdlet을 실행합니다.
-3. IP에 대한 액세스를 허용하려면 네트워크 보안 그룹이 있는 경우 규칙을 추가합니다.
+[서비스 태그](../virtual-network/security-overview.md#service-tags)를 사용하여 특정 지역의 저장소에 대한 연결을 허용할 수 있습니다. 인터넷 액세스를 차단하는 규칙보다 저장소 계정에 대한 액세스를 허용하는 규칙에 높은 우선 순위가 있는지 확인합니다. 
+
+![지역에 대한 저장소 태그가 있는 NSG ](./media/backup-azure-arm-vms-prepare/storage-tags-with-nsg.png)
+
+> [!WARNING]
+> 저장소 서비스 태그는 특정 지역에서만 사용할 수 있으며 미리 보기 상태입니다. 지역 목록은 [저장소의 서비스 태그](../virtual-network/security-overview.md#service-tags)를 참조하세요.
 
 ##### <a name="create-a-path-for-http-traffic-to-flow"></a>HTTP 트래픽을 보내는 경로 만들기
 
@@ -166,8 +169,6 @@ VM 백업은 기본 저장소 계정에 대한 스냅숏 명령 실행을 사용
 | --- | --- |
 | VM에 구성된 SQL Server 백업이 있습니다. | 기본적으로 VM 백업은 Windows VM에서 VSS 전체 백업을 실행합니다. SQL Server 기반 서버를 실행하고 SQL Server 백업이 구성된 VM에서 스냅숏 실행이 지연될 수 있습니다.<br><br>스냅숏 문제로 인해 Backup이 실패한 경우 다음 레지스트리 키를 설정합니다.<br><br>**[HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\BCDRAGENT] "USEVSSCOPYBACKUP"="TRUE"** |
 | VM이 RDP에서 종료되므로 VM 상태가 잘못 보고됩니다. | RDP(원격 데스크톱 프로토콜)에서 VM을 종료하는 경우 VM 상태가 올바른지 여부를 확인하려면 포털을 확인합니다. 올바르지 않으면 VM 대시보드의 **종료** 옵션을 사용하여 포털에서 VM을 종료합니다. |
-| 동일한 클라우드 서비스에서 여러 VM이 동시에 백업하도록 구성됩니다. | 동일한 클라우드 서비스에서 VM의 백업 일정을 분산하는 것이 모범 사례입니다. |
-| VM이 사용량이 높은 CPU 또는 메모리에서 실행 중입니다. | VM이 사용량이 높은 CPU(90% 이상) 또는 메모리에서 실행 중인 경우 스냅숏 작업이 큐에 대기 및 지연되어 결국 시간 초과됩니다. 이 상황에서는 주문형 백업을 시도하세요. |
 | VM이 DHCP에서 호스트/패브릭 주소를 가져올 수 없습니다. | IaaS VM 백업이 작동하려면 게스트 내에 DHCP를 사용하도록 설정되어야 합니다.  VM이 DHCP 응답 245에서 호스트/패브릭 주소를 가져올 수 없는 경우에는 어떠한 확장도 다운로드하거나 실행할 수 없습니다. 고정 개인 IP가 필요한 경우 플랫폼을 통해 구성해야 합니다. VM 내 DHCP 옵션은 사용 가능한 상태로 두어야 합니다. 자세한 내용은 [고정 내부 개인 IP 설정](../virtual-network/virtual-networks-reserved-private-ip.md)을 참조하세요. |
 
 ### <a name="the-backup-extension-fails-to-update-or-load"></a>백업 확장을 업데이트 또는 로드할 수 없습니다.
@@ -192,24 +193,6 @@ VM 백업은 기본 저장소 계정에 대한 스냅숏 명령 실행을 사용
 6. **제거**를 클릭합니다.
 
 이렇게 하면 다음 백업 동안 확장을 다시 설치해야 합니다.
-
-### <a name="azure-classic-vms-may-require-additional-step-to-complete-registration"></a>Azure 클래식 VM에는 등록을 완료하는 추가 단계가 필요할 수 있습니다.
-Azure 클래식 VM의 에이전트를 등록하여 백업 서비스에 대한 연결을 설정하고 백업을 시작해야 합니다.
-
-#### <a name="solution"></a>해결 방법
-
-VM 게스트 에이전트를 설치한 후에 Azure PowerShell을 시작합니다. <br>
-1. 다음을 사용하여 Azure 계정에 로그인합니다. <br>
-       `Login-AzureAsAccount`<br>
-2. 다음 명령을 사용하여 VM의 ProvisionGuestAgent 속성이 True로 설정되어 있는지 확인합니다. <br>
-        `$vm = Get-AzureVM –ServiceName <cloud service name> –Name <VM name>`<br>
-        `$vm.VM.ProvisionGuestAgent`<br>
-3. 속성을 FALSE로 설정한 경우 TRUE로 설정하는 아래 명령을 수행합니다.<br>
-        `$vm = Get-AzureVM –ServiceName <cloud service name> –Name <VM name>`<br>
-        `$vm.VM.ProvisionGuestAgent = $true`<br>
-4. 그러면 VM을 업데이트하는 다음 명령을 실행합니다. <br>
-        `Update-AzureVM –Name <VM name> –VM $vm.VM –ServiceName <cloud service name>` <br>
-5. 백업을 시작해보세요. <br>
 
 ### <a name="backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock"></a>백업 서비스에는 리소스 그룹 잠금으로 인해 이전 복원 지점을 삭제할 수 있는 권한이 없습니다.
 이 문제는 사용자가 리소스 그룹을 잠그고 Backup 서비스가 이전 복원 지점을 삭제할 수 없는 경우 관리 VM에서 발견됩니다. 이로 인해, 백 엔드에서 적용된 최대 18개의 복원 지점 제한에 도달했으므로 새 백업이 시작되지 못합니다.

@@ -9,11 +9,11 @@ ms.author: xshi
 ms.date: 12/20/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 9637986d10a0e89568b2f79ede3d7b7468bb99a7
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 219474a4577a76f5ceb9a9efaa3c349d633de047
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="use-visual-studio-code-to-develop-and-deploy-azure-functions-to-azure-iot-edge"></a>Visual Studio Code를 사용하여 Azure Functions 개발 및 Azure IoT Edge에 배포
 
@@ -140,9 +140,13 @@ docker run -d -p 5000:5000 --name registry registry:2
 
 1. VS Code 탐색기에서 **Docker** 폴더를 확장합니다. 그런 다음 컨테이너 플랫폼에 대한 폴더(**linux-x64** 또는 **windows-nano**)를 확장합니다.
 2. **Dockerfile** 파일을 마우스 오른쪽 단추로 클릭하고 **IoT Edge 모듈 Docker 이미지 빌드**를 클릭합니다. 
+
+    ![Docker 이미지 빌드](./media/how-to-vscode-develop-csharp-function/build-docker-image.png)
+
 3. **FilterFunction** 프로젝트 폴더로 이동하고 **EXE_DIR로 폴더 선택**을 클릭합니다. 
-4. VS Code 창의 맨 위에 있는 팝업 텍스트 상자에 이미지 이름을 입력합니다. 예: `<your container registry address>/filterfunction:latest` 로컬 레지스트리를 배포하는 경우 `localhost:5000/filterfunction:latest`을 입력해야 합니다.
+4. VS Code 창의 맨 위에 있는 팝업 텍스트 상자에 이미지 이름을 입력합니다. 예: `<your container registry address>/filterfunction:latest` 로컬 레지스트리를 배포하는 경우 `localhost:5000/filterfunction:latest`를 입력해야 합니다.
 5. Docker 리포지토리에 이미지를 푸시합니다. **Edge: IoT Edge 모듈 Docker 이미지 푸시** 명령을 사용하여 VS Code 창의 맨 위에 있는 팝업 텍스트 상자에 이미지 URL을 입력합니다. 위 단계에서 사용한 동일한 이미지 URL을 사용하세요.
+    ![Docker 이미지 푸시](./media/how-to-vscode-develop-csharp-function/push-image.png)
 
 ### <a name="deploy-your-function-to-iot-edge"></a>IoT Edge에 함수 배포
 
@@ -172,22 +176,28 @@ docker run -d -p 5000:5000 --name registry registry:2
 
 2. **routes** 섹션을 아래 콘텐츠로 바꿉니다.
    ```json
-   {
        "routes":{
            "sensorToFilter":"FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/filterfunction/inputs/input1\")",
            "filterToIoTHub":"FROM /messages/modules/filterfunction/outputs/* INTO $upstream"
        }
-   }
    ```
    > [!NOTE]
    > 런타임의 선언적 규칙은 해당 메시지가 어디로 흐르는지를 정의합니다. 이 자습서에서는 두 개의 경로가 필요합니다. 첫 번째 경로는 FilterMessages 핸들러로 구성한 끝점인 “input1” 끝점을 통해 온도 센서에서 필터 함수로 메시지를 전송합니다. 두 번째 경로는 필터 함수에서 IoT Hub로 메시지를 전송합니다. 이 경로에서 upstream은 메시지를 IoT Hub로 보내라고 Edge Hub에 알리는 특수 대상입니다.
 
 3. 이 파일을 저장합니다.
 4. 명령 팔레트에서 **Edge: Edge 장치에 대한 배포 만들기**를 선택합니다. 그런 다음 배포를 만들 IoT Edge 장치 ID를 선택합니다. 또는 장치 목록에서 장치 ID를 마우스 오른쪽 단추로 클릭하고 **Edge 장치에 대한 배포 만들기**를 선택합니다.
+
+    ![배포 만들기](./media/how-to-vscode-develop-csharp-function/create-deployment.png)
+
 5. 업데이트한 `deployment.json`을 선택합니다. 출력 창에서 배포에 해당하는 출력을 볼 수 있습니다.
 6. 명령 팔레트에서 Edge 런타임을 시작합니다. **Edge: Edge 시작**
 7. Docker 탐색기에서 시뮬레이트된 센서 및 필터 함수를 사용하여 IoT Edge 런타임이 실행되는 것을 볼 수 있습니다.
+
+    ![실행 중인 솔루션](./media/how-to-vscode-develop-csharp-function/solution-running.png)
+
 8. Edge 장치 ID를 마우스 오른쪽 단추로 클릭하고 VS Code의 D2C 메시지를 모니터링할 수 있습니다.
+
+    ![메시지 모니터링](./media/how-to-vscode-develop-csharp-function/monitor-d2c-messages.png)
 
 
 ## <a name="next-steps"></a>다음 단계

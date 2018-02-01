@@ -67,6 +67,14 @@
           href: automation-runbook-types.md
         - name: Runbook 만들기 및 가져오기
           href: automation-creating-importing-runbook.md
+        - name: 그래픽 Runbook 만들기
+          href: automation-first-runbook-graphical.md
+        - name: PowerShell Runbook 만들기
+          href: automation-first-runbook-textual-powershell.md
+        - name: PowerShell 워크플로 Runbook 만들기
+          href: automation-first-runbook-textual.md
+        - name: Python Runbook 만들기
+          href: automation-first-runbook-textual-python2.md
         - name: 텍스트 Runbook 편집
           href: automation-edit-textual-runbook.md
         - name: 그래픽 Runbook 편집

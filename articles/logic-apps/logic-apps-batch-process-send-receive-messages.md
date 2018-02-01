@@ -1,5 +1,5 @@
 ---
-title: "그룹 또는 컬렉션으로 메시지를 일괄 처리 - Azure Logic Apps | Microsoft Docs"
+title: "그룹 또는 컬렉션으로 메시지를 Batch 처리 - Azure Logic Apps | Microsoft Docs"
 description: "논리 앱에서의 일괄 처리에 대한 메시지 보내기 및 받기"
 keywords: "일괄 처리"
 author: jonfancey
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/7/2017
 ms.author: LADocs; estfan; jonfan
-ms.openlocfilehash: e0b7292f25a145c699dbafaf4e31e3f9d072b957
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: de519084a4f172ad984c78727123835eeb9deaef
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="send-receive-and-batch-process-messages-in-logic-apps"></a>논리 앱의 메시지 보내기, 받기 및 일괄 처리
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 10/14/2017
 
 * Azure 구독. 구독이 없는 경우 [Azure 계정을 사용하여 시작](https://azure.microsoft.com/free/)할 수 있습니다. 그렇지 않으면 [종량제 구독에 등록](https://azure.microsoft.com/pricing/purchase-options/)할 수 있습니다.
 
-* [논리 앱 만드는 방법](../logic-apps/logic-apps-create-a-logic-app.md)에 관한 기본 지식 
+* [논리 앱 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md)에 관한 기본 지식 
 
 * [Azure Logic Apps에서 지원하는 전자 메일 공급자](../connectors/apis-list.md)를 사용하는 메일 계정
 
@@ -47,7 +47,7 @@ ms.lasthandoff: 10/14/2017
 
 ## <a name="create-logic-apps-that-receive-messages-as-a-batch"></a>메시지를 일괄 처리로 수신하는 논리 앱 만들기
 
-메시지를 일괄 처리로 보내려면 **일괄 처리** 트리거를 사용하여 “일괄 처리 수신자” 논리 앱을 먼저 만들어야 합니다. 이런 방식으로 발신자 논리 앱을 만들 때 이 수신자 논리 앱을 선택할 수 있습니다. 수신자의 경우 일괄 처리 이름, 릴리스 조건 및 다른 설정을 지정합니다. 
+메시지를 일괄 처리로 보내려면 **Batch** 트리거를 사용하여 “일괄 처리 수신자” 논리 앱을 먼저 만들어야 합니다. 이런 방식으로 발신자 논리 앱을 만들 때 이 수신자 논리 앱을 선택할 수 있습니다. 수신자의 경우 일괄 처리 이름, 릴리스 조건 및 다른 설정을 지정합니다. 
 
 수신자 논리 앱은 발신자에 대해 알 필요가 없는 반면, 발신자 논리 앱은 항목을 보내는 곳을 알아야 합니다.
 
@@ -83,13 +83,13 @@ ms.lasthandoff: 10/14/2017
       예를 들어 회사 또는 학교 계정이 있는 경우 Office 365 Outlook 커넥터를 선택합니다. 
       Gmail 계정이 있는 경우 Gmail 커넥터를 선택합니다.
 
-   3. 커넥터에 대해 **{*전자 메일 공급자*} - 전자 메일 보내기** 작업을 선택합니다.
+   3. 커넥터에 대해 **{*메일 공급자*} - 메일 보내기** 작업을 선택합니다.
 
-      예:
+      예: 
 
       ![전자 메일 공급자에 대한 “전자 메일 보내기” 작업을 선택합니다.](./media/logic-apps-batch-process-send-receive-messages/add-send-email-action.png)
 
-5. 이전에 전자 메일 공급자에 대한 연결을 만들지 않은 경우 메시지가 표시되면 인증을 위해 전자 메일 자격 증명을 제공합니다. [전자 메일 자격 증명 인증](../logic-apps/logic-apps-create-a-logic-app.md)에 대해 자세히 알아보세요.
+5. 이전에 전자 메일 공급자에 대한 연결을 만들지 않은 경우 메시지가 표시되면 인증을 위해 전자 메일 자격 증명을 제공합니다. [전자 메일 자격 증명 인증](../logic-apps/quickstart-create-first-logic-app-workflow.md)에 대해 자세히 알아보세요.
 
 6. 방금 추가한 작업에 대한 속성을 설정합니다.
 
@@ -117,7 +117,7 @@ ms.lasthandoff: 10/14/2017
     ![논리 앱 저장](./media/logic-apps-batch-process-send-receive-messages/save-batch-receiver-logic-app.png)
 
     > [!IMPORTANT]
-    > 분할의 메시지 제한은 5,000개 또는 80MB입니다. 두 조건 중 하나가 충족될 경우 사용자 정의 조건에 맞지 않더라도 일괄 처리가 해제될 수 있습니다.
+    > 파티션 한도는 5,000개 메시지 또는 80MB입니다. 두 조건 중 하나가 충족될 경우 사용자 정의 조건에 맞지 않더라도 일괄 처리가 해제될 수 있습니다.
 
 
 <a name="batch-sender"></a>
@@ -145,7 +145,7 @@ ms.lasthandoff: 10/14/2017
 
    2. 검색 상자에서 필터로 “일괄 처리”를 입력합니다. 
 
-   3. **일괄 처리로 메시지 보내기 – 일괄 처리 트리거를 사용하여 논리 앱 워크플로 선택** 작업을 선택합니다.
+   3. **일괄 처리로 메시지 보내기 – 일괄 처리 트리거를 사용하여 Logic Apps 워크플로 선택** 작업을 선택합니다.
 
       ![“일괄 처리로 메시지 보내기” 선택](./media/logic-apps-batch-process-send-receive-messages/send-messages-batch-action.png)
 

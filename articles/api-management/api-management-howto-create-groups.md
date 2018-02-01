@@ -11,13 +11,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2017
+ms.date: 01/17/2018
 ms.author: apimpm
-ms.openlocfilehash: 1587243bcd5f2b9af98b8b529c152ba49ef676be
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: f377e1aadc126934fb47f6371f12435d2742efa6
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="how-to-create-and-use-groups-to-manage-developer-accounts-in-azure-api-management"></a>Azure API Management에서 개발자 계정을 관리하는 그룹을 만들고 사용하는 방법
 API Management에서 그룹은 개발자에 대한 제품 표시 여부를 관리하는 데 사용됩니다. 제품이 먼저 그룹에 표시된 다음, 이러한 그룹의 개발자가 그룹과 연결된 제품을 보고 구독할 수 있습니다. 
@@ -32,77 +32,69 @@ API Management에는 다음과 같은 변경할 수 없는 시스템 그룹이 �
 
 이 가이드에서는 API Management 인스턴스의 관리자가 새 그룹을 추가하고 이 그룹과 새 제품 및 개발자를 연결하는 방법을 보여 줍니다.
 
-> [!NOTE]
-> 게시자 포털에서 그룹 만들기 및 관리 외에도 API Management REST API [그룹](https://msdn.microsoft.com/library/azure/dn776329.aspx) 엔터티를 사용하여 그룹을 만들고 관리할 수 있습니다.
-> 
-> 
+게시자 포털에서 그룹 만들기 및 관리 외에도 API Management REST API [그룹](https://msdn.microsoft.com/library/azure/dn776329.aspx) 엔터티를 사용하여 그룹을 만들고 관리할 수 있습니다.
+
+## <a name="prerequisites"></a>필수 조건
+
+[Azure API Management 인스턴스 만들기](get-started-create-service-instance.md) 문서의 작업을 완료합니다.
+
+[!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
 ## <a name="create-group"> </a>그룹 만들기
-새 그룹을 만들려면 API Management 서비스에 대해 Azure Portal에서 **게시자 포털**을 클릭합니다. API Management 게시자 포털로 이동됩니다.
 
-![게시자 포털][api-management-management-console]
+이 섹션에서는 API Management 계정에 새 그룹을 추가하는 방법을 보여 줍니다.
 
-> 아직 API Management 서비스 인스턴스를 만들지 않은 경우 [API Management 서비스 인스턴스 만들기][Create an API Management service instance]를 참조하세요.
-> 
-> 
+1. 화면 왼쪽의 **그룹** 탭을 선택합니다.
+2. **+추가**를 클릭합니다.
+3. 그룹의 고유한 이름 및 선택적 설명을 입력합니다.
+4. **만들기**를 누릅니다.
 
-왼쪽의 **API Management** 메뉴에서 **그룹**을 클릭한 다음 **그룹 추가**를 클릭합니다.
+    ![새 그룹 추가](./media/api-management-howto-create-groups/groups001.png)
 
-![새 그룹 추가][api-management-add-group]
-
-그룹의 고유한 이름 및 선택적 설명을 입력하고 **저장**을 클릭합니다.
-
-![새 그룹 추가][api-management-add-group-window]
-
-새 그룹이 그룹 탭에 표시됩니다. 그룹의 **이름** 또는 **설명**을 편집하려면 목록의 그룹 이름을 클릭합니다. 그룹을 삭제하려면 **삭제**를 클릭합니다.
-
-![그룹 추가됨][api-management-new-group]
+그룹이 만들어지면 **그룹** 목록에 추가됩니다. <br/>그룹의 **이름** 또는 **설명**을 편집하려면 그룹 이름 및 **설정**을 클릭합니다.<br/>그룹을 삭제하려면 그룹 이름을 클릭하고 **삭제**를 누릅니다.
 
 그룹이 생성되었으므로, 제품 및 개발자와 연결할 수 있습니다.
 
 ## <a name="associate-group-product"> </a>그룹과 제품 연결
-그룹과 제품을 연결하려면 왼쪽의 **API Management** 메뉴에서 **제품**을 클릭한 다음, 원하는 제품의 이름을 클릭합니다.
 
-![표시 여부 설정][api-management-add-group-to-product]
+1. 왼쪽의 **제품** 탭을 선택합니다.
+2. 원하는 제품의 이름을 클릭합니다.
+3. **액세스 제어**를 누릅니다.
+4. **+ 그룹 추가**를 클릭합니다.
 
-**표시 여부** 탭을 선택하여 그룹을 추가 및 제거하고, 제품에 대한 현재 그룹을 봅니다. 그룹을 추가 또는 제거하려면 원하는 그룹의 확인란을 선택하거나 선택 취소하고 **저장**을 클릭하세요.
+    ![새 그룹 추가](./media/api-management-howto-create-groups/groups002.png)
+5. 추가하려는 그룹을 선택합니다.
 
-![표시 여부 설정][api-management-add-group-to-product-visibility]
+    ![새 그룹 추가](./media/api-management-howto-create-groups/groups003.png)
 
-> [!NOTE]
-> Azure Active Directory 그룹을 추가하려면 [Azure API Management에서 Azure Active Directory를 사용하여 개발자 계정에 권한을 부여하는 방법](api-management-howto-aad.md)을 참조하세요.
-> 
-> 제품에 대한 **표시 여부** 탭에서 그룹을 구성하려면 **그룹 관리**를 클릭합니다.
-> 
-> 
+    제품에서 그룹을 제거하려면 **삭제**를 클릭합니다.
+
+    ![그룹 삭제](./media/api-management-howto-create-groups/groups004.png)
 
 제품이 그룹과 연결되면 그룹의 개발자가 제품을 보고 구독할 수 있습니다.
 
+> [!NOTE]
+> Azure Active Directory 그룹을 추가하려면 [Azure API Management에서 Azure Active Directory를 사용하여 개발자 계정에 권한을 부여하는 방법](api-management-howto-aad.md)을 참조하세요.
+
 ## <a name="associate-group-developer"> </a>그룹과 개발자 연결
-그룹과 개발자를 연결하려면 왼쪽의 **API Management** 메뉴에서 **사용자**를 클릭한 다음 그룹과 연결할 개발자 옆의 확인란을 선택합니다.
 
-![그룹에 개발자 추가][api-management-add-group-to-developer]
+이 섹션에서는 그룹과 구성원을 연결하는 방법을 보여 줍니다.
 
-원하는 개발자를 선택한 후 **그룹에 추가** 드롭다운에서 원하는 그룹을 클릭합니다. **그룹에서 제거** 드롭다운을 사용하여 그룹에서 개발자를 제거할 수 있습니다. 
+1. 화면 왼쪽의 **그룹** 탭을 선택합니다.
+2. **구성원**을 선택합니다.
 
-![개발자][api-management-add-group-to-developer-saved]
+    ![멤버 추가](./media/api-management-howto-create-groups/groups005.png)
+3. **+추가**를 누르고 구성원을 선택합니다.
+
+    ![멤버 추가](./media/api-management-howto-create-groups/groups006.png)
+4. **선택**을 누릅니다.
+
 
 개발자와 그룹 간의 연결을 추가한 후에는 **사용자** 탭에서 확인할 수 있습니다.
 
 ## <a name="next-steps"> </a>다음 단계
 * 그룹에 개발자를 추가하면 개발자가 해당 그룹과 연결된 제품을 보고 구독할 수 있습니다. 자세한 내용은 [Azure API Management에서 제품을 만들고 게시하는 방법][How create and publish a product in Azure API Management]을 참조하세요.
 * 게시자 포털에서 그룹 만들기 및 관리 외에도 API Management REST API [그룹](https://msdn.microsoft.com/library/azure/dn776329.aspx) 엔터티를 사용하여 그룹을 만들고 관리할 수 있습니다.
-
-[api-management-management-console]: ./media/api-management-howto-create-groups/api-management-management-console.png
-[api-management-add-group]: ./media/api-management-howto-create-groups/api-management-add-group.png
-[api-management-add-group-window]: ./media/api-management-howto-create-groups/api-management-add-group-window.png
-[api-management-new-group]: ./media/api-management-howto-create-groups/api-management-new-group.png
-[api-management-add-group-to-product]: ./media/api-management-howto-create-groups/api-management-add-group-to-product.png
-[api-management-add-group-to-product-visibility]: ./media/api-management-howto-create-groups/api-management-add-group-to-product-visibility.png
-[api-management-add-group-to-developer]: ./media/api-management-howto-create-groups/api-management-add-group-to-developer.png
-[api-management-add-group-to-developer-saved]: ./media/api-management-howto-create-groups/api-management-add-group-to-developer-saved.png
-
-[api-management-]: ./media/api-management-howto-create-groups/api-management-.png
 
 [Create a group]: #create-group
 [Associate a group with a product]: #associate-group-product
@@ -113,4 +105,4 @@ API Management에는 다음과 같은 변경할 수 없는 시스템 그룹이 �
 
 [Get started with Azure API Management]: get-started-create-service-instance.md
 [Create an API Management service instance]: get-started-create-service-instance.md
-[leverage external groups in associated Azure Active Directory tenants]: api-management-howto-aad.md#how-to-add-an-external-azure-active-directory-group
+[leverage external groups in associated Azure Active Directory tenants]: api-management-howto-aad.md

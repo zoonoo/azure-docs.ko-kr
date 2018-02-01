@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/14/2017
 ms.author: saurinsh
-ms.openlocfilehash: eca019fa5e7866ed6281e8cfee105ba1d99249bc
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: c5e6381e7abb18c01031e4168c64cfe9aafec7ae
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="plan-azure-domain-joined-hadoop-clusters-in-hdinsight"></a>HDInsight에서 Azure 도메인에 가입된 Hadoop 클러스터 계획
 
@@ -47,16 +47,13 @@ Active Directory와 HDInsight를 통합하면 HDInsight 클러스터 노드는 A
 
 ![도메인에 가입된 HDInsight 클러스터 OU](./media/apache-domain-joined-architecture/hdinsight-domain-joined-ou.png)에서도 확인할 수 있습니다.
 
-### <a name="three-ways-of-bringing-your-own-active-directory-domain-controllers"></a>Active Directory 도메인 컨트롤러를 가져오는 세 가지 방법
+### <a name="two-ways-of-bringing-your-own-active-directory-domain-controllers"></a>Active Directory 도메인 컨트롤러를 가져오는 두 가지 방법
 
-세 가지 방법으로 도메인에 가입된 HDInsight 클러스터를 만드는 Active Directory 도메인 컨트롤러를 가져올 수 있습니다. 
+두 가지 방법으로 도메인에 가입된 HDInsight 클러스터를 만드는 Active Directory 도메인 컨트롤러를 가져올 수 있습니다. 
 
 - **Azure Active Directory Domain Services**: 이 서비스는 Windows Server Active Directory와 완벽하게 호환되는 관리되는 Active Directory 도메인을 제공합니다. Microsoft에서 AD 도메인 관리, 패치 및 모니터링을 담당합니다. 도메인 컨트롤러를 유지 관리할 걱정 없이 클러스터를 배포할 수 있습니다. 사용자가 회사 자격 증명을 사용하여 클러스터에 로그인할 수 있도록 사용자, 그룹 및 암호가 Azure Active Directory에서 동기화됩니다. 자세한 내용은 [Azure Active Directory Domain Services를 사용하여 도메인에 가입된 HDInsight 클러스터 구성](./apache-domain-joined-configure-using-azure-adds.md)을 참조하세요.
 
 - **Azure IaaS VM의 Active Directory:** 이 옵션에서는 Azure IaaS VM에서 자체 Windows Server Active Directory 도메인을 배포 및 관리합니다. 자세한 내용은 [도메인 가입 샌드박스 환경 구성](./apache-domain-joined-configure.md)을 참조하세요.
-
-- **온-프레미스 Active Directory**:이 옵션에서 온-프레미스 Active Directory 도메인 컨트롤러와 HDInsight를 통합합니다.
-
 
 ## <a name="next-steps"></a>다음 단계
 * 도메인에 가입된 HDInsight 클러스터를 구성하려면 [도메인에 가입된 HDInsight 클러스터 구성](apache-domain-joined-configure.md)을 참조하세요.

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2017
 ms.author: wgries
-ms.openlocfilehash: a594f31c002556f9a5fddaa17fb19273065eed47
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: c33639723657d3c2875ed9607a887775d558be16
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-deploy-azure-files"></a>Azure Files를 배포하는 방법
 [Azure Files](storage-files-introduction.md)는 산업 표준 SMB 프로토콜을 통해 액세스할 수 있는, 클라우드에서 완전히 관리되는 파일 공유를 제공합니다. 이 문서에서는 조직 내에서 실제적으로 Azure Files를 배포하는 방법을 보여 줍니다.
@@ -35,7 +35,7 @@ ms.lasthandoff: 10/11/2017
 온-프레미스에 저장된 파일 공유 같은 기존 파일 공유를 새 Azure 파일 공유로 마이그레이션하려고 할 수 있습니다. 이 섹션에서는 [계획 지침](storage-files-planning.md#data-transfer-method)에서 자세히 설명하는, 많이 사용되는 여러 메서드를 통해 데이터를 Azure 파일 공유로 이동하는 방법을 보여 줍니다.
 
 ### <a name="azure-file-sync-preview"></a>Azure 파일 동기화(미리 보기)
-Azure 파일 동기화(미리 보기)를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 희생하지 않고 Azure 파일에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. 이 작업은 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환하여 수행합니다. Windows Server에서 사용할 수 있는 아무 프로토콜이나 사용하여 데이터를 로컬로(SMB, NFS 및 FTPS 포함) 액세스할 수 있으며 세계 전역에 걸쳐 필요한 만큼 캐시를 보유할 수 있습니다.
+Azure File Sync(미리 보기)를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 희생하지 않고 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. 이 작업은 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환하여 수행합니다. Windows Server에서 사용할 수 있는 아무 프로토콜이나 사용하여 데이터를 로컬로(SMB, NFS 및 FTPS 포함) 액세스할 수 있으며 세계 전역에 걸쳐 필요한 만큼 캐시를 보유할 수 있습니다.
 
 장기 사용의 경우 동기화 메커니즘이 필요하지 않지만 Azure 파일 동기화를 사용하여 데이터를 Azure 파일 공유로 마이그레이션할 수 있습니다. Azure 파일 동기화를 사용하여 데이터를 Azure 파일 공유로 전송하는 방법에 대한 자세한 내용은 [Azure 파일 동기화 배포 계획](storage-sync-files-planning.md) 및 [Azure 파일 동기화를 배포하는 방법](storage-sync-files-deployment-guide.md)을 참조하세요.
 
@@ -145,9 +145,9 @@ $computer | ForEach-Object { Invoke-Command -ComputerName $_ -ScriptBlock { net 
 ### <a name="linux"></a>Linux
 다음 예제에서 SSH와 결합된 간단한 bash 스크립트로 동일한 결과를 생성할 수 있습니다. `$computer` 변수도 사용자가 입력해야 합니다.
 
-```PowerShell
+```
 computer = ("MyComputer1" "MyComputer2" "MyComputer3" "MyComputer4")
-for item in "${dur[@]}"
+for item in "${computer[@]}"
 do
     ssh $item "sudo bash -c 'echo \"//<storage-account-name>.file.core.windows.net/<share-name> /mymountpoint cifs vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino\" >> /etc/fstab'", "sudo mount -a"
 done

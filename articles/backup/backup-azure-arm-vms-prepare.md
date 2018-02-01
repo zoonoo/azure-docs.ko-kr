@@ -13,13 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 9/3/2017
+ms.date: 1/21/2017
 ms.author: markgal;trinadhk;sogup;
-ms.openlocfilehash: 3c2ea9e5872454b0bac67c39362a1f94b6fa47b8
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 7d7b81a585ba8b10c60062c5d5274c45335cab68
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Resource Manager 배포 가상 머신을 백업하기 위한 환경 준비
 
@@ -54,7 +54,7 @@ Resource Manager 배포 가상 머신을 보호하거나 백업할 수 있으려
 * 데이터 디스크 크기가 1,023GB보다 큰 가상 머신을 백업하는 것은 지원되지 않습니다.
 
   > [!NOTE]
-  > 1TB 이상의 관리되지 않는 디스크를 포함하는 VM에 대한 백업은 비공개 미리 보기 상태로 지원됩니다. 세부 정보는 [대형 디스크 VM 백업 지원에 대한 비공개 미리 보기](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)를 참조하세요.
+  > >1TB 디스크를 포함하는 VM에 대한 백업은 비공개 미리 보기 상태로 지원됩니다. 세부 정보는 [대형 디스크 VM 백업 지원에 대한 비공개 미리 보기](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)를 참조하세요.
   >
 
 * 예약된 IP 주소가 있고 정의된 끝점이 없는 가상 머신의 백업은 지원되지 않습니다.
@@ -181,7 +181,7 @@ Azure Portal에서 *시나리오*란 Recovery Services 자격 증명 모음에 �
 가상 머신을 등록하는 데 문제가 있으면 VM 에이전트 설치 및 네트워크 연결에 대한 다음 정보를 참조하세요. Azure에서 만든 가상 머신을 보호하는 경우 아마도 다음 정보가 필요 없을 것입니다. 그러나 가상 머신을 Azure로 마이그레이션한 경우에는 VM 에이전트가 올바르게 설치되었으며 가상 머신이 가상 네트워크와 통신할 수 있는지 확인해야 합니다.
 
 ## <a name="install-the-vm-agent-on-the-virtual-machine"></a>가상 머신에 VM 에이전트 설치
-사용할 백업 확장의 경우 Azure [VM 에이전트](../virtual-machines/windows/classic/agents-and-extensions.md#azure-vm-agents-for-windows-and-linux)는 Azure 가상 머신에 설치되어야 합니다. Azure Marketplace에서 VM을 만든 경우 VM 에이전트는 이미 가상 머신에 표시됩니다. 
+사용할 백업 확장의 경우 Azure [VM 에이전트](../virtual-machines/windows/agent-user-guide.md)는 Azure 가상 머신에 설치되어야 합니다. Azure Marketplace에서 VM을 만든 경우 VM 에이전트는 이미 가상 머신에 표시됩니다. 
 
 Azure Marketplace에서 만든 VM을 사용하지 *않는* 경우에 다음 정보가 제공됩니다. 예를 들어 온-프레미스 데이터 센터에서 VM을 마이그레이션했습니다. 이런 경우, 가상 머신을 보호하기 위해 VM 에이전트를 설치해야 합니다.
 
@@ -219,7 +219,7 @@ Azure 데이터 센터 IP 범위의 허용 목록을 만들려면 [Azure 웹 사
 ![지역에 대한 저장소 태그가 있는 NSG ](./media/backup-azure-arm-vms-prepare/storage-tags-with-nsg.png)
 
 > [!WARNING]
-> 저장소 태그는 특정 지역에서만 사용할 수 있으며 미리 보기 상태입니다. 지역 목록은 [저장소의 서비스 태그](../virtual-network/security-overview.md#service-tags)를 참조하세요.
+> 저장소 서비스 태그는 특정 지역에서만 사용할 수 있으며 미리 보기 상태입니다. 지역 목록은 [저장소의 서비스 태그](../virtual-network/security-overview.md#service-tags)를 참조하세요.
 
 ### <a name="use-an-http-proxy-for-vm-backups"></a>VM 백업에 HTTP 프록시 사용
 VM을 백업할 때 VM의 백업 확장이 HTTPS API를 사용하여 Azure Storage에 스냅숏 관리 명령을 보냅니다. 공용 인터넷에 액세스하도록 구성된 유일한 구성 요소이기 때문에 HTTP 프록시를 통해 백업 확장 트래픽을 라우팅합니다.

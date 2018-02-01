@@ -140,6 +140,8 @@
           href: data-prep-python-extensibility-overview.md
         - name: 지원되는 데이터 원본
           href: data-prep-appendix2-supported-data-sources.md
+        - name: Azure Cosmos DB를 데이터 원본으로 로드
+          href: data-prep-load-azure-cosmos-db.md
         - name: 지원되는 검사기
           href: data-prep-appendix4-supported-inspectors.md
         - name: 지원되는 데이터 대상

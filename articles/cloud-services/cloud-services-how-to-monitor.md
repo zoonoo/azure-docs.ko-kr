@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/22/2017
+ms.date: 01/23/2018
 ms.author: adegeo
-ms.openlocfilehash: c63a49c65f2d8261caa534308477888c752a89da
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: 3ffbdb121aa558d69547db294cad83b5d11e3f56
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="introduction-to-cloud-service-monitoring"></a>클라우드 서비스 모니터링 소개
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 01/10/2018
 
 ## <a name="advanced-monitoring"></a>고급 모니터링
 
-고급 모니터링에서는 모니터링하려는 역할에 Azure 진단 확장(및 필요에 따라 Application Insights SDK)을 사용합니다. 진단 확장은 **diagnostics.wadcfgx**라는 구성 파일(역할당)을 사용하여 모니터링되는 진단 메트릭을 구성합니다. Azure 진단 확장이 수집하는 데이터는 **.wadcfgx**와 [.csdef](cloud-services-model-and-package.md#servicedefinitioncsdef) 및 [.cscfg](cloud-services-model-and-package.md#serviceconfigurationcscfg) 파일에 구성된 Azure Storage 계정에 저장됩니다. 따라서 고급 모니터링에는 추가 비용이 부과됩니다.
+고급 모니터링에서는 모니터링하려는 역할에 **Azure 진단** 확장(및 필요에 따라 Application Insights SDK)을 사용합니다. 진단 확장은 **diagnostics.wadcfgx**라는 구성 파일(역할당)을 사용하여 모니터링되는 진단 메트릭을 구성합니다. Azure 진단 확장이 수집하는 데이터는 **.wadcfgx**와 [.csdef](cloud-services-model-and-package.md#servicedefinitioncsdef) 및 [.cscfg](cloud-services-model-and-package.md#serviceconfigurationcscfg) 파일에 구성된 Azure Storage 계정에 저장됩니다. 따라서 고급 모니터링에는 추가 비용이 부과됩니다.
 
 각 역할을 만들 때 Visual Studio는 역할에 Azure 진단 확장을 추가합니다. 이 확장은 다음과 같은 유형의 정보를 수집할 수 있습니다.
 
@@ -52,22 +52,24 @@ ms.lasthandoff: 01/10/2018
 * 크래시 덤프
 * 고객 오류 로그
 
-이러한 모든 데이터가 저장소 계정에 집계되지만, 포털은 데이터를 차트로 작성하는 기본적인 방법을 제공하지 않습니다. Application Insights 등의 다른 서비스를 사용하여 데이터 간의 상관 관계를 파악하고 데이터를 표시할 수 있습니다.
+> [!IMPORTANT]
+> 이러한 모든 데이터가 저장소 계정에 집계되지만, 포털은 데이터를 차트로 작성하는 기본적인 방법을 제공하지 **않습니다**. 응용 프로그램에 Application Insights와 같은 다른 서비스를 통합하는 것이 좋습니다.
 
 ### <a name="use-application-insights"></a>Application Insights 사용
 
-Visual Studio에서 클라우드 서비스를 게시할 때는 Application Insights로 진단 데이터를 보내는 옵션이 제공됩니다. 이때 Application Insights 리소스를 만들 수도 있고 기존 리소스에 데이터를 보낼 수도 있습니다. Application Insights를 사용하여 클라우드 서비스의 가용성, 성능, 실패 및 사용 현황을 모니터링할 수 있습니다. 사용자 지정 차트를 Application Insights에 추가하여 본인에게 가장 중요한 데이터를 볼 수 있습니다. Application Insights SDK를 사용하여 클라우드 서비스 프로젝트에서 역할 인스턴스 데이터를 수집할 수 있습니다. Application Insights를 통합하는 방법에 대한 자세한 내용은 [클라우드 서비스와 Application Insights](../application-insights/app-insights-cloudservices.md)를 참조하세요.
+Visual Studio에서 클라우드 서비스를 게시할 때는 Application Insights로 진단 데이터를 보내는 옵션이 제공됩니다. 이때 Application Insights Azure 리소스를 만들거나 기존 Azure 리소스에 데이터를 보낼 수도 있습니다. Application Insights를 사용하여 클라우드 서비스의 가용성, 성능, 실패 및 사용 현황을 모니터링할 수 있습니다. 사용자 지정 차트를 Application Insights에 추가하여 본인에게 가장 중요한 데이터를 볼 수 있습니다. Application Insights SDK를 사용하여 클라우드 서비스 프로젝트에서 역할 인스턴스 데이터를 수집할 수 있습니다. Application Insights를 통합하는 방법에 대한 자세한 내용은 [클라우드 서비스와 Application Insights](../application-insights/app-insights-cloudservices.md)를 참조하세요.
 
 Application Insights를 사용하여 Windows Azure 진단 확장을 통해 지정한 성능 카운터(및 기타 설정)를 표시할 수 있지만, Application Insights SDK를 작업자 및 웹 역할에 통합해야만 보다 풍부한 환경을 사용할 수 있습니다.
 
-
-## <a name="add-advanced-monitoring"></a>고급 모니터링 추가
+## <a name="setup-diagnostics-extension"></a>진단 확장 설정
 
 먼저 **클래식** 저장소 계정이 없는 경우 [하나 만듭니다](../storage/common/storage-create-storage-account.md#create-a-storage-account). **클래식 배포 모델**을 지정하여 저장소 계정을 만듭니다.
 
 다음으로, **저장소 계정(클래식)** 리소스로 이동합니다. **설정** > **액세스 키**를 선택하고 **기본 연결 문자열** 값을 복사합니다. 클라우드 서비스에 대해 이 값이 필요합니다. 
 
-고급 진단을 사용하기 위해 2개의 구성 파일인 **ServiceDefinition.csdef** 및 **ServiceConfiguration.cscfg**를 변경해야 합니다. **.cscfg** 파일로는 Azure에 배포하기 위한 **ServiceConfiguration.cloud.cscfg**와, 로컬 디버그 배포에 사용되는 **ServiceConfiguration.local.cscfg**가 가장 흔히 사용됩니다. 이 두 파일을 모두 변경합니다.
+고급 진단을 사용하기 위해 2개의 구성 파일인 **ServiceDefinition.csdef** 및 **ServiceConfiguration.cscfg**를 변경해야 합니다.
+
+### <a name="servicedefinitioncsdef"></a>ServiceDefinition.csdef
 
 **ServiceDefinition.csdef** 파일에는 고급 진단을 사용하는 각 역할에 대해 `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString`라는 새 설정을 추가합니다. Visual Studio는 새 프로젝트를 만들 때 파일에 이 값을 추가합니다. 이 값이 누락된 경우 지금 추가해도 됩니다. 
 
@@ -78,7 +80,9 @@ Application Insights를 사용하여 Windows Azure 진단 확장을 통해 지�
       <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" />
 ```
 
-이렇게 하면 모든 **ServiceConfiguration.cscfg** 파일에 추가해야 하는 새 설정이 정의됩니다. 각 **.cscfg** 파일을 열고 변경합니다. `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString`이라는 설정을 추가합니다. 해당 값을 클래식 저장소 계정의 **기본 연결 문자열** 또는 `UseDevelopmentStorage=true`(개발 컴퓨터에서 로컬 저장소를 사용하려는 경우)로 설정합니다.
+이렇게 하면 모든 **ServiceConfiguration.cscfg** 파일에 추가해야 하는 새 설정이 정의됩니다. 
+
+Azure에 배포하기 위한 **ServiceConfiguration.cloud.cscfg** 및 에뮬레이트된 환경에서 로컬 배포에 사용되는 **ServiceConfiguration.local.cscfg**라는 두 개의 **.cscfg** 파일이 있을 것입니다. 각 **.cscfg** 파일을 열고 변경합니다. `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString`이라는 설정을 추가합니다. 클래식 저장소 계정의 **기본 연결 문자열**로 값을 설정합니다. 개발 컴퓨터에서 로컬 저장소를 사용하려는 경우 `UseDevelopmentStorage=true`를 사용합니다.
 
 ```xml
 <ServiceConfiguration serviceName="AnsurCloudService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="4" osVersion="*" schemaVersion="2015-04.2.6">
@@ -86,10 +90,10 @@ Application Insights를 사용하여 Windows Azure 진단 확장을 통해 지�
     <Instances count="1" />
     <ConfigurationSettings>
       <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=mystorage;AccountKey=KWwkdfmskOIS240jnBOeeXVGHT9QgKS4kIQ3wWVKzOYkfjdsjfkjdsaf+sddfwwfw+sdffsdafda/w==" />
-
-<!-- or use the local development machine for storage
+      
+      <!-- or use the local development machine for storage
       <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
--->
+      -->
 ```
 
 ## <a name="next-steps"></a>다음 단계

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2017
 ms.author: muralikk
-ms.openlocfilehash: ffcf0766b89cdab7c79c28dad6bf4c80275e33fc
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 37860425460496c5fc2451713d1d3ec58ac9106d
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>Microsoft Azure Import/Export 서비스를 사용하여 Azure Storage로 데이터 전송
 이 문서에서는 Azure Import/Export 서비스를 사용하여 디스크 드라이브를 Azure 데이터 센터에 발송하여 많은 양의 데이터를 안전하게 Azure Blob Storage로 전송하는 단계별 지침을 제공합니다. 이 서비스를 사용하여 데이터를 Azure 저장소에서 하드 디스크 드라이브로 전송하고 온-프레미스 사이트로 발송할 수도 있습니다. 단일 내부 SATA 디스크 드라이브의 데이터를 Azure Blob Storage나 Azure 파일로 가져올 수 있습니다. 
@@ -35,12 +35,12 @@ ms.lasthandoff: 12/14/2017
 2.  전체 데이터 크기에 따라 필요한 2.5" SSD 또는 2.5"/3.5" SATA II/III 하드 디스크 드라이브 수를 확보합니다.
 3.  SATA를 사용하여 하드 드라이브를 직접, 또는 외부 USB 어댑터를 통해 Windows 컴퓨터에 연결합니다.
 4.  각 하드 드라이브에서 단일 NTFS 볼륨을 만들고 볼륨에 드라이브 문자를 할당합니다. 탑재 지점은 없습니다.
-5.  NTFS 볼륨에 비트 로커 암호화를 사용하도록 설정합니다. https://technet.microsoft.com/en-us/library/cc731549(v=ws.10).asp의 지침에 따라 Windows 컴퓨터에서 암호화를 사용하도록 설정합니다.
+5.  Windows 컴퓨터에서 암호화를 사용하도록 설정하려면 NTFS 볼륨에 비트 보관 암호화를 사용하도록 설정합니다. https://technet.microsoft.com/en-us/library/cc731549(v=ws.10).asp의 지침을 따릅니다.
 6.  복사하여 붙여넣기, 끌어서 놓기 또는 Robocopy나 기타 도구를 사용하여 디스크에서 이러한 암호화된 단일 NTFS 볼륨에 데이터를 완전히 복사합니다.
 7.  https://www.microsoft.com/en-us/download/details.aspx?id=42659에서 WAImportExport V1을 다운로드합니다.
 8.  기본 폴더 waimportexportv1에 압축을 풉니다. 예를 들어 C:\WaImportExportV1입니다.  
 9.  관리자로 실행하고 PowerShell 또는 명령줄을 연 다음 디렉터리를 압축을 푼 폴더로 변경합니다. 예를 들어 cd C:\WaImportExportV1입니다.
-10. 아래 명령줄을 메모장에 복사하고 편집하여 명령줄을 만듭니다.
+10. 다음 명령줄을 메모장에 복사하고 편집하여 명령줄을 만듭니다.
   ./WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1 /sk:***== /t:D /bk:*** /srcdir:D:\ /dstdir:ContainerName/ /skipwrite
     
     /j:  확장자가 .jrn인 저널 파일의 파일명. 저널 파일은 드라이브별로 생성되므로 디스크 일련 번호를 저널 파일 이름으로 사용하는 것이 좋습니다.
@@ -96,13 +96,16 @@ Azure Import/Export 서비스를 사용하여 데이터를 **블록** Blob, **�
 저장소에서 가져오기 또는 내보내기 프로세스를 시작하려면 먼저 작업을 만듭니다. 작업은 가져오기 작업 또는 내보내기 작업이 될 수 있습니다.
 
 * 온-프레미스에 있는 데이터를 Azure 저장소 계정으로 전송하려면 가져오기 작업을 만듭니다.
-* 저장소 계정에 현재 저장되어 있는 데이터를 배송받을 하드 드라이브로 전송하려면 내보내기 작업을 만듭니다. 작업을 만들 때 Azure 데이터 센터로 하나 이상의 하드 드라이브가 발송된다는 것을 Import/Export 서비스에 알립니다.
+* 저장소 계정에 현재 저장되어 있는 데이터를 Microsoft에 배송할 하드 드라이브로 전송하려면 내보내기 작업을 만듭니다. 작업을 만들 때 Azure 데이터 센터로 하나 이상의 하드 드라이브가 발송된다는 것을 Import/Export 서비스에 알립니다.
 
 * 가져오기 작업의 경우 데이터가 포함된 하드 드라이브가 발송됩니다.
 * 내보내기 작업의 경우 빈 하드 드라이브가 발송됩니다.
 * 작업당 최대 10개의 하드 디스크 드라이브를 발송할 수 있습니다.
 
 Azure Portal 또는 [Azure Storage Import/Export REST API](/rest/api/storageimportexport)를 사용하여 가져오기 또는 내보내기 작업을 만들 수 있습니다.
+
+> [!Note]
+> RDFE API는 2018년 2월 28일부터 지원되지 않습니다. 이 서비스를 계속 사용하려면 [ARM Import/Export REST API](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/storageimportexport/resource-manager/Microsoft.ImportExport/stable/2016-11-01/storageimportexport.json)로 마이그레이션합니다. 
 
 ### <a name="waimportexport-tool"></a>WAImportExport 도구
 **가져오기** 작업을 만드는 첫 번째 단계는 가져오기를 위해 운송될 드라이브를 준비하는 것입니다. 드라이브를 준비하려면 드라이브를 로컬 서버에 연결하고 로컬 서버에서 WAImportExport 도구를 실행해야 합니다. 이 WAImportExport 도구를 사용하면 데이터를 드라이브에 복사하고, 드라이브에 있는 데이터를 BitLocker로 암호화하며, 드라이브 저널 파일을 생성하는 작업을 손쉽게 수행할 수 있습니다.
@@ -114,7 +117,7 @@ WAImportExport 도구는 64비트 Windows 운영 체제에서만 호환됩니다
 최신 버전의 [WAImportExport 도구](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExportV2.zip)를 다운로드합니다. WAImportExport 도구 사용에 대한 자세한 내용은 [WAImportExport 도구 사용](storage-import-export-tool-how-to.md)(영문)을 참조하세요.
 
 >[!NOTE]
->**이전 버전:** 도구의 [WAImportExpot V1 버전을 다운로드](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip)하고 [WAImportExpot V1 사용 가이드](storage-import-export-tool-how-to-v1.md)을 참조할 수 있습니다. 도구의 WAImportExpot V1 버전은 **이미 디스크에 데이터가 미리 기록되어 있을 때 디스크를 준비**하도록 지원합니다. 또한 사용할 수 있는 유일한 키가 SAS 키인 경우에는 WAImportExpot V1 도구를 사용해야 합니다.
+>**이전 버전:** 도구의 [WAImportExpot V1 버전을 다운로드](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip)하고 [WAImportExpot V1 사용 가이드](storage-import-export-tool-how-to-v1.md)을 참조할 수 있습니다. 도구의 WAImportExpot V1 버전은 **이미 디스크에 데이터가 미리 기록되어 있을 때 디스크를 준비**하도록 지원합니다. 사용할 수 있는 유일한 키가 SAS 키인 경우에는 WAImportExpot V1 도구를 사용해야 합니다.
 
 >
 
@@ -131,7 +134,7 @@ WAImportExport 도구는 64비트 Windows 운영 체제에서만 호환됩니다
 다음은 데이터를 내부 HDD에 복사하는 데 사용되는 외부 USB 어댑터 목록입니다. Anker 68UPSATAA-02BU Anker 68UPSHHDS-BU Startech SATADOCK22UE Orico 6628SUS3-C-BK(6628 Series) Thermaltake BlacX 핫스왑 SATA 외부 하드 드라이브 도킹 스테이션(USB 2.0 및 eSATA)
 
 ### <a name="encryption"></a>암호화
-드라이브의 데이터는 BitLocker 드라이브 암호화를 사용하여 암호화되어야 합니다. 이렇게 하면 전송 중 데이터가 보호됩니다.
+드라이브의 데이터는 BitLocker 드라이브 암호화를 사용하여 암호화되어야 합니다. 이렇게 암호화하면 전송 중 데이터가 보호됩니다.
 
 가져오기 작업의 경우 암호화를 수행하는 두 가지 방법이 있습니다. 첫 번째 방법은 드라이브 준비 중에 WAImportExport 도구를 실행하면서 데이터 집합 CSV 파일을 사용할 때 옵션을 지정하는 것입니다. 두 번째 방법은 드라이브 준비 중에 드라이브에서 BitLocker 암호화를 사용하도록 수동으로 설정하고 WAImportExport 도구 명령줄을 실행할 때 드라이브 집합 CSV에 암호화 키를 지정하는 것입니다.
 
@@ -143,7 +146,7 @@ WAImportExport 도구는 64비트 Windows 운영 체제에서만 호환됩니다
 Windows 7 Enterprise, Windows 7 Ultimate, Windows 8 Pro, Windows 8 Enterprise, Windows 8.1 Pro, Windows 8.1 Enterprise, Windows 10<sup>1</sup>, Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2. 이러한 모든 운영 체제는 BitLocker 드라이브 암호화를 지원합니다.
 
 ### <a name="locations"></a>위치
-Azure Import/Export 서비스는 모든 공용 Azure 저장소 계정으로의 데이터 복사를 지원합니다. 다음 위치 중 하나로 하드 디스크 드라이브를 발송할 수 있습니다. 저장소 계정이 여기에 지정되지 않은 공용 Azure 위치에 있는 경우 Azure Portal 또는 Import/Export REST API를 사용하여 작업을 만들 때 대체 운송 위치가 제공됩니다.
+Azure Import/Export 서비스는 모든 공용 Azure 저장소 계정으로의 데이터 복사를 지원합니다. 나열된 위치 중 하나로 하드 디스크 드라이브를 발송할 수 있습니다. 저장소 계정이 여기에 지정되지 않은 공용 Azure 위치에 있는 경우 Azure Portal 또는 Import/Export REST API를 사용하여 작업을 만들 때 대체 운송 위치가 제공됩니다.
 
 지원되는 발송 위치:
 
@@ -242,7 +245,7 @@ Azure Import/Export 서비스를 통해 작업을 만들고 하드 디스크 드
     ![그림 2: 내보내기 작업 흐름](./media/storage-import-export-service/exportjob.png)
 
 ### <a name="viewing-your-job-and-drive-status"></a>작업 및 드라이브 상태 보기
-Azure Portal에서 가져오기 또는 내보내기 작업의 상태를 추적할 수 있습니다. **Import/Export** 탭을 클릭합니다. 작업 목록이 페이지에 표시됩니다.
+Azure Portal에서 가져오기 또는 내보내기 작업의 상태를 추적할 수 있습니다. **Import/Export** 탭을 클릭합니다. 작업 목록이 페이지에 나타납니다.
 
 ![작업 상태 보기](./media/storage-import-export-service/jobstate.png)
 
@@ -277,7 +280,7 @@ Azure Portal의 이 이미지는 예제 작업의 드라이브 상태를 나타�
 
 다음 표에서는 드라이브 오류 상태 및 각 상태에 대해 수행하는 작업을 설명합니다.
 
-| 드라이브 상태 | 이벤트 | 해결 방법/다음 단계 |
+| 드라이브 상태 | 행사 | 해결 방법/다음 단계 |
 |:--- |:--- |:--- |
 | 수신되지 않음 | 작업 운송물의 일부로 받지 못하여 '수신되지 않음'으로 표시된 드라이브가 다른 운송을 통해 도착했습니다. | 운영 팀이 드라이브를 '수신됨' 상태로 전환합니다. |
 | 해당 없음 | 작업에 포함되지 않은 드라이브가 다른 작업의 일부로 데이터 센터에 도착했습니다. | 드라이브가 추가 드라이브로 표시되며 원래 패키지와 관련된 작업이 완료되면 고객에게 반송됩니다. |
@@ -454,7 +457,7 @@ WAImportExport 도구 사용에 대한 자세한 내용은 [가져오기 작업�
 
 **Azure Import/Export 서비스를 사용하여 Azure File Storage를 복사할 수 있나요?**
 
-예, Azure 가져오기/내보내기 서비스는 Azure File Storage로 가져오기를 지원합니다. 지금은 Azure 파일의 내보내기는 지원하지 않습니다.
+예, Azure Import/Export 서비스는 Azure File Storage로 가져오기를 지원합니다. 지금은 Azure 파일의 내보내기는 지원하지 않습니다.
 
 **Azure Import/Export 서비스를 CSP 구독에 사용할 수 있나요?**
 
@@ -487,11 +490,11 @@ Microsoft는 데이터 용량이 여러 디스크 가져오기 작업에 걸쳐 
 
 **서비스가 드라이브를 반환하기 전에 포맷하나요?**
 
-아니요. 모든 드라이브는 BitLocker로 암호화되어 있습니다.
+번호 모든 드라이브는 BitLocker로 암호화되어 있습니다.
 
 **가져오기/내보내기 작업에 사용할 드라이브를 Microsoft에서 구입할 수 있습니까?**
 
-아니요. 가져오기 및 내보내기 작업 모두에 대해 사용자가 자체 드라이브를 발송해야 합니다.
+번호 가져오기 및 내보내기 작업 모두에 대해 사용자가 자체 드라이브를 발송해야 합니다.
 
 ** 이 서비스를 통해 가져오는 데이터에 액세스하는 방법 **
 
@@ -506,7 +509,7 @@ Azure Portal을 사용하거나 Storage Explorer라는 독립 실행형 도구�
 드라이브를 준비할 때 데이터 집합 CSV 파일에 있는 Disposition:<rename|no-overwrite|overwrite>라는 필드를 사용하여 대상 파일을 덮어쓰거나 무시해야 하는지를 지정할 수 있습니다. 기본적으로 서비스는 기존 Blob 또는 파일을 덮어쓰지 않고 새 파일의 이름을 변경합니다.
 
 **WAImportExport 도구는 32비트 운영 체제와 호환되나요?**
-아니요. WAImportExport 도구는 64비트 Windows 운영 체제에서만 호환됩니다. 지원되는 OS 버전의 전체 목록은 [필수 구성 요소](#pre-requisites) 의 운영 체제 섹션을 참조하세요.
+번호 WAImportExport 도구는 64비트 Windows 운영 체제에서만 호환됩니다. 지원되는 OS 버전의 전체 목록은 [필수 구성 요소](#pre-requisites) 의 운영 체제 섹션을 참조하세요.
 
 **하드 디스크 드라이브 외에 패키지에 포함해야 하는 다른 항목이 있나요?**
 

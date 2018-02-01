@@ -14,14 +14,21 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/15/2017
 ms.author: iainfou
-ms.openlocfilehash: 6db900981daa2139a0d2e951f41fc48d5c291074
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: aaab69f452db9d4f11af2b5cfd2cd9ff6ac79954
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="use-windows-client-in-azure-for-devtest-scenarios"></a>개발/테스트 시나리오용으로 Azure에서 Windows 클라이언트 사용
-적절한 Visual Studio(이전의 MSDN) 구독이 있으면 Azure에서 개발/테스트 시나리오에 Windows 7, Windows 8 또는 Windows 10을 사용할 수 있습니다. 이 문서에서는 Azure에서 Windows 클라이언트를 실행하고 Azure 갤러리 이미지를 사용하기 위한 적격성 요구 사항에 대해 대략적으로 설명합니다.
+적절한 Visual Studio(이전의 MSDN) 구독이 있으면 Azure에서 개발/테스트 시나리오에 Windows 7, Windows 8 또는 Windows 10 Enterprise(x64)를 사용할 수 있습니다. 이 문서에서는 Azure에서 Windows 7, Windows 8.1, Windows 10 Enterprise를 실행하고 다음 Azure 갤러리 이미지를 사용하기 위한 적격성 요구 사항에 대해 대략적으로 설명합니다.
+
+![Azure Portal의 이미지 세부 정보](./media/client-images/windows-client-msdn-images.png) 
+
+> [!NOTE]
+> Azure 갤러리의 Windows 10 Pro 및 Windows 10 Pro N 이미지는 [다중 테넌트 호스팅 권한으로 Azure에서 Windows 10을 배포하는 방법](windows-desktop-multitenant-hosting-deployment.md)
+>을 참조하세요.![Azure Portal의 Pro 이미지 세부 정보](./media/client-images/windows-client-pro-images.png) 
+>
 
 ## <a name="subscription-eligibility"></a>구독 적격성
 활성 Visual Studio 구독자, 즉 Visual Studio 구독 라이선스를 받은 사용자는 개발 및 테스트용으로 Windows 클라이언트를 사용할 수 있습니다. Windows 클라이언트는 모든 유형의 Azure 구독에서 실행 중인 Azure 가상 머신과 사용자의 자체 하드웨어에서 사용 가능합니다. Windows 클라이언트는 일반적인 프로덕션용으로 배포하거나 Azure에서 사용할 수 없으며, 활성 Visual Studio 구독자가 아닌 사용자는 사용할 수 없습니다.

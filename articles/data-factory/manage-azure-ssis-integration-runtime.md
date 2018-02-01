@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 01/22/2018
 ms.author: spelluru
-ms.openlocfilehash: c1743a0d06f911122ed0aba586aec837f81c578c
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: b4b777a858febb4b601c038508e4fc313c189ac2
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="manage-an-azure-ssis-integration-runtime"></a>Azure-SSIS 통합 런타임 관리
 [Azure-SSIS Integration Runtime 만들기](create-azure-ssis-integration-runtime.md) 문서는 Azure Data Factory를 사용하여 Azure-SSIS 통합 런타임을 만드는 방법을 보여줍니다. 이 문서에서는 기존 Azure-SSIS Integration Runtime을 다시 구성하는 방법을 설명합니다.  
@@ -25,9 +25,28 @@ ms.lasthandoff: 01/13/2018
 > [!NOTE]
 > 이 문서는 현재 미리 보기 상태인 Data Factory 버전 2에 적용됩니다. GA(일반 공급) 상태인 Data Factory 버전 1 서비스를 사용 중인 경우 [Data Factory 버전 1 설명서](v1/data-factory-introduction.md)를 참조하세요.
 
+
+## <a name="data-factory-ui"></a>Data Factory UI 
+Data Factory UI를 사용하여 Azure-SSIS IR을 중지하거나, 편집/다시 구성하거나 삭제할 수 있습니다. 
+
+1. **Data Factory UI**에서 **편집** 탭으로 전환합니다. Data Factory UI를 시작하려면 데이터 팩터리의 홈페이지에서 **작성자 및 모니터**를 클릭합니다.
+2. 왼쪽 창에서 **연결**을 클릭합니다.
+3. 오른쪽 창에서 **Integration Runtime**으로 전환합니다. 
+4. 작업 열에서 단추를 사용하여 통합 런타임을 **중지**, **편집** 또는 **삭제**할 수 있습니다. **작업** 열에서 **코드** 단추를 사용하여 통합 런타임과 연결된 JSON 정의를 볼 수 있습니다.  
+    
+    ![Azure SSIS IR에 대한 작업](./media/manage-azure-ssis-integration-runtime/actions-for-azure-ssis-ir.png)
+
+### <a name="to-reconfigure-an-azure-ssis-ir"></a>Azure-SSIS IR을 다시 구성하려면
+1. **작업** 열에서 **중지**를 클릭하여 통합 런타임을 중지합니다. 목록 보기를 새로 고치려면 도구 모음에서 **새로 고침**을 클릭합니다. IR이 중지된 후에 첫 번째 작업을 통해 IR을 시작한다는 것을 확인할 수 있습니다. 
+
+    ![Azure SSIS IR에 대한 작업 - 중지된 후](./media/manage-azure-ssis-integration-runtime/actions-after-ssis-ir-stopped.png)
+2. **작업** 열에서 **편집** 단추를 클릭하여 IR을 편집/다시 구성합니다. **Integration Runtime 설정** 창에서 설정을 변경합니다(예: 노드 크기, 노드 수 또는 노드당 병렬 실행 최대수). 
+3. IR을 다시 시작하려면 **작업** 열에서 **시작** 단추를 클릭합니다.     
+
+## <a name="azure-powershell"></a>Azure PowerShell
 Azure-SSIS 통합 런타임 인스턴스를 프로비전하고 시작한 후에는 일련의 `Stop` - `Set` - `Start` PowerShell cmdlet을 연속적으로 실행하여 다시 구성할 수 있습니다. 예를 들어 다음 PowerShell 스크립트는 Azure-SSIS 통합 런타임 인스턴스에 할당된 노드 수를 5로 변경합니다.
 
-## <a name="reconfigure-an-azure-ssis-ir"></a>Azure-SSIS IR 다시 구성
+### <a name="reconfigure-an-azure-ssis-ir"></a>Azure-SSIS IR 다시 구성
 
 1. 먼저 [Stop-AzureRmDataFactoryV2IntegrationRuntime](/powershell/module/azurerm.datafactoryv2/stop-azurermdatafactoryv2integrationruntime?view=azurermps-4.4.1) cmdlet을 사용하여 Azure-SSIS Integration Runtime을 중지합니다. 이 명령은 모든 노드를 해제하고 청구를 중지합니다.
 
@@ -45,7 +64,7 @@ Azure-SSIS 통합 런타임 인스턴스를 프로비전하고 시작한 후에�
     Start-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName
     ```
 
-## <a name="delete-an-azure-ssis-ir"></a>Azure-SSIS IR 삭제
+### <a name="delete-an-azure-ssis-ir"></a>Azure-SSIS IR 삭제
 1. 먼저 데이터 팩터리에 기존의 모든 Azure SSIS IRs를 나열합니다.
 
     ```powershell

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/14/2017
 ms.author: sdash
-ms.openlocfilehash: 6932802e7852efa90551c27f9145f7ca6e685d7e
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: c9dd60170e93722cab8e8d5eb5b4202b71bbb8e4
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>웹 사이트의 가용성 및 응답성 모니터링
 웹앱 또는 웹 사이트를 서버에 배포한 후에 가용성 및 응답성을 모니터링하도록 테스트를 설정할 수 있습니다. [Azure Application Insights](app-insights-overview.md)는 전세계 지점에서 정기적인 간격으로 응용 프로그램에 웹 요청을 보냅니다. 응용 프로그램이 응답하지 않거나 느리게 응답하는 경우 사용자에게 경고할 수 있습니다.
@@ -30,6 +30,12 @@ ms.lasthandoff: 12/15/2017
 * [다단계 웹 테스트](#multi-step-web-tests): Visual Studio Enterprise에서 만들고 포털에 업로드합니다.
 
 응용 프로그램 리소스당 최대 100개의 가용성 테스트를 만들 수 있습니다.
+
+
+> [!NOTE] 
+> * 가용성 테스트 위치는 최근에 Azure 데이터 센터로 이동했습니다. 이 이동을 통해 Azure 데이터 센터의 증가하는 네트워크와 함께 위치를 추가할 수 있습니다.  
+> * 테스트를 업데이트할 필요가 없습니다. 모든 테스트가 마이그레이션되고 새 위치에서 실행됩니다. 
+>* 자세한 내용은 [서비스 업데이트](https://blogs.msdn.microsoft.com/applicationinsights-status/2018/01/24/application-insights-availability-monitoring-test-locations-updated/)를 참조하세요.
 
 ## <a name="create"></a>가용성 테스트 보고서에 대한 리소스 열기
 
@@ -118,7 +124,8 @@ URL 시퀀스를 포함하는 시나리오를 모니터링할 수 있습니다. 
 다단계 테스트를 만들려면 Visual Studio Enterprise를 사용하여 시나리오를 기록한 다음 Application Insights에 기록을 업로드합니다. Application Insights는 지정된 간격에 따라 시나리오를 재생하고 응답을 확인합니다.
 
 > [!NOTE]
-> 테스트에서 코딩된 함수 또는 루프를 사용할 수 없습니다. 테스트는 .webtest 스크립트에 완전히 포함되어야 합니다. 그러나 표준 플러그 인을 사용할 수 있습니다.
+> * 테스트에서 코딩된 함수 또는 루프를 사용할 수 없습니다. 테스트는 .webtest 스크립트에 완전히 포함되어야 합니다. 그러나 표준 플러그 인을 사용할 수 있습니다.
+> * 영어 문자만 다단계 웹 테스트에서 지원됩니다. 다른 언어로 Visual Studio를 사용하는 경우 웹 테스트 정의 파일을 영어가 아닌 문자를 번역/제외하도록 업데이트하세요.
 >
 
 #### <a name="1-record-a-scenario"></a>1. 시나리오 기록
@@ -269,7 +276,7 @@ Visual Studio Enterprise를 사용하여 웹 세션을 기록합니다.
     서버 쪽 응용 프로그램에 대해 Application Insights를 설정한 경우, [샘플링](app-insights-sampling.md)이 작동 중이기 때문일 수 있습니다.
 * *웹 테스트에서 코드를 호출할 수 있나요?*
 
-    안 됩니다. 테스트 단계는 .webtest 파일에 포함되어야 합니다. 또한 다른 웹 테스트를 호출하거나 루프를 사용할 수 없습니다. 그러나 몇 가지 유용한 플러그 인이 있습니다.
+    번호 테스트 단계는 .webtest 파일에 포함되어야 합니다. 또한 다른 웹 테스트를 호출하거나 루프를 사용할 수 없습니다. 그러나 몇 가지 유용한 플러그 인이 있습니다.
 * *HTTPS가 지원됩니까?*
 
     TLS 1.1 및 TLS 1.2를 지원합니다.

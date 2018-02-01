@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 01/02/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: c0aad1f9bbaac9a456b34f75633faba92f57f498
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 94ecba44b8281460da4518c146aab814d2eaa850
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="deploy-and-use-azure-container-registry"></a>Azure Container Registry 배포 및 사용
 
@@ -48,7 +48,7 @@ Azure Container Registry를 배포할 때는 먼저 리소스 그룹이 필요�
 az group create --name myResourceGroup --location eastus
 ```
 
-[az acr create][az-acr-create] 명령으로 Azure Container Registry를 만듭니다. 컨테이너 레지스트리 이름은 Azure 내에서 **고유해야 하며**, 5-50자의 영숫자만 포함해야 합니다. `<acrName>`를 레지스트리의 고유한 이름으로 바꿉니다.
+[az acr create][az-acr-create] 명령으로 Azure Container Registry를 만듭니다. 컨테이너 레지스트리 이름은 Azure 내에서 고유해야 하며, 5-50자의 영숫자만 포함해야 합니다. `<acrName>`를 레지스트리의 고유한 이름으로 바꿉니다.
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name <acrName> --sku Basic

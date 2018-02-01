@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
 ms.author: robinsh
-ms.openlocfilehash: d3f70880e58a21a1ae61577b04e3155c5fec6552
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: f94febfa1610795cd46b4315bbbbe56aa2bca861
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>Azure Storage와 함께 Azure PowerShell 사용
 
@@ -133,7 +133,7 @@ SKU 이름은 LRS(로컬 중복 저장소)처럼 저장소 계정에 대한 복�
 
 * 저장소 계정에 할당된 **태그**. 태그는 청구 목적으로 리소스를 분류하는 데 종종 사용됩니다.
 
-* **SKU**는 LRS(로컬 중복 저장소)처럼 저장소 계정에 대한 복제 설정을 나타냅니다. 예를 들어 Standard\_LRS를 Standard\_GRS 또는 Standard\_RAGRS로 변경할 수 있습니다. Standard ZRS 또는 Premium LRS를 다른SKU로, 또는 다른 SKU를 해당 항목으로 변경할 수 없습니다. 
+* **SKU**는 LRS(로컬 중복 저장소)처럼 저장소 계정에 대한 복제 설정을 나타냅니다. 예를 들어 Standard\_LRS를 Standard\_GRS 또는 Standard\_RAGRS로 변경할 수 있습니다. Standard \_ZRS 또는 Premium\_ LRS를 다른 SKU로 변경하거나 다른 SKU를 해당 항목으로 변경할 수 없습니다.
 
 * Blob Storage 계정에 대한 **액세스 계층**. 액세스 계층의 값은 **hot** 또는 **cool**로 설정되며 저장소 계정을 사용하는 방법에 맞게 액세스 계층을 선택하여 비용을 최소화할 수 있습니다. 자세한 내용은 [핫, 쿨, 보관 저장소 계층](../blobs/storage-blob-storage-tiers.md)을 참조하세요.
 
@@ -193,7 +193,7 @@ Remove-AzureRmStorageAccount -ResourceGroup $resourceGroup -AccountName $storage
 
 [Azure Storage Analytics](storage-analytics.md)는[Storage Analytics 메트릭](/rest/api/storageservices/about-storage-analytics-metrics)과 [Storage Analytics 로깅](/rest/api/storageservices/about-storage-analytics-logging)으로 구성됩니다. 
 
-**Storage Analytics 메트릭**은 저장소 계정의 상태를 모니터링하는 데 사용할 수 있는 Azure Storage 계정의 메트릭을 수집하는 데 사용됩니다. Blob, 파일, 테이블 및 큐에 대해 메트릭을 사용할 수 있습니다.
+**Storage Analytics 메트릭**은 저장소 계정의 상태를 모니터링하는 데 사용할 수 있는 Azure Storage 게정의 메트릭을 수집하는 데 사용됩니다. Blob, 파일, 테이블 및 큐에 대해 메트릭을 사용할 수 있습니다.
 
 **Storage Analytics 로깅**은 서버 쪽에서 발생하며, 이를 통해 Storage 계정의 성공한 요청 및 실패한 요청에 대한 세부 정보를 기록할 수 있습니다. 이러한 로그를 사용하여 테이블, 큐 및 Blob에 대한 읽기, 쓰기 및 삭제 작업뿐만 아니라 실패한 요청의 이유에 대한 세부 정보를 볼 수 있습니다. 로깅은 Azure Files에 사용할 수 없습니다.
 
@@ -223,7 +223,7 @@ Azure Cosmos DB 테이블 API는 턴키 글로벌 배포, 짧은 대기 시간 �
 * 자세한 내용은 [Azure Cosmos DB 테이블 API](../../cosmos-db/table-introduction.md)를 참조하세요. 
 * PowerShell을 사용하여 Azure Cosmos DB 테이블 API 작업을 수행하는 방법을 알아보려면 [PowerShell을 사용하여 Azure Cosmos DB 테이블 API 작업 수행](../../cosmos-db/table-powershell.md)을 참조하세요.
 
-## <a name="azures-independently-deployed-clouds"></a>Azure의 독립적으로 배포된 클라우드
+## <a name="independent-cloud-deployments-of-azure"></a>Azure의 독립 클라우드 배포
 
 대부분의 사람들은 전역 Azure 배포에 Azure Public Cloud를 사용합니다. 또한 통치권 등의 사유로 인한 몇 가지 Microsoft Azure 독립 배포도 존재합니다. 이러한 독립 배포를 "환경"이라고 칭합니다. 다음은 사용 가능한 환경입니다.
 

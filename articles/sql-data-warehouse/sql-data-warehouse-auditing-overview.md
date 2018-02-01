@@ -13,30 +13,21 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.custom: security
-ms.date: 08/21/2017
+ms.date: 01/16/2018
 ms.author: rortloff;barbkess
-ms.openlocfilehash: f851c82ebeaa647f663d499a4d327c3479e36121
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 5400f29d8c7579809ef7b2a084115473df7baa85
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse 감사
-> [!div class="op_single_selector"]
-> * [감사](sql-data-warehouse-auditing-overview.md)
-> * [위협 감지](sql-data-warehouse-security-threat-detection.md)
-> 
-> 
 
-SQL Data Warehouse 감사를 사용하면 Azure Storage 계정의 감사 로그에 데이터베이스의 이벤트를 기록할 수 있습니다. 감사는 규정 준수를 유지 관리하고, 데이터베이스 작업을 이해하고, 비즈니스 문제나 의심스러운 보안 위반을 나타낼 수 있는 불일치 및 이상 활동을 파악하는 데 도움이 될 수 있습니다. 또한 드릴다운 보고서 및 분석을 위해 SQL Data Warehouse 감사 기능을 Microsoft Power BI와 통합합니다.
+SQL Data Warehouse 감사를 사용하면 Azure Storage 계정의 감사 로그에 데이터베이스의 이벤트를 기록할 수 있습니다. 감사는 규정 준수를 유지 관리하고, 데이터베이스 작업을 이해하고, 비즈니스 문제나 의심스러운 보안 위반을 나타낼 수 있는 불일치 및 이상 활동을 파악하는 데 도움이 될 수 있습니다. 또한 보고 및 분석을 위해 SQL Data Warehouse 감사 기능을 Microsoft Power BI와 통합합니다.
 
 감사 도구를 사용하면 규정 준수 표준을 보다 쉽게 준수할 수 있지만 규정을 완전히 준수한다고 보장할 수는 없습니다. 표준 규정 준수를 지원하는 Azure 프로그램에 대한 자세한 내용은 <a href="http://azure.microsoft.com/support/trust-center/compliance/" target="_blank">Azure 보안 센터</a>를 참조하세요.
 
-* [데이터베이스 감사 기본 사항]
-* [데이터베이스에 대한 감사 설정]
-* [감사 로그 및 보고서 분석]
-
-## <a id="subheading-1"></a>Azure SQL Data Warehouse 데이터베이스 감사 기본 사항
+## <a id="subheading-1"></a>감사 기본 사항
 SQL Data Warehouse 데이터베이스 감사를 사용하여 다음을 수행할 수 있습니다.
 
 * **유지** 합니다. 감사할 데이터베이스 동작의 범주를 정의할 수 있습니다.
@@ -65,13 +56,13 @@ SQL Data Warehouse 데이터베이스 감사를 사용하여 다음을 수행할
 
 ## <a id="subheading-2"></a>데이터베이스에 대한 감사 설정
 1. <a href="https://portal.azure.com" target="_blank">Azure Portal</a>을 시작합니다.
-2. 감사하려는 SQL Data Warehouse의 **설정** 블레이드로 이동합니다. **설정** 블레이드에서 **감사 및 위협 감지**를 선택합니다.
+2. 감사하려는 SQL Data Warehouse의 **설정**으로 이동합니다. **감사 및 위협 감지**를 선택합니다.
    
     ![][1]
 3. 다음으로 **켜기** 단추를 클릭하여 감사를 사용합니다.
    
     ![][3]
-4. 감사 구성 블레이드에서 **저장소 정보**를 선택하여 감사 로그 저장소 블레이드를 엽니다. 로그를 저장할 Azure 저장소 계정 및 보존 기간을 선택합니다. 
+4. 감사 구성 패널에서 **저장소 정보**를 선택하여 감사 로그 저장소 패널을 엽니다. 로그에 대한 Azure Storage 계정 및 보존 기간을 선택합니다. 
 >[!TIP]
 >미리 구성된 보고서 템플릿을 활용하려면 감사되는 모든 데이터베이스에 대해 동일한 저장소 계정을 사용합니다.
    
@@ -91,11 +82,12 @@ SQL Data Warehouse 데이터베이스 감사를 사용하여 다음을 수행할
 ## <a id="subheading-4"></a>Storage 키 다시 생성
 프로덕션에서는 저장소 키를 주기적으로 새로 고치게 됩니다. 키를 새로 고칠 때 정책을 저장해야 합니다. 프로세스는 다음과 같습니다.
 
-1. 감사 구성 블레이드(위에 나온 감사 설정 섹션의 설명 참조)에서 **Storage 액세스 키**를 *기본*에서 *보조*로 전환하고 **저장**을 클릭합니다.
+1. 감사 구성 패널(이전 감사 설정 섹션의 설명 참조)에서 **저장소 액세스 키**를 *기본*에서 *보조*로 변경하고 **저장**을 클릭합니다.
 
    ![][4]
-2. 스토리지 구성 블레이드로 이동하고 **기본 액세스 키** 를 *다시 생성*합니다.
-3. 감사 구성 블레이드로 돌아가서 **저장소 액세스 키**를 *보조*에서 *기본*으로 전환하고 **저장**을 누릅니다.
+2. 저장소 구성 패널로 이동하고 *기본 액세스 키*를 **다시 생성**합니다.
+3. 감사 구성 패널으로 돌아간 후 
+4. **저장소 액세스 키**를 *보조*에서 *기본*으로 전환하고 **저장**을 누릅니다.
 4. 저장소 UI로 돌아와서 **보조 선택키** 를 *다시 생성* 합니다(다음 키 새로 고침 주기를 위한 준비).
 
 ## <a id="subheading-5"></a>Automation(PowerShell/REST API)
@@ -103,18 +95,41 @@ SQL Data Warehouse 데이터베이스 감사를 사용하여 다음을 수행할
 
 * **PowerShell cmdlet**:
 
-   * [Get-AzureRMSqlDatabaseAuditingPolicy][101]
-   * [Get-AzureRMSqlServerAuditingPolicy][102]
-   * [Remove-AzureRMSqlDatabaseAuditing][103]
-   * [Remove-AzureRMSqlServerAuditing][104]
-   * [Set-AzureRMSqlDatabaseAuditingPolicy][105]
-   * [Set-AzureRMSqlServerAuditingPolicy][106]
-   * [Use-AzureRMSqlServerAuditingPolicy][107]
+   * [Get-AzureRMSqlDatabaseAuditingPolicy](/powershell/module/azurerm.sql/get-azurermsqldatabaseauditingpolicy)
+   * [Get-AzureRMSqlServerAuditingPolicy](/powershell/module/azurerm.sql/Get-AzureRMSqlServerAuditingPolicy)
+   * [Remove-AzureRMSqlDatabaseAuditing](/powershell/module/azurerm.sql/Remove-AzureRMSqlDatabaseAuditing)
+   * [Remove-AzureRMSqlServerAuditing](/powershell/module/azurerm.sql/Remove-AzureRMSqlServerAuditing)
+   * [Set-AzureRMSqlDatabaseAuditingPolicy](/powershell/module/azurerm.sql/Set-AzureRMSqlDatabaseAuditingPolicy)
+   * [Set-AzureRMSqlServerAuditingPolicy](/powershell/module/azurerm.sql/Set-AzureRMSqlServerAuditingPolicy)
+   * [Use-AzureRMSqlServerAuditingPolicy](/powershell/module/azurerm.sql/Use-AzureRMSqlServerAuditingPolicy)
+
+
+## <a name="downlevel-clients-support-for-auditing-and-dynamic-data-masking"></a>감사 및 동적 데이터 마스킹에 대한 하위 수준 클라이언트 지원
+감사는 TDS 리디렉션을 지원하는 SQL 클라이언트와 함께 작동합니다.
+
+TDS 7.4를 구현하는 모든 클라이언트는 리디렉션도 지원해야 합니다. 이에 대한 예외에는 리디렉션 기능이 완전히 지원되지 않는 JDBC 4.0 및 리디렉션이 구현되지 않은 Node.JS용 Tedious가 포함됩니다.
+
+TDS 버전 7.3 이하를 지원하는 "하위 클라이언트"의 경우, 연결 문자열에서 서버 FQDN을 다음과 같이 수정합니다.
+
+- 연결 문자열에서 원래 서버 FQDN: <*서버 이름*>.database.windows.net
+- 연결 문자열에서 수정된 서버 FQDN: <*서버 이름*>.database.**secure**.windows.net
+
+"하위 클라이언트"의 일부 목록에는 다음이 포함됩니다.
+
+* .NET 4.0 이하
+* ODBC 10.0 이하
+* JDBC(JDBC는 TDS 7.4를 지원하지만 TDS 리디렉션 기능은 완전히 지원되지 않음)
+* Tedious(Node.JS용)
+
+**주석:** 위의 서버 FDQN 수정은 각 데이터베이스에서 구성 단계에 대한 요구 없이 SQL 서버 수준 감사 정책의 적용에도 유용할 수 있습니다.     
+
+
+
 
 <!--Anchors-->
-[데이터베이스 감사 기본 사항]: #subheading-1
-[데이터베이스에 대한 감사 설정]: #subheading-2
-[감사 로그 및 보고서 분석]: #subheading-3
+[Database Auditing basics]: #subheading-1
+[Set up auditing for your database]: #subheading-2
+[Analyze audit logs and reports]: #subheading-3
 
 
 <!--Image references-->
@@ -125,11 +140,3 @@ SQL Data Warehouse 데이터베이스 감사를 사용하여 다음을 수행할
 [5]: ./media/sql-data-warehouse-auditing-overview/sql-data-warehouse-auditing-dashboard.png
 
 
-<!--Link references-->
-[101]: /powershell/module/azurerm.sql/get-azurermsqldatabaseauditingpolicy
-[102]: /powershell/module/azurerm.sql/Get-AzureRMSqlServerAuditingPolicy
-[103]: /powershell/module/azurerm.sql/Remove-AzureRMSqlDatabaseAuditing
-[104]: /powershell/module/azurerm.sql/Remove-AzureRMSqlServerAuditing
-[105]: /powershell/module/azurerm.sql/Set-AzureRMSqlDatabaseAuditingPolicy
-[106]: /powershell/module/azurerm.sql/Set-AzureRMSqlServerAuditingPolicy
-[107]: /powershell/module/azurerm.sql/Use-AzureRMSqlServerAuditingPolicy

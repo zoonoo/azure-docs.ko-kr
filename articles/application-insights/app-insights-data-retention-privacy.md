@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/07/2017
 ms.author: mbullwin
-ms.openlocfilehash: 3e13cc70dc09dd795bb0df57a4bbb29c8fcddb9e
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 1818e564acb0e9b5fa620d6f38db141811ca9777
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Application Insights 데이터 수집, 보존 및 저장소
 
@@ -99,11 +99,11 @@ Visual Studio를 사용하여 앱을 개발하는 경우 디버그(F5) 모드에
 Microsoft는 서비스를 제공하기 위한 목적으로만 데이터를 사용합니다.
 
 ## <a name="where-is-the-data-held"></a>데이터가 저장되는 위치는 어디인가요?
-* 미국 또는 유럽입니다. 새 Application Insights 리소스를 만들 때 위치를 선택할 수 있습니다. 
+* 미국, 유럽 또는 동남 아시아에 있습니다. 새 Application Insights 리소스를 만들 때 위치를 선택할 수 있습니다. 
 
 
-#### <a name="does-that-mean-my-app-has-to-be-hosted-in-the-usa-or-europe"></a>내 앱을 미국이나 유럽에서 호스트해야 한다는 뜻인가요?
-* 아니요. 응용 프로그램은 자체 온-프레미스 호스트 또는 클라우드의 어디에서나 실행할 수 있습니다.
+#### <a name="does-that-mean-my-app-has-to-be-hosted-in-the-usa-europe-or-southeast-asia"></a>내 앱을 미국, 유럽 또는 동남 아시아에서 호스트해야 한다는 뜻인가요?
+* 번호 응용 프로그램은 자체 온-프레미스 호스트 또는 클라우드의 어디에서나 실행할 수 있습니다.
 
 ## <a name="how-secure-is-my-data"></a>내 데이터는 어느 정도 안전한가요?
 Application Insights는 Azure 서비스입니다. 보안 정책은 [Azure 보안, 개인 정보 보호 및 규정 준수 백서](http://go.microsoft.com/fwlink/?linkid=392408)에 설명되어 있습니다.
@@ -166,7 +166,7 @@ SDK는 플랫폼마다 다르며, 설치할 수 있는 여러 구성 요소가 �
 | [호출 TrackMetric][api] |숫자 값<br/>**속성** |
 | [호출 추적*][api] |이벤트 이름<br/>**속성** |
 | [호출 TrackException][api] |**예외**<br/>스택 덤프<br/>**속성** |
-| SDK는 데이터를 수집할 수 없습니다. 예: <br/> - 성능 카운터에 액세스할 수 없음<br/> - 원격 분석 이니셜라이저 예외 |SDK 진단 |
+| SDK는 데이터를 수집할 수 없습니다. 예:  <br/> - 성능 카운터에 액세스할 수 없음<br/> - 원격 분석 이니셜라이저 예외 |SDK 진단 |
 
 [다른 플랫폼에 대한 SDK][platforms]의 경우 해당 문서를 참조하세요.
 

@@ -12,19 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 8/20/2017
+ms.date: 1/24/2018
 ms.author: xujing
-ms.openlocfilehash: e1fd3cf826915b128039e3d9fe20c309f20ad2c6
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 6ad3b294e1d53d03f6ceb61048c8f657d8b471c0
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="how-to-deploy-windows-10-on-azure-with-multitenant-hosting-rights"></a>다중 테넌트 호스팅 권한으로 Azure에서 Windows 10을 배포하는 방법 
-Windows 10 Enterprise E3/E5 사용자 단위 또는 Windows Virtual Desktop Access 사용자 단위(사용자 구독 라이선스 또는 추가 기능 사용자 구독 라이선스)를 사용하는 사용자의 경우, Windows 10용 다중 테넌트 호스팅 권한을 사용하면 클라우드로 Windows 10 라이선스를 가져오고, 다른 라이선스에 비용을 지불하지 않으면서 Azure에서 Windows 10 Virtual Machine을 실행할 수 있습니다. 자세한 내용은 [Windows 10용 다중 테넌트 호스팅](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx)을 참조하세요.
+Windows 10 Enterprise E3/E5 사용자 단위 또는 Windows Virtual Desktop Access 사용자 단위(사용자 구독 라이선스 또는 추가 기능 사용자 구독 라이선스)를 사용하는 사용자의 경우, Windows 10용 다중 테넌트 호스팅 권한을 사용하면 클라우드로 Windows 10 라이선스를 가져오고, 다른 라이선스에 비용을 지불하지 않으면서 Azure에서 Windows 10 Virtual Machines를 실행할 수 있습니다. 자세한 내용은 [Windows 10용 다중 테넌트 호스팅](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx)을 참조하세요.
 
 > [!NOTE]
-> 이 아티클에서는 Windows 10 Desktop 이미지에 대한 라이선스 혜택 구현을 보여 줍니다. [Windows Server를 위한 Azure 하이브리드 사용 혜택 이미지](hybrid-use-benefit-licensing.md)에 대한 내용을 참조할 수 있습니다.
+> 이 문서에서는 Azure Marketplace에서 Windows 10 Pro Desktop 이미지에 대한 라이선스 혜택을 구현하는 방법을 보여줍니다.
+> - MSDN 구독용 Azure Marketplace의 Windows 7, 8.1, 10 Enterprise(x64) 이미지는 [개발/테스트 시나리오용 Azure의 Windows 클라이언트](client-images.md)를 참조하세요.
+> - Windows Server 라이선스 혜택은 [Windows Server 이미지에 Azure Hybrid를 사용하는 이점](hybrid-use-benefit-licensing.md)을 참조하세요.
 >
 
 ## <a name="deploying-windows-10-image-from-azure-marketplace"></a>Azure Marketplace에서 Windows 10 이미지 배포 
@@ -34,6 +36,8 @@ Powershell, CLI 및 Azure Resource Manager 템플릿 배포의 경우 Windows 10
 |:----------|:-------------:|:------|:------|
 | Windows 10 Pro    | MicrosoftWindowsDesktop | Windows-10  | RS2-Pro   |
 | Windows 10 Pro N  | MicrosoftWindowsDesktop | Windows-10  | RS2-ProN  |
+| Windows 10 Pro    | MicrosoftWindowsDesktop | Windows-10  | RS3-Pro   |
+| Windows 10 Pro N  | MicrosoftWindowsDesktop | Windows-10  | RS3-ProN  |
 
 ## <a name="uploading-windows-10-vhd-to-azure"></a>Azure에 Windows 10 VHD 업로드
 일반화된 Windows 10 VHD를 업로드하는 경우 Windows 10에는 기본적으로 활성화된 기본 제공 관리자 계정이 없습니다. 기본 제공 관리자 계정을 사용하도록 설정하려면 사용자 지정 스크립트 확장의 일환으로 다음 명령을 포함합니다.

@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/14/2017
 ms.author: tomfitz
-ms.openlocfilehash: 485a3eb5c5d04d1540482245d088c48645704465
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 64d7a0ea72b2f629160f31e4bc1fb4a90f10653d
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="outputs-section-in-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿의 출력 섹션
 Outputs 섹션에서, 배포에서 반환되는 값을 지정합니다. 예를 들어, 배포된 리소스에 액세스하기 위한 URI를 반환할 수 있습니다.
@@ -56,6 +56,8 @@ az group deployment show -g <resource-group-name> -n <deployment-name> --query p
     "id": "[reference('linkedTemplate').outputs.resourceID.value]"
 }
 ```
+
+`reference` 함수는 [중첩된 템플릿](resource-group-linked-templates.md#link-or-nest-a-template)의 출력 섹션에 사용할 수 없습니다. 중첩된 템플릿에서 배포된 리소스의 값을 반환하려면 중첩된 템플릿을 연결된 템플릿으로 변환합니다.
 
 ## <a name="available-properties"></a>사용 가능한 속성
 

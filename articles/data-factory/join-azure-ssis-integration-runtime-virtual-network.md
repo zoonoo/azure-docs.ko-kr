@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2017
+ms.date: 01/22/2018
 ms.author: spelluru
-ms.openlocfilehash: aa570379890023c83383d291aa5d57fb79b2d5aa
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: f40f0551ed65a42bcacf2307cbec462fd5c3ac25
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Azure-SSIS 통합 런타임을 Azure 가상 네트워크에 조인
 다음 조건 중 하나가 참인 경우 Azure-SSIS IR(통합 런타임)을 Azure 가상 네트워크(VNet)에 조인해야 합니다. 
@@ -25,20 +25,20 @@ ms.lasthandoff: 12/13/2017
 - VNet의 일부인 SQL Server 관리되는 인스턴스(비공개 미리 보기)에서 SSIS 카탈로그 데이터베이스를 호스팅합니다.
 - Azure-SSIS 통합 런타임에서 실행되는 SSIS 패키지에서 온-프레미스 데이터 저장소에 연결하려고 합니다.
 
- Azure Data Factory 버전 2(미리 보기)를 사용하면 Azure-SSIS 통합 런타임을 클래식 VNet에 조인할 수 있습니다. 현재 Azure Resource Manager VNet은 지원되지 않습니다. 하지만 다음 섹션의 설명대로 작업할 수 있습니다. 
+ Azure Data Factory 버전 2(미리 보기)를 사용하면 Azure-SSIS 통합 런타임을 클래식 또는 Azure Resource Manager VNet에 조인할 수 있습니다. 
 
  > [!NOTE]
 > 이 문서는 현재 미리 보기 상태인 Data Factory 버전 2에 적용됩니다. GA(일반 공급) 상태인 Data Factory 버전 1 서비스를 사용 중인 경우 [Data Factory 버전 1 설명서](v1/data-factory-introduction.md)를 참조하세요.
 
 ## <a name="access-on-premises-data-stores"></a>온-프레미스 데이터 저장소 액세스
-SSIS 패키지가 공용 클라우드 데이터 저장소에만 액세스하는 경우 Azure-SSIS IR을 VNet에 조인할 필요가 없습니다. SSIS 패키지가 온-프레미스 데이터 저장소에 액세스하는 경우 Azure-SSIS IR을 온-프레미스 네트워크에 연결된 VNet에 조인해야 합니다. SSIS 카탈로그가 VNet에 없는 Azure SQL Database에서 호스트되는 경우 적절한 포트를 열어야 합니다. SSIS 카탈로그가 클래식 VNet에 있는 Azure SQL 관리되는 인스턴스에서 호스트되는 경우 Azure-SSIS IR을 Azure SQL 관리되는 인스턴스가 있는 클래스-클래식 VNet 연결과 동일한 클래식 VNet (또는) 다른 클래식 VNet에 조인할 수 있습니다. 다음 섹션에 자세한 내용이 제공됩니다.
+SSIS 패키지가 공용 클라우드 데이터 저장소에만 액세스하는 경우 Azure-SSIS IR을 VNet에 조인할 필요가 없습니다. SSIS 패키지가 온-프레미스 데이터 저장소에 액세스하는 경우 Azure-SSIS IR을 온-프레미스 네트워크에 연결된 VNet에 조인해야 합니다. SSIS 카탈로그가 VNet에 없는 Azure SQL Database에서 호스트되는 경우 적절한 포트를 열어야 합니다. SSIS 카탈로그가 Azure Resource Manager VNet 또는 클래식 VNet에 있는 Azure SQL 관리되는 인스턴스에서 호스팅되는 경우, Azure-SSIS IR을 동일한 VNet (또는) Azure SQL 관리되는 인스턴스가 있는 VNet 간 연결이 있는 다른 VNet에 조인할 수 있습니다. 다음 섹션에 자세한 내용이 제공됩니다.
 
 다음은 몇 가지 유의할 사항입니다. 
 
-- 온-프레미스 네트워크에 연결된 기존 VNet이 없는 경우 먼저 Azure-SSIS 통합 런타임이 조인할 [클래식 VNet](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)을 만듭니다. 그런 다음 해당 VNet에서 온-프레미스 네트워크로 사이트 간 [VPN 게이트웨이 연결](../vpn-gateway/vpn-gateway-howto-site-to-site-classic-portal.md)/[ExpressRoute](../expressroute/expressroute-howto-linkvnet-classic.md) 연결을 구성합니다.
-- Azure-SSIS 통합 런타임과 동일한 위치에 온-프레미스 네트워크에 연결된 기존 클래식 VNet이 있는 경우 여기에 Azure-SSIS 통합 런타임을 조인할 수 있습니다.
-- Azure-SSIS 통합 런타임과 다른 위치에 온-프레미스 네트워크에 연결된 기존 클래식 VNet이 있는 경우 먼저 Azure-SSIS 통합 런타임을 조인할 [클래식 VNet](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)을 만듭니다. 그런 다음 [클래식-클래 VNet](../vpn-gateway/vpn-gateway-howto-vnet-vnet-portal-classic.md) 연결을 구성합니다.
-- 온-프레미스 네트워크에 연결된 기존 Azure Resource Manager VNet이 있는 경우 먼저 Azure-SSIS 통합 런타임이 조인할 [클래식 VNet](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)을 만듭니다. 그런 다음 [클래식-Azure Resource Manager VNet](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md) 연결을 구성합니다.
+- 온-프레미스 네트워크에 연결된 기존 VNet이 없는 경우, 먼저 Azure-SSIS 통합 런타임에서 조인할 [Azure Resource Manager VNet](../virtual-network/virtual-network-get-started-vnet-subnet.md#create-vnet) 또는 [클래식 VNet](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)을 만듭니다. 그런 다음 해당 VNet에서 온-프레미스 네트워크로 사이트 간 [VPN 게이트웨이 연결](../vpn-gateway/vpn-gateway-howto-site-to-site-classic-portal.md)/[ExpressRoute](../expressroute/expressroute-howto-linkvnet-classic.md) 연결을 구성합니다.
+- 온-프레미스 네트워크에 연결된 기존 Azure Resource Manager VNet 또는 클래식 VNet이 Azure-SSIS 통합 런타임과 동일한 위치에 있는 경우, Azure-SSIS 통합 런타임을 이러한 VNet에 조인할 수 있습니다.
+- Azure-SSIS 통합 런타임과 다른 위치에 온-프레미스 네트워크에 연결된 기존 클래식 VNet이 있는 경우 먼저 Azure-SSIS 통합 런타임을 조인할 [클래식 VNet](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)을 만듭니다. 그런 다음 [클래식-클래 VNet](../vpn-gateway/vpn-gateway-howto-vnet-vnet-portal-classic.md) 연결을 구성합니다. 또는 Azure-SSIS 통합 런타임에서 조인할 [Azure Resource Manager VNet](../virtual-network/virtual-network-get-started-vnet-subnet.md#create-vnet)을 만들 수 있습니다. 그런 다음 [클래식-Azure Resource Manager VNet](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md) 연결을 구성합니다.
+- 온-프레미스 네트워크에 연결된 기존 Azure Resource Manager VNet이 Azure-SSIS Integration Runtime과 다른 위치에 있는 경우, 먼저 Azure-SSIS 통합 런타임에서 조인할 [Azure Resource Manager VNet](../virtual-network/virtual-network-get-started-vnet-subnet.md#create-vnet)을 만듭니다. 그런 다음 Azure Resource Manager-Azure Resource Manager VNet 연결을 구성합니다. 또는 Azure-SSIS 통합 런타임에서 조인할 [클래식 VNet](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)을 만들 수 있습니다. 그런 다음 [클래식-Azure Resource Manager VNet](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md) 연결을 구성합니다.
 
 ## <a name="domain-name-services-server"></a>도메인 이름 서비스 서버 
 Azure-SSIS 통합 런타임에서 조인한 VNet에서 자체 DNS(도메인 이름 서비스) 서버를 사용해야 하는 경우 지침에 따라 [VNet의 Azure-SSIS 통합 런타임 노드에서 Azure 끝점을 확인할 수 있는지 확인하십시오](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server).
@@ -68,16 +68,17 @@ if(![string]::IsNullOrEmpty($VnetId) -and ![string]::IsNullOrEmpty($SubnetName))
     {
     Start-Sleep -s 10
     }
-    # Assign VM contributor role to Microsoft.Batch
-    New-AzureRmRoleAssignment -ObjectId $BatchObjectId -RoleDefinitionName "Classic Virtual Machine Contributor" -Scope $VnetId
+    if($VnetId -match "/providers/Microsoft.ClassicNetwork/")
+    {
+        # Assign VM contributor role to Microsoft.Batch
+        New-AzureRmRoleAssignment -ObjectId $BatchObjectId -RoleDefinitionName "Classic Virtual Machine Contributor" -Scope $VnetId
+    }
 }
 ```
 
-### <a name="use-portal-to-configure-vnet"></a>포털을 사용하여 VNet 구성
+### <a name="use-portal-to-configure-a-classic-vnet"></a>포털을 사용하여 클래식 VNet 구성
 스크립트 실행이 VNet을 구성하는 가장 쉬운 방법입니다. VNet을 구성할 수 있는 권한이 없거나 자동 구성이 실패하면 VNet 소유자는 다음 단계에 따라 수동으로 구성을 시도할 수 있습니다.
 
-### <a name="find-the-resource-id-for-your-azure-vnet"></a>Azure VNet의 리소스 ID를 찾습니다.
- 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **추가 서비스**를 클릭합니다. **가상 네트워크(클래식)**를 필터링하여 선택합니다.
 3. 목록에서 **가상 네트워크**를 필터링하고 선택합니다. 
@@ -88,11 +89,11 @@ if(![string]::IsNullOrEmpty($VnetId) -and ![string]::IsNullOrEmpty($SubnetName))
 6. 왼쪽 메뉴에서 **서브넷**을 클릭하고 **사용 가능한 주소**의 수가 Azure-SSIS 통합 런타임의 노드보다 큰지 확인합니다.
 
     ![VNet에서 사용 가능한 주소 수](media/join-azure-ssis-integration-runtime-virtual-network/number-of-available-addresses.png)
-7. **MicrosoftAzureBatch**를 VNet의 **클래식 가상 컴퓨터 참여자** 역할에 조인합니다. 
+7. **MicrosoftAzureBatch**를 VNet의 **클래식 Virtual Machine 참여자** 역할에 조인합니다. 
     1. 왼쪽 메뉴에서 액세스 제어(IAM)를 클릭하고 도구 모음에서 **추가**를 클릭합니다.
     
         ![액세스 제어 -> 추가](media/join-azure-ssis-integration-runtime-virtual-network/access-control-add.png) 
-    2. **권한 추가** 페이지에서 **역할**에 **클래식 가상 컴퓨터 기여자**를 선택합니다. **선택** 텍스트 상자에 **ddbf3205-c6bd-46ae-8127-60eb93363864**를 복사하여 붙여넣고 검색 결과 목록에서 **Microsoft Azure Batch**를 선택합니다. 
+    2. **권한 추가** 페이지에서 **역할**에 **클래식 Virtual Machine 기여자**를 선택합니다. **선택** 텍스트 상자에 **ddbf3205-c6bd-46ae-8127-60eb93363864**를 복사하여 붙여넣고 검색 결과 목록에서 **Microsoft Azure Batch**를 선택합니다. 
     
         ![권한 추가 - 검색](media/join-azure-ssis-integration-runtime-virtual-network/azure-batch-to-vm-contributor.png)
     3. 저장을 클릭하여 설정을 저장하고 페이지를 닫습니다.
@@ -110,6 +111,24 @@ if(![string]::IsNullOrEmpty($VnetId) -and ![string]::IsNullOrEmpty($SubnetName))
 
     `Microsoft.Batch`가 목록에 보이지 않으면 등록을 위해 구독에서 [빈 Azure 배치 계정을 만듭니다](../batch/batch-account-create-portal.md). 나중에 삭제할 수 있습니다. 
 
+### <a name="use-portal-to-configure-an-azure-resource-manager-vnet"></a>포털을 사용하여 Azure Resource Manager VNet 구성
+스크립트 실행이 VNet을 구성하는 가장 쉬운 방법입니다. VNet을 구성할 수 있는 권한이 없거나 자동 구성이 실패하면 VNet 소유자는 다음 단계에 따라 수동으로 구성을 시도할 수 있습니다.
+
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+2. **추가 서비스**를 클릭합니다. **가상 네트워크**를 필터링하여 선택합니다.
+3. 목록에서 **가상 네트워크**를 필터링하고 선택합니다. 
+4. 가상 네트워크 페이지에서 **속성**을 선택합니다. 
+5. **리소스 ID**에 대한 복사 단추를 클릭하여 가상 네트워크에 대한 리소스 ID를 클립보드에 복사합니다. 클립 보드의 ID를 OneNote 또는 파일에 저장합니다.
+6. 왼쪽 메뉴에서 **서브넷**을 클릭하고 **사용 가능한 주소**의 수가 Azure-SSIS 통합 런타임의 노드보다 큰지 확인합니다.
+5. Azure 배치 공급자가 VNet이 있는 Azure 구독에 등록되어 있는지 확인하거나 Azure 배치 공급자를 등록합니다. Azure 배치 계정이 구독에 이미 있는 경우 구독이 Azure 배치에 등록됩니다.
+    1. Azure Portal의 왼쪽 메뉴에서 **구독**을 클릭합니다. 
+    2. **구독**을 선택합니다. 
+    3. 왼쪽에서 **리소스 공급자**를 클릭하고 `Microsoft.Batch`가 등록된 공급자인지 확인합니다. 
+    
+        ![confirmation-batch-registered](media/join-azure-ssis-integration-runtime-virtual-network/batch-registered-confirmation.png)
+
+    `Microsoft.Batch`가 목록에 보이지 않으면 등록을 위해 구독에서 [빈 Azure 배치 계정을 만듭니다](../batch/batch-account-create-portal.md). 나중에 삭제할 수 있습니다.
+
 ## <a name="create-an-azure-ssis-ir-and-join-it-to-a-vnet"></a>Azure-SSIS IR을 만들어 VNet에 조인
 Azure-SSIS IR를 만드는 동시에 VNet에 조인할 수 있습니다. Azure-SSIS IR를 만드는 동시에 VNet에 조인하는 전체 스크립트와 지침은 [Azure-SSIS IR 만들기](create-azure-ssis-integration-runtime.md)를 참조하세요.
 
@@ -126,10 +145,8 @@ Azure-SSIS IR를 만드는 동시에 VNet에 조인할 수 있습니다. Azure-S
 $ResourceGroupName = "<Azure resource group name>"
 $DataFactoryName = "<Data factory name>" 
 $AzureSSISName = "<Specify Azure-SSIS IR name>"
-# Get the following information from the properties page for your Classic Virtual Network in the Azure portal
-# It should be in the format: 
-# $VnetId = "/subscriptions/<Azure Subscription ID>/resourceGroups/<Azure Resource Group>/providers/Microsoft.ClassicNetwork/virtualNetworks/<Class Virtual Network Name>"
-$VnetId = "<Name of your Azure classic virtual netowrk>"
+# OPTIONAL: specify your VNet ID and the subnet name. 
+$VnetId = "<Name of your Azure virtual netowrk>"
 $SubnetName = "<Name of the subnet in VNet>"
 ```
 
@@ -154,8 +171,11 @@ if(![string]::IsNullOrEmpty($VnetId) -and ![string]::IsNullOrEmpty($SubnetName))
     {
         Start-Sleep -s 10
     }
-    # Assign VM contributor role to Microsoft.Batch
-    New-AzureRmRoleAssignment -ObjectId $BatchObjectId -RoleDefinitionName "Classic Virtual Machine Contributor" -Scope $VnetId
+    if($VnetId -match "/providers/Microsoft.ClassicNetwork/")
+    {
+        # Assign VM contributor role to Microsoft.Batch
+        New-AzureRmRoleAssignment -ObjectId $BatchObjectId -RoleDefinitionName "Classic Virtual Machine Contributor" -Scope $VnetId
+    }
 }
 ```
 

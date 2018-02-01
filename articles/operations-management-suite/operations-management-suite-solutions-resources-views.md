@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/11/2017
+ms.date: 01/16/2018
 ms.author: bwren
-ms.openlocfilehash: 533b5564a805e0b41f2b1a4ad92e12b133220952
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c103ee748446c4819b7925af04d90c22225a21a3
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="views-in-operations-management-suite-oms-management-solutions-preview"></a>OMS(Operations Management Suite) 관리 솔루션의 보기(Preview)
 > [!NOTE]
@@ -75,11 +75,10 @@ ms.lasthandoff: 10/11/2017
 
 솔루션 파일의 variables 요소에 다음 변수를 추가하고 해당 값을 솔루션의 값으로 바꿉니다.
 
-    "LogAnalyticsApiVersion": "2015-11-01-preview",
+    "LogAnalyticsApiVersion": "<api-version>",
     "ViewAuthor": "Your name."
     "ViewDescription": "Optional description of the view."
     "ViewName": "Provide a name for the view here."
-
 
 이제 내보낸 보기 파일의 전체 보기 리소스를 복사할 수 있지만, 해당 리소스가 솔루션에서 작동하려면 다음과 같이 변경해야 합니다.  
 
@@ -89,6 +88,18 @@ ms.lasthandoff: 10/11/2017
 * **DisplayName** 속성을 보기에 추가해야 합니다.  **Id**, **Name** 및 **DisplayName**이 모두 일치해야 합니다.
 * 필요한 매개 변수 집합과 일치하도록 매개 변수 이름을 변경해야 합니다.
 * 변수는 솔루션에서 정의되고 적절한 속성에서 사용되어야 합니다.
+
+### <a name="log-analytics-api-version"></a>Log Analytics API 버전
+Resource Manager 템플릿에 정의된 모든 Log Analytics 리소스에는 리소스가 사용해야 하는 API의 버전을 정의하는 **apiVersion** 속성이 있습니다.  이 버전은 [레거시 및 업그레이드된 쿼리 언어](../log-analytics/log-analytics-log-search-upgrade.md)를 사용하는 쿼리가 있는 보기와는 다릅니다.  
+
+ 다음 표에서는 레거시 및 업그레이드된 작업 영역에서 보기의 Log Analytics API 버전을 지정합니다. 
+
+| 작업 영역 버전 | API 버전 | 쿼리 |
+|:---|:---|:---|
+| v1(레거시)   | 2015-11-01-preview | 레거시 형식입니다.<br> 예: Type=Event EventLevelName = Error  |
+| v2(업그레이드된 버전) | 2015-11-01-preview | 레거시 형식입니다.  설치 시 업그레이드된 형식으로 변환됩니다.<br> 예: Type=Event EventLevelName = Error<br>변환 대상: Event &#124; where EventLevelName == "Error"  |
+| v2(업그레이드된 버전) | 2017-03-03-preview | 업그레이드 형식입니다. <br>예: Event &#124; where EventLevelName == "Error"  |
+
 
 ## <a name="add-the-view-details"></a>보기 세부 정보 추가
 내보낸 보기 파일의 보기 리소스에는 보기의 세부 구성이 들어 있는 **properties** 요소의 두 가지 요소 **Dashboard** 및 **OverviewTile**이 포함됩니다.  이 두 가지 요소와 해당 내용을 솔루션 파일에 있는 보기 리소스의 **properties** 요소에 복사합니다.

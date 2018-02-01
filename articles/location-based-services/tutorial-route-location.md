@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: f2be9ca98330866ac8b6fb12efd56efdc711eedf
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 7303347444952d9c09dc6c04eea5b962e18729b4
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="route-to-a-point-of-interest-using-azure-location-based-services"></a>Azure Location Based Services를 사용해 관심 지점까지 라우팅
 
@@ -77,13 +77,13 @@ Location Based Services의 맵 컨트롤 API가 포함된 정적 HTML 페이지�
     ```
     HTML 헤더가 Azure Location Based Services 라이브러리의 CSS 및 JavaScript 파일에 대한 리소스 위치를 포함하는 방법을 참고합니다. 또한 HTML 파일의 body에 있는 *스크립트* 세그먼트에는 Azure Location Based Services의 API에 액세스하는 인라인 JavaScript 코드가 포함됩니다.
 
-3. 다음 JavaScript 코드를 HTML 파일의 *스크립트* 블록에 추가합니다. 자리 표시자 *<insert-key>*를 Location Based Services 계정의 기본 키로 바꿉니다.
+3. 다음 JavaScript 코드를 HTML 파일의 *스크립트* 블록에 추가합니다. 스크립트의 Location Based Services 계정에서 기본 키를 사용합니다.
 
     ```JavaScript
     // Instantiate map to the div with id "map"
-    var subscriptionKey = "<insert-key>";
+    var LBSAccountKey = "<_your account key_>";
     var map = new atlas.Map("map", {
-        "subscription-key": subscriptionKey
+        "subscription-key": LBSAccountKey
     });
     ```
     **atlas Map**은 시각적 및 대화형 웹 맵에 대한 컨트롤을 제공하고 Azure 맵 컨트롤 API의 구성 요소입니다.
@@ -179,14 +179,14 @@ Location Based Services의 맵 컨트롤 API가 포함된 정적 HTML 페이지�
     ```JavaScript
     var url = "https://atlas.microsoft.com/route/directions/json?";
     url += "&api-version=1.0";
-    url += "&subscription-key=" + subscriptionKey;
+    url += "&subscription-key=" + LBSAccountKey;
     url += "&query=" + startPoint.coordinates[1] + "," + startPoint.coordinates[0] + ":" +
         destinationPoint.coordinates[1] + "," + destinationPoint.coordinates[0];
 
     xhttp.open("GET", url, true);
     xhttp.send();
     ```
-    위의 요청은 사용자 계정의 구독 키와 시작점과 끝점에 대한 좌표인 필수 매개 변수를 주어진 순서로 보여줍니다. 
+    위의 요청은 사용자의 계정 키와 시작점과 끝점에 대한 좌표인 필수 매개 변수를 주어진 순서로 보여줍니다. 
 
 3. **MapRoute.html** 파일을 로컬로 저장한 다음 선택한 웹 브라우저에서 열고 결과를 확인합니다. Location Based Services의 API를 사용해 성공적으로 연결한 경우 다음과 유사한 맵이 표시됩니다. 
 

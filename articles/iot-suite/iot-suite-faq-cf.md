@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 16685787b04d26f09e2b8778faac257571162aac
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: ab72152fc937e3c4552147fce29c95ea0efcadf4
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="frequently-asked-questions-for-iot-suite-connected-factory-preconfigured-solution"></a>IoT Suite 연결된 팩터리 미리 구성된 솔루션에 대한 질문과 대답
 
@@ -117,7 +117,7 @@ Azure Portal을 사용하여 연결 문자열을 찾을 수도 있습니다. 배
 * publisher.rio.corp.contoso
 * publisher.seattle.corp.contoso
 
-[DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) 또는 [iothub-explorer](https://github.com/azure/iothub-explorer) 도구를 사용하여 솔루션이 사용 중인 IoT 허브로 등록된 장치를 확인할 수 있습니다. 이러한 도구를 사용하려면 배포에서 IoT 허브에 대한 연결 문자열이 필요합니다.
+[DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) 또는 [Azure CLI 2.0에 대한 IoT 확장](https://github.com/Azure/azure-iot-cli-extension) 도구를 사용하여 솔루션이 사용 중인 IoT Hub에 등록된 장치를 확인할 수 있습니다. 장치 탐색기를 사용하려면 배포에서 IoT Hub에 대한 연결 문자열이 필요합니다. Azure CLI 2.0에 대한 IoT 확장을 사용하려면 IoT Hub 이름이 필요합니다.
 
 ### <a name="how-can-i-get-log-data-from-the-simulation-components"></a>시뮬레이션 구성 요소에서 로그 데이터는 어떻게 얻을 수 있나요?
 
@@ -146,9 +146,15 @@ IoT Hub로 전송된 데이터를 볼 수 없는 경우 시뮬레이션에 문�
 
 ### <a name="how-do-i-enable-an-interactive-map-in-my-connected-factory-solution"></a>연결된 팩터리 솔루션에서 대화형 맵을 사용하려면 어떻게 할까요?
 
-연결된 팩터리 솔루션에서 대화형 맵을 사용하려면 엔터프라이즈용 Bing 지도 API가 있어야 합니다. www.azureiotsuite.com으로부터 연결된 팩터리 솔루션을 배포할 때 엔터프라이즈용 Bing 지도 API를 설치한 경우 대화형 맵이 자동으로 활성화됩니다.
+연결된 팩터리 솔루션에서 대화형 맵을 사용하려면 엔터프라이즈용 Bing 지도 API가 있어야 합니다.
 
-### <a name="how-do-i-create-a-bing-maps-api-for-enterprise-account"></a>엔터프라이즈용 Bing 지도 API 계정을 만들려면 어떻게 할까요?
+[www.azureiotsuite.com](http://www.azureiotsuite.com)에서 배포할 경우, 배포 프로세스는 구독이 엔터프라이즈용 Bing 지도 API 계획을 사용하도록 설정했는지 확인하고, 연결된 팩터리에 대화형 지도를 자동으로 배포합니다. 이 경우가 아니면 다음과 같이 배포에서 대화형 지도를 사용하도록 설정할 수 있습니다.
+
+연결된 팩터리 GitHub 리포지토리의 `build.ps1` 스크립트를 사용하여 배포하며, 엔터프라이즈용 Bing 지도 API 계획이 있는 경우 빌드 창에서 환경 변수 `$env:MapApiQueryKey`를 계획의 쿼리 키로 설정합니다. 그러면 대화형 지도가 자동으로 사용되도록 설정됩니다.
+
+엔터프라이즈용 Bing 지도 API 계획이 있는 경우 [www.azureiotsuite.com](http://www.azureiotsuite.com)에서 또는 `build.ps1` 스크립트를 사용하여 연결된 팩터리 솔루션을 배포합니다. 그런 후 [엔터프라이즈용 Bing 지도 API 계정을 만들려면 어떻게 할까요?](#how-do-i-create-a-bing-maps-api-for-enterprise-account)에 설명된 대로 엔터프라이즈용 Bing 지도 API 계획을 구독에 추가합니다. [엔터프라이즈용 Bing 지도 API QueryKey를 가져오는 방법](#how-to-obtain-your-bing-maps-api-for-enterprise-querykey)에 설명된 대로 이 계정의 쿼리 키를 조회한 후 저장합니다. Azure Portal로 이동한 후 연결된 팩터리 배포의 App Service 리소스에 액세스합니다. **앱 설정** 섹션을 찾을 수 있는 **응용 프로그램 설정**으로 이동합니다. **MapApiQueryKey**를 가져온 쿼리 키로 설정합니다. 설정을 저장한 다음 **개요**로 이동하고 App Service를 다시 시작합니다.
+
+### <a name="how-do-i-create-a-bing-maps-api-for-enterprise-account"></a>엔터프라이즈용 Bing 지도 API 계정을 만드는 방법
 
 체험용 *내부 트랜잭션 수준 1 엔터프라이즈용 Bing 지도* 계획을 사용할 수 있습니다. 그러나 이러한 두 개의 계획을 Azure 구독에 추가할 수 있습니다. 엔터프라이즈용 Bing 지도 API 계정을 설정하지 않은 경우 Azure Portal에서 **+리소스 만들기**를 클릭하여 만듭니다. 그런 다음 **엔터프라이즈용 Bing 지도 API**를 검색하고 프롬프트를 따라 만듭니다.
 

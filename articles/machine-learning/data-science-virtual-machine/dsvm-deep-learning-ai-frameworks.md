@@ -1,7 +1,7 @@
 ---
 title: "심층 학습 및 AI 프레임워크 - Azure | Microsoft Docs"
 description: "심층 학습 및 AI 프레임워크"
-keywords: "데이터 과학 도구, 데이터 과학 가상 컴퓨터, 데이터 과학용 도구, linux 데이터 과학"
+keywords: "데이터 과학 도구, 데이터 과학 가상 머신, 데이터 과학용 도구, linux 데이터 과학"
 services: machine-learning
 documentationcenter: 
 author: bradsev
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.openlocfilehash: 46662c15374f781a6527bb1435d883ae060c63f4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c6dba433536e07970ad5ce338e33b5d19f4532b2
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="deep-learning-and-ai-frameworks"></a>심층 학습 및 AI 프레임워크
-[데이터 과학 가상 컴퓨터](http://aka.ms/dsvm)(DSVM) 및 [심층 학습 VM](http://aka.ms/dsvm/deeplearning)은 예측 분석 및 이미지, 언어 이해 등의 인식 기능을 갖춘 인공 지능(AI) 응용 프로그램을 빌드하는 데 유용한 여러 심층 학습 프레임워크를 지원합니다. 
+[데이터 과학 Virtual Machine](http://aka.ms/dsvm)(DSVM) 및 [심층 학습 VM](http://aka.ms/dsvm/deeplearning)은 예측 분석 및 이미지, 언어 이해 등의 인식 기능을 갖춘 인공 지능(AI) 응용 프로그램을 빌드하는 데 유용한 여러 심층 학습 프레임워크를 지원합니다. 
 
 여기에 DSVM에서 사용할 수 있는 모든 심층 학습에 대한 자세한 내용이 있습니다.
 
@@ -56,7 +56,7 @@ ms.lasthandoff: 10/11/2017
 | 지원되는 DSVM 버전      | Windows, Linux     |
 | DSVM에 구성/설치 방법  | Keras는 Python 2.7(_루트_)은 물론 Python 3.5(_py35_) 환경에 설치됩니다.   |
 | 샘플에 대한 링크      | https://github.com/fchollet/keras/tree/master/examples      |
-| DSVM에 관련된 도구      | Microsoft Cognitive 도구 키트, TensorLlow, Theano      |
+| DSVM의 관련 도구      | Microsoft Cognitive Toolkit, TensorFlow, Theano      |
 | 사용/실행 방법    | 샘플을 Github 위치에서 다운로드하여, ~/notebooks 아래의 하위 디렉터리에 복사한 후 Jupyter에서 엽니다.   |
 
 
@@ -117,7 +117,7 @@ jupyter notebook
 | 지원되는 DSVM 버전      | Linux     |
 | DSVM에 구성/설치 방법  | Deep Water은 `/dsvm/tools/deep_water`에 설치됩니다.   |
 | 샘플에 대한 링크      | 샘플은 Deep Water 서버를 통해 제공됩니다.      |
-| DSVM에 관련된 도구      | H2o, Sparkling Water      |
+| DSVM의 관련 도구      | H2O, Sparkling Water      |
 
 ### <a name="how-to-use--run-it"></a>사용/실행 방법  
 

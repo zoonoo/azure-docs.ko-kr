@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 11/21/2017
 ms.author: sujayt
-ms.openlocfilehash: 02d68d091cbbe02e1b5b628924ded1c2155f7119
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: f1175c76b3648e7bf9f1746c05b5d1d4898e7443
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Azure 간 VM 복제 문제 해결
 
@@ -109,13 +109,13 @@ VM에 연결된 새 디스크는 초기화되어야 합니다.
 
 **오류 코드** | **가능한 원인** | **권장 사항**
 --- | --- | ---
-150039<br></br>**메시지**: LUN(논리 단위 번호)이 (LUNValue)인 Azure 데이터 디스크(DiskName) (DiskURI)이(가) LUN 값이 동일한 VM 내에서 보고되는 해당 디스크에 매핑되지 않았습니다. | - 새 데이터 디스크가 VM에 연결되었지만 초기화되지 않았습니다.</br></br>- VM 내의 데이터 디스크는 디스크가 VM에 연결된 LUN 값을 올바르게 보고하지 않습니다.| 데이터 디스크가 초기화되었는지 확인하고 작업을 다시 시도합니다.</br></br>Windows의 경우: [새 디스크 연결 및 초기화](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-portal#option-1-attach-and-initialize-a-new-disk)를 수행합니다.</br></br>Linux의 경우: [Linux에서 새 데이터 디스크 초기화](https://docs.microsoft.com/azure/virtual-machines/linux/classic/attach-disk#initialize-a-new-data-disk-in-linux)를 수행합니다.
+150039<br></br>**메시지**: LUN(논리 단위 번호)이 (LUNValue)인 Azure 데이터 디스크(DiskName) (DiskURI)이(가) LUN 값이 동일한 VM 내에서 보고되는 해당 디스크에 매핑되지 않았습니다. | - 새 데이터 디스크가 VM에 연결되었지만 초기화되지 않았습니다.</br></br>- VM 내의 데이터 디스크는 디스크가 VM에 연결된 LUN 값을 올바르게 보고하지 않습니다.| 데이터 디스크가 초기화되었는지 확인하고 작업을 다시 시도합니다.</br></br>Windows의 경우: [새 디스크 연결 및 초기화](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal)를 수행합니다.</br></br>Linux의 경우: [Linux에서 새 데이터 디스크 초기화](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk)를 수행합니다.
 
 ### <a name="fix-the-problem"></a>문제 해결
 데이터 디스크가 초기화되었는지 확인하고 작업을 다시 시도합니다.
 
-- Windows의 경우: [새 디스크 연결 및 초기화](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-portal#option-1-attach-and-initialize-a-new-disk)를 수행합니다.
-- Linux의 경우: [Linux에서 새 데이터 디스크 초기화](https://docs.microsoft.com/azure/virtual-machines/linux/classic/attach-disk#initialize-a-new-data-disk-in-linux)를 수행합니다.
+- Windows의 경우: [새 디스크 연결 및 초기화](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal)를 수행합니다.
+- Linux의 경우: [Linux에 새 데이터 디스크를 추가](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk)합니다.
 
 문제가 계속되면 지원에 문의하세요.
 

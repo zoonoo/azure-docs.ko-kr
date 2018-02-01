@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory 하이브리드 ID 디자인 고려 사항 - 데이터 보호 요구 사항 확인 | Microsoft Docs"
+title: "Azure의 하이브리드 ID 디자인 - 데이터 보호 요구 사항 | Microsoft Docs"
 description: "하이브리드 ID 솔루션을 계획할 때 이러한 요구 사항을 가장 잘 수행할 수 있도록 비즈니스에 대한 데이터 보호 요구 사항 및 사용할 수 있는 옵션을 식별합니다."
 documentationcenter: 
 services: active-directory
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 77b773f4cd1c4d0ff0a4566fa76fd1d002d15993
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: 1a2feca8d24fabda4c191b5a181ab6606c912657
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="plan-for-enhancing-data-security-through-strong-identity-solution"></a>강력한 ID 솔루션을 통해 데이터 보안을 향상하기 위한 계획
 데이터를 보호하려면 먼저 해당 데이터에 액세스할 수 있는 사용자를 식별하고 인증 및 권한 부여 기능을 제공하기 위해 이 프로세스의 일부로 시스템과 통합할 수 있는 ID 솔루션이 필요합니다. 인증 및 권한 부여는 종종 서로 혼동되고 역할은 오해됩니다. 아래 그림에 표시된 대로 실제로 매우 다릅니다.

@@ -8,19 +8,19 @@ ms.author: philmea
 ms.date: 11/29/2017
 ms.topic: article
 ms.service: location-based-services
-ms.openlocfilehash: 31011dfddaa99881b58ee447502d55acad5ec940
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: cacaaab869d3a7752b5a750f01bbfbdaf79814f7
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="how-to-find-an-address-using-the-azure-location-based-services-preview-search-service"></a>Azure Location Based Services(미리 보기) 검색 서비스를 사용하여 주소를 검색하는 방법
 검색 서비스는 개발자가 주소, 위치, 관심 지점, 비즈니스 목록 및 기타 지리 정보를 검색할 수 있는 API의 RESTful 세트입니다. 검색 서비스는 특정 주소, 교차로, 지리적 특징 또는 관심 지점(POI)에 위도/경고를 할당합니다. 검색 서비스 API에서 반환된 위도 및 경도를 Route 및 Traffic Flow API 등의 다른 Azure Location Based Services에 매개 변수로 사용할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
-[Postman 앱](https://www.getpostman.com/apps)을 설치합니다.
+* [Postman 앱](https://www.getpostman.com/apps)을 설치합니다.
 
-Azure Location Based Services 계정 및 구독 키입니다. 계정 만들기 및 구독 키 검색에 대한 자세한 내용은 [Azure Location Based Services 계정 및 키](how-to-manage-account-keys.md)를 참조하세요. 
+* Azure Location Based Services 계정 및 키가 있습니다. 계정 만들기 및 구독 키 검색에 대한 자세한 내용은 [Azure Location Based Services 계정 및 키를 관리하는 방법](how-to-manage-account-keys.md)을 참조하세요. 
 
 ## <a name="using-fuzzy-search"></a>유사 항목 검색 사용
 
@@ -53,7 +53,7 @@ Azure Location Based Services 계정 및 구독 키입니다. 계정 만들기 �
     | 키 | 값 |
     |------------------|-------------------------|
     | api-version | 1.0 |
-    | 구독 키 | *구독 키* |
+    | 구독 키 | \<Azure Location Based Services 키\> |
     | 쿼리 | 피자 |
 
 4. **보내기**를 클릭하고 응답 본문을 검토합니다. 
@@ -103,7 +103,7 @@ Azure Location Based Services 계정 및 구독 키입니다. 계정 만들기 �
     | 키 | 값 |
     |------------------|-------------------------|
     | api-version | 1.0 |
-    | 구독 키 | *구독 키* |
+    | 구독 키 | \<Azure Location Based Services 키\> |
     | 쿼리 | 400 한 광범위 한 St, 시애틀, WA 98109 |
     
 3. **보내기**를 클릭하고 응답 본문을 검토합니다. 
@@ -143,7 +143,7 @@ Azure Location Based Services 계정 및 구독 키입니다. 계정 만들기 �
     | 키 | 값 |
     |------------------|-------------------------|
     | api-version | 1.0 |
-    | 구독 키 | *구독 키* |
+    | 구독 키 | \<Azure Location Based Services 키\> |
     | 쿼리 | 47.59093,-122.33263 |
     
 3. **보내기**를 클릭하고 응답 본문을 검토합니다. 
@@ -209,7 +209,7 @@ Azure Location Based Services 계정 및 구독 키입니다. 계정 만들기 �
     | 키 | 값 |
     |------------------|-------------------------|
     | api-version | 1.0 |
-    | 구독 키 | *구독 키* |
+    | 구독 키 | \<Azure Location Based Services 키\> |
     | 쿼리 | 47.59093,-122.33263 |
     
 4. **보내기**를 클릭하고 응답 본문을 검토합니다. 
