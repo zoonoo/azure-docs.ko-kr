@@ -68,7 +68,7 @@ IIS의 URL 재작성 모듈을 사용하여 클라우드 서비스의 기본 URL
 
 ## <a name="how-can-i-blockdisable-the-incoming-traffic-to-the-default-url-of-my-cloud-service"></a>내 클라우드 서비스의 기본 URL에 들어오는 트래픽을 차단하거나 사용하지 않도록 설정하려면 어떻게 해야 하나요? 
 
-아래 표시된 대로 클라우드 서비스 정의(*.csdef) 파일의 사이트 바인딩 구성에서 사용자 지정 DNS 이름의 호스트 헤더를 설정하여(예를 들어 www.MyCloudService.com) 클라우드 서비스의 기본 URL/이름(예를 들어 \*.cloudapp.net)에 트래픽이 들어오지 못하게 할 수도 있습니다. 
+아래 표시된 대로 클라우드 서비스 정의(\*.csdef) 파일의 사이트 바인딩 구성에서 사용자 지정 DNS 이름의 호스트 헤더를 설정하여(예를 들어 www.MyCloudService.com) 클라우드 서비스의 기본 URL/이름(예를 들어 \*.cloudapp.net)에 트래픽이 들어오지 못하게 할 수도 있습니다. 
  
 
     <?xml version="1.0" encoding="utf-8"?> 
@@ -90,7 +90,7 @@ IIS의 URL 재작성 모듈을 사용하여 클라우드 서비스의 기본 URL
       </WebRole> 
     </ServiceDefinition> 
  
-이 호스트 헤더 바인딩이 csdef 파일을 통해 적용되면 서비스는 사용자 정의 이름 ‘www.MyCloudService.com’을 통해서만 액세스할 수 있습니다. 반면, ‘*.cloudapp.net’ 도메인에 들어오는 모든 요청은 항상 실패하게 됩니다. 그러나 서비스에서 사용자 지정 SLB 프로브 또는 내부 부하 분산 장치를 사용하는 경우 서비스의 기본 URL/이름을 차단하는 것은 프로브 동작에 방해가 될 수 있습니다. 
+이 호스트 헤더 바인딩이 csdef 파일을 통해 적용되면 서비스는 사용자 정의 이름 ‘www.MyCloudService.com’을 통해서만 액세스할 수 있습니다. 반면, ‘\*.cloudapp.net’ 도메인에 들어오는 모든 요청은 항상 실패하게 됩니다. 그러나 서비스에서 사용자 지정 SLB 프로브 또는 내부 부하 분산 장치를 사용하는 경우 서비스의 기본 URL/이름을 차단하는 것은 프로브 동작에 방해가 될 수 있습니다. 
 
 ## <a name="how-to-make-sure-the-public-facing-ip-address-of-a-cloud-service-aka-vip-never-changes-so-that-it-could-be-customarily-whitelisted-by-few-specific-clients"></a>공용 IP 주소(일명, VIP)가 절대로 변경되지 않아 몇 가지 특정 클라이언트에 의해 관례적으로 허용 목록에 추가될 수 있도록 하려면 어떻게 해야 하나요?
 
