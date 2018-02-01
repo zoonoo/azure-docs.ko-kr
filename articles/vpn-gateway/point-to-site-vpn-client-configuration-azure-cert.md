@@ -13,21 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/27/2017
+ms.date: 01/29/2018
 ms.author: cherylmc
-ms.openlocfilehash: 7fe8d5e473e2c8281b1d6c8d7d5423294c428678
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: efe5d3db16db83568bb844894198b59a6b39f626
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Azure 기본 인증서 인증 P2S 구성용 VPN 클라이언트 구성 파일 만들기 및 설치
 
 VPN 클라이언트 구성 파일은 zip 파일에 포함되어 있습니다. 구성 파일은 Windows 또는 Mac IKEv2 VPN 기본 클라이언트에서 Azure 기본 인증서 인증을 사용하는 지점 및 사이트 간 연결을 통해 VNet에 연결하는 데 필요한 설정을 제공합니다.
-
->[!NOTE]
->P2S의 IKEv2는 현재 미리 보기로 제공되고 있습니다.
->
 
 ### <a name="workflow"></a>P2S 워크플로
 

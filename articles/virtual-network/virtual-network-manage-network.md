@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: jdial
-ms.openlocfilehash: 74aace2136136c25bc56327d38cfbab168265401
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0d3f4a83b654315a5ff9344594323c5dcb801e77
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>가상 네트워크 만들기, 변경 또는 삭제
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 10/11/2017
 
 이 문서에 설명된 작업을 시작하기 전에 다음 전제 조건을 완료합니다.
 
-- 가상 네트워크에서 처음 작업하는 경우 [첫 번째 Azure Virtual Network 만들기](virtual-network-get-started-vnet-subnet.md)의 연습을 검토하는 것이 좋습니다. 이 연습을 통해 가상 네트워크에 친숙해질 수 있습니다.
+- 가상 네트워크에서 처음 작업하는 경우 [첫 번째 Azure Virtual Network 만들기](quick-create-portal.md)의 연습을 검토하는 것이 좋습니다. 이 연습을 통해 가상 네트워크에 친숙해질 수 있습니다.
 - 가상 네트워크에 대한 제한 사항은 [Azure 제한](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)을 참조하세요.
 - Azure 계정을 사용하여 Azure Portal, Azure CLI(명령줄 도구) 또는 Azure PowerShell에 로그인합니다. Azure 계정이 없으면 [평가판 계정](https://azure.microsoft.com/free)에 등록합니다.
 - PowerShell 명령을 사용하여 이 문서의 작업을 수행하려면 먼저 [Azure PowerShell을 설치 및 구성](/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json)해야 합니다. 최신 버전의 Azure PowerShell cmdlet을 설치했는지 확인합니다. 예제에서 PowerShell 명령에 대한 도움말을 보려면 `get-help <command> -full`을 입력합니다.
@@ -109,7 +109,7 @@ ms.lasthandoff: 10/11/2017
         *   [액세스 제어(IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control)
         *   [태그](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#tags)
         *   [잠금](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-        *   [자동화 스크립트](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group)
+        *   [Automation 스크립트](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group)
 
 **명령**
 
@@ -138,7 +138,7 @@ ms.lasthandoff: 10/11/2017
 5. 주소 공간에 대한 블레이드에서 다음 옵션 중 하나를 완료합니다.
     - **주소 공간 추가:** 새 주소 공간을 입력합니다. 주소 공간은 가상 네트워크에 대해 정의된 기존 주소 공간과 겹칠 수 없습니다.
     - **주소 공간 제거:** 주소 공간을 마우스 오른쪽 단추로 클릭한 다음 **제거**를 클릭합니다. 주소 공간에 서브넷이 있으면 해당 주소 공간을 제거할 수 없습니다. 주소 공간을 제거하려면 먼저 주소 공간에 있는 모든 서브넷(및 서브넷에 연결된 모든 리소스)을 삭제해야 합니다.
-6. **Save**를 클릭합니다.
+6. **저장**을 클릭합니다.
 
 **명령**
 
@@ -162,7 +162,7 @@ ms.lasthandoff: 10/11/2017
         - **주소 제거:** 제거하려는 서버 옆에 있는 **X**를 클릭합니다. 서버를 삭제하면 이 가상 네트워크 목록에서만 서버가 제거됩니다. DNS 서버는 다른 가상 네트워크에서 사용할 수 있도록 Azure에 등록된 상태로 유지됩니다.
         - **DNS 서버 주소 다시 정렬**: 사용자 환경에 맞게 올바른 순서로 DNS 서버를 나열하는지 확인하는 것이 중요합니다. DNS 서버 목록은 지정된 순서로 사용됩니다. 라운드 로빈 설정으로 작동하지 않습니다. 목록의 첫 번째 DNS 서버에 연결할 수 있으면 DNS 서버가 제대로 작동하는지 여부와 관계없이 클라이언트에서 해당 DNS 서버를 사용합니다. 나열된 모든 DNS 서버를 제거한 다음 원하는 순서로 다시 추가합니다.
         - **주소 변경**: 목록에서 DNS 서버를 강조 표시한 다음 새 이름을 입력합니다.
-6. **Save**를 클릭합니다.
+6. **저장**을 클릭합니다.
 7. 가상 네트워크에 연결된 VM을 다시 시작하여 새 DNS 서버 설정을 할당합니다. VM이 다시 시작될 때까지 현재 DNS 설정을 계속 사용합니다.
 
 **명령**
@@ -194,7 +194,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="next-steps"></a>다음 단계
 
-- VM을 만들어 가상 네트워크에 연결하려면 [가상 네트워크 만들기 및 VM 연결](virtual-network-get-started-vnet-subnet.md#create-vms)을 참조하세요.
+- VM을 만들어 가상 네트워크에 연결하려면 [가상 네트워크 만들기 및 VM 연결](quick-create-portal.md#create-virtual-machines)을 참조하세요.
 - 가상 네트워크 내의 서브넷 간 네트워크 트래픽을 필터링하려면 [네트워크 보안 그룹 만들기](virtual-networks-create-nsg-arm-pportal.md)를 참조하세요.
 - 가상 네트워크를 다른 가상 네트워크에 피어링하려면 [가상 네트워크 피어링 만들기](virtual-network-create-peering.md#portal)를 참조하세요.
 - 가상 네트워크를 온-프레미스 네트워크에 연결하는 옵션에 대해 알아보려면 [VPN Gateway 정보](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#diagrams)를 참조하세요.

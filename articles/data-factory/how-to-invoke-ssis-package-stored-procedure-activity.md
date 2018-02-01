@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: jingwang
-ms.openlocfilehash: 749deb6549e0ac90da4b44424026c897108a4bb7
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 84596041284139b8243287ba6ad719c7c8f7b47b
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Azure Data Factory에서 저장 프로시저 작업을 사용하여 SSIS 패키지 호출
 이 문서에서는 Azure Data Factory 파이프라인에서 저장 프로시저 작업을 사용하여 SSIS 패키지를 호출하는 방법에 대해 설명합니다. 
@@ -31,7 +31,7 @@ ms.lasthandoff: 01/19/2018
 이 문서의 연습에서는 SSIS 카탈로그를 호스트하는 Azure SQL 데이터베이스를 사용합니다. Azure SQL 관리되는 인스턴스(비공개 미리 보기)를 사용할 수도 있습니다.
 
 ## <a name="create-an-azure-ssis-integration-runtime"></a>Azure-SSIS 통합 런타임 만들기
-Azure-SSIS 통합 런타임이 없는 경우 [자습서: SSIS 패키지 배포](tutorial-deploy-ssis-packages-azure.md)의 단계별 지침에 따라 만듭니다.
+Azure-SSIS 통합 런타임이 없는 경우 [자습서: SSIS 패키지 배포](tutorial-create-azure-ssis-runtime-portal.md)의 단계별 지침에 따라 만듭니다.
 
 ## <a name="data-factory-ui-azure-portal"></a>Data Factory UI(Azure Portal )
 이 섹션에서는 Data Factory UI를 사용하여 SSIS 패키지를 호출하는 저장 프로시저 작업이 있는 Data Factory 파이프라인을 만듭니다.

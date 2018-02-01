@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/19/2017
 ms.author: jdial
-ms.openlocfilehash: 7ed018c8c9759bc497c5fea129257486f6128531
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b0de4aa816d7decab1831449f855ab01b101db3a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-networking"></a>Azure 네트워킹
 
@@ -28,14 +28,14 @@ Azure에서는 함께 또는 별도로 사용할 수 있는 다양한 네트워�
 - [인터넷 연결](#internet-connectivity): 인터넷을 통해 Azure 리소스 간에 통신합니다.
 - [온-프레미스 연결](#on-premises-connectivity): 인터넷의 VPN(가상 사설 네트워크) 또는 Azure에 대한 전용 연결을 통해 온-프레미스 네트워크를 Azure 리소스에 연결합니다.
 - [부하 분산 및 트래픽 방향](#load-balancing): 동일한 위치에 있는 서버에 대한 트래픽 및 다른 위치에 있는 서버에 대한 직접 트래픽의 부하를 분산합니다.
-- [보안](#security): 네트워크 서브넷 또는 개별 VM(가상 컴퓨터) 간에 네트워크 트래픽을 필터링합니다.
+- [보안](#security): 네트워크 서브넷 또는 개별 VM(가상 머신) 간에 네트워크 트래픽을 필터링합니다.
 - [라우팅](#routing): Azure 및 온-프레미스 리소스 간에 기본 라우팅 또는 전체 제어 라우팅을 사용합니다.
 - [관리 효율성](#manageability): Azure 네트워킹 리소스를 모니터링하고 관리합니다.
 - [배포 및 구성 도구](#tools): 웹 기반 포털 또는 크로스 플랫폼 명령줄 도구를 사용하여 네트워크 리소스를 배포하고 구성합니다.
 
 ## <a name="Connectivity"></a>Azure 리소스 간 연결
 
-Virtual Machines, Cloud Services, 가상 컴퓨터 확장 집합, Azure App Service 환경과 같은 Azure 리소스는 Azure VNet(가상 네트워크)를 통해 서로 개별적으로 통신할 수 있습니다. [구독](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fnetworking%2ftoc.json) 전용 Azure 클라우드를 논리적으로 격리한 것이 VNet입니다. 각 Azure 구독 및 Azure [지역](https://azure.microsoft.com/regions) 내에서 여러 VNet을 구현할 수 있습니다. 각 VNet은 다른 VNet에서 격리됩니다. 각 VNet에 대해 다음을 수행할 수 있습니다.
+Virtual Machines, Cloud Services, Virtual Machines Scale Sets, Azure App Service Environment는와 같은 Azure 리소스는 Azure VNet(Virtual Network)를 통해 서로 개별적으로 통신할 수 있습니다. [구독](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fnetworking%2ftoc.json) 전용 Azure 클라우드를 논리적으로 격리한 것이 VNet입니다. 각 Azure 구독 및 Azure [지역](https://azure.microsoft.com/regions) 내에서 여러 VNet을 구현할 수 있습니다. 각 VNet은 다른 VNet에서 격리됩니다. 각 VNet에 대해 다음을 수행할 수 있습니다.
 
 - 공용 및 사설(RFC 1918) 주소를 사용하여 사용자 지정 사설 IP 주소 공간을 지정합니다. Azure에서는 VNet에 연결된 리소스에 사용자가 할당한 주소 공간의 사설 IP 주소를 할당합니다.
 - VNet을 하나 이상의 서브넷으로 분할하고 VNet 주소 공간의 일부를 각 서브넷에 할당합니다.
@@ -48,9 +48,9 @@ Azure Virtual Network 서비스에 대해 자세히 알아보려면 [가상 네�
 
 ## <a name="internet-connectivity"></a>인터넷 연결
 
-VNet에 연결된 모든 Azure 리소스는 기본적으로 인터넷에 아웃바운드로 연결됩니다. 리소스의 개인 IP 주소는 Azure 인프라에서 공용 IP 주소로 변환하는 원본 네트워크 주소입니다. 아웃바운드 인터넷 연결에 대한 자세한 내용은 [Azure에서 아웃바운드 연결 이해](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fnetworking%2ftoc.json) 문서를 참조하세요.
+VNet에 연결된 모든 Azure 리소스는 기본적으로 인터넷에 아웃바운드로 연결됩니다. 리소스의 사설 IP 주소는 Azure 인프라를 통해 공용 IP 주소로 SNAT(원본 네트워크 주소 변환)이 이루어집니다. 아웃바운드 인터넷 연결에 대한 자세한 내용은 [Azure에서 아웃바운드 연결 이해](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fnetworking%2ftoc.json) 문서를 참조하세요.
 
-인터넷에서 Azure 리소스에 인바운드로 통신하거나 SNAT 없이 인터넷에 아웃바운드로 통신하려면 공용 IP 주소에 리소스가 할당되어야 합니다. 공용 IP 주소에 대해 자세히 알아보려면 [공용 IP 주소](../virtual-network/virtual-network-public-ip-address.md?toc=%2fazure%2fnetworking%2ftoc.json)를 참조하세요.
+인터넷에서 Azure 리소스에 인바운드로 통신하거나 SNAT 없이 인터넷에 아웃바운드로 통신하려면 리소스에 공용 IP 주소가 할당되어야 합니다. 공용 IP 주소에 대해 자세히 알아보려면 [공용 IP 주소](../virtual-network/virtual-network-public-ip-address.md?toc=%2fazure%2fnetworking%2ftoc.json)를 참조하세요.
 
 ## <a name="on-premises-connectivity"></a>온-프레미스 연결
 
@@ -94,7 +94,7 @@ Azure Traffic Manager 서비스는 전역 DNS 부하 분산을 제공합니다. 
 
 다음 그림에서는 Web App 끝점에 전달되는 웹 응용 프로그램의 요청을 보여줍니다. 끝점은 VM 및 Cloud Services와 같은 다른 Azure 서비스일 수도 있습니다.
 
-![트래픽 관리자](./media/networking-overview/traffic-manager.png)
+![Traffic Manager](./media/networking-overview/traffic-manager.png)
 
 클라이언트는 해당 끝점에 직접 연결합니다. Azure Traffic Manager는 끝점이 비정상임을 감지한 다음 클라이언트를 다른 정상적인 끝점으로 리디렉션합니다. Traffic Manager에 대해 자세히 알아보려면 [Azure Traffic Manager 개요](../traffic-manager/traffic-manager-overview.md?toc=%2fazure%2fnetworking%2ftoc.json) 문서를 참고하세요.
 
@@ -106,7 +106,7 @@ Layer 7의 기타 라우팅 기능으로 들어오는 트래픽의 라운드 로
 
 다음 그림에서는 Application Gateway를 사용하는 URL 경로 기반 라우팅을 보여줍니다.
 
-![응용 프로그램 게이트웨이](./media/networking-overview/application-gateway.png)
+![Application Gateway](./media/networking-overview/application-gateway.png)
 
 **네트워크 부하 분산**
 
@@ -159,6 +159,6 @@ Azure에서는 다음과 같은 도구를 제공하여 네트워킹을 모니터
 
 ## <a name="next-steps"></a>다음 단계
 
-- [첫 번째 가상 네트워크 만들기](../virtual-network/virtual-network-get-started-vnet-subnet.md?toc=%2fazure%2fnetworking%2ftoc.json) 문서의 단계를 완료하여 첫 번째 VNet을 만들고 일부 VM을 연결합니다.
+- [첫 번째 가상 네트워크 만들기](../virtual-network/quick-create-portal.md?toc=%2fazure%2fnetworking%2ftoc.json) 문서의 단계를 완료하여 첫 번째 VNet을 만들고 일부 VM을 연결합니다.
 - [지점 및 사이트 간 연결 구성](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json) 문서의 단계를 완료하여 VNet에 컴퓨터를 연결합니다.
 - [인터넷 연결 부하 분산 장치 만들기](../load-balancer/load-balancer-get-started-internet-portal.md?toc=%2fazure%2fnetworking%2ftoc.json) 문서의 단계를 완료하여 공용 서버에 인터넷 트래픽의 부하를 분산합니다.

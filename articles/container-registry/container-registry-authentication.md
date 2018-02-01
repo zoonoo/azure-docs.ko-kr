@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 01/23/2018
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fc29d9a57f1dd452d2b4b77a53f52a5b66a25416
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: 70758f938718aef160670bc023aff5fc0c9fb92a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>개인 Docker 컨테이너 레지스트리로 인증
 
@@ -45,7 +45,7 @@ az acr login --name <acrName>
 
 서비스 주체는 다음과 같은 푸시 및 풀 시나리오에서 레지스트리에 대한 헤드리스 연결을 사용하도록 설정합니다.
 
-  * *읽기 권한자*: 레지스트리에서 Kubernetes, DC/OS 및 Docker Swarm을 포함한 오케스트레이션 시스템으로 컨테이너 배포 컨테이너 레지스트리에서 관련 Azure 서비스(예: [AKS](../aks/index.yml), [App Service](../app-service/index.yml), [Batch](../batch/index.md), [Service Fabric](/azure/service-fabric/) 등)로 가져올 수도 있습니다.
+  * *읽기 권한자*: 레지스트리에서 Kubernetes, DC/OS 및 Docker Swarm을 포함한 오케스트레이션 시스템으로 컨테이너 배포 컨테이너 레지스트리에서 관련 Azure 서비스(예: [AKS](../aks/index.yml), [App Service](../app-service/index.yml), [Batch](../batch/index.yml), [Service Fabric](/azure/service-fabric/) 등)로 가져올 수도 있습니다.
 
   * *참가자*: 컨테이너 이미지를 빌드하고 레지스트리로 푸시하는 연속 통합 및 배포 솔루션(예: VSTS(Visual Studio Team Services) 또는 Jenkins)
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: nitinme
-ms.openlocfilehash: b56253e7b9c9ab144ebc4006511631756de4f89b
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 5da6ffc346cc0e7f0f83bf4a4c33600b668a17ca
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="frequently-asked-questions-about-azure-databricks"></a>Azure Databricks에 대한 질문과 대답
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 01/24/2018
 2. Data Lake Store의 서비스 주체에게 필요한 권한을 할당합니다.
 3. Data Lake Store의 파일에 액세스하려면 Notebook에서 서비스 주체 자격 증명을 사용합니다.
 
-자세한 내용은 [Azure Databricks에서 Data Lake Store 사용](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html#azure-data-lake-store)을 참조하세요.
+자세한 내용은 [Azure Databricks에서 Data Lake Store 사용](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake.html)을 참조하세요.
 
 ## <a name="fix-common-problems"></a>일반적인 문제 해결
 

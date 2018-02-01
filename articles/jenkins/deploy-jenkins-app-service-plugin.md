@@ -15,11 +15,11 @@ ms.workload: web
 ms.date: 7/24/2017
 ms.author: mlearned
 ms.custom: Jenkins
-ms.openlocfilehash: 9b79e3b498e51e626e7e9a87d2bb1a66366acff5
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: 0e5916b2f8f901ff549ef74fca57cf09dc9fec21
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Jenkins 플러그 인을 사용하여 Azure App Service에 배포 
 
@@ -71,7 +71,7 @@ Web Apps에 프로젝트를 배포하려면 Git 또는 FTP를 사용하여 빌�
 Jenkins에서 작업을 설정하기 전에 Java 앱을 실행하려면 웹앱과 Azure App Service 계획이 필요합니다.
 
 
-1. `az appservice plan create` [Azure CLI 명령](/cli/azure/appservice/plan#create)을 사용하여 **무료** 가격 책정 계층으로 Azure App Service 계획을 만듭니다. App Service 계획은 앱을 호스트하는 데 사용되는 물리적 리소스를 정의합니다. App Service 계획에 할당된 모든 응용 프로그램은 이러한 리소스를 공유합니다. 공유 리소스를 사용하면 여러 앱을 호스트하는 경우 비용을 절약할 수 있습니다.
+1. `az appservice plan create` [Azure CLI 명령](/cli/azure/appservice/plan#az_appservice_plan_create)을 사용하여 **무료** 가격 책정 계층으로 Azure App Service 계획을 만듭니다. App Service 계획은 앱을 호스트하는 데 사용되는 물리적 리소스를 정의합니다. App Service 계획에 할당된 모든 응용 프로그램은 이러한 리소스를 공유합니다. 공유 리소스를 사용하면 여러 앱을 호스트하는 경우 비용을 절약할 수 있습니다.
 2. 웹앱을 만듭니다. [Azure Portal](/azure/app-service-web/web-sites-configure) 또는 다음 `az` Azure CLI 명령을 사용할 수 있습니다.
     ```azurecli-interactive 
     az webapp create --name <myAppName> --resource-group <myResourceGroup> --plan <myAppServicePlan>

@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: ed6e4ec438cc445645d55514c2bd51596d566af8
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: a7bb330657d14ac42cddf2e20fbb2e5a5b2a589b
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="deploy-kubernetes-cluster-for-windows-containers"></a>Windows 컨테이너용 Kubernetes 클러스터 배포
 
@@ -33,7 +33,7 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 빠른 시작
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-[az group create](/cli/azure/group#create) 명령을 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포되고 관리되는 논리 그룹입니다. 
+[az group create](/cli/azure/group#az_group_create) 명령을 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포되고 관리되는 논리 그룹입니다. 
 
 다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
 
@@ -42,7 +42,7 @@ az group create --name myResourceGroup --location eastus
 ```
 
 ## <a name="create-kubernetes-cluster"></a>Kubernetes 클러스터 만들기
-[az acs create](/cli/azure/acs#create) 명령을 사용하여 Azure Container Service에서 Kubernetes 클러스터를 만듭니다. 
+[az acs create](/cli/azure/acs#az_acs_create) 명령을 사용하여 Azure Container Service에서 Kubernetes 클러스터를 만듭니다. 
 
 다음 예제에서는 하나의 Linux 마스터 노드와 두 개의 Windows 에이전트 노드가 있는 *myK8sCluster* 클러스터를 만들고, Linux 마스터에 연결하는 데 필요한 SSH 키를 만듭니다. 이 예제에서는 Windows 노드에 대해 관리 사용자 이름으로 *azureuser*, 암호로 *myPassword12*를 사용합니다. 이러한 값을 사용자 환경에 적절한 값으로 업데이트합니다. 
 
@@ -183,7 +183,7 @@ iis          10.0.111.25    13.64.158.233   80/TCP         22m
 
 
 ## <a name="delete-cluster"></a>클러스터 삭제
-클러스터가 더 이상 필요하지 않으면 [az group delete](/cli/azure/group#delete) 명령을 사용하여 리소스 그룹, 컨테이너 서비스 및 모든 관련 리소스를 제거할 수 있습니다.
+클러스터가 더 이상 필요하지 않으면 [az group delete](/cli/azure/group#az_group_delete) 명령을 사용하여 리소스 그룹, 컨테이너 서비스 및 모든 관련 리소스를 제거할 수 있습니다.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup

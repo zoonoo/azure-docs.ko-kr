@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2017
 ms.author: steveesp
-ms.openlocfilehash: 998956d00ae6d3be605163b566f5667a3bb95f38
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: a208e0709c152ea889e6d5262add71b55cb83aa5
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="optimize-network-throughput-for-azure-virtual-machines"></a>Azure Virtual Machine에 대한 네트워크 처리량 최적화
 
@@ -95,7 +95,7 @@ Azure Linux 커널로 업그레이드하면 처리량 성능을 대폭 개선할
 uname -r
 
 #sample output on Azure kernel:
-#4.11.0-1014-azure
+#4.13.0-1007-azure
 ```
 
 VM에 Azure 커널이 없으면 버전 번호가 일반적으로 "4.4"로 시작됩니다. 이 경우 다음 명령을 루트로 실행합니다.
@@ -142,10 +142,10 @@ sudo yum install microsoft-hyper-v
 신규 및 기존 VM에 최신 LIS(Linux Integration Services)를 설치하면 이점을 얻을 수 있습니다. 처리량 최적화 기능은 LIS 4.2부터 포함됩니다. 다음 명령을 입력하여 LIS를 다운로드한 후 설치합니다.
 
 ```bash
-mkdir lis4.2.3-1
-cd lis4.2.3-1
-wget https://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-1.tar.gz
-tar xvzf lis-rpms-4.2.3-1.tar.gz
+mkdir lis4.2.3-4
+cd lis4.2.3-4
+wget https://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-4.tar.gz
+tar xvzf lis-rpms-4.2.3-4.tar.gz
 cd LISISO
 install.sh #or upgrade.sh if prior LIS was previously installed
 ```

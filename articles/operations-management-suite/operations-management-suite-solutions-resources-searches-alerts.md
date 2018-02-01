@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 01/16/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e2036da052e998797d860db2eadfd2ac5c968aae
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 9e25ad9b9be6d02550b4be9c09496021cd7fe2d2
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-oms-management-solution-preview"></a>OMS 관리 솔루션(미리 보기)에 Log Analytics에서 저장한 검색 및 경고 추가
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 01/17/2018
 
 
 ## <a name="log-analytics-workspace"></a>Log Analytics 작업 영역
-Log Analytics의 모든 리소스는 [작업 영역](../log-analytics/log-analytics-manage-access.md)에 포함됩니다.  [OMS 작업 영역 및 Automation 계정](operations-management-suite-solutions.md#oms-workspace-and-automation-account)에서 설명한 대로 작업 영역은 관리 솔루션에 포함되지 않지만, 솔루션이 설치되기 전에 존재해야 합니다.  계정을 사용할 수 없으면 솔루션 설치에 실패합니다.
+Log Analytics의 모든 리소스는 [작업 영역](../log-analytics/log-analytics-manage-access.md)에 포함됩니다.  [OMS 작업 영역 및 Automation 계정](operations-management-suite-solutions.md#log-analytics-workspace-and-automation-account)에서 설명한 대로 작업 영역은 관리 솔루션에 포함되지 않지만, 솔루션이 설치되기 전에 존재해야 합니다.  계정을 사용할 수 없으면 솔루션 설치에 실패합니다.
 
 작업 영역 이름은 각 Log Analytics 리소스의 이름을 사용합니다.  이 작업은 다음 저장된 검색 리소스 예제와 같이 **workspace** 매개 변수가 포함된 솔루션에서 이루어집니다.
 
@@ -237,7 +237,7 @@ Resource Manager 템플릿에 정의된 모든 Log Analytics 리소스에는 리
 |:--|:--|:--|
 | RunbookName | 예 | 시작할 runbook의 이름입니다. |
 | WebhookUri | 예 | runbook의 웹후크 Uri입니다. |
-| Expiry | 아니요 | 재구성이 만료되는 날짜 및 시간입니다. |
+| Expiry | 아니오 | 재구성이 만료되는 날짜 및 시간입니다. |
 
 #### <a name="webhook-actions"></a>웹후크 작업
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/12/2017
 ms.author: jdial
-ms.openlocfilehash: 6cc7035e798ef72f69958a7536a741f80939d4fe
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 55aece3f20ee98d21d7bb2b96cb3d039d4849f8f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-virtual-network"></a>Azure Virtual Network
 
@@ -48,7 +48,7 @@ Microsoft Azure Virtual Network 서비스를 사용하면 Azure 리소스가 가
 
 인터넷에서 Azure 리소스에 인바운드로 통신하거나 SNAT 없이 인터넷에 아웃바운드로 통신하려면 리소스에 공용 IP 주소가 할당되어야 합니다. 공용 IP 주소에 대해 자세히 알아보려면 [공용 IP 주소](virtual-network-public-ip-address.md) 문서를 참조하세요.
 
-## Azure 리소스 간 보안 통신
+## <a name="within-vnet"></a>Azure 리소스 간 보안 통신
 
 가상 네트워크 내에서 가상 머신을 배포할 수 있습니다. 가상 머신은 네트워크 인터페이스를 통해 가상 네트워크의 다른 리소스와 통신합니다. 네트워크 인터페이스에 대한 자세한 내용은 [네트워크 인터페이스](virtual-network-network-interface.md)를 참조하세요.
 
@@ -56,11 +56,11 @@ Microsoft Azure Virtual Network 서비스를 사용하면 Azure 리소스가 가
 
 일부 리소스는 가상 네트워크에 배포할 수 없지만 가상 네트워크 내의 리소스로만 통신을 제한할 수 있습니다. 리소스 액세스를 제한하는 방법에 대한 자세한 내용은 [가상 네트워크 서비스 끝점](virtual-network-service-endpoints-overview.md)을 참조하세요. 
 
-## 가상 네트워크 연결
+## <a name="connect-vnets"></a>가상 네트워크 연결
 
 가상 네트워크를 서로 연결하면 각 가상 네트워크의 리소스가 가상 네트워크 피어링을 사용하여 서로 통신할 수 있습니다. 서로 다른 가상 네트워크에 있는 리소스 간에 이루어지는 통신의 대역폭 및 대기 시간은 리소스가 같은 가상 네트워크에 있을 때와 동일합니다. 피어링에 대한 자세한 내용은 [가상 네트워크 피어링](virtual-network-peering-overview.md) 문서를 참조하세요.
 
-## 온-프레미스 네트워크에 연결
+## <a name="connect-on-premises"></a>온-프레미스 네트워크에 연결
 
 다음 옵션을 원하는 대로 조합하여 온-프레미스 네트워크를 가상 네트워크에 연결할 수 있습니다.
 - **지점-사이트 간 VPN(가상 사설망):** 네트워크의 가상 네트워크와 단일 PC 사이에 설정됩니다. 가상 네트워크와 연결하려는 각 PC는 독립적으로 연결을 구성해야 합니다. 이 연결 유형은 기존 네트워크를 거의 변경할 필요가 없으므로 Azure을 이제 막 시작하는 사용자나 개발자에게 적합합니다. 이 연결은 SSTP 프로토콜을 사용하여 PC와 가상 네트워크 사이에 인터넷을 통한 암호화된 통신을 제공합니다. 트래픽이 인터넷을 트래버스하므로 지점 및 사이트 간 VPN의 대기 시간은 예측할 수 없습니다.
@@ -69,12 +69,12 @@ Microsoft Azure Virtual Network 서비스를 사용하면 Azure 리소스가 가
 
 모든 이전 연결 옵션에 대한 자세한 내용은 [연결 토폴로지 다이어그램](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#diagrams)을 참조하세요.
 
-## 네트워크 트래픽 필터링
+## <a name="filtering"></a>네트워크 트래픽 필터링
 다음 옵션 중 하나 또는 둘 다를 사용하여 서브넷 간의 네트워크 트래픽을 필터링할 수 있습니다.
 - **네트워크 보안 그룹:** 네트워크 보안 그룹에는 원본 및 대상 IP 주소, 포트 및 프로토콜을 기준으로 트래픽을 필터링할 수 있는 여러 개의 인바운드 및 아웃바운드 보안 규칙이 포함될 수 있습니다. 가상 머신의 각 네트워크 인터페이스에 네트워크 보안 그룹을 적용할 수 있습니다. 네트워크 인터페이스 또는 다른 Azure 리소스가 있는 서브넷에 네트워크 보안 그룹을 적용할 수도 있습니다. 네트워크 보안 그룹에 대한 자세한 내용은 [네트워크 보안 그룹](security-overview.md#network-security-groups)을 참조하세요.
 - **네트워크 가상 어플라이언스:** 네트워크 가상 어플라이언스는 방화벽과 같은 네트워크 기능을 수행하는 소프트웨어를 실행하는 가상 머신입니다. 사용 가능한 네트워크 가상 어플라이언스 목록은 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances)에서 확인할 수 있습니다. WAN 최적화 및 기타 네트워크 트래픽 기능을 제공하는 네트워크 가상 어플라이언스도 사용할 수 있습니다. 네트워크 가상 어플라이언스는 일반적으로 사용자 정의 경로 또는 BGP 경로와 함께 사용됩니다. 네트워크 가상 어플라이언스를 사용하여 가상 네트워크 간 트래픽을 필터링할 수도 있습니다.
 
-## 네트워크 트래픽 라우팅
+## <a name="routing"></a>네트워크 트래픽 라우팅
 
 Azure는 가상 네트워크의 모든 서브넷에 연결된 리소스가 서로 통신하고 인터넷에 연결할 수 있게 해주는 경로 테이블을 기본적으로 생성합니다. 다음 옵션 중 하나 또는 둘 다를 구현하여 Azure에서 생성되는 기본 경로를 재정의할 수 있습니다.
 - **사용자 정의 경로:** 각 서브넷에 대해 트래픽이 라우팅되는 위치를 제어하는 경로를 포함한 사용자 지정 경로 테이블을 만들 수 있습니다. 사용자 정의 경로에 대한 자세한 내용은 [사용자 정의 경로](virtual-networks-udr-overview.md#user-defined)를 참조하세요.
@@ -88,8 +88,8 @@ Azure는 가상 네트워크의 모든 서브넷에 연결된 리소스가 서�
 
 Azure Virtual Network에 대한 질문과 대답을 확인하려면 [가상 네트워크 FAQ](virtual-networks-faq.md) 문서를 참조하세요.
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 
-- [첫 번째 가상 네트워크 만들기](virtual-network-get-started-vnet-subnet.md) 문서의 단계를 완료하여 첫 번째 가상 네트워크를 만들고 가상 머신을 몇 대 배포해 봅니다.
+- [첫 번째 가상 네트워크 만들기](quick-create-portal.md) 문서의 단계를 완료하여 첫 번째 가상 네트워크를 만들고 가상 머신을 몇 대 배포해 봅니다.
 - [지점 및 사이트 간 연결 구성](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 문서의 단계를 완료하여 가상 네트워크에 대한 지점 및 사이트 간 연결을 만듭니다.
 - Azure의 다른 주요 [네트워크 기능](../networking/networking-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 알아봅니다.

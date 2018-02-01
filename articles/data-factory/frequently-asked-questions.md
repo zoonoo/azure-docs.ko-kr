@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2018
 ms.author: shlo
-ms.openlocfilehash: cf98bb7fab4942955287e8e211e98b9da59472f6
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: dd2475d5940927c65cae4d12b9697cbe535b69a8
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-data-factory-faq"></a>Azure Data Factory FAQ
 이 문서는 Azure Data Factory 서비스의 버전 2에 적용됩니다. Data Factory에 대한 질문과 대답입니다.  
@@ -68,7 +68,7 @@ Azure Data Factory 버전 2는 원래 Azure Data Factory 데이터 이동 및 �
 자세한 내용은 [자습서: 제어 흐름](tutorial-control-flow.md)을 참조하세요.
 
 ### <a name="deploy-ssis-packages-to-azure"></a>Azure에 SSIS 패키지 배포 
-SSIS 워크로드를 이동하려는 경우 Data Factory 버전 2를 만들고 Azure-SSIS Integration Runtime을 프로비전할 수 있습니다. Azure-SSIS Integration Runtime은 클라우드에서 SSIS 패키지 실행을 전담하는 완전히 관리되는 Azure VM(노드) 클러스터입니다. 단계별 지침은 [Azure에 SSIS 패키지 배포](tutorial-deploy-ssis-packages-azure.md) 자습서를 참조하세요. 
+SSIS 워크로드를 이동하려는 경우 Data Factory 버전 2를 만들고 Azure-SSIS Integration Runtime을 프로비전할 수 있습니다. Azure-SSIS Integration Runtime은 클라우드에서 SSIS 패키지 실행을 전담하는 완전히 관리되는 Azure VM(노드) 클러스터입니다. 단계별 지침은 [Azure에 SSIS 패키지 배포](tutorial-create-azure-ssis-runtime-portal.md) 자습서를 참조하세요. 
  
 
 ### <a name="sdks"></a>SDK

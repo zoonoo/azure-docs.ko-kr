@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: jgao
-ms.openlocfilehash: 639f8540be289c03abc8d352f4bd9150c945625e
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: e37abf9bbcf8f98c969a32d8eb37b9a7a6ddeb14
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="manage-resources-for-apache-spark-cluster-on-azure-hdinsight"></a>Azure HDInsight에서 Apache Spark 클러스터용 리소스 관리 
 
@@ -76,7 +76,7 @@ YARN UI를 사용하여 현재 Spark 클러스터에서 실행 중인 응용 프
 세 가지 구성 매개 변수는 (클러스터에서 실행된는 모든 응용 프로그램의 경우) 클러스터 수준에서 구성될 수 있거나 각 개별 응용 프로그램에 대해 지정될 수 있습니다.
 
 ### <a name="change-the-parameters-using-ambari-ui"></a>Ambari UI를 사용하여 매개 변수 변경
-1. Ambari UI에서 **Spark**, **구성**을 차례로 클릭한 다음 **사용자 지정 Spark 기본값**을 확장합니다.
+1. Ambari UI에서 **Spark**, **Configs**를 차례로 클릭한 다음 **사용자 지정 spark 기본값**을 확장합니다.
 
     ![Ambari를 사용하여 매개 변수 설정](./media/apache-spark-resource-manager/set-parameters-using-ambari.png)
 2. 기본값으로 Spark 클러스터에서 4개의 응용 프로그램을 동시에 실행할 수 있습니다. 다음 스크린샷에 표시된 대로 사용자 인터페이스에서 이러한 값을 변경할 수 있습니다.
