@@ -62,25 +62,7 @@
         - name: 논리 앱 보안
           href: logic-apps-securing-a-logic-app.md
         - name: 사용자 지정 커넥터 개발
-          items:
-            - name: 사용자 지정 커넥터 개요
-              href: custom-connector-overview.md
-            - name: Web API에서 커넥터 만들기
-              href: custom-connector-build-web-api-app-tutorial.md
-            - name: Azure AD를 사용하여 커넥터 보호
-              href: custom-connector-azure-active-directory-authentication.md
-            - name: Postman을 사용하여 API 설명
-              href: custom-connector-api-postman-collection.md
-            - name: 사용자 지정 커넥터에 대한 OpenAPI 확장
-              href: custom-connector-openapi-extensions.md
-            - name: OpenAPI 커넥터 만들기 및 등록
-              href: logic-apps-custom-connector-register.md
-            - name: SOAP 커넥터 만들기 및 등록
-              href: logic-apps-soap-connector-create-register.md
-            - name: 커넥터 인증
-              href: custom-connector-submit-certification.md
-            - name: 사용자 지정 커넥터에 대한 FAQ
-              href: custom-connector-faq.md
+          href: custom-connector-overview.md
         - name: 사용자 지정 API 개발
           items:
             - name: 논리 앱에 대한 사용자 지정 API 만들기
@@ -140,6 +122,8 @@
           href: logic-apps-enterprise-integration-transform.md
         - name: XML 변환을 위한 맵 추가
           href: logic-apps-enterprise-integration-maps.md
+        - name: JSON 변환
+          href: logic-apps-enterprise-integration-liquid-transform.md
         - name: 보안 인증서 추가
           href: logic-apps-enterprise-integration-certificates.md
         - name: B2B 오류 문제 해결
@@ -172,7 +156,8 @@
           href: ../connectors/connectors-create-api-crmonline.md
         - name: EDIFACT
           href: logic-apps-enterprise-integration-edifact.md
-        - name: "Event Hubs\r\n"
+        - name: |
+            Event Hubs
           href: ../connectors/connectors-create-api-azure-event-hubs.md
         - name: 파일 시스템
           href: logic-apps-using-file-connector.md

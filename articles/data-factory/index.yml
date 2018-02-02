@@ -13,11 +13,11 @@ metadata:
   ms.topic: landing-page
   ms.date: 09/08/2017
   ms.author: spelluru
-  ms.openlocfilehash: 76d18c2966b52c508ec959074c976e84ab5e9bdf
-  ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+  ms.openlocfilehash: 0eb34f3b8cd287624e4a8a6930e8cc145d5e8fbb
+  ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 01/24/2018
+  ms.lasthandoff: 02/01/2018
 abstract:
   description: "클라우드 데이터 통합 서비스인 Data Factory를 사용하여 자동화된 데이터 파이프라인에 데이터 저장소, 이동 및 처리 서비스를 구성하는 방법에 대해 알아봅니다. 자습서 및 기타 설명서에서는 데이터 파이프라인을 설정하고 관리할 뿐만 아니라 분석을 위해 데이터를 이동하고 변환하는 방법을 보여 줍니다. <p>Data Factory V2 버전은 현재 미리 보기로 있습니다. V1 버전은 일반적으로 사용할 수 있습니다. Data Factory V1 서비스를 사용하는 경우 <a href=/azure/data-factory/v1/data-factory-introduction>V1 설명서</a>를 참조하세요.</p>"
   aside:
@@ -73,13 +73,13 @@ sections:
     style: ordered
     items:
     - html: "SSIS 패키지를 Azure에 배포 - <a href=\"/azure/data-factory/tutorial-create-azure-ssis-runtime-portal\">Data Factory UI</a> | <a href=\"/azure/data-factory/tutorial-deploy-ssis-packages-azure\">Azure PowerShell</a>"
-    - html: "클라우드에 데이터 복사 - <a href=\"/azure/data-factory/tutorial-copy-data-tool\">데이터 복사 도구</a> | <a href=\"/azure/data-factory/tutorial-copy-data-portal\">Data Factory UI</a> | <a href=\"/azure/data-factory/tutorial-copy-data-dot-net\">Azure PowerShell</a>"
+    - html: "클라우드에 데이터 복사 - <a href=\"/azure/data-factory/tutorial-copy-data-tool\">데이터 복사 도구</a> | <a href=\"/azure/data-factory/tutorial-copy-data-portal\">Data Factory UI</a> | <a href=\"/azure/data-factory/tutorial-copy-data-dot-net\">.NET</a>"
     - html: "클라우드에 온-프레미스 데이터 복사 - <a href=\"/azure/data-factory/tutorial-hybrid-copy-data-tool\">데이터 복사 도구 | <a href=\"/azure/data-factory/tutorial-hybrid-copy-portal\">Data Factory UI</a> | <a href=\"/azure/data-factory/tutorial-hybrid-copy-powershell\">Azure PowerShell</a>"
     - html: "데이터를 대량으로 복사 - <a href=\"/azure/data-factory/tutorial-bulk-copy-portal\">Data Factory UI</a> | <a href=\"/azure/data-factory/tutorial-bulk-copy\">Azure PowerShell</a>"
     - html: "데이터를 증분식으로 복사 - <a href=\"/azure/data-factory/tutorial-incremental-copy-portal\">Data Factory UI</a> | <a href=\"/azure/data-factory/tutorial-incremental-copy-powershell\">Azure PowerShell</a>"
     - html: "Spark를 사용하여 클라우드의 데이터 변환 - <a href=\"/azure/data-factory/tutorial-transform-data-spark-portal\">Data Factory UI</a> | <a href=\"/azure/data-factory/tutorial-transform-data-spark-powershell\">Azure PowerShell</a>"
     - html: "가상 네트워크의 데이터 변환 - <a href=\"/azure/data-factory/tutorial-transform-data-hive-virtual-network-portal\">Data Factory UI</a> | <a href=\"/azure/data-factory/tutorial-transform-data-hive-virtual-network\">Azure PowerShell</a>"
-    - html: "제어 흐름 - <a href=\"/azure/data-factory/tutorial-control-flow-portal\">Data Factory UI</a> | <a href=\"/azure/data-factory/tutorial-control-flow\">Azure PowerShell</a>"
+    - html: "제어 흐름 - <a href=\"/azure/data-factory/tutorial-control-flow-portal\">Data Factory UI</a> | <a href=\"/azure/data-factory/tutorial-control-flow\">.NET</a>"
 - title: "샘플"
   items:
   - type: paragraph

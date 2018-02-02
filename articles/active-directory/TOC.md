@@ -176,6 +176,16 @@
 ##### [레지스트리 설정 업데이트](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
 ##### [보안 및 개인 정보 이해](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
 
+### [SaaS 앱에 대한 사용자 프로비전 및 프로비전 해제](active-directory-saas-app-provisioning.md)
+#### [앱 통합 자습서](active-directory-saas-tutorial-list.md)
+#### [SCIM 사용 앱에 대한 프로비전 자동화](active-directory-scim-provisioning.md)
+#### [특성 매핑 사용자 지정](active-directory-saas-customizing-attribute-mappings.md)
+#### [특성 매핑을 위한 식 작성](active-directory-saas-writing-expressions-for-attribute-mappings.md)
+#### [범위 지정 필터 사용](active-directory-saas-scoping-filters.md)
+#### [자동 사용자 프로비전에 대한 보고](active-directory-saas-provisioning-reporting.md)
+#### [사용자 프로비전 문제 해결](active-directory-application-provisioning-content-map.md)
+
+
 
 ### [앱 프록시를 사용하여 원격으로 앱에 액세스](active-directory-application-proxy-get-started.md)
 #### 시작하기
@@ -219,7 +229,7 @@
 #### [SAML 앱에 대한 고급 인증서 서명](active-directory-enterprise-apps-advance-certificate-options.md)
 #### [사용자의 환경에서 응용 프로그램 숨기기](active-directory-coreapps-hide-third-party-app.md)
 ### [HRD 정책을 사용하여 로그인 자동 가속 구성](active-directory-auto-acceleration-using-hrd.md)
-
+### [AD FS 앱을 Azure AD에 마이그레이션](migrate-adfs-apps-to-azure.md)
 ### [앱에 대한 액세스 관리](active-directory-managing-access-to-apps.md)
 #### [SSO 액세스](active-directory-appssoaccess-whatis.md)
 #### [SSO 인증서](active-directory-sso-certs.md)
@@ -264,7 +274,8 @@
 
 ## 리소스에 대한 액세스 위임
 ### [관리자 역할](active-directory-assign-admin-roles-azure-portal.md)
-#### [관리자 역할 할당](active-directory-users-assign-role-azure-portal.md)
+#### [사용자에게 관리자 역할 할당](active-directory-users-assign-role-azure-portal.md)
+#### [멤버 및 게스트 사용자 권한 비교](users-default-permissions.md)
 ### [관리 단위](active-directory-administrative-units-management.md)
 ### [토큰 수명](active-directory-configurable-token-lifetimes.md)
 ### [긴급 액세스 관리 계정 관리](active-directory-admin-manage-emergency-access-accounts.md)
@@ -321,8 +332,8 @@
 #### [Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
 ### [Privileged Identity Management](./privileged-identity-management/active-directory-securing-privileged-access.md)
 
-## [Azure AD와 다른 서비스 통합]()
-### [LinkedIn 통합 사용](linkedin-integration.md)
+## Azure AD와 다른 서비스 통합
+### [Azure AD와 LinkedIn 통합](linkedin-integration.md)
 
 ## [Azure VM에 AD DS 배포](virtual-networks-windows-server-active-directory-virtual-machines.md)
 ### [Azure VM의 Windows Server Active Directory](active-directory-deploying-ws-ad-guidelines.md)
@@ -363,7 +374,7 @@
 ## [Azure 피드백 포럼](https://feedback.azure.com/forums/169401-azure-active-directory)
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
-## [가격](https://azure.microsoft.com/pricing/details/active-directory/)
+## [가격 책정](https://azure.microsoft.com/pricing/details/active-directory/)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=active-directory)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-active-directory)

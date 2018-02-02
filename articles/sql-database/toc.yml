@@ -4,6 +4,8 @@
   items:
     - name: SQL DB 정보
       href: sql-database-technical-overview.md
+    - name: PaaS 또는 IaaS
+      href: sql-database-paas-vs-sql-server-iaas.md
 - name: 빠른 시작
   expanded: true
   items:
@@ -59,7 +61,7 @@
       href: sql-database-powershell-samples.md
 - name: 개념
   items:
-    - name: 서비스 기능
+    - name: 데이터베이스 서비스
       items:
         - name: 서버 및 데이터베이스
           href: sql-database-servers-databases.md
@@ -73,42 +75,22 @@
           href: sql-database-elastic-pool.md
         - name: 연결 아키텍처
           href: sql-database-connectivity-architecture.md
-        - name: 방화벽 규칙
-          href: sql-database-firewall-configure.md
-        - name: 방화벽 가상 네트워크 규칙
-          href: sql-database-vnet-service-endpoint-rule-overview.md
         - name: DTU 및 eDTU
           href: sql-database-what-is-a-dtu.md
         - name: DTU 벤치마크
           href: sql-database-benchmark-overview.md
-        - name: PaaS 또는 IaaS
-          href: sql-database-paas-vs-sql-server-iaas.md
-        - name: 감사
-          href: sql-database-auditing.md
-        - name: 위협 감지
-          href: sql-database-threat-detection.md
-        - name: 데이터베이스 백업
-          href: sql-database-automated-backups.md
-        - name: Backup 보존
-          href: sql-database-long-term-retention.md
-        - name: 장애 조치(failover) 그룹
-          href: sql-database-geo-replication-overview.md
-        - name: 탄력적인 클라이언트 라이브러리
-          href: sql-database-elastic-database-client-library.md
-        - name: 탄력적 쿼리
-          href: sql-database-elastic-query-overview.md
-        - name: 탄력적 트랜잭션
-          href: sql-database-elastic-transactions-overview.md
-        - name: 탄력적 작업
-          href: sql-database-elastic-jobs-overview.md
-        - name: SQL 취약성 평가
-          href: sql-vulnerability-assessment.md
         - name: SQL Server 일반 기능
           href: sql-database-features.md
+    - name: 고가용성
+      href: sql-database-high-availability.md
     - name: 보안
       items:
         - name: 개요
           href: sql-database-security-overview.md
+        - name: 방화벽 규칙
+          href: sql-database-firewall-configure.md
+        - name: 방화벽 가상 네트워크 규칙
+          href: sql-database-vnet-service-endpoint-rule-overview.md
         - name: Access Control
           href: sql-database-control-access.md
         - name: Azure AD
@@ -117,16 +99,28 @@
           href: sql-database-manage-logins.md
         - name: Multi-Factor Auth
           href: sql-database-ssms-mfa-authentication.md
+        - name: 감사
+          href: sql-database-auditing.md
+        - name: 위협 감지
+          href: sql-database-threat-detection.md
         - name: 테이블 감사 및 TDS
           href: sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md
-        - name: 데이터 마스킹
+        - name: 동적 데이터 마스킹
           href: sql-database-dynamic-data-masking-get-started.md
-    - name: 고가용성
-      href: sql-database-high-availability.md
+        - name: 취약점 평가
+          href: sql-vulnerability-assessment.md
+        - name: 데이터 검색 및 분류
+          href: sql-database-data-discovery-and-classification.md
     - name: 비즈니스 연속성
       items:
         - name: 개요
           href: sql-database-business-continuity.md
+        - name: 데이터베이스 백업
+          href: sql-database-automated-backups.md
+        - name: Backup 보존
+          href: sql-database-long-term-retention.md
+        - name: 장애 조치(failover) 그룹
+          href: sql-database-geo-replication-overview.md
         - name: 데이터베이스 복구
           href: sql-database-recovery-using-backups.md
         - name: 보안 구성
@@ -185,6 +179,14 @@
       items:
         - name: 개요
           href: sql-database-elastic-scale-introduction.md
+        - name: 탄력적인 클라이언트 라이브러리
+          href: sql-database-elastic-database-client-library.md
+        - name: 탄력적 쿼리
+          href: sql-database-elastic-query-overview.md
+        - name: 탄력적 트랜잭션
+          href: sql-database-elastic-transactions-overview.md
+        - name: 탄력적 작업
+          href: sql-database-elastic-jobs-overview.md
         - name: 분할된 맵
           href: sql-database-elastic-scale-shard-map-management.md
         - name: 쿼리 라우팅
@@ -299,6 +301,8 @@
           href: sql-database-advisor-portal.md
         - name: 자동 조정 사용
           href: sql-database-automatic-tuning-enable.md
+        - name: 이메일 알림 자동 조정
+          href: sql-database-automatic-tuning-email-notifications.md
         - name: 인텔리전스 Insights 성능 문제 해결
           href: sql-database-intelligent-insights-troubleshoot-performance.md
         - name: DMV를 사용하여 성능 모니터링
