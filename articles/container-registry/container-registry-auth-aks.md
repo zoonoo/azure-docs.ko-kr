@@ -8,11 +8,11 @@ ms.service: container-service
 ms.topic: article
 ms.date: 1/12/2018
 ms.author: nepeters
-ms.openlocfilehash: d6f6688011ddebe2b486bb6ae00f1f3e095a931d
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 86a160d8f2dbfb0e385d9dbed7cf6d789f5a8df6
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-container-service"></a>Azure Container Service의 Azure Container Registry를 사용하여 인증
 
@@ -74,7 +74,7 @@ echo "Service principal password: $SP_PASSWD"
 다음 명령은 Kubernetes 비밀을 만듭니다. 서버 이름을 ACR 로그인 서버로 바꾸고, 사용자 이름을 서비스 주체 ID로 바꾸고, 암호를 서비스 주체 암호로 바꿉니다.
 
 ```bash
-kubectl create secret docker-registry acr-auth --docker-server <acr-login-server> --docker-username <service-principal-ID> --docker-password <service-principal-password> 
+kubectl create secret docker-registry acr-auth --docker-server <acr-login-server> --docker-username <service-principal-ID> --docker-password <service-principal-password> --docker-email <email-address>
 ```
 
 Kubernetes 비밀은 Pod 배포에서 `ImagePullSecrets` 매개 변수를 사용하여 사용할 수 있습니다. 

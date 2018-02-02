@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2018
+ms.date: 01/30/2018
 ms.author: alfredop
-ms.openlocfilehash: 65b9ff0881e46836d9f19a04cf470835679e7b2f
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 855d74698f2109fa426d34044cbc89b83c224e6f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="frequently-asked-questions-in-azure-stack-usage-api"></a>질문과 대답 Azure 스택 사용량 API
 이 문서 Azure 스택 사용량 API에 대 한 몇 가지 자주 묻는 질문에 대답 합니다.
@@ -28,8 +28,8 @@ ms.lasthandoff: 01/29/2018
 
 | **리소스 공급자** | **측정기 ID** | **측정 이름** | **단위** | **추가 정보** |
 | --- | --- | --- | --- | --- |
-| **네트워크** |F271A8A388C44D93956A063E1D2FA80B |고정 IP 주소 사용 |IP 주소| 사용 되는 수의 IP 주소 |
-| |9E2739BA86744796B465F64674B822BA |동적 IP 주소 사용 |IP 주소| 사용 되는 수의 IP 주소 |
+| **네트워크** |F271A8A388C44D93956A063E1D2FA80B |고정 IP 주소 사용 |IP 주소| 사용 되는 수의 IP 주소입니다. 단위는 일일 사용량 API를 호출 하면 요금 계산이 시간 수를 곱한 IP 주소를 반환 합니다. |
+| |9E2739BA86744796B465F64674B822BA |동적 IP 주소 사용 |IP 주소| 사용 되는 수의 IP 주소입니다. 단위는 일일 사용량 API를 호출 하면 요금 계산이 시간 수를 곱한 IP 주소를 반환 합니다. |
 | **Storage** |B4438D5D-453B-4EE1-B42A-DC72E377F1E4 |TableCapacity |GB\*시간 |테이블에서 사용 되는 총 용량 |
 | |B5C15376-6C94-4FDD-B655-1A69D138ACA3 |PageBlobCapacity |GB\*시간 |페이지 blob으로 소비 된 총 용량 |
 | |B03C6AE7-B080-4BFA-84A3-22C800F315C6 |QueueCapacity |GB\*시간 |큐에서 사용 되는 총 용량 |
@@ -43,10 +43,10 @@ ms.lasthandoff: 01/29/2018
 | |EB43DD12-1AA6-4C4B-872C-FAF15A6785EA |QueueTransactions |000's 10에서 요청 수 |큐 서비스 요청 (10, 000's) |
 | |E518E809-E369-4A45-9274-2017B29FFF25 |QueueDataTransIn |Gb에서는 송 데이터 |큐 서비스 데이터 유입 gb |
 | |DD0A10BA-A5D6-4CB6-88C0-7D585CEF9FC2 |QueueDataTransOut |Gb에서 송신 |큐 서비스 데이터 유출을 gb |
-| **Sql RP**            | CBCFEF9A-B91F-4597-A4D3-01FE334BED82 | DatabaseSizeHourSqlMeter   | MB\*시간   | 만들기, 1 시간 마다 보고에서 총 DB 용량입니다.  |
-| **MySql RP**          | E6D8CFCD-7734-495E-B1CC-5AB0B9C24BD3 | DatabaseSizeHourMySqlMeter | MB\*시간    | 만들기, 1 시간 마다 보고에서 총 DB 용량입니다. |
-| **Compute** |FAB6EB84-500B-4A09-A8CA-7358F8BBAEA5 |기본 VM 크기 시간 |가상 코어 시간 (분) | 횟수입니다. 가상 코어 VM에서 실행 하는 시간 (분) |
-| |9CD92D4C-BAFD-4492-B278-BEDC2DE8232A |Windows VM 크기 시간 |가상 코어 시간 (분) | 횟수입니다. 가상 코어 VM에서 실행 하는 시간 (분) |
+| **Sql RP**            | CBCFEF9A-B91F-4597-A4D3-01FE334BED82 | DatabaseSizeHourSqlMeter   | MB\*시간   | 생성 시 총 DB 용량입니다. 단위는 일일 사용량 API를 호출 하면 요금 계산이 시간 수를 곱한 MB를 반환 합니다. |
+| **MySql RP**          | E6D8CFCD-7734-495E-B1CC-5AB0B9C24BD3 | DatabaseSizeHourMySqlMeter | MB\*시간    | 생성 시 총 DB 용량입니다. 단위는 일일 사용량 API를 호출 하면 요금 계산이 시간 수를 곱한 MB를 반환 합니다. |
+| **Compute** |FAB6EB84-500B-4A09-A8CA-7358F8BBAEA5 |기본 VM 크기 시간 |가상 코어 시간 | 가상 코어 수를 곱한 VM 실행 시간 |
+| |9CD92D4C-BAFD-4492-B278-BEDC2DE8232A |Windows VM 크기 시간 |가상 코어 시간 | VM을 실행 하는 시간으로 곱한 가상 코어 수 |
 | |6DAB500F-A4FD-49C4-956D-229BB9C8C793 |VM 크기 시간 |VM 시간 |자료와 Windows VM을 캡처합니다. 코어에 대 한 조정 되지 않습니다. |
 | **Key Vault** |EBF13B9F-B3EA-46FE-BF54-396E93D48AB4 |주요 자격 증명 모음 트랜잭션 | 000's 10에서 요청 수| 주요 자격 증명 모음 데이터 평면에서 수신 하는 REST API 요청 수 |
 | **앱 서비스** |190C935E-9ADA-48FF-9AB8-56EA1CF9ADAA  | App Service   | 가상 코어 시간  | 응용 프로그램 서비스를 실행 하는 데 사용 되는 가상 코어 수 |

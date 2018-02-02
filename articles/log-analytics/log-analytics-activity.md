@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/07/2017
+ms.date: 01/24/2018
 ms.author: banders
-ms.openlocfilehash: e4f112a221221c7f68cc31c80fb43417bb617632
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: bfe1ad012d126b3522b79a6ccecfe03b2b86f7b5
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics"></a>Log Analytics에서 Azure 활동 로그 수집 및 분석
 
@@ -52,12 +52,12 @@ Log Analytics는 무료로 활동 로그를 수집하고 90일 동안 무료로 
 
 | 연결된 소스 | 지원됨 | 설명 |
 | --- | --- | --- |
-| [Windows 에이전트](log-analytics-windows-agent.md) | 아니요 | 솔루션이 Windows 에이전트에서 정보를 수집하지 않습니다. |
+| [Windows 에이전트](log-analytics-windows-agent.md) | 아니오 | 솔루션이 Windows 에이전트에서 정보를 수집하지 않습니다. |
 | [Linux 에이전트](log-analytics-linux-agents.md) | 아니요 | 솔루션이 Linux 에이전트에서 정보를 수집하지 않습니다. |
 | [SCOM 관리 그룹](log-analytics-om-agents.md) | 아니요 | 솔루션이 연결된 SCOM 관리 그룹의 에이전트에서 정보를 수집하지 않습니다. |
-| [Azure 저장소 계정](log-analytics-azure-storage.md) | 아니요 | 솔루션이 Azure 저장소에서 정보를 수집하지 않습니다. |
+| [Azure 저장소 계정](log-analytics-azure-storage.md) | 아니오 | 솔루션이 Azure 저장소에서 정보를 수집하지 않습니다. |
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 - Azure 활동 로그 정보에 액세스하려면 Azure 구독이 있어야 합니다.
 
@@ -90,10 +90,10 @@ Activity Log Analytics 솔루션을 작업 영역에 추가하면 개요 대시�
 
 | 블레이드 | 설명 |
 | --- | --- |
-| Azure 활동 로그 항목 | 사용자가 선택한 날짜 범위에 해당하는 상위 Azure 활동 로그 항목 레코드의 가로 막대형 차트를 표시하고 상위 10개 활동 호출자 목록을 표시합니다. 가로 막대형 차트를 클릭하면 <code>Type=AzureActivity</code>에 대한 로그 검색이 실행됩니다. 호출자 항목을 클릭하면 해당 항목에 대한 모든 활동 로그 항목을 반환하는 로그 검색이 실행됩니다. |
-| 상태별 활동 로그 | 사용자가 선택한 날짜 범위에 해당하는 Azure 활동 로그 상태의 도넛형 차트를 보여 줍니다. 상위 10개 상태 레코드 목록도 보여 줍니다. 차트를 클릭하면 <code>Type=AzureActivity &#124; measure count() by ActivityStatus</code>에 대한 로그 검색이 실행됩니다. 상태 항목을 클릭하면 해당 상태 레코드에 대한 모든 활동 로그 항목을 반환하는 로그 검색이 실행됩니다. |
-| 리소스별 활동 로그 | 활동 로그와 함께 총 리소스 수를 표시하고 각 리소스에 대한 레코드 수와 함께 상위 10개 리소스를 나열합니다. 전체 영역을 클릭하여 <code>Type=AzureActivity &#124; measure count() by Resource</code>에 대해 로그 검색을 실행하면 솔루션에 사용할 수 있는 모든 Azure 리소스가 표시됩니다. 리소스를 클릭하면 해당 리소스에 대한 모든 활동 레코드를 반환하는 로그 검색이 실행됩니다. |
-| 리소스 공급자별 활동 로그 | 활동 로그를 생성하는 총 리소스 공급자 수를 표시하고 상위 10개 리소스 공급자를 나열합니다. 전체 영역을 클릭하여 <code>Type=AzureActivity &#124; measure count() by ResourceProvider</code>에 대해 로그 검색을 실행하면 모든 Azure 리소스 공급자가 표시됩니다. 리소스 공급자를 클릭하면 해당 공급자에 대한 모든 활동 레코드를 반환하는 로그 검색이 실행됩니다. |
+| Azure 활동 로그 항목 | 사용자가 선택한 날짜 범위에 해당하는 상위 Azure 활동 로그 항목 레코드의 가로 막대형 차트를 표시하고 상위 10개 활동 호출자 목록을 표시합니다. 가로 막대형 차트를 클릭하면 <code>AzureActivity</code>에 대한 로그 검색이 실행됩니다. 호출자 항목을 클릭하면 해당 항목에 대한 모든 활동 로그 항목을 반환하는 로그 검색이 실행됩니다. |
+| 상태별 활동 로그 | 사용자가 선택한 날짜 범위에 해당하는 Azure 활동 로그 상태의 도넛형 차트를 보여 줍니다. 상위 10개 상태 레코드 목록도 보여 줍니다. 차트를 클릭하면 <code>AzureActivity &#124; summarize AggregatedValue = count() by ActivityStatus</code>에 대한 로그 검색이 실행됩니다. 상태 항목을 클릭하면 해당 상태 레코드에 대한 모든 활동 로그 항목을 반환하는 로그 검색이 실행됩니다. |
+| 리소스별 활동 로그 | 활동 로그와 함께 총 리소스 수를 표시하고 각 리소스에 대한 레코드 수와 함께 상위 10개 리소스를 나열합니다. 전체 영역을 클릭하여 <code>AzureActivity &#124; summarize AggregatedValue = count() by Resource</code>에 대해 로그 검색을 실행하면 솔루션에 사용할 수 있는 모든 Azure 리소스가 표시됩니다. 리소스를 클릭하면 해당 리소스에 대한 모든 활동 레코드를 반환하는 로그 검색이 실행됩니다. |
+| 리소스 공급자별 활동 로그 | 활동 로그를 생성하는 총 리소스 공급자 수를 표시하고 상위 10개 리소스 공급자를 나열합니다. 전체 영역을 클릭하여 <code>AzureActivity &#124; summarize AggregatedValue = count() by ResourceProvider</code>에 대해 로그 검색을 실행하면 모든 Azure 리소스 공급자가 표시됩니다. 리소스 공급자를 클릭하면 해당 공급자에 대한 모든 활동 레코드를 반환하는 로그 검색이 실행됩니다. |
 
 ![Azure 활동 로그 대시보드](./media/log-analytics-activity/activity-log-dash.png)
 

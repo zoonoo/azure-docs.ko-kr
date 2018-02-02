@@ -12,15 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 01/29/2018
 ms.author: anwestg
-ms.openlocfilehash: 30ab325488684a26a6ef442e7c8241526a66aa4c
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: a9be9011062f07d59842d417bf6761ec81c39275
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="app-service-on-azure-stack-add-more-infrastructure-or-worker-roles"></a>Azure 스택 앱 서비스: 더 많은 인프라 또는 작업자 역할 추가
+*적용 대상: Azure 스택 통합 시스템과 Azure 스택 개발 키트*  
 
 이 문서에서는 Azure 스택 인프라 및 작업자 역할에서 응용 프로그램 서비스를 확장 하는 방법에 대 한 지침을 제공 합니다. 모든 규모의 응용 프로그램을 지원 하도록 추가 작업자 역할을 만들기 위한 단계를 포함 합니다.
 
@@ -40,15 +41,15 @@ Azure 스택 앱 서비스를 azure 가상 컴퓨터 크기 집합을 사용 하
 2. 찾아 **응용 프로그램 서비스**합니다.
 
     ![](media/azure-stack-app-service-add-worker-roles/image01.png)
-  
+
 3. **역할**을 클릭합니다. 여기에 배포 된 모든 앱 서비스 역할의 분석 결과 볼 있습니다.
 
 4. 확장 하 고 클릭 한 다음 원하는 종류의 행을 마우스 오른쪽 단추로 클릭 **ScaleSet**합니다.
 
     ![](media/azure-stack-app-service-add-worker-roles/image02.png)
-  
+
 5. 클릭 **배율**, 선택, 크기를 조정 하 고 클릭 하려는 인스턴스의 수 **저장**합니다.
-    
+
     ![](media/azure-stack-app-service-add-worker-roles/image03.png)
 
 6. Azure 스택 앱 서비스는 이제 추가 Vm 추가, 구성, 모든 필수 소프트웨어를 설치 및이 프로세스가 완료 되 면 준비로 표시 합니다. 이 프로세스는 약 80 분 걸릴 수 있습니다.

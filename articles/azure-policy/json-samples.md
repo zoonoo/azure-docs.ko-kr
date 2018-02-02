@@ -16,11 +16,11 @@ ms.workload:
 ms.date: 01/17/2018
 ms.author: banders
 ms.custom: mvc
-ms.openlocfilehash: 783a6bd8c665f1e08d94d2712a581955be8501e9
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 19641f3b1f2781cf23955743bf65172ff84fb544
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="templates-for-azure-policy"></a>Azure Policy에 대한 템플릿
 
@@ -55,7 +55,7 @@ ms.lasthandoff: 01/18/2018
 | [허용되는 Load Balancer SKU](scripts/allowed-lb-skus.md) | 부하 분산 장치는 승인된 SKU를 사용해야 합니다. 허용되는 SKU 배열을 지정합니다. |
 | [ER 네트워크에 피어링하는 네트워크 없음](scripts/no-peering-er-net.md) | 네트워크 피어링이 지정된 리소스 그룹의 한 네트워크에 연결되는 것을 금지합니다. 중앙 관리 네트워크 인프라와의 연결을 예방하기 위해 사용합니다. 연결을 예방하기 위해 리소스 그룹의 이름을 지정합니다. |
 | [사용자 정의 경로 테이블 없음](scripts/no-user-def-route-table.md)  |가상 네트워크가 사용자 정의 경로 테이블과 함께 배포되는 것을 금지합니다. |
-| [허용되는 가상 네트워크 게이트웨이 SKU](scripts/no-user-def-route-table.md) | 가상 네트워크 게이트웨이는 승인된 SKU 및 게이트웨이 유형을 사용해야 합니다. 승인된 SKU 배열 및 승인된 게이트웨이 유형 배열을 지정합니다. |
+| [허용되는 가상 네트워크 게이트웨이 SKU](scripts/allowed-vn-gate-sku.md) | 가상 네트워크 게이트웨이는 승인된 SKU 및 게이트웨이 유형을 사용해야 합니다. 승인된 SKU 배열 및 승인된 게이트웨이 유형 배열을 지정합니다. |
 | [VM 네트워크 인터페이스에 승인된 서브넷 사용](scripts/use-approved-subnet-vm-nics.md) | 네트워크 인터페이스는 승인된 서브넷을 사용해야 합니다. 승인된 서브넷의 ID를 지정합니다. |
 | [VM 네트워크 인터페이스에 승인된 VNet 사용](scripts/use-approved-vnet-vm-nics.md) | 네트워크 인터페이스는 승인된 가상 네트워크를 사용해야 합니다. 승인된 가상 네트워크 ID를 지정합니다. |
 |**태그**||

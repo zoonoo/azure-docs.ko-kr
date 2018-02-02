@@ -5,15 +5,15 @@ services: azure-stack
 author: jeffgilb
 ms.service: azure-stack
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 01/31/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
 keywords: 
-ms.openlocfilehash: ae59ae74dd6dfe29a077ed5943eb1a16e561078a
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: e368109adc7db4c589ac37b28c4891cb3ec5346f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure 데이터 센터 통합 스택-끝점 게시
 
@@ -46,11 +46,13 @@ Azure 스택 게시에 필요 하지 않기 때문에 내부 인프라 Vip 나�
 |그래프|Graph.*&lt;region>.&lt;fqdn>*|HTTPS|443|
 |인증서 해지 목록|Crl.*&lt;region>.&lt;fqdn>*|HTTP|80|
 |DNS|&#42;.*&lt;region>.&lt;fqdn>*|TCP 및 UDP|53|
-|주요 자격 증명 모음 (사용자)|*.vault.*&lt;region>.&lt;fqdn>*|TCP|443|
-|주요 자격 증명 모음 (관리자)|&#42;.adminvault.*&lt;region>.&lt;fqdn>*|TCP|443|
+|주요 자격 증명 모음 (사용자)|&#42;.vault.*&lt;region>.&lt;fqdn>*|HTTPS|443|
+|주요 자격 증명 모음 (관리자)|&#42;.adminvault.*&lt;region>.&lt;fqdn>*|HTTPS|443|
 |저장소 큐|&#42;.queue.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
 |저장소 테이블|&#42;.table.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
 |저장소 Blob|&#42;.blob.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
+|SQL 리소스 공급자|sqladapter.dbadapter.*&lt;region>.&lt;fqdn>*|HTTPS|44300-44304|
+|MySQL 리소스 공급자|mysqladapter.dbadapter.*&lt;region>.&lt;fqdn>*|HTTPS|44300-44304
 
 ## <a name="ports-and-urls-outbound"></a>포트 및 Url (아웃 바운드)
 
@@ -67,4 +69,4 @@ Azure 스택 투명 프록시 서버만 지원합니다. 배포에서 여기서 
 
 
 ## <a name="next-steps"></a>다음 단계
-[Azure 스택 데이터 센터 통합-보안](azure-stack-integrate-security.md)
+[Azure 스택 PKI 요구 사항](azure-stack-pki-certs.md)

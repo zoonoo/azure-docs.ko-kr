@@ -3,8 +3,8 @@ title: "Azure에서 마켓플레이스 항목을 다운로드 | Microsoft Docs"
 description: "내 Azure 스택 배포에서 Azure 마켓플레이스 항목을 다운로드할 수 있습니다."
 services: azure-stack
 documentationcenter: 
-author: ErikjeMS
-manager: byronr
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 
 ms.service: azure-stack
@@ -12,23 +12,24 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/30/2017
-ms.author: erikje
-ms.openlocfilehash: 33b7be4a85723ab03e4c656a8dd28632ad854e29
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.date: 01/30/2018
+ms.author: brenduns
+ms.openlocfilehash: 58f8287e5675e1134cb2fcceef9a9128ef97207c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Azure에서 Azure 스택에 마켓플레이스 항목을 다운로드
 
 *적용 대상: Azure 스택 통합 시스템과 Azure 스택 개발 키트*
 
+
 Azure 스택 marketplace에 포함할 콘텐츠를 결정 하는 대로 Azure 마켓플레이스에서 사용할 수 있는 콘텐츠를 고려해 야 합니다. Azure 스택에서 실행 되도록 검증을 거친 되었던 Azure 마켓플레이스 항목의 큐 레이트 목록에서 다운로드할 수 있습니다. 이 목록에 새 항목 자리 자주, 새 콘텐츠를 확인 해야 합니다.
 
 ## <a name="download-marketplace-items-in-a-connected-scenario-with-internet-connectivity"></a>(인터넷 연결)에 연결 된 시나리오에서 마켓플레이스 항목을 다운로드 합니다.
 
-1. 마켓플레이스 항목을 다운로드 하려면 먼저 [Azure를 사용한 Azure 스택 등록](azure-stack-register.md)합니다. 
+1. 마켓플레이스 항목을 다운로드 하려면 먼저 [Azure를 사용한 Azure 스택 등록](azure-stack-register.md)합니다.
 2. Azure 스택 관리자 포털 (https://portal.local.azurestack.external)에 로그인 합니다.
 3. 일부 마켓플레이스 항목 클 수 있습니다. 확인을 클릭 하 여 시스템에 있는 충분 한 공간이 있는지 확인 하십시오 **리소스 공급자** > **저장소**합니다.
 
@@ -51,7 +52,7 @@ Azure 스택 marketplace에 포함할 콘텐츠를 결정 하는 대로 Azure �
 
 ## <a name="download-marketplace-items-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity"></a>마켓플레이스 항목에는 연결이 끊어진 또는 부분적으로 연결 된 시나리오 (제한 된 인터넷에 연결 된) 다운로드
 
-모든 인터넷 연결) (없이 연결이 끊어진된 모드에서 Azure 스택을 배포할 때는 Azure 스택 포털을 사용 하 여 마켓플레이스 항목을 다운로드할 수 없습니다. 그러나 마켓플레이스 배포 도구를 사용 하 여 인터넷에 연결 하는 컴퓨터로 마켓플레이스 항목을 다운로드 하 수 있으며 Azure 스택 환경에 전송할 수 있습니다. 
+모든 인터넷 연결) (없이 연결이 끊어진된 모드에서 Azure 스택을 배포할 때는 Azure 스택 포털을 사용 하 여 마켓플레이스 항목을 다운로드할 수 없습니다. 그러나 마켓플레이스 배포 도구를 사용 하 여 인터넷에 연결 하는 컴퓨터로 마켓플레이스 항목을 다운로드 하 수 있으며 Azure 스택 환경에 전송할 수 있습니다.
 
 ### <a name="prerequisites"></a>필수 조건
 마켓플레이스 배포 도구를 사용 하려면 먼저 확인 했는지 [Azure 구독과 Azure 스택 등록](azure-stack-register.md)합니다.  
@@ -132,12 +133,12 @@ Azure 스택 marketplace에 포함할 콘텐츠를 결정 하는 대로 Azure �
     -Version "2017.09.25" `
     -OsDiskLocalPath "C:\AzureStack-Tools-master\Syndication\Microsoft.WindowsServer2016DatacenterServerCore-ARM-Eval.2017.09.25.vhd" `
     -CreateGalleryItem $False `
-    -Location Local 
+    -Location Local
    ```
 
 4. 마켓플레이스 항목을 업로드를 위해 사용 하 여 포털 (합니다. Azpkg) 스택 Azure Blob 저장소에 있습니다. 로컬 스택 Azure 저장소에 업로드 하거나 Azure 저장소에 업로드할 수 있습니다. (이 패키지에 대 한 임시 위치입니다.) Blob 공개적으로 액세스할 수 있는지 확인 하 고 URI를 확인 합니다.  
 
-5. 마켓플레이스 항목을 사용 하 여 Azure 스택에 게시는 **추가 AzureRMGalleryItem**합니다. 예:
+5. 마켓플레이스 항목을 사용 하 여 Azure 스택에 게시는 **추가 AzsGalleryItem**합니다. 예: 
 
    ```powershell
    Add-AzsGalleryItem `

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/09/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: e38d2b751090cfdc078de4e8c683c6bb9b48fac3
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: f166b420dcd424b38f89275e1befd42a505b5785
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="variable-assets-in-azure-automation"></a>Azure Automation의 변수 자산
 
@@ -51,20 +51,20 @@ Azure Portal에서 변수를 만들 때 드롭다운 목록에서 해당 데이�
 * BOOLEAN
 * Null
 
-## <a name="scripting-the-creation-and-management-of-variables"></a>변수 만들기 및 관리 스크립트 작성
+## <a name="azurerm-powershell-cmdlets"></a>AzureRM PowerShell cmdlet
+AzureRM에 대해 다음 표의 cmdlet은 Windows PowerShell을 사용하여 자동화 자격 증명 자산을 만들고 관리하는 데 사용됩니다.  Automation runbook과 DSC 구성에 사용할 수 있는 [AzureRM.Automation 모듈](/powershell/azure/overview)의 일부로 전송됩니다.
 
-다음 표에 나와있는 cmdlet은 Windows PowerShell을 사용하여 Automation 변수를 만들고 관리하는 데 사용됩니다. Automation runbook과 DSC 구성에 사용할 수 있는 [Azure PowerShell 모듈](../powershell-install-configure.md) 의 일부로 전송됩니다.
-
-|Cmdlet|설명|
+| Cmdlet | 설명 |
 |:---|:---|
 |[Get-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603849.aspx)|기존 변수의 값을 검색합니다.|
 |[New-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603613.aspx)|새 변수를 만들고 해당 값을 설정합니다.|
 |[Remove-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt619354.aspx)|기존 변수를 제거합니다.|
 |[Set-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603601.aspx)|기존 변수의 값을 설정합니다.|
 
-다음 표의 워크플로 활동은 Runbook에서 Automation 변수에 액세스하는 데 사용됩니다. 오직 runbook 또는 DSC 구성에서만 사용 가능하며, Azure PowerShell 모듈의 일부로 전송되지 않습니다.
+## <a name="activities"></a>활동
+다음 표의 활동은 runbook과 DSC 구성의 자격 증명에 액세스하는데 사용됩니다.
 
-|워크플로 활동|설명|
+| 활동 | 설명 |
 |:---|:---|
 |Get-AutomationVariable|기존 변수의 값을 검색합니다.|
 |Set-AutomationVariable|기존 변수의 값을 설정합니다.|
@@ -205,4 +205,3 @@ Azure Portal에서 변수를 만들 때 드롭다운 목록에서 해당 데이�
 
 * 그래픽 작성에서 모든 연결 활동에 대해 자세히 알아보려면 [그래픽 작성 링크](automation-graphical-authoring-intro.md#links-and-workflow)
 * 그래픽 Runbook을 시작하려면 [내 첫 번째 그래픽 Runbook](automation-first-runbook-graphical.md) 
-

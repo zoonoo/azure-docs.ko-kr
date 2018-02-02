@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 01/31/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: 43d79a8c14751ee25eaca7a3b50649702d159d76
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: a198ff5fe7135e17301025d6a712236b76be0ede
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
-## <a name="network-connectivity"></a>네트워크 연결
+# <a name="network-connectivity"></a>네트워크 연결
 이 문서에서는 가장 Azure 스택을 기존 네트워킹 환경에 통합 하는 방법을 결정할 수 있도록 Azure 스택 네트워크 인프라 정보를 제공 합니다. 
 
 > [!NOTE]
@@ -62,10 +62,10 @@ Azure 스택에 대 한 네트워크 인프라는 스위치에 구성 된 여러
 - **내부 가상 IP 네트워크**합니다. A/25 소프트웨어 부하 분산 장치의 Vip를 내부 전용으로 전용된 네트워크입니다.
 
 ### <a name="azure-stack-infrastructure-network"></a>Azure 스택 인프라 네트워크
-이 통신 하 고 자체 데이터를 교환할 수 있도록 24 네트워크 내부 Azure 스택 구성 요소에 전용/입니다. 테두리 스위치와 동일한 크기는 / 27 매우 작은 범위를 제외 하 고 다음 라우팅 것으로 예상 되지 않습니다이 서브넷 라우팅 가능한 IP 주소가 필요 하지만 비공개로 유지 솔루션에 대 한 액세스 제어 목록 (Acl)를 사용 하 여,이 중 일부를 사용 하는 네트워크 외부 리소스 및/또는 인터넷에 대 한 액세스를 필요로 할 때 서비스입니다. 
+이 통신 하 고 자체 데이터를 교환할 수 있도록 24 네트워크 내부 Azure 스택 구성 요소에 전용/입니다. 라우팅 가능한 IP 주소가 이어야 하는데는 비공개로 유지 솔루션에 대 한 액세스 제어 목록 (Acl)를 사용 하 여이 서브넷입니다. 테두리 스위치와 동일한 크기는 / 27 작은 범위를 제외 하 고 다음 라우팅 것으로 예상 되지 네트워크 외부 리소스 및/또는 인터넷에 대 한 액세스를 필요로 할 때 이러한 서비스 중에서 사용 합니다. 
 
 ### <a name="public-infrastructure-network"></a>공용 인프라 네트워크
-이/27 네트워크는 앞에서 언급 한 Azure 스택 인프라 서브넷에서 매우 작은 범위, 공용 IP 주소 필요 하지 않습니다 하지만 NAT 또는 투명 프록시를 통한 인터넷 액세스 필요지 않습니다. 이 네트워크 Emergency 복구 콘솔 시스템 (ERCS)에 대 한 할당 될, ERCS VM Azure에 등록 하는 동안 인터넷 액세스 해야 하 고 문제 해결을 위해 관리 네트워크에 라우팅 가능 해야 합니다.
+이/27 네트워크는 앞에서 언급 한 Azure 스택 인프라 서브넷에서 작은 범위의 공용 IP 주소 필요 하지 않습니다 하지만 NAT 또는 투명 프록시를 통한 인터넷 액세스 필요지 않습니다. 이 네트워크 Emergency 복구 콘솔 시스템 (ERCS)에 대 한 할당 될, ERCS VM Azure에 등록 하는 동안 인터넷 액세스 해야 하 고 문제 해결을 위해 관리 네트워크에 라우팅 가능 해야 합니다.
 
 ### <a name="public-vip-network"></a>공용 VIP 네트워크
 공용 VIP 네트워크 스택에서 Azure 네트워크 컨트롤러에 할당 됩니다. 스위치는 논리 네트워크는 없습니다. SLB 주소 풀을 사용 하 고 할당/32 테 넌 트 작업에 대 한 네트워크. 스위치 라우팅 테이블에서 이러한 32 Ip는 BGP 통해 사용할 수 있는 경로를 보급 합니다. 이 네트워크 외부에서 액세스할 수 있는 또는 공용 IP 주소를 포함합니다. Azure 스택 인프라는 나머지 테 넌 트 Vm에서 사용 하는 동안이 공용 VIP 네트워크에서 최소한 8 주소를 사용 합니다. 이 서브넷의 네트워크 크기의 /26 (64 호스트)의 최소/22 (1022 호스트)의 최대 범위, / 24를 계획 하는 것이 좋습니다 네트워크입니다.
@@ -82,12 +82,7 @@ Azure 스택 서비스 사용할 수 있도록 사용자에 게 외부 Azure 스
 ### <a name="ports-and-urls"></a>포트 및 Url
 Azure 스택 서비스를 확인 하려면 (포털, Azure 리소스 관리자, DNS, 같은 등) 외부 네트워크에 사용할 수 있는 허용 해야 이러한 끝점에 인바운드 트래픽을 특정 Url, 포트 및 프로토콜에 대 한 합니다.
  
-배포에 있는 기존 프록시 서버에 투명 프록시 업링크 허용 해야 특정 포트 및 Url 아웃 바운드 통신에 대 한 합니다. 여기 identity, 마켓플레이스 신디케이션, 패치 및 업데이트, 등록 및 사용 현황 데이터에 대 한 포트 및 Url이 포함 됩니다.
-
-자세한 내용은 다음을 참조하세요.
-- [인바운드 포트 및 프로토콜](https://docs.microsoft.com/azure/azure-stack/azure-stack-integrate-endpoints#ports-and-protocols-inbound)
-- [아웃 바운드 포트 및 Url](https://docs.microsoft.com/azure/azure-stack/azure-stack-integrate-endpoints#ports-and-urls-outbound)
-
+배포에 있는 기존 프록시 서버에 투명 프록시 업링크 허용 해야 특정 포트 및 Url 모두에 대 한 [인바운드](https://docs.microsoft.com/azure/azure-stack/azure-stack-integrate-endpoints#ports-and-protocols-inbound) 및 [아웃 바운드](https://docs.microsoft.com/azure/azure-stack/azure-stack-integrate-endpoints#ports-and-urls-outbound) 통신 합니다. 여기 identity, 마켓플레이스 신디케이션, 패치 및 업데이트, 등록 및 사용 현황 데이터에 대 한 포트 및 Url이 포함 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
-[Azure 스택 테두리 연결](azure-stack-border-connectivity.md)
+[테두리 연결](azure-stack-border-connectivity.md)

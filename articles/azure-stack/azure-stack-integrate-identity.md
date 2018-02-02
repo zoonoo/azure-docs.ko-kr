@@ -5,19 +5,17 @@ services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
 ms.topic: article
-ms.date: 12/12/2017
-ms.author: mabrigg
+ms.date: 01/31/2018
+ms.author: jeffgilb
+ms.reviewer: wfayed
 keywords: 
-ms.openlocfilehash: 642ed3298eec0bab5515df117c0310786358e417
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 2f15e130859272a729fb0ad6e0b718d4724f2103
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Azure 스택 데이터 센터 통합-Identity
-
-*적용 대상: Azure 스택 시스템 통합*
-
 Id 공급자와 Azure Active Directory (Azure AD) 또는 Active Directory Federation Services (AD FS)을 사용 하 여 Azure 스택을 배포할 수 있습니다. Azure 스택을 배포 하기 전에 선택을 해야 합니다. AD FS를 사용 하 여 배포를 Azure 스택 연결이 끊어진된 모드에서 배포는 라고도 합니다.
 
 다음 표에서 두 가지 identity 옵션 간의 차이점을 보여 줍니다.
@@ -26,7 +24,7 @@ Id 공급자와 Azure Active Directory (Azure AD) 또는 Active Directory Federa
 |---------|---------|---------|
 |결제|용량 이어야 합니다.<br> 기업 계약 (EA)만|용량 또는 사용량 기준 과금으로-있습니다-사용<br>EA 또는 클라우드 솔루션 공급자 (CSP)|
 |ID|AD FS 여야 합니다.|Azure AD 또는 AD FS|
-|마켓플레이스에서 배포|현재 사용할 수 없음|지원됨<br>BYOL 라이선스|
+|마켓플레이스에서 배포|지원됨<br>BYOL 라이선스|지원됨<br>BYOL 라이선스|
 |등록|권장, 이동식 미디어를 사용 하려면 필요<br> 와 별도 연결 된 장치입니다.|자동화 된|
 |패치 및 업데이트|필수, 이동식 미디어를 필요 합니다.<br> 와 별도 연결 된 장치입니다.|업데이트 패키지를 직접 다운로드할 수 있습니다.<br> 인터넷을 통해 Azure 스택 합니다.|
 
@@ -56,17 +54,17 @@ Requirements:
 
 |구성 요소|요구 사항|
 |---------|---------|
-|그래프|Microsoft Active Directory 2012/2012 r 2/2016|
-|AD FS|Windows Server 2012/2012 r 2/2016|
+|그래프|Microsoft Active Directory 2012/2012 R2/2016|
+|AD FS|Windows Server 2012/2012 R2/2016|
 
 ## <a name="setting-up-graph-integration"></a>그래프와 통합을 설정
 
 다음 정보는 자동화 매개 변수에 대 한 입력으로 필요 합니다.
 
 
-|매개 변수|설명|예제|
+|매개 변수|설명|예|
 |---------|---------|---------|
-|CustomADGlobalCatalog|Active Directory 포리스트 대상의 FQDN<br>와 통합|contoso.com|
+|CustomADGlobalCatalog|Active Directory 포리스트 대상의 FQDN<br>와 통합|Contoso.com|
 |CustomADAdminCredentials|LDAP 읽기 권한이 있는 사용자|YOURDOMAIN\graphservice|
 
 ### <a name="create-user-account-in-the-existing-active-directory-optional"></a>기존 Active directory에서 (선택 사항) 사용자 계정 만들기
@@ -116,7 +114,7 @@ Azure 스택에서 그래프 서비스는 대상 Active Directory와 통신 하�
 
 다음 정보가 필요 합니다 자동화 매개 변수에 대 한 입력으로:
 
-|매개 변수|설명|예제|
+|매개 변수|설명|예|
 |---------|---------|---------|
 |CustomAdfsName|클레임 공급자의 이름입니다. <cr>이런 방식으로 AD FS 방문 페이지를 표시 합니다.|Contoso|
 |CustomAD<br>FSFederationMetadataEndpointUri|페더레이션 메타 데이터 링크|https://ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml|
@@ -155,7 +153,7 @@ Azure 스택에서 그래프 서비스는 대상 Active Directory와 통신 하�
 다음 정보가 필요 합니다 자동화 매개 변수에 대 한 입력으로:
 
 
-|매개 변수|설명|예제|
+|매개 변수|설명|예|
 |---------|---------|---------|
 |CustomAdfsName|클레임 공급자의 이름입니다. 이런 방식으로 AD FS 방문 페이지에 나타납니다.|Contoso|
 |CustomADFSFederationMetadataFile|페더레이션 메타 데이터 파일|https://ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml|
@@ -335,4 +333,4 @@ Cmdlet 중 하나라도 실패할 경우를 사용 하 여 추가 로그를 수�
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure 데이터 센터 통합 스택-끝점 게시](azure-stack-integrate-endpoints.md)
+[Azure 스택 등록](azure-stack-registration.md)

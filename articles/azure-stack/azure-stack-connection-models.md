@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 01/31/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: ff56ced9f1d43780097cd65e58b492daaba9b61d
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 0151b64b39699e2a7a804cdc57e368fd786119a7
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-stack-integrated-systems-connection-models"></a>Azure 스택 통합 시스템 연결 모델
 이해 해야 Azure 스택 통합 시스템에 관심이 있다면 [여러 데이터 센터에 대 한 통합 고려 사항](azure-stack-datacenter-integration.md) 시스템 데이터 센터에 들어가는지는 방법을 확인 하려면 Azure 스택 배포에 대 한 합니다. 또한 정확 하 게 통합 하는 방법은 됩니다 Azure 스택 하이브리드 클라우드 환경으로 결정 해야 합니다. 이 문서에서는 모델 결정 대금 청구 및 Azure 연결 id 저장소를 포함 하 여 이러한 중요 한 결정에 대 한 개요를 제공 합니다.
@@ -46,5 +46,7 @@ Azure 스택 인터넷 (및 Azure) 연결 또는 연결 끊김 배포 하도록 
 Azure 스택 배포에 사용할 Azure 연결 모델에서 결정 하 고 한 다음 추가 연결 기반의 의사 결정은 id 저장소 및 결제 방법에 대해 수행 되어야 합니다. 
 
 ## <a name="next-steps"></a>다음 단계
-- 에 대 한 자세한 내용은 [Azure 연결 배포 결정 사항 Azure 스택](azure-stack-connected-deployment.md)
-- 에 대 한 자세한 내용은 [Azure disconnected 배포 결정 사항 Azure 스택](azure-stack-disconnected-deployment.md)
+
+[Azure의 연결 된 Azure 스택 배포 결정 사항](azure-stack-connected-deployment.md)
+
+[Azure 연결 되지 않은 Azure 스택 배포 결정 사항](azure-stack-disconnected-deployment.md)

@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 3/23/2017
 ms.author: elbutter
-ms.openlocfilehash: 0d0d3b94fb50155ce0579d32e8ff78a47b9e3589
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: d795abe5254d47a72a468b0989e46829a5c5142a
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="manage-compute-power-in-azure-sql-data-warehouse-overview"></a>Azure SQL Data Warehouse의 계산 능력 관리(개요)
 > [!div class="op_single_selector"]
@@ -75,7 +75,7 @@ SQL Data Warehouse의 정상적인 활성 세션 동안 메타데이터를 관�
 
 |              | 일시 중지/다시 시작 | 확장 | 데이터베이스 상태 확인 |
 | ------------ | ------------ | ----- | -------------------- |
-| Azure 포털 | 예          | 예   | **아니요**               |
+| Azure portal | 예          | 예   | **아니요**               |
 | PowerShell   | 예          | 예   | 예                  |
 | REST API     | 예          | 예   | 예                  |
 | T-SQL        | **아니요**       | 예   | 예                  |
@@ -189,11 +189,11 @@ DWU 성능 조정 시기에 대한 권장 사항:
 
 [capacity limits]: ./sql-data-warehouse-service-capacity-limits.md
 
-[Pause compute with Azure portal]:  ./sql-data-warehouse-manage-compute-portal.md#pause-compute-bk
+[Pause compute with Azure portal]:  ./sql-data-warehouse-manage-compute-portal.md
 [Pause compute with PowerShell]: ./sql-data-warehouse-manage-compute-powershell.md#pause-compute-bk
 [Pause compute with REST APIs]: ./sql-data-warehouse-manage-compute-rest-api.md#pause-compute-bk
 
-[Resume compute with Azure portal]:  ./sql-data-warehouse-manage-compute-portal.md#resume-compute-bk
+[Resume compute with Azure portal]:  ./sql-data-warehouse-manage-compute-portal.md
 [Resume compute with PowerShell]: ./sql-data-warehouse-manage-compute-powershell.md#resume-compute-bk
 [Resume compute with REST APIs]: ./sql-data-warehouse-manage-compute-rest-api.md#resume-compute-bk
 

@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 01/31/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 737df48a24d8e077f898d00526c7138db69dbb93
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: f7b621312677c0b250e267770ae0c445ee9f083f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-stack-firewall-integration"></a>Azure 스택 방화벽 통합
 Azure 스택 보안을 위해 방화벽 장치를 사용 하는 것이 좋습니다. 하지만 방화벽 등으로 분산 된 서비스 거부 (DDOS) 공격, 침입 감지 및 콘텐츠 검사에 도움이 될 수, blob, 테이블 및 큐와 같은 Azure 저장소 서비스에 대 한 처리량 병목 지점이 될 수도 있습니다.
@@ -59,7 +59,9 @@ NAT에서 외부 네트워크 또는 공용 Vip에 공용 IP 주소에 대 한 �
 
 ![Azure 스택 경계 네트워크 예제](.\media\azure-stack-firewall\perimeter-network-scenario.png)
 
+## <a name="learn-more"></a>자세한 정보
+에 대 한 자세한 내용은 [Azure 스택 끝점에서 사용할 포트와 프로토콜](azure-stack-integrate-endpoints.md)합니다.
 
 ## <a name="next-steps"></a>다음 단계
-에 대 한 자세한 내용은 [Azure 스택 끝점에서 사용 되는 프로토콜 및 포트](azure-stack-integrate-endpoints.md)
+[Azure 스택 PKI 요구 사항](azure-stack-pki-certs.md)
 

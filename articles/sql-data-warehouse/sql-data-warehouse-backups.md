@@ -15,11 +15,11 @@ ms.workload: NA
 ms.custom: backup-restore
 ms.date: 10/23/2017
 ms.author: jrj;barbkess
-ms.openlocfilehash: e76349ef7a2afa02d4f9e5295f299bb8084d1e08
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 159a1d34caba829750da33dbc4ad403fb21cd147
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="backup-and-restore-in-sql-data-warehouse"></a>SQL Data Warehouse에서 백업 및 복원
 이 문서에서는 SQL Data Warehouse의 백업에 대해 구체적으로 설명합니다. 데이터 웨어하우스 백업을 사용하여 데이터베이스 스냅숏을 주 지역으로 복원하거나 지역 백업을 지역 쌍으로 연결된 지역으로 복원할 수 있습니다. 
@@ -42,7 +42,7 @@ order by run_id desc
 ## <a name="geo-backups"></a>지역 백업
 SQL Data Warehouse는 하루에 한 번 [쌍으로 연결된 데이터 센터](../best-practices-availability-paired-regions.md)로 지역 백업을 수행합니다. 지역 복원의 RPO는 24시간입니다. 지역 백업을 지역 쌍으로 연결된 지역의 서버로 복원할 수 있습니다. 지역 백업을 사용하면 주 지역의 스냅숏에 액세스할 수 없는 경우에 데이터 웨어하우스를 복원할 수 있습니다.
 
-지역 백업은 기본적으로 켜져 있습니다. 데이터 웨어하우스가 탄력성에 최적화된 경우 원하는 대로 [옵트아웃](https://docs.microsoft.com/powershell/resourcemanager/Azurerm.sql/v2.1.0/Set-AzureRmSqlDatabaseGeoBackupPolicyredirectedfrom=msdn)할 수 있습니다. 계산 성능 계층에 최적화된 경우에는 지역 백업을 옵트아웃할 수 없습니다.
+지역 백업은 기본적으로 켜져 있습니다. 데이터 웨어하우스가 탄력성에 최적화된 경우 원하는 대로 [옵트아웃](/powershell/module/azurerm.sql/set-azurermsqldatabasegeobackuppolicy)할 수 있습니다. 계산 성능 계층에 최적화된 경우에는 지역 백업을 옵트아웃할 수 없습니다.
 
 ## <a name="backup-costs"></a>백업 비용
 Azure 청구서에는 Azure Premium Storage에 대한 항목과 지역 중복 저장소에 대한 항목이 있습니다. Premium Storage 요금은 주 지역에 데이터를 저장하는 데 드는 총 비용이며, 스냅숏을 포함합니다.  지역 중복 요금은 지역 백업을 저장하는 데 드는 비용을 포함합니다.  
@@ -54,7 +54,7 @@ Azure 청구서에는 Azure Premium Storage에 대한 항목과 지역 중복 �
 > 
 > 
 
-지역 중복 저장소를 사용하는 경우 별도의 저장소 비용이 청구됩니다. 지역 중복 저장소는 표준 RA-GRS(읽기 액세스 지리 중복 저장소) 요금이 청구됩니다.
+지역 중복 저장소를 사용하는 경우 별도의 저장소 비용이 청구됩니다. 지역 중복 저장소는 표준 RA-GRS(Read-Access Geo Redundant Storage) 요금이 청구됩니다.
 
 SQL Data Warehouse 가격 책정에 대한 자세한 내용은 [SQL Data Warehouse 가격 책정](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)을 참조하세요.
 

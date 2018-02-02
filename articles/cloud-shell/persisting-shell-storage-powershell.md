@@ -12,15 +12,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 01/30/2018
 ms.author: damaerte
-ms.openlocfilehash: d0bc16bc951fce17235d8070012de44ebab89888
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 74488b85ec524e4ad4c06a639a16ddbfd54b3154
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/01/2018
 ---
-[!include [features-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
+[!INCLUDE [features-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
 
 ## <a name="how-powershell-in-azure-cloud-shell-preview-works"></a>Azure Cloud Shell의 PowerShell(미리 보기) 작동 방식
 Azure Cloud Shell의 PowerShell(미리 보기)은 다음 방법을 통해 파일을 유지합니다. 
@@ -36,7 +36,7 @@ Azure Cloud Shell의 PowerShell(미리 보기)은 다음 방법을 통해 파일
 `Dismount-CloudDrive` 명령은 현재 저장소 계정에서 Azure 파일 공유를 탑재 해제합니다. 클라우드 드라이브를 탑재 해제하면 현재 세션이 종료됩니다. 사용자에게 다음 세션에서 새 Azure 파일 공유를 만들고 탑재하라는 메시지가 표시됩니다.
 ![CloudDrive 탑재 해제 실행](media/persisting-shell-storage-powershell/Dismount-Clouddrive.png)
 
-[!include [features-endblock](../../includes/cloud-shell-persisting-shell-storage-endblock.md)]
+[!INCLUDE [features-endblock](../../includes/cloud-shell-persisting-shell-storage-endblock.md)]
 
 ## <a name="next-steps"></a>다음 단계
 [PowerShell에 대한 빠른 시작](quickstart-powershell.md) <br>

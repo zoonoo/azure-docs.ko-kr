@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: jingwang
-ms.openlocfilehash: 66b4f068189fd17f08a6a57ed44233c04c16fff7
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 99e3365a846f35262489fdccd753b4ce2e50fa49
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Azure Data Factory에서 저장 프로시저 작업을 사용하여 SSIS 패키지 호출
 이 문서에서는 Azure Data Factory 파이프라인에서 저장 프로시저 작업을 사용하여 SSIS 패키지를 호출하는 방법에 대해 설명합니다. 
@@ -31,13 +31,13 @@ ms.lasthandoff: 01/20/2018
 이 문서의 연습에서는 SSIS 카탈로그를 호스트하는 Azure SQL 데이터베이스를 사용합니다. Azure SQL 관리되는 인스턴스(비공개 미리 보기)를 사용할 수도 있습니다.
 
 ### <a name="create-an-azure-ssis-integration-runtime"></a>Azure-SSIS 통합 런타임 만들기
-Azure-SSIS 통합 런타임이 없는 경우 [자습서: SSIS 패키지 배포](../tutorial-deploy-ssis-packages-azure.md)의 단계별 지침에 따라 만듭니다. Azure-SSIS 통합 런타임을 만들려면 버전 2의 데이터 팩터리를 만들어야 합니다. 
+Azure-SSIS 통합 런타임이 없는 경우 [자습서: SSIS 패키지 배포](../tutorial-create-azure-ssis-runtime-portal.md)의 단계별 지침에 따라 만듭니다. Azure-SSIS 통합 런타임을 만들려면 버전 2의 데이터 팩터리를 만들어야 합니다. 
 
 ## <a name="azure-portal"></a>Azure portal
 이 섹션에서는 Azure Portal을 사용하여 SSIS 패키지를 호출하는 저장 프로시저 작업이 있는 Data Factory 파이프라인을 만듭니다.
 
 ### <a name="create-a-data-factory"></a>데이터 팩터리를 만듭니다.
-첫 번째 단계는 Azure Portal을 사용하여 데이터 팩터리를 만드는 것입니다. 
+먼저, Azure Portal을 사용하여 데이터 팩터리를 만듭니다. 
 
 1. [Azure Portal](https://portal.azure.com)로 이동합니다. 
 2. 왼쪽 메뉴에서 **새로 만들기**를 클릭하고 **데이터 + 분석**, **Data Factory**를 차례로 클릭합니다. 

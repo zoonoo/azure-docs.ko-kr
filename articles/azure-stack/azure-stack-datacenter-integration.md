@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 01/31/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: ef8b30744c3334086680ab8c7211ad73b792c95c
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 2c013c11dea5217d564ac15a13a8d11614989057
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>Azure 스택 통합 시스템에 대 한 데이터 센터 통합 고려 사항
 Azure 스택 통합 시스템에 관심이 있다면 배포 및 시스템 데이터 센터에 얼마나 적합 한지 주요 계획 고려 사항 중 일부를 이해 해야 합니다. 이 문서에서는 Azure 스택 multi-node 시스템에 대 한 중요 한 인프라 결정을 내릴 수 있도록 이러한 고려 사항에 대 한 고급 개요를 제공 합니다. 이러한 고려 사항에 대 한 이해가는 Azure 스택 데이터 센터에 배포할 때 OEM 하드웨어 공급 업체를 작업할 때 도움이 됩니다.  
@@ -27,9 +27,7 @@ Azure 스택 통합 시스템에 관심이 있다면 배포 및 시스템 데이
 > [!NOTE]
 > Azure 스택 multi-node 시스템 인증된 한 하드웨어 공급 업체에서 구입할 수만 있습니다. 
 
-Azure 스택 집합을 제대로 Azure 스택 환경으로 통합 해야 하는 의사 결정의를 배포 합니다. 배포를 신속 하 고 원활 하 게 이동 하는 프로세스를 시작 하기 전에 하드웨어 공급 업체에 대 한 준비 될 및 계획 과정 동안 솔루션 공급자에 게이 정보를 제공 해야 합니다.
-
-정보는 네트워킹, 보안 및 기술에서 많은 다양 한 영역과 의사 결정권자 필요할 수 있는 많은 중요 한 결정으로 id 정보에서 범위를 필요 합니다. 따라서 배포를 시작 하기 전에 필요한 모든 정보를 준비를 갖출 있도록 조직에 여러 팀에서 사용자 가져오기 해야 합니다. 관련 결정 사항을 제공 하기 위해 유용한 권장 사항을 포함 될 수 하는 대로이 정보를 수집 하는 동안 하드웨어 공급 업체에 게 문의 하는 것이 유용 합니다.
+Azure 스택을 배포 하려면 배포를 신속 하 고 원활 하 게 이동 하는 프로세스를 시작 하기 전에 솔루션 공급자에 계획 정보를 제공 해야 합니다. 정보는 네트워킹, 보안 및 기술에서 많은 다양 한 영역과 의사 결정권자 필요할 수 있는 많은 중요 한 결정으로 id 정보에서 범위를 필요 합니다. 따라서 배포를 시작 하기 전에 필요한 모든 정보를 준비를 갖출 있도록 조직에 여러 팀에서 사용자 가져오기 해야 합니다. 관련 결정 사항을 제공 하기 위해 유용한 권장 사항을 포함 될 수 하는 대로이 정보를 수집 하는 동안 하드웨어 공급 업체에 게 문의 하는 것이 유용 합니다.
 
 연구 하 고 필요한 정보를 수집 하는 동안 네트워크 환경에 배포 전 구성을 변경 해야 합니다. 여기에 라우터, 스위치 및 새 Azure 스택 솔루션 스위치에 대 한 연결을 준비 하는 방화벽을 구성 하는 Azure 스택 솔루션에 대 한 IP 주소 공간을 예약이 포함 될 수 있습니다. 계획 된 최대 인라인 주제 영역 전문가가 있는지 확인 합니다.
 
@@ -38,7 +36,7 @@ Azure 스택 집합을 제대로 Azure 스택 환경으로 통합 해야 하는 
 
 일별 관리 및 작업에 대 한 인프라에 제한 되지 않은 관리자 액세스 권한 없음 있습니다. Azure 스택 연산자에는 시스템 관리자 포털을 통해 또는 Azure 리소스 관리자를 통해 PowerShell 또는 REST API) (통해 관리 해야 합니다. Hyper-v 관리자 또는 장애 조치 클러스터 관리자와 같은 다른 관리 도구에서 시스템에 액세스할 수 없습니다 있습니다. 시스템을 보호 하기 위해 Azure 스택 인프라의 구성 요소 내부 제 3 자 소프트웨어 (예를 들어, 에이전트)를 설치할 수 없습니다. 외부 관리 및 보안 소프트웨어와의 상호 운용성 PowerShell 또는 REST API를 통해 발생합니다.
 
-경고 중재 단계를 통해 확인 되지 문제 해결을 위한 높은 수준의 액세스 필요 하면 지원을 사용 해야 합니다. 지원을 통해 된 고급 작업을 수행 하는 시스템에 대 한 임시 전체 관리자 액세스를 제공 하는 방법은 없습니다. 
+경고 중재 단계를 통해 확인 되지 문제 해결을 위한 높은 수준의 액세스 필요 하면 Microsoft 기술 지원 서비스 작업 해야 합니다. 지원을 통해 된 고급 작업을 수행 하는 시스템에 대 한 임시 전체 관리자 액세스를 제공 하는 방법은 없습니다. 
 
 ## <a name="identity-considerations"></a>Identity 고려 사항
 
@@ -179,7 +177,10 @@ Linux 또는 Windows IaaS 가상 컴퓨터를 백업 하려면 파일, 폴더, �
 > [!IMPORTANT]
 > 통합된 시스템의 초기 릴리스에서 IaaS 가상 컴퓨터의 게스트 수준에서 작동 하는 보호 기술 지원 합니다. 기본 인프라 서버에 에이전트를 설치할 수 없습니다.
 
-## <a name="next-steps"></a>다음 단계
+## <a name="learn-more"></a>자세한 정보
 
 - 사용 사례, 구매, 파트너 및 OEM 하드웨어 공급 업체에 대 한 정보를 참조 하십시오.는 [Azure 스택](https://azure.microsoft.com/overview/azure-stack/) 제품 페이지.
 - Azure 스택에 대 한 로드맵 및 지리적 가용성에 대 한 정보에 대 한 통합된 시스템 백서를 참조: [Azure 스택: Azure의 확장](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/)합니다. 
+
+## <a name="next-steps"></a>다음 단계
+[Azure 스택 배포 연결 모델](azure-stack-connection-models.md)

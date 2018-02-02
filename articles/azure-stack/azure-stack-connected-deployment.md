@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2018
+ms.date: 01/31/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: c1a3b2107abdc3ef19a314616518c494687d81bf
-ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
+ms.openlocfilehash: a2d4efc3a3e1480de71528144ae3f025f4879f07
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-connected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Azure 스택에 대 한 결정을 계획 하는 azure 연결 된 배포 시스템을 통합
 결정 한 다음 [Azure 스택 하이브리드 클라우드 환경으로 통합 됩니다는 어떻게](azure-stack-deployment-decisions.md), Azure 스택 배포 결정 사항 마무리 다음 수 있습니다.
@@ -41,7 +41,7 @@ Identity 저장소 선택한 테 넌 트 가상 컴퓨터 (Vm)는 관련이 없�
     - 서비스 관리자 계정. (나중에 변경할 수 있습니다)이 표시 되는 기본 공급자 구독의 소유자입니다. 이 계정에 Azure 스택 관리자 포털에 로그인 할 수 및 사용 하 여 제안 및 계획을 만들, 할당량을 설정 하 고, Azure 스택의 다른 관리 기능을 수행할 수 있습니다.
 2. **요금 청구 계정** (둘 다 연결 하 고 배포의 연결이 해제에 대 한 필수). Azure 스택 통합 시스템과 Azure commerce 백 엔드 간의 청구 관계를 설정 하이 Azure 계정이 사용 됩니다. 이 계정이 Azure 스택 요금에 대 한 요금이 청구 됩니다. 이 계정은 마켓플레이스 배포 및 다른 하이브리드 시나리오에도 사용 됩니다. 
 
-### <a name="ad-fs-identity-store"></a>AD FS ID 저장소
+### <a name="ad-fs-identity-store"></a>AD FS id 저장소
 서비스 관리자 계정에 대 한 사용자 회사 Active Directory와 같은 고유한 id 저장소를 사용 하려면이 옵션을 선택 합니다.  
 
 ## <a name="choose-a-billing-model"></a>청구 모델을 선택 합니다.
@@ -57,9 +57,8 @@ CSP 구독을 사용 하도록 하려는 경우의 올바른 방법은에 따라
 
 |시나리오|도메인 및 구독 옵션|
 |-----|-----|
-|직접 또는 간접 CSP 파트너 및 Azure 스택 적용|CSL (공용 서비스 계층) 구독을 사용 합니다.|
-|직접 또는 간접 CSP 파트너 및 Azure 스택 적용|파트너 센터에서 Azure AD 테 넌 트 만들기 설명적인 이름으로 예를 들어 <your organization>CSPAdmin, 및 CSP Azure 구독 연결 되어 있습니다.|
-|간접 CSP 대리점에 있으며 Azure 스택 적용|간접 파트너 센터, 조직 및 연결 된 Azure CSP 구독에 대 한 Azure AD 테 넌 트를 사용 하 여 만들려는 CSP 공급자에 게 문의 하십시오.|
+|한 **직접 CSP 파트너** 또는 **간접 CSP 공급자**, Azure 스택 작동 합니다|CSL (공용 서비스 계층) 구독을 사용 합니다.<br>     또는<br>파트너 센터에서 설명 하는 이름으로 Azure AD 테 넌 트를 만듭니다. 예를 들어 &lt;조직 > 연결 된 Azure CSP 구독과 CSPAdmin 합니다.|
+|한 **간접 CSP Reseller**, Azure 스택 작동 합니다|연결 된 파트너 센터를 사용 하는 CSP Azure 구독을 사용 하 여 조직에 Azure AD 테 넌 트를 만들려면 간접 CSP 공급자에 게 문의 하십시오.|
 
 ### <a name="capacity-based-billing"></a>기반된 요금 청구 용량
 용량 청구 모델을 사용 하려는 경우 Azure 스택 용량 계획 SKU 시스템의 가용성에 따라 구입 해야 합니다. 정확한 수량을 구입 하 여 Azure 스택에서 실제 코어의 수를 알아야 합니다. 
@@ -70,3 +69,6 @@ CSP 구독을 사용 하도록 하려는 경우의 올바른 방법은에 따라
 - 사용 사례, 구매, 파트너 및 OEM 하드웨어 공급 업체에 대 한 정보를 참조 하십시오.는 [Azure 스택](https://azure.microsoft.com/overview/azure-stack/) 제품 페이지.
 - Azure 스택에 대 한 로드맵 및 지리적 가용성에 대 한 정보에 대 한 통합된 시스템 백서를 참조: [Azure 스택: Azure의 확장](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/)합니다. 
 - Microsoft Azure 스택 패키징 및 가격에 대 한 자세한 내용을 보려면 [다운로드는.pdf](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf)합니다. 
+
+## <a name="next-steps"></a>다음 단계
+[데이터 센터 네트워크 통합](azure-stack-network.md)
