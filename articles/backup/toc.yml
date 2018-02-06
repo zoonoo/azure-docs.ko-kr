@@ -183,6 +183,8 @@
           href: backup-azure-troubleshoot-slow-backup-performance-issue.md
         - name: Azure Backup Server 문제 해결
           href: backup-azure-mabs-troubleshoot.md
+        - name: System Center Data Protection Manager 문제 해결
+          href: backup-azure-scdpm-troubleshooting.md
         - name: Azure Backup Agent 문제 해결
           href: backup-azure-mars-troubleshoot.md
 - name: 참고 자료

@@ -237,6 +237,10 @@
           href: sql-database-use-batching-to-improve-performance.md
         - name: 연결 지침
           href: sql-database-connectivity-issues.md
+        - name: DNS 별칭 개요
+          href: dns-alias-overview.md
+        - name: DNS 별칭 PowerShell
+          href: dns-alias-powershell.md
         - name: 포트 - ADO.NET
           href: sql-database-develop-direct-route-ports-adonet-v12.md
 - name: 방법 가이드

@@ -1,7 +1,5 @@
 # 개요
 ## [개발자 가이드](azure-developer-guide.md) 
-## [Azure 서비스 개요](../../fundamentals-introduction-to-azure.md?toc=%2fazure%2fguides%2fdeveloper%2ftoc.json)
-## [포털 개요](../../azure-portal-overview.md?toc=%2fazure%2fguides%2fdeveloper%2ftoc.json)
 ## [SDK 및 도구](https://docs.microsoft.com/azure/index#pivot=sdkstools)
 
 # 빠른 시작
@@ -71,8 +69,7 @@
 
 ## 확장
 ### [웹 및 모바일 앱](https://docs.microsoft.com/azure/app-service/web-sites-scale)
-### 
-            [가상 머신](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview)
+### [가상 머신](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview)
 ### [마이크로 서비스 앱](https://docs.microsoft.com/azure/service-fabric/service-fabric-concepts-scalability)
 
 ## 보안
@@ -80,8 +77,7 @@
 
 ## Backup
 ### [웹 및 모바일 앱](https://docs.microsoft.com/azure/app-service/web-sites-backup)
-### 
-            [가상 머신](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction)
+### [가상 머신](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction)
 
 ## 모니터
 ### [웹 및 모바일 앱](https://docs.microsoft.com/azure/app-service/web-sites-enable-diagnostic-log)
@@ -94,12 +90,12 @@
 ### [Linux VM 크기 조정](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-create-vmss)
 ### [Windows VM 크기 조정](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-create-vmss)
 
-# 참조
-## [REST (영문)](https://docs.microsoft.com/rest/api/)
+# 참고 자료
+## [REST](https://docs.microsoft.com/rest/api/)
 ## SDK
 ### [.NET](https://go.microsoft.com/fwlink/?linkid=834925)
 ### [Java](https://docs.microsoft.com/java/api/)
-### [Node.JS](http://azure.github.io/azure-sdk-for-node/)
+### [Node.js](http://azure.github.io/azure-sdk-for-node/)
 ### [PHP](https://github.com/Azure/azure-sdk-for-php/blob/master/README)
 ### [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/)
 ### [Ruby](https://github.com/Azure/azure-sdk-for-ruby/blob/master/README)

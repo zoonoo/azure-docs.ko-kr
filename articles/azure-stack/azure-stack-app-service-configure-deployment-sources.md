@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: anwestg
-ms.openlocfilehash: 3738ca8ce8dfe0e5375779e9273a3d10baf8861a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e73a607a7f8ad948ab821b0aeda164418509f076
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="configure-deployment-sources"></a>배포 원본 구성
 *적용 대상: Azure 스택 통합 시스템과 Azure 스택 개발 키트*
@@ -49,8 +49,7 @@ Azure Stack에서 App Service는 여러 소스 제어 공급자로부터 주문�
 2. 입력 한 **응용 프로그램 이름** Azure 스택 앱 서비스-예.
 3. **홈 페이지 URL**을 입력합니다. 홈 페이지 URL에는 Azure 스택 포털 주소 여야 합니다. 예를 들어 https://portal.local.azurestack.external 합니다.
 4. 입력 한 **응용 프로그램 설명**합니다.
-5. **권한 부여 콜백 URL**을 입력합니다.  기본 Azure 스택 배포에서 Url azurestack.local에 대 한 도메인 의존해 서는 다른 도메인에서 실행 되는 경우 폼 https://portal.local.azurestack.external/tokenauthorize 설정입니다.
-    ![GitHub-채워진 값을 가진 새 응용 프로그램 등록][4]
+5. **권한 부여 콜백 URL**을 입력합니다.  기본 Azure 스택 배포에서 Url이 양식 https://portal.local.azurestack.external/tokenauthorize local.azurestack.external에 대 한 도메인 의존해 서는 다른 도메인에서 실행 중인 경우 ![GitHub-새 등록 채워진 값이 포함 된 응용 프로그램][4]
 6. **응용 프로그램 등록**을 클릭합니다.  이제 응용 프로그램에 대한 **클라이언트 ID** 및 **클라이언트 비밀**이 나열된 페이지가 표시됩니다.
     ![GitHub - 완료된 응용 프로그램 등록][5]
 7.  새 브라우저 탭 또는 창에서 서비스 관리자로 Azure 스택 관리 포털 (https://adminportal.local.azurestack.external)에 로그인 합니다.

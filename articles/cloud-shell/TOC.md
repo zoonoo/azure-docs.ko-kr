@@ -17,11 +17,13 @@
 # 예
 ## [Bash에서 Terraform을 사용하여 Azure 리소스 배포](example-terraform-bash.md)
 
+## [Bash에서 Ansible 실행](../ansible/ansible-run-playbook-in-cloudshell.md)
+
 # [Cloud Shell 포함](embed-cloud-shell.md)
 
 # [문제 해결](troubleshooting.md)
 
-# 참조
+# 참고 자료
 ## [Azure CLI](/cli/azure)
 ## [Azure PowerShell](/powershell/azure)
 
