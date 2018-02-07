@@ -1,6 +1,6 @@
 ---
-title: "Azure 가상 컴퓨터 확장 집합에 응용 프로그램 배포 | Microsoft Docs"
-description: "Linux 및 Windows 가상 컴퓨터 인스턴스의 확장 집합에 응용 프로그램을 배포하는 방법을 알아봅니다."
+title: "Azure 가상 머신 확장 집합에 응용 프로그램 배포 | Microsoft Docs"
+description: "Linux 및 Windows 가상 머신 인스턴스의 확장 집합에 응용 프로그램을 배포하는 방법을 알아봅니다."
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: iainfoulds
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: iainfou
-ms.openlocfilehash: 7e03d5e2bbdb1b3b206fa7fa455f7dce7951f02b
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: 288bcdf6628f60d0b08fe151e630784d665db56f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>가상 컴퓨터 확장 집합에 응용 프로그램 배포
-확장 집합의 VM(가상 컴퓨터) 인스턴스에서 응용 프로그램을 실행하려면 먼저 응용 프로그램 구성 요소 및 필요한 파일을 설치해야 합니다. 이 문서에서는 확장 집합의 인스턴스에 대한 사용자 지정 VM 이미지를 빌드하거나 기존 VM 인스턴스에 설치 스크립트를 자동으로 실행하는 방법을 소개합니다. 또한 확장 집합 전체에서 응용 프로그램 또는 OS 업데이트를 관리하는 방법도 알아봅니다.
+# <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>가상 머신 확장 집합에 응용 프로그램 배포
+확장 집합의 VM(가상 머신) 인스턴스에서 응용 프로그램을 실행하려면 먼저 응용 프로그램 구성 요소 및 필요한 파일을 설치해야 합니다. 이 문서에서는 확장 집합의 인스턴스에 대한 사용자 지정 VM 이미지를 빌드하거나 기존 VM 인스턴스에 설치 스크립트를 자동으로 실행하는 방법을 소개합니다. 또한 확장 집합 전체에서 응용 프로그램 또는 OS 업데이트를 관리하는 방법도 알아봅니다.
 
 
 ## <a name="build-a-custom-vm-image"></a>사용자 지정 VM 이미지 빌드
@@ -45,7 +45,7 @@ Azure 플랫폼 이미지 중 하나를 사용하여 확장 집합에서 인스�
 ## <a name="already-provisioned"></a>사용자 지정 스크립트 확장을 사용하여 앱 설치
 사용자 지정 스크립트 확장은 Azure VM에서 스크립트를 다운로드하고 실행합니다. 이 확장은 배포 후 구성, 소프트웨어 설치 또는 기타 구성/관리 작업에 유용합니다. 스크립트는 Azure 저장소 또는 GitHub에서 다운로드하거나 확장 런타임에서 Azure Portal에 제공할 수 있습니다.
 
-사용자 지정 스크립트 확장은 Azure Resource Manager 템플릿과 통합되고, Azure CLI, PowerShell, Azure Portal 또는 Azure 가상 컴퓨터 REST API를 사용하여 실행할 수도 있습니다. 
+사용자 지정 스크립트 확장은 Azure Resource Manager 템플릿과 통합되고, Azure CLI, PowerShell, Azure Portal 또는 Azure Virtual Machine REST API를 사용하여 실행할 수도 있습니다. 
 
 자세한 내용은 [사용자 지정 스크립트 확장 개요](../virtual-machines/windows/extensions-customscript.md)를 참조하세요.
 
@@ -58,7 +58,7 @@ PowerShell에서는 해시 테이블을 사용하여 다운로드할 파일과 �
 - [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss)를 사용하여 확장 집합에 대한 정보를 가져옵니다.
 - [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss)를 사용하여 VM 인스턴스에 확장을 적용합니다.
 
-사용자 지정 스크립트 확장은 *myResourceGroup*이라는 리소스 그룹의 *myScaleSet* VM 인스턴스에 적용됩니다. 다음과 같이 사용자 고유의 이름을 입력합니다:
+사용자 지정 스크립트 확장은 *myResourceGroup*이라는 리소스 그룹의 *myScaleSet* VM 인스턴스에 적용됩니다. 다음과 같이 고유한 이름을 입력합니다.
 
 ```powershell
 # Define the script for your Custom Script Extension to run
@@ -103,7 +103,7 @@ Azure CLI를 통해 사용자 지정 스크립트 확장을 사용하려면 가�
 }
 ```
 
-[az vmss extension set](/cli/azure/vmss/extension#set)를 사용하여 사용자 지정 스크립트 확장 구성을 확장 집합의 VM 인스턴스에 적용합니다. 다음 예제에서는 *customConfig.json* 구성을 *myResourceGroup*이라는 리소스 그룹의 *myScaleSet* VM 인스턴스에 적용합니다. 다음과 같이 사용자 고유의 이름을 입력합니다:
+[az vmss extension set](/cli/azure/vmss/extension#az_vmss_extension_set)를 사용하여 사용자 지정 스크립트 확장 구성을 확장 집합의 VM 인스턴스에 적용합니다. 다음 예제에서는 *customConfig.json* 구성을 *myResourceGroup*이라는 리소스 그룹의 *myScaleSet* VM 인스턴스에 적용합니다. 다음과 같이 고유한 이름을 입력합니다.
 
 ```azurecli
 az vmss extension set \
@@ -119,7 +119,7 @@ az vmss extension set \
 
 
 ## <a name="install-an-app-to-a-windows-vm-with-powershell-dsc"></a>PowerShell DSC를 사용하여 Windows VM에 앱 설치
-[PowerShell DSC(Desired State Configuration)](https://msdn.microsoft.com/en-us/powershell/dsc/overview)는 대상 컴퓨터의 구성을 정의하는 관리 플랫폼입니다. DSC 구성은 컴퓨터에 설치할 항목과 호스트를 구성하는 방법을 정의합니다. LCM(로컬 구성 관리자) 엔진이 푸시된 구성에 따라 요청된 작업을 처리하는 각 대상 노드에서 실행됩니다.
+[PowerShell DSC(Desired State Configuration)](https://msdn.microsoft.com/en-us/powershell/dsc/overview)는 대상 컴퓨터의 구성을 정의하는 관리 플랫폼입니다. DSC 구성은 컴퓨터에 설치할 항목과 호스트를 구성하는 방법을 정의합니다. LCM(로컬 구성 관리자) 엔진은 푸시된 구성에 따라 요청된 작업을 처리하는 각 대상 노드에서 실행됩니다.
 
 PowerShell DSC 확장을 사용하면 PowerShell을 통해 확장 집합의 VM 인스턴스를 사용자 지정할 수 있습니다. 다음 예제를 참조하세요.
 
@@ -172,7 +172,7 @@ Cloud-init는 배포에서도 작동합니다. 예를 들어, 패키지를 설�
 
 *cloud-init.txt* 예제 파일을 포함한 자세한 내용은 [cloud-init를 사용하여 Azure VM 사용자 지정](../virtual-machines/linux/using-cloud-init.md)을 참조하세요.
 
-확장 집합을 만들고 cloud-init 파일을 사용하려면 `--custom-data` 매개 변수를 [az vmss create](/cli/azure/vmss#create) 명령에 추가하고 cloud-init 파일의 이름을 지정합니다. 다음 예제에서는 *myResourceGroup*에 *myScaleSet*라는 확장 집합을 만들고, *cloud-init.txt* 파일을 사용하여 VM 인스턴스를 구성합니다. 다음과 같이 사용자 고유의 이름을 입력합니다:
+확장 집합을 만들고 cloud-init 파일을 사용하려면 `--custom-data` 매개 변수를 [az vmss create](/cli/azure/vmss#az_vmss_create) 명령에 추가하고 cloud-init 파일의 이름을 지정합니다. 다음 예제에서는 *myResourceGroup*에 *myScaleSet*라는 확장 집합을 만들고, *cloud-init.txt* 파일을 사용하여 VM 인스턴스를 구성합니다. 다음과 같이 고유한 이름을 입력합니다.
 
 ```azurecli
 az vmss create \

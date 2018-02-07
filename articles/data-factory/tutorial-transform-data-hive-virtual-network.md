@@ -11,19 +11,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/06/2017
+ms.date: 01/22/2018
 ms.author: shengc
-ms.openlocfilehash: c15d723efdcf273c86f54ddce04904ce1a274631
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 04323e5f6b729cdadf5ede748a1178dfa9460cd2
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>Azure Data Factory에서 Hive 작업을 사용하여 Azure Virtual Network에서 데이터 변환
 이 자습서에서는 Azure PowerShell을 사용하여 Azure VNet(Virtual Network)에 있는 HDInsight 클러스터에서 Hive 작업을 통해 데이터를 변환하는 Data Factory 파이프라인을 만듭니다. 이 자습서에서 수행하는 단계는 다음과 같습니다.
 
 > [!div class="checklist"]
-> * 데이터 팩터리를 만듭니다. 
+> * 데이터 팩터리 만들기 
 > * 자체 호스팅 통합 런타임을 작성하고 설정합니다.
 > * 연결된 서비스를 작성하고 배포합니다.
 > * Hive 작업이 포함된 파이프라인을 작성하고 배포합니다.
@@ -38,7 +38,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="prerequisites"></a>필수 조건
 - **Azure Storage 계정**. Hive 스크립트를 만들어 Azure 저장소에 업로드합니다. Hive 스크립트의 출력은 이 저장소 계정에 저장됩니다. 이 샘플에서 HDInsight 클러스터는 이 Azure Storage 계정을 기본 저장소로 사용합니다. 
-- **Azure Virtual Network** - 아직 없는 경우 [이 지침](../virtual-network/virtual-network-get-started-vnet-subnet.md)에 따라 Azure Virtual Network를 만듭니다. 이 샘플에서 HDInsight는 Azure Virtual Network에 있습니다. 다음은 Azure Virtual Network의 샘플 구성입니다. 
+- **Azure Virtual Network** - 아직 없는 경우 [이 지침](../virtual-network/quick-create-portal.md)에 따라 Azure Virtual Network를 만듭니다. 이 샘플에서 HDInsight는 Azure Virtual Network에 있습니다. 다음은 Azure Virtual Network의 샘플 구성입니다. 
 
     ![가상 네트워크 만들기](media/tutorial-transform-data-using-hive-in-vnet/create-virtual-network.png)
 - **HDInsight 클러스터** - [Azure Virtual Network를 사용하여 Azure HDInsight 확장](../hdinsight/hdinsight-extend-hadoop-virtual-network.md) 문서에 따라 HDInsight 클러스터를 만들고 이전 단계에서 만든 가상 네트워크에 조인합니다. 다음은 가상 네트워크에 속한 HDInsight의 샘플 구성입니다. 
@@ -150,7 +150,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
    }
    ```
     **AuthKey1** 값을 따옴표 없이 적어 둡니다. 
-3. Azure VM을 만들고 HDInsight 클러스터가 포함된 동일한 가상 네트워크에 연결합니다. 자세한 내용은 [가상 컴퓨터를 만드는 방법](../virtual-network/virtual-network-get-started-vnet-subnet.md#create-vms)을 참조하세요. Azure Virtual Network에 조인합니다. 
+3. Azure VM을 만들고 HDInsight 클러스터가 포함된 동일한 가상 네트워크에 연결합니다. 자세한 내용은 [가상 머신을 만드는 방법](../virtual-network/quick-create-portal.md#create-virtual-machines)을 참조하세요. Azure Virtual Network에 조인합니다. 
 4. Azure VM에서 [자체 호스팅 통합 런타임](https://www.microsoft.com/download/details.aspx?id=39717)을 다운로드합니다. 이전 단계에서 얻은 인증 키를 사용하여 자체 호스팅 통합 런타임을 수동으로 등록합니다. 
 
    ![통합 런타임 등록](media/tutorial-transform-data-using-hive-in-vnet/register-integration-runtime.png)
@@ -398,7 +398,7 @@ Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGrou
 이 자습서에서 다음 단계를 수행했습니다. 
 
 > [!div class="checklist"]
-> * 데이터 팩터리를 만듭니다. 
+> * 데이터 팩터리 만들기 
 > * 자체 호스팅 통합 런타임을 작성하고 설정합니다.
 > * 연결된 서비스를 작성하고 배포합니다.
 > * Hive 작업이 포함된 파이프라인을 작성하고 배포합니다.

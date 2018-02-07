@@ -4,7 +4,7 @@ description: "이 문서에는 Azure AD Connect 및 Azure AD Sync의 모든 릴�
 services: active-directory
 documentationcenter: 
 author: billmath
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
@@ -12,28 +12,95 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/03/2017
+ms.date: 12/14/2017
 ms.author: billmath
-ms.openlocfilehash: 51cdb60d1967f2a4a4ebadbd2717fd580a79da6b
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 815d2f289e18a97eff0a05ad1d7dfe4cad1fdfc5
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: 버전 릴리스 내역
 Azure AD(Azure Active Directory) 팀은 새로운 기능과 성능으로 Azure AD Connect를 정기적으로 업데이트합니다. 모든 추가 내용이 모든 대상에 적용되는 것은 아닙니다.
-
 이 문서는 릴리스된 버전을 추적하고 최신 버전으로 업데이트해야 하는지 여부를 파악할 수 있도록 도와줍니다.
 
 다음은 관련 항목 목록입니다.
+
 
 
 항목 |  세부 정보
 --------- | --------- |
 Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스를 [이전 버전에서 최신 버전으로 업그레이드](active-directory-aadconnect-upgrade-previous-version.md) 하는 다른 방법입니다.
 필요한 사용 권한 | 업데이트를 적용하는 데 필요한 사용 권한은 [계정 및 사용 권한](./active-directory-aadconnect-accounts-permissions.md#upgrade)을 참조하세요.
-다운로드| [Azure AD Connect 다운로드](http://go.microsoft.com/fwlink/?LinkId=615771).
 
+다운로드 | [Azure AD Connect 다운로드](http://go.microsoft.com/fwlink/?LinkId=615771).
+
+## <a name="116540"></a>1.1.654.0
+상태: 2017년 12월 12일
+
+>[!NOTE]
+>Azure AD Connect에 대한 보안 관련 핫픽스입니다.
+
+### <a name="azure-ad-connect"></a>Azure AD Connect
+Azure AD Connect 버전 1.1.654.0 이상에서는 Azure AD Connect가 AD DS 계정을 만들 때 [AD DS 계정에 대한 액세스 잠금](#lock) 섹션에 설명된 권장 사용 권한 변경 내용이 자동으로 적용되도록 하는 개선 사항이 추가되었습니다. 
+
+- Azure AD Connect를 설치할 때 설치 관리자는 기존 AD DS 계정을 제공하거나 Azure AD Connect에서 계정을 자동으로 만들도록 할 수 있습니다. 사용 권한 변경 내용은 설치 중에 Azure AD Connect에서 만드는 AD DS 계정에 자동으로 적용됩니다. 설치 관리자가 제공한 기존 AD DS 계정에는 변경 내용이 적용되지 않습니다.
+- 이전 버전의 Azure AD Connect에서1.1.654.0 이상으로 업그레이드한 고객의 경우 업그레이드 전에 생성된 기존 AD DS 계정에 사용 권한 변경이 소급 적용되지 않습니다. 업그레이드 후 만든 새 AD DS 계정에만 적용됩니다. 이 문제는 Azure AD에 동기화할 새 AD 포리스트를 추가할 때 발생합니다.
+
+>[!NOTE]
+>이 릴리스에서는 서비스 계정이 설치 프로세스에서 만들어진 Azure AD Connect의 새 설치에 대한 취약성만 제거합니다. 기존 설치의 경우 또는 계정을 직접 제공하는 경우 이 취약성이 없는지 확인해야 합니다.
+
+#### <a name="lock"></a> AD DS 계정에 대한 액세스 잠금
+온-프레미스 AD에서 다음 사용 권한 변경을 구현하여 AD DS 계정에 대한 액세스를 잠급니다.  
+
+*   지정된 개체에서 상속을 사용하지 않도록 설정합니다.
+*   특정 개체에서 SELF와 관련된 ACE를 제외하고 ACE를 모두 제거합니다. SELF의 경우 기본 사용 권한을 그대로 유지할 수 있습니다.
+*   다음과 같은 특정 권한을 할당합니다.
+
+형식     | Name                          | Access               | 적용 대상
+---------|-------------------------------|----------------------|--------------|
+허용    | SYSTEM                        | 모든 권한         | 이 개체  |
+허용    | 엔터프라이즈 관리자             | 모든 권한         | 이 개체  |
+허용    | 도메인 관리자                 | 모든 권한         | 이 개체  |
+허용    | 관리자                | 모든 권한         | 이 개체  |
+허용    | 엔터프라이즈 도메인 컨트롤러 | 내용 보기        | 이 개체  |
+허용    | 엔터프라이즈 도메인 컨트롤러 | 모든 속성 읽기  | 이 개체  |
+허용    | 엔터프라이즈 도메인 컨트롤러 | 읽기 권한     | 이 개체  |
+허용    | 인증된 사용자           | 내용 보기        | 이 개체  |
+허용    | 인증된 사용자           | 모든 속성 읽기  | 이 개체  |
+허용    | 인증된 사용자           | 읽기 권한     | 이 개체  |
+
+AD DS 계정에 대한 설정을 강화하려면 [이 PowerShell 스크립트](https://gallery.technet.microsoft.com/Prepare-Active-Directory-ef20d978)를 실행할 수 있습니다. 이 PowerShell 스크립트는 위에서 언급한 사용 권한을 AD DS 계정에 할당합니다.
+
+#### <a name="powershell-script-to-tighten-a-pre-existing-service-account"></a>기존 서비스 계정을 강화하는 PowerShell 스크립트입니다.
+
+PowerShell 스크립트를 사용하여 조직에서 제공하거나 이전 Azure AD Connect 설치에서 만든 기존 AD DS 계정에 이러한 설정을 적용하려면 위에 제공된 링크에서 스크립트를 다운로드합니다.
+
+##### <a name="usage"></a>Usage:
+
+```powershell
+Set-ADSyncRestrictedPermissions -ObjectDN <$ObjectDN> -Credential <$Credential>
+```
+
+Where 
+
+**$ObjectDN** = 사용 권한을 강화해야 하는 Active Directory 계정입니다.
+
+**$Credential** = $ObjectDN 계정에 대한 사용 권한을 제한하는 데 필요한 권한을 포함하는 관리자 인증서입니다. 일반적으로 엔터프라이즈 또는 도메인 관리자입니다. 계정 조회 오류를 방지하려면 관리자 계정의 정규화된 도메인 이름을 사용합니다. 예: contoso.com\admin.
+
+>[!NOTE] 
+>$credential.UserName은 FQDN\username 형식이어야 합니다. 예: contoso.com\admin 
+
+##### <a name="example"></a>예:
+
+```powershell
+Set-ADSyncRestrictedPermissions -ObjectDN "CN=TestAccount1,CN=Users,DC=bvtadwbackdc,DC=com" -Credential $credential 
+```
+### <a name="was-this-vulnerability-used-to-gain-unauthorized-access"></a>이 취약성을 이용하여 무단 액세스했나요?
+
+이 취약성을 이용하여 Azure AD Connect 구성을 손상시켰는지 확인하려면 서비스 계정의 마지막 암호 재설정 날짜를 확인해야 합니다.  예기치 않은 타임스탬프가 있으면 해당 암호 재설정 이벤트를 이벤트 로그를 통해 더 자세히 조사해야 합니다.
+
+자세한 내용은 [Microsoft 보안 공지 4056318](https://technet.microsoft.com/library/security/4056318)을 참조하세요.
 
 ## <a name="116490"></a>1.1.649.0
 상태: 2017년 10월 27일
@@ -406,7 +473,7 @@ Azure AD Connect 동기화
   * 특성에 15개 이상의 값이 있는 경우 **userCertificate** 및 **userSMIMECertificate** 특성을 내보내지 않도록 기본 동기화 규칙 집합을 업데이트했습니다.
   * **employeeID** 및 **msExchBypassModerationLink** AD 특성은 이제 기본 동기화 규칙 집합에 포함되어 있습니다.
   * **photo** AD 특성은 기본 동기화 규칙 집합에서 제거되었습니다.
-  * **preferredDataLocation**을 메타버스 스키마 및 AAD 커넥터 스키마에 추가했습니다. Azure AD에서 두 특성 중 하나를 업데이트하려는 고객은 사용자 지정 동기화 규칙을 구현하여 해당 특성을 업데이트할 수 있습니다. 특성에 대한 자세한 내용은 [Azure AD Connect 동기화: 기본 구성을 변경하는 방법 - PreferredDataLocation 동기화 사용](active-directory-aadconnectsync-change-the-configuration.md#enable-synchronization-of-preferreddatalocation) 문서 섹션을 참조하세요.
+  * **preferredDataLocation**을 메타버스 스키마 및 AAD 커넥터 스키마에 추가했습니다. Azure AD에서 두 특성 중 하나를 업데이트하려는 고객은 사용자 지정 동기화 규칙을 구현하여 해당 특성을 업데이트할 수 있습니다. 
   * **userType**을 메타버스 스키마 및 AAD 커넥터 스키마에 추가했습니다. Azure AD에서 두 특성 중 하나를 업데이트하려는 고객은 사용자 지정 동기화 규칙을 구현하여 해당 특성을 업데이트할 수 있습니다.
 
 * Azure AD Connect는 이제 ConsistencyGuid 특성을 온-프레미스 AD 개체에 대한 원본 앵커 특성으로 사용하도록 자동으로 설정합니다. 또한 Azure AD Connect는 ConsistencyGuid 특성이 비어 있는 경우 이 특성을 objectGuid 특성 값으로 채웁니다. 이 기능은 새 배포에만 적용됩니다. 이 기능에 대한 자세한 내용은 [Azure AD Connect: 디자인 개념 - msDS-ConsistencyGuid를 sourceAnchor로 사용](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor)을 참조하세요.

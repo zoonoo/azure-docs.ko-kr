@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 995983a8e32bc01ddc1ab8bbc64345da96875941
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 566773e9bc787bff4e92d86ec57fb0de3121b079
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="transform-data-using-hive-activity-in-azure-data-factory"></a>Azure Data Factory에서 Hive 활동을 사용하여 데이터 변환 
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -74,17 +74,17 @@ Data Factory [파이프라인](data-factory-create-pipelines.md)에서 HDInsight
 }
 ```
 ## <a name="syntax-details"></a>구문 세부 정보
-| 속성 | 설명 | 필수 |
+| 자산 | 설명 | 필수 |
 | --- | --- | --- |
-| name |작업의 이름 |예 |
-| 설명 |작업이 무엇에 사용되는지 설명하는 텍스트입니다. |아니요 |
-| type |HDinsightHive |예 |
+| 이름 |작업의 이름 |예 |
+| description |작업이 무엇에 사용되는지 설명하는 텍스트입니다. |아니오 |
+| 형식 |HDinsightHive |예 |
 | inputs |Hive 활동에서 사용된 입력 |아니요 |
 | outputs |Hive 활동에서 생성된 출력 |예 |
 | linkedServiceName |데이터 팩터리에서 연결된 서비스로 등록된 HDInsight 클러스터에 대한 참조 |예 |
 | script |Hive 스크립트 인라인 지정 |아니요 |
 | script path |Hive 스크립트를 Azure blob 저장소에 저장하고 파일에 대한 경로를 제공합니다. 'script' 또는 'scriptPath' 속성을 사용합니다. 둘 모두를 사용할 수는 없습니다. 파일 이름은 대/소문자를 구분합니다. |아니요 |
-| defines |'hiveconf'를 사용하는 Hive 스크립트 내에서 참조하기 위해 매개 변수를 키/값 쌍으로 지정 |아니요 |
+| defines |'hiveconf'를 사용하는 Hive 스크립트 내에서 참조하기 위해 매개 변수를 키/값 쌍으로 지정 |아니오 |
 
 ## <a name="example"></a>예
 회사에서 출시한 게임을 사용자가 플레이한 시간을 파악하려는 게임 로그 분석의 예를 살펴보겠습니다. 

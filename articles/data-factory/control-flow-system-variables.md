@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2017
+ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 274c003e0697ba08d010c3bf13724461a4b624ee
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: bdf1754226852145e9bf5597256339549f253071
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="system-variables-supported-by-azure-data-factory"></a>Azure Data Factory에서 지원하는 시스템 변수
 이 문서에서는 Azure Data Factory에서 지원하는 시스템 변수에 대해 설명합니다. 데이터 팩터리 엔터티를 정의할 때 식에서 이러한 변수를 사용할 수 있습니다. 

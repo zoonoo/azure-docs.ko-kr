@@ -14,16 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 12/19/2017
 ms.author: sngun
-ms.openlocfilehash: ab095827dc9dbfee19284abfbac353b16d3239a7
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: f2f4a8d8cda752dc6ed197b8402119f7cbcaf58f
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="run-azure-functions-with-azure-stream-analytics-jobs"></a>Azure Stream Analytics 작업에서 Azure Function 실행 
- 
-> [!IMPORTANT]
-> 이 기능은 미리 보기 상태입니다.
 
 Functions를 Stream Analytics 작업에 대한 출력 싱크 중 하나로 구성하여 Azure Stream Analytics에서 Azure Functions를 실행할 수 있습니다. Functions는 Azure 또는 타사 서비스에서 발생하는 이벤트로 트리거되는 코드를 구현할 수 있게 해주는 이벤트 중심의 컴퓨팅 온 디맨드 환경입니다. 트리거에 응답하는 이러한 Functions 기능 때문에 Stream Analytics 작업에 대한 출력이 자연스럽게 제공됩니다.
 
@@ -62,7 +59,7 @@ Stream Analytics는 HTTP 트리거를 통해 Functions를 호출합니다. Funct
 
 2. **run.csx** 함수를 찾습니다. 다음 코드로 업데이트합니다. (“\<redis 캐시 연결 문자열이 여기에 표시됩니다.\>”를 이전 섹션에서 검색한 Azure Redis Cache 기본 연결 문자열로 바꿉니다.)  
 
-   ```c#
+   ```csharp
    using System;
    using System.Net;
    using System.Threading.Tasks;
@@ -113,7 +110,7 @@ Stream Analytics는 HTTP 트리거를 통해 Functions를 호출합니다. Funct
 
    Stream Analytics가 함수에서 "HTTP 요청 엔터티가 너무 큼" 예외를 수신할 경우 Functions로 보내는 일괄 처리 크기를 줄입니다. 함수에서 다음 코드를 사용하여 Stream Analytics가 너무 큰 일괄 처리를 보내지 않는지 확인합니다. 함수에 사용되는 최대 일괄 처리 수 및 크기 값이 Stream Analytics 포털에 입력한 값과 일치하는지 확인합니다.
 
-   ```c#
+   ```csharp
    if (dataArray.ToString().Length > 262144)
       {        
         return new HttpResponseMessage(HttpStatusCode.RequestEntityTooLarge);

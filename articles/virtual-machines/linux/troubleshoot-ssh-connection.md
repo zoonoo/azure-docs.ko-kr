@@ -16,14 +16,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: iainfou
-ms.openlocfilehash: 3a282c8b2c2ba2749de6a2d3688bd57d75703b22
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b7fe6dadb444ebbe6af6239562f507e451f9f605
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>실패하거나 오류가 발생하거나 거부되는 Azure Linux VM에 대한 SSH 연결 문제 해결
-Linux VM(가상 컴퓨터)에 연결하려고 할 때 다양한 이유로 인해 SSH(Secure Shell) 오류, SSH 연결 실패 또는 SSH 연결 거부 문제가 발생할 수 있습니다. 이 문서는 문제를 찾아 해결하는 데 도움이 됩니다. Azure Portal, Azure CLI 또는 Linux용 VM 액세스 확장을 사용하여 연결 문제를 해결할 수 있습니다.
+Linux VM(가상 머신)에 연결하려고 할 때 다양한 이유로 인해 SSH(Secure Shell) 오류, SSH 연결 실패 또는 SSH 연결 거부 문제가 발생할 수 있습니다. 이 문서는 문제를 찾아 해결하는 데 도움이 됩니다. Azure Portal, Azure CLI 또는 Linux용 VM 액세스 확장을 사용하여 연결 문제를 해결할 수 있습니다.
 
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
@@ -54,7 +54,7 @@ Linux VM(가상 컴퓨터)에 연결하려고 할 때 다양한 이유로 인해
 
 각 문제 해결 단계 후 VM에 다시 연결을 시도합니다. 그래도 연결할 수 없으면 다음 단계를 시도합니다.
 
-## <a name="use-the-azure-portal"></a>Azure Portal 사용
+## <a name="use-the-azure-portal"></a>Azure 포털 사용
 Azure Portal은 로컬 컴퓨터에 도구를 설치하지 않고 SSH 구성 또는 사용자 자격 증명을 다시 설정하는 빠른 방법을 제공합니다.
 
 Azure Portal에서 VM을 선택합니다. **지원 + 문제 해결** 섹션까지 아래로 스크롤하고 다음 예제와 같이 **암호 재설정**을 선택합니다.
@@ -178,7 +178,7 @@ azure vm reset-access --resource-group myResourceGroup --name myVM \
 ## <a name="restart-a-vm"></a>VM 다시 시작
 SSH 구성 및 사용자 자격 증명을 다시 설정했거나 그 과정에서 오류가 발생한 경우 VM을 다시 시작하여 기본 계산 문제를 해결할 수 있습니다.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 Azure Portal을 사용하여 VM을 다시 시작하려면 다음 예제와 같이 VM을 선택하고 **다시 시작** 단추를 클릭합니다.
 
 ![Azure Portal에서 VM 다시 시작](./media/troubleshoot-ssh-connection/restart-vm-using-portal.png)
@@ -199,14 +199,14 @@ az vm restart --resource-group myResourceGroup --name myVM
 
 
 ## <a name="redeploy-a-vm"></a>VM 재배포
-Azure 내의 다른 노드로 VM을 재배포하여 기본 네트워킹 문제를 해결할 수 있습니다. VM을 다시 배포하는 방법에 대한 자세한 내용은 [새 Azure 노드로 가상 컴퓨터 다시 배포](../windows/redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
+Azure 내의 다른 노드로 VM을 재배포하여 기본 네트워킹 문제를 해결할 수 있습니다. VM을 다시 배포하는 방법에 대한 자세한 내용은 [새 Azure 노드로 가상 머신 다시 배포](../windows/redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 
 > [!NOTE]
-> 이 작업이 완료되면 임시 디스크 데이터가 손실되고 가상 컴퓨터와 연결된 동적 IP 주소가 업데이트됩니다.
+> 이 작업이 완료되면 임시 디스크 데이터가 손실되고 가상 머신과 연결된 동적 IP 주소가 업데이트됩니다.
 > 
 > 
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 Azure Portal을 사용하여 VM을 다시 배포하려면 VM을 선택하고 **지원 + 문제 해결** 섹션까지 아래로 스크롤합니다. 다음 예제와 같이 **다시 배포** 단추를 클릭합니다.
 
 ![Azure Portal에서 VM 다시 배포](./media/troubleshoot-ssh-connection/redeploy-vm-using-portal.png)
@@ -231,10 +231,10 @@ az vm redeploy --resource-group myResourceGroup --name myVM
 * [Azure Portal](https://portal.azure.com)에서 원격 액세스를 다시 설정합니다. Azure Portal에서 VM을 선택하고 **원격 다시 설정...** 단추를 클릭합니다.
 * VM을 다시 시작합니다. [Azure portal](https://portal.azure.com)에서 VM을 선택하고 **다시 시작** 단추를 클릭합니다.
     
-* 새 Azure 노드에 VM을 다시 배포합니다. VM을 다시 배포하는 방법에 대한 자세한 내용은 [새 Azure 노드로 가상 컴퓨터 다시 배포](../windows/redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
+* 새 Azure 노드에 VM을 다시 배포합니다. VM을 다시 배포하는 방법에 대한 자세한 내용은 [새 Azure 노드로 가상 머신 다시 배포](../windows/redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
   
     이 작업이 완료되면 임시 디스크 데이터가 손실되고 가상 컴퓨터와 연결된 동적 IP 주소가 업데이트됩니다.
-* [Linux 기반 가상 컴퓨터의 암호 또는 SSH를 다시 설정하는 방법](classic/reset-access.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)의 지침을 따르세요.
+* [Linux 기반 가상 머신의 암호 또는 SSH를 다시 설정하는 방법](classic/reset-access-classic.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)의 지침을 따르세요.
   
   * 암호 또는 SSH 키를 재설정합니다.
   * 새 *sudo* 사용자 계정을 만듭니다.
@@ -245,5 +245,5 @@ az vm redeploy --resource-group myResourceGroup --name myVM
 ## <a name="additional-resources"></a>추가 리소스
 * 후속 단계를 수행한 후에도 VM에 대해 SSH를 사용할 수 없는 경우 [자세한 문제 해결 단계](detailed-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하여 단계를 검토하고 문제를 해결할 수 있습니다.
 * 응용 프로그램 액세스 문제를 해결하는 방법에 대한 자세한 내용은 [Azure 가상 컴퓨터에서 실행 중인 응용 프로그램에 대한 액세스 문제 해결](../windows/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 참조하세요.
-* 클래식 배포 모델을 사용하여 만든 가상 컴퓨터의 문제 해결 방법에 대한 자세한 내용은 [Linux 기반 가상 컴퓨터의 암호 또는 SSH를 다시 설정하는 방법](classic/reset-access.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)을 참조하세요.
+* 클래식 배포 모델을 사용하여 만든 가상 머신의 문제 해결 방법에 대한 자세한 내용은 [Linux 기반 가상 머신의 암호 또는 SSH를 다시 설정하는 방법](classic/reset-access-classic.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)을 참조하세요.
 

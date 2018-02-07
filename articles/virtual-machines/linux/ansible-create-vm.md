@@ -1,6 +1,6 @@
 ---
 title: "Azure에서 Ansible을 사용하여 기본 Linux VM 만들기 | Microsoft Docs"
-description: "Azure에서 Ansible을 사용하여 기본 Linux 가상 컴퓨터를 만들고 관리하는 방법을 알아봅니다"
+description: "Azure에서 Ansible을 사용하여 기본 Linux 가상 머신을 만들고 관리하는 방법을 알아봅니다"
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/25/2017
+ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: ee499b57733cd19dfe411e0e463dd3c65e82a52d
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 184a30c91de0d4141d6bd8a8b9db93c539e083b5
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/19/2017
 ---
-# <a name="create-a-basic-virtual-machine-in-azure-with-ansible"></a>Azure에서 Ansible을 사용하여 기본 가상 컴퓨터 만들기
-Ansible을 사용하면 사용자 환경에서 리소스의 배포 및 구성을 자동화할 수 있습니다. Azure에서 Ansible을 사용하여 다른 리소스와 동일한 방식으로 VM(가상 컴퓨터)을 관리할 수 있습니다. 이 문서에서는 Ansible을 사용하여 기본 VM을 만드는 방법을 보여 줍니다. 또한 [Ansible을 사용하여 전체 VM 환경을 만드는](ansible-create-complete-vm.md) 방법도 배울 수 있습니다.
+# <a name="create-a-basic-virtual-machine-in-azure-with-ansible"></a>Azure에서 Ansible을 사용하여 기본 가상 머신 만들기
+Ansible을 사용하면 사용자 환경에서 리소스의 배포 및 구성을 자동화할 수 있습니다. Azure에서 Ansible을 사용하여 다른 리소스와 동일한 방식으로 VM(가상 머신)을 관리할 수 있습니다. 이 문서에서는 Ansible을 사용하여 기본 VM을 만드는 방법을 보여 줍니다. 또한 [Ansible을 사용하여 전체 VM 환경을 만드는](ansible-create-complete-vm.md) 방법도 배울 수 있습니다.
 
 
 ## <a name="prerequisites"></a>필수 조건
@@ -56,7 +56,7 @@ az network vnet create \
 
 
 ## <a name="create-and-run-ansible-playbook"></a>Ansible Playbook 만들기 및 실행
-**azure_create_vm.yml**이라는 Ansible Playbook을 만들고 다음 내용을 붙여넣습니다. 이 예제에서는 단일 VM을 만들고 SSH 자격 증명을 구성합니다. 다음과 같이 *key_data* 쌍으로 사용자 고유의 공개 키 데이터를 입력합니다.
+*azure_create_vm.yml*이라는 Ansible Playbook을 만들고 다음 내용을 붙여넣습니다. 이 예제에서는 단일 VM을 만들고 SSH 자격 증명을 구성합니다. 다음과 같이 *key_data* 쌍으로 사용자 고유의 전체 공개 키 데이터를 입력합니다.
 
 ```yaml
 - name: Create Azure VM

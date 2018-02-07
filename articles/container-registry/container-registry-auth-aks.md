@@ -8,11 +8,11 @@ ms.service: container-service
 ms.topic: article
 ms.date: 1/12/2018
 ms.author: nepeters
-ms.openlocfilehash: b9742e3994cf4c02ce3fef87099303921907bf77
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 86a160d8f2dbfb0e385d9dbed7cf6d789f5a8df6
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-container-service"></a>Azure Container Service의 Azure Container Registry를 사용하여 인증
 
@@ -39,7 +39,7 @@ CLIENT_ID=$(az aks show --resource-group $AKS_RESOURCE_GROUP --name $AKS_CLUSTER
 ACR_ID=$(az acr show --name $ACR_NAME --resource-group $ACR_RESOURCE_GROUP --query "id" --output tsv)
 
 # Create role assignment
-az role assignment create --assignee $CLIENT_ID --role Read --scope $ACR_ID
+az role assignment create --assignee $CLIENT_ID --role Reader --scope $ACR_ID
 ```
 
 ## <a name="access-with-kubernetes-secret"></a>Kubernetes 비밀을 사용하여 액세스
@@ -59,7 +59,7 @@ ACR_LOGIN_SERVER=$(az acr show --name $ACR_NAME --query loginServer --output tsv
 ACR_REGISTRY_ID=$(az acr show --name $ACR_NAME --query id --output tsv)
 
 # Create a contributor role assignment with a scope of the ACR resource. 
-SP_PASSWD=$(az ad sp create-for-rbac --name $SERVICE_PRINCIPAL_NAME --role Read --scopes $ACR_REGISTRY_ID --query password --output tsv)
+SP_PASSWD=$(az ad sp create-for-rbac --name $SERVICE_PRINCIPAL_NAME --role Reader --scopes $ACR_REGISTRY_ID --query password --output tsv)
 
 # Get the service principle client id.
 CLIENT_ID=$(az ad sp show --id http://$SERVICE_PRINCIPAL_NAME --query appId --output tsv)
@@ -74,7 +74,7 @@ echo "Service principal password: $SP_PASSWD"
 다음 명령은 Kubernetes 비밀을 만듭니다. 서버 이름을 ACR 로그인 서버로 바꾸고, 사용자 이름을 서비스 주체 ID로 바꾸고, 암호를 서비스 주체 암호로 바꿉니다.
 
 ```bash
-kubectl create secret docker-registry acr-auth --docker-server <acr-login-server> --docker-username <service-principal-ID> --docker-password <service-principal-password> 
+kubectl create secret docker-registry acr-auth --docker-server <acr-login-server> --docker-username <service-principal-ID> --docker-password <service-principal-password> --docker-email <email-address>
 ```
 
 Kubernetes 비밀은 Pod 배포에서 `ImagePullSecrets` 매개 변수를 사용하여 사용할 수 있습니다. 

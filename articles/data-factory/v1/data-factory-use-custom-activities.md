@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: c741f995c32bf6fa9ba4e0646573be8cdb67a7c3
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: cfdee4450b0ef88d593d401009a7d7f29c24780b
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Azure Data Factory 파이프라인에서 사용자 지정 작업 사용
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -44,7 +44,7 @@ Data Factory에서 지원되지 않는 데이터 저장소에서 다른 위치�
 > - 사용자 지정 작업에서 데이터 관리 게이트웨이를 사용하여 온-프레미스 데이터 원본에 액세스할 수는 없습니다. 현재 [데이터 관리 게이트웨이](data-factory-data-management-gateway.md)에서는 Data Factory의 복사 작업 및 저장 프로시저 작업만 지원합니다.   
 
 ## <a name="walkthrough-create-a-custom-activity"></a>연습: 사용자 지정 작업 만들기
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>필수 조건
 * Visual Studio 2012/2013/2015
 * [Azure .NET SDK](https://azure.microsoft.com/downloads/)
 

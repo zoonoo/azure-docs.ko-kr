@@ -37,12 +37,16 @@
           items:
             - name: 자바
               href: quick-enroll-device-tpm-java.md
+            - name: 'C#'
+              href: quick-enroll-device-tpm-csharp.md
             - name: Node.js
               href: quick-enroll-device-tpm-node.md
         - name: X.509
           items:
             - name: 자바
               href: quick-enroll-device-x509-java.md
+            - name: 'C#'
+              href: quick-enroll-device-x509-csharp.md
             - name: Node.js
               href: quick-enroll-device-x509-node.md
 - name: 자습서
@@ -87,6 +91,8 @@
       href: how-to-control-access.md
     - name: Azure CLI를 사용하여 장치 프로비전 서비스 관리
       href: how-to-manage-dps-with-cli.md
+    - name: SDK 도구를 사용하여 개발
+      href: how-to-use-sdk-tools.md
 - name: 참고 자료
   items:
     - name: REST (영문)

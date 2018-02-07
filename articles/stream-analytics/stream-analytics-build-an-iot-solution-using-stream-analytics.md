@@ -4,8 +4,8 @@ description: "요금 창구 시나리오의 Stream Analytics IoT 솔루션 시�
 keywords: "iot 솔루션, 창 함수"
 documentationcenter: 
 services: stream-analytics
-author: samacha
-manager: jhubbard
+author: SnehaGunda
+manager: kfile
 editor: cgronlun
 ms.assetid: a473ea0a-3eaa-4e5b-aaa1-fec7e9069f20
 ms.service: stream-analytics
@@ -13,15 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 03/28/2017
-ms.author: samacha
-ms.openlocfilehash: a93693ef7d40025fa96846594a8eb525a50b6885
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 01/12/2018
+ms.author: sngun
+ms.openlocfilehash: cc84a34a410a750ddf2acb8f19b3bb809d269098
+ms.sourcegitcommit: a0d2423f1f277516ab2a15fe26afbc3db2f66e33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Stream Analytics를 사용하여 IoT 솔루션 빌드
+
 ## <a name="introduction"></a>소개
 이 자습서에서는 Azure Stream Analytics를 사용하여 데이터에서 실시간으로 통찰력을 얻는 방법을 배웁니다. 개발자는 클릭 스트림, 로그 및 장치에서 생성된 이벤트와 같은 데이터 스트림을 기록 레코드 또는 참조 데이터와 조합하여 비즈니스 통찰력을 얻을 수 있습니다. Azure Stream Analytics는 Microsoft Azure에 호스트된 완전히 관리되는 실시간 스트림 계산 서비스로, 기본 제공 복원력, 낮은 대기 시간 및 확장성을 제공하여 몇 분 안에 실행할 수 있습니다.
 
@@ -131,7 +132,7 @@ Azure 계정이 없는 경우 [평가판 버전을 요청](http://azure.microsof
 이 문서 끝에 나오는 "Azure 계정 정리" 섹션의 단계를 수행해야 Azure 크레딧을 최대한 활용할 수 있습니다.
 
 ## <a name="provision-azure-resources-required-for-the-tutorial"></a>자습서에 필요한 Azure 리소스 프로비전
-이 자습서는 *진입* 및 *진출* 데이터 스트림을 받기 위해 2개의 이벤트 허브가 필요합니다. Azure SQL Database는 Stream Analytics 작업의 결과를 출력합니다. Azure 저장소는 차량 등록에 대한 참조 데이터를 저장합니다.
+이 자습서는 *진입* 및 *진출* 데이터 스트림을 받기 위해 2개의 이벤트 허브가 필요합니다. Azure SQL Database는 Stream Analytics 작업의 결과를 출력합니다. Azure Storage는 차량 등록에 대한 참조 데이터를 저장합니다.
 
 GitHub에 있는 TollApp 폴더의 Setup.ps1 스크립트를 사용하여 필요한 모든 리소스를 만들 수 있습니다. 시간 형편상 이를 실행하는 것이 좋습니다. Azure Portal에서 이러한 리소스를 구성하는 방법에 대해 자세히 알아보려면 "Azure Portal에서 자습서 리소스 구성" 부록을 참조하세요.
 
@@ -175,24 +176,11 @@ Windows는 .ps1, .dll 및 .exe 파일을 자동으로 차단하기 때문에 스
 이제 리소스를 Azure Portal에서 볼 수 있습니다. <https://portal.azure.com>으로 이동하고 계정 자격 증명으로 로그인합니다. 현재 일부 기능은 클래식 포털을 활용합니다. 다음 단계가 명확하게 표시됩니다.
 
 ### <a name="azure-event-hubs"></a>Azure Event Hubs
-Azure Portal에서 왼쪽 관리 창 아래에 있는 **추가 서비스**를 클릭합니다. 제공되는 필드에서 **Event hubs**를 입력하고 **Event hubs**를 클릭합니다. **클래식 포털**에서 **Service Bus** 영역을 표시하는 새 브라우저 창을 시작합니다. 여기에서 Setup.ps1 스크립트에서 만든 Event Hub를 볼 수 있습니다.
 
-![Service Bus](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image8.png)
+Azure Portal에서 왼쪽 관리 창 아래에 있는 **추가 서비스**를 클릭합니다. 제공된 필드에 **Event Hubs**를 입력하면 **tolldata**로 시작하는 새 이벤트 허브 네임스페이스를 볼 수 있습니다. 이 네임스페이스는 Setup.ps1 스크립트에 의해 생성됩니다. 이 네임스페이스에서 만든 **진입**과 **진출**이라는 두 개의 이벤트 허브가 표시됩니다.
 
-*tolldata*로 시작하는 항목을 클릭합니다. **EVENT HUBS** 탭을 클릭합니다. 이 네임스페이스에서 만든 *진입*과 *진출*이라는 두 개의 이벤트 허브가 표시됩니다.
-
-![클래식 포털의 Event Hubs 탭](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image9.png)
-
-### <a name="azure-storage-container"></a>Azure 저장소 컨테이너
-1. Azure Portal로 브라우저 열기에서 탭으로 돌아갑니다. 자습서에 사용되는 Azure 저장소 컨테이너를 보려면 Azure Portal 왼쪽의 **저장소**를 클릭합니다.
-   
-    ![저장소 메뉴 항목](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image11.png)
-2. *tolldata*로 시작하는 항목을 클릭합니다. 만들어진 컨테이너를 보려면 **컨테이너** 탭을 클릭합니다.
-   
-    ![Azure Portal의 컨테이너 탭](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image10.png)
-3. 차량 등록 데이터가 들어 있는 업로드된 JSON 파일을 보려면 **tolldata** 컨테이너를 클릭합니다.
-   
-    ![컨테이너에 있는 registration.json 파일 스크린샷](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image12.png)
+### <a name="azure-storage-container"></a>Azure Storage 컨테이너
+Azure Portal에서 저장소 계정으이동로 하면 **tolldata**로 시작하는 저장소 계정이 표시됩니다. 차량 등록 데이터가 들어 있는 업로드된 JSON 파일을 보려면 **tolldata** 컨테이너를 클릭합니다.
 
 ### <a name="azure-sql-database"></a>Azure SQL Database
 1. 브라우저에서 열려 있는 첫 번째 탭에서 Azure Portal로 다시 이동합니다. 자습서에서 사용되는 SQL Database를 보려면 Azure Portal 왼쪽에 있는 **SQL Database**를 클릭하고 **tolldatadb**를 클릭합니다.

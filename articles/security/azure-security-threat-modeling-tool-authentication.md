@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: e547469dc61eddd1d772571ab0919532ac91f128
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1ac614156755b9b29db7c968c708a5cff706f7a8
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="security-frame-authentication--mitigations"></a>보안 프레임: 인증 | 완화 
 | 제품/서비스 | 문서 |
@@ -35,7 +35,7 @@ ms.lasthandoff: 10/11/2017
 | **Azure AD** | <ul><li>[Azure Active Directory에서 지원하는 표준 인증 시나리오 사용](#authn-aad)</li><li>[기본 ADAL 토큰 캐시를 확장성 있는 대안으로 재정의](#adal-scalable)</li><li>[ADAL 인증 토큰의 재생을 방지하는 데 TokenReplayCache가 사용되는지 확인](#tokenreplaycache-adal)</li><li>[ADAL 라이브러리를 사용하여 OAuth2 클라이언트에서 AAD(또는 온-프레미스 AD)로 토큰 요청 관리](#adal-oauth2)</li></ul> |
 | **IoT 필드 게이트웨이** | <ul><li>[필드 게이트웨이에 연결되는 장치 인증](#authn-devices-field)</li></ul> |
 | **IoT 클라우드 게이트웨이** | <ul><li>[클라우드 게이트웨이에 연결되는 장치가 인증되는지 확인](#authn-devices-cloud)</li><li>[장치당 인증 자격 증명 사용](#authn-cred)</li></ul> |
-| **Azure 저장소** | <ul><li>[필요한 컨테이너 및 Blob에만 익명 읽기 권한이 지정되었는지 확인](#req-containers-anon)</li><li>[SAS 또는 SAP를 사용하여 Azure Storage에서 개체에 대한 제한된 액세스 부여](#limited-access-sas)</li></ul> |
+| **Azure Storage** | <ul><li>[필요한 컨테이너 및 Blob에만 익명 읽기 권한이 지정되었는지 확인](#req-containers-anon)</li><li>[SAS 또는 SAP를 사용하여 Azure Storage에서 개체에 대한 제한된 액세스 부여](#limited-access-sas)</li></ul> |
 
 ## <a id="standard-authn-web-app"></a>표준 인증 메커니즘을 사용하여 웹 응용 프로그램 인증 고려
 
@@ -133,7 +133,7 @@ ms.lasthandoff: 10/11/2017
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | SQL Azure |
 | **특성**              | SQL 버전 - V12 |
-| **참조**              | [Azure Active Directory 인증을 사용하여 SQL 데이터베이스에 연결](https://azure.microsoft.com/documentation/articles/sql-database-aad-authentication/) |
+| **참조**              | [Azure Active Directory 인증을 사용하여 SQL Database에 연결](https://azure.microsoft.com/documentation/articles/sql-database-aad-authentication/) |
 | **단계** | **최소 버전:**Azure SQL Database V12에서는 Azure SQL Database가 Microsoft Directory에 대해 AAD 인증을 사용하도록 합니다. |
 
 ## <a id="authn-account-pword"></a>SQL 인증 모드가 사용되는 경우 계정 및 암호 정책이 SQL Server에 적용되어야 함
@@ -268,7 +268,7 @@ ms.lasthandoff: 10/11/2017
 | **참조**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx) |
 | **단계** | MSMQ 큐에 연결할 때 프로그램이 인증을 사용하는 데 실패하면 공격자는 처리를 위해 큐에 메시지를 익명으로 제출할 수 있습니다. 다른 프로그램에 메시지를 전달하는 데 사용되는 MSMQ 큐에 연결하는 데 인증이 사용되지 않으면 공격자가 악성인 익명의 메시지를 제출할 수 있습니다.|
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 아래에 보이는 WCF 구성 파일의 `<netMsmqBinding/>` 요소는 메시지 배달을 위한 MSMQ 큐에 연결할 때 WCF가 인증을 사용하지 않도록 지시합니다.
 ```
 <bindings>
@@ -283,7 +283,7 @@ ms.lasthandoff: 10/11/2017
 ```
 모든 들어오거나 나가는 메시지에 대해 항상 Windows 도메인 또는 인증서 인증을 요구하도록 MSMQ를 구성합니다.
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 아래 WCF 구성 파일의 `<netMsmqBinding/>` 요소는 MSMQ 큐에 연결할 때 WCF가 인증서 인증을 사용하도록 지시합니다. 클라이언트는 X.509 인증서를 사용하여 인증됩니다. 클라이언트 인증서는 서버의 클라이언트 저장소에 있어야 합니다.
 ```
 <bindings>
@@ -308,7 +308,7 @@ ms.lasthandoff: 10/11/2017
 | **참조**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify](https://vulncat.fortify.com/en/vulncat/index.html) |
 | **단계** | 인증이 없다는 것은 모든 사람이 이 서비스에 액세스할 수 있음을 의미합니다. 해당 클라이언트를 인증하지 않는 서비스는 모든 사용자가 액세스할 수 있습니다. 클라이언트 자격 증명에 대해 인증하도록 응용 프로그램을 구성합니다. message clientCredentialType을 Windows 또는 Certificate로 설정하여 이 작업을 수행할 수 있습니다. |
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 ```
 <message clientCredentialType=""Certificate""/>
 ```
@@ -324,7 +324,7 @@ ms.lasthandoff: 10/11/2017
 | **참조**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify](https://vulncat.fortify.com/en/vulncat/index.html) |
 | **단계** | 인증이 없다는 것은 모든 사람이 이 서비스에 액세스할 수 있음을 의미합니다. 해당 클라이언트를 인증하지 않는 서비스는 모든 사용자가 해당 기능에 액세스할 수 있습니다. 클라이언트 자격 증명에 대해 인증하도록 응용 프로그램을 구성합니다. transport clientCredentialType을 Windows 또는 Certificate로 설정하여 이 작업을 수행할 수 있습니다. |
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 ```
 <transport clientCredentialType=""Certificate""/>
 ```
@@ -373,8 +373,8 @@ ms.lasthandoff: 10/11/2017
 | **참조**              | [웹 응용 프로그램에 대한 Azure Active Directory의 최신 인증](https://blogs.msdn.microsoft.com/microsoft_press/2016/01/04/new-book-modern-authentication-with-azure-active-directory-for-web-applications/)(영문) |
 | **단계** | <p>TokenReplayCache 속성을 통해 개발자는 토큰 재생 캐시를 정의할 수 있으며 두 번 이상 사용할 수 있는 토큰이 없음을 확인할 용도로 토큰을 저장하는 데 사용할 수 있는 저장소를 정의할 수 있습니다.</p><p>일반적인 공격 즉, 토큰 재생 공격에 대한 조치입니다. 로그인 시 전송된 토큰을 가로채는 공격자는 새로운 세션을 설정하기 위해 토큰을 다시 앱에 전송("재생")하려고 할 수 있습니다. 예를 들어, OIDC 코드 부여 흐름에서 사용자가 성공적으로 인증된 후 신뢰 당사자의 "/signin-oidc" 끝점에 대한 요청은 "id_token", "code" 및 "state" 매개 변수로 구성됩니다.</p><p>신뢰 당사자는 이 요청을 확인하고 새 세션을 설정합니다. 이 요청을 악의적으로 캡처하고 재생한 공격자는 성공적인 세션을 설정하여 사용자를 스푸핑할 수 있습니다. OpenID Connect에서 nonce의 존재를 제한할 수는 있지만 공격을 성공적으로 적용할 수 있는 환경이 완전히 사라지지는 않습니다. 이러한 응용 프로그램을 보호하려면 개발자는 ITokenReplayCache의 구현을 제공하고 인스턴스를 TokenReplayCache에 할당할 수 있습니다.</p>|
 
-### <a name="example"></a>예제
-```C#
+### <a name="example"></a>예
+```csharp
 // ITokenReplayCache defined in ADAL
 public interface ITokenReplayCache
 {
@@ -383,9 +383,9 @@ bool TryFind(string securityToken);
 }
 ```
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 ITokenReplayCache 인터페이스의 예제 구현은 다음과 같습니다. (프로젝트별 캐싱 프레임워크를 사용자 지정 및 구현하세요)
-```C#
+```csharp
 public class TokenReplayCache : ITokenReplayCache
 {
     private readonly ICacheProvider cache; // Your project-specific cache provider
@@ -409,7 +409,7 @@ public class TokenReplayCache : ITokenReplayCache
 }
 ```
 구현된 캐시는 다음과 같이 "TokenValidationParameters" 속성을 통해 OIDC 옵션에서 참조되어야 합니다.
-```C#
+```csharp
 OpenIdConnectOptions openIdConnectOptions = new OpenIdConnectOptions
 {
     AutomaticAuthenticate = true,
@@ -456,8 +456,8 @@ OpenIdConnectOptions openIdConnectOptions = new OpenIdConnectOptions
 | **참조**              | 해당 없음, [Azure IoT Hub 및 .NET](https://azure.microsoft.com/documentation/articles/iot-hub-csharp-csharp-getstarted/), [IoT Hub 및 Node JS 시작](https://azure.microsoft.com/documentation/articles/iot-hub-node-node-getstarted), [SAS 및 인증서로 IoT 보호](https://azure.microsoft.com/documentation/articles/iot-hub-sas-tokens/), [Git 리포지토리](https://github.com/Azure/azure-iot-sdks/tree/master/node) |
 | **단계** | <ul><li>**일반:** TLS(전송 계층 보안) 또는 IPSec을 사용하여 장치를 인증합니다. 전체 비대칭 암호화를 처리할 수 없는 PSK(미리 공유한 키)를 해당 장치에서 사용할 수 있도록 인프라가 지원해야 합니다. Azure AD, Oauth를 활용하세요.</li><li>**C#:** DeviceClient 인스턴스를 만들 때, 기본적으로 Create 메서드는 AMQP 프로토콜을 사용하여 IoT Hub와 통신하는 DeviceClient 인스턴스를 만듭니다. HTTPS 프로토콜을 사용하려면 프로토콜을 지정할 수 있도록 해주는 Create 메서드의 재정의를 사용합니다. HTTPS 프로토콜을 사용하려면 `Microsoft.AspNet.WebApi.Client` NuGet 패키지를 프로젝트에 추가하여 `System.Net.Http.Formatting` 네임스페이스를 포함해야 합니다.</li></ul>|
 
-### <a name="example"></a>예제
-```C#
+### <a name="example"></a>예
+```csharp
 static DeviceClient deviceClient;
 
 static string deviceKey = "{device key}";
@@ -471,7 +471,7 @@ deviceClient = DeviceClient.Create(iotHubUri, new DeviceAuthenticationWithRegist
 await deviceClient.SendEventAsync(message);
 ```
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 **Node.JS: 인증**
 #### <a name="symmetric-key"></a>대칭 키
 * azure에서 IoT Hub 만들기
@@ -560,7 +560,7 @@ await deviceClient.SendEventAsync(message);
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
-| **구성 요소**               | Azure 저장소 | 
+| **구성 요소**               | Azure Storage | 
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반 |
 | **특성**              | StorageType - Blob |
@@ -571,7 +571,7 @@ await deviceClient.SendEventAsync(message);
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
-| **구성 요소**               | Azure 저장소 | 
+| **구성 요소**               | Azure Storage | 
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음 |

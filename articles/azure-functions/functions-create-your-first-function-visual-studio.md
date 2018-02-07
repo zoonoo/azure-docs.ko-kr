@@ -14,60 +14,52 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 12/11/2017
+ms.date: 01/17/2018
 ms.author: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 401230c6d7ef522a6a607fd03f798483f942a226
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: e8a43febdb2958f58ecb8d82f9f42b39c591522d
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-your-first-function-using-visual-studio"></a>Visual Studio를 사용하여 첫 번째 함수 만들기
 
 Azure Functions를 사용하면 먼저 VM을 만들거나 웹 응용 프로그램을 게시하지 않고도 [서버를 사용하지 않는](https://azure.microsoft.com/overview/serverless-computing/) 환경에서 코드를 실행할 수 있습니다.
 
-이 항목에서는 Visual Studio 2017 tools for Azure Functions를 사용하여 로컬에서 "hello world" 함수를 만들고 테스트하는 방법에 대해 알아봅니다. 그런 다음 함수 코드를 Azure에 게시합니다. 이러한 도구는 Visual Studio 2017 버전 15.3 이상에서 Azure 개발 워크로드의 일부로 제공됩니다.
+이 문서에서는 Visual Studio 2017 tools for Azure Functions를 사용하여 로컬로 "hello world" 함수를 만들고 테스트하는 방법에 대해 알아봅니다. 그런 후 함수 코드를 Azure에 게시합니다. 이러한 도구는 Visual Studio 2017에서 Azure 개발 워크로드의 일부로 제공됩니다.
 
 ![Visual Studio 프로젝트의 Azure Functions 코드](./media/functions-create-your-first-function-visual-studio/functions-vstools-intro.png)
 
-원하는 경우 [동영상을 시청](#watch-the-video)할 수 있습니다.
+이 항목에는 동일한 기본 단계를 보여주는 [비디오](#watch-the-video)가 포함되어 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 자습서를 완료하려면 다음을 설치합니다.
+이 자습서를 완료하려면 다음이 필요합니다.
 
-* [Visual Studio 2017 버전 15.4](https://www.visualstudio.com/vs/) 이상(**Azure 개발** 워크로드 포함)
+* **Azure 개발** 워크로드를 포함하여 [Visual Studio 2017 버전 15.4](https://www.visualstudio.com/vs/) 이상을 설치합니다.
 
     ![Azure 개발 워크로드를 통한 Visual Studio 2017 설치](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
+
+* Azure Functions 및 WebJobs Tools 최신 버전으로 업데이트해야 합니다. 업데이트는 **확장 및 업데이트**의 **업데이트** > **Visual Studio Marketplace**에서 수행합니다.
     
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 
-## <a name="create-an-azure-functions-project-in-visual-studio"></a>Visual Studio에서 Azure Functions 프로젝트 만들기
+## <a name="create-a-function-app-project"></a>함수 앱 프로젝트 만들기
 
 [!INCLUDE [Create a project using the Azure Functions template](../../includes/functions-vstools-create.md)]
 
-이제 프로젝트를 만들었으므로 첫 번째 함수를 만들 수 있습니다.
+Visual Studio는 프로젝트를 만들고 그 안에는 선택한 함수 형식에 대한 상용구 코드를 포함하는 클래스를 만듭니다. 메서드의 **FunctionName** 특성은 함수 이름을 설정합니다. **HttpTrigger** 특성은 함수가 HTTP 요청에 의해 트리거되도록 지정합니다. 상용구 코드는 요청 본문 또는 쿼리 문자열의 값을 포함하는 HTTP 응답을 보냅니다. 메서드에 적절한 특성을 적용하여 입력 및 출력 바인딩을 함수에 추가할 수 있습니다. 자세한 내용은 [Azure Functions C# 개발자 참조](functions-dotnet-class-library.md)의 [트리거 및 바인딩](functions-dotnet-class-library.md#triggers-and-bindings) 섹션을 참조하세요.
 
-## <a name="create-the-function"></a>함수 만들기
+![함수 코드 파일](./media/functions-create-your-first-function-visual-studio/functions-code-page.png)
 
-1. **솔루션 탐색기**에서 프로젝트 노드를 마우스 오른쪽 단추로 클릭하고 **추가** > **새 항목**을 차례로 선택합니다. **Azure Function**을 선택하고 **이름**에 `HttpTriggerCSharp.cs`를 입력하고 **추가**를 클릭합니다.
-
-2. **HttpTrigger**를 선택하고 **액세스 권한**에 대해 **익명**을 선택하고 **확인** 클릭합니다. 만든 함수는 모든 클라이언트의 HTTP 요청으로 액세스됩니다. 
-
-    ![새 Azure 함수 만들기](./media/functions-create-your-first-function-visual-studio/functions-vstools-add-new-function-2.png)
-
-    함수 코드를 구현하는 클래스가 들어 있는 프로젝트에 코드 파일이 추가됩니다. 이 코드는 이름 값을 수신한 후 다시 에코하는 템플릿을 기준으로 합니다. **FunctionName** 특성은 함수의 이름을 설정합니다. **HttpTrigger** 특성은 함수를 트리거하는 메시지를 나타냅니다. 
-
-    ![함수 코드 파일](./media/functions-create-your-first-function-visual-studio/functions-code-page.png)
-
-이제 HTTP에서 트리거한 함수를 만들었으므로 로컬 컴퓨터에서 해당 함수를 테스트할 수 있습니다.
+함수 프로젝트 및 HTTP로 트리거되는 함수를 만들었으니, 로컬 컴퓨터에서 이 함수를 테스트할 수 있습니다.
 
 ## <a name="test-the-function-locally"></a>로컬에서 함수 테스트
 
-Azure Functions Core 도구를 사용하면 로컬 개발 컴퓨터에서 Azure Functions 프로젝트를 실행할 수 있습니다. Visual Studio에서 처음으로 함수를 시작할 때 이 도구를 설치하도록 요구하는 메시지가 표시됩니다.  
+Azure Functions Core Tools를 사용하면 로컬 개발 컴퓨터에서 Azure Functions 프로젝트를 실행할 수 있습니다. Visual Studio에서 처음으로 함수를 시작할 때 이 도구를 설치하도록 요구하는 메시지가 표시됩니다.  
 
-1. 함수를 테스트하려면 F5 키를 누릅니다. 메시지가 표시되면 Visual Studio에서 Azure Functions Core(CLI) 도구를 다운로드하여 설치하도록 요구하는 요청을 수락합니다.  또한 도구에서 HTTP 요청을 처리할 수 있도록 방화벽 예외를 사용하도록 설정해야 합니다.
+1. 함수를 테스트하려면 F5 키를 누릅니다. 메시지가 표시되면 Visual Studio에서 Azure Functions Core(CLI) 도구를 다운로드하여 설치하도록 요구하는 요청을 수락합니다. 또한 도구에서 HTTP 요청을 처리할 수 있도록 방화벽 예외를 사용하도록 설정해야 합니다.
 
 2. Azure Functions 런타임 출력에서 함수의 URL을 복사합니다.  
 
@@ -91,7 +83,7 @@ Azure Functions Core 도구를 사용하면 로컬 개발 컴퓨터에서 Azure 
 
 1. 게시 프로필 페이지에서 함수 앱의 기준 URL을 복사합니다. 로컬에서 함수를 테스트할 때 사용한 URL의 `localhost:port` 부분을 새 기준 URL로 바꿉니다. 이전처럼 이 URL에 `?name=<yourname>` 쿼리 문자열을 추가하고 요청을 실행합니다.
 
-    HTTP에서 트리거한 함수를 호출하는 URL은 다음과 같습니다.
+    HTTP로 트리거되는 함수를 호출하는 URL은 다음 형식이어야 합니다.
 
         http://<functionappname>.azurewebsites.net/api/<functionname>?name=<yourname> 
 

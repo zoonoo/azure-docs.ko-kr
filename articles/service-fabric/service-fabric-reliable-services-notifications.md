@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 6/29/2017
 ms.author: mcoskun
-ms.openlocfilehash: c6a53d851510ed5e6eec1f3ac0f636ad034a6d4c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8b8a0aad23c6c4ceaf23dd3fbde5daef3519fdcf
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="reliable-services-notifications"></a>Reliable Services 알림
 알림을 사용하면 클라이언트에서 관심 있는 개체에 대한 변경 내용을 추적할 수 있습니다. *신뢰할 수 있는 상태 관리자* 및 *신뢰할 수 있는 사전*의 두 가지 개체 유형에서 알림을 지원합니다.
@@ -51,7 +51,7 @@ ms.lasthandoff: 10/11/2017
 
 트랜잭션 알림 및/또는 상태 관리자 알림을 등록하려면 신뢰할 수 있는 상태 관리자의 **TransactionChanged** 또는 **StateManagerChanged** 이벤트에 등록해야 합니다. 이러한 이벤트 처리기에 등록하는 일반적인 위치는 상태 저장 서비스의 생성자입니다. 생성자에 등록하면 **IReliableStateManager**의 수명 동안 변경 내용으로 발생되는 모든 알림을 놓치지 않게 됩니다.
 
-```C#
+```csharp
 public MyService(StatefulServiceContext context)
     : base(MyService.EndpointName, context, CreateReliableStateManager(context))
 {
@@ -69,7 +69,7 @@ public MyService(StatefulServiceContext context)
 
 다음은 예제 **TransactionChanged** 이벤트 처리기입니다.
 
-```C#
+```csharp
 private void OnTransactionChangedHandler(object sender, NotifyTransactionChangedEventArgs e)
 {
     if (e.Action == NotifyTransactionChangedAction.Commit)
@@ -91,7 +91,7 @@ private void OnTransactionChangedHandler(object sender, NotifyTransactionChanged
 
 다음은 예제 **StateManagerChanged** 알림 처리기입니다.
 
-```C#
+```csharp
 public void OnStateManagerChangedHandler(object sender, NotifyStateManagerChangedEventArgs e)
 {
     if (e.Action == NotifyStateManagerChangedAction.Rebuild)
@@ -117,7 +117,7 @@ public void OnStateManagerChangedHandler(object sender, NotifyStateManagerChange
 신뢰할 수 있는 사전 알림을 가져오려면 **IReliableDictionary**에서 **DictionaryChanaged** 이벤트 처리기에 등록해야 합니다. 이러한 이벤트 처리기를 등록하는 일반적인 위치는 **ReliableStateManager.StateManagerChanged** 추가 알림입니다.
 **IReliableDictionary**가 **IReliableStateManager**에 추가되었을 때 등록하면 알림을 놓치지 않게 됩니다.
 
-```C#
+```csharp
 private void ProcessStateManagerSingleEntityNotification(NotifyStateManagerChangedEventArgs e)
 {
     var operation = e as NotifyStateManagerSingleEntityChangedEventArgs;
@@ -142,7 +142,7 @@ private void ProcessStateManagerSingleEntityNotification(NotifyStateManagerChang
 
 위의 코드는 **DictionaryChanged**와 함께 **IReliableNotificationAsyncCallback** 인터페이스도 설정합니다. **NotifyDictionaryRebuildEventArgs**에는 비동기식으로 열거되어야 하는 **IAsyncEnumerable** 인터페이스가 포함되어 있으므로 **OnDictionaryChangedHandler** 대신 **RebuildNotificationAsyncCallback**을 통해 다시 작성 알림이 실행됩니다.
 
-```C#
+```csharp
 public async Task OnDictionaryRebuildNotificationHandlerAsync(
     IReliableDictionary<TKey, TValue> origin,
     NotifyDictionaryRebuildEventArgs<TKey, TValue> rebuildNotification)
@@ -171,7 +171,7 @@ public async Task OnDictionaryRebuildNotificationHandlerAsync(
 * **NotifyDictionaryChangedAction.Update**: **NotifyDictionaryItemUpdatedEventArgs**
 * **NotifyDictionaryChangedAction.Remove**: **NotifyDictionaryItemRemovedEventArgs**
 
-```C#
+```csharp
 public void OnDictionaryChangedHandler(object sender, NotifyDictionaryChangedEventArgs<TKey, TValue> e)
 {
     switch (e.Action)
@@ -202,7 +202,7 @@ public void OnDictionaryChangedHandler(object sender, NotifyDictionaryChangedEve
 }
 ```
 
-## <a name="recommendations"></a>추천
+## <a name="recommendations"></a>권장 사항
 * *하세요* .
 * *마세요* .
 * *하세요* . 새 작업 형식이 나중에 추가될 수 있습니다.

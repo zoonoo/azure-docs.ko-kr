@@ -16,15 +16,15 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 956f44068db8fe9c8c7a839a0ce80c19e2b2f11c
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 58c8ba2682cc9cc8f2089d2a70cc95a03079832e
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="manage-azure-disks-with-powershell"></a>PowerShell을 사용하여 Azure 디스크 관리
 
-Azure 가상 컴퓨터는 디스크를 사용하여 VM 운영 체제, 응용 프로그램 및 데이터를 저장합니다. VM을 만들 때 예상되는 워크로드에 적합한 디스크 크기와 구성을 선택하는 것이 중요합니다. 이 자습서에서는 VM 디스크의 배포 및 관리에 대해 다룹니다. 다음에 대해 알아봅니다.
+Azure 가상 머신은 디스크를 사용하여 VM 운영 체제, 응용 프로그램 및 데이터를 저장합니다. VM을 만들 때 예상되는 워크로드에 적합한 디스크 크기와 구성을 선택하는 것이 중요합니다. 이 자습서에서는 VM 디스크의 배포 및 관리에 대해 다룹니다. 다음에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * OS 디스크 및 임시 디스크
@@ -39,7 +39,7 @@ PowerShell을 로컬로 설치하고 사용하도록 선택한 경우 이 자습
 
 ## <a name="default-azure-disks"></a>기본 Azure 디스크
 
-Azure Virtual Machine을 만들면 두 개의 디스크가 자동으로 가상 컴퓨터에 연결됩니다. 
+Azure Virtual Machine을 만들면 두 개의 디스크가 자동으로 가상 머신에 연결됩니다. 
 
 **운영 체제 디스크** - 운영 체제 디스크는 최대 4TB까지 가능하며 VM 운영 체제를 호스트합니다.  OS 디스크는 기본적으로 *c:* 드라이브 문자가 할당됩니다. OS 디스크의 디스크 캐싱 구성은 OS 성능에 맞게 최적화됩니다. OS 디스크는 응용 프로그램 또는 데이터를 호스트해서는 **안 됩니다**. 응용 프로그램 및 데이터는 데이터 디스크를 사용하며 여기에 대해서는 이 문서의 뒷부분에서 자세히 설명합니다.
 
@@ -47,7 +47,7 @@ Azure Virtual Machine을 만들면 두 개의 디스크가 자동으로 가상 �
 
 ### <a name="temporary-disk-sizes"></a>임시 디스크 크기
 
-| 형식 | VM 크기 | 최대 임시 디스크 크기(GB) |
+| type | VM 크기 | 최대 임시 디스크 크기(GB) |
 |----|----|----|
 | [범용](sizes-general.md) | A 및 D 시리즈 | 800 |
 | [Compute에 최적화](sizes-compute.md) | F 시리즈 | 800 |
@@ -62,7 +62,7 @@ Azure Virtual Machine을 만들면 두 개의 디스크가 자동으로 가상 �
 
 ### <a name="max-data-disks-per-vm"></a>VM당 최대 데이터 디스크 수
 
-| 형식 | VM 크기 | VM당 최대 데이터 디스크 수 |
+| type | VM 크기 | VM당 최대 데이터 디스크 수 |
 |----|----|----|
 | [범용](sizes-general.md) | A 및 D 시리즈 | 32 |
 | [Compute에 최적화](sizes-compute.md) | F 시리즈 | 32 |
@@ -81,13 +81,13 @@ Standard Storage는 HDD에 의해 지원되며 성능은 그대로이면서 비�
 
 ### <a name="premium-disk"></a>프리미엄 디스크
 
-프리미엄 디스크는 SSD 기반 고성능의 대기 시간이 짧은 디스크에서 지원합니다. 프로덕션 워크로드를 실행하는 VM에 완벽한 디스크입니다. Premium Storage는 DS 시리즈, DSv2 시리즈, GS 시리즈 및 FS 시리즈 VM을 지원합니다. 프리미엄 디스크는 세 가지 유형(P10, P20, P30, P40, P50)으로 제공되며 디스크 크기에 따라 디스크 유형이 결정됩니다. 디스크 유형 선택 시 디스크 크기 값은 다음 유형으로 반올림됩니다. 예를 들어, 크기가 128GB 미만인 경우 디스크 유형은 P10이 되며, 129~512GB인 경우 P20, 512GB의 경우 P30, 2TB의 경우 P40, 4TB의 경우 P50이 됩니다. 
+프리미엄 디스크는 SSD 기반 고성능의 대기 시간이 짧은 디스크에서 지원합니다. 프로덕션 워크로드를 실행하는 VM에 완벽한 디스크입니다. Premium Storage는 DS 시리즈, DSv2 시리즈, GS 시리즈 및 FS 시리즈 VM을 지원합니다. 프리미엄 디스크는 다섯 가지 유형(P10, P20, P30, P40, P50)으로 제공되며 디스크 크기에 따라 디스크 유형이 결정됩니다. 디스크 유형 선택 시 디스크 크기 값은 다음 유형으로 반올림됩니다. 예를 들어, 크기가 128GB 미만인 경우 디스크 유형은 P10이 되며, 129~512GB인 경우 P20, 512GB의 경우 P30, 2TB의 경우 P40, 4TB의 경우 P50이 됩니다. 
 
 ### <a name="premium-disk-performance"></a>프리미엄 디스크 성능
 
 |Premium Storage 디스크 유형 | P10 | P20 | P30 |
 | --- | --- | --- | --- |
-| 디스크 크기(반올림) | 128GB | 512GB | 1,024GB(1TB) |
+| 디스크 크기(반올림) | 128GB | 512 GB | 1,024GB(1TB) |
 | 디스크당 IOPS | 500 | 2,300 | 5,000 |
 디스크당 처리량 | 100MB/초 | 150MB/초 | 200MB/s |
 
@@ -95,7 +95,7 @@ Standard Storage는 HDD에 의해 지원되며 성능은 그대로이면서 비�
 
 ## <a name="create-and-attach-disks"></a>디스크 만들기 및 연결
 
-이 자습서의 예제를 완료하려면 기존 가상 컴퓨터가 있어야 합니다. 필요한 경우 이 [스크립트 샘플](../scripts/virtual-machines-windows-powershell-sample-create-vm.md)을 사용하여 가상 컴퓨터를 만들 수 있습니다. 이 자습서를 진행할 때 필요한 경우 리소스 그룹 및 VM 이름을 바꿉니다.
+이 자습서의 예제를 완료하려면 기존 가상 머신이 있어야 합니다. 필요한 경우 이 [스크립트 샘플](../scripts/virtual-machines-windows-powershell-sample-create-vm.md)을 사용하여 가상 컴퓨터를 만들 수 있습니다. 이 자습서를 진행할 때 필요한 경우 리소스 그룹 및 VM 이름을 바꿉니다.
 
 [New-AzureRmDiskConfig](/powershell/module/azurerm.compute/new-azurermdiskconfig)를 사용하여 초기 구성을 만듭니다. 다음 예제에서는 크기가 128GB인 디스크를 구성합니다.
 
@@ -121,7 +121,7 @@ $vm = Get-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM
 $vm = Add-AzureRmVMDataDisk -VM $vm -Name myDataDisk -CreateOption Attach -ManagedDiskId $dataDisk.Id -Lun 1
 ```
 
-[Update-AzureRmVM](/powershell/module/azurerm.compute/add-azurermvmdatadisk) 명령을 사용하여 가상 컴퓨터를 업데이트합니다.
+[Update-AzureRmVM](/powershell/module/azurerm.compute/add-azurermvmdatadisk) 명령을 사용하여 가상 머신을 업데이트합니다.
 
 ```azurepowershell-interactive
 Update-AzureRmVM -ResourceGroupName myResourceGroup -VM $vm
@@ -129,7 +129,7 @@ Update-AzureRmVM -ResourceGroupName myResourceGroup -VM $vm
 
 ## <a name="prepare-data-disks"></a>데이터 디스크 준비
 
-디스크가 가상 컴퓨터에 연결된 후 디스크를 사용하도록 운영 체제를 구성해야 합니다. 다음 예제에서는 VM에 추가된 첫 번째 디스크를 수동으로 구성하는 방법을 보여 줍니다. [사용자 지정 스크립트 확장](./tutorial-automate-vm-deployment.md)을 사용하여 이 프로세스를 자동화할 수도 있습니다.
+디스크가 가상 머신에 연결된 후 디스크를 사용하도록 운영 체제를 구성해야 합니다. 다음 예제에서는 VM에 추가된 첫 번째 디스크를 수동으로 구성하는 방법을 보여 줍니다. [사용자 지정 스크립트 확장](./tutorial-automate-vm-deployment.md)을 사용하여 이 프로세스를 자동화할 수도 있습니다.
 
 ### <a name="manual-configuration"></a>수동 구성
 

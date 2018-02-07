@@ -40,10 +40,11 @@
 
 # 방법 가이드
 ## 계획
-### [IoT Hub를 Event Hubs에 비교](iot-hub-compare-event-hubs.md)
+### [IoT Hub와 Event Hubs 비교](iot-hub-compare-event-hubs.md)
 ### [솔루션 확장](iot-hub-scaling.md)
 ### [고가용성 및 재해 복구](iot-hub-ha-dr.md)
 ### [추가 프로토콜 지원](iot-hub-protocol-gateway.md)
+### [메시지와 이벤트 라우팅 비교](iot-hub-event-grid-routing-comparison.md)
 ## [개발](iot-hub-how-to.md)
 ### [개발자 가이드](iot-hub-devguide.md)
 #### [장치-클라우드 기능 가이드](iot-hub-devguide-d2c-guidance.md)
@@ -51,6 +52,7 @@
 #### [메시지 보내기 및 받기](iot-hub-devguide-messaging.md)
 ##### [IoT Hub에 장치-클라우드 메시지 보내기](iot-hub-devguide-messages-d2c.md)
 ##### [기본 제공 끝점에서 장치-클라우드 메시지 읽기](iot-hub-devguide-messages-read-builtin.md)
+##### [IoT Hub 이벤트에 대응](iot-hub-event-grid.md)
 ##### [장치-클라우드 메시지에 대한 사용자 지정 끝점 및 라우팅 규칙 사용](iot-hub-devguide-messages-read-custom.md)
 ##### [IoT Hub에서 클라우드-장치 메시지 보내기](iot-hub-devguide-messages-c2d.md)
 ##### [IoT Hub 메시지 만들기 및 읽기](iot-hub-devguide-messages-construct.md)
@@ -75,10 +77,12 @@
 #### [.NET](iot-hub-csharp-csharp-process-d2c.md)
 #### [Java](iot-hub-java-java-process-d2c.md)
 #### [Node.js](iot-hub-node-node-process-d2c.md)
+#### [Python](iot-hub-python-python-process-d2c.md)
 ### 클라우드-장치 메시지 보내기
 #### [.NET](iot-hub-csharp-csharp-c2d.md)
 #### [Java](iot-hub-java-java-c2d.md)
 #### [Node.js](iot-hub-node-node-c2d.md)
+#### [Python](iot-hub-python-python-c2d.md)
 ### 장치에서 파일 업로드
 #### [.NET](iot-hub-csharp-csharp-file-upload.md)
 #### [Java](iot-hub-java-java-file-upload.md)
@@ -88,11 +92,13 @@
 #### [.NET 백 엔드/Node.js 장치](iot-hub-csharp-node-twin-getstarted.md)
 #### [.NET 백 엔드/.NET 장치](iot-hub-csharp-csharp-twin-getstarted.md)
 #### [Java 백 엔드/Java 장치](iot-hub-java-java-twin-getstarted.md)
+#### [Python 백 엔드/Python 장치](iot-hub-python-twin-getstarted.md)
 ### 직접 메서드 사용
 #### [Node.js 백 엔드/Node.js 장치](iot-hub-node-node-direct-methods.md)
 #### [.NET 백 엔드/Node.js 장치](iot-hub-csharp-node-direct-methods.md)
 #### [.NET 백 엔드/.NET 장치](iot-hub-csharp-csharp-direct-methods.md)
 #### [Java 백 엔드/Java 장치](iot-hub-java-java-direct-methods.md)
+#### [Python 백 엔드/Python 장치](iot-hub-python-python-direct-methods.md)
 ### 장치 관리 시작
 #### [Node.js 백 엔드/Node.js 장치](iot-hub-node-node-device-management-get-started.md)
 #### [.NET 백 엔드/Node.js 장치](iot-hub-csharp-node-device-management-get-started.md)

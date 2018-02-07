@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: fa5259427b232c641b6155ea9c4d9b4440f9ca5f
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: d90b3c6b0ac899bede210d48cd97210ccbe5cc57
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-mysql-using-azure-data-factory"></a>Azure Data Factory를 사용하여 MySQL에서 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -35,7 +35,7 @@ MySQL 데이터베이스에서 지원되는 모든 싱크 데이터 저장소로
 
 특히 이 MySQL 커넥터는 MySQL **버전 5.1 이상**을 지원합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 이 MySQL 커넥터를 사용하려면 다음을 수행해야 합니다.
 
@@ -57,13 +57,13 @@ MySQL 연결된 서비스에 다음 속성이 지원됩니다.
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 형식 속성은 **MySql**로 설정해야 합니다. | 적용 |
-| 서버 | MySQL 서버의 이름입니다. | 적용 |
-| 데이터베이스 | MySQL 데이터베이스의 이름입니다. | 적용 |
+| 형식 | 형식 속성은 **MySql**로 설정해야 합니다. | 예 |
+| 서버 | MySQL 서버의 이름입니다. | 예 |
+| 데이터베이스 | MySQL 데이터베이스의 이름입니다. | 예 |
 | schema | 데이터베이스에서 스키마의 이름입니다. | 아니요 |
-| 사용자 이름 | MySQL 데이터베이스에 연결할 사용자 이름을 지정합니다. | 적용 |
-| 암호 | 지정한 사용자 계정의 암호를 지정합니다. 이 필드를 SecureString으로 표시합니다. | 적용 |
-| connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. [필수 조건](#prerequisites)에 설명된 대로 자체 호스팅 Integration Runtime이 필요합니다. |적용 |
+| 사용자 이름 | MySQL 데이터베이스에 연결할 사용자 이름을 지정합니다. | 예 |
+| 암호 | 지정한 사용자 계정의 암호를 지정합니다. 이 필드를 SecureString으로 표시합니다. | 예 |
+| connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. [필수 조건](#prerequisites)에 설명된 대로 자체 호스팅 Integration Runtime이 필요합니다. |예 |
 
 **예제:**
 
@@ -97,7 +97,7 @@ MySQL에서 데이터를 복사하려면 데이터 집합의 type 속성을 **Re
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 데이터 집합의 type 속성을 **RelationalTable**로 설정해야 합니다. | 적용 |
+| 형식 | 데이터 집합의 type 속성을 **RelationalTable**로 설정해야 합니다. | 예 |
 | tableName | MySQL 데이터베이스의 테이블 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
 
 **예제**
@@ -127,7 +127,7 @@ MySQL에서 데이터를 복사하려면 복사 작업의 원본 형식을 **Rel
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 복사 작업 원본의 형식 속성을 **RelationalSource**로 설정해야 합니다. | 적용 |
+| 형식 | 복사 작업 원본의 형식 속성을 **RelationalSource**로 설정해야 합니다. | 예 |
 | 쿼리 | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM MyTable"` | 아니요(데이터 집합의 "tableName"이 지정된 경우) |
 
 **예제:**

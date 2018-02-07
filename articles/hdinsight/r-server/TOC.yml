@@ -94,6 +94,21 @@
             - name: Azure Marketplace에 HDInsight 앱 게시
               href: ../hdinsight-apps-publish-applications.md
               maintainContext: true
+            - name: 게시된 앱 설치 - Cask 데이터 응용 프로그램 플랫폼(CDAP)
+              href: ../hdinsight-apps-install-cask.md
+              maintainContext: true
+            - name: 게시된 앱 설치 - Dataiku
+              href: ../hdinsight-apps-install-dataiku.md
+              maintainContext: true
+            - name: 게시된 앱 설치 - Datameer
+              href: ../hdinsight-apps-install-datameer.md
+              maintainContext: true
+            - name: 게시된 앱 설치 - H2O
+              href: ../hdinsight-apps-install-h2o.md
+              maintainContext: true
+            - name: 게시된 앱 설치 - Streamsets
+              href: ../hdinsight-apps-install-streamsets.md
+              maintainContext: true
     - name: 보안
       items:
         - name: HDInsight와 함께 SSH 사용

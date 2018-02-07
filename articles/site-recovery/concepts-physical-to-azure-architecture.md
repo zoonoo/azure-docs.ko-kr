@@ -1,24 +1,16 @@
 ---
-title: "Azure로 물리적 서버 복제를 위한 아키텍처 검토| Microsoft Docs"
+title: "Azure Site Recovery의 물리적 서버와 Azure 간 복제 아키텍처 | Microsoft Docs"
 description: "이 문서에서는 Azure Site Recovery 서비스를 사용하여 온-프레미스 물리적 서버를 Azure로 복제할 때 사용되는 구성 요소 및 아키텍처 개요를 제공합니다."
-services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: aac3450e-dfac-4e20-b377-1a6cd39d04ca
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2017
+ms.date: 12/19/2017
 ms.author: raynew
-ms.openlocfilehash: 02dafa60f19df88123358446ac72d9be85577554
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8bae8688e322efd0a0556cf01e319252d42fc31d
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="physical-server-to-azure-replication-architecture"></a>Azure에 대한 물리적 서버 복제 아키텍처
 
@@ -64,21 +56,17 @@ ms.lasthandoff: 10/11/2017
 
 - 계획된 장애 조치는 지원되지 않습니다.
 - 온-프레미스 VMware VM으로 장애 복구해야 합니다. 즉, 온-프레미스 물리적 서버를 Azure로 복제하는 경우에도 온-프레미스 VMware 인프라가 필요합니다.
-
-
-1. 단일 컴퓨터에 장애 조치를 수행하거나 복구 계획을 만들어서 여러 컴퓨터의 장애 조치합니다.
-2. 장애 조치를 실행하면 복제된 데이터에서 Azure VM이 Azure Storage에 만들어집니다.
-3. 초기 장애 조치를 트리거한 후 이를 커밋하여 Azure VM에서 워크로드 액세스를 시작합니다.
-
-기본 온-프레미스 사이트를 다시 사용할 수 있는 경우 장애 복구를 수행할 수 있습니다.
-
-1. 다음을 포함한 장애 복구 인프라를 설정해야 합니다.
+- 단일 컴퓨터에 장애 조치를 수행하거나 복구 계획을 만들어서 여러 컴퓨터의 장애 조치합니다.
+- 장애 조치를 실행하면 복제된 데이터에서 Azure VM이 Azure Storage에 만들어집니다.
+- 초기 장애 조치를 트리거한 후 이를 커밋하여 Azure VM에서 워크로드 액세스를 시작합니다.
+- 기본 온-프레미스 사이트를 다시 사용할 수 있는 경우 장애 복구를 수행할 수 있습니다.
+- 다음을 포함한 장애 복구 인프라를 설정해야 합니다.
     - **Azure의 임시 프로세스 서버**: Azure에서 장애 복구하려면 Azure에서 복제를 처리하는 프로세스 서버 역할을 하도록 Azure VM을 설정해야 합니다. 장애 복구를 완료한 후 이 VM을 삭제할 수 있습니다.
     - **VPN 연결**: 장애 복구하려면 Azure 네트워크에서 온-프레미스 사이트로의 VPN 연결(또는 Azure ExpressRoute)이 필요합니다.
     - **별도의 마스터 대상 서버**: 기본적으로 구성 서버와 함께 온-프레미스 VMware VM에 설치된 마스터 대상 서버가 장애 복구를 처리합니다. 그러나 대용량 트래픽을 장애 복구하는 경우 이 용도로 별도의 온-프레미스 마스터 대상 서버를 설정해야 합니다.
     - **장애 복구 정책**: 온-프레미스 사이트에 다시 복제하려면 장애 복구 정책이 필요합니다. 이 정책은 온-프레미스에서 Azure로의 복제 정책을 만들 때 자동으로 생성됩니다.
     - **VMware 인프라**: 장애 복구에는 VMware 인프라가 필요합니다. 실제 서버로 장애 복구할 수 없습니다.
-2. 구성 요소를 배치한 후 다음 3단계로 장애 복구가 발생합니다.
+- 구성 요소를 배치한 후 다음 3단계로 장애 복구가 발생합니다.
     - 1단계: Azure VM을 다시 보호하여 Azure에서 다시 온-프레미스 VMware VM으로의 복제하도록 합니다.
     - 2단계: 온-프레미스 사이트에서 장애 조치를 실행합니다.
     - 3단계: 워크로드가 장애 복구된 후 다시 복제를 활성화합니다.
@@ -90,5 +78,4 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="next-steps"></a>다음 단계
 
-지원 매트릭스 검토. 자습서에 따라 Azure에 대한 VMware 복제를 사용하도록 설정합니다.
-장애 조치 및 장애 복구 실행
+[이 자습서](tutorial-physical-to-azure.md)를 따라 물리적 서버와 Azure 간의 복제를 활성화합니다.

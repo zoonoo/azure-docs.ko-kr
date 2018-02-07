@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 01/16/2018
 ms.author: shengc
-ms.openlocfilehash: 6300e59d001864c7adc6ba369586dbe848a85edd
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 2674b431ba610bccb92f6b209970af1fab110f48
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Azure Data Factory 파이프라인에서 사용자 지정 작업 사용
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -107,12 +107,12 @@ Azure Batch 서비스가 처음이라면 다음 항목을 참조하십시오.
 
 | 자산              | 설명                              | 필수 |
 | :-------------------- | :--------------------------------------- | :------- |
-| 이름                  | 파이프라인의 작업 이름입니다.     | 적용      |
+| 이름                  | 파이프라인의 작업 이름입니다.     | 예      |
 | description           | 작업이 어떤 일을 수행하는지 설명하는 텍스트입니다.  | 아니요       |
-| 형식                  | 사용자 지정 작업의 경우 작업 유형은 **사용자 지정**입니다. | 적용      |
-| linkedServiceName     | Azure Batch에 연결된 서비스입니다. 이 연결된 서비스에 대한 자세한 내용은 [연결된 Compute Services](compute-linked-services.md) 문서를 참조하세요.  | 적용      |
-| command               | 실행할 사용자 지정 응용 프로그램의 명령입니다. Azure Batch 풀 노드에 사용할 수 있는 응용 프로그램이 이미 있으면 resourceLinkedService 및 folderPath를 건너뛸 수 있습니다. 예를 들어 명령을 기본적으로 Windows Batch 풀 노드에 의해 지원되는 `cmd /c dir`로 지정할 수 있습니다. | 적용      |
-| resourceLinkedService | 사용자 지정 응용 프로그램이 저장된 저장소 계정에 대한 Azure Storage 연결된 서비스입니다. | 아니요       |
+| 형식                  | 사용자 지정 작업의 경우 작업 유형은 **사용자 지정**입니다. | 예      |
+| linkedServiceName     | Azure Batch에 연결된 서비스입니다. 이 연결된 서비스에 대한 자세한 내용은 [연결된 Compute Services](compute-linked-services.md) 문서를 참조하세요.  | 예      |
+| command               | 실행할 사용자 지정 응용 프로그램의 명령입니다. Azure Batch 풀 노드에 사용할 수 있는 응용 프로그램이 이미 있으면 resourceLinkedService 및 folderPath를 건너뛸 수 있습니다. 예를 들어 명령을 기본적으로 Windows Batch 풀 노드에 의해 지원되는 `cmd /c dir`로 지정할 수 있습니다. | 예      |
+| resourceLinkedService | 사용자 지정 응용 프로그램이 저장된 저장소 계정에 대한 Azure Storage 연결된 서비스입니다. | 아니오       |
 | folderPath            | 사용자 지정 응용 프로그램 및 모든 해당 종속성 폴더에 대한 경로입니다. | 아니요       |
 | referenceObjects      | 기존 연결된 서비스 및 데이터 집합의 배열입니다. 사용자 지정 코드가 Data Factory의 리소스를 참조할 수 있도록 참조된 연결된 서비스 및 데이터 집합은 JSON 형식으로 사용자 지정 응용 프로그램에 전달됩니다. | 아니요       |
 | extendedProperties    | 사용자 지정 코드가 추가 속성을 참조할 수 있도록 사용자 정의 속성은 JSON 형식으로 사용자 지정 응용 프로그램에 전달될 수 있습니다. | 아니요       |
@@ -202,7 +202,7 @@ Azure Batch 서비스가 처음이라면 다음 항목을 참조하십시오.
 
 다음 샘플 코드는 SampleApp.exe가 JSON 파일에서 필요한 정보에 액세스할 수 있는 방법을 보여줍니다. 
 
-```C#
+```csharp
 using Newtonsoft.Json;
 using System;
 using System.IO;

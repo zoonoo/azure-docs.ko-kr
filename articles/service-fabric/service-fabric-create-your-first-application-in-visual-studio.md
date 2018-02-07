@@ -12,17 +12,17 @@ ms.devlang: dotNet
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/04/2017
+ms.date: 01/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: 70d365910569a2acb1c230c803fdfca5cb6b35af
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: bdabdbbb3037f3325c107a4e6148873a923b4ded
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="create-your-first-c-service-fabric-stateful-reliable-services-application"></a>첫 번째 C# Service Fabric 상태 저장 Reliable Services 응용 프로그램 만들기
 
-Windows에서 첫 번째 .NET용 Service Fabric 응용 프로그램을 몇 분 안에 배포하는 방법에 대해 알아봅니다. 완료된 경우 로컬 클러스터가 Reliable Service 응용 프로그램과 실행됩니다.
+Windows에서 첫 번째 .NET용 Service Fabric 응용 프로그램을 몇 분 안에 배포하는 방법에 대해 알아봅니다. 완료하면 로컬 클러스터가 Reliable Service 응용 프로그램과 실행됩니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -88,7 +88,7 @@ Visual Studio에서 `F5`를 눌러 응용 프로그램을 디버깅하기 위해
    
 ![진단 이벤트 뷰어 세부 정보][6]
 
-로컬 클러스터는 단일 컴퓨터에서 호스트되는 다섯 개의 노드를 포함합니다. 프로덕션 환경에서 각 노드는 고유한 물리적 컴퓨터 또는 가상 컴퓨터에서 호스팅됩니다. 컴퓨터의 손실을 시뮬레이션하는 동시에 Visual Studio 디버거를 실행하기 위해 로컬 클러스터의 노드 중 하나를 확인합니다.
+로컬 클러스터는 단일 컴퓨터에서 호스트되는 다섯 개의 노드를 포함합니다. 프로덕션 환경에서 각 노드는 고유한 물리적 컴퓨터 또는 가상 머신에서 호스팅됩니다. 컴퓨터의 손실을 시뮬레이션하는 동시에 Visual Studio 디버거를 실행하기 위해 로컬 클러스터의 노드 중 하나를 확인합니다.
 
 **솔루션 탐색기** 창에서 **MyStatefulService.cs**를 엽니다. 
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: 10e7687448f4401864e06545447ed4c46e5552be
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 2d3327bd3f27e9743524590faaec98d36bf6c549
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="copy-data-from-google-bigquery-using-azure-data-factory-beta"></a>Azure Data Factory(베타)를 사용하여 Google BigQuery에서 데이터 복사
 
@@ -37,7 +37,7 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 
 ## <a name="getting-started"></a>시작
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
 
 다음 섹션에서는 Google BigQuery 커넥터에 한정된 Data Factory 엔터티를 정의하는 데 사용되는 속성에 대해 자세히 설명합니다.
 
@@ -47,15 +47,15 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | type 속성은 **GoogleBigQuery**로 설정해야 합니다. | 적용 |
-| project | 쿼리할 기본 BigQuery 프로젝트의 프로젝트 ID입니다.  | 적용 |
-| additionalProjects | 액세스할 공용 BigQuery 프로젝트의 쉼표로 구분된 프로젝트 ID의 목록입니다.  | 아니요 |
-| requestGoogleDriveScope | Google Drive에 대한 액세스를 요청할지 여부입니다. Google Drive 액세스를 허용하면 BigQuery 데이터를 Google Drive의 데이터와 결합하는 페더레이션된 테이블을 지원할 수 있습니다. 기본값은 False입니다.  | 아니요 |
-| authenticationType | 인증에 사용되는 OAuth 2.0 인증 메커니즘입니다. ServiceAuthentication은 자체 호스팅 IR에서만 사용할 수 있습니다. <br/>허용되는 값은 **ServiceAuthentication**, **UserAuthentication**입니다. | 적용 |
+| 형식 | type 속성은 **GoogleBigQuery**로 설정해야 합니다. | 예 |
+| project | 쿼리할 기본 BigQuery 프로젝트의 프로젝트 ID입니다.  | 예 |
+| additionalProjects | 액세스할 공용 BigQuery 프로젝트의 쉼표로 구분된 프로젝트 ID의 목록입니다.  | 아니오 |
+| requestGoogleDriveScope | Google Drive에 대한 액세스를 요청할지 여부입니다. Google Drive 액세스를 허용하면 BigQuery 데이터를 Google Drive의 데이터와 결합하는 페더레이션된 테이블을 지원할 수 있습니다. 기본값은 False입니다.  | 아니오 |
+| authenticationType | 인증에 사용되는 OAuth 2.0 인증 메커니즘입니다. ServiceAuthentication은 자체 호스팅 IR에서만 사용할 수 있습니다. <br/>허용되는 값은 **ServiceAuthentication**, **UserAuthentication**입니다. | 예 |
 | refreshToken | UserAuthentication을 위한 BigQuery 액세스 권한을 부여하기 위해 Google에서 얻은 새로 고침 토큰입니다. 이 필드를 SecureString으로 표시하여 ADF에 안전하게 저장하도록 선택하거나, Azure Key Vault에 암호를 저장하고 복사 작업이 데이터 복사를 수행할 때 거기에서 끌어오도록 할 수 있습니다. [Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md)에서 자세히 알아보세요. | 아니요 |
-| email | ServiceAuthentication에 사용되는 서비스 계정 메일 ID이며 자체 호스팅 IR에서만 사용할 수 있습니다.  | 아니요 |
-| keyFilePath | 서비스 계정 메일 주소를 인증하는 데 사용되는 .p12 키 파일의 전체 경로이며 자체 호스팅 IR에서만 사용할 수 있습니다.  | 아니요 |
-| trustedCertPath | SSL을 통해 연결할 때 서버를 확인하기 위한 신뢰할 수 있는 CA 인증서를 포함하는 .pem 파일의 전체 경로입니다. 이 속성은 자체 호스팅 IR에서 SSL을 사용하는 경우에만 설정할 수 있습니다. 기본값은 IR과 함께 설치된 cacerts.pem 파일입니다.  | 아니요 |
+| email | ServiceAuthentication에 사용되는 서비스 계정 메일 ID이며 자체 호스팅 IR에서만 사용할 수 있습니다.  | 아니오 |
+| keyFilePath | 서비스 계정 메일 주소를 인증하는 데 사용되는 .p12 키 파일의 전체 경로이며 자체 호스팅 IR에서만 사용할 수 있습니다.  | 아니오 |
+| trustedCertPath | SSL을 통해 연결할 때 서버를 확인하기 위한 신뢰할 수 있는 CA 인증서를 포함하는 .pem 파일의 전체 경로입니다. 이 속성은 자체 호스팅 IR에서 SSL을 사용하는 경우에만 설정할 수 있습니다. 기본값은 IR과 함께 설치된 cacerts.pem 파일입니다.  | 아니오 |
 | useSystemTrustStore | 시스템 신뢰 저장소 또는 지정된 PEM 파일의 CA 인증서를 사용할지 여부를 지정합니다. 기본값은 False입니다.  | 아니요 |
 
 **예제:**
@@ -110,8 +110,8 @@ Google BigQuery에서 데이터를 복사하려면 복사 작업의 원본 형�
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 복사 작업 원본의 type 속성은 **GoogleBigQuerySource**로 설정해야 합니다. | 적용 |
-| 쿼리 | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM MyTable"` | 적용 |
+| 형식 | 복사 작업 원본의 type 속성은 **GoogleBigQuerySource**로 설정해야 합니다. | 예 |
+| 쿼리 | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM MyTable"` | 예 |
 
 **예제:**
 

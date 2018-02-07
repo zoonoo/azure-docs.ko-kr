@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 09/01/2017
 ms.author: negat
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7f2048a39f28a74ca8a31c2e6d7466c69ba4d58f
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 6c796377b90fb3cd697f6d77589e3995b3eac338
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="what-are-virtual-machine-scale-sets-in-azure"></a>Azure에서 말하는 가상 머신 확장 집합이란?
 가상 머신 확장 집합은 동일한 VM 집합을 배포하고 관리하는데 사용할 수 있는 Azure 계산 리소스입니다. 모든 VM은 동일하게 구성되었으며 확장 집합은 true 자동 크기 조정을 지원하도록 디자인되었고 VM의 사전 프로비저닝이 필요하지 않습니다. 따라서 큰 계산, 대용량 데이터 및 컨테이너화된 워크로드를 대상으로 하는 대규모 서비스를 손쉽게 만들 수 있습니다.
@@ -35,10 +35,7 @@ ms.lasthandoff: 12/20/2017
 ## <a name="creating-and-managing-scale-sets"></a>확장 집합 만들기 및 관리
 **new**를 선택하고 검색 표시줄에 **scale**을 입력하여 [Azure Portal](https://portal.azure.com)에확장 집합을 만들 수 있습니다. 결과에 **가상 머신 확장 집합**이 나열됩니다. 여기에서 필수 필드를 입력하여 확장 집합을 사용자 지정하고 배포할 수 있습니다. 또 포털에는 CPU 사용량에 따라 기본 자동 크기 조정 규칙을 설정하는 옵션도 있습니다. 확장 집합을 관리하기 위해 Azure Portal, [Azure PowerShell cmdlets](virtual-machine-scale-sets-windows-manage.md) 또는 Azure CLI 2.0을 사용할 수 있습니다.
 
-확장 집합은 [가용성 영역](../availability-zones/az-overview.md)에 배포할 수 있습니다.
-
-> [!NOTE]
-> 현재 가상 머신 확장 집합은 단일 가용성 영역의 배포만 지원합니다. 다중 영역 배포는 나중에 지원됩니다.
+확장 집합은 [가용성 영역](virtual-machine-scale-sets-use-availability-zones.md)에 배포할 수 있습니다.
 
 개별 Azure Resource Manager VM처럼 JSON 템플릿 및 [REST API](https://msdn.microsoft.com/library/mt589023.aspx)를 사용하여 확장 집합을 정의하고 배포할 수 있습니다. 따라서 모든 표준 Azure Resource Manager 배포 방법을 사용할 수 있습니다. 템플릿에 대한 더 자세한 내용은 [Azure 리소스 관리자 템플릿 작성하기](../azure-resource-manager/resource-group-authoring-templates.md)를 참조하세요.
 
@@ -91,10 +88,10 @@ Azure 리소스의 기본 JSON 정의를 보거나 편집해야 하는 경우 [A
 **구독** > **사용자의 구독** > **resourceGroups** > **공급자** > **Microsoft.Compute** > **virtualMachineScaleSets** > **사용자의 크기 집합** 등
 
 ## <a name="scale-set-scenarios"></a>확장 집합 시나리오
-이 섹션에서는 몇 가지 일반적인 크기 집합 시나리오를 나열합니다. 일부 높은 수준의 Azure 서비스(예: Batch, Service Fabric, Container Service)에서 이러한 시나리오를 사용합니다.
+이 섹션에서는 몇 가지 일반적인 확장 집합 시나리오를 나열합니다. 일부 높은 수준의 Azure 서비스(예: Batch, Service Fabric, Container Service)에서 이러한 시나리오를 사용합니다.
 
 * **RDP 또는 SSH를 사용하여 확장 집합 인스턴스에 연결**: 확장 집합은 가상 네트워크 내부에 생성되며, 확장 집합의 개별 VM에는 기본적으로 공용 IP 주소가 할당되지 않습니다. 이 정책을 사용하면 계산 그리드에 있는 모든 노드에 별도의 공용 IP 주소를 할당하는 비용 및 관리 오버헤드가 지양됩니다. 확장 집합 VM에 직접 외부 연결이 필요한 경우, 새 VM에 공용 IP 주소를 자동으로 할당하도록 확장 집합을 구성할 수 있습니다. 아니면 사용자의 가상 네트워크에 있고 공용 IP 주소를 할당할 수 있는 다른 리소스(예: 부하 분산 장치 및 독립 실행형 가상 머신)에서 VM에 연결할 수 있습니다. 
-* **NAT 규칙을 사용하여 VM에 연결**: 공용 IP 주소를 만들고, 부하 분산 장치에 할당하고, 인바운드 NAT 풀을 정의할 수 있습니다. 이러한 작업은 IP 주소의 포트를 크기 집합의 VM 포트에 매핑합니다. 예:
+* **NAT 규칙을 사용하여 VM에 연결**: 공용 IP 주소를 만들고, 부하 분산 장치에 할당하고, 인바운드 NAT 풀을 정의할 수 있습니다. 이러한 작업은 IP 주소의 포트를 크기 집합의 VM 포트에 매핑합니다. 예: 
   
   | 원본 | 원본 포트 | 대상 | 대상 포트 |
   | --- | --- | --- | --- |
@@ -116,7 +113,7 @@ Azure 리소스의 기본 JSON 정의를 보거나 편집해야 하는 경우 [A
 
 * **크기 집합을 PaaS 클러스터 관리자에서 계산 클러스터로 배포**: 크기 집합을 차세대 작업자 역할이라고 설명하기도 합니다. 이 설명이 타당하기는 하지만 확장 집합 기능을 Azure Cloud Services 기능과 혼동할 위험이 있습니다. 어떤 의미에서 크기 집합은 진정한 작업자 역할 또는 작업자 리소스를 제공합니다. 이들은 플랫폼/런타임이 독립적이고, 사용자 지정이 가능하며 Azure Resource Manager IaaS에 통합되는 일반화된 계산 리소스입니다.
   
-   Cloud Services 작업자 역할은 플랫폼/런타임 지원 면에서 제한됩니다(Windows 플랫폼 이미지에만 해당). 하지만 VIP 교환, 구성 가능한 업그레이드 설정 및 런타임/앱 배포별 설정 등의 서비스는 포함됩니다. 이러한 서비스는 크기 집합에서 *아직* 사용할 수 없지만 Azure Service Fabric 등 다른 상위 수준의 PaaS 서비스에서 제공됩니다. 크기 집합을 PaaS를 지원하는 인프라로 주목할 수 있습니다. [Service Fabric](https://azure.microsoft.com/services/service-fabric/)과 같은 PaaS 솔루션이 이 인프라에 구축됩니다.
+   Cloud Services 작업자 역할은 플랫폼/런타임 지원 면에서 제한됩니다(Windows 플랫폼 이미지에만 해당). 하지만 VIP 교환, 구성 가능한 업그레이드 설정 및 런타임/앱 배포별 설정 등의 서비스는 포함됩니다. 이러한 서비스는 크기 집합에서 *아직* 사용할 수 없지만 Azure Service Fabric 등 다른 상위 수준의 PaaS 서비스에서 제공됩니다. 확장 집합을 PaaS를 지원하는 인프라로 주목할 수 있습니다. [Service Fabric](https://azure.microsoft.com/services/service-fabric/)과 같은 PaaS 솔루션이 이 인프라에 구축됩니다.
   
    이 방식의 [이 예제](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos)에서 [Azure Container Service](https://azure.microsoft.com/services/container-service/)는 크기 조정 설정에 따라 컨테이너 조정자로 클러스터를 배포합니다.
 
@@ -133,7 +130,7 @@ Azure 리소스의 기본 JSON 정의를 보거나 편집해야 하는 경우 [A
 
 **Q.** 크기 집합 내에서 데이터 디스크가 지원되나요?
 
-**A.** 예. 크기 집합은 집합에서 모든 VM에 적용되는 연결된 데이터 디스크 구성을 정의할 수 있습니다. 자세한 내용은 [Azure 크기 조정 설정 및 연결된 데이터 디스크](virtual-machine-scale-sets-attached-disks.md)를 참조하세요. 데이터를 저장하는 기타 옵션은 다음과 같습니다.
+**A.** 예. 크기 집합은 집합에서 모든 VM에 적용되는 연결된 데이터 디스크 구성을 정의할 수 있습니다. 자세한 내용은 [}Azure 확장 집합 및 연결된 데이터 디스크](virtual-machine-scale-sets-attached-disks.md)를 참조하세요. 데이터를 저장하는 기타 옵션은 다음과 같습니다.
 
 * Azure 파일(SMB 공유 드라이브)
 * OS 드라이브

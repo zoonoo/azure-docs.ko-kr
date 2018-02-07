@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 8273647aa1cf8f7d35a9c645d44c64455e554cdb
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: d65787c0db2b4e6c7c7d30d69dc77fe25b1ae8d9
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="troubleshoot-data-factory-issues"></a>데이터 팩터리 문제 해결
 > [!NOTE]
@@ -117,7 +117,7 @@ Failed to create cluster. Exception: Unable to complete the cluster create opera
 
 ## <a name="use-azure-portal-to-troubleshoot"></a>Azure 포털을 사용하여 문제 해결
 ### <a name="using-portal-blades"></a>포털 블레이드 사용
-단계는 [파이프라인 모니터링](data-factory-build-your-first-pipeline-using-editor.md#monitor-pipeline) 을 참조하세요.
+단계는 [파이프라인 모니터링](data-factory-build-your-first-pipeline-using-editor.md#monitor-a-pipeline) 을 참조하세요.
 
 ### <a name="using-monitor-and-manage-app"></a>모니터링 및 관리 앱 사용
 자세한 내용은 [모니터링 및 관리 앱을 사용하여 데이터 팩터리 파이프라인 모니터링 및 관리](data-factory-monitor-manage-app.md) 를 참조하세요.

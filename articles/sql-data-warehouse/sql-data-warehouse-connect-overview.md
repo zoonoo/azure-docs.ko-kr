@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: connect
 ms.date: 12/14/2017
 ms.author: anvang;barbkess;kevin
-ms.openlocfilehash: bd2e89f39d54a2186fa9ca343d04135b2da5d352
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: 804d91d309fcce42f0ac50ac98dbad9c5648b4eb
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="connect-to-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에 연결
 이 문서를 사용하면 처음으로 SQL Data Warehouse에 연결할 수 있습니다.
@@ -43,12 +43,12 @@ Azure SQL Data Warehouse는 [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP][PHP] 및 [JD
 > 
 
 ### <a name="adonet-connection-string-example"></a>ADO.NET 연결 문자열 예제
-```C#
+```csharp
 Server=tcp:{your_server}.database.windows.net,1433;Database={your_database};User ID={your_user_name};Password={your_password_here};Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
 ```
 
 ### <a name="odbc-connection-string-example"></a>ODBC 연결 문자열 예제
-```C#
+```csharp
 Driver={SQL Server Native Client 11.0};Server=tcp:{your_server}.database.windows.net,1433;Database={your_database};Uid={your_user_name};Pwd={your_password_here};Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;
 ```
 

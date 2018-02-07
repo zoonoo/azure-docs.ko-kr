@@ -1,6 +1,6 @@
 ---
-title: "인터넷 연결 부하 분산 장치 만들기 - Azure 템플릿 | Microsoft Docs"
-description: "템플릿을 사용하여 Resource Manager에서 인터넷 연결 부하 분산 장치를 만드는 방법에 대해 알아봅니다."
+title: "공용 부하 분산 장치 만들기 - Azure 템플릿 | Microsoft Docs"
+description: "템플릿을 사용하여 Resource Manager에서 공용 부하 분산 장치를 만드는 방법에 대해 알아봅니다."
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 10d96920d3aa3cae19750d7c2437b88bac1c8cda
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 21ff5a48d29117ba1d6195f308f00180b1f1edbf
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/23/2018
 ---
-# <a name="creating-an-internet-facing-load-balancer-using-a-template"></a>템플릿을 사용하여 인터넷 연결 부하 분산 장치 만들기
+# <a name="creating-a-public-load-balancer-using-a-template"></a>템플릿을 사용하여 공용 부하 분산 장치 만들기
 
 > [!div class="op_single_selector"]
 > * [포털](../load-balancer/load-balancer-get-started-internet-portal.md)

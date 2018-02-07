@@ -11,11 +11,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 09/13/2017
 ms.author: mahender
-ms.openlocfilehash: 6b2dcaa4b0e0f59bf8a632b48813ba6a24202ec5
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 45fcbc3af02dd8afbd9581e8bc38ad10369a2747
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="how-to-use-azure-managed-service-identity-public-preview-in-app-service-and-azure-functions"></a>App Service 및 Azure Functions에서 Azure Managed Service Identity(공개 미리 보기)를 사용하는 방법
 
@@ -42,7 +42,7 @@ ID를 사용하여 앱을 만들려면 응용 프로그램에서 추가 속성�
 
 3. **관리되는 서비스 ID**를 선택합니다.
 
-4. **Azure Active Directory**을 **켜기**로 전환합니다. **Save**를 클릭합니다.
+4. **Azure Active Directory**을 **켜기**로 전환합니다. **저장**을 클릭합니다.
 
 ![App Service의 Managed Service Identity](media/app-service-managed-service-identity/msi-blade.png)
 
@@ -56,7 +56,7 @@ Azure CLI를 사용하여 관리되는 서비스 ID를 설정하려면 기존 �
 
 다음 단계는 웹앱을 만들고 CLI를 사용하여 ID를 할당하는 과정을 안내합니다.
 
-1. Azure CLI를 로컬 콘솔에서 사용하는 경우 [az login](/cli/azure/#login)을 사용하여 먼저 Azure에 로그인합니다. 응용 프로그램을 배포하려는 Azure 구독과 연결된 계정을 사용합니다.
+1. Azure CLI를 로컬 콘솔에서 사용하는 경우 [az login](/cli/azure/#az_login)을 사용하여 먼저 Azure에 로그인합니다. 응용 프로그램을 배포하려는 Azure 구독과 연결된 계정을 사용합니다.
 
     ```azurecli-interactive
     az login
@@ -159,7 +159,7 @@ Microsoft.Azure.Services.AppAuthentication 및 노출하는 작업에 대한 자
 **MSI_ENDPOINT**는 앱이 토큰을 요청할 수 있는 로컬 URL입니다. 리소스 토큰을 가져오려면 이 끝점에 다음 매개 변수를 포함하여 HTTP GET 요청을 보냅니다.
 
 > [!div class="mx-tdBreakAll"]
-> |매개 변수 이름|내용|설명|
+> |매개 변수 이름|그런 다음|설명|
 > |-----|-----|-----|
 > |resource|쿼리|토큰을 가져와야 하는 리소스의 AAD 리소스 URI입니다.|
 > |api-version|쿼리|사용할 토큰 API의 버전입니다. "2017-09-01"은 현재 지원되는 유일한 버전입니다.|

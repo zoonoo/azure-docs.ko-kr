@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: tomfitz
-ms.openlocfilehash: 13154e41ebd4867de9af74340a69446400814f5a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b110fd4f9eb70644a6fcb66198113af2ec685142
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>리소스 관리자 템플릿과 Azure CLI로 리소스 배포
 
@@ -119,7 +119,7 @@ az group deployment create \
 
 ## <a name="test-a-template-deployment"></a>템플릿 배포 테스트
 
-리소스를 실제로 배포하지 않고 템플릿과 매개 변수 값을 테스트하려면 [az 그룹 배포 유효성 검사](/cli/azure/group/deployment#validate)를 사용합니다. 
+리소스를 실제로 배포하지 않고 템플릿과 매개 변수 값을 테스트하려면 [az 그룹 배포 유효성 검사](/cli/azure/group/deployment#az_group_deployment_validate)를 사용합니다. 
 
 ```azurecli
 az group deployment validate \

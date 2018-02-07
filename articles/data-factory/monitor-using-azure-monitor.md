@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 01/16/2018
 ms.author: shlo
-ms.openlocfilehash: f30042ad8d687db59e1aaa092c46cee371e8c7fb
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: cae3c797171c3904f100ae3cdec47a31b06d3b31
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="monitor-data-factories-using-azure-monitor"></a>Azure Monitor를 사용하여 데이터 팩터리 모니터링  
 클라우드 응용 프로그램은 이동하는 부분이 많아 복잡합니다. 모니터링은 응용 프로그램을 유지하고 정상 상태에서 실행할 수 있는 데이터를 제공합니다. 또한 잠재적 문제를 방지하거나 지난 문제를 해결할 수 있습니다. 또한 응용 프로그램에 대해 깊이 이해하는 데 모니터링 데이터를 사용할 수 있습니다. 이러한 정보를 사용하면 응용 프로그램 성능 또는 유지 관리 편의성을 향상시키거나 그렇지 않으면 수동 개입이 필요한 작업을 자동화할 수 있습니다.
@@ -103,7 +103,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 } 
 ```
 
-| 속성 | 형식 | 설명 |
+| 자산 | 형식 | 설명 |
 | --- | --- | --- |
 | storageAccountId |문자열 | 진단 로그를 보내려는 저장소 계정의 리소스 ID입니다. |
 | serviceBusRuleId |문자열 | 진단 로그 스트리밍에 대해 Event Hubs를 만들려는 서비스 버스 네임스페이스의 서비스 버스 규칙 ID입니다. 규칙 ID의 형식은 "{service bus resource ID}/authorizationrules/{key name}"입니다.|
@@ -112,7 +112,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 | 로그| 복합 형식| 리소스 종류에 대한 진단 로그 범주의 이름입니다. 리소스에 대한 진단 로그 범주 목록을 가져오기 위해 먼저 GET 진단 설정 작업을 수행합니다. |
 | 카테고리| 문자열| 로그 범주 및 해당 보존 정책의 배열입니다. |
 | timeGrain | 문자열 | ISO 8601 기간 형식으로 캡처된 메트릭의 세분성입니다. PT1M(1분)이어야 합니다.|
-| 사용| Boolean | 이 리소스에 대한 해당 메트릭 또는 로그 범주의 수집을 사용할지 여부를 지정합니다.|
+| 사용| BOOLEAN | 이 리소스에 대한 해당 메트릭 또는 로그 범주의 수집을 사용할지 여부를 지정합니다.|
 | retentionPolicy| 복합 형식| 메트릭 또는 로그 범주에 대한 보존 정책을 설명합니다. 저장소 계정 옵션에만 사용됩니다.|
 | days| int| 메트릭 또는 로그를 보존할 기간(일)입니다. 0 값은 로그를 무기한 보존합니다. 저장소 계정 옵션에만 사용됩니다. |
 
@@ -273,14 +273,14 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 }
 ```
 
-| 속성 | 형식 | 설명 | 예제 |
+| 자산 | 형식 | 설명 | 예 |
 | --- | --- | --- | --- |
 | Level |문자열 | 진단 로그 수준입니다. 수준 4는 항상 활동 실행 로그에 대한 경우입니다. | `4`  |
 | CorrelationId |문자열 | 종단 간 특정 요청을 추적하는 고유 ID입니다. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
 | 실시간 | 문자열 | 시간 간격에 속한 이벤트 시간(UTC 형식)입니다. | `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
 |activityRunId| 문자열| 활동 실행 ID입니다. | `3a171e1f-b36e-4b80-8a54-5625394f4354` |
 |pipelineRunId| 문자열| 파이프라인 실행 ID입니다. | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
-|resourceId| 문자열 | 데이터 팩터리 리소스에 대한 연결된 리소스 ID입니다. | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
+|ResourceId| 문자열 | 데이터 팩터리 리소스에 대한 연결된 리소스 ID입니다. | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 |카테고리| 문자열 | 진단 로그의 범주입니다. 이 속성을 "ActivityRuns"로 설정합니다. | `ActivityRuns` |
 |level| 문자열 | 진단 로그 수준입니다. 이 속성을 "Informational"로 설정합니다. | `Informational` |
 |operationName| 문자열 |상태가 있는 활동 이름입니다. 상태가 시작 하트비트이면 `MyActivity -`입니다. 상태가 종료 하트비트이면 최종 상태가 있는 `MyActivity - Succeeded`입니다 | `MyActivity - Succeeded` |
@@ -320,13 +320,13 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 }
 ```
 
-| 속성 | 형식 | 설명 | 예제 |
+| 자산 | 형식 | 설명 | 예 |
 | --- | --- | --- | --- |
 | Level |문자열 | 진단 로그 수준입니다. 수준 4는 활동 실행 로그에 대한 경우입니다. | `4`  |
 | CorrelationId |문자열 | 종단 간 특정 요청을 추적하는 고유 ID입니다. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
 | 실시간 | 문자열 | 시간 간격에 속한 이벤트 시간(UTC 형식)입니다. | `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
 |runId| 문자열| 파이프라인 실행 ID입니다. | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
-|resourceId| 문자열 | 데이터 팩터리 리소스에 대한 연결된 리소스 ID입니다. | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
+|ResourceId| 문자열 | 데이터 팩터리 리소스에 대한 연결된 리소스 ID입니다. | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 |카테고리| 문자열 | 진단 로그의 범주입니다. 이 속성을 "PipelineRuns"로 설정합니다. | `PipelineRuns` |
 |level| 문자열 | 진단 로그 수준입니다. 이 속성을 "Informational"로 설정합니다. | `Informational` |
 |operationName| 문자열 |상태가 있는 파이프라인 이름입니다. 파이프라인 실행이 완료되면 최종 상태가 있는 "Pipeline - Succeeded"입니다.| `MyPipeline - Succeeded` |
@@ -365,13 +365,13 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 
 ```
 
-| 속성 | 형식 | 설명 | 예제 |
+| 자산 | 형식 | 설명 | 예 |
 | --- | --- | --- | --- |
 | Level |문자열 | 진단 로그 수준입니다. 활동 실행 로그에 대해 수준 4로 설정합니다. | `4`  |
 | CorrelationId |문자열 | 종단 간 특정 요청을 추적하는 고유 ID입니다. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
 | 실시간 | 문자열 | 시간 간격에 속한 이벤트 시간(UTC 형식)입니다. | `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
 |triggerId| 문자열| 트리거 실행 ID입니다. | `08587023010602533858661257311` |
-|resourceId| 문자열 | 데이터 팩터리 리소스에 대한 연결된 리소스 ID입니다. | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
+|ResourceId| 문자열 | 데이터 팩터리 리소스에 대한 연결된 리소스 ID입니다. | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 |카테고리| 문자열 | 진단 로그의 범주입니다. 이 속성을 "PipelineRuns"로 설정합니다. | `PipelineRuns` |
 |level| 문자열 | 진단 로그 수준입니다. 이 속성을 "Informational"로 설정합니다. | `Informational` |
 |operationName| 문자열 |트리거가 성공적으로 시작되었는지 여부를 나타내는 최종 상태가 있는 트리거 이름입니다. 하트비트에 성공하면 "MyTrigger - Succeeded"입니다.| `MyTrigger - Succeeded` |

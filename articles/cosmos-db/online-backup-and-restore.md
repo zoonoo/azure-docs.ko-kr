@@ -4,7 +4,7 @@ description: "Azure Cosmos DB 데이터베이스에서 자동 백업 및 복원�
 keywords: "백업 및 복원, 온라인 백업"
 services: cosmos-db
 documentationcenter: 
-author: RahulPrasad16
+author: mimig1
 manager: jhubbard
 editor: monicar
 ms.assetid: 98eade4a-7ef4-4667-b167-6603ecd80b79
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 ms.date: 11/15/2017
-ms.author: raprasa
-ms.openlocfilehash: 3b421ca0d4ec612c5b0da25bcff712eb7ff9df85
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.author: mimig
+ms.openlocfilehash: f88bdd6ffb70ccd2aa48453747964c4afb5bea46
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="automatic-online-backup-and-restore-with-azure-cosmos-db"></a>Azure Cosmos DB로 자동 온라인 백업 및 복원
 Azure Cosmos DB는 자동으로 모든 데이터의 백업을 정기적으로 수행합니다. 자동 백업은 데이터베이스 작업의 성능이나 가용성에 영향을 주지 않고 수행됩니다. 모든 백업은 다른 저장소 서비스에 개별적으로 저장되고 이러한 백업은 지역 재해에 대한 복원을 위해 전역적으로 복제됩니다. 자동 백업은 Cosmos DB 컨테이너를 실수로 삭제했다가 나중에 데이터 복구 또는 재해 복구 솔루션이 필요한 시나리오를 위한 것입니다.  

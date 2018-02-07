@@ -1,9 +1,9 @@
 ---
 title: "SQL Data Warehouse 시스템 보기 | Microsoft Docs"
-description: "SQL 데이터 웨어하우스에 대한 시스템 보기 콘텐츠에 연결하는 링크."
+description: "SQL Data Warehouse에 대한 시스템 보기 콘텐츠에 연결하는 링크."
 services: sql-data-warehouse
 documentationcenter: NA
-author: kevinvngo
+author: barbkess
 manager: jhubbard
 editor: 
 ms.assetid: 21ec594b-d270-4202-a8cd-bb150e5ae12c
@@ -13,16 +13,16 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: reference
-ms.date: 07/12/2017
-ms.author: kevin;barbkess
-ms.openlocfilehash: a9327388f8789e548610a7d4f140c492afd88fef
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 01/22/2018
+ms.author: barbkess
+ms.openlocfilehash: 9c686c9cd4f9baf4f2c13194e58aadc9ebec0a24
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="system-views"></a>시스템 뷰
-## <a name="sql-data-warehouse-catalog-views"></a>SQL 데이터 웨어하우스 카탈로그 보기
+## <a name="sql-data-warehouse-catalog-views"></a>SQL Data Warehouse 카탈로그 보기
 * [sys.pdw_column_distribution_properties](http://msdn.microsoft.com/library/mt204022.aspx)
 * [sys.pdw_database_mappings](http://msdn.microsoft.com/library/mt203891.aspx)
 * [sys.pdw_distributions](http://msdn.microsoft.com/library/mt203892.aspx)
@@ -41,7 +41,7 @@ ms.lasthandoff: 10/11/2017
 * [sys.pdw_table_distribution_properties](http://msdn.microsoft.com/library/mt203896.aspx)
 * [sys.pdw_table_mappings](http://msdn.microsoft.com/library/mt203876.aspx)
 
-## <a name="sql-data-warehouse-dynamic-management-views-dmvs"></a>SQL 데이터 웨어하우스 동적 관리 보기(DMV)
+## <a name="sql-data-warehouse-dynamic-management-views-dmvs"></a>SQL Data Warehouse 동적 관리 보기(DMV)
 * [sys.dm_pdw_dms_cores](http://msdn.microsoft.com/library/mt203911.aspx)
 * [sys.dm_pdw_dms_external_work](https://msdn.microsoft.com/library/mt204024.aspx)
 * [sys.dm_pdw_dms_workers](http://msdn.microsoft.com/library/mt203878.aspx)
@@ -59,10 +59,10 @@ ms.lasthandoff: 10/11/2017
 * [sys.dm_pdw_sql_requests](http://msdn.microsoft.com/library/mt203889.aspx)
 * [sys.dm_pdw_sys_info](http://msdn.microsoft.com/library/mt203900.aspx)
 * [sys.dm_pdw_wait_stats](http://msdn.microsoft.com/library/mt203909.aspx)
-* [sys.dm_pdw_waits](http://msdn.microsoft.com/library/mt203909.aspx)
+* [sys.dm_pdw_waits](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql)
 
-## <a name="sql-server-dmvs-applicable-to-sql-data-warehouse"></a>SQL 데이터 웨어하우스에 적용 가능한 SQL Server DMV
-다음 DMV는 SQL 데이터 웨어하우스에 적용할 수 있지만 **master** 데이터베이스에 연결하여 실행해야 합니다.
+## <a name="sql-server-dmvs-applicable-to-sql-data-warehouse"></a>SQL Data Warehouse에 적용 가능한 SQL Server DMV
+다음 DMV는 SQL Data Warehouse에 적용할 수 있지만 **master** 데이터베이스에 연결하여 실행해야 합니다.
 
 * [sys.database_service_objectives](https://msdn.microsoft.com/library/mt712619.aspx)
 * [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx)
@@ -134,19 +134,17 @@ ms.lasthandoff: 10/11/2017
 * [sys.types](http://msdn.microsoft.com/library/ms188021.aspx)
 * [sys.views](http://msdn.microsoft.com/library/ms190334.aspx)
 
-## <a name="sql-server-dmvs-available-in-sql-data-warehouse"></a>SQL 데이터 웨어하우스에서 사용할 수 있는 SQL Server DMV
-SQL 데이터 웨어하우스는 다양한 SQL Server 동적 관리 보기(DMV)를 표시합니다. 이 보기는 SQL 데이터 웨어하우스에서 쿼리한 경우 배포에서 실행되고 있는 SQL 데이터베이스의 상태를 보고합니다.
+## <a name="sql-server-dmvs-available-in-sql-data-warehouse"></a>SQL Data Warehouse에서 사용할 수 있는 SQL Server DMV
+SQL Data Warehouse는 다양한 SQL Server 동적 관리 보기(DMV)를 표시합니다. 이 보기는 SQL Data Warehouse에서 쿼리한 경우 배포에서 실행되고 있는 SQL Database의 상태를 보고합니다.
 
-SQL 데이터 웨어하우스는 Microsoft의 MPP 기술을 기반으로 하므로, SQL 데이터웨어하우스와 분석 플랫폼 시스템의 병렬 데이터 웨어하우스(PDW) 모두 동일한 시스템 보기를 사용합니다.
-
-이 때문에 각 DMV에 pdw_node_id라는 특정 열이 있습니다. 이는 계산 노드에 대한 식별자입니다. PDW의 경우 계산 노드는 아키텍처에 대 해 더 강력한 개념입니다. SQL 데이터 웨어하우스에서 아키텍처는 배포에 더 많이 의존합니다.
+SQL Data Warehouse와 Analytics Platform System의 PDW(병렬 데이터 웨어하우스)는 모두 동일한 시스템 보기를 사용합니다. 각 DMV에는 계산 노드에 대한 식별자인 pdw_node_id라는 열이 있습니다. 
 
 > [!NOTE]
-> 이러한 보기를 사용하기 위해 다음 테이블과 같이 이름에 'pdw_nodes_'를 삽입합니다.
+> 이러한 보기를 사용하려면 다음 표와 같이 이름에 'pdw_nodes_'를 삽입합니다.
 > 
 > 
 
-| SQL 데이터 웨어하우스의 DMV 이름 | MSDN의 SQL Server TRANSACT-SQL 항목 링크 |
+| SQL Data Warehouse의 DMV 이름 | SQL Server Transact-SQL 문서|
 |:--- |:--- |
 | sys.dm_pdw_nodes_db_column_store_row_group_physical_stats | [sys.dm_db_column_store_row_group_physical_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql)| 
 | sys.dm_pdw_nodes_db_column_store_row_group_operational_stats | [sys.dm_db_column_store_row_group_operational_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-operational-stats-transact-sql)| 
@@ -210,7 +208,7 @@ SQL 데이터 웨어하우스는 Microsoft의 MPP 기술을 기반으로 하므�
 | sys.dm_pdw_nodes_tran_session_transactions |[sys.dm_tran_session_transactions](http://msdn.microsoft.com/library/ms188739.aspx) |
 | sys.dm_pdw_nodes_tran_top_version_generators |[sys.dm_tran_top_version_generators](http://msdn.microsoft.com/library/ms188778.aspx) |
 
-## <a name="sql-server-2016-polybase-dmvs-available-in-sql-data-warehouse"></a>SQL 데이터 웨어하우스에서 사용할 수 있는 SQL Server 2016 PolyBase DMV
+## <a name="sql-server-2016-polybase-dmvs-available-in-sql-data-warehouse"></a>SQL Data Warehouse에서 사용할 수 있는 SQL Server 2016 PolyBase DMV
 * [sys.dm_exec_compute_node_errors](http://msdn.microsoft.com/library/mt146380.aspx)
 * [sys.dm_exec_compute_node_status](http://msdn.microsoft.com/library/mt146382.aspx)
 * [sys.dm_exec_compute_nodes](https://msdn.microsoft.com/library/mt130700.aspx)

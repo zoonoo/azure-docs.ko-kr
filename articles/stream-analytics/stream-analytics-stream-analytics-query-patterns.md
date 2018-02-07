@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/08/2017
 ms.author: samacha
-ms.openlocfilehash: a27bae1828bd469d4439e0ce43098edd73f54243
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6ac5d3ab2a4df63c429f8478e392d84ac0ea6fd7
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>일반적인 Stream Analytics 사용 패턴에 대한 쿼리 예제
 ## <a name="introduction"></a>소개
@@ -178,7 +178,7 @@ Azure Stream Analytics에서 쿼리는 SQL 방식 쿼리 언어로 표현됩니�
 두 번째 쿼리는 일부 간단한 집계와 필터링을 하고 다운스트림 경고 시스템에 결과를 보냅니다.
 
 여러 출력 문에서 공통 테이블 식(CTE)(예: **WITH** 문)의 결과를 다시 사용할 수도 있습니다. 이 옵션에는 입력 원본에 대해 더 적은 독자를 여는 추가 이점이 있습니다.
-예: 
+예:  
 
     WITH AllRedCars AS (
         SELECT
@@ -207,7 +207,7 @@ Azure Stream Analytics에서 쿼리는 SQL 방식 쿼리 언어로 표현됩니�
 
 **출력:**
 
-| 개수 | Time |
+| CountMake | Time |
 | --- | --- |
 | 2 |2015-01-01T00:오전 12:02.000Z |
 | 1 |2015-01-01T00:오전 12:04.000Z |
@@ -394,7 +394,7 @@ GROUP BY
 
 **입력**:  
 
-| 사용자 | 기능 | 이벤트 | Time |
+| 사용자 | 기능 | 행사 | Time |
 | --- | --- | --- | --- |
 | user@location.com |RightMenu |시작 |2015-01-01T00:오전 12:01.0000000Z |
 | user@location.com |RightMenu |끝 |2015-01-01T00:오전 12:08.0000000Z |
@@ -469,7 +469,7 @@ GROUP BY
 
 **입력**:
 
-| t | value |
+| t | 값 |
 | --- | --- |
 | "2014-01-01T06:01:00" |1 |
 | "2014-01-01T06:오전 1:05" |2 |

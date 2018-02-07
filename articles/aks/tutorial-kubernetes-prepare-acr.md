@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 11/11/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: d436e7d9046fa9c1bced890c005f98b40b372ef6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b50d3b091848776feb33c042c2cddfcf2a598fc9
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="deploy-and-use-azure-container-registry"></a>Azure Container Registry 배포 및 사용
 
@@ -42,7 +42,7 @@ Azure Container Registry를 배포할 때는 먼저 리소스 그룹이 필요�
 az group create --name myResourceGroup --location eastus
 ```
 
-[az acr create][az-acr-create] 명령으로 Azure Container Registry를 만듭니다. 컨테이너 레지스트리의 이름은 **고유해야 합니다**.
+[az acr create][az-acr-create] 명령으로 Azure Container Registry를 만듭니다. 레지스트리 이름은 Azure 내에서 고유해야 하며, 5-50자의 영숫자만 포함해야 합니다.
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
@@ -68,7 +68,7 @@ az acr login --name <acrName>
 docker images
 ```
 
-출력:
+출력
 
 ```
 REPOSITORY                   TAG                 IMAGE ID            CREATED             SIZE
@@ -97,7 +97,7 @@ docker tag azure-vote-front <acrLoginServer>/azure-vote-front:redis-v1
 docker images
 ```
 
-출력:
+출력
 
 ```
 REPOSITORY                                           TAG                 IMAGE ID            CREATED             SIZE
@@ -127,7 +127,7 @@ Azure Container Registry에 밀어넣은 이미지 목록을 반환하려면 [az
 az acr repository list --name <acrName> --output table
 ```
 
-출력:
+출력
 
 ```azurecli
 Result
@@ -141,7 +141,7 @@ azure-vote-front
 az acr repository show-tags --name <acrName> --repository azure-vote-front --output table
 ```
 
-출력:
+출력
 
 ```azurecli
 Result

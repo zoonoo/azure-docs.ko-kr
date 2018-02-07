@@ -4,7 +4,7 @@ description: "이 항목 문서에서는 AD DS 계정의 암호가 변경된 후
 services: active-directory
 keywords: "AD DS 계정, Active Directory 계정, 암호"
 documentationcenter: 
-author: cychua
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 76b19162-8b16-4960-9e22-bd64e6675ecc
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: bd2970a723aa6b9073e25fd19493232af50e7985
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5bc296b594917f68f35d7d15653b7b0c60cde514
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="changing-the-ad-ds-account-password"></a>AD DS 계정 암호 변경
 AD DS 계정은 Azure AD Connect가 온-프레미스 Active Directory와 통신하는 데 사용하는 사용자 계정을 나타냅니다. AD DS 계정의 암호를 변경하는 경우 Azure AD Connect 동기화 서비스를 새 암호로 업데이트해야 합니다. 그렇지 않으면 더 이상 온-프레미스 Active Directory와 올바르게 동기화될 수 없으며 다음 오류가 발생합니다.

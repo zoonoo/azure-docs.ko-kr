@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: ponatara
-ms.openlocfilehash: 7658bedc0bd5c4a289f3271504a006ba54c783b6
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 559e64ae3c16ed21bc09ac0c044281aa0a6e43df
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="replicate-azure-vms-to-another-region-after-migration-to-azure-by-using-azure-site-recovery"></a>Azure Site Recovery를 사용하여 Azure로 마이그레이션한 후 Azure VM을 다른 지역에 복제
 
@@ -51,7 +51,7 @@ ms.lasthandoff: 01/18/2018
 2. **마이그레이션 완료** 작업은 마이그레이션 프로세스를 완료하고 가상 컴퓨터에 대한 복제를 제거하며 컴퓨터에 대한 Site Recovery 청구를 중지합니다.
 
 ### <a name="step-2-install-the-azure-vm-agent-on-the-virtual-machine"></a>2단계 - 가상 컴퓨터에 Azure VM 에이전트 설치
-Site Recovery 확장이 작동하고 VM을 보호하려면 Azure [VM 에이전트](../../virtual-machines/windows/classic/agents-and-extensions.md#azure-vm-agents-for-windows-and-linux)를 가상 머신에 설치해야 합니다.
+Site Recovery 확장이 작동하고 VM을 보호하려면 Azure [VM 에이전트](../../virtual-machines/windows/agent-user-guide.md)를 가상 머신에 설치해야 합니다.
 
 >[!IMPORTANT]
 >9.7.0.0 버전부터 모바일 서비스 설치 관리자는 Windows 가상 머신에 사용 가능한 최신 Azure VM 에이전트도 설치합니다. 마이그레이션 시 가상 컴퓨터는 Site Recovery 확장을 포함하여 모든 VM 확장을 사용하기 위한 에이전트 설치 필수 구성 요소를 충족합니다. Azure VM 에이전트는 마이그레이션된 컴퓨터에 설치된 모바일 서비스가 버전 9.6 이하인 경우에만 수동으로 설치해야 합니다.

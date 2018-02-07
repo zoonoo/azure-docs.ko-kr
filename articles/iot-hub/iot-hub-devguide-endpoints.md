@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/19/2017
 ms.author: dobett
-ms.openlocfilehash: 47f8949139c48ffa79f5530552b0a2e27b0f9ee0
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: dc983549aea53ed29859205102d6308a3367bec7
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="reference---iot-hub-endpoints"></a>참조 - IoT Hub 끝점
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 
 **개요** 블레이드에서 포털에서 끝점을 호스팅하는 IoT Hub의 이름을 찾을 수 있습니다. 기본적으로 IoT Hub의 DNS 이름은 다음과 같은 형태입니다. `{your iot hub name}.azure-devices.net`.
 
-Azure DNS를 사용하여 IoT Hub에 대한 사용자 지정 DNS 이름을 만들 수 있습니다. 자세한 내용은 [Azure DNS를 사용하여 Azure 서비스에 대해 사용자 지정 도메인 설정 제공](../dns/dns-custom-domain.md#azure-iot)을 참조하세요.
+Azure DNS를 사용하여 IoT Hub에 대한 사용자 지정 DNS 이름을 만들 수 있습니다. 자세한 내용은 [Azure DNS를 사용하여 Azure 서비스에 대해 사용자 지정 도메인 설정 제공](../dns/dns-custom-domain.md)을 참조하세요.
 
 ## <a name="list-of-built-in-iot-hub-endpoints"></a>기본 제공 IoT Hub 끝점 목록
 
@@ -70,6 +70,7 @@ IoT Hub는 현재 추가 끝점으로 다음과 같은 Azure 서비스를 지원
 
 * Azure Storage 컨테이너 
 * Event Hubs
+
 * Service Bus 큐
 * Service Bus 토픽
 

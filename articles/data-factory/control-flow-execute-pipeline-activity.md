@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2017
+ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 413d7ddf1e5b87f64c0d8e14c0ef4bdefd2890a7
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 90402e047caff2446591dca9cc9392c9d0344b5f
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="execute-pipeline-activity-in-azure-data-factory"></a>Azure Data Factory에서 파이프라인 실행 작업
 파이프라인 실행 작업을 사용하면 하나의 Data Factory 파이프라인에서 다른 파이프라인을 호출할 수 있습니다.
@@ -62,13 +62,13 @@ ms.lasthandoff: 10/31/2017
 ```
 
 ## <a name="type-properties"></a>형식 속성
-속성 | 설명 | 허용되는 값 | 필수
+자산 | 설명 | 허용되는 값 | 필수
 -------- | ----------- | -------------- | --------
-name | 파이프라인 실행 작업의 이름입니다. | 문자열 | 예
-type | **ExecutePipeline**으로 설정되어야 합니다. | 문자열 | 예
+이름 | 파이프라인 실행 작업의 이름입니다. | 문자열 | 예
+형식 | **ExecutePipeline**으로 설정되어야 합니다. | 문자열 | 예
 pipeline | 이 파이프라인을 호출하는 종속 파이프라인에 대한 파이프라인 참조입니다. 파이프라인 참조 개체에는 두 가지 속성(**referenceName** 및 **type**)이 있습니다. referenceName 속성은 참조 파이프라인의 이름을 지정합니다. type 속성은 PipelineReference로 설정되어야 합니다. | PipelineReference | 예
 매개 변수 | 호출된 파이프라인으로 전달될 매개 변수 | 매개 변수 이름을 인수 값에 매핑하는 JSON 개체 | 아니요
-waitOnCompletion | 종속 파이프라인 실행이 완료될 때까지 작업 실행을 기다릴지 여부를 정의합니다. | 기본값은 false입니다. | Boolean | 아니요
+waitOnCompletion | 종속 파이프라인 실행이 완료될 때까지 작업 실행을 기다릴지 여부를 정의합니다. | 기본값은 false입니다. | BOOLEAN | 아니요
 
 ## <a name="sample"></a>샘플
 이 시나리오에는 두 개의 파이프라인이 있습니다.

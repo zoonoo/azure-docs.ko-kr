@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 09/25/2017
 ms.author: yoelh
-ms.openlocfilehash: 9547ba8c65360a03168ff1b6eba01038554e7fd3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 582aadd35821779e307ac285804e3b7fe5c24abd
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="secure-your-restful-service-by-using-client-certificates"></a>클라이언트 인증서를 사용하여 RESTful 서비스 보호
 관련된 문서에서 Azure AD B2C(Azure Active Directory B2C)와 상호 작용하는 [RESTful 서비스를 만듭니다](active-directory-b2c-custom-rest-api-netfw.md).
@@ -181,7 +181,7 @@ Azure AD B2C에서 RESTful 서비스에 전송한 클라이언트 인증서는 �
 ### <a name="62-add-the-isvalidclientcertificate-function"></a>6.2 IsValidClientCertificate 함수 추가
 *Controllers\IdentityController.cs* 파일을 열고 다음 함수를 `Identity` 컨트롤러 클래스에 추가합니다. 
 
-```C#
+```csharp
 private bool IsValidClientCertificate()
 {
     string ClientCertificateSubject = ConfigurationManager.AppSettings["ClientCertificate:Subject"];
@@ -283,7 +283,7 @@ private bool IsValidClientCertificate()
 ### <a name="63-call-the-isvalidclientcertificate-function"></a>6.3 IsValidClientCertificate 함수 호출
 *Controllers\IdentityController.cs* 파일을 열고 `SignUp()` 함수의 시작 부분에서 다음 코드 조각을 추가합니다. 
 
-```C#
+```csharp
 if (IsValidClientCertificate() == false)
 {
     return Content(HttpStatusCode.Conflict, new B2CResponseContent("Your client certificate is not valid", HttpStatusCode.Conflict));

@@ -15,14 +15,15 @@ ms.topic: article
 ms.date: 08/02/2017
 ms.author: robb
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: afa863e2a900d4f823b77453d92f034db7d5a93f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c1f0182f27cfb8441a09abd2031b365a4ab4315a
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="what-are-alerts-in-microsoft-azure"></a>Microsoft Azure의 경고란?
 이 문서에서는 Microsoft Azure의 다양한 경고 출처, 경고의 목적과 장점, 경고 사용을 시작하는 방법에 대해 설명합니다. 경고는 특히 Azure Monitor에 적용되지만 다른 서비스에 대한 포인터를 제공합니다. 경고는 Azure에서 데이터에 대한 조건을 구성하고 최신 모니터링 데이터가 조건에 일치하면 알림을 받을 수 있는 모니터링 방법을 제공합니다.
+
 
 ## <a name="taxonomy-of-azure-alerts"></a>Azure 경고의 분류
 Azure는 다음 용어를 사용하여 경고와 그 기능을 설명합니다.
@@ -32,10 +33,15 @@ Azure는 다음 용어를 사용하여 경고와 그 기능을 설명합니다.
 * **알림** - 활성화된 경고를 기반으로 수행되는 조치
 * **작업** - 알림 수신자에게 보내는 특정 호출(예: 주소로 이메일 보내기 또는 웹후크 URL에 게시). 알림은 보통 여러 작업을 트리거할 수 있습니다.
 
+    > [!NOTE]
+    > Azure에서 경고의 진화의 일환으로 통합된 새로운 환경이 미리 보기로 제공됩니다. 새 경고(미리 보기) 환경에서는 다른 분류를 사용합니다. [경고(미리 보기)](monitoring-overview-unified-alerts.md)에 대해 자세히 알아보세요. 
+    >
+
 ## <a name="alerts-in-different-azure-services"></a>다른 Azure 서비스에서의 경고
 경고는 여러 Azure 모니터링 서비스전체 에서 제공됩니다. 이러한 서비스 사용 방법 및 시기에 대한 내용은 [이 문서를 참조하세요](./monitoring-overview.md). Azure 전체에서 사용 가능한 경고 유형을 분석하면 같습니다.
 
-| 부여 | 경고 유형 | 지원되는 서비스 | 설명 |
+
+| 서비스 | 경고 유형 | 지원되는 서비스 | 설명 |
 |---|---|---|---|
 | Azure Monitor | [메트릭 경고](./insights-alerts-portal.md) | [Azure Monitor에서 지원되는 메트릭](./monitoring-supported-metrics.md) | 플랫폼 수준 메트릭이 특정 조건에 부합하면(예: VM의 CPU %가 지난 5분 동안 90%를 넘음) 알림을 받습니다. |
 |Azure Monitor | [근 실시간 메트릭 경고(미리 보기)](./monitoring-near-real-time-metric-alerts.md)| [Azure Monitor에서 지원되는 리소스](./monitoring-near-real-time-metric-alerts.md#what-resources-can-i-create-near-real-time-metric-alerts-for) | 하나 이상의 플랫폼 수준 메트릭이 지정된 조건을 충족하는 경우 알림을 메트릭 경고보다 먼저 수신합니다.(예를 들어, 지난 5분 동안 VM의 CPU 비율이 90보다 크고 네트워크 입력이 500MB보다 큽니다.) |
@@ -50,12 +56,12 @@ Azure Monitor에서는 메트릭 경고, 근 실시간 메트릭 경고(미리 �
 * **메트릭 경고**: 이 경고는 특정 메트릭의 값이 사용자가 할당한 임계값을 초과했을 때 트리거됩니다. 경고가 “활성화”되었을 때(임계값ㅇ르 초과했고 경고 조건에 부합함)와 “해결”되었을 때(임계값을 다시 넘었고 조건에 더 이상 부합하지 않음) 경고가 알림을 생성합니다. Azure Monitor에서 지원하는 사용 가능한 메트릭 목록은 [Azure Monitor에서 지원되는 메트릭 목록](monitoring-supported-metrics.md)을 참조하세요.
 * **근 실시간 메트릭 경고(미리 보기)** - 이러한 경고는 메트릭 알림과 유사하지만 몇 가지 다른 점이 있습니다. 첫째, 이름에서 알 수 있듯이 이러한 경고는 근 실시간으로 트리거될 수 있습니다(1분 정도). 또한 여러(현재 두 가지) 메트릭을 모니터링하도록 지원합니다.  경고가 "활성화"되었을 때(각 메트릭의 임계값을 동시에 초과하고 경고 조건에 부합하는 경우) 및 "해결"되었을 때(적어도 하나의 메트릭이 임계값을 다시 넘고 조건에 더 이상 부합하지 않은 경우) 경고가 알림을 생성합니다.
 
-> [!NOTE]
-> 근 실시간 메트릭 경고는 현재 공개 미리 보기로 제공됩니다. 기능 및 사용자 환경을 변경할 수 있습니다.
->
->
+    > [!NOTE]
+    > 근 실시간 메트릭 경고는 현재 공개 미리 보기로 제공됩니다. 기능 및 사용자 환경을 변경할 수 있습니다.
+    >
+    >
 
-* **활동 로그 경고** - 사용자가 할당한 필터 기준에 부합하는 활동 로그 이벤트가 생성되면 트리거되는 스트리밍 로그 알림입니다. 경고 엔진은 단순히 필터 기준을 모든 새 이벤트에 적용하므로 이러한 경고의 상태는 "활성화됨"뿐입니다. 이러한 경고를 통해 새 서비스 상태 사건이 발생하거나 사용자 또는 응용 프로그램이 구독에서 작업을 수행할 때(예: "가상 컴퓨터 삭제") 알림을 받을 수 있습니다.
+* **활동 로그 경고** - 사용자가 할당한 필터 기준에 부합하는 활동 로그 이벤트가 생성되면 트리거되는 스트리밍 로그 알림입니다. 경고 엔진은 단순히 필터 기준을 모든 새 이벤트에 적용하므로 이러한 경고의 상태는 "활성화됨"뿐입니다. 이러한 경고를 통해 새 서비스 상태 사건이 발생하거나 사용자 또는 응용 프로그램이 구독에서 작업을 수행할 때(예: "가상 머신 삭제") 알림을 받을 수 있습니다.
 
 Azure Monitor를 통해 제공되는 진단 로그 데이터의 경우 데이터를 Log Analytics로 전달하고 Log Analytics 경고를 사용하는 것이 좋습니다. 다음 다이어그램에서는 Azure Monitor의 데이터 원본을 요약하고 그러한 데이터에 대해 경고 받는 방법을 개념적으로 설명약합니다.
 
@@ -91,3 +97,4 @@ Azure Monitor를 통해 제공되는 진단 로그 데이터의 경우 데이터
 * [근 실시간 메트릭 경고](monitoring-near-real-time-metric-alerts.md)에 대해 자세히 알아보기
 * [서비스 알림](monitoring-service-notifications.md)에 대해 자세히 알아보기
 * [작업 그룹](monitoring-action-groups.md)에 대해 자세히 알아보기
+* [경고(미리 보기)를 통한 경고](monitor-alerts-unified-usage.md) 구성

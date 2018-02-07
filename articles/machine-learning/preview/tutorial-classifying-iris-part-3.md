@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 11/29/2017
-ms.openlocfilehash: b8e245f13af1dd011a92bbf0584b1689a1a0399f
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 97cd46819a4547ec743270871bcb6b4eef3eb365
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="classify-iris-part-3-deploy-a-model"></a>아이리스 분류 3부: 모델 배포
 Azure Machine Learning 서비스(미리 보기)는 전문 데이터 과학자를 위한 종단 간 데이터 과학 및 고급 분석 통합 솔루션입니다. 데이터 과학자는 클라우드 규모로 데이터를 준비하고, 실험을 개발하며, 모델을 배포하는 데 사용할 수 있습니다.
@@ -32,7 +32,7 @@ Azure Machine Learning 서비스(미리 보기)는 전문 데이터 과학자를
 
  이 자습서에서는 변함 없는 [아이리스 꽃 데이터 집합](https://en.wikipedia.org/wiki/iris_flower_data_set)을 사용합니다. 스크린샷은 Windows 전용이지만 Mac OS 환경에서도 거의 동일합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 다음과 같이 이 자습서 시리즈의 제1부 및 제2부를 완료해야 합니다.
 
    * [데이터 준비 자습서](tutorial-classifying-iris-part-1.md)에 따라 Machine Learning 리소스를 만들고 Azure Machine Learning Workbench 응용 프로그램을 설치합니다.
@@ -134,37 +134,7 @@ _로컬 모드_ 배포를 사용하여 로컬 컴퓨터의 Docker 컨테이너�
 
    명령줄 프롬프트가 현재 프로젝트 폴더 위치인 **c:\temp\myIris>**에서 열립니다.
 
-2. **Microsoft.ContainerRegistry** Azure 리소스 공급자가 구독에 등록되어 있는지 확인합니다. 3단계에서 환경을 만들려면 먼저 이 리소스 공급자를 등록해야 합니다. 다음 명령을 사용하여 이미 등록되어 있는지 확인할 수 있습니다.
-   ``` 
-   az provider list --query "[].{Provider:namespace, Status:registrationState}" --out table 
-   ``` 
-
-   다음과 유사한 출력이 표시됩니다. 
-   ```
-   Provider                                  Status 
-   --------                                  ------
-   Microsoft.Authorization                   Registered 
-   Microsoft.ContainerRegistry               Registered 
-   microsoft.insights                        Registered 
-   Microsoft.MachineLearningExperimentation  Registered 
-   ... 
-   ```
-   
-   **Microsoft.ContainerRegistry**가 등록되어 있지 않으면 다음 명령을 사용하여 등록할 수 있습니다.
-   ``` 
-   az provider register --namespace Microsoft.ContainerRegistry 
-   ```
-   등록은 몇 분 정도 걸릴 수 있습니다. 이전 **az provider list** 명령 또는 다음 명령을 사용하여 해당 상태를 확인할 수 있습니다.
-   ``` 
-   az provider show -n Microsoft.ContainerRegistry 
-   ``` 
-
-   출력의 세 번째 줄에 **“registrationState”: “Registering”**이 표시됩니다. 몇 분 정도 기다렸다가 출력에 **"registrationState": "Registered"**가 표시될 때까지 **show** 명령을 반복합니다.
-
-   >[!NOTE] 
-   ACS 클러스터를 배포하는 경우 정확히 동일한 방법을 사용하여 **Microsoft.ContainerService** 리소스 공급자를 등록해야 합니다.
-
-3. 환경을 만듭니다. 환경당 한 번씩 이 단계를 실행해야 합니다. 예를 들어, 개발 환경에 대해 한 번, 프로덕션에 대해 한 번씩 실행합니다. 첫 번째 환경에는 _로컬 모드_를 사용합니다. 나중에 다음 명령에서 `-c` 또는 `--cluster` 스위치를 사용하여 환경을 _클러스터 모드_로 설정할 수 있습니다.
+2. 환경을 만듭니다. 환경당 한 번씩 이 단계를 실행해야 합니다. 예를 들어, 개발 환경에 대해 한 번, 프로덕션에 대해 한 번씩 실행합니다. 첫 번째 환경에는 _로컬 모드_를 사용합니다. 나중에 다음 명령에서 `-c` 또는 `--cluster` 스위치를 사용하여 환경을 _클러스터 모드_로 설정할 수 있습니다.
 
    다음 설정 명령에서는 구독에 대한 참가자 액세스 권한이 있어야 합니다. 해당 권한이 없는 경우 적어도 배포하는 리소스 그룹에 대한 참가자 액세스 권한이 필요합니다. 후자를 수행하려면 `-g` 플래그를 사용하여 설치 명령의 일부로 리소스 그룹 이름을 지정해야 합니다. 
 
@@ -176,25 +146,25 @@ _로컬 모드_ 배포를 사용하여 로컬 컴퓨터의 Docker 컨테이너�
    
    클러스터 이름은 환경을 식별할 수 있는 방법입니다. 위치는 Azure Portal에서 만든 모델 관리 계정의 위치와 동일해야 합니다.
 
-4. 모델 관리 계정을 만듭니다. 이 설정은 한 번만 수행하면 됩니다.  
+3. 모델 관리 계정을 만듭니다. 이 설정은 한 번만 수행하면 됩니다.  
    ```azurecli
    az ml account modelmanagement create --location <e.g. eastus2> -n <new model management account name> -g <existing resource group name> --sku-name S1
    ```
    
-5. 모델 관리 계정을 설정합니다.  
+4. 모델 관리 계정을 설정합니다.  
    ```azurecli
    az ml account modelmanagement set -n <youracctname> -g <yourresourcegroupname>
    ```
 
-6. 환경을 설정합니다.
+5. 환경을 설정합니다.
 
-   설정이 완료되면 다음 명령을 사용하여 환경 조작에 필요한 환경 변수를 설정합니다. 이전에 4단계에서 사용한 동일한 환경 이름을 사용합니다. 설정 프로세스가 완료될 때 명령 창에 출력된 것과 동일한 리소스 그룹 이름을 사용합니다.
+   설정이 완료되면 다음 명령을 사용하여 환경 조작에 필요한 환경 변수를 설정합니다. 이전에 2단계에서 사용한 동일한 환경 이름을 사용합니다. 설정 프로세스가 완료될 때 명령 창에 출력된 것과 동일한 리소스 그룹 이름을 사용합니다.
 
    ```azurecli
    az ml env set -n <deployment environment name> -g <existing resource group name>
    ```
 
-7. 로컬 웹 서비스 배포를 위한 조작 가능한 환경을 제대로 구성했는지 확인하려면 다음 명령을 입력합니다.
+6. 로컬 웹 서비스 배포를 위한 조작 가능한 환경을 제대로 구성했는지 확인하려면 다음 명령을 입력합니다.
 
    ```azurecli
    az ml env show

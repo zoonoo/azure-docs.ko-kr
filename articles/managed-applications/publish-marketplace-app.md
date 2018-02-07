@@ -3,18 +3,18 @@ title: "Marketplace에서 Azure 관리되는 응용 프로그램 | Microsoft Doc
 description: "Marketplace를 통해 사용할 수 있는 Azure 관리되는 응용 프로그램에 대해 설명합니다."
 services: azure-resource-manager
 author: tfitzmac
-manager: rjmax
+manager: timlt
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 11/08/2017
+ms.date: 01/18/2018
 ms.author: tomfitz
-ms.openlocfilehash: e643c86bfd5a78f21f6d96051e4395168cb7d6e0
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: fccc2dbb7623f4ceb0d3decc7037f75a05858910
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-managed-applications-in-the-marketplace"></a>Marketplace에서 Azure 관리되는 응용 프로그램
 
@@ -36,26 +36,18 @@ ms.lasthandoff: 01/12/2018
 * Azure Marketplace 참가 정책 및 게시자 약관의 조건에 동의합니다.
 * 사용 약관, Microsoft 개인정보처리방침 및 Microsoft Azure Certified 프로그램 계약을 준수한다는 데 동의합니다.
 
-## <a name="set-up-your-account-for-publishing-portal"></a>게시 포털에 대한 계정 설정
+## <a name="become-a-publisher"></a>게시자 되기
 
-게시 포털은 제품을 게시하고 관리하는 데 사용됩니다. Marketplace 응용 프로그램을 게시하려면 Azure Marketplace에 대해 승인된 Microsoft 개발자가 있어야 합니다. 승인된 계정에 등록하지 않은 경우 [Microsoft 개발자 계정 만들기](../marketplace-publishing/marketplace-publishing-accounts-creation-registration.md)를 참조하세요.
+Azure Marketplace에서 게시자가 되려면 다음을 수행해야 합니다.
 
-승인된 **Microsoft 개발자 센터** 계정이 있으나 [Azure 게시 포털](https://cloudpartner.azure.com/)을 이전에 사용해본 적이 없으면 게시 포털에 등록해야 합니다.
-
-1. 새 Chrome Incognito 또는 Internet Explorer InPrivate 검색 세션을 열어 개인 계정에 로그인되지 않았는지 확인합니다.
-2. [https://cloudpartner.azure.com/](https://cloudpartner.azure.com/)으로 이동합니다.
-3. 새 사용자이며, 게시 포털에 처음으로 로그인하는 경우 개발자 센터 계정과 동일한 전자 메일 ID를 사용하여 로그인해야 합니다. 이제 개발자 센터 계정 및 게시 포털 계정이 연결됩니다.
-
-나중에 회사의 다른 구성원을 게시 포털에 [공동 관리자](../marketplace-publishing/marketplace-publishing-accounts-creation-registration.md#4-steps-to-add-a-co-admin-in-the-publishing-portal)로 추가할 수 있습니다. 게시 포털에서 공동 관리자로 추가되면 공동 관리자 계정을 사용하여 로그인할 수 있습니다.
-
-> [!TIP]
-> 참가 정책은 [Azure 웹 사이트](https://azure.microsoft.com/support/legal/marketplace/participation-policies/)에 설명되어 있습니다.
->
->
+1. Microsoft ID 만들기 - 회사 도메인에 속하지만 단일 개인이 아닌 메일 주소를 사용하여 Microsoft 계정을 만듭니다. 이 메일 주소는 Microsoft 개발자 센터 및 Cloud 파트너 포털에 모두 사용됩니다. 자세한 내용은 [Azure Marketplace 게시자 가이드](https://aka.ms/sellerguide)를 참조하세요.
+1. [Azure Marketplace 추천 양식](https://aka.ms/ampnomination) 제출 - **Solution that you intend to publish?**(게시 방법)를 보려면 **관리되는 응용 프로그램**을 선택합니다. 양식이 제출되면 Marketplace 온보딩 팀에서 응용 프로그램을 검토하고 요청의 유효성을 검사합니다. 승인 프로세스는 1~3일이 걸릴 수 있습니다. 추천이 승인되면 개발자 센터에 대한 등록 요금을 면제받을 수 있는 프로모션 코드를 받게 됩니다. Marketplace 추천 양식을 완료하지 **않을** 경우 $99의 등록 요금이 청구됩니다.
+1. [개발자 센터](https://developer.microsoft.com)에 등록 - Microsoft는 조직이 등록된 국가의 올바른 세금 ID를 가진 유효한 법인인지 유효성을 검사합니다. 승인 프로세스는 5~10일이 걸릴 수 있습니다. 등록 요금을 내지 않으려면 추천 프로세스에서 메일로 받은 프로모션 코드를 사용합니다. 자세한 내용은 [Azure Marketplace 게시자 가이드](https://aka.ms/sellerguide)를 참조하세요.
+1. [Cloud 파트너 포털](https://cloudpartner.azure.com)에 로그인 - 게시자 프로필에서 Marketplace 게시자 프로필에 개발자 센터 계정을 연결합니다. 자세한 내용은 [Azure Marketplace 게시자 가이드](https://aka.ms/sellerguide)를 참조하세요.
 
 ## <a name="create-a-new-azure-application-offer"></a>새 Azure 응용 프로그램 제품 만들기
 
-필수 구성 요소를 충족하면 관리되는 응용 프로그램 제품을 만들 준비가 되었습니다.
+파트너 포털 계정을 만들었으면 관리되는 응용 프로그램 제품을 만들 준비가 된 것입니다.
 
 ### <a name="set-up-an-offer"></a>제품 설정
 
@@ -65,11 +57,7 @@ ms.lasthandoff: 01/12/2018
 
 1. 왼쪽의 탐색 창에서 **+ 새 제품** > **Azure 응용 프로그램**을 선택합니다.
 
-   ![새 제품](./media/publish-marketplace-app/newOffer.png)
-
 1. **편집기** 보기에 필요한 양식이 표시됩니다. 각각의 양식은 이 문서의 뒷부분에서 설명합니다.
-
-   ![제품 설정](./media/publish-marketplace-app/newOffer_OfferSettings.png)
 
 ## <a name="offer-settings-form"></a>제품 설정 양식
 
@@ -95,13 +83,9 @@ SKU는 마켓플레이스의 부모 제품 아래에 표시됩니다. Azure Port
 
 1. **SKU** > **새 SKU**를 선택합니다.
 
-   ![새 SKU 선택](./media/publish-marketplace-app/newOffer_skus.png)
-
 1. **SKU ID**를 입력합니다. SKU ID는 제품 내의 SKU에 대한 고유 식별자입니다. 이 ID는 제품 URL, Resource Manager 템플릿 및 청구 보고서에서 볼 수 있습니다. 소문자 영숫자 문자 또는 대시(-)로만 구성할 수 있습니다. ID는 대시로 끝내면 안 되며 최대 50문자로 제한됩니다. 제품이 라이브 상태가 되면 이 필드는 잠깁니다. 제품 내에 여러 SKU를 포함할 수 있습니다. 게시하려는 각 이미지에 대해 SKU가 필요합니다.
 
 1. 다음 양식의 **SKU 세부 정보** 섹션을 작성합니다.
-
-   ![새 SKU 제공](./media/publish-marketplace-app/sku-settings.png)
 
    다음 필드를 작성합니다.
 
@@ -110,14 +94,9 @@ SKU는 마켓플레이스의 부모 제품 아래에 표시됩니다. Azure Port
    * **설명**: SKU에 대한 자세한 설명을 입력합니다.
    * **SKU 형식**: 허용된 값은 *관리되는 응용 프로그램* 및 *솔루션 템플릿*입니다. 이 경우 *관리되는 응용 프로그램*을 선택합니다.
    * **국가/지역 가용성**: 관리되는 응용 프로그램을 사용할 수 있는 국가를 선택합니다.
-
-      ![국가 선택](./media/publish-marketplace-app/select-country.png)
-
    * **가격 책정**: 응용 프로그램의 관리 가격을 제공합니다. 가격을 설정하기 전에 사용 가능한 국가를 선택합니다.
 
 1. 새 패키지를 추가합니다. 다음 양식의 **패키지 세부 정보** 섹션을 작성합니다.
-
-   ![패키지](./media/publish-marketplace-app/new-package.png)
 
    다음 필드를 작성합니다.
 

@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/22/2017
 ms.author: jgao
-ms.openlocfilehash: a65daae8931c5ef892bf01eb049897488d6b15c7
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 347af14d342751fd9d03cd5d0e9cedf05f91a2e1
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Azure 포털을 사용하여 HDInsight의 Hadoop 클러스터 관리
 
@@ -28,9 +28,9 @@ ms.lasthandoff: 12/05/2017
 
 [Azure Portal][azure-portal]을 사용하여 Azure HDInsight에서 Hadoop 클러스터를 관리할 수 있습니다. 다른 도구를 사용하여 HDInsight에서 Hadoop 클러스터를 관리하는 방법에 대한 정보를 보려면 위쪽에 있는 탭 선택기를 사용하세요.
 
-**필수 요소**
+**필수 구성 요소**
 
-이 문서의 단계를 수행하려면 **Azure 구독**이 필요합니다. [Azure 무료 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
+이 문서의 단계를 수행하려면 **Azure 구독**이 필요합니다. [Azure 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
 
 ## <a name="open-the-azure-portal"></a>Azure 포털 열기
 1. [https://portal.azure.com](https://portal.azure.com)에 로그인합니다.
@@ -54,20 +54,20 @@ ms.lasthandoff: 12/05/2017
 
 HDInsight는 다양한 Hadoop 구성 요소에서 작동합니다. 검증되어 지원되는 구성 요소 목록은 [Azure HDInsight에 포함된 Hadoop 버전은 무엇인가요?](hdinsight-component-versioning.md)를 참조하세요. 클러스터를 만드는 방법에 대한 일반적인 정보는 [HDInsight에서 Hadoop 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요.
 
-### <a name="access-control-requirements"></a>액세스 제어 요구 사항
+### <a name="access-control-requirements"></a>Access Control 요구 사항
 
 HDInsight 클러스터를 만들 때 Azure 구독을 지정해야 합니다. 클러스터는 새 Azure 리소스 그룹 또는 기존 리소스 그룹에서 만들 수 있습니다. 다음 단계를 사용하여 HDInsight 클러스터를 만들기 위한 권한을 확인할 수 있습니다.
 
 - 새 리소스 그룹을 만들려면 다음을 수행합니다.
 
-    1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+    1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
     2. 왼쪽 메뉴에서 **구독**을 클릭합니다. 노란색 키 아이콘이 있습니다. 구독의 목록이 표시됩니다.
     3. 클러스터를 만드는 데 사용할 구독을 클릭합니다. 
     4. **내 사용 권한**을 클릭합니다.  구독에 [역할](../active-directory/role-based-access-control-what-is.md#built-in-roles)이 표시됩니다. HDInsight 클러스터를 만들기 위해서는 참여자 액세스 권한 이상이 필요합니다.
 
 - 기존 리소스 그룹을 사용하려면 다음을 수행합니다.
 
-    1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+    1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
     2. 왼쪽 메뉴에서 **리소스 그룹**을 클릭하여 리소스 그룹을 나열합니다.
     3. HDInsight 클러스터를 만드는 데 사용할 리소스 그룹을 클릭합니다.
     4. **액세스 제어(IAM)**를 클릭하고 사용자(또는 사용자가 속한 그룹)에게 리소스 그룹에 대한 참가자 액세스 권한 이상이 있는지 확인합니다.
@@ -81,10 +81,10 @@ NoRegisteredProviderFound 오류 또는 MissingSubscriptionRegistration 오류�
 4. 개요 페이지를 보려면 목록에서 클러스터를 클릭합니다.
 
     ![Azure Portal HDInsight 클러스터 기본 정보](./media/hdinsight-administer-use-portal-linux/hdinsight-essentials.png) **개요 메뉴:**
-    * **대시보드**: Linux 기반 클러스터용 Ambari Web인 클러스터 대시보드를 엽니다.
+    * **대시보드**: 클러스터에 대한 Ambari Web UI를 엽니다.
     * **보안 셸**: SSH(보안 셸) 연결을 사용하여 클러스터에 연결하는 지침을 보여 줍니다.
     * **클러스터 크기 조정**: 이 클러스터의 작업자 노드 수를 변경할 수 있습니다.
-    * **이동**: 클러스터를 다른 리소스 그룹 또는 등록으로 이동합니다.
+    * **이동**: 클러스터를 다른 리소스 그룹 또는 다른 구독으로 이동시킵니다.
     * **삭제**: 클러스터를 삭제합니다.
 
     **왼쪽 메뉴:**
@@ -98,7 +98,7 @@ NoRegisteredProviderFound 오류 또는 MissingSubscriptionRegistration 오류�
     * **HDInsight용 도구**: HDInsight 관련 도구에 대한 도움말 정보입니다.
     * **구독 코어 사용량**: 구독에 사용된 코어 및 사용 가능한 코어를 표시합니다.
     * **클러스터 크기 조정**: 클러스터 작업자 노드의 수를 늘리거나 줄입니다. [클러스터 크기 조정](hdinsight-administer-use-management-portal.md#scale-clusters)을 참조하세요.
-    * **SSH + 클러스터 로그인**: SSH(Secure Shell) 연결을 사용하여 클러스터에 연결하기 위한 지침을 표시합니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하고, 클러스터 로그인 자격 증명을 다시 설정합니다.
+    * **SSH + 클러스터 로그인**: SSH(Secure Shell) 연결을 사용하여 클러스터에 연결하기 위한 지침을 표시합니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
     * **HDInsight 파트너**: 현재 HDInsight 파트너를 추가/제거합니다.
     * **외부 Metastore**: Hive 및 Oozie Metastore를 표시합니다. Metastore는 클러스터 생성 과정 중에만 구성될 수 있습니다. [Hive/Oozie metastore 사용](hdinsight-hadoop-provision-linux-clusters.md#use-hiveoozie-metastore)을 참조하세요.
     * **스크립트 작업**: 클러스터에서 Bash 스크립트를 실행합니다. [스크립트 작업을 사용하여 Linux 기반 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)을 참조하세요.
@@ -226,6 +226,21 @@ HDInsight 클러스터를 사용하지 않는 기간에도 요금이 청구됩�
 
 [HDInsight 클러스터를 최신 버전으로 업그레이드](./hdinsight-upgrade-cluster.md)를 참조하세요.
 
+## <a name="open-the-ambari-web-ui"></a>Ambari 웹 UI 열기
+
+Ambari는 RESTful API에서 지원하는 직관적이고 사용하기 쉬운 Hadoop 관리 웹 UI를 제공합니다. Ambari를 사용하면 시스템 관리자가 Hadoop 클러스터를 관리하고 모니터링할 수 있습니다.
+
+1. Azure Portal에서 HDInsight 클러스터를 엽니다.  [클러스터 나열 및 표시](#list-and-show-clusters)를 참조하세요.
+2. **클러스터 대시보드**를 클릭합니다.
+
+    ![HDInsight Hadoop 클러스터 메뉴](./media/hdinsight-administer-use-portal-linux/hdinsight-azure-portal-cluster-menu.png)
+
+1. 클러스터 사용자 이름 및 암호를 입력합니다.  기본 클러스터 사용자 이름은 _admin_입니다. Ambari 웹 UI는 다음과 같습니다.
+
+    ![HDInsight Hadoop Ambari 웹 UI](./media/hdinsight-administer-use-portal-linux/hdinsight-hadoop-ambari-web-ui.png)
+
+자세한 내용은 [Ambari 웹 UI를 사용하여 HDInsight 클러스터 관리](hdinsight-hadoop-manage-ambari.md)를 참조하세요.
+
 ## <a name="change-passwords"></a>암호 변경
 HDInsight 클러스터마다 두 개의 사용자 계정이 포함될 수 있습니다. HDInsight 클러스터 사용자 이름(HTTP 사용자 계정이라고도 함) 및 SSH 사용자 계정은 만들기 프로세스 중에 만들어집니다. Ambari 웹 UI를 사용하여 클러스터 사용자 계정의 사용자 이름 및 암호를 변경할 수 있으며 스크립트 작업을 사용하여 SSH 사용자 계정을 변경할 수 있습니다.
 
@@ -346,7 +361,7 @@ HDInsight 클러스터 블레이드의 **사용량** 섹션에는 HDInsight에�
 
 ## <a name="connect-to-a-cluster"></a>클러스터에 연결
 
-* [HDInsight에서 Hive 사용](hadoop/apache-hadoop-use-hive-ambari-view.md)
+* [HDInsight에서 하이브 사용](hadoop/apache-hadoop-use-hive-ambari-view.md)
 * [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 ## <a name="next-steps"></a>다음 단계

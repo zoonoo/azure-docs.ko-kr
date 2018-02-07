@@ -3,7 +3,7 @@ title: "Azure 스택 1711 업데이트 | Microsoft Docs"
 description: "Azure 스택 1711 업데이트에 포함 된 내용에 대 한 자세한 내용은 시스템, 알려진된 문제 및 업데이트를 다운로드 위치에 통합 합니다."
 services: azure-stack
 documentationcenter: 
-author: andredm7
+author: brenduns
 manager: femila
 editor: 
 ms.assetid: 2b66fe05-3655-4f1a-9b30-81bd64ba0013
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2017
-ms.author: andredm
-ms.openlocfilehash: 578d17bcfbb7e12c9855132772c2068a5cdf1f62
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.date: 01/31/2018
+ms.author: brenduns
+ms.openlocfilehash: 3b3f6d66d8d5a095ff839195ccf718a9fa085527
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-stack-1711-update"></a>Azure 스택 1711 업데이트
 
@@ -62,7 +62,7 @@ Azure 스택을 먼저 설치 해야 [1710 업데이트](https://docs.microsoft.
 #### <a name="windows-server-2016-new-features-and-fixes"></a>Windows Server 2016의 새로운 기능 및 수정
 
 - [2017 년 11 월 14-KB4048953 (OS 빌드 14393.1884)](https://support.microsoft.com/help/4048953)
- 
+
 ### <a name="known-issues-with-the-update-process"></a>업데이트 프로세스의 알려진된 문제
 
 이 섹션 1711 업데이트 설치 중 발생할 수 있는 알려진된 문제가 포함 되어 있습니다.
@@ -97,7 +97,7 @@ Azure 스택을 먼저 설치 해야 [1710 업데이트](https://docs.microsoft.
 
    - 목록 맨 위에 있는 빈 행을 볼 수 있습니다. 여전히 예상 대로 항목을 선택할 수 있습니다.
    - 드롭다운 목록에 있는 항목의 목록이 긴 경우 수 항목 이름 중 하나를 볼 수 없습니다.
-   - 구독이 여러 개인 사용자, 리소스 그룹 드롭 다운 목록 비어 있을 수 있습니다. 
+   - 구독이 여러 개인 사용자, 리소스 그룹 드롭 다운 목록 비어 있을 수 있습니다.
 
         > [!NOTE]
         > 마지막 두 개의 문제를 해결 하려면 구독 또는 리소스 그룹 (경우 것)의 이름을 입력할 수 있습니다 또는 PowerShell을 대신 사용할 수 있습니다.
@@ -118,18 +118,18 @@ Azure 스택을 먼저 설치 해야 [1710 업데이트](https://docs.microsoft.
 - 가상 컴퓨터 가용성,의 장애 도메인 및 하나의 업데이트 도메인만 집합을 구성할 수 있습니다.
 - 가상 컴퓨터 크기 집합을 만들려는 마켓플레이스 본 경험이 없는 경우 크기는 템플릿을 사용 하 여 집합을 만들 수 있습니다.
 - 크기 조정 설정을 가상 컴퓨터 크기 집합에 대 한 포털에서 사용할 수 없는 경우 한 대 안으로 사용할 수 있습니다 [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set)합니다. PowerShell 버전 차이 때문에 사용 해야 합니다는 `-Name` 매개 변수 대신 `-VMScaleSetName`합니다.
- 
+
 #### <a name="networking"></a>네트워킹
 - 포털을 사용 하 여 공용 IP 주소와 부하 분산 장치를 만들 수 없습니다. 이 문제를 해결를 부하 분산 장치를 만드는 PowerShell을 사용할 수 있습니다.
 - 네트워크 부하 분산 장치를 만들 때 네트워크 주소 변환 (NAT) 규칙을 만들어야 합니다. 이렇게 하지 않으면 부하 분산 장치를 만들면 NAT 규칙을 추가 하려고 할 때 오류가 받게 합니다.
 - VM이 되어 해당 IP 주소와 연결 된 후 가상 컴퓨터 (VM)에서 공용 IP 주소를 분리할 수 없습니다. Disassociation 작동으로 나타나지만 이전에 할당 된 공용 IP 주소에 연결 되어 있는 원본 VM입니다. 새 VM에 IP 주소를 다시 할당 하는 경우에이 문제가 발생 (일반적으로 라고는 *VIP 교체*). 앞으로의 모든 새 아니라 원래 연결 되어 있던 VM에 대 한 연결에서이 IP 주소 결과 통해 연결을 시도 합니다. 현재, 새 VM 만들기에 대 한 새 공용 IP 주소를만 사용 해야 합니다.
 - Azure 스택 운영자를 배포, 삭제, Vnet 또는 네트워크 보안 그룹을 수정 못할 수 있습니다. 이 문제는 동일한 패키지의 후속 업데이트 시도에 주로 나타납니다. 이 현재 조사 중인 상태인 업데이트와 패키징 문제로 인해 발생 합니다.
 - 부하 분산 ILB (내부) Linux 인스턴스를 중단 시키는 백 엔드 Vm에 대 한 MAC 주소를 잘못 처리 합니다.
- 
+
 #### <a name="sqlmysql"></a>SQL/MySQL
-- 테 넌 트가 새 SQL 또는 MySQL SKU에 데이터베이스를 만들 수는 1 시간까지 걸릴 수 있으므로 합니다. 
+- 테 넌 트가 새 SQL 또는 MySQL SKU에 데이터베이스를 만들 수는 1 시간까지 걸릴 수 있으므로 합니다.
 - SQL 및 MySQL 리소스 공급자가 수행 되지 않은 서버 호스팅에 직접 항목의 생성은 지원 되지 않으며 일치 하지 않는 상태가 될 수 있습니다.
- 
+
 #### <a name="app-service"></a>App Service
 - 사용자는 구독에 해당 첫 번째 Azure 기능을 만들기 전에 저장소 리소스 공급자를 등록 해야 합니다.
 
@@ -149,7 +149,7 @@ Azure 스택을 먼저 설치 해야 [1710 업데이트](https://docs.microsoft.
 - **ASDK에 사용할 수 있도록 인프라 백업 테스트 목적 으로만 사용 됩니다.**  
   인프라 백업은 복원 솔루션을 다중 노드 데 사용할 수 있습니다. ASDK에 인프라 백업을 사용할 수 있습니다 하지만 복구를 테스트 하려면 방식은 없습니다.
 
-자세한 내용은 참조 [인프라 Backup 서비스에서 Azure 스택에 대 한 백업 및 데이터 복구](C:\Git\MS\azure-docs-pr\articles\azure-stack\azure-stack-backup-infrastructure-backup.md)합니다.
+자세한 내용은 참조 [인프라 Backup 서비스에서 Azure 스택에 대 한 백업 및 데이터 복구](azure-stack-backup-infrastructure-backup.md)합니다.
 
 ## <a name="download-the-update"></a>업데이트 다운로드
 

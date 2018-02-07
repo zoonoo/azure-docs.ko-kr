@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/11/2018
+ms.date: 01/17/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7f88cd2a9e23ec1b142fc754ada49a8562e774bc
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 38d4281dfadaefdf331e493745363e8b4152209d
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Azure 리소스를 배포할 때 연결 및 중첩된 템플릿 사용
 
@@ -82,7 +82,10 @@ ms.lasthandoff: 01/12/2018
 ]
 ```
 
-중첩된 템플릿의 경우, 중첩된 템플릿 내에 정의된 매개 변수 또는 변수를 사용할 수 없습니다. 주 템플릿의 매개 변수 및 변수를 사용할 수 있습니다. 앞의 예제에서 `[variables('storageName')]`은 중첩된 템플릿이 아닌 주 템플릿에서 값을 검색합니다. 이러한 제한은 외부 템플릿에 적용되지 않습니다.
+> [!NOTE]
+> 중첩된 템플릿의 경우, 중첩된 템플릿 내에 정의된 매개 변수 또는 변수를 사용할 수 없습니다. 주 템플릿의 매개 변수 및 변수를 사용할 수 있습니다. 앞의 예제에서 `[variables('storageName')]`은 중첩된 템플릿이 아닌 주 템플릿에서 값을 검색합니다. 이러한 제한은 외부 템플릿에 적용되지 않습니다.
+>
+> `reference` 함수는 중첩된 템플릿의 출력 섹션에 사용할 수 없습니다. 중첩된 템플릿에서 배포된 리소스의 값을 반환하려면 중첩된 템플릿을 연결된 템플릿으로 변환합니다.
 
 ### <a name="external-template-and-external-parameters"></a>외부 템플릿 및 외부 매개 변수
 

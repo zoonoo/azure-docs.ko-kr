@@ -1,28 +1,20 @@
 ---
-title: "Azure Site Recovery를 사용한 보조 사이트로의 Hyper-V 복제 아키텍처 검토 | Microsoft 문서"
+title: "Azure Site Recovery에서 보조 사이트 아키텍처로 Hyper-V 복제 | Microsoft Docs"
 description: "이 문서에서는 Azure Site Recovery를 사용하여 온-프레미스 Hyper-V VM을 보조 System Center VMM 사이트로 복제하기 위한 아키텍처 개요를 제공합니다."
-services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: 26475782-a21a-408a-b089-35382d7e010e
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2017
+ms.date: 12/19/2017
 ms.author: raynew
-ms.openlocfilehash: a7a493097a4eaacc2c8d8449906b4a57eb411827
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3380d189518f811ca6cf628608a253e5d93b2730
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="hyper-v-replication-to-a-secondary-site"></a>보조 사이트로 Hyper-V 복제
 
-이 문서에서는 Azure Portal에서 [Azure Site Recovery](site-recovery-overview.md) 서비스를 사용하여 System Center VMM(Virtual Machine Manager) 클라우드의 온-프레미스 Hyper-V VM(가상 컴퓨터)을 보조 VMM 사이트로 복제할 때 사용되는 구성 요소 및 프로세스를 설명합니다.
+이 문서에서는 Azure Portal에서 [Azure Site Recovery](site-recovery-overview.md) 서비스를 사용하여 System Center VMM(Virtual Machine Manager) 클라우드의 온-프레미스 Hyper-V VM(가상 머신)을 보조 VMM 사이트로 복제할 때 사용되는 구성 요소 및 프로세스를 설명합니다.
 
 
 ## <a name="architectural-components"></a>아키텍처 구성 요소
@@ -51,20 +43,18 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="failover-and-failback-process"></a>장애 조치 및 장애 복구 프로세스
 
-1. 단일 컴퓨터에 장애 조치를 수행하거나 복구 계획을 만들어서 여러 컴퓨터의 장애 조치를 오케스트레이션할 수 있습니다.
-2. 온-프레미스 사이트 간에 계획된 또는 계획되지 않은 장애 조치(failover)를 실행할 수 있습니다. 계획된 장애 조치를 실행할 경우 데이터 손실을 방지하기 위해 원본 VM이 종료됩니다.
+- 단일 컴퓨터에 장애 조치를 수행하거나 복구 계획을 만들어서 여러 컴퓨터의 장애 조치를 오케스트레이션할 수 있습니다.
+- 온-프레미스 사이트 간에 계획된 또는 계획되지 않은 장애 조치(failover)를 실행할 수 있습니다. 계획된 장애 조치를 실행할 경우 데이터 손실을 방지하기 위해 원본 VM이 종료됩니다.
     - 보조 사이트로 계획되지 않은 장애 조치(failover)를 수행하는 경우 장애 조치 후에 보조 위치의 컴퓨터가 보호되지 않습니다.
     - 계획된 장애 조치를 실행했으면 장애 조치 후에 보조 위치에 있는 컴퓨터가 보호됩니다.
-3. 초기 장애 조치(failover)가 실행된 후 장애 조치(failover)를 커밋하여 복제본 VM에서 워크로드 액세스를 시작합니다.
-
-주 위치를 다시 사용할 수 있게 되면 장애 복구(failback)할 수 있습니다.
-
-1. 역방향 복제를 시작하여 보조 사이트에서 주 사이트로의 복제를 시작합니다. 역방향 복제는 가상 컴퓨터를 보호된 상태로 가져오지만 보조 데이터 센터는 여전히 활성 위치입니다.
-2. 기본 사이트를 활성 위치로 다시 만들려면 다른 역방향 복제 후에 보조 사이트에서 기본 사이트로 계획된 장애 조치를 시작합니다.
+- 초기 장애 조치(failover)가 실행된 후 장애 조치(failover)를 커밋하여 복제본 VM에서 워크로드 액세스를 시작합니다.
+- 주 위치를 다시 사용할 수 있게 되면 장애 복구(failback)할 수 있습니다.
+    - 역방향 복제를 시작하여 보조 사이트에서 주 사이트로의 복제를 시작합니다. 역방향 복제는 가상 머신을 보호된 상태로 가져오지만 보조 데이터 센터는 여전히 활성 위치입니다.
+    - 기본 사이트를 활성 위치로 다시 만들려면 다른 역방향 복제 후에 보조 사이트에서 기본 사이트로 계획된 장애 조치를 시작합니다.
 
 
 
 ## <a name="next-steps"></a>다음 단계
 
-지원 매트릭스 검토. 자습서에 따라 VMM 클라우드 간에 Hyper-V 복제를 사용하도록 설정합니다.
-장애 조치(failover) 및 장애 복구(failback) 실행
+
+[이 자습서](tutorial-vmm-to-vmm.md)를 따라 VMM 클라우드 간에 Hyper-V 복제를 사용하도록 설정합니다.

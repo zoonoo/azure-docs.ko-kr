@@ -2,27 +2,21 @@
 title: "자습서: Azure Key Vault를 사용하여 Azure Storage에서 Blob 암호화 및 해독 | Microsoft Docs"
 description: "Azure Key Vault를 사용하여 Microsoft Azure Storage에 대한 클라이언트 쪽 암호화를 사용하여 Blob을 암호화하고 해독하는 방법입니다."
 services: storage
-documentationcenter: 
-author: adhurwit
-manager: jasonsav
-editor: tysonn
-ms.assetid: 027e8631-c1bf-48c1-9d9b-f6843e88b583
+author: tamram
+manager: jeconnoc
 ms.service: storage
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: required
 ms.date: 01/23/2017
 ms.author: adhurwit
-ms.openlocfilehash: fc4286b39ade5558a9dabd5832be05a7a0d6f0c7
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 405ccb44c9daf8d555946e6c68ef318ed2b82505
+ms.sourcegitcommit: a0d2423f1f277516ab2a15fe26afbc3db2f66e33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 01/16/2018
 ---
-# <a name="tutorial-encrypt-and-decrypt-blobs-in-microsoft-azure-storage-using-azure-key-vault"></a>자습서: Microsoft Azure 저장소에서 Azure 키 자격 증명 모음을 사용하여 Blob 암호화 및 해독
+# <a name="tutorial-encrypt-and-decrypt-blobs-in-microsoft-azure-storage-using-azure-key-vault"></a>자습서: Microsoft Azure Storage에서 Azure Key Vault를 사용하여 Blob 암호화 및 해독
 ## <a name="introduction"></a>소개
-이 자습서에서는 Azure 키 자격 증명 모음과 함께 클라이언트 쪽 저장소 암호화를 사용하는 방법을 설명합니다. 이러한 기술을 사용하여 콘솔 응용 프로그램에서 Blob를 암호화하고 해독하는 방법을 단계별로 안내 합니다.
+이 자습서에서는 Azure Key Vault와 함께 클라이언트 쪽 저장소 암호화를 사용하는 방법을 설명합니다. 이러한 기술을 사용하여 콘솔 응용 프로그램에서 Blob를 암호화하고 해독하는 방법을 단계별로 안내 합니다.
 
 **예상 완료 시간:** 20분
 
@@ -33,7 +27,7 @@ Azure Storage에 대한 클라이언트 쪽 암호화의 개요 정보는 [Micro
 ## <a name="prerequisites"></a>필수 조건
 이 자습서를 완료하려면 다음이 필요합니다.
 
-* Azure 저장소 계정
+* Azure Storage 계정
 * Visual Studio 2013 이상
 * Azure PowerShell
 
@@ -42,12 +36,12 @@ Azure Storage에 대한 클라이언트 쪽 암호화의 개요는 [Microsoft St
 
 클라이언트 쪽 암호화의 작동 원리에 대한 간단한 설명은 다음과 같습니다.
 
-1. Azure 저장소 클라이언트 SDK는 1회용 대칭 키인 콘텐츠 암호화 키(CEK)를 생성합니다.
+1. Azure Storage 클라이언트 SDK는 1회용 대칭 키인 콘텐츠 암호화 키(CEK)를 생성합니다.
 2. 고객 데이터는 이 CEK를 사용하여 암호화됩니다.
-3. 그런 다음 키 암호화 KEK를 사용하여 CEK를 래핑(암호화)합니다. KEK는 키 식별자로 식별되고 비대칭 키 쌍 또는 대칭 키일 수 있으며 로컬로 관리되거나 Azure 키 자격 증명 모음에 저장됩니다. 저장소 클라이언트 자체는 KEK에 액세스할 수 없습니다. 단지 키 자격 증명 모음에서 제공되는 키 래핑 알고리즘을 호출할 뿐입니다. 고객은 원하는 경우 키 래핑/래핑 해제를 위해 사용자 지정 공급자를 사용하도록 선택할 수 있습니다.
-4. 그런 다음 암호화된 데이터를 Azure 저장소 서비스에 업로드합니다.
+3. 그런 다음 키 암호화 KEK를 사용하여 CEK를 래핑(암호화)합니다. KEK는 키 식별자로 식별되고 비대칭 키 쌍 또는 대칭 키일 수 있으며 로컬로 관리되거나 Azure Key Vault에 저장됩니다. Storage 클라이언트 자체는 KEK에 액세스할 수 없습니다. 단지 키 자격 증명 모음에서 제공되는 키 래핑 알고리즘을 호출할 뿐입니다. 고객은 원하는 경우 키 래핑/래핑 해제를 위해 사용자 지정 공급자를 사용하도록 선택할 수 있습니다.
+4. 그런 다음 암호화된 데이터를 Azure Storage 서비스에 업로드합니다.
 
-## <a name="set-up-your-azure-key-vault"></a>Azure 키 자격 증명 모음 설정
+## <a name="set-up-your-azure-key-vault"></a>Azure Key Vault 설정
 이 자습서를 계속하려면 자습서 [Azure Key Vault 시작](../../key-vault/key-vault-get-started.md)에 요약된 다음 단계를 수행해야 합니다.
 
 * 키 자격 증명 모음을 만듭니다.
@@ -143,7 +137,7 @@ KeyVaultKeyResolver cloudResolver = new KeyVaultKeyResolver(GetToken);
 > 
 > 키 자격 증명 모음 클라이언트는 REST API와 상호작용하며 JSON 웹 키 및 키 자격 증명 모음에 포함된 두 종류의 항목에 대한 암호를 인식합니다.
 > 
-> 키 자격 증명 모음 확장은 Azure 저장소에 대한 클라이언트 쪽 암호화를 위해 명시적으로 생성된 것으로 보이는 클래스입니다. 이는 키(IKey) 및 키 확인 프로그램의 개념에 기초한 클래스를 포함하고 있습니다. IKey의 두 구현 RSAKey 및 SymmetricKey를 알아야 합니다. 현재 이들은 우연히 키 자격 증명 모음에 포함된 항목과 일치하지만, 이 시점에서는 독립된 클래스입니다(따라서 키 및 키 자격 증명 모음 클라이언트가 검색한 암호는 IKey를 구현하지 않음).
+> 키 자격 증명 모음 확장은 Azure Storage에 대한 클라이언트 쪽 암호화를 위해 명시적으로 생성된 것으로 보이는 클래스입니다. 이는 키(IKey) 및 키 확인 프로그램의 개념에 기초한 클래스를 포함하고 있습니다. IKey의 두 구현 RSAKey 및 SymmetricKey를 알아야 합니다. 현재 이들은 우연히 키 자격 증명 모음에 포함된 항목과 일치하지만, 이 시점에서는 독립된 클래스입니다(따라서 키 및 키 자격 증명 모음 클라이언트가 검색한 암호는 IKey를 구현하지 않음).
 > 
 > 
 
@@ -167,10 +161,6 @@ CloudBlockBlob blob = contain.GetBlockBlobReference("MyFile.txt");
 using (var stream = System.IO.File.OpenRead(@"C:\data\MyFile.txt"))
     blob.UploadFromStream(stream, stream.Length, null, options, null);
 ```
-
-다음은 키 자격 증명에 저장된 키와 함께 클라이언트 쪽 암호화를 사용하여 암호화한 Blob에 대한 현재 [Azure 클래식 포털](https://manage.windowsazure.com)의 스크린샷입니다. **KeyId** 속성은 키 KEK 역할을 하는 키 자격 증명 모음의 키에 대한 URI입니다. **EncryptedKey** 속성은 CEK의 암호화된 버전을 포함하고 있습니다.
-
-![암호화 메타 데이터를 포함하고 있는 Blob 메타데이터를 보여 주는 스크린샷](./media/storage-encrypt-decrypt-blobs-key-vault/blobmetadata.png)
 
 > [!NOTE]
 > BlobEncryptionPolicy 생성자를 살펴보면 키 및/또는 해결 프로그램을 사용할 수 있다는 것을 알 수 있습니다. 현재 해결 프로그램은 기본 키를 지원하지 않기 때문에 암호화에 사용할 수 없다는 데 유의해야 합니다.

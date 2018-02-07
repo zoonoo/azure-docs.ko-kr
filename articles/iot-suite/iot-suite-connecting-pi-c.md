@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2017
+ms.date: 01/03/2018
 ms.author: dobett
-ms.openlocfilehash: cec5d9c2e81e6311514536f7605777d48d1f1c46
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 7cfa6dd93c6db7477e03ff966b2ac8af15de3614
+ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-preconfigured-solution-c"></a>미리 구성된 원격 모니터링 솔루션에 Raspberry Pi 장치 연결(C)
 
@@ -47,9 +47,11 @@ Raspberry Pi의 명령줄에 원격으로 액세스할 수 있도록 데스크�
 
 ### <a name="required-raspberry-pi-software"></a>필수 Raspberry Pi 소프트웨어
 
+이 문서에서는 [Raspberry Pi에 Raspbian OS](https://www.raspberrypi.org/learning/software-guide/quickstart/)의 최신 버전을 설치했다고 가정합니다.
+
 다음 단계는 미리 구성된 솔루션에 연결하는 C 응용 프로그램을 빌드하기 위한 Raspberry Pi를 준비하는 방법을 보여 줍니다.
 
-1. `ssh`를 사용하여 Raspberry Pi에 연결합니다. 자세한 내용은 [Raspberry Pi 웹 사이트](https://www.raspberrypi.org/)에서 [SSH(Secure Shell)](https://www.raspberrypi.org/documentation/remote-access/ssh/README.md)를 참조하세요.
+1. **ssh**를 사용하여 Raspberry Pi에 연결합니다. 자세한 내용은 [Raspberry Pi 웹 사이트](https://www.raspberrypi.org/)에서 [SSH(Secure Shell)](https://www.raspberrypi.org/documentation/remote-access/ssh/README.md)를 참조하세요.
 
 1. 다음 명령을 사용하여 Raspberry Pi를 업데이트합니다.
 
@@ -60,31 +62,27 @@ Raspberry Pi의 명령줄에 원격으로 액세스할 수 있도록 데스크�
 1. 다음 명령을 사용하여 Raspberry Pi에 필요한 개발 도구 및 라이브러리를 추가합니다.
 
     ```sh
-    sudo apt-get install g++ make cmake gcc git
+    sudo apt-get purge libssl-dev
+    sudo apt-get install g++ make cmake gcc git libssl1.0-dev build-essential curl libcurl4-openssl-dev uuid-dev
     ```
 
-1. 다음 명령을 사용하여 IoT Hub 클라이언트 라이브러리를 설치합니다.
-
-    ```sh
-    grep -q -F 'deb http://ppa.launchpad.net/aziotsdklinux/ppa-azureiot/ubuntu vivid main' /etc/apt/sources.list || sudo sh -c "echo 'deb http://ppa.launchpad.net/aziotsdklinux/ppa-azureiot/ubuntu vivid main' >> /etc/apt/sources.list"
-    grep -q -F 'deb-src http://ppa.launchpad.net/aziotsdklinux/ppa-azureiot/ubuntu vivid main' /etc/apt/sources.list || sudo sh -c "echo 'deb-src http://ppa.launchpad.net/aziotsdklinux/ppa-azureiot/ubuntu vivid main' >> /etc/apt/sources.list"
-    sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys FDA6A393E4C2257F
-    sudo apt-get update
-    sudo apt-get install -y azure-iot-sdk-c-dev cmake libcurl4-openssl-dev git-core
-    ```
-
-1. 다음 명령을 사용하여 Raspberry Pi에 Parson JSON 파서를 복제합니다.
+1. 다음 명령을 사용하여 Raspberry Pi에서 IoT Hub 클라이언트 라이브러리를 다운로드, 빌드 및 설치합니다.
 
     ```sh
     cd ~
-    git clone https://github.com/kgabis/parson.git
+    git clone --recursive https://github.com/azure/azure-iot-sdk-c.git
+    cd azure-iot-sdk-c/build_all/linux
+    ./build.sh --no-make
+    cd ../../cmake/iotsdk_linux
+    make
+    sudo make install
     ```
 
 ## <a name="create-a-project"></a>프로젝트 만들기
 
-Raspberry Pi에 `ssh` 연결을 사용하여 다음 단계를 완료합니다.
+Raspberry Pi에 **ssh** 연결을 사용하여 다음 단계를 완료합니다.
 
-1. Raspberry Pi의 홈 폴더에 `remote_monitoring`이라는 폴더를 만듭니다. 명령줄에서 이 폴더로 이동합니다.
+1. Raspberry Pi의 홈 폴더에 `remote_monitoring`이라는 폴더를 만듭니다. 셸에서 이 폴더로 이동합니다.
 
     ```sh
     cd ~
@@ -92,13 +90,9 @@ Raspberry Pi에 `ssh` 연결을 사용하여 다음 단계를 완료합니다.
     cd remote_monitoring
     ```
 
-1. `remote_monitoring` 폴더에 4개의 파일 `main.c`, `remote_monitoring.c`, `remote_monitoring.h` 및 `CMakeLists.txt`를 만듭니다.
+1. `remote_monitoring` 폴더에 **main.c**, **remote_monitoring.c**, **remote_monitoring.h**, **CMakeLists.txt**의 4개 파일을 만듭니다.
 
-1. `remote_monitoring` 폴더에 `parson`이라는 폴더를 만듭니다.
-
-1. Parson 리포지토리의 로컬 복사본에서 `parson.c` 및 `parson.h` 파일을 `remote_monitoring/parson` 폴더로 복사합니다.
-
-1. 텍스트 편집기에서 `remote_monitoring.c` 파일을 엽니다. Raspberry Pi에서 `nano` 또는 `vi` 텍스트 편집기를 사용할 수 있습니다. 다음 `#include` 문을 추가합니다.
+1. 텍스트 편집기에서 **remote_monitoring.c** 파일을 엽니다. Raspberry Pi에서 **nano** 또는 **vi** 텍스트 편집기를 사용할 수 있습니다. 다음 `#include` 문을 추가합니다.
 
     ```c
     #include "iothubtransportmqtt.h"
@@ -113,15 +107,19 @@ Raspberry Pi에 `ssh` 연결을 사용하여 다음 단계를 완료합니다.
 
 [!INCLUDE [iot-suite-connecting-code](../../includes/iot-suite-connecting-code.md)]
 
+**remote_monitoring.c** 파일을 저장하고 편집기를 종료합니다.
+
 ## <a name="add-code-to-run-the-app"></a>코드를 추가하여 앱 실행
 
-텍스트 편집기에서 `remote_monitoring.h` 파일을 엽니다. 다음 코드를 추가합니다.
+텍스트 편집기에서 **remote_monitoring.h** 파일을 엽니다. 다음 코드를 추가합니다.
 
 ```c
 void remote_monitoring_run(void);
 ```
 
-텍스트 편집기에서 `main.c` 파일을 엽니다. 다음 코드를 추가합니다.
+**remote_monitoring.h** 파일을 저장하고 편집기를 종료합니다.
+
+텍스트 편집기에서 **main.c** 파일을 엽니다. 다음 코드를 추가합니다.
 
 ```c
 #include "remote_monitoring.h"
@@ -133,6 +131,8 @@ int main(void)
   return 0;
 }
 ```
+
+**main.c** 파일을 저장하고 편집기를 종료합니다.
 
 ## <a name="build-and-run-the-application"></a>응용 프로그램 빌드 및 실행
 
@@ -158,18 +158,16 @@ int main(void)
     cmake_minimum_required(VERSION 2.8.11)
     compileAsC99()
 
-    set(AZUREIOT_INC_FOLDER "${CMAKE_SOURCE_DIR}" "${CMAKE_SOURCE_DIR}/parson" "/usr/include/azureiot" "/usr/include/azureiot/inc")
+    set(AZUREIOT_INC_FOLDER "${CMAKE_SOURCE_DIR}" "/usr/local/include/azureiot")
 
     include_directories(${AZUREIOT_INC_FOLDER})
 
     set(sample_application_c_files
-        ./parson/parson.c
         ./remote_monitoring.c
         ./main.c
     )
 
     set(sample_application_h_files
-        ./parson/parson.h
         ./remote_monitoring.h
     )
 
@@ -188,6 +186,8 @@ int main(void)
         m
     )
     ```
+
+1. **CMakeLists.txt** 파일을 저장하고 편집기를 종료합니다.
 
 1. `remote_monitoring` 폴더에 CMake에서 생성하는 *make* 파일을 저장할 폴더를 만듭니다. 그리고 다음과 같이 **cmake** 및 **make** 명령을 실행합니다.
 

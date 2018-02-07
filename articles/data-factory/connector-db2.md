@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 
 ms.author: jingwang
-ms.openlocfilehash: 23bc0ba87abbac0f83e3e5ac9d1049bbf42707c9
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: a96de1814afc7947205a0dc7ed005f7cadff20bc
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 DB2에서 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -48,7 +48,7 @@ DB2 데이터베이스에서 지원되는 모든 싱크 데이터 저장소로 �
 > - i용 DB2(AS400): 고급 사용자가 복사 작업을 사용하기 전에 로그인 사용자의 컬렉션을 만들 수 있습니다. 명령: `create collection <username>`
 > - z/OS 또는 LUW용 DB2: 고급 권장 계정 사용 - 패키지 권한 및 BIND, BINDADD, GRANT EXECUTE TO PUBLIC 권한이 있는 고급 사용자 또는 관리자 - 복사 작업을 한 번 실행하기 위해 복사 중에 필요한 패키지가 자동으로 생성됩니다. 그 후에는 다시 일반 사용자로 전환하여 이후 복사 실행을 수행할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 공개적으로 액세스할 수 없는 DB2 데이터베이스에서 데이터 복사를 사용하려면 자체 호스팅 통합 런타임을 설정해야 합니다. 자체 호스팅 통합 런타임에 대한 자세한 내용은 [자체 호스팅 통합 런타임](create-self-hosted-integration-runtime.md) 문서를 참조하세요. 통합 런타임은 기본 제공 DB2 드라이버를 제공하므로 DB2에서 데이터를 복사할 때 수동으로 드라이버를 설치할 필요가 없습니다.
 
@@ -64,13 +64,13 @@ DB2 연결된 서비스에 다음 속성이 지원됩니다.
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 형식 속성은 **Db2**로 설정해야 합니다. | 적용 |
-| 서버 |DB2 서버의 이름입니다. |적용 |
-| 데이터베이스 |DB2 데이터베이스의 이름입니다. |적용 |
+| 형식 | 형식 속성은 **Db2**로 설정해야 합니다. | 예 |
+| 서버 |DB2 서버의 이름입니다. |예 |
+| 데이터베이스 |DB2 데이터베이스의 이름입니다. |예 |
 | schema |데이터베이스에서 스키마의 이름입니다. schema 이름은 대/소문자를 구분합니다. |아니요 |
-| authenticationType |DB2 데이터베이스에 연결하는 데 사용되는 인증 형식입니다.<br/>허용되는 값은 **Basic**입니다. |적용 |
-| 사용자 이름 |DB2 데이터베이스에 연결할 사용자 이름을 지정합니다. |적용 |
-| 암호 |사용자 이름에 지정한 사용자 계정의 암호를 지정합니다. 이 필드를 SecureString으로 표시합니다. |적용 |
+| authenticationType |DB2 데이터베이스에 연결하는 데 사용되는 인증 형식입니다.<br/>허용되는 값은 **Basic**입니다. |예 |
+| 사용자 이름 |DB2 데이터베이스에 연결할 사용자 이름을 지정합니다. |예 |
+| 암호 |사용자 이름에 지정한 사용자 계정의 암호를 지정합니다. 이 필드를 SecureString으로 표시합니다. |예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. 자체 호스팅 Integration Runtime 또는 Azure Integration Runtime을 사용할 수 있습니다(데이터 저장소를 공개적으로 액세스할 수 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아니요 |
 
 **예제:**
@@ -106,7 +106,7 @@ DB2에서 데이터를 복사하려면 데이터 집합의 type 속성을 **Rela
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 데이터 집합의 type 속성을 **RelationalTable**로 설정해야 합니다. | 적용 |
+| 형식 | 데이터 집합의 type 속성을 **RelationalTable**로 설정해야 합니다. | 예 |
 | tableName | DB2 데이터베이스의 테이블 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
 
 **예제**
@@ -136,7 +136,7 @@ DB2에서 데이터를 복사하려면 복사 작업의 원본 형식을 **Relat
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 복사 작업 원본의 형식 속성을 **RelationalSource**로 설정해야 합니다. | 적용 |
+| 형식 | 복사 작업 원본의 형식 속성을 **RelationalSource**로 설정해야 합니다. | 예 |
 | 쿼리 | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"query": "SELECT * FROM \"DB2ADMIN\".\"Customers\""` | 아니요(데이터 집합의 "tableName"이 지정된 경우) |
 
 **예제:**

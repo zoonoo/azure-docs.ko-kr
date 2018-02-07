@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 01/15/2018
 ms.author: shlo
-ms.openlocfilehash: 2066847feb3dcdf36ead8901a679d8cae7a6acde
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 3d65158a66ec16bd13ad4ad56af90c6fd28bfe7e
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="how-to-read-or-write-partitioned-data-in-azure-data-factory-version-2"></a>Azure Data Factory 버전 2에서 분할된 데이터를 읽거나 쓰는 방법
 버전 1에서 Azure Data Factory는 SliceStart/SliceEnd/WindowStart/WindowEnd 시스템 변수를 사용하여 분할된 데이터 읽기 또는 쓰기를 지원했습니다. 버전 2에서는 파이프라인 매개 변수와 트리거의 시작 시간/예약된 시간을 매개 변수의 값으로 사용하여 이 동작을 수행할 수 있습니다. 
@@ -71,7 +71,7 @@ partitonedBy 속성에 대한 자세한 내용은 [버전 1 Azure Blob 커넥터
 }
 ```
 
-## <a name="example"></a>예제
+## <a name="example"></a>예
 
 다음은 샘플 데이터 집합 정의(`date`라는 매개 변수 사용)입니다.
 

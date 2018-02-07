@@ -11,13 +11,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/17/2017
+ms.date: 01/22/2018
 ms.author: nitinme
-ms.openlocfilehash: fb77ec001f9f52e0a974f8765f458f831fb63908
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 5da6ffc346cc0e7f0f83bf4a4c33600b668a17ca
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="frequently-asked-questions-about-azure-databricks"></a>Azure Databricks에 대한 질문과 대답
 
@@ -36,13 +36,13 @@ ms.lasthandoff: 12/08/2017
 2. Data Lake Store의 서비스 주체에게 필요한 권한을 할당합니다.
 3. Data Lake Store의 파일에 액세스하려면 Notebook에서 서비스 주체 자격 증명을 사용합니다.
 
-자세한 내용은 [Azure Databricks에서 Data Lake Store 사용](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html#azure-data-lake-store)을 참조하세요.
+자세한 내용은 [Azure Databricks에서 Data Lake Store 사용](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake.html)을 참조하세요.
 
 ## <a name="fix-common-problems"></a>일반적인 문제 해결
 
 Databricks에서 발생하는 몇 가지 문제는 다음과 같습니다.
 
-### <a name="this-subscription-is-not-registered-to-use-the-namespace-microsoftdatabricks"></a>구독이 ‘Microsoft.Databricks’ 네임스페이스를 사용하도록 등록되어 있지 않습니다.
+### <a name="issue-this-subscription-is-not-registered-to-use-the-namespace-microsoftdatabricks"></a>문제: 구독이 ‘Microsoft.Databricks’ 네임스페이스를 사용하도록 등록되어 있지 않습니다.
 
 #### <a name="error-message"></a>오류 메시지
 
@@ -55,7 +55,7 @@ Databricks에서 발생하는 몇 가지 문제는 다음과 같습니다.
 3. 리소스 공급자 목록에서 **Microsoft.Databricks**를 찾아 **등록**을 선택합니다. 구독의 참가자 또는 소유자 역할이 할당된 사용자만 리소스 공급자를 등록할 수 있습니다.
 
 
-### <a name="your-account-email-does-not-have-the-owner-or-contributor-role-on-the-databricks-workspace-resource-in-the-azure-portal"></a>{메일} 계정에는 Azure Portal의 Databricks 작업 영역 리소스에 소유자 또는 참가자 역할이 없습니다.
+### <a name="issue-your-account-email-does-not-have-the-owner-or-contributor-role-on-the-databricks-workspace-resource-in-the-azure-portal"></a>문제: {메일} 계정에는 Azure Portal의 Databricks 작업 영역 리소스에 소유자 또는 참가자 역할이 없습니다.
 
 #### <a name="error-message"></a>오류 메시지
 
@@ -71,22 +71,22 @@ Databricks에서 발생하는 몇 가지 문제는 다음과 같습니다.
 
     a. Azure Portal에서 Azure AD로 이동합니다. **사용자 및 그룹** > **사용자 추가**를 선택합니다.
 
-    b. `@<your_domain>` 메일이 아닌 `@<tenant_name>.onmicrosoft.com` 메일을 사용하여 사용자를 추가합니다. Azure Portal에 있는 Azure AD의 **사용자 지정 도메인**에서 이 항목을 찾을 수 있습니다.
+    나. `@<your_domain>` 메일이 아닌 `@<tenant_name>.onmicrosoft.com` 메일을 사용하여 사용자를 추가합니다. Azure Portal에 있는 Azure AD의 **사용자 지정 도메인**에서 이 옵션을 찾을 수 있습니다.
     
-    c. 새 사용자에게 Databricks 작업 영역 리소스에 대해 **참가자** 역할을 할당합니다.
+    다. 새 사용자에게 Databricks 작업 영역 리소스에 대해 **참가자** 역할을 할당합니다.
     
     d. Azure Portal에 새 사용자로 로그인하여 Databricks 작업 영역을 찾습니다.
     
     e. 이 사용자로 Databricks 작업 영역을 시작합니다.
 
 
-### <a name="your-account-email-has-not-been-registered-in-databricks"></a>{메일} 계정이 Databricks에 등록되지 않았습니다. 
+### <a name="issue-your-account-email-has-not-been-registered-in-databricks"></a>문제: {메일} 계정이 Databricks에 등록되지 않았습니다. 
 
 #### <a name="solution"></a>해결 방법
 
 본인이 작업 영역을 만들지 않았고 사용자로 추가된 경우 작업 영역을 만든 사용자에게 문의합니다. 해당 사용자에게 Azure Databricks 관리 콘솔을 사용하여 추가하게 합니다. 자세한 내용은 [사용자 추가 및 관리](https://docs.azuredatabricks.net/administration-guide/admin-settings/users.html)를 참조하세요. 작업 영역을 만든 후 계속해서 이 오류가 발생되면 Azure Portal에서 **작업 영역 초기화**를 다시 선택합니다.
 
-### <a name="cloud-provider-launch-failure-while-setting-up-the-cluster"></a>클러스터 설정 중 클라우드 공급자 시작 실패
+### <a name="issue-cloud-provider-launch-failure-while-setting-up-the-cluster-publicipcountlimitreached"></a>문제: 클러스터 설정 중 클라우드 공급자 시작 실패(PublicIPCountLimitReached)
 
 #### <a name="error-message"></a>오류 메시지
 
@@ -96,7 +96,7 @@ Databricks에서 발생하는 몇 가지 문제는 다음과 같습니다.
 
 Databricks 클러스터는 노드당 하나의 공용 IP 주소를 사용합니다. 구독이 이미 해당 공용 IP를 모두 사용한 경우 [할당량 증가를 요청](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request)해야 합니다. **발급 유형**으로 **할당량**을, **할당량 유형**으로 **네트워킹: ARM**을 선택합니다. **세부 정보**에서 공용 IP 주소 할당량 증대를 요청합니다. 예를 들어, 현재 한도가 60이고 100개의 노드 클러스터를 만들려는 경우 160으로 한도 증가를 요청합니다.
 
-### <a name="a-second-type-of-cloud-provider-launch-failure-while-setting-up-the-cluster"></a>클러스터 설정 중 두 번째 클라우드 공급자 시작 실패 유형
+### <a name="issue-a-second-type-of-cloud-provider-launch-failure-while-setting-up-the-cluster-missingsubscriptionregistration"></a>문제: 클러스터 설정 중 두 번째 클라우드 공급자 시작 실패 형식(MissingSubscriptionRegistration)
 
 #### <a name="error-message"></a>오류 메시지
 
@@ -110,6 +110,16 @@ Azure 오류 코드: MissingSubscriptionRegistration Azure 오류 메시지: 구
 3. 리소스 공급자 목록에서 **Microsoft.Compute**를 찾아 **등록**을 선택합니다. 구독의 참가자 또는 소유자 역할이 할당된 사용자만 리소스 공급자를 등록할 수 있습니다.
 
 자세한 방법은 [리소스 공급자 및 유형](../azure-resource-manager/resource-manager-supported-services.md)을 참조하세요.
+
+### <a name="issue-azure-databricks-needs-permissions-to-access-resources-in-your-organization-that-only-an-admin-can-grant"></a>문제: Azure Databricks에는 관리자만이 부여할 수 있는 조직의 리소스에 액세스할 수 있는 권한이 필요합니다.
+
+#### <a name="background"></a>백그라운드
+
+Azure Databricks는 Azure AD와 통합됩니다. 이렇게 하면 Azure AD에서 사용자를 지정하여 Azure Databricks 내에서 사용 권한을 설정합니다(예: Notebooks 또는 클러스터). Azure AD에서 사용자의 이름을 나열하려면 Azure Databricks에는 해당 정보에 대한 읽기 권한이 필요합니다. 동의가 필요합니다. 동의를 사용할 수 없는 경우 오류가 표시됩니다.
+
+#### <a name="solution"></a>해결 방법
+
+전역 관리자 권한으로 Azure Portal에 로그인합니다. Azure Active Directory의 경우 **사용자 설정** 탭으로 이동하고, **사용자가 대신 회사 데이터에 액세스하는 앱에 동의할 수 있습니다**를 **예**로 설정하도록 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

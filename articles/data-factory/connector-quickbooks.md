@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: jingwang
-ms.openlocfilehash: 4127123ffcf8eb2ae18c8b9833b2235d7ac219e7
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 9c3a725d0d0c5091a280c3fb99279757f1e014f1
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="copy-data-from-quickbooks-using-azure-data-factory-beta"></a>Azure Data Factory(베타)를 사용하여 QuickBooks에서 데이터 복사
 
@@ -39,7 +39,7 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 
 ## <a name="getting-started"></a>시작
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
 
 다음 섹션에서는 QuickBooks 커넥터에 한정된 Data Factory 엔터티를 정의하는 데 사용되는 속성에 대해 자세히 설명합니다.
 
@@ -49,12 +49,12 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | type 속성은 **QuickBooks**로 설정해야 합니다. | 적용 |
-| endpoint | QuickBooks 서버의 끝점입니다. 즉, quickbooks.api.intuit.com입니다.  | 적용 |
-| companyId | 권한 부여할 QuickBooks 회사의 회사 ID입니다.  | 적용 |
-| accessToken | OAuth 1.0 인증에 대한 액세스 토큰입니다. 이 필드를 SecureString으로 표시하여 ADF에 안전하게 저장하도록 선택하거나, Azure Key Vault에 암호를 저장하고 복사 작업이 데이터 복사를 수행할 때 거기에서 끌어오도록 할 수 있습니다. [Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md)에서 자세히 알아보세요. | 적용 |
-| accessTokenSecret | OAuth 1.0 인증에 대한 액세스 토큰 암호입니다. 이 필드를 SecureString으로 표시하여 ADF에 안전하게 저장하도록 선택하거나, Azure Key Vault에 암호를 저장하고 복사 작업이 데이터 복사를 수행할 때 거기에서 끌어오도록 할 수 있습니다. [Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md)에서 자세히 알아보세요. | 적용 |
-| useEncryptedEndpoints | 데이터 원본 끝점이 HTTPS를 사용하여 암호화되는지 여부를 지정합니다. 기본값은 true입니다.  | 아니요 |
+| 형식 | type 속성은 **QuickBooks**로 설정해야 합니다. | 예 |
+| endpoint | QuickBooks 서버의 끝점입니다. 즉, quickbooks.api.intuit.com입니다.  | 예 |
+| companyId | 권한 부여할 QuickBooks 회사의 회사 ID입니다.  | 예 |
+| accessToken | OAuth 1.0 인증에 대한 액세스 토큰입니다. 이 필드를 SecureString으로 표시하여 ADF에 안전하게 저장하도록 선택하거나, Azure Key Vault에 암호를 저장하고 복사 작업이 데이터 복사를 수행할 때 거기에서 끌어오도록 할 수 있습니다. [Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md)에서 자세히 알아보세요. | 예 |
+| accessTokenSecret | OAuth 1.0 인증에 대한 액세스 토큰 암호입니다. 이 필드를 SecureString으로 표시하여 ADF에 안전하게 저장하도록 선택하거나, Azure Key Vault에 암호를 저장하고 복사 작업이 데이터 복사를 수행할 때 거기에서 끌어오도록 할 수 있습니다. [Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md)에서 자세히 알아보세요. | 예 |
+| useEncryptedEndpoints | 데이터 원본 끝점이 HTTPS를 사용하여 암호화되는지 여부를 지정합니다. 기본값은 true입니다.  | 아니오 |
 
 **예제:**
 
@@ -111,8 +111,8 @@ QuickBooks에서 데이터를 복사하려면 복사 작업의 원본 형식을 
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 복사 작업 원본의 type 속성은 **QuickBooksSource**로 설정해야 합니다. | 적용 |
-| 쿼리 | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM "Bill" WHERE Id = '123'"` | 적용 |
+| 형식 | 복사 작업 원본의 type 속성은 **QuickBooksSource**로 설정해야 합니다. | 예 |
+| 쿼리 | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM "Bill" WHERE Id = '123'"` | 예 |
 
 **예제:**
 

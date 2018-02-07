@@ -5,23 +5,23 @@ services: storage,event-grid
 keywords: 
 author: cbrooksmsft
 ms.author: cbrooks
-ms.date: 08/18/2017
+ms.date: 01/19/2018
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: 67f262913333fb69f5b862fa3d862c0d773e4172
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 50a6126f065b1b4d851f53b5cb3096c130314450
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="route-blob-storage-events-to-a-custom-web-endpoint-preview"></a>Blob 저장소 이벤트를 사용자 지정 웹 끝점으로 라우팅(미리 보기)
 
 Azure Event Grid는 클라우드에 대한 이벤트 서비스입니다. 이 문서에서는 Azure CLI를 사용하여 Blob 저장소 이벤트를 구독하고 이벤트를 트리거하여 결과를 확인합니다. 
 
-일반적으로 이벤트에 응답하는 끝점(예: 웹후크 또는 Azure Function)으로 이벤트를 보냅니다. 그러나 이 문서에서 보여 주는 간소화하기 위해 메시지만 수집하는 URL로 이벤트를 보냅니다. 오픈 소스이면서 [RequestBin](https://requestb.in/)이라는 타사 도구를 사용하여 이 URL을 만듭니다.
+일반적으로 이벤트에 응답하는 끝점(예: 웹후크 또는 Azure Function)으로 이벤트를 보냅니다. 그러나 이 문서에서 보여 주는 간소화하기 위해 메시지만 수집하는 URL로 이벤트를 보냅니다. [RequestBin](https://requestb.in/)이라는 오픈 소스 타사 도구를 사용하여 이 URL을 만듭니다.
 
 > [!NOTE]
-> **RequestBin**은 높은 처리량 사용을 위해 설계되지 않은 오픈 소스 도구입니다. 여기서는 순전히 시연을 위해서만 이 도구를 사용합니다. 한 번에 둘 이상의 이벤트를 푸시하면 도구에서 모든 이벤트가 표시되지 않을 수 있습니다.
+> **RequestBin**은 높은 처리량을 사용하도록 설계되지 않은 오픈 소스 도구입니다. 여기서는 순전히 시연을 위해서만 이 도구를 사용합니다. 한 번에 둘 이상의 이벤트를 푸시하면 도구에서 모든 이벤트가 표시되지 않을 수 있습니다.
 
 이 문서에서 설명하는 단계를 완료하면 이벤트 데이터가 끝점으로 보내졌음을 알 수 있습니다.
 
@@ -31,7 +31,7 @@ Azure Event Grid는 클라우드에 대한 이벤트 서비스입니다. 이 문
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 문서에서는 최신 버전의 Azure CLI(2.0.14 이상)을 실행해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치](/cli/azure/install-azure-cli)를 참조하세요.
+CLI를 로컬로 설치하여 사용하도록 선택하는 경우 이 문서에서는 최신 버전의 Azure CLI(2.0.24 이상)를 실행해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
 Cloud Shell을 사용하지 않는 경우 먼저 `az login`을 사용하여 로그인해야 합니다.
 
@@ -70,20 +70,19 @@ az storage account create \
 
 ## <a name="create-a-message-endpoint"></a>메시지 끝점 만들기
 
-Blob 저장소 계정에서 이벤트를 구독하기 전에 이벤트 메시지에 대한 끝점을 만들어 보겠습니다. 이벤트에 응답하는 코드를 만드는 대신 메시지를 볼 수 있도록 메시지를 수집하는 끝점을 만듭니다. RequestBin은 오픈 소스이면서 타사 도구로, 이 도구를 통해 끝점을 만들고 끝점에 전송된 요청을 볼 수 있습니다. [RequestBin](https://requestb.in/)으로 이동하고 **RequestBin 만들기**를 클릭합니다.  토픽을 구독할 때 필요하기 때문에 bin URL을 복사합니다.
+Blob 저장소 계정에서 이벤트를 구독하기 전에 이벤트 메시지에 대한 끝점을 만들어 보겠습니다. 이벤트에 응답하는 코드를 만드는 대신 메시지를 볼 수 있도록 메시지를 수집하는 끝점을 만듭니다. RequestBin은 오픈 소스이면서 타사 도구로, 이 도구를 통해 엔드포인트를 만들고 이 엔드포인트에 전송된 요청을 볼 수 있습니다. [RequestBin](https://requestb.in/)으로 이동하고 **RequestBin 만들기**를 클릭합니다.  토픽을 구독할 때 필요하기 때문에 bin URL을 복사합니다.
 
 ## <a name="subscribe-to-your-blob-storage-account"></a>Blob 저장소 계정 구독
 
 토픽을 구독하여 Event Grid에 추적하려는 이벤트를 알립니다. 다음 예제에서는 Blob 저장소 계정을 구독하고 RequestBin의 URL을 이벤트 알림에 대한 끝점으로 전달합니다. `<event_subscription_name>`을 이벤트 구독의 고유한 이름으로 바꾸고, `<URL_from_RequestBin>`을 이전 섹션의 값으로 바꿉니다. 구독할 때 끝점을 지정하면 Event Grid에서 해당 끝점으로 이벤트 라우팅을 처리합니다. `<resource_group_name>` 및 `<storage_account_name>`에는 앞에서 만든 값을 사용합니다. 
 
 ```azurecli-interactive
-az eventgrid resource event-subscription create \
---endpoint <URL_from_RequestBin> \
---name <event_subscription_name> \
---provider-namespace Microsoft.Storage \
---resource-type storageAccounts \
---resource-group <resource_group_name> \
---resource-name <storage_account_name>
+storageid=$(az storage account show --name <storage_account_name> --resource-group <resource_group_name> --query id --output tsv)
+
+az eventgrid event-subscription create \
+  --resource-id $storageid \
+  --name <event_subscription_name> \
+  --endpoint <URL_from_RequestBin>
 ```
 
 ## <a name="trigger-an-event-from-blob-storage"></a>Blob 저장소에서 이벤트 트리거
@@ -122,7 +121,9 @@ az storage blob upload --file testfile.txt --container-name testcontainer --name
     "storageDiagnostics": {
       "batchId": "dffea416-b46e-4613-ac19-0371c0c5e352"
     }
-  }
+  },
+  "dataVersion": "",
+  "metadataVersion": "1"
 }]
 
 ```

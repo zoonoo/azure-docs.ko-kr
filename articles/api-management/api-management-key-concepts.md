@@ -14,11 +14,11 @@ ms.topic: overview
 ms.date: 11/15/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: 08490af077ad92dfa8e4ec248a1416980ac400f3
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 727be96828b9217f89214722f474abfc220b0b3c
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="what-is-api-management"></a>API Management란?
 
@@ -92,7 +92,7 @@ API는 API Management 서비스 인스턴스의 기반입니다. 각 API는 개�
 * **개발자** - 인증된 개발자 포털 사용자가 이 그룹에 속합니다. 개발자는 API를 사용하여 응용 프로그램을 빌드하는 고객입니다. 개발자는 개발자 포털에 액세스할 수 있는 권한을 받으며 API의 작업을 호출하는 응용 프로그램을 빌드합니다.
 * **게스트** - API Management 인스턴스의 개발자 포털을 방문하는 인증되지 않은 개발자 포털 사용자(예: 잠재 고객)가 이 그룹에 속합니다. 예를 들어 API를 볼 수 있지만 호출할 수는 없는 기능과 같이 특정 읽기 전용 액세스 권한을 받을 수 있습니다.
 
-이러한 시스템 그룹 외에도 관리자는 사용자 지정 그룹을 만들거나 [연관된 Azure Active Directory 테넌트에서 외부 그룹을 가져올 수 있습니다](api-management-howto-aad.md#how-to-add-an-external-azure-active-directory-group). 사용자 지정 및 외부 그룹은 시스템 그룹과 함께 사용되어 개발자에게 API 제품에 대한 표시 여부 및 액세스를 제공합니다. 예를 들어, 특정 파트너 조직과 관련된 개발자를 위한 하나의 사용자 지정 그룹을 만들고 관련 API만을 포함한 제품에서 API에 대한 액세스를 허용합니다. 사용자는 두 그룹 이상의 구성원이 될 수 있습니다.
+이러한 시스템 그룹 외에도 관리자는 사용자 지정 그룹을 만들거나 [연관된 Azure Active Directory 테넌트에서 외부 그룹을 가져올 수 있습니다](api-management-howto-aad.md). 사용자 지정 및 외부 그룹은 시스템 그룹과 함께 사용되어 개발자에게 API 제품에 대한 표시 여부 및 액세스를 제공합니다. 예를 들어, 특정 파트너 조직과 관련된 개발자를 위한 하나의 사용자 지정 그룹을 만들고 관련 API만을 포함한 제품에서 API에 대한 액세스를 허용합니다. 사용자는 두 그룹 이상의 구성원이 될 수 있습니다.
 
 자세한 내용은 [그룹을 만들고 사용하는 방법][How to create and use groups]을 참조하세요.
 

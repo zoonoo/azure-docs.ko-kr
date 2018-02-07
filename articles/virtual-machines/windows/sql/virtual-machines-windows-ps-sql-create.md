@@ -15,17 +15,17 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 11/29/2017
 ms.author: jroth
-ms.openlocfilehash: 5babea628180501e959387f80dac55618051f552
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: e6d1f36d998ac8726e3a74b31772a5dd5a24bd58
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="how-to-create-sql-server-virtual-machines-with-azure-powershell"></a>Azure PowerShell을 사용하여 SQL Server 가상 머신을 만드는 방법
 
 이 가이드에서는 Azure PowerShell을 사용하여 Windows SQL Server VM을 만드는 옵션에 대해 설명합니다. 기본값이 더 많은 간소화된 Azure PowerShell 예제는 [SQL VM Azure PowerShell 빠른 시작](quickstart-sql-vm-create-powershell.md)를 참조하세요.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 이 빠른 시작에서는 Azure PowerShell 모듈 버전 3.6 이상이 필요합니다. `Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요.
 
@@ -53,7 +53,7 @@ $ResourceGroupName = "sqlvm2"
 ```
 
 ### <a name="storage-properties"></a>저장소 속성
-다음 변수를 사용하여 가상 컴퓨터에서 사용할 저장소 계정 및 저장소 유형을 정의합니다.
+다음 변수를 사용하여 가상 머신에서 사용할 저장소 계정 및 저장소 유형을 정의합니다.
 
 원하는 대로 수정하고 다음 cmdlet을 실행하여 이러한 변수를 초기화합니다. 이 예제에서는 프로덕션 워크로드에 권장되는 [Premium Storage](../premium-storage.md)를 사용합니다.
 
@@ -63,7 +63,7 @@ $StorageSku = "Premium_LRS"
 ```
 
 ### <a name="network-properties"></a>네트워크 속성
-다음 변수를 사용하여 가상 컴퓨터의 네트워크에서 사용할 네트워크 인터페이스, TCP/IP 할당 방법, 가상 네트워크 이름, 가상 서브넷 이름, 가상 네트워크용 IP 주소 범위, 서브넷용 IP 주소 범위 및 공용 도메인 이름 레이블을 정의합니다.
+다음 변수를 사용하여 가상 머신의 네트워크에서 사용할 네트워크 인터페이스, TCP/IP 할당 방법, 가상 네트워크 이름, 가상 서브넷 이름, 가상 네트워크용 IP 주소 범위, 서브넷용 IP 주소 범위 및 공용 도메인 이름 레이블을 정의합니다.
 
 원하는 대로 수정하고 다음 cmdlet을 실행하여 이러한 변수를 초기화합니다.
 
@@ -78,8 +78,8 @@ $VNetSubnetAddressPrefix = "10.0.0.0/24"
 $DomainName = $ResourceGroupName
 ```
 
-### <a name="virtual-machine-properties"></a>가상 컴퓨터 속성
-다음 변수를 사용하여 가상 컴퓨터에 대한 가상 컴퓨터 이름, 컴퓨터 이름, 가상 컴퓨터 크기 및 운영 체제 디스크 이름을 정의합니다.
+### <a name="virtual-machine-properties"></a>가상 머신 속성
+다음 변수를 사용하여 가상 머신에 대한 가상 머신 이름, 컴퓨터 이름, 가상 머신 크기 및 운영 체제 디스크 이름을 정의합니다.
 
 원하는 대로 수정하고 다음 cmdlet을 실행하여 이러한 변수를 초기화합니다.
 
@@ -129,7 +129,7 @@ New-AzureRmResourceGroup -Name $ResourceGroupName -Location $Location
 ```
 
 ## <a name="create-a-storage-account"></a>저장소 계정 만들기
-가상 컴퓨터에 운영 체제 디스크와 SQL Server 데이터 및 로그 파일에 대한 저장소 리소스가 필요합니다. 간단히 하기 위해 둘 다에 대한 단일 디스크를 만듭니다. SQL Server 데이터와 로그 파일을 전용 디스크에 배치하기 위해 [Add-Azure Disk](/powershell/module/azure/add-azuredisk) cmdlet을 사용하여 나중에 추가 디스크를 연결할 수 있습니다. [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) cmdlet을 사용하여 이전에 초기화한 변수로 정의된 저장소 계정 이름, 저장소 SKU 이름 및 위치로 새 리소스 그룹에서 표준 저장소 계정을 만듭니다.
+가상 머신에 운영 체제 디스크와 SQL Server 데이터 및 로그 파일에 대한 저장소 리소스가 필요합니다. 간단히 하기 위해 둘 다에 대한 단일 디스크를 만듭니다. SQL Server 데이터와 로그 파일을 전용 디스크에 배치하기 위해 [Add-Azure Disk](/powershell/module/azure/add-azuredisk) cmdlet을 사용하여 나중에 추가 디스크를 연결할 수 있습니다. [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) cmdlet을 사용하여 이전에 초기화한 변수로 정의된 저장소 계정 이름, 저장소 SKU 이름 및 위치로 새 리소스 그룹에서 표준 저장소 계정을 만듭니다.
 
 다음 cmdlet을 실행하여 새 저장소 계정을 만듭니다.
 
@@ -143,9 +143,9 @@ $StorageAccount = New-AzureRmStorageAccount -ResourceGroupName $ResourceGroupNam
 > 저장소 계정을 만들려면 몇 분 정도 걸릴 수 있습니다.
 
 ## <a name="create-network-resources"></a>네트워크 리소스 만들기
-가상 컴퓨터에 네트워크 연결을 위해 여러 네트워크 리소스가 필요합니다.
+가상 머신에 네트워크 연결을 위해 여러 네트워크 리소스가 필요합니다.
 
-* 각 가상 컴퓨터에 가상 네트워크가 필요합니다.
+* 각 가상 머신에 가상 네트워크가 필요합니다.
 * 가상 네트워크에는 하나 이상의 서브넷이 정의되어 있어야 합니다.
 * 네트워크 인터페이스가 공용 또는 개인 IP 주소 중 하나로 정의되어야 합니다.
 
@@ -213,7 +213,7 @@ VM 및 SQL Server 트래픽을 보호하려면 네트워크 보안 그룹을 만
    ```
 
 ### <a name="create-the-network-interface"></a>네트워크 인터페이스 만들기
-이제 가상 컴퓨터에서 사용할 네트워크 인터페이스를 만들 수 있습니다. [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface) cmdlet을 호출하여 이전에 정의한 이름, 위치, 서브넷 및 공용 IP 주소로 이전에 만든 리소스 그룹에서 네트워크 인터페이스를 만듭니다.
+이제 가상 머신에서 사용할 네트워크 인터페이스를 만들 수 있습니다. [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface) cmdlet을 호출하여 이전에 정의한 이름, 위치, 서브넷 및 공용 IP 주소로 이전에 만든 리소스 그룹에서 네트워크 인터페이스를 만듭니다.
 
 다음 cmdlet을 실행하여 네트워크 인터페이스를 만듭니다.
 
@@ -225,19 +225,19 @@ $Interface = New-AzureRmNetworkInterface -Name $InterfaceName `
 ```
 
 ## <a name="configure-a-vm-object"></a>VM 개체 구성
-이제 저장소 및 네트워크 리소스를 정의했으므로 가상 컴퓨터에 대한 계산 리소스를 정의할 수 있습니다. 이 자습서에서는 가상 머신 크기 및 다양한 운영 체제 속성을 지정하고, 이전에 만든 네트워크 인터페이스를 지정하고, Blob 저장소를 정의한 다음 운영 체제 디스크를 지정합니다.
+이제 저장소 및 네트워크 리소스를 정의했으므로 가상 머신에 대한 계산 리소스를 정의할 수 있습니다. 이 자습서에서는 가상 머신 크기 및 다양한 운영 체제 속성을 지정하고, 이전에 만든 네트워크 인터페이스를 지정하고, Blob 저장소를 정의한 다음 운영 체제 디스크를 지정합니다.
 
 ### <a name="create-the-vm-object"></a>VM 개체 만들기
 먼저 가상 머신 크기를 지정합니다. 이 자습서의 경우 DS13을 지정합니다. [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig) cmdlet을 사용하여 이전에 초기화한 변수로 정의한 이름 및 크기로 구성 가능한 가상 머신 개체를 만듭니다.
 
-다음 cmdlet을 실행하여 가상 컴퓨터 개체를 만듭니다.
+다음 cmdlet을 실행하여 가상 머신 개체를 만듭니다.
 
 ```PowerShell
 $VirtualMachine = New-AzureRmVMConfig -VMName $VMName -VMSize $VMSize
 ```
 
 ### <a name="create-a-credential-object-to-hold-the-name-and-password-for-the-local-administrator-credentials"></a>로컬 관리자 자격 증명에 대한 이름 및 암호를 저장하도록 자격 증명 개체 만들기
-가상 컴퓨터에 대한 운영 체제 속성을 설정하려면 먼저 보안 문자열로 로컬 관리자 계정의 자격 증명을 제공해야 합니다. 이렇게 하려면 [Get-Credential](https://technet.microsoft.com/library/hh849815.aspx) cmdlet을 사용합니다.
+가상 머신에 대한 운영 체제 속성을 설정하려면 먼저 보안 문자열로 로컬 관리자 계정의 자격 증명을 제공해야 합니다. 이렇게 하려면 [Get-Credential](https://technet.microsoft.com/library/hh849815.aspx) cmdlet을 사용합니다.
 
 다음 cmdlet을 실행하고 PowerShell 자격 증명 요청 창에서 가상 머신의 로컬 관리자 계정에 사용할 이름 및 암호를 입력합니다.
 
@@ -246,9 +246,9 @@ $Credential = Get-Credential -Message "Type the name and password of the local a
 ```
 
 ### <a name="set-the-operating-system-properties-for-the-virtual-machine"></a>가상 컴퓨터에 대한 운영 체제 속성 설정
-이제 가상 머신의 운영 체제 속성을 설정할 수 있습니다. [Set-AzureRmVMOperatingSystem](/powershell/module/azurerm.compute/set-azurermvmoperatingsystem) cmdlet을 사용하여 운영 체제 유형을 Windows로 설정하고, [가상 머신 에이전트](../classic/agents-and-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)를 설치하도록 요구하고, cmdlet이 자동 업데이트를 사용하도록 지정하고, 이전에 초기화한 변수로 가상 머신 이름, 컴퓨터 이름 및 자격 증명을 설정합니다.
+이제 가상 머신의 운영 체제 속성을 설정할 수 있습니다. [Set-AzureRmVMOperatingSystem](/powershell/module/azurerm.compute/set-azurermvmoperatingsystem) cmdlet을 사용하여 운영 체제 유형을 Windows로 설정하고, [가상 머신 에이전트](../agent-user-guide.md)를 설치하도록 요구하고, cmdlet이 자동 업데이트를 사용하도록 지정하고, 이전에 초기화한 변수로 가상 머신 이름, 컴퓨터 이름 및 자격 증명을 설정합니다.
 
-다음 cmdlet을 실행하여 가상 컴퓨터에 대한 운영 체제 속성을 설정합니다.
+다음 cmdlet을 실행하여 가상 머신에 대한 운영 체제 속성을 설정합니다.
 
 ```PowerShell
 $VirtualMachine = Set-AzureRmVMOperatingSystem -VM $VirtualMachine `
@@ -256,7 +256,7 @@ $VirtualMachine = Set-AzureRmVMOperatingSystem -VM $VirtualMachine `
    -ProvisionVMAgent -EnableAutoUpdate
 ```
 
-### <a name="add-the-network-interface-to-the-virtual-machine"></a>가상 컴퓨터에 네트워크 인터페이스를 추가합니다.
+### <a name="add-the-network-interface-to-the-virtual-machine"></a>가상 머신에 네트워크 인터페이스를 추가합니다.
 다음으로, 이전에 만든 네트워크 인터페이스를 가상 머신에 추가합니다. [Add-AzureRmVMNetworkInterface](/powershell/module/azurerm.compute/add-azurermvmnetworkinterface) cmdlet을 호출하여 이전에 정의한 네트워크 인터페이스 변수를 사용하는 네트워크 인터페이스를 추가합니다.
 
 다음 cmdlet을 실행하여 가상 컴퓨터에 대한 네트워크 인터페이스를 설정합니다.
@@ -265,7 +265,7 @@ $VirtualMachine = Set-AzureRmVMOperatingSystem -VM $VirtualMachine `
 $VirtualMachine = Add-AzureRmVMNetworkInterface -VM $VirtualMachine -Id $Interface.Id
 ```
 
-### <a name="set-the-blob-storage-location-for-the-disk-to-be-used-by-the-virtual-machine"></a>가상 컴퓨터에서 사용할 디스크에 대한 Blob 저장소 위치를 설정합니다.
+### <a name="set-the-blob-storage-location-for-the-disk-to-be-used-by-the-virtual-machine"></a>가상 머신에서 사용할 디스크에 대한 Blob 저장소 위치를 설정합니다.
 다음으로, 이전에 정의한 변수를 사용하여 가상 머신에서 사용할 디스크에 대한 Blob 저장소 위치를 설정합니다.
 
 다음 cmdlet을 실행하여 Blob 저장소 위치를 설정합니다.
@@ -274,20 +274,20 @@ $VirtualMachine = Add-AzureRmVMNetworkInterface -VM $VirtualMachine -Id $Interfa
 $OSDiskUri = $StorageAccount.PrimaryEndpoints.Blob.ToString() + "vhds/" + $OSDiskName + ".vhd"
 ```
 
-### <a name="set-the-operating-system-disk-properties-for-the-virtual-machine"></a>가상 컴퓨터에 대한 운영 체제 디스크 속성을 설정합니다.
+### <a name="set-the-operating-system-disk-properties-for-the-virtual-machine"></a>가상 머신에 대한 운영 체제 디스크 속성을 설정합니다.
 그런 다음 가상 머신의 운영 체제 디스크 속성을 설정합니다. [Set-AzureRmVMOSDisk](/powershell/module/azurerm.compute/set-azurermvmosdisk) cmdlet을 사용하여 가상 머신의 운영 체제를 이미지에서 구성하도록 지정하고 캐싱을 SQL Server가 같은 디스크에 설치되는 중이므로 읽기 전용으로 설정하며 이전에 정의한 변수로 정의된 가상 머신 이름 및 운영 체제 디스크를 정의합니다.
 
-다음 cmdlet을 실행하여 가상 컴퓨터에 대한 운영 체제 디스크 속성을 설정합니다.
+다음 cmdlet을 실행하여 가상 머신에 대한 운영 체제 디스크 속성을 설정합니다.
 
 ```PowerShell
 $VirtualMachine = Set-AzureRmVMOSDisk -VM $VirtualMachine -Name `
    $OSDiskName -VhdUri $OSDiskUri -Caching ReadOnly -CreateOption FromImage
 ```
 
-### <a name="specify-the-platform-image-for-the-virtual-machine"></a>가상 컴퓨터에 대한 플랫폼 이미지 지정
-마지막 구성 단계는 가상 컴퓨터에 대한 플랫폼 이미지를 지정하는 것입니다. 이 자습서의 경우 최신 SQL Server 2016 CTP 이미지를 사용합니다. [Set-AzureRmVMSourceImage](/powershell/module/azurerm.compute/set-azurermvmsourceimage) cmdlet을 사용하여 이전에 정의한 변수에 정의된 대로 이 이미지를 사용합니다.
+### <a name="specify-the-platform-image-for-the-virtual-machine"></a>가상 머신에 대한 플랫폼 이미지 지정
+마지막 구성 단계는 가상 머신에 대한 플랫폼 이미지를 지정하는 것입니다. 이 자습서의 경우 최신 SQL Server 2016 CTP 이미지를 사용합니다. [Set-AzureRmVMSourceImage](/powershell/module/azurerm.compute/set-azurermvmsourceimage) cmdlet을 사용하여 이전에 정의한 변수에 정의된 대로 이 이미지를 사용합니다.
 
-다음 cmdlet을 실행하여 가상 컴퓨터에 대한 플랫폼 이미지를 지정합니다.
+다음 cmdlet을 실행하여 가상 머신에 대한 플랫폼 이미지를 지정합니다.
 
 ```PowerShell
 $VirtualMachine = Set-AzureRmVMSourceImage -VM $VirtualMachine `
@@ -296,18 +296,18 @@ $VirtualMachine = Set-AzureRmVMSourceImage -VM $VirtualMachine `
 ```
 
 ## <a name="create-the-sql-vm"></a>SQL VM 만들기
-이제 구성 단계를 완료했으므로 가상 컴퓨터를 만들 수 있습니다. [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) cmdlet을 사용하여 정의한 변수로 가상 머신을 만듭니다.
+이제 구성 단계를 완료했으므로 가상 머신을 만들 수 있습니다. [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) cmdlet을 사용하여 정의한 변수로 가상 머신을 만듭니다.
 
-다음 cmdlet을 실행하여 가상 컴퓨터를 만듭니다.
+다음 cmdlet을 실행하여 가상 머신을 만듭니다.
 
 ```PowerShell
 New-AzureRmVM -ResourceGroupName $ResourceGroupName -Location $Location -VM $VirtualMachine
 ```
 
-가상 컴퓨터가 만들어집니다.
+가상 머신이 만들어집니다.
 
 > [!NOTE]
-> 봇 진단에 대한 오류를 무시할 수 있습니다. 가상 머신의 디스크에 대해 지정된 저장소 계정은 프리미엄 저장소 계정이므로 부팅 진단에 대해서는 표준 저장소 계정이 만들어집니다.
+> 부트 진단에 대한 오류는 무시할 수 있습니다. 가상 머신의 디스크에 대해 지정된 저장소 계정은 프리미엄 저장소 계정이므로 부팅 진단에 대해서는 표준 저장소 계정이 만들어집니다.
 
 ## <a name="install-the-sql-iaas-agent"></a>SQL Iaas 에이전트 설치
 SQL Server 가상 머신은 [SQL Server IaaS 에이전트 확장](virtual-machines-windows-sql-server-agent-extension.md)을 사용하여 자동화된 관리 기능을 지원합니다. 새 VM에 에이전트를 설치하려면 VM을 만든 후 다음 명령을 실행하세요.

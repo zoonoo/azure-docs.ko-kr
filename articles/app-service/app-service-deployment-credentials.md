@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/05/2016
 ms.author: dariagrigoriu
 ms.openlocfilehash: d66b5aa4eb2ad90596dfe9e26bbc18996c967295
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Azure App Service의 배포 자격 증명 구성
 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)는 [로컬 Git 배포](app-service-deploy-local-git.md) 및 [FTP/S 배포](app-service-deploy-ftp.md)를 위해 두 가지 유형의 자격 증명을 지원합니다. 이들은 Azure Active Directory 자격 증명과 동일하지 않습니다.

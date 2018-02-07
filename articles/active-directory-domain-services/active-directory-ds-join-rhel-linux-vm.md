@@ -1,6 +1,6 @@
 ---
 title: "Azure Active Directory Domain Services: 관리되는 도메인에 RHEL VM 가입 | Microsoft Docs"
-description: "Red Hat Enterprise Linux 가상 컴퓨터를 Azure AD 도메인 서비스에 가입"
+description: "Red Hat Enterprise Linux 가상 머신을 Azure AD 도메인 서비스에 가입"
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2017
 ms.author: maheshu
-ms.openlocfilehash: b48ba1a1a47bc27e1d394e6fa56826df1eb742dd
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9046bdb5bd8ff21429c951cbe7120334bd000621
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="join-a-red-hat-enterprise-linux-7-virtual-machine-to-a-managed-domain"></a>Red Hat Enterprise Linux 7 가상 컴퓨터를 관리되는 도메인에 가입
-이 문서에서는 Red Hat Enterprise Linux(RHEL) 7 가상 컴퓨터를 Azure AD 도메인 서비스 관리되는 도메인에 가입하는 방법을 보여 줍니다.
+이 문서에서는 Red Hat Enterprise Linux(RHEL) 7 가상 머신을 Azure AD 도메인 서비스 관리되는 도메인에 가입하는 방법을 보여 줍니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 이 문서에 나열된 작업을 수행하려면 다음이 필요합니다.  
@@ -32,22 +32,22 @@ ms.lasthandoff: 12/11/2017
 5. [Azure AD Domain Services 관리되는 도메인에 암호를 동기화](active-directory-ds-getting-started-password-sync.md)하는 데 필요한 단계를 완료합니다.
 
 
-## <a name="provision-a-red-hat-enterprise-linux-virtual-machine"></a>Red Hat Enterprise Linux 가상 컴퓨터 프로비전
-다음 방법 중 하나를 사용하여 Azure에서 RHEL 7 가상 컴퓨터를 프로비전합니다.
+## <a name="provision-a-red-hat-enterprise-linux-virtual-machine"></a>Red Hat Enterprise Linux 가상 머신 프로비전
+다음 방법 중 하나를 사용하여 Azure에서 RHEL 7 가상 머신을 프로비전합니다.
 * [Azure 포털](../virtual-machines/linux/quick-create-portal.md)
 * [Azure CLI](../virtual-machines/linux/quick-create-cli.md)
 * [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 
 > [!IMPORTANT]
-> * **Azure AD Domain Services를 활성화한 동일한 가상 네트워크**에 가상 컴퓨터를 배포합니다.
+> * **Azure AD Domain Services를 활성화한 동일한 가상 네트워크**에 가상 머신을 배포합니다.
 > * Azure AD Domain Services를 활성화한 서브넷이 아닌 **다른 서브넷**을 선택합니다.
 >
 
 
-## <a name="connect-remotely-to-the-newly-provisioned-linux-virtual-machine"></a>새로 프로비전된 Linux 가상 컴퓨터에 원격으로 연결
-RHEL 7.2 가상 컴퓨터가 Azure에서 프로비전되었습니다. 다음 작업은 VM을 프로비전할 때 만든 로컬 관리자 계정을 사용하여 가상 컴퓨터에 원격으로 연결하는 것입니다.
+## <a name="connect-remotely-to-the-newly-provisioned-linux-virtual-machine"></a>새로 프로비전된 Linux 가상 머신에 원격으로 연결
+RHEL 7.2 가상 머신이 Azure에서 프로비전되었습니다. 다음 작업은 VM을 프로비전할 때 만든 로컬 관리자 계정을 사용하여 가상 머신에 원격으로 연결하는 것입니다.
 
-[Linux를 실행하는 가상 컴퓨터에 로그온하는 방법](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 문서의 지침을 따르세요.
+[Linux를 실행하는 가상 머신에 로그온하는 방법](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 문서의 지침을 따르세요.
 
 
 ## <a name="configure-the-hosts-file-on-the-linux-virtual-machine"></a>Linux 가상 컴퓨터에서 호스트 파일 구성
@@ -62,19 +62,19 @@ sudo vi /etc/hosts
 ```
 127.0.0.1 contoso-rhel.contoso100.com contoso-rhel
 ```
-여기서 'contoso100.com'은 관리되는 도메인의 DNS 도메인 이름입니다. 'contoso-rhel'은 관리되는 도메인에 가입한 RHEL 가상 컴퓨터의 호스트 이름입니다.
+여기서 'contoso100.com'은 관리되는 도메인의 DNS 도메인 이름입니다. 'contoso-rhel'은 관리되는 도메인에 가입한 RHEL 가상 머신의 호스트 이름입니다.
 
 
-## <a name="install-required-packages-on-the-linux-virtual-machine"></a>Linux 가상 컴퓨터에 필요한 패키지 설치
-다음으로 가상 컴퓨터에서 도메인 가입에 필요한 패키지를 설치합니다. SSH 터미널에서 필수 패키지를 설치하려면 다음 명령을 입력합니다.
+## <a name="install-required-packages-on-the-linux-virtual-machine"></a>Linux 가상 머신에 필요한 패키지 설치
+다음으로 가상 머신에서 도메인 가입에 필요한 패키지를 설치합니다. SSH 터미널에서 필수 패키지를 설치하려면 다음 명령을 입력합니다.
 
     ```
-    sudo yum install realmd sssd krb5-workstation krb5-libs
+    sudo yum install realmd sssd krb5-workstation krb5-libs samba-common-tools
     ```
 
 
 ## <a name="join-the-linux-virtual-machine-to-the-managed-domain"></a>Linux 가상 컴퓨터를 관리되는 도메인에 가입
-이제 필요한 패키지를 Linux 가상 컴퓨터에 설치했고 다음 작업은 가상 컴퓨터를 관리되는 도메인에 가입하는 것입니다.
+이제 필요한 패키지를 Linux 가상 머신에 설치했고 다음 작업은 가상 머신을 관리되는 도메인에 가입하는 것입니다.
 
 1. AAD 도메인 서비스 관리되는 도메인을 검색합니다. SSH 터미널에서 다음 명령을 입력합니다.
 
@@ -84,8 +84,8 @@ sudo vi /etc/hosts
 
      > [!NOTE] 
      > **문제 해결:** *영역 검색*을 통해 관리되는 도메인을 찾을 수 없는 경우 다음을 수행합니다.
-     * 해당 도메인을 가상 컴퓨터에서 연결 가능한지 확인합니다(ping 시도).
-     * 또한 관리되는 도메인을 사용할 수 있는 동일한 가상 네트워크에 가상 컴퓨터를 확실히 배포했는지 확인합니다.
+     * 해당 도메인을 가상 머신에서 연결 가능한지 확인합니다(ping 시도).
+     * 또한 관리되는 도메인을 사용할 수 있는 동일한 가상 네트워크에 가상 머신을 확실히 배포했는지 확인합니다.
      * 가상 네트워크가 관리되는 도메인의 도메인 컨트롤러를 가리키도록 DNS 서버 설정을 업데이트했는지 확인합니다.
      >
 
@@ -116,7 +116,7 @@ sudo vi /etc/hosts
 ## <a name="verify-domain-join"></a>도메인 가입 확인
 컴퓨터가 관리되는 도메인에 성공적으로 가입되었는지 여부를 확인합니다. 다른 SSH 연결을 사용하여 도메인에 가입된 RHEL VM에 연결합니다. 도메인 사용자 계정을 사용하고 사용자 계정이 올바른지 확인합니다.
 
-1. SSH 터미널에서 다음 명령을 입력하고 SSH를 사용하여 도메인에 가입된 RHEL 가상 컴퓨터에 연결합니다. 관리되는 도메인에 속하는 도메인 계정을 사용합니다(예: 여기서는 ‘bob@CONTOSO100.COM’).
+1. SSH 터미널에서 다음 명령을 입력하고 SSH를 사용하여 도메인에 가입된 RHEL 가상 머신에 연결합니다. 관리되는 도메인에 속하는 도메인 계정을 사용합니다(예: 여기서는 ‘bob@CONTOSO100.COM’).
     ```
     ssh -l bob@CONTOSO100.COM contoso-rhel.contoso100.com
     ```
@@ -137,7 +137,7 @@ sudo vi /etc/hosts
 
 ## <a name="related-content"></a>관련 콘텐츠
 * [Azure AD 도메인 서비스 - 시작 가이드](active-directory-ds-getting-started.md)
-* [Windows Server 가상 컴퓨터를 Azure AD 도메인 서비스 관리되는 도메인에 가입](active-directory-ds-admin-guide-join-windows-vm.md)
-* [Linux를 실행하는 가상 컴퓨터에 로그온하는 방법](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Windows Server 가상 머신을 Azure AD 도메인 서비스 관리되는 도메인에 가입](active-directory-ds-admin-guide-join-windows-vm.md)
+* [Linux를 실행하는 가상 머신에 로그온하는 방법](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Kerberos 설치](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Managing_Smart_Cards/installing-kerberos.html)
 * [Red Hat Enterprise Linux 7 - Windows 통합 가이드](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Windows_Integration_Guide/index.html)

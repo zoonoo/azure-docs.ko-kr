@@ -2,26 +2,24 @@
 title: "Azure Storage에서 데이터 복제 | Microsoft Docs"
 description: "Microsoft Azure Storage 계정의 데이터는 내구성 및 고가용성을 위해 복제됩니다. 복제 옵션은 (LRS) 로컬 중복 저장소(LRS), 영역 중복 저장소 (ZRS), 지역 중복 저장소 (GRS) 및 읽기 액세스 지역 중복 저장소 (RA-GRS)에 포함 됩니다."
 services: storage
-documentationcenter: 
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: 86bdb6d4-da59-4337-8375-2527b6bdf73f
+manager: jeconnoc
 ms.service: storage
 ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2017
+ms.date: 01/21/2018
 ms.author: tamram
-ms.openlocfilehash: 45883d59e5fe9ab2b7a09bfdc6c11a681bd43d0b
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: a8a8d8e95af3e6d98aa4dd98b11c066dca81421b
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-storage-replication"></a>Azure Storage 복제
-Microsoft Azure Storage 계정 데이터는 항상 내구성 및 고가용성을 위해 복제됩니다. 복제는 선택한 복제 옵션에 따라 동일한 데이터 센터 내 또는 보조 데이터 센터에 데이터를 복사합니다. 일시적인 하드웨어 오류가 발생할 경우에 대비하여 복제를 통해 데이터를 보호하고 응용 프로그램 가동 시간을 유지합니다. 보조 데이터 센터에 데이터를 복제하면 기본 위치에서 발생하는 치명적인 오류로부터 보호됩니다.
+
+Microsoft Azure Storage 계정 데이터는 항상 내구성 및 고가용성을 위해 복제됩니다. 복제는 일시적인 하드웨어 장애로부터 데이터가 보호되도록 데이터를 복사하여 응용 프로그램을 최신 상태로 유지합니다. 
+
+동일한 데이터 센터, 동일한 지역 내의 데이터 센터 또는 전체 지역에 데이터를 복제하도록 선택할 수 있습니다. 데이터가 여러 데이터 센터 또는 지역에 걸쳐 복제되는 경우 단일 위치의 치명적인 장래로부터 보호됩니다.
 
 복제를 사용하면 Storage 계정은 오류 상황에서도 [Storage용 SLA(서비스 수준 계약)](https://azure.microsoft.com/support/legal/sla/storage/)를 충족하게 됩니다. Azure Storage의 내구성 및 가용성 보장에 대한 정보는 SLA를 확인하세요.
 
@@ -34,12 +32,12 @@ Microsoft Azure Storage 계정 데이터는 항상 내구성 및 고가용성을
 
 RA-GRS(읽기 액세스 지역 중복 저장소)는 저장소 계정을 만드는 경우 기본 옵션입니다.
 
-다음 표에서 후속 섹션에서는 각 유형의 복제를 더 자세히 다루고 LRS, ZRS, GRS, RA-GRS 간의 차이점에 대해 간략하게 설명합니다.
+다음 테이블에는 LRS, ZRS, GRS 및 RA-GRS 사이의 차이점에 대한 간략한 개요가 제공됩니다. 이 문서의 후속 섹션에는 복제의 각 유형이 자세히 설명되어 있습니다.
 
 | 복제 전략 | LRS | ZRS | GRS | RA-GRS |
 |:--- |:--- |:--- |:--- |:--- |
 | 데이터가 여러 데이터 센터에 걸쳐 복제됩니다. |아니요 |예 |예 |예 |
-| 기본 위치와 보조 위치에서 데이터를 읽을 수 있습니다. |아니요 |아니요 |아니요 |예 |
+| 기본 위치와 보조 위치에서 데이터를 읽을 수 있습니다. |아니요 |아니오 |아니요 |예 |
 | 지정된 연도 동안 ___의 개체 내구성을 제공하도록 설계되었습니다. |최소 99.999999999%|최소 99.9999999999%|최소 99.99999999999999%|최소 99.99999999999999%|
 
 다른 이중화 옵션에 대한 가격 정보를 보려면 [Azure Storage 가격](https://azure.microsoft.com/pricing/details/storage/) 을 참조하세요.
@@ -48,78 +46,111 @@ RA-GRS(읽기 액세스 지역 중복 저장소)는 저장소 계정을 만드�
 > Premium Storage는 LRS(로컬 중복 저장소)만 지원합니다. Premium Storage에 대한 자세한 내용은 [Premium Storage: Azure Virtual Machine에 대한 고성능 저장소](../../virtual-machines/windows/premium-storage.md)를 참조하세요.
 >
 
-## <a name="locally-redundant-storage"></a>로컬 중복 저장소
+## <a name="locally-redundant-storage"></a>LRS(로컬 중복 저장소)
 [!INCLUDE [storage-common-redundancy-LRS](../../../includes/storage-common-redundancy-LRS.md)]
 
 ## <a name="zone-redundant-storage"></a>영역 중복 저장소
-ZRS(영역 중복 저장소)는 한 개 또는 두 개 지역 내 데이터 센터에서 비동기적으로 데이터를 복제하여 LRS보다 더 높은 내구성을 제공함으로써 지정된 연도 동안 최소 99.9999999999%의 개체 내구성을 제공하도록 설계되었습니다. ZRS에 저장된 데이터는 기본 데이터 센터를 사용할 수 없거나 복구할 수 없는 경우에도 지속성을 가집니다.
-ZRS를 사용하려는 고객은 다음을 알고 있어야 합니다.
 
-* ZRS는 범용 저장소 계정의 블록 Blob에 대해서만 사용할 수 있으며, 저장소 서비스 버전 2014-02-14 이상에서만 지원됩니다.
-* 비동기 복제는 지연이 발생하므로 지역 재해가 발생한 경우 주 지역에서 데이터를 복구할 수 없다면 아직 보조 지역으로 복제되지 않은 변경 내용은 손실될 수 있습니다.
-* 복제본은 Microsoft가 보조 지역에 장애 조치를 시작하기 전에는 사용할 수 없습니다.
-* ZRS 계정은 나중에 LRS 또는 GRS로 변환할 수 없습니다. 마찬가지로, 기존 LRS 또는 GRS 계정도 ZRS 계정으로 변환할 수 없습니다.
-* ZRS 계정에는 메트릭 또는 로깅 기능이 없습니다.
+ZRS(영역 중복 저장소)(미리 보기)는 고가용성 응용 프로그램의 개발을 간소화하도록 설계되었습니다. ZRS는 지정된 기간 동안 저장소 개체에 99.9999999999% 이상의 내구성을 제공합니다(12 9의 경우). ZRS는 여러 가용성 영역에서 데이터를 동기적으로 복제합니다. 가동 중지 시간이 허용되지 않는 트랜잭션 응용 프로그램과 같은 시나리오에 ZRS를 사용하는 것이 좋습니다.
+
+ZRS를 통해 사용자는 단일 영역을 사용할 수 없거나 복구할 수 없는 경우에도 데이터를 읽고 쓸 수 있습니다. 데이터에 대한 업데이트 및 삽입은 동기적으로 수행되고 일관성이 높습니다.   
+
+ZRS는 현재 다음 지역에서 미리 보기로 제공되며 곧 더 많은 지역에서 제공될 예정입니다.
+
+- 미국 동부 2 
+- 미국 중부 
+- 프랑스 중부(이 지역은 현재 미리 보기로 제공됩니다. 액세스를 요청하려면 [프랑스에서 현재 열려 있는 Azure 가용성 영역을 사용하여 Microsoft Azure 미리 보기](https://azure.microsoft.com/blog/microsoft-azure-preview-with-azure-availability-zones-now-open-in-france)를 참조하세요.)
+
+### <a name="zrs-classic-accounts"></a>ZRS 클래식 계정
+
+기존 ZRS 기능은 이제 ZRS 클래식이라고 합니다. ZRS 클래식 계정은 범용 V1 저장소 계정의 블록 Blob에 대해서만 사용할 수 있습니다. 
+
+ZRS 클래식은 1~2개의 영역 내에서 데이터 센터 간에 데이터를 비동기적으로 복제합니다. 복제본은 Microsoft가 보조 지역에 장애 조치를 시작하지 않는 한 사용할 수 없습니다. 
+
+ZRS 클래식 계정은 LRS, GRS 또는 RA-GRS 계정으로 변환하거나 이러한 계정을 ZRS 클래식 계정으로 변환할 수 없습니다. ZRS 클래식 계정은 메트릭이나 로깅을 지원하지 않습니다.   
+
+ZRS를 한 지역에서 일반적으로 사용할 수 있게 되면 해당 지역의 포털에서 ZRS 클래식 계정을 더 이상 만들 수 없지만 다른 방법으로 ZRS 클래식 계정을 만들 수 있습니다.  
+ZRS 클래식에서 ZRS로 자동 마이그레이션 프로세스는 앞으로 제공될 예정입니다.
+
+ZRS 계정은 해당 지역의 ZRS 계정을 LRS, GRS 또는 RAGRS 계정으로 또는 그 반대 방향으로 수동 마이그레이션하도록 지원합니다. 이러한 수동 마이그레이션은 AzCopy, Azure Storage 탐색기, Azure PowerShell, Azure CLI 또는 Azure Storage 클라이언트 라이브러리 중 하나를 사용하여 수행할 수 있습니다.
+
+> [!NOTE]
+> ZRS Classic 계정은 사용이 중단될 예정이며 2021년 3월 31일에 마이그레이션해야 합니다. 사용이 중단되기 전에 ZRS 클래식 고객에게 자세한 내용이 전송될 예정입니다.
+
+추가적인 질문은 [질문과 대답](#frequently-asked-questions) 섹션에 언급되어 있습니다. 
 
 ## <a name="geo-redundant-storage"></a>지역 중복 저장소
 [!INCLUDE [storage-common-redundancy-GRS](../../../includes/storage-common-redundancy-GRS.md)]
 
 ## <a name="read-access-geo-redundant-storage"></a>읽기 액세스 지역 중복 저장소
-읽기 액세스 지역 중복 저장소(RA-GRS)는 GRS에서 제공한 두 지역에 걸쳐 복제하는 것 외에도 보조 위치에서 데이터에 대한 읽기 전용 액세스를 제공하여 저장소 계정의 가용성을 최대화합니다.
+RA-GRS(읽기 액세스 지역 중복 저장소)는 저장소 계정의 가용성을 최대화합니다. RA-GRS는 두 지역의 지리적 복제와 더불어 보조 위치의 데이터에 대한 읽기 전용 액세스를 제공합니다.
 
-보조 지역에서 데이터를 읽기 전용 액세스를 설정할 때 데이터는 저장소 계정에 대한 기본 끝점 뿐만 아니라 보조 끝점에서 사용할 수 있습니다. 보조 끝점은 기본 끝점과 유사하지만 접미사 `–secondary` 가 계정 이름에 추가됩니다. 예를 들어, Blob service에 대한 기본 끝점이 `myaccount.blob.core.windows.net`인 경우, 보조 끝점은 `myaccount-secondary.blob.core.windows.net`입니다. 저장소 계정에 대한 액세스 키는 기본 및 보조 끝점에 대해 동일합니다.
+보조 지역에서 데이터에 대한 읽기 전용 액세스를 활성화하면 저장소 계정의 기본 엔드포인트는 물론 보조 엔드포인트에서 데이터를 사용할 수 있습니다. 보조 끝점은 기본 끝점과 유사하지만 접미사 `–secondary` 가 계정 이름에 추가됩니다. 예를 들어, Blob service에 대한 기본 끝점이 `myaccount.blob.core.windows.net`인 경우, 보조 끝점은 `myaccount-secondary.blob.core.windows.net`입니다. 저장소 계정에 대한 액세스 키는 기본 및 보조 끝점에 대해 동일합니다.
 
-고려 사항:
+RA-GRS를 사용할 때 유의해야 할 몇 가지 고려 사항:
 
 * 응용 프로그램은 RA-GRS를 사용하는 경우 상호 작용하는 끝점을 관리해야 합니다.
-* 비동기 복제는 지연이 발생하므로 지역 재해가 발생한 경우 주 지역에서 데이터를 복구할 수 없다면 아직 보조 지역으로 복제되지 않은 변경 내용은 손실될 수 있습니다.
+* 비동기 복제에는 지연이 발생하기 때문에 주 지역에서 데이터를 복구할 수 없으면(예를 들어 지역에 재해가 발생하여) 보조 지역에 아직 복제되지 않은 변경 내용이 손실될 수 있습니다.
 * Microsoft가 보조 지역에 장애 조치(Failover)를 시작하면 장애 조치(Failover)가 완료된 후 해당 데이터에 대한 읽기 및 쓰기 액세스를 갖게 됩니다. 자세한 내용은 [재해 복구 지침](../storage-disaster-recovery-guidance.md)을 참조하세요.
 * RA-GRS는 높은 가용성을 위해 제공됩니다. 확장성 지침은 [성능 검사 목록](../storage-performance-checklist.md)을 검토하세요.
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
 
 <a id="howtochange"></a>
-#### <a name="1-how-can-i-change-the-geo-replication-type-of-my-storage-account"></a>1. 내 저장소 계정의 지역에서 복제 유형을 변경하려면 어떻게 하나요?
+#### <a name="1-how-can-i-change-the-geo-replication-type-of-my-storage-account"></a>1. 내 저장소 계정의 지역 복제 유형을 변경하려면 어떻게 하나요?
 
-   [Azure Portal](https://portal.azure.com/), [Azure Powershell](storage-powershell-guide-full.md) 또는 여러 Storage 클라이언트 라이브러리 중 하나를 프로그래밍 방식으로 사용하여 Storage 계정의 지역에서 복제 유형을 LRS, GRS 및 RA-GRS 간에 변경할 수 있습니다.
-ZRS 계정은 LRS 또는 GRS로 변환할 수 없습니다. 마찬가지로, 기존 LRS 또는 GRS 계정도 ZRS 계정으로 변환할 수 없습니다.
+   [Azure Portal](https://portal.azure.com/), [Azure Powershell](storage-powershell-guide-full.md) 또는 Azure Storage 클라이언트 라이브러리 중 하나를 사용하면 저장소 계정의 지역 복제 유형을 변경할 수 있습니다.
 
+   > [!NOTE]
+   > ZRS 계정은 LRS 또는 GRS로 변환할 수 없습니다. 마찬가지로, 기존 LRS 또는 GRS 계정도 ZRS 계정으로 변환할 수 없습니다.
+    
 <a id="changedowntime"></a>
-#### <a name="2-will-there-be-any-down-time-if-i-change-the-replication-type-of-my-storage-account"></a>2. 저장소 계정의 복제 유형을 변경하면 중단 시간이 발생하나요?
+#### <a name="2-does-changing-the-replication-type-of-my-storage-account-result-in-down-time"></a>2. 저장소 계정의 복제 유형을 변경하면 가동 중지 시간이 발생하나요?
 
-   아니요, 중단 시간이 발생하지 않습니다.
+   아니요, 저장소 계정의 복제 유형을 변경해도 가동 중지 시간이 발생하지 않습니다.
 
 <a id="changecost"></a>
-#### <a name="3-will-there-be-any-additional-cost-if-i-change-the-replication-type-of-my-storage-account"></a>3. 저장소 계정의 복제 유형을 변경하면 추가 비용이 발생하나요?
+#### <a name="3-are-there-additional-costs-to-changing-the-replication-type-of-my-storage-account"></a>3. 저장소 계정의 복제 유형을 변경하면 추가 비용이 발생하나요?
 
-   예. 저장소 계정에 대해 LRS에서 GRS(또는 RA-GRS)로 변경하는 경우 기본 위치에서 보조 위치로 기존 데이터를 복사하는 송신과 관련하여 추가 비용이 발생합니다. 초기 데이터가 복사된 후에는 주 위치에서 보조 위치로 데이터를 지역에서 복제하는 데 추가 송신 비용이 발생하지 않습니다. 대역폭 요금에 대한 자세한 내용은 [Azure Storage 가격 페이지](https://azure.microsoft.com/pricing/details/storage/blobs/)에서 확인할 수 있습니다.
-GRS에서 LRS로 변경하는 경우 추가 비용은 없지만 보조 위치에서 데이터가 삭제됩니다.
+   예. 저장소 계정에 대해 LRS에서 GRS(또는 RA-GRS)로 변경하는 경우 기본 위치에서 보조 위치로 기존 데이터를 복사하는 송신과 관련하여 추가 비용이 발생합니다. 초기 데이터가 복사된 후에는 기본 위치에서 보조 위치로 데이터를 지역에서 복제하는 데 추가 송신 비용이 없습니다. 대역폭 요금에 대한 자세한 내용은 [Azure Storage 가격 페이지](https://azure.microsoft.com/pricing/details/storage/blobs/)를 참조하세요.
+
+   GRS에서 LRS로 변경하는 경우 추가 비용은 없지만 보조 위치에서 데이터가 삭제됩니다.
 
 <a id="ragrsbenefits"></a>
 #### <a name="4-how-can-ra-grs-help-me"></a>4. RA-GRS가 어떻게 도움이 되나요?
 
-   GRS 저장소는 주 지역에서 수백 마일 떨어져 있는 보조 지역에 데이터 복제를 제공합니다. 이 경우 전체 지역 가동 중단 또는 주 지역을 복구할 수 없는 재해가 발생하더라도 데이터는 지속됩니다. RA-GRS 저장소에는 이외에도 보조 위치에서 데이터를 읽을 수 있는 기능이 추가됩니다. 이 기능을 활용하는 방법에 대한 몇 가지 아이디어는 [RA-GRS 저장소를 사용하여 항상 사용 가능한 응용 프로그램 설계](../storage-designing-ha-apps-with-ragrs.md)를 참조하세요.
+   GRS 저장소는 주 지역에서 수백 마일 떨어져 있는 보조 지역에 데이터 복제를 제공합니다. GRS를 사용하는 경우 전체 지역 가동 중단 또는 주 지역을 복구할 수 없는 재해가 발생하더라도 데이터는 지속됩니다. RA-GRS 저장소에는 GRS 복제가 제공되며 보조 위치에서 데이터를 읽을 수 있는 기능이 추가됩니다. 고가용성을 위한 설계 방법에 대한 제한 사항은 [RA-GRS를 사용하여 항상 사용 가능한 응용 프로그램 설계](../storage-designing-ha-apps-with-ragrs.md)를 참조하세요.
 
 <a id="lastsynctime"></a>
-#### <a name="5-is-there-a-way-for-me-to-figure-out-how-long-it-takes-to-replicate-my-data-from-the-primary-to-the-secondary-region"></a>5. 주 지역에서 보조 지역으로 데이터를 복제하는 데 시간이 얼마나 걸리는지 확인하는 방법이 있나요?
+#### <a name="5-is-there-a-way-to-figure-out-how-long-it-takes-to-replicate-my-data-from-the-primary-to-the-secondary-region"></a>5. 주 지역에서 보조 지역으로 데이터를 복제하는 데 시간이 얼마나 걸리는지 확인하는 방법이 있나요?
 
-   RA-GRS 저장소를 사용하는 경우 저장소 계정의 마지막 동기화 시간을 확인할 수 있습니다. 마지막 동기화 시간은 GMT 날짜/시간 값입니다. 마지막 동기화 시간 이전의 모든 주 쓰기는 보조 위치에 성공적으로 기록되었으므로 보조 위치에서 읽을 수 있습니다. 마지막 동기화 시간 이후 주 쓰기는 읽기에 사용 또는 사용하지 못할 수 있습니다. [Azure Portal](https://portal.azure.com/), [Azure PowerShell](storage-powershell-guide-full.md)을 사용하거나 REST API를 사용하여 프로그래밍 방식으로 또는 Storage 클라이언트 라이브러리 중 하나를 사용하여 이 값을 쿼리할 수 있습니다.
+   RA-GRS 저장소를 사용하는 경우 저장소 계정의 마지막 동기화 시간을 확인할 수 있습니다. 마지막 동기화 시간은 GMT 날짜/시간 값입니다. 마지막 동기화 시간 이전의 모든 주 쓰기는 보조 위치에 성공적으로 기록되었으므로 보조 위치에서 읽을 수 있습니다. 마지막 동기화 시간 이후 주 쓰기는 읽기에 사용 또는 사용하지 못할 수 있습니다. [Azure Portal](https://portal.azure.com/), [Azure PowerShell](storage-powershell-guide-full.md) 또는 Azure Storage 클라이언트 라이브러리 중 하나를 사용하여 이 값을 쿼리할 수 있습니다.
 
 <a id="outage"></a>
-#### <a name="6-how-can-i-switch-to-the-secondary-region-if-there-is-an-outage-in-the-primary-region"></a>6. 주 지역에 가동 중단이 있는 경우 보조 지역으로 어떻게 전환할 수 있나요?
+#### <a name="6-if-there-is-an-outage-in-the-primary-region-how-do-i-switch-to-the-secondary-region"></a>6. 주 지역에 가동 중단이 발생하면 보조 지역으로 어떻게 전환할 수 있나요?
 
    자세한 내용은 [Azure Storage 중단이 발생할 경우 수행할 작업](../storage-disaster-recovery-guidance.md)을 참조하세요.
 
 <a id="rpo-rto"></a>
 #### <a name="7-what-is-the-rpo-and-rto-with-grs"></a>7. GRS에서 RPO 및 RTO란?
 
-   RPO(복구 지점 목표): GRS 및 RA-GRS에서는 저장소 서비스가 주 위치에서 보조 위치로 데이터를 비동기식으로 지역에서 복제합니다. 중대한 지역 재해 발생이 있고 장애 조치(failover)를 수행해야 하는 경우 아직 지역에서 복제되지 않은 최근 델타 변경 내용이 손실될 수 있습니다. 잠재적인 데이터 손실 시간(분)을 RPO(즉, 데이터를 복구할 수 있는 특정 시점)라고 합니다. 현재 지역에서 복제를 수행하는 데 소요되는 시간에 대한 SLA는 없지만 일반적으로 RPO는 15분 미만입니다.
+   **RPO(복구 지점 목표):** GRS 및 RA-GRS에서는 저장소 서비스가 기본 위치에서 보조 위치로 데이터를 비동기식으로 지역에서 복제합니다. 주 지역에서 심각한 지역 재해가 발생하는 경우 Microsoft는 보조 영역으로 장애 조치(failover)를 수행합니다. 장애 조치(failover)가 발생하면 아직 지역 복제되지 않은 최근 변경 사항이 손실될 수 있습니다. 잠재적인 데이터 손실 시간(분)을 RPO라고 하며,이것은 데이터를 복구할 수 있는 특정 시점을 나타냅니다. Azure Storage의 RPO는 일반적으로 15분 미만이지만 현재 지리적 복제에 대한 소요 시간에 대한 SLA는 없습니다.
 
-   RTO(복구 시간 목표): 장애 조치(failover)를 수행하고 장애 조치를 수행해야 하는 경우 저장소 계정을 다시 온라인으로 가져오는 데 소요되는 시간에 대한 측정값입니다. 장애 조치를 수행하는 시간에는 다음이 포함됩니다.
-    * 기본 위치에서 데이터를 복구할 수 있는지 또는 장애 조치를 수행해야 하는지를 조사하고 결정하는 데 걸리는 시간입니다.
-    * 보조 위치를 가리키도록 주 DNS 항목을 변경하여 계정을 장애 조치합니다.
+   **RTO(복구 시간 목표):** RTO는 장애 조치(failover)를 수행하고 저장소 계정을 다시 온라인 상태로 만드는 데 걸리는 시간에 대한 측정값입니다. 장애 조치(failover)를 수행하는 시간에는 다음 작업이 포함됩니다.
 
-   Microsoft는 사용자의 데이터를 매우 중요하게 보존할 책임이 있으며, 따라서 데이터를 복구할 기회가 있는 경우 장애 조치를 보류하고 기본 위치에서 데이터를 복구하는 데 주력할 것입니다. 향후에는 계정 수준에서 장애 조치(failover)를 트리거할 수 있는 API를 제공하여 RTO를 직접 제어하도록 할 계획입니다(아직은 제공되지 않음).
+   * Microsoft에서 기본 위치에서 데이터를 복구할 수 있는지 또는 장애 조치(failover)가 필요한지 여부를 확인하는 데 필요한 시간.
+   * 보조 위치를 가리키도록 기본 DNS 항목을 변경하여 저장소 계정의 장애 조치(failover)를 수행하는 시간.
+
+   Microsoft는 데이터를 유지할 책임을 진지하게 수행하고 있습니다. 주 지역의 데이터를 복구할 기회가 있으면 장애 조치(failover)를 지연하고 데이터 복구에 집중합니다. 이 서비스의 향후 버전에서는 RTO를 직접 제어할 수 있도록 계정 수준에서 장애 조치(failover)를 트리거하는 것이 허용될 예정입니다.
+
+#### <a name="8-what-azure-storage-objects-does-zrs-support"></a>8. ZRS에서 지원하는 Azure Storage 개체는 무엇입니까? 
+블록 Blob, 페이지 Blob(VM 디스크 백업 항목 제외), 테이블, 파일 및 큐. 
+
+#### <a name="9-does-zrs-also-include-geo-replication"></a>9. ZRS에 지역 복제도 포함되나요? 
+현재 ZRS는 지역 복제를 지원하지 않습니다. 시나리오에서 재해 복구를 위해 지역간 복제가 필요한 경우 GRS 또는 RA-GRS 저장소 계정을 대신 사용합니다.   
+
+#### <a name="10-what-happens-when-one-or-more-zrs-zones-go-down"></a>10. 하나 이상의 ZRS 영역이 중단되면 어떻게 되나요? 
+첫 번째 영역이 중단되면 ZRS는 해당 지역의 나머지 2개 영역에서 데이터의 복제본을 계속 작성합니다. 두 번째 영역이 중단되면 2개 이상의 영역을 다시 사용할 수 있을 때까지 일기 및 쓰기 액세스를 사용할 수 없습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 * [RA-GRS 저장소를 사용하여 항상 사용 가능한 응용 프로그램 설계](../storage-designing-ha-apps-with-ragrs.md)

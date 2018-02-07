@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: dc97840e08f29777b56e7cfc9cced699c0eda2ff
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: cb70b6fee5257a07dda673d6d0f6feb07ad66958
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-sap-hana-using-azure-data-factory"></a>Azure Data Factory를 사용하여 SAP HANA에서 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -42,7 +42,7 @@ SAP HANA 데이터베이스에서 지원되는 모든 싱크 데이터 저장소
 > [!NOTE]
 > SAP HANA 데이터 저장소**로** 데이터를 복사하려면 일반 ODBC 커넥터를 사용합니다. 자세한 내용은 [SAP HANA 싱크](connector-odbc.md#sap-hana-sink)를 참조하세요. 따라서 형식이 다른 SAP HANA 커넥터 및 ODBC 커넥터에 대한 연결된 서비스는 재사용할 수 없습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 이 SAP HANA 커넥터를 사용하려면 다음을 수행해야 합니다.
 
@@ -61,12 +61,12 @@ SAP HANA 연결된 서비스에 다음 속성이 지원됩니다.
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 형식 속성은 **SapHana**로 설정해야 합니다. | 적용 |
-| 서버 | SAP HANA 인스턴스가 상주하는 서버의 이름. 서버에서 사용자 지정된 포트를 사용하는 경우 `server:port`를 지정합니다. | 적용 |
-| authenticationType | SAP HANA 데이터베이스에 연결하는 데 사용되는 인증 형식입니다.<br/>허용되는 값은 **Basic** 및 **Windows**입니다. | 적용 |
-| userName | SAP 서버에 대한 액세스 권한이 있는 사용자의 이름입니다. | 적용 |
-| 암호 | 사용자에 대한 암호입니다. 이 필드를 SecureString으로 표시합니다. | 적용 |
-| connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. [필수 조건](#prerequisites)에 설명된 대로 자체 호스팅 Integration Runtime이 필요합니다. |적용 |
+| 형식 | 형식 속성은 **SapHana**로 설정해야 합니다. | 예 |
+| 서버 | SAP HANA 인스턴스가 상주하는 서버의 이름. 서버에서 사용자 지정된 포트를 사용하는 경우 `server:port`를 지정합니다. | 예 |
+| authenticationType | SAP HANA 데이터베이스에 연결하는 데 사용되는 인증 형식입니다.<br/>허용되는 값은 **Basic** 및 **Windows**입니다. | 예 |
+| userName | SAP 서버에 대한 액세스 권한이 있는 사용자의 이름입니다. | 예 |
+| 암호 | 사용자에 대한 암호입니다. 이 필드를 SecureString으로 표시합니다. | 예 |
+| connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. [필수 조건](#prerequisites)에 설명된 대로 자체 호스팅 Integration Runtime이 필요합니다. |예 |
 
 **예제:**
 
@@ -124,8 +124,8 @@ SAP HANA에서 데이터를 복사하려면 복사 작업의 원본 형식을 **
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 복사 작업 원본의 형식 속성을 **RelationalSource**로 설정해야 합니다. | 적용 |
-| 쿼리 | SAP HANA 인스턴스에서 데이터를 읽을 SQL 쿼리를 지정합니다. | 적용 |
+| 형식 | 복사 작업 원본의 형식 속성을 **RelationalSource**로 설정해야 합니다. | 예 |
+| 쿼리 | SAP HANA 인스턴스에서 데이터를 읽을 SQL 쿼리를 지정합니다. | 예 |
 
 **예제:**
 

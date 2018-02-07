@@ -14,11 +14,11 @@ ms.devlang: ruby
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: tamram
-ms.openlocfilehash: 8fe080aabe3079f571f5979245adfc453dfcd459
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0d7624d47a6924a5c8dec66b47ac0887ff493879
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="how-to-use-queue-storage-from-ruby"></a>Ruby에서 큐 저장소를 사용하는 방법
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 [!INCLUDE [storage-try-azure-tools-queues](../../../includes/storage-try-azure-tools-queues.md)]
 
 ## <a name="overview"></a>개요
-이 가이드에서는 Microsoft Azure 큐 저장소 서비스를 사용하여 일반 시나리오를 수행하는 방법을 설명합니다. 샘플은 Ruby Azure API를 사용하여 작성되었습니다.
+이 가이드에서는 Microsoft Azure Queue Storage 서비스를 사용하여 일반 시나리오를 수행하는 방법을 설명합니다. 샘플은 Ruby Azure API를 사용하여 작성되었습니다.
 여기서 다루는 시나리오에는 **큐 만들기 및 삭제**뿐만 아니라 큐 메시지 **삽입**, **보기**, **가져오기** 및 **삭제**가 포함됩니다.
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
@@ -34,7 +34,7 @@ ms.lasthandoff: 10/11/2017
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-ruby-application"></a>Ruby 응용 프로그램 만들기
-Ruby 응용 프로그램을 만듭니다. 지침은 [Azure VM의 Ruby on Rails 웹 응용 프로그램](../../virtual-machines/linux/classic/virtual-machines-linux-classic-ruby-rails-web-app.md)을 참조하세요.
+Ruby 응용 프로그램을 만듭니다. 지침은 [Linux의 App Service에서 Ruby 앱 만들기](https://docs.microsoft.com/azure/app-service/containers/quickstart-ruby)를 참조하세요.
 
 ## <a name="configure-your-application-to-access-storage"></a>저장소에 액세스하도록 응용 프로그램 구성
 Azure 저장소를 사용하려면 저장소 REST 서비스와 통신하는 편리한 라이브러리 집합이 포함된 Ruby Azure 패키지를 다운로드하여 사용해야 합니다.
@@ -50,7 +50,7 @@ Azure 저장소를 사용하려면 저장소 REST 서비스와 통신하는 편�
 require "azure"
 ```
 
-## <a name="setup-an-azure-storage-connection"></a>Azure 저장소 연결 설정
+## <a name="setup-an-azure-storage-connection"></a>Azure Storage 연결 설정
 Azure 모듈은 **AZURE\_STORAGE\_ACCOUNT** 및 **AZURE\_STORAGE\_ACCESS_KEY** 환경 변수를 읽고 Azure Storage 계정에 연결하는 데 필요한 정보를 확인합니다. 이러한 환경 변수가 설정되지 않으면 **Azure::QueueService** 를 사용하기 전에 다음 코드로 계정 정보를 지정해야 합니다.
 
 ```ruby
@@ -60,7 +60,7 @@ Azure.config.storage_access_key = "<your Azure storage access key>"
 
 Azure 포털의 클래식 또는 Resource Manager 저장소 계정에서 이러한 값을 가져오려면
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure 포털](https://portal.azure.com) 에 로그인합니다.
 2. 사용하려는 저장소 계정으로 이동합니다.
 3. 오른쪽의 설정 블레이드에서 **액세스 키**를 클릭합니다.
 4. 나타나는 액세스 키 블레이드에 액세스 키 1 및 액세스 키 2가 표시되어 있습니다. 이 둘 중 하나를 사용할 수 있습니다. 
@@ -156,7 +156,7 @@ azure_queue_service.delete_queue("test-queue")
 ## <a name="next-steps"></a>다음 단계
 이제 큐 저장소의 기본 사항을 배웠으므로 다음 링크를 따라 좀 더 복잡한 저장소 작업에 대해 알아보세요.
 
-* [Azure 저장소 팀 블로그](http://blogs.msdn.com/b/windowsazurestorage/)
+* [Azure Storage 팀 블로그](http://blogs.msdn.com/b/windowsazurestorage/)
 * GitHub에서 [Azure SDK for Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) (영문) 리포지토리를 방문하세요.
 
 이 항목에서 다룬 Azure 큐 서비스와 [Service Bus 큐를 사용하는 방법](/develop/ruby/how-to-guides/service-bus-queues/) 항목에서 다루는 Azure Service Bus 큐를 비교하려면 [Azure Queues 및 Service Bus 큐 - 비교 및 대조](../../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md)를 참조하세요.

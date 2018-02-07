@@ -1,28 +1,28 @@
 ---
-title: "Azure Active Directory 조건부 액세스 기술 참조 | Microsoft Docs"
-description: "Azure Active Directory에서 조건부 액세스 제어가 작동하는 방식을 알아봅니다. 응용 프로그램에 대해 사용자를 인증하고 액세스를 제어하기 위한 조건을 지정합니다. 지정된 조건이 충족되면 사용자를 인증하고 응용 프로그램에 대한 액세스를 부여합니다."
+title: "Azure Active Directory 조건부 액세스 설정 참조 | Microsoft Docs"
+description: "Azure Active Directory 조건부 액세스 정책에서 지원되는 설정에 대한 개요를 확인합니다."
 services: active-directory.
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 ms.assetid: 56a5bade-7dcc-4dcf-8092-a7d4bf5df3c1
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/05/2017
+ms.date: 12/12/2017
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 5fad793bcf9ac86c2a1bc67e74dfb62af9876100
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 1ce1fc4c03130dfea4e79c89c25cf5a9004e4dc8
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/23/2017
 ---
-# <a name="azure-active-directory-conditional-access-technical-reference"></a>Azure Active Directory 조건부 액세스 기술 참조
+# <a name="azure-active-directory-conditional-access-settings-reference"></a>Azure Active Directory 조건부 액세스 설정 참조
 
-[Azure AD(Azure Active Directory) 조건부 액세스](active-directory-conditional-access-azure-portal.md)를 사용하여 권한 있는 사용자가 리소스를 액세스하는 방법을 미세 조정할 수 있습니다.   
+[Azure AD(Azure Active Directory) 조건부 액세스](active-directory-conditional-access-azure-portal.md)를 사용하여 권한 있는 사용자가 리소스에 액세스하는 방법을 제어할 수 있습니다.   
 
 이 문서에서는 조건부 액세스 정책의 다음 구성 옵션에 대한 지원 정보를 제공합니다. 
 
@@ -35,6 +35,7 @@ ms.lasthandoff: 12/06/2017
 - 승인된 클라이언트 응용 프로그램 요구 사항
 
 
+찾고 있는 내용이 아니면 이 문서 하단에 의견을 남겨 주세요.
 
 ## <a name="cloud-apps-assignments"></a>클라우드 앱 할당
 
@@ -57,7 +58,7 @@ Microsoft의 다음 클라우드 앱에 조건부 액세스 정책을 할당할 
 
 - Microsoft Office 365 Exchange Online
 
-- Microsoft Office 365 SharePoint Online(비즈니스용 OneDrive 포함)
+- Microsoft Office 365 SharePoint Online(비즈니스용 OneDrive 및 Project Online 포함)
 
 - Microsoft Power BI 
 
@@ -122,7 +123,7 @@ Microsoft 클라우드 앱 외에도 다음과 같은 형식의 클라우드 앱
 
 | OS                     | 브라우저                            | 지원     |
 | :--                    | :--                                 | :-:         |
-| Windows 10             | Internet Explorer, Edge, Chrome     | ![확인][1] |
+| 윈도우 10             | Internet Explorer, Edge, Chrome     | ![확인][1] |
 | Windows 8 / 8.1        | Internet Explorer, 크롬           | ![확인][1] |
 | Windows 7              | Internet Explorer, 크롬           | ![확인][1] |
 | iOS                    | Safari, Intune Managed Browser      | ![확인][1] |
@@ -157,11 +158,11 @@ Microsoft 클라우드 앱 외에도 다음과 같은 형식의 클라우드 앱
 |---|---|---|
 |Azure 원격 앱|Azure 원격 앱 서비스|Windows 10, Windows 8.1, Windows 7, iOS, Android 및 Mac OS X|
 |Dynamics CRM 앱|Dynamics CRM|Windows 10, Windows 8.1, Windows 7, iOS 및 Android|
-|메일/달력/사람 앱, Outlook 2016, Outlook 2013(최신 인증 포함)|Office 365 Exchange Online|Windows 10|
+|메일/달력/사람 앱, Outlook 2016, Outlook 2013(최신 인증 포함)|Office 365 Exchange Online|윈도우 10|
 |앱에 대한 MFA 및 위치 정책입니다. 장치 기반 정책은 지원되지 않습니다. |모든 My Apps 앱 서비스|Android 및 iOS|
 |Microsoft Teams Services - Microsoft Teams 및 모든 클라이언트 앱(Windows 데스크톱, iOS, Android, WP 및 웹 클라이언트)을 지원하는 서비스를 모두 제어합니다.|Microsoft 팀|Windows 10, Windows 8.1, Windows 7, iOS, Android 및 macOS |
 |Office 2016 앱, Office 2013(최신 인증 사용), OneDrive 동기화 클라이언트([참고](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e) 참조)|Office 365 SharePoint Online|Windows 8.1, Windows 7|
-|Office 2016 앱, Universal Office 앱, Office 2013(최신 인증 사용), OneDrive 동기화 클라이언트([참고](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e) 참조), Office 그룹 지원은 나중에 지원될 예정입니다. SharePoint 앱 지원은 나중에 지원될 예정입니다.|Office 365 SharePoint Online|Windows 10|
+|Office 2016 앱, Universal Office 앱, Office 2013(최신 인증 사용), OneDrive 동기화 클라이언트([참고](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e) 참조), Office 그룹 지원은 나중에 지원될 예정입니다. SharePoint 앱 지원은 나중에 지원될 예정입니다.|Office 365 SharePoint Online|윈도우 10|
 |macOS용 Office 2016(Word, Excel, PowerPoint, OneNote만 해당) 향후 제공될 예정인 비즈니스용 OneDrive 지원|Office 365 SharePoint Online|Mac OS X|
 |Office 모바일 앱|Office 365 SharePoint Online|Android, iOS|
 |Office Yammer 앱|Office 365 Yammer|Windows 10, iOS, Android|

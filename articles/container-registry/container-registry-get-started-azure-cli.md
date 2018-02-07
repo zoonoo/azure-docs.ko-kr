@@ -5,21 +5,21 @@ services: container-registry
 author: neilpeterson
 manager: timlt
 ms.service: container-registry
-ms.topic: quicksart
+ms.topic: quickstart
 ms.date: 12/07/2017
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: f31f4e5e2b3fe5db85873894a7f2fa9c415392c1
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: a74a1ce5c9401d6445f5feec4af8d5cb771d2c64
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="create-a-container-registry-using-the-azure-cli"></a>Azure CLI를 사용하여 컨테이너 레지스트리 만들기
 
 Azure Container Registry는 개인 Docker 컨테이너 이미지를 저장하는 데 사용되는 관리되는 Docker 컨테이너 레지스트리 서비스입니다. 이 가이드에서는 Azure CLI를 사용하여 Azure Container Registry 인스턴스 만들기에 대해 자세히 설명합니다.
 
-이 빠른 시작에서는 Azure CLI 버전 2.0.21 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치하거나 업그레이드해야 하는 경우 [Azure CLI 2.0 설치][azure-cli]를 참조하세요.
+이 빠른 시작에서는 Azure CLI 버전 2.0.25 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치하거나 업그레이드해야 하는 경우 [Azure CLI 2.0 설치][azure-cli]를 참조하세요.
 
 또한 Docker가 로컬에 설치되어 있어야 합니다. Docker는 모든 [Mac][docker-mac], [Windows][docker-windows] 또는 [Linux][docker-linux] 시스템에서 쉽게 Docker를 구성하는 패키지를 제공합니다.
 
@@ -41,7 +41,7 @@ az group create --name myResourceGroup --location eastus
 
 [az acr create][az-acr-create] 명령을 사용하여 ACR 인스턴스를 만듭니다.
 
-레지스트리의 이름은 **고유해야 합니다**. 다음 예제에서는 *myContainerRegistry007*을 사용합니다. 이를 고유한 값으로 업데이트합니다.
+레지스트리 이름은 Azure 내에서 고유해야 하며, 5-50자의 영숫자만 포함해야 합니다. 다음 예제에서는 *myContainerRegistry007*을 사용합니다. 이를 고유한 값으로 업데이트합니다.
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name myContainerRegistry007 --sku Basic
@@ -116,7 +116,7 @@ docker push <acrLoginServer>/aci-helloworld:v1
 az acr repository list --name <acrName> --output table
 ```
 
-출력:
+출력
 
 ```bash
 Result
@@ -130,7 +130,7 @@ aci-helloworld
 az acr repository show-tags --name <acrName> --repository aci-helloworld --output table
 ```
 
-출력:
+출력
 
 ```bash
 Result

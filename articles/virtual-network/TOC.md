@@ -15,7 +15,9 @@
 ### [액세스 제어 목록](virtual-networks-acl.md)
 
 # 시작
-## [첫 가상 네트워크 만들기](virtual-network-get-started-vnet-subnet.md)
+## [가상 네트워크 만들기 - 포털](quick-create-portal.md)
+## [가상 네트워크 만들기 - PowerShell](quick-create-powershell.md)
+## [가상 네트워크 만들기 - Azure CLI](quick-create-cli.md)
 
 # 방법
 ## 계획 및 디자인
@@ -199,7 +201,7 @@
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=networking)
 ## [네트워킹 블로그](http://azure.microsoft.com/blog/topics/networking)
 ## [네트워킹 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)
-## [가격 책정](https://azure.microsoft.com/pricing/details/virtual-network)
+## [가격](https://azure.microsoft.com/pricing/details/virtual-network)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-virtual-network)
 ## [네트워크 리소스 공급자](resource-groups-networking.md)

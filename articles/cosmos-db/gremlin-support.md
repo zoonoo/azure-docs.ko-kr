@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 11/15/2017
+ms.date: 01/02/2018
 ms.author: lbosq
-ms.openlocfilehash: f95a0abcd50b94714a76b36a0b5f9c73da909879
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 59d926f54c8dfc2991929f2eb42b20056e3a09c3
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Azure Cosmos DB Gremlin 그래프 지원
 Azure Cosmos DB는 [Apache Tinkerpop](http://tinkerpop.apache.org)의 그래프 통과 언어로서, 그래프 엔터티를 만들고 그래프 쿼리를 수행하기 위한 Graph API인 [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps)을 지원합니다. Gremlin 언어를 사용하여 그래프 엔터티(예: 꼭짓점 및 에지)를 만들고, 해당 엔터티 내에서 속성을 수정하고, 쿼리 및 순회를 수행하고, 엔터티를 삭제할 수 있습니다. 
 
 Azure Cosmos DB는 그래프 데이터베이스에 엔터프라이즈급 기능을 제공합니다. 여기에는 전역 배포, 독립적인 저장소 및 처리량 크기 조정, 예측 가능한 1자리 밀리초 대기 시간, 자동 인덱싱, SLA, 둘 이상의 Azure 지역에 걸친 데이터베이스 계정에 대한 읽기 가용성이 포함됩니다. Azure Cosmos DB는 TinkerPop/Gremlin을 지원하므로 코드를 변경하지 않고도 다른 그래프 데이터베이스를 사용하여 작성된 응용 프로그램을 쉽게 마이그레이션할 수 있습니다. 또한 Gremlin 지원을 통해, Azure Cosmos DB는 [Apache Spark GraphX](http://spark.apache.org/graphx/)와 같은 TinkerPop 지원 분석 프레임워크와 원활하게 통합됩니다. 
 
-이 문서에서는 Gremlin을 빠르게 연습해볼 수 있는 과정을 제공하고, Graph API 지원 미리 보기에서 지원되는 Gremlin 기능 및 단계를 설명합니다.
+이 문서에서는 Gremlin을 빠르게 연습해볼 수 있는 과정을 제공하고, Graph API에서 지원되는 Gremlin 기능 및 단계를 설명합니다.
 
 ## <a name="gremlin-by-example"></a>Gremlin 예제
 샘플 그래프를 사용하여 Gremlin에서 쿼리를 표현할 수 있는 방법을 살펴봅니다. 다음 그림에서는 사용자, 관심 영역 및 장치에 대한 데이터를 그래프 형태로 관리하는 비즈니스 응용 프로그램을 보여 줍니다.  
@@ -78,9 +78,9 @@ TinkerPop은 광범위한 그래프 기술을 지원하는 표준입니다. 따�
 
 다음 표에는 Azure Cosmos DB를 통해 구현되는 TinkerPop 기능이 나와 있습니다. 
 
-| Category | Azure Cosmos DB 구현 |  참고 사항 | 
+| Category | Azure Cosmos DB 구현 |  메모 | 
 | --- | --- | --- |
-| 그래프 기능 | 미리 보기에서 Persistence 및 ConcurrentAccess를 제공합니다. 트랜잭션을 지원하도록 설계되었습니다. | 컴퓨터 메서드를 Spark 커넥터를 통해 구현할 수 있습니다. |
+| 그래프 기능 | Persistence 및 ConcurrentAccess를 제공합니다. 트랜잭션을 지원하도록 설계되었습니다. | 컴퓨터 메서드를 Spark 커넥터를 통해 구현할 수 있습니다. |
 | 변수 기능 | 부울, 정수, 바이트, Double, Float, Long, 문자열을 지원합니다. | 기본 형식을 지원하고, 데이터 모델을 통해 복잡한 형식과 호환됩니다. |
 | 꼭짓점 기능 | RemoveVertices, MetaProperties, AddVertices, MultiProperties, StringIds, UserSuppliedIds, AddProperty, RemoveProperty를 지원합니다.  | 꼭짓점 만들기, 수정 및 삭제를 지원합니다. |
 | 꼭짓점 속성 기능 | StringIds, UserSuppliedIds, AddProperty, RemoveProperty, BooleanValues, ByteValues, DoubleValues, FloatValues, IntegerValues, LongValues, StringValues | 꼭짓점 속성 만들기, 수정 및 삭제를 지원합니다. |
@@ -132,18 +132,18 @@ Azure Cosmos DB는 Gremlin 작업의 결과를 반환할 때 [GraphSON 형식](h
 
 꼭짓점에 대해 GraphSON에서 사용되는 속성은 다음과 같습니다.
 
-| 속성 | 설명 |
+| 자산 | 설명 |
 | --- | --- |
 | id | 꼭짓점의 ID입니다. 고유해야 합니다(해당되는 경우 _partition 값과 조합). |
 | label | 꼭짓점의 레이블입니다. 선택 사항이며, 엔터티 형식을 설명하는 데 사용됩니다. |
-| type | 비그래프 문서의 꼭짓점을 구별하는 데 사용됩니다. |
+| 형식 | 비그래프 문서의 꼭짓점을 구별하는 데 사용됩니다. |
 | properties | 꼭짓점과 연결된 사용자 정의 속성의 모음입니다. 각 속성에는 값이 여러 개 있을 수 있습니다. |
 | _partition(구성 가능) | 꼭짓점의 파티션 키입니다. 그래프를 여러 서버로 확장하는 데 사용할 수 있습니다. |
 | outE | 여기에는 꼭짓점의 바깥 에지 목록이 포함됩니다. 꼭짓점과 함께 인접 정보를 저장하므로 순회를 빠르게 실행할 수 있습니다. 에지는 해당 레이블을 기준으로 그룹화됩니다. |
 
 또한 에지에는 그래프의 다른 부분으로 탐색하는 데 도움이 되는 다음 정보가 포함됩니다.
 
-| 속성 | 설명 |
+| 자산 | 설명 |
 | --- | --- |
 | id | 에지의 ID입니다. 고유해야 합니다(해당되는 경우 _partition 값과 조합). |
 | label | 에지의 레이블입니다. 이 속성은 선택 사항이며, 관계 유형을 설명하는 데 사용됩니다. |
@@ -152,9 +152,9 @@ Azure Cosmos DB는 Gremlin 작업의 결과를 반환할 때 [GraphSON 형식](h
 
 각 속성은 배열 내에 여러 값을 저장할 수 있습니다. 
 
-| 속성 | 설명 |
+| 자산 | 설명 |
 | --- | --- |
-| value | 속성의 값입니다.
+| 값 | 속성의 값입니다.
 
 ## <a name="gremlin-partitioning"></a>Gremlin 분할
 
@@ -165,7 +165,7 @@ Gremlin 작업은 Azure Cosmos DB에서 여러 파티션에 걸쳐 분산된 그
 ## <a name="gremlin-steps"></a>Gremlin 단계
 이제 Azure Cosmos DB에서 지원되는 Gremlin 단계를 살펴보겠습니다. Gremlin에 대한 전체 참조는 [TinkerPop 참조](http://tinkerpop.apache.org/docs/current/reference)를 참조하세요.
 
-| 단계 | 설명 | TinkerPop 3.2 설명서 | 참고 사항 |
+| 단계 | 설명 | TinkerPop 3.2 설명서 | 메모 |
 | --- | --- | --- | --- |
 | `addE` | 두 꼭짓점 사이에 에지를 추가합니다. | [addE 단계](http://tinkerpop.apache.org/docs/current/reference/#addedge-step) | |
 | `addV` | 그래프에 꼭짓점을 추가합니다. | [addV 단계](http://tinkerpop.apache.org/docs/current/reference/#addvertex-step) | |

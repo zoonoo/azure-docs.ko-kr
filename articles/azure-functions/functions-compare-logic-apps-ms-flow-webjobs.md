@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 11/03/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: e61e664ef5cd9e296016c8fc572d67ec1d62c1f7
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 7ffe44828735a5687008ebc5a7d8d9f017f49daa
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="choose-between-flow-logic-apps-functions-and-webjobs"></a>Flow, Logic Apps, Functions 및 WebJobs 중에서 선택
 이 문서는 Microsoft 클라우드의 다음 서비스를 비교하고 대조하며 비즈니스 프로세스의 자동화 및 통합 문제를 모두 해결할 수 있습니다.
@@ -115,7 +115,7 @@ Functions 또는 WebJobs를 사용할지는 궁극적으로 App Service로 이�
 우선 흐름, 논리 앱, 함수 앱 또는 WebJob을 만들어 각 서비스를 시작합니다. 다음 링크 중 하나를 클릭합니다.
 
 * [Microsoft Flow 시작](https://flow.microsoft.com/en-us/documentation/getting-started/)
-* [논리 앱 만들기](../logic-apps/logic-apps-create-a-logic-app.md)
+* [논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [첫 번째 Azure Function 만들기](functions-create-first-azure-function.md)
 * [Visual Studio를 사용하여 WebJob 배포](../app-service/websites-dotnet-deploy-webjobs.md)
 

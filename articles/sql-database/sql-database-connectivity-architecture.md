@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: On Demand
-ms.date: 06/05/2017
+ms.date: 01/24/2018
 ms.author: carlrab
-ms.openlocfilehash: 26cb1a5dd9b290366307e4026686e65f7afc0523
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 81f96c223fb5ad2c37bd0679743f14980a5885b0
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-sql-database-connectivity-architecture"></a>Azure SQL Database 연결 아키텍처 
 
@@ -71,7 +71,7 @@ Azure 외부에서 연결하는 경우 연결에는 기본적으로 **프록시*
 | 미국 중부 | 23.99.160.139 | 13.67.215.62 |
 | 동아시아 | 191.234.2.139 | 52.175.33.150 |
 | 미국 동부 1 | 191.238.6.43 | 40.121.158.30 |
-| 미국 동부 2 | 191.239.224.107 | 40.79.84.180 |
+| 미국 동부 2 | 191.239.224.107 | 40.79.84.180 * |
 | 인도 중부 | 104.211.96.159  | |
 | 인도 남부 | 104.211.224.146  | |
 | 인도 서부 | 104.211.160.80 | |
@@ -92,6 +92,8 @@ Azure 외부에서 연결하는 경우 연결에는 기본적으로 **프록시*
 | 미국 서부 1 | 23.99.34.75 | 104.42.238.205 |
 | 미국 서부 2 | 13.66.226.202  | |
 ||||
+
+\* **참고:** *미국 동부 2*에는 `52.167.104.0`의 3차 IP 주소도 있습니다.
 
 ## <a name="change-azure-sql-database-connection-policy"></a>SQL Database 연결 정책 변경
 

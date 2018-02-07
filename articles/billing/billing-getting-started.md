@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/14/2017
+ms.date: 01/24/2018
 ms.author: tonguyen
-ms.openlocfilehash: 4bbb13f31c42a57815dca176408d5c2e82feb5e0
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 885dcbc0e0d3d9490d745a07ade5d9dece7ff3d6
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Azure 청구 및 비용 관리를 사용하여 예기치 않은 비용 방지
 
@@ -39,7 +39,7 @@ Azure에 등록하면 몇 가지 방법을 통해 지출을 보다 명확히 파
 
 ![가격 계산기 메뉴의 스크린샷](./media/billing-getting-started/pricing-calc.png)
 
-예를 들어 A1 Windows VM(가상 컴퓨터)은 계속 실행 상태를 유지할 경우 월별 계산 시간이 $66.96로 예측됩니다.
+예를 들어 A1 Windows VM(Virtual Machine)은 계속 실행 상태를 유지할 경우 월별 계산 시간이 $66.96로 예측됩니다.
 
 ![A1 Windows VM이 예상 월별 비용이 $66.96 USD임을 보여 주는 가격 계산기 스크린샷](./media/billing-getting-started/pricing-calcVM.png)
 
@@ -157,6 +157,7 @@ Advisor 대시보드의 **비용** 탭에서 실행 가능한 권장 지침을 �
 - 구독 비용은 사용을 기반으로 하며 사전에 지불한 금액, 초과분, 포함된 수량, 조정 및 세금은 고려되지 않습니다. 실제 요금은 등록 수준에서 계산됩니다. 
 - Azure Portal 내에 표시되는 금액은 엔터프라이즈 포털에 있는 값에 비해 지연될 수 있습니다.  
 - 비용이 표시되지 않는 경우 다음 이유 중 하나 때문일 수 있습니다.
+    - 구독 수준에서 RBAC 권한이 충분하지 않습니다. Enterprise 비용 보기를 표시하려면 구독 수준에서 청구 읽기 권한자, 읽기 권한자, 참가자 또는 소유자여야 합니다.
     - 사용자는 계정 소유자이며 등록 관리자가 "AO 보기 요금" 설정을 비활성화했습니다.  등록 관리자에게 비용에 대한 액세스 권한을 문의하세요. 
     - 사용자는 부서 관리자이며 등록 관리자가 "DA 보기 요금" 설정을 비활성화했습니다.  등록 관리자에게 액세스 권한을 문의하세요. 
     - 채널 파트너를 통해 Azure를 구매했고 파트너가 가격 정보를 릴리스하지 않았습니다.  

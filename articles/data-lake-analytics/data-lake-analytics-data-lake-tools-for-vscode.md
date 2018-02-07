@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/10/2017
 ms.author: jejiang
-ms.openlocfilehash: 60307b8b16718fdc947bde7616532fa6a0920cf0
-ms.sourcegitcommit: 21a58a43ceceaefb4cd46c29180a629429bfcf76
+ms.openlocfilehash: c70cfc309fe60f0641c89b4a341e3364af74771a
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="use-azure-data-lake-tools-for-visual-studio-code"></a>Azure Data Lake Tools for Visual Studio Code 사용
 
@@ -116,8 +116,18 @@ U-SQL 작업을 제출한 후 전송 로그가 VS Code의 **출력** 창에 나�
 
 작업 세부 정보의 출력을 활성화하려면 **vs code for u-sql_settings.json** 파일에서 **jobInformationOutputPath**를 설정합니다.
  
+**Git 설정 무시**
+
+1. Ctrl+Shift+P를 선택하여 명령 팔레트를 엽니다. 
+2. **ADL: Set Git Ignore**를 입력합니다.
+
+    - VSCode 작업 폴더에 **.gitIgnore** 파일이 없는 경우 **.gitIgnor**이라는 파일이 폴더에 생성됩니다. 네 개의 항목(**usqlCodeBehindReference**, **usqlCodeBehindGenerated**, **.cache**, **obj**)이 기본적으로 파일에 추가됩니다. 필요한 경우 추가로 업데이트할 수 있습니다.
+    - 이미 **.gitIgnore** 파일이 VSCode 작업 폴더에 있는 경우, 도구는 네 개 항목(**usqlCodeBehindReference**, **usqlCodeBehindGenerated**, **.cache**, **obj**)을 (해당 항목들이 파일에 포함되지 않은 경우) **.gitIgnore** 파일에 추가합니다.
+
+  ![Data Lake Tools for Visual Studio Code 구성 파일](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-gitignore.png)
+
 ## <a name="use-python-r-and-csharp-code-behind-file"></a>Python, R 및 CSharp 코드 숨김 파일 사용
-Azure Data Lake Tools는 여러 개의 사용자 지정 코드를 지원하며, 관련 지침은 [VSCode에서 Python, R 및 CSharp를 사용하여 Azure Data Lake Analytics용 U-SQL 개발](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md)을 참조하세요.
+Azure Data Lake Tool은 여러 개의 사용자 지정 코드를 지원하며, 관련 지침은 [VSCode에서 Python, R 및 CSharp를 사용하여 Azure Data Lake Analytics용 U-SQL 개발](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md)을 참조하세요.
 
 ## <a name="use-assemblies"></a>어셈블리 사용
 
@@ -149,7 +159,7 @@ Data Lake Tools를 사용하여 사용자 지정 코드 어셈블리를 Data Lak
 ![Data Lake Tools for Visual Studio Code 코드 숨김](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-register-assembly-advance.png)
 >[!NOTE]
 >- 어셈블리 종속성: Azure Data Lake Tools는 DLL에 종속성이 있는지 여부를 자동으로 감지합니다. 종속성이 감지되면 JSON 파일에 표시됩니다. 
->- 리소스: 어셈블리 등록의 일환으로 DLL 리소스(예: txt, .png 및 .csv)를 업로드할 수 있습니다. 
+>- 리소스: 어셈블리 등록의 일환으로 DLL 리소스(예: .txt, .png 및 .csv)를 업로드할 수 있습니다. 
 
 **ADL: Register Assembly through Configuration** 명령을 트리거하는 다른 방법은 파일 탐색기에서 .dll 파일을 마우스 오른쪽 단추로 클릭하는 것입니다. 
 
@@ -193,17 +203,19 @@ Data Lake Analytics에서 U-SQL 스크립트를 컴파일하고 실행하기 전
 **Azure에 연결하려면**
 
 1.  Ctrl+Shift+P를 선택하여 명령 팔레트를 엽니다. 
-2.  **ADL: Login**을 입력합니다. 로그인 정보가 **출력** 창에 표시됩니다.
+2.  **ADL: Login**을 입력합니다. 로그인 정보가 맨 위에 표시됩니다.
 
     ![Data Lake Tools for Visual Studio Code 명령 팔레트](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-extension-login.png)
     ![Data Lake Tools for Visual Studio Code 장치 로그인 정보](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-login-info.png)
-3. Ctrl 키를 누른 채 로그인 URL: https://aka.ms/devicelogin을 클릭하여 선택하여 로그인 웹 페이지를 엽니다. 텍스트 상자에 코드 **G567LX42V**를 입력한 다음 **계속**을 선택합니다.
+3.  **복사 및 열기**를 클릭하고 URL: https://aka.ms/devicelogin으로 로그인 웹 페이지를 엽니다. 텍스트 상자에 코드 **G567LX42V**를 붙여넣은 다음 **계속**을 선택합니다.
 
    ![Data Lake Tools for Visual Studio Code 로그인 코드 붙여넣기](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-extension-login-paste-code.png )   
 4.  지침에 따라 웹 페이지에서 로그인합니다. 연결되면 Azure 계정 이름이 **VS Code** 창의 왼쪽 아래 모서리에 있는 상태 표시줄에 나타납니다. 
 
     > [!NOTE] 
-    > 계정에 활성화된 두 가지 요인이 있는 경우 PIN을 사용하는 것보다 전화 인증을 사용하는 것이 좋습니다.
+    >- 다음 번에는 이전에 로그인했지만 아직 로그아웃하지 않은 경우에 Data Lake Tool이 자동으로 로그인합니다.
+    >- 계정에 활성화된 두 가지 요인이 있는 경우 PIN을 사용하는 것보다 전화 인증을 사용하는 것이 좋습니다.
+
 
 로그아웃하려면 **ADL: Logout** 명령을 입력합니다.
 
@@ -324,15 +336,38 @@ Azure에 연결한 후에는 다음 단계를 사용하여 U-SQL 카탈로그에
    ![Data Lake Tools for Visual Studio Code의 저장소 상태 확인](./media/data-lake-analytics-data-lake-tools-for-vscode/storage-status.png)
 
 ## <a name="vscode-explorer-integration-with-azure-data-lake"></a>Azure Data Lake와 VSCode 탐색기 통합
-1. 로그인하면 **DataLake 탐색기**의 왼쪽 패널에 모든 Azure 계정이 표시됩니다. 하나의 데이터베이스를 펼치면 해당 노드 아래에서 **Schemas**(스키마), **Tables**(테이블), **Assemblies**(어셈블리) 등을 볼 수 있습니다.
+
+**Azure 통합** 
+
+- Azure에 로그인하기 전에 항상 **DATALAKE 탐색기**를 확장한 다음 **Azure에 로그인**을 클릭하면 Azure에 로그인할 수 있습니다. 로그인 후 **DataLake 탐색기**의 왼쪽 패널에 Azure 계정의 전체 구독이 표시됩니다. 
+
+   ![DataLake 탐색기](./media/data-lake-analytics-data-lake-tools-for-vscode/sign-in-datalake-explorer.png)
 
    ![DataLake 탐색기](./media/data-lake-analytics-data-lake-tools-for-vscode/datalake-explorer.png)
 
-2. **Assemblies** 노드를 마우스 오른쪽 단추로 클릭하여 **Register assembly**(어셈블리 등록) 명령을 수행할 수 있습니다.
+**ADLA 메타데이터 탐색** 
+
+- Azure 구독을 확장하면, U-SQL Database를 탐색하여, U-SQL Databases 노드에서 **스키마**, **자격 증명**, **어셈블리**, **테이블**, **인덱스** 등을 볼 수 있습니다.
+
+**ADLA 메타데이터 엔터티 관리**
+
+- **U-SQL Database**를 확장하고, 해당 노드에서 **만들 스크립트** 상황에 맞는 메뉴를 마우스 오른쪽 단추로 클릭하면 새 데이터베이스, 스키마, 테이블, 테이블 형식, 인덱스, 통계를 만들 수 있습니다. 열린 스크립트 페이지에서 필요에 따라 스크립트를 편집한 다음 상황에 맞는 메뉴 **ADL: 작업 제출**을 마우스 오른쪽 단추로 클릭하여 작업을 제출합니다. 만들기를 완료한 후 상황에 맞는 메뉴 **새로 고침**을 클릭하여 새로 만든 항목을 표시합니다. 상황에 맞는 메뉴 **삭제**를 마우스 오른쪽 단추로 클릭하여 항목을 삭제할 수도 있습니다.
+
+   ![새 항목 메뉴를 만드는 DataLake 탐색기](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-code-explorer-script-create.png)
+
+   ![새 항목 스크립트를 만드는 DataLake 탐색기](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-code-explorer-script-create-snippet.png)
+
+**ADLA 어셈블리 등록**
+
+ - **Assemblies** 노드를 마우스 오른쪽 단추로 클릭하여 해당 데이터베이스에 **어셈블리를 등록**할 수 있습니다.
 
     ![DataLake 탐색기](./media/data-lake-analytics-data-lake-tools-for-vscode/datalake-explorer-register-assembly.png)
 
-3. **Storage Accounts**(저장소 계정)로 이동하면 폴더 또는 파일을 마우스 오른쪽 단추로 클릭하여 파일을 업로드하거나 다운로드할 수 있습니다. 또한 컨텍스트 메뉴를 사용하여 파일에 대한 **Preview**(미리 보기), **Download**(다운로드), **Copy Relative Path**(상대 경로 복사), **Copy Full Path**(전체 경로 복사)를 수행할 수도 있습니다.
+**ADLS 통합** 
+
+ - **저장소 계정**으로 이동하면 파일 노드에서 상황에 맞는 메뉴로 **미리 보기**, **다운로드**, **삭제**, **상대 경로 복사**, **전체 경로 복사**를 수행할 수 있습니다. 폴더 노드에서 상황에 맞는 메뉴를 마우스 오른쪽 단추로 클릭하면 **새로 고침**, **업로드**, **폴더 업로드**, **삭제**를 수행할 수 있습니다.
+
+   ![DataLake 탐색기](./media/data-lake-analytics-data-lake-tools-for-vscode/storage-account-folder-menu.png)
 
    ![DataLake 탐색기](./media/data-lake-analytics-data-lake-tools-for-vscode/storage-account-download-preview-file.png)
 
@@ -344,7 +379,7 @@ Azure에 연결한 후에는 다음 단계를 사용하여 U-SQL 카탈로그에
 Data Lake Tools가 Azure Portal에서 Azure 저장소 경로를 엽니다. 경로를 찾고 웹에서 파일을 미리 볼 수 있습니다.
 
 ## <a name="local-run-and-local-debug-for-windows-users"></a>Windows 사용자에 대한 로컬 실행 및 로컬 디버그
-U-SQL 로컬 실행은 Data Lake Analytics에 코드가 게시되기 전에 로컬 데이터를 테스트하고 로컬에서 스크립트의 유효성을 검사합니다. 로컬 디버그 기능을 사용하면 Data Lake Analytics에 코드를 전송하기 전에 다음 작업을 완료할 수 있습니다. 
+U-SQL 로컬은 Data Lake Analytics에 코드가 게시되기 전에 로컬 데이터를 테스트하고 로컬에서 스크립트의 유효성을 검사합니다. 로컬 디버그 기능을 사용하면 Data Lake Analytics에 코드를 전송하기 전에 다음 작업을 완료할 수 있습니다. 
 - C# 코드 숨김을 디버그합니다. 
 - 코드를 단계별로 실행합니다. 
 - 로컬에서 스크립트의 유효성을 검사합니다.

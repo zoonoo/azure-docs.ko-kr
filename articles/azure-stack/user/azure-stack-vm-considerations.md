@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/17/2018
+ms.date: 01/27/2018
 ms.author: brenduns
-ms.openlocfilehash: 6eafa2a5058ef1309cbf50be069ea1bb12f7e5b9
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 59053e4beda48fd8474da675e50e02438c79a98e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="considerations-for-virtual-machines-in-azure-stack"></a>Azure 스택의 가상 컴퓨터에 대 한 고려 사항
 
@@ -44,7 +44,7 @@ ms.lasthandoff: 01/18/2018
 
 Azure 스택 다음 크기를 지원합니다.
 
-| type | 크기 | 지원 되는 크기의 범위 |
+| 형식 | 크기 | 지원 되는 크기의 범위 |
 | --- | --- | --- |
 |범용 가상 컴퓨터 |Basic A|A0 - A4|
 |범용 가상 컴퓨터 |표준 A|A0 - A7|
@@ -59,9 +59,7 @@ Azure 스택 다음 크기를 지원합니다.
 
 ## <a name="virtual-machine-extensions"></a>가상 머신 확장
 
- Azure 스택 다음 가상 컴퓨터 확장 버전을 지원합니다.
-
-![VM 확장](media/azure-stack-vm-considerations/vm-extensions.png)
+ Azure 스택 작은 확장 프로그램 집합이 포함 되어 있습니다. 업데이트 및 추가 확장 및 마켓플레이스 배포를 통해 사용할 수 있습니다.
 
 Azure 스택 환경에서 사용할 수 있는 가상 컴퓨터 확장 목록을 가져오려면 다음 PowerShell 스크립트 사용 하세요.
 

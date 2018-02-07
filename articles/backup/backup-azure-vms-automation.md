@@ -15,11 +15,11 @@ ms.workload: storage-backup-recovery
 ms.date: 12/20/2017
 ms.author: markgal;trinadhk;pullabhk
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 474c5a6d0e7d3647ca14cb61e7b2718c99fdfa72
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: e2eda7cee90d307d646ff68e104750c3057dcb06
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="use-azurermrecoveryservicesbackup-cmdlets-to-back-up-virtual-machines"></a>AzureRM.RecoveryServices.Backup cmdlet을 사용하여 가상 머신 백업
 
@@ -284,7 +284,7 @@ Azure 포털을 사용하여 VM을 복원하는 방식과 PowerShell을 사용�
 >
 >
 
-디스크에서 가상 머신을 만들려면 [저장된 디스크에서 VM 만들기](backup-azure-vms-automation.md#create-a-vm-from-stored-disks) 섹션을 참조하세요. Azure VM을 복원하는 기본 단계는 다음과 같습니다.
+디스크에서 가상 머신을 만들려면 [저장된 디스크에서 VM 만들기](backup-azure-vms-automation.md#create-a-vm-from-restored-disks) 섹션을 참조하세요. Azure VM을 복원하는 기본 단계는 다음과 같습니다.
 
 * VM 선택
 * 복구 지점 선택

@@ -1,5 +1,5 @@
 ---
-title: "Azure AD Connect: AD FS(Active Directory Federation Services) 팜에 대한 SSL 인증서 업데이트 | Microsoft 문서"
+title: "Azure AD Connect - AD FS 팜에 대한 SSL 인증서 업데이트 | Microsoft Docs"
 description: "이 문서에서는 Azure AD Connect를 사용하여 AD FS 팜의 SSL 인증서를 업데이트하는 단계를 자세히 설명합니다."
 services: active-directory
 keywords: "azure ad connect, adfs ssl 업데이트, adfs 인증서 업데이트, adfs 인증서 변경, 새 adfs 인증서, adfs 인증서, adfs ssl 인증서 업데이트, ssl 인증서 adfs 업데이트, adfs ssl 인증서 구성, adfs, ssl, 인증서, adfs 서비스 통신 인증서, 페더레이션 업데이트, 페더레이션 구성, aad connect"
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: anandy
-ms.openlocfilehash: 2bd3d537761ec78ebcaab722e7928a88e90498d8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: b31a4d178d287eba275a0072936b4222a2c84346
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="update-the-ssl-certificate-for-an-active-directory-federation-services-ad-fs-farm"></a>AD FS(Active Directory Federation Services) 팜에 대한 SSL 인증서 업데이트
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: magoedte
-ms.openlocfilehash: d9eb4407e537d6a6d45c2fb685c3dcd37bd511a7
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: d73bb33b4b330df803e140145ed63319af4a6733
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Hybrid Runbook Worker에서 Runbook 실행 
 Azure Automation에서 실행되는 Runbook과 Hybrid Runbook Worker에서 실행되는 Runbook은 구조상 차이가 없습니다. Azure Automation의 Runbook은 일반적으로 Azure 클라우드의 리소스를 관리하지만, Hybrid Runbook Worker를 대상으로 하는 Runbook은 일반적으로 로컬 컴퓨터 자체 또는 배포된 로컬 환경의 리소스를 관리하기 때문에, 각각에서 사용하는 Runbook은 서로 크게 다릅니다.
@@ -144,7 +144,7 @@ Azure에서 리소스를 배포하는 자동화된 빌드 프로세스의 일부
     Set-AzureRmContext -SubscriptionId $RunAsConnection.SubscriptionID | Write-Verbose
 
     # List automation accounts to confirm Azure Resource Manager calls are working
-    Get-AzureRmAutomationAccount | Select AutomationAccountName
+    Get-AzureRmAutomationAccount | Select-Object AutomationAccountName
 
 *Export-RunAsCertificateToHybridWorker* Runbook을 `.ps1` 확장명의 컴퓨터에 저장합니다.  Runbook을 Automation 계정으로 가져오고 편집하여 `$Password` 변수 값을 사용자 고유의 암호로 변경합니다.  실행 계정을 사용하여 Runbook을 실행 및 인증하는 Hybrid Worker 그룹을 대상으로 Runbook을 게시한 후 실행합니다.  이 작업 스트림은 인증서를 로컬 컴퓨터 저장소로 가져오려는 시도를 보고하는데, 구독에 정의된 Automation 계정 수에 따라 그리고 인증이 성공했는지 여부에 따라 여러 줄로 표시합니다.  
 

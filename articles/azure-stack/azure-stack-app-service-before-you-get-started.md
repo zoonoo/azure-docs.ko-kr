@@ -12,15 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/29/2018
 ms.author: anwestg
-ms.openlocfilehash: d4398d1c292548b08d91d70a8ba35b31234c5d5f
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 18a671fe49b57dda3df33b58a464b300e574376f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Azure 스택 앱 서비스를 시작 하기 전에
+*적용 대상: Azure 스택 통합 시스템과 Azure 스택 개발 키트*
 
 Azure 스택 Azure 앱 서비스를 배포 하기 전에이 문서의 필수 구성 요소를 완료 해야 합니다.
 
@@ -30,14 +31,14 @@ Azure 스택 Azure 앱 서비스를 배포 하기 전에이 문서의 필수 구
 2. 다운로드는 [Azure 스택 설치 관리자에서 응용 프로그램 서비스](https://aka.ms/appsvconmasinstaller)합니다.
 3. 도우미 스크립트.zip 파일에서 파일을 추출 합니다. 다음 파일 및 폴더 구조를 표시 됩니다.
    - Common.ps1
-   - AADIdentityApp.ps1 만들기
-   - ADFSIdentityApp.ps1 만들기
-   - AppServiceCerts.ps1 만들기
-   - Get AzureStackRootCert.ps1
-   - AppService.ps1 제거
+   - Create-AADIdentityApp.ps1
+   - Create-ADFSIdentityApp.ps1
+   - Create-AppServiceCerts.ps1
+   - Get-AzureStackRootCert.ps1
+   - Remove-AppService.ps1
    - 모듈
      - GraphAPI.psm1
-    
+
 ## <a name="prepare-for-high-availability"></a>고가용성을 위해 준비 합니다.
 
 현재 Azure 스택에 azure 앱 서비스는 Azure 스택 워크 로드에 하나의 장애 도메인을 배포 하기 때문에 고가용성을 제공할 수 없습니다.
@@ -63,11 +64,11 @@ Azure 스택 개발 키트 호스트에서 스크립트를 실행 하 고 azures
 1. Azurestack\AzureStackAdmin으로 실행 되는 PowerShell 세션에서 도우미 스크립트의 압축을 푼 폴더에서 AppServiceCerts.ps1 만들기 스크립트를 실행 합니다. 스크립트는 앱 서비스 인증서를 만드는 스크립트와 같은 폴더에 4 개의 인증서를 만듭니다.
 2. .Pfx 파일을 보호 하려면 암호를 입력 하 고는 기록 합니다. Azure 스택 설치 관리자에 앱 서비스에서 입력 해야 합니다.
 
-#### <a name="create-appservicecertsps1-parameters"></a>만들 AppServiceCerts.ps1 매개 변수
+#### <a name="create-appservicecertsps1-parameters"></a>Create-AppServiceCerts.ps1 parameters
 
 | 매개 변수 | 필수 또는 선택 | 기본값 | 설명 |
 | --- | --- | --- | --- |
-| PfxPassword | 필수 | Null | 보호할 수 있는 인증서 개인 키 암호 |
+| pfxPassword | 필수 | Null | 보호할 수 있는 인증서 개인 키 암호 |
 | DomainName | 필수 | local.azurestack.external | Azure 스택 지역 및 도메인 접미사 |
 
 ### <a name="certificates-required-for-a-production-deployment-of-azure-app-service-on-azure-stack"></a>Azure 스택 앱 서비스를 Azure의 프로덕션 배포에 필요한 인증서
@@ -80,26 +81,26 @@ Azure 스택 개발 키트 호스트에서 스크립트를 실행 하 고 azures
 
 인증서는.pfx 형식에서 이어야 하며 주체가 2 개인 와일드 카드 인증서 여야 합니다. 이렇게 하면 소스 제어 작업에 대 한 SCM 끝점과 기본 도메인을 모두 포함 하는 하나의 인증서.
 
-| 형식 | 예제 |
+| 형식 | 예 |
 | --- | --- |
-| \*.appservice 합니다. \<지역\>.\< DomainName\>.\< 확장\> | \*. appservice.redmond.azurestack.external |
-| \*. scm.appservice 합니다. <region>. <DomainName>.<extension> | \*. appservice.scm.redmond.azurestack.external |
+| \*.appservice.\<region\>.\<DomainName\>.\<extension\> | \*.appservice.redmond.azurestack.external |
+| \*.scm.appservice.<region>.<DomainName>.<extension> | \*.appservice.scm.redmond.azurestack.external |
 
 #### <a name="api-certificate"></a>API 인증서
 
 API 인증서는 관리 역할에 배치 됩니다. 리소스 공급자 API 호출 보안을 위해 사용 됩니다. 게시용 인증서에 주체 API DNS 항목과 일치 하는 주체를 포함 해야 합니다.
 
-| 형식 | 예제 |
+| 형식 | 예 |
 | --- | --- |
-| api.appservice 합니다. \<지역\>.\< DomainName\>.\< 확장\> | api.appservice.redmond.azurestack.external |
+| api.appservice.\<region\>.\<DomainName\>.\<extension\> | api.appservice.redmond.azurestack.external |
 
 #### <a name="publishing-certificate"></a>게시 인증서
 
 콘텐츠를 업로드 하는 경우 게시자 역할에 대 한 인증서는 응용 프로그램 소유자에 대 한 FTPS 트래픽의 보호 합니다. 게시용 인증서는 FTPS DNS 항목과 일치 하는 주체를 포함 해야 합니다.
 
-| 형식 | 예제 |
+| 형식 | 예 |
 | --- | --- |
-| ftp.appservice 합니다. \<지역\>.\< DomainName\>.\< 확장\> | api.appservice.redmond.azurestack.external |
+| ftp.appservice.\<region\>.\<DomainName\>.\<extension\> | api.appservice.redmond.azurestack.external |
 
 #### <a name="identity-certificate"></a>인증서 확인
 
@@ -109,17 +110,17 @@ Identity 응용 프로그램에 대 한 인증서를 사용 하면:
 
 Id에 대 한 인증서는 다음 형식과 일치 하는 주체를 포함 해야 합니다.
 
-| 형식 | 예제 |
+| 형식 | 예 |
 | --- | --- |
-| sso.appservice 합니다. \<지역\>.\< DomainName\>.\< 확장\> | sso.appservice.redmond.azurestack.external |
+| sso.appservice.\<region\>.\<DomainName\>.\<extension\> | sso.appservice.redmond.azurestack.external |
 
 ### <a name="azure-resource-manager-root-certificate-for-azure-stack"></a>Azure 리소스 관리자 루트 인증서에 대 한 Azure 스택
 
 Azurestack\CloudAdmin으로 실행 되는 PowerShell 세션에서 도우미 스크립트의 압축을 푼 폴더에서 Get AzureStackRootCert.ps1 스크립트를 실행 합니다. 스크립트는 앱 서비스 인증서를 만드는 스크립트와 같은 폴더에 4 개의 인증서를 만듭니다.
 
-| Get AzureStackRootCert.ps1 매개 변수 | 필수 또는 선택 | 기본값 | 설명 |
+| Get-AzureStackRootCert.ps1 parameter | 필수 또는 선택 | 기본값 | 설명 |
 | --- | --- | --- | --- |
-| PrivelegedEndpoint | 필수 | AzS ERCS01 | 권한 있는 끝점 |
+| PrivelegedEndpoint | 필수 | AzS-ERCS01 | 권한 있는 끝점 |
 | CloudAdminCredential | 필수 | AzureStack\CloudAdmin | Azure 스택 클라우드 관리자에 대 한 도메인 계정 자격 증명 |
 
 
@@ -244,7 +245,7 @@ Azure 스택 개발 키트 배포에 대 한 SQL Server 2014 SP2 Express를 사�
 
 프로덕션 환경과 높은 가용성을 위해 사용는 정식 버전의 SQL Server 2014 SP2 또는 이상 버전에서는 혼합 모드 인증을 사용 하도록 설정 하 고 해야 배포는 [항상 사용 가능한 구성](https://docs.microsoft.com/sql/sql-server/failover-clusters/high-availability-solutions-sql-server)합니다.
 
-Azure 스택 앱 서비스를 Azure에 대 한 SQL Server 인스턴스는 모든 앱 서비스 역할에서 액세스할 수 있어야 합니다. Azure 스택에 기본 공급자 구독 내에서 SQL Server를 배포할 수 있습니다. 만들 수 있습니다 (으로 Azure 스택에 연결이) 조직 내에서 기존 인프라를 사용 합니다. Azure 마켓플레이스 이미지를 사용 하는 경우 그에 따라 방화벽을 구성 해야 합니다. 
+Azure 스택 앱 서비스를 Azure에 대 한 SQL Server 인스턴스는 모든 앱 서비스 역할에서 액세스할 수 있어야 합니다. Azure 스택에 기본 공급자 구독 내에서 SQL Server를 배포할 수 있습니다. 만들 수 있습니다 (으로 Azure 스택에 연결이) 조직 내에서 기존 인프라를 사용 합니다. Azure 마켓플레이스 이미지를 사용 하는 경우 그에 따라 방화벽을 구성 해야 합니다.
 
 모든 SQL Server 역할에 대해 기본 인스턴스나 명명된 된 인스턴스를 사용할 수 있습니다. 명명된 된 인스턴스를 사용 하는 경우 수동으로 SQL Server Browser 서비스를 시작 하 고 포트 1434를 열어야를 해야 합니다.
 
@@ -276,7 +277,7 @@ Azure 스택 앱 서비스를 Azure에 대 한 SQL Server 인스턴스는 모든
 12. 선택 **응용 프로그램** 목록에 있습니다.
 13. 선택 **필요한 권한** > **권한을 부여** > **예**합니다.
 
-| 만들 AADIdentityApp.ps1 매개 변수 | 필수 또는 선택 | 기본값 | 설명 |
+| Create-AADIdentityApp.ps1  parameter | 필수 또는 선택 | 기본값 | 설명 |
 | --- | --- | --- | --- |
 | DirectoryTenantName | 필수 | Null | Microsoft Azure Active Directory 테넌트 ID. GUID 또는 문자열을 제공 합니다. 예 myazureaaddirectory.onmicrosoft.com입니다. |
 | AdminArmEndpoint | 필수 | Null | Azure 리소스 관리자 관리 끝점입니다. 예 adminmanagement.local.azurestack.external입니다. |
@@ -305,7 +306,7 @@ AD FS로 보호 되는 Azure 스택 환경에서는 다음을 지원 하려면 A
 5.  에 **자격 증명** 창에서 AD FS 클라우드 관리자 계정 및 암호를 입력 합니다. **확인**을 선택합니다.
 6.  인증서 파일 경로 및에 대 한 인증서 암호를 제공는 [앞에서 만든 인증서](https://docs.microsoft.com/en-gb/azure/azure-stack/azure-stack-app-service-before-you-get-started#certificates-required-for-azure-app-service-on-azure-stack)합니다. 기본적으로이 단계에 대해 만들어진 인증서 **sso.appservice.local.azurestack.external.pfx**합니다.
 
-| 만들 ADFSIdentityApp.ps1 매개 변수 | 필수 또는 선택 | 기본값 | 설명 |
+| Create-ADFSIdentityApp.ps1  parameter | 필수 또는 선택 | 기본값 | 설명 |
 | --- | --- | --- | --- |
 | AdminArmEndpoint | 필수 | Null | Azure 리소스 관리자 관리 끝점입니다. 예 adminmanagement.local.azurestack.external입니다. |
 | PrivilegedEndpoint | 필수 | Null | 권한 있는 끝점입니다. 예는 AzS ERCS01입니다. |

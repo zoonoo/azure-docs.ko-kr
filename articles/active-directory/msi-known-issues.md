@@ -4,7 +4,7 @@ description: "Azure Active Directory용 MSI(관리 서비스 ID)의 알려진 �
 services: active-directory
 documentationcenter: 
 author: bryanla
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 2097381a-a7ec-4e3b-b4ff-5d2fb17403b6
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 10/20/2017
+ms.date: 12/12/2017
 ms.author: bryanla
-ms.openlocfilehash: 859cfbeae6701336699b4f3f7a96d6b08c599340
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 2c29e93c0978250281fa489e53dcdf25f890a0a7
+ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="faqs-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>Azure Active Directory용 MSI(관리 서비스 ID)의 FAQ 및 알려진 문제
 
@@ -26,13 +26,17 @@ ms.lasthandoff: 10/21/2017
 
 ## <a name="frequently-asked-questions-faqs"></a>FAQ(질문과 대답)
 
+### <a name="is-there-a-private-preview-available-for-additional-features"></a>추가 기능에 대한 비공개 미리 보기를 사용할 수 있나요?
+
+예. 비공개 미리 보기에 등록하고 싶은 경우 [등록 페이지를 방문](https://aka.ms/azuremsiprivatepreview)하세요.
+
 ### <a name="does-msi-work-with-azure-cloud-services"></a>Azure Cloud Services와 함께 MSI를 사용할 수 있나요?
 
 아니요, Azure Cloud Services에서 MSI를 지원하는 요금제는 없습니다.
 
 ### <a name="does-msi-work-with-the-active-directory-authentication-library-adal-or-the-microsoft-authentication-library-msal"></a>MSI는 ADAL(Active Directory Authentication Library) 또는 MSAL(Microsoft Authentication Library)에서 작동하나요?
 
-아니요, MSI는 ADAL 또는 MSAL과 아직 통합되지 않았습니다.
+아니요, MSI는 ADAL 또는 MSAL과 아직 통합되지 않았습니다. MSI REST 끝점을 사용하여 MSI 토큰을 가져오는 방법에 대한 자세한 내용은 [토큰 획득을 위해 Azure VM MSI(관리 서비스 ID)를 사용하는 방법](msi-how-to-use-vm-msi-token.md)을 참조하세요.
 
 ### <a name="what-are-the-supported-linux-distributions"></a>지원되는 Linux 배포는 무엇입니까?
 
@@ -54,7 +58,7 @@ Windows 및 특정 버전의 Linux에서 확장이 중지한 경우 다음 cmdle
 Set-AzureRmVMExtension -Name <extension name>  -Type <extension Type>  -Location <location> -Publisher Microsoft.ManagedIdentity -VMName <vm name> -ResourceGroupName <resource group name> -ForceRerun <Any string different from any last value used>
 ```
 
-여기서, 
+위치: 
 - Windows에 대한 확장 이름 및 형식: ManagedIdentityExtensionForWindows
 - Linux에 대한 확장 이름 및 형식: ManagedIdentityExtensionForLinux
 
@@ -74,9 +78,9 @@ VM에서 관리되는 서비스 ID를 활성화하는 경우 VM 또는 해당 �
 
 VM에 VM 구성 블레이드가 표시되지 않는 경우 해당 지역의 Portal에서 MSI가 아직 사용하도록 설정되지 않은 것입니다.  나중에 다시 확인하세요.  [PowerShell](msi-qs-configure-powershell-windows-vm.md) 또는 [Azure CLI](msi-qs-configure-cli-windows-vm.md)를 사용하여 VM에 대해 MSI를 사용하도록 설정할 수도 있습니다.
 
-### <a name="cannot-assign-access-to-virtual-machines-in-the-access-control-iam-blade"></a>액세스 제어(IAM) 블레이드에서 가상 컴퓨터 액세스 권한을 할당할 수 없음
+### <a name="cannot-assign-access-to-virtual-machines-in-the-access-control-iam-blade"></a>액세스 제어(IAM) 블레이드에서 가상 머신 액세스 권한을 할당할 수 없음
 
-Azure Portal의 **액세스 제어(IAM)** > **권한 추가**에서 **다음에 대한 액세스 할당:**의 선택 항목으로 **가상 컴퓨터**가 표시되지 않는 경우 해당 지역의 Portal에서 관리 서비스 ID가 아직 사용하도록 설정되지 않은 것입니다. 나중에 다시 확인하세요.  MSI의 서비스 주체를 검색하여 역할 할당용으로 관리 서비스 ID를 선택할 수는 있습니다.  **선택** 필드에 VM 이름을 입력하면 서비스 주체가 검색 결과에 표시됩니다.
+Azure Portal의 **액세스 제어(IAM)** > **권한 추가**에서 **다음에 대한 액세스 할당:**의 선택 항목으로 **Virtual Machine**이 표시되지 않는 경우 해당 지역의 Portal에서 관리 서비스 ID가 아직 사용하도록 설정되지 않은 것입니다. 나중에 다시 확인하세요.  MSI의 서비스 주체를 검색하여 역할 할당용으로 관리 서비스 ID를 선택할 수는 있습니다.  **선택** 필드에 VM 이름을 입력하면 서비스 주체가 검색 결과에 표시됩니다.
 
 ### <a name="vm-fails-to-start-after-being-moved-from-resource-group-or-subscription"></a>VM이 리소스 그룹 또는 구독에서 이동한 후 시작되지 않음
 

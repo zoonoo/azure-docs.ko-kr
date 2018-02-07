@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/27/2017
+ms.date: 01/23/2018
 ms.author: bwren
-ms.openlocfilehash: 163ac33af43a8cb7a23742f6336efca5fe7c4b4e
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: e687a1ee8ac4f565062e57b07cdfa9ac5e6bbf4f
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="import-azure-log-analytics-data-into-power-bi"></a>Azure Log Analytics 데이터를 Power BI로 가져오기
 
@@ -86,12 +86,12 @@ Power BI에서 생성된 데이터 집합은 이전에 Power BI Desktop에서 �
 ![Log Analytics에서 Power BI로](media/log-analytics-powerbi/overview-legacy.png)
 
 ### <a name="power-bi-schedules"></a>Power BI 일정
-*Power BI 일정* 에는 OMS 리포지토리에서 Power BI의 해당 데이터 집합으로 데이터 집합을 내보내는 로그 검색 및 데이터 집합을 최신으로 유지하는 이 검색 실행 빈도를 정의하는 일정이 포함됩니다.
+*Power BI 일정*에는 Log Analytics에서 Power BI의 해당 데이터 집합으로 데이터 집합을 내보내는 로그 검색 및 데이터 집합을 최신으로 유지하기 위해 이 검색의 실행 빈도를 정의하는 일정이 포함됩니다.
 
 데이터 집합의 필드는 로그 검색에서 반환되는 레코드의 속성과 일치합니다.  검색이 다양한 종류의 레코드를 반환하는 경우 데이터 집합은 포함된 각 레코드 형식의 모든 속성을 포함합니다.  
 
-### <a name="connecting-oms-workspace-to-power-bi"></a>OMS 작업 영역을 Power BI에 연결
-Log Analytics에서 Power BI로 내보내려면 다음 절차를 사용하여 Power BI 계정에 OMS 작업 영역을 연결해야 합니다.  
+### <a name="connecting-log-analytics-workspace-to-power-bi"></a>Log Analytics 작업 영역을 Power BI에 연결
+Log Analytics에서 Power BI로 내보내려면 다음 절차를 사용하여 Power BI 계정에 사용자 작업 영역을 연결해야 합니다.  
 
 1. OMS 콘솔에서 **설정** 타일을 클릭합니다.
 2. **계정**을 선택합니다.
@@ -106,9 +106,9 @@ Log Analytics에서 Power BI로 내보내려면 다음 절차를 사용하여 Po
 3. 페이지 맨 위에 있는 **Power BI** 단추를 클릭하여 **Power BI** 대화 상자를 엽니다.
 4. 다음 테이블에 정보를 제공하고 **저장**을 클릭합니다.
 
-| 속성 | 설명 |
+| 자산 | 설명 |
 |:--- |:--- |
-| 이름 |Power BI 일정의 목록을 볼 때 일정을 식별하는 이름입니다. |
+| Name |Power BI 일정의 목록을 볼 때 일정을 식별하는 이름입니다. |
 | 저장된 검색 |실행할 로그 검색입니다.  현재 쿼리를 선택하거나 드롭다운 상자에서 기존 저장된 검색을 선택합니다. |
 | 일정 |저장된 검색을 실행하고 Power BI 데이터 집합으로 내보내는 빈도입니다.  값은 15분에서 24시간 사이여야 합니다. |
 | 데이터 집합 이름 |Power BI의 데이터 집합 이름입니다.  존재하지 않는 경우 생성되고 존재하는 경우 업데이트됩니다. |

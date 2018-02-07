@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/09/2017
+ms.date: 12/13/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: acfeb5a3f27f6451309017bad88c687b408872b6
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 2fb7ab906208a58c0b5cd3af8b53188fbab94029
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>Service Fabric 클러스터에 CI/CD로 응용 프로그램 배포
 이 자습서는 시리즈의 3부로, Visual Studio Team Services를 사용하여 Azure Service Fabric 응용 프로그램에 대한 연속 통합 및 배포를 설정하는 방법을 설명합니다.  기존 Service Fabric 응용 프로그램이 필요하며 [.NET 응용 프로그램 빌드](service-fabric-tutorial-create-dotnet-app.md)에서 만든 응용 프로그램을 예제로 사용합니다.
@@ -44,7 +44,6 @@ ms.lasthandoff: 11/20/2017
 - Azure 구독이 없는 경우 [평가판 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 - [Visual Studio 2017을 설치](https://www.visualstudio.com/)하고 **Azure 개발**과 **ASP.NET 및 웹 개발** 워크로드를 설치합니다.
 - [Service Fabric SDK를 설치](service-fabric-get-started.md)합니다.
-- 예를 들어 [이 자습서를 따라](service-fabric-tutorial-create-dotnet-app.md) Service Fabric 응용 프로그램을 만듭니다. 
 - 예를 들어 [이 자습서를 따라](service-fabric-tutorial-create-vnet-and-windows-cluster.md) Windows Service Fabric 클러스터를 Azure에 만듭니다.
 - [Team Services 계정](https://www.visualstudio.com/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services)을 만듭니다.
 
@@ -83,39 +82,49 @@ Team Services 빌드 정의는 순차적으로 실행되는 빌드 단계 집합
 Team Services 릴리스 정의에서는 응용 프로그램 패키지를 클러스터에 배포하는 워크플로를 설명합니다. 빌드 정의와 릴리스 정의를 함께 사용할 경우 소스 파일로 시작하여 클러스터에서 실행 중인 응용 프로그램에서 종료할 때까지 전체 워크플로를 실행합니다. Team Services [릴리스 정의](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition)에 대해 자세히 알아봅니다.
 
 ### <a name="create-a-build-definition"></a>빌드 정의 만들기
-웹 브라우저를 열고 https://myaccount.visualstudio.com/Voting/Voting%20Team/_git/Voting에서 새 팀 프로젝트로 이동합니다. 
+웹 브라우저를 열고 [https://&lt;myaccount&gt;.visualstudio.com/Voting/Voting%20Team/_git/Voting](https://myaccount.visualstudio.com/Voting/Voting%20Team/_git/Voting)에서 새 팀 프로젝트로 이동합니다. 
 
 **빌드 및 릴리스** 탭, **빌드** 및 **+ 새로운 정의 만들기**를 차례로 선택합니다.  **템플릿 선택**에서 **Azure Service Fabric 응용 프로그램** 템플릿을 선택하고 **적용**을 클릭합니다. 
 
 ![빌드 템플릿 선택][select-build-template] 
 
-투표 응용 프로그램은 .NET Core 프로젝트를 포함하므로 종속성을 복원하는 작업을 추가합니다. **작업** 보기의 왼쪽 아래에서 **+ 작업 추가**를 선택합니다. "명령줄"을 검색하여 명령줄 작업을 찾은 다음 **추가**를 클릭합니다. 
+**작업**에서 **에이전트 큐**로 "호스트된 VS2017"을 입력합니다. 
 
-![작업 추가][add-task] 
+![태스크 선택][save-and-queue]
 
-새 작업의 **표시 이름**에서 "Run dotnet.exe"을 입력하고, **도구**에서 "dotnet.exe"를 입력하고, **인수**에서 "restore"를 입력합니다. 
+**트리거** 아래에서 **상태 트리거**를 설정하여 연속 통합을 사용합니다.  **저장 및 큐**를 선택하여 수동으로 빌드를 시작합니다.  
 
-![새 작업][new-task] 
+![트리거 선택][save-and-queue2]
 
-**트리거** 보기의 **연속 통합**에서 **이 트리거 사용** 스위치를 클릭합니다. 
-
-**저장 및 큐에 대기**를 선택하고 "호스트된 VS2017"을 **에이전트 큐**로 입력합니다. **큐에 저장**을 선택하여 수동으로 빌드를 시작합니다.  푸시 또는 체크 인 시 트리거도 빌드합니다.
-
-빌드 진행률을 확인하려면 **빌드** 탭으로 전환합니다.  빌드가 성공적으로 실행되는지 확인한 후 응용 프로그램을 클러스터에 배포하는 릴리스 정의를 정의합니다. 
+푸시 또는 체크 인 시 트리거도 빌드합니다. 빌드 진행률을 확인하려면 **빌드** 탭으로 전환합니다.  빌드가 성공적으로 실행되는지 확인한 후 응용 프로그램을 클러스터에 배포하는 릴리스 정의를 정의합니다. 
 
 ### <a name="create-a-release-definition"></a>릴리스 정의 만들기  
 
-**빌드 및 릴리스** 탭, **릴리스** 및 **+ 새로운 정의 만들기**를 차례로 선택합니다.  **릴리스 정의 만들기**에서 목록의 **Azure Service Fabric 배포** 템플릿을 선택하고 **다음**을 클릭합니다.  **빌드** 소스를 선택하고 **연속 배포** 상자를 선택하고 **만들기**를 클릭합니다. 
+**빌드 및 릴리스** 탭, **릴리스** 및 **+ 새로운 정의 만들기**를 차례로 선택합니다.  **템플릿 선택**에서 목록의 **Azure Service Fabric 배포** 템플릿을 선택하고 **적용**을 선택합니다.  
 
-**환경** 보기에서 **클러스터 연결**의 오른쪽에 **추가**를 클릭합니다.  "mysftestcluster"의 연결 이름, "tcp://mysftestcluster.westus.cloudapp.azure.com:19000"의 클러스터 끝점 및 Azure Active Directory나 클러스터의 인증서 자격 증명을 지정합니다. Azure Active Directory 자격 증명의 경우 **사용자 이름** 및 **암호** 필드에서 클러스터에 연결하는 데 사용할 자격 증명을 정의합니다. 인증서 기반 인증의 경우 **클라이언트 인증서** 필드에서 클라이언트 인증서 파일의 Base64 인코딩을 정의합니다.  이 값을 가져오는 방법에 대한 자세한 내용은 해당 필드에 대한 도움말 팝업을 참조하세요.  인증서가 암호로 보호된 경우 **암호** 필드에서 암호를 정의합니다.  **저장**을 클릭하여 릴리스 정의를 저장합니다.
+![릴리스 템플릿 선택][select-release-template]
 
-![클러스터 연결 추가][add-cluster-connection] 
+**작업**->**환경 1** 및 **+새로 만들기**를 차례로 선택하여 새 클러스터 연결을 추가합니다.
 
-**에이전트에서 실행**을 선택한 후 **배포 큐**의 **호스팅된 VS2017**을 클릭합니다. **저장**을 클릭하여 릴리스 정의를 저장합니다.
+![클러스터 연결 추가][add-cluster-connection]
 
-![에이전트에서 실행][run-on-agent]
+**새 Service Fabric 연결 추가** 보기에서 **인증서 기반** 또는 **Azure Active Directory** 인증을 선택합니다.  "Mysftestcluster" 및 "tcp://mysftestcluster.southcentralus.cloudapp.azure.com:19000"의 클러스터 끝점(또는 배포 중인 클러스터의 끝점)의 연결 이름을 지정합니다. 
 
-**+릴리스** -> **릴리스 만들기** -> **만들기**를 선택하여 릴리스를 수동으로 만듭니다.  배포에 성공했고 클러스터에서 응용 프로그램이 실행 중인지 확인합니다.  웹 브라우저를 열고 [http://mysftestcluster.westus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.westus.cloudapp.azure.com:19080/Explorer/)로 이동합니다.  응용 프로그램 버전을 확인합니다. 이 예제에서는 “1.0.0.20170616.3”입니다. 
+인증서 기반 인증의 경우 클러스터를 만드는 데 사용된 서버 인증서의 **서버 인증서 지문**을 추가합니다.  **클라이언트 인증서**에서 base-64 인코딩된 클라이언트 인증서 파일을 추가합니다. base-64 인코딩된 해당 인증서의 표현을 가져오는 방법에 대한 정보는 해당 필드에서 도움말 팝업을 참조하세요. 인증서의 **암호**도 추가합니다.  별도 클라이언트 인증서가 없는 경우 클러스터 또는 서버 인증서를 사용할 수 있습니다. 
+
+Azure Active Directory 자격 증명의 경우 사용하려는 클러스터 및 자격 증명을 만드는 데 사용된 서버 인증서의 **서버 인증서 지문**을 추가하여 **사용자 이름** 및 **암호** 필드에서 클러스터에 연결합니다. 
+
+**추가**를 클릭하여 클러스터 연결을 저장합니다.
+
+다음으로 릴리스 정의가 빌드에서 출력을 찾을 수 있도록 파이프라인에 빌드 아티팩트를 추가합니다. **파이프라인** 및 **아티팩트**->**+추가**를 선택합니다.  **원본(빌드 정의)**에서 이전에 만든 빌드 정의를 선택합니다.  **추가**를 클릭하여 빌드 아티팩트를 저장합니다.
+
+![아티팩트 추가][add-artifact]
+
+빌드가 완료될 때 릴리스가 자동으로 생성하도록 지속적인 배포 트리거를 사용하도록 설정합니다. 아티팩트에서 번개 아이콘을 클릭하고, 트리거를 사용하고, **저장**을 클릭하여 릴리스 정의를 저장합니다.
+
+![트리거 사용][enable-trigger]
+
+**+릴리스** -> **릴리스 만들기** -> **만들기**를 선택하여 릴리스를 수동으로 만듭니다.  배포에 성공했고 클러스터에서 응용 프로그램이 실행 중인지 확인합니다.  웹 브라우저를 열고 [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/)로 이동합니다.  응용 프로그램 버전을 확인합니다. 이 예제에서는 “1.0.0.20170616.3”입니다. 
 
 ## <a name="commit-and-push-changes-trigger-a-release"></a>변경 내용 커밋 및 푸시, 릴리스 트리거
 Team Services에 일부 코드 변경을 체크 인하여 연속 통합 파이프라인이 작동하는지 확인합니다.    
@@ -134,7 +143,7 @@ Team Services에 변경 내용을 푸시하면 빌드가 자동으로 트리거�
 
 빌드 진행률을 확인하려면 Visual Studio의 **팀 탐색기**에서 **빌드** 탭으로 전환합니다.  빌드가 성공적으로 실행되는지 확인한 후 응용 프로그램을 클러스터에 배포하는 릴리스 정의를 정의합니다.
 
-배포에 성공했고 클러스터에서 응용 프로그램이 실행 중인지 확인합니다.  웹 브라우저를 열고 [http://mysftestcluster.westus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.westus.cloudapp.azure.com:19080/Explorer/)로 이동합니다.  응용 프로그램 버전을 확인합니다. 이 예제에서는 "1.0.0.20170815.3"입니다.
+배포에 성공했고 클러스터에서 응용 프로그램이 실행 중인지 확인합니다.  웹 브라우저를 열고 [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/)로 이동합니다.  응용 프로그램 버전을 확인합니다. 이 예제에서는 "1.0.0.20170815.3"입니다.
 
 ![Service Fabric Explorer][sfx1]
 
@@ -168,10 +177,13 @@ Team Services에 변경 내용을 푸시하면 빌드가 자동으로 트리거�
 [push-git-repo]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PublishGitRepo.png
 [publish-code]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PublishCode.png
 [select-build-template]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SelectBuildTemplate.png
-[add-task]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/AddTask.png
-[new-task]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/NewTask.png
+[save-and-queue]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SaveAndQueue.png
+[save-and-queue2]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SaveAndQueue2.png
+[select-release-template]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SelectReleaseTemplate.png
 [set-continuous-integration]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SetContinuousIntegration.png
 [add-cluster-connection]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/AddClusterConnection.png
+[add-artifact]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/AddArtifact.png
+[enable-trigger]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/EnableTrigger.png
 [sfx1]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SFX1.png
 [sfx2]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SFX2.png
 [sfx3]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SFX3.png
@@ -182,4 +194,3 @@ Team Services에 변경 내용을 푸시하면 빌드가 자동으로 트리거�
 [continuous-delivery-with-VSTS]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/VSTS-Dialog.png
 [new-service-endpoint]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/NewServiceEndpoint.png
 [new-service-endpoint-dialog]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/NewServiceEndpointDialog.png
-[run-on-agent]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/RunOnAgent.png

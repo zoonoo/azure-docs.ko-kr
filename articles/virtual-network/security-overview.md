@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: jdial
-ms.openlocfilehash: 142b9e052e09f88826ae8ea3866316444a5d7acc
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 89a4a165690c7a308d5bc7222b8a5a9716d22785
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="network-security"></a>네트워크 보안
 
@@ -119,7 +119,7 @@ ms.lasthandoff: 01/17/2018
 * **VirtualNetwork**(*Resource Manager)(클래식의 경우 **VIRTUAL_NETWORK**): 이 태그에는 가상 네트워크 주소 공간(가상 네트워크에 정의된 모든 CIDR 범위), 연결된 모든 온-프레미스 주소 공간 및 [피어링된](virtual-network-peering-overview.md) 가상 네트워크 또는 [가상 네트워크 게이트웨이](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에 연결된 가상 네트워크가 포함됩니다.
 * **AZURE_LOADBALANCER**(Resource Manager) (클래식의 경우 **AzureLoadBalancer**): 이 태그는 Azure의 인프라 부하 분산 장치를 나타내며, 태그는 Azure의 상태 검색이 시작되는 [Azure 데이터 센터 IP 주소](https://www.microsoft.com/download/details.aspx?id=41653)로 변환됩니다. Azure Load Balancer를 사용하지 않는 경우 이 규칙을 재정의할 수 있습니다.
 * **Internet**(Resource Manager) (클래식의 경우 **INTERNET**): 이 태그는 가상 네트워크 외부에 있고 공용 인터넷에서 연결할 수 있는 IP 주소 공간을 나타냅니다. 주소 범위에는 [Azure에서 소유하는 공용 IP 주소 공간](https://www.microsoft.com/download/details.aspx?id=41653)이 포함됩니다.
-* **AzureTrafficManager**(Resource Manager에만 해당): 이 태그는 Azure Traffic Manager 서비스의 IP 주소 공간을 나타냅니다.
+* **AzureTrafficManager**(리소스 관리자에만 해당): 이 태그는 Azure Traffic Manager 프로브 IP의 IP 주소 공간을 나타냅니다. Traffic Manager 프로브 IP에 대한 자세한 내용은 [Azure Traffic Manager FAQ](https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-faqs)에서 찾을 수 있습니다.
 * **Storage**(Resource Manager에만 해당): 이 태그는 Azure Storage 서비스의 IP 주소 공간을 나타냅니다. 값의 *저장소*를 지정하는 경우 트래픽은 저장소에 대해 허용되거나 거부됩니다. 특정 [지역](https://azure.microsoft.com/regions)에서만 저장소에 대한 액세스를 허용하려는 경우 지역을 지정할 수 있습니다. 예를 들어 미국 동부 지역에서만 Azure Storage에 액세스를 허용하려는 경우 *Storage.EastUS*를 서비스 태그로 지정할 수 있습니다. 태그는 서비스의 특정 인스턴스가 아니라 서비스를 나타냅니다. 예를 들어 태그는 특정 Azure Storage 계정이 아닌 Azure Storage 서비스를 나타냅니다.
 * **Sql**(Resource Manager에만 해당): 이 태그는 Azure SQL Database 및 Azure SQL Data Warehouse 서비스의 주소 접두사를 나타냅니다. 값의 *Sql*을 지정하는 경우 트래픽은 Sql에 대해 허용되거나 거부됩니다. 특정 [지역](https://azure.microsoft.com/regions)에서만 Sql에 대한 액세스를 허용하려는 경우 지역을 지정할 수 있습니다. 예를 들어 미국 동부 지역에서만 Azure SQL Database에 액세스를 허용하려는 경우 *Sql.EastUS*를 서비스 태그로 지정할 수 있습니다. 태그는 서비스의 특정 인스턴스가 아니라 서비스를 나타냅니다. 예를 들어 태그는 특정 SQL Database 또는 서버가 아닌 Azure SQL Database 서비스를 나타냅니다.
 

@@ -14,13 +14,13 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 06/23/2017
+ms.date: 12/14/2017
 ms.author: janeng
-ms.openlocfilehash: 5913c8ec1b62fc38161e553dc2364c793951e047
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 741c066d62364e34b788883bfc96fba1ea3507c3
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="use-cli-to-monitor-and-scale-a-single-sql-database"></a>CLI를 사용하여 단일 SQL Database 모니터링 및 크기 조정
 
@@ -30,11 +30,14 @@ ms.lasthandoff: 12/07/2017
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 항목에서 Azure CLI 버전 2.0 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
+CLI를 로컬로 설치하여 사용하도록 선택하는 경우 이 문서에서 Azure CLI 버전 2.0 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
 
 ## <a name="sample-script"></a>샘플 스크립트
 
 [!code-azurecli-interactive[main](../../../cli_scripts/sql-database/monitor-and-scale-database/monitor-and-scale-database.sh "Monitor and scale single SQL Database")]
+
+> [!TIP]
+> [az sql db op list](/cli/azure/sql/db/op?#az_sql_db_op_list)를 사용하여 데이터베이스에서 수행된 작업 목록을 가져오고 [az sql db op cancel](/cli/azure/sql/db/op#az_sql_db_op_cancel)을 사용하여 데이터베이스에서 업데이트 작업을 취소합니다.
 
 ## <a name="clean-up-deployment"></a>배포 정리
 
@@ -48,7 +51,7 @@ az group delete --name myResourceGroup
 
 이 스크립트는 다음 명령을 사용합니다. 테이블에 있는 각 명령은 명령에 해당하는 문서에 연결됩니다.
 
-| 명령 | 참고 사항 |
+| 명령 | 메모 |
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
 | [az sql server create](https://docs.microsoft.com/cli/azure/sql/server#az_sql_server_create) | 데이터베이스를 호스트하는 논리 서버를 만듭니다. |

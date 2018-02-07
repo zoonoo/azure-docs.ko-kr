@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 39e283e4b0bb5e50d1268e1b2cac53bf9ee71028
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: e326a512bdb9c30068845b51e86795a410e6c9b3
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>온-프레미스 원본과 클라우드 간에 데이터 관리 게이트웨이로 데이터 이동
 > [!NOTE]
@@ -54,7 +54,7 @@ ms.lasthandoff: 11/02/2017
 ## <a name="create-data-factory"></a>데이터 팩터리 만들기
 이 단계에서는 Azure Portal을 사용하여 **ADFTutorialOnPremDF**라는 Azure Data Factory 인스턴스를 만듭니다.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 2. **+ 새로 만들기**, **인텔리전스 + 분석** 및 **데이터 팩터리s**을 차례로 클릭합니다.
 
    ![새로 만들기->DataFactory](./media/data-factory-move-data-between-onprem-and-cloud/NewDataFactoryMenu.png)  

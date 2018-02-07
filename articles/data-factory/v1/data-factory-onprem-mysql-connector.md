@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 74ee639af5e941c098cbdd1fafd96a0e1ce1b036
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: f04a3b8c7bb744e3a9d539f6d3a392bc59702758
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-mysql-using-azure-data-factory"></a>Azure 데이터 팩터리를 사용하여 MySQL에서 데이터 이동
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -37,7 +37,7 @@ ms.lasthandoff: 11/01/2017
 ## <a name="prerequisites"></a>필수 조건
 데이터 팩터리 서비스는 데이터 관리 게이트웨이를 사용하여 온-프레미스 MySQL 원본에 연결을 지원합니다. 데이터 관리 게이트웨이 및 게이트웨이 설정에 대한 단계별 지침을 알아보려면 [온-프레미스 위치 및 클라우드 간 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md) 문서를 참조하세요.
 
-게이트웨이는 MySQL 데이터베이스가 Azure IaaS 가상 컴퓨터 (VM)에 호스팅되더라도 필요합니다. 게이트웨이를 데이터베이스에 연결할 수 있는 한 데이터 저장소와 동일한 VM 또는 다른 VM에 게이트웨이를 설치할 수 있습니다.
+게이트웨이는 MySQL 데이터베이스가 Azure IaaS 가상 머신 (VM)에 호스팅되더라도 필요합니다. 게이트웨이를 데이터베이스에 연결할 수 있는 한 데이터 저장소와 동일한 VM 또는 다른 VM에 게이트웨이를 설치할 수 있습니다.
 
 > [!NOTE]
 > 연결/게이트웨이 관련 문제 해결에 대한 팁은 [게이트웨이 문제 해결](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) 을 참조하세요.
@@ -60,22 +60,22 @@ MySQL 데이터베이스에 연결할 데이터 관리 게이트웨이의 경우
 2. 복사 작업의 입력 및 출력 데이터를 나타내는 **데이터 집합**을 만듭니다. 
 3. 입력으로 데이터 집합을, 출력으로 데이터 집합을 사용하는 복사 작업을 통해 **파이프라인**을 만듭니다. 
 
-마법사를 사용하는 경우 이러한 Data Factory 엔터티(연결된 서비스, 데이터 집합 및 파이프라인)에 대한 JSON 정의가 자동으로 생성됩니다. 도구/API를 사용하는 경우(.NET API 제외) JSON 형식을 사용하여 데이터 팩터리 엔터티를 직접 정의합니다.  온-프레미스 MySQL의 데이터를 복사하는 데 사용되는 데이터 팩터리 엔터티의 JSON 정의에 대한 샘플은 이 문서의 [JSON의 예: MySQL에서 Azure Blob으로 데이터 복사](#json-example-copy-data-from-mysql-to-azure-blob) 섹션을 참조하세요. 
+마법사를 사용하는 경우 이러한 Data Factory 엔터티(연결된 서비스, 데이터 집합 및 파이프라인)에 대한 JSON 정의가 자동으로 생성됩니다. 도구/API(.NET API 제외)를 사용하는 경우 JSON 형식을 사용하여 이러한 Data Factory 엔터티를 정의합니다.  온-프레미스 MySQL의 데이터를 복사하는 데 사용되는 데이터 팩터리 엔터티의 JSON 정의에 대한 샘플은 이 문서의 [JSON의 예: MySQL에서 Azure Blob으로 데이터 복사](#json-example-copy-data-from-mysql-to-azure-blob) 섹션을 참조하세요. 
 
 다음 섹션에서는 MySQL 데이터 저장소에 한정된 데이터 팩터리 엔터티를 정의하는 데 사용되는 JSON 속성에 대해 자세히 설명합니다.
 
 ## <a name="linked-service-properties"></a>연결된 서비스 속성
 다음 테이블은 MySQL 연결된 서비스에 특정된 JSON 요소에 대한 설명을 제공합니다.
 
-| 속성 | 설명 | 필수 |
+| 자산 | 설명 | 필수 |
 | --- | --- | --- |
 | type |형식 속성은 **OnPremisesMySql** |예 |
-| server |MySQL 서버의 이름입니다. |예 |
-| database |MySQL 데이터베이스의 이름입니다. |예 |
-| schema |데이터베이스에서 스키마의 이름입니다. |아니요 |
+| 서버 |MySQL 서버의 이름입니다. |예 |
+| 데이터베이스 |MySQL 데이터베이스의 이름입니다. |예 |
+| schema |데이터베이스에서 스키마의 이름입니다. |아니오 |
 | authenticationType |MySQL 데이터베이스에 연결하는 데 사용되는 인증 형식입니다. 가능한 값은 `Basic`입니다. |예 |
-| username |MySQL 데이터베이스에 연결할 사용자 이름을 지정합니다. |예 |
-| password |지정한 사용자 계정의 암호를 지정합니다. |예 |
+| 사용자 이름 |MySQL 데이터베이스에 연결할 사용자 이름을 지정합니다. |예 |
+| 암호 |지정한 사용자 계정의 암호를 지정합니다. |예 |
 | gatewayName |데이터 팩터리 서비스가 온-프레미스 MySQL 데이터 베이스에 연결하는 데 사용해야 하는 게이트웨이의 이름입니다. |예 |
 
 ## <a name="dataset-properties"></a>데이터 집합 속성
@@ -83,7 +83,7 @@ MySQL 데이터베이스에 연결할 데이터 관리 게이트웨이의 경우
 
 **typeProperties** 섹션은 데이터 집합의 각 형식에 따라 다르며 데이터 저장소에 있는 데이터의 위치에 대한 정보를 제공합니다. **RelationalTable** 형식의 데이터 집합(MySQL 데이터 집합을 포함)에 대한 typeProperties 섹션에는 다음 속성이 있습니다.
 
-| 속성 | 설명 | 필수 |
+| 자산 | 설명 | 필수 |
 | --- | --- | --- |
 | tableName |연결된 서비스가 참조하는 MySQL 데이터베이스 인스턴스에서 테이블의 이름입니다. |아니요(**RelationalSource**의 **쿼리**가 지정된 경우) |
 
@@ -94,7 +94,7 @@ MySQL 데이터베이스에 연결할 데이터 관리 게이트웨이의 경우
 
 복사 작업의 원본이 **RelationalSource**(MySQL 포함) 형식인 경우 typeProperties 섹션에서 다음과 같은 속성을 사용할 수 있습니다.
 
-| 속성 | 설명 | 허용되는 값 | 필수 |
+| 자산 | 설명 | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
 | 쿼리 |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예: select * from MyTable. |아니요(**데이터 집합**의 **tableName**이 지정된 경우) |
 
@@ -108,7 +108,7 @@ MySQL 데이터베이스에 연결할 데이터 관리 게이트웨이의 경우
 이 샘플에는 다음 데이터 팩터리 엔터티가 있습니다.
 
 1. [OnPremisesMySql](data-factory-onprem-mysql-connector.md#linked-service-properties)형식의 연결된 서비스
-2. [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties)형식의 연결된 서비스
+2. [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties) 형식의 연결된 서비스
 3. [RelationalTable](data-factory-onprem-mysql-connector.md#dataset-properties) 형식의 입력 [데이터 집합](data-factory-create-datasets.md)
 4. [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties) 형식의 출력 [데이터 집합](data-factory-create-datasets.md)
 5. [RelationalSource](data-factory-onprem-mysql-connector.md#copy-activity-properties) 및 [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-create-pipelines.md)
@@ -306,15 +306,15 @@ MySQL에 데이터를 이동하는 경우 MySQL 형식에서 .NET 형식으로 �
 | bigint |Int64 |
 | bit |10진수 |
 | Blob |Byte[] |
-| bool |Boolean |
+| bool |BOOLEAN |
 | char |문자열 |
-| date |Datetime |
-| Datetime |Datetime |
-| 10진수 |10진수 |
+| date |DateTime |
+| Datetime |DateTime |
+| decimal |10진수 |
 | double precision |Double |
 | Double |Double |
 | enum |문자열 |
-| float |Single |
+| float |단일 |
 | int unsigned |Int64 |
 | int |Int32 |
 | integer unsigned |Int64 |
@@ -332,9 +332,9 @@ MySQL에 데이터를 이동하는 경우 MySQL 형식에서 .NET 형식으로 �
 | set |문자열 |
 | smallint unsigned |Int32 |
 | smallint |Int16 |
-| 텍스트 |문자열 |
+| text |문자열 |
 | 실시간 |timespan |
-| timestamp |Datetime |
+| timestamp |DateTime |
 | tinyblob |Byte[] |
 | tinyint unsigned |Int16 |
 | tinyint |Int16 |

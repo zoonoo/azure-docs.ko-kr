@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/21/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: f31487c5b5d8b888c7eb58aea2e42199b1614af8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c780efe92ec69ff692b42a586f55a1036d2ec952
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="get-started-with-conditional-access-in-azure-active-directory"></a>Azure Active Directory에서 조건부 액세스 시작
 
@@ -80,11 +80,11 @@ ms.lasthandoff: 12/11/2017
 
     a. **사용자 및 그룹 선택**을 클릭합니다.
 
-    b. **선택**을 클릭합니다.
+    나. **선택**을 클릭합니다.
 
-    c. **선택** 블레이드에서 테스트 사용자를 선택한 다음 **선택**을 클릭합니다.
+    다. **선택** 블레이드에서 테스트 사용자를 선택한 다음 **선택**을 클릭합니다.
 
-    ㄹ. **사용자 및 그룹** 블레이드에서 **완료**를 클릭합니다.
+    d. **사용자 및 그룹** 블레이드에서 **완료**를 클릭합니다.
 
 7. **새로 만들기** 블레이드에서 **클라우드 앱** 블레이드를 열려면 **할당** 섹션에서 **클라우드 앱**을 클릭합니다.
 
@@ -96,11 +96,11 @@ ms.lasthandoff: 12/11/2017
 
     a. **앱 선택**을 클릭합니다.
 
-    b. **선택**을 클릭합니다.
+    나. **선택**을 클릭합니다.
 
-    c. **선택** 블레이드에서 클라우드 앱을 선택한 다음 **선택**을 클릭합니다.
+    다. **선택** 블레이드에서 클라우드 앱을 선택한 다음 **선택**을 클릭합니다.
 
-    ㄹ. **클라우드 앱** 블레이드에서 **완료**를 클릭합니다.
+    d. **클라우드 앱** 블레이드에서 **완료**를 클릭합니다.
 
 9. **새로 만들기** 블레이드에서 **조건** 블레이드를 열려면 **할당** 섹션에서 **조건**을 클릭합니다.
 
@@ -116,13 +116,13 @@ ms.lasthandoff: 12/11/2017
 
     a. **구성** 아래에서 **예**를 클릭합니다.
 
-    b. **포함**에서 **모든 위치**를 클릭합니다.
+    나. **포함**에서 **모든 위치**를 클릭합니다.
 
-    c. **제외**를 클릭한 다음 **모든 신뢰할 수 있는 IP**를 클릭합니다.
+    다. **제외**를 클릭한 다음 **모든 신뢰할 수 있는 IP**를 클릭합니다.
 
     ![조건부 액세스](./media/active-directory-conditional-access-azure-portal-get-started/12.png)
 
-    ㄹ. **Done**을 클릭합니다.
+    d. **Done**을 클릭합니다.
 
 12. **조건** 블레이드에서 **완료**를 클릭합니다.
 
@@ -136,7 +136,7 @@ ms.lasthandoff: 12/11/2017
 
     a. **다단계 인증 필요**를 선택합니다.
 
-    b. **선택**을 클릭합니다.
+    나. **선택**을 클릭합니다.
 
 15. **새로 만들기** 블레이드의 **정책 사용**에서 **설정**을 클릭합니다.
 

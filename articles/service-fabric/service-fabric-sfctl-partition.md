@@ -9,16 +9,16 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: cli
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 09/22/2017
+ms.date: 12/22/2017
 ms.author: ryanwi
-ms.openlocfilehash: 99756378f2106707b4f6d634a1183d5c32243ee2
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 9d709a0ec2b7de985ac08fe9ee2935848e7a371c
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="sfctl-partition"></a>sfctl partition
 모든 서비스에 대한 파티션을 쿼리 및 관리합니다.

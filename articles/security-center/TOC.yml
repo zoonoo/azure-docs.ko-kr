@@ -146,6 +146,8 @@
           href: security-center-search.md
     - name: Azure 로그 통합
       href: security-center-integrating-alerts-with-log-integration.md
+    - name: SIEM에 데이터 내보내기
+      href: security-center-export-data-to-siem.md
     - name: 시나리오
       items:
         - name: 사고 대응
@@ -154,7 +156,7 @@
           href: security-center-using-recommendations.md
     - name: 문제 해결
       href: security-center-troubleshooting-guide.md
-- name: 참조
+- name: 참고 자료
   items:
     - name: REST API
       href: 'https://msdn.microsoft.com/library/mt704034(Azure.100).aspx'

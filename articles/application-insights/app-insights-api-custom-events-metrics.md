@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 05/17/2017
 ms.author: mbullwin
-ms.openlocfilehash: a94a7da29d9f3c6f745df7e91ec9e19b66435eae
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 7d797716fb98ac85f11f956e732e08820b56affc
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>사용자 지정 이벤트 및 메트릭용 Application Insights API
 
@@ -158,7 +158,7 @@ Application Insights로 메트릭을 보내려면 `TrackMetric(..)` API를 사�
 
 *C#, Java*
 
-```C#
+```csharp
     var sample = new MetricTelemetry();
     sample.Name = "metric name";
     sample.Value = 42.3;
@@ -178,7 +178,7 @@ Application Insights로 메트릭을 보내려면 `TrackMetric(..)` API를 사�
 
 *C#*
 
-```C#
+```csharp
 using System;
 using System.Threading;
 using System.Threading.Tasks;
@@ -422,7 +422,7 @@ pageViews | join (dependencies) on operation_Id
 
 *C#*
 
-```C#
+```csharp
 // Establish an operation context and associated telemetry item:
 using (var operation = telemetryClient.StartOperation<RequestTelemetry>("operationName"))
 {
@@ -576,7 +576,7 @@ TrackTrace의 장점은 메시지에 상대적으로 긴 데이터를 넣을 수
 ## <a name="trackdependency"></a>TrackDependency
 TrackDependency 호출을 사용하여 응답 시간과 외부 코드 부분에 대한 호출의 성공률을 추적합니다. 포털에서 종속성 차트에 결과가 나타납니다.
 
-```C#
+```csharp
 var success = false;
 var startTime = DateTime.UtcNow;
 var timer = System.Diagnostics.Stopwatch.StartNew();
@@ -913,7 +913,7 @@ SDK에서 전송하기 전에 원격 분석을 처리하는 코드를 작성할 
 
 *C#*
 
-```C#
+```csharp
 
     using  Microsoft.ApplicationInsights.Extensibility;
 

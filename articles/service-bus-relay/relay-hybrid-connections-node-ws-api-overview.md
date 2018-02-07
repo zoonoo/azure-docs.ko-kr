@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/05/2017
+ms.date: 01/23/2018
 ms.author: sethm
-ms.openlocfilehash: f9b679f167952076db6df17711dc124931a0880c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 696e3f77a283cc31d3c8f6007a839480ae8eb984
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="relay-hybrid-connections-node-api-overview"></a>Relay 하이브리드 연결 Node API 개요
 
@@ -28,7 +28,7 @@ Azure Relay 하이브리드 연결에 대한 [`hyco-ws`](https://www.npmjs.com/p
 
 `require('ws')`이 `require('hyco-ws')` 대신 이 패키지를 사용할 수 있는 기존 응용 프로그램을 사용하면 응용 프로그램이 WebSocket 연결을 "방화벽 내부"에서 로컬로 및 하이브리드 연결을 통해 동시에 수신 대기할 수 있는 하이브리드 시나리오를 수행할 수 있습니다.
   
-## <a name="documentation"></a>설명서
+## <a name="documentation"></a>문서화
 
 API는 [주 'ws' 패키지에 문서화되어](https://github.com/websockets/ws/blob/master/doc/ws.md) 있습니다. 이 문서에서는 이 패키지가 해당 기준과 어떻게 다른지를 설명합니다. 
 

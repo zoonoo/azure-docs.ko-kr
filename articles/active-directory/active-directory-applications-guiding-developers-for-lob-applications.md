@@ -1,5 +1,5 @@
 ---
-title: "Azure AD용 앱 개발 | Microsoft Docs'"
+title: "Azure Active Directory를 사용하기 위해 응용 프로그램 등록 | Microsoft Docs"
 description: "IT 전문가를 위해 작성된 이 문서는 Active Directory와 Azure 응용 프로그램 통합에 대한 지침을 제공합니다."
 services: active-directory
 documentationcenter: 
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/07/2017
+ms.date: 01/14/2018
 ms.author: kgremban
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 30e070b6c7e7ace929e79ea579767cefa0c22321
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: 514db22ad070fed20d89be442cecc2f3ee808ead
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="develop-line-of-business-apps-for-azure-active-directory"></a>Azure Active Directory용 기간 업무 앱 개발
 이 가이드는 Azure Active Directory(AD)에 대한 LoB(기간 업무) 응용 프로그램 개발의 개요를 제공하며, Active Directory/Office 365 전역 관리자용으로 작성되었습니다.

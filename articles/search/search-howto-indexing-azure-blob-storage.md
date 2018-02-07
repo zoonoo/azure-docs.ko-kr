@@ -12,13 +12,13 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 07/22/2017
+ms.date: 12/28/2017
 ms.author: eugenesh
-ms.openlocfilehash: 97c1fc602ba27472fed2f11fd634e617ae9c636f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 286e2b8eddc87a5132fa13468b0cef1b499c3993
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Azure Search로 Azure Blob Storage에서 문서 인덱싱
 이 문서에서는 Azure Search를 사용하여 Azure Blob Storage에 저장된 문서(예: PDF, Office 파일 및 다양한 기타 일반적인 형식)를 인덱싱하는 방법을 보여줍니다. 먼저, blob 인덱서 설정 및 구성의 기본 사항을 설명합니다. 그런 다음, 동작 및 발생할 수 있는 시나리오의 심층적 탐색을 제공합니다.
@@ -73,7 +73,7 @@ BLOB 인덱서는 다음과 같은 문서 형식에서 텍스트를 추출할 �
 Blob 컨테이너에 대한 자격 증명을 제공하는 방법은 다음 중 하나입니다.
 
 - **전체 액세스 저장소 계정 연결 문자열**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>`. Azure Portal에서 저장소 계정 블레이드 > 설정 > 키(클래식 저장소 계정) 또는 설정 > 액세스 키(Azure Resource Manager 저장소 계정)로 이동하여 연결 문자열을 가져올 수 있습니다.
-- **저장소 계정 SAS(공유 액세스 서명)** 연결 문자열: `BlobEndpoint=https://<your account>.blob.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl` SAS에 컨테이너 및 개체(이 경우 Blob)에 대한 읽기 권한 및 목록이 있어야 합니다.
+- **Storage 계정 SAS(공유 액세스 서명)** 연결 문자열: `BlobEndpoint=https://<your account>.blob.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl` SAS에 컨테이너 및 개체(이 경우 Blob)에 대한 읽기 권한 및 목록이 있어야 합니다.
 -  **컨테이너 공유 액세스 서명**: `ContainerSharedAccessUri=https://<your storage account>.blob.core.windows.net/<container name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl` SAS에 컨테이너에 대한 읽기 권한 및 목록이 있어야 합니다.
 
 저장소 공유 액세스 서명에 대한 자세한 내용은 [공유 액세스 서명 사용](../storage/common/storage-dotnet-shared-access-signature-part-1.md)을 참조하세요.
@@ -225,28 +225,6 @@ Azure Search에서는 문서 키가 문서를 고유하게 식별합니다. 모�
 
 `indexedFileNameExtensions` 및 `excludedFileNameExtensions` 매개 변수가 모두 있는 경우 Azure Search는 먼저 `indexedFileNameExtensions`를 확인한 후 `excludedFileNameExtensions`를 찾습니다. 동일한 파일 확장명이 두 목록 모두에 있는 경우 인덱싱에서 제외되는 것을 의미합니다.
 
-### <a name="dealing-with-unsupported-content-types"></a>지원되지 않는 콘텐츠 형식 처리
-
-기본적으로 Blob 인덱서는 지원되지 않는 콘텐츠 형식(예: 이미지)을 포함하는 Blob을 발견하는 즉시 중지됩니다. 물론 `excludedFileNameExtensions` 매개 변수를 사용하여 특정 콘텐츠 형식을 건너뛸 수 있습니다. 하지만, 있을 수 있는 모든 콘텐츠 형식을 미리 알지 못하는 상태에서 Blob을 인덱싱해야 하는 경우도 있습니다. 지원되지 않는 콘텐츠 형식이 발견될 때 인덱싱을 계속하려면 `failOnUnsupportedContentType` 구성 매개 변수를 `false`로 설정합니다.
-
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2016-09-01
-    Content-Type: application/json
-    api-key: [admin key]
-
-    {
-      ... other parts of indexer definition
-      "parameters" : { "configuration" : { "failOnUnsupportedContentType" : false } }
-    }
-
-### <a name="ignoring-parsing-errors"></a>구문 분석 오류 무시
-
-Azure Search 문서 추출 논리는 완벽하지 않으며 .DOCX 또는 .PDF와 같은 지원되지 않는 콘텐츠 형식의 문서를 구문 분석하지 못하는 경우가 있습니다. 이러한 경우 인덱싱을 중단하지 않으려면 `maxFailedItems` 및 `maxFailedItemsPerBatch` 구성 매개 변수를 적당한 값으로 설정합니다. 예:
-
-    {
-      ... other parts of indexer definition
-      "parameters" : { "maxFailedItems" : 10, "maxFailedItemsPerBatch" : 10 }
-    }
-
 <a name="PartsOfBlobToIndex"></a>
 ## <a name="controlling-which-parts-of-the-blob-are-indexed"></a>Blob에서 인덱싱할 부분 제어
 
@@ -275,6 +253,31 @@ Azure Search 문서 추출 논리는 완벽하지 않으며 .DOCX 또는 .PDF와
 | --- | --- | --- |
 | AzureSearch_Skip |"true" |BLOB 인덱서가 BLOB을 완전히 건너뛰도록 지시합니다. 메타데이터와 콘텐츠 추출이 모두 시도되지 않습니다. 특정 BLOB이 반복적으로 실패하고 인덱싱 프로세스가 중단되는 경우에 유용합니다. |
 | AzureSearch_SkipContent |"true" |특정 Blob으로 범위가 지정된 [위에](#PartsOfBlobToIndex) 설명된 `"dataToExtract" : "allMetadata"` 설정과 동일합니다. |
+
+<a name="DealingWithErrors"></a>
+## <a name="dealing-with-errors"></a>오류 처리
+
+기본적으로 Blob 인덱서는 지원되지 않는 콘텐츠 형식(예: 이미지)을 포함하는 Blob을 발견하는 즉시 중지됩니다. 물론 `excludedFileNameExtensions` 매개 변수를 사용하여 특정 콘텐츠 형식을 건너뛸 수 있습니다. 하지만, 있을 수 있는 모든 콘텐츠 형식을 미리 알지 못하는 상태에서 Blob을 인덱싱해야 하는 경우도 있습니다. 지원되지 않는 콘텐츠 형식이 발견될 때 인덱싱을 계속하려면 `failOnUnsupportedContentType` 구성 매개 변수를 `false`로 설정합니다.
+
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2016-09-01
+    Content-Type: application/json
+    api-key: [admin key]
+
+    {
+      ... other parts of indexer definition
+      "parameters" : { "configuration" : { "failOnUnsupportedContentType" : false } }
+    }
+
+일부 Blob의 경우 Azure Search는 콘텐츠 형식을 확인할 수 없거나 지원되는 다른 콘텐트 형식의 문서를 처리할 수 없습니다. 이 오류 모드를 무시하려면 `failOnUnprocessableDocument` 구성 매개 변수를 False로 설정합니다.
+
+      "parameters" : { "configuration" : { "failOnUnprocessableDocument" : false } }
+
+또한 Blob을 구문 분석하거나 문서를 인덱스를 추가할 때 임의 처리 지점에서 오류가 발생하는 경우에도 인덱싱을 계속할 수 있습니다. 설정 개수의 오류를 무시하려면 `maxFailedItems` 및 `maxFailedItemsPerBatch` 구성 매개 변수를 원하는 값으로 설정합니다. 예: 
+
+    {
+      ... other parts of indexer definition
+      "parameters" : { "maxFailedItems" : 10, "maxFailedItemsPerBatch" : 10 }
+    }
 
 ## <a name="incremental-indexing-and-deletion-detection"></a>증분 인덱싱 및 삭제 감지
 일정에 따라 실행할 BLOB 인덱서가 일정에 따라 실행되도록 설정하는 경우 BLOB의 `LastModified` 타임스탬프에 지정된 대로 변경된 BLOB만 다시 인덱싱합니다.

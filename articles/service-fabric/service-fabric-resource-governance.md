@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: ada26a303013139f182721360aaf125ac5b94310
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 974fb5bfa8b10cb5497220825b2a83ca96161b0c
+ms.sourcegitcommit: a0d2423f1f277516ab2a15fe26afbc3db2f66e33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="resource-governance"></a>리소스 관리 
 
@@ -115,8 +115,7 @@ Service Fabric이 사용 가능한 CPU의 50%와 사용 가능한 메모리의 7
 ```xml
 <?xml version='1.0' encoding='UTF-8'?>
 <ApplicationManifest ApplicationTypeName='TestAppTC1' ApplicationTypeVersion='vTC1' xsi:schemaLocation='http://schemas.microsoft.com/2011/01/fabric ServiceFabricServiceModel.xsd' xmlns='http://schemas.microsoft.com/2011/01/fabric' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'>
-  <Parameters>
-  </Parameters>
+
   <!--
   ServicePackageA has the number of CPU cores defined, but doesn't have the MemoryInMB defined.
   In this case, Service Fabric sums the limits on code packages and uses the sum as 
@@ -137,6 +136,54 @@ Service Fabric이 사용 가능한 CPU의 50%와 사용 가능한 메모리의 7
 따라서 이 예제에서 CodeA1은 코어의 2/3를 받고, CodeA2는 코어의 1/3을 받습니다(동일한 비율의 소프트 보장 예약). 코드 패키지에 대한 CpuShares를 지정하지 않은 경우 Service Fabric은 코어를 균일하게 나눕니다.
 
 메모리 제한은 절대값이므로 두 코드 패키지가 모두 1024MB 메모리로 제한됩니다(동일한 값의 소프트 보장 예약). 코드 패키지(컨테이너 또는 프로세스)는 이 제한보다 많은 메모리를 할당할 수 없으며, 할당하려고 하면 메모리 부족 예외가 발생합니다. 리소스 제한 적용이 작동하려면 서비스 패키지 내의 모든 코드 패키지에 메모리 제한이 지정되어 있어야 합니다.
+
+### <a name="using-application-parameters"></a>응용 프로그램 매개 변수 사용
+
+리소스 관리를 지정하는 경우 [응용 프로그램 매개 변수](service-fabric-manage-multiple-environment-app-configuration.md)를 사용하여 여러 앱 구성을 관리할 수 있습니다. 다음 예제에서는 응용 프로그램 매개 변수의 사용법을 보여 줍니다.
+
+```xml
+<?xml version='1.0' encoding='UTF-8'?>
+<ApplicationManifest ApplicationTypeName='TestAppTC1' ApplicationTypeVersion='vTC1' xsi:schemaLocation='http://schemas.microsoft.com/2011/01/fabric ServiceFabricServiceModel.xsd' xmlns='http://schemas.microsoft.com/2011/01/fabric' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'>
+
+  <Parameters>
+    <Parameter Name="CpuCores" DefaultValue="4" />
+    <Parameter Name="CpuSharesA" DefaultValue="512" />
+    <Parameter Name="CpuSharesB" DefaultValue="512" />
+    <Parameter Name="MemoryA" DefaultValue="2048" />
+    <Parameter Name="MemoryB" DefaultValue="2048" />
+  </Parameters>
+
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName='ServicePackageA' ServiceManifestVersion='v1'/>
+    <Policies>
+      <ServicePackageResourceGovernancePolicy CpuCores="[CpuCores]"/>
+      <ResourceGovernancePolicy CodePackageRef="CodeA1" CpuShares="[CpuSharesA]" MemoryInMB="[MemoryA]" />
+      <ResourceGovernancePolicy CodePackageRef="CodeA2" CpuShares="[CpuSharesB]" MemoryInMB="[MemoryB]" />
+    </Policies>
+  </ServiceManifestImport>
+```
+
+이 예제에서는 기본 매개 변수 값이 프로덕션 환경에 대해 설정되며, 각 서비스 패키지에 4개 코어와 2GB의 메모리가 할당됩니다. 응용 프로그램 매개 변수 파일을 사용해 기본값을 변경할 수 있습니다. 이 예제에서는 응용 프로그램을 로컬로 테스트하는 데 하나의 매개 변수 파일을 사용할 수 있습니다. 이 경우 프로덕션 환경보다 리소스가 덜 사용됩니다. 
+
+```xml
+<!-- ApplicationParameters\Local.xml -->
+
+<Application Name="fabric:/TestApplication1" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+  <Parameters>
+    <Parameter Name="CpuCores" DefaultValue="2" />
+    <Parameter Name="CpuSharesA" DefaultValue="512" />
+    <Parameter Name="CpuSharesB" DefaultValue="512" />
+    <Parameter Name="MemoryA" DefaultValue="1024" />
+    <Parameter Name="MemoryB" DefaultValue="1024" />
+  </Parameters>
+</Application>
+```
+
+> [!IMPORTANT] 
+> 응용 프로그램 매개 변수를 사용해서 리소스 관리는 지정하는 방식은 Service Fabric 버전 6.1부터 사용할 수 있습니다.<br> 
+>
+> 리소스 관리를 지정하는 데 응용 프로그램 매개 변수를 사용할 경우 Service Fabric을 버전 6.1 이전 버전으로 다운그레이드할 수 없습니다. 
+
 
 ## <a name="other-resources-for-containers"></a>컨테이너에 대한 기타 리소스
 CPU 및 메모리 외에도 컨테이너의 다른 리소스 한도를 지정할 수 있습니다. 이러한 한도는 코드 패키지 수준에서 지정되며 컨테이너를 시작하면 적용됩니다. CPU 및 메모리와는 달리 클러스터 리소스 관리자는 이러한 리소스를 인식하지 않으며 그에 대한 용량 확인이나 부하 분산을 수행하지 않습니다. 

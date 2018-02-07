@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.workload: tbd
 ms.date: 05/05/2017
 ms.author: mbullwin
-ms.openlocfilehash: c17815db136b404cd0c723cf44cafe46fa681cf6
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: dd35ef2239469be6ecf478f44a7e97389e5c5dd3
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Azure Cloud Services용 Application Insights
 [Application Insights][start]에서 Application Insights SDK의 데이터와 Cloud Services의 [Azure 진단](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) 데이터를 결합하여 [Microsoft Azure Cloud Services 앱](https://azure.microsoft.com/services/cloud-services/)에 대한 가용성, 성능, 오류 및 사용량을 모니터링할 수 있습니다. 앱의 성능 및 효과에 대한 생생한 피드백을 통해 충분한 정보를 바탕으로 각 개발 수명 주기의 디자인 방향을 결정할 수 있습니다.
@@ -116,7 +116,7 @@ Visual Studio에서 각 클라우드 앱 프로젝트에 Application Insights SD
 
     적합한 시작 함수에서 .cscfg 파일의 구성 설정에서 계측 키를 설정합니다.
  
-    ```C#
+    ```csharp
    
      TelemetryConfiguration.Active.InstrumentationKey = RoleEnvironment.GetConfigurationSettingValue("APPINSIGHTS_INSTRUMENTATIONKEY");
     ```

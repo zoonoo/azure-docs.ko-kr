@@ -1,24 +1,19 @@
 ---
 title: "VMware에서 Azure로의 Azure Site Recovery 문제 해결 | Microsoft Docs"
-description: "Azure 가상 컴퓨터를 복제할 때 오류 문제 해결"
+description: "Azure 가상 머신을 복제할 때 오류 문제 해결"
 services: site-recovery
-documentationcenter: 
 author: anoopkv
 manager: gauravd
-editor: 
-ms.assetid: 
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 12/12/2017
+ms.date: 01/11/2018
 ms.author: anoopkv
-ms.openlocfilehash: df8234ad79439245025cb7ecf87a2050960958b2
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: c5566ec44a8bfed0a3e7207c2cebf21517573541
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Mobility Service 푸시 설치 문제 해결
 
@@ -74,13 +69,13 @@ ms.lasthandoff: 12/13/2017
 
 **오류 코드** | **가능한 원인** | **오류 관련 권장 사항**
 --- | --- | ---
-95108 </br>**메시지:** 원본 컴퓨터에 모바일 서비스를 강제 설치하지 못했습니다(오류 코드: **EP0859**). <br>| 모바일 서비스를 설치하기 위해 제공된 자격 증명이 잘못되었거나 사용자 계정에 권한이 부족 <br>| 제공된 자격 증명이 **루트** 계정의 자격 증명인지 확인하세요. [사용자 자격 증명을 추가/편집](site-recovery-vmware-to-azure-manage-configuration-server.md#modify-user-accounts-and-passwords)하려면 구성 서버로 이동하고 바탕 화면에서 "Cspsconfigtool" 바로 가기 아이콘을 클릭합니다. "계정 관리"를 클릭하여 자격 증명을 추가/편집합니다.|
+95108 </br>**메시지:** 원본 컴퓨터에 모바일 서비스를 강제 설치하지 못했습니다(오류 코드: **EP0859**). <br>| 모바일 서비스를 설치하기 위해 제공된 자격 증명이 잘못되었거나 사용자 계정에 권한이 부족 <br>| 제공된 자격 증명이 **루트** 계정의 자격 증명인지 확인하세요. 사용자 자격 증명을 추가/편집하려면 구성 서버로 이동하고 바탕 화면에서 "Cspsconfigtool" 바로 가기 아이콘을 클릭합니다. "계정 관리"를 클릭하여 자격 증명을 추가/편집합니다.|
 
 ## <a name="error-95265---protection-could-not-be-enabled-ep0902"></a>오류 코드 95265 - 보호를 사용하도록 설정할 수 없습니다(EP0902).
 
 **오류 코드** | **가능한 원인** | **오류 관련 권장 사항**
 --- | --- | ---
-95265 </br>**메시지:** 원본 컴퓨터에 모바일 서비스를 강제 설치했지만 일부 시스템 변경 내용을 적용하기 위해 원본 컴퓨터를 다시 시작해야 합니다. <br>| 이전 버전의 모바일 서비스가 서버에 이미 설치되었습니다.| 가상 컴퓨터의 복제가 원활하게 계속됩니다.<br> 다음 유지 관리 기간 동안 서버를 다시 부팅하여 모바일 서비스의 새로운 기능 향상의 이점을 활용합니다.|
+95265 </br>**메시지:** 원본 컴퓨터에 모바일 서비스를 강제 설치했지만 일부 시스템 변경 내용을 적용하기 위해 원본 컴퓨터를 다시 시작해야 합니다. <br>| 이전 버전의 모바일 서비스가 서버에 이미 설치되었습니다.| 가상 머신의 복제가 원활하게 계속됩니다.<br> 다음 유지 관리 기간 동안 서버를 다시 부팅하여 모바일 서비스의 새로운 기능 향상의 이점을 활용합니다.|
 
 
 ## <a name="error-95224---protection-could-not-be-enabled-ep0883"></a>오류 코드 95224 - 보호를 사용하도록 설정할 수 없습니다(EP0883).
@@ -92,13 +87,14 @@ ms.lasthandoff: 12/13/2017
 ## <a name="resource-to-troubleshoot-push-installation-problems"></a>강제 설치 문제를 해결하기 위한 리소스
 
 #### <a name="troubleshoot-file-and-print-sharing-issues"></a>파일 및 프린터 공유 문제 해결
-*  [그룹 정책을 사용하여 파일 공유 사용 또는 사용 안 함](https://technet.microsoft.com/en-us/library/cc754359(v=ws.10).aspx)
-* [Windows 방화벽을 통해 파일 및 인쇄 공유를 사용하는 방법](https://technet.microsoft.com/en-us/library/ff633412(v=ws.10).aspx)
+*  [그룹 정책을 사용하여 파일 공유 사용 또는 사용 안 함](https://technet.microsoft.com/library/cc754359(v=ws.10).aspx)
+* [Windows 방화벽을 통해 파일 및 인쇄 공유를 사용하는 방법](https://technet.microsoft.com/library/ff633412(v=ws.10).aspx)
 
 #### <a name="troubleshoot-wmi-issues"></a>WMI 문제 해결
 * [기본 WMI 테스트](https://blogs.technet.microsoft.com/askperf/2007/06/22/basic-wmi-testing/)
-* [WMI 문제 해결](https://msdn.microsoft.com/en-us/library/aa394603(v=vs.85).aspx)
-* [WMI 스크립트 및 WMI 서비스 관련 문제 해결](https://technet.microsoft.com/en-us/library/ff406382.aspx#H22)
+* [WMI 문제 해결](https://msdn.microsoft.com/library/aa394603(v=vs.85).aspx)
+* [WMI 스크립트 및 WMI 서비스 관련 문제 해결](https://technet.microsoft.com/library/ff406382.aspx#H22)
 
 ## <a name="next-steps"></a>다음 단계
-- [VMware 가상 컴퓨터의 복제 설정](vmware-walkthrough-enable-replication.md)
+
+VMware VM에 대한 재해 복구를 설정하는 [방법을 알아봅니다](tutorial-vmware-to-azure.md).

@@ -5,18 +5,18 @@ services: event-grid
 keywords: 
 author: djrosanova
 ms.author: darosa
-ms.date: 10/11/2017
+ms.date: 01/19/2018
 ms.topic: hero-article
 ms.service: event-grid
-ms.openlocfilehash: d969b44bdfa610b18f3f934b48d987cb1735155f
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: 867953c0aef877b1f1c07d910a8e9350ec2f2176
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="create-and-route-custom-events-with-azure-cli-and-event-grid"></a>Azure CLI 및 Event Grid를 사용하여 사용자 지정 이벤트 만들기 및 라우팅
 
-Azure Event Grid는 클라우드에 대한 이벤트 서비스입니다. 이 문서에서는 Azure CLI를 사용하여 사용자 지정 토픽을 만들고 해당 토픽을 구독하며 이벤트를 트리거하여 결과를 확인합니다. 일반적으로 웹후크 또는 Azure Function과 같은 이벤트에 응답하는 끝점으로 이벤트를 보냅니다. 그러나 이 문서를 간소화하기 위해 이벤트를 메시지를 수집하기만 하는 URL로 보냅니다. 오픈 소스이면서 [RequestBin](https://requestb.in/)이라는 타사 도구를 사용하여 이 URL을 만듭니다.
+Azure Event Grid는 클라우드에 대한 이벤트 서비스입니다. 이 문서에서는 Azure CLI를 사용하여 사용자 지정 토픽을 만들고 해당 토픽을 구독하며 이벤트를 트리거하여 결과를 확인합니다. 일반적으로 웹후크 또는 Azure Function과 같은 이벤트에 응답하는 끝점으로 이벤트를 보냅니다. 그러나 이 문서를 간소화하기 위해 이벤트를 메시지를 수집하기만 하는 URL로 보냅니다. 오픈 소스인 [RequestBin](https://requestb.in/)이라는 타사 도구를 사용하여 이 URL을 만듭니다.
 
 >[!NOTE]
 >**RequestBin**은 높은 처리량 사용을 위해 설계되지 않은 오픈 소스 도구입니다. 여기서는 순전히 시연을 위해서만 이 도구를 사용합니다. 한 번에 둘 이상의 이벤트를 푸시하면 도구에서 모든 이벤트가 표시되지 않을 수 있습니다.
@@ -29,7 +29,7 @@ Azure Event Grid는 클라우드에 대한 이벤트 서비스입니다. 이 문
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 문서에서는 최신 버전의 Azure CLI(2.0.14 이상)을 실행해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치](/cli/azure/install-azure-cli)를 참조하세요.
+CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 문서에서는 최신 버전의 Azure CLI(2.0.24 이상)을 실행해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -53,17 +53,18 @@ az eventgrid topic create --name <topic_name> -l westus2 -g gridResourceGroup
 
 ## <a name="create-a-message-endpoint"></a>메시지 끝점 만들기
 
-토픽을 구독하기 전에 이벤트 메시지에 대한 끝점을 만들어 보겠습니다. 이벤트에 응답하는 코드를 작성하지 않고 메시지를 볼 수 있도록 메시지를 수집하는 끝점을 만들어 보겠습니다. RequestBin은 오픈 소스이면서 타사 도구로, 이 도구를 통해 끝점을 만들고 끝점에 전송된 요청을 볼 수 있습니다. [RequestBin](https://requestb.in/)으로 이동하고 **RequestBin 만들기**를 클릭합니다.  토픽을 구독할 때 필요하기 때문에 bin URL을 복사합니다.
+토픽을 구독하기 전에 이벤트 메시지에 대한 끝점을 만들어 보겠습니다. 이벤트에 응답하는 코드를 작성하지 않고 메시지를 볼 수 있도록 메시지를 수집하는 끝점을 만들어 보겠습니다. 오픈 소스인 RequestBin은 타사 도구로, 이 도구를 통해 끝점을 만들고 끝점에 전송된 요청을 볼 수 있습니다. [RequestBin](https://requestb.in/)으로 이동하고 **RequestBin 만들기**를 클릭합니다.  토픽을 구독할 때 필요하기 때문에 bin URL을 복사합니다.
 
 ## <a name="subscribe-to-a-topic"></a>토픽 구독
 
 토픽을 구독하여 Event Grid에 추적하려는 이벤트를 알립니다. 다음 예제에서는 사용자가 만든 토픽을 구독하고 RequestBin의 URL을 이벤트 알림에 대한 끝점으로 전달합니다. `<event_subscription_name>`을 구독의 고유한 이름으로, `<URL_from_RequestBin>`을 이전 섹션의 값으로 바꿉니다. 구독할 때 끝점을 지정하면 Event Grid에서 해당 끝점으로 이벤트 라우팅을 처리합니다. `<topic_name>`에는 앞에서 만든 값을 사용합니다. 
 
 ```azurecli-interactive
-az eventgrid topic event-subscription create --name <event_subscription_name> \
-  --endpoint <URL_from_RequestBin> \
+az eventgrid event-subscription create \
   -g gridResourceGroup \
-  --topic-name <topic_name>
+  --topic-name <topic_name> \
+  --name <event_subscription_name> \
+  --endpoint <URL_from_RequestBin>
 ```
 
 ## <a name="send-an-event-to-your-topic"></a>토픽에 이벤트 보내기
@@ -118,5 +119,5 @@ az group delete --name gridResourceGroup
 
 - [Event Grid 정보](overview.md)
 - [Blob Storage 이벤트를 사용자 지정 웹 끝점으로 라우팅](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)
-- [Azure Event Grid 및 Logic Apps를 사용하여 가상 컴퓨터 변경 모니터링](monitor-virtual-machine-changes-event-grid-logic-app.md)
+- [Azure Event Grid 및 Logic Apps를 사용하여 가상 머신 변경 모니터링](monitor-virtual-machine-changes-event-grid-logic-app.md)
 - [데이터 웨어하우스로 빅 데이터 스트림](event-grid-event-hubs-integration.md)

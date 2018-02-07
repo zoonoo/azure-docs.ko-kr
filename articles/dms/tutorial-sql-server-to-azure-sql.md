@@ -10,12 +10,12 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 11/17/2017
-ms.openlocfilehash: 3e7e80d58a3eb27920736a1594633021b90014e9
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.date: 01/24/2018
+ms.openlocfilehash: 06d7023f225698400509449e59bdcb827becc644
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="migrate-sql-server-to-azure-sql-database"></a>Azure SQL Database로 SQL Server 마이그레이션
 Azure Database Migration Service를 사용하여 온-프레미스 SQL Server 인스턴스에서 Azure SQL Database로 데이터베이스를 마이그레이션할 수 있습니다. 이 자습서에서는 Azure Database Migration Service를 사용하여 SQL Server 2016 이상의 온-프레미스 인스턴스로 복원된 **Adventureworks2012** 데이터베이스를 Azure SQL Database로 마이그레이션합니다.
@@ -34,13 +34,15 @@ Azure Database Migration Service를 사용하여 온-프레미스 SQL Server 인
 
 - [SQL Server 2016 이상](https://www.microsoft.com/sql-server/sql-server-downloads)(모든 버전)을 다운로드 및 설치합니다.
 - 문서 [서버 네트워크 프로토콜 사용 또는 사용 안 함](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure)의 지침을 수행하여 SQL Server Express를 설치하는 동안 기본적으로 사용 안 함으로 설정되어 있는 TCP/IP 프로토콜을 사용하도록 설정합니다.
-- [데이터베이스 엔진 액세스를 위한 Windows 방화벽](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access)을 구성합니다.
 - [Azure Portal에서 Azure SQL Database 만들기](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal) 문서의 세부 지침을 수행하여 Azure SQL Database 인스턴스를 만듭니다.
 - [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) v3.3 이상을 다운로드 및 설치합니다.
 - Azure Resource Manager 배포 모델을 사용하여 Azure Database Migration Service용 VNET을 만듭니다. 이를 통해 [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) 또는 [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways)을 사용하여 온-프레미스 원본 서버에서 사이트 간 연결을 제공합니다.
+- Azure VNET(Virtual Network) 네트워크 보안 그룹 규칙이 443, 53, 9354, 445, 12000과 같은 통신 포트를 차단하지 않는지 확인합니다. Azure VNET NSG 트래픽 필터링에 대한 자세한 정보는 [네트워크 보안 그룹을 사용하여 네트워크 트래픽 필터링](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-nsg) 문서를 참조하세요.
+- [데이터베이스 엔진 액세스를 위한 Windows 방화벽](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access)을 구성합니다.
+- Azure Database Migration Service가 원본 SQL Server에 액세스하도록 허용하려면 Windows 방화벽을 엽니다.
+- 대상 데이터베이스에 대한 Azure Database Migration Service 액세스를 허용하도록 Azure SQL Database 서버에 서버 수준 [방화벽 규칙](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-firewall-configure)을 만듭니다. Azure Database Migration Service에 사용되는 VNET의 서브넷 범위를 제공합니다.
 - 원본 SQL Server 인스턴스에 연결하는 데 사용되는 자격 증명에는 [CONTROL SERVER](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql) 권한이 있어야 합니다.
 - 대상 Azure SQL Database 인스턴스에 연결하는 데 사용되는 자격 증명에는 대상 Azure SQL DB에 대한 CONTROL DATABASE 권한이 있어야 합니다.
-- Azure Database Migration Service가 원본 SQL Server에 액세스하도록 허용하려면 Windows 방화벽을 엽니다.
 
 ## <a name="assess-your-on-premises-database"></a>온-프레미스 데이터베이스 평가
 온-프레미스 SQL Server 인스턴스에서 Azure SQL Database로 데이터를 마이그레이션하려면 먼저 마이그레이션을 차단할 수 있는 차단 문제가 있는지 SQL Server 데이터베이스를 평가해야 합니다. Data Migration Assistant v3.3 이상에서 [SQL Server 마이그레이션 평가 수행](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem) 문서에 설명된 단계를 수행하여 온-프레미스 데이터베이스 평가를 완료합니다. 필수 단계의 요약은 다음과 같습니다.

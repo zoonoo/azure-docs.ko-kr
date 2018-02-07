@@ -14,22 +14,22 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/31/2017
 ms.author: dekapur
-ms.openlocfilehash: e1a45f9924291382bb1bbdc969e97ee54a7b6132
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 095db20e7d22bd517337f24fc9a81b84988d1465
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="add-the-oms-agent-to-a-cluster"></a>OMS 에이전트를 클러스터에 추가
 
-이 문서에서는 OMS 에이전트를 가상 컴퓨터 확장 집합의 확장 기능으로 클러스터에 추가하고 이를 기존의 OMS Log Analytics 작업 영역에 연결하는 단계를 설명합니다. 이를 통해 컨테이너, 응용 프로그램 및 성능 모니터링에 대한 진단 데이터를 수집할 수 있습니다. Azure Resource Manager를 확장자로 추가하면 클러스터 확장 시에도 모든 노드에 설치됩니다.
+이 문서에서는 OMS 에이전트를 가상 머신 확장 집합의 확장 기능으로 클러스터에 추가하고 이를 기존의 OMS Log Analytics 작업 영역에 연결하는 단계를 설명합니다. 이를 통해 컨테이너, 응용 프로그램 및 성능 모니터링에 대한 진단 데이터를 수집할 수 있습니다. Azure Resource Manager를 확장자로 추가하면 클러스터 확장 시에도 모든 노드에 설치됩니다.
 
 > [!NOTE]
 > 이 문서는 OMS Log Analytics 작업 영역이 이미 설정되었다고 가정합니다. 그렇지 않은 경우 [OMS Log Analytics 설정](service-fabric-diagnostics-oms-setup.md)을 참조하세요.
 
 ## <a name="add-the-agent-extension-via-azure-cli"></a>Azure CLI를 통해 에이전트 확장 추가
 
-OMS 에이전트를 클러스터에 추가하는 가장 좋은 방법은 Azure CLI로 제공되는 가상 컴퓨터 확장 집합 API를 통하는 것입니다. 아직 Azure CLI가 설정되지 않은 경우 Azure Portal로 이동하여 [Cloud Shell](../cloud-shell/overview.md) 인스턴스를 열거나 [Azure CLI 2.0을 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)합니다.
+OMS 에이전트를 클러스터에 추가하는 가장 좋은 방법은 Azure CLI로 제공되는 가상 머신 확장 집합 API를 통하는 것입니다. 아직 Azure CLI가 설정되지 않은 경우 Azure Portal로 이동하여 [Cloud Shell](../cloud-shell/overview.md) 인스턴스를 열거나 [Azure CLI 2.0을 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)합니다.
 
 1. Cloud Shell이 요청되면 리소스와 동일한 구독에서 작업 중인지 확인합니다. `az account show`로 이를 확인하여 "name" 값이 클러스터 구독의 값과 일치하는지 확인합니다.
 
@@ -52,7 +52,7 @@ OMS 에이전트를 클러스터에 추가하는 가장 좋은 방법은 Azure C
     Linux 클러스터의 경우:
 
     ```sh
-    az vmss extension set --name OmsAgentForLinux --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group <nameOfResourceGroup> --vmss-name <nameOfNodeType> --settings "{'workspaceId'}":'<OMSworkspaceId>'}" --protected-settings "{'workspaceKey':'<OMSworkspaceKey>'}"
+    az vmss extension set --name OmsAgentForLinux --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group <nameOfResourceGroup> --vmss-name <nameOfNodeType> --settings "{'workspaceId':'<OMSworkspaceId>'}" --protected-settings "{'workspaceKey':'<OMSworkspaceKey>'}"
     ```
 
     다음은 Windows 클러스터에 OMS 에이전트를 추가하는 예입니다.

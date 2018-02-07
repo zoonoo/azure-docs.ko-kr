@@ -1,6 +1,6 @@
 ---
 title: "Azure AD Android 시작 | Microsoft Docs"
-description: "로그인을 위해 Azure AD와 통합되고 OAuth를 사용하여 Azure AD로 보호되는 API를 호출하는 Android 응용 프로그램 빌드 방법입니다."
+description: "로그인을 위해 Azure AD와 통합되고 OAuth 2.0을 사용하여 Azure AD로 보호되는 API를 호출하는 Android 응용 프로그램 빌드 방법"
 services: active-directory
 documentationcenter: android
 author: danieldobalian
@@ -12,22 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 11/30/2017
 ms.author: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: 1ea39854766332a87eae4f44f52a4853848d2120
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 619334b3ca65654fd845a62c2fc068156d94d6fc
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
-# <a name="integrate-azure-ad-into-an-android-app"></a>Android 앱에 Azure AD 통합
+# <a name="azure-ad-android-getting-started"></a>Azure AD Android 시작
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
-
-> [!TIP]
-> 몇 분 안에 Azure AD를 실행할 수 있는 새로운 [개발자 포털](https://identity.microsoft.com/Docs/Android)의 미리 보기를 사용해 보세요. 개발자 포털은 앱을 등록하고 코드에 Azure AD를 통합하는 과정을 안내합니다. 이 과정을 완료하면 테넌트에서 사용자를 인증할 수 있는 간단한 응용 프로그램 및 토큰을 수락하고 유효성 검사를 수행할 수 있는 백 엔드가 생성됩니다.
->
->
 
 데스크톱 응용 프로그램을 개발하는 경우 Azure AD(Azure Active Directory)를 사용하면 간단하고 편리하게 온-프레미스 Active Directory 계정을 사용하여 사용자를 인증할 수 있습니다. 또한 응용 프로그램에서 Office 365 API 또는 Azure API와 같이 Azure AD를 통해 보호되는 웹 API를 안전하게 사용할 수 있습니다.
 
@@ -55,7 +50,7 @@ Active Directory는 두 가지 유형의 응용 프로그램 추가를 지원합
 
 앞에서 참조한 TODO REST API를 등록하는 중이라고 가정합니다. 하지만 Azure Active Directory에서 보호하려는 모든 Web API에서 작동합니다.
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 위쪽 막대에서 계정을 클릭합니다. **디렉터리** 목록에서 응용 프로그램을 등록할 Azure AD 테넌트를 선택합니다.
 3. 왼쪽 창에서 **더 많은 서비스**를 클릭하고 **Azure Active Directory**를 선택합니다.
 4. **앱 등록**을 클릭하고 **추가**를 선택합니다.
@@ -73,7 +68,7 @@ Active Directory는 두 가지 유형의 응용 프로그램 추가를 지원합
 > [!NOTE]
 > 한 테넌트에 응용 프로그램과 Web API를 모두 배치하는 이유가 궁금할 수 있습니다. 짐작할 수에 있는 것처럼 다른 테넌트에서 Azure AD에 등록된 외부 API에 액세스하는 앱을 빌드할 수 있습니다. 이렇게 하면 응용 프로그램에서 API 사용에 동의할지 묻는 메시지가 표시됩니다. iOS용 Active Directory 인증 라이브러리가 자동으로 동의 과정을 진행합니다. 고급 기능을 좀 더 살펴보게 되면 다른 서비스 공급자는 물론 Azure 및 Office에서 Microsoft API 모음에 액세스하는 데 필요한 작업의 중요한 부분이라는 것을 알 수 있게 될 것입니다. 이제 Web API와 응용 프로그램을 동일한 테넌트에서 등록했으므로 동의를 묻는 메시지는 표시되지 않습니다. 일반적으로 회사를 위해서만 응용 프로그램을 개발하는 경우가 여기에 해당합니다.
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 위쪽 막대에서 계정을 클릭합니다. **디렉터리** 목록에서 응용 프로그램을 등록할 Azure AD 테넌트를 선택합니다.
 3. 왼쪽 창에서 **더 많은 서비스**를 클릭하고 **Azure Active Directory**를 선택합니다.
 4. **앱 등록**을 클릭하고 **추가**를 선택합니다.

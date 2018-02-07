@@ -16,17 +16,17 @@ ms.workload: infrastructure
 ms.date: 11/29/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: c6193c63e6efaa4b6472b7de1a042dc4f58b42d3
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: ba0a0c336fbdab91121f5c4bff00b24c1088bd8a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-a-windows-virtual-machine-with-powershell"></a>PowerShell을 사용하여 Windows 가상 머신 만들기
 
 PowerShell 명령줄 또는 스크립트에서 Azure 리소스를 만들고 관리하는 데 Azure PowerShell 모듈이 사용됩니다. 이 빠른 시작에서는 PowerShell을 사용하여 Windows Server 2016이 실행되는 Azure Virtual Machine을 만드는 방법을 자세히 설명합니다. 배포가 완료되면 서버에 연결하고 IIS를 설치합니다.  
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
@@ -52,7 +52,7 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 ```azurepowershell-interactive
 New-AzureRmVm `
     -ResourceGroupName "myResourceGroup" `
-    -Name "myVM" `
+    -Name "myVM$(Get-Random)" `
     -Location "East US" `
     -VirtualNetworkName "myVnet" `
     -SubnetName "mySubnet" `

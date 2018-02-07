@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: bradsev
-ms.openlocfilehash: bbf969927e96053df055ac6e347bb8fb746054c8
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: fed2e9af3e9765ce5a2486fe9468d3ca690a0d5d
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>Azure Data Factory를 사용하여 온-프레미스 SQL Server에서 SQL Azure로 데이터 이동
 이 토픽에서는 ADF(Azure Data Factory)를 사용하여 Azure Blob Storage를 통해 온-프레미스 SQL Server Database에서 SQL Azure Database로 데이터를 이동하는 방법을 보여 줍니다.
@@ -67,7 +67,7 @@ ADF에서는 정기적으로 데이터 이동을 관리하는 간단한 JSON 스
 자신의 데이터 집합에 여기에 제공된 절차를 도입하거나 NYC Taxi 데이터 집합을 사용하여 설명된 대로 단계를 따릅니다. NYC Taxi 데이터 집합을 온-프레미스 SQL Server 데이터베이스에 업로드하려면 [SQL Server Database로 대량 데이터 가져오기](sql-walkthrough.md#dbload)에 설명된 절차를 따릅니다. 이러한 지침은 Azure Virtual Machine의 SQL Server에 대한 내용이지만 온-프레미스 SQL Server로 업로드하는 절차는 동일합니다.
 
 ## <a name="create-adf"></a> Azure 데이터 팩터리 만들기
-[Azure Portal](https://portal.azure.com/)에서 새 Azure Data Factory 및 리소스 그룹을 만들기 위한 지침은 [Azure Data Factory 만들기](../../data-factory/v1/data-factory-build-your-first-pipeline-using-editor.md#create-data-factory)에서 제공됩니다. 새 ADF 인스턴스의 이름은 *adfdsp*이고 생성된 리소스 그룹은 *adfdsprg*입니다.
+[Azure Portal](https://portal.azure.com/)에서 새 Azure Data Factory 및 리소스 그룹을 만들기 위한 지침은 [Azure Data Factory 만들기](../../data-factory/v1/data-factory-build-your-first-pipeline-using-editor.md#create-a-data-factory)에서 제공됩니다. 새 ADF 인스턴스의 이름은 *adfdsp*이고 생성된 리소스 그룹은 *adfdsprg*입니다.
 
 ## <a name="install-and-configure-up-the-data-management-gateway"></a>데이터 관리 게이트웨이 설치 및 구성
 온-프레미스 SQL Server와 작업하도록 Azure Data Factory의 파이프라인을 활성화하려면 데이터 팩터리에 대해 연결된 서비스로 추가해야 합니다. 온-프레미스 SQL Server에 대한 연결된 서비스를 만들려면 다음을 수행해야 합니다.

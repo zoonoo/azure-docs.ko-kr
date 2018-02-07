@@ -12,17 +12,17 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/26/2017
+ms.date: 01/22/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: de67512a9b03095b793fc82f3b0c348577511d5f
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 3b09e676a26336d1ef1e744f9e45066c4815fe21
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="deploy-a-service-fabric-linux-cluster-into-an-azure-virtual-network"></a>Azure 가상 네트워크에 Service Fabric Linux 클러스터 배포
-이 자습서는 시리즈의 1부입니다. Azure CLI를 사용하여 기존 Azure VNET(가상 네트워크)에 Linux Service Fabric 클러스터를 배포하는 방법을 알아봅니다. 작업이 완료되면 응용 프로그램을 배포할 수 있는, 클라우드에서 실행되는 클러스터가 생깁니다. PowerShell을 사용하여 Windows 클러스터를 만들려면 [Azure에서 보안 Windows 클러스터 만들기](service-fabric-tutorial-create-vnet-and-windows-cluster.md)를 참조하세요.
+이 자습서는 시리즈의 1부입니다. Azure CLI 및 템플릿을 사용하여 [Azure VNET(가상 네트워크)](../virtual-network/virtual-networks-overview.md) 및 [NSG(네트워크 보안 그룹)](../virtual-network/virtual-networks-nsg.md)에 Linux Service Fabric 클러스터를 배포하는 방법을 알아봅니다. 작업이 완료되면 응용 프로그램을 배포할 수 있는, 클라우드에서 실행되는 클러스터가 생깁니다. PowerShell을 사용하여 Windows 클러스터를 만들려면 [Azure에서 보안 Windows 클러스터 만들기](service-fabric-tutorial-create-vnet-and-windows-cluster.md)를 참조하세요.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -48,98 +48,111 @@ ms.lasthandoff: 12/07/2017
 
 다음 절차에서는 5노드 Service Fabric 클러스터를 만듭니다. Azure에서 Service Fabric 클러스터를 실행할 때 발생하는 비용을 계산하려면 [Azure 가격 계산기](https://azure.microsoft.com/pricing/calculator/)를 사용합니다.
 
-## <a name="introduction"></a>소개
-이 자습서에서는 단일 노드 형식인 5개 노드의 클러스터를 Azure에 있는 가상 네트워크에 배포합니다.
-
+## <a name="key-concepts"></a>주요 개념
 [Service Fabric 클러스터](service-fabric-deploy-anywhere.md): 마이크로 서비스가 배포되고 관리되는 네트워크로 연결된 가상 또는 실제 컴퓨터 집합입니다. 클러스터의 규모를 컴퓨터 수천 대로 확장할 수 있습니다. 클러스터의 일부인 컴퓨터나 VM을 노드라고 합니다. 각 노드는 노드 이름(문자열)에 할당됩니다. 노드는 배치 속성과 같은 특징이 있습니다.
 
 클러스터의 가상 머신 집합에 대한 크기, 번호 및 속성이 노드 형식에 정의됩니다. 모든 정의된 노드 형식은 [가상 머신 확장 집합](/azure/virtual-machine-scale-sets/)으로 설정되며, 이는 가상 머신의 컬렉션을 집합으로 배포하고 관리하는 데 사용하는 Azure 계산 리소스입니다. 각 노드 형식은 독립적으로 확장 또는 축소되고, 다른 포트의 집합을 열며 다른 용량 메트릭을 가질 수 있습니다. 노드 형식은 "프런트 엔드" 또는 "백 엔드"와 같은 클러스터 노드 집합에 대한 역할을 정의하는 데 사용됩니다.  클러스터에 둘 이상의 노드 형식이 있을 수 있지만 주 노드 형식에는 프로덕션 클러스터에 대한 최소 5개의 VM(또는 테스트 클러스터에 대한 최소 3개의 VM)이 있어야 합니다.  [Service Fabric 시스템 서비스](service-fabric-technical-overview.md#system-services)는 주 노드 형식의 노드에 배치됩니다.
 
-## <a name="cluster-capacity-planning"></a>클러스터 용량 계획
-이 자습서에서는 단일 노드 형식인 5개 노드의 클러스터를 배포합니다.  프로덕션 클러스터 배포의 경우 용량 계획은 중요한 단계입니다. 다음은 해당 프로세스의 일부로 고려해야 할 몇 가지 사항입니다.
+클러스터는 클러스터 인증서로 보호됩니다. 클러스터 인증서는 노드 간 통신을 보호하고 관리 클라이언트에 클러스터 관리 끝점을 인증하는 데 사용되는 X.509 인증서입니다.  클러스터 인증서는 HTTPS 관리 API 및 HTTPS를 통한 Service Fabric Explorer용 SSL도 제공합니다. 자체 서명된 인증서는 테스트 클러스터에 유용합니다.  프로덕션 클러스터의 경우 클러스터 인증서로 CA(인증 기관)의 인증서를 사용합니다.
 
-- 클러스터에 필요한 노드 형식 수 
-- 각 노드 유형의 속성(예: 크기, 기본, 인터넷 연결 및 VM 수)
-- 클러스터의 안정성 및 지속성 특성
-
-자세한 내용은 [클러스터 용량 계획 고려 사항](service-fabric-cluster-capacity.md)을 참조하세요.
-
-## <a name="sign-in-to-azure-and-select-your-subscription"></a>Azure에 로그인 및 구독 선택
-이 가이드에서는 Azure CLI를 사용합니다. 새 세션을 시작하는 경우 Azure 명령을 실행하기 전에 Azure 계정에 로그인하고 구독을 선택합니다.
- 
-다음 스크립트를 실행하여 Azure 계정에 로그인하고 구독을 선택합니다.
-
-```azurecli
-az login
-az account set --subscription <guid>
-```
-
-## <a name="create-a-resource-group"></a>리소스 그룹 만들기
-배포에 새 리소스 그룹을 만들고 이름과 위치를 지정합니다.
-
-```azurecli
-ResourceGroupName="sflinuxclustergroup"
-Location="southcentralus"
-az group create --name $ResourceGroupName --location $Location
-```
-
-## <a name="deploy-the-network-topology"></a>네트워크 토폴로지를 배포합니다.
-다음으로, API Management 및 Service Fabric 클러스터가 배포될 네트워크 토폴로지를 설정합니다. [network.json][network-arm] Resource Manager 템플릿은 VNET(가상 네트워크), Service Fabric에 대한 서브넷 및 NSG(네트워크 보안 그룹), API Management에 대한 서브넷 및 NSG를 만들도록 구성되었습니다. VNET, 서브넷 및 NSG에 대한 자세한 내용은 [여기](../virtual-network/virtual-networks-overview.md)를 참조하세요.
-
-[network.parameters.json][network-parameters-arm] 매개 변수 파일에는 Service Fabric 및 API Management가 배포되는 서브넷 및 NSG의 이름이 포함되어 있습니다.  API Management는 [다음 자습서](service-fabric-tutorial-deploy-api-management.md)에서 배포됩니다. 이 가이드에서는 매개 변수 값을 변경할 필요가 없습니다. 이러한 값은 Service Fabric Resource Manager 템플릿에서 사용됩니다.  여기서 값은 수정하는 경우 이 자습서 및 [API Management 배포 자습서](service-fabric-tutorial-deploy-api-management.md)에서 사용된 다른 Resource Manager 템플릿에서 수정해야 합니다. 
-
-다음 Resource Manager 템플릿 및 매개 변수 파일을 다운로드합니다.
-- [network.json][network-arm]
-- [network.parameters.json][network-parameters-arm]
-
-다음 스크립트를 사용하여 네트워크 설정에 대해 Resource Manager 템플릿 및 매개 변수 파일을 배포합니다.
-
-```azurecli
-az group deployment create \
-    --name VnetDeployment \
-    --resource-group $ResourceGroupName \
-    --template-file network.json \
-    --parameters @network.parameters.json
-```
-<a id="createvaultandcert" name="createvaultandcert_anchor"></a>
-## <a name="deploy-the-service-fabric-cluster"></a>Service Fabric 클러스터 배포
-네트워크 리소스에서 배포가 완료되면 다음 단계는 Service Fabric 클러스터용으로 지정된 서브넷 및 NSG의 VNET에 Service Fabric 클러스터를 배포하는 것입니다. 이 문서의 앞부분에서 배포된 기존 VNET과 서브넷에 클러스터를 배포하려면 Resource Manager 템플릿이 필요합니다.  자세한 내용은 [Azure Resource Manager를 사용하여 클러스터 만드기](service-fabric-cluster-creation-via-arm.md)를 참조하세요. 이 자습서 시리즈에서는 이전 단계에서 설정한 VNET, 서브넷 및 NSG의 이름을 사용하도록 템플릿을 미리 구성했습니다.  
-
-다음 Resource Manager 템플릿 및 매개 변수 파일을 다운로드합니다.
-- [linuxcluster.json][cluster-arm]
-- [linuxcluster.parameters.json][cluster-parameters-arm]
-
-이 템플릿을 사용하여 보안 클러스터를 만듭니다.  클러스터 인증서는 노드 간 통신을 보호하고 관리 클라이언트에 클러스터 관리 끝점을 인증하는 데 사용되는 X.509 인증서입니다.  클러스터 인증서는 HTTPS 관리 API 및 HTTPS를 통한 Service Fabric Explorer용 SSL도 제공합니다. Azure Key Vault는 Azure에서 서비스 패브릭 클러스터에 대한 인증서를 관리하는 데 사용됩니다.  클러스터를 Azure에 배포할 때 서비스 패브릭 클러스터 생성을 담당하는 Azure 리소스 공급자는 주요 자격 증명 모음에서 인증서를 가져와 클러스터 VM에 설치합니다. 
-
-CA(인증 기관)의 인증서를 클러스터 인증서로 사용할 수도 있고 자체 서명된 인증서를 만들어서 테스트 용도로 사용할 수도 있습니다. 클러스터 인증서는 다음 조건을 충족해야 합니다.
+클러스터 인증서는 다음 조건을 충족해야 합니다.
 
 - 개인 키를 포함해야 합니다.
 - 키 교환을 위해 만들어야 합니다. 이 인증서는 개인 정보 교환(.pfx) 파일로 내보낼 수 있습니다.
 - 인증서의 주체 이름이 Service Fabric 클러스터 액세스에 사용되는 도메인과 일치해야 합니다. 클러스터의 HTTPS 관리 끝점 및 Service Fabric Explorer에 대해 SSL을 제공하려면 이렇게 일치해야 합니다. .cloudapp.azure.com 도메인에 사용되는 SSL 인증서는 CA(인증 기관)에서 얻을 수 없습니다.  클러스터에 대한 사용자 지정 도메인 이름을 획득해야 합니다. CA에서 인증서를 요청하는 경우 인증서의 주체 이름이 클러스터에 사용되는 사용자 지정 도메인 이름과 일치해야 합니다.
 
-배포를 위해 *linuxcluster.parameters.json* 파일에 빈 매개 변수를 입력합니다.
+Azure Key Vault는 Azure에서 서비스 패브릭 클러스터에 대한 인증서를 관리하는 데 사용됩니다.  클러스터를 Azure에 배포할 때 서비스 패브릭 클러스터 생성을 담당하는 Azure 리소스 공급자는 주요 자격 증명 모음에서 인증서를 가져와 클러스터 VM에 설치합니다.
 
-|매개 변수|값|
-|---|---|
-|adminPassword|Password#1234|
-|adminUserName|vmadmin|
-|clusterName|mysfcluster|
+이 자습서에서는 단일 노드 형식인 5개 노드로 클러스터를 배포합니다. 그러나 프로덕션 클러스터 배포의 경우 [용량 계획](service-fabric-cluster-capacity.md)은 중요한 단계입니다. 다음은 해당 프로세스의 일부로 고려해야 할 몇 가지 사항입니다.
 
-자체 서명된 인증서를 만들려는 경우 **certificateThumbprint**, **certificateUrlValue** 및 **sourceVaultValue** 매개 변수를 비워 둡니다.  이전에 키 자격 증명 모음에 업로드된 기존 인증서를 사용하려면 해당 매개 변수 값을 입력합니다.
+- 클러스터에 필요한 노드 및 노드 형식 수 
+- 각 노드 유형의 속성(예: 크기, 기본, 인터넷 연결 및 VM 수)
+- 클러스터의 안정성 및 지속성 특성
 
-다음 스크립트는 [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest#az_sf_cluster_create) 명령 및 템플릿을 사용하여 Azure에 새 클러스터를 배포합니다. 또한 이 cmdlet은 Azure에 새로운 키 자격 증명 모음을 만들고, 키 자격 증명 모음에 자체 서명된 인증서를 추가하고, 인증서 파일을 로컬로 다운로드합니다. [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest#az_sf_cluster_create)의 다른 매개 변수를 사용하여 기존 인증서 및/또는 키 자격 증명 모음을 지정할 수 있습니다.
+## <a name="download-and-explore-the-template"></a>템플릿 다운로드 및 탐색
+다음 Resource Manager 템플릿 파일을 다운로드합니다.
+- [vnet-linuxcluster.json][template]
+- [vnet-linuxcluster.parameters.json][parameters]
+
+[vnet-linuxcluster.json][template]은 다음을 포함한 숫자 리소스를 배포합니다.
+
+### <a name="service-fabric-cluster"></a>Service Fabric 클러스터
+Linux 클러스터는 다음과 같은 특성으로 배포됩니다.
+- 단일 노드 형식 
+- 기본 노드 형식에서 5개의 노드(템플릿 매개 변수에서 구성 가능)
+- OS: Ubuntu 16.04 LTS(템플릿 매개 변수에서 구성 가능)
+- 보안된 인증서(템플릿 매개 변수에서 구성 가능)
+- [DNS 서비스](service-fabric-dnsservice.md) 사용함
+- 브론즈의 [내구성 수준](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster)(템플릿 매개 변수에서 구성 가능)
+- 실버의 [안정성 수준](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster)(템플릿 매개 변수에서 구성 가능)
+- 클라이언트 연결 엔드포인트: 19000(템플릿 매개 변수에서 구성 가능)
+- HTTP 게이트웨이 엔드포인트: 19080(템플릿 매개 변수에서 구성 가능)
+
+### <a name="azure-load-balancer"></a>Azure Load Balancer
+부하 분산 장치가 배포되고 다음 포트에 대해 프로브 및 규칙을 설정합니다.
+- 클라이언트 연결 엔드포인트: 19000
+- HTTP 게이트웨이 엔드포인트 19080 
+- 응용 프로그램 포트: 80
+- 응용 프로그램 포트: 443
+
+### <a name="virtual-network-subnet-and-network-security-group"></a>가상 네트워크, 서브넷 및 네트워크 보안 그룹
+가상 네트워크, 서브넷 및 네트워크 보안 그룹의 이름은 템플릿 매개 변수에서 선언됩니다.  가상 네트워크 및 서브넷의 주소 공간은 템플릿 매개 변수에서 선언됩니다.
+- 가상 네트워크 주소 공간: 10.0.0.0/16
+- Service Fabric 서브넷 주소 공간: 10.0.2.0/24
+
+네트워크 보안 그룹에서 다음과 같은 인바운드 트래픽 규칙이 활성화됩니다. 템플릿 변수를 변경하여 포트 값을 변경할 수 있습니다.
+- ClientConnectionEndpoint(TCP): 19000
+- HttpGatewayEndpoint(HTTP/TCP): 19080
+- SMB: 445
+- Internodecommunication - 1025, 1026, 1027
+- 임시 포트 범위 – 49152~65534(최소 256 포트 필요)
+- 응용 프로그램 사용에 대한 포트: 80 및 443
+- 응용 프로그램 포트 범위 – 49152~65534(서비스 간 통신에 사용되며 부하 분산 장치에서 열리지 않음)
+- 다른 모든 포트 차단
+
+다른 응용 프로그램 포트가 필요한 경우 트래픽을 허용하도록 Microsoft.Network/loadBalancers 리소스 및 Microsoft.Network/networkSecurityGroups 리소스를 조정해야 합니다.
+
+## <a name="set-template-parameters"></a>템플릿 매개 변수 설정
+[vnet-cluster.parameters.json][parameters] 매개 변수 파일은 클러스터 및 연결된 리소스를 배포하는 데 사용되는 많은 값을 선언합니다. 배포에 대해 수정해야 할 수 있는 매개 변수 중 일부는 다음과 같습니다.
+
+|매개 변수|예제 값|메모|
+|---|---||
+|adminUserName|vmadmin| 클러스터 VM에 대한 관리자 사용자 이름입니다. |
+|adminPassword|Password#1234| 클러스터 VM에 대한 관리자 암호입니다.|
+|clusterName|mysfcluster123| 클러스터의 이름입니다. |
+|location|southcentralus| 클러스터의 위치입니다. |
+|certificateThumbprint|| <p>자체 서명된 인증서를 만들거나 인증서 파일을 제공하는 경우 값은 비워두어야 합니다.</p><p>이전에 키 자격 증명 모음에 업로드된 기존 인증서를 사용하려면 인증서 지문 값을 입력합니다. 예를 들면 "6190390162C988701DB5676EB81083EA608DCCF3"과 같습니다. </p>| 
+|certificateUrlValue|| <p>자체 서명된 인증서를 만들거나 인증서 파일을 제공하는 경우 값은 비워두어야 합니다.</p><p>이전에 키 자격 증명 모음에 업로드된 기존 인증서를 사용하려면 인증서 URL을 입력합니다. 예를 들면 "https://mykeyvault.vault.azure.net:443/secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346"과 같습니다.</p>|
+|sourceVaultValue||<p>자체 서명된 인증서를 만들거나 인증서 파일을 제공하는 경우 값은 비워두어야 합니다.</p><p>이전에 키 자격 증명 모음에 업로드된 기존 인증서를 사용하려면 원본 자격 증명 모음 값을 입력합니다. 예를 들면 "/subscriptions/333cc2c84-12fa-5778-bd71-c71c07bf873f/resourceGroups/MyTestRG/providers/Microsoft.KeyVault/vaults/MYKEYVAULT"와 같습니다.</p>|
+
+
+<a id="createvaultandcert" name="createvaultandcert_anchor"></a>
+
+## <a name="deploy-the-virtual-network-and-cluster"></a>가상 네트워크 및 클러스터 배포
+다음으로 네트워크 토폴로지를 설정하고 Service Fabric 클러스터를 배포합니다. [vnet-linuxcluster.json][template] Resource Manager 템플릿은 VNET(가상 네트워크)과 Service Fabric에 대한 서브넷 및 NSG(네트워크 보안 그룹)를 만듭니다. 템플릿은 활성화된 인증서 보안으로 클러스터도 배포합니다.  프로덕션 클러스터의 경우 클러스터 인증서로 CA(인증 기관)의 인증서를 사용합니다. 테스트 클러스터를 보호하는 데 자체 서명된 인증서를 사용할 수 있습니다.
+
+다음 스크립트는 [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest#az_sf_cluster_create) 명령 및 템플릿을 사용하여 기존 인증서로 보호된 새 클러스터를 배포합니다. 또한 명령은 Azure에서 새 키 자격 증명 모음을 만들고 인증서를 업로드합니다.
 
 ```azurecli
+ResourceGroupName="sflinuxclustergroup"
+Location="southcentralus"  
 Password="q6D7nN%6ck@6"
-Subject="mysfcluster.southcentralus.cloudapp.azure.com"
 VaultName="linuxclusterkeyvault"
+VaultGroupName="linuxclusterkeyvaultgroup"
+CertPath="C:\MyCertificates\MyCertificate.pem"
+
+# sign in to your Azure account and select your subscription
+az login
+az account set --subscription <guid>
+
+# Create a new resource group for your deployment and give it a name and a location.
 az group create --name $ResourceGroupName --location $Location
 
+# Create the Service Fabric cluster.
 az sf cluster create --resource-group $ResourceGroupName --location $Location \
-   --certificate-output-folder . --certificate-password $Password --certificate-subject-name $Subject \
+   --certificate-password $Password --certificate-file $CertPath \
    --vault-name $VaultName --vault-resource-group $ResourceGroupName  \
-   --template-file linuxcluster.json --parameter-file linuxcluster.parameters.json
-
+   --template-file vnet-linuxcluster.json --parameter-file vnet-linuxcluster.parameters.json
 ```
 
 ## <a name="connect-to-the-secure-cluster"></a>보안 클러스터에 연결
@@ -180,8 +193,5 @@ az group delete --name $ResourceGroupName
 > [클러스터 규모 조정](service-fabric-tutorial-scale-cluster.md)
 
 
-[network-arm]:https://github.com/Azure-Samples/service-fabric-api-management/blob/master/network.json
-[network-parameters-arm]:https://github.com/Azure-Samples/service-fabric-api-management/blob/master/network.parameters.json
-
-[cluster-arm]:https://github.com/Azure-Samples/service-fabric-api-management/blob/master/linuxcluster.json
-[cluster-parameters-arm]:https://github.com/Azure-Samples/service-fabric-api-management/blob/master/linuxcluster.parameters.json
+[template]:https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/cluster-tutorial/vnet-linuxcluster.json
+[parameters]:https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/cluster-tutorial/vnet-linuxcluster.parameters.json

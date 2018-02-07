@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2017
+ms.date: 12/22/2017
 ms.author: genli
-ms.openlocfilehash: 03764377b3ea0e17d4a192a7e05bb495ec56f331
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9cab81b6072c6f096f6f1a419cebcca9630ebde3
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="add-update-or-remove-a-credit-or-debit-card-for-azure"></a>Azure에 대한 신용 카드 또는 직불 카드 추가, 업데이트 또는 제거
 
@@ -77,7 +77,7 @@ ms.lasthandoff: 10/11/2017
 
 구독을 비활성화하거나 취소한 후 구독을 영구적으로 삭제하기 전에 90일 동안 기다립니다. 구독을 다시 활성화하려는 경우에 대비해서 보존 기간 동안 파일에 결제 방법을 유지합니다. 그 후 구독이 완전히 삭제됩니다.
 
-90일의 보존 기간이 종료하지 전에 신용 카드 또는 직불 카드를 제거해야 할 경우 [Azure 지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하세요.
+90일의 보존 기간이 끝나기 전에 신용 카드 또는 직불 카드를 제거해야 할 경우 [구독을 다시 활성화](billing-subscription-become-disable.md)합니다. 다시 활성화할 수 없는 경우 [Azure 지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하세요.
 
 ### <a name="why-do-i-keep-getting-your-login-session-has-expired-please-click-here-to-log-back-in"></a>“로그인 세션이 만료되었습니다. 다시 로그인하려면 여기를 클릭하세요.” 메시지를 계속해서 받는 이유는 무엇입니까?
 
@@ -96,6 +96,10 @@ ms.lasthandoff: 10/11/2017
 ### <a name="how-do-i-make-a-one-time-payment"></a>일회성 결제를 어떻게 해야 할까요?
 
 아쉽게도 Azure는 현재 신용 카드 또는 직불 카드에 대한 일회성 결제를 지원하지 않습니다. 
+
+### <a name="how-do-i-change-the-tax-id"></a>세금 ID를 변경하려면 어떻게 할까요?
+
+세금 ID를 추가 또는 업데이트하려면 [Azure 계정 센터에서 **프로필**로 이동](https://account.azure.com/Profile)한 다음 **세금 레코드**를 선택합니다. 이 세금 ID는 면세 계산에 사용되며 청구서에 표시됩니다.
 
 ## <a name="need-help-contact-support"></a>도움이 필요하세요? 지원에 문의
 

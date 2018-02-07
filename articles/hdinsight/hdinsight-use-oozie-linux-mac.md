@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2017
+ms.date: 01/22/2018
 ms.author: larryfr
-ms.openlocfilehash: 7f341b550316b44f7b6677bf59f323b568007700
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 53c249c24af774499becdf18350ff75dbc2ab861
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Hadoop과 함께 Oozie를 사용하여 Linux 기반 Azure HDInsight에서 워크플로 정의 및 실행
 
@@ -39,7 +39,7 @@ Oozie를 사용하여 Java 프로그램이나 셸 스크립트와 같은 시스�
 > HDInsight를 사용하여 워크플로를 정의하는 또 다른 옵션은 Azure Data Factory를 사용하는 것입니다. Data Factory에 대한 자세한 내용은 [Data Factory에서 Pig 및 Hive 사용][azure-data-factory-pig-hive]을 참조하세요.
 
 > [!IMPORTANT]
-> 도메인에 가입된 HDInsight에서는 Oozie를 사용할 수 없습니다.
+> 도메인에 연결된 HDInsight에서는 Oozie를 사용할 수 없습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -505,7 +505,7 @@ Oozie REST API를 사용하면 Oozie와 함께 작동하는 사용자 고유의 
 
 * **URI**: `https://CLUSTERNAME.azurehdinsight.net/oozie`에서 클러스터 외부의 REST API에 액세스할 수 있습니다.
 
-* **인증**: 인증을 받으려면 API와 클러스터 HTTP 계정(admin) 및 암호를 사용합니다. 예:
+* **인증**: 인증을 받으려면 API와 클러스터 HTTP 계정(admin) 및 암호를 사용합니다. 예: 
 
     ```bash
     curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/oozie/versions

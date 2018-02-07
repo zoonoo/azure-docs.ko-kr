@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: c9c8ad6dfd6df0e99f9e41eaf1da12ebeb2a2da6
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 9d5486b3ac7ca0ef0f5824660ee8278de3f6fe80
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="deploy-and-use-azure-container-registry"></a>Azure Container Registry 배포 및 사용
 
@@ -38,13 +38,13 @@ ACR(Azure Container Registry)은 Docker 컨테이너 이미지를 위한 Azure �
 
 Azure Container Registry를 배포할 때는 먼저 리소스 그룹이 필요합니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다.
 
-[az group create](/cli/azure/group#create) 명령을 사용하여 리소스 그룹을 만듭니다. 이 예제에서는 `westeurope` 하위 지역에 `myResourceGroup`이라는 리소스 그룹이 만들어집니다.
+[az group create](/cli/azure/group#az_group_create) 명령을 사용하여 리소스 그룹을 만듭니다. 이 예제에서는 `westeurope` 하위 지역에 `myResourceGroup`이라는 리소스 그룹이 만들어집니다.
 
 ```azurecli
 az group create --name myResourceGroup --location westeurope
 ```
 
-[az acr create](/cli/azure/acr#create) 명령으로 Azure Container Registry를 만듭니다. 컨테이너 레지스트리의 이름은 **고유해야 합니다**.
+[az acr create](/cli/azure/acr#az_acr_create) 명령으로 Azure Container Registry를 만듭니다. 컨테이너 레지스트리의 이름은 **고유해야 합니다**.
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
@@ -70,7 +70,7 @@ az acr login --name <acrName>
 docker images
 ```
 
-출력:
+출력
 
 ```bash
 REPOSITORY                   TAG                 IMAGE ID            CREATED             SIZE
@@ -99,7 +99,7 @@ docker tag azure-vote-front <acrLoginServer>/azure-vote-front:redis-v1
 docker images
 ```
 
-출력:
+출력
 
 ```bash
 REPOSITORY                                           TAG                 IMAGE ID            CREATED             SIZE
@@ -123,13 +123,13 @@ docker push <acrLoginServer>/azure-vote-front:redis-v1
 
 ## <a name="list-images-in-registry"></a>레지스트리에서 이미지 나열
 
-Azure Container Registry에 밀어넣은 이미지 목록을 반환하려면 [az acr repository list](/cli/azure/acr/repository#list) 명령을 사용합니다. ACR 인스턴스 이름으로 명령을 업데이트합니다.
+Azure Container Registry에 밀어넣은 이미지 목록을 반환하려면 [az acr repository list](/cli/azure/acr/repository#az_acr_repository_list) 명령을 사용합니다. ACR 인스턴스 이름으로 명령을 업데이트합니다.
 
 ```azurecli
 az acr repository list --name <acrName> --output table
 ```
 
-출력:
+출력
 
 ```azurecli
 Result
@@ -143,7 +143,7 @@ azure-vote-front
 az acr repository show-tags --name <acrName> --repository azure-vote-front --output table
 ```
 
-출력:
+출력
 
 ```azurecli
 Result

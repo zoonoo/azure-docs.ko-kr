@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/04/2018
 ms.author: shengc
-ms.openlocfilehash: 0414ee0f93b71446992bb5687795b75cd2e32386
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: c1dfa969f8665fc06d365bdb91d57382ee04c315
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>Azure Data Factory에서 Hive 작업을 사용하여 Azure Virtual Network에서 데이터 변환
 이 자습서에서는 Azure Portal을 사용하여 Azure VNet(Virtual Network)에 있는 HDInsight 클러스터에서 Hive 활동을 통해 데이터를 변환하는 Data Factory 파이프라인을 만듭니다. 이 자습서에서 수행하는 단계는 다음과 같습니다.
 
 > [!div class="checklist"]
-> * 데이터 팩터리를 만듭니다. 
+> * 데이터 팩터리 만들기 
 > * 자체 호스팅 Integration Runtime 만들기
 > * Azure Storage 및 Azure HDInsight 연결된 서비스 만들기
 > * Hive 활동이 있는 파이프라인 만들기
@@ -38,14 +38,14 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="prerequisites"></a>필수 조건
 - **Azure Storage 계정**. Hive 스크립트를 만들어 Azure 저장소에 업로드합니다. Hive 스크립트의 출력은 이 저장소 계정에 저장됩니다. 이 샘플에서 HDInsight 클러스터는 이 Azure Storage 계정을 기본 저장소로 사용합니다. 
-- **Azure Virtual Network** - 아직 없는 경우 [이 지침](../virtual-network/virtual-network-get-started-vnet-subnet.md)에 따라 Azure Virtual Network를 만듭니다. 이 샘플에서 HDInsight는 Azure Virtual Network에 있습니다. 다음은 Azure Virtual Network의 샘플 구성입니다. 
+- **Azure Virtual Network** - 아직 없는 경우 [이 지침](../virtual-network/quick-create-portal.md)에 따라 Azure Virtual Network를 만듭니다. 이 샘플에서 HDInsight는 Azure Virtual Network에 있습니다. 다음은 Azure Virtual Network의 샘플 구성입니다. 
 
     ![가상 네트워크 만들기](media/tutorial-transform-data-using-hive-in-vnet-portal/create-virtual-network.png)
 - **HDInsight 클러스터** - [Azure Virtual Network를 사용하여 Azure HDInsight 확장](../hdinsight/hdinsight-extend-hadoop-virtual-network.md) 문서에 따라 HDInsight 클러스터를 만들고 이전 단계에서 만든 가상 네트워크에 조인합니다. 다음은 가상 네트워크에 속한 HDInsight의 샘플 구성입니다. 
 
     ![가상 네트워크의 HDInsight](media/tutorial-transform-data-using-hive-in-vnet-portal/hdinsight-virtual-network-settings.png)
 - **Azure PowerShell**. [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/install-azurerm-ps)의 지침을 따르세요.
-- **가상 머신**. Azure VM(가상 머신)을 만들고 HDInsight 클러스터가 포함된 동일한 가상 네트워크에 조인합니다. 자세한 내용은 [가상 머신을 만드는 방법](../virtual-network/virtual-network-get-started-vnet-subnet.md#create-vms)을 참조하세요. 
+- **가상 머신**. Azure VM(가상 머신)을 만들고 HDInsight 클러스터가 포함된 동일한 가상 네트워크에 조인합니다. 자세한 내용은 [가상 머신을 만드는 방법](../virtual-network/quick-create-portal.md#create-virtual-machines)을 참조하세요. 
 
 ### <a name="upload-hive-script-to-your-blob-storage-account"></a>Blob Storage 계정에 Hive 스크립트 업로드
 
@@ -194,7 +194,7 @@ Hadoop 클러스터는 가상 네트워크 내에 있으므로 동일한 가상 
 
     `10.6.0.15 myHDIClusterName.azurehdinsight.net`
 
-## <a name="create-a-pipeline"></a>파이프라인을 만듭니다. 
+## <a name="create-a-pipeline"></a>파이프라인 만들기 
 이 단계에서는 Hive 작업이 있는 새 파이프라인을 만듭니다. 이 작업은 Hive 스크립트를 실행하여 샘플 테이블의 데이터를 반환하고 사용자가 정의한 경로에 저장합니다.
 
 다음 사항에 유의하세요.
@@ -261,7 +261,7 @@ Hadoop 클러스터는 가상 네트워크 내에 있으므로 동일한 가상 
 이 자습서에서 다음 단계를 수행했습니다. 
 
 > [!div class="checklist"]
-> * 데이터 팩터리를 만듭니다. 
+> * 데이터 팩터리 만들기 
 > * 자체 호스팅 Integration Runtime 만들기
 > * Azure Storage 및 Azure HDInsight 연결된 서비스 만들기
 > * Hive 활동이 있는 파이프라인 만들기
@@ -272,7 +272,7 @@ Hadoop 클러스터는 가상 네트워크 내에 있으므로 동일한 가상 
 Azure에서 Spark 클러스터를 사용하여 데이터를 변환하는 방법을 알아보려면 다음 자습서로 진행하세요.
 
 > [!div class="nextstepaction"]
->[Data Factory 제어 흐름 분기 및 연결](tutorial-control-flow.md)
+>[Data Factory 제어 흐름 분기 및 연결](tutorial-control-flow-portal.md)
 
 
 

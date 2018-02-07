@@ -8,11 +8,11 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: marsma
-ms.openlocfilehash: 3c7c57b05220d1e82c3baa8bc266e02d961a84be
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: a922525970eac9af6657e58daae971912183b369
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="run-a-containerized-task-in-azure-container-instances"></a>Azure Container Instances에서 컨테이너 작업 실행
 
@@ -20,7 +20,7 @@ Azure Container Instances에서는 컨테이너를 배포하는 것이 쉽고 �
 
 구성 가능한 다시 시작 정책을 사용하면 프로세스가 완료될 때 컨테이너가 중지되도록 지정할 수 있습니다. 컨테이너 인스턴스는 초 단위로 비용이 청구되기 때문에 작업을 실행하는 컨테이너가 실행되는 동안 사용된 계산 리소스에 대해서만 요금이 부과됩니다.
 
-이 문서에서 제시된 예제는 Azure CLI를 사용합니다. Azure CLI 버전 2.0.21 이상이 [로컬로 설치되어 있거나](/cli/azure/install-azure-cli), [Azure Cloud Shell](../cloud-shell/overview.md)에서 CLI를 사용해야 합니다.
+이 문서에서 제시된 예제는 Azure CLI를 사용합니다. Azure CLI 버전 2.0.21 이상이 [로컬로 설치되어 있거나][azure-cli-install] [Azure Cloud Shell](../cloud-shell/overview.md)에서 CLI를 사용해야 합니다.
 
 ## <a name="container-restart-policy"></a>컨테이너 다시 시작 정책
 
@@ -46,7 +46,7 @@ az container create \
 
 ## <a name="run-to-completion-example"></a>완료될 때까지 실행 예제
 
-다시 시작 정책의 작동 방식을 보려면 [microsoft/aci-wordcount](https://hub.docker.com/r/microsoft/aci-wordcount/) 이미지에서 컨테이너 인스턴스를 만들고 `OnFailure` 다시 시작 정책을 지정합니다. 이 예제 컨테이너는 기본적으로 셰익스피어의 [Hamlet](http://shakespeare.mit.edu/hamlet/full.html) 텍스트를 분석하고, 가장 많이 쓰이는 10개의 단어를 STDOUT에 쓰고 종료하는 Python 스크립트를 실행합니다.
+다시 시작 정책의 작동 방식을 보려면 [microsoft/aci-wordcount][aci-wordcount-image] 이미지에서 컨테이너 인스턴스를 만들고 `OnFailure` 다시 시작 정책을 지정합니다. 이 예제 컨테이너는 기본적으로 셰익스피어의 [Hamlet](http://shakespeare.mit.edu/hamlet/full.html) 텍스트를 분석하고, 가장 많이 쓰이는 10개의 단어를 STDOUT에 쓰고 종료하는 Python 스크립트를 실행합니다.
 
 다음 [az container create][az-container-create] 명령으로 예제 컨테이너를 실행합니다.
 
@@ -76,7 +76,7 @@ az container show --resource-group myResourceGroup --name mycontainer --query co
 az container logs --resource-group myResourceGroup --name mycontainer
 ```
 
-출력:
+출력
 
 ```bash
 [('the', 990),
@@ -122,7 +122,7 @@ az container create \
 az container logs --resource-group myResourceGroup --name mycontainer2
 ```
 
-출력:
+출력
 
 ```bash
 [('CLAUDIUS', 120),
@@ -156,7 +156,7 @@ az container create \
 az container logs --resource-group myResourceGroup --name mycontainer3
 ```
 
-출력:
+출력
 
 ```bash
 [('ROMEO', 177), ('JULIET', 134), ('CAPULET', 119)]
@@ -168,7 +168,11 @@ az container logs --resource-group myResourceGroup --name mycontainer3
 
 완료될 때까지 실행되는 컨테이너 출력을 유지하는 방법에 대한 자세한 내용은 [Azure Container Instances를 사용하여 Azure 파일 공유 탑재](container-instances-mounting-azure-files-volume.md)를 참조하세요.
 
-<!-- LINKS -->
+<!-- LINKS - External -->
+[aci-wordcount-image]: https://hub.docker.com/r/microsoft/aci-wordcount/
+
+<!-- LINKS - Internal -->
 [az-container-create]: /cli/azure/container?view=azure-cli-latest#az_container_create
 [az-container-logs]: /cli/azure/container?view=azure-cli-latest#az_container_logs
 [az-container-show]: /cli/azure/container?view=azure-cli-latest#az_container_show
+[azure-cli-install]: /cli/azure/install-azure-cli

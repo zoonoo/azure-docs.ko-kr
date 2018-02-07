@@ -1,5 +1,5 @@
 ---
-title: "node.js를 사용하여 Azure AD 로그인 및 로그아웃 시작 | Microsoft Docs"
+title: "Azure AD Node.js 웹앱 시작 | Microsoft Docs"
 description: "로그인을 위해 Azure AD와 통합되는 Node.js Express MVC 웹앱을 빌드하는 방법에 대해 알아봅니다."
 services: active-directory
 documentationcenter: nodejs
@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 11/30/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 3a9bc44ec9fc5a7c5e18139070bac837421efff5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a0079c1f4265e1c2564b85247cf5f5e0289799db
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
-# <a name="nodejs-web-app-sign-in-and-sign-out-with-azure-ad"></a>Azure AD에서 Node.js 웹앱 로그인 및 로그아웃
+# <a name="azure-ad-nodejs-web-app-getting-started"></a>Azure AD Node.js 웹앱 시작
 여기서는 Passport를 통해 다음 작업을 수행합니다.
 
 * 사용자는 Azure AD(Azure Active Directory)로 앱에 로그인합니다.
@@ -44,7 +44,7 @@ Passport는 Node.js에 대한 인증 미들웨어입니다. 유연한 모듈식 
 전체 응용 프로그램은 이 자습서 마지막 부분에서도 제공됩니다.
 
 ## <a name="step-1-register-an-app"></a>1단계: 앱 등록
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 2. 페이지 위쪽에 있는 메뉴에서 계정을 선택합니다. **디렉터리** 목록에서 응용 프로그램을 등록할 Active Directory 테넌트를 선택합니다.
 

@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: alkarche
-ms.openlocfilehash: 24bc439b6167d335a0862aa93debb9efe5aeae48
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: dd022b189783f2d8c6209a6cd656704ff144bfd6
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="work-with-azure-functions-proxies"></a>Azure Functions 프록시 사용
 
@@ -50,17 +50,17 @@ Azure Functions 프록시를 사용해서 백 엔드에서 요청 및 응답을 
 
 기본적으로 백 엔드 요청은 원래 요청의 복사본으로 초기화됩니다. 백 엔드 URL을 설정하는 것 외에도 HTTP 메서드, 헤더 및 쿼리 문자열 매개 변수를 변경할 수 있습니다. 수정된 값은 [응용 프로그램 설정] 및 [원래 클라이언트 요청의 매개 변수]를 참조할 수 있습니다.
 
-현재 백 엔드 요청을 수정하기 위한 포털 환경은 없습니다. proxies.json에서 이 기능을 적용하는 방법을 알아보려면 [requestOverrides 개체 정의]를 참조하세요.
+현재 백 엔드 요청을 수정하기 위한 포털 환경은 없습니다. *proxies.json*에서 이 기능을 적용하는 방법을 알아보려면 [requestOverrides 개체 정의]를 참조하세요.
 
 ### <a name="modify-response"></a>응답 수정
 
 기본적으로 클라이언트 요청은 원래 응답의 복사본으로 초기화됩니다. 응답의 상태 코드, 이유 구문, 헤더 및 본문을 변경할 수 있습니다. 수정된 값은 [응용 프로그램 설정], [원래 클라이언트 요청의 매개 변수] 및 [백 엔드 응답의 매개 변수]를 참조할 수 있습니다.
 
-현재 응답을 수정하기 위한 포털 환경은 없습니다. proxies.json에서 이 기능을 적용하는 방법을 알아보려면 [ 개체 정의]를 참조하세요.
+현재 응답을 수정하기 위한 포털 환경은 없습니다. *proxies.json*에서 이 기능을 적용하는 방법을 알아보려면 [responseOverrides 개체 정의]를 참조하세요.
 
 ## <a name="using-variables"></a>변수 사용
 
-프록시에 대한 구성은 정적일 필요가 없습니다. 원래 요청, 백 엔드 응답 또는 응용 프로그램 설정의 변수를 사용하도록 조건을 지정할 수 있습니다.
+프록시에 대한 구성은 정적일 필요가 없습니다. 원래 클라이언트 요청, 백 엔드 응답 또는 응용 프로그램 설정의 변수를 사용하도록 조건을 지정할 수 있습니다.
 
 ### <a name="request-parameters"></a>요청 매개 변수 참조
 
@@ -84,7 +84,7 @@ Azure Functions 프록시를 사용해서 백 엔드에서 요청 및 응답을 
 
 * **{backend.response.statusCode}**: 백 엔드 응답에 반환할 HTTP 상태 코드입니다.
 * **{backend.response.statusReason}**: 백 엔드 응답에 반환할 HTTP 이유 구문입니다.
-* **{backend.response.headers.\<HeaderName\>}**: 백 엔드 응답에서 읽어올 수 있는 헤더입니다. *\<HeaderName\>*을 읽으려는 헤더 이름으로 바꿉니다. 헤더가 요청에 포함되지 않으면 값은 비어 있는 문자열이 됩니다.
+* **{backend.response.headers.\<HeaderName\>}**: 백 엔드 응답에서 읽어올 수 있는 헤더입니다. *\<HeaderName\>*을 읽으려는 헤더 이름으로 바꿉니다. 헤더가 응답에 포함되지 않으면 값은 비어 있는 문자열이 됩니다.
 
 ### <a name="use-appsettings"></a>응용 프로그램 설정 참조
 
@@ -97,12 +97,12 @@ Azure Functions 프록시를 사용해서 백 엔드에서 요청 및 응답을 
 
 ## <a name="advanced-configuration"></a>고급 구성
 
-구성하는 프록시는 함수 앱 디렉터리의 루트에 있는 proxies.json 파일에 저장됩니다. 이 파일을 수동으로 편집하고 함수가 지원하는 [배포 방법](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment) 중 하나를 사용하여 앱의 일부로 배포할 수 있습니다. 파일이 처리되려면 이 기능이 [사용되도록 설정](#enable)되어야 합니다. 
+구성하는 프록시는 함수 앱 디렉터리의 루트에 있는 *proxies.json* 파일에 저장됩니다. 이 파일을 수동으로 편집하고 함수가 지원하는 [배포 방법](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment) 중 하나를 사용하여 앱의 일부로 배포할 수 있습니다. 파일이 처리되려면 Azure Functions 프록시 기능이 [사용되도록 설정](#enable)되어야 합니다. 
 
 > [!TIP] 
-> 배포 방법 중 하나를 설정하지 않은 경우 포털에서 proxies.json 파일로 작업할 수도 있습니다. 함수 앱으로 이동하여 **플랫폼 기능**을 선택한 후 **App Service 편집기**를 선택합니다. 이렇게 하여 함수 앱의 전체 파일 구조를 보고 변경할 수 있습니다.
+> 배포 방법 중 하나를 설정하지 않은 경우 포털에서 *proxies.json* 파일로 작업할 수도 있습니다. 함수 앱으로 이동하여 **플랫폼 기능**을 선택한 후 **App Service 편집기**를 선택합니다. 이렇게 하여 함수 앱의 전체 파일 구조를 보고 변경할 수 있습니다.
 
-Proxies.json은 명명된 프록시 및 해당 정의로 구성된 프록시 개체로 정의됩니다. 편집기에서 코드 완성을 지원하는 경우 필요에 따라 [JSON 스키마](http://json.schemastore.org/proxies)를 참조할 수 있습니다. 예제 파일은 다음과 유사할 수 있습니다.
+*Proxies.json*은 명명된 프록시 및 해당 정의로 구성된 프록시 개체로 정의됩니다. 편집기에서 코드 완성을 지원하는 경우 필요에 따라 [JSON 스키마](http://json.schemastore.org/proxies)를 참조할 수 있습니다. 예제 파일은 다음과 유사할 수 있습니다.
 
 ```json
 {
@@ -126,10 +126,10 @@ Proxies.json은 명명된 프록시 및 해당 정의로 구성된 프록시 개
     * _route_: 필수--경로 템플릿을 정의하여 프록시에서 응답할 요청 URL을 제어합니다. HTTP 트리거와 달리 기본값이 없습니다.
 * **backendUri**: 요청이 프록시되어야 하는 백 엔드 리소스의 URL입니다. 이 값은 응용 프로그램 설정 및 원래 클라이언트 요청의 매개 변수를 참조할 수 있습니다. 이 속성을 포함하지 않으면 Azure Functions는 HTTP 200 OK로 응답합니다.
 * **requestOverrides**: 변환을 백 엔드 요청으로 정의하는 개체입니다. [requestOverrides 개체 정의]를 참조하세요.
-* **responseOverrides**: 클라이언트 응답으로 변환을 정의하는 개체입니다. [ 개체 정의]를 참조하세요.
+* **responseOverrides**: 클라이언트 응답으로 변환을 정의하는 개체입니다. [responseOverrides 개체 정의]를 참조하세요.
 
 > [!NOTE] 
-> 경로 속성 Azure Functions 프록시는 함수 호스트 구성의 routePrefix 속성을 유지하지 않습니다. /api 같은 접두사를 포함하려는 경우 경로 속성에 포함해야 합니다.
+> Azure Functions 프록시의 *route* 속성은 함수 앱 호스트 구성의 *routePrefix* 속성을 유지하지 않습니다. `/api` 같은 접두사를 포함하려는 경우 *route* 속성에 포함해야 합니다.
 
 ### <a name="requestOverrides"></a>requestOverrides 개체 정의
 
@@ -193,7 +193,7 @@ requestOverrides 개체는 클라이언트에 다시 전달된 응답에 대한 
 }
 ```
 > [!NOTE] 
-> 이 예제에서 분문은 직접 설정되므로 `backendUri` 속성이 필요하지 않습니다. 다음 예제에서는 모의 API에 Azure Functions 프록시를 어떻게 사용할 수 있는지를 보여 줍니다.
+> 이 예제에서 응답 본문은 직접 설정되므로 `backendUri` 속성이 필요하지 않습니다. 다음 예제에서는 모의 API에 Azure Functions 프록시를 어떻게 사용할 수 있는지를 보여 줍니다.
 
 ## <a name="enable"></a>Azure Functions 프록시 사용
 
@@ -210,7 +210,7 @@ requestOverrides 개체는 클라이언트에 다시 전달된 응답에 대한 
 [Modify the back-end request]: #modify-backend-request
 [Modify the response]: #modify-response
 [requestOverrides 개체 정의]: #requestOverrides
-[ 개체 정의]: #responseOverrides
+[responseOverrides 개체 정의]: #responseOverrides
 [응용 프로그램 설정]: #use-appsettings
 [변수 사용]: #using-variables
 [원래 클라이언트 요청의 매개 변수]: #request-parameters

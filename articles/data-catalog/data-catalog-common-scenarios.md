@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/15/2017
+ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: 8f333b96165144eb46e730a7a1dff52d064532bb
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 156710ad50349e8a3632e31c7752387d4449a65d
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-data-catalog-common-scenarios"></a>Azure 데이터 카탈로그 일반적인 시나리오
 이 문서에서는 조직에서 Azure Data Catalog를 통해 기존 데이터 원본에서 더 많은 가치를 얻을 수 있는 일반적인 시나리오를 보여줍니다.

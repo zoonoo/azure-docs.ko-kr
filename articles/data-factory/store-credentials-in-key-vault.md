@@ -10,17 +10,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 12/14/2017
 ms.author: jingwang
-ms.openlocfilehash: f7604e251bd62ec382ac9ace3de058e345abb863
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 145c2bc0556010389e78e523fde6fd4b9063f930
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="store-credential-in-azure-key-vault"></a>Azure Key Vault에 자격 증명 저장
 
-[Azure Key Vault](../key-vault/key-vault-whatis.md)에서 데이터 저장소의 자격 증명을 저장할 수 있습니다. Azure Data Factory에서는 데이터 저장소를 사용하는 작업을 실행할 때 자격 증명을 검색합니다. 현재 [Dynamics 커넥터](connector-dynamics-crm-office-365.md)와 [Salesforce 커넥터](connector-salesforce.md)만 이 기능을 지원합니다.
+[Azure Key Vault](../key-vault/key-vault-whatis.md)에서 데이터 저장소의 자격 증명을 저장할 수 있습니다. Azure Data Factory에서는 데이터 저장소를 사용하는 작업을 실행할 때 자격 증명을 검색합니다.
+
+현재 [Dynamics 커넥터](connector-dynamics-crm-office-365.md)와 [Salesforce 커넥터](connector-salesforce.md) 및 일부 새로 사용된 커넥터만 이 기능을 지원합니다. 더 추가될 예정입니다. 세부 정보에 대해 각 커넥터 항목을 확인할 수 있습니다. 이 기능을 지원하는 비밀 필드의 경우 설명에 다음과 같은 메모가 표시됩니다. "*이 필드를 SecureString으로 표시하거나, ADF에 안전하게 저장하거나, Azure Key Vault에 암호를 저장하도록 선택하고 데이터 복사를 수행하는 경우 여기에서 복사 작업을 끌어올 수 있습니다. Key Vault의 자격 증명 저장에서 자세히 알아봅니다.*"
 
 > [!NOTE]
 > 이 문서는 현재 미리 보기 상태인 Data Factory 버전 2에 적용됩니다. 일반 공급(GA)되는 Data Factory 버전 1 서비스를 사용하는 경우 [Data Factory 버전 1 설명서](v1/data-factory-introduction.md)를 참조하세요.
@@ -42,9 +44,9 @@ Azure Key Vault에 저장된 자격 증명을 참조하려면 다음을 수행�
 
 Azure Key Vault 연결된 서비스에 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 형식 속성은 **AzureKeyVault**로 설정되어야 합니다. | 예 |
+| 형식 | 형식 속성은 **AzureKeyVault**로 설정되어야 합니다. | 예 |
 | baseUrl | Azure Key Vault URL을 지정합니다. | 예 |
 
 **예제:**
@@ -65,11 +67,11 @@ Azure Key Vault 연결된 서비스에 다음 속성이 지원됩니다.
 
 키 자격 증명 모음 암호를 참조하는 연결된 서비스에서 필드를 구성할 때 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 필드의 형식 속성을 **AzureKeyVaultSecret**으로 설정해야 합니다. | 예 |
+| 형식 | 필드의 형식 속성을 **AzureKeyVaultSecret**으로 설정해야 합니다. | 예 |
 | secretName | Azure Key Vault의 비밀 이름입니다. | 예 |
-| secretVersion | Azure Key Vault의 비밀 버전입니다.<br/>지정하지 않으면 항상 최신 버전의 비밀을 사용합니다.<br/>지정하는 경우 지정된 버전을 사용합니다.| 아니요 |
+| secretVersion | Azure Key Vault의 비밀 버전입니다.<br/>지정하지 않으면 항상 최신 버전의 비밀을 사용합니다.<br/>지정하는 경우 지정된 버전을 사용합니다.| 아니오 |
 | store | 자격 증명을 저장하는 데 사용하는 Azure Key Vault 연결된 서비스를 나타냅니다. | 예 |
 
 **예: ("암호" 섹션 참조)**

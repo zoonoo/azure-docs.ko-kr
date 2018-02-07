@@ -37,7 +37,7 @@
           href: tutorial-copy-data-tool.md
         - name: 사용자 인터페이스(UI)
           href: tutorial-copy-data-portal.md
-        - name: Azure PowerShell
+        - name: .NET
           href: tutorial-copy-data-dot-net.md
     - name: 3 - 클라우드에 온-프레미스 데이터 복사
       items:
@@ -90,7 +90,7 @@
       items:
         - name: 사용자 인터페이스(UI)
           href: tutorial-control-flow-portal.md
-        - name: Azure PowerShell
+        - name: .NET
           href: tutorial-control-flow.md
 - name: 샘플
   items:
@@ -350,6 +350,8 @@
           href: configure-azure-ssis-integration-runtime-performance.md
         - name: 저장 프로시저 작업을 사용하여 SSIS 패키지 호출
           href: how-to-invoke-ssis-package-stored-procedure-activity.md
+        - name: Azure-SSIS Integration Runtime 예약
+          href: how-to-schedule-azure-ssis-integration-runtime.md
     - name: 트리거 만들기
       items:
         - name: 일정 트리거 만들기

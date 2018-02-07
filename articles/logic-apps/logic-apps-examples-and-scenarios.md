@@ -14,21 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: logic-apps
 ms.date: 09/13/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 5b2b82d90dee41e80233e5f52c960be23d89ee3d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b88d0c1ccb7a729c95299bcdc3cba5fd73fcdeac
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Azure Logic Apps의 일반적인 시나리오, 예제, 자습서 및 연습
 
-[Azure Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md)는 온-프레미스 SQL Server 또는 SAP에서 Microsoft Cognitive Services에 이르는 [100개 이상의 사용 가능한 커넥터](../connectors/apis-list.md)를 제공하기 때문에 다양한 서비스를 오케스트레이션하고 통합하는 데 도움이 됩니다. Logic Apps 서비스는 "서버가 없으므로" 규모 나 인스턴스를 걱정할 필요가 없습니다. 트리거가 있는 워크플로와 워크플로가 수행하는 작업을 정의하기만 하면 됩니다. 기본 플랫폼에서 규모, 가용성 및 성능을 처리합니다. Logic Apps는 여러 시스템에서 다수의 작업을 조정해야 하는 사용 사례 및 시나리오에 특히 유용합니다.
+[Azure Logic Apps](../logic-apps/logic-apps-overview.md)는 온-프레미스 SQL Server 또는 SAP에서 Microsoft Cognitive Services에 이르는 [100개 이상의 사용 가능한 커넥터](../connectors/apis-list.md)를 제공하기 때문에 다양한 서비스를 오케스트레이션하고 통합하는 데 도움이 됩니다. Logic Apps 서비스는 "서버가 없으므로" 규모 나 인스턴스를 걱정할 필요가 없습니다. 트리거가 있는 워크플로와 워크플로가 수행하는 작업을 정의하기만 하면 됩니다. 기본 플랫폼에서 규모, 가용성 및 성능을 처리합니다. Logic Apps는 여러 시스템에서 다수의 작업을 조정해야 하는 사용 사례 및 시나리오에 특히 유용합니다.
 
-[Azure Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md)가 지원하는 다양한 패턴 및 기능에 대해 자세히 알아볼 수 있는 일반적인 예제 및 시나리오는 다음과 같습니다.
+[Azure Logic Apps](../logic-apps/logic-apps-overview.md)가 지원하는 다양한 패턴 및 기능에 대해 자세히 알아볼 수 있는 일반적인 예제 및 시나리오는 다음과 같습니다.
 
 ## <a name="popular-starting-points-for-logic-app-workflows"></a>논리 앱 워크플로에 가장 많이 사용되는 시작점
 
-모든 논리 앱은 하나의 [*트리거*](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts)로 시작하며 논리 앱 워크플로를 시작하고 트리거의 일부로 데이터를 전달합니다. 일부 커넥터는 다음과 같은 유형의 트리거를 제공합니다.
+모든 논리 앱은 하나의 [*트리거*](../logic-apps/logic-apps-overview.md#logic-app-concepts)로 시작하며 논리 앱 워크플로를 시작하고 트리거의 일부로 데이터를 전달합니다. 일부 커넥터는 다음과 같은 유형의 트리거를 제공합니다.
 
 * *폴링 트리거*: 서비스 끝점에서 정기적으로 새 데이터를 확인합니다. 새 데이터가 존재하면 트리거는 해당 데이터를 입력으로 사용하여 새 워크플로 인스턴스를 만들고 실행합니다.
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2017
 ms.author: dobett
-ms.openlocfilehash: 81f846e1fd8cca586613e6fc57737ec27e43a639
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: c75624d8551adabbd993d22ac4901ca26ef40d51
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="routing-messages-with-iot-hub-java"></a>IoT Hub(Java)를 사용한 메시지 라우팅
 
@@ -105,7 +105,7 @@ Azure IoT Hub는 수백만의 장치와 솔루션 백 엔드 간에서 안정적
     }
     ```
    
-    이 메서드는 장치에서 보낸 메시지에 `"level": "critical"` 및 `"level": "storage"` 속성을 임의로 추가합니다. 그러면 응용 프로그램 백 엔드에 의한 즉각적인 작업을 요구하거나 영구 저장해야 하는 메시지를 시뮬레이트합니다. 응용 프로그램에서 메시지 본문 대신 메시지 속성에 이 정보를 전달하므로 IoT Hub에서 메시지를 적절한 메시지 대상으로 라우팅할 수 있습니다.
+    이 메서드는 장치에서 보낸 메시지에 `"level": "critical"` 및 `"level": "storage"` 속성을 임의로 추가합니다. 그러면 응용 프로그램 백 엔드에 의한 즉각적인 작업을 요구하거나 영구 저장해야 하는 메시지를 시뮬레이트합니다. 응용 프로그램은 메시지 본문에 따라 메시지 라우팅을 지원합니다.
    
    > [!NOTE]
    > 메시지 속성을 사용하면 여기서 보여 주는 실행 부하 과다 경로(hot path) 예제 외에도 실행 부하 과소 경로(cold path) 처리를 포함하여 다양한 시나리오의 메시지를 라우팅할 수 있습니다.

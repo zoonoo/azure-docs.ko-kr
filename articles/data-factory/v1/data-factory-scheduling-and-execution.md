@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/10/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: d1cd846418b0e65b978971526af7b918bd03a7a1
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 22005f6b0f655a68dbf8fab600872d8d20102dfe
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="data-factory-scheduling-and-execution"></a>Data Factory 예약 및 실행
 > [!NOTE]
@@ -185,13 +185,13 @@ Data Factory 파이프라인의 활동은 0개 이상의 입력 **데이터 집�
 ### <a name="dataset-availability"></a>데이터 집합 가용성 
 다음 표에서는 **availability** 섹션에서 사용할 수 있는 속성을 설명합니다.
 
-| 속성 | 설명 | 필수 | 기본값 |
+| 자산 | 설명 | 필수 | 기본값 |
 | --- | --- | --- | --- |
 | frequency |데이터 집합 조각 생성을 위한 시간 단위를 지정합니다.<br/><br/><b>지원되는 빈도</b>: 분, 시, 일, 주, 월 |예 |해당 없음 |
 | interval |빈도 승수를 지정합니다.<br/><br/>"빈도 x 간격"은 조각을 생성하는 빈도를 결정합니다.<br/><br/>데이터 집합을 시간 단위로 조각화해야 하는 경우 <b>frequency</b>를 <b>Hour</b>로, <b>interval</b>을 <b>1</b>로 설정합니다.<br/><br/><b>참고:</b> 빈도를 Minute(분)으로 지정하면 15 이상으로 간격을 설정하는 것이 좋습니다. |예 |해당 없음 |
 | style |간격의 시작/끝에 조각을 생성해야 하는지를 지정합니다.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul><br/><br/>Frequency를 Month로 설정하고 style을 EndOfInterval로 설정하는 경우 조각을 월의 마지막 날에 생성합니다. style을 StartOfInterval로 설정하는 경우 조각을 달의 첫 번째 날에 생성합니다.<br/><br/>frequency를 Day로 설정하고 style을 EndOfInterval로 설정하는 경우 조각을 일의 마지막 시간에 생성합니다.<br/><br/>Frequency를 Hour로 설정하고 style을 EndOfInterval로 설정하는 경우 조각을 시간의 끝에 생성합니다. 예를 들어 오후 1~2시 기간에 대한 조각은 오후 2시에 생성됩니다. |아니요 |EndOfInterval |
 | anchorDateTime |스케줄러에서 사용하는 시간에 절대 위치를 정의하여 데이터 집합 조각 경계를 계산합니다. <br/><br/><b>참고:</b> AnchorDateTime에 빈도보다 더 세분화된 날짜 부분이 있는 경우 더 세분화된 부분을 무시합니다. <br/><br/>예를 들어 <b>간격</b>이 <b>매시간</b>(frequency: Hour 및 interval: 1)이고 <b>AnchorDateTime</b>에서 <b>분 및 초</b>를 포함하는 경우 AnchorDateTime의 <b>분 및 초</b> 부분은 무시됩니다. |아니요 |01/01/0001 |
-| offset |모든 데이터 집합 조각의 시작과 끝이 이동에 의한 Timespan입니다. <br/><br/><b>참고:</b> anchorDateTime 및 offset이 모두 지정되면 결과적으로 이동이 결합됩니다. |아니요 |해당 없음 |
+| offset |모든 데이터 집합 조각의 시작과 끝이 이동에 의한 Timespan입니다. <br/><br/><b>참고:</b> anchorDateTime 및 offset이 모두 지정되면 결과적으로 이동이 결합됩니다. |아니오 |해당 없음 |
 
 ### <a name="offset-example"></a>offset example
 기본적으로 매일(`"frequency": "Day", "interval": 1`) 조각은 UTC 시간으로 오전 12시(자정)에서 시작합니다. 대신, 시작 시간을 UTC 시간으로 오전 6시로 설정하려면 다음 코드 조각과 같이 오프셋을 설정합니다. 
@@ -269,15 +269,15 @@ Data Factory 파이프라인의 활동은 0개 이상의 입력 **데이터 집�
 ## <a name="activity-policies"></a>활동 정책
 정책은 특히 테이블의 조각을 처리할 때 활동의 런타임 동작에 영향을 줍니다. 다음 테이블에서는 자세한 내용을 제공합니다.
 
-| 속성 | 허용된 값 | 기본값 | 설명 |
+| 자산 | 허용된 값 | 기본값 | 설명 |
 | --- | --- | --- | --- |
 | 동시성 |정수  <br/><br/>최대값: 10 |1 |작업의 동시 실행 수입니다.<br/><br/>다른 조각에 발생할 수 있는 병렬 작업 실행 횟수를 결정합니다. 예를 들어 활동이 사용 가능한 많은 데이터 집합을 거쳐야 하는 경우 동시성 값을 높이면 데이터 처리가 빨라집니다. |
 | executionPriorityOrder |NewestFirst<br/><br/>OldestFirst |OldestFirst |처리 중인 데이터 조각의 순서를 결정합니다.<br/><br/>예를 들어 2개의 조각이 있으며(각각 오후 4시 및 오후 5시에 발생) 둘 다 실행 보류 상태입니다. executionPriorityOrder를 설정하여 NewestFirst가 되도록 하면 오후 5시에 조각이 먼저 처리됩니다. 마찬가지로 executionPriorityORder를 OldestFIrst로 설정하면 오후 4시의 조각이 처리됩니다. |
 | retry |정수 <br/><br/>최대값이 10이 될 수 있음 |0 |조각에 대한 데이터 처리 전에 다시 시도 횟수가 실패로 표시됩니다. 데이터 조각에 대한 활동 실행은 지정된 재시도 횟수까지 다시 시도됩니다. 재시도는 실패 후 가능한 한 빨리 수행합니다. |
-| 시간 제한 |TimeSpan |00:00:00 |활동에 대한 시간 제한입니다. 예: 00:10:00(시간 제한 10분을 의미함)<br/><br/>값이 지정되지 않거나 0인 경우 시간 제한은 무한입니다.<br/><br/>조각의 데이터 처리 시간이 시간 제한 값을 초과하면 취소되고 시스템이 처리를 다시 시도합니다. 다시 시도 횟수는 다시 시도 속성에 따라 달라집니다. 시간 제한이 발생할 때 상태는 TimedOut으로 설정됩니다. |
-| delay |TimeSpan |00:00:00 |조각의 데이터 처리 작업이 시작되기 전에 지연을 지정합니다.<br/><br/>데이터 조각에 대한 활동의 실행은 지연이 예상된 실행 시간을 지난 후에 시작됩니다.<br/><br/>예: 00:10:00(10분의 지연을 의미함) |
+| 시간 제한 |timespan |00:00:00 |활동에 대한 시간 제한입니다. 예: 00:10:00(시간 제한 10분을 의미함)<br/><br/>값이 지정되지 않거나 0인 경우 시간 제한은 무한입니다.<br/><br/>조각의 데이터 처리 시간이 시간 제한 값을 초과하면 취소되고 시스템이 처리를 다시 시도합니다. 다시 시도 횟수는 다시 시도 속성에 따라 달라집니다. 시간 제한이 발생할 때 상태는 TimedOut으로 설정됩니다. |
+| delay |timespan |00:00:00 |조각의 데이터 처리 작업이 시작되기 전에 지연을 지정합니다.<br/><br/>데이터 조각에 대한 활동의 실행은 지연이 예상된 실행 시간을 지난 후에 시작됩니다.<br/><br/>예: 00:10:00(10분의 지연을 의미함) |
 | longRetry |정수 <br/><br/>최대값: 10 |1 |조각 실행이 실패하기 전까지의 긴 재시도 횟수입니다.<br/><br/>longRetry 시도는 longRetryInterval에 따라 간격이 조정됩니다. 따라서 재시도 간의 시간을 지정해야 하는 경우 longRetry를 사용합니다. Retry 및 longRetry를 둘 다 지정하면 각 longRetry 시도에는 Retry 시도가 포함되고 최대 시도 횟수는 Retry * longRetry가 됩니다.<br/><br/>예를 들어 활동 정책에 다음 설정이 있는 경우:<br/>Retry: 3<br/>longRetry: 2<br/>longRetryInterval: 01:00:00<br/><br/>실행할 조각이 하나뿐이며(Waiting 상태) 작업 실행이 매번 실패한다고 가정합니다. 우선 3번 연속 실행 시도를 합니다. 시도한 후 각 조각 상태는 다시 시도입니다. 처음 3번 시도 후에 조각 상태는 LongRetry입니다.<br/><br/>한 시간(즉, longRetryInteval의 값) 후에 3번 연속 실행이 다시 시도됩니다. 그 후에 조각 상태가 실패이면 다시 시도는 더 이상 시도하지 않습니다. 즉, 전체적으로 6번의 시도가 일어납니다.<br/><br/>모든 실행에 성공하면 조각 상태는 준비 상태가 되며 더 이상 다시 시도하지 않습니다.<br/><br/>longRetry는 종속 데이터가 명확하지 않은 시간에 도착하거나 데이터 처리가 발생하는 전체적인 환경을 신뢰할 수 없는 상황에서 사용될 수 있습니다. 이러한 경우 하나씩 다시 시도를 수행해도 도움이 되지 않을 수 있으며 특정 시간 간격 후에 시도할 경우 출력이 나타납니다.<br/><br/>주의: longRetry 또는 longRetryInterval에 높은 값을 설정하지 마세요. 일반적으로 더 높은 값을 지정하면 다른 시스템 문제가 발생합니다. |
-| longRetryInterval |TimeSpan |00:00:00 |긴 다시 시도 간의 지연 |
+| longRetryInterval |timespan |00:00:00 |긴 다시 시도 간의 지연 |
 
 자세한 내용은 [파이프라인](data-factory-create-pipelines.md) 문서를 참조하세요. 
 
@@ -698,7 +698,7 @@ CopyActivity2는 CopyActivity1을 성공적으로 실행하고 Dataset2를 사�
 
 예제에서는 첫 번째 복사 활동의 출력 데이터 집합(Dataset2)이 두 번째 활동의 입력으로 지정되어 있습니다. 따라서 첫 번째 활동의 출력 데이터 집합이 준비되어야 두 번째 활동이 실행됩니다.  
 
-예제에서 CopyActivity2에 다른 입력(예: Dataset3)을 지정할 수 있지만 CopyActivity2에 대한 입력으로 Dataset2를 지정해야 CopyActivity1을 끝낼 때까지 작업이 실행되지 않습니다. 예:
+예제에서 CopyActivity2에 다른 입력(예: Dataset3)을 지정할 수 있지만 CopyActivity2에 대한 입력으로 Dataset2를 지정해야 CopyActivity1을 끝낼 때까지 작업이 실행되지 않습니다. 예: 
 
 CopyActivity1
 

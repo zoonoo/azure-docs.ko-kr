@@ -4,22 +4,22 @@ description: "Azure Active Directory에서 보고서 데이터 보존 정책"
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 183e53b0-0647-42e7-8abe-3e9ff424de12
 ms.service: active-directory
-ms.devlang: na
+ms.devlang: 
 ms.topic: article
-ms.tgt_pltfrm: na
+ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 10/17/2017
+ms.date: 12/15/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 933d251903f4ca74902e984e7a1581a75345ee7f
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 61d3e8fbe26ab24ba0b551e52be0769228f09a11
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="azure-active-directory-report-retention-policies"></a>Azure Active Directory 보고서 보존 정책
 
@@ -40,8 +40,8 @@ ms.lasthandoff: 10/26/2017
 
 **A:**
 
-- **즉시** - 이미 Azure 클래식 포털에서 보고서로 작업한 적이 있는 경우
-- **2시간 이내** - Azure 클래식 포털에서 보고 기능을 설정하지 않은 경우
+- **즉시** - 이미 Azure Portal에서 보고서로 작업한 적이 있는 경우
+- **2시간 이내** - Azure Portal에서 보고 기능을 설정하지 않은 경우
 
 ---
 **Q: 보안 신호 수집을 시작하려면 어떻게 해야 하나요?**  
@@ -60,7 +60,7 @@ ms.lasthandoff: 10/26/2017
 | :--                    | :--           | :--                 | :--                 |
 | 디렉터리 감사        | 7 일        | 30일             | 30일             |
 | 로그인 작업       | 해당 없음           | 30일             | 30일             |
-| Azure MFA 사용        | 90일       | 90일             | 90일             |
+| Azure MFA 사용        | 30일       | 30일             | 30일             |
 
 **보안 신호**
 

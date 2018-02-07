@@ -1,10 +1,10 @@
 ---
-title: "Azure에서 Windows용 가상 컴퓨터 확장 집합 만들기 | Microsoft Docs"
-description: "가상 컴퓨터 확장 집합을 사용하여 고가용성 응용 프로그램을 만들고 Windows VM에 배포"
+title: "Azure에서 Windows용 Virtual Machine Scale Sets 만들기 | Microsoft Docs"
+description: "가상 머신 확장 집합을 사용하여 고가용성 응용 프로그램을 만들고 Windows VM에 배포"
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: 
 ms.assetid: 
@@ -13,30 +13,30 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: 
 ms.topic: article
-ms.date: 08/11/2017
+ms.date: 12/15/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: d8f161af7753d2cd93a8683e8a93128144b86079
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: d190d046f7572c51df0c5c9e14e14a41d93e3248
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/18/2017
 ---
-# <a name="create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-windows"></a>가상 컴퓨터 확장 집합을 만들고 Windows에 고가용성 앱 배포
-가상 컴퓨터 확장 집합을 사용하면 동일한 자동 크기 조정 가상 컴퓨터 집합을 배포하고 관리할 수 있습니다. 확장 집합의 VM 수를 수동으로 조정하거나 CPU와 같은 리소스 사용량, 메모리 요구량 또는 네트워크 트래픽을 기반으로 자동으로 크기를 조정하는 규칙을 정의할 수도 있습니다. 이 자습서에서는 Azure에서 가상 컴퓨터 확장 집합을 배포합니다. 다음 방법에 대해 알아봅니다.
+# <a name="create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-windows"></a>Virtual Machine Scale Set를 만들고 Windows에 고가용성 앱 배포
+가상 머신 확장 집합을 사용하면 동일한 자동 크기 조정 가상 머신 집합을 배포하고 관리할 수 있습니다. 확장 집합의 VM 수를 수동으로 조정하거나 CPU와 같은 리소스 사용량, 메모리 요구량 또는 네트워크 트래픽을 기반으로 자동으로 크기를 조정하는 규칙을 정의할 수도 있습니다. 이 자습서에서는 Azure에서 가상 머신 확장 집합을 배포합니다. 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * 사용자 지정 스크립트 확장을 사용하여 크기를 조정하는 IIS 사이트를 정의
 > * 확장 집합에 대한 부하 분산 장치 만들기
-> * 가상 컴퓨터 확장 집합 만들기
+> * 가상 머신 확장 집합 만들기
 > * 확장 집합의 인스턴스 수 증가 또는 감소
 > * 자동 크기 조정 규칙 만들기
 
-이 자습서에는 Azure PowerShell 모듈 버전 3.6 이상이 필요합니다. ` Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요.
+이 자습서에는 Azure PowerShell 모듈 버전 5.1.1 이상이 필요합니다. ` Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요.
 
 
 ## <a name="scale-set-overview"></a>확장 집합 개요
-가상 컴퓨터 확장 집합을 사용하면 동일한 자동 크기 조정 가상 컴퓨터 집합을 배포하고 관리할 수 있습니다. 확장 집합의 VM은 하나 이상의 *배치 그룹*에서 논리 장애 도메인 및 업데이트 도메인에 분산됩니다. 이러한 항목은 비슷하게 구성된 VM의 그룹으로 [가용성 집합](tutorial-availability-sets.md)과 비슷합니다.
+가상 머신 확장 집합을 사용하면 동일한 자동 크기 조정 가상 머신 집합을 배포하고 관리할 수 있습니다. 확장 집합의 VM은 하나 이상의 *배치 그룹*에서 논리 장애 도메인 및 업데이트 도메인에 분산됩니다. 이러한 항목은 비슷하게 구성된 VM의 그룹으로 [가용성 집합](tutorial-availability-sets.md)과 비슷합니다.
 
 VM은 필요에 따라 확장 집합에 생성됩니다. 사용자는 확장 집합에서 VM이 추가되거나 제거되는 방법 및 시기를 제어하는 자동 크기 조정 규칙을 정의합니다. 이러한 규칙은 메트릭(예: CPU 부하, 메모리 사용량 또는 네트워크 트래픽)을 기반으로 트리거할 수 있습니다.
 
@@ -76,7 +76,7 @@ Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmssConfig `
 ```
 
 ## <a name="create-scale-load-balancer"></a>규모 부하 분산 장치 만들기
-Azure Load Balancer는 들어오는 트래픽을 정상 VM 간에 분산하여 고가용성을 제공하는 계층 4(TCP, UDP) 부하 분산 장치입니다. 부하 분산 장치 상태 프로브가 각 VM에서 지정된 포트를 모니터링하고 작동하는 VM으로만 트래픽을 분산합니다. 자세한 내용은 [Windows 가상 컴퓨터를 부하 분산하는 방법](tutorial-load-balancer.md)에 대한 다음 자습서를 참조하세요.
+Azure Load Balancer는 들어오는 트래픽을 정상 VM 간에 분산하여 고가용성을 제공하는 계층 4(TCP, UDP) 부하 분산 장치입니다. 부하 분산 장치 상태 프로브가 각 VM에서 지정된 포트를 모니터링하고 작동하는 VM으로만 트래픽을 분산합니다. 자세한 내용은 [Windows 가상 머신을 부하 분산하는 방법](tutorial-load-balancer.md)에 대한 다음 자습서를 참조하세요.
 
 공용 IP 주소를 갖고 있고 포트 80에서 웹 트래픽을 분산하는 부하 분산 장치를 만듭니다.
 
@@ -125,7 +125,7 @@ Set-AzureRmLoadBalancer -LoadBalancer $lb
 ```
 
 ## <a name="create-a-scale-set"></a>확장 집합 만들기
-이제 [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvm)를 사용하여 가상 컴퓨터 확장 집합을 만듭니다. 다음 예제는 *myScaleSet*이라는 확장 집합을 만듭니다.
+이제 [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvm)를 사용하여 가상 머신 확장 집합을 만듭니다. 다음 예제는 *myScaleSet*이라는 확장 집합을 만듭니다.
 
 ```powershell
 # Reference a virtual machine image from the gallery
@@ -217,7 +217,7 @@ Get-AzureRmVmss -ResourceGroupName myResourceGroupScaleSet `
     Select -ExpandProperty Sku
 ```
 
-그런 다음 [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss)를 사용하여 확장 집합의 가상 컴퓨터 수를 수동으로 늘리거나 줄일 수 있습니다. 다음 예제는 확장 집합의 VM 수를 *5*로 설정합니다.
+그런 다음 [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss)를 사용하여 확장 집합의 가상 머신 수를 수동으로 늘리거나 줄일 수 있습니다. 다음 예제는 확장 집합의 VM 수를 *3*으로 설정합니다.
 
 ```powershell
 # Get current scale set
@@ -226,7 +226,7 @@ $scaleset = Get-AzureRmVmss `
   -VMScaleSetName myScaleSet
 
 # Set and update the capacity of your scale set
-$scaleset.sku.capacity = 5
+$scaleset.sku.capacity = 3
 Update-AzureRmVmss -ResourceGroupName myResourceGroupScaleSet `
     -Name myScaleSet `
     -VirtualMachineScaleSet $scaleset
@@ -236,7 +236,7 @@ Update-AzureRmVmss -ResourceGroupName myResourceGroupScaleSet `
 
 
 ### <a name="configure-autoscale-rules"></a>자동 크기 조정 규칙 구성
-확장 집합에서 인스턴스 수를 수동으로 확장하는 대신 자동 크기 조정 규칙을 정의합니다. 이러한 규칙은 확장 집합의 인스턴스를 모니터링하고 사용자가 정의한 메트릭 및 임계값에 따라 적절하게 대응합니다. 다음은 평균 CPU 부하가 5분 넘게 60%를 초과하면 인스턴스 수를 하나 늘리는 예제입니다. 평균 CPU 부하가 5분 넘게 30% 미만이면 인스턴스 수를 하나 줄입니다.
+확장 집합에서 인스턴스 수를 수동으로 확장하는 대신 자동 크기 조정 규칙을 정의합니다. 이러한 규칙은 확장 집합의 인스턴스를 모니터링하고 사용자가 정의한 메트릭 및 임계값에 따라 적절하게 대응합니다. 평균 CPU 부하가 5분 넘게 60%를 초과하면 다음 예제에서는 인스턴스 수를 하나 늘립니다. 평균 CPU 부하가 5분 넘게 30% 미만이면 인스턴스 수를 하나 줄입니다.
 
 ```powershell
 # Define your scale set information
@@ -245,7 +245,7 @@ $myResourceGroup = "myResourceGroupScaleSet"
 $myScaleSet = "myScaleSet"
 $myLocation = "East US"
 
-# Create a scale up rule to increase the number instances after 60% average CPU usage exceeded for a 5 minute period
+# Create a scale up rule to increase the number instances after 60% average CPU usage exceeded for a 5-minute period
 $myRuleScaleUp = New-AzureRmAutoscaleRule `
   -MetricName "Percentage CPU" `
   -MetricResourceId /subscriptions/$mySubscriptionId/resourceGroups/$myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/$myScaleSet `
@@ -258,7 +258,7 @@ $myRuleScaleUp = New-AzureRmAutoscaleRule `
   -ScaleActionDirection Increase `
   -ScaleActionValue 1
 
-# Create a scale down rule to decrease the number of instances after 30% average CPU usage over a 5 minute period
+# Create a scale down rule to decrease the number of instances after 30% average CPU usage over a 5-minute period
 $myRuleScaleDown = New-AzureRmAutoscaleRule `
   -MetricName "Percentage CPU" `
   -MetricResourceId /subscriptions/$mySubscriptionId/resourceGroups/$myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/$myScaleSet `
@@ -292,12 +292,12 @@ Add-AzureRmAutoscaleSetting `
 
 
 ## <a name="next-steps"></a>다음 단계
-이 자습서에서는 가상 컴퓨터 확장 집합을 만들었습니다. 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 가상 머신 확장 집합을 만들었습니다. 다음 방법에 대해 알아보았습니다.
 
 > [!div class="checklist"]
 > * 사용자 지정 스크립트 확장을 사용하여 크기를 조정하는 IIS 사이트를 정의
 > * 확장 집합에 대한 부하 분산 장치 만들기
-> * 가상 컴퓨터 확장 집합 만들기
+> * 가상 머신 확장 집합 만들기
 > * 확장 집합의 인스턴스 수 증가 또는 감소
 > * 자동 크기 조정 규칙 만들기
 

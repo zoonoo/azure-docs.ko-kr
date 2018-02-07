@@ -16,14 +16,14 @@ ms.workload: infrastructure
 ms.date: 07/14/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 6567853e9ef3cad63595dc0afe7a793bdc5d972c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 43f06422e1120f1c3b2a9d9d5d4be515213c0937
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/17/2018
 ---
-# <a name="secure-iis-web-server-with-ssl-certificates-on-a-windows-virtual-machine-in-azure"></a>Azure의 Windows 가상 컴퓨터에서 SSL 인증서로 IIS 웹 서버 보호
-웹 서버를 보호하기 위해 웹 트래픽을 암호화하는 데 SSL(Secure Sockets Later) 인증서를 사용할 수 있습니다. 이러한 SSL 인증서는 Azure Key Vault에 저장될 수 있으며 Azure에서 Windows VM(가상 컴퓨터)에 인증서의 보안 배포를 허용합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
+# <a name="secure-iis-web-server-with-ssl-certificates-on-a-windows-virtual-machine-in-azure"></a>Azure의 Windows 가상 머신에서 SSL 인증서로 IIS 웹 서버 보호
+웹 서버를 보호하기 위해 웹 트래픽을 암호화하는 데 SSL(Secure Sockets Layer) 인증서를 사용할 수 있습니다. 이러한 SSL 인증서는 Azure Key Vault에 저장될 수 있으며 Azure에서 Windows VM(가상 머신)에 인증서의 보안 배포를 허용합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * Azure Key Vault 만들기
@@ -76,7 +76,7 @@ Add-AzureKeyVaultCertificate `
 ```
 
 
-## <a name="create-a-virtual-machine"></a>가상 컴퓨터 만들기
+## <a name="create-a-virtual-machine"></a>가상 머신 만들기
 [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential)을 사용하여 VM의 관리자 사용자 이름과 암호를 설정합니다.
 
 ```powershell
@@ -231,7 +231,7 @@ Get-AzureRmPublicIPAddress -ResourceGroupName $resourceGroup -Name "myPublicIP" 
 > * VM 만들기 및 IIS 웹 서버 설치
 > * VM에 인증서 삽입 및 SSL 바인딩으로 IIS 구성
 
-미리 빌드된 가상 컴퓨터 스크립트 샘플을 보려면 이 링크를 따릅니다.
+미리 빌드된 가상 머신 스크립트 샘플을 보려면 이 링크를 따릅니다.
 
 > [!div class="nextstepaction"]
 > [Windows 가상 컴퓨터 스크립트 샘플 ](./powershell-samples.md)

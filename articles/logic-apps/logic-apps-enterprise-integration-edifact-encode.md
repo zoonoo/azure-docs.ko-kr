@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: b8d577326d23ec45cb4a9ec0e450ebf7afd945f3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 799d444632b67788520be8a777ec656076022583
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="encode-edifact-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>엔터프라이즈 통합 팩이 포함된 Azure Logic Apps에 대한 EDIFACT 메시지 인코딩
 
@@ -36,7 +36,7 @@ EDIFACT 메시지 인코딩 커넥터를 사용하여 EDI 및 파트너 관련 �
 
 ## <a name="encode-edifact-messages"></a>EDIFACT 메시지 인코딩
 
-1. [논리 앱 만들기](logic-apps-create-a-logic-app.md)
+1. [논리 앱 만들기](quickstart-create-first-logic-app-workflow.md)
 
 2. EDIFACT 메시지 인코딩 커넥터에는 트리거가 없으므로 요청 트리거와 마찬가지로 논리 앱을 시작하는 트리거를 추가해야 합니다. Logic App Designer에서 트리거를 추가하고 작업을 논리 앱에 추가합니다.
 
@@ -50,7 +50,7 @@ EDIFACT 메시지 인코딩 커넥터를 사용하여 EDI 및 파트너 관련 �
 
     별표가 있는 속성은 필수 사항입니다.
 
-    | 속성 | 세부 정보 |
+    | 자산 | 세부 정보 |
     | --- | --- |
     | 연결 이름 * |연결의 이름을 입력합니다. |
     | 통합 계정 * |통합 계정의 이름을 입력합니다. 통합 계정 및 논리 앱이 동일한 Azure 위치에 있어야 합니다. |

@@ -5,18 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 12/11/2017
+ms.topic: tutorial
+ms.date: 01/15/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 5810ff908d48fc4ff742d734e7c2457fdfe8cb03
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 8acc8deff8b635c97e8722d65a728aebf0e49bb3
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Azure에 온-프레미스 VMware VM 재해 복구 설정
 
@@ -24,7 +21,7 @@ ms.lasthandoff: 12/11/2017
 
 > [!div class="checklist"]
 > * 복제 원본 및 대상을 지정합니다.
-> * 온-프레미스 Site Recovery 구성 요소 및 대상 복제 환경을 포함하여 소스 복제 환경을 설정합니다.
+> * 온-프레미스 Site Recovery 구성 요소 및 대상 복제 환경을 포함하여 원본 복제 환경을 설정합니다.
 > * 복제 정책 만들기
 > * VM에 대한 복제 사용
 
@@ -46,115 +43,75 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="set-up-the-source-environment"></a>원본 환경 설정
 
-원본 환경을 설정하려면 Site Recovery 통합 설치 파일을 다운로드합니다. 설치를 실행하여 온-프레미스 Site Recovery 구성 요소를 설치하고, 자격 증명 모음에 VMware 서버를 등록하고, 온-프레미스 VM을 검색합니다.
-
-### <a name="verify-on-premises-site-recovery-requirements"></a>온-프레미스 Site Recovery 요구 사항 확인
-
-온-프레미스 Site Recovery 구성 요소를 호스트하려면 단일 고가용성 온-프레미스 VMware VM이 필요합니다. 구성 요소에는 구성 서버, 프로세스 서버 및 마스터 대상 서버가 포함됩니다.
+원본 환경을 설정하려면 온-프레미스 Site Recovery 구성 요소를 호스트할 단일 고가용성 온-프레미스 컴퓨터가 필요합니다. 구성 요소에는 구성 서버, 프로세스 서버 및 마스터 대상 서버가 포함됩니다.
 
 - 구성 서버는 온-프레미스와 Azure 간의 통신을 조정하여 데이터 복제를 관리합니다.
 - 프로세스 서버는 복제 게이트웨이의 역할을 합니다. 복제 데이터를 수신하고 캐싱, 압축 및 암호화를 사용하여 최적화하며 복제 데이터를 Azure Storage로 전송합니다. 또한 프로세스 서버는 복제하려는 VM에 모바일 서비스를 설치하고 온-프레미스 VMware VM의 자동 검색을 수행합니다.
 - 마스터 대상 서버는 Azure에서 장애 복구 중 복제 데이터를 처리합니다.
 
-VM은 다음 요구 사항을 충족해야 합니다.
+고가용성 VMware VM으로 구성 서버를 설정하려면 준비된 OVF 템플릿을 다운로드하고 템플릿을 VMware로 가져와서 VM을 만듭니다. 구성 서버를 설정한 후 자격 증명 모음에 등록합니다. 등록이 완료되면 Site Recovery가 온-프레미스 VMware VM을 검색합니다.
 
-| **요구 사항** | **세부 정보** |
-|-----------------|-------------|
-| CPU 코어 수| 8 |
-| RAM | 12GB |
-| 디스크 수 | 3 - OS 디스크, 프로세스 서버 캐시 디스크, 보존 드라이브(장애 복구용) |
-| 사용 가능한 디스크 공간(프로세스 서버 캐시) | 600GB |
-| 사용 가능한 디스크 공간(보존 디스크) | 600GB |
-| 운영 체제 버전 | Windows Server 2012 R2 |
-| 운영 체제 로케일 | 미국 영어(en-us) |
-| VMware vSphere PowerCLI 버전 | [PowerCLI 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1 "PowerCLI 6.0") |
-| Windows Server 역할 | Active Directory Domain Services, 인터넷 정보 서비스 및 Hyper-V 역할은 사용하지 않습니다. |
-| NIC 유형 | VMXNET3 |
-| IP 주소 유형 | 정적 |
-| 포트 | 443(컨트롤 채널 오케스트레이션)<br/>9443(데이터 전송)|
+### <a name="download-the-vm-template"></a>VM 템플릿 다운로드
 
-또한, 
-- VM의 시스템 시계가 시간 서버와 동기화되었는지 확인합니다. 시간은 15분 이내에 동기화되어야 합니다. 더 오래 걸리는 경우 설정이 실패합니다.
-설정이 실패합니다.
-- 구성 서버 VM에서 다음 URL에 액세스할 수 있는지 확인합니다.
+1. 자격 증명 모음에서 **인프라 준비** > **원본**으로 이동합니다.
+2. **원본 준비**에서 **+구성 서버**를 클릭합니다.
+3. **서버 추가**에서 **VMware에 대한 구성 서버**가 **서버 형식**에 표시되는지 확인합니다.
+4. 구성 서버에 대한 OVF(Open Virtualization) 템플릿을 다운로드합니다.
 
-    [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
-    
-- IP 주소 기반 방화벽 규칙이 Azure와의 통신을 허용하는지 확인합니다.
-    - [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/confirmation.aspx?id=41653), 포트 443(HTTPS) 및 포트 9443(데이터 복제)을 허용합니다.
-    - 구독하는 Azure 지역과 미국 서부에 해당하는 IP 주소 범위를 허용하세요(액세스 제어 및 ID 관리에 사용됨).
+  > [!TIP]
+  최신 버전의 구성 서버 템플릿을 [Microsoft 다운로드 센터](https://aka.ms/asrconfigurationserver)에서 직접 다운로드할 수 있습니다.
+
+## <a name="import-the-template-in-vmware"></a>VMware에서 템플릿 가져오기
+
+1. VMWare vSphere 클라이언트를 사용하여 VMware vCenter 서버 또는 vSphere ESXi 호스트에 로그온합니다.
+2. **파일** 메뉴에서 **OVF 템플릿 배포**를 선택하여 OVF 템플릿 배포 마법사를 시작합니다.  
+
+     ![OVF 템플릿](./media/tutorial-vmware-to-azure/vcenter-wizard.png)
+
+3. **원본 선택**에서 다운로드한 OVF의 위치를 지정합니다.
+4. **세부 정보 검토**에서 **다음**을 클릭합니다.
+5. **이름 및 폴더 선택**과 **구성 선택**에서 기본 설정을 그대로 적용합니다.
+6. 최상의 성능을 발휘할 수 있도록 **저장소 선택**의 **가상 디스크 형식 선택**에서 **씩 프로비전 Eager Zeroed**를 선택합니다.
+4. 마법사 페이지의 나머지 부분에서는 기본 설정을 적용합니다.
+5. **완료 준비**에서 다음을 수행합니다.
+  - 기본 설정을 사용하여 VM을 설정하려면 **배포 후 전원 켜기** > **마침**을 선택합니다.
+  - 추가 네트워크 인터페이스를 추가하려면 **배포 후 전원 켜기**의 선택을 취소하고 **마침**을 선택합니다. 기본적으로 구성 서버 템플릿은 단일 NIC를 사용하여 배포되지만 배포 후 NIC를 추가할 수 있습니다.
+
+  
+## <a name="add-an-additional-adapter"></a>어댑터 추가
+
+구성 서버에 NIC를 추가하려면 자격 증명 모음에 서버를 등록하기 전에 추가하세요. 등록 후에는 어댑터를 추가할 수 없습니다.
+
+1. VSphere 클라이언트 인벤토리에서 VM을 마우스 오른쪽 단추로 클릭하고 **설정 편집**을 선택합니다.
+2. **하드웨어**에서 **추가** > **이더넷 어댑터**를 클릭합니다. 그런 후 **Next** 를 클릭합니다.
+3. 어댑터 유형 및 네트워크를 선택합니다. 
+4. VM이 켜질 때 가상 NIC에 연결하려면 **전원이 켜지면 연결**을 선택합니다. **다음** > **마침**을 클릭하고 **확인**을 클릭합니다.
 
 
-### <a name="download-the-site-recovery-unified-setup-file"></a>Site Recovery 통합 설치 파일 다운로드
+## <a name="register-the-configuration-server"></a>구성 서버 등록 
 
-1. 자격 증명 모음 > **인프라 준비**에서 **원본**을 클릭합니다.
-1. **원본 준비**에서 **+구성 서버**를 클릭합니다.
-2. **서버 추가**에서 **구성 서버**가 **서버 형식**에 표시되는지 확인합니다.
-3. Site Recovery 통합 설치 프로그램 설치 파일을 다운로드합니다.
-4. 자격 증명 모음 등록 키를 다운로드합니다. 통합 설치를 실행할 때 이 키가 필요합니다. 이 키는 생성된 날로부터 5일간 유효합니다.
+1. VMWare vSphere 클라이언트 콘솔에서 VM을 켭니다.
+2. VM이 Windows Server 2016 설치 환경으로 부팅됩니다. 사용권 계약에 동의하고 관리자 암호를 지정합니다.
+3. 설치가 완료되면 VM에 관리자 권한으로 로그온합니다.
+4. 처음으로 로그온하면 Azure Site Recovery 구성 도구가 시작됩니다.
+5. Site Recovery에 구성 서버를 등록하는 데 사용된 이름을 지정합니다. 그런 후 **Next** 를 클릭합니다.
+6. VM이 Azure에 연결할 수 있는지 도구에서 확인합니다. 연결이 설정되면 **로그인**을 클릭하여 Azure 구독에 로그인합니다. 구성 서버를 등록하려는 자격 증명 모음에 자격 증명이 액세스할 수 있어야 합니다.
+7. 도구에서 몇 가지 구성 작업을 수행한 후 다시 부팅합니다.
+8. 다시 컴퓨터에 로그온합니다. 구성 서버 관리 마법사가 자동으로 실행됩니다.
 
-   ![원본 설정](./media/tutorial-vmware-to-azure/source-settings.png)
+### <a name="configure-settings-and-connect-to-vmware"></a>설정을 구성하고 VMware에 연결
 
-### <a name="set-up-the-configuration-server"></a>구성 서버 설정
+1. 구성 서버 관리 마법사 > **연결 설정**에서 복제 트래픽을 수신할 NIC를 선택합니다. 그런 다음 **Save**를 클릭합니다. 구성된 후에는 이 설정을 변경할 수 없습니다.
+2. **Recovery Services 자격 증명 모음 선택**에서 Azure 구독을 선택하고 관련 리소스 그룹 및 자격 증명 모음을 선택합니다.
+3. **타사 소프트웨어 설치**에서 사용권 계약에 동의하고 **다운로드 및 설치**를 클릭하여 MySQL 서버를 설치합니다.
+4. **VMware PowerLCI 설치**를 클릭합니다. 이렇게 하기 전에 모든 브라우저 창을 닫아야 합니다. 그런 후 **계속**을 클릭합니다.
+5. 계속하기 전에 **어플라이언스 구성 유효성 검사**에서 필수 구성 요소가 확인됩니다.
+6. **vCenter Server/vSphere ESXi 서버 구성**에서 복제하려는 VM이 있는 vCenter 서버의 FQDN 또는 IP 주소, 또는 vSphere 호스트를 지정합니다. 서버가 수신 대기하는 포트를 지정하고, 자격 증명 모음에 있는 VMware 서버에 사용할 이름을 지정합니다.
+7. 구성 서버가 VMware 서버에 연결하는 데 사용할 자격 증명을 지정합니다. Site Recovery는 이러한 자격 증명을 사용하여 복제에 사용 가능한 VMware VM을 자동으로 검색합니다. **추가**를 클릭한 후 **계속**을 클릭합니다.
+8. **가상 머신 자격 증명 구성**에서, 복제가 사용되면 컴퓨터에 Mobility 서비스를 자동으로 설치하는 데 사용할 사용자 이름 및 암호를 지정합니다. Windows 컴퓨터의 경우 복제하려는 컴퓨터에 대한 로컬 관리자 권한이 필요합니다. Linux의 경우 루트 계정에 대한 세부 정보를 제공합니다.
+9. **구성 완료**를 클릭하여 등록을 완료합니다. 
+10. 등록이 완료되면 Azure Portal에서 구성 서버 및 VMware 서버가 자격 증명 모음의 **원본** 페이지에 표시되는지 확인합니다. 그런 후 **확인**을 클릭하여 대상 설정을 구성합니다.
 
-1. 통합 설치 프로그램 설치 파일을 실행합니다.
-2. **시작하기 전에**에서 **구성 서버 및 프로세스 서버 설치**를 선택하고 **다음**을 클릭합니다.
-
-3. **타사 소프트웨어 라이선스**에서 **동의함**을 클릭하여 MySQL을 다운로드하고 설치한 후 **다음**을 클릭합니다.
-
-4. **등록**에서 자격 증명 모음에서 다운로드한 등록 키를 선택합니다.
-
-5. **인터넷 설정**에서 구성 서버에서 실행 중인 공급자가 인터넷을 통해 Azure Site Recovery에 연결하는 방법을 지정합니다.
-
-   - 현재 컴퓨터에 설정된 프록시를 사용하여 연결하려면 **프록시 서버를 사용하여 Azure Site Recovery에 연결**을 선택합니다.
-   - 공급자를 직접 연결하려면 **프록시 서버 없이 Azure Site Recovery에 직접 연결**을 선택합니다.
-   - 기존 프록시에 인증이 필요하거나 공급자 연결에 사용자 지정 프록시를 사용하려면 **사용자 지정 프록시 설정으로 연결**을 선택하고 주소, 포트 및 자격 증명을 지정합니다.
-
-   ![방화벽](./media/tutorial-vmware-to-azure/combined-wiz4.png)
-
-6. **필수 조건 확인**에서 설치 프로그램은 설치가 실행될 수 있는지 확인합니다. **글로벌 시간 동기화 확인**에 대한 경고가 표시되면 시스템 시계의 시간(**날짜 및 시간** 설정)이 표준 시간대와 같은지 확인합니다.
-
-   ![필수 조건](./media/tutorial-vmware-to-azure/combined-wiz5.png)
-
-7. **MySQL 구성**에서 설치된 MySQL 서버 인스턴스에 로그온하기 위한 자격 증명을 만듭니다.
-
-8. **환경 세부 정보**에서 VMware VM을 보호하려면 **예**를 선택합니다. 설치 프로그램에서 PowerCLI 6.0이 설치되어 있는지 확인합니다.
-
-9. **설치 위치**에서 이진 파일을 설치하고 캐시를 저장할 위치를 선택합니다. 최소 5GB의 디스크 공간이 있는 드라이브를 선택해야 하지만 600GB 이상의 사용 가능한 공간이 있는 캐시 드라이브를 선택하는 것이 좋습니다.
-
-10. **네트워크 선택**에서 구성 서버가 복제 데이터를 전송 및 수신할 수신기(네트워크 어댑터 및 SSL 포트)를 지정합니다. 9443 포트는 복제 트래픽을 보내고 받는 데 사용되는 기본 포트이지만, 환경의 요구 사항에 맞게 이 포트 번호를 수정할 수 있습니다. 또한 복제 작업을 오케스트레이션하는 데 사용되는 443 포트를 엽니다. 복제 트래픽을 보내거나 받는 데 443 포트를 사용하면 안 됩니다.
-
-11. **요약**에서 정보를 검토하고 **설치**를 클릭합니다. 설치 프로그램에서 구성 서버를 설치하고 Azure Site Recovery 서비스에 등록합니다.
-
-    ![요약](./media/tutorial-vmware-to-azure/combined-wiz10.png)
-
-    설치가 완료되면 암호가 생성됩니다. 복제를 사용하도록 설정할 때 필요하므로 암호를 복사하고 안전한 위치에 보관합니다. 서버가 자격 증명 모음의 **설정** > **서버** 창에 표시됩니다.
-
-### <a name="configure-automatic-discovery"></a>자동 검색 구성
-
-VM을 검색하려면 구성 서버에서 온-프레미스 VMware 서버에 연결해야 합니다. 이 자습서에서는 서버에 대한 관리자 권한이 있는 계정을 사용하여 vCenter 서버 또는 vSphere 호스트를 추가합니다. 이 계정은 [이전 자습서](tutorial-prepare-on-premises-vmware.md)에서 만들었습니다. 
-
-계정을 추가하려면 다음을 수행합니다.
-
-1. 구성 서버 VM에서 **CSPSConfigtool.exe**를 시작합니다. 바탕 화면에서 바로 가기로 사용할 수 있으며, *설치 위치*\home\svsystems\bin 폴더에 있습니다.
-
-2. **계정 관리** > **계정 추가**를 클릭합니다.
-
-   ![계정 추가](./media/tutorial-vmware-to-azure/credentials1.png)
-
-3. **계정 세부 정보**에서 자동 검색에 사용할 계정을 추가합니다.
-
-   ![세부 정보](./media/tutorial-vmware-to-azure/credentials2.png)
-
-VMware 서버를 추가하려면 다음을 수행합니다.
-
-1. [Azure Portal](https://portal.azure.com)을 열고 **모든 리소스**를 클릭합니다.
-2. **ContosoVMVault**라는 Recovery Service 자격 증명 모음을 클릭합니다.
-3. **Site Recovery** > **인프라 준비** > **원본**을 차례로 클릭합니다.
-4. vCenter 서버 또는 vSphere ESXi 호스트에 연결하려면 **+vCenter**를 선택합니다.
-5. **vCenter 추가**에서 서버에 대한 표시 이름을 지정합니다. 그런 다음 IP 주소 또는 FQDN을 지정합니다.
-6. VMware 서버가 다른 포트에서 요청을 수신 대기하도록 구성되지 않은 경우 443으로 설정된 포트를 그대로 둡니다.
-7. 서버 연결에 사용할 계정을 선택합니다. **확인**을 클릭합니다.
 
 Site Recovery는 지정한 설정을 사용하여 VMware 서버에 연결하고 VM을 검색합니다.
 
@@ -185,7 +142,7 @@ Site Recovery는 지정한 설정을 사용하여 VMware 서버에 연결하고 
 
 정책은 구성 서버와 자동으로 연결됩니다. 기본적으로 장애 복구(failback)에 대해 일치 정책이 자동으로 만들어집니다. 예를 들어 복제 정책이 **rep-policy**인 경우 장애 복구(failback) 정책은 **rep-policy-failback**이 됩니다. 이 정책은 Azure에서 장애 복구(failback)를 시작하기 전에는 사용되지 않습니다.
 
-## <a name="enable-replication"></a>복제 활성화
+## <a name="enable-replication"></a>복제 사용
 
 VM에 대한 복제를 사용하도록 설정되면 Site Recovery에서 모바일 서비스를 설치합니다. 변경 내용이 적용되어 포털에 표시되는 데 15분 이상 걸릴 수 있습니다.
 
@@ -200,7 +157,7 @@ VM에 대한 복제를 사용하도록 설정되면 Site Recovery에서 모바�
 7. 데이터 복제에 사용할 Azure Storage 계정을 선택합니다.
 8. 장애 조치(failover) 후 Azure VM이 생성될 때 연결될 Azure 네트워크 및 서브넷을 선택합니다.
 9. 컴퓨터마다 Azure 네트워크를 선택하려면 **나중에 구성**을 선택합니다. 네트워크가 없는 경우 **만들어야** 합니다.
-10. **Virtual Machines** > **가상 컴퓨터 선택**에서 복제하려는 각 컴퓨터를 클릭하여 선택합니다. 복제를 활성화할 수 있는 컴퓨터만 선택할 수 있습니다. 그런 후 **OK**를 클릭합니다.
+10. **Virtual Machines** > **가상 머신 선택**에서 복제하려는 각 컴퓨터를 클릭하여 선택합니다. 복제를 활성화할 수 있는 컴퓨터만 선택할 수 있습니다. 그런 후 **OK**를 클릭합니다.
 11. **속성** > **속성 구성**에서 컴퓨터에 모바일 서비스를 자동으로 설치하기 위해 프로세스 서버에서 사용할 계정을 선택합니다.
 12. **복제 설정** > **복제 설정 구성**에서 올바른 복제 정책이 선택되어 있는지 확인합니다.
 13. **복제 사용**을 클릭합니다.
@@ -213,4 +170,4 @@ VM에 대한 복제를 사용하도록 설정되면 Site Recovery에서 모바�
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [재해 복구 훈련 실행](site-recovery-test-failover-to-azure.md)
+> [재해 복구 드릴 실행](site-recovery-test-failover-to-azure.md)

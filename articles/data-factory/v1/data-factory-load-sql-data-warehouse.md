@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 8398a261ca33060b7709d818cb64bb1e8e2058b1
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 3350645d4f173a6d0d007ff9095bb3115600a13b
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>Data Factory를 통해 15분 내에 Azure SQL Data Warehouse에 1TB 로드
 > [!NOTE]
@@ -143,7 +143,7 @@ ms.lasthandoff: 11/02/2017
 
 1. **작업 이름**으로 **CopyFromBlobToAzureSqlDataWarehouse**를 입력합니다.
 2. **지금 한 번 실행** 옵션을 선택합니다.   
-3. **다음**을 누릅니다.  
+3. **다음**을 클릭합니다.  
 
     ![복사 마법사 - 속성 페이지](media/data-factory-load-sql-data-warehouse/copy-wizard-properties-page.png)
 
@@ -185,7 +185,7 @@ ms.lasthandoff: 11/02/2017
 
 ## <a name="step-4-performance-settings"></a>4단계: 성능 설정
 
-**Polybase 허용**은 기본적으로 선택됩니다.  **다음**을 누릅니다.
+**Polybase 허용**은 기본적으로 선택됩니다.  **다음**을 클릭합니다.
 
 ![복사 마법사 - 스키마 매핑 페이지](media/data-factory-load-sql-data-warehouse/performance-settings-page.png)
 

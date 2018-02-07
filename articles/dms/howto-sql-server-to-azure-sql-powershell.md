@@ -10,12 +10,12 @@ ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 12/13/2017
-ms.openlocfilehash: 9eebe8352d6a447df520c194b9906df8c2c9a83f
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.date: 01/24/2018
+ms.openlocfilehash: 8569bf65d04f677a45935284dc61d68879014c10
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="migrate-sql-server-on-premises-to-azure-sql-db-using-azure-powershell"></a>Azure PowerShell을 사용하여 SQL Server 온-프레미스를 Azure SQL DB로 마이그레이션
 이 문서에서는 Microsoft Azure PowerShell을 사용하여 SQL Server 2016 이상의 온-프레미스 인스턴스로 복원된 **Adventureworks2012** 데이터베이스를 Azure SQL Database로 마이그레이션합니다. Microsoft Azure PowerShell에서 `AzureRM.DataMigration` 모듈을 사용하여 온-프레미스 SQL Server 인스턴스의 데이터베이스를 Azure SQL Database로 마이그레이션할 수 있습니다.
@@ -46,7 +46,7 @@ ms.lasthandoff: 12/13/2017
 [Azure PowerShell을 사용하여 로그인](https://docs.microsoft.com/powershell/azure/authenticate-azureps?view=azurermps-4.4.1) 문서의 지침에 따라 PowerShell을 사용하여 Azure 구독에 로그인합니다.
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
-Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 가상 컴퓨터를 만들려면 먼저 리소스 그룹을 만듭니다.
+Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 가상 머신을 만들려면 먼저 리소스 그룹을 만듭니다.
 
 [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup?view=azurermps-4.4.1) 명령을 사용하여 리소스 그룹을 만듭니다. 
 
@@ -63,22 +63,25 @@ New-AzureRmResourceGroup -ResourceGroupName myResourceGroup -Location EastUS
 - *SKU*. 이 매개 변수는 DMS Sku 이름에 해당합니다. 현재 지원되는 Sku 이름은 *Basic_1vCore*, *Basic_2vCores*, *GeneralPurpose_4vCores*입니다.
 - *가상 서브넷 식별자*. [New-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig?view=azurermps-4.4.1) cmdlet을 사용하여 서브넷을 만들 수 있습니다. 
 
-다음 예제에서는 *MySubnet*이라는 가상 서브넷을 사용하여 *미국 동부* 지역에 있는 *MyDMSResourceGroup* 리소스 그룹에 *MyDMS*라는 서비스를 만듭니다.
+다음 예제에서는 *MyVNET*이라는 가상 네트워크 및 *MySubnet*이라는 서브넷을 사용하여 *미국 동부* 지역에 있는 *MyDMSResourceGroup* 리소스 그룹에 *MyDMS*라는 서비스를 만듭니다.
 
 ```powershell
+ $vNet = Get-AzureRmVirtualNetwork -ResourceGroupName MyDMSResourceGroup -Name MyVNET
+
+$vSubNet = Get-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vNet -Name MySubnet
+
 $service = New-AzureRmDms -ResourceGroupName myResourceGroup `
   -ServiceName MyDMS `
   -Location EastUS `
   -Sku Basic_2vCores `  
-  -VirtualSubnetId
-$vnet.Id`
+  -VirtualSubnetId $vSubNet.Id`
 ```
 
 ## <a name="create-a-migration-project"></a>마이그레이션 프로젝트 만들기
 Azure Database Migration Service 인스턴스를 만든 후 마이그레이션 프로젝트를 만듭니다. Azure Database Migration Service 프로젝트는 프로젝트의 일부로 마이그레이션할 데이터베이스의 목록뿐만 아니라 원본 및 대상 인스턴스 모두에 대한 연결 정보가 필요합니다.
 
 ### <a name="create-a-database-connection-info-object-for-the-source-and-target-connections"></a>원본 및 대상 연결에 대한 데이터베이스 연결 정보 개체 만들기
-`New-AzureRmDmsConnInfo` cmdlet을 사용하여 데이터베이스 연결 정보 개체를 만들 수 있습니다.  이 cmdlet에는 다음 매개 변수가 필요합니다.
+`New-AzureRmDmsConnInfo` cmdlet을 사용하여 데이터베이스 연결 정보 개체를 만들 수 있습니다. 이 cmdlet에는 다음 매개 변수가 필요합니다.
 - *ServerType*. SQL, Oracle 또는 MySQL 등 요청된 데이터베이스 연결 유형입니다. SQL Server 및 SQL Azure에 대한 SQL을 사용합니다.
 - *DataSource*. SQL 인스턴스 또는 SQL Azure 서버의 이름 또는 IP입니다.
 - *AuthType*. 연결에 대한 인증 유형이며 SqlAuthentication 또는 WindowsAuthentication일 수 있습니다.
@@ -166,9 +169,9 @@ $selectedDbs = New-AzureRmDmsSqlServerSqlDbSelectedDB -Name AdventureWorks2016 `
 ### <a name="create-and-start-a-migration-task"></a>마이그레이션 작업 만들기 및 시작
 
 `New-AzureRmDataMigrationTask` cmdlet을 사용하여 마이그레이션 작업을 만들고 시작합니다. 이 cmdlet에는 다음 매개 변수가 필요합니다.
-- *TaskType*  SQL Azure 마이그레이션 형식 *MigrateSqlServerSqlDb*로 SQL Server에 만들 마이그레이션 작업 형식이 필요합니다. 
+- *TaskType* SQL Azure 마이그레이션 형식 *MigrateSqlServerSqlDb*로 SQL Server에 만들 마이그레이션 작업 형식이 필요합니다. 
 - *리소스 그룹 이름*. 작업을 만들 Azure 리소스 그룹의 이름입니다.
-- *ServiceName*.  작업을 만들 Azure Database Migration Service 인스턴스입니다.
+- *ServiceName*. 작업을 만들 Azure Database Migration Service 인스턴스입니다.
 - *ProjectName*. 작업을 만들 Azure Database Migration 프로젝트의 이름입니다. 
 - *TaskName*. 만들 작업의 이름입니다. 
 - *원본 연결*. 원본 연결을 나타내는 AzureRmDmsConnInfo 개체입니다.

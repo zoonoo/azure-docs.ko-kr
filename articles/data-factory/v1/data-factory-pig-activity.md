@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 7612eda8e40cb0ff2b205c2dfe11c2bba1b05b6a
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: c309debf53cc22d102de740ffd2907257b9821d2
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="transform-data-using-pig-activity-in-azure-data-factory"></a>Azure Data Factory에서 Pig 활동을 사용하여 데이터 변환
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -82,11 +82,11 @@ Data Factory [파이프라인](data-factory-create-pipelines.md)의 HDInsight Pi
 }
 ```
 ## <a name="syntax-details"></a>구문 세부 정보
-| 속성 | 설명 | 필수 |
+| 자산 | 설명 | 필수 |
 | --- | --- | --- |
-| name |작업의 이름 |예 |
-| 설명 |작업이 무엇에 사용되는지 설명하는 텍스트입니다. |아니요 |
-| type |HDinsightPig |예 |
+| 이름 |작업의 이름 |예 |
+| description |작업이 무엇에 사용되는지 설명하는 텍스트입니다. |아니요 |
+| 형식 |HDinsightPig |예 |
 | inputs |Pig 활동에서 사용하는 하나 이상의 입력 |아니요 |
 | outputs |Pig 활동에서 생성하는 하나 이상의 출력 |예 |
 | linkedServiceName |데이터 팩터리에서 연결된 서비스로 등록된 HDInsight 클러스터에 대한 참조 |예 |

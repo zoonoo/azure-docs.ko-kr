@@ -1,6 +1,6 @@
 ---
 title: "Azure Data Factory를 사용하여 예측 데이터 파이프라인 만들기 | Microsoft Docs"
-description: "Azure Data Factory 및 Azure 기계 학습을 사용하여 예측 파이프라인을 만드는 방법을 설명합니다."
+description: "Azure Data Factory 및 Azure Machine Learning을 사용하여 예측 파이프라인을 만드는 방법을 설명합니다."
 services: data-factory
 documentationcenter: 
 author: sharonlo101
@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 3169584bc884107ccd34b01264683d8c73c0fecb
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 05ae7cdc78e909c9aaa2b690d03eff8da09b6242
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Azure Machine Learning 및 Azure Data Factory를 사용하여 예측 파이프라인 만들기
 
@@ -40,8 +40,9 @@ ms.lasthandoff: 11/02/2017
 > 이 문서는 GA(일반 공급) 상태인 Data Factory 버전 1에 적용됩니다. 미리 보기에 있는 Data Factory 서비스 버전 2를 사용하는 경우 [Data Factory 버전 2에서 Machine Learning을 사용하여 데이터 변환](../transform-data-using-machine-learning.md)을 참조하세요.
 
 
-### <a name="azure-machine-learning"></a>Azure 기계 학습
-[Azure 기계 학습](https://azure.microsoft.com/documentation/services/machine-learning/) 을 사용하여 예측 분석 솔루션을 빌드, 테스트 및 배포할 수 있습니다. 대략적인 관점에서 이 작업은 다음 세 단계로 수행됩니다.
+### <a name="azure-machine-learning"></a>Azure Machine Learning
+
+            [Azure Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/)을 사용하여 예측 분석 솔루션을 빌드, 테스트 및 배포할 수 있습니다. 대략적인 관점에서 이 작업은 다음 세 단계로 수행됩니다.
 
 1. **학습 실험 만들기**. Azure ML Studio를 사용하여 이 단계를 수행합니다. ML Studio는 학습 데이터를 사용하여 예측 분석 모델을 학습하고 테스트하는 데 사용하는 시각적 공동 개발 환경입니다.
 2. **예측 실험으로 변환**. 기존 데이터로 모델을 학습시키고 새 데이터의 점수를 매기는 데 사용할 준비가 되면, 점수 매기기를 위해 실험을 준비하고 간소화합니다.
@@ -65,20 +66,21 @@ Azure Data Factory를 사용하면 예측 분석을 위해 게시된 [Azure Mach
 재학습으로 완료한 후에는 **Azure ML 업데이트 리소스 작업**을 사용하여 새로 학습한 모델로 점수 매기기 웹 서비스(웹 서비스로 노출된 예측 실험)를 업데이트합니다. 자세한 내용은 [업데이트 리소스 작업을 사용하여 모델 업데이트](data-factory-azure-ml-update-resource-activity.md) 문서를 참조하세요.
 
 ## <a name="invoking-a-web-service-using-batch-execution-activity"></a>Batch 실행 작업을 사용하여 웹 서비스 호출
-Azure 데이터 팩터리를 사용하여 데이터 이동 및 처리를 오케스트레이션한 다음 Azure 기계 학습을 사용하는 배치 실행을 수행할 수 있습니다. 최상위 단계는 다음과 같습니다.
+Azure 데이터 팩터리를 사용하여 데이터 이동 및 처리를 오케스트레이션한 다음 Azure Machine Learning을 사용하는 배치 실행을 수행할 수 있습니다. 최상위 단계는 다음과 같습니다.
 
-1. Azure 기계 학습 연결된 서비스를 만듭니다. 다음 값이 필요합니다.
+1. Azure Machine Learning 연결된 서비스를 만듭니다. 다음 값이 필요합니다.
 
    1. **요청 URI** . 웹 서비스 페이지에서 **배치 실행** 링크를 클릭하여 요청 URI를 찾을 수 있습니다.
-   2. **API 키** . 게시한 웹 서비스를 클릭하여 API 키를 찾을 수 있습니다.
+   2. 
+            **API key** for the published Azure Machine Learning web service. 게시한 웹 서비스를 클릭하여 API 키를 찾을 수 있습니다.
    3. **AzureMLBatchExecution** 작업을 사용합니다.
 
-      ![기계 학습 대시보드](./media/data-factory-azure-ml-batch-execution-activity/AzureMLDashboard.png)
+      ![Machine Learning 대시보드](./media/data-factory-azure-ml-batch-execution-activity/AzureMLDashboard.png)
 
       ![Batch URI](./media/data-factory-azure-ml-batch-execution-activity/batch-uri.png)
 
 ### <a name="scenario-experiments-using-web-service-inputsoutputs-that-refer-to-data-in-azure-blob-storage"></a>시나리오: Azure Blob Storage의 데이터를 참조하는 웹 서비스 입력/출력을 사용하여 실험
-이 시나리오에서는 Azure 기계 학습 웹 서비스는 Azure Blob 저장소의 파일에서 데이터를 사용하여 예측을 만들고 Blob 저장소에 예측 결과를 저장합니다. 다음 JSON은 AzureMLBatchExecution 작업이 포함된 Data Factory 파이프라인을 정의합니다. 작업에는 입력으로 **DecisionTreeInputBlob** 데이터 집합, 출력으로 **DecisionTreeResultBlob** 데이터 집합이 있습니다. **DecisionTreeInputBlob**은 **webServiceInput** JSON 속성을 사용하여 웹 서비스에 입력으로 전달됩니다. **DecisionTreeResultBlob**은 **webServiceOutputs** JSON 속성을 사용하여 웹 서비스에 출력으로 전달됩니다.  
+이 시나리오에서는 Azure Machine Learning 웹 서비스는 Azure Blob 저장소의 파일에서 데이터를 사용하여 예측을 만들고 Blob 저장소에 예측 결과를 저장합니다. 다음 JSON은 AzureMLBatchExecution 작업이 포함된 Data Factory 파이프라인을 정의합니다. 작업에는 입력으로 **DecisionTreeInputBlob** 데이터 집합, 출력으로 **DecisionTreeResultBlob** 데이터 집합이 있습니다. **DecisionTreeInputBlob**은 **webServiceInput** JSON 속성을 사용하여 웹 서비스에 입력으로 전달됩니다. **DecisionTreeResultBlob**은 **webServiceOutputs** JSON 속성을 사용하여 웹 서비스에 출력으로 전달됩니다.  
 
 > [!IMPORTANT]
 > 웹 서비스에서 다중 입력을 받을 경우 **webServiceInput**를 사용하는 대신에 **webServiceInputs** 속성을 사용합니다. webServiceInputs 속성을 사용하는 예제는 [웹 서비스에는 다중 입력이 필요합니다](#web-service-requires-multiple-inputs) 섹션을 참조합니다.
@@ -185,7 +187,7 @@ Azure 데이터 팩터리를 사용하여 데이터 이동 및 처리를 오케�
     }
     ```
 
-    입력 csv 파일에는 열 머리글 행이 있어야 합니다. **복사 작업**을 사용하여 csv를 만들고 Blob 저장소로 이동하는 경우 싱크 속성 **blobWriterAddHeader**를 **true**로 설정해야 합니다. 예:
+    입력 csv 파일에는 열 머리글 행이 있어야 합니다. **복사 작업**을 사용하여 csv를 만들고 Blob 저장소로 이동하는 경우 싱크 속성 **blobWriterAddHeader**를 **true**로 설정해야 합니다. 예: 
 
     ```JSON
     sink:
@@ -350,7 +352,7 @@ Azure ML 실험을 만들 때 다른 일반적인 시나리오는 판독기 및 
 ### <a name="using-a-reader-module-to-read-data-from-multiple-files-in-azure-blob"></a>Azure Blob에서 여러 파일의 데이터를 읽는 판독기 모듈 사용
 Pig, Hive와 같은 작업이 있는 빅 데이터 파이프라인은 확장명 없이 하나 이상의 출력 파일을 만들 수 있습니다. 예를 들어 외부 Hive 테이블을 지정하는 경우 외부 Hive 테이블에 대한 데이터는 다음 이름 000000_0으로 Azure Blob 저장소에 저장될 수 있습니다. 실험에서 판독기 모듈을 사용하여 여러 파일을 읽고 예측에 사용할 수 있습니다.
 
-Azure 기계 학습 실험에서 판독기 모듈을 사용하는 경우 입력으로 Azure Blob를 지정할 수 있습니다. Azure Blob 저장소에 있는 파일은 HDInsight에서 실행되는 Pig 및 Hive 스크립트에서 생성되는 출력 파일(예: 000000_0)일 수 있습니다. 판독기 모듈을 통해 **컨테이너, 디렉터리/blob에 대한 경로**를 구성하여 파일(확장명 없음)을 읽을 수 있습니다. **컨테이너에 대한 경로**는 컨테이너를 가리키고 **디렉터리/blob**은 다음 이미지에 표시된 파일이 들어 있는 폴더를 가리킵니다. **컨테이너/폴더에 있는 모든 파일을 지정하는(즉, data/aggregateddata/year=2014/month-6/\*)** 별표, 즉 \*)는 실험의 일부로 읽습니다.
+Azure Machine Learning 실험에서 판독기 모듈을 사용하는 경우 입력으로 Azure Blob를 지정할 수 있습니다. Azure Blob 저장소에 있는 파일은 HDInsight에서 실행되는 Pig 및 Hive 스크립트에서 생성되는 출력 파일(예: 000000_0)일 수 있습니다. 판독기 모듈을 통해 **컨테이너, 디렉터리/blob에 대한 경로**를 구성하여 파일(확장명 없음)을 읽을 수 있습니다. **컨테이너에 대한 경로**는 컨테이너를 가리키고 **디렉터리/blob**은 다음 이미지에 표시된 파일이 들어 있는 폴더를 가리킵니다. **컨테이너/폴더에 있는 모든 파일을 지정하는(즉, data/aggregateddata/year=2014/month-6/\*)** 별표, 즉 \*)는 실험의 일부로 읽습니다.
 
 ![Azure Blob 속성](./media/data-factory-create-predictive-pipelines/azure-blob-properties.png)
 
@@ -407,7 +409,7 @@ Azure 기계 학습 실험에서 판독기 모듈을 사용하는 경우 입력�
 
 위 JSON 예제에서
 
-* 배포된 Azure 기계 학습 웹 서비스는 판독기 및 기록기 모듈을 사용하여 Azure SQL Database에서/로 데이터를 읽고/쓸 수 있습니다. 이 웹 서비스는 네 개의 매개 변수, 즉 데이터베이스 서버 이름, 데이터베이스 이름, 서버 사용자 계정 이름 및 서버 사용자 계정 암호를 공개합니다.  
+* 배포된 Azure Machine Learning 웹 서비스는 판독기 및 기록기 모듈을 사용하여 Azure SQL Database에서/로 데이터를 읽고/쓸 수 있습니다. 이 웹 서비스는 네 개의 매개 변수, 즉 데이터베이스 서버 이름, 데이터베이스 이름, 서버 사용자 계정 이름 및 서버 사용자 계정 암호를 공개합니다.  
 * **start** 및 **end** 날짜/시간은 둘 다 [ISO 형식](http://en.wikipedia.org/wiki/ISO_8601)(영문)이어야 합니다. 예: 2014-10-14T16:32:41Z. **end** 시간은 선택 사항입니다. **end** 속성 값을 지정하지 않는 경우 "**start + 48시간**"으로 계산됩니다. 파이프라인을 무기한 실행하려면 **종료** 속성 값으로 **9999-09-09**를 지정합니다. JSON 속성에 대한 자세한 내용은 [JSON 스크립트 참조](https://msdn.microsoft.com/library/dn835050.aspx) 를 참조하세요.
 
 ### <a name="other-scenarios"></a>기타 시나리오
@@ -631,7 +633,8 @@ AzureMLBatchScoring 작업을 사용하여 계속하려면 이 섹션을 계속 
 >
 
 ## <a name="see-also"></a>참고 항목
-* [Azure 블로그 게시물: Azure 데이터 팩터리 및 Azure 기계 학습 시작하기](https://azure.microsoft.com/blog/getting-started-with-azure-data-factory-and-azure-machine-learning-4/)
+* 
+            [Azure 블로그 게시물: Azure 데이터 팩터리 및 Azure Machine Learning 시작하기](https://azure.microsoft.com/blog/getting-started-with-azure-data-factory-and-azure-machine-learning-4/)
 
 [adf-build-1st-pipeline]: data-factory-build-your-first-pipeline.md
 

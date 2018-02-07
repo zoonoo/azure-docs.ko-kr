@@ -3,8 +3,8 @@ title: Import and Export data in Azure Redis Cache | Microsoft Docs
 description: "프리미엄 Azure Redis Cache 인스턴스를 사용하여 Blob 저장소의 데이터를 가져오고 내보내는 방법을 알아봅니다."
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: 4a68ac38-87af-4075-adab-569d37d7cc9e
 ms.service: cache
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2017
-ms.author: sdanie
-ms.openlocfilehash: 22cdf9f596d8a6057a2c847ea5bb4fc485db8637
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.author: wesmc
+ms.openlocfilehash: db488f759752880a47a78dfeec13b14f65bd503c
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="import-and-export-data-in-azure-redis-cache"></a>Azure Redis Cache에서 데이터 가져오기 및 내보내기
 Import/Export는 프리미엄 캐시에서 Azure Storage 계정의 Blob으로 Redis Cache 데이터베이스(RDB) 스냅숏을 가져오고 내보내는 방식으로, Azure Redis Cache로 데이터를 가져오고 Azure Redis Cache의 데이터를 내보낼 수 있는 Azure Redis Cache 데이터 관리 작업입니다. 

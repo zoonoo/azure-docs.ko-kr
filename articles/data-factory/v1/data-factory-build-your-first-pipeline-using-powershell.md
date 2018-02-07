@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 11/01/2017
+ms.date: 01/22/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: c5bc299e6efee2e74529b08b58fd913c6b329b06
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: cc26d314eb6406e14ab4267416cf7d7ec6bf4bbd
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 첫 번째 Azure Data Factory 빌드
 > [!div class="op_single_selector"]
@@ -138,7 +138,7 @@ ms.lasthandoff: 12/18/2017
     자습서 도중에 Azure PowerShell을 닫은 경우 자습서를 완료하려면 다음에 Azure PowerShell을 시작할 때 **Get-AzureRmDataFactory** cmdlet을 실행해야 합니다.
 
 ### <a name="create-azure-hdinsight-linked-service"></a>Azure HDInsight 연결된 서비스 만들기
-이 단계에서는 데이터 팩터리에 주문형 HDInsight 클러스터를 연결합니다. HDInsight 클러스터는 런타임 시 자동으로 만들어지며 처리가 완료되고 지정된 시간 동안 유휴 상태를 유지한 후에 삭제됩니다. 주문형 HDInsight 클러스터를 사용하는 대신 고유의 HDInsight 클러스터를 사용할 수 있습니다. 자세한 내용은 [Compute 연결된 서비스](data-factory-compute-linked-services.md)를 참조하세요.
+이 단계에서는 데이터 팩터리에 주문형 HDInsight 클러스터를 연결합니다. HDInsight 클러스터는 런타임 시 자동으로 만들어지며 처리가 완료되고 지정된 시간 동안 유휴 상태를 유지한 후에 삭제됩니다. 주문형 HDInsight 클러스터를 사용하는 대신 고유의 HDInsight 클러스터를 사용할 수 있습니다. 자세한 내용은 [연결된 서비스 Compute](data-factory-compute-linked-services.md)를 참조하세요.
 
 1. **C:\ADFGetStarted** 폴더에 다음과 같은 내용으로 **HDInsightOnDemandLinkedService**.json이라는 JSON 파일을 만듭니다.
 
@@ -159,7 +159,7 @@ ms.lasthandoff: 12/18/2017
     ```
     다음 테이블은 코드 조각에 사용된 JSON 속성에 대한 설명을 제공합니다.
 
-   | 속성 | 설명 |
+   | 자산 | 설명 |
    |:--- |:--- |
    | ClusterSize |HDInsight 클러스터의 크기를 지정합니다. |
    | TimeToLive |HDInsight 클러스터가 삭제되기 전 유휴 시간을 지정합니다. |
@@ -171,7 +171,7 @@ ms.lasthandoff: 12/18/2017
    * 주문형 HDInsight 클러스터를 사용하는 대신 **고유의 HDInsight 클러스터** 를 사용할 수 있습니다. 자세한 내용은 [HDInsight 연결된 서비스](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) 를 참조하세요.
    * HDInsight 클러스터는 JSON(**linkedServiceName**)에서 지정한 Blob Storage에 **기본 컨테이너**를 만듭니다. HDInsight는 클러스터가 삭제될 때 이 컨테이너를 삭제하지 않습니다. 이 동작은 의도된 것입니다. 주문형 HDInsight 연결된 서비스에서는 기존 라이브 클러스터(**timeToLive**)가 없는 한 슬라이스를 처리할 때마다 HDInsight 클러스터가 만들어집니다. 클러스터는 처리가 완료되면 자동으로 삭제됩니다.
 
-       많은 조각이 처리될수록 Azure Blob 저장소에 컨테이너가 많아집니다. 작업의 문제 해결을 위해 이 항목들이 필요하지 않다면 저장소 비용을 줄이기 위해 삭제할 수 있습니다. 이 컨테이너의 이름은 "adf**yourdatafactoryname**-**linkedservicename**-datetimestamp" 패턴을 따릅니다. [Microsoft 저장소 탐색기](http://storageexplorer.com/) 같은 도구를 사용하여 Azure Blob 저장소에서 컨테이너를 삭제합니다.
+       많은 조각이 처리될수록 Azure Blob Storage에 컨테이너가 많아집니다. 작업의 문제 해결을 위해 이 항목들이 필요하지 않다면 저장소 비용을 줄이기 위해 삭제할 수 있습니다. 이 컨테이너의 이름은 "adf**yourdatafactoryname**-**linkedservicename**-datetimestamp" 패턴을 따릅니다. [Microsoft 저장소 탐색기](http://storageexplorer.com/) 같은 도구를 사용하여 Azure Blob 저장소에서 컨테이너를 삭제합니다.
 
      자세한 내용은 [주문형 HDInsight 연결된 서비스](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) 를 참조하세요.
 2. HDInsightOnDemandLinkedService라는 연결된 서비스를 만드는 **New-AzureRmDataFactoryLinkedService** cmdlet을 실행합니다.
@@ -213,12 +213,12 @@ ms.lasthandoff: 12/18/2017
 
     다음 테이블은 코드 조각에 사용된 JSON 속성에 대한 설명을 제공합니다.
 
-   | 속성 | 설명 |
+   | 자산 | 설명 |
    |:--- |:--- |
-   | type |Azure blob 저장소에 데이터가 있기 때문에 형식 속성은 AzureBlob로 설정됩니다. |
+   | 형식 |Azure blob 저장소에 데이터가 있기 때문에 형식 속성은 AzureBlob로 설정됩니다. |
    | linkedServiceName |이전에 만든 StorageLinkedService를 참조합니다. |
    | fileName |이 속성은 선택 사항입니다. 이 속성을 생략하면 folderPath의 모든 파일을 선택합니다. 이 경우에 input.log만 처리됩니다. |
-   | type |로그 파일이 텍스트 형식이므로 TextFormat을 사용합니다. |
+   | 형식 |로그 파일이 텍스트 형식이므로 TextFormat을 사용합니다. |
    | columnDelimiter |로그 파일의 열은 ,(쉼표)로 구분됩니다. |
    | frequency/interval |월 및 간격을 설정한 빈도가 1인 경우 입력 조각은 매월 제공됩니다. |
    | external |입력 데이터가 데이터 팩터리 서비스에서 생성되지 않는 경우 이 속성은 true로 설정됩니다. |

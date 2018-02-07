@@ -3,7 +3,7 @@ title: "일반 SQL 커넥터 단계별 가이드 | Microsoft Docs"
 description: "이 문서에서는 일반 SQL 커넥터를 사용하여 간단한 HR 시스템을 만드는 단계별 지침을 안내합니다."
 services: active-directory
 documentationcenter: 
-author: AndKjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 28c1cc60-24fd-4d0d-a36d-b4aba6de86e7
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 311ef784497310b5605e25daf13102e3ff4bb08c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 91eb50a06bbf2e6c5510c42bd1d3ae961fd0bddd
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="generic-sql-connector-step-by-step"></a>일반 SQL 커넥터 단계별 가이드
 이 항목은 단계별 가이드입니다. 이 항목에서는 간단한 샘플 HR 데이터베이스를 만들고 이를 사용하여 일부 사용자와 해당 그룹 멤버 자격을 가져옵니다.
@@ -40,7 +40,7 @@ SQL Server를 실행하는 서버에서 [부록 A](#appendix-a)에 있는 SQL �
    ![ODBC2](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/odbc2.png)
 4. **GenericSQL**과 같은 파일 이름을 지정합니다.  
    ![ODBC3](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/odbc3.png)
-5. **마침**을 클릭합니다.  
+5. **Finish**를 클릭합니다.  
    ![ODBC4](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/odbc4.png)
 6. 이제 연결을 구성해야 합니다. 데이터 원본에 대한 적절한 설명을 제공하고 SQL Server를 실행하는 서버의 이름을 입력합니다.  
    ![ODBC5](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/odbc5.png)
@@ -48,7 +48,7 @@ SQL Server를 실행하는 서버에서 [부록 A](#appendix-a)에 있는 SQL �
    ![ODBC6](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/odbc6.png)
 8. 샘플 데이터베이스의 이름 **GSQLDEMO**를 입력합니다.  
    ![ODBC7](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/odbc7.png)
-9. 이 화면에서는 모든 항목을 기본값으로 유지합니다. **마침**을 클릭합니다.  
+9. 이 화면에서는 모든 항목을 기본값으로 유지합니다. **Finish**를 클릭합니다.  
    ![ODBC8](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/odbc8.png)
 10. 모든 항목이 예상대로 작동하는지 확인하기 위해 **데이터 원본 테스트**를 클릭합니다.  
     ![ODBC9](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/odbc9.png)
@@ -90,7 +90,7 @@ SQL Server를 실행하는 서버에서 [부록 A](#appendix-a)에 있는 SQL �
 4. **테이블**을 선택하고 **[USERS]**를 입력합니다. 다중값 개체 유형 섹션까지 아래로 스크롤하여 다음 그림과 같이 데이터를 입력합니다. **마침** 을 선택하여 단계를 저장합니다.  
    ![Runprofile4a](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/runprofile4a.png)  
    ![Runprofile4b](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/runprofile4b.png)  
-5. **새 단계**를 선택합니다. 이번에는 **OBJECT=Group**을 선택합니다. 마지막 페이지에서 다음 그림과 같이 구성을 사용합니다. **마침**을 클릭합니다.  
+5. **새 단계**를 선택합니다. 이번에는 **OBJECT=Group**을 선택합니다. 마지막 페이지에서 다음 그림과 같이 구성을 사용합니다. **Finish**를 클릭합니다.  
    ![Runprofile5a](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/runprofile5a.png)  
    ![Runprofile5b](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/runprofile5b.png)  
 6. 선택 사항: 원하는 경우 추가 실행 프로필을 구성할 수 있습니다. 이 연습에서는 전체 가져오기만 사용합니다.

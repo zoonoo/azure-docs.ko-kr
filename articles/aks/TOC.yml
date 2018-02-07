@@ -57,8 +57,6 @@
           href: azure-disks-dynamic-pv.md
         - name: Azure 파일 - 영구 볼륨
           href: azure-files-dynamic-pv.md
-        - name: Azure 파일 - 볼륨
-          href: azure-files.md
 - name: 참고 자료
   items:
     - name: Azure CLI
@@ -79,3 +77,5 @@
       href: 'http://stackoverflow.com/questions/tagged/azure-container-service'
     - name: 동영상
       href: 'https://azure.microsoft.com/resources/videos/index/?services=container-service&sort=newest'
+    - name: FAQ
+      href: faq.md

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/10/2017
-ms.author: corywink
-ms.openlocfilehash: d4cb452b34ddefc70dc1adcff0e5fead072aa16a
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.date: 12/12/2017
+ms.author: dobett
+ms.openlocfilehash: ab72152fc937e3c4552147fce29c95ea0efcadf4
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="frequently-asked-questions-for-iot-suite-connected-factory-preconfigured-solution"></a>IoT Suite 연결된 팩터리 미리 구성된 솔루션에 대한 질문과 대답
 
@@ -82,7 +82,7 @@ www.azureiotsuite.com에서 솔루션을 배포한 경우 VM에 로그인할 수
 1. 활성화되어 있는 컨테이너를 확인하려면 `docker ps`를 실행합니다.
 1. 모든 시뮬레이션 컨테이너를 중지하려면 `./stopsimulation`을 실행합니다.
 1. 모든 시뮬레이션 컨테이너를 시작하려면:
-    * **IOTHUB_CONNECTIONSTRING** 이름으로 셸 변수를 내보냅니다. `<name of your deployment>.config.user` 파일에서 **IotHubOwnerConnectionString** 설정의 값을 사용합니다. 예:
+    * **IOTHUB_CONNECTIONSTRING** 이름으로 셸 변수를 내보냅니다. `<name of your deployment>.config.user` 파일에서 **IotHubOwnerConnectionString** 설정의 값을 사용합니다. 예: 
 
         ```
         export IOTHUB_CONNECTIONSTRING="HostName={yourdeployment}.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey={your key}"
@@ -117,7 +117,7 @@ Azure Portal을 사용하여 연결 문자열을 찾을 수도 있습니다. 배
 * publisher.rio.corp.contoso
 * publisher.seattle.corp.contoso
 
-[DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) 또는 [iothub-explorer](https://github.com/azure/iothub-explorer) 도구를 사용하여 솔루션이 사용 중인 IoT 허브로 등록된 장치를 확인할 수 있습니다. 이러한 도구를 사용하려면 배포에서 IoT 허브에 대한 연결 문자열이 필요합니다.
+[DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) 또는 [Azure CLI 2.0에 대한 IoT 확장](https://github.com/Azure/azure-iot-cli-extension) 도구를 사용하여 솔루션이 사용 중인 IoT Hub에 등록된 장치를 확인할 수 있습니다. 장치 탐색기를 사용하려면 배포에서 IoT Hub에 대한 연결 문자열이 필요합니다. Azure CLI 2.0에 대한 IoT 확장을 사용하려면 IoT Hub 이름이 필요합니다.
 
 ### <a name="how-can-i-get-log-data-from-the-simulation-components"></a>시뮬레이션 구성 요소에서 로그 데이터는 어떻게 얻을 수 있나요?
 
@@ -143,6 +143,70 @@ Azure Portal을 사용하여 연결 문자열을 찾을 수도 있습니다. 배
 * publisher.seattle.corp.contoso
 
 IoT Hub로 전송된 데이터를 볼 수 없는 경우 시뮬레이션에 문제가 있습니다. 첫 번째 분석 단계로 시뮬레이션 구성 요소의 로그 파일을 분석해야 합니다. [시뮬레이션 구성 요소에서 로그 데이터는 어떻게 얻을 수 있나요?](#how-can-i-get-log-data-from-the-simulation-components)를 참조하세요. 다음으로 시뮬레이션 중지 및 시작을 시도하고, 전송된 데이터가 여전히 없는 경우 시뮬레이션을 완전히 업데이트합니다. [VM에서 시뮬레이션을 어떻게 업데이트하나요?](#how-do-i-update-the-simulation-in-the-vm)를 참조하세요.
+
+### <a name="how-do-i-enable-an-interactive-map-in-my-connected-factory-solution"></a>연결된 팩터리 솔루션에서 대화형 맵을 사용하려면 어떻게 할까요?
+
+연결된 팩터리 솔루션에서 대화형 맵을 사용하려면 엔터프라이즈용 Bing 지도 API가 있어야 합니다.
+
+[www.azureiotsuite.com](http://www.azureiotsuite.com)에서 배포할 경우, 배포 프로세스는 구독이 엔터프라이즈용 Bing 지도 API 계획을 사용하도록 설정했는지 확인하고, 연결된 팩터리에 대화형 지도를 자동으로 배포합니다. 이 경우가 아니면 다음과 같이 배포에서 대화형 지도를 사용하도록 설정할 수 있습니다.
+
+연결된 팩터리 GitHub 리포지토리의 `build.ps1` 스크립트를 사용하여 배포하며, 엔터프라이즈용 Bing 지도 API 계획이 있는 경우 빌드 창에서 환경 변수 `$env:MapApiQueryKey`를 계획의 쿼리 키로 설정합니다. 그러면 대화형 지도가 자동으로 사용되도록 설정됩니다.
+
+엔터프라이즈용 Bing 지도 API 계획이 있는 경우 [www.azureiotsuite.com](http://www.azureiotsuite.com)에서 또는 `build.ps1` 스크립트를 사용하여 연결된 팩터리 솔루션을 배포합니다. 그런 후 [엔터프라이즈용 Bing 지도 API 계정을 만들려면 어떻게 할까요?](#how-do-i-create-a-bing-maps-api-for-enterprise-account)에 설명된 대로 엔터프라이즈용 Bing 지도 API 계획을 구독에 추가합니다. [엔터프라이즈용 Bing 지도 API QueryKey를 가져오는 방법](#how-to-obtain-your-bing-maps-api-for-enterprise-querykey)에 설명된 대로 이 계정의 쿼리 키를 조회한 후 저장합니다. Azure Portal로 이동한 후 연결된 팩터리 배포의 App Service 리소스에 액세스합니다. **앱 설정** 섹션을 찾을 수 있는 **응용 프로그램 설정**으로 이동합니다. **MapApiQueryKey**를 가져온 쿼리 키로 설정합니다. 설정을 저장한 다음 **개요**로 이동하고 App Service를 다시 시작합니다.
+
+### <a name="how-do-i-create-a-bing-maps-api-for-enterprise-account"></a>엔터프라이즈용 Bing 지도 API 계정을 만드는 방법
+
+체험용 *내부 트랜잭션 수준 1 엔터프라이즈용 Bing 지도* 계획을 사용할 수 있습니다. 그러나 이러한 두 개의 계획을 Azure 구독에 추가할 수 있습니다. 엔터프라이즈용 Bing 지도 API 계정을 설정하지 않은 경우 Azure Portal에서 **+리소스 만들기**를 클릭하여 만듭니다. 그런 다음 **엔터프라이즈용 Bing 지도 API**를 검색하고 프롬프트를 따라 만듭니다.
+
+![Bing 키](media/iot-suite-faq-cf/bing.png)
+
+### <a name="how-to-obtain-your-bing-maps-api-for-enterprise-querykey"></a>엔터프라이즈용 Bing 지도 API QueryKey를 가져오는 방법
+
+엔터프라이즈용 Bing 지도 API 계획을 만들면 Azure Portal에서 연결된 팩터리 솔루션의 리소스 그룹에 엔터프라이즈용 Bing 지도 리소스를 추가합니다.
+
+1. Azure Portal에서 엔터프라이즈용 Bing 지도 API 계획이 포함된 리소스 그룹으로 이동합니다.
+
+1. **모든 설정**을 클릭한 다음 **키 관리**를 클릭합니다.
+
+1. **MasterKey**와 **QueryKey**라는 두 개의 키가 있습니다. **QueryKey** 값을 복사합니다.
+
+1. `build.ps1` 스크립트에서 키를 선택하려면 PowerShell 환경에서 `$env:MapApiQueryKey` 환경 변수를 계획의 **QueryKey**로 설정합니다. 그러면 빌드 스크립트가 App Service의 설정에 해당 값을 자동으로 추가합니다.
+
+1. `build.ps1` 스크립트를 사용하여 로컬 또는 클라우드 배포를 실행합니다.
+
+### <a name="how-do-enable-the-interactive-map-while-debugging-locally"></a>로컬로 디버그하는 동안 대화형 맵을 사용하려면 어떻게 하나요?
+
+로컬로 디버그하는 동안 대화형 맵을 사용하려면 배포 루트의 `local.user.config` 및 `<yourdeploymentname>.user.config` 파일에서 `MapApiQueryKey` 설정 값을 이전에 복사한 **QueryKey** 값으로 설정합니다.
+
+### <a name="how-do-i-use-a-different-image-at-the-home-page-of-my-dashboard"></a>내 대시보드의 홈페이지에서 다른 이미지를 사용하려면 어떻게 할까요?
+
+대시보드의 홈페이지에서 표시되는 고정 이미지를 변경하려면 `WebApp\Content\img\world.jpg` 이미지를 바꿉니다. 그러면 WebApp을 다시 빌드하고 다시 배포합니다.
+
+### <a name="how-do-i-use-non-opc-ua-devices-with-connected-factory"></a>연결된 팩터리에서 비OPC UA 장치를 사용하려면 어떻게 할까요?
+
+비OPC UA 장치에서 연결된 팩터리에 원격 분석 데이터를 보내려면:
+
+1. `ContosoTopologyDescription.json` 파일에서 [연결된 팩터리 토폴로지의 새 스테이션을 구성](iot-suite-connected-factory-configure.md)합니다.
+
+1. 연결된 팩터리 호환 가능 JSON 형식으로 원격 분석 데이터를 수집합니다.
+
+    ```json
+    [
+      {
+        "ApplicationUri": "<the_value_of_OpcUri_of_your_station",
+        "DisplayName": "<name_of_the_datapoint>",
+        "NodeId": "value_of_NodeId_of_your_datapoint_in_the_station",
+        "Value": {
+          "Value": <datapoint_value>,
+          "SourceTimestamp": "<timestamp>"
+        }
+      }
+    ]
+    ```
+
+1. `<timestamp>`의 형식은 `2017-12-08T19:24:51.886753Z`입니다.
+
+1. 연결된 팩터리 App Service를 다시 시작합니다.
 
 ### <a name="next-steps"></a>다음 단계
 

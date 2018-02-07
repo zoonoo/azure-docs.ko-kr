@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/14/2017
 ms.author: danha; mbullwin
 ms.openlocfilehash: 0ca5c8b19f4699548a8551ec673e4a067d4e5fad
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="using-analytics-in-application-insights"></a>Application Insights에서 Analytics 사용
 [분석](app-insights-analytics.md)은 [Application Insights](app-insights-overview.md)의 강력한 검색 기능입니다. 다음 페이지에서는 Log Analytics 쿼리 언어에 대해 설명합니다.
@@ -28,7 +28,7 @@ ms.lasthandoff: 11/13/2017
 ## <a name="open-analytics"></a>Analytics 열기
 Application Insights의 앱 홈 리소스에서 Analytics를 클릭합니다.
 
-![portal.azure.com을 열고 Application Insights 리소스를 열고 Analytics를 클릭합니다.](./media/app-insights-analytics-using/001.png)
+![portal.azure.com에서 Application Insights 리소스를 열고 분석을 클릭합니다.](./media/app-insights-analytics-using/001.png)
 
 인라인 자습서에서 수행할 수 있는 몇 가지 작업을 확인할 수 있습니다.
 
@@ -99,7 +99,7 @@ IntelliSense에 사용할 수 있는 연산자 및 식 요소를 지정하라는
 
     그러나 드롭다운 메뉴를 사용하여 시간 범위 필터를 변경할 수 있습니다.
 
-    또는 [`where  ... timestamp ...` 절](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/where-operator)을 쿼리에 포함하여 자동 범위를 재정의할 수 있습니다. 예:
+    또는 [`where  ... timestamp ...` 절](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/where-operator)을 쿼리에 포함하여 자동 범위를 재정의할 수 있습니다. 예: 
 
     `requests | where timestamp > ago('2d')`
 

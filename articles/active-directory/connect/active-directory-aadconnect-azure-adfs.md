@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: anandy; billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 954d161b3fbc66f594429f33d1bb5c88c2bc83b4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7e83eece09d9802792b87b89fd334ea67df14dc9
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="deploying-active-directory-federation-services-in-azure"></a>Azure에서 Active Directory Federation Services 배포
 AD FS는 간편하고 안전한 ID 페더레이션 및 웹 Single Sign-on(SSO) 기능을 제공합니다. 사용자는 Azure AD 또는 O365와 함께 페더레이션을 통해 온-프레미스 자격 증명을 사용하여 인증하고 클라우드에서 모든 리소스에 액세스할 수 있습니다. 결과적으로 온-프레미스 및 클라우드에서 리소스에 대한 액세스를 보장하는 항상 사용 가능한 AD FS 인프라가 있는 것이 중요합니다. Azure에서 AD FS를 배포하면 필요한 최소한의 노력으로 고가용성을 실현할 수 있습니다.
@@ -40,7 +40,7 @@ Azure에서 AD FS를 배포하는 여러 가지 이점의 일부는 다음과 �
 * **WAP 서버** – 사용자가 회사 네트워크에 있지 않은 경우 AD FS에 연결할 수 있도록 웹 응용 프로그램 프록시 서버를 배포해야 합니다.
 * **DMZ**: 웹 응용 프로그램 프록시 서버는 DMZ에 배치되고 DMZ와 내부 서브넷 간에 TCP/443 액세스만이 허용됩니다.
 * **부하 분산 장치**: AD FS 및 웹 응용 프로그램 프록시 서버의 고가용성을 보장하려면 AD FS 서버용 내부 부하 분산 장치 및 웹 응용 프로그램 프록시 서버용 Azure Load Balancer를 사용하는 것이 좋습니다.
-* **가용성 집합**: AD FS 배포에 대한 중복성을 제공하려면 비슷한 워크로드에 대한 가용성 집합에 두 개 이상의 가상 컴퓨터를 그룹화하는 것이 좋습니다. 이 구성은 계획된 유지 관리 또는 계획되지 않은 유지 관리 이벤트 중에 적어도 하나의 가상 컴퓨터를 사용할 수 있습니다.
+* **가용성 집합**: AD FS 배포에 대한 중복성을 제공하려면 비슷한 워크로드에 대한 가용성 집합에 두 개 이상의 가상 머신을 그룹화하는 것이 좋습니다. 이 구성은 계획된 유지 관리 또는 계획되지 않은 유지 관리 이벤트 중에 적어도 하나의 가상 머신을 사용할 수 있습니다.
 * **Storage 계정**: 두 개의 Storage 계정을 사용하는 것이 좋습니다. 단일 저장소 계정을 만들면 단일 실패 지점이 생성될 수 있고 저장소 계정이 중단되는 가능성이 적은 시나리오에서 배포를 사용할 수 없게 될 수 있습니다. 두 개의 저장소 계정이 있으면 각 오류 줄에 하나의 저장소 계정을 연결할 수 있습니다.
 * **네트워크 분리**: 웹 응용 프로그램 프록시 서버를 별도의 DMZ 네트워크에 배포해야 합니다. 하나의 가상 네트워크를 두 개의 서브넷으로 나누고 격리된 서브넷에는 웹 응용 프로그램 프록시 서버를 배포할 수 있습니다. 각 서브넷에 대한 네트워크 보안 그룹 설정을 구성하고 두 개의 서브넷 간에 필요한 통신만을 허용할 수 있습니다. 자세한 내용은 아래 배포 시나리오 별로 지정됩니다.
 
@@ -107,7 +107,7 @@ ExpressRoute를 사용하는 것이 좋지만 조직에 가장 적합한 연결 
 ### <a name="3-create-availability-sets"></a>3. 가용성 집합 만들기
 각 역할(DC/AD FS 및 WAP)에 최소한 2대의 컴퓨터를 포함하는 가용성 집합을 만듭니다. 각 역할이 높은 가용성을 달성하는 데 도움이 됩니다. 가용성 집합을 만드는 동안 필수적으로 다음을 결정해야 합니다.
 
-* **장애 도메인**: 동일한 장애 도메인에 있는 가상 컴퓨터는 동일한 전원 및 물리적 네트워크 스위치를 공유합니다. 최소 2개의 장애 도메인을 사용하는 것이 좋습니다. 기본값은 3개이며 배포하기 위해 그대로 둘 수 있습니다.
+* **장애 도메인**: 동일한 장애 도메인에 있는 가상 머신은 동일한 전원 및 물리적 네트워크 스위치를 공유합니다. 최소 2개의 장애 도메인을 사용하는 것이 좋습니다. 기본값은 3개이며 배포하기 위해 그대로 둘 수 있습니다.
 * **업데이트 도메인**: 업데이트하는 동안 동일한 업데이트 도메인에 속한 컴퓨터는 모두 다시 시작됩니다. 최소 2개의 업데이트 도메인이 있어야 합니다. 기본값은 5개이며 배포하기 위해 그대로 둘 수 있습니다.
 
 ![가용성 집합](./media/active-directory-aadconnect-azure-adfs/availabilityset1.png)
@@ -119,15 +119,15 @@ ExpressRoute를 사용하는 것이 좋지만 조직에 가장 적합한 연결 
 | contosodcset |DC/ADFS |3 |5 |
 | contosowapset |WAP |3 |5 |
 
-### <a name="4-deploy-virtual-machines"></a>4. 가상 컴퓨터 배포
-다음 단계는 인프라의 다양한 역할을 호스팅하는 가상 컴퓨터를 배포하는 것입니다. 각 가용성 집합에서 최소 두 대의 컴퓨터를 사용하는 것이 좋습니다. 기본 배포를 위해 4개의 가상 컴퓨터를 만듭니다.
+### <a name="4-deploy-virtual-machines"></a>4. 가상 머신 배포
+다음 단계는 인프라의 다양한 역할을 호스팅하는 가상 머신을 배포하는 것입니다. 각 가용성 집합에서 최소 두 대의 컴퓨터를 사용하는 것이 좋습니다. 기본 배포를 위해 4개의 가상 머신을 만듭니다.
 
 | 컴퓨터 | 역할 | 서브넷 | 가용성 집합 | Storage 계정 | IP 주소 |
 |:---:|:---:|:---:|:---:|:---:|:---:|
-| contosodc1 |DC/ADFS |INT |contosodcset |contososac1 |정적 |
-| contosodc2 |DC/ADFS |INT |contosodcset |contososac2 |정적 |
-| contosowap1 |WAP |DMZ |contosowapset |contososac1 |정적 |
-| contosowap2 |WAP |DMZ |contosowapset |contososac2 |정적 |
+| contosodc1 |DC/ADFS |INT |contosodcset |contososac1 |공용 |
+| contosodc2 |DC/ADFS |INT |contosodcset |contososac2 |공용 |
+| contosowap1 |WAP |DMZ |contosowapset |contososac1 |공용 |
+| contosowap2 |WAP |DMZ |contosowapset |contososac2 |공용 |
 
 보시는 것처럼 NSG가 지정되지 않았습니다. Azure가 서브넷 수준에서 NSG를 사용할 수 있도록 하기 때문입니다. 그러면 서브넷 또는 NIC 개체와 연결된 개별 NSG를 사용하여 컴퓨터 네트워크 트래픽을 제어할 수 있습니다. 자세한 내용은 [NSG(네트워크 보안 그룹)란](https://aka.ms/Azure/NSG)을 참고하세요.
 DNS를 관리하는 경우 고정 IP 주소를 사용하는 것이 좋습니다. 도메인에 대한 DNS 레코드 대신 Azure DNS를 사용할 수 있으며 해당 Azure FQDN에 의한 새 컴퓨터를 참조할 수 있습니다.
@@ -177,7 +177,7 @@ ILB를 배포하려면 Azure Portal에서 부하 분산 장치를 선택하고 �
 부하 분산 장치 패널에서 새로 만든 ILB를 선택합니다. 설정 패널이 열립니다. 
 
 1. 설정 패널에서 백 엔드 풀을 선택합니다.
-2. 백 엔드 풀 추가 패널에서 가상 컴퓨터 추가를 클릭합니다.
+2. 백 엔드 풀 추가 패널에서 가상 머신 추가를 클릭합니다.
 3. 가용성 집합을 선택할 수 있는 패널로 나타납니다.
 4. AD FS 가용성 집합을 선택합니다.
 
@@ -274,7 +274,10 @@ ILB와 같은 단계를 수행하여 TCP 443에 대한 부하 분산 규칙을 �
 
 ![INT 액세스 규칙(인바운드)](./media/active-directory-aadconnect-azure-adfs/nsg_int.png)
 
-[주석]: <> (![INT 액세스 규칙(인바운드)](./media/active-directory-aadconnect-azure-adfs/nsgintinbound.png)) [주석]: <> (![INT 액세스 규칙(아웃바운드)](./media/active-directory-aadconnect-azure-adfs/nsgintoutbound.png))
+<!--
+[comment]: <> (![INT access rules (inbound)](./media/active-directory-aadconnect-azure-adfs/nsgintinbound.png))
+[comment]: <> (![INT access rules (outbound)](./media/active-directory-aadconnect-azure-adfs/nsgintoutbound.png))
+-->
 
 **9.2. DMZ 서브넷 보안**
 
@@ -285,7 +288,10 @@ ILB와 같은 단계를 수행하여 TCP 443에 대한 부하 분산 규칙을 �
 
 ![EXT 액세스 규칙(인바운드)](./media/active-directory-aadconnect-azure-adfs/nsg_dmz.png)
 
-[주석]: <> (![EXT 액세스 규칙(인바운드)](./media/active-directory-aadconnect-azure-adfs/nsgdmzinbound.png)) [주석]: <> (![EXT 액세스 규칙(아웃바운드)](./media/active-directory-aadconnect-azure-adfs/nsgdmzoutbound.png))
+<!--
+[comment]: <> (![EXT access rules (inbound)](./media/active-directory-aadconnect-azure-adfs/nsgdmzinbound.png))
+[comment]: <> (![EXT access rules (outbound)](./media/active-directory-aadconnect-azure-adfs/nsgdmzoutbound.png))
+-->
 
 > [!NOTE]
 > 클라이언트 사용자 인증서 인증(X509 사용자 인증서를 사용하는 clientTLS 인증)이 필요한 경우 AD FS는 TCP 포트 49443를 인바운드 액세스에 사용하도록 설정해야 합니다.
@@ -332,14 +338,14 @@ ILB와 같은 단계를 수행하여 TCP 443에 대한 부하 분산 규칙을 �
 | WAP01NICIPAddress |첫 번째 WAP 서버의 내부 IP 주소인 이 IP 주소는 WAP 서버에 정적으로 할당되고 DMZ 서브넷 내에서 유효한 IP 주소여야 합니다. |
 | WAP02NICIPAddress |두 번째 WAP 서버의 내부 IP 주소인 이 IP 주소는 WAP 서버에 정적으로 할당되고 DMZ 서브넷 내에서 유효한 IP 주소여야 합니다. |
 | ADFSLoadBalancerPrivateIPAddress |ADFS 부하 분산 장치의 내부 IP 주소인 이 IP 주소는 부하 분산 장치에 정적으로 할당되고 내부 서브넷 내에서 유효한 IP 주소여야 합니다. |
-| ADDCVMNamePrefix |도메인 컨트롤러의 가상 컴퓨터 이름 접두사입니다. |
-| ADFSVMNamePrefix |ADFS 서버의 가상 컴퓨터 이름 접두사입니다. |
-| WAPVMNamePrefix |WAP 서버의 가상 컴퓨터 이름 접두사입니다. |
+| ADDCVMNamePrefix |도메인 컨트롤러의 Virtual Machine 이름 접두사입니다. |
+| ADFSVMNamePrefix |ADFS 서버의 Virtual Machine 이름 접두사입니다. |
+| WAPVMNamePrefix |WAP 서버의 Virtual Machine 이름 접두사입니다. |
 | ADDCVMSize |도메인 컨트롤러의 VM 크기입니다. |
 | ADFSVMSize |ADFS 서버의 VM 크기입니다. |
 | WAPVMSize |WAP 서버의 VM 크기입니다. |
-| AdminUserName |가상 컴퓨터의 로컬 관리자의 이름입니다. |
-| AdminPassword |가상 컴퓨터의 로컬 관리자 계정의 암호입니다. |
+| AdminUserName |가상 머신의 로컬 관리자의 이름입니다. |
+| AdminPassword |가상 머신의 로컬 관리자 계정의 암호입니다. |
 
 ## <a name="additional-resources"></a>추가 리소스
 * [가용성 집합](https://aka.ms/Azure/Availability) 

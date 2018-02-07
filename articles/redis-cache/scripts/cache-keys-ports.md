@@ -3,8 +3,8 @@ title: "Azure CLI 스크립트 샘플 - Azure Redis Cache의 호스트 이름, �
 description: "Azure CLI 스크립트 샘플 - Azure Redis Cache 인스턴스의 호스트 이름, 포트 및 키 가져오기"
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 tags: azure-service-management
 ms.assetid: 761eb24e-2ba7-418d-8fc3-431153e69a90
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 08/30/2017
-ms.author: sdanie
-ms.openlocfilehash: aee24e5c478c4453655952cc626d7d6c857e7962
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: wesmc
+ms.openlocfilehash: 6cfff74ed037835abb6d3e3975fe33d71b9730a3
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-the-hostname-ports-and-keys-for-azure-redis-cache"></a>Azure Redis Cache의 호스트 이름, 포트 및 키 가져오기
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 10/11/2017
 
 이 스크립트는 다음 명령을 사용하여 Azure Redis Cache 인스턴스의 호스트 이름, 포트 및 키를 검색합니다. 테이블에 있는 각 명령은 명령에 해당하는 문서에 연결됩니다.
 
-| 명령 | 참고 사항 |
+| 명령 | 메모 |
 |---|---|
 | [az redis show](https://docs.microsoft.com/cli/azure/redis#az_redis_show) | Azure Redis Cache 인스턴스에 대한 세부 정보를 검색합니다. |
 | [az redis list-keys](https://docs.microsoft.com/cli/azure/redis#az_redis_list_keys) | Azure Redis Cache 인스턴스에 대한 액세스 키를 검색합니다. |

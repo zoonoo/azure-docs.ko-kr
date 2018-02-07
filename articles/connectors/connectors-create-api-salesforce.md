@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/05/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: c2e2efd356382df9404f5c4ed54f24758b2cd22b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2bb865924191418c12b9fea37edfbfb282f334eb
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-salesforce-connector"></a>Salesforce 커넥터 시작
 Salesforce 커넥터는 Salesforce 개체와 함께 작동하는 API를 제공합니다.
 
-[커넥터](apis-list.md)를 사용하려면 먼저 논리 앱을 만들어야 합니다. [지금 논리 앱을 만들어](../logic-apps/logic-apps-create-a-logic-app.md) 시작할 수 있습니다.
+[커넥터](apis-list.md)를 사용하려면 먼저 논리 앱을 만들어야 합니다. [지금 논리 앱을 만들어](../logic-apps/quickstart-create-first-logic-app-workflow.md) 시작할 수 있습니다.
 
 ## <a name="connect-to-salesforce-connector"></a>Salesforce 커넥터에 연결
 논리 앱에서 서비스에 액세스하려면 먼저 서비스에 대한 *연결*을 만들어야 합니다. [연결](connectors-overview.md)은 논리 앱과 다른 서비스 간의 연결을 제공합니다.  
@@ -35,7 +35,7 @@ Salesforce 커넥터는 Salesforce 개체와 함께 작동하는 API를 제공�
 > 
 
 ## <a name="use-a-salesforce-connector-trigger"></a>Salesforce 커넥터 트리거 사용
-트리거는 논리 앱에 정의된 워크플로를 시작하는 데 사용할 수 있는 이벤트입니다. [트리거에 대해 자세히 알아보세요.](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts)
+트리거는 논리 앱에 정의된 워크플로를 시작하는 데 사용할 수 있는 이벤트입니다. [트리거에 대해 자세히 알아보세요.](../logic-apps/logic-apps-overview.md#logic-app-concepts)
 
 > [!INCLUDE [Steps to create a Salesforce trigger](../../includes/connectors-create-api-salesforce-trigger.md)]
 > 
@@ -47,7 +47,7 @@ Salesforce 커넥터는 Salesforce 개체와 함께 작동하는 API를 제공�
 > 
 
 ## <a name="use-a-salesforce-connector-action"></a>Salesforce 커넥터 작업 사용
-작업은 논리 앱에 정의된 워크플로에 의해 수행되는 작업입니다. [작업에 대해 자세히 알아봅니다.](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts)
+작업은 논리 앱에 정의된 워크플로에 의해 수행되는 작업입니다. [작업에 대해 자세히 알아봅니다.](../logic-apps/logic-apps-overview.md#logic-app-concepts)
 
 > [!INCLUDE [Steps to create a Salesforce action](../../includes/connectors-create-api-salesforce-action.md)]
 > 
@@ -58,5 +58,5 @@ Salesforce 커넥터는 Salesforce 개체와 함께 작동하는 API를 제공�
 [커넥터 세부 정보](/connectors/salesforce/)에서 swagger에 정의된 모든 트리거 및 작업과 제한 사항도 확인할 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
-[논리 앱 만들기](../logic-apps/logic-apps-create-a-logic-app.md)
+[논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 

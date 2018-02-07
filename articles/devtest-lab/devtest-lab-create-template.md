@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: v-craic
-ms.openlocfilehash: d1f1b9948fb591484c107818a01e141932effbba
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: d20e92d16309f998b4979549997874a80a3ea2dd
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="create-a-custom-image-from-a-vhd-file"></a>VHD 파일에서 사용자 지정 이미지 만들기
 
@@ -57,7 +57,16 @@ ms.lasthandoff: 01/12/2018
 
 1. 드롭다운 메뉴에서 **VHD**를 선택합니다. 새 사용자 지정 이미지를 만드는 데 사용될 VHD입니다. 필요한 경우 **PowerShell을 사용하여 VHD 업로드**를 선택합니다.
 
-1. 사용자 지정 이미지를 만드는 데 사용되는 이미지가 Microsoft에서 게시되지 않는 경우 계획 이름, 계획 제안 및 계획 게시자도 입력할 수 있습니다.
+1. 사용자 지정 이미지를 만드는 데 사용되는 이미지가 라이선스 이미지(Microsoft에서 게시)가 아닌 경우 계획 이름, 계획 제품 및 계획 게시자를 입력할 수도 있습니다.
+
+   - **계획 이름:** 이 사용자 지정 이미지를 만들 Marketplace 이미지(SKU)의 이름을 입력합니다. 
+   - **계획 제품:** 이 사용자 지정 이미지를 만들 Marketplace 이미지의 제품(제안)을 입력합니다. 
+   - **계획 게시자:** 이 사용자 지정 이미지를 만들 Marketplace 이미지의 게시자를 입력합니다.
+
+   > [!NOTE]
+   > 사용자 지정 이미지를 만드는 데 사용되는 이미지가 **라이선스 이미지가 아닌 경우** 이러한 필드는 비어 있으며, 해당 필드를 선택하면 채울 수 있습니다. **라이선스 이미지인 경우** 계획 정보가 자동으로 필드에 채워집니다. 이 경우 변경하려고 하면 경고 메시지가 표시됩니다.
+   >
+   >
 
 1. **확인** 을 선택하여 사용자 지정 이미지를 만듭니다.
 

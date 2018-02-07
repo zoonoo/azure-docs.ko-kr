@@ -14,25 +14,25 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: cawa
-ms.openlocfilehash: 6268cff5f6c87d269f431dcdf5e6a1ee2e2bcf1f
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: fb47ceb63d45a3e896d55d8c304562cc667d0414
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="microsoft-azure-storage-explorer-preview-release-notes"></a>Microsoft Azure Storage 탐색기(미리 보기) 릴리스 정보
 
-이 문서에서는 Azure Storage 탐색기 0.9.3(미리 보기) 릴리스의 릴리스 정보와 이전 버전의 릴리스 정보를 모두 제공합니다.
+이 문서에서는 Azure Storage 탐색기 0.9.4(미리 보기) 릴리스의 릴리스 정보와 이전 버전의 릴리스 정보를 모두 제공합니다.
 
 [Microsoft Azure Storage 탐색기(미리 보기)](./vs-azure-tools-storage-manage-with-storage-explorer.md)는 Windows, macOS 및 Linux에서 Azure Storage 데이터를 손쉽게 사용할 수 있는 독립 실행형 앱입니다.
 
-## <a name="version-093"></a>버전 0.9.3
-12/08/2017
+## <a name="version-094--093"></a>버전 0.9.4/0.9.3
+2018년 1월 21일
 
-### <a name="download-azure-storage-explorer-093-preview"></a>Azure Storage 탐색기 0.9.3(미리 보기) 다운로드
-- [Windows용 Azure Storage 탐색기 0.9.3(미리 보기)](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Mac용 Azure Storage 탐색기 0.9.3(미리 보기)](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Linux용 Azure Storage 탐색기 0.9.3(미리 보기)](https://go.microsoft.com/fwlink/?LinkId=722418)
+### <a name="download-azure-storage-explorer-094-preview"></a>Azure Storage 탐색기 0.9.4(미리 보기) 다운로드
+- [Windows용 Azure Storage 탐색기 0.9.4(미리 보기)](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Mac용 Azure Storage 탐색기 0.9.4(미리 보기)](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Linux용 Azure Storage 탐색기 0.9.4(미리 보기)](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### <a name="new"></a>새로 만들기
 * 다음과 같은 경우에 기존 Storage 탐색기 창을 다시 사용합니다.
@@ -44,6 +44,7 @@ ms.lasthandoff: 01/09/2018
     * Mac의 경우 앱 메뉴 아래에 '새 창' 옵션이 있습니다.
 
 ### <a name="fixes"></a>수정 프로그램
+* 보안 문제가 해결되었습니다. 가장 빠른 편의를 위해 0.9.4로 업그레이드하세요.
 * 이전 작업은 적절하게 정리되지 않았습니다. 그러면 장기 실행 작업의 성능에 영향을 주었습니다. 이제 올바르게 정리되었습니다.
 * 많은 수의 파일 및 디렉터리를 포함하는 작업으로 인해 경우에 따라 Storage 탐색기가 중지됩니다. 시스템 리소스 사용을 제한하기 위해 파일 공유를 위한 Azure에 대한 요청이 제한됩니다.
 
@@ -94,7 +95,7 @@ ms.lasthandoff: 01/09/2018
 
 ### <a name="new"></a>새로 만들기
 * Azure Cosmos DB에 대한 미리 보기 지원:
-    * [온라인 설명서](./cosmos-db/tutorial-documentdb-and-mongodb-in-storage-explorer.md)
+    * [온라인 설명서](./cosmos-db/storage-explorer.md)
     * 데이터베이스 및 컬렉션 만들기
     * 데이터 조작
     * 문서 쿼리, 만들기 또는 삭제
@@ -174,7 +175,7 @@ ms.lasthandoff: 01/09/2018
 10/20/2017
 ### <a name="new"></a>새로 만들기
 * Azure Cosmos DB에 대한 미리 보기 지원:
-    * [온라인 설명서](./cosmos-db/tutorial-documentdb-and-mongodb-in-storage-explorer.md)
+    * [온라인 설명서](./cosmos-db/storage-explorer.md)
     * 데이터베이스 및 컬렉션 만들기
     * 데이터 조작
     * 문서 쿼리, 만들기 또는 삭제

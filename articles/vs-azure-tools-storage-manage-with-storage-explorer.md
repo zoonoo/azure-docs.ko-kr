@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: b263c69554c22978c854d2678ad7eeca91bc71f7
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: cccab530e86373fee8a78b42c8cba532b05c1bab
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="get-started-with-storage-explorer-preview"></a>저장소 탐색기(미리 보기) 시작
 ## <a name="overview"></a>개요
@@ -99,7 +99,7 @@ Azure Stack 구독에 연결하는 방법에 대한 자세한 내용은 [Azure S
 ### <a name="get-the-storage-account-credentials"></a>저장소 계정 자격 증명 가져오기
 외부 저장소 계정을 공유하려면 해당 계정의 소유자는 먼저 계정에 대한 자격 증명(계정 이름 및 키)을 가져온 다음 해당 정보를 해당(외부) 계정에 연결하려는 사용자와 공유해야 합니다. 다음을 수행하여 Azure Portal을 통해 저장소 계정 자격 증명을 얻을 수 있습니다.
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 2. **찾아보기**를 선택합니다.
 
@@ -243,7 +243,7 @@ Azure 구독을 통해 Azure Cosmos DB 계정을 관리하는 것 외에, Azure 
 
 ## <a name="next-steps"></a>다음 단계
 * [저장소 탐색기(미리 보기)를 사용하여 Azure Blob Storage 리소스 관리](vs-azure-tools-storage-explorer-blobs.md)
-* [Azure Storage 탐색기에서 Azure Cosmos DB 관리(미리 보기)](./cosmos-db/tutorial-documentdb-and-mongodb-in-storage-explorer.md)
+* [Azure Storage 탐색기에서 Azure Cosmos DB 관리(미리 보기)](./cosmos-db/storage-explorer.md)
 
 [0]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/settings-icon.png
 [1]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/add-account-link.png

@@ -2,21 +2,21 @@
 title: "사용자 지정 이미지에서 Azure Batch 풀 프로비전| Microsoft Docs"
 description: "사용자 지정 이미지에서 Batch 풀을 만들어 애플리케이션에 대해 사용자가 필요한 소프트웨어 및 데이터가 들어 있는 계산 노드를 프로비전할 수 있습니다. 사용자 지정 이미지는 Batch 워크로드를 실행하도록 계산 노드를 구성하는 효율적인 방법입니다."
 services: batch
-author: v-dotren
-manager: timlt
+author: dlepow
+manager: jeconnoc
 ms.service: batch
 ms.topic: article
 ms.date: 10/11/2017
-ms.author: v-dotren
-ms.openlocfilehash: d62abd673f89fd51edba721119d1680762a60c76
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.author: danlep
+ms.openlocfilehash: 63a567e9fdfef8dfceb275953cc0ac606355ea30
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="use-a-managed-custom-image-to-create-a-pool-of-virtual-machines"></a>관리되는 사용자 지정 이미지를 사용하여 가상 컴퓨터 풀 만들기 
+# <a name="use-a-managed-custom-image-to-create-a-pool-of-virtual-machines"></a>관리되는 사용자 지정 이미지를 사용하여 가상 머신 풀 만들기 
 
-가상 컴퓨터 구성을 사용하여 Azure Batch 풀을 만들 경우 풀에서 각 계산 노드에 대해 운영 체제를 제공하는 VM 이미지를 지정합니다. Azure Marketplace 이미지 또는 사용자 지정 이미지(사용자가 만들고 직접 구성한 VM 이미지)를 사용하여 가상 컴퓨터 풀을 만들 수 있습니다. 사용자 지정 이미지는 배치 계정과 같이 동일한 Azure 구독 및 지역의 *관리되는 이미지*여야 합니다.
+Virtual Machine 구성을 사용하여 Azure Batch 풀을 만들 경우 풀에서 각 계산 노드에 대해 운영 체제를 제공하는 VM 이미지를 지정합니다. Azure Marketplace 이미지 또는 사용자 지정 이미지(사용자가 만들고 직접 구성한 VM 이미지)를 사용하여 가상 머신 풀을 만들 수 있습니다. 사용자 지정 이미지는 배치 계정과 같이 동일한 Azure 구독 및 지역의 *관리되는 이미지*여야 합니다.
 
 ## <a name="why-use-a-custom-image"></a>사용자 지정 이미지를 사용하는 이유
 사용자 이미지를 제공할 경우에는 운영 체제 구성, 사용할 운영 체제의 유형 및 데이터 디스크를 관리합니다. 사용자 지정 이미지는 프로비전되는 즉시 모든 Batch 풀 노드에서 사용할 수 있는 응용 프로그램 및 참조 데이터를 포함할 수 있습니다.
@@ -35,7 +35,7 @@ ms.lasthandoff: 10/13/2017
 
 ## <a name="prerequisites"></a>필수 조건
 
-- **관리되는 이미지 리소스**. 사용자 지정 이미지를 사용하여 가상 컴퓨터 풀을 만들려면 배치 계정과 동일한 Azure 구독 및 지역에 관리되는 이미지 계정을 만들어야 합니다. 관리되는 이미지를 만들기 위한 옵션을 보려면 다음 섹션을 참조하세요.
+- **관리되는 이미지 리소스**. 사용자 지정 이미지를 사용하여 가상 머신 풀을 만들려면 배치 계정과 동일한 Azure 구독 및 지역에 관리되는 이미지 계정을 만들어야 합니다. 관리되는 이미지를 만들기 위한 옵션을 보려면 다음 섹션을 참조하세요.
 - **AAD(Azure Active Directory) 인증**. Batch 클라이언트 API가 AAD 인증을 사용해야 합니다. AAD에 대한 Azure Batch 지원은 [Active Directory를 사용하여 Batch 서비스 솔루션 인증](batch-aad-auth.md)에 설명되어 있습니다.
 
     

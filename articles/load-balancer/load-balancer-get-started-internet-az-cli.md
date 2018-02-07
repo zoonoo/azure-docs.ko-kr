@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/20/2017
 ms.author: kumud
-ms.openlocfilehash: 769eb86af3e0506ddf03d1ec616d5a17b7e5f714
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 180cf891611f148a1b9acd112fbcddab8eb54de3
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 #  <a name="create-a-public-load-balancer-standard-with-zone-redundant-frontend-using-azure-cli"></a>Azure CLI를 사용하여 영역 중복 프런트 엔드로 공용 부하 분산 장치 표준 만들기
 
 이 문서에서는 공용 IP 표준 주소를 사용하는 영역 중복 프런트 엔드로 공용 [부하 분산 장치 표준](https://aka.ms/azureloadbalancerstandard)을 만드는 단계를 안내합니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="register-for-availability-zones-load-balancer-standard-and-public-ip-standard-preview"></a>가용성 영역 등록, 부하 분산 장치 표준 및 공용 IP 표준 미리 보기
 
@@ -41,7 +41,7 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에�
 
 부하 분산 장치의 프런트 엔드 공용 IP 주소에 대해 영역 또는 영역 중복 옵션을 선택하기 전에 먼저 [가용성 영역 미리 보기 등록](https://docs.microsoft.com/azure/availability-zones/az-overview)의 단계를 완료해야 합니다.
 
-최신 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)을 설치했고 [az login](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest#login)을 사용하여 Azure 계정에 로그인했는지 확인합니다.
+최신 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)을 설치했고 [az login](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest#az_login)을 사용하여 Azure 계정에 로그인했는지 확인합니다.
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 

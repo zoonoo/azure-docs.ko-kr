@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2017
 ms.author: laviswa
-ms.openlocfilehash: 8a8a83ca1d286b7d254c2b2271f44277e6189bf0
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: 69466b15d2a37bee0353a283c9bab59563f3670e
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="sql-queries-for-azure-cosmos-db"></a>Azure Cosmos DB에 대한 SQL 쿼리
 
@@ -1503,7 +1503,7 @@ Cosmos DB 함수와 ANSI SQL 간의 주요 차이점은 스키마가 없는 데�
 | [LENGTH (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_length) |지정한 문자열 식의 문자 수를 반환합니다. |
 | [CONCAT (str_expr, str_expr [, str_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_concat) |둘 이상의 문자열 값을 연결한 결과인 문자열을 반환합니다. |
 | [SUBSTRING (str_expr, num_expr, num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_substring) |문자열 식의 일부를 반환합니다. |
-| [STARTSWITH (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_startswith) |첫 번째 문자열 식이 두 번째로 끝나지를 나타내는 부울을 반환합니다. |
+| [STARTSWITH (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_startswith) |첫 번째 문자열 식이 두 번째 문자열 식으로 시작하는지 여부를 나타내는 부울 값을 반환합니다. |
 | [ENDSWITH (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_endswith) |첫 번째 문자열 식이 두 번째로 끝나지를 나타내는 부울을 반환합니다. |
 | [CONTAINS (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_contains) |첫 번째 문자열 식이 두 번째를 포함하는지를 나타내는 부울 값을 반환합니다. |
 | [INDEX_OF (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_index_of) |지정된 첫 번째 문자열 식 내의 두 번째 문자열 식에서 첫 번째로 나타나는 시작 위치를 반환하거나 문자열을 찾을 수 없는 경우 -1을 반환합니다. |

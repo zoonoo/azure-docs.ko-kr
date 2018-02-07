@@ -5,15 +5,15 @@ services: azure-policy
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 01/03/2018
+ms.date: 01/18/2018
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 882cf3cde71f5154efcd88f055984e72463b3099
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: d6a588e1d8a20ffba555461cf98009f3894ed761
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>규정 준수를 적용하는 정책 만들기 및 관리
 
@@ -25,11 +25,11 @@ ms.lasthandoff: 01/04/2018
 > * 규정 비준수 또는 거부된 리소스 해결
 > * 조직 전체에서 새 정책 구현
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+기존 리소스의 현재 규정 준수 상태를 식별하는 정책을 할당하려는 경우 이 빠른 시작 문서를 통해 방법을 살펴보세요. Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="assign-a-policy"></a>정책 할당
 
-Azure Policy 준수를 적용하기 위한 첫 번째 단계는 정책 정의를 할당하는 것입니다. 정책 정의는 정책이 적용되는 조건과 수행할 작업을 정의합니다. 이 예제에서는 *SQL Server 버전 12.0 필요*라는 기본 제공 정책 정의를 할당하여 모든 SQL Server 데이터베이스에서 V12.0을 준수해야 한다는 조건을 적용합니다.
+Azure Policy 준수를 적용하기 위한 첫 번째 단계는 정책 정의를 할당하는 것입니다. 정책 정의는 정책이 적용되는 조건과 수행할 작업을 정의합니다. 이 예제에서는 *SQL Server 버전 12.0 필요*라는 기본 제공 정책 정의를 할당하여 모든 SQL Server 데이터베이스에서 v12.0을 준수해야 한다는 조건을 적용합니다.
 
 1. 왼쪽 창에서 **정책**을 검색하고 선택하여 Azure Portal에서 Azure Policy 서비스를 시작합니다.
 
@@ -40,28 +40,29 @@ Azure Policy 준수를 적용하기 위한 첫 번째 단계는 정책 정의를
 
    ![정책 정의 할당](media/create-manage-policy/select-assign-policy.png)
 
-4. **정책 할당** 페이지에서 **정책** 필드 옆에 있는 ![정책 정의 단추](media/assign-policy-definition/definitions-button.png)를 클릭하여 사용 가능한 정의 목록을 엽니다.
+4. **정책 할당** 페이지에서 **정책** 필드 옆에 있는 ![정책 정의 단추](media/assign-policy-definition/definitions-button.png)를 클릭하여 사용 가능한 정의 목록을 엽니다. 정책 정의 **유형**을 *기본 제공*으로 필터링하여 모든 정책을 살펴보고 설명을 읽을 수 있습니다.
 
    ![사용 가능한 정책 정의 열기](media/create-manage-policy/open-policy-definitions.png)
 
-5. **SQL Server 버전 12.0 필요**를 선택합니다.
+5. **SQL Server 버전 12.0 필요**를 선택합니다. 즉시 찾을 수 없는 경우 검색 상자에 **SQL Server 버전 12.0 필요**를 입력하고 ENTER 키를 누릅니다.
 
    ![정책 찾기](media/create-manage-policy/select-available-definition.png)
 
-6. 정책 할당에 대한 표시 **이름**을 제공합니다. 여기서는 *SQL Server 버전 12.0 필요*를 사용하겠습니다. 선택적인 **설명**을 추가할 수도 있습니다. 설명은 이 정책 할당이 이 환경에서 만드는 모든 SQL Server가 버전 12.0이 되도록 하는 방법에 대한 세부 정보를 제공합니다.
+6. 표시된 **이름**이 자동으로 채워지지만, 사용자가 변경할 수 있습니다. 이 예에서는 *SQL Server 버전 12.0 필요*를 사용하겠습니다. 선택적인 **설명**을 추가할 수도 있습니다. 설명은 이 정책 할당이 이 환경에서 만드는 모든 SQL Server가 버전 12.0이 되도록 하는 방법에 대한 세부 정보를 제공합니다.
+
 7. 정책이 기존 리소스에 적용되도록 하려면 가격 책정 계층을 **표준**으로 변경합니다.
 
-   Azure Policy 내에는 *체험* 및 *표준*의 두 가지 가격 책정 계층이 있습니다. 체험 계층을 사용하면 미래의 리소스에만 정책을 적용할 수 있지만, 표준 계층을 사용하면 기존 리소스에도 정책을 적용하여 규정 준수 상태를 보다 더 잘 파악할 수 있습니다. 제한된 미리 보기로 인해 아직 가격 책정 모델이 공개되지 않아 *표준*을 선택해도 요금이 청구되지 않습니다. 가격 책정에 대한 자세한 내용은 [Azure Policy 가격](https://azure.microsoft.com/pricing/details/azure-policy)을 참조하세요.
+   Azure Policy 내에는 *체험* 및 *표준*의 두 가지 가격 책정 계층이 있습니다. 체험 계층을 사용하면 미래의 리소스에만 정책을 적용할 수 있지만, 표준 계층을 사용하면 기존 리소스에도 정책을 적용하여 규정 준수 상태를 보다 더 잘 파악할 수 있습니다. Azure Policy가 현재 미리 보기이며 아직 가격 책정 모델이 공개되지 않았습니다. 따라서 *표준*을 선택해도 요금이 청구되지 않습니다. 가격 책정에 대한 자세한 내용은 [Azure Policy 가격](https://azure.microsoft.com/pricing/details/azure-policy)을 참조하세요.
 
 8. 이전에 등록한 구독(또는 리소스 그룹)인 **범위**를 선택합니다. 범위는 정책 할당이 적용되는 리소스 또는 리소스 그룹을 결정합니다. 구독에서 리소스 그룹까지 다양한 범위가 있습니다.
 
-   이 예제에서는 사용자의 구독 정보와 다를 수 있는 **Azure Analytics 용량 개발** 구독을 사용합니다.
+   이 예에서는 **Azure 분석 용량 개발** 구독을 사용합니다. 구독을 사용합니다.
 
 10. **할당**을 선택합니다.
 
 ## <a name="implement-a-new-custom-policy"></a>새 사용자 지정 정책 구현
 
-이제 정책 정의를 할당했으므로 환경 전체에서 만들어진 VM이 G 시리즈에 포함될 수 없도록 하여 비용을 절감하는 새 정책을 만듭니다. 이렇게 하면 조직의 사용자가 G 시리즈에서 VM을 만들려고 할 때마다 해당 요청이 거부됩니다.
+기본 제공 정책 정의를 할당했으니, 이제 Azure Policy로 더 많은 일을 할 수 있습니다. 다음으로, 환경 내에서 만든 VM을 G 시리즈에 사용할 수 없도록 하여 비용을 절감하는 새로운 사용자 지정 정책을 만듭니다. 이렇게 하면 조직 내 사용자가 G 시리즈에서 VM을 만들려고 시도할 때마다 요청이 거부됩니다.
 
 1. 왼쪽 창의 **제작** 아래에서 **정의**를 선택합니다.
 
@@ -72,7 +73,8 @@ Azure Policy 준수를 적용하기 위한 첫 번째 단계는 정책 정의를
 
    - 정책 정의 이름 - *G 시리즈보다 작은 VM SKU 필요*
    - 정책 정의의 용도에 대한 설명 - 여기서는 이 범위에서 만든 모든 VM에서 G 시리즈보다 작은 SKU를 사용하여 비용을 줄인다는 것을 정책 정의에 적용하고 있습니다.
-   - 정책 정의가 배치되는 구독 - 여기서는 정책 정의가 사용자의 구독 목록과 다를 수 있는 **Advisor Analytics 용량 개발**에 배치됩니다.
+   - 정책 정의가 상주하는 구독입니다. 이 예에서는 정책 정의가 **Advisor 분석 용량 개발**에 상주합니다. 배치됩니다.
+   - 기존 옵션 중에서 선택하거나 이 정책 정의에 대한 새 범주를 만듭니다.
    - 다음 json 코드를 복사한 다음 필요에 맞게 업데이트합니다.
       - 정책 매개 변수
       - 정책 규칙/조건 - 여기서는 'VM SKU 크기가 G 시리즈와 같음'입니다.
@@ -102,7 +104,9 @@ Azure Policy 준수를 적용하기 위한 첫 번째 단계는 정책 정의를
 }
     ```
 
-    json 코드 샘플을 보려면 [Azure Policy 템플릿](json-samples.md) 문서를 참조하세요.
+    정책 규칙의 *필드 속성* 값은 이름, 유형, 위치, 태그 또는 별칭 중 하나여야 합니다. 예: `"Microsoft.Compute/VirtualMachines/Size"`
+
+    더 많은 json 코드 샘플을 보려면 [Azure Policy 템플릿](json-samples.md) 문서를 참조하세요.
 
 4. **저장**을 선택합니다.
 
@@ -333,11 +337,11 @@ az policy definition list
 2. 페이지 위쪽에서 **이니셔티브 정의**를 선택합니다. 그러면 **이니셔티브 정의** 양식으로 이동합니다.
 3. 이니셔티브의 이름과 설명을 입력합니다.
 
-   이 예제에서는 리소스에서 보안 가져오기에 대한 정책 정의를 준수하도록 했으며, 이니셔티브의 이름은 **보안 가져오기**이고, 설명은 **이 이니셔티브는 리소스 가져오기와 관련된 모든 정책 정의를 처리하기 위해 만들어졌습니다**입니다.
+   이 예에서는 리소스가 보안 강화에 대한 정책 정의를 준수하는지 확인합니다. 이니셔티브의 이름은 **보안 가져오기**이고, 설명은 **이 이니셔티브는 리소스 보안과 관련된 모든 정책 정의를 처리하기 위해 만들어졌습니다.**입니다.
 
    ![이니셔티브 정의](media/create-manage-policy/initiative-definition.png)
 
-4. **사용 가능한 정의** 목록을 검색하고 해당 이니셔티브에 추가하려는 정책 정의를 선택합니다. **보안 가져오기** 이니셔티브에는 다음의 기본 제공 정책 정의를 추가합니다.
+4. **사용 가능한 정의** 목록을 검색하고 해당 이니셔티브에 추가하려는 정책 정의를 선택합니다. **보안 강화** 이니셔티브에서 다음 기본 제공 정책 정의를 **추가**합니다.
    - SQL Server 버전 12.0 필요
    - Security Center에서 보호되지 않는 웹 응용 프로그램을 모니터링합니다.
    - Security Center에서 허용 네트워크를 모니터링합니다.
@@ -346,9 +350,9 @@ az policy definition list
 
    ![이니셔티브 정의](media/create-manage-policy/initiative-definition-2.png)
 
-   목록에서 정책 정의를 선택하면 위와 같이 **정책 및 매개 변수** 아래에 표시됩니다.
+   목록에서 정책 정의를 선택하면 앞의 이미지와 같이 **정책 및 매개 변수** 아래에 정책 정의가 표시됩니다.
 
-5. **만들기**를 선택합니다.
+5. **정의 위치**를 사용하여 정의를 저장할 구독을 선택합니다. **저장**을 선택합니다.
 
 ### <a name="assign-an-initiative-definition"></a>이니셔티브 정의 할당
 
@@ -358,27 +362,27 @@ az policy definition list
 
    ![정의 할당](media/create-manage-policy/assign-definition.png)
 
-4. 다음을 입력하여 **할당** 양식을 작성합니다.
-   - 이름: 보안 가져오기 할당
+4. 다음 예제 정보를 입력하여 **할당** 양식을 작성합니다. 사용자 고유의 정보를 사용해도 됩니다.
+   - 이름: 보안 강화 할당
    - 설명: 이 이니셔티브 할당은 **Azure Advisor 용량 개발** 구독에서 이 정책 정의 그룹을 적용하도록 조정됩니다.
    - 가격 책정 계층: 표준
-   - 이 할당이 적용되는 범위: **Azure Advisor 용량 개발**
+   - 이 할당이 적용되는 범위: **Azure Advisor 용량 개발**. 사용자 고유의 구독 및 리소스 그룹을 선택할 수 있습니다.
 
 5. **할당**을 선택합니다.
 
 ## <a name="resolve-a-non-compliant-or-denied-resource"></a>규정 비준수 또는 거부된 리소스 해결
 
-위의 예제에 따라 SQL Server 버전 12.0을 요구하도록 정책 정의를 할당한 후에는 다른 버전으로 만든 SQL Server는 거부됩니다. 이 섹션에서는 제외를 요청하여 다른 버전의 SQL Server를 만들 때 거부된 시도를 해결하는 방법을 단계별로 안내합니다.
+위의 예제에 따라 SQL Server 버전 12.0을 요구하도록 정책 정의를 할당한 후에는 다른 버전으로 만든 SQL Server는 거부됩니다. 이 섹션에서는 제외를 요청하여 다른 버전의 SQL Server를 만들 때 거부된 시도를 해결하는 방법을 단계별로 안내합니다. 제외는 근본적으로 정책 적용을 차단합니다. 리소스 그룹에 제외를 적용하거나 제외 범위를 개별 리소스로 좁힐 수 있습니다.
 
 1. 왼쪽 창에서 **할당**을 선택합니다.
-2. 모든 정책 할당을 검색하고 *SQL Server 버전 12.0 필요* 할당을 시작합니다.
-3. SQL Server를 만들려는 리소스 그룹에 대한 제외를 요청합니다. 여기서는 Microsoft.Sql/servers/databases 아래에 있는 *baconandbeer/Cheetos* 및 *baconandbeer/Chorizo*를 제외합니다.
+2. 모든 정책 할당을 검색하고 *SQL Server 버전 12.0 필요* 할당을 엽니다.
+3. SQL 서버를 만들려는 리소스 그룹의 리소스에 대한 제외를 **선택**합니다. 이 예에서는 Microsoft.Sql/servers/databases: *azuremetrictest/testdb* 및 *azuremetrictest/testdb2*를 제외합니다.
 
    ![제외 요청](media/create-manage-policy/request-exclusion.png)
 
    거부된 리소스를 해결할 수 있는 다른 방법으로, 만든 SQL Server가 필요하다는 정당한 근거가 있으면 정책과 연결된 연락처에 문의하고, 정책에 대한 액세스 권한이 있으면 해당 정책을 직접 편집합니다.
 
-4. **저장**을 선택합니다.
+4. **할당**을 클릭합니다.
 
 이 섹션에서는 리소스에 대한 제외를 요청하여 SQL 서버 버전 12.0 만들기 시도 거부를 해결했습니다.
 

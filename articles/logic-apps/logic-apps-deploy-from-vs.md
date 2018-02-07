@@ -15,17 +15,17 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 2/14/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: e7f5cf483d22e4c60dedbe5176ceb0bc8b2b6e66
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 614e07ad9fcbe9ad3684ed977f7ffa36e727dddc
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="design-build-and-deploy-azure-logic-apps-in-visual-studio"></a>Visual Studio에서 Azure Logic Apps 디자인, 빌드 및 배포
 
 [Azure Portal](https://portal.azure.com/)에서 Azure Logic Apps를 만들고 관리할 수 있는 좋은 방법을 제공하지만 Logic Apps를 디자인, 빌드 및 배포하기 위해 Visual Studio를 사용할 수도 있습니다. Visual Studio는 Logic Apps Designer와 같이 논리 앱을 빌드하는 풍부한 도구를 제공하고, 배포 및 자동화 템플릿을 구성하고, 모든 환경에 배포합니다. 
 
-Azure Logic Apps을 시작하려면 [Azure Portal에서 첫 번째 논리 앱을 만드는 방법](logic-apps-create-a-logic-app.md)을 알아보세요.
+Azure Logic Apps을 시작하려면 [Azure Portal에서 첫 번째 논리 앱을 만드는 방법](quickstart-create-first-logic-app-workflow.md)을 알아보세요.
 
 ## <a name="installation-steps"></a>설치 단계
 

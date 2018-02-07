@@ -70,6 +70,21 @@
             - name: Azure Marketplace에 HDInsight 앱 게시
               href: ../hdinsight-apps-publish-applications.md
               maintainContext: true
+            - name: 게시된 앱 설치 - Cask 데이터 응용 프로그램 플랫폼(CDAP)
+              href: ../hdinsight-apps-install-cask.md
+              maintainContext: true
+            - name: 게시된 앱 설치 - Dataiku
+              href: ../hdinsight-apps-install-dataiku.md
+              maintainContext: true
+            - name: 게시된 앱 설치 - Datameer
+              href: ../hdinsight-apps-install-datameer.md
+              maintainContext: true
+            - name: 게시된 앱 설치 - H2O
+              href: ../hdinsight-apps-install-h2o.md
+              maintainContext: true
+            - name: 게시된 앱 설치 - Streamsets
+              href: ../hdinsight-apps-install-streamsets.md
+              maintainContext: true
     - name: 보안
       items:
         - name: HDInsight와 함께 SSH 사용
@@ -181,7 +196,7 @@
       href: ../hdinsight-troubleshoot-guide.md
       maintainContext: true
       items:
-        - name: 저속 또는 문제 발생 HDInsight 클러스터 문제 해결
+        - name: 속도가 느리거나 오류가 발생하는 HDInsight 클러스터 문제 해결
           href: ../hdinsight-troubleshoot-failed-cluster.md
           maintainContext: true
         - name: HDFS 문제 해결
@@ -233,7 +248,7 @@
         - name: 클러스터 성능 모니터링
           href: ../hdinsight-key-scenarios-to-monitor.md
           maintainContext: true
-- name: 참조
+- name: 참고 자료
   items:
     - name: 코드 샘플
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight'

@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/23/2016
 ms.author: borooji;mbullwin
-ms.openlocfilehash: 0ed2dbd83b36deacb0f6269dba6f18dc92980fff
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 3f621010c1c36445ad35d81d96a2e5aefc46b10c
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="filtering-and-preprocessing-telemetry-in-the-application-insights-sdk"></a>Application Insights SDK에서 원격 분석 필터링 및 전처리
 
@@ -122,7 +122,7 @@ Application Insights SDK에 대한 플러그인을 작성하고 구성하여 원
 
 **또는** 코드에서 필터를 초기화할 수 있습니다. Global.asax.cs의 AppStart과 같은 적합한 초기화 클래스의 과정에서 프로세서를 삽입합니다.
 
-```C#
+```csharp
 
     var builder = TelemetryConfiguration.Active.TelemetryProcessorChainBuilder;
     builder.Use((next) => new SuccessfulDependencyFilter(next));
@@ -166,7 +166,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 #### <a name="failed-authentication"></a>실패한 인증
 "401" 응답을 사용하여 요청을 필터링합니다.
 
-```C#
+```csharp
 
 public void Process(ITelemetry item)
 {
@@ -224,7 +224,7 @@ public void Process(ITelemetry item)
 
 *C#*
 
-```C#
+```csharp
 
     using System;
     using Microsoft.ApplicationInsights.Channel;
@@ -275,7 +275,7 @@ ApplicationInsights.config에서:
 
 *또는* , 코드에서 이니셜라이저를 인스턴스화할 수 있습니다(예: Global.aspx.cs).
 
-```C#
+```csharp
     protected void Application_Start()
     {
         // ...

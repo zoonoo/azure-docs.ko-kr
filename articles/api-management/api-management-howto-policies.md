@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: apimpm
-ms.openlocfilehash: 315e4bd7372416800373f98ecb5d8b1eb440e134
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 8576d590568a24df4c3320ec283edba7a28ab032
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="policies-in-azure-api-management"></a>Azure API Management의 정책
 
@@ -74,7 +74,7 @@ APIM(Azure API Management)에서 정책은 게시자가 구성을 통해 API 동
 
 ## <a name="examples"></a>예
 
-### <a name="appliy-policies-specified-at-different-scopes"></a>서로 다른 범위에서 지정된 정책 적용
+### <a name="apply-policies-specified-at-different-scopes"></a>서로 다른 범위에서 지정된 정책 적용
 
 전역 수준의 정책 및 API에 대해 구성된 정책이 있는 경우 특정 API를 사용할 때마다 두 정책이 모두 적용됩니다. API Management는 기본 요소를 통해 결합된 정책 명령문의 결정적인 순서를 허용합니다. 
 

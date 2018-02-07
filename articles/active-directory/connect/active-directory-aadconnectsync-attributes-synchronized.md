@@ -3,7 +3,7 @@ title: "Azure AD Connect에서 동기화된 특성 | Microsoft Docs"
 description: "Azure Active Directory에 동기화된 특성을 나열합니다."
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: c2bb36e0-5205-454c-b9b6-f4990bcedf51
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: billmath
-ms.openlocfilehash: 1fb5772f58511b33d6927c3d0ff155980ed756ad
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1d935b73e1087d5ad858bdbee9af68dd1cf5cd1e
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Azure AD Connect 동기화: Azure Active Directory에 동기화된 특성
 이 항목에서는 Azure AD Connect 동기화에 의해 동기화되는 특성을 보여 줍니다.  
@@ -248,7 +248,7 @@ ms.lasthandoff: 12/11/2017
 | thumbnailphoto |X |X | | |
 | title |X |X | | |
 | unauthOrig |X |X |X | |
-| url |X |X | | |
+| URL |X |X | | |
 | usageLocation |X | | |기계적 속성입니다. 사용자의 국가입니다. 라이선스 할당에 사용됩니다. |
 | userPrincipalName |X | | |UPN은 사용자의 로그인 ID입니다. 대부분 [mail] 값과 같습니다. |
 | wWWHomePage |X |X | | |
@@ -396,7 +396,7 @@ ms.lasthandoff: 12/11/2017
 | usageLocation |X | | |기계적 속성입니다. 사용자의 국가입니다. 라이선스 할당에 사용됩니다. |
 | userPrincipalName |X | | |UPN은 사용자의 로그인 ID입니다. 대부분 [mail] 값과 같습니다. |
 
-## <a name="windows-10"></a>Windows 10
+## <a name="windows-10"></a>윈도우 10
 Windows 10 도메인에 가입된 컴퓨터(장치)는 일부 특성을 Azure AD에 동기화합니다. 이 시나리오에 대한 자세한 내용은 [Windows 10 환경용 Azure AD에 도메인 가입된 장치 연결](../active-directory-azureadjoin-devices-group-policy.md)을 참조하세요. 이 특성은 항상 동기화되며 Windows 10은 선택 취소할 수 있는 앱으로 표시되지 않습니다. Windows 10 도메인에 가입된 컴퓨터는 특성 userCertificate를 채우는 것으로 식별됩니다.
 
 | 특성 이름 | 장치 | 주석 |
@@ -465,7 +465,7 @@ Active Directory에 장치 개체를 만듭니다. 이러한 개체는 Azure AD�
 | msDS-IsManaged |X | |
 | msDS-RegisteredOwner |X | |
 
-## <a name="notes"></a>참고 사항
+## <a name="notes"></a>메모
 * 대체 ID를 사용하면, 온-프레미스 특성 userPrincipalName은 Azure AD 특성 onPremisesUserPrinciparlName과 동기화됩니다. 대체 ID 특성(예: 메일)은 Azure AD 특성 userPrincipalName과 동기화됩니다.
 * 위의 목록에서 개체 형식 **User**는 개체 형식 **iNetOrgPerson**에도 적용됩니다.
 

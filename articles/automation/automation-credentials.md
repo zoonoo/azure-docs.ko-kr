@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/14/2017
 ms.author: bwren
-ms.openlocfilehash: ac253fda413718ded815c9a990ae61473a5d8870
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 12a7d00f9e0721fc4cf2668598515fd769c8a728
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="credential-assets-in-azure-automation"></a>Azure Automation의 자격 증명 자산
 Automation 자격 증명 자산은 사용자 이름과 암호 등의 보안 자격 증명을 포함하는 [PSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential) 개체를 보유합니다. Runbook과 DSC 구성은 인증을 위해 PSCredential 개체를 허용하는 cmdlet를 사용할 수 있고, 일부 응용 프로그램 도는 인증이 필요한 서비스에 제공하기 위해 PScredential 개체의 사용자 이름과 암호를 추출할 수 있습니다. 자격 증명의 속성은 Azure Automation에 안전하게 저장되며 [Get-AutomationPSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential.aspx) 활동을 통해 runbook과 DSC 구성에서 액세스할 수 있습니다.
@@ -46,7 +46,7 @@ AzureRM에 대해 다음 표의 cmdlet은 Windows PowerShell을 사용하여 자
 | [Remove-AzureRmAutomationCredential](/powershell/module/azurerm.automation/remove-azurermautomationcredential?view=azurermps-4.4.0) |Automation 자격 증명을 제거합니다. |
 | [Set-AzureRmAutomationCredential](/powershell/module/azurerm.automation/set-azurermautomationcredential?view=azurermps-4.4.0) |기존 Automation 자격 증명에 대한 속성을 설정합니다. |
 
-## <a name="runbook-activities"></a>Runbook 활동
+## <a name="activities"></a>활동
 다음 표의 활동은 runbook과 DSC 구성의 자격 증명에 액세스하는데 사용됩니다.
 
 | 활동 | 설명 |

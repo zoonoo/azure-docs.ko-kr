@@ -3,7 +3,7 @@ title: "개발자를 위한 Azure DevTest Labs 사용 | Microsoft Docs"
 description: "개발자 시나리오에 Azure DevTest Labs를 사용하는 방법을 알아봅니다."
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 22e070e5-3d1a-49fe-9d4c-5e07cb0b7fe2
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
-ms.author: tarcher
-ms.openlocfilehash: b829ebd90034031721dfe2e97427e624306da1e9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: v-craic
+ms.openlocfilehash: f99776a718c03e8af36d45d7006be8ce29208615
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="use-azure-devtest-labs-for-developers"></a>개발자를 위한 Azure DevTest Labs 사용
 Azure DevTest Labs를 사용하여 여러 주요 시나리오를 구현할 수 있지만 기본 시나리오 중 하나는 DevTest Labs를 사용하여 개발자를 위한 개발 컴퓨터를 호스트하는 것입니다. 이 시나리오에서는 DevTest Labs는 다음과 같은 이점을 제공합니다.
@@ -40,7 +40,7 @@ Azure DevTest Labs를 사용하여 여러 주요 시나리오를 구현할 수 �
    
     다음 표에 있는 링크를 클릭하면 자세히 알아볼 수 있습니다.
    
-   | 작업 | 학습 내용 |
+   | Task | 학습 내용 |
    | --- | --- |
    | [Azure DevTest Labs에서 랩 만들기](devtest-lab-create-lab.md) |Azure Portal의 Azure DevTest Labs에서 랩을 만드는 방법을 알아봅니다. |
 2. **바로 사용할 수 있는 마켓플레이스 이미지 및 사용자 지정 이미지를 사용하여 몇 분 만에 VM 만들기** 
@@ -51,7 +51,7 @@ Azure DevTest Labs를 사용하여 여러 주요 시나리오를 구현할 수 �
   
     다음 표에 있는 링크를 클릭하면 자세히 알아볼 수 있습니다.
    
-   | 작업 | 학습 내용 |
+   | Task | 학습 내용 |
    | --- | --- |
    | [Azure Marketplace 이미지 구성](devtest-lab-configure-marketplace-images.md) |개발자용으로 원하는 이미지만 선택할 수 있도록 Azure Marketplace 이미지를 허용 목록에 추가할 수 있는 방법을 알아봅니다.|
    | [사용자 지정 이미지 만들기](devtest-lab-create-template.md) |개발자가 사용자 지정 이미지를 사용하여 신속하게 VM을 만들 수 있도록 필요한 소프트웨어를 미리 설치하여 사용자 지정 이미지를 만듭니다.|
@@ -63,7 +63,7 @@ Azure DevTest Labs를 사용하여 여러 주요 시나리오를 구현할 수 �
    
     다음 표에 있는 링크를 클릭하면 자세히 알아볼 수 있습니다.
    
-   | 작업 | 학습 내용 |
+   | Task | 학습 내용 |
    | --- | --- |
    | [VM을 만드는 DevTest Labs 수식 관리](devtest-lab-manage-formulas.md) |이미지, VM 크기(CPU와 RAM의 조합) 및 가상 네트워크를 선택하여 수식을 만들 수 있는 방법을 알아봅니다.|
 
@@ -79,9 +79,9 @@ Azure DevTest Labs를 사용하여 여러 주요 시나리오를 구현할 수 �
 
    다음 표에 있는 링크를 클릭하면 자세히 알아볼 수 있습니다.
    
-   | 작업 | 학습 내용 |
+   | Task | 학습 내용 |
    | --- | --- |
-   | [DevTest Lab VM에 대한 사용자 지정 아티팩트 만들기](devtest-lab-artifact-author.md) |랩에서 가상 컴퓨터에 대한 사용자 고유의 사용자 지정 아티팩트를 만듭니다.|
+   | [DevTest Lab VM에 대한 사용자 지정 아티팩트 만들기](devtest-lab-artifact-author.md) |랩에서 가상 머신에 대한 사용자 고유의 사용자 지정 아티팩트를 만듭니다.|
    | [Azure DevTest Labs에서 사용하기 위한 사용자 지정 아티팩트 및 Azure Resource Manager 템플릿을 저장할 Git 리포지토리 추가](devtest-lab-add-artifact-repo.md) |사용자 지정 아티팩트를 자체의 개인 Git 리포지토리에 저장하는 방법을 알아봅니다.|
 
 5. **비용 제어**
@@ -94,7 +94,7 @@ Azure DevTest Labs를 사용하여 여러 주요 시나리오를 구현할 수 �
    
     다음 표에 있는 링크를 클릭하면 자세히 알아볼 수 있습니다.
    
-   | 작업 | 학습 내용 |
+   | Task | 학습 내용 |
    | --- | --- |
    | [랩 정책 정의](devtest-lab-set-lab-policy.md) |랩에 정책을 설정하여 비용을 제어합니다. |
    | [PowerShell 스크립트를 사용하여 모든 랩 VM 삭제](devtest-lab-faq.md#how-do-i-automate-the-process-of-deleting-all-the-vms-in-my-lab) |개발이 완료되면 한 번에 모든 랩을 삭제합니다.|
@@ -107,7 +107,7 @@ Azure DevTest Labs를 사용하여 여러 주요 시나리오를 구현할 수 �
    
     다음 표에 있는 링크를 클릭하면 자세히 알아볼 수 있습니다.
    
-   | 작업 | 학습 내용 |
+   | Task | 학습 내용 |
    | --- | --- |
    | [Azure DevTest Labs에서 가상 네트워크 구성](devtest-lab-configure-vnet.md) |Azure Portal을 사용하여 Azure DevTest Labs에서 가상 네트워크를 구성하는 방법을 알아봅니다.|
 
@@ -117,7 +117,7 @@ Azure DevTest Labs를 사용하여 여러 주요 시나리오를 구현할 수 �
    
     다음 표에 있는 링크를 클릭하면 자세히 알아볼 수 있습니다.
    
-   | 작업 | 학습 내용 |
+   | Task | 학습 내용 |
    | --- | --- |
    | [Azure DevTest Labs에서 랩에 개발자 추가](devtest-lab-add-devtest-user.md) |랩에 개발자를 추가하려면 Azure Portal을 사용합니다.|
    | [PowerShell 스크립트를 사용하여 랩에 개발자 추가](devtest-lab-add-devtest-user.md#add-an-external-user-to-a-lab-using-powershell) |PowerShell을 사용하여 랩에 개발자를 자동으로 추가합니다. |
@@ -129,7 +129,7 @@ Azure DevTest Labs를 사용하여 여러 주요 시나리오를 구현할 수 �
    
     다음 표에 있는 링크를 클릭하면 자세히 알아볼 수 있습니다.
    
-   | 작업 | 학습 내용 |
+   | Task | 학습 내용 |
    | --- | --- |
    | [Resource Manager 템플릿을 사용하여 랩 만들기](devtest-lab-faq.md#how-do-i-create-a-lab-from-a-resource-manager-template) |Resource Manager 템플릿을 사용하여 Azure DevTest Labs에서 랩을 만듭니다. |
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/20/2017
 ms.author: yushwang
-ms.openlocfilehash: 080f83a67674ab059404870f6ec0e7470cfcceff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fbe22b70b4fe3463ffc7b0e9a7ebd683f681117d
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="sample-configuration-cisco-asa-device-ikev2no-bgp"></a>샘플 구성: Cisco ASA 장치(IKEv2/BGP 아님)
 이 문서에서는 Azure VPN Gateway에 Cisco ASA(적응 보안 어플라이언스) 장치를 연결하는 샘플 구성을 제공합니다. 이 예제는 BGP(경계 게이트웨이 프로토콜) 없이 IKEv2를 실행하는 Cisco ASA 장치에 적용됩니다. 
@@ -98,10 +98,7 @@ Azure 구성을 빌드하는 단계별 지침은 [단일 VPN 터널 설정](vpn-
 
 * 그룹 5 이외에 DH 그룹 및 PFS 그룹 지원에는 ASA 버전 9.x가 필요합니다.
 
-* GCM AES를 사용하는 IPsec 암호화 및 SHA-256, SHA-384 또는 SHA-512를 사용하는 IPsec 무결성의 지원에는 ASA 버전 9.x가 필요합니다. 이 지원 요구 사항은 새로운 ASA 장치에 적용됩니다.
-
-    > [!NOTE]
-    > ASA 장치 모델 5505, 5510, 5520, 5540, 5550 및 5580이 지원되지 않습니다. 알고리즘이 VPN 장치 모델 및 펌웨어 버전에 지원되는지 확인하려면 VPN 장치 사양을 참조하세요.
+* GCM AES를 사용하는 IPsec 암호화 및 SHA-256, SHA-384 또는 SHA-512를 사용하는 IPsec 무결성의 지원에는 ASA 버전 9.x가 필요합니다. 이 지원 요구 사항은 새로운 ASA 장치에 적용됩니다. 게시하는 시점에 ASA 모델 5505, 5510, 5520, 5540, 5550 및 5580은 이러한 알고리즘을 지원하지 않습니다. 알고리즘이 VPN 장치 모델 및 펌웨어 버전에 지원되는지 확인하려면 VPN 장치 사양을 참조하세요.
 
 
 ### <a name="sample-device-configuration"></a>샘플 장치 구성

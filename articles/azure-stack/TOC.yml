@@ -31,6 +31,42 @@
       href: azure-stack-tutorial-app-service.md
 - name: 개념
   items:
+    - name: 데이터 센터 통합
+      items:
+        - name: 일반 Azure 스택 통합 고려 사항
+          href: azure-stack-datacenter-integration.md
+        - name: Azure 스택 배포 연결 모델
+          href: azure-stack-connection-models.md
+        - name: 연결 된 배포 고려 사항
+          href: azure-stack-connected-deployment.md
+        - name: 연결이 끊긴된 배포 고려 사항
+          href: azure-stack-disconnected-deployment.md
+        - name: 데이터 센터 네트워크 통합
+          items:
+            - name: 네트워크 통합
+              href: azure-stack-network.md
+            - name: 테두리 연결
+              href: azure-stack-border-connectivity.md
+            - name: DNS 통합
+              href: azure-stack-integrate-dns.md
+            - name: 방화벽 통합
+              href: azure-stack-firewall.md
+              items:
+                - name: 끝점 게시
+                  href: azure-stack-integrate-endpoints.md
+        - name: Azure 스택 배포 PKI 요구 사항
+          href: azure-stack-pki-certs.md
+          items:
+            - name: Azure 스택 배포를 위한 PKI 인증서 가져오기
+              href: azure-stack-get-pki-certs.md
+        - name: Id 통합
+          href: azure-stack-integrate-identity.md
+        - name: Azure 스택 등록
+          href: azure-stack-registration.md
+        - name: 외부 모니터링
+          href: azure-stack-integrate-monitor.md
+        - name: 보안 통합
+          href: azure-stack-integrate-security.md
     - name: 서비스 정책
       href: azure-stack-servicing-policy.md
     - name: 주요 기능 및 개념
@@ -59,35 +95,6 @@
           href: azure-stack-add-default-image.md
         - name: 테스트 VM 만들기
           href: azure-stack-provision-vm.md
-    - name: Azure 스택 통합 시스템 배포
-      items:
-        - name: 배포 계획 고려 사항
-          href: azure-stack-deployment-planning.md
-        - name: 배포 계획 결정
-          href: azure-stack-deployment-decisions.md
-        - name: 배포 Azure에 연결
-          href: azure-stack-connected-deployment.md
-        - name: 배포 Azure에서 분리
-          href: azure-stack-disconnected-deployment.md
-        - name: Azure 스택 배포 PKI 요구 사항
-          href: azure-stack-pki-certs.md
-          items:
-            - name: Azure 스택 배포를 위한 PKI 인증서 가져오기
-              href: azure-stack-get-pki-certs.md
-        - name: Azure 스택 등록
-          href: azure-stack-registration.md
-    - name: 데이터 센터 통합
-      items:
-        - name: DNS
-          href: azure-stack-integrate-dns.md
-        - name: ID
-          href: azure-stack-integrate-identity.md
-        - name: 끝점 게시
-          href: azure-stack-integrate-endpoints.md
-        - name: 외부 모니터링
-          href: azure-stack-integrate-monitor.md
-        - name: 보안
-          href: azure-stack-integrate-security.md
     - name: 관리
       items:
         - name: 지역 관리
@@ -269,7 +276,7 @@
           href: azure-stack-diagnostics.md
         - name: Azure 스택에 대 한 유효성 검사
           href: azure-stack-diagnostic-test.md
-        - name: Azure Stack 개발 키트 재배포
+        - name: Azure Stack Development Kit 재배포
           href: azure-stack-redeploy.md
 - name: 참조
   items:

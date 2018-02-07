@@ -3,8 +3,8 @@ title: "개발자를 위한 Azure Batch 개요 | Microsoft Docs"
 description: "개발자의 관점에서 Batch 서비스와 해당 API에 대한 기능을 알아봅니다."
 services: batch
 documentationcenter: .net
-author: v-dotren
-manager: timlt
+author: dlepow
+manager: jeconnoc
 editor: 
 ms.assetid: 416b95f8-2d7b-4111-8012-679b0f60d204
 ms.service: batch
@@ -15,11 +15,11 @@ ms.workload: big-compute
 ms.date: 11/16/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 22c5597cf14f27671667176dce8782cf0c79918d
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 2afbc64519887f110c0213a4f565b4ef1317e26e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Batch를 사용하여 대규모 병렬 계산 솔루션 개발
 
@@ -39,7 +39,7 @@ Azure Batch 서비스의 핵심 구성 요소 개요에서는 Batch 개발자가
 2. 태스크가 실행할 **응용 프로그램 파일**을 업로드합니다. 이러한 파일은 이진 파일 또는 스크립트와 해당 종속성일 수 있으며 작업의 태스크로 실행됩니다. 작업하면 저장소 계정에서 다음 파일을 다운로드할 수 있습니다. 또는 응용 프로그램 관리 및 배포를 위한 [응용 프로그램 패키지](#application-packages) Batch 기능을 사용할 수 있습니다.
 3. 계산 노드 [풀](#pool)을 만듭니다. 풀을 만들 경우 풀, 크기 및 운영 체제에 대한 계산 노드 수를 지정합니다. 작업의 각 태스크를 실행할 경우 풀의 노드 중 하나에서 실행하도록 할당합니다.
 4. [작업](#job)을 만듭니다. 작업에서는 태스크의 컬렉션을 관리합니다. 각 작업을 작업의 태스크를 실행하는 특정 풀과 연결합니다.
-5. 작업에 [태스크](#task)를 추가합니다. 각 태스크는 업로드한 스크립트나 응용 프로그램을 실행하여 Storage 계정에서 다운로드한 데이터 파일을 처리합니다. 각 태스크가 완료되면 해당 출력을 Azure Storage에 업로드할 수 있습니다.
+5. 작업에 [태스크](#task) 를 추가합니다. 각 태스크는 업로드한 스크립트나 응용 프로그램을 실행하여 Storage 계정에서 다운로드한 데이터 파일을 처리합니다. 각 태스크가 완료되면 해당 출력을 Azure Storage에 업로드할 수 있습니다.
 6. 작업 진행 상태를 모니터링하고 Azure Storage에서 태스크 출력을 검색합니다.
 
 다음 섹션에서는 이러한 내용 및 분산된 전산 시나리오를 사용할 수 있는 Batch의 다른 리소스를 설명합니다.
@@ -65,7 +65,7 @@ Azure Batch 서비스의 핵심 구성 요소 개요에서는 Batch 개발자가
   * [작업 종속성](#task-dependencies)
 * [응용 프로그램 패키지](#application-packages)
 
-## <a name="account"></a>계정
+## <a name="account"></a>계좌
 Batch 계정은 Batch 서비스 내에서 고유 하게 식별되는 엔터티입니다. 모든 처리는 Batch 계정과 연결됩니다.
 
 [Azure Portal](batch-account-create-portal.md) 또는 프로그래밍 방식(예: [Batch 관리 .NET 라이브러리](batch-management-dotnet.md))를 통해 Azure Batch 계정을 만들 수 있습니다. 계정을 만들 때 작업 관련 입력 및 출력 데이터 또는 응용 프로그램을 저장하기 위해 Azure Storage 계정을 연결할 수 있습니다.
@@ -85,7 +85,7 @@ Batch는 현재 [Azure Storage 계정 정보](../storage/common/storage-create-s
 
 
 ## <a name="compute-node"></a>Compute 노드
-계산 노드는 응용 프로그램의 워크로드 중 일부를 처리하도록 전담하는 Azure VM(가상 컴퓨터) 또는 클라우드 서비스 VM입니다. 노드의 크기에 따라 노드에 할당되는 CPU 코어 수, 메모리 용량 및 로컬 파일 시스템 크기가 결정됩니다. Azure Cloud Services, [Azure Virtual Machines Marketplace][vm_marketplace] 이미지 또는 사용자가 준비한 사용자 지정 이미지를 사용하여 Windows 또는 Linux 노드의 풀을 만들 수 있습니다. 이러한 옵션에 대한 자세한 내용은 다음 [풀](#pool)을 참조하세요.
+계산 노드는 응용 프로그램의 워크로드 중 일부를 처리하도록 전담하는 Azure VM(가상 머신) 또는 클라우드 서비스 VM입니다. 노드의 크기에 따라 노드에 할당되는 CPU 코어 수, 메모리 용량 및 로컬 파일 시스템 크기가 결정됩니다. Azure Cloud Services, [Azure Virtual Machines Marketplace][vm_marketplace] 이미지 또는 사용자가 준비한 사용자 지정 이미지를 사용하여 Windows 또는 Linux 노드의 풀을 만들 수 있습니다. 이러한 옵션에 대한 자세한 내용은 다음 [풀](#pool)을 참조하세요.
 
 노드는 노드의 운영 체제 환경에서 지원하는 실행 파일이나 스크립트를 실행할 수 있습니다. 여기에 Windows용 \*.exe, \*.cmd, \*.bat 및 PowerShell 스크립트, Linux용 이진 파일, 셸 및 Python 스크립트를 포함합니다.
 
@@ -123,15 +123,15 @@ Azure Batch 풀은 코어 Azure 계산 플랫폼을 기반으로 합니다. Batc
 
 ### <a name="compute-node-operating-system-and-version"></a>Compute 노드 운영 체제 및 버전
 
-Batch 풀을 만들 때 Azure 가상 컴퓨터 구성과 풀의 각 계산 노드에서 실행하려는 운영 체제 유형을 지정할 수 있습니다. Batch에서 사용할 수 있는 두 가지 유형의 구성은 다음과 같습니다.
+Batch 풀을 만들 때 Azure 가상 머신 구성과 풀의 각 계산 노드에서 실행하려는 운영 체제 유형을 지정할 수 있습니다. Batch에서 사용할 수 있는 두 가지 유형의 구성은 다음과 같습니다.
 
-- **가상 컴퓨터 구성** - 풀이 Azure 가상 컴퓨터로 구성됨을 나타냅니다. 이러한 VM은 Linux 또는 Windows 이미지에서 만들 수 있습니다. 
+- **Virtual Machine 구성** - 풀이 Azure 가상 컴퓨터로 구성됨을 나타냅니다. 이러한 VM은 Linux 또는 Windows 이미지에서 만들 수 있습니다. 
 
-    가상 컴퓨터 구성에 따라 풀을 만들 때는 노드 크기와 해당 노드를 만드는 데 사용되는 이미지의 원본뿐만 아니라 해당 노드에 설치될 **가상 컴퓨터 이미지 참조** 및 Batch **노드 에이전트 SKU**도 지정해야 합니다. 이러한 풀 속성에 대한 자세한 내용은 [Azure Batch 풀에서 Linux 계산 노드 프로비전](batch-linux-nodes.md)을 참조하세요. 필요에 따라 하나 이상의 빈 데이터 디스크를 Marketplace 이미지에서 만든 풀 VM에 연결하거나 VM을 만드는 데 사용되는 사용자 지정 이미지에 데이터 디스크를 포함할 수 있습니다.
+    Virtual Machine 구성에 따라 풀을 만들 때는 노드 크기와 해당 노드를 만드는 데 사용되는 이미지의 원본뿐만 아니라 해당 노드에 설치될 **가상 머신 이미지 참조** 및 Batch **노드 에이전트 SKU**도 지정해야 합니다. 이러한 풀 속성에 대한 자세한 내용은 [Azure Batch 풀에서 Linux 계산 노드 프로비전](batch-linux-nodes.md)을 참조하세요. 필요에 따라 하나 이상의 빈 데이터 디스크를 Marketplace 이미지에서 만든 풀 VM에 연결하거나 VM을 만드는 데 사용되는 사용자 지정 이미지에 데이터 디스크를 포함할 수 있습니다.
 
 - **Cloud Services 구성** - 풀이 Azure Cloud Services 노드로 구성됨을 나타냅니다. Cloud Services는 Windows 계산 노드*만* 제공합니다.
 
-    Cloud Services 구성 풀에 사용 가능한 운영 체제는 [Azure 게스트 OS 릴리스 및 SDK 호환성 매트릭스](../cloud-services/cloud-services-guestos-update-matrix.md)에 나열됩니다. Cloud Services 노드가 포함된 풀을 만들 때는 노드 크기와 해당 *OS 제품군*을 지정해야 합니다. Cloud Services는 Windows를 실행하는 가상 컴퓨터보다 더 빠르게 Azure에 배포됩니다. Windows 계산 노드 풀을 원하는 경우 배포 시간 측면에서 Cloud Services가 성능 상의 이점을 제공할 수 있습니다.
+    Cloud Services 구성 풀에 사용 가능한 운영 체제는 [Azure 게스트 OS 릴리스 및 SDK 호환성 매트릭스](../cloud-services/cloud-services-guestos-update-matrix.md)에 나열됩니다. Cloud Services 노드가 포함된 풀을 만들 때는 노드 크기와 해당 *OS 제품군*을 지정해야 합니다. Cloud Services는 Windows를 실행하는 가상 머신보다 더 빠르게 Azure에 배포됩니다. Windows 계산 노드 풀을 원하는 경우 배포 시간 측면에서 Cloud Services가 성능 상의 이점을 제공할 수 있습니다.
 
     * *OS 제품군*은 OS와 함께 설치되는 .NET 버전도 결정합니다.
     * Cloud Services 내의 작업자 역할과 마찬가지로 *OS 버전*을 지정할 수 있습니다(작업자 역할에 대한 자세한 내용은 [Cloud Services 개요](../cloud-services/cloud-services-choose-me.md#tell-me-about-cloud-services)의 [Cloud Services 정보](../cloud-services/cloud-services-choose-me.md) 섹션 참조).
@@ -140,15 +140,15 @@ Batch 풀을 만들 때 Azure 가상 컴퓨터 구성과 풀의 각 계산 노�
 풀을 만들 때 기본 VHD 이미지의 OS에 따라 적절한 **nodeAgentSkuId**를 선택해야 합니다. [지원되는 노드 에이전트 SKU 나열](https://docs.microsoft.com/rest/api/batchservice/list-supported-node-agent-skus) 작업을 호출하여 사용 가능한 노드 에이전트 SKU ID를 OS 이미지 참조에 매핑할 수 있습니다.
 
 
-#### <a name="custom-images-for-virtual-machine-pools"></a>가상 컴퓨터 풀에 대한 사용자 지정 이미지
+#### <a name="custom-images-for-virtual-machine-pools"></a>Virtual Machine 풀에 대한 사용자 지정 이미지
 
-사용자 지정 이미지를 사용하려면 일반화하여 이미지를 준비해야 합니다. Azure VM에서 사용자 지정 Linux 이미지를 준비하는 방법에 대한 자세한 내용은 [가상 컴퓨터 또는 VHD의 이미지를 만드는 방법](../virtual-machines/linux/capture-image.md)을 참조하세요. Azure VM에서 사용자 지정 Windows 이미지를 준비하는 방법에 대한 자세한 내용은 [Azure에서 일반화된 VM의 관리 이미지 만들기](../virtual-machines/windows/capture-image-resource.md)를 참조하세요. 
+사용자 지정 이미지를 사용하려면 일반화하여 이미지를 준비해야 합니다. Azure VM에서 사용자 지정 Linux 이미지를 준비하는 방법에 대한 자세한 내용은 [가상 머신 또는 VHD의 이미지를 만드는 방법](../virtual-machines/linux/capture-image.md)을 참조하세요. Azure VM에서 사용자 지정 Windows 이미지를 준비하는 방법에 대한 자세한 내용은 [Azure에서 일반화된 VM의 관리 이미지 만들기](../virtual-machines/windows/capture-image-resource.md)를 참조하세요. 
 
-자세한 요구 사항 및 단계는 [사용자 지정 이미지를 사용하여 가상 컴퓨터 풀 만들기](batch-custom-images.md)를 참조하세요.
+자세한 요구 사항 및 단계는 [사용자 지정 이미지를 사용하여 가상 머신 풀 만들기](batch-custom-images.md)를 참조하세요.
 
-#### <a name="container-support-in-virtual-machine-pools"></a>가상 컴퓨터 풀에서 컨테이너 지원
+#### <a name="container-support-in-virtual-machine-pools"></a>Virtual Machine 풀에서 컨테이너 지원
 
-Batch API를 사용하여 가상 컴퓨터 구성 풀을 만들 때 Docker 컨테이너에서 작업을 실행하도록 풀을 설정할 수 있습니다. 현재 Docker 컨테이너를 지원하는 이미지를 사용하여 풀을 만들어야 합니다. Microsoft Azure Marketplace의 컨테이너 이미지로 Windows Server 2016 Datacenter를 사용하거나 Docker Community Edition이나 Enterprise Edition 및 모든 필수 드라이버를 포함하는 사용자 지정 VM 이미지를 제공합니다. 풀 설정은 풀이 만들어질 때 VM에 컨테이너 이미지를 복사하는 [컨테이너 구성](/rest/api/batchservice/pool/add#definitions_containerconfiguration)을 포함해야 합니다. 그러면 풀에서 실행되는 작업은 컨테이너 이미지와 컨테이너 실행 옵션을 참조할 수 있습니다.
+Batch API를 사용하여 Virtual Machine 구성 풀을 만들 때 Docker 컨테이너에서 작업을 실행하도록 풀을 설정할 수 있습니다. 현재 Docker 컨테이너를 지원하는 이미지를 사용하여 풀을 만들어야 합니다. Microsoft Azure Marketplace의 컨테이너 이미지로 Windows Server 2016 Datacenter를 사용하거나 Docker Community Edition이나 Enterprise Edition 및 모든 필수 드라이버를 포함하는 사용자 지정 VM 이미지를 제공합니다. 풀 설정은 풀이 만들어질 때 VM에 컨테이너 이미지를 복사하는 [컨테이너 구성](/rest/api/batchservice/pool/add#definitions_containerconfiguration)을 포함해야 합니다. 그러면 풀에서 실행되는 작업은 컨테이너 이미지와 컨테이너 실행 옵션을 참조할 수 있습니다.
 
 자세한 내용은 [Azure Batch에서 Docker 컨테이너 응용 프로그램 실행](batch-docker-container-workloads.md)을 참조하세요.
 
@@ -173,7 +173,7 @@ Batch API를 사용하여 가상 컴퓨터 구성 풀을 만들 때 Docker 컨�
 
 **Cloud Services 구성** 계산 노드 크기는 [Cloud Services 크기](../cloud-services/cloud-services-sizes-specs.md)에 나열됩니다. Batch는 `ExtraSmall`, `STANDARD_A1_V2` 및 `STANDARD_A2_V2`를 제외한 모든 Cloud Services 크기를 지원합니다.
 
-**가상 컴퓨터 구성** 계산 노드 크기는 [Azure에서 가상 컴퓨터에 대한 크기](../virtual-machines/linux/sizes.md)(Linux) 및 [Azure에서 가상 컴퓨터에 대한 크기](../virtual-machines/windows/sizes.md)(Windows)에 나열되어 있습니다. Batch는 `STANDARD_A0`및 프리미엄 저장소(`STANDARD_GS`, `STANDARD_DS` 및 `STANDARD_DSV2` 시리즈) 크기를 제외한 모든 Azure VM 크기를 지원합니다.
+**Virtual Machine 구성** 계산 노드 크기는 [Azure에서 가상 머신에 대한 크기](../virtual-machines/linux/sizes.md)(Linux) 및 [Azure에서 가상 머신에 대한 크기](../virtual-machines/windows/sizes.md)(Windows)에 나열되어 있습니다. Batch는 `STANDARD_A0`및 프리미엄 저장소(`STANDARD_GS`, `STANDARD_DS` 및 `STANDARD_DSV2` 시리즈) 크기를 제외한 모든 Azure VM 크기를 지원합니다.
 
 계산 노드 크기를 선택할 때는 노드에서 실행할 응용 프로그램의 특징과 요구 사항을 고려합니다. 응용 프로그램이 다중 스레드되었는지 여부 및 응용 프로그램에서 소비하는 메모리 양과 같은 측면은 가장 적절하고 비용 효과적인 노드 크기를 결정하는 데 도움을 줄 수 있습니다. 하나의 태스크가 한 번에 하나의 노드에서 실행되는 것으로 가정하여 노드 크기를 선택하는 것이 일반적입니다. 하지만 작업 실행 중에 계산 노드에 [병렬로 실행되는](batch-parallel-node-tasks.md) 다수의 태스크(따라서 다수의 응용 프로그램 인스턴스)가 있을 수도 있습니다. 이런 경우, 병렬 작업 실행에 대해 증가되는 수요를 충족하기 위해 더 큰 노드 크기를 선택하는 것이 일반적입니다. 자세한 내용은 [태스크 일정 정책](#task-scheduling-policy)을 참조하세요.
 
@@ -195,7 +195,7 @@ Batch API를 사용하여 가상 컴퓨터 구성 풀을 만들 때 Docker 컨�
 
 대부분의 시나리오에서 태스크는 독립적으로 작동하고 다른 노드와 통신할 필요가 없습니다. 하지만 [MPI 시나리오](batch-mpi.md)와 같이 태스크가 통신해야 하는 응용 프로그램이 있습니다.
 
-**노드 간 통신**을 허용하도록 풀을 구성하여 풀 내의 노드가 런타임에 통신할 수 있습니다. 노드 간 통신 기능을 사용하는 경우 Cloud Services 구성 풀의 노드는 1100보다 큰 포트에서 서로 통신할 수 있고 가상 컴퓨터 구성 풀은 모든 포트에서 트래픽을 제한하지 않습니다.
+**노드 간 통신**을 허용하도록 풀을 구성하여 풀 내의 노드가 런타임에 통신할 수 있습니다. 노드 간 통신 기능을 사용하는 경우 Cloud Services 구성 풀의 노드는 1100보다 큰 포트에서 서로 통신할 수 있고 Virtual Machine 구성 풀은 모든 포트에서 트래픽을 제한하지 않습니다.
 
 노드 간 통신을 사용하도록 설정하면 클러스터 내의 노드 배치에도 영향을 주며 배포 제한 때문에 풀의 노드 최대 수를 제한할 수 있습니다. 응용 프로그램에 노드 간 통신이 필요하지 않은 경우 Batch 서비스는 잠재적으로 여러 다른 클러스터 및 데이터 센터의 많은 노드를 풀에 할당하여 병렬 처리 능력을 증가시킬 수 있습니다.
 
@@ -242,7 +242,7 @@ Batch에서 만드는 작업에 우선 순위를 할당할 수 있습니다. Bat
 ### <a name="scheduled-jobs"></a>Scheduled jobs
 [작업 일정][rest_job_schedules]을 사용하여 Batch 서비스 내에서 되풀이되는 작업을 만들 수 있습니다. 작업 일정은 작업을 실행할 시간을 지정하며, 실행할 작업에 대한 사양을 포함합니다. 일정의 빈도, 즉 일정이 시행되는 시점 및 기간, 일정의 기간 동안 작업을 만들어야 하는 빈도를 지정할 수 있습니다.
 
-## <a name="task"></a>작업
+## <a name="task"></a>Task
 태스크는 작업과 연결되는 계산의 단위입니다. 노드에서 실행됩니다. 태스크는 실행을 위해 노드에 할당되거나, 노드를 사용할 수 있을 때까지 큐에 대기됩니다. 간단히 말해 태스크는 계산 노드에서 하나 이상의 프로그램이나 스크립트를 실행하여 완료해야 하는 작업을 수행합니다.
 
 태스크를 만들 때 다음을 지정할 수 있습니다.
@@ -397,7 +397,7 @@ Batch에서 계산 노드 풀을 프로비전하면 풀을 Azure [VNet(가상 �
 ### <a name="vnet-requirements"></a>VNet 요구 사항
 [!INCLUDE [batch-virtual-network-ports](../../includes/batch-virtual-network-ports.md)]
 
-VNet에서 Batch 풀 설정에 대한 자세한 내용은 [가상 네트워크로 가상 컴퓨터의 풀 만들기](batch-virtual-network.md)를 참조하세요.
+VNet에서 Batch 풀 설정에 대한 자세한 내용은 [가상 네트워크로 가상 머신의 풀 만들기](batch-virtual-network.md)를 참조하세요.
 
 ## <a name="scaling-compute-resources"></a>계산 리소스 크기 조정
 [자동 크기 조정](batch-automatic-scaling.md)으로 Batch 서비스가 계산 시나리오의 현재 워크로드 및 리소스 사용량에 따라 풀의 계산 노드 수를 동적으로 조정하도록 할 수 있습니다. 그러면 필요한 리소스만을 사용하고 필요하지 않은 리소스를 해제하여 응용 프로그램을 실행하는 전체 비용을 낮출 수 있습니다.

@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 9/25/2017
+ms.date: 12/18/2017
 ms.author: ancav
-ms.openlocfilehash: ef27a15bb6a6305f7a762716a20487ef983cb5d1
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 673f5a5cd6832adb031ef72ce25f8a1622717cfd
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Azure Monitor에서 지원되는 메트릭
 Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세스, PowerShell이나 CLI를 통한 쿼리 등, 메트릭과 상호 작용하는 몇 가지 방법을 제공합니다. 다음은 현재 Azure Monitor의 메트릭 파이프라인을 통해 사용할 수 있는 모든 메트릭의 전체 목록입니다. 
 
 > [!NOTE]
-> 레거시 API를 통해서 또는 포털에서 다른 메트릭을 제공할 수 있습니다. 이 목록에는 통합 Azure Monitor 메트릭 파이프라인을 통해 사용할 수 있는 메트릭만 포함됩니다. 차원을 사용하여 메트릭을 쿼리하고 액세스하려면 [2017-05-01-preview api-version](https://docs.microsoft.com/en-us/rest/api/monitor/metricdefinitions)을 사용하세요.
+> 레거시 API를 통해서 또는 포털에서 다른 메트릭을 제공할 수 있습니다. 이 목록에는 통합 Azure Monitor 메트릭 파이프라인을 통해 사용할 수 있는 메트릭만 포함됩니다. 차원을 사용하여 메트릭을 쿼리하고 액세스하려면 [2017-05-01-preview api-version](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)을 사용하세요.
 >
 >
 
@@ -32,49 +32,49 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 
 |메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원|
 |---|---|---|---|---|---|
-|qpu_metric|QPU|개수|평균|QPU. 범위는 S1의 경우 0-100, S2의 경우 0-200, S4의 경우 0-400임|차원 없음|
-|memory_metric|메모리|바이트|평균|메모리. 범위는 S1의 경우 0-25GB, S2의 경우 0-50GB, S4의 경우 0-100GB임|차원 없음|
-|TotalConnectionRequests|총 연결 요청 수|개수|평균|도착한 총 연결 요청 수입니다.|차원 없음|
-|SuccessfullConnectionsPerSec|초당 성공한 연결 수|초당 개수|평균|성공적으로 완료된 연결 비율입니다.|차원 없음|
-|TotalConnectionFailures|총 연결 실패 수|개수|평균|실패한 총 연결 시도 수입니다.|차원 없음|
-|CurrentUserSessions|현재 사용자 세션 수|개수|평균|현재 설정된 사용자 세션 수입니다.|차원 없음|
-|QueryPoolBusyThreads|쿼리 풀의 사용 중인 스레드|개수|평균|쿼리 스레드 풀의 사용 중인 스레드 수입니다.|차원 없음|
-|CommandPoolJobQueueLength|명령 풀의 작업 큐 길이|개수|평균|명령 스레드 풀의 큐에 있는 작업 수입니다.|차원 없음|
-|ProcessingPoolJobQueueLength|처리 풀의 작업 큐 길이|개수|평균|처리 스레드 풀의 큐에 있는 비-I/O 작업 수입니다.|차원 없음|
-|CurrentConnections|연결: 현재 연결|개수|평균|현재 설정된 클라이언트 연결 수입니다.|차원 없음|
-|CleanerCurrentPrice|메모리: 클리너 현재 가격|개수|평균|현재 메모리 가격, $/바이트/시간, 1000으로 일반화됩니다.|차원 없음|
-|CleanerMemoryShrinkable|메모리: 클리너 메모리 축소 가능|바이트|평균|메모리 양, 바이트 단위, 백그라운드 클리너에 의해 제거되는 대상입니다.|차원 없음|
-|CleanerMemoryNonshrinkable|메모리: 클리너 메모리 축소 불가능|바이트|평균|메모리 양, 바이트 단위, 백그라운드 클리너에 의해 제거되는 대상이 아닙니다.|차원 없음|
-|MemoryUsage|메모리: 메모리 사용량|바이트|평균|클리너 메모리 가격을 계산하는 데 사용되는 서버 프로세스의 메모리 사용량입니다. 메모리 매핑된 데이터 크기를 더한 카운터 Process\PrivateBytes와 동일하며 xVelocity 엔진 메모리 제한을 초과하여 xVelocity 메모리 내 분석 엔진(VertiPaq)에서 매핑하거나 할당하는 메모리를 무시합니다.|차원 없음|
-|MemoryLimitHard|메모리: 메모리 제한 하드|바이트|평균|하드 메모리 제한, 구성 파일 원본입니다.|차원 없음|
-|MemoryLimitHigh|메모리: 메모리 제한 상한|바이트|평균|상한 메모리 제한, 구성 파일 원본입니다.|차원 없음|
-|MemoryLimitLow|메모리: 메모리 제한 하한|바이트|평균|하한 메모리 제한, 구성 파일 원본입니다.|차원 없음|
-|MemoryLimitVertiPaq|메모리: 메모리 제한 VertiPaq|바이트|평균|메모리 내 제한, 구성 파일 원본입니다.|차원 없음|
-|할당량|메모리: 할당량|바이트|평균|현재 메모리 할당량, 바이트 단위입니다. 메모리 할당량은 메모리 부여 또는 메모리 예약이라고도 합니다.|차원 없음|
-|QuotaBlocked|메모리: 차단된 할당량|개수|평균|다른 메모리 할당량이 해제될 때까지 차단되는 할당량 요청의 현재 수입니다.|차원 없음|
-|VertiPaqNonpaged|메모리: 페이징되지 않은 VertiPaq|바이트|평균|메모리 내 엔진에서 사용하기 위해 설정된 작동 중에 잠긴 메모리 바이트입니다.|차원 없음|
-|VertiPaqPaged|메모리: 페이징된 VertiPaq|바이트|평균|메모리 내 데이터에 사용 중인 페이징된 메모리 바이트입니다.|차원 없음|
-|RowsReadPerSec|처리: 초당 읽은 행|초당 개수|평균|모든 관계형 데이터베이스에서 읽은 행의 비율입니다.|차원 없음|
-|RowsConvertedPerSec|처리: 초당 변환된 행|초당 개수|평균|처리하는 동안 변환된 행의 비율입니다.|차원 없음|
-|RowsWrittenPerSec|처리: 초당 작성된 행|초당 개수|평균|처리하는 동안 작성된 행의 비율입니다.|차원 없음|
-|CommandPoolBusyThreads|스레드: 명령 풀 사용 중인 스레드|개수|평균|명령 스레드 풀의 사용 중인 스레드 수입니다.|차원 없음|
-|CommandPoolIdleThreads|스레드: 명령 풀 유휴 상태 스레드|개수|평균|명령 스레드 풀의 유휴 상태 스레드 수입니다.|차원 없음|
-|LongParsingBusyThreads|스레드: 긴 구문 분석 사용 중인 스레드|개수|평균|긴 구문 분석 스레드 풀에서 사용 중인 스레드 수입니다.|차원 없음|
-|LongParsingIdleThreads|스레드: 긴 구문 분석 유휴 상태 스레드|개수|평균|긴 구문 분석 스레드 풀에서 유휴 상태 스레드 수입니다.|차원 없음|
-|LongParsingJobQueueLength|스레드: 긴 구문 분석 작업 큐 길이|개수|평균|긴 구문 분석 스레드 풀의 큐에 있는 작업 수입니다.|차원 없음|
-|ProcessingPoolBusyIOJobThreads|스레드: 처리 풀 사용 중인 I/O 작업 스레드|개수|평균|처리 스레드 풀에서 I/O 작업을 실행 중인 스레드 수입니다.|차원 없음|
-|ProcessingPoolBusyNonIOThreads|스레드: 처리 풀 사용 중인 비-I/O 스레드|개수|평균|처리 스레드 풀에서 비-I/O 작업을 실행 중인 스레드 수입니다.|차원 없음|
-|ProcessingPoolIOJobQueueLength|스레드: 처리 풀 I/O 작업 큐 길이|개수|평균|처리 스레드 풀의 큐에 있는 I/O 작업 수입니다.|차원 없음|
-|ProcessingPoolIdleIOJobThreads|스레드: 처리 풀 유휴 상태 I/O 작업 스레드|개수|평균|처리 스레드 풀에서 I/O 작업의 유휴 상태 스레드 수입니다.|차원 없음|
-|ProcessingPoolIdleNonIOThreads|스레드: 처리 풀 유휴 상태 비-I/O 스레드|개수|평균|비-I/O 작업 전용인 처리 스레드 풀에서 유휴 상태 스레드 수입니다.|차원 없음|
-|QueryPoolIdleThreads|스레드: 쿼리 풀 유휴 상태 스레드|개수|평균|처리 스레드 풀에서 I/O 작업의 유휴 상태 스레드 수입니다.|차원 없음|
-|QueryPoolJobQueueLength|스레드: 쿼리 풀 작업 큐 길이|개수|평균|쿼리 스레드 풀의 큐에 있는 작업 수입니다.|차원 없음|
-|ShortParsingBusyThreads|스레드: 짧은 구문 분석 사용 중인 스레드|개수|평균|짧은 구문 분석 스레드 풀에서 사용 중인 스레드 수입니다.|차원 없음|
-|ShortParsingIdleThreads|스레드: 짧은 구문 분석 유휴 상태 스레드|개수|평균|짧은 구문 분석 스레드 풀에서 유휴 상태 스레드 수입니다.|차원 없음|
-|ShortParsingJobQueueLength|스레드: 짧은 구문 분석 작업 큐 길이|개수|평균|짧은 구문 분석 스레드 풀의 큐에 있는 작업 수입니다.|차원 없음|
-|memory_thrashing_metric|메모리 쓰래싱|백분율|평균|평균 메모리 쓰래싱입니다.|차원 없음|
-|mashup_engine_qpu_metric|M 엔진 QPU|개수|평균|매시업 엔진 프로세스별 QPU 사용량|차원 없음|
-|mashup_engine_memory_metric|M 엔진 메모리|바이트|평균|매시업 엔진 프로세스별 메모리 사용량|차원 없음|
+|qpu_metric|QPU|개수|평균|QPU. 범위는 S1의 경우 0-100, S2의 경우 0-200, S4의 경우 0-400임|ServerResourceType|
+|memory_metric|메모리|바이트|평균|메모리. 범위는 S1의 경우 0-25GB, S2의 경우 0-50GB, S4의 경우 0-100GB임|ServerResourceType|
+|TotalConnectionRequests|총 연결 요청 수|개수|평균|도착한 총 연결 요청 수입니다.|ServerResourceType|
+|SuccessfullConnectionsPerSec|초당 성공한 연결 수|초당 개수|평균|성공적으로 완료된 연결 비율입니다.|ServerResourceType|
+|TotalConnectionFailures|총 연결 실패 수|개수|평균|실패한 총 연결 시도 수입니다.|ServerResourceType|
+|CurrentUserSessions|현재 사용자 세션 수|개수|평균|현재 설정된 사용자 세션 수입니다.|ServerResourceType|
+|QueryPoolBusyThreads|쿼리 풀의 사용 중인 스레드|개수|평균|쿼리 스레드 풀의 사용 중인 스레드 수입니다.|ServerResourceType|
+|CommandPoolJobQueueLength|명령 풀의 작업 큐 길이|개수|평균|명령 스레드 풀의 큐에 있는 작업 수입니다.|ServerResourceType|
+|ProcessingPoolJobQueueLength|처리 풀의 작업 큐 길이|개수|평균|처리 스레드 풀의 큐에 있는 비-I/O 작업 수입니다.|ServerResourceType|
+|CurrentConnections|연결: 현재 연결|개수|평균|현재 설정된 클라이언트 연결 수입니다.|ServerResourceType|
+|CleanerCurrentPrice|메모리: 클리너 현재 가격|개수|평균|현재 메모리 가격, $/바이트/시간, 1000으로 일반화됩니다.|ServerResourceType|
+|CleanerMemoryShrinkable|메모리: 클리너 메모리 축소 가능|바이트|평균|메모리 양, 바이트 단위, 백그라운드 클리너에 의해 제거되는 대상입니다.|ServerResourceType|
+|CleanerMemoryNonshrinkable|메모리: 클리너 메모리 축소 불가능|바이트|평균|메모리 양, 바이트 단위, 백그라운드 클리너에 의해 제거되는 대상이 아닙니다.|ServerResourceType|
+|MemoryUsage|메모리: 메모리 사용량|바이트|평균|클리너 메모리 가격을 계산하는 데 사용되는 서버 프로세스의 메모리 사용량입니다. 메모리 매핑된 데이터 크기를 더한 카운터 Process\PrivateBytes와 동일하며 xVelocity 엔진 메모리 제한을 초과하여 xVelocity 메모리 내 분석 엔진(VertiPaq)에서 매핑하거나 할당하는 메모리를 무시합니다.|ServerResourceType|
+|MemoryLimitHard|메모리: 메모리 제한 하드|바이트|평균|하드 메모리 제한, 구성 파일 원본입니다.|ServerResourceType|
+|MemoryLimitHigh|메모리: 메모리 제한 상한|바이트|평균|상한 메모리 제한, 구성 파일 원본입니다.|ServerResourceType|
+|MemoryLimitLow|메모리: 메모리 제한 하한|바이트|평균|하한 메모리 제한, 구성 파일 원본입니다.|ServerResourceType|
+|MemoryLimitVertiPaq|메모리: 메모리 제한 VertiPaq|바이트|평균|메모리 내 제한, 구성 파일 원본입니다.|ServerResourceType|
+|할당량|메모리: 할당량|바이트|평균|현재 메모리 할당량, 바이트 단위입니다. 메모리 할당량은 메모리 부여 또는 메모리 예약이라고도 합니다.|ServerResourceType|
+|QuotaBlocked|메모리: 차단된 할당량|개수|평균|다른 메모리 할당량이 해제될 때까지 차단되는 할당량 요청의 현재 수입니다.|ServerResourceType|
+|VertiPaqNonpaged|메모리: 페이징되지 않은 VertiPaq|바이트|평균|메모리 내 엔진에서 사용하기 위해 설정된 작동 중에 잠긴 메모리 바이트입니다.|ServerResourceType|
+|VertiPaqPaged|메모리: 페이징된 VertiPaq|바이트|평균|메모리 내 데이터에 사용 중인 페이징된 메모리 바이트입니다.|ServerResourceType|
+|RowsReadPerSec|처리: 초당 읽은 행|초당 개수|평균|모든 관계형 데이터베이스에서 읽은 행의 비율입니다.|ServerResourceType|
+|RowsConvertedPerSec|처리: 초당 변환된 행|초당 개수|평균|처리하는 동안 변환된 행의 비율입니다.|ServerResourceType|
+|RowsWrittenPerSec|처리: 초당 작성된 행|초당 개수|평균|처리하는 동안 작성된 행의 비율입니다.|ServerResourceType|
+|CommandPoolBusyThreads|스레드: 명령 풀 사용 중인 스레드|개수|평균|명령 스레드 풀의 사용 중인 스레드 수입니다.|ServerResourceType|
+|CommandPoolIdleThreads|스레드: 명령 풀 유휴 상태 스레드|개수|평균|명령 스레드 풀의 유휴 상태 스레드 수입니다.|ServerResourceType|
+|LongParsingBusyThreads|스레드: 긴 구문 분석 사용 중인 스레드|개수|평균|긴 구문 분석 스레드 풀에서 사용 중인 스레드 수입니다.|ServerResourceType|
+|LongParsingIdleThreads|스레드: 긴 구문 분석 유휴 상태 스레드|개수|평균|긴 구문 분석 스레드 풀에서 유휴 상태 스레드 수입니다.|ServerResourceType|
+|LongParsingJobQueueLength|스레드: 긴 구문 분석 작업 큐 길이|개수|평균|긴 구문 분석 스레드 풀의 큐에 있는 작업 수입니다.|ServerResourceType|
+|ProcessingPoolBusyIOJobThreads|스레드: 처리 풀 사용 중인 I/O 작업 스레드|개수|평균|처리 스레드 풀에서 I/O 작업을 실행 중인 스레드 수입니다.|ServerResourceType|
+|ProcessingPoolBusyNonIOThreads|스레드: 처리 풀 사용 중인 비-I/O 스레드|개수|평균|처리 스레드 풀에서 비-I/O 작업을 실행 중인 스레드 수입니다.|ServerResourceType|
+|ProcessingPoolIOJobQueueLength|스레드: 처리 풀 I/O 작업 큐 길이|개수|평균|처리 스레드 풀의 큐에 있는 I/O 작업 수입니다.|ServerResourceType|
+|ProcessingPoolIdleIOJobThreads|스레드: 처리 풀 유휴 상태 I/O 작업 스레드|개수|평균|처리 스레드 풀에서 I/O 작업의 유휴 상태 스레드 수입니다.|ServerResourceType|
+|ProcessingPoolIdleNonIOThreads|스레드: 처리 풀 유휴 상태 비-I/O 스레드|개수|평균|비-I/O 작업 전용인 처리 스레드 풀에서 유휴 상태 스레드 수입니다.|ServerResourceType|
+|QueryPoolIdleThreads|스레드: 쿼리 풀 유휴 상태 스레드|개수|평균|처리 스레드 풀에서 I/O 작업의 유휴 상태 스레드 수입니다.|ServerResourceType|
+|QueryPoolJobQueueLength|스레드: 쿼리 풀 작업 큐 길이|개수|평균|쿼리 스레드 풀의 큐에 있는 작업 수입니다.|ServerResourceType|
+|ShortParsingBusyThreads|스레드: 짧은 구문 분석 사용 중인 스레드|개수|평균|짧은 구문 분석 스레드 풀에서 사용 중인 스레드 수입니다.|ServerResourceType|
+|ShortParsingIdleThreads|스레드: 짧은 구문 분석 유휴 상태 스레드|개수|평균|짧은 구문 분석 스레드 풀에서 유휴 상태 스레드 수입니다.|ServerResourceType|
+|ShortParsingJobQueueLength|스레드: 짧은 구문 분석 작업 큐 길이|개수|평균|짧은 구문 분석 스레드 풀의 큐에 있는 작업 수입니다.|ServerResourceType|
+|memory_thrashing_metric|메모리 쓰래싱|백분율|평균|평균 메모리 쓰래싱입니다.|ServerResourceType|
+|mashup_engine_qpu_metric|M 엔진 QPU|개수|평균|매시업 엔진 프로세스별 QPU 사용량|ServerResourceType|
+|mashup_engine_memory_metric|M 엔진 메모리|바이트|평균|매시업 엔진 프로세스별 메모리 사용량|ServerResourceType|
 
 ## <a name="microsoftapimanagementservice"></a>Microsoft.ApiManagement/service
 
@@ -92,7 +92,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 
 |메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원|
 |---|---|---|---|---|---|
-|TotalJob|총 작업 수|개수|합계|총 작업 수|차원 없음|
+|TotalJob|총 작업 수|개수|합계|총 작업 수|RunbookName, 상태|
 
 ## <a name="microsoftbatchbatchaccounts"></a>Microsoft.Batch/batchAccounts
 
@@ -297,9 +297,9 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 
 |메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원|
 |---|---|---|---|---|---|
-|백분율 CPU|백분율 CPU|백분율|평균|현재 가상 컴퓨터에서 사용 중인 할당된 계산 단위의 백분율.|차원 없음|
-|네트워크 인|네트워크 인|바이트|합계|가상 컴퓨터가 모든 네트워크 인터페이스에서 수신한(들어오는 트래픽) 바이트 수.|차원 없음|
-|네트워크 아웃|네트워크 아웃|바이트|합계|가상 컴퓨터가 모든 네트워크 인터페이스에서 내보낸(나가는 트래픽) 바이트 수.|차원 없음|
+|백분율 CPU|백분율 CPU|백분율|평균|현재 Virtual Machine에서 사용 중인 할당된 계산 단위의 백분율.|차원 없음|
+|네트워크 인|네트워크 인|바이트|합계|Virtual Machine이 모든 네트워크 인터페이스에서 수신한(들어오는 트래픽) 바이트 수.|차원 없음|
+|네트워크 아웃|네트워크 아웃|바이트|합계|Virtual Machine이 모든 네트워크 인터페이스에서 내보낸(나가는 트래픽) 바이트 수.|차원 없음|
 |디스크 읽기 바이트/초|디스크 읽기|초당 바이트 수|평균|모니터링 기간 동안 디스크에서 읽은 평균 바이트.|차원 없음|
 |디스크 쓰기 바이트/초|디스크 쓰기|초당 바이트 수|평균|모니터링 기간 동안 디스크에 쓴 평균 바이트.|차원 없음|
 |디스크 읽기 작업/초|디스크 읽기 작업/초|초당 개수|평균|디스크 읽기 IOPS.|차원 없음|
@@ -320,14 +320,15 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |대기 시간|대기 시간|밀리초|평균|대기 시간(밀리초)입니다.|차원 없음|
 |CharactersTranslated|변환된 문자|개수|합계|들어오는 텍스트 요청에 있는 문자의 총 수입니다.|차원 없음|
 |SpeechSessionDuration|음성 세션 기간|초|합계|음성 세션의 총 기간(초)입니다.|차원 없음|
+|TotalTransactions|총 트랜잭션|개수|합계|총 트랜잭션 수|차원 없음|
 
 ## <a name="microsoftcomputevirtualmachines"></a>Microsoft.Compute/virtualMachines
 
 |메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원|
 |---|---|---|---|---|---|
-|백분율 CPU|백분율 CPU|백분율|평균|현재 가상 컴퓨터에서 사용 중인 할당된 계산 단위의 백분율|차원 없음|
-|네트워크 인|네트워크 인|바이트|합계|가상 컴퓨터가 모든 네트워크 인터페이스에서 수신한(들어오는 트래픽) 바이트 수|차원 없음|
-|네트워크 아웃|네트워크 아웃|바이트|합계|가상 컴퓨터가 모든 네트워크 인터페이스에서 내보낸(나가는 트래픽) 바이트 수|차원 없음|
+|백분율 CPU|백분율 CPU|백분율|평균|현재 Virtual Machine에서 사용 중인 할당된 계산 단위의 백분율|차원 없음|
+|네트워크 인|네트워크 인|바이트|합계|Virtual Machine이 모든 네트워크 인터페이스에서 수신한(들어오는 트래픽) 바이트 수|차원 없음|
+|네트워크 아웃|네트워크 아웃|바이트|합계|Virtual Machine이 모든 네트워크 인터페이스에서 내보낸(나가는 트래픽) 바이트 수|차원 없음|
 |디스크 읽기 바이트|디스크 읽기 바이트|바이트|합계|모니터링 기간 동안 디스크에서 읽은 총 바이트|차원 없음|
 |디스크 쓰기 바이트|디스크 쓰기 바이트|바이트|합계|모니터링 기간 동안 디스크에 쓴 총 바이트|차원 없음|
 |디스크 읽기 작업/초|디스크 읽기 작업/초|초당 개수|평균|디스크 읽기 IOPS|차원 없음|
@@ -339,9 +340,9 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 
 |메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원|
 |---|---|---|---|---|---|
-|백분율 CPU|백분율 CPU|백분율|평균|현재 가상 컴퓨터에서 사용 중인 할당된 계산 단위의 백분율|차원 없음|
-|네트워크 인|네트워크 인|바이트|합계|가상 컴퓨터가 모든 네트워크 인터페이스에서 수신한(들어오는 트래픽) 바이트 수|차원 없음|
-|네트워크 아웃|네트워크 아웃|바이트|합계|가상 컴퓨터가 모든 네트워크 인터페이스에서 내보낸(나가는 트래픽) 바이트 수|차원 없음|
+|백분율 CPU|백분율 CPU|백분율|평균|현재 Virtual Machine에서 사용 중인 할당된 계산 단위의 백분율|차원 없음|
+|네트워크 인|네트워크 인|바이트|합계|Virtual Machine이 모든 네트워크 인터페이스에서 수신한(들어오는 트래픽) 바이트 수|차원 없음|
+|네트워크 아웃|네트워크 아웃|바이트|합계|Virtual Machine이 모든 네트워크 인터페이스에서 내보낸(나가는 트래픽) 바이트 수|차원 없음|
 |디스크 읽기 바이트|디스크 읽기 바이트|바이트|합계|모니터링 기간 동안 디스크에서 읽은 총 바이트|차원 없음|
 |디스크 쓰기 바이트|디스크 쓰기 바이트|바이트|합계|모니터링 기간 동안 디스크에 쓴 총 바이트|차원 없음|
 |디스크 읽기 작업/초|디스크 읽기 작업/초|초당 개수|평균|디스크 읽기 IOPS|차원 없음|
@@ -353,9 +354,9 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 
 |메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원|
 |---|---|---|---|---|---|
-|백분율 CPU|백분율 CPU|백분율|평균|현재 가상 컴퓨터에서 사용 중인 할당된 계산 단위의 백분율|차원 없음|
-|네트워크 인|네트워크 인|바이트|합계|가상 컴퓨터가 모든 네트워크 인터페이스에서 수신한(들어오는 트래픽) 바이트 수|차원 없음|
-|네트워크 아웃|네트워크 아웃|바이트|합계|가상 컴퓨터가 모든 네트워크 인터페이스에서 내보낸(나가는 트래픽) 바이트 수|차원 없음|
+|백분율 CPU|백분율 CPU|백분율|평균|현재 Virtual Machine에서 사용 중인 할당된 계산 단위의 백분율|차원 없음|
+|네트워크 인|네트워크 인|바이트|합계|Virtual Machine이 모든 네트워크 인터페이스에서 수신한(들어오는 트래픽) 바이트 수|차원 없음|
+|네트워크 아웃|네트워크 아웃|바이트|합계|Virtual Machine이 모든 네트워크 인터페이스에서 내보낸(나가는 트래픽) 바이트 수|차원 없음|
 |디스크 읽기 바이트|디스크 읽기 바이트|바이트|합계|모니터링 기간 동안 디스크에서 읽은 총 바이트|차원 없음|
 |디스크 쓰기 바이트|디스크 쓰기 바이트|바이트|합계|모니터링 기간 동안 디스크에 쓴 총 바이트|차원 없음|
 |디스크 읽기 작업/초|디스크 읽기 작업/초|초당 개수|평균|디스크 읽기 IOPS|차원 없음|
@@ -397,6 +398,24 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |DCISegmentsCount|세그먼트 수|개수|마지막||차원 없음|
 |DCIPredictiveMatchPoliciesCount|예측 일치 수|개수|마지막||차원 없음|
 |DCIPredictionsCount|예측 수|개수|마지막||차원 없음|
+
+## <a name="microsoftdatafactorydatafactories"></a>Microsoft.DataFactory/datafactories
+
+|메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|---|---|---|---|---|---|
+|SuccessfulRuns|성공한 실행|개수|합계|성공한 실행 수.|차원 없음|
+|FailedRuns|실패한 실행|개수|합계|실패한 실행 수.|차원 없음|
+
+## <a name="microsoftdatafactoryfactories"></a>Microsoft.DataFactory/factories
+
+|메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|---|---|---|---|---|---|
+|PipelineFailedRuns|실패한 파이프라인 실행 메트릭|개수|합계||차원 없음|
+|PipelineSucceededRuns|성공한 파이프라인 실행 메트릭|개수|합계||차원 없음|
+|ActivityFailedRuns|실패한 활동 실행 메트릭|개수|합계||차원 없음|
+|ActivitySucceededRuns|성공한 활동 실행 메트릭|개수|합계||차원 없음|
+|TriggerFailedRuns|실패한 트리거 실행 메트릭|개수|합계||차원 없음|
+|TriggerSucceededRuns|성공한 트리거 실행 메트릭|개수|합계||차원 없음|
 
 ## <a name="microsoftdatalakeanalyticsaccounts"></a>Microsoft.DataLakeAnalytics/accounts
 
@@ -519,17 +538,108 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |DeviceAssignments|할당된 장치|개수|합계|IoT Hub에 할당된 장치 수|ProvisioningServiceName, IotHubName|
 |AttestationAttempts|증명 시도|개수|합계|장치 증명 시도 수|ProvisioningServiceName, 상태, 프로토콜|
 
-## <a name="microsoftdocumentdbdatabaseaccounts-cosmosdb"></a>Microsoft.DocumentDB/databaseAccounts(CosmosDB)
+## <a name="microsoftdeviceselasticpools"></a>Microsoft.Devices/ElasticPools
+
 |메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원|
 |---|---|---|---|---|---|
-|TotalRequests|총 요청 수|개수|개수|요청 수|DatabaseAccount, CollectionName, DatabaseName, 지역, StatusCode|
-|MongoRequests|Mongo 요청|개수|개수|Mongo 요청 수|DatabaseAccount, CollectionName, DatabaseName, 지역, ErrorCode, CommandName|
+|elasticPool.requestedUsageRate|요청된 사용 요금|백분율|평균|요청된 사용 요금|차원 없음|
+
+## <a name="microsoftdeviceselasticpoolsiothubtenants"></a>Microsoft.Devices/ElasticPools/IotHubTenants
+
+|메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|---|---|---|---|---|---|
+|tenantHub.requestedUsageRate|요청된 사용 요금|백분율|평균|요청된 사용 요금|차원 없음|
+|deviceDataUsage|총 장치 데이터 사용|개수|합계|IotHub에 연결된 모든 장치에서 전송된 바이트|차원 없음|
+|d2c.telemetry.ingress.allProtocol|원격 분석 메시지 보내기 시도|개수|합계|IoT Hub로 보내려 한 장치-클라우드 원격 분석 메시지 수|차원 없음|
+|d2c.telemetry.ingress.success|보낸 원격 분석 메시지|개수|합계|IoT Hub로 보내기 성공한 장치-클라우드 원격 분석 메시지 수|차원 없음|
+|c2d.commands.egress.complete.success|완료된 명령|개수|합계|장치에서 성공적으로 완료한 클라우드-장치 명령 수|차원 없음|
+|c2d.commands.egress.abandon.success|중단된 명령|개수|합계|장치에서 중단한 클라우드-장치 명령 수|차원 없음|
+|c2d.commands.egress.reject.success|거부된 명령|개수|합계|장치에서 거부한 클라우드-장치 명령 수|차원 없음|
+|devices.totalDevices|총 장치|개수|합계|IoT 허브에 등록된 장치 수|차원 없음|
+|devices.connectedDevices.allProtocol|연결된 장치|개수|합계|IoT 허브에 연결된 장치 수|차원 없음|
+|d2c.telemetry.egress.success|배달된 원격 분석 메시지|개수|합계|메시지가 끝점에 성공적으로 작성된 횟수(전체)|차원 없음|
+|d2c.telemetry.egress.dropped|삭제된 메시지|개수|합계|배달 끝점이 쓸모가 없어졌기 때문에 삭제된 메시지 수|차원 없음|
+|d2c.telemetry.egress.orphaned|분리된 메시지|개수|합계|대체 경로를 포함하여 경로가 일치하지 않는 메시지 수|차원 없음|
+|d2c.telemetry.egress.invalid|잘못된 메시지|개수|합계|끝점과 호환되지 않아서 배달되지 않은 메시지 수|차원 없음|
+|d2c.telemetry.egress.fallback|대체(fallback) 조건과 일치하는 메시지|개수|합계|대체(fallback) 끝점에 작성된 메시지 수|차원 없음|
+|d2c.endpoints.egress.eventHubs|이벤트 허브 끝점에 배달된 메시지|개수|합계|메시지가 이벤트 허브 끝점에 성공적으로 작성된 횟수|차원 없음|
+|d2c.endpoints.latency.eventHubs|이벤트 허브 끝점에 대한 메시지 대기 시간|밀리초|평균|IoT Hub에 대한 메시지 수신과 이벤트 허브 끝점에 대한 메시지 수신 간의 평균 대기 시간(밀리초)|차원 없음|
+|d2c.endpoints.egress.serviceBusQueues|Service Bus 큐 끝점에 배달된 메시지|개수|합계|메시지가 Service Bus 큐 끝점에 성공적으로 작성된 횟수|차원 없음|
+|d2c.endpoints.latency.serviceBusQueues|Service Bus 큐 끝점에 대한 메시지 대기 시간|밀리초|평균|IoT Hub에 대한 메시지 수신과 Service Bus 큐 끝점에 대한 메시지 수신 간의 평균 대기 시간(밀리초)|차원 없음|
+|d2c.endpoints.egress.serviceBusTopics|Service Bus 토픽 끝점에 배달된 메시지|개수|합계|메시지가 Service Bus 토픽 끝점에 성공적으로 작성된 횟수|차원 없음|
+|d2c.endpoints.latency.serviceBusTopics|Service Bus 항목 끝점에 대한 메시지 대기 시간|밀리초|평균|IoT Hub에 대한 메시지 수신과 Service Bus 토픽 끝점에 대한 메시지 수신 간의 평균 대기 시간(밀리초)|차원 없음|
+|d2c.endpoints.egress.builtIn.events|기본 제공 끝점에 배달된 메시지(메시지/이벤트)|개수|합계|메시지가 기본 제공 끝점에 성공적으로 작성된 횟수(메시지/이벤트)|차원 없음|
+|d2c.endpoints.latency.builtIn.events|기본 제공 끝점에 대한 메시지 대기 시간(메시지/이벤트)|밀리초|평균|IoT Hub에 대한 메시지 수신과 기본 제공 끝점(메시지.이벤트)에 대한 메시지 수신 간의 평균 대기 시간(밀리초) |차원 없음|
+|d2c.endpoints.egress.storage|저장소 끝점에 배달된 메시지|개수|합계|메시지가 저장소 끝점에 성공적으로 기록된 횟수|차원 없음|
+|d2c.endpoints.latency.storage|저장소 끝점에 대한 메시지 대기 시간|밀리초|평균|IoT Hub에 대한 메시지 수신과 저장소 끝점에 대한 메시지 수신 간의 평균 대기 시간(밀리초)|차원 없음|
+|d2c.endpoints.egress.storage.bytes|저장소에 기록된 데이터|바이트|합계|저장소 끝점에 기록된 데이터 양(바이트)|차원 없음|
+|d2c.endpoints.egress.storage.blobs|저장소에 기록된 Blob|개수|합계|저장소 끝점에 기록된 Blob 수|차원 없음|
+|d2c.twin.read.success|장치에서의 성공한 쌍 읽기|개수|합계|성공한 모든 장치 시작 쌍 읽기 수입니다.|차원 없음|
+|d2c.twin.read.failure|장치에서의 실패한 쌍 읽기|개수|합계|실패한 모든 장치 시작 쌍 읽기 수입니다.|차원 없음|
+|d2c.twin.read.size|장치에서의 쌍 읽기 응답 크기|바이트|평균|성공한 모든 장치 시작 쌍 읽기 수의 평균, 최소값 및 최대값입니다.|차원 없음|
+|d2c.twin.update.success|장치에서의 성공한 쌍 업데이트|개수|합계|성공한 모든 장치 시작 쌍 업데이트 수입니다.|차원 없음|
+|d2c.twin.update.failure|장치에서의 실패한 쌍 업데이트|개수|합계|실패한 모든 장치 시작 쌍 업데이트 수입니다.|차원 없음|
+|d2c.twin.update.size|장치에서의 쌍 업데이트 크기|바이트|평균|성공한 모든 장치 시작 쌍 업데이트 수의 평균, 최소 및 최대 크기입니다.|차원 없음|
+|c2d.methods.success|성공한 직접 메서드 호출|개수|합계|성공한 모든 직접 메서드 호출의 수입니다.|차원 없음|
+|c2d.methods.failure|실패한 직접 메서드 호출|개수|합계|실패한 모든 직접 메서드 호출의 수입니다.|차원 없음|
+|c2d.methods.requestSize|직접 메서드 호출의 요청 크기|바이트|평균|성공한 모든 직접 메서드 요청의 평균, 최소값, 최대값입니다.|차원 없음|
+|c2d.methods.responseSize|직접 메서드 호출의 응답 크기|바이트|평균|성공한 모든 직접 메서드 응답의 평균, 최소값, 최대값입니다.|차원 없음|
+|c2d.twin.read.success|백 엔드에서의 성공한 쌍 읽기|개수|합계|성공한 모든 백 엔드 시작 쌍 읽기 수입니다.|차원 없음|
+|c2d.twin.read.failure|백 엔드에서의 실패한 쌍 읽기|개수|합계|실패한 모든 백 엔드 시작 쌍 읽기 수입니다.|차원 없음|
+|c2d.twin.read.size|백 엔드에서의 쌍 읽기 응답 크기|바이트|평균|성공한 모든 백 엔드 시작 쌍 읽기 수의 평균, 최소값 및 최대값입니다.|차원 없음|
+|c2d.twin.update.success|백 엔드에서의 성공한 쌍 업데이트|개수|합계|성공한 모든 백 엔드 시작 쌍 업데이트 수입니다.|차원 없음|
+|c2d.twin.update.failure|백 엔드에서의 실패한 쌍 업데이트|개수|합계|실패한 모든 백 엔드 시작 쌍 업데이트 수입니다.|차원 없음|
+|c2d.twin.update.size|백 엔드에서의 쌍 업데이트 크기|바이트|평균|성공한 모든 백 엔드 시작 쌍 업데이트 수의 평균, 최소 및 최대 크기입니다.|차원 없음|
+|twinQueries.success|성공한 쌍 쿼리|개수|합계|성공한 모든 쌍 쿼리의 수입니다.|차원 없음|
+|twinQueries.failure|실패한 쌍 쿼리|개수|합계|실패한 모든 쌍 쿼리의 수입니다.|차원 없음|
+|twinQueries.resultSize|쌍 쿼리 결과 크기|바이트|평균|성공한 모든 쌍 쿼리 결과 크기의 평균, 최소값 및 최대값입니다.|차원 없음|
+|jobs.createTwinUpdateJob.success|쌍 업데이트 작업에 대한 성공한 만들기|개수|합계|쌍 업데이트 작업에 대한 성공한 모든 만들기의 수입니다.|차원 없음|
+|jobs.createTwinUpdateJob.failure|쌍 업데이트 작업에 대한 실패한 만들기|개수|합계|쌍 업데이트 작업에 대한 실패한 모든 만들기의 수입니다.|차원 없음|
+|jobs.createDirectMethodJob.success|메서드 호출 작업에 대한 성공한 만들기|개수|합계|직접 메서드 호출 작업에 대한 성공한 모든 만들기의 수입니다.|차원 없음|
+|jobs.createDirectMethodJob.failure|실패한 메서드 호출 작업 만들기|개수|합계|직접 메서드 호출 작업에 대한 실패한 모든 만들기의 수입니다.|차원 없음|
+|jobs.listJobs.success|목록 작업에 대한 성공한 호출|개수|합계|목록 작업에 대한 성공한 모든 호출 수입니다.|차원 없음|
+|jobs.listJobs.failure|목록 작업에 대한 실패한 호출|개수|합계|목록 작업에 대한 실패한 모든 호출 수입니다.|차원 없음|
+|jobs.cancelJob.success|성공한 작업 취소|개수|합계|작업 취소에 대한 성공한 모든 호출 수입니다.|차원 없음|
+|jobs.cancelJob.failure|실패한 작업 취소|개수|합계|작업 취소에 대한 실패한 모든 호출 수입니다.|차원 없음|
+|jobs.queryJobs.success|성공한 작업 쿼리|개수|합계|쿼리 작업에 대한 성공한 모든 호출 수입니다.|차원 없음|
+|jobs.queryJobs.failure|실패한 작업 쿼리|개수|합계|쿼리 작업에 대한 실패한 모든 호출 수입니다.|차원 없음|
+|jobs.completed|완료된 작업|개수|합계|완료된 모든 작업의 수입니다.|차원 없음|
+|jobs.failed|실패한 작업|개수|합계|실패한 모든 작업의 수입니다.|차원 없음|
+|d2c.telemetry.ingress.sendThrottle|제한 오류 수|개수|합계|장치 처리량 제한으로 인한 제한 오류 수|차원 없음|
+|dailyMessageQuotaUsed|사용된 전체 메시지 수|개수|평균|오늘 사용된 전체 메시지 수입니다. 매일 00:00 UTC에 0으로 다시 설정되는 누적 값입니다.|차원 없음|
+
+## <a name="microsoftdocumentdbdatabaseaccounts"></a>Microsoft.DocumentDB/databaseAccounts
+
+|메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|---|---|---|---|---|---|
+|MetadataRequests|메타데이터 요청|개수|개수|메타데이터 요청 수. Cosmos DB는 컬렉션, 데이터베이스 등과 해당 구성을 무료로 열거할 수 있는 각 계정에 대한 시스템 메타데이터 컬렉션을 유지 관리합니다.|GlobalDatabaseAccountName, DatabaseName, CollectionName, Region, StatusCode|
+|MongoRequestCharge|Mongo 요청 요금|개수|합계|사용된 Mongo 요청 단위|GlobalDatabaseAccountName, DatabaseName, CollectionName, Region, CommandName, ErrorCode|
+|MongoRequests|Mongo 요청|개수|개수|생성된 Mongo 요청 수|GlobalDatabaseAccountName, DatabaseName, CollectionName, Region, CommandName, ErrorCode|
+|TotalRequestUnits|총 요청 단위|개수|합계|사용된 요청 단위|GlobalDatabaseAccountName, DatabaseName, CollectionName, Region, StatusCode|
+|TotalRequests|총 요청 수|개수|개수|요청 수|GlobalDatabaseAccountName, DatabaseName, CollectionName, Region, StatusCode|
+
 
 ## <a name="microsofteventhubnamespaces"></a>Microsoft.EventHub/namespaces
 
 |메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원|
 |---|---|---|---|---|---|
-|INREQS|들어오는 보내기 요청|개수|합계|네임스페이스에 대한 총 들어오는 전송 요청|차원 없음|
+|SuccessfulRequests|성공한 요청(미리 보기)|개수|합계|Microsoft.EventHub에 대한 성공한 요청. (미리 보기)|EntityName|
+|ServerErrors|서버 오류. (미리 보기)|개수|합계|Microsoft.EventHub에 대한 서버 오류. (미리 보기)|EntityName|
+|UserErrors|사용자 오류. (미리 보기)|개수|합계|Microsoft.EventHub에 대한 사용자 오류. (미리 보기)|EntityName|
+|QuotaExceededErrors|할당량 초과 오류. (미리 보기)|개수|합계|Microsoft.EventHub에 대한 할당량 초과 오류. (미리 보기)|EntityName|
+|ThrottledRequests|제한된 요청. (미리 보기)|개수|합계|Microsoft.EventHub에 대한 제한된 요청. (미리 보기)|EntityName|
+|IncomingRequests|들어오는 요청(미리 보기)|개수|합계|Microsoft.EventHub에 대한 들어오는 요청. (미리 보기)|EntityName|
+|IncomingMessages|들어오는 메시지(미리 보기)|개수|합계|Microsoft.EventHub에 대한 들어오는 메시지. (미리 보기)|EntityName|
+|OutgoingMessages|보내는 메시지(미리 보기)|개수|합계|Microsoft.EventHub에 대한 보내는 메시지. (미리 보기)|EntityName|
+|IncomingBytes|들어오는 바이트 (미리 보기)|바이트|합계|Microsoft.EventHub에 대한 들어오는 바이트. (미리 보기)|EntityName|
+|OutgoingBytes|보내는 바이트 (미리 보기)|바이트|합계|Microsoft.EventHub에 대한 보내는 바이트. (미리 보기)|EntityName|
+|ActiveConnections|활성 연결(미리 보기)|개수|합계|Microsoft.EventHub에 대한 총 활성 연결. (미리 보기)|EntityName|
+|ConnectionsOpened|열린 연결. (미리 보기)|개수|합계|Microsoft.EventHub에 대한 열린 연결. (미리 보기)|EntityName|
+|ConnectionsClosed|끊어진 연결. (미리 보기)|개수|합계|Microsoft.EventHub에 대한 끊어진 연결. (미리 보기)|EntityName|
+|CaptureBacklog|캡처 백로그. (미리 보기)|개수|합계|Microsoft.EventHub에 대한 캡처 백로그. (미리 보기)|EntityName|
+|CapturedMessages|캡처된 메시지. (미리 보기)|개수|합계|Microsoft.EventHub에 대한 캡처된 메시지. (미리 보기)|EntityName|
+|CapturedBytes|캡처된 바이트. (미리 보기)|바이트|합계|Microsoft.EventHub에 대한 캡처된 바이트. (미리 보기)|EntityName|
+|INREQS|들어오는 요청|개수|합계|네임스페이스에 대한 총 들어오는 전송 요청|차원 없음|
 |SUCCREQ|성공한 요청|개수|합계|네임스페이스에 대한 총 성공한 요청|차원 없음|
 |FAILREQ|실패한 요청|개수|합계|네임스페이스에 대한 총 실패한 요청|차원 없음|
 |SVRBSY|서버 작업 중 오류|개수|합계|네임스페이스에 대한 총 서버 작업 중 오류|차원 없음|
@@ -555,6 +665,12 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |MetricThreshold|메트릭 임계값|개수|평균|자동 크기 조정이 실행되었을 때 구성된 자동 크기 조정 임계값입니다.|MetricTriggerRule|
 |ObservedCapacity|관찰된 용량|개수|평균|실행될 때 자동 크기 조정을 위해 보고된 용량입니다.|차원 없음|
 |ScaleActionsInitiated|시작된 크기 조정 작업|개수|합계|크기 조정 작업의 방향입니다.|ScaleDirection|
+
+## <a name="microsoftlocationbasedservicesaccounts"></a>Microsoft.LocationBasedServices/accounts
+
+|메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|---|---|---|---|---|---|
+|대기 시간|대기 시간|밀리초|평균|API 호출 기간|OperationName, OperationResult|
 
 ## <a name="microsoftlogicworkflows"></a>Microsoft.Logic/workflows
 
@@ -591,6 +707,15 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |BillableTriggerExecutions|청구 가능한 트리거 실행|개수|합계|청구되는 워크플로 트리거 실행 수.|차원 없음|
 |TotalBillableExecutions|총 청구 가능 실행|개수|합계|청구되는 워크플로 실행 수.|차원 없음|
 
+## <a name="microsoftnetworknetworkinterfaces"></a>Microsoft.Network/networkInterfaces
+
+|메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|---|---|---|---|---|---|
+|BytesSentRate|보낸 바이트|개수|합계|네트워크 인터페이스가 보낸 바이트 수|차원 없음|
+|BytesReceivedRate|수신된 바이트|개수|합계|네트워크 인터페이스가 수신한 바이트 수|차원 없음|
+|PacketsSentRate|보낸 패킷|개수|합계|네트워크 인터페이스가 보낸 패킷 수|차원 없음|
+|PacketsReceivedRate|수신된 패킷|개수|합계|네트워크 인터페이스가 수신한 패킷 수|차원 없음|
+
 ## <a name="microsoftnetworkloadbalancers"></a>Microsoft.Network/loadBalancers
 
 |메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원|
@@ -606,57 +731,62 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 
 |메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원|
 |---|---|---|---|---|---|
-|PacketsInDDoS|인바운드 패킷 DDoS|초당 개수|평균|인바운드 패킷 DDoS|차원 없음|
-|PacketsDroppedDDoS|인바운드 패킷이 삭제된 DDoS|초당 개수|평균|인바운드 패킷이 삭제된 DDoS|차원 없음|
-|PacketsForwardedDDoS|인바운드 패킷이 전달된 DDoS|초당 개수|평균|인바운드 패킷이 전달된 DDoS|차원 없음|
-|TCPPacketsInDDoS|인바운드 TCP 패킷 DDoS|초당 개수|평균|인바운드 TCP 패킷 DDoS|차원 없음|
-|TCPPacketsDroppedDDoS|인바운드 TCP 패킷이 삭제된 DDoS|초당 개수|평균|인바운드 TCP 패킷이 삭제된 DDoS|차원 없음|
-|TCPPacketsForwardedDDoS|인바운드 TCP 패킷이 전달된 DDoS|초당 개수|평균|인바운드 TCP 패킷이 전달된 DDoS|차원 없음|
-|UDPPacketsInDDoS|인바운드 UDP 패킷 DDoS|초당 개수|평균|인바운드 UDP 패킷 DDoS|차원 없음|
-|UDPPacketsDroppedDDoS|인바운드 UDP 패킷이 삭제된 DDoS|초당 개수|평균|인바운드 UDP 패킷이 삭제된 DDoS|차원 없음|
-|UDPPacketsForwardedDDoS|인바운드 UDP 패킷이 전달된 DDoS|초당 개수|평균|인바운드 UDP 패킷이 전달된 DDoS|차원 없음|
-|BytesInDDoS|인바운드 바이트 DDoS|초당 바이트 수|평균|인바운드 바이트 DDoS|차원 없음|
-|BytesDroppedDDoS|인바운드 바이트가 삭제된 DDoS|초당 바이트 수|평균|인바운드 바이트가 삭제된 DDoS|차원 없음|
-|BytesForwardedDDoS|인바운드 바이트가 전달된 DDoS|초당 바이트 수|평균|인바운드 바이트가 전달된 DDoS|차원 없음|
-|TCPBytesInDDoS|인바운드 TCP 바이트 DDoS|초당 바이트 수|평균|인바운드 TCP 바이트 DDoS|차원 없음|
-|TCPBytesDroppedDDoS|인바운드 TCP 바이트가 삭제된 DDoS|초당 바이트 수|평균|인바운드 TCP 바이트가 삭제된 DDoS|차원 없음|
-|TCPBytesForwardedDDoS|인바운드 TCP 바이트가 전달된 DDoS|초당 바이트 수|평균|인바운드 TCP 바이트가 전달된 DDoS|차원 없음|
-|UDPBytesInDDoS|인바운드 UDP 바이트 DDoS|초당 바이트 수|평균|인바운드 UDP 바이트 DDoS|차원 없음|
-|UDPBytesDroppedDDoS|인바운드 UDP 바이트가 삭제된 DDoS|초당 바이트 수|평균|인바운드 UDP 바이트가 삭제된 DDoS|차원 없음|
-|UDPBytesForwardedDDoS|인바운드 UDP 바이트가 전달된 DDoS|초당 바이트 수|평균|인바운드 UDP 바이트가 전달된 DDoS|차원 없음|
-|IfUnderDDoSAttack|DDoS 공격 진행 여부|개수|평균|DDoS 공격 진행 여부|차원 없음|
-|DDoSTriggerTCPPackets|DDoS 완화를 트리거하는 인바운드 TCP 패킷|초당 개수|평균|DDoS 완화를 트리거하는 인바운드 TCP 패킷|차원 없음|
-|DDoSTriggerUDPPackets|DDoS 완화를 트리거하는 인바운드 UDP 패킷|초당 개수|평균|DDoS 완화를 트리거하는 인바운드 UDP 패킷|차원 없음|
+|PacketsInDDoS|인바운드 패킷 DDoS|초당 개수|최대|인바운드 패킷 DDoS|차원 없음|
+|PacketsDroppedDDoS|인바운드 패킷이 삭제된 DDoS|초당 개수|최대|인바운드 패킷이 삭제된 DDoS|차원 없음|
+|PacketsForwardedDDoS|인바운드 패킷이 전달된 DDoS|초당 개수|최대|인바운드 패킷이 전달된 DDoS|차원 없음|
+|TCPPacketsInDDoS|인바운드 TCP 패킷 DDoS|초당 개수|최대|인바운드 TCP 패킷 DDoS|차원 없음|
+|TCPPacketsDroppedDDoS|인바운드 TCP 패킷이 삭제된 DDoS|초당 개수|최대|인바운드 TCP 패킷이 삭제된 DDoS|차원 없음|
+|TCPPacketsForwardedDDoS|인바운드 TCP 패킷이 전달된 DDoS|초당 개수|최대|인바운드 TCP 패킷이 전달된 DDoS|차원 없음|
+|UDPPacketsInDDoS|인바운드 UDP 패킷 DDoS|초당 개수|최대|인바운드 UDP 패킷 DDoS|차원 없음|
+|UDPPacketsDroppedDDoS|인바운드 UDP 패킷이 삭제된 DDoS|초당 개수|최대|인바운드 UDP 패킷이 삭제된 DDoS|차원 없음|
+|UDPPacketsForwardedDDoS|인바운드 UDP 패킷이 전달된 DDoS|초당 개수|최대|인바운드 UDP 패킷이 전달된 DDoS|차원 없음|
+|BytesInDDoS|인바운드 바이트 DDoS|초당 바이트 수|최대|인바운드 바이트 DDoS|차원 없음|
+|BytesDroppedDDoS|인바운드 바이트가 삭제된 DDoS|초당 바이트 수|최대|인바운드 바이트가 삭제된 DDoS|차원 없음|
+|BytesForwardedDDoS|인바운드 바이트가 전달된 DDoS|초당 바이트 수|최대|인바운드 바이트가 전달된 DDoS|차원 없음|
+|TCPBytesInDDoS|인바운드 TCP 바이트 DDoS|초당 바이트 수|최대|인바운드 TCP 바이트 DDoS|차원 없음|
+|TCPBytesDroppedDDoS|인바운드 TCP 바이트가 삭제된 DDoS|초당 바이트 수|최대|인바운드 TCP 바이트가 삭제된 DDoS|차원 없음|
+|TCPBytesForwardedDDoS|인바운드 TCP 바이트가 전달된 DDoS|초당 바이트 수|최대|인바운드 TCP 바이트가 전달된 DDoS|차원 없음|
+|UDPBytesInDDoS|인바운드 UDP 바이트 DDoS|초당 바이트 수|최대|인바운드 UDP 바이트 DDoS|차원 없음|
+|UDPBytesDroppedDDoS|인바운드 UDP 바이트가 삭제된 DDoS|초당 바이트 수|최대|인바운드 UDP 바이트가 삭제된 DDoS|차원 없음|
+|UDPBytesForwardedDDoS|인바운드 UDP 바이트가 전달된 DDoS|초당 바이트 수|최대|인바운드 UDP 바이트가 전달된 DDoS|차원 없음|
+|IfUnderDDoSAttack|DDoS 공격 진행 여부|개수|최대|DDoS 공격 진행 여부|차원 없음|
+|DDoSTriggerTCPPackets|DDoS 완화를 트리거하는 인바운드 TCP 패킷|초당 개수|최대|DDoS 완화를 트리거하는 인바운드 TCP 패킷|차원 없음|
+|DDoSTriggerUDPPackets|DDoS 완화를 트리거하는 인바운드 UDP 패킷|초당 개수|최대|DDoS 완화를 트리거하는 인바운드 UDP 패킷|차원 없음|
+|DDoSTriggerSYNPackets|DDoS 완화를 트리거하는 인바운드 SYN 패킷|초당 개수|최대|DDoS 완화를 트리거하는 인바운드 SYN 패킷|차원 없음|
 |VipAvailability|Availability|개수|평균|기간 내에 평균 IP 주소 가용성|포트|
 |ByteCount|바이트 수|개수|합계|기간 내에 전송된 총 바이트 수|포트, 방향|
 |PacketCount|패킷 수|개수|합계|기간 내에 전송된 총 패킷 수|포트, 방향|
 |SynCount|SYN 수|개수|합계|기간 내에 전송된 총 SYN 패킷 수|포트, 방향|
 
+## <a name="microsoftnetworkvirtualnetworks"></a>Microsoft.Network/virtualNetworks
+
+|메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|---|---|---|---|---|---|
+|PacketsInDroppedVMProtection|VM 보호를 위해 삭제된 인바운드 패킷|초당 개수|평균|VM 보호를 위해 삭제된 인바운드 패킷|차원 없음|
+|PacketsOutDroppedVMProtection|VM 보호를 위해 삭제된 아웃바운드 패킷|초당 개수|평균|VM 보호를 위해 삭제된 아웃바운드 패킷|차원 없음|
+
 ## <a name="microsoftnetworkapplicationgateways"></a>Microsoft.Network/applicationGateways
 
 |메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원|
 |---|---|---|---|---|---|
-|처리량|처리량|초당 바이트 수|평균|Application Gateway에서 제공하는 초당 바이트 수|차원 없음|
+|처리량|처리량|초당 바이트 수|합계|Application Gateway에서 제공하는 초당 바이트 수|차원 없음|
 
 ## <a name="microsoftnetworkvirtualnetworkgateways"></a>Microsoft.Network/virtualNetworkGateways
 
 |메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원|
 |---|---|---|---|---|---|
 |TunnelAverageBandwidth|터널 대역폭|초당 바이트 수|평균|초당 터널의 평균 대역폭(바이트)|ConnectionName, RemoteIP|
-|TunnelPeakBandwidth|터널 최대 대역폭|초당 바이트 수|평균|초당 터널의 최고 대역폭(바이트)|ConnectionName, RemoteIP|
-|TunnelEgressBytes|터널 송신 바이트|바이트|평균|5분 간격으로 보내는 터널의 바이트|ConnectionName, RemoteIP|
-|TunnelIngressBytes|터널 수신 바이트|바이트|평균|5분 간격으로 들어오는 터널의 바이트|ConnectionName, RemoteIP|
-|TunnelEgressPackets|터널 송신 패킷|개수|평균|5분 간격으로 보내는 터널의 패킷 수|ConnectionName, RemoteIP|
-|TunnelIngressPackets|터널 수신 패킷|개수|평균|5분 간격으로 들어오는 터널의 패킷 수|ConnectionName, RemoteIP|
-|TunnelEgressPacketDropTSMismatch|터널 송신 TS 불일치 패킷 삭제|개수|평균|5분 간격으로 터널의 트래픽 선택기 불일치에서 보내는 패킷 삭제|ConnectionName, RemoteIP|
-|TunnelIngressPacketDropTSMismatch|터널 수신 TS 불일치 패킷 삭제|개수|평균|5분 간격으로 터널의 트래픽 선택기 불일치에서 들어오는 패킷 삭제|ConnectionName, RemoteIP|
+|TunnelEgressBytes|터널 송신 바이트|바이트|합계|터널의 송신 바이트|ConnectionName, RemoteIP|
+|TunnelIngressBytes|터널 수신 바이트|바이트|합계|터널의 수신 바이트|ConnectionName, RemoteIP|
+|TunnelEgressPackets|터널 송신 패킷|개수|합계|터널의 송신 패킷 수|ConnectionName, RemoteIP|
+|TunnelIngressPackets|터널 수신 패킷|개수|합계|터널의 수신 패킷 수|ConnectionName, RemoteIP|
+|TunnelEgressPacketDropTSMismatch|터널 송신 TS 불일치 패킷 삭제|개수|합계|터널의 트래픽 선택기 불일치에서 나가는 패킷 삭제 수|ConnectionName, RemoteIP|
+|TunnelIngressPacketDropTSMismatch|터널 수신 TS 불일치 패킷 삭제|개수|합계|터널의 트래픽 선택기 불일치에서 들어오는 패킷 삭제 수|ConnectionName, RemoteIP|
 
 ## <a name="microsoftnetworkexpressroutecircuits"></a>Microsoft.Network/expressRouteCircuits
 
 |메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원|
 |---|---|---|---|---|---|
-|BytesIn|BytesIn|개수|합계|Azure 수신 바이트|차원 없음|
-|BytesOut|BytesOut|개수|합계|Azure 송신 바이트|차원 없음|
 |BitsInPerSecond|BitsInPerSecond|초당 개수|평균|초당 Azure 수신 비트|차원 없음|
 |BitsOutPerSecond|BitsOutPerSecond|초당 개수|평균|초당 Azure 송신 비트|차원 없음|
 
@@ -734,6 +864,24 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |incoming.all.requests|들어오는 모든 요청|개수|합계|알림 허브에 대해 들어오는 전체 요청|차원 없음|
 |incoming.all.failedrequests|들어오는 모든 실패한 요청|개수|합계|알림 허브에 대해 들어오는 실패한 전체 요청|차원 없음|
 
+## <a name="microsoftrelaynamespaces"></a>Microsoft.Relay/namespaces
+
+|메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|---|---|---|---|---|---|
+|ListenerConnections-Success|ListenerConnections-Success|개수|합계|Microsoft.Relay의 성공적인 ListenerConnections.|EntityName|
+|ListenerConnections-ClientError|ListenerConnections-ClientError|개수|합계|Microsoft.Relay의 총 ListenerConnections에서의 ClientError.|EntityName|
+|ListenerConnections-ServerError|ListenerConnections-ServerError|개수|합계|Microsoft.Relay의 ListenerConnections에서의 ServerError.|EntityName|
+|SenderConnections-Success|SenderConnections-Success|개수|합계|Microsoft.Relay의 성공적인 SenderConnections.|EntityName|
+|SenderConnections-ClientError|SenderConnections-ClientError|개수|합계|Microsoft.Relay의 SenderConnections에서 ClientError.|EntityName|
+|SenderConnections-ServerError|SenderConnections-ServerError|개수|합계|Microsoft.Relay의 SenderConnections에서의 ServerError.|EntityName|
+|ListenerConnections-TotalRequests|ListenerConnections-TotalRequests|개수|합계|Microsoft.Relay의 총 ListenerConnections.|EntityName|
+|SenderConnections-TotalRequests|SenderConnections-TotalRequests|개수|합계|Microsoft.Relay의 총 SenderConnections 요청.|EntityName|
+|ActiveConnections|ActiveConnections|개수|합계|Microsoft.Relay의 총 ActiveConnections.|EntityName|
+|ActiveListeners|ActiveListeners|개수|합계|Microsoft.Relay의 총 ActiveListeners.|EntityName|
+|BytesTransferred|BytesTransferred|개수|합계|Microsoft.Relay의 총 BytesTransferred.|EntityName|
+|ListenerDisconnects|ListenerDisconnects|개수|합계|Microsoft.Relay의 총 ListenerDisconnects.|EntityName|
+|SenderDisconnects|SenderDisconnects|개수|합계|Microsoft.Relay의 총 SenderDisconnects.|EntityName|
+
 ## <a name="microsoftsearchsearchservices"></a>Microsoft.Search/searchServices
 
 |메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원|
@@ -746,6 +894,16 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 
 |메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원|
 |---|---|---|---|---|---|
+|SuccessfulRequests|성공한 요청(미리 보기)|개수|합계|네임스페이스에 대한 총 성공한 요청(미리 보기)|EntityName|
+|ServerErrors|서버 오류. (미리 보기)|개수|합계|Microsoft.ServiceBus에 대한 서버 오류. (미리 보기)|EntityName|
+|UserErrors|사용자 오류. (미리 보기)|개수|합계|Microsoft.ServiceBus에 대한 사용자 오류. (미리 보기)|EntityName|
+|ThrottledRequests|제한된 요청. (미리 보기)|개수|합계|Microsoft.ServiceBus에 대한 제한된 요청. (미리 보기)|EntityName|
+|IncomingRequests|들어오는 요청(미리 보기)|개수|합계|Microsoft.ServiceBus에 대한 들어오는 요청. (미리 보기)|EntityName|
+|IncomingMessages|들어오는 메시지(미리 보기)|개수|합계|Microsoft.ServiceBus에 대한 들어오는 메시지. (미리 보기)|EntityName|
+|OutgoingMessages|보내는 메시지(미리 보기)|개수|합계|Microsoft.ServiceBus에 대한 보내는 메시지. (미리 보기)|EntityName|
+|ActiveConnections|활성 연결(미리 보기)|개수|합계|Microsoft.ServiceBus에 대한 총 활성 연결. (미리 보기)|EntityName|
+|ConnectionsOpened|열린 연결. (미리 보기)|개수|합계|Microsoft.ServiceBus에 대한 열린 연결. (미리 보기)|EntityName|
+|ConnectionsClosed|끊어진 연결. (미리 보기)|개수|합계|Microsoft.ServiceBus에 대한 끊어진 연결. (미리 보기)|EntityName|
 |CPUXNS|네임스페이스당 CPU 사용량|백분율|최대|서비스 버스 프리미엄 네임스페이스 CPU 사용량 메트릭|차원 없음|
 |WSXNS|네임스페이스당 메모리 크기 사용|백분율|최대|서비스 버스 프리미엄 네임스페이스 메모리 사용량 메트릭|차원 없음|
 
@@ -897,8 +1055,8 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |---|---|---|---|---|---|
 |CpuPercentage|CPU 비율|백분율|평균|CPU 비율|인스턴스|
 |MemoryPercentage|메모리 비율|백분율|평균|메모리 비율|인스턴스|
-|DiskQueueLength|디스크 큐 길이|개수|합계|디스크 큐 길이|인스턴스|
-|HttpQueueLength|Http 큐 길이|개수|합계|Http 큐 길이|인스턴스|
+|DiskQueueLength|디스크 큐 길이|개수|평균|디스크 큐 길이|인스턴스|
+|HttpQueueLength|Http 큐 길이|개수|평균|Http 큐 길이|인스턴스|
 |BytesReceived|데이터 입력|바이트|합계|데이터 입력|인스턴스|
 |BytesSent|데이터 출력|바이트|합계|데이터 출력|인스턴스|
 
@@ -922,8 +1080,6 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |MemoryWorkingSet|메모리 작업 집합|바이트|평균|메모리 작업 집합|인스턴스|
 |AverageMemoryWorkingSet|평균 메모리 작업 집합|바이트|평균|평균 메모리 작업 집합|인스턴스|
 |AverageResponseTime|평균 응답 시간|초|평균|평균 응답 시간|인스턴스|
-|FunctionExecutionUnits|함수 실행 단위|개수|평균|함수 실행 단위|인스턴스|
-|FunctionExecutionCount|함수 실행 횟수|개수|평균|함수 실행 횟수|인스턴스|
 
 ## <a name="microsoftwebsites-functions"></a>Microsoft.Web/sites(functions)
 
@@ -934,8 +1090,8 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |Http5xx|Http 서버 오류|개수|합계|Http 서버 오류|인스턴스|
 |MemoryWorkingSet|메모리 작업 집합|바이트|평균|메모리 작업 집합|인스턴스|
 |AverageMemoryWorkingSet|평균 메모리 작업 집합|바이트|평균|평균 메모리 작업 집합|인스턴스|
-|FunctionExecutionUnits|함수 실행 단위|개수|평균|함수 실행 단위|인스턴스|
-|FunctionExecutionCount|함수 실행 횟수|개수|평균|함수 실행 횟수|인스턴스|
+|FunctionExecutionUnits|함수 실행 단위|개수|합계|함수 실행 단위|인스턴스|
+|FunctionExecutionCount|함수 실행 횟수|개수|합계|함수 실행 횟수|인스턴스|
 
 ## <a name="microsoftwebsitesslots"></a>Microsoft.Web/sites/slots
 
@@ -979,8 +1135,8 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |AverageResponseTime|평균 응답 시간|초|평균|평균 응답 시간|인스턴스|
 |CpuPercentage|CPU 비율|백분율|평균|CPU 비율|인스턴스|
 |MemoryPercentage|메모리 비율|백분율|평균|메모리 비율|인스턴스|
-|DiskQueueLength|디스크 큐 길이|개수|합계|디스크 큐 길이|인스턴스|
-|HttpQueueLength|Http 큐 길이|개수|합계|Http 큐 길이|인스턴스|
+|DiskQueueLength|디스크 큐 길이|개수|평균|디스크 큐 길이|인스턴스|
+|HttpQueueLength|Http 큐 길이|개수|평균|Http 큐 길이|인스턴스|
 |ActiveRequests|활성 요청|개수|합계|활성 요청|인스턴스|
 |TotalFrontEnds|총 프런트 엔드|개수|평균|총 프런트 엔드|인스턴스|
 |SmallAppServicePlanInstances|소형 App Service 계획 작업자|개수|평균|소형 App Service 계획 작업자|인스턴스|
@@ -994,6 +1150,8 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |WorkersTotal|총 작업자|개수|평균|총 작업자|인스턴스|
 |WorkersAvailable|사용 가능한 작업자|개수|평균|사용 가능한 작업자|인스턴스|
 |WorkersUsed|사용된 작업자|개수|평균|사용된 작업자|인스턴스|
+|CpuPercentage|CPU 비율|백분율|평균|CPU 비율|인스턴스|
+|MemoryPercentage|메모리 비율|백분율|평균|메모리 비율|인스턴스|
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure Monitor의 메트릭에 대해 읽기](monitoring-overview-metrics.md)

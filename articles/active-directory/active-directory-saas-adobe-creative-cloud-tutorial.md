@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 892055728ccc35690b19edf708997e9f104f75b8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c34d6bddb733c5979bc2006738e950cf7a185c4e
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-creative-cloud"></a>자습서: Adobe Creative Cloud와 Azure Active Directory 통합
 
@@ -110,7 +110,7 @@ Adobe Creative Cloud에서 Azure AD Single Sign-On을 구성하고 테스트하�
 
     a. **식별자** 텍스트 상자에서 `https://www.okta.com/saml2/service-provider/<token>` 패턴을 사용하여 URL을 입력합니다.
 
-    b. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://<company name>.okta.com/auth/saml20/accauthlinktest`
+    나. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://<company name>.okta.com/auth/saml20/accauthlinktest`
 
     > [!NOTE] 
     > 이러한 값은 실제 값이 아닙니다. 실제 식별자 및 회신 URL로 해당 값을 업데이트합니다. 이러한 값을 얻으려면 [Adobe Creative Cloud 클라이언트 지원 팀](https://helpx.adobe.com/in/contact/support.html)에 문의하세요. 
@@ -127,7 +127,7 @@ Adobe Creative Cloud에서 Azure AD Single Sign-On을 구성하고 테스트하�
      
 6. Adobe Creative Cloud 응용 프로그램에는 특정 형식의 SAML 어설션이 필요합니다. 이 응용 프로그램에 대해 다음 클레임을 구성합니다. 응용 프로그램의 **사용자 특성** 탭에서 이러한 특성의 값을 관리할 수 있습니다. 다음 스크린샷은 이에 대한 예제를 보여 줍니다.
 
-    ![Single Sign-on 구성](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_attribute.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_attribute.png)
 
 7. **Single sign-on** 대화 상자의 **사용자 특성** 섹션에서 위의 이미지에 표시된 것과 같이 SAML 토큰 특성을 구성하고 다음 단계를 수행합니다.
 
@@ -139,13 +139,13 @@ Adobe Creative Cloud에서 Azure AD Single Sign-On을 구성하고 테스트하�
 
     a. **특성 추가**를 클릭하여 **특성 추가** 대화 상자를 엽니다.
     
-    ![Single Sign-On 구성](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_attribute_04.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_attribute_04.png)
     
-    ![Single Sign-on 구성](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_attribute_05.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_attribute_05.png)
     
-    b. **이름** 텍스트 상자에서 해당 행에 표시된 특성 이름을 입력합니다.
+    나. **이름** 텍스트 상자에서 해당 행에 표시된 특성 이름을 입력합니다.
     
-    c. **값** 목록에서 해당 행에 대해 표시된 특성을 입력합니다.
+    다. **값** 목록에서 해당 행에 대해 표시된 특성을 입력합니다.
     
     d. **Ok**를 클릭합니다.
     
@@ -157,17 +157,17 @@ Adobe Creative Cloud에서 Azure AD Single Sign-On을 구성하고 테스트하�
 
     ![Adobe Creative Cloud 구성](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_adobecreativecloud_configure.png)
     
-10. 다른 웹 브라우저 창에서 Adobe Creative Cloud 테넌트에 관리자로 로그인합니다.
+10. 다른 웹 브라우저 창에서 [Adobe 관리 콘솔](https://adminconsole.adobe.com)에 관리자 권한으로 로그인합니다.
 
-11. 탐색 창에서 **ID**로 이동하여 도메인을 클릭합니다. 그런 다음 **Single Sign On 구성 필요** 섹션에서 다음 단계를 수행합니다.
+11. 위쪽 탐색 모음에서 **설정**으로 이동하고 **ID**를 선택합니다. 도메인 목록을 엽니다. 도메인에 대한 **구성** 링크를 클릭합니다. 그런 다음 **Single Sign On 구성 필요** 섹션에서 다음 단계를 수행합니다. 자세한 내용은 [도메인 설정](https://helpx.adobe.com/enterprise/using/set-up-domain.html)을 참조하세요.
 
-    ![설정](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_adobe-creative-cloud_001.png "설정")
+    ![설정](https://helpx.adobe.com/content/dam/help/en/enterprise/using/configure-microsoft-azure-with-adobe-sso/_jcr_content/main-pars/procedure_719391630/proc_par/step_3/step_par/image/edit-sso-configuration.png "설정")
     
     a. **찾아보기**를 클릭하여 Azure AD에서 다운로드한 인증서를 **IDP 인증서**에 업로드합니다.
     
-    b. **IDP 발급자** 텍스트 상자에 Azure Portal의 **로그온 구성** 섹션에서 복사한 **SAML 엔터티 ID**의 값을 입력합니다.
+    나. **IDP 발급자** 텍스트 상자에 Azure Portal의 **로그온 구성** 섹션에서 복사한 **SAML 엔터티 ID**의 값을 입력합니다.
     
-    c. **IDP 로그인 URL** 텍스트 상자에 Azure Portal의 **로그온 구성** 섹션에서 복사한 **SAML SSO 서비스 URL**의 값을 입력합니다.
+    다. **IDP 로그인 URL** 텍스트 상자에 Azure Portal의 **로그온 구성** 섹션에서 복사한 **SAML SSO 서비스 URL**의 값을 입력합니다.
     
     d. **HTTP - 리디렉션**을 **IDP 바인딩**으로 선택합니다.
     
@@ -177,13 +177,11 @@ Adobe Creative Cloud에서 Azure AD Single Sign-On을 구성하고 테스트하�
 
 12. 이제 대시보드에 XML **"메타데이터 다운로드"** 파일이 표시됩니다. 여기에는 Adobe의 EntityDescriptor URL과 AssertionConsumerService URL이 포함되어 있습니다. Azure AD 응용 프로그램에서 파일을 열어서 구성하십시오.
 
-    ![앱 쪽에서 Single Sign-On 구성](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_adobe-creative-cloud_002.png)
-
     ![앱 쪽에서 Single Sign-On 구성](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_adobe-creative-cloud_003.png)
 
     a. **앱 설정 구성** 대화 상자에서 **식별자**에 대해 Adobe가 제공한 EntityDescriptor 값을 사용합니다.
 
-    b. **앱 설정 구성** 대화 상자에서 **회신 URL**에 대해 Adobe가 제공한 AssertionConsumerService 값을 사용합니다.
+    나. **앱 설정 구성** 대화 상자에서 **회신 URL**에 대해 Adobe가 제공한 AssertionConsumerService 값을 사용합니다.
 
 > [!TIP]
 > 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
@@ -214,9 +212,9 @@ Adobe Creative Cloud에서 Azure AD Single Sign-On을 구성하고 테스트하�
 
     a. **이름** 상자에 **BrittaSimon**을 입력합니다.
 
-    b. **사용자 이름** 상자에 사용자인 Britta Simon의 전자 메일 주소를 입력합니다.
+    나. **사용자 이름** 상자에 사용자인 Britta Simon의 전자 메일 주소를 입력합니다.
 
-    c. **암호 표시** 확인란을 선택한 다음 **암호** 상자에 표시된 값을 적어둡니다.
+    다. **암호 표시** 확인란을 선택한 다음 **암호** 상자에 표시된 값을 적어둡니다.
 
     d. **만들기**를 클릭합니다.
  
@@ -226,11 +224,9 @@ Azure AD 사용자가 Adobe Creative Cloud에 로그인할 수 있도록 하려�
 
 ### <a name="to-provision-a-user-accounts-perform-the-following-steps"></a>사용자 계정을 프로비저닝하려면 다음 단계를 수행합니다.
 
-1. Adobe Creative Cloud 회사 사이트에 관리자 권한으로 로그인합니다.
+1. [Adobe 관리 콘솔](https://adminconsole.adobe.com) 사이트에 관리자 권한으로 로그인합니다.
 
-2. Adobe의 콘솔에서 사용자를 페더레이션 ID로 추가하고 권리 유형에 적합한 그룹에 할당합니다.
-
-    ![응용 프로그램 목록의 Adobe Creative Cloud 링크](./media/active-directory-saas-adobe-creative-cloud-tutorial/users.png)  
+2. Adobe의 콘솔에서 사용자를 페더레이션 ID로 추가하고 제품 프로필에 할당합니다. 사용자를 추가하는 방법에 대한 자세한 내용은 [Adobe 관리 콘솔에서 사용자 추가](https://helpx.adobe.com/enterprise/using/users.html#Addusers)를 참조하세요. 
 
 3. 이 시점에서 이메일 주소/UPN을 Adobe 로그인 양식에 입력하고 Tab 키를 눌러 다음과 같이 Azure AD에 다시 페더레이션되어야 합니다.
     * 웹 액세스: www.adobe.com > 로그인
@@ -277,7 +273,9 @@ Azure AD 사용자가 Adobe Creative Cloud에 로그인할 수 있도록 하려�
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)
+* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](active-directory-appssoaccess-whatis.md)
+* [도메인 설정(adobe.com)](https://helpx.adobe.com/enterprise/using/set-up-domain.html)
+* [Adobe SSO에서 사용할 Azure 구성(adobe.com)](https://helpx.adobe.com/enterprise/kb/configure-microsoft-azure-with-adobe-sso.html)
 
 <!--Image references-->
 

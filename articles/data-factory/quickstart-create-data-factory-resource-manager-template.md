@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 11/28/2017
+ms.date: 01/22/2018
 ms.author: spelluru
-ms.openlocfilehash: 944310b802dafa15612fe92f4115a2e819436a6a
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 5008d8f0ce36f09ff26bf10fadbf14da6b474ea9
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>자습서: Azure Resource Manager 템플릿을 사용하여 첫 번째 Azure 데이터 팩터리 만들기
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -59,11 +59,12 @@ Azure Resource Manager 템플릿에 대한 일반적인 내용은 [Azure Resourc
             "type": "string",
             "allowedValues": [
                 "East US",
-                "East US 2"
+                "East US 2",
+                "West Europe"
             ],
             "defaultValue": "East US",
             "metadata": {
-                "description": "Location of the data factory. Currently, only East US and East US 2 are supported. "
+                "description": "Location of the data factory. Currently, only East US, East US 2, and West Europe are supported. "
             }
         },
         "storageAccountName": {
@@ -632,7 +633,7 @@ Azure 저장소 연결된 서비스는 런타임에 Data Factory 서비스에서
 ## <a name="reuse-the-template"></a>템플릿 재사용
 이 자습서에서는 데이터 팩터리 엔터티를 정의하는 템플릿과 매개 변수 값을 전달하는 템플릿을 만들었습니다. 같은 템플릿을 사용하여 데이터 팩터리 엔터티를 다른 환경에 배포하는 데 사용하려면 각 환경에 대한 매개 변수 파일을 만들고 해당 환경에 배포할 때 사용합니다.     
 
-예제:  
+예:  
 
 ```PowerShell
 New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Dev.json

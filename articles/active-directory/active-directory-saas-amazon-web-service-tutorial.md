@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/3/2017
+ms.date: 1/16/2017
 ms.author: jeedes
-ms.openlocfilehash: b4d96df72fd7f8f817140e7599e22a63ddd79910
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 8d77215fd2923e22a9cc87e469cb135d035d22d9
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws"></a>자습서: AWS(Amazon Web Services)와 Azure Active Directory 통합
 
@@ -32,7 +32,7 @@ AWS(Amazon Web Services)를 Azure AD와 통합하면 다음과 같은 이점이 
 
 Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](active-directory-appssoaccess-whatis.md)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 AWS(Amazon Web Services)와 Azure AD를 통합하도록 구성하려면 다음 항목이 필요합니다.
 
@@ -131,6 +131,8 @@ AWS(Amazon Web Services)에서 Azure AD Single Sign-On을 구성하고 테스트
     나. **이름** 텍스트 상자에서 해당 행에 표시된 특성 이름을 입력합니다.
 
     다. **값** 목록에서 해당 행에 대해 표시된 특성을 입력합니다.
+
+    d. **네임스페이스** 텍스트 상자에 해당 행에 대해 표시되는 네임스페이스 값을 입력합니다.
     
     d. **Ok**를 클릭합니다.
 
@@ -230,19 +232,13 @@ AWS(Amazon Web Services)에서 Azure AD Single Sign-On을 구성하고 테스트
 
     ![새 정책 만들기](./media/active-directory-saas-amazon-web-service-tutorial/fetchingrole3.png)
  
-25. 고유한 정책을 만들어 AWS 계정에서 모든 역할을 페치합니다. **고유한 정책 만들기** 섹션에서 **선택** 단추를 클릭합니다.
-    
+25. 다음 단계를 수행하여 AWS 계정에서 모든 역할을 가져오는 고유한 정책을 만듭니다.
+
     ![새 정책 만들기](./media/active-directory-saas-amazon-web-service-tutorial/policy1.png)
 
-26. 다음 단계를 수행하여 새 정책을 정의합니다.
+    a. **"정책 만들기"** 섹션에서 **"JSON"** 탭을 클릭합니다.
 
-    ![새 정책 정의](./media/active-directory-saas-amazon-web-service-tutorial/policy2.png)
-
-    a. **정책 이름**을 **AzureAD_SSOUserRole_Policy**로 제공합니다.
-
-    나. 정책에 **이 정책을 사용하면 AWS 계정에서 역할을 페치할 수 있습니다.**라는 **설명**을 제공할 수 있습니다.
-    
-    다. 정책 문서에서 아래 JSON을 추가합니다.
+    나. 정책 문서에서 아래 JSON을 추가합니다.
     
     ```
     
@@ -271,13 +267,21 @@ AWS(Amazon Web Services)에서 Azure AD Single Sign-On을 구성하고 테스트
     }
     
     ```
+
+    다. **정책 검토 단추**를 클릭하여 정책의 유효성을 검사합니다.
+
+    ![새 정책 정의](./media/active-directory-saas-amazon-web-service-tutorial/policy5.png)
+
+26. 다음 단계를 수행하여 **새 정책**을 정의합니다.
+
+    ![새 정책 정의](./media/active-directory-saas-amazon-web-service-tutorial/policy2.png)
+
+    a. **정책 이름**을 **AzureAD_SSOUserRole_Policy**로 제공합니다.
+
+    나. 정책에 **이 정책을 사용하면 AWS 계정에서 역할을 페치할 수 있습니다.**라는 **설명**을 제공할 수 있습니다.
     
-    d. **정책 편집을 위해 자동 서식 지정 사용**에 대해 확인해야 합니다.
-    
-    e. 하단에서 **유효성 검사 정책** 단추를 클릭합니다.
-    
-    f. 정책의 유효성을 올바르게 검사하면 **정책 만들기** 단추를 클릭할 수 있습니다.
-    
+    다. **"정책 만들기"** 단추를 클릭합니다.
+        
 27. 다음 단계를 수행하여 AWS IAM 서비스에서 새 사용자 계정을 만듭니다.
 
     a. AWS IAM 콘솔에서 **사용자** 탐색을 클릭합니다.

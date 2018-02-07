@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: ad61870b49f7a8753e4dbd2e34847daf14b793a0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 85a12cbfdad4a1b8fbc7c3e3ea15b91c5267d7c8
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Azure AD Connect Health Agent 설치
 이 문서는 Azure AD Connect Health Agent를 설치하고 구성하는 단계를 안내합니다. [여기](active-directory-aadconnect-health.md#download-and-install-azure-ad-connect-health-agent)에서 에이전트를 다운로드할 수 있습니다.
@@ -103,32 +103,38 @@ Windows Server 2008 R2 서버에 대한 단계:
 2. **보안 설정\로컬 정책\사용자 권한 할당** 폴더로 이동하여 **보안 감사 생성**을 두 번 클릭합니다.
 3. **로컬 보안 설정** 탭에서 AD FS 2.0 서비스 계정이 나열되어 있는지 확인합니다. 계정이 없는 경우 **사용자 또는 그룹 추가**를 클릭하여 목록에 추가하고 **확인**을 클릭합니다.
 4. 감사를 사용하려면 상승된 권한으로 명령 프롬프트를 열고 <code>auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable</code> 명령을 실행합니다.
-5. **로컬 보안 정책**을 닫은 다음, **AD FS 관리** 스냅인을 엽니다. AD FS 관리 스냅인을 열려면 **시작**을 클릭하고 **프로그램**, **관리 도구** 순으로 가리킨 다음 **AD FS 2.0 관리**를 클릭합니다.
-6. **작업** 창에서 **페더레이션 서비스 속성 편집**을 클릭합니다.
-7. **페더레이션 서비스 속성** 대화 상자에서 **이벤트** 탭을 클릭합니다.
-8. **성공 감사** 및 **실패 감사** 확인란을 선택합니다.
-9. **확인**을 클릭합니다.
+5. **로컬 보안 정책**을 닫습니다.
+<br>   -- **다음 단계는 기본 AD FS 서버에만 필요합니다.** -- </br>
+6. **AD FS 관리** 스냅인을 엽니다. AD FS 관리 스냅인을 열려면 **시작**을 클릭하고 **프로그램**, **관리 도구** 순으로 가리킨 다음 **AD FS 2.0 관리**를 클릭합니다.
+7. **작업** 창에서 **페더레이션 서비스 속성 편집**을 클릭합니다.
+8. **페더레이션 서비스 속성** 대화 상자에서 **이벤트** 탭을 클릭합니다.
+9. **성공 감사** 및 **실패 감사** 확인란을 선택합니다.
+10. **확인**을 클릭합니다.
 
 #### <a name="to-enable-auditing-for-ad-fs-on-windows-server-2012-r2"></a>Windows Server 2012 R2에서 AD FS에 대해 감사를 사용하도록 설정하려면
 1. 시작 화면에서 **서버 관리자**를 열거나 바탕 화면 작업 표시줄에서 서버 관리자를 열어 **로컬 보안 정책**을 연 다음 **도구/로컬 보안 정책**을 클릭합니다.
 2. **보안 설정\로컬 정책\사용자 권한 할당** 폴더로 이동하여 **보안 감사 생성**을 두 번 클릭합니다.
 3. **로컬 보안 설정** 탭에서 AD FS 서비스 계정이 나열되어 있는지 확인합니다. 계정이 없는 경우 **사용자 또는 그룹 추가**를 클릭하여 목록에 추가하고 **확인**을 클릭합니다.
 4. 감사를 사용하려면 상승된 권한으로 명령 프롬프트를 열고 다음 명령을 실행합니다. ```auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable```.
-5. **로컬 보안** 정책을 닫고 **AD FS 관리** 스냅인을 엽니다(서버 관리자에서 도구를 클릭한 다음 AD FS 관리 선택).
-6. 작업 창에서 **페더레이션 서비스 속성 편집**을 클릭합니다.
-7. 페더레이션 서비스 속성 대화 상자에서 **이벤트** 탭을 클릭합니다.
-8. **성공 감사 및 실패 감사** 확인란을 선택하고 **확인**을 클릭합니다.
+5. **로컬 보안 정책**을 닫습니다.
+<br>   -- **다음 단계는 기본 AD FS 서버에만 필요합니다.** -- </br>
+6. **AD FS 관리** 스냅인을 엽니다(서버 관리자에서 도구를 클릭한 다음 AD FS 관리 선택).
+7. **작업** 창에서 **페더레이션 서비스 속성 편집**을 클릭합니다.
+8. **페더레이션 서비스 속성** 대화 상자에서 **이벤트** 탭을 클릭합니다.
+9. **성공 감사 및 실패 감사** 확인란을 선택하고 **확인**을 클릭합니다.
 
 #### <a name="to-enable-auditing-for-ad-fs-on-windows-server-2016"></a>Windows Server 2016에서 AD FS에 대해 감사를 사용하도록 설정하려면
 1. 시작 화면에서 **서버 관리자**를 열거나 바탕 화면 작업 표시줄에서 서버 관리자를 열어 **로컬 보안 정책**을 연 다음 **도구/로컬 보안 정책**을 클릭합니다.
 2. **보안 설정\로컬 정책\사용자 권한 할당** 폴더로 이동하여 **보안 감사 생성**을 두 번 클릭합니다.
 3. **로컬 보안 설정** 탭에서 AD FS 서비스 계정이 나열되어 있는지 확인합니다. 없는 경우 **사용자 또는 그룹 추가**를 클릭하여 AD FS 서비스 계정을 목록에 추가한 다음 **확인**을 클릭합니다.
 4. 감사를 사용하려면 상승된 권한으로 명령 프롬프트를 열고 <code>auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable.</code> 명령을 실행합니다.
-5. **로컬 보안** 정책을 닫고 **AD FS 관리** 스냅인을 엽니다(서버 관리자에서 도구를 클릭한 다음 AD FS 관리 선택).
-6. 작업 창에서 **페더레이션 서비스 속성 편집**을 클릭합니다.
-7. 페더레이션 서비스 속성 대화 상자에서 **이벤트** 탭을 클릭합니다.
-8. **성공 감사 및 실패 감사** 확인란을 선택하고 **확인**을 클릭합니다. 기본적으로 사용하도록 설정되어 있습니다.
-9. PowerShell 창을 열고 다음 명령을 실행합니다. ```Set-AdfsProperties -AuditLevel Verbose```.
+5. **로컬 보안 정책**을 닫습니다.
+<br>   -- **다음 단계는 기본 AD FS 서버에만 필요합니다.** -- </br>
+6. **AD FS 관리** 스냅인을 엽니다(서버 관리자에서 도구를 클릭한 다음 AD FS 관리 선택).
+7. **작업** 창에서 **페더레이션 서비스 속성 편집**을 클릭합니다.
+8. **페더레이션 서비스 속성** 대화 상자에서 **이벤트** 탭을 클릭합니다.
+9. **성공 감사 및 실패 감사** 확인란을 선택하고 **확인**을 클릭합니다. 기본적으로 사용하도록 설정되어 있습니다.
+10. PowerShell 창을 열고 다음 명령을 실행합니다. ```Set-AdfsProperties -AuditLevel Verbose```.
 
 기본적으로 "기본" 감사 수준을 사용하도록 설정되어 있습니다. [Windows Server 2016의 AD FS 감사 기능 향상](https://technet.microsoft.com/en-us/windows-server-docs/identity/ad-fs/operations/auditing-enhancements-to-ad-fs-in-windows-server-2016)에 대해 자세히 알아보세요.
 
@@ -211,7 +217,7 @@ Azure AD Connect를 성공적으로 설치한 후 동기화에 대한 Azure AD C
 ![Azure AD Connect Health 확인](./media/active-directory-aadconnect-health/aadconnect-health-adds-agent-install5.png)
 
 
-### <a name="agent-registration-using-powershell"></a>PowerShell을 사용한 에이전트 등록
+## <a name="agent-registration-using-powershell"></a>PowerShell을 사용한 에이전트 등록
 적합한 에이전트 setup.exe를 설치한 후 역할에 따라 다음 PowerShell 명령을 사용하여 에이전트 등록 단계를 수행할 수 있습니다. PowerShell 창을 열고 적합한 명령을 실행합니다.
 
 ```
@@ -246,8 +252,8 @@ HTTP 프록시와 작동하도록 Azure AD Connect Health Agent를 구성할 수
 HTTP 프록시를 사용하도록 Azure AD Connect Health Agent를 구성하는 옵션은 다음과 같습니다.
 
 > [!NOTE]
-> 프록시 설정이 업데이트되도록 하려면 모든 Azure AD Connect Health Agent 서비스를 다시 시작해야 합니다. 다음 명령을 실행합니다.<br>
-> Restart-Service AdHealth * 
+> 프록시 설정이 업데이트되도록 하려면 모든 Azure AD Connect Health Agent 서비스를 다시 시작해야 합니다. 다음 명령 실행:<br>
+> Restart-Service AdHealth*
 >
 >
 

@@ -15,11 +15,11 @@ ms.devlang: node
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: anhoh
-ms.openlocfilehash: 3b3dc3675c495d9558ccb135f3177491d2aaf527
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 3cfea11e70309c56f991f5d563649741c675c907
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="nodejs-tutorial-use-the-sql-api-in-azure-cosmos-db-to-create-a-nodejs-console-application"></a>Node.js 자습서: Azure Cosmos DB에서 SQL API를 사용하여 Node.js 콘솔 응용 프로그램 만들기
 > [!div class="op_single_selector"]
@@ -336,7 +336,7 @@ Azure Cosmos DB 클라이언트를 시작하는 코드가 있다면 Azure Cosmos
         console.log(`Getting document:\n${document.id}\n`);
 
         return new Promise((resolve, reject) => {
-            client.readDocument(documentUrl, { partitionKey: document.district }, (err, result) => {
+            client.readDocument(documentUrl, (err, result) => {
                 if (err) {
                     if (err.code == HttpStatusCodes.NOTFOUND) {
                         client.createDocument(collectionUrl, document, (err, created) => {

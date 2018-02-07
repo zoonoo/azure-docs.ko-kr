@@ -1,5 +1,5 @@
 ---
-title: "Azure AD Windows 스토어 시작 | Microsoft 문서"
+title: "Azure AD Windows 유니버설 플랫폼(UWP/XAML) 시작 | Microsoft Docs"
 description: "로그인을 위해 Azure AD와 통합되고 OAuth를 사용하여 Azure AD로 보호되는 API를 호출하는 Windows 스토어 앱을 빌드합니다."
 services: active-directory
 documentationcenter: windows
@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: mobile-windows-store
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/16/2016
+ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: f76324e4415dcc300a0c2e21a89d30301c17ebab
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 8bc8c3a897363da2a8ebe7ac6bd8798c8e22ba04
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
-# <a name="integrate-azure-ad-with-windows-store-apps"></a>Azure AD와 Windows 스토어 앱 통합
+# <a name="azure-ad-windows-universal-platform-uwpxaml-getting-started"></a>Azure AD Windows 유니버설 플랫폼(UWP/XAML) 시작
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -46,7 +46,7 @@ Windows 스토어용 앱을 개발하는 경우 Azure AD(Azure Active Directory)
 ## <a name="step-1-register-the-directorysearcher-app"></a>1단계: DirectorySearcher 앱 등록
 앱에서 토큰을 가져올 수 있도록 먼저 Azure AD 테넌트에 앱을 등록하고 Azure AD Graph API에 액세스할 수 있는 권한을 부여해야 합니다. 방법은 다음과 같습니다.
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 위쪽 막대에서 계정을 클릭합니다. 그런 다음 **디렉터리** 목록에서 앱을 등록할 Active Directory 테넌트를 선택합니다.
 3. 왼쪽 창에서 **더 많은 서비스**를 클릭하고 **Azure Active Directory**를 선택합니다.
 4. **앱 등록**을 클릭하고 **추가**를 선택합니다.
@@ -89,7 +89,7 @@ ADAL에서 확인되는 기본 원칙은 액세스 토큰이 필요할 때마다
 
 1. ADAL의 기본 클래스인 앱의 `AuthenticationContext`를 초기화합니다. 이 작업은 Azure AD와 통신하는 데 필요한 좌표를 ADAL에 전달하고 토큰 캐시 방법을 알려줍니다.
 
-    ```C#
+    ```csharp
     public MainPage()
     {
         ...
@@ -100,7 +100,7 @@ ADAL에서 확인되는 기본 원칙은 액세스 토큰이 필요할 때마다
 
 2. `Search(...)` 메서드를 찾습니다. 이 메서드는 사용자가 앱의 UI에서 **검색** 단추를 클릭할 때 호출됩니다. 이 메서드는 Azure AD Graph API에 해당 UPN이 지정된 검색어로 시작하는 사용자를 쿼리하라는 get 요청을 만듭니다. Graph API를 쿼리하려면 요청의 **Authorization** 헤더에 액세스 토큰을 포함합니다. 여기로 ADAL이 들어옵니다.
 
-    ```C#
+    ```csharp
     private async void Search(object sender, RoutedEventArgs e)
     {
         ...
@@ -123,20 +123,20 @@ ADAL에서 확인되는 기본 원칙은 액세스 토큰이 필요할 때마다
     앱에서 `AcquireTokenAsync(...)`을 호출하여 토큰을 요청하면 ADAL은 사용자에게 자격 증명을 요구하지 않고 토큰을 반환하려고 시도합니다. ADAL은 사용자가 토큰을 가져오기 위해 로그인해야 한다고 판단할 경우 로그인 대화 상자를 표시하고, 사용자의 자격 증명을 수집하고, 인증 성공 시 토큰을 반환합니다. 어떤 이유로든 ADAL이 토큰을 반환할 수 없는 경우 *AuthenticationResult* 상태는 오류가 됩니다.
 3. 이제 방금 획득한 액세스 토큰을 사용해 보겠습니다. 또한 `Search(...)` 메서드에서 **Authorization** 헤더의 Graph API get 요청에 이 토큰을 연결합니다.
 
-    ```C#
+    ```csharp
     // Add the access token to the Authorization header of the call to the Graph API, and call the Graph API.
     httpClient.DefaultRequestHeaders.Authorization = new HttpCredentialsHeaderValue("Bearer", result.AccessToken);
 
     ```
 4. `AuthenticationResult` 개체를 사용하여 앱에 사용자에 대한 정보(예: 사용자 ID)를 표시할 수 있습니다.
 
-    ```C#
+    ```csharp
     // Update the page UI to represent the signed-in user
     ActiveUser.Text = result.UserInfo.DisplayableId;
     ```
 5. ADAL을 사용하여 앱에서 사용자를 로그아웃할 수도 있습니다. 사용자가 **로그아웃** 단추를 클릭하면 다음 `AcquireTokenAsync(...)` 호출이 로그인 보기를 표시하도록 합니다. ADAL을 사용하면 이 작업은 토큰 캐시를 지우는 것 만큼 쉽습니다.
 
-    ```C#
+    ```csharp
     private void SignOut()
     {
         // Clear session state from the token cache.

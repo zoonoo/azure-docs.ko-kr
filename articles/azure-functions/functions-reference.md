@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/12/2017
 ms.author: tdykstra
-ms.openlocfilehash: 80996c8bc6e40665201057ed185700ddaeea170a
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 53ba5eaf3272746bd107efbcbae4b5d5889a197f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-functions-developers-guide"></a>Azure Functions 개발자 가이드
 Azure Functions에서 특정 함수는 사용하는 언어나 바인딩에 관계없이 몇 가지 핵심적 기술 개념과 구성 요소를 공유합니다. 특정 언어나 바인딩에 해당하는 세부 정보를 학습하기 전에, 모든 항목에 해당하는 이 개요를 꼼꼼히 읽어 보시기 바랍니다.
@@ -51,7 +51,7 @@ function.json 파일은 함수 바인딩 및 기타 구성 설정을 정의합�
 
 `bindings` 속성은 트리거와 바인딩을 모두 구성하는 곳에 위치합니다. 각 바인딩은 몇 가지 공통적인 설정과 특정 바인딩 형식에 해당하는 일부 설정을 공유합니다. 모든 바인딩에는 다음 설정이 필요합니다.
 
-| 속성 | 값/형식 | 설명 |
+| 자산 | 값/형식 | 설명 |
 | --- | --- | --- |
 | `type` |string |바인딩 형식 예: `queueTrigger` |
 | `direction` |'in', 'out' |함수 안으로 데이터를 수신할 바인딩인지 또는 함수의 데이터를 전송할 바인딩인지를 나타냅니다. |
@@ -102,7 +102,7 @@ Azure 포털에 기본 제공되는 함수 편집기를 사용하면 함수에 �
 
 ## <a name="functions-runtime-versioning"></a>Functions 런타임 버전 관리
 
-`FUNCTIONS_EXTENSION_VERSION` 앱 설정을 사용하여 Functions 런타임의 버전을 구성할 수 있습니다. 예를 들어 “”~1은 함수 앱이 주요 버전으로 1을 사용한다는 것을 나타냅니다. 함수 앱은 부 버전이 새로 릴리스될 때마다 업그레이드됩니다. 정확한 함수 앱 버전을 확인하는 방법을 비롯한 자세한 내용을 보려면 [Azure Functions 런타임 버전을 대상으로 지정하는 방법](functions-versions.md)을 참조하세요.
+`FUNCTIONS_EXTENSION_VERSION` 앱 설정을 사용하여 Functions 런타임의 버전을 구성할 수 있습니다. 예를 들어 “”~1은 함수 앱이 주요 버전으로 1을 사용한다는 것을 나타냅니다. 함수 앱은 부 버전이 새로 릴리스될 때마다 업그레이드됩니다. 정확한 함수 앱 버전을 확인하는 방법을 비롯한 자세한 내용을 보려면 [Azure Functions 런타임 버전을 대상으로 지정하는 방법](set-runtime-version.md)을 참조하세요.
 
 ## <a name="repositories"></a>리포지토리
 Azure Functions에 대한 코드는 공개 소스이며 GitHub 리포지토리에 저장됩니다.

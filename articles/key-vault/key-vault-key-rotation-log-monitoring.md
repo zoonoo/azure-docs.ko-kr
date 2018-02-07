@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: jodehavi;stgriffi
-ms.openlocfilehash: f98ba1e2da6924476392948a4d18c807d68e39e3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2de788fabcae501d1a388bcea6b7759c9ea269cc
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="set-up-azure-key-vault-with-end-to-end-key-rotation-and-auditing"></a>종단 간 키 회전 및 감사를 사용하여 Azure Key Vault 설정
 ## <a name="introduction"></a>소개
@@ -27,7 +27,7 @@ Key Vault를 만든 후에는 키와 비밀을 저장하는 데 Key Vault를 사
 이 문서에서는 Azure Key Vault를 사용하여 비밀(이 예에서는 응용 프로그램에서 액세스하는 Azure Storage 계정 키)을 저장하는 예제를 안내합니다. 또한 해당 저장소 계정 키의 예약된 회전 구현에 대해서도 살펴봅니다. 마지막으로, 예기치 않은 요청이 있을 때 Key Vault 감사 로그를 모니터하고 경고를 생성하는 방법도 살펴봅니다.
 
 > [!NOTE]
-> 이 자습서는 Key Vault의 초기 설정에 대해서는 자세히 다루지 않습니다. 자세한 내용은 [Azure 키 자격 증명 모음 시작](key-vault-get-started.md)을 참조하세요. 플랫폼 간 명령줄 인터페이스 지침은 [CLI를 사용하여 Key Vault 관리](key-vault-manage-with-cli2.md)를 참조하세요.
+> 이 자습서는 Key Vault의 초기 설정에 대해서는 자세히 다루지 않습니다. 이에 대한 설명은 [Azure Key Vault 시작](key-vault-get-started.md)을 참조하세요. 플랫폼 간 명령줄 인터페이스 지침은 [CLI를 사용하여 Key Vault 관리](key-vault-manage-with-cli2.md)를 참조하세요.
 >
 >
 
@@ -157,7 +157,7 @@ var sec = kv.GetSecretAsync(<SecretID>).Result.Value;
 응용 프로그램을 실행하면 Azure Active Directory에 인증된 후 Azure Key Vault에서 비밀 값을 검색합니다.
 
 ## <a name="key-rotation-using-azure-automation"></a>Azure Automation을 사용하여 키 회전
-Azure 주요 자격 증명 모음 암호 정보로 저장하는 값을 위한 회전 전략을 구현하는 다양한 옵션이 있습니다. 수동 프로세스의 일부로 비밀을 회전할 수 있으며 API 호출을 활용하여 프로그래밍 방식으로 회전하거나 Automation 스크립트 방식으로 회전할 수 있습니다. 이 문서의 목적에 따라 Azure Automation과 결합된 Azure PowerShell을 사용하여 Azure Storage 계정 액세스 키를 변경합니다. 그런 다음 해당 새 키를 사용하여 Key Vault 비밀을 업데이트합니다.
+Azure Key Vault 암호 정보로 저장하는 값을 위한 회전 전략을 구현하는 다양한 옵션이 있습니다. 수동 프로세스의 일부로 비밀을 회전할 수 있으며 API 호출을 활용하여 프로그래밍 방식으로 회전하거나 Automation 스크립트 방식으로 회전할 수 있습니다. 이 문서의 목적에 따라 Azure Automation과 결합된 Azure PowerShell을 사용하여 Azure Storage 계정 액세스 키를 변경합니다. 그런 다음 해당 새 키를 사용하여 Key Vault 비밀을 업데이트합니다.
 
 Azure Automation이 Key Vault의 비밀 값을 설정할 수 있도록 허용하려면 Azure Automation 인스턴스를 설정할 때 AzureRunAsConnection이라는 이름으로 생성된 연결에 대한 클라이언트 ID를 가져와야 합니다. Azure Automation 인스턴스에서 **자산**을 선택하여 이 ID를 가져올 수 있습니다. 여기에서 **연결**을 선택한 후 **AzureRunAsConnection** 서비스 사용자를 선택합니다. **응용 프로그램 ID**를 기록해 둡니다.
 
@@ -416,11 +416,11 @@ project.json이라는 파일에 다음 콘텐츠를 추가합니다.
 ### <a name="azure-logic-app"></a>Azure 논리 앱
 다음으로 함수가 Service Bus 큐에 푸시하는 이벤트를 선택하고 콘텐츠를 구문 분석한 후 일치하는 조건에 따라 전자 메일을 보내는 Azure 논리 앱을 만들어야 합니다.
 
-**새로 만들기 -> 논리 앱**으로 이동하여 [논리 앱을 만듭니다](../logic-apps/logic-apps-create-a-logic-app.md).
+**새로 만들기 -> 논리 앱**으로 이동하여 [논리 앱을 만듭니다](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 논리 앱을 만들었으면 해당 논리 앱으로 이동하여 **편집**을 선택합니다. 논리 앱 편집기 내에서 **Service Bus 큐**를 선택하고 큐에 연결하기 위한 Service Bus 자격 증명을 입력합니다.
 
-![Azure 논리 앱 서비스 버스](./media/keyvault-keyrotation/Azure_LogicApp_ServiceBus.png)
+![Azure Logic App Service Bus](./media/keyvault-keyrotation/Azure_LogicApp_ServiceBus.png)
 
 다음으로 **조건 추가**를 선택합니다. 조건에서 고급 편집기로 전환한 후 다음 코드를 입력합니다. 이때 APP_ID를 웹앱의 실제 APP_ID로 바꿉니다.
 

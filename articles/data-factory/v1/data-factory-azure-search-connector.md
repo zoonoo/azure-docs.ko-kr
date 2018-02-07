@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 2415850491018f4e27c5ec930b688026cc12b41a
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: d8848f93518392333df16c9c7bf07bd0b2529034
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="push-data-to-an-azure-search-index-by-using-azure-data-factory"></a>Azure 데이터 팩터리를 사용하여 Azure Search 인덱스에 데이터 푸시
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -57,9 +57,9 @@ ms.lasthandoff: 11/02/2017
 
 다음 표에는 Azure Search 연결된 서비스에 지정된 JSON 요소에 대한 설명이 나와 있습니다.
 
-| 속성 | 설명 | 필수 |
+| 자산 | 설명 | 필수 |
 | -------- | ----------- | -------- |
-| type | 형식 속성은 **AzureSearch**로 설정되어야 합니다. | 예 |
+| 형식 | 형식 속성은 **AzureSearch**로 설정되어야 합니다. | 예 |
 | URL | Azure Search 서비스의 URL입니다. | 예 |
 | key | Azure Search 서비스의 관리자 키입니다. | 예 |
 
@@ -67,9 +67,9 @@ ms.lasthandoff: 11/02/2017
 
 데이터 집합 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 집합 만들기](data-factory-create-datasets.md) 문서를 참조하세요. 구조, 가용성 및 JSON 데이터 집합의 정책과 같은 섹션이 모든 데이터 집합 형식에 대해 유사합니다. **typeProperties** 섹션은 데이터 집합의 각 형식마다 다릅니다. **AzureSearchIndex** 데이터 집합 형식의 데이터 집합에 대한 typeProperties 섹션에는 다음 속성이 있습니다.
 
-| 속성 | 설명 | 필수 |
+| 자산 | 설명 | 필수 |
 | -------- | ----------- | -------- |
-| type | 형식 속성은 **AzureSearchIndex**로 설정되어야 합니다.| 예 |
+| 형식 | 형식 속성은 **AzureSearchIndex**로 설정되어야 합니다.| 예 |
 | indexName | Azure Search 인덱스의 이름입니다. Data Factory는 인덱스를 만들지 않습니다. Azure Search에는 인덱스가 있어야 합니다. | 예 |
 
 
@@ -78,7 +78,7 @@ ms.lasthandoff: 11/02/2017
 
 복사 작업의 경우 싱크가 **AzureSearchIndexSink** 형식이면 typeProperties 섹션에서 다음과 같은 속성을 사용할 수 있습니다.
 
-| 속성 | 설명 | 허용되는 값 | 필수 |
+| 자산 | 설명 | 허용되는 값 | 필수 |
 | -------- | ----------- | -------------- | -------- |
 | WriteBehavior | 문서가 인덱스에 이미 있는 경우 병합할지 또는 바꿀지를 지정합니다. [WriteBehavior 속성](#writebehavior-property)을 참조하세요.| 병합(기본값)<br/>업로드| 아니요 |
 | writeBatchSize | 버퍼 크기가 writeBatchSize에 도달한 경우 Azure Search 인덱스에 데이터를 업로드합니다. 자세한 내용은 [WriteBatchSize 속성](#writebatchsize-property)을 참조하세요. | 1~1,000입니다. 기본값은 1,000입니다. | 아니요 |
@@ -101,11 +101,11 @@ Azure Search 서비스는 일괄 처리로 문서 작성을 지원합니다. 일
 
 | Azure Search 데이터 형식 | Azure Search 싱크에서 지원됨 |
 | ---------------------- | ------------------------------ |
-| String | Y |
+| 문자열 | Y |
 | Int32 | Y |
 | Int64 | Y |
 | Double | Y |
-| Boolean | Y |
+| BOOLEAN | Y |
 | DataTimeOffset | Y |
 | 문자열 배열 | N |
 | GeographyPoint | N |

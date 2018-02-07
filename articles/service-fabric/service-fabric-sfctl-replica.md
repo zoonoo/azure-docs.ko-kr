@@ -9,16 +9,16 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: cli
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 09/22/2017
+ms.date: 12/22/2017
 ms.author: ryanwi
-ms.openlocfilehash: bd16dd889cbe0f05d7e60f444c6c5fa2e65f64a4
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: 422c19dfa9a204d98a898f76bc1af92a05c054d0
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="sfctl-replica"></a>sfctl 복제본
 서비스 파티션에 속한 복제본을 관리합니다.
@@ -64,7 +64,7 @@ Service Fabric 노드에서 배포된 복제본의 세부 정보를 가져옵니
 ## <a name="sfctl-replica-health"></a>sfctl 복제본 상태
 Service Fabric 상태 저장 서비스 복제본 또는 상태 비저장 서비스 인스턴스를 가져옵니다.
 
-Service Fabric 복제본의 상태를 가져옵니다. 상태에 따라 복제본에 보고된 상태 이벤트의 컬렉션을 필터링하려면 EventsHealthStateFilter를 사용합니다. .
+Service Fabric 복제본의 상태를 가져옵니다. 상태에 따라 복제본에 보고된 상태 이벤트의 컬렉션을 필터링하려면 EventsHealthStateFilter를 사용합니다. 에서도 확인할 수 있습니다.
 
 ### <a name="arguments"></a>인수
 

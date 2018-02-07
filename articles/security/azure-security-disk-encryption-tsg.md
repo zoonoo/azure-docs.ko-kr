@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: devtiw
-ms.openlocfilehash: 618e5e6d159a8f0d4610d6d652c21e121a93a5e0
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: c252bc6aee79ad009684f9d3e62c42529c024109
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Azure Disk Encryption 문제 해결 가이드
 
@@ -30,7 +30,7 @@ Linux OS(운영 체제) 디스크 암호화에서는 전체 디스크 암호화 
 
 이 오류는 지원되는 재고 갤러리 이미지에서 수정되거나 변경된 대상 VM 환경에서 OS 디스크 암호화를 시도할 때 발생할 수 있습니다. OS 확장을 분리하는 확장의 기능을 방해할 수 있는 지원되는 이미지로부터의 편차 예는 다음과 같습니다.
 - 지원되는 파일 시스템 또는 파티션 구성표와 더 이상 일치하지 않는 사용자 지정 이미지
-- 암호화하기 전에 SAP, MongoDB 또는 Apache Cassandra와 같은 대규모 응용 프로그램이 OS에 설치되고 실행됩니다. 확장은 이러한 응용 프로그램을 적절히 종료할 수 없습니다. 응용 프로그램이 OS 드라이브에 대해 파일 핸들이 열려 있는 경우 드라이브를 분리할 수 없게 되어 오류가 발생합니다.
+- SAP, MongoDB, Apache Cassandra 및 Docker와 같은 대규모 응용 프로그램이 암호화하기 전에 OS에 설치되고 실행되는 경우 지원되지 않습니다.  Azure Disk Encryption은 디스크 암호화에서 OS 드라이브를 준비할 때 필요한 대로 이러한 프로세스를 안전하게 종료할 수 없습니다.  OS 드라이브에 대한 오픈 파일 핸들을 보유하는 활성 프로세스가 있는 경우 OS 드라이브는 탑재될 수 없습니다. 따라서 OS 드라이브를 암호화하는 데 실패합니다. 
 - 암호화가 활성화된 시간에 근접하여 실행하는 사용자 지정 스크립트 또는 암호화 프로세스 중에 다른 변경 작업이 VM에서 수행되고 있는 경우 이 충돌은 Azure Resource Manager 템플릿에서 동시에 실행하도록 여러 확장을 정의하거나 사용자 지정 스크립트 확장 또는 다른 작업을 디스크 암호화와 동시에 실행할 때 발생할 수 있습니다. 이러한 단계를 직렬화하고 격리하면 문제가 해결될 수 있습니다.
 - 암호화를 활성화하기 전에 SELinux(Security Enhanced Linux)가 비활성화되지 않았으므로 분리 단계가 실패합니다. 암호화가 완료되면 SELinux를 다시 활성화할 수 있습니다.
 - OS 디스크는 LVM(논리 볼륨 관리자) 구성표를 사용합니다. 제한된 LVM 데이터 디스크 지원은 사용할 수 있지만, LVM OS 디스크는 사용할 수 없습니다.
@@ -44,7 +44,7 @@ Linux OS(운영 체제) 디스크 암호화에서는 전체 디스크 암호화 
 
 Linux OS 디스크 암호화 시퀀스는 OS 드라이브를 일시적으로 탑재 해제합니다. 그런 다음 암호화된 상태로 다시 탑재하기 전에 전체 OS 디스크의 블록 단위로 암호화를 수행합니다. Windows의 Azure Disk Encryption과 달리 Linux 디스크 암호화는 암호화를 진행하는 동안 VM을 동시에 사용할 수 없습니다. VM의 성능 특성은 암호화를 완료하는 데 필요한 시간에 큰 차이를 만들 수 있습니다. 이러한 특성은 디스크 크기 및 저장소 계정이 표준 또는 프리미엄(SSD) 저장소인지 여부를 포함합니다.
 
-암호화 상태를 확인하기 위해 [Get-AzureRmVmDiskEncryptionStatus](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus) 명령에서 반환된 **ProgressMessage** 필드를 폴링합니다. OS 드라이브가 암호화되는 동안 VM은 서비스 상태가 되고 진행 중인 프로세스의 중단을 방지하기 위해 SSH를 비활성화합니다. **EncryptionInProgress** 메시지는 암호화가 진행 중인 동안 대부분의 시간에 대해 보고합니다. 몇 시간 후에 **VMRestartPending** 메시지는 VM을 다시 시작하라는 프롬프트를 표시합니다. 예:
+암호화 상태를 확인하기 위해 [Get-AzureRmVmDiskEncryptionStatus](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus) 명령에서 반환된 **ProgressMessage** 필드를 폴링합니다. OS 드라이브가 암호화되는 동안 VM은 서비스 상태가 되고 진행 중인 프로세스의 중단을 방지하기 위해 SSH를 비활성화합니다. **EncryptionInProgress** 메시지는 암호화가 진행 중인 동안 대부분의 시간에 대해 보고합니다. 몇 시간 후에 **VMRestartPending** 메시지는 VM을 다시 시작하라는 프롬프트를 표시합니다. 예: 
 
 
 ```
@@ -105,7 +105,7 @@ Windows Server 2016 Server Core에서 bdehdcfg 구성 요소는 기본적으로 
 
    4. DiskPart를 사용하여 볼륨을 확인한 다음 계속합니다.  
 
-예:
+예: 
 
 ```
 DISKPART> list vol
@@ -116,10 +116,14 @@ DISKPART> list vol
   Volume 1                      NTFS   Partition    550 MB  Healthy    System
   Volume 2     D   Temporary S  NTFS   Partition     13 GB  Healthy    Pagefile
 ```
+## <a name="troubleshooting-encryption-status"></a>암호화 상태 문제 해결
+
+예상된 암호화 상태가 포털에서 보고되는 것과 일치하지 않는 경우 [암호화 상태가 Azure 관리 포털에 올바르게 표시되지 않습니다.](https://support.microsoft.com/en-us/help/4058377/encryption-status-is-displayed-incorrectly-on-the-azure-management-por) 지원 문서를 참조하세요.
+
 ## <a name="next-steps"></a>다음 단계
 
 이 문서에서는 일반적인 Azure Disk Encryption 문제와 해당 문제 해결 방법에 대해 자세히 알아보았습니다. 이 서비스 및 기능에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 - [Azure Security Center에서 디스크 암호화 적용](https://docs.microsoft.com/azure/security-center/security-center-apply-disk-encryption)
-- [Azure 가상 컴퓨터 암호화](https://docs.microsoft.com/azure/security-center/security-center-disk-encryption)
+- [Azure 가상 머신 암호화](https://docs.microsoft.com/azure/security-center/security-center-disk-encryption)
 - [휴지 상태의 Azure 데이터 암호화](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest)

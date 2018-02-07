@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 096beac3a1acae312ccddc6cbd88378370feed39
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4c4cf11b26402747ef58e4fa3fbbe2154876dfae
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
-# <a name="help-protect-a-web-api-by-using-bearer-tokens-from-azure-ad"></a>Azure AD에서 전달자 토큰을 사용하여 Web API 보호
+# <a name="azure-ad-net-web-api-getting-started"></a>Azure AD .NET Web API 시작
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
 보호된 리소스에 액세스할 수 있는 응용 프로그램을 빌드하는 경우 허가되지 않은 액세스로부터 해당 리소스를 보호하는 방법을 알고 있어야 합니다.
@@ -43,7 +43,7 @@ To Do List API를 빌드하려면 다음을 먼저 수행해야 합니다.
 ## <a name="step-1-register-an-application-with-azure-ad"></a>1단계: Azure AD에 응용 프로그램 등록
 응용 프로그램 보안을 유지하려면 먼저 테넌트에서 응용 프로그램을 만들고 몇 가지 중요 정보로 Azure AD를 제공해야 합니다.
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 2. 위쪽 막대에서 계정을 클릭합니다. **디렉터리** 목록에서 응용 프로그램을 등록할 Azure AD 테넌트를 선택합니다.
 
@@ -73,7 +73,7 @@ To Do List API를 빌드하려면 다음을 먼저 수행해야 합니다.
 
 3. 클래스 선언을 `public partial class Startup`으로 변경합니다. 다른 파일에서 이 클래스의 일부를 이미 구현했습니다. `Configuration(…)` 메서드에서 `ConfgureAuth(…)`를 호출하여 웹앱에 대한 인증을 설정합니다.
 
-    ```C#
+    ```csharp
     public partial class Startup
     {
         public void Configuration(IAppBuilder app)
@@ -85,7 +85,7 @@ To Do List API를 빌드하려면 다음을 먼저 수행해야 합니다.
 
 4. `App_Start\Startup.Auth.cs` 파일을 열고 `ConfigureAuth(…)` 메서드를 구현합니다. `WindowsAzureActiveDirectoryBearerAuthenticationOptions`에 제공하는 매개 변수는 앱이 Azure AD와 통신하기 위한 좌표로 사용됩니다.
 
-    ```C#
+    ```csharp
     public void ConfigureAuth(IAppBuilder app)
     {
         app.UseWindowsAzureActiveDirectoryBearerAuthentication(
@@ -99,7 +99,7 @@ To Do List API를 빌드하려면 다음을 먼저 수행해야 합니다.
 
 5. 이제 `[Authorize]` 특성을 사용하여 JSON Web Token(JWT) 전달자 인증으로 컨트롤러 및 작업을 보호할 수 있습니다. authorize 태그를 사용하여 `Controllers\TodoListController.cs` 클래스를 데코레이팅합니다. 이렇게 하면 사용자는 해당 페이지에 액세스하기 전에 강제로 로그인됩니다.
 
-    ```C#
+    ```csharp
     [Authorize]
     public class TodoListController : ApiController
     {
@@ -109,7 +109,7 @@ To Do List API를 빌드하려면 다음을 먼저 수행해야 합니다.
 
 6. 웹 API에 대한 일반적인 요구 사항은 토큰에 있는 "범위"를 확인하는 것입니다. 이렇게 하여 사용자가 To Do List Service에 액세스하는 데 필요한 권한에 동의했음을 확인합니다.
 
-    ```C#
+    ```csharp
     public IEnumerable<TodoItem> Get()
     {
         // user_impersonation is the default permission exposed by applications in Azure AD

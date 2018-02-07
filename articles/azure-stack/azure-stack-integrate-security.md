@@ -2,17 +2,18 @@
 title: "Azure 스택 데이터 센터 통합-보안"
 description: "Azure 스택 보안 데이터 센터의 보안을 통합 하는 방법에 알아봅니다"
 services: azure-stack
-author: troettinger
+author: jeffgilb
 ms.service: azure-stack
 ms.topic: article
-ms.date: 10/17/2017
-ms.author: victorh
+ms.date: 01/31/2018
+ms.author: jeffgilb
+ms.reviewer: wfayed
 keywords: 
-ms.openlocfilehash: eb7c651362838d44d6558e080e6130b4a8041d1e
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: 0ce7585552f39f59f83df88320e52ea257bb74dd
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-stack-datacenter-integration---security"></a>Azure 스택 데이터 센터 통합-보안
 
@@ -52,14 +53,14 @@ Azure 저장소 탐색기 라는 도구를 사용 하 여 Azure 스택에 의해
 
    ![저장소에 연결](media/azure-stack-integrate-security/connect-storage.png)
 
-8. **다음**을 누릅니다.
+8. **다음**을 클릭합니다.
 9. 에 **외부 저장소 연결** 페이지:
 
    a. 계정 이름을 입력 **frphealthaccount**합니다.
 
-   b. 저장소 계정 액세스 키를 붙여 넣습니다.
+   나. 저장소 계정 액세스 키를 붙여 넣습니다.
 
-   c. 아래 **저장소 끝점 도메인**선택, **다른**, 저장소 끝점을 지정 하 고 **[Region]. [ DomainName]**합니다.
+   다. 아래 **저장소 끝점 도메인**선택, **다른**, 저장소 끝점을 지정 하 고 **[Region]. [ DomainName]**합니다.
 
    d. 선택 된 **HTTP 사용** 확인란 합니다.
 
@@ -93,4 +94,4 @@ Syslog 대상 주소는 배포의 경우 수집 되는 선택적 매개 변수 �
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure 데이터 센터 통합 스택-끝점 게시](azure-stack-integrate-endpoints.md)
+[서비스 정책](azure-stack-servicing-policy.md)

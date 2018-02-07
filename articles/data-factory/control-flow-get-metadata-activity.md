@@ -1,6 +1,6 @@
 ---
 title: "Azure Data Factory에서 메타데이터 가져오기 작업 | Microsoft Docs"
-description: "SQL Server 저장 프로시저 작업을 사용하여 데이터 팩터리 파이프라인으로 Azure SQL 데이터베이스 또는 Azure SQL 데이터 웨어하우스에서 저장 프로시저를 호출하는 방법을 알아봅니다."
+description: "SQL Server 저장 프로시저 작업을 사용하여 데이터 팩터리 파이프라인으로 Azure SQL Database 또는 Azure SQL Data Warehouse에서 저장 프로시저를 호출하는 방법을 알아봅니다."
 services: data-factory
 documentationcenter: 
 author: sharonlo101
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/31/2017
+ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 99182b2ed91f6d60f499be0078077bf52fe8b366
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 20f3d4bb876a46b67385dd4435296e149641149e
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Azure Data Factory에서 메타데이터 가져오기 작업
 GetMetadata 작업은 Azure Data Factory에 있는 모든 데이터의 메타데이터를 검색하는 데 사용할 수 있습니다. 이 작업은 Data Factory 버전 2에만 지원됩니다. 다음과 같은 시나리오에서 사용할 수 있습니다.
@@ -94,10 +94,10 @@ GetMetadata 작업에서는 데이터 집합을 필수 입력으로 사용하고
 ## <a name="type-properties"></a>형식 속성
 현재 GetMetadata 작업은 Azure Sorage 데이터 집합에서 다음과 같은 유형의 메타데이터 정보를 가져올 수 있습니다.
 
-속성 | 설명 | 허용되는 값 | 필수
+자산 | 설명 | 허용되는 값 | 필수
 -------- | ----------- | -------------- | --------
 fieldList | 필요한 메타데이터 정보의 유형을 나열합니다.  | <ul><li>size</li><li>structure</li><li>lastModified</li></ul> |    아니요<br/>비어 있는 경우 작업은 지원되는 3개의 메타데이터 정보를 모두 반환합니다. 
-데이터 집합 | GetMetadata 작업 시 메타데이터 작업을 검색할 참조 데이터 집합입니다. <br/><br/>현재 지원되는 데이터 집합 유형은 Azure Blob입니다. 다음은 두 개의 하위 속성입니다. <ul><li><b>referenceName</b>: 기존 Azure Blob 데이터 집합에 대한 참조입니다.</li><li><b>type</b>: 데이터 집합이 참조되므로 "DatasetReference" 형식입니다.</li></ul> |    <ul><li>문자열</li><li>DatasetReference</li></ul> | 예
+dataset | GetMetadata 작업 시 메타데이터 작업을 검색할 참조 데이터 집합입니다. <br/><br/>현재 지원되는 데이터 집합 유형은 Azure Blob입니다. 다음은 두 개의 하위 속성입니다. <ul><li><b>referenceName</b>: 기존 Azure Blob 데이터 집합에 대한 참조입니다.</li><li><b>type</b>: 데이터 집합이 참조되므로 "DatasetReference" 형식입니다.</li></ul> |    <ul><li>문자열</li><li>DatasetReference</li></ul> | 예
 
 ## <a name="next-steps"></a>다음 단계
 Data Factory에서 지원하는 다른 제어 흐름 작업을 참조하세요. 

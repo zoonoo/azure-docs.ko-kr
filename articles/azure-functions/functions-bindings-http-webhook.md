@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: mahender
-ms.openlocfilehash: 6b3da498a613d63515ecb624b87496cf536c0ebf
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: fe0958b8a548e72df17f257e5700c28d3ebae79c
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Azure Functions HTTP 및 WebHook 바인딩
 
@@ -41,14 +41,14 @@ HTTP 트리거를 사용하면 HTTP 요청으로 함수를 호출할 수 있습�
 
 언어 관련 예제를 참조하세요.
 
-* [미리 컴파일된 C#](#trigger---c-example)
-* [C# 스크립트](#trigger---c-script-example)
+* [C#](#trigger---c-example)
+* [C# 스크립트(.csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
 * [JavaScript](#trigger---javascript-example)
 
 ### <a name="trigger---c-example"></a>트리거 - C# 예제
 
-다음 예제는 쿼리 문자열이나 HTTP 요청의 본문에서 `name` 매개 변수를 찾는 [미리 컴파일된 C# 함수](functions-dotnet-class-library.md)를 보여줍니다.
+다음 예제는 쿼리 문자열이나 HTTP 요청의 본문에서 `name` 매개 변수를 찾는 [C# 함수](functions-dotnet-class-library.md)를 보여 줍니다.
 
 ```cs
 [FunctionName("HttpTriggerCSharp")]
@@ -235,14 +235,14 @@ module.exports = function(context, req) {
 
 언어 관련 예제를 참조하세요.
 
-* [미리 컴파일된 C#](#webhook---c-example)
-* [C# 스크립트](#webhook---c-script-example)
+* [C#](#webhook---c-example)
+* [C# 스크립트(.csx)](#webhook---c-script-example)
 * [F#](#webhook---f-example)
 * [JavaScript](#webhook---javascript-example)
 
 ### <a name="webhook---c-example"></a>웹후크 - C# 예제
 
-다음 예제는 일반 JSON 요청에 대한 응답으로 HTTP 200을 보내는 [미리 컴파일된 C# 함수](functions-dotnet-class-library.md)를 보여줍니다.
+다음 예제는 일반 JSON 요청에 대한 응답으로 HTTP 200을 보내는 [C# 함수](functions-dotnet-class-library.md)를 보여 줍니다.
 
 ```cs
 [FunctionName("HttpTriggerCSharp")]
@@ -364,7 +364,7 @@ module.exports = function (context, data) {
 
 ## <a name="trigger---attributes"></a>트리거 - 특성
 
-[미리 컴파일된 C#](functions-dotnet-class-library.md) 함수의 경우 [HttpTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions.Http/HttpTriggerAttribute.cs) 특성을 사용하며 [Microsoft.Azure.WebJobs.Extensions.Http](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http) NuGet 패키지에 정의됩니다.
+[C# 클래스 라이브러리](functions-dotnet-class-library.md)에서는 [Microsoft.Azure.WebJobs.Extensions.Http](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http) NuGet 패키지에 정의된 [HttpTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions.Http/HttpTriggerAttribute.cs) 특성을 사용합니다.
 
 특성 생성자 매개 변수에 권한 부여 수준 및 허용되는 HTTP 메서드를 설정할 수 있으며 웹후크 유형 및 경로 템플릿에 대한 속성이 있습니다. 이러한 설정에 대한 자세한 내용은 [트리거 - 구성](#trigger---configuration)을 참조하세요. 다음은 메서드 서명의 `HttpTrigger` 특성입니다.
 
@@ -377,18 +377,19 @@ public static HttpResponseMessage Run(
 }
  ```
 
-전체 예제는 [트리거 - 미리 컴파일된 C# 예제](#trigger---c-example)를 참조하세요.
+전체 예제는 [트리거 - C# 예제](#trigger---c-example)를 참조하세요.
 
 ## <a name="trigger---configuration"></a>트리거 - 구성
 
 다음 표에서는 *function.json* 파일 및 `HttpTrigger` 특성에 설정된 바인딩 구성 속성을 설명합니다.
+
 
 |function.json 속성 | 특성 속성 |설명|
 |---------|---------|----------------------|
 | **type** | 해당 없음| 필수 - `httpTrigger`으로 설정해야 합니다. |
 | **direction** | 해당 없음| 필수 - `in`으로 설정해야 합니다. |
 | **name** | 해당 없음| 필수 - 요청 또는 요청 본문의 함수 코드에 사용되는 변수 이름입니다. |
-| **authLevel** |  **AuthLevel** |키가 있는 경우 함수를 호출하기 위해 요청에 포함되어야 하는 키를 결정합니다. 권한 부여 수준은 다음 값 중 하나일 수 있습니다. <ul><li><code>anonymous</code>&mdash;: API 키가 필요하지 않습니다.</li><li><code>function</code>&mdash;: 함수 전용 API 키가 필요합니다. authLevel 속성 값을 제공하지 않을 경우 기본값입니다.</li><li><code>admin</code>&mdash;: 마스터 키가 필요합니다.</li></ul> 자세한 내용은 [권한 부여 키](#authorization-keys)에 대한 섹션을 참조하세요. |
+| <a name="http-auth"></a>**authLevel** |  **AuthLevel** |키가 있는 경우 함수를 호출하기 위해 요청에 포함되어야 하는 키를 결정합니다. 권한 부여 수준은 다음 값 중 하나일 수 있습니다. <ul><li><code>anonymous</code>&mdash;: API 키가 필요하지 않습니다.</li><li><code>function</code>&mdash;: 함수 전용 API 키가 필요합니다. authLevel 속성 값을 제공하지 않을 경우 기본값입니다.</li><li><code>admin</code>&mdash;: 마스터 키가 필요합니다.</li></ul> 자세한 내용은 [권한 부여 키](#authorization-keys)에 대한 섹션을 참조하세요. |
 | **methods** |**메서드** | 함수에서 응답할 HTTP 메서드의 배열입니다. 이 속성을 지정하지 않으면 함수에서 모든 HTTP 메서드에 응답합니다. [HTTP 엔드포인트 사용자 지정](#trigger---customize-the-http-endpoint)을 참조하세요. |
 | **route** | **Route** | 경로 템플릿을 정의하여 함수에서 응답할 요청 URL을 제어합니다. 값을 제공하지 않을 경우 기본값은 `<functionname>`입니다. 자세한 내용은 [HTTP 엔드포인트 사용자 지정](#customize-the-http-endpoint)을 참조하세요. |
 | **webHookType** | **WebHookType** |HTTP 트리거가 지정된 공급자의 [웹후크](https://en.wikipedia.org/wiki/Webhook) 수신기(receiver)로 작동하도록 구성합니다. 이 속성을 설정하면 `methods` 속성을 설정하지 마십시오. 웹후크 형식은 다음 값 중 하나일 수 있습니다.<ul><li><code>genericJson</code>&mdash;특정 공급자를 위한 논리가 없는 범용 webhook 끝점입니다. 이 설정은 HTTP POST 및 `application/json` 콘텐츠 형식을 사용하는 요청으로만 제한됩니다.</li><li><code>github</code>&mdash;이 함수는 [GitHub 웹후크](https://developer.github.com/webhooks/)에 응답합니다. GitHub 웹후크에는 _authLevel_ 속성을 사용하지 마십시오. 자세한 내용은 이 문서의 뒷부분에서 GitHub 웹후크 섹션을 참조하세요.</li><li><code>slack</code>&mdash;이 함수는 [Slack 웹후크](https://api.slack.com/outgoing-webhooks)에 응답합니다. Slack 웹후크에는 _authLevel_ 속성을 사용하지 마십시오. 자세한 내용은 이 문서의 뒷부분에서 Slack 웹후크 섹션을 참조하세요.</li></ul>|
@@ -527,6 +528,10 @@ HTTP 트리거를 통해 키를 사용하여 보안을 강화할 수 있습니�
 - **쿼리 문자열**: 공급자에서 `clientid` 쿼리 문자열 매개 변수에 키 이름을 전달합니다(예: `https://<yourapp>.azurewebsites.net/api/<funcname>?clientid=<keyname>`).
 - **요청 헤더**: 공급자에서 `x-functions-clientid` 헤더에 키 이름을 전달합니다.
 
+## <a name="trigger---limits"></a>트리거 - 제한
+
+HTTP 요청 길이는 100K(102,400) 바이트로 제한되고 URL 길이는 4k(4,096) 바이트로 제한됩니다. 이러한 제한은 런타임의 [Web.config 파일](https://github.com/Azure/azure-webjobs-sdk-script/blob/v1.x/src/WebJobs.Script.WebHost/Web.config)의 `httpRuntime` 요소에 의해 지정됩니다.
+
 ## <a name="trigger---hostjson-properties"></a>트리거 - host.json 속성
 
 [host.json](functions-host-json.md) 파일에는 HTTP 트리거 동작을 제어하는 설정이 포함됩니다.
@@ -539,7 +544,7 @@ HTTP 요청 발신기(sender)에 응답하려면 HTTP 출력 바인딩을 사용
 
 ## <a name="output---configuration"></a>출력 - 구성
 
-미리 컴파일된 C#의 경우 출력별 특정 바인딩 구성 속성이 없습니다. HTTP 응답을 보내려면 함수가 `HttpResponseMessage` 또는 `Task<HttpResponseMessage>`를 반환하도록 합니다.
+C# 클래스 라이브러리의 경우 출력 관련 바인딩 구성 속성이 없습니다. HTTP 응답을 보내려면 함수가 `HttpResponseMessage` 또는 `Task<HttpResponseMessage>`를 반환하도록 합니다.
 
 다른 언어의 경우 HTTP 출력 바인딩은 다음 예제와 같이 function.json의 `bindings` 배열에 있는 JSON 개체로 정의됩니다.
 
@@ -553,7 +558,7 @@ HTTP 요청 발신기(sender)에 응답하려면 HTTP 출력 바인딩을 사용
 
 다음 표에서는 *function.json* 파일에 설정된 바인딩 구성 속성을 설명합니다.
 
-|속성  |설명  |
+|자산  |설명  |
 |---------|---------|
 | **type** |`http`로 설정해야 합니다. |
 | **direction** | `out`로 설정해야 합니다. |

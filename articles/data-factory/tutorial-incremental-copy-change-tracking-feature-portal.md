@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/12/2018
 ms.author: jingwang
-ms.openlocfilehash: 22a3972d7b2e9cf732f5dc75dd2b53b83570ee66
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 93df74da6e9db1bd03885179cd3917205ab3b4ee
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>변경 내용 추적 정보를 사용하여 Azure SQL Database에서 Azure Blob Storage로 데이터 증분 로드 
 이 자습서에서는 원본 Azure SQL 데이터베이스의 **변경 내용 추적** 정보를 기반으로 Azure Blob 저장소에 델타 데이터를 로드하는 파이프라인이 있는 Azure 데이터 팩터리를 만듭니다.  
@@ -411,7 +411,7 @@ SET [Age] = '10', [name]='update' where [PersonID] = 1
     1. **저장 프로시저 이름**에 대해 **Update_ChangeTracking_Version**을 입력합니다.  
     2. **저장 프로시저 매개 변수** 섹션에서 **+ 새로 만들기** 단추를 사용하여 다음 두 매개 변수를 추가합니다.
 
-        | Name | type | 값 | 
+        | Name | 형식 | 값 | 
         | ---- | ---- | ----- | 
         | CurrentTrackingVersion | INT64 | @{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion} | 
         | TableName | 문자열 | @{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.TableName} | 
@@ -467,7 +467,7 @@ PersonID Name    Age    SYS_CHANGE_VERSION    SYS_CHANGE_OPERATION
 Azure에서 Spark 클러스터를 사용하여 데이터를 변환하는 방법을 알아보려면 다음 자습서로 진행하세요.
 
 > [!div class="nextstepaction"]
->[클라우드에서 Spark 클러스터를 사용하여 데이터 변환](tutorial-transform-data-spark-powershell.md)
+>[클라우드에서 Spark 클러스터를 사용하여 데이터 변환](tutorial-transform-data-spark-portal.md)
 
 
 

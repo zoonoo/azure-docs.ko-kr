@@ -3,7 +3,7 @@ title: "PowerShell 커넥터 | Microsoft Docs"
 description: "이 문서에서는 Microsoft의 Windows PowerShell 커넥터를 구성하는 방법을 설명합니다."
 services: active-directory
 documentationcenter: 
-author: AndKjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 6dba8e34-a874-4ff0-90bc-bd2b0a4199b5
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 27ca89a2032c82a8be909349b38a64fc6aa9579e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2caf8dd8a657f116df0342893763829676602cd6
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="windows-powershell-connector-technical-reference"></a>WIndows PowerShell 커넥터 기술 참조
 이 문서에서는 Windows PowerShell 커넥터를 설명합니다. 이 문서는 다음 제품에 적용됩니다.

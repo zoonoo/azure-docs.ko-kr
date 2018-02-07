@@ -17,22 +17,22 @@ ms.date: 12/13/2017
 ms.workload: Active
 ms.author: carlrab
 ms.reviewer: carlrab
-ms.openlocfilehash: fef35e8c100bb6a9e96f16b81fe44e9ae9e504d0
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 7e487ac4b11e4b323cfaed5492c7603776cc98bb
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>Azure SQL Database 서비스란? 
 
 SQL Database는 관계형 데이터, 공간, JSON 및 XML과 같은 구조를 지원하는 Microsoft Azure의 범용 관계형 데이터베이스 서비스입니다. [동적으로 확장 가능한 성능](sql-database-service-tiers.md)을 제공하고 고도의 분석 및 보고를 위한 [columnstore 인덱스](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) 및 고도의 트랜잭션 처리를 위한 [메모리 내 OLTP](sql-database-in-memory.md)와 같은 옵션을 제공합니다. Microsoft에서는 SQL 코드 베이스를 모두 원활하게 패치하고 업데이트하며 기본 인프라의 모든 관리를 추상화합니다. 
 
-SQL Database는 [Microsoft SQL Server 데이터베이스 엔진](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation)을 사용하여 코드 베이스를 공유합니다. Microsoft의 클라우드 우선 전략을 사용하여 SQL Server의 최신 기능을 SQL Database에 먼저 릴리스한 다음 SQL Server 자체에 릴리스합니다. 이 방법은 패치 기능 또는 업그레이드에 대한 오버헤드 없이 수백만 개의 데이터베이스에 대해 테스트된 이러한 새로운 기능을 사용하여 최신 SQL Server 기능을 제공합니다. 별도로 공지된 새로운 기능에 대한 내용은 다음을 참조하세요.
+SQL Database는 해당 코드 베이스를 [Microsoft SQL Server 데이터베이스 엔진](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation)과 공유합니다. Microsoft의 클라우드 우선 전략을 사용하여 SQL Server의 최신 기능을 SQL Database에 먼저 릴리스한 다음 SQL Server 자체에 릴리스합니다. 이 방법은 패치 기능 또는 업그레이드에 대한 오버헤드 없이 수백만 개의 데이터베이스에 대해 테스트된 이러한 새로운 기능을 사용하여 최신 SQL Server 기능을 제공합니다. 별도로 공지된 새로운 기능에 대한 내용은 다음을 참조하세요.
 
 - **[SQL Database의 Azure 로드맵](https://azure.microsoft.com/roadmap/?category=databases)**: 새로운 기능과 향후 제공될 기능을 확인할 수 있습니다. 
 - **[Azure SQL Database 블로그](https://azure.microsoft.com/blog/topics/database)**: SQL Database 뉴스 및 기능에 대한 SQL Server 제품 팀 구성원 블로그를 확인할 수 있습니다. 
 
-SQL Database는 가동 중지 시간 없이 기본 제공 지능형 최적화, 전역 확장성과 가용성 및 고급 보안 옵션을 포함하여 동적 확장성을 제공하는 여러 서비스 수준에서 별도로 관리하지 않고도 예측 가능한 성능을 제공합니다. 이러한 기능을 사용하면 가상 컴퓨터와 인프라를 관리하는 데 귀중한 시간과 리소스를 할당하는 대신 빠른 앱 개발에 집중하고 시장 출시 시간을 단축할 수 있습니다. SQL Database는 현재 전 세계에서 38개의 데이터 센터에 제공되며, 주변의 데이터 센터에서 데이터베이스를 실행할 수 있도록 정기적으로 더 많은 데이터 센터가 온라인될 예정입니다.
+SQL Database는 가동 중지 시간 없이 기본 제공 지능형 최적화, 전역 확장성과 가용성 및 고급 보안 옵션을 포함하여 동적 확장성을 제공하는 여러 서비스 수준에서 별도로 관리하지 않고도 예측 가능한 성능을 제공합니다. 이러한 기능을 사용하면 가상 머신과 인프라를 관리하는 데 귀중한 시간과 리소스를 할당하는 대신 빠른 앱 개발에 집중하고 시장 출시 시간을 단축할 수 있습니다. SQL Database는 현재 전 세계에서 38개의 데이터 센터에 제공되며, 주변의 데이터 센터에서 데이터베이스를 실행할 수 있도록 정기적으로 더 많은 데이터 센터가 온라인될 예정입니다.
 
 > [!NOTE]
 > Azure의 플랫폼 보안에 대한 자세한 내용을 보려면 [Azure 보안 센터](https://azure.microsoft.com/support/trust-center/security/)를 참조하세요.
@@ -66,7 +66,7 @@ SQL Database는 경량부터 중량까지의 데이터베이스 워크로드를 
 
 또한 SQL Database는 쉬운 모니터링을 위해 [메트릭 및 진단 로그를 내보낼](sql-database-metrics-diag-logging.md) 수 있습니다. 리소스 사용량, 작업자와 세션 및 연결을 이러한 Azure 리소스 중 하나에 저장하도록 SQL Database를 구성할 수 있습니다.
 
-- **Azure Storage**: 작은 가격으로 방대한 양의 원격 분석을 보관하는 경우
+- **Azure Storage**: 저렴한 가격으로 방대한 양의 원격 분석을 보관하는 경우
 - **Azure Event Hub**: 사용자 지정 모니터링 솔루션 또는 핫 파이프라인과 SQL Database 원격 분석을 통합하는 경우
 - **Azure Log Analytics**: 보고, 경고 및 완화 기능을 사용하는 기본 제공 모니터링 솔루션의 경우
 
@@ -156,7 +156,7 @@ SQL Database는 MacOS, Linux 및 Windows에서 Python, Java, Node.js, PHP, Ruby 
 - [DBA 스택 교환(영문)](https://dba.stackexchange.com/questions/tagged/sql-server): 데이터베이스 관리 관련 질문
 - [Stack Overflow(영문)](http://stackoverflow.com/questions/tagged/sql-server): 개발 관련 질문
 - [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?category=sqlserver): 기술 관련 질문
-- [Microsoft Connect](https://connect.microsoft.com/SQLServer/Feedback): 버그 및 요청 기능 보고
+- [피드백](http://aka.ms/sqlfeedback): 버그 및 요청 기능 보고
 - [Reddit](https://www.reddit.com/r/SQLServer/): SQL Server 관련 토론
 
 ## <a name="next-steps"></a>다음 단계

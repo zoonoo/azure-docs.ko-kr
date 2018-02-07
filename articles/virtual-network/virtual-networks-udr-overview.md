@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 8a80220879db9f0030b9f1a8494b1cc24105ef17
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 85be79261d5fc214ab4b46fa5d7b4d0a5b13db27
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="virtual-network-traffic-routing"></a>가상 네트워크 트래픽 라우팅
 
@@ -82,14 +82,14 @@ Azure에서 사용자 지정 경로 또는 사용자 정의 경로를 만들어 
 
 사용자 정의 경로를 만들 때 지정할 수 있는 다음 홉 유형은 다음과 같습니다.
 
-- **가상 어플라이언스**: 일반적으로 방화벽과 같은 네트워크 응용 프로그램을 실행하는 가상 컴퓨터입니다. Azure 가상 네트워크에 배포할 수 있는 미리 구성된 다양한 네트워크 가상 어플라이언스에 대한 자세한 내용은 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances)를 참조하세요. **가상 어플라이언스** 홉 유형으로 경로를 만들 때 다음 홉 IP 주소도 지정합니다. IP 주소는 다음과 같습니다.
+- **가상 어플라이언스**: 일반적으로 방화벽과 같은 네트워크 응용 프로그램을 실행하는 가상 머신입니다. Azure 가상 네트워크에 배포할 수 있는 미리 구성된 다양한 네트워크 가상 어플라이언스에 대한 자세한 내용은 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances)를 참조하세요. **가상 어플라이언스** 홉 유형으로 경로를 만들 때 다음 홉 IP 주소도 지정합니다. IP 주소는 다음과 같습니다.
 
-    - 가상 컴퓨터에 연결된 네트워크 인터페이스의 [개인 IP 주소](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) - 네트워크 트래픽을 자체 주소가 아닌 다른 주소로 전달하는 가상 컴퓨터에 연결된 모든 네트워크 인터페이스에는 Azure *IP 전달 사용* 옵션이 설정되어 있어야 합니다. 이 설정은 Azure에서 네트워크 인터페이스에 대한 원본과 대상을 확인하지 않도록 합니다. [네트워크 인터페이스에 대한 IP 전달 사용을 설정하는 방법](virtual-network-network-interface.md#enable-or-disable-ip-forwarding)에 대해 자세히 알아보세요. *IP 전달 사용*이 Azure 설정이지만 Azure 네트워크 인터페이스에 할당된 개인 IP 주소 간에 트래픽을 전달하도록 어플라이언스에 대한 가상 컴퓨터의 운영 체제 내에서 IP 전달을 사용하도록 설정해야 할 수도 있습니다. 어플라이언스가 트래픽을 공용 IP에 라우팅해야 하는 경우 트래픽 프록시 또는 네트워크 주소 중 하나를 사용하여 원본의 개인 IP 주소에 대한 개인 IP 주소를 고유한 개인 IP 주소로 변환해야 합니다. 그러면 인터넷에 트래픽을 전송하기 전에 Azure에서 네트워크 주소를 개인 IP 주소로 변환합니다. 가상 컴퓨터 내에서 필요한 설정을 확인하려면 운영 체제 또는 네트워크 응용 프로그램의 설명서를 참조하세요. Azure에서 아웃바운드 연결을 이해하려면 [아웃바운드 연결 이해](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
+    - 가상 컴퓨터에 연결된 네트워크 인터페이스의 [개인 IP 주소](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) - 네트워크 트래픽을 자체 주소가 아닌 다른 주소로 전달하는 가상 머신에 연결된 모든 네트워크 인터페이스에는 Azure *IP 전달 사용* 옵션이 설정되어 있어야 합니다. 이 설정은 Azure에서 네트워크 인터페이스에 대한 원본과 대상을 확인하지 않도록 합니다. [네트워크 인터페이스에 대한 IP 전달 사용을 설정하는 방법](virtual-network-network-interface.md#enable-or-disable-ip-forwarding)에 대해 자세히 알아보세요. *IP 전달 사용*이 Azure 설정이지만 Azure 네트워크 인터페이스에 할당된 개인 IP 주소 간에 트래픽을 전달하도록 어플라이언스에 대한 가상 머신의 운영 체제 내에서 IP 전달을 사용하도록 설정해야 할 수도 있습니다. 어플라이언스가 트래픽을 공용 IP에 라우팅해야 하는 경우 트래픽 프록시 또는 네트워크 주소 중 하나를 사용하여 원본의 개인 IP 주소에 대한 개인 IP 주소를 고유한 개인 IP 주소로 변환해야 합니다. 그러면 인터넷에 트래픽을 전송하기 전에 Azure에서 네트워크 주소를 개인 IP 주소로 변환합니다. 가상 머신 내에서 필요한 설정을 확인하려면 운영 체제 또는 네트워크 응용 프로그램의 설명서를 참조하세요. Azure에서 아웃바운드 연결을 이해하려면 [아웃바운드 연결 이해](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
 
     > [!NOTE]
     > 가상 어플라이언스를 통해 라우팅되는 리소스가 배포된 것과 다른 서브넷에 가상 어플라이언스를 배포합니다. 가상 어플라이언스를 동일한 서브넷에 배포한 다음 가상 어플라이언스를 통해 트래픽을 라우팅하는 서브넷에 경로 테이블을 적용하면 트래픽이 서브넷에서 나가지 않는 라우팅 루프가 발생할 수 있습니다.
 
-    - Azure [내부 부하 분산 장치](../load-balancer/load-balancer-get-started-ilb-arm-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)의 사설 IP 주소 - 부하 분산 장치는 종종 [네트워크 가상 어플라이언스에 대한 고가용성 전략](/azure/architecture/reference-architectures/dmz/nva-ha.md?toc=%2fazure%2fvirtual-network%2ftoc.json)의 일부로 사용됩니다.
+    - Azure [내부 부하 분산 장치](../load-balancer/load-balancer-get-started-ilb-arm-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)의 사설 IP 주소 - 부하 분산 장치는 종종 [네트워크 가상 어플라이언스에 대한 고가용성 전략](/azure/architecture/reference-architectures/dmz/nva-ha?toc=%2fazure%2fvirtual-network%2ftoc.json)의 일부로 사용됩니다.
 
     어플라이언스에서 트래픽을 검사하고 해당 트래픽을 전달하거나 삭제할지 여부를 결정할 수 있도록 0.0.0.0/0 주소 접두사 및 가상 어플라이언스의 다음 홉 유형이 포함된 경로를 정의합니다. 0.0.0.0/0 주소 접두사가 포함된 사용자 정의 경로를 만들려면 먼저 [0.0.0.0/0 주소 접두사](#default-route)를 참조하세요.
 
@@ -200,7 +200,7 @@ BGP를 사용하여 Azure와 경로를 교환하면 보급된 각 접두사에 �
 
 그림의 *Subnet1*에 대한 경로 테이블에는 다음 경로가 포함됩니다.
 
-|ID  |원본 |state  |주소 접두사    |다음 홉 유형          |다음 홉 IP 주소|사용자 정의 경로 이름| 
+|ID  |원본 |시스템 상태  |주소 접두사    |다음 홉 유형          |다음 홉 IP 주소|사용자 정의 경로 이름| 
 |----|-------|-------|------              |-------                |--------           |--------      |
 |1   |기본값|올바르지 않음|10.0.0.0/16         |가상 네트워크        |                   |              |
 |2   |사용자   |Active |10.0.0.0/16         |가상 어플라이언스      |10.0.100.4         |Within-VNet1  |
@@ -218,7 +218,7 @@ BGP를 사용하여 Azure와 경로를 교환하면 보급된 각 접두사에 �
 각 경로 ID에 대한 설명은 다음과 같습니다.
 
 1. 10.0.0.0/16이 가상 네트워크에 대한 주소 공간에 정의된 유일한 주소 범위이므로 Azure에서 *Virtual-network-1* 내의 모든 서브넷에 대해 이 경로를 자동으로 추가했습니다. ID2 경로의 사용자 정의 경로를 만들지 않은 경우, 접두사가 0.0.0.0/0보다 길고 다른 경로의 주소 접두사에 있지 않기 때문에 10.0.0.1과 10.0.255.254 사이의 모든 주소로 보내는 트래픽은 가상 네트워크 내에서 라우팅됩니다. ID2 사용자 정의 경로가 추가되었을 때 기본 경로와 동일한 접두사를 사용하고 사용자 정의 경로에서 기본 경로를 재정의하기 때문에 Azure에서 상태를 *활성*에서 *올바르지 않음*으로 자동으로 변경했습니다. ID2 사용자 정의 경로가 있는 경로 테이블이 *Subnet2*에 연결되어 있지 않으므로 *Subnet2*에 대한 이 경로의 상태는 여전히 *활성*입니다.
-2. 10.0.0.0/16 주소 접두사에 대한 사용자 정의 경로가 *Virtual-network-1* 가상 네트워크의 *Subnet1* 서브넷에 연결되었을 때 Azure에서 이 경로를 추가했습니다. 가상 어플라이언스 가상 컴퓨터에 할당된 사설 IP 주소이기 때문에 사용자 정의 경로는 10.0.100.4를 가상 어플라이언스의 IP 주소로 지정합니다. 이 경로가 있는 경로 테이블이 *Subnet2*와 연결되어 있지 않으므로 이 경로는 *Subnet2*의 경로 테이블에 표시되지 않습니다. 이 경로는 가상 네트워크 다음 홉 유형을 통해 가상 네트워크 내에서 10.0.0.1 및 10.0.255.254 주소로 지정된 트래픽을 자동으로 라우팅하는 10.0.0.0/16 접두사(ID1)에 대한 기본 경로를 재정의합니다. 이 경로는 [요구 사항](#requirements) 3을 충족하기 위해 존재하며, 모든 아웃바운드 트래픽이 가상 어플라이언스를 통과하도록 강제합니다.
+2. 10.0.0.0/16 주소 접두사에 대한 사용자 정의 경로가 *Virtual-network-1* 가상 네트워크의 *Subnet1* 서브넷에 연결되었을 때 Azure에서 이 경로를 추가했습니다. 가상 어플라이언스 가상 머신에 할당된 사설 IP 주소이기 때문에 사용자 정의 경로는 10.0.100.4를 가상 어플라이언스의 IP 주소로 지정합니다. 이 경로가 있는 경로 테이블이 *Subnet2*와 연결되어 있지 않으므로 이 경로는 *Subnet2*의 경로 테이블에 표시되지 않습니다. 이 경로는 가상 네트워크 다음 홉 유형을 통해 가상 네트워크 내에서 10.0.0.1 및 10.0.255.254 주소로 지정된 트래픽을 자동으로 라우팅하는 10.0.0.0/16 접두사(ID1)에 대한 기본 경로를 재정의합니다. 이 경로는 [요구 사항](#requirements) 3을 충족하기 위해 존재하며, 모든 아웃바운드 트래픽이 가상 어플라이언스를 통과하도록 강제합니다.
 3. 10.0.0.0/24 주소 접두사에 대한 사용자 정의 경로가 *Subnet1* 서브넷에 연결되었을 때 Azure에서 이 경로를 추가했습니다. 접두사가 ID2 경로보다 길기 때문에 10.0.0.1과 10.0.0.0.254 사이의 주소로 향하는 트래픽은 이전 규칙(ID2)에 지정된 가상 어플라이언스로 라우팅되지 않고 서브넷에 남아 있습니다. 이 경로는 *Subnet2*와 연결되어 있지 않으므로 *Subnet2*의 경로 테이블에 표시되지 않습니다. 이 경로는 *Subnet1* 내의 트래픽에 대한 ID2 경로를 효과적으로 재정의합니다. 이 경로는 [요구 사항](#requirements) 3을 충족하기 위해 존재합니다.
 4. 가상 네트워크가 *Virtual-network-2*와 피어링되었을 때 Azure에서 *Virtual-network-1* 내의 모든 서브넷에 대해 ID4 및 ID5의 경로를 자동으로 추가했습니다. *Virtual-network-2*의 주소 공간에는 10.1.0.0/16 및 10.2.0.0/16의 두 주소 범위가 있으므로 Azure에서 각 범위에 대한 경로를 추가했습니다. ID6 및 ID7 경로의 사용자 정의 경로를 만들지 않은 경우, 접두사가 0.0.0.0/0보다 길고 다른 경로의 주소 접두사에 있지 않기 때문에 10.1.0.1-10.1.255.254와 10.2.0.1-10.2.255.254 사이의 모든 주소로 보내는 트래픽은 피어링된 가상 네트워크로 라우팅됩니다. ID6 및 ID7 경로가 추가되었을 때 ID4 및 ID5의 경로와 동일한 접두사를 사용하고 사용자 정의 경로에서 기본 경로를 재정의하기 때문에 Azure에서 상태를 *활성*에서 *올바르지 않음*으로 자동으로 변경했습니다. ID4 및 ID5의 사용자 정의 경로가 있는 경로 테이블이 *Subnet2*에 연결되어 있지 않으므로 *Subnet2*에 대한 ID4 및 ID5 경로의 상태는 여전히 *활성*입니다. [가상 네트워크 피어링은 요구 사항](#requirements) 1을 충족하기 위해 만들어졌습니다.
 5. ID4와 동일하게 설명됩니다.
@@ -234,7 +234,7 @@ BGP를 사용하여 Azure와 경로를 교환하면 보급된 각 접두사에 �
 
 그림의 *Subnet2*에 대한 경로 테이블에는 다음 경로가 포함됩니다.
 
-|원본  |state  |주소 접두사    |다음 홉 유형             |다음 홉 IP 주소|
+|원본  |시스템 상태  |주소 접두사    |다음 홉 유형             |다음 홉 IP 주소|
 |------- |-------|------              |-------                   |--------           
 |기본값 |Active |10.0.0.0/16         |가상 네트워크           |                   |
 |기본값 |Active |10.1.0.0/16         |VNet 피어링              |                   |
@@ -254,4 +254,4 @@ BGP를 사용하여 Azure와 경로를 교환하면 보급된 각 접두사에 �
 - [Azure VPN Gateway에서 BGP 구성](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [ExpressRoute에서 BGP 사용](../expressroute/expressroute-routing.md?toc=%2fazure%2fvirtual-network%2ftoc.json#route-aggregation-and-prefix-limits)
 - [서브넷에 대한 모든 경로 보기](virtual-network-routes-troubleshoot-portal.md) - 사용자 정의 경로 테이블에서는 서브넷에 대한 기본 경로 및 BGP 경로가 아닌 사용자 정의 경로만 보여 줍니다. 모든 경로 보기에서 네트워크 인터페이스가 있는 서브넷에 대한 기본, BGP 및 사용자 정의 경로가 표시됩니다.
-- 가상 컴퓨터와 대상 IP 주소 간의 [다음 홉 유형을 확인합니다](../network-watcher/network-watcher-check-next-hop-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Azure Network Watcher 다음 홉 기능을 사용하면 트래픽이 서브넷에서 나가야 하는지 또는 생각하는 위치로 라우팅되는지 여부를 확인할 수 있습니다.
+- 가상 머신과 대상 IP 주소 간의 [다음 홉 유형을 확인합니다](../network-watcher/network-watcher-check-next-hop-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Azure Network Watcher 다음 홉 기능을 사용하면 트래픽이 서브넷에서 나가야 하는지 또는 생각하는 위치로 라우팅되는지 여부를 확인할 수 있습니다.

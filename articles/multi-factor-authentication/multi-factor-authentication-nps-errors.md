@@ -15,11 +15,11 @@ ms.date: 07/14/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: 53c9bde37215e4b7e315b6bc28f0e638816a48f4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7960a398ac25ad0192300632dd6d5add94fd4a7c
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Azure Multi-factor Authentication용 NPS 확장의 오류 메시지 해결
 
@@ -106,9 +106,10 @@ Azure Multi-factor Authentication용 NPS 확장에서 오류가 발생하는 경
 
 추가 지원이 필요한 경우 [Azure Multi-Factor Authentication 서버 지원](https://support.microsoft.com/oas/default.aspx?prid=14947)을 통해 지원 전문가에게 문의하세요. 문의하는 경우 가능한 문제에 대한 많은 정보를 제공해주시면 도움이 됩니다. 오류를 발견한 페이지, 특정 오류 코드, 특정 세션 ID, 오류를 발견한 사용자의 ID 및 디버그 로그를 포함하는 정보를 제공해 주시면 됩니다.
 
-지원 진단에 대한 디버그 로그를 수집하려면 다음 단계를 사용합니다. 
+지원 진단에 대한 디버그 로그를 수집하려면 NPS 서버에서 다음 단계를 사용합니다.
 
-1. 관리자 명령 프롬프트를 열고 다음 명령을 실행합니다.
+1. 레지스트리 편집기를 열고, HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa로 이동한 다음, **VERBOSE_LOG**를 **TRUE**로 설정합니다.
+2. 관리자 명령 프롬프트를 열고 다음 명령을 실행합니다.
 
    ```
    Mkdir c:\NPS
@@ -118,9 +119,9 @@ Azure Multi-factor Authentication용 NPS 확장에서 오류가 발생하는 경
    logman update trace "NPSExtension" -p {EC2E6D3A-C958-4C76-8EA4-0262520886FF} 0xffffffffffffffff 0xff -ets
    ```
 
-2. 문제 재현
+3. 문제 재현
 
-3. 다음 명령을 사용하여 추적을 중지합니다.
+4. 다음 명령을 사용하여 추적을 중지합니다.
 
    ```
    logman stop "NPSExtension" -ets
@@ -131,6 +132,7 @@ Azure Multi-factor Authentication용 NPS 확장에서 오류가 발생하는 경
    Start .
    ```
 
-4. C:\NPS 폴더의 내용을 Zip으로 압축하고 지원 사례에 Zip 파일을 첨부합니다.
+5. 레지스트리 편집기를 열고, HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa로 이동한 다음, **VERBOSE_LOG**를 **FALSE**로 설정합니다.
+6. C:\NPS 폴더의 내용을 Zip으로 압축하고 지원 사례에 Zip 파일을 첨부합니다.
 
 

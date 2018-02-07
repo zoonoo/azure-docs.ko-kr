@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/23/2017
+ms.date: 12/14/2017
 ms.author: genli
-ms.openlocfilehash: 76ab1600903705aad7f18f48f41cb7119c3c09bf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 69d363b5ff0b94884cf6d13ae0260f3747e4e69a
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>문제 해결: Azure 지점 및 사이트 간 연결 문제
 
@@ -263,3 +263,52 @@ SMB 프로토콜은 파일 공유 액세스에 사용됩니다. 연결을 시작
 ### <a name="solution"></a>해결 방법
 
 이 문제를 해결하려면 **C:\Users\TheUserName\AppData\Roaming\Microsoft\Network\Connections**에서 기존 VPN 클라이언트 구성 파일을 삭제하고 VPN 클라이언트 설치 프로그램을 다시 실행합니다.
+
+## <a name="point-to-site-vpn-client-cannot-resolve-the-fqdn-of-the-resources-in-the-local-domain"></a>지점 및 사이트 간 VPN 클라이언트는 로컬 도메인에 있는 리소스의 FQDN을 확인할 수 없습니다.
+
+### <a name="symptom"></a>증상
+
+클라이언트가 지점 및 사이트 간 VPN 연결을 사용하여 Azure에 연결할 때는 로컬 도메인에 있는 리소스의 FQDN을 확인할 수 없습니다.
+
+### <a name="cause"></a>원인
+
+지점 및 사이트 간 VPN 클라이언트는 Azure 가상 네트워크에 구성된 Azure DNS 서버를 사용합니다. Azure DNS 서버는 클라이언트에서 구성되는 로컬 DNS 서버보다 우선하므로 모든 DNS 쿼리가 Azure DNS 서버로 전송됩니다. Azure DNS 서버에 로컬 리소스에 대한 레코드를 없는 경우 쿼리가 실패합니다.
+
+### <a name="solution"></a>해결 방법
+
+이 문제를 해결하려면 Azure 가상 네트워크에서 사용되는 Azure DNS 서버가 로컬 리소스에 대한 DNS 레코드를 확인할 수 있는지 확인합니다. 이를 수행하기 위해 DNS 전달자 또는 조건부 전달자를 사용할 수 있습니다. 자세한 내용은 [자체 DNS 서버를 이용한 이름 확인](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server)을 참조하세요.
+
+## <a name="the-point-to-site-vpn-connection-is-established-but-you-still-cannot-connect-to-azure-resources"></a>지점 및 사이트 간 VPN 연결이 설정되어 있지만 여전히 Azure 리소스에 연결할 수 없습니다. 
+
+### <a name="cause"></a>원인
+
+이 문제는 VPN 클라이언트가 Azure VPN 게이트웨이에서 경로를 가져오지 않을 경우에 발생할 수 있습니다.
+
+### <a name="solution"></a>해결 방법
+
+이 문제를 해결하려면 [Azure VPN 게이트웨이를 다시 설정](vpn-gateway-resetgw-classic.md)합니다.
+
+## <a name="error-the-revocation-function-was-unable-to-check-revocation-because-the-revocation-server-was-offlineerror-0x80092013"></a>오류: “해지 서버가 오프라인 상태이므로 해지 함수가 해지를 확인할 수 없습니다(오류 0x80092013).”
+
+### <a name="causes"></a>원인
+이 오류 메시지는 클라이언트가 http://crl3.digicert.com/ssca-sha2-g1.crl 및 http://crl4.digicert.com/ssca-sha2-g1.cr에 액세스할 수 없는 경우에 발생합니다.  해지 검사를 수행하려면 이러한 두 사이트에 액세스해야 합니다.  이 문제는 일반적으로 프록시 서버가 구성된 클라이언트에서 발생합니다. 일부 환경에서 요청이 프록시 서버를 거치지 않을 경우 Edge 방화벽에서 거부됩니다.
+
+### <a name="solution"></a>해결 방법
+
+프록시 서버 설정을 확인하고 클라이언트가 http://crl3.digicert.com/ssca-sha2-g1.crl 및 http://crl4.digicert.com/ssca-sha2-g1.cr에 액세스할 수 있는지 확인합니다.
+
+## <a name="vpn-client-error-the-connection-was-prevented-because-of-a-policy-configured-on-your-rasvpn-server-error-812"></a>VPN 클라이언트 오류: RAS/VPN 서버에 구성된 정책 때문에 연결되지 않았습니다. (오류 812)
+
+### <a name="cause"></a>원인
+
+VPN 클라이언트 인증에 사용한 RADIUS 서버의 설정이 잘못된 경우 이 오류가 발생합니다. 
+
+### <a name="solution"></a>해결 방법
+
+RADIUS 서버가 올바르게 구성되어 있는지 확인합니다. 자세한 내용은 [Azure Multi-Factor Authentication 서버와 RADIUS 인증 통합](../multi-factor-authentication/multi-factor-authentication-get-started-server-radius.md)을 참조하세요.
+
+## <a name="error-405-when-you-download-root-certificate-from-vpn-gateway"></a>VPN Gateway에서 루트 인증서를 다운로드할 때 "오류 405" 표시
+
+### <a name="cause"></a>원인
+
+루트 인증서가 설치되지 않았습니다. 루트 인증서는 클라이언트의 **신뢰할 수 있는 인증서** 저장소에 설치되어 있습니다.

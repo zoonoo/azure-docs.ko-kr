@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/22/2017
 ms.author: bryanla
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 4b6f4e2b0e42724276448fd4726c8326de8ea6ee
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 98683af2ca35b687f918647602a561d37dd42b11
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="configure-a-user-assigned-managed-service-identity-msi-for-a-vm-using-azure-cli"></a>Azure CLI를 사용하여 VM에 사용자 할당 MSI(관리 서비스 ID) 구성
 
@@ -28,14 +28,14 @@ ms.lasthandoff: 01/09/2018
 
 이 문서에서는 Azure CLI를 사용하여 Azure VM에 대해 사용자 할당 MSI를 사용하도록 설정하고 제거하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 [!INCLUDE [msi-core-prereqs](~/includes/active-directory-msi-core-prereqs-ua.md)]
 
-이 자습서에서 CLI 스크립트 예제를 실행하는 두 가지 옵션이 있습니다.
+이 자습서의 CLI 스크립트 예제는 두 가지 옵션을 통해 실행할 수 있습니다.
 
 - Azure Portal에서 또는 각 코드 블록의 오른쪽 상단 모서리에 있는 "사용해 보세요" 단추를 통해 [Azure Cloud Shell](~/articles/cloud-shell/overview.md)을 사용합니다.
-- 로컬 CLI 콘솔을 사용하려는 경우 [CLI 2.0의 최신 버전(2.0.23 이상)을 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)합니다. 그런 다음 [az login](/cli/azure/#login)을 사용하여 Azure에 로그인합니다. 사용자 할당 MSI 및 VM을 배포하려는 Azure 구독과 연결된 계정을 사용하세요.
+- 로컬 CLI 콘솔을 사용하려는 경우 [CLI 2.0의 최신 버전(2.0.23 이상)을 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)합니다. 그런 다음 [az login](/cli/azure/#az_login)을 사용하여 Azure에 로그인합니다. 사용자 할당 MSI 및 VM을 배포하려는 Azure 구독과 연결된 계정을 사용하세요.
 
    ```azurecli
    az login
@@ -45,7 +45,7 @@ ms.lasthandoff: 01/09/2018
 
 이 섹션에서는 VM을 만들고 VM에 사용자 할당 MSI를 할당하는 방법을 설명합니다. 사용하려는 VM이 이미 있는 경우 이 섹션을 건너뛰고 다음으로 진행합니다.
 
-1. 사용하려는 리소스 그룹이 이미 있다면 이 단계를 건너뛰어도 됩니다. [az group create](/cli/azure/group/#create)를 사용하여 MSI를 포함하고 배포하는 데 사용할 [리소스 그룹](~/articles/azure-resource-manager/resource-group-overview.md#terminology)을 만듭니다. `<RESOURCE GROUP>` 및 `<LOCATION>` 매개 변수 값을 원하는 값으로 바꾸세요. :
+1. 사용하려는 리소스 그룹이 이미 있다면 이 단계를 건너뛰어도 됩니다. [az group create](/cli/azure/group/#az_group_create)를 사용하여 MSI를 포함하고 배포하는 데 사용할 [리소스 그룹](~/articles/azure-resource-manager/resource-group-overview.md#terminology)을 만듭니다. `<RESOURCE GROUP>` 및 `<LOCATION>` 매개 변수 값을 원하는 값으로 바꾸세요. :
 
    ```azurecli-interactive 
    az group create --name <RESOURCE GROUP> --location <LOCATION>
@@ -73,7 +73,7 @@ ms.lasthandoff: 01/09/2018
    }
    ```
 
-3. [az vm create](/cli/azure/vm/#create)를 사용하여 VM을 만듭니다. 다음 예제에서는 `--assign-identity` 매개 변수에서 지정한 대로 새 사용자 할당 MSI와 연결된 VM을 만듭니다. 이전 단계에서 만든 `<RESOURCE GROUP>`, `<VM NAME>`, `<USER NAME>`, `<PASSWORD>` 및 `<`MSI ID >` parameter values with your own values. For `<MSI ID>`, use the user-assigned MSI's resource `id' 속성을 바꿔야 합니다. 
+3. [az vm create](/cli/azure/vm/#az_vm_create)를 사용하여 VM을 만듭니다. 다음 예제에서는 `--assign-identity` 매개 변수에서 지정한 대로 새 사용자 할당 MSI와 연결된 VM을 만듭니다. 이전 단계에서 만든 `<RESOURCE GROUP>`, `<VM NAME>`, `<USER NAME>`, `<PASSWORD>` 및 `<`MSI ID >` parameter values with your own values. For `<MSI ID>`, use the user-assigned MSI's resource `id' 속성을 바꿔야 합니다. 
 
    ```azurecli-interactive 
    az vm create --resource-group <RESOURCE GROUP> --name <VM NAME> --image UbuntuLTS --admin-username <USER NAME> --admin-password <PASSWORD> --assign-identity <MSI ID>

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: tamram
-ms.openlocfilehash: 9e8808a50e86e40af4991a6054a55ef57f744aae
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b9c7913d1e95693a5ec72b24cf020928d67f0133
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>Azure Blob, Azure 파일 또는 Azure 디스크를 사용할 시기 결정
 
@@ -30,9 +30,9 @@ Microsoft Azure에서는 Azure Storage에서 클라우드에 데이터를 저장
 
 | 기능 | 설명 | 사용하는 경우 |
 |--------------|-------------|-------------|
-| **Azure 파일** | 어디에서나 저장된 파일에 액세스할 수 있는 SMB 인터페이스, 클라이언트 라이브러리 및 [REST 인터페이스](/rest/api/storageservices/file-service-rest-api)를 제공합니다. | 이미 기본 파일 시스템 API를 사용하는 클라우드로 응용 프로그램을 “전환”하여 Azure에서 실행 중인 다른 응용 프로그램과 데이터를 공유하려고 합니다.<br/><br/>여러 가상 컴퓨터에서 액세스해야 하는 개발 및 디버깅 도구를 저장하려고 합니다. |
+| **Azure 파일** | 어디에서나 저장된 파일에 액세스할 수 있는 SMB 인터페이스, 클라이언트 라이브러리 및 [REST 인터페이스](/rest/api/storageservices/file-service-rest-api)를 제공합니다. | 이미 기본 파일 시스템 API를 사용하는 클라우드로 응용 프로그램을 “전환”하여 Azure에서 실행 중인 다른 응용 프로그램과 데이터를 공유하려고 합니다.<br/><br/>여러 가상 머신에서 액세스해야 하는 개발 및 디버깅 도구를 저장하려고 합니다. |
 | **Azure Blob** | 구조화되지 않은 데이터를 블록 Blob에서 대규모로 저장 및 액세스할 수 있도록 클라이언트 라이브러리 및 [REST 인터페이스](/rest/api/storageservices/blob-service-rest-api)를 제공합니다. | 응용 프로그램에서 스트리밍 및 임의 액세스 시나리오를 지원하도록 하려고 합니다.<br/><br/>어디에서든 응용 프로그램 데이터에 액세스할 수 있게 되기를 원합니다. |
-| **Azure 디스크** | 데이터를 연결된 가상 하드 디스크에서 영구적으로 저장 및 액세스할 수 있도록 클라이언트 라이브러리 및 [REST 인터페이스](/rest/api/compute/manageddisks/disks/disks-rest-api)를 제공합니다. | 기본 파일 시스템 API를 사용하는 응용 프로그램을 데이터를 영구 디스크에 읽고 쓰도록 전환하려고 합니다.<br/><br/>가상 컴퓨터 외부에서 액세스할 필요가 없는 데이터를 디스크가 연결된 컴퓨터에 저장하려고 합니다. |
+| **Azure 디스크** | 데이터를 연결된 가상 하드 디스크에서 영구적으로 저장 및 액세스할 수 있도록 클라이언트 라이브러리 및 [REST 인터페이스](/rest/api/compute/manageddisks/disks/disks-rest-api)를 제공합니다. | 기본 파일 시스템 API를 사용하는 응용 프로그램을 데이터를 영구 디스크에 읽고 쓰도록 전환하려고 합니다.<br/><br/>가상 머신 외부에서 액세스할 필요가 없는 데이터를 디스크가 연결된 컴퓨터에 저장하려고 합니다. |
 
 ## <a name="comparison-files-and-blobs"></a>비교: 파일 및 Blob
 
@@ -41,10 +41,10 @@ Microsoft Azure에서는 Azure Storage에서 클라우드에 데이터를 저장
 ||||  
 |-|-|-|  
 |**특성**|**Azure Blob**|**Azure 파일**|  
-|내구성 옵션|LRS, ZRS, GRS(높은 가용성을 위해서는 RA-GRS)|LRS, GRS|  
+|내구성 옵션|LRS, ZRS, GRS, RA-GRS|LRS, ZRS, GRS|  
 |접근성|REST API|REST API<br /><br /> SMB 2.1 및 SMB 3.0(표준 파일 시스템 API)|  
 |연결|REST APIs -- 전 세계|REST APIs - 전 세계<br /><br /> SMB 2.1 -- 지역 내<br /><br /> SMB 3.0 -- 전 세계|  
-|끝점|`http://myaccount.blob.core.windows.net/mycontainer/myblob`|`\\myaccount.file.core.windows.net\myshare\myfile.txt`<br /><br /> `http://myaccount.file.core.windows.net/myshare/myfile.txt`|  
+|Endpoints|`http://myaccount.blob.core.windows.net/mycontainer/myblob`|`\\myaccount.file.core.windows.net\myshare\myfile.txt`<br /><br /> `http://myaccount.file.core.windows.net/myshare/myfile.txt`|  
 |디렉터리|단일 구조 네임스페이스|실제 디렉터리 개체|  
 |이름 대/소문자 구분|대/소문자 구분|대/소문자 구분 안 함, 대/소문자 유지|  
 |용량|최대 500TB 컨테이너|5TB 파일 공유|  
@@ -55,14 +55,14 @@ Microsoft Azure에서는 Azure Storage에서 클라우드에 데이터를 저장
   
 ## <a name="comparison-files-and-disks"></a>비교: 파일 및 디스크
 
-Azure 파일은 Azure 디스크를 보완합니다. 디스크는 한 번에 하나의 Azure Virtual Machine에만 연결할 수 있습니다. 디스크는 Azure Storage에 페이지 Blob으로 저장된 고정 형식의 VHD이며 가상 컴퓨터에서 지속형 데이터를 저장하는 데 사용됩니다. Azure 파일에서 파일 공유는 로컬 디스크가 액세스되는 것과 동일한 방식(기본 파일 시스템 API 사용)으로 액세스할 수 있으며 여러 가상 컴퓨터 간에 공유할 수 있습니다.  
+Azure 파일은 Azure 디스크를 보완합니다. 디스크는 한 번에 하나의 Azure Virtual Machine에만 연결할 수 있습니다. 디스크는 Azure Storage에 페이지 Blob으로 저장된 고정 형식의 VHD이며 가상 머신에서 지속형 데이터를 저장하는 데 사용됩니다. Azure 파일에서 파일 공유는 로컬 디스크가 액세스되는 것과 동일한 방식(기본 파일 시스템 API 사용)으로 액세스할 수 있으며 여러 가상 머신 간에 공유할 수 있습니다.  
  
 다음 표는 Azure 파일과 Azure 디스크를 비교하여 보여 줍니다.  
  
 ||||  
 |-|-|-|  
 |**특성**|**Azure 디스크**|**Azure 파일**|  
-|범위|단일 가상 컴퓨터에 배타적으로 적용|여러 가상 컴퓨터 간에 공유 액세스|  
+|범위|단일 가상 머신에 배타적으로 적용|여러 가상 머신 간에 공유 액세스|  
 |스냅숏 및 복사|예|아니요|  
 |구성|가상 컴퓨터 시작 시 연결됨|가상 컴퓨터가 시작된 후 연결됨|  
 |인증|기본 제공|net use로 설정|  
@@ -78,4 +78,4 @@ Azure 파일은 Azure 디스크를 보완합니다. 디스크는 한 번에 하�
   
 일부 SMB 기능은 클라우드에 적용되지 않습니다. 자세한 내용은 [Azure File 서비스에서 지원되지 않는 기능](/rest/api/storageservices/features-not-supported-by-the-azure-file-service)을 참조하세요.
   
-디스크에 대한 자세한 내용 [디스크 및 이미지 관리](../../virtual-machines/windows/about-disks-and-vhds.md) 및 [Windows 가상 컴퓨터에 데이터 디스크를 연결하는 방법](../../virtual-machines/windows/classic/attach-disk.md)을 참조하세요.
+디스크에 대한 자세한 내용 [디스크 및 이미지 관리](../../virtual-machines/windows/about-disks-and-vhds.md) 및 [Windows Virtual Machine에 데이터 디스크를 연결하는 방법](../../virtual-machines/windows/attach-managed-disk-portal.md)을 참조하세요.

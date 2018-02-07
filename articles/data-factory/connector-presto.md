@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: jingwang
-ms.openlocfilehash: 9d272072ce77aca159edb36a6b7a78c94aee476d
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 440a644e0b43fd42a446ec3e1a6a8d32a0b247cd
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="copy-data-from-presto-using-azure-data-factory-beta"></a>Azure Data Factory(베타)를 사용하여 Presto에서 데이터 복사
 
@@ -37,7 +37,7 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 
 ## <a name="getting-started"></a>시작
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
 
 다음 섹션에서는 Presto 커넥터에 한정된 Data Factory 엔터티를 정의하는 데 사용되는 속성에 대해 자세히 설명합니다.
 
@@ -47,14 +47,14 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | type 속성은 **Presto**로 설정해야 합니다. | 적용 |
-| host | Presto 서버의 IP 주소 또는 호스트 이름입니다. 즉, 192.168.222.160입니다.  | 적용 |
-| serverVersion | Presto 서버의 버전입니다. 즉, 0.148-t입니다.  | 적용 |
-| catalog | 서버에 대한 모든 요청의 카탈로그 컨텍스트입니다.  | 적용 |
+| 형식 | type 속성은 **Presto**로 설정해야 합니다. | 예 |
+| host | Presto 서버의 IP 주소 또는 호스트 이름입니다. 즉, 192.168.222.160입니다.  | 예 |
+| serverVersion | Presto 서버의 버전입니다. 즉, 0.148-t입니다.  | 예 |
+| catalog | 서버에 대한 모든 요청의 카탈로그 컨텍스트입니다.  | 예 |
 | 포트 | Presto 서버가 클라이언트 연결을 수신하는 데 사용하는 TCP 포트입니다. 기본값은 8080입니다.  | 아니요 |
-| authenticationType | Presto 서버에 연결하는 데 사용되는 인증 메커니즘입니다. <br/>허용되는 값은 **Anonymous**, **LDAP**입니다. | 적용 |
+| authenticationType | Presto 서버에 연결하는 데 사용되는 인증 메커니즘입니다. <br/>허용되는 값은 **Anonymous**, **LDAP**입니다. | 예 |
 | 사용자 이름 | Presto에 연결하는 데 사용되는 사용자 이름입니다.  | 아니요 |
-| 암호 | 사용자 이름에 해당하는 암호입니다. 이 필드를 SecureString으로 표시하여 ADF에 안전하게 저장하도록 선택하거나, Azure Key Vault에 암호를 저장하고 복사 작업이 데이터 복사를 수행할 때 거기에서 끌어오도록 할 수 있습니다. [Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md)에서 자세히 알아보세요. | 아니요 |
+| 암호 | 사용자 이름에 해당하는 암호입니다. 이 필드를 SecureString으로 표시하여 ADF에 안전하게 저장하도록 선택하거나, Azure Key Vault에 암호를 저장하고 복사 작업이 데이터 복사를 수행할 때 거기에서 끌어오도록 할 수 있습니다. [Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md)에서 자세히 알아보세요. | 아니오 |
 | enableSsl | 서버에 대한 연결이 SSL을 사용하여 암호화되는지 여부를 지정합니다. 기본값은 False입니다.  | 아니요 |
 | trustedCertPath | SSL을 통해 연결할 때 서버를 확인하기 위한 신뢰할 수 있는 CA 인증서를 포함하는 .pem 파일의 전체 경로입니다. 이 속성은 자체 호스팅 IR에서 SSL을 사용하는 경우에만 설정할 수 있습니다. 기본값은 IR과 함께 설치된 cacerts.pem 파일입니다.  | 아니요 |
 | useSystemTrustStore | 시스템 신뢰 저장소 또는 지정된 PEM 파일의 CA 인증서를 사용할지 여부를 지정합니다. 기본값은 False입니다.  | 아니요 |
@@ -117,8 +117,8 @@ Presto에서 데이터를 복사하려면 복사 작업의 원본 형식을 **Pr
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 복사 작업 원본의 type 속성은 **PrestoSource**로 설정해야 합니다. | 적용 |
-| 쿼리 | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM MyTable"` | 적용 |
+| 형식 | 복사 작업 원본의 type 속성은 **PrestoSource**로 설정해야 합니다. | 예 |
+| 쿼리 | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM MyTable"` | 예 |
 
 **예제:**
 

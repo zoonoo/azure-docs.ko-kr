@@ -15,15 +15,15 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 03/29/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 7f9e5a10066df8a464c285273e77a85c0d562ebb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7dde5bc4733af1aba34199f332379d2faf566725
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-workflow-definitions-for-logic-apps-using-json"></a>JSON을 사용하여 논리 앱용 워크플로 정의 만들기
 
-간단하고 선언적인 JSON 언어로 [Azure Logic Apps](logic-apps-what-are-logic-apps.md)에 대한 워크플로 정의를 만들 수 있습니다. 아직 없는 경우 [Logic App Designer에서 첫 번째 논리 앱을 만드는 방법](logic-apps-create-a-logic-app.md)을 먼저 검토하세요. 또한 [워크플로 정의 언어에 대한 전체 참조](http://aka.ms/logicappsdocs)도 참조하세요.
+간단하고 선언적인 JSON 언어로 [Azure Logic Apps](logic-apps-overview.md)에 대한 워크플로 정의를 만들 수 있습니다. 아직 없는 경우 [Logic App Designer에서 첫 번째 논리 앱을 만드는 방법](quickstart-create-first-logic-app-workflow.md)을 먼저 검토하세요. 또한 [워크플로 정의 언어에 대한 전체 참조](http://aka.ms/logicappsdocs)도 참조하세요.
 
 ## <a name="repeat-steps-over-a-list"></a>목록에 대한 단계 반복
 

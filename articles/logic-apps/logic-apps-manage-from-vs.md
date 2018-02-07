@@ -15,11 +15,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 12/19/2016
 ms.author: LADocs; klam
-ms.openlocfilehash: a5bf24de1a7a2b6d4c1ae6416c95d83ef7506da3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 34ce65ec272c9fe5be8f95371179de092c5df2f3
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="manage-your-logic-apps-with-visual-studio-cloud-explorer"></a>Visual Studio 클라우드 탐색기를 사용하여 Logic Apps 관리
 
@@ -69,7 +69,7 @@ ms.lasthandoff: 10/11/2017
 
 * 새 실행을 시작하려면 **트리거 실행**을 선택합니다.
 
-![논리 앱 디자이너](./media/logic-apps-manage-from-vs/designer.png)
+![Logic Apps 디자이너](./media/logic-apps-manage-from-vs/designer.png)
 
 디자이너에서 논리 앱을 **다운로드**할 수도 있습니다. 이 작업은 자동으로 논리 앱 정의를 매개 변수화하고 Azure Resource Manager 배포 템플릿으로 정의를 저장합니다. Azure 리소스 그룹 프로젝트에 이 배포 템플릿을 추가할 수 있습니다.
 
@@ -85,7 +85,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="next-steps"></a>다음 단계
 
-* [첫 번째 논리 앱 만들기](logic-apps-create-a-logic-app.md)
+* [첫 번째 논리 앱 만들기](quickstart-create-first-logic-app-workflow.md)
 * [Visual Studio에서 Logic Apps 디자인, 빌드 및 배포](logic-apps-deploy-from-vs.md)
 * [일반적인 예제 및 시나리오 보기](logic-apps-examples-and-scenarios.md)
 * [동영상: Azure Logic Apps를 사용하여 비즈니스 프로세스 자동화](http://channel9.msdn.com/Events/Build/2016/T694)

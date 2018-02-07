@@ -1,6 +1,6 @@
 ---
-title: "OMS(Operations Management Suite)의 경고 관리 솔루션 | Microsoft Docs"
-description: "Log Analytics의 경고 관리 솔루션을 사용하여 환경의 모든 경고를 분석할 수 있습니다.  OMS 내에서 생성된 경고를 통합하는 것 외에도 연결된 System Center Operations Manager 관리 그룹에서 Log Analytics로 경고를 가져옵니다."
+title: "Azure Log Analytics의 경고 관리 솔루션 | Microsoft Docs"
+description: "Log Analytics의 경고 관리 솔루션을 사용하여 환경의 모든 경고를 분석할 수 있습니다.  Log Analytics 내에서 생성된 경고를 통합하는 것 외에도, 연결된 System Center Operations Manager 관리 그룹에서 Log Analytics로 경고를 가져옵니다."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/13/2017
+ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: 4ec80fccdf4521792ff6be115ec66227f0fe1ed2
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: c34916913915331020d9fc9789221f790b75a070
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/22/2018
 ---
-# <a name="alert-management-solution-in-operations-management-suite-oms"></a>OMS(Operations Management Suite)의 경고 관리 솔루션
+# <a name="alert-management-solution-in-azure-log-analytics"></a>Azure Log Analytics의 경고 관리 솔루션
 
 ![경고 관리 아이콘](media/log-analytics-solution-alert-management/icon.png)
 
@@ -34,10 +34,10 @@ ms.lasthandoff: 12/13/2017
 - System Center Operations Manager 경고의 경우 [Log Analytics 작업 영역에 Operations Manager 관리 그룹을 연결](log-analytics-om-agents.md)합니다.  그러면 System Center Operations Manager에서 생성된 모든 경고를 Log Analytics로 가져옵니다.  
 
 ## <a name="configuration"></a>구성
-[솔루션 추가](log-analytics-add-solutions.md)에 설명된 프로세스를 사용하여 경고 관리 솔루션을 OMS 작업 영역에 추가합니다.  추가 구성은 필요 없습니다.
+[솔루션 추가](log-analytics-add-solutions.md)에서 설명하는 프로세스를 사용하여 경고 관리 솔루션을 Log Analytics 작업 영역에 추가합니다.  추가 구성은 필요 없습니다.
 
 ## <a name="management-packs"></a>관리 팩
-System Center Operations Manager 관리 그룹이 OMS 작업 영역에 연결된 경우 이 솔루션을 추가할 때 다음 관리 팩이 System Center Operations Manager에 설치됩니다.  관리 팩 구성 또는 유지 관리는 필요 없습니다.  
+System Center Operations Manager 관리 그룹이 Log Analytics 작업 영역에 연결된 경우, 이 솔루션을 추가하면 System Center Operations Manager에 다음 관리 팩이 설치됩니다.  관리 팩 구성 또는 유지 관리는 필요 없습니다.  
 
 * Microsoft System Center Advisor 경고 관리(Microsoft.IntelligencePacks.AlertManagement)
 
@@ -49,8 +49,8 @@ System Center Operations Manager 관리 그룹이 OMS 작업 영역에 연결된
 
 | 연결된 소스 | 지원 | 설명 |
 |:--- |:--- |:--- |
-| [Windows 에이전트](log-analytics-windows-agent.md) | 아니요 |직접 Windows 에이전트는 경고를 생성하지 않습니다.  이벤트에서 Log Analytics 경고를 만들고 Windows 에이전트에서 성능 데이터를 수집할 수 있습니다. |
-| [Linux 에이전트](log-analytics-linux-agents.md) | 아니요 |직접 Linux 에이전트는 경고를 생성하지 않습니다.  이벤트에서 Log Analytics 경고를 만들고 Linux 에이전트에서 성능 데이터를 수집할 수 있습니다.  Linux 에이전트가 필요한 해당 서버에서 Nagios 및 Zabbix 경고를 수집합니다. |
+| [Windows 에이전트](log-analytics-windows-agent.md) | 아니오 |직접 Windows 에이전트는 경고를 생성하지 않습니다.  이벤트에서 Log Analytics 경고를 만들고 Windows 에이전트에서 성능 데이터를 수집할 수 있습니다. |
+| [Linux 에이전트](log-analytics-linux-agents.md) | 아니오 |직접 Linux 에이전트는 경고를 생성하지 않습니다.  이벤트에서 Log Analytics 경고를 만들고 Linux 에이전트에서 성능 데이터를 수집할 수 있습니다.  Linux 에이전트가 필요한 해당 서버에서 Nagios 및 Zabbix 경고를 수집합니다. |
 | [System Center Operations Manager 관리 그룹](log-analytics-om-agents.md) |예 |Operations Manager 에이전트에 대해 생성된 경고는 관리 그룹에 전달된 다음 Log Analytics에 전달됩니다.<br><br>Operations Manager 에이전트에서 Log Analytics로 직접 연결은 필요하지 않습니다. 경고 데이터는 관리 그룹에서 Log Analytics 리포지토리로 전달됩니다. |
 
 
@@ -59,7 +59,7 @@ System Center Operations Manager 관리 그룹이 OMS 작업 영역에 연결된
 - 경고 데이터는 3분마다 Operations Manager 관리 그룹에서 Log Analytics로 전송됩니다.  
 
 ## <a name="using-the-solution"></a>솔루션 사용
-경고 관리 솔루션을 OMS 작업 영역에 추가할 때 OMS 대시보드에 **경고 관리** 타일이 추가됩니다.  이 타일은 마지막 24 시간 이내에 생성된 현재 활성 경고 수에 대한 카운트와 그래픽 표현을 표시합니다.  이 시간 범위를 변경할 수 없습니다.
+경고 관리 솔루션을 Log Analytics 작업 영역에 추가하면 대시보드에 **경고 관리** 타일이 추가됩니다.  이 타일은 마지막 24 시간 이내에 생성된 현재 활성 경고 수에 대한 카운트와 그래픽 표현을 표시합니다.  이 시간 범위를 변경할 수 없습니다.
 
 ![경고 관리 타일](media/log-analytics-solution-alert-management/tile.png)
 

@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: e59df358f25663c742b0da09cf27b974787536dc
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 980b297db87c2829f3c393ae867780f263f8d87c
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>ApplicationInsights.config 또는 .xml로 Application Insights SDK 구성
 Application Insights.NET SDK는  NuGet 패키지의 숫자로 구성됩니다. [코어 패키지](http://www.nuget.org/packages/Microsoft.ApplicationInsights) Application Insights에 원격 분석을 보내는 경우에 API를 제공합니다. [추가 패키지](http://www.nuget.org/packages?q=Microsoft.ApplicationInsights)는 해당 컨텍스트 및 응용 프로그램에서 원격 분석을 자동으로 추적하기 위해 원격 분석 *모듈* 및 *이니셜라이저*를 제공합니다. 구성 파일을 조정하여 모듈을 활성화하거나 비활성화하고 이 중 일부 모듈의 매개 변수를 설정할 수 있습니다.
 
-구성 파일의 이름은 응용 프로그램 유형에 따라 `ApplicationInsights.config` 또는 `ApplicationInsights.xml`입니다. [대부분 버전의 SDK는 설치][start]할 때 프로젝트에 자동으로 추가됩니다. 또한 [IIS 서버의 상태 모니터][redfield]에 의해 또는 [Azure 웹사이트 또는 VM에 대한 Appplication Insights 확장](app-insights-azure-web-apps.md)을 선택하는 경우 웹앱에 추가됩니다.
+구성 파일의 이름은 응용 프로그램 유형에 따라 `ApplicationInsights.config` 또는 `ApplicationInsights.xml`입니다. [대부분 버전의 SDK는 설치][start]할 때 프로젝트에 자동으로 추가됩니다. 또한 [IIS 서버의 상태 모니터][redfield]에 의해 또는 [Azure 웹 사이트 또는 VM에 대한 Application Insights 확장](app-insights-azure-web-apps.md)을 선택하는 경우 웹앱에 추가됩니다.
 
 [웹 페이지에서 SDK][client]를 제어할 동급의 파일은 없습니다.
 
@@ -125,7 +125,6 @@ Microsoft.ApplicationInsights 패키지는 SDK의 [코어 API](https://msdn.micr
 * `SyntheticTelemetryInitializer` 또는 `SyntheticUserAgentTelemetryInitializer`는 가용성 테스트 또는 검색 엔진 봇과 같은 가상 소스에서 요청을 처리하는 경우 모든 원격 분석 항목의 `User`, `Session` 및 `Operation` 컨텍스트 속성을 업데이트합니다. 기본적으로 [메트릭 탐색기](app-insights-metrics-explorer.md) 는 가상 원격 분석을 표시하지 않습니다.
 
     `<Filters>` 는 요청의 식별 속성을 설정합니다.
-* `UserAgentTelemetryInitializer`은 `User-Agent` HTTP 헤더 기반의 모든 원격 분석 항목의 `User` 컨텍스트의 `UserAgent` 속성을 업데이트합니다.
 * `UserTelemetryInitializer`은 사용자의 브라우저에서 실행되는 Application insights JavaScript 계측 코드에 의해 제공된 `ai_user` 쿠키의 추출된 값을 사용하여 모든 원격 분석 항목에 대한 `User` 컨텍스트의 `Id` 및 `AcquisitionDate`속성을 업데이트합니다.
 * `WebTestTelemetryInitializer` 는 [가용성 테스트](app-insights-monitor-web-app-availability.md)의 HTTP 요청에 대한 사용자 ID, 세션 ID 및 가상 원본 속성을 설정합니다.
   `<Filters>` 는 요청의 식별 속성을 설정합니다.
@@ -238,7 +237,7 @@ SDK의 메모리 내 저장소에 저장할 수 있는 원격 분석 항목의 �
 
 표준 원격 분석 모듈을 비롯한 TelemetryClient의 모든 인스턴스에 대한 키를 설정하려면 TelemetryConfiguration.Active에 키를 설정합니다. ASP.NET 서비스의 global.aspx.cs와 같은 초기화 메서드에 키를 설정합니다.
 
-```C#
+```csharp
 
     protected void Application_Start()
     {
@@ -251,7 +250,7 @@ SDK의 메모리 내 저장소에 저장할 수 있는 원격 분석 항목의 �
 
 특정 이벤트 집합을 다른 리소스로 보내려는 경우 특정 TelemetryClient에 대한 키를 설정할 수 있습니다.
 
-```C#
+```csharp
 
     var tc = new TelemetryClient();
     tc.Context.InstrumentationKey = "----- my key ----";

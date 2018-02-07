@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: LADocs
-ms.openlocfilehash: 7ce0860272901f3b4e4cf3d63f7361d539f64741
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1f939c626be11a358b0f8bece8840992a4362e1f
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="partner-agreements-for-b2b-communication-with-azure-logic-apps-and-enterprise-integration-pack"></a>Azure Logic Apps 및 엔터프라이즈 통합 팩과의 B2B 통신에 대한 파트너 규약
 
@@ -46,7 +46,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="how-to-use-an-agreement"></a>규약 사용 방법
 
-만든 규약을 사용하여 B2B 기능으로 [Logic Apps](logic-apps-what-are-logic-apps.md "논리 앱에 대해 알아보기")를 만들 수 있습니다.
+만든 규약을 사용하여 B2B 기능으로 [Logic Apps](logic-apps-overview.md "논리 앱에 대해 알아보기")를 만들 수 있습니다.
 
 ## <a name="how-to-edit-an-agreement"></a>규약 편집 방법
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: tdykstra
-ms.openlocfilehash: a1305432d98c2e9f9f8bc30cacc62d49b1a8ba36
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 5cfb968b201f49d5b7029a0b677e3ce2a8aa6cb9
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Azure Functions의 Azure Table Storage 바인딩
 
@@ -35,8 +35,8 @@ Azure Table Storage 입력 바인딩을 사용하여 Azure Storage 계정에서 
 
 언어 관련 예제를 참조하세요.
 
-* [미리 컴파일된 C# 하나의 읽기 엔터티](#input---c-example-1)
-* [미리 컴파일된 C# 여러 개의 읽기 엔터티](#input---c-example-2)
+* [C# 단일 엔터티 읽기](#input---c-example-1)
+* [C# 여러 엔터티 읽기](#input---c-example-2)
 * [C# 스크립트 - 하나의 읽기 엔터티](#input---c-script-example-1)
 * [C# 스크립트 - 여러 개의 읽기 엔터티](#input---c-script-example-2)
 * [F#](#input---f-example-2)
@@ -44,7 +44,7 @@ Azure Table Storage 입력 바인딩을 사용하여 Azure Storage 계정에서 
 
 ### <a name="input---c-example-1"></a>입력 - C# 예제 1
 
-다음 예제에서는 단일 테이블 행을 읽을 수 있는 [미리 컴파일된 C#](functions-dotnet-class-library.md) 코드를 보여줍니다. 
+다음 예제에서는 단일 테이블 행을 읽을 수 있는 [C# 함수](functions-dotnet-class-library.md)를 보여줍니다. 
 
 행 키 값 "{queueTrigger}"는 큐 메시지 문자열에서 나온 행 키를 의미합니다.
 
@@ -71,7 +71,7 @@ public class TableStorage
 
 ### <a name="input---c-example-2"></a>입력 - C# 예제 2
 
-다음 예제에서는 여러 테이블 행을 읽을 수 있는 [미리 컴파일된 C#](functions-dotnet-class-library.md) 코드를 보여줍니다. `MyPoco` 클래스가 `TableEntity`에서 파생됩니다.
+다음 예제에서는 여러 테이블 행을 읽을 수 있는 [C# 함수](functions-dotnet-class-library.md)를 보여줍니다. `MyPoco` 클래스가 `TableEntity`에서 파생됩니다.
 
 ```csharp
 public class TableStorage
@@ -286,7 +286,7 @@ module.exports = function (context, myQueueItem) {
 
 ## <a name="input---attributes"></a>입력 - 특성
  
-[미리 컴파일된 C#](functions-dotnet-class-library.md) 함수의 경우 다음 특성을 사용하여 테이블 입력 바인딩을 구성합니다.
+[C# 클래스 라이브러리](functions-dotnet-class-library.md)에서는 다음 특성을 사용하여 테이블 입력 바인딩을 구성합니다.
 
 * [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs)는 [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet 패키지에 정의되어 있습니다.
 
@@ -316,7 +316,7 @@ module.exports = function (context, myQueueItem) {
   }
   ```
 
-  전체 예제는 [입력 - 미리 컴파일된 C# 예제](#input---c-example)를 참조하세요.
+  전체 예제는 [입력 - C# 예제](#input---c-example)를 참조하세요.
 
 * [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)는 [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet 패키지에 정의되어 있습니다.
 
@@ -389,14 +389,14 @@ Azure Table Storage 출력 바인딩을 사용하여 Azure Storage 계정에서 
 
 언어 관련 예제를 참조하세요.
 
-* [미리 컴파일된 C#](#output---c-example)
-* [C# 스크립트](#output---c-script-example)
+* [C#](#output---c-example)
+* [C# 스크립트(.csx)](#output---c-script-example)
 * [F#](#output---f-example)
 * [JavaScript](#output---javascript-example)
 
 ### <a name="output---c-example"></a>출력 - C# 예제
 
-다음 예제에서는 단일 테이블 행을 쓰기 위해 HTTP 트리거를 사용하는 [미리 컴파일된 C#](functions-dotnet-class-library.md) 코드를 보여줍니다. 
+다음 예제에서는 단일 테이블 행을 쓰기 위해 HTTP 트리거를 사용하는 [C# 함수](functions-dotnet-class-library.md)를 보여줍니다. 
 
 ```csharp
 public class TableStorage
@@ -569,7 +569,7 @@ module.exports = function (context) {
 
 ## <a name="output---attributes"></a>출력 - 특성
 
-[미리 컴파일된 C#](functions-dotnet-class-library.md) 함수의 경우 [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs)는 [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet 패키지에 정의되어 있습니다.
+[C# 클래스 라이브러리](functions-dotnet-class-library.md)에서는 [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet 패키지에 정의되어 있는 [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs)를 사용합니다.
 
 특성의 생성자는 테이블 이름을 사용합니다. 다음 예제와 같이 `out` 매개 변수 또는 함수의 반환 값에서 사용할 수 있습니다.
 
@@ -597,9 +597,9 @@ public static MyPoco TableOutput(
 }
 ```
 
-전체 예제는 [출력 - 미리 컴파일된 C# 예제](#output---c-example)를 참조하세요.
+전체 예제는 [출력 - C# 예제](#output---c-example)를 참조하세요.
 
-`StorageAccount` 특성을 사용하여 클래스, 메서드 또는 매개 변수 수준에서 저장소 계정을 지정합니다. 자세한 내용은 [입력 - 특성](#input---attributes-for-precompiled-c)을 참조하세요.
+`StorageAccount` 특성을 사용하여 클래스, 메서드 또는 매개 변수 수준에서 저장소 계정을 지정합니다. 자세한 내용은 [입력 - 특성](#input---attributes)을 참조하세요.
 
 ## <a name="output---configuration"></a>출력 - 구성
 

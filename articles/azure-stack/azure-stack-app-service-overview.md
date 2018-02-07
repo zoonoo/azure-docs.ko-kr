@@ -12,15 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 01/29/2018
 ms.author: anwestg
-ms.openlocfilehash: fd2d355b2556faddb06acf2998b54ffcc9aa7919
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: f3f0add4cf48ebcb4235fb05aa8bfa0b5365848c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="app-service-on-azure-stack-overview"></a>Azure Stack 개요에 대한 App Service
+*적용 대상: Azure 스택 통합 시스템과 Azure 스택 개발 키트*
 
 Azure 스택 앱 서비스를 azure은 Azure 스택을 사용할 수 있는 Microsoft Azure의 플랫폼으로-서비스 (PaaS) 제품입니다. 서비스 고객-내부 또는 외부 있습니다-웹, API 및 Azure 함수를 만들기 위한 모든 플랫폼 이나 장치의 응용 프로그램. 온-프레미스 응용 프로그램과 앱을 통합할 수 있으며 조직의 비즈니스 프로세스를 자동화 있습니다. Azure 스택 클라우드 운영자는 선택한 VM 리소스 공유 또는 전용된 Vm으로 완전히 관리 되는 가상 컴퓨터 (Vm)에서 고객 앱을 실행할 수 있습니다.
 

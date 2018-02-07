@@ -13,13 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 9/3/2017
-ms.author: markgal;trinadhk;
-ms.openlocfilehash: 686cc45f219a10259c1b5cc0f0793c4ee392ee74
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.date: 1/21/2017
+ms.author: markgal;trinadhk;sogup;
+ms.openlocfilehash: 7d7b81a585ba8b10c60062c5d5274c45335cab68
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Resource Manager 배포 가상 머신을 백업하기 위한 환경 준비
 
@@ -54,7 +54,7 @@ Resource Manager 배포 가상 머신을 보호하거나 백업할 수 있으려
 * 데이터 디스크 크기가 1,023GB보다 큰 가상 머신을 백업하는 것은 지원되지 않습니다.
 
   > [!NOTE]
-  > 1TB 이상의 관리되지 않는 디스크를 포함하는 VM에 대한 백업은 비공개 미리 보기 상태로 지원됩니다. 세부 정보는 [대형 디스크 VM 백업 지원에 대한 비공개 미리 보기](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)를 참조하세요.
+  > >1TB 디스크를 포함하는 VM에 대한 백업은 비공개 미리 보기 상태로 지원됩니다. 세부 정보는 [대형 디스크 VM 백업 지원에 대한 비공개 미리 보기](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)를 참조하세요.
   >
 
 * 예약된 IP 주소가 있고 정의된 끝점이 없는 가상 머신의 백업은 지원되지 않습니다.
@@ -63,6 +63,7 @@ Resource Manager 배포 가상 머신을 보호하거나 백업할 수 있으려
 * Backup 데이터는 VM에 연결된 네트워크 탑재된 드라이브를 포함하지 않습니다.
 * 복원하는 동안 기존 가상 머신의 교체는 지원되지 않습니다. VM이 존재하는 경우 VM 복원을 시도하면, 복원 작업이 실패합니다.
 * 지역 간 백업 및 복원은 지원되지 않습니다.
+* 저장소 ACLed VM의 백업 및 복원은 현재 지원되지 않습니다. 특정 VNET/서브넷 및/또는 IP에서만 저장소 계정에 액세스할 수 있도록 허용하는 VNET 저장소 기능을 사용하는 경우 VM 백업이 지원되지 않습니다.
 * Azure의 모든 공영 지역에 있는 가상 머신을 백업할 수 있습니다. (지원되는 지역의 [검사 목록](https://azure.microsoft.com/regions/#services)을 참조하세요.) 찾는 지역이 현재 지원되지 않는 경우 자격 증명 모음을 만드는 동안 드롭다운 목록에 표시되지 않습니다.
 * 다중 DC 구성의 일부인 도메인 컨트롤러(DC) VM 복원은 PowerShell을 통해서만 지원됩니다. 대해 자세히 알아보려면 [다중 DC 도메인 컨트롤러 복원](backup-azure-arm-restore-vms.md#restore-domain-controller-vms)을 참조하세요.
 * 다음과 같은 특수 네트워크 구성을 포함하는 가상 머신 복원은 PowerShell 통해서만 지원됩니다. UI에서 복원 워크플로를 통해 만든 VM은 복원 작업이 완료된 후 이러한 네트워크 구성을 갖지 않습니다. 자세한 내용은 [특수 네트워크 구성을 가진 VM 복원](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations)을 참조하세요.
@@ -139,7 +140,7 @@ Azure Portal에서 *시나리오*란 Recovery Services 자격 증명 모음에 �
 
       ![Recovery Services 자격 증명 모음 목록 보기](./media/backup-azure-arm-vms-prepare/rs-list-of-vaults.png)
 
-   b. Recovery Services 자격 증명 모음의 목록에서 자격 증명 모음을 선택합니다.
+   나. Recovery Services 자격 증명 모음의 목록에서 자격 증명 모음을 선택합니다.
 
       선택한 자격 증명 모음의 **설정** 창 및 자격 증명 모음 대시보드가 열립니다.
 
@@ -180,7 +181,7 @@ Azure Portal에서 *시나리오*란 Recovery Services 자격 증명 모음에 �
 가상 머신을 등록하는 데 문제가 있으면 VM 에이전트 설치 및 네트워크 연결에 대한 다음 정보를 참조하세요. Azure에서 만든 가상 머신을 보호하는 경우 아마도 다음 정보가 필요 없을 것입니다. 그러나 가상 머신을 Azure로 마이그레이션한 경우에는 VM 에이전트가 올바르게 설치되었으며 가상 머신이 가상 네트워크와 통신할 수 있는지 확인해야 합니다.
 
 ## <a name="install-the-vm-agent-on-the-virtual-machine"></a>가상 머신에 VM 에이전트 설치
-사용할 백업 확장의 경우 Azure [VM 에이전트](../virtual-machines/windows/classic/agents-and-extensions.md#azure-vm-agents-for-windows-and-linux)는 Azure 가상 머신에 설치되어야 합니다. Azure Marketplace에서 VM을 만든 경우 VM 에이전트는 이미 가상 머신에 표시됩니다. 
+사용할 백업 확장의 경우 Azure [VM 에이전트](../virtual-machines/windows/agent-user-guide.md)는 Azure 가상 머신에 설치되어야 합니다. Azure Marketplace에서 VM을 만든 경우 VM 에이전트는 이미 가상 머신에 표시됩니다. 
 
 Azure Marketplace에서 만든 VM을 사용하지 *않는* 경우에 다음 정보가 제공됩니다. 예를 들어 온-프레미스 데이터 센터에서 VM을 마이그레이션했습니다. 이런 경우, 가상 머신을 보호하기 위해 VM 에이전트를 설치해야 합니다.
 
@@ -218,7 +219,7 @@ Azure 데이터 센터 IP 범위의 허용 목록을 만들려면 [Azure 웹 사
 ![지역에 대한 저장소 태그가 있는 NSG ](./media/backup-azure-arm-vms-prepare/storage-tags-with-nsg.png)
 
 > [!WARNING]
-> 저장소 태그는 특정 지역에서만 사용할 수 있으며 미리 보기 상태입니다. 지역 목록은 [저장소의 서비스 태그](../virtual-network/security-overview.md#service-tags)를 참조하세요.
+> 저장소 서비스 태그는 특정 지역에서만 사용할 수 있으며 미리 보기 상태입니다. 지역 목록은 [저장소의 서비스 태그](../virtual-network/security-overview.md#service-tags)를 참조하세요.
 
 ### <a name="use-an-http-proxy-for-vm-backups"></a>VM 백업에 HTTP 프록시 사용
 VM을 백업할 때 VM의 백업 확장이 HTTPS API를 사용하여 Azure Storage에 스냅숏 관리 명령을 보냅니다. 공용 인터넷에 액세스하도록 구성된 유일한 구성 요소이기 때문에 HTTP 프록시를 통해 백업 확장 트래픽을 라우팅합니다.

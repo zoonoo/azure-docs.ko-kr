@@ -4,7 +4,7 @@ description: "도메인에 가입된 HDInsight 클러스터를 설치 및 구성
 services: hdinsight
 documentationcenter: 
 author: saurinsh
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 tags: 
 ms.assetid: 0cbb49cc-0de1-4a1a-b658-99897caf827c
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/10/2018
+ms.date: 01/24/2018
 ms.author: saurinsh
-ms.openlocfilehash: 4921e329c2ec8ce3d5bbf8a0851146e13d5f6cd3
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 6284b246c071fb99a8b47845aca34b6262e5b856
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="configure-domain-joined-hdinsight-sandbox-environment"></a>도메인 가입 HDInsight 샌드박스 환경 구성
 
@@ -29,7 +29,6 @@ ms.lasthandoff: 01/12/2018
 
 -   Azure IaaS에서 실행되는 독립 실행형 Active Directory.
 -   Azure Active Directory.
--   고객 온-프레미스 환경에서 실행되는 Active Directory.
 
 이 문서에서는 Azure IaaS에서 독립 실행형 Active Directory를 사용하는 내용을 다룹니다. HDInsight에서 다중 사용자를 지원하기 위해 고객이 따라 할 수 있는 방법 중 가장 간단한 아키텍처입니다. 이 문서에는 이 구성에 대한 두 가지 방법을 다룹니다.
 
@@ -71,9 +70,10 @@ ms.lasthandoff: 01/12/2018
     - **관리자 이름**: 도메인 관리자 이름을 입력합니다.
     - **관리자 암호**: 도메인 관리자 암호를 입력합니다.
     - **도메인 이름**: 기본 이름은 *contoso.com*입니다.  도메인 이름을 변경하는 경우 **보안 LDAP 인증서** 필드와 **조직 구성 단위 DN** 필드도 업데이트해야 합니다.
+    - **DNS 접두사**: Load Balancer가 사용하는 공용 IP 주소의 DNS 접두사를 입력합니다.
     - **클러스터 이름**: HDInsight 클러스터 이름을 입력합니다.
     - **클러스터 유형**: 이 값은 변경하지 마세요. 클러스터 유형을 변경하려면 마지막 단계의 특정 템플릿을 사용하세요.
-
+    - **보안 LDAP 인증서 암호**: 보안 LDAP 인증서 필드를 변경하지 않는 한 기본값을 사용합니다.
     일부 값은 템플릿에 하드 코드됩니다. 예를 들어 작업자 노드 인스턴스 수는 2입니다.  하드 코드된 값을 변경하려면 **템플릿 편집**을 클릭합니다.
 
     ![HDInsight 도메인 가입 클러스터 템플릿 편집](./media/apache-domain-joined-configure/hdinsight-domain-joined-edit-template.png)

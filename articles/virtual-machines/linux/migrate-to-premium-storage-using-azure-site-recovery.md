@@ -1,6 +1,6 @@
 ---
 title: "Azure Site Recovery를 사용하여 Linux VM을 Azure Premium Storage로 마이그레이션 | Microsoft Docs"
-description: "Site Recovery를 사용하여 Azure Premium Storage에 기존 가상 컴퓨터를 마이그레이션합니다. Premium Storage는 Azure Virtual Machines에서 실행되는 I/O 사용량이 많은 작업에 대해 대기 시간이 짧은 고성능 디스크 지원을 제공합니다."
+description: "Site Recovery를 사용하여 Azure Premium Storage에 기존 가상 머신을 마이그레이션합니다. Premium Storage는 Azure Virtual Machines에서 실행되는 I/O 사용량이 많은 작업에 대해 대기 시간이 짧은 고성능 디스크 지원을 제공합니다."
 services: virtual-machines-linux
 cloud: Azure
 documentationcenter: na
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: luywang
-ms.openlocfilehash: 5ff52449414a6c9796b66195c33721553220f6bc
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5912a395798f2a37ed939b771698282ae594ce8e
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Azure Site Recovery를 사용하여 Premium Storage로 마이그레이션
 
-[Azure Premium Storage](premium-storage.md)는 I/O 사용량이 많은 작업을 실행하는 VM(가상 컴퓨터)에서 대기 시간이 짧은 고성능 디스크 지원을 제공합니다. 이 가이드에서는 사용자가 [Azure Site Recovery](../../site-recovery/site-recovery-overview.md)를 사용하여 표준 저장소 계정의 VM 디스크를 프리미엄 저장소 계정으로 마이그레이션할 수 있도록 합니다.
+[Azure Premium Storage](premium-storage.md)는 I/O 사용량이 많은 작업을 실행하는 VM(가상 머신)에서 대기 시간이 짧은 고성능 디스크 지원을 제공합니다. 이 가이드에서는 사용자가 [Azure Site Recovery](../../site-recovery/site-recovery-overview.md)를 사용하여 표준 저장소 계정의 VM 디스크를 프리미엄 저장소 계정으로 마이그레이션할 수 있도록 합니다.
 
 Site Recovery는 온-프레미스 물리적 서버와 VM을 클라우드(Azure) 또는 보조 데이터센터에 복제하는 것을 오케스트레이션하여 비즈니스 연속성 및 재해 복구에 대한 전략에 기여하는 Azure 서비스입니다. 기본 위치에서 중단이 발생하면 보조 위치로 장애 조치(failover)하여 응용 프로그램과 워크로드를 가용 상태로 유지합니다. 기본 위치가 정상 작업 상태로 돌아오면 다시 기본 위치로 돌아갑니다. 
 
@@ -199,7 +199,7 @@ Site Recovery는 Premium Storage 사용 가능 VM에 형식이 동일하거나 �
 ## <a name="post-migration-steps"></a>마이그레이션 후 단계
 
 1. **해당하는 경우 복제된 VM을 가용성 집합에 구성합니다**. Site Recovery는 가용성 집합과 함께 VM 마이그레이션을 지원하지 않습니다. 복제된 VM의 배포에 따라 다음 중 하나를 수행합니다.
-   * 클래식 배포 모델을 통해 만든 VM의 경우: Azure Portal에서 가용성 집합에 VM을 추가합니다. 자세한 단계는 [기존 가상 컴퓨터를 가용성 집합에 추가](../linux/classic/configure-availability.md#addmachine)로 이동하세요.
+   * 클래식 배포 모델을 통해 만든 VM의 경우: Azure Portal에서 가용성 집합에 VM을 추가합니다. 자세한 단계는 [기존 가상 머신을 가용성 집합에 추가](../linux/classic/configure-availability-classic.md)로 이동하세요.
    * Resource Manager 배포 모델을 통해 만든 VM의 경우: VM의 구성을 저장한 다음 가용성 집합에서 VM을 삭제하고 다시 만듭니다. 이렇게 하려면 [Azure Resource Manager VM 가용성 집합 설정](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4)에서 스크립트를 사용합니다. 이 스크립트를 실행하기 전에 제한 사항을 확인하고 작동 중단 시간을 계획합니다.
 
 2. **이전 VM 및 디스크를 삭제합니다**. 프리미엄 디스크가 원본 디스크와 일치하고 새 VM이 원본 VM과 동일한 기능을 수행해야 합니다. VM을 삭제하고 Azure Portal의 원본 저장소 계정에서 디스크를 삭제합니다. VM을 삭제했는데도 디스크가 삭제되지 않는 문제가 발생하는 경우 [RM 배포에서 VHD를 삭제할 때 오류 문제 해결](../../storage/common/storage-resource-manager-cannot-delete-storage-account-container-vhd.md)을 참조하세요.
@@ -208,23 +208,22 @@ Site Recovery는 Premium Storage 사용 가능 VM에 형식이 동일하거나 �
 
 ## <a name="troubleshooting"></a>문제 해결
 
-* [가상 컴퓨터 및 물리적 서버를 위한 보호 모니터링 및 문제 해결](../../site-recovery/site-recovery-monitoring-and-troubleshooting.md)
+* [가상 머신 및 물리적 서버를 위한 보호 모니터링 및 문제 해결](../../site-recovery/site-recovery-monitoring-and-troubleshooting.md)
 * [Microsoft Azure Site Recovery 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr)
 
 ## <a name="next-steps"></a>다음 단계
 
-가상 컴퓨터 마이그레이션에 대한 특정 시나리오에 대한 다음 리소스를 참조하세요.
+가상 머신 마이그레이션에 대한 특정 시나리오에 대한 다음 리소스를 참조하세요.
 
 * [Storage 계정 간에 Azure Virtual Machines 마이그레이션](https://azure.microsoft.com/blog/2014/10/22/migrate-azure-virtual-machines-between-storage-accounts/)
-* [Windows Server VHD 만들기 및 Azure에 업로드](../windows/classic/createupload-vhd.md)
-* [Linux 운영 체제를 포함하는 가상 하드 디스크 만들기 및 업로드](../linux/classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+* [Linux 가상 하드 디스크 업로드](upload-vhd.md)
 * [Amazon AWS에서 Microsoft Azure로 Virtual Machines 마이그레이션](http://channel9.msdn.com/Series/Migrating-Virtual-Machines-from-Amazon-AWS-to-Microsoft-Azure)
 
 Azure Storage 및 Azure Virtual Machines에 대한 자세한 내용을 보려면 다음 리소스도 확인하세요.
 
 * [Azure Storage](https://azure.microsoft.com/documentation/services/storage/)
 * [Azure Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/)
-* [Premium Storage: Azure 가상 컴퓨터 작업을 위한 고성능 저장소](premium-storage.md)
+* [Premium Storage: Azure 가상 머신 작업을 위한 고성능 저장소](premium-storage.md)
 
 [1]:./media/migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-1.png
 [2]:./media/migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-2.png

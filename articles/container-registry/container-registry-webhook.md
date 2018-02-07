@@ -8,11 +8,11 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 12/02/2017
 ms.author: nepeters
-ms.openlocfilehash: 133e36179a500dc65c3a543266a7afcf9988b87d
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: 915f90fd5d969d5544d56e5bec754b799f349015
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="using-azure-container-registry-webhooks"></a>Azure Container Registry 웹후크 사용
 
@@ -35,11 +35,11 @@ Webhook 요청에 대한 세부 정보는 [Azure Container Registry 웹후크 �
 
 | 값 | 설명 |
 |---|---|
-| 이름 | 웹후크에 지정하려는 이름입니다. 소문자와 숫자만 포함할 수 있으며 길이는 5-50자여야 합니다. |
+| Name | 웹후크에 지정하려는 이름입니다. 소문자와 숫자만 포함할 수 있으며 길이는 5-50자여야 합니다. |
 | 서비스 URI | 웹후크가 POST 알림을 보내야 하는 URI입니다. |
 | 사용자 지정 헤더 | POST 요청과 함께 전달하려는 헤더입니다. "키: 값" 형식이어야 합니다. |
 | 트리거 동작 | 웹후크를 트리거하는 동작입니다. 현재 웹후크는 이미지 밀어넣기 및/또는 삭제 동작에 의해 트리거될 수 있습니다. |
-| 가동 상태 | 웹후크가 만들어진 후의 상태입니다. 기본적으로 사용하도록 설정되어 있습니다. |
+| 상태 | 웹후크가 만들어진 후의 상태입니다. 기본적으로 사용하도록 설정되어 있습니다. |
 | 범위 | 웹후크가 작동하는 범위입니다. 기본적으로 이 범위는 레지스트리의 모든 이벤트입니다. "리포지토리:태그" 형식을 사용하여 리포지토리 또는 태그에 대해 지정할 수 있습니다. |
 
 웹후크 양식 예제:
@@ -48,7 +48,7 @@ Webhook 요청에 대한 세부 정보는 [Azure Container Registry 웹후크 �
 
 ## <a name="create-webhook-azure-cli"></a>웹후크 Azure CLI 만들기
 
-Azure CLI를 사용하여 웹후크를 만들려면 [az acr webhook create](/cli/azure/acr/webhook#create) 명령을 사용합니다.
+Azure CLI를 사용하여 웹후크를 만들려면 [az acr webhook create](/cli/azure/acr/webhook#az_acr_webhook_create) 명령을 사용합니다.
 
 ```azurecli-interactive
 az acr webhook create --registry mycontainerregistry --name myacrwebhook01 --actions delete --uri http://webhookuri.com
@@ -56,7 +56,7 @@ az acr webhook create --registry mycontainerregistry --name myacrwebhook01 --act
 
 ## <a name="test-webhook"></a>웹후크 테스트
 
-### <a name="azure-portal"></a>Azure 포털
+### <a name="azure-portal"></a>Azure portal
 
 컨테이너 이미지 밀어넣기 및 삭제 작업에서 웹후크를 사용하기 전에 **Ping** 단추를 사용하여 테스트할 수 있습니다. Ping은 지정된 끝점에 일반 POST 요청을 보내고 응답을 기록합니다. ping 기능을 사용하면 웹후크를 올바르게 구성했는지 확인하는 데 도움이 될 수 있습니다.
 
@@ -68,7 +68,7 @@ az acr webhook create --registry mycontainerregistry --name myacrwebhook01 --act
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Azure CLI를 사용하여 ACR 웹후크를 테스트하려면 [az acr webhook ping](/cli/azure/acr/webhook#ping) 명령을 사용합니다.
+Azure CLI를 사용하여 ACR 웹후크를 테스트하려면 [az acr webhook ping](/cli/azure/acr/webhook#az_acr_webhook_ping) 명령을 사용합니다.
 
 ```azurecli-interactive
 az acr webhook ping --registry mycontainerregistry --name myacrwebhook01
@@ -82,7 +82,7 @@ az acr webhook list-events --registry mycontainerregistry08 --name myacrwebhook0
 
 ## <a name="delete-webhook"></a>웹후크 삭제
 
-### <a name="azure-portal"></a>Azure 포털
+### <a name="azure-portal"></a>Azure portal
 
 각 웹후크는 Azure Portal에서 웹후크를 선택하고 **삭제** 단추를 선택하여 삭제할 수 있습니다.
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/05/2017
 ms.author: curtand
-ms.openlocfilehash: cbc432c411e80c7fc49daecd727d8e1969faede5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 82d4bdbe60fe403ea07ed958e9aec9dbf4e9fbb8
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="powershell-examples-for-group-based-licensing-in-azure-ad"></a>Azure AD의 그룹 기반 라이선스에 대한 PowerShell 예제
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 12/11/2017
 (Get-MsolGroup -ObjectId 99c4216a-56de-42c4-a4ac-e411cd8c7c41).Licenses
 | Select SkuPartNumber
 ```
-출력:
+출력
 ```
 SkuPartNumber
 -------------
@@ -59,7 +59,7 @@ Get-MsolGroup | Where {$_.Licenses} | Select `
     @{Name="Licenses";Expression={$_.Licenses | Select -ExpandProperty SkuPartNumber}}
 ```
 
-출력:
+출력
 ```
 ObjectId                             DisplayName              Licenses
 --------                             -----------              --------
@@ -114,7 +114,7 @@ Get-MsolGroup -All | Where {$_.Licenses}  | Foreach {
 ```
 
 
-출력:
+출력
 ```
 GroupName         GroupId                              GroupLicenses       TotalUserCount LicensedUserCount LicenseErrorCount
 ---------         -------                              -------------       -------------- ----------------- -----------------
@@ -133,7 +133,7 @@ Access to Offi... 11151866-5419-4d93-9141-0603bbf78b42 STANDARDPACK             
 ```
 Get-MsolGroup -HasLicenseErrorsOnly $true
 ```
-출력:
+출력
 ```
 ObjectId                             DisplayName             GroupType Description
 --------                             -----------             --------- -----------
@@ -141,7 +141,7 @@ ObjectId                             DisplayName             GroupType Descripti
 ```
 ## <a name="get-all-users-with-license-errors-in-a-group"></a>그룹에서 라이선스 오류가 있는 모든 사용자 가져오기
 
-라이선스 관련 오류가 포함된 그룹이 있는 경우 오류의 영향을 받는 모든 사용자를 나열할 수 있습니다. 다른 그룹의 오류도 가져올 수 있습니다. 하지만 이 예제에서는 사용자에 대한 **IndirectLicenseError** 항목의 **ReferencedObjectId** 속성을 확인하여 요청된 그룹과 관련된 오류만으로 결과를 제한합니다.
+라이선스 관련 오류가 포함된 그룹이 있는 경우 오류의 영향을 받는 모든 사용자를 나열할 수 있습니다. 사용자는 다른 그룹의 오류도 가져올 수 있습니다. 하지만 이 예제에서는 사용자에 대한 **IndirectLicenseError** 항목의 **ReferencedObjectId** 속성을 확인하여 요청된 그룹과 관련된 오류만으로 결과를 제한합니다.
 
 ```
 #a sample group with errors
@@ -159,7 +159,7 @@ Get-MsolGroupMember -All -GroupObjectId $groupId |
            @{Name="LicenseError";Expression={$_.IndirectLicenseErrors | Where {$_.ReferencedObjectId -eq $groupId} | Select -ExpandProperty Error}}
 ```
 
-출력:
+출력
 ```
 ObjectId                             DisplayName      License Error
 --------                             -----------      ------------
@@ -185,7 +185,7 @@ Get-MsolUser -All | Where {$_.IndirectLicenseErrors } | % {
     }  
 ```
 
-출력:
+출력
 
 ```
 UserName         UserId                               GroupId                              LicenseError
@@ -290,7 +290,7 @@ Get-MsolUser -All | where {$_.isLicensed -eq $true -and $_.Licenses.AccountSKUID
     @{Name="AssignedFromGroup";Expression={(UserHasLicenseAssignedFromGroup $_ $skuId)}}
 ```
 
-출력:
+출력
 ```
 ObjectId                             SkuId       AssignedDirectly AssignedFromGroup
 --------                             -----       ---------------- -----------------
@@ -465,7 +465,7 @@ Get-MsolGroupMember -All -GroupObjectId $groupId |
 #END: executing the script
 ```
 
-출력:
+출력
 ```
 UserId                               OperationResult                                                                                
 ------                               ---------------                                                                                

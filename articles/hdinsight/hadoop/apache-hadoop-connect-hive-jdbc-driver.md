@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/28/2017
 ms.author: larryfr
-ms.openlocfilehash: da6ea4bff5a45125f11776f161fef38e39a74cdd
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 7da4a7e0a60fd1e5c78f53b0a8e7ab333c5d2465
+ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="query-hive-through-the-jdbc-driver-in-hdinsight"></a>HDInsight에서 JDBC 드라이버를 통해 Hive 쿼리
 
@@ -49,7 +49,7 @@ Azure에서 HDInsight 클러스터에 대한 JDBC가 443을 통해 연결되어 
 
     jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;transportMode=http;ssl=true;httpPath=/hive2
 
-`CLUSTERNAME` 을 HDInsight 클러스터 이름으로 바꿉니다.
+`CLUSTERNAME`을 HDInsight 클러스터 이름으로 바꿉니다.
 
 ## <a name="authentication"></a>인증
 
@@ -69,7 +69,7 @@ SQuirreL SQL은 HDInsight 클러스터와 함께 Hive 쿼리를 원격으로 실
 
     * **Linux 기반 HDInsight** 클러스터 버전 3.5 또는 3.6의 경우 다음 단계에 따라 필요한 jar 파일을 다운로드합니다.
 
-        1. 파일을 포함하는 디렉터리를 만듭니다. 예: `mkdir hivedriver`.
+        1. 파일을 포함하는 디렉터리를 만듭니다. 예: `mkdir hivedriver`
 
         2. 명령줄에서 다음 명령을 사용하여 HDInsight 클러스터에서 파일을 복사합니다.
 
@@ -142,7 +142,7 @@ SQuirreL SQL은 HDInsight 클러스터와 함께 Hive 쿼리를 원격으로 실
 
     * **URL**: `jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;transportMode=http;ssl=true;httpPath=/hive2`
 
-        **CLUSTERNAME** 을 HDInsight 클러스터의 이름으로 바꿉니다.
+        **CLUSTERNAME**을 HDInsight 클러스터의 이름으로 바꿉니다.
 
     * **사용자 이름**: HDInsight 클러스터의 클러스터 로그인 계정 이름입니다. 기본값은 `admin`입니다.
 
@@ -197,12 +197,13 @@ at java.util.concurrent.FutureTask.get(FutureTask.java:206)
 JDBC를 사용하여 Hive와 함께 작업하는 방법을 살펴보았으므로 이제 다음 링크를 사용하여 Azure HDInsight로 작업하는 다른 방법을 알아봅니다.
 
 * [Azure HDInsight에서 Microsoft Power BI를 사용하여 Hive 데이터 시각화](apache-hadoop-connect-hive-power-bi.md)
+* [Azure HDInsight에서 Power BI를 사용하여 대화형 쿼리 Hive 데이터 시각화](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md)
 * [Azure HDInsight에서 Zeppelin을 사용하여 Hive 쿼리 실행](./../hdinsight-connect-hive-zeppelin.md).
 * [Microsoft Hive ODBC Driver로 HDInsight에 Excel 연결](apache-hadoop-connect-excel-hive-odbc-driver.md)
 * [파워 쿼리를 사용하여 Hadoop에 Excel 연결](apache-hadoop-connect-excel-power-query.md)
 * [Data Lake Tools for Visual Studio를 사용하여 Azure HDInsight에 연결하고 Hive 쿼리 실행](apache-hadoop-visual-studio-tools-get-started.md)
 * [Azure HDInsight Tool for Visual Studio Code 사용](../hdinsight-for-vscode.md)
 * [HDInsight에 데이터 업로드](../hdinsight-upload-data.md)
-* [HDInsight에서 Hive 사용](hdinsight-use-hive.md)
+* [HDInsight에서 하이브 사용](hdinsight-use-hive.md)
 * [HDInsight에서 Pig 사용](hdinsight-use-pig.md)
 * [HDInsight에서 MapReduce 작업 사용](hdinsight-use-mapreduce.md)

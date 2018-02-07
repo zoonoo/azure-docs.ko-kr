@@ -20,8 +20,6 @@
 ### [리소스 간 종속성 정의](resource-group-define-dependencies.md)
 ### [여러 인스턴스 만들기](resource-group-create-multiple.md)
 ### [리소스 업데이트](/azure/architecture/building-blocks/extending-templates/update-resource)
-### [템플릿 설계 패턴](best-practices-resource-manager-design-templates.md)
-
 
 ## 배포
 ### Azure PowerShell
@@ -80,7 +78,7 @@
 #### [Windows 배포 문제](../virtual-machines/windows/troubleshoot-deploy-vm.md)
 ### [배포 오류 이해](resource-manager-troubleshoot-tips.md)
 
-# 참조
+# 참고 자료
 ## [템플릿 형식](/azure/templates/)
 ## [템플릿 함수](resource-group-template-functions.md)
 ### [배열 및 개체 함수](resource-group-template-functions-array.md)

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/24/2017
+ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: a69f3770184d94c481c1b78f23efa9e9c4fb31fa
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 8bd5ae2aac23b18aeb3ef44692f448b50b7e3d44
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory - 데이터 이동을 위한 보안 고려 사항
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -46,7 +46,7 @@ Azure 규정 준수 및 Azure의 자체 인프라 보안 방법에 관심이 있
 이 문서에서는 다음 두 가지 데이터 이동 시나리오에서 보안 고려 사항을 검토합니다. 
 
 - **클라우드 시나리오** - 이 시나리오에서는 출처와 목적지 모두 인터넷을 통해 공개적으로 액세스할 수 있습니다. 여기에는 Azure Storage, Azure SQL Data Warehouse, Azure SQL Database, Azure Data Lake Store, Amazon S3, Amazon Redshift, Salesforce와 같은 SaaS 서비스, FTP 및 OData와 같은 웹 프로토콜과 같은 관리 클라우드 저장소 서비스가 포함됩니다. 지원되는 데이터 원본 목록은 [여기](copy-activity-overview.md#supported-data-stores-and-formats)에 있습니다.
-- **하이브리드 시나리오** - 이 시나리오에서는 원본 또는 대상이 방화벽 뒤에 있거나 회사 내 회사 네트워크 내에 있거나 데이터 저장소가 개인 네트워크/가상 네트워크(주로 원본)에 있으며 공개적으로 액세스할 수 없습니다. 가상 컴퓨터에서 호스팅되는 데이터베이스 서버도 이 시나리오에 해당합니다.
+- **하이브리드 시나리오** - 이 시나리오에서는 원본 또는 대상이 방화벽 뒤에 있거나 회사 내 회사 네트워크 내에 있거나 데이터 저장소가 개인 네트워크/가상 네트워크(주로 원본)에 있으며 공개적으로 액세스할 수 없습니다. 가상 머신에서 호스팅되는 데이터베이스 서버도 이 시나리오에 해당합니다.
 
 ## <a name="cloud-scenarios"></a>클라우드 시나리오
 ###<a name="securing-data-store-credentials"></a>데이터 저장소 자격 증명 보안
@@ -127,8 +127,8 @@ Salesforce는 모든 파일, 첨부 파일, 사용자 정의 필드의 암호화
 
 | 원본      | 대상                              | 네트워크 구성                    | 통합 런타임 설정                |
 | ----------- | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| 온-프레미스 | 가상 네트워크에 배포된 가상 컴퓨터 및 클라우드 서비스 | IPSec VPN(지점 및 사이트 간 또는 사이트 간) | 자체 호스팅 통합 런타임은 Vnet의 온-프레미스 또는 Azure 가상 컴퓨터(VM)에 설치할 수 있습니다. |
-| 온-프레미스 | 가상 네트워크에 배포된 가상 컴퓨터 및 클라우드 서비스 | ExpressRoute(개인 피어링)           | 자체 호스팅 통합 런타임은 온-프레미스 또는 Vnet의 Azure VM에 설치할 수 있습니다. |
+| 온-프레미스 | 가상 네트워크에 배포된 가상 머신 및 클라우드 서비스 | IPSec VPN(지점 및 사이트 간 또는 사이트 간) | 자체 호스팅 통합 런타임은 Vnet의 온-프레미스 또는 Azure 가상 머신(VM)에 설치할 수 있습니다. |
+| 온-프레미스 | 가상 네트워크에 배포된 가상 머신 및 클라우드 서비스 | ExpressRoute(개인 피어링)           | 자체 호스팅 통합 런타임은 온-프레미스 또는 Vnet의 Azure VM에 설치할 수 있습니다. |
 | 온-프레미스 | 공개 끝점이 있는 Azure 기반 서비스 | ExpressRoute(공용 피어링)            | 자체 호스팅 통합 런타임을 온-프레미스에 설치해야 합니다. |
 
 다음 이미지는 Express 경로 및 IPSec VPN(Virtual Network 사용)을 사용하여 온-프레미스 데이터베이스와 Azure 서비스간에 데이터를 이동시키기 위한 자체 호스팅 통합 런타임의 사용법을 보여 줍니다.
@@ -174,7 +174,7 @@ Salesforce는 모든 파일, 첨부 파일, 사용자 정의 필드의 암호화
 
 - [Azure SQL Database](../sql-database/sql-database-firewall-configure.md) 
 - [Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
-- [Azure 데이터 레이크 저장소](../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
+- [Azure Data Lake Storage](../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
 - [Azure Cosmos DB](../cosmos-db/firewall-support.md)
 - [Amazon Redshift](http://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) 
 

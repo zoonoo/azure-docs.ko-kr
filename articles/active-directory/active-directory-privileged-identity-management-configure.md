@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/18/2017
 ms.author: barclayn
 ms.custom: pim
-ms.openlocfilehash: 9a013820689742faa732971c00b82c7ad8638a95
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c35b0c4171d411bd0c0483866f88780757cb3ee8
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management란?
 

@@ -14,11 +14,11 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: apimpm
-ms.openlocfilehash: cd6ceaf5f8cdcfbde5d0d2bebb4b89488d0122e9
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: ffe5ee95c66eee7dccd25a1afd2fe639cbc273f5
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="import-and-publish-your-first-api"></a>첫 번째 API 가져오기 및 게시 
 
@@ -60,19 +60,16 @@ ms.lasthandoff: 12/04/2017
     |**설명**|API에 대한 선택적 설명을 제공합니다.|서비스 URL을 입력한 후 tab 키를 누르면 APIM은 json에 포함된 내용에 따라 이 필드를 채웁니다.|
     |**API URL 접미사**|*conference*|접미사는 API Management 서비스의 기준 URL에 추가됩니다. API Management는 접미사를 사용하여 API를 구분하므로, 접미사는 지정된 게시자의 모든 API에 대해 고유해야 합니다.|
     |**URL 구성표**|*HTTPS*|API에 액세스하는 데 사용할 수 있는 프로토콜을 결정합니다. |
-    |**제품**|*무제한*| API를 제품에 연결하여 API를 게시합니다. 선택적으로 이 새로운 API를 제품에 추가하려면 제품 이름을 입력합니다. 이 단계는 여러 제품에 API 추가를 여러 번 반복할 수 있습니다.<br/>제품은 하나 이상의 API와 연결됩니다. 다양한 API를 포함하고 개발자 포털을 통해 개발자에게 제공할 수 있습니다. 개발자는 API에 액세스하려면 먼저 제품을 구독해야 합니다. 구독할 경우 해당 제품의 API에 적절한 구독 키를 받게 됩니다. APIM 인스턴스를 만든 경우 사용자는 이미 관리자이므로 기본적으로 모든 제품을 구독한 상태가 됩니다.<br/> 기본적으로 각 API Management 인스턴스는 두 개의 샘플 제품인 **Starter** 및 **Unlimited**와 함께 제공됩니다. |
+    |**제품**|*무제한*| API를 제품에 연결하여 API를 게시합니다. 선택적으로 이 새로운 API를 제품에 추가하려면 제품 이름을 입력합니다. 이 단계는 여러 제품에 API 추가를 여러 번 반복할 수 있습니다.<br/>제품은 하나 이상의 API와 연결됩니다. 다양한 API를 포함하고 개발자 포털을 통해 개발자에게 제공할 수 있습니다. 개발자는 API에 액세스하려면 먼저 제품을 구독해야 합니다. 구독하면 해당 제품의 모든 API에 적합한 구독 키를 받게 됩니다. APIM 인스턴스를 만든 경우 사용자는 이미 관리자이므로 기본적으로 모든 제품을 구독한 상태가 됩니다.<br/> 기본적으로 각 API Management 인스턴스는 두 개의 샘플 제품인 **Starter** 및 **Unlimited**와 함께 제공됩니다. |
 3. **만들기**를 선택합니다.
 
 ## <a name="test-the-new-apim-api-in-the-azure-portal"></a>Azure Portal에서 새 APIM API 테스트
 
 dAzure Portal에서 직접 작업을 호출할 수 있으며, 이 포털을 사용하면 편리한 방법으로 API의 작업을 보고 테스트할 수 있습니다.  
 1. 이전 단계에서 만든 API를 선택합니다.
-2. **테스트** 탭을 누릅니다.
-
-    ![API 테스트](./media/api-management-get-started/test-api.png)
+2. **테스트** 탭을 누릅니다.  ![API 테스트](./media/api-management-get-started/test-api.png)
 3. **GetSpeakers**를 클릭합니다.
-
-    페이지에는 쿼리 매개 변수에 대한 필드가 표시되지만 이 경우에는 아무 필드도 표시되지 않습니다. 페이지에는 헤더에 대한 필드도 표시됩니다. 헤더 중 하나는 이 API와 연결된 제품의 구독 키에 대한 "Ocp-Apim-Subscription-Key"입니다. APIM 인스턴스를 만든 경우 사용자는 이미 관리자이므로 키가 자동으로 채워집니다. 
+    페이지에는 쿼리 매개 변수에 대한 필드가 표시되지만 이 경우에는 아무 필드도 표시되지 않습니다. 페이지에는 헤더에 대한 필드도 표시됩니다. 헤더 중 하나는 이 API와 연결된 제품의 구독 키에 대한 "Ocp-Apim-Subscription-Key"입니다. 키가 자동으로 채워집니다.
 4. **보내기**를 누릅니다.
 
     백 엔드는 **200 정상** 및 일부 데이터로 응답합니다.
@@ -81,7 +78,7 @@ dAzure Portal에서 직접 작업을 호출할 수 있으며, 이 포털을 사�
 
 **개발자 포털**에서 작업을 호출하여 API를 테스트할 수도 있습니다. 
 
-1. "백엔드 API 가져오기 및 게시" 단계에서 만든 API를 선택합니다.
+1. "백 엔드 API 가져오기 및 게시" 단계에서 만든 API를 선택합니다.
 2. **개발자 포털**을 누릅니다.
 
     ![개발자 포털에서 테스트](./media/api-management-get-started/developer-portal.png)

@@ -1,4 +1,4 @@
-로컬 터미널 창에서 로컬 Git 리포지토리에 Azure 원격을 추가합니다. 이 Azure 원격은 [웹앱 만들기](#create-a-web-app)에서 만들었습니다.
+로컬 터미널 창에서 로컬 Git 리포지토리에 Azure 원격을 추가합니다. _&lt;paste\_copied\_url\_here>_를 [웹앱 만들기](#create)에 저장된 Git 원격의 URL로 바꿉니다.
 
 ```bash
 git remote add azure <deploymentLocalGitUrl-from-create-step>

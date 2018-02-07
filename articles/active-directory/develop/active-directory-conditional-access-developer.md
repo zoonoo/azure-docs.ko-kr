@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.openlocfilehash: 346f19b01460aaa4aeb2c2d97c07ef11924ec80f
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 8ad1ed1b8a178cb8906e6233e6bd78f50d01c50c
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Azure Active Directory 조건부 액세스를 위한 개발자 지침
 
@@ -73,7 +73,7 @@ claims={"access_token":{"polids":{"essential":true,"Values":["<GUID>"]}}}
 
 ## <a name="scenarios"></a>시나리오
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>필수 조건
 
 Azure AD 조건부 액세스는 [Azure AD Premium](../active-directory-whatis.md#choose-an-edition)에 포함된 기능입니다.  [허가되지 않은 사용 현황 보고서](../active-directory-conditional-access-unlicensed-usage-report.md)에서 라이선스 요구 사항에 대해 자세히 알아볼 수 있습니다.  개발자는 Azure AD Premium을 포함하는 Enterprise Mobility Suite에 대한 평가판 구독을 포함하는 [Microsoft Developer Network](https://msdn.microsoft.com/dn308572.aspx)에 참여할 수 있습니다.
 
@@ -109,7 +109,7 @@ www-authenticate="Bearer realm="", authorization_uri="https://login.windows.net/
 
 ```WWW-Authenticate``` 헤더는 고유한 구조를 가지며 여기서 값을 추출하기 위해 구문 분석을 수행하는 것이 간단하지 않습니다.  도움이 되는 짧은 방법은 다음과 같습니다.
 
-```C#
+```csharp
         /// <summary>
         /// This method extracts the claims value from the 403 error response from MS Graph. 
         /// </summary>

@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 10/16/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 739e820a44194af984750932d6023c90fcd11e42
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: d8088a8a83bcaefce17ac2756360a46119c8eb27
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Azure Functions의 성능 및 안정성 최적화
 
@@ -40,11 +40,11 @@ Azure Functions를 사용하여 서버가 없는 솔루션을 빌드하고 설�
 
 ### <a name="cross-function-communication"></a>함수 통신 교차
 
-[지속형 함수](durable-functions-overview.md) 및 [Azure Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md)는 여러 함수 간에 상태 전환 및 통신을 관리하도록 빌드됩니다.
+[지속형 함수](durable-functions-overview.md) 및 [Azure Logic Apps](../logic-apps/logic-apps-overview.md)는 여러 함수 간에 상태 전환 및 통신을 관리하도록 빌드됩니다.
 
 지속형 함수 및 Logic Apps를 사용하지 않고 여러 기능을 통합하는 경우 함수 통신 교차를 위해 저장소 큐를 사용하는 것이 일반적으로 가장 좋은 방법입니다.  주요 이유는 저장소 큐는 더 저렴하고 프로비전하는 것이 훨씬 쉽습니다. 
 
-저장소 큐에 있는 개별 메시지 크기는 64KB로 제한됩니다. 함수 간에 더 큰 메시지를 전달해야 하는 경우 Azure Service Bus 큐를 사용하여 최대 256KB의 메시지 크기를 지원할 수 있습니다.
+저장소 큐에 있는 개별 메시지 크기는 64KB로 제한됩니다. 함수 간에 더 큰 메시지를 전달해야 하는 경우 Azure Service Bus 큐를 사용하면 표준 계층에서는 최대 256KB, 프리미엄 계층에서는 최대 1MB의 메시지를 지원할 수 있습니다.
 
 Service Bus 토픽은 메시지를 처리하기 전에 필터링해야 하는 경우에 유용합니다.
 

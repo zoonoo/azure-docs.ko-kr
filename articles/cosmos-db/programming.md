@@ -1,7 +1,7 @@
 ---
 title: "Azure Cosmos DB에 대한 서버 쪽 JavaScript 프로그래밍 | Microsoft Docs"
 description: "Azure Cosmos DB를 사용하여 JavaScript에서 저장 프로시저, 데이터베이스 트리거 및 UDF(사용자 정의 함수)를 작성하는 방법을 알아봅니다. 데이터베이스 프로그래밍 팁 등을 가져옵니다."
-keywords: "데이터베이스 트리거, 저장된 프로시저, 저장된 프로시저, 데이터베이스 프로그램, sproc, documentdb, azure, Microsoft azure"
+keywords: "데이터베이스 트리거, 저장 프로시저, 저장 프로시저, 데이터베이스 프로그램, sproc, azure, Microsoft azure"
 services: cosmos-db
 documentationcenter: 
 author: aliuy
@@ -13,15 +13,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2016
+ms.date: 12/07/2017
 ms.author: andrl
-ms.openlocfilehash: ef191c3c8d85afa389859956d30b5ac0275053d2
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: d8438d126c1f994e51871e80bb11610ec95b0814
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Azure Cosmos DB 서버 쪽 프로그래밍: 저장 프로시저, 데이터베이스 트리거 및 UDF
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
 Azure Cosmos DB가 언어 통합 트랜잭션 방식으로 JavaScript를 실행하므로 개발자가 기본적으로 [ECMAScript 2015](http://www.ecma-international.org/ecma-262/6.0/) JavaScript로 **저장 프로시저**, **트리거** 및 **UDF(사용자 정의 함수)**를 작성할 수 있는 방법을 알아봅니다. 이 경우 사용자가 데이터베이스 저장소 파티션에 직접 전달되고 실행될 수 있는 데이터베이스 프로그램 응용 프로그램 논리를 작성할 수 있습니다. 
 
 먼저 Andrew Liu가 Cosmos DB의 서버 쪽 데이터베이스 프로그래밍 모델을 간략하게 설명하는 다음 동영상을 보는 것이 좋습니다. 
@@ -53,7 +56,7 @@ Azure Cosmos DB가 언어 통합 트랜잭션 방식으로 JavaScript를 실행�
   * 원시 데이터 위에 추상 계층이 추가되므로 데이터 설계자가 데이터와 독립적으로 응용 프로그램을 개발할 수 있습니다. 데이터를 직접 처리해야 할 경우 응용 프로그램에 포함되어야 할 수 있는 가정으로 인해 데이터에 스키마가 사용되지 않을 경우 이러한 장점은 특히 유용할 수 있습니다.  
   * 이 추상화는 스크립트에서의 액세스를 간소화하여 기업이 데이터 보안을 유지할 수 있게 합니다.  
 
-데이터베이스 트리거, 저장 프로시저 및 사용자 지정 쿼리 연산자의 만들기 및 실행은 .NET, Node.js 및 JavaScript를 비롯한 많은 플랫폼의 [REST API](/rest/api/documentdb/), [Azure DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases) 및 [클라이언트 SDK](documentdb-sdk-dotnet.md)를 통해 지원됩니다.
+데이터베이스 트리거, 저장 프로시저 및 사용자 지정 쿼리 연산자의 만들기 및 실행은 .NET, Node.js 및 JavaScript를 비롯한 많은 플랫폼의 [Azure Portal](https://portal.azure.com), [REST API](/rest/api/documentdb/), [Azure DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases) 및 [클라이언트 SDK](sql-api-sdk-dotnet.md)를 통해 지원됩니다.
 
 이 자습서에서는 [Q Promise와 함께 Node.js SDK](http://azure.github.io/azure-documentdb-node-q/)를 사용하여 저장 프로시저, 트리거 및 UDF의 구문 및 사용법을 설명합니다.   
 
@@ -437,7 +440,7 @@ Cosmos DB는 문서 작업에 의해 실행되거나 트리거되는 트리거�
 한 가지 중요한 사항은 Cosmos DB에서 트리거의 **트랜잭션** 실행입니다. 이 사후 트리거는 원본 문서 만들기와 동일한 트랜잭션의 일부로 실행됩니다. 따라서 사후 트리거에서 예외가 발생할 경우(가령 메타데이터 문서를 업데이트할 수 없는 경우) 전체 트랜잭션이 실패하고 롤백됩니다. 문서가 만들어지지 않고 예외가 반환됩니다.  
 
 ## <a id="udf"></a>사용자 정의 함수
-UDF(사용자 정의 함수)는 DocumentDB API SQL 쿼리 언어 문법을 확장하고 사용자 지정 비즈니스 논리를 구현하는 데 사용됩니다. UDF는 쿼리 내부에서만 호출할 수 있습니다. 컨텍스트 개체에 액세스할 수 없으며 계산 전용 JavaScript로 사용되어야 합니다. 따라서 UDF는 Cosmos DB 서비스의 보조 복제본에서 실행할 수 있습니다.  
+UDF(사용자 정의 함수)는 Azure Cosmos DB SQL 쿼리 언어 문법을 확장하고 사용자 지정 비즈니스 논리를 구현하는 데 사용됩니다. UDF는 쿼리 내부에서만 호출할 수 있습니다. 컨텍스트 개체에 액세스할 수 없으며 계산 전용 JavaScript로 사용되어야 합니다. 따라서 UDF는 Cosmos DB 서비스의 보조 복제본에서 실행할 수 있습니다.  
 
 다음 샘플에서는 다양한 수입 브래킷에 대한 비율에 따라 소득세를 계산하는 UDF를 만든 다음 쿼리 내부에서 사용하여 납부한 세금이 $20,000를 초과하는 모든 사람을 찾습니다.
 
@@ -479,7 +482,7 @@ UDF(사용자 정의 함수)는 DocumentDB API SQL 쿼리 언어 문법을 확�
     });
 
 ## <a name="javascript-language-integrated-query-api"></a>JavaScript 언어 통합 쿼리 API
-DocumentDB의 SQL 문법을 사용하여 쿼리를 발급하는 것 외에도 서버 쪽 SDK를 사용하면 SQL의 지식 없이도 흐름 JavaScript 인터페이스를 사용하여 최적화된 쿼리를 수행할 수 있습니다. JavaScript 쿼리 API를 사용하면 조건자 함수를 ECMAScript5의 배열 기본 제공 항목과 익숙한 구문 및 lodash와 같은 인기 있는 JavaScript 라이브러리가 포함된 연결 가능한 함수 호출에 전달하여 쿼리를 프로그래밍 방식으로 작성할 수 있습니다. 쿼리는 Azure Cosmos DB의 인덱스를 사용하여 효율적으로 실행되도록 JavaScript 런타임으로 구문 분석됩니다.
+Azure Cosmos DB의 SQL 문법을 사용하여 쿼리를 발급하는 것 외에도 서버 쪽 SDK를 사용하면 SQL의 지식 없이도 흐름 JavaScript 인터페이스를 사용하여 최적화된 쿼리를 수행할 수 있습니다. JavaScript 쿼리 API를 사용하면 조건자 함수를 ECMAScript5의 배열 기본 제공 항목과 익숙한 구문 및 lodash와 같은 인기 있는 JavaScript 라이브러리가 포함된 연결 가능한 함수 호출에 전달하여 쿼리를 프로그래밍 방식으로 작성할 수 있습니다. 쿼리는 Azure Cosmos DB의 인덱스를 사용하여 효율적으로 실행되도록 JavaScript 런타임으로 구문 분석됩니다.
 
 > [!NOTE]
 > `__`(이중 밑줄)은 `getContext().getCollection()`에 대한 별칭입니다.
@@ -642,7 +645,7 @@ SQL 쿼리를 사용하는 것과 같이 문서 속성 키(예: `doc.id`)는 소
 
 
 ## <a name="runtime-support"></a>런타임 지원
-[DocumentDB JavaScript 서버 쪽 API](http://azure.github.io/azure-documentdb-js-server/)는 [ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm)에서 표준화된 일반 JavaScript 언어 기능을 대부분 지원합니다.
+[Azure Cosmos DB JavaScript 서버 쪽 API](http://azure.github.io/azure-documentdb-js-server/)는 [ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm)에서 표준화된 일반 JavaScript 언어 기능을 대부분 지원합니다.
 
 ### <a name="security"></a>보안
 JavaScript 저장 프로시저와 트리거는 한 스크립트의 결과가 데이터베이스 수준의 스냅숏 트랜잭션 격리를 통과하지 않고 다른 스크립트로 누출되지 않도록 샌드박스됩니다. 런타임 환경은 풀링되지만 각 실행 후에 컨텍스트가 정리됩니다. 따라서 서로 간의 의도치 않은 파생 작업으로부터 보호됩니다.
@@ -651,7 +654,7 @@ JavaScript 저장 프로시저와 트리거는 한 스크립트의 결과가 데
 저장 프로시저, 트리거 및 UDF는 각 스크립트 호출 시 컴파일 비용을 방지하기 위해 암시적으로 바이트 코드 형식으로 사전 컴파일됩니다. 이렇게 하면 저장 프로시저 호출이 빠르며 사용 공간이 적습니다.
 
 ## <a name="client-sdk-support"></a>클라이언트 SDK 지원
-[Node.js](documentdb-sdk-node.md) 클라이언트용 DocumentDB API뿐 아니라 Azure Cosmos DB에는 DocumentDB API용 [.NET](documentdb-sdk-dotnet.md), [.NET Core](documentdb-sdk-dotnet-core.md), [Java](documentdb-sdk-java.md), [JavaScript](http://azure.github.io/azure-documentdb-js/) 및 [Python SDK](documentdb-sdk-python.md)도 있습니다. 이러한 SDK를 사용하여 저장 프로시저, 트리거 및 UDF를 만들고 실행할 수도 있습니다. 다음 예제에서는 .NET 클라이언트를 사용하여 저장 프로시저를 만들고 실행하는 방법을 보여 줍니다. .NET 유형을 저장 프로시저에 JSON으로 전달하고 다시 읽는 방법을 확인합니다.
+Azure Cosmos DB [Node.js](sql-api-sdk-node.md) API 외에도 Azure Cosmos DB에는 SQL API용 [.NET](sql-api-sdk-dotnet.md), [.NET Core](sql-api-sdk-dotnet-core.md), [Java](sql-api-sdk-java.md), [JavaScript](http://azure.github.io/azure-documentdb-js/) 및 [Python SDK](sql-api-sdk-python.md)도 있습니다. 이러한 SDK를 사용하여 저장 프로시저, 트리거 및 UDF를 만들고 실행할 수도 있습니다. 다음 예제에서는 .NET 클라이언트를 사용하여 저장 프로시저를 만들고 실행하는 방법을 보여 줍니다. .NET 유형을 저장 프로시저에 JSON으로 전달하고 다시 읽는 방법을 확인합니다.
 
     var markAntiquesSproc = new StoredProcedure
     {
@@ -684,7 +687,7 @@ JavaScript 저장 프로시저와 트리거는 한 스크립트의 결과가 데
     Document createdDocument = await client.ExecuteStoredProcedureAsync<Document>(UriFactory.CreateStoredProcedureUri("db", "coll", "ValidateDocumentAge"), document, 1920);
 
 
-이 샘플에서는 [DocumentDB .NET API](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet)를 사용하여 사전 트리거를 만들고 트리거를 사용하도록 설정하여 문서를 만드는 방법을 보여 줍니다. 
+이 샘플에서는 [SQL .NET API](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet)를 사용하여 사전 트리거를 만들고 트리거를 사용하도록 설정하여 문서를 만드는 방법을 보여 줍니다. 
 
     Trigger preTrigger = new Trigger()
     {
@@ -705,7 +708,7 @@ JavaScript 저장 프로시저와 트리거는 한 스크립트의 결과가 데
         });
 
 
-다음 예제에서는 UDF(사용자 정의 함수)를 만들고 [DocumentDB API SQL 쿼리](documentdb-sql-query.md)에 사용하는 방법을 보여 줍니다.
+다음 예제에서는 UDF(사용자 정의 함수)를 만들고 [SQL 쿼리](sql-api-sql-query.md)에 사용하는 방법을 보여 줍니다.
 
     UserDefinedFunction function = new UserDefinedFunction()
     {
@@ -802,7 +805,7 @@ JavaScript 저장 프로시저와 트리거는 한 스크립트의 결과가 데
 
 또한 Azure Cosmos DB 서버 쪽 프로그래밍에 대한 자세한 내용을 보려면 경로에서 다음의 참조 자료 및 리소스가 유용합니다.
 
-* [Azure Cosmos DB SDK](documentdb-sdk-dotnet.md)
+* [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md)
 * [DocumentDB 스튜디오](https://github.com/mingaliu/DocumentDBStudio/releases)
 * [JSON](http://www.json.org/) 
 * [JavaScript ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm)

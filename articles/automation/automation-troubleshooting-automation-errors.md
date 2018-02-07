@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/22/2017
 ms.author: sngun; v-reagie
-ms.openlocfilehash: 29362ea94fb86f86f7ff85be81cbf33fef6accce
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: 95abba4fd293e2d04a58f0d07f955aca808434b7
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="troubleshooting-common-issues-in-azure-automation"></a>Azure Automation이 일반적인 문제 해결 
 이 문서에서는 Azure Automation에서 발생할 수 있는 일반적인 문제 해결 도움말을 제공하고 가능한 문제 해결 방법을 제시합니다.
@@ -152,7 +152,7 @@ ms.lasthandoff: 01/06/2018
   * PowerShell cmdlet을 사용하여 노드 구성을 노드에 할당하려면 **Set-AzureRmAutomationDscNode** cmdlet을 사용합니다.
 
 ### <a name="scenario-no-node-configurations-mof-files-were-produced-when-a-configuration-is-compiled"></a>시나리오: 구성이 컴파일될 때 생성된 노드 구성(mof 파일)이 없음
-**오류:** DSC 컴파일 작업이 "컴파일은 성공적으로 완료되었지만 노드 구성 .mof가 생성되지 않음"이라는 오류로 일시 중단되었습니다.
+**오류:** DSC 컴파일 작업이 “컴파일은 성공적으로 완료되었지만 노드 configuration.mof가 생성되지 않음”이라는 오류로 일시 중단되었습니다.
 
 **오류 원인:** DSC 구성에서 **Node** 키워드 다음에 오는 식이 `$null`로 평가되면 노드 구성이 생성되지 않습니다.
 
@@ -190,6 +190,16 @@ ms.lasthandoff: 01/06/2018
 **문제 해결 팁:**
 
 이 솔루션에 대한 쿼리를 삭제하고, 솔루션을 다시 온보딩하여 쿼리를 다시 만들 수 있습니다. 쿼리를 작업 영역 내의 **저장된 검색**에서 찾을 수 있습니다. 쿼리의 이름은 **MicrosoftDefaultComputerGroup**이고, 쿼리의 범주는 이 쿼리와 연결된 솔루션의 이름입니다. 여러 솔루션이 사용되도록 설정되면 **MicrosoftDefaultComputerGroup**이 **저장된 검색** 아래에 여러 번 표시됩니다.
+
+### <a name="policyviolation"></a>PolicyViolation
+
+**오류 이유:**
+
+이 오류 코드는 정책의 위반으로 인해 배포하지 못했음을 의미합니다.
+
+**문제 해결 팁:**
+
+실패한 배포를 확인하려면 Azure Portal의 오른쪽 위 모서리에서 알림을 확인하거나 자동화 계정을 포함하는 리소스 그룹으로 이동하여 **설정**에 있는 **배포**를 선택합니다. Azure Policy에 대한 자세한 내용은 [Azure Policy 개요](../azure-policy/azure-policy-introduction.md?toc=%2fazure%2fautomation%2ftoc.json)를 방문하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

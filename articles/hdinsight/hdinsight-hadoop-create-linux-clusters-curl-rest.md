@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/06/2017
+ms.date: 01/31/2018
 ms.author: larryfr
-ms.openlocfilehash: f35c50a3b05bfeb06556f5eb9ba70e24b80de6e9
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 4fcdde200fa9d54c7eb5b0ffe151aff3fbd0ed85
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-hadoop-clusters-using-the-azure-rest-api"></a>Azure REST API를 사용하여 Hadoop 클러스터 만들기
 
@@ -361,7 +361,7 @@ HDInsight 클러스터를 성공적으로 만들었으므로 다음을 사용하
 
 ### <a name="hadoop-clusters"></a>Hadoop 클러스터
 
-* [HDInsight에서 Hive 사용](hadoop/hdinsight-use-hive.md)
+* [HDInsight에서 하이브 사용](hadoop/hdinsight-use-hive.md)
 * [HDInsight에서 Pig 사용](hadoop/hdinsight-use-pig.md)
 * [HDInsight와 함께 MapReduce 사용](hadoop/hdinsight-use-mapreduce.md)
 

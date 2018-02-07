@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 01/10/2018
 ms.author: spelluru
-ms.openlocfilehash: 3c4f401682e5d1789c6e15597ced145a230bbcd6
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 02e4d7cd062364cae2edad0c76e3a009bb6c1bda
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Azure Data Factory에서 조회 작업
 조회 작업을 사용하여 외부 소스의 레코드, 테이블 이름 또는 값을 읽거나 조회할 수 있습니다. 이 출력을 다음 작업에서 추가로 참조할 수 있습니다. 
@@ -36,6 +36,8 @@ ms.lasthandoff: 01/04/2018
 - Azure SQL Data Warehouse(쿼리에서 변환된 JSON 데이터)
 - SQL Server(쿼리에서 변화된 JSON 데이터)
 - Azure Table Storage(쿼리에서 변환된 JSON 데이터)
+
+조회 작업에서 반환되는 최대 행 수는 **5000**이고, 최대 크기는 **10MB**입니다.
 
 ## <a name="syntax"></a>구문
 
@@ -58,10 +60,10 @@ ms.lasthandoff: 01/04/2018
 ```
 
 ## <a name="type-properties"></a>형식 속성
-이름 | 설명 | type | Required?
+Name | 설명 | 형식 | Required?
 ---- | ----------- | ---- | --------
-dataset | 조회를 위한 데이터 집합 참조를 제공합니다. 현재 지원되는 데이터 집합 형식은 다음과 같습니다.<ul><li>원본으로 사용되는 [Azure Blob Storage](connector-azure-blob-storage.md#dataset-properties)에 대한 `AzureBlobDataset`</li><li>원본으로 사용되는 [파일 시스템](connector-file-system.md#dataset-properties)에 대한 `FileShareDataset`</li><li>원본으로 사용되는 [Azure SQL Database](connector-azure-sql-database.md#dataset-properties) 또는 [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md#dataset-properties)에 대한 `AzureSqlTableDataset`</li><li>원본으로 사용되는 [SQL Server](connector-sql-server.md#dataset-properties)에 대한 `SqlServerTable`</li><li>원본으로 사용되는 [Azure Table Storage](connector-azure-table-storage.md#dataset-properties)에 대한 `AzureTableDataset`</li> | 키/값 쌍 | 적용
-원본 | 복사 작업 원본과 동일한 데이터 집합 관련 원본 속성을 포함하고 있습니다. 자세한 내용은 해당하는 각 커넥터 문서의 "복사 작업 속성" 섹션에서 확인하세요. | 키/값 쌍 | 적용
+dataset | 조회를 위한 데이터 집합 참조를 제공합니다. 현재 지원되는 데이터 집합 형식은 다음과 같습니다.<ul><li>원본으로 사용되는 [Azure Blob Storage](connector-azure-blob-storage.md#dataset-properties)에 대한 `AzureBlobDataset`</li><li>원본으로 사용되는 [파일 시스템](connector-file-system.md#dataset-properties)에 대한 `FileShareDataset`</li><li>원본으로 사용되는 [Azure SQL Database](connector-azure-sql-database.md#dataset-properties) 또는 [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md#dataset-properties)에 대한 `AzureSqlTableDataset`</li><li>원본으로 사용되는 [SQL Server](connector-sql-server.md#dataset-properties)에 대한 `SqlServerTable`</li><li>원본으로 사용되는 [Azure Table Storage](connector-azure-table-storage.md#dataset-properties)에 대한 `AzureTableDataset`</li> | 키/값 쌍 | 예
+원본 | 복사 작업 원본과 동일한 데이터 집합 관련 원본 속성을 포함하고 있습니다. 자세한 내용은 해당하는 각 커넥터 문서의 "복사 작업 속성" 섹션에서 확인하세요. | 키/값 쌍 | 예
 firstRowOnly | 첫 번째 행만 반환할 것인지 아니면 모든 행을 반환할 것인지 여부를 나타냅니다. | BOOLEAN | 번호 기본값은 `true`입니다.
 
 ## <a name="use-the-lookup-activity-result-in-a-subsequent-activity"></a>조회 작업 결과를 후속 작업에 사용

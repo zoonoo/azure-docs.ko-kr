@@ -3,7 +3,7 @@
 
 프로덕션 작업을 실행하는 Azure VM을 백업하려면 Azure Backup을 사용합니다. Azure Backup은 Windows와 Linux VM 모두에 대해 응용 프로그램 일치 백업을 지원합니다. Azure Backup은 지역 중복 복구 자격 증명 모음에 저장되는 복구 지점을 만듭니다. 복구 지점에서 복원하는 경우 전체 VM 또는 특정 파일만 복원할 수 있습니다. 
 
-Azure VM용 Azure Backup 실습에 대한 간단한 소개는 [Linux](../articles/virtual-machines/linux/tutorial-backup-vms.md) 또는 [Windows](../articles/virtual-machines/windows/tutorial-backup-vms.md)에 대한 "Windows 가상 컴퓨터 백업" 자습서를 참조하세요.
+Azure VM용 Azure Backup 실습에 대한 간단한 소개는 [Linux](../articles/virtual-machines/linux/tutorial-backup-vms.md) 또는 [Windows](../articles/virtual-machines/windows/tutorial-backup-vms.md)에 대한 "Azure 가상 머신 백업" 자습서를 참조하세요.
 
 Azure Backup 작동 방법에 대한 자세한 내용은 [Azure에서 VM 백업 인프라 계획](../articles/backup/backup-azure-vms-introduction.md)을 참조하세요.
 
@@ -14,7 +14,7 @@ Azure Site Recovery는 주요 자연 재해 또는 광범위한 서비스 중단
 
 프로덕션 작업 또는 진행 중인 복제에 영향을 주지 않고 주문형 테스트 장애 조치를 사용하여 재해 복구 훈련을 실행할 수 있습니다. 여러 VM에서 실행되는 전체 응용 프로그램의 장애 조치 및 장애 복구를 오케스트레이션하는 복구 계획을 만듭니다. 복구 계획 기능은 Azure Automation Runbook과 통합됩니다.
 
-[가상 컴퓨터를 복제](https://aka.ms/a2a-getting-started)하여 시작할 수 있습니다. 
+[가상 머신을 복제](https://aka.ms/a2a-getting-started)하여 시작할 수 있습니다. 
 
 ## <a name="managed-snapshots"></a>관리되는 스냅숏 
 
@@ -28,4 +28,4 @@ Azure Site Recovery는 주요 자연 재해 또는 광범위한 서비스 중단
 
 
 ## <a name="next-steps"></a>다음 단계
-[Linux](../articles/virtual-machines/linux/tutorial-backup-vms.md) 또는 [Windows](../articles/virtual-machines/windows/tutorial-backup-vms.md)에 대한 "Windows 가상 컴퓨터 백업" 자습서를 수행하여 Azure Backup을 체험해 볼 수 있습니다.
+[Linux](../articles/virtual-machines/linux/tutorial-backup-vms.md) 또는 [Windows](../articles/virtual-machines/windows/tutorial-backup-vms.md)에 대한 "Windows 가상 머신 백업" 자습서를 수행하여 Azure Backup을 체험해 볼 수 있습니다.

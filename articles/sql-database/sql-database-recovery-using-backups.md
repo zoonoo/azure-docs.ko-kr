@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: Active
 ms.date: 11/20/2017
 ms.author: carlrab
-ms.openlocfilehash: b23ee0629720676b76de17c81f90b33a4fd4d8a3
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 06eb02e408b95176ca99ca391b437a3751876fac
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>자동화된 데이터베이스 백업을 사용하여 Azure SQL 데이터베이스 복구
 SQL Database는 [자동화된 데이터베이스 백업](sql-database-automated-backups.md) 및 [장기 보존에서 백업](sql-database-long-term-retention.md)을 사용한 데이터베이스 복구를 위해 다음 옵션을 제공합니다. 데이터베이스 백업에서 다음으로 복원할 수 있습니다.
@@ -83,14 +83,14 @@ Azure Portal, [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.
 * ***데이터베이스 바꾸기:*** 복원된 데이터베이스를 원래 데이터베이스에 대한 대체로 여기는 경우 성능 수준 및 서비스 계층이 적절한지 확인하고 필요한 경우 데이터베이스의 크기를 조정해야 합니다. 원본 데이터베이스의 이름을 바꿀 수 있으며 T-SQL에서 [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-database) 명령을 사용하여 복원된 데이터베이스에 원래 이름을 제공할 수 있습니다. 
 * ***데이터 복구:*** 복원된 데이터베이스에서 데이터를 가져와 사용자 또는 응용 프로그램 오류로부터 복구하려면 복원된 데이터베이스에서 원본 데이터베이스로 데이터를 추출하는 데 필요한 데이터 복구 스크립트를 작성하고 실행해야 합니다. 복원 작업을 완료하는 데 긴 시간이 걸리지만 복원 중인 데이터베이스가 복원 과정 내내 데이터베이스 목록에 표시됩니다. 복원하는 동안 데이터베이스를 삭제하는 경우 작업이 취소되고 복원이 완료되지 않은 데이터베이스에 대해서는 비용이 청구되지 않습니다. 
 
-### <a name="azure-portal"></a>Azure 포털
+### <a name="azure-portal"></a>Azure portal
 
 Azure Portal을 사용하여 특정 시점으로 복구하려면 데이터베이스에 대한 페이지를 열고 도구 모음에서 **복원**을 클릭합니다.
 
 ![point-in-time-restore](./media/sql-database-recovery-using-backups/point-in-time-recovery.png)
 
 ## <a name="deleted-database-restore"></a>삭제된 데이터베이스 복원
-삭제된 데이터베이스 복원을 사용하면 Azure Portal, [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase) 또는 [REST(createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx)를 사용하여 삭제된 데이터베이스를 동일한 논리 서버의 삭제된 데이터베이스에 대한 삭제 시간으로 복원할 수 있습니다. 
+삭제된 데이터베이스 복원을 사용하면 Azure Portal, [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase) 또는 [REST(createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx)를 사용하여 삭제된 데이터베이스를 동일한 논리 서버의 삭제된 데이터베이스에 대한 삭제 시간으로 복원할 수 있습니다. [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase)을 사용하여 삭제된 데이터베이스를 보존 기간 중 이전 시점으로 복원할 수 있습니다.
 
 > [!TIP]
 > 삭제된 데이터베이스를 복원하는 방법을 보여 주는 샘플 PowerShell 스크립트는 [PowerShell을 사용하여 SQL 데이터베이스 복원](scripts/sql-database-restore-database-powershell.md)을 참조하세요.
@@ -100,7 +100,7 @@ Azure Portal을 사용하여 특정 시점으로 복구하려면 데이터베이
 > Azure SQL Database 서버 인스턴스를 삭제하면 모든 해당 데이터베이스도 삭제되고 복구할 수 없습니다. 현재는 삭제된 서버 복원에 대한 지원이 제공되지 않습니다.
 > 
 
-### <a name="azure-portal"></a>Azure 포털
+### <a name="azure-portal"></a>Azure portal
 
 Azure Portal을 사용하여 [보존 기간](sql-database-service-tiers.md) 중에 삭제된 데이터베이스를 복구하려면 서버에 대한 페이지를 열고 작업 영역에서 **삭제된 데이터베이스**를 클릭합니다.
 
@@ -126,7 +126,7 @@ Azure Portal을 사용하여 [보존 기간](sql-database-service-tiers.md) 중�
 > 백업에서 복원은 RPO(복구 지점 목표)와 ERT(예상 복구 시간)가 가장 긴 SQL Database에서 사용할 수 있는 재해 복구 솔루션 중 가장 기본적인 기능입니다. 기본 데이터베이스를 사용하는 솔루션의 경우 지역에서 복원은 12시간의 ERT에서 적절한 DR 솔루션입니다. 복구 시간을 줄여야 하는 대규모 표준 또는 프리미엄 데이터베이스를 사용하는 솔루션의 경우 [활성 지역 복제](sql-database-geo-replication-overview.md)를 사용하도록 고려해야 합니다. 활성 지역 복제는 지속적으로 복제된 보조 데이터베이스에 대한 장애 조치를 시작하도록 하여 훨씬 더 낮은 RPO와 ERT를 제공합니다. 비즈니스 연속성 선택에 대한 자세한 내용은 [비즈니스 연속성 개요](sql-database-business-continuity.md)를 참조하세요.
 > 
 
-### <a name="azure-portal"></a>Azure 포털
+### <a name="azure-portal"></a>Azure portal
 
 Azure Portal을 사용하여 해당 [보존 기간](sql-database-service-tiers.md) 동안 데이터베이스를 지역 복원하려면 SQL Databases 페이지를 연 다음 **추가**를 클릭합니다. **Select source**(소스 선택) 텍스트 상자에서 **Backup**을 선택합니다. 선택한 서버 또는 지역에서 복구를 수행할 백업을 지정합니다. 
 

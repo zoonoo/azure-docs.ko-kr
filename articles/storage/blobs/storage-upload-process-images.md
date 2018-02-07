@@ -14,11 +14,11 @@ ms.topic: tutorial
 ms.date: 09/19/2017
 ms.author: gwallace
 ms.custom: mvc
-ms.openlocfilehash: 8d187e51cbb391ee1f34fb5934c8ae1868bb6244
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: eae23bed2792e41f73c22658d238e2b03beba17b
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="upload-image-data-in-the-cloud-with-azure-storage"></a>Azure Storage를 사용하여 클라우드에 이미지 데이터 업로드
 
@@ -42,7 +42,7 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에�
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기 
 
-[az group create](/cli/azure/group#create) 명령을 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다.
+[az group create](/cli/azure/group#az_group_create) 명령을 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다.
  
 다음 예제에서는 `myResourceGroup`이라는 리소스 그룹을 만듭니다.
  
@@ -69,7 +69,7 @@ az storage account create --name <blob_storage_account> \
  
 앱은 Blob Storage 계정에서 두 컨테이너를 사용합니다. 컨테이너는 폴더와 비슷하며 blob을 저장하는 데 사용됩니다. _images_ 컨테이너는 앱이 고해상도 이미지를 업로드하는 위치입니다. 시리즈의 뒷부분에서 Azure 함수 앱은 크기가 조정된 이미지 썸네일을 _thumbs_ 컨테이너에 업로드합니다. 
 
-[az storage account keys list](/cli/azure/storage/account/keys#list) 명령을 사용하여 저장소 계정 키를 가져옵니다. 그런 다음 [az storage container create](/cli/azure/storage/container#az_storage_container_create) 명령을 사용하여 이 키로 2개의 컨테이너를 만듭니다.  
+[az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list) 명령을 사용하여 저장소 계정 키를 가져옵니다. 그런 다음 [az storage container create](/cli/azure/storage/container#az_storage_container_create) 명령을 사용하여 이 키로 2개의 컨테이너를 만듭니다.  
  
 이 경우 `<blob_storage_account>`는 만든 BLOB 저장소 계정의 이름입니다. _images_ 컨테이너 공용 액세스는 `off`로 설정되고, _thumbs_ 컨테이너 공용 액세스는 `container`로 설정됩니다. `container` 공용 액세스 설정을 사용하면 웹 페이지를 방문하는 모든 사람이 해당 썸네일을 볼 수 있습니다.
  

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/01/2017
+ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 4094d054595e82a6ddc0e19784309131f0506d27
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 9eeb265e063e6642b90dd641d41d0a54cbc6951e
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>SQL Server의 여러 테이블에서 Azure SQL 데이터베이스로 데이터 증분 로드
 이 자습서에서는 델타 데이터를 온-프레미스 SQL Server의 여러 테이블에서 Azure SQL 데이터베이스로 로드하는 파이프라인이 있는 Azure 데이터 팩터리를 만듭니다.    
@@ -53,9 +53,9 @@ ms.lasthandoff: 12/15/2017
     
     a. 파이프라인에 매개 변수로 전달되는 원본 테이블 이름 목록을 반복하는 ForEach 작업을 만듭니다. 각 원본 테이블에 해당 테이블에 대한 델타 로드를 수행하는 다음 작업을 호출합니다.
 
-    b. 두 가지 조회 작업을 만듭니다. 첫 번째 조회 작업을 사용하여 마지막 워터마크 값을 검색합니다. 두 번째 조회 작업을 사용하여 새 워터마크 값을 검색합니다. 이러한 워터마크 값은 복사 작업에 전달됩니다.
+    나. 두 가지 조회 작업을 만듭니다. 첫 번째 조회 작업을 사용하여 마지막 워터마크 값을 검색합니다. 두 번째 조회 작업을 사용하여 새 워터마크 값을 검색합니다. 이러한 워터마크 값은 복사 작업에 전달됩니다.
 
-    c. 이전 워터마크 값보다 크고, 새 워터마크 값보다 작은 워터마크 열 값으로 원본 데이터 저장소의 행을 복사하는 복사 작업을 만듭니다. 그런 다음 원본 데이터 저장소의 델타 데이터를 새 파일로 Azure Blob 저장소에 복사합니다.
+    다. 이전 워터마크 값보다 크고, 새 워터마크 값보다 작은 워터마크 열 값으로 원본 데이터 저장소의 행을 복사하는 복사 작업을 만듭니다. 그런 다음 원본 데이터 저장소의 델타 데이터를 새 파일로 Azure Blob 저장소에 복사합니다.
 
     d. 다음에 실행되는 파이프라인에 대한 워터마크 값을 업데이트하는 StoredProcedure 작업을 만듭니다. 
 
@@ -702,7 +702,7 @@ END
 
 ## <a name="monitor-the-pipeline"></a>파이프라인 모니터링
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 2. **추가 서비스**를 선택하고 *데이터 팩터리* 키워드를 사용하여 검색하고 **데이터 팩터리**를 선택합니다. 
 

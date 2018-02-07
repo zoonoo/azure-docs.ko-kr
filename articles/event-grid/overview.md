@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 11/06/2017
+ms.date: 12/14/2017
 ms.author: babanisa
-ms.openlocfilehash: 5b522b40b136e354c6ca83a56ac7ad690151ad7d
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: e6665b3b0c6e92ed462f18dbd41d62ccd9304928
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="an-introduction-to-azure-event-grid"></a>Azure Event Grid 소개
 
@@ -20,9 +20,18 @@ Azure Event Grid를 사용하면 이벤트 기반 아키텍처를 가진 응용 
 
 필터를 사용하여 다른 끝점에 대한 특정 이벤트를 라우팅하고, 여러 끝점으로 멀티캐스트하며, 이벤트가 안정적으로 배달되도록 할 수 있습니다. Event Grid에는 기본적으로 사용자 지정 및 타사 이벤트를 지원합니다.
 
-미리 보기 릴리스의 경우 Event Grid는 **westus2** 및 **westcentralus** 위치를 지원합니다. 다른 지역이 추가됩니다.
+현재 Event Grid는 다음 지역을 지원합니다.
 
-이 문서는 Azure Event Grid의 개요를 제공합니다. Event Grid를 시작하려는 경우 [Azure Event Grid를 사용하여 사용자 지정 이벤트 만들기 및 라우팅](custom-event-quickstart.md)을 참조하세요.
+* 미국 중부
+*   미국 동부
+*   미국 동부 2
+*   미국 중서부
+*   미국 서부
+*   미국 서부 2
+
+다른 지역이 추가됩니다.
+
+이 문서는 Azure Event Grid의 개요를 제공합니다. Event Grid를 시작하려는 경우 [Azure Event Grid를 사용하여 사용자 지정 이벤트 만들기 및 라우팅](custom-event-quickstart.md)을 참조하세요. 다음 이미지에서는 Event Grid가 게시자 및 처리기를 연결하는 방법을 보여주지만 지원되는 옵션의 포괄적인 목록을 제공하지 않습니다.
 
 ![Event Grid 기능 모델](./media/overview/event-grid-functional-model.png)
 
@@ -30,11 +39,12 @@ Azure Event Grid를 사용하면 이벤트 기반 아키텍처를 가진 응용 
 
 현재 다음 Azure 서비스는 Event Grid에 대한 기본 제공 게시자를 지원합니다.
 
-* 리소스 그룹(관리 작업)
 * Azure 구독(관리 작업)
-* Event Hubs(영문)
-* 저장소 Blob
 * 사용자 지정 토픽
+* Event Hubs
+
+* 리소스 그룹(관리 작업)
+* 저장소 Blob
 
 올해 다른 Azure 서비스가 추가될 예정입니다.
 
@@ -42,11 +52,13 @@ Azure Event Grid를 사용하면 이벤트 기반 아키텍처를 가진 응용 
 
 현재 다음 Azure 서비스는 Event Grid에 대한 기본 제공 처리기를 지원합니다. 
 
-* Azure 기능
-* Logic Apps
 * Azure Automation
-* 웹후크
+* Azure 기능
+* Event Hubs
+
+* Logic Apps
 * Microsoft Flow
+* 웹후크
 
 올해 다른 Azure 서비스가 추가될 예정입니다.
 
@@ -91,7 +103,7 @@ Event Grid는 데이터 원본과 이벤트 처리기를 연결합니다. 예를
 
 ![작업 자동화](./media/overview/Ops_automation.png)
 
-Event Grid를 통해 자동화를 가속화하고 정책 적용을 간소화할 수 있습니다. 예를 들어 Event Grid는 가상 컴퓨터가 만들어지거나 SQL Database가 실행되면 Azure Automation에 알릴 수 있습니다. 이러한 이벤트는 서비스 구성이 준수 상태인지 자동으로 확인하고 메타데이터를 작업 도구에 배치하고 가상 컴퓨터에 태그를 지정하거나 작업 항목을 제출하는 데 사용될 수 있습니다.
+Event Grid를 통해 자동화를 가속화하고 정책 적용을 간소화할 수 있습니다. 예를 들어 Event Grid는 가상 컴퓨터가 만들어지거나 SQL Database가 실행되면 Azure Automation에 알릴 수 있습니다. 이러한 이벤트는 서비스 구성이 준수 상태인지 자동으로 확인하고 메타데이터를 작업 도구에 배치하고 가상 머신에 태그를 지정하거나 작업 항목을 제출하는 데 사용될 수 있습니다.
 
 ### <a name="application-integration"></a>응용 프로그램 통합
 

@@ -1,9 +1,9 @@
 ---
-title: "Azure AD Connect 동기화: userCertificate 특성으로 인한 LargeObject 오류 처리 | Microsoft Docs"
+title: "Azure AD Connect - userCertificate 특성으로 인한 LargeObject 오류 | Microsoft Docs"
 description: "이 항목에서는 userCertificate 특성으로 인한 LargeObject 오류에 대한 수정 단계를 제공합니다."
 services: active-directory
 documentationcenter: 
-author: cychua
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 146ad5b3-74d9-4a83-b9e8-0973a19828d9
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: fa824448288059aaad164035743982a2c9f20b9c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: 73c79e26b2962368f33bbb0d52d6c243b93a3026
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Azure AD Connect 동기화: userCertificate 특성으로 인한 LargeObject 오류 처리
 
@@ -113,7 +114,7 @@ User 개체에 대한 userCertificate 특성을 Azure AD로 내보내기 위해 
 
     | 특성 | 값 | 세부 정보 |
     | --- | --- | --- |
-    | 이름 | *이름 제공* | 예: *“Out to AAD – userCertificate에 대한 사용자 지정 재정의”* |
+    | Name | *이름 제공* | 예: *“Out to AAD – userCertificate에 대한 사용자 지정 재정의”* |
     | 설명 | *설명 제공* | 예: *“userCertificate 특성에 15개 이상의 값이 있는 경우 NULL을 내보냅니다.”* |
     | 연결된 시스템 | *Azure AD 커넥터에 선택* |
     | 연결된 시스템 개체 유형 | **user** | |

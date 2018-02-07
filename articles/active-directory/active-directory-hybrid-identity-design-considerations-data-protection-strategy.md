@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory 하이브리드 ID 디자인 고려 사항 - 데이터 보호 전략 정의 | Microsoft Docs"
+title: "Azure의 하이브리드 ID 디자인 - 데이터 보호 전략 | Microsoft Docs"
 description: "하이브리드 ID 솔루션에 대한 데이터 보호 전략을 정의하여 정의한 비즈니스 요구 사항을 충족합니다."
 documentationcenter: 
 services: active-directory
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/13/2017
 ms.author: billmath
-ms.openlocfilehash: ab8f884449aa21f91ff873901b44753d8e15bcd9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: d43be976f9b3fae7f3cbec1a0033f1a401ede896
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="define-data-protection-strategy-for-your-hybrid-identity-solution"></a>하이브리드 ID 솔루션에 대한 데이터 보호 전략 정의
 이 작업에서 하이브리드 ID 솔루션에 대한 데이터 보호 전략을 정의하여 다음에서 정의된 비즈니스 요구 사항을 충족합니다.

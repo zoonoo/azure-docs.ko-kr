@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2018
 ms.author: tomfitz
-ms.openlocfilehash: e25de0366126ceee988eb253b66d18c9b8b62e1f
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: ab42789b091898c69091ba6b3fa2a8bf91e711f6
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>예기치 않은 변경을 방지하기 위해 리소스 잠그기 
 
@@ -157,7 +157,7 @@ Remove-AzureRmResourceLock -LockId $lockId
 
 ## <a name="azure-cli"></a>Azure CLI
 
-[az lock create](/cli/azure/lock#create) 명령을 사용하여 Azure CLI를 통해 배포된 리소스를 잠급니다.
+[az lock create](/cli/azure/lock#az_lock_create) 명령을 사용하여 Azure CLI를 통해 배포된 리소스를 잠급니다.
 
 리소스를 잠그려면 리소스 이름, 리소스 종류 및 해당 리소스 그룹 이름을 제공합니다.
 
@@ -171,7 +171,7 @@ az lock create --name LockSite --lock-type CanNotDelete --resource-group example
 az lock create --name LockGroup --lock-type CanNotDelete --resource-group exampleresourcegroup
 ```
 
-잠금에 대한 정보를 가져오려면 [az lock list](/cli/azure/lock#list)를 사용합니다. 구독의 모든 잠금을 가져오려면 다음을 사용합니다.
+잠금에 대한 정보를 가져오려면 [az lock list](/cli/azure/lock#az_lock_list)를 사용합니다. 구독의 모든 잠금을 가져오려면 다음을 사용합니다.
 
 ```azurecli
 az lock list

@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 11/10/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 722a3f0f428bb972b2835df65a67707bf4d8e7d7
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: c685e5250943098f43f232b2b09d3ae55c0380d0
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="deploy-api-management-with-service-fabric"></a>Service Fabric을 사용하여 API Management 배포
-이 자습서는 시리즈의 4부입니다.  Service Fabric을 사용한 Azure API Management 배포는 고급 시나리오입니다.  API Management는 백 엔드 Service Fabric 서비스에 대한 풍부한 라우팅 규칙 집합을 API를 게시해야 할 경우에 유용합니다. 일반적으로 클라우드 응용 프로그램에는 사용자, 장치 또는 기타 응용 프로그램 수신을 위한 단일 지점을 제공하는 프런트 엔드 게이트웨이가 필요합니다. Service Fabric에서 게이트웨이는 APP.NET Core 응용 프로그램, Event Hubs, IoT Hub 또는 Azure API Management와 같이 트래픽 수신용으로 설계된 상태 비저장 서비스일 수 있습니다. 
+이 자습서는 시리즈의 4부입니다.  Service Fabric을 사용한 Azure API Management 배포는 고급 시나리오입니다.  API Management는 백 엔드 Service Fabric 서비스에 대한 풍부한 라우팅 규칙 집합을 API를 게시해야 할 경우에 유용합니다. 일반적으로 클라우드 응용 프로그램에는 사용자, 장치 또는 기타 응용 프로그램 수신을 위한 단일 지점을 제공하는 프런트 엔드 게이트웨이가 필요합니다. Service Fabric에서 게이트웨이는 ASP.NET Core 응용 프로그램, Event Hubs, IoT Hub 또는 Azure API Management와 같이 트래픽 수신용으로 설계된 상태 비저장 서비스일 수 있습니다. 
 
 이 자습서에서는 Service Fabric에서 [Azure API Management](../api-management/api-management-key-concepts.md)를 설정하여 백 엔드 서비스에 트래픽을 라우팅하는 방법을 보여줍니다.  작업을 완료한 경우 VNET에 API Management가 배포되고, 백 엔드 상태 비저장 서비스에 트래픽을 전송하도록 API 작업이 구성됩니다. Service Fabric을 사용하는 Azure API Management 시나리오에 대해 자세히 알아보려면 [개요](service-fabric-api-management-overview.md) 문서를 참조하세요.
 

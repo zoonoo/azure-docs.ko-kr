@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 6e5c859d13ea8a10e1fa38340df52f189ec6cd4e
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: c8f61cb165b0bfffe2f42b060cdbd666fff3a8b3
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-an-on-premises-cassandra-database-using-azure-data-factory"></a>Azure Data Factory를 사용하여 온-프레미스 Cassandra 데이터베이스에서 데이터 이동
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -31,7 +31,7 @@ ms.lasthandoff: 11/03/2017
 
 이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 온-프레미스 Cassandra 데이터베이스에서 데이터를 이동하는 방법을 설명합니다. 이 문서는 복사 작업을 사용한 데이터 이동의 일반적인 개요를 보여주는 [데이터 이동 작업](data-factory-data-movement-activities.md) 문서를 기반으로 합니다.
 
-온-프레미스 Cassandra 데이터 저장소의 데이터를 지원되는 싱크 데이터 저장소로 복사할 수 있습니다. 복사 작업의 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 표를 참조하세요. 현재 데이터 팩터리는 다른 데이터 저장소에서 Cassandra 데이터 저장소로 데이터 이동이 아닌 Cassandra 데이터 저장소에서 다른 데이터 저장소로 데이터 이동만을 지원합니다. 
+온-프레미스 Cassandra 데이터 저장소의 데이터를 지원되는 싱크 데이터 저장소로 복사할 수 있습니다. 복사 작업의 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 테이블을 참조하세요. 현재 데이터 팩터리는 다른 데이터 저장소에서 Cassandra 데이터 저장소로 데이터 이동이 아닌 Cassandra 데이터 저장소에서 다른 데이터 저장소로 데이터 이동만을 지원합니다. 
 
 ## <a name="supported-versions"></a>지원되는 버전
 Cassandra 커넥터는 Cassandra 2.X 버전을 지원합니다.
@@ -65,23 +65,23 @@ Azure Data Factory 서비스가 온-프레미스 Cassandra 데이터베이스에
 ## <a name="linked-service-properties"></a>연결된 서비스 속성
 다음 표에서는 Cassandra 연결된 서비스와 관련된 JSON 요소에 대한 설명을 제공합니다.
 
-| 속성 | 설명 | 필수 |
+| 자산 | 설명 | 필수 |
 | --- | --- | --- |
-| type |type 속성은 다음으로 설정해야 함: **OnPremisesCassandra** |예 |
+| 형식 |type 속성은 다음으로 설정해야 함: **OnPremisesCassandra** |예 |
 | host |Cassandra 서버에 대한 하나 이상의 IP 주소 또는 호스트 이름.<br/><br/>모든 서버에 동시에 연결하려면 쉼표로 구분된 IP 주소 또는 호스트 이름 목록을 지정합니다. |예 |
 | 포트 |Cassandra 서버가 클라이언트 연결을 수신하는 데 사용하는 TCP 포트입니다. |아니요. 기본값: 9042 |
 | authenticationType |Basic 또는 Anonymous |예 |
-| username |사용자 계정의 사용자 이름을 지정합니다. |예. authenticationType은 Basic으로 설정됩니다. |
-| password |사용자 계정으로 password를 지정합니다. |예. authenticationType은 Basic으로 설정됩니다. |
+| 사용자 이름 |사용자 계정의 사용자 이름을 지정합니다. |예. authenticationType은 Basic으로 설정됩니다. |
+| 암호 |사용자 계정으로 password를 지정합니다. |예. authenticationType은 Basic으로 설정됩니다. |
 | gatewayName |온-프레미스 Cassandra 데이터베이스에 연결하는 데 사용되는 게이트웨이 이름입니다. |예 |
-| encryptedCredential |게이트웨이에 의해 암호화된 자격 증명입니다. |아니요 |
+| encryptedCredential |게이트웨이에 의해 암호화된 자격 증명입니다. |아니오 |
 
 ## <a name="dataset-properties"></a>데이터 집합 속성
 데이터 집합 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 집합 만들기](data-factory-create-datasets.md) 문서를 참조하세요. 구조, 가용성 및 JSON 데이터 집합의 정책과 같은 섹션이 모든 데이터 집합 형식에 대해 유사합니다(Azure SQL, Azure blob, Azure 테이블 등).
 
 **typeProperties** 섹션은 데이터 집합의 각 형식에 따라 다르며 데이터 저장소에 있는 데이터의 위치에 대한 정보를 제공합니다. **CassandraTable** 데이터 집합 형식의 데이터 집합에 대한 typeProperties 섹션에는 다음 속성이 있습니다.
 
-| 속성 | 설명 | 필수 |
+| 자산 | 설명 | 필수 |
 | --- | --- | --- |
 | keyspace |Cassandra 데이터베이스의 키스페이스 또는 스키마의 이름입니다. |예(**CassandraSource**의 **query**가 정의되지 않은 경우) |
 | tableName |Cassandra 데이터베이스에 있는 테이블의 이름입니다. |예(**CassandraSource**의 **query**가 정의되지 않은 경우) |
@@ -93,10 +93,10 @@ Azure Data Factory 서비스가 온-프레미스 Cassandra 데이터베이스에
 
 원본이 **CassandraSource**형식인 경우 typeProperties 섹션에서 다음과 같은 속성을 사용할 수 있습니다.
 
-| 속성 | 설명 | 허용되는 값 | 필수 |
+| 자산 | 설명 | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
 | 쿼리 |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL-92 쿼리 또는 CQL 쿼리입니다. [CQL 참조](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html)를 참조하세요. <br/><br/>SQL 쿼리를 사용할 경우 **keyspace name.table name** 을 지정하여 쿼리하려는 테이블을 나타냅니다. |아니요(데이터 집합의 tableName 및 keyspace가 정의된 경우) |
-| consistencyLevel |일관성 수준은 클라이언트 응용 프로그램에 데이터를 반환하기 전에 읽기 요청에 응답해야 하는 복제본 수를 지정합니다. Cassandra는 데이터의 지정된 수의 복제본이 읽기 요청을 충족하는지 확인합니다. |ONE, TWO, THREE, QUORUM, ALL, LOCAL_QUORUM, EACH_QUORUM, LOCAL_ONE. 자세한 내용은 [데이터 일관성 구성](http://docs.datastax.com/en//cassandra/2.0/cassandra/dml/dml_config_consistency_c.html) 을 참조하세요. |아니요. 기본값은 ONE입니다. |
+| consistencyLevel |일관성 수준은 클라이언트 응용 프로그램에 데이터를 반환하기 전에 읽기 요청에 응답해야 하는 복제본 수를 지정합니다. Cassandra는 데이터의 지정된 수의 복제본이 읽기 요청을 충족하는지 확인합니다. |ONE, TWO, THREE, QUORUM, ALL, LOCAL_QUORUM, EACH_QUORUM, LOCAL_ONE. 자세한 내용은 [데이터 일관성 구성](http://docs.datastax.com/en//cassandra/2.0/cassandra/dml/dml_config_consistency_c.html) 을 참조하세요. |번호 기본값은 ONE입니다. |
 
 ## <a name="json-example-copy-data-from-cassandra-to-azure-blob"></a>JSON 예: Cassandra에서 Azure Blob으로 데이터 복사
 다음 예제에서는 [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 또는 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)을 사용하여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공합니다. 온-프레미스 Cassandra 데이터베이스에서 Azure Blob Storage로 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure Data Factory의 복사 작업을 사용하여 [여기](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 에 설명한 싱크로 데이터를 복사할 수 있습니다.
@@ -107,7 +107,7 @@ Azure Data Factory 서비스가 온-프레미스 Cassandra 데이터베이스에
 이 샘플에는 다음 데이터 팩터리 엔터티가 있습니다.
 
 * [OnPremisesCassandra](#linked-service-properties)형식의 연결된 서비스입니다.
-* [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties)형식의 연결된 서비스
+* [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties) 형식의 연결된 서비스
 * [CassandraTable](#dataset-properties) 형식의 입력 [데이터 집합](data-factory-create-datasets.md)
 * [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties) 형식의 출력 [데이터 집합](data-factory-create-datasets.md)
 * [CassandraSource](#copy-activity-properties) 및 [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-create-pipelines.md)
@@ -264,13 +264,13 @@ RelationalSource에서 지원하는 속성 목록은 [RelationalSource 형식 �
 | BIGINT |Int64 |
 | BLOB |Byte[] |
 | BOOLEAN |BOOLEAN |
-| DECIMAL |DECIMAL |
+| DECIMAL |10진수 |
 | DOUBLE |DOUBLE |
 | FLOAT |단일 |
 | INET |문자열 |
 | INT |Int32 |
 | TEXT |문자열 |
-| TIMESTAMP |DateTime |
+| TIMESTAMP |Datetime |
 | TIMEUUID |Guid |
 | UUID |Guid |
 | VARCHAR |문자열 |

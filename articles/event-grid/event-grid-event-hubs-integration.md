@@ -6,13 +6,13 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 10/06/2017
+ms.date: 01/19/2018
 ms.author: tomfitz
-ms.openlocfilehash: f7d2b1970cb7b1330b3d9bdff7987a90fa381392
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b315bd77a47a6f106c5768da56828a5169de5fe9
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="stream-big-data-into-a-data-warehouse"></a>데이터 웨어하우스로 빅 데이터 스트림
 
@@ -68,7 +68,7 @@ Event Grid는 구독자에게 이벤트 데이터를 배포합니다. 다음 예
 
 이 자습서를 완료하려면 다음 항목이 필요합니다.
 
-* Azure 구독. Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+* Azure 구독. Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 * .NET 데스크톱 개발, Azure 개발, ASP.NET 및 웹 개발, Node.js 개발, Python 개발용 작업이 포함된 [Visual Studio 2017 버전 15.3.2 이상](https://www.visualstudio.com/vs/)
 * 컴퓨터에 다운로드한 [EventHubsCaptureEventGridDemo 샘플 프로젝트](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo)
 
@@ -170,10 +170,14 @@ Azure CLI 또는 Portal을 사용하여 이벤트를 구독할 수 있습니다.
 
 ### <a name="azure-cli"></a>Azure CLI
 
-이벤트를 구독하려면 다음 명령을 실행합니다.
+이벤트를 구독하려면 다음 명령을 실행합니다(Azure CLI 버전 2.0.24 이상 필요).
 
 ```azurecli-interactive
-az eventgrid resource event-subscription create -g rgDataMigrationSample --provider-namespace Microsoft.EventHub --resource-type namespaces --resource-name <your-EventHubs-namespace> --name captureEventSub --endpoint <your-function-endpoint>
+namespaceid=$(az resource show --namespace Microsoft.EventHub --resource-type namespaces --name <your-EventHubs-namespace> --resource-group rgDataMigrationSample --query id --output tsv)
+az eventgrid event-subscription create \
+  --resource-id $namespaceid \
+  --name captureEventSub \
+  --endpoint <your-function-endpoint>
 ```
 
 ## <a name="run-the-app-to-generate-data"></a>앱을 실행하여 데이터 생성

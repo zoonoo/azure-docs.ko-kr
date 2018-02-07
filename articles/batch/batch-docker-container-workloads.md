@@ -2,19 +2,19 @@
 title: "Azure Batch의 컨테이너 워크로드 | Microsoft Docs"
 description: "Azure Batch에서 컨테이너 이미지의 응용 프로그램을 실행하는 방법을 알아봅니다."
 services: batch
-author: v-dotren
-manager: timlt
+author: dlepow
+manager: jeconnoc
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
 ms.date: 12/01/2017
-ms.author: v-dotren
-ms.openlocfilehash: 1795bdde5506f599849a30d4e59ed7b916595ac4
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.author: danlep
+ms.openlocfilehash: 2fa5f9335a4d00f489f11c0db23322ab971a224f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Azure Batch에서 컨테이너 응용 프로그램 실행
 
@@ -36,12 +36,12 @@ Azure Batch를 사용하면 Azure에서 많은 수의 일괄 처리 계산 작�
 
 * 계정: Azure 계정에서 Batch 계정과 필요에 따라 범용 저장소 계정을 만들어야 합니다.
 
-* 지원되는 VM 이미지 컨테이너는 다음 섹션, “지원되는 가상 컴퓨터 이미지”에 자세히 설명된 이미지의 가상 컴퓨터 구성으로 만든 풀에서만 지원됩니다.
+* 지원되는 VM 이미지 컨테이너는 다음 섹션, “지원되는 가상 머신 이미지”에 자세히 설명된 이미지의 Virtual Machine 구성으로 만든 풀에서만 지원됩니다.
 
 * 사용자 지정 이미지를 제공하는 경우 응용 프로그램은 컨테이너 기반 워크로드를 실행하기 위해 Azure AD(Azure Active Directory) 인증을 사용해야 합니다. Azure Marketplace 이미지를 사용하는 경우에는 Azure AD 인증이 필요하지 않습니다. 공유 키 인증이 작용합니다. Azure AD에 대한 Azure Batch 지원은 [Active Directory를 사용하여 Batch 서비스 솔루션 인증](batch-aad-auth.md)에 설명되어 있습니다.
 
 
-## <a name="supported-virtual-machine-images"></a>지원되는 가상 컴퓨터 이미지
+## <a name="supported-virtual-machine-images"></a>지원되는 가상 머신 이미지
 
 VM 계산 노드 풀을 만들려면 Windows 또는 Linux 이미지를 제공해야 합니다.
 
@@ -51,7 +51,7 @@ Windows 컨테이너 워크로드의 경우, Batch는 현재 Windows에서 Docke
 
 ### <a name="linux-images"></a>Linux 이미지
 
-Linux 컨테이너 워크로드의 경우 Batch는 현재 Linux 배포 버전 Ubuntu 16.04 LTS 또는 CentOS 7.3에서 Docker를 실행하는 VM에서 만든 사용자 지정 이미지만 지원합니다. 자체 사용자 지정 Linux 이미지를 제공하려는 경우 [관리되는 사용자 지정 이미지를 사용하여 가상 컴퓨터 풀 만들기](batch-custom-images.md)의 지침을 참조하세요.
+Linux 컨테이너 워크로드의 경우 Batch는 현재 Linux 배포 버전 Ubuntu 16.04 LTS 또는 CentOS 7.3에서 Docker를 실행하는 VM에서 만든 사용자 지정 이미지만 지원합니다. 자체 사용자 지정 Linux 이미지를 제공하려는 경우 [관리되는 사용자 지정 이미지를 사용하여 가상 머신 풀 만들기](batch-custom-images.md)의 지침을 참조하세요.
 
 [Docker CE(Community Edition)](https://www.docker.com/community-edition) 또는 [Docker EE(Enterprise Edition)](https://www.docker.com/enterprise-edition)를 사용할 수 있습니다.
 
@@ -78,7 +78,7 @@ Azure RDMA 네트워크에 액세스하려면 A8, A9, H16r, H16mr 또는 NC24r �
 
 응용 프로그램 코드에서 풀의 계산 노드를 만드는 데 사용할 VM 이미지에 대한 참조를 제공합니다. [ImageReference](/dotnet/api/microsoft.azure.batch.imagereference) 개체를 만들어 이 작업을 수행합니다. 다음 방법 중 하나로 사용할 이미지를 지정할 수 있습니다.
 
-* 사용자 지정 이미지를 사용하는 경우 가상 컴퓨터 이미지에 대한 Azure Resource Manager 리소스 식별자를 제공합니다. 이미지의 식별자는 다음 예제와 같은 경로 형식을 갖습니다.
+* 사용자 지정 이미지를 사용하는 경우 가상 머신 이미지에 대한 Azure Resource Manager 리소스 식별자를 제공합니다. 이미지의 식별자는 다음 예제와 같은 경로 형식을 갖습니다.
 
   ```csharp
   // Provide a reference to a custom image using an image ID
@@ -87,7 +87,7 @@ Azure RDMA 네트워크에 액세스하려면 A8, A9, H16r, H16mr 또는 NC24r �
 
     Azure Portal에서 이 이미지 ID를 가져오려면 **모든 리소스**를 열고 사용자 지정 이미지를 선택한 후 이미지 블레이드의 **개요** 섹션에서 **리소스 ID**에 해당 경로를 복사합니다.
 
-* [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?page=1&subcategories=windows-based) 이미지를 사용하는 경우 [가상 컴퓨터 이미지 목록](batch-linux-nodes.md#list-of-virtual-machine-images)에 나열된 것처럼 이미지를 설명하는 이미지의 제품 유형, 게시자, SKU 및 버전으로 구성된 매개 변수 그룹을 제공합니다.
+* [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?page=1&subcategories=windows-based) 이미지를 사용하는 경우 [가상 머신 이미지 목록](batch-linux-nodes.md#list-of-virtual-machine-images)에 나열된 것처럼 이미지를 설명하는 이미지의 제품 유형, 게시자, SKU 및 버전으로 구성된 매개 변수 그룹을 제공합니다.
 
   ```csharp
   // Provide a reference to an Azure Marketplace image for
@@ -243,4 +243,4 @@ CloudTask containerTask = new CloudTask (
 
 * Linux에서 Docker CE를 설치 및 사용하는 방법에 대한 자세한 내용은 [Docker](https://docs.docker.com/engine/installation/) 설명서를 참조하세요.
 
-* 사용자 지정 이미지 사용에 대한 자세한 내용은 [관리되는 사용자 지정 이미지를 사용하여 가상 컴퓨터 풀 만들기](batch-custom-images.md)를 참조하세요.
+* 사용자 지정 이미지 사용에 대한 자세한 내용은 [관리되는 사용자 지정 이미지를 사용하여 가상 머신 풀 만들기](batch-custom-images.md)를 참조하세요.

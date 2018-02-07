@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6ea959f1e95ea46c07eec3afa9d46bfeb72ca3e4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a17c73393ecbdff693e9b200d1506887e0f1d71e
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="design-and-build-a-management-solution-in-operations-management-suite-oms-preview"></a>OMS(Operations Management Suite)에서 관리 솔루션 설계 및 만들기(미리 보기)
 > [!NOTE]
@@ -37,7 +37,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="design-your-solution"></a>솔루션 디자인
 관리 솔루션에 대한 가장 일반적인 패턴은 다음 다이어그램에서 보여 줍니다.  이 패턴의 다른 구성 요소에 대해서는 아래에서 설명합니다.
 
-![OMS 솔루션 개요](media/operations-management-suite-solutions/solution-overview.png)
+![OMS 솔루션 개요](media/operations-management-suite-solutions-creating/solution-overview.png)
 
 
 ### <a name="data-sources"></a>데이터 원본
@@ -52,7 +52,7 @@ ms.lasthandoff: 10/11/2017
 
 모든 보기 또는 경고에서 사용하지 않더라도 사용자에게 도움이 되는 것으로 판단되는 쿼리를 정의해야 합니다.  이러한 쿼리는 포털에서 저장된 검색으로 사용할 수 있으며, 사용자 지정 보기의 [쿼리 목록 시각화 요소](../log-analytics/log-analytics-view-designer-parts.md#list-of-queries-part)에도 포함할 수 있습니다.
 
-### <a name="alerts"></a>경고
+### <a name="alerts"></a>Alerts
 [Log Analytics의 경고](../log-analytics/log-analytics-alerts.md)는 리포지토리의 데이터에 대한 [로그 검색](#log-searches)을 통해 로그를 통해 문제를 식별합니다.  사용자에게 알리거나 응답에서 작업을 자동으로 실행합니다. 응용 프로그램에 대한 다양한 경고 조건을 식별하고, 해당 경고 규칙을 솔루션 파일에 포함해야 합니다.
 
 잠재적으로 자동화된 프로세스로 문제를 해결할 수 있는 경우 일반적으로 Azure Automation에서 Runbook을 만들어 이 수정 작업을 수행합니다.  대부분의 Azure 서비스는 Runbook에서 이러한 기능을 수행하는 데 활용하는 [cmdlet](/powershell/azure/overview)으로 관리될 수 있습니다.
@@ -76,7 +76,7 @@ Log Analytics의 보기는 Log Analytics 리포지토리의 데이터를 시각�
 솔루션을 완료하고 테스트한 후에는 다음 원본을 통해 고객이 솔루션을 사용할 수 있도록 할 수 있습니다.
 
 - **Azure 퀵 스타트 템플릿** -  [Azure 퀵 스타트 템플릿](https://azure.microsoft.com/resources/templates/)은 GitHub를 통해 커뮤니티에서 제공한 Resource Manager 템플릿 집합입니다.  [참여 가이드](https://github.com/Azure/azure-quickstart-templates/tree/master/1-CONTRIBUTION-GUIDE)(영문)의 정보에 따라 솔루션을 사용할 수 있게 만들 수 있습니다.
-- **Azure Marketplace** -  [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/)를 사용하면 다른 개발자, ISV 및 IT 전문가에게 솔루션을 배포하고 판매할 수 있습니다.  [Azure Marketplace에 제품을 게시하고 관리하는 방법](../marketplace-publishing/marketplace-publishing-getting-started.md)에서 솔루션을 Azure Marketplace에 게시하는 방법에 대해 자세히 알아볼 수 있습니다.
+- **Azure Marketplace**.  [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/)를 사용하면 다른 개발자, ISV 및 IT 전문가에게 솔루션을 배포하고 판매할 수 있습니다.  [Azure Marketplace에 제품을 게시하고 관리하는 방법](../marketplace-publishing/marketplace-publishing-getting-started.md)에서 솔루션을 Azure Marketplace에 게시하는 방법에 대해 자세히 알아볼 수 있습니다.
 
 
 

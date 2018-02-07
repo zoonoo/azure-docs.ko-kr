@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Inactive
-ms.date: 09/15/2017
+ms.date: 01/23/2018
 ms.author: genemi
-ms.openlocfilehash: 9f58ea34dad5d4436c13b64653040bd2a57c299e
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 8c27f22657f7f8d04aab96fbc2ee25aa19cebd9f
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="use-powershell-to-create-a-virtual-service-endpoint-and-rule-for-azure-sql-database"></a>PowerShell을 사용하여 Azure SQL Database에 대한 가상 서비스 끝점 및 규칙 만들기
 
@@ -48,7 +48,8 @@ ms.lasthandoff: 10/31/2017
 
 4. [Set-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/Set-AzureRmVirtualNetwork): 가상 네트워크에 적용된 업데이트를 유지합니다.
 
-5. **New-AzureRmSqlServerVirtualNetworkRule**: 서브넷이 끝점이 된 후 서브넷을 가상 네트워크 규칙으로 Azure SQL Database 서버의 ACL에 추가합니다.
+5. [New-AzureRmSqlServerVirtualNetworkRule](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqlservervirtualnetworkrule): 서브넷이 끝점이 된 후 서브넷을 가상 네트워크 규칙으로 Azure SQL Database 서버의 ACL에 추가합니다.
+    - Azure RM PowerShell 모듈 버전 5.1.1에서 시작하는 **-IgnoreMissingVnetServiceEndpoint** 매개 변수를 제공합니다.
 
 #### <a name="prerequisites-for-running-powershell"></a>PowerShell을 실행하기 위한 필수 구성 요소
 

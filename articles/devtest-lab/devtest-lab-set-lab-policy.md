@@ -3,7 +3,7 @@ title: "Azure DevTest Labs에서 랩 정책 관리 | Microsoft 문서"
 description: "VM 크기, 사용자당 최대 VM 수 및 자동 종료와 같은 랩 정책을 정의하는 방법에 대해 알아봅니다."
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 7756aa64-49ca-45a0-9f90-0fd101c7be85
@@ -13,28 +13,28 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
-ms.author: tarcher
+ms.author: v-craic
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7f42baa1ac37f425f915b6949e018f6e7397d3ae
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: c2b71fa5ec2935a25b5fb37770dfb5163a286ded
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="manage-all-policies-for-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs에서 랩에 대한 모든 정책 관리
 
 Azure DevTest Labs에서는 각 랩의 정책(설정)을 관리하여 랩에서 비용을 관리하고 낭비를 최소화할 수 있습니다. 이 문서에서는 각 정책을 설정하는 방법에 대해 단계별로 설명합니다.  
 
-## <a name="set-allowed-virtual-machine-sizes"></a>허용된 가상 컴퓨터 크기를 설정합니다.
+## <a name="set-allowed-virtual-machine-sizes"></a>허용된 가상 머신 크기를 설정합니다.
 허용 VM 크기를 설정하는 정책은 랩에서 허용되는 VM 크기를 지정함으로써 랩의 낭비가 최소화되도록 돕습니다. 이 정책이 활성화되면 이 목록의 VM 크기만 사용하여 VM을 만들 수 있습니다.
 
 1. [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040)에서 랩을 선택한 다음 **구성 및 정책**을 선택합니다.
 
     ![랩의 구성 및 정책에 액세스](./media/devtest-lab-set-lab-policy/policies-menu.png)
 
-1. 랩의 **구성 및 정책** 창에서 **허용된 가상 컴퓨터 크기**를 선택합니다.
+1. 랩의 **구성 및 정책** 창에서 **허용된 가상 머신 크기**를 선택합니다.
    
-    ![허용된 가상 컴퓨터 크기](./media/devtest-lab-set-lab-policy/allowed-vm-sizes.png)
+    ![허용된 가상 머신 크기](./media/devtest-lab-set-lab-policy/allowed-vm-sizes.png)
 
 1. 이 정책을 사용하도록 설정하려면 **설정**을 선택하고 사용하지 않도록 설정하려면 **해제**를 선택합니다.
 
@@ -42,12 +42,12 @@ Azure DevTest Labs에서는 각 랩의 정책(설정)을 관리하여 랩에서 
 
 1. **저장**을 선택합니다.
 
-## <a name="set-virtual-machines-per-user"></a>사용자당 가상 컴퓨터를 설정합니다.
-**사용자당 가상 컴퓨터**에 대한 정책을 사용하면 개별 사용자가 만들 수 있는 최대 VM 수를 지정할 수 있습니다. 사용자 제한에 도달하면 사용자가 VM을 만들거나 클레임하는 경우 VM을 만들거나 클레임할 수 없다는 오류 메시지가 표시됩니다. 
+## <a name="set-virtual-machines-per-user"></a>사용자당 가상 머신을 설정합니다.
+**사용자당 가상 머신**에 대한 정책을 사용하면 개별 사용자가 만들 수 있는 최대 VM 수를 지정할 수 있습니다. 사용자 제한에 도달하면 사용자가 VM을 만들거나 클레임하는 경우 VM을 만들거나 클레임할 수 없다는 오류 메시지가 표시됩니다. 
 
-1. 랩의 **구성 및 정책** 창에서 **사용자당 가상 컴퓨터**를 선택합니다.
+1. 랩의 **구성 및 정책** 창에서 **사용자당 가상 머신**을 선택합니다.
    
-    ![사용자당 가상 컴퓨터](./media/devtest-lab-set-lab-policy/max-vms-per-user.png)
+    ![사용자당 가상 머신](./media/devtest-lab-set-lab-policy/max-vms-per-user.png)
 
 1. **예**를 선택하여 사용자당 VM 수를 제한합니다. 사용자당 VM 수를 제한하지 않으려면 **아니요**를 선택합니다. **예**를 선택하면 사용자가 만들거나 클레임할 수 있는 최대 VM 수를 나타내는 숫자 값을 입력합니다. 
 
@@ -55,12 +55,12 @@ Azure DevTest Labs에서는 각 랩의 정책(설정)을 관리하여 랩에서 
 
 1. **저장**을 선택합니다.
 
-## <a name="set-virtual-machines-per-lab"></a>랩당 가상 컴퓨터를 설정합니다.
-**랩당 가상 컴퓨터**에 대한 정책을 사용하면 현재 랩에 대해 생성할 수 있는 최대 VM 수를 지정할 수 있습니다. 랩 제한에 도달하면 사용자가 VM을 만들려고 하는 경우 VM을 만들 수 없다는 오류 메시지가 표시됩니다. 
+## <a name="set-virtual-machines-per-lab"></a>랩당 가상 머신을 설정합니다.
+**랩당 가상 머신**에 대한 정책을 사용하면 현재 랩에 대해 생성할 수 있는 최대 VM 수를 지정할 수 있습니다. 랩 제한에 도달하면 사용자가 VM을 만들려고 하는 경우 VM을 만들 수 없다는 오류 메시지가 표시됩니다. 
 
-1. 랩의 **구성 및 정책** 창에서 **랩당 가상 컴퓨터**를 선택합니다.
+1. 랩의 **구성 및 정책** 창에서 **랩당 가상 머신**를 선택합니다.
    
-    ![랩당 가상 컴퓨터](./media/devtest-lab-set-lab-policy/max-vms-per-lab.png)
+    ![랩당 가상 머신](./media/devtest-lab-set-lab-policy/max-vms-per-lab.png)
 
 1. **예**를 선택하여 랩당 VM 수를 제한합니다. 랩당 VM 수를 제한하지 않으려면 **아니요**를 선택합니다. **예**를 선택하면 사용자가 만들거나 클레임할 수 있는 최대 VM 수를 나타내는 숫자 값을 입력합니다. 
 
@@ -115,5 +115,5 @@ Azure DevTest Labs에서는 각 랩의 정책(설정)을 관리하여 랩에서 
   현재까지의 예상 비용과 예상되는 월말 비용을 봅니다.
 * [사용자 지정 이미지 만들기](devtest-lab-create-template.md) - VM을 만들 때 사용자 지정 이미지 또는 Marketplace 이미지 중에서 기본 이미지를 지정할 수 있습니다. 이 문서에는 VHD 파일에서 사용자 지정 이미지를 만드는 방법이 나와 있습니다.
 * [마켓플레이스 이미지 구성](devtest-lab-configure-marketplace-images.md) - Azure DevTest Labs에서 Azure Marketplace 이미지에 기반하여 VM을 만들 수 있습니다. 이 문서에서는 랩에서 VM을 만들 때 사용할 수 있는 Azure Marketplace 이미지(있는 경우)를 지정하는 방법을 보여 줍니다.
-* [랩에서 VM 만들기](devtest-lab-add-vm-with-artifacts.md) - 기본 이미지(사용자 지정 또는 Marketplace 이미지)에서 VM을 만드는 방법 및 VM에서 아티팩트 작업 방법에 대해 설명합니다.
+* [랩에서 VM 만들기](devtest-lab-add-vm.md) - 기본 이미지(사용자 지정 또는 Marketplace 이미지)에서 VM을 만드는 방법 및 VM에서 아티팩트 작업 방법에 대해 설명합니다.
 

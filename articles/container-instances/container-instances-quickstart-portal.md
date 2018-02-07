@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 01/02/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 823d06d8524a937a8d2098262cf97f868672f4d0
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 16e726d10b159d0a3f08f8bca197c675d748c764
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="create-your-first-container-in-azure-container-instances"></a>Azure Container Instances에서 첫 번째 컨테이너 만들기
 
@@ -61,6 +61,15 @@ Azure Container Instances에서는 Windows 및 Linux 컨테이너를 모두 만�
 
 ![Azure Container Instances를 사용하여 배포된 앱이 브라우저에 표시됨][aci-portal-07]
 
+## <a name="delete-the-container"></a>컨테이너 삭제
+컨테이너를 완료하는 경우 **mycontainer-myc1** 컨테이너 그룹을 선택한 다음 **삭제**를 클릭합니다.
+
+![Azure Portal에서 컨테이너 인스턴스 삭제][aci-portal-09]
+
+확인 대화 상자를 시작하고 메시지가 표시되면 **예**를 선택합니다.
+
+![Azure Portal에서 컨테이너 인스턴스의 삭제 확인][aci-portal-10]
+
 <!-- IMAGES -->
 [aci-portal-01]: ./media/container-instances-quickstart-portal/qs-portal-01.png
 [aci-portal-02]: ./media/container-instances-quickstart-portal/qs-portal-02.png
@@ -70,6 +79,8 @@ Azure Container Instances에서는 Windows 및 Linux 컨테이너를 모두 만�
 [aci-portal-06]: ./media/container-instances-quickstart-portal/qs-portal-06.png
 [aci-portal-07]: ./media/container-instances-quickstart-portal/qs-portal-07.png
 [aci-portal-08]: ./media/container-instances-quickstart-portal/qs-portal-08.png
+[aci-portal-09]: ./media/container-instances-quickstart-portal/qs-portal-09.png
+[aci-portal-10]: ./media/container-instances-quickstart-portal/qs-portal-10.png
 
 ## <a name="next-steps"></a>다음 단계
 

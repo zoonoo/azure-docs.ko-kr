@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 01/08/2018
 ms.author: maheshu
-ms.openlocfilehash: 5fe36241efc11cbb85231137649f7b97e23cc0a5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0956476931396c6455bf3e4fc7582da3bf3deb33
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-domain-services---troubleshooting-guide"></a>Azure AD Domain Services - 문제 해결 가이드
 이 문서는 Azure AD(Active Directory) 도메인 서비스를 설치하거나 관리할 때 발생할 수 있는 문제에 대한 문제 해결 힌트를 제공합니다.
@@ -122,6 +122,7 @@ if ($sp -ne $null)
 
 이 오류를 해결하려면 이 응용 프로그램을 사용하도록 설정한 다음 Azure AD 테넌트에 대해 Domain Services를 사용하도록 설정합니다.
 
+
 ## <a name="users-are-unable-to-sign-in-to-the-azure-ad-domain-services-managed-domain"></a>사용자는 Azure AD 도메인 서비스 관리된 도메인에 로그인할 수 없습니다.
 Azure AD 테넌트에서 하나 이상의 사용자가 새로 만든 관리되는 도메인에 로그인할 수 없는 경우 다음 문제 해결 단계를 수행합니다.
 
@@ -145,12 +146,17 @@ Azure AD 테넌트에서 하나 이상의 사용자가 새로 만든 관리되�
     2. net start 'Microsoft Azure AD Sync'
 * **클라우드 전용 계정**: 영향을 받는 사용자 계정이 클라우드 전용 사용자 계정인 경우 사용자는 Azure AD 도메인 서비스를 사용하도록 설정한 후에 자신의 암호를 변경하도록 합니다. 이 단계를 수행하면 Azure AD 도메인 서비스가 생성되는 데 필요한 자격 증명 해시가 발생합니다.
 
+## <a name="there-are-one-or-more-alerts-on-your-managed-domain"></a>관리되는 도메인에서 하나 이상의 경고 발생
+
+[경고 문제 해결](active-directory-ds-troubleshoot-alerts.md) 문서를 방문하여 관리되는 도메인의 경고를 해결하는 방법을 참조하세요.
+
 ## <a name="users-removed-from-your-azure-ad-tenant-are-not-removed-from-your-managed-domain"></a>Azure AD 테넌트에서는 제거되지만 관리되는 도메인에서는 제거되지 않는 사용자
 Azure AD에서는 사용자 개체를 실수로 삭제하지 못하도록 보호합니다. Azure AD 테넌트에서 사용자 계정을 삭제하면 해당 사용자 개체가 휴지통으로 이동합니다. 이 삭제 작업이 관리되는 도메인과 동기화하면 해당 사용자 계정을 사용할 수 없는 것으로 표시됩니다. 이 기능을 사용하면 나중에 사용자 계정을 복구하거나 삭제를 취소할 수 있습니다.
 
 Azure AD 디렉터리에서 동일한 UPN을 사용하여 사용자 계정을 다시 만든 경우에도 사용자 계정은 관리되는 도메인에서 사용할 수 없는 상태로 유지됩니다. 관리되는 도메인에서 사용자 계정을 제거하려면 Azure AD 테넌트에서 해당 사용자를 강제로 삭제해야 합니다.
 
 관리되는 도메인에서 사용자 계정을 완전히 제거하려면 Azure AD 테넌트에서 사용자를 영구적으로 삭제합니다. 이 [MSDN 문서](https://msdn.microsoft.com/library/azure/dn194132.aspx)에 설명된 대로 `Remove-MsolUser` PowerShell cmdlet을 `-RemoveFromRecycleBin` 옵션과 함께 사용합니다.
+
 
 ## <a name="contact-us"></a>문의처
 [지원이 필요하거나 피드백을 공유하려면](active-directory-ds-contact-us.md)Azure Active Directory Domain Services 제품 팀에 문의하세요.

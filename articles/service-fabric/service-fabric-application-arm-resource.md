@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: dekapur
-ms.openlocfilehash: d6cda201e4cf16549f296bf9873b1085effd3a45
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: ca11199e51774e766113309150d8a260427cb4b4
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>응용 프로그램 및 서비스를 Azure Resource Manager 리소스로 관리
 
@@ -66,7 +66,7 @@ Azure Resource Manager를 통해 Service Fabric 클러스터에 응용 프로그
 1. 배포를 위해 클러스터의 Resource Manager 템플릿을 준비합니다. 이에 대한 자세한 내용은 [Azure Resource Manager를 사용하여 Service Fabric 클러스터 만들기](service-fabric-cluster-creation-via-arm.md)를 참조하세요.
 2. 클러스터에 배포하려는 일부 응용 프로그램을 고려해보세요. 다른 응용 프로그램이 종속성을 가질 수 있는 응용 프로그램이 항상 실행되고 있나요? 클러스터 거버넌스 또는 설치 응용 프로그램을 배포할 계획인가요? 이러한 종류의 응용 프로그램은 위에서 설명한 것처럼 Resource Manager 템플릿을 통해 가장 잘 관리됩니다. 
 3. 이러한 방식으로 배포하려는 응용 프로그램을 결정했으면 응용 프로그램을 패키지하고, 압축하고, 파일 공유에 추가해야 합니다. Azure Resource Manager가 배포 중에 사용할 수 있도록 하려면 REST 끝점을 통해 공유에 액세스할 수 있어야 합니다.
-4. Resource Manager 템플릿에서 클러스터 선언 아래에는 각 응용 프로그램의 속성이 설명되어 있습니다. 이러한 속성에는 복제본 또는 인스턴스 수와 리소스(다른 응용 프로그램이나 서비스) 간의 모든 종속성 체인이 포함됩니다. 포괄적인 속성 목록을 보려면 [REST API Swagger 사양](https://github.com/Azure/azure-rest-api-specs/blob/current/specification/servicefabric/resource-manager/Microsoft.ServiceFabric/2017-07-01-preview/servicefabric.json)을 참조하세요. 이 목록은 응용 프로그램 또는 서비스 매니페스트를 대신하지 않으며, 포함된 일부 항목을 클러스터의 Resource Manager 템플릿의 일부로 설명합니다. 다음은 상태 비저장 서비스 *Service1*과 상태 저장 서비스 *Service2*를 *Application1*의 일부로 배포하는 작업을 포함하는 샘플 템플릿입니다.
+4. Resource Manager 템플릿에서 클러스터 선언 아래에는 각 응용 프로그램의 속성이 설명되어 있습니다. 이러한 속성에는 복제본 또는 인스턴스 수와 리소스(다른 응용 프로그램이나 서비스) 간의 모든 종속성 체인이 포함됩니다. 포괄적인 속성 목록을 보려면 [REST API Swagger 사양](https://aka.ms/sfrpswaggerspec)을 참조하세요. 이 목록은 응용 프로그램 또는 서비스 매니페스트를 대신하지 않으며, 포함된 일부 항목을 클러스터의 Resource Manager 템플릿의 일부로 설명합니다. 다음은 상태 비저장 서비스 *Service1*과 상태 저장 서비스 *Service2*를 *Application1*의 일부로 배포하는 작업을 포함하는 샘플 템플릿입니다.
 
   ```json
   {
@@ -77,62 +77,62 @@ Azure Resource Manager를 통해 Service Fabric 클러스터에 응용 프로그
         "type": "string",
         "defaultValue": "Cluster",
         "metadata": {
-          "description": "Name of your cluster - Between 3 and 23 characters. Letters and numbers only"
+          "description": "Name of your cluster - Between 3 and 23 characters. Letters and numbers only."
         }
       },
       "applicationTypeName": {
         "type": "string",
         "defaultValue": "ApplicationType",
         "metadata": {
-          "description": "The application type name"
+          "description": "The application type name."
         }
       },
       "applicationTypeVersion": {
         "type": "string",
         "defaultValue": "1",
         "metadata": {
-          "description": "The application type version"
+          "description": "The application type version."
         }
       },
       "appPackageUrl": {
         "type": "string",
         "metadata": {
-          "description": "The URL to the application package sfpkg file"
+          "description": "The URL to the application package sfpkg file."
         }
       },
       "applicationName": {
         "type": "string",
         "defaultValue": "Application1",
         "metadata": {
-          "description": "The application name"
+          "description": "The name of the application resource."
         }
       },
       "serviceName": {
         "type": "string",
         "defaultValue": "Service1",
         "metadata": {
-          "description": "The service name"
+          "description": "The name of the service resource in the format of {applicationName}~{serviceName}."
         }
       },
       "serviceTypeName": {
         "type": "string",
         "defaultValue": "Service1Type",
         "metadata": {
-          "description": "The service type name"
+          "description": "The name of the service type."
         }
       },
       "serviceName2": {
         "type": "string",
         "defaultValue": "Service2",
         "metadata": {
-          "description": "The service name"
+          "description": "The name of the service resource in the format of {applicationName}~{serviceName}."
         }
       },
       "serviceTypeName2": {
         "type": "string",
         "defaultValue": "Service2Type",
         "metadata": {
-          "description": "The service type name"
+          "description": "The name of the service type."
         }
       }
     },

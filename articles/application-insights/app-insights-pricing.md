@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: mbullwin
-ms.openlocfilehash: ecb6dd0343c36a0f1571b416817aad5e7a52fccb
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 95c5195ac2ea832586211cce37eb2094e06eaf03
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="manage-pricing-and-data-volume-in-application-insights"></a>Application Insights에서 가격 및 데이터 볼륨 관리
 
@@ -90,7 +90,7 @@ For [분석으로 가져온 표 형식 데이터](https://docs.microsoft.com/azu
  
 ## <a name="review-pricing-plans-and-estimate-costs"></a>가격 계획 검토 및 비용 추정
 
-Applicaition Insights를 사용하면 사용 가능한 가격 계획 및 최근 사용 패턴에 따른 가능한 비용을 쉽게 파악할 수 있습니다. 먼저 Azure Portal의 Application Insights 리소스에서 **기능 + 가격** 블레이드를 엽니다.
+Application Insights를 사용하면 사용 가능한 가격 책정 계획 및 최근 사용 패턴에 따른 가능한 비용을 쉽게 파악할 수 있습니다. 먼저 Azure Portal의 Application Insights 리소스에서 **기능 + 가격** 블레이드를 엽니다.
 
 ![가격 책정을 선택합니다.](./media/app-insights-pricing/01-pricing.png)
 
@@ -134,11 +134,11 @@ Application Insights 요금은 Azure 청구서에 추가됩니다. Azure 청구�
 
 ## <a name="managing-the-maximum-daily-data-volume"></a>최대 일일 데이터 볼륨 관리
 
-일별 볼륨 한도를 사용하여 수집되는 데이터를 제한할 수 있지만 해당 한도가 충족될 경우 해당 일의 나머지 시간 동안 응용 프로그램에서 보낸 모든 원격 통신이 손실됩니다. 일별 한도에 도달한 후에는 응용 프로그램의 상태와 성능을 추적할 수 없으므로 응용 프로그램이 일별 한도에 도달하도록 하는 것은 **권장되지 않습니다**. 
+일별 볼륨 한도를 사용하여 수집되는 데이터를 제한할 수 있지만 해당 한도가 충족될 경우 해당 일의 나머지 시간 동안 응용 프로그램에서 보낸 모든 원격 분석이 손실됩니다. 일별 한도에 도달한 후에는 응용 프로그램의 상태와 성능을 추적할 수 없으므로 응용 프로그램이 일별 한도에 도달하도록 하는 것은 **권장되지 않습니다**. 
 
-대신 [샘플링](app-insights-sampling.md)을 사용하여 원한느 수준으로 데이터 볼륨을 조정하고 응용 프로그램이 예기치 않게 훨씬 더 높은 볼륨의 원격 통신을 전송하기 시작할 때만 "최후의 수단"으로 일별 한도를 사용합니다. 
+대신 [샘플링](app-insights-sampling.md)을 사용하여 원하는 수준으로 데이터 볼륨을 조정하고 응용 프로그램이 예기치 않게 훨씬 더 높은 볼륨의 원격 분석을 전송하기 시작할 때만 "최후의 수단"으로 일별 한도를 사용합니다. 
 
-일일 한도를 변경하려면 Application Insihgts 리소스의 구성 섹션에서 **데이터 관리**를 클릭한 다음 **일일 상한**을 클릭합니다.
+일일 한도를 변경하려면 Application Insights 리소스의 구성 섹션에서 **데이터 관리**를 클릭한 다음 **일일 상한**을 클릭합니다.
 
 ![일별 원격 분석 볼륨 한도 조정](./media/app-insights-pricing/daily-cap.png) 
 

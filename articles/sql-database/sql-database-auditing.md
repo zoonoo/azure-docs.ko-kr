@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: giladm
-ms.openlocfilehash: c97a9d96dbe6d9bc9eaa189384acad7579365e82
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 9be945493cf013f472566a2c7a1dda05fd9b0ca9
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="get-started-with-sql-database-auditing"></a>SQL 데이터베이스 감사 시작
 Azure SQL Database 감사는 데이터베이스 이벤트를 추적하고 Azure Storage 계정의 감사 로그에 이벤트를 기록합니다. 또한
@@ -82,7 +82,7 @@ SQL Database 감사를 사용하여 다음을 수행할 수 있습니다.
     <a id="storage-screenshot"></a> ![탐색 창][4]
 6. 감사 이벤트를 사용자 지정하려면 PowerShell 또는 REST API를 통해 다음 작업을 수행합니다. 
 7. 감사 설정을 구성했으면 새로운 위협 감지 기능을 켜고, 보안 경고를 받을 전자 메일을 구성할 수 있습니다. 위협 감지를 사용하면 잠재적인 보안 위협을 나타낼 수 있는 비정상적인 데이터베이스 활동에 대해 사전 경고를 받을 수 있습니다. 자세한 내용은 [위협 감지 시작](sql-database-threat-detection-get-started.md)을 참조하세요.
-8. **Save**를 클릭합니다.
+8. **저장**을 클릭합니다.
 
 
 
@@ -175,8 +175,6 @@ Blob 감사 로그를 볼 수 있는 여러 가지 방법이 있습니다.
 
    * [Get-AzureRMSqlDatabaseAuditing][101]
    * [Get-AzureRMSqlServerAuditing][102]
-   * [Remove-AzureRMSqlDatabaseAuditing][103]
-   * [Remove-AzureRMSqlServerAuditing][104]
    * [Set-AzureRMSqlDatabaseAuditing][105]
    * [Set-AzureRMSqlServerAuditing][106]
 

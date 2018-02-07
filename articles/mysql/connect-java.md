@@ -6,16 +6,16 @@ author: jasonwhowell
 ms.author: jasonh
 manager: jhubbard
 editor: jasonwhowell
-ms.service: mysql
+ms.service: mysql-database
 ms.custom: mvc, devcenter
 ms.topic: quickstart
 ms.devlang: java
 ms.date: 12/14/2017
-ms.openlocfilehash: 6d27ec96f56e576d4af02c5e0e70e6364bd5a9ec
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 1f5fc33116bccea1c37596e2317d5e36124facd6
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-database-for-mysql-use-java-to-connect-and-query-data"></a>MySQL용 Azure Database: Java를 사용하여 데이터 연결 및 쿼리
 이 빠른 시작에서는 Java 응용 프로그램과 [MySQL 커넥터/J](https://dev.mysql.com/downloads/connector/j/) JDBC 드라이버를 사용하여 Azure Database for MySQL에 연결하는 방법을 보여 줍니다. SQL 문을 사용하여 데이터베이스의 데이터를 쿼리, 삽입, 업데이트 및 삭제하는 방법을 보여 줍니다. 이 문서에서는 Java를 사용하여 개발하는 데 익숙하고 Azure Database for MySQL을 처음 사용한다고 가정합니다.

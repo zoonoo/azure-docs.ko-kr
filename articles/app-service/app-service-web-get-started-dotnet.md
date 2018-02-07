@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 06/14/2017
 ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 5860c88b3b6c9f6f715c8e2d8ce667189f9b4438
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 698f23507da0707a4612f8d33fe7e2995429f361
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-an-aspnet-core-web-app-in-azure"></a>Azure에서 ASP.NET Core 웹앱 만들기
 
@@ -33,6 +33,8 @@ ms.lasthandoff: 12/15/2017
 > ASP.NET Framework 웹앱을 빌드 및 배포하는 방법을 원할 경우 [여기](app-service-web-get-started-dotnet-framework.md)에서 관련 문서를 참조하세요. 
 >
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
 ## <a name="prerequisites"></a>필수 조건
 
 이 자습서를 완료하려면 다음이 필요합니다.
@@ -42,8 +44,6 @@ ms.lasthandoff: 12/15/2017
     - **Azure 개발**
 
     ![ASP.NET 및 웹 개발 및 Azure 개발(웹 & 클라우드에서)](media/app-service-web-tutorial-dotnet-sqldatabase/workloads.png)
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="create-an-aspnet-core-web-app"></a>ASP.NET Core 웹앱 만들기
 
@@ -174,4 +174,4 @@ Azure에 다시 배포하려면 **솔루션 탐색기**에서 **myFirstAzureWebA
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [SQL Database를 사용하는 ASP.NET](app-service-web-tutorial-dotnet-sqldatabase.md)
+> [SQL Database를 사용하는 ASP.NET Core](app-service-web-tutorial-dotnetcore-sqldb.md)

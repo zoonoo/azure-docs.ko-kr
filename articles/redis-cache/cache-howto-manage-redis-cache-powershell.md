@@ -3,8 +3,8 @@ title: "Azure PowerShell을 사용하여 Azure Redis Cache 관리 | Microsoft Do
 description: "Azure PowerShell을 사용하여 Azure Redis Cache에 대한 관리 작업을 수행하는 방법을 알아봅니다."
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: 1136efe5-1e33-4d91-bb49-c8e2a6dca475
 ms.service: cache
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
-ms.author: sdanie
-ms.openlocfilehash: 5b65d513d6418f13a6f3e10644c1892eecbcba1d
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: wesmc
+ms.openlocfilehash: 58f8601fa780ac86729f60e9e30f4c6a91c73deb
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="manage-azure-redis-cache-with-azure-powershell"></a>Azure PowerShell을 사용하여 Azure Redis Cache 관리
 > [!div class="op_single_selector"]
@@ -129,7 +129,7 @@ Microsoft Azure Germany에 대한 자세한 내용은 [Microsoft Azure Germany](
 | ResourceGroupName |캐시를 만들 리소스 그룹 이름 | |
 | 크기 |캐시의 크기. 유효한 값: P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250MB, 1GB, 2.5GB, 6GB, 13GB, 26GB, 53GB |1GB |
 | ShardCount |클러스터링을 사용하는 프리미엄 캐시를 만들 때 만들 분할된 데이터베이스 수. 유효한 값: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | |
-| SKU |캐시의 SKU를 지정합니다. 유효한 값: 기본, 표준, 프리미엄 |표준 |
+| SKU |캐시의 SKU를 지정합니다. 유효한 값: 기본, 표준, 프리미엄 |Standard |
 | RedisConfiguration |Redis 구성 설정을 지정합니다. 각 설정에 대한 자세한 내용은 다음 [RedisConfiguration 속성](#redisconfiguration-properties) 테이블을 참조하세요. | |
 | EnableNonSslPort |비 SSL 포트를 사용하는지 여부를 나타냅니다. |False |
 | MaxMemoryPolicy |이 매개 변수는 더 이상 사용되지 않으며 대신 RedisConfiguration을 사용합니다. | |
@@ -139,7 +139,7 @@ Microsoft Azure Germany에 대한 자세한 내용은 [Microsoft Azure Germany](
 | KeyType |액세스 키를 갱신할 때 다시 생성할 액세스 키를 지정합니다. 유효한 값: 주, 보조 | |
 
 ### <a name="redisconfiguration-properties"></a>RedisConfiguration 속성
-| 속성 | 설명 | 가격 책정 계층 |
+| 자산 | 설명 | 가격 책정 계층 |
 | --- | --- | --- |
 | rdb-backup-enabled |[Redis 데이터 지속성](cache-how-to-premium-persistence.md) 사용 여부 |프리미엄 전용 |
 | rdb-storage-connection-string |[Redis 데이터 지속성](cache-how-to-premium-persistence.md) |프리미엄 전용 |

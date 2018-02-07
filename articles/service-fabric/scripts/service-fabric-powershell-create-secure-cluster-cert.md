@@ -12,14 +12,14 @@ ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
-ms.date: 09/29/2017
+ms.date: 01/19/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: dc0412b7595e9a84049223561c7695a86480fe4a
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: b0d33b714092a826012677c95124d74bf2c72999
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="create-a-service-fabric-cluster"></a>Service Fabric 클러스터 만들기
 
@@ -44,7 +44,7 @@ Remove-AzureRmResourceGroup -Name $groupname -Force
 
 이 스크립트는 다음 명령을 사용합니다. 테이블에 있는 각 명령은 명령에 해당하는 문서에 연결됩니다.
 
-| 명령 | 참고 사항 |
+| 명령 | 메모 |
 |---|---|
 | [New-AzureRmServiceFabricCluster](/powershell/module/azurerm.servicefabric/New-AzureRmServiceFabricCluster) | 새 Service Fabric 클러스터를 만듭니다. |
 

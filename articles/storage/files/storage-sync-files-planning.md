@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: f2e7f93d2d2914399f3fc7b24a00540f1c045b58
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 0aac388f4499af018a4603bcad835ab41d6b6642
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Azure 파일 동기화(미리 보기) 배포에 대한 계획
 Azure File Sync(미리 보기)를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화합니다. Azure File Sync는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -46,19 +46,21 @@ Azure File Sync 에이전트는 Windows Server가 Azure 파일 공유와 동기�
     - C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll
 
 ### <a name="server-endpoint"></a>서버 엔드포인트
-서버 엔드포인트는 서버 볼륨 또는 볼륨의 루트에 있는 폴더와 같이, 등록된 서버의 특정 위치를 나타냅니다. 해당 네임스페이스가 겹치지만 않으면 여러 서버 엔드포인트가 같은 볼륨에 있을 수 있습니다(예: F:\sync1 및 F:\sync2). 각 서버 엔드포인트에 대해 개별적으로 클라우드 계층화 정책을 구성할 수 있습니다. 기존 파일 집합이 있는 서버 위치를 동기화 그룹에 서버 엔드포인트로 추가하는 경우 해당 파일은 동기화 그룹의 다른 엔드포인트에 이미 있는 다른 파일에 병합됩니다.
+서버 끝점은 서버 볼륨의 폴더와 같이 등록된 서버의 특정 위치를 나타냅니다. 해당 네임스페이스가 겹치지 않는 경우 동일한 볼륨에 여러 서버 끝점이 있을 수 있습니다(예: `F:\sync1` 및 `F:\sync2`). 각 서버 엔드포인트에 대해 개별적으로 클라우드 계층화 정책을 구성할 수 있습니다. 현재는 볼륨의 루트에 대한 서버 끝점을 만들 수 없습니다(예: 볼륨이 탑재 지점으로 탑재된 경우 `F:\` 또는 `C:\myvolume`).
 
 > [!Note]  
 > 서버 엔드포인트는 Windows 시스템 볼륨에 위치할 수 있습니다. 클라우드 계층화는 시스템 볼륨에서 지원되지 않습니다.
+
+기존 파일 집합이 있는 서버 위치를 동기화 그룹에 서버 엔드포인트로 추가하는 경우 해당 파일은 동기화 그룹의 다른 엔드포인트에 이미 있는 다른 파일에 병합됩니다.
 
 ### <a name="cloud-endpoint"></a>클라우드 엔드포인트
 클라우드 엔드포인트는 동기화 그룹의 일부인 Azure 파일 공유입니다. 전체 Azure 파일 공유가 동기화되며, Azure 파일 공유는 하나의 클라우드 엔드포인트의 구성원만 될 수 있습니다. 따라서 Azure 파일 공유는 하나의 동기화 그룹의 구성원만 될 수 있습니다. 기존 파일 집합이 있는 Azure 파일 공유를 동기화 그룹에 클라우드 엔드포인트로 추가하는 경우 기존 파일은 동기화 그룹의 다른 엔드포인트에 이미 있는 다른 파일에 병합됩니다.
 
 > [!Important]  
-> Azure File Sync는 Azure 파일 공유를 직접 변경하도록 지원합니다. 그러나 먼저 Azure 파일 공유의 변경 내용이 Azure File Sync 변경 검색 작업에서 검색되어야 합니다. 변경 내용 검색 작업은 클라우드 엔드포인트에 대해 24시간마다 한 번씩만 시작됩니다. 자세한 내용은 [Azure Files 질문과 대답](storage-files-faq.md#afs-change-detection)을 참조하세요.
+> Azure File Sync는 Azure 파일 공유를 직접 변경하도록 지원합니다. 그러나 먼저 Azure 파일 공유의 변경 내용이 Azure File Sync 변경 검색 작업에서 검색되어야 합니다. 변경 내용 검색 작업은 클라우드 엔드포인트에 대해 24시간마다 한 번씩만 시작됩니다. 또한 REST 프로토콜을 통해 수행한 Azure 파일 공유 변경 내용은 SMB 마지막 수정 시간을 업데이트하지 않으며 동기화 기능에서 변경 내용으로 표시되지 않습니다. 자세한 내용은 [Azure Files 질문과 대답](storage-files-faq.md#afs-change-detection)을 참조하세요.
 
 ### <a name="cloud-tiering"></a>클라우드 계층화 
-클라우드 계층화는 Azure File Sync의 선택적 기능으로, 덜 자주 사용하거나 액세스하는 파일을 Azure Files로 계층화할 수 있도록 합니다. 파일을 계층화할 경우 Azure File Sync 파일 시스템 필터(StorageSync.sys)는 파일을 포인터 또는 재분석 지점으로 로컬로 대체합니다. 재분석 지점은 Azure Files의 파일에 대한 URL을 나타냅니다. 계층화된 파일은 NTFS에서 "오프라인" 특성이 설정되므로 타사 응용 프로그램이 계층화된 파일을 식별할 수 있습니다. 사용자가 계층화된 파일을 열 때 파일이 시스템에 로컬로 저장되어 있지 않다는 사실을 모르더라도 Azure File Sync는 Azure Files에서 파일 데이터를 원활하게 회수합니다. 이 기능을 HSM(계층적 저장소 관리)이라고도 합니다.
+클라우드 계층화는 Azure File Sync의 선택적 기능으로, 크기가 64KiB보다 크고 덜 자주 사용하거나 액세스하는 파일을 Azure Files로 계층화할 수 있도록 합니다. 파일을 계층화할 경우 Azure File Sync 파일 시스템 필터(StorageSync.sys)는 파일을 포인터 또는 재분석 지점으로 로컬로 대체합니다. 재분석 지점은 Azure Files의 파일에 대한 URL을 나타냅니다. 계층화된 파일은 NTFS에서 "오프라인" 특성이 설정되므로 타사 응용 프로그램이 계층화된 파일을 식별할 수 있습니다. 사용자가 계층화된 파일을 열 때 파일이 시스템에 로컬로 저장되어 있지 않다는 사실을 모르더라도 Azure File Sync는 Azure Files에서 파일 데이터를 원활하게 회수합니다. 이 기능을 HSM(계층적 저장소 관리)이라고도 합니다.
 
 > [!Important]  
 > 클라우드 계층화는 Windows 시스템 볼륨의 서버 엔드포인트에서 지원되지 않습니다.
@@ -80,7 +82,7 @@ Azure File Sync 에이전트는 Windows Server가 Azure 파일 공유와 동기�
 > Windows 업데이트의 최신 업데이트를 사용하여 Azure File Sync와 함께 사용되는 모든 서버를 최신 상태로 유지하는 것이 좋습니다. 
 
 ### <a name="file-system-features"></a>파일 시스템 기능
-| 기능 | 상태 지원 | 참고 사항 |
+| 기능 | 상태 지원 | 메모 |
 |---------|----------------|-------|
 | ACL(액세스 제어 목록) | 완전하게 지원 | Windows ACL은 Azure File Sync에 의해 유지되며 서버 엔드포인트에서 Windows Server에 의해 적용됩니다. 파일이 클라우드에서 직접 액세스될 경우 Azure Files에서 Windows ACL을 (아직) 지원하지 않는 것입니다. |
 | 하드 링크 | 생략 | |
@@ -156,6 +158,7 @@ Azure File Sync는 다음 지역에서 미리 보기로만 사용할 수 있습�
 
 | 지역 | 데이터 센터 위치 |
 |--------|---------------------|
+| 미국 동부 | 미국, 버지니아 |
 | 미국 서부 | 미국, 캘리포니아 |
 | 서유럽 | 네덜란드 |
 | 동남아시아 | 싱가포르 |

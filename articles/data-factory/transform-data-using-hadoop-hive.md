@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 01/16/2018
 ms.author: shengc
-ms.openlocfilehash: 579df714910020e1e16e410a051c8b3773369dea
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 37a29d826a948788c5374ad2cc20b6a2040230ad
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="transform-data-using-hadoop-hive-activity-in-azure-data-factory"></a>Azure Data Factory에서 Hadoop Hive 작업을 사용하여 데이터 변환
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -59,16 +59,16 @@ Azure Data Factory를 처음 접하는 경우 [Azure Data Factory 소개](introd
 }
 ```
 ## <a name="syntax-details"></a>구문 세부 정보
-| 속성            | 설명                              | 필수 |
+| 자산            | 설명                              | 필수 |
 | ------------------- | ---------------------------------------- | -------- |
-| name                | 작업의 이름                     | 예      |
-| 설명         | 작업이 무엇에 사용되는지 설명하는 텍스트입니다. | 아니요       |
-| type                | Hive 작업의 경우 작업 유형은 HDinsightHive입니다. | 예      |
+| 이름                | 작업의 이름                     | 예      |
+| description         | 작업이 무엇에 사용되는지 설명하는 텍스트입니다. | 아니오       |
+| 형식                | Hive 작업의 경우 작업 유형은 HDinsightHive입니다. | 예      |
 | linkedServiceName   | Data Factory에서 연결된 서비스로 등록된 HDInsight 클러스터에 대한 참조입니다. 이 연결된 서비스에 대한 자세한 내용은 [연결된 Compute Services](compute-linked-services.md) 문서를 참조하세요. | 예      |
 | scriptLinkedService | 실행할 Hive 스크립트를 저장하는 데 사용되는 Azure Storage 연결된 서비스에 대한 참조입니다. 이 연결된 서비스를 지정하지 않으면 HDInsight 연결된 서비스에 정의된 Azure Storage 연결된 서비스가 사용됩니다. | 아니요       |
 | scriptPath          | scriptLinkedService에서 참조하는 Azure Storage에 저장된 스크립트 파일의 경로를 제공합니다. 파일 이름은 대/소문자를 구분합니다. | 예      |
 | getDebugInfo        | scriptLinkedService에 지정되었거나 HDInsight 클러스터에 사용된 Azure Storage에 로그 파일을 언제 복사할지 지정합니다. 허용되는 값: None, Always 또는 Failure. 기본값: None. | 아니요       |
-| arguments           | Hadoop 작업에 대한 인수 배열을 지정합니다. 인수는 각 작업에 대한 명령줄 인수로 전달됩니다. | 아니요       |
+| arguments           | Hadoop 작업에 대한 인수 배열을 지정합니다. 인수는 각 작업에 대한 명령줄 인수로 전달됩니다. | 아니오       |
 | defines             | Hive 스크립트 내에서 참조하기 위해 매개 변수를 키/값 쌍으로 지정합니다. | 아니요       |
 
 ## <a name="next-steps"></a>다음 단계

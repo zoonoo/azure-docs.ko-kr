@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/05/2017
+ms.date: 01/23/2018
 ms.author: sethm
-ms.openlocfilehash: 9d015678dbd99b8d978c2c8200b36bf51cac8893
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 43c40baa74b3f7c1f5c9d6626b25bcd45c2f9a10
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-relay-hybrid-connections-protocol"></a>Azure 릴레이 하이브리드 연결 프로토콜
 Azure 릴레이는 Azure Service Bus 플랫폼의 주요 기능 요소 중 하나입니다. 릴레이의 새로운 *하이브리드 연결* 기능은 HTTP 및 WebSockets를 기반으로 하는 안전한 개방형 프로토콜의 진화된 형태입니다. 이는 소유 프로토콜을 기반으로 빌드된, 동일한 이름의 이전 *BizTalk Services* 기능을 대체합니다. 하이브리드 연결을 Azure App Services에 통합하여 그 기능을 계속 수행합니다.
@@ -149,7 +149,7 @@ URL은 수락 소켓을 설정하는 데 현재 상태로 사용되어야 하지
 | --- | --- | --- |
 | `sb-hc-action` |예 |소켓을 수락하기 위해 매개 변수는 `sb-hc-action=accept`여야 합니다. |
 | `{path}` |예 |(다음 단락 참조) |
-| `sb-hc-id` |아니요 |**ID**에 대한 앞의 설명을 참조하세요. |
+| `sb-hc-id` |아니오 |**ID**에 대한 앞의 설명을 참조하세요. |
 
 `{path}`는 이 수신기를 등록할 미리 구성된 하이브리드 연결에 대한 URL로 인코드된 네임스페이스 경로입니다. 이 식은 고정 `$hc/` 경로 부분에 추가됩니다. 
 

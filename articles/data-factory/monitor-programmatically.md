@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2017
+ms.date: 01/16/2018
 ms.author: spelluru
-ms.openlocfilehash: 376bc64bee85fbc073b6ea4a39ecd013c23e791f
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: 8d47ebe5ad40aee8289420e8424ec4d745baf2df
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="programmatically-monitor-an-azure-data-factory"></a>Azure Data Factory를 프로그래밍 방식으로 모니터링
 이 문서에서는 다른 SDK(소프트웨어 개발 키트)를 사용하여 Data Factory에서 파이프라인을 모니터링하는 방법을 설명합니다. 
@@ -63,7 +63,7 @@ ms.lasthandoff: 11/01/2017
 
 .NET SDK에 대한 전체 설명서를 보려면 [Data Factory .NET SDK 참조](/dotnet/api/microsoft.azure.management.datafactory?view=azure-dotnet)를 참조하세요.
 
-## <a name="python"></a>Python
+## <a name="python"></a>파이썬
 Python SDK를 사용하여 파이프라인을 만들고 모니터링하는 전체 연습 과정을 보려면 [Python을 사용하여 Data Factory 및 파이프라인 만들기](quickstart-create-data-factory-python.md)를 참조하세요.
 
 파이프라인 실행을 모니터링하려면 다음 코드를 추가합니다.

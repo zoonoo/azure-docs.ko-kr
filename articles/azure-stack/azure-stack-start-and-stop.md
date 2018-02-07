@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: mabrigg
-ms.openlocfilehash: 09c22b22b49664a55b8a9e77936df3b1362d5b88
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 98bf75f5883b734c785ed1a3ed924afca1737c56
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="start-and-stop-azure-stack"></a>시작 및 중지 Azure 스택
 
@@ -41,6 +41,15 @@ ms.lasthandoff: 01/23/2018
 > [!Note]  
 > 제조업체 (OEM) Azure 스택 하드웨어를 제공 하는 지침에 따라 실제 노드 전원 상태를 확인할 수 있습니다. 
 
+## <a name="start-azure-stack"></a>Start Azure Stack 
+
+Azure 스택 다음 단계를 시작 합니다. Azure 스택 중지 하는 방법에 관계 없이 다음이 단계를 수행 합니다.
+
+1. 각 실제 노드에서 Azure 스택 환경에서 전원을 켭니다. 제조업체 (OEM) Azure 스택에 대 한 하드웨어를 제공 하는 지침에 따라 실제 노드에 대 한 명령에 따라 전원을 확인 합니다.
+
+2. Azure 스택 인프라 서비스를 시작 될 때까지 기다립니다. Azure 스택 인프라 서비스는 시작 프로세스를 완료 하는 데 두 개의 시간이 필요할 수 있습니다. Azure 스택을의 시작 상태를 확인할 수는 [ **Get ActionStatus** cmdlet](#get-the-startup-status-for-azure-stack)합니다.
+
+
 ## <a name="get-the-startup-status-for-azure-stack"></a>Azure 스택에 대 한 시작 상태를 가져옵니다.
 
 다음 단계를 통해 Azure 스택 시작 루틴에 대 한 시작을 가져옵니다.
@@ -53,17 +62,9 @@ ms.lasthandoff: 01/23/2018
       Get-ActionStatus Start-AzureStack
     ```
 
-## <a name="start-azure-stack"></a>Start Azure Stack 
-
-Azure 스택 다음 단계를 시작 합니다. Azure 스택 중지 하는 방법에 관계 없이 다음이 단계를 수행 합니다.
-
-1. 각 실제 노드에서 Azure 스택 환경에서 전원을 켭니다. 제조업체 (OEM) Azure 스택에 대 한 하드웨어를 제공 하는 지침에 따라 실제 노드에 대 한 명령에 따라 전원을 확인 합니다.
-
-2. Azure 스택 인프라 서비스를 시작 될 때까지 기다립니다. Azure 스택 인프라 서비스는 시작 프로세스를 완료 하는 데 두 개의 시간이 필요할 수 있습니다. Azure 스택을의 시작 상태를 확인할 수는 [ **Get ActionStatus** cmdlet](#get-the-startup-status-for-azure-stack)합니다.
-
 ## <a name="troubleshoot-startup-and-shutdown-of-azure-stack"></a>Azure 스택 요소의 시작 및 종료 문제 해결
 
-Azure 스택 환경에서 전원 다음 인프라 및 테 넌 트 서비스를 시작 성공적으로 하지 않는 다음 단계를 수행 합니다. 
+인프라 및 테 넌 트 서비스 Azure 스택 환경에서 전원 이후 2 시간을 성공적으로 시작 하지 않는 다음 단계를 수행 합니다. 
 
 1. Azure 스택 ERCS Vm에 대 한 네트워크 액세스 된 컴퓨터에서 권한 있는 끝점 세션을 엽니다.
 

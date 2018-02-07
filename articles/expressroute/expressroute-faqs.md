@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/01/2017
+ms.date: 01/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 4b8b547e3fc57d51f35aa7ca31b76f09593bb5f1
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 62e532f3750adf8f4defe3e8f8aabe5b9f0446a0
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="expressroute-faq"></a>ExpressRoute FAQ
 
@@ -44,7 +44,7 @@ ExpressRoute 연결은 공용 인터넷을 통해 이동하지 않습니다. 인
 
 ### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-does-the-vpn-connection-i-purchase-from-my-network-service-provider-have-to-be-the-same-speed"></a>지정된 대역폭의 ExpressRoute 회로에 대한 비용을 지불하는 경우, 네트워크 서비스 공급자로부터 구입한 VPN 연결은 동일한 속도여야 하나요?
 
-아니요. 서비스 공급자로부터 모든 속도의 VPN 연결을 구입할 수 있습니다. 그러나 Azure에 대한 연결은 구입한 ExpressRoute 회로 대역폭으로 제한됩니다.
+번호 서비스 공급자로부터 모든 속도의 VPN 연결을 구입할 수 있습니다. 그러나 Azure에 대한 연결은 구입한 ExpressRoute 회로 대역폭으로 제한됩니다.
 
 ### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-do-i-have-the-ability-to-burst-up-to-higher-speeds-if-necessary"></a>지정된 대역폭의 ExpressRoute 회로에 대해 비용을 지불한다면 필요한 경우 더 높은 속도로 버스트할 수 있나요?
 
@@ -64,7 +64,7 @@ ExpressRoute는 다양한 유형의 서비스에 대해 [세 개의 라우팅 �
 
 ### <a name="private-peering"></a>개인 피어링
 
-* 모든 가상 컴퓨터 및 클라우드 서비스를 포함한 가상 네트워크
+* 모든 가상 머신 및 클라우드 서비스를 포함한 가상 네트워크
 
 ### <a name="public-peering"></a>공용 피어링
 
@@ -121,11 +121,11 @@ ExpressRoute는 다양한 유형의 서비스에 대해 [세 개의 라우팅 �
 
 ### <a name="will-i-lose-connectivity-if-one-of-my-expressroute-links-fail"></a>내 ExpressRoute 링크 중 하나가 실패하면 연결이 끊어지나요?
 
-교차 연결 중 하나가 실패할 경우 연결이 손실되지 않습니다. 중복 연결은 네트워크의 로드를 지원하기 위해 사용할 수 있습니다. 오류 복구를 수행할 다른 피어링 위치에 여러 회로를 추가로 만들 수 있습니다.
+교차 연결 중 하나가 실패할 경우 연결이 손실되지 않습니다. 네트워크의 부하를 지원하고 ExpressRoute 회로의 고가용성을 제공하기 위해 중복 연결을 사용할 수 있습니다. 회로 수준 복원력을 얻기 위해 다른 피어링 위치에 추가로 회로를 만들 수 있습니다.
 
-## <a name="how-do-i-ensure-high-availability-on-a-virtual-network-connected-to-expressroute"></a>ExpressRoute에 연결된 가상 네트워크에서 고가용성을 보장하려면 어떻게 해야 하나요?
+### <a name="how-do-i-ensure-high-availability-on-a-virtual-network-connected-to-expressroute"></a>ExpressRoute에 연결된 가상 네트워크에서 고가용성을 보장하려면 어떻게 해야 하나요?
 
-다른 피어링 위치에 있는 여러 ExpressRoute 회로를 가상 네트워크에 연결하여 고가용성을 달성할 수 있습니다. 예를 들어 한 ExpressRoute 사이트가 다운되면 연결이 다른 ExpressRoute 사이트로 장애 조치(Failover)됩니다. 기본적으로 가상 네트워크에서 나오는 트래픽은 ECMP(동일 비용 다중 경로 라우팅)를 기준으로 라우팅됩니다. 연결 가중치를 사용하여 특정 연결을 기본 연결로 사용할 수 있습니다. 연결 가중치에 대한 자세한 내용은 [ExpressRoute 라우팅 최적화](expressroute-optimize-routing.md)를 참조하세요.
+다른 피어링 위치(예: Singapore, Singapore2)에 있는 ExpressRoute 회로를 가상 네트워크에 연결하여 고가용성을 달성할 수 있습니다. 한 ExpressRoute 회로가 다운되면 연결이 다른 ExpressRoute 회로로 장애 조치(Failover)됩니다. 기본적으로 가상 네트워크에서 나오는 트래픽은 ECMP(동일 비용 다중 경로 라우팅)를 기준으로 라우팅됩니다. 연결 가중치를 사용하여 특정 회로를 기본 회로로 사용할 수 있습니다. 연결 가중치에 대한 자세한 내용은 [ExpressRoute 라우팅 최적화](expressroute-optimize-routing.md)를 참조하세요.
 
 ### <a name="onep2plink"></a>클라우드 교환에 공동 배치되지 않았으며 서비스 공급자가 점 대 점 연결을 공급하는 경우 온-프레미스 네트워크와 Microsoft 간에 두 개의 실제 연결을 주문해야 하나요?
 
@@ -135,7 +135,7 @@ ExpressRoute는 다양한 유형의 서비스에 대해 [세 개의 라우팅 �
 
 ### <a name="can-i-extend-one-of-my-vlans-to-azure-using-expressroute"></a>ExpressRoute를 사용하여 Azure에 대한 내 VLAN 중 하나를 확장할 수 있나요?
 
-아니요. Azure까지의 계층 2 연결 확장을 지원하지 않습니다.
+번호 Azure까지의 계층 2 연결 확장을 지원하지 않습니다.
 
 ### <a name="can-i-have-more-than-one-expressroute-circuit-in-my-subscription"></a>내 구독에 둘 이상의 ExpressRoute 회로가 있을 수 있나요?
 
@@ -145,9 +145,12 @@ ExpressRoute는 다양한 유형의 서비스에 대해 [세 개의 라우팅 �
 
 예. 여러 서비스 공급자의 ExpressRoute 회로가 있을 수 있습니다. 각 ExpressRoute 회로마다 하나의 서비스 공급자와만 연결됩니다. 
 
-### <a name="can-i-have-multiple-expressroute-circuits-in-the-same-location"></a>같은 위치에 여러 ExpressRoute 회로를 포함할 수 있나요?
+### <a name="i-see-two-expressroute-peering-locations-in-the-same-metro-eg-singapore-and-singapore2-which-peering-location-should-i-choose-to-create-my-expressroute-circuit"></a>동일한 메트로에 두 ExpressRoute 피어링 위치(예: Singapore 및 Singapore2)가 있습니다. 내 ExpressRoute 회로를 어느 피어링 위치에 만들어야 합니까?
+서비스 공급자가 두 사이트 모두에서 ExpressRoute를 제공할 경우 공급자와 함께 ExpressRoute를 설정할 사이트를 선택할 수 있습니다. 
 
-예. 같은 위치에서, 같거나 다른 서비스 공급자로 여러 ExpressRoute 회로를 포함할 수 있습니다. 하지만 동일한 위치에서 동일한 가상 네트워크로 둘 이상의 ExpressRoute 회로를 연결할 수는 없습니다.
+### <a name="can-i-have-multiple-expressroute-circuits-in-the-same-metro-can-i-link-them-to-the-same-virtual-network"></a>같은 메트로에 여러 ExpressRoute 회로를 포함할 수 있나요? 동일한 가상 네트워크에 연결할 수 있나요?
+
+예. 같거나 다른 서비스 공급자로 여러 ExpressRoute 회로를 포함할 수 있습니다. 메트로에 여러 ExpressRoute 피어링 위치가 있고 다양한 피어링 위치에 회로가 생성될 경우 이러한 회로를 동일한 가상 네트워크에 연결할 수 있습니다. 회로가 동일한 피어링 위치에 생성되면 동일한 가상 네트워크에 연결할 수 없습니다.
 
 ### <a name="how-do-i-connect-my-virtual-networks-to-an-expressroute-circuit"></a>가상 네트워크를 ExpressRoute 회로에 연결하려면 어떻게 해야 하나요?
 
@@ -193,13 +196,13 @@ ExpressRoute는 다양한 유형의 서비스에 대해 [세 개의 라우팅 �
 
 ### <a name="can-i-block-internet-connectivity-to-virtual-networks-connected-to-expressroute-circuits"></a>ExpressRoute 회로에 연결된 가상 네트워크에 대한 인터넷 연결을 차단할 수 있나요?
 
-예. 기본 경로(0.0.0.0/0)를 보급하여 가상 네트워크 내에 배포된 가상 컴퓨터에 대한 모든 인터넷 연결을 차단하고 ExpressRoute 회로를 통해 모든 트래픽을 라우팅할 수 있습니다.
+예. 기본 경로(0.0.0.0/0)를 보급하여 가상 네트워크 내에 배포된 가상 머신에 대한 모든 인터넷 연결을 차단하고 ExpressRoute 회로를 통해 모든 트래픽을 라우팅할 수 있습니다.
 
 기본 경로를 보급하는 경우 공용 피어링(예: Azure storage 및 SQL DB)을 통해 프레미스에 다시 제공된 서비스로 트래픽을 수행합니다. 공용 피어링 경로 또는 인터넷을 통해 트래픽을 Azure로 반환하도록 라우터를 구성해야 합니다. 서비스에 대해 서비스 끝점(미리 보기)을 사용하도록 설정한 경우 서비스에 대한 트래픽은 프레미스에 강제로 전송되지 않습니다. 트래픽은 Azure 백본 네트워크 내에 유지됩니다. 서비스 끝점에 대한 자세한 내용은 [가상 네트워크 서비스 끝점](../virtual-network/virtual-network-service-endpoints-overview.md?toc=%2fazure%2fexpressroute%2ftoc.json)을 참조하세요.
 
 ### <a name="can-virtual-networks-linked-to-the-same-expressroute-circuit-talk-to-each-other"></a>동일한 ExpressRoute 회로에 연결된 가상 네트워크가 서로 통신할 수 있나요?
 
-예. 동일한 ExpressRoute 회로에 연결된 가상 네트워크에 배포된 가상 컴퓨터는 서로 통신할 수 있습니다.
+예. 동일한 ExpressRoute 회로에 연결된 가상 네트워크에 배포된 가상 머신은 서로 통신할 수 있습니다.
 
 ### <a name="can-i-use-site-to-site-connectivity-for-virtual-networks-in-conjunction-with-expressroute"></a>ExpressRoute와 함께 가상 네트워크에 대한 사이트 간 연결을 사용할 수 있나요?
 
@@ -243,7 +246,7 @@ BGP 세션이 삭제됩니다. 접두사 개수가 제한보다 적으면 재설
 
    * 온-프레미스 네트워크에서 2단계에서 얻은 IP 주소로 향하는 트래픽을 공용 피어링을 통해 Azure로 다시 라우팅합니다.
    * NSP 공급자는 공용 피어링을 통해 Azure에 다시 트래픽을 hair-pin합니다.
-   * 인터넷을 다음 홉으로 사용하는 IP를 가리키는 사용자 정의 경로를 만들고 이러한 가상 컴퓨터가 있는 서브넷에 적용합니다.
+   * 인터넷을 다음 홉으로 사용하는 IP를 가리키는 사용자 정의 경로를 만들고 이러한 가상 머신이 있는 서브넷에 적용합니다.
 
 ### <a name="can-i-change-the-bandwidth-of-an-expressroute-circuit"></a>ExpressRoute 회로의 대역폭을 변경할 수 있나요?
 
@@ -289,7 +292,7 @@ ExpressRoute Premium은 REST API/PowerShell cmdlet을 호출하여 사용하지 
 
 ### <a name="can-i-pick-and-choose-the-features-i-want-from-the-premium-feature-set"></a>프리미엄 기능 집합에서 원하는 기능을 선택할 수 있나요?
 
-아니요. 기능은 선택할 수 없습니다. ExpressRoute Premium을 켜면 모든 기능을 사용합니다.
+번호 기능은 선택할 수 없습니다. ExpressRoute Premium을 켜면 모든 기능을 사용합니다.
 
 ### <a name="how-much-does-expressroute-premium-cost"></a>ExpressRoute Premium 비용
 

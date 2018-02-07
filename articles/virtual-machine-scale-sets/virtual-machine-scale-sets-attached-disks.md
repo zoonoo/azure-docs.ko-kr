@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 4/25/2017
 ms.author: negat
-ms.openlocfilehash: 355865b963c313097f7f5900007f341dba92bf67
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 88d4012145172bcd393070904980898d9923ea1c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-virtual-machine-scale-sets-and-attached-data-disks"></a>Azure 가상 머신 확장 집합 및 연결된 데이터 디스크
 이제 Azure [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/)은 연결된 데이터 디스크가 있는 가상 머신을 지원합니다. Azure Managed Disks를 사용하여 만든 확장 집합에 대한 저장소 프로필에서 데이터 디스크를 정의할 수 있습니다. 이전에 크기 집합에서 VM과 함께 사용할 수 있는 직접 연결된 저장소 옵션에는 OS 드라이브 및 임시 드라이브가 있었습니다.
@@ -28,14 +28,14 @@ ms.lasthandoff: 12/20/2017
 >  정의된 연결된 데이터 디스크를 사용하여 크기 집합을 만드는 경우 독립 실행형 Azure VM의 경우와 마찬가지로 사용할 VM 내에서 디스크를 탑재하고 포맷해야 합니다. 이 프로세스를 완료하는 편리한 방법은 사용자 지정 스크립트 확장을 사용하여 VM에서 모든 데이터 디스크를 분할하고 포맷하는 표준 스크립트를 호출하는 것입니다.
 
 ## <a name="create-a-scale-set-with-attached-data-disks"></a>연결된 데이터 디스크를 포함한 크기 집합 만들기
-연결된 디스크를 포함하는 확장 집합을 만드는 간단한 방법은 [az vmss create](/cli/azure/vmss#create) 명령을 사용하는 것입니다. 다음 예제에서는 Azure 리소스 그룹 및 각각 50GB 및 100GB의 연결된 데이터 디스크 2개를 포함하는 10개의 Ubuntu VM으로 구성된 가상 머신 확장 집합을 만듭니다.
+연결된 디스크를 포함하는 확장 집합을 만드는 간단한 방법은 [az vmss create](/cli/azure/vmss#az_vmss_create) 명령을 사용하는 것입니다. 다음 예제에서는 Azure 리소스 그룹 및 각각 50GB 및 100GB의 연결된 데이터 디스크 2개를 포함하는 10개의 Ubuntu VM으로 구성된 가상 머신 확장 집합을 만듭니다.
 
 ```bash
 az group create -l southcentralus -n dsktest
 az vmss create -g dsktest -n dskvmss --image ubuntults --instance-count 10 --data-disk-sizes-gb 50 100
 ```
 
-기본값을 지정하지 않으면 [az vmss create](/cli/azure/vmss#create) 명령은 특정 구성 값을 기본값으로 지정합니다. 재정의할 수 있는 사용 가능한 옵션을 확인하려면 다음을 사용하세요.
+기본값을 지정하지 않으면 [az vmss create](/cli/azure/vmss#az_vmss_create) 명령은 특정 구성 값을 기본값으로 지정합니다. 재정의할 수 있는 사용 가능한 옵션을 확인하려면 다음을 사용하세요.
 
 ```bash
 az vmss create --help

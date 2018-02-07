@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: 39cfd269ec7dd9e676a9d4296df1329dc3fbe0cc
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: de48d61af0e8056a749715343ef821cfc35cb93d
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Data Factory 파이프라인 분기 및 연결 작업
 이 자습서에서는 몇 가지 컨트롤 흐름 기능을 보여 주는 Data Factory 파이프라인을 만듭니다. 이 파이프라인은 Azure Blob Storage의 컨테이너에서 동일한 저장소 계정의 다른 컨테이너로 간단한 복사를 수행합니다. 복사 활동이 성공하면 파이프라인에서 성공적인 복사 작업에 대한 세부 정보(예: 기록된 데이터 양)를 성공 전자 메일에 보냅니다. 복사 활동이 실패하면 파이프라인에서 실패한 복사 작업에 대한 세부 정보(예: 오류 메시지)를 실패 전자 메일에 보냅니다. 자습서 전체에서 매개 변수를 전달하는 방법을 확인할 수 있습니다.
@@ -61,7 +61,7 @@ ms.lasthandoff: 01/18/2018
     3. **input.txt** 파일을 컨테이너에 업로드합니다.
 
 ## <a name="create-email-workflow-endpoints"></a>전자 메일 워크플로 끝점 만들기
-파이프라인에서 전자 메일 보내기를 트리거하려면 [Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md)를 사용하여 워크플로를 정의합니다. 논리 앱 워크플로를 만드는 방법에 대한 자세한 내용은 [논리 앱을 만드는 방법](../logic-apps/logic-apps-create-a-logic-app.md)을 참조하세요. 
+파이프라인에서 전자 메일 보내기를 트리거하려면 [Logic Apps](../logic-apps/logic-apps-overview.md)를 사용하여 워크플로를 정의합니다. 논리 앱 워크플로를 만드는 방법에 대한 자세한 내용은 [논리 앱을 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md)을 참조하세요. 
 
 ### <a name="success-email-workflow"></a>성공 전자 메일 워크플로 
 `CopySuccessEmail`이라는 논리 앱 워크플로를 만듭니다. 워크플로 트리거를 `When an HTTP request is received`로 정의하고 `Office 365 Outlook – Send an email` 작업을 추가합니다.

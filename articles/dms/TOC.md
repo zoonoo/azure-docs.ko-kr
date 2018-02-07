@@ -16,3 +16,6 @@
 ## [데이터베이스 마이그레이션 가이드](https://aka.ms/datamigration)
 ## [데이터 Migration Assistant](https://aka.ms/dma)
 ## [가격](https://aka.ms/dms-pricing)
+## [필수 구성 요소의 개요](pre-reqs.md)
+## [FAQ](faq.md)
+

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/04/2017
 ms.author: ashishth
-ms.openlocfilehash: f3b29db2dd74e6b3c0c066045d05cb853d1541f8
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: f57260b2ee280aa0f49f42cd145477205926cb0c
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="phoenix-query-server-rest-sdk"></a>Phoenix Query Server REST SDK
 
@@ -39,7 +39,7 @@ Apache Phoenix Query Server용 Microsoft .NET 드라이버는 다음 명령으�
 
 라이브러리 사용을 시작하려면 `Uri`을 포함하는 `ClusterCredentials`를 클러스터와 클러스터의 Hadoop 사용자 이름 및 암호로 전달해 새 `PhoenixClient` 개체를 인스턴스화합니다.
 
-```c#
+```csharp
 var credentials = new ClusterCredentials(new Uri("https://CLUSTERNAME.azurehdinsight.net/"), "USERNAME", "PASSWORD");
 client = new PhoenixClient(credentials);
 ```
@@ -50,7 +50,7 @@ CLUSTERNAME은 HDInsight HBase 클러스터 이름으로, 그리고 사용자 �
 
 하나 이상의 요청을 PQS로 전송하려면 고유한 연결 식별자를 포함하여 요청을 해당 연결에 연결해야 합니다.
 
-```c#
+```csharp
 string connId = Guid.NewGuid().ToString();
 ```
 
@@ -60,7 +60,7 @@ string connId = Guid.NewGuid().ToString();
 
 `ConnectionSyncRequestAsync`를 호출하려면 `ConnectionProperties` 개체를 전달합니다.
 
-```c#
+```csharp
 ConnectionProperties connProperties = new ConnectionProperties
 {
     HasAutoCommit = true,
@@ -102,7 +102,7 @@ await client.ConnectionSyncRequestAsync(connId, connProperties, options);
 
 이 예제 및 모든 후속 예제는 [새 PhoenixClient 개체 인스턴스화](#instantiate-new-phoenixclient-object)에 정의된 대로 인스턴스화된 `PhoenixClient` 개체를 사용합니다.
 
-```c#
+```csharp
 string connId = Guid.NewGuid().ToString();
 RequestOptions options = RequestOptions.GetGatewayDefaultOptions();
 
@@ -172,13 +172,13 @@ finally
 
 이 예제에서는 미국 주 및 지역 약어의 `List<string>` 컬렉션을 참조하여 개별 데이터 삽입을 보여 줍니다.
 
-```c#
+```csharp
 var states = new List<string> { "AL", "AK", "AS", "AZ", "AR", "CA", "CO", "CT", "DE", "DC", "FM", "FL", "GA", "GU", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MH", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "MP", "OH", "OK", "OR", "PW", "PA", "PR", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VI", "VA", "WA", "WV", "WI", "WY" };
 ```
 
 테이블의 `StateProvince` 열 값은 후속 선택 작업에서 사용됩니다.
 
-```c#
+```csharp
 string connId = Guid.NewGuid().ToString();
 RequestOptions options = RequestOptions.GetGatewayDefaultOptions();
 options.TimeoutMillis = 300000;
@@ -289,7 +289,7 @@ insert 문을 실행하기 위한 구조체는 새 테이블을 만드는 것과
 
 다음 코드는 데이터를 개별적으로 삽입하기 위한 코드와 거의 동일합니다. 이 예제에서는 준비된 문을 사용해서 `ExecuteRequestAsync`를 반복적으로 호출하지 않고, `ExecuteBatchRequestAsync` 호출에서 `UpdateBatch` 개체를 사용합니다.
 
-```c#
+```csharp
 string connId = Guid.NewGuid().ToString();
 RequestOptions options = RequestOptions.GetGatewayDefaultOptions();
 options.TimeoutMillis = 300000;
@@ -407,7 +407,7 @@ finally
 2. 총 행 수 select 문을 사용하여 단일 스칼라 결과를 검색합니다.
 3. 주 또는 지역별로 고객의 총 수를 반환하는 select 문을 실행합니다.
 
-```c#
+```csharp
 string connId = Guid.NewGuid().ToString();
 RequestOptions options = RequestOptions.GetGatewayDefaultOptions();
 

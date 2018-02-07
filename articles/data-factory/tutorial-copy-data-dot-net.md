@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/06/2017
+ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 85a8a3234c052828556ce5d8ba5841a5bf012971
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 0747ba79529bc2f12f1c5d74cbfcb7b62a62baa8
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Blob에서 Azure SQL Database로 데이터 복사
 이 자습서에서는 Azure Blob Storage에서 Azure SQL Database로 데이터를 복사하는 Data Factory 파이프라인을 만듭니다. 이 자습서의 구성 패턴은 파일 기반 데이터 저장소에서 관계형 데이터 저장소로 복사하는 데 적용됩니다. 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 표를 참조하세요.
@@ -91,10 +91,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 Visual Studio 2015/2017을 사용하여 C# .NET 콘솔 응용 프로그램을 만듭니다.
 
 1. **Visual Studio**를 시작합니다.
-2. **파일**을 클릭하고 **새로 만들기**를 가리킨 다음 **프로젝트**를 클릭합니다.
+2. **File**을 클릭하고 **New**를 가리킨 다음 **프로젝트**를 클릭합니다.
 3. 오른쪽의 프로젝트 형식 목록에서 **Visual C#** -> **콘솔 앱(.NET Framework)**을 차례로 선택합니다. .NET 버전 4.5.2 이상이 필요합니다.
 4. 이름으로 **ADFv2Tutorial**을 입력합니다.
-5. **확인** 을 클릭하여 프로젝트를 만듭니다.
+5. **확인**을 클릭하여 프로젝트를 만듭니다.
 
 ## <a name="install-nuget-packages"></a>NuGet 패키지 설치
 

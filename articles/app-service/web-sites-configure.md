@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
-ms.openlocfilehash: 9ec501d0a4e1c6165b83b5b590b87b0baa284423
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: 3f735b8742f22110b4de264bfb5661651a899afb
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>Azure App Service에서 웹앱 구성
 
@@ -62,7 +62,7 @@ ms.lasthandoff: 01/03/2018
 **원격 디버깅**. 원격 디버깅을 사용하도록 설정합니다. 사용하도록 설정되면 Visual Studio에서 원격 디버거를 사용하여 웹 앱에 바로 연결할 수 있습니다. 원격 디버깅은 48시간 동안 사용 가능한 상태로 유지됩니다. 
 
 ### <a name="app-settings"></a>앱 설정
-이 섹션에는 시작 시 웹 앱이 로드하는 이름/값 쌍을 포함합니다. 
+이 섹션에는 시작 시 웹앱이 로드하는 이름/값 쌍이 나와 있습니다. 
 
 * .NET 앱의 경우, 이 설정은 런타임 시 .NET 구성 `AppSettings`으로 주입되어 기존 설정을 재정의합니다. 
 * PHP, Python, Java 및 Node 응용 프로그램에서는 런타임에 환경 변수로 이러한 설정에 액세스할 수 있습니다. 각 앱 설정에 대해 두 개의 환경 변수가 만들어집니다. 하나는 앱 설정 항목에 의해 이름이 지정되고, 다른 하나는 이름에 APPSETTING_ 접두사가 붙습니다. 둘 다 같은 값을 포함합니다.

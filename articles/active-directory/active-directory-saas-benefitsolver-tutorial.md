@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2017
 ms.author: jeedes
-ms.openlocfilehash: 25d99ad3048612722b75cf6ec9b8d07729770c8d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d23f1c4d6613d525695ed222e0d84736b9007833
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-benefitsolver"></a>자습서: Benefitsolver와 Azure Active Directory 통합
 
@@ -110,9 +110,9 @@ Benefitsolver에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 
     a. **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `http://<companyname>.benefitsolver.com`
 
-    b. **식별자** 텍스트 상자에서 `https://<companyname>.benefitsolver.com/saml20` 패턴을 사용하여 URL을 입력합니다.
+    나. **식별자** 텍스트 상자에서 `https://<companyname>.benefitsolver.com/saml20` 패턴을 사용하여 URL을 입력합니다.
 
-    c. **회신 URL** 텍스트 상자에 URL `https://www.benefitsolver.com/benefits/BenefitSolverView?page_name=single_signon_saml`를 입력합니다.
+    다. **회신 URL** 텍스트 상자에 URL `https://www.benefitsolver.com/benefits/BenefitSolverView?page_name=single_signon_saml`를 입력합니다.
 
     > [!NOTE] 
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL, 식별자 및 회신 URL로 값을 업데이트합니다. 이러한 값을 얻으려면 [Benefitsolver 클라이언트 지원 팀](https://www.businessolver.com/contact)에 문의하세요.
@@ -136,9 +136,9 @@ Benefitsolver에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
     
     ![Benefitsolver 특성 섹션](./media/active-directory-saas-benefitsolver-tutorial/tutorial_attribute_05.png)
 
-    b. **이름** 텍스트 상자에서 해당 행에 표시된 특성 이름을 입력합니다.
+    나. **이름** 텍스트 상자에서 해당 행에 표시된 특성 이름을 입력합니다.
     
-    c. **값** 목록에서 해당 행에 대해 표시된 특성을 입력합니다.
+    다. **값** 목록에서 해당 행에 대해 표시된 특성을 입력합니다.
     
     d. **Ok**를 클릭합니다.
 
@@ -185,9 +185,9 @@ Benefitsolver에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 
     a. **이름** 상자에 **BrittaSimon**을 입력합니다.
 
-    b. **사용자 이름** 상자에 사용자인 Britta Simon의 전자 메일 주소를 입력합니다.
+    나. **사용자 이름** 상자에 사용자인 Britta Simon의 전자 메일 주소를 입력합니다.
 
-    c. **암호 표시** 확인란을 선택한 다음 **암호** 상자에 표시된 값을 적어둡니다.
+    다. **암호 표시** 확인란을 선택한 다음 **암호** 상자에 표시된 값을 적어둡니다.
 
     d. **만들기**를 클릭합니다.
  
@@ -238,7 +238,7 @@ Azure AD 사용자가 Benefitsolver에 로그인할 수 있도록 하려면 Bene
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)
+* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->
 

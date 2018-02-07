@@ -14,17 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: jennile
-ms.openlocfilehash: f027e7fbc5866a85e7f55460192a1c99a71e368e
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 9526817ce7969edcd5e9c56ec153bb4e3ebaa501
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="azure-app-service-diagnostics-overview"></a>Azure App Service 진단 개요 
 
 웹앱을 실행할 때 500개 오류부터 사용자가 사이트의 작동이 중단되었음을 알리는 사용자에 이르기까지 발생할 수 있는 문제에 대비해야 합니다. App Service 진단은 구성할 필요 없이 웹앱 문제를 해결하는 데 도움이 되는 지능적인 대화형 환경입니다. 웹앱에서 문제가 발생하면 App Service 진단은 문제를 더 쉽고 빠르게 확인하고 해결하기 위해 올바른 정보로 안내하여 무엇이 문제인지를 지적합니다. 
  
 이 환경은 지난 24시간 동안 웹앱에 문제가 있을 때 가장 유용하지만, 언제든지 분석할 수 있도록 모든 진단 그래프가 제공됩니다. 추가 문제 해결 도구 및 유용한 문서와 포럼에 대한 링크는 오른쪽 열에 있습니다.
+
+## <a name="open-app-service-diagnostics"></a>App Service 진단 열기
+
+App Service 진단에 액세스하려면 [Azure Portal](https://portal.azure.com)에서 App Service 웹앱으로 이동합니다. 
+
+왼쪽 탐색 메뉴에서 **문제 진단 및 해결**을 클릭합니다.
 
 ![홈페이지](./media/app-service-diagnostics/Homepage1.png)
 
@@ -50,8 +56,3 @@ ms.lasthandoff: 11/15/2017
 
 ![진단 보고서](./media/app-service-diagnostics/DiagnosticReport5.png)
 
-## <a name="open-app-service-diagnostics"></a>App Service 진단 열기
-
-App Service 진단에 액세스하려면 [Azure Portal](https://portal.azure.com)에서 App Service 웹앱으로 이동합니다. 
-
-왼쪽 탐색 메뉴에서 **문제 진단 및 해결**을 클릭합니다.

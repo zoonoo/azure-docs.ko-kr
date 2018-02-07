@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2017
 ms.author: arramac
-ms.openlocfilehash: 5ea254110a24ea3315d614ebca2d43bda0e1a674
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 240961e0caa1cf2b5c31e854e925f914eb7edc00
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>로컬 개발 및 테스트에 Azure Cosmos DB 에뮬레이터 사용
 
@@ -64,7 +64,7 @@ Azure Cosmos DB 에뮬레이터는 신뢰도 있는 Azure Cosmos DB 서비스의
 실제 Azure Cosmos DB 서비스의 충실도 높은 로컬 에뮬레이션을 만들었지만 Azure Cosmos DB 에뮬레이터의 구현은 서비스의 구현과 다릅니다. 예를 들어 Azure Cosmos DB 에뮬레이터는 로컬 파일 시스템(지속성) 및 HTTPS 프로토콜 스택(연결성)과 같은 표준 OS 구성 요소를 사용합니다. 따라서 전역 복제, 한 자리 밀리초 읽기/쓰기 대기 시간, 튜닝 가능한 일관성 수준 등 Azure 인프라를 기반으로 하는 일부 기능은 Azure Cosmos DB 에뮬레이터를 통해 사용할 수 없습니다.
 
 > [!NOTE]
-> 현재 에뮬레이터의 데이터 탐색기는 DocumentDB API 컬렉션 및 MongoDB 컬렉션 만들기만 지원합니다. 에뮬레이터의 데이터 탐색기는 현재 테이블 및 그래프 만들기를 지원하지 않습니다. 
+> 현재 에뮬레이터의 데이터 탐색기는 SQL API 컬렉션 및 MongoDB 컬렉션 만들기만 지원합니다. 에뮬레이터의 데이터 탐색기는 현재 테이블 및 그래프 만들기를 지원하지 않습니다. 
 
 ## <a name="differences-between-the-emulator-and-the-service"></a>에뮬레이터와 서비스 간 차이 
 Azure Cosmos DB 에뮬레이터는 로컬 개발자 워크스테이션에서 실행되는 에뮬레이트된 환경을 제공하기 때문에 클라우드의 Azure Cosmos DB 계정과 기능 면에서 몇 가지 차이가 있습니다.
@@ -136,7 +136,7 @@ Azure Cosmos DB 에뮬레이터를 시작하면 브라우저에서 Azure Cosmos 
 처음에 네트워크 액세스를 사용하도록 설정하려면 사용자는 에뮬레이터를 종료하고 에뮬레이터의 데이터 디렉터리(C:\Users\user_name\AppData\Local\CosmosDBEmulator)를 삭제해야 합니다.
 
 ## <a name="developing-with-the-emulator"></a>에뮬레이터를 사용한 개발
-Azure Cosmos DB 에뮬레이터를 데스크톱에서 실행하는 경우 지원되는 [Azure Cosmos DB SDK](documentdb-sdk-dotnet.md) 또는 [Azure Cosmos DB REST API](/rest/api/documentdb/)를 사용하여 에뮬레이터와 상호 작용할 수 있습니다. Azure Cosmos DB 에뮬레이터에는 코드를 작성하지 않고도 DocumentDB 및 MongoDB API 컬렉션을 만들고 문서를 확인 및 편집할 수 있는 기본 제공 데이터 탐색기도 포함되어 있습니다.   
+Azure Cosmos DB 에뮬레이터를 데스크톱에서 실행하는 경우 지원되는 [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md) 또는 [Azure Cosmos DB REST API](/rest/api/documentdb/)를 사용하여 에뮬레이터와 상호 작용할 수 있습니다. Azure Cosmos DB 에뮬레이터에는 코드를 작성하지 않고도 SQL 및 MongoDB API 컬렉션을 만들고 문서를 확인 및 편집할 수 있는 기본 제공 데이터 탐색기도 포함되어 있습니다.   
 
     // Connect to the Azure Cosmos DB Emulator running locally
     DocumentClient client = new DocumentClient(

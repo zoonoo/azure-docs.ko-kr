@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2017
 ms.author: anhoh
-ms.openlocfilehash: 2ad6308903d1c3615392eadedfd7da3cfad4096d
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: 41c0b360b54f9a9dcd2458ce5bdc05911c4f73a5
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="connect-a-mongodb-application-to-azure-cosmos-db"></a>Azure Cosmos DB에 MongoDB 응용 프로그램 연결
 MongoDB 연결 문자열을 사용하여 MongoDB 앱을 Azure Cosmos DB 계정에 연결하는 방법에 대해 알아봅니다. 그런 다음 Azure Cosmos DB 데이터베이스를 MongoDB 앱의 데이터 저장소로 사용할 수 있습니다. 
@@ -75,5 +75,5 @@ Azure Cosmos DB는 두 가지 특정 요구 사항을 포함한 표준 MongoDB �
     mongodb://contoso123:0Fc3IolnL12312asdfawejunASDF@asdfYXX2t8a97kghVcUzcDv98hawelufhawefafnoQRGwNj2nMPL1Y9qsIr9Srdw==@contoso123.documents.azure.com:10255/mydatabase?ssl=true
 
 ## <a name="next-steps"></a>다음 단계
-* Azure Cosmos DB: MongoDB API 계정으로 [MongoChef를 사용](mongodb-mongochef.md)하는 방법을 알아봅니다.
+* MongoDB API 계정에 대한 Azure Cosmos DB API를 사용하여 [Studio 3T(MongoChef)를 사용](mongodb-mongochef.md)하는 방법을 알아봅니다.
 * [샘플](mongodb-samples.md)을 통해 Azure Cosmos DB API for MongoDB를 살펴봅니다.

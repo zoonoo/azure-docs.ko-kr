@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 399bad6f00b61d582fdb077f33000b6c55cf8904
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: cbf7731c0faa82ebd3e662eb6d2a8fb0acd65c97
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="manage-instances-in-durable-functions-azure-functions"></a>지속성 함수의 인스턴스 관리(Azure Functions)
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 11/30/2017
 
 [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html)의 [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_) 메서드는 오케스트레이터 함수의 새 인스턴스를 시작합니다. 이 클래스의 인스턴스는 `orchestrationClient` 바인딩을 사용하여 얻을 수 있습니다. 내부적으로 이 메서드는 메시지를 제어 큐에 넣고 `orchestrationTrigger` 트리거 바인딩을 사용하는 지정된 이름의 함수 시작을 트리거합니다.
 
-매개 변수는 다음과 같습니다.
+[StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_)에 대한 매개 변수는 다음과 같습니다.
 
 * **Name**: 예약할 오케스트레이터 함수의 이름입니다.
 * **Input**: 오케스트레이터 함수에 대한 입력으로 전달해야 하는 JSON 직렬화 가능 데이터입니다.
@@ -97,7 +97,7 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> 인스턴스 쿼리는 현재 C# 함수에서만 지원됩니다.
+> 인스턴스 쿼리는 현재 C# 오케스트레이터 함수에서만 지원됩니다.
 
 ## <a name="terminating-instances"></a>인스턴스 종료
 
@@ -115,11 +115,13 @@ public static Task Run(
 ```
 
 > [!NOTE]
-> 인스턴스 종료는 현재 C# 함수에서만 지원됩니다.
+> 인스턴스 종료는 현재 C# 오케스트레이터 함수에서만 지원됩니다.
 
 ## <a name="sending-events-to-instances"></a>인스턴스로 이벤트 보내기
 
-이벤트 알림은 [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) 클래스의 [RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_) 메서드를 사용하여 실행 중인 인스턴스로 보낼 수 있습니다. 이러한 이벤트를 처리할 수 있는 인스턴스는 [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_)에 대한 호출을 기다리는 인스턴스입니다. 입력은 다음과 같습니다.
+이벤트 알림은 [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) 클래스의 [RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_) 메서드를 사용하여 실행 중인 인스턴스로 보낼 수 있습니다. 이러한 이벤트를 처리할 수 있는 인스턴스는 [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_)에 대한 호출을 기다리는 인스턴스입니다. 
+
+[RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_)에 대한 매개 변수는 다음과 같습니다.
 
 * **InstanceId**: 인스턴스의 고유 ID입니다.
 * **EventName**: 보낼 이벤트의 이름입니다.
@@ -139,7 +141,7 @@ public static Task Run(
 ```
 
 > [!NOTE]
-> 이벤트 발생은 현재 C# 함수에서만 지원됩니다.
+> 이벤트 발생은 현재 C# 오케스트레이터 함수에서만 지원됩니다.
 
 > [!WARNING]
 > 지정된 *인스턴스 ID*가 있는 오케스트레이션 인스턴스가 없거나 인스턴스에서 지정된 *이벤트 이름*을 기다리지 않는 경우 해당 이벤트 메시지는 버려집니다. 이 동작에 대한 자세한 내용은 [GitHub 문제](https://github.com/Azure/azure-functions-durable-extension/issues/29)를 참조하세요.

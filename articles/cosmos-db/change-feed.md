@@ -15,11 +15,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: arramac
-ms.openlocfilehash: 8ca4c7fb1ccfe1eb026de80e519894c0ff23028a
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: d1968e9fea0fb08edfdbf9e09acca9c4af00b048
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>Azure Cosmos DB에서 변경 피드 지원 사용
 
@@ -34,7 +34,7 @@ Azure Cosmos DB의 **변경 피드 지원**을 사용하면 다음 그림과 같
 ![Azure Cosmos DB 변경 피드를 사용하여 실시간 분석 및 이벤트 기반 컴퓨팅 시나리오 작동](./media/change-feed/changefeedoverview.png)
 
 > [!NOTE]
-> Azure Cosmos DB의 모든 데이터 모델 및 컨테이너에 대해 변경 피드 지원이 제공됩니다. 하지만 변경 피드는 DocumentDB 클라이언트를 사용하여 읽고 항목을 JSON 형식으로 직렬화합니다. MongoDB 클라이언트는 JSON 형식으로 인해 BSON 형식 문서와 JSON 형식의 변경 피드 간 불일치가 나타납니다. 
+> Azure Cosmos DB의 모든 데이터 모델 및 컨테이너에 대해 변경 피드 지원이 제공됩니다. 하지만 변경 피드는 SQL 클라이언트를 사용하여 읽고 항목을 JSON 형식으로 직렬화합니다. MongoDB 클라이언트는 JSON 형식으로 인해 BSON 형식 문서와 JSON 형식의 변경 피드 간 불일치가 나타납니다. 
 
 ## <a name="how-does-change-feed-work"></a>변경 피드의 작동 방식
 
@@ -90,11 +90,11 @@ Azure Functions를 사용하는 경우 Azure Cosmos DB 변경 피드에 연결�
 <a id="rest-apis"></a>
 ## <a name="using-the-sdk"></a>SDK 사용
 
-Azure Cosmos DB의 [DocumentDB SDK](documentdb-sdk-dotnet.md)는 변경 피드를 읽고 관리할 수 있는 모든 기능을 제공합니다. 하지만 많은 기능에는 많은 책임도 따릅니다. 검사점을 관리하고 문서 시퀀스 번호를 처리하거나 파티션 키를 자세히 관리하려는 경우 SDK를 사용하는 것이 적절한 방식일 수 있습니다.
+Azure Cosmos DB의 [SQL SDK](sql-api-sdk-dotnet.md)는 변경 피드를 읽고 관리할 수 있는 모든 기능을 제공합니다. 하지만 많은 기능에는 많은 책임도 따릅니다. 검사점을 관리하고 문서 시퀀스 번호를 처리하거나 파티션 키를 자세히 관리하려는 경우 SDK를 사용하는 것이 적절한 방식일 수 있습니다.
 
-이 섹션은 DocumentDB SDK를 사용하여 변경 피드를 사용하는 방법을 안내합니다.
+이 섹션은 SQL SDK를 사용하여 변경 피드를 사용하는 방법을 안내합니다.
 
-1. 가장 먼저 appconfig의 다음 리소스를 읽습니다. 끝점 및 인증 키 검색에 대한 소개는 [연결 문자열 업데이트](create-documentdb-dotnet.md#update-your-connection-string)에서 확인할 수 있습니다.
+1. 가장 먼저 appconfig의 다음 리소스를 읽습니다. 끝점 및 인증 키 검색에 대한 소개는 [연결 문자열 업데이트](create-sql-api-dotnet.md#update-your-connection-string)에서 확인할 수 있습니다.
 
     ``` csharp
     DocumentClient client;
@@ -166,7 +166,7 @@ Azure Cosmos DB의 [DocumentDB SDK](documentdb-sdk-dotnet.md)는 변경 피드�
 <a id="change-feed-processor"></a>
 ## <a name="using-the-change-feed-processor-library"></a>변경 피드 프로세서 라이브러리 사용 
 
-[Azure Cosmos DB 변경 피드 프로세서 라이브러리](https://docs.microsoft.com/azure/cosmos-db/documentdb-sdk-dotnet-changefeed)는 이벤트 처리를 여러 소비자 사이에 손쉽게 배포하는 데 유용합니다. 이 라이브러리는 파티션 및 병렬 작동하는 여러 스레드 사이에서 변경 사항 읽기를 간소화합니다.
+[Azure Cosmos DB 변경 피드 프로세서 라이브러리](https://docs.microsoft.com/azure/cosmos-db/sql-api-sdk-dotnet-changefeed)는 이벤트 처리를 여러 소비자 사이에 손쉽게 배포하는 데 유용합니다. 이 라이브러리는 파티션 및 병렬 작동하는 여러 스레드 사이에서 변경 사항 읽기를 간소화합니다.
 
 변경 피드 프로세서 라이브러리의 주요 이점은 각 파티션 및 구성 토큰을 관리하지 않아도 되며 각 컬렉션을 수동으로 폴링하지 않아도 된다는 점입니다.
 
@@ -276,11 +276,11 @@ Azure Cosmos DB와 Azure Functions를 사용하는 방법에 대한 자세한 �
 
 변경 피드 프로세서 라이브러리를 사용하는 방법을 보려면 다음 리소스를 사용하세요.
 
-* [정보 페이지](documentdb-sdk-dotnet-changefeed.md) 
+* [정보 페이지](sql-api-sdk-dotnet-changefeed.md) 
 * [NuGet 패키지](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)
 * [위 1 ~ 6단계를 보여주는 샘플 코드](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeedProcessor)
 * [GitHub의 추가 샘플](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/ChangeFeedProcessor)
 
 SDK를 통해 변경 피드를 사용하는 방법을 보려면 다음 리소스를 사용하세요.
 
-* [SDK 정보 페이지](documentdb-sdk-dotnet.md)
+* [SDK 정보 페이지](sql-api-sdk-dotnet.md)

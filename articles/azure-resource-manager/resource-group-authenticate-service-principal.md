@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 08/28/2017
+ms.date: 12/28/2017
 ms.author: tomfitz
-ms.openlocfilehash: 57eec4277e584c3c2828e0fe029b9db10428934e
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 9431483293bcc252b79d02ba2d655a3aa86aaa4a
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="use-azure-powershell-to-create-a-service-principal-to-access-resources"></a>Azure PowerShell을 사용하여 리소스에 액세스하는 서비스 주체 만들기
 
@@ -27,10 +27,10 @@ ms.lasthandoff: 11/17/2017
 * 자체 사용 권한과 다른 앱 ID에 대한 사용 권한을 할당합니다. 일반적으로 이러한 권한은 정확히 앱 실행에 필요한 것으로 제한됩니다.
 * 무인 스크립트를 실행할 때 인증을 위해 인증서를 사용합니다.
 
-이 토픽에서는 [Azure PowerShell](/powershell/azure/overview) 을 사용하여 응용 프로그램을 자체 자격 증명 및 ID로 실행하는 데 필요한 모든 항목을 설정하는 방법을 보여 줍니다.
+이 문서에서는 [Azure PowerShell](/powershell/azure/overview)을 사용하여 응용 프로그램을 자체 자격 증명 및 ID로 실행하는 데 필요한 모든 항목을 설정하는 방법을 보여 줍니다.
 
 ## <a name="required-permissions"></a>필요한 사용 권한
-이 항목을 완료하려면 Azure Active Directory와 Azure 구독에 대한 충분한 권한이 있어야 합니다. 특히, Azure Active Directory에서 앱을 만들고 역할에 서비스 주체를 할당할 수 있어야 합니다. 
+이 문서를 완료하려면 Azure Active Directory와 Azure 구독에 대한 충분한 권한이 있어야 합니다. 특히, Azure Active Directory에서 앱을 만들고 역할에 서비스 주체를 할당할 수 있어야 합니다. 
 
 계정에 적절한 사용 권한이 있는지를 확인하는 가장 쉬운 방법은 포털을 통하는 것입니다. [필요한 사용 권한 확인](resource-group-create-service-principal-portal.md#required-permissions)을 참조하세요.
 
@@ -105,9 +105,10 @@ Param (
     $Scope = (Get-AzureRmResourceGroup -Name $ResourceGroup -ErrorAction Stop).ResourceId
  }
 
+ $SecurePassword = convertto-securestring $Password -asplaintext -force
  
  # Create Service Principal for the AD app
- $ServicePrincipal = New-AzureRMADServicePrincipal -DisplayName $ApplicationDisplayName -Password $Password
+ $ServicePrincipal = New-AzureRMADServicePrincipal -DisplayName $ApplicationDisplayName -Password $SecurePassword
  Get-AzureRmADServicePrincipal -ObjectId $ServicePrincipal.Id 
 
  $NewRole = $null
@@ -377,7 +378,7 @@ Remove-AzureRmADAppCredential -ApplicationId 8bc80782-a916-47c8-a47e-4d76ed75527
 New-AzureRmADAppCredential -ApplicationId 8bc80782-a916-47c8-a47e-4d76ed755275 -Password p@ssword!
 ```
 
-인증서 값을 추가하려면 이 항목에 설명된 대로 자체 서명된 인증서를 만듭니다. 그 후 다음을 사용합니다.
+인증서 값을 추가하려면 이 문서에 설명된 대로 자체 서명된 인증서를 만듭니다. 그 후 다음을 사용합니다.
 
 ```powershell
 New-AzureRmADAppCredential -ApplicationId 8bc80782-a916-47c8-a47e-4d76ed755275 -CertValue $keyValue -EndDate $cert.NotAfter -StartDate $cert.NotBefore
@@ -417,7 +418,7 @@ Select-AzureRmProfile -Path c:\Users\exampleuser\profile\exampleSP.json
 
 * [.NET](/dotnet/azure/dotnet-sdk-azure-authenticate?view=azure-dotnet)
 * [Java](/java/azure/java-sdk-azure-authenticate)
-* [Node.JS](/nodejs/azure/node-sdk-azure-get-started?view=azure-node-2.0.0)
+* [Node.js](/nodejs/azure/node-sdk-azure-get-started?view=azure-node-2.0.0)
 * [Python](/python/azure/python-sdk-azure-authenticate?view=azure-python)
 * [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
 

@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 12/06/2017
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: c6ce1c16a3f7d5b52a3fcb47213618eb75183149
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: eaf935c1060e53673351936111083d8bb44f05e7
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="create-a-container-registry-using-the-azure-portal"></a>Azure Portal을 사용하여 컨테이너 레지스트리 만들기
 
@@ -112,7 +112,7 @@ ACR 인스턴스의 이미지를 나열하려면 포털에서 레지스트리로
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 Azure CLI를 사용하여 Azure Container Registry를 만들었습니다. Azure Container Instances와 함께 Azure Container Registry를 사용하려는 경우 Azure Container Instances 자습서를 계속합니다.
+이 빠른 시작에서는 Azure Portal을 사용하여 Azure Container Registry를 만들었습니다. Azure Container Instances와 함께 Azure Container Registry를 사용하려는 경우 Azure Container Instances 자습서를 계속합니다.
 
 > [!div class="nextstepaction"]
 > [Azure Container Instances 자습서][container-instances-tutorial-prepare-app]

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 0fcc245369d90042066cbfc516a8c32db7272bd3
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 92f773d3bbabe763d342366f0d56a77621829487
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>자체 호스팅 통합 런타임을 만들고 구성하는 방법
 IR(Integration Runtime)은 서로 다른 네트워크 환경에서 데이터 통합 기능을 제공하기 위해 Azure Data Factory에서 사용하는 계산 인프라입니다. IR에 대한 세부 정보는 [Integration Runtime 개요](concepts-integration-runtime.md)를 참조하세요.
@@ -64,7 +64,7 @@ IR(Integration Runtime)은 서로 다른 네트워크 환경에서 데이터 통
 - 컴퓨터에 **Power BI** 시나리오를 처리할 게이트웨이가 이미 설치된 경우 **별도의 Azure Data Factory용 자체 호스팅 통합 런타임**을 다른 컴퓨터에 설치합니다.
 - 자체 호스팅 통합 런타임은 Azure Virtual Network 내에서 데이터 통합을 지원하는 데 사용되어야 합니다.
 - **ExpressRoute**를 사용하더라도 데이터 소스는 방화벽으로 보호되는 온-프레미스 데이터 소스로 취급해야 합니다. 자체 호스팅 통합 런타임을 사용하여 서비스와 데이터 원본 간의 연결을 설정합니다.
-- 클라우드의 데이터 저장소가 **Azure IaaS 가상 컴퓨터**에 있더라도 자체 호스팅 통합 런타임을 사용해야 합니다.
+- 클라우드의 데이터 저장소가 **Azure IaaS 가상 머신**에 있더라도 자체 호스팅 통합 런타임을 사용해야 합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -99,7 +99,7 @@ IR(Integration Runtime)은 서로 다른 네트워크 환경에서 데이터 통
 11. 컴퓨터에서 실행되는 Microsoft Integration Runtime Configuration Manager의 **Integration Runtime(자체 호스팅) 등록** 페이지에서 다음 단계를 수행합니다.
     1. 텍스트 영역에 **인증 키**를 붙여넣습니다.
     2. 필요에 따라 **인증 키 표시**를 클릭하여 키 텍스트를 확인합니다.
-    3. **Register**를 클릭합니다.
+    3. **등록**을 클릭합니다.
 
 
 ## <a name="high-availability-and-scalability"></a>고가용성 및 확장성 
@@ -110,7 +110,20 @@ IR(Integration Runtime)은 서로 다른 네트워크 환경에서 데이터 통
 [자습서](tutorial-hybrid-copy-powershell.md)에서 설명한 대로 [다운로드 센터](https://www.microsoft.com/download/details.aspx?id=39717)에서 자체 호스팅 Integration Runtime을 설치하고 New-AzureRmDataFactoryV2IntegrationRuntimeKey cmdlet에서 얻은 인증 키를 등록하는 것만으로 간단히 여러 노드를 연결할 수 있습니다.
 
 > [!NOTE]
-> 각각의 노드를 연결하기 위해 새로운 자체 호스팅 Integration Runtime을 만들 필요는 없습니다.
+> 각각의 노드를 연결하기 위해 새로운 자체 호스팅 Integration Runtime을 만들 필요는 없습니다. 자체 호스팅 통합 런타임을 다른 컴퓨터에서 설치하고 동일한 인증 키를 사용하여 등록할 수 있습니다. 
+
+> [!NOTE]
+> **고가용성 및 확장**에 다른 노드를 추가하기 전에 **‘인트라넷에 원격 액세스’** 옵션이 첫 번째 노드(Microsoft Integration Runtime 구성 관리자 -> 인트라넷에 원격 액세스)에서 **활성화**로 설정되어 있는지 확인합니다. 
+
+### <a name="tlsssl-certificate-requirements"></a>TLS/SSL 인증서 요구 사항
+Integration Runtime 노드 간의 통신 보안에 사용되는 TLS/SSL 인증서에 대한 요구 사항은 다음과 같습니다.
+
+- 인증서는 공개적으로 신뢰할 수 있는 X509 v3 인증서여야 합니다. 공용(타사) CA(인증 기관)에서 발급한 인증서를 사용하는 것이 좋습니다.
+- 각 통합 런타임 노드는 이 인증서를 신뢰해야 합니다.
+- 와일드 카드 인증서가 지원됩니다. FQDN 이름이 **node1.domain.contoso.com**인 경우 ***. domain.contoso.com**을 인증서의 주체 이름으로 사용할 수 있습니다.
+- SAN 인증서는 현재 제한 때문에 주체 대체 이름의 마지막 항목만 사용되고 다른 항목은 무시되므로 권장되지 않습니다. 예: 해당 SAN이 **node1.domain.contoso.com** 및 **node2.domain.contoso.com**인 SAN 인증서가 있으며 해당 FQDN이 **node2.domain.contoso.com**인 컴퓨터에만 이 인증서를 사용할 수 있습니다.
+- Windows Server 2012 R2에서 지원하는 SSL 인증서의 키 크기는 모두 지원됩니다.
+- CNG 키를 사용하는 인증서는 지원되지 않습니다. CNG 키를 사용하는 인증서는 지원되지 않습니다.
 
 ## <a name="system-tray-icons-notifications"></a>시스템 트레이 아이콘/알림
 커서를 시스템 트레이 아이콘/알림 메시지 위로 이동하면 자체 호스팅 통합 런타임의 상태에 대한 세부 정보가 팝업 창에 표시됩니다.
@@ -225,14 +238,20 @@ HTTP 프록시에 대해 **시스템 프록시 사용** 설정을 선택하는 �
     A component of Integration Runtime has become unresponsive and restarts automatically. Component name: Integration Runtime (Self-hosted).
     ```
 
-### <a name="open-port-8060-for-credential-encryption"></a>자격 증명 암호화용 8060 포트 열기
-Azure Portal에서 온-프레미스 연결된 서비스를 설정할 때 **자격 증명 설정** 응용 프로그램(현재 지원 안 됨)은 인바운드 포트 8060을 사용하여 자체 호스팅 통합 런타임으로 자격 증명을 릴레이합니다. 자체 호스팅 통합 런타임 설정 중에는 기본적으로 자체 호스팅 통합 런타임 설치에서 이 항목을 자체 호스팅 통합 런타임 컴퓨터 위에 엽니다.
+### <a name="enable-remote-access-from-intranet"></a>인트라넷에서 원격 액세스를 사용하도록 설정  
+**PowerShell** 또는 **자격 증명 관리자 응용 프로그램**을 사용하여 자체 호스팅 통합 런타임이 설치된 위치 외 다른 컴퓨터에서(네트워크 상) 자격 증명을 암호화하는 경우 **‘인트라넷에서 원격 액세스’** 옵션을 활성화해야 합니다. **PowerShell** 또는 **자격 증명 관리자 응용 프로그램**을 실행하여 자체 호스팅 통합 런타임이 설치된 위치와 동일한 컴퓨터에서 자격 증명을 암호화하는 경우 **‘인트라넷에서 원격 액세스’**를 사용할 수 없습니다.
 
-타사 방화벽을 사용 중인 경우 포트 8050을 수동으로 열 수 있습니다. 자체 호스팅 통합 런타임을 설치하는 동안 방화벽 문제가 발생하는 경우 다음 명령을 사용하여 방화벽을 구성하지 않고 자체 호스팅 통합 런타임을 설치할 수 있습니다.
+인트라넷에서 원격 액세스는 **고가용성 및 확장성**에 다른 노드를 추가하기 전에 **활성화**해야 합니다.  
+
+자체 호스팅 통합 런타임 설정(v 3.3.xxxx.x 이상) 중에는 기본적으로 자체 호스팅 통합 런타임 설치는 자체 호스팅 통합 런타임 컴퓨터에서 **‘인트라넷에서 원격 액세스’**를 사용하지 않습니다.
+
+타사 방화벽을 사용 중인 경우 포트 8060을 수동으로 열 수 있습니다(또는 사용자 구성된 포트). 자체 호스팅 통합 런타임을 설치하는 동안 방화벽 문제가 발생하는 경우 다음 명령을 사용하여 방화벽을 구성하지 않고 자체 호스팅 통합 런타임을 설치할 수 있습니다.
 
 ```
 msiexec /q /i IntegrationRuntime.msi NOFIREWALL=1
 ```
+> [!NOTE]
+> **자격 증명 관리자 응용 프로그램**은 ADFv2에서 자격 증명을 암호화하는 데 아직 사용할 수 없습니다. 이 지원은 나중에 추가될 예정입니다.  
 
 자체 호스팅 통합 런타임 컴퓨터에서 포트 8060을 열지 않는 경우 **자격 증명 설정** 응용 프로그램을 사용하는 방식 이외의 메커니즘을 사용하여 데이터 저장소 자격 증명을 구성합니다. 예를 들어 New-AzureRmDataFactoryV2LinkedServiceEncryptCredential PowerShell cmdlet을 사용할 수 있습니다. 데이터 저장소 자격 증명을 설정할 수 있는 방법은 자격 증명 및 보안 설정 섹션을 참조하세요.
 

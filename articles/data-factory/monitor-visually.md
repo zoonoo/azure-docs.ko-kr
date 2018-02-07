@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 01/16/2018
 ms.author: shlo
-ms.openlocfilehash: 76070b5a9944b4cbb47ad337ba9a4e6171bf12a3
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 97a8fa1779cd11830781528527ddfe998e0548b6
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="visually-monitor-azure-data-factories"></a>Azure Data Factory를 시각적으로 모니터링하는 방법에 대해 알아봅니다
 Azure Data Factory는 데이터 이동 및 데이터 변환을 오케스트레이션하고 자동화하기 위해 클라우드에서 데이터 기반 워크플로를 만들 수 있는 클라우드 기반 데이터 통합 서비스입니다. Azure Data Factory를 사용하여 서로 다른 데이터 저장소에서 데이터를 수집할 수 있는 데이터 기반 워크플로(파이프라인이라고 함)를 만들고 일정을 조정하며, Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics 및 Azure Machine Learning과 같은 계산 서비스를 사용하여 데이터를 처리/변환하고, 사용할 BI(비즈니스 인텔리전스) 응용 프로그램의 Azure SQL Data Warehouse와 같은 데이터 저장소에 출력 데이터를 게시할 수 있습니다.
@@ -46,7 +46,7 @@ Data Factory v2 파이프라인에 대해 각 파이프라인 실행을 보여�
 | 실행 시작 | 파이프라인 실행 시작 날짜 시간 (MM/DD/YYYY, HH:MM:SS AM/PM) |
 | 기간 | 실행 기간 (HH:MM:SS) |
 | 트리거 주체 | 수동 트리거, 트리거 예약 |
-| 가동 상태 | 실패, 성공, 진행 중 |
+| 상태 | 실패, 성공, 진행 중 |
 | 매개 변수 | 파이프라인 실행 매개 변수 (이름, 값 쌍) |
 | 오류 | 파이프라인 실행 오류 (있는 경우) |
 | 실행 ID | 파이프라인 실행 ID |
@@ -62,7 +62,7 @@ Data Factory v2 파이프라인에 대해 각 파이프라인 실행을 보여�
 | 작업 유형 | 작업 유형. 즉, Copy, HDInsightSpark, HDInsightHive 등. |
 | 실행 시작 | 작업 실행 시작 날짜 시간 (MM/DD/YYYY, HH:MM:SS AM/PM) |
 | 기간 | 실행 기간 (HH:MM:SS) |
-| 가동 상태 | 실패, 성공, 진행 중 |
+| 상태 | 실패, 성공, 진행 중 |
 | 입력 | 작업 입력에 대해 설명하는 JSON 배열 |
 | 출력 | 작업 출력에 대해 설명하는 JSON 배열 |
 | 오류 | 작업 실행 오류 (있는 경우) |

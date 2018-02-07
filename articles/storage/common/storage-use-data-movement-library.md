@@ -1,6 +1,6 @@
 ---
 title: "Microsoft Azure Storage 데이터 이동 라이브러리를 사용하여 데이터 전송 | Microsoft Docs"
-description: "데이터 이동 라이브러리를 사용하여 Blob과 파일 콘텐츠간에 데이터를 이동하거나 복사합니다. 로컬 파일에서 Azure 저장소로 데이터를 복사하거나, 저장소 계정 내에서 데이터를 복사하거나, 저장소 계정 간에 데이터를 복사합니다. 데이터를 Azure 저장소로 손쉽게 마이그레이션할 수 있습니다."
+description: "데이터 이동 라이브러리를 사용하여 Blob과 파일 콘텐츠간에 데이터를 이동하거나 복사합니다. 로컬 파일에서 Azure Storage로 데이터를 복사하거나, Storage 계정 내에서 데이터를 복사하거나, Storage 계정 간에 데이터를 복사합니다. 데이터를 Azure Storage로 손쉽게 마이그레이션할 수 있습니다."
 services: storage
 documentationcenter: 
 author: seguler
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/27/2017
 ms.author: seguler
-ms.openlocfilehash: 7890159574de0db58dd2e7d1b6a19305381d29d6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eb96f3697d5369ba96a1b0c491e3eacf09e7aac4
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="transfer-data-with-the-microsoft-azure-storage-data-movement-library"></a>Microsoft Azure Storage 데이터 이동 라이브러리를 사용하여 데이터 전송
 
@@ -42,7 +42,7 @@ Microsoft Azure Storage 데이터 이동 라이브러리는 Azure Storage Blob �
 * [Azure 저장소 계정](storage-create-storage-account.md#create-a-storage-account)
 
 > [!NOTE]
-> 이 가이드는 [Azure 저장소](https://azure.microsoft.com/services/storage/)에 대해 잘 알고 있다는 것을 가정합니다. 그렇지 않은 경우 [Azure Storage 소개](storage-introduction.md) 설명서가 도움이 됩니다. 가장 중요한 점은 데이터 이동 라이브러리의 사용을 시작하려면 [저장소 계정을 만들어야](storage-create-storage-account.md#create-a-storage-account) 합니다.
+> 이 가이드는 [Azure Storage](https://azure.microsoft.com/services/storage/)에 대해 잘 알고 있다는 것을 가정합니다. 그렇지 않은 경우 [Azure Storage 소개](storage-introduction.md) 설명서가 도움이 됩니다. 가장 중요한 점은 데이터 이동 라이브러리의 사용을 시작하려면 [Storage 계정을 만들어야](storage-create-storage-account.md#create-a-storage-account) 합니다.
 > 
 > 
 
@@ -75,7 +75,7 @@ Microsoft Azure Storage 데이터 이동 라이브러리는 Azure Storage Blob �
         </Project>
 
 ## <a name="set-up-the-skeleton-of-your-application"></a>응용 프로그램의 기본 구조 설정
-가장 먼저 수행할 작업은 응용 프로그램의 "기본 구조" 코드를 설정하는 것입니다. 이 코드는 저장소 계정 이름과 계정 키를 묻는 메시지를 표시하고 해당 자격 증명을 사용하여 `CloudStorageAccount` 개체를 만듭니다. 이 개체는 모든 전송 시나리오에서 저장소 계정과 상호 작용하는 데 사용됩니다. 또한 이 코드는 실행하고자 하는 전송 작업의 유형도 선택하도록 요청합니다. 
+가장 먼저 수행할 작업은 응용 프로그램의 "기본 구조" 코드를 설정하는 것입니다. 이 코드는 Storage 계정 이름과 계정 키를 묻는 메시지를 표시하고 해당 자격 증명을 사용하여 `CloudStorageAccount` 개체를 만듭니다. 이 개체는 모든 전송 시나리오에서 Storage 계정과 상호 작용하는 데 사용됩니다. 또한 이 코드는 실행하고자 하는 전송 작업의 유형도 선택하도록 요청합니다. 
 
 다음과 같이 `Program.cs`를 수정합니다.
 

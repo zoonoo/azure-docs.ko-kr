@@ -13,17 +13,17 @@ ms.tgt_pltfrm: powershell
 ms.workload: na
 ms.date: 02/07/2017
 ms.author: magoedte; gwallace
-ms.openlocfilehash: 96702fb1b377861c3692358a5754e73475cee84d
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 63120614f2a2ef6b366bc2d92ec9a0dd430a3fb4
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="compiling-configurations-in-azure-automation-dsc"></a>Azure Automation DSC에서 구성을 컴파일
 
 Azure Automation를 사용하여 두 가지 방법인 Azure Portal 및 Windows PowerShell을 사용하여 DSC(필요한 상태 구성) 구성을 컴파일할 수 있습니다. 다음 테이블에서는 각각의 특징을 기반으로 어떤 방법을 언제 사용할지 결정하도록 합니다.
 
-### <a name="azure-portal"></a>Azure 포털
+### <a name="azure-portal"></a>Azure portal
 
 * 대화형 사용자 인터페이스를 사용하는 간단한 방법
 * 단순한 매개 변수 값을 제공하는 양식
@@ -299,7 +299,7 @@ Azure 외부에서 컴파일한 노드 구성(MOF)을 가져올 수도 있습니
 
 ### <a name="importing-a-node-configuration-in-the-azure-portal"></a>Azure Portal에서 노드 구성 가져오기
 
-1. Automation 계정에서 **DSC 노드 구성**을 클릭합니다.
+1. Automation 계정의 **구성 관리**에서 **DSC 노드 구성**을 클릭합니다.
 
     ![DSC 노드 구성](./media/automation-dsc-compile/node-config.png)
 2. **DSC 노드 구성** 블레이드에서 **노드 구성 추가**를 클릭합니다.

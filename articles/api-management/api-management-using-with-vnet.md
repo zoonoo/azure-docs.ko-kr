@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: 81634b366f5b66444d1e5474b4ab517208b50375
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 167a4eda4cec509a262b7e032f7629c7435beafd
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>가상 네트워크에서 Azure API Management를 사용하는 방법
 Azure VNET(Virtual Network)을 사용하면 인터넷에서 사용할 수 없고 라우팅할 있는 네트워크(액세스를 제어하는)에 다수의 Azure 리소스를 배치할 수 있습니다. 이러한 네트워크는 다양한 VPN 기술을 사용하여 온-프레미스 네트워크에 연결될 수 있습니다. Azure Virtual Network에 대해 자세히 알아보려면 [Azure Virtual Network 개요](../virtual-network/virtual-networks-overview.md)부터 참조하세요.
@@ -28,7 +28,7 @@ Azure API Management가 네트워크 내의 백 엔드 서비스에 액세스할
 > Azure API Management는 클래식 및 Azure Resource Manager Vnet을 모두 지원합니다.
 >
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 이 문서에 설명한 단계를 수행하려면 다음 항목이 있어야 합니다.
 
@@ -109,7 +109,7 @@ API Management 서비스 인스턴스가 VNET에 호스트된 경우 다음 표�
 | --- | --- | --- | --- | --- | --- |
 | * / 80, 443 |인바운드 |TCP |인터넷 / VIRTUAL_NETWORK|API Management에 대한 클라이언트 통신|외부 |
 | * / 3443 |인바운드 |TCP |인터넷 / VIRTUAL_NETWORK|Azure Portal 및 Powershell용 관리 끝점 |내부 |
-| * / 80, 443 |아웃바운드 |TCP |VIRTUAL_NETWORK / 인터넷|Azure Storage, Azure Service Bus 및 Azure Active Directory에 대한 종속성(해당되는 경우).|외부 및 내부 | 
+| * / 80, 443 |아웃바운드 |TCP |VIRTUAL_NETWORK / 인터넷|**Azure Storage, Azure Service Bus 및 Azure Active Directory에 대한 종속성**(해당되는 경우).|외부 및 내부 | 
 | * / 1433 |아웃바운드 |TCP |VIRTUAL_NETWORK / 인터넷|**Azure SQL 끝점에 대한 액세스** |외부 및 내부 |
 | * / 5671, 5672 |아웃바운드 |TCP |VIRTUAL_NETWORK / 인터넷|이벤트 허브 정책 및 모니터링 에이전트에 대한 로그의 종속성 |외부 및 내부 |
 | * / 445 |아웃바운드 |TCP |VIRTUAL_NETWORK / 인터넷|GIT의 Azure 파일 공유에 대한 종속성 |외부 및 내부 |

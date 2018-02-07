@@ -12,13 +12,13 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 12/15/2016
+ms.date: 12/28/2017
 ms.author: eugenesh
-ms.openlocfilehash: 60ca696a6fa8f277a13875c39b44577c4b38c92a
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 40b7f1f4f75d389a64329e7d8fd3c7feb79d5e55
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="indexing-csv-blobs-with-azure-search-blob-indexer"></a>Azure Search Blob 인덱서를 사용하여 CSV Blob 인덱싱
 기본적으로 [Azure Search Blob 인덱서](search-howto-indexing-azure-blob-storage.md) 는 단일 텍스트 청크로 구분된 텍스트 Blob을 구문 분석합니다. 그러나 CSV 데이터를 포함하는 Blob을 사용하는 경우 Blob의 각 줄을 별도 파일로 처리하려고 합니다. 예를 들어 다음 구분된 텍스트가 제공됩니다. 
@@ -52,7 +52,12 @@ Blob이 초기 헤더 줄을 포함하지 않는 경우 헤더는 인덱서 구�
 
     "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "delimitedTextHeaders" : "id,datePublished,tags" } } 
 
-현재는 UTF-8 인코딩만 지원됩니다. 또한 쉼표 `','` 문자만 구분 기호로 지원됩니다. 다른 인코딩 또는 구분 기호에 대한 지원이 필요한 경우 [UserVoice 사이트](https://feedback.azure.com/forums/263029-azure-search)를 통해 알려주세요.
+`delimitedTextDelimiter` 구성 설정을 사용하여 구분 기호 문자를 사용자 지정할 수 있습니다. 예: 
+
+    "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "delimitedTextDelimiter" : "|" } }
+
+> [!NOTE]
+> 현재는 UTF-8 인코딩만 지원됩니다. 다른 인코딩에 대한 지원이 필요한 경우 [UserVoice 사이트](https://feedback.azure.com/forums/263029-azure-search)를 통해 알려주세요.
 
 > [!IMPORTANT]
 > 구분된 텍스트 구문 분석 모드를 사용하는 경우 Azure Search는 데이터 원본의 모든 Blob을 CSV로 가정합니다. 동일한 데이터 원본에서 CSV 및 비 CSV Blob을 지원해야 하는 경우 [UserVoice 사이트](https://feedback.azure.com/forums/263029-azure-search)를 통해 알려주세요.

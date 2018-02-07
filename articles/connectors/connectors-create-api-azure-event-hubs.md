@@ -16,21 +16,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/31/2017
 ms.author: estfan; LADocs
-ms.openlocfilehash: 2ca27fb8269d1796fb1181fc4d0a8744a592d548
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a7f31c2c17d326d58ede0bb00cdc0f701069ea14
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="monitor-receive-and-send-events-with-the-event-hubs-connector"></a>Event Hubs 커넥터로 이벤트 모니터, 수신 및 전송
 
-논리 앱이 이벤트를 감지하고 이벤트를 수신 및 전송할 수 있도록 이벤트 모니터를 설정하려면 논리 앱에서 [Azure Event Hub](https://azure.microsoft.com/services/event-hubs)에 연결합니다. [Azure 이벤트 허브](../event-hubs/event-hubs-what-is-event-hubs.md)에 대해 자세히 알아봅니다.
+논리 앱이 이벤트를 감지하고 이벤트를 수신 및 전송할 수 있도록 이벤트 모니터를 설정하려면 논리 앱에서 [Azure Event Hub](https://azure.microsoft.com/services/event-hubs)에 연결합니다. [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md)에 대해 자세히 알아봅니다.
 
 ## <a name="requirements"></a>요구 사항
 
 * Azure에 [Event Hubs 네임스페이스 및 Event Hub](../event-hubs/event-hubs-create.md)가 있어야 합니다. [Event Hubs 네임스페이스 및 Event Hub를 만드는 방법](../event-hubs/event-hubs-create.md)에 대해 알아보세요. 
 
-* 논리 앱에서 [커넥터](https://docs.microsoft.com/azure/connectors/apis-list)를 사용하려면 먼저 논리 앱을 만들어야 합니다. [논리 앱을 만드는 방법](../logic-apps/logic-apps-create-a-logic-app.md)을 알아보세요.
+* 논리 앱에서 [커넥터](https://docs.microsoft.com/azure/connectors/apis-list)를 사용하려면 먼저 논리 앱을 만들어야 합니다. [논리 앱을 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md)을 알아보세요.
 
 <a name="permissions-connection-string"></a>
 ## <a name="check-event-hubs-namespace-permissions-and-find-the-connection-string"></a>Event Hubs 네임스페이스 권한 확인 및 연결 문자열 찾기
@@ -64,7 +64,7 @@ Event Hub에 액세스하는 논리 앱의 경우 Event Hubs 네임스페이스�
 
 ## <a name="start-workflow-when-your-event-hub-receives-new-events"></a>Event Hub에서 새 이벤트를 수신하면 워크플로 시작
 
-[*트리거*](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts)는 논리 앱에서 워크플로를 시작하는 이벤트입니다. 새 이벤트가 Event Hub에 전송되었을 때 워크플로를 시작하려면 이 이벤트를 감지하는 트리거를 추가하는 다음 단계를 수행합니다.
+[*트리거*](../logic-apps/logic-apps-overview.md#logic-app-concepts)는 논리 앱에서 워크플로를 시작하는 이벤트입니다. 새 이벤트가 Event Hub에 전송되었을 때 워크플로를 시작하려면 이 이벤트를 감지하는 트리거를 추가하는 다음 단계를 수행합니다.
 
 1.  [Azure Portal](https://portal.azure.com "Azure Portal")에서 기존 논리 앱으로 이동하거나 비어 있는 논리 앱을 만듭니다.
 
@@ -94,7 +94,7 @@ Event Hub에 액세스하는 논리 앱의 경우 Event Hubs 네임스페이스�
 
 ## <a name="send-events-to-your-event-hub-from-your-logic-app"></a>논리 앱에서 Event Hub로 이벤트 보내기
 
-[*작업*](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts)은 논리 앱 워크플로에서 수행하는 태스크입니다. 논리 앱에 트리거를 추가한 후에 해당 트리거에 의해 생성된 데이터를 사용하여 작업을 수행하는 작업을 추가할 수 있습니다. 논리 앱에서 Event Hub로 이벤트를 보내려면 다음 단계를 수행합니다.
+[*작업*](../logic-apps/logic-apps-overview.md#logic-app-concepts)은 논리 앱 워크플로에서 수행하는 태스크입니다. 논리 앱에 트리거를 추가한 후에 해당 트리거에 의해 생성된 데이터를 사용하여 작업을 수행하는 작업을 추가할 수 있습니다. 논리 앱에서 Event Hub로 이벤트를 보내려면 다음 단계를 수행합니다.
 
 1.  논리 앱 디자이너의 논리 앱 트리거 아래에서 **새 단계** > **작업 추가**를 선택합니다.
 

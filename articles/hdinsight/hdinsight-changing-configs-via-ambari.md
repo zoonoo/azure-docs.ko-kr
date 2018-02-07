@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/09/2018
 ms.author: ashish
-ms.openlocfilehash: 5b3700580f593e7590360792f2b76dee79608896
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 74c1b3298cd7b6ffd5b4a60e2fa78ed733232f92
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="use-ambari-to-optimize-hdinsight-cluster-configurations"></a>Ambari를 사용하여 HDInsight 클러스터 구성 최적화
 
@@ -184,7 +184,7 @@ Hadoop 작업은 일반적으로 I/O 병목 상태가 됩니다. 데이터를 �
 | 형식 | 도구 | 알고리즘 | 파일 확장명 | 분할 가능? |
 | -- | -- | -- | -- | -- |
 | Gzip | Gzip | DEFLATE | .gz | 아니요 |
-| Bzip2 | Bzip2 | Bzip2 |.bz2 | 적용 |
+| Bzip2 | Bzip2 | Bzip2 |.bz2 | 예 |
 | LZO | Lzop | LZO | .lzo | 예(인덱싱된 경우) |
 | Snappy | 해당 없음 | Snappy | Snappy | 아니요 |
 
@@ -234,7 +234,7 @@ Hadoop 작업은 일반적으로 I/O 병목 상태가 됩니다. 데이터를 �
 
 입력 양이 많고 오래 실행되는 MapReduce 작업에는 투기적 실행을 사용하지 말아야 합니다.
 
-1. 투기적 실행을 사용하려면 Hive **Configs**(구성) 탭으로 이동한 다음 `hive.mapred.reduce.tasks.speculative.execution` 매개 변수를 true로 설정합니다. 기본값은 False입니다.
+* 투기적 실행을 사용하려면 Hive **Configs**(구성) 탭으로 이동한 다음 `hive.mapred.reduce.tasks.speculative.execution` 매개 변수를 true로 설정합니다. 기본값은 False입니다.
 
     ![Hive mapred 리듀스 태스크 투기적 실행](./media/hdinsight-changing-configs-via-ambari/hive-mapred-reduce-tasks-speculative-execution.png)
 
@@ -456,7 +456,7 @@ Memstore 로컬 할당 버퍼 사용은 `hbase.hregion.memstore.mslab.enabled` �
 ![hbase.hregion.memstore.mslab.enabled](./media/hdinsight-changing-configs-via-ambari/hbase-hregion-memstore-mslab-enabled.png)
 
 
-## <a name="see-also"></a>참고 항목
+## <a name="next-steps"></a>다음 단계
 
 * [Ambari 웹 UI로 HDInsight 클러스터 관리](hdinsight-hadoop-manage-ambari.md)
 * [Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md)

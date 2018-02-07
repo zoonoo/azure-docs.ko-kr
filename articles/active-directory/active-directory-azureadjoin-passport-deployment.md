@@ -13,13 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/15/2018
 ms.author: markvi
-ms.openlocfilehash: b5b48edda76bedc14d5528fa82f1d9b7bfffe53a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0aa16e3466b36b6d1d83308cf37623aa15d61fcb
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="enable-microsoft-windows-hello-for-business-in-your-organization"></a>조직에서 비즈니스용 Microsoft Windows Hello 사용
 [Windows 10 도메인에 가입된 장치와 Azure Active Directory를 연결한](active-directory-azureadjoin-devices-group-policy.md) 후에 조직에서 비즈니스용 Microsoft Windows Hello를 사용하도록 설정하려면 다음을 수행합니다.
@@ -57,7 +57,7 @@ System Center Configuration Manager 사용은 인증서를 배포하기 위해 �
 5. **컴퓨터 구성** > **정책** > **관리 템플릿** > **Windows 구성 요소** > **비즈니스용 Windows Hello**로 이동합니다.
 6. **비즈니스용 Windows Hello 사용**을 마우스 오른쪽 단추로 클릭한 다음 **편집**을 선택합니다.
 7. **사용** 옵션 단추를 선택하고 **적용**을 클릭합니다. **확인**을 클릭합니다.
-8. 이제 그룹 정책 개체를 선택한 위치에 연결할 수 있습니다. 조직의 모든 Windows 10 도메인에 가입된 장치에 대해 이 정책을 사용하도록 설정하려면 그룹 정책을 도메인에 연결합니다. 예:
+8. 이제 그룹 정책 개체를 선택한 위치에 연결할 수 있습니다. 조직의 모든 Windows 10 도메인에 가입된 장치에 대해 이 정책을 사용하도록 설정하려면 그룹 정책을 도메인에 연결합니다. 예: 
    * Windows 10 도메인에 가입된 컴퓨터가 배치될 Active Directory의 특정 OU(조직 구성 단위)입니다.
    * Azure AD에 자동 등록될 Windows 10 도메인에 가입된 컴퓨터를 포함하는 특정 보안 그룹입니다.
 
@@ -76,7 +76,7 @@ System Center Configuration Manager 사용은 인증서를 배포하기 위해 �
    
     a. **이름** 텍스트 상자에 프로필의 이름을 입력합니다(예: **내 WHfB 프로필**).
    
-    b. **다음**을 누릅니다.
+    나. **다음**을 클릭합니다.
 4. **지원되는 플랫폼** 대화 상자에서 이 비즈니스용 Windows Hello 프로필로 프로비전된 플랫폼을 선택하고 **다음**을 클릭합니다.
    
     ![비즈니스용 Windows Hello 구성](./media/active-directory-azureadjoin-passport-deployment/04.png)
@@ -86,11 +86,11 @@ System Center Configuration Manager 사용은 인증서를 배포하기 위해 �
    
     a. **비즈니스용 Windows Hello 구성**에서 **사용**을 선택합니다.
    
-    b. **TPM(신뢰할 수 있는 플랫폼 모듈) 사용**에서 **필수**를 선택합니다. 
+    나. **TPM(신뢰할 수 있는 플랫폼 모듈) 사용**에서 **필수**를 선택합니다. 
    
-    c. **인증 방법**에서 **인증서 기반**을 선택합니다.
+    다. **인증 방법**에서 **인증서 기반**을 선택합니다.
    
-    d. **다음**을 누릅니다.
+    d. **다음**을 클릭합니다.
 6. **요약** 대화 상자에서 **다음**을 클릭합니다.
 7. **완료** 대화 상자에서 **닫기**를 클릭합니다.
 8. 위쪽의 도구 모음에서 **배포**를 클릭합니다.

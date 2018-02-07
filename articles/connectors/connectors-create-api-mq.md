@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 06/01/2017
 ms.author: valthom; ladocs
-ms.openlocfilehash: 9fb0258df3f45d121cda49d3b5c274bd9548c832
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 24ea1ef4d3c6229707458ef2f2005f90d8273304
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="connect-to-an-ibm-mq-server-from-logic-apps-using-the-mq-connector"></a>MQ 커넥터를 사용하여 논리 앱에서 IBM MQ 서버에 연결 
 
@@ -123,4 +123,4 @@ MQ 커넥터에는 다음 작업이 포함됩니다. 트리거는 없습니다.
 [커넥터 세부 정보](/connectors/mq/)에서 swagger에 정의된 모든 트리거 및 작업과 제한 사항도 확인할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-[논리 앱 만들기](../logic-apps/logic-apps-create-a-logic-app.md) [API 목록](apis-list.md)에서 Logic Apps의 사용 가능한 다른 커넥터를 확인하세요.
+[논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md) [API 목록](apis-list.md)에서 Logic Apps의 사용 가능한 다른 커넥터를 확인하세요.

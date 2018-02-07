@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/25/2017
 ms.author: glenga
-ms.openlocfilehash: e6b3deb9353ba07d693d71822d37a1761dd70d67
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 6f31ba7b43c70f52bdd67d27512a322ec6258608
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Azure Functions의 함수 앱에 대한 리소스 배포 자동화
 
@@ -40,7 +40,7 @@ Azure Resource Manager 템플릿을 사용하여 함수 앱을 배포할 수 있
 * 호스팅 계획(소비 계획 또는 App Service 계획)
 * 함수 앱 
 
-### <a name="storage-account"></a>저장소 계정
+### <a name="storage-account"></a>Storage 계정
 
 함수 앱에는 Azure Storage 계정이 필요합니다. Blob, 테이블, 큐 및 파일을 지원하는 일반 용도의 계정이 있어야 합니다. 자세한 내용은 [Azure Functions 저장소 계정 요구 사항](functions-create-function-app-portal.md#storage-account-requirements)을 참조하세요.
 
@@ -197,7 +197,7 @@ App Service 계획에서 함수 앱은 웹앱과 유사하게 기본, 표준, �
 함수 앱에는 앱 설정 및 소스 제어 옵션을 포함하여 배포에 사용할 수 있는 자식 리소스가 많이 있습니다. 또한 **sourcecontrols** 자식 리소스를 제거하고 대신에 다른 [배포 옵션](functions-continuous-deployment.md)을 사용하도록 선택할 수 있습니다.
 
 > [!IMPORTANT]
-> Azure Resource Manager를 사용하여 응용 프로그램을 성공적으로 배포하려면 Azure에서 리소스가 배포되는 방식을 이해하는 것이 중요합니다. 다음 예제에서는 **siteConfig**를 사용하여 최상위 수준 구성을 적용합니다. Functions 런타임 및 배포 엔진에 정보를 전달하기 때문에 최상위 수준에서 이러한 구성을 설정하는 것이 중요합니다. **sourcecontrols/web** 자식 리소스를 적용하기 전에 최상위 수준 정보가 필요합니다. 자식 수준 **config/appSettings** 리소스에 이러한 설정을 구성할 수 있지만 **config/appSettings**가 적용되기 *전에* 함수 앱이 배포되어야 하는 경우도 있습니다. 예를 들어 [Logic Apps](../logic-apps/index.md)에서 함수를 사용하는 경우 함수는 다른 리소스의 종속성입니다.
+> Azure Resource Manager를 사용하여 응용 프로그램을 성공적으로 배포하려면 Azure에서 리소스가 배포되는 방식을 이해하는 것이 중요합니다. 다음 예제에서는 **siteConfig**를 사용하여 최상위 수준 구성을 적용합니다. Functions 런타임 및 배포 엔진에 정보를 전달하기 때문에 최상위 수준에서 이러한 구성을 설정하는 것이 중요합니다. **sourcecontrols/web** 자식 리소스를 적용하기 전에 최상위 수준 정보가 필요합니다. 자식 수준 **config/appSettings** 리소스에 이러한 설정을 구성할 수 있지만 **config/appSettings**가 적용되기 *전에* 함수 앱이 배포되어야 하는 경우도 있습니다. 예를 들어 [Logic Apps](../logic-apps/index.yml)에서 함수를 사용하는 경우 함수는 다른 리소스의 종속성입니다.
 
 ```json
 {
@@ -260,7 +260,7 @@ App Service 계획에서 함수 앱은 웹앱과 유사하게 기본, 표준, �
 
 * [PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
 * [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md)
-* [Azure Portal](../azure-resource-manager/resource-group-template-deploy-portal.md)
+* [Azure 포털](../azure-resource-manager/resource-group-template-deploy-portal.md)
 * [REST API](../azure-resource-manager/resource-group-template-deploy-rest.md)
 
 ### <a name="deploy-to-azure-button"></a>Azure 단추에 배포

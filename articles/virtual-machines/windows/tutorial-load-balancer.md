@@ -1,10 +1,10 @@
 ---
-title: "Azure의 Windows 가상 컴퓨터 부하 분산 방법 | Microsoft Docs"
+title: "Azure의 Windows 가상 머신 부하 분산 방법 | Microsoft Docs"
 description: "Azure Load Balancer를 사용하여 3개의 Windows VM에서 고가용성 및 보안 응용 프로그램을 만드는 방법을 알아봅니다."
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 
@@ -13,24 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 08/11/2017
+ms.date: 12/14/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 6738d88d5a0430abaf3855dbf97a618e4c83617f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6eee852e703d25ccc4b13401c3e4ab46d09655da
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/15/2017
 ---
-# <a name="how-to-load-balance-windows-virtual-machines-in-azure-to-create-a-highly-available-application"></a>Azure의 Windows 가상 컴퓨터 부하를 분산하여 고가용성 응용 프로그램을 만드는 방법
-부하 분산은 들어오는 요청을 여러 가상 컴퓨터에 분산하여 높은 수준의 가용성을 제공합니다. 이 자습서에서는 트래픽을 분산하고 고가용성을 제공하는 Azure Load Balancer의 여러 다른 구성 요소에 대해 알아봅니다. 다음 방법에 대해 알아봅니다.
+# <a name="how-to-load-balance-windows-virtual-machines-in-azure-to-create-a-highly-available-application"></a>Azure의 Windows 가상 머신 부하를 분산하여 고가용성 응용 프로그램을 만드는 방법
+부하 분산은 들어오는 요청을 여러 가상 머신에 분산하여 높은 수준의 가용성을 제공합니다. 이 자습서에서는 트래픽을 분산하고 고가용성을 제공하는 Azure Load Balancer의 여러 다른 구성 요소에 대해 알아봅니다. 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * Azure Load Balancer 만들기
 > * 부하 분산 장치 상태 프로브 만들기
 > * 부하 분산 장치 트래픽 규칙 만들기
 > * 사용자 지정 스크립트 확장을 사용하여 기본 IIS 사이트 만들기
-> * 가상 컴퓨터 만들기 및 부하 분산 장치에 연결
+> * 가상 머신 만들기 및 부하 분산 장치에 연결
 > * 부하 분산 장치의 실제 동작 보기
 > * 부하 분산 장치에서 VM 추가 및 제거
 
@@ -42,7 +42,7 @@ Azure Load Balancer는 들어오는 트래픽을 정상 VM 간에 분산하여 �
 
 하나 이상의 공용 IP 주소를 포함하는 프런트 엔드 IP 구성을 정의할 수 있습니다. 이 프런트 엔드 IP 구성을 사용하여 인터넷을 통해 부하 분산 장치 및 응용 프로그램에 액세스하도록 할 수 있습니다. 
 
-가상 컴퓨터는 가상 NIC(네트워크 인터페이스 카드)를 사용하여 부하 분산 장치에 연결합니다. VM으로 트래픽을 분산하기 위해 백 엔드 주소 풀에 부하 분산 장치에 연결된 가상(NIC)의 주소가 포함됩니다.
+가상 머신은 가상 NIC(네트워크 인터페이스 카드)를 사용하여 부하 분산 장치에 연결합니다. VM으로 트래픽을 분산하기 위해 백 엔드 주소 풀에 부하 분산 장치에 연결된 가상(NIC)의 주소가 포함됩니다.
 
 트래픽 흐름을 제어하려면 VM에 매핑되는 특정 포트 및 프로토콜에 대해 부하 분산 장치 규칙을 정의합니다.
 
@@ -68,7 +68,7 @@ $publicIP = New-AzureRmPublicIpAddress `
 ```
 
 ### <a name="create-a-load-balancer"></a>부하 분산 장치 만들기
-[New-AzureRmLoadBalancerFrontendIpConfig](/powershell/module/azurerm.network/new-azurermloadbalancerfrontendipconfig)를 사용하여 프런트 엔드 IP 주소를 만듭니다. 다음 예제에서는 *myFrontEndPool*이라는 프런트 엔드 IP 주소를 만듭니다. 
+[New-AzureRmLoadBalancerFrontendIpConfig](/powershell/module/azurerm.network/new-azurermloadbalancerfrontendipconfig)를 사용하여 프런트 엔드 IP 풀을 만듭니다. 다음 예제에서는 *myFrontEndPool*이라는 프런트 엔드 IP 풀을 만들고 *myPublicIP* 주소를 연결합니다. 
 
 ```powershell
 $frontendIP = New-AzureRmLoadBalancerFrontendIpConfig `
@@ -76,13 +76,13 @@ $frontendIP = New-AzureRmLoadBalancerFrontendIpConfig `
   -PublicIpAddress $publicIP
 ```
 
-[New-AzureRmLoadBalancerBackendAddressPoolConfig](/powershell/module/azurerm.network/new-azurermloadbalancerbackendaddresspoolconfig)를 사용하여 백 엔드 주소 풀을 만듭니다. 다음 예제는 *myBackEndPool*이라는 백 엔드 주소 풀을 만듭니다.
+[New-AzureRmLoadBalancerBackendAddressPoolConfig](/powershell/module/azurerm.network/new-azurermloadbalancerbackendaddresspoolconfig)를 사용하여 백 엔드 주소 풀을 만듭니다. VM은 나머지 단계에서 이 백 엔드 풀에 연결합니다. 다음 예제는 *myBackEndPool*이라는 백 엔드 주소 풀을 만듭니다.
 
 ```powershell
 $backendPool = New-AzureRmLoadBalancerBackendAddressPoolConfig -Name myBackEndPool
 ```
 
-이제 [New-AzureRmLoadBalancer](/powershell/module/azurerm.network/new-azurermloadbalancer)를 사용하여 부하 분산 장치를 만듭니다. 다음 예제는 *myPublicIP* 주소를 사용하여 *myLoadBalancer*라는 부하 분산 장치를 만듭니다.
+이제 [New-AzureRmLoadBalancer](/powershell/module/azurerm.network/new-azurermloadbalancer)를 사용하여 부하 분산 장치를 만듭니다. 다음 예제에서는 이전 단계에서 만든 프런트 엔드 및 백 엔드 IP 풀을 사용하여 *myLoadBalancer*라는 부하 분산 장치를 만듭니다.
 
 ```powershell
 $lb = New-AzureRmLoadBalancer `
@@ -98,7 +98,7 @@ $lb = New-AzureRmLoadBalancer `
 
 다음 예제에서는 TCP 프로브를 만듭니다. 좀 더 미세 조정된 상태 검사를 위해 사용자 지정 HTTP 프로브를 만들 수도 있습니다. 사용자 지정 HTTP 프로브를 사용할 경우 *healthcheck.aspx*와 같은 상태 확인 페이지를 만들어야 합니다. 부하 분산 상태가 호스트를 순환 상태를 유지하려면 프로브는 **HTTP 200 정상** 응답을 반환해야 합니다.
 
-TCP 상태 프로브를 만들려면 [Add-AzureRmLoadBalancerProbeConfig](/powershell/module/azurerm.network/add-azurermloadbalancerprobeconfig)를 사용합니다. 다음 예제에서는 각 VM을 모니터링하는 *myHealthProbe*라는 상태 프로브를 만듭니다.
+TCP 상태 프로브를 만들려면 [Add-AzureRmLoadBalancerProbeConfig](/powershell/module/azurerm.network/add-azurermloadbalancerprobeconfig)를 사용합니다. 다음 예제에서는 *TCP* 포트 *80*에서 각 VM을 모니터링하는 *myHealthProbe*라는 상태 프로브를 만듭니다.
 
 ```powershell
 Add-AzureRmLoadBalancerProbeConfig `
@@ -110,7 +110,7 @@ Add-AzureRmLoadBalancerProbeConfig `
   -ProbeCount 2
 ```
 
-[Set-AzureRmLoadBalancer](/powershell/module/azurerm.network/set-azurermloadbalancer)를 사용하여 부하 분산 장치를 업데이트합니다.
+상태 프로브를 적용하려면 [Set-AzureRmLoadBalancer](/powershell/module/azurerm.network/set-azurermloadbalancer)를 사용하여 부하 분산 장치를 업데이트합니다.
 
 ```powershell
 Set-AzureRmLoadBalancer -LoadBalancer $lb
@@ -119,7 +119,7 @@ Set-AzureRmLoadBalancer -LoadBalancer $lb
 ### <a name="create-a-load-balancer-rule"></a>부하 분산 장치 규칙 만들기
 부하 분산 장치 규칙은 VM으로 트래픽이 분산되는 방법을 정의하는 데 사용됩니다. 들어오는 트래픽에 대한 프런트 엔드 IP 구성 및 트래픽을 수신할 백 엔드 IP 풀과 필요한 원본 및 대상 포트를 함께 정의합니다. 정상 VM만 트래픽을 수신하도록 하려면 사용할 상태 프로브도 정의합니다.
 
-[Add-AzureRmLoadBalancerRuleConfig](/powershell/module/azurerm.network/add-azurermloadbalancerruleconfig)를 사용하여 부하 분산 장치 규칙을 만듭니다. 다음 예제는 *myLoadBalancerRule*이라는 부하 분산 장치 규칙을 만든 후 *80* 포트에 대한 트래픽 부하를 분산합니다.
+[Add-AzureRmLoadBalancerRuleConfig](/powershell/module/azurerm.network/add-azurermloadbalancerruleconfig)를 사용하여 부하 분산 장치 규칙을 만듭니다. 다음 예제는 *myLoadBalancerRule*이라는 부하 분산 장치 규칙을 만들고 *TCP* 포트 *80*에서 트래픽 부하를 분산합니다.
 
 ```powershell
 $probe = Get-AzureRmLoadBalancerProbeConfig -LoadBalancer $lb -Name myHealthProbe
@@ -212,7 +212,7 @@ for ($i=1; $i -le 3; $i++)
 }
 ```
 
-## <a name="create-virtual-machines"></a>가상 컴퓨터 만들기
+## <a name="create-virtual-machines"></a>가상 머신 만들기
 앱의 고가용성을 향상시키려면 VM을 가용성 집합에 배치합니다.
 
 [New-AzureRmAvailabilitySet](/powershell/module/azurerm.compute/new-azurermavailabilityset)을 사용하여 가용성 집합을 만듭니다. 다음 예제는 *myAvailabilitySet*이라는 가용성 집합을 만듭니다.
@@ -275,7 +275,7 @@ for ($i=1; $i -le 3; $i++)
 3개의 VM을 만들고 구성하는 데 몇 분 정도 걸립니다.
 
 ### <a name="install-iis-with-custom-script-extension"></a>사용자 지정 스크립트 확장을 사용하여 IIS 설치
-[Windows 가상 컴퓨터를 사용자 지정하는 방법](tutorial-automate-vm-deployment.md)에 대한 이전 자습서에서 Windows용 사용자 지정 스크립트 확장을 사용하여 VM 사용자 지정을 자동화하는 방법을 배웠습니다. 동일한 접근 방법을 사용하여 VM에서 IIS를 설치하고 구성할 수 있습니다.
+[Windows 가상 머신을 사용자 지정하는 방법](tutorial-automate-vm-deployment.md)에 대한 이전 자습서에서 Windows용 사용자 지정 스크립트 확장을 사용하여 VM 사용자 지정을 자동화하는 방법을 배웠습니다. 동일한 접근 방법을 사용하여 VM에서 IIS를 설치하고 구성할 수 있습니다.
 
 [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension)을 사용하여 사용자 지정 스크립트 확장을 설치합니다. 확장은 `powershell Add-WindowsFeature Web-Server`를 실행하여 IIS 웹 서버를 설치한 다음 *Default.htm* 페이지를 업데이트하여 VM의 호스트 이름을 표시합니다.
 
@@ -348,7 +348,7 @@ Set-AzureRmNetworkInterface -NetworkInterface $nic
 > * 부하 분산 장치 상태 프로브 만들기
 > * 부하 분산 장치 트래픽 규칙 만들기
 > * 사용자 지정 스크립트 확장을 사용하여 기본 IIS 사이트 만들기
-> * 가상 컴퓨터 만들기 및 부하 분산 장치에 연결
+> * 가상 머신 만들기 및 부하 분산 장치에 연결
 > * 부하 분산 장치의 실제 동작 보기
 > * 부하 분산 장치에서 VM 추가 및 제거
 

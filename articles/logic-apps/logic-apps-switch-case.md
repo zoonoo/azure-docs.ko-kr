@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
 ms.author: LADocs; deli
-ms.openlocfilehash: 338b6a5b549d7bf81186550295608438ac4aee32
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a459fb131cb9f917f2b0cf79679b04da48d76c42
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="perform-different-actions-in-logic-apps-with-a-switch-statement"></a>Switch 문으로 Logic Apps에서 다양한 작업 수행
 
@@ -34,7 +34,7 @@ Switch 문을 사용하여 이러한 시나리오를 구현할 수 있습니다.
 ## <a name="prerequisites"></a>필수 조건
 
 - 활성 Azure 구독. 활성 Azure 구독이 없는 경우 시작하기 전에 [무료 계정을 만들거나](https://azure.microsoft.com/free/) [무료로 Logic Apps](https://tryappservice.azure.com/)을 사용해 보세요.
-- [Logic Apps에 대한 기본 지식](logic-apps-what-are-logic-apps.md)
+- [Logic Apps에 대한 기본 지식](logic-apps-overview.md)
 
 ## <a name="add-a-switch-statement-to-your-workflow"></a>Switch 문을 워크플로에 추가
 

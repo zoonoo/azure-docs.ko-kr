@@ -15,26 +15,26 @@ ms.workload: NA
 ms.date: 08/09/2017
 ms.author: mikhegn
 ms.custom: mvc
-ms.openlocfilehash: d7496b0578301713ebae7381e9a54642e226eb96
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: cb9d20bcb4b863736229bb920f5d4615b2c28c94
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="deploy-an-application-to-a-party-cluster-in-azure"></a>Azure에서 Party 클러스터에 응용 프로그램 배포
 이 자습서는 시리즈의 2부로, Azure에서 Party 클러스터에 Azure Service Fabric 응용 프로그램을 배포하는 방법을 보여 줍니다.
 
 이 자습서 시리즈의 2부에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
-> * Visual Studio를 사용하여 원격 클러스터에 응용 프로그램 배포
-> * Service Fabric Explorer를 사용하여 클러스터에서 응용 프로그램 제거
-
-이 자습서 시리즈에서는 다음 방법에 대해 알아봅니다.
-> [!div class="checklist"]
 > * [.NET Service Fabric 응용 프로그램 빌드](service-fabric-tutorial-create-dotnet-app.md)
 > * 응용 프로그램을 원격 클러스터에 배포
 > * [Visual Studio Team Services를 사용하여 CI/CD 구성](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 > * [응용 프로그램에 대한 모니터링 및 진단 설정](service-fabric-tutorial-monitoring-aspnet.md)
+
+이 자습서 시리즈에서는 다음 방법에 대해 알아봅니다.
+> [!div class="checklist"]
+> * Visual Studio를 사용하여 원격 클러스터에 응용 프로그램 배포
+> * Service Fabric Explorer를 사용하여 클러스터에서 응용 프로그램 제거
 
 ## <a name="prerequisites"></a>필수 조건
 이 자습서를 시작하기 전에:

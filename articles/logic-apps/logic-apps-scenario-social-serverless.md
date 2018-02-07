@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2017
 ms.author: jehollan
-ms.openlocfilehash: 0b6e118cb13ab8185d8eeb42bec6147155967967
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d3e07b8d7194d83e3ba3986177170edff21e1d7a
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-a-real-time-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Azure Logic Apps 및 Azure Functions를 사용하여 실시간 Customer Insights 대시보드 만들기
 
@@ -37,7 +37,7 @@ Logic Apps는 클라우드에서 서버를 사용하지 않는 워크플로 엔�
 
 ## <a name="build-the-logic-app-to-trigger-on-customer-data"></a>고객 데이터를 트리거하는 논리 앱 빌드
 
-Visual Studio 또는 Azure Portal에서 [논리 앱을 만든](logic-apps-create-a-logic-app.md) 후:
+Visual Studio 또는 Azure Portal에서 [논리 앱을 만든](quickstart-create-first-logic-app-workflow.md) 후:
 
 1. Twitter에서 **새 트윗**에 대한 트리거 추가
 2. 키워드 또는 해시 태그에 대한 트윗을 수신하도록 트리거를 구성합니다.

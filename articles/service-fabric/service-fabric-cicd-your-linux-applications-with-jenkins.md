@@ -14,18 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/27/2017
 ms.author: saysa
-ms.openlocfilehash: 89b356c3959b7cb63a746805d60535e07f0d6898
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 80c52cfeab007030203b6af4bb220f1a847e9426
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="use-jenkins-to-build-and-deploy-your-linux-applications"></a>Jenkins를 사용하여 Linux 응용 프로그램 빌드 및 배포
 Jenkins는 앱의 연속 통합 및 배포를 위한 인기 있는 도구입니다. Jenkins를 사용하여 Azure Service Fabric 응용 프로그램을 빌드하고 배포하는 방법은 다음과 같습니다.
 
 ## <a name="general-prerequisites"></a>일반 필수 조건
 - 로컬로 설치된 Git가 있어야 합니다. 운영 체제에 따라 [Git 다운로드 페이지](https://git-scm.com/downloads)에서 적절한 Git 버전을 설치할 수 있습니다. Git을 처음 접하는 경우 [Git 설명서](https://git-scm.com/docs)에서 자세히 알아봅니다.
-- 유용한 Service Fabric Jenkins 플러그 인이 있어야 합니다. [Service Fabric 다운로드](https://servicefabricdownloads.blob.core.windows.net/jenkins/serviceFabric.hpi)에서 다운로드할 수 있습니다. Edge 브라우저를 사용하는 경우 .zip에서 .hpi으로 다운로드한 파일의 확장명을 바꿉니다.
 
 ## <a name="set-up-jenkins-inside-a-service-fabric-cluster"></a>Service Fabric 클러스터 내에서 Jenkins 설정
 
@@ -129,8 +128,8 @@ Docker를 설치해야 합니다. 다음 명령을 사용하여 터미널에서 
 이렇게 하면 터미널에서 ``docker info``를 실행할 때 출력에서 Docker 서비스가 실행되는 것을 확인할 수 있습니다.
 
 ### <a name="steps"></a>단계
-  1. Service Fabric Jenkins 컨테이너 이미지를 끌어옵니다. ``docker pull rapatchi/jenkins:v9``
-  2. 다음 컨테이너 이미지를 실행합니다. ``docker run -itd -p 8080:8080 rapatchi/jenkins:v9``
+  1. Service Fabric Jenkins 컨테이너 이미지를 끌어옵니다. ``docker pull rapatchi/jenkins:v10`` 이 이미지는 미리 설치된 Service Fabric Jenkins 플러그 인과 함께 제공됩니다.
+  2. 다음 컨테이너 이미지를 실행합니다. ``docker run -itd -p 8080:8080 rapatchi/jenkins:v10``
   3. 컨테이너 이미지 인스턴스 ID를 가져옵니다. 명령 ``docker ps –a``를 사용하여 모든 Docker 컨테이너를 나열할 수 있습니다.
   4. 다음 단계에 따라 Jenkins 포털에 로그인합니다.
 
@@ -151,11 +150,6 @@ Docker를 설치해야 합니다. 다음 명령을 사용하여 터미널에서 
 
 Jenkins 컨테이너 이미지가 호스팅되는 클러스터 또는 컴퓨터에 공용 연결 IP가 있는지 확인합니다. 그러면 Jenkins 인스턴스가 GitHub에서 알림을 받을 수 있습니다.
 
-## <a name="install-the-service-fabric-jenkins-plug-in-from-the-portal"></a>포털에서 Service Fabric Jenkins 플러그 인 설치
-
-1. ``http://PublicIPorFQDN:8081``으로 이동합니다.
-2. Jenkins 대시보드에서 **Jenkins 관리** > **플러그 인 관리** > **고급**을 선택합니다.
-여기에서는 플러그 인을 업로드할 수 있습니다. **파일 선택**을 선택한 다음, 필수 구성 요소에서 다운로드했거나 [여기서](https://servicefabricdownloads.blob.core.windows.net/jenkins/serviceFabric.hpi) 다운로드할 수 있는 **serviceFabric.hpi** 파일을 선택합니다. **업로드**를 선택하면 Jenkins에서 플러그 인을 자동으로 설치합니다. 요청된 경우 다시 시작을 허용합니다.
 
 ## <a name="create-and-configure-a-jenkins-job"></a>Jenkins 작업 만들기 및 구성
 
@@ -165,14 +159,14 @@ Jenkins 컨테이너 이미지가 호스팅되는 클러스터 또는 컴퓨터�
 
    a. 일반 섹션에서 **GitHub 프로젝트**에 대한 확인란을 선택하고 GitHub 프로젝트 URL을 지정합니다. 이 URL은 Jenkins CI/CD(연속 통합, 연속 배포) 흐름과 통합하려는 Service Fabric Java 응용 프로그램을 호스트합니다(예: ``https://github.com/sayantancs/SFJenkins``).
 
-   b. **소스 코드 관리** 섹션 아래에서 **Git**를 선택합니다. Jenkins CI/CD 흐름과 통합하려는 Service Fabric Java 응용 프로그램을 호스트하는 리포지토리 URL을 지정합니다(예: ``https://github.com/sayantancs/SFJenkins.git``). 또한 여기에서 빌드할 분기를 지정할 수 있습니다(예: **/master**).
+   나. **소스 코드 관리** 섹션 아래에서 **Git**를 선택합니다. Jenkins CI/CD 흐름과 통합하려는 Service Fabric Java 응용 프로그램을 호스트하는 리포지토리 URL을 지정합니다(예: ``https://github.com/sayantancs/SFJenkins.git``). 또한 여기에서 빌드할 분기를 지정할 수 있습니다(예: **/master**).
 4. Jenkins와 통신할 수 있도록 리포지토리를 호스팅하는 *GitHub*을 구성합니다. 다음 단계를 사용하세요.
 
    a. GitHub 리포지토리 페이지로 이동합니다. **설정** > **통합 및 서비스**로 이동합니다.
 
-   b. **서비스 추가**를 선택하고 **Jenkins**를 입력하고 **Jenkins-GitHub 플러그 인**을 선택합니다.
+   나. **서비스 추가**를 선택하고 **Jenkins**를 입력하고 **Jenkins-GitHub 플러그 인**을 선택합니다.
 
-   c. Jenkins Webhook URL을 입력합니다(기본적으로 ``http://<PublicIPorFQDN>:8081/github-webhook/``이여야 함). **서비스 추가/업데이트**를 클릭합니다.
+   다. Jenkins Webhook URL을 입력합니다(기본적으로 ``http://<PublicIPorFQDN>:8081/github-webhook/``이여야 함). **서비스 추가/업데이트**를 클릭합니다.
 
    d. 테스트 이벤트가 사용자의 Jenkins 인스턴스로 전송됩니다. GitHub의 웹후크에서 녹색 확인 표시가 나타나고 프로젝트가 빌드됩니다.
 

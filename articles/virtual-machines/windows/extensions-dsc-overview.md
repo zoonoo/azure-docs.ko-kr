@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 01/09/2017
 ms.author: zachal
-ms.openlocfilehash: c05c2d541a5f526f362f9cd72fe6d878374112b6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: deb360e36b68f7ddb13b00946c700d0c83890ca6
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Azure 필요한 상태 구성 확장 처리기 소개
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -37,11 +37,9 @@ Azure VM 에이전트 및 연결된 확장은 Microsoft Azure 인프라 서비�
 ## <a name="terms-and-concepts"></a>용어 및 개념
 이 가이드에서는 다음과 같은 개념에 익숙합니다.
 
-구성 - DSC 구성 문서. 
-
-노드 - DSC 구성에 대한 대상. 이 문서에서 "노드"는 Azure VM을 나타냅니다.
-
-구성 데이터 - 구성에 대한 환경 데이터를 포함하는 .psd1 파일
+* **구성** - DSC 구성 문서 
+* **노드** - DSC 구성에 대한 대상. 이 문서에서 "노드"는 Azure VM을 나타냅니다.
+* **구성 데이터** - 구성에 대한 환경 데이터를 포함하는 .psd1 파일
 
 ## <a name="architectural-overview"></a>아키텍처 개요
 Azure DSC 확장은 Azure VM 에이전트 프레임워크를 사용하여 Azure VM에서 실행되는 DSC 구성을 제공하고 적용하며 보고합니다. DSC 확장은 Azure PowerShell SDK 또는 Azure 포털을 통해 제공되는 최소한의 구성 문서 및 일련의 매개 변수를 포함하는 .zip 파일이 필요합니다.
@@ -67,13 +65,13 @@ PowerShell cmdlet은 DSC 확장 배포를 패키징하고 게시하며 모니터
 
 `Get-AzureVMDscExtensionStatus` 는 DSC 확장 처리기에 의해 적용되는 DSC 구성의 상태를 검색합니다. 이 작업을 단일 VM 또는 VM 그룹에 대해 수행할 수 있습니다.
 
-`Remove-AzureVMDscExtension` 은 지정된 가상 컴퓨터에서 확장 처리기를 제거합니다. 이 cmdlet은 구성을 제거하거나 WMF를 제거하거나 가상 컴퓨터에 적용된 설정을 변경하지 **않습니다** . 확장 처리기를 제거합니다. 
+`Remove-AzureVMDscExtension` 은 지정된 가상 머신에서 확장 처리기를 제거합니다. 이 cmdlet은 구성을 제거하거나 WMF를 제거하거나 가상 머신에 적용된 설정을 변경하지 **않습니다** . 확장 처리기를 제거합니다. 
 
 **ASM과 Azure Resource Manager cmdlets의 주요 차이점**
 
 * Azure Resource Manager cmdlets는 동기입니다. ASM cmdlet은 비동기입니다.
 * ResourceGroupName, VMName, ArchiveStorageAccountName, 버전, 위치는 Azure Resource Manager에서 모두 새 필수 매개 변수입니다.
-* ArchiveResourceGroupName은 Azure Resource Manager에 대한 새로운 선택적 매개 변수입니다. 저장소 계정이 가상 컴퓨터를 만들 위치가 아닌 다른 리소스 그룹에 속해 있는 경우 이 매개 변수를 지정할 수 있습니다.
+* ArchiveResourceGroupName은 Azure Resource Manager에 대한 새로운 선택적 매개 변수입니다. 저장소 계정이 가상 머신을 만들 위치가 아닌 다른 리소스 그룹에 속해 있는 경우 이 매개 변수를 지정할 수 있습니다.
 * ConfigurationArchive는 Azure Resource Manager에서 ArchiveBlobName이라고 합니다.
 * ContainerName은 Azure Resource Manager에서 ArchiveContainerName이라고 합니다.
 * StorageEndpointSuffix는 Azure Resource Manager에서 ArchiveStorageEndpointSuffix라고 합니다.
@@ -146,7 +144,9 @@ Set-AzureRmVmDscExtension -Version 2.21 -ResourceGroupName $resourceGroup -VMNam
 ## <a name="logging"></a>로깅
 로그는 다음에 배치됩니다.
 
+```
 C:\WindowsAzure\Logs\Plugins\Microsoft.Powershell.DSC\[Version Number]
+```
 
 ## <a name="next-steps"></a>다음 단계
 PowerShell DSC에 대한 자세한 내용은 [PowerShell 설명서 센터를 방문하세요](https://msdn.microsoft.com/powershell/dsc/overview). 

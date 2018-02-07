@@ -2,18 +2,18 @@
 title: "고성능을 위해 Azure-SSIS Integration Runtime 구성 | Microsoft Docs"
 description: "고성능을 위해 Azure-SSIS Integration Runtime의 속성을 구성하는 방법을 알아봅니다."
 services: data-factory
-ms.date: 11/29/2017
+ms.date: 01/10/2018
 ms.topic: article
 ms.service: data-factory
 ms.workload: data-services
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.openlocfilehash: 4eb17466713aed93209e585c27fd6bb7220a97d9
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 7d0e75ad85731b10f9a993c2fa62f30c0142ed05
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>고성능을 위해 Azure-SSIS Integration Runtime 구성
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/06/2017
 
 구성 스크립트의 다음 부분은 Azure-SSIS Integration Runtime을 만들 때 구성할 수 있는 속성을 보여줍니다. 전체 PowerShell 스크립트 및 설명은 [Azure에 SQL Server Integration Services 패키지 배포](tutorial-deploy-ssis-packages-azure.md)를 참조하세요.
 
-```
+```powershell
 $SubscriptionName = "<Azure subscription name>"
 $ResourceGroupName = "<Azure resource group name>"
 # Data factory name. Must be globally unique
@@ -39,10 +39,10 @@ $AzureSSISDescription = "<Specify description for your Azure-SSIS IR"
 # In public preview, only EastUS, NorthEurope, and WestEurope are supported.
 $AzureSSISLocation = "EastUS" 
 # In public preview, only Standard_A4_v2, Standard_A8_v2, Standard_D1_v2, Standard_D2_v2, Standard_D3_v2, Standard_D4_v2 are supported
-$AzureSSISNodeSize = "Standard_A4_v2"
+$AzureSSISNodeSize = "Standard_D3_v2"
 # In public preview, only 1-10 nodes are supported.
 $AzureSSISNodeNumber = 2 
-# In public preview, only 1-8 parallel executions per node are supported.
+# For a Standard_D1_v2 node, 1-4 parallel executions per node are supported. For other nodes, it's 1-8.
 $AzureSSISMaxParallelExecutionsPerNode = 2 
 
 # SSISDB info
@@ -90,7 +90,8 @@ SSIS 엔지니어링 팀의 비공식 사내 테스트에 따르면 D 시리즈�
 
 ## <a name="azuressismaxparallelexecutionspernode"></a>AzureSSISMaxParallelExecutionsPerNode
 
-이미 강력한 작업자 노드를 사용하여 패키지를 실행 중인 경우 **AzureSSISMaxParallelExecutionsPerNode**를 늘리면 통합 런타임의 전체 처리량이 증가할 수 있습니다. 패키지 비용과 작업자 노드에 대한 다음 구성을 기반으로 적절한 값을 예측할 수 있습니다. 자세한 내용은 [범용 가상 머신 크기](../virtual-machines/windows/sizes-general.md)를 참조하세요.
+이미 강력한 작업자 노드를 사용하여 패키지를 실행 중인 경우 **AzureSSISMaxParallelExecutionsPerNode**를 늘리면 통합 런타임의 전체 처리량이 증가할 수 있습니다. Standard_D1_v2 노드의 경우 노드당 1-4개의 병렬 실행이 지원되며, 다른 모든 유형의 노드의 경우 노드당 1-8개의 병렬 실행이 지원됩니다.
+패키지 비용과 작업자 노드에 대한 다음 구성을 기반으로 적절한 값을 예측할 수 있습니다. 자세한 내용은 [범용 가상 머신 크기](../virtual-machines/windows/sizes-general.md)를 참조하세요.
 
 | 크기             | vCPU | 메모리: GiB | 임시 저장소(SSD) GiB | 최대 임시 저장소 처리량: IOPS/읽기 MBps/쓰기 MBps | 최대 데이터 디스크/처리량: IOPS | 최대 NIC 수 / 예상 네트워크 성능(Mbps) |
 |------------------|------|-------------|------------------------|------------------------------------------------------------|-----------------------------------|------------------------------------------------|

@@ -9,11 +9,11 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: f63ca861c05675edcf54a0003db11d25aa0cf5ed
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 512ac1d9423ed76486a131ccd8c871fe56fcf7d1
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Blob Storage 간 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -51,8 +51,8 @@ ms.lasthandoff: 01/11/2018
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 형식 속성은 **AzureStorage** |적용 |
-| connectionString | connectionString 속성에 대한 Azure 저장소에 연결하는 데 필요한 정보를 지정합니다. 이 필드를 SecureString으로 표시합니다. |적용 |
+| 형식 | 형식 속성은 **AzureStorage** |예 |
+| connectionString | connectionString 속성에 대한 Azure 저장소에 연결하는 데 필요한 정보를 지정합니다. 이 필드를 SecureString으로 표시합니다. |예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 Integration Runtime을 사용할 수 있습니다(데이터 저장소가 개인 네트워크에 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아니요 |
 
 **예제:**
@@ -86,15 +86,15 @@ SAS(공유 액세스 서명)는 저장소 계정의 리소스에 대한 위임�
 > Azure Data Factory는 이제 **서비스 SAS**만 지원하며 계정 SAS는 지원하지 않습니다. 이러한 두 가지 형식과 생성 방법에 대한 자세한 내용은 [공유 액세스 서명 형식](../storage/common/storage-dotnet-shared-access-signature-part-1.md#types-of-shared-access-signatures) 을 참조하세요. Azure Portal 또는 Storage 탐색기에서 생성되는 SAS URL은 지원되지 않는 계정 SAS입니다.
 
 > [!TIP]
-> 아래의 PowerShell 명령을 실행하여 저장소 계정에 대한 서비스 SAS를 생성합니다(자리 표시자를 바꾸고 필요한 권한 부여).`$context = New-AzureStorageContext -StorageAccountName <accountName> -StorageAccountKey <accountKey>`
+> 아래의 PowerShell 명령을 실행하여 저장소 계정에 대한 서비스 SAS를 생성할 수 있습니다(자리 표시자를 바꾸고 필요한 권한 부여).`$context = New-AzureStorageContext -StorageAccountName <accountName> -StorageAccountKey <accountKey>`
 > `New-AzureStorageContainerSASToken -Name <containerName> -Context $context -Permission rwdl -StartTime <startTime> -ExpiryTime <endTime> -FullUri`
 
 서비스 SAS 인증을 사용하기 위해 다음 속성이 지원됩니다.
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 형식 속성은 **AzureStorage** |적용 |
-| sasUri | BLOB, 컨테이너, 테이블 등의 Azure Storage 리소스에 공유 액세스 서명 URI를 지정합니다. 이 필드를 SecureString으로 표시합니다. |적용 |
+| 형식 | 형식 속성은 **AzureStorage** |예 |
+| sasUri | BLOB, 컨테이너, 테이블 등의 Azure Storage 리소스에 공유 액세스 서명 URI를 지정합니다. 이 필드를 SecureString으로 표시합니다. |예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 Integration Runtime을 사용할 수 있습니다(데이터 저장소가 개인 네트워크에 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아니요 |
 
 **예제:**
@@ -132,11 +132,11 @@ Azure Blob 간 데이터를 복사하려면 데이터 집합의 type 속성을 *
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 데이터 집합의 type 속성을 **AzureBlob**으로 설정해야 합니다. |적용 |
-| folderPath | blob 저장소에서 컨테이너 및 폴더에 대한 경로입니다. 예: myblobcontainer/myblobfolder/ |적용 |
+| 형식 | 데이터 집합의 type 속성을 **AzureBlob**으로 설정해야 합니다. |예 |
+| folderPath | blob 저장소에서 컨테이너 및 폴더에 대한 경로입니다. 예: myblobcontainer/myblobfolder/ |예 |
 | fileName | 특정 Blob 간에 복사하려면 **folderPath**에 Blob 이름을 지정합니다. 이 속성에 값을 지정하지 않으면 데이터 집합은 폴더에 있는 모든 Blob을 가리킵니다.<br/><br/>fileName이 출력 데이터 집합에 대해 지정되지 않고 **preserveHierarchy**가 작업 싱크에 지정되지 않은 경우 복사 작업은 다음과 같은 형식으로 자동으로 Blob 이름을 생성합니다. `Data.[activity run id GUID].[GUID if FlattenHierarchy].[format if configured].[compression if configured]` 예: `Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.gz` |아니요 |
 | format | 파일 기반 저장소(이진 복사) 간에 **파일을 있는 그대로 복사**하려는 경우 입력 및 출력 데이터 집합 정의 둘 다에서 형식 섹션을 건너뜁니다.<br/><br/>특정 형식으로 파일을 생성하거나 구문 분석하려는 경우 **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**과 같은 파일 형식 유형이 지원됩니다. 이 값 중 하나로 서식에서 **type** 속성을 설정합니다. 자세한 내용은 [텍스트 형식](supported-file-formats-and-compression-codecs.md#text-format), [Json 형식](supported-file-formats-and-compression-codecs.md#json-format), [Avro 형식](supported-file-formats-and-compression-codecs.md#avro-format), [Orc 형식](supported-file-formats-and-compression-codecs.md#orc-format) 및 [Parquet 형식](supported-file-formats-and-compression-codecs.md#parquet-format) 섹션을 참조하세요. |아니요(이진 복사 시나리오에만 해당) |
-| 압축 | 데이터에 대한 압축 유형 및 수준을 지정합니다. 자세한 내용은 [지원되는 파일 형식 및 압축 코덱](supported-file-formats-and-compression-codecs.md#compression-support)을 참조하세요.<br/>지원되는 형식은 **GZip**, **Deflate**, **BZip2** 및 **ZipDeflate**입니다.<br/>지원되는 수준은 **최적** 및 **가장 빠름**입니다. |아니요 |
+| 압축 | 데이터에 대한 압축 유형 및 수준을 지정합니다. 자세한 내용은 [지원되는 파일 형식 및 압축 코덱](supported-file-formats-and-compression-codecs.md#compression-support)을 참조하세요.<br/>지원되는 형식은 **GZip**, **Deflate**, **BZip2** 및 **ZipDeflate**입니다.<br/>지원되는 수준은 **최적** 및 **가장 빠름**입니다. |아니오 |
 
 **예제:**
 
@@ -176,8 +176,8 @@ Azure Blob에서 데이터를 복사하려면 복사 작업의 원본 형식을 
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 복사 작업 원본의 type 속성은 **BlobSource**로 설정해야 합니다. |적용 |
-| recursive | 하위 폴더에서 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다.<br/>허용되는 값은 **true**(기본값), **false**입니다. | 아니요 |
+| 형식 | 복사 작업 원본의 type 속성은 **BlobSource**로 설정해야 합니다. |예 |
+| recursive | 하위 폴더에서 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. recursive가 true로 설정되고 싱크가 파일 기반 저장소인 경우 싱크에서 빈 폴더/하위 폴더가 복사/생성되지 않습니다.<br/>허용되는 값은 **true**(기본값), **false**입니다. | 아니요 |
 
 **예제:**
 
@@ -217,7 +217,7 @@ Azure Blob에 데이터를 복사하려면 복사 작업의 싱크 형식을 **B
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 복사 작업 싱크의 type 속성은 **BlobSink**로 설정해야 합니다. |적용 |
+| 형식 | 복사 작업 싱크의 type 속성은 **BlobSink**로 설정해야 합니다. |예 |
 | copyBehavior | 원본이 파일 기반 데이터 저장소의 파일인 경우 복사 동작을 정의합니다.<br/><br/>허용되는 값은 다음과 같습니다.<br/><b>- PreserveHierarchy(기본값)</b>: 대상 폴더에서 파일 계층 구조를 유지합니다. 원본 폴더의 원본 파일 상대 경로는 대상 폴더의 대상 파일 상대 경로와 동일합니다.<br/><b>- FlattenHierarchy</b>: 원본 폴더의 모든 파일은 대상 폴더의 첫 번째 수준에 있게 됩니다. 대상 파일은 자동 생성된 이름을 갖습니다. <br/><b>- MergeFiles</b>: 원본 폴더의 모든 파일을 하나의 파일로 병합합니다. 파일/Blob 이름이 지정된 경우 지정된 이름이 병합된 파일 이름이 됩니다. 그렇지 않으면 자동 생성된 파일 이름이 병합된 파일 이름이 됩니다. | 아니요 |
 
 **예제:**

@@ -1,6 +1,6 @@
 ---
 title: "Azure의 FreeBSD 소개 | Microsoft Docs"
-description: "Azure에서 FreeBSD 가상 컴퓨터를 사용하는 방법을 알아봅니다."
+description: "Azure에서 FreeBSD 가상 머신을 사용하는 방법을 알아봅니다."
 services: virtual-machines-linux
 documentationcenter: 
 author: thomas1206
@@ -15,14 +15,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/13/2017
 ms.author: huishao
-ms.openlocfilehash: 2369bc893d28cf6f6174376eb961049b651c66a9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e47a00a8375659f9112da57f9e7a4747f10f8f16
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="introduction-to-freebsd-on-azure"></a>Azure의 FreeBSD 소개
-이 항목에서는 Azure에서 FreeBSD 가상 컴퓨터를 실행하는 방법의 개요를 제공합니다.
+이 항목에서는 Azure에서 FreeBSD 가상 머신을 실행하는 방법의 개요를 제공합니다.
 
 ## <a name="overview"></a>개요
 Microsoft Azure용 FreeBSD는 최신 서버, 데스크톱 및 포함된 플랫폼을 작동하는 데 사용되는 고급 컴퓨터 운영 체제입니다.
@@ -37,8 +37,8 @@ Microsoft Corporation은 Azure에서 사용 가능한 [Azure VM 게스트 에이
 
 FreeBSD 후속 버전에서는 제품을 최신 상태로 유지하고, FreeBSD 릴리스 엔지니어링 팀에서 게시한 후에 바로 해당 최신 릴리스를 사용할 수 있도록 하는 전략을 따릅니다.
 
-## <a name="deploying-a-freebsd-virtual-machine"></a>FreeBSD 가상 컴퓨터 배포
-FreeBSD 가상 컴퓨터 배포 작업은 Azure Portal에서 Azure Marketplace의 이미지를 사용하는 간단한 프로세스입니다.
+## <a name="deploying-a-freebsd-virtual-machine"></a>FreeBSD 가상 머신 배포
+FreeBSD 가상 머신 배포 작업은 Azure Portal에서 Azure Marketplace의 이미지를 사용하는 간단한 프로세스입니다.
 
 - [Azure Marketplace의 FreeBSD 10.3](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd103/)
 - [Azure Marketplace의 FreeBSD 11.0](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd110/)
@@ -115,12 +115,12 @@ FreeBSD에서 지원되는 VM 확장은 다음과 같습니다.
 > FreeBSD VM은 현재 CustomScript 버전 1.x만 지원합니다.  
 
 ## <a name="authentication-user-names-passwords-and-ssh-keys"></a>인증: 사용자 이름, 암호 및 SSH 키
-Azure 포털을 사용하여 FreeBSD 가상 컴퓨터를 만들 때 사용자 이름, 암호 또는 SSH 공개 키를 제공해야 합니다.
-Azure에서 FreeBSD 가상 컴퓨터를 배포하기 위한 사용자 이름은 가상 컴퓨터에 이미 있는 시스템 계정 이름(UID <100)(예: "root")과 일치해서는 안 됩니다.
+Azure 포털을 사용하여 FreeBSD 가상 머신을 만들 때 사용자 이름, 암호 또는 SSH 공개 키를 제공해야 합니다.
+Azure에서 FreeBSD 가상 머신을 배포하기 위한 사용자 이름은 가상 머신에 이미 있는 시스템 계정 이름(UID &lt;100)(예: "root")과 일치해서는 안 됩니다.
 현재는 RSA SSH 키만 지원됩니다. 여러 줄 SSH 키는 `---- BEGIN SSH2 PUBLIC KEY ----`로 시작하고 `---- END SSH2 PUBLIC KEY ----`로 끝나야 합니다.
 
 ## <a name="obtaining-superuser-privileges"></a>Superuser 권한 얻기
-Azure에서 가상 컴퓨터 인스턴스를 배포하는 동안 지정한 사용자 계정이 권한 있는 계정입니다. sudo의 패키지는 게시된 FreeBSD 이미지에 설치되어 있습니다.
+Azure에서 가상 머신 인스턴스를 배포하는 동안 지정한 사용자 계정이 권한 있는 계정입니다. sudo의 패키지는 게시된 FreeBSD 이미지에 설치되어 있습니다.
 이 사용자 계정을 통해 로그인하면 명령 구문을 사용하여 루트 권한으로 명령을 실행할 수 있습니다.
 
 ```
@@ -133,5 +133,4 @@ $ sudo <COMMAND>
 [Azure VM 게스트 에이전트](https://github.com/Azure/WALinuxAgent/) 버전 2.2.2에는 Azure의 FreeBSD VM에 프로비전 오류를 유발하는 [알려진 문제](https://github.com/Azure/WALinuxAgent/pull/517)가 있습니다. [Azure VM 게스트 에이전트](https://github.com/Azure/WALinuxAgent/) 버전 2.2.3 및 이후 릴리스에서는 해결책이 확보될 것입니다. 
 
 ## <a name="next-steps"></a>다음 단계
-* [Azure 마켓플레이스](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd110/) 로 가서 FreeBSD VM을 만듭니다.
-* 자체 FreeBSD를 Azure로 가져오려면 [FreeBSD VHD 만들기 및 Azure로 업로드](classic/freebsd-create-upload-vhd.md)를 참조하세요.
+* [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd110/) 로 가서 FreeBSD VM을 만듭니다.

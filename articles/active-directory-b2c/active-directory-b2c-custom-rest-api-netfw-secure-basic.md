@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 09/25/2017
 ms.author: yoelh
-ms.openlocfilehash: d65d94bb5c807abfd6cbb1fae786a02f179e93d6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0d4594f5e7c0a13d50993dd42d4780c1ba703140
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="secure-your-restful-services-by-using-http-basic-authentication"></a>HTTP 기본 인증을 사용하여 RESTful 서비스 보호
 [관련된 Azure AD B2C 문서](active-directory-b2c-custom-rest-api-netfw.md)에서 인증하지 않고 Azure AD B2C(Azure Active Directory B2C) 사용자 경험에 통합되는 RESTful 서비스(Web API)를 만듭니다. 
@@ -76,7 +76,7 @@ PM> Install-Package Microsoft.Owin.Host.SystemWeb
 
 3. *App_Start\ClientAuthMiddleware.cs* 파일을 열고 파일 콘텐츠를 다음 코드로 바꿉니다.
 
-    ```C#
+    ```csharp
     
     using Microsoft.Owin;
     using System;
@@ -194,7 +194,7 @@ PM> Install-Package Microsoft.Owin.Host.SystemWeb
 
 2. *Startup.cs* 파일을 열고 파일 콘텐츠를 다음 코드로 바꿉니다.
 
-    ```C#
+    ```csharp
     using Microsoft.Owin;
     using Owin;
     

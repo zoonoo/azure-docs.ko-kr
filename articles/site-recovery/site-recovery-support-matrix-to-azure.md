@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/30/2017
 ms.author: rajanaki
-ms.openlocfilehash: 98f3b1fe5a0f1d7518e8f0ef6f2a478f59559139
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: a72c9104dc2df0c8a874f757c100a19dc26c1564
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-on-premises-to-azure"></a>온-프레미스에서 Azure로 복제하기 위한 Azure Site Recovery 지원 매트릭스
 
@@ -116,9 +116,9 @@ HP CCISS 저장소 컨트롤러가 있는 물리적 서버는 지원되지 않�
 
 **구성** | **VMware/물리적 서버** | **Hyper-V(Virtual Machine Manager 있음/없음)**
 --- | --- | ---
-NIC 팀 | 적용<br/><br/>물리적 컴퓨터가 복제되는 경우 지원되지 않음| 적용
-VLAN | 적용 | 적용
-IPv4 | 적용 | 적용
+NIC 팀 | 예<br/><br/>물리적 컴퓨터가 복제되는 경우 지원되지 않음| 예
+VLAN | 예 | 예
+IPv4 | 예 | 예
 IPv6 | 아니요 | 아니요
 
 ### <a name="guest-vm-network-configuration"></a>게스트 VM 네트워크 구성
@@ -126,24 +126,24 @@ IPv6 | 아니요 | 아니요
 **구성** | **VMware/물리적 서버** | **Hyper-V(Virtual Machine Manager 있음/없음)**
 --- | --- | ---
 NIC 팀 | 아니요 | 아니요
-IPv4 | 적용 | 적용
-IPv6 | 아니요 | 아니요
-고정 IP(Windows) | 적용 | 적용
-고정 IP(Linux) | 적용 <br/><br/>가상 머신이 장애 복구(failback) 시 DHCP를 사용하도록 구성됨  | 아니요
-다중 NIC | 적용 | 적용
+IPv4 | 예 | 예
+IPv6 | 아니오 | 아니요
+고정 IP(Windows) | 예 | 예
+고정 IP(Linux) | 예 <br/><br/>가상 머신이 장애 복구(failback) 시 DHCP를 사용하도록 구성됨  | 아니요
+다중 NIC | 예 | 예
 
 ### <a name="failed-over-azure-vm-network-configuration"></a>장애 조치(Failover)된 Azure VM 네트워크 구성
 
 **Azure 네트워킹** | **VMware/물리적 서버** | **Hyper-V(Virtual Machine Manager 있음/없음)**
 --- | --- | ---
-Express 경로 | 적용 | 적용
-ILB | 적용 | 적용
-ELB | 적용 | 적용
-Traffic Manager | 적용 | 적용
-다중 NIC | 적용 | 적용
-예약된 IP | 적용 | 적용
-IPv4 | 적용 | 적용
-원본 IP 유지 | 적용 | 적용
+Express 경로 | 예 | 예
+ILB | 예 | 예
+ELB | 예 | 예
+Traffic Manager | 예 | 예
+다중 NIC | 예 | 예
+예약된 IP | 예 | 예
+IPv4 | 예 | 예
+원본 IP 유지 | 예 | 예
 Virtual Network 서비스 끝점(Azure Storage 방화벽 및 Virtual Network) | 아니요 | 아니요
 
 
@@ -155,44 +155,50 @@ Virtual Network 서비스 끝점(Azure Storage 방화벽 및 Virtual Network) | 
 **구성** | **VMware/물리적 서버** | **Hyper-V(Virtual Machine Manager 있음/없음)**
 --- | --- | --- | ---
 NFS | VMware의 경우 예<br/><br/> 물리적 서버의 경우 아니요 | 해당 없음
-SMB 3.0 | 해당 없음 | 적용
-SAN(ISCSI) | 적용 | 적용
-다중 경로(MPIO)<br></br>테스트 제품: Microsoft DSM, EMC PowerPath 5.7 SP4, EMC PowerPath DSM for CLARiiON | 적용 | 적용
+SMB 3.0 | 해당 없음 | 예
+SAN(ISCSI) | 예 | 예
+다중 경로(MPIO)<br></br>테스트 제품: Microsoft DSM, EMC PowerPath 5.7 SP4, EMC PowerPath DSM for CLARiiON | 예 | 예
 
 ### <a name="guest-or-physical-server-storage-configuration"></a>게스트 또는 물리적 서버 저장소 구성
 
 **구성** | **VMware/물리적 서버** | **Hyper-V(Virtual Machine Manager 있음/없음)**
 --- | --- | ---
-VMDK | 적용 | 해당 없음
-VHD/VHDX | 해당 없음 | 적용
-2세대 VM | 해당 없음 | 적용
-EFI/UEFI| 아니요 | 적용
-공유 클러스터 디스크 | 아니요 | 아니요
+VMDK | 예 | 해당 없음
+VHD/VHDX | 해당 없음 | 예
+2세대 VM | 해당 없음 | 예
+EFI/UEFI| Windows Server 2012 이상에서만 Azure로 마이그레이션합니다. </br></br> ** 테이블 끝에 있는 메모를 참조하세요.  | 예
+공유 클러스터 디스크 | 아니요 | 아니오
 암호화된 디스크 | 아니요 | 아니요
 NFS | 아니요 | 해당 없음
-SMB 3.0 | 아니요 | 아니요
-RDM | 적용<br/><br/> 물리적 서버의 경우 해당 없음 | 해당 없음
-디스크 > 1TB | 적용<br/><br/>최대 4095GB | 적용<br/><br/>최대 4095GB
-4K 논리 및 4k 물리적 섹터 크기 포함 디스크 | 적용 | 1세대 VM에 지원되지 않음<br/><br/>2세대 VM에 지원되지 않음
-4K 논리 및 512바이트 물리적 섹터 크기 포함 디스크 | 적용 |  적용
-스트라이프 디스크 포함 볼륨 > 1TB<br/><br/> LVM 논리 볼륨 관리 | 적용 | 적용
-저장소 공간 | 아니요 | 적용
+SMB 3.0 | 아니오 | 아니오
+RDM | 예<br/><br/> 물리적 서버의 경우 해당 없음 | 해당 없음
+디스크 > 1TB | 예<br/><br/>최대 4095GB | 예<br/><br/>최대 4095GB
+4K 논리 및 4k 물리적 섹터 크기 포함 디스크 | 예 | 1세대 VM에 지원되지 않음<br/><br/>2세대 VM에 지원되지 않음
+4K 논리 및 512바이트 물리적 섹터 크기 포함 디스크 | 예 |  예
+스트라이프 디스크 포함 볼륨 > 1TB<br/><br/> LVM 논리 볼륨 관리 | 예 | 예
+저장소 공간 | 아니요 | 예
 디스크 핫 추가/제거 | 아니요 | 아니요
-디스크 제외 | 적용 | 적용
-다중 경로(MPIO) | 해당 없음 | 적용
+디스크 제외 | 예 | 예
+다중 경로(MPIO) | 해당 없음 | 예
+
+> [!NOTE]
+> ** Windows Server 2012 이상을 실행하는 물리적 서버나 UEFI 부팅 VMware 가상 머신은 Azure로 마이그레이션될 수 있습니다. 다음 제한 사항이 적용됩니다.
+> - Azure로만 마이그레이션합니다. 온-프레미스 VMware 사이트에 장애 복구는 지원되지 않습니다.
+> - 서버의 OS 디스크에 파티션이 4개 까지만 지원됩니다.
+> - Azure Site Recovery 모바일 서비스 버전 9.13 이상이 필요합니다.
 
 **Azure 저장소** | **VMware/물리적 서버** | **Hyper-V(Virtual Machine Manager 있음/없음)**
 --- | --- | ---
-LRS | 적용 | 적용
-GRS | 적용 | 적용
-RA-GRS | 적용 | 적용
+LRS | 예 | 예
+GRS | 예 | 예
+RA-GRS | 예 | 예
 쿨 저장소 | 아니요 | 아니요
-핫 저장소| 아니요 | 아니요
+핫 저장소| 아니요 | 아니오
 블록 Blob | 아니요 | 아니요
-휴지 상태의 암호화(SSE)| 적용 | 적용
-Premium Storage | 적용 | 적용
+휴지 상태의 암호화(SSE)| 예 | 예
+Premium Storage | 예 | 예
 Import/Export 서비스 | 아니요 | 아니요
-복제 데이터를 저장하는 데 사용되는 대상 저장소 계정 또는 캐시 저장소 계정에 구성된 Virtual Network 서비스 끝점(Azure Storage 방화벽 및 Virtual Network) | 아니요 | 아니요
+복제 데이터를 저장하는 데 사용되는 대상 저장소 계정 또는 캐시 저장소 계정에 구성된 Virtual Network 서비스 끝점(Azure Storage 방화벽 및 Virtual Network) | 아니오 | 아니요
 범용 V2 저장소 계정(핫 및 쿨 계층 모두) | 아니요 | 아니요
 
 
@@ -200,9 +206,9 @@ Import/Export 서비스 | 아니요 | 아니요
 
 **Compute 기능** | **VMware/물리적 서버** | **Hyper-V(Virtual Machine Manager 있음/없음)**
 --- | --- | ---
-가용성 집합 | 적용 | 적용
-HUB | 적용 | 적용  
-관리 디스크 | 적용 | 적용<br/><br/>관리되는 디스크를 사용한 Azure VM에서 온-프레미스로의 장애 복구(failback)는 현재 지원되지 않습니다.
+가용성 집합 | 예 | 예
+HUB | 예 | 예  
+관리 디스크 | 예 | 예<br/><br/>관리되는 디스크를 사용한 Azure VM에서 온-프레미스로의 장애 복구(failback)는 현재 지원되지 않습니다.
 
 ## <a name="failed-over-azure-vm-requirements"></a>장애 조치(Failover)된 Azure VM 요구 사항
 
@@ -228,8 +234,8 @@ Azure에서 지원하는 운영 체제를 실행하는 가상 머신과 물리�
 
 **작업** | **VMware/물리적 서버** | **Hyper-V(Virtual Machine Manager 없음)** | **Hyper-V(Virtual Machine Manager 있음)**
 --- | --- | --- | ---
-리소스 그룹 간 자격 증명 모음 이동<br/><br/> 구독 내 및 구독 간 | 아니요 | 아니요 | 아니요
-저장소 그룹 간 저장소, 네트워크, Azure VM 이동<br/><br/> 구독 내 및 구독 간 | 아니요 | 아니요 | 아니요
+리소스 그룹 간 자격 증명 모음 이동<br/><br/> 구독 내 및 구독 간 | 아니오 | 아니요 | 아니오
+저장소 그룹 간 저장소, 네트워크, Azure VM 이동<br/><br/> 구독 내 및 구독 간 | 아니오 | 아니요 | 아니오
 
 
 ## <a name="support-for-provider-and-agent"></a>공급자 및 에이전트에 대한 지원

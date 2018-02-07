@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/16/2017
+ms.date: 01/16/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8b2388626dd68ea1911cdfb3d6a84e70f6bf3cc6
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 9e25ad9b9be6d02550b4be9c09496021cd7fe2d2
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-oms-management-solution-preview"></a>OMS 관리 솔루션(미리 보기)에 Log Analytics에서 저장한 검색 및 경고 추가
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 10/17/2017
 
 
 ## <a name="log-analytics-workspace"></a>Log Analytics 작업 영역
-Log Analytics의 모든 리소스는 [작업 영역](../log-analytics/log-analytics-manage-access.md)에 포함됩니다.  [OMS 작업 영역 및 Automation 계정](operations-management-suite-solutions.md#oms-workspace-and-automation-account)에서 설명한 대로 작업 영역은 관리 솔루션에 포함되지 않지만, 솔루션이 설치되기 전에 존재해야 합니다.  계정을 사용할 수 없으면 솔루션 설치에 실패합니다.
+Log Analytics의 모든 리소스는 [작업 영역](../log-analytics/log-analytics-manage-access.md)에 포함됩니다.  [OMS 작업 영역 및 Automation 계정](operations-management-suite-solutions.md#log-analytics-workspace-and-automation-account)에서 설명한 대로 작업 영역은 관리 솔루션에 포함되지 않지만, 솔루션이 설치되기 전에 존재해야 합니다.  계정을 사용할 수 없으면 솔루션 설치에 실패합니다.
 
 작업 영역 이름은 각 Log Analytics 리소스의 이름을 사용합니다.  이 작업은 다음 저장된 검색 리소스 예제와 같이 **workspace** 매개 변수가 포함된 솔루션에서 이루어집니다.
 
@@ -45,17 +45,14 @@ Log Analytics의 모든 리소스는 [작업 영역](../log-analytics/log-analyt
 ## <a name="log-analytics-api-version"></a>Log Analytics API 버전
 Resource Manager 템플릿에 정의된 모든 Log Analytics 리소스에는 리소스가 사용해야 하는 API의 버전을 정의하는 **apiVersion** 속성이 있습니다.  이 버전은 [레거시 및 업그레이드된 쿼리 언어](../log-analytics/log-analytics-log-search-upgrade.md)를 사용하는 리소스와는 다릅니다.  
 
- 다음 표에서는 레거시 및 업그레이드된 작업 영역에 대한 Log Analytics API 버전과 각각에 대해 서로 다른 구문을 지정하는 샘플 쿼리가 나와 있습니다. 
+ 다음 표에서는 레거시 및 업그레이드된 작업 영역에서 저장된 검색의 Log Analytics API 버전을 지정합니다. 
 
-| 작업 영역 버전 | API 버전 | 샘플 쿼리 |
+| 작업 영역 버전 | API 버전 | 쿼리 |
 |:---|:---|:---|
-| v1(레거시)   | 2015-11-01-preview | Type=Event EventLevelName = Error             |
-| v2(업그레이드된 버전) | 2017-03-15-preview | Event &#124; where EventLevelName == "Error"  |
+| v1(레거시)   | 2015-11-01-preview | 레거시 형식입니다.<br> 예: Type=Event EventLevelName = Error  |
+| v2(업그레이드된 버전) | 2015-11-01-preview | 레거시 형식입니다.  설치 시 업그레이드된 형식으로 변환됩니다.<br> 예: Type=Event EventLevelName = Error<br>변환 대상: Event &#124; where EventLevelName == "Error"  |
+| v2(업그레이드된 버전) | 2017-03-03-preview | 업그레이드 형식입니다. <br>예: Event &#124; where EventLevelName == "Error"  |
 
-버전마다 지원되는 작업 영역에 대해서는 다음을 참조하세요.
-
-- 레거시 쿼리 언어를 사용하는 템플릿을 레거시 또는 업그레이드된 작업 영역에 설치할 수 있습니다.  업그레이드된 작업 영역에 설치한 경우 사용자가 실행할 때 쿼리가 새 언어로 즉시 변환됩니다.
-- 업그레이드된 쿼리 언어를 사용하는 템플릿은 업그레이드된 작업 영역에만 설치할 수 있습니다.
 
 
 ## <a name="saved-searches"></a>저장된 검색
@@ -82,7 +79,7 @@ Resource Manager 템플릿에 정의된 모든 Log Analytics 리소스에는 리
 
 저장된 검색의 각 속성은 다음 테이블에 설명되어 있습니다. 
 
-| 속성 | 설명 |
+| 자산 | 설명 |
 |:--- |:--- |
 | 카테고리 | 저장된 검색의 범주입니다.  같은 솔루션에 있는 저장된 검색은 종종 단일 범주를 공유하므로 콘솔에서 함께 그룹화됩니다. |
 | displayname | 포털에서 저장된 검색에 표시할 이름입니다. |
@@ -91,7 +88,7 @@ Resource Manager 템플릿에 정의된 모든 Log Analytics 리소스에는 리
 > [!NOTE]
 > JSON으로 해석될 수 있는 문자를 포함하고 있는 경우 쿼리에 이스케이프 문자를 사용해야 합니다.  예를 들어 쿼리가 **Type:AzureActivity OperationName:"Microsoft.Compute/virtualMachines/write"**이면 솔루션 파일에 **Type:AzureActivity OperationName:\"Microsoft.Compute/virtualMachines/write\"**라고 써야 합니다.
 
-## <a name="alerts"></a>경고
+## <a name="alerts"></a>Alerts
 [Log Analytics 경고](../log-analytics/log-analytics-alerts.md)는 일정한 간격으로 저장된 검색을 실행하는 경고 규칙에 의해 만들어집니다.  쿼리 결과가 지정된 기준과 일치하면 경고 레코드가 생성되고 하나 이상의 작업이 실행됩니다.  
 
 관리 솔루션의 경고 규칙은 다음 세 가지 리소스로 구성됩니다.
@@ -189,8 +186,8 @@ Resource Manager 템플릿에 정의된 모든 Log Analytics 리소스에는 리
 
 | 요소 이름 | 필수 | 설명 |
 |:--|:--|:--|
-| 유형 | 예 | 작업의 유형입니다.  경고 작업의 **경고**가 됩니다. |
-| 이름 | 예 | 경고에 대한 표시 이름입니다.  경고 규칙에 대한 콘솔에 표시되는 이름입니다. |
+| 형식 | 예 | 작업의 유형입니다.  경고 작업의 **경고**가 됩니다. |
+| Name | 예 | 경고에 대한 표시 이름입니다.  경고 규칙에 대한 콘솔에 표시되는 이름입니다. |
 | 설명 | 아니요 | 경고에 대한 선택적 설명입니다. |
 | 심각도 | 예 | 다음 값의 경고 레코드의 심각도입니다.<br><br> **중요**<br>**Warning**<br>**정보 제공** |
 
@@ -240,11 +237,11 @@ Resource Manager 템플릿에 정의된 모든 Log Analytics 리소스에는 리
 |:--|:--|:--|
 | RunbookName | 예 | 시작할 runbook의 이름입니다. |
 | WebhookUri | 예 | runbook의 웹후크 Uri입니다. |
-| Expiry | 아니요 | 재구성이 만료되는 날짜 및 시간입니다. |
+| Expiry | 아니오 | 재구성이 만료되는 날짜 및 시간입니다. |
 
 #### <a name="webhook-actions"></a>웹후크 작업
 
-웹후크 작업은 URL을 호출하고 선택적으로 보낼 페이로드를 제공하는 것으로 프로세스를 시작합니다. 이들은 웹후크에 대해 Azure 자동화 Runbook 이외의 프로세스를 호출할 수 있다는 것을 제외하고 수정 작업과 유사합니다. 또한 원격 프로세스에 전달할 페이로드를 제공하는 추가 옵션을 제공합니다.
+웹후크 작업은 URL을 호출하고 선택적으로 보낼 페이로드를 제공하는 것으로 프로세스를 시작합니다. 이들은 웹후크에 대해 Azure Automation Runbook 이외의 프로세스를 호출할 수 있다는 것을 제외하고 수정 작업과 유사합니다. 또한 원격 프로세스에 전달할 페이로드를 제공하는 추가 옵션을 제공합니다.
 
 경고에서 웹후크를 호출하는 경우 **경고** 작업 리소스 외에도 **웹후크** 형식의 작업 리소스가 필요합니다.  
 
@@ -268,8 +265,8 @@ Resource Manager 템플릿에 정의된 모든 Log Analytics 리소스에는 리
 
 | 요소 이름 | 필수 | 설명 |
 |:--|:--|:--|
-| type | 예 | 작업의 유형입니다.  웹후크 작업의 **웹후크**가 됩니다. |
-| name | 예 | 작업의 표시 이름입니다.  콘솔에 표시되지 않습니다. |
+| 형식 | 예 | 작업의 유형입니다.  웹후크 작업의 **웹후크**가 됩니다. |
+| 이름 | 예 | 작업의 표시 이름입니다.  콘솔에 표시되지 않습니다. |
 | wehookUri | 예 | 웹후크의 Uri입니다. |
 | customPayload | 아니요 | 웹후크에 보낼 사용자 지정 페이로드입니다. 형식은 예상하는 웹후크에 따라 달라집니다. |
 

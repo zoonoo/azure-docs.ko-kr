@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: fcba76555902fb393830f352e6274b3ecd2fba38
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 3a3c9c1d483ece71ecc38c7eaa364c35464d80f6
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="use-case---customer-profiling"></a>사용 사례 - 고객 프로파일링
 Azure Data Factory는 솔루션 가속기의 Cortana Intelligence Suite를 구현하는 데 사용되는 다양한 서비스 중 하나입니다.  Cortana Intelligence에 대한 자세한 내용은 [Cortana Intelligence Suite](http://www.microsoft.com/cortanaanalytics)를 참조하세요. 이 문서에서는 Azure 데이터 팩터리가 어떻게 일반적인 분석 문제를 해결할 수 있는지를 이해하기 시작하는 데 도움이 되는 간단한 사용 사례를 설명합니다.

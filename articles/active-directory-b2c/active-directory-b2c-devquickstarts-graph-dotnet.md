@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: parakhj
-ms.openlocfilehash: d7d809570012b292877813c7350e55edf509183b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 33df6c4255d4ca672e65237c8be45b3f0bc7864e
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: Azure AD Graph API 사용
 
@@ -43,7 +43,7 @@ B2C 테넌트를 설정한 후에 [Azure Portal](https://portal.azure.com)을 �
 > [!IMPORTANT]
 > B2C 테넌트에서 Graph API를 사용하려면 Azure AD B2C *응용 프로그램* 메뉴가 **아닌** Azure Portal의 제네릭 *앱 등록* 메뉴를 사용하여 전용 응용 프로그램을 등록해야 합니다. Azure AD B2C의 *응용 프로그램* 메뉴에 등록한 기존 B2C 응용 프로그램을 다시 사용할 수 없습니다.
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 페이지의 오른쪽 위 모서리에서 계정을 선택하여 Azure AD B2C 테넌트를 선택합니다.
 3. 왼쪽 탐색 창에서 **추가 서비스**를 선택하고 **앱 등록**을 클릭한 다음 **추가**를 클릭합니다.
 4. 프롬프트에 따라 새 응용 프로그램을 만듭니다. 
@@ -137,7 +137,7 @@ Graph API에 대한 요청은 인증을 위한 액세스 토큰이 필요합니�
 
 `B2CGraphClient`가 실행되면 `B2CGraphClient` 클래스의 인스턴스를 만듭니다. 이 클래스의 생성자는 ADAL 인증 스캐폴딩을 설정합니다.
 
-```C#
+```csharp
 public B2CGraphClient(string clientId, string clientSecret, string tenant)
 {
     // The client_id, client_secret, and tenant are provided in Program.cs, which pulls the values from App.config
@@ -156,7 +156,7 @@ public B2CGraphClient(string clientId, string clientSecret, string tenant)
 
 `B2C Get-User` 명령을 예로 사용합니다. `B2C Get-User`이 추가 입력 없이 호출되면 CLI가 `B2CGraphClient.GetAllUsers(...)` 메서드를 호출합니다. 이 메서드는 `B2CGraphClient.SendGraphGetRequest(...)`를 호출하며 이는 Graph API에 HTTP GET 요청을 제출합니다. `B2CGraphClient.SendGraphGetRequest(...)` 가 가져오기 요청을 보내기 전에 먼저 ADAL을 사용하여 액세스 토큰을 가져옵니다.
 
-```C#
+```csharp
 public async Task<string> SendGraphGetRequest(string api, string query)
 {
     // First, use ADAL to acquire a token by using the app's identity (the credential)
@@ -190,7 +190,7 @@ Authorization: Bearer eyJhbGciOiJSUzI1NiIsIng1dCI6IjdkRC1nZWNOZ1gxWmY3R0xrT3ZwT0
 
 이러한 세부 사항은 모두 `B2CGraphClient.SendGraphGetRequest(...)` 메서드에서 처리됩니다.
 
-```C#
+```csharp
 public async Task<string> SendGraphGetRequest(string api, string query)
 {
     ...

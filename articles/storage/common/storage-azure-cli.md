@@ -14,11 +14,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 06/02/2017
 ms.author: tamram
-ms.openlocfilehash: 4f4070c5a02e559bd299033865aa5258532498aa
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 00b608f36caf51e27a1751560df0ffb1308695c4
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="using-the-azure-cli-20-with-azure-storage"></a>Azure Storage에서 Azure CLI 2.0 사용
 
@@ -196,9 +196,10 @@ az storage account create \
   * `Standard_LRS`
   * `Standard_RAGRS`
   * `Standard_ZRS`
+```
 
-### <a name="set-default-azure-storage-account-environment-variables"></a>기본 Azure Storage 계정 환경 변수 설정
-Azure 구독에서 여러 저장소 계정을 사용할 수 있습니다. 모든 후속 저장소 명령에 사용하기 위해 이러한 계정 중 하나를 선택하려면 환경 변수를 다음과 같이 설정할 수 있습니다.
+### Set default Azure storage account environment variables
+You can have multiple storage accounts in your Azure subscription. To select one of them to use for all subsequent storage commands, you can set these environment variables:
 
 ```azurecli
 export AZURE_STORAGE_ACCOUNT=<account_name>
@@ -268,7 +269,7 @@ az storage blob download \
 
 ### <a name="list-the-blobs-in-a-container"></a>컨테이너의 Blob 나열
 
-[az storage blob list](/cli/azure/storage/blob#list) 명령으로 컨테이너에 있는 Blob을 나열합니다.
+[az storage blob list](/cli/azure/storage/blob#az_storage_blob_list) 명령으로 컨테이너에 있는 Blob을 나열합니다.
 
 ```azurecli
 az storage blob list \
@@ -316,7 +317,7 @@ az storage blob delete --container-name <container_name> --name <blob_name>
 ```
 
 ## <a name="create-and-manage-file-shares"></a>파일 공유 만들기 및 관리
-Azure Files는 SMB(서버 메시지 블록) 프로토콜을 사용하는 응용 프로그램을 위한 공유 저장소를 제공합니다. Microsoft Azure 가상 컴퓨터 및 클라우드 서비스 그리고 온-프레미스 응용 프로그램은 탑재된 공유를 통해 파일 데이터를 공유할 수 있습니다. Azure CLI를 통해 파일 공유 및 파일 데이터를 관리할 수 있습니다. Azure Files에 대한 자세한 내용은 [Azure Files 소개](../files/storage-files-introduction.md)를 참조하세요.
+Azure Files는 SMB(서버 메시지 블록) 프로토콜을 사용하는 응용 프로그램을 위한 공유 저장소를 제공합니다. Microsoft Azure 가상 머신 및 클라우드 서비스 그리고 온-프레미스 응용 프로그램은 탑재된 공유를 통해 파일 데이터를 공유할 수 있습니다. Azure CLI를 통해 파일 공유 및 파일 데이터를 관리할 수 있습니다. Azure Files에 대한 자세한 내용은 [Azure Files 소개](../files/storage-files-introduction.md)를 참조하세요.
 
 ### <a name="create-a-file-share"></a>파일 공유 만들기
 Azure에서 Azure 파일 공유는 SMB 파일 공유입니다. 모든 디렉터리 및 파일을 파일 공유에서 만들어야 합니다. 계정에 포함할 수 있는 공유 수에는 제한이 없으며, 공유에 저장할 수 있는 파일 수에는 저장소 계정의 최대 용량 한도까지 제한이 없습니다. 다음 예제에서는 **myshare**라는 파일 공유를 만듭니다.

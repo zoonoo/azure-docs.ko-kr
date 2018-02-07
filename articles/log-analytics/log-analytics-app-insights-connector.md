@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: banders
-ms.openlocfilehash: c1f543d3379b7f6a29cb57b5d41825abaacabfc3
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: e3ff3d9c667e00995daa2023a7137870247b9ab3
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="application-insights-connector-solution-preview-in-operations-management-suite-oms"></a>OMS(Operations Management Suite)의 Application Insights 커넥터 솔루션(미리 보기)
 
@@ -42,7 +42,7 @@ Application Insights 커넥터 솔루션은 성능 문제를 진단하고 [Appli
 | [Windows 에이전트](log-analytics-windows-agent.md) | 아니요 | 솔루션이 Windows 에이전트에서 정보를 수집하지 않습니다. |
 | [Linux 에이전트](log-analytics-linux-agents.md) | 아니요 | 솔루션이 Linux 에이전트에서 정보를 수집하지 않습니다. |
 | [SCOM 관리 그룹](log-analytics-om-agents.md) | 아니요 | 솔루션이 연결된 SCOM 관리 그룹의 에이전트에서 정보를 수집하지 않습니다. |
-| [Azure 저장소 계정](log-analytics-azure-storage.md) | 아니요 | 솔루션이 Azure Storage에서 정보를 수집하지 않습니다. |
+| [Azure 저장소 계정](log-analytics-azure-storage.md) | 아니오 | 솔루션이 Azure Storage에서 정보를 수집하지 않습니다. |
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -55,7 +55,7 @@ Application Insights 커넥터 솔루션은 성능 문제를 진단하고 [Appli
 1. [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ApplicationInsights?tab=Overview)에서 또는 [솔루션 갤러리에서 Log Analytics 솔루션 추가](log-analytics-add-solutions.md)에서 설명한 프로세스를 사용하여 Azure Web Apps 분석 솔루션을 사용하도록 설정합니다.
 2. OMS 포털에서 **설정** &gt; **데이터** &gt; **Application Insights**를 클릭합니다.
 3. **구독 선택**에서 Application Insights 리소스가 포함된 구독을 선택하고 **응용 프로그램 이름**에서 하나 이상의 응용 프로그램을 선택합니다.
-4. **Save**를 클릭합니다.
+4. **저장**을 클릭합니다.
 
 약 30분 내에 데이터가 제공되며 다음 이미지와 같이 Application Insights 타일이 데이터로 업데이트됩니다.
 
@@ -84,7 +84,7 @@ Application Insights 커넥터 솔루션은 성능 문제를 진단하고 [Appli
 
 표에 표시된 블레이드가 대시보드에 포함되어 있습니다. 각 블레이드에는 지정된 범위 및 시간 범위에 대한 해당 블레이드의 기준과 일치하는 항목이 최대 10개까지 나열됩니다. 블레이드 맨 아래에서 **모두 보기**를 클릭하거나 블레이드 헤더를 클릭하면 모든 레코드를 반환하는 로그 검색을 실행할 수 있습니다.
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE [log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 | **열** | **설명** |
 | --- | --- |
@@ -170,7 +170,7 @@ Type=ApplicationInsights | measure sum(SampledCount) by TelemetryType
 
 ### <a name="generic-fields"></a>일반 필드
 
-| 속성 | 설명 |
+| 자산 | 설명 |
 | --- | --- |
 | 형식 | ApplicationInsights |
 | ClientIP |   |
@@ -196,7 +196,7 @@ Type=ApplicationInsights | measure sum(SampledCount) by TelemetryType
 
 ### <a name="availability-specific-fields"></a>가용성 관련 필드
 
-| 속성 | 설명 |
+| 자산 | 설명 |
 | --- | --- |
 | TelemetryType | Availability |
 | AvailabilityTestName | 웹 테스트의 이름 |
@@ -238,7 +238,7 @@ Type=ApplicationInsights | measure sum(SampledCount) by TelemetryType
 
 ### <a name="request-specific-fields"></a>요청 관련 필드
 
-| 속성 | 설명 |
+| 자산 | 설명 |
 | --- | --- |
 | 형식 | ApplicationInsights |
 | TelemetryType | 요청 |

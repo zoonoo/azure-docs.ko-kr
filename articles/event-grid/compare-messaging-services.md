@@ -6,13 +6,13 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 94771578d94b5b9bc23451049a78506e80c87d26
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: e082b9014e3734b554d3dae1cf8aecbaed65a28a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="choose-between-azure-services-that-deliver-messages"></a>메시지를 배달하는 Azure 서비스 중에서 선택
 
@@ -28,7 +28,7 @@ Azure는 솔루션 전체에서 이벤트 메시지 배달에 도움이 되는 �
 
 이벤트를 배달하는 서비스와 메시지를 배달하는 서비스 간에 주목할 중요한 차이점이 있습니다.
 
-### <a name="event"></a>이벤트
+### <a name="event"></a>행사
 
 이벤트는 작업 또는 상태 변경의 간단한 알림입니다. 이벤트 데이터는 발생한 상황에 대한 정보를 포함하지만 이벤트를 트리거한 데이터가 없습니다. 예를 들어, 이벤트는 구독자에게 파일이 만들어진 것을 알립니다. 파일에 대한 일반 정보를 포함할 수 있지만 파일 자체는 포함하지 않습니다. 일반적으로 이벤트는 실시간으로 작동하는 이벤트 처리기를 트리거합니다.
 
@@ -41,7 +41,8 @@ Azure는 솔루션 전체에서 이벤트 메시지 배달에 도움이 되는 �
 | 서비스 | 목적 | 형식 | 사용하는 경우 |
 | ------- | ------- | ---- | ----------- |
 | Event Grid | 사후 프로그래밍 | 이벤트 배포 | 상태 변경에 대응 |
-| Event Hubs(영문) | 빅 데이터 파이프라인 | 이벤트 스트리밍 | 원격 분석 및 분산 데이터 스트리밍 |
+| Event Hubs
+ | 빅 데이터 파이프라인 | 이벤트 스트리밍 | 원격 분석 및 분산 데이터 스트리밍 |
 | Service Bus | 높은 가치의 엔터프라이즈 메시지 | Message | 주문 처리 및 금융 거래 |
 
 ### <a name="event-grid"></a>Event Grid
@@ -56,7 +57,8 @@ Event Grid는 Azure 서비스와 긴밀히 통합하고 타사 서비스와 통�
 * 저렴한 비용
 * 서버를 사용하지 않음
 
-### <a name="event-hubs"></a>Event Hubs(영문)
+### <a name="event-hubs"></a>Event Hubs
+
 
 Azure Event Hubs는 빅 데이터 파이프라인입니다. 원격 분석 및 이벤트 스트림 데이터의 캡처, 보존 및 재생을 용이하게 합니다. 여러 동시 원본에서 데이터를 가져올 수 있습니다. Event Hubs는 다양한 스트림 처리 인프라 및 분석 서비스에 사용할 수 있도록 원격 분석 및 이벤트 데이터를 허용합니다. 데이터 스트림 또는 번들 이벤트 일괄 처리로 사용 가능합니다. 이 서비스는 실시간 처리에 대한 빠른 데이터 검색뿐만 아니라 저장된 원시 데이터의 반복된 재생을 활성화하는 단일 솔루션을 제공합니다. 처리 및 분석을 위해 스트리밍 데이터를 파일에 캡처할 수 있습니다.
 

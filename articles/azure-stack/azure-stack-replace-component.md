@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2017
+ms.date: 1/29/2018
 ms.author: mabrigg
-ms.openlocfilehash: 4937b7725c8f39314ccc41584a8646b7197f6bdf
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: 7018f0122ab1ef11d64cce8a9adf58419d0e9ba7
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="replace-a-hardware-component-on-an-azure-stack-scale-unit-node"></a>Azure 스택 배율 단위 노드에 하드웨어 구성 요소를 대체 합니다.
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 01/10/2018
 
 비 핫 스왑 가능한 구성 요소는 다음과 같습니다.
 
-- CPU *
+- CPU*
 - 메모리 *
 - 마더보드/베이스 보드 관리 컨트롤러 (BMC) / 비디오 카드
 - 디스크 컨트롤러/호스트 버스 어댑터 (HBA) / 백플레인
@@ -44,11 +44,11 @@ ms.lasthandoff: 01/10/2018
 
 *이 작업 하지 않아도 될 하드웨어의 실제 조건에 기반 합니다.
 
-* * OEM 하드웨어 공급 업체에 문의 구성 요소 교체를 수행 하 고 펌웨어를 업데이트 하는 여부에 따라 달라 집니다 수 계약을 지원에 있습니다.
+* * OEM 하드웨어 공급 업체의 구성 요소 교체 및 펌웨어 다를 수 업데이트를 수행 하는 여부를 기반으로 지원 계약 합니다.
 
 ## <a name="review-alert-information"></a>경고 정보를 검토 합니다.
 
-Azure 스택 상태 및 모니터링 시스템 저장소 공간 다이렉트에 의해 제어 되는 데이터 드라이브 및 네트워크 어댑터의 상태를 추적 합니다. 다른 하드웨어 구성 요소를 추적 하지 않습니다. 다른 하드웨어 구성에 대 한 경고는 모니터링 하드웨어 수명 주기 호스트에서 실행 되는 솔루션 공급 업체 관련 하드웨어에서 발생 합니다.
+Azure 스택 상태 및 모니터링 시스템 저장소 공간 다이렉트에 의해 제어 되는 데이터 드라이브 및 네트워크 어댑터의 상태를 추적 합니다. 다른 하드웨어 구성 요소를 추적 하지 않습니다. 다른 하드웨어 구성에 대 한 경고는 모니터링 하드웨어 수명 주기 호스트에서 실행 되는 솔루션 공급 업체 관련 하드웨어에서 발생 합니다.  
 
 ## <a name="component-replacement-process"></a>구성 요소 교체 프로세스
 
@@ -60,7 +60,7 @@ Azure 스택 상태 및 모니터링 시스템 저장소 공간 다이렉트에 
    > 어떤 경우 든, 하나의 노드만 종료 되 고 수는 S2D 위반 하지 않고 동시에 전원을 끌 (저장소 공간 다이렉트)입니다.
 
 2. 배율 단위 노드 유지 관리 모드에 있으면 후 사용 하 여는 [전원을 끄고](azure-stack-node-actions.md#scale-unit-node-actions) 동작 합니다. 이 작업 하지 않아도 될 하드웨어의 실제 조건에 기반 합니다.
- 
+
    > [!NOTE]
    > 전원 끄기 작동 하지 않는 경우 경우 베이스 보드 관리 컨트롤러 (BMC) 웹 인터페이스를 대신 사용 합니다.
 
@@ -74,4 +74,3 @@ Azure 스택 상태 및 모니터링 시스템 저장소 공간 다이렉트에 
 
 - 핫 스왑 가능한 실제 디스크를 교체 하는 방법에 대 한 정보를 참조 하십시오. [디스크 교체](azure-stack-replace-disk.md)합니다.
 - 실제 노드를 교체 하는 방법에 대 한 정보를 참조 하십시오. [배율 단위 노드 대체](azure-stack-replace-node.md)합니다.
-- 

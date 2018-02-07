@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: markgal;trinadhk;
-ms.openlocfilehash: a3b8bb53c467ad6f595a52e2a2e8f805a8f062f6
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 1a1855cc3f83d7fcba749ce94167039feb5bebe1
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>Azure Portal을 사용하여 가상 머신 복원
 정의된 간격으로 데이터의 스냅숏을 찍어 데이터를 보호합니다. 이러한 스냅숏은 복구 지점이라고 하며 Recovery Services 자격 증명 모음에 저장됩니다. VM(가상 머신)을 복구하거나 다시 빌드해야 하는 경우 저장된 복구 지점 중 하나에서 VM을 복원할 수 있습니다. 복구 지점을 복원할 때 다음을 수행할 수 있습니다.
@@ -42,7 +42,7 @@ VM 백업에서 VM 또는 모든 디스크를 복원하는 작업은 다음과 �
 * 복원 유형 선택을 선택하고, 새 VM을 만들거나 디스크를 복원하고, 필수 매개 변수를 지정합니다. 
 
 ## <a name="select-a-restore-point-for-restore"></a>복원을 위해 복원 지점 선택
-1. [Azure 포털](http://portal.azure.com/)에 로그인합니다.
+1. [Azure Portal](http://portal.azure.com/)에 로그인합니다.
 
 2. Azure 메뉴에서 **찾아보기**를 선택합니다. 이 서비스 목록에서 **Recovery Services**를 입력합니다. 서비스 목록은 입력하는 항목에 조정됩니다. **Recovery Services 자격 증명 모음**이 표시되면 이를 선택합니다.
 
@@ -111,9 +111,9 @@ VM 백업에서 VM 또는 모든 디스크를 복원하는 작업은 다음과 �
 
     a. **형식을 복원**합니다. 가상 머신을 만듭니다.
 
-    b. **가상 머신 이름**. VM의 이름을 입력합니다. 이름은 리소스 그룹(Azure Resource Manager 배포 VM의 경우) 또는 클라우드 서비스(클래식 VM의 경우)에 대해 고유해야 합니다. 구독에 이미 있는 경우 VM을 교체할 수 없습니다.
+    나. **가상 머신 이름**. VM의 이름을 입력합니다. 이름은 리소스 그룹(Azure Resource Manager 배포 VM의 경우) 또는 클라우드 서비스(클래식 VM의 경우)에 대해 고유해야 합니다. 구독에 이미 있는 경우 VM을 교체할 수 없습니다.
 
-    c. **리소스 그룹**. 기존 리소스 그룹을 사용하거나 새 리소스 그룹을 만듭니다. 클래식 VM을 복원하는 경우 이 필드를 사용하여 새 클라우드 서비스의 이름을 지정합니다. 새 리소스 그룹/클라우드 서비스를 만들 경우 이름은 전역적으로 고유해야 합니다. 일반적으로 클라우드 서비스 이름은 공용 URL(예: [cloudservice].cloudapp.net)과 연결됩니다. 이미 사용되는 클라우드 리소스 그룹/클라우드 서비스에 대한 이름을 시도하면 Azure는 리소스 그룹/클라우드 서비스에 VM과 동일한 이름을 할당합니다. Azure는 선호도 그룹에 연결되지 않은 리소스 그룹/클라우드 서비스 및 VM을 표시합니다. 자세한 내용은 [선호도 그룹에서 지역 가상 네트워크로 마이그레이션하는 방법](../virtual-network/virtual-networks-migrate-to-regional-vnet.md)을 참조하세요.
+    다. **리소스 그룹**. 기존 리소스 그룹을 사용하거나 새 리소스 그룹을 만듭니다. 클래식 VM을 복원하는 경우 이 필드를 사용하여 새 클라우드 서비스의 이름을 지정합니다. 새 리소스 그룹/클라우드 서비스를 만들 경우 이름은 전역적으로 고유해야 합니다. 일반적으로 클라우드 서비스 이름은 공용 URL(예: [cloudservice].cloudapp.net)과 연결됩니다. 이미 사용되는 클라우드 리소스 그룹/클라우드 서비스에 대한 이름을 시도하면 Azure는 리소스 그룹/클라우드 서비스에 VM과 동일한 이름을 할당합니다. Azure는 선호도 그룹에 연결되지 않은 리소스 그룹/클라우드 서비스 및 VM을 표시합니다. 자세한 내용은 [선호도 그룹에서 지역 가상 네트워크로 마이그레이션하는 방법](../virtual-network/virtual-networks-migrate-to-regional-vnet.md)을 참조하세요.
 
     d. **가상 네트워크**. VM을 만들 때 가상 네트워크를 선택합니다. 이 필드는 구독과 연결된 모든 가상 네트워크를 제공합니다. VM의 리소스 그룹이 괄호 안에 표시됩니다.
 
@@ -196,7 +196,7 @@ VM 백업에서 VM 또는 모든 디스크를 복원하는 작업은 다음과 �
    ![템플릿 배포 제출](./media/backup-azure-arm-restore-vms/submitting-template.png)
 
 ## <a name="post-restore-steps"></a>복원 후 단계
-* Ubuntu와 같은 cloud-init 기반 Linux 배포를 사용하는 경우 보안상의 이유로 복원 후 암호를 차단합니다. 복원된 VM에서 VMAccess 확장을 사용하여 [암호를 재설정](../virtual-machines/linux/classic/reset-access.md)하세요. 복원 후 암호를 다시 설정하지 않으려면 이러한 배포에서 SSH 키를 사용하는 것이 좋습니다.
+* Ubuntu와 같은 cloud-init 기반 Linux 배포를 사용하는 경우 보안상의 이유로 복원 후 암호를 차단합니다. 복원된 VM에서 VMAccess 확장을 사용하여 [암호를 재설정](../virtual-machines/linux/reset-password.md)하세요. 복원 후 암호를 다시 설정하지 않으려면 이러한 배포에서 SSH 키를 사용하는 것이 좋습니다.
 * 백업 구성 중에 있는 확장을 설치하기는 하지만 사용할 수 없습니다. 문제가 있으면 확장을 다시 설치합니다. 
 * 백업 VM에 고정 IP 사후 복원이 있는 경우 복원된 VM을 만들 때 충돌을 방지하기 위해 복원된 VM는 동적 IP를 갖습니다. [복원된 VM에 고정 IP를 추가](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm)할 수 있는 방법에 대한 자세한 내용을 살펴봅니다.
 * 복원된 VM에는 가용성 값 집합이 없습니다. 복원 디스크 옵션을 사용하여 PowerShell 또는 템플릿에서 VM을 만드는 경우 복원 디스크 옵션을 사용하고 [가용성 집합을 추가](../virtual-machines/windows/tutorial-availability-sets.md)하는 것이 좋습니다. 
@@ -242,9 +242,9 @@ Azure Portal에서 또는 PowerShell을 사용하여 다른 VM과 마찬가지�
 
    a. [내부 부하 분산 장치](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/)가 있는 클라우드 서비스에서 VM을 만듭니다.
 
-   b. [인터넷 연결 부하 분산 장치](https://azure.microsoft.com/en-us/documentation/articles/load-balancer-internet-getstarted/)에 연결하는 VM을 만듭니다.
+   나. [인터넷 연결 부하 분산 장치](https://azure.microsoft.com/en-us/documentation/articles/load-balancer-internet-getstarted/)에 연결하는 VM을 만듭니다.
 
-   c. [여러 NIC](https://azure.microsoft.com/documentation/articles/virtual-networks-multiple-nics/)가 있는 VM을 만듭니다.
+   다. [여러 NIC](https://azure.microsoft.com/documentation/articles/virtual-networks-multiple-nics/)가 있는 VM을 만듭니다.
 
    d. [여러 예약된 IP](https://azure.microsoft.com/documentation/articles/virtual-networks-reserved-public-ip/)가 있는 VM을 만듭니다.
 

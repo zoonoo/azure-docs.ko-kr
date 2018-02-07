@@ -3,7 +3,7 @@ title: "Azure AD Connect: 이전 버전에서 업그레이드 | Microsoft Docs"
 description: "전체 업그레이드와 스윙 마이그레이션을 포함하여 최신 릴리스의 Azure Active Directory Connect로 업그레이드하는 여러 방법을 설명합니다."
 services: active-directory
 documentationcenter: 
-author: AndKjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 31f084d8-2b89-478c-9079-76cf92e6618f
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Identity
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: acce2e8f0c875d0211f132efab5f55d77a0def67
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4d431a9e0fab8d46b244fd40178ede594c095893
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect: 이전 버전에서 최신 버전으로 업그레이드
 이 항목에서는 Azure Active Directory(Azure AD) Connect 설치를 최신 릴리스로 업그레이드하는 데 사용할 수 있는 여러 가지 방법을 설명합니다. Azure AD Connect 릴리스를 최신 상태로 유지하는 것이 좋습니다. [스윙 마이그레이션](#swing-migration) 섹션에 설명된 단계는 상당한 구성 변경을 수행하는 경우에도 사용할 수 있습니다.
@@ -27,7 +27,7 @@ DirSync에서 업그레이드하려는 경우 대신 [Azure AD 동기화 도구(
 
 Azure AD Connect를 업그레이드하는 데 사용할 수 있는 몇 가지 전략이 있습니다.
 
-| 메서드 | 설명 |
+| 방법 | 설명 |
 | --- | --- |
 | [자동 업그레이드](active-directory-aadconnect-feature-automatic-upgrade.md) |빠른 설치를 사용하는 고객에게 가장 쉬운 방법입니다. |
 | [전체 업그레이드](#in-place-upgrade) |단일 서버가 있는 경우 동일한 서버에 설치된 항목에 대해 전체 업그레이드를 수행할 수 있습니다. |

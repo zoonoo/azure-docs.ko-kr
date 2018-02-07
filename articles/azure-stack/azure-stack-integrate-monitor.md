@@ -3,7 +3,7 @@ title: "Azure 스택와 외부 모니터링 솔루션을 통합 | Microsoft Docs
 description: "Azure 스택 외부 모니터링 솔루션 데이터 센터에 통합 하는 방법에 알아봅니다."
 services: azure-stack
 documentationcenter: 
-author: mattbriggs
+author: jeffgilb
 manager: femila
 editor: 
 ms.assetid: 856738a7-1510-442a-88a8-d316c67c757c
@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/20/2017
-ms.author: mabrigg
-ms.openlocfilehash: 76499ac959b77e83494bc4f9593c20a99da5c147
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.date: 01/31/2018
+ms.author: jeffgilb
+ms.reviewer: wfayed
+ms.openlocfilehash: a7f6d3691410711fcae692007b08977a93961845
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>Azure 스택와 외부 모니터링 솔루션을 통합
 
@@ -76,15 +77,15 @@ Nagios 엔터프라이즈 및 Nagios 코어 플러그 인 작동합니다. [여�
 
 매개 변수가 플러그 인 파일 "Azurestack_plugin.py"를 구성 합니다.
 
-| 매개 변수 | 설명 | 예제 |
+| 매개 변수 | 설명 | 예 |
 |---------|---------|---------|
 | *arm_endpoint* | Azure 리소스 관리자 (관리자) 끝점 |https://adminmanagement.local.azurestack.external |
 | *api_endpoint* | Azure 리소스 관리자 (관리자) 끝점  | https://adminmanagement.local.azurestack.external |
 | *Tenant_id* | 관리자 구독 ID | 관리자 포털 또는 PowerShell을 통해 검색 |
 | *User_name* | 연산자 구독 사용자 이름 | operator@myazuredirectory.onmicrosoft.com |
 | *User_password* | 연산자 구독 암호 | mypassword |
-| *Client_id* | 클라이언트 | 0a7bdc5c-7b57-40be-9939-d4c5fc7cd417 * |
-| *지역* |  Azure 스택 영역 이름 | local |
+| *Client_id* | 클라이언트 | 0a7bdc5c-7b57-40be-9939-d4c5fc7cd417* |
+| *region* |  Azure 스택 영역 이름 | local |
 |  |  |
 
 * PowerShell GUID 제공 되는 유니버설입니다. 각 배포에 대해 사용할 수 있습니다.
@@ -137,9 +138,9 @@ Operations Manager, Nagios, 또는 Nagios 기반 솔루션을 사용 하지 않�
 요청은 기본 공급자 구독에 대 한 모든 활성 작업과 닫힌 경고를 가져옵니다. 요청 본문이 없습니다.
 
 
-|메서드  |요청 URI  |
+|방법  |요청 URI  |
 |---------|---------|
-|GET     |   https://{armendpoint}/subscriptions/{subId}/resourceGroups/system 합니다. {RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/Alerts?api-version=2016-05-01 "      |
+|GET     |   https://{armendpoint}/subscriptions/{subId}/resourceGroups/system.{RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/Alerts?api-version=2016-05-01"      |
 |     |         |
 
 **인수**
@@ -219,30 +220,30 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 |*lastupdatedtimestamp*     |   경고 정보를 마지막으로 수정한 UTC 시간입니다.    |
 |*healthstate*     | 전체 상태입니다.        |
 |*name*     |   특정 경고의 이름입니다.      |
-|*(를)*     |    등록 된 패브릭 이름 잘못 된 구성 요소입니다.   |
+|*fabricname*     |    등록 된 패브릭 이름 잘못 된 구성 요소입니다.   |
 |*description*     |  등록 된 패브릭 구성 요소에 대 한 설명입니다.   |
 |*servicetype*     |   등록 된 패브릭 서비스의 형식입니다.   |
-|*업데이트 관리*     |   업데이트 관리 단계가 것이 좋습니다.    |
+|*remediation*     |   업데이트 관리 단계가 것이 좋습니다.    |
 |*type*     |   경고 유형입니다.    |
 |*resourceRegistrationid*    |     등록 된 리소스의 ID입니다.    |
 |*resourceProviderRegistrationID*   |    영향을 받는 구성 요소는 등록 된 리소스 공급자의 ID입니다.  |
 |*serviceregistrationid*     |    등록 된 서비스의 ID입니다.   |
-|*심각도*     |     경고 심각도입니다.  |
+|*severity*     |     경고 심각도입니다.  |
 |*state*     |    경고 상태입니다.   |
-|*제목*     |    경고 제목입니다.   |
+|*title*     |    경고 제목입니다.   |
 |*impactedresourceid*     |     영향을 받는 리소스의 ID입니다.    |
 |*ImpactedresourceDisplayName*     |     영향을 받는 리소스의 이름입니다.  |
 |*closedByUserAlias*     |   경고를 종결 하는 사용자입니다.      |
 
-### <a name="close-alert"></a>경고 종결
+### <a name="close-alert"></a>경고 닫기
 
 **요청**
 
 요청 고유 ID 하 여 경고를 닫습니다.
 
-|메서드    |요청 URI  |
+|방법    |요청 URI  |
 |---------|---------|
-|PUT     |   https://{armendpoint}/subscriptions/{subId}/resourceGroups/system 합니다. {RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/Alerts/alertid?api-version=2016-05-01 "    |
+|PUT     |   https://{armendpoint}/subscriptions/{subId}/resourceGroups/system.{RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/Alerts/alertid?api-version=2016-05-01"    |
 
 **인수**
 
@@ -252,7 +253,7 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 |*armendpoint*     |   Azure 스택 환경의 형식 https://adminmanagement에서 리소스 관리자 끝점입니다. {RegionName}입니다. {외부 FQDN}입니다. 예를 들어 외부 FQDN *azurestack.external* 지역 이름은 *로컬*, 리소스 관리자 끝점은 https://adminmanagement.local.azurestack.external 합니다.      |
 |*subid*     |    호출 하는 사용자의 구독 ID입니다. 이 API는 쿼리를 기본 공급자 구독 수 있는 권한을 가진 사용자와만 사용할 수 있습니다.     |
 |*RegionName*     |   Azure 스택 배포의 지역 이름입니다.      |
-|*api 버전*     |    이 요청에 사용 되는 프로토콜의 버전입니다. 2016-05-01을 사용 해야 합니다.     |
+|*api-version*     |    이 요청에 사용 되는 프로토콜의 버전입니다. 2016-05-01을 사용 해야 합니다.     |
 |*alertid*     |    경고의 고유 ID입니다.     |
 
 **본문**
@@ -362,17 +363,17 @@ PUT https://adminmanagement.local.azurestack.external//subscriptions/<Subscripti
 |*lastupdatedtimestamp*     |   경고 정보를 마지막으로 수정한 UTC 시간입니다.    |
 |*healthstate*     | 전체 상태입니다.        |
 |*name*     |   특정 경고의 이름입니다.      |
-|*(를)*     |    등록 된 패브릭 이름 잘못 된 구성 요소입니다.   |
+|*fabricname*     |    등록 된 패브릭 이름 잘못 된 구성 요소입니다.   |
 |*description*     |  등록 된 패브릭 구성 요소에 대 한 설명입니다.   |
 |*servicetype*     |   등록 된 패브릭 서비스의 형식입니다.   |
-|*업데이트 관리*     |   업데이트 관리 단계가 것이 좋습니다.    |
+|*remediation*     |   업데이트 관리 단계가 것이 좋습니다.    |
 |*type*     |   경고 유형입니다.    |
 |*resourceRegistrationid*    |     등록 된 리소스의 ID입니다.    |
 |*resourceProviderRegistrationID*   |    영향을 받는 구성 요소는 등록 된 리소스 공급자의 ID입니다.  |
 |*serviceregistrationid*     |    등록 된 서비스의 ID입니다.   |
-|*심각도*     |     경고 심각도입니다.  |
+|*severity*     |     경고 심각도입니다.  |
 |*state*     |    경고 상태입니다.   |
-|*제목*     |    경고 제목입니다.   |
+|*title*     |    경고 제목입니다.   |
 |*impactedresourceid*     |     영향을 받는 리소스의 ID입니다.    |
 |*ImpactedresourceDisplayName*     |     영향을 받는 리소스의 이름입니다.  |
 |*closedByUserAlias*     |   경고를 종결 하는 사용자입니다.      |
@@ -384,9 +385,9 @@ PUT https://adminmanagement.local.azurestack.external//subscriptions/<Subscripti
 요청 모든 등록 된 리소스 공급자에 대 한 상태를 가져옵니다.
 
 
-|메서드  |요청 URI  |
+|방법  |요청 URI  |
 |---------|---------|
-|GET    |   https://{armendpoint}/subscriptions/{subId}/resourceGroups/system 합니다. {RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/serviceHealths?api-version=2016-05-01 "   |
+|GET    |   https://{armendpoint}/subscriptions/{subId}/resourceGroups/system.{RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/serviceHealths?api-version=2016-05-01"   |
 
 
 **인수**
@@ -397,7 +398,7 @@ PUT https://adminmanagement.local.azurestack.external//subscriptions/<Subscripti
 |*armendpoint*     |    Azure 스택 환경의 형식 https://adminmanagement에서 리소스 관리자 끝점입니다. {RegionName}입니다. {외부 FQDN}입니다. 예를 들어 외부 FQDN은 azurestack.external 지역 이름 로컬인 경우 리소스 관리자 끝점은 https://adminmanagement.local.azurestack.external 합니다.     |
 |*subid*     |     호출 하는 사용자의 구독 ID입니다. 이 API는 쿼리를 기본 공급자 구독 수 있는 권한을 가진 사용자와만 사용할 수 있습니다.    |
 |*RegionName*     |     Azure 스택 배포의 지역 이름입니다.    |
-|*api 버전*     |   이 요청에 사용 되는 프로토콜의 버전입니다. 2016-05-01을 사용 해야 합니다.      |
+|*api-version*     |   이 요청에 사용 되는 프로토콜의 버전입니다. 2016-05-01을 사용 해야 합니다.      |
 
 
 **응답**
@@ -441,7 +442,7 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 |*태그*     |     리소스 태그입니다.    |
 |*registrationId*     |   리소스 공급자에 대 한 고유 등록 합니다.      |
 |*displayName*     |리소스 공급자 표시 이름입니다.        |
-|*네임 스페이스*     |   리소스 공급자 API 네임 스페이스를 구현합니다.       |
+|*namespace*     |   리소스 공급자 API 네임 스페이스를 구현합니다.       |
 |*routePrefix*     |    리소스 공급자와 상호 작용 하는 URI입니다.     |
 |*serviceLocation*     |   이 리소스 공급자가 등록 된 지역입니다.      |
 |*infraURI*     |   인프라 역할로 표시 하는 리소스 공급자의 URI입니다.      |
@@ -455,9 +456,9 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 
 **요청**
 
-|메서드  |요청 URI  |
+|방법  |요청 URI  |
 |---------|---------|
-|GET     |     https://{armendpoint}/subscriptions/{subId}/resourceGroups/system 합니다. {RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/serviceHealths/{RegistrationID}/resourceHealths?api-version=2016-05-01 "    |
+|GET     |     https://{armendpoint}/subscriptions/{subId}/resourceGroups/system.{RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/serviceHealths/{RegistrationID}/resourceHealths?api-version=2016-05-01"    |
 
 **인수**
 
@@ -466,7 +467,7 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 |*armendpoint*     |    Azure 스택 환경의 형식 https://adminmanagement에서 리소스 관리자 끝점입니다. {RegionName}입니다. {외부 FQDN}입니다. 예를 들어 외부 FQDN은 azurestack.external 지역 이름 로컬인 경우 리소스 관리자 끝점은 https://adminmanagement.local.azurestack.external 합니다.     |
 |*subid*     |호출 하는 사용자의 구독 ID입니다. 이 API는 쿼리를 기본 공급자 구독 수 있는 권한을 가진 사용자와만 사용할 수 있습니다.         |
 |*RegionName*     |  Azure 스택 배포의 지역 이름입니다.       |
-|*api 버전*     |  이 요청에 사용 되는 프로토콜의 버전입니다. 2016-05-01을 사용 해야 합니다.       |
+|*api-version*     |  이 요청에 사용 되는 프로토콜의 버전입니다. 2016-05-01을 사용 해야 합니다.       |
 |*RegistrationID* |특정 리소스 공급자에 대 한 등록 ID입니다. |
 
 **응답**
@@ -515,8 +516,11 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 |*resourceURI*     |   리소스에 대 한 URI입니다.   |
 |*alertSummary*     |   중요 한 요약 및 경고 알림, 상태입니다.     |
 
+## <a name="learn-more"></a>자세한 정보
+
+기본 제공 상태 모니터링에 대 한 정보를 참조 하십시오. [모니터링 상태 및 경고를 Azure 스택](azure-stack-monitor-health.md)합니다.
+
+
 ## <a name="next-steps"></a>다음 단계
 
-- 기본 제공 상태 모니터링에 대 한 정보를 참조 하십시오. [모니터링 상태 및 경고를 Azure 스택](azure-stack-monitor-health.md)합니다.
-
-
+[보안 통합](azure-stack-integrate-security.md)

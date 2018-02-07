@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: jonatul
-ms.openlocfilehash: 70a1ad070e812951fca3d2b19da12c67f0725dd0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 08f4f4aca20efad8f51ebc9ca8c6df8de8d0d4c7
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="overview-of-reverse-dns-and-support-in-azure"></a>Azure의 역방향 DNS 및 지원 개요
 

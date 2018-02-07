@@ -3,7 +3,7 @@ title: "Azure AD Connect 동기화: Azure AD Connect 동기화의 구성 변경 
 description: "Azure AD Connect 동기화의 구성을 변경하는 방법을 안내합니다."
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 7b9df836-e8a5-4228-97da-2faec9238b31
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2018
 ms.author: billmath
-ms.openlocfilehash: 1fd07d506b2edc789d71001ac520b9ebddc3e1d9
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: ed71272d2d10cd8b71fd3b2722d3ba033f1b51f9
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-how-to-make-a-change-to-the-default-configuration"></a>Azure AD Connect 동기화: 기본 구성을 변경하는 방법
 이 항목의 목적은 Azure AD Connect 동기화에서 기본 구성을 변경하는 방법을 안내하는 것입니다. 몇 가지 일반적인 시나리오를 위한 단계를 제공합니다. 이러한 지식을 바탕으로 사용자의 고유한 비즈니스 규칙에 따라 자체 구성에 대해 몇 가지 간단한 내용을 변경할 수 있습니다.
@@ -269,7 +269,7 @@ Azure AD로 의도하지 않은 변경 내용을 내보내지 않도록 동기�
 
     | 특성 | 값 | 세부 정보 |
     | --- | --- | --- |
-    | 이름 | *이름 제공* | 예: *"AD에서 인바운드 - 사용자 PreferredDataLocation"* |
+    | Name | *이름 제공* | 예: *"AD에서 인바운드 - 사용자 PreferredDataLocation"* |
     | 설명 | *사용자 지정 설명 제공* |  |
     | 연결된 시스템 | *온-프레미스 AD 커넥터 선택* |  |
     | 연결된 시스템 개체 유형 | **User** |  |
@@ -298,7 +298,7 @@ Azure AD로 의도하지 않은 변경 내용을 내보내지 않도록 동기�
 
     | 특성 | 값 | 세부 정보 |
     | ----- | ------ | --- |
-    | 이름 | *이름 제공* | 예: "AAD로 아웃바운드 - 사용자 PreferredDataLocation" |
+    | Name | *이름 제공* | 예: "AAD로 아웃바운드 - 사용자 PreferredDataLocation" |
     | 설명 | *설명 제공* ||
     | 연결된 시스템 | *AAD 커넥터 선택* ||
     | 연결된 시스템 개체 유형 | 사용자 ||
@@ -464,7 +464,7 @@ Azure AD로 의도하지 않은 변경 내용을 내보내지 않도록 동기�
 
     | 특성 | 값 | 세부 정보 |
     | --- | --- | --- |
-    | 이름 | *이름 제공* | 예, *“AD에서 인바운드 – 사용자 UserType”* |
+    | Name | *이름 제공* | 예, *“AD에서 인바운드 – 사용자 UserType”* |
     | 설명 | *설명 제공* |  |
     | 연결된 시스템 | *온-프레미스 AD 커넥터 선택* |  |
     | 연결된 시스템 개체 유형 | **User** |  |
@@ -506,7 +506,7 @@ Azure AD로 의도하지 않은 변경 내용을 내보내지 않도록 동기�
 
     | 특성 | 값 | 세부 정보 |
     | ----- | ------ | --- |
-    | 이름 | *이름 제공* | 예, “AAD로 아웃바운드 – 사용자 UserType” |
+    | Name | *이름 제공* | 예, “AAD로 아웃바운드 – 사용자 UserType” |
     | 설명 | *설명 제공* ||
     | 연결된 시스템 | *AAD 커넥터 선택* ||
     | 연결된 시스템 개체 유형 | 사용자 ||

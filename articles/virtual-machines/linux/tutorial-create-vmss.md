@@ -1,10 +1,10 @@
 ---
-title: "Azure에서 Linux용 가상 컴퓨터 확장 집합 만들기 | Microsoft Docs"
-description: "가상 컴퓨터 확장 집합을 사용하여 Linux VM에 항상 사용 가능한 응용 프로그램을 만들고 배포합니다."
+title: "Azure에서 Linux용 Virtual Machine Scale Sets 만들기 | Microsoft Docs"
+description: "가상 머신 확장 집합을 사용하여 Linux VM에 항상 사용 가능한 응용 프로그램을 만들고 배포합니다."
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: 
 ms.assetid: 
@@ -13,20 +13,20 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 09/08/2017
+ms.date: 12/15/2017
 ms.author: iainfou
-ms.openlocfilehash: 1f54bb04023ad61f4eae51389c6a902a029e9399
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8703d0c06f2507cc3c21d4280d887a8772145a28
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
-# <a name="create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-linux"></a>가상 컴퓨터 확장 집합 만들기 및 Linux에 항상 사용 가능한 앱 배포
-가상 컴퓨터 확장 집합을 사용하면 동일한 자동 크기 조정 가상 컴퓨터 집합을 배포하고 관리할 수 있습니다. 확장 집합의 VM 수를 수동으로 조정하거나 CPU와 같은 리소스 사용량, 메모리 요구량 또는 네트워크 트래픽을 기반으로 자동으로 크기를 조정하는 규칙을 정의할 수도 있습니다. 이 자습서에서는 Azure에서 가상 컴퓨터 확장 집합을 배포합니다. 다음 방법에 대해 알아봅니다.
+# <a name="create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-linux"></a>Virtual Machine Scale Set 만들기 및 Linux에 항상 사용 가능한 앱 배포
+가상 머신 확장 집합을 사용하면 동일한 자동 크기 조정 가상 머신 집합을 배포하고 관리할 수 있습니다. 확장 집합의 VM 수를 수동으로 조정하거나 CPU와 같은 리소스 사용량, 메모리 요구량 또는 네트워크 트래픽을 기반으로 자동으로 크기를 조정하는 규칙을 정의할 수도 있습니다. 이 자습서에서는 Azure에서 가상 머신 확장 집합을 배포합니다. 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * cloud-init를 사용하여 크기를 조정하는 앱 만들기
-> * 가상 컴퓨터 확장 집합 만들기
+> * 가상 머신 확장 집합 만들기
 > * 확장 집합의 인스턴스 수 증가 또는 감소
 > * 자동 크기 조정 규칙 만들기
 > * 확장 집합 인스턴스에 대한 연결 정보 보기
@@ -35,10 +35,10 @@ ms.lasthandoff: 10/11/2017
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에서 Azure CLI 버전 2.0.4 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
+CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서에서는 Azure CLI 버전 2.0.22 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
 
 ## <a name="scale-set-overview"></a>확장 집합 개요
-가상 컴퓨터 확장 집합을 사용하면 동일한 자동 크기 조정 가상 컴퓨터 집합을 배포하고 관리할 수 있습니다. 확장 집합의 VM은 하나 이상의 *배치 그룹*에서 논리 장애 도메인 및 업데이트 도메인에 분산됩니다. 이러한 항목은 비슷하게 구성된 VM의 그룹으로 [가용성 집합](tutorial-availability-sets.md)과 비슷합니다.
+가상 머신 확장 집합을 사용하면 동일한 자동 크기 조정 가상 머신 집합을 배포하고 관리할 수 있습니다. 확장 집합의 VM은 하나 이상의 *배치 그룹*에서 논리 장애 도메인 및 업데이트 도메인에 분산됩니다. 이러한 항목은 비슷하게 구성된 VM의 그룹으로 [가용성 집합](tutorial-availability-sets.md)과 비슷합니다.
 
 VM은 필요에 따라 확장 집합에 생성됩니다. 사용자는 확장 집합에서 VM이 추가되거나 제거되는 방법 및 시기를 제어하는 자동 크기 조정 규칙을 정의합니다. 이러한 규칙은 메트릭(예: CPU 부하, 메모리 사용량 또는 네트워크 트래픽)을 기반으로 트리거할 수 있습니다.
 
@@ -48,7 +48,7 @@ VM은 필요에 따라 확장 집합에 생성됩니다. 사용자는 확장 집
 ## <a name="create-an-app-to-scale"></a>크기를 조정하는 앱 만들기
 프로덕션 사용을 위해 설치되고 구성된 응용 프로그램을 포함하는 [사용자 지정 VM 이미지 만들기](tutorial-custom-images.md) 작업이 필요할 수 있습니다. 이 자습서에서는 처음 부팅 시 VM을 사용자 지정하여 확장 집합의 실제 동작을 신속하게 확인합니다.
 
-이전 자습서에서 cloud-init를 사용하여 [처음 부팅 시 Linux 가상 컴퓨터를 사용자 지정하는 방법](tutorial-automate-vm-deployment.md)을 배웠습니다. 동일한 cloud-init 구성 파일을 사용하여 NGINX를 설치하고 간단한 'Hello World' Node.js 앱을 실행할 수 있습니다. 
+이전 자습서에서 cloud-init를 사용하여 [처음 부팅 시 Linux 가상 머신을 사용자 지정하는 방법](tutorial-automate-vm-deployment.md)을 배웠습니다. 동일한 cloud-init 구성 파일을 사용하여 NGINX를 설치하고 간단한 'Hello World' Node.js 앱을 실행할 수 있습니다. 
 
 현재 셸에서 *cloud-init.txt*라는 파일을 만들고 다음 구성을 붙여 넣습니다. 예를 들어 로컬 컴퓨터에 없는 Cloud Shell에서 파일을 만듭니다. `sensible-editor cloud-init.txt`를 입력하여 파일을 만들고 사용할 수 있는 편집기의 목록을 봅니다. 전체 cloud-init 파일, 특히 첫 줄이 올바르게 복사되었는지 확인합니다.
 
@@ -102,7 +102,7 @@ runcmd:
 az group create --name myResourceGroupScaleSet --location eastus
 ```
 
-이제 [az vmss create](/cli/azure/vmss#create)를 사용하여 가상 컴퓨터 확장 집합을 만듭니다. 다음 예제에서는 *myScaleSet*이라는 확장 집합을 만들고, cloud-init 파일을 사용하여 VM을 사용자 지정하고, SSH 키가 없는 경우 SSH 키를 생성합니다.
+이제 [az vmss create](/cli/azure/vmss#create)를 사용하여 가상 머신 확장 집합을 만듭니다. 다음 예제에서는 *myScaleSet*이라는 확장 집합을 만들고, cloud-init 파일을 사용하여 VM을 사용자 지정하고, SSH 키가 없는 경우 SSH 키를 생성합니다.
 
 ```azurecli-interactive 
 az vmss create \
@@ -119,7 +119,7 @@ az vmss create \
 
 
 ## <a name="allow-web-traffic"></a>웹 트래픽 허용
-부하 분산 장치는 가상 컴퓨터 확장 집합의 일부로 자동으로 생성되었습니다. 부하 분산 장치는 부하 분산 장치 규칙을 사용하여 정의된 VM 집합 전역에 트래픽을 분산시킵니다. 다음 자습서 [Azure에서 Virtual Machines의 부하를 분산하는 방법](tutorial-load-balancer.md)에서 부하 분산 장치 개념 및 구성에 대해 자세히 알아볼 수 있습니다.
+부하 분산 장치는 가상 머신 확장 집합의 일부로 자동으로 생성되었습니다. 부하 분산 장치는 부하 분산 장치 규칙을 사용하여 정의된 VM 집합 전역에 트래픽을 분산시킵니다. 다음 자습서 [Azure에서 Virtual Machines의 부하를 분산하는 방법](tutorial-load-balancer.md)에서 부하 분산 장치 개념 및 구성에 대해 자세히 알아볼 수 있습니다.
 
 트래픽이 Web App에 도달하도록 허용하려면 [az network lb rule create](/cli/azure/network/lb/rule#create)를 사용하여 규칙을 만듭니다. 다음 예제는 *myLoadBalancerRuleWeb*이라는 규칙을 만듭니다.
 
@@ -187,13 +187,13 @@ az vmss show \
     --output table
 ```
 
-그런 다음[az vmss scale](/cli/azure/vmss#scale)을 사용하여 확장 집합의 Virtual Machines 수를 수동으로 증가 또는 감소시킬 수 있습니다. 다음 예제는 확장 집합의 VM 수를 *5*로 설정합니다.
+그런 다음[az vmss scale](/cli/azure/vmss#scale)을 사용하여 확장 집합의 Virtual Machines 수를 수동으로 증가 또는 감소시킬 수 있습니다. 다음 예제는 확장 집합의 VM 수를 *3*으로 설정합니다.
 
 ```azurecli-interactive 
 az vmss scale \
     --resource-group myResourceGroupScaleSet \
     --name myScaleSet \
-    --new-capacity 5
+    --new-capacity 3
 ```
 
 
@@ -323,11 +323,11 @@ az vmss disk detach \
 
 
 ## <a name="next-steps"></a>다음 단계
-이 자습서에서는 가상 컴퓨터 확장 집합을 만들었습니다. 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 가상 머신 확장 집합을 만들었습니다. 다음 방법에 대해 알아보았습니다.
 
 > [!div class="checklist"]
 > * cloud-init를 사용하여 크기를 조정하는 앱 만들기
-> * 가상 컴퓨터 확장 집합 만들기
+> * 가상 머신 확장 집합 만들기
 > * 확장 집합의 인스턴스 수 증가 또는 감소
 > * 자동 크기 조정 규칙 만들기
 > * 확장 집합 인스턴스에 대한 연결 정보 보기

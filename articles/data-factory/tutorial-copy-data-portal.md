@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 7486e7c6816538fc120fd0b0a8bea0b006fb21f0
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 424a5ec49018e969edbf90c374a9da7e1d22395d
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Blob에서 Azure SQL Database로 데이터 복사
 이 자습서에서는 Azure Data Factory UI(사용자 인터페이스)를 사용하여 데이터 팩터리를 만듭니다. 데이터 팩터리의 파이프라인은 Azure Blob Storage에서 Azure SQL Database로 데이터를 복사합니다. 이 자습서의 구성 패턴은 파일 기반 데이터 저장소에서 관계형 데이터 저장소로 복사하는 데 적용됩니다. 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 표를 참조하세요.
@@ -415,4 +415,4 @@ VSTS 코드 리포지토리를 사용하지 않으려면 이 단계를 건너뛰
 온-프레미스에서 클라우드로 데이터를 복사하는 방법을 알아보려면 다음 자습서로 진행하세요. 
 
 > [!div class="nextstepaction"]
->[온-프레미스에서 클라우드로 데이터 복사](tutorial-hybrid-copy-data-tool.md)
+>[온-프레미스에서 클라우드로 데이터 복사](tutorial-hybrid-copy-portal.md)

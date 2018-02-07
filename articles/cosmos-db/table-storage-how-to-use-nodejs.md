@@ -8,17 +8,17 @@ manager: jhubbard
 editor: tysonn
 ms.assetid: fc2e33d2-c5da-4861-8503-53fdc25750de
 ms.service: cosmos-db
-ms.workload: storage
+ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: mimig
-ms.openlocfilehash: 03cd5088b55e37b2ada78e0f531702705d45a4c0
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 0b412be8b93e1f871c09b7a4452141ac334d53ae
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="how-to-use-azure-table-storage-from-nodejs"></a>Node.js에서 Azure 테이블 저장소를 사용하는 방법
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -189,7 +189,7 @@ tableSvc.replaceEntity('mytable', updatedTask, function(error, result, response)
 > 기본적으로는 엔터티를 업데이트할 때 업데이트할 데이터를 다른 프로세서에서 이전에 수정했는지 확인하지 않습니다. 동시 업데이트를 지원하려면:
 >
 > 1. 업데이트할 개체의 ETag를 가져옵니다. 모든 엔터티 관련 작업에서의 `response`의 일부로 반환되며 `response['.metadata'].etag`를 통해 검색할 수 있습니다.
-> 2. 엔터티에서 업데이트 작업을 수행할 때 이전에 검색한 ETag 정보를 새 엔터티에 추가합니다. 예:
+> 2. 엔터티에서 업데이트 작업을 수행할 때 이전에 검색한 ETag 정보를 새 엔터티에 추가합니다. 예: 
 >
 >       entity2['.metadata'].etag = currentEtag;
 > 3. 업데이트 작업을 수행합니다. ETag 값을 검색한 후에 응용 프로그램의 다른 인스턴스 등에서 엔터티가 수정된 경우에는 요청에 지정된 업데이트 조건이 충족되지 않았다는 내용의 `error` 가 반환됩니다.
