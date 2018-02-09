@@ -1,10 +1,10 @@
 ---
-title: "Azure Network Watcher를 사용하여 연결 확인 - Azure Portal | Microsoft Docs"
-description: "이 페이지에서는 Azure Portal에서 Network Watcher를 사용하여 연결을 확인하는 방법을 설명합니다."
+title: "Azure Network Watcher로 연결 문제 해결 - Azure REST API | Microsoft Docs"
+description: "Azure REST API를 사용하여 Azure Network Watcher의 연결 문제 해결 기능을 사용하는 방법을 알아봅니다."
 services: network-watcher
 documentationcenter: na
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.service: network-watcher
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/02/2017
 ms.author: jdial
-ms.openlocfilehash: 271d3fa858e9178bef37a7d7c859557b29af3c75
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: fc0392e8a6bc8662c7b664710b7073ae09c49a7c
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="check-connectivity-with-azure-network-watcher-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Network Watcher를 통해 연결 확인
+# <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-rest-api"></a>Azure REST API를 사용하여 Azure Network Watcher로 연결 문제 해결
 
 > [!div class="op_single_selector"]
 > - [포털](network-watcher-connectivity-portal.md)
@@ -27,22 +27,17 @@ ms.lasthandoff: 01/19/2018
 > - [CLI 2.0](network-watcher-connectivity-cli.md)
 > - [Azure REST API](network-watcher-connectivity-rest.md)
 
-연결을 사용하여 가상 머신에서 지정된 끝점으로의 직접 TCP 연결을 설정할 수 있는지를 확인하는 방법을 알아봅니다.
+연결 문제 해결을 사용하여 가상 머신에서 지정된 엔드포인트로 직접 TCP 연결을 설정하는 방법을 알아봅니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
 이 문서에서는 사용자에게 다음 리소스가 있는 것으로 가정합니다.
 
-* 연결을 확인하려는 영역의 Network Watcher 인스턴스
-
-* 연결을 확인하는 데 사용할 가상 머신
-
-PowerShell을 사용하여 REST API를 호출하는 데 ARMclient가 사용됩니다. ARMClient는 [Chocolatey의 ARMClient](https://chocolatey.org/packages/ARMClient)에서 chocolatey에 있습니다.
-
-이 시나리오에서는 사용자가 Network Watcher를 만드는 [Network Watcher 만들기](network-watcher-create.md)의 단계를 이미 수행했다고 가정합니다.
+* 연결 문제를 해결하려는 지역의 Network Watcher 인스턴스
+* 연결 문제를 해결할 가상 머신
 
 > [!IMPORTANT]
-> 연결 확인에는 가상 머신 확장 `AzureNetworkWatcherExtension`이 필요합니다. Windows VM에서 확장을 설치하려면 [Windows용 Azure Network Watcher 에이전트 가상 머신 확장](../virtual-machines/windows/extensions-nwa.md)을 방문하고 Linux VM인 경우 [Linux용 Azure Network Watcher 에이전트 가상 머신 확장](../virtual-machines/linux/extensions-nwa.md)을 방문하세요.
+> 연결 문제 해결에는 `AzureNetworkWatcherExtension`이라는 가상 머신 확장이 필요합니다. Windows VM에서 확장을 설치하려면 [Windows용 Azure Network Watcher 에이전트 가상 머신 확장](../virtual-machines/windows/extensions-nwa.md)을 방문하고 Linux VM인 경우 [Linux용 Azure Network Watcher 에이전트 가상 머신 확장](../virtual-machines/linux/extensions-nwa.md)을 방문하세요.
 
 ## <a name="log-in-with-armclient"></a>ARMClient에 로그인
 
@@ -473,9 +468,7 @@ null
 
 [경고로 트리거된 패킷 캡처 만들기](network-watcher-alert-triggered-packet-capture.md)를 확인하여 가상 머신 경고로 패킷 캡처를 자동화하는 방법을 알아봅니다.
 
-[IP 흐름 확인 확인](network-watcher-check-ip-flow-verify-portal.md)을 방문하여 특정 트래픽이 VM에서 허용되는지 알아봅니다.
-
-<!-- Image references -->
+[IP 흐름 확인 검사](network-watcher-check-ip-flow-verify-portal.md)를 방문하여 VM에서 또는 VM으로 특정 트래픽 전송이 허용되는지 알아봅니다.
 
 
 

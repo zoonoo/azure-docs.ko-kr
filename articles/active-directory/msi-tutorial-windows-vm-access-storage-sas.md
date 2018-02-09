@@ -3,33 +3,33 @@ title: "Windows VM MSI를 사용하여 SAS 자격 증명을 통해 Azure Storage
 description: "Windows VM MSI(관리 서비스 ID)를 사용하여 저장소 계정 액세스 키 대신 SAS 자격 증명으로 Azure Storage에 액세스하는 방법을 보여 주는 자습서입니다."
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: daveba
 manager: mtillman
-editor: bryanla
+editor: daveba
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
-ms.author: bryanla
-ms.openlocfilehash: fbe46b952b72d3379ba3eb0ff8c84b9d036752e3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: daveba
+ms.openlocfilehash: 0986c4470c233a21a88624f0affedb5986d86589
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-to-access-azure-storage-via-a-sas-credential"></a>Windows VM 관리 서비스 ID를 사용하여 SAS 자격 증명을 통해 Azure Storage에 액세스
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
 
-이 자습서에서는 Windows 가상 컴퓨터에 대해 MSI(관리 서비스 ID)를 사용하도록 설정한 다음 MSI를 사용하여 SAS(공유 액세스 서명) 자격 증명을 획득하는 방법을 보여 줍니다. 특히 [서비스 SAS 자격 증명](/azure/storage/common/storage-dotnet-shared-access-signature-part-1?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-shared-access-signatures)에 대한 내용을 다룹니다. 
+이 자습서에서는 Windows Virtual Machine에 대해 MSI(관리 서비스 ID)를 사용하도록 설정한 다음 MSI를 사용하여 SAS(공유 액세스 서명) 자격 증명을 획득하는 방법을 보여 줍니다. 특히 [서비스 SAS 자격 증명](/azure/storage/common/storage-dotnet-shared-access-signature-part-1?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-shared-access-signatures)에 대한 내용을 다룹니다. 
 
 서비스 SAS는 계정 액세스 키를 노출하지 않고 제한된 시간 동안 특정 서비스(이 경우 Blob service)에 대해 저장소 계정의 개체에 대해 제한된 액세스 권한을 부여하는 기능을 제공합니다. Storage SDK를 사용하는 등의 Storage 작업을 수행할 때 일반적인 방식으로 SAS 자격 증명을 사용할 수 있습니다. 이 자습서에서는 Azure Storage PowerShell을 사용하여 Blob을 업로드 및 다운로드하는 과정을 보여 줍니다. 다음 방법을 알게 됩니다.
 
 
 > [!div class="checklist"]
-> * Windows 가상 컴퓨터에서 MSI를 사용하도록 설정 
+> * Windows Virtual Machine에서 MSI를 사용하도록 설정 
 > * Resource Manager의 저장소 계정 SAS에 대한 VM 액세스 권한 부여 
 > * VM ID를 사용하여 액세스 토큰을 가져오고 리소스 관리자에서 SAS를 검색하는 데 사용 
 
@@ -43,24 +43,24 @@ ms.lasthandoff: 12/11/2017
 
 [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
 
-## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>새 리소스 그룹에 Windows 가상 컴퓨터 만들기
+## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>새 리소스 그룹에 Windows 가상 머신 만들기
 
 이 자습서에서는 새 Windows VM을 만듭니다. 기존 VM에서 MSI를 사용하도록 설정할 수도 있습니다.
 
 1.  Azure Portal의 왼쪽 위에 있는 **+/새 서비스 만들기** 단추를 클릭합니다.
 2.  **Compute**를 선택한 후 **Windows Server 2016 Datacenter**를 선택합니다. 
-3.  가상 컴퓨터 정보를 입력합니다. 여기서 만드는 **사용자 이름** 및 **암호**는 가상 컴퓨터에 로그인하는 데 사용하는 자격 증명입니다.
-4.  드롭다운에서 가상 컴퓨터의 적절한 **구독**을 선택합니다.
-5.  가상 컴퓨터를 만들 새 **리소스 그룹**을 선택하려면 **새로 만들기**를 선택합니다. 완료되면 **확인**을 클릭합니다.
+3.  가상 머신 정보를 입력합니다. 여기서 만드는 **사용자 이름** 및 **암호**는 가상 머신에 로그인하는 데 사용하는 자격 증명입니다.
+4.  드롭다운에서 가상 머신의 적절한 **구독**을 선택합니다.
+5.  가상 머신을 만들 새 **리소스 그룹**을 선택하려면 **새로 만들기**를 선택합니다. 완료되면 **확인**을 클릭합니다.
 6.  VM의 크기를 선택합니다. 더 많은 크기를 보려면 **모두 보기**를 선택하거나 **지원되는 디스크 형식** 필터를 변경합니다. 설정 블레이드에서 기본값을 그대로 유지하고 **확인**을 클릭합니다.
 
     ![대체 이미지 텍스트](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
 ## <a name="enable-msi-on-your-vm"></a>VM에서 MSI를 사용하도록 설정
 
-가상 컴퓨터 MSI를 사용하면 코드에 자격 증명을 포함하지 않고도 Azure AD에서 액세스 토큰을 가져올 수 있습니다. MSI를 사용하도록 설정하는 경우 내부적으로는 두 가지 작업이 수행됩니다. 즉, VM에 MSI VM 확장이 설치되고 가상 컴퓨터에 대해 MSI가 사용하도록 설정됩니다.  
+Virtual Machine MSI를 사용하면 코드에 자격 증명을 포함하지 않고도 Azure AD에서 액세스 토큰을 가져올 수 있습니다. MSI를 사용하도록 설정하는 경우 내부적으로는 두 가지 작업이 수행됩니다. 즉, VM에 MSI VM 확장이 설치되고 Virtual Machine에 대해 MSI가 사용하도록 설정됩니다.  
 
-1. 새 가상 컴퓨터의 리소스 그룹을 찾고 이전 단계에서 만든 가상 컴퓨터를 선택합니다.
+1. 새 가상 머신의 리소스 그룹을 찾고 이전 단계에서 만든 가상 머신을 선택합니다.
 2. 왼쪽 패널에 있는 VM “설정”에서 **구성**을 클릭합니다.
 3. MSI를 등록하고 사용하도록 설정하려면 **예**를 선택하고, 사용하지 않도록 설정하려면 아니요를 선택합니다.
 4. **저장**을 클릭하여 구성을 저장합니다.
@@ -103,9 +103,9 @@ Azure Storage는 Azure AD 인증을 기본적으로 지원하지 않습니다.  
 2. 왼쪽 패널의 **액세스 제어(IAM)** 링크를 클릭합니다.  
 3. 페이지 위쪽에 있는 **+ 추가**를 클릭하여 VM에 대한 새 역할 할당을 추가합니다.
 4. 페이지 오른쪽에서 **역할**을 "저장소 계정 참가자"로 설정합니다.  
-5. 다음 드롭다운에서 **다음에 대한 액세스 할당**을 “가상 컴퓨터” 리소스로 설정합니다.  
+5. 다음 드롭다운에서 **다음에 대한 액세스 할당**을 “Virtual Machine” 리소스로 설정합니다.  
 6. 다음으로 적절한 구독이 **구독** 드롭다운에 나열되는지 확인하고 **리소스 그룹**을 "모든 리소스 그룹"으로 설정합니다.  
-7. 마지막으로 **선택** 드롭다운에서 Windows 가상 컴퓨터를 선택하고 **저장**을 클릭합니다. 
+7. 마지막으로 **선택** 드롭다운에서 Windows Virtual Machine을 선택하고 **저장**을 클릭합니다. 
 
     ![대체 이미지 텍스트](media/msi-tutorial-linux-vm-access-storage/msi-storage-role-sas.png)
 
@@ -115,9 +115,9 @@ Azure Storage는 Azure AD 인증을 기본적으로 지원하지 않습니다.  
 
 이 부분에서는 Azure Resource Manager PowerShell cmdlet을 사용해야 합니다.  설치하지 않은 경우 계속하기 전에 [최신 버전을 다운로드](https://docs.microsoft.com/powershell/azure/overview)합니다.
 
-1. Azure Portal에서 **Virtual Machines**, Windows 가상 컴퓨터로 이동한 후 **개요** 페이지 위쪽의 **연결**을 클릭합니다.
+1. Azure Portal에서 **Virtual Machines**, Windows 가상 머신으로 이동한 후 **개요** 페이지 위쪽의 **연결**을 클릭합니다.
 2. Windows VM을 만들 때 추가한 **사용자 이름**과 **암호**를 입력합니다. 
-3. 이제 가상 컴퓨터에 대한 **원격 데스크톱 연결**을 만들었으므로 원격 세션에서 PowerShell을 엽니다. 
+3. 이제 가상 머신에 대한 **원격 데스크톱 연결**을 만들었으므로 원격 세션에서 PowerShell을 엽니다. 
 4. Powershell의 Invoke-WebRequest를 사용하여 로컬 MSI 끝점에 대한 요청을 수행해 Azure Resource Manager용 액세스 토큰을 가져옵니다.
 
     ```powershell

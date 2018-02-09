@@ -4,19 +4,19 @@ description: "PostgreSQL 데이터베이스에 연결하여 Azure에서 Docker P
 services: app-service\web
 documentationcenter: python
 author: berndverst
-manager: erikre
+manager: cfowler
 ms.service: app-service-web
 ms.workload: web
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 11/29/2017
-ms.author: beverst
+ms.date: 01/28/2018
+ms.author: beverst;cephalin
 ms.custom: mvc
-ms.openlocfilehash: 0bd4f390e4507fccd1ca564c48c0f321412e229d
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 01320b93920ae04c72ed80f6a6090232c673f228
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="build-a-docker-python-and-postgresql-web-app-in-azure"></a>Azure에서 Docker Python 및 PostgreSQL 웹앱 빌드
 
@@ -24,8 +24,19 @@ Web App for Containers는 확장성이 높은 자체 패치 웹 호스팅 서비
 
 ![Linux의 App Service의 Docker Python Flask 앱](./media/tutorial-docker-python-postgresql-app/docker-flask-in-azure.png)
 
+이 자습서에서는 다음 방법에 대해 알아봅니다.
+
+> [!div class="checklist"]
+> * Azure에서 PostgreSQL 데이터베이스 만들기
+> * MySQL에 Python 앱 연결
+> * Azure에 앱 배포
+> * 데이터 모델 업데이트 및 앱 다시 배포
+> * Azure Portal에서 앱 관리
+
 macOS에서 다음 단계를 수행하면 됩니다. Linux와 Windows의 지침은 대부분 동일하지만, 차이점은 이 자습서에서 자세히 설명하지 않습니다.
  
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
 ## <a name="prerequisites"></a>필수 조건
 
 이 자습서를 완료하려면 다음이 필요합니다.
@@ -35,18 +46,12 @@ macOS에서 다음 단계를 수행하면 됩니다. Linux와 Windows의 지침�
 1. [PostgreSQL 설치 및 실행](https://www.postgresql.org/download/)
 1. [Docker Community Edition 설치](https://www.docker.com/community-edition)
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-CLI를 로컬로 설치하여 사용하도록 선택하는 경우 이 문서에서 Azure CLI 버전 2.0 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
-
 ## <a name="test-local-postgresql-installation-and-create-a-database"></a>로컬 PostgreSQL 설치 테스트 및 데이터베이스 만들기
 
-터미널 창을 열고 `psql postgres`를 실행하여 로컬 PostgreSQL 서버에 연결합니다.
+터미널 창을 열고 `psql`를 실행하여 로컬 PostgreSQL 서버에 연결합니다.
 
 ```bash
-psql postgres
+sudo -u postgres psql
 ```
 
 연결이 성공하면 PostgreSQL 데이터베이스가 실행되고 있습니다. 연결이 실패하면 [Downloads - PostgreSQL Core Distribution](https://www.postgresql.org/download/)의 단계를 수행하여 로컬 PostgresQL 데이터베이스가 시작되도록 합니다.
@@ -58,7 +63,7 @@ CREATE DATABASE eventregistration;
 CREATE USER manager WITH PASSWORD 'supersecretpass';
 GRANT ALL PRIVILEGES ON DATABASE eventregistration TO manager;
 ```
-*\q*를 입력하여 PostgreSQL 클라이언트를 종료합니다. 
+`\q`를 입력하여 PostgreSQL 클라이언트를 종료합니다. 
 
 <a name="step2"></a>
 
@@ -107,7 +112,7 @@ INFO  [alembic.runtime.migration] Running upgrade  -> 791cd7d80402, empty messag
  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
 ```
 
-브라우저에서 `http://127.0.0.1:5000`으로 이동합니다. **Register!**를 클릭하고 테스트 사용자를 만듭니다.
+브라우저에서 `http://localhost:5000`으로 이동합니다. **Register!**를 클릭하고 테스트 사용자를 만듭니다.
 
 ![로컬로 Python Flask 응용 프로그램 실행](./media/tutorial-docker-python-postgresql-app/local-app.png)
 
@@ -115,40 +120,26 @@ Flask 샘플 응용 프로그램은 데이터베이스에 사용자 데이터를
 
 언제든지 Flask 서버를 중지하려면 터미널에서 Ctrl+C를 입력합니다. 
 
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
 ## <a name="create-a-production-postgresql-database"></a>프로덕션 PostgreSQL 데이터베이스 만들기
 
 이 단계에서는 Azure에 PostgreSQL 데이터베이스를 만듭니다. Azure에 앱을 배포하면 이 클라우드 데이터베이스가 사용됩니다.
 
-### <a name="log-in-to-azure"></a>Azure에 로그인
-
-이제 Azure CLI 2.0을 사용하여 Web App for Containers에서 Python 응용 프로그램을 호스트하는 데 필요한 리소스를 만들려고 합니다.  [az login](/cli/azure/?view=azure-cli-latest#az_login) 명령으로 Azure 구독에 로그인하고 화면의 지시를 따릅니다.
-
-```azurecli
-az login
-```
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ### <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-[az group create](/cli/azure/group?view=azure-cli-latest#az_group_create)를 사용하여 [리소스 그룹](../../azure-resource-manager/resource-group-overview.md)을 만듭니다.
-
-[!INCLUDE [Resource group intro](../../../includes/resource-group.md)]
-
-다음 예제에서는 미국 서부 지역의 리소스 그룹을 만듭니다.
-
-```azurecli-interactive
-az group create --name myResourceGroup --location "West US"
-```
-
-[az appservice list-locations](/cli/azure/appservice?view=azure-cli-latest#az_appservice_list_locations) Azure CLI 명령을 사용하여 사용할 수 있는 위치를 나열합니다.
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-no-h.md)] 
 
 ### <a name="create-an-azure-database-for-postgresql-server"></a>PostgreSQL용 Azure Database 서버 만들기
 
-[az postgres server create](/cli/azure/postgres/server?view=azure-cli-latest#az_postgres_server_create) 명령으로 PostgreSQL 서버를 만듭니다.
+[`az postgres server create`](/cli/azure/postgres/server?view=azure-cli-latest#az_postgres_server_create) 명령을 사용하여 PostgreSQL 서버를 만듭니다.
 
 다음 명령에서 *\<postgresql_name>* 자리 표시자를 대신하여 고유한 서버 이름으로, *\<admin_username>* 자리 표시자를 대신하여 사용자 이름으로 바꿉니다. 서버 이름은 PostgreSQL 끝점(`https://<postgresql_name>.postgres.database.azure.com`)의 일부로 사용되므로 이름은 Azure의 모든 서버에서 고유해야 합니다. 사용자 이름은 초기 데이터베이스 관리 사용자 계정에 대한 이름입니다. 이 사용자의 암호를 선택하라는 메시지가 표시됩니다.
 
 ```azurecli-interactive
-az postgres server create --resource-group myResourceGroup --name <postgresql_name> --admin-user <admin_username>
+az postgres server create --resource-group myResourceGroup --name <postgresql_name> --admin-user <admin_username>  --storage-size 51200
 ```
 
 PostgreSQL용 Azure 데이터베이스 서버를 만들면 Azure CLI는 다음 예제와 비슷한 정보를 표시합니다.
@@ -220,7 +211,7 @@ CREATE USER manager WITH PASSWORD 'supersecretpass';
 GRANT ALL PRIVILEGES ON DATABASE eventregistration TO manager;
 ```
 
-*\q*를 입력하여 PostgreSQL 클라이언트를 종료합니다.
+`\q`를 입력하여 PostgreSQL 클라이언트를 종료합니다.
 
 ### <a name="test-the-application-locally-against-the-azure-postgresql-database"></a>Azure PostgreSQL 데이터베이스에 대해 로컬로 응용 프로그램 테스트
 
@@ -241,7 +232,7 @@ INFO  [alembic.runtime.migration] Running upgrade  -> 791cd7d80402, empty messag
  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
 ```
 
-브라우저에서 http://127.0.0.1:5000 으로 이동합니다. **Register!**를 클릭하고 테스트 등록을 만듭니다. 이제 Azure에서 데이터베이스에 데이터를 쓰고 있습니다.
+브라우저에서 http://localhost:5000으로 이동합니다. **Register!**를 클릭하고 테스트 등록을 만듭니다. 이제 Azure에서 데이터베이스에 데이터를 쓰고 있습니다.
 
 ![로컬로 Python Flask 응용 프로그램 실행](./media/tutorial-docker-python-postgresql-app/local-app.png)
 
@@ -260,13 +251,13 @@ Docker는 컨테이너를 성공적으로 만들었다는 확인을 표시합니
 Successfully built 7548f983a36b
 ```
 
-*db.env* 환경 변수 파일에 데이터베이스 환경 변수를 추가합니다. 앱이 Azure Database for PostgreSQL 프로덕션 데이터베이스에 연결합니다.
+리포지토리 루트에서 _db.env_라는 환경 변수 파일을 추가한 후 다음과 같은 데이터베이스 환경 변수를 추가합니다. 앱이 Azure Database for PostgreSQL 프로덕션 데이터베이스에 연결합니다.
 
 ```text
-DBHOST="<postgresql_name>.postgres.database.azure.com"
-DBUSER="manager@<postgresql_name>"
-DBNAME="eventregistration"
-DBPASS="supersecretpass"
+DBHOST=<postgresql_name>.postgres.database.azure.com
+DBUSER=manager@<postgresql_name>
+DBNAME=eventregistration
+DBPASS=supersecretpass
 ```
 
 Docker 컨테이너 내에서 앱을 실행합니다. 다음 명령은 환경 변수 파일을 지정하고 5000 기본 Flask 포트를 5000 로컬 포트에 매핑합니다.
@@ -352,8 +343,15 @@ az acr credential show -n <registry_name>
 
 ### <a name="upload-your-docker-container-to-azure-container-registry"></a>Docker 컨테이너를 Azure Container Registry로 업로드
 
+레지스트리에 로그인합니다. 메시지가 표시되면 방금 전에 표시된 암호를 입력합니다.
+
 ```bash
-docker login <registry_name>.azurecr.io -u <registry_name> -p "<registry_password>"
+docker login <registry_name>.azurecr.io -u <registry_name>
+```
+
+Docker 이미지를 레지스트리에 밀어넣습니다.
+
+```bash
 docker tag flask-postgresql-sample <registry_name>.azurecr.io/flask-postgresql-sample
 docker push <registry_name>.azurecr.io/flask-postgresql-sample
 ```
@@ -364,64 +362,18 @@ docker push <registry_name>.azurecr.io/flask-postgresql-sample
 
 ### <a name="create-an-app-service-plan"></a>App Service 계획 만들기
 
-[az appservice plan create](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) 명령으로 App Service 계획을 만듭니다.
-
-[!INCLUDE [app-service-plan](../../../includes/app-service-plan-linux.md)]
-
-다음 예제에서는 S1 가격 책정 계층을 사용하여 *myAppServicePlan*이라는 Linux 기반 App Service 계획을 만듭니다.
-
-```azurecli-interactive
-az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku S1 --is-linux
-```
-
-App Service 계획을 만들면 Azure CLI는 다음 예와 비슷한 정보를 표시합니다.
-
-```json
-{
-  "adminSiteName": null,
-  "appServicePlanName": "myAppServicePlan",
-  "geoRegion": "West US",
-  "hostingEnvironmentProfile": null,
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/myAppServicePlan", 
-  "kind": "linux",
-  "location": "West US",
-  "maximumNumberOfWorkers": 10,
-  "name": "myAppServicePlan",
-  "numberOfSites": 0,
-  "perSiteScaling": false,
-  "provisioningState": "Succeeded",
-  "reserved": true,
-  "resourceGroup": "myResourceGroup",
-  "sku": {
-    "capabilities": null,
-    "capacity": 1,
-    "family": "S",
-    "locations": null,
-    "name": "S1",
-    "size": "S1",
-    "skuCapacity": null,
-    "tier": "Standard"
-  },
-  "status": "Ready",
-  "subscription": "00000000-0000-0000-0000-000000000000",
-  "tags": null,
-  "targetWorkerCount": 0,
-  "targetWorkerSizeId": 0,
-  "type": "Microsoft.Web/serverfarms",
-  "workerTierName": null
-}
-```
+[!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux-no-h.md)]
 
 ### <a name="create-a-web-app"></a>웹앱 만들기
 
-[az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) 명령을 사용하여 *myAppServicePlan* App Service 계획에 웹앱을 만듭니다.
+[`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) 명령을 사용하여 *myAppServicePlan* App Service 계획에 웹앱을 만듭니다.
 
 웹앱은 코드를 배포할 호스팅 공간을 제공하고, 배포된 응용 프로그램을 확인할 수 있도록 URL도 제공합니다. 웹앱을 만드는 데 사용합니다.
 
 다음 명령에서 *\<app_name>* 자리 표시자를 고유한 앱 이름으로 바꿉니다. 이 이름은 웹앱에 대한 URL의 일부이므로 Azure App Service의 모든 앱에서 고유해야 합니다.
 
 ```azurecli
-az webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan
+az webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan --deployment-container-image-name "<registry_name>.azurecr.io/flask-postgresql-sample"
 ```
 
 웹앱을 만들었으면 Azure CLI는 다음 예와 비슷한 정보를 표시합니다.
@@ -445,7 +397,7 @@ az webapp create --name <app_name> --resource-group myResourceGroup --plan myApp
 
 자습서의 앞부분에서 환경 변수를 정의하여 PostgreSQL 데이터베이스에 연결했습니다.
 
-App Service에서 [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) 명령을 사용하여 환경 변수를 _앱 설정_으로 설정합니다.
+App Service에서 [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) 명령을 사용하여 환경 변수를 _앱 설정_으로 설정합니다.
 
 다음 예제에서는 데이터베이스 연결 세부 정보를 앱 설정으로 지정합니다. 또한 *PORT* 변수를 통해 Docker 컨테이너에서 PORT 5000을 매핑하여 PORT 80에서 HTTP 트래픽을 수신합니다.
 
@@ -458,7 +410,7 @@ az webapp config appsettings set --name <app_name> --resource-group myResourceGr
 AppService는 Docker 컨테이너를 자동으로 다운로드하여 실행할 수 있습니다.
 
 ```azurecli
-az webapp config container set --resource-group myResourceGroup --name <app_name> --docker-registry-server-user "<registry_name>" --docker-registry-server-password "<registry_password>" --docker-custom-image-name "<registry_name>.azurecr.io/flask-postgresql-sample" --docker-registry-server-url "https://<registry_name>.azurecr.io"
+az webapp config container set --resource-group myResourceGroup --name <app_name> --docker-registry-server-user "<registry_name>" --docker-registry-server-password "<registry_password>" --docker-registry-server-url "https://<registry_name>.azurecr.io"
 ```
 
 Docker 컨테이너를 업데이트하거나 설정을 변경할 때마다 앱을 다시 시작합니다. 다시 시작하면 모든 설정이 적용되고 레지스트리에서 최신 컨테이너를 가져옵니다.
@@ -503,7 +455,6 @@ git diff 0.1-initialapp 0.2-migration
 
 다음 명령을 통해 Flask 서버를 로컬로 실행하여 로컬에서 변경 내용을 테스트합니다.
 
-Mac / Linux:
 ```bash
 source venv/bin/activate
 cd app
@@ -511,7 +462,7 @@ FLASK_APP=app.py DBHOST="localhost" DBUSER="manager" DBNAME="eventregistration" 
 FLASK_APP=app.py DBHOST="localhost" DBUSER="manager" DBNAME="eventregistration" DBPASS="supersecretpass" flask run
 ```
 
-브라우저에서 http://127.0.0.1:5000 으로 이동하여 변경 내용을 확인합니다. 테스트 등록을 만듭니다.
+브라우저에서 http://localhost:5000으로 이동하여 변경 내용을 확인합니다. 테스트 등록을 만듭니다.
 
 ![로컬로 실행되는 Docker 컨테이너 기반 Python Flask 응용 프로그램](./media/tutorial-docker-python-postgresql-app/local-app-v2.png)
 
@@ -520,6 +471,7 @@ FLASK_APP=app.py DBHOST="localhost" DBUSER="manager" DBNAME="eventregistration" 
 새 docker 이미지를 빌드하고 컨테이너 레지스트리에 밀어 넣은 후 앱을 다시 시작합니다.
 
 ```bash
+cd ..
 docker build -t flask-postgresql-sample .
 docker tag flask-postgresql-sample <registry_name>.azurecr.io/flask-postgresql-sample
 docker push <registry_name>.azurecr.io/flask-postgresql-sample

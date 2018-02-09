@@ -29,4 +29,4 @@ Microsoft Graph API는 *user.read* 범위가 있어야만 사용자 프로필을
 
 <!--end-collapse-->
 
-[!INCLUDE  [Help and support](active-directory-develop-help-support-include.md)]
+[!INCLUDE [Help and support](active-directory-develop-help-support-include.md)]

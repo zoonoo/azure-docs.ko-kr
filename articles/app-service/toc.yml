@@ -75,6 +75,8 @@
       href: app-service-local-cache-overview.md
     - name: 진단
       href: app-service-diagnostics.md
+    - name: OS 및 런타임 패치
+      href: app-service-patch-os-runtime.md
 - name: 방법 가이드
   items:
     - name: 앱 구성

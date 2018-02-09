@@ -1,5 +1,5 @@
 ---
-title: "Polybase 데이터 로드 - Azure Storage Blob에서 Azure SQL Data Warehouse로 | Microsoft Docs"
+title: "자습서: Polybase 데이터 로드 - Azure Storage Blob에서 Azure SQL Data Warehouse로 | Microsoft Docs"
 description: "Azure Portal 및 SQL Server Management Studio를 사용하여 Azure Blob Storage에서 Azure SQL Data Warehouse로 뉴욕 택시 데이터를 로드하는 자습서입니다."
 services: sql-data-warehouse
 documentationcenter: 
@@ -17,13 +17,13 @@ ms.workload: Active
 ms.date: 11/17/2017
 ms.author: cakarst
 ms.reviewer: barbkess
-ms.openlocfilehash: 64315945d977ba912634eb626491a4513def1556
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: a1f504f5bb728ce080e51678d44ed4eef4c3faa7
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="use-polybase-to-load-data-from-azure-blob-storage-to-azure-sql-data-warehouse"></a>PolyBase를 사용하여 Azure Blob Storage에서 Azure SQL Data Warehouse로 데이터 로드
+# <a name="tutorial-use-polybase-to-load-data-from-azure-blob-storage-to-azure-sql-data-warehouse"></a>자습서: PolyBase를 사용하여 Azure Blob Storage에서 Azure SQL Data Warehouse로 데이터 로드
 
 PolyBase는 SQL Data Warehouse로 데이터를 가져오기 위한 표준 로드 기술입니다. 이 자습서에서는 PolyBase를 사용하여 Azure Blob Storage에서 Azure SQL Data Warehouse로 뉴욕 택시 데이터를 로드합니다. 이 자습서에서는 [Azure Portal](https://portal.azure.com) 및 SSMS([SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md))를 사용합니다. 
 

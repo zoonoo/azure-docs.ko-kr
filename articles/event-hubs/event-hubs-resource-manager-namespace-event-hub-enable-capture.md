@@ -12,17 +12,17 @@ ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 12/20/2017
+ms.date: 01/30/2018
 ms.author: sethm
-ms.openlocfilehash: cb4df0495420776ba2ff7b471c44c4ca3aa1dcff
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 09345b32e80008d4afe61078bd4d272fafe631d2
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-a-namespace-with-event-hub-and-enable-capture-using-a-template"></a>이벤트 허브가 있는 네임스페이스를 만들고 템플릿을 사용하여 캡처를 사용하도록 설정
 
-이 문서에서는 Azure Resource Manager 템플릿을 사용하여 하나의 이벤트 허브 인스턴스가 있는 Event Hubs 네임스페이스를 만들고 해당 이벤트 허브에서 [캡처 기능](event-hubs-capture-overview.md)을 사용하도록 설정하는 방법을 보여 줍니다. 또한 어떤 리소스를 배포할지 정의하는 방법 및 배포를 실행할 때 매개 변수를 지정하는 방법을 설명합니다. 배포를 위해 이 템플릿을 사용하거나 요구 사항에 맞게 사용자 지정을 할 수 있습니다.
+이 문서에서는 Azure Resource Manager 템플릿을 사용하여 하나의 이벤트 허브 인스턴스가 있는 [Event Hubs](event-hubs-what-is-event-hubs.md) 네임스페이스를 만들고 해당 이벤트 허브에서 [캡처 기능](event-hubs-capture-overview.md)을 사용하도록 설정하는 방법을 보여 줍니다. 또한 어떤 리소스를 배포할지 정의하는 방법 및 배포를 실행할 때 매개 변수를 지정하는 방법을 설명합니다. 배포를 위해 이 템플릿을 사용하거나 요구 사항에 맞게 사용자 지정을 할 수 있습니다.
 
 이 문서에는 선택한 대상에 따라 이벤트가 Azure Storage Blobs에 캡처되는지, 아니면 Azure Data Lake Store에 캡쳐되는지를 지정하는 방법을 보여줍니다.
 
@@ -42,11 +42,7 @@ Azure 리소스 명명 규칙의 패턴 및 사례에 대한 자세한 내용은
 
 ## <a name="what-will-you-deploy"></a>배포할 항목
 
-이 템플릿을 사용하면 하나의 이벤트 허브가 있는 Event Hubs 네임스페이스를 배포하고 [Event Hubs 캡처](event-hubs-capture-overview.md)도 사용할 수 있습니다.
-
-[Event Hubs](event-hubs-what-is-event-hubs.md)는 짧은 대기 시간 및 높은 안정성으로 이벤트 및 원격 분석을 엄청난 규모의 Azure에 제공하는 데 사용되는 이벤트 ingestor 서비스입니다. Event Hubs 캡처를 사용하면 Event Hubs의 스트리밍 데이터를 지정한 시간이나 선택한 크기 간격 내에서 Azure Blob Storage 또는 Azure Data Lake Store에 자동으로 전달할 수 있습니다.
-
-Azure Storage로 Event Hubs 캡처를 사용하도록 설정하려면 다음 단추를 클릭합니다.
+이 템플릿을 사용하면 하나의 이벤트 허브가 있는 Event Hubs 네임스페이스를 배포하고 [Event Hubs 캡처](event-hubs-capture-overview.md)도 사용할 수 있습니다. Event Hubs 캡처를 사용하면 Event Hubs의 스트리밍 데이터를 지정한 시간이나 선택한 크기 간격 내에서 Azure Blob Storage 또는 Azure Data Lake Store에 자동으로 전달할 수 있습니다. Azure Storage로 Event Hubs 캡처를 사용하도록 설정하려면 다음 단추를 클릭합니다.
 
 [![Azure에 배포](./media/event-hubs-resource-manager-namespace-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-eventhubs-create-namespace-and-enable-capture%2Fazuredeploy.json)
 
@@ -62,7 +58,7 @@ Azure 리소스 관리자와 함께 템플릿을 배포할 때 지정하고자 �
 
 ### <a name="eventhubnamespacename"></a>eventHubNamespaceName
 
-만들 [Event Hubs 네임스페이스](event-hubs-create.md)의 이름입니다.
+만들 Event Hubs 네임스페이스의 이름입니다.
 
 ```json
 "eventHubNamespaceName":{  
@@ -75,7 +71,7 @@ Azure 리소스 관리자와 함께 템플릿을 배포할 때 지정하고자 �
 
 ### <a name="eventhubname"></a>eventHubName
 
-[Event Hubs 네임스페이스](event-hubs-create.md)에서 만든 이벤트 허브의 이름입니다.
+Event Hubs 네임스페이스에서 만든 이벤트 허브의 이름입니다.
 
 ```json
 "eventHubName":{  

@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/06/2017
 ms.author: jgao
-ms.openlocfilehash: b23e62d3ae0fa3468a8a9a5608eb3d316852f086
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 9924a9656f2e2e268356b8ce293d58afc3d535a9
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="install-third-party-hadoop-applications-on-azure-hdinsight"></a>Azure HDInsight에 타사 Hadoop 응용 프로그램 설치
 
@@ -28,14 +28,14 @@ Azure HDInsight에 타사 Hadoop 응용 프로그램을 설치하는 방법에 �
 
 HDInsight 응용 프로그램은 HDInsight 클러스터에 사용자가 설치할 수 있는 응용 프로그램입니다. Microsoft, ISV(독립 소프트웨어 공급 업체) 또는 사용자가 직접 이러한 응용 프로그램을 개발할 수 있습니다.  
 
-다음 목록은 게시된 응용 프로그램을 보여 줍니다.
+다음 목록에서는 게시된 응용 프로그램을 보여 줍니다.
 
 * **AtScale 인텔리전스 플랫폼**은 HDInsight 클러스터를 확장 OLAP 서버로 전환합니다. Microsoft Excel, PowerBI, Tableau 소프트웨어에서 QlikView까지 응용 프로그램을 통해 BI 도구를 사용하여 대화형으로 수십억 개의 데이터 행을 쿼리할 수 있습니다.
 * **HDInsight용 Cask CDAP**은 데이터 응용 프로그램 및 Data Lake에 대한 프로덕션 시간을 80%까지 줄일 수 있는 첫 번째 빅 데이터용 통합 플랫폼을 제공합니다. 이 응용 프로그램은 표준 HBase 3.4 클러스터만을 지원합니다.
 * **HDInsight의 DATAIKU DDS**를 사용하면 데이터 전문가가 원시 데이터를 영향력이 강한 비즈니스 예측으로 변환하는 매우 특정한 서비스를 프로토타입, 빌드 및 배포할 수 있습니다.
 * **Datameer**: [Datameer](http://www.datameer.com/documentation/display/DAS50/Home?ls=Partners&lsd=Microsoft&c=Partners&cd=Microsoft) 에서는 분석가에게 빅 데이터의 결과를 검색, 분석 및 시각화하는 대화형 방법을 제공합니다. 새 관계를 검색하고 필요한 답변을 신속하게 가져오도록 쉽게 추가 데이터 원본을 끌어옵니다.
-* **HDInsight용 H2O 인공 지능(베타)** H2O Sparkling Water는 분산 알고리즘인 GLM, Naïve Bayes, Distributed Random Forest, Gradient Boosting Machine, Deep Neural Networks, Deep learning, K-means , PCA, Generalized Low Rank Models, Anomaly Detection 및 Autoencoders를 지원합니다.
-* **Kyligence Analytics Platform** KAP(Kyligence Analytics Platform)는 Apache Kylin 및 Apache Hadoop 기반의 엔터프라이즈 지원 데이터 웨어하우스로, 대규모 데이터 집합에 대해 1초 미만의 쿼리 대기 시간을 보장하고 비즈니스 사용자 및 분석가를 위해 데이터 분석을 간소화합니다. 
+* **HDInsight용 H2O Artificial Intelligence(베타)** H2O Sparkling Water는 GLM, Naïve Bayes, Distributed Random Forest, Gradient Boosting Machine, Deep Neural Networks, Deep learning, K-means, PCA, Generalized Low Rank Models, Anomaly Detection 및 Autoencoders 등의 분산 알고리즘을 지원합니다.
+* **Kyligence Analytics Platform** KAP(Kyligence Analytics Platform)는 Apache Kylin 및 Apache Hadoop 기반의 엔터프라이즈 지원 데이터 웨어하우스입니다. 대규모 데이터 집합에 대해 1초 미만의 쿼리 대기 시간을 제공하고, 비즈니스 사용자 및 분석가를 위해 데이터 분석을 간소화합니다. 
 * **Paxata 셀프 서비스 데이터 준비**
 * **SnapLogic Hadooplex** HDInsight에서 실행되는 SnapLogic Hadooplex를 사용하여 고객은 거의 모든 원본에서 Microsoft Azure 클라우드 플랫폼으로 셀프 서비스 데이터 수집 및 준비 작업을 구현함으로써 더 빠르게 비즈니스 통찰력을 얻을 수 있습니다.
 * **KNIME Spark Executor용 Spark 작업 서버** KNIME Spark Executor용 Spark 작업 서버는 KNIME Analytics Platform을 HDInsight 클러스터에 연결하는 데 사용됩니다.
@@ -50,9 +50,9 @@ HDInsight 응용 프로그램은 HDInsight 클러스터에 사용자가 설치�
 ## <a name="install-applications-to-existing-clusters"></a>기존 클러스터에 응용 프로그램 설치
 다음 절차에서는 기존 HDInsight 클러스터에 HDInsight 응용 프로그램을 설치하는 방법을 보여 줍니다.
 
-**HDInsight 응용 프로그램을 설치하려면**
+**HDInsight 응용 프로그램 설치**
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 왼쪽 메뉴에서 **HDInsight 클러스터** 를 클릭합니다.
 3. HDInsight 클러스터를 클릭합니다.  HDInsight 클러스터가 없는 경우 만듭니다.  see [클러스터 만들기](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster)를 참조하세요.
 4. **구성** 범주에서 **응용 프로그램**을 클릭합니다. 설치된 응용 프로그램 목록이 표시됩니다. 응용 프로그램을 찾을 수 없다면 이는 이 버전의 HDInsight 클러스터에 대한 응용 프로그램이 없다는 의미입니다.
@@ -75,9 +75,9 @@ HDInsight 응용 프로그램은 HDInsight 클러스터에 사용자가 설치�
 ## <a name="list-installed-hdinsight-apps-and-properties"></a>설치된 HDInsight 앱 및 속성 나열
 포털에서는 클러스터에 설치된 HDInsight 응용 프로그램의 목록과 설치된 응용 프로그램 각각의 속성을 보여 줍니다.
 
-**HDInsight 응용 프로그램을 나열하고 속성을 표시하려면**
+**HDInsight 응용 프로그램 나열 및 속성 표시**
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 왼쪽 메뉴에서 **HDInsight 클러스터** 를 클릭합니다. 
 3. HDInsight 클러스터를 클릭합니다.
 4. **설정**에서 **일반** 범주에 있는 **응용 프로그램**을 클릭합니다. 설치된 앱이 오른쪽에 나열됩니다. 

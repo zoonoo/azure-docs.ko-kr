@@ -9,17 +9,17 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 09/28/2017
+ms.date: 01/26/2018
 ms.author: markscu
-ms.openlocfilehash: b9e5181baedba7cc4783553221521f5b08a7bc4d
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 8490bd8c18930c025902a247e6c1df8a0716ed76
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="use-low-priority-vms-with-batch"></a>Batch에서 낮은 우선 순위 VM 사용
 
-Azure Batch는 낮은 우선 순위 VM(가상 컴퓨터)을 사용하여 Batch 워크로드의 비용을 줄입니다. 우선 순위가 낮은 VM은 경제적 측면도 있는 대량의 Compute 성능을 제공하여 새로운 유형의 Batch 워크로드를 가능하게 합니다.
+Azure Batch는 낮은 우선 순위 VM(가상 머신)을 사용하여 Batch 워크로드의 비용을 줄입니다. 우선 순위가 낮은 VM은 경제적 측면도 있는 대량의 Compute 성능을 제공하여 새로운 유형의 Batch 워크로드를 가능하게 합니다.
 
 우선 순위가 낮은 VM은 Azure에서 남는 용량을 활용합니다. 풀에서 우선 순위가 낮은 VM을 지정하면 Azure Batch는 가능한 경우 이러한 남는 용량을 자동으로 사용할 수 있습니다.
 
@@ -74,6 +74,9 @@ Azure Batch는 우선 순위가 낮은 VM을 쉽게 활용하고 혜택을 얻�
 -   우선 순위가 낮은 VM은 전용 VM의 vCPU 할당량과는 다른 별도의 코어 할당량을 갖습니다. 
     우선 순위가 낮은 VM은 비용이 저렴하므로 할당량이 전용 VM보다 높습니다. 자세한 내용은 [Batch 서비스 할당량 및 제한](batch-quota-limit.md#resource-quotas)을 참조하세요.    
 
+> [!NOTE]
+> 우선 순위가 낮은 VM은 [사용자 구독 모드](batch-api-basics.md#account)에서 만든 배치 계정에서 지원되지 않습니다.
+>
 
 ## <a name="create-and-update-pools"></a>풀 만들기 및 업데이트
 
@@ -108,7 +111,7 @@ pool = batchClient.PoolOperations.CreatePool(
     poolId: "vmpool",
     targetDedicatedComputeNodes: 5,
     targetLowPriorityComputeNodes: 20,
-    virtualMachineSize: "Standard\_D2\_v2",
+    virtualMachineSize: "Standard_D2_v2",
     virtualMachineConfiguration: virtualMachineConfiguration);
 ```
 

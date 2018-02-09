@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/22/2017
 ms.author: sngun; v-reagie
-ms.openlocfilehash: 95abba4fd293e2d04a58f0d07f955aca808434b7
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 76a3096595d07916159b3a50da0793c653a490a0
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="troubleshooting-common-issues-in-azure-automation"></a>Azure Automation이 일반적인 문제 해결 
 이 문서에서는 Azure Automation에서 발생할 수 있는 일반적인 문제 해결 도움말을 제공하고 가능한 문제 해결 방법을 제시합니다.
@@ -195,11 +195,19 @@ ms.lasthandoff: 01/24/2018
 
 **오류 이유:**
 
-이 오류 코드는 정책의 위반으로 인해 배포하지 못했음을 의미합니다.
+이 오류 코드는 하나 이상의 정책 위반으로 인해 배포가 실패했음을 의미합니다.
 
 **문제 해결 팁:**
 
-실패한 배포를 확인하려면 Azure Portal의 오른쪽 위 모서리에서 알림을 확인하거나 자동화 계정을 포함하는 리소스 그룹으로 이동하여 **설정**에 있는 **배포**를 선택합니다. Azure Policy에 대한 자세한 내용은 [Azure Policy 개요](../azure-policy/azure-policy-introduction.md?toc=%2fazure%2fautomation%2ftoc.json)를 방문하세요.
+솔루션을 성공적으로 배포하려면 표시된 정책을 변경하는 것이 좋습니다. 정의할 수 있는 정책 유형이 다양하기 때문에 필요한 특정 변경 사항은 위반된 정책에 따라 달라집니다. 예를 들어 리소스 그룹 내 특정 유형의 리소스 콘텐츠를 변경할 수 있는 권한을 거부한 리소스 그룹에 정책이 정의된 경우, 예를 들면 다음과 같은 조치를 취할 수 있습니다.
+
+*   정책을 모두 제거합니다.
+* 다른 리소스 그룹에 등록을 시도합니다.
+* 정책을 수정합니다. 예를 들면 다음과 같이 수정합니다.
+   * 정책의 대상을 특정 리소스(예: 특정 Automation 계정)로 다시 지정합니다.
+   * 정책이 거부하도록 구성된 리소스 집합을 수정합니다.
+
+실패한 배포를 확인하려면 Azure Portal의 오른쪽 위 모서리에서 알림을 확인하거나 자동화 계정을 포함하는 리소스 그룹으로 이동하여 **설정**에 있는 **배포**를 선택합니다. Azure Policy에 대해 자세히 알아보려면 [Azure Policy 개요](../azure-policy/azure-policy-introduction.md?toc=%2fazure%2fautomation%2ftoc.json)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

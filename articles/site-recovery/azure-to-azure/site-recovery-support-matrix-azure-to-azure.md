@@ -1,6 +1,6 @@
 ---
 title: "Azure 간에 복제하기 위한 Azure Site Recovery 지원 매트릭스 | Microsoft Docs"
-description: "재해 복구(DR) 요구 사항에 따라 지역 간에 Azure VM(가상 컴퓨터)을 Azure Site Recovery 복제하기 위한 구성 및 지원되는 운영 체제를 요약합니다."
+description: "재해 복구(DR) 요구 사항에 따라 지역 간에 Azure VM(가상 머신)을 Azure Site Recovery 복제하기 위한 구성 및 지원되는 운영 체제를 요약합니다."
 services: site-recovery
 documentationcenter: 
 author: sujayt
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 08/31/2017
 ms.author: sujayt
-ms.openlocfilehash: 46ca545cc73d7b8118aae4662c31965c7db87df5
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 0d55b1f4224ba25b6d6dc109cc7e47d21b1fa98e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-azure-to-azure"></a>Azure 간에 복제하기 위한 Azure Site Recovery 지원 매트릭스
 
 
 >[!NOTE]
 >
-> Azure Virtual Machines에 대한 Site Recovery 복제는 현재 미리 보기로 제공됩니다.
+> Azure 가상 머신에 대한 Site Recovery 복제는 현재 미리 보기로 제공됩니다.
 
 이 문서에서는 지역 간에 Azure Virtual Machines를 복제 및 복구할 때 Azure Site Recovery에 대해 지원되는 구성 및 구성 요소를 요약하여 설명합니다.
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 11/30/2017
 **리소스 이동 유형** | **지원됨/지원되지 않음** | **설명**  
 --- | --- | ---
 **리소스 그룹 간 자격 증명 모음 이동** | 지원되지 않음 |리소스 그룹 간에 Recovery Services 자격 증명 모음을 이동할 수 없습니다.
-**리소스 그룹 간에 Compute, Storage 및 Network 이동** | 지원되지 않음 |복제를 사용하도록 설정한 후 가상 컴퓨터(또는 저장소 및 네트워크와 같은 연결된 구성 요소)를 이동하는 경우 해당 가상 컴퓨터에 대해 복제를 사용하지 않도록 설정했다가 다시 사용하도록 설정해야 합니다.
+**리소스 그룹 간에 Compute, Storage 및 Network 이동** | 지원되지 않음 |복제를 사용하도록 설정한 후 가상 머신(또는 저장소 및 네트워크와 같은 연결된 구성 요소)를 이동하는 경우 해당 가상 머신에 대해 복제를 사용하지 않도록 설정했다가 다시 사용하도록 설정해야 합니다.
 
 
 
@@ -53,15 +53,15 @@ ms.lasthandoff: 11/30/2017
 
 **배포 모델** | **지원됨/지원되지 않음** | **설명**  
 --- | --- | ---
-**클래식** | 지원됨 | 클래식 가상 컴퓨터는 복제한 후 클래식 가상 컴퓨터로 복구할 수만 있습니다. Resource Manager 가상 컴퓨터로는 복구할 수 없습니다. 클래식 VM을 가상 네트워크 없이 Azure 지역에 직접 배포하는 경우 이는 지원되지 않습니다.
+**클래식** | 지원됨 | 클래식 가상 머신은 복제한 후 클래식 가상 머신으로 복구할 수만 있습니다. Resource Manager 가상 컴퓨터로는 복구할 수 없습니다. 클래식 VM을 가상 네트워크 없이 Azure 지역에 직접 배포하는 경우 이는 지원되지 않습니다.
 **리소스 관리자** | 지원됨 |
 
 >[!NOTE]
 >
-> - 재해 복구 시나리오의 다른 구독 간에 Azure 가상 컴퓨터를 복제하는 것은 지원되지 않습니다.
-> - Azure 구독에서 가상 컴퓨터를 마이그레이션하도록 지원되지 않습니다.
-> - 동일한 지역 내에서 가상 컴퓨터를 마이그레이션하도록 지원되지 않습니다.
-> - 클래식 배포 모델에서 Resource Manager 배포 모델로 Azure 가상 컴퓨터를 마이그레이션하도록 지원되지 않습니다.
+> - 재해 복구 시나리오의 다른 구독 간에 Azure 가상 머신을 복제하는 것은 지원되지 않습니다.
+> - Azure 구독에서 가상 머신을 마이그레이션하도록 지원되지 않습니다.
+> - 동일한 지역 내에서 가상 머신을 마이그레이션하도록 지원되지 않습니다.
+> - 클래식 배포 모델에서 Resource Manager 배포 모델로 Azure 가상 머신을 마이그레이션하도록 지원되지 않습니다.
 
 ## <a name="support-for-replicated-machine-os-versions"></a>복제된 컴퓨터 운영 체제 버전에 대한 지원
 
@@ -94,7 +94,7 @@ ms.lasthandoff: 11/30/2017
 
 >[!NOTE]
 >
-> 암호 기반 인증 및 로그인을 사용하고, 클라우드 init 패키지를 사용하여 클라우드 가상 컴퓨터를 구성하는 Ubuntu 서버의 암호 기반 로그인은 장애 조치(failover) 시 사용되지 않도록 설정될 수 있습니다(cloudinit 구성에 따라 다름). Azure Portal에서 장애 조치(failover)된 가상 컴퓨터의 설정 메뉴(지원 + 문제 해결 섹션 아래)에서 암호를 재설정하여 암호 기반 로그인을 다시 사용하도록 설정할 수 있습니다.
+> 암호 기반 인증 및 로그인을 사용하고, 클라우드 init 패키지를 사용하여 클라우드 가상 머신을 구성하는 Ubuntu 서버의 암호 기반 로그인은 장애 조치(failover) 시 사용되지 않도록 설정될 수 있습니다(cloudinit 구성에 따라 다름). Azure Portal에서 장애 조치(failover)된 가상 머신의 설정 메뉴(지원 + 문제 해결 섹션 아래)에서 암호를 재설정하여 암호 기반 로그인을 다시 사용하도록 설정할 수 있습니다.
 
 ### <a name="supported-ubuntu-kernel-versions-for-azure-virtual-machines"></a>Azure virtual Machines에 대해 지원되는 Ubuntu 커널 버전
 
@@ -135,7 +135,7 @@ ms.lasthandoff: 11/30/2017
 크기 | CPU 코어가 2개 이상이고 1GB 이상의 RAM이 탑재된 모든 Azure VM | [Azure Virtual Machines 크기](../../virtual-machines/windows/sizes.md) 참조
 가용성 집합 | 지원됨 | 포털에서 '복제 사용' 단계 중에 기본 옵션을 사용하는 경우 원본 지역 구성에 따라 가용성 집합이 자동으로 만들어집니다. 언제든지 '복제된 항목 > 설정 > Compute 및 네트워크 > 가용성 집합'에서 대상 가용성 집합을 변경할 수 있습니다.
 HUB(하이브리드 사용 혜택) VM | 지원됨 | 원본 VM에 활성 HUB 라이선스가 있는 경우 테스트 장애 조치 또는 장애 조치 VM에서도 HUB 라이선스를 사용합니다.
-가상 컴퓨터 크기 집합 | 지원되지 않음 |
+가상 머신 크기 집합 | 지원되지 않음 |
 Azure 갤러리 이미지 - Microsoft 게시 | 지원됨 | VM이 Site Recovery에서 지원하는 운영 체제에서 실행되는 경우에 지원됨
 Azure 갤러리 이미지 - 타사 게시 | 지원됨 | VM이 Site Recovery에서 지원하는 운영 체제에서 실행되는 경우에 지원됨
 사용자 지정 이미지 - 타사 게시 | 지원됨 | VM이 Site Recovery에서 지원하는 운영 체제에서 실행되는 경우에 지원됨
@@ -149,7 +149,7 @@ Site Recovery를 사용하여 마이그레이션된 VM | 지원됨 | Site Recove
 최대 데이터 디스크 크기 | 4,095GB | [VM에서 사용되는 디스크](../../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)를 참조하세요.
 데이터 디스크 수 | Azure VM 크기에 따라 최대 64개 지원 | [Azure Virtual Machines 크기](../../virtual-machines/windows/sizes.md) 참조
 임시 디스크 | 항상 복제에서 제외됨 | 임시 디스크는 항상 복제에서 제외됩니다. Azure 지침에 따라 임시 디스크에 영구 데이터를 저장해서는 안 됩니다. 자세한 내용은 [Azure VM의 임시 디스크](../../virtual-machines/windows/about-disks-and-vhds.md#temporary-disk)를 참조하세요.
-디스크의 데이터 변경률 | 디스크당 최대 6MBps | 디스크의 평균 데이터 변경률이 지속적으로 6MBps를 초과하는 경우 복제가 처리되지 않습니다. 그러나 데이터 버스트가 간헐적으로 발생하고 데이터 변경률이 일정 시간 동안 6MBps를 초과했다가 낮아지는 경우에는 복제가 처리됩니다. 이 경우 복구 지점이 약간 지연될 수 있습니다.
+디스크의 데이터 변경률 | 프리미엄 저장소의 경우 디스크당 최대 10MBps, 표준 저장소의 경우 디스크당 최대 2MBps | 디스크의 평균 데이터 변경률이 지속적으로 10MBps(프리미엄) 및 2MBps(표준)를 초과하는 경우 복제가 처리되지 않습니다. 그러나 데이터 버스트가 간헐적으로 발생하고 데이터 변경률이 일정 시간 동안 10MBps(프리미엄) 및 2MBps(표준)를 초과했다가 낮아지는 경우에는 복제가 처리됩니다. 이 경우 복구 지점이 약간 지연될 수 있습니다.
 표준 저장소 계정의 디스크 | 지원됨 |
 Premium Storage 계정의 디스크 | 지원됨 | VM의 디스크가 Premium Storage 계정과 표준 저장소 계정에 분산된 경우 대상 지역의 저장소를 동일하게 구성하기 위해 각 디스크에 대해 서로 다른 대상 저장소 계정을 선택할 수 있습니다.
 표준 Managed Disks | 지원되지 않음 |  
@@ -163,11 +163,11 @@ LRS | 지원됨 |
 GRS | 지원됨 |
 RA-GRS | 지원됨 |
 ZRS | 지원되지 않음 |  
-콜드 및 핫 저장소 | 지원되지 않음 | 가상 컴퓨터 디스크는 콜드 및 핫 저장소에서 지원되지 않습니다.
-Virtual Network 서비스 끝점(Azure Storage 방화벽 및 Virtual Network)  | 아니요 | 복제된 데이터를 저장하는 데 사용된 캐시 저장소 계정의 특정 Azure Virtual Network에 대한 액세스 허용은 지원되지 않습니다. 
+콜드 및 핫 저장소 | 지원되지 않음 | 가상 머신 디스크는 콜드 및 핫 저장소에서 지원되지 않습니다.
+Virtual Network 서비스 끝점(Azure Storage 방화벽 및 Virtual Network)  | 아니요 | 복제된 데이터를 저장하는 데 사용된 캐시 저장소 계정의 특정 Azure Virtual Network에 대한 액세스 허용은 지원되지 않습니다.
 
 >[!IMPORTANT]
-> [Linux](../../virtual-machines/linux/disk-scalability-targets.md) 또는 [Windows](../../virtual-machines/windows/disk-scalability-targets.md) 가상 컴퓨터에 대한 VM 디스크 확장성 및 성능 목표를 확인하여 성능 문제를 피해야 합니다. 기본 설정을 따르는 경우 Site Recovery가 원본 구성에 따라 필요한 디스크 및 저장소 계정을 만듭니다. 사용자 고유의 설정을 사용자 지정하고 선택하는 경우 소스 VM의 디스크 확장성 및 성능 목표를 준수하는지 확인합니다.
+> [Linux](../../virtual-machines/linux/disk-scalability-targets.md) 또는 [Windows](../../virtual-machines/windows/disk-scalability-targets.md) 가상 머신에 대한 VM 디스크 확장성 및 성능 목표를 확인하여 성능 문제를 피해야 합니다. 기본 설정을 따르는 경우 Site Recovery가 원본 구성에 따라 필요한 디스크 및 저장소 계정을 만듭니다. 사용자 고유의 설정을 사용자 지정하고 선택하는 경우 소스 VM의 디스크 확장성 및 성능 목표를 준수하는지 확인합니다.
 
 ## <a name="support-for-network-configuration"></a>네트워크 구성 지원
 **구성** | **지원됨/지원되지 않음** | **설명**

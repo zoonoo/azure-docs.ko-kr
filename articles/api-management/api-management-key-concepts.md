@@ -14,11 +14,11 @@ ms.topic: overview
 ms.date: 11/15/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: 727be96828b9217f89214722f474abfc220b0b3c
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 010c4619a2a4d8ae477ebd6e66747c55cde0fc08
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="what-is-api-management"></a>API Management란?
 
@@ -50,14 +50,14 @@ API Management를 사용하려면 관리자가 API를 만듭니다. 각 API는 �
   * 코드 수정 없이 즉석에서 API를 변환합니다.
   * 설정된 위치에 백 엔드 응답을 캐시합니다.
   * 분석용으로 호출 메타데이터를 기록합니다.
-* **게시자 포털** 은 API 프로그램이 설치되는 관리 인터페이스입니다. 다음 작업을 수행하는 데 사용합니다.
+* **Azure Portal**은 API 프로그램이 설치되는 관리 인터페이스입니다. 다음 작업을 수행하는 데 사용합니다.
   
   * API 스키마를 정의하거나 가져옵니다.
   * 제품에 API를 패키징합니다.
   * API에서 할당량 또는 변환 등의 정책을 설정합니다.
   * 분석의 정보를 활용합니다.
   * 사용자를 관리합니다.
-* **개발자 포털** 은 개발자를 위한 기본 웹 서비스 역할을 하며, 여기서 개발자는 다음 작업을 수행할 수 있습니다.
+* **개발자 포털**은 개발자를 위한 기본 웹 서비스 역할을 하며, 여기서 개발자는 다음 작업을 수행할 수 있습니다.
   
   * API 설명서를 읽습니다.
   * 대화형 콘솔을 통해 API를 사용해 봅니다.
@@ -104,7 +104,7 @@ API는 API Management 서비스 인스턴스의 기반입니다. 각 API는 개�
 자세한 내용은 [개발자를 만들거나 초대하는 방법][How to create or invite developers] 및 [그룹을 개발자와 연결하는 방법][How to associate groups with developers]을 참조하세요.
 
 ## <a name="policies"> </a> 정책
-정책은 게시자가 구성을 통해 API의 동작을 변경할 수 있게 하는 API Management의 강력한 기능입니다. 정책은 API의 요청이나 응답에 따라 순차적으로 실행되는 명령문의 컬렉션입니다. 많이 사용되는 명령문에는 XML에서 JSON으로 형식 변환, 개발자로부터 들어오는 호출 수를 제한하는 호출 속도 한도 등이 포함되며 다양한 다른 정책도 사용할 수 있습니다.
+정책은 Azure Portal이 구성을 통해 API의 동작을 변경할 수 있게 하는 API Management의 강력한 기능입니다. 정책은 API의 요청이나 응답에 따라 순차적으로 실행되는 명령문의 컬렉션입니다. 많이 사용되는 명령문에는 XML에서 JSON으로 형식 변환, 개발자로부터 들어오는 호출 수를 제한하는 호출 속도 한도 등이 포함되며 다양한 다른 정책도 사용할 수 있습니다.
 
 정책이 다르게 지정하지 않는 한 정책 식은 어떤 API Management 정책에서든 특성 값 또는 텍스트 값으로 사용될 수 있습니다. [제어 흐름](https://msdn.microsoft.com/library/azure/dn894085.aspx#choose) 및 [변수 설정](https://msdn.microsoft.com/library/azure/dn894085.aspx#set-variable) 정책 등의 일부 정책은 정책 식을 기반으로 합니다. 자세한 내용은 [고급 정책](https://msdn.microsoft.com/library/azure/dn894085.aspx#AdvancedPolicies) 및 [정책 식](https://msdn.microsoft.com/library/azure/dn910913.aspx)을 참조하세요.
 

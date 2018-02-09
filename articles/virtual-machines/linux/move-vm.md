@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 03/22/2017
+ms.date: 12/14/2017
 ms.author: cynthn
-ms.openlocfilehash: 4695a9c934f97f2b2d448c4990e7ad5533e38e9f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 459e0d591e2279b63864a273f713e4c1df8c0858
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="move-a-linux-vm-to-another-subscription-or-resource-group"></a>Linux VM을 다른 구독 또는 리소스 그룹으로 이동
 이 문서에서는 리소스 그룹 또는 구독 간에 Linux VM을 이동하는 방법을 안내합니다. 개인 구독에서 VM을 만들고 회사 구독으로 이동하려면 구독 간의 VM 이동이 편리할 수 있습니다.
@@ -32,25 +32,39 @@ ms.lasthandoff: 10/11/2017
 > 
 
 ## <a name="use-the-azure-cli-to-move-a-vm"></a>Azure CLI를 사용하여 VM 이동
-VM을 성공적으로 이동하려면 VM 및 모든 지원 리소스를 이동해야 합니다. **azure group show** 명령을 사용하여 리소스 그룹 및 해당 ID에서 모든 리소스를 나열합니다. 이후 명령에 ID를 복사하고 붙여넣을 수 있도록 파일에이 명령의 출력을 파이프할 수 있습니다.
 
-    azure group show <resourceGroupName>
 
-다른 리소스 그룹에 VM 또는 해당 리소스를 이동하려면 **azure resource move** CLI 명령을 사용합니다. 다음 예제에서는 필요한 VM 및 가장 일반적인 리소스를 이동하는 방법을 보여 줍니다. **-i** 매개 변수를 사용하고 이동할 리소스에 대한 ID의 쉼표로 구분된 목록에 공백 없이 전달합니다.
+CLI를 사용하여 VM을 이동하기 전에 동일한 테넌트 내에서 원본 및 대상 구독이 존재하는지 확인해야 합니다. 두 구독이 모두 동일한 테넌트 ID를 갖는지 확인하려면 [az account show](/cli/azure/account#az_account_show)를 사용합니다.
 
-    vm=/subscriptions/<sourceSubscriptionID>/resourceGroups/<sourceResourceGroup>/providers/Microsoft.Compute/virtualMachines/<vmName>
-    nic=/subscriptions/<sourceSubscriptionID>/resourceGroups/<sourceResourceGroup>/providers/Microsoft.Network/networkInterfaces/<nicName>
-    nsg=/subscriptions/<sourceSubscriptionID>/resourceGroups/<sourceResourceGroup>/providers/Microsoft.Network/networkSecurityGroups/<nsgName>
-    pip=/subscriptions/<sourceSubscriptionID>/resourceGroups/<sourceResourceGroup>/providers/Microsoft.Network/publicIPAddresses/<publicIPName>
-    vnet=/subscriptions/<sourceSubscriptionID>/resourceGroups/<sourceResourceGroup>/providers/Microsoft.Network/virtualNetworks/<vnetName>
-    diag=/subscriptions/<sourceSubscriptionID>/resourceGroups/<sourceResourceGroup>/providers/Microsoft.Storage/storageAccounts/<diagnosticStorageAccountName>
-    storage=/subscriptions/<sourceSubscriptionID>/resourceGroups/<sourceResourceGroup>/providers/Microsoft.Storage/storageAccounts/<storageAcountName>      
+```azurecli-interactive
+az account show --subscription mySourceSubscription --query tenantId
+az account show --subscription myDestinationSubscription --query tenantId
+```
+원본 및 대상 구독에 대한 테넌트 ID가 동일하지 않으면 [지원](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)에 문의하여 리소스를 새 테넌트로 이동해야 합니다.
 
-    azure resource move --ids $vm,$nic,$nsg,$pip,$vnet,$storage,$diag -d "<destinationResourceGroup>"
+VM을 성공적으로 이동하려면 VM 및 모든 지원 리소스를 이동해야 합니다. [az resource list](/cli/azure/resource#az_resource_list) 명령을 사용하여 리소스 그룹 및 해당 ID에서 모든 리소스를 나열합니다. 이후 명령에 ID를 복사하고 붙여넣을 수 있도록 파일에이 명령의 출력을 파이프할 수 있습니다.
 
-VM 및 해당 리소스를 다른 구독으로 이동하려는 경우 **--destination-subscriptionId &#60;destinationSubscriptionID&#62;** 매개 변수를 추가하여 대상 구독을 지정합니다.
+```azurecli-interactive
+az resource list --resource-group "mySourceResourceGroup" --query "[].{Id:id}" --output table
+```
 
-Windows 컴퓨터의 명령 프롬프트에서 작업하는 경우 선언할 때 변수 이름 앞에 **$** 를 추가해야 합니다. Linux에서는 필요하지 않습니다.
+다른 리소스 그룹에 VM 및 해당 리소스를 이동하려면 [az resource move](/cli/azure/resource#az_resource_move)를 사용합니다. 다음 예제에서는 필요한 VM 및 가장 일반적인 리소스를 이동하는 방법을 보여 줍니다. **-ids** 매개 변수를 사용하고 이동할 리소스에 대한 ID의 쉼표로 구분된 목록을 공백 없이 제출합니다.
+
+```azurecli-interactive
+vm=/subscriptions/mySourceSubscriptionID/resourceGroups/mySourceResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM
+nic=/subscriptions/mySourceSubscriptionID/resourceGroups/mySourceResourceGroup/providers/Microsoft.Network/networkInterfaces/myNIC
+nsg=/subscriptions/mySourceSubscriptionID/resourceGroups/mySourceResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myNSG
+pip=/subscriptions/mySourceSubscriptionID/resourceGroups/mySourceResourceGroup/providers/Microsoft.Network/publicIPAddresses/myPublicIPAddress
+vnet=/subscriptions/mySourceSubscriptionID/resourceGroups/mySourceResourceGroup/providers/Microsoft.Network/virtualNetworks/myVNet
+diag=/subscriptions/mySourceSubscriptionID/resourceGroups/mySourceResourceGroup/providers/Microsoft.Storage/storageAccounts/mydiagnosticstorageaccount
+storage=/subscriptions/mySourceSubscriptionID/resourceGroups/mySourceResourceGroup/providers/Microsoft.Storage/storageAccounts/mystorageacountname    
+
+az resource move \
+    --ids $vm,$nic,$nsg,$pip,$vnet,$storage,$diag \
+    --destination-group "myDestinationResourceGroup"
+```
+
+VM 및 해당 리소스를 다른 구독으로 이동하려는 경우 **--destination-subscriptionId** 매개 변수를 추가하여 대상 구독을 지정합니다.
 
 지정한 리소스를 이동할 것인지 묻는 메시지가 나타납니다. **Y** 를 입력하여 리소스를 이동할 것인지 확인합니다.
 

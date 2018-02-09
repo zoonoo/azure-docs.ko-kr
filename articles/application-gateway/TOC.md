@@ -42,6 +42,9 @@
 ### [Azure PowerShell](application-gateway-create-multisite-azureresourcemanager-powershell.md)
 ## 리디렉션 구성
 ### [Azure PowerShell](application-gateway-configure-redirect-powershell.md)
+## 외부 리디렉션 구성
+### [Azure PowerShell](tutorial-external-site-redirect-cli.md)
+### [Azure CLI](tutorial-external-site-redirect-powershell.md)
 ## 백 엔드 풀 구성원으로 웹앱 구성
 ### [Azure PowerShell](application-gateway-web-app-powershell.md)
 ## 상태 프로브 구성

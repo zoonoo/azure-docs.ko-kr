@@ -3,7 +3,7 @@ title: "Azure VM 관리 서비스 ID를 사용하여 액세스 토큰을 획득�
 description: "Azure VM MSI를 사용하여 OAuth 액세스 토큰을 획득하기 위한 단계별 지침과 예제입니다."
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: daveba
 manager: mtillman
 editor: 
 ms.service: active-directory
@@ -12,19 +12,19 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
-ms.author: bryanla
-ms.openlocfilehash: 6a02b52e7103c9b6e60b09617026fbf6010e76c8
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.author: daveba
+ms.openlocfilehash: 3d9d4d682a25d11129e81855a6bf149ac1d5cff0
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-token-acquisition"></a>토큰 획득을 위해 Azure VM MSI(관리 서비스 ID)를 사용하는 방법 
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]  
 이 문서에서는 토큰 획득을 위한 다양한 코드 및 스크립트 예제뿐만 아니라 토큰 만료 및 HTTP 오류를 처리하는 등 중요한 항목에 대한 지침을 제공합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 [!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
 

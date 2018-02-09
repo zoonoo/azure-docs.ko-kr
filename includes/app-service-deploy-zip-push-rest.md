@@ -7,7 +7,7 @@
 `<deployment_user>` 자리 표시자를 배포 자격 증명의 사용자 이름으로 바꿉니다. cURL에서 프롬프트가 표시되면 암호를 입력합니다. 앱에 대한 배포 자격 증명을 설정하는 방법을 알아보려면 [사용자 수준 자격 증명 설정 및 다시 설정](../articles/app-service/app-service-deployment-credentials.md#userscope)을 참조하세요.   
 
 ```bash
-curl POST -u <deployment_user> --data-binary @"<zip_file_path>" https://<app_name>.scm.azurewebsites.net/api/zipdeploy
+curl -X POST -u <deployment_user> --data-binary @"<zip_file_path>" https://<app_name>.scm.azurewebsites.net/api/zipdeploy
 ```
 
 이 요청은 업로드된 .zip 파일에서 푸시 배포를 트리거합니다. 다음 cURL 예제에 표시된 대로 https://<app_name>.scm.azurewebsites.net/api/deployments 끝점을 사용하여 현재 및 과거 배포를 검토할 수 있습니다. 다시 `<app_name>`을 앱의 이름으로 바꾸고 `<deployment_user>`를 배포 자격 증명의 사용자 이름으로 바꿉니다.

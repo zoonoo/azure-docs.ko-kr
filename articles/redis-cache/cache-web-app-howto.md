@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 05/09/2017
 ms.author: wesmc
-ms.openlocfilehash: c0cf5baa71ce599cd5c20d34c42bd2c578114efe
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 98750c4f8d2449fb4fdf68b03a00d846e636a93a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="how-to-create-a-web-app-with-redis-cache"></a>Redis Cache를 사용하여 웹앱을 만드는 방법
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ ms.lasthandoff: 01/24/2018
 
 이 자습서에서는 Visual Studio 2017을 사용하여 Azure App Service에서 ASP.NET 웹 응용 프로그램을 만들고 웹앱에 배포하는 방법을 보여 줍니다. 샘플 응용 프로그램은 데이터베이스에서 팀 통계 목록을 표시하고 Azure Redis Cache를 사용하여 캐시에서 데이터를 저장 및 검색하는 여러 가지 방법을 보여 줍니다. 이 자습서를 완료하면 Azure Redis Cache에 최적화되고 Azure에서 호스팅되며 데이터베이스에 읽고 쓰는 실행 웹앱을 갖게 됩니다.
 
-다음 내용을 배웁니다.
+이 문서에서 학습할 내용은 다음과 같습니다.
 
 * Visual Studio에서 ASP.NET MVC 5 웹 응용 프로그램을 만드는 방법.
 * Entity Framework를 사용하여 데이터베이스에서 데이터에 액세스하는 방법.
@@ -84,7 +84,7 @@ Visual Studio 2013이 있는 경우 [최신 Visual Studio 2013용 Azure SDK를 �
 
 ### <a name="add-the-entity-framework-nuget-package"></a>Entity Framework NuGet 패키지 추가
 
-1. **도구** 메뉴에서 **NuGet 패키지 관리자**, **패키지 관리자 콘솔**을 차례로 클릭합니다.
+1. Visual Studio에서 **도구 > NuGet 패키지 관리자 > 패키지 관리자 콘솔**을 클릭합니다.
 2. **패키지 관리자 콘솔** 창에서 다음 명령을 실행합니다.
     
     ```
@@ -185,15 +185,15 @@ Visual Studio 2013이 있는 경우 [최신 Visual Studio 2013용 Azure SDK를 �
 1. **솔루션 탐색기**에서 **web.config**를 두 번 클릭하여 엽니다.
    
     ![Web.config][cache-web-config]
-2. 다음 `connectionStrings` 섹션을 추가합니다. 연결 문자열의 이름은 `TeamContext`인 Entity Framework 데이터베이스 컨텍스트 클래스의 이름과 일치해야 합니다.
+2. `configuration` 섹션 내에 다음 `connectionStrings` 섹션을 추가합니다. 연결 문자열의 이름은 `TeamContext`인 Entity Framework 데이터베이스 컨텍스트 클래스의 이름과 일치해야 합니다.
 
     ```xml
     <connectionStrings>
-        <add name="TeamContext" connectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Teams.mdf;Integrated Security=True"     providerName="System.Data.SqlClient" />
+        <add name="TeamContext" connectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Teams.mdf;Integrated Security=True" providerName="System.Data.SqlClient" />
     </connectionStrings>
     ```
 
-    새 `connectionStrings` 섹션을 추가하여 다음 예제와 같이 `configSections` 뒤에 오도록 할 수 있습니다.
+    다음 예제에서는 `configuration` 섹션 내에서 `configSections` 다음의 새로운 `connectionStrings` 섹션을 보여줍니다.
 
     ```xml
     <configuration>
@@ -283,7 +283,7 @@ Visual Studio 2013이 있는 경우 [최신 Visual Studio 2013용 Azure SDK를 �
 * [캐시로 작업하도록 팀 인덱스 보기 업데이트](#update-the-teams-index-view-to-work-with-the-cache)
 
 ### <a name="configure-the-application-to-use-stackexchangeredis"></a>StackExchange.Redis를 사용하도록 응용 프로그램 구성
-1. StackExchange.Redis NuGet 패키지를 사용하여 Visual Studio에서 클라이언트 응용 프로그램을 구성하려면 **도구** 메뉴에서 **NuGet 패키지 관리자**, **패키지 관리자 콘솔**을 클릭합니다.
+1. [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) NuGet 패키지를 사용하여 Visual Studio에서 클라이언트 응용 프로그램을 구성하려면 **도구 > NuGet 패키지 관리자 > 패키지 관리자 콘솔**을 클릭합니다.
 2. `Package Manager Console` 창에서 다음 명령을 실행합니다.
     
     ```
@@ -322,14 +322,15 @@ Visual Studio 2013이 있는 경우 [최신 Visual Studio 2013용 Azure SDK를 �
 
 6. 컴퓨터에 `WebAppPlusCacheAppSecrets.config` 라는 파일을 만들고 이 파일을 다른 위치에서 체크인하기로 결정한 경우 샘플 응용 프로그램의 소스 코드에서 체크인하지 않을 위치에 배치합니다. 이 예제에서 `AppSettingsSecrets.config` 파일은 `C:\AppSecrets\WebAppPlusCacheAppSecrets.config`에 위치합니다.
    
-    `WebAppPlusCacheAppSecrets.config` 파일을 편집하여 다음 내용을 추가합니다. 응용 프로그램을 로컬로 실행하는 경우 이 정보는 Azure Redis Cache 인스턴스를 연결하는 데 사용됩니다. 이 자습서의 뒷부분에서는 Azure Redis Cache 인스턴스를 프로비전하고 캐시 이름 및 암호를 업데이트합니다. 샘플 응용 프로그램을 로컬로 실행할 계획이 아닌 경우, Azure에 배포할 때 응용 프로그램이 이 파일이 아닌 웹앱에 대한 앱 설정에서 캐시 연결 정보를 검색하므로 이 파일 만들기 및 해당 파일을 참조하는 이후 단계를 건너뛸 수 있습니다. `WebAppPlusCacheAppSecrets.config` 는 응용 프로그램과 함께Azure에 배포되지 않으므로 응용 프로그램을 로컬로 실행하려는 경우가 아니면 필요하지 않습니다.
+    `WebAppPlusCacheAppSecrets.config` 파일을 편집하여 다음 내용을 추가합니다.
 
     ```xml
     <appSettings>
-      <add key="CacheConnection" value="MyCache.redis.cache.windows.net,abortConnect=false,ssl=true,password=..."/>
+      <add key="CacheConnection" value="YourCacheName.redis.cache.windows.net,abortConnect=false,ssl=true,password=YourAccessKey"/>
     </appSettings>
     ```
 
+    응용 프로그램을 로컬로 실행하는 경우 이 정보는 Azure Redis Cache 인스턴스를 연결하는 데 사용됩니다. 이 자습서의 뒷부분에서는 Azure Redis Cache 인스턴스를 프로비전하고 캐시 이름 및 암호를 업데이트합니다. 샘플 응용 프로그램을 로컬로 실행할 계획이 아닌 경우, Azure에 배포할 때 응용 프로그램이 이 파일이 아닌 웹앱에 대한 앱 설정에서 캐시 연결 정보를 검색하므로 이 파일 만들기 및 해당 파일을 참조하는 이후 단계를 건너뛸 수 있습니다. `WebAppPlusCacheAppSecrets.config` 는 응용 프로그램과 함께Azure에 배포되지 않으므로 응용 프로그램을 로컬로 실행하려는 경우가 아니면 필요하지 않습니다.
 
 1. **솔루션 탐색기**에서 **web.config**를 두 번 클릭하여 엽니다.
    
@@ -338,7 +339,7 @@ Visual Studio 2013이 있는 경우 [최신 Visual Studio 2013용 Azure SDK를 �
    
    * 이전: `<appSettings>`
    * 이후: ` <appSettings file="C:\AppSecrets\WebAppPlusCacheAppSecrets.config">`
-     
+  
    ASP.NET 런타임은 외부 파일의 내용을 `<appSettings>` 요소의 태그와 병합합니다. 지정된 파일을 찾을 수 없는 경우 런타임에서 파일 특성을 무시합니다. 암호(캐시에 대한 연결 문자열)는 응용 프로그램에 대 한 소스 코드의 일부분으로 포함되지 않습니다. Azure에 웹앱을 배포하는 경우 `WebAppPlusCacheAppSecrests.config` 파일은 배포되지 않습니다(즉, 원하는 상태임). Azure에서 이러한 암호를 지정하는 여러 가지 방법이 있으며 이 자습서에서는 이후 단계에서 [Azure 리소스를 프로비전](#provision-the-azure-resources) 할 때 암호가 자동으로 구성됩니다. Azure에서 암호로 작업에 대한 자세한 내용은 [ASP.NET 및 Azure App Service에 암호 및 기타 중요한 데이터 배포를 위한 모범 사례](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure)를 참조하세요.
 
 ### <a name="update-the-teamscontroller-class-to-return-results-from-the-cache-or-the-database"></a>캐시 또는 데이터베이스에서 결과를 반환하도록 TeamsController 클래스 업데이트
@@ -804,11 +805,11 @@ Visual Studio 2013이 있는 경우 [최신 Visual Studio 2013용 Azure SDK를 �
 사용할 캐시를 선택하거나 만든 후 Azure Portal에서 캐시를 찾아가고 캐시에 대해 [호스트 이름](cache-configure.md#properties) 및 [선택키](cache-configure.md#access-keys)를 검색합니다. 지침은 [Redis Cache 설정 구성](cache-configure.md#configure-redis-cache-settings)을 참조하세요.
 
 1. 선택한 편집기를 사용하여 [Redis Cache를 사용하도록 응용 프로그램 구성](#configure-the-application-to-use-redis-cache) 단계 중에 만든 `WebAppPlusCacheAppSecrets.config` 파일을 엽니다.
-2. `value` 특성을 편집하고 `MyCache.redis.cache.windows.net`을 캐시의 [호스트 이름](cache-configure.md#properties)으로 바꾸고 캐시의 [기본 또는 보조 키](cache-configure.md#access-keys)를 암호로 지정합니다.
+2. `value` 특성을 편집하고, `YourCacheName.redis.cache.windows.net`을 캐시의 [호스트 이름](cache-configure.md#properties)으로 바꾸고, `YourAccessKey`를 캐시의 암호인 [기본 또는 보조 키](cache-configure.md#access-keys)로 바꿉니다.
 
     ```xml
     <appSettings>
-      <add key="CacheConnection" value="MyCache.redis.cache.windows.net,abortConnect=false,ssl=true,password=..."/>
+      <add key="CacheConnection" value="YourCacheName.redis.cache.windows.net,abortConnect=false,ssl=true,password=YourAccessKey"/>
     </appSettings>
     ```
 

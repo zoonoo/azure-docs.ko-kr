@@ -3,7 +3,7 @@ title: "Azure Active Directory용 MSI(관리 서비스 ID)의 FAQ 및 알려진 
 description: "Azure Active Directory용 MSI(관리 서비스 ID)의 알려진 문제에 대해 설명합니다."
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: daveba
 manager: mtillman
 editor: 
 ms.assetid: 2097381a-a7ec-4e3b-b4ff-5d2fb17403b6
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
 ms.date: 12/12/2017
-ms.author: bryanla
-ms.openlocfilehash: 2c29e93c0978250281fa489e53dcdf25f890a0a7
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.author: daveba
+ms.openlocfilehash: 0541e63a1d3467b9691032e66892efe8f0f0cad8
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="faqs-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>Azure Active Directory용 MSI(관리 서비스 ID)의 FAQ 및 알려진 문제
 

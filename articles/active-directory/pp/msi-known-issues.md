@@ -3,7 +3,7 @@ title: "Azure Active Directory용 MSI(관리 서비스 ID)의 FAQ 및 알려진 
 description: "Azure Active Directory용 MSI(관리 서비스 ID)의 알려진 문제에 대해 설명합니다."
 services: active-directory
 documentationcenter: 
-author: BryanLa
+author: daveba
 manager: mtillman
 editor: 
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
 ms.date: 12/15/2017
-ms.author: bryanla
+ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 7a71010567a76569da969db3d53f71535f96f2d0
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: 8820691f5b7c6dbd2c15faede75de123f779b167
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="faq-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>Azure Active Directory용 MSI(관리 서비스 ID)의 FAQ 및 알려진 문제
 
@@ -57,6 +57,23 @@ Set-AzureRmVMExtension -Name <extension name>  -Type <extension Type>  -Location
 위치: 
 - Windows에 대한 확장 이름 및 형식: ManagedIdentityExtensionForWindows
 - Linux에 대한 확장 이름 및 형식: ManagedIdentityExtensionForLinux
+
+### <a name="are-there-rbac-roles-for-user-assigned-identities"></a>사용자 할당 ID에 대한 RBAC 역할이 있나요?
+예:
+1. MSI 참가자: 
+
+- 다음 작업을 수행할 수 있습니다: CRUD 사용자 할당 ID입니다. 
+- 다음 작업을 수행할 수 없습니다: 리소스에 사용자 할당 ID를 할당합니다. (즉, VM에 ID 할당)
+
+2. MSI 연산자: 
+
+- 다음 작업을 수행할 수 있습니다: 리소스에 사용자 할당 ID를 할당합니다. (즉, VM에 ID 할당)
+- 다음 작업을 수행할 수 없습니다: CRUD 사용자 할당 ID입니다.
+
+참고: 기본 제공 참가자 역할은 위에서 설명한 작업을 모두 수행할 수 있습니다. 
+- CRUD 사용자 할당 ID입니다.
+- 리소스에 사용자 할당 ID를 할당합니다. (즉, VM에 ID 할당)
+
 
 ## <a name="known-issues"></a>알려진 문제
 
@@ -104,10 +121,9 @@ az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
 
 - 모든 사용자 할당 MSI를 제거하는 방법은 시스템 할당 MSI를 사용하도록 설정하는 것뿐입니다. 
 - DNS 조회 오류로 인해 VM으로의 VM 확장 프로비저닝이 실패할 수 있습니다. VM을 다시 시작한 후에 다시 시도하세요. 
-- Azure CLI: 사용자 할당 MSI가 있는 VM에서는 `Az resource show` 및 `Az resource list`가 실패합니다. 이 문제를 해결하려면 `az vm/vmss show`를 사용하세요.
+- '존재하지 않는' MSI를 추가하면 VM이 실패하게 됩니다. *참고: MSI가 존재하지 않으면 assign-identity에 실패하는 문제 해결이 롤아웃됩니다.*
 - Azure Storage 자습서는 현재 미국 중부 EUAP에서만 제공됩니다. 
-- 사용자 할당 MSI에 리소스 액세스 권한이 부여되면 해당 리소스의 IAM 블레이드에 "데이터에 액세스할 수 없습니다."가 표시됩니다. 이 문제를 해결하려면 CLI를 사용하여 해당 리소스의 역할 할당을 확인/편집합니다.
-- 사용자 할당 MSI를 만들 때는 이름에 밑줄을 포함할 수 없습니다.
+- 이름에서 특수 문자(예: 밑줄)를 사용하여 사용자 할당 MSI를 만들 수 없습니다.
 - 두 번째 사용자 할당 ID를 추가할 때는 해당 ID용 토큰을 요청하는 데 clientID를 사용하지 못할 수 있습니다. 이 문제를 완화하려면 다음의 두 bash 명령을 사용하여 MSI VM 확장을 다시 시작합니다.
  - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler disable"`
  - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler enable"`

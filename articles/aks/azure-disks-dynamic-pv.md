@@ -6,13 +6,13 @@ author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: article
-ms.date: 1/12/2018
+ms.date: 1/25/2018
 ms.author: nepeters
-ms.openlocfilehash: a4e4ce6a23f9f8a99d8ae5f9e4e2084e3b749017
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: e1f5b68d5d39dd846ebec525d1e83a6c0ef4971a
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="persistent-volumes-with-azure-disks---dynamic-provisioning"></a>Azure 디스크가 포함된 영구적 볼륨 - 동적 프로비저닝
 
@@ -51,13 +51,14 @@ parameters:
   storageaccounttype: Standard_LRS
 ```
 
-
-
 ## <a name="create-persistent-volume-claim"></a>영구적 볼륨 클레임 만들기
 
 영구적 볼륨 클레임은 저장소 클래스 개체를 사용하여 저장소 부분을 동적으로 프로비전합니다. Azure 디스크를 사용할 경우, AKS 리소스와 동일한 리소스 그룹에 디스크가 만들어집니다.
 
 이 예제 매니페스트는 `azure-managed-disk` 저장소 클래스로 영구 볼륨 클레임을 만들어 크기가 `5GB`이고 `ReadWriteOnce` 액세스 권한을 갖는 디스크를 만듭니다. PVC 액세스 모드에 대한 자세한 내용은 [액세스 모드][access-modes]를 참조하세요.
+
+> [!NOTE]
+> Azure 디스크는 액세스 모드 형식 ReadWriteOnce만 사용하여 탑재할 수 있으며, 이 모드는 단일 AKS 노드에서만 사용할 수 있습니다. 여러 노드에서 영구 볼륨을 공유해야 하는 경우, [Azure 파일][azure-files-pvc]을 사용하는 것이 좋습니다. 
 
 ```yaml
 apiVersion: v1
@@ -110,4 +111,5 @@ Azure 디스크를 사용하는 Kubernetes 영구적 볼륨에 대해 자세히 
 [kubernetes-volumes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/
 
 <!-- LINKS - internal -->
+[azure-files-pvc]: azure-files-dynamic-pv.md
 [premium-storage]: ../virtual-machines/windows/premium-storage.md

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/21/2017
 ms.author: steveesp
-ms.openlocfilehash: 490db57e9f36bed5575b7af5a6e2673fb63af3a8
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: d65b86cc63a4fd39824a6421afd5ce9abb7fd270
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="bandwidththroughput-testing-ntttcp"></a>대역폭/처리량 테스트(NTTTCP)
 
@@ -157,6 +157,13 @@ ntttcp -r -m <2 x nr cores>,*,<Linux server IP>
 
 ``` bash
 ntttcp -s -m <2 x nr cores>,*,<Linux  server IP> -ns -t 300
+```
+## <a name="testing-cloud-service-instances"></a>클라우드 서비스 인스턴스 테스트:
+다음 섹션을 ServiceDefinition.csdef에 추가해야 합니다.
+```xml
+<Endpoints>
+  <InternalEndpoint name="Endpoint3" protocol="any" />
+</Endpoints> 
 ```
 
 ## <a name="next-steps"></a>다음 단계

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: b6a5ff4fa3fd0084fd910968651c6ae0fefaf2cf
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 55ad7d4b2643b448801f41aea95f3505d9fcd78f
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="certificate-assets-in-azure-automation"></a>Azure Automation의 인증서 자산
 
@@ -28,9 +28,8 @@ ms.lasthandoff: 12/14/2017
 > Azure Automation의 안전한 자산에는 자격 증명, 인증서, 연결, 암호화된 변수 등이 있습니다. 이러한 자산은 각 자동화 계정에 대해 생성되는 고유 키를 사용하여 암호화되고 Azure Automation에 저장됩니다. 이 키는 마스터 인증서로 암호화되어 Azure Automation에 저장됩니다. 자동화 계정에 대한 키는 보안 자산을 저장하기 전에 마스터 인증서를 사용하여 암호가 해독된 후 자산을 암호화하는 데 사용됩니다.
 > 
 
-## <a name="windows-powershell-cmdlets"></a>Windows PowerShell cmdlet
-
-다음 표의 cmdlet은 Windows PowerShell을 사용하여 자동화 인증서 자산을 만들고 관리하는 데 사용됩니다. Automation runbook과 DSC 구성에 사용할 수 있는 [Azure PowerShell 모듈](../powershell-install-configure.md) 의 일부로 전송됩니다.
+## <a name="azurerm-powershell-cmdlets"></a>AzureRM PowerShell cmdlet
+AzureRM에 대해 다음 표의 cmdlet은 Windows PowerShell을 사용하여 자동화 자격 증명 자산을 만들고 관리하는 데 사용됩니다.  Automation runbook과 DSC 구성에 사용할 수 있는 [AzureRM.Automation 모듈](/powershell/azure/overview)의 일부로 전송됩니다.
 
 |Cmdlet|설명|
 |:---|:---|
@@ -40,6 +39,15 @@ ms.lasthandoff: 12/14/2017
 |[Set-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/set-azurermautomationcertificate?view=azurermps-4.3.1)|인증서 파일 업로드 및 .pfx 암호 설정을 포함하여 기존 인증서에 대한 속성을 설정합니다.|
 |[Add-AzureCertificate](https://msdn.microsoft.com/library/azure/dn495214.aspx)|지정된 클라우드 서비스에 대한 서비스 인증서를 업로드합니다.|
 
+## <a name="activities"></a>활동
+다음 테이블의 활동은 runbook 또는 DSC 구성의 인증서에 액세스하는 데 사용됩니다.
+
+| 활동 | 설명 |
+|:---|:---|
+|Get-AutomationCertificate|Runbook 또는 DSC 구성에 사용할 인증서를 가져옵니다. [System.Security.Cryptography.X509Certificates.X509Certificate2](https://msdn.microsoft.com/en-us/library/system.security.cryptography.x509certificates.x509certificate2.aspx) 개체를 반환합니다.|
+
+> [!NOTE] 
+> runbook 또는 DSC 구성에서 **Get-AutomationCertificate**의 –Name 매개 변수에 변수를 사용하면 안 됩니다. 디자인 시 Runbook 또는 DSC 구성과 Automation 변수를 사이의 종속성이 복잡해질 수 있기 때문입니다.
 
 ## <a name="python2-functions"></a>Python2 함수
 

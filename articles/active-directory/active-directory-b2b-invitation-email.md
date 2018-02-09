@@ -13,11 +13,11 @@ ms.topic: article
 ms.workload: identity
 ms.date: 05/23/2017
 ms.author: sasubram
-ms.openlocfilehash: b84dba6aa7ac11aef6d958d72564b8b83514a753
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: d3529397762cdb814e939b53d8c789add4955149
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Azure Active Directory B2B 공동 작업 초대 전자 메일의 요소
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 01/18/2018
 전자 메일의 제목은 다음 패턴을 따릅니다. &lt;tenantname&gt; 조직에 초대되었습니다.
 
 ### <a name="from-address"></a>보낸 사람 주소
-보낸 사람 주소에 대해서는 LinkedIn 유사 패턴을 사용합니다.  초대자가 누구인지와 어떤 회사에 소속되어 있는지를 명확히 하고 전자 메일이 Microsoft 전자 메일 주소에서 전송된 것인지를 명확히 해야 합니다. 형식: &lt;tenantname&gt;(Microsoft를 통해) <invites@microsoft.com&gt;의 &lt;초대자 표시 이름&gt;
+보낸 사람 주소에 대해서는 LinkedIn 유사 패턴을 사용합니다.  초대자가 누구인지와 어떤 회사에 소속되어 있는지를 명확히 하고 전자 메일이 Microsoft 전자 메일 주소에서 전송된 것인지를 명확히 해야 합니다. 형식: &lt;tenantname&gt;(Microsoft를 통해)<invites@microsoft.com>의 &lt;초대자 표시 이름&gt;
 
 ### <a name="reply-to"></a>회신
 회신 전자 메일은 사용 가능할 때 초대자의 전자 메일로 설정되므로 전자 메일에 회신하면 초대자에게 전자 메일이 다시 전송됩니다.

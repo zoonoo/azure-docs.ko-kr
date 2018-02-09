@@ -1,162 +1,188 @@
 ---
-title: "웹 응용 프로그램 방화벽 구성: Azure Application Gateway | Microsoft Docs"
-description: "이 문서에서는 기존 또는 새 응용 프로그램 게이트웨이에 웹 응용 프로그램 방화벽을 사용하는 방법을 안내합니다."
-documentationcenter: na
+title: "웹 응용 프로그램 방화벽이 있는 응용 프로그램 게이트웨이 만들기 - Azure CLI | Microsoft Docs"
+description: "Azure CLI를 사용하여 웹 응용 프로그램 방화벽이 있는 응용 프로그램 게이트웨이를 만드는 방법에 대해 알아봅니다."
 services: application-gateway
 author: davidmu1
 manager: timlt
 editor: tysonn
-ms.assetid: 670b9732-874b-43e6-843b-d2585c160982
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/20/2017
+ms.date: 01/25/2018
 ms.author: davidmu
-ms.openlocfilehash: e60bfc89378569b154f4f973d1dceb683fa58482
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 611e9b27baeddf61531421d7ad2bed20188ad279
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="configure-a-web-application-firewall-on-a-new-or-existing-application-gateway-with-azure-cli"></a>Azure CLI를 사용하여 새 또는 기존 응용 프로그램 게이트웨이에 웹 응용 프로그램 방화벽 구성
+# <a name="create-an-application-gateway-with-a-web-application-firewall-using-the-azure-cli"></a>Azure CLI를 사용하여 웹 응용 프로그램 방화벽이 있는 응용 프로그램 게이트웨이를 만듭니다.
 
-> [!div class="op_single_selector"]
-> * [Azure 포털](application-gateway-web-application-firewall-portal.md)
-> * [PowerShell](application-gateway-web-application-firewall-powershell.md)
-> * [Azure CLI](application-gateway-web-application-firewall-cli.md)
+Azure CLI를 사용하여 [가상 머신 확장 집합](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)을 사용하는 WAF([웹 응용 프로그램 방화벽](application-gateway-web-application-firewall-overview.md))에서 [응용 프로그램 게이트웨이](application-gateway-introduction.md)를 만들 수 있습니다. WAF는 [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 규칙을 사용하여 응용 프로그램을 보호합니다. 이러한 규칙을 통해 SQL 주입과 같은 공격, 사이트 간 스크립팅 공격 및 세션 도용으로부터 보호합니다. 
 
-WAF(웹 응용 프로그램 방화벽)를 사용하도록 설정된 응용 프로그램 게이트웨이를 만드는 방법에 대해 알아봅니다. 또한 WAF를 기존 응용 프로그램 게이트웨이에 추가하는 방법을 알아봅니다.
+이 문서에서는 다음 방법을 설명합니다.
 
-Azure Application Gateway의 WAF는 SQL 삽입 공격, 사이트 간 스크립팅 공격, 세션 하이재킹 등의 일반적인 웹 기반 공격으로부터 웹 응용 프로그램을 보호합니다.
+> [!div class="checklist"]
+> * 네트워크 설정
+> * WAF를 사용하여 응용 프로그램 게이트웨이 만들기
+> * 가상 머신 확장 집합 만들기
+> * 저장소 계정 만들기 및 진단 구성
 
- Application Gateway는 계층 7 부하 분산 장치입니다. 클라우드 또는 온-프레미스이든 상관없이 서로 다른 서버 간에 장애 조치(Failover), 성능 라우팅 HTTP 요청을 제공합니다. Application Gateway는 많은 ADC(응용 프로그램 배달 컨트롤러) 기능을 제공합니다.
+![웹 응용 프로그램 방화벽 예제](./media/application-gateway-web-application-firewall-cli/scenario-waf.png)
 
- * HTTP 부하 분산 
- * 쿠키 기반 세션 선호도 
- * SSL(Secure Sockets Layer) 오프로드 
- * 사용자 지정 상태 프로브 
- * 멀티 사이트 기능에 대한 지원
- 
- 지원되는 기능의 전체 목록을 찾으려면 [Application Gateway에 대한 개요](application-gateway-introduction.md)를 참조하세요.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-이 문서는 [기존 응용 프로그램 게이트웨이에 웹 응용 프로그램 방화벽을 추가](#add-web-application-firewall-to-an-existing-application-gateway)하는 방법을 보여 줍니다. 또한 [웹 응용 프로그램 방화벽을 사용하여 응용 프로그램 게이트웨이를 만드는](#create-an-application-gateway-with-web-application-firewall) 방법을 보여 줍니다.
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-![시나리오 이미지][scenario]
+CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에서 Azure CLI 버전 2.0.4 이상을 실행해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요.
 
-## <a name="prerequisite-install-the-azure-cli-20"></a>필수 조건: Azure CLI 2.0 설치
+## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-이 문서의 단계를 수행하려면 [Mac, Linux 및 Windows용 Azure CLI(Azure 명령줄 인터페이스)를 설치](https://docs.microsoft.com/cli/azure/install-az-cli2)해야 합니다.
+리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. [az group create](/cli/azure/group#az_group_create)를 사용하여 *myResourceGroupAG*라는 Azure 리소스 그룹을 만듭니다.
 
-## <a name="waf-configuration-differences"></a>WAF 구성 차이
+```azurecli-interactive 
+az group create --name myResourceGroupAG --location eastus
+```
 
-[Azure CLI를 사용하여 응용 프로그램 게이트웨이 만들기](application-gateway-create-gateway-cli.md)를 읽어 보셨다면 응용 프로그램 게이트웨이를 만들 때 구성하는 SKU 설정에 대해 알고 계실 것입니다. WAF는 응용 프로그램 게이트웨이에 SKU를 구성할 때 정의하는 추가 설정을 제공합니다. Application Gateway 자체에서 추가로 변경해야 하는 사항은 없습니다.
+## <a name="create-network-resources"></a>네트워크 리소스 만들기
 
-| **설정** | **세부 정보**
-|---|---|
-|**SKU** |WAF가 없는 일반 응용 프로그램 게이트웨이는 **Standard\_Small**, **Standard\_Medium** 및 **Standard\_Large** 크기를 지원합니다. WAF의 도입으로 두 개의 SKU, 즉 **WAF\_Medium** 및 **WAF\_Large** SKU가 추가되었습니다. 소형 응용 프로그램 게이트웨이에는 WAF가 지원되지 않습니다.|
-|**모드** | 이 설정은 WAF 모드입니다. 허용되는 값은 **검색** 및 **방지**입니다. WAF를 **검색** 모드로 설정하면 모든 위협이 로그 파일에 저장됩니다. **방지** 모드에서는 이벤트를 여전히 기록하지만 공격자가 응용 프로그램 게이트웨이로부터 403 권한 없음 응답을 받습니다.|
-
-## <a name="add-a-web-application-firewall-to-an-existing-application-gateway"></a>기존 응용 프로그램 게이트웨이에 웹 응용 프로그램 방화벽 추가
-
-다음 명령은 기존 표준 응용 프로그램 게이트웨이를 WAF가 활성화된 응용 프로그램 게이트웨이로 변경합니다.
+가상 네트워크 및 서브넷을 사용하여 응용 프로그램 게이트웨이 및 연결된 리소스에 대한 네트워크 연결을 제공합니다. [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) 및 [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create)를 사용하여 *myVNet*이라는 가상 네트워크와 *myAGSubnet*이라는 서브넷을 만듭니다. [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create)를 사용하여 *myAGPublicIPAddress*라는 IP 주소를 만듭니다.
 
 ```azurecli-interactive
-#!/bin/bash
+az network vnet create \
+  --name myVNet \
+  --resource-group myResourceGroupAG \
+  --location eastus \
+  --address-prefix 10.0.0.0/16 \
+  --subnet-name myBackendSubnet \
+  --subnet-prefix 10.0.1.0/24
+az network vnet subnet create \
+  --name myAGSubnet \
+  --resource-group myResourceGroupAG \
+  --vnet-name myVNet \
+  --address-prefix 10.0.2.0/24
+az network public-ip create \
+  --resource-group myResourceGroupAG \
+  --name myAGPublicIPAddress
+```
 
+## <a name="create-an-application-gateway-with-a-waf"></a>WAF를 사용하여 응용 프로그램 게이트웨이 만들기
+
+[az network application-gateway create](/cli/azure/application-gateway#az_application_gateway_create)를 사용하여 *myAppGateway*라는 응용 프로그램 게이트웨이를 만들 수 있습니다. Azure CLI를 사용하여 응용 프로그램 게이트웨이를 만들 때 용량, sku, HTTP 설정 등의 구성 정보를 지정합니다. 응용 프로그램 게이트웨이는 앞에서 만든 *myAGSubnet* 및 *myPublicIPSddress*에 할당됩니다.
+
+```azurecli-interactive
+az network application-gateway create \
+  --name myAppGateway \
+  --location eastus \
+  --resource-group myResourceGroupAG \
+  --vnet-name myVNet \
+  --subnet myAGSubnet \
+  --capacity 2 \
+  --sku WAF_Medium \
+  --http-settings-cookie-based-affinity Disabled \
+  --frontend-port 80 \
+  --http-settings-port 80 \
+  --http-settings-protocol Http \
+  --public-ip-address myAGPublicIPAddress
 az network application-gateway waf-config set \
   --enabled true \
-  --firewall-mode Prevention \
-  --gateway-name "AdatumAppGateway" \
-  --resource-group "AdatumAppGatewayRG"
+  --gateway-name myAppGateway \
+  --resource-group myResourceGroupAG \
+  --firewall-mode Detection \
+  --rule-set-version 3.0
 ```
 
-이 명령은 WAF가 있는 응용 프로그램 게이트웨이를 업데이트합니다. 응용 프로그램 게이트웨이에 대한 로그를 보는 방법을 알아보려면 [Application Gateway 진단](application-gateway-diagnostics.md)을 참조하세요. WAF의 보안 특성상, 주기적으로 로그를 검토하여 웹 응용 프로그램의 보안 상태를 파악해야 합니다.
+응용 프로그램 게이트웨이가 생성될 때까지 몇 분 정도 걸릴 수 있습니다. 응용 프로그램 게이트웨이가 생성되면 다음과 같은 새 기능을 볼 수 있습니다.
 
-## <a name="create-an-application-gateway-with-a-web-application-firewall"></a>웹 응용 프로그램 방화벽이 있는 응용 프로그램 게이트웨이 만들기
+- *appGatewayBackendPool* - 응용 프로그램 게이트웨이에 백 엔드 주소 풀이 하나 이상 있어야 합니다.
+- *appGatewayBackendHttpSettings* - 포트 80 및 HTTP 프로토콜을 통신에 사용하도록 지정합니다.
+- *appGatewayHttpListener* - *appGatewayBackendPool*에 연결되는 기본 수신기입니다.
+- *appGatewayFrontendIP* - *myAGPublicIPAddress*를 *appGatewayHttpListener*에 할당합니다.
+- *rule1* - *appGatewayHttpListener*에 연결되는 기본 라우팅 규칙입니다.
 
-다음 명령은 WAF를 사용하여 응용 프로그램 게이트웨이를 만듭니다.
+## <a name="create-a-virtual-machine-scale-set"></a>가상 머신 확장 집합 만들기
+
+이 예제에서는 응용 프로그램 게이트웨이의 백 엔드 풀에 두 개의 서버를 제공하는 가상 머신 확장 집합을 만듭니다. 확장 집합의 가상 머신은 *myBackendSubnet* 서브넷과 연결됩니다. 확장 집합을 만들려면 [az vmss create](/cli/azure/vmss#az_vmss_create)를 사용합니다.
 
 ```azurecli-interactive
-#!/bin/bash
-
-az network application-gateway create \
-  --name "AdatumAppGateway2" \
-  --location "eastus" \
-  --resource-group "AdatumAppGatewayRG" \
-  --vnet-name "AdatumAppGatewayVNET2" \
-  --vnet-address-prefix "10.0.0.0/16" \
-  --subnet "Appgatewaysubnet2" \
-  --subnet-address-prefix "10.0.0.0/28" \
- --servers "10.0.0.5 10.0.0.4" \
-  --capacity 2 
-  --sku "WAF_Medium" \
-  --http-settings-cookie-based-affinity "Enabled" \
-  --http-settings-protocol "Http" \
-  --frontend-port "80" \
-  --routing-rule-type "Basic" \
-  --http-settings-port "80" \
-  --public-ip-address "pip2" \
-  --public-ip-address-allocation "dynamic" \
-  --tags "cli[2] owner[administrator]"
+az vmss create \
+  --name myvmss \
+  --resource-group myResourceGroupAG \
+  --image UbuntuLTS \
+  --admin-username azureuser \
+  --admin-password Azure123456! \
+  --instance-count 2 \
+  --vnet-name myVNet \
+  --subnet myBackendSubnet \
+  --vm-sku Standard_DS2 \
+  --upgrade-policy-mode Automatic \
+  --app-gateway myAppGateway \
+  --backend-pool-name appGatewayBackendPool
 ```
 
-> [!NOTE]
-> 기본 WAF 구성을 사용하여 만든 응용 프로그램 게이트웨이는 보호를 위해 CRS 3.0으로 구성됩니다.
-
-## <a name="get-an-application-gateway-dns-name"></a>응용 프로그램 게이트웨이 DNS 이름 가져오기
-
-게이트웨이가 생성되면 다음 단계는 통신에 대한 프런트 엔드를 구성하는 것입니다. 공용 IP를 사용할 때 응용 프로그램 게이트웨이는 친근한 이름이 아닌 동적으로 할당된 DNS 이름이 필요합니다. 최종 사용자가 응용 프로그램 게이트웨이를 누를 수 있도록 하려면 CNAME 레코드를 사용하여 응용 프로그램 게이트웨이의 공용 끝점을 가리키도록 합니다. 자세한 내용은 [Azure 클라우드 서비스에서 사용자 지정 도메인 이름 구성](../cloud-services/cloud-services-custom-domain-name-portal.md)을 참조하세요. 
-
-CNAME 기록을 구성하려면 응용 프로그램 게이트웨이에 연결된 PublicIPAddress 요소를 사용하여 응용 프로그램 게이트웨이 및 관련 IP/DNS 이름에 대한 세부 정보를 검색합니다. 응용 프로그램 게이트웨이의 DNS 이름을 사용하여 두 개의 웹 응용 프로그램을 이 DNS 이름으로 가리키는 CNAME 레코드를 만듭니다. VIP가 응용 프로그램 게이트웨이를 다시 시작할 때 변경될 수 있으므로 A 레코드 사용은 권장하지 않습니다.
+### <a name="install-nginx"></a>NGINX 설치
 
 ```azurecli-interactive
-#!/bin/bash
+az vmss extension set \
+  --publisher Microsoft.Azure.Extensions \
+  --version 2.0 \
+  --name CustomScript \
+  --resource-group myResourceGroupAG \
+  --vmss-name myvmss \
+  --settings '{ "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"],"commandToExecute": "./install_nginx.sh" }'
+```
 
+## <a name="create-a-storage-account-and-configure-diagnostics"></a>저장소 계정 만들기 및 진단 구성
+
+이 자습서에서 응용 프로그램 게이트웨이는 감지 및 방지를 위해 데이터를 저장할 저장소 계정을 사용합니다. Log Analytics 또는 Event Hub를 사용하여 데이터를 기록할 수 있습니다. 
+
+### <a name="create-a-storage-account"></a>저장소 계정 만들기
+
+[az storage account create](/cli/azure/storage/account?view=azure-cli-latest#az_storage_account_create)를 사용하여 *myagstore1*이라는 저장소 계정을 만듭니다.
+
+```azurecli-interactive
+az storage account create \
+  --name myagstore1 \
+  --resource-group myResourceGroupAG \
+  --location eastus \
+  --sku Standard_LRS \
+  --encryption blob
+```
+
+### <a name="configure-diagnostics"></a>진단 구성
+
+ApplicationGatewayAccessLog, ApplicationGatewayPerformanceLog 및 ApplicationGatewayFirewallLog 로그에 데이터를 기록하도록 진단을 구성합니다. `<subscriptionId>`를 구독 식별자로 바꾼 다음, [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az_monitor_diagnostic_settings_create)를 사용하여 진단을 구성합니다.
+
+```azurecli-interactive
+appgwid=$(az network application-gateway show --name myAppGateway --resource-group myResourceGroupAG --query id -o tsv)
+storeid=$(az storage account show --name myagstore1 --resource-group myResourceGroupAG --query id -o tsv)
+az monitor diagnostic-settings create --name appgwdiag --resource $appgwid \
+  --logs '[ { "category": "ApplicationGatewayAccessLog", "enabled": true, "retentionPolicy": { "days": 30, "enabled": true } }, { "category": "ApplicationGatewayPerformanceLog", "enabled": true, "retentionPolicy": { "days": 30, "enabled": true } }, { "category": "ApplicationGatewayFirewallLog", "enabled": true, "retentionPolicy": { "days": 30, "enabled": true } } ]' \
+  --storage-account $storeid
+```
+
+## <a name="test-the-application-gateway"></a>응용 프로그램 게이트웨이 테스트
+
+응용 프로그램 게이트웨이의 공용 IP 주소를 가져오려면 [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show)를 사용합니다. 공용 IP 주소를 복사하여 브라우저의 주소 표시줄에 붙여넣습니다.
+
+```azurepowershell-interactive
 az network public-ip show \
-  --name pip2 \
-  --resource-group "AdatumAppGatewayRG"
+  --resource-group myResourceGroupAG \
+  --name myAGPublicIPAddress \
+  --query [ipAddress] \
+  --output tsv
 ```
 
-```
-{
-  "dnsSettings": {
-    "domainNameLabel": null,
-    "fqdn": "8c786058-96d4-4f3e-bb41-660860ceae4c.cloudapp.net",
-    "reverseFqdn": null
-  },
-  "etag": "W/\"3b0ac031-01f0-4860-b572-e3c25e0c57ad\"",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/AdatumAppGatewayRG/providers/Microsoft.Network/publicIPAddresses/pip2",
-  "idleTimeoutInMinutes": 4,
-  "ipAddress": "40.121.167.250",
-  "ipConfiguration": {
-    "etag": null,
-    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/AdatumAppGatewayRG/providers/Microsoft.Network/applicationGateways/AdatumAppGateway2/frontendIPConfigurations/appGatewayFrontendIP",
-    "name": null,
-    "privateIpAddress": null,
-    "privateIpAllocationMethod": null,
-    "provisioningState": null,
-    "publicIpAddress": null,
-    "resourceGroup": "AdatumAppGatewayRG",
-    "subnet": null
-  },
-  "location": "eastus",
-  "name": "pip2",
-  "provisioningState": "Succeeded",
-  "publicIpAddressVersion": "IPv4",
-  "publicIpAllocationMethod": "Dynamic",
-  "resourceGroup": "AdatumAppGatewayRG",
-  "resourceGuid": "3c30d310-c543-4e9d-9c72-bbacd7fe9b05",
-  "tags": {
-    "cli[2] owner[administrator]": ""
-  },
-  "type": "Microsoft.Network/publicIPAddresses"
-}
-```
+![응용 프로그램 게이트웨이의 기준 URL 테스트](./media/application-gateway-web-application-firewall-cli/application-gateway-nginxtest.png)
 
 ## <a name="next-steps"></a>다음 단계
 
-WAF 규칙을 사용자 지정하는 방법을 알아보려면 [Azure CLI 2.0을 통해 웹 응용 프로그램 방화벽 규칙 사용자 지정](application-gateway-customize-waf-rules-cli.md)을 참조하세요.
+이 자습서에서는 다음 방법에 대해 알아보았습니다.
 
-[scenario]: ./media/application-gateway-web-application-firewall-cli/scenario.png
+> [!div class="checklist"]
+> * 네트워크 설정
+> * WAF를 사용하여 응용 프로그램 게이트웨이 만들기
+> * 가상 머신 확장 집합 만들기
+> * 저장소 계정 만들기 및 진단 구성
+
+응용 프로그램 게이트웨이 및 관련 리소스에 대해 자세히 알아보려면 방법 문서를 참조하세요.

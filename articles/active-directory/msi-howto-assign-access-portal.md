@@ -3,7 +3,7 @@ title: "Azure Portal을 사용하여 MSI에 Azure 리소스 액세스 권한을 
 description: "Azure Portal을 사용하여 특정 리소스에 MSI를 할당하고 다른 리소스에 대한 액세스 권한을 할당하기 위한 단계별 지침"
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: daveba
 manager: mtillman
 editor: 
 ms.service: active-directory
@@ -12,18 +12,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
-ms.author: bryanla
-ms.openlocfilehash: 88abc2a9836633e5d88a91e59f7078a388b26068
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: daveba
+ms.openlocfilehash: 9e88fab3f4250c99c73c8e3e573b6f5c926eeb69
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="assign-a-managed-service-identity-access-to-a-resource-by-using-the-azure-portal"></a>Azure Portal을 사용하여 리소스에 관리 서비스 ID 액세스 권한 할당
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
 
-MSI(관리되는 서비스 ID)를 사용하여 Azure 리소스를 구성한 후에 모든 보안 주체와 마찬가지로 MSI에 다른 리소스 액세스 권한을 제공할 수 있습니다. 이 문서에서는 Azure Portal을 사용하여 Azure 가상 컴퓨터의 MSI에 Azure Storage 계정 액세스 권한을 제공하는 방법을 보여줍니다.
+MSI(관리되는 서비스 ID)를 사용하여 Azure 리소스를 구성한 후에 모든 보안 주체와 마찬가지로 MSI에 다른 리소스 액세스 권한을 제공할 수 있습니다. 이 문서에서는 Azure Portal을 사용하여 Azure 가상 머신의 MSI에 Azure Storage 계정 액세스 권한을 제공하는 방법을 보여줍니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -37,7 +37,7 @@ MSI(관리되는 서비스 ID)를 사용하여 Azure 리소스를 구성한 후�
 
 2. 액세스 제어를 수정하려는 리소스로 이동합니다. 이 예제에서는 Azure VM에 저장소 계정 액세스 권한을 제공할 것이므로 저장소 계정으로 이동합니다.
 
-3. 리소스의 **액세스 제어(IAM)** 페이지를 클릭하고 **+ 추가**를 선택합니다. 그런 다음 **역할**을 지정하고, **가상 컴퓨터 액세스 권한을 할당**하고, 리소스가 있는 해당 **구독** 및 **리소스 그룹**을 지정합니다. 검색 기준 영역 아래에 리소스가 표시되어야 합니다. 리소스를 선택하고 **저장**을 선택합니다. 
+3. 리소스의 **액세스 제어(IAM)** 페이지를 클릭하고 **+ 추가**를 선택합니다. 그런 다음 **역할**을 지정하고, **Virtual Machine 액세스 권한을 할당**하고, 리소스가 있는 해당 **구독** 및 **리소스 그룹**을 지정합니다. 검색 기준 영역 아래에 리소스가 표시되어야 합니다. 리소스를 선택하고 **저장**을 선택합니다. 
 
    ![액세스 제어(IAM) 스크린샷](./media/msi-howto-assign-access-portal/assign-access-control-iam-blade-before.png)  
 

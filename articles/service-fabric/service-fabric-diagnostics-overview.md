@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/10/2018
 ms.author: dekapur
-ms.openlocfilehash: 43a45a31efffcd623e6381049876c3607663ec4f
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 1da2fab92c6fd51c5fc18589da5f8bbec2929503
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>Azure Service Fabric 모니터링 및 진단
 
@@ -136,5 +136,6 @@ SFX에서 최신 상태 보고서를 볼 수 있는 것은 물론, 각 보고서
 
 * Service Fabric이 제공하는 플랫폼 및 이벤트 모니터링에 대한 자세한 내용은 [플랫폼 수준 이벤트 및 로그 생성](service-fabric-diagnostics-event-generation-infra.md)을 참조하세요.
 * 응용 프로그램 계측을 시작하려면 [응용 프로그램 수준 이벤트 및 로그 생성](service-fabric-diagnostics-event-generation-app.md)을 참조하세요.
-* [Service Fabric에서 ASP.NET Core 응용 프로그램 모니터링 및 진단](service-fabric-tutorial-monitoring-aspnet.md) 자습서를 살펴보세요.
+* [Service Fabric에서 ASP.NET Core 응용 프로그램 모니터링 및 진단](service-fabric-tutorial-monitoring-aspnet.md)에서 응용 프로그램용 AI를 설정하는 단계를 진행합니다.
+* 모니터링 컨테이너에 OMS Log Analytics를 설정하는 방법을 알아봅니다. [Azure Service Fabric의 Windows 컨테이너에 대한 모니터링 및 진단](service-fabric-tutorial-monitoring-wincontainers.md)
 

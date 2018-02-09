@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/21/2017
 ms.author: markgal;trinadhk;sogup;
-ms.openlocfilehash: 7d7b81a585ba8b10c60062c5d5274c45335cab68
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 568509eba47facfc5966d06dff5a1b32dce1008f
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Resource Manager 배포 가상 머신을 백업하기 위한 환경 준비
 
@@ -63,7 +63,7 @@ Resource Manager 배포 가상 머신을 보호하거나 백업할 수 있으려
 * Backup 데이터는 VM에 연결된 네트워크 탑재된 드라이브를 포함하지 않습니다.
 * 복원하는 동안 기존 가상 머신의 교체는 지원되지 않습니다. VM이 존재하는 경우 VM 복원을 시도하면, 복원 작업이 실패합니다.
 * 지역 간 백업 및 복원은 지원되지 않습니다.
-* 저장소 ACLed VM의 백업 및 복원은 현재 지원되지 않습니다. 특정 VNET/서브넷 및/또는 IP에서만 저장소 계정에 액세스할 수 있도록 허용하는 VNET 저장소 기능을 사용하는 경우 VM 백업이 지원되지 않습니다.
+* 네트워크 규칙이 적용된 저장소 계정에서 관리되지 않는 디스크를 사용하는 가상 머신의 백업 및 복원은 현재 지원되지 않습니다. 백업을 구성하는 동안 저장소 계정의 "방화벽 및 가상 네트워크" 설정에서 "모든 네트워크"의 액세스를 허용하는지 확인합니다.
 * Azure의 모든 공영 지역에 있는 가상 머신을 백업할 수 있습니다. (지원되는 지역의 [검사 목록](https://azure.microsoft.com/regions/#services)을 참조하세요.) 찾는 지역이 현재 지원되지 않는 경우 자격 증명 모음을 만드는 동안 드롭다운 목록에 표시되지 않습니다.
 * 다중 DC 구성의 일부인 도메인 컨트롤러(DC) VM 복원은 PowerShell을 통해서만 지원됩니다. 대해 자세히 알아보려면 [다중 DC 도메인 컨트롤러 복원](backup-azure-arm-restore-vms.md#restore-domain-controller-vms)을 참조하세요.
 * 다음과 같은 특수 네트워크 구성을 포함하는 가상 머신 복원은 PowerShell 통해서만 지원됩니다. UI에서 복원 워크플로를 통해 만든 VM은 복원 작업이 완료된 후 이러한 네트워크 구성을 갖지 않습니다. 자세한 내용은 [특수 네트워크 구성을 가진 VM 복원](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations)을 참조하세요.

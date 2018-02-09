@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 7603625da3f5f54862b2a0ead0ebb68f4fb1cfa8
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: b191af9edd8fd38c819483e8836568657d0b6bf0
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="build-a-nodejs-and-mongodb-web-app-in-azure"></a>Azure에서 Node.js 및 MongoDB 웹앱 작성
 
@@ -41,6 +41,8 @@ Azure Web Apps는 확장성 있는 자체 패치 웹 호스팅 서비스를 제�
 > * Azure에서 진단 로그 스트림
 > * Azure Portal에서 앱 관리
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
 ## <a name="prerequisites"></a>필수 조건
 
 이 자습서를 완료하려면 다음이 필요합니다.
@@ -50,8 +52,6 @@ Azure Web Apps는 확장성 있는 자체 패치 웹 호스팅 서비스를 제�
 1. [ 설치](https://bower.io/)([MEAN.js](http://meanjs.org/docs/0.5.x/#getting-started)에 필요)
 1. [Gulp.js 설치](http://gulpjs.com/)([MEAN.js](http://meanjs.org/docs/0.5.x/#getting-started)에 필요)
 1. [MongoDB Community Edition 설치 및 실행](https://docs.mongodb.com/manual/administration/install-community/) 
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="test-local-mongodb"></a>로컬 MongoDB 테스트
 
@@ -131,7 +131,7 @@ MongoDB의 경우 이 자습서에서는 [Azure Cosmos DB](/azure/documentdb/)�
 
 ### <a name="create-a-cosmos-db-account"></a>Cosmos DB 계정 만들기
 
-Cloud Shell에서 [az cosmosdb create](/cli/azure/cosmosdb?view=azure-cli-latest#az_cosmosdb_create) 명령을 사용하여 Cosmos DB 계정을 만듭니다.
+Cloud Shell에서 [`az cosmosdb create`](/cli/azure/cosmosdb?view=azure-cli-latest#az_cosmosdb_create) 명령을 사용하여 Cosmos DB 계정을 만듭니다.
 
 다음 명령에서 *\<cosmosdb_name>* 자리 표시자를 대신하여 고유한 Cosmos DB 이름으로 바꿉니다. 이 이름은 Cosmos DB 끝점(`https://<cosmosdb_name>.documents.azure.com/`)의 일부로 사용되므로 Azure의 모든 Cosmos DB 계정에서 고유해야 합니다. 이름은 소문자, 숫자 및 하이픈(-) 문자만 포함할 수 있으며, 3-50자 사이여야 합니다.
 
@@ -165,7 +165,7 @@ Cosmos DB 계정을 만든 경우 Azure CLI는 다음 예와 비슷한 정보를
 
 ### <a name="retrieve-the-database-key"></a>데이터베이스 키 검색
 
-Cosmos DB 데이터베이스에 연결하려면 데이터베이스 키가 필요합니다. Cloud Shell에서 [az cosmosdb list-keys](/cli/azure/cosmosdb?view=azure-cli-latest#az_cosmosdb_list_keys) 명령을 사용하여 기본 키를 검색합니다.
+Cosmos DB 데이터베이스에 연결하려면 데이터베이스 키가 필요합니다. Cloud Shell에서 [`az cosmosdb list-keys`](/cli/azure/cosmosdb?view=azure-cli-latest#az_cosmosdb_list_keys) 명령을 사용하여 기본 키를 검색합니다.
 
 ```azurecli-interactive
 az cosmosdb list-keys --name <cosmosdb_name> --resource-group myResourceGroup
@@ -253,6 +253,7 @@ MEAN.JS version: 0.5.0
 
 [!INCLUDE [Create app service plan no h](../../includes/app-service-web-create-app-service-plan-no-h.md)]
 
+<a name="create"></a>
 ### <a name="create-a-web-app"></a>웹앱 만들기
 
 [!INCLUDE [Create web app](../../includes/app-service-web-create-web-app-nodejs-no-h.md)] 
@@ -261,7 +262,7 @@ MEAN.JS version: 0.5.0
 
 기본적으로 MEAN.js 프로젝트는 _config/env/local-production.js_를 Git 리포지토리 외부에 둡니다. 따라서 Azure 웹앱의 경우 앱 설정을 사용하여 MongoDB 연결 문자열을 정의합니다.
 
-앱 설정을 지정하려면 Cloud Shell에서 [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) 명령을 사용합니다. 
+앱 설정을 지정하려면 Cloud Shell에서 [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) 명령을 사용합니다. 
 
 다음 예제에서는 Azure 웹앱에 `MONGODB_URI` 앱 설정을 구성합니다. *\<app_name>*, *\<cosmosdb_name>* 및 *\<primary_master_key>* 자리 표시자를 바꿉니다.
 
@@ -465,7 +466,7 @@ git push azure master
 
 Node.js 응용 프로그램이 Azure App Service에서 실행되는 동안 콘솔 로그를 터미널에 파이프할 수 있습니다. 이 방법으로 응용 프로그램 오류를 디버깅하는 데 도움이 되는 진단 메시지를 동일하게 받을 수 있습니다.
 
-로그 스트리밍을 시작하려면 Cloud Shell에서 [az webapp log tail](/cli/azure/webapp/log?view=azure-cli-latest#az_webapp_log_tail) 명령을 사용합니다.
+로그 스트리밍을 시작하려면 Cloud Shell에서 [`az webapp log tail`](/cli/azure/webapp/log?view=azure-cli-latest#az_webapp_log_tail) 명령을 사용합니다.
 
 ```azurecli-interactive
 az webapp log tail --name <app_name> --resource-group myResourceGroup

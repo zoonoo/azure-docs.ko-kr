@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 52e176711f512e8a3788309a58011c8484821a1e
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: d65341ae79a8894d054503e0b0807dee3e4cca8c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="security-in-azure-data-lake-store"></a>Azure Data Lake Store의 보호
 대부분의 기업에서는 현명한 의사 결정을 내리는 데 도움을 주는 비즈니스 insights에 대한 빅 데이터 분석을 활용합니다. 조직은 다양한 사용자 수가 증가하는 복잡하고 규제된 환경을 포함할 수 있습니다. 중요한 비즈니스 데이터가 개별 사용자에게 부여된 올바른 액세스 수준으로 더욱 안전하게 저장되도록 하는 것이 기업에게 필수적입니다. Azure Data Lake Store는 이러한 보안 요구 사항에 부응하도록 설계되었습니다. 이 문서에서는 다음을 포함하는 Data Lake Store의 보안 기능에 대해 알아봅니다.
@@ -56,14 +56,14 @@ ms.lasthandoff: 11/29/2017
 | --- | --- | --- | --- |
 | 할당된 역할 없음 |없음 |ACL에 의해 제어 |사용자는 Azure 포털 또는 Azure PowerShell Cmdlet을 사용하여 Data Lake Store를 찾아볼 수 없습니다. 사용자는 명령줄 도구만 사용할 수 있습니다. |
 | 소유자 |모두 |모두 |소유자 역할은 superuser입니다. 이 역할은 모든 것을 관리할 수 있으며 데이터에 대한 완전한 액세스를 가집니다. |
-| 리더 |읽기 전용 |ACL에 의해 제어 |리더 역할은 계정 관리와 관련된 모든 항목(예: 어떤 사용자가 어떤 역할에 할당되는지)을 볼 수 있습니다. 리더 역할은 항목을 변경할 수 없습니다. |
-| 참여자 |역할 추가 및 제거를 제외한 모든 항목 |ACL에 의해 제어 |참여자 역할은 배포 및 경고 만들기 및 관리와 같은 계정의 일부 측면을 관리할 수 있습니다. 참여자 역할은 역할을 추가 또는 제거할 수 없습니다. |
+| 판독기 |읽기 전용 |ACL에 의해 제어 |리더 역할은 계정 관리와 관련된 모든 항목(예: 어떤 사용자가 어떤 역할에 할당되는지)을 볼 수 있습니다. 리더 역할은 항목을 변경할 수 없습니다. |
+| 참가자 |역할 추가 및 제거를 제외한 모든 항목 |ACL에 의해 제어 |참여자 역할은 배포 및 경고 만들기 및 관리와 같은 계정의 일부 측면을 관리할 수 있습니다. 참여자 역할은 역할을 추가 또는 제거할 수 없습니다. |
 | 사용자 액세스 관리자 |역할 추가 및 제거 |ACL에 의해 제어 |사용자 액세스 관리자 역할은 계정에 대한 사용자 액세스를 관리할 수 있습니다. |
 
 자세한 내용은 [사용자 또는 보안 그룹을 Data Lake Store 계정에 할당](data-lake-store-secure-data.md#assign-users-or-security-groups-to-azure-data-lake-store-accounts)을 참조하세요.
 
 ### <a name="using-acls-for-operations-on-file-systems"></a>파일 시스템 작업에 ACL 사용
-Data Lake Store는 HDFS(Hadoop 분산 파일 시스템)와 같은 계층적 파일 시스템이며 [POSIX ACL](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html#ACLs_Access_Control_Lists)을 지원합니다. 소유자 역할, 소유자 그룹 및 다른 사용자 및 그룹의 리소스에 대한 읽기(r), 쓰기(w) 및 실행(x) 권한을 제어합니다. Data Lake Store 공개 미리 보기(현재 릴리스)에서 ACL은 루트 폴더, 하위 폴더 및 개별 파일에서도 사용할 수 있습니다. Data Lake Store의 컨텍스트에서 ACL 작동 방법에 대한 자세한 내용은 [Data Lake Store의 액세스 제어](data-lake-store-access-control.md)를 참조하세요.
+Data Lake Store는 HDFS(Hadoop 분산 파일 시스템)와 같은 계층적 파일 시스템이며 [POSIX ACL](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html#ACLs_Access_Control_Lists)을 지원합니다. 소유자 역할, 소유자 그룹 및 다른 사용자 및 그룹의 리소스에 대한 읽기(r), 쓰기(w) 및 실행(x) 권한을 제어합니다. Data Lake Store에서 ACL은 루트 폴더, 하위 폴더 및 개별 파일에서도 사용할 수 있습니다. Data Lake Store의 컨텍스트에서 ACL 작동 방법에 대한 자세한 내용은 [Data Lake Store의 액세스 제어](data-lake-store-access-control.md)를 참조하세요.
 
 [보안 그룹](../active-directory/active-directory-groups-create-azure-portal.md)을 사용하여 여러 사용자에 대한 ACL을 정의하는 것이 좋습니다. 사용자를 보안 그룹에 추가한 다음 파일 또는 폴더에 대한 ACL을 해당 보안 그룹에 할당합니다. 사용자 지정 액세스에 대해 최대 9개의 항목을 추가하는 제한 때문에 사용자 지정 액세스를 제공하려는 경우에 유용합니다. Azure Active Directory 보안 그룹을 사용하여 Data Lake Store에 저장된 데이터의 보안을 강화하는 방법에 대한 자세한 내용은 [ACL인 사용자 또는 보안 그룹을 Azure Data Lake Store 파일 시스템에 할당](data-lake-store-secure-data.md#filepermissions)을 참조하세요.
 

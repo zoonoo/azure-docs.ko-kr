@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/29/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: d6a950d69e5279c3cc19d8e457bfa23c2b40f515
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 91aa10b1e7dfbe47107257fa0a5fe14f7b43ff71
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="runbook-and-module-galleries-for-azure-automation"></a>Azure Automation용 Runbook 및 모듈 갤러리
 Azure Automation에서 사용자 고유의 Runbook 및 모듈을 만드는 대신 Microsoft 및 커뮤니티에서 이미 구성한 다양한 시나리오에 액세스할 수 있습니다.  이러한 시나리오는 수정 없이 그대로 사용하거나, 이를 기초로 특정 요구 사항에 맞게 편집하여 사용할 수 있습니다.
@@ -37,11 +37,8 @@ Azure Portal을 사용하는 Runbook 갤러리에서만 직접 가져올 수 있
 
 ### <a name="to-import-a-runbook-from-the-runbook-gallery-with-the-azure-portal"></a>Azure 포털을 사용하여 Runbook 갤러리에서 Runbook을 가져오려면
 1. Azure Portal에서 Automation 계정을 엽니다.
-2. **Runbook** 타일을 클릭하여 Runbook 목록을 엽니다.
-3. **갤러리 찾아보기** 단추를 클릭합니다.
-   
-    ![갤러리 찾아보기 단추](media/automation-runbook-gallery/browse-gallery-button.png)
-4. 원하는 갤러리 항목을 찾아 선택하여 세부 정보를 확인합니다.
+2. **프로세스 자동화**에서 **Runbook 갤러리**를 클릭합니다.
+3. 원하는 갤러리 항목을 찾아 선택하여 세부 정보를 확인합니다. 왼쪽에서 게시자 및 형식에 대한 추가 검색 매개 변수를 입력할 수 있습니다.
    
     ![갤러리 찾아보기](media/automation-runbook-gallery/browse-gallery.png)
 5. **TechNet 스크립트 센터** 의 항목을 확인하려면 [소스 프로젝트 보기](http://gallery.technet.microsoft.com/)를 클릭합니다.
@@ -94,14 +91,8 @@ PowerShell 모듈에는 Runbook에 사용할 수 있는 cmdlet이 있으며, Azu
    
     ![PowerShell 모듈 세부 정보](media/automation-runbook-gallery/gallery-item-details-blade.png) <br>
 7. Azure Automation에 직접 모듈을 설치하려면 **가져오기** 단추를 클릭합니다.
-   
-    ![모듈 가져오기 단추](media/automation-runbook-gallery/module-import-button.png)
 8. 가져오기 단추를 클릭하면 **가져오기** 창에서 가져오려는 모듈 이름이 표시됩니다. 모든 종속성이 설치되면 **확인** 단추가 활성화됩니다. 종속성이 없는 경우 종속성을 가져와야만 이 모듈을 가져올 수 있습니다.
-9. **확인**을 클릭하여 모듈을 가져옵니다. Azure Automation에서 모듈을 계정에 가져오는 동안 모듈 및 cmdlet에 대한 메타데이터를 추출합니다.
-   
-    ![모듈 가져오기 페이지](media/automation-runbook-gallery/module-import-blade.png)
-   
-    각 활동을 추출해야 하므로 몇 분이 걸릴 수 있습니다.
+9. **가져오기** 페이지에서 **확인**을 클릭하여 모듈을 가져옵니다. Azure Automation에서 모듈을 계정에 가져오는 동안 모듈 및 cmdlet에 대한 메타데이터를 추출합니다. 각 활동을 추출해야 하므로 몇 분이 걸릴 수 있습니다.
 10. 모듈이 배포 중임을 알리는 초기 알림 및 완료 시의 다른 알림이 표시됩니다.
 11. 모듈을 가져온 후에는 사용 가능한 작업이 표시되고 Runbook 및 DSC(필요한 상태 구성)에서 해당 리소스를 사용할 수 있습니다.
 

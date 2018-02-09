@@ -1,18 +1,18 @@
 ---
 title: "Azure Batch Rendering 서비스 - 클라우드 규모 렌더링 | Microsoft Docs"
-description: "Maya에서 직접 사용량 기준 과금으로 Azure 가상 컴퓨터의 작업을 렌더링합니다."
+description: "Maya에서 직접 사용량 기준 과금으로 Azure 가상 머신의 작업을 렌더링합니다."
 services: batch
-author: v-dotren
-manager: timlt
+author: dlepow
+manager: jeconnoc
 ms.service: batch
 ms.topic: hero-article
 ms.date: 09/14/2017
 ms.author: danlep
-ms.openlocfilehash: aab68b4275edc48e1726b26a7400bbfdd8d40d6f
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: f1aa8de26afd8b54746c706047a6b6b21cbf311c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="get-started-with-the-batch-rendering-service"></a>Batch Rendering 서비스 시작
 
@@ -25,12 +25,8 @@ Maya 및 3ds Max를 통해 [BatchLabs](https://github.com/Azure/BatchLabs) 데�
 
 Batch Renderin 서비스는 현재 다음과 같은 응용 프로그램을 지원합니다.
 
-- Autodesk Maya
-- Autodesk 3ds Max
-- Maya용 Autodesk Arnold
-- 3DS Max용 Autodesk Arnold
-- Maya용 Chaos Group V-Ray
-- 3DS Max용 Chaos Group V-Ray
+•   Autodesk Maya I/O 2017 Update 4(버전 17.4.5459) •   Autodesk 3ds Max I/O 2018 Update 1(버전 20.1.0.238) •   Autodesk Arnold for Maya(버전 5.0.1.1) •   Autodesk Arnold for 3ds Max(버전 1.0.836) •   Chaos Group V-Ray for Maya(버전 3.52.03) •   Chaos Group V-Ray for 3ds Max(버전 3.60.02)
+
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -52,11 +48,11 @@ Batch Rendering 서비스를 사용하기 전에 계산 노드, 풀, 작업을 �
 
 ### <a name="pools"></a>풀
 
-Batch는 렌더링처럼 계산 집약적인 작업을 **계산 노드** **풀**에서 실행하기 위한 플랫폼 서비스입니다. 풀의 각 계산 노드는 Linux 또는 Windows에서 실행 중인 Azure VM(가상 컴퓨터)입니다. 
+Batch는 렌더링처럼 계산 집약적인 작업을 **계산 노드** **풀**에서 실행하기 위한 플랫폼 서비스입니다. 풀의 각 계산 노드는 Linux 또는 Windows에서 실행 중인 Azure VM(가상 머신)입니다. 
 
 Batch 풀 및 계산 노드에 대한 자세한 내용은 [Batch를 사용하여 대규모 병렬 계산 솔루션 개발](batch-api-basics.md)의 [풀](batch-api-basics.md#pool) 및 [Compute 노드](batch-api-basics.md#compute-node) 섹션을 참조하세요.
 
-### <a name="jobs"></a>작업
+### <a name="jobs"></a>교육
 
 Batch **작업**은 풀의 계산 노드에서 실행되는 작업 컬렉션입니다. 렌더링 작업을 제출하면 Batch에서 작업을 여러 작업으로 분할하고 실행할 풀의 계산 노드에 분산합니다.
 
@@ -91,7 +87,7 @@ Azure Portal 및 BatchLabs에서 사전 설치된 응용 프로그램으로 VM �
 
 ### <a name="custom-images"></a>사용자 지정 이미지
 
-Azure Batch를 사용하면 사용자 지정 이미지를 제공할 수 있습니다. 이 옵션을 사용하여 정확한 응용 프로그램 및 필요한 특정 버전으로 VM을 구성할 수 있습니다. 자세한 내용은 [사용자 지정 이미지를 사용하여 가상 컴퓨터 풀 만들기](https://docs.microsoft.com/azure/batch/batch-custom-images)를 참조하세요. Autodesk 및 Chaos Group은 자체 라이선스 서비스에 대한 유효성을 검사하기 위해 Arnold 및 V-Ray를 각각 수정하였습니다. 이 지원을 통해 이러한 응용 프로그램 버전이 있는지 확인해야 합니다. 그렇지 않으면 사용량 과금 라이선스가 적용되지 않습니다. 이 라이선스 유효성 검사는 Maya 또는 3DS Max에는 필요하지 않습니다. 현재 게시된 버전은 헤드리스 실행 시(배치/명령줄 모드에서) 라이선스 서버가 필요하지 않기 때문입니다. 이 옵션을 진행하는 방법을 잘 모르는 경우 Azure 지원 담당자에게 문의하세요.
+Azure Batch를 사용하면 사용자 지정 이미지를 제공할 수 있습니다. 이 옵션을 사용하여 정확한 응용 프로그램 및 필요한 특정 버전으로 VM을 구성할 수 있습니다. 자세한 내용은 [사용자 지정 이미지를 사용하여 가상 머신 풀 만들기](https://docs.microsoft.com/azure/batch/batch-custom-images)를 참조하세요. Autodesk 및 Chaos Group은 자체 라이선스 서비스에 대한 유효성을 검사하기 위해 Arnold 및 V-Ray를 각각 수정하였습니다. 이 지원을 통해 이러한 응용 프로그램 버전이 있는지 확인해야 합니다. 그렇지 않으면 사용량 과금 라이선스가 적용되지 않습니다. 이 라이선스 유효성 검사는 Maya 또는 3DS Max에는 필요하지 않습니다. 현재 게시된 버전은 헤드리스 실행 시(배치/명령줄 모드에서) 라이선스 서버가 필요하지 않기 때문입니다. 이 옵션을 진행하는 방법을 잘 모르는 경우 Azure 지원 담당자에게 문의하세요.
 
 ## <a name="options-for-submitting-a-render-job"></a>렌더링 작업 제출을 위한 옵션
 

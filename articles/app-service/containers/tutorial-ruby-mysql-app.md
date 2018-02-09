@@ -2,21 +2,21 @@
 title: "Linux의 Azure App Service에서 Ruby 및 MySQL 웹앱 작성 | Microsoft Docs"
 description: "MySQL 데이터베이스에 연결하여 Azure에서 Ruby 앱이 작동하도록 하는 방법에 대해 알아봅니다."
 services: app-service\web
-documentationcenter: nodejs
+documentationcenter: 
 author: cephalin
 manager: cfowler
 ms.service: app-service-web
 ms.workload: web
-ms.devlang: nodejs
+ms.devlang: ruby
 ms.topic: tutorial
 ms.date: 12/21/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 03b2b4e8f8827a08e1414512d848bd5bed48d674
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 951e66e47cf8fbe9d2cdf1606a8d63054bcada13
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="build-a-ruby-and-mysql-web-app-in-azure-app-service-on-linux"></a>Linux의 Azure App Service에서 Ruby 및 MySQL 웹앱 작성
 
@@ -34,7 +34,9 @@ ms.lasthandoff: 01/04/2018
 > * Azure에서 진단 로그 스트림
 > * Azure Portal에서 앱 관리
 
-## <a name="prerequisites"></a>필수 구성 요소
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
+## <a name="prerequisites"></a>필수 조건
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -42,8 +44,6 @@ ms.lasthandoff: 01/04/2018
 * [Ruby 2.3 설치](https://www.ruby-lang.org/documentation/installation/)
 * [Ruby on Rails 5.1 설치](http://guides.rubyonrails.org/v5.1/getting_started.html)
 * [MySQL 설치 및 시작](https://dev.mysql.com/doc/refman/5.7/en/installing.html) 
-
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prepare-local-mysql"></a>로컬 MySQL 준비
 
@@ -136,7 +136,7 @@ Rails 서버를 중지하려면 터미널에서 `Ctrl + C`를 입력합니다.
 
 ### <a name="create-a-mysql-server"></a>MySQL 서버 만들기
 
-[az mysql server create](/cli/azure/mysql/server?view=azure-cli-latest#az_mysql_server_create) 명령을 사용하여 MySQL용 Azure 데이터베이스의 서버를 만듭니다.
+[`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az_mysql_server_create) 명령을 사용하여 Azure Database for MySQL(미리 보기)의 서버를 만듭니다.
 
 다음 명령에서 _&lt;mysql_server_name>_ 자리 표시자를 고유한 MySQL 서버 이름으로 바꿉니다(유효한 문자: `a-z`, `0-9` 및 `-`). 이 이름은 MySQL 서버의 호스트 이름(`<mysql_server_name>.mysql.database.azure.com`)의 일부이며, 전역적으로 고유해야 합니다.
 
@@ -161,7 +161,7 @@ MySQL 서버를 만들면 Azure CLI는 다음 예제와 비슷한 정보를 표�
 
 ### <a name="configure-server-firewall"></a>서버 방화벽 구성
 
-[az mysql server firewall-rule create](/cli/azure/mysql/server/firewall-rule?view=azure-cli-latest#az_mysql_server_firewall_rule_create) 명령을 사용하여 클라이언트 연결을 허용하도록 MySQL 서버에 대한 방화벽 규칙을 만듭니다.
+[`az mysql server firewall-rule create`](/cli/azure/mysql/server/firewall-rule?view=azure-cli-latest#az_mysql_server_firewall_rule_create) 명령을 사용하여 클라이언트 연결을 허용하도록 MySQL 서버에 대한 방화벽 규칙을 만듭니다.
 
 ```azurecli-interactive
 az mysql server firewall-rule create --name allIPs --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
@@ -312,9 +312,9 @@ git commit -m "database.yml updates"
 
 ### <a name="create-a-web-app"></a>웹앱 만들기
 
-Cloud Shell에서 [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) 명령을 사용하여 `myAppServicePlan` App Service 계획에 웹앱을 만듭니다. 
+Cloud Shell에서 [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) 명령을 사용하여 `myAppServicePlan` App Service 계획에 웹앱을 만듭니다. 
 
-다음 예에서 `<app_name>`을 전역적으로 고유한 앱 이름으로 바꿉니다(유효한 문자는 `a-z`, `0-9` 및 `-`). 런타임은 [기본 Ruby 이미지](https://hub.docker.com/r/appsvc/ruby/)를 배포하는 `RUBY|2.3`으로 설정됩니다. 지원되는 모든 런타임을 보려면 [az webapp list-runtimes](/cli/azure/webapp?view=azure-cli-latest#az_webapp_list_runtimes)를 실행합니다. 
+다음 예에서 `<app_name>`을 전역적으로 고유한 앱 이름으로 바꿉니다(유효한 문자는 `a-z`, `0-9` 및 `-`). 런타임은 [기본 Ruby 이미지](https://hub.docker.com/r/appsvc/ruby/)를 배포하는 `RUBY|2.3`으로 설정됩니다. 지원되는 모든 런타임을 보려면 [`az webapp list-runtimes`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_list_runtimes)를 실행합니다. 
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "RUBY|2.3" --deployment-local-git
@@ -346,7 +346,7 @@ git 배포를 활성화하여 새 빈 웹앱을 만들었습니다.
 
 ### <a name="configure-database-settings"></a>데이터베이스 설정 구성
 
-App Service에서 Cloud Shell의 [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) 명령을 사용하여 환경 변수를 _앱 설정_으로 설정합니다.
+Cloud Shell에서 [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) 명령을 사용하여 App Service의 환경 변수를 _앱 설정_으로 설정합니다.
 
 다음 Cloud Shell 명령에서는 `DB_HOST`, `DB_DATABASE`, `DB_USERNAME` 및 `DB_PASSWORD` 앱 설정을 구성합니다. _&lt;appname>_ 및 _&lt;mysql_server_name>_ 자리 표시자를 바꿉니다.
 

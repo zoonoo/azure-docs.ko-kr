@@ -14,13 +14,17 @@ ms.topic: tutorial
 ms.date: 01/23/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 4701d19cf3b10dc42a5df7cbcb82c0d458894247
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 1a60c76b2687e4c6561eabf8a19dbfffffbe8681
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="build-a-net-core-and-sql-database-web-app-in-azure-app-service"></a>Azure App Service에서 .NET Core 및 SQL Database 웹앱 빌드
+
+> [!NOTE]
+> 이 문서에서는 Windows의 App Service에 앱을 배포합니다. _Linux_에서 App Service를 배포하려면 [Linux의 Azure App Service에서 .NET Core 및 SQL Database 웹앱 빌드](./containers/tutorial-dotnetcore-sqldb-app.md)를 참조하세요.
+>
 
 [App Service](app-service-web-overview.md)는 Azure에서 확장성 높은 자체 패치 웹 호스팅 서비스를 제공합니다. 이 자습서에서는 .NET Core 웹앱을 만들고 SQL Database에 연결하는 방법을 보여줍니다. 완료되면 .NET Core MVC 앱이 App Service에서 실행됩니다.
 
@@ -36,14 +40,14 @@ ms.lasthandoff: 01/24/2018
 > * Azure에서 진단 로그 스트림
 > * Azure Portal에서 앱 관리
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
 ## <a name="prerequisites"></a>필수 조건
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
 1. [Git 설치](https://git-scm.com/)
 1. [.NET Core SDK 1.1.2 설치](https://github.com/dotnet/core/blob/master/release-notes/download-archives/1.1.2-download.md)
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="create-local-net-core-app"></a>로컬 .NET Core 앱 만들기
 
@@ -92,7 +96,7 @@ SQL Database의 경우 이 자습서에서는 [Azure SQL Database](/azure/sql-da
 
 ### <a name="create-a-sql-database-logical-server"></a>SQL Database 논리 서버 만들기
 
-Cloud Shell에서 [az sql server create](/cli/azure/sql/server?view=azure-cli-latest#az_sql_server_create) 명령을 사용하여 SQL Database 논리 서버를 만듭니다.
+Cloud Shell에서 [`az sql server create`](/cli/azure/sql/server?view=azure-cli-latest#az_sql_server_create) 명령을 사용하여 SQL Database 논리 서버를 만듭니다.
 
 *\<server_name>* 자리 표시자를 고유한 SQL Database 이름으로 바꿉니다. 이 이름은 SQL Database 끝점(`<server_name>.database.windows.net`)의 일부로 사용되므로 Azure의 모든 논리 서버에서 고유해야 합니다. 이름은 소문자, 숫자 및 하이픈(-) 문자만 포함할 수 있으며, 3-50자 사이여야 합니다. 또한 *\<db_username>* 및 *\<db_password>*를 선택한 사용자 이름 및 암호로 바꿉니다. 
 
@@ -123,7 +127,7 @@ SQL Database 논리 서버를 만들면 Azure CLI는 다음 예제와 비슷한 
 
 ### <a name="configure-a-server-firewall-rule"></a>서버 방화벽 규칙 구성
 
-[az sql server firewall create](/cli/azure/sql/server/firewall-rule?view=azure-cli-latest#az_sql_server_firewall_rule_create) 명령을 사용하여 [Azure SQL Database 서버 수준 방화벽 규칙](../sql-database/sql-database-firewall-configure.md)을 만듭니다. 시작 IP 및 끝 IP가 0.0.0.0으로 설정되면 방화벽이 다른 Azure 리소스에 대해서만 열립니다. 
+[`az sql server firewall create`](/cli/azure/sql/server/firewall-rule?view=azure-cli-latest#az_sql_server_firewall_rule_create)를 사용하여 [Azure SQL Database 서버 수준 방화벽 규칙](../sql-database/sql-database-firewall-configure.md)을 만듭니다. 시작 IP 및 끝 IP가 0.0.0.0으로 설정되면 방화벽이 다른 Azure 리소스에 대해서만 열립니다. 
 
 ```azurecli-interactive
 az sql server firewall-rule create --resource-group myResourceGroup --server <server_name> --name AllowYourIp --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
@@ -131,7 +135,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server <se
 
 ### <a name="create-a-database"></a>데이터베이스 만들기
 
-[az sql db create](/cli/azure/sql/db?view=azure-cli-latest#az_sql_db_create) 명령을 사용하여 서버에서 [S0 성능 수준](../sql-database/sql-database-service-tiers.md)인 데이터베이스를 만듭니다.
+[`az sql db create`](/cli/azure/sql/db?view=azure-cli-latest#az_sql_db_create) 명령을 사용하여 서버에서 [S0 성능 수준](../sql-database/sql-database-service-tiers.md)인 데이터베이스를 만듭니다.
 
 ```azurecli-interactive
 az sql db create --resource-group myResourceGroup --server <server_name> --name coreDB --service-objective S0
@@ -165,7 +169,7 @@ Server=tcp:<server_name>.database.windows.net,1433;Initial Catalog=coreDB;Persis
 
 ### <a name="configure-an-environment-variable"></a>환경 변수 구성
 
-Azure 앱에 연결 문자열을 설정하려면 Cloud Shell에서 [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) 명령을 사용합니다. 다음 명령에서 *\<app name>* 및 *\<connection_string>* 매개 변수를 앞에서 만든 연결 문자열로 바꿉니다.
+Azure 앱에 연결 문자열을 설정하려면 Cloud Shell에서 [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) 명령을 사용합니다. 다음 명령에서 *\<app name>* 및 *\<connection_string>* 매개 변수를 앞에서 만든 연결 문자열로 바꿉니다.
 
 ```azurecli-interactive
 az webapp config connection-string set --resource-group myResourceGroup --name <app name> --settings MyDbConnection='<connection_string>' --connection-string-type SQLServer

@@ -1,6 +1,6 @@
 ---
 title: "Visual Studio Code를 사용하여 Azure IoT Edge에서 C# 모듈 개발 | Microsoft Docs"
-description: "컨텍스트 전환 없이 VS Code에서 C# 모듈을 개발하고 Azure IoT Edge에 배포"
+description: "컨텍스트 전환 없이 Visual Studio Code에서 C# 모듈을 개발하고 Azure IoT Edge에 배포"
 services: iot-edge
 keywords: 
 author: shizn
@@ -9,26 +9,26 @@ ms.author: xshi
 ms.date: 01/11/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: cad28b4e6d4e46058641da19795cd71efdbd0c92
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 4cf07d5c4a21fa989e7de6e996cc62424099e3e5
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="use-visual-studio-code-to-develop-c-module-with-azure-iot-edge"></a>Visual Studio Code를 사용하여 Azure IoT Edge에서 C# 모듈 개발
-이 문서에서는 [Visual Studio Code](https://code.visualstudio.com/)를 주 개발 도구로 사용하여 IoT Edge 모듈을 개발 및 디버그하기 위한 자세한 지침을 제공합니다. 
+# <a name="use-visual-studio-code-to-develop-a-c-module-with-azure-iot-edge"></a>Visual Studio Code를 사용하여 Azure IoT Edge에서 C# 모듈 개발
+이 문서에서는 [Visual Studio Code](https://code.visualstudio.com/)를 주 개발 도구로 사용하여 Azure IoT Edge 모듈을 개발 및 디버그하기 위한 자세한 지침을 제공합니다. 
 
 ## <a name="prerequisites"></a>필수 조건
 이 자습서에서는 사용자가 Windows 또는 Linux를 실행하는 컴퓨터 또는 가상 머신을 개발 컴퓨터로 사용한다고 가정합니다. IoT Edge 장치가 다른 물리적 장치가 될 수도 있고, 개발 컴퓨터에서 IoT Edge 장치를 시뮬레이트할 수도 있습니다.
 
-이 설명서를 시작하기 전에 다음 자습서를 완료했는지 확인합니다.
+이 설명서를 시작하기 전에 다음과 같은 자습서를 완료하세요.
 - [Windows](https://docs.microsoft.com/azure/iot-edge/tutorial-simulate-device-windows) 또는 [Linux](https://docs.microsoft.com/azure/iot-edge/tutorial-simulate-device-linux)에서 시뮬레이트된 장치에 Azure IoT Edge 배포
 - [C# IoT Edge 모듈을 개발하여 시뮬레이트된 장치에 배포](https://docs.microsoft.com/azure/iot-edge/tutorial-csharp-module)
 
 다음은 이전 자습서를 완료한 경우 표시되어야 하는 항목을 보여 주는 검사 목록입니다.
 
-- [Visual Studio Code](https://code.visualstudio.com/) 
-- [Visual Studio Code용 Azure IoT Edge 확장](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) 
+- [Contact.java](https://code.visualstudio.com/) 
+- [Visual Studio Code에 대한 Azure IoT Edge 확장](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) 
 - [C# for Visual Studio Code(OmniSharp 제공) 확장](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp). 
 - [Docker](https://docs.docker.com/engine/installation/)
 - [.NET Core 2.0 SDK](https://www.microsoft.com/net/core#windowscmd) 
@@ -37,53 +37,53 @@ ms.lasthandoff: 01/17/2018
 - AzureIoTEdgeModule 템플릿(`dotnet new -i Microsoft.Azure.IoT.Edge.Module`)
 - 하나 이상의 IoT Edge 장치가 있는 활성 IoT Hub.
 
-모듈 이미지와 컨테이너를 보다 잘 관리하기 위해 [VS Code에 대한 Docker 지원](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker)을 설치하는 것도 좋은 방법입니다.
+모듈 이미지와 컨테이너를 보다 잘 관리하기 위해 [VS Code에 대한 Docker 지원](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker)을 설치하는 것도 유용한 방법입니다.
 
 ## <a name="deploy-an-azure-iot-edge-module-in-vs-code"></a>VS Code에서 Azure IoT Edge 모듈 배표
 
 ### <a name="list-your-iot-hub-devices"></a>IoT 허브 장치 나열
 VS Code에 IoT 허브 장치를 나열하는 두 가지 방법이 있습니다. 둘 중 하나를 선택하여 계속할 수 있습니다.
 
-#### <a name="sign-in-your-azure-account-in-vscode-and-choose-your-iot-hub"></a>VSCode에서 Azure 계정에 로그인하고 IoT 허브를 선택합니다.
-1. 명령 팔레트(F1 또는 Ctrl + Shift + P)에서 **Azure: 로그인**을 입력하고 선택합니다. 그런 다음 팝업에서 **복사* 및 열기**를 클릭합니다. 브라우저에 코드를 붙여넣고(Ctrl + V) [계속] 단추를 클릭합니다. 그런 다음 Azure 계정으로 로그인합니다. VS Code 상태 표시줄에서 계정 정보를 볼 수 있습니다.
-2. 명령 팔레트(F1 또는 Ctrl + Shift + P)에서 **IoT: IoT Hub 선택**을 입력하고 선택합니다. 먼저 이전 자습서에서 IoT 허브를 만든 구독을 선택합니다. 그런 다음 IoT Edge 장치를 포함하는 IoT 허브를 선택합니다.
+#### <a name="sign-in-to-your-azure-account-in-vs-code-and-choose-your-iot-hub"></a>VSCode에서 Azure 계정에 로그인하고 IoT 허브를 선택합니다.
+1. 명령 팔레트(F1 또는 Ctrl + Shift + P)에서 **Azure: 로그인**을 입력하고 선택합니다. 그런 다음 **복사 및 열기**를 선택합니다. 브라우저에 코드를 붙여넣고(Ctrl + V) **계속**을 선택합니다. 그런 후 Azure 계정으로 로그인합니다. VS Code 상태 표시줄에서 계정 정보를 볼 수 있습니다.
+2. 명령 팔레트에 **IoT: IoT Hub 선택**을 입력하고 선택합니다. 먼저 이전 자습서에서 IoT 허브를 만든 구독을 선택합니다. 그런 다음 IoT Edge 장치를 포함하는 IoT 허브를 선택합니다.
 
-    ![장치 목록](./media/how-to-vscode-develop-csharp-module/device-list.png)
+    ![장치 목록 스크린샷](./media/how-to-vscode-develop-csharp-module/device-list.png)
 
-#### <a name="set-iot-hub-connection-string"></a>IoT 허브 연결 문자열 설정
-명령 팔레트(F1 또는 Ctrl + Shift + P)에서 **IoT: IoT Hub 연결 문자열 설정**을 입력하고 선택합니다. 정책 **iothubowner**에서 연결 문자열을 붙여넣습니다(Azure Portal에서 IoT 허브의 공유 액세스 정책에서 찾을 수 있음).
+#### <a name="set-the-iot-hub-connection-string"></a>IoT Hub 연결 문자열 설정
+명령 팔레트에서 **IoT: IoT Hub 연결 문자열 설정**을 입력하고 선택합니다. **iothubowner** 정책 아래에 연결 문자열을 붙여 넣습니다. (Azure Portal에서 IoT Hub의 공유 액세스 정책에서 찾을 수 있습니다.)
  
 왼쪽 세로 막대에서 IoT Hub Devices Explorer의 장치 목록을 볼 수 있습니다.
 
 ### <a name="start-your-iot-edge-runtime-and-deploy-a-module"></a>IoT Edge 런타임 시작 및 모듈 배포
-장치에 Azure IoT Edge 런타임을 설치하고 시작합니다. IoT Hub로 원격 분석 데이터를 보낼 시뮬레이션된 센서 모듈을 배포합니다.
-1. 명령 팔레트에서 **Edge: Edge 설정**을 선택하고 IoT Edge 장치 ID를 선택합니다. 또는 장치 목록에서 Edge 장치 ID를 마우스 오른쪽 단추로 클릭하고 **Edge 설정**을 선택합니다.
+장치에 Azure IoT Edge 런타임을 설치하고 시작합니다. Azure IoT Hub로 원격 분석 데이터를 보낼 시뮬레이션된 센서 모듈을 배포합니다.
+1. 명령 팔레트에서 **Edge: Edge 설정**을 선택하고 IoT Edge 장치 ID를 선택합니다. 또는 **장치 목록**에서 IoT Edge 장치 ID를 마우스 오른쪽 단추로 클릭하고 **Edge 설정**을 선택합니다.
 
-    ![Edge 런타임 설정](./media/how-to-vscode-develop-csharp-module/setup-edge.png)
+    ![Edge 런타임 설정 스크린샷](./media/how-to-vscode-develop-csharp-module/setup-edge.png)
 
-2. 명령 팔레트에서 **Edge: Edge 시작**을 선택하여 Edge 런타임을 시작합니다. 통합된 터미널에 해당 출력을 볼 수 있습니다.
+2. 명령 팔레트에서 **Edge: Edge 시작**을 선택하여 IoT Edge 런타임을 시작합니다. 통합된 터미널에 해당 출력을 볼 수 있습니다.
 
-    ![Edge 런타임 시작](./media/how-to-vscode-develop-csharp-module/start-edge.png)
+    ![Edge 런타임 시작 스크린샷](./media/how-to-vscode-develop-csharp-module/start-edge.png)
 
-3. Docker 탐색기에서 Edge 런타임 상태를 확인합니다. 녹색은 실행 중임을 의미합니다. IoT Edge 런타임이 성공적으로 시작됩니다.
+3. Docker 탐색기에서 IoT Edge 런타임 상태를 확인합니다. 녹색은 IoT Edge 런타임이 제대로 시작되어 실행되고 있음을 나타냅니다. 컴퓨터는 이제 IoT Edge 장치를 시뮬레이트합니다.
 
-    ![Edge 런타임이 실행 중임](./media/how-to-vscode-develop-csharp-module/edge-runtime.png)
+    ![Edge 런타임 상태 스크린샷](./media/how-to-vscode-develop-csharp-module/edge-runtime.png)
 
-4. Edge 런타임이 실행되고 있습니다. 즉 이제 PC에서 Edge 장치를 시뮬레이션합니다. 다음 단계는 Edge 장치에 메시지 전송을 유지하는 sensorthing을 시뮬레이션하는 것입니다. 명령 팔레트에서 **Edge: Edge 구성 파일 생성**을 입력하고 선택합니다. 이 파일을 만들 폴더를 선택합니다. 생성된 deployment.json 파일에서 콘텐츠 `<registry>/<image>:<tag>`를 `microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview`로 바꾼 후 파일을 저장합니다.
+4. IoT Edge 장치에 메시지를 계속 전송하는 센서를 시뮬레이트합니다. 명령 팔레트에서 **Edge: Edge 구성 파일 생성**을 입력하고 선택합니다. 이 파일을 만들 폴더를 선택합니다. 생성된 deployment.json 파일에서 콘텐츠 `<registry>/<image>:<tag>`를 `microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview`로 바꾼 후 파일을 저장합니다.
 
-    ![센서 모듈](./media/how-to-vscode-develop-csharp-module/sensor-module.png)
+    ![센서 모듈 스크린샷](./media/how-to-vscode-develop-csharp-module/sensor-module.png)
 
-5. **Edge: Edge 장치에 대한 배포 만들기**를 선택하고 새 배포를 만들 Edge 장치 ID를 선택합니다. 또는 장치 목록에서 Edge 장치 ID를 마우스 오른쪽 단추로 클릭하고 **Edge 장치에 대한 배포 만들기**를 선택할 수 있습니다. 
+5. **Edge: Edge 장치에 대한 배포 만들기**를 선택하고 새 배포를 만들 IoT Edge 장치 ID를 선택합니다. 또는 장치 목록에서 IoT Edge 장치 ID를 마우스 오른쪽 단추로 클릭하고 **Edge 장치에 대한 배포 만들기**를 선택할 수 있습니다. 
 
 6. Docker 탐색기에서 시뮬레이트된 센서를 사용하여 IoT Edge가 실행을 시작하는 것을 볼 수 있습니다. Docker 탐색기에서 컨테이너를 마우스 오른쪽 단추로 클릭합니다. 각 모듈에 대한 docker 로그를 볼 수 있습니다. 또한, 장치 목록에 있는 모듈 목록을 볼 수 있습니다.
 
-    ![모듈 목록](./media/how-to-vscode-develop-csharp-module/module-list.png)
+    ![모듈 목록 스크린샷](./media/how-to-vscode-develop-csharp-module/module-list.png)
 
-7. Edge 장치 ID를 마우스 오른쪽 단추로 클릭하고 VS Code의 D2C 메시지를 모니터링할 수 있습니다.
-8. IoT Edge 런타임 및 센서 모듈을 중지하려면 명령 팔레트에서 **Edge: Edge 중지**를 입력하고 선택할 수 있습니다.
+7. IoT Edge 장치 ID를 마우스 오른쪽 단추로 클릭하고 VS Code의 D2C 메시지를 모니터링할 수 있습니다.
+8. IoT Edge 런타임 및 센서 모듈을 중지하려면 명령 팔레트에서 **Edge: Edge 중지**를 입력하고 선택합니다.
 
 ## <a name="develop-and-deploy-a-c-module-in-vs-code"></a>VS Code에서 C# 모듈 개발 및 배포
-[C# 모듈 개발](https://docs.microsoft.com/azure/iot-edge/tutorial-csharp-module) 자습서에서 VS Code의 모듈 이미지를 업데이트, 빌드 및 게시한 다음 Azure Portal을 방문하여 C# 모듈을 배포합니다. 이 섹션에서는 VS Code를 사용하여 C# 모듈을 배포하고 모니터링하는 방법을 소개합니다.
+[C# 모듈 개발](https://docs.microsoft.com/azure/iot-edge/tutorial-csharp-module) 자습서에서 VS Code의 모듈 이미지를 업데이트, 빌드 및 게시합니다. 그런 다음 Azure Portal로 이동하여 C# 모듈을 배포합니다. 이 섹션에서는 VS Code를 사용하여 C# 모듈을 배포하고 모니터링하는 방법을 소개합니다.
 
 ### <a name="start-a-local-docker-registry"></a>로컬 Docker 레지스트리 시작
 이 자습서에서는 Docker 호환 레지스트리를 사용할 수 있습니다. 클라우드에서 사용 가능한 두 개의 인기 있는 Docker 레지스트리 서비스는 [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) 및 [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)입니다. 이 섹션에서는 초기 개발 중에 테스트용으로 제공되는 좀 더 용이한 [로컬 Docker 레지스트리](https://docs.docker.com/registry/deploying/)를 사용합니다.
@@ -94,7 +94,7 @@ docker run -d -p 5000:5000 --name registry registry:2
 ```
 
 > [!NOTE]
-> 위 예제에서는 테스트에만 적합한 레지스트리 구성을 보여 줍니다. 프로덕션에 사용 가능한 레지스트리는 TLS로 보호되어야 하며, 액세스 제어 메커니즘을 사용하는 것이 좋습니다. 프로덕션에 사용 가능한 IoT Edge 모듈을 배포하려면 [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) 또는 [Docker 허브](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)를 사용하는 것이 좋습니다.
+> 이 예제에서는 테스트에만 적합한 레지스트리 구성을 보여 줍니다. 프로덕션에 사용 가능한 레지스트리는 TLS로 보호되어야 하며, 액세스 제어 메커니즘을 사용하는 것이 좋습니다. 프로덕션에 사용 가능한 IoT Edge 모듈을 배포하려면 [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) 또는 [Docker 허브](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)를 사용하는 것이 좋습니다.
 
 ### <a name="create-an-iot-edge-module-project"></a>IoT Edge 모듈 프로젝트 만들기
 다음 단계는 Visual Studio Code 및 Azure IoT Edge 확장을 사용하여 .NET Core 2.0을 기반으로 IoT Edge 모듈을 만드는 방법을 보여 줍니다. 이전 자습서에서 이 섹션을 완료했으면 건너뛰어도 됩니다.
@@ -113,7 +113,7 @@ docker run -d -p 5000:5000 --name registry registry:2
  
 3. **파일** > **폴더 열기**를 선택합니다.
 4. **FilterModule** 폴더로 이동한 다음 **폴더 선택**을 클릭하여 VS Code에서 프로젝트를 엽니다.
-5. VS Code 탐색기에서 **Program.cs**를 클릭하여 엽니다. **program.cs**의 맨 위에 아래 네임스페이스를 포함합니다.
+5. VS Code 탐색기에서 **Program.cs**를 선택하여 엽니다. **program.cs**의 맨 위에 다음 네임스페이스를 포함합니다.
    ```csharp
    using Microsoft.Azure.Devices.Shared;
    using System.Collections.Generic;  
@@ -147,7 +147,7 @@ docker run -d -p 5000:5000 --name registry registry:2
     }
     ```
 
-8. **Init** 메서드에서 코드는 **DeviceClient** 개체를 만들고 구성합니다. 이 개체를 사용하면 메시지를 주고받기 위해 로컬 Azure IoT Edge 런타임에 모듈을 연결할 수 있습니다. **Init** 메서드에 사용된 연결 문자열이 IoT Edge 런타임에 의해 모듈로 제공됩니다. **DeviceClient**를 만든 후 코드는 **input1** 끝점을 통해 IoT Edge 허브로부터 메시지를 수신하기 위한 콜백을 등록합니다. `SetInputMessageHandlerAsync` 메서드를 새 메서드로 바꾸로 원하는 속성 업데이트에 대한 `SetDesiredPropertyUpdateCallbackAsync` 메서드를 추가합니다. 이 변경을 수행하려면 **Init** 메서드의 마지막 줄을 다음 코드로 바꾸세요.
+8. **Init** 메서드에서 코드는 **DeviceClient** 개체를 만들고 구성합니다. 이 개체를 사용하면 메시지를 주고받기 위해 로컬 IoT Edge 런타임에 모듈을 연결할 수 있습니다. IoT Edge 런타임은 **Init** 메서드에 사용되는 연결 문자열을 이 모듈에 제공합니다. **DeviceClient** 개체를 만든 후 코드는 **input1** 끝점을 통해 IoT Edge 허브로부터 메시지를 수신하기 위한 콜백을 등록합니다. `SetInputMessageHandlerAsync` 메서드를 새 메서드로 바꾸로 원하는 속성 업데이트에 대한 `SetDesiredPropertyUpdateCallbackAsync` 메서드를 추가합니다. 이 변경을 수행하려면 **Init** 메서드의 마지막 줄을 다음 코드로 바꾸세요.
 
     ```csharp
     // Register callback to be called when a message is received by the module
@@ -247,26 +247,26 @@ docker run -d -p 5000:5000 --name registry registry:2
     }
     ```
 
-11. 프로젝트를 빌드하려면 탐색기에서 **FilterModule.csproj** 파일을 마우스 오른쪽 단추로 클릭하고 **Build IoT Edge 모듈 빌드**를 클릭합니다. 이 프로세스는 모듈을 컴파일하고 이진 및 해당 종속성을 Docker 이미지 생성에 사용되는 폴더로 내보냅니다. 
+11. 프로젝트를 빌드하려면 탐색기에서 **FilterModule.csproj** 파일을 마우스 오른쪽 단추로 클릭하고 **Build IoT Edge 모듈 빌드**를 선택합니다. 이 프로세스는 모듈을 컴파일하고 이진 및 해당 종속성을 Docker 이미지 생성에 사용되는 폴더로 내보냅니다. 
 
-    ![모듈 빌드](./media/how-to-vscode-develop-csharp-module/build-module.png)
+    ![VS Code 탐색기 스크린샷](./media/how-to-vscode-develop-csharp-module/build-module.png)
 
 ### <a name="create-a-docker-image-and-publish-it-to-your-registry"></a>Docker 이미지를 만들어 레지스트리에 게시
 
 1. VS Code 탐색기에서 **Docker** 폴더를 확장합니다. 그런 다음 컨테이너 플랫폼에 대한 폴더(**linux-x64** 또는 **windows-nano**)를 확장합니다.
-2. **Dockerfile** 파일을 마우스 오른쪽 단추로 클릭하고 **IoT Edge 모듈 Docker 이미지 빌드**를 클릭합니다. 
+2. **Dockerfile** 파일을 마우스 오른쪽 단추로 클릭하고 **IoT Edge 모듈 Docker 이미지 빌드**를 선택합니다. 
 
-    ![Docker 이미지 빌드](./media/how-to-vscode-develop-csharp-module/build-docker-image.png)
+    ![VS Code 탐색기 스크린샷](./media/how-to-vscode-develop-csharp-module/build-docker-image.png)
 
-3. **폴더 선택** 창에서 `./bin/Debug/netcoreapp2.0/publish`로 이동하거나 이 항목을 입력합니다. **Select Folder as EXE_DIR**(EXE_DIR로 폴더 선택)을 클릭합니다.
+3. **폴더 선택** 창에서 `./bin/Debug/netcoreapp2.0/publish`로 이동하거나 이 항목을 입력합니다. **Select Folder as EXE_DIR**(EXE_DIR로 폴더 선택)을 선택합니다.
 4. VS Code 창의 맨 위에 있는 팝업 텍스트 상자에 이미지 이름을 입력합니다. 예: `<your container registry address>/filtermodule:latest` 로컬 레지스트리를 배포하는 경우 `localhost:5000/filtermodule:latest`를 입력해야 합니다.
-5. Docker 리포지토리에 이미지를 푸시합니다. **Edge: IoT Edge 모듈 Docker 이미지 푸시** 명령을 사용하여 VS Code 창의 맨 위에 있는 팝업 텍스트 상자에 이미지 URL을 입력합니다. 위 단계에서 사용한 동일한 이미지 URL을 사용하세요. 콘솔 로그를 확인하고 이미지가 푸시되었는지 확인합니다.
+5. Docker 리포지토리에 이미지를 푸시합니다. **Edge: IoT Edge 모듈 Docker 이미지 푸시** 명령을 사용하여 VS Code 창의 맨 위에 있는 팝업 텍스트 상자에 이미지 URL을 입력합니다. 이전 단계에서 사용한 동일한 이미지 URL을 사용하세요. 콘솔 로그를 확인하여 이미지가 푸시되었는지 검토합니다.
 
-    ![Docker 이미지 푸시](./media/how-to-vscode-develop-csharp-module/push-image.png) ![푸시된 Docker 이미지](./media/how-to-vscode-develop-csharp-module/pushed-image.png)
+    ![Docker 이미지 푸시 스크린샷](./media/how-to-vscode-develop-csharp-module/push-image.png) ![콘솔 로그 스크린샷](./media/how-to-vscode-develop-csharp-module/pushed-image.png)
 
 ### <a name="deploy-your-iot-edge-modules"></a>IoT Edge 모듈 배포
 
-1. `deployment.json` 파일을 열고 **modules** 섹션을 아래 콘텐츠로 바꿉니다.
+1. `deployment.json` 파일을 열고 **modules** 섹션을 다음으로 바꿉니다.
     ```json
     "tempSensor": {
         "version": "1.0",
@@ -290,34 +290,34 @@ docker run -d -p 5000:5000 --name registry registry:2
     }
     ```
 
-2. **routes** 섹션을 아래 콘텐츠로 바꿉니다.
+2. **routes** 섹션을 다음으로 바꿉니다.
     ```json
     "sensorToFilter": "FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/filtermodule/inputs/input1\")",
     "filterToIoTHub": "FROM /messages/modules/filtermodule/outputs/output1 INTO $upstream"
     ```
    > [!NOTE]
-   > 런타임의 선언적 규칙은 해당 메시지가 어디로 흐르는지를 정의합니다. 이 자습서에서는 두 개의 경로가 필요합니다. 첫 번째 경로는 FilterMessages 핸들러로 구성한 엔드포인트인 “input1” 엔드포인트를 통해 온도 센서에서 필터 모듈로 메시지를 전송합니다. 두 번째 경로는 필터 모듈에서 IoT Hub로 메시지를 전송합니다. 이 경로에서 upstream은 메시지를 IoT Hub로 보내라고 Edge Hub에 알리는 특수 대상입니다.
+   > 런타임의 선언적 규칙은 해당 메시지가 어디로 흐르는지를 정의합니다. 이 자습서에서는 두 개의 경로가 필요합니다. 첫 번째 경로는 “input1” 끝점을 통해 온도 센서에서 필터 모듈로 메시지를 전송합니다. FilterMessages 처리기로 구성한 끝점입니다. 두 번째 경로는 필터 모듈에서 IoT Hub로 메시지를 전송합니다. 이 경로에서 upstream은 메시지를 IoT Hub로 보내라고 IoT Edge Hub에 알리는 특수 대상입니다.
 
 3. 이 파일을 저장합니다.
 4. 명령 팔레트에서 **Edge: Edge 장치에 대한 배포 만들기**를 선택합니다. 그런 다음 배포를 만들 IoT Edge 장치 ID를 선택합니다. 또는 장치 목록에서 장치 ID를 마우스 오른쪽 단추로 클릭하고 **Edge 장치에 대한 배포 만들기**를 선택합니다.
 
-    ![배포 만들기](./media/how-to-vscode-develop-csharp-module/create-deployment.png)
+    ![배포 만들기 옵션 스크린샷](./media/how-to-vscode-develop-csharp-module/create-deployment.png)
 
 5. 업데이트한 `deployment.json`을 선택합니다. 출력 창에서 배포에 해당하는 출력을 볼 수 있습니다.
 
-    ![배포 성공](./media/how-to-vscode-develop-csharp-module/deployment-succeeded.png)
+    ![출력 창의 스크린샷](./media/how-to-vscode-develop-csharp-module/deployment-succeeded.png)
 
-6. 명령 팔레트에서 Edge 런타임을 시작합니다. **Edge: Edge 시작**
+6. 명령 팔레트에서 **Edge: Edge 시작**을 선택하여 IoT Edge 런타임을 시작합니다.
 7. Docker 탐색기에서 시뮬레이트된 센서 및 필터 모듈을 사용하여 IoT Edge 런타임이 실행되는 것을 볼 수 있습니다.
 
-    ![IoT Edge 솔루션이 실행 중임](./media/how-to-vscode-develop-csharp-module/solution-running.png)
+    ![Docker 탐색기 스크린샷](./media/how-to-vscode-develop-csharp-module/solution-running.png)
 
-8. Edge 장치 ID를 마우스 오른쪽 단추로 클릭하고 VS Code의 D2C 메시지를 모니터링할 수 있습니다.
+8. IoT Edge 장치 ID를 마우스 오른쪽 단추로 클릭하고 VS Code의 D2C 메시지를 모니터링할 수 있습니다.
 
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 IoT Edge 모듈을 만들고 VS Code의 IoT Edge 장치에 배포했습니다. 다음 자습서 중 하나를 계속 진행하면 VS Code에 Azure IoT Edge를 개발하는 다른 시나리오에 대해 자세히 알아볼 수 있습니다.
+이 자습서에서는 IoT Edge 모듈을 만들고 VS Code의 IoT Edge 장치에 배포했습니다. VS Code에서 Azure IoT Edge를 개발하는 다른 시나리오에 대해 자세히 알아보려면 다음 자습서를 참조하세요.
 
 > [!div class="nextstepaction"]
 > [VS Code에서 C# 모듈 디버그](how-to-vscode-debug-csharp-module.md)

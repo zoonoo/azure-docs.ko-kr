@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2017
+ms.date: 1/24/2018
 ms.author: johnkem
-ms.openlocfilehash: 1a58db2d424e4280fd56be972d48df89648e8c13
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 3e2b5305b969c96e6b14122af03da9249373094a
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Azure 진단 로그에 대해 지원되는 서비스, 스키마 및 범주
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 12/06/2017
 ## <a name="supported-services-and-schemas-for-resource-diagnostic-logs"></a>리소스 진단 로그에 대해 지원되는 서비스 및 스키마
 리소스 진단 로그의 스키마는 리소스 및 로그 범주에 따라 달라집니다.   
 
-| 부여 | 스키마 및 문서 |
+| 서비스 | 스키마 및 문서 |
 | --- | --- |
 | Analysis Services | 스키마를 사용할 수 없음 |
 | API Management | [API 관리 진단 로그](../api-management/api-management-howto-use-azure-monitor.md#diagnostic-logs) |
@@ -37,17 +37,19 @@ ms.lasthandoff: 12/06/2017
 | Customer Insights | 스키마를 사용할 수 없음 |
 | Content Delivery Network | 스키마를 사용할 수 없음 |
 | CosmosDB | [Azure Cosmos DB 로깅](../cosmos-db/logging.md) |
-| 데이터 레이크 분석 |[Azure Data Lake Analytics에 대한 진단 로그에 액세스](../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
-| 데이터 레이크 저장소 |[Azure Data Lake Store에 대한 진단 로그에 액세스](../data-lake-store/data-lake-store-diagnostic-logs.md) |
-| Event Hubs |[Azure Event Hubs 진단 로그](../event-hubs/event-hubs-diagnostic-logs.md) |
+| Data Lake Analytics
+ |[Azure Data Lake Analytics에 대한 진단 로그에 액세스](../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
+| Data Lake Store |[Azure Data Lake Store에 대한 진단 로그에 액세스](../data-lake-store/data-lake-store-diagnostic-logs.md) |
+| Event Hubs
+ |[Azure Event Hubs 진단 로그](../event-hubs/event-hubs-diagnostic-logs.md) |
 | IoT 허브 | [IoT Hub 작업](../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
-| 키 자격 증명 모음 |[Azure Key Vault 로깅](../key-vault/key-vault-logging.md) |
-| 부하 분산 장치 |[Azure Load Balancer에 대한 Log analytics](../load-balancer/load-balancer-monitor-log.md) |
+| Key Vault |[Azure Key Vault 로깅](../key-vault/key-vault-logging.md) |
+| Load Balancer |[Azure Load Balancer에 대한 Log analytics](../load-balancer/load-balancer-monitor-log.md) |
 | Logic Apps |[Logic Apps B2B 사용자 지정 추적 스키마](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | 네트워크 보안 그룹 |[NSG(네트워크 보안 그룹)에 대한 로그 분석](../virtual-network/virtual-network-nsg-manage-log.md) |
 | DDoS 보호 | 스키마를 사용할 수 없음 |
 | Recovery Services | [Azure Backup용 데이터 모델](../backup/backup-azure-reports-data-model.md)|
-| 검색 |[검색 트래픽 분석 설정 및 사용](../search/search-traffic-analytics.md) |
+| Search |[검색 트래픽 분석 설정 및 사용](../search/search-traffic-analytics.md) |
 | 서버 관리 | 스키마를 사용할 수 없음 |
 | Service Bus |[Azure Service Bus 진단 로그](../service-bus-messaging/service-bus-diagnostic-logs.md) |
 | SQL Database | [Azure SQL Database 진단 로깅](../sql-database/sql-database-metrics-diag-logging.md) |
@@ -57,7 +59,6 @@ ms.lasthandoff: 12/06/2017
 ## <a name="supported-log-categories-per-resource-type"></a>각 리소스 유형별 지원되는 로그 범주
 |리소스 종류|Category|범주 표시 이름|
 |---|---|---|
-|microsoft.aadiam/tenants|로그인|로그인|
 |Microsoft.AnalysisServices/servers|엔진|엔진|
 |Microsoft.AnalysisServices/servers|서비스|서비스|
 |Microsoft.ApiManagement/service|GatewayLogs|ApiManagement 게이트웨이 관련 로그|
@@ -116,6 +117,8 @@ ms.lasthandoff: 12/06/2017
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryReplicatedItems|Azure Site Recovery 복제된 항목|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryReplicationStats|Azure Site Recovery 복제 통계|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryRecoveryPoints|Azure Site Recovery 복구 지점|
+|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryReplicationDataUploadRate|Azure Site Recovery 복제 데이터 업로드 속도|
+|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryProtectedDiskDataChurn|Azure Site Recovery 보호된 디스크 데이터 변동|
 |Microsoft.Search/searchServices|OperationLogs|작업 로그|
 |Microsoft.ServiceBus/namespaces|OperationalLogs|작업 로그|
 |Microsoft.Sql/servers/databases|QueryStoreRuntimeStatistics|쿼리 저장소 런타임 통계|
@@ -125,6 +128,7 @@ ms.lasthandoff: 12/06/2017
 |Microsoft.Sql/servers/databases|시간 제한|시간 제한|
 |Microsoft.Sql/servers/databases|블록|블록|
 |Microsoft.Sql/servers/databases|SQLInsights|SQL 정보|
+|Microsoft.Sql/servers/databases|감사|감사 로그|
 |Microsoft.StreamAnalytics/streamingjobs|실행|실행|
 |Microsoft.StreamAnalytics/streamingjobs|작성|작성|
 

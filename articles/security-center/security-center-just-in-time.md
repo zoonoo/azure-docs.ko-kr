@@ -1,6 +1,6 @@
 ---
-title: "Azure Security Center에서 Just-In-Time 가상 컴퓨터 액세스 | Microsoft Docs"
-description: "이 문서에서는 Azure Security Center에서 Just-In-Time VM 액세스가 Azure 가상 컴퓨터에 대한 액세스를 제어하는 데 어떻게 도움이 되는지 보여 줍니다."
+title: "Azure Security Center에서 Just-In-Time 가상 머신 액세스 | Microsoft Docs"
+description: "이 문서에서는 Azure Security Center에서 Just-In-Time VM 액세스가 Azure 가상 머신에 대한 액세스를 제어하는 데 어떻게 도움이 되는지 보여 줍니다."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/04/2017
+ms.date: 01/26/2018
 ms.author: terrylan
-ms.openlocfilehash: c715afe55a3aedd5c4f826bc34c3c56e167d2f82
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a15857f0df5c967031aed00d89e71b3199eed0c4
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="manage-virtual-machine-access-using-just-in-time-preview"></a>Just-In-Time를 사용하여 가상 컴퓨터 액세스 관리(미리 보기)
+# <a name="manage-virtual-machine-access-using-just-in-time-preview"></a>Just-In-Time를 사용하여 가상 머신 액세스 관리(미리 보기)
 
 Just-In-Time VM(가상 컴퓨터) 액세스를 사용하면 Azure VM으로의 인바운드 트래픽을 잠글 수 있어 필요할 때 VM 연결을 위한 간편한 액세스를 제공하면서도 공격에 대한 노출을 줄일 수 있습니다.
 
@@ -50,11 +50,13 @@ Just-In-Time이 활성화되면 Security Center는 NSG 규칙을 만들어 Azure
 
 ## <a name="using-just-in-time-access"></a>Just-In-Time 액세스 사용
 
-**Security Center**의 **Just-In-Time VM 액세스** 타일에는 Just-In-Time 액세스에 대해 구성된 VM 수와 지난 주 승인된 액세스 요청 수가 표시됩니다.
+1. **Security Center** 대시보드를 엽니다.
+
+2. 왼쪽 창에서 **Just-In-Time VM 액세스**를 선택합니다.
 
 ![Just-In-Time VM 액세스 타일][2]
 
-**Just-In-Time VM 액세스** 타일을 선택하면 **Just-In-Time VM 액세스**가 열립니다.
+**Just-In-Time VM 액세스** 창이 열립니다.
 
 ![Just-In-Time VM 액세스 타일][10]
 
@@ -75,7 +77,7 @@ Just-In-Time이 활성화되면 Security Center는 NSG 규칙을 만들어 Azure
 
   ![Just-In-Time 액세스 사용][3]
 
-2. **가상 컴퓨터**에서 사용하도록 설정할 VM을 선택합니다. 그러면 VM 옆에 있는 확인 표시가 선택됩니다.
+2. **가상 머신**에서 사용하도록 설정할 VM을 선택합니다. 그러면 VM 옆에 있는 확인 표시가 선택됩니다.
 3. **VM에서 JIT 사용**을 선택합니다.
 4. **저장**을 선택합니다.
 
@@ -171,7 +173,7 @@ Just-In-Time 솔루션으로 보호되는 특정 VM에 액세스하려면 PowerS
 cmdlet 설명서에서 자세히 알아보세요.
 
 ## <a name="next-steps"></a>다음 단계
-이 문서에서는 Azure Security Center에서 Just-In-Time VM 액세스가 Azure 가상 컴퓨터에 대한 액세스를 제어하는 데 어떻게 도움이 되는지 알아보았습니다.
+이 문서에서는 Azure Security Center에서 Just-In-Time VM 액세스가 Azure 가상 머신에 대한 액세스를 제어하는 데 어떻게 도움이 되는지 알아보았습니다.
 
 보안 센터에 대한 자세한 내용은 다음을 참조하세요.
 

@@ -22,6 +22,8 @@
       href: storage-quickstart-blobs-java.md
     - name: Blob 사용 - Python
       href: storage-quickstart-blobs-python.md
+    - name: Blob 사용 - Go
+      href: storage-quickstart-blobs-go.md
     - name: Blob 사용 - Ruby
       href: storage-quickstart-blobs-ruby.md
     - name: Blob 사용 - Node.js

@@ -3,7 +3,7 @@ title: "U-SQL 스크립트를 사용하여 데이터 변환 - Azure | Microsoft 
 description: "Azure Data Lake Analytics 계산 서비스에서 U-SQL 스크립트를 실행하여 데이터를 처리하거나 변환하는 방법을 알아봅니다."
 services: data-factory
 documentationcenter: 
-author: shengcmsft
+author: nabhishek
 manager: jhubbard
 editor: spelluru
 ms.service: data-factory
@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2018
-ms.author: shengc
-ms.openlocfilehash: 7800329e7f56d604c7911d3997fa76a0fac91664
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.date: 01/29/2018
+ms.author: abnarain
+ms.openlocfilehash: 4ae54bfda21d06d3d6ec963aaa17eba2b6e04de3
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Azure Data Lake Analytics에서 U-SQL 스크립트를 실행하여 데이터 변환 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -41,7 +41,7 @@ Azure 데이터 레이크 분석 계산 서비스와 Azure Data Factory에 연�
 | ------------------------ | ---------------------------------------- | ---------------------------------------- |
 | **type**                 | type 속성은 **AzureDataLakeAnalytics**로 설정해야 합니다. | 예                                      |
 | **accountName**          | Azure 데이터 레이크 분석 계정 이름입니다.  | 예                                      |
-| **dataLakeAnalyticsUri** | Azure 데이터 레이크 분석 URI입니다.           | 아니요                                       |
+| **dataLakeAnalyticsUri** | Azure 데이터 레이크 분석 URI입니다.           | 아니오                                       |
 | **subscriptionId**       | Azure 구독 ID입니다.                    | 아니요(지정하지 않으면 Data Factory의 구독이 사용됨). |
 | **resourceGroupName**    | Azure 리소스 그룹 이름                | 아니요(지정하지 않으면 Data Factory의 리소스 그룹이 사용됨). |
 
@@ -66,17 +66,17 @@ Azure Data Lake Analytics 연결된 서비스에는 Azure Data Lake Analytics �
     "properties": {
         "type": "AzureDataLakeAnalytics",
         "typeProperties": {
-            "accountName": "adftestaccount",
-            "dataLakeAnalyticsUri": "azuredatalakeanalytics URI",
-            "servicePrincipalId": "service principal id",
+            "accountName": "<account name>",
+            "dataLakeAnalyticsUri": "<azure data lake analytics URI>",
+            "servicePrincipalId": "<service principal id>",
             "servicePrincipalKey": {
-                "value": "service principal key",
+                "value": "<service principal key>",
                 "type": "SecureString"
             },
-            "tenant": "tenant ID",
+            "tenant": "<tenant ID>",
             "subscriptionId": "<optional, subscription id of ADLA>",
             "resourceGroupName": "<optional, resource group name of ADLA>"
-        }
+        },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
             "type": "IntegrationRuntimeReference"
@@ -96,12 +96,12 @@ Azure Data Lake Analytics 연결된 서비스에는 Azure Data Lake Analytics �
     "description": "description",
     "type": "DataLakeAnalyticsU-SQL",
     "linkedServiceName": {
-        "referenceName": "AzureDataLakeAnalyticsLinkedService",
+        "referenceName": "<linked service name of Azure Data Lake Analytics>",
         "type": "LinkedServiceReference"
     },
     "typeProperties": {
         "scriptLinkedService": {
-            "referenceName": "LinkedServiceofAzureBlobStorageforscriptPath",
+            "referenceName": "<linked service name of Azure Data Lake Store or Azure Storage which contains the U-SQL script>",
             "type": "LinkedServiceReference"
         },
         "scriptPath": "scripts\\kona\\SearchLogProcessing.txt",
@@ -120,15 +120,15 @@ Azure Data Lake Analytics 연결된 서비스에는 Azure Data Lake Analytics �
 | 자산            | 설명                              | 필수 |
 | :------------------ | :--------------------------------------- | :------- |
 | 이름                | 파이프라인의 작업 이름입니다.     | 예      |
-| description         | 작업이 어떤 일을 수행하는지 설명하는 텍스트입니다.  | 아니오       |
+| description         | 작업이 어떤 일을 수행하는지 설명하는 텍스트입니다.  | 아니요       |
 | 형식                | Data Lake Analytics U-SQL 작업의 경우 작업 형식은 **DataLakeAnalyticsU-SQL**입니다. | 예      |
 | linkedServiceName   | Azure Data Lake Analytics에 연결된 서비스입니다. 이 연결된 서비스에 대한 자세한 내용은 [연결된 Compute Services](compute-linked-services.md) 문서를 참조하세요.  |예       |
 | scriptPath          | U-SQL 스크립트가 포함된 폴더 경로입니다. 파일 이름은 대/소문자를 구분합니다. | 예      |
-| scriptLinkedService | 스크립트가 포함된 저장소를 Data Factory에 연결하는 연결된 서비스입니다. | 예      |
-| degreeOfParallelism | 작업을 실행하는 데 동시에 사용되는 최대 노드 수입니다. | 아니요       |
-| 우선 순위            | 대기열에 있는 모든 작업 중에서 먼저 실행해야 하는 작업을 결정합니다. 번호가 낮을수록 우선 순위가 높습니다. | 아니요       |
-| 매개 변수          | U-SQL 스크립트의 매개 변수          | 아니요       |
-| runtimeVersion      | 사용할 U-SQL 엔진의 런타임 버전 | 아니오       |
+| scriptLinkedService | 스크립트가 포함된 저장소를 **Azure Data Lake Store** 또는 **Azure Storage**에 연결하는 연결된 서비스입니다. | 예      |
+| degreeOfParallelism | 작업을 실행하는 데 동시에 사용되는 최대 노드 수입니다. | 아니오       |
+| 우선 순위            | 대기열에 있는 모든 작업 중에서 먼저 실행해야 하는 작업을 결정합니다. 번호가 낮을수록 우선 순위가 높습니다. | 아니오       |
+| 매개 변수          | U-SQL 스크립트에 전달할 매개 변수입니다.    | 아니오       |
+| runtimeVersion      | 사용할 U-SQL 엔진의 런타임 버전입니다. | 아니오       |
 | compilationMode     | <p>U-SQL의 컴파일 모드 다음과 같은 값 중 하나여야 합니다. **의미 체계:** 의미 체계 확인 및 필요한 온전성 검사만을 수행합니다 **전체:** 구문 검사, 최적화, 코드 생성 등을 비롯하여 전체 컴파일을 수행합니다. **SingleBox:** SingleBox에 TargetType 설정을 사용하여 전체 컴파일을 수행합니다. 이 속성에 대한 값을 지정하지 않으면 서버가 최적의 컴파일 모드를 결정합니다. | 아니요 |
 
 Data Factory는 스크립트 정의에 대해 [SearchLogProcessing.txt 스크립트 정의](#sample-u-sql-script) 참조를 제출합니다. 
@@ -180,12 +180,12 @@ Azure Data Lake Analytics 서비스에서 실행되는 작업에 대한 파이�
 
 ```json
 "parameters": {
-    "in": "$$Text.Format('/datalake/input/{0:yyyy-MM-dd HH:mm:ss}.tsv', SliceStart)",
-    "out": "$$Text.Format('/datalake/output/{0:yyyy-MM-dd HH:mm:ss}.tsv', SliceStart)"
+    "in": "/datalake/input/@{formatDateTime(pipeline().parameters.WindowStart,'yyyy/MM/dd')}/data.tsv",
+    "out": "/datalake/output/@{formatDateTime(pipeline().parameters.WindowStart,'yyyy/MM/dd')}/result.tsv"
 }
 ```
 
-이 경우 입력 파일은 여전히 /datalake/input 폴더에서 가져오며 출력 파일은 /datalake/output 폴더에 생성됩니다. 파일 이름은 조각 시작 시간에 따라 동적입니다.  
+이 경우 입력 파일은 여전히 /datalake/input 폴더에서 가져오며 출력 파일은 /datalake/output 폴더에 생성됩니다. 파일 이름은 파이프라인이 트리거될 때 전달되는 창 시작 시간을 기준으로 동적입니다.  
 
 ## <a name="next-steps"></a>다음 단계
 다른 방법으로 데이터를 변환하는 방법을 설명하는 다음 문서를 참조하세요. 

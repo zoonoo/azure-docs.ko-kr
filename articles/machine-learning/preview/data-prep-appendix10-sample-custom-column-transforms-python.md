@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
-ms.date: 09/12/2017
-ms.openlocfilehash: e576d44a854159054d4f7886fe7859ae34875c8f
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.date: 02/01/2018
+ms.openlocfilehash: 128a4ae124f01a0514160450a3e9069b488274cd
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="sample-of-custom-column-transforms-python"></a>사용자 지정 열 변환 샘플(Python) 
 메뉴에서 이 변환의 이름은 **Add Column(스크립트)**입니다.

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/22/2018
 ms.author: v-masebo
-ms.openlocfilehash: 24c556c8ea585a522c890dab16ae9fb96dc51c22
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: f467437afb4bf89e77668cfd3e8a824bfbde9e10
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="routing-messages-with-iot-hub-python"></a>IoT Hub(Python)를 사용하여 메시지 라우팅
 
@@ -117,6 +117,9 @@ ms.lasthandoff: 01/23/2018
 이 섹션에서는 Service Bus 큐 및 Storage 계정을 모두 만들고, 이를 IoT Hub에 연결하고, 메시지에 속성이 존재하는지 여부 및 Storage 계정에 대한 모든 메시지에 따라 큐에 메시지를 보내도록 IoT Hub를 구성합니다. Service Bus 큐에서 메시지를 처리하는 방법에 대한 자세한 내용은 [큐 시작][lnk-sb-queues-node] 및 저장소를 관리하는 방법 및 [Azure Storage 시작][Azure Storage]를 참조하세요.
 
 1. [큐 시작][lnk-sb-queues-node]에서 설명한 대로 Service Bus 큐를 만듭니다. 네임스페이스 및 큐 이름을 적어둡니다.
+
+    > [!NOTE]
+    > IoT Hub으로 사용되는 Service Bus 큐 및 토픽에는 **세션** 또는 **중복 검색**이 사용하도록 설정되어 있어서는 안 됩니다. 두 옵션 중 하나가 사용하도록 설정되어 있으면 Azure Portal에서 끝점이 **연결할 수 없음**으로 표시됩니다.
 
 1. Azure Portal에서 IoT Hub를 열고 **끝점**을 클릭합니다.
 

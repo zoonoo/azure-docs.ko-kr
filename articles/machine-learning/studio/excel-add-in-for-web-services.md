@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 03/14/2017
+ms.date: 2/1/2018
 ms.author: tedway;garye
-ms.openlocfilehash: 4dbb1779bf36be74ee83aeed8e4940902915603a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cec26a5ccd4620dd0dabc92f4655f5fdfaf62e20
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/03/2018
 ---
-# <a name="excel-add-in-for-azure-machine-learning-web-services"></a>Azure 기계 학습 웹 서비스용 Excel 추가 기능
+# <a name="excel-add-in-for-azure-machine-learning-web-services"></a>Azure Machine Learning 웹 서비스용 Excel 추가 기능
 Excel을 사용하면 코드를 작성할 필요 없이 쉽게 직접 웹 서비스를 호출할 수 있습니다.
 
 ## <a name="steps-to-use-an-existing-web-service-in-the-workbook"></a>통합 문서에서 기존 웹 서비스를 사용하는 단계
@@ -43,7 +43,7 @@ Excel을 사용하면 코드를 작성할 필요 없이 쉽게 직접 웹 서비
 
 **기존 웹 서비스 사용** 
 
-1. 기계 학습 스튜디오에서 왼쪽 창의 **WEB SERVICES** 섹션을 클릭한 다음 웹 서비스를 선택합니다.
+1. Machine Learning Studio에서 왼쪽 창의 **WEB SERVICES** 섹션을 클릭한 다음 웹 서비스를 선택합니다.
    
     ![Studio 웹 서비스 선택][04]
 2. 웹 서비스에 대한 API 키를 복사합니다.

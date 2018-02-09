@@ -3,7 +3,7 @@ title: "Azure SDK에서 Azure VM 관리 서비스 ID를 사용하는 방법"
 description: "Azure VM MSI에서 Azure SDK를 사용하는 코드 샘플입니다."
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: daveba
 manager: mtillman
 editor: 
 ms.service: active-directory
@@ -12,19 +12,19 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
-ms.author: bryanla
-ms.openlocfilehash: 6c9bd57080c95e4aad45515a0814471194261286
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.author: daveba
+ms.openlocfilehash: bd2f03f47cebec52aecb84ef2e97a745ede670ff
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-with-azure-sdks"></a>Azure SDK에서 Azure VM MSI(관리 서비스 ID)를 사용하는 방법 
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]  
 이 문서에서는 MSI에 해당하는 Azure SDK 지원을 사용하는 방법을 보여주는 SDK 샘플 목록을 제공합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 [!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
 

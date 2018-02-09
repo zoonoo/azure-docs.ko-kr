@@ -3,7 +3,7 @@ title: "자습서: Salesforce Sandbox와 Azure Active Directory 통합 | Microso
 description: "Azure Active Directory와 Salesforce Sandbox 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
 services: active-directory
 documentationCenter: na
-author: jeevansd
+author: MarkusVi
 manager: mtillman
 ms.assetid: ee54c39e-ce20-42a4-8531-da7b5f40f57c
 ms.service: active-directory
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2017
-ms.author: jeedes
-ms.openlocfilehash: 801088bd63f025ca7cb1f9e4fe66b9c6f7f93453
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: markvi
+ms.openlocfilehash: d5c2b74995e0c0794628e2c79f66969835e0fabb
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce-sandbox"></a>자습서: Salesforce Sandbox와 Azure Active Directory 통합
 
@@ -86,11 +86,11 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
 
 Salesforce Sandbox에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
 
-1. **[Azure AD Single Sign-On 구성](#configuring-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
-2. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
+2. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On 테스트하는 데 사용합니다.
 3. **[Salesforce Sandbox 테스트 사용자 만들기](#creating-a-salesforce-sandbox-test-user)** - Britta Simon의 Azure AD 표현과 연결되는 대응 사용자를 Salesforce Sandbox에 만듭니다.
 4. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** - 구성이 작동하는지 확인합니다.
+5. **[Single Sign-On 테스트](#testing-single-sign-on)** - 구성이 작동하는지 확인합니다.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
@@ -100,15 +100,15 @@ Salesforce Sandbox에서 Azure AD Single Sign-On을 구성하고 테스트하려
 
 1. Azure Portal의 **Salesforce Sandbox** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 클릭합니다.
 
-    ![Single Sign-on 구성][4]
+    ![Configure Single Sign-On][4]
 
 2. **Single Sign-On** 대화 상자에서 **모드**를 **SAML 기반 로그온**으로 선택하여 Single Sign-On을 사용하도록 설정합니다.
  
-    ![Single Sign-on 구성](./media/active-directory-saas-salesforcesandbox-tutorial/tutorial_salesforcesandbox_samlbase.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-salesforcesandbox-tutorial/tutorial_salesforcesandbox_samlbase.png)
 
 3. **Salesforce Sandbox 도메인 및 URL** 섹션에서 다음 단계를 수행합니다.
 
-    ![Single Sign-on 구성](./media/active-directory-saas-salesforcesandbox-tutorial/tutorial_salesforcesandbox_url.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-salesforcesandbox-tutorial/tutorial_salesforcesandbox_url.png)
 
      **로그온 URL** 텍스트 상자에 다음 패턴으로 값을 입력합니다. `https://<subdomain>.my.salesforce.com` 
 
@@ -124,11 +124,11 @@ Salesforce Sandbox에서 Azure AD Single Sign-On을 구성하고 테스트하려
 
 5. **SAML 서명 인증서** 섹션에서 **인증서**를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
 
-    ![Single Sign-on 구성](./media/active-directory-saas-salesforcesandbox-tutorial/tutorial_salesforcesandbox_certificate.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-salesforcesandbox-tutorial/tutorial_salesforcesandbox_certificate.png) 
 
 6. **저장** 단추를 클릭합니다.
 
-    ![Single Sign-on 구성](./media/active-directory-saas-salesforcesandbox-tutorial/tutorial_general_400.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-salesforcesandbox-tutorial/tutorial_general_400.png)
 
 7. **Salesforce Sandbox 구성** 섹션에서 **Salesforce Sandbox 구성**을 클릭하여 **로그온 구성** 창을 엽니다. **빠른 참조 섹션**에서 **SAML 엔터티 ID 및 SAML Single Sign-On 서비스 URL**을 복사합니다.
 
@@ -138,25 +138,25 @@ Salesforce Sandbox에서 Azure AD Single Sign-On을 구성하고 테스트하려
 
 9. 위쪽의 메뉴에서 **설정**을 클릭합니다.
 
-    ![Single Sign-on 구성](./media/active-directory-saas-salesforcesandbox-tutorial/IC781024.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-salesforcesandbox-tutorial/IC781024.png)
 10. 왼쪽의 탐색 창에서 **보안 제어**를 클릭한 다음 **Single Sign-On 설정**을 클릭합니다.
 
-    ![Single Sign-on 구성](./media/active-directory-saas-salesforcesandbox-tutorial/IC781025.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-salesforcesandbox-tutorial/IC781025.png)
 11. Single Sign-On 설정 섹션에서 ![Single Sign-On 구성](./media/active-directory-saas-salesforcesandbox-tutorial/IC781026.png) 단계를 수행합니다.
      
      a.  **SAML 사용**을 선택합니다. 
 
-     b.  **새로 만들기**를 클릭합니다.
+     나.  **새로 만들기**를 클릭합니다.
 
 12. SAML Single Sign-On 설정 섹션에서 다음 단계를 수행합니다.
 
-    ![Single Sign-on 구성](./media/active-directory-saas-salesforcesandbox-tutorial/IC781027.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-salesforcesandbox-tutorial/IC781027.png)
 
     a. 이름 텍스트 상자에 구성의 이름을 입력합니다(예: *SPSSOWAAD\_Test*). 
 
-    b. **SMAL 엔터티 ID** 값을 **발급자** 텍스트 상자에 붙여넣습니다.
+    나. **SMAL 엔터티 ID** 값을 **발급자** 텍스트 상자에 붙여넣습니다.
 
-    c. 디렉터리에 처음으로 추가하는 Salesforce Sandbox 인스턴스인 경우 **엔터티 Id** 텍스트 상자에 **https://test.salesforce.com**을 입력합니다. Salesforce Sandbox의 인스턴스를 이미 추가한 경우에는 **엔터티 ID**에 **로그온 URL**을 입력합니다. 형식은 다음과 같아야 합니다. `http://company.my.salesforce.com`  
+    다. 디렉터리에 처음으로 추가하는 Salesforce Sandbox 인스턴스인 경우 **엔터티 Id** 텍스트 상자에 **https://test.salesforce.com**을 입력합니다. Salesforce Sandbox의 인스턴스를 이미 추가한 경우에는 **엔터티 ID**에 **로그온 URL**을 입력합니다. 형식은 다음과 같아야 합니다. `http://company.my.salesforce.com`  
  
     d. 다운로드한 인증서를 업로드하려면 **찾아보기** 를 클릭합니다.  
 
@@ -170,7 +170,7 @@ Salesforce Sandbox에서 Azure AD Single Sign-On을 구성하고 테스트하려
 
     i. **서비스 공급자가 시작한 요청 바인딩**에서 **HTTP Post**를 선택합니다. 
 
-    j. **Save**를 클릭합니다.
+    j. **저장**을 클릭합니다.
 
 ### <a name="enable-your-domain"></a>도메인 활성화
 이 섹션에서는 이미 도메인을 만들었다고 가정합니다.  자세한 내용은 [도메인 이름 정의](https://help.salesforce.com/HTViewHelpDoc?id=domain_name_define.htm&language=en_US)를 참조하세요.
@@ -179,14 +179,14 @@ Salesforce Sandbox에서 Azure AD Single Sign-On을 구성하고 테스트하려
 
 1. 왼쪽 탐색 창에서 **도메인 관리**를 클릭한 다음 **내 도메인**을 클릭합니다.
    
-     ![Single Sign-on 구성](./media/active-directory-saas-salesforcesandbox-tutorial/IC781029.png)
+     ![Configure Single Sign-On](./media/active-directory-saas-salesforcesandbox-tutorial/IC781029.png)
    
    >[!NOTE]
    >도메인이 올바르게 구성되었는지 확인합니다. 
 
 2. **로그인 페이지 설정** 섹션에서 **편집**을 클릭한 다음 **인증 서비스**로 이전 섹션에서 SAML Single Sign-On 설정의 이름을 선택하고 마지막으로 **저장**을 클릭합니다.
    
-   ![Single Sign-on 구성](./media/active-directory-saas-salesforcesandbox-tutorial/IC781030.png)
+   ![Configure Single Sign-On](./media/active-directory-saas-salesforcesandbox-tutorial/IC781030.png)
 
 도메인이 구성되면 바로 사용자가 Salesforce 샌드박스에 로그인하는 도메인 URL을 사용해야 합니다.  
 
@@ -221,9 +221,9 @@ URL의 값을 가져오려면 이전 섹션에서 만든 SSO 프로필을 클릭
 
     a. **이름** 텍스트 상자에 **BrittaSimon**을 입력합니다.
 
-    b. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
+    나. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
 
-    c. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
+    다. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
 
     d. **만들기**를 클릭합니다.
  
@@ -246,7 +246,7 @@ URL의 값을 가져오려면 이전 섹션에서 만든 SSO 프로필을 클릭
 
 2. 응용 프로그램 목록에서 **Salesforce Sandbox**를 선택합니다.
 
-    ![Single Sign-on 구성](./media/active-directory-saas-salesforcesandbox-tutorial/tutorial_salesforcesandbox_app.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-salesforcesandbox-tutorial/tutorial_salesforcesandbox_app.png) 
 
 3. 왼쪽 메뉴에서 **사용자 및 그룹**을 클릭합니다.
 
@@ -269,7 +269,7 @@ SSO 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)
+* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](active-directory-appssoaccess-whatis.md)
 * [사용자 프로비저닝 구성](active-directory-saas-salesforce-sandbox-provisioning-tutorial.md)
 
 

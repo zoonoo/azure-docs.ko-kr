@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/09/2017
 ms.author: tdykstra
-ms.openlocfilehash: 522d0590595b0fc0fef503599f1677658f223bd8
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 58fc58049e346d60c0882a91bd04485746a15cbd
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="hostjson-reference-for-azure-functions"></a>Azure Functions에 대한 host.json 참조
 
@@ -49,6 +49,13 @@ ms.lasthandoff: 11/30/2017
     },
     "functions": [ "QueueProcessor", "GitHubWebHook" ],
     "functionTimeout": "00:05:00",
+    "healthMonitor": {
+        "enabled": true,
+        "healthCheckInterval": "00:00:10",
+        "healthCheckWindow": "00:02:00",
+        "healthCheckThreshold": 6,
+        "counterThreshold": 0.80
+    },
     "http": {
         "routePrefix": "api",
         "maxOutstandingRequests": 20,
@@ -108,7 +115,7 @@ ms.lasthandoff: 11/30/2017
 }
 ```
 
-|속성  |기본값 | 설명 |
+|자산  |기본값 | 설명 |
 |---------|---------|---------| 
 |batchSize|1000|집계할 최대 요청 수입니다.| 
 |flushTimeout|00:00:30|집계할 최대 기간입니다.| 
@@ -130,7 +137,7 @@ ms.lasthandoff: 11/30/2017
 }
 ```
 
-|속성  |기본값 | 설명 |
+|자산  |기본값 | 설명 |
 |---------|---------|---------| 
 |isEnabled|false|샘플링을 사용 여부를 설정합니다.| 
 |maxTelemetryItemsPerSecond|5|샘플링이 시작되는 임계값입니다.| 
@@ -160,6 +167,30 @@ ms.lasthandoff: 11/30/2017
     "functionTimeout": "00:05:00"
 }
 ```
+
+## <a name="healthmonitor"></a>healthMonitor
+
+[호스트 상태 모니터](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Host-Health-Monitor)에 대한 구성 설정
+
+```
+{
+    "healthMonitor": {
+        "enabled": true,
+        "healthCheckInterval": "00:00:10",
+        "healthCheckWindow": "00:02:00",
+        "healthCheckThreshold": 6,
+        "counterThreshold": 0.80
+    }
+}
+```
+
+|자산  |기본값 | 설명 |
+|---------|---------|---------| 
+|사용|true|기능의 사용 여부 | 
+|healthCheckInterval|10초|정기적인 백그라운드 상태 검사 사이의 간격 | 
+|healthCheckWindow|2분|`healthCheckThreshold` 설정과 함께 사용되는 슬라이딩 시간 범위| 
+|healthCheckThreshold|6|호스트 재생이 시작되기 전에 상태 검사 실패가 용인되는 최대 횟수| 
+|counterThreshold|0.80|성능 카운터가 비정상으로 간주되는 임계값| 
 
 ## <a name="http"></a>http
 
@@ -196,7 +227,7 @@ ms.lasthandoff: 11/30/2017
 }
 ```
 
-|속성  |기본값 | 설명 |
+|자산  |기본값 | 설명 |
 |---------|---------|---------| 
 |categoryFilter|해당 없음|범주별 필터링을 지정합니다.| 
 |defaultLevel|정보|`categoryLevels` 배열에 지정되지 않은 범주가 있으면 이 수준 이상의 로그를 Application Insights로 보내십시오.| 
@@ -218,7 +249,7 @@ ms.lasthandoff: 11/30/2017
 }
 ```
 
-|속성  |기본값 | 설명 |
+|자산  |기본값 | 설명 |
 |---------|---------|---------| 
 |maxPollingInterval|60000|큐 폴링 사이 최대 간격(밀리초)입니다.| 
 |visibilityTimeout|0|메시지 처리가 실패하는 경우 재시도 사이의 간격입니다.| 
@@ -247,7 +278,7 @@ Singleton 잠금 동작에 대한 구성 설정입니다. 자세한 내용은 [s
 }
 ```
 
-|속성  |기본값 | 설명 |
+|자산  |기본값 | 설명 |
 |---------|---------|---------| 
 |lockPeriod|00:00:15|함수 수준 잠금이 적용되는 기간입니다. 잠금은 자동 갱신됩니다.| 
 |listenerLockPeriod|00:01:00|수신기 잠금이 적용되는 기간입니다.| 
@@ -268,7 +299,7 @@ Singleton 잠금 동작에 대한 구성 설정입니다. 자세한 내용은 [s
 }
 ```
 
-|속성  |기본값 | 설명 |
+|자산  |기본값 | 설명 |
 |---------|---------|---------| 
 |consoleLevel|info|콘솔 로깅의 추적 수준입니다. 옵션은 `off`, `error`, `warning`, `info` 및 `verbose`입니다.|
 |fileLoggingMode|debugOnly|파일 로깅에 대한 추적 수준입니다. 옵션은 `never`, `always`, `debugOnly`입니다.| 

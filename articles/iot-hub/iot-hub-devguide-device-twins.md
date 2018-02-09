@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/19/2017
+ms.date: 01/29/2018
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3b2b2877efe5f898b5759c03ac0ddcf3ecc03901
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: 5bf2d24d0d5eadfea5ec8fd239a115c05a54fe99
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>IoT Hub의 장치 쌍 이해 및 사용
 
@@ -58,47 +58,49 @@ desired 속성, 직접 메서드 또는 클라우드-장치 메시지 사용에 
 
 다음 예제에서는 장치 쌍 JSON 문서를 보여 줍니다.
 
-        {
-            "deviceId": "devA",
-            "etag": "AAAAAAAAAAc=", 
-            "status": "enabled",
-            "statusReason": "provisioned",
-            "statusUpdateTime": "0001-01-01T00:00:00",
-            "connectionState": "connected",
-            "lastActivityTime": "2015-02-30T16:24:48.789Z",
-            "cloudToDeviceMessageCount": 0, 
-            "authenticationType": "sas",
-            "x509Thumbprint": {     
-                "primaryThumbprint": null, 
-                "secondaryThumbprint": null 
-            }, 
-            "version": 2, 
-            "tags": {
-                "$etag": "123",
-                "deploymentLocation": {
-                    "building": "43",
-                    "floor": "1"
-                }
-            },
-            "properties": {
-                "desired": {
-                    "telemetryConfig": {
-                        "sendFrequency": "5m"
-                    },
-                    "$metadata" : {...},
-                    "$version": 1
-                },
-                "reported": {
-                    "telemetryConfig": {
-                        "sendFrequency": "5m",
-                        "status": "success"
-                    }
-                    "batteryLevel": 55,
-                    "$metadata" : {...},
-                    "$version": 4
-                }
-            }
+```json
+{
+    "deviceId": "devA",
+    "etag": "AAAAAAAAAAc=", 
+    "status": "enabled",
+    "statusReason": "provisioned",
+    "statusUpdateTime": "0001-01-01T00:00:00",
+    "connectionState": "connected",
+    "lastActivityTime": "2015-02-30T16:24:48.789Z",
+    "cloudToDeviceMessageCount": 0, 
+    "authenticationType": "sas",
+    "x509Thumbprint": {     
+        "primaryThumbprint": null, 
+        "secondaryThumbprint": null 
+    }, 
+    "version": 2, 
+    "tags": {
+        "$etag": "123",
+        "deploymentLocation": {
+            "building": "43",
+            "floor": "1"
         }
+    },
+    "properties": {
+        "desired": {
+            "telemetryConfig": {
+                "sendFrequency": "5m"
+            },
+            "$metadata" : {...},
+            "$version": 1
+        },
+        "reported": {
+            "telemetryConfig": {
+                "sendFrequency": "5m",
+                "status": "success"
+            }
+            "batteryLevel": 55,
+            "$metadata" : {...},
+            "$version": 4
+        }
+    }
+}
+```
 
 루트 개체에는 장치 ID 속성과 `tags`, `reported` 및 `desired` 속성의 컨테이너 개체가 있습니다. `properties` 컨테이너에는 [장치 쌍 메타데이터][lnk-twin-metadata] 및 [낙관적 동시성][lnk-concurrency] 섹션에서 설명한 몇 가지 읽기 전용 요소(`$metadata`, `$etag` 및 `$version`)가 포함됩니다.
 
@@ -112,26 +114,32 @@ desired 속성, 직접 메서드 또는 클라우드-장치 메시지 사용에 
 이전 예제에서 `telemetryConfig` 장치 쌍 desired 및 reported 속성은 솔루션 백 엔드 및 장치 앱에서 이 장치의 원격 분석 구성을 동기화하는 데 사용됩니다. 예: 
 
 1. 솔루션 백 엔드는 desired 구성 값으로 desired 속성을 설정합니다. 다음은 desired 속성 집합이 포함된 문서의 일부분입니다.
-   
-        ...
-        "desired": {
-            "telemetryConfig": {
-                "sendFrequency": "5m"
-            },
-            ...
+
+    ```json
+    ...
+    "desired": {
+        "telemetryConfig": {
+            "sendFrequency": "5m"
         },
         ...
+    },
+    ...
+    ```
+
 2. 장치 앱이 연결되거나 처음으로 다시 연결되면 변경 내용이 즉시 통보됩니다. 그런 다음 장치 앱은 업데이트된 구성(또는 `status` 속성을 사용한 오류 상태)을 보고합니다. 다음은 reported 속성의 일부분입니다.
-   
-        ...
-        "reported": {
-            "telemetryConfig": {
-                "sendFrequency": "5m",
-                "status": "success"
-            }
-            ...
+
+    ```json
+    ...
+    "reported": {
+        "telemetryConfig": {
+            "sendFrequency": "5m",
+            "status": "success"
         }
         ...
+    }
+    ...
+    ```
+
 3. 솔루션 백 엔드는 장치 쌍을 [쿼리][lnk-query]하여 많은 장치의 구성 작업 결과를 추적할 수 있습니다.
 
 > [!NOTE]
@@ -146,25 +154,28 @@ desired 속성, 직접 메서드 또는 클라우드-장치 메시지 사용에 
 
 * **ID로 장치 쌍 검색** 이 작업은 태그, desired 및 reported 시스템 속성을 포함하여 장치 쌍 문서를 반환합니다.
 * **장치 쌍 부분 업데이트**. 이 작업은 솔루션 백 엔드에서 장치 쌍의 태그 또는 desired 속성을 부분적으로 업데이트할 수 있도록 합니다. 부분 업데이트는 속성을 추가하거나 업데이트하는 JSON 문서로 표현됩니다. `null`로 설정된 속성은 제거됩니다. 다음 예제에서는 값이 `{"newProperty": "newValue"}`인 desired 속성을 새로 생성하고, `existingProperty`의 기존 값을 `"otherNewValue"`로 덮어쓰고, `otherOldProperty`를 제거합니다. 기존 desired 속성이나 태그에는 변화가 발생하지 않습니다.
-   
-        {
-            "properties": {
-                "desired": {
-                    "newProperty": {
-                        "nestedProperty": "newValue"
-                    },
-                    "existingProperty": "otherNewValue",
-                    "otherOldProperty": null
-                }
+
+    ```json
+    {
+        "properties": {
+            "desired": {
+                "newProperty": {
+                    "nestedProperty": "newValue"
+                },
+                "existingProperty": "otherNewValue",
+                "otherOldProperty": null
             }
         }
+    }
+    ```
+
 * **desired 속성 바꾸기**. 솔루션 백 엔드에서 기존의 모든 desired 속성을 완전히 덮어쓰고 `properties/desired`에 대해 새 JSON 문서를 대체할 수 있는 작업입니다.
 * **태그 바꾸기**. 이 작업을 사용하여 솔루션 백 엔드에서 기존의 모든 태그를 완전히 덮어쓰고 `tags`에 대해 새 JSON 문서를 대체할 수 있습니다.
-* **쌍 알림을 받습니다**. 이 작업을 통해 쌍이 수정될 때 솔루션 백 엔드는 알림을 받습니다. 이를 수행하려면 IoT 솔루션은 경로를 만들고 데이터 원본을 *twinChangeEvents*와 동일하게 설정해야 합니다. 기본적으로 쌍 알림이 전송되지 않습니다. 즉, 이러한 경로는 미리 존재하지 않습니다. 변경 속도가 너무 높은 경우 또는 내부 오류와 같은 다른 이유로 IoT Hub는 모든 변경 내용을 포함하는 하나의 알림만을 보낼 수 있습니다. 따라서 응용 프로그램에 신뢰할 수 있는 감사 및 모든 중간 상태의 로깅이 필요한 경우 D2C 메시지를 사용하는 것이 여전히 좋습니다. 쌍 알림 메시지는 속성 및 본문을 포함합니다.
+* **쌍 알림을 받습니다**. 이 작업을 통해 쌍이 수정될 때 솔루션 백 엔드는 알림을 받습니다. 이를 수행하려면 IoT 솔루션은 경로를 만들고 데이터 원본을 *twinChangeEvents*와 동일하게 설정해야 합니다. 기본적으로 쌍 알림이 전송되지 않습니다. 즉, 이러한 경로는 미리 존재하지 않습니다. 변경 속도가 너무 높은 경우 또는 내부 오류와 같은 다른 이유로 IoT Hub는 모든 변경 내용을 포함하는 하나의 알림만을 보낼 수 있습니다. 따라서 응용 프로그램에 신뢰할 수 있는 감사 및 모든 중간 상태의 로깅이 필요한 경우 장치-클라우드 메시지를 사용하는 것이 좋습니다. 쌍 알림 메시지는 속성 및 본문을 포함합니다.
 
     - properties
 
-    | 이름 | 값 |
+    | Name | 값 |
     | --- | --- |
     $content-type | application/json |
     $iothub-enqueuedtime |  알림이 전송된 시간 |
@@ -181,7 +192,8 @@ desired 속성, 직접 메서드 또는 클라우드-장치 메시지 사용에 
     - 본문
         
     이 섹션은 JSON 형식으로 모든 쌍 변경 내용을 포함합니다. 모든 쌍 섹션: 태그, properties.reported, properties.desired를 포함할 수 있으며 "$metadata" 요소를 포함한다는 차이점으로 패치와 동일한 형식을 사용합니다. 예를 들면 다음과 같습니다.
-    ```
+
+    ```json
     {
         "properties": {
             "desired": {
@@ -198,10 +210,10 @@ desired 속성, 직접 메서드 또는 클라우드-장치 메시지 사용에 
             }
         }
     }
-    ``` 
+    ```
 
 이전의 모든 작업은 [낙관적 동시성][lnk-concurrency]을 지원하며 [보안][lnk-security] 문서에서 정의한 **ServiceConnect** 권한이 필요합니다.
- 
+
 이러한 작업 외에도 솔루션 백 엔드는 다음을 수행할 수 있습니다.
 
 * SQL 스타일 [IoT Hub 쿼리 언어][lnk-query]를 사용하여 장치 쌍을 쿼리합니다.
@@ -225,23 +237,25 @@ desired 속성, 직접 메서드 또는 클라우드-장치 메시지 사용에 
 * JSON 개체의 모든 값은 부울, 숫자, 문자열, 개체와 같은 JSON 형식이 될 수 있습니다. 배열은 허용되지 않습니다. 정수에 대한 최대값은 4503599627370495이며 정수에 대한 최소값은 4503599627370496입니다.
 * tags, desired 속성 및reported 속성의 모든 JSON 개체는 최대 5의 깊이를 가질 수 있습니다. 예를 들어 다음 개체는 유효합니다.
 
-        {
-            ...
-            "tags": {
-                "one": {
-                    "two": {
-                        "three": {
-                            "four": {
-                                "five": {
-                                    "property": "value"
-                                }
+    ```json
+    {
+        ...
+        "tags": {
+            "one": {
+                "two": {
+                    "three": {
+                        "four": {
+                            "five": {
+                                "property": "value"
                             }
                         }
                     }
                 }
-            },
-            ...
-        }
+            }
+        },
+        ...
+    }
+    ```
 
 * 모든 문자열 값의 길이는 최대 4KB입니다.
 
@@ -254,48 +268,50 @@ IoT Hub는 한도 이상으로 해당 문서의 크기를 증가시키는 모든
 IoT Hub는 장치 쌍 desired 또는 reported 속성의 각 JSON 개체에 대한 마지막 업데이트의 타임스탬프를 유지합니다. 타임스탬프는 UTC 형식이며 [ISO8601] 형식 `YYYY-MM-DDTHH:MM:SS.mmmZ`로 인코딩됩니다.
 예: 
 
-        {
-            ...
-            "properties": {
-                "desired": {
-                    "telemetryConfig": {
-                        "sendFrequency": "5m"
-                    },
-                    "$metadata": {
-                        "telemetryConfig": {
-                            "sendFrequency": {
-                                "$lastUpdated": "2016-03-30T16:24:48.789Z"
-                            },
-                            "$lastUpdated": "2016-03-30T16:24:48.789Z"
-                        },
+```json
+{
+    ...
+    "properties": {
+        "desired": {
+            "telemetryConfig": {
+                "sendFrequency": "5m"
+            },
+            "$metadata": {
+                "telemetryConfig": {
+                    "sendFrequency": {
                         "$lastUpdated": "2016-03-30T16:24:48.789Z"
                     },
-                    "$version": 23
+                    "$lastUpdated": "2016-03-30T16:24:48.789Z"
                 },
-                "reported": {
-                    "telemetryConfig": {
-                        "sendFrequency": "5m",
-                        "status": "success"
-                    }
-                    "batteryLevel": "55%",
-                    "$metadata": {
-                        "telemetryConfig": {
-                            "sendFrequency": "5m",
-                            "status": {
-                                "$lastUpdated": "2016-03-31T16:35:48.789Z"
-                            },
-                            "$lastUpdated": "2016-03-31T16:35:48.789Z"
-                        }
-                        "batteryLevel": {
-                            "$lastUpdated": "2016-04-01T16:35:48.789Z"
-                        },
-                        "$lastUpdated": "2016-04-01T16:24:48.789Z"
-                    },
-                    "$version": 123
-                }
+                "$lastUpdated": "2016-03-30T16:24:48.789Z"
+            },
+            "$version": 23
+        },
+        "reported": {
+            "telemetryConfig": {
+                "sendFrequency": "5m",
+                "status": "success"
             }
-            ...
+            "batteryLevel": "55%",
+            "$metadata": {
+                "telemetryConfig": {
+                    "sendFrequency": "5m",
+                    "status": {
+                        "$lastUpdated": "2016-03-31T16:35:48.789Z"
+                    },
+                    "$lastUpdated": "2016-03-31T16:35:48.789Z"
+                }
+                "batteryLevel": {
+                    "$lastUpdated": "2016-04-01T16:35:48.789Z"
+                },
+                "$lastUpdated": "2016-04-01T16:24:48.789Z"
+            },
+            "$version": 123
         }
+    }
+    ...
+}
+```
 
 이 정보는 개체 키를 제거하는 업데이트를 유지하기 위해서 모든 수준(JSON 구조의 수준뿐만 아니라)에서 유지됩니다.
 
@@ -336,7 +352,7 @@ IoT Hub는 연결되지 않은 장치에 대한 desired 속성 업데이트 알�
 * [장치에서 직접 메서드 호출][lnk-methods]
 * [여러 장치에서 jobs 예약][lnk-jobs]
 
-이 문서에서 설명한 일부 개념을 시도해 보려면 다음과 같은 IoT Hub 자습서를 살펴보세요.
+이 문서에서 설명한 일부 개념을 시도해 보려면 다음과 같은 IoT Hub 자습서를 참조하세요.
 
 * [장치 쌍을 사용하는 방법][lnk-twin-tutorial]
 * [장치 쌍 속성을 사용하는 방법][lnk-twin-properties]

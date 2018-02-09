@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: mahender
-ms.openlocfilehash: fe0958b8a548e72df17f257e5700c28d3ebae79c
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 608f5ec2fb4b8fa374778cb4f506f1d25eb7642b
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Azure Functions HTTP 및 WebHook 바인딩
 
@@ -352,9 +352,6 @@ let Run(req: HttpRequestMessage, log: TraceWriter) =
 JavaScript 코드는 다음과 같습니다.
 
 ```javascript
-```
-
-```javascript
 module.exports = function (context, data) {
     context.log('GitHub WebHook triggered!', data.comment.body);
     context.res = { body: 'New GitHub comment: ' + data.comment.body };
@@ -531,6 +528,8 @@ HTTP 트리거를 통해 키를 사용하여 보안을 강화할 수 있습니�
 ## <a name="trigger---limits"></a>트리거 - 제한
 
 HTTP 요청 길이는 100K(102,400) 바이트로 제한되고 URL 길이는 4k(4,096) 바이트로 제한됩니다. 이러한 제한은 런타임의 [Web.config 파일](https://github.com/Azure/azure-webjobs-sdk-script/blob/v1.x/src/WebJobs.Script.WebHost/Web.config)의 `httpRuntime` 요소에 의해 지정됩니다.
+
+HTTP 트리거를 사용하는 함수가 약 2.5분 안에 완료되지 않으면 게이트웨이가 시간 제한을 적용하고 HTTP 502 오류를 반환합니다. 함수는 계속 실행되지만 HTTP 응답은 반환할 수 없습니다. 장기 실행 함수의 경우 비동기 패턴을 따르고 요청 상태를 ping할 수 있는 위치를 반환하는 것이 좋습니다. 함수 실행 시간에 대한 정보는 [크기 조정 및 호스팅 - 소비 계획](functions-scale.md#consumption-plan)을 참조하세요. 
 
 ## <a name="trigger---hostjson-properties"></a>트리거 - host.json 속성
 

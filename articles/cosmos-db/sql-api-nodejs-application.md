@@ -15,11 +15,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: mimig
-ms.openlocfilehash: 043de0e8a934a2fd92522eeb70261203afac180e
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 2c64c1dfa558576b47f47c718a80d46ad6687e6e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="_Toc395783175"></a>Azure Cosmos DB를 사용하여 Node.js 웹 응용 프로그램 빌드
 > [!div class="op_single_selector"]
@@ -50,7 +50,7 @@ ms.lasthandoff: 12/18/2017
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-* [Node.js][Node.js] 버전 v0.10.29 이상
+* [Node.js][Node.js] 버전 v0.10.29 이상 Node.js 6.10 이상을 사용하는 것이 좋습니다.
 * [Express 생성기](http://www.expressjs.com/starter/generator.html)(`npm install express-generator -g`를 통해 설치 가능)
 * [Git][Git].
 
@@ -80,7 +80,7 @@ Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. 계정이 있거�
    
     ![Node.js 알아보기 - 브라우저 창에 표시된 Hello World 응용 프로그램의 스크린샷](./media/sql-api-nodejs-application/cosmos-db-node-js-express.png)
 
-    그런 다음 응용 프로그램을 중지하려면 터미널 창에서 Ctrl+C를 누른 다음 **y**를 클릭하여 배치 작업을 종료합니다.
+    그런 다음 응용 프로그램을 중지하려면 터미널 창에서 Ctrl+C를 누른 다음 **y**를 클릭하여 배치 작업을 종료합니다(Windows 컴퓨터만 해당).
 
 ## <a name="_Toc395783179"></a>3단계: 추가 모듈 설치
 **package.json** 파일은 프로젝트 루트에 생성되는 파일 중 하나입니다. 이 파일에는 Node.js 응용 프로그램에 필요한 추가 모듈의 목록이 들어 있습니다. 나중에 이 응용 프로그램을 Azure Websites에 배포할 때, 응용 프로그램을 지원하기 위해 Azure에 설치해야 할 모듈을 결정하는 데 이 파일을 사용합니다. 이 자습서를 위해 패키지 두 개를 더 설치해야 합니다.
@@ -91,29 +91,6 @@ Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. 계정이 있거�
 2. npm을 통해 **documentdb** 모듈을 설치합니다. 이 모듈에서 중요한 모든 Azure Cosmos DB 기능이 수행됩니다.
    
         npm install documentdb --save
-3. 응용 프로그램의 **package.json** 파일에 대해 빠른 검사를 수행하면 추가 모듈이 표시됩니다. 이 파일은 응용 프로그램 실행 시 다운로드 및 설치할 패키지를 Azure에 알려줍니다. 아래 예제와 비슷합니다.
-   
-        {
-          "name": "todo",
-          "version": "0.0.0",
-          "private": true,
-          "scripts": {
-            "start": "node ./bin/www"
-          },
-          "dependencies": {
-            "async": "^2.1.4",
-            "body-parser": "~1.15.2",
-            "cookie-parser": "~1.4.3",
-            "debug": "~2.2.0",
-            "documentdb": "^1.10.0",
-            "express": "~4.14.0",
-            "jade": "~1.11.0",
-            "morgan": "~1.7.0",
-            "serve-favicon": "~2.3.0"
-          }
-        }
-   
-    이 파일은 해당 응용 프로그램이 이러한 추가 모듈에 종속된다는 것을 노드(및 나중에 Azure)에 알려줍니다.
 
 ## <a name="_Toc395783180"></a>4단계: 노드 응용 프로그램에서 Azure Cosmos DB 서비스 사용
 초기 설정 및 구성이 모두 완료되었으므로 이제 Azure Cosmos DB를 사용하여 일부 코드를 작성하겠습니다.
@@ -384,13 +361,13 @@ Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. 계정이 있거�
    
         var config = {}
    
-        config.host = process.env.HOST || "[the URI value from the Azure Cosmos DB Keys blade on http://portal.azure.com]";
-        config.authKey = process.env.AUTH_KEY || "[the PRIMARY KEY value from the Azure Cosmos DB Keys blade on http://portal.azure.com]";
+        config.host = process.env.HOST || "[the URI value from the Azure Cosmos DB Keys page on http://portal.azure.com]";
+        config.authKey = process.env.AUTH_KEY || "[the PRIMARY KEY value from the Azure Cosmos DB Keys page on http://portal.azure.com]";
         config.databaseId = "ToDoList";
         config.collectionId = "Items";
    
         module.exports = config;
-3. **config.js** 파일에서 [Microsoft Azure Portal](https://portal.azure.com)에 있는 Azure Cosmos DB 계정의 [키] 블레이드에 있는 값을 사용하여 HOST 및 AUTH_KEY 값을 업데이트합니다.
+3. **config.js** 파일에서 [Microsoft Azure Portal](https://portal.azure.com)에 있는 Azure Cosmos DB 계정의 [키] 페이지에 있는 값을 사용하여 HOST 및 AUTH_KEY 값을 업데이트합니다.
 4. **config.js** 파일을 저장하고 닫습니다.
 
 ### <a name="modify-appjs"></a>app.js 수정
@@ -513,7 +490,7 @@ Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. 계정이 있거�
 3. 페이지가 업데이트되어 새로 만든 항목을 ToDo 목록에 표시합니다.
    
     ![할 일 모음에 새 항목이 포함된 응용 프로그램의 스크린샷](./media/sql-api-nodejs-application/cosmos-db-node-js-added-task.png)
-4. 작업을 완료하려면 완료 열의 확인란을 선택한 후 **작업 업데이트**를 클릭하면 됩니다. 그러면 이미 만든 문서를 업데이트합니다.
+4. 작업을 완료하려면 완료 열의 확인란을 선택한 후 **작업 업데이트**를 클릭하면 됩니다. 그러면 이미 만든 문서가 업데이트되고 보기에서 제거됩니다.
 
 5. 응용 프로그램을 중지하려면 터미널 창에서 Ctrl+C를 누른 다음 **Y**를 클릭하여 배치 작업을 종료합니다.
 

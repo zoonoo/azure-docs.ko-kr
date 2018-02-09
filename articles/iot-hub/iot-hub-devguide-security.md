@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/19/2017
+ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 43917e4fe4ce7643ea034d128f303a5397dbcdc2
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 4f75c5725046fb5e0348c405092edcc65c2d8129
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="control-access-to-iot-hub"></a>IoT Hub에 대한 액세스 제어
 
@@ -72,7 +72,7 @@ Azure IoT Hub는 공유 액세스 정책 및 ID 레지스트리 보안 자격 �
 
 지원되는 각 프로토콜(예: MQTT, AMQP 및 HTTPS)은 다양한 방식으로 토큰을 전송합니다.
 
-MQTT를 사용하는 경우 CONNECT 패킷에는 사용자 이름 필드의 ClientId, {iothubhostname}/{deviceId}에 deviceId, 암호 필드에 SAS 토큰이 있습니다. {iothubhostname}은 IoT Hub의 전체 CName이어야 합니다(예: contoso.azure devices.net).
+MQTT를 사용하는 경우 CONNECT 패킷에는 사용자 이름 필드의 ClientId, `{iothubhostname}/{deviceId}`에 deviceId, 암호 필드에 SAS 토큰이 있습니다. `{iothubhostname}`은 IoT Hub의 전체 CName이어야 합니다(예: contoso.azure devices.net).
 
 [AMQP][lnk-amqp]을 사용하는 경우 IoT Hub는 [SASL PLAIN][lnk-sasl-plain] 및 [AMQP 클레임 기반-보안][lnk-cbs]을 지원합니다.
 

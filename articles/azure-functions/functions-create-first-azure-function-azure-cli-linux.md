@@ -11,15 +11,15 @@ ms.service: functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: cfowler
-ms.openlocfilehash: d04e2000f2043e8bb11e15f6b9d7fd06ef5b9da3
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 49931155339660fc7a0a39f5b60dc9443374b8b0
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-your-first-function-running-on-linux-using-the-azure-cli-preview"></a>Azure CLI(미리 보기)를 사용하여 Linux에서 실행되는 첫 번째 함수 만들기
 
-Azure Functions를 사용하면 Linux에서 기본 Azure App Service 컨테이너에 함수를 호스트할 수 있습니다. 이 기능은 현재 미리 보기 상태입니다. [고유한 사용자 지정 컨테이너를 가져올 수도](functions-create-function-linux-custom-image.md) 있습니다. 
+Azure Functions를 사용하면 Linux에서 기본 Azure App Service 컨테이너에 함수를 호스트할 수 있습니다. [고유한 사용자 지정 컨테이너를 가져올 수도](functions-create-function-linux-custom-image.md) 있습니다. 이 기능은 현재 미리 보기 상태이므로 [Functions 2.0 런타임](functions-versions.md)(마찬가지로 미리 보기 상태)이 필요합니다.
 
 이 빠른 시작 항목에서는 Azure Functions를 Azure CLI와 함께 사용하여 Linux에서 기본 App Service 컨테이너에 호스트되는 첫 번째 함수 앱을 만드는 방법을 설명합니다. 함수 코드 자체는 GitHub 샘플 리포지토리에서 이미지로 배포됩니다.    
 
@@ -49,7 +49,7 @@ Functions용 Linux 호스팅은 현재 App Service 계획에서만 지원됩니�
 
 ## <a name="create-a-function-app-on-linux"></a>Linux에서 함수 앱 만들기
 
-Linux에서 함수 실행을 호스트하는 함수 앱이 있어야 합니다. 함수 앱은 함수 코드 실행을 위한 환경을 제공합니다. 이를 통해 함수를 논리 단위로 그룹화하여 더욱 쉽게 리소스를 관리, 배포 및 공유할 수 있습니다. Linux App Service 계획과 함께 [az functionapp create](/cli/azure/functionapp#create) 명령을 사용하여 함수 앱을 만듭니다. 
+Linux에서 함수 실행을 호스트하는 함수 앱이 있어야 합니다. 함수 앱은 함수 코드 실행을 위한 환경을 제공합니다. 이를 통해 함수를 논리 단위로 그룹화하여 더욱 쉽게 리소스를 관리, 배포 및 공유할 수 있습니다. Linux App Service 계획과 함께 [az functionapp create](/cli/azure/functionapp#az_functionapp_create) 명령을 사용하여 함수 앱을 만듭니다. 
 
 다음 명령에서 `<app_name>` 자리 표시자 및 `<storage_name>`의 저장소 계정 이름을 고유한 함수 앱 이름으로 바꿉니다. `<app_name>`은 함수 앱의 기본 DNS 도메인으로 사용되므로 이름이 Azure의 모든 앱에서 고유해야 합니다. _deployment-source-url_ 매개 변수는 "Hello World" HTTP 트리거 함수를 포함하는 GitHub의 샘플 리포지토리입니다.
 

@@ -1,5 +1,5 @@
 ---
-title: "Azure SQL 데이터 웨어하우스 만들기 - Azure Portal | Microsoft Docs"
+title: "빠른 시작: Azure SQL Data Warehouse 만들기 - Azure Portal | Microsoft Docs"
 description: "Azure SQL Data Warehouse의 경우 Azure Portal에서 SQL 서버, 서버 수준 방화벽 규칙 및 데이터 웨어하우스를 만듭니다. 그런 다음 쿼리합니다."
 keywords: "sql 데이터 웨어하우스 자습서, SQL 데이터 웨어하우스 만들기"
 services: sql-database
@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 11/20/2017
 ms.author: barbkess
-ms.openlocfilehash: 65c1344aa9d5a997e4917191978f5d12da5eb0db
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 9b904190e7a799d480446fcdcd57316a21051d1e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Azure Portal에서 Azure SQL 데이터 웨어하우스 생성 및 쿼리
+# <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure SQL Data Warehouse 생성 및 쿼리
 
 Azure Portal을 사용하여 Azure SQL 데이터 웨어하우스를 신속하게 만들고 쿼리.
 
@@ -113,7 +113,7 @@ SQL Data Warehouse 서비스는 외부 응용 프로그램 및 도구가 서버 
 
 4. 현재 IP 주소를 새 방화벽 규칙에 추가하려면 도구 모음에서 **클라이언트 IP 추가**를 클릭합니다. 방화벽 규칙은 단일 IP 주소 또는 IP 주소의 범위에 1433 포트를 열 수 있습니다.
 
-5. **Save**를 클릭합니다. 논리 서버의 1433 포트를 여는 현재 IP 주소에 서버 수준 방화벽 규칙이 생성됩니다.
+5. **저장**을 클릭합니다. 논리 서버의 1433 포트를 여는 현재 IP 주소에 서버 수준 방화벽 규칙이 생성됩니다.
 
 6. **확인**을 클릭한 후 **방화벽 설정** 페이지를 닫습니다.
 

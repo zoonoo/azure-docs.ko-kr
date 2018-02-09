@@ -1,6 +1,6 @@
 ---
 title: "서비스 맵 솔루션 자가 진행식 데모 | Microsoft Docs"
-description: "서비스 맵은 Windows 및 Linux 시스템에서 응용 프로그램 구성 요소를 자동으로 검색하여 서비스 간 통신을 매핑하는 OMS(Operations Management Suite)의 솔루션입니다.  서비스 맵을 사용하여 웹 응용 프로그램에서 시뮬레이션된 문제를 식별하고 진단하는 방법을 설명하는 자가 진행식 데모입니다."
+description: "서비스 맵은 Windows 및 Linux 시스템의 응용 프로그램 구성 요소를 자동으로 검색하고 서비스 간 통신을 매핑하는 Azure의 솔루션입니다.  서비스 맵을 사용하여 웹 응용 프로그램에서 시뮬레이션된 문제를 식별하고 진단하는 방법을 설명하는 자가 진행식 데모입니다."
 services: operations-management-suite
 documentationcenter: 
 author: bwren
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: bwren
-ms.openlocfilehash: c3548d24c74f8ad865b22d6af3490d0b5cc77a84
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 35fe4e95eae8b63425abc8ed2970c0ad51073883
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="operations-management-suite-oms-self-paced-demo---service-map"></a>OMS(Operations Management Suite) 자가 진행식 데모 - 서비스 맵
-OMS(Operations Management Suite)에서 [서비스 맵 솔루션](operations-management-suite-service-map.md)을 사용하여 웹 응용 프로그램에서 시뮬레이션된 문제를 식별하고 진단하는 방법을 설명하는 자가 진행식 데모입니다.  서비스 맵은 Windows 및 Linux 시스템에서 응용 프로그램 구성 요소를 자동으로 검색하고 서비스 간 통신을 매핑합니다.  또한 다른 OMS 서비스에서 수집된 데이터를 통합하여 성능을 분석하고 문제를 식별하는 데 도움을 줍니다.  또한 [Log Analytics에서 로그 검색](../log-analytics/log-analytics-log-searches.md)을 사용하여 근본적인 문제를 식별하기 위해 수집된 데이터를 자세히 알아봅니다.
+# <a name="self-paced-demo---service-map"></a>자가 진행식 데모 - 서비스 맵
+이것은 Azure의 [서비스 맵 솔루션](operations-management-suite-service-map.md)을 사용하여 웹 응용 프로그램에서 시뮬레이션된 문제를 식별하고 진단하기 위해 단계별로 안내하는 자가 진행식 데모입니다.  서비스 맵은 Windows 및 Linux 시스템에서 응용 프로그램 구성 요소를 자동으로 검색하고 서비스 간 통신을 매핑합니다.  다른 서비스 및 솔루션에서 수집된 데이터를 통합하여 성능을 분석하고 문제를 식별하는 데에도 도움을 줍니다.  또한 근본적인 문제를 식별하기 위해 [Log Analytics에서 로그 검색](../log-analytics/log-analytics-log-searches.md)을 사용하여 수집된 데이터를 드릴다운합니다.
 
 
 ## <a name="scenario-description"></a>시나리오 설명
@@ -35,7 +35,7 @@ OMS(Operations Management Suite)에서 [서비스 맵 솔루션](operations-mana
 ## <a name="walk-through"></a>방법 설명
 
 ### <a name="1-connect-to-the-oms-experience-center"></a>1. OMS 환경 센터에 연결
-이 연습은 샘플 데이터에서 완벽한 OMS 환경을 제공하는 [Operations Management Suite 환경 센터](https://experience.mms.microsoft.com/)를 사용합니다. 이 링크를 따라 시작하고 정보를 입력한 다음 **Insight and Analytics** 시나리오를 선택합니다.
+이 연습에서는 샘플 데이터에 완벽한 Log Analytics 환경을 제공하는 [Operations Management Suite 환경 센터](https://experience.mms.microsoft.com/)를 사용합니다. 이 링크를 따라 시작하고 정보를 입력한 다음 **Insight and Analytics** 시나리오를 선택합니다.
 
 
 ### <a name="2-start-service-map"></a>2. 서비스 맵 시작
@@ -80,7 +80,7 @@ OMS(Operations Management Suite)에서 [서비스 맵 솔루션](operations-mana
 
 
 ### <a name="7-view-change-tracking"></a>7. 변경 내용 추적 보기
-이 높은 사용률을 일으킨 원인을 확인해 보겠습니다.  **요약** 탭을 클릭합니다.  실패한 연결, 중요한 알림 및 소프트웨어 변경 내용과 같이 OMS가 컴퓨터에서 수집한 정보를 제공합니다.  흥미로운 최근 정보를 포함하는 섹션이 확장되어야 하고 포함된 정보를 검사하는 다른 섹션을 확장할 수 있습니다.
+이 높은 사용률을 일으킨 원인을 확인해 보겠습니다.  **요약** 탭을 클릭합니다.  Log Analytics가 실패한 연결, 중요한 경고 및 소프트웨어 변경과 같이 컴퓨터에서 수집한 정보가 제공됩니다.  관련 최신 정보가 포함된 섹션이 이미 확장되어 있어야 하고, 다른 섹션을 확장하여 포함된 정보를 검사할 수 있습니다.
 
 
 **변경 내용 추적**이 열려 있지 않은 경우 확장합니다.  그러면 [변경 내용 추적 솔루션](../log-analytics/log-analytics-change-tracking.md)에서 수집한 정보를 표시합니다.  이 기간 동안 소프트웨어가 변경되었습니다.  **소프트웨어**를 클릭하여 세부 정보를 가져옵니다.  오전 4시 직후에 백업 프로세스가 컴퓨터에 추가되었으므로 리소스를 과도하게 사용하는 원인으로 표시됩니다.
@@ -90,28 +90,28 @@ OMS(Operations Management Suite)에서 [서비스 맵 솔루션](operations-mana
 
 
 ### <a name="8-view-details-in-log-search"></a>8. 로그 검색에서 세부 정보 보기
-Log Analytics 리포지토리에서 수집된 자세한 성능 정보를 확인하여 추가로 확인할 수 있습니다.  **경고** 탭을 다시 클릭한 다음 **높은 CPU** 경고 중 하나를 클릭합니다.  **로그 검색에 표시**를 클릭합니다.  그러면 리포지토리에서 저장된 데이터에 대해 [검색 로그](../log-analytics/log-analytics-log-searches.md)를 수행할 수 있는 로그 검색 창을 엽니다.  서비스 맵은 관심이 있는 경고를 검색하기 위해 쿼리를 이미 입력했습니다.  
+Log Analytics 작업 영역에서 수집된 자세한 성능 정보를 확인하여 추가로 확인할 수 있습니다.  **경고** 탭을 다시 클릭한 다음 **높은 CPU** 경고 중 하나를 클릭합니다.  **로그 검색에 표시**를 클릭합니다.  그러면 작업 영역에 저장된 모든 데이터에 대해 [검색 로그](../log-analytics/log-analytics-log-searches.md)를 수행할 수 있는 [로그 검색] 창이 열립니다.  서비스 맵에서 관심이 있는 경고를 검색하기 위한 쿼리가 이미 입력되었습니다.  
 
 ![로그 검색](./media/operations-management-suite-walkthrough-servicemap/log-search.png)
 
 
 ### <a name="9-open-saved-search"></a>9. 저장된 검색 열기
-이 경고를 생성한 성능 수집에 대한 몇 가지 자세한 내용을 보고 문제가 해당 백업 프로세스에 의해 발생했는지에 대한 의문을 확인할 수 있는지 살펴보겠습니다.  시간 범위를 **6시간**으로 변경합니다.  **즐겨찾기**를 클릭하고 **서비스 맵**에 대한 저장된 검색까지 아래로 스크롤합니다.  이 분석을 위해 특별히 만들어진 쿼리입니다.  **acmetomcat의 CPU에 따른 상위 5개 프로세스**를 클릭합니다.
+이 경고를 생성한 성능 수집에 대한 몇 가지 자세한 내용을 가져올 수 있는지 확인하고, 해당 백업 프로세스로 인해 문제가 발생했는지에 대한 의문을 확인해 보겠습니다.  시간 범위를 **6시간**으로 변경합니다.  **즐겨찾기**를 클릭하고 **서비스 맵**에 대한 저장된 검색까지 아래로 스크롤합니다.  이 분석을 위해 특별히 이러한 쿼리를 만들었습니다.  **acmetomcat의 CPU에 따른 상위 5개 프로세스**를 클릭합니다.
 
 ![저장된 검색](./media/operations-management-suite-walkthrough-servicemap/saved-search.png)
 
 
 이 쿼리는 **acmetomcat**의 프로세스에서 사용하는 상위 5개 프로세스의 목록을 반환합니다.  쿼리를 검사하여 로그 검색에 사용되는 쿼리 언어 소개로 이동할 수 있습니다.  다른 컴퓨터에 대한 프로세스에 관심이 있는 경우 해당 정보를 검색하도록 쿼리를 수정할 수 있습니다.
 
-이 경우에 백업 프로세스가 앱 서버의 CPU 중 약 60%를 일관되게 사용하고 있는 것을 확인할 수 있습니다.  새 프로세스가 성능 문제의 원인임이 분명합니다.  솔루션은 새 백업 소프트웨어를 응용 프로그램 서버에서 제거하는 것이어야 합니다.  실제로 Azure Automation에 의해 관리되는 DSC(필요한 상태 구성)를 활용하여 이 프로세스가 이러한 중요한 시스템에서 실행되지 않도록 정책을 정의할 수 있습니다.
+이 경우에 백업 프로세스가 앱 서버의 CPU 중 약 60%를 일관되게 사용하고 있는 것을 확인할 수 있습니다.  새 프로세스로 인해 성능 문제가 발생한 것이 분명합니다.  솔루션은 새 백업 소프트웨어를 응용 프로그램 서버에서 제거하는 것이어야 합니다.  실제로 Azure Automation에서 관리되는 DSC(Desired State Configuration)를 사용하여 이 프로세스가 이러한 중요한 시스템에서 실행되지 않도록 하는 정책을 정의할 수 있습니다.
 
 
 ## <a name="summary-points"></a>요약 지점
 - [서비스 맵](operations-management-suite-service-map.md)은 해당 서버 및 종속성을 모두 알 수 없더라도 전체 응용 프로그램의 보기를 제공합니다.
-- 서비스 맵이 다른 OMS 솔루션에 의해 수집된 데이터를 표시하여 응용 프로그램 및 기본 인프라에 발생한 문제를 식별할 수 있습니다.
-- [로그 검색](../log-analytics/log-analytics-log-searches.md)을 사용하면 Log Analytics 리포지토리에 수집된 특정 데이터를 살펴볼 수 있습니다.    
+- 서비스 맵은 다른 관리 솔루션에서 수집된 데이터를 표시하여 응용 프로그램 및 기본 인프라와 관련된 문제를 식별하는 데 도움을 줍니다.
+- [로그 검색](../log-analytics/log-analytics-log-searches.md)을 사용하면 Log Analytics 작업 영역에 수집된 특정 데이터를 드릴다운할 수 있습니다.    
 
 ## <a name="next-steps"></a>다음 단계
 - [서비스 맵](operations-management-suite-service-map.md)에 대해 자세히 알아봅니다.
 - 서비스 맵을 [배포 및 구성](operations-management-suite-service-map-configure.md)합니다.
-- 서비스 맵에 필요하고 에이전트에서 저장하는 작업 데이터를 저장하는 [Log Analytics](../log-analytics/log-analytics-overview.md)에 대해 자세히 알아봅니다.
+- 서비스 맵에 필요하고 에이전트에서 저장한 운영 데이터가 저장되는 [Log Analytics](../log-analytics/log-analytics-overview.md)에 대해 자세히 알아봅니다.

@@ -7,12 +7,10 @@
 ## [이벤트 허브 만들기](event-hubs-create.md)
 ## 이벤트 보내기
 ### [.NET Standard](event-hubs-dotnet-standard-getstarted-send.md)
-### [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md)
 ### [Java](event-hubs-java-get-started-send.md)
 ### [C](event-hubs-c-getstarted-send.md)
 ## 이벤트 수신
 ### [.NET Standard](event-hubs-dotnet-standard-getstarted-receive-eph.md)
-### [.NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md)
 ### [Java](event-hubs-java-get-started-receive-eph.md)
 ### [Apache Storm](event-hubs-storm-getstarted-receive.md)
 ## 이벤트 캡처
@@ -30,6 +28,8 @@
 ### [가용성 및 일관성](event-hubs-availability-and-consistency.md)
 ### [처리량 단위 규모를 자동으로 조정](event-hubs-auto-inflate.md)
 ## 개발
+### [.NET Framework를 사용하여 이벤트 보내기](event-hubs-dotnet-framework-getstarted-send.md)
+### [.NET Framework를 사용하여 이벤트 받기](event-hubs-dotnet-framework-getstarted-receive-eph.md)
 ### [사용 가능한 API](event-hubs-api-overview.md)
 #### [.NET Standard](event-hubs-dotnet-standard-api-overview.md)
 #### [.NET Framework](event-hubs-dotnet-framework-api-overview.md)
@@ -45,9 +45,9 @@
 ### [Event Hubs를 사용하여 Azure 진단 데이터 스트림](event-hubs-streaming-azure-diags-data.md)
 ### [Resource Manager 템플릿을 사용하여 이벤트 허브 만들기 및 배포](event-hubs-resource-manager-namespace-event-hub.md)
 
-# 참조
+# 참고 자료
 ## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=event-hubs)
-## Java
+## 자바
 ### [com.microsoft.azure.eventhubs](/java/api/com.microsoft.azure.eventhubs)
 ### [com.microsoft.azure.eventprocessorhost](/java/api/com.microsoft.azure.eventprocessorhost)
 ## .NET
@@ -56,7 +56,7 @@
 ### [Microsoft.ServiceBus.Messaging](/dotnet/api/microsoft.servicebus.messaging)
 ### [Microsoft.ServiceBus.Messaging.EventProcessorHost](/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost)
 ### [Microsoft.Azure.Management.EventHub](/dotnet/api/microsoft.azure.management.eventhub)
-## [REST (영문)](/rest/api/eventhub)
+## [REST](/rest/api/eventhub)
 ## [예외](event-hubs-messaging-exceptions.md)
 ## [할당량](event-hubs-quotas.md)
 
@@ -64,7 +64,7 @@
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=internet-of-things)
 ## [코드 샘플](event-hubs-samples.md)
 ## [학습 경로](https://azure.microsoft.com/documentation/learning-paths/event-hubs/)
-## [가격](https://azure.microsoft.com/pricing/details/event-hubs/)
+## [가격 책정](https://azure.microsoft.com/pricing/details/event-hubs/)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=event-hubs)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-eventhub)

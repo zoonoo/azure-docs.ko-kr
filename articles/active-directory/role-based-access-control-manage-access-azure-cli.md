@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/12/2017
+ms.date: 01/29/2018
 ms.author: andredm
 ms.reviewer: rqureshi
-ms.openlocfilehash: b99264eb69f115db6e334b6aceae6ed897202d56
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: f9ca915718cb9016b82ba6a415715c5527657dad
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="manage-role-based-access-control-with-the-azure-command-line-interface"></a>Azure 명령줄 인터페이스를 사용하여 역할 기반 Access Control 관리
 > [!div class="op_single_selector"]
@@ -27,9 +27,14 @@ ms.lasthandoff: 12/21/2017
 > * [REST API](role-based-access-control-manage-access-rest.md)
 
 
-Azure Portal의 RBAC(역할 기반 Access Control) 및 Azure Resource Manager API를 사용하여 세밀한 수준에서 구독과 리소스에 대한 액세스를 관리할 수 있습니다. 이 기능을 통해 특정 범위에서 Active Directory 사용자, 그룹 또는 서비스 사용자에게 일부 역할을 할당하여 액세스 권한을 부여할 수 있습니다.
+Azure Portal의 RBAC(역할 기반 Access Control) 및 Azure Resource Manager API를 사용하여 세밀한 수준에서 구독과 리소스에 대한 액세스를 관리할 수 있습니다. 이 기능을 통해 특정 범위에서 Active Directory 사용자, 그룹 또는 서비스 사용자에게 일부 역할을 할당하여 액세스 권한을 부여할 수 있습니다. 
 
-Azure CLI(명령줄 인터페이스)를 사용하여 RBAC를 관리하려면 다음 항목이 필요합니다.
+> [!NOTE] 
+> [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/role?view=azure-cli-latest)용 최신 역할 설명서가 제공됩니다.
+
+
+ 
++> [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/role?view=azure-cli-latest)용 최신 역할 설명서 Azure CLI(명령줄 인터페이스)를 사용하여 RBAC를 관리하려면 다음 항목이 필요합니다.
 
 * Azure CLI 버전 0.8.8 이상을 사용하세요. 최신 버전을 설치하고 Azure 구독에 연결하려면 [Azure CLI 설치 및 구성 방법](../cli-install-nodejs.md)을 참조하세요.
 * Azure CLI에서 Azure Resource Manager입니다. 자세한 내용을 보려면 [리소스 관리자에서 Azure CLI 사용](../xplat-cli-azure-resource-manager.md) 으로 이동합니다.

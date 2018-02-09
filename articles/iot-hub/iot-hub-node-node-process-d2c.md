@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/17/2017
 ms.author: v-masebo
-ms.openlocfilehash: e5d57e087e5f4dc1e0abf112001218aa7390a4f7
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: f314d24250330a4dadf99d98b94c98b3db03f22c
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="routing-messages-with-iot-hub-node"></a>IoT Hub(노드)를 사용한 메시지 라우팅
 
@@ -104,6 +104,9 @@ ms.lasthandoff: 01/23/2018
 이 섹션에서는 Service Bus 큐를 만들고, IoT Hub에 연결하고, 메시지에 속성이 존재하는지 여부에 따라 큐에 메시지를 보내도록 IoT Hub를 구성합니다. Service Bus 큐에서 메시지를 처리하는 방법에 대한 자세한 내용은 [큐 시작][lnk-sb-queues-node]을 참조하세요.
 
 1. [큐 시작][lnk-sb-queues-node]에서 설명한 대로 Service Bus 큐를 만듭니다. 네임스페이스 및 큐 이름을 적어둡니다.
+
+    > [!NOTE]
+    > IoT Hub으로 사용되는 Service Bus 큐 및 토픽에는 **세션** 또는 **중복 검색**이 사용하도록 설정되어 있어서는 안 됩니다. 두 옵션 중 하나가 사용하도록 설정되어 있으면 Azure Portal에서 끝점이 **연결할 수 없음**으로 표시됩니다.
 
 2. Azure Portal에서 IoT Hub를 열고 **끝점**을 클릭합니다.
 

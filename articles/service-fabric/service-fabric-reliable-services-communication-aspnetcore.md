@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: a98e9ad891fcfaf02ca7df5d10d5b310445c9d34
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 4f5bc49bf58773a1510b552ce6fc20aa61076348
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="aspnet-core-in-service-fabric-reliable-services"></a>Service Fabric Reliable Services의 ASP.NET Core
 
@@ -26,7 +26,7 @@ ASP.NET Core는 웹앱, IoT 앱 및 모바일 백 엔드와 같은 최신 클라
 
 이 문서는 NuGet 패키지의 **Microsoft.ServiceFabric.AspNetCore.*** 집합을 사용하여 Service Fabric Reliable Services에서 ASP.NET Core 서비스 호스팅에 대한 자세한 가이드입니다.
 
-Service Fabric에서 ASP.NET Core의 소개 자습서 및 개발 환경 설정을 가져오는 방법에 대한 지침은 [ASP.NET Core를 사용하여 응용 프로그램에 대한 웹 프런트 엔드 구축](service-fabric-add-a-web-frontend.md)을 참조하세요.
+Service Fabric에서 ASP.NET Core의 소개 자습서 및 개발 환경 설정을 가져오는 방법에 대한 지침은 [.NET 응용 프로그램 만들기](service-fabric-tutorial-create-dotnet-app.md)를 참조하세요.
 
 이 문서의 나머지 부분에서는 ASP.NET Core를 잘 알고 있다고 가정합니다. 그렇지 않은 경우 [ASP.NET Core 기본 사항](https://docs.microsoft.com/aspnet/core/fundamentals/index)을 통해 읽어 보는 것이 좋습니다.
 
@@ -68,10 +68,10 @@ Reliable Service 인스턴스는 `StatelessService` 또는 `StatefulService`에�
  - **`Func<string, AspNetCoreCommunicationListener, IWebHost> build`**: `IWebHost`를 만들고 반환하는 사용자 구현 람다입니다. 이렇게 하면 일반적으로 ASP.NET Core 응용 프로그램에서 구성하는 방식으로 `IWebHost`를 구성할 수 있습니다. 람다는 사용하는 Service Fabric 통합 옵션과 제공하는 `Endpoint` 구성에 따라 생성된 URL을 제공합니다. 그런 다음 해당 URL을 수정하거나 그대로 사용하여 웹 서버를 시작할 수 있습니다.
 
 ## <a name="service-fabric-integration-middleware"></a>Service Fabric 통합 미들웨어
-`Microsoft.ServiceFabric.Services.AspNetCore` NuGet 패키지에는 Service Fabric 인식 미들웨어를 추가하는 `IWebHostBuilder`의 `UseServiceFabricIntegration` 확장 메서드가 포함되어 있습니다. 이 미들웨어는 Kestrel 또는 HttpSys `ICommunicationListener`를 구성하여 Service Fabric 명명 서비스에 고유한 서비스 URL을 등록한 다음, 클라이언트 요청의 유효성을 검사하여 클라이언트가 적절한 서비스에 연결하고 있는지 확인합니다. 이는 Service Fabric과 같은 공유 호스트 환경에서 필요합니다. 여기서는 여러 웹 응용 프로그램이 동일한 물리적 컴퓨터 또는 가상 컴퓨터에서 실행될 수 있지만, 클라이언트에서 실수로 잘못된 서비스에 연결하지 못하도록 고유한 호스트 이름을 사용하지 않습니다. 이 시나리오에 대해서는 다음 섹션에서 자세히 설명합니다.
+`Microsoft.ServiceFabric.Services.AspNetCore` NuGet 패키지에는 Service Fabric 인식 미들웨어를 추가하는 `IWebHostBuilder`의 `UseServiceFabricIntegration` 확장 메서드가 포함되어 있습니다. 이 미들웨어는 Kestrel 또는 HttpSys `ICommunicationListener`를 구성하여 Service Fabric 명명 서비스에 고유한 서비스 URL을 등록한 다음, 클라이언트 요청의 유효성을 검사하여 클라이언트가 적절한 서비스에 연결하고 있는지 확인합니다. 이는 Service Fabric과 같은 공유 호스트 환경에서 필요합니다. 여기서는 여러 웹 응용 프로그램이 동일한 물리적 컴퓨터 또는 가상 머신에서 실행될 수 있지만, 클라이언트에서 실수로 잘못된 서비스에 연결하지 못하도록 고유한 호스트 이름을 사용하지 않습니다. 이 시나리오에 대해서는 다음 섹션에서 자세히 설명합니다.
 
 ### <a name="a-case-of-mistaken-identity"></a>잘못된 ID의 경우
-프로토콜에 관계없이 서비스 복제본은 고유한 IP:포트 조합에서 수신 대기합니다. 서비스 복제본이 IP:포트 끝점에서 수신 대기를 시작하면 클라이언트 또는 기타 서비스에서 검색할 수 있는 Service Fabric 명명 서비스에 해당 끝점 주소를 보고합니다. 서비스에서 동적으로 할당된 응용 프로그램 포트를 사용하는 경우 서비스 복제본은 이전에 동일한 물리적 컴퓨터 또는 가상 컴퓨터에 있었던 다른 서비스의 동일한 IP:포트 끝점을 우연히 사용할 수 있습니다. 이로 인해 클라이언트에서 실수로 잘못된 서비스에 연결할 수 있습니다. 다음과 같은 일련의 이벤트가 발생하면 이러한 경우가 발생할 수 있습니다.
+프로토콜에 관계없이 서비스 복제본은 고유한 IP:포트 조합에서 수신 대기합니다. 서비스 복제본이 IP:포트 끝점에서 수신 대기를 시작하면 클라이언트 또는 기타 서비스에서 검색할 수 있는 Service Fabric 명명 서비스에 해당 끝점 주소를 보고합니다. 서비스에서 동적으로 할당된 응용 프로그램 포트를 사용하는 경우 서비스 복제본은 이전에 동일한 물리적 컴퓨터 또는 가상 머신에 있었던 다른 서비스의 동일한 IP:포트 끝점을 우연히 사용할 수 있습니다. 이로 인해 클라이언트에서 실수로 잘못된 서비스에 연결할 수 있습니다. 다음과 같은 일련의 이벤트가 발생하면 이러한 경우가 발생할 수 있습니다.
 
  1. 서비스 A가 HTTP를 통해 10.0.0.1:30000에서 수신 대기합니다. 
  2. 클라이언트가 서비스 A를 확인하고 10.0.0.1:30000 주소를 가져옵니다.
@@ -100,7 +100,7 @@ Kestrel과 HttpSys `ICommunicationListener` 구현은 모두 똑같은 방식으
 ## <a name="httpsys-in-reliable-services"></a>Reliable Services의 HttpSys
 HttpSys는 **Microsoft.ServiceFabric.AspNetCore.HttpSys** NuGet 패키지를 가져와서 신뢰할 수 있는 서비스에서 사용할 수 있습니다. 이 패키지에는 `ICommunicationListener` 구현인 `HttpSysCommunicationListener`가 포함되어 있으므로 웹 서버로 HttpSys를 사용하여 신뢰할 수 있는 서비스 내에 ASP.NET Core WebHost를 만들 수 있습니다.
 
-HttpSys는 [Windows HTTP 서버 API](https://msdn.microsoft.com/library/windows/desktop/aa364510(v=vs.85).aspx)(영문)를 기반으로 합니다. IIS에서 사용하는 *http.sys* 커널 드라이버를 사용하여 HTTP 요청을 처리하고 이를 웹 응용 프로그램을 실행하는 프로세스로 라우팅합니다. 이렇게 하면 동일한 물리적 컴퓨터 또는 가상 컴퓨터의 여러 프로세스가 동일한 포트에서 고유한 URL 경로 또는 호스트 이름으로 구분되는 웹 응용 프로그램을 호스팅할 수 있습니다. 이러한 기능은 동일한 클러스터에서 여러 웹 사이트를 호스팅하는 Service Fabric에서 유용합니다.
+HttpSys는 [Windows HTTP 서버 API](https://msdn.microsoft.com/library/windows/desktop/aa364510(v=vs.85).aspx)(영문)를 기반으로 합니다. IIS에서 사용하는 *http.sys* 커널 드라이버를 사용하여 HTTP 요청을 처리하고 이를 웹 응용 프로그램을 실행하는 프로세스로 라우팅합니다. 이렇게 하면 동일한 물리적 컴퓨터 또는 가상 머신의 여러 프로세스가 동일한 포트에서 고유한 URL 경로 또는 호스트 이름으로 구분되는 웹 응용 프로그램을 호스팅할 수 있습니다. 이러한 기능은 동일한 클러스터에서 여러 웹 사이트를 호스팅하는 Service Fabric에서 유용합니다.
 
 다음 다이어그램에서는 HttpSys가 포트 공유를 위해 Windows에서 *http.sys* 커널 드라이버를 사용하는 방식을 보여 줍니다.
 

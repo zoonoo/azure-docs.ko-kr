@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/21/2017
 ms.author: markgal;arunak;trinadhk;sogup;
-ms.openlocfilehash: 66c2f1c5e8ba26d5c50cf60b7f448406814408b0
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: d6ee96b17c6bc85a2278bbe98867a579ff9c550a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Azure Backup 서비스에 대한 질문
 이 문서에서는 Azure Backup 구성 요소에 대한 일반적인 질문과 대답을 제공합니다. 대답 중 일부에는 포괄적인 정보를 포함하는 문서에 대한 링크가 있습니다. **의견**(오른쪽)을 클릭하여 Azure Backup에 대한 질문을 할 수 있습니다. 의견은 이 문서의 하단에 나타납니다. Livefyre 계정은 메모가 필수입니다. 또한 [토론 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)에 Azure Backup 서비스에 대한 질문도 게시할 수 있습니다.
@@ -33,7 +33,7 @@ ms.lasthandoff: 01/18/2018
 예. 2016년 9월을 기준으로 구독당 25개 Recovery Services 자격 증명 모음을 만들 수 있습니다. 구독당 Azure Backup의 지원되는 지역당 최대 25개의 Recovery Services 자격 증명 모음을 만들 수 있습니다. 추가 자격 증명 모음이 필요한 경우 추가 구독을 만드세요.
 
 ### <a name="are-there-limits-on-the-number-of-serversmachines-that-can-be-registered-against-each-vault-br"></a>각 자격 증명 모음에 대해 등록할 수 있는 서버/컴퓨터 수에 제한이 있나요? <br/>
-예, 자격 증명 모음당 컴퓨터를 최대 50대까지 등록할 수 있습니다. Azure IaaS 가상 머신의 경우 자격 증명 모음당 200대 VM으로 제한됩니다. 더 많은 컴퓨터를 등록해야 할 경우 다른 자격 증명 모음을 만드세요.
+자격 증명 모음당 최대 200대의 Azure Virtual Machines를 등록할 수 있습니다. MAB Agent를 사용하면 자격 증명 모음당 최대 50대의 MAB Agent를 등록할 수 있습니다. 또한 자격 증명 모음에 50대의 MAB 서버/DPM 서버를 등록할 수 있습니다.
 
 ### <a name="if-my-organization-has-one-vault-how-can-i-isolate-one-servers-data-from-another-server-when-restoring-databr"></a>내 조직에 하나의 자격 증명 모음이 있는 경우 데이터를 복원할 때 서버 간에 데이터를 어떻게 격리할 수 있나요?<br/>
 동일한 자격 증명 모음에 등록된 모든 서버는 *동일한 암호를 사용*하는 다른 서버에서 백업된 데이터를 복구할 수 있습니다. 조직의 다른 서버에서 백업 데이터를 격리하고 싶은 서버가 있는 경우 해당 서버에 대해 지정된 암호를 사용합니다. 예를 들어 인사부 서버가 첫 번째 암호화 암호를 사용하고, 회계 서버가 두 번째, 저장소 서버가 세 번째 암호화 암호를 사용할 수 있습니다.
@@ -161,6 +161,9 @@ Azure Backup에서 수행할 수 있는 복구 횟수에는 제한이 없습니�
 
 ### <a name="when-restoring-data-do-i-pay-for-the-egress-traffic-from-azure-br"></a>데이터를 복원할 때 Azure의 송신 트래픽에 대해 요금을 납부하나요? <br/>
 번호 복구는 무료이며 송신 트래픽에 요금이 부과되지는 않습니다.
+
+### <a name="what-happens-when-i-change-my-backup-policy"></a>백업 정책을 변경하면 어떻게 되나요?
+새 정책을 적용하면 새 정책의 일정 및 보존을 따릅니다. 보존 기간을 늘리면 기존 복구 지점이 새 정책에 따라 유지되도록 표시됩니다. 보존 기간을 줄이면 다음 정리 작업에서 정리(prune) 표시되고 결과적으로 삭제됩니다.
 
 ## <a name="azure-backup-encryption"></a>Azure Backup 암호화
 ### <a name="is-the-data-sent-to-azure-encrypted-br"></a>Azure에 전송되는 데이터는 암호화되나요? <br/>

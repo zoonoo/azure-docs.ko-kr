@@ -14,11 +14,11 @@ ms.topic: quickstart
 ms.date: 01/22/2018
 ms.author: nitinme
 ms.custom: mvc
-ms.openlocfilehash: c471baa287c3a51e9787cc2103b23c2bab458db2
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 8a91e92e0e535b047ddfcfeff53de72d769f05c7
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure Databricks에서 Spark 작업 실행
 
@@ -146,7 +146,7 @@ ms.lasthandoff: 01/24/2018
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-Spark 클러스터를 생성하는 동안  **___ 분 후 작업 종료 확인란**을 선택한 경우 클러스터가 지정된 시간 동안 비활성 상태인 경우 클러스터가 자동으로 종료됩니다.
+Spark 클러스터를 생성하는 동안  **__분 후 작업 종료 확인란**을 선택한 경우 클러스터가 지정된 시간 동안 비활성 상태인 경우 클러스터가 자동으로 종료됩니다.
 
 이 확인란을 선택하지 않으면 수동으로 클러스터를 종료해야 합니다. 이렇게 하려면 왼쪽 창의 Azure Databricks 작업 영역에서 **클러스터**를 클릭합니다. 종료하려는 클러스터에서 커서를 **작업** 열의 줄임표 위로 이동한 다음 **종료** 아이콘을 클릭합니다.
 

@@ -15,10 +15,10 @@ ms.topic: overview
 ms.date: 12/16/2015
 ms.author: dwrede
 ms.openlocfilehash: 45decfdec01b7086d1f9d18b31cf01cec1adb34d
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="microsoft-azure-portal-overview"></a>Microsoft Azure 포털 개요
 Microsoft Azure 포털은 Azure 리소스를 프로비전 및 관리할 수 있는 중앙 위치입니다.  이 자습서는 포털에 익숙해지도록 이러한 주요 기능 중 일부를 사용하는 방법을 보여줍니다.

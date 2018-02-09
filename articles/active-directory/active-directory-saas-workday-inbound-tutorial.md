@@ -1,5 +1,5 @@
 ---
-title: "자습서: 온-프레미스 Active Directory 및 Azure Active Directory를 사용하여 사용자를 자동으로 프로비전하도록 Workday 구성 | Microsoft Docs"
+title: "자습서: Azure Active Directory로 자동 사용자 프로비전을 위한 Workday 구성 | Microsoft Docs"
 description: "Active Directory 및 Azure Active Directory의 ID 데이터의 원본으로 Workday를 사용하는 방법에 대해 알아봅니다."
 services: active-directory
 author: asmalser-msft
@@ -11,15 +11,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/26/2017
+ms.date: 01/26/2018
 ms.author: asmalser
-ms.openlocfilehash: f267a59fadb7f402ac81f43b5465b6ac1f28943e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 3a84a7ae7572145df8154ec5cbccf9f97e81866b
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configure-workday-for-automatic-user-provisioning-with-on-premises-active-directory-and-azure-active-directory"></a>자습서: 온-프레미스 Active Directory 및 Azure Active Directory를 사용하여 사용자를 자동으로 프로비전하도록 Workday 구성
+# <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Workday 구성
+
 이 자습서의 목표는 Workday에서 Active Directory 및 Azure Active Directory로 사람을 가져오기 위해 수행해야 하는 단계, 그리고 선택 사항으로 일부 특성을 Workday에 쓰는 방법을 보여주는 것입니다. 
 
 
@@ -91,7 +92,7 @@ Azure AD의 프로비전 커넥터 인스턴스와 앱 인스턴스는 일대일
 
 그러나 Workday 및 Active Directory를 사용할 때 여러 원본 및 대상 시스템을 고려해야 합니다.
 
-| 원본 시스템 | 대상 시스템 | 참고 사항 |
+| 원본 시스템 | 대상 시스템 | 메모 |
 | ---------- | ---------- | ---------- |
 | Workday | Active Directory 포리스트 | 각 포리스트는 고유한 대상 시스템으로 처리됨 |
 | Workday | Azure AD 테넌트 | 클라우드 전용 사용자에 필요한 경우 |
@@ -254,7 +255,7 @@ Azure AD의 프로비전 커넥터 인스턴스와 앱 인스턴스는 일대일
 
    * **연결 테스트** 단추를 클릭합니다. 연결 테스트가 성공하면 맨 위에서 **저장** 단추를 클릭합니다. 연결 테스트가 실패하면 Workday에서 Workday 자격 증명이 유효한지 다시 확인합니다. 
 
-![Azure 포털](./media/active-directory-saas-workday-inbound-tutorial/WD_1.PNG)
+![Azure portal](./media/active-directory-saas-workday-inbound-tutorial/WD_1.PNG)
 
 ### <a name="part-2-configure-attribute-mappings"></a>2부: 특성 매핑 구성 
 
@@ -311,7 +312,7 @@ Azure AD의 프로비전 커넥터 인스턴스와 앱 인스턴스는 일대일
 
 6. 매핑을 저장하려면 특성 매핑 섹션 맨 위에서 **저장**을 클릭합니다.
 
-![Azure 포털](./media/active-directory-saas-workday-inbound-tutorial/WD_2.PNG)
+![Azure portal](./media/active-directory-saas-workday-inbound-tutorial/WD_2.PNG)
 
 **아래는 몇 가지 일반적인 식을 사용한 Workday와 Active Directory 간의 특성 매핑을 보여주는 예입니다.**
 
@@ -341,7 +342,7 @@ Azure AD의 프로비전 커넥터 인스턴스와 앱 인스턴스는 일대일
 | **WorkSpaceReference** | physicalDeliveryOfficeName    |     |  만들기 + 업데이트 |
 | **PostalCode**  |   postalCode  |     | 만들기 + 업데이트 |
 | **LocalReference** |  preferredLanguage  |     |  만들기 + 업데이트 |
-| **Replace(Mid(Replace(\[EmployeeID\], , "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\\\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\\\&lt;\\\\&gt;\])", , "", , ), 1, 20), , "([\\\\.)\*\$](file:///\\.) *$)", , "", , )**      |    sAMAccountName            |     |         만들기 작업 시에만 기록 |
+| **Replace(Mid(Replace(\[EmployeeID\], , "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\\\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\\\&lt;\\\\&gt;\])", , "", , ), 1, 20), , "([\\\\.)\*\$](file:///\\.)*$)", , "", , )**      |    sAMAccountName            |     |         만들기 작업 시에만 기록 |
 | **LastName**   |   sn   |     |  만들기 + 업데이트 |
 | **CountryRegionReference** |  st     |     | 만들기 + 업데이트 |
 | **AddressLineData**    |  streetAddress  |     |   만들기 + 업데이트 |
@@ -445,7 +446,7 @@ Powershell 명령에서 제공하는 Active Directory 또는 Azure Active Direct
 
 1.  **프로비전** 탭에서 **프로비전 상태**를 **켜기**로 설정합니다.
 
-2. **Save**를 클릭합니다.
+2. **저장**을 클릭합니다.
 
 3. 그러면 초기 동기화가 시작되며, Workday에 있는 사용자 수에 따라 동기화에 걸리는 시간이 달라질 수 있습니다.
 
@@ -456,7 +457,7 @@ Powershell 명령에서 제공하는 Active Directory 또는 Azure Active Direct
 
 6. 작업이 완료되면 아래와 같이 **프로비전** 탭에 감사 요약 보고서가 작성됩니다.
 
-![Azure 포털](./media/active-directory-saas-workday-inbound-tutorial/WD_3.PNG)
+![Azure portal](./media/active-directory-saas-workday-inbound-tutorial/WD_3.PNG)
 
 
 ## <a name="configuring-user-provisioning-to-azure-active-directory"></a>Azure Active Directory로 사용자 프로비전 구성
@@ -568,7 +569,7 @@ Azure AD Connect 설정에 대한 자세한 지침은 [Azure AD Connect 설명�
 
 1.  **프로비전** 탭에서 **프로비전 상태**를 **켜기**로 설정합니다.
 
-2. **Save**를 클릭합니다.
+2. **저장**을 클릭합니다.
 
 3. 그러면 초기 동기화가 시작되며, Workday에 있는 사용자 수에 따라 동기화에 걸리는 시간이 달라질 수 있습니다.
 
@@ -629,7 +630,7 @@ Azure AD Connect 설정에 대한 자세한 지침은 [Azure AD Connect 설명�
 
 1.  **프로비전** 탭에서 **프로비전 상태**를 **켜기**로 설정합니다.
 
-2. **Save**를 클릭합니다.
+2. **저장**을 클릭합니다.
 
 3. 그러면 초기 동기화가 시작되며, Workday에 있는 사용자 수에 따라 동기화에 걸리는 시간이 달라질 수 있습니다.
 
@@ -646,7 +647,7 @@ Azure AD Connect 설정에 대한 자세한 지침은 [Azure AD Connect 설명�
 ## <a name="additional-resources"></a>추가 리소스
 * [자습서: Workday와 Azure Active Directory 간 Single Sign-On 구성](active-directory-saas-workday-tutorial.md)
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)
+* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](active-directory-appssoaccess-whatis.md)
 
 ## <a name="next-steps"></a>다음 단계
 

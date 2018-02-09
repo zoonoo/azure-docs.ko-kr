@@ -11,11 +11,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 12/20/2017
 ms.author: mahender
-ms.openlocfilehash: 63b94c0a9b77a3f3a6fd394a130bf8f132d51369
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 5d0f266047e1b083cdf23f8d1c55950a46406f61
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Azure Functions에 대한 Microsoft Graph 바인딩
 
@@ -43,7 +43,7 @@ Microsoft Graph 바인딩은 _바인딩 확장_을 통해 제공됩니다. 바�
 
 바인딩 확장은 Azure Functions 2.0 미리 보기에서만 사용할 수 있습니다. 
 
-미리 보기 2.0 버전의 Functions 런타임을 사용하도록 함수 앱을 설정하는 방법에 대한 내용은 [버전 2.0 런타임을 대상으로 지정](functions-versions.md#target-the-version-20-runtime)을 참조하세요.
+미리 보기 2.0 버전의 Functions 런타임을 사용하도록 함수 앱을 설정하는 방법에 대한 내용은 [버전 2.0 런타임을 대상으로 지정하는 방법](set-runtime-version.md)을 참조하세요.
 
 ### <a name="installing-the-extension"></a>확장 설치
 
@@ -663,7 +663,7 @@ module.exports = function (context, req) {
 이 바인딩은 .NET 함수에 다음 형식을 노출합니다.
 - byte[]
 - Stream
-- 문자열
+- string
 - Microsoft.Graph.DriveItem
 
 
@@ -808,7 +808,7 @@ module.exports = function (context, req) {
 이 바인딩은 .NET 함수에 다음 형식을 노출합니다.
 - byte[]
 - Stream
-- 문자열
+- string
 - Microsoft.Graph.DriveItem
 
 
@@ -956,7 +956,7 @@ module.exports = function (context, req) {
 이 바인딩은 .NET 함수에 다음 형식을 노출합니다.
 - Microsoft.Graph.Message
 - Newtonsoft.Json.Linq.JObject
-- 문자열
+- string
 - 사용자 지정 개체 형식(구조 모델 바인딩 사용)
 
 
@@ -1383,7 +1383,7 @@ module.exports = function (context, req) {
 ### <a name="webhook-output---usage"></a>웹후크 출력 - 사용
 
 이 바인딩은 .NET 함수에 다음 형식을 노출합니다.
-- 문자열
+- string
 - Microsoft.Graph.Subscription
 
 

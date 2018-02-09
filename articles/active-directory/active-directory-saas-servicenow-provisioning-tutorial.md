@@ -1,5 +1,5 @@
 ---
-title: "자습서: Azure Active Directory를 사용한 자동 사용자 프로비전을 위한 ServiceNow 구성 | Microsoft Docs"
+title: "자습서: Azure Active Directory로 자동 사용자 프로비전을 위한 ServiceNow 구성 | Microsoft Docs"
 description: "사용자 계정을 Azure AD에서 ServiceNow로 자동으로 프로비전 및 프로비전 해제하는 방법을 알아봅니다."
 services: active-directory
 documentationCenter: na
@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 06772c9e21936d224f721413ccdc1c859b07b940
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: de6bddeedbff5fded716db31b1a528466df1d396
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configuring-servicenow-for-automatic-user-provisioning-with-azure-active-directory"></a>자습서: Azure Active Directory를 사용한 자동 사용자 프로비전을 위한 ServiceNow 구성
+# <a name="tutorial-configure-servicenow-for-automatic-user-provisioning-with-azure-active-directory"></a>자습서: Azure Active Directory로 자동 사용자 프로비전을 위한 ServiceNow 구성
 
 이 자습서에서는 사용자 계정을 Azure AD에서 ServiceNow로 자동으로 프로비전 및 프로비전 해제하도록 ServiceNow 및 Azure AD에서 수행해야 하는 단계를 설명합니다.
 
@@ -66,9 +66,9 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
    
     a. **ServiceNow 인스턴스 이름** 텍스트 상자에 ServiceNow 인스턴스 이름을 입력합니다.
 
-    b. **ServiceNow 관리자 사용자 이름** 텍스트 상자에 관리자의 사용자 이름을 입력합니다.
+    나. **ServiceNow 관리자 사용자 이름** 텍스트 상자에 관리자의 사용자 이름을 입력합니다.
 
-    c. **ServiceNow 관리자 암호** 텍스트 상자에 관리자의 암호를 입력합니다.
+    다. **ServiceNow 관리자 암호** 텍스트 상자에 관리자의 암호를 입력합니다.
 
 6. Azure Portal에서 **연결 테스트**를 클릭하여 Azure AD가 ServiceNow 앱에 연결할 수 있는지 확인합니다. 연결에 실패하면 ServiceNow 계정에 팀 관리자 권한이 있는지 확인하고 **"관리자 자격 증명"** 단계를 다시 시도합니다.
 
@@ -89,7 +89,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 ## <a name="additional-resources"></a>추가 리소스
 
 * [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](active-directory-saas-tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)
+* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](active-directory-appssoaccess-whatis.md)
 * [Single Sign-On 구성](active-directory-saas-servicenow-tutorial.md)
 
 

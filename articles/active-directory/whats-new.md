@@ -14,14 +14,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 02/01/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: f32fc2d2df73f4a01c300d565595e2c00b2baf4b
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: 34826332db2e63d442d47ada74fcbad4cad600ae
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory의 새로운 기능
 
@@ -75,7 +75,7 @@ Azure AD는 지속적인 향상되고 있습니다. 최신 개발 정보를 확�
 
 Azure AD Premium P1 버전에서 라이선스가 적용되지 않는 검색 항목이 ‘추가 위험이 있는 로그인이 감지됨’이라는 위험 이벤트로 표시됩니다.
 
-자세한 내용은 [Azure Active Directory 위험 이벤트](active-directory-reporting-risk-events.md)를 참조하세요.
+자세한 내용은 [Azure Active Directory 위험 이벤트](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-risk-events)를 참조하세요.
  
 
 ---
@@ -90,7 +90,7 @@ Azure AD Premium P1 버전에서 라이선스가 적용되지 않는 검색 항�
 새로운 사용자 설정을 통해 Office 365 응용 프로그램을 사용자의 액세스 패널에 표시하는 방법을 보다 효과적으로 관리할 수 있습니다. Office 포털에 Office 응용 프로그램만 표시하려는 경우, 이 옵션은 사용자의 액세스 패널에 있는 앱을 줄이는 데 유용합니다. 이 설정은 **사용자 설정** 아래에 있으며 **사용자가 Office 365 포털에서 Office 365 앱만 볼 수 있음**이라는 레이블이 지정됩니다.
  
 
-자세한 내용은 [Azure Active Directory의 사용자 환경에서 응용 프로그램 숨기기](active-directory-coreapps-hide-third-party-app.md)를 참조하세요.
+자세한 내용은 [Azure Active Directory의 사용자 환경에서 응용 프로그램 숨기기](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-hide-third-party-app)를 참조하세요.
 
 ---
  
@@ -110,7 +110,7 @@ Azure AD Premium P1 버전에서 라이선스가 적용되지 않는 검색 항�
 - 확장 프로그램의 최근 사용한 앱에 대한 바로 가기
 - 확장 프로그램은 Edge, Chrome 및 Firefox에서 사용할 수 있습니다.
  
-자세한 내용은 [내 앱 보안 로그인 확장](active-directory-saas-access-panel-introduction.md#my-apps-secure-sign-in-extension)을 참조하세요.
+자세한 내용은 [내 앱 보안 로그인 확장](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction#my-apps-secure-sign-in-extension)을 참조하세요.
 
 ---
 
@@ -155,9 +155,9 @@ MFA 구성의 위치는 **Azure Active Directory \> MFA 서버**입니다.
 
 자세한 내용은 다음을 참조하세요.
 
-- [Azure Active Directory 보고 API를 시작](active-directory-reporting-api-getting-started-azure-portal.md)
+- [Azure Active Directory 보고 API를 시작](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-getting-started-azure-portal)
 
-- [Azure Active Directory ID 보호 및 Microsoft Graph 시작](active-directory-identityprotection-graph-getting-started.md)
+- [Azure Active Directory ID 보호 및 Microsoft Graph 시작](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection-graph-getting-started)
 
 
 ---
@@ -227,7 +227,7 @@ Azure AD 로그인 페이지의 **로그인 상태 유지** 확인란을 사용�
 
 사용자에게 사용 약관을 펼치도록 요구하려면 **On** 또는 **Off** 중 하나를 선택합니다. **On** 설정은 사용 약관을 수락하기 전에 확인하도록 사용자에게 요구합니다.
 
-자세한 내용은 [Azure AD 사용 약관 기능(미리 보기)](active-directory-tou.md)을 참조하세요.
+자세한 내용은 [Azure AD 사용 약관 기능(미리 보기)](https://docs.microsoft.com/azure/active-directory/active-directory-tou)을 참조하세요.
  
 ---
  
@@ -240,7 +240,7 @@ Azure AD 로그인 페이지의 **로그인 상태 유지** 확인란을 사용�
  
 범위가 지정된 활성화를 사용하면 원래 할당 기본값보다 낮은 자율성을 적용하여 적절한 Azure 리소스 역할 할당을 활성화할 수 있습니다. 예를 들어, 테넌트의 구독 소유자로 할당되는 경우가 있습니다. 범위가 지정된 활성화를 사용하면 구독 내에 포함된 리소스 최대 5개에 대해 소유자 역할을 활성화할 수 있습니다(예: 리소스 그룹, 가상 머신). 활성화의 범위를 지정하면 중요한 Azure 리소스가 원치 않게 변경될 가능성을 줄일 수 있습니다.
 
-자세한 내용은 [Azure AD Privileged Identity Management란?](active-directory-privileged-identity-management-configure.md)을 참조하세요.
+자세한 내용은 [Azure AD Privileged Identity Management란?](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure)을 참조하세요.
  
 ---
  
@@ -343,7 +343,7 @@ Intune Managed Browser를 승인된 앱으로 사용하면 Office 365 및 기타
 
 앞으로 공개될 블로그와 릴리스 정보에서도 이 기능과 자세한 정보를 찾아볼 수 있습니다. 
 
-자세한 내용은 [Azure AD의 조건부 액세스](active-directory-conditional-access-azure-portal.md)를 참조하세요.
+자세한 내용은 [Azure AD의 조건부 액세스](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)를 참조하세요.
 
  
 ---
@@ -358,7 +358,7 @@ Intune Managed Browser를 승인된 앱으로 사용하면 Office 365 및 기타
 
 
 
-[승인된 클라이언트 앱](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement)에 다음과 같은 앱이 추가될 계획입니다.
+[승인된 클라이언트 앱](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)에 다음과 같은 앱이 추가될 계획입니다.
 
 - [Microsoft Kaizala](https://www.microsoft.com/garage/profiles/kaizala/)
 - [Microsoft StaffHub](https://staffhub.office.com/what-it-is)
@@ -366,8 +366,8 @@ Intune Managed Browser를 승인된 앱으로 사용하면 Office 365 및 기타
 
 자세한 내용은 다음을 참조하세요.
 
-- [승인된 클라이언트 앱 요구 사항](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement)
-- [Azure AD 앱 기반 조건부 액세스](active-directory-conditional-access-mam.md)
+- [승인된 클라이언트 앱 요구 사항](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)
+- [Azure AD 앱 기반 조건부 액세스](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam)
 
 
 ---
@@ -409,7 +409,7 @@ Intune Managed Browser를 승인된 앱으로 사용하면 Office 365 및 기타
 - 문제 해결에 도움이 되는 설명서 링크 
 
 
-자세한 내용은 [온-프레미스 통합](active-directory-passwords-how-it-works.md#on-premises-integration)을 참조하세요.
+자세한 내용은 [온-프레미스 통합](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-how-it-works#on-premises-integration)을 참조하세요.
 
  
 ---
@@ -428,9 +428,9 @@ Intune Managed Browser를 승인된 앱으로 사용하면 Office 365 및 기타
 
 
 
-이제 [Azure AD 앱 기반 조건부 액세스](active-directory-conditional-access-mam.md)를 사용하여 Intune 앱 보호 정책을 지원하는 [승인된 클라이언트 앱](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement)으로 Office 365 및 기타 Azure AD에 연결된 클라우드 앱의 액세스를 제한할 수 있습니다. 승인된 클라이언트 응용 프로그램에서 기업 데이터를 구성하고 보호하는 데 Intune 앱 보호 정책이 사용됩니다.
+이제 [Azure AD 앱 기반 조건부 액세스](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam)를 사용하여 Intune 앱 보호 정책을 지원하는 [승인된 클라이언트 앱](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)으로 Office 365 및 기타 Azure AD에 연결된 클라우드 앱의 액세스를 제한할 수 있습니다. 승인된 클라이언트 응용 프로그램에서 기업 데이터를 구성하고 보호하는 데 Intune 앱 보호 정책이 사용됩니다.
 
-[앱 기반](active-directory-conditional-access-mam.md) 조건부 액세스 정책과 [장치 기반](active-directory-conditional-access-policy-connected-applications.md) 조건부 액세스 정책이 결합됨으로써 개인 장치와 기업 장치의 데이터를 유연하게 보호할 수 있게 됩니다.
+[앱 기반](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam) 조건부 액세스 정책과 [장치 기반](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-policy-connected-applications) 조건부 액세스 정책이 결합됨으로써 개인 장치와 기업 장치의 데이터를 유연하게 보호할 수 있게 됩니다.
 
 다음은 앱 기반 조건부 액세스에 사용 가능한 조건과 컨트롤입니다.
 
@@ -448,7 +448,7 @@ Intune Managed Browser를 승인된 앱으로 사용하면 Office 365 및 기타
 - 승인된 클라이언트 앱 필요
 
 
-자세한 내용은 [Azure AD 앱 기반 조건부 액세스](active-directory-conditional-access-mam.md)를 참조하세요.
+자세한 내용은 [Azure AD 앱 기반 조건부 액세스](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam)를 참조하세요.
 
  
 ---
@@ -472,7 +472,7 @@ Intune Managed Browser를 승인된 앱으로 사용하면 Office 365 및 기타
 - Azure AD 가입 장치의 BitLocker 키 찾기, Intune을 사용하여 장치 관리하기
 - Azure AD 장치 관련 설정 관리하기
 
-자세한 내용은 [Azure Portal을 사용하여 장치 관리](device-management-azure-portal.md)를 참조하세요.
+자세한 내용은 [Azure Portal을 사용하여 장치 관리](https://docs.microsoft.com/azure/active-directory/device-management-azure-portal)를 참조하세요.
 
 
 
@@ -497,7 +497,7 @@ Intune Managed Browser를 승인된 앱으로 사용하면 Office 365 및 기타
 자세한 내용은 다음을 참조하세요.
 
 - [Intune을 사용하여 macOS를 위한 장치 준수 정책 만들기](https://aka.ms/macoscompliancepolicy)
-- [Azure AD의 조건부 액세스](active-directory-conditional-access-azure-portal.md)
+- [Azure AD의 조건부 액세스](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)
 
 
  
@@ -518,7 +518,7 @@ Azure Multi-Factor Authentication용 네트워크 정책 서버 확장은 기존
 이 확장은 Azure Multi-Factor Authentication 서버를 배포하지 않고 가상 사설망 연결을 보호하려는 조직을 위해 작성되었습니다. 네트워크 정책 서버 확장은 RADIUS 및 클라우드 기반 Azure Multi-Factor Authentication 간에 어댑터로 작동하여 페더레이션 사용자 또는 동기화된 사용자를 위한 또 다른 인증을 제공합니다.
 
 
-자세한 내용은 [기존 네트워크 정책 서버 인프라를 Azure Multi-Factor Authentication과 통합](../multi-factor-authentication/multi-factor-authentication-nps-extension.md)을 참조하세요.
+자세한 내용은 [기존 네트워크 정책 서버 인프라를 Azure Multi-Factor Authentication과 통합](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-nps-extension)을 참조하세요.
 
  
 ---
@@ -557,7 +557,7 @@ Azure Multi-Factor Authentication용 네트워크 정책 서버 확장은 기존
 **제품 기능:** ID 보안 및 보호
 
 
-[승인된 클라이언트 앱](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement)에 다음과 같은 앱이 추가되어 있습니다.
+[승인된 클라이언트 앱](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)에 다음과 같은 앱이 추가되어 있습니다.
 
 - Microsoft Planner
 - Azure Information Protection 
@@ -565,8 +565,8 @@ Azure Multi-Factor Authentication용 네트워크 정책 서버 확장은 기존
 
 자세한 내용은 다음을 참조하세요.
 
-- [승인된 클라이언트 앱 요구 사항](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement)
-- [Azure AD 앱 기반 조건부 액세스](active-directory-conditional-access-mam.md)
+- [승인된 클라이언트 앱 요구 사항](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)
+- [Azure AD 앱 기반 조건부 액세스](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam)
 
 
 ---
@@ -581,7 +581,7 @@ Azure Multi-Factor Authentication용 네트워크 정책 서버 확장은 기존
  
 이제 조건부 액세스 제어에 "OR"(선택한 컨트롤 중 하나 필요) 연산자를 사용할 수 있습니다. 이 기능을 사용하여 액세스 제어 사이에 "OR"이 있는 정책을 만들 수 있습니다. 사용자가 다단계 인증을 사용하거나 규정을 준수하는 장치를 사용하도록 요구하려는 경우 "OR" 연산자를 사용하여 정책을 만들 수 있습니다.
 
-자세한 내용은 [Azure AD 조건부 액세스의 컨트롤](active-directory-conditional-access-controls.md)을 참조하세요.
+자세한 내용은 [Azure AD 조건부 액세스의 컨트롤](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-controls)을 참조하세요.
 
  
 ---
@@ -635,7 +635,7 @@ Azure Portal은 다음을 제공합니다.
 
 
 
-Azure AD는 HTML 사용자 이름 및 암호 필드를 렌더링하는 응용 프로그램의 자동 로그인 필드 검색을 지원합니다. 이 단계는 [응용 프로그램에 대한 로그인 필드를 자동으로 캡처하는 방법](application-config-sso-problem-configure-password-sso-non-gallery.md#how-to-manually-capture-sign-in-fields-for-an-application)에 설명되어 있습니다. 이 기능은 [Azure Portal](http://aad.portal.azure.com)의 **엔터프라이즈 응용 프로그램** 페이지에 *비갤러리* 응용 프로그램을 추가하여 찾을 수 있습니다. 또한 이 새 응용 프로그램의 **Single Sign-On** 모드를 **암호 기반 Single Sign-on**으로 구성하고 웹 URL을 입력한 다음 페이지를 저장할 수 있습니다.
+Azure AD는 HTML 사용자 이름 및 암호 필드를 렌더링하는 응용 프로그램의 자동 로그인 필드 검색을 지원합니다. 이 단계는 [응용 프로그램에 대한 로그인 필드를 자동으로 캡처하는 방법](https://docs.microsoft.com/azure/active-directory/application-config-sso-problem-configure-password-sso-non-gallery#how-to-manually-capture-sign-in-fields-for-an-application)에 설명되어 있습니다. 이 기능은 [Azure Portal](http://aad.portal.azure.com)의 **엔터프라이즈 응용 프로그램** 페이지에 *비갤러리* 응용 프로그램을 추가하여 찾을 수 있습니다. 또한 이 새 응용 프로그램의 **Single Sign-On** 모드를 **암호 기반 Single Sign-on**으로 구성하고 웹 URL을 입력한 다음 페이지를 저장할 수 있습니다.
  
 서비스 문제로 인해 이 기능은 일시적으로 사용하지 않도록 설정되어 있었습니다. 이제 문제가 해결되어 자동 로그인 필드 검색을 다시 사용할 수 있습니다.
 
@@ -657,7 +657,7 @@ MFA(Multi-Factor Authentication)는 조직을 보호하기 위한 필수적인 �
 
 이 공개 미리 보기에서는 핵심 Azure AD 구성 환경에 통합된 MFA 관리와 보고 기능을 경험할 수 있습니다. 이제 Azure AD 환경에서 MFA 관리 포털 기능을 관리할 수 있습니다.
 
-자세한 내용은 [Azure Portal의 MFA보고에 대한 참조](active-directory-reporting-activity-sign-ins-mfa.md)를 참조하세요. 
+자세한 내용은 [Azure Portal의 MFA보고에 대한 참조](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-sign-ins-mfa)를 참조하세요. 
 
 
 ---
@@ -680,7 +680,7 @@ Azure AD 이용 약관을 사용하여 법률 요구 사항 또는 규정 준수
 - 사용자의 특성에 기반한 특정 사용 약관(예: 의사 및 간호사 또는 국내 및 해외 직원, 동적 그룹에 의한 수행)
 - Salesforce와 같은 영향력이 높은 비즈니스 앱에 액세스하기 위한 특정 이용 약관
 
-자세한 내용은 [Azure AD 사용 약관](active-directory-tou.md)을 참조하세요.
+자세한 내용은 [Azure AD 사용 약관](https://docs.microsoft.com/azure/active-directory/active-directory-tou)을 참조하세요.
 
 
 ---
@@ -701,7 +701,7 @@ Azure AD 이용 약관을 사용하여 법률 요구 사항 또는 규정 준수
 
 Azure Portal에서 Azure RBAC 기능을 사용하는 모든 리소스는 Azure AD Privileged Identity Management가 제공하는 보안 및 수명 주기 관리 기능을 모두 사용할 수 있습니다.
 
-자세한 내용은 [Azure 리소스용 Privileged Identity Management](privileged-identity-management/azure-pim-resource-rbac.md)를 참조하세요.
+자세한 내용은 [Azure 리소스용 Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/azure-pim-resource-rbac)를 참조하세요.
 
 
 ---
@@ -722,7 +722,7 @@ Azure Portal에서 Azure RBAC 기능을 사용하는 모든 리소스는 Azure A
 
 액세스 검토 컨트롤을 조직과 관련된 프로그램으로 수집하여 규정 준수 또는 위험 감지 응용 프로그램에 대한 검토를 추적할 수 있습니다.
 
-자세한 내용은 [Azure AD 액세스 검토](active-directory-azure-ad-controls-access-reviews-overview.md)를 참조하세요.
+자세한 내용은 [Azure AD 액세스 검토](https://docs.microsoft.com/azure/active-directory/active-directory-azure-ad-controls-access-reviews-overview)를 참조하세요.
 
 
 ---
@@ -739,7 +739,7 @@ Azure Portal에서 Azure RBAC 기능을 사용하는 모든 리소스는 Azure A
 
 이제 새 **앱 숨기기** 속성을 통해 사용자 포털에 표시되는 앱을 더 잘 관리할 수 있습니다. 백 엔드 서비스를 위해 앱 타일이 표시되거나 타일이 중복되고 사용자의 앱 시작 관리자가 복잡하게 표시되는 경우 앱을 숨기면 도움이 됩니다. 토글은 타사 앱 섹션의 **속성** 섹션에 있으며 **사용자가 볼 수 있습니까?**라는 레이블이 지정되어 있습니다. PowerShell을 통해 프로그래밍 방식으로 앱을 숨길 수도 있습니다. 
 
-자세한 내용은 [Hide a third-party application from user's experience in Azure AD](active-directory-coreapps-hide-third-party-app.md)(Azure AD의 사용자 환경에서 타사 응용 프로그램 숨기기)를 참조하세요. 
+자세한 내용은 [Hide a third-party application from user's experience in Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-hide-third-party-app)(Azure AD의 사용자 환경에서 타사 응용 프로그램 숨기기)를 참조하세요. 
 
 
 **사용할 수 있는 기능은 무엇인가요?**

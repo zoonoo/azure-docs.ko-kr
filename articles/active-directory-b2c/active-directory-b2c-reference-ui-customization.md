@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeedakhter-msft
-ms.openlocfilehash: be3fe7199308606aaab002290319df9c82149433
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a9136ebd15a995361a325804ca81ece0db30b3e6
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="azure-active-directory-b2c-customize-the-azure-ad-b2c-user-interface-ui"></a>Azure Active Directory B2C: Azure AD B2C UI(사용자 인터페이스)를 사용자 지정
 
@@ -38,7 +38,7 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="the-page-ui-customization-feature"></a>페이지 UI 사용자 지정 기능
 
-[정책](active-directory-b2c-reference-policies.md)을 구성하여 고객 등록, 로그인, 암호 재설정 및 프로필 편집 페이지의 모양과 느낌을 사용자 지정할 수 있습니다. 고객이 Azure AD B2C에 의해 제공된 응용 프로그램과 페이지 간에 이동하는 경우 원활한 환경을 유지합니다.
+[정책](active-directory-b2c-reference-policies.md)을 구성하여 고객 등록, 로그인(위의 브랜딩 관련 예외 참조), 암호 재설정 및 프로필 편집 페이지의 모양과 느낌을 사용자 지정할 수 있습니다. 고객이 Azure AD B2C에 의해 제공된 응용 프로그램과 페이지 간에 이동하는 경우 원활한 환경을 유지합니다.
 
 UI 옵션이 있는 다른 서비스와 달리, Azure AD B2C는 간단한 최신 방식의 UI 사용자 지정을 사용합니다.
 

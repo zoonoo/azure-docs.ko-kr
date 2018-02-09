@@ -9,16 +9,16 @@ editor:
 ms.assetid: 
 ms.service: event-hubs
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2017
 ms.author: sethm
-ms.openlocfilehash: a88b5da8fa504e0528caa7fa212d4cec26d1cf66
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.openlocfilehash: 0dd3533ab1556b334c09ba69d096b06c8be85cc8
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="get-started-receiving-messages-with-the-event-processor-host-in-net-standard"></a>.NET Standard에서 이벤트 프로세서 호스트를 사용하여 메시지 수신 시작
 
@@ -41,7 +41,7 @@ ms.lasthandoff: 11/28/2017
 
 ## <a name="create-an-azure-storage-account"></a>Azure Storage 계정 만들기  
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.  
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.  
 2. 포털의 왼쪽 탐색 창에서 **새로 만들기**, **저장소**, **Storage 계정**을 차례로 클릭합니다.  
 3. 저장소 계정 창에서 필드를 완성한 후 **만들기**를 클릭합니다.
 
@@ -212,7 +212,7 @@ Visual Studio를 시작합니다. **파일** 메뉴에서 **새로 만들기**�
 
 4. 프로그램을 실행하고 오류가 없는지 확인합니다.
 
-축하합니다. 이제 이벤트 프로세서 호스트를 사용하여 이벤트 허브에서 메시지를 수신했습니다.
+축하합니다! 이제 이벤트 프로세서 호스트를 사용하여 이벤트 허브에서 메시지를 수신했습니다.
 
 ## <a name="next-steps"></a>다음 단계
 Event Hubs에 대한 자세한 내용은 다음 링크를 참조하세요.

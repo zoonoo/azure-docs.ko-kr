@@ -3,7 +3,7 @@ title: "Azure SDK를 사용하여 MSI가 활성화된 Azure VM을 구성하는 �
 description: "Azure SDK를 사용하여 Azure VM에서 MSI(관리 서비스 ID)를 구성하고 사용하기 위한 단계별 지침"
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: daveba
 manager: mtillman
 editor: 
 ms.service: active-directory
@@ -12,12 +12,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/28/2017
-ms.author: bryanla
-ms.openlocfilehash: d5fb9decd1417a51c85f23d6b178c8a86cf292bd
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: daveba
+ms.openlocfilehash: dee89e4cd6501bb56015a2e4cfc045cc6308400e
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="configure-a-vm-managed-service-identity-msi-using-an-azure-sdk"></a>Azure SDK를 사용하여 VM MSI(관리 서비스 ID) 구성
 
@@ -38,10 +38,10 @@ Azure는 일련의 [Azure SDK](https://azure.microsoft.com/downloads)를 통해 
 | SDK) | 샘플 |
 | --- | ------ | 
 | .NET   | [MSI가 활성화된 VM에서 리소스 관리](https://azure.microsoft.com/resources/samples/aad-dotnet-manage-resources-from-vm-with-msi/) |
-| Java   | [MSI가 활성화된 VM에서 저장소 관리](https://azure.microsoft.com/resources/samples/compute-java-manage-resources-from-vm-with-msi-in-aad-group/)|
+| 자바   | [MSI가 활성화된 VM에서 저장소 관리](https://azure.microsoft.com/resources/samples/compute-java-manage-resources-from-vm-with-msi-in-aad-group/)|
 | Node.js| [MSI가 활성화된 VM 만들기](https://azure.microsoft.com/resources/samples/compute-node-msi-vm/) |
-| Python | [MSI가 활성화된 VM 만들기](https://azure.microsoft.com/resources/samples/compute-python-msi-vm/) |
-| 루비   | [MSI에서 Azure VM 만들기](https://azure.microsoft.com/resources/samples/compute-ruby-msi-vm/) |
+| 파이썬 | [MSI가 활성화된 VM 만들기](https://azure.microsoft.com/resources/samples/compute-python-msi-vm/) |
+| Ruby   | [MSI에서 Azure VM 만들기](https://azure.microsoft.com/resources/samples/compute-ruby-msi-vm/) |
 
 ## <a name="next-steps"></a>다음 단계
 

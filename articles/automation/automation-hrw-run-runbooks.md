@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: magoedte
-ms.openlocfilehash: d73bb33b4b330df803e140145ed63319af4a6733
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: ca63f9c7a11bc072bd73c3d61c63a8d603020e68
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Hybrid Runbook Worker에서 Runbook 실행 
 Azure Automation에서 실행되는 Runbook과 Hybrid Runbook Worker에서 실행되는 Runbook은 구조상 차이가 없습니다. Azure Automation의 Runbook은 일반적으로 Azure 클라우드의 리소스를 관리하지만, Hybrid Runbook Worker를 대상으로 하는 Runbook은 일반적으로 로컬 컴퓨터 자체 또는 배포된 로컬 환경의 리소스를 관리하기 때문에, 각각에서 사용하는 Runbook은 서로 크게 다릅니다.
@@ -112,9 +112,10 @@ Azure에서 리소스를 배포하는 자동화된 빌드 프로세스의 일부
 
     [OutputType([string])] 
 
-    # Set the password used for this certificate
-    $Password = "YourStrongPasswordForTheCert"
-
+    # Generate the password used for this certificate
+    Add-Type -AssemblyName System.Web -ErrorAction SilentlyContinue | Out-Null
+    $Password = [System.Web.Security.Membership]::GeneratePassword(25, 10)
+    
     # Stop on errors
     $ErrorActionPreference = 'stop'
 

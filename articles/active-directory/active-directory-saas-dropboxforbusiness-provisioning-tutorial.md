@@ -1,6 +1,6 @@
 ---
-title: "자습서: Dropbox for Business와 Azure Active Directory 통합 | Microsoft 문서"
-description: "Azure Active Directory 및 Dropbox for Business 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
+title: "자습서: Azure Active Directory로 자동 사용자 프로비전을 위한 Dropbox 구성 | Microsoft Docs"
+description: "Azure Active Directory와 Dropbox for Business 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/19/2017
+ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: c41760d60d53dee7be36b2af287cd6755605b708
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ff85b5c20d74bde476416bdd70d5a345f4a6fefb
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configuring-dropbox-for-business-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전에 대한 Dropbox for Business 구성
+# <a name="tutorial-configure-dropbox-for-business-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Dropbox for Business 구성
 
 이 자습서의 목적은 사용자 계정을 Azure AD에서 Dropbox for Business으로 자동 프로비전 및 프로비전 해제하도록 Dropbox for Business 및 Azure AD에서 수행해야 하는 단계를 설명하는 것입니다.
 
@@ -76,7 +76,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 8. Azure Portal에서 **연결 테스트**를 클릭하여 Azure AD가 Dropbox for Business 앱에 연결할 수 있는지 확인합니다. 연결에 실패하면 Dropbox for Business 계정에 팀 관리자 권한이 있는지 확인하고 **"권한 부여"** 단계를 다시 시도합니다.
 
-9. 프로비전 오류 알림을 받을 개인 또는 그룹의 메일 주소를 **알림 메일** 필드에 입력하고 확인란을 선택합니다.
+9. 프로비전 오류 알림을 받을 개인 또는 그룹의 이메일 주소를 **알림 메일** 필드에 입력하고 확인란을 선택합니다.
 
 10. **저장**을 클릭합니다.
 
@@ -100,5 +100,5 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 ## <a name="additional-resources"></a>추가 리소스
 
 * [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](active-directory-saas-tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)
+* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](active-directory-appssoaccess-whatis.md)
 * [Single Sign-On 구성](active-directory-saas-dropboxforbusiness-tutorial.md)

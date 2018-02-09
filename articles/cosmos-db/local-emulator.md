@@ -4,7 +4,7 @@ description: "Azure Cosmos DB 에뮬레이터를 사용하여 Azure 구독을 �
 services: cosmos-db
 documentationcenter: 
 keywords: "Azure Cosmos DB 에뮬레이터"
-author: arramac
+author: David-Noble-at-work
 manager: jhubbard
 editor: 
 ms.assetid: 90b379a6-426b-4915-9635-822f1a138656
@@ -13,13 +13,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/18/2017
-ms.author: arramac
-ms.openlocfilehash: 240961e0caa1cf2b5c31e854e925f914eb7edc00
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.date: 01/29/2018
+ms.author: danoble
+ms.openlocfilehash: 40d7b8a52f67d116ab764b9716c917d5c7865467
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>로컬 개발 및 테스트에 Azure Cosmos DB 에뮬레이터 사용
 
@@ -39,6 +39,9 @@ ms.lasthandoff: 12/14/2017
 </table>
   
 Azure Cosmos DB 에뮬레이터는 개발 목적으로 Azure Cosmos DB 서비스를 에뮬레이트하는 로컬 환경을 제공합니다. Azure Cosmos DB 에뮬레이터를 사용하면 Azure 구독을 구입하거나 비용을 발생시키지 않고도 로컬에서 응용 프로그램을 테스트할 수 있습니다. Azure Cosmos DB 에뮬레이터에서 응용 프로그램이 작동하는 방식에 만족하는 경우 Azure Cosmos DB 계정을 클라우드에서 사용하도록 전환할 수 있습니다.
+
+> [!NOTE]
+> 현재 에뮬레이터의 데이터 탐색기는 SQL API 컬렉션 및 MongoDB 컬렉션만 완전히 지원합니다. 테이블, 그래프 및 Cassandra 컨테이너는 완벽히 지원되지는 않습니다. 
 
 이 문서에서 다루는 작업은 다음과 같습니다. 
 
@@ -62,9 +65,6 @@ Kirill Gavrylyuk가 Azure Cosmos DB 에뮬레이터를 시작하는 방법을 �
 Azure Cosmos DB 에뮬레이터는 신뢰도 있는 Azure Cosmos DB 서비스의 에뮬레이션을 제공합니다. JSON 문서 만들기 및 쿼리, 컬렉션 프로비전 및 확장, 저장 프로시저 및 트리거 실행을 비롯하여 Azure Cosmos DB으로 동일한 기능을 지원합니다. Azure Cosmos DB 에뮬레이터를 사용하여 응용 프로그램을 개발 및 테스트하고 Azure Cosmos DB에 대한 연결 끝점에 대한 단일 구성을 변경하여 글로벌 규모로 Azure에 배포할 수 있습니다.
 
 실제 Azure Cosmos DB 서비스의 충실도 높은 로컬 에뮬레이션을 만들었지만 Azure Cosmos DB 에뮬레이터의 구현은 서비스의 구현과 다릅니다. 예를 들어 Azure Cosmos DB 에뮬레이터는 로컬 파일 시스템(지속성) 및 HTTPS 프로토콜 스택(연결성)과 같은 표준 OS 구성 요소를 사용합니다. 따라서 전역 복제, 한 자리 밀리초 읽기/쓰기 대기 시간, 튜닝 가능한 일관성 수준 등 Azure 인프라를 기반으로 하는 일부 기능은 Azure Cosmos DB 에뮬레이터를 통해 사용할 수 없습니다.
-
-> [!NOTE]
-> 현재 에뮬레이터의 데이터 탐색기는 SQL API 컬렉션 및 MongoDB 컬렉션 만들기만 지원합니다. 에뮬레이터의 데이터 탐색기는 현재 테이블 및 그래프 만들기를 지원하지 않습니다. 
 
 ## <a name="differences-between-the-emulator-and-the-service"></a>에뮬레이터와 서비스 간 차이 
 Azure Cosmos DB 에뮬레이터는 로컬 개발자 워크스테이션에서 실행되는 에뮬레이트된 환경을 제공하기 때문에 클라우드의 Azure Cosmos DB 계정과 기능 면에서 몇 가지 차이가 있습니다.
@@ -359,9 +359,16 @@ Starting interactive shell
 
 이제 클라이언트의 응답에서 끝점 및 마스터 키를 사용하고 SSL 인증서를 호스트로 가져옵니다. SSL 인증서를 가져오려면 관리자 명령 프롬프트에서 다음을 수행합니다.
 
-```
+명령줄에서:
+```cmd 
 cd %LOCALAPPDATA%\CosmosDBEmulatorCert
 powershell .\importcert.ps1
+```
+
+PowerShell에서:
+```powershell
+cd $env:LOCALAPPDATA\CosmosDBEmulatorCert
+.\importcert.ps1
 ```
 
 에뮬레이터가 시작된 후 대화형 셸을 닫으면 에뮬레이터의 컨테이너가 종료됩니다.
@@ -404,6 +411,14 @@ powershell .\importcert.ps1
 2. Windows 검색 상자에 **앱 및 기능**을 입력하고 **앱 및 기능(시스템 설정)** 결과를 클릭합니다.
 3. 앱 목록에서 **Azure Cosmos DB 에뮬레이터**로 스크롤하여 선택하고, **제거**를 클릭한 다음, 확인하고 **제거**를 다시 클릭합니다.
 4. 앱이 제거되면 C:\Users\<user>\AppData\Local\CosmosDBEmulator로 이동하여 폴더를 삭제합니다. 
+
+## <a name="change-list"></a>변경 목록
+
+작업 표시줄에서 로컬 에뮬레이터 아이콘을 마우스 오른쪽 단추로 클릭하고 정보 메뉴 항목을 클릭하여 버전 번호를 확인할 수 있습니다.
+
+### <a name="120-released-on-january-26-2018"></a>1.20 - 2018년 1월 26일 릴리스
+
+* 기본적으로 MongoDB 집계 파이프라인을 사용합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

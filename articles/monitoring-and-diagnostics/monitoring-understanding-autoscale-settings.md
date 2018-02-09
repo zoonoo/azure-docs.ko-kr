@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: ancav
-ms.openlocfilehash: cff2be1818417a19f36da08d8c2eaa227bb945ec
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 79602cf053d834bf3d6dc6b4d5568637b179d5c7
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="understand-autoscale-settings"></a>자동 크기 조정 설정 이해
 자동 크기 조정 설정을 통해 응용 프로그램의 변화하는 부하를 처리할 수 있는 적절한 양의 리소스가 실행되도록 할 수 있습니다. 부하 또는 성능을 나타내거나 예약된 날짜 및 시간에 트리거되는 메트릭을 기준으로 자동 크기 조정 설정이 트리거되도록 구성할 수 있습니다. 이 문서에서는 자동 크기 조정 설정을 자세히 분석합니다. 이 문서에서는 먼저 스키마 및 설정의 속성을 이해한 다음, 구성할 수 있는 여러 다른 프로필 유형을 살펴보고, 마지막으로 자동 크기 조정 기능이 특정 경우에 실행할 프로필을 평가하는 방법을 알아봅니다.

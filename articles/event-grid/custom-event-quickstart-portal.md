@@ -3,23 +3,23 @@ title: "Azure Portal과 Azure Event Grid에 대한 사용자 지정 이벤트 | 
 description: "Azure Event Grid 및 PowerShell을 사용하여 토픽을 게시하고 해당 이벤트를 구독합니다."
 services: event-grid
 keywords: 
-author: djrosanova
-ms.author: darosa
-ms.date: 10/11/2017
+author: tfitzmac
+ms.author: tomfitz
+ms.date: 01/30/2018
 ms.topic: hero-article
 ms.service: event-grid
-ms.openlocfilehash: 0fe498b7b6dcf59bc5caef8ff5a40053e0498f85
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: 01472ffc7a98cd2c99793c8675efe2cefffe5558
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-and-route-custom-events-with-the-azure-portal-and-event-grid"></a>Azure Portal 및 Event Grid를 사용하여 사용자 지정 이벤트 만들기 및 라우팅
 
-Azure Event Grid는 클라우드에 대한 이벤트 서비스입니다. 이 문서에서는 Azure Portal을 사용하여 사용자 지정 토픽을 만들고 해당 토픽을 구독하며 이벤트를 트리거하여 결과를 확인합니다. 일반적으로 웹후크 또는 Azure Function과 같은 이벤트에 응답하는 끝점으로 이벤트를 보냅니다. 그러나 이 문서를 간소화하기 위해 이벤트를 메시지를 수집하기만 하는 URL로 보냅니다. 오픈 소스이면서 [RequestBin](https://requestb.in/)이라는 타사 도구를 사용하여 이 URL을 만듭니다.
+Azure Event Grid는 클라우드에 대한 이벤트 서비스입니다. 이 문서에서는 Azure Portal을 사용하여 사용자 지정 토픽을 만들고 해당 토픽을 구독하며 이벤트를 트리거하여 결과를 확인합니다. 일반적으로 웹후크 또는 Azure Function과 같은 이벤트에 응답하는 끝점으로 이벤트를 보냅니다. 그러나 이 문서를 간소화하기 위해 이벤트를 메시지를 수집하기만 하는 URL로 보냅니다. [RequestBin](https://requestb.in/) 또는 [Hookbin](https://hookbin.com/)에서 타사 도구를 사용하여 이 URL을 만듭니다.
 
 >[!NOTE]
->**RequestBin**은 높은 처리량 사용을 위해 설계되지 않은 오픈 소스 도구입니다. 여기서는 순전히 시연을 위해서만 이 도구를 사용합니다. 한 번에 둘 이상의 이벤트를 푸시하면 도구에서 모든 이벤트가 표시되지 않을 수 있습니다.
+>처리량이 높은 경우에는 **RequestBin** 및 **Hookbin** 사용이 적합하지 않습니다. 이 도구는 순전히 시연을 위해서만 사용되었습니다. 한 번에 둘 이상의 이벤트를 푸시하면 도구에서 모든 이벤트가 표시되지 않을 수 있습니다.
 
 작업을 완료하면 이벤트 데이터가 끝점에 보내진 것을 확인할 수 있습니다.
 
@@ -51,7 +51,7 @@ Event Grid 토픽은 Azure 리소스이며 Azure 리소스 그룹에 배치해�
 
    ![Event Grid 항목 추가](./media/custom-event-quickstart-portal/add-topic.png)
 
-1. 항목의 이름을 입력합니다. DNS 항목으로 표시되기 때문에 토픽 이름은 고유해야 합니다. 미리 보기 릴리스의 경우 Event Grid는 **westus2** 및 **westcentralus** 위치를 지원합니다. 앞에서 만든 리소스 그룹을 선택합니다. **만들기**를 선택합니다.
+1. 항목의 이름을 입력합니다. DNS 항목으로 표시되기 때문에 토픽 이름은 고유해야 합니다. [지원되는 영역](overview.md) 중 하나를 선택합니다. 앞에서 만든 리소스 그룹을 선택합니다. **만들기**를 선택합니다.
 
    ![Event Grid 항목 값 제공](./media/custom-event-quickstart-portal/provide-topic-values.png)
 
@@ -61,7 +61,7 @@ Event Grid 토픽은 Azure 리소스이며 Azure 리소스 그룹에 배치해�
 
 ## <a name="create-a-message-endpoint"></a>메시지 끝점 만들기
 
-토픽을 구독하기 전에 이벤트 메시지에 대한 끝점을 만들어 보겠습니다. 이벤트에 응답하는 코드를 작성하지 않고 메시지를 볼 수 있도록 메시지를 수집하는 끝점을 만들어 보겠습니다. RequestBin은 오픈 소스이면서 타사 도구로, 이 도구를 통해 끝점을 만들고 끝점에 전송된 요청을 볼 수 있습니다. [RequestBin](https://requestb.in/)으로 이동하고 **RequestBin 만들기**를 클릭합니다.  토픽을 구독할 때 필요하기 때문에 bin URL을 복사합니다.
+토픽을 구독하기 전에 이벤트 메시지에 대한 끝점을 만들어 보겠습니다. 이벤트에 응답하는 코드를 작성하지 않고 메시지를 볼 수 있도록 메시지를 수집하는 끝점을 만들어 보겠습니다. RequestBin 및 Hookbin은 타사 도구로, 이 도구를 통해 엔드포인트를 만들고 이 엔드포인트에 전송된 요청을 볼 수 있습니다. [RequestBin](https://requestb.in/)으로 이동하고 **RequestBin 만들기**를 클릭하거나 [Hookbin](https://hookbin.com/)으로 이동하고 **새 끝점 만들기**를 클릭합니다.  토픽을 구독할 때 필요하기 때문에 bin URL을 복사합니다.
 
 ## <a name="subscribe-to-a-topic"></a>토픽 구독
 
@@ -75,7 +75,7 @@ Event Grid 토픽은 Azure 리소스이며 Azure 리소스 그룹에 배치해�
 
    ![Event Grid 구독 추가](./media/custom-event-quickstart-portal/add-subscription.png)
 
-1. 이벤트 구독에 대한 고유한 이름을 제공합니다. 항목 형식에서 **Event Grid 항목**을 선택합니다. 인스턴스에서 만든 사용자 지정 항목을 선택합니다. 이벤트 알림에 대한 끝점으로 RequestBin의 URL을 입력합니다. 값 입력을 완료한 후에 **만들기**를 선택합니다.
+1. 이벤트 구독에 대한 고유한 이름을 제공합니다. 항목 형식에서 **Event Grid 항목**을 선택합니다. 인스턴스에서 만든 사용자 지정 항목을 선택합니다. 이벤트 알림에 대한 끝점으로 RequestBin 또는 Hookbin의 URL을 입력합니다. 값 입력을 완료한 후에 **만들기**를 선택합니다.
 
    ![Event Grid 구독 값 입력](./media/custom-event-quickstart-portal/provide-subscription-values.png)
 
@@ -100,13 +100,13 @@ body=$(eval echo "'$(curl https://raw.githubusercontent.com/Azure/azure-docs-jso
 
 `echo "$body"`를 수행한 경우 전체 이벤트를 확인할 수 있습니다. JSON의 `data` 요소는 이벤트의 페이로드입니다. 모든 잘 구성된(Well-Formed) JSON은 이 필드에 배치될 수 있습니다. 또한 고급 라우팅 및 필터링을 위해 제목 필드를 사용할 수 있습니다.
 
-CURL은 HTTP 요청을 수행하는 유틸리티입니다. 이 문서에서는 토픽에 이벤트를 보내도록 CURL을 사용합니다. 
+CURL은 HTTP 요청을 수행하는 유틸리티입니다. 이 문서에서는 토픽에 이벤트를 보내는 데 CURL을 사용합니다. 
 
 ```azurecli-interactive
 curl -X POST -H "aeg-sas-key: $key" -d "$body" $endpoint
 ```
 
-이벤트를 트리거했고 Event Grid가 구독할 때 구성한 끝점으로 메시지를 보냈습니다. 이전에 만든 RequestBin URL로 이동합니다. 또는 열려 있는 RequestBin 브라우저에서 새로 고침을 클릭합니다. 방금 전송 받은 이벤트가 표시됩니다.
+이벤트를 트리거했고 Event Grid가 구독할 때 구성한 끝점으로 메시지를 보냈습니다. 이전에 만든 엔드포인트 URL로 이동합니다. 또는 열려 있는 브라우저에서 새로 고침을 클릭합니다. 방금 전송 받은 이벤트가 표시됩니다.
 
 ```json
 [{
@@ -118,6 +118,8 @@ curl -X POST -H "aeg-sas-key: $key" -d "$body" $endpoint
     "make": "Ducati",
     "model": "Monster"
   },
+  "dataVersion": "1.0",
+  "metadataVersion": "1",
   "topic": "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.EventGrid/topics/{topic}"
 }]
 ```
@@ -134,5 +136,5 @@ curl -X POST -H "aeg-sas-key: $key" -d "$body" $endpoint
 
 - [Event Grid 정보](overview.md)
 - [Blob Storage 이벤트를 사용자 지정 웹 끝점으로 라우팅](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)
-- [Azure Event Grid 및 Logic Apps를 사용하여 가상 컴퓨터 변경 모니터링](monitor-virtual-machine-changes-event-grid-logic-app.md)
+- [Azure Event Grid 및 Logic Apps를 사용하여 가상 머신 변경 모니터링](monitor-virtual-machine-changes-event-grid-logic-app.md)
 - [데이터 웨어하우스로 빅 데이터 스트림](event-grid-event-hubs-integration.md)

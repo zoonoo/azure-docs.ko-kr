@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/30/2015
 ms.author: robb
 ms.openlocfilehash: efcafa40c3d47ebfdd4520f98b65ad2c05b03c57
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="introducing-microsoft-azure"></a>Microsoft Azure 소개
 Microsoft Azure는 공용 클라우드용 Microsoft 응용 프로그램 플랫폼입니다.  이 문서의 목적은 사용자가 클라우드 컴퓨팅에 관한 지식 없이도 Azure의 기본 개념을 이해할 수 있도록 기반을 제공하는 것입니다.

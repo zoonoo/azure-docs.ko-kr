@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2017
 ms.author: cherylmc
-ms.openlocfilehash: 6a03986288fdb6acaf234a8abf690f728d160fd7
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 63160bc8f334b975ade8b35ce809578ad3a5b3fa
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="configure-network-performance-monitor-for-expressroute-preview"></a>ExpressRoute에 대한 네트워크 성능 모니터 구성(미리 보기)
 
@@ -46,6 +46,7 @@ NPM(네트워크 성능 모니터)은 Azure 클라우드 배포 및 온-프레�
 * 서유럽 
 * 미국 동부 
 * 동남아시아 
+* 오스트레일리아 동남부
 
 ## <a name="workflow"></a>워크플로
 
@@ -122,7 +123,7 @@ NPM(네트워크 성능 모니터)은 Azure 클라우드 배포 및 온-프레�
     ![Operations Manager](.\media\how-to-npm\9.png)
   * **에이전트 작업 계정** 페이지에서 **로컬 시스템** 계정 또는 **도메인 또는 로컬 컴퓨터 계정**을 선택합니다. 그런 후 **다음**을 클릭합니다.
 
-    ![계정](.\media\how-to-npm\10.png)
+    ![계좌](.\media\how-to-npm\10.png)
 6. **설치 준비** 페이지에서 선택 항목을 검토한 다음 **설치**를 클릭합니다.
 7. **구성 완료** 페이지에서 **마침**을 클릭합니다.
 8. 완료되면 제어판에 Microsoft Monitoring Agent가 나타납니다. 여기에서 구성을 검토하고 에이전트가 Operational Insights(OMS)에 연결되었는지 확인합니다. OMS에 연결되면 에이전트에 **Microsoft Monitoring Agent가 Microsoft Operations Management Suite 서비스에 성공적으로 연결되었습니다.**와 같은 메시지가 표시됩니다.
@@ -174,16 +175,13 @@ Azure에 있는 모니터링 에이전트 서버의 경우, 가상 트랜잭션�
 
 NSG에 대한 자세한 내용은 [네트워크 보안 그룹](../virtual-network/virtual-networks-create-nsg-arm-portal.md)을 참조하세요.
 
-## <a name="whitelist"></a>4단계: 작업 영역을 허용 목록에 추가하기 위한 요청
-
 >[!NOTE]
 >이 단계를 진행하기 전에 에이전트(온-프레미스 서버 에이전트 및 Azure 서버 에이전트)를 설치했는지와 PowerShell 스크립트를 실행했는지 확인합니다.
 >
 >
 
-NPM의 ExpressRoute 모니터링 기능 사용을 시작하려면 먼저 작업 영역을 허용 목록에 추가할 것을 요청해야 합니다. [여기를 클릭하여 해당 페이지로 이동한 후 요청 양식을 채웁니다](https://aka.ms/npmcohort). (힌트: 새 창이나 탭에서 이 링크를 열 수 있습니다.) 허용 목록 프로세스는 1일 이상의 업무일이 소요될 수 있습니다. 허용 목록이 완료되면 메일이 발송됩니다.
 
-## <a name="setupmonitor"></a>5단계: ExpressRoute 모니터링용 NPM 구성
+## <a name="setupmonitor"></a>4단계: ExpressRoute 모니터링용 NPM 구성
 
 >[!WARNING]
 >작업 영역이 허용 목록에 있고 확인 전자 메일이 수신될 때까지 더 이상 진행하지 않도록 합니다.
@@ -208,7 +206,7 @@ NPM의 ExpressRoute 모니터링 기능 사용을 시작하려면 먼저 작업 
 
   ![모니터링 타일](.\media\how-to-npm\15.png)
 
-## <a name="explore"></a>6단계: 모니터링 타일 보기
+## <a name="explore"></a>5단계: 모니터링 타일 보기
 
 ### <a name="dashboard"></a>네트워크 성능 모니터 페이지
 

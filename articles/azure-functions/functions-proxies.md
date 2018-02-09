@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/11/2017
+ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: dd022b189783f2d8c6209a6cd656704ff144bfd6
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.openlocfilehash: 3d1b5f30898bc0aab5c617ab547aa7db5e7e4375
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="work-with-azure-functions-proxies"></a>Azure Functions 프록시 사용
 
@@ -62,6 +62,11 @@ Azure Functions 프록시를 사용해서 백 엔드에서 요청 및 응답을 
 
 프록시에 대한 구성은 정적일 필요가 없습니다. 원래 클라이언트 요청, 백 엔드 응답 또는 응용 프로그램 설정의 변수를 사용하도록 조건을 지정할 수 있습니다.
 
+### <a name="reference-localhost"></a>로컬 함수 참조
+`localhost`를 사용하면 왕복 프록시 요청없이 동일한 함수 앱 내에 있는 함수를 직접 참조할 수 있습니다.
+
+`"backendurl": "localhost/api/httptriggerC#1"`은 `/api/httptriggerC#1` 경로의 로컬 HTTP 트리거 함수를 참조합니다.
+
 ### <a name="request-parameters"></a>요청 매개 변수 참조
 
 요청 매개 변수는 백 엔드 URL 속성에 대한 입력 또는 요청 및 응답을 수정하는 일부로 사용할 수 있습니다. 기본 프록시 구성에 지정된 경로 템플릿에서 제한할 수 있는 매개 변수도 있고 들어오는 요청의 속성에서 가져올 수 있는 매개 변수도 있습니다.
@@ -94,6 +99,18 @@ Azure Functions 프록시를 사용해서 백 엔드에서 요청 및 응답을 
 
 > [!TIP] 
 > 배포 또는 테스트 환경이 여러 개 있는 경우 백 엔드 호스트에 대해 응용 프로그램 설정을 사용하세요. 이러한 방식으로 항상 해당 환경에 적합한 백 엔드에 정보를 전달할 수 있습니다.
+
+## <a name="debugProxies"></a>프록시 문제 해결
+
+`"debug":true` 플래그를 `proxy.json`의 프록시에 추가하면 디버그 로깅을 사용하도록 설정됩니다. 로그는 `D:\home\LogFiles\Application\Proxies\DetailedTrace`에 저장되며 고급 도구(kudu)를 통해 액세스할 수 있습니다. 모든 HTTP 응답에는 로그 파일에 액세스할 수 있는 URL이 포함된 `Proxy-Trace-Location` 헤더도 포함됩니다.
+
+`true`로 설정된 `Proxy-Trace-Enabled` 헤더를 추가하면 클라이언트 쪽에서 프록시를 디버그할 수 있습니다. 또한 파일 시스템에 추적을 기록하며 추적 URL을 응답의 헤더로 반환합니다.
+
+### <a name="block-proxy-traces"></a>프록시 추적 차단
+
+보안상의 이유로 서비스 호출자가 추적을 생성하도록 허용하지 않을 수 있습니다. 로그인 자격 증명이 없으면 추적 내용에 액세스할 수 없지만 추적을 생성하면 리소스가 소비되고 Function 프록시가 사용되는 것이 노출됩니다.
+
+`proxy.json`의 특정 프록시에 `"debug":false`를 추가하면 추적을 완전히 사용하지 않도록 설정됩니다.
 
 ## <a name="advanced-configuration"></a>고급 구성
 
@@ -130,6 +147,24 @@ Azure Functions 프록시를 사용해서 백 엔드에서 요청 및 응답을 
 
 > [!NOTE] 
 > Azure Functions 프록시의 *route* 속성은 함수 앱 호스트 구성의 *routePrefix* 속성을 유지하지 않습니다. `/api` 같은 접두사를 포함하려는 경우 *route* 속성에 포함해야 합니다.
+
+### <a name="disableProxies"></a>개별 프록시 사용 안 함
+
+`proxies.json` 파일의 프록시에 `"disabled": true`를 추가하면 개별 프록시를 사용하지 않도록 설정할 수 있습니다. 이렇게 하면 matchCondidtion을 충족하는 모든 요청이 404를 반환합니다.
+```json
+{
+    "$schema": "http://json.schemastore.org/proxies",
+    "proxies": {
+        "Root": {
+            "disabled":true,
+            "matchCondition": {
+                "route": "/example"
+            },
+            "backendUri": "www.example.com"
+        }
+    }
+}
+```
 
 ### <a name="requestOverrides"></a>requestOverrides 개체 정의
 

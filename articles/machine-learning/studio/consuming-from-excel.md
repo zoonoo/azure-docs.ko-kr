@@ -1,6 +1,6 @@
 ---
 title: "Excel에서 Machine Learning 웹 서비스 사용 | Microsoft Docs"
-description: "Excel에서 Azure 기계 학습 웹 서비스 사용"
+description: "Excel에서 Azure Machine Learning 웹 서비스 사용"
 services: machine-learning
 documentationcenter: 
 author: tedway
@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/13/2017
+ms.date: 2/1/2018
 ms.author: tedway
-ms.openlocfilehash: 9a8b39853e1a90815758af1d8fd772db7cc18ac5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cb0d02bc580822dcc9451dc6c22bd28d895dbbf7
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/03/2018
 ---
-# <a name="consuming-an-azure-machine-learning-web-service-from-excel"></a>Excel에서 Azure 기계 학습 웹 서비스 사용
- Azure 기계 학습 스튜디오를 사용하면 코드를 작성할 필요 없이 Excel에서 직접 웹 서비스를 쉽게 호출할 수 있습니다.
+# <a name="consuming-an-azure-machine-learning-web-service-from-excel"></a>Excel에서 Azure Machine Learning 웹 서비스 사용
+ Azure Machine Learning Studio를 사용하면 코드를 작성할 필요 없이 Excel에서 직접 웹 서비스를 쉽게 호출할 수 있습니다.
 
 Excel 2013(이후 버전) 또는 Excel Online을 사용하는 경우 [Excel 추가 기능](excel-add-in-for-web-services.md)을 사용하는 것이 좋습니다.
 
@@ -41,7 +41,7 @@ Excel 2013(이후 버전) 또는 Excel Online을 사용하는 경우 [Excel 추�
 
 **새 웹 서비스**
 
-1. Azure 기계 학습 웹 서비스 포털에서 **사용**을 선택합니다.
+1. Azure Machine Learning 웹 서비스 포털에서 **사용**을 선택합니다.
 2. 사용 페이지의 **웹 서비스 사용 옵션** 섹션에서 Excel 아이콘을 클릭합니다.
 
 **통합 문서 사용**

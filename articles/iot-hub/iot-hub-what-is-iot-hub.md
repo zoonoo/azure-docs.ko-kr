@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/14/2017
+ms.date: 01/29/2018
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b5f44d2ae42ffc6f75887a64c9ef988fe6d8fd69
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: b00c89183ff0d4e7df49d29834508643e68246bb
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="overview-of-the-azure-iot-hub-service"></a>Azure IoT Hub 서비스 개요
 
@@ -65,20 +65,36 @@ Azure IoT Hub에서는 다양한 [device-to-cloud][lnk-d2c-guidance] 및 [cloud-
 
 * **선언적 규칙에 따라 Azure 서비스에 장치-클라우드 메시지를 라우팅합니다**. IoT Hub를 사용하면 허브에서 장치-클라우드 메시지를 보내는 곳을 제어하기 위해 라우팅 규칙을 기반으로 메시지 경로를 정의할 수 있습니다. 라우팅 규칙은 사용자에게 모든 코드를 작성하도록 요구하지 않으며 사용자 지정 사후-수집 메시지 디스패처를 대신할 수 있습니다.
 
+* **IoT Hub 이벤트를 비즈니스 응용 프로그램에 통합**. IoT Hub는 Azure Event Grid와 통합됩니다. 이 통합을 사용하여 다른 Azure 서비스 또는 타사 응용 프로그램에서 IoT Hub 이벤트를 수신 대기하도록 구성할 수 있습니다. Azure Event Grid를 사용하여 안정적이고, 확장 가능하며, 안전한 방식으로 중요한 이벤트에 빠르게 대응할 수 있습니다.
+
 * **장치 연결 작업에 대한 모니터링**. 장치 ID 관리 작업 및 장치 연결 이벤트에 대한 자세한 작업 로그를 받을 수 있습니다. 이 모니터링 기능을 사용하면 IoT 솔루션에서 연결 문제를 파악할 수 있습니다. 이러한 로그를 사용하여 잘못 된 자격 증명을 제공하거나 메시지를 너무 자주 보내거나 클라우드-장치 메시지를 모두 거부하는 장치를 식별합니다.
 
 * **광범위한 장치 라이브러리 집합**. [Azure IoT 장치 SDK][lnk-device-sdks]는 사용 가능하며 다양한 언어 및 플랫폼(여러 Linux 배포판, Windows 및 실시간 운영 체제에 대한 C)에 대해 지원됩니다. 또한 Azure IoT 장치 SDK에서는 C#, Java 및 JavaScript와 같은 관리된 언어를 지원합니다.
 
 * **IoT 프로토콜 및 확장성**. 솔루션이 장치 라이브러리를 사용할 수 없는 경우 IoT Hub는 장치가 기본적으로 MQTT v3.1.1, HTTPS 1.1 및 AMQP 1.0 프로토콜을 사용할 수 있도록 허용하는 공용 프로토콜을 노출합니다. 다음을 수행하여 사용자 지정 프로토콜을 지원하도록 IoT Hub를 확장할 수도 있습니다.
 
-  * IoT Hub에서 이해하는 세 가지 프로토콜 중 하나에 사용자 지정 프로토콜을 변환하는 [Azure IoT Edge][lnk-iot-edge]로 필드 게이트웨이를 만듭니다.
+  * IoT Hub에서 이해하는 프로토콜에 사용자 지정 프로토콜을 변환하는 [Azure IoT Edge][lnk-iot-edge]로 필드 게이트웨이를 만듭니다.
   * 클라우드에서 실행되는 오픈 소스 구성 요소인 [Azure IoT 프로토콜 게이트웨이][protocol-gateway]를 사용자 지정합니다.
 
 * **확장**. Azure IoT Hub는 동시에 연결된 수백만 대의 장치 및 수백만 개의 초당 이벤트로 확장 가능합니다.
 
+* **장치 프로비전**. [IoT Hub Device Provisioning Service](https://docs.microsoft.com/azure/iot-dps/)는 IoT Hub를 위한 도우미 서비스로, 사람이 개입할 필요 없이 적기에 올바른 IoT Hub에 무인 장치 프로비전이 가능하여 사용자는 안전하고 확장성이 뛰어난 방식으로 수백만 대의 장치를 프로비전할 수 있습니다.
+
 ## <a name="gateways"></a>게이트웨이
 
-loT 솔루션의 게이트웨이는 일반적으로 클라우드에 배포된 [프로토콜 게이트웨이][lnk-iotedge] 또는 장치에 로컬로 배포된 [필드 게이트웨이][lnk-field-gateway]입니다. 프로토콜 게이트웨이는 MQTT에서 AMQP와 같은 프로토콜 변환을 수행합니다. 필드 게이트웨이는 에지에 분석을 실행하고 대기 시간을 줄일 수 있는 시간이 중요한 결정을 내리며 장치 관리 서비스를 제공하고 보안 및 개인 정보 제약 조건을 적용하고 프로토콜 변환을 수행할 수도 있습니다. 두 유형의 게이트웨이는 장치와 IoT Hub 간의 중개자 역할을 합니다.
+loT 솔루션의 게이트웨이는 일반적으로 클라우드에 배포된 [프로토콜 게이트웨이][lnk-iotedge] 또는 장치에 로컬로 배포된 [필드 게이트웨이][lnk-field-gateway]입니다.
+
+_프로토콜 게이트웨이_는 MQTT에서 AMQP와 같은 프로토콜 변환을 수행합니다.
+
+_필드 게이트웨이_의 기능은 다음과 같습니다.
+
+* 에지에서 분석을 실행합니다.
+* 긴급한 결정을 내려 대기 시간을 줄입니다.
+* 장치 관리 서비스를 제공합니다.
+* 보안 및 개인정보취급방침 제약 조건을 적용합니다.
+* 프로토콜 변환을 수행합니다.
+
+두 유형의 게이트웨이는 장치와 IoT Hub 간의 중개자 역할을 합니다.
 
 현장 게이트웨이는 일반적으로 솔루션에서 액세스 및 정보 흐름을 관리하는 실제 역할을 수행하므로 단순한 트래픽 라우팅 장치(예: 네트워크 주소 변환 장치 또는 방화벽)와는 다릅니다.
 
@@ -86,7 +102,7 @@ loT 솔루션의 게이트웨이는 일반적으로 클라우드에 배포된 [�
 
 ## <a name="how-does-iot-hub-work"></a>IoT Hub는 어떻게 작동하나요?
 
-Azure IoT Hub는 [서비스 지원 통신][lnk-service-assisted-pattern] 패턴을 구현하여 장치와 해당 응용 프로그램 백 엔드 간의 상호 작용을 중재합니다. 서비스 지원 통신의 목표는 신뢰할 수 없는 물리적 공간에서 제어 시스템(예: IoT Hub)과 특수 용도 장치 간에 신뢰할 수 있는 양방향 통신 경로를 설정하는 것입니다. 패턴은 다음과 같은 원칙을 설정합니다.
+Azure IoT Hub는 [서비스 지원 통신][lnk-service-assisted-pattern] 패턴을 구현하여 장치와 해당 응용 프로그램 백 엔드 간의 상호 작용을 중재합니다. 패턴의 의도는 신뢰할 수 없는 물리적 공간에서 제어 시스템(예: IoT Hub)과 특수 용도 장치 간에 신뢰할 수 있는 양방향 통신 경로를 설정하는 것입니다. 패턴은 다음과 같은 원칙을 설정합니다.
 
 * 보안이 다른 모든 기능보다 우선합니다.
 
@@ -94,7 +110,7 @@ Azure IoT Hub는 [서비스 지원 통신][lnk-service-assisted-pattern] 패턴�
 
 * 장치는 IoT Hub와 같은 잘 알려진 서비스에 피어링을 통해 연결하거나 경로를 설정해야 합니다.
 
-* 장치와 서비스 또는 장치와 게이트웨이 간의 통신 경로는 응용 프로그램 프로토콜 계층에서 보안이 설정됩니다.
+* 장치와 서비스 또는 게이트웨이 간의 통신 경로는 응용 프로그램 프로토콜 계층에서 보안이 설정됩니다.
 
 * 시스템 수준 권한 부여 및 인증은 장치 ID를 기반으로 하며 액세스 자격 증명 및 권한은 즉시 취소 가능합니다.
 
@@ -108,13 +124,13 @@ IoT Hub는 ExpressRoute의 공용 피어링 경로를 통해 지원됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
+일부 코드를 작성하고 몇 가지 샘플을 실행하기 시작하려면 [IoT Hub 시작][lnk-get-started] 자습서를 참조하세요.
+
 장치에서 메시지를 보내고 IoT hub에서 수신하는 방법 뿐만 아니라 메시지 경로를 구성하는 방법을 알아보려면 [IoT Hub와 메시지 보내고 받기][lnk-send-messages]를 참조하세요.
 
 IoT Hub를 사용하여 표준 기반 장치 관리를 통해 원격으로 장치를 관리, 구성, 업데이트할 수 있는 방법을 알아보려면 [IoT Hub를 사용한 장치 관리의 개요][lnk-device-management]를 참조하세요.
 
 다양한 장치 하드웨어 플랫폼과 운영 체제에서 클라이언트 응용 프로그램을 구현하기 위해 Azure IoT 장치 SDK를 제공할 수 있습니다. 장치 SDK에는 IoT Hub에 대한 원격 분석 전송 및 클라우드-장치 메시지 수신을 용이하게 하는 라이브러리가 있습니다. 장치 SDK를 사용하면 다양한 네트워크 프로토콜 중에서 선택하여 IoT Hub와 통신할 수 있습니다. 자세한 내용은 [장치 SDK에 대한 정보][lnk-device-sdks]를 참조하세요.
-
-일부 코드를 작성하고 몇 가지 샘플을 실행하기 시작하려면 [IoT Hub 시작][lnk-get-started] 자습서를 참조하세요.
 
 [img-architecture]: media/iot-hub-what-is-iot-hub/hubarchitecture.png
 
@@ -131,7 +147,7 @@ IoT Hub를 사용하여 표준 기반 장치 관리를 통해 원격으로 장�
 [lnk-apple-push]: https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW9
 [lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks
 [lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
-[lnk-iot-edge]: https://github.com/Azure/iot-edge
+[lnk-iot-edge]: https://docs.microsoft.com/azure/iot-edge/
 [lnk-send-messages]: iot-hub-devguide-messaging.md
 [lnk-device-management]: iot-hub-device-management-overview.md
 

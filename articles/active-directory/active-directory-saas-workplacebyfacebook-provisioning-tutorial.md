@@ -1,5 +1,5 @@
 ---
-title: "자습서: Workplace by Facebook과 Azure Active Directory 통합 | Microsoft 문서"
+title: "자습서: Azure Active Directory로 자동 사용자 프로비전을 위한 Workplace by Facebook 구성 | Microsoft Docs"
 description: "Azure Active Directory와 Workplace by Facebook 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
 services: active-directory
 documentationCenter: na
@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2018
+ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 5f1ca40b5ca490644a3af2c9d727026c1a18a2eb
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 15cbaafcd86c576f4789a61ed80c526b6fe705ab
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configuring-workplace-by-facebook-for-user-provisioning"></a>자습서: 사용자 프로비전에 대한 Workplace by Facebook 구성
+# <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>자습서: 사용자 프로비전을 위한 Workplace by Facebook 구성
 
 이 자습서의 목적은 사용자 계정을 Azure AD에서 Workplace by Facebook으로 자동으로 프로비전 및 프로비전 해제하도록 Workplace by Facebook 및 Azure AD에서 수행해야 하는 단계를 설명하는 것입니다.
 

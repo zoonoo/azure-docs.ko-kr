@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/17/2017
+ms.date: 01/23/2018
 ms.author: mikerou
-ms.openlocfilehash: 1744e3c49ac06abe9e1067d507fd56d694201ffc
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: bfa020e29a9bb67f0634d220725bc11279e1565c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="scale-a-service-fabric-cluster-programmatically"></a>프로그래밍 방식으로 Service Fabric 클러스터의 크기 조정 
 
@@ -93,7 +93,7 @@ scaleSet.Update().WithCapacity(newCapacity).Apply();
 
 규모 감축은 규모 확장과 비슷합니다. 실제 가상 머신 확장 집합 변경은 실질적으로 동일합니다. 하지만 앞서 살펴본 것처럼 Service Fabric은 제거된 노드 중에서 내구성 수준이 Gold 또는 Silver인 노드만 자동으로 정리합니다. 따라서 내구성 수준이 Bronze인 규모 감축에서는 제거할 노드를 종료한 후 상태를 제거하도록 Service Fabric 클러스터와 상호 작용이 필요합니다.
 
-종료할 노드를 준비하는 과정에는 제거할 노드(가장 최근에 추가된 노드)를 찾아서 비활성화하는 작업이 포함됩니다. 비-시드 노드의 경우 `NodeInstanceId`를 비교하여 보다 최근의 노드를 찾을 수 있습니다. 
+종료할 노드를 준비하는 과정에는 제거할 노드(가장 최근에 추가된 가상 머신 확장 집합 인스턴스)를 찾아서 비활성화하는 작업이 포함됩니다. 가상 머신 확장 집합 인스턴스는 추가된 순서대로 번호가 매겨지므로 노드 이름(기본 가상 머신 확장 집합 인스턴스 이름에 해당)의 숫자 접미사를 비교하여 최신 노드를 찾을 수 있습니다. 
 
 ```csharp
 using (var client = new FabricClient())
@@ -101,11 +101,14 @@ using (var client = new FabricClient())
     var mostRecentLiveNode = (await client.QueryManager.GetNodeListAsync())
         .Where(n => n.NodeType.Equals(NodeTypeToScale, StringComparison.OrdinalIgnoreCase))
         .Where(n => n.NodeStatus == System.Fabric.Query.NodeStatus.Up)
-        .OrderByDescending(n => n.NodeInstanceId)
+        .OrderByDescending(n =>
+        {
+            var instanceIdIndex = n.NodeName.LastIndexOf("_");
+            var instanceIdString = n.NodeName.Substring(instanceIdIndex + 1);
+            return int.Parse(instanceIdString);
+        })
         .FirstOrDefault();
 ```
-
-시드 노드가 다르므로 더 큰 인스턴스 ID를 먼저 제거하는 규칙을 반드시 따라야 하는 것은 아닙니다.
 
 제거할 노드를 찾았으면 이전과 동일한 `FabricClient` 인스턴스 및 `IAzure` 인스턴스를 사용하여 노드를 비활성화하고 제거할 수 있습니다.
 

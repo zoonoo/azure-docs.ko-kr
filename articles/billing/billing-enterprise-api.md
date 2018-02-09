@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 04/25/2017
 ms.author: aedwin
-ms.openlocfilehash: 62a69aeb7499a961f95739fb3836942b670c7320
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f7a480c77c93035e655606433aea2547a1c105cc
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="overview-of-reporting-apis-for-enterprise-customers"></a>기업 고객을 위한 보고 API 개요
 Azure 기업 고객은 보고 API를 통해 사용량 및 청구 데이터를 기본 데이터 분석 도구로 프로그래밍 방식으로 끌어올 수 있습니다. 
@@ -42,6 +42,9 @@ Swagger 끝점은 [AutoRest](https://github.com/Azure/AutoRest) 또는 [Swagger 
 * **Marketplace 저장소 요금** - [Marketplace 저장소 요금 API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge)는 지정된 청구 기간 또는 시작 날짜 및 종료 날짜(1회 요금은 포함되지 않음)에 대한 일별 사용량 기반 Marketplace 요금 분석 결과를 반환합니다.
 
 * **가격표** - [가격표 API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-pricesheet)는 지정된 등록 및 청구 기간에 대한 각 측정기에 적용할 수 있는 가격을 제공합니다. 
+
+## <a name="data-freshness"></a>데이터 새로 고침
+Etag는 위의 모든 API의 응답에서 반환됩니다. Etag의 변경 내용은 데이터를 새로 고칠 것을 나타냅니다.  동일한 매개 변수를 사용하는 동일한 API에 대한 후속 호출에서는 http 요청의 헤더에서 "If-None-Match" 키를 가진 캡처된 Etag를 전달니다. 데이터가 더 이상 새로 고쳐지지 않고 데이터가 반환되지 않는 경우 응답 상태 코드는 "NotModified"입니다. Etag가 변경될 때마다 API는 필수 기간 동안 전체 데이터 집합을 반환합니다.
 
 ## <a name="helper-apis"></a>도우미 API
  **청구 기간 나열** - [청구 기간 API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-billing-periods)는 지정된 등록에 대한 사용량 데이터를 역방향 시간 순서로 표시한 청구 기간 목록을 반환합니다. 각 기간에는 4개의 데이터 집합(잔액 요약, 사용량 세부 정보, Marketplace 요금 및 가격표)에 대한 API 경로를 가리키는 속성이 포함되어 있습니다.

@@ -1,5 +1,5 @@
 ---
-title: "자습서: 사용자 프로비전에 대한 Workplace by Facebook 구성 | Microsoft Docs"
+title: "자습서: Azure Active Directory로 자동 사용자 프로비전을 위한 Workplace by Facebook 구성 | Microsoft Docs"
 description: "사용자 계정을 Azure AD에서 Workplace by Facebook으로 자동으로 프로비전 및 프로비전 해제하도록 구성하는 방법을 알아봅니다."
 services: active-directory
 documentationCenter: na
@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 77f5f33044b1915fbda7b86c6b07882c0e1e7554
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 70686a48585d83ca5de78fdded99ae46e90cc20c
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configure-workplace-by-facebook-for-user-provisioning"></a>자습서: 사용자 프로비전에 대한 Workplace by Facebook 구성
+# <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>자습서: 사용자 프로비전을 위한 Workplace by Facebook 구성
 
 이 자습서에서는 Azure AD(Azure Active Directory)에서 Workplace by Facebook으로 사용자 계정을 자동으로 프로비전 및 프로비전 해제하는 데 필요한 단계를 보여 줍니다.
 
@@ -89,6 +89,6 @@ Azure AD는 할당된 사용자의 계정 세부 정보를 Workplace by Facebook
 ## <a name="additional-resources"></a>추가 리소스
 
 * [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](active-directory-saas-tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)
+* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](active-directory-appssoaccess-whatis.md)
 * [Single Sign-on 구성](active-directory-saas-facebook-at-work-tutorial.md)
 

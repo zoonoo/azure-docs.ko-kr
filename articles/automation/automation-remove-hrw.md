@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2017
 ms.author: magoedte
-ms.openlocfilehash: a897a97b9a1e259f5994a27b974eb5183fd1194b
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 602b868073da6bd1f64099c0f344c9b492abaff0
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="remove-azure-automation-hybrid-runbook-workers"></a>Azure Automation Hybrid Runbook Worker 제거
 
-이 문서의 설명에 따라 Azure Automation Hybrid Runbook Worker를 제거할 수 있습니다. 
+Azure Automation의 Hybrid Runbook Worker 기능을 사용하면 컴퓨터에 대해 직접 그리고 외부에서 환경의 리소스에 대해 Runbook을 실행하여 로컬 리소스를 관리할 수 있습니다. 이 문서에서는 온-프레미스 컴퓨터에서 Hybrid Worker를 제거하는 단계를 설명합니다.
 
 ## <a name="removing-hybrid-runbook-worker"></a>Hybrid Runbook Worker 제거
 
@@ -39,9 +39,9 @@ ms.lasthandoff: 12/14/2017
 
 그룹을 제거하려면 먼저 앞서 보았던 절차를 사용하여 그룹의 구성원인 모든 컴퓨터에서 Hybrid Runbook Worker를 제거한 후 다음 단계를 수행하여 그룹을 제거해야 합니다.  
 
-1. Azure portal에서 Automation 계정을 엽니다.
-1. **Hybrid Worker 그룹** 타일을 선택하고 **Hybrid Worker 그룹** 블레이드에서 삭제하려는 그룹을 선택합니다.  특정 그룹을 선택한 후 **Hybrid Worker 그룹** 속성 블레이드가 표시됩니다.<br> ![Hybrid Runbook Worker 그룹 블레이드](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-group-properties.png)   
-1. 선택한 그룹에 대한 속성 블레이드에서 **삭제**를 클릭합니다.  이 작업을 확인하라는 메시지가 표시되고 계속하려면 **예**를 선택합니다.<br> ![그룹 삭제 확인 대화 상자](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-confirm-delete.png)<br> 이 프로세스를 완료하려면 몇 초 정도가 소요되며 메뉴의 **알림**에서 진행 상황을 추적할 수 있습니다. 
+1. Azure Portal에서 Automation 계정을 엽니다.
+1. **프로세스 자동화**에서 **Hybrid Worker 그룹**을 선택합니다. 삭제하려는 그룹을 선택합니다.  특정 그룹을 선택한 후 **Hybrid Worker 그룹** 속성 블레이드가 표시됩니다.<br> ![Hybrid Runbook Worker 그룹 블레이드](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-group-properties.png)   
+2. 선택한 그룹에 대한 속성 블레이드에서 **삭제**를 클릭합니다.  이 작업을 확인하라는 메시지가 표시되고 계속하려면 **예**를 선택합니다.<br> ![그룹 삭제 확인 대화 상자](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-confirm-delete.png)<br> 이 프로세스를 완료하려면 몇 초 정도가 소요되며 메뉴의 **알림**에서 진행 상황을 추적할 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

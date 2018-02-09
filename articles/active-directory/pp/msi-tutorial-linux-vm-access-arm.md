@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/22/2017
 ms.author: arluca
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: bebdccb616a4677fdf36ac257ac36f1827958af7
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 51e14d0e9130a5a870ed120010508dc5eda125f9
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="use-a-user-assigned-managed-service-identity-msi-on-a-linux-vm-to-access-azure-resource-manager"></a>Linux VM에서 사용자 할당 MSI(관리 서비스 ID)를 사용하여 Azure Resource Manager에 액세스
 
@@ -36,13 +36,13 @@ ms.lasthandoff: 01/09/2018
 > * MSI에 Azure Resource Manager의 리소스 그룹 액세스 권한 부여 
 > * MSI를 사용하여 액세스 토큰을 가져온 다음 Azure Resource Manager를 호출하는 데 사용 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 [!INCLUDE [msi-core-prereqs](~/includes/active-directory-msi-core-prereqs-ua.md)]
 
 [!INCLUDE [msi-tut-prereqs](~/includes/active-directory-msi-tut-prereqs.md)]
 
-이 자습서에서 CLI 스크립트 예제를 실행하는 두 가지 옵션이 있습니다.
+이 자습서의 CLI 스크립트 예제는 두 가지 옵션을 통해 실행할 수 있습니다.
 
 - Azure Portal에서 또는 각 코드 블록의 오른쪽 상단 모서리에 있는 "사용해 보세요" 단추를 통해 [Azure Cloud Shell](~/articles/cloud-shell/overview.md)을 사용합니다.
 - 로컬 CLI 콘솔을 사용하려는 경우 [CLI 2.0의 최신 버전(2.0.23 이상)을 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)합니다.
@@ -110,10 +110,10 @@ az vm assign-identity -g <RESOURCE GROUP> -n <VM NAME> --identities "/subscripti
 
 MSI에서는 Azure AD 인증을 지원하는 리소스 API에 인증하기 위해 코드에 액세스 토큰을 제공합니다. 이 자습서에서 코드는 Azure Resource Manager API에 액세스합니다. 
 
-하지만 코드가 API에 액세스할 수 있기 전에 Azure Resource Manager의 리소스에 MSI의 ID 액세스 권한을 부여해야 합니다. 이 경우에는 VM이 포함된 리소스 그룹입니다. `<CLIENT ID>`, `<SUBSCRIPTION ID>` 및 `<RESOURCE GROUP>` 매개 변수 값을 원하는 값으로 바꾸세요. `<CLIENT ID>`를 [사용자 할당 MSI 만들기](#create-a-user-assigned-msi)의 `az identity create` 명령에서 반환한 `clientId` 속성으로 바꿉니다. 
+하지만 코드가 API에 액세스할 수 있기 전에 Azure Resource Manager의 리소스에 MSI의 ID 액세스 권한을 부여해야 합니다. 이 경우에는 VM이 포함된 리소스 그룹입니다. `<SUBSCRIPTION ID>` 및 `<RESOURCE GROUP>`의 값을 환경에 적합하게 업데이트합니다. 또한 `<MSI PRINCIPALID>`를 [사용자 할당 MSI 만들기](#create-a-user-assigned-msi)의 `az identity create` 명령에서 반환한 `principalId` 속성으로 바꿉니다.
 
 ```azurecli-interactive
-az role assignment create --assignee <CLIENT ID> --role ‘Reader’ --scope "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP> "
+az role assignment create --assignee <MSI PRINCIPALID> --role 'Reader' --scope "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP> "
 ```
 
 응답에는 다음 예제와 같이 만든 역할 할당에 대한 세부 정보가 포함됩니다.

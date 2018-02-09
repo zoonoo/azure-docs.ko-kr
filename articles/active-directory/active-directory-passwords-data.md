@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 8fae46088bad5cbcbdb879f0b5a948fb85b76875
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 2744c848b81c688f4083cf51b7ef7bc89f0e34e1
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>최종 사용자를 등록할 필요 없이 암호 재설정 배포
 
@@ -31,6 +31,8 @@ Azure Active Directory(Azure AD) 셀프 서비스 암호 재설정(SSPR)을 배�
 올바르게 작동하려면 전화 번호가 *+국가코드 전화번호* 형식으로 저장되어야 합니다(예: +1 4255551234).
 
 > [!NOTE]
+> 국가 번호와 전화 번호 사이에 공백이 필요합니다.
+>
 > 암호 재설정은 전화 번호 확장을 지원하지 않습니다. +1 4255551234X12345 형식에서도 전화를 걸지 전에 확장이 제거됩니다.
 
 ## <a name="fields-populated"></a>채워진 필드
@@ -42,6 +44,11 @@ Azure AD Connect에서 기본 설정을 사용한 경우 다음과 같은 매핑
 | telephoneNumber | 사무실 전화 | 대체 전화 |
 | mobile | 휴대폰 | Phone |
 
+이러한 필드는 사용자가 해당 인증 데이터를 확인할 때까지 비어 있을 수 있습니다.
+
+전역 관리자는 다음 스크린샷에 표시된 대로 사용자에 대한 인증 연락처 정보를 수동으로 설정할 수 있습니다.
+
+![연락처][Contact]
 
 ## <a name="security-questions-and-answers"></a>보안 질문 및 답변
 
@@ -152,3 +159,5 @@ Get-AzureADUser | select DisplayName,UserPrincipalName,otherMails,Mobile,Telepho
 * [모든 SSPR 옵션과 그 의미는 무엇입니까?](active-directory-passwords-how-it-works.md)
 * [무엇인가 손상된 문제가 있습니다. SSPR 문제는 어떻게 해결합니까?](active-directory-passwords-troubleshoot.md)
 * [다른 곳에서 다루지 않았던 질문이 있습니다.](active-directory-passwords-faq.md)
+
+[Contact]: ./media/active-directory-passwords-data/user-authentication-contact-info.png "전역 관리자는 사용자의 인증 연락처 정보를 수정할 수 있습니다."

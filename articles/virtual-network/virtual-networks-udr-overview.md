@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 85be79261d5fc214ab4b46fa5d7b4d0a5b13db27
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: d05492425381649a7893b872c4b1c49e9f241b50
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="virtual-network-traffic-routing"></a>가상 네트워크 트래픽 라우팅
 
@@ -151,7 +151,7 @@ BGP를 사용하여 Azure와 경로를 교환하면 보급된 각 접두사에 �
 
 0.0.0.0/0 주소 접두사를 재정의하면 가상 네트워크 게이트웨이 또는 가상 어플라이언스를 통과하는 서브넷의 아웃바운드 트래픽 외에도 Azure의 기본 라우팅에서 다음과 같은 변경이 발생합니다. 
 
-- Azure는 Azure 서비스의 공용 IP 주소로 향하는 트래픽을 포함하기 위해 모든 트래픽을 경로에 지정된 다음 홉 유형으로 보냅니다. 0.0.0.0/0 주소 접두사가 있는 경로의 다음 홉 유형이 **인터넷**인 경우, Azure 서비스의 공용 IP 주소로 향하는 서브넷의 트래픽은 가상 네트워크 또는 Azure 서비스 리소스가 있는 Azure 지역과 관계없이 Azure의 백본 네트워크에 남아 있습니다. 그러나 **가상 네트워크 게이트웨이** 또는 **가상 어플라이언스** 다음 홉 유형이 포함된 사용자 정의 경로 또는 BGP 경로를 만드는 경우, [서비스 끝점](virtual-network-service-endpoints-overview.md)을 사용하도록 설정되지 않은 Azure 서비스의 공용 IP 주소로 보내는 트래픽을 포함하기 위해 모든 트래픽을 경로에 지정된 다음 홉 유형으로 보냅니다. 서비스에 대한 서비스 끝점을 사용하도록 설정한 경우 서비스에 대한 트래픽은 0.0.0.0/0 주소 접두사가 있는 경로의 다음 홉 유형으로 라우팅되지 않습니다. 이는 서비스에 대한 주소 접두사가 Azure 서비스 끝점을 사용하도록 설정할 때 Azure에서 만드는 경로에 지정되며, 0.0.0.0/0보다 더 길기 때문입니다.
+- Azure는 Azure 서비스의 공용 IP 주소로 향하는 트래픽을 포함하여 모든 트래픽을 경로에 지정된 다음 홉 유형으로 보냅니다. 0.0.0.0/0 주소 접두사가 있는 경로의 다음 홉 유형이 **인터넷**인 경우, Azure 서비스의 공용 IP 주소로 향하는 서브넷의 트래픽은 가상 네트워크 또는 Azure 서비스 리소스가 있는 Azure 지역과 관계없이 Azure의 백본 네트워크에 남아 있습니다. 그러나 **가상 네트워크 게이트웨이** 또는 **가상 어플라이언스** 다음 홉 유형이 포함된 사용자 정의 경로 또는 BGP 경로를 만드는 경우, [서비스 엔드포인트](virtual-network-service-endpoints-overview.md)를 사용하도록 설정되지 않은 Azure 서비스의 공용 IP 주소로 보내는 트래픽을 포함한 모든 트래픽은 경로에 지정된 다음 홉 유형으로 보내집니다. 서비스에 대한 서비스 끝점을 사용하도록 설정한 경우 서비스에 대한 트래픽은 0.0.0.0/0 주소 접두사가 있는 경로의 다음 홉 유형으로 라우팅되지 않습니다. 이는 서비스에 대한 주소 접두사가 Azure 서비스 끝점을 사용하도록 설정할 때 Azure에서 만드는 경로에 지정되며, 0.0.0.0/0보다 더 길기 때문입니다.
 - 인터넷에서 서브넷의 리소스에 더 이상 직접 액세스할 수 없습니다. 인바운드 트래픽이 가상 네트워크의 리소스에 도달하기 전에 0.0.0.0/0 주소 접두사가 있는 경로에 대한 다음 홉 유형에서 지정된 장치를 통과하는 경우 인터넷에서 서브넷의 리소스에 간접적으로 액세스할 수 있습니다. 경로의 다음 홉 유형에 대해 다음 값이 포함된 경우:
     - **가상 어플라이언스**: 어플라이언스에서 다음을 수행해야 합니다.
         - 인터넷에서 액세스할 수 있어야 합니다.
@@ -161,7 +161,7 @@ BGP를 사용하여 Azure와 경로를 교환하면 보급된 각 접두사에 �
         - 네트워크 주소 변환 및 전달, 또는 서브넷의 대상 리소스로 트래픽 프록시를 수행하고, 인터넷에 트래픽을 다시 반환할 수 있어야 합니다. 
     - **가상 네트워크 게이트웨이**: 게이트웨이가 ExpressRoute 가상 네트워크 게이트웨이인 경우 인터넷에 연결된 온-프레미스 장치는 ExpressRoute의 [사설 피어링](../expressroute/expressroute-circuit-peerings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-private-peering)을 통해 네트워크 주소 변환 및 전달 또는 서브넷의 대상 리소스로 트래픽 프록시를 수행할 수 있습니다. 
 
-  인터넷과 Azure 간에 가상 네트워크 게이트웨이 및 가상 어플라이언스를 사용하는 경우 [Azure와 온-프레미스 데이터 센터 간의 DMZ](/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2fazure%2fvirtual-network%2ftoc.json) 및 [Azure와 인터넷 간의 DMZ](/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
+  인터넷과 Azure 간에 가상 네트워크 게이트웨이 및 가상 어플라이언스를 사용하는 경우 [Azure와 온-프레미스 데이터 센터 간의 DMZ](/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2fazure%2fvirtual-network%2ftoc.json) 및 [Azure와 인터넷 간의 DMZ](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
 
 ## <a name="routing-example"></a>라우팅 예
 

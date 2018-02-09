@@ -9,11 +9,11 @@ ms.workload: storage
 ms.topic: article
 ms.date: 01/21/2018
 ms.author: tamram
-ms.openlocfilehash: a8a8d8e95af3e6d98aa4dd98b11c066dca81421b
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 18d0e8bc6cc1559f9ae1a1a4457aa85d2a206597
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="azure-storage-replication"></a>Azure Storage 복제
 
@@ -37,7 +37,7 @@ RA-GRS(읽기 액세스 지역 중복 저장소)는 저장소 계정을 만드�
 | 복제 전략 | LRS | ZRS | GRS | RA-GRS |
 |:--- |:--- |:--- |:--- |:--- |
 | 데이터가 여러 데이터 센터에 걸쳐 복제됩니다. |아니요 |예 |예 |예 |
-| 기본 위치와 보조 위치에서 데이터를 읽을 수 있습니다. |아니요 |아니오 |아니요 |예 |
+| 기본 위치와 보조 위치에서 데이터를 읽을 수 있습니다. |아니요 |아니요 |아니요 |예 |
 | 지정된 연도 동안 ___의 개체 내구성을 제공하도록 설계되었습니다. |최소 99.999999999%|최소 99.9999999999%|최소 99.99999999999999%|최소 99.99999999999999%|
 
 다른 이중화 옵션에 대한 가격 정보를 보려면 [Azure Storage 가격](https://azure.microsoft.com/pricing/details/storage/) 을 참조하세요.
@@ -46,20 +46,11 @@ RA-GRS(읽기 액세스 지역 중복 저장소)는 저장소 계정을 만드�
 > Premium Storage는 LRS(로컬 중복 저장소)만 지원합니다. Premium Storage에 대한 자세한 내용은 [Premium Storage: Azure Virtual Machine에 대한 고성능 저장소](../../virtual-machines/windows/premium-storage.md)를 참조하세요.
 >
 
-## <a name="locally-redundant-storage"></a>LRS(로컬 중복 저장소)
+## <a name="locally-redundant-storage"></a>로컬 중복 저장소
 [!INCLUDE [storage-common-redundancy-LRS](../../../includes/storage-common-redundancy-LRS.md)]
 
 ## <a name="zone-redundant-storage"></a>영역 중복 저장소
-
-ZRS(영역 중복 저장소)(미리 보기)는 고가용성 응용 프로그램의 개발을 간소화하도록 설계되었습니다. ZRS는 지정된 기간 동안 저장소 개체에 99.9999999999% 이상의 내구성을 제공합니다(12 9의 경우). ZRS는 여러 가용성 영역에서 데이터를 동기적으로 복제합니다. 가동 중지 시간이 허용되지 않는 트랜잭션 응용 프로그램과 같은 시나리오에 ZRS를 사용하는 것이 좋습니다.
-
-ZRS를 통해 사용자는 단일 영역을 사용할 수 없거나 복구할 수 없는 경우에도 데이터를 읽고 쓸 수 있습니다. 데이터에 대한 업데이트 및 삽입은 동기적으로 수행되고 일관성이 높습니다.   
-
-ZRS는 현재 다음 지역에서 미리 보기로 제공되며 곧 더 많은 지역에서 제공될 예정입니다.
-
-- 미국 동부 2 
-- 미국 중부 
-- 프랑스 중부(이 지역은 현재 미리 보기로 제공됩니다. 액세스를 요청하려면 [프랑스에서 현재 열려 있는 Azure 가용성 영역을 사용하여 Microsoft Azure 미리 보기](https://azure.microsoft.com/blog/microsoft-azure-preview-with-azure-availability-zones-now-open-in-france)를 참조하세요.)
+[!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-ZRS.md)]
 
 ### <a name="zrs-classic-accounts"></a>ZRS 클래식 계정
 
@@ -72,7 +63,7 @@ ZRS 클래식 계정은 LRS, GRS 또는 RA-GRS 계정으로 변환하거나 이�
 ZRS를 한 지역에서 일반적으로 사용할 수 있게 되면 해당 지역의 포털에서 ZRS 클래식 계정을 더 이상 만들 수 없지만 다른 방법으로 ZRS 클래식 계정을 만들 수 있습니다.  
 ZRS 클래식에서 ZRS로 자동 마이그레이션 프로세스는 앞으로 제공될 예정입니다.
 
-ZRS 계정은 해당 지역의 ZRS 계정을 LRS, GRS 또는 RAGRS 계정으로 또는 그 반대 방향으로 수동 마이그레이션하도록 지원합니다. 이러한 수동 마이그레이션은 AzCopy, Azure Storage 탐색기, Azure PowerShell, Azure CLI 또는 Azure Storage 클라이언트 라이브러리 중 하나를 사용하여 수행할 수 있습니다.
+ZRS 계정 데이터는 LRS, ZRS 클래식, GRS 또는 RAGRS 계정 간에 수동으로 마이그레이션할 수 있습니다. 이러한 수동 마이그레이션은 AzCopy, Azure Storage 탐색기, Azure PowerShell, Azure CLI 또는 Azure Storage 클라이언트 라이브러리 중 하나를 사용하여 수행할 수 있습니다.
 
 > [!NOTE]
 > ZRS Classic 계정은 사용이 중단될 예정이며 2021년 3월 31일에 마이그레이션해야 합니다. 사용이 중단되기 전에 ZRS 클래식 고객에게 자세한 내용이 전송될 예정입니다.

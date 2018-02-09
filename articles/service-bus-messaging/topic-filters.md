@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2017
+ms.date: 01/26/2018
 ms.author: sethm
-ms.openlocfilehash: b3fe467b7d6ae9b207956ece4980bf558a69761f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 305c017bd49f233c10479e2c33ec8db72cae3aa7
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="topic-filters-and-actions"></a>토픽 필터 및 작업
 
@@ -55,7 +55,7 @@ SQL 필터 조건만 사용하는 경우 속성 및 값을 추가, 제거 또는
 
 Service Bus 메시징에 대해 자세히 알아보려면 다음 항목을 참조하세요.
 
-* [서비스 버스 기본 사항](service-bus-fundamentals-hybrid-solutions.md)
+* [Service Bus 기본 사항](service-bus-fundamentals-hybrid-solutions.md)
 * [Service Bus 큐, 토픽 및 구독](service-bus-queues-topics-subscriptions.md)
 * [SQLFilter 구문](service-bus-messaging-sql-filter.md)
 * [Service Bus 토픽 및 구독을 사용하는 방법](service-bus-dotnet-how-to-use-topics-subscriptions.md)

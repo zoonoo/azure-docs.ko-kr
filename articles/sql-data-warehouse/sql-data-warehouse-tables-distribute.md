@@ -14,11 +14,11 @@ ms.workload: data-services
 ms.custom: tables
 ms.date: 01/18/2018
 ms.author: barbkess
-ms.openlocfilehash: 692d92f2e45e04a4eb284b43797b5b468cd9ec1b
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 3c86b89da796223336e3a0d9dd809ae140d6911e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="guidance-for-designing-distributed-tables-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse의 분산 테이블 디자인 지침
 
@@ -121,7 +121,7 @@ WITH
 
 ### <a name="what-to-do-when-none-of-the-columns-are-a-good-distribution-column"></a>적합한 배포 열이 없을 경우 수행할 작업
 
-적합한 후보 열이 없으면 배포 방법으로 라운드 로빈을 사용하는 것을 고려합니다.
+배포 열에 대한 충분한 고유 값을 갖는 열이 없으면 하나 이상의 값이 복합된 새 열을 만들 수 있습니다. 쿼리 실행 동안 데이터 이동을 방지하려면 쿼리에서 복합 배포 열을 조인 열로 사용합니다.
 
 해시 분산 테이블을 디자인한 후 다음 단계는 데이터를 테이블로 로드하는 것입니다.  로드 지침은 [로드 개요](sql-data-warehouse-overview-load.md)를 참조하세요. 
 

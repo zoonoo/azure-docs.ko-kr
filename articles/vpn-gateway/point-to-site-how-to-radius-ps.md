@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2017
 ms.author: anzaman
-ms.openlocfilehash: c78b3fe37a874fa25c7825046d91af62c39ab0d6
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 13ae129eefb717f22db25ab29232fe1efe69a8ce
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell"></a>RADIUS 인증을 사용하여 VNet에 지점 및 사이트 간 연결 구성: PowerShell
 
@@ -89,7 +89,7 @@ RADIUS 서버는 온-프레미스 또는 Azure VNet에 있을 수 있습니다. 
 * **구독:** 구독이 2개 이상 있는 경우 올바른 구독을 사용 중인지 확인합니다.
 * **리소스 그룹: TestRG**
 * **위치: 미국 동부**
-* **DNS 서버:** VNet에 대한 이름 확인에 사용하려는 DNS 서버의 IP 주소 (선택 사항)
+* **DNS 서버:** VNet에 대한 이름 확인에 사용하려는 DNS 서버의 IP 주소 (옵션)
 * **GW 이름: Vnet1GW**
 * **공용 IP 이름: VNet1GWPIP**
 * **VpnType: RouteBased** 
@@ -214,11 +214,11 @@ VPN 클라이언트 구성을 사용하면 P2S 연결을 통해 VNet에 장치�
 
 ### <a name="connect-from-a-mac-vpn-client"></a>Mac VPN 클라이언트에서 연결
 
-[네트워크] 대화 상자에서 사용하려는 클라이언트 프로필을 찾은 다음 **연결**을 클릭합니다.
+네트워크 대화 상자에서 사용하려는 클라이언트 프로필을 찾고 **연결**을 클릭합니다.
 
   ![Mac 연결](./media/vpn-gateway-howto-point-to-site-rm-ps/applyconnect.png)
 
-## <a name="verify"></a>연결 확인
+## <a name="verify"></a>연결을 확인하려면
 
 1. VPN 연결이 활성인지를 확인하려면, 관리자 권한 명령 프롬프트를 열고 *ipconfig/all*을 실행합니다.
 2. 결과를 확인합니다. 받은 IP 주소가 구성에 지정한 지점 및 사이트 VPN 클라이언트 주소 풀 내의 주소 중 하나인지 확인합니다. 결과는 다음 예제와 비슷합니다.

@@ -1,6 +1,6 @@
 ---
 title: "프로그래밍 방식으로 Machine Learning 모델 다시 학습 | Microsoft Docs"
-description: "Azure 기계 학습에서 프로그래밍 방식으로 모델을 다시 학습하고 새로 학습된 모델을 사용하도록 웹 서비스를 업데이트하는 방법을 알아봅니다."
+description: "Azure Machine Learning에서 프로그래밍 방식으로 모델을 다시 학습하고 새로 학습된 모델을 사용하도록 웹 서비스를 업데이트하는 방법을 알아봅니다."
 services: machine-learning
 documentationcenter: 
 author: raymondlaghaeian
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: raymondl;garye;v-donglo
-ms.openlocfilehash: c56ce659766536772d203d0366ef6b53e544a82b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: raymondl;garye
+ms.openlocfilehash: d228021564cdfe5c898c67cce0038b3ec36d014b
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/03/2018
 ---
-# <a name="retrain-machine-learning-models-programmatically"></a>프로그래밍 방식으로 기계 학습 모델 다시 학습
+# <a name="retrain-machine-learning-models-programmatically"></a>프로그래밍 방식으로 Machine Learning 모델 다시 학습
 이 연습에서는 C# 및 Machine Learning Batch Execution 서비스를 사용하여 Azure Machine Learning 웹 서비스를 프로그래밍 방식으로 다시 학습하는 방법을 배웁니다.
 
 모델을 다시 학습한 후 다음 연습에서는 예측 웹 서비스에서 모델을 업데이트하는 방법을 보여 줍니다.
@@ -33,11 +33,11 @@ ms.lasthandoff: 10/11/2017
 기존의 새 Azure Resource Manager 기반 웹 서비스로 시작하려는 경우 [기존 예측 웹 서비스 재학습](retrain-existing-resource-manager-based-web-service.md)을 참조하세요.
 
 ## <a name="create-a-training-experiment"></a>학습 실험 만들기
-이 예의 경우 Microsoft Azure 기계 학습 샘플의 "샘플 5: 이진 분류에 대한 학습, 테스트, 평가: 성인 데이터 집합"을 사용합니다. 
+이 예의 경우 Microsoft Azure Machine Learning 샘플의 "샘플 5: 이진 분류에 대한 학습, 테스트, 평가: 성인 데이터 집합"을 사용합니다. 
 
 실험을 만들려면:
 
-1. Microsoft Azure 기계 학습 스튜디오에 로그인합니다. 
+1. Microsoft Azure Machine Learning Studio에 로그인합니다. 
 2. 대시보드의 오른쪽 아래 모서리에서 **새로 만들기**를 클릭합니다.
 3. Microsoft 샘플에서 샘플 5를 선택합니다.
 4. 실험의 이름을 바꾸려면 실험 캔버스의 위쪽에서 실험 이름 "샘플 5: 이진 분류에 대한 학습, 테스트, 평가: 성인 데이터 집합"을 선택합니다.
@@ -73,11 +73,11 @@ ms.lasthandoff: 10/11/2017
 
 **기존 웹 서비스**
 
-실험 캔버스 맨 아래에서 **웹 서비스 설정**을 클릭하고 **웹 서비스 배포[기존]**을 선택합니다. 웹 서비스 **대시보드**가 배치 실행을 위한 API 키 및 API 도움말 페이지와 함께 표시됩니다. 학습된 모델을 만들 때는 배치 실행 방법만 사용할 수 있습니다.
+실험 캔버스 맨 아래에서 **웹 서비스 설정**을 클릭하고 **웹 서비스 배포[기존]**을 선택합니다. 웹 서비스 **대시보드**가 Batch 실행을 위한 API 키 및 API 도움말 페이지와 함께 표시됩니다. 학습된 모델을 만들 때는 Batch 실행 방법만 사용할 수 있습니다.
 
 **새 웹 서비스**
 
-실험 캔버스 맨 아래에서 **웹 서비스 설정**을 클릭하고 **웹 서비스 배포[신규]**를 선택합니다. Web Service Azure Machine Learning Web Services 포털은 웹 서비스 배포 페이지에 열립니다. 웹 서비스의 이름을 입력하고 결제 방식을 선택한 다음 **배포**를 클릭합니다. 학습된 모델을 만들 때는 배치 실행 방법만 사용할 수 있습니다.
+실험 캔버스 맨 아래에서 **웹 서비스 설정**을 클릭하고 **웹 서비스 배포[신규]**를 선택합니다. Web Service Azure Machine Learning Web Services 포털은 웹 서비스 배포 페이지에 열립니다. 웹 서비스의 이름을 입력하고 결제 방식을 선택한 다음 **배포**를 클릭합니다. 학습된 모델을 만들 때는 Batch 실행 방법만 사용할 수 있습니다.
 
 어느 경우든 실험 실행이 완료된 후 결과 워크플로는 다음과 같이 표시됩니다.
 
@@ -113,10 +113,10 @@ ms.lasthandoff: 10/11/2017
 
 **사용** 페이지의 **기본 사용량 정보** 섹션에서 기본 키를 찾아 **apikey** 선언으로 복사합니다.
 
-### <a name="update-the-azure-storage-information"></a>Azure 저장소 정보 업데이트
-BES 샘플 코드는 로컬 드라이브에서(예: "C:\temp\CensusIpnput.csv") Azure 저장소로 파일을 업로드하고 이를 처리하고 결과를 Azure 저장소에 다시 작성합니다.  
+### <a name="update-the-azure-storage-information"></a>Azure Storage 정보 업데이트
+BES 샘플 코드는 로컬 드라이브에서(예: "C:\temp\CensusIpnput.csv") Azure Storage로 파일을 업로드하고 이를 처리하고 결과를 Azure Storage에 다시 작성합니다.  
 
-이 작업을 수행하려면 Azure 클래식 포털에서 저장소 계정에 대한 저장소 계정 이름, 키 및 컨테이너 정보를 검색한 다음 코드에서 해당 값을 업데이트해야 합니다. 
+이 작업을 수행하려면 Azure 클래식 포털에서 Storage 계정에 대한 Storage 계정 이름, 키 및 컨테이너 정보를 검색한 다음 코드에서 해당 값을 업데이트해야 합니다. 
 
 1. 클래식 Azure 포털에 로그인합니다.
 2. 왼쪽 탐색 열에서 **Storage**를 클릭합니다.
