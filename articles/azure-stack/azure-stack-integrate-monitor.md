@@ -12,22 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: a7f6d3691410711fcae692007b08977a93961845
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 3435ada40afb9f1c6e57be64d1b9086d0cdaefd9
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>Azure 스택와 외부 모니터링 솔루션을 통합
 
-*적용 대상: Azure 스택 시스템 통합*
+Azure 스택 인프라의 외부 모니터링에 대 한 Azure 스택 소프트웨어, 물리적 컴퓨터와 실제 네트워크 스위치를 모니터링 해야 합니다. 이러한 각 영역 상태 및 경고 정보를 검색 하는 메서드를 제공 합니다.
 
-Azure 스택 인프라의 외부 모니터링에 대 한 Azure 스택 소프트웨어, 물리적 컴퓨터와 실제 네트워크 스위치를 모니터링 해야 합니다. 이러한 각 영역 상태 및 경고 정보를 검색 하는 방법을 제공 합니다.
-
-- Azure 스택 소프트웨어 상태 및 경고를 검색 하는 REST 기반 API를 제공 합니다. (저장소 공간 다이렉트 같은 기술 소프트웨어 정의 사용 하 여 저장소 상태 및 경고의 일부인 소프트웨어 모니터링 합니다.)
+- Azure 스택 소프트웨어 상태 및 경고를 검색 하는 REST 기반 API를 제공 합니다. (저장소 공간 다이렉트 같은 기술 소프트웨어 정의 사용 하 여 저장소 상태 및 경고의 일부인 소프트웨어 모니터링 합니다.).
 - 물리적 컴퓨터 정확해 상태 및 경고 정보 베이스 보드 관리 컨트롤러 Bmc ()을 통해 사용할 수 있습니다.
 - 실제 네트워크 장치 수 확인 상태 및 경고 정보 SNMP 프로토콜을 통해 사용할 수 있는 합니다.
 
@@ -49,15 +47,15 @@ Azure 스택의 외부 모니터링에 대 한 Operations Manager를 사용할 �
 Azure 스택 용 관리 팩에는 다음과 같은 기능을 제공합니다.
 
 - 여러 Azure 스택 배포를 관리할 수 있습니다.
-- Azure Active Directory (Azure AD) 및 Active Directory Federation Services (AD FS)에 대 한 지원이 됩니다.
-- 검색할 수 있으며 경고를 닫습니다.
-- 상태 및 용량 대시보드 있습니다.
-- 패치 및 업데이트 (& U) 중인 경우 진행률에 대 한 자동 유지 관리 모드 검색에 포함 되어 있습니다.
+- Azure Active Directory (Azure AD) 및 Active Directory Federation Services (AD FS)에 대 한 지원은
+- 검색 하 고 경고 종결
+- 상태 및 용량 대시보드
+- 패치 및 업데이트 (& U) 중인 경우 진행률에 대 한 자동 유지 관리 모드 검색 포함
 - 작업 배포 및 지역에 대해 강제 업데이트를 포함합니다.
 - 영역에 사용자 지정 정보를 추가할 수 있습니다.
-- 원하는 알림 및 보고 합니다.
+- 알림 지원 및 보고
 
-Microsoft Azure 스택 및 연결 된 사용자 가이드에 대 한 System Center 관리 팩을 다운로드할 수 있습니다 [여기](https://www.microsoft.com/en-us/download/details.aspx?id=55184), 또는 Operations Manager에서 직접 합니다.
+Microsoft Azure 스택 및 연결 된 용 System Center 관리 팩을 다운로드할 수 있습니다 [사용자 가이드](https://www.microsoft.com/en-us/download/details.aspx?id=55184), 또는 Operations Manager에서 직접 합니다.
 
 티켓 솔루션에 대 한 Operations Manager System Center Service Manager를 통합할 수 있습니다. 통합된 제품 커넥터에서 Service Manager에서 서비스 요청을 해결 한 후 Azure 스택 및 Operations Manager에서 경고를 닫을 수 있습니다 하는 양방향 통신을 수 있습니다.
 

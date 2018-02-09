@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: mabrigg
-ms.openlocfilehash: 498d0cdc3eac25b8efc7339e48381a4d167c0c7b
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 13155349775e71e777e868b6cd311d2e8683706d
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-stack-servicing-policy"></a>정책 서비스는 azure 스택
 
@@ -53,14 +53,13 @@ Microsoft 소프트웨어 업데이트 패키지 아닌 누적 되며이 필수 
 
 | 최신 업데이트 패키지 (*예제*) | 필수 요소 | 지원 되는 최소 버전 |
 | -- | -- | -- |
-| 1709 | 1708 빌드 | 해당 없음 |
-| 1710 | 1709 | 해당 없음 |
-| 1711 | 1710 | 해당 없음 |
-| 1712 | 1711 | 1709 |
-| 1801 | 1712 | 1710 |
-| 1802 | 1801 | 1711 |
-| 1803 | 1802 | 1712 |
-| 1804 | 1803 | 1801 |
+| 1710 | 1709 | N/A |
+| 1711 | 1710 | 1709 |
+| 1712 | 1711 | 1710 |
+| 1802 | 1801 | 1712 |
+| 1803 | 1802 | 1801 |
+| 1804 | 1803 | 1802 |
+| 1805 | 1804 | 1803 |
 | | | 
 
 ## <a name="next-steps"></a>다음 단계

@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 3343dbe0093ad8fbeebe5893d44abdbe356e1789
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 4bdcd6d57989df3d1b67c87d56b8c57035ef2f63
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="test-your-solution-with-simulated-devices"></a>시뮬레이트된 장치로 솔루션 테스트
 
@@ -131,24 +131,24 @@ ms.lasthandoff: 02/01/2018
 1. 사용자의 가상 머신에서 SSH 액세스를 사용하도록 설정하려면 이전 단계에서 사용자의 네트워크 보안 그룹의 이름을 사용하는 다음 명령을 실행합니다.
 
     ```sh
-    az network nsg rule create --name SSH --nsg-name your-network-security-group --priority 101 --destination-port-ranges 22 --access Allow --protocol TCP
+    az network nsg rule create --name SSH --nsg-name YOUR-NETWORK-SECURITY-GROUP --priority 101 --destination-port-ranges 22 --access Allow --protocol TCP
     ```
 
     네트워크에 대한 인바운드 규칙의 목록을 보려면 다음 명령을 실행합니다.
 
     ```sh
-    az network nsg rule list --nsg-name Contoso-01-nsg -o table
+    az network nsg rule list --nsg-name YOUR-NETWORK-SECURITY-GROUP -o table
     ```
 
 1. 가상 머신 암호를 알고 있는 암호로 변경하려면 다음 명령을 실행합니다. 이전에 적어 두었던 가상 머신의 이름 및 선택한 암호를 사용합니다.
 
     ```sh
-    az vm user update --name your-vm-name --username azureuser --password your-password
+    az vm user update --name YOUR-VM-NAME --username azureuser --password YOUR-PASSWORD
     ```
 1. 가상 머신의 IP 주소를 확인하려면 다음 명령을 사용하고 공용 IP 주소를 기록해 둡니다.
 
     ```sh
-    az vm list-ip-addresses --name your-vm-name
+    az vm list-ip-addresses --name YOUR-VM-NAME
     ```
 
 1. 이제 SSH를 사용하여 가상 머신에 연결할 수 있습니다. `ssh` 명령은 Cloud Shell에 사전 설치됩니다. 이전 단계의 공용 IP 주소를 사용하고 메시지가 표시되면 가상 머신에 구성된 암호를 사용합니다.

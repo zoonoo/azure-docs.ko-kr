@@ -12,17 +12,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/06/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: a2d4efc3a3e1480de71528144ae3f025f4879f07
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: def9d5381144026b5ad0e8a076edd3c0692a08f4
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-connected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Azure 스택에 대 한 결정을 계획 하는 azure 연결 된 배포 시스템을 통합
-결정 한 다음 [Azure 스택 하이브리드 클라우드 환경으로 통합 됩니다는 어떻게](azure-stack-deployment-decisions.md), Azure 스택 배포 결정 사항 마무리 다음 수 있습니다.
+결정 한 다음 [Azure 스택 하이브리드 클라우드 환경으로 통합 됩니다는 어떻게](azure-stack-connection-models.md), Azure 스택 배포 결정 사항 마무리 다음 수 있습니다.
 
 Azure에 연결 하는 배포 Azure 스택 의미 id 저장소에 대 한 Azure Active Directory (Azure AD) 또는 Active Directory Federation Services (AD FS) 사용할 수 있습니다. 청구 모델 중에서 선택할 수 있습니다: 사용량 기준 과금으로-있습니다-사용 또는 용량 기반 합니다. 연결 된 배포는 기본 옵션 때문에 고객 특히 Azure 및 Azure 스택을 포함 하는 하이브리드 클라우드 시나리오에 대 한 Azure 스택에서 가장 많은 값을 가져올 수 있습니다. 
 
@@ -45,7 +45,7 @@ Identity 저장소 선택한 테 넌 트 가상 컴퓨터 (Vm)는 관련이 없�
 서비스 관리자 계정에 대 한 사용자 회사 Active Directory와 같은 고유한 id 저장소를 사용 하려면이 옵션을 선택 합니다.  
 
 ## <a name="choose-a-billing-model"></a>청구 모델을 선택 합니다.
-하나를 선택할 수 **사용량 기준 과금으로-있습니다-사용** 또는 **용량** 청구 모델입니다. 따라서 연결을 사용할 수 없습니다 용량 청구 모델 유일한 옵션은, 사용량 기준 과금-으로--사용 요금 청구 모델 배포 사용량을 보고 연결을 통해 Azure에 30 일 마다 한 번 이상 수 해야 합니다. 
+하나를 선택할 수 **사용량 기준 과금으로-있습니다-사용** 또는 **용량** 청구 모델입니다. 사용량 기준 과금-으로--사용 요금 청구 모델 배포 사용량을 보고 연결을 통해 Azure에 30 일 마다 한 번 이상 있어야 합니다. 사용량 기준 과금-으로--사용 요금 청구 모델은 연결 된 배포에 사용할 수만 있습니다.  
 
 ### <a name="pay-as-you-use"></a>사용량 기준 과금-으로--사용
 사용량 기준 과금-으로--사용 요금 청구 모델을 사용은 Azure 구독에 청구 됩니다. Azure 스택 서비스를 사용할 때만 지불 합니다. 사용 하도록 결정 하는 모델의 경우 Azure 구독 및 해당 구독과 연결 된 계정 ID 필요 합니다 (예를 들어 serviceadmin@contoso.onmicrosoft.com). EA, CSP 및 CSL 구독이 지원 됩니다. 사용 현황 보고 하는 동안 구성 된 [Azure 스택 등록](azure-stack-registration.md)합니다.

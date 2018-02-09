@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/06/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 2c013c11dea5217d564ac15a13a8d11614989057
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: f93fc95d6bed517cae3adb706f690941f97c366e
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>Azure 스택 통합 시스템에 대 한 데이터 센터 통합 고려 사항
 Azure 스택 통합 시스템에 관심이 있다면 배포 및 시스템 데이터 센터에 얼마나 적합 한지 주요 계획 고려 사항 중 일부를 이해 해야 합니다. 이 문서에서는 Azure 스택 multi-node 시스템에 대 한 중요 한 인프라 결정을 내릴 수 있도록 이러한 고려 사항에 대 한 고급 개요를 제공 합니다. 이러한 고려 사항에 대 한 이해가는 Azure 스택 데이터 센터에 배포할 때 OEM 하드웨어 공급 업체를 작업할 때 도움이 됩니다.  
@@ -45,7 +45,7 @@ Azure 스택 배포의 경우 Azure AD 또는 AD FS 사용 하려면 id 공급�
 
 Identity provider 선택한 테 넌 트 가상 컴퓨터, id 시스템 및 사용 하는 계정에는 영향을 주지 않습니다는 등 Active Directory 도메인에 참가 합니다. 이 별개입니다.
 
-에 id 공급자를 선택 하는 방법에 대 한 자세히 알아볼 수 있습니다는 [Azure 스택 시스템 통합된 문서에 대 한 배포 결정 사항](.\azure-stack-deployment-decisions.md)합니다.
+에 id 공급자를 선택 하는 방법에 대 한 자세히 알아볼 수 있습니다는 [Azure 스택 통합형된 시스템 연결 모델 문서](.\azure-stack-connection-models.md)합니다.
 
 ### <a name="ad-fs-and-graph-integration"></a>AD FS 및 그래프 통합
 AD FS를 사용 하 여 id 공급자로 Azure 스택 배포 하려는 경우 Azure 스택에 AD FS 인스턴스 페더레이션 트러스트를 통해 기존 AD FS 인스턴스와 통합 해야 합니다. 따라서 기존 Active Directory 포리스트를 스택에서 Azure 리소스를 사용 하 여 인증에서 id 수 있습니다.
@@ -53,18 +53,25 @@ AD FS를 사용 하 여 id 공급자로 Azure 스택 배포 하려는 경우 Azu
 기존 Active Directory와 Azure 스택의 그래프 서비스를 통합할 수도 있습니다. 이렇게 하면 역할 기반 액세스 제어 (RBAC) Azure 스택의 관리할 수 있습니다. 리소스에 대 한 액세스 위임 되는 그래프 구성 요소 LDAP 프로토콜을 사용 하 여 기존 Active Directory 포리스트의 사용자 계정을 조회 합니다.
 
 다음 다이어그램에서는 통합 된 AD FS 및 그래프 트래픽 흐름을 보여 줍니다.
-![AD FS 및 그래프 트래픽 흐름을 보여 주는 다이어그램](media/azure-stack-deployment-planning/ADFSIntegration.PNG)
+![AD FS 및 그래프 트래픽 흐름을 보여 주는 다이어그램](media/azure-stack-datacenter-integration/ADFSIntegration.PNG)
 
 ## <a name="licensing-model"></a>라이선스 모델
+사용할 라이선스 모델을 결정 해야 합니다. 사용 가능한 옵션은 인터넷에 연결 하는 Azure 스택 배포 여부에 따라 달라 집니다.
+- 에 대 한는 [배포 연결](azure-stack-connected-deployment.md), 지불으로-있습니다-사용 또는 용량 기반 라이선스를 선택할 수 있습니다. 사용량 기준 과금-으로-있습니다-사용 필요 사용량을 보고, Azure 상거래를 통해 다음 청구는 Azure에 연결 합니다. 
+- 경우에 용량 기반 라이선스 지원 됩니다 있습니다 [배포 연결이 끊어진](azure-stack-disconnected-deployment.md) 인터넷에서 합니다. 
 
-사용할 라이선스 모델을 결정 해야 합니다. 연결 된 배포에 대 한 사용량 기준 과금으로-있습니다-사용 또는 용량 기반 라이선스를 선택할 수 있습니다. 사용량 기준 과금-으로-있습니다-사용 필요 사용량을 보고, Azure 상거래를 통해 다음 청구는 Azure에 연결 합니다. 배포 하는 경우 지원 되는 용량 기반 라이선스 인터넷에서 연결이 끊어졌습니다. 라이선스 모델에 대 한 자세한 내용은 참조 [패키징 및 가격에 Microsoft Azure 스택](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf)합니다.
+라이선스 모델에 대 한 자세한 내용은 참조 [패키징 및 가격에 Microsoft Azure 스택](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf)합니다.
+
 
 ## <a name="naming-decisions"></a>명명 결정
 
-Azure 스택 네임 스페이스, 특히 지역 이름 및 외부 도메인 이름 계획 하고자 하는 방법에 대해 생각 하는 것이 해야 합니다. 공용 끝점에 대 한 Azure 스택 배포의 정규화 된 도메인 이름 (FQDN)은 이러한 두 이름의 조합 &lt; *지역*&gt;&lt;*external_FQDN*  &gt;, 예를 들어 *east.cloud.fabrikam.com*합니다. 이 예제에서는 Azure 스택 포털 다음 Url에서 사용할 수 있는 합니다.
+Azure 스택 네임 스페이스, 특히 지역 이름 및 외부 도메인 이름 계획 하고자 하는 방법에 대해 생각 하는 것이 해야 합니다. 공용 끝점에 대 한 Azure 스택 배포의 외부 정규화 된 도메인 이름 (FQDN)은 이러한 두 가지 이름 중 조합: &lt; *지역*&gt;.&lt; *fqdn*&gt;합니다. 예를 들어 *east.cloud.fabrikam.com*합니다. 이 예제에서는 Azure 스택 포털 다음 Url에서 사용할 수 있는 합니다.
 
 - https://portal.east.cloud.fabrikam.com
 - https://adminportal.east.cloud.fabrikam.com
+
+> [!IMPORTANT]
+> Azure 스택 배포에 대 한 선택한 지역 이름은 고유 해야 하며 포털 주소에 표시 됩니다. 
 
 다음 표에서 이러한 도메인 명명 결정을 요약 합니다.
 
@@ -128,14 +135,14 @@ Azure 스택을 통해 Azure에 연결할 수 [ExpressRoute](https://docs.micros
 
 다음 다이어그램에서는 단일 테 넌 트 시나리오에 대 한 express 경로 보여 줍니다. (여기서 "고객의 연결을" express 경로 회로).
 
-![표시 된 단일 테 넌 트 ExpressRoute 시나리오를 다이어그램합니다](media/azure-stack-deployment-planning/ExpressRouteSingleTenant.PNG)
+![표시 된 단일 테 넌 트 ExpressRoute 시나리오를 다이어그램합니다](media/azure-stack-datacenter-integration/ExpressRouteSingleTenant.PNG)
 
 다음 다이어그램에서는 다중 테 넌 트 시나리오에 대 한 express 경로 보여 줍니다.
 
-![다중 테 넌 트 ExpressRoute 시나리오를 보여 주는 다이어그램](media/azure-stack-deployment-planning/ExpressRouteMultiTenant.PNG)
+![다중 테 넌 트 ExpressRoute 시나리오를 보여 주는 다이어그램](media/azure-stack-datacenter-integration/ExpressRouteMultiTenant.PNG)
 
 ## <a name="external-monitoring"></a>외부 모니터링
-Azure 스택 배포 및 장치에서 모든 경고의 단일 뷰에서 하 고 티켓에 대 한 기존 IT 서비스 관리 워크플로에 경고를 통합 솔루션을 모니터링 하는 외부 데이터 센터와 Azure 스택을 통합할 수 있습니다.
+Azure 스택 배포 및 장치에서 모든 경고의 단일 뷰에서 하 고 티켓에 대 한 기존 IT 서비스 관리 워크플로에 경고를 통합 하면 [솔루션을모니터링하는외부데이터센터와Azure스택통합](azure-stack-integrate-monitor.md).
 
 Azure 스택 솔루션에 포함 된, 하드웨어 수명 주기 호스트는 하드웨어에 대 한 OEM 공급 업체에서 제공 하는 관리 도구를 실행 하는 Azure 스택 외부 컴퓨터입니다. 이러한 도구 또는 데이터 센터에서 기존 모니터링 솔루션 직접 통합 하는 다른 솔루션을 사용할 수 있습니다.
 
@@ -143,15 +150,15 @@ Azure 스택 솔루션에 포함 된, 하드웨어 수명 주기 호스트는 �
 
 | 영역 | 외부 모니터링 솔루션 |
 | -- | -- |
-| Azure 스택 소프트웨어 | - [Operations Manager 용 관리 팩 azure 스택](https://azure.microsoft.com/blog/management-pack-for-microsoft-azure-stack-now-available/)<br>- [Nagios 플러그 인](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details)<br>-REST 기반 API 호출 | 
-| 물리적 서버 (IPMI 통해 Bmc) | -Operations Manager 공급 업체 관리 팩<br>OEM 하드웨어 공급 업체에서 제공한 솔루션<br>-하드웨어 공급 업체 Nagios 플러그 인 | OEM 파트너 지원 모니터링 솔루션 (포함) | 
-| 네트워크 장치에서는 SNMP) | 과 operations Manager 네트워크 장치 검색<br>OEM 하드웨어 공급 업체에서 제공한 솔루션<br>-플러그 인 Nagios 스위치 |
-| 테 넌 트 구독 상태 모니터링 | - [Windows Azure 용 system Center 관리 팩](https://www.microsoft.com/download/details.aspx?id=50013) | 
+| Azure 스택 소프트웨어 | [Operations Manager 용 관리 팩 azure 스택](https://azure.microsoft.com/blog/management-pack-for-microsoft-azure-stack-now-available/)<br>[Nagios 플러그 인](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details)<br>REST 기반 API 호출 | 
+| 물리적 서버 (IPMI 통해 Bmc) | OEM 하드웨어-Operations Manager 공급 업체 관리 팩<br>OEM 하드웨어 공급 업체에서 제공한 솔루션<br>하드웨어 공급 업체 Nagios 플러그 인 | OEM 파트너 지원 모니터링 솔루션 (포함) | 
+| 네트워크 장치에서는 SNMP) | Operations Manager 네트워크 장치 검색<br>OEM 하드웨어 공급 업체에서 제공한 솔루션<br>Nagios 스위치 플러그 인 |
+| 테 넌 트 구독 상태 모니터링 | [Windows Azure 용 system Center 관리 팩](https://www.microsoft.com/download/details.aspx?id=50013) | 
 |  |  | 
 
 다음 요구 사항에 유의하세요.
 - 사용 하면 솔루션은 에이전트 없는 이어야 합니다. Azure 스택 구성 요소 안의 제 3 자 에이전트를 설치할 수 없습니다. 
-- System Center Operations Manager를 사용 하려는 경우이 Operations Manager 2012 R2 또는 Operations Manager 2016 필요 합니다.
+- System Center Operations Manager를 사용 하려는 경우 Operations Manager 2012 R2 또는 Operations Manager 2016가 필요 합니다.
 
 ## <a name="backup-and-disaster-recovery"></a>Backup 및 재해 복구
 
@@ -159,7 +166,7 @@ Azure 스택 솔루션에 포함 된, 하드웨어 수명 주기 호스트는 �
 
 ### <a name="protect-infrastructure-components"></a>인프라 구성 요소를 보호 합니다.
 
-Azure 스택 인프라 구성 요소를 지정 하는 공유에 백업 합니다.
+있습니다 수 [Azure 스택 백업을](azure-stack-backup-back-up-azure-stack.md) SMB 인프라 구성 요소를 지정 하는 공유:
 
 - 외부 SMB 파일 공유 기존의 Windows 기반 파일 서버 또는 제 3 자 장치에 필요 합니다.
 - 네트워크 스위치와 하드웨어 수명 주기 호스트의 백업에 대 한이 동일한 공유를 사용 해야 합니다. OEM 하드웨어 공급 업체는 이러한 방화벽은 Azure 스택에 외부 백업 및 복원 구성 요소에 대 한 지침을 제공 하는 데 도움이 됩니다. 넌 OEM 공급 업체의 권장 사항을 기반으로 하는 백업 워크플로 실행 합니다.
