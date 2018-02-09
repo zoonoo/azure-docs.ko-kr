@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 12/04/2017
+ms.date: 01/30/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: 67ec6489a6aeed946d41ac8b297d3d99b86e4169
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: b3c7c19543d50ed91129a2040bea1db1c4df1ea7
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="frequently-asked-questions-for-azure-cost-management"></a>Azure Cost Management에 대한 질문과 대답
 
@@ -46,6 +46,29 @@ Cloudyn을 설정하기 위해 Azure Enterprise Agreement API 키를 생성하�
 
 부서 관리자, 계정 소유자 및 엔터프라이즈 관리자에게 청구 API로 _요금 보기_ 권한을 부여해야 할 수도 있습니다.
 
+## <a name="why-dont-i-see-optimizer-recommendations"></a>Optimizer 권장 사항 표시되지 않는 이유
+
+권장 사항 정보는 활성화된 계정에만 사용할 수 있습니다. 다음을 포함하여, *활성화되지 않은* 계정에 대해서는 **Optimizer** 보고서 카테고리에 권장 사항 정보가 표시되지 않습니다.
+
+- Optimization Manager
+- 크기 조정 최적화
+- 비효율성
+
+Optimizer 권장 사항 데이터가 표시되지 않는다면 계정이 비활성 상태일 가능성이 가장 높습니다. 계정을 활성화하려면 Azure 자격 증명을 사용하여 등록해야 합니다.
+
+계정을 활성화하려면
+
+1.  Cloudyn 포털의 오른쪽 위에서 **설정**을 클릭하고 **클라우드 계정**을 선택합니다.
+2.  Microsoft Azure 계정 탭에서 **활성화되지 않은** 구독이 있는 계정을 찾습니다.
+3.  활성화되지 않은 계정의 오른쪽에서 연필 모양인 **편집** 기호를 클릭합니다.
+4.  테넌트 ID와 등급 ID가 자동으로 검색됩니다. **다음**을 클릭합니다.
+5.  Azure Portal로 리디렉션됩니다. 포털에 로그인하고 Cloudyn Collector에게 Azure 데이터 액세스 권한을 부여합니다.
+6.  다음으로 Cloudyn 계정 관리 페이지로 리디렉션되며 해당 구독이 **활성** 계정 상태로 업데이트됩니다. 녹색 확인 표시가 기호가 나타납니다.
+7.  하나 이상의 구독에 대해 녹색 확인 표시가 나타나지 않는다면 해당 구독에 대해 판독기 앱(CloudynCollector)을 만들 권한이 없는 것입니다. 구독에 대해 더 높은 권한이 있는 사용자가 3, 4단계를 반복해야 합니다.  
+
+이전 단계를 완료한 후 하루 이틀 안에 Optimizer 권장 사항을 볼 수 있습니다. 그러나 전체 최적화 데이터를 사용할 수 있으려면 최대 5일까지 소요됩니다.
+
+
 ## <a name="how-do-i-enable-suspended-or-locked-out-users"></a>일시 중단되거나 잠긴 사용자를 활성화하려면 어떻게 할까요?
 
 사용자에 대한 액세스를 허용하라는 경고 요청을 받으면 사용자 계정을 활성화해야 합니다.
@@ -66,10 +89,7 @@ Cloudyn의 메일 주소를 Azure의 기본 주소에서 변경하면 계정이 
 
 계정 중 하나가 잠기는 경우를 대비하여 적어도 두 개의 Cloudyn 관리자 계정을 만드는 것이 좋습니다.
 
-Cloudyn 포털에 로그인할 수 없는 경우 올바른 Azure Cost Management URL을 사용하여 Cloudyn 포털에 로그인했는지 확인합니다. 다음 URL 중 하나를 사용합니다.
-
-- https://azure.cloudyn.com
-- https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/CloudynMainBlade
+Cloudyn 포털에 로그인할 수 없는 경우 올바른 Azure Cost Management URL을 사용하여 Cloudyn 포털에 로그인했는지 확인합니다. [https://azure.cloudyn.com](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/CloudynMainBlade)을 사용합니다.
 
 Cloudyn 직접 URL https://app.cloudyn.com은 사용하지 마세요.
 
@@ -124,7 +144,7 @@ Azure Resource Manager 액세스를 추가하고 데이터를 수집한 후에�
 
 ## <a name="is-cost-managementcloudyn-agent-based"></a>Cost Management/Cloudyn 에이전트 기반인가요?
 
-아니요. 에이전트는 사용되지 않습니다. VM에 대한 Azure 가상 머신 메트릭 데이터는 Microsoft Insights API에서 수집합니다. Azure VM에서 메트릭 데이터를 수집하려면 VM의 진단 설정을 켜야 합니다.
+번호 에이전트는 사용되지 않습니다. VM에 대한 Azure 가상 머신 메트릭 데이터는 Microsoft Insights API에서 수집합니다. Azure VM에서 메트릭 데이터를 수집하려면 VM의 진단 설정을 켜야 합니다.
 
 ## <a name="do-cloudyn-reports-show-more-than-one-ad-tenant-per-report"></a>Cloudyn 보고서는 보고서당 두 개 이상의 AD 테넌트를 표시합니까?
 

@@ -11,11 +11,11 @@ ms.topic: get-started-article
 ms.date: 11/10/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1a23835f341bf02f8e662782984d95bfe194030b
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 1a979bde37d247da5c630547924cadbd79c4a6a4
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="compare-azure-iot-options"></a>Azure IoT 옵션 비교
 
@@ -27,13 +27,13 @@ ms.lasthandoff: 11/29/2017
 
 이 아키텍처를 구현하기 위해 Azure IoT는 서로 다른 고객 요구 사항 집합에 적합한 몇 가지 옵션을 제공합니다.
 
-* [Azure IoT Suite](index.md) - 사용자 지정 IoT 솔루션의 개발을 가속화할 수 있는 Azure PaaS(Platform-as-a-Service)에 구축된 [미리 구성된 솔루션](iot-suite-what-are-preconfigured-solutions.md)의 엔터프라이즈급 모음입니다.
+* [Azure IoT Suite](index.md)는 사용자 지정 IoT 솔루션의 개발을 가속화하는 데 사용할 수 있는 Azure PaaS(Platform-as-a-Service)에 구축된 [미리 구성된 솔루션](iot-suite-what-are-preconfigured-solutions.md)의 엔터프라이즈급 모음입니다.
 
-* [Microsoft IoT Central](https://www.microsoft.com/internet-of-things/iot-central-saas-solutions) - 모델 기반 접근 방식을 사용하여 클라우드 솔루션 개발에 대한 전문 지식이 없어도 엔터프라이즈급 IoT 솔루션을 구축할 수 있는 SaaS 솔루션입니다.
+* [Microsoft IoT Central](https://www.microsoft.com/internet-of-things/iot-central-saas-solutions)은 모델 기반 접근 방식을 사용하여 클라우드 솔루션 개발에 대한 전문 지식이 없어도 엔터프라이즈급 IoT 솔루션을 구축할 수 있는 SaaS(Software-as-a-Service) 솔루션입니다.
 
 ## <a name="azure-iot-hub"></a>Azure IoT Hub
 
-Azure IoT Hub는 Microsoft IoT Central 및 Azure IoT Suite 모두에서 사용하는 핵심 Azure PaaS입니다. IoT Hub를 사용하면 수백만 개의 IoT 장치와 클라우드 솔루션 간의 안정적이고 안전한 양방향 통신을 지원할 수 있습니다. IoT Hub는 다음과 같은 IoT 구현 과제를 충족하는 데 도움을 줍니다.
+Azure IoT Hub는 Microsoft IoT Central 및 Azure IoT Suite 모두에서 사용하는 Azure PaaS의 핵심입니다. IoT Hub를 사용하면 수백만 개의 IoT 장치와 클라우드 솔루션 간의 안정적이고 안전한 양방향 통신을 지원할 수 있습니다. IoT Hub는 다음과 같은 IoT 구현 과제를 충족하는 데 도움을 줍니다.
 
 * 대용량 장치 연결 및 관리
 * 대용량 원격 분석 수집

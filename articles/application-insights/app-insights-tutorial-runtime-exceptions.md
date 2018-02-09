@@ -10,11 +10,11 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: f6844dd6747854a60ff8eb8be0d913b73ca2bdb2
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 115611c5d4eeffb0f0600dd0a792ee9f80247e36
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>Azure Application Insights를 사용하여 런타임 예외 찾기 및 진단
 
@@ -49,27 +49,32 @@ Azure Application Insights는 응용 프로그램에서 원격 분석을 수집�
 Application Insights는 응용 프로그램에서 모든 오류를 수집하고 여러 작업 간에 빈도를 볼 수 있도록 하여 가장 높은 영향으로 해당 내용에 집중할 수 있도록 돕습니다.  그런 다음 이러한 실패의 세부 정보를 드릴다운하여 근본 원인을 식별할 수 있습니다.   
 
 1. **Application Insights**를 선택한 다음 구독을 선택합니다.  
-1. **실패** 패널을 열려면 **조사** 메뉴 아래의 **실패**를 선택하거나 **실패한 요청** 그래프를 클릭합니다.
+2. **실패** 패널을 열려면 **조사** 메뉴 아래의 **실패**를 선택하거나 **실패한 요청** 그래프를 클릭합니다.
 
     ![실패한 요청](media/app-insights-tutorial-runtime-exceptions/failed-requests.png)
 
-2. **실패한 요청** 패널은 실패한 요청 수 및 응용 프로그램의 각 작업에 대해 영향을 받는 사용자 수를 표시합니다.  사용자가 이 정보를 정렬하여 사용자에게 가장 큰 영향을 주는 이러한 오류를 식별할 수 있습니다.  이 예제에서는 **직원 가져오기/만들기** 및 **고객/세부 정보 가져오기**는 큰 실패 수 및 영향을 받는 사용자로 인해 조사할 후보일 가능성이 있습니다.  작업을 선택하면 이 작업에 대한 자세한 정보가 오른쪽 패널에 표시됩니다.
+3. **실패한 요청** 패널은 실패한 요청 수 및 응용 프로그램의 각 작업에 대해 영향을 받는 사용자 수를 표시합니다.  사용자가 이 정보를 정렬하여 사용자에게 가장 큰 영향을 주는 이러한 오류를 식별할 수 있습니다.  이 예제에서는 **직원 가져오기/만들기** 및 **고객/세부 정보 가져오기**는 큰 실패 수 및 영향을 받는 사용자로 인해 조사할 후보일 가능성이 있습니다.  작업을 선택하면 이 작업에 대한 자세한 정보가 오른쪽 패널에 표시됩니다.
 
     ![실패한 요청 패널](media/app-insights-tutorial-runtime-exceptions/failed-requests-blade.png)
 
-3. 창을 축소하여 실패율이 급증을 나타내는 기간에 대해 확대합니다.
+4. 창을 축소하여 실패율이 급증을 나타내는 기간에 대해 확대합니다.
 
     ![실패한 요청 창](media/app-insights-tutorial-runtime-exceptions/failed-requests-window.png)
 
-4. **세부 정보 보기**를 클릭하여 작업에 대한 세부 정보를 확인합니다.  이는 완료되는 데 전체적으로 거의 0.5초가 소요되는 두 개의 실패한 종속성을 보여 주는 Gantt 차트를 포함합니다.  자습서 [Azure Application Insights를 사용하여 성능 문제 찾기 및 진단](app-insights-tutorial-performance.md)을 완료하여 성능 문제 분석에 대한 자세한 내용을 확인할 수 있습니다.
+5. **세부 정보 보기**를 클릭하여 작업에 대한 세부 정보를 확인합니다.  이는 완료되는 데 전체적으로 거의 0.5초가 소요되는 두 개의 실패한 종속성을 보여 주는 Gantt 차트를 포함합니다.  자습서 [Azure Application Insights를 사용하여 성능 문제 찾기 및 진단](app-insights-tutorial-performance.md)을 완료하여 성능 문제 분석에 대한 자세한 내용을 확인할 수 있습니다.
 
     ![실패한 요청 세부 정보](media/app-insights-tutorial-runtime-exceptions/failed-requests-details.png)
 
-5. 또한 작업 세부 정보는 실패를 야기한 것으로 보이는 FormatException을 보여 줍니다.  예외 또는 **상위 3개 예외 유형** 수를 클릭하여 해당 세부 정보를 볼 수 있습니다.  잘못된 우편 번호 때문임을 확인할 수 있습니다.
+6. 또한 작업 세부 정보는 실패를 야기한 것으로 보이는 FormatException을 보여 줍니다.  예외 또는 **상위 3개 예외 유형** 수를 클릭하여 해당 세부 정보를 볼 수 있습니다.  잘못된 우편 번호 때문임을 확인할 수 있습니다.
 
     ![예외 세부 정보](media/app-insights-tutorial-runtime-exceptions/failed-requests-exception.png)
 
+> [!NOTE]
+“통합된 세부 정보: E2E 트랜잭션 진단” [미리 보기 환경](app-insights-previews.md)을 사용하도록 설정하여 요청, 종속성, 예외, 추적, 이벤트 등과 같은 모든 관련 서버 쪽 원격 분석을 하나의 전체 화면 보기에서 확인할 수 있습니다. 
 
+미리 보기를 사용하도록 설정하면 통합된 환경에서 오류 또는 예외와 함께 종속성 호출에 소요된 시간을 볼 수 있습니다. 구성 요소 간 트랜잭션의 경우 세부 정보 창 함께 Gantt 차트를 통해 근본 원인 구성 요소, 종속성 또는 예외를 신속하게 진단할 수 있습니다. 아래쪽 섹션을 확장하여 선택한 구성 요소 작업에 수집된 모든 추적 또는 이벤트의 시간 시퀀스를 확인할 수 있습니다. [새 환경에 대해 자세히 알아보세요](app-insights-transaction-diagnostics.md).  
+
+![트랜잭션 진단](media/app-insights-tutorial-runtime-exceptions/e2e-transaction-preview.png)
 
 ## <a name="identify-failing-code"></a>실패 코드 식별
 스냅숏 디버거는 응용 프로그램에서 가장 빈번한 예외의 스냅숏을 수집하여 프로덕션에서 해당 근본 원인을 진단하는 데 도움을 줍니다.  포털에서 디버그 스냅숏을 확인하여 호출 스택을 보고 각 호출 스택 프레임에서 변수를 검사할 수 있습니다. 그런 다음 스냅숏을 다운로드하고 Visual Studio 2017에서 열어 소스 코드를 디버깅할 수 있습니다.

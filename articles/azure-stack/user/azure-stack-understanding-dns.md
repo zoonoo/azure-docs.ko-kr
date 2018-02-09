@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: scottnap
-ms.openlocfilehash: 8c023eda179ace41a082bf4a4fadc281c14db7ba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 381947a5c936b2bbcae1cf61cdd36eb1653be30b
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="introducing-idns-for-azure-stack"></a>Azure 스택에 대 한 Idn 소개
 
@@ -30,7 +30,7 @@ Idn은 Azure 스택 (예: http://www.bing.com) 외부 DNS 이름을 확인할 �
 결코 있는 Azure에서 가능한 이지만 Windows Server 2016 및 Azure 스택에서 사용할 수 있는 너무 합니다.
 
 ## <a name="what-does-idns-do"></a>Idn의 기능은 무엇입니까?
-Azure 스택의 Idn와 사용자 지정 DNS 서버 항목을 지정할 필요 없이 다음과 같은 기능을 가져옵니다.
+Azure 스택의 Idn으로를 사용자 지정 DNS 서버 항목을 지정할 필요 없이 다음과 같은 기능을 얻을 있습니다.
 
 * 테 넌 트 작업에 대 한 DNS 이름 확인 서비스를 공유합니다.
 * 이름 확인 및 테 넌 트 가상 네트워크 내에서 DNS 등록에 대 한 권한 있는 DNS 서비스입니다.

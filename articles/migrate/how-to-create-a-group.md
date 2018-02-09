@@ -5,13 +5,13 @@ author: rayne-wiselman
 ms.service: azure-migrate
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 12/19/2017
 ms.author: raynew
-ms.openlocfilehash: 429a9150d1fbf50c0e3fa2046eb64affc8db8e5d
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: f42b184cddb3274d7ee0163c10cac002ccfbef62
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="group-machines-for-assessment"></a>평가할 컴퓨터 그룹화
 
@@ -20,7 +20,7 @@ ms.lasthandoff: 12/12/2017
 
 ## <a name="create-a-group"></a>그룹 만들기
 
-1. Azure Migrate 프로젝트의 **대시보드**에서  **그룹** > **+ 그룹**을 차례로 클릭하고 그룹 이름을 지정합니다.
+1. Azure Migrate 프로젝트의 **개요**에서 관리 아래의  **그룹** > **+그룹**을 차례로 클릭하고 그룹 이름을 지정합니다.
 2. 그룹에 컴퓨터를 하나 이상 추가하고  **만들기**를 클릭합니다. 
 3. 필요에 따라 그룹에 대해 새 평가를 실행하도록 선택할 수 있습니다. 
 
@@ -30,5 +30,5 @@ ms.lasthandoff: 12/12/2017
 
 ## <a name="next-steps"></a>다음 단계
 
-- [컴퓨터 종속성 매핑](how-to-create-group-machine-dependencies.md)을 사용하여 더 자세한 그룹을 만드는 방법을 알아봅니다.
+- [컴퓨터 종속성 매핑](how-to-create-group-machine-dependencies.md)을 사용하여 높은 신뢰도 그룹을 만드는 방법을 알아봅니다.
 - 평가를 계산하는 방법에 대해 [자세히 알아봅니다](concepts-assessment-calculation.md).

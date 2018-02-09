@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: xpouyat
-ms.openlocfilehash: b5a36ac6771bef220afe29446cd56c1b65a498d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 87a5a1981b05722f25a70fcb73a06db65bcbe0fd
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="licensing-microsoft-smooth-streaming-client-porting-kit"></a>Microsoft® 부드러운 스트리밍 클라이언트 이식 키트 라이선스
 ## <a name="overview"></a>개요
-Microsoft 부드러운 스트리밍 클라이언트 이식 키트(줄여서**SSPK**)는 임베디드 장치 제조업체, 케이블 및 모바일 운영자, 콘텐츠 서비스 공급자, 송수화기 제조업체, ISV(독립 소프트웨어 공급업체) 및 솔루션 공급자가 가변 스트리밍 콘텐츠를 부드러운 스트리밍 형식으로 스트리밍하는 제품 및 서비스를 만들 수 있도록 최적화된 부드러운 스트리밍 클라이언트 구현입니다. SSPK는 정식 사용자가 어떠한 장치 및 플랫폼에도 이식할 수 있는 부드러운 스트리밍 클라이언트의 장치 및 플랫폼 독립적인 구현입니다. 
+Microsoft 부드러운 스트리밍 클라이언트 이식 키트(줄여서**SSPK**)는 포함된 장치 제조업체, 케이블 및 모바일 운영자, 콘텐츠 서비스 공급자, 송수화기 제조업체, ISV(독립 소프트웨어 공급업체) 및 솔루션 공급자가 적응 콘텐츠를 부드러운 스트리밍 형식으로 스트리밍하는 제품 및 서비스를 만들 수 있도록 최적화된 부드러운 스트리밍 클라이언트 구현입니다. SSPK는 정식 사용자가 어떠한 장치 및 플랫폼에도 이식할 수 있는 부드러운 스트리밍 클라이언트의 장치 및 플랫폼 독립적인 구현입니다. 
 
-아래 내용은 상위 수준의 아키텍처를 보여주며 IIS 부드러운 스트리밍 이식 키트 상자는 Microsoft에서 제공하는 부드러운 스트리밍 클라이언트 구현으로, 부드러운 스트리밍 콘텐츠 재생을 위한 모든 핵심 논리를 포함합니다. 그런 다음 파트너는 적절한 인터페이스를 구현하며 특정 장치 또는 플랫폼에 맞게 이식합니다. 
+아래 내용은 상위 수준의 아키텍처로, IIS 부드러운 스트리밍 이식 키트 상자는 Microsoft에서 제공하는 부드러운 스트리밍 클라이언트 구현이며 부드러운 스트리밍 콘텐츠 재생을 위한 모든 핵심 논리를 포함합니다. 그런 다음 파트너가 적절한 인터페이스를 구현하여 특정 장치 또는 플랫폼에 맞게 이 콘텐츠를 이식합니다. 
 
 ![SSPK](./media/media-services-sspk/sspk-arch.png)
 
@@ -70,7 +70,7 @@ Microsoft 부드러운 스트리밍 클라이언트 이식 키트는 두 가지�
 * 각 연도의 최초 10,000대의 장치 구현에 대해서는 사용료 없음 
 
 ## <a name="licensing-procedure-and-sspk-access"></a>라이선스 절차 및 SSPK 액세스
-모든 라이선스 관련 문의는 [sspkinfo@microsoft.com](mailto:sspkinfo@microsoft.com) 로 문의하시기 바랍니다.
+라이선스와 관련해서 궁금한 점이 있으면 [sspkinfo@microsoft.com](mailto:sspkinfo@microsoft.com)으로 메일을 보내 주세요.
 
 [SSPK 배포 포털](https://microsoft.sharepoint.com/teams/SSPKDOWNLOAD/) 은 등록된 중간 정식 사용자가 액세스할 수 있습니다.
 
@@ -103,7 +103,7 @@ Microsoft 부드러운 스트리밍 클라이언트 이식 키트는 두 가지�
 * SoftAtHome
 * Sony Corporation
 * Tatung Technology Inc.
-* TCL Technoly Electronics (Huizhou) Co., Ltd.
+* TCL Technology Electronics(Huizhou) Co., Ltd.
 * Top Victory Investments, Ltd.
 * Vestel Elektronik Sanayi ve Ticaret A.S.
 * VisualOn, Inc.
@@ -130,7 +130,7 @@ Microsoft 부드러운 스트리밍 클라이언트 이식 키트는 두 가지�
 * Haier Information Applicantion S.R.L
 * HANDAN BroadInfoCom Co., Ltd.
 * Hisense International Co., Ltd. 
-* Homecast Co.,Ltd
+* Homecast Co., Ltd
 * Hon Hai Precision Industry Co., Ltd.
 * Infomir GMBH
 * Kaonmedia Co., Ltd.
@@ -140,7 +140,7 @@ Microsoft 부드러운 스트리밍 클라이언트 이식 키트는 두 가지�
 * Saffron Digital Limited
 * Sagemcom Broadband SAS
 * Shenzhen Coship Electronics CO., LTD
-* Shenzhen Jiuzhou Electric Co.,Ltd
+* Shenzhen Jiuzhou Electric Co., Ltd
 * Shenzhen Skyworth Digital Technology Co., Ltd
 * Sichuan Changhong Electric Co., Ltd.
 * Skardin Industrial Corp.

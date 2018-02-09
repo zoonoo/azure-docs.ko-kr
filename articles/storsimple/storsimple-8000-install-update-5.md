@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/13/2017
 ms.author: alkohli
-ms.openlocfilehash: eefeedfb87bd30630439d13a434b246508defa96
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: d6e17c7609fd41b8f4457edda373f6882a1a9d2b
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="install-update-5-on-your-storsimple-device"></a>StorSimple 장치에 업데이트 5 설치
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 11/13/2017
 > * 업데이트 5는 필수 업데이트로, 즉시 설치해야 합니다. 자세한 내용은 [업데이트 5 릴리스 정보](storsimple-update5-release-notes.md)를 참조하세요.
 > * 설치하기 전에 일련의 수동 및 자동 전 검사를 수행하며 하드웨어 상태와 네트워크 연결 측면에서 장치 상태를 확인합니다. Azure Portal에서 업데이트를 적용하는 경우 이러한 사전 검사를 수행합니다.
 > * 업데이트 3 이전 버전을 실행하는 장치를 업데이트할 때는 핫픽스 방법을 사용하여 업데이트를 설치하는 것이 좋습니다. 문제가 발생할 경우 [지원 티켓을 로그](storsimple-8000-contact-microsoft-support.md)합니다.
-> * Azure Portal을 통해 소프트웨어 및 기타 정기적인 업데이트를 설치하는 것이 좋습니다. 포털에서 사전 업데이트 게이트웨이 검사가 실패한 경우 (업데이트를 설치하려면) 장치의 Windows PowerShell 인터페이스로 이동해야 합니다. 업데이트하는 버전에 따라 업데이트 설치에 4시간(이상)이 걸릴 수 있습니다. 장치의 Windows PowerShell 인터페이스를 통해 유지 관리 모드 업데이트를 설치해야 합니다. 유지 관리 모드 업데이트는 중단 업데이트입니다. 이는 장치에 중단 시간을 발생시킵니다.
+> * Azure Portal을 통해 소프트웨어 및 기타 정기적인 업데이트를 설치하는 것이 좋습니다. 포털에서 사전 업데이트 게이트웨이 검사가 실패한 경우 (업데이트를 설치하려면) 장치의 Windows PowerShell 인터페이스로 이동해야 합니다. 업데이트하는 버전에 따라 업데이트 설치에 4시간(이상)이 걸릴 수 있습니다. 유지 관리 모드 업데이트는 중단 업데이트입니다. 유지 관리 모드 업데이트는 중단 업데이트입니다. 이는 장치에 중단 시간을 발생시킵니다.
 > * 선택적 StorSimple Snapshot Manager를 실행하는 경우 장치를 업데이트하기 전에 Snapshot Manager 버전을 업데이트 5로 업그레이드했는지 확인합니다.
 
 
@@ -77,21 +77,21 @@ ms.lasthandoff: 11/13/2017
 
 | 순서 | KB | 설명 | 업데이트 유형 | 설치 시간 |폴더에 설치|
 | --- | --- | --- | --- | --- | --- |
-| 1. |KB4037264 |소프트웨어 업데이트<br> _HcsSfotwareUpdate.exe_ 및 _CisMSDAgent.exe_를 둘 다 다운로드 |일반 <br></br>중단 없음 |~ 25분 |FirstOrderUpdate|
+| 1. |KB4037264 |소프트웨어 업데이트<br> _HcsSoftwareUpdate.exe_ 및 _CisMSDAgent.exe_를 둘 다 다운로드 |일반  <br></br>중단 없음 |~ 25분 |FirstOrderUpdate|
 
 업데이트 4를 실행하는 장치에서 업데이트하는 경우 OS 누적 업데이트를 반드시 두 번째 주문 업데이트로 설치해야 합니다.
 
 | 순서 | KB | 설명 | 업데이트 유형 | 설치 시간 |폴더에 설치|
 | --- | --- | --- | --- | --- | --- |
-| 2A. |KB4025336 |운영 체제 누적 업데이트 패키지 <br> Windows Server 2012 R2 버전 다운로드 |일반 <br></br>중단 없음 |- |SecondOrderUpdate|
+| 2A. |KB4025336 |운영 체제 누적 업데이트 패키지 <br> Windows Server 2012 R2 버전 다운로드 |일반  <br></br>중단 없음 |- |SecondOrderUpdate|
 
 업데이트 3 또는 이전 버전을 실행하는 장치에서 설치하는 경우 누적 업데이트 외에 다음도 설치합니다.
 
 | 순서 | KB | 설명 | 업데이트 유형 | 설치 시간 |폴더에 설치|
 | --- | --- | --- | --- | --- | --- |
-| 2B. |KB4011841 <br> KB4011842 |LSI 드라이버 및 펌웨어 업데이트 <br> USM 펌웨어 업데이트(버전 3.38) |일반 <br></br>중단 없음 |~ 3시간 <br> (2A. + 2B. + 2C 포함)|SecondOrderUpdate|
-| 2C. |KB3139398 <br> KB3142030 <br> KB3108381 <br> KB3153704 <br> KB3174644 <br> KB3139914   |OS 보안 업데이트 패키지 <br> Windows Server 2012 R2 버전 다운로드 |일반 <br></br>중단 없음 |- |SecondOrderUpdate|
-| 2D |KB3146621 <br> KB3103616 <br> KB3121261 <br> KB3123538 |OS 업데이트 패키지 <br> Windows Server 2012 R2 버전 다운로드 |일반 <br></br>중단 없음 |- |SecondOrderUpdate|
+| 2B. |KB4011841 <br> KB4011842 |LSI 드라이버 및 펌웨어 업데이트 <br> USM 펌웨어 업데이트(버전 3.38) |일반  <br></br>중단 없음 |~ 3시간 <br> (2A. + 2B. + 2C 포함)|SecondOrderUpdate|
+| 2C. |KB3139398 <br> KB3142030 <br> KB3108381 <br> KB3153704 <br> KB3174644 <br> KB3139914   |OS 보안 업데이트 패키지 <br> Windows Server 2012 R2 버전 다운로드 |일반  <br></br>중단 없음 |- |SecondOrderUpdate|
+| 2D |KB3146621 <br> KB3103616 <br> KB3121261 <br> KB3123538 |OS 업데이트 패키지 <br> Windows Server 2012 R2 버전 다운로드 |일반  <br></br>중단 없음 |- |SecondOrderUpdate|
 
 
 앞의 표에 나와 있는 모든 업데이트 맨 위에 디스크 펌웨어 업데이트를 설치해야 할 수도 있습니다. `Get-HcsFirmwareVersion` cmdlet을 실행하여 디스크 펌웨어 업데이트가 필요한지를 확인할 수 있습니다. 펌웨어 버전 `XMGJ`, `XGEG`, `KZ50`, `F6C2`, `VR08`, `N003` ,`0107`을 실행하는 경우 이러한 업데이트를 설치할 필요가 없습니다.

@@ -4,7 +4,7 @@ description: "SQL Database 보안 관리, 특히 서버 수준 보안 주체 계
 keywords: "sql 데이터베이스 보안,데이터베이스 보안 관리,로그인 보안,데이터베이스 보안,데이터베이스 액세스"
 services: sql-database
 documentationcenter: 
-author: BYHAM
+author: CarlRabeler
 manager: jhubbard
 editor: 
 tags: 
@@ -16,16 +16,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 01/23/2017
-ms.author: rickbyh
-ms.openlocfilehash: 0e66eec6c1843df49d3dc323cd109fb9eeb708c3
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.author: carlrab
+ms.openlocfilehash: 4963e67317f22140c318e29bcd03bce4b9f57ab6
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="controlling-and-granting-database-access"></a>데이터베이스 액세스 제어 및 권한 부여
 
-방화벽 규칙이 구성되면 사용자는 관리자 계정 중 하나, 데이터베이스 소유자 또는 데이터베이스에서 데이터베이스 사용자로 SQL Database에 연결할 수 있습니다.  
+방화벽 규칙이 구성된 후에 사용자는 관리자 계정 중 하나, 데이터베이스 소유자 또는 데이터베이스에서 데이터베이스 사용자로 SQL Database에 연결할 수 있습니다.  
 
 >  [!NOTE]  
 >  이 항목은 Azure SQL 서버 및 Azure SQL 서버에서 생성된 SQL Database와 SQL Data Warehouse 데이터베이스에 적용됩니다. 간단히 하기 위해 SQL Database는 SQL Database와 SQL Data Warehouse를 참조할 때 사용됩니다. 

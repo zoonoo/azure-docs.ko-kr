@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2017
+ms.date: 01/26/2018
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
-ms.openlocfilehash: d485d2e7d22ea79a87dc52dbc063a811f4a1a2ec
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f9d79746dcf307cf434ee78d9b1514f5886d9fb6
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="configure-expiration-for-office-365-groups-preview"></a>Office 365 그룹 만료 구성(미리 보기)
 
@@ -30,17 +30,25 @@ ms.lasthandoff: 12/11/2017
 -   삭제된 Office 365 그룹은 그룹 소유자 또는 관리자에 의해 30일 이내로 복원될 수 있습니다.
 
 > [!NOTE]
-> Office 365 그룹에 대한 만료를 설정하려면 만료 설정이 적용될 그룹의 모든 구성원에 대해 Azure AD Premium 라이선스 또는 Azure AD Basic EDU 라이선스가 있어야 합니다.
-> 
-> Azure AD Basic EDU 라이선스 고객의 경우 이 정책을 처음으로 구성하려면 Azure Active Directory PowerShell cmdlet을 사용합니다. 그런 후에는 PowerShell 또는 Azure AD 포털에서 Azure AD 테넌트에서 사용자 계정 관리자 또는 전역 관리자에 해당하는 계정으로 만료 설정을 업데이트할 수 있습니다.
+> Office 365 그룹에 대한 만료를 설정하려면 만료 설정이 적용될 그룹의 모든 구성원에 대해 Azure AD Premium 라이선스가 있어야 합니다.
 
 Azure AD PowerShell cmdlet을 다운로드하여 설치하는 방법에 대한 내용은 [Azure Active Directory PowerShell for Graph - 공개 미리 보기 릴리스 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137)을 참조하세요.
+
+## <a name="roles-and-permissions"></a>역할 및 권한
+다음은 Azure AD에서 Office 365 그룹의 만료를 구성하고 사용할 수 있는 역할입니다.
+
+역할 | 권한
+-------- | --------
+전역 관리자<br>사용자 계정 관리자 | Office 365 그룹 만료 정책 설정을 만들거나, 읽거나, 업데이트하거나, 삭제할 수 있음
+사용자 | 소유하는 Office 365 그룹을 갱신할 수 있음<br>소유하는 Office 365 그룹을 복원할 수 있음
+
+삭제된 그룹을 복원하는 권한에 대한 자세한 내용은 [삭제된 Office 365 그룹 복원](active-directory-groups-restore-azure-portal.md)을 참조하세요.
 
 ## <a name="set-group-expiration"></a>그룹 만료 설정
 
 1. Azure AD 테넌트에서 전역 관리자인 계정으로 [Azure AD 관리 센터](https://aad.portal.azure.com)를 엽니다.
 
-2. Azure AD를 열고 **사용자 및 그룹**을 선택합니다.
+2. **사용자 및 그룹**을 선택합니다.
 
 3. **그룹 설정**을 선택한 다음 **만료**를 선택하여 만료 설정을 엽니다.
   
@@ -50,7 +58,7 @@ Azure AD PowerShell cmdlet을 다운로드하여 설치하는 방법에 대한 �
 
   * 일 단위로 그룹 수명을 설정합니다. 미리 설정된 값 중 하나 또는 사용자 지정 값을 선택할 수 있습니다(31일 이상이어야 함). 
   * 그룹에 소유자가 없는 경우 갱신 및 만료 알림이 전송되어야 하는 전자 메일 주소를 지정합니다. 
-  * 만료되는 Office 365 그룹을 선택합니다. **모든** Office 365 그룹에 대한 만료를 설정할 수 있고, Office 365 그룹 중에서 선택하거나 모든 그룹에 대해 만료를 비활성화하도록 선택하지 **않을** 수 있습니다.
+  * 만료되는 Office 365 그룹을 선택합니다. **모든** Office 365 그룹에 대한 만료를 설정하거나, **선택된** Office 365 그룹만 사용하도록 선택하거나 **없음**을 선택하여 모든 그룹에 대해 만료를 비활성화하도록 선택할 수 있습니다.
   * 완료되면 **저장**을 선택하여 설정을 저장합니다.
 
 

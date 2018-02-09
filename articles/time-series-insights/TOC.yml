@@ -46,7 +46,7 @@
       href: time-series-insights-how-to-scale-your-environment.md
     - name: 템플릿을 사용하여 리소스 관리
       href: time-series-insights-manage-resources-using-azure-resource-manager-template.md
-- name: 참조
+- name: 참고 자료
   items:
     - name: 쿼리 API
       href: /rest/api/time-series-insights/time-series-insights-reference-queryapi
@@ -76,3 +76,5 @@
       href: 'https://stackoverflow.com/questions/tagged/azure-timeseries-insights'
     - name: 지원 옵션
       href: 'https://azure.microsoft.com/support/options/'
+    - name: 동영상
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=time-series-insights'

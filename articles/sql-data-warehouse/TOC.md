@@ -6,6 +6,14 @@
 # 빠른 시작
 
 ## [만들기 및 연결 - 포털](create-data-warehouse-portal.md)
+## 계산 일지 중지 및 다시 시작
+### [포털](pause-and-resume-compute-portal.md)
+### [PowerShell](pause-and-resume-compute-powershell.md)
+## 계산 조정
+### [포털](quickstart-scale-compute-portal.md)
+### [PowerShell](quickstart-scale-compute-powershell.md)
+### [T-SQL](quickstart-scale-compute-tsql.md)
+
 
 # 자습서
 ## [1 - blob에서 데이터 로드](load-data-from-azure-blob-storage-using-polybase.md)
@@ -109,8 +117,6 @@
 ### [워크로드 분석](analyze-your-workload.md)
 
 ## 확장
-### [계산 관리 - 포털](sql-data-warehouse-manage-compute-portal.md)
-### [계산 관리 - PowerShell](sql-data-warehouse-manage-compute-powershell.md)
 ### [계산 관리 - REST API](sql-data-warehouse-manage-compute-rest-api.md)
 ### [계산 수준 자동화](manage-compute-with-azure-functions.md)
 

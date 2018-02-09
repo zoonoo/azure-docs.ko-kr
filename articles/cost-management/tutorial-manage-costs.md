@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 11/21/2017
+ms.date: 01/30/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: bfbcded98814500a03b2b79b0248c84f8f043dc0
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 804b50d6ba054bbb0eb60b659c98f161ea5272ee
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="manage-costs-by-using-azure-cost-management"></a>Azure Cost Management를 사용한 비용 관리
 
@@ -46,7 +46,7 @@ Cloudyn이 제공하는 Azure Cost Management에서 태그를 기준으로 비�
 
 다음으로, **분류되지 않은 리소스**를 선택하고 할당되지 않은 비용이 있는 서비스를 선택합니다. 그런 다음 비용을 할당하는 규칙을 정의합니다.
 
-예를 들어 Azure Storage 비용을 취하여 Azure VM(가상 컴퓨터)에 비용을 동일하게 배포하고자 합니다. 이렇게 하려면 **Azure/Storage** 서비스를 선택하고, **분류된 항목에 비례**를 선택한 다음, **Azure/VM**을 선택합니다. 그런 다음 **만들기**를 선택합니다.
+예를 들어 Azure Storage 비용을 취하여 Azure VM(가상 머신)에 비용을 동일하게 배포하고자 합니다. 이렇게 하려면 **Azure/Storage** 서비스를 선택하고, **분류된 항목에 비례**를 선택한 다음, **Azure/VM**을 선택합니다. 그런 다음 **만들기**를 선택합니다.
 
 ![동일한 배포에 대한 예제 비용 모델 할당 규칙](./media/tutorial-manage-costs/cost-model02.png)
 

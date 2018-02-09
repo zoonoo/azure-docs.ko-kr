@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/19/2017
+ms.date: 01/29/2018
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 32e63b250467f5733b2e691614fe52f96f2f9d91
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 50020f007096b45b843515ff765e40c550fcf4e3
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>IoT Hub의 ID 레지스트리 이해
 
@@ -84,7 +84,7 @@ API를 가져오고 내보내는 작업에 대한 자세한 정보는 [IoT Hub �
 
 지정된 IoT 솔루션이 저장하는 장치 데이터는 해당 솔루션의 요구 사항에 따라 다릅니다. 하지만 어떤 솔루션이든 최소한 장치 ID와 인증 키를 저장해야 합니다. Azure IoT Hub는 ID, 인증 키 및 상태 코드와 같은 각 장치에 대한 값을 저장할 수 있는 ID 레지스트리를 포함합니다. 솔루션은 Table Storage, Blob Storage 또는 Cosmos DB와 같은 기타 Azure 서비스를 사용하여 추가 장치 데이터를 저장할 수 있습니다.
 
-*장치 프로비전* 은 솔루션 저장소에 초기 장치 데이터를 추가하는 프로세스입니다. 새 장치를 허브에 연결하도록 하려면 장치 ID 및 키를 IoT Hub ID 레지스트리에 추가해야 합니다. 프로비전 프로세스의 일부로, 다른 솔루션 저장소에서 장치 특정 데이터를 초기화해야 할 수 있습니다.
+*장치 프로비전* 은 솔루션 저장소에 초기 장치 데이터를 추가하는 프로세스입니다. 새 장치를 허브에 연결하도록 하려면 장치 ID 및 키를 IoT Hub ID 레지스트리에 추가해야 합니다. 프로비전 프로세스의 일부로, 다른 솔루션 저장소에서 장치 특정 데이터를 초기화해야 할 수 있습니다. 또한 Azure IoT Hub Device Provisioning 서비스를 사용하여 사용자 개입 없이, 하나 이상의 IoT Hub에 대해 무인 Just-In-Time 프로비저닝을 수행할 수도 있습니다. 자세한 내용은 [프로비저닝 서비스 설명서][lnk-dps]를 참조하세요.
 
 ## <a name="device-heartbeat"></a>장치 하트비트
 
@@ -105,7 +105,7 @@ IoT 솔루션에서 장치가 연결되었는지 여부를 알아야 하는 경�
 
 속성: 메시지 시스템 속성 앞에 `'$'` 기호를 붙입니다.
 
-| 이름 | 값 |
+| Name | 값 |
 | --- | --- |
 $content-type | application/json |
 $iothub-enqueuedtime |  알림이 전송된 시간 |
@@ -144,9 +144,9 @@ iothub-message-schema | deviceLifecycleNotification |
 
 장치 ID는 다음 속성을 사용하여 JSON 문서로 표시됩니다.
 
-| 속성 | 옵션 | 설명 |
+| 자산 | 옵션 | 설명 |
 | --- | --- | --- |
-| deviceId |필요한 경우 업데이트에서 읽기 전용입니다. |ASCII 7 비트 영숫자 문자 + 특정 특수 문자 `- : . + % _ # * ? ! ( ) , = @ ; $ '`의 대/소문자 구분 문자열(최대 128자 길이)입니다. |
+| deviceId |필요한 경우 업데이트에서 읽기 전용입니다. |ASCII 7 비트 영숫자 문자 + 특정 특수 문자 `- . + % _ # * ? ! ( ) , = @ $ '`의 대/소문자 구분 문자열(최대 128자 길이)입니다. |
 | generationId |필요한 경우 읽기 전용 |IoT Hub에서 생성된 최대 128자의 대/소문자 구분 문자열입니다. 이 값은 삭제되고 다시 만들 때와 동일한 **deviceId**로 장치를 구분하는 데 사용됩니다. |
 | etag |필요한 경우 읽기 전용 |[RFC7232][lnk-rfc7232]에 따라 장치 ID에 대해 약한 ETag를 나타내는 문자열입니다. |
 | auth |선택 사항 |인증 정보 및 보안 자료를 포함하는 복합 개체입니다. |
@@ -180,9 +180,14 @@ IoT Hub ID 레지스트리를 사용하는 방법에 대해 알아봤으니 다�
 * [장치에서 직접 메서드 호출][lnk-devguide-directmethods]
 * [여러 장치에서 jobs 예약][lnk-devguide-jobs]
 
-이 문서에서 설명한 일부 개념을 시도해 보려면 다음과 같은 IoT Hub 자습서를 살펴보세요.
+이 문서에서 설명한 일부 개념을 시도해 보려면 다음과 같은 IoT Hub 자습서를 참조하세요.
 
 * [Azure IoT Hub 시작][lnk-getstarted-tutorial]
+
+IoT Hub Device Provisioning 서비스를 사용하여 무인 Just-In-Time 프로비저닝을 수행하는 방법을 알아보려면 다음을 참조하세요. 
+
+* [Azure IoT Hub Device Provisioning 서비스][lnk-dps]
+
 
 <!-- Links and images -->
 
@@ -205,3 +210,4 @@ IoT Hub ID 레지스트리를 사용하는 방법에 대해 알아봤으니 다�
 [lnk-devguide-jobs]: iot-hub-devguide-jobs.md
 
 [lnk-getstarted-tutorial]: iot-hub-csharp-csharp-getstarted.md
+[lnk-dps]: https://azure.microsoft.com/documentation/services/iot-dps

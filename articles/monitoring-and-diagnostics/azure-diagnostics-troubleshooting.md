@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: robb
-ms.openlocfilehash: b03265b52886b30e4b9de0b0293e5dadd6d2413a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ae99085a37162a883d18976181be198a2f21a60c
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Azure 진단 문제 해결
 이 문서에서는 Azure 진단 사용과 관련된 문제 해결 정보를 설명합니다. Azure 진단에 대한 자세한 내용은 [Azure 진단 개요](azure-diagnostics.md)를 참조하세요.
@@ -33,8 +33,8 @@ ms.lasthandoff: 10/11/2017
 ## <a name="logartifact-paths"></a>로그/아티팩트 경로
 다음은 중요한 몇 가지 로그 및 아티팩트에 대한 경로입니다. 문서의 나머지 부분에서 이 정보를 참조합니다.
 
-### <a name="azure-cloud-services"></a>Azure 클라우드 서비스
-| 아티팩트 | Path |
+### <a name="azure-cloud-services"></a>Azure Cloud Services
+| 아티팩트 | path |
 | --- | --- |
 | **Azure 진단 구성 파일** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version>\Config.txt |
 | **로그 파일** | C:\Logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version>\ |
@@ -44,8 +44,8 @@ ms.lasthandoff: 10/11/2017
 | **로그 컬렉션 유틸리티 경로** | %SystemDrive%\Packages\GuestAgent\ |
 | **MonAgentHost 로그 파일** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
-### <a name="virtual-machines"></a>가상 컴퓨터
-| 아티팩트 | Path |
+### <a name="virtual-machines"></a>가상 머신
+| 아티팩트 | path |
 | --- | --- |
 | **Azure 진단 구성 파일** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version>\RuntimeSettings |
 | **로그 파일** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version>\Logs\ |
@@ -59,12 +59,12 @@ ms.lasthandoff: 10/11/2017
 ## <a name="metric-data-doesnt-appear-in-the-azure-portal"></a>Azure Portal에 메트릭 데이터가 나타나지 않음
 Azure 진단은 Azure Portal에 표시할 수 있는 메트릭 데이터를 제공합니다. 포털에서 데이터를 보는 데 문제가 있는 경우 Azure 진단 저장소 계정의 WADMetrics\* 테이블을 확인하여 해당 메트릭 레코드가 있는지 확인합니다. 
 
-여기서 테이블의 **PartitionKey**는 리소스 ID, 가상 컴퓨터 또는 가상 컴퓨터 확장 집합입니다. **RowKey**는 메트릭 이름(일명 성능 카운터 이름)입니다.
+여기서 테이블의 **PartitionKey**는 리소스 ID, 가상 머신 또는 가상 머신 확장 집합입니다. **RowKey**는 메트릭 이름(일명 성능 카운터 이름)입니다.
 
 리소스 ID가 올바르지 않으면 **진단** **구성** > **메트릭** > **리소스 ID**가 올바르게 설정되었는지 확인합니다.
 
 특정 메트릭에 대한 데이터가 없는 경우 **진단 구성** > **PerformanceCounter**에 메트릭(성능 카운터)이 포함되어 있는지 확인합니다. 다음 카운터를 기본적으로 활성화합니다.
-- \Processor(_Total)\% Processor Time
+- \Processor(_Total)\% 프로세서 시간
 - \Memory\Available Bytes
 - \ASP.NET Applications(__Total__)\Requests/Sec
 - \ASP.NET Applications(__Total__)\Errors Total/Sec
@@ -154,7 +154,7 @@ DiagnosticsPluginLauncher.exe Information: 0 : [4/16/2016 6:24:15 AM] Diagnostic
 ## <a name="diagnostics-data-tables-not-found"></a>진단 데이터 테이블을 찾을 수 없음
 ETW 이벤트를 보유하는 Azure Storage의 테이블 이름은 다음 코드를 사용하여 지정됩니다.
 
-```C#
+```csharp
         if (String.IsNullOrEmpty(eventDestination)) {
             if (e == "DefaultEvents")
                 tableName = "WADDefault" + MD5(provider);
@@ -205,7 +205,7 @@ ETW 이벤트를 보유하는 Azure Storage의 테이블 이름은 다음 코드
 ```
 이 코드는 테이블 네 개를 생성합니다.
 
-| 이벤트 | 테이블 이름 |
+| 행사 | 테이블 이름 |
 | --- | --- |
 | provider=”prov1” &lt;Event id=”1” /&gt; |WADEvent+MD5(“prov1”)+”1” |
 | provider=”prov1” &lt;Event id=”2” eventDestination=”dest1” /&gt; |WADdest1 |
@@ -215,13 +215,13 @@ ETW 이벤트를 보유하는 Azure Storage의 테이블 이름은 다음 코드
 ## <a name="references"></a>참조
 
 ### <a name="how-to-check-diagnostics-extension-configuration"></a>진단 확장 구성을 확인하는 방법
-확장 구성을 확인하는 가장 쉬운 방법은 [Azure Resource Explorer](http://resources.azure.com)로 이동한 다음 Azure 진단 확장(IaaSDiagnostics / PaaDiagnostics)이 있는 가상 컴퓨터 또는 클라우드 서비스로 이동하는 것입니다.
+확장 구성을 확인하는 가장 쉬운 방법은 [Azure Resource Explorer](http://resources.azure.com)로 이동한 다음 Azure 진단 확장(IaaSDiagnostics / PaaDiagnostics)이 있는 가상 머신 또는 클라우드 서비스로 이동하는 것입니다.
 
 또는 원격 데스크톱을 컴퓨터에 연결하고 [로그 아티팩트 경로 섹션](#log-artifacts-path)에서 설명하는 Azure 진단 구성 파일을 살펴보는 것입니다.
 
 두 경우 모두 **Microsoft.Azure.Diagnostics**를 검색한 다음 **xmlCfg** 또는 **WadCfg** 필드를 검색합니다. 
 
-가상 컴퓨터에서 검색하는데 **WadCfg** 필드가 있으면 구성이 JSON 형식임을 의미합니다. **xmlCfg** 필드가 있는 경우 구성은 XML 형식이고 base64로 인코딩됩니다. 진단에서 로드한 XML을 보려면 [디코딩](http://www.bing.com/search?q=base64+decoder)해야 합니다.
+가상 머신에서 검색하는데 **WadCfg** 필드가 있으면 구성이 JSON 형식임을 의미합니다. **xmlCfg** 필드가 있는 경우 구성은 XML 형식이고 base64로 인코딩됩니다. 진단에서 로드한 XML을 보려면 [디코딩](http://www.bing.com/search?q=base64+decoder)해야 합니다.
 
 Cloud Service 역할의 경우 디스크에서 구성을 선택하면 데이터가 base64로 인코딩되므로 진단에서 로드한 XML을 보려면 [디코딩](http://www.bing.com/search?q=base64+decoder)해야 합니다.
 
@@ -292,7 +292,7 @@ System.IO.FileLoadException: Could not load file or assembly 'System.Threading.T
 
 **2. 성능 카운터 데이터가 저장소에서 사용할 수 있지만 포털에서 표시되지 않음**
 
-가상 컴퓨터의 포털 환경에는 기본적으로 특정 성능 카운터가 표시됩니다. 성능 카운터가 표시되지 않더라도 저장소에서 사용할 수 있기 때문에 데이터가 생성되고 있음을 알 수 있는 경우 다음을 확인합니다.
+가상 머신의 포털 환경에는 기본적으로 특정 성능 카운터가 표시됩니다. 성능 카운터가 표시되지 않더라도 저장소에서 사용할 수 있기 때문에 데이터가 생성되고 있음을 알 수 있는 경우 다음을 확인합니다.
 
 - 저장소의 데이터에 영어 카운터 이름이 있는지 여부. 카운터 이름이 영어가 아닌 경우 포털 메트릭 차트에서 해당 이름을 인식할 수 없습니다.
 

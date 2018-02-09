@@ -83,7 +83,7 @@
       items:
         - name: VM 준비
           items:
-            - name: Resource Manager가 배포된 가상 머신 준비
+            - name: 리소스 관리자 배포 VM 준비
               href: backup-azure-arm-vms-prepare.md
             - name: Linux VM의 응용 프로그램 일치 백업
               href: backup-azure-linux-app-consistent.md
@@ -93,23 +93,25 @@
               href: backup-azure-vms-introduction.md
         - name: VM 백업
           items:
-            - name: Recovery Services 자격 증명 모음에 Azure 가상 머신 백업
+            - name: Recovery Services 자격 증명 모음에 Azure VM 백업
               href: backup-azure-arm-vms.md
-            - name: 암호화된 가상 머신 백업
+            - name: 암호화된 VM 백업
               href: backup-azure-vms-encryption.md
+            - name: VM을 만드는 동안 VM 백업 사용
+              href: backup-during-vm-creation.md
         - name: VM 관리 및 모니터링
           items:
             - name: Azure Portal에서 Azure VM 백업 관리
               href: backup-azure-manage-vms.md
-            - name: Azure Portal에서 Azure VM 백업에 대한 경고 모니터링
+            - name: Azure VM 백업에 대한 경고 모니터링
               href: backup-azure-monitor-vms.md
         - name: VM에서 데이터 복원
           items:
             - name: Azure VM 백업에서 파일 복구
               href: backup-azure-restore-files-from-vm.md
-            - name: Azure Portal에서 Resource Manager 배포 VM 복구
+            - name: Azure Portal에서 VM 복원
               href: backup-azure-arm-restore-vms.md
-            - name: 암호화된 가상 머신 복원
+            - name: 암호화된 VM 복원
               href: backup-azure-vms-encryption.md
             - name: 암호화된 VM의 Key Vault 키 및 비밀 복원
               href: backup-azure-restore-key-secret.md
@@ -125,7 +127,7 @@
       items:
         - name: Azure Portal에서 DPM 작업 준비
           href: backup-azure-dpm-introduction.md
-        - name: Exchange 서버를 백업하기 위해 System Center DPM 사용
+        - name: Exchange 서버를 백업하기 위해 DPM 사용
           href: backup-azure-backup-exchange-server.md
         - name: 다른 DPM 서버에 데이터 복구
           href: backup-azure-alternate-dpm-server.md
@@ -181,9 +183,11 @@
           href: backup-azure-troubleshoot-slow-backup-performance-issue.md
         - name: Azure Backup Server 문제 해결
           href: backup-azure-mabs-troubleshoot.md
+        - name: System Center Data Protection Manager 문제 해결
+          href: backup-azure-scdpm-troubleshooting.md
         - name: Azure Backup Agent 문제 해결
           href: backup-azure-mars-troubleshoot.md
-- name: 참조
+- name: 참고 자료
   items:
     - name: Azure PowerShell
       href: /powershell/module/azurerm.recoveryservices.backup
@@ -201,5 +205,5 @@
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: 서비스 업데이트
       href: 'https://azure.microsoft.com/updates/?product=backup'
-    - name: 비디오
+    - name: 동영상
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=backup'

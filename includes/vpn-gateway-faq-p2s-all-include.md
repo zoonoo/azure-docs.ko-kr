@@ -51,9 +51,23 @@ VPN 터널의 정확한 처리량을 유지하는 것은 어렵습니다. IPsec�
 
 ### <a name="does-azure-support-ikev2-vpn-with-windows"></a>Azure는 Windows에서 IKEv2 VPN을 지원합니까?
 
-사용자는 IKEv2를 지원하는 기본 제공 Windows VPN 클라이언트를 사용하여 Azure에 연결할 수 있습니다. 하지만 다음과 같은 시나리오에서는 Windows 장치에서 IKEv2 연결이 작동하지 않습니다.
+IKEv2는 Windows 10 및 Server 2016에서 지원됩니다. 그러나 IKEv2를 사용하려면 업데이트를 설치하고 로컬로 레지스트리 키 값을 설정해야 합니다. Windows 10 이전의 OS는 지원되지 않으며 SSTP만 사용할 수 있습니다.
 
-  사용자의 장치에 많은 수의 신뢰할 수 있는 루트 인증서를 포함하는 경우, IKE 교환 중 메시지 페이로드 크기가 커서 IP 계층 조각이 생깁니다. 조각은 Azure 끝에서 거부되어 연결 실패가 일어납니다. 이 문제를 일으키는 정확한 인증서 수는 추정하기 어렵습니다. 결과적으로, Windows 장치에서의 IKEv2 연결은 작동이 보장되지 않습니다. SSTP 및 IKEv2 모두를 혼합된 환경(Windows 및 Mac 장치로 구성)에서 구성할 때 Windows VPN 프로필은 항상 IKEv2 터널을 먼저 시도합니다. 여기에 설명된 문제 때문에 실패하면 SSTP로 대체됩니다.
+IKEv2에 대해 Windows 10 또는 Server 2016을 준비하려면:
+
+1. 업데이트를 설치합니다.
+
+  | OS 버전 | Date | 번호/링크 |
+  |---|---|---|---|
+  | Windows Server 2016<br>Windows 10 버전 1607 | 2018년 1월 17일 | [KB4057142](https://support.microsoft.com/help/4057142/windows-10-update-kb4057142) |
+  | Windows 10 버전 1703 | 2018년 1월 17일 | [KB4057144](https://support.microsoft.com/help/4057144/windows-10-update-kb4057144) |
+  |  |  |  |  |
+
+2. 레지스트리 키 값을 설정합니다. 레지스트리에 “HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasMan\ IKEv2\DisableCertReqPayload” REG_DWORD 키를 만들거나 1로 설정합니다.
+
+### <a name="what-happens-when-i-configure-both-sstp-and-ikev2-for-p2s-vpn-connections"></a>P2S VPN 연결에 대해 SSTP 및 IKEv2를 모두 구성되면 어떻게 되나요?
+
+혼합된 환경(Windows 및 Mac 장치로 구성)에서 SSTP 및 IKEv2 모두를 구성하는 경우 Windows VPN 클라이언트는 항상 IKEv2 터널을 먼저 시도하지만 IKEv2 연결이 실패하는 경우 SSTP로 대체합니다. MacOSX는 IKEv2를 통해서만 연결합니다.
 
 ### <a name="other-than-windows-and-mac-which-other-platforms-does-azure-support-for-p2s-vpn"></a>Azure는 P2S VPN에 대해 Windows나 Mac 이외에 다른 어떤 플랫폼을 지원합니까?
 

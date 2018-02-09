@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 6392a14f6bbc3c4708b36e3e1ab0b5b45a4d0671
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: 47b8e43d1da031bdbe356917fd950ae106f8d96f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="api-management-advanced-policies"></a>API Management 고급 정책
 이 항목에서는 다음 API Management 정책에 대한 참조를 제공합니다. 정책의 추가 및 구성에 대한 자세한 내용은 [API Management 정책](http://go.microsoft.com/fwlink/?LinkID=398186)을 참조하세요.  
@@ -93,7 +93,7 @@ ms.lasthandoff: 12/09/2017
     <outbound>  
         <base />  
         <choose>  
-            <when condition="@(context.GetValueOrDefault<bool>("isMobile"))">  
+            <when condition="@(context.Variables.GetValueOrDefault<bool>("isMobile"))">  
                 <xml-to-json kind="direct" apply="always" consider-accept-header="false"/>  
             </when>  
         </choose>  
@@ -126,7 +126,7 @@ ms.lasthandoff: 12/09/2017
 |-------------|-----------------|--------------|  
 |choose|루트 요소입니다.|예|  
 |when|`choose` 정책의 `if` 또는 `ifelse` 부분에 사용할 조건입니다. `choose` 정책에 여러 `when` 섹션이 있는 경우 순차적으로 평가됩니다. when 요소의 `condition`이 `true`로 평가되면 `when` 조건이 더 이상 평가되지 않습니다.|예|  
-|otherwise|`true`로 평가되는 `when` 조건이 없으면 사용할 정책 조각을 포함합니다.|아니요|  
+|otherwise|`true`로 평가되는 `when` 조건이 없으면 사용할 정책 조각을 포함합니다.|아니오|  
   
 ### <a name="attributes"></a>특성  
   
@@ -147,7 +147,7 @@ ms.lasthandoff: 12/09/2017
 > [!NOTE]
 >  요청에서 이 정책을 제거하면 백 엔드 서비스로 전달되지 않고 인바운드 섹션에 있는 정책이 성공적으로 완료되는 즉시 아웃바운드 섹션에 있는 정책이 평가됩니다.  
   
-### <a name="policy-statement"></a>정책 문:  
+### <a name="policy-statement"></a>정책 문  
   
 ```xml  
 <forward-request timeout="time in seconds" follow-redirects="true | false"/>  
@@ -155,7 +155,7 @@ ms.lasthandoff: 12/09/2017
   
 ### <a name="examples"></a>예  
   
-#### <a name="example"></a>예제  
+#### <a name="example"></a>예  
  다음 API 수준 정책은 60초의 시간 초과 간격으로 모든 요청을 백 엔드 서비스로 전달합니다.  
   
 ```xml  
@@ -213,7 +213,7 @@ ms.lasthandoff: 12/09/2017
   
 ```  
   
-#### <a name="example"></a>예제  
+#### <a name="example"></a>예  
  이 작업 수준 정책은 요청을 백 엔드 서비스로 전달하지 않습니다.  
   
 ```xml  
@@ -264,7 +264,7 @@ ms.lasthandoff: 12/09/2017
 
 ### <a name="examples"></a>예  
   
-#### <a name="example"></a>예제  
+#### <a name="example"></a>예  
  다음 예제에서는 컨텍스트 변수 값에 따라 백 엔드로 전달되는 요청 수를 제한하는 방법을 보여 줍니다.
  
 ```xml  
@@ -305,7 +305,7 @@ ms.lasthandoff: 12/09/2017
 > [!NOTE]
 >  이벤트 허브 구성 및 이벤트 로깅에 대한 단계별 가이드는 [Azure Event Hubs로 API Management 이벤트를 기록하는 방법](https://azure.microsoft.com/documentation/articles/api-management-howto-log-event-hubs/)을 참조하세요.  
   
-### <a name="policy-statement"></a>정책 문:  
+### <a name="policy-statement"></a>정책 문  
   
 ```xml  
 <log-to-eventhub logger-id="id of the logger entity" partition-id="index of the partition where messages are sent" partition-key="value used for partition assignment">  
@@ -382,8 +382,8 @@ status code and media type. If no example or schema found, the content is empty.
   
 |특성|설명|필수|기본값|  
 |---------------|-----------------|--------------|--------------|  
-|status-code|응답 상태 코드를 지정하며, 해당 예제 또는 스키마를 선택하는 데 사용됩니다.|아니요|200|  
-|content-type|`Content-Type` 응답 헤더 값을 지정하며, 해당 예제 또는 스키마를 선택하는 데 사용됩니다.|아니요|없음|  
+|status-code|응답 상태 코드를 지정하며, 해당 예제 또는 스키마를 선택하는 데 사용됩니다.|아니오|200|  
+|content-type|`Content-Type` 응답 헤더 값을 지정하며, 해당 예제 또는 스키마를 선택하는 데 사용됩니다.|아니오|없음|  
   
 ### <a name="usage"></a>사용 현황  
  이 정책은 다음과 같은 정책 [섹션](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.  
@@ -395,7 +395,7 @@ status code and media type. If no example or schema found, the content is empty.
 ##  <a name="Retry"></a> 다시 시도  
  `retry` 정책은 하위 정책을 한 번 실행한 후 재시도 `condition`이 `false`가 되거나 재시도 `count`를 모두 사용할 때까지 실행을 다시 시도합니다.  
   
-### <a name="policy-statement"></a>정책 문:  
+### <a name="policy-statement"></a>정책 문  
   
 ```xml  
   
@@ -412,7 +412,7 @@ status code and media type. If no example or schema found, the content is empty.
 ```  
   
 ### <a name="example"></a>예  
- 다음 예에서는 지수 재시도 알고리즘을 사용하여 요청 전달을 최대 10회까지 다시 시도합니다. `first-fast-retry`가 false로 설정되므로 모든 재시도 횟수에는 지수 재시도 알고리즘이 적용됩니다.  
+ 다음 예제에서는 지수 재시도 알고리즘을 사용하여 요청 전달을 최대 10회까지 다시 시도합니다. `first-fast-retry`가 false로 설정되므로 모든 재시도 횟수에는 지수 재시도 알고리즘이 적용됩니다.  
   
 ```xml  
   
@@ -460,7 +460,7 @@ status code and media type. If no example or schema found, the content is empty.
 ##  <a name="ReturnResponse"></a> 반환 응답  
  `return-response` 정책은 파이프라인 실행을 중단하고 호출자에게 기본 또는 사용자 지정된 응답을 반환합니다. 기본 응답은 본문 없는 `200 OK`입니다. 컨텍스트 변수나 정책 문을 통해 사용자 지정 응답을 지정할 수 있습니다. 둘 다 제공되는 경우 컨텍스트 변수 내에 포함된 응답은 호출자로 반환하기 전에 정책 문으로 수정합니다.  
   
-### <a name="policy-statement"></a>정책 문:  
+### <a name="policy-statement"></a>정책 문  
   
 ```xml  
 <return-response response-variable-name="existing context variable">  
@@ -508,7 +508,7 @@ status code and media type. If no example or schema found, the content is empty.
 ##  <a name="SendOneWayRequest"></a> 단방향 요청 전송  
  `send-one-way-request` 정책은 지정된 URL에 대한 제공된 응답을 기다리지 않고 요청을 보냅니다.  
   
-### <a name="policy-statement"></a>정책 문:  
+### <a name="policy-statement"></a>정책 문  
   
 ```xml  
 <send-one-way-request mode="new | copy">  
@@ -554,17 +554,17 @@ status code and media type. If no example or schema found, the content is empty.
 |요소|설명|필수|  
 |-------------|-----------------|--------------|  
 |send-one-way-request|루트 요소입니다.|예|  
-|url|요청의 URL입니다.|mode=copy인 경우 아니요이고 그렇지 않은 경우 예입니다.|  
+|URL|요청의 URL입니다.|mode=copy인 경우 아니요이고 그렇지 않은 경우 예입니다.|  
 |메서드|요청에 대한 HTTP 메서드입니다.|mode=copy인 경우 아니요이고 그렇지 않은 경우 예입니다.|  
-|머리글|요청 헤더. 여러 요청 헤더에 여러 헤더 요소를 사용합니다.|아니요|  
-|body|요청 본문.|아니요|  
+|머리글|요청 헤더. 여러 요청 헤더에 여러 헤더 요소를 사용합니다.|아니오|  
+|본문|요청 본문.|아니요|  
   
 ### <a name="attributes"></a>특성  
   
 |특성|설명|필수|기본값|  
 |---------------|-----------------|--------------|-------------|  
 |mode="string"|새 요청인지 현재 요청의 복사본인지 여부를 결정합니다. 아웃바운드 모드에서 mode=copy는 요청 본문을 초기화하지 않습니다.|아니요|새로 만들기|  
-|name|설정할 헤더의 이름을 지정합니다.|예|해당 없음|  
+|이름|설정할 헤더의 이름을 지정합니다.|예|해당 없음|  
 |exists-action|헤더가 이미 지정되어 있는 경우 수행할 작업을 지정합니다. 이 특성에는 다음 값 중 하나가 있어야 합니다.<br /><br /> - override: 기존 헤더 값을 바꿉니다.<br />- skip: 기존 헤더 값을 바꾸지 않습니다.<br />- append: 기존 헤더 값에 값을 추가합니다.<br />- delete: 요청에서 헤더를 제거합니다.<br /><br /> `override`로 설정할 때 동일한 이름의 여러 항목을 등록하면 모든 항목(여러 번 나열됨)에 따라 헤더가 설정되며, 나열된 값만 결과에 설정됩니다.|아니요|재정의|  
   
 ### <a name="usage"></a>사용 현황  
@@ -633,20 +633,20 @@ status code and media type. If no example or schema found, the content is empty.
 |요소|설명|필수|  
 |-------------|-----------------|--------------|  
 |send-request|루트 요소입니다.|예|  
-|url|요청의 URL입니다.|mode=copy인 경우 아니요이고 그렇지 않은 경우 예입니다.|  
+|URL|요청의 URL입니다.|mode=copy인 경우 아니요이고 그렇지 않은 경우 예입니다.|  
 |메서드|요청에 대한 HTTP 메서드입니다.|mode=copy인 경우 아니요이고 그렇지 않은 경우 예입니다.|  
 |머리글|요청 헤더. 여러 요청 헤더에 여러 헤더 요소를 사용합니다.|아니요|  
-|body|요청 본문.|아니요|  
+|본문|요청 본문.|아니요|  
   
 ### <a name="attributes"></a>특성  
   
 |특성|설명|필수|기본값|  
 |---------------|-----------------|--------------|-------------|  
-|mode="string"|새 요청인지 현재 요청의 복사본인지 여부를 결정합니다. 아웃바운드 모드에서 mode=copy는 요청 본문을 초기화하지 않습니다.|아니요|새로 만들기|  
+|mode="string"|새 요청인지 현재 요청의 복사본인지 여부를 결정합니다. 아웃바운드 모드에서 mode=copy는 요청 본문을 초기화하지 않습니다.|아니오|새로 만들기|  
 |response-variable-name="string"|없는 경우 `context.Response`가 사용됩니다.|아니요|해당 없음|  
-|timeout="integer"|URL 호출이 실패하는 시간 초과 간격(초)입니다.|아니요|60|  
+|timeout="integer"|URL 호출이 실패하는 시간 초과 간격(초)입니다.|아니오|60|  
 |ignore-error|true인 경우 요청 결과 오류가 발생합니다.<br /><br /> -   response-variable-name이 지정된 경우 null 값을 포함합니다.<br />-   response-variable-name이 지정되지 않은 경우 context.Request가 업데이트되지 않습니다.|아니요|false|  
-|name|설정할 헤더의 이름을 지정합니다.|예|해당 없음|  
+|이름|설정할 헤더의 이름을 지정합니다.|예|해당 없음|  
 |exists-action|헤더가 이미 지정되어 있는 경우 수행할 작업을 지정합니다. 이 특성에는 다음 값 중 하나가 있어야 합니다.<br /><br /> - override: 기존 헤더 값을 바꿉니다.<br />- skip: 기존 헤더 값을 바꾸지 않습니다.<br />- append: 기존 헤더 값에 값을 추가합니다.<br />- delete: 요청에서 헤더를 제거합니다.<br /><br /> `override`로 설정할 때 동일한 이름의 여러 항목을 등록하면 모든 항목(여러 번 나열됨)에 따라 헤더가 설정되며, 나열된 값만 결과에 설정됩니다.|아니요|재정의|  
   
 ### <a name="usage"></a>사용 현황  
@@ -666,7 +666,7 @@ status code and media type. If no example or schema found, the content is empty.
   
 ```  
   
-### <a name="example"></a>예제  
+### <a name="example"></a>예  
 사용자 이름 및 암호의 값으로 [속성](api-management-howto-properties.md)을 사용하면 정책 문서에 중요한 정보를 저장하지 않도록 합니다.  
   
 ```xml  
@@ -685,7 +685,7 @@ status code and media type. If no example or schema found, the content is empty.
 |특성|설명|필수|기본값|  
 |---------------|-----------------|--------------|-------------|  
 |url="문자열"|http://host:port 형식의 프록시 URL입니다.|예|해당 없음|  
-|사용자 이름="문자열"|프록시 인증에 사용할 사용자 이름입니다.|아니요|해당 없음|  
+|사용자 이름="문자열"|프록시 인증에 사용할 사용자 이름입니다.|아니오|해당 없음|  
 |암호="문자열"|프록시 인증에 사용할 암호입니다.|아니요|해당 없음|  
 
 ### <a name="usage"></a>사용 현황  
@@ -698,14 +698,14 @@ status code and media type. If no example or schema found, the content is empty.
 ##  <a name="SetRequestMethod"></a> 요청 메서드 설정  
  `set-method` 정책을 통해 요청에 대한 HTTP 메서드를 변경할 수 있습니다.  
   
-### <a name="policy-statement"></a>정책 문:  
+### <a name="policy-statement"></a>정책 문  
   
 ```xml  
 <set-method>METHOD</set-method>  
   
 ```  
   
-### <a name="example"></a>예제  
+### <a name="example"></a>예  
  이 샘플 정책은 `set-method` 정책을 사용하며 HTTP 응답 코드가 500 이상인 경우 Slack 대화방에 메시지를 보내는 예를 보여줍니다. 이 샘플에 대한 자세한 내용은 [Azure API Management 서비스에서 외부 서비스 사용](https://azure.microsoft.com/documentation/articles/api-management-sample-send-request/)을 참조하세요.  
   
 ```xml  
@@ -750,7 +750,7 @@ status code and media type. If no example or schema found, the content is empty.
 ##  <a name="SetStatus"></a> 상태 코드 설정  
  `set-status` 정책은 HTTP 상태 코드를 지정된 값으로 설정합니다.  
   
-### <a name="policy-statement"></a>정책 문:  
+### <a name="policy-statement"></a>정책 문  
   
 ```xml  
 <set-status code="" reason=""/>  
@@ -819,7 +819,7 @@ status code and media type. If no example or schema found, the content is empty.
   
 |특성|설명|필수|  
 |---------------|-----------------|--------------|  
-|name|변수의 이름입니다.|예|  
+|이름|변수의 이름입니다.|예|  
 |값|변수의 값입니다. 식 또는 리터럴 값일 수 있습니다.|예|  
   
 ### <a name="usage"></a>사용 현황  
@@ -866,7 +866,7 @@ status code and media type. If no example or schema found, the content is empty.
 ##  <a name="Trace"></a> 추적  
  `trace` 정책은 [API 검사기](https://azure.microsoft.com/en-us/documentation/articles/api-management-howto-api-inspector/) 출력에 문자열을 추가합니다. 이 정책은 추적이 트리거된 경우에만 실행됩니다(즉, `Ocp-Apim-Trace` 요청 헤더가 있고 `true`로 설정된 경우 및 `Ocp-Apim-Subscription-Key` 요청 헤더가 있고 관리자 계정에 연결된 유효한 키를 보유하는 경우).  
   
-### <a name="policy-statement"></a>정책 문:  
+### <a name="policy-statement"></a>정책 문  
   
 ```xml  
   
@@ -898,7 +898,7 @@ status code and media type. If no example or schema found, the content is empty.
 ##  <a name="Wait"></a> 대기  
  `wait` 정책은 직계 자식 정책을 병렬로 실행하고 정책이 완료되기 전에 직계 자식 정책 전체 또는 하나가 완료될 때까지 대기합니다. 대기 정책은 직계 자식 정책으로 [요청 전송](api-management-advanced-policies.md#SendRequest), [캐시에서 값 가져오기](api-management-caching-policies.md#GetFromCacheByKey), [제어 흐름](api-management-advanced-policies.md#choose) 정책을 포함할 수 있습니다.  
   
-### <a name="policy-statement"></a>정책 문:  
+### <a name="policy-statement"></a>정책 문  
   
 ```xml  
 <wait for="all|any">  

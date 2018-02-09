@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: magoedte
-ms.openlocfilehash: 187673fad2b5984441b93aa5313df31f1e8a3d2d
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 1413b5d9625ebc2e3b2419f50e7e78be994d8d68
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="test-azure-automation-run-as-account-authentication"></a>Azure Automation 실행 계정 인증 테스트
 Automation 계정이 성공적으로 만들어지면 새로 만들어지거나 업데이트된 Automation 실행 계정을 사용하여 Azure Resource Manager 또는 Azure 클래식 배포에서 성공적으로 인증할 수 있는지를 확인하는 간단한 테스트를 수행할 수 있습니다.    
@@ -66,7 +66,7 @@ Automation 계정이 성공적으로 만들어지면 새로 만들어지거나 �
 
 Runbook - **Add-AzureRmAccount**에서 인증에 사용 되는 cmdlet는 *ServicePrincipalCertificate* 매개 변수 집합을 사용합니다.  이것은 자격 증명이 아니라 서비스 주체 인증서를 사용하여 인증합니다.  
 
-실행 계정의 유효성을 검증하기 위해 [Runbook을 실행](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal)할 경우 [Runbook 작업](automation-runbook-execution.md)이 만들어지고, W 작업이 표시되며, **작업 요약** 타일에 작업 상태가 표시됩니다. 작업 상태는 클라우드의 Runbook 작업자가 사용 가능해질 때까지 기다리고 있음을 나타내는 *대기 중* 으로 시작합니다. 작업자가 작업을 요구한 경우, *시작 중*으로 바뀐 다음 Runbook이 실제로 실행되기 시작하면 *실행 중*으로 바뀝니다.  Runbook 작업이 완료되면 **완료됨** 상태가 나타나야 합니다.
+실행 계정의 유효성을 검증하기 위해 [Runbook을 실행](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal)할 경우 [Runbook 작업](automation-runbook-execution.md)이 만들어지고, 작업 페이지가 표시되며, **작업 요약** 타일에 작업 상태가 표시됩니다. 작업 상태는 클라우드의 Runbook 작업자가 사용 가능해질 때까지 기다리고 있음을 나타내는 *대기 중* 으로 시작합니다. 작업자가 작업을 요구한 경우, *시작 중*으로 바뀐 다음 Runbook이 실제로 실행되기 시작하면 *실행 중*으로 바뀝니다.  Runbook 작업이 완료되면 **완료됨** 상태가 나타나야 합니다.
 
 Runbook의 자세한 결과를 보려면 **출력** 타일을 클릭합니다.  **출력** 페이지에서 인증에 성공하고 구독의 모든 리소스 그룹에서 모든 리소스 목록을 반환하는 것을 확인할 수 있습니다.  
 

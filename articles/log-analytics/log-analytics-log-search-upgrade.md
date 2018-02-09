@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 36a08cab2b1d409d2de382a07cfd7259a1c94e13
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 3bb54f7897876d656da6f1a4b349c9db202a142d
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="azure-log-analytics-upgrade-to-new-log-search"></a>새 로그 검색으로 Azure Log Analytics 업그레이드
 
@@ -52,7 +52,7 @@ ms.lasthandoff: 12/11/2017
 변환 시 작업 영역이 다음과 같이 변경됩니다.
 
 - 뷰 디자이너를 사용하여 만든 모든 저장된 검색, 경고 규칙 및 뷰는 새 언어로 자동으로 변환됩니다.  솔루션에 포함된 검색은 자동으로 변환되지 않지만, 사용자가 열면 그때그때 변환됩니다.  
-- [내 대시보드](log-analytics-dashboards.md)는 더 이상 사용되지 않으며 대신 [뷰 디자이너](log-analytics-view-designer.md) 및 [Azure 대시보드](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards.md)가 사용됩니다.  내 대시보드에 추가된 타일은 계속 사용할 수 있지만 읽기 전용으로 제공됩니다.
+- [내 대시보드](log-analytics-dashboards.md)는 더 이상 사용되지 않으며 대신 [뷰 디자이너](log-analytics-view-designer.md) 및 [Azure 대시보드](../azure-portal/azure-portal-dashboards.md)가 사용됩니다.  내 대시보드에 추가된 타일은 계속 사용할 수 있지만 읽기 전용으로 제공됩니다.
 - [Power BI 통합](log-analytics-powerbi.md)이 새 프로세스로 바뀝니다.  만든 기존의 모든 Power BI 일정은 사용되지 않도록 설정되며 새 프로세스로 바꾸어야 합니다.
 - 웹후크 및 Runbook을 사용하여 [경고 작업](log-analytics-alerts-actions.md)에서 얻은 응답은 새 형식을 가지며 그에 따라 경고 규칙을 업데이트해야 할 수 있습니다.
 - 업그레이드에 대한 일반적인 질문에 대해서는 [로그 검색 FAQ](log-analytics-log-search-faq.md)를 참조하세요.

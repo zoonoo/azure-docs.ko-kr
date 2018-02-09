@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/18/2017
 ms.author: trinadhk;pullabhk;
-ms.openlocfilehash: bc5b97192e0d4ad896d6d74a8745a3866d053a25
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 9a08495c1b395871c04c0c2b06a6efbdb4bfeaa2
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="questions-about-the-azure-vm-backup-service"></a>Azure VM Backup 서비스에 대한 질문
 이 문서에서는 Azure VM Backup 구성 요소를 빨리 이해하는 데 도움이 되는 일반적인 질문에 대한 대답을 제공합니다. 대답 중 일부에는 포괄적인 정보를 포함하는 문서에 대한 링크가 있습니다. 또한 [토론 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)에 Azure Backup 서비스에 대한 질문도 게시할 수 있습니다.
@@ -52,6 +52,9 @@ Key Vault에 액세스하려면 Azure Backup 서비스에 대한 권한을 부�
 ### <a name="can-i-cancel-an-in-progress-backup-job"></a>진행 중인 백업 작업을 취소할 수 있나요?
 예. "스냅숏 만들기" 단계에 있는 경우 백업 작업을 취소할 수 있습니다. **스냅숏에서 데이터 전송이 진행 중인 경우 작업을 취소할 수 없습니다**. 
 
+### <a name="i-enabled-resource-group-lock-on-my-backed-up-managed-disk-vms-will-my-backups-continue-to-work"></a>백업한 관리 디스크 VM에서 리소스 그룹 잠금을 사용하도록 설정했습니다. 내 백업이 계속 작동하나요?
+사용자가 리소스 그룹을 잠그는 경우 Backup 서비스는 이전 복원 지점을 삭제할 수 없습니다. 이로 인해, 백 엔드에서 적용된 최대 18개의 복원 지점 제한에 도달했으므로 새 백업이 시작되지 못합니다. RG 잠금 후에 내부 오류로 인해 백업이 실패하는 경우 다음 [단계에 따라 복원 지점 컬렉션을 제거](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock)합니다.
+
 ## <a name="restore"></a>복원
 ### <a name="how-do-i-decide-between-restoring-disks-versus-full-vm-restore"></a>디스크 복원과 전체 VM 복원 중에서 어떻게 결정해야 하나요?
 Azure 전체 VM 복원을 빠른 만들기 옵션으로 생각해 볼 수 있습니다. VM 복원 옵션은 디스크의 이름, 해당 디스크에서 사용되는 컨테이너, 공용 IP 주소 및 네트워크 인터페이스 이름을 변경합니다. 이러한 변경은 VM 생성 동안 만들어진 리소스의 고유성을 유지하는 데 필요합니다. 하지만 가용성 집합에 VM이 추가되지는 않습니다. 
@@ -66,6 +69,23 @@ Azure 전체 VM 복원을 빠른 만들기 옵션으로 생각해 볼 수 있습
 ### <a name="can-i-use-backups-of-unmanaged-disk-vm-to-restore-after-i-upgrade-my-disks-to-managed-disks"></a>내 디스크를 관리 디스크로 업그레이드한 후 관리되지 않는 디스크 VM의 백업을 사용하여 복원할 수 있나요?
 예, 관리되지 않는 디스크에서 관리 디스크로 마이그레이션하기 전에 수행한 백업을 사용할 수 있습니다. 기본적으로 VM 복원 작업은 관리되지 않는 디스크가 있는 VM을 만듭니다. 디스크 복원 기능을 사용하여 디스크를 복원하고 이를 사용하여 관리 디스크에 VM을 만들 수 있습니다. 
 
+### <a name="what-is-the-procedure-to-restore-a-vm-to-a-restore-point-taken-before-the-conversion-from-unmanaged-to-managed-disks-was-done-for-a-vm"></a>VM에 대해 관리되지 않는 디스크에서 관리 디스크로 변환하기 전에 선택한 복원 지점으로 VM을 복원하는 절차는 무엇인가요?
+이 시나리오에서는 기본적으로 VM 복원 작업을 통해 관리되지 않는 디스크가 있는 VM을 만듭니다. 관리 디스크가 있는 VM을 만들려면 다음을 수행합니다.
+1. [관리되지 않는 디스크에 복원](tutorial-restore-disk.md#restore-a-vm-disk)
+2. [복원된 디스크를 관리 디스크로 변환](tutorial-restore-disk.md#convert-the-restored-disk-to-a-managed-disk)
+3. [관리 디스크가 있는 VM 만들기](tutorial-restore-disk.md#create-a-vm-from-the-restored-disk) <br>
+Powershell cmdlet의 경우 [여기](backup-azure-vms-automation.md#restore-an-azure-vm)를 참조하세요.
+
 ## <a name="manage-vm-backups"></a>VM 백업 관리
 ### <a name="what-happens-when-i-change-a-backup-policy-on-vms"></a>VM에서 백업 정책을 변경하면 어떻게 되나요?
 VM에 새 정책을 적용하면 새 정책의 일정 및 보존이 수행됩니다. 보존 기간을 늘리면 기존 복구 지점이 새 정책에 따라 유지되도록 표시됩니다. 보존 기간을 줄이면 다음 정리 작업에서 정리(prune) 표시되고 결과적으로 삭제됩니다. 
+
+### <a name="how-can-i-move-a-vm-enrolled-in-azure-backup-between-resource-groups"></a>Azure Backup에 등록된 VM을 리소스 그룹 간에 이동할 수 있습니까?
+아래 단계를 따라 백업된 VM을 대상 리소스 그룹으로 이동합니다. 
+1. 일시적으로 백업을 중단하고 백업 데이터를 보존
+2. VM을 대상 리소스 그룹으로 이동
+3. 동일/새 자격 증명 모음으로 다시 보호
+
+사용자는 이동 작업 전에 만든 사용 가능한 복원 지점으로부터 복원할 수 있습니다.
+
+

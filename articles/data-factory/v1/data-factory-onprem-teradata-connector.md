@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 860d32f26616c1e1a92254ef288df2e3367fdf1c
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 2f4ae056dfa1bf6b2faabcb100ac82b38da9e361
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-teradata-using-azure-data-factory"></a>Azure 데이터 팩터리를 사용하여 Teradata에서 데이터 이동
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -56,20 +56,20 @@ Teradata 데이터베이스에 연결할 데이터 관리 게이트웨이의 경
 2. 복사 작업의 입력 및 출력 데이터를 나타내는 **데이터 집합**을 만듭니다. 
 3. 입력으로 데이터 집합을, 출력으로 데이터 집합을 사용하는 복사 작업을 통해 **파이프라인**을 만듭니다. 
 
-마법사를 사용하는 경우 이러한 Data Factory 엔터티(연결된 서비스, 데이터 집합 및 파이프라인)에 대한 JSON 정의가 자동으로 생성됩니다. 도구/API를 사용하는 경우(.NET API 제외) JSON 형식을 사용하여 데이터 팩터리 엔터티를 직접 정의합니다.  온-프레미스 Teradata의 데이터를 복사하는 데 사용되는 데이터 팩터리 엔터티의 JSON 정의에 대한 샘플은 이 문서의 [JSON의 예: Teradata에서 Azure Blob으로 데이터 복사](#json-example-copy-data-from-teradata-to-azure-blob) 섹션을 참조하세요. 
+마법사를 사용하는 경우 이러한 Data Factory 엔터티(연결된 서비스, 데이터 집합 및 파이프라인)에 대한 JSON 정의가 자동으로 생성됩니다. 도구/API(.NET API 제외)를 사용하는 경우 JSON 형식을 사용하여 이러한 Data Factory 엔터티를 정의합니다.  온-프레미스 Teradata의 데이터를 복사하는 데 사용되는 데이터 팩터리 엔터티의 JSON 정의에 대한 샘플은 이 문서의 [JSON의 예: Teradata에서 Azure Blob으로 데이터 복사](#json-example-copy-data-from-teradata-to-azure-blob) 섹션을 참조하세요. 
 
 다음 섹션에서는 Teradata 데이터 저장소에 한정된 데이터 팩터리 엔터티를 정의하는 데 사용되는 JSON 속성에 대해 자세히 설명합니다.
 
 ## <a name="linked-service-properties"></a>연결된 서비스 속성
 다음 표에서는 Teradata 연결된 서비스와 관련된 JSON 요소에 대한 설명을 제공합니다.
 
-| 속성 | 설명 | 필수 |
+| 자산 | 설명 | 필수 |
 | --- | --- | --- |
-| type |형식 속성은 **OnPremisesTeradata** |예 |
-| server |Teradata 서버의 이름입니다. |예 |
+| 형식 |형식 속성은 **OnPremisesTeradata** |예 |
+| 서버 |Teradata 서버의 이름입니다. |예 |
 | authenticationType |Teradata 데이터베이스에 연결하는 데 사용되는 인증 형식입니다. 가능한 값은 익명, 기본 및 Windows입니다. |예 |
-| username |기본 또는 Windows 인증을 사용하는 경우 사용자 이름을 지정합니다. |아니요 |
-| password |사용자 이름에 지정한 사용자 계정의 암호를 지정합니다. |아니요 |
+| 사용자 이름 |기본 또는 Windows 인증을 사용하는 경우 사용자 이름을 지정합니다. |아니오 |
+| 암호 |사용자 이름에 지정한 사용자 계정의 암호를 지정합니다. |아니오 |
 | gatewayName |데이터 팩터리 서비스가 온-프레미스 Teradata 데이터베이스에 연결하는 데 사용해야 하는 게이트웨이의 이름입니다. |예 |
 
 ## <a name="dataset-properties"></a>데이터 집합 속성
@@ -84,7 +84,7 @@ Teradata 데이터베이스에 연결할 데이터 관리 게이트웨이의 경
 
 원본이 **RelationalSource**(Teradata 포함) 형식인 경우 **typeProperties** 섹션에서 다음과 같은 속성을 사용할 수 있습니다.
 
-| 속성 | 설명 | 허용되는 값 | 필수 |
+| 자산 | 설명 | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
 | 쿼리 |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예: select * from MyTable. |예 |
 
@@ -94,7 +94,7 @@ Teradata 데이터베이스에 연결할 데이터 관리 게이트웨이의 경
 이 샘플에는 다음 데이터 팩터리 엔터티가 있습니다.
 
 1. [OnPremisesTeradata](#linked-service-properties)형식의 연결된 서비스
-2. [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties)형식의 연결된 서비스
+2. [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties) 형식의 연결된 서비스
 3. [RelationalTable](#dataset-properties) 형식의 입력 [데이터 집합](data-factory-create-datasets.md)
 4. [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties) 형식의 출력 [데이터 집합](data-factory-create-datasets.md)
 5. [RelationalSource](#copy-activity-properties) 및 [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-create-pipelines.md)
@@ -298,24 +298,24 @@ Teradata로 데이터를 이동하는 경우 Teradata 형식에서 .NET 형식�
 | ByteInt |Int16 |
 | 10진수 |10진수 |
 | Double |Double |
-| Integer |Int32 |
+| 정수  |Int32 |
 | Number |Double |
 | SmallInt |Int16 |
-| Date |DateTime |
-| Time |TimeSpan |
+| Date |Datetime |
+| Time |timespan |
 | Time With Time Zone |문자열 |
-| Timestamp |DateTime |
+| 타임 스탬프 |Datetime |
 | Timestamp With Time Zone |DateTimeOffset |
-| Interval Day |TimeSpan |
-| Interval Day To Hour |TimeSpan |
-| Interval Day To Minute |TimeSpan |
-| Interval Day To Second |TimeSpan |
-| Interval Hour |TimeSpan |
-| Interval Hour To Minute |TimeSpan |
-| Interval Hour To Second |TimeSpan |
-| Interval Minute |TimeSpan |
-| Interval Minute To Second |TimeSpan |
-| Interval Second |TimeSpan |
+| Interval Day |timespan |
+| Interval Day To Hour |timespan |
+| Interval Day To Minute |timespan |
+| Interval Day To Second |timespan |
+| Interval Hour |timespan |
+| Interval Hour To Minute |timespan |
+| Interval Hour To Second |timespan |
+| Interval Minute |timespan |
+| Interval Minute To Second |timespan |
+| Interval Second |timespan |
 | Interval Year |문자열 |
 | Interval Year To Month |문자열 |
 | Interval Month |문자열 |
@@ -324,7 +324,7 @@ Teradata로 데이터를 이동하는 경우 Teradata 형식에서 .NET 형식�
 | Period(Time With Time Zone) |문자열 |
 | Period(Timestamp) |문자열 |
 | Period(Timestamp With Time Zone) |문자열 |
-| Xml |String |
+| xml |문자열 |
 
 ## <a name="map-source-to-sink-columns"></a>원본을 싱크 열로 매핑
 원본 데이터 집합의 열을 싱크 데이터 집합의 열로 매핑하는 방법은 [Azure Data Factory의 데이터 집합 열 매핑](data-factory-map-columns.md)을 참조하세요.

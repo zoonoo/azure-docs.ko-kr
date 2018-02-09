@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2017
 ms.author: LADocs; deli
-ms.openlocfilehash: 7738b3346af49cb8aa811eb17003d1b72b1bbe46
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 32ab5be41a8dee3b1f2c0b1bde076c0d1a844bdd
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="connect-to-on-premises-file-systems-from-logic-apps-with-the-file-system-connector"></a>파일 시스템 커넥터를 사용하여 Logic Apps에서 온-프레미스 파일 시스템에 연결
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 10/11/2017
 
 * 최신 온-프레미스 데이터 게이트웨이 버전 1.15.6150.1 이상을 설치 및 설정합니다. 이 단계는 [온-프레미스 데이터 소스에 연결](http://aka.ms/logicapps-gateway)을 참조하세요. 이러한 단계를 계속하려면 온-프레미스 컴퓨터에 게이트웨이를 설치해야 합니다.
 
-* [논리 앱 만드는 방법](../logic-apps/logic-apps-create-a-logic-app.md)에 관한 기본 지식
+* [논리 앱 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md)에 관한 기본 지식
 
 ## <a name="add-trigger-and-actions-for-connecting-to-your-file-system"></a>파일 시스템에 연결하기 위한 트리거 및 작업 추가
 

@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile App을 사용하여 Apache Cordova 앱에 푸시 알림 추가 | Microsoft Docs"
-description: "Azure 모바일 앱을 사용하여 Apache Cordova 앱에 푸시 알림을 보내는 방법에 대해 알아봅니다."
+title: "Azure Mobile Apps를 사용하여 Apache Cordova 앱에 푸시 알림 추가 | Microsoft Docs"
+description: "Azure Mobile Apps를 사용하여 Apache Cordova 앱에 푸시 알림을 보내는 방법에 대해 알아봅니다."
 services: app-service\mobile
 documentationcenter: javascript
-manager: syntaxc4
+manager: crdun
 editor: 
-author: ggailey777
+author: conceptdev
 ms.assetid: 92c596a9-875c-4840-b0e1-69198817576f
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: article
 ms.date: 10/30/2016
-ms.author: glenga
-ms.openlocfilehash: dc3cab0a6a8b4a56ab0fba1a02e5bba9d0ed1b1f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: crdun
+ms.openlocfilehash: 05fa692f9331cf6b5178c3e9dca60ad2598dc609
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="add-push-notifications-to-your-apache-cordova-app"></a>Apache Cordova 앱에 푸시 알림 추가
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
@@ -79,6 +79,7 @@ Apache Cordova 응용 프로그램에서는 기본적으로 장치 또는 네트
 
 2. 설치 원본 옆의 화살표를 클릭합니다.
 3. **SENDER_ID**에서 Google 개발자 콘솔 프로젝트에 대해 숫자 프로젝트 ID가 이미 지정된 경우 여기에 추가할 수 있습니다. 그렇지 않으면 자리 표시자 값(예: 777777)을 입력합니다.  Android를 대상으로 하는 경우 나중에 config.xml에서 이 값을 업데이트할 수 있습니다.
+     버전 2.0.0에서 SENDER_ID가 설치 시에 제거되었으며, google-services.json을 프로젝트의 루트 폴더에 설치해야 합니다.  자세한 내용은 [여기](https://github.com/phonegap/phonegap-plugin-push/blob/master/docs/INSTALLATION.md)를 참조하세요.
 4. **추가**를 클릭합니다.
 
 이제 푸시 플러그 인이 설치되었습니다.
@@ -209,7 +210,7 @@ Android 장치에 응용 프로그램을 배포하려면 먼저 USB 디버깅을
 
 * **실제 장치에서:** USB 케이블을 사용하여 Android 장치를 개발 컴퓨터에 연결합니다.  **Google Android 에뮬레이터** 대신 **장치**를 선택합니다. Visual Studio에서 장치에 응용 프로그램을 배포하고 응용 프로그램을 실행합니다.  이제 장치에서 응용 프로그램과 상호 작용할 수 있습니다.
 
-  개발 환경을 개선합니다.  [Mobizen][20]과 같은 화면 공유 응용 프로그램을 사용하면 Android 응용 프로그램을 개발하는 데 도움이 될 수 있습니다.  Mobizen은 PC의 웹 브라우저에 Android 화면을 투영합니다.
+  개발 환경을 개선합니다.  [Mobizen] [ 20]과 같은 화면 공유 응용 프로그램을 사용하면 Android 응용 프로그램을 개발하는 데 도움이 될 수 있습니다.  Mobizen은 PC의 웹 브라우저에 Android 화면을 투영합니다.
 
 * **Android 에뮬레이터에서:** 에뮬레이터에서 실행할 때 필요한 추가 구성 단계가 있습니다.
 

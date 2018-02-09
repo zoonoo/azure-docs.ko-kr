@@ -12,11 +12,11 @@ ms.devlang: rest-api
 ms.topic: get-started-article
 ms.workload: big-data
 ms.date: 11/21/2017
-ms.openlocfilehash: b7c58697323ec12ac08575916cb3ac5b38cc39c1
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: ffa8e96ab9a5344c924400fe55b4d1e6aee95f06
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>매개 변수가 있는 URL을 사용하여 사용자 지정 보기 공유
 
@@ -63,14 +63,16 @@ Time Series Insights 탐색기는 URL에서 바로 환경의 보기를 지정할
 
 `timeSeriesDefinitions=<collection of term objects>` 매개 변수는 Time Series Insights 보기의 조건을 지정하며, 여기서 각 항목은 다음과 같습니다.
 
-- `name=<string>`
+- "name":"<string>"
   - *조건*의 이름입니다.
-- `splitBy=<string>`
+- "splitBy":"<string>"
   - *분할의 기준*이 되는 열 이름입니다.
-- `measureName=<string>`
+- "measureName":"<string>"
   - *측정값*의 열 이름입니다.
-- `predicate=<string>`
+- "predicate":"<string>"
   - 서버 쪽 필터링에 대한 *where* 절입니다.
+-  "useSum":"true"
+  - 이는 측정값에 대한 합계를 사용하도록 지정하는 선택적 매개 변수입니다.  "이벤트"가 선택된 측정값이면 count가 기본적으로 선택됩니다.  "이벤트"가 선택되지 않으면 average가 기본적으로 선택됩니다.  
 
 'multiChartStack=<true/false>' 매개 변수를 사용하면 차트에 스택이 가능하고 'multiChartSameScale=<true/false>' 매개 변수를 사용하면 선택적 매개 변수 내에서 용어 전체에 동일한 Y 축 눈금을 사용할 수 있습니다.  
 

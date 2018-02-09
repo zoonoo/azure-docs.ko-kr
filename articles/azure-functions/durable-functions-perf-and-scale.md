@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 10ce74097388a0283797e4692126c5039e8d4dd0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cc4c643b8d0e8de1b5c38ca7bb1b0193d6b0f05b
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>지속성 함수의 성능 및 크기 조정(Azure Functions)
 
@@ -54,18 +54,18 @@ ms.lasthandoff: 10/11/2017
 
 ![크기 조정 다이어그램](media/durable-functions-perf-and-scale/scale-diagram.png)
 
-여기서 볼 수 있듯이 모든 VM은 작업 항목 큐에서 메시지를 위해 경쟁할 수 있습니다. 그러나 세 개의 VM만 제어 큐에서 메시지를 얻을 수 있으며 각 VM에서 단일 제어 큐를 잠급니다.
+여기서 볼 수 있듯이 모든 VM은 작업 항목 큐에서 메시지를 두고 경쟁할 수 있습니다. 그러나 세 개의 VM만 제어 큐에서 메시지를 얻을 수 있으며 각 VM에서 단일 제어 큐를 잠급니다.
 
 오케스트레이션 인스턴스는 오케스트레이션의 인스턴스 ID에 대해 내부 해시 함수를 실행하여 제어 큐 인스턴스 간에 분산됩니다. 기본적으로 인스턴스 ID는 사용 가능한 모든 제어 큐에서 인스턴스의 부하를 분산하도록 임의로 자동 생성됩니다. 현재 지원되는 제어 큐 파티션의 기본 수는 **4**입니다.
 
 > [!NOTE]
-> 현재 Azure Functions에서는 파티션 수를 구성할 수 없습니다. [이 구성 옵션을 지원하기 위한 작업이 추적되고 있습니다](https://github.com/Azure/azure-functions-durable-extension/issues/73).
+> 현재는 Azure Functions에서 컨트롤 큐 파티션 수를 구성할 수 없습니다. [이 구성 옵션을 지원하기 위한 작업이 추적되고 있습니다](https://github.com/Azure/azure-functions-durable-extension/issues/73).
 
 일반적으로 오케스트레이터 함수는 간단하게 설계되므로 많은 컴퓨팅 기능이 필요하지 않습니다. 이러한 이유로 많은 처리량을 달성하기 위해 많은 수의 제어 큐 파티션을 만들 필요가 없습니다. 대신 많은 작업 대부분은 무한정 확장될 수 있는 상태 비저장 작업 함수에서 수행됩니다.
 
 ## <a name="auto-scale"></a>자동 크기 조정
 
-소비 계획에서 실행 중인 모든 Azure Functions와 마찬가지로 지속성 함수는 [Azure Functions 크기 조정 컨트롤러](https://docs.microsoft.com/azure/azure-functions/functions-scale#runtime-scaling)를 통해 자동 크기 조정을 지원합니다. 크기 조정 컨트롤러는 작업 항목 큐와 각 제어 큐의 길이를 모니터링하고, 이에 따라 VM 리소스를 추가하거나 제거합니다. 제어 큐 길이가 시간이 지남에 따라 증가하는 경우 제어 큐 파티션 수에 도달할 때까지 크기 조정 컨트롤러에서 인스턴스를 계속 추가합니다. 작업 항목 큐 길이가 시간이 지남에 따라 증가하는 경우 제어 큐 파티션 수에 관계 없이 부하와 일치할 때까지 크기 조정 컨트롤러에서 VM 리소스를 계속 추가합니다.
+소비 계획에서 실행 중인 모든 Azure Functions와 마찬가지로 지속성 함수는 [Azure Functions 크기 조정 컨트롤러](https://docs.microsoft.com/azure/azure-functions/functions-scale#runtime-scaling)를 통해 자동 크기 조정을 지원합니다. 크기 조정 컨트롤러는 작업 항목 큐와 각 제어 큐의 길이를 모니터링하고, 이에 따라 VM 인스턴스를 추가하거나 제거합니다. 제어 큐 길이가 시간이 지남에 따라 증가하는 경우 제어 큐 파티션 수에 도달할 때까지 크기 조정 컨트롤러에서 VM 인스턴스를 계속 추가합니다. 작업 항목 큐 길이가 시간이 지남에 따라 증가하는 경우 제어 큐 파티션 수에 관계 없이 부하와 일치할 때까지 크기 조정 컨트롤러에서 VM 인스턴스를 계속 추가합니다.
 
 ## <a name="thread-usage"></a>스레드 사용
 

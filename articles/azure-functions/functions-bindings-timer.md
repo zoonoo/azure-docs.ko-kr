@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 02/27/2017
 ms.author: tdykstra
 ms.custom: 
-ms.openlocfilehash: fd9c1d40ba1398c7ca3f48f0423457482da9a483
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: eeb8833470b2ba003ba74b1db57bbd2bbbb7f65d
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Azure Functions의 타이머 트리거 
 
@@ -29,18 +29,18 @@ ms.lasthandoff: 11/29/2017
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="example"></a>예제
+## <a name="example"></a>예
 
 언어 관련 예제를 참조하세요.
 
-* [미리 컴파일된 C#](#trigger---c-example)
-* [C# 스크립트](#trigger---c-script-example)
+* [C#](#trigger---c-example)
+* [C# 스크립트(.csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
 * [JavaScript](#trigger---javascript-example)
 
 ### <a name="c-example"></a>C# 예제
 
-다음 예제에서는 5분마다 실행되는 [미리 컴파일된 C# 함수](functions-dotnet-class-library.md)를 보여줍니다.
+다음 예제에서는 5분마다 실행되는 [C# 함수](functions-dotnet-class-library.md)를 보여줍니다.
 
 ```cs
 [FunctionName("TimerTriggerCSharp")]
@@ -136,7 +136,7 @@ module.exports = function (context, myTimer) {
 
 ## <a name="attributes"></a>특성
 
-[미리 컴파일된 C#](functions-dotnet-class-library.md) 함수의 경우 [TimerTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs)를 사용하며 [Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) NuGet 패키지에 정의됩니다.
+[C# 클래스 라이브러리](functions-dotnet-class-library.md)에서는 [Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) NuGet 패키지에 정의된 [TimerTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs)를 사용합니다.
 
 특성의 생성자는 다음 예제와 같이 CRON 식을 사용합니다.
 
@@ -150,7 +150,7 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWr
 
 함수 앱이 App Service 계획(소비 계획 아님)에서 실행되는 경우 CRON 식 대신 `TimeSpan`을 지정할 수 있습니다.
 
-전체 예제는 [미리 컴파일된 C# 예제](#c-example)를 참조하세요.
+전체 예제는 [C# 예제](#c-example)를 참조하세요.
 
 ## <a name="configuration"></a>구성
 
@@ -231,7 +231,7 @@ Azure Functions에서 타이머 트리거를 사용할 수 있는 CRON 식의 �
 "schedule": "0 30 9 * * 1-5",
 ```
 
-## <a name="usage"></a>사용
+## <a name="usage"></a>사용 현황
 
 타이머 트리거 함수를 호출하면 [타이머 개체](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs)가 함수에 전달됩니다. 다음 JSON은 타이머 개체의 예제 표현입니다. 
 

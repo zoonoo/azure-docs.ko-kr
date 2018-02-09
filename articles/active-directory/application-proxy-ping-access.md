@@ -3,7 +3,7 @@ title: "Azure AD 응용 프로그램 프록시용 PingAccess를 통한 헤더 �
 description: "PingAccess 및 앱 프록시를 사용하여 응용 프로그램을 게시하여 헤더 기반 인증을 지원합니다."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: daveba
 manager: mtillman
 ms.assetid: 
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2017
-ms.author: kgremban
+ms.author: daveba
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 7c2e56a5f747aa2a37fc4bed0e3f3877b64f2be2
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: bfff8ebff87b6c3c501202e95c463a0f4e235ffc
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>응용 프로그램 프록시 및 PingAccess를 사용하여 Single Sign-On에 대한 헤더 기반 인증
 
@@ -73,6 +73,10 @@ Azure Portal에서 수행해야 하는 두 가지 작업이 있습니다. 먼저
 4. **온-프레미스 응용 프로그램**을 선택합니다.
 5. 새 앱에 대한 정보로 필수 필드를 작성합니다. 설정에 대해 다음 지침을 사용합니다.
    - **내부 URL**: 회사 네트워크에 있을 때 일반적으로 앱의 로그인 페이지로 안내하는 URL을 제공합니다. 이 시나리오의 경우 커넥터에서 PingAccess 프록시를 앱의 기본 페이지로 처리해야 합니다. `https://<host name of your PA server>:<port>` 형식을 사용합니다. 포트는 기본적으로 3000이지만 PingAccess에서 구성할 수 있습니다.
+
+    > [!WARNING]
+    > 이 형식의 SSO의 경우 내부 URL은 https를 사용해야 하고 http를 사용할 수 없습니다.
+
    - **사전 인증 방법**: Azure Active Directory
    - **헤더에서 URL 변환**: 아니요
 
@@ -135,7 +139,7 @@ Azure Portal에서 수행해야 하는 두 가지 작업이 있습니다. 먼저
 
 ### <a name="optional---update-graphapi-to-send-custom-fields"></a>선택 사항 - 사용자 지정 필드를 보내도록 GraphAPI 업데이트
 
-Azure AD에서 인증에 대해 전송하는 보안 토큰의 목록은 [Azure AD 토큰 참조](./develop/active-directory-token-and-claims.md)를 참조하세요. 다른 토큰을 전송하는 사용자 지정 클레임이 필요한 경우 GraphAPI를 사용하여 앱 필드 *acceptMappedClaims*를 **True**로 설정합니다. Azure AD Graph Explorer를 사용해야만 이 구성을 만들 수 있습니다. 
+Azure AD에서 인증에 대해 전송하는 보안 토큰의 목록은 [Azure AD 토큰 참조](./develop/active-directory-token-and-claims.md)를 참조하세요. 다른 토큰을 전송하는 사용자 지정 클레임이 필요한 경우 Graph 탐색기 또는 Azure Portal에서 응용 프로그램의 매니페스트를 사용하여 앱 필드 *acceptMappedClaims*를 **True**로 설정합니다.    
 
 이 예에서는 Graph Explorer를 사용합니다.
 
@@ -146,6 +150,13 @@ PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_y
   "acceptMappedClaims":true
 }
 ```
+이 예제는 [Azure Portal](https://portal.azure.com)을 사용하여 *acceptedMappedClaims* 필드를 업데이트합니다.
+1. 전역 관리자 권한으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
+2. **Azure Active Directory** > **앱 등록**을 선택합니다.
+3. 응용 프로그램 > **매니페스트**를 선택합니다.
+4. **편집**을 선택하고, *acceptedMappedClaims* 필드를 검색하고, 값을 **true**로 변경합니다.
+![앱 매니페스트](media/application-proxy-ping-access/application-proxy-ping-access-manifest.PNG)
+1. **저장**을 선택합니다.
 
 >[!NOTE]
 >사용자 지정 클레임을 사용하려면 사용자 지정 정책도 정의하고 응용 프로그램에 할당해야 합니다.  이 정책은 필요한 모든 사용자 지정 특성을 포함해야 합니다.

@@ -15,17 +15,17 @@ ms.topic: tutorial
 ms.date: 06/13/2017
 ms.author: rachelap
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 2170ac7df3b894c8d19b432abdcfef5c7fd75ff4
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 81d08e047a3689d110195f2325b52c6c0457e644
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="build-a-nodejs-restful-api-and-deploy-it-to-an-api-app-in-azure"></a>Node.js RESTful API를 빌드하여 Azure의 API 앱에 배포
 
 이 빠른 시작에서는 Node.js [Express](http://expressjs.com/)로 작성된 REST API를 만들고 [Swagger](http://swagger.io/) 정의를 사용하여 Azure에 배포하는 방법을 보여 줍니다. 명령줄 도구를 사용하여 앱을 만들고, [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)를 사용하여 리소스를 구성하고, Git를 사용하여 앱을 배포합니다.  완료하면 Azure에서 실행되는 작업 샘플 REST API를 갖습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * [Git](https://git-scm.com/)
 * [Node.js 및 NPM](https://nodejs.org/)
@@ -84,7 +84,7 @@ Swaggerize가 프로젝트 이름을 물어보면 *ContactList*를 사용합니�
 1. *lib* 폴더를 `yo swaggerize`에서 만든 *ContactList* 폴더로 복사한 다음 디렉터리를 *ContactList*로 변경합니다.
 
     ```bash
-    cp -r lib/ ContactList/
+    cp -r lib ContactList/
     cd ContactList
     ```
 
@@ -246,14 +246,22 @@ Swaggerize가 프로젝트 이름을 물어보면 *ContactList*를 사용합니�
     node_modules/
     ```
     `node_modules` 폴더가 `git status`로 무시되고 있는지 확인합니다.
+    
+4. 다음 줄을 `package.json`에 추가합니다. Swaggerize에서 생성된 코드는 Node.js 엔진의 버전을 지정하지 않습니다. 버전 사양이 없으면, Azure는 생성된 코드와 호환되지 않는 기본 버전 `0.10.18`을 사용합니다.
 
-4. 리포지토리에 변경 내용을 커밋합니다.
+    ```javascript
+    "engines": {
+        "node": "~0.10.22"
+    },
+    ```
+
+5. 리포지토리에 변경 내용을 커밋합니다.
     ```bash
     git add .
     git commit -m "initial version"
     ```
 
-5. [!INCLUDE [Push to Azure](../../includes/app-service-api-git-push-to-azure.md)]  
+6. [!INCLUDE [Push to Azure](../../includes/app-service-api-git-push-to-azure.md)]  
  
 ## <a name="test-the-api--in-azure"></a>Azure에서 API 테스트
 

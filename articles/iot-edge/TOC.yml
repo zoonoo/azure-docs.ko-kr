@@ -24,6 +24,8 @@
       href: tutorial-deploy-machine-learning.md
     - name: Azure Functions 배포
       href: tutorial-deploy-function.md
+    - name: Azure CLI 2.0용 IoT 확장을 사용하여 IoT Edge 배포 만들기
+      href: tutorial-create-deployment-with-cli-iot-extension.md
 - name: 방법 가이드
   items:
     - name: 게이트웨이 만들기

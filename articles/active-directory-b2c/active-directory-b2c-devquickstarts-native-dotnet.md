@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory B2C | Microsoft Docs
+title: ".NET Azure Active Directory B2C 인증, 등록, 편집 프로필 | Microsoft Docs"
 description: "Azure Active Directory B2C를 사용하여 로그인, 등록 및 프로필 관리를 포함하는 Windows 데스크톱 응용 프로그램을 빌드하는 방법을 알아봅니다."
 services: active-directory-b2c
 documentationcenter: .net
@@ -14,11 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
-ms.openlocfilehash: 7b6bd5c95c909cf4ed4c67cd33d09170f670c275
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.custom: seohack1
+ms.openlocfilehash: 5d4664e87ca0a45d59d976f6415fce858bc51dcd
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-ad-b2c-build-a-windows-desktop-app"></a>Azure AD B2C: Windows 데스크톱 앱 빌드
 Azure AD(Azure Active Directory) B2C를 사용하여 몇 가지 간단한 단계에서 강력한 셀프 서비스 ID 관리 기능을 데스크톱 앱에 추가할 수 있습니다. 이 문서에서는 사용자 등록, 로그인 및 프로필 관리를 포함하는 .NET WPF(Windows Presentation Foundation) "할 일 모음" 앱을 만드는 방법을 보여 줍니다. 이 앱에서는 사용자 이름 또는 전자 메일을 사용하여 등록 및 로그인할 수 있습니다. 또한 Facebook 및 Google과 같은 소셜 계정을 사용하여 등록 및 로그인하는 기능도 지원합니다.
@@ -71,7 +72,7 @@ PM> Install-Package Microsoft.Identity.Client -IncludePrerelease
 ### <a name="enter-your-b2c-details"></a>B2C 세부 정보 입력
 `Globals.cs` 파일을 열고 각각의 속성 값을 사용자 고유의 값으로 바꿉니다. 이 클래스는 일반적으로 사용되는 값을 참조하기 위해 `TaskClient` 전반에 사용됩니다.
 
-```C#
+```csharp
 public static class Globals
 {
     ...
@@ -92,7 +93,7 @@ public static class Globals
 ### <a name="create-the-publicclientapplication"></a>PublicClientApplication 만들기
 MSAL의 기본 클래스는 `PublicClientApplication`입니다. 이 클래스는 Azure AD B2C 시스템에 있는 응용 프로그램을 나타냅니다. 앱이 시작되면 `MainWindow.xaml.cs`에서 `PublicClientApplication` 인스턴스를 만듭니다. 이를 창 전체에서 사용할 수 있습니다.
 
-```C#
+```csharp
 protected async override void OnInitialized(EventArgs e)
 {
     base.OnInitialized(e);
@@ -110,7 +111,7 @@ protected async override void OnInitialized(EventArgs e)
 ### <a name="initiate-a-sign-up-flow"></a>등록 흐름 시작
 사용자가 등록하려는 경우 이전에 만든 등록 정책을 사용하는 등록 흐름을 시작할 수 있습니다. MSAL을 사용하여 `pca.AcquireTokenAsync(...)`를 호출하면 됩니다. `AcquireTokenAsync(...)` 에 전달하는 매개 변수는 받을 토큰의 종류, 인증 요청에서 사용되는 정책 등을 결정합니다.
 
-```C#
+```csharp
 private async void SignUp(object sender, RoutedEventArgs e)
 {
     AuthenticationResult result = null;
@@ -161,7 +162,7 @@ private async void SignUp(object sender, RoutedEventArgs e)
 ### <a name="initiate-a-sign-in-flow"></a>로그인 흐름 시작
 등록 흐름을 시작하는 것과 동일한 방식으로 로그인 흐름을 시작할 수 있습니다. 사용자가 로그인하면 로그인 정책을 사용하여 동일한 방식으로 MSAL을 호출합니다.
 
-```C#
+```csharp
 private async void SignIn(object sender = null, RoutedEventArgs args = null)
 {
     AuthenticationResult result = null;
@@ -176,7 +177,7 @@ private async void SignIn(object sender = null, RoutedEventArgs args = null)
 ### <a name="initiate-an-edit-profile-flow"></a>프로필 편집 흐름 시작
 다시 동일한 방식으로 프로필 편집 정책을 실행할 수 있습니다.
 
-```C#
+```csharp
 private async void EditProfile(object sender, RoutedEventArgs e)
 {
     AuthenticationResult result = null;
@@ -192,7 +193,7 @@ private async void EditProfile(object sender, RoutedEventArgs e)
 ### <a name="check-for-tokens-on-app-start"></a>앱 시작에서 토큰 확인
 또한 MSAL를 사용하여 사용자의 로그인 상태를 추적할 수 있습니다.  이 앱에서 사용자가 앱을 닫았다가 다시 연 후에도 로그인된 상태를 유지하게 하려 합니다.  `OnInitialized` 재정의 내부에서 MSAL의 `AcquireTokenSilent` 메서드를 사용하여 캐시된 토큰을 확인합니다.
 
-```C#
+```csharp
 AuthenticationResult result = null;
 try
 {
@@ -231,7 +232,7 @@ catch (MsalException ex)
 ## <a name="call-the-task-api"></a>태스크 API 호출
 MSAL을 사용하여 정책을 실행하고 토큰을 가져왔습니다.  이러한 토큰 중 하나를 사용하여 태스크 API를 호출하려는 경우 MSAL의 `AcquireTokenSilent` 메서드를 다시 사용하여 캐쉬된 토큰을 확인할 수 있습니다.
 
-```C#
+```csharp
 private async void GetTodoList()
 {
     AuthenticationResult result = null;
@@ -276,7 +277,7 @@ private async void GetTodoList()
 
 `AcquireTokenSilentAsync(...)`에 대한 호출이 성공하고 캐시에 토큰이 발견되면 HTTP 요청의 `Authorization` 헤더에 토큰을 추가할 수 있습니다. 태스크 웹 API는 이 헤더를 사용하여 사용자 할 일 목록에 대한 읽기 요청을 인증합니다.
 
-```C#
+```csharp
     ...
     // Once the token has been returned by MSAL, add it to the http authorization header, before making the call to access the To Do list service.
     httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result.Token);
@@ -289,7 +290,7 @@ private async void GetTodoList()
 ## <a name="sign-the-user-out"></a>사용자를 로그아웃
 마지막으로 사용자가 **로그아웃**을 선택한 경우 MSAL을 사용하여 앱에서 사용자의 세션을 종료할 수 있습니다.  MSAL을 사용하는 경우 토큰 캐시에서 모든 토큰을 삭제하는 방식으로 이 작업이 수행됩니다.
 
-```C#
+```csharp
 private void SignOut(object sender, RoutedEventArgs e)
 {
     // Clear any remnants of the user's session.

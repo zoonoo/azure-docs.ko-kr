@@ -11,18 +11,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/07/2017
+ms.date: 01/08/2018
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.openlocfilehash: 3b914bb72d9d0d6b6021c221c6019aea69a964a6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f0f18f377f194e78c05e63e9b6cbc31c1b945335
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="quickstart-add-new-users-to-azure-active-directory"></a>빠른 시작: Azure Active Directory에 새 사용자 추가
-이 문서에서는 Azure Porta을 사용하거나 온-프레미스 Windows Server AD 사용자 계정 데이터를 동기화하여 한 번에 하나씩 Azure AD(Azure Active Directory)에서 조직에 새 사용자를 추가하는 방법을 설명합니다. 
+이 문서에서는 Azure Porta을 사용하거나 온-프레미스 Windows Server AD 사용자 계정 데이터를 동기화하여 조직의 Azure AD(Azure Active Directory) 테넌트에서 조직의 사용자를 삭제 또는 추가하는 방법을 설명합니다. 
 
 ## <a name="add-cloud-based-users"></a>클라우드 기반 사용자 추가
 1. 디렉터리에 대한 전역 관리자인 계정으로 [Azure Active Directory 관리 센터](https://aad.portal.azure.com)에 로그인합니다.
@@ -48,8 +48,11 @@ ms.lasthandoff: 12/11/2017
 
 ### <a name="learn-more"></a>자세한 정보 
 * [다른 디렉터리에서 게스트 사용자 추가](active-directory-b2b-what-is-azure-ad-b2b.md) 
-
 * [Azure AD의 역할에 사용자 할당](active-directory-users-assign-role-azure-portal.md)
+* [사용자 프로필 관리](active-directory-users-profile-azure-portal.md)
+* [삭제된 사용자 복원](active-directory-users-restore.md)
+
+
 
 ## <a name="next-steps"></a>다음 단계
 이 빠른 시작에서는 Azure AD Premium에 새 사용자를 추가하는 방법을 알아보았습니다. 

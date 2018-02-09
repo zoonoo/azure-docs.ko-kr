@@ -21,6 +21,8 @@
   items:
     - name: 일반적인 질문
       href: frequently-asked-questions-genomics.md
+    - name: 버전 릴리스 내역
+      href: version-release-history-genomics.md
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/?category=cognitive-services'
     - name: 가격

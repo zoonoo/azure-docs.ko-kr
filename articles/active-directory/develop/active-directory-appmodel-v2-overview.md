@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 446e39f57448cbc0cd9a6f93a388159d7eca5863
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 18319ad461500fac13b3f6ac1117a52b94e695e7
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="sign-in-microsoft-account-and-azure-active-directory-users-in-a-single-application"></a>단일 응용 프로그램의 로그인 Microsoft 계정 및 Azure Active Directory 사용자
 과거 Azure Active Directory에서 Microsoft 개인 계정과 회사 계정을 모두 지원하려는 응용 프로그램 개발자는 별도의 두 시스템과 통합해야 했습니다. Azure AD(Azure Active Directory) v 2.0 끝점에서는 이 프로세스를 간소화하는 새 인증 API 버전을 도입합니다. Azure AD v2.0 끝점에서는 단일 통합을 사용하여 두 가지 유형의 계정에서 로그인할 수 있도록 합니다. 또한 Azure AD v2.0 끝점을 사용하는 응용 프로그램은 두 가지 계정 유형 중 하나를 사용하여 [Microsoft Graph API](https://graph.microsoft.io)의 REST API를 사용할 수 있습니다.
@@ -51,4 +51,4 @@ Azure AD v2.0 끝점 플랫폼에 대한 자세한 정보를 살펴봅니다.
 > [!NOTE]
 > Azure Active Directory에서 회사 계정과 학교 계정에만 로그인해야 하는 경우 [개발자용 Azure AD 가이드](active-directory-developers-guide.md)를 시작합니다. Azure AD v2.0 끝점은 Microsoft 개인 계정에 명시적으로 로그인해야 하는 개발자가 사용하기 위한 것입니다.
 
-[!INCLUDE  [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

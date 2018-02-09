@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/11/2017
+ms.date: 12/11/2017
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 22379dd7cb0118983505237fa16f01a865a53306
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 309396badf3a4daa4c339a280f774bcd500ce3bb
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>MQTT 프로토콜을 사용하여 IoT 허브와 통신
 
@@ -62,6 +62,9 @@ MQTT 프로토콜을 지원하는 [장치 SDK][lnk-device-sdks]는 Java, Node.js
 
     예를 들어, IoT Hub의 이름이 **contoso.azure devices.net**이고 장치의 이름이 **MyDevice01**이면 전체 **Username** 필드에 `contoso.azure-devices.net/MyDevice01/api-version=2016-11-14`이 포함되어야 합니다.
 * **암호** 필드에는 SAS 토큰을 사용합니다. SAS 토큰의 형식은 HTTPS 및 AMQP 프로토콜에 대해 동일합니다.<br/>`SharedAccessSignature sig={signature-string}&se={expiry}&sr={URL-encoded-resourceURI}`
+
+    >[!NOTE]
+    >X.509 인증서 인증을 사용하는 경우 SAS 토큰 암호는 필요하지 않습니다. 자세한 내용은 [Azure IoT Hub의 X.509 보안 설정][lnk-x509]을 참조하세요.
 
     SAS 토큰을 생성하는 방법에 대한 자세한 내용은 [IoT Hub 보안 토큰 사용][lnk-sas-tokens]의 장치 섹션을 참조하세요.
 
@@ -116,7 +119,7 @@ client.connect(subdomain+".azure-devices.net", port=8883)
 
 ### <a name="sending-device-to-cloud-messages"></a>장치-클라우드 메시지 보내기
 
-성공적인 연결을 구축한 후 장치는 `devices/{device_id}/messages/events/` 또는 `devices/{device_id}/messages/events/{property_bag}`를 **토픽 이름**으로 사용하여 IoT Hub에 메시지를 보낼 수 있습니다. `{property_bag}` 요소는 URL 인코딩 형식의 속성을 추가하여 메시지를 보내는 장치를 사용할 수 있습니다. 예:
+성공적인 연결을 구축한 후 장치는 `devices/{device_id}/messages/events/` 또는 `devices/{device_id}/messages/events/{property_bag}`를 **토픽 이름**으로 사용하여 IoT Hub에 메시지를 보낼 수 있습니다. `{property_bag}` 요소는 URL 인코딩 형식의 속성을 추가하여 메시지를 보내는 장치를 사용할 수 있습니다. 예: 
 
 ```
 RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-encoded(<PropertyName2>)=RFC 2396-encoded(<PropertyValue2>)…
@@ -137,7 +140,7 @@ RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-en
 
 ### <a name="receiving-cloud-to-device-messages"></a>클라우드-장치 메시지 수신
 
-IoT Hub에서 메시지를 수신하려면 장치는 `devices/{device_id}/messages/devicebound/#` 을 **토픽 필터**로 사용하여 구독해야 합니다. 토픽 필터에 다중 레벨 와일드카드 **#**는 장치가 토픽 이름에 추가 속성을 수신하도록 하려는 경우에만 사용됩니다. IoT Hub에서는 **#** 또는 **?**의 사용을 허용하지 않습니다. 하위 토픽의 필터링을 위한 와일드카드 IoT Hub는 범용 발행-구독 메시징 브로커가 아니므로 문서화된 토픽 이름 및 토픽 필터만 지원합니다.
+IoT Hub에서 메시지를 수신하려면 장치는 `devices/{device_id}/messages/devicebound/#` 을 **토픽 필터**로 사용하여 구독해야 합니다. 토픽 필터에 다중 레벨 와일드카드 `#`는 장치가 토픽 이름에 추가 속성을 수신하도록 하려는 경우에만 사용됩니다. IoT Hub는 하위 토픽의 필터링을 위한 `#` 또는 `?` 와일드카드의 사용을 허용하지 않습니다. IoT Hub는 범용 발행-구독 메시징 브로커가 아니므로 문서화된 토픽 이름 및 토픽 필터만 지원합니다.
 
 장치는 `devices/{device_id}/messages/devicebound/#` 항목 필터로 표시되는 장치 특정 끝점을 성공적으로 구독하기 전에는 IoT Hub로부터 어떠한 메시지도 수신하지 않습니다 구독이 성공적으로 설정된 후에는 장치가 구독 시간 이후 전송된 클라우드-장치 메시지만 수신합니다. 장치가 **CleanSession** 플래그가 **0**으로 설정되어 연결되면 다양한 세션 간에 구독이 유지됩니다. 이 경우 **CleanSession 0**으로 다음에 연결될 때 장치가 연결이 해제된 동안 전송되었던 미해결 메시지를 수신하게 됩니다. 장치가 **1**로 설정된 **CleanSession** 플래그를 사용하는 경우 장치-끝점을 구독할 때까지 IoT Hub에서 어떠한 메시지도 수신하지 않습니다.
 
@@ -147,9 +150,9 @@ IoT Hub는 메시지 속성이 있는 경우 **토픽 이름** `devices/{device_
 
 ### <a name="retrieving-a-device-twins-properties"></a>장치 쌍 속성 검색
 
-먼저 작업의 응답을 수신하기 위해 장치가 `$iothub/twin/res/#`을 구독합니다. 그런 다음 **request id**에 채워진 값을 사용하여 빈 메시지를 `$iothub/twin/GET/?$rid={request id}` 항목에 보냅니다. 그러면 서비스는 요청과 동일한 **request id**를 사용하여 `$iothub/twin/res/{status}/?$rid={request id}` 항목에 대한 장치 쌍 데이터를 포함하는 응답 메시지를 보냅니다.
+먼저 작업의 응답을 수신하기 위해 장치가 `$iothub/twin/res/#`을 구독합니다. 그런 다음 **요청 ID**에 채워진 값을 사용하여 빈 메시지를 `$iothub/twin/GET/?$rid={request id}` 항목에 보냅니다. 그러면 서비스는 요청과 동일한 **요청 ID**를 사용하여 `$iothub/twin/res/{status}/?$rid={request id}` 항목에 대한 장치 쌍 데이터를 포함하는 응답 메시지를 보냅니다.
 
-request id는 [IoT Hub 메시징 개발자 가이드][lnk-messaging]에 따라 메시지 속성 값에 대한 유효한 값이며 status는 정수로 확인됩니다.
+요청 ID는 [IoT Hub 메시징 개발자 가이드][lnk-messaging]에 따라 메시지 속성 값에 대한 유효한 값이며 status는 정수로 확인됩니다.
 응답 본문은 장치 쌍의 properties 섹션을 포함합니다.
 
 ID 레지스트리 항목의 본문은 “properties” 구성원으로 제한됩니다. 예:
@@ -170,7 +173,7 @@ ID 레지스트리 항목의 본문은 “properties” 구성원으로 제한�
 
 가능한 상태 코드:
 
-|가동 상태 | 설명 |
+|상태 | 설명 |
 | ----- | ----------- |
 | 200 | 성공 |
 | 429 | 너무 많은 요청(제한됨), [IoT Hub 제한][lnk-quotas] 참조 |
@@ -189,7 +192,7 @@ ID 레지스트리 항목의 본문은 “properties” 구성원으로 제한�
 1. 그러면 서비스에서는 항목 `$iothub/twin/res/{status}/?$rid={request id}`에 대해 보고된 속성 컬렉션의 새 ETag 값을 포함하는 응답 메시지를 보냅니다. 이 응답 메시지는 동일한 **요청 ID**를 요청으로 사용합니다.
 
 요청 메시지 본문은 reported 속성에 대한 새 값을 제공하는 JSON 문서를 포함합니다(다른 속성 또는 메타데이터는 수정될 수 없음).
-JSON 문서의 각 구성원은 장치 쌍의 문서에 있는 해당 구성원을 업데이트하거나 추가합니다. `null`로 설정된 구성원은 포함하는 개체에서 구성원을 삭제합니다. 예:
+JSON 문서의 각 구성원은 장치 쌍의 문서에 있는 해당 구성원을 업데이트하거나 추가합니다. `null`로 설정된 구성원은 포함하는 개체에서 구성원을 삭제합니다. 예: 
 
         {
             "telemetrySendFrequency": "35m",
@@ -198,7 +201,7 @@ JSON 문서의 각 구성원은 장치 쌍의 문서에 있는 해당 구성원�
 
 가능한 상태 코드:
 
-|가동 상태 | 설명 |
+|상태 | 설명 |
 | ----- | ----------- |
 | 200 | 성공 |
 | 400 | 잘못된 요청. 형식이 잘못된 JSON |
@@ -209,7 +212,7 @@ JSON 문서의 각 구성원은 장치 쌍의 문서에 있는 해당 구성원�
 
 ### <a name="receiving-desired-properties-update-notifications"></a>desired 속성 업데이트 알림 수신
 
-장치가 연결되면 IoT Hub는 `$iothub/twin/PATCH/properties/desired/?$version={new version}` 항목에 알림을 보내는데 여기에는 솔루션 백 엔드에 의해 수행된 업데이트 콘텐츠가 포함됩니다. 예:
+장치가 연결되면 IoT Hub는 `$iothub/twin/PATCH/properties/desired/?$version={new version}` 항목에 알림을 보내는데 여기에는 솔루션 백 엔드에 의해 수행된 업데이트 콘텐츠가 포함됩니다. 예: 
 
         {
             "telemetrySendFrequency": "5m",
@@ -228,7 +231,7 @@ JSON 문서의 각 구성원은 장치 쌍의 문서에 있는 해당 구성원�
 
 먼저 장치가 `$iothub/methods/POST/#`을 구독해야 합니다. IoT Hub는 `$iothub/methods/POST/{method name}/?$rid={request id}` 항목에 유효한 JSON 또는 빈 본문으로 메서드 요청을 보냅니다.
 
-응답을 위해 장치는 유효한 JSON 또는 빈 본문을 포함하는 메시지를 `$iothub/methods/res/{status}/?$rid={request id}` 항목에 보내는데, 여기서 **request id**는 요청 메시지의 값과 일치하고 **status**는 정수여야 합니다.
+응답을 위해 장치는 유효한 JSON 또는 빈 본문을 포함하는 메시지를 `$iothub/methods/res/{status}/?$rid={request id}` 항목에 보내는데, 여기서 **요청 ID**는 요청 메시지의 값과 일치하고 **status**는 정수여야 합니다.
 
 자세한 내용은 [직접 메서드 개발자 가이드][lnk-methods]를 참조하세요.
 
@@ -270,6 +273,7 @@ IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 [lnk-scaling]: iot-hub-scaling.md
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
+[lnk-x509]: iot-hub-security-x509-get-started.md
 
 [lnk-methods]: iot-hub-devguide-direct-methods.md
 [lnk-messaging]: iot-hub-devguide-messaging.md

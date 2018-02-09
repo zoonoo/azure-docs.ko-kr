@@ -1,5 +1,5 @@
 ---
-title: "Azure RA-GRS(읽기 액세스 지역 중복 저장소)를 사용하여 항상 사용 가능한 응용 프로그램 설계 | Microsoft Docs"
+title: "Azure RA-GRS(Read-Access Geo Redundant Storage)를 사용하여 항상 사용 가능한 응용 프로그램 설계 | Microsoft Docs"
 description: "Azure RA-GRS 저장소를 사용하여 가동 중단을 처리할 만큼 유연하면서 항상 사용 가능한 응용 프로그램을 설계하는 방법입니다."
 services: storage
 documentationcenter: .net
@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 9/06/2017
+ms.date: 12/11/2017
 ms.author: tamram
-ms.openlocfilehash: 4100e8b90e37d6f4ab5123dfd682452c21c77998
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fe7c6d1f2530b43ac7b10c5b6b0723452452a97a
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>RA-GRS를 사용하여 항상 사용 가능한 응용 프로그램 설계
 
@@ -26,7 +26,7 @@ Azure Storage와 같은 클라우드 기반 인프라의 일반적인 기능은 
 
 Azure Storage는 저장소 계정에서 데이터의 중복성을 위해 선택한 4개 항목을 제공합니다.
 
-– LRS(로컬 중복 저장소)
+- LRS(로컬 중복 저장소)
 - ZRS(영역 중복 저장소) 
 - GRS(지역 중복 저장소)
 - RA-GRS(읽기 액세스 지역 중복 저장소) 
@@ -45,7 +45,7 @@ RA-GRS에 맞게 응용 프로그램을 설계할 경우 다음과 같은 주요
 
 * Blob, 테이블 및 큐에 대해 주 지역에서 보조 지역으로 마지막 복제가 발생한 시간을 알려주는 *Last Sync Time* 값을 보조 지역에 쿼리할 수 있습니다. (현재 RA-GRS 중복 옵션이 없는 Azure 파일에 대해서는 지원되지 않습니다.)
 
-* 저장소 클라이언트 라이브러리를 사용하여 주 지역 또는 보조 지역의 데이터와 상호 작용할 수 있습니다. 주 지역에 대한 읽기 요청의 시간이 초과되면 읽기 요청을 보조 지역에 자동으로 리디렉션할 수도 있습니다.
+* Storage 클라이언트 라이브러리를 사용하여 주 지역 또는 보조 지역의 데이터와 상호 작용할 수 있습니다. 주 지역에 대한 읽기 요청의 시간이 초과되면 읽기 요청을 보조 지역에 자동으로 리디렉션할 수도 있습니다.
 
 * 주 지역의 데이터에 대한 접근성에 영향을 미치는 주요한 문제가 있으면 Azure 팀에서 지역 장애 조치(failover)를 트리거할 수 있고, 그러면 주 지역을 가리키는 DNS 항목이 보조 지역을 가리키도록 변경됩니다.
 
@@ -222,7 +222,7 @@ RA-GRS는 주 지역에서 보조 지역으로 트랜잭션을 복제하는 방�
 
 응용 프로그램에 재시도 가능한 오류가 발생하는 경우 예상대로 작동하는지를 테스트하는 것이 중요합니다. 예를 들어 응용 프로그램이 문제를 감지하면 보조 지역 및 읽기 전용 모드로 전환했다가 주 지역을 다시 사용할 수 있게 되면 다시 전환하는지 테스트해야 합니다. 이렇게 하려면 재시도 가능한 오류를 시뮬레이션하고 이것이 발생하는 빈도를 제어할 수 있는 방법이 필요합니다.
 
-[Fiddler](http://www.telerik.com/fiddler)를 사용하면 스크립트에서 HTTP 요청을 가로채서 수정할 수 있습니다. 이 스크립트는 기본 끝점에서 오는 응답을 식별하고 HTTP 상태 코드를 저장소 클라이언트 라이브러리에서 재시도 가능한 오류로 인식하는 코드로 변경할 수 있습니다. 이 코드 조각은 **employeedata** 테이블에 대한 읽기 요청에 대한 응답을 가로채서 502 상태를 반환하는 Fiddler 스크립트의 간단한 예를 보여줍니다.
+[Fiddler](http://www.telerik.com/fiddler)를 사용하면 스크립트에서 HTTP 요청을 가로채서 수정할 수 있습니다. 이 스크립트는 기본 끝점에서 오는 응답을 식별하고 HTTP 상태 코드를 Storage 클라이언트 라이브러리에서 재시도 가능한 오류로 인식하는 코드로 변경할 수 있습니다. 이 코드 조각은 **employeedata** 테이블에 대한 읽기 요청에 대한 응답을 가로채서 502 상태를 반환하는 Fiddler 스크립트의 간단한 예를 보여줍니다.
 
 ```java
 static function OnBeforeResponse(oSession: Session) {

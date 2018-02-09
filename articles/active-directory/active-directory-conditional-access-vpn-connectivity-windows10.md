@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/01/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 8941e631976eb11966c1f9ddd207af816df5dadf
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 511df58befe9aed4aa65fc6944cae3a8e2c74c2d
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="azure-active-directory-conditional-access-for-vpn-connectivity-preview"></a>VPN 연결에 대한 Azure Active Directory 조건부 액세스(미리 보기)
 
@@ -88,9 +88,9 @@ VPN 인증서를 만들려면:
 
     a. **기간 선택**에 대해 **1년**을 선택합니다.
 
-    b. **기본**에 대해 **예**를 선택합니다.
+    나. **기본**에 대해 **예**를 선택합니다.
 
-    c. **만들기**를 클릭합니다.
+    다. **만들기**를 클릭합니다.
 
 7. VPN 연결 페이지에서 **인증서 다운로드**를 클릭합니다.
 
@@ -132,9 +132,9 @@ Windows RRAS 기반 배포의 경우 NPS 서버에서 다음 명령을 실행하
 
     a. **사용자 및 그룹 선택**을 클릭합니다.
 
-    b. **선택**을 클릭합니다.
+    나. **선택**을 클릭합니다.
 
-    c. **선택** 페이지에서 테스트 사용자를 선택한 다음 **선택**을 클릭합니다.
+    다. **선택** 페이지에서 테스트 사용자를 선택한 다음 **선택**을 클릭합니다.
 
     d. **사용자 및 그룹** 페이지에서 **완료**를 클릭합니다.
 
@@ -144,9 +144,9 @@ Windows RRAS 기반 배포의 경우 NPS 서버에서 다음 명령을 실행하
 
     a. **할당** 섹션에서 **클라우드 앱**을 클릭합니다.
 
-    b. **클라우드 앱** 페이지에서 **앱 선택**을 클릭하고 **선택**을 클릭합니다.
+    나. **클라우드 앱** 페이지에서 **앱 선택**을 클릭하고 **선택**을 클릭합니다.
 
-    c. **선택** 페이지의 **응용 프로그램** 상자에서 **vpn**을 입력합니다.
+    다. **선택** 페이지의 **응용 프로그램** 상자에서 **vpn**을 입력합니다.
 
     d. **VPN 서버**를 선택합니다.
 
@@ -163,7 +163,7 @@ Windows RRAS 기반 배포의 경우 NPS 서버에서 다음 명령을 실행하
 
     a. **다단계 인증 필요**를 선택합니다.
 
-    b. **선택**을 클릭합니다.
+    나. **선택**을 클릭합니다.
 
 15. **새로 만들기** 페이지의 **정책 사용**에서 **켜기**를 클릭합니다.
 

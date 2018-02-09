@@ -15,37 +15,37 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2017
 ms.author: jdial
-ms.openlocfilehash: 019d4ba9124173a7de555c46d32881ecf639a34c
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: ee418537fb52dbfb3eacca6e99d8572152a60910
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure DDoS 보호 표준 관리
 
-DDoS(배포된 서비스 거부) 보호를 사용 및 사용하지 않도록 설정하는 방법과 원격 분석을 사용하여 Azure DDoS 보호 표준으로 DDoS 공격을 완화하는 방법에 대해 알아봅니다. DDoS 보호 표준은 할당된 Azure [공용 IP 주소](virtual-network-public-ip-address.md)가 있는 Application Gateway, 부하 분산 장치 및 가상 컴퓨터와 같은 Azure 리소스를 보호합니다. DDoS 보호 표준 및 해당 기능에 대한 자세한 내용은 [DDoS 보호 표준 개요](ddos-protection-overview.md)를 참조하세요. 
+DDoS(배포된 서비스 거부) 보호를 사용 및 사용하지 않도록 설정하는 방법과 원격 분석을 사용하여 Azure DDoS 보호 표준으로 DDoS 공격을 완화하는 방법에 대해 알아봅니다. DDoS 보호 표준은 할당된 Azure [공용 IP 주소](virtual-network-public-ip-address.md)가 있는 Application Gateway, 부하 분산 장치 및 가상 머신과 같은 Azure 리소스를 보호합니다. DDoS 보호 표준 및 해당 기능에 대한 자세한 내용은 [DDoS 보호 표준 개요](ddos-protection-overview.md)를 참조하세요. 
 
 >[!IMPORTANT]
 >Azure DDoS 보호 표준(DDoS 보호)은 현재 미리 보기로 제공됩니다. 제한된 수의 Azure 리소스는 DDoS 보호를 지원하며 선택한 수의 지역에서만 사용할 수 있습니다. 사용 가능한 지역 목록은 [DDoS 보호 표준 개요](ddos-protection-overview.md)를 참조하세요. 제한된 미리 보기 동안 구독에 대해 DDoS 보호를 사용하도록 설정하려면 [서비스에 등록](http://aka.ms/ddosprotection)해야 합니다. 등록 후 Azure DDoS 팀에서 사용 설정 프로세스를 안내하기 위해 연락합니다. 
 
 ## <a name="enable-ddos-protection-standard---new-virtual-network"></a>DDoS 보호 표준 사용 - 새 가상 네트워크
 
-1. Azure Portal( http://portal.azure.com )에 로그인합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
-2. Azure Portal의 왼쪽 위에 있는 **새로 만들기** 단추를 클릭합니다.
+1. Azure Portal( http://portal.azure.com )에 로그인합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+2. Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기**를 클릭합니다.
 3. **네트워킹**을 선택한 다음 **가상 네트워크**를 선택합니다.
-4. 선택한 설정으로 가상 네트워크를 만듭니다. 가상 네트워크 만들기에 대한 자세한 내용은 [가상 네트워크 만들기](virtual-networks-create-vnet-arm-pportal.md)를 참조하세요. *DDoS 보호*에서 **사용**을 클릭한 후 **만들기**를 클릭합니다.
+4. 선택한 설정으로 가상 네트워크를 만듭니다. 가상 네트워크 만들기에 대한 자세한 내용은 [가상 네트워크 만들기](virtual-networks-create-vnet-arm-pportal.md)를 참조하세요. **DDoS 보호**에서 **사용**을 클릭한 후 **만들기**를 클릭합니다. **DDoS 보호**가 표시되지 않는 경우 한 가지 가능한 원인은 구독이 기능에 등록되지 않은 것입니다. [등록](http://aka.ms/ddosprotection)을 완료하여 구독에서 해당 기능을 사용할 수 있다는 알림을 받아야 **DDoS 보호**가 표시됩니다.
 
     ![가상 네트워크 만들기](./media/ddos-protection-manage-portal/ddos-create-vnet.png)   
 
     > [!WARNING]
-    > 지역 선택 시 [Azure DDoS 보호 표준 개요](ddos-protection-overview.md)에 있는 목록에서 지원되는 지역을 선택합니다.
+    > 지역 선택 시 [Azure DDoS 보호 표준 개요](ddos-protection-overview.md)에 있는 목록에서 지원되는 지역을 선택합니다. 지원되는 영역을 선택하지 않은 경우 가상 네트워크를 만들지 못합니다.
 
     DDoS 보호에서 요금을 부과할 수 있음을 알리는 경고입니다. 미리 보기 중에는 DDoS 보호에 대한 요금이 부과되지 않습니다. 일반 공급 시 요금이 부과됩니다. 고객은 요금 부과 시작 및 일반 공급 30일 전에 알림을 받습니다.
 
 ## <a name="enable-ddos-protection-standard---existing-virtual-network"></a>DDoS 보호 표준 사용 - 기존 가상 네트워크 
 
 1. Azure Portal 메뉴에서 **가상 네트워크**를 클릭한 후 가상 네트워크를 선택합니다.
-2. **DDoS 보호**를 클릭하고 *DDoS 보호* 화면에서 **사용**을 클릭한 후 **저장**을 클릭합니다. 
+2. **DDoS 보호**를 클릭하고 *DDoS 보호* 화면에서 **사용**을 클릭한 후 **저장**을 클릭합니다. **DDoS 보호**가 표시되지 않는 경우 한 가지 가능한 원인은 구독이 기능에 등록되지 않은 것입니다. [등록](http://aka.ms/ddosprotection)을 완료하여 구독에서 해당 기능을 사용할 수 있다는 알림을 받아야 **DDoS 보호**가 표시됩니다. 
 
     > [!WARNING]
     > 가상 네트워크는 지원되는 지역에 있어야 합니다. 지원되는 지역 목록은 [Azure DDoS 보호 표준 개요](ddos-protection-overview.md)를 참조하세요.
@@ -72,7 +72,7 @@ Azure Monitor 경고 구성을 사용하면 사용 가능한 DDoS 보호 메트�
 
     ![공격 경고](./media/ddos-protection-manage-portal/ddos-alert.png) 
 
-경고를 만들기 위해 [웹후크 구성](../monitoring-and-diagnostics/insights-webhooks-alerts.md) 및 [Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md)에 대해 자세히 알아볼 수도 있습니다.
+경고를 만들기 위해 [웹후크 구성](../monitoring-and-diagnostics/insights-webhooks-alerts.md) 및 [Logic Apps](../logic-apps/logic-apps-overview.md)에 대해 자세히 알아볼 수도 있습니다.
 
 ## <a name="configure-logging-on-ddos-protection-standard-metrics"></a>DDoS 보호 표준 메트릭에 대한 로깅 구성
 

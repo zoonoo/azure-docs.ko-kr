@@ -11,19 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2017
+ms.date: 01/02/2018
 ms.author: sethm
-ms.openlocfilehash: c6441d2119518e89a869ee52e5f0b80450ae2bbe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 16f641c7b6fdd1d6730d2ae229c93ce4a33b9492
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
-# <a name="message-sessions--first-in-first-out-fifo"></a>메시지 세션/FIFO(처음 들어간 것부터 사용) 
+# <a name="message-sessions-first-in-first-out-fifo"></a>메시지 세션: FIFO(처음 들어간 것부터 사용) 
 
-Service Bus 세션을 사용하면 관련 메시지의 무제한 시퀀스를 공동으로 순서를 지정하여 처리할 수 있습니다. Service Bus에서 FIFO 보장을 실현하려면 세션을 사용해야 합니다. Service Bus는 메시지 간 관계의 특징에 대한 규범이 아니며 메시지 시퀀스가 시작되거나 끝나는 위치를 결정하는 특정 모델을 정의하지 않습니다.
+Microsoft Azure Service Bus 세션을 사용하면 관련 메시지의 무제한 시퀀스를 공동으로 순서를 지정하여 처리할 수 있습니다. Service Bus에서 FIFO 보장을 실현하려면 세션을 사용합니다. Service Bus는 메시지 간 관계의 특징에 대한 규범이 아니며 메시지 시퀀스가 시작되거나 끝나는 위치를 결정하는 특정 모델을 정의하지 않습니다.
 
-발신자는 메시지를 토픽이나 큐에 제출할 때 [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid#Microsoft_Azure_ServiceBus_Message_SessionId) broker 속성을 세션에 고유한 응용 프로그램 정의 식별자로 설정하여 세션을 만들 수 있습니다. AMQP 1.0 프로토콜 수준에서 이 값은  *group-id*  속성에 매핑됩니다.
+발신자는 메시지를 토픽이나 큐에 제출할 때 [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid#Microsoft_Azure_ServiceBus_Message_SessionId) 속성을 세션에 고유한 응용 프로그램 정의 식별자로 설정하여 세션을 만들 수 있습니다. AMQP 1.0 프로토콜 수준에서 이 값은  *group-id*  속성에 매핑됩니다.
 
 세션 인식 큐 또는 구독에서 세션의 [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid#Microsoft_Azure_ServiceBus_Message_SessionId)가 있는 메시지가 하나 이상일 때 해당 세션이 존재하게 됩니다. 세션이 존재하면 세션이 언제 만료되거나 사라지는지에 대해 정의된 시간이나 API가 없습니다. 이론적으로 메시지는 오늘 세션에서 수신되고 1년 후 다음 메시지가 수신될 수 있으며 **SessionId**가 일치하면 세션은 Service Bus 측면에서 동일합니다.
 
@@ -33,11 +33,11 @@ Service Bus 세션을 사용하면 관련 메시지의 무제한 시퀀스를 �
 
 Service Bus의 세션 기능을 사용하면 C# 및 Java API의 [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) 형태로 특정 수신 작업이 가능합니다. 이 기능은 Azure Resource Manager를 통해 큐 또는 구독에 대한 [requiresSession](/azure/templates/microsoft.servicebus/namespaces/queues#property-values) 속성을 설정하거나 포털에서 플래그를 설정하여 사용하도록 설정합니다. 이 단계는 관련 API 작업을 사용하기 전에 필요합니다.
 
-포털에서 플래그는 다음 확인란으로 설정됩니다.
+포털에서 다음 확인란을 사용하여 플래그를 지정합니다.
 
 ![][2]
 
-세션용 API는 큐 및 구독 클라이언트에 있습니다. 세션 및 메시지 수신 시점을 제어하는 필수 모델과 수신 루프 관리의 복잡성을 숨기는 *OnMessage*와 유사한 처리기 기반 모델이 있습니다.
+세션용 API는 큐 및 구독 클라이언트에 있습니다. 세션 및 메시지가 수신되는 시간을 제어하는 필수 모델과 수신 루프 관리의 복잡성을 숨기는 *OnMessage*와 유사한 처리기 기반 모델이 있습니다.
 
 ## <a name="session-features"></a>세션 기능
 
@@ -45,17 +45,17 @@ Service Bus의 세션 기능을 사용하면 C# 및 Java API의 [MessageSession]
 
 ![][1]
 
-[MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) 수신기는 세션을 허용하는 클라이언트에서 생성됩니다. 명령적으로 클라이언트는 C#의 [QueueClient.AcceptMessageSession](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesession#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSession) 또는 [QueueClient.AcceptMessageSessionAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesessionasync#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSessionAsync)를 호출합니다. 반응성 콜백 모델에서는 세션 처리기를 등록하며 이 내용은 나중에 설명됩니다.
+[MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) 수신기는 세션을 허용하는 클라이언트에서 생성됩니다. 클라이언트는 C#의 [QueueClient.AcceptMessageSession](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesession#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSession) 또는 [QueueClient.AcceptMessageSessionAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesessionasync#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSessionAsync)를 호출합니다. 반응성 콜백 모델에서는 세션 처리기를 등록하며 이 내용은 나중에 설명됩니다.
 
-[MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession)이 수락되고 클라이언트에서 유지되는 동안 해당 클라이언트는 큐 또는 구독에 있는 세션의 [SessionId](/en-us/dotnet/api/microsoft.servicebus.messaging.messagesession.sessionid?view=azureservicebus-4.1.1#Microsoft_ServiceBus_Messaging_MessageSession_SessionId)가 포함된 모든 메시지와 세션이 유지되는 동안 도착하는 **SessionId**가 포함된 모든 메시지에 대해 배타적 잠금을 유지합니다.
+[MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) 개체가 수락되고 클라이언트에서 유지되는 동안 해당 클라이언트는 큐 또는 구독에 있는 세션의 [SessionId](/en-us/dotnet/api/microsoft.servicebus.messaging.messagesession.sessionid#Microsoft_ServiceBus_Messaging_MessageSession_SessionId)가 포함된 모든 메시지와 세션이 유지되는 동안 도착하는 **SessionId**가 포함된 모든 메시지에 대해 배타적 잠금을 유지합니다.
 
-잠금은 **Close** 또는 **CloseAsync**가 호출되거나 응용 프로그램이 그렇게 할 수 없어서 잠금이 만료될 때 해제됩니다. 세션 잠금은 파일에 대한 배타적인 잠금으로 처리되어야 합니다. 즉, 응용 프로그램은 세션이 더 이상 필요하지 않거나 더 이상 메시지를 기대하지 않는 경우 세션을 닫아야 합니다.
+잠금은 **Close** 또는 **CloseAsync**가 호출되거나 응용 프로그램이 잠금 작업을 수행할 수 없어서 잠금이 만료될 때 해제됩니다. 세션 잠금은 파일에 대한 배타적인 잠금으로 처리되어야 합니다. 즉, 응용 프로그램은 세션이 더 이상 필요하지 않거나 더 이상 메시지를 기대하지 않는 경우 세션을 닫아야 합니다.
 
 다수의 동시 수신자가 큐에서 풀링되면 특정 세션에 속하는 메시지는 해당 세션에 대한 잠금을 보유하고 있는 특정 수신자에게 전달됩니다. 이러한 작업을 통해 하나의 큐 또는 구독에 상주하는 인터리브된 메시지 스트림이 다른 수신자로 완전히 역멀티플렉싱되며 잠금 관리가 Service Bus 내의 서비스 쪽에서 발생하기 때문에 해당 수신자는 다른 클라이언트 시스템에서도 작동할 수 있습니다.
 
 하지만 큐는 여전히 큐이며 임의 액세스는 없습니다. 다수의 동시 수신자가 특정 세션을 수락하기를 기다리거나 특정 세션의 메시지를 기다리는 경우 어떠한 수신기에서도 아직 클레임하지 않은 세션에 속하는 큐의 맨 위에 메시지가 있으면 세션 수신자가 해당 세션을 클레임할 때까지 배달이 보류됩니다.
 
-위의 그림은 3개의 동시 세션 수신자를 보여주며 모든 수신자가 진행할 수 있도록 이들 모두는 큐의 메시지를 적극적으로 받아야 합니다. *SessionId*=4가 포함된 이전 세션에는 활성 소유 클라이언트가 없습니다. 다시 말해 세션을 소유하는 새로 생성된 수신자가 해당 메시지를 가져갈 때까지 누구에게도 메시지가 배달되지 않습니다.
+위의 그림은 3개의 동시 세션 수신자를 보여주며 모든 수신자가 진행할 수 있도록 이들 모두는 큐의 메시지를 적극적으로 받아야 합니다. `SessionId` = 4가 포함된 이전 세션에는 활성 소유 클라이언트가 없습니다. 다시 말해 세션을 소유하는 새로 생성된 수신자가 해당 메시지를 가져갈 때까지 누구에게도 메시지가 배달되지 않습니다.
 
 이는 제약이 있는 것처럼 보일 수 있지만 단일 수신기 프로세스는 다수의 동시 세션을 쉽게 처리할 수 있습니다. 특히 엄격한 비동기 코드로 작성된 경우 그렇습니다. 콜백 모델을 사용하면 수십 개의 동시 세션을 효율적으로 자동으로 저글링할 수 있습니다.
 
@@ -79,12 +79,12 @@ Service Bus 측면에서 메시지 세션 상태는 한 개 메시지 크기의 
 
 ## <a name="next-steps"></a>다음 단계
 
-- .NET Standard 라이브러리를 사용하여 Service Bus 큐에서 세션 기반 메시지를 주고 받는 [전체 예제](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/BasicSessionSendReceiveUsingQueueClient).
+- .NET Standard 라이브러리를 사용하여 Service Bus 큐에서 세션 기반 메시지를 주고 받는 [전체 예제](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/BasicSendReceiveUsingQueueClient).
 - 세션 인식 메시지를 처리하기 위해 .NET Framework 클라이언트를 사용하는 [샘플](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/Sessions). 
 
 Service Bus 메시징에 대해 자세히 알아보려면 다음 항목을 참조하세요.
 
-* [서비스 버스 기본 사항](service-bus-fundamentals-hybrid-solutions.md)
+* [Service Bus 기본 사항](service-bus-fundamentals-hybrid-solutions.md)
 * [Service Bus 큐, 토픽 및 구독](service-bus-queues-topics-subscriptions.md)
 * [Service Bus 큐 시작](service-bus-dotnet-get-started-with-queues.md)
 * [Service Bus 토픽 및 구독을 사용하는 방법](service-bus-dotnet-how-to-use-topics-subscriptions.md)

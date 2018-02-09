@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/16/2017
+ms.date: 1/4/2018
 ms.author: raiye
-ms.openlocfilehash: e19bb15be29fefbfbc94f7396bb2b68f8236f66a
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: e645d57dfff040eb05f4d395fac058b2b485933b
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure 게스트 OS 릴리스 및 SDK 호환성 매트릭스
 Cloud Services용 최신 Azure 게스트 OS릴리스에 대한 최신 정보를 제공합니다. 이 정보는 게스트 OS를 사용하지 않도록 설정하기 전에 업그레이드 경로를 계획하는 데 도움이 됩니다. [Azure 게스트 OS 업데이트 설정][Azure Guest OS Update Settings]의 설명에 따라 *자동* 게스트 OS 업데이트를 사용하도록 역할을 구성하는 경우, 이 페이지를 읽지 않아도 됩니다.
@@ -42,6 +42,14 @@ Cloud Services용 최신 Azure 게스트 OS릴리스에 대한 최신 정보를 
 게스트 OS가 무엇인지 또는 게스트 OS 릴리스가 어떻게 작동하는지 잘 모르시나요? [이](#how-it-works) 섹션을 읽어보세요.
 
 ## <a name="news-updates"></a>새 업데이트
+###### <a name="january-4-2018"></a>**2018년 1월 4일**
+중요한 보안 패치를 포함하는 1월 게스트 OS가 OS 제품군 4(WA-GUEST-OS-4.50_201801-01) 및 5(WA-GUEST-OS-5.15_201801-01)에 릴리스되었습니다.  
+
+###### <a name="january-4-2018"></a>**2018년 1월 4일**
+12월 게스트 OS가 릴리스되었습니다.
+
+###### <a name="december-14-2017"></a>**2017년 12월 14일**
+11월 게스트 OS가 릴리스되었습니다.
 
 ###### <a name="november-8-2017"></a>**2017년 11월 8일**
 10월 게스트 OS가 릴리스되었습니다.
@@ -67,12 +75,6 @@ Cloud Services용 최신 Azure 게스트 OS릴리스에 대한 최신 정보를 
 ###### <a name="june-16-2017"></a>**2017년 6월 16일**
 게스트 OS 6월 롤아웃은 6월 16일에 시작되며 7월 11일에 출시될 예정입니다.
 
-###### <a name="june-5-2017"></a>**2017년 6월 5일**
-게스트 OS 5월이 릴리스되었습니다.
-
-###### <a name="may-17-2017"></a>**2017년 5월 17일**
-보안 버그로 인해 포털에서 [수정 사항]이 없는 2016년 12월 및 2017년 1월 OS 릴리스를 사용하지 않습니다. WA-GUEST-OS-5.4_201612-01, WA-GUEST-OS-4.39_201612-01, WA-GUEST-OS-3.46_201612-01, WA-GUEST-OS-2.59_201701-01
-
 
 ## <a name="releases"></a>릴리스
 ## <a name="family-5-releases"></a>제품군 5 릴리스
@@ -88,16 +90,18 @@ Cloud Services용 최신 Azure 게스트 OS릴리스에 대한 최신 정보를 
 
 | 구성 문자열 | 릴리스 날짜 | 비활성화 날짜 | 만료 날짜 |
 | --- | --- | --- | --- |
-| WA-GUEST-OS-5.12_201710-02 |2017년 11월 8일 |5.14 릴리스 이후 |TBD |
-| WA-GUEST-OS-5.11_201709-01 |2017년 10월 6일 |5.13 후 |TBD |
-| WA-GUEST-OS-5.10_201708-01 |2017년 8월 24일 |5.12 후 |TBD |
+| WA-GUEST-OS-5.15_201801-01 |2018년 1월 4일 |게시물 5.17 |TBD |
+| WA-GUEST-OS-5.14_201712-01 |2018년 1월 4일 |게시물 5.16 |TBD |
+| WA-GUEST-OS-5.13_201711-01 |2017년 12월 14일 |게시물 5.15 |TBD |
+|~~WA-GUEST-OS-5.12_201710-02~~ |2017년 11월 8일 |2018년 1월 4일 |TBD |
+|~~WA-GUEST-OS-5.11_201709-01~~ |2017년 10월 6일 |2017년 12월 14일 |TBD |
+|~~WA-GUEST-OS-5.10_201708-01~~ |2017년 8월 24일 |2017년 12월 14일 |TBD |
 |~~WA-GUEST-OS-5.9_201707-01~~ |2017년 8월 3일 |2017년 11월 8일 |TBD |
 |~~WA-GUEST-OS-5.8_201706-01~~ |2017년 7월 7일 |2017년 10월 6일 |TBD |
 |~~WA-GUEST-OS-5.7_201705-01~~ |2017년 6월 5일 |2017년 8월 24일 |TBD |
 |~~WA-GUEST-OS-5.6_201704-01~~ |2017년 5월 9일 |2017년 8월 3일 |TBD |
 |~~WA-GUEST-OS-5.5_201703-01~~ |2017년 4월 10일 |2017년 7월 7일 |TBD |
 |~~WA-GUEST-OS-5.4_201612-01~~ |2017년 1월 10일 |2017년 6월 5일|TBD |
-|~~WA-GUEST-OS-5.3_201611-01~~ |2016년 12월 14일 |2017년 5월 9일 |TBD |
 
 ## <a name="family-4-releases"></a>제품군 4 릴리스
 **Windows Server 2012 R2**
@@ -111,16 +115,18 @@ Cloud Services용 최신 Azure 게스트 OS릴리스에 대한 최신 정보를 
 
 | 구성 문자열 | 릴리스 날짜 | 비활성화 날짜 | 만료 날짜 |
 | --- | --- | --- | --- |
-| WA-GUEST-OS-4.47_201710-02 |2017년 11월 8일 |4.49 릴리스 이후 |TBD |
-| WA-GUEST-OS-4.46_201709-01 |2017년 10월 6일 |4.48 후 |TBD |
-| WA-GUEST-OS-4.45_201708-01 |2017년 8월 24일 |4.47 후 |TBD |
+| WA-GUEST-OS-4.50_201801-01 |2018년 1월 4일 |게시물 4.52 |TBD |
+| WA-GUEST-OS-4.49_201712-01 |2018년 1월 4일 |게시물 4.51 |TBD |
+| WA-GUEST-OS-4.48_201711-01 |2017년 12월 14일 |게시물 4.50 |TBD |
+|~~WA-GUEST-OS-4.47_201710-02~~ |2017년 11월 8일 |2018년 1월 4일 |TBD |
+|~~WA-GUEST-OS-4.46_201709-01~~ |2017년 10월 6일 |2017년 12월 14일 |TBD |
+|~~WA-GUEST-OS-4.45_201708-01~~ |2017년 8월 24일 |2017년 12월 14일 |TBD |
 |~~WA-GUEST-OS-4.44_201707-01~~ |2017년 8월 3일 |2017년 11월 8일 |TBD |
 |~~WA-GUEST-OS-4.43_201706-01~~ |2017년 7월 7일 |2017년 10월 6일 |TBD |
 |~~WA-GUEST-OS-4.42_201705-01~~ |2017년 6월 5일 |2017년 8월 24일 |TBD |
 |~~WA-GUEST-OS-4.41_201704-01~~ |2017년 5월 9일 |2017년 8월 3일 |TBD |
 |~~WA-GUEST-OS-4.40_201703-01~~ |2017년 4월 10일 |2017년 7월 7일 |TBD |
 |~~WA-GUEST-OS-4.39_201612-01~~ |2017년 1월 10일 |2017년 6월 5일 |TBD |
-|~~WA-GUEST-OS-4.38_201611-01~~ |2016년 12월 14일 |2017년 5월 9일 |TBD |
 
 ## <a name="family-3-releases"></a>제품군 3 릴리스
 **Windows Server 2012**
@@ -134,16 +140,17 @@ Cloud Services용 최신 Azure 게스트 OS릴리스에 대한 최신 정보를 
 
 | 구성 문자열 | 릴리스 날짜 | 비활성화 날짜 | 만료 날짜 |
 | --- | --- | --- | --- |
-| WA-GUEST-OS-3.54_201710-02 |2017년 11월 8일 |3.56 릴리스 이후 |TBD |
-| WA-GUEST-OS-3.53_201709-01 |2017년 10월 6일 |3.55 후 |TBD |
-| WA-GUEST-OS-3.52_201708-01 |2017년 8월 24일 |3.54 후 |TBD |
+| WA-GUEST-OS-3.56_201712-01 |2018년 1월 4일 |게시물 3.58 |TBD |
+| WA-GUEST-OS-3.55_201711-01 |2017년 12월 14일 |게시물 3.57 |TBD |
+|~~WA-GUEST-OS-3.54_201710-02~~ |2017년 11월 8일 |2018년 1월 4일 |TBD |
+|~~WA-GUEST-OS-3.53_201709-01~~ |2017년 10월 6일 |2017년 12월 14일 |TBD |
+|~~WA-GUEST-OS-3.52_201708-01~~ |2017년 8월 24일 |2017년 12월 14일 |TBD |
 |~~WA-GUEST-OS-3.51_201707-01~~ |2017년 8월 3일 |2017년 11월 8일 |TBD |
 |~~WA-GUEST-OS-3.50_201706-01~~ |2017년 7월 7일 |2017년 10월 6일 |TBD |
 |~~WA-GUEST-OS-3.49_201705-01~~ |2017년 6월 5일 |2017년 8월 24일 |TBD |
 |~~WA-GUEST-OS-3.48_201704-01~~ |2017년 5월 9일 |2017년 8월 3일 |TBD |
 |~~WA-GUEST-OS-3.47_201703-01~~ |2017년 4월 10일 |2017년 7월 7일 |TBD |
 |~~WA-GUEST-OS-3.46_201612-01~~ |2017년 1월 10일 |2017년 6월 5일 |TBD |
-|~~WA-GUEST-OS-3.45_201611-01~~ |2016년 12월 14일 |2017년 5월 9일 |TBD |
 
 ## <a name="family-2-releases"></a>제품군 2 릴리스
 **Windows Server 2008 R2 SP1**
@@ -157,9 +164,11 @@ Cloud Services용 최신 Azure 게스트 OS릴리스에 대한 최신 정보를 
 
 | 구성 문자열 | 릴리스 날짜 | 비활성화 날짜 | 만료 날짜 |
 | --- | --- | --- | --- |
-| WA-GUEST-OS-2.67_201710-02 |2017년 11월 8일 |2.69 릴리스 이후 |TBD |
-| WA-GUEST-OS-2.66_201709-01 |2017년 10월 6일 |2.68 후 |TBD |
-| WA-GUEST-OS-2.65_201708-01 |2017년 8월 24일 |2.67 후 |TBD |
+| WA-GUEST-OS-2.69_201712-01 |2018년 1월 4일 |게시물 2.71 |TBD |
+| WA-GUEST-OS-2.68_201711-01 |2017년 12월 14일 |게시물 2.70 |TBD |
+|~~WA-GUEST-OS-2.67_201710-02~~ |2017년 11월 8일 |2018년 1월 4일 |TBD |
+|~~WA-GUEST-OS-2.66_201709-01~~ |2017년 10월 6일 |2017년 12월 14일 |TBD |
+|~~WA-GUEST-OS-2.65_201708-01~~ |2017년 8월 24일 |2017년 12월 14일 |TBD |
 |~~WA-GUEST-OS-2.64_201707-01~~ |2017년 8월 3일 |2017년 11월 8일 |TBD |
 |~~WA-GUEST-OS-2.63_201706-01~~ |2017년 7월 7일 |2017년 10월 6일 |TBD |
 |~~WA-GUEST-OS-2.62_201705-01~~ |2017년 6월 5일 |2017년 8월 24일 |TBD |
@@ -167,7 +176,6 @@ Cloud Services용 최신 Azure 게스트 OS릴리스에 대한 최신 정보를 
 |~~WA-GUEST-OS-2.60_201703-01~~ |2017년 4월 10일 |2017년 7월 7일 |TBD |
 |~~WA-GUEST-OS-2.59_201701-01~~ |2017년 1월 10일 |2017년 6월 5일 |TBD |
 |~~WA-GUEST-OS-2.58_201612-01~~ |2017년 1월 10일 |2017년 5월 9일|TBD |
-|~~WA-GUEST-OS-2.57_201611-01~~ |2016년 12월 14일 |2017년 4월 10일 |TBD |
 
 
 ## <a name="msrc-patch-updates"></a>MSRC 패치 업데이트
@@ -244,4 +252,4 @@ Microsoft Azure는 지속적으로 업데이트를 릴리스하고 있습니다.
 [patches]: cloud-services-guestos-msrc-releases.md
 [retirepolicy]: cloud-services-guestos-retirement-policy.md
 [fam1retire]: cloud-services-guestos-family1-retirement.md
-[수정 사항]: https://technet.microsoft.com/en-us/library/security/ms17-010.aspx
+[fix]: https://technet.microsoft.com/en-us/library/security/ms17-010.aspx

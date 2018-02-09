@@ -1,237 +1,273 @@
 ---
-title: "웹 응용 프로그램 방화벽 구성: Azure Application Gateway | Microsoft Docs"
-description: "이 문서에서는 기존 또는 새 응용 프로그램 게이트웨이에 웹 응용 프로그램 방화벽을 사용하는 방법을 안내합니다."
-documentationcenter: na
+title: "웹 응용 프로그램 방화벽이 있는 응용 프로그램 게이트웨이 만들기 - Azure PowerShell | Microsoft Docs"
+description: "Azure PowerShell을 사용하여 웹 응용 프로그램 방화벽이 있는 응용 프로그램 게이트웨이를 만드는 방법에 대해 알아봅니다."
 services: application-gateway
 author: davidmu1
 manager: timlt
 editor: tysonn
-ms.assetid: 670b9732-874b-43e6-843b-d2585c160982
+tags: azure-resource-manager
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/03/2017
+ms.date: 01/25/2018
 ms.author: davidmu
-ms.openlocfilehash: e8106805d21b325e33fb3ab376db75cd783b9042
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: fe36076988e65837340ec70982de788e532c455d
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="configure-a-web-application-firewall-on-a-new-or-existing-application-gateway"></a>새 또는 기존 응용 프로그램 게이트웨이에 웹 응용 프로그램 방화벽 구성
+# <a name="create-an-application-gateway-with-a-web-application-firewall-using-azure-powershell"></a>Azure PowerShell을 사용하여 웹 응용 프로그램 방화벽이 있는 응용 프로그램 게이트웨이 만들기
 
-> [!div class="op_single_selector"]
-> * [Azure 포털](application-gateway-web-application-firewall-portal.md)
-> * [PowerShell](application-gateway-web-application-firewall-powershell.md)
-> * [Azure CLI](application-gateway-web-application-firewall-cli.md)
+Azure PowerShell을 사용하여 백 엔드 서버에 [가상 머신 확장 집합](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)을 사용하는 WAF([웹 응용 프로그램 방화벽](application-gateway-web-application-firewall-overview.md))에서 [응용 프로그램 게이트웨이](application-gateway-introduction.md)를 만들 수 있습니다. WAF는 [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 규칙을 사용하여 응용 프로그램을 보호합니다. 이러한 규칙을 통해 SQL 주입과 같은 공격, 사이트 간 스크립팅 공격 및 세션 도용으로부터 보호합니다. 
 
-WAF(웹 응용 프로그램 방화벽)를 사용하도록 설정된 응용 프로그램 게이트웨이를 만드는 방법에 대해 알아봅니다. 또한 WAF를 기존 응용 프로그램 게이트웨이에 추가하는 방법을 알아봅니다.
+이 문서에서는 다음 방법을 설명합니다.
 
-Azure Application Gateway의 WAF는 SQL 삽입 공격, 사이트 간 스크립팅 공격, 세션 하이재킹 등의 일반적인 웹 기반 공격으로부터 웹 응용 프로그램을 보호합니다.
+> [!div class="checklist"]
+> * 네트워크 설정
+> * WAF를 사용하여 응용 프로그램 게이트웨이 만들기
+> * 가상 머신 확장 집합 만들기
+> * 저장소 계정 만들기 및 진단 구성
 
- Application Gateway는 계층 7 부하 분산 장치입니다. 클라우드 또는 온-프레미스이든 상관없이 서로 다른 서버 간에 장애 조치(Failover), 성능 라우팅 HTTP 요청을 제공합니다. Application Gateway는 많은 ADC(응용 프로그램 배달 컨트롤러) 기능을 제공합니다.
+![웹 응용 프로그램 방화벽 예제](./media/application-gateway-web-application-firewall-powershell/scenario-waf.png)
 
- * HTTP 부하 분산
- * 쿠키 기반 세션 선호도
- * SSL(Secure Sockets Layer) 오프로드
- * 사용자 지정 상태 프로브
- * 멀티 사이트 기능에 대한 지원
- 
- 지원되는 기능의 전체 목록을 찾으려면 [Application Gateway에 대한 개요](application-gateway-introduction.md)를 참조하세요.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-이 문서에서는 [WAF를 기존 응용 프로그램 게이트웨이에 추가](#add-web-application-firewall-to-an-existing-application-gateway)하는 방법을 보여 줍니다. 또한 [WAF를 사용하여 응용 프로그램 게이트웨이를 만드는](#create-an-application-gateway-with-web-application-firewall) 방법을 보여 줍니다.
+[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-![시나리오 이미지][scenario]
+PowerShell을 로컬로 설치하고 사용하도록 선택한 경우 이 자습서에서는 Azure PowerShell 모듈 버전 3.6 이상을 실행해야 합니다. ` Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Login-AzureRmAccount`를 실행하여 Azure와 연결해야 합니다.
 
-## <a name="waf-configuration-differences"></a>WAF 구성 차이
+## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-[PowerShell을 사용하여 응용 프로그램 게이트웨이 만들기](application-gateway-create-gateway-arm.md)를 읽어 보셨다면 응용 프로그램 게이트웨이를 만들 때 구성하는 SKU 설정에 대해 알고 계실 것입니다. WAF는 응용 프로그램 게이트웨이에 SKU를 구성할 때 정의하는 추가 설정을 제공합니다. Application Gateway 자체에서 추가로 변경해야 하는 사항은 없습니다.
+리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup)을 사용하여 Azure 리소스 그룹을 만듭니다.  
 
-| **설정** | **세부 정보**
-|---|---|
-|**SKU** |WAF가 없는 일반 응용 프로그램 게이트웨이는 **Standard\_Small**, **Standard\_Medium** 및 **Standard\_Large** 크기를 지원합니다. WAF의 도입으로 두 개의 SKU, 즉 **WAF\_Medium** 및 **WAF\_Large** SKU가 추가되었습니다. 소형 응용 프로그램 게이트웨이에는 WAF가 지원되지 않습니다.|
-|**계층** | 사용 가능한 값은 **표준** 또는 **WAF**입니다. WAF를 사용하는 경우 **WAF**를 선택해야 합니다.|
-|**모드** | 이 설정은 WAF 모드입니다. 허용되는 값은 **검색** 및 **방지**입니다. WAF를 **검색** 모드로 설정하면 모든 위협이 로그 파일에 저장됩니다. **방지** 모드에서는 이벤트를 여전히 기록하지만 공격자가 응용 프로그램 게이트웨이로부터 403 권한 없음 응답을 받습니다.|
-
-## <a name="add-a-web-application-firewall-to-an-existing-application-gateway"></a>기존 응용 프로그램 게이트웨이에 웹 응용 프로그램 방화벽 추가
-
-Azure PowerShell의 최신 버전을 사용하는지 확인합니다. 자세한 내용은 [리소스 관리자에서 Windows PowerShell 사용](../powershell-azure-resource-manager.md)을 참조하세요.
-
-1. Azure 계정에 로그인합니다.
-
-    ```powershell
-    Login-AzureRmAccount
-    ```
-
-2. 이 시나리오에 사용할 구독을 선택합니다.
-
-    ```powershell
-    Select-AzureRmSubscription -SubscriptionName "<Subscription name>"
-    ```
-
-3. WAF를 추가하려는 게이트웨이를 검색합니다.
-
-    ```powershell
-    $gw = Get-AzureRmApplicationGateway -Name "AdatumGateway" -ResourceGroupName "MyResourceGroup"
-    ```
-
-4. WAF SKU를 구성합니다. 사용 가능한 크기는 **WAF\_Large** 및 **WAF\_Medium**입니다. WAF를 사용하는 경우 계층은 **WAF**여야 합니다. SKU를 설정하는 경우 용량을 확인합니다.
-
-    ```powershell
-    $gw | Set-AzureRmApplicationGatewaySku -Name WAF_Large -Tier WAF -Capacity 2
-    ```
-
-5. 다음 예제에 정의된 대로 WAF 설정을 구성합니다. **FirewallMode**의 경우 사용 가능한 값은 **방지** 및 **검색**입니다.
-
-    ```powershell
-    $gw | Set-AzureRmApplicationGatewayWebApplicationFirewallConfiguration -Enabled $true -FirewallMode Prevention
-    ```
-
-6. 이전 단계에서 정의한 설정을 사용하여 응용 프로그램 게이트웨이를 업데이트합니다.
-
-    ```powershell
-    Set-AzureRmApplicationGateway -ApplicationGateway $gw
-    ```
-
-이 명령은 WAF가 있는 응용 프로그램 게이트웨이를 업데이트합니다. 응용 프로그램 게이트웨이에 대한 로그를 보는 방법을 알아보려면 [Application Gateway 진단](application-gateway-diagnostics.md)을 참조하세요. WAF의 보안 특성상, 주기적으로 로그를 검토하여 웹 응용 프로그램의 보안 상태를 파악해야 합니다.
-
-## <a name="create-an-application-gateway-with-a-web-application-firewall"></a>웹 응용 프로그램 방화벽이 있는 응용 프로그램 게이트웨이 만들기
-
-다음 단계에서는 WAF가 있는 응용 프로그램 게이트웨이를 만드는 전체 과정을 안내합니다.
-
-Azure PowerShell의 최신 버전을 사용하는지 확인합니다. 자세한 내용은 [리소스 관리자에서 Windows PowerShell 사용](../powershell-azure-resource-manager.md)을 참조하세요.
-
-1. `Login-AzureRmAccount`를 실행하여 Azure에 로그인합니다. 자격 증명을 사용하여 인증하라는 메시지가 표시됩니다.
-
-2. `Get-AzureRmSubscription`을 실행하여 계정에 대한 구독을 확인합니다.
-
-3. 사용할 Azure 구독을 선택합니다.
-
-    ```powershell
-    Select-AzureRmsubscription -SubscriptionName "<Subscription name>"
-    ```
-
-### <a name="create-a-resource-group"></a>리소스 그룹 만들기
-
-Application Gateway에 대한 리소스 그룹을 만듭니다.
-
-```powershell
-New-AzureRmResourceGroup -Name appgw-rg -Location "West US"
+```azurepowershell-interactive
+New-AzureRmResourceGroup -Name myResourceGroupAG -Location eastus
 ```
 
-Azure 리소스 관리자를 사용하려면 모든 리소스 그룹이 위치를 지정해야 합니다. 이 위치는 해당 리소스 그룹에서 리소스의 기본 위치로 사용됩니다. 응용 프로그램 게이트웨이를 만들기 위한 모든 명령이 동일한 리소스 그룹을 사용하는지 확인합니다.
+## <a name="create-network-resources"></a>네트워크 리소스 만들기 
 
-이전 예제에서는 "미국 서부"라는 위치로 "appgw-RG"라는 리소스 그룹을 만들었습니다.
+[New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig)를 사용하여 *myBackendSubnet* 및 *myAGSubnet*이라는 서브넷 구성을 만듭니다. 서브넷이 구성된 [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork)를 사용하여 *myVNet*이라는 가상 네트워크를 만듭니다. 마지막으로 [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress)를 사용하여 *myAGPublicIPAddress*라는 공용 IP 주소를 만듭니다. 이러한 리소스를 사용하여 응용 프로그램 게이트웨이 및 연결된 리소스에 대한 네트워크 연결을 제공합니다.
 
-> [!NOTE]
-> 응용 프로그램 게이트웨이에 사용자 지정 프로브를 구성해야 하는 경우 [PowerShell을 사용하여 사용자 지정 프로브로 응용 프로그램 게이트웨이 만들기](application-gateway-create-probe-ps.md)를 참조하세요. 자세한 내용은 [사용자 지정 프로브 및 상태 모니터링](application-gateway-probe-overview.md)을 참조하세요.
-
-### <a name="configure-a-virtual-network"></a>가상 네트워크 구성
-
-응용 프로그램 게이트웨이에는 자체 서브넷이 필요합니다. 이 단계에서는 10.0.0.0/16 주소 공간과 두 서브넷(응용 프로그램 게이트웨이에 하나 및 백 엔드 풀 멤버에 하나)을 사용하여 가상 네트워크를 만듭니다.
-
-```powershell
-# Create a subnet configuration object for the application gateway subnet. A subnet for an application should have a minimum of 28 mask bits. This value leaves 10 available addresses in the subnet for application gateway instances. With a smaller subnet, you might not be able to add more instances of your application gateway in the future.
-$gwSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name 'appgwsubnet' -AddressPrefix 10.0.0.0/24
-
-# Create a subnet configuration object for the back-end pool members subnet.
-$nicSubnet = New-AzureRmVirtualNetworkSubnetConfig  -Name 'appsubnet' -AddressPrefix 10.0.2.0/24
-
-# Create the virtual network with the previously created subnets.
-$vnet = New-AzureRmvirtualNetwork -Name 'appgwvnet' -ResourceGroupName appgw-rg -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $gwSubnet, $nicSubnet
+```azurepowershell-interactive
+$backendSubnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
+  -Name myBackendSubnet `
+  -AddressPrefix 10.0.1.0/24
+$agSubnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
+  -Name myAGSubnet `
+  -AddressPrefix 10.0.2.0/24
+$vnet = New-AzureRmVirtualNetwork `
+  -ResourceGroupName myResourceGroupAG `
+  -Location eastus `
+  -Name myVNet `
+  -AddressPrefix 10.0.0.0/16 `
+  -Subnet $backendSubnetConfig, $agSubnetConfig
+$pip = New-AzureRmPublicIpAddress `
+  -ResourceGroupName myResourceGroupAG `
+  -Location eastus `
+  -Name myAGPublicIPAddress `
+  -AllocationMethod Dynamic
 ```
 
-### <a name="configure-the-public-ip-address"></a>공용 IP 주소 구성
+## <a name="create-an-application-gateway"></a>응용 프로그램 게이트웨이 만들기
 
-외부 요청을 처리하려면 응용 프로그램 게이트웨이에는 공용 IP 주소가 필요합니다. 이 공용 IP 주소에는 Application Gateway에서 사용되도록 정의된 `DomainNameLabel`이 있어서는 안됩니다.
+### <a name="create-the-ip-configurations-and-frontend-port"></a>IP 구성 및 프런트 엔드 포트 만들기
 
-```powershell
-# Create a public IP address for use with the application gateway. Defining the `DomainNameLabel` during creation is not supported for use with the application gateway.
-$publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -name 'appgwpip' -Location "West US" -AllocationMethod Dynamic
+[New-AzureRmApplicationGatewayIPConfiguration](/powershell/module/azurerm.network/new-azurermapplicationgatewayipconfiguration)을 사용하여 응용 프로그램 게이트웨이에 이전에 만든 *myAGSubnet*을 연결합니다. [New-AzureRmApplicationGatewayFrontendIPConfig](/powershell/module/azurerm.network/new-azurermapplicationgatewayfrontendipconfig)를 사용하여 응용 프로그램 게이트웨이에 *myAGPublicIPAddress*를 할당합니다.
+
+```azurepowershell-interactive
+$vnet = Get-AzureRmVirtualNetwork `
+  -ResourceGroupName myResourceGroupAG `
+  -Name myVNet
+$subnet=$vnet.Subnets[0]
+$gipconfig = New-AzureRmApplicationGatewayIPConfiguration `
+  -Name myAGIPConfig `
+  -Subnet $subnet
+$fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig `
+  -Name myAGFrontendIPConfig `
+  -PublicIPAddress $pip
+$frontendport = New-AzureRmApplicationGatewayFrontendPort `
+  -Name myFrontendPort `
+  -Port 80
 ```
 
-### <a name="configure-the-application-gateway"></a>응용 프로그램 게이트웨이 구성
+### <a name="create-the-backend-pool-and-settings"></a>백 엔드 풀 및 설정 만들기
 
-```powershell
-# Create an IP configuration to configure which subnet the application gateway uses. When the application gateway starts, it picks up an IP address from the configured subnet and routes network traffic to the IP addresses in the back-end IP pool.
-$gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name 'gwconfig' -Subnet $gwSubnet
+[New-AzureRmApplicationGatewayBackendAddressPool](/powershell/module/azurerm.network/new-azurermapplicationgatewaybackendaddresspool)을 사용하여 응용 프로그램 게이트웨이 *appGatewayBackendPool*이라는 백 엔드 풀을 만듭니다. [New-AzureRmApplicationGatewayBackendHttpSettings](/powershell/module/azurerm.network/new-azurermapplicationgatewaybackendhttpsettings)를 사용하여 백 엔드 주소 풀에 대한 설정을 구성합니다.
 
-# Create a back-end pool to hold the addresses or NIC handles for the application that the application gateway is protecting.
-$pool = New-AzureRmApplicationGatewayBackendAddressPool -Name 'pool01' -BackendIPAddresses 1.1.1.1, 2.2.2.2, 3.3.3.3
-
-# Upload the authentication certificate to be used to communicate with the back-end servers.
-$authcert = New-AzureRmApplicationGatewayAuthenticationCertificate -Name 'whitelistcert1' -CertificateFile <full path to .cer file>
-
-# Configure the back-end HTTP settings to be used to define how traffic is routed to the back-end pool. The authentication certificate used in the previous step is added to the back-end HTTP settings.
-$poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name 'setting01' -Port 443 -Protocol Https -CookieBasedAffinity Enabled -AuthenticationCertificates $authcert
-
-# Create a front-end port to be used by the listener.
-$fp = New-AzureRmApplicationGatewayFrontendPort -Name 'port01'  -Port 443
-
-# Create a front-end IP configuration to associate the public IP address with the application gateway.
-$fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig -Name 'fip01' -PublicIPAddress $publicip
-
-# Configure the certificate for the application gateway. This certificate is used to decrypt and re-encrypt the traffic on the application gateway.
-$cert = New-AzureRmApplicationGatewaySslCertificate -Name cert01 -CertificateFile <full path to .pfx file> -Password <password for certificate file>
-
-# Create the HTTP listener for the application gateway. Assign the front-end IP configuration, port, and SSL certificate to use.
-$listener = New-AzureRmApplicationGatewayHttpListener -Name listener01 -Protocol Https -FrontendIPConfiguration $fipconfig -FrontendPort $fp -SslCertificate $cert
-
-# Create a load-balancer routing rule that configures the load balancer behavior. In this example, a basic round-robin rule is created.
-$rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name 'rule01' -RuleType basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
-
-# Configure the SKU of the application gateway.
-$sku = New-AzureRmApplicationGatewaySku -Name WAF_Medium -Tier WAF -Capacity 2
-
-# Define the SSL policy to use.
-$policy = New-AzureRmApplicationGatewaySslPolicy -PolicyType Predefined -PolicyName AppGwSslPolicy20170401S
-
-# Configure the WAF configuration settings.
-$config = New-AzureRmApplicationGatewayWebApplicationFirewallConfiguration -Enabled $true -FirewallMode "Prevention"
-
-# Create the application gateway by using all the previously created configuration objects.
-$appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -WebApplicationFirewallConfig $config -SslCertificates $cert -AuthenticationCertificates $authcert
+```azurepowershell-interactive
+$defaultPool = New-AzureRmApplicationGatewayBackendAddressPool `
+  -Name appGatewayBackendPool 
+$poolSettings = New-AzureRmApplicationGatewayBackendHttpSettings `
+  -Name myPoolSettings `
+  -Port 80 `
+  -Protocol Http `
+  -CookieBasedAffinity Enabled `
+  -RequestTimeout 120
 ```
 
-> [!NOTE]
-> 기본 WAF 구성을 사용하여 만든 응용 프로그램 게이트웨이는 보호를 위해 CRS 3.0으로 구성됩니다.
+### <a name="create-the-default-listener-and-rule"></a>기본 수신기 및 규칙 만들기
 
-## <a name="get-an-application-gateway-dns-name"></a>응용 프로그램 게이트웨이 DNS 이름 가져오기
+수신기는 응용 프로그램 게이트웨이를 백 엔드 주소 풀에 트래픽을 적절하게 라우팅하도록 설정해야 합니다. 이 예제에서는 루트 URL에서 트래픽을 수신하는 기본 수신기를 만듭니다. 
 
-게이트웨이가 생성되면 다음 단계는 통신에 대한 프런트 엔드를 구성하는 것입니다. 공용 IP를 사용할 때 응용 프로그램 게이트웨이는 친근한 이름이 아닌 동적으로 할당된 DNS 이름이 필요합니다. 최종 사용자가 응용 프로그램 게이트웨이를 누를 수 있도록 하려면 CNAME 레코드를 사용하여 응용 프로그램 게이트웨이의 공용 끝점을 가리키도록 합니다. 자세한 내용은 [Azure 클라우드 서비스에서 사용자 지정 도메인 이름 구성](../cloud-services/cloud-services-custom-domain-name-portal.md)을 참조하세요. 
+이전에 만든 프런트 엔드 구성 및 프런트 엔드 포트에서 [New-AzureRmApplicationGatewayHttpListener](/powershell/module/azurerm.network/new-azurermapplicationgatewayhttplistener)를 사용하여 *mydefaultListener*라는 수신기를 만듭니다. 수신기에는 들어오는 트래픽에 사용할 백 엔드 풀을 아는 규칙이 필요합니다. [New-AzureRmApplicationGatewayRequestRoutingRule](/powershell/module/azurerm.network/new-azurermapplicationgatewayrequestroutingrule)을 사용하여 *rule1*이라는 기본 규칙을 만듭니다.
 
-별칭을 구성하려면 응용 프로그램 게이트웨이에 연결된 PublicIPAddress 요소를 사용하여 응용 프로그램 게이트웨이 및 관련 IP/DNS 이름에 대한 세부 정보를 검색합니다. 응용 프로그램 게이트웨이의 DNS 이름을 사용하여 두 개의 웹 응용 프로그램을 이 DNS 이름으로 가리키는 CNAME 레코드를 만듭니다. VIP가 응용 프로그램 게이트웨이를 다시 시작할 때 변경될 수 있으므로 A 레코드 사용은 권장하지 않습니다.
-
-```powershell
-Get-AzureRmPublicIpAddress -ResourceGroupName appgw-RG -Name publicIP01
+```azurepowershell-interactive
+$defaultlistener = New-AzureRmApplicationGatewayHttpListener `
+  -Name mydefaultListener `
+  -Protocol Http `
+  -FrontendIPConfiguration $fipconfig `
+  -FrontendPort $frontendport
+$frontendRule = New-AzureRmApplicationGatewayRequestRoutingRule `
+  -Name rule1 `
+  -RuleType Basic `
+  -HttpListener $defaultlistener `
+  -BackendAddressPool $defaultPool `
+  -BackendHttpSettings $poolSettings
 ```
 
+### <a name="create-the-application-gateway-with-the-waf"></a>WAF를 사용하여 응용 프로그램 게이트웨이 만들기
+
+이제 필요한 지원 리소스를 만들었으므로 [New-AzureRmApplicationGatewaySku](/powershell/module/azurerm.network/new-azurermapplicationgatewaysku)를 사용하여 응용 프로그램 게이트웨이에 대한 매개 변수를 지정합니다. [New-AzureRmApplicationGatewayWebApplicationFirewallConfiguration](/powershell/module/azurerm.network/new-azurermapplicationgatewaywebapplicationfirewallconfiguration)을 사용하여 WAF 구성을 지정합니다. 그런 다음, [New-AzureRmApplicationGateway](/powershell/module/azurerm.network/new-azurermapplicationgateway)를 사용하여 *myAppGateway*라는 응용 프로그램 게이트웨이를 만듭니다.
+
+```azurepowershell-interactive
+$sku = New-AzureRmApplicationGatewaySku `
+  -Name WAF_Medium `
+  -Tier WAF `
+  -Capacity 2
+$wafConfig = New-AzureRmApplicationGatewayWebApplicationFirewallConfiguration `
+  -Enabled $true `
+  -FirewallMode "Detection"
+$appgw = New-AzureRmApplicationGateway `
+  -Name myAppGateway `
+  -ResourceGroupName myResourceGroupAG `
+  -Location eastus `
+  -BackendAddressPools $defaultPool `
+  -BackendHttpSettingsCollection $poolSettings `
+  -FrontendIpConfigurations $fipconfig `
+  -GatewayIpConfigurations $gipconfig `
+  -FrontendPorts $frontendport `
+  -HttpListeners $defaultlistener `
+  -RequestRoutingRules $frontendRule `
+  -Sku $sku `
+  -WebApplicationFirewallConfig $wafConfig
 ```
-Name                     : publicIP01
-ResourceGroupName        : appgw-RG
-Location                 : westus
-Id                       : /subscriptions/<subscription_id>/resourceGroups/appgw-RG/providers/Microsoft.Network/publicIPAddresses/publicIP01
-Etag                     : W/"00000d5b-54ed-4907-bae8-99bd5766d0e5"
-ResourceGuid             : 00000000-0000-0000-0000-000000000000
-ProvisioningState        : Succeeded
-Tags                     : 
-PublicIpAllocationMethod : Dynamic
-IpAddress                : xx.xx.xxx.xx
-PublicIpAddressVersion   : IPv4
-IdleTimeoutInMinutes     : 4
-IpConfiguration          : {
-                                "Id": "/subscriptions/<subscription_id>/resourceGroups/appgw-RG/providers/Microsoft.Network/applicationGateways/appgwtest/frontendIP
-                            Configurations/frontend1"
-                            }
-DnsSettings              : {
-                                "Fqdn": "00000000-0000-xxxx-xxxx-xxxxxxxxxxxx.cloudapp.net"
-                            }
+
+## <a name="create-a-virtual-machine-scale-set"></a>가상 머신 확장 집합 만들기
+
+이 예제에서는 응용 프로그램 게이트웨이의 백 엔드 풀에 대한 서버를 제공하는 가상 머신 확장 집합을 만듭니다. IP 설정을 구성할 때 확장 집합을 백 엔드 풀에 할당합니다.
+
+```azurepowershell-interactive
+$vnet = Get-AzureRmVirtualNetwork `
+  -ResourceGroupName myResourceGroupAG `
+  -Name myVNet
+$appgw = Get-AzureRmApplicationGateway `
+  -ResourceGroupName myResourceGroupAG `
+  -Name myAppGateway
+$backendPool = Get-AzureRmApplicationGatewayBackendAddressPool `
+  -Name appGatewayBackendPool `
+  -ApplicationGateway $appgw
+$ipConfig = New-AzureRmVmssIpConfig `
+  -Name myVmssIPConfig `
+  -SubnetId $vnet.Subnets[1].Id `
+  -ApplicationGatewayBackendAddressPoolsId $backendPool.Id
+$vmssConfig = New-AzureRmVmssConfig `
+  -Location eastus `
+  -SkuCapacity 2 `
+  -SkuName Standard_DS2 `
+  -UpgradePolicyMode Automatic
+Set-AzureRmVmssStorageProfile $vmssConfig `
+  -ImageReferencePublisher MicrosoftWindowsServer `
+  -ImageReferenceOffer WindowsServer `
+  -ImageReferenceSku 2016-Datacenter `
+  -ImageReferenceVersion latest
+Set-AzureRmVmssOsProfile $vmssConfig `
+  -AdminUsername azureuser `
+  -AdminPassword "Azure123456!" `
+  -ComputerNamePrefix myvmss
+Add-AzureRmVmssNetworkInterfaceConfiguration `
+  -VirtualMachineScaleSet $vmssConfig `
+  -Name myVmssNetConfig `
+  -Primary $true `
+  -IPConfiguration $ipConfig
+New-AzureRmVmss `
+  -ResourceGroupName myResourceGroupAG `
+  -Name myvmss `
+  -VirtualMachineScaleSet $vmssConfig
 ```
+
+### <a name="install-iis"></a>IIS 설치
+
+```azurepowershell-interactive
+$publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/davidmu1/samplescripts/master/appgatewayurl.ps1"); 
+  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
+$vmss = Get-AzureRmVmss -ResourceGroupName myResourceGroupAG -VMScaleSetName myvmss
+Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmss `
+  -Name "customScript" `
+  -Publisher "Microsoft.Compute" `
+  -Type "CustomScriptExtension" `
+  -TypeHandlerVersion 1.8 `
+  -Setting $publicSettings
+Update-AzureRmVmss `
+  -ResourceGroupName myResourceGroupAG `
+  -Name myvmss `
+  -VirtualMachineScaleSet $vmss
+```
+
+## <a name="create-a-storage-account-and-configure-diagnostics"></a>저장소 계정 만들기 및 진단 구성
+
+이 자습서에서 응용 프로그램 게이트웨이는 감지 및 방지를 위해 데이터를 저장할 저장소 계정을 사용합니다. Log Analytics 또는 Event Hub를 사용하여 데이터를 기록할 수 있습니다.
+
+### <a name="create-the-storage-account"></a>저장소 계정 만들기
+
+[New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount)를 사용하여 *myagstore1*이라는 저장소 계정을 만듭니다.
+
+```azurepowershell-interactive
+$storageAccount = New-AzureRmStorageAccount `
+  -ResourceGroupName myResourceGroupAG `
+  -Name myagstore1 `
+  -Location eastus `
+  -SkuName "Standard_LRS"
+```
+
+### <a name="configure-diagnostics"></a>진단 구성
+
+[Set-AzureRmDiagnosticSetting](/powershell/module/azurerm.insights/set-azurermdiagnosticsetting)을 사용하여 ApplicationGatewayAccessLog, ApplicationGatewayPerformanceLog 및 ApplicationGatewayFirewallLog 로그에 데이터를 기록하도록 진단을 구성합니다.
+
+```azurepowershell-interactive
+$appgw = Get-AzureRmApplicationGateway `
+  -ResourceGroupName myResourceGroupAG `
+  -Name myAppGateway
+$store = Get-AzureRmStorageAccount `
+  -ResourceGroupName myResourceGroupAG `
+  -Name myagstore1
+Set-AzureRmDiagnosticSetting `
+  -ResourceId $appgw.Id `
+  -StorageAccountId $store.Id `
+  -Categories ApplicationGatewayAccessLog, ApplicationGatewayPerformanceLog, ApplicationGatewayFirewallLog `
+  -Enabled $true `
+  -RetentionEnabled $true `
+  -RetentionInDays 30
+```
+
+## <a name="test-the-application-gateway"></a>응용 프로그램 게이트웨이 테스트
+
+[Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress)를 사용하여 응용 프로그램 게이트웨이의 공용 IP 주소를 가져올 수 있습니다. 공용 IP 주소를 복사하여 브라우저의 주소 표시줄에 붙여넣습니다.
+
+```azurepowershell-interactive
+Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress
+```
+
+![응용 프로그램 게이트웨이의 기준 URL 테스트](./media/application-gateway-web-application-firewall-powershell/application-gateway-iistest.png)
 
 ## <a name="next-steps"></a>다음 단계
 
-진단 로깅을 구성하여 WAF를 통해 검색 또는 방지되는 이벤트를 기록하는 방법을 알아보려면 [Application Gateway 진단](application-gateway-diagnostics.md)을 참조하세요.
+이 자습서에서는 다음 방법에 대해 알아보았습니다.
 
-[scenario]: ./media/application-gateway-web-application-firewall-powershell/scenario.png
+> [!div class="checklist"]
+> * 네트워크 설정
+> * WAF를 사용하여 응용 프로그램 게이트웨이 만들기
+> * 가상 머신 확장 집합 만들기
+> * 저장소 계정 만들기 및 진단 구성
+
+응용 프로그램 게이트웨이 및 관련 리소스에 대해 자세히 알아보려면 방법 문서를 참조하세요.

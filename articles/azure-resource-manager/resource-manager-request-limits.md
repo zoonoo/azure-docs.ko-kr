@@ -12,24 +12,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/11/2017
+ms.date: 01/26/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6d7eeaf460674c3ab98425a5412ffa465b9ffd1d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dc109cdaeade900e239624f408cea2a1f448ae5a
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="throttling-resource-manager-requests"></a>Resource Manager 요청 제한
-각 구독 및 테넌트에 대해 Resource Manager는 읽기 요청을 시간당 15,000으로, 쓰기 요청을 시간당 1,200으로 제한합니다. 이러한 한도는 각 Azure Resource Manager 인스턴스에 적용됩니다. 모든 Azure 지역에 여러 인스턴스가 있으며 Azure Resource Manager가 모든 Azure 지역에 배포됩니다.  따라서 사용자 요청이 일반적으로 서로 다른 여러 인스턴스에서 서비스되므로 실제 한도는 위에 나열된 것보다 훨씬 높습니다.
+각 구독 및 테넌트에 대해 Resource Manager는 읽기 요청을 시간당 15,000으로, 쓰기 요청을 시간당 1,200으로 제한합니다. 이러한 한도는 각 Azure Resource Manager 인스턴스에 적용됩니다. 모든 Azure 지역에 여러 인스턴스가 있으며 Azure Resource Manager가 모든 Azure 지역에 배포됩니다.  따라서 사용자 요청이 일반적으로 다수의 많은 인스턴스에서 서비스되기 때문에 실제 한도는 이러한 한도보다 훨씬 더 높습니다.
 
-응용 프로그램 또는 스크립트가 이러한 한도에 도달하면 요청을 제한해야 합니다. 이 항목에서는 한도에 도달하기 전에 포함하는 나머지 요청을 확인하는 방법과 한도에 도달했을 때 대응하는 방법을 보여줍니다.
+응용 프로그램 또는 스크립트가 이러한 한도에 도달하면 요청을 제한해야 합니다. 이 문서에서는 한도에 도달하기 전에 남은 요청을 확인하는 방법과 한도에 도달했을 때 응답하는 방법을 보여줍니다.
 
 한도에 도달하면 HTTP 상태 코드 **429 너무 많은 요청**이 표시됩니다.
 
 요청 수는 구독 또는 테넌트 범위로 한정됩니다. 구독에서 요청을 만드는 동시 응용 프로그램이 여러 개 있는 경우 해당 응용 프로그램의 요청이 함께 추가되어 나머지 요청 수가 결정됩니다.
 
-구독에 범위가 지정된 요청은 구독에서 리소스 그룹 검색 등과 같은 구독 ID 전달을 포함하는 요청입니다. 테넌트에 범위가 지정된 요청은 올바른 Azure 위치 검색 등과 같은 구독 ID를 포함하지 않습니다.
+구독 범위가 지정된 요청은 구독의 리소스 그룹 검색과 같이 구독 ID 전달과 관련된 요청입니다. 테넌트 범위가 지정된 요청에는 올바른 Azure 위치 검색 등과 같이 구독 ID가 포함되지 않습니다.
 
 ## <a name="remaining-requests"></a>나머지 요청
 응답 헤더를 검사하여 나머지 요청 수를 확인할 수 있습니다. 각 요청은 나머지 읽기 및 쓰기 요청 수에 대한 값을 포함합니다. 다음 표에서는 해당 값을 검사할 수 있는 응답 헤더를 설명합니다.
@@ -85,7 +85,7 @@ x-ms-ratelimit-remaining-subscription-reads: 14999
 **Azure CLI**에서 더 많은 자세한 정보 표시 옵션을 사용하여 헤더 값을 검색합니다.
 
 ```azurecli
-azure group list -vv --json
+az group list --verbose --debug
 ```
 
 그러면 다음 개체를 포함한 많은 값이 반환됩니다.

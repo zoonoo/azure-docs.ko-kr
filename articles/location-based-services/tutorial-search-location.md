@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: e033b1005902a9639fc352ffb9af91cb20875bee
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 8da7d9112c9527945ab4b524625603faa84cf00d
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="search-nearby-point-of-interest-using-azure-location-based-services"></a>Azure Location Based Services를 사용하여 주변 관심 지점 검색
 
@@ -24,11 +24,11 @@ ms.lasthandoff: 12/14/2017
 
 > [!div class="checklist"]
 > * Azure Location Based Services를 사용해 계정 만들기
-> * 계정에 대한 구독 키 가져오기
+> * Azure Location Based Services 계정에 대한 기본 키 확인
 > * 맵 컨트롤 API를 사용하여 새 웹 페이지 만들기
 > * 주변 관심 지점을 찾기 위해 Search Service 사용
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
 # <a name="log-in-to-the-azure-portal"></a>Azure Portal에 로그인
 [Azure 포털](https://portal.azure.com) 에 로그인합니다.
@@ -55,7 +55,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 <a id="getkey"></a>
 
-## <a name="get-the-subscription-key-for-your-account"></a>계정에 대한 구독 키 가져오기
+## <a name="get-the-primary-key-for-your-account"></a>사용자 계정에 대한 기본 키 가져오기
 
 Location Based Services 계정이 성공적으로 만들어지면 단계에 따라 맵 검색 API에 연결합니다.
 
@@ -113,16 +113,16 @@ Azure 맵 컨트롤 API는 Azure Location Based Services를 웹 응용 프로그
     ``` 
     HTML 헤더는 Azure 맵 컨트롤 라이브러리에서 호스팅하는 CSS 및 JavaScript 리소스 파일을 포함합니다. *스크립트* 세그먼트가 HTML 파일의 *body*에 추가됨을 참고합니다. 이 세그먼트에는 Azure Location Based Services API에 액세스할 수 있도록 인라인 JavaScript 코드가 포함됩니다.
  
-3.  다음 JavaScript 코드를 HTML 파일의 *스크립트* 블록에 추가합니다. 자리 표시자 *<insert-key>*를 Location Based Services 계정의 기본 키로 바꿉니다. 
+3.  다음 JavaScript 코드를 HTML 파일의 *스크립트* 블록에 추가합니다. 스크립트의 Location Based Services 계정에서 기본 키를 사용합니다. 
 
     ```JavaScript
     // Instantiate map to the div with id "map"
-    var subscriptionKey = "<insert-key>";
+    var LBSAccountKey = "<_your account key_>";
     var map = new atlas.Map("map", {
-        "subscription-key": subscriptionKey
+        "subscription-key": LBSAccountKey
     });
     ```
-    이 세그먼트는 구독 키에 대한 맵 컨트롤 API를 시작합니다. **Atlas**는 Azure 맵 컨트롤 API 및 관련된 시각적 구성 요소를 포함하는 네임스페이스입니다. **아틀라스 맵**은 시각적 및 대화형 웹 맵에 대한 컨트롤을 제공합니다. 브라우저에서 HTML 페이지를 열어 맵이 어떻게 보이는지 확인할 수 있습니다. 
+    이 세그먼트는 Azure Location Based Services 계정 키에 대한 맵 컨트롤 API를 시작합니다. **Atlas**는 Azure 맵 컨트롤 API 및 관련된 시각적 구성 요소를 포함하는 네임스페이스입니다. **아틀라스 맵**은 시각적 및 대화형 웹 맵에 대한 컨트롤을 제공합니다. 브라우저에서 HTML 페이지를 열어 맵이 어떻게 보이는지 확인할 수 있습니다. 
 
 4. 검색 핀 계층을 맵 컨트롤에 추가하려면 다음 JavaScript 코드를 *스크립트* 블록에 추가합니다.
 
@@ -193,7 +193,7 @@ Azure 맵 컨트롤 API는 Azure Location Based Services를 웹 응용 프로그
     var url = "https://atlas.microsoft.com/search/fuzzy/json?";
     url += "&api-version=1.0";
     url += "&query=gasoline%20station";
-    url += "&subscription-key=" + subscriptionKey;
+    url += "&subscription-key=" + LBSAccountKey;
     url += "&lat=47.6292";
     url += "&lon=-122.2337";
     url += "&radius=100000";
@@ -201,7 +201,7 @@ Azure 맵 컨트롤 API는 Azure Location Based Services를 웹 응용 프로그
     xhttp.open("GET", url, true);
     xhttp.send();
     ``` 
-    이 코드 조각은 **Fuzzy Search**이라는 Search Service의 기본 검색 API를 사용합니다. 입력 유사 항목 대부분을 처리하여 주소 또는 *POI* 토큰의 어떠한 결합도 처리합니다. 위도 및 경도로 주어진 주소에 대해, 지정된 반경 내의 모든 **주유소**를 검색합니다. 앞에서 예제 파일에 제공된 사용자 계정의 구독 키를 사용하여 위치 기반 서비스로 호출합니다. 찾은 위치에 대해 위도/경도 쌍으로 결과를 반환합니다. 브라우저에서 HTML 페이지를 열어 검색 핀을 확인할 수도 있습니다. 
+    이 코드 조각은 **Fuzzy Search**이라는 Search Service의 기본 검색 API를 사용합니다. 입력 유사 항목 대부분을 처리하여 주소 또는 *POI* 토큰의 어떠한 결합도 처리합니다. 위도 및 경도로 주어진 주소에 대해, 지정된 반경 내의 모든 **주유소**를 검색합니다. 앞에서 예제 파일에 제공된 사용자 계정의 기본 키를 사용하여 위치 기반 서비스로 호출합니다. 찾은 위치에 대해 위도/경도 쌍으로 결과를 반환합니다. 브라우저에서 HTML 페이지를 열어 검색 핀을 확인할 수도 있습니다. 
 
 3. 다음 코드 줄을 *스크립트* 블록에 추가하여 Search Service에서 반환한 관심 지점에 대한 팝업을 만듭니다.
 
@@ -244,7 +244,7 @@ Azure 맵 컨트롤 API는 Azure Location Based Services를 웹 응용 프로그
 
 > [!div class="checklist"]
 > * Azure Location Based Services를 사용해 계정 만들기
-> * 계정에 대한 구독 키 가져오기
+> * 사용자 계정에 대한 기본 키 가져오기
 > * 맵 컨트롤 API를 사용하여 새 웹 페이지 만들기
 > * 주변 관심 지점을 찾기 위해 Search Service 사용
 

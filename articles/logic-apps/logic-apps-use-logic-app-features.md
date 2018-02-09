@@ -1,7 +1,7 @@
 ---
 title: "조건 추가 및 워크플로 시작 - Azure Logic Apps | Microsoft Docs"
 description: "조건부 논리, 트리거, 동작 및 매개 변수를 추가하여 Azure Logic Apps에서 워크플로가 실행되는 방식을 제어합니다."
-author: stepsic-microsoft-com
+author: ecfan
 manager: anneta
 editor: 
 services: logic-apps
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/28/2017
-ms.author: LADocs; stepsic
-ms.openlocfilehash: e632c48ed31e82536db55a9c54438bece0c38fd4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: LADocs; estfan
+ms.openlocfilehash: 751bcc21397effc501931c00afef05f2dab24e4a
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/03/2018
 ---
-# <a name="use-logic-apps-features"></a>논리 앱 기능 사용
+# <a name="use-logic-apps-features"></a>Logic Apps 기능 사용
 
-[이전 항목](../logic-apps/logic-apps-create-a-logic-app.md)에서는 첫 번째 논리 앱을 만들었습니다. 논리 앱의 워크플로를 제어하기 위해 실행할 논리 앱에 대한 다른 경로와 배열, 컬렉션 및 일괄 처리의 데이터 처리 방법을 지정할 수 있습니다. 논리 앱 워크플로에 포함될 수 있는 요소는 다음과 같습니다.
+[이전 항목](../logic-apps/quickstart-create-first-logic-app-workflow.md)에서는 첫 번째 논리 앱을 만들었습니다. 논리 앱의 워크플로를 제어하기 위해 실행할 논리 앱에 대한 다른 경로와 배열, 컬렉션 및 일괄 처리의 데이터 처리 방법을 지정할 수 있습니다. 논리 앱 워크플로에 포함될 수 있는 요소는 다음과 같습니다.
 
 * 조건 및 [switch 문](../logic-apps/logic-apps-switch-case.md) - 특정 조건이 충족되는지 여부에 따라 논리 앱에서 다른 동작을 실행하도록 합니다.
 
@@ -48,7 +48,7 @@ ms.lasthandoff: 10/11/2017
 2. 원하는 워크플로 위치에 조건을 추가합니다. 
 
    논리 앱 워크플로의 기존 단계 사이에 조건을 추가하려면 조건을 추가하려는 화살표 위로 포인터를 이동합니다. 
-   **더하기 기호**(**+**)를 선택한 다음 **조건 추가**를 선택합니다. 예:
+   **더하기 기호**(**+**)를 선택한 다음 **조건 추가**를 선택합니다. 예: 
 
    ![논리 앱에 조건 추가](./media/logic-apps-use-logic-app-features/add-condition.png)
 
@@ -57,7 +57,7 @@ ms.lasthandoff: 10/11/2017
 
 3. 이제 조건을 정의합니다. 평가할 원본 필드, 수행할 작업 및 대상 값 또는 필드를 지정합니다. 현재 필드를 조건에 추가하려면 **동적 콘텐츠 추가 목록**에서 선택합니다.
 
-   예:
+   예: 
 
    ![기본 모드에서 조건 편집](./media/logic-apps-use-logic-app-features/edit-condition-basic-mode.png)
 
@@ -66,13 +66,13 @@ ms.lasthandoff: 10/11/2017
    ![완성된 조건](./media/logic-apps-use-logic-app-features/edit-condition-basic-mode-2.png)
 
    > [!TIP]
-   > 코드에서 조건을 정의하려면 **고급 모드에서 편집**을 선택합니다. 예:
+   > 코드에서 조건을 정의하려면 **고급 모드에서 편집**을 선택합니다. 예: 
    > 
    > ![코드에서 조건 편집](./media/logic-apps-use-logic-app-features/edit-condition-advanced-mode.png)
 
 4. **IF YES** 및 **IF NO** 아래에서 조건이 충족되는지 여부에 따라 수행할 단계를 추가합니다.
 
-   예:
+   예: 
 
    ![YES 및 NO 경로가 있는 조건](./media/logic-apps-use-logic-app-features/condition-yes-no-path.png)
 

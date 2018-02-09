@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/01/2017
 ms.author: tdykstra
-ms.openlocfilehash: 6d59b26fa4ab17c17827a8e3450e808e40e5c2dd
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 2df003d47291570b31e1091f34994e4023000981
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Azure Functions의 Azure Service Bus 바인딩
 
@@ -36,14 +36,14 @@ Service Bus 트리거를 사용하여 Service Bus 큐 또는 토픽의 메시지
 
 언어 관련 예제를 참조하세요.
 
-* [미리 컴파일된 C#](#trigger---c-example)
-* [C# 스크립트](#trigger---c-script-example)
+* [C#](#trigger---c-example)
+* [C# 스크립트(.csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
 * [JavaScript](#trigger---javascript-example)
 
 ### <a name="trigger---c-example"></a>트리거 - C# 예제
 
-다음 예제에서는 Service Bus 큐 메시지를 기록하는 [미리 컴파일된 C# 함수](functions-dotnet-class-library.md)를 보여줍니다.
+다음 예제에서는 Service Bus 큐 메시지를 기록하는 [C# 함수](functions-dotnet-class-library.md)를 보여줍니다.
 
 ```cs
 [FunctionName("ServiceBusQueueTriggerCSharp")]                    
@@ -146,7 +146,7 @@ module.exports = function(context, myQueueItem) {
 
 ## <a name="trigger---attributes"></a>트리거 - 특성
 
-[미리 컴파일된 C#](functions-dotnet-class-library.md) 함수의 경우 다음 특성을 사용하여 Service Bus 트리거를 구성합니다.
+[C# 클래스 라이브러리](functions-dotnet-class-library.md)에서는 다음 특성을 사용하여 Service Bus 트리거를 구성합니다.
 
 * [ServiceBusTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusTriggerAttribute.cs)는 [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus) NuGet 패키지에 정의되어 있습니다.
 
@@ -173,7 +173,7 @@ module.exports = function(context, myQueueItem) {
   }
   ```
 
-  전체 예제는 [트리거 - 미리 컴파일된 C# 예제](#trigger---c-example)를 참조하세요.
+  전체 예제는 [트리거 - C# 예제](#trigger---c-example)를 참조하세요.
 
 * [ServiceBusAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAccountAttribute.cs)는 [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus) NuGet 패키지에 정의되어 있습니다.
 
@@ -250,14 +250,14 @@ Azure Service Bus 출력 바인딩을 사용하여 큐 또는 토픽 메시지�
 
 언어 관련 예제를 참조하세요.
 
-* [미리 컴파일된 C#](#output---c-example)
-* [C# 스크립트](#output---c-script-example)
+* [C#](#output---c-example)
+* [C# 스크립트(.csx)](#output---c-script-example)
 * [F#](#output---f-example)
 * [JavaScript](#output---javascript-example)
 
 ### <a name="output---c-example"></a>출력 - C# 예제
 
-다음 예제에서는 Service Bus 큐 메시지를 보내는 [미리 컴파일된 C# 함수](functions-dotnet-class-library.md)를 보여줍니다.
+다음 예제에서는 Service Bus 큐 메시지를 보내는 [C# 함수](functions-dotnet-class-library.md)를 보여줍니다.
 
 ```cs
 [FunctionName("ServiceBusOutput")]
@@ -411,7 +411,7 @@ module.exports = function (context, myTimer) {
 
 ## <a name="output---attributes"></a>출력 - 특성
 
-[미리 컴파일된 C#](functions-dotnet-class-library.md) 함수의 경우 [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus) NuGet 패키지에 정의되어 있는 [ServiceBusAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAttribute.cs) 특성을 사용합니다.
+[C# 클래스 라이브러리](functions-dotnet-class-library.md)에서는 [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus) NuGet 패키지에 정의되어 있는 [ServiceBusAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAttribute.cs) 특성을 사용합니다.
 
 특성의 생성자는 큐의 이름 또는 토픽과 구독을 사용합니다. 연결의 액세스 권한을 지정할 수도 있습니다. 액세스 권한을 설정을 선택하는 방법은 [출력 - 구성](#output---configuration) 섹션에서 설명합니다. 함수의 반환 값에 적용된 특성을 보여주는 예제는 다음과 같습니다.
 
@@ -435,9 +435,9 @@ public static string Run([HttpTrigger] dynamic input, TraceWriter log)
 }
 ```
 
-전체 예제는 [출력 - 미리 컴파일된 C# 예제](#output---c-example)를 참조하세요.
+전체 예제는 [출력 - C# 예제](#output---c-example)를 참조하세요.
 
-`ServiceBusAccount` 특성을 사용하여 클래스, 메서드 또는 매개 변수 수준에서 사용할 Service Bus 계정을 지정합니다.  자세한 내용은 [트리거 - 특성](#trigger---attributes-for-precompiled-c)을 참조하세요.
+`ServiceBusAccount` 특성을 사용하여 클래스, 메서드 또는 매개 변수 수준에서 사용할 Service Bus 계정을 지정합니다.  자세한 내용은 [트리거 - 특성](#trigger---attributes)을 참조하세요.
 
 ## <a name="output---configuration"></a>출력 - 구성
 

@@ -15,19 +15,19 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2017
 ms.author: jroth
-ms.openlocfilehash: 6386678bdac3630f3e003187ff3d12c0ce053b90
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 03580952800e595125fc48d169f7d4aa7846dd3f
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="performance-best-practices-for-sql-server-in-azure-virtual-machines"></a>Azure Virtual Machines의 SQL Server에 대한 성능 모범 사례
 
 ## <a name="overview"></a>개요
 
-이 항목에서는 Microsoft Azure 가상 컴퓨터의 SQL Server 성능을 최적화하기 위한 모범 사례를 제공합니다. Azure Virtual Machines에서 SQL Server를 실행하는 동안 온-프레미스 서버 환경의 SQL Server에 적용할 수 있는 동일한 데이터베이스 성능 튜닝 옵션을 계속 사용하는 것이 좋습니다. 그러나 공용 클라우드의 관계형 데이터베이스 성능은 가상 컴퓨터의 크기 및 데이터 디스크의 구성과 같은 많은 요인에 따라 달라집니다.
+이 항목에서는 Microsoft Azure Virtual Machine의 SQL Server 성능을 최적화하기 위한 모범 사례를 제공합니다. Azure Virtual Machines에서 SQL Server를 실행하는 동안 온-프레미스 서버 환경의 SQL Server에 적용할 수 있는 동일한 데이터베이스 성능 튜닝 옵션을 계속 사용하는 것이 좋습니다. 그러나 공용 클라우드의 관계형 데이터베이스 성능은 가상 머신의 크기 및 데이터 디스크의 구성과 같은 많은 요인에 따라 달라집니다.
 
-SQL Server 이미지를 만들 때 [Azure Portal에서 VM을 프로비전하는 것을 고려하세요](virtual-machines-windows-portal-sql-server-provision.md). 리소스 관리자를 사용하여 포털에서 프로비전되는 SQL Server VM은 저장소 구성을 포함하여 이러한 모든 모범 사례를 구현합니다.
+SQL Server 이미지를 만들 때 [Azure Portal에서 VM을 프로비전하는 것을 고려하세요](virtual-machines-windows-portal-sql-server-provision.md). 리소스 관리자를 사용하여 포털에서 프로비전된 SQL Server VM은 모범 사례를 따릅니다.
 
 이 문서는 Azure VM의 SQL Server에 대해 *최상의* 성능을 얻는 데 중점을 둡니다. 작업이 적은 경우 아래 나열된 모든 최적화 사항이 필요하지 않을 수 있습니다. 이러한 권장 사항을 평가할 때 성능 요구 사항 및 작업 패턴을 고려하세요.
 
@@ -40,7 +40,7 @@ SQL Server 이미지를 만들 때 [Azure Portal에서 VM을 프로비전하는 
 | 영역 | 최적화 |
 | --- | --- |
 | [VM 크기](#vm-size-guidance) |SQL Enterprise Edition [DS3](../../virtual-machines-windows-sizes-memory.md) 이상<br/><br/>SQL Standard 및 Web Edition [DS2](../../virtual-machines-windows-sizes-memory.md) 이상 |
-| [저장소](#storage-guidance) |[Premium Storage](../premium-storage.md)를 사용합니다. 표준 저장소는 개발/테스트에만 권장됩니다.<br/><br/>동일한 지역에 SQL Server VM 및 [저장소 계정](../../../storage/common/storage-create-storage-account.md)을 유지합니다.<br/><br/>저장소 계정의 Azure [지역 중복 저장소](../../../storage/common/storage-redundancy.md) (지역에서 복제)를 사용하지 않도록 설정합니다. |
+| [Storage](#storage-guidance) |[Premium Storage](../premium-storage.md)를 사용합니다. 표준 저장소는 개발/테스트에만 권장됩니다.<br/><br/>동일한 지역에 SQL Server VM 및 [저장소 계정](../../../storage/common/storage-create-storage-account.md)을 유지합니다.<br/><br/>저장소 계정의 Azure [지역 중복 저장소](../../../storage/common/storage-redundancy.md) (지역에서 복제)를 사용하지 않도록 설정합니다. |
 | [디스크](#disks-guidance) |최소 2개의 [P30 디스크](../premium-storage.md#scalability-and-performance-targets)를 사용합니다(로그 파일용 1개, 데이터 파일 및 TempDB용 1개).<br/><br/>데이터베이스 저장소나 로깅을 위해 운영 체제 또는 임시 디스크를 사용하지 않습니다.<br/><br/>데이터 파일 및 TempDB를 호스트하는 디스크에서 읽기 캐싱을 사용하도록 설정합니다.<br/><br/>로그 파일을 호스트하는 디스크에서는 캐싱을 사용하도록 설정하지 마세요.<br/><br/>중요: Azure VM 디스크에 대한 캐시 설정을 변경하는 경우 SQL Server 서비스를 중지합니다.<br/><br/>IO 처리량이 증가하도록 여러 Azure 데이터 디스크를 스트라이프합니다.<br/><br/>문서화된 할당 크기로 포맷합니다. |
 | [I/O](#io-guidance) |데이터베이스 페이지 압축을 사용하도록 설정합니다.<br/><br/>데이터 파일에 대해 즉시 파일 초기화를 사용하도록 설정합니다.<br/><br/>데이터베이스에서 자동 증가를 제한하거나 사용하지 않도록 설정합니다.<br/><br/>데이터베이스에서 자동 축소를 사용하지 않도록 설정합니다.<br/><br/>시스템 데이터베이스를 포함하여 모든 데이터베이스를 데이터 디스크로 이동합니다.<br/><br/>SQL Server 오류 로그 및 추적 파일 디렉터리를 데이터 디스크로 이동합니다.<br/><br/>기본 백업 및 데이터베이스 파일 위치를 설정합니다.<br/><br/>잠긴 페이지를 사용하도록 설정합니다.<br/><br/>SQL Server 성능 픽스를 적용합니다. |
 | [기능 관련](#feature-specific-guidance) |Blob 저장소에 직접 백업합니다. |
@@ -49,7 +49,7 @@ SQL Server 이미지를 만들 때 [Azure Portal에서 VM을 프로비전하는 
 
 ## <a name="vm-size-guidance"></a>VM 크기 지침
 
-성능이 중요한 응용 프로그램의 경우 다음 [가상 컴퓨터 크기](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 사용하는 것이 좋습니다.
+성능이 중요한 응용 프로그램의 경우 다음 [가상 머신 크기](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 사용하는 것이 좋습니다.
 
 * **SQL Server Enterprise Edition**: DS3 이상
 * **SQL Server Standard 및 Web Edition**: DS2 이상
@@ -61,15 +61,15 @@ DS 시리즈(DSv2 시리즈 및 GS 시리즈와 함께) VM은 [Premium Storage](
 > [!WARNING]
 > Standard Storage는 대기 시간 및 대역폭이 다양하므로 개발/테스트 워크로드에만 권장됩니다. 프로덕션 워크로드에는 Premium Storage를 사용해야 합니다.
 
-또한 전송 지연을 줄이기 위해 SQL Server 가상 컴퓨터와 동일한 데이터 센터에서 Azure 저장소 계정을 만드는 것이 좋습니다. 저장소 계정을 만들 때 여러 디스크 간에 일관된 쓰기 순서가 보장되지 않기 때문에 지역에서 복제를 사용하지 않도록 설정합니다. 대신 두 Azure 데이터 센터 간에 SQL Server 재해 복구 기술을 구성하는 것이 좋습니다. 자세한 내용은 [Azure Virtual Machines의 SQL Server에 대한 고가용성 및 재해 복구](virtual-machines-windows-sql-high-availability-dr.md)를 참조하세요.
+또한 전송 지연을 줄이기 위해 SQL Server 가상 머신과 동일한 데이터 센터에서 Azure 저장소 계정을 만드는 것이 좋습니다. 저장소 계정을 만들 때 여러 디스크 간에 일관된 쓰기 순서가 보장되지 않기 때문에 지역에서 복제를 사용하지 않도록 설정합니다. 대신 두 Azure 데이터 센터 간에 SQL Server 재해 복구 기술을 구성하는 것이 좋습니다. 자세한 내용은 [Azure Virtual Machines의 SQL Server에 대한 고가용성 및 재해 복구](virtual-machines-windows-sql-high-availability-dr.md)를 참조하세요.
 
 ## <a name="disks-guidance"></a>디스크 지침
 
 Azure VM의 디스크 유형에는 크게 세 가지가 있습니다.
 
-* **OS 디스크**: Azure 가상 컴퓨터를 만들 때 플랫폼에서는 운영 체제 디스크에 대한 VM에 하나 이상의 디스크(**C** 드라이브로 레이블이 지정됨)를 연결합니다. 이 디스크는 저장소에 페이지 Blob으로 저장된 VHD입니다.
+* **OS 디스크**: Azure Virtual Machine을 만들 때 플랫폼에서는 운영 체제 디스크에 대한 VM에 하나 이상의 디스크(**C** 드라이브로 레이블이 지정됨)을 연결합니다. 이 디스크는 저장소에 페이지 Blob으로 저장된 VHD입니다.
 * **임시 디스크**: Azure Virtual Machines는 임시 디스크(**D**: 드라이브로 레이블이 지정됨)라는 다른 디스크를 포함합니다. 이는 스크래치 공간에 사용할 수 있는 노드의 디스크입니다.
-* **데이터 디스크**: 추가 디스크는 가상 컴퓨터에 데이터 디스크로 연결될 수도 있으며 저장소에 페이지 Blob으로 저장됩니다.
+* **데이터 디스크**: 추가 디스크는 가상 머신에 데이터 디스크로 연결될 수도 있으며 저장소에 페이지 Blob으로 저장됩니다.
 
 다음 섹션에서는 이러한 서로 다른 디스크를 사용하기 위한 권장 사항을 설명합니다.
 
@@ -90,6 +90,9 @@ Premium Storage를 지원하는 VM(DS 시리즈, DSv2 시리즈 및 GS 시리즈
 ### <a name="data-disks"></a>데이터 디스크
 
 * **데이터 및 로그 파일에 데이터 디스크 사용**: 최소 2개의 Premium Storage [P30 디스크](../premium-storage.md#scalability-and-performance-targets)를 사용합니다(로그 파일용 1개, 데이터 및 TempDB 파일용 1개). 각 Premium Storage 디스크는 [디스크에 Premium Storage 사용](../premium-storage.md) 문서에 설명된 대로 해당 크기에 따라 여러 IOPs 및 대역폭(MB/s)을 제공합니다.
+
+   > [!NOTE]
+   > 포털에서 SQL Server VM을 프로비전하는 경우 저장소 구성을 편집하는 옵션이 있습니다. 구성에 따라 Azure에서는 하나 이상의 디스크를 구성합니다. 여러 디스크를 제거하여 단일 저장소 풀로 결합합니다. 데이터 및 로그 파일은 두 개의 별도 디스크가 아니라 이 구성에 함께 위치합니다. 자세한 내용은 [SQL Server VM에 대한 저장소 구성](virtual-machines-windows-sql-server-storage-configuration.md)을 참조하세요.
 
 * **디스크 스트라이프**: 더 많은 처리량이 필요한 경우 추가 데이터 디스크를 추가하고 디스크 스트라이프를 사용할 수 있습니다. 데이터 디스크 수를 확인하려면 로그 파일과 데이터 및 TempDB 파일에 필요한 IOPS 및 대역폭 수를 분석해야 합니다. VM 크기에 따라 IOPs 및 대역폭 수에 대한 제한이 다릅니다. [VM 크기](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)별 IOPS에 대한 표를 참조하세요. 다음 지침을 사용하세요.
 
@@ -156,7 +159,7 @@ Premium Storage를 지원하는 VM(DS 시리즈, DSv2 시리즈 및 GS 시리즈
 
 더 많은 고급 구성 기술을 사용하면 일부 배포에서 추가적인 성능 이점을 얻을 수 있습니다. 다음 목록에는 성능 개선에 도움이 되는 일부 SQL Server 기능이 나와 있습니다.
 
-* **Azure 저장소에 Backup**: Azure 가상 컴퓨터에서 실행 중인 SQL Server의 백업을 수행할 때 [URL에 SQL Server Backup](https://msdn.microsoft.com/library/dn435916.aspx)을 사용할 수 있습니다. 이 기능은 SQL Server 2012 SP1 CU2부터 사용할 수 있으며 연결된 데이터 디스크에 백업하는 것이 좋습니다. Azure Storage에 백업하거나 Azure Storage에서 복원할 때 [URL에 SQL Server 백업의 모범 사례와 문제 해결 및 Azure Storage에 저장된 백업에서 복원](https://msdn.microsoft.com/library/jj919149.aspx)에 제공된 권장 사항을 따르세요. [Azure Virtual Machines의 SQL Server에 대한 자동화된 백업](virtual-machines-windows-sql-automated-backup.md)을 사용하여 이러한 백업을 자동화할 수도 있습니다.
+* **Azure 저장소에 Backup**: Azure 가상 머신에서 실행 중인 SQL Server의 백업을 수행할 때 [URL에 SQL Server Backup](https://msdn.microsoft.com/library/dn435916.aspx)을 사용할 수 있습니다. 이 기능은 SQL Server 2012 SP1 CU2부터 사용할 수 있으며 연결된 데이터 디스크에 백업하는 것이 좋습니다. Azure Storage에 백업하거나 Azure Storage에서 복원할 때 [URL에 SQL Server 백업의 모범 사례와 문제 해결 및 Azure Storage에 저장된 백업에서 복원](https://msdn.microsoft.com/library/jj919149.aspx)에 제공된 권장 사항을 따르세요. [Azure Virtual Machines의 SQL Server에 대한 자동화된 백업](virtual-machines-windows-sql-automated-backup.md)을 사용하여 이러한 백업을 자동화할 수도 있습니다.
 
     SQL Server 2012 이전 버전에서는 [Azure에 SQL Server Backup 도구](https://www.microsoft.com/download/details.aspx?id=40740)를 사용할 수 있습니다. 이 도구는 여러 백업 스트라이프 대상을 사용하여 백업 처리량을 늘릴 수 있습니다.
 
@@ -166,4 +169,4 @@ Premium Storage를 지원하는 VM(DS 시리즈, DSv2 시리즈 및 GS 시리즈
 
 보안 모범 사례는 [Azure Virtual Machines의 SQL Server에 대한 보안 고려 사항](virtual-machines-windows-sql-security.md)을 참조하세요.
 
-[Azure Virtual Machines의 SQL Server 개요](virtual-machines-windows-sql-server-iaas-overview.md)에서 다른 SQL Server Virtual Machines 항목을 검토하세요.
+[Azure Virtual Machines의 SQL Server 개요](virtual-machines-windows-sql-server-iaas-overview.md)에서 다른 SQL Server Virtual Machine 항목을 검토하세요.

@@ -1,9 +1,9 @@
 ---
-title: "Azure 가상 컴퓨터 확장 집합을 사용하여 자동으로 OS 업그레이드 | Microsoft Docs"
+title: "Azure 가상 머신 확장 집합을 사용하여 자동으로 OS 업그레이드 | Microsoft Docs"
 description: "확장 집합의 VM 인스턴스에서 OS를 자동으로 업그레이드하는 방법을 알아봅니다"
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: gbowerman
+author: gatneil
 manager: jeconnoc
 editor: 
 tags: azure-resource-manager
@@ -13,17 +13,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
-ms.author: guybo
-ms.openlocfilehash: 32358b23bb0a0a878e986150dd992513579d61c4
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.date: 12/07/2017
+ms.author: negat
+ms.openlocfilehash: 145f4ec92b142a1585ba17bf6e49c7824cc32529
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/06/2018
 ---
-# <a name="azure-virtual-machine-scale-set-automatic-os-upgrades"></a>Azure 가상 컴퓨터 확장 집합 자동 OS 업그레이드
+# <a name="azure-virtual-machine-scale-set-automatic-os-upgrades"></a>Azure 가상 머신 확장 집합 자동 OS 업그레이드
 
-자동 OS 이미지 업그레이드는 모든 VM을 최신 OS 이미지로 자동 업그레이드하는 Azure 가상 컴퓨터 확장 집합의 미리 보기 기능입니다.
+자동 OS 이미지 업그레이드는 모든 VM을 최신 OS 이미지로 자동 업그레이드하는 Azure 가상 머신 확장 집합의 미리 보기 기능입니다.
 
 자동 OS 업그레이드의 특징은 다음과 같습니다.
 
@@ -39,9 +39,9 @@ ms.lasthandoff: 11/03/2017
 ## <a name="preview-notes"></a>미리 보기 정보 
 미리 보기 버전은 다음과 같은 제한 사항이 적용됩니다.
 
-- 자동 OS 업그레이드가 [OS SKU 3개](#supported-os-images)만 지원합니다. SLA 또는 보장이 없습니다. 미리 보기 기간에는 프로덕션 크리티컬 워크로드에 자동 업그레이드를 사용하지 않는 것이 좋습니다.
+- 자동 OS 업그레이드가 [OS SKU 4개](#supported-os-images)만 지원합니다. SLA 또는 보장이 없습니다. 미리 보기 기간에는 프로덕션 크리티컬 워크로드에 자동 업그레이드를 사용하지 않는 것이 좋습니다.
 - Service Fabric 클러스터의 확장 집합에 대한 지원이 곧 제공될 예정입니다.
-- Azure Disk Encryption(현재 미리 보기)은 현재 가상 컴퓨터 확장 집합 자동 OS 업그레이드를 지원하지 **않습니다**.
+- Azure Disk Encryption(현재 미리 보기)은 현재 가상 머신 확장 집합 자동 OS 업그레이드를 지원하지 **않습니다**.
 - 포털 환경이 곧 제공될 예정입니다.
 
 
@@ -78,9 +78,11 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
     
 | 게시자               | 제안         |  SKU               | 버전  |
 |-------------------------|---------------|--------------------|----------|
+| Canonical               | UbuntuServer  | 16.04-LTS          | 최신   |
 | MicrosoftWindowsServer  | WindowsServer | 2012-R2-Datacenter | 최신   |
 | MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter    | 최신   |
-| Canonical               | UbuntuServer  | 16.04-LTS          | 최신   |
+| MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter-Smalldisk | 최신   |
+
 
 
 ## <a name="application-health"></a>응용 프로그램 상태
@@ -90,6 +92,15 @@ OS가 업그레이드되는 동안 확장 집합의 VM 인스턴스는 한 번�
 
 여러 배치 그룹을 사용하도록 확장 집합을 구성한 경우 [표준 부하 분산 장치](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview)를 사용하는 프로브를 사용해야 합니다.
 
+### <a name="important-keep-credentials-up-to-date"></a>중요: 자격 증명을 최신 상태로 유지합니다.
+예를 들어 VM 확장이 저장소 계정에 대한 SAS 토큰을 사용하도록 구성되면 확장 집합이 자격 증명을 사용하여 외부 리소스에 액세스하는 경우 자격 증명을 최신 상태로 유지하고 있는지 확인해야 합니다. 인증서 및 토큰을 포함한 자격 증명이 만료되는 경우 업그레이드에 실패하고 VM의 첫 번째 일괄 처리가 실패한 상태가 됩니다.
+
+리소스 인증 오류 시 VM을 복구하고 자동 OS 업그레이드를 다시 설정하는 권장된 단계는 다음과 같습니다.
+
+* 확장에 전달된 토큰(또는 다른 자격 증명)를 다시 생성합니다.
+* 외부 엔터티에 연결된 VM 내에서 사용되는 자격 증명이 최신 상태인지 확인합니다.
+* 새 토큰으로 확장 집합의 확장을 업데이트합니다.
+* 업데이트된 확장 집합을 배포합니다. 그러면 실패한 인스턴스를 포함하여 모든 VM 인스턴스를 업데이트합니다. 
 
 ### <a name="configuring-a-custom-load-balancer-probe-as-application-health-probe-on-a-scale-set"></a>확장 집합의 응용 프로그램 상태 프로브로 사용자 지정 부하 분산 장치 구성
 모범 사례에 따라 확장 집합 상태에 대한 부하 분산 장치 프로브를 명시적으로 만듭니다. 기존 HTTP 검색 또는 TCP 프로브에 대한 동일한 끝점을 사용할 수 있지만, 상태 프로브에 기존의 부하 분산 장치 프로브와 다른 동작이 필요할 수 있습니다. 예를 들어 기존의 부하 분산 장치 프로브는 인스턴스의 부하가 너무 높으면 비정상 상태를 반환하기도 하는데, 이 동작은 OS를 자동으로 업그레이드하는 동안 인스턴스 상태를 확인하는 데에는 적합하지 않습니다. 검색 속도가 2분을 넘지 않도록 프로브를 구성하세요.
@@ -141,7 +152,7 @@ Update-AzureRmVmss -ResourceGroupName $rgname -VMScaleSetName $vmssname -Virtual
 
 다음 예제에서는 Azure CLI(2.0.20 이상)를 사용하여 *myResourceGroup*이라는 리소스 그룹에 있는 *myVMSS*라는 확장 집합에 대해 자동 업그레이드를 구성합니다.
 
-```azure-cli
+```azurecli
 rgname="myResourceGroup"
 vmssname="myVMSS"
 az vmss update --name $vmssname --resource-group $rgname --set upgradePolicy.AutomaticOSUpgrade=true
@@ -161,7 +172,7 @@ Get-AzureRmVmssRollingUpgrade -ResourceGroupName myResourceGroup -VMScaleSetName
 ### <a name="azure-cli-20"></a>Azure CLI 2.0
 다음 예제에서는 Azure CLI(2.0.20 이상)를 사용하여 *myResourceGroup*이라는 리소스 그룹에 있는 *myVMSS*라는 확장 집합의 상태를 확인합니다.
 
-```azure-cli
+```azurecli
 az vmss rolling-upgrade get-latest --resource-group myResourceGroup --name myVMSS
 ```
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2017
 ms.author: elioda
-ms.openlocfilehash: 3ea10ee8652dc2a03791feb66041431e7b3c6ae1
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: ecc5da8daf0f5c93dffc93798f40507f8eac48be
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>IoT Hub 고가용성 및 재해 복구
 Azure 서비스로 IoT Hub는 Azure 지역 수준에서 중복을 사용하여 솔루션의 추가 작업 없이도 HA(고가용성)를 제공합니다. Microsoft Azure Platform에는 재해 복구(DR) 기능 또는 지역 간 가용성을 포함하는 솔루션을 빌드하도록 도와주는 기능도 포함되어 있습니다. 장치 또는 사용자에게 전역, 지역 간 고가용성을 제공하려면 이러한 Azure DR 기능을 활용합니다. [Azure 비즈니스 연속성 기술 지침](../resiliency/resiliency-technical-guidance.md) 문서에서는 비즈니스 연속성 및 DR에 대한 Azure의 기본 제공 기능을 설명합니다. [Azure 응용 프로그램에 대한 재해 복구 및 고가용성][Disaster recovery and high availability for Azure applications] 문서는 Azure 응용 프로그램에서 HA 및 DR을 수행하는 전략에 대한 아키텍처 지침을 제공합니다.
@@ -34,6 +34,8 @@ Azure 서비스로 IoT Hub는 Azure 지역 수준에서 중복을 사용하여 �
 | 작업 모니터링 메시지 |읽지 않은 메시지가 모두 손실됨 |
 | 클라우드-장치 메시지 |0-5분 데이터 손실 |
 | 클라우드-장치 피드백 큐 |읽지 않은 메시지가 모두 손실됨 |
+| 장치 쌍 데이터 |0-5분 데이터 손실 |
+| 부모 및 장치 작업 |0-5분 데이터 손실 |
 
 ## <a name="regional-failover-with-iot-hub"></a>IoT Hub를 통한 국가별 장애 조치
 IoT 솔루션으로 배포 토폴로지를 완벽하게 수행하는 것은 이 문서의 범위를 벗어납니다. 이 문서는 고가용성 및 재해 복구를 목적으로 하는 *국가별 장애 조치* 배포 모델을 설명합니다.

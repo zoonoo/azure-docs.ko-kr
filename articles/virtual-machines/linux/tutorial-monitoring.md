@@ -1,6 +1,6 @@
 ---
-title: "Azure에서 Linux 가상 컴퓨터 모니터링 및 업데이트 | Microsoft Docs"
-description: "Azure에서 Linux 가상 컴퓨터에 대한 부팅 진단과 성능 메트릭을 모니터링하고 패키지 업데이트를 관리하는 방법에 대해 알아봅니다."
+title: "Azure에서 Linux 가상 머신 모니터링 및 업데이트 | Microsoft Docs"
+description: "Azure에서 Linux 가상 머신에 대한 부팅 진단과 성능 메트릭을 모니터링하고 패키지 업데이트를 관리하는 방법에 대해 알아봅니다."
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: davidmu1
@@ -16,15 +16,15 @@ ms.workload: infrastructure
 ms.date: 05/08/2017
 ms.author: davidmu
 ms.custom: mvc
-ms.openlocfilehash: 70c17d9a8f7bf6d9106efcb56eee7cd996460c18
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cde484dd59ec6e2821678766726c02362222d496
+ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
-# <a name="how-to-monitor-and-update-a-linux-virtual-machine-in-azure"></a>Azure에서 Linux 가상 컴퓨터를 모니터링하고 업데이트하는 방법
+# <a name="how-to-monitor-and-update-a-linux-virtual-machine-in-azure"></a>Azure에서 Linux 가상 머신을 모니터링하고 업데이트하는 방법
 
-Azure에서 VM(가상 컴퓨터)이 올바르게 실행되도록 부팅 진단 및 성능 메트릭을 검토하고 패키지 업데이트를 관리할 수 있습니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
+Azure에서 VM(가상 머신)이 올바르게 실행되도록 부팅 진단 및 성능 메트릭을 검토하고 패키지 업데이트를 관리할 수 있습니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * VM에서 부팅 진단을 사용하도록 설정
@@ -64,7 +64,7 @@ az vm create \
 
 Linux VM이 부팅할 때 부팅 진단 확장에서는 부팅 출력을 캡처하여 Azure 저장소에 저장합니다. 이 데이터는 VM 부팅 문제를 해결하는 데 사용할 수 있습니다. Azure CLI를 사용하여 Linux VM을 만들 때 부팅 진단을 사용하도록 자동으로 설정되지 않습니다.
 
-부팅 진단을 사용하도록 설정하기 전에 먼저 부팅 로그를 저장할 저장소 계정을 만들어야 합니다. 저장소 계정은 전역적으로 고유한 이름을 가져야 하며, 3-24자 사이의 숫자와 소문자만 포함해야 합니다. [az storage account create](/cli/azure/storage/account#create)를 사용하여 저장소 계정을 만듭니다. 이 예제에서는 임의의 문자열을 사용하여 고유한 저장소 계정 이름을 만듭니다. 
+부팅 진단을 사용하도록 설정하기 전에 먼저 부팅 로그를 저장할 저장소 계정을 만들어야 합니다. Storage 계정은 전역적으로 고유한 이름을 가져야 하며, 3-24자 사이의 숫자와 소문자만 포함해야 합니다. [az storage account create](/cli/azure/storage/account#create)를 사용하여 저장소 계정을 만듭니다. 이 예제에서는 임의의 문자열을 사용하여 고유한 저장소 계정 이름을 만듭니다. 
 
 ```azurecli-interactive 
 storageacct=mydiagdata$RANDOM
@@ -134,7 +134,7 @@ Linux VM에는 Azure에서 상호 작용하는 전용 호스트가 있습니다.
 
 1. Azure Portal에서 **리소스 그룹**을 클릭하고 **myResourceGroup**을 선택한 다음 리소스 목록에서 **myVM**을 선택합니다.
 1. **진단 설정**을 클릭합니다. 목록에서는 *부트 진단*이 이전 섹션에서 이미 사용하도록 설정되었음을 보여 줍니다. *기본 메트릭*에 대한 확인란을 클릭합니다.
-1. *저장소 계정* 섹션에서 이전 섹션에서 만든 *mydiagdata[1234]* 계정을 찾아 선택합니다.
+1. *Storage 계정* 섹션에서 이전 섹션에서 만든 *mydiagdata[1234]* 계정을 찾아 선택합니다.
 1. **저장** 단추를 클릭합니다.
 
     ![진단 메트릭 보기](./media/tutorial-monitoring/enable-diagnostics-extension.png)
@@ -173,7 +173,7 @@ Linux VM에는 Azure에서 상호 작용하는 전용 호스트가 있습니다.
 
 VM에 대한 업데이트 관리 사용
 
-1. 화면 왼쪽에서 **가상 컴퓨터**를 선택합니다.
+1. 화면 왼쪽에서 **가상 머신**를 선택합니다.
 1. 목록에서 VM을 선택합니다.
 1. VM 화면의 **작업** 섹션에서 **업데이트 관리**를 클릭합니다. **업데이트 관리 사용** 화면이 열립니다.
 
@@ -190,7 +190,7 @@ Log Analytics 작업 영역은 기능 및 서비스(예: 업데이트 관리)에
 솔루션을 사용하도록 설정하려면 이 배너를 클릭합니다. 유효성 검사 후에 다음 필수 조건이 누락된 것으로 확인될 경우 자동으로 추가됩니다.
 
 * [Log Analytics](../../log-analytics/log-analytics-overview.md) 작업 영역
-* [자동화](../../automation/automation-offering-get-started.md)
+* [Automation](../../automation/automation-offering-get-started.md)
 * [Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md)가 VM에서 사용되도록 설정됩니다.
 
 **업데이트 관리 사용** 화면이 열립니다. 설정을 구성하고 **사용**을 클릭합니다.

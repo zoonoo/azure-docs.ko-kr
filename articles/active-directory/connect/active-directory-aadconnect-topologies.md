@@ -3,7 +3,7 @@ title: "Azure AD Connect: 지원되는 토폴로지 | Microsoft Docs"
 description: "이 항목은 Azure AD Connect에 대해 지원되고 지원되지 않는 토폴로지에 대해 자세히 설명합니다."
 services: active-directory
 documentationcenter: 
-author: AndKjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 1034c000-59f2-4fc8-8137-2416fa5e4bfe
@@ -14,11 +14,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 152cb9daa8338da6cc85ffda6feb3bd7b4f1bc92
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: dbf531302e53ca52e24dbd2ba954defad391060f
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Azure AD Connect에 대한 토폴로지
 이 문서에서는 주요 통합 솔루션으로 Azure AD Connect Sync를 사용하는 다양한 온-프레미스 및 Azure AD(Azure Active Directory) 토폴로지에 대해 설명합니다. 이 문서에는 지원되는 구성과 지원되지 않는 구성이 포함되어 있습니다.
@@ -110,10 +110,11 @@ Azure AD Connect 동기화의 기본 구성에서 다음 사항을 가정합니�
 일부 Office 365 워크로드의 경우 지원되는 토폴로지에 약간의 제한이 있습니다.
 
 | 워크로드 | 제한 |
---------- | ---------
+| --------- | --------- |
 | Exchange Online | Exchange Online에서 지원하는 하이브리드 토폴로지에 대한 자세한 내용은 [여러 Active Directory 포리스트를 사용한 하이브리드 배포](https://technet.microsoft.com/library/jj873754.aspx)를 참조하세요. |
 | 비즈니스용 Skype | 다중 포리스트 온-프레미스를 사용하는 경우 계정 리소스 포리스트 토폴로지만 지원됩니다. 자세한 내용은 [Business Server 2015용 Skype에 대한 환경 요구 사항](https://technet.microsoft.com/library/dn933910.aspx)을 참조하세요. |
 
+조직의 규모가 큰 경우에는 [Office 365 PreferredDataLocation](active-directory-aadconnectsync-feature-preferreddatalocation.md) 기능을 사용하는 것이 좋습니다. 사용자의 리소스가 배치되는 데이터 센터 지역을 정의할 수 있습니다.
 
 ## <a name="staging-server"></a>스테이징 서버
 ![토폴로지의 준비 서버](./media/active-directory-aadconnect-topologies/MultiForestStaging.png)

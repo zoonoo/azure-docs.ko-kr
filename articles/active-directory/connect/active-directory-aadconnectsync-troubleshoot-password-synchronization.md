@@ -3,7 +3,7 @@ title: "Azure AD Connect 동기화로 암호 동기화 문제 해결 | Microsoft
 description: "이 문서에서는 암호 동기화 문제를 해결하는 방법에 대한 정보를 제공합니다."
 services: active-directory
 documentationcenter: 
-author: AndKjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 89e6fd07553570a13c134a94a25fc73f4fa8c99c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0bf07e80e575309fe7fa44661776c23da5db6dce
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="troubleshoot-password-synchronization-with-azure-ad-connect-sync"></a>Azure AD Connect 동기화를 사용하여 암호 동기화 문제 해결
 이 항목에서는 암호 동기화 문제를 해결하는 방법에 대한 단계를 제공합니다. 암호가 예상대로 동기화되지 않으면 사용자의 하위 집합 또는 모든 사용자의 암호일 수 있습니다.
@@ -212,7 +212,7 @@ Azure AD Connect 서버가 준비 모드에 있으면 암호 동기화가 일시
    ```
    Invoke-ADSyncDiagnostics -PasswordSync -ADConnectorName <Name-of-AD-Connector> -DistinguishedName <DistinguishedName-of-AD-object>
    ```
-   예:
+   예: 
    ```
    Invoke-ADSyncDiagnostics -PasswordSync -ADConnectorName "contoso.com" -DistinguishedName "CN=TestUserCN=Users,DC=contoso,DC=com"
    ```
@@ -285,9 +285,9 @@ Azure AD와 연결되어 있나요?
 
     a. [Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md)를 시작합니다.
 
-    b. **커넥터**를 클릭합니다.
+    나. **커넥터**를 클릭합니다.
 
-    c. 사용자가 있는 **Active Directory Connector**를 선택합니다.
+    다. 사용자가 있는 **Active Directory Connector**를 선택합니다.
 
     d. **커넥터 공간 검색**을 선택합니다.
 
@@ -324,7 +324,7 @@ Azure AD와 연결되어 있나요?
 ### <a name="password-sync-log"></a>암호 동기화 로그
 상태 열에는 다음과 같은 값을 포함할 수 있습니다.
 
-| 가동 상태 | 설명 |
+| 상태 | 설명 |
 | --- | --- |
 | 성공 |암호가 성공적으로 동기화되었습니다. |
 | FilteredByTarget |**다음 로그인할 때 반드시 암호 변경**으로 암호가 설정됩니다. 암호가 동기화되지 않았습니다. |

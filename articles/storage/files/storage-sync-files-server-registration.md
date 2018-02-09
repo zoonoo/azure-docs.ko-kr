@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 8e707c193c5a8e294710973e128e1cf96d4f6461
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: fcd79f25dee4ccaf674594222a6465fda137fd7a
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="manage-registered-servers-with-azure-file-sync-preview"></a>Azure File Sync(미리 보기)로 등록된 서버 관리
 Azure File Sync(미리 보기)를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 희생하지 않고 Azure 파일에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. 이 작업은 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환하여 수행합니다. Windows Server에서 사용할 수 있는 아무 프로토콜이나 사용하여 데이터를 로컬로(SMB, NFS 및 FTPS 포함) 액세스할 수 있으며 세계 전역에 걸쳐 필요한 만큼 캐시를 보유할 수 있습니다.
@@ -42,6 +42,26 @@ Azure File Sync를 사용하여 서버를 등록하면 Windows Server와 Azure �
 
     > [!Note]  
     > 최신 버전의 AzureRM PowerShell 모듈을 사용하여 서버를 등록/등록 취소하는 것이 좋습니다. AzureRM 패키지가 이전에 이 서버에 설치되었고 이 서버의 PowerShell 버전이 5.* 이상인 경우 `Update-Module` cmdlet을 사용하여 이 패키지를 업데이트할 수 있습니다. 
+* 사용자 환경에서 네트워크 프록시 서버를 사용하는 경우 활용할 동기화 에이전트에 대한 서버에서 프록시 설정을 구성합니다.
+    1. 프록시 IP 주소 및 포트 번호 결정
+    2. 다음 두 파일을 편집합니다.
+        * C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config
+        * C:\Windows\Microsoft.NET\Framework\v4.0.30319\Config\machine.config
+    3. 위의 두 파일에서 /System.ServiceModel 아래에 이 섹션 아래에 있는 그림 1의 줄을 추가하여 127.0.0.1:8888을 올바른 IP 주소(127.0.0.1 대체)와 올바른 포트 번호(8888 대체)로 변경합니다.
+    4. 다음과 같이 명령줄을 통해 WinHTTP 프록시 설정을 지정합니다.
+        * 프록시 표시: netsh winhttp show proxy
+        * 프록시 설정: netsh winhttp set proxy 127.0.0.1:8888
+        * 프록시 다시 설정: netsh winhttp reset proxy
+        * 에이전트 설치 후 설정되는 경우 동기화 에이전트 다시 시작: net stop filesyncsvc
+    
+```XML
+    Figure 1:
+    <system.net>
+        <defaultProxy enabled="true" useDefaultCredentials="true">
+            <proxy autoDetect="false" bypassonlocal="false" proxyaddress="http://127.0.0.1:8888" usesystemdefault="false" />
+        </defaultProxy>
+    </system.net>
+```    
 
 ### <a name="register-a-server-with-storage-sync-service"></a>저장소 동기화 서비스에 서버 등록
 Azure File Sync의 *동기화 그룹*에서 서버를 *서버 엔드포인트*로 사용하려면 먼저 해당 서버를 *저장소 동기화 서비스*에 등록해야 합니다. 서버는 한 번에 하나의 저장소 동기화 서비스에만 등록할 수 있습니다.
@@ -147,9 +167,9 @@ Azure File Sync는 거의 데이터 센터에서 실행되는 유일한 서비�
 > 한도를 너무 낮게 설정하면 Azure File Sync 동기화 및 회수 성능에 영향을 줍니다.
 
 ### <a name="set-azure-file-sync-network-limits"></a>Azure File Sync 네트워크 제한 설정
-'StorageSyncNetworkLimit` cmdlet을 사용하여 Azure File Sync의 네트워크 활용도를 제한할 수 있습니다. 
+`StorageSyncNetworkLimit`cmdlets을 사용하여 Azure File Sync의 네트워크 사용률을 조절할수 있습니다. 
 
-예를 들어 Azure File Sync에서 작업 주간 동안 오전 9시에서 오후 5시(17:00) 사이에 10Mbps를 초과하여 사용하지 않도록 새 네트워크 제한을 만들 수 있습니다. 
+예를 들어 Azure File Sync에서 작업 주간 동안 오전 9시에서 오후 5시(17:00) 사이에 10Mbps를 초과하여 사용하지 않도록 새 스로틀 제한을 만들 수 있습니다. 
 
 ```PowerShell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"

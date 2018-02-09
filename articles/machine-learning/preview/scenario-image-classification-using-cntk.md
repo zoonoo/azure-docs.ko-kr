@@ -5,15 +5,17 @@ services: machine-learning
 documentationcenter: 
 author: PatrickBue
 ms.author: pabuehle
-ms.reviewer: mawah, marhamil, mldocs
+manager: mwinkle
+ms.reviewer: mawah, marhamil, mldocs, garyericson, jasonwhowell
 ms.service: machine-learning
+ms.workload: data-services
 ms.topic: article
 ms.date: 10/17/2017
-ms.openlocfilehash: 2f8b2d9d2396c1f9c9e509257f3cd031a816729f
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 53d182d84c8f28c7b4055780a5b41df00fdc8583
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="image-classification-using-azure-machine-learning-workbench"></a>Azure Machine Learning Workbench를 사용하여 이미지 분류
 
@@ -51,7 +53,7 @@ DNN은 이미지 분류뿐만 아니라 개체 검색 및 이미지 유사성과
 3. Windows 컴퓨터 - Workbench는 Windows와 MacOS만 지원하므로 Windows OS가 필요하지만, Microsoft Cognitive Toolkit(심층 학습 라이브러리로 사용됨)는 Windows와 Linux만 지원합니다.
 4. 전용 GPU - 1부에서 SVM 학습을 실행하는 데에는 필요하지 않지만, 2부에서 설명하는 DNN을 구체화하는 데에는 필요합니다. 강력한 GPU가 부족하거나, 여러 GPU에서 학습하려거나, Windows 컴퓨터가 없는 경우 Windows 운영 체제에서 Azure의 Deep Learning Virtual Machine을 사용하는 것이 좋습니다. 한 번 클릭으로 배포 가이드에 대해서는 [여기](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning)를 참조하세요. 배포가 완료되면 원격 데스크톱 연결을 통해 VM에 연결하고, Workbench를 설치한 다음, VM에서 로컬로 코드를 실행합니다.
 5. OpenCV와 같은 다양한 Python 라이브러리를 설치해야 합니다. Workbench의 *파일* 메뉴에서 *명령 프롬프트 열기*를 클릭하고 다음 명령을 실행하여 이러한 종속 항목을 설치합니다.  
-    - `pip install https://cntk.ai/PythonWheel/GPU/cntk-2.0-cp35-cp35m-win_amd64.whl`  
+    - `pip install https://cntk.ai/PythonWheel/GPU/cntk-2.2-cp35-cp35m-win_amd64.whl`  
     - `pip install opencv_python-3.3.1-cp35-cp35m-win_amd64.whl` - http://www.lfd.uci.edu/~gohlke/pythonlibs/에서 OpenCV 휠 파일을 다운로드한 후(정확한 파일 이름과 버전은 변경될 수 있음)
     - `conda install pillow`
     - `pip install -U numpy`
@@ -61,10 +63,11 @@ DNN은 이미지 분류뿐만 아니라 개체 검색 및 이미지 유사성과
 ### <a name="troubleshooting--known-bugs"></a>문제 해결/알려진 버그
 - 2부에는 GPU가 필요합니다. 그렇지 않으면 DNN을 수정하려고 할 때 "CPU에서 정규화 학습 일괄 처리가 아직 구현되지 않았습니다"라는 오류가 발생합니다.
 - 미니 일괄 처리 크기(`PARAMETERS.py`의 `cntk_mb_size` 변수)를 줄이면 DNN 학습 중 메모리 부족 오류를 방지할 수 있습니다.
-- 이 코드는 CNTK 2.0 및 2.1을 사용하여 테스트되었으며, 변경하지 않거나 아주 약간만 변경하여 새 버전에서도 실행되어야 합니다.
+- 이 코드는 CNTK 2.2를 사용하여 테스트되었으며, 변경하지 않거나 아주 약간만 변경하여 이전 버전(최대 v2.0) 및 새 버전에서도 실행되어야 합니다.
 - 이 문서의 작성 시점에서 5MB보다 큰 노트북을 Azure Machine Learning Workbench에서 표시하는 데 문제가 있었습니다. 모든 셀 출력이 표시되는 노트북을 저장한 경우에 이 큰 크기의 노트북이 발생할 수 있습니다. 이 오류가 발생하면 Workbench의 [파일] 메뉴에서 명령 프롬프트를 열고, `jupyter notebook`을 실행하고, 노트북을 열고, 모든 출력을 지우고, 노트북을 저장합니다. 이러한 단계를 수행하면 Azure Machine Learning Workbench에서 해당 노트북이 다시 열립니다.
+- 이 샘플에서 제공되는 모든 스크립트는 로컬로 실행되어야 하고 Docker 원격 환경 등에서 실행되면 안 됩니다. 모든 노트북은 이름이 “PROJECTNAME local”(예: “myImgClassUsingCNTK local”)인 로컬 프로젝트 커널로 설정된 커널을 사용하여 실행되어야 합니다.
 
-
+    
 ## <a name="create-a-new-workbench-project"></a>새 Workbench 프로젝트 만들기
 
 다음과 같이 이 예제를 템플릿으로 사용하여 새 프로젝트를 만듭니다.
@@ -91,7 +94,7 @@ DNN은 이미지 분류뿐만 아니라 개체 검색 및 이미지 유사성과
 
 이 자습서에서는 최대 428개의 이미지로 구성된 상반신 의류 질감 데이터 집합을 실행 예제로 사용합니다. 각 이미지는 서로 다른 세 가지 질감(점 무늬, 줄 무늬, 표범 무늬) 중 하나로 주석 처리됩니다. 이 자습서를 빨리 실행할 수 있도록 이미지 수를 줄였습니다. 그러나 이 코드는 충분히 테스트되었으며 수만 개 이상의 이미지로 작동합니다. Bing Image Search를 사용하여 모든 이미지를 스크랩하고 [3부](#using-a-custom-dataset)에서 설명한 대로 주석을 직접 달았습니다. 해당 속성이 있는 이미지 URL은 */resources/fashionTextureUrls.tsv* 파일에 나열됩니다.
 
-`0_downloadData.py` 스크립트는 모든 이미지를 *DATA_DIR/images/fashionTexture/* 디렉터리에 다운로드합니다. 428개 URL 중 일부가 손상되었을 수도 있습니다. 이 경우 그다지 문제가 되지 않으며, 학습 및 테스트에 맞게 이미지 수가 약간 줄었음을 의미합니다.
+`0_downloadData.py` 스크립트는 모든 이미지를 *DATA_DIR/images/fashionTexture/* 디렉터리에 다운로드합니다. 428개 URL 중 일부가 손상되었을 수도 있습니다. 이 경우 그다지 문제가 되지 않으며, 학습 및 테스트에 맞게 이미지 수가 약간 줄었음을 의미합니다. 이 샘플에서 제공되는 모든 스크립트는 로컬로 실행되어야 하고 Docker 원격 환경 등에서 실행되면 안 됩니다.
 
 다음 그림에서는 점 무늬(왼쪽), 줄 무늬(가운데) 및 표범 무늬(오른쪽)에 대한 예제를 보여 줍니다. 주석은 상반신 의류 항목에 따라 처리되었습니다.
 
@@ -114,7 +117,7 @@ DNN은 이미지 분류뿐만 아니라 개체 검색 및 이미지 유사성과
 ### <a name="step-1-data-preparation"></a>1단계: 데이터 준비
 `Script: 1_prepareData.py. Notebook: showImages.ipynb`
 
-`showImages.ipynb` 노트북을 사용하여 이미지를 시각화하고, 필요에 따라 해당 주석을 수정할 수 있습니다. 노트북을 실행하려면 Azure Machine Learning Workbench에서 해당 노트북을 열고, "노트북 서버 시작"을 클릭한 다음, 노트북의 모든 셀을 실행합니다. 노트북이 너무 커서 표시할 수 없다는 오류가 발생하면 이 문서의 문제 해결 섹션을 참조하세요.
+`showImages.ipynb` 노트북을 사용하여 이미지를 시각화하고, 필요에 따라 해당 주석을 수정할 수 있습니다. 노트북을 실행하려면 Azure Machine Learning Workbench에서 해당 노트북을 열고, “노트북 서버 시작”(이 옵션이 표시된 경우)을 클릭한 다음, 이름이 “PROJECTNAME local”(예: “myImgClassUsingCNTK local”)인 로컬 프로젝트 커널로 이동하고, 노트북의 모든 셀을 실행합니다. 노트북이 너무 커서 표시할 수 없다는 오류가 발생하면 이 문서의 문제 해결 섹션을 참조하세요.
 <p align="center">
 <img src="media/scenario-image-classification-using-cntk/notebook_showImages.jpg" alt="alt text" width="700"/>
 </p>
@@ -178,7 +181,7 @@ DNN은 이미지 분류뿐만 아니라 개체 검색 및 이미지 유사성과
 <img src="media/scenario-image-classification-using-cntk/roc_confMat.jpg" alt="alt text" width="700"/>
 </p>
 
-마지막으로 `showResults.py` 노트북이 테스트 이미지를 스크롤하고 각 분류 점수를 시각화하는 데 제공됩니다.
+마지막으로 `showResults.py` 노트북이 테스트 이미지를 스크롤하고 각 분류 점수를 시각화하는 데 제공됩니다. 1단계에서 설명한 대로 이 샘플의 모든 노트북은 이름이 “PROJECTNAME local”인 로컬 프로젝트 커널을 사용해야 합니다.
 <p align="center">
 <img src="media/scenario-image-classification-using-cntk/notebook_showResults.jpg" alt="alt text" width="700"/>
 </p>
@@ -190,7 +193,7 @@ DNN은 이미지 분류뿐만 아니라 개체 검색 및 이미지 유사성과
 ### <a name="step-6-deployment"></a>6단계: 배포
 `Scripts: 6_callWebservice.py, deploymain.py. Notebook: deploy.ipynb`
 
-이제 학습된 시스템을 REST API로 게시할 수 있습니다. 배포는 `deploy.ipynb` 노트북에 설명되어 있으며 Azure Machine Learning Workbench의 기능을 기반으로 합니다. 훌륭한 [아이리스 자습서](https://docs.microsoft.com/azure/machine-learning/preview/tutorial-classifying-iris-part-3)의 배포 섹션도 참조하세요.
+이제 학습된 시스템을 REST API로 게시할 수 있습니다. 배포는 `deploy.ipynb` 노트북에 설명되어 있으며 Azure Machine Learning Workbench의 기능을 기반으로 합니다(이름이 “PROJECTNAME local”인 로컬 프로젝트 커널을 커널로 설정해야 함). 배포에 대한 자세한 내용은 [아이리스 자습서](https://docs.microsoft.com/azure/machine-learning/preview/tutorial-classifying-iris-part-3)의 배포 섹션도 참조하세요.
 
 일단 배포되면 `6_callWebservice.py` 스크립트를 사용하여 웹 서비스를 호출할 수 있습니다. 웹 서비스의 IP 주소(로컬 또는 클라우드)는 스크립트에서 맨 먼저 설정해야 합니다. 이 IP 주소를 찾는 방법은 `deploy.ipynb` 노트북에 설명되어 있습니다.
 

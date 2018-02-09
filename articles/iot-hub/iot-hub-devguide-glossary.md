@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/08/2017
+ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 406fd095896e2c00920555d3dfce1b5c2ae7fca7
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: 7576077ede7c1c18bcba3853b3b4a2ee0b561968
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="glossary-of-iot-hub-terms"></a>IoT Hub 용어집
 이 문서에서는 IoT Hub 문서에 사용된 몇 가지 일반적인 용어를 나열합니다.
@@ -178,8 +178,8 @@ IoT Hub는 수백만의 장치와 솔루션 백 엔드 간에서 안정적이고
 ## <a name="iot-suite"></a>IoT Suite
 Azure IoT Suite는 Azure 서비스를 미리 구성된 솔루션과 함께 패키지합니다. 이렇게 미리 구성된 솔루션을 통해 일반적인 IoT 시나리오의 종단 간 구현을 빠르게 시작합니다. 자세한 내용은 [Azure IoT Suite란?](../iot-suite/iot-suite-overview.md)을 참조하세요.
 
-## <a name="iothub-explorer"></a>iothub-explorer
-[iothub-explorer](https://github.com/azure/iothub-explorer)는 플랫폼 간 명령줄 도구입니다. 이 도구를 통해 [ID 레지스트리](#identity-registry)에서 장치를 관리하고 장치에서 메시지 및 파일을 보내고 받으며 IoT Hub 작업을 모니터링할 수 있습니다.
+## <a name="the-iot-extension-for-azure-cli-20"></a>Azure CLI 2.0에 대한 IoT 확장
+[Azure CLI 2.0에 대한 IoT 확장](https://github.com/Azure/azure-iot-cli-extension)은 플랫폼 간 명령줄 도구입니다. 이 도구를 통해 [ID 레지스트리](#identity-registry)에서 장치를 관리하고 장치에서 메시지 및 파일을 보내고 받으며 IoT Hub 작업을 모니터링할 수 있습니다.
 
 ## <a name="job"></a>작업
 솔루션 백 엔드에서는 IoT Hub에 등록된 장치 집합에서의 활동을 예약 및 추적하는 [작업](iot-hub-devguide-jobs.md)을 사용할 수 있습니다. 활동에는 장치 쌍 [desired 속성](#desired-properties) 업데이트, 장치 쌍 [태그](#tags) 업데이트 및 [직접 메서드](#direct-method) 호출이 포함됩니다. [IoT Hub](#iot-hub)는 [ID 레지스트리](#identity-registry)에서 [가져오고 내보내는](iot-hub-devguide-identity-registry.md#import-and-export-device-identities) 작업도 사용합니다.

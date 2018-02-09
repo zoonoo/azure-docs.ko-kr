@@ -3,7 +3,7 @@ title: "로그인에 Azure VM 관리 서비스 ID를 사용하는 방법"
 description: "스크립트 클라이언트 로그인 및 리소스 액세스에 Azure VM MSI 서비스 주체를 사용하는 단계별 지침 및 예제입니다."
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: daveba
 manager: mtillman
 editor: 
 ms.service: active-directory
@@ -12,16 +12,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
-ms.author: bryanla
-ms.openlocfilehash: 5e771026950652c7d9c8e817773915a5a4c4ab63
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: daveba
+ms.openlocfilehash: 735b673227ac128bbc01d3b2072f4b14d84b0e66
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-sign-in"></a>로그인에 Azure VM MSI(관리 서비스 ID)를 사용하는 방법 
 
-[!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]이 문서에서는 MSI 서비스 주체에 로그인을 사용하는 PowerShell 및 CLI 스크립트 예제 및 오류 처리와 같은 중요한 항목에 대한 지침을 제공합니다.
+[!INCLUDE [preview-notice](../../includes/active-directory-msi-preview-notice.md)]  
+이 문서에서는 MSI 서비스 주체를 사용한 로그인에 대한 PowerShell 및 CLI 스크립트 예제 및 오류 처리와 같은 중요한 항목에 대한 지침을 제공합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 

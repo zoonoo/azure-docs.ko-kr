@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/08/2018
 ms.author: mabrigg
-ms.openlocfilehash: 0a4118a8927e4261fafa307af5b9c29623ce5c3f
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: e2e9d93af3889714ade1d0364a6f747c184e6d75
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Azure 스택의 암호를 회전
 
@@ -32,15 +32,36 @@ Azure 스택 일반 흐름에 있는 구성 요소에 대 한 암호를 업데�
 
 1. Azure 스택 물리적 서버에서 BMC OEM 지침에 따라 업데이트 합니다. 사용자 환경에서 각 BMC에 대 한 암호는 같아야 합니다.
 2. Azure 스택 세션에서 권한 있는 끝점을 엽니다. 명령에 대 한 참조 [권한 있는 끝점을 사용 하 여 Azure 스택의](azure-stack-privileged-endpoint.md)합니다.
-3. 프롬프트를 변경 된 후에 PowerShell **[IP 주소 또는 ERCS VM name]: PS >** 또는 **[azs ercs01]: PS >**실행 하는 환경에 따라 `Set-BmcPassword` 를 실행 하 여 `invoke-command`합니다. 권한 있는 끝점 세션 변수를 매개 변수로 전달 합니다.  
-예: 
+3. 프롬프트를 변경 된 후에 PowerShell **[IP 주소 또는 ERCS VM name]: PS >** 또는 **[azs ercs01]: PS >**실행 하는 환경에 따라 `Set-BmcPassword` 를 실행 하 여 `invoke-command`합니다. 권한 있는 끝점 세션 변수를 매개 변수로 전달 합니다. 예: 
+
     ```powershell
-    $PEPSession = New-PSSession -ComputerName <ERCS computer name> -Credential <CloudAdmin credential> -ConfigurationName "PrivilegedEndpoint"  
-    
+    # Interactive Version
+    $PEip = "<Privileged Endpoint IP or Name>" # You can also use the machine name instead of IP here.
+    $PECred = Get-Credential "<Domain>\CloudAdmin" -Message "PE Credentials" 
+    $NewBMCpwd = Read-Host -Prompt "Enter New BMC password" -AsSecureString 
+
+    $PEPSession = New-PSSession -ComputerName $PEip -Credential $PECred -ConfigurationName "PrivilegedEndpoint" 
+
     Invoke-Command -Session $PEPSession -ScriptBlock {
-        param($password)
-        set-bmcpassword -bmcpassword $password
-    } -ArgumentList (<LatestPassword as a SecureString>) 
+        Set-Bmcpassword -bmcpassword $using:NewBMCpwd
+    }
+    ```
+    
+    또한 암호와 함께 코드 줄으로 정적 PowerShell 버전을 사용할 수 있습니다.
+    
+    ```powershell
+    # Static Version
+    $PEip = "<Privileged Endpoint IP or Name>" # You can also use the machine name instead of IP here.
+    $PEUser = "<Privileged Endpoint user for exmaple Domain\CloudAdmin>"
+    $PEpwd = ConvertTo-SecureString "<Privileged Endpoint Password>" -AsPlainText -Force
+    $PECred = New-Object System.Management.Automation.PSCredential ($PEUser, $PEpwd) 
+    $NewBMCpwd = ConvertTo-SecureString "<New BMC Password>" -AsPlainText -Force 
+
+    $PEPSession = New-PSSession -ComputerName $PEip -Credential $PECred -ConfigurationName "PrivilegedEndpoint" 
+
+    Invoke-Command -Session $PEPSession -ScriptBlock {
+        Set-Bmcpassword -bmcpassword $using:NewBMCpwd
+    }
     ```
 
 ## <a name="next-steps"></a>다음 단계

@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 11/06/2017
-ms.openlocfilehash: 7e489526fd1b6a7d38172d147df1f30d74119e95
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 3337ba9fa6845deb98813259821f77ff713f9eb1
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="classify-iris-part-2-build-a-model"></a>아이리스 분류 2부: 모델 작성
 Azure Machine Learning 서비스(미리 보기)는 데이터를 준비하고, 실험을 개발하고, 클라우드 범위에서 모델을 배포할 수 있는 전문 데이터 과학자를 위한 종단 간 데이터 과학 및 고급 분석 통합 솔루션입니다.
@@ -34,7 +34,7 @@ Azure Machine Learning 서비스(미리 보기)는 데이터를 준비하고, �
 
 이 자습서에서는 변함 없는 [아이리스 꽃 데이터 집합](https://en.wikipedia.org/wiki/Iris_flower_data_set)을 사용합니다. 스크린샷은 Windows 전용이지만 Mac OS 환경에서도 거의 동일합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 먼저 이 자습서 시리즈의 제1부를 완료합니다. 이 자습서의 단계를 시작하기 전에 [데이터 준비 자습서](tutorial-classifying-iris-part-1.md)에 따라 Azure Machine Learning 리소스를 만들고 Azure Machine Learning Workbench 응용 프로그램을 설치합니다.
 
 필요에 따라 로컬 Docker 컨테이너에 대해 스크립트를 실행하여 실험할 수 있습니다. 이렇게 하려면 Docker 엔진(Community Edition이면 충분)을 설치하고 Windows 또는 Mac OS 컴퓨터에서 로컬로 시작해야 합니다. Docker 설치에 대한 자세한 내용은 [Docker 설치 지침](https://docs.docker.com/engine/installation/)을 참조하세요.
@@ -326,7 +326,7 @@ Machine Learning을 사용하면 Docker와 같은 추가 실행 환경을 쉽게
 3. _myvm_을 대상으로 지정한 경우를 제외하고는 CLI 창에서 이전에 수행한 것과 동일한 명령을 실행합니다.
    ```azurecli
    REM executes iris_sklearn.py in a remote Docker container
-   az ml experiment submit -c myvm .\iris_sklearn.py
+   az ml experiment submit -c myvm iris_sklearn.py
    ```
    이 명령은 원격 Linux VM에서 실행된다는 것을 제외하고는 `docker-python` 환경에 있는 것처럼 실행됩니다. CLI 창에서 동일한 출력 정보가 표시됩니다.
 

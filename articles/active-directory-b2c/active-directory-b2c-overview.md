@@ -1,5 +1,5 @@
 ---
-title: "개요 - Azure AD B2C | Microsoft Docs"
+title: "클라우드 ID 관리 웹앱 및 모바일 앱 개발 - Azure AD B2C | Microsoft Docs"
 description: "Azure Active Directory B2C를 사용하여 소비자 지향 응용 프로그램 개발"
 services: active-directory-b2c
 documentationcenter: 
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/06/2016
 ms.author: saeedakhter-msft
-ms.openlocfilehash: bd29d78fa38dc4b5713d018eceed56e6b93739b4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: 7881793ebce10b4f9fbc9c534d9d6fc0ebb38f0b
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="azure-ad-b2c-focus-on-your-app-let-us-worry-about-sign-up-and-sign-in"></a>Azure AD B2C: 등록 및 로그인에 대해 걱정할 필요 없이 앱에 초점 맞추기
 
@@ -30,7 +31,7 @@ Azure AD B2C를 사용하면 최소 구성으로 응용 프로그램을 인증�
 * **엔터프라이즈 계정**(OpenID Connect 또는 SAML 등의 개방형 표준 프로토콜 사용)
 * **로컬 계정**(이메일 주소 및 암호 또는 사용자 이름 및 암호)
 
-## <a name="get-started"></a>시작
+## <a name="get-started"></a>시작하기
 
 먼저,[Azure AD B2C 테넌트 만들기](active-directory-b2c-get-started.md)에 요약한 단계를 사용하여 자신의 테넌트를 가져옵니다.
 
@@ -39,9 +40,9 @@ Azure AD B2C를 사용하면 최소 구성으로 응용 프로그램을 인증�
 |  |  |  |  |
 | --- | --- | --- | --- |
 | <center>![모바일 및 데스크톱 앱](../active-directory/develop/media/active-directory-developers-guide/NativeApp_Icon.png)<br />모바일 및 데스크톱 앱</center> | [개요](active-directory-b2c-reference-oauth-code.md)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br /><br />[iOS](https://github.com/Azure-Samples/active-directory-b2c-ios-swift-native-msal)<br /><br />[Android](https://github.com/Azure-Samples/active-directory-b2c-android-native-msal) | [.NET](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop)<br /><br />[Xamarin](https://github.com/Azure-Samples/active-directory-b2c-xamarin-native) |  |
-| <center>![Web Apps](../active-directory/develop/media/active-directory-developers-guide/Web_app.png)<br />Web Apps</center> | [개요](active-directory-b2c-reference-oidc.md)<br /><br />[ASP.NET](active-directory-b2c-devquickstarts-web-dotnet-susi.md)<br /><br />[ASP.NET Core](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapp) | [Node.JS](active-directory-b2c-devquickstarts-web-node.md) |  |
+| <center>![Web Apps](../active-directory/develop/media/active-directory-developers-guide/Web_app.png)<br />Web Apps</center> | [개요](active-directory-b2c-reference-oidc.md)<br /><br />[ASP.NET](active-directory-b2c-devquickstarts-web-dotnet-susi.md)<br /><br />[ASP.NET Core](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapp) | [Node.js](active-directory-b2c-devquickstarts-web-node.md) |  |
 | <center>![단일 페이지 앱](../active-directory/develop/media/active-directory-developers-guide/SPA.png)<br />단일 페이지 앱</center> | [개요](active-directory-b2c-reference-spa.md)<br /><br />[JavaScript](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp)<br /><br /> |  |  |
-| <center>![Web API](../active-directory/develop/media/active-directory-developers-guide/Web_API.png)<br />Web API</center> | [ASP.NET](active-directory-b2c-devquickstarts-api-dotnet.md)<br /><br /> [ASP.NET Core](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapi)<br /><br /> [Node.JS](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi) | [.NET Web API 호출](active-directory-b2c-devquickstarts-web-api-dotnet.md) |
+| <center>![Web API](../active-directory/develop/media/active-directory-developers-guide/Web_API.png)<br />Web API</center> | [ASP.NET](active-directory-b2c-devquickstarts-api-dotnet.md)<br /><br /> [ASP.NET Core](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapi)<br /><br /> [Node.js](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi) | [.NET Web API 호출](active-directory-b2c-devquickstarts-web-api-dotnet.md) |
 
 ## <a name="whats-new"></a>새로운 기능
 

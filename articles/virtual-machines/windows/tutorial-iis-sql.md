@@ -1,6 +1,6 @@
 ---
 title: "Azure에서 SQL&#92;IIS&#92;.NET 스택을 실행하는 VM 만들기| Microsoft Docs"
-description: "자습서 - Windows 가상 컴퓨터에 Azure SQL, IIS, .NET 스택 설치."
+description: "자습서 - Windows 가상 머신에 Azure SQL, IIS, .NET 스택 설치."
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 10/24/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 6f7ef46d9c40138c211427845423783fefde5dc3
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 6533ab205e07243e2f757ea0a66028e1d140c52b
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="install-a-sql92iis92net-stack-in-azure"></a>Azure에서 SQL&#92;IIS&#92;.NET 스택 설치
 
@@ -32,18 +32,21 @@ ms.lasthandoff: 10/31/2017
 > * SQL Server를 실행하는 VM 만들기
 > * SQL Server 확장 설치
 
+[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
+PowerShell을 로컬로 설치하고 사용하도록 선택한 경우 이 자습서에서는 Azure PowerShell 모듈 버전 5.1.1 이상을 실행해야 합니다. ` Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Login-AzureRmAccount`를 실행하여 Azure와 연결해야 합니다.
 
 ## <a name="create-a-iis-vm"></a>IIS VM 만들기 
 
 이 예제에서는 PowerShell Cloud Shell에서 [New-AzVM](https://www.powershellgallery.com/packages/AzureRM.Compute.Experiments) cmdlet을 사용하여 Windows Server 2016 VM을 빠르게 만든 다음 IIS와 .NET Framework를 설치합니다. IIS 및 SQL VM은 리소스 그룹 및 가상 네트워크를 공유하므로 그러한 이름의 변수를 만듭니다.
 
-이 창에서 Cloud Shell을 시작하려면 코드 블록의 오른쪽 위에 있는 **시도** 단추를 클릭합니다. cmd 프롬프트에 가상 컴퓨터에 대한 자격 증명을 제공하라는 메시지가 표시됩니다.
+이 창에서 Cloud Shell을 시작하려면 코드 블록의 오른쪽 위에 있는 **시도** 단추를 클릭합니다. cmd 프롬프트에 가상 머신에 대한 자격 증명을 제공하라는 메시지가 표시됩니다.
 
 ```azurepowershell-interactive
+$vmName = "IISVM$(Get-Random)"
 $vNetName = "myIISSQLvNet"
 $resourceGroup = "myIISSQLGroup"
-New-AzVm -Name myIISVM -ResourceGroupName $resourceGroup -VirtualNetworkName $vNetName 
+New-AzureRMVm -Name $vmName -ResourceGroupName $resourceGroup -VirtualNetworkName $vNetName 
 ```
 
 사용자 지정 스크립트 확장을 사용하여 IIS 및 .NET Framework를 설치합니다.
@@ -52,7 +55,7 @@ New-AzVm -Name myIISVM -ResourceGroupName $resourceGroup -VirtualNetworkName $vN
 
 Set-AzureRmVMExtension -ResourceGroupName $resourceGroup `
     -ExtensionName IIS `
-    -VMName myIISVM `
+    -VMName $vmName `
     -Publisher Microsoft.Compute `
     -ExtensionType CustomScriptExtension `
     -TypeHandlerVersion 1.4 `

@@ -1,6 +1,6 @@
 ---
-title: "OMS Log Analytics에서 Windows 이벤트 로그 수집 및 분석 | Microsoft Docs"
-description: "Windows 이벤트 로그는 Log Analytics에서 사용되는 가장 일반적인 데이터 원본 중 하나입니다.  이 문서에서는 Windows 이벤트 로그 수집을 구성하는 방법을 설명하고, OMS 리포지토리에 생성되는 레코드에 대한 자세한 정보를 제공합니다."
+title: "Azure Log Analytics에서 Windows 이벤트 로그 수집 및 분석 | Microsoft Docs"
+description: "Windows 이벤트 로그는 Log Analytics에서 사용되는 가장 일반적인 데이터 원본 중 하나입니다.  이 문서에서는 Windows 이벤트 로그 수집을 구성하는 방법을 설명하고, Log Analytics 작업 영역에 생성되는 레코드에 대한 자세한 정보를 제공합니다."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/28/2017
+ms.date: 12/11/2017
 ms.author: bwren
-ms.openlocfilehash: ddead0903c7c5f29bc996e305699ced596d0a4f5
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 7a7deb4d7a287b2e9613e6035a7ffd7bb6f14f9c
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="windows-event-log-data-sources-in-log-analytics"></a>Log Analytics의 Windows 이벤트 로그 데이터 원본
 많은 응용 프로그램이 Windows 이벤트 로그에 기록되기 때문에 Windows 이벤트 로그는 Windows 에이전트를 사용하여 데이터를 수집하는 가장 일반적인 [데이터 원본](log-analytics-data-sources.md) 중 하나입니다.  모니터링해야 하는 응용 프로그램에서 만든 모든 사용자 지정 로그를 지정하는 것 외에 시스템 및 응용 프로그램 같은 표준 로그에서 이벤트를 수집할 수 있습니다.
@@ -44,9 +44,9 @@ Log Analytics에서는 이벤트가 생성될 때 모니터링되는 이벤트 �
 ## <a name="windows-event-records-properties"></a>Windows 이벤트 레코드 속성
 Windows 이벤트 레코드는 **이벤트** 형식이며, 다음 테이블에 있는 속성이 있습니다.
 
-| 속성 | 설명 |
+| 자산 | 설명 |
 |:--- |:--- |
-| 컴퓨터 |이벤트가 수집된 컴퓨터의 이름입니다. |
+| Computer |이벤트가 수집된 컴퓨터의 이름입니다. |
 | EventCategory |이벤트의 범주. |
 | EventData |원시 형식의 모든 이벤트 데이터입니다. |
 | EventID |이벤트의 번호입니다. |
@@ -66,7 +66,7 @@ Windows 이벤트 레코드는 **이벤트** 형식이며, 다음 테이블에 �
 
 | 쿼리 | 설명 |
 |:---|:---|
-| 이벤트 |모든 Windows 이벤트 |
+| 행사 |모든 Windows 이벤트 |
 | Event &#124; where EventLevelName == "error" |심각도가 오류인 모든 Windows 이벤트 |
 | Event &#124; summarize count() by Source |원본별 Windows 이벤트 수 |
 | Event &#124; where EventLevelName == "error" &#124; summarize count() by Source |원본별 Windows 오류 이벤트 수 |
@@ -74,6 +74,6 @@ Windows 이벤트 레코드는 **이벤트** 형식이며, 다음 테이블에 �
 
 ## <a name="next-steps"></a>다음 단계
 * 분석을 위해 다른 [데이터 원본](log-analytics-data-sources.md) 을 수집하도록 Log Analytics를 구성합니다.
-* 데이터 원본 및 솔루션에서 수집한 데이터를 분석하기 위해 [로그 검색](log-analytics-log-searches.md) 에 대해 알아봅니다.  
+* 데이터 원본 및 솔루션에서 수집한 데이터를 분석하기 위해 [로그 검색](log-analytics-log-searches.md)에 대해 알아봅니다.  
 * [사용자 지정 필드](log-analytics-custom-fields.md)를 사용하여 이벤트 레코드를 개별 필드로 구문 분석합니다.
 * Windows 에이전트에서 [성능 카운터 수집](log-analytics-data-sources-performance-counters.md)을 구성합니다.

@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 10/17/2017
 ms.author: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 16680aaf2f49ae8ece440d0e44b49d6cd1f8fad7
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 754ca6e5297c3be9166efa7a40a5ba3714911c99
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Azure Portal에서 첫 번째 Azure Function을 만듭니다.
 
@@ -52,15 +52,19 @@ Azure Portal을 엽니다. 이 작업을 수행하려면 Azure 계정을 사용�
    
     ![Azure Portal에서 함수 빨리 시작하기.](./media/functions-create-first-azure-function/function-app-quickstart-node-webhook.png)
 
-함수는 HTTP 트리거 함수에 대한 템플릿을 사용하여 선택한 언어로 만들어집니다. HTTP 요청을 전송하여 새 함수를 실행할 수 있습니다.
+함수는 HTTP 트리거 함수에 대한 템플릿을 사용하여 선택한 언어로 만들어집니다. 이 토픽에서는 포털의 C# 스크립트 함수를 나타내거나 지원되는 [모든 언어](supported-languages.md)로 함수를 만들 수 있습니다. 
+
+이제 HTTP 요청을 전송하여 새 함수를 실행할 수 있습니다.
 
 ## <a name="test-the-function"></a>함수 테스트
 
-1. 새 함수에서 **</> 함수 URL 가져오기**를 클릭하고 **기본값(함수 키)**를 선택한 후 **복사**를 클릭합니다. 
+1. 새 함수에서 오른쪽 맨 위에 있는 **</> 함수 URL 가져오기**를 클릭하고 **기본값(함수 키)**를 선택한 후 **복사**를 클릭합니다. 
 
     ![Azure Portal에서 함수 URL 복사](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
 
-2. 함수 URL을 브라우저의 주소 표시줄에 붙여 넣습니다. `&name=<yourname>` 쿼리 문자열을 이 URL에 추가하고 키보드에서 `Enter` 키를 눌러 요청을 실행합니다. 다음은 Edge 브라우저의 함수에서 반환된 응답의 예입니다.
+2. 함수 URL을 브라우저의 주소 표시줄에 붙여 넣습니다. `&name=<yourname>` 쿼리 문자열을 이 URL의 마지막에 추가하고 키보드에서 `Enter` 키를 눌러 요청을 실행합니다. 브라우저에 함수에서 반환한 응답이 표시될 것입니다.  
+
+    다음은 Edge 브라우저(다른 브라우저에는 XML 표시가 포함될 수 있음)의 응답 예입니다.
 
     ![브라우저에 함수 응답.](./media/functions-create-first-azure-function/function-app-browser-testing.png)
 

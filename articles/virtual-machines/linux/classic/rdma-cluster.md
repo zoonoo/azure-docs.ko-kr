@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: danlep
-ms.openlocfilehash: e09b472a53c02b39bcf7ad06d228049b0a392452
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: 428dc1e8ba03ba17e348a33a33b5cf5e6118a43c
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="set-up-a-linux-rdma-cluster-to-run-mpi-applications"></a>MPI 응용 프로그램을 실행하도록 Linux RDMA 클러스터 설정
 Azure에서 [고성능 계산 VM 크기](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 사용하여 MPI(Message Passing Interface) 응용 프로그램을 병렬로 실행하도록 Linux RDMA 클러스터를 설정하는 방법을 알아봅니다. 이 문서는 클러스터에서 Intel MPI를 실행하도록 Linux HPC 이미지를 준비하기 위한 단계를 제공합니다. 준비가 끝나면 이 이미지와 RDMA 지원 Azure VM 크기(현재 H16r, H16mr, A8 또는 A9) 중 하나를 사용하여 VM 클러스터를 배포합니다. RDMA(원격 직접 메모리 액세스) 기술을 기반으로 하는 짧은 대기 시간, 높은 처리량의 네트워크에서 효율적으로 통신하는 MPI 응용 프로그램을 실행하려면 클러스터를 사용합니다.
@@ -42,7 +42,7 @@ Azure에서 [고성능 계산 VM 크기](../sizes-hpc.md?toc=%2fazure%2fvirtual-
 >
 >
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>필수 조건
 * **클라이언트 컴퓨터** - Azure와 통신할 Mac, Linux 또는 Windows 클라이언트 컴퓨터가 필요합니다. 이러한 단계는 Linux 클라이언트를 사용하는 것을 가정합니다.
 * **Azure 구독** - 구독이 없는 경우 몇 분 내에 [무료 계정](https://azure.microsoft.com/free/)을 만들 수 있습니다. 대규모 클러스터의 경우, 종량제 구독이나 다른 구매 옵션을 고려하세요.
 * **VM 크기 가용성** - H16r, H16mr, A8 및 A9 인스턴스 크기가 RDMA를 지원할 수 있습니다. [지역별 사용 가능한 제품](https://azure.microsoft.com/regions/services/) 에서 Azure 지역의 가용성을 확인하세요.
@@ -151,7 +151,7 @@ VM 프로비전이 완료되면 VM의 외부 IP 주소(또는 DNS 이름) 및 �
 sudo waagent -deprovision
 ```
 
-클라이언트 컴퓨터에서 다음 Azure CLI 명령을 실행하여 이미지를 캡처합니다. 자세한 내용은 [클래식 Linux 가상 머신을 이미지로 캡처하는 방법](capture-image.md)을 참조하세요.  
+클라이언트 컴퓨터에서 다음 Azure CLI 명령을 실행하여 이미지를 캡처합니다. 자세한 내용은 [클래식 Linux 가상 머신을 이미지로 캡처하는 방법](capture-image-classic.md)을 참조하세요.  
 
 ```
 azure vm shutdown <vm-name>

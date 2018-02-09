@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/28/2017
+ms.date: 01/29/2018
 ms.author: ryanwi, mikhegn
-ms.openlocfilehash: 323c1e7bb4703833cfc3047db9e6116eb7237162
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: a4000791afca35dca6d2e3d7a8fb6a003b17d066
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Windows에서 개발 환경 준비
 > [!div class="op_single_selector"]
@@ -34,16 +34,17 @@ ms.lasthandoff: 12/18/2017
 ### <a name="supported-operating-system-versions"></a>지원되는 운영 체제 버전
 개발을 위해 다음 운영 체제 버전이 지원됩니다.
 
-* 윈도우 7
+* Windows 7
 * Windows 8/Windows 8.1
 * Windows Server 2012 R2
 * Windows Server 2016
 * 윈도우 10
 
 > [!NOTE]
-> Windows 7은 기본적으로 Windows PowerShell 2.0만을 포함합니다. 서비스 패브릭 PowerShell cmdlet에는 PowerShell 3.0 이상이 필요합니다. Microsoft 다운로드 센터에서 [Windows PowerShell 5.0을 다운로드][powershell5-download]할 수 있습니다.
-> 
-> 
+> Windows 7 지원:
+> - Windows 7은 기본적으로 Windows PowerShell 2.0만을 포함합니다. 서비스 패브릭 PowerShell cmdlet에는 PowerShell 3.0 이상이 필요합니다. Microsoft 다운로드 센터에서 [Windows PowerShell 5.0을 다운로드][powershell5-download]할 수 있습니다.
+> - Service Fabric 역방향 프록시는 Windows 7에서 사용할 수 없습니다.
+>
 
 ## <a name="install-the-sdk-and-tools"></a>SDK 및 도구 설치
 ### <a name="to-use-visual-studio-2017"></a>Visual Studio 2017을 사용하려면 다음을 수행합니다.
@@ -62,11 +63,10 @@ SDK만 필요한 경우 다음 패키지를 설치할 수 있습니다.
 * [Microsoft Azure Service Fabric SDK 설치][core-sdk]
 
 현재 버전은 다음과 같습니다.
-* Service Fabric SDK 2.8.232
-* Service Fabric 런타임 6.0.232
-* Service Fabric Tools for Visual Studio 2015 1.8.51024.1
-* Visual Studio 2017 업데이트 3에는 Visual Studio 1.7.20170817용 Service Fabric 도구가 포함되어 있습니다.
-* Visual Studio 2017 업데이트 4 미리 보기 1(15.4.0 미리 보기 1.0)에는 Visual Studio 1.7.20170721용 Service Fabric 도구가 포함되어 있습니다.
+* Service Fabric SDK and Tools 3.0.456
+* Service Fabric 런타임 6.1.456
+* Service Fabric Tools for Visual Studio 2015 2.0.10124.2
+* Visual Studio 2017 15.5.6에는 Visual Studio 2.0.20180124.2용 Service Fabric 도구가 포함되어 있습니다. 
 
 지원되는 버전 목록은 [Service Fabric 지원](service-fabric-support.md)을 참조하세요.
 

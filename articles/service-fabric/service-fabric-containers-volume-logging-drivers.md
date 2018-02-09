@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: 772e51519d1ad45ababa0f4c1f4b402d280f9c14
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 8918d6d53d7dd04e2a685707979526230ebfbc42
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="use-docker-volume-plug-ins-and-logging-drivers-in-your-container"></a>컨테이너에 Docker 볼륨 플러그 인 및 로깅 드라이버 사용
 Azure Service Fabric은 컨테이너 서비스에 대한 [Docker 볼륨 플러그 인](https://docs.docker.com/engine/extend/plugins_volume/) 및 [Docker 로깅 드라이버](https://docs.docker.com/engine/admin/logging/overview/) 지정을 지원합니다. 다른 호스트에서 컨테이너를 다시 시작하거나 이동할 때 [Azure Files](https://azure.microsoft.com/services/storage/files/)에 데이터를 유지할 수 있습니다.
@@ -39,6 +39,11 @@ docker plugin install --alias azure --grant-all-permissions docker4x/cloudstor:1
     AZURE_STORAGE_ACCOUNT_KEY="[MY-STORAGE-ACCOUNT-KEY]" \
     DEBUG=1
 ```
+
+> [!NOTE]
+> Windows Server 2016 Datacenter는 커넥터에 SMB 마운트를 매핑하도록 지원하지 않습니다([Windows Server 버전 1709에서만 지원됨](https://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-containers/container-storage)). 그러면 1709보다 오래된 버전에서 네트워크 볼륨 매핑 및 Azure Files 볼륨 드라이버를 지원하지 않습니다. 
+>   
+
 
 ## <a name="specify-the-plug-in-or-driver-in-the-manifest"></a>매니페스트에 플러그 인 또는 드라이버 지정
 플러그 인은 다음과 같이 응용 프로그램 매니페스트에 지정됩니다.

@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: c763d6867deb76f5b9d197c7062ee07d7ed6d865
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: ee8a5e5537fdc20fdb8fecaa24b18418705d2f2b
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="run-applications-in-kubernetes"></a>Kubernetes에서 응용 프로그램 실행
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 12/08/2017
 
 이 자습서에서는 ACR(Azure Container Registry)을 사용하여 컨테이너 이미지를 저장했습니다. 응용 프로그램을 실행하기 전에 Kubernetes 매니페스트 파일에서 ACR 로그인 서버 이름을 업데이트해야 합니다.
 
-[az acr list](/cli/azure/acr#list) 명령을 사용하여 ACR 로그인 서버 이름을 가져옵니다.
+[az acr list](/cli/azure/acr#az_acr_list) 명령을 사용하여 ACR 로그인 서버 이름을 가져옵니다.
 
 ```azurecli-interactive
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
@@ -59,7 +59,7 @@ vi azure-vote-all-in-one-redis.yml
 ```yaml
 containers:
 - name: azure-vote-front
-  image: microsoft/azure-vote-front:redis-v1
+  image: microsoft/azure-vote-front:v1
 ```
 
 파일을 저장하고 닫습니다.
@@ -72,7 +72,7 @@ containers:
 kubectl create -f azure-vote-all-in-one-redis.yml
 ```
 
-출력:
+출력
 
 ```bash
 deployment "azure-vote-back" created

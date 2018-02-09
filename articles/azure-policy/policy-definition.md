@@ -5,19 +5,19 @@ services: azure-policy
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 10/31/2017
+ms.date: 01/17/2018
 ms.topic: article
 ms.service: azure-policy
 ms.custom: 
-ms.openlocfilehash: 1b8fd12e071bfbd01567803370e510e7e07ccb99
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: af373e2770ad020b3a3eb669424c001670ec9204
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy 정의 구조
 
-Azure Policy에서 사용되는 리소스 정책을 통해 정책이 언제 적용되고 어떤 작업이 실행될지 설명함으로써 조직의 리소스에 대한 규칙을 설정할 수 있습니다. 규칙을 정의하여 비용을 제어하고 리소스를 보다 쉽게 관리할 수 있습니다. 예를 들어, 특정 유형의 가상 컴퓨터만 허용되게 지정할 수 있습니다. 또는 모든 리소스가 특정 태그를 갖도록 요구할 수 있습니다. 정책은 모든 자식 리소스에 의해 상속됩니다. 이에 따라 리소스 그룹에 정책을 적용하면 해당 리소스 그룹의 모든 리소스에 해당 정책을 적용할 수 있습니다.
+Azure Policy에서 사용되는 리소스 정책을 통해 정책이 언제 적용되고 어떤 작업이 실행될지 설명함으로써 조직의 리소스에 대한 규칙을 설정할 수 있습니다. 규칙을 정의하여 비용을 제어하고 리소스를 보다 쉽게 관리할 수 있습니다. 예를 들어, 특정 유형의 가상 머신만 허용되게 지정할 수 있습니다. 또는 모든 리소스가 특정 태그를 갖도록 요구할 수 있습니다. 정책은 모든 자식 리소스에 의해 상속됩니다. 이에 따라 리소스 그룹에 정책을 적용하면 해당 리소스 그룹의 모든 리소스에 해당 정책을 적용할 수 있습니다.
 
 JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 요소가 포함됩니다.
 
@@ -200,7 +200,6 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 * **추가**는 정의된 필드 집합을 요청에 추가합니다.
 * **AuditIfNotExists** - 리소스가 없으면 감사를 사용하도록 설정합니다.
 * **DeployIfNotExists**: 리소스가 아직 없으면 배포합니다. 현재 이 결과는 기본 제공 정책을 통해서만 지원됩니다.
-* **DenyIfNotExists**: 존재하지 않는 경우 존재의 생성을 거부합니다.
 
 **append**의 경우 아래와 같이 details(세부 정보)를 제공해야 합니다.
 
@@ -216,8 +215,8 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 
 값은 문자열 또는 JSON 형식의 개체일 수 있습니다.
 
-**AuditIfNotExists**, **DeployIfNotExists** 및 **DenyIfNotExists**를 사용하면 자식 리소스의 존재 여부를 평가하고, 해당 리소스가 없는 경우 규칙 및 해당 결과를 적용할 수 있습니다. 예를 들어 모든 가상 네트워크에 대해 네트워크 감시자를 배포하도록 요구할 수 있습니다.
-가상 컴퓨터 확장이 배포되지 않은 경우의 감사 예제는 [확장이 존재하지 않을 경우 감사](scripts/audit-ext-not-exist.md)를 참조하세요.
+**AuditIfNotExists** 및 **DeployIfNotExists**를 사용하면 자식 리소스의 존재 여부를 평가하고, 해당 리소스가 없을 경우 규칙과 그 결과를 적용할 수 있습니다. 예를 들어 모든 가상 네트워크에 대해 네트워크 감시자를 배포하도록 요구할 수 있습니다.
+가상 머신 확장이 배포되지 않은 경우의 감사 예제는 [확장이 존재하지 않을 경우 감사](scripts/audit-ext-not-exist.md)를 참조하세요.
 
 
 ## <a name="aliases"></a>Aliases
@@ -244,10 +243,10 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 
 | Alias | 설명 |
 | ----- | ----------- |
-| Microsoft.Compute/imageOffer | 플랫폼 이미지 또는 가상 컴퓨터를 만드는 데 사용된 Marketplace 이미지 제안을 설정합니다. |
+| Microsoft.Compute/imageOffer | 플랫폼 이미지 또는 가상 머신을 만드는 데 사용된 Marketplace 이미지 제안을 설정합니다. |
 | Microsoft.Compute/imagePublisher | 플랫폼 이미지 또는 가상 컴퓨터를 만드는 데 사용된 Marketplace 이미지의 게시자를 설정합니다. |
-| Microsoft.Compute/imageSku | 플랫폼 이미지 또는 가상 컴퓨터를 만드는 데 사용된 Marketplace 이미지의 SKU를 설정합니다. |
-| Microsoft.Compute/imageVersion | 플랫폼 이미지 또는 가상 컴퓨터를 만드는 데 사용된 Marketplace 이미지의 버전을 설정합니다. |
+| Microsoft.Compute/imageSku | 플랫폼 이미지 또는 가상 머신을 만드는 데 사용된 Marketplace 이미지의 SKU를 설정합니다. |
+| Microsoft.Compute/imageVersion | 플랫폼 이미지 또는 가상 머신을 만드는 데 사용된 Marketplace 이미지의 버전을 설정합니다. |
 
 
 **Microsoft.Compute/virtualMachines**
@@ -255,14 +254,14 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 | Alias | 설명 |
 | ----- | ----------- |
 | Microsoft.Compute/imageId | 가상 컴퓨터를 만드는 데 사용되는 이미지의 식별자를 설정합니다. |
-| Microsoft.Compute/imageOffer | 플랫폼 이미지 또는 가상 컴퓨터를 만드는 데 사용된 Marketplace 이미지 제안을 설정합니다. |
+| Microsoft.Compute/imageOffer | 플랫폼 이미지 또는 가상 머신을 만드는 데 사용된 Marketplace 이미지 제안을 설정합니다. |
 | Microsoft.Compute/imagePublisher | 플랫폼 이미지 또는 가상 컴퓨터를 만드는 데 사용된 Marketplace 이미지의 게시자를 설정합니다. |
-| Microsoft.Compute/imageSku | 플랫폼 이미지 또는 가상 컴퓨터를 만드는 데 사용된 Marketplace 이미지의 SKU를 설정합니다. |
-| Microsoft.Compute/imageVersion | 플랫폼 이미지 또는 가상 컴퓨터를 만드는 데 사용된 Marketplace 이미지의 버전을 설정합니다. |
+| Microsoft.Compute/imageSku | 플랫폼 이미지 또는 가상 머신을 만드는 데 사용된 Marketplace 이미지의 SKU를 설정합니다. |
+| Microsoft.Compute/imageVersion | 플랫폼 이미지 또는 가상 머신을 만드는 데 사용된 Marketplace 이미지의 버전을 설정합니다. |
 | Microsoft.Compute/licenseType | 온-프레미스로 사용이 허가된 이미지 또는 디스크를 설정합니다. 이 값은 Windows Server 운영 체제를 포함하는 이미지에만 사용됩니다.  |
-| Microsoft.Compute/virtualMachines/imageOffer | 플랫폼 이미지 또는 가상 컴퓨터를 만드는 데 사용된 Marketplace 이미지 제안을 설정합니다. |
-| Microsoft.Compute/virtualMachines/imagePublisher | 플랫폼 이미지 또는 가상 컴퓨터를 만드는 데 사용된 Marketplace 이미지의 게시자를 설정합니다. |
-| Microsoft.Compute/virtualMachines/imageSku | 플랫폼 이미지 또는 가상 컴퓨터를 만드는 데 사용된 Marketplace 이미지의 SKU를 설정합니다. |
+| Microsoft.Compute/virtualMachines/imageOffer | 플랫폼 이미지 또는 가상 머신을 만드는 데 사용된 Marketplace 이미지 제안을 설정합니다. |
+| Microsoft.Compute/virtualMachines/imagePublisher | 플랫폼 이미지 또는 가상 머신을 만드는 데 사용된 Marketplace 이미지의 게시자를 설정합니다. |
+| Microsoft.Compute/virtualMachines/imageSku | 플랫폼 이미지 또는 가상 머신을 만드는 데 사용된 Marketplace 이미지의 SKU를 설정합니다. |
 | Microsoft.Compute/virtualMachines/imageVersion | 플랫폼 이미지 또는 가상 컴퓨터를 만드는 데 사용된 Marketplace 이미지의 버전을 설정합니다. |
 | Microsoft.Compute/virtualMachines/osDisk.Uri | Vhd URI를 설정합니다. |
 | Microsoft.Compute/virtualMachines/sku.name | 가상 컴퓨터의 크기를 설정합니다. |
@@ -280,16 +279,16 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 | Alias | 설명 |
 | ----- | ----------- |
 | Microsoft.Compute/imageId | 가상 컴퓨터를 만드는 데 사용되는 이미지의 식별자를 설정합니다. |
-| Microsoft.Compute/imageOffer | 플랫폼 이미지 또는 가상 컴퓨터를 만드는 데 사용된 Marketplace 이미지 제안을 설정합니다. |
+| Microsoft.Compute/imageOffer | 플랫폼 이미지 또는 가상 머신을 만드는 데 사용된 Marketplace 이미지 제안을 설정합니다. |
 | Microsoft.Compute/imagePublisher | 플랫폼 이미지 또는 가상 컴퓨터를 만드는 데 사용된 Marketplace 이미지의 게시자를 설정합니다. |
-| Microsoft.Compute/imageSku | 플랫폼 이미지 또는 가상 컴퓨터를 만드는 데 사용된 Marketplace 이미지의 SKU를 설정합니다. |
-| Microsoft.Compute/imageVersion | 플랫폼 이미지 또는 가상 컴퓨터를 만드는 데 사용된 Marketplace 이미지의 버전을 설정합니다. |
+| Microsoft.Compute/imageSku | 플랫폼 이미지 또는 가상 머신을 만드는 데 사용된 Marketplace 이미지의 SKU를 설정합니다. |
+| Microsoft.Compute/imageVersion | 플랫폼 이미지 또는 가상 머신을 만드는 데 사용된 Marketplace 이미지의 버전을 설정합니다. |
 | Microsoft.Compute/licenseType | 온-프레미스로 사용이 허가된 이미지 또는 디스크를 설정합니다. 이 값은 Windows Server 운영 체제를 포함하는 이미지에만 사용됩니다. |
-| Microsoft.Compute/VirtualMachineScaleSets/computerNamePrefix | 확장 집합에서 모든 가상 컴퓨터에 대해 컴퓨터 이름 접두사를 설정합니다. |
+| Microsoft.Compute/VirtualMachineScaleSets/computerNamePrefix | 확장 집합에서 모든 가상 머신에 대해 컴퓨터 이름 접두사를 설정합니다. |
 | Microsoft.Compute/VirtualMachineScaleSets/osdisk.imageUrl | 사용자 이미지에 대한 Blob URI를 설정합니다. |
 | Microsoft.Compute/VirtualMachineScaleSets/osdisk.vhdContainers | 확장 집합에 대한 운영 체제 디스크를 저장하는 데 사용되는 컨테이너 URL을 설정합니다. |
-| Microsoft.Compute/VirtualMachineScaleSets/sku.name | 확장 집합에서 가상 컴퓨터 크기를 설정합니다. |
-| Microsoft.Compute/VirtualMachineScaleSets/sku.tier | 확장 집합에서 가상 컴퓨터 계층을 설정합니다. |
+| Microsoft.Compute/VirtualMachineScaleSets/sku.name | 확장 집합에서 가상 머신 크기를 설정합니다. |
+| Microsoft.Compute/VirtualMachineScaleSets/sku.tier | 확장 집합에서 가상 머신 계층을 설정합니다. |
 
 **Microsoft.Network/applicationGateways**
 

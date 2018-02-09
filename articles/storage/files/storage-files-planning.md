@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: c28f341fb64271e2173cd377fa06c567e0e054a6
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 590bc459a71b8691741f7f33d2d70b0ba4474591
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Azure Files 배포에 대한 계획
 [Azure Files](storage-files-introduction.md)는 산업 표준 SMB 프로토콜을 통해 액세스할 수 있는, 클라우드에서 완전히 관리되는 파일 공유를 제공합니다. Azure Files은 완벽하게 관리되기 때문에 프로덕션 시나리오에서 이를 배포하면 파일 서버 또는 NAS 장치를 훨씬 쉽게 배포하고 관리할 수 있습니다. 이 문서에서는 조직 내에서 프로덕션 용도로 Azure 파일 공유를 배포할 때 고려해야 할 항목을 다룹니다.
@@ -64,7 +64,7 @@ Azure Files에는 데이터 보안을 위한 몇 가지 기본 제공 옵션이 
     * SMB 3.0을 지원하지 않는 클라이언트는 암호화되지 않은 SMB 2.1 또는 SMB 3.0을 통해 내부 데이터 센터와 통신할 수 있습니다. 클라이언트가 암호화되지 않은 SMB 2.1 또는 SMB 3.0을 통해 데이터 센터와 통신하는 것은 허용되지 않습니다.
     * 클라이언트는 HTTP 또는 HTTPS를 사용하여 파일 REST를 통해 통신할 수 있습니다.
 * 미사용 암호화([Azure Storage Service Encryption](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)): 기본 Azure Storage 플랫폼에서 SSE(Storage Service Encryption)을 구현하는 과정 중에 있습니다. 즉 모든 저장소 계정에서 기본적으로 암호화가 사용될 것입니다. 기본적으로 미사용 암호화가 적용된 지역에서 새 저장소 계정을 만들면 아무 것도 사용하도록 설정할 필요가 없습니다. 미사용 데이터는 완전히 관리되는 키로 암호화됩니다. 미사용 암호화를 사용할 경우 저장소 비용이 증가하거나 성능이 저하되지 않습니다. 
-* 암호화된 데이터 전송 시 선택적 요구 사항: 이를 선택하면 Azure Files은 암호화되지 않은 채널을 통한 데이터 액세스를 허용하지 것입니다. 구체적으로 말하면, 암호화 연결을 통한 HTTPS 및 SMB 3.0만 허용됩니다. 
+* 암호화된 데이터 전송 시 선택적 요구 사항: 이를 선택하면 Azure Files는 암호화되지 않은 채널을 통한 데이터 액세스를 거부합니다. 구체적으로 말하면, 암호화 연결을 통한 HTTPS 및 SMB 3.0만 허용됩니다. 
 
     > [!Important]  
     > 데이터의 보안 전송이 필요한 경우 암호화된 SMB 3.0과 통신할 수 없는 이전 버전의 SMB 클라이언트는 실패합니다. 자세한 내용은 [Windows에 탑재](storage-how-to-use-files-windows.md), [Linux에 탑재](storage-how-to-use-files-linux.md), [macOS에 탑재](storage-how-to-use-files-mac.md)를 참조하세요.
@@ -74,10 +74,13 @@ Azure Files에는 데이터 보안을 위한 몇 가지 기본 제공 옵션이 
 Azure 파일 공유에 액세스하기 위해 Azure 파일 동기화를 사용하는 경우, 미사용 시 데이터 암호화 필요 여부에 관계 없이 항상 암호화된 HTTPS 및 SMB 3.0을 사용하여 데이터를 Windows 서버에 동기화합니다.
 
 ## <a name="data-redundancy"></a>데이터 중복
-Azure Files는 LRS(로컬 중복 저장소)와 GRS(지역 중복 저장소)의 두 가지 데이터 중복성 옵션을 지원합니다. 다음 섹션은 로컬 중복 저장소와 지역 중복 저장소 간의 차이점을 설명합니다.
+Azure Files는 LRS(로컬 중복 저장소), ZRS(영역 중복 저장소) 및 GRS(지역 중복 저장소)라는 세 가지 데이터 중복 옵션을 지원합니다. 다음 섹션에서는 서로 다른 중복 옵션의 차이점에 대해 설명합니다.
 
 ### <a name="locally-redundant-storage"></a>로컬 중복 저장소
 [!INCLUDE [storage-common-redundancy-LRS](../../../includes/storage-common-redundancy-LRS.md)]
+
+### <a name="zone-redundant-storage"></a>영역 중복 저장소
+[!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-ZRS.md)]
 
 ### <a name="geo-redundant-storage"></a>지역 중복 저장소
 [!INCLUDE [storage-common-redundancy-GRS](../../../includes/storage-common-redundancy-GRS.md)]

@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory B2B 공동 작업 초대 전자 메일의 요소 | Microsoft Docs"
+title: "B2B 공동 작업 초대 전자 메일의 요소 - Azure Active Directory | Microsoft Docs"
 description: "Azure Active Directory B2B 공동 작업 초대 전자 메일 템플릿"
 services: active-directory
 documentationcenter: 
@@ -7,21 +7,19 @@ author: sasubram
 manager: mtillman
 editor: 
 tags: 
-ms.assetid: 
+ms.custom: seohack1
 ms.service: active-directory
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/23/2017
 ms.author: sasubram
-ms.openlocfilehash: ae8f96caaaeb9f3dad9f9f122b56fe264a5d7aec
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d3529397762cdb814e939b53d8c789add4955149
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="the-elements-of-the-b2b-collaboration-invitation-email"></a>B2B 공동 작업 초대 전자 메일의 요소
+# <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Azure Active Directory B2B 공동 작업 초대 전자 메일의 요소
 
 초대 전자 메일은 온보드의 파트너를 Azure AD에서 B2B 공동 작업 사용자로 불러오기 위한 중요한 구성 요소입니다. 받는 사람의 신뢰를 높이는 데 사용할 수 있습니다. 전자 메일에 적법성과 사회적 증거를 전자 메일에 추가하여 받는 사람이 안심하고 **시작** 단추를 선택하여 초대를 수락할 수 있습니다. 이 신뢰는 공유 마찰을 줄이는 데 핵심적입니다. 또한 이 템플릿을 통해 전자 메일도 보기 좋게 구성할 수 있습니다.
 
@@ -34,7 +32,7 @@ ms.lasthandoff: 12/11/2017
 전자 메일의 제목은 다음 패턴을 따릅니다. &lt;tenantname&gt; 조직에 초대되었습니다.
 
 ### <a name="from-address"></a>보낸 사람 주소
-보낸 사람 주소에 대해서는 LinkedIn 유사 패턴을 사용합니다.  초대자가 누구인지와 어떤 회사에 소속되어 있는지를 명확히 하고 전자 메일이 Microsoft 전자 메일 주소에서 전송된 것인지를 명확히 해야 합니다. 형식: &lt;tenantname&gt;(Microsoft를 통해) <invites@microsoft.com&gt;의 &lt;초대자 표시 이름&gt;
+보낸 사람 주소에 대해서는 LinkedIn 유사 패턴을 사용합니다.  초대자가 누구인지와 어떤 회사에 소속되어 있는지를 명확히 하고 전자 메일이 Microsoft 전자 메일 주소에서 전송된 것인지를 명확히 해야 합니다. 형식: &lt;tenantname&gt;(Microsoft를 통해)<invites@microsoft.com>의 &lt;초대자 표시 이름&gt;
 
 ### <a name="reply-to"></a>회신
 회신 전자 메일은 사용 가능할 때 초대자의 전자 메일로 설정되므로 전자 메일에 회신하면 초대자에게 전자 메일이 다시 전송됩니다.
@@ -55,7 +53,7 @@ ms.lasthandoff: 12/11/2017
 
   ![초대자의 이니셜 표시](media/active-directory-b2b-invitation-email/inviters-initials.png)
 
-### <a name="body"></a>body
+### <a name="body"></a>본문
 본문에는 초대자가 작성했거나 초대 API를 통해 전달된 메시지가 포함됩니다. 이것은 텍스트 영역에 불과하며, 보안상의 이유로 HTML 태그를 처리하지 않습니다.
 
 ### <a name="footer-section"></a>바닥글 섹션

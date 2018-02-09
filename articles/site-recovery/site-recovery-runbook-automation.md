@@ -14,16 +14,16 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 11/28/2017
 ms.author: ruturajd@microsoft.com
-ms.openlocfilehash: af5de1c262bc55b1aa7513ca91b68eb50b44dbb7
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 986c3b62426949f1e4c2009aabbfec2f1130f821
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>복구 계획에 Azure Automation Runbook 추가
 이 문서에서는 Azure Site Recovery를 Azure Automation에 통합하여 복구 계획을 확장하는 방법을 설명합니다. 복구 계획으로 Site Recovery로 보호되는 VM의 복구를 오케스트레이션할 수 있습니다. 복구 계획은 보조 클라우드로 복제 및 Azure로의 복제 모두에서 작동합니다. 복구 계획을 통해 복구를 **일관적으로 정확**하고, **반복 가능**하며, **자동화**되도록 할 수도 있습니다. VM을 Azure로 장애 조치(failover)하는 경우 Azure Automation과 통합하면 복구 계획이 확장됩니다. 이를 통해 강력한 자동화 작업을 제공하는 Runbook을 실행할 수 있습니다.
 
-Azure Automation을 처음 접하는 경우 [등록](https://azure.microsoft.com/services/automation/)하여 [샘플 스크립트를 다운로드](https://azure.microsoft.com/documentation/scripts/)할 수 있습니다. [복구 계획](https://azure.microsoft.com/blog/?p=166264)을 사용하여 Azure에 복구를 오케스트레이션하는 방법에 대한 자세한 내용은 [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/)를 참조하세요.
+Azure Automation을 처음 접하는 경우 [등록](https://azure.microsoft.com/services/automation/)하여 [샘플 스크립트를 다운로드](https://azure.microsoft.com/documentation/scripts/)할 수 있습니다. [복구 계획](./site-recovery-create-recovery-plans.md)을 사용하여 Azure에 복구를 오케스트레이션하는 방법에 대한 자세한 내용은 [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/)를 참조하세요.
 
 이 문서에서는 Azure Automation Runbook을 복구 계획에 어떻게 통합할 수 있는지 설명합니다. 이전에는 수동 개입이 필요했던 기본 작업을 자동화하는 예제를 사용합니다. 또한 다단계 복구를 단일 클릭 복구 작업으로 변환하는 방법도 설명합니다.
 
@@ -256,8 +256,10 @@ Automation 계정에 샘플 스크립트를 배포하려면 **Azure에 배포** 
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/One-click-failover-of-a-2-tier-WordPress-application-using-Azure-Site-Recovery/player]
 
 
-
 ## <a name="additional-resources"></a>추가 리소스
-* [Azure Automation 서비스 실행 계정](../automation/automation-sec-configure-azure-runas-account.md)
+* [Azure Automation 서비스 실행 계정](../automation/automation-create-runas-account.md)
 * [Azure Automation 개요](http://msdn.microsoft.com/library/azure/dn643629.aspx "Azure Automation 개요")
 * [Azure Automation 샘플 스크립트](http://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=User&f\[0\].Value=SC%20Automation%20Product%20Team&f\[0\].Text=SC%20Automation%20Product%20Team "Azure Automation 샘플 스크립트")
+
+## <a name="next-steps"></a>다음 단계
+장애 조치를 실행하는 방법에 대해 [자세히 알아보세요](site-recovery-failover.md).

@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 3e4b73f432f2695fa8b66b4d2bca23d32bfa9f3a
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 1733e953d9dd65a3d2b801e6c5ba5cfbb5f82920
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="datasets-in-azure-data-factory"></a>Azure 데이터 팩터리의 데이터 집합
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -80,10 +80,10 @@ Data Factory의 데이터 집합은 다음과 같이 JSON 형식으로 정의됩
 
 다음 표에서는 위의 JSON에서 속성을 설명합니다.   
 
-| 속성 | 설명 | 필수 | 기본값 |
+| 자산 | 설명 | 필수 | 기본값 |
 | --- | --- | --- | --- |
-| name |데이터 집합의 이름입니다. 명명 규칙은 [Azure Data Factory - 명명 규칙](data-factory-naming-rules.md) 을 참조하세요. |예 |해당 없음 |
-| type |데이터 집합의 형식입니다. Data Factory에서 지원하는 형식(예: AzureBlob, AzureSqlTable) 중 하나를 지정합니다. <br/><br/>자세한 내용은 [데이터 집합 형식](#Type)을 참조하세요. |예 |해당 없음 |
+| 이름 |데이터 집합의 이름입니다. 명명 규칙은 [Azure Data Factory - 명명 규칙](data-factory-naming-rules.md) 을 참조하세요. |예 |해당 없음 |
+| 형식 |데이터 집합의 형식입니다. Data Factory에서 지원하는 형식(예: AzureBlob, AzureSqlTable) 중 하나를 지정합니다. <br/><br/>자세한 내용은 [데이터 집합 형식](#Type)을 참조하세요. |예 |해당 없음 |
 | structure |데이터 집합의 스키마입니다.<br/><br/>자세한 내용은 [데이터 집합 구조](#Structure)를 참조하세요. |아니요 |해당 없음 |
 | typeProperties | 형식 속성은 형식마다 다릅니다(예: Azure Blob, Azure SQL 테이블). 지원되는 형식 및 해당 속성에 대한 자세한 내용은 [데이터 집합 형식](#Type)을 참조하세요. |예 |해당 없음 |
 | external | 데이터 집합이 데이터 팩터리 파이프라인에 의해 명시적으로 생성되는지를 지정하는 부울 플래그입니다. 활동에 대한 입력 데이터 집합이 현재 파이프라인에서 생성되지 않으면 이 플래그를 true로 설정합니다. 파이프라인에서 첫 번째 활동의 입력 데이터 집합에 대해서는 이 플래그를 true로 설정합니다.  |아니요 |false |
@@ -193,10 +193,10 @@ structure:
 
 structure의 각 열에는 다음과 같은 속성이 포함됩니다.
 
-| 속성 | 설명 | 필수 |
+| 자산 | 설명 | 필수 |
 | --- | --- | --- |
-| name |열의 이름입니다. |예 |
-| type |열의 데이터 형식입니다.  |아니요 |
+| 이름 |열의 이름입니다. |예 |
+| 형식 |열의 데이터 형식입니다.  |아니오 |
 | culture |type이 `Datetime` 또는 `Datetimeoffset` .NET 형식일 때 사용할 .NET 기반 culture(문화권)입니다. 기본값은 `en-us`입니다. |아니요 |
 | format |type이 `Datetime` 또는 `Datetimeoffset` .NET 형식일 때 사용할 format(서식) 문자열입니다. |아니요 |
 
@@ -236,11 +236,11 @@ structure의 각 열에는 다음과 같은 속성이 포함됩니다.
 
 다음 표에서는 availability 섹션에서 사용할 수 있는 속성을 설명합니다.
 
-| 속성 | 설명 | 필수 | 기본값 |
+| 자산 | 설명 | 필수 | 기본값 |
 | --- | --- | --- | --- |
 | frequency |데이터 집합 조각 생성을 위한 시간 단위를 지정합니다.<br/><br/><b>지원되는 빈도</b>: 분, 시, 일, 주, 월 |예 |해당 없음 |
 | interval |빈도에 대한 승수를 지정합니다.<br/><br/>"frequency x interval"은 조각을 생성하는 빈도를 결정합니다. 예를 들어 데이터 집합을 매시간 조각화해야 하는 경우 <b>frequency</b>를 <b>Hour</b>로, <b>interval</b>을 <b>1</b>로 설정합니다.<br/><br/>**frequency**를 **Minute**로 지정하는 경우 interval을 15 이상으로 설정해야 합니다. |예 |해당 없음 |
-| style |간격의 시작/끝에서 조각을 생성해야 하는지 여부를 지정합니다.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul>**frequency**를 **Month**로 설정하고 **style**을 **EndOfInterval**로 설정하는 경우 조각을 매월 마지막 일에 생성합니다. **style**을 **StartOfInterval**로 설정하는 경우 조각을 매월 첫째 일에 생성합니다.<br/><br/>**frequency**를 **Day**로 설정하고 **style**을 **EndOfInterval**로 설정하는 경우 조각을 매일 마지막 시간에 생성합니다.<br/><br/>**frequency**를 **Hour**로 설정하고 **style**을 **EndOfInterval**로 설정하는 경우 조각을 매시간 끝에 생성합니다. 예를 들어 오후 1-2시 기간에 대한 조각은 오후 2시에 생성됩니다. |아니요 |EndOfInterval |
+| style |간격의 시작/끝에서 조각을 생성해야 하는지 여부를 지정합니다.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul>**frequency**를 **Month**로 설정하고 **style**을 **EndOfInterval**로 설정하는 경우 조각을 매월 마지막 일에 생성합니다. **style**을 **StartOfInterval**로 설정하는 경우 조각을 매월 첫째 일에 생성합니다.<br/><br/>**frequency**를 **Day**로 설정하고 **style**을 **EndOfInterval**로 설정하는 경우 조각을 매일 마지막 시간에 생성합니다.<br/><br/>**frequency**를 **Hour**로 설정하고 **style**을 **EndOfInterval**로 설정하는 경우 조각을 매시간 끝에 생성합니다. 예를 들어 오후 1-2시 기간에 대한 조각은 오후 2시에 생성됩니다. |아니오 |EndOfInterval |
 | anchorDateTime |스케줄러에서 사용하는 시간에 절대 위치를 정의하여 데이터 집합 조각 경계를 계산합니다. <br/><br/>이 속성에 지정된 frequency보다 더 세분화된 날짜 부분이 있으면 이 날짜 부분은 무시됩니다. 예를 들어 **간격**이 **매시간**(frequency: Hour 및 interval: 1)이고 **anchorDateTime**에 **분 및 초**가 포함되는 경우 **anchorDateTime**의 분 및 초 부분은 무시됩니다. |아니요 |01/01/0001 |
 | offset |모든 데이터 집합 조각의 시작과 끝이 이동에 의한 Timespan입니다. <br/><br/>**anchorDateTime** 및 **offset**이 모두 지정되면 결합된 결과로 나타납니다. |아니요 |해당 없음 |
 
@@ -319,19 +319,19 @@ structure의 각 열에는 다음과 같은 속성이 포함됩니다.
 
 Data Factory에서 데이터 집합을 생성하지 않는 한 **external**로 표시되어야 합니다. 이 설정은 일반적으로 활동 또는 파이프라인 체이닝을 사용하지 않는 한 파이프라인의 첫 번째 활동에 대한 입력에 적용됩니다.
 
-| 이름 | 설명 | 필수 | 기본값 |
+| Name | 설명 | 필수 | 기본값 |
 | --- | --- | --- | --- |
-| dataDelay |지정된 조각에 대한 외부 데이터의 가용성 검사를 지연하는 시간입니다. 예를 들어 이 설정을 사용하여 시간별 검사를 지연할 수 있습니다.<br/><br/>이 설정은 현재 시간에만 적용됩니다.  예를 들어 현재 오후 1시이고 이 값이 10 분이라면 유효성 검사는 오후 1시 10분에 시작합니다.<br/><br/>이전 시간에는 이 설정으로 조각에 영향을 주지 않습니다. **조각 종료 시간** + **dataDelay** < **현재 시간**인 경우 조각은 지연 없이 처리됩니다.<br/><br/>23:59보다 큰 시간은 `day.hours:minutes:seconds` 형식을 사용하여 지정해야 합니다. 예를 들어 24시간을 지정하려면 24:00:00을 사용하는 대신 1.00:00:00을 사용합니다. 24:00:00을 사용하면 24일(24.00:00:00)로 처리됩니다. 1일 4시간의 경우 1:04:00:00을 지정합니다. |아니요 |0 |
-| retryInterval |실패 이후 다음 다시 시도까지의 대기 시간입니다. 이 설정은 현재 시간에 적용됩니다. 이전 시도가 실패한 경우 다음 시도는 **retryInterval** 기간 이후입니다. <br/><br/>오후 1시가 되면 첫 번째 시도를 시작합니다. 첫 번째 유효성 검사를 완료하는 데 걸리는 시간이 1분이고 작업이 실패한 경우 다음 다시 시도는 1시 + 1분(기간) + 1분(다시 시도 간격) = 오후 1시 2분입니다. <br/><br/>과거 조각의 경우 지연이 없습니다. 재시도는 곧바로 이뤄집니다. |아니요 |00:01:00 (1분) |
+| dataDelay |지정된 조각에 대한 외부 데이터의 가용성 검사를 지연하는 시간입니다. 예를 들어 이 설정을 사용하여 시간별 검사를 지연할 수 있습니다.<br/><br/>이 설정은 현재 시간에만 적용됩니다.  예를 들어 현재 오후 1시이고 이 값이 10 분이라면 유효성 검사는 오후 1시 10분에 시작합니다.<br/><br/>이전 시간에는 이 설정으로 조각에 영향을 주지 않습니다. **조각 종료 시간** + **dataDelay** < **현재 시간**인 경우 조각은 지연 없이 처리됩니다.<br/><br/>23:59보다 큰 시간은 `day.hours:minutes:seconds` 형식을 사용하여 지정해야 합니다. 예를 들어 24시간을 지정하려면 24:00:00을 사용하는 대신 1.00:00:00을 사용합니다. 24:00:00을 사용하면 24일(24.00:00:00)로 처리됩니다. 1일 4시간의 경우 1:04:00:00을 지정합니다. |아니오 |0 |
+| retryInterval |실패 이후 다음 다시 시도까지의 대기 시간입니다. 이 설정은 현재 시간에 적용됩니다. 이전 시도가 실패한 경우 다음 시도는 **retryInterval** 기간 이후입니다. <br/><br/>오후 1시가 되면 첫 번째 시도를 시작합니다. 첫 번째 유효성 검사를 완료하는 데 걸리는 시간이 1분이고 작업이 실패한 경우 다음 다시 시도는 1시 + 1분(기간) + 1분(다시 시도 간격) = 오후 1시 2분입니다. <br/><br/>과거 조각의 경우 지연이 없습니다. 재시도는 곧바로 이뤄집니다. |아니오 |00:01:00 (1분) |
 | retryTimeout |각 재시도에 대한 제한 시간입니다.<br/><br/>이 속성을 10분으로 설정하면 유효성 검사를 10분 내에 완료해야 합니다. 유효성 검사를 수행하는 데 10분 보다 오래 걸리는 경우 재시도는 제한 시간을 초과합니다.<br/><br/>모든 유효성 검사 시도에서 시간을 초과하면 조각이 **TimedOut**으로 표시됩니다. |아니요 |00:10:00 (10분) |
-| maximumRetry |외부 데이터의 가용성을 검사하는 횟수입니다. 허용되는 최대값은 10입니다. |아니요 |3 |
+| maximumRetry |외부 데이터의 가용성을 검사하는 횟수입니다. 허용되는 최대값은 10입니다. |아니오 |3 |
 
 
 ## <a name="create-datasets"></a>데이터 집합 만들기
 다음 도구 또는 SDK 중 하나를 사용하여 데이터 집합을 만들 수 있습니다. 
 
 - 복사 마법사 
-- Azure Portal
+- Azure portal
 - Visual Studio
 - PowerShell
 - Azure Resource Manager 템플릿

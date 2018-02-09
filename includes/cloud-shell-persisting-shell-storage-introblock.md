@@ -11,7 +11,7 @@ Cloud Shell은 Azure File 저장소를 활용하여 세션 간에 파일을 유�
 
 기본 설정을 사용하고 구독만 선택하면 Cloud Shell은 가장 가까운 지원되는 지역에서 사용자를 대신에 3개 리소스를 만듭니다.
 * 리소스 그룹: `cloud-shell-storage-<region>`
-* 저장소 계정: `cs<uniqueGuid>`
+* Storage 계정: `cs<uniqueGuid>`
 * 파일 공유: `cs-<user>-<domain>-com-<uniqueGuid>`
 
 ![구독 설정](../articles/cloud-shell/media/persisting-shell-storage/basic-storage.png)
@@ -29,7 +29,7 @@ Bash에서 기존 파일 공유는 `$Home` 디렉터리를 유지하기 위해 �
 ![리소스 그룹 설정](../articles/cloud-shell/media/persisting-shell-storage/advanced-storage.png)
 
 ### <a name="restrict-resource-creation-with-an-azure-resource-policy"></a>Azure 리소스 정책으로 리소스 만들기 제한
-Cloud Shell에서 생성된 저장소 계정에 `ms-resource-usage:azure-cloud-shell` 태그가 지정됩니다. 사용자가 Cloud Shell에서 저장소 계정을 만드는 것을 허용하지 않으려면 이 특정 태그로 트리거되는 [태그에 대한 Azure 리소스 정책](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-policy-tags)을 만듭니다.
+Cloud Shell에서 생성된 Storage 계정에 `ms-resource-usage:azure-cloud-shell` 태그가 지정됩니다. 사용자가 Cloud Shell에서 저장소 계정을 만드는 것을 허용하지 않으려면 이 특정 태그로 트리거되는 [태그에 대한 Azure 리소스 정책](../articles/azure-policy/json-samples.md)을 만듭니다.
 
 ## <a name="supported-storage-regions"></a>지원되는 저장소 지역
 연결된 Azure Storage 계정은 사용자가 마운트하는 Cloud Shell 컴퓨터와 동일한 지역에 있어야 합니다.

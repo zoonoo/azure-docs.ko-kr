@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/26/2017
+ms.date: 12/15/2017
 ms.author: tomfitz
-ms.openlocfilehash: d8f04d8ed2e56cecb1b7a850bed55a02a9492bb5
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: bdbde834695040df4e333bef42fab7d29614ab75
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="create-azure-portal-user-interface-for-your-managed-application"></a>관리되는 응용 프로그램에 대한 Azure Portal 사용자 인터페이스 만들기
 이 문서에서는 createUiDefinition.json 파일의 핵심 개념을 소개합니다. Azure Portal에서 이 파일을 사용하여 관리되는 응용 프로그램을 만들기 위한 사용자 인터페이스를 생성합니다.
@@ -58,7 +58,19 @@ steps 속성에는 하나 이상의 요소가 포함된 각 basics 뒤에 표시
 ## <a name="outputs"></a>outputs
 Azure Portal에서는 `outputs` 속성을 사용하여 `basics` 및 `steps`의 요소를 Azure Resource Manager 배포 템플릿의 매개 변수에 매핑합니다. 이 사전의 키는 템플릿 매개 변수의 이름이며, 값은 참조되는 요소에 있는 출력 개체의 속성입니다.
 
-## <a name="functions"></a>함수
+관리되는 응용 프로그램 리소스 이름을 설정하려면 출력 속성에 `applicationResourceName`이라는 값을 포함해야 합니다. 이 값을 설정하지 않으면 응용 프로그램은 이름에 대해 GUID를 할당합니다. 사용자 이름을 요청하는 사용자 인터페이스에 텍스트 상자를 포함할 수 있습니다.
+
+```json
+"outputs": {
+    "vmName": "[steps('appSettings').vmName]",
+    "trialOrProduction": "[steps('appSettings').trialOrProd]",
+    "userName": "[steps('vmCredentials').adminUsername]",
+    "pwd": "[steps('vmCredentials').vmPwd.password]",
+    "applicationResourceName": "[steps('appSettings').vmName]"
+}
+```
+
+## <a name="functions"></a>Functions
 Azure Resource Manager의 템플릿 함수(구문과 기능 모두)와 마찬가지로, CreateUiDefinition은 요소의 입력 및 출력에서 사용하는 함수뿐만 아니라 조건부와 같은 기능도 제공합니다.
 
 ## <a name="next-steps"></a>다음 단계
@@ -67,6 +79,6 @@ createUiDefinition.json 파일 자체에는 간단한 스키마가 있습니다.
 - [요소](create-uidefinition-elements.md)
 - [함수](create-uidefinition-functions.md)
 
-createUiDefinition에 대한 현재 JSON 스키마는 https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json에서 사용할 수 있습니다. 
+createUiDefinition에 대한 현재 JSON 스키마는 https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json에서 사용할 수 있습니다.
 
-최신 버전도 동일한 위치에서 사용할 수 있습니다. URL의 `0.1.2-preview` 부분과 `version` 값을 사용하려는 버전 식별자로 바꿉니다. 현재 지원되는 버전 식별자는 `0.0.1-preview`, `0.1.0-preview`, `0.1.1-preview` 및 `0.1.2-preview`입니다.
+예제 사용자 인터페이스 파일의 경우 [createUiDefinition.json](https://github.com/Azure/azure-managedapp-samples/blob/master/samples/201-managed-app-using-existing-vnet/createUiDefinition.json)을 참조하세요.

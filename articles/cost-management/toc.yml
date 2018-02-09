@@ -29,6 +29,10 @@
       href: understading-cost-reports.md
 - name: 방법 가이드
   items:
+    - name: Azure 구독 및 계정 활성화
+      href: activate-subs-accounts.md
+    - name: VM의 확장된 메트릭 추가
+      href: azure-vm-extended-metrics.md
     - name: 비용 관리 보고서 사용
       href: use-reports.md
 - name: 리소스

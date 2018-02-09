@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: f74a953d04e8633e802b33903de603b39ac08e9b
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: f4ba8288c1efd443310b4efc305c6f397c8163a0
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-to-and-from-data-lake-store-by-using-data-factory"></a>Data Factory를 사용하여 Data Lake Store 간 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -50,7 +50,7 @@ Data Lake Store 커넥터는 다음 인증 유형을 지원합니다.
 
 특히 예약된 데이터 복사의 경우 서비스 주체 인증을 사용하는 것이 좋습니다. 사용자 자격 증명 인증의 경우 토큰 만료 동작이 발생할 수 있습니다. 구성 세부 정보에서 [연결된 서비스 속성](#linked-service-properties) 섹션을 참조하세요.
 
-## <a name="get-started"></a>시작
+## <a name="get-started"></a>시작하기
 다른 도구/API를 사용하여 Azure Data Lake Store 간에 데이터를 이동하는 복사 작업으로 파이프라인을 만들 수 있습니다.
 
 데이터를 복사하기 위한 파이프라인을 만드는 가장 쉬운 방법은 **복사 마법사**를 사용하는 것입니다. 복사 마법사를 사용하여 파이프라인을 만드는 방법에 대한 자습서는 [자습서: 복사 마법사를 사용하여 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md)를 참조하세요.
@@ -71,7 +71,7 @@ Data Lake Store 커넥터는 다음 인증 유형을 지원합니다.
 ## <a name="linked-service-properties"></a>연결된 서비스 속성
 연결된 서비스는 데이터 저장소를 데이터 팩터리에 연결합니다. Data Lake Store 데이터를 데이터 팩터리에 연결하는 **AzureDataLakeStore** 형식의 연결된 서비스를 만듭니다. 다음 표에서는 Data Lake Store 연결된 서비스와 관련된 JSON 요소에 대해 설명합니다. 서비스 주체와 사용자 자격 증명 인증 중에서 선택할 수 있습니다.
 
-| 속성 | 설명 | 필수 |
+| 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | **type** | type 속성은 **AzureDataLakeStore**로 설정해야 합니다. | 예 |
 | **dataLakeStoreUri** | Azure Data Lake Store 계정에 대한 정보. 이 정보는 `https://[accountname].azuredatalakestore.net/webhdfs/v1` 또는 `adl://[accountname].azuredatalakestore.net/` 형식 중 하나를 사용합니다. | 예 |
@@ -84,15 +84,15 @@ Data Lake Store 커넥터는 다음 인증 유형을 지원합니다.
 * 응용 프로그램 키 
 * 테넌트 ID
 
-> [!TIP]
+> [!IMPORTANT]
 > Azure Data Lake Store에서 서비스 주체에게 적절한 권한을 부여해야 합니다.
->- 복사 마법사를 사용하여 파이프라인을 작성하는 경우 계정 액세스 제어(IAM)에서 최소한 **읽기 권한자** 역할을 부여합니다. 또한 Data Lake Store 루트("/") 및 해당 자식에 대한 **읽기+실행** 권한 이상을 부여해야 합니다. 그렇지 않으면 "제공된 자격 증명이 유효하지 않습니다." 메시지가 표시될 수 있습니다.
->- Data Lake Store를 원본으로 사용하려면 적어도 **읽기 + 실행** 데이터 액세스 권한을 부여하여 폴더의 내용을 나열하고 복사하거나 **읽기** 권한을 부여하여 단일 파일을 복사합니다. 계정 수준 액세스 제어가 필요하지 않습니다.
->- Data Lake Store를 싱크로 사용하려면 적어도 **쓰기 + 실행** 데이터 액세스 권한을 부여하여 폴더에서 자식 항목을 만듭니다. Azure IR을 사용하여 복사를 수행하는 경우(클라우드의 소스와 싱크 모두) Data Factory가 Data Lake Store의 지역을 감지하기 위해 계정 액세스 제어(IAM)에서 적어도 **읽기 권한자** 역할을 부여합니다. 이 IAM 역할을 방지하려면 복사 작업에서 Data Lake Store의 위치를 사용하여 [executionLocation을 지정](data-factory-data-movement-activities.md#global)합니다.
+>- **Data Lake Store를 원본으로 사용하려면** 적어도 **읽기 + 실행** 데이터 액세스 권한을 부여하여 폴더의 내용을 나열하고 복사하거나 **읽기** 권한을 부여하여 단일 파일을 복사합니다. 계정 수준 액세스 제어가 필요하지 않습니다.
+>- **Data Lake Store를 싱크로 사용하려면** 적어도 **쓰기 + 실행** 데이터 액세스 권한을 부여하여 폴더에서 자식 항목을 만듭니다. Azure IR을 사용하여 복사를 수행하는 경우(클라우드의 소스와 싱크 모두) Data Factory가 Data Lake Store의 지역을 감지하기 위해 계정 액세스 제어(IAM)에서 적어도 **읽기 권한자** 역할을 부여합니다. 이 IAM 역할을 방지하려면 복사 작업에서 Data Lake Store의 위치를 사용하여 [executionLocation을 지정](data-factory-data-movement-activities.md#global)합니다.
+>- **복사 마법사를 사용하여 파이프라인을 작성**하는 경우 계정 액세스 제어(IAM)에서 최소한 **읽기 권한자** 역할을 부여합니다. 또한 Data Lake Store 루트("/") 및 해당 자식에 대한 **읽기+실행** 권한 이상을 부여해야 합니다. 그렇지 않으면 "제공된 자격 증명이 유효하지 않습니다." 메시지가 표시될 수 있습니다.
 
 다음 속성을 지정하여 서비스 주체 인증을 사용합니다.
 
-| 속성 | 설명 | 필수 |
+| 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | **servicePrincipalId** | 응용 프로그램의 클라이언트 ID를 지정합니다. | 예 |
 | **servicePrincipalKey** | 응용 프로그램의 키를 지정합니다. | 예 |
@@ -119,10 +119,16 @@ Data Lake Store 커넥터는 다음 인증 유형을 지원합니다.
 ### <a name="user-credential-authentication"></a>사용자 자격 증명 인증
 또는 아래 속성을 지정하여 사용자 자격 증명 인증을 사용하여 Data Lake Store로 데이터를 복사하거나 Data Lake Store에서 다른 위치로 복사할 수 있습니다.
 
-| 속성 | 설명 | 필수 |
+| 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | **권한 부여** | Data Factory 편집기에서 **권한 부여** 단추를 클릭하고 자격 증명을 입력합니다. 그러면 자동 생성된 authorization URL이 이 속성에 할당됩니다. | 예 |
 | **sessionId** | OAuth 권한 부여 세션에서 가져온 OAuth 세션 ID입니다. 각 세션 ID는 고유하고 한 번만 사용될 수 있습니다. 이 설정은 Data Factory 편집기를 사용하는 경우 자동으로 생성됩니다. | 예 |
+
+> [!IMPORTANT]
+> Azure Data Lake Store에서 사용자에게 적절한 권한을 부여해야 합니다.
+>- **Data Lake Store를 원본으로 사용하려면** 적어도 **읽기 + 실행** 데이터 액세스 권한을 부여하여 폴더의 내용을 나열하고 복사하거나 **읽기** 권한을 부여하여 단일 파일을 복사합니다. 계정 수준 액세스 제어가 필요하지 않습니다.
+>- **Data Lake Store를 싱크로 사용하려면** 적어도 **쓰기 + 실행** 데이터 액세스 권한을 부여하여 폴더에서 자식 항목을 만듭니다. Azure IR을 사용하여 복사를 수행하는 경우(클라우드의 소스와 싱크 모두) Data Factory가 Data Lake Store의 지역을 감지하기 위해 계정 액세스 제어(IAM)에서 적어도 **읽기 권한자** 역할을 부여합니다. 이 IAM 역할을 방지하려면 복사 작업에서 Data Lake Store의 위치를 사용하여 [executionLocation을 지정](data-factory-data-movement-activities.md#global)합니다.
+>- **복사 마법사를 사용하여 파이프라인을 작성**하는 경우 계정 액세스 제어(IAM)에서 최소한 **읽기 권한자** 역할을 부여합니다. 또한 Data Lake Store 루트("/") 및 해당 자식에 대한 **읽기+실행** 권한 이상을 부여해야 합니다. 그렇지 않으면 "제공된 자격 증명이 유효하지 않습니다." 메시지가 표시될 수 있습니다.
 
 **예제: 사용자 자격 증명 인증**
 ```json
@@ -147,7 +153,6 @@ Data Lake Store 커넥터는 다음 인증 유형을 지원합니다.
 자격 증명 작업 오류: invalid_grant - AADSTS70002: 자격 증명의 유효성 검사 오류. "자격 증명 작업 오류: invalid_grant - AADSTS70002: 자격 증명의 유효성 검사 오류 AADSTS70008: 제공된 액세스 권한 부여가 만료되었거나 해지됩니다. 추적 ID: d18629e8-af88-43c5-88e3-d8419eb1fca1 상관관계 ID: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 타임스탬프: 2015-12-15 21-09-31Z
 
 다음 표에는 다양한 유형의 사용자 계정에 대한 만료 시간이 나와 있습니다.
-
 
 | 사용자 유형 | 다음 시간 후에 만료 |
 |:--- |:--- |
@@ -185,12 +190,55 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
 ```
 코드에 사용되는 Data Factory 클래스에 대한 세부 정보는 [AzureDataLakeStoreLinkedService 클래스](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService 클래스](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) 및 [AuthorizationSessionGetResponse 클래스](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx) 항목을 참조하세요. 코드에 사용되는 `WindowsFormsWebAuthenticationDialog` 클래스에 대해 `Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll`의 버전 `2.9.10826.1824`에 대한 참조를 추가합니다.
 
+## <a name="troubleshooting-tips"></a>문제 해결 팁
+
+**증상:** Azure Data Lake Store**로** 데이터를 복사할 때 복사 활동이 실패하고 다음 오류가 발생합니다.
+
+  ```
+  Failed to detect the region for Azure Data Lake account {your account name}. Please make sure that the Resource Group name: {resource group name} and subscription ID: {subscription ID} of this Azure Data Lake Store resource are correct.
+  ```
+
+**근본 원인:** 두 가지 가능한 이유는 다음과 같습니다.
+
+1. Azure Data Lake Store 연결된 서비스에 지정된 `resourceGroupName` 및/또는 `subscriptionId`가 올바르지 않습니다.
+2. 사용자 또는 서비스 주체에 필요한 권한이 없습니다.
+
+**해결 방법:**
+
+1. 연결된 서비스 `typeProperties`에 지정한 `subscriptionId` 및 `resourceGroupName`이 실제로 Data Lake 계정이 속한 항목인지 확인합니다.
+
+2. Data Lake 계정에 있는 사용자 또는 서비스 주체에 하나 이상의 “**읽기 권한자**” 역할을 부여해야 합니다. 이렇게 하려면 다음을 수행합니다.
+
+    1. Azure Portal -> Data Lake Store 계정으로 이동
+    2. Data Lake Store의 블레이드에서 “액세스 제어(IAM)” 클릭
+    3. “액세스 제어(IAM)”의 블레이드에서 “추가” 클릭
+    4. “역할”을 “읽기 권한자”로 설정하고 복사 권한을 부여할 사용자 또는 서비스 주체 선택
+
+3. 사용자 또는 서비스 주체에 “읽기 권한자” 역할을 부여하지 않으려면 Data Lake Store 위치의 복사 활동에서 [명시적으로 실행 위치를 지정](data-factory-data-movement-activities.md#global)할 수도 있습니다. 예:
+
+    ```json
+    {
+      "name": "CopyToADLS",
+      "type": "Copy",
+      ......
+      "typeProperties": {
+        "source": {
+          "type": "<source type>"
+        },
+        "sink": {
+          "type": "AzureDataLakeStoreSink"
+        },
+        "exeuctionLocation": "West US"
+      }
+    }
+    ```
+
 ## <a name="dataset-properties"></a>데이터 집합 속성
 Data Lake Store에서 입력 데이터를 표시할 데이터 집합을 지정하려면 데이터 집합의 **type** 속성을 **AzureDataLakeStore**로 설정합니다. 데이터 집합의 **linkedServiceName** 속성을 Data Lake Store 연결된 서비스의 이름으로 설정합니다. 데이터 집합 정의에 사용할 수 있는 JSON 섹션 및 속성의 전체 목록은 [데이터 집합 만들기](data-factory-create-datasets.md) 문서를 참조하세요. **구조**, **가용성** 및 **정책**과 JSON의 데이터 집합 섹션은 모든 데이터 집합 형식(예: SQL Database, Azure Blob, Azure 테이블)에 대해 유사합니다. **typeProperties** 섹션은 데이터 집합의 각 형식에 따라 다르며 데이터 저장소에 있는 데이터의 위치, 서식 등에 대한 정보를 제공합니다. 
 
 **AzureDataLakeStore** 형식의 데이터 집합에 대한 **typeProperties** 섹션에는 다음 속성이 있습니다.
 
-| 속성 | 설명 | 필수 |
+| 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | **folderPath** |Data Lake Store의 컨테이너 및 폴더에 대한 경로입니다. |예 |
 | **fileName** |Azure Data Lake Store에 있는 파일의 이름입니다. **fileName** 속성은 선택 사항이며 대/소문자를 구분합니다. <br/><br/>**fileName**을 지정하는 경우 활동(복사 포함)은 특정 파일에서 작동합니다.<br/><br/>**fileName**을 지정하지 않으면 복사는 입력 데이터 집합에 대한 **folderPath**에 모든 파일을 포함합니다.<br/><br/>**fileName**이 출력 데이터 집합에 대해 지정되지 않았고 **preserveHierarchy**가 활동 싱크에 지정되지 않은 경우 생성된 파일의 이름은 Data._Guid_.txt' 형식입니다. 예제: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |아니요 |
@@ -234,16 +282,16 @@ Data Lake Store에서 입력 데이터를 표시할 데이터 집합을 지정�
 
 **AzureDataLakeStoreSource**는 **typeProperties** 섹션에서 다음 속성을 지원합니다.
 
-| 속성 | 설명 | 허용되는 값 | 필수 |
+| 자산 | 설명 | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
 | **recursive** |하위 폴더 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. |True(기본값), False |아니요 |
 
 
 **AzureDataLakeStoreSink**는 **typeProperties** 섹션에서 다음 속성을 지원합니다.
 
-| 속성 | 설명 | 허용되는 값 | 필수 |
+| 자산 | 설명 | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
-| **copyBehavior** |복사 동작을 지정합니다. |<b>PreserveHierarchy</b>: 대상 폴더에서 파일 계층 구조를 유지합니다. 원본 폴더의 원본 파일 상대 경로는 대상 폴더의 대상 파일 상대 경로와 동일합니다.<br/><br/><b>FlattenHierarchy:</b> 원본 폴더의 모든 파일이 대상 폴더의 첫 번째 수준에 만들어집니다. 대상 파일은 자동 생성된 이름으로 만들어집니다.<br/><br/><b>MergeFiles</b>: 원본 폴더의 모든 파일을 하나의 파일로 병합합니다. 병합되는 파일 이름은 지정된 파일 또는 Blob 이름이 적용됩니다. 그렇지 않은 경우 파일 이름이 자동으로 생성됩니다. |아니요 |
+| **copyBehavior** |복사 동작을 지정합니다. |<b>PreserveHierarchy</b>: 대상 폴더에서 파일 계층 구조를 유지합니다. 원본 폴더의 원본 파일 상대 경로는 대상 폴더의 대상 파일 상대 경로와 동일합니다.<br/><br/><b>FlattenHierarchy:</b> 원본 폴더의 모든 파일이 대상 폴더의 첫 번째 수준에 만들어집니다. 대상 파일은 자동 생성된 이름으로 만들어집니다.<br/><br/><b>MergeFiles</b>: 원본 폴더의 모든 파일을 하나의 파일로 병합합니다. 병합되는 파일 이름은 지정된 파일 또는 Blob 이름이 적용됩니다. 그렇지 않은 경우 파일 이름이 자동으로 생성됩니다. |아니오 |
 
 ### <a name="recursive-and-copybehavior-examples"></a>recursive 및 copyBehavior 예제
 이 섹션에서는 다양한 recursive 및 copyBehavior 값 조합에 대한 복사 작업의 결과 동작을 설명합니다.

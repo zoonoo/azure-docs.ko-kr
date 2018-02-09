@@ -12,17 +12,17 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 0edca9e5eb709eb3e1b42b45e5a41ac7a5ba1e75
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: bfc31553c32ac4dbfde55aa30b33025b579f6139
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="launch-a-demo-interactive-map-search-using-azure-location-based-services-preview"></a>Azure Location Based Services(미리 보기)를 사용하여 데모 대화형 맵 검색 시작
 
 이 문서에서는 Azure Maps를 통한 대화형 검색을 사용하는 Azure LBS(Location Based Services, 미리 보기)의 기능을 보여 줍니다. 또한 자체 LBS 계정을 만들고 데모 웹 응용 프로그램에 사용할 계정 키를 가져오는 방법도 안내합니다. 
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 
 ## <a name="log-in-to-the-azure-portal"></a>Azure Portal에 로그인
@@ -38,13 +38,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
     ![포털에서 Location Based Services 계정 만들기](./media/quick-demo-map-app/create-lbs-account.png)
 
-5. 계정을 만든 후에는 해당 계정을 열고 계정의 **설정**으로 이동합니다. **키**를 클릭하여 계정의 기본 및 보조 키를 가져옵니다. **기본 키** 값은 로컬 클립보드에 복사하여 다음 섹션에서 사용합니다. 
+5. 계정을 만든 후에는 해당 계정을 열고 계정의 **설정**으로 이동합니다. **키**를 클릭하여 Azure Location Based Services 계정의 기본 및 보조 키를 가져옵니다. **기본 키** 값은 로컬 클립보드에 복사하여 다음 섹션에서 사용합니다. 
 
 ## <a name="download-the-demo-application-for-azure-maps"></a>Azure Maps의 데모 응용 프로그램 다운로드
 
 1. [interactiveSearch.html](https://github.com/Azure-Samples/location-based-services-samples/blob/master/src/interactiveSearch.html) 파일의 콘텐츠를 다운로드하거나 복사합니다.
 2. 이 파일의 콘텐츠를 **AzureMapDemo.html**에 로컬로 저장하고 텍스트 편집기에서 엽니다.
-3. 문자열 **&#60;insert-key&#62;**를 검색하고 앞 절에서 얻은 **기본 키** 값으로 바꿉니다. 
+3. `<insert-key>` 문자열을 검색하여 이전 섹션에서 구한 **기본 키** 값으로 바꿉니다. 
 
 
 ## <a name="launch-the-demo-application-for-azure-maps"></a>Azure Maps의 데모 응용 프로그램 시작

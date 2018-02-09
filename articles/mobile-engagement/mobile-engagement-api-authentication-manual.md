@@ -1,5 +1,5 @@
 ---
-title: "Mobile Engagement REST API를 사용한 인증 - 수동 설치"
+title: "Mobile Engagement REST API를 사용한 인증 - 수동 설정"
 description: "Mobile Engagement REST API에 대한 인증을 수동으로 설정하는 방법을 설명합니다."
 services: mobile-engagement
 documentationcenter: mobile
@@ -14,100 +14,92 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 9d6132e1a01be489b8e8e28a0219cf8a0b50b318
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0b4a999c6778040e71f862d3a010b6635e84b26e
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
-# <a name="authenticate-with-mobile-engagement-rest-apis---manual-setup"></a>Mobile Engagement REST API를 사용한 인증 - 수동 설치
-이 부록 설명서는 [Mobile Engagement REST API를 사용한 인증](mobile-engagement-api-authentication.md)을 설명합니다. 먼저 읽고 상황을 파악하도록 합니다. Azure 포털을 사용하여 Mobile Engagement REST API에 대한 인증을 설정하기 위해 일회성 설치 프로세스를 수행하는 대체 방법을 설명합니다. 
+# <a name="authenticate-with-mobile-engagement-rest-apis-manual-setup"></a>Mobile Engagement REST API를 사용한 인증 - 수동 설정
+이 문서는 [Mobile Engagement REST API를 사용한 인증](mobile-engagement-api-authentication.md)에 대한 부록입니다. 전후 관계를 이해하려면 먼저 해당 문서를 참조해야 합니다. 또한 Azure Portal을 사용하여 Mobile Engagement REST API에 대한 일회성 인증 설정을 수행하는 다른 방법에 대해서도 설명합니다.
 
 > [!NOTE]
-> 아래 지침은 [Active Directory 가이드](../azure-resource-manager/resource-group-create-service-principal-portal.md) 를 기반으로 하며 Mobile Engagement API에 대한 인증을 위해 필요한 항목을 사용자 지정합니다. 따라서 아래 단계를 자세히 이해하려면 참조합니다. 
-> 
-> 
+> 다음 지침은 [이 Active Directory 가이드](../azure-resource-manager/resource-group-create-service-principal-portal.md)를 기반으로 하고 있습니다. Mobile Engagement API에 대한 인증 요구 사항에 맞게 사용자 지정됩니다. 다음 단계를 자세히 이해하려면 해당 항목을 참조하세요.
 
-1. [클래식 포털](https://manage.windowsazure.com/)을 통해 Azure 계정에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)을 통해 Azure 계정에 로그인합니다.
 2. 왼쪽 창에서 **Active Directory** 를 선택합니다.
-   
-     ![Active Directory 선택][1]
-3. Azure 포털에서 **기본 Active Directory** 를 선택합니다. 
-   
-     ![디렉터리 선택][2]
-   
-   > [!IMPORTANT]
-   > 이 방법은 사용자 계정의 기본 Active Directory에서 작업할 경우 작동하며 사용자가 계정에 만든 Active Directory에서 수행하는 경우 작동하지 않습니다. 
-   > 
-   > 
-4. 디렉터리에서 응용 프로그램을 보려면 **응용 프로그램**을 클릭합니다.
-   
-     ![응용 프로그램 보기][3]
-5. **추가**를 클릭합니다. 
-   
-     ![응용 프로그램 추가][4]
-6. **내 조직에서 개발 중인 응용 프로그램 추가**
-   
-     ![새 응용 프로그램][5]
-7. 응용 프로그램의 이름을 입력하고 응용 프로그램의 유형을 **웹 응용 프로그램 및/또는 웹 API** 로 선택하고 다음 단추를 클릭합니다.
-   
-     ![응용 프로그램 이름 지정][6]
-8. **로그인 URL** 및 **앱 ID URI**에 대한 더미 URL을 제공할 수 있습니다. 이것은 시나리오에 사용되지 않고 URL 자체의 유효성도 검사되지 않습니다.  
-   
-     ![응용 프로그램 속성][7]
-9. 이 단계가 끝나면 다음과 같이 이전에 제공한 이름을 가진 AAD 앱이 있어야 합니다. 이것이 **AD\_APP\_NAME**이며 메모해 둡니다.  
-   
-     ![앱 이름][8]
-10. 앱 이름을 클릭하고 **구성**을 클릭합니다.
-    
-      ![앱 구성][9]
-11. API 호출에 **CLIENT\_ID**로 사용할 수 있는 클라이언트 ID를 메모해 둡니다. 
-    
-     ![앱 구성][10]
-12. **키** 섹션으로 스크롤하고 가급적이면 2년(만료) 기간인 키를 추가하고 **저장**을 클릭합니다. 
-    
-     ![앱 구성][11]
-13. 지금 표시되고 저장되지 않아서 다시 표시되지 않으므로 표시된 키에 대한 값을 즉시 복사합니다. 분실한 경우 새 키를 생성해야 합니다. API 호출에 대한 **CLIENT_SECRET**입니다. 
-    
-     ![앱 구성][12]
-    
-    > [!IMPORTANT]
-    > 이 키는 지정한 기간 후에 만료 됩니다. 따라서 기간이 되어 갱신하지 않으면 API 인증은 더 이상 작동하지 않습니다.  또한 손상되었다고 생각하는 경우 이 키를 삭제하고 다시 만들 수 있습니다.
-    > 
-    > 
-14. **끝점 보기** 단추를 클릭하면 **앱 끝점** 대화 상자가 열립니다. 
-    
-    ![][13]
-15. 앱 끝점 대화 상자에서 **OAUTH 2.0 토큰 끝점**을 복사합니다. 
-    
-    ![][14]
-16. 이 끝점은 URL의 GUID가 **TENANT_ID**인 다음과 같은 형식입니다. 기록해 둡니다. 
-    
-        https://login.microsoftonline.com/<GUID>/oauth2/token
-17. 이제 이 앱에 권한을 구성하도록 진행합니다. 이를 위해 [Azure 포털](https://portal.azure.com)을 열어야 합니다. 
-18. **리소스 그룹**을 열고 **Mobile Engagement** 리소스 그룹을 찾습니다.  
-    
-    ![][15]
-19. **Mobile Engagement** 리소스 그룹을 찾고 거기서 **설정** 블레이드로 이동합니다. 
-    
-    ![][16]
-20. 설정 블레이드에서 **사용자**를 클릭하고 **추가**를 클릭하여 사용자를 추가합니다. 
-    
-    ![][17]
-21. **역할 선택**
-    
-    ![][18]
-22. **소유자**
-    
-    ![][19]
-23. 검색 상자에서 응용 프로그램 **AD\_APP\_NAME**의 이름을 검색합니다. 여기에 기본적으로 표시되지 않습니다. 찾게 되면 선택하고 블레이드 맨 아래에서 **선택** 을 클릭합니다. 
-    
-    ![][20]
-24. **액세스 추가** 블레이드에서 **1 사용자, 0 그룹**으로 표시됩니다. 이 블레이드에서 **확인** 을 클릭하여 변경 내용을 확인합니다. 
-    
-    ![][21]
 
-필요한 AAD 구성을 완료했으므로 API를 호출하도록 설정되었습니다. 
+   ![Active Directory 선택][1]
+
+3. 디렉터리에서 응용 프로그램을 보려면 **앱 등록**을 선택합니다.
+
+   ![응용 프로그램 보기][3]
+
+4. **새 응용 프로그램 등록**을 선택합니다.
+
+   ![응용 프로그램 추가][4]
+
+5. 응용 프로그램의 이름을 입력합니다. 응용 프로그램 유형은 **웹앱/API**로 그대로 두고 **다음** 단추를 선택합니다. **로그인 URL**에 대해 더미 URL을 제공할 수 있습니다. 이 시나리오에는 사용되지 않고 URL 자체의 유효성도 검사되지 않습니다.
+
+   완료되면 제공한 이름의 Azure AD(Azure Active Directory) 앱이 있습니다. 여기서는 **AD\_APP\_NAME**이므로 적어 둡니다.
+
+   ![앱 이름][8]
+
+7. 앱 이름을 선택합니다.
+
+8. **응용 프로그램 ID**를 찾아 적어둡니다. API 호출에 대한 **CLIENT\_ID**로 사용할 수 있는 클라이언트 ID입니다.
+
+   ![응용 프로그램 ID 찾기][10]
+
+9. 오른쪽에서 **키** 섹션을 찾습니다.
+
+   ![키 섹션][11]
+
+10. 새 키를 만들고 즉시 복사합니다. 다시 표시되지 않습니다.
+
+    ![키 세부 정보가 있는 키 창][12]
+
+    > [!IMPORTANT]
+    > 이 키는 지정한 기간의 끝에서 만료됩니다. 시간이 되면 갱신해야 합니다. 그렇지 않으면 해당 API 인증이 더 이상 작동하지 않습니다. 이 키가 손상되었다고 생각되면 삭제하고 다시 만들 수 있습니다.
+    >
+    
+11. 페이지 위쪽의 **엔드포인트** 단추를 선택합니다. 그런 다음 **OAuth 2.0 토큰 엔드포인트**를 복사합니다.
+
+    ![엔드포인트 복사][14]
+
+16. 이 엔드포인트는 `https://login.microsoftonline.com/<GUID>/oauth2/token` 형식이며, 여기서 URL의 GUID는 **TENANT_ID**입니다.
+
+17. 다음으로, 이 앱에 대한 권한을 구성합니다. 프로세스를 시작하려면 [Azure Portal](https://portal.azure.com)로 이동합니다.
+
+18. **리소스 그룹**을 선택한 다음, **MobileEngagement** 리소스 그룹을 찾습니다.
+
+    ![MobileEngagement 찾기][15]
+
+19. **MobileEngagement** 리소스 그룹을 선택한 다음, **모든 설정**을 선택합니다.
+
+    ![MobileEngagement 설정 찾아보기][16]
+
+20. **설정** 섹션에서 **사용자**를 선택합니다. 그런 다음 사용자를 추가하려면 **추가**를 선택합니다.
+
+    ![사용자 추가][17]
+
+21. **역할 선택**을 클릭합니다.
+
+    ![역할 선택][18]
+
+22. **소유자**를 선택합니다.
+
+    ![역할로 소유자 선택][19]
+
+23. 검색 상자에서 응용 프로그램의 이름(**AD\_APP\_NAME**)을 검색합니다. 여기에는 기본적으로 이 이름이 없습니다. 찾은 후에 선택합니다. 그런 다음 섹션 아래쪽의 **선택**을 클릭합니다.
+
+    ![이름 선택][20]
+
+24. **액세스 추가** 섹션에서 **1명 사용자, 0개 그룹**으로 표시됩니다. 변경 내용을 확인하려면 **확인**을 선택합니다.
+
+    ![추가된 사용자 확인][21]
+
+이제 필요한 Azure AD 구성이 완료되었으며, API를 호출하도록 완벽하게 설정되었습니다.
 
 <!-- Images -->
 [1]: ./media/mobile-engagement-api-authentication-manual/active-directory.png
@@ -120,7 +112,7 @@ ms.lasthandoff: 10/11/2017
 [8]: ./media/mobile-engagement-api-authentication-manual/aad-app.png
 [9]: ./media/mobile-engagement-api-authentication-manual/configure-menu.png
 [10]: ./media/mobile-engagement-api-authentication-manual/client-id.png
-[11]: ./media/mobile-engagement-api-authentication-manual/client_secret.png
+[11]: ./media/mobile-engagement-api-authentication-manual/client-secret.png
 [12]: ./media/mobile-engagement-api-authentication-manual/keys.png
 [13]: ./media/mobile-engagement-api-authentication-manual/view-endpoints.png
 [14]: ./media/mobile-engagement-api-authentication-manual/app-endpoints.png

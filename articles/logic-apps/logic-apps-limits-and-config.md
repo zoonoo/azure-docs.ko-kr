@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 4babb3033e75edc5c85ce89dac569b9f2beae9f7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5e3147cbc9fce6737cfb9b2e93e8bf1662163f3c
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="logic-apps-limits-and-configuration"></a>Logic Apps 제한 및 구성
 
@@ -32,14 +32,14 @@ ms.lasthandoff: 10/11/2017
 
 #### <a name="timeout"></a>시간 제한
 
-| Name | 제한 | 참고 사항 | 
+| Name | 제한 | 메모 | 
 | ---- | ----- | ----- | 
 | 요청 시간 초과 | 120초 | 필요에 따라 [비동기 패턴](../logic-apps/logic-apps-create-api-app.md) 또는 [until 루프](logic-apps-loops-and-scopes.md)를 보완할 수 있음 |
 |||| 
 
 #### <a name="message-size"></a>메시지 크기
 
-| Name | 제한 | 참고 사항 | 
+| Name | 제한 | 메모 | 
 | ---- | ----- | ----- | 
 | 메시지 크기 | 100 MB | 일부 커넥터 및 API에서는 100MB를 지원하지 않을 수 있습니다. | 
 | 식 평가 제한 | 131,072자 | `@concat()`, `@base64()`, `string`은 이 제한보다 길 수 없습니다. | 
@@ -47,7 +47,7 @@ ms.lasthandoff: 10/11/2017
 
 #### <a name="retry-policy"></a>다시 시도 정책
 
-| Name | 제한 | 참고 사항 | 
+| Name | 제한 | 메모 | 
 | ---- | ----- | ----- | 
 | 다시 시도 횟수 | 90 | 기본값은 4입니다. [재시도 정책 매개 변수](../logic-apps/logic-apps-workflow-actions-triggers.md)로 구성할 수 있습니다. | 
 | 재시도 최대 지연 시간 | 1일 | [재시도 정책 매개 변수](../logic-apps/logic-apps-workflow-actions-triggers.md)로 구성할 수 있습니다. | 
@@ -58,7 +58,7 @@ ms.lasthandoff: 10/11/2017
 
 이러한 제한은 단일 논리 앱 실행에 적용됩니다.
 
-| 이름 | 제한 | 
+| Name | 제한 | 
 | ---- | ----- | 
 | 실행 기간 | 90일 | 
 | 저장소 보존 | 실행 시작 시간부터 90일 | 
@@ -72,10 +72,10 @@ ms.lasthandoff: 10/11/2017
 
 이러한 제한은 단일 논리 앱 실행에 적용됩니다.
 
-| 이름 | 제한 | 참고 사항 | 
+| Name | 제한 | 메모 | 
 | ---- | ----- | ----- | 
 | ForEach 항목 | 100,000 | [쿼리 작업](../connectors/connectors-native-query.md)을 사용하여 필요에 따라 큰 배열을 필터링할 수 있습니다. | 
-| Until 반복 | 5, 000 | | 
+| Until 반복 | 5,000 | | 
 | SplitOn 항목 | 100,000 | | 
 | ForEach 병렬 처리 | 50 | 기본값은 20입니다. <p>ForEach 루프에서 특정 수준의 병렬 처리를 설정하려면 `foreach` 작업에서 `runtimeConfiguration` 속성을 설정합니다. <p>ForEach 루프를 순차적으로 실행하려면 `foreach` 작업에서 `operationOptions` 속성을 “Sequential”로 설정합니다. | 
 |||| 
@@ -84,13 +84,13 @@ ms.lasthandoff: 10/11/2017
 
 이러한 제한은 단일 논리 앱 인스턴스에 적용됩니다.
 
-| 이름 | 제한 | 참고 사항 | 
-| ---- | ----- | ----- | 
-| 5분당 작업 실행 | 100,000 | 필요에 따라 여러 앱에 워크로드를 배포할 수 있습니다. | 
+| Name | 제한 | 메모 | 
+| ----- | ----- | ----- | 
+| 5분당 작업 실행 | 100,000 |<p>이 한도는 `High Througput` 모드에서 논리 앱을 실행하면 최대 300,000까지 높일 수 있으며 이 작업은 워크플로 리소스의 `runtimeConfiguration` 아래 `operationOptions` 속성을 `OptimizedForHighThroughput`으로 설정하여 수행할 수 있습니다. <p>높은 처리량 모드는 미리 보기로 제공됩니다. 또한 필요에 따라 워크로드가 여러 앱에 분산될 수 있습니다. | 
 | 작업 나가는 동시 호출 | ~2,500 | 필요에 따라 동시 요청 수를 줄이거나 기간을 단축합니다. | 
-| 런타임 끝점: 들어오는 동시 호출 | ~1,000 | 필요에 따라 동시 요청 수를 줄이거나 기간을 단축합니다. | 
-| 런타임 끝점: 5분마다 호출을 읽습니다. | 60,000 | 필요에 따라 여러 앱에 워크로드를 배포할 수 있습니다. | 
-| 런타임 끝점: 5분마다 호출을 수행합니다. | 45,000 | 필요에 따라 여러 앱에 워크로드를 배포할 수 있습니다. | 
+| 런타임 끝점: 들어오는 동시 호출 |~1,000 | 필요에 따라 동시 요청 수를 줄이거나 기간을 단축합니다. | 
+| 런타임 끝점: 5분마다 호출을 읽습니다.  | 60,000 | 필요에 따라 여러 앱에 워크로드를 배포할 수 있습니다. | 
+| 런타임 끝점: 5분마다 호출을 수행합니다.| 45,000 |필요에 따라 여러 앱에 워크로드를 배포할 수 있습니다. | 
 |||| 
 
 일반적인 처리에서 이러한 제한을 초과하거나 이러한 제한을 초과할 수 있는 부하 테스트를 실행하려면 [저희에게 연락](mailto://logicappsemail@microsoft.com)하여 요구 사항을 확인하세요.
@@ -99,7 +99,7 @@ ms.lasthandoff: 10/11/2017
 
 이러한 제한은 단일 논리 앱 정의에 적용됩니다.
 
-| 이름 | 제한 | 참고 사항 | 
+| Name | 제한 | 메모 | 
 | ---- | ----- | ----- | 
 | 워크플로당 작업 | 500 | 이 제한을 확장하려면 필요에 따라 중첩된 워크플로를 추가할 수 있습니다. |
 | 허용된 작업 중첩 깊이 | 8 | 이 제한을 확장하려면 필요에 따라 중첩된 워크플로를 추가할 수 있습니다. | 
@@ -121,7 +121,7 @@ ms.lasthandoff: 10/11/2017
 
 이러한 제한은 웹 API에서 만들 수 있는 사용자 지정 커넥터에 적용됩니다.
 
-| 이름 | 제한 | 
+| Name | 제한 | 
 | ---- | ----- | 
 | 만들 수 있는 사용자 지정 커넥터의 수 | Azure 구독당 1,000개 | 
 | 사용자 지정 커넥터에서 만든 각 연결에 대한 분당 요청 수 | 커넥터에서 만든 각 연결에 대해 500개 요청 |
@@ -131,7 +131,7 @@ ms.lasthandoff: 10/11/2017
 
 이러한 제한은 통합 계정에 추가할 수 있는 아티팩트에 적용됩니다.
 
-| 이름 | 제한 | 참고 사항 | 
+| Name | 제한 | 메모 | 
 | ---- | ----- | ----- | 
 | 스키마 | 8MB | [Blob URI](../logic-apps/logic-apps-enterprise-integration-schemas.md)를 사용하여 2MB보다 큰 파일을 업로드할 수 있습니다. | 
 | 맵(XSLT 파일) | 2MB | | 
@@ -145,7 +145,7 @@ ms.lasthandoff: 10/11/2017
 
 #### <a name="free-pricing-tier"></a>무료 가격 책정 계층
 
-| 이름 | 제한 | 참고 사항 | 
+| Name | 제한 | 메모 | 
 | ---- | ----- | ----- | 
 | 규약 | 10 | | 
 | 기타 아티팩트 형식 | 25 |아티팩트 형식에는 파트너, 스키마, 인증서 및 맵이 포함됩니다. 각 형식은 최대 수의 아티팩트를 포함할 수 있습니다. | 
@@ -153,7 +153,7 @@ ms.lasthandoff: 10/11/2017
 
 #### <a name="standard-pricing-tier"></a>표준 가격 책정 계층
 
-| 이름 | 제한 | 참고 사항 | 
+| Name | 제한 | 메모 | 
 | ---- | ----- | ----- | 
 | 모든 아티팩트 형식 | 500 | 아티팩트 형식에는 계약, 파트너, 스키마, 인증서 및 맵이 포함됩니다. 각 형식은 최대 수의 아티팩트를 포함할 수 있습니다. | 
 |||| 
@@ -162,7 +162,7 @@ ms.lasthandoff: 10/11/2017
 
 이러한 제한은 B2B 프로토콜에 적용됩니다.
 
-| 이름 | 제한 | 참고 사항 | 
+| Name | 제한 | 메모 | 
 | ---- | ----- | ----- | 
 | AS2 | 50MB | 디코딩 및 인코딩에 적용됩니다. | 
 | X12 | 50MB | 디코딩 및 인코딩에 적용됩니다. | 
@@ -237,7 +237,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="next-steps"></a>다음 단계  
 
-* [첫 번째 논리 앱 만들기](../logic-apps/logic-apps-create-a-logic-app.md)  
+* [첫 번째 논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)  
 * [일반적인 예제 및 시나리오](../logic-apps/logic-apps-examples-and-scenarios.md)
 * [비디오: Logic Apps으로 비즈니스 프로세스 자동화](http://channel9.msdn.com/Events/Build/2016/T694) 
 * [비디오: Logic Apps와 시스템 통합](http://channel9.msdn.com/Events/Build/2016/P462)

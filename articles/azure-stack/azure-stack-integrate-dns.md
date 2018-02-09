@@ -2,29 +2,27 @@
 title: "Azure 스택 데이터 센터 통합-DNS"
 description: "Azure 스택 DNS DNS 데이터 센터와 통합 하는 방법에 알아봅니다"
 services: azure-stack
-author: troettinger
+author: jeffgilb
 ms.service: azure-stack
 ms.topic: article
-ms.date: 10/10/2017
-ms.author: victorh
+ms.date: 01/31/2018
+ms.author: jeffgilb
+ms.reviewer: wfayed
 keywords: 
-ms.openlocfilehash: 40d6d4858ef2e3df61d04dc68c00e09c04f000e2
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 504cbabe6ea4b7ad71601186dac853515f8c4709
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-stack-datacenter-integration---dns"></a>Azure 스택 데이터 센터 통합-DNS
-
-*적용 대상: Azure 스택 시스템 통합*
-
 Azure 스택 끝점에 액세스할 수 있게 되기를 (`portal`, `adminportal`, `management`, `adminmanagement`등.)  외부 Azure 스택에서 Azure 스택에서 사용 하려는 DNS 영역을 호스트 하는 DNS 서버와 Azure 스택 DNS 서비스를 통합 해야 합니다.
 
 ## <a name="azure-stack-dns-namespace"></a>Azure 스택 DNS 네임 스페이스
 Azure 스택을 배포할 때 DNS와 관련 된 몇 가지 중요 한 정보를 제공 하면 됩니다.
 
 
-|필드  |설명  |예제|
+|필드  |설명  |예|
 |---------|---------|---------|
 |지역|Azure 스택 배포의 지리적 위치입니다.|`east`|
 |외부 도메인 이름|Azure 스택 배포에 사용할 영역을의 이름입니다.|`cloud.fabrikam.com`|
@@ -125,7 +123,7 @@ Dns 조건부 전달 하는 방법을 잘 모르는 경우 다음 TechNet 문서
 
 회사 도메인 이름의 하위 도메인 모양 외부 Azure 스택 DNS 영역이 지정 된 있는 시나리오에서는 조건부 전달을 사용할 수 없습니다. DNS 위임을 구성 해야 합니다.
 
-예제:
+예:
 
 - 회사 DNS 도메인 이름:`contoso.com`
 - Azure 스택 외부 DNS 도메인 이름:`azurestack.contoso.com`
@@ -140,4 +138,4 @@ DNS 이름은 Azure 스택 배포 외부에서 확인할 수에 대 한 DNS 위�
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure 스택 데이터 센터 통합-Identity](azure-stack-integrate-identity.md)
+[방화벽 통합](azure-stack-firewall.md)

@@ -1,7 +1,7 @@
 # 개요
 ## [Data Lake Analytics란?](data-lake-analytics-overview.md)
 
-# 시작
+# 시작하기
 ## [Azure 포털](data-lake-analytics-get-started-portal.md)
 ## [Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 ## [Contact.java](data-lake-analytics-data-lake-tools-for-vscode.md)
@@ -17,7 +17,7 @@
 ### [.NET SDK](data-lake-analytics-manage-use-dotnet-sdk.md)
 ### [Python SDK](data-lake-analytics-manage-use-python-sdk.md)
 ### [Java SDK](data-lake-analytics-manage-use-java-sdk.md)
-### [Node.JS](data-lake-analytics-manage-use-nodejs.md)
+### [Node.js](data-lake-analytics-manage-use-nodejs.md)
 ### [진단 로그 액세스](data-lake-analytics-diagnostic-logs.md)
 ### [할당량 한도 조정](data-lake-analytics-quota-limits.md)
 
@@ -43,13 +43,13 @@
 ### [VSCode에서 로컬 실행 및 로컬 디버그](data-lake-tools-for-vscode-local-run-and-debug.md)
 ### [U-SQL 프로그래밍 기능 가이드](data-lake-analytics-u-sql-programmability-guide.md)
 
-# 참조
+# 참고 자료
 ## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=data-lake-analytics)
 ## [Azure PowerShell](/powershell/module/azurerm.datalakeanalytics)
 ## [.NET](/dotnet/api/microsoft.azure.management.datalake.analytics)
-## [Node.JS](https://www.npmjs.com/package/azure-arm-datalake-analytics)
+## [Node.js](https://www.npmjs.com/package/azure-arm-datalake-analytics)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-analytics.html)
-## [REST (영문)](/rest/api/datalakeanalytics/)
+## [REST](/rest/api/datalakeanalytics/)
 ## [CLI](https://docs.microsoft.com/cli/azure/dla)
 
 # 리소스
@@ -57,7 +57,8 @@
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=intelligence-analytics)
 ## [UserVoice에서 사용자 의견 제공](https://feedback.azure.com/forums/327234-data-lake)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake)
-## [가격](https://azure.microsoft.com/pricing/details/data-lake-analytics/)
+## [가격 책정](https://azure.microsoft.com/pricing/details/data-lake-analytics/)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=data-lake-analytics)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-data-lake)
+## [비디오](https://azure.microsoft.com/resources/videos/index/?services=data-lake-analytics)

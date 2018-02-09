@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2017
+ms.date: 01/08/2018
 ms.author: denlee
-ms.openlocfilehash: bcd29d0b21d7624f6de10fc27e3dfce2fb3406c6
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 4ba8a53f2018727cc4fa225b2d4ce14d9f1d7467
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="accelerate-real-time-big-data-analytics-with-the-spark-to-azure-cosmos-db-connector"></a>Spark-Azure Cosmos DB 커넥터를 사용하여 실시간 빅 데이터 분석 가속화
 
@@ -54,9 +54,9 @@ Spark GraphX 및 Azure Cosmos DB의 Gremlin Graph API로 작업하는 경우 [Sp
 
 | 구성 요소 | 버전 |
 |---------|-------|
-|Apache Spark|2.0+|
-| 스칼라| 2.11|
-| Azure Cosmos DB SQL Java SDK | 1.10.0 |
+|Apache Spark|2.0.2, 2.1.0, 2.2.0|
+| 스칼라| 2.10, 2.11|
+| Azure Cosmos DB SQL Java SDK | 1.14.0, 1.15.0 |
 
 이 문서는 Python(pyDocumentDB를 통해)과 Scala 인터페이스를 사용하여 간단한 샘플을 실행하는 데 도움이 됩니다.
 
@@ -181,21 +181,22 @@ mvn clean package
 ### <a name="include-the-azure-cosmos-db-spark-jar"></a>Azure Cosmos DB Spark JAR 포함
 코드를 실행하기 전에 먼저 Azure Cosmos DB Spark JAR를 포함해야 합니다.  **spark-shell**을 사용하는 경우 **--jars** 옵션을 사용하여 JAR를 포함할 수 있습니다.  
 
-```
-spark-shell --master $master --jars /$location/azure-cosmosdb-spark-0.0.3-jar-with-dependencies.jar
+```bash
+spark-shell --master $master --jars /$location/azure-cosmosdb-spark_2.1.0_2.11-1.0.0-uber.jar
 ```
 
 종속성 없이 JAR를 실행하려면 다음 코드를 사용합니다.
 
 ```bash
-spark-shell --master $master --jars /$location/azure-cosmosdb-spark-0.0.3.jar,/$location/azure-documentdb-1.10.0.jar
+spark-shell --master $master --jars /$location/azure-cosmosdb-spark_2.1.0_2.11-1.0.0.jar,/$location/azure-documentdb-1.14.0.jar,/$location/azure-documentdb-rx-0.9.0-rc2.jar,/$location/json-20140107.jar,/$location/rxjava-1.3.0.jar,/$location/rxnetty-0.4.20.jar 
 ```
 
 노트북 서비스(예: Azure HDInsight Jupyter 노트북 서비스)를 사용하는 경우 **spark 매직** 명령을 사용할 수 있습니다.
 
 ```
 %%configure
-{ "jars": ["wasb:///example/jars/azure-documentdb-1.10.0.jar","wasb:///example/jars/azure-cosmosdb-spark-0.0.3.jar"],
+{ "name":"Spark-to-Cosmos_DB_Connector", 
+  "jars": ["wasb:///example/jars/1.0.0/azure-cosmosdb-spark_2.1.0_2.11-1.0.0.jar", "wasb:///example/jars/1.0.0/azure-documentdb-1.14.0.jar", "wasb:///example/jars/1.0.0/azure-documentdb-rx-0.9.0-rc2.jar", "wasb:///example/jars/1.0.0/json-20140107.jar", "wasb:///example/jars/1.0.0/rxjava-1.3.0.jar", "wasb:///example/jars/1.0.0/rxnetty-0.4.20.jar"],
   "conf": {
     "spark.jars.excludes": "org.scala-lang:scala-reflect"
    }
@@ -207,7 +208,7 @@ spark-shell --master $master --jars /$location/azure-cosmosdb-spark-0.0.3.jar,/$
 ### <a name="connect-spark-to-azure-cosmos-db-using-the-connector"></a>커넥터를 사용하여 Spark를 Azure Cosmos DB에 연결
 통신 전송이 좀 더 복잡하지만, 커넥터를 사용하여 Spark에서 Azure Cosmos DB로 쿼리를 실행하는 것이 훨씬 더 빠릅니다.
 
-다음 코드 조각에서는 Spark 컨텍스트에서 커넥터를 사용하는 방법을 보여 줍니다.
+다음 코드 조각에서는 Spark 세션에서 커넥터를 사용하는 방법을 보여 줍니다. Python 샘플에 대해서는 `azure-cosmosdb-spark`[GitHub 리포지토리](https://github.com/Azure/azure-cosmosdb-spark)를 참조하세요.
 
 ```
 // Import Necessary Libraries
@@ -218,7 +219,7 @@ import com.microsoft.azure.cosmosdb.spark._
 import com.microsoft.azure.cosmosdb.spark.config.Config
 
 // Configure connection to your collection
-val readConfig2 = Config(Map("Endpoint" -> "https://doctorwho.documents.azure.com:443/",
+val baseConfig = Config(Map("Endpoint" -> "https://doctorwho.documents.azure.com:443/",
 "Masterkey" -> "le1n99i1w5l7uvokJs3RT5ZAH8dc3ql7lx2CG0h0kK4lVWPkQnwpRLyAN0nwS1z4Cyd1lJgvGUfMWR3v8vkXKA==",
 "Database" -> "DepartureDelays",
 "preferredRegions" -> "Central US;East US2;",
@@ -226,7 +227,7 @@ val readConfig2 = Config(Map("Endpoint" -> "https://doctorwho.documents.azure.co
 "SamplingRatio" -> "1.0"))
 
 // Create collection connection
-val coll = spark.sqlContext.read.cosmosDB(readConfig2)
+val coll = spark.sqlContext.read.cosmosDB(baseConfig)
 coll.createOrReplaceTempView("c")
 ```
 
@@ -255,7 +256,7 @@ df.show()
 
 커넥터를 사용하여 Azure Cosmos DB에 Spark를 연결하는 시나리오는 일반적으로 다음과 같습니다.
 
-* Scala를 사용하고 [Issue 3: Add Python wrapper and examples](https://github.com/Azure/azure-cosmosdb-spark/issues/3)(문제 3: Python 래퍼 및 예제 추가)에서 설명한 대로 Python 래퍼를 포함하도록 업데이트하려고 합니다.
+* Python 및/또는 Scala를 사용하려고 합니다.
 * Apache Spark와 Azure Cosmos DB 간에 많은 양의 데이터를 전송해야 합니다.
 
 쿼리 성능 차이에 대한 자세한 내용은 [쿼리 테스트 실행 wiki](https://github.com/Azure/azure-cosmosdb-spark/wiki/Query-Test-Runs)를 참조하세요.

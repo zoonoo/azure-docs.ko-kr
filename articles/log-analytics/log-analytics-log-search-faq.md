@@ -11,20 +11,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: 1ec815a12cea98228dd4b7ac7361fe5e3554b5d3
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 6dfee26d7585c8ec295a1f0ea1bd0bc14a34cc5a
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="log-analytics-new-log-search-faq-and-known-issues"></a>Log Analytics 새 로그 검색 FAQ 및 알려진 문제
 
 이 문서에는 [새 쿼리 언어로의 Log Analytics](log-analytics-log-search-upgrade.md) 업그레이드와 관련한 질문과 대답 및 알려진 문제가 포함되어 있습니다.  작업 영역을 업그레이드하도록 결정하기 전에 이 전체 문서를 읽어야 합니다.
 
 
-## <a name="alerts"></a>경고
+## <a name="alerts"></a>Alerts
 
 ### <a name="question-i-have-a-lot-of-alert-rules-do-i-need-to-create-them-again-in-the-new-language-after-i-upgrade"></a>질문: 경고 규칙이 매우 많습니다. 업그레이드 후에 새 언어로 규칙을 다시 만들어야 하나요?  
 아니요, 경고 규칙은 업그레이드 중에 새 검색 언어로 자동 변환됩니다.  
@@ -148,10 +148,10 @@ ms.lasthandoff: 11/04/2017
 ## <a name="upgrade-process"></a>업그레이드 프로세스
 
 ### <a name="question-i-have-several-workspaces-can-i-upgrade-all-workspaces-at-the-same-time"></a>질문: 작업 영역이 여러 개 있습니다. 모든 작업 영역을 동시에 업그레이드할 수 있나요?  
-아니요.  각 업그레이드는 단일 작업 영역에 적용됩니다. 현재는 여러 작업 영역을 한 번에 업그레이드할 수 있는 방법이 없습니다. 업그레이드된 작업 영역의 다른 사용자도 영향을 받게 됩니다.  
+번호  각 업그레이드는 단일 작업 영역에 적용됩니다. 현재는 여러 작업 영역을 한 번에 업그레이드할 수 있는 방법이 없습니다. 업그레이드된 작업 영역의 다른 사용자도 영향을 받게 됩니다.  
 
 ### <a name="question-will-existing-log-data-collected-in-my-workspace-be-modified-if-i-upgrade"></a>질문: 업그레이드하면 작업 영역에 수집되어 있는 기존 로그 데이터가 수정되나요?  
-아니요. 작업 영역 검색에 사용할 수 있는 로그 데이터는 업그레이드의 영향을 받지 않습니다. 저장된 검색, 경고 및 보기는 새 검색 언어로 자동 변환됩니다.  
+번호 작업 영역 검색에 사용할 수 있는 로그 데이터는 업그레이드의 영향을 받지 않습니다. 저장된 검색, 경고 및 보기는 새 검색 언어로 자동 변환됩니다.  
 
 ### <a name="question-what-happens-if-i-dont-upgrade-my-workspace"></a>질문: 내 작업 영역을 업그레이드하지 않으면 어떻게 되나요?  
 향후 몇 개월 이내에 레거시 로그 검색은 사용되지 않을 예정입니다. 이 시점까지 업그레이드하지 않은 작업 영역은 자동으로 업그레이드됩니다.
@@ -160,11 +160,10 @@ ms.lasthandoff: 11/04/2017
 일반 공급 이전에는 업그레이드 후 작업 영역을 되돌릴 수 있습니다.  이제 새 언어가 일반 공급에 이르렀으므로 기존 플랫폼을 사용 중지해 나가면서 이 기능이 제거되었습니다.
 
 
-
 ## <a name="views"></a>뷰
 
 ### <a name="question-how-do-i-create-a-new-view-with-view-designer"></a>질문: 뷰 디자이너를 통해 새 뷰를 만들려면 어떻게 할까요?
-업그레이드하기 전에 주 대시보드의 타일에서 뷰 디자이너로 새 뷰를 만들 수 있습니다.  작업 영역이 업그레이드되면 이 타일은 제거됩니다.  왼쪽 메뉴의 녹색 + 단추를 클릭하여 OMS 포털에서 뷰 디자이너로 새 뷰를 만들 수 있습니다.
+업그레이드하기 전에 OMS 포털의 기본 대시보드에 있는 타일에서 뷰 디자이너를 사용하여 새 보기를 만들 수 있습니다.  작업 영역이 업그레이드되면 이 타일은 제거됩니다.  왼쪽 메뉴의 녹색 + 단추를 클릭하여 OMS 포털에서 뷰 디자이너로 새 뷰를 만들 수 있습니다.  [뷰 디자이너] 타일을 클릭하여 Azure Portal을 통해 새 보기를 계속 만듭니다.
 
 
 ## <a name="next-steps"></a>다음 단계

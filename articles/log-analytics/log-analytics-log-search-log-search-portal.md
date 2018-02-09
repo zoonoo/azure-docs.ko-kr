@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2017
+ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: 08d8ebfd18491eb78190651b76f444ffe0eca899
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 3a2e8803d51d81ab0eda3dc814d01822e17bc14e
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="create-log-searches-in-azure-log-analytics-using-the-log-search-portal"></a>로그 검색 포털을 사용하여 Azure Log Analytics에서 로그 검색 만들기
 
@@ -37,11 +37,11 @@ ms.lasthandoff: 12/13/2017
 - [Windows 에이전트](log-analytics-windows-agent.md) 하나 이상 또는 [Linux 에이전트](log-analytics-linux-agents.md) 하나를 작업 영역에 연결합니다.  
 
 ## <a name="open-the-log-search-portal"></a>로그 검색 포털 열기
-로그 검색 포털을 열어서 시작합니다.  Azure Portal 또는 OMS 포털에서 로그 검색 포털에 액세스할 수 있습니다.
+로그 검색 포털을 열어서 시작합니다. 
 
 1. Azure Portal을 엽니다.
 2. Log Analytics로 이동한 후 작업 영역을 선택합니다.
-3. **로그 검색**을 선택하여 Azure Portal이 표시된 상태를 유지하거나, **OMS 포털**을 선택하고 로그 검색 단추를 클릭하여 OMS 포털을 시작합니다.
+3. **로그 검색**을 선택합니다.
 
 ![로그 검색 단추](media/log-analytics-log-search-log-search-portal/log-search-button.png)
 

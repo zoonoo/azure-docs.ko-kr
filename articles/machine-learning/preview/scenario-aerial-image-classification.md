@@ -3,16 +3,18 @@ title: "항공 이미지 분류 | Microsoft Docs"
 description: "항공 이미지 분류 실제 시나리오에 대한 지침을 제공합니다."
 author: mawah
 ms.author: mawah
+manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.topic: article
 ms.service: machine-learning
 services: machine-learning
-ms.date: 10/27/2017
-ms.openlocfilehash: cb66514f40bd37f0495eca5037740d318fd5ea09
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.workload: data-services
+ms.date: 12/13/2017
+ms.openlocfilehash: 76c706496b3bcdbc1604661be85dc31000873ad3
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="aerial-image-classification"></a>항공 이미지 분류
 
@@ -44,7 +46,7 @@ ms.lasthandoff: 12/08/2017
 
 ![항공 이미지 분류 실제 시나리오에 대한 계통도](media/scenario-aerial-image-classification/scenario-schematic.PNG)
 
-[단계별 지침](https://github.com/MicrosoftDocs/azure-docs-pr/tree/release-ignite-aml-v2/articles/machine-learning/)은 데이터 전송 및 종속성 설치를 포함하여 Azure 저장소 계정 및 Spark 클러스터 생성과 준비하는 과정을 안내하는 것으로 시작합니다. 그런 다음 교육 작업을 시작하고 결과 모델의 성능을 비교하는 방법을 설명합니다. 마지막으로, 선택한 모델을 Spark 클러스터의 큰 이미지 집합에 적용하여 로컬에서 예측 결과 분석하는 방법을 보여 줍니다.
+단계별 지침은 데이터 전송 및 종속성 설치를 포함하여 Azure 저장소 계정 및 Spark 클러스터를 만들고 준비하는 과정을 안내하는 것으로 시작합니다. 그런 다음 교육 작업을 시작하고 결과 모델의 성능을 비교하는 방법을 설명합니다. 마지막으로, 선택한 모델을 Spark 클러스터의 큰 이미지 집합에 적용하여 로컬에서 예측 결과 분석하는 방법을 보여 줍니다.
 
 
 ## <a name="set-up-the-execution-environment"></a>실행 환경 설정
@@ -52,7 +54,7 @@ ms.lasthandoff: 12/08/2017
 다음 지침에서는 이 예제에 대한 실행 환경을 설정하는 과정을 안내합니다.
 
 ### <a name="prerequisites"></a>필수 조건
-- [Azure 계정](https://azure.microsoft.com/en-us/free/)(평가판 사용 가능)
+- [Azure 계정](https://azure.microsoft.com/free/)(평가판 사용 가능)
     - 40 작업자 노드(총 168 코어)로 HDInsight Spark 클러스터를 만듭니다. 사용자 계정에 사용 가능한 충분한 코어가 있는지 Azure Portal에서 구독에 대한 "사용 + 할당량" 탭을 검토하여 확인합니다.
        - 사용할 수 있는 코어가 적다면 HDInsight 클러스터 템플릿을 수정하여 프로비전된 사용자 수를 줄일 수 있습니다. 이에 대한 지침은 "HDInsight Spark 클러스터 만들기" 섹션 아래에 있습니다.
     - 이 샘플에서는 두 개의 NC6(GPU 1개, vCPU 6개) VM으로 Batch AI 교육 클러스터를 만듭니다. 미국 동부 지역에서 사용자 계정에 사용 가능한 충분한 코어가 있는지 Azure Portal에서 구독에 대한 "사용 + 할당량" 탭을 검토하여 확인합니다.
@@ -68,10 +70,10 @@ ms.lasthandoff: 12/08/2017
     - 만들도록 지시받은 Azure Active Directory 응용 프로그램의 클라이언트 ID, 비밀 및 테넌트 ID를 기록합니다. 이 자격 증명은 이 자습서의 뒷부분에서 사용합니다.
     - 이 문서를 작성하는 시점에서 Azure Machine Learning Workbench 및 Azure Batch AI는 별도의 Azure CLI 2.0 포크를 사용했습니다. 명확한 구분을 위해 Workbench의 CLI 버전을 "Azure Machine Learning Workbench에서 시작한 CLI"로, 일반 릴리스 버전(Batch AI 포함)을 "Azure CLI 2.0"으로 지칭하겠습니다.
 - [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy), Azure 저장소 계정 간의 파일 전송을 조정하기 위한 유틸리티
-    - AzCopy 실행 파일이 있는 폴더가 시스템의 PATH 환경 변수에 있는지 확인합니다. (사용할 수 있는 환경 변수를 수정하기 위한 지침은 [여기](https://support.microsoft.com/en-us/help/310519/how-to-manage-environment-variables-in-windows-xp)에서 확인할 수 있습니다.)
+    - AzCopy 실행 파일이 있는 폴더가 시스템의 PATH 환경 변수에 있는지 확인합니다. (사용할 수 있는 환경 변수를 수정하기 위한 지침은 [여기](https://support.microsoft.com/help/310519/how-to-manage-environment-variables-in-windows-xp)에서 확인할 수 있습니다.)
 - SSH 클라이언트에는 [PuTTY](http://www.putty.org/)가 권장됩니다.
 
-이 예제는 Windows 10 PC에서 테스트되었습니다; Azure 데이터 과학 가상 컴퓨터를 포함하여 모든 Windows 컴퓨터에서 실행할 수 있어야 합니다. Azure CLI 2.0은 [이러한 지침](https://github.com/Azure/azure-sdk-for-python/wiki/Contributing-to-the-tests#getting-azure-credentials)에 따라 MSI에서 설치되었습니다. 이 예제를 macOS에서 실행할 경우 약간의 수정이 필요할 수도 있습니다.(예: 파일 경로 변경)
+이 예제는 Windows 10 PC에서 테스트되었습니다; Azure 데이터 과학 Virtual Machines를 포함하여 모든 Windows 컴퓨터에서 실행할 수 있어야 합니다. Azure CLI 2.0은 [이러한 지침](https://github.com/Azure/azure-sdk-for-python/wiki/Contributing-to-the-tests#getting-azure-credentials)에 따라 MSI에서 설치되었습니다. 이 예제를 macOS에서 실행할 경우 약간의 수정이 필요할 수도 있습니다.(예: 파일 경로 변경)
 
 ### <a name="set-up-azure-resources"></a>Azure 리소스 설정
 
@@ -157,14 +159,14 @@ ms.lasthandoff: 12/08/2017
     AzCopy /Source:https://mawahsparktutorial.blob.core.windows.net/scripts /SourceSAS:"?sv=2017-04-17&ss=bf&srt=sco&sp=rwl&se=2037-08-25T22:02:55Z&st=2017-08-25T14:02:55Z&spr=https,http&sig=yyO6fyanu9ilAeW7TpkgbAqeTnrPR%2BpP1eh9TcpIXWw%3D" /Dest:https://%STORAGE_ACCOUNT_NAME%.file.core.windows.net/baitshare/scripts /DestKey:%STORAGE_ACCOUNT_KEY% /S
     ```
 
-    파일 전송은 최대 20분이 예상됩니다. 대기 중인 동안 다음 섹션을 계속 진행할 수 있습니다. 워크벤치를 통해 다른 명령줄 인터페이스를 열어 임시 변수를 재정의해야 할 수 있습니다.
+    예상 파일 전송 시간은 약 1시간입니다. 기다리는 동안 다음 섹션을 계속 진행할 수 있습니다. 워크벤치를 통해 다른 명령줄 인터페이스를 열어 임시 변수를 재정의해야 할 수 있습니다.
 
 #### <a name="create-the-hdinsight-spark-cluster"></a>HDInsight Spark 클러스터 만들기
 
 권장되는 HDInsight 클러스터 만들기 방법은 이 프로젝트의 "Code\01_Data_Acquisition_and_Understanding\01_HDInsight_Spark_Provisioning" 하위 폴더에 있는 HDInsight Spark 클러스터 Resource Manager 템플릿을 사용하는 것입니다.
 
-1. HDInsight Spark 클러스터 템플릿은 이 프로젝트의 하위 폴더 "Code\01_Data_Acquisition_and_Understanding\01_HDInsight_Spark_Provisioning"에 있는 "template.json" 파일입니다. 기본적으로 템플릿은 40 작업자 노드가 있는 Spark 클러스터를 만듭니다. 이 숫자를 조정해야 할 경우, 원하는 텍스트 편집기에서 템플릿을 열고 모든 “40” 인스턴스를 원하는 작업자 노드 수로 바꿉니다.
-    - 선택한 작업자 노드 수 작으면 메모리 부족 오류가 발생할 수 있습니다. 메모리 오류를 방지하기 위해 이 문서의 뒷부분에 설명된 대로 사용 가능한 데이터의 하위 집합에서 교육 및 연산화 스크립트를 실행할 수 있습니다.
+1. HDInsight Spark 클러스터 템플릿은 이 프로젝트의 하위 폴더 "Code\01_Data_Acquisition_and_Understanding\01_HDInsight_Spark_Provisioning"에 있는 "template.json" 파일입니다. 기본적으로 템플릿은 40 작업자 노드가 있는 Spark 클러스터를 만듭니다. 이 숫자를 조정해야 하는 경우 원하는 텍스트 편집기에서 템플릿을 열고 "40" 인스턴스를 원하는 작업자 노드 수로 바꿉니다.
+    - 선택한 작업자 노드 수가 작으면 나중에 메모리 부족 오류가 발생할 수 있습니다. 메모리 오류를 방지하기 위해 이 문서의 뒷부분에 설명된 대로 사용 가능한 데이터의 하위 집합에서 교육 및 연산화 스크립트를 실행할 수 있습니다.
 2. HDInsight 클러스터에 고유한 이름 및 암호를 선택하고 다음 명령의 표시된 위치에 씁니다. 그런 후 다음 명령을 실행하여 클러스터를 만듭니다.
 
     ```
@@ -251,9 +253,7 @@ Batch AI 클러스터는 네트워크 파일 서버의 교육 데이터에 액�
 1. 다음 명령을 실행하여 클러스터를 만듭니다.
 
     ```
-    set AZURE_BATCHAI_STORAGE_ACCOUNT=%STORAGE_ACCOUNT_NAME%
-    set AZURE_BATCHAI_STORAGE_KEY=%STORAGE_ACCOUNT_KEY%
-    az batchai cluster create -n landuseclassifier -u demoUser -p Dem0Pa$$w0rd --afs-name baitshare --nfs landuseclassifier --image UbuntuDSVM --vm-size STANDARD_NC6 --max 2 --min 2 
+    az batchai cluster create -n landuseclassifier2 -u demoUser -p Dem0Pa$$w0rd --afs-name baitshare --nfs landuseclassifier --image UbuntuDSVM --vm-size STANDARD_NC6 --max 2 --min 2 --storage-account-name %STORAGE_ACCOUNT_NAME% 
     ```
 
 1. 다음 명령을 사용하여 클러스터의 프로비저닝 상태를 확인합니다.
@@ -304,7 +304,7 @@ HDInsight 클러스터를 만들고 나면 다음과 같이 클러스터를 프�
 1.  Azure Machine Learning 명령줄 인터페이스에서 다음 명령을 실행합니다.
 
     ```
-    az ml computetarget attach --name myhdi --address %HDINSIGHT_CLUSTER_NAME%-ssh.azurehdinsight.net --username sshuser --password %HDINSIGHT_CLUSTER_PASSWORD% -t cluster
+    az ml computetarget attach cluster --name myhdi --address %HDINSIGHT_CLUSTER_NAME%-ssh.azurehdinsight.net --username sshuser --password %HDINSIGHT_CLUSTER_PASSWORD%
     ```
 
     이 명령은 두 파일(`myhdi.runconfig` 및 `myhdi.compute`)을 프로젝트의 `aml_config` 폴더에 추가합니다.

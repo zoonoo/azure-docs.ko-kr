@@ -3,7 +3,7 @@ title: "템플릿을 사용하여 Azure VM에서 MSI를 구성하는 방법"
 description: "Azure Resource Manager 템플릿을 사용하여 Azure VM에서 MSI(관리 서비스 ID)를 구성하기 위한 단계별 지침을 제공합니다."
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: daveba
 manager: mtillman
 editor: 
 ms.service: active-directory
@@ -12,12 +12,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
-ms.author: bryanla
-ms.openlocfilehash: 047c4f69ae520c730d063246d41702207c55a0b0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: daveba
+ms.openlocfilehash: 814cc66b2138932a250223570d04c63e409df7cf
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="configure-a-vm-managed-service-identity-by-using-a-template"></a>템플릿을 사용하여 VM 관리 서비스 ID 구성
 
@@ -42,7 +42,7 @@ Azure Portal 및 스크립팅을 사용할 때와 마찬가지로, Azure Resourc
 
 선택한 옵션에 관계 없이 초기 배포 및 재배포 시 템플릿 구문은 동일합니다. 기존 또는 새 VM에서 동일한 방식으로 MSI를 사용합니다. 또한 기본적으로 Azure Resource Manager는 배포에 대해 [증분 업데이트](../azure-resource-manager/resource-group-template-deploy.md#incremental-and-complete-deployments)를 수행합니다.
 
-1. Azure에 로컬로 로그인하든지 또는 Azure Portal을 통해 로그인하든지 상관없이 VM을 포함하는 Azure 구독과 연결된 계정을 사용합니다. 또한 계정이 VM에 대한 쓰기 권한을 부여하는 역할에 속해야 합니다(예: "가상 컴퓨터 참여자" 역할).
+1. Azure에 로컬로 로그인하든지 또는 Azure Portal을 통해 로그인하든지 상관없이 VM을 포함하는 Azure 구독과 연결된 계정을 사용합니다. 또한 계정이 VM에 대한 쓰기 권한을 부여하는 역할에 속해야 합니다(예: "Virtual Machine 참여자" 역할).
 
 2. 템플릿을 편집기에 로드한 후 `resources` 섹션 내에서 원하는 `Microsoft.Compute/virtualMachines` 리소스를 찾습니다. 사용 중인 편집기와 템플릿을 편집 중인 배포(새 배포 또는 기존 배포)에 따라 실제 리소스는 다음 스크린샷과 약간 다를 수 있습니다.
 
@@ -96,7 +96,7 @@ Azure Portal 및 스크립팅을 사용할 때와 마찬가지로, Azure Resourc
 
 MSI가 더 이상 필요하지 않은 VM이 있는 경우 다음을 수행합니다.
 
-1. Azure에 로컬로 로그인하든지 또는 Azure Portal을 통해 로그인하든지 상관없이 VM을 포함하는 Azure 구독과 연결된 계정을 사용합니다. 또한 계정이 VM에 대한 쓰기 권한을 부여하는 역할에 속해야 합니다(예: "가상 컴퓨터 참여자" 역할).
+1. Azure에 로컬로 로그인하든지 또는 Azure Portal을 통해 로그인하든지 상관없이 VM을 포함하는 Azure 구독과 연결된 계정을 사용합니다. 또한 계정이 VM에 대한 쓰기 권한을 부여하는 역할에 속해야 합니다(예: "Virtual Machine 참여자" 역할).
 
 2. 앞 섹션에서 추가한 두 요소 VM의 `"identity"` 속성 및 `"Microsoft.Compute/virtualMachines/extensions"` 리소스를 제거합니다.
 

@@ -5,16 +5,16 @@ services: azure-policy
 keywords: 
 author: bandersmsft
 ms.author: banders; nini
-ms.date: 11/06/2017
+ms.date: 01/17/2018
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 8ffa4c22c39bcd241b36b55bbcba24ac3f75fff2
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 37fdb8156e4507046a574ba681e2ea3f6909c4a6
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="what-is-azure-policy"></a>Azure Policy이란?
 
@@ -38,7 +38,7 @@ Azure Policy는 정책 정의를 만들고, 할당하고, 관리하는 데 사�
 
 모든 정책 정의에는 정책이 적용되는 조건이 있습니다. 그리고 조건이 충족될 때 발생하는 부수적인 작업이 있습니다.
 
-Azure Policy에는 기본적으로 사용 가능한 몇 가지 기본 제공 정책이 있습니다. 예:
+Azure Policy에는 기본적으로 사용 가능한 몇 가지 기본 제공 정책이 있습니다. 예: 
 
 - **SQL Server 12.0 필요**: 이 정책 정의에는 모든 SQL Server가 버전 12.0을 사용하는지 확인하는 조건/규칙이 있습니다. 이 작업은 이 기준에 부합하지 않는 모든 서버를 거부하는 것입니다.
 - **저장소 계정 SKU 허용**: 이 정책 정의에는 배포 중인 저장소 계정이 SKU 크기 집합 범위 안에 있는지 판단하는 조건/규칙 집합이 있습니다. 그 작업은 정의된 SKU 집합을 준수하지 않는 모든 서버를 거부하는 것입니다.

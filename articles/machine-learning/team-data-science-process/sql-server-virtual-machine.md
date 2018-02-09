@@ -1,6 +1,6 @@
 ---
 title: "Azure의 SQL Server 가상 컴퓨터에서 데이터 탐색 | Microsoft Docs"
-description: "Azure의 SQL Server 가상 컴퓨터에서 데이터를 탐색하고 기능 생성"
+description: "Azure의 SQL Server 가상 머신에서 데이터를 탐색하고 기능 생성"
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: fashah;garye;bradsev
-ms.openlocfilehash: 063709a22540e22d1eb6f1c6a6ff777e95f6a29a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: garye;bradsev
+ms.openlocfilehash: 6a97e1afb761191874b7a54b1951cb6ef9c4b07e
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="heading"></a>Azure의 SQL Server 가상 컴퓨터에서 데이터 처리
 이 문서에서는 Azure의 SQL Server VM에 저장된 데이터를 탐색하고 데이터에 대한 기능을 생성하는 방법에 대해 알아봅니다. 이렇게 하려면 SQL을 사용하여 데이터 랭글링을 수행하거나 Python과 같은 프로그래밍 언어를 사용합니다.
@@ -118,7 +118,7 @@ SQL Server에서 데이터 저장소를 탐색하는 데 사용할 수 있는 �
 > 
 
 ### <a name="sql-aml"></a>Azure 기계 학습에 연결
-새로 생성한 기능을 기존 테이블에 열로 추가하거나, 새 테이블에 저장하여 기계 학습을 위해 원래 테이블과 조인할 수 있습니다. Azure 기계 학습에서는 아래 표시된 대로 [데이터 가져오기][import-data] 모듈을 사용하여 기능을 생성하거나 액세스(이미 만든 경우)할 수 있습니다.
+새로 생성한 기능을 기존 테이블에 열로 추가하거나, 새 테이블에 저장하여 기계 학습을 위해 원래 테이블과 조인할 수 있습니다. Azure Machine Learning에서는 아래 표시된 대로 [데이터 가져오기][import-data] 모듈을 사용하여 기능을 생성하거나 액세스(이미 만든 경우)할 수 있습니다.
 
 ![azureml 판독기][1] 
 

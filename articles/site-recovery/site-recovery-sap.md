@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: manayar
-ms.openlocfilehash: 5a47acab598e113ef7ed968dd3a6429ac3bc1ec3
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 96dc9bc81b8889e2e962c9c2dbf119ee985ec2f1
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="protect-a-multi-tier-sap-netweaver-application-deployment-using-azure-site-recovery"></a>Azure Site Recovery를 사용하여 다중 SAP NetWeaver 응용 프로그램 배포 보호 
 
@@ -35,7 +35,7 @@ Azure Site Recovery를 통해 다음을 수행할 수 있습니다.
 ## <a name="prerequisites"></a>필수 조건
 시작하기 전에 다음 항목을 이해해야 합니다.
 
-1. [Azure에 가상 컴퓨터 복제](azure-to-azure-walkthrough-enable-replication.md)
+1. [Azure에 가상 머신 복제](azure-to-azure-walkthrough-enable-replication.md)
 2. 방법: [복구 네트워크 디자인](site-recovery-azure-to-azure-networking-guidance.md)
 3. [Azure로 테스트 장애 조치 수행](azure-to-azure-walkthrough-test-failover.md)
 4. [Azure로 장애 조치 수행](site-recovery-failover.md)
@@ -69,10 +69,10 @@ SAP 데이터베이스 지속성 계층은 SQL Server AlwaysOn, Oracle DataGuard
 
 Azure Site Recovery는 (A)SCS를 포함한 응용 프로그램 계층에 권장됩니다. 비 NetWeaver SAP 응용 프로그램 및 비 SAM 응용 프로그램 같은 기타 응용 프로그램은 전체 SAP 배포 환경의 일부를 구성하며 역시 Azure Site Recovery로 보호되어야 합니다.
 
-## <a name="replicate-virtual-machines"></a>가상 컴퓨터 복제
-[이 지침](azure-to-azure-walkthrough-enable-replication.md)에 따라 모든 SAP 응용 프로그램 가상 컴퓨터를 Azure DR 데이터 센터로 복제합니다.
+## <a name="replicate-virtual-machines"></a>가상 머신 복제
+[이 지침](azure-to-azure-walkthrough-enable-replication.md)에 따라 모든 SAP 응용 프로그램 가상 머신을 Azure DR 데이터 센터로 복제합니다.
 
-고정 IP를 사용하는 경우 Compute 및 네트워크 설정의 네트워크 인터페이스 카드 섹션에서 가상 컴퓨터가 사용할 IP를 지정합니다.
+고정 IP를 사용하는 경우 Compute 및 네트워크 설정의 네트워크 인터페이스 카드 섹션에서 가상 머신이 사용할 IP를 지정합니다.
 
 ![대상 IP](./media/site-recovery-sap/sap-static-ip.png)
 
@@ -81,10 +81,10 @@ Azure Site Recovery는 (A)SCS를 포함한 응용 프로그램 계층에 권장�
 복구 계획을 사용하면 다중 계층 응용 프로그램에서 다양한 계층의 장애 조치를 시퀀싱하여 응용 프로그램의 일관성을 유지할 수 있습니다. 다중 계층 웹 응용 프로그램에 대한 복구 계획을 만드는 동안 [여기](site-recovery-create-recovery-plans.md)서 설명한 단계를 수행합니다.
 
 ### <a name="adding-scripts-to-the-recovery-plan"></a>복구 계획에 스크립트 추가
-장애 조치/테스트 장애 조치 후에 응용 프로그램이 올바르게 작동하도록 Azure 가상 컴퓨터에서 일부 작업을 수행해야 할 수 있습니다. [이 문서](site-recovery-create-recovery-plans.md#add-scripts)에서 설명한 대로 복구 계획에서 해당 스크립트를 추가하여 DNS 항목 업데이트, 바인딩 및 연결 변경 등과 같은 사후 장애 조치 작업을 자동화할 수 있습니다.
+장애 조치/테스트 장애 조치 후에 응용 프로그램이 올바르게 작동하도록 Azure 가상 머신에서 일부 작업을 수행해야 할 수 있습니다. [이 문서](site-recovery-how-to-add-vmmscript.md)에서 설명한 대로 복구 계획에서 해당 스크립트를 추가하여 DNS 항목 업데이트, 바인딩 및 연결 변경 등과 같은 사후 장애 조치 작업을 자동화할 수 있습니다.
 
 ### <a name="dns-update"></a>DNS 업데이트
-DNS가 동적 DNS 업데이트를 위해 구성된 경우 일반적으로 가상 컴퓨터를 시작할 때 새 IP로 DNS를 업데이트합니다. 가상 컴퓨터의 새 IP로 DNS를 업데이트하는 명시적인 단계를 추가하려면 복구 계획 그룹의 사후 작업으로 [DNS의 IP를 업데이트하는 스크립트](https://aka.ms/asr-dns-update)를 추가합니다.  
+DNS가 동적 DNS 업데이트를 위해 구성된 경우 일반적으로 가상 머신을 시작할 때 새 IP로 DNS를 업데이트합니다. 가상 머신의 새 IP로 DNS를 업데이트하는 명시적인 단계를 추가하려면 복구 계획 그룹의 사후 작업으로 [DNS의 IP를 업데이트하는 스크립트](https://aka.ms/asr-dns-update)를 추가합니다.  
 
 ## <a name="example-azure-to-azure-deployment"></a>Azure-Azure 배포 예제
 다음 다이어그램에서는 Azure Site Recovery Azure-Azure DR 시나리오를 설명합니다.

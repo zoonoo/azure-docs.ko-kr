@@ -1,9 +1,9 @@
 ---
-title: "Azure RBAC 문제 해결 | Microsoft Docs"
+title: "Azure RBAC 역할 기반 액세스 제어 문제 해결 | Microsoft Docs"
 description: "역할 기반 Access Control 리소스에 대해 발생하는 문제 또는 질문 사항에 대한 도움말을 봅니다."
 services: azure-portal
 documentationcenter: na
-author: andredm7
+author: curtand
 manager: mtillman
 ms.assetid: df42cca2-02d6-4f3c-9d56-260e1eb7dc44
 ms.service: active-directory
@@ -11,21 +11,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
-ms.author: andredm
+ms.date: 01/14/2018
+ms.author: curtand
 ms.reviewer: rqureshi
-ms.openlocfilehash: b7155ed7613d46329229d8e572c75400041022ce
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: 8ca6c53b24c3e708d4631becabcedc523d436d6b
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/17/2018
 ---
-# <a name="role-based-access-control-troubleshooting"></a>역할 기반 Access Control 문제 해결
+# <a name="troubleshooting-azure-role-based-access-control"></a>Azure 역할 기반 액세스 제어 문제 해결 
 
 이 문서에서는 역할과 함께 부여되는 특정 액세스 권한에 대한 일반적인 질문에 대한 답변을 제공합니다. 따라서 Azure Portal에서 역할을 사용할 때 예상되는 상황을 이해하고 액세스 문제를 해결하는 데 도움이 될 수 있습니다. 이러한 세 가지 역할이 모든 리소스 유형에 적용됩니다.
 
 * 소유자  
-* 참여자  
+* 참가자  
 * 판독기  
 
 소유자와 참여자 양쪽 모두 관리 환경에 대한 모든 권한을 가집니다. 하지만, 참여자의 경우 다른 사용자나 그룹에 액세스 권한을 부여할 수 없다는 것입니다. 읽기 권한자 역할은 좀 더 복잡하므로 자세히 파악해야 합니다. 액세스를 부여하는 방법에 대한 세부 정보는 [역할 기반 Access Control 시작 문서](role-based-access-control-configure.md)를 참조하세요.
@@ -57,7 +58,7 @@ ms.lasthandoff: 12/11/2017
 다음 항목을 사용하려면 웹 사이트에 해당하는 **App Service 계획**에 대한 **쓰기** 권한이 필요합니다.  
 
 * 웹앱의 가격 책정 계층 보기(무료 또는 표준)  
-* 크기 조정 구성(인스턴스 수, 가상 컴퓨터 크기, 자동 크기 조정 설정)  
+* 크기 조정 구성(인스턴스 수, 가상 머신 크기, 자동 크기 조정 설정)  
 * 할당량(저장소, 대역폭, CPU)  
 
 다음 항목을 사용하려면 웹 사이트를 포함하는 전체 **리소스 그룹**에 대한 **쓰기** 권한이 필요합니다.  
@@ -68,19 +69,19 @@ ms.lasthandoff: 12/11/2017
 * Application Insights 구성 요소  
 * 웹 테스트  
 
-## <a name="virtual-machine-workloads"></a>가상 컴퓨터 작업
-웹앱과 마찬가지로 가상 컴퓨터 블레이드의 일부 기능 역시 가상 컴퓨터 또는 리소스 그룹의 기타 리소스에 대한 쓰기 권한이 있어야 사용할 수 있습니다.
+## <a name="virtual-machine-workloads"></a>가상 머신 작업
+웹앱과 마찬가지로 가상 머신 블레이드의 일부 기능 역시 가상 머신 또는 리소스 그룹의 기타 리소스에 대한 쓰기 권한이 있어야 사용할 수 있습니다.
 
-가상 컴퓨터는 도메인 이름, 가상 네트워크, 저장소 계정 및 경고 규칙과 관련이 있습니다.
+가상 머신은 도메인 이름, 가상 네트워크, 저장소 계정 및 경고 규칙과 관련이 있습니다.
 
-다음 항목을 사용하려면 **가상 컴퓨터**에 대한 **쓰기** 권한이 필요합니다.
+다음 항목을 사용하려면 **가상 머신**에 대한 **쓰기** 권한이 필요합니다.
 
-* 끝점  
+* Endpoints  
 * IP 주소  
 * 디스크  
 * 확장  
 
-다음 항목을 사용하려면 **가상 컴퓨터**와 가상 컴퓨터가 속한 **리소스 그룹**(도메인 이름 포함) 둘 다에 대한 **쓰기** 권한이 필요합니다.  
+다음 항목을 사용하려면 **가상 머신**와 가상 머신이 속한 **리소스 그룹**(도메인 이름 포함) 둘 다에 대한 **쓰기** 권한이 필요합니다.  
 
 * 가용성 집합  
 * 부하 분산된 집합  

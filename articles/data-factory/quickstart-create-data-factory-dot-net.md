@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 09/06/2017
+ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 5345c0fa6212127e9821adccc8cb4c339ce7ae28
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.openlocfilehash: b430f5932bcd54d5e2ab787fb6c4491b48dbc416
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="create-a-data-factory-and-pipeline-using-net-sdk"></a>.NET SDK를 사용하여 데이터 팩터리 및 파이프라인 만들기
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -114,10 +114,10 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
 Visual Studio 2013/2015/2017을 사용하여 C# .NET 콘솔 응용 프로그램을 만듭니다.
 
 1. **Visual Studio**를 시작합니다.
-2. **파일**을 클릭하고 **새로 만들기**를 가리킨 다음 **프로젝트**를 클릭합니다.
+2. **File**을 클릭하고 **New**를 가리킨 다음 **프로젝트**를 클릭합니다.
 3. 오른쪽의 프로젝트 형식 목록에서 **Visual C#** -> **콘솔 앱(.NET Framework)**을 차례로 선택합니다. .NET 버전 4.5.2 이상이 필요합니다.
 4. 이름에 **ADFv2QuickStart**를 입력합니다.
-5. **확인** 을 클릭하여 프로젝트를 만듭니다.
+5. **확인**을 클릭하여 프로젝트를 만듭니다.
 
 ## <a name="install-nuget-packages"></a>NuGet 패키지 설치
 
@@ -303,7 +303,7 @@ Console.WriteLine(SafeJsonConvert.SerializeObject(pipeline, client.Serialization
 
 ## <a name="create-a-pipeline-run"></a>파이프라인 실행 만들기
 
-**파이프라인 실행을 트리거하는** **Main** 메서드에 다음 코드를 추가합니다.
+**Main** 메서드에 **파이프라인 실행**을 트리거하는 다음 코드를 추가합니다.
 
 이 코드는 파이프라인에 지정된 **inputPath** 및 **outputPath** 매개 변수의 값을 원본 및 싱크 Blob 경로의 실제 값으로 설정합니다.
 
@@ -358,7 +358,7 @@ Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
 
 응용 프로그램을 빌드하고 시작한 다음 파이프라인 실행을 확인합니다.
 
-콘솔에서 데이터 팩터리, 연결된 서비스, 데이터 집합, 파이프라인 및 파이프라인 실행 만들기에 대한 진행 상황을 출력합니다. 그런 다음 파이프라인 실행 상태를 확인합니다. 데이터 읽기/쓰기 크기와 함께 복사 활동 실행 세부 정보가 표시될 때까지 기다립니다. 그런 다음 [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)와 같은 도구를 사용하여 Blob이 변수에 지정한 대로 “inputBlobPath”에서 “outputBlobPath”로 복사되었는지 검사합니다.
+콘솔에서 데이터 팩터리, 연결된 서비스, 데이터 집합, 파이프라인 및 파이프라인 실행 만들기에 대한 진행 상황을 출력합니다. 그런 다음 파이프라인 실행 상태를 확인합니다. 데이터를 읽고/쓴 크기가 있는 복사 작업 실행 세부 정보가 표시될 때까지 기다립니다. 그런 다음 [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)와 같은 도구를 사용하여 Blob이 변수에 지정한 대로 “inputBlobPath”에서 “outputBlobPath”로 복사되었는지 검사합니다.
 
 ### <a name="sample-output"></a>샘플 출력: 
 ```json

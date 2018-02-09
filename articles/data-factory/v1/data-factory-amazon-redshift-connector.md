@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2017
+ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: d423304c84bd03477f5e9ee2edb4763e2ae8d5b5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 47a9feaa692eaf048371b4e534e6b2e8c4086997
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Azure 데이터 팩터리를 사용하여 Amazon Redshift에서 데이터 이동
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -61,7 +61,7 @@ Azure Portal, Visual Studio, Azure PowerShell 또는 다른 도구를 사용하�
 
 다음 표에 Amazon Redshift 연결된 서비스와 관련된 JSON 요소에 대한 설명이 나와 있습니다.
 
-| 속성 | 설명 | 필수 |
+| 자산 | 설명 | 필수 |
 | --- | --- | --- |
 | **type** |이 속성은 **AmazonRedshift**로 설정되어야 합니다. |예 |
 | **server** |Amazon Redshift 서버의 IP 주소 또는 호스트 이름입니다. |예 |
@@ -76,7 +76,7 @@ Azure Portal, Visual Studio, Azure PowerShell 또는 다른 도구를 사용하�
 
 **typeProperties** 섹션은 데이터 집합의 각 형식에 따라 다르며 저장소에 있는 데이터의 위치에 대한 정보를 제공합니다. **RelationalTable** 형식(Amazon Redshift 데이터 집합을 포함)의 데이터 집합에 대한 **typeProperties** 섹션에는 다음 속성이 있습니다.
 
-| 속성 | 설명 | 필수 |
+| 자산 | 설명 | 필수 |
 | --- | --- | --- |
 | **tableName** |연결된 서비스가 참조하는 Amazon Redshift 데이터베이스에서 테이블의 이름입니다. |아니요(**RelationalSource** 형식 복사 활동의 **query** 속성이 지정된 경우) |
 
@@ -86,7 +86,7 @@ Azure Portal, Visual Studio, Azure PowerShell 또는 다른 도구를 사용하�
 
 복사 활동의 경우 원본이 **AmazonRedshiftSource** 형식인 경우 **typeProperties** 섹션에서 다음과 같은 속성을 사용할 수 있습니다.
 
-| 속성 | 설명 | 필수 |
+| 자산 | 설명 | 필수 |
 | --- | --- | --- |
 | **query** | 사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |아니요(데이터 집합의 **tableName** 속성이 지정된 경우) |
 | **redshiftUnloadSettings** | Redshift **UNLOAD** 명령을 사용하는 경우 속성 그룹을 포함합니다. | 아니요 |
@@ -95,7 +95,7 @@ Azure Portal, Visual Studio, Azure PowerShell 또는 다른 도구를 사용하�
 
 또는 **typeProperties** 섹션의 다음 속성과 함께 **RelationalSource**(Amazon Redshift 포함) 형식도 사용할 수 있습니다. 이 원본 유형은 Redshift **UNLOAD** 명령을 지원하지 않습니다.
 
-| 속성 | 설명 | 필수 |
+| 자산 | 설명 | 필수 |
 | --- | --- | --- |
 | **query** |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. | 아니요(데이터 집합의 **tableName** 속성이 지정된 경우) |
 
@@ -334,15 +334,15 @@ Amazon Redshift [ **UNLOAD** ](http://docs.aws.amazon.com/redshift/latest/dg/r_U
 | SmallInt |Int16 |
 | INTEGER |Int32 |
 | BIGINT |Int64 |
-| DECIMAL |DECIMAL |
+| DECIMAL |10진수 |
 | Real |단일 |
 | double precision |Double |
 | BOOLEAN |문자열 |
 | CHAR |문자열 |
 | VARCHAR |문자열 |
-| DATE |DateTime |
-| TIMESTAMP |DateTime |
-| TEXT |String |
+| DATE |Datetime |
+| TIMESTAMP |Datetime |
+| TEXT |문자열 |
 
 ## <a name="map-source-to-sink-columns"></a>원본을 싱크 열로 매핑
 원본 데이터 집합의 열을 싱크 데이터 집합의 열에 매핑하는 방법을 알아보려면 [Azure Data Factory의 데이터 집합 열 매핑](data-factory-map-columns.md)을 참조하세요.

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/11/2017
 ms.author: kuhussai
-ms.openlocfilehash: b8f0f899dff0f9e238017cb77126b3ca1275f3cd
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: be84f68a044a73673e991f04c7fe36a7787b9c3c
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-storage-tiers"></a>Azure Blob Storage: 핫, 쿨 및 보관 저장소 계층
 
@@ -113,7 +113,7 @@ GB당 요금 및 월정액 이외에도 쿨 계층으로 이동된 모든 Blob(G
 
 ### <a name="change-the-default-account-access-tier-of-a-gpv2-or-blob-storage-account"></a>GPv2 또는 Blob Storage 계정의 기본 계정 액세스 계층을 변경합니다.
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 2. 저장소 계정으로 이동하려면 모든 리소스를 선택하고 저장소 계정을 선택합니다.
 
@@ -125,7 +125,7 @@ GB당 요금 및 월정액 이외에도 쿨 계층으로 이동된 모든 Blob(G
 
 ### <a name="change-the-tier-of-a-blob-in-a-gpv2-or-blob-storage-account"></a>GPv2 또는 Blob Storage 계정의 계층을 변경합니다.
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 2. 저장소 계정에서 Blob으로 이동하려면 모든 리소스를 선택하고 저장소 계정을 선택하고 컨테이너를 선택한 다음 Blob을 선택합니다.
 
@@ -151,7 +151,7 @@ GPv1과 GPv2 계정 간에 가격 책정 구조가 다르며 고객은 GPv2 계�
 
 **기본 계정 액세스 계층을 보관 계층으로 설정할 수 있나요?**
 
-아니요. 핫 및 쿨 저장소 계층만을 기본 계정 액세스 계층으로 설정할 수 있습니다. 보관은 개체 수준에서만 설정할 수 있습니다.
+번호 핫 및 쿨 저장소 계층만을 기본 계정 액세스 계층으로 설정할 수 있습니다. 보관은 개체 수준에서만 설정할 수 있습니다.
 
 **핫, 쿨 및 보관 저장소 계층에서 사용할 수 있는 지역은 어디인가요?**
 
@@ -189,7 +189,7 @@ Azure Portal, PowerShell과 CLI 도구 및 .NET, Java, Python과 Node.js 클라�
 
 ## <a name="next-steps"></a>다음 단계
 
-### <a name="evaluate-hot-cool-and-archvie-in-gpv2-blob-storage-accounts"></a>GPv2 Blob Storage 계정에서 핫, 쿨 및 보관 평가
+### <a name="evaluate-hot-cool-and-archive-in-gpv2-blob-storage-accounts"></a>GPv2 Blob Storage 계정에서 핫, 쿨 및 보관 평가
 
 [지역별 핫, 쿨 및 보관의 가용성 확인](https://azure.microsoft.com/regions/#services)
 

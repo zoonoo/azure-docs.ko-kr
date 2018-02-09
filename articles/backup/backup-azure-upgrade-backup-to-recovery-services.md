@@ -1,5 +1,5 @@
 ---
-title: "Recovery Services 자격 증명 모음(미리 보기)으로 Backup 자격 증명 모음 업그레이드 | Microsoft Docs"
+title: "Recovery Services 자격 증명 모음으로 Backup 자격 증명 모음 업그레이드 | Microsoft Docs"
 description: "Recovery Services 자격 증명 모음으로 Azure Backup 자격 증명 모음을 업그레이드하는 지침 및 지원 정보입니다."
 services: backup
 documentationcenter: dev-center-name
@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/09/2017
+ms.date: 1/4/2018
 ms.author: sogup;markgal;arunak
-ms.openlocfilehash: 4867a43aab1357cb8e01c2ddcef74cdebb41a84a
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 8396a7276fde10eb95a22ed07fa61625acfdd77f
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음으로 Backup 자격 증명 모음 업그레이드
 
@@ -34,7 +34,7 @@ Recovery Services 자격 증명 모음으로 Backup 자격 증명 모음을 업�
 ## <a name="changes-to-your-automation-and-tool-after-upgrading"></a>업그레이드 후에 자동화 및 도구 변경
 
 자격 증명 모음 업그레이드를 위한 인프라를 준비하는 동안 기존 자동화 또는 도구를 업데이트하여 업그레이드 후에 작업을 계속하도록 해야 합니다.
-[서비스 관리자 배포 모델](backup-client-automation-classic.md) 및 [Resource Manager 배포 모델](backup-client-automation.md)에 대한 PowerShell cmdlet 참조를 확인하세요.
+[리소스 관리자 배포 모델](backup-client-automation.md)에 대한 PowerShell cmdlet 참조를 확인하세요.
 
 
 ## <a name="before-you-upgrade"></a>업그레이드하기 전에
@@ -63,7 +63,7 @@ RecoveryServicesVaultUpgrade-1.0.2.ps1 **-SubscriptionID** `<subscriptionID>` **
 **VaultName** - 업그레이드되는 Backup 자격 증명 모음 이름입니다.<br/>
 **Location** - 자격 증명 모음이 업그레이드되는 위치입니다.<br/>
 **ResourceType** - BackupVault를 사용합니다.<br/>
-**TargetResourceGroupName** - 자격 증명 모음을 Resource Manager 기반 배포로 업그레이드하기 때문에 리소스 그룹을 지정합니다. 기존 리소스 그룹을 사용하거나 새 이름을 제공하여 새 리소스 그룹을 만들 수 있습니다. 리소스 그룹의 이름이 잘못된 경우 새 리소스 그룹을 만들 수 있습니다. 리소스 그룹에 대해 자세히 알아보려면 [리소스 그룹에 대한 개요](../azure-resource-manager/resource-group-overview.md#resource-groups)를 참조하세요.
+**TargetResourceGroupName** - 자격 증명 모음을 리소스 관리자 기반 배포로 업그레이드하기 때문에 리소스 그룹을 지정합니다. 기존 리소스 그룹을 사용하거나 새 이름을 제공하여 새 리소스 그룹을 만들 수 있습니다. 리소스 그룹의 이름이 잘못된 경우 새 리소스 그룹을 만들 수 있습니다. 리소스 그룹에 대해 자세히 알아보려면 [리소스 그룹에 대한 개요](../azure-resource-manager/resource-group-overview.md#resource-groups)를 참조하세요.
 
 >[!NOTE]
 > 리소스 그룹 이름에는 제약이 있습니다. 지침을 준수해야 합니다. 그렇지 않으면 자격 증명 모음 업그레이드에 실패할 수 있습니다.
@@ -117,10 +117,10 @@ Recovery Services 자격 증명 모음으로 업그레이드하면 Azure Backup(
 ## <a name="frequently-asked-questions"></a>질문과 대답
 
 **업그레이드 계획이 진행 중인 백업에 영향을 주나요?**</br>
-아니요. 진행 중인 백업은 업그레이드 전후에도 중단되지 않고 계속됩니다.
+번호 진행 중인 백업은 업그레이드 전후에도 중단되지 않고 계속됩니다.
 
 **자격 증명 모음을 곧 업그레이드할 계획이 없다면 어떻게 되나요?**</br>
-새로운 기능이 모두 Recovery Services 자격 증명 모음에만 적용되기 때문에 자격 증명 모음을 업그레이드하는 것이 좋습니다. Microsoft는 클래식 포털에서 사용할 수 없게 됩니다. 2017년 9월 1일부터 Microsoft는 백업 자격 증명 모음을 Recovery Services 자격 증명 모음으로 자동 업그레이드하기 시작합니다. 2017년 11월 30일 이후에는 PowerShell을 사용하여 더 이상 Backup 자격 증명 모음을 만들 수 없습니다. 자격 증명 모음은 이 기간 중 언제든지 자동으로 업그레이드될 수 있습니다. 자격 증명 모음을 가능한 한 빨리 업그레이드하는 것이 좋습니다.
+새로운 기능이 모두 Recovery Services 자격 증명 모음에만 적용되기 때문에 자격 증명 모음을 업그레이드하는 것이 좋습니다. 2017년 9월 1일부터 Microsoft는 백업 자격 증명 모음을 Recovery Services 자격 증명 모음으로 자동 업그레이드하기 시작합니다. 2017년 11월 30일 이후에는 PowerShell을 사용하여 더 이상 Backup 자격 증명 모음을 만들 수 없습니다. 자격 증명 모음은 이 기간 중 언제든지 자동으로 업그레이드될 수 있습니다. 자격 증명 모음을 가능한 한 빨리 업그레이드하는 것이 좋습니다.
 
 **이 업그레이드로 기존 도구는 어떻게 되나요?**</br>
 도구를 Resource Manager 배포 모델로 업데이트합니다. Recovery Services 자격 증명 모음은 Resource Manager 배포 모델에서 사용하기 위해 만들었습니다. Resource Manager 배포 모델을 계획하고 자격 증명 모음의 차이점을 고려하는 것이 중요합니다. 
@@ -129,19 +129,16 @@ Recovery Services 자격 증명 모음으로 업그레이드하면 Azure Backup(
 업그레이드하는 리소스의 수에 따라 달라집니다. 소규모 배포(보호된 인스턴스가 수십 개)의 경우 전체 업그레이드는 20분이 걸리지 않습니다. 대규모 배포의 경우에 최대 1시간이 걸립니다.
 
 **업그레이드한 후에 롤백할 수 있나요?**</br>
-아니요. 리소스를 성공적으로 업그레이드한 후에는 롤백이 지원되지 않습니다.
+번호 리소스를 성공적으로 업그레이드한 후에는 롤백이 지원되지 않습니다.
 
 **내 구독 또는 리소스에서 업그레이드가 가능한지 확인할 수 있나요?**</br>
 예. 업그레이드의 첫 번째 단계는 리소스를 업그레이드할 수 있는지 유효성을 검사합니다. 필수 구성 요소의 유효성 검사 작업이 실패하는 경우, 업그레이드를 완료할 수 없는 모든 원인에 대한 모든 메시지가 나타납니다.
-
-**자격 증명 모음 업그레이드를 트리거하는 데 어떤 사용 권한이 필요한가요?**</br>
-이 업그레이드를 수행하려면 Azure 클래식 포털에서 구독의 공동 관리자로 추가되어야 합니다. Azure Portal에서 소유자로 이미 나열된 경우에도 이 작업이 필요합니다. 구독에 대한 공동 관리자인지 확인하려면 Azure 클래식 포털에서 구독에 대한 공동 관리자를 추가해 보세요. 공동 관리자를 추가할 수 없으면 사용자를 공동 관리자로 추가할 수 있는 구독의 서비스 관리자 또는 공동 관리자에게 문의하세요.
 
 **CSP 기반 Backup 자격 증명 모음을 업그레이드할 수 있나요?**</br>
 번호 CSP 기반 백업 자격 증명 모음을 현재 업그레이드할 수 없습니다. 다음 릴리스에서 CSP 기반 Backup 자격 증명 모음을 업그레이드하는 지원을 추가할 예정입니다.
 
 **클래식 자격 증명 모음을 업그레이드한 이후를 볼 수 있나요?**</br>
-아니요. 클래식 자격 증명을 업그레이드한 이후를 보거나 관리할 수 없습니다. 자격 증명 모음에 있는 모든 관리 작업에 새 Azure Portal을 사용할 수만 있습니다.
+번호 클래식 자격 증명을 업그레이드한 이후를 보거나 관리할 수 없습니다. 자격 증명 모음에 있는 모든 관리 작업에 새 Azure Portal을 사용할 수만 있습니다.
 
 **내 업그레이드에 실패했지만 업데이트가 필요한 에이전트를 보유한 컴퓨터가 더 이상 존재하지 않습니다. 이러한 경우 어떻게 해야 하나요?**</br>
 장기 보존을 위해 이 컴퓨터의 백업 저장소를 사용해야 하는 경우 자격 증명 모음을 업그레이드할 수 없습니다. 이후 릴리스에서 이러한 자격 증명 모음을 업그레이드하는 지원을 추가할 예정입니다.

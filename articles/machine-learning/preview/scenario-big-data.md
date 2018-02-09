@@ -7,6 +7,7 @@ author: daden
 manager: mithal
 editor: daden
 ms.assetid: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: daden
-ms.openlocfilehash: c7ed8e695097d0cf2f5c99f8ccf3378c4e553c3b
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: f2482c7a47c72d192f26f3d8d9b9249af53da25d
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="server-workload-forecasting-on-terabytes-of-data"></a>TB 단위의 데이터에 대한 서버 작업 예측
 
@@ -41,14 +42,16 @@ Machine Learning Workbench의 다음 주요 기능에 대해 알아봅니다.
 이 시나리오에서는 각 컴퓨터(또는 서버)에 대한 워크로드 예측에 중점을 둡니다. 특히 각 서버의 세션 데이터를 사용하여 향후 서버의 워크로드 클래스를 예측합니다. [Apache Spark ML](https://spark.apache.org/docs/2.1.1/ml-guide.html)의 임의 포리스트 분류자를 사용하여 각 서버의 로드를 낮음, 중간 및 높음 클래스로 분류합니다. 이 예제의 기계 학습 기술 및 워크플로는 다른 유사한 문제로 쉽게 확장될 수 있습니다. 
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 예제를 실행하기 위한 필수 조건은 다음과 같습니다.
 
 * [Azure 계정](https://azure.microsoft.com/free/)(평가판 사용 가능)
-* [Machine Learning Workbench](./overview-what-is-azure-ml.md)의 설치된 복사본 프로그램을 설치하고 작업 영역을 만들려면 [빠른 시작 설치 가이드](./quickstart-installation.md)를 참조하세요.
+* 설치된 [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) 복사본. 프로그램을 설치하고 작업 영역을 만들려면 [빠른 시작 설치 가이드](./quickstart-installation.md)를 참조하세요. 구독이 여러 개 있는 경우 [원하는 구독을 현재 활성 구독으로 설정](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az_account_set)할 수 있습니다.
 * Windows 10(이 예제의 지침은 일반적으로 macOS 시스템에 대해 동일함)
-* Linux(Ubuntu)용 DSVM(데이터 과학 가상 컴퓨터) [이러한 지침](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-provision-vm)에 따라 Ubuntu DSVM을 프로비전할 수 있습니다. [이 빠른 시작](https://ms.portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu)을 참조할 수도 있습니다. 적어도 8개의 코어와 32GB의 메모리가 있는 가상 컴퓨터를 사용하는 것이 좋습니다. 이 예제를 시도하려면 DSVM IP 주소, 사용자 이름 및 암호가 필요합니다. 이후 단계를 위해 DSVM 정보와 함께 다음 표를 저장합니다.
+* 가급적이면 데이터가 있는 미국 동부 지역에 위치한 Linux(Ubuntu)용 DSVM(데이터 과학 가상 머신). [이러한 지침](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro)에 따라 Ubuntu DSVM을 프로비전할 수 있습니다. [이 빠른 시작](https://ms.portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu)을 참조할 수도 있습니다. 적어도 8개의 코어와 32GB의 메모리가 있는 가상 컴퓨터를 사용하는 것이 좋습니다. 
+
+[지침](https://docs.microsoft.com/azure/machine-learning/preview/known-issues-and-troubleshooting-guide#remove-vm-execution-error-no-tty-present)에 따라 AML Workbench에 대한 VM에 암호 없이 sudoer 액세스할 수 있도록 설정합니다.  [AML Workbench에서 VM을 만들어 사용할 때 SSH 키 기반 인증을 사용](https://docs.microsoft.com/azure/machine-learning/preview/experimentation-service-configuration#using-ssh-key-based-authentication-for-creating-and-using-compute-targets)하도록 선택할 수 있습니다. 이 예제에서는 암호를 사용하여 VM에 액세스합니다.  이후 단계를 위해 DSVM 정보와 함께 다음 표를 저장합니다.
 
  필드 이름| 값 |  
  |------------|------|
@@ -56,9 +59,10 @@ DSVM IP 주소 | xxx|
  사용자 이름  | xxx|
  암호   | xxx|
 
+
  [Docker 엔진](https://docs.docker.com/engine/)이 설치된 VM을 사용하도록 선택할 수 있습니다.
 
-* Hortonworks Data Platform 버전 3.6 및 Spark 버전 2.1.x가 있는 HDInsight Spark Cluster HDInsight 클러스터를 만드는 방법에 대한 세부 정보는 [Azure HDInsight에서 Apache Spark 클러스터 만들기](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-jupyter-spark-sql)를 방문하세요. 16 코어 및 112GB의 메모리가 있는 각각의 작업자에 3작업자 클러스터를 사용하는 것이 좋습니다. 또는 헤드 노드에 대해 VM 유형 `D12 V2`를 선택하고 작업자 노드에 대해 `D14 V2`를 선택할 수 있습니다. 클러스터 배포에는 약 20분이 소요됩니다. 이 예제를 사용하려면 클러스터 이름, SSH 사용자 이름 및 암호가 필요합니다. 이후 단계를 위해 Azure HDInsight 클러스터 정보와 함께 다음 표를 저장합니다.
+* 가급적이면 데이터가 있는 미국 동부 지역에 위치한 Hortonworks Data Platform 버전 3.6 및 Spark 버전 2.1.x가 있는 HDInsight Spark Cluster. HDInsight 클러스터를 만드는 방법에 대한 세부 정보는 [Azure HDInsight에서 Apache Spark 클러스터 만들기](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters)를 방문하세요. 16 코어 및 112GB의 메모리가 있는 각각의 작업자에 3작업자 클러스터를 사용하는 것이 좋습니다. 또는 헤드 노드에 대해 VM 유형 `D12 V2`를 선택하고 작업자 노드에 대해 `D14 V2`를 선택할 수 있습니다. 클러스터 배포에는 약 20분이 소요됩니다. 이 예제를 사용하려면 클러스터 이름, SSH 사용자 이름 및 암호가 필요합니다. 이후 단계를 위해 Azure HDInsight 클러스터 정보와 함께 다음 표를 저장합니다.
 
  필드 이름| 값 |  
  |------------|------|
@@ -91,24 +95,24 @@ DSVM IP 주소 | xxx|
 
 ## <a name="data-description"></a>데이터 설명
 
-이 예제에서 사용된 데이터는 합성된 서버 작업 데이터입니다. 공개적으로 액세스할 수 있는 Azure Blob 저장소 계정에서 호스팅됩니다. 특정 저장소 계정 정보는 [`Config/storageconfig.json`](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Config/fulldata_storageconfig.json)의 `dataFile` 필드에서 확인할 수 있습니다. Blob 저장소에서 직접 데이터를 사용할 수 있습니다. 저장소가 많은 사용자에 의해 동시에 사용되는 경우 [azcopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux)를 사용하여 고유한 저장소로 데이터를 다운로드할 수 있습니다. 
+이 예제에서 사용된 데이터는 합성된 서버 작업 데이터입니다. 미국 동부 지역에서 공개적으로 액세스할 수 있는 Azure Blob Storage 계정에 호스팅됩니다. 특정 저장소 계정 정보는 [`Config/storageconfig.json`](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Config/fulldata_storageconfig.json)의 `dataFile` 필드에서 "wasb://<BlobStorageContainerName>@<StorageAccountName>.blob.core.windows.net/<path>" 형식으로 찾을 수 있습니다. Blob 저장소에서 직접 데이터를 사용할 수 있습니다. 여러 사용자가 저장소를 동시에 사용하는 경우 [azcopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux)를 사용하여 고유한 저장소로 데이터를 다운로드하면 보다 나은 실험 환경을 조성할 수 있습니다. 
 
 총 데이터 크기는 약 1TB입니다. 각 파일은 약 1-3GB이며 헤더가 없는 CSV 파일 형식입니다. 각 데이터 행은 특정 서버에서의 트랜잭션 로드를 나타냅니다. 데이터 스키마의 자세한 정보는 다음과 같습니다.
 
-열 번호 | 필드 이름| 형식 | 설명 |  
+열 번호 | 필드 이름| type | 설명 |  
 |------------|------|-------------|---------------|
-1  | `SessionStart` | Datetime |    세션 시작 시간
-2  |`SessionEnd`    | Datetime | 세션 종료 시간
-3 |`ConcurrentConnectionCounts` | Integer | 동시 연결 수
+1  | `SessionStart` | DateTime |    세션 시작 시간
+2  |`SessionEnd`    | DateTime | 세션 종료 시간
+3 |`ConcurrentConnectionCounts` | 정수  | 동시 연결 수
 4 | `MbytesTransferred` | Double | 정규화된 데이터 전송(메가바이트)
-5 | `ServiceGrade` | Integer |  세션에 대한 서비스 등급
-6 | `HTTP1` | Integer|  세션에서 HTTP1 또는 HTTP2 사용
-7 |`ServerType` | Integer   |서버 유형
+5 | `ServiceGrade` | 정수  |  세션에 대한 서비스 등급
+6 | `HTTP1` | 정수 |  세션에서 HTTP1 또는 HTTP2 사용
+7 |`ServerType` | 정수    |서버 유형
 8 |`SubService_1_Load` | Double |   하위 서비스 1 부하
-9 | `SubService_1_Load` | Double |  하위 서비스 2 부하
-10 | `SubService_1_Load` | Double |     하위 서비스 3 부하
-11 |`SubService_1_Load` | Double |  하위 서비스 4 부하
-12 | `SubService_1_Load`| Double |      하위 서비스 5 부하
+9 | `SubService_2_Load` | Double |  하위 서비스 2 부하
+10 | `SubService_3_Load` | Double |     하위 서비스 3 부하
+11 |`SubService_4_Load` | Double |  하위 서비스 4 부하
+12 | `SubService_5_Load`| Double |      하위 서비스 5 부하
 13 |`SecureBytes_Load`  | Double | 보안 바이트 부하
 14 |`TotalLoad` | Double | 서버의 총 부하
 15 |`ClientIP` | 문자열|    클라이언트 IP 주소
@@ -123,7 +127,7 @@ DSVM IP 주소 | xxx|
 
 이 예제에 있는 파일은 다음과 같이 구성됩니다.
 
-| 파일 이름 | 형식 | 설명 |
+| 파일 이름 | type | 설명 |
 |-----------|------|-------------|
 | `Code` | 폴더 | 폴더는 제의 모든 코드를 포함합니다. |
 | `Config` | 폴더 | 폴더는 구성 파일을 포함합니다. |
@@ -150,11 +154,11 @@ DSVM IP 주소 | xxx|
 
 ### <a name="data-flow"></a>데이터 흐름
 
-[`Code/etl.py`](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Code/etl.py)의 코드는 공개적으로 액세스할 수 있는 컨테이너([`Config/storageconfig.json`](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Config/fulldata_storageconfig.json)의 `dataFile` 필드)에서 데이터를 로드합니다. 데이터 준비 및 기능 엔지니어링을 포함하며 중간 계산 결과 및 모델을 고유한 개인 컨테이너에 저장합니다. [`Code/train.py`](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Code/train.py)의 코드는 개인 컨테이너에서 중간 계산 결과를 로드하고, 다중 클래스 분류 모델을 학습하며, 학습된 기계 학습 모델을 개인 컨테이너에 씁니다. 
+[`Code/etl.py`](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Code/etl.py)의 코드는 공개적으로 액세스할 수 있는 컨테이너([`Config/storageconfig.json`](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Config/fulldata_storageconfig.json)의 `dataFile` 필드)에서 데이터를 로드합니다. 데이터 준비 및 기능 엔지니어링을 포함하며 중간 계산 결과 및 모델을 고유한 개인 컨테이너에 저장합니다. The code in [`Code/train.py`](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Code/train.py) loads the intermediate compute results from the private container, trains the multi-class classification model, and writes the trained machine learning model to the private container. 
 
 1개월 데이터 집합 실험에 하나의 컨테이너를 사용하고 전체 데이터 집합 실험에 또 하나의 컨테이너를 사용해야 합니다. 데이터와 모델은 Parquet 파일로 저장되기 때문에 각 파일은 실제로 컨테이너의 폴더이며 여러 개의 Blob을 포함합니다. 결과 컨테이너 모양은 다음과 같습니다.
 
-| Blob 접두사 이름 | 형식 | 설명 |
+| Blob 접두사 이름 | type | 설명 |
 |-----------|------|-------------|
 | featureScaleModel | Parquet | 숫자 기능용 표준 조정기 모델입니다. |
 | stringIndexModel | Parquet | 숫자가 아닌 기능용 문자열 인덱서 모델입니다.|
@@ -180,7 +184,7 @@ DSVM IP 주소 | xxx|
 
 첫 번째 인수인 `configFilename`은 Blob 저장소 정보를 저장하고 데이터를 로드할 위치를 지정하는 로컬 구성 파일입니다. 기본적으로 [`Config/storageconfig.json`](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Config/storageconfig.json)이며 1개월 데이터 실행에 사용됩니다. 또한 전체 데이터 집합 실행에 사용해야 하는 [`Config/fulldata_storageconfig.json`](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Config/fulldatastorageconfig.json)이 포함됩니다. 구성의 콘텐츠는 다음과 같습니다. 
 
-| 필드 | 형식 | 설명 |
+| 필드 | type | 설명 |
 |-----------|------|-------------|
 | storageAccount | 문자열 | Azure Storage 계정 이름 |
 | storageContainer | 문자열 | 중간 결과를 저장하는 Azure Storage 계정의 컨테이너 |
@@ -270,7 +274,7 @@ DSVM Docker에서 `train.py` 스크립트를 실행합니다.
 
 다음 두 파일은 aml_config 폴더에 만들어집니다.
     
--  myhdo.compute: 이 파일은 원격 실행 대상에 대한 연결 및 구성 정보를 포함합니다.
+-  myhdi.compute: 이 파일은 원격 실행 대상에 대한 연결 및 구성 정보를 포함합니다.
 -  myhdi.runconfig: 이 파일은 Workbench 응용 프로그램 내에서 사용되는 실행 옵션의 집합입니다.
 
 
@@ -324,7 +328,7 @@ Workbench의 오른쪽 사이드바에서 **실행**으로 이동하여 각 Pyth
 
 ### <a name="operationalize-the-model"></a>모델 운영
 
-이 섹션에서는 이전 단계에서 웹 서비스로 만든 모델을 운영합니다. 또한 웹 서비스를 사용하여 작업을 예측하는 방법을 배웁니다. 기계 언어 운영화 CLI(Command-Line Interface)를 사용하여 코드와 종속성을 Docker 이미지로 패키징하고 모델을 컨테이너화된 웹 서비스로 게시합니다. 자세한 내용은 [이 개요](https://github.com/Azure/Machine-Learning-Operationalization/blob/master/documentation/operationalization-overview.md)를 참조하세요.
+이 섹션에서는 이전 단계에서 웹 서비스로 만든 모델을 운영합니다. 또한 웹 서비스를 사용하여 작업을 예측하는 방법을 배웁니다. 기계 언어 운영화 CLI(Command-Line Interface)를 사용하여 코드와 종속성을 Docker 이미지로 패키징하고 모델을 컨테이너화된 웹 서비스로 게시합니다.
 
 Machine Learning Workbench에서 명령줄 프롬프트를 사용하여 CLI를 실행할 수 있습니다.  [설치 가이드](https://github.com/Azure/Machine-Learning-Operationalization/blob/master/documentation/install-on-ubuntu-linux.md)에 따라 Ubuntu Linux에서 CLI를 실행할 수도 있습니다. 
 

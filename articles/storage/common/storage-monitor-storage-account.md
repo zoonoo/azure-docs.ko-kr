@@ -14,29 +14,29 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: tamram
-ms.openlocfilehash: 8c566978531ceb9db9aa7c9e2ba3ab83b2dc67cb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 20cb425b64bfba06d64b3c6c41f9ef496395ad8e
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Azure 포털에서 저장소 계정 모니터링
 
-[Azure 저장소 분석](../storage-analytics.md)은 모든 저장소 서비스에 대한 메트릭과 Blob, 큐 및 테이블에 대한 로그를 제공합니다. [Azure Portal](https://portal.azure.com)을 사용하여 계정에 기록되는 메트릭 및 로그를 구성하고, 메트릭 데이터를 시각적으로 표현하는 차트를 구성할 수 있습니다.
+[Azure Storage 분석](../storage-analytics.md)은 모든 Storage 서비스에 대한 메트릭과 Blob, 큐 및 테이블에 대한 로그를 제공합니다. [Azure Portal](https://portal.azure.com)을 사용하여 계정에 기록되는 메트릭 및 로그를 구성하고, 메트릭 데이터를 시각적으로 표현하는 차트를 구성할 수 있습니다.
 
 > [!NOTE]
 > Azure Portal에서 모니터링 데이터를 검사하는 데 관련된 비용이 있습니다. 자세한 내용은 [저장소 분석 및 청구](/rest/api/storageservices/Storage-Analytics-and-Billing)를 참조하세요.
 >
 > Azure Files는 현재 저장소 분석 메트릭을 지원하지만 아직 로깅을 지원하지 않습니다.
 >
-> 현재 ZRS(영역 중복 저장소) 복제 유형의 저장소 계정에는 메트릭 또는 로깅 기능을 사용하도록 설정할 수 없습니다.
+> ZRS(영역 중복 저장소)의 복제 유형의 저장소 계정은 메트릭 및 로깅을 지원합니다. ZRS 클래식으로 이름이 변경된 이전 ZRS 계정은 메트릭이나 로깅을 지원하지 않습니다. ZRS에 대한 자세한 내용은 [영역 중복 저장소](storage-redundancy.md#zone-redundant-storage)를 참조하세요. 
 > 
-> 저장소 분석 및 기타 도구를 사용하여 Azure 저장소 관련 문제를 식별, 진단 및 해결하는 방법에 대한 자세한 지침은 [Microsoft Azure 저장소 모니터링, 진단 및 문제 해결](../storage-monitoring-diagnosing-troubleshooting.md)을 참조하세요.
+> 저장소 분석 및 기타 도구를 사용하여 Azure Storage 관련 문제를 식별, 진단 및 해결하는 방법에 대한 자세한 지침은 [Microsoft Azure Storage 모니터링, 진단 및 문제 해결](../storage-monitoring-diagnosing-troubleshooting.md)을 참조하세요.
 >
 
 ## <a name="configure-monitoring-for-a-storage-account"></a>저장소 계정에 대한 모니터링 구성
 
-1. [Azure Portal](https://portal.azure.com)에서 **저장소 계정**, 저장소 계정 이름을 차례로 선택하여 계정 대시보드를 엽니다.
+1. [Azure Portal](https://portal.azure.com)에서 **Storage 계정**, Storage 계정 이름을 차례로 선택하여 계정 대시보드를 엽니다.
 1. 메뉴 블레이드의 **모니터링** 섹션에서 **진단**을 선택합니다.
 
     ![모니터링 옵션](./media/storage-monitor-storage-account/stg-enable-metrics-00.png)
@@ -140,7 +140,7 @@ Azure Storage에서 Blob, 테이블 및 큐 서비스에 대한 읽기, 쓰기 �
 > Azure Files는 현재 저장소 분석 메트릭을 지원하지만 아직 로깅을 지원하지 않습니다.
 >
 
-1. [Azure Portal](https://portal.azure.com)에서 **저장소 계정**, 저장소 계정 이름을 차례로 선택하여 저장소 계정 블레이드를 엽니다.
+1. [Azure Portal](https://portal.azure.com)에서 **Storage 계정**, Storage 계정 이름을 차례로 선택하여 Storage 계정 블레이드를 엽니다.
 1. 메뉴 블레이드의 **모니터링** 섹션에서 **진단**을 선택합니다.
 
     ![Azure Portal에서 모니터링 아래의 진단 메뉴 항목](./media/storage-monitor-storage-account/stg-enable-metrics-00.png)
@@ -148,9 +148,9 @@ Azure Storage에서 Blob, 테이블 및 큐 서비스에 대한 읽기, 쓰기 �
 1. **상태**가 **사용**(On)으로 설정되어 있는지 확인하고, 로깅을 사용하도록 설정하려는 **서비스**를 선택합니다.
 
     ![Azure Portal에서 로깅 구성](./media/storage-monitor-storage-account/stg-enable-logging-01.png)
-1. **Save**를 클릭합니다.
+1. **저장**을 클릭합니다.
 
-진단 로그는 저장소 계정의 이름이 $logs인 Blob 컨테이너에 저장됩니다. [Microsoft 저장소 탐색기](http://storageexplorer.com)와 같은 저장소 탐색기를 사용하거나 저장소 클라이언트 라이브러리 또는 PowerShell을 프로그래밍 방식으로 사용하여 로그 데이터를 볼 수 있습니다.
+진단 로그는 저장소 계정의 이름이 $logs인 Blob 컨테이너에 저장됩니다. [Microsoft 저장소 탐색기](http://storageexplorer.com)와 같은 저장소 탐색기를 사용하거나 Storage 클라이언트 라이브러리 또는 PowerShell을 프로그래밍 방식으로 사용하여 로그 데이터를 볼 수 있습니다.
 
 $logs 컨테이너 액세스에 대한 자세한 내용은 [저장소 로깅 사용 및 로그 데이터 액세스](/rest/api/storageservices/enabling-storage-logging-and-accessing-log-data)를 참조하세요.
 

@@ -1,5 +1,5 @@
 ---
-title: "Azure 가상 머신 보안 모범 사례 | Microsoft Docs"
+title: "Azure Virtual Machine 보안 모범 사례"
 description: "이 문서는 Azure의 가상 머신에 사용할 다양한 보안 모범 사례를 제공합니다."
 services: security
 documentationcenter: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: yurid
-ms.openlocfilehash: db8b0cc58738308116da84f2a45d6507c87f3cde
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 6541d09d7f1a7e85333f54797dba7db79328e9de
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="best-practices-for-azure-vm-security"></a>Azure VM 보안에 대한 모범 사례
 
@@ -114,7 +114,7 @@ Security Center는 위협을 적극적으로 모니터링할 수 있으며 잠�
 
 Security Center에서 어떻게 Azure에 있는 사용자의 VM에서 잠재적인 위협을 식별할 수 있게 지원하는지 이해하려면 아래의 동영상을 시청합니다.
 
-<iframe src="https://channel9.msdn.com/Blogs/Azure-Security-Videos/Azure-Security-Center-in-Incident-Response/player" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
+>[!VIDEO https://channel9.msdn.com/Blogs/Azure-Security-Videos/Azure-Security-Center-in-Incident-Response/player]
 
 VM에 대해 강력한 보안 태세를 적용하지 않는 조직은 설정된 보안 제어를 피하는 권한이 없는 사용자의 잠재적인 시도를 알지 못하는 상태로 유지됩니다.
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/26/2016
 ms.author: magoedte
-ms.openlocfilehash: afe7043e31c05444dded089dc02689a3b0c94659
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 86d62ba7fb12b09a2c19b4689af38bb8c121880b
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="error-handling-in-azure-automation-graphical-runbooks"></a>Azure Automation 그래픽 runbook의 오류 처리
 
@@ -40,7 +40,7 @@ Azure Automation 그래픽 runbook은 오류 처리를 포함하는 기능으로
 
 오류 또는 예외를 throw하는 중요한 활동이 있을 때마다 runbook의 다음 활동을 처리하지 못하도록 하거나 적절하게 오류를 처리하는 것이 중요합니다. 이는 runbook에서 비즈니스 또는 서비스 운영 프로세스를 지원할 때 특히 중요합니다.
 
-runbook 작성자는 오류를 발생시킬 수 있는 각 활동에 대해 다른 활동을 가리키는 오류 링크를 추가할 수 있습니다.  대상 활동은 코드 활동, cmdlet 호출, 다른 runbook 호출 등을 포함하는 다른 어떤 유형이 될 수 있습니다.
+runbook 작성자는 오류를 발생시킬 수 있는 각 활동에 대해 다른 활동을 가리키는 오류 링크를 추가할 수 있습니다. 대상 활동은 코드 활동, cmdlet 호출, 다른 runbook 호출 등을 포함하는 다른 어떤 유형이 될 수 있습니다.
 
 또한 대상 활동에 나가는 링크가 있을 수도 있습니다. 이러한 링크는 일반 링크 또는 오류 링크일 수 있습니다. 즉, runbook 작성자는 코드 활동에 문의하지 않고 복잡한 오류 처리 논리를 구현할 수 있습니다. 권장되는 방식은 일반적인 기능으로 전용 오류 처리 runbook을 만드는 것이지만 필수는 아닙니다. PowerShell 코드 활동에서 오류 처리 논리는 유일한 옵션이 아닙니다.  
 
@@ -63,7 +63,7 @@ runbook 작성자는 오류를 발생시킬 수 있는 각 활동에 대해 다�
 
 다음 예제에서 runbook은 가상 머신의 컴퓨터 이름을 포함하는 변수를 검색합니다. 다음 작업으로 가상 머신을 시작하려고 시도합니다.<br><br> ![Automation runbook 오류 처리 예제](media/automation-runbook-graphical-error-handling/runbook-example-error-handling.png)<br><br>      
 
-**Get-AutomationVariable** 활동과 **Start-AzureRmVm**은 예외를 오류로 변환하도록 구성됩니다.  변수를 가져오거나 VM을 시작하는 데 문제가 있으면 오류가 생성됩니다.<br><br> ![Automation runbook 오류 처리 활동 설정](media/automation-runbook-graphical-error-handling/activity-blade-convertexception-option.png)
+**Get-AutomationVariable** 활동과 **Start-AzureRmVm**은 예외를 오류로 변환하도록 구성됩니다. 변수를 가져오거나 VM을 시작하는 데 문제가 있으면 오류가 생성됩니다.<br><br> ![Automation runbook 오류 처리 활동 설정](media/automation-runbook-graphical-error-handling/activity-blade-convertexception-option.png)
 
 오류 링크는 이러한 활동에서 단일 **오류 관리** 활동(코드 활동)으로 이동합니다. 이 활동은 *Throw* 키워드를 사용하여 간단한 PowerShell 식으로 구성되어 *$Error.Exception.Message*와 함께 처리를 중지하고 현재 예외를 설명하는 메시지를 가져옵니다.<br><br> ![Automation runbook 오류 처리 코드 예제](media/automation-runbook-graphical-error-handling/runbook-example-error-handling-code.png)
 

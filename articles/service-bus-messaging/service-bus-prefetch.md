@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2017
+ms.date: 01/30/2018
 ms.author: sethm
-ms.openlocfilehash: 4a4a06f90c2c48d35d836f0be89fec9cc47f32c0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0a61918108a48f4a9fa3d1c07cc8d41525f1f2a0
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="prefetch-azure-service-bus-messages"></a>Azure Service Bus 메시지 프리페치
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="if-it-is-faster-why-is-prefetch-not-the-default-option"></a>속도가 더 빠른데도 프리페치를 기본 옵션으로 사용하지 않는 이유는 무엇인가요?
 
-프리페치는 응용 프로그램을 요청할 때 및 그 전에 메시지를 로컬로 쉽게 검색할 수 있도록 하여 메시지 흐름 속도를 높입니다. 이러한 처리량 혜택은 응용 프로그램 작성자가 명시적으로 내려야 하는 절충 결정의 결과입니다.
+프리페치는 응용 프로그램을 요청할 때 및 그 전에 메시지를 로컬로 쉽게 검색할 수 있도록 하여 메시지 흐름 속도를 높입니다. 이러한 처리량 혜택은 응용 프로그램 작성자가 명시적으로 수행해야 하는 절충의 결과입니다.
 
 [ReceiveAndDelete](/dotnet/api/microsoft.azure.servicebus.receivemode.receiveanddelete) 수신 모드를 사용할 경우 프리페치 버퍼로 획득되는 모든 메시지는 큐에서 더 이상 사용할 수 없으며 **Receive**/**ReceiveAsync** 또는 **OnMessage**/**OnMessageAsync** API를 통해 응용 프로그램에 수신될 때까지 메모리 내 프리페치 버퍼에만 상주합니다. 메시지가 응용 프로그램에 수신되기 전에 응용 프로그램이 종료되면 해당 메시지는 복구할 수 없게 손실됩니다.
 
@@ -57,7 +57,7 @@ ms.lasthandoff: 10/11/2017
 
 Service Bus 메시징에 대해 자세히 알아보려면 다음 항목을 참조하세요.
 
-* [서비스 버스 기본 사항](service-bus-fundamentals-hybrid-solutions.md)
+* [Service Bus 기본 사항](service-bus-fundamentals-hybrid-solutions.md)
 * [Service Bus 큐, 토픽 및 구독](service-bus-queues-topics-subscriptions.md)
 * [Service Bus 큐 시작](service-bus-dotnet-get-started-with-queues.md)
 * [Service Bus 토픽 및 구독을 사용하는 방법](service-bus-dotnet-how-to-use-topics-subscriptions.md)

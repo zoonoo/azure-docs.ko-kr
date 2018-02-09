@@ -42,7 +42,7 @@ SQL Server 데이터베이스 엔진은 도메인 환경에서만 Windows 인증
 1. 가상 머신에 연결되어 있는 동안 시작 페이지에서 **SQL Server Management Studio** 를 입력하고 선택한 아이콘을 클릭합니다.
    
     처음으로 Management Studio를 열 때 사용자 Management Studio 환경이 만들어져야 합니다. 어느 정도 시간이 걸릴 수 있습니다.
-2. Management Studio에서 **서버에 연결** 대화 상자가 표시됩니다. **서버 이름** 상자에 개체 탐색기를 사용하여 데이터베이스 엔진에 연결할 가상 머신의 이름을 입력합니다(가상 머신 이름 대신 **(로컬)** 또는 점(.)을 **서버 이름**으로 사용할 수 있음). **Windows 인증**을 선택하고, **사용자 이름** 상자의 ***VM_이름*\로컬_관리자**를 그대로 둡니다. **Connect** 를 클릭합니다.
+2. Management Studio에서 **서버에 연결** 대화 상자가 표시됩니다. **서버 이름** 상자에 개체 탐색기를 사용하여 데이터베이스 엔진에 연결할 가상 머신의 이름을 입력합니다(가상 머신 이름 대신 **(로컬)** 또는 점(.)을 **서버 이름**으로 사용할 수 있음). **Windows 인증**을 선택하고, **사용자 이름** 상자의 ***your_VM_name*\your_local_administrator**를 그대로 둡니다. **Connect**를 클릭합니다.
    
     ![서버에 연결](./media/virtual-machines-sql-server-connection-steps/19Connect-to-Server.png)
 3. SQL Server Management Studio 개체 탐색기에서 SQL Server 인스턴스의 이름(가상 머신 이름)을 마우스 오른쪽 단추로 클릭한 후 **속성**을 클릭합니다.

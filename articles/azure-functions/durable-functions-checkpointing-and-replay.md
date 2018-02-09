@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: d8a5f3c915b1e3b6e11cec9c5540fa192f5f85dd
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: b1bca62e256c1ede5df6888dd7c47ce2aa816bb9
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="checkpoints-and-replay-in-durable-functions-azure-functions"></a>지속성 함수의 검사점 및 재생(Azure Functions)
 
@@ -63,7 +63,7 @@ public static async Task<List<string>> Run(
 
 완료 시 이전에 표시된 함수의 기록은 Azure Table Storage에서 다음과 비슷합니다(이해를 돕기 위해 약어로 표시).
 
-| PartitionKey(InstanceId)                     | EventType             | Timestamp               | 입력 | 이름             | 결과                                                    | 가동 상태 | 
+| PartitionKey(InstanceId)                     | EventType             | 타임 스탬프               | 입력 | Name             | 결과                                                    | 상태 | 
 |----------------------------------|-----------------------|----------|--------------------------|-------|------------------|-----------------------------------------------------------|---------------------| 
 | eaee885b | OrchestratorStarted   | 2017-05-05T18:45:32.362Z |       |                  |                                                           |                     | 
 | eaee885b | ExecutionStarted      | 2017-05-05T18:45:28.852Z | null  | E1_HelloSequence |                                                           |                     | 
@@ -90,7 +90,7 @@ public static async Task<List<string>> Run(
     * **TaskScheduled**: 작업 함수가 예약되었습니다. `Name` 열에 작업 함수의 이름이 캡처됩니다.
     * **TaskCompleted**: 작업 함수가 완료되었습니다. `Result` 열에 함수 결과가 있습니다.
     * **TimerCreated**: 지속성 타이머가 만들어졌습니다. `FireAt` 열에 타이머가 만료되는 예약된 UTC 시간이 포함됩니다.
-    * **TimerFired**: 지속성 타이머가 만료되었습니다.
+    * **TimerFired**: 지속성 타이머가 실행되었습니다.
     * **EventRaised**: 외부 이벤트가 오케스트레이션 인스턴스로 전송되었습니다. `Name` 열에 이벤트 이름이, `Input` 열에 이벤트의 페이로드가 캡처됩니다.
     * **OrchestratorCompleted**: 오케스트레이터 함수가 기다리고 있습니다.
     * **ContinueAsNew**: 오케스트레이터 함수가 완료되고 새 상태로 다시 시작되었습니다. `Result` 열에 다시 시작되는 인스턴스의 입력으로 사용되는 값이 포함됩니다.
@@ -98,7 +98,7 @@ public static async Task<List<string>> Run(
 * **Timestamp**: 기록 이벤트의 UTC 타임스탬프입니다.
 * **Name**: 호출된 함수의 이름입니다.
 * **Input**: JSON 형식의 함수 입력입니다.
-* **Output**: 함수 출력, 즉 반환 값입니다.
+* **Result**: 함수 출력, 즉 반환 값입니다.
 
 > [!WARNING]
 > 디버깅 도구로 유용하지만 이 테이블에 대한 종속성은 사용하지 마세요. 지속성 함수 확장이 진화함에 따라 변경될 수 있습니다.

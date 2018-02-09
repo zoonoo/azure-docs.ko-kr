@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 11/11/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: d436e7d9046fa9c1bced890c005f98b40b372ef6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: fe5717b6dece6c6d03586045fb5fa0ccadd5e262
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="deploy-and-use-azure-container-registry"></a>Azure Container Registry 배포 및 사용
 
@@ -42,7 +42,7 @@ Azure Container Registry를 배포할 때는 먼저 리소스 그룹이 필요�
 az group create --name myResourceGroup --location eastus
 ```
 
-[az acr create][az-acr-create] 명령으로 Azure Container Registry를 만듭니다. 컨테이너 레지스트리의 이름은 **고유해야 합니다**.
+[az acr create][az-acr-create] 명령으로 Azure Container Registry를 만듭니다. 레지스트리 이름은 Azure 내에서 고유해야 하며, 5-50자의 영숫자만 포함해야 합니다.
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
@@ -68,7 +68,7 @@ az acr login --name <acrName>
 docker images
 ```
 
-출력:
+출력
 
 ```
 REPOSITORY                   TAG                 IMAGE ID            CREATED             SIZE
@@ -85,10 +85,10 @@ loginServer 이름을 가져오려면 다음 명령을 실행합니다.
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-이제 `azure-vote-front` 이미지에 컨테이너 레지스트리의 loginServer로 태그를 지정합니다. 또한 이미지 이름 끝에 `:redis-v1`을 추가합니다. 이 태그는 이미지 버전을 나타냅니다.
+이제 `azure-vote-front` 이미지에 컨테이너 레지스트리의 loginServer로 태그를 지정합니다. 또한 이미지 이름 끝에 `:v1`을 추가합니다. 이 태그는 이미지 버전을 나타냅니다.
 
 ```console
-docker tag azure-vote-front <acrLoginServer>/azure-vote-front:redis-v1
+docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v1
 ```
 
 태그가 지정되면 [docker images][docker-images]를 실행하여 작업을 확인합니다.
@@ -97,12 +97,12 @@ docker tag azure-vote-front <acrLoginServer>/azure-vote-front:redis-v1
 docker images
 ```
 
-출력:
+출력
 
 ```
 REPOSITORY                                           TAG                 IMAGE ID            CREATED             SIZE
 azure-vote-front                                     latest              eaf2b9c57e5e        8 minutes ago       716 MB
-mycontainerregistry082.azurecr.io/azure-vote-front   redis-v1            eaf2b9c57e5e        8 minutes ago       716 MB
+mycontainerregistry082.azurecr.io/azure-vote-front   v1            eaf2b9c57e5e        8 minutes ago       716 MB
 redis                                                latest              a1b99da73d05        7 days ago          106MB
 tiangolo/uwsgi-nginx-flask                           flask               788ca94b2313        8 months ago        694 MB
 ```
@@ -114,7 +114,7 @@ tiangolo/uwsgi-nginx-flask                           flask               788ca94
 다음 예제를 사용하여 ACR loginServer 이름을 해당 환경의 loginServer로 바꿉니다.
 
 ```console
-docker push <acrLoginServer>/azure-vote-front:redis-v1
+docker push <acrLoginServer>/azure-vote-front:v1
 ```
 
 이 작업은 완료되는 데 2~3분이 걸립니다.
@@ -127,7 +127,7 @@ Azure Container Registry에 밀어넣은 이미지 목록을 반환하려면 [az
 az acr repository list --name <acrName> --output table
 ```
 
-출력:
+출력
 
 ```azurecli
 Result
@@ -141,12 +141,12 @@ azure-vote-front
 az acr repository show-tags --name <acrName> --repository azure-vote-front --output table
 ```
 
-출력:
+출력
 
 ```azurecli
 Result
 --------
-redis-v1
+v1
 ```
 
 자습서를 완료하면 개인 Azure Container Registry 인스턴스에 컨테이너 이미지가 저장됩니다. 이후 자습서에서 이 이미지는 ACR에서 Kubernetes 클러스터로 배포됩니다.

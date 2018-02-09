@@ -1,6 +1,6 @@
 ---
-title: "Azure 스케줄러를 사용하여 복잡한 일정 및 고급 되풀이를 만드는 방법"
-description: "Azure 스케줄러를 사용하여 복잡한 일정 및 고급 되풀이를 만드는 방법"
+title: "Azure Scheduler를 사용하여 복잡한 일정 및 고급 되풀이를 만드는 방법"
+description: "Azure Scheduler를 사용하여 복잡한 일정 및 고급 되풀이를 만드는 방법"
 services: scheduler
 documentationcenter: .NET
 author: derek1ee
@@ -14,29 +14,29 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/18/2016
 ms.author: deli
-ms.openlocfilehash: 20c3e3c1cb85308cad47054c2efa87f61cae0f22
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e1e45d394a4c442a4fb255ed6d838a589e98860e
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
-# <a name="how-to-build-complex-schedules-and-advanced-recurrence-with-azure-scheduler"></a>Azure 스케줄러를 사용하여 복잡한 일정 및 고급 되풀이를 만드는 방법
+# <a name="how-to-build-complex-schedules-and-advanced-recurrence-with-azure-scheduler"></a>Azure Scheduler를 사용하여 복잡한 일정 및 고급 되풀이를 만드는 방법
 ## <a name="overview"></a>개요
-Azure 스케줄러의 핵심 작업은 *일정*입니다. 일정은 스케줄러가 작업을 실행할 시기와 방법을 결정합니다.
+Azure Scheduler의 핵심 작업은 *일정*입니다. 일정은 Scheduler가 작업을 실행할 시기와 방법을 결정합니다.
 
-Azure 스케줄러를 사용하여 작업에 대해 서로 다른 일회성 및 되풀이 일정을 지정할 수 있습니다. *일회성* 일정은 지정된 시간에 한 번만 실행됩니다. 실질적으로 이는 한 번만 실행되는 *되풀이* 일정입니다. 되풀이 일정은 미리 지정된 빈도로 실행됩니다.
+Azure Scheduler를 사용하여 작업에 대해 서로 다른 일회성 및 되풀이 일정을 지정할 수 있습니다. *일회성* 일정은 지정된 시간에 한 번만 실행됩니다. 실질적으로 이는 한 번만 실행되는 *되풀이* 일정입니다. 되풀이 일정은 미리 지정된 빈도로 실행됩니다.
 
-Azure 스케줄러의 이러한 유연성을 활용하여 다양한 비즈니스 시나리오를 지원할 수 있습니다.
+Azure Scheduler의 이러한 유연성을 활용하여 다양한 비즈니스 시나리오를 지원할 수 있습니다.
 
 * 정기적인 데이터 정리 - 예를 들어 매일 3개월 이상 지난 트윗을 삭제
 * 아카이브 – 예를 들어 매달 송장 기록을 백업 서비스로 전송
 * 외부 데이터 요청 - 예를 들어 NOAA에서 15분마다 새 ski 날씨 보고서 가져오기
 * 이미지 처리 - 예를 들어 주중 매일, 사용량이 적은 시간에 그날 업로드된 이미지를 클라우드 컴퓨팅을 사용하여 압축
 
-이 문서에서는 Azure 스케줄러로 만들 수 있는 작업의 예를 살펴보겠습니다. 각 일정을 설명하는 JSON 데이터를 제공합니다. [Scheduler REST API](https://msdn.microsoft.com/library/mt629143.aspx)를 사용하는 경우 동일한 이 JSON을 [Azure Scheduler 작업 만들기](https://msdn.microsoft.com/library/mt629145.aspx)에도 사용할 수 있습니다.
+이 문서에서는 Azure Scheduler로 만들 수 있는 작업의 예를 살펴보겠습니다. 각 일정을 설명하는 JSON 데이터를 제공합니다. [Scheduler REST API](https://msdn.microsoft.com/library/mt629143.aspx)를 사용하는 경우 동일한 이 JSON을 [Azure Scheduler 작업 만들기](https://msdn.microsoft.com/library/mt629145.aspx)에도 사용할 수 있습니다.
 
 ## <a name="supported-scenarios"></a>지원되는 시나리오
-이 항목에서 소개하는 여러 예를 통해 Azure 스케줄러가 지원하는 다양한 시나리오를 볼 수 있습니다. 포괄적으로 보면 이러한 예는 다음을 포함하여 여러 동작 패턴에 대한 일정을 만드는 방법을 설명합니다.
+이 항목에서 소개하는 여러 예를 통해 Azure Scheduler가 지원하는 다양한 시나리오를 볼 수 있습니다. 포괄적으로 보면 이러한 예는 다음을 포함하여 여러 동작 패턴에 대한 일정을 만드는 방법을 설명합니다.
 
 * 특정 날짜 및 시간에 한 번 실행
 * 실행하고 명시된 횟수만큼 되풀이
@@ -46,9 +46,9 @@ Azure 스케줄러의 이러한 유연성을 활용하여 다양한 비즈니스
 * 실행하고 기간 내 여러 번 되풀이. 예를 들어 매월 마지막 금요일과 월요일, 매일 오전 5시 15분과 오후 5시 15분
 
 ## <a name="dates-and-datetimes"></a>날짜 및 날짜-시간
-Azure 스케줄러 작업의 날짜는 [ISO-8601 사양](http://en.wikipedia.org/wiki/ISO_8601) 을 따르며 날짜만 포함합니다.
+Azure Scheduler 작업의 날짜는 [ISO-8601 사양](http://en.wikipedia.org/wiki/ISO_8601) 을 따르며 날짜만 포함합니다.
 
-Azure 스케줄러 작업의 날짜-시간 참조는 [ISO-8601 사양](http://en.wikipedia.org/wiki/ISO_8601) 을 따르며 날짜와 시간 부분을 모두 포함합니다. 날짜-시간은 UTC 오프셋을 지정하지 않으며 UTC로 간주됩니다.  
+Azure Scheduler 작업의 날짜-시간 참조는 [ISO-8601 사양](http://en.wikipedia.org/wiki/ISO_8601) 을 따르며 날짜와 시간 부분을 모두 포함합니다. 날짜-시간은 UTC 오프셋을 지정하지 않으며 UTC로 간주됩니다.  
 
 ## <a name="how-to-use-json-and-rest-api-for-creating-schedules"></a>방법: JSON 및 REST API를 사용하여 일정 만들기
 [Azure Scheduler REST API](https://msdn.microsoft.com/library/mt629143)를 사용하여 간단한 일정을 만들려면 먼저 [리소스 공급자로 구독을 등록](https://msdn.microsoft.com/library/azure/dn790548.aspx)(스케줄러의 공급자 이름은 *Microsoft.Scheduler*임)한 다음 [작업 컬렉션을 만들고](https://msdn.microsoft.com/library/mt629159.aspx) 마지막으로 [작업을 만듭니다](https://msdn.microsoft.com/library/mt629145.aspx). 작업을 만들 때는 아래 나열된 것과 같은 JSON을 사용하여 일정과 되풀이를 지정할 수 있습니다.
@@ -59,7 +59,7 @@ Azure 스케줄러 작업의 날짜-시간 참조는 [ISO-8601 사양](http://en
         "recurrence":                     // optional
         {
             "frequency": "week",     // can be "year" "month" "day" "week" "hour" "minute"
-            "interval": 1,                // optional, how often to fire (default to 1)
+            "interval": 1,                // how often to fire
             "schedule":                   // optional (advanced scheduling specifics)
             {
                 "weekDays": ["monday", "wednesday", "friday"],
@@ -89,10 +89,10 @@ Azure 스케줄러 작업의 날짜-시간 참조는 [ISO-8601 사양](http://en
 
 | **JSON 이름** | **값 형식** | **필수 여부** | **기본값** | **유효한 값** | **예제** |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| ***startTime*** |String |아니요 |없음 |ISO-8601 날짜-시간 |<code>"startTime" : "2013-01-09T09:30:00-08:00"</code> |
+| ***startTime*** |문자열 |아니요 |없음 |ISO-8601 날짜-시간 |<code>"startTime" : "2013-01-09T09:30:00-08:00"</code> |
 | ***recurrence*** |Object |아니요 |없음 |되풀이 개체 |<code>"recurrence" : { "frequency" : "monthly", "interval" : 1 }</code> |
-| ***frequency*** |문자열 |예 |없음 |"minute", "hour", "day", "week", "month" |<code>"frequency" : "hour"</code> |
-| ***interval*** |Number |아니요 |1 |1 ~ 1000입니다. |<code>"interval":10</code> |
+| ***frequency*** |문자열 |적용 |없음 |"minute", "hour", "day", "week", "month" |<code>"frequency" : "hour"</code> |
+| ***interval*** |Number |적용 |없음 |1 ~ 1000입니다. |<code>"interval":10</code> |
 | ***endTime*** |문자열 |아니요 |없음 |현재 이후의 시간을 나타내는 날짜-시간입니다. |<code>"endTime" : "2013-02-09T09:30:00-08:00"</code> |
 | ***count*** |Number |아니요 |없음 |1 이상 |<code>"count": 5</code> |
 | ***schedule*** |Object |아니요 |없음 |일정 개체 |<code>"schedule" : { "minute" : [30], "hour" : [8,17] }</code> |
@@ -108,7 +108,7 @@ Azure 스케줄러 작업의 날짜-시간 참조는 [ISO-8601 사양](http://en
 
 *startTime*이 이전이고 *recurrence*가 있으나 *schedule*이 없는 경우에 어떻게 되는지 예를 보겠습니다.  현재 시간이 2015-04-08 13:00, *startTime*은 2015-04-07 14:00, *recurrence*는 2일마다, *frequency*는 일, *interval*은 2로 정의되어 있다고 가정합니다. *startTime*이 현재 시간보다 이전임에 유의하십시오.
 
-이러한 조건일 경우 *첫 실행* 은 2015-04-09 오후 2시가 됩니다.\. 스케줄러 엔진이 시작 시간에서 되풀이 실행 시간을 계산합니다.  현재보다 이전의 모든 인스턴스는 무시됩니다. 엔진은 이후에 발생하는 다음 인스턴스를 사용합니다.  따라서 이 경우, *startTime* 이 2015-04-07 오후 2:00이므로 다음 인스턴스는 이 시간에서 2일 후인 2015-04-09 오후 2:00입니다.
+이러한 조건일 경우 *첫 실행* 은 2015-04-09 오후 2시가 됩니다.\. Scheduler 엔진이 시작 시간에서 되풀이 실행 시간을 계산합니다.  현재보다 이전의 모든 인스턴스는 무시됩니다. 엔진은 이후에 발생하는 다음 인스턴스를 사용합니다.  따라서 이 경우, *startTime* 이 2015-04-07 오후 2:00이므로 다음 인스턴스는 이 시간에서 2일 후인 2015-04-09 오후 2:00입니다.
 
 startTime이 2015-04-05 오후 2시 또는 2015-04-01 오후 2시인 경우에도 첫 번째 실행은 같습니다. 첫 번째 실행 후 후속 실행은 예약된 일정에 따라 계산됩니다. 따라서 2015-04-11 오후 2시, 2015-04-13 오후 2시, 2015-04-15 오후 2시가 됩니다.
 
@@ -125,11 +125,11 @@ startTime이 2015-04-05 오후 2시 또는 2015-04-01 오후 2시인 경우에�
 
 | **JSON 이름** | **설명** | **유효한 값** |
 |:--- |:--- |:--- |
-| **minutes** |작업이 실행될 시간(분) |<ul><li>정수 또는</li><li>정수 배열</li></ul> |
-| **hours** |작업이 실행될 시간(시간) |<ul><li>정수 또는</li><li>정수 배열</li></ul> |
-| **weekDays** |작업이 실행될 요일입니다. 빈도가 주인 경우에만 지정할 수 있습니다. |<ul><li>"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" 또는 "Sunday"</li><li>위 값의 배열(최대 배열 크기는 7)</li></ul>대/소문자 구분 *안 함* |
-| **monthlyOccurrences** |며칠에 작업을 실행할지 결정합니다. 빈도가 월인 경우에만 지정할 수 있습니다. |<ul><li>monthlyOccurrence 개체의 배열:</li></ul> <pre>{ "day": *day*,<br />  "occurrence": *occurrence*<br />}</pre><p> *일*은 작업을 실행할 요일입니다. 예를 들어 {Sunday}는 해당 월의 매주 일요일입니다. 필수입니다.</p><p>*occurrence*는 월 중에 되풀이되는 날입니다. 예를 들어 {Sunday, -1}은 월의 마지막 일요일입니다. 선택 사항입니다.</p> |
-| **monthDays** |작업이 실행될 월의 일입니다. 빈도가 월인 경우에만 지정할 수 있습니다. |<ul><li>-31 ~ -1 사이의 모든 값입니다.</li><li>1 ~ 31 사이의 모든 값입니다.</li><li>위 값의 배열</li></ul> |
+| **minutes** |작업이 실행될 시간(분) |<ul><li>정수 배열</li></ul> |
+| **hours** |작업이 실행될 시간(시간) |<ul><li>정수 배열</li></ul> |
+| **weekDays** |작업이 실행될 요일입니다. 빈도가 주인 경우에만 지정할 수 있습니다. |<ul><li>아래 값의 배열(최대 배열 크기는 7)<ul><li>“월요일”</li><li>"Tuesday"</li><li>"Wednesday"</li><li>"Thursday"</li><li>"Friday"</li><li>“토요일”</li><li>"Sunday"</li></ul></li></ul>대/소문자 구분 *안 함* |
+| **monthlyOccurrences** |며칠에 작업을 실행할지 결정합니다. 빈도가 월인 경우에만 지정할 수 있습니다. |<ul><li>monthlyOccurrence 개체의 배열:</li></ul> <pre>{ "day": *day*,<br />  "occurrence": *occurrence*<br />}</pre><p> *일*은 작업을 실행할 요일입니다. 예를 들어 {Sunday}는 해당 월의 매주 일요일입니다. 필수 사항입니다.</p><p>*occurrence*는 월 중에 되풀이되는 날입니다. 예를 들어 {Sunday, -1}은 월의 마지막 일요일입니다. 선택 사항입니다.</p> |
+| **monthDays** |작업이 실행될 월의 일입니다. 빈도가 월인 경우에만 지정할 수 있습니다. |<ul><li>아래 값의 배열</li><ul><li>-31 ~ -1 사이의 모든 값입니다.</li><li>1 ~ 31 사이의 모든 값입니다.</li></ul></ul> |
 
 ## <a name="examples-recurrence-schedules"></a>예: 되풀이 일정
 다음은 일정 개체와 하위 요소에 초점을 맞춘 되풀이 일정의 다양한 예입니다.
@@ -138,7 +138,7 @@ startTime이 2015-04-05 오후 2시 또는 2015-04-01 오후 2시인 경우에�
 
 | **예제** | **설명** |
 |:--- |:--- |
-| <code>{"hours":[5]}</code> |매일 오전 5시에 실행합니다. Azure 스케줄러는 "hours"의 각 값을 "minutes"의 각 값과 1:1로 짝을 맞춰 작업이 실행될 모든 시간의 목록을 만듭니다. |
+| <code>{"hours":[5]}</code> |매일 오전 5시에 실행합니다. Azure Scheduler는 "hours"의 각 값을 "minutes"의 각 값과 1:1로 짝을 맞춰 작업이 실행될 모든 시간의 목록을 만듭니다. |
 | <code>{"minutes":[15], "hours":[5]}</code> |매일 오전 5시 15분에 실행 |
 | <code>{"minutes":[15], "hours":[5,17]}</code> |매일 오전 5시 15분과 오후 5시 15분에 실행 |
 | <code>{"minutes":[15,45], "hours":[5,17]}</code> |매일 오전 5시 15분, 5시 45분, 오후 5시 15분, 5시 45분에 실행 |
@@ -171,21 +171,21 @@ startTime이 2015-04-05 오후 2시 또는 2015-04-01 오후 2시인 경우에�
 | <code>{"minutes":[15,45], "hours":[5,17], "monthlyOccurrences":[{"day":"wednesday", "occurrence":3}]}</code> |매월 세 번째 수요일 오전 5시 15분, 5시 45분, 오후 5시 15분, 5시 45분에 실행 |
 
 ## <a name="see-also"></a>참고 항목
- [스케줄러란?](scheduler-intro.md)
+ [Scheduler란?](scheduler-intro.md)
 
- [Azure 스케줄러 개념, 용어 및 엔터티 계층 구조](scheduler-concepts-terms.md)
+ [Azure Scheduler 개념, 용어 및 엔터티 계층 구조](scheduler-concepts-terms.md)
 
- [Azure 포털에서 스케줄러 사용 시작](scheduler-get-started-portal.md)
+ [Azure Portal에서 Scheduler 사용 시작](scheduler-get-started-portal.md)
 
- [Azure 스케줄러의 버전 및 요금 청구](scheduler-plans-billing.md)
+ [Azure Scheduler의 버전 및 요금 청구](scheduler-plans-billing.md)
 
- [Azure 스케줄러 REST API 참조](https://msdn.microsoft.com/library/mt629143)
+ [Azure Scheduler REST API 참조](https://msdn.microsoft.com/library/mt629143)
 
- [Azure 스케줄러 PowerShell cmdlet 참조](scheduler-powershell-reference.md)
+ [Azure Scheduler PowerShell cmdlet 참조](scheduler-powershell-reference.md)
 
- [Azure 스케줄러 고가용성 및 안정성](scheduler-high-availability-reliability.md)
+ [Azure Scheduler 고가용성 및 안정성](scheduler-high-availability-reliability.md)
 
- [Azure 스케줄러 제한, 기본값 및 오류 코드](scheduler-limits-defaults-errors.md)
+ [Azure Scheduler 제한, 기본값 및 오류 코드](scheduler-limits-defaults-errors.md)
 
- [Azure 스케줄러 아웃바운드 인증](scheduler-outbound-authentication.md)
+ [Azure Scheduler 아웃바운드 인증](scheduler-outbound-authentication.md)
 

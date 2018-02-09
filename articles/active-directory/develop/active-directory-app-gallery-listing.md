@@ -4,7 +4,7 @@ description: "Azure Active Directory 갤러리에서 Single Sign-On을 지원하
 services: active-directory
 documentationcenter: dev-center-name
 author: bryanla
-manager: mtillman
+manager: mbaldwin
 editor: 
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
@@ -12,86 +12,66 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/27/2017
+ms.date: 01/09/2018
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 0c324829469b9babe6608480204bd46691f84228
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: feb09aa8f8e22ad6fbda6a490d251c500bedf3ee
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="listing-your-application-in-the-azure-active-directory-application-gallery"></a>Azure Active Directory 응용 프로그램 갤러리에 응용 프로그램 나열
-[Azure AD 갤러리](https://azure.microsoft.com/marketplace/active-directory/all/)에서 Azure Active Directory를 사용하여 Single Sign-On을 지원하는 응용 프로그램을 나열하려면 먼저 응용 프로그램은 다음의 통합 모드 중 하나를 구현해야 합니다.
 
-* **OpenID Connect** - 인증을 위한 OpenID Connect 및 구성을 위한 Azure AD 동의 API를 사용하는 Azure AD과 통합을 지원합니다. 통합을 시작하고 응용 프로그램이 SAML을 지원하지 않으면 이것이 권장 모드입니다.
-* **SAML** – 응용 프로그램에는 이미 SAML 프로토콜을 사용하여 타사 ID 공급자를 구성할 기능이 있습니다.
 
-각 모드에 대한 요구 사항을 나열하면 다음과 같습니다.
+##  <a name="what-is-azure-ad-app-gallery"></a>Azure AD 앱 갤러리란?
 
-## <a name="openid-connect-integration"></a>OpenID Connect 통합
-응용 프로그램과 Azure AD를 통합하려면 [개발자 지침](active-directory-authentication-scenarios.md)을 수행합니다. 그런 다음 아래 질문을 완료하여 waadpartners@microsoft.com으로 보냅니다.
+Azure AD는 클라우드 기반 ID 서비스입니다. [Azure AD 앱 갤러리](https://azure.microsoft.com/marketplace/active-directory/all/)는 모든 응용 프로그램 커넥터가 SSO(Single Sign-On) 및 사용자 프로비전을 위해 게시되는 공통 저장소입니다. Azure AD를 ID 공급자로 사용하는 상호 고객은 여기에 게시된 다른 SaaS 응용 프로그램 커넥터를 찾습니다. IT 관리자는 앱 갤러리의 커넥터를 추가하여 SSO(Single Sign-On) 및 프로비전을 위해 구성하고 사용합니다. Azure AD는 SSO(Single Sign-On)를 위해 SAML 2.0, OpenID Connect, OAuth 및 WS-Fed와 같은 모든 주요 페더레이션 프로토콜을 지원합니다. 
 
-* Azure AD 팀에서 사용할 수 있는 응용 프로그램을 사용하는 테스트 테넌트 또는 계정에 대한 자격 증명을 제공하여 통합을 테스트합니다.  
-* Azure AD 팀이 [Azure AD 동의 프레임워크](active-directory-integrating-applications.md#overview-of-the-consent-framework)를 사용하여 로그인하고 응용 프로그램에 Azure AD의 인스턴스를 연결하는 방법에 대한 지침을 제공합니다. 
-* 응용 프로그램을 사용하여 Single Sign-On을 테스트하기 위해 Azure AD 팀에 필요한 추가 지침을 제공합니다. 
-* 아래의 정보를 제공합니다.
+## <a name="what-are-the-benefits-of-listing-the-application-in-the-gallery"></a>갤러리에 응용 프로그램을 나열하면 어떤 이점이 있나요?
 
-> 회사 이름:
-> 
-> 회사 웹 사이트:
-> 
-> 응용 프로그램 이름:
-> 
-> 응용 프로그램 설명(200자 제한):
-> 
-> 응용 프로그램 웹 사이트 (정보):
-> 
-> 응용 프로그램 기술 지원 웹 사이트 또는 연락처 정보:
-> 
-> https://portal.azure.com의 응용 프로그램 세부 정보에 표시된 응용 프로그램의 응용 프로그램 ID:
-> 
-> 고객이 응용 프로그램에 등록하거나 구입하기 위해 이동하는 응용 프로그램 등록 URL:
-> 
-> 응용 프로그램을 나열할 범주를 최대 세 가지 선택합니다.(사용 가능한 범주는 Azure Active Directory Marketplace 참조)
-> 
-> 응용 프로그램 연결 작은 아이콘(PNG 파일, 45x45px, 단색 배경):
-> 
-> 응용 프로그램 연결 큰 아이콘(PNG 파일, 215x215px, 단색 배경):
-> 
-> 응용 프로그램 연결 로고(PNG 파일, 150x122px, 투명 배경색):
-> 
-> 
+*  고객에게 최상의 SSO(Single Sign-On) 환경을 제공합니다.
 
-## <a name="saml-integration"></a>SAML 통합
-SAML 2.0을 지원하는 앱은 [사용자 지정 응용 프로그램을 추가하기 위해 다음 지침](../application-config-sso-how-to-configure-federated-sso-non-gallery.md)을 사용하여 Azure AD 테넌트로 직접 통합될 수 있습니다. 응용 프로그램 통합이 Azure AD를 사용하여 작동하는지 테스트하면 다음 정보를 <mailto:waadpartners@microsoft.com>로 보냅니다.
+*  응용 프로그램 구성이 간단하고 최소화됩니다.
 
-* Azure AD 팀에서 사용할 수 있는 응용 프로그램을 사용하는 테스트 테넌트 또는 계정에 대한 자격 증명을 제공하여 통합을 테스트합니다.  
-* [여기](../application-config-sso-how-to-configure-federated-sso-non-gallery.md)에 설명한 대로 응용 프로그램에 대한 SAML 로그온 URL, 발급자 URL(엔터티 ID) 및 회신 URL(어설션 소비자 서비스) 값을 제공합니다. 일반적으로 SAML 메타데이터 파일의 일부로 이러한 값을 제공하는 경우 또한 해당 파일을 보냅니다.
-* SAML 2.0을 사용하여 응용 프로그램에서 Azure AD를 ID 공급자로 구성하는 방법에 대한 간략한 설명을 제공합니다. 응용 프로그램에서 셀프 서비스 관리 포털을 통해 Azure AD를 ID 공급자로 구성하도록 지원하는 경우 위에 제공된 자격 증명이 이를 설정할 기능을 포함하도록 합니다.
-* 아래의 정보를 제공합니다.
+*  고객이 갤러리에서 응용 프로그램을 검색하여 찾을 수 있습니다. 
 
-> 회사 이름:
-> 
-> 회사 웹 사이트:
-> 
-> 응용 프로그램 이름:
-> 
-> 응용 프로그램 설명(200자 제한):
-> 
-> 응용 프로그램 웹 사이트 (정보):
-> 
-> 응용 프로그램 기술 지원 웹 사이트 또는 연락처 정보:
-> 
-> 고객이 응용 프로그램에 등록하거나 구입하기 위해 이동하는 응용 프로그램 등록 URL:
-> 
-> 응용 프로그램을 나열할 범주를 최대 세 가지 선택합니다(사용 가능한 범주는 [Azure Active Directory Marketplace](https://azure.microsoft.com/marketplace/active-directory/)참조).
-> 
-> 응용 프로그램 연결 작은 아이콘(PNG 파일, 45x45px, 단색 배경):
-> 
-> 응용 프로그램 연결 큰 아이콘(PNG 파일, 215x215px, 단색 배경):
-> 
-> 응용 프로그램 연결 로고(PNG 파일, 150x122px, 투명 배경색):
-> 
-> 
+*  Azure AD SKU Free, Basic 또는 Premium에 상관없이 모든 고객이 통합을 사용할 수 있습니다.
+
+*  상호 고객을 위한 단계별 구성 자습서가 있습니다.
+
+*  SCIM을 사용하는 경우 동일한 앱에 대해 사용자 프로비전을 사용하도록 설정합니다.
+
+
+##  <a name="what-are-the-pre-requisites"></a>필수 조건은 무엇인가요?
+
+Azure AD 갤러리에 응용 프로그램을 나열하려면 먼저 Azure AD에서 지원하는 페더레이션 프로토콜 중 하나를 응용 프로그램에서 구현해야 합니다. Azure AD 응용 프로그램 갤러리의 사용 약관은 여기에서 읽어보십시오. 사용하는 항목: 
+
+*   **OpenID Connect** - Azure AD에서 다중 테넌트 응용 프로그램을 만들고 응용 프로그램에 [Azure AD 승인 프레임워크](active-directory-integrating-applications.md#overview-of-the-consent-framework)를 구현합니다. 모든 고객이 응용 프로그램에 동의를 제공할 수 있도록 공통 엔드포인트에 로그인 요청을 보냅니다. 토큰에 수신된 테넌트 ID 및 사용자의 UPN을 기반으로 고객 사용자 액세스를 제어할 수 있습니다. 응용 프로그램과 Azure AD를 통합하려면 [개발자 지침](active-directory-authentication-scenarios.md)을 수행합니다.
+
+*   **SAML 2.0 또는 WS-Fed** – SP 또는 IDP 모드에서 SAML/WS-Fed SSO 통합을 수행하는 기능이 응용 프로그램에 있어야 합니다. SAML 2.0을 지원하는 앱은 [사용자 지정 응용 프로그램을 추가하기 위해 다음 지침](../active-directory-saas-custom-apps.md)을 사용하여 Azure AD 테넌트로 직접 통합될 수 있습니다.
+
+*   **암호 SSO** – HTML 로그인 페이지가 있는 웹 응용 프로그램을 만들어서 [암호 기반 SSO(Single Sign-On)](../active-directory-appssoaccess-whatis.md)를 구성합니다. 암호 보관이라고도 하는 암호 기반 SSO를 사용하면 ID 페더레이션을 지원하지 않는 웹 응용 프로그램에 대한 사용자 액세스 및 암호를 관리할 수 있습니다. 또한 여러 사용자가 조직의 소셜 미디어 앱 계정과 같은 단일 계정을 공유해야 하는 시나리오에 유용합니다. 
+
+## <a name="process-for-submitting-the-request-in-the-portal"></a>포털에서 요청을 제출하는 프로세스
+
+Azure AD와의 응용 프로그램 통합을 테스트한 후에는 [응용 프로그램 네트워크 포털](https://microsoft.sharepoint.com/teams/apponboarding/Apps)에서 액세스 요청을 제출해야 합니다. Office 365 계정이 있는 경우 이 계정을 사용하여 포털에 로그인할 수 있고 그렇지 않은 경우에는 Microsoft ID(Live ID, Outlook, Hotmail 등)를 사용하여 로그인할 수 있습니다. 액세스를 요청하려면 다음 페이지를 참조하세요. 텍스트 상자에 비즈니스 근거를 입력하고 **액세스 요청**을 클릭합니다. 팀에서 세부 정보를 모두 검토하고 적절한 권한을 부여합니다. 그 후에는 포털에 로그인하여 응용 프로그램에 대한 세부 요청을 제출할 수 있습니다.
+
+액세스 관련 문제가 발생하면 [Azure AD SSO 통합 팀](<mailto:SaaSApplicationIntegrations@service.microsoft.com>)에 문의하세요.
+
+![SharePoint 포털에서 액세스 요청](./media/active-directory-app-gallery-listing/accessrequest.png)
+
+## <a name="timelines"></a>타임라인
+    
+*   SAML 2.0 또는 WS-Fed 응용 프로그램을 갤러리 목록에 올리는 프로세스 - **영업일 기준 7-10일**
+
+   ![SAML 응용 프로그램을 갤러리 목록에 올리는 타임라인](./media/active-directory-app-gallery-listing/timeline.png)
+
+*   OpenID Connect 응용 프로그램을 갤러리 목록에 올리는 프로세스 - **영업일 기준 2-5일**
+
+   ![SAML 응용 프로그램을 갤러리 목록에 올리는 타임라인](./media/active-directory-app-gallery-listing/timeline2.png)
+
+## <a name="escalations"></a>에스컬레이션
+
+에스컬레이션을 하려면 [Azure AD SSO 통합 팀](<mailto:SaaSApplicationIntegrations@service.microsoft.com>)에 이메일을 보내 주세요. 최대한 신속하게 연락 드리겠습니다.
 

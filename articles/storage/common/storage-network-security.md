@@ -1,5 +1,5 @@
 ---
-title: "Azure Storage 방화벽 및 Virtual Network 구성(미리 보기) | Microsoft Docs"
+title: "Azure Storage 방화벽 및 Virtual Network 구성 | Microsoft Docs"
 description: "저장소 계정에 대한 계층화된 네트워크 보안을 구성합니다."
 services: storage
 documentationcenter: 
@@ -13,20 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 10/25/2017
 ms.author: cbrooks
-ms.openlocfilehash: 2ea1c217031761e93d393aefa07eedd03f88d9b0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: fc13b7cc164c948f25a6908bdf71124a5be02fb9
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="configure-azure-storage-firewalls-and-virtual-networks-preview"></a>Azure Storage 방화벽 및 Virtual Network 구성(미리 보기)
+# <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Azure Storage 방화벽 및 Virtual Network 구성
 Azure Storage는 계층화된 보안을 제공하여 허용되는 특정 네트워크 집합에만 연결되도록 저장소 계정을 보호할 수 있도록 합니다.  네트워크 규칙이 구성된 경우 허용되는 네트워크의 응용 프로그램만 저장소 계정에 액세스할 수 있습니다.  허용되는 네트워크에서 호출되면 응용 프로그램은 저장소 계정에 액세스하기 위한 적절한 인증(유효한 액세스 키 또는 SAS 토큰)을 계속 요구합니다.
 
-## <a name="preview-availability-and-support"></a>미리 보기 가용성 및 지원
-Storage 방화벽 및 Virtual Network는 미리 보기로 제공됩니다.  이 기능은 모든 Azure 공용 클라우드 지역의 신규 또는 기존 저장소 계정에 사용할 수 있습니다.
-
-> [!NOTE]
-> 미리 보기 중에는 프로덕션 워크로드가 지원되지 않습니다.
+> [!IMPORTANT]
+> 저장소 계정에 대한 방화벽 규칙을 설정하면 다른 Azure 서비스에서 들어오는 요청을 포함하여, 들어오는 데이터 요청에 대한 액세스가 차단됩니다.  여기에는 포털 사용, 로그 작성 등이 포함됩니다.  서비스에 참여하기 위해 아래의 [예외](#Exceptions) 섹션에서 기능을 사용하도록 설정할 수 있습니다.  포털에 액세스하려면 설정한 신뢰할 수 있는 경계(IP 또는 VNet) 내의 컴퓨터에서 액세스해야 합니다.
 >
 
 ## <a name="scenarios"></a>시나리오
@@ -38,7 +35,11 @@ Storage 방화벽 및 Virtual Network는 미리 보기로 제공됩니다.  이 
 
 일단 네트워크 규칙이 적용되면 모든 요청에 대해 적용됩니다.  특정 IP 주소 서비스에 대한 액세스 권한을 부여하는 SAS 토큰은 토큰 소유자의 액세스를 **제한**하지만 구성된 네트워크 규칙 이외의 새 액세스 권한을 부여하지는 않습니다. 
 
-가상 컴퓨터 디스크 트래픽(탑재 및 분리 작업 및 디스크 IO 포함)은 네트워크 규칙의 영향을 받지 **않습니다**.  페이지 Blob에 대한 REST 액세스는 네트워크 규칙에 의해 보호됩니다.
+Virtual Machine 디스크 트래픽(탑재 및 분리 작업 및 디스크 IO 포함)은 네트워크 규칙의 영향을 받지 **않습니다**.  페이지 Blob에 대한 REST 액세스는 네트워크 규칙에 의해 보호됩니다.
+
+> [!NOTE]
+> 적용된 네트워크 규칙과 함께 저장소 계정에서 관리되지 않는 디스크를 사용하여 가상 머신의 백업 및 복원은 현재 지원되지 않습니다.  자세한 내용은 [VM 백업 및 복원 시의 제한 사항](/azure/backup/backup-azure-arm-vms-prepare#limitations-when-backing-up-and-restoring-a-vm)을 참조하세요.
+>
 
 클래식 저장소 계정은 Firewall 및 Virtual Network를 지원하지 **않습니다**.
 
@@ -49,11 +50,8 @@ Storage 방화벽 및 Virtual Network는 미리 보기로 제공됩니다.  이 
 > 네트워크 규칙을 변경하면 Azure Storage에 연결하는 응용 프로그램의 기능에 영향을 미칠 수 있습니다.  기본 네트워크 규칙을 **거부**로 설정할 경우 *허가*하는 특정 네트워크 규칙도 적용되는 경우가 아니면 데이터에 대한 모든 액세스가 차단됩니다.  액세스를 거부하도록 기본 규칙을 변경하기 전에 네트워크 규칙을 사용하여 허용된 모든 네트워크에 대한 액세스를 허가해야 합니다.
 >
 
-#### <a name="azure-portal"></a>Azure 포털
+#### <a name="azure-portal"></a>Azure portal
 1. 보호하려는 저장소 계정으로 이동합니다.  
-> [!NOTE]
-> 저장소 계정이 공개 미리 보기의 지원되는 영역 중 하나인지 확인합니다.
->
 
 2. **Firewall 및 Virtual Network**이라는 설정 메뉴를 클릭합니다.
 3. 기본적으로 액세스를 거부하려면 '선택한 네트워크'의 액세스를 허용하도록 선택합니다.  모든 네트워크의 트래픽을 허용하려면 '모든 네트워크'의 액세스를 허용하도록 선택합니다.
@@ -118,7 +116,7 @@ Virtual Network 내에서 Azure Storage에 대한 [서비스 끝점](/azure/virt
 ### <a name="managing-virtual-network-rules"></a>Virtual Network 규칙 관리
 Azure Portal, PowerShell 또는 CLIv2를 통해 저장소 계정에 대한 Virtual Network 규칙을 관리할 수 있습니다.
 
-#### <a name="azure-portal"></a>Azure 포털
+#### <a name="azure-portal"></a>Azure portal
 1. 보호하려는 저장소 계정으로 이동합니다.  
 2. **Firewall 및 Virtual Network**이라는 설정 메뉴를 클릭합니다.
 3. ‘선택한 네트워크’의 액세스를 허용하도록 선택했는지 확인합니다.
@@ -211,7 +209,7 @@ IP 네트워크 규칙을 사용하여 온-프레미스 네트워크에서 저�
 ### <a name="managing-ip-network-rules"></a>IP 네트워크 규칙 관리
 Azure Portal, PowerShell 또는 CLIv2를 통해 저장소 계정에 대한 IP 네트워크 규칙을 관리할 수 있습니다.
 
-#### <a name="azure-portal"></a>Azure 포털
+#### <a name="azure-portal"></a>Azure portal
 1. 보호하려는 저장소 계정으로 이동합니다.  
 2. **Firewall 및 Virtual Network**이라는 설정 메뉴를 클릭합니다.
 3. ‘선택한 네트워크’의 액세스를 허용하도록 선택했는지 확인합니다.
@@ -293,12 +291,10 @@ az storage account network-rule remove --resource-group "myresourcegroup" --acco
 
 |서비스|리소스 공급자 이름|목적|
 |:------|:---------------------|:------|
-|Azure DevTest Labs|Microsoft.DevTestLab|사용자 지정 이미지 만들기 및 아티팩트 설치.  [자세히 알아봅니다](https://docs.microsoft.com/azure/devtest-lab/devtest-lab-overview).|
-|Azure Event Grid|Microsoft.EventGrid|Blob Storage 이벤트 게시를 사용하도록 설정합니다.  [자세히 알아봅니다](https://docs.microsoft.com/azure/event-grid/overview).|
+|Azure DevTest Labs|Microsoft.DevTestLab|사용자 지정 이미지 만들기 및 아티팩트 설치.  [자세히 알아보기](https://docs.microsoft.com/azure/devtest-lab/devtest-lab-overview).|
+|Azure Event Grid|Microsoft.EventGrid|Blob Storage 이벤트 게시를 사용하도록 설정합니다.  [자세히 알아보기](https://docs.microsoft.com/azure/event-grid/overview).|
 |Azure Event Hubs|Microsoft.EventHub|Event Hubs 캡처로 데이터를 보관합니다.  [자세한 정보](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview).|
-|Azure HDInsight|Microsoft.HDInsight|클러스터 프로비저닝 및 설치.  [자세히 알아봅니다](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-blob-storage).|
-|Azure 네트워킹|Microsoft.Networking|네트워크 트래픽 로그를 저장 및 분석합니다.  [자세히 알아봅니다](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview).|
-|Azure Backup|Microsoft.RecoveryServices|관리되지 않는 디스크의 백업 및 복원입니다.  [자세히 알아봅니다](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup).|
+|Azure 네트워킹|Microsoft.Networking|네트워크 트래픽 로그를 저장 및 분석합니다.  [자세히 알아보기](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview).|
 ||||
 
 ### <a name="storage-analytics-data-access"></a>저장소 분석 데이터 액세스
@@ -307,7 +303,7 @@ az storage account network-rule remove --resource-group "myresourcegroup" --acco
 ### <a name="managing-exceptions"></a>예외 관리
 Azure Portal, PowerShell 또는 Azure CLI v2를 통해 네트워크 규칙 예외를 관리할 수 있습니다.
 
-#### <a name="azure-portal"></a>Azure 포털
+#### <a name="azure-portal"></a>Azure portal
 1. 보호하려는 저장소 계정으로 이동합니다.  
 2. **Firewall 및 Virtual Network**이라는 설정 메뉴를 클릭합니다.
 3. ‘선택한 네트워크’의 액세스를 허용하도록 선택했는지 확인합니다.

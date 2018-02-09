@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2017
 ms.author: szark
-ms.openlocfilehash: 63970d162c12984d6476bf0b9fc4ab70160eccdb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7802ac701dfb865186beac3889ea2a5b4d0c4770
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="prepare-a-debian-vhd-for-azure"></a>Azure용 Debian VHD 준비
 ## <a name="prerequisites"></a>필수 조건
-이 섹션에서는 [Debian 웹 사이트](https://www.debian.org/distrib/) 에서 다운로드한 .iso 파일에서 Debian Linux 운영 체제를 가상 하드 디스크에 설치했다고 가정합니다. .vhd 파일을 만드는 여러 도구가 있으며 Hyper-V가 한 가지 예입니다. Hyper-V 사용에 대한 자세한 내용은 [Hyper-V 역할 설치 및 가상 컴퓨터 구성](https://technet.microsoft.com/library/hh846766.aspx)을 참조하세요.
+이 섹션에서는 [Debian 웹 사이트](https://www.debian.org/distrib/) 에서 다운로드한 .iso 파일에서 Debian Linux 운영 체제를 가상 하드 디스크에 설치했다고 가정합니다. .vhd 파일을 만드는 여러 도구가 있으며 Hyper-V가 한 가지 예입니다. Hyper-V 사용에 대한 자세한 내용은 [Hyper-V 역할 설치 및 Virtual Machine 구성](https://technet.microsoft.com/library/hh846766.aspx)을 참조하세요.
 
 ## <a name="installation-notes"></a>설치 참고 사항
 * Azure용 Linux를 준비하는 방법에 대한 추가 팁은 [일반 Linux 설치 참고 사항](create-upload-generic.md#general-linux-installation-notes) 을 참조하세요.
@@ -48,8 +48,8 @@ ms.lasthandoff: 10/11/2017
 
 
 ## <a name="manually-prepare-a-debian-vhd"></a>Debian VHD 수동 준비
-1. Hyper-V 관리자에서 가상 컴퓨터를 선택합니다.
-2. **연결** 을 클릭하여 가상 컴퓨터의 콘솔 창을 엽니다.
+1. Hyper-V 관리자에서 가상 머신을 선택합니다.
+2. **연결** 을 클릭하여 가상 머신의 콘솔 창을 엽니다.
 3. ISO 파일에 대해 VM을 설정한 경우 `/etc/apt/source.list`에서 **deb cdrom**에 대한 줄을 주석으로 처리합니다.
 4. 다음과 같이 `/etc/default/grub` 파일을 편집하고 **GRUB_CMDLINE_LINUX** 매개 변수를 수정하여 Azure에 대한 추가 커널 매개 변수를 포함시킵니다.
    
@@ -85,7 +85,7 @@ ms.lasthandoff: 10/11/2017
         Pin-Priority: 500
    
     그런 다음 "sudo apt-get install linux-image-amd64"를 실행하여 새 커널을 만듭니다.
-3. 가상 컴퓨터의 프로비전을 해제하고 Azure에서 프로비전할 가상 컴퓨터를 준비하고 다음 명령을 실행합니다.
+3. 가상 머신의 프로비전을 해제하고 Azure에서 프로비전할 가상 머신을 준비하고 다음 명령을 실행합니다.
    
         # sudo waagent –force -deprovision
         # export HISTSIZE=0
@@ -93,5 +93,5 @@ ms.lasthandoff: 10/11/2017
 4. Hyper-V 관리자에서 **작업** -> 종료를 클릭합니다. 이제 Linux VHD를 Azure에 업로드할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-이제 Debian 가상 하드 디스크를 사용하여 Azure에서 새 가상 컴퓨터를 만들 준비가 되었습니다. .vhd 파일을 Azure에 처음으로 업로드하는 경우 [Linux 운영 체제를 포함하는 가상 하드 디스크 만들기 및 업로드](classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)에서 2단계 및 3단계를 참조하세요.
+이제 Debian 가상 하드 디스크를 사용하여 Azure에서 새 가상 머신을 만들 준비가 되었습니다. .vhd 파일을 Azure에 처음 업로드하는 경우 [사용자 지정 디스크에서 Linux VM 만들기](upload-vhd.md#option-1-upload-a-vhd)를 참조하세요.
 

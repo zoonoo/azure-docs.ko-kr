@@ -1,6 +1,6 @@
 ---
-title: "Event Hubs 네임스페이스로 Azure 진단 로그 스트림 | Microsoft Docs"
-description: "Event Hubs 네임스페이스로 Azure 진단 로그를 스트림하는 방법에 대해 알아봅니다."
+title: "이벤트 허브로 Azure 진단 로그 스트림 | Microsoft Docs"
+description: "이벤트 허브로 Azure 진단 로그를 스트리밍하는 방법을 알아봅니다."
 author: johnkemnetz
 manager: orenr
 editor: 
@@ -12,21 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/21/2017
+ms.date: 12/22/2017
 ms.author: johnkem
-ms.openlocfilehash: 01ba8ddfcf90e1368ac147296fd180f99420d96f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bcb9fcb2371217e7082d96ddbba4a095e6d9a00f
+ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/22/2017
 ---
-# <a name="stream-azure-diagnostic-logs-to-an-event-hubs-namespace"></a>Event Hubs 네임스페이스로 Azure 진단 로그 스트림
-포털에서 기본 제공되는 “Event Hubs로 내보내기” 옵션을 사용하거나 Azure PowerShell Cmdlet 또는 Azure CLI를 통해 진단 설정에서 Service Bus 규칙 ID를 사용하도록 설정하여 **[Azure 진단 로그](monitoring-overview-of-diagnostic-logs.md)**를 거의 실시간으로 응용 프로그램에 스트림할 수 있습니다.
+# <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>이벤트 허브로 Azure 진단 로그 스트림
+Portal에서 기본 제공되는 "Event Hubs로 내보내기" 옵션을 사용하거나 Azure PowerShell cmdlet 또는 Azure CLI를 통해 진단 설정에서 이벤트 허브 권한 부여 규칙 ID를 사용하도록 설정하여 **[Azure 진단 로그](monitoring-overview-of-diagnostic-logs.md)**를 거의 실시간으로 응용 프로그램에 스트리밍할 수 있습니다.
 
 ## <a name="what-you-can-do-with-diagnostics-logs-and-event-hubs"></a>진단 로그 및 Event Hubs에서 수행할 수 있는 작업
 진단 로그의 스트리밍 기능을 사용할 수 있는 몇 가지 방법은 다음과 같습니다.
 
-* **타사 로깅 및 원격 분석 시스템으로 로그 스트림** – 시간이 지나면서 Event Hubs 스트리밍은 진단 로그를 타사 SIEM 및 로그 분석 솔루션으로 파이핑하기 위한 메커니즘이 되고 있습니다.
+* **타사 로깅 및 원격 분석 시스템으로 로그 스트림** – 모든 진단 로그를 단일 이벤트 허브로 스트리밍하여 로그 데이터를 타사 SIEM 또는 로그 분석 도구로 파이프할 수 있습니다.
 * **“실행 부하 과다 경로” 데이터를 PowerBI로 스트리밍하여 서비스 상태 보기** – Event Hubs, Stream Analytics 및 PowerBI를 사용하여 Azure 서비스에서 진단 데이터를 거의 실시간 정보로 간편하게 변환할 수 있습니다. [이 설명서 문서는 Event Hubs를 설정하고 Stream Analytics로 데이터를 처리하며 출력으로 PowerBI를 사용하는 방법에 대한 훌륭한 개요를 제공합니다](../stream-analytics/stream-analytics-power-bi-dashboard.md). 다음은 진단 로그로 설정하는 방법에 대한 몇 가지 팁입니다.
   
   * 진단 로그의 범주에 대한 이벤트 허브는 포털에서 해당 옵션을 선택하거나 PowerShell을 통해 사용하도록 설정하면 자동으로 생성되므로 **insights-**로 시작하는 이름의 네임스페이스에서 이벤트 허브를 선택할 수 있습니다.
@@ -42,17 +42,17 @@ ms.lasthandoff: 10/11/2017
     CROSS APPLY GetArrayElements(e.records) AS records
     ```
 
-* **사용자 지정 원격 분석 및 로깅 플랫폼 빌드** – 사용자 지정 빌드 원격 분석 플랫폼이 이미 있거나 플랫폼 빌드에 대해 생각하고 있는 경우 이벤트 허브의 확장성 높은 게시-구독 특성을 통해 진단 로그를 유연하게 수집할 수 있습니다. [글로벌 확장 원격 분석 플랫폼에 이벤트 허브 사용에 대해서는 여기 Dan Rosanova의 가이드를 참조하세요.](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/)
+* **사용자 지정 원격 분석 및 로깅 플랫폼 빌드** – 사용자 지정 빌드 원격 분석 플랫폼이 이미 있거나 플랫폼 빌드에 대해 생각하고 있는 경우 Event Hubs의 확장성 높은 게시-구독 특성을 통해 진단 로그를 유연하게 수집할 수 있습니다. [글로벌 확장 원격 분석 플랫폼에 Event Hubs 사용에 대해서는 여기 Dan Rosanova의 가이드를 참조하세요.](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/)
 
 ## <a name="enable-streaming-of-diagnostic-logs"></a>진단 로그의 스트리밍 사용
 프로그래밍 방식으로 포털을 통하거나 [Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/servicediagnosticsettings)를 사용하여 진단 로그의 스트리밍을 사용하도록 설정할 수 있습니다. 어느 쪽이든 Event Hubs 네임스페이스를 지정하는 로그 설정과 네임스페이스로 전송하려는 로그 범주 및 메트릭을 만듭니다. 이벤트 허브는 활성화한 각 로그 범주에 대한 네임스페이스에서 생성됩니다. 진단 **로그 범주**는 리소스가 수집할 수 있는 로그 형식입니다.
 
 > [!WARNING]
-> 계산 리소스(예: VM 또는 서비스 패브릭)에서 진단 로그를 사용 및 스트리밍하려면 [여러 단계 집합을 거쳐야 합니다](../event-hubs/event-hubs-streaming-azure-diags-data.md).
+> Compute 리소스(예: VM 또는 서비스 패브릭)에서 진단 로그를 사용 및 스트리밍하려면 [여러 단계 집합을 거쳐야 합니다](../event-hubs/event-hubs-streaming-azure-diags-data.md).
 > 
 > 
 
-설정을 구성하는 사용자가 두 구독에 대한 적절한 RBAC 액세스를 가진 경우 Service Bus 또는 Event Hubs 네임스페이스는 로그를 내보내는 리소스와 동일한 구독을 가지고 있지 않아도 됩니다.
+설정을 구성하는 사용자에게 두 구독 모두에 액세스할 수 있는 적절한 RBAC 액세스 권한이 있는 한, Event Hubs 네임스페이스가 로그를 내보내는 리소스와 동일한 구독이 아니어도 됩니다.
 
 ## <a name="stream-diagnostic-logs-using-the-portal"></a>포털을 사용하여 진단 로그 스트림
 1. 포털에서 Azure Monitor로 이동하고 **진단 설정**을 클릭합니다.
@@ -73,11 +73,11 @@ ms.lasthandoff: 10/11/2017
    
    ![진단 설정 추가 - 기존 설정](media/monitoring-stream-diagnostic-logs-to-event-hubs/diagnostic-settings-configure.png)
     
-   선택한 네임스페이스는 이벤트 허브가 생성(진단 로그를 처음으로 스트리밍하는 경우)되거나 스트림(해당 로그 범주를 이 네임스페이스로 스트리밍하는 리소스가 이미 있는 경우)되는 위치이며 정책은 스트리밍 메커니즘이 포함하는 사용 권한을 정의합니다. 현재, 이벤트 허브로 스트리밍하려면 관리, 보내기 및 수신 권한이 필요합니다. 포털에서 네임스페이스에 대한 구성 탭 아래에서 Event Hubs 네임스페이스 공유 액세스 정책을 만들거나 수정할 수 있습니다. 이러한 진단 설정 중 하나를 업데이트하려면 클라이언트에 Event Hubs 권한 부여 규칙에 대한 ListKey 권한이 있어야 합니다.
+   선택한 네임스페이스는 이벤트 허브가 생성(진단 로그를 처음으로 스트리밍하는 경우)되거나 스트림(해당 로그 범주를 이 네임스페이스로 스트리밍하는 리소스가 이미 있는 경우)되는 위치이며 정책은 스트리밍 메커니즘이 포함하는 사용 권한을 정의합니다. 현재, 이벤트 허브로 스트리밍하려면 관리, 보내기 및 수신 권한이 필요합니다. 포털에서 네임스페이스에 대한 구성 탭 아래에서 Event Hubs 네임스페이스 공유 액세스 정책을 만들거나 수정할 수 있습니다. 이러한 진단 설정 중 하나를 업데이트하려면 클라이언트에 Event Hubs 권한 부여 규칙에 대한 ListKey 권한이 있어야 합니다. 원하는 경우 이벤트 허브 이름을 지정할 수도 있습니다. 이벤트 허브 이름을 지정하면 로그가 로그 범주에 따라 새로 작성되는 이벤트 허브로 라우팅되지 않고 해당 이벤트 허브로 라우팅됩니다.
 
-4. **Save**를 클릭합니다.
+4. **저장**을 클릭합니다.
 
-몇 분 후 새 설정이 이 리소스에 대한 설정 목록에 표시되고, 새 이벤트 데이터가 생성되는 즉시 진단 로그가 해당 저장소 계정에 스트림됩니다.
+몇 분 후 새 설정이 이 리소스에 대한 설정 목록에 표시되고, 새 이벤트 데이터가 생성되는 즉시 진단 로그가 해당 이벤트 허브로 스트리밍됩니다.
 
 ### <a name="via-powershell-cmdlets"></a>PowerShell Cmdlet을 통해
 [Azure PowerShell Cmdlet](insights-powershell-samples.md)을 통해 스트리밍을 사용하도록 설정하려면 다음 매개 변수와 함께 `Set-AzureRmDiagnosticSetting` cmdlet을 사용하면 됩니다.
@@ -86,7 +86,7 @@ ms.lasthandoff: 10/11/2017
 Set-AzureRmDiagnosticSetting -ResourceId [your resource ID] -ServiceBusRuleId [your Service Bus rule ID] -Enabled $true
 ```
 
-서비스 버스 규칙 ID는 `{Service Bus resource ID}/authorizationrules/{key name}` 형식의 문자열입니다. 예를 들면 `/subscriptions/{subscription ID}/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.ServiceBus/namespaces/{Service Bus namespace}/authorizationrules/RootManageSharedAccessKey`입니다.
+Service Bus 규칙 ID는 `{Service Bus resource ID}/authorizationrules/{key name}` 형식의 문자열입니다. 예를 들면 `/subscriptions/{subscription ID}/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.ServiceBus/namespaces/{Service Bus namespace}/authorizationrules/RootManageSharedAccessKey`입니다. 현재는 PowerShell을 사용하여 특정 이벤트 허브 이름을 선택할 수 없습니다.
 
 ### <a name="via-azure-cli"></a>Azure CLI를 통해
 [Azure CLI](insights-cli-samples.md)를 통해 스트리밍을 사용하도록 설정하려면 다음과 같이 `insights diagnostic set` 명령을 사용하면 됩니다.
@@ -95,9 +95,9 @@ Set-AzureRmDiagnosticSetting -ResourceId [your resource ID] -ServiceBusRuleId [y
 azure insights diagnostic set --resourceId <resourceID> --serviceBusRuleId <serviceBusRuleID> --enabled true
 ```
 
-PowerShell Cmdlet에 대해 설명한 것처럼 서비스 버스 규칙 ID와 동일한 형식을 사용합니다.
+PowerShell Cmdlet에 대해 설명한 것처럼 Service Bus 규칙 ID와 동일한 형식을 사용합니다. 현재는 Azure CLI를 사용하여 특정 이벤트 허브 이름을 선택할 수 없습니다.
 
-## <a name="how-do-i-consume-the-log-data-from-event-hubs"></a>이벤트 허브에서 로그 데이터를 사용하려면 어떻게 하나요?
+## <a name="how-do-i-consume-the-log-data-from-event-hubs"></a>Event Hubs에서 로그 데이터를 사용하려면 어떻게 하나요?
 다음은 Event Hubs의 샘플 출력 데이터입니다.
 
 ```json
@@ -166,17 +166,17 @@ PowerShell Cmdlet에 대해 설명한 것처럼 서비스 버스 규칙 ID와 �
 | 레코드 |이 페이로드에 있는 모든 로그 이벤트의 배열입니다. |
 | 실시간 |이벤트가 발생한 시간입니다. |
 | 카테고리 |이 이벤트에 대한 로그 범주입니다. |
-| resourceId |이 이벤트를 생성한 리소스의 리소스 ID입니다. |
+| ResourceId |이 이벤트를 생성한 리소스의 리소스 ID입니다. |
 | operationName |작업의 이름입니다. |
 | level |선택 사항입니다. 로그 이벤트 수준을 나타냅니다. |
 | properties |이벤트의 속성입니다. |
 
 Event Hubs로의 스트리밍을 지원하는 모든 리소스 공급자의 목록을 [여기](monitoring-overview-of-diagnostic-logs.md)에서 볼 수 있습니다.
 
-## <a name="stream-data-from-compute-resources"></a>계산 리소스의 스트림 데이터
+## <a name="stream-data-from-compute-resources"></a>Compute 리소스의 스트림 데이터
 Windows Azure 진단 에이전트를 사용하여 Compute 리소스에서 진단 로그를 스트림할 수도 있습니다. 설정하는 방법은 [이 문서를 참조](../event-hubs/event-hubs-streaming-azure-diags-data.md)하세요.
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure 진단 로그에 대해 자세히 알아보기](monitoring-overview-of-diagnostic-logs.md)
-* [이벤트 허브 시작](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
+* [Event Hubs 시작](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 

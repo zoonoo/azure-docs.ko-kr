@@ -15,15 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: 57e28215124bc0330517c541e4cb74a66d939ff5
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 860099b2634765f3088199c89341f0b48b20b801
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/09/2018
 ---
 #<a name="introduction-to-r-server-and-open-source-r-capabilities-on-hdinsight"></a>HDInsight의 R Server 및 오픈 소스 기능 소개
 
 Microsoft R Server를 사용하면 Azure에서 HDInsight 클러스터를 만들 때 배포 옵션으로 사용할 수 있습니다. 이 새로운 기능은 데이터 과학자, 통계학자 및 R 프로그래머에게 HDInsight의 확장 가능한 분산형 분석 방법에 요청 시 액세스할 수 있도록 해줍니다.
+
+[!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]
 
 클러스터 크기를 프로젝트 및 작업에 맞게 손쉽게 조정한 다음 더 이상 필요 없을 때 클러스터를 폐기할 수 있습니다. 이러한 클러스터는 Azure HDInsight의 일부이므로 엔터프라이즈 수준의 연중무휴 24시간 지원, 99.9% 가동 시간의 SLA, Azure 에코시스템의 다른 구성 요소와 통합할 수 있는 유연성이 제공됩니다.
 
@@ -58,7 +60,7 @@ R 콘솔에 액세스하기 위해 SSH/PuTTY를 사용하여 명령줄에서 R S
 HDInsight에서 점수를 매기려면 모델을 호출하여 저장소 계정에 로드한 새 데이터 파일에 대해 예측하는 R 함수를 작성합니다. 그런 다음 예측을 저장소 계정에 다시 저장합니다. 클러스터의 에지 노드에서 요청 시 루틴을 실행하거나 예약된 작업을 사용하여 루틴을 실행할 수 있습니다.  
 
 ### <a name="score-in-azure-machine-learning-aml"></a>AML(Azure Machine Learning)에서 점수 매기기
-AML 웹 서비스를 사용하여 점수를 매기려면 [AzureML](https://cran.r-project.org/web/packages/AzureML/vignettes/getting_started.html)로 알려진 오픈 소스 Azure Machine Learning R 패키지를 사용하여 모델을 Azure 웹 서비스로 게시합니다. 이 패키지는 편의상 에지 노드에 미리 설치됩니다. 다음으로, 기계 학습의 기능을 사용하여 웹 서비스에 대한 사용자 인터페이스를 만든 후 점수 매기기에 필요한 대로 웹 서비스를 호출합니다.
+AML 웹 서비스를 사용하여 점수를 매기려면 [AzureML](https://cran.r-project.org/web/packages/AzureML/vignettes/getting_started.html)로 알려진 오픈 소스 Azure Machine Learning R 패키지를 사용하여 모델을 Azure 웹 서비스로 게시합니다. 이 패키지는 편의상 에지 노드에 미리 설치됩니다. 다음으로, Machine Learning의 기능을 사용하여 웹 서비스에 대한 사용자 인터페이스를 만든 후 점수 매기기에 필요한 대로 웹 서비스를 호출합니다.
 
 이 옵션을 선택한 경우 ScaleR 모델 개체를 웹 서비스에서 사용할 동등한 오픈 소스 모델 개체로 변환해야 합니다. 이 변환은 앙상블 기반 모델에 대해 ScaleR 강제 변환 함수(예: `as.randomForest()` )를 통해 수행할 수 있습니다.
 
@@ -84,7 +86,7 @@ Map Reduce 작업을 실행할 때 R 서버에 사용 가능한 메모리 양을
 포털을 통해 기존 클러스터를 확장하거나 축소할 수 있습니다. 규모를 조정하여 더 큰 처리 작업에 필요한 추가 용량을 얻거나 유휴 상태일 때 클러스터 크기를 다시 조정할 수 있습니다. 클러스터 크기를 조정하는 방법에 대한 지침은 [HDInsight 클러스터 관리](../hdinsight-administer-use-portal-linux.md)를 참조하세요.
 
 ### <a name="maintain-the-system"></a>시스템 유지 관리
-OS 패치 및 기타 업데이트를 적용하는 유지 관리는 업무 외 시간 중에 HDInsight 클러스터의 기본 Linux VM에서 수행됩니다. 일반적으로 유지 관리는 월요일과 목요일마다 오전 3시 30분(VM의 로컬 시간에 따라)에 수행됩니다. 업데이트는 한 번에 클러스터의 ¼ 이상에 영향을 주지 않는 방식으로 수행됩니다.  
+OS 패치 및 기타 업데이트를 적용하는 유지 관리는 업무 외 시간 중에 HDInsight 클러스터의 기본 Linux VM에서 수행됩니다. 일반적으로 유지 관리는 월요일과 목요일마다 오전 3시 30분(VM의 로컬 시간에 따라)에 수행됩니다. 업데이트는 한 번에 클러스터의 4분의 1 이상에 영향을 주지 않는 방식으로 수행됩니다.  
 
 헤드 노드가 중복되어 있고 모든 데이터 노드가 영향을 받는 것은 아니므로 이 시간 중에 실행되는 작업은 속도가 느려질 수 있습니다. 하지만 완료될 때까지 계속 실행되어야 합니다. 모든 사용자 지정 소프트웨어 또는 로컬 데이터는 클러스터를 다시 빌드해야 하는 심각한 오류가 발생하지 않는 한 이러한 유지 관리에서 보존됩니다.
 
@@ -96,7 +98,7 @@ HDInsight 클러스터의 Linux 에지 노드는 R 기반 분석의 연결 영�
 마지막으로 SSH 또는 PuTTY를 통해 연결한 후 Linux 명령 프롬프트에서 **R**을 입력하면 에지 노드의 R Server 콘솔에 액세스할 수 있습니다. 콘솔 인터페이스 사용 시 R 스크립트 개발용 텍스트 편집기를 다른 창에서 실행하고 필요에 따라 스크립트의 섹션을 복사하여 R 콘솔에 붙여 넣으면 편리합니다.
 
 ## <a name="learn-about-pricing"></a>가격 책정에 대해 알아보기
-R Server가 포함된 HDInsight 클러스터와 연관된 요금은 표준 HDInsight 클러스터와 유사한 방식으로 구성됩니다. 이름, 데이터 및 에지 노드에서 기본 VM의 크기 조정을 기반으로 하며 향상된 코어 시간 기능이 추가되었습니다. HDInsight 가격 책정 및 30일 무료 평가판 제공에 대한 자세한 내용은 [HDInsight 가격 책정](https://azure.microsoft.com/pricing/details/hdinsight/)을 참조하세요.
+R Server가 포함된 HDInsight 클러스터와 연관된 요금은 표준 HDInsight 클러스터와 유사한 방식으로 구성됩니다. 이름, 데이터 및 에지 노드에서 기본 VM의 크기 조정을 기반으로 하며 향상된 코어 시간 기능이 추가되었습니다. HDInsight 가격 책정에 대한 자세한 내용은 [HDInsight 가격 책정](https://azure.microsoft.com/pricing/details/hdinsight/)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 HDInsight 클러스터에서 R 서버를 사용하는 방법에 대한 자세한 내용은 다음 항목을 참조하세요.

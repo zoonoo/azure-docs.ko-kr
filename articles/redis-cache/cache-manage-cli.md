@@ -3,8 +3,8 @@ title: "Azure CLI를 사용하여 Azure Redis Cache 관리 | Microsoft Docs"
 description: "모든 플랫폼에서 Azure CLI를 설치하고, Azure CLI를 사용하여 Azure 계정에 연결하고, Azure CLI에서 Redis cache를 만들고 관리하는 방법에 대해 알아봅니다."
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: 964ff245-859d-4bc1-bccf-62e4b3c1169f
 ms.service: cache
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: sdanie
-ms.openlocfilehash: d3a425251035e09bb3163fbb052669d0a874806f
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: wesmc
+ms.openlocfilehash: fdb0989af2215166b69f10474a0d22aab7b4d593
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-create-and-manage-azure-redis-cache-using-the-azure-command-line-interface-azure-cli"></a>Azure 명령줄 인터페이스(Azure CLI)를 사용하여 Azure Redis Cache를 만들고 관리하는 방법
 > [!div class="op_single_selector"]
@@ -45,9 +45,9 @@ Azure CLI를 사용하여 Azure Redis Cache 인스턴스를 만들고 관리하�
 ## <a name="redis-cache-properties"></a>Redis Cache 속성
 Redis Cache 인스턴스를 만들고 업데이트하는 경우에 다음 속성이 사용됩니다.
 
-| 속성 | Switch | 설명 |
+| 자산 | Switch | 설명 |
 | --- | --- | --- |
-| name |-n, --name |Redis Cache의 이름입니다. |
+| 이름 |-n, --name |Redis Cache의 이름입니다. |
 | 리소스 그룹 |-g, --resource-group |리소스 그룹의 이름입니다. |
 | location |-l, --location |캐시를 만드는 위치입니다. |
 | size |-z, --size |Redis Cache의 크기입니다. 유효한 값: [C0, C1, C2, C3, C4, C5, C6, P1, P2, P3, P4] |

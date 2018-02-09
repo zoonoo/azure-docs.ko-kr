@@ -44,12 +44,12 @@
 ### [사용자 지정 도메인 컨트롤러에 연결](cloud-services-connect-to-custom-domain.md)
 
 ## 서비스 관리
-### [투기적 실행 완화](mitigate-se.md}
 ### [일반적인 관리 작업](cloud-services-how-to-manage-portal.md)
 ### [클라우드 서비스 구성](cloud-services-how-to-configure-portal.md)
 ### [Azure Automation을 사용하여 클라우드 서비스 관리](automation-manage-cloud-services.md)
 ### [자동 크기 조정 구성](cloud-services-how-to-scale-portal.md)
 ### [Python으로 Azure 리소스 관리](cloud-services-python-how-to-use-service-management.md)
+### [잘못된 실행 완화](mitigate-se.md)
 
 ### [게스트 OS 패치](cloud-services-guestos-msrc-releases.md)
 ### 게스트 OS 사용 중지
@@ -109,7 +109,7 @@
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=compute)
 ## [학습 경로](https://azure.microsoft.com/documentation/learning-paths/cloud-services/)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-us/home?forum=windowsazuredevelopment)
-## [가격](https://azure.microsoft.com/pricing/details/cloud-services/)
+## [가격 책정](https://azure.microsoft.com/pricing/details/cloud-services/)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=cloud-services&updatetype=&platform=)
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=cloud-services)

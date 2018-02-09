@@ -12,20 +12,59 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/31/2017
+ms.date: 1/17/2017
 ms.author: dekapur
-ms.openlocfilehash: 32c09f06cea97024437e7e339407d344194a14ae
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 53b06c5a1395f34c96d4011366835a920d5c670b
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="set-up-oms-log-analytics-for-a-cluster"></a>클러스터에 대해 OMS Log Analytics 설정
 
-Azure Resource Manager를 통해 또는 Azure Marketplace에서 OMS 작업 영역을 설정할 수 있습니다. 나중에 사용할 수 있도록 배포 템플릿을 유지 관리하려는 경우에는 전자를 사용합니다. 진단이 사용하도록 설정된 상태에서 클러스터를 이미 배포한 경우 Marketplace를 통한 배포가 더 쉽습니다.
+Azure Resource Manager, PowerShell 또는 Azure Marketplace를 통해 OMS 작업 영역을 설정할 수 있습니다. 나중에 사용에 사용하기 위해 배포의 업데이트된 Resource Manager 템플릿을 유지 관리하는 경우 동일한 템플릿을 사용하여 OMS 환경을 설정합니다. 진단을 사용하도록 설정된 상태에서 이미 클러스터를 배포한 경우 Marketplace를 통한 배포가 더 쉽습니다. OMS를 배포하는 계정에 구독 수준 액세스 권한이 없는 경우 PowerShell을 사용하거나 Resource Manager 템플릿을 통해 배포합니다.
 
 > [!NOTE]
 > 클러스터를 성공적으로 모니터링하도록 OMS를 설정할 수 있으려면 클러스터에서 클러스터/플랫폼 수준 이벤트를 볼 수 있도록 진단을 사용하도록 설정해야 합니다.
+
+## <a name="deploying-oms-using-azure-marketplace"></a>Azure Marketplace를 사용하여 OMS 배포
+
+클러스터를 배포한 후에 OMS 작업 영역을 추가하려면 포털에서 Azure Marketplace로 이동하고 *"Service Fabric 분석"*을 검색합니다.
+
+1. 왼쪽 탐색 메뉴에서 **새로 만들기**를 클릭합니다. 
+
+2. *Service Fabric 분석*을 검색합니다. 표시되는 리소스를 클릭합니다.
+
+3. **만들기**를 클릭합니다.
+
+    ![Marketplace의 OMS SF 분석](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-analytics.png)
+
+4. Service Fabric 분석 만들기 창에서 *OMS 작업 영역* 필드에 대해 **작업 영역 선택**, **새 작업 영역 만들기**를 차례로 클릭합니다. 필요한 항목을 입력합니다. 단, Service Fabric 클러스터와 OMS 작업 영역에 대한 구독이 동일해야 합니다. 입력 항목의 유효성이 검사되면 OMS 작업 영역이 배포되기 시작하며, 몇 분밖에 안 걸립니다.
+
+5. 완료되면 Service Fabric 분석 만들기 창 맨 아래에서 **만들기**를 다시 클릭합니다. *OMS 작업 영역* 아래에 새 작업 영역이 표시되는지 확인합니다. 이렇게 하면 방금 만든 작업 영역에 솔루션이 추가됩니다.
+
+Windows를 사용하는 경우 다음 단계를 계속 진행하여 클러스터 이벤트가 저장되는 Storage 계정에 OMS를 연결합니다. Linux 클러스터에서 이 환경을 올바르게 사용하도록 설정하는 작업은 아직 진행 중입니다. 그 동안에는 OMS 에이전트를 클러스터에 추가합니다.  
+
+1. 클러스터에서 가져온 진단 데이터에 해당 작업 영역을 연결해야 합니다. Service Fabric 분석 솔루션을 만든 리소스 그룹으로 이동합니다. *ServiceFabric(\<nameOfOMSWorkspace\>)*이 보입니다. 솔루션을 클릭하여 솔루션 설정, 작업 영역 설정을 변경할 수 있는 개요 페이지로 이동한 다음, OMS 포털로 이동합니다.
+
+2. 왼쪽 탐색 메뉴에서 *작업 영역 데이터 원본*의 **저장소 계정 로그**를 클릭합니다.
+
+3. *저장소 계정 로그* 페이지에서 맨 위의 **추가**를 클릭하여 작업 영역에 클러스터 로그를 추가합니다.
+
+4. **저장소 계정**을 클릭하여 클러스터에서 만든 적절한 계정을 추가합니다. 기본 이름을 사용한 경우 저장소 계정의 이름은 *sfdg\<resourceGroupName\>*으로 지정됩니다. 또한, 클러스터를 배포하기 위해 사용한 Azure Resource Manager 템플릿을 확인하고, `applicationDiagnosticsStorageAccountName`에 사용한 값을 확인하여 확인할 수도 있습니다. 이름이 표시되지 않을 경우 아래로 스크롤하여 **추가 로드**를 클릭해야 할 수도 있습니다. 오른쪽 저장소 계정 이름을 클릭하여 선택합니다.
+
+5. 다음으로, **Service Fabric 이벤트**로 설정될 *데이터 형식*을 지정해야 합니다.
+
+6. *원본*은 *WADServiceFabric\*EventTable*로 자동 설정되어야 합니다.
+
+7. **확인**을 클릭하여 작업 영역을 클러스터 로그에 연결합니다.
+
+    ![OMS에 저장소 계정 로그 추가](media/service-fabric-diagnostics-event-analysis-oms/add-storage-account.png)
+
+이제 계정이 작업 영역의 데이터 원본에서 *저장소 계정 로그*의 일부로 표시됩니다.
+
+이를 통해 이제 OMS Log Analytics 작업 영역에서 Service Fabric 분석 솔루션을 추가했으며, 이제는 클러스터의 플랫폼 및 응용 프로그램 로그 표에 제대로 연결됩니다. 같은 방식으로 작업 영역에 추가적인 원본을 추가할 수 있습니다.
+
 
 ## <a name="deploying-oms-using-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 OMS 배포
 
@@ -65,14 +104,14 @@ Resource Manager 템플릿을 사용하여 클러스터를 배포할 때 템플�
 
     ```json
     "applicationDiagnosticsStorageAccountType": "Standard_LRS",
-    "applicationDiagnosticsStorageAccountName": "[toLower(concat('oms', uniqueString(resourceGroup().id), '3' ))]",
+    "applicationDiagnosticsStorageAccountName": "[toLower(concat('oms', uniqueString(resourceGroup().id), '3' ))]"
     ```
 
 3. Service Fabric OMS 솔루션을 템플릿의 변수에 추가합니다.
 
     ```json
     "solution": "[Concat('ServiceFabric', '(', parameters('omsWorkspacename'), ')')]",
-    "solutionName": "ServiceFabric",
+    "solutionName": "ServiceFabric"
     ```
 
 4. Service Fabric 클러스터 리소스가 선언된 후 리소스 섹션의 끝에 다음을 추가합니다.
@@ -91,11 +130,11 @@ Resource Manager 템플릿을 사용하여 클러스터를 배포할 때 템플�
         "resources": [
             {
                 "apiVersion": "2015-11-01-preview",
-                "name": "[concat(variables('applicationDiagnosticsStorageAccountName'),parameters('omsWorkspacename'))]",
+                "name": "[concat(parameters('applicationDiagnosticsStorageAccountName'),parameters('omsWorkspacename'))]",
                 "type": "storageinsightconfigs",
                 "dependsOn": [
                     "[concat('Microsoft.OperationalInsights/workspaces/', parameters('omsWorkspacename'))]",
-                    "[concat('Microsoft.Storage/storageAccounts/', variables('applicationDiagnosticsStorageAccountName'))]"
+                    "[concat('Microsoft.Storage/storageAccounts/', parameters('applicationDiagnosticsStorageAccountName'))]"
                 ],
                 "properties": {
                     "containers": [ ],
@@ -105,8 +144,8 @@ Resource Manager 템플릿을 사용하여 클러스터를 배포할 때 템플�
                         "WADETWEventTable"
                     ],
                     "storageAccount": {
-                        "id": "[resourceId('Microsoft.Storage/storageaccounts/', variables('applicationDiagnosticsStorageAccountName'))]",
-                        "key": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('applicationDiagnosticsStorageAccountName')),'2015-06-15').key1]"
+                        "id": "[resourceId('Microsoft.Storage/storageaccounts/', parameters('applicationDiagnosticsStorageAccountName'))]",
+                        "key": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('applicationDiagnosticsStorageAccountName')),'2015-06-15').key1]"
                     }
                 }
             }
@@ -132,8 +171,11 @@ Resource Manager 템플릿을 사용하여 클러스터를 배포할 때 템플�
         }
     }
     ```
+    
+    > [!NOTE]
+    > `applicationDiagnosticsStorageAccountName`을 변수로 추가한 경우 이에 대한 각 참조를 `parameters('applicationDiagnosticsStorageAccountName')` 대신 `variables('applicationDiagnosticsStorageAccountName')`으로 수정해야 합니다.
 
-5. 클러스터에 대한 Resource Manager 업그레이드로 템플릿을 배포합니다. 이 작업은 AzureRM PowerShell 모듈에서 `New-AzureRmResourceGroupDeployment` API를 사용하여 수행합니다. 예제 명령은 다음과 같습니다.
+5. 템플릿을 Resource Manager 업그레이드로 클러스터에 배포합니다. 이 작업은 AzureRM PowerShell 모듈에서 `New-AzureRmResourceGroupDeployment` API를 사용하여 수행합니다. 예제 명령은 다음과 같습니다.
 
     ```powershell
     New-AzureRmResourceGroupDeployment -ResourceGroupName "sfcluster1" -TemplateFile "<path>\template.json" -TemplateParameterFile "<path>\parameters.json"
@@ -141,41 +183,37 @@ Resource Manager 템플릿을 사용하여 클러스터를 배포할 때 템플�
 
     Azure Resource Manager는 이것이 기존 리소스에 대한 업데이트임을 감지할 수 있게 됩니다. 기존 배포를 구동하는 템플릿과 제공된 새 템플릿 사이의 변경 사항만 처리합니다.
 
-## <a name="deploying-oms-using-azure-marketplace"></a>Azure Marketplace를 사용하여 OMS 배포
+## <a name="deploying-oms-using-azure-powershell"></a>Azure PowerShell을 사용하여 OMS 배포
 
-클러스터를 배포한 후에 OMS 작업 영역을 추가하려면 Azure Marketplace(포털에서)로 이동하고 *"Service Fabric 분석"*을 검색합니다.
+PowerShell을 통해 OMS Log Analytics 리소스를 배포할 수도 있습니다. 이 작업은 `New-AzureRmOperationalInsightsWorkspace` 명령을 사용하여 수행됩니다. 이렇게 하려면 [Azure Powershell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.1.1)이 설치되어 있는지 확인합니다. 이 스크립트를 사용하여 새 OMS Log Analytics 작업 영역을 만들고 여기에 Service Fabric 솔루션을 추가합니다. 
 
-1. 왼쪽 탐색 메뉴에서 **새로 만들기**를 클릭합니다. 
+```ps
 
-2. *Service Fabric 분석*을 검색합니다. 표시되는 리소스를 클릭합니다.
+$SubscriptionName = "<Name of your subscription>"
+$ResourceGroup = "<Resource group name>"
+$Location = "<Resource group location>"
+$WorkspaceName = "<OMS Log Analytics workspace name>"
+$solution = "ServiceFabric"
 
-3. **만들기**를 클릭합니다.
+# Log in to Azure and access the correct subscription
+Login-AzureRmAccount
+Select-AzureRmSubscription -SubscriptionId $SubID 
 
-    ![Marketplace의 OMS SF 분석](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-analytics.png)
+# Create the resource group if needed
+try {
+    Get-AzureRmResourceGroup -Name $ResourceGroup -ErrorAction Stop
+} catch {
+    New-AzureRmResourceGroup -Name $ResourceGroup -Location $Location
+}
 
-4. Service Fabric 분석 만들기 창에서 *OMS 작업 영역* 필드에 대해 **작업 영역 선택**, **새 작업 영역 만들기**를 차례로 클릭합니다. 필요한 항목을 입력합니다. 단, Service Fabric 클러스터와 OMS 작업 영역에 대한 구독이 동일해야 합니다. 입력 항목의 유효성이 검사되면 OMS 작업 영역이 배포되기 시작하며, 몇 분밖에 안 걸립니다.
+New-AzureRmOperationalInsightsWorkspace -Location $Location -Name $WorkspaceName -Sku Standard -ResourceGroupName $ResourceGroup
+Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName -IntelligencePackName $solution -Enabled $true
 
-5. 완료되면 Service Fabric 분석 만들기 창 맨 아래에서 **만들기**를 다시 클릭합니다. *OMS 작업 영역* 아래에 새 작업 영역이 표시되는지 확인합니다. 이렇게 하면 방금 만든 작업 영역에 이 솔루션이 추가됩니다.
+```
 
-6. 클러스터에서 가져온 진단 데이터에 해당 작업 영역을 연결해야 합니다. Service Fabric 분석 솔루션을 만든 리소스 그룹으로 이동합니다. *ServiceFabric(\<nameOfOMSWorkspace\>)*이 보입니다. 솔루션을 클릭하여 솔루션 설정, 작업 영역 설정을 변경할 수 있는 개요 페이지로 이동한 다음, OMS 포털로 이동합니다.
+이 작업이 완료되고 클러스터가 Windows 클러스터인 경우 위 섹션의 단계에 따라 OMS Log Analytics를 해당 저장소 계정에 연결합니다.
 
-7. 왼쪽 탐색 메뉴에서 *작업 영역 데이터 원본*의 **저장소 계정 로그**를 클릭합니다.
-
-8. *저장소 계정 로그* 페이지에서 맨 위의 **추가**를 클릭하여 작업 영역에 클러스터 로그를 추가합니다.
-
-9. **저장소 계정**을 클릭하여 클러스터에서 만든 적절한 계정을 추가합니다. 기본 이름을 사용한 경우 저장소 계정의 이름은 *sfdg\<resourceGroupName\>*으로 지정됩니다. 또한, 클러스터를 배포하기 위해 사용한 Azure Resource Manager 템플릿을 확인하고, `applicationDiagnosticsStorageAccountName`에 사용한 값을 확인하여 확인할 수도 있습니다. 이름이 표시되지 않을 경우 아래로 스크롤하여 **추가 로드**를 클릭해야 할 수도 있습니다. 오른쪽 저장소 계정 이름을 클릭하여 선택합니다.
-
-10. 다음으로, **Service Fabric 이벤트**로 설정될 *데이터 형식*을 지정해야 합니다.
-
-11. *원본*은 *WADServiceFabric\*EventTable*로 자동 설정되어야 합니다.
-
-12. **확인**을 클릭하여 작업 영역을 클러스터 로그에 연결합니다.
-
-    ![OMS에 저장소 계정 로그 추가](media/service-fabric-diagnostics-event-analysis-oms/add-storage-account.png)
-
-이제 계정이 작업 영역의 데이터 원본에서 *저장소 계정 로그*의 일부로 표시됩니다.
-
-이를 통해 이제 OMS Log Analytics 작업 영역에서 Service Fabric 분석 솔루션을 추가했으며, 이제는 클러스터의 플랫폼 및 응용 프로그램 로그 표에 제대로 연결됩니다. 같은 방식으로 작업 영역에 추가적인 원본을 추가할 수 있습니다.
+또한 PowerShell을 사용하여 다른 솔루션을 추가하거나 다른 방식으로 OMS 작업 영역을 수정할 수도 있습니다. 이에 대한 자세한 내용은 [PowerShell을 사용하여 Log Analytics 관리](../log-analytics/log-analytics-powershell-workspace-configuration.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 * 노드에 [OMS 에이전트를 배포](service-fabric-diagnostics-oms-agent.md)하여 성능 카운터를 수집하고 컨테이너에 대한 docker 통계 및 로그를 수집합니다.

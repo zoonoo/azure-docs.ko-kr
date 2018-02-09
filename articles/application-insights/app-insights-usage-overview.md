@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: mbullwin
-ms.openlocfilehash: 4a6647e30657a6d2d076cd254069d96f99a0aa60
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 9f3eb14340205709b5409a3d16d631cc2d02eb32
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="usage-analysis-with-application-insights"></a>Application Insights를 사용하여 사용량 분석
 
@@ -110,7 +110,7 @@ ms.lasthandoff: 11/15/2017
 
 또는 서버 쪽에서 다음을 수행할 수 있습니다.
 
-```C#
+```csharp
     var tc = new Microsoft.ApplicationInsights.TelemetryClient();
     tc.TrackEvent("CreatedAccount", new Dictionary<string,string> {"AccountType":account.Type}, null);
     ...
@@ -141,7 +141,7 @@ Application Insights 포털에서 속성 값에 대해 데이터를 필터링하
 
 이렇게 하려면 [원격 분석 이니셜라이저를 설정](app-insights-api-filtering-sampling.md##add-properties-itelemetryinitializer)합니다.
 
-```C#
+```csharp
 
 
     // Telemetry initializer class
@@ -156,7 +156,7 @@ Application Insights 포털에서 속성 값에 대해 데이터를 필터링하
 
 Global.asax.cs 같은 웹앱 이니셜라이저에서 다음이 적용됩니다.
 
-```C#
+```csharp
 
     protected void Application_Start()
     {

@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: ce238a3093e29c3091f979bbd9e80f28495307da
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 88133aff36aaef544d555cb121e23ff23fcc3367
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Azure의 가상 머신에 대한 Cloud-init 지원
 이 문서에서는 Azure에서 프로비전할 때 VM(가상 머신) 또는 VMSS(가상 머신 확장 집합)을 구성할 수 있도록 [cloud-init](https://cloudinit.readthedocs.io)를 위해 존재하는 지원에 대해 설명합니다. Azure에서 리소스가 프로비전되면 처음 부팅 시 이러한 cloud-init 스크립트가 실행됩니다.  
@@ -33,16 +33,16 @@ Cloud-init는 배포에서도 작동합니다. 예를 들어, 패키지를 설�
 
 | 게시자 | 제안 | SKU | 버전 | cloud-init 준비 여부
 |:--- |:--- |:--- |:--- |:--- |:--- |
-|Canonical |UbuntuServer |16.04-LTS |최신 |yes | 
-|Canonical |UbuntuServer |14.04.5-LTS |최신 |yes |
-|CoreOS |CoreOS |Stable |최신 |yes |
+|Canonical |UbuntuServer |16.04-LTS |최신 |예 | 
+|Canonical |UbuntuServer |14.04.5-LTS |최신 |예 |
+|CoreOS |CoreOS |Stable |최신 |예 |
 |OpenLogic |CentOS |7-CI |최신 |미리 보기 |
 |RedHat |RHEL |7-RAW-CI |최신 |미리 보기 |
 
 ## <a name="what-is-the-difference-between-cloud-init-and-the-linux-agent-wala"></a>cloud-init와 Linux 에이전트(WALA)의 차이는 무엇입니까?
 WALA는 VM을 프로비전 및 구성하고 Azure 확장을 처리하는 데 사용되는 Azure 플랫폼 관련 에이전트입니다. 기존 cloud-init 고객이 현재 cloud-init 스크립트를 사용할 수 있도록, Linux 에이전트 대신 cloud-init를 사용하도록 VM을 구성하는 작업을 개선하고 있습니다.  Linux 시스템을 구성하기 위해 cloud-init 스크립트에 이미 투자한 경우 **추가 설정이 필요 없습니다**. 
 
-프로비전할 때 AzureCLI 명령줄 스위치 `--custom-data`를 포함하지 않으면 WALA는 VM을 프로비전하는 데 필요한 최소한의 VM 프로비전 매개 변수를 사용하여 기본 설정으로 배포를 완료합니다.  cloud-init `--custom-data` 스위치를 참조하면 사용자 지정 데이터에 포함된 것이 무엇이든(개인 설정 또는 전체 스크립트) 관계없이 WALA가 정의한 기본값을 재정의합니다. 
+프로비전할 때 AzureCLI `--custom-data` 스위치를 포함하지 않으면 WALA는 VM을 프로비전하는 데 필요한 최소한의 VM 프로비전 매개 변수를 사용하여 기본 설정으로 배포를 완료합니다.  cloud-init `--custom-data` 스위치를 참조하면 사용자 지정 데이터에 포함된 것이 무엇이든(개인 설정 또는 전체 스크립트) 관계없이 WALA 기본값을 재정의합니다. 
 
 VM의 WALA 구성은 최대 VM 프로비전 시간 내에서 작업하도록 시간이 제한됩니다.  VM에 적용되는 Cloud-init 구성은 시간 제약 조건이 없으므로 제한 시간 초과로 인한 배포 실패가 없습니다. 
 
@@ -82,7 +82,7 @@ az vm create \
 VM이 생성되면 Azure CLI가 배포에 대한 정보를 표시합니다. `publicIpAddress`을 기록해 둡니다. 이 주소는 VM에 액세스하는 데 사용됩니다.  VM을 만들고 패키지를 설치하고 앱을 시작하는 데 시간이 약간 걸립니다. Azure CLI에서 프롬프트로 반환한 후 실행을 계속하는 백그라운드 작업이 있습니다. VM에 SSH한 후 문제 해결 섹션에 설명된 단계를 사용하여 cloud-init 로그를 볼 수 있습니다. 
 
 ## <a name="troubleshooting-cloud-init"></a>cloud-init 문제 해결
-VM이 프로비전되면 Cloud-init는 `--custom-data`에 정의된 모든 모듈과 스크립트를 실행하여 VM을 구성합니다.  구성 오류 또는 누락을 해결해야 하는 경우 **/var/log/cloud-init.log**에 있는 cloud-init 로그에서 모듈 이름(예: `disk_setup` 또는 `runcmd`)을 검색해야 합니다.
+VM이 프로비전되면 cloud-init는 `--custom-data`에 정의된 모든 모듈과 스크립트를 실행하여 VM을 구성합니다.  구성 오류 또는 누락을 해결해야 하는 경우 **/var/log/cloud-init.log**에 있는 cloud-init 로그에서 모듈 이름(예: `disk_setup` 또는 `runcmd`)을 검색해야 합니다.
 
 > [!NOTE]
 > 모든 모듈 실패가 심각한 cloud-init 전체 구성 실패로 이어지는 것은 아닙니다. 예를 들어 `runcmd` 모듈을 사용하는 경우 스크립트가 실패해도 runcmd 모듈이 실행되었기 때문에 cloud-init는 성공한 프로비전을 계속 보고합니다.

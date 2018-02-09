@@ -14,11 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 10/13/2017
 ms.author: heidist
-ms.openlocfilehash: 5b4d88cb9c9662fe45de8c11534232a2905cf5a4
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 02a027845e56407bc8cc95f54a46d9534cb6de92
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="how-to-build-a-facet-filter-in-azure-search"></a>Azure Search에서 패싯 필터를 작성하는 방법 
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 10/25/2017
 
 패싯은 동적이며 쿼리에서 반환됩니다. 검색 응답은 결과를 탐색하는 데 사용되는 패싯 범주를 가져옵니다. 패싯에 익숙하지 않은 경우 다음 예제는 패싯 탐색 구조를 보여줍니다.
 
-  ![](./media/search-filters/facet-nav.png)
+  ![](./media/search-filters-facets/facet-nav.png)
 
 패싯 탐색이 생소하여 자세한 정보가 필요한가요? [Azure Search에서 패싯 탐색을 구현하는 방법](search-faceted-navigation.md)을 참조하세요.
 
@@ -48,7 +48,7 @@ ms.lasthandoff: 10/25/2017
 + Edm.String
 + Edm.DateTimeOffset
 + Edm.Boolean
-+ Edm.Collections(이 문서의 뒷부분에 나오는 [복잡한 데이터 유형을 패싯하는 방법](#facet-complex-fields)을 참조하세요.)
++ Edm.Collections
 + 숫자 필드 형식: Edm.Int32, Edm.Int64, Edm.Double
 
 Edm.GeographyPoint는 패싯 탐색에 사용할 수 없습니다. 패싯은 사람이 읽을 수 있는 텍스트 또는 숫자로 구성됩니다. 따라서 지리적 좌표에는 패싯이 지원되지 않습니다. 위치별로 패싯을 만들려면 도시 또는 지역 필드가 필요합니다.

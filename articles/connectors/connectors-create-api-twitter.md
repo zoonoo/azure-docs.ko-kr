@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: be8163043535833ce45b3d50939a537406cf8152
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 065de976118e7be67ef8a515e39c04cfd74b5b43
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-twitter-connector"></a>Twitter 커넥터 시작
 Twitter 커넥터를 사용하여 다음을 수행할 수 있습니다.
@@ -28,7 +28,7 @@ Twitter 커넥터를 사용하여 다음을 수행할 수 있습니다.
 * 타임라인, 친구 및 팔로워 액세스
 * 아래 설명된 기타 작업 및 트리거 수행  
 
-[커넥터](apis-list.md)를 사용하려면 먼저 논리 앱을 만들어야 합니다. [지금 논리 앱을 만들어](../logic-apps/logic-apps-create-a-logic-app.md) 시작할 수 있습니다.  
+[커넥터](apis-list.md)를 사용하려면 먼저 논리 앱을 만들어야 합니다. [지금 논리 앱을 만들어](../logic-apps/quickstart-create-first-logic-app-workflow.md) 시작할 수 있습니다.  
 
 ## <a name="connect-to-twitter"></a>Twitter에 연결
 논리 앱에서 서비스에 액세스하려면 먼저 서비스에 대한 *연결*을 만들어야 합니다. [연결](connectors-overview.md)은 논리 앱과 다른 서비스 간의 연결을 제공합니다.  
@@ -39,7 +39,7 @@ Twitter 커넥터를 사용하여 다음을 수행할 수 있습니다.
 > 
 
 ## <a name="use-a-twitter-trigger"></a>Twitter 트리거 사용
-트리거는 논리 앱에 정의된 워크플로를 시작하는 데 사용할 수 있는 이벤트입니다. [트리거에 대해 자세히 알아보세요.](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts)
+트리거는 논리 앱에 정의된 워크플로를 시작하는 데 사용할 수 있는 이벤트입니다. [트리거에 대해 자세히 알아보세요.](../logic-apps/logic-apps-overview.md#logic-app-concepts)
 
 이 예에서는 #Seattle을 검색하는 데 **새 트윗이 게시될 때** 트리거를 사용하고 #Seattle이 있는 경우 트윗의 텍스트로 Dropbox의 파일을 업데이트하는 방법을 보여 줍니다. 엔터프라이즈 예에서는 회사 이름을 검색하고 SQL 데이터베이스를 트윗의 텍스트로 업데이트할 수 있습니다.
 
@@ -80,7 +80,7 @@ Twitter 커넥터를 사용하여 다음을 수행할 수 있습니다.
    ![Twitter 조건 이미지 8](../../includes/media/connectors-create-api-twitter/condition-8.png)   
 
 ## <a name="use-a-twitter-action"></a>Twitter 작업 사용
-작업은 논리 앱에 정의된 워크플로에 의해 수행되는 작업입니다. [작업에 대해 자세히 알아봅니다.](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts)  
+작업은 논리 앱에 정의된 워크플로에 의해 수행되는 작업입니다. [작업에 대해 자세히 알아봅니다.](../logic-apps/logic-apps-overview.md#logic-app-concepts)  
 
 이제 트리거를 추가했으므로 다음 단계에 따라 트리거가 찾은 트윗의 내용으로 새 트윗을 게시할 작업을 추가합니다. 이 연습의 목적은 50명 이상의 팔로워가 있는 사용자의 트윗만 게시하는 것입니다.  
 
@@ -104,5 +104,5 @@ Twitter 커넥터를 사용하여 다음을 수행할 수 있습니다.
 [커넥터 세부 정보](/connectors/twitterconnector/)에서 swagger에 정의된 모든 트리거 및 작업과 제한 사항도 확인할 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
-[논리 앱 만들기](../logic-apps/logic-apps-create-a-logic-app.md)
+[논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 

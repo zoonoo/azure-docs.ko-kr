@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
-ms.date: 09/12/2017
-ms.openlocfilehash: e915c936af65bc9cac591d1fc011351b1720bb5b
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.date: 02/01/2018
+ms.openlocfilehash: 128a4ae124f01a0514160450a3e9069b488274cd
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="sample-of-custom-column-transforms-python"></a>사용자 지정 열 변환 샘플(Python) 
 메뉴에서 이 변환의 이름은 **Add Column(스크립트)**입니다.
@@ -54,6 +54,12 @@ Unix Epoch 이후의 시간(초)입니다(Col1이 이미 날짜라고 가정).
     row["Col1"] - datetime.datetime.utcfromtimestamp(0)).total_seconds()
 ```
 
+## <a name="hash-a-column-value-into-a-new-column"></a>열 값을 새 열에 해시
+```python
+    import hashlib
+    hash(row["MyColumnToHashCol1"])
+
+```
 
 
 

@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/08/2017
+ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: a987247d2c8a76161f9c8a5a027e34b3a8e25b30
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 66165b2586304f3726f5d712fb334fe67e2cd02b
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-integrate-azure-active-directory-with-vxmaintain"></a>자습서: vxMaintain과 Azure Active Directory 통합
+# <a name="tutorial-azure-active-directory-integration-with-vxmaintain"></a>자습서: Azure Active Directory와 vxMaintain 통합
 
 이 자습서에서는 Azure AD(Azure Active Directory)와 vxMaintain을 통합하는 방법에 대해 알아봅니다.
 
@@ -106,7 +106,7 @@ vxMaintain을 사용하여 Azure AD SSO를 구성하고 테스트하려면 다�
 
     a. **식별자** 상자에 다음 `https://<company name>.verisae.com` 구문이 있는 URL을 입력합니다.
 
-    b. **회신 URL** 상자에 다음 `https://<company name>.verisae.com/DataNett/action/ssoConsume/mobile?_log=true` 구문이 있는 URL을 입력합니다.
+    나. **회신 URL** 상자에 다음 `https://<company name>.verisae.com/DataNett/action/ssoConsume/mobile?_log=true` 구문이 있는 URL을 입력합니다.
 
     > [!NOTE] 
     > 위의 값은 실제가 아닙니다. 실제 식별자 및 회신 URL로 해당 항목을 업데이트합니다. 값을 가져오려면 [vxMaintain 지원 팀](http://www.verisae.com/contact-us)에 문의하세요.
@@ -151,9 +151,9 @@ vxMaintain을 사용하여 Azure AD SSO를 구성하고 테스트하려면 다�
 
     a. **이름** 상자에 **BrittaSimon**을 입력합니다.
 
-    b. **사용자 이름** 상자에 테스트 사용자인 Britta Simon의 이메일 주소를 입력합니다.
+    나. **사용자 이름** 상자에 테스트 사용자인 Britta Simon의 이메일 주소를 입력합니다.
 
-    c. **암호 표시** 확인란을 선택한 다음 **암호** 상자에서 생성된 값을 적어둡니다.
+    다. **암호 표시** 확인란을 선택한 다음 **암호** 상자에서 생성된 값을 적어둡니다.
 
     d. **만들기**를 선택합니다.
  
@@ -198,7 +198,7 @@ vxMaintain을 사용하여 Azure AD SSO를 구성하고 테스트하려면 다�
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure Active Directory와 SaaS 앱 통합에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)
+* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->
 

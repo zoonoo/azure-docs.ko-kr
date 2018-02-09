@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 95c609ab49fe478eda48b2a2eca6a772d1356d18
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 76db735ca7bbad550e792d61658fa65fe8a53caf
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="update-an-application-in-azure-container-service-aks"></a>Azure Container Service(AKS)에서 응용 프로그램 업데이트
 
@@ -33,9 +33,9 @@ Kubernetes에서 응용 프로그램을 배포한 후 새 컨테이너 이미지
 
 이전 자습서에서는 응용 프로그램을 컨테이너 이미지에 패키지하고, Azure Container Registry에 이러한 이미지를 업로드하고, Kubernetes 클러스터를 만들었습니다. 그런 다음 Kubernetes 클러스터에서 응용 프로그램을 실행했습니다. 
 
-이 자습서에서 사용한 미리 작성된 Docker Compose 파일과 응용 프로그램 소스 코드를 포함하는 응용 프로그램 리포지토리도 복제했습니다. 리포지토리 복제본을 만들었으며 디렉터리를 복제된 디렉터리로 변경했는지 확인하세요. 이 디렉터리 안에는 `azure-vote` 디렉터리와 `docker-compose.yml` 파일이 있습니다.
+이 자습서에서 사용한 미리 작성된 Docker Compose 파일과 응용 프로그램 소스 코드를 포함하는 응용 프로그램 리포지토리도 복제했습니다. 리포지토리 복제본을 만들었으며 디렉터리를 복제된 디렉터리로 변경했는지 확인하세요. 이 디렉터리 안에는 `azure-vote` 디렉터리와 `docker-compose.yaml` 파일이 있습니다.
 
-이러한 단계를 완료하지 않은 경우 수행하려면 [자습서 1 - 컨테이너 이미지 만들기](./tutorial-kubernetes-prepare-app.md)로 돌아갑니다. 
+이러한 단계를 완료하지 않은 경우 수행하려면 [자습서 1 - 컨테이너 이미지 만들기][aks-tutorial-prepare-app]로 돌아갑니다. 
 
 ## <a name="update-application"></a>응용 프로그램 업데이트
 
@@ -61,7 +61,7 @@ SHOWHOST = 'false'
 
 ## <a name="update-container-image"></a>컨테이너 이미지 업데이트
 
-[docker-compose](https://docs.docker.com/compose/)를 사용하여 프런트 엔드 이미지를 다시 만들고 업데이트된 응용 프로그램을 실행합니다. `--build` 인수를 사용하여 응용 프로그램 이미지를 다시 만들도록 Docker Compose에 명령합니다.
+[docker-compose][docker-compose]를 사용하여 프런트 엔드 이미지를 다시 만들고 업데이트된 응용 프로그램을 실행합니다. `--build` 인수를 사용하여 응용 프로그램 이미지를 다시 만들도록 Docker Compose에 명령합니다.
 
 ```console
 docker-compose up --build -d
@@ -69,7 +69,7 @@ docker-compose up --build -d
 
 ## <a name="test-application-locally"></a>로컬에서 응용 프로그램 테스트
 
-http://localhost:8080으로 이동하여 업데이트된 응용 프로그램을 확인합니다.
+http://localhost:8080 으로 이동하여 업데이트된 응용 프로그램을 확인합니다.
 
 ![Azure의 Kubernetes 클러스터 이미지](media/container-service-kubernetes-tutorials/vote-app-updated.png)
 
@@ -77,33 +77,33 @@ http://localhost:8080으로 이동하여 업데이트된 응용 프로그램을 
 
 `azure-vote-front` 이미지에 컨테이너 레지스트리의 loginServer로 태그를 지정합니다. 
 
-[az acr list](/cli/azure/acr#list) 명령을 사용하여 로그인 서버 이름을 가져옵니다.
+[az acr list](/cli/azure/acr#az_acr_list) 명령을 사용하여 로그인 서버 이름을 가져옵니다.
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-[docker tag](https://docs.docker.com/engine/reference/commandline/tag/)를 사용하여 이미지에 태그를 지정합니다. `<acrLoginServer>`를 해당 Azure Container Registry 로그인 서버 이름 또는 공개 레지스트리 호스트 이름으로 바꿉니다. 이미지 버전도 `redis-v2`로 업데이트합니다.
+[docker tag][docker-tag]를 사용하여 이미지에 태그를 지정합니다. `<acrLoginServer>`를 해당 Azure Container Registry 로그인 서버 이름 또는 공개 레지스트리 호스트 이름으로 바꿉니다. 이미지 버전도 `v2`로 업데이트합니다.
 
 ```console
-docker tag azure-vote-front <acrLoginServer>/azure-vote-front:redis-v2
+docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v2
 ```
 
-[docker push](https://docs.docker.com/engine/reference/commandline/push/)를 사용하여 레지스트리에 이미지를 업로드합니다. `<acrLoginServer>`는 실제 Azure Container Registry 로그인 서버 이름으로 바꿉니다.
+[docker push][docker-push]를 사용하여 레지스트리에 이미지를 업로드합니다. `<acrLoginServer>`는 실제 Azure Container Registry 로그인 서버 이름으로 바꿉니다.
 
 ```console
-docker push <acrLoginServer>/azure-vote-front:redis-v2
+docker push <acrLoginServer>/azure-vote-front:v2
 ```
 
 ## <a name="deploy-update-application"></a>업데이트된 응용 프로그램 배포
 
-최대 작동 시간을 보장하려면 응용 프로그램 Pod의 여러 인스턴스가 실행되고 있어야 합니다. [kubectl get pod](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) 명령을 사용하여 이 구성을 확인합니다.
+최대 작동 시간을 보장하려면 응용 프로그램 Pod의 여러 인스턴스가 실행되고 있어야 합니다. [kubectl get pod][kubectl-get] 명령을 사용하여 이 구성을 확인합니다.
 
 ```
 kubectl get pod
 ```
 
-출력:
+출력
 
 ```
 NAME                               READY     STATUS    RESTARTS   AGE
@@ -120,19 +120,19 @@ azure-vote-front-233282510-pqbfk   1/1       Running   0          10m
 kubectl scale --replicas=3 deployment/azure-vote-front
 ```
 
-응용 프로그램을 업데이트하려면 [kubectl set](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#set) 명령을 사용합니다. `<acrLoginServer>`를 컨테이너 레지스트리의 로그인 서버 또는 호스트 이름으로 업데이트합니다.
+응용 프로그램을 업데이트하려면 [kubectl set][kubectl-set] 명령을 사용합니다. `<acrLoginServer>`를 컨테이너 레지스트리의 로그인 서버 또는 호스트 이름으로 업데이트합니다.
 
 ```azurecli
-kubectl set image deployment azure-vote-front azure-vote-front=<acrLoginServer>/azure-vote-front:redis-v2
+kubectl set image deployment azure-vote-front azure-vote-front=<acrLoginServer>/azure-vote-front:v2
 ```
 
-배포를 모니터링하려면 [kubectl get pod](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) 명령을 사용합니다. 업데이트된 응용 프로그램이 배포되면 Pod가 종료되고 새 컨테이너 이미지로 다시 만들어집니다.
+배포를 모니터링하려면 [kubectl get pod][kubectl-get] 명령을 사용합니다. 업데이트된 응용 프로그램이 배포되면 Pod가 종료되고 새 컨테이너 이미지로 다시 만들어집니다.
 
 ```azurecli
 kubectl get pod
 ```
 
-출력:
+출력
 
 ```
 NAME                               READY     STATUS    RESTARTS   AGE
@@ -167,4 +167,15 @@ IP 주소로 이동하여 업데이트된 응용 프로그램을 확인합니다
 다음 자습서로 이동하여 Operations Management Suite로 Kubernetes를 모니터링하는 방법에 대해 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [Log Analytics를 사용하여 Kubernetes 모니터링](./tutorial-kubernetes-monitor.md)
+> [Log Analytics를 사용하여 Kubernetes 모니터링][aks-tutorial-monitor]
+
+<!-- LINKS - external -->
+[docker-compose]: https://docs.docker.com/compose/
+[docker-push]: https://docs.docker.com/engine/reference/commandline/push/
+[docker-tag]: https://docs.docker.com/engine/reference/commandline/tag/
+[kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
+[kubectl-set]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#set
+
+<!-- LINKS - internal -->
+[aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
+[aks-tutorial-monitor]: ./tutorial-kubernetes-monitor.md

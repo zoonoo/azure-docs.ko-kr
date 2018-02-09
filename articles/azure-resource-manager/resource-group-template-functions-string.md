@@ -1,4 +1,4 @@
----
+﻿---
 title: "Azure Resource Manager 템플릿 함수 - 문자열 | Microsoft Docs"
 description: "Azure Resource Manager 템플릿에서 문자열 작업을 수행하는 데 사용할 수 있는 함수에 대해 설명합니다."
 services: azure-resource-manager
@@ -42,7 +42,7 @@ Resource Manager는 문자열 작업을 위한 다음 함수를 제공합니다.
 * [padLeft](#padleft)
 * [replace](#replace)
 * [skip](#skip)
-* [분할](#split)
+* [split](#split)
 * [startsWith](resource-group-template-functions-string.md#startswith)
 * [string](#string)
 * [substring](#substring)
@@ -857,18 +857,18 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 `guid (baseString, ...)`
 
-매개 변수로 제공된 값을 기반으로 고유 식별자 형식의 값을 만듭니다.
+매개 변수로 제공된 값을 기반으로 전역 고유 식별자 형식으로 값을 만듭니다.
 
 ### <a name="parameters"></a>매개 변수
 
 | 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| baseString |예 |string |GUID를 만들기 위해 해시 함수에 사용되는 값입니다. |
+| baseString |예 |string |해시 함수에서 GUID를 만드는 데 사용되는 값입니다. |
 | 필요에 따라 추가하는 매개 변수 |아니요 |string |고유성 수준을 지정하는 값을 만들기 위해 필요한 만큼 문자열을 추가할 수 있습니다. |
 
 ### <a name="remarks"></a>설명
 
-이 함수는 고유 식별자 형식의 값을 만들어야 할 때 유용합니다. 결과의 고유성 범위를 제한하는 매개 변수 값을 제공합니다. 구독, 리소스 그룹 또는 배포까지 해당 이름이 고유한지 여부를 지정할 수 있습니다.
+이 함수는 전역 고유 식별자 형식으로 값을 만들어야 할 때 유용합니다. 결과의 고유성 범위를 제한하는 매개 변수 값을 제공합니다. 구독, 리소스 그룹 또는 배포까지 해당 이름이 고유한지 여부를 지정할 수 있습니다.
 
 반환된 값은 임의 문자열이 아닌 해시 함수의 결과입니다. 반환된 값은 36자입니다. 전역적으로 고유하지 않습니다.
 
@@ -894,11 +894,11 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 ### <a name="return-value"></a>반환 값
 
-고유 식별자 형식의 문자 36자를 포함하고 있는 문자열입니다.
+전 세계적으로 고유한 식별자의 형식으로 된 36자를 포함하는 문자열입니다.
 
 ### <a name="examples"></a>예
 
-다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/guid.json)은 guid의 결과를 반환합니다.
+다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/guid.json)에서는 guid에서 결과를 반환합니다.
 
 ```json
 {
@@ -1433,7 +1433,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="split" />
 
-## <a name="split"></a>분할
+## <a name="split"></a>split
 `split(inputString, delimiter)`
 
 지정된 구분 기호로 구분되는 입력 문자열의 부분 문자열을 포함하는 문자열의 배열을 반환합니다.

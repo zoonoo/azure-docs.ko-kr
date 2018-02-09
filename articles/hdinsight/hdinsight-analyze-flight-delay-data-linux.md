@@ -13,14 +13,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 01/19/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 96a40753d87d49e9493e808da0294d682b2a19e5
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: b2eca1ab7eff006311269c78b1e507cb1417fcc6
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-on-linux-based-hdinsight"></a>Linux 기반 HDInsight에서 Hive를 사용하여 비행 지연 데이터 분석
 
@@ -43,7 +43,7 @@ Linux 기반 HDInsight에서 Hive를 사용하여 비행 지연 데이터를 분
 
 2. 페이지에서 다음 값을 선택합니다.
 
-   | 이름 | 값 |
+   | Name | 값 |
    | --- | --- |
    | Filter Year |2013 |
    | Filter Period |January |
@@ -63,7 +63,7 @@ Linux 기반 HDInsight에서 Hive를 사용하여 비행 지연 데이터를 분
     *FILENAME*을 .zip 파일의 이름으로 바꿉니다. *USERNAME*을 HDInsight 클러스터에 대한 SSH 로그인으로 바꿉니다. *CLUSTERNAME* 을 HDInsight 클러스터의 이름으로 바꿉니다.
 
    > [!NOTE]
-   > SSH 로그인을 인증하는 암호를 사용한 경우 암호를 묻는 메시지가 나타납니다. 공용 키를 사용하는 경우 `-i` 매개 변수를 사용하고 개인 키와 일치하는 경로를 지정합니다. 예: `scp -i ~/.ssh/id_rsa FILENAME.zip USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:`.
+   > SSH 로그인을 인증하는 암호를 사용한 경우 암호를 묻는 메시지가 나타납니다. 공용 키를 사용하는 경우 `-i` 매개 변수를 사용하고 개인 키와 일치하는 경로를 지정합니다. 예: `scp -i ~/.ssh/id_rsa FILENAME.zip USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:`
 
 2. 업로드를 완료한 후에 SSH를 사용하여 클러스터에 연결합니다.
 
@@ -200,9 +200,7 @@ Linux 기반 HDInsight에서 Hive를 사용하여 비행 지연 데이터를 분
 > 여러 가지 방법으로 SQL Database에 연결하고 테이블을 생성할 수 있습니다. 다음 단계는 HDInsight 클러스터의 [FreeTDS](http://www.freetds.org/)를 사용합니다.
 
 
-1. SSH를 사용하여 Linux 기반 HDInsight 클러스터에 연결하고 SSH 세션에서 다음 단계를 실행합니다.
-
-2. 다음 명령을 사용하여 FreeTDS:를 설치합니다.
+1. FreeTDS를 설치하려면 클러스터에 대한 SSH 연결에서 다음 명령을 사용합니다.
 
     ```
     sudo apt-get --assume-yes install freetds-dev freetds-bin
@@ -211,8 +209,10 @@ Linux 기반 HDInsight에서 Hive를 사용하여 비행 지연 데이터를 분
 3. 설치가 완료된 후에 다음 명령을 사용하여 SQL Database 서버에 연결합니다. **serverName**을 SQL Database 서버 이름으로 바꿉니다. **adminLogin** 및 **adminPassword**를 SQL Database의 로그인으로 바꿉니다. **databaseName**을 데이터베이스 이름으로 바꿉니다.
 
     ```
-    TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D <databaseName>
+    TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -p 1433 -D <databaseName>
     ```
+
+    메시지가 표시되면 SQL Database 관리자 로그인에 대한 암호를 입력합니다.
 
     다음 텍스트와 비슷한 출력이 표시됩니다.
 

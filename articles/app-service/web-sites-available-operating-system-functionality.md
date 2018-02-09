@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/01/2016
 ms.author: cephalin
-ms.openlocfilehash: a5f022eca8f901388c9cf003f3320db1b9c49e6a
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: 6b5939341ad05fb8f80415c5335c24d216fc2555
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Azure App Service의 운영 체제 기능
 이 문서에서는 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)에서 실행되는 모든 앱에서 사용할 수 있는 일반적인 기준 운영 체제 기능을 설명합니다. 이 기능에는 파일, 네트워크, 레지스트리 액세스, 진단 로그 및 이벤트가 포함됩니다. 
@@ -49,7 +49,7 @@ App Service에는 로컬 드라이브와 네트워크 드라이브를 포함한 
 <a id="LocalDrives"></a>
 
 ### <a name="local-drives"></a>로컬 드라이브
-근본적으로 App Service는 Azure PaaS(Platform as a Service) 인프라에서 실행되는 서비스입니다. 따라서 가상 머신에 "부착된" 로컬 드라이브는 Azure에서 실행되는 모든 작업자 역할에서 사용할 수 있는 것과 동일한 드라이브 종류입니다. 여기에는 운영 체제 드라이브(D:\ 드라이브), App Service에서만 사용되며 고객에게는 액세스 권한이 없는 Azure 패키지 cspkg 파일이 포함된 응용 프로그램 드라이브, VM 크기에 따라 크기가 다양한 "사용자" 드라이브(C:\ 드라이브) 등이 포함됩니다.
+근본적으로 App Service는 Azure PaaS(Platform as a Service) 인프라에서 실행되는 서비스입니다. 따라서 가상 머신에 "부착된" 로컬 드라이브는 Azure에서 실행되는 모든 작업자 역할에서 사용할 수 있는 것과 동일한 드라이브 종류입니다. 여기에는 운영 체제 드라이브(D:\ 드라이브), App Service에서만 사용되며 고객에게는 액세스 권한이 없는 Azure 패키지 cspkg 파일이 포함된 응용 프로그램 드라이브, VM 크기에 따라 크기가 다양한 "사용자" 드라이브(C:\ 드라이브) 등이 포함됩니다. 응용 프로그램이 커질수록 디스크 사용률을 모니터링하는 것이 중요합니다. 디스크 할당량에 도달하면 응용 프로그램에 부정적인 영향을 줄 수 있습니다.
 
 <a id="NetworkDrives"></a>
 

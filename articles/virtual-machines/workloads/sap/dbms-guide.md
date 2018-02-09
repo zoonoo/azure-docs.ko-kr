@@ -18,10 +18,10 @@ ms.date: 11/08/2016
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 87c4573ce3b688cdc63b3a342bbc0bebb416ad36
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>SAP NetWeaver에 대한 Azure Virtual Machines DBMS 배포
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -373,7 +373,7 @@ Microsoft Azure 아키텍처 및 Microsoft Azure Virtual Machines 배포와 작�
 > 
 > 
 
-여기에서는 IaaS에 대해 설명하고 있으므로 Windows, Linux 및 DBMS 설치와 구성은 기본적으로 온-프레미스에 설치할 완전 컴퓨터 또는 가상 컴퓨터와 동일합니다. 그러나 IaaS를 사용하는 경우 일부 아키텍처 및 시스템 관리 구현이 달라집니다. 이 문서의 목적은 IaaS를 사용할 때 대비해야 하는 특정 아키텍처 및 시스템 관리의 차이점을 설명하는 것입니다.
+여기에서는 IaaS에 대해 설명하고 있으므로 Windows, Linux 및 DBMS 설치와 구성은 기본적으로 온-프레미스에 설치할 완전 컴퓨터 또는 가상 머신과 동일합니다. 그러나 IaaS를 사용하는 경우 일부 아키텍처 및 시스템 관리 구현이 달라집니다. 이 문서의 목적은 IaaS를 사용할 때 대비해야 하는 특정 아키텍처 및 시스템 관리의 차이점을 설명하는 것입니다.
 
 일반적으로 이 문서에서 다루는 차이점의 전반적인 영역은 다음과 같습니다.
 
@@ -486,7 +486,7 @@ Microsoft Azure Storage는 최소 3개의 개별 저장소 노드에 기본 VM(O
 
 Azure Storage 로컬 복제(로컬 중복)는 인프라 장애로 인한 데이터 손실로부터 보호할 수 있는 수준을 제공하지만 대부분의 고객은 경제적 부담이 커서 구입하지 못합니다. 위와 같이 서로 다른 4개의 옵션이 있으며 5번째는 처음 3개 옵션 중 하나의 변형입니다. 자세히 살펴보면 다음과 같이 구분할 수 있습니다.
 
-* **프리미엄 LRS(로컬 중복 저장소)**: Azure Premium Storage는 I/O 사용량이 많은 워크로드를 실행하는 가상 컴퓨터에서 대기 시간이 짧은 고성능 디스크 지원을 제공합니다. Azure 지역의 동일한 Azure 데이터 센터 내에 3개의 데이터 복제본이 있습니다. 복사본은 여러 장애 도메인과 업그레이드 도메인에 있습니다(개념에 대해서는 [계획 가이드][planning-guide]의 [이][planning-guide-3.2] 챕터 참조). 저장소 노드 오류 또는 디스크 오류로 인해 서비스에서 제공하는 데이터가 복제되는 경우 새 복제본이 자동으로 생성됩니다.
+* **프리미엄 LRS(로컬 중복 저장소)**: Azure Premium Storage는 I/O 사용량이 많은 워크로드를 실행하는 가상 머신에서 대기 시간이 짧은 고성능 디스크 지원을 제공합니다. Azure 지역의 동일한 Azure 데이터 센터 내에 3개의 데이터 복제본이 있습니다. 복사본은 여러 장애 도메인과 업그레이드 도메인에 있습니다(개념에 대해서는 [계획 가이드][planning-guide]의 [이][planning-guide-3.2] 챕터 참조). 저장소 노드 오류 또는 디스크 오류로 인해 서비스에서 제공하는 데이터가 복제되는 경우 새 복제본이 자동으로 생성됩니다.
 * **LRS(로컬 중복 저장소)**: 이 경우 Azure 지역의 동일한 Azure 데이터 센터 내에 데이터의 복제본이 3개 있습니다. 복사본은 여러 장애 도메인과 업그레이드 도메인에 있습니다(개념에 대해서는 [계획 가이드][planning-guide]의 [이][planning-guide-3.2] 챕터 참조). 저장소 노드 오류 또는 디스크 오류로 인해 서비스에서 제공하는 데이터가 복제되는 경우 새 복제본이 자동으로 생성됩니다. 
 * **GRS(지역 중복 저장소)**: 이 경우 다른 Azure 지역에 있는 3개의 추가 데이터 복제본을 공급하는 비동기 복제가 있습니다. 이러한 경우 대부분 동일한 지역(예: 북유럽 및 유럽 서부)에 있습니다. 따라서 3개의 추가 복제본이 생기므로 총 6개의 복제본이 있습니다. 변형은 지역에서 복제된 Azure 지역의 데이터를 읽기 용도(읽기-액세스 지역 중복)로 사용할 수 있는 위치가 추가된 것입니다.
 * **ZRS(영역 중복 저장소)**: 이 경우 동일한 Azure 지역에 3개의 데이터 복제본이 있습니다. [계획 가이드][planning-guide]의 [이][planning-guide-3.1] 챕터에서 설명한 대로 Azure 지역은 근접해 있는 여러 데이터 센터일 수 있습니다. LRS의 경우 복제본은 하나의 Azure 지역을 구성하는 여러 데이터 센터에 분산됩니다.
@@ -524,7 +524,7 @@ SAN 장치 온-프레미스처럼 공유를 위해서는 모니터링을 수행�
 Azure Standard Storage 및 Azure Standard Storage 계정에 대한 모범 사례를 요약한 다른 문서는 여기(<https://blogs.msdn.com/b/mast/archive/2014/10/14/configuring-azure-virtual-machines-for-optimal-storage-performance.aspx>)를 참조하세요.
 
 #### <a name="f42c6cb5-d563-484d-9667-b07ae51bce29"></a>Managed Disks
-Managed Disks는 Azure Storage 계정에 저장된 VHD 대신 사용할 수 있는 Azure Resource Manager의 새로운 리소스 종류입니다. Managed Disks는 연결되어 있는 가상 컴퓨터의 가용성 집합에 맞게 자동으로 조정되므로, 가상 컴퓨터에서 실행되는 서비스와 가상 컴퓨터의 가용성을 높여 줍니다. 자세히 알아보려면 [개요 문서](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview)를 읽어 보세요.
+Managed Disks는 Azure Storage 계정에 저장된 VHD 대신 사용할 수 있는 Azure Resource Manager의 새로운 리소스 종류입니다. Managed Disks는 연결되어 있는 가상 머신의 가용성 집합에 맞게 자동으로 조정되므로, 가상 머신에서 실행되는 서비스와 가상 머신의 가용성을 높여 줍니다. 자세히 알아보려면 [개요 문서](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview)를 읽어 보세요.
 
 SAP는 현재 Premium Managed Disks만 지원합니다. 자세한 내용은 SAP Note [1928533]을 읽어 보세요.’
 
@@ -538,8 +538,8 @@ SAP는 현재 Premium Managed Disks만 지원합니다. 자세한 내용은 SAP 
 
 Managed Disks를 사용하는 경우 다음 방법으로 Premium Storage로 마이그레이션이 가능합니다.
 
-1. 가상 컴퓨터 할당 취소
-2. 필요한 경우 Premium Storage를 지원하도록 가상 컴퓨터를 크기 조정합니다(예: DS 또는 GS).
+1. 가상 머신 할당 취소
+2. 필요한 경우 Premium Storage를 지원하도록 가상 머신을 크기 조정합니다(예: DS 또는 GS).
 3. Managed Disk 계정 유형을 Premium(SSD)으로 변경
 4. 가상 컴퓨터 시작
 
@@ -581,7 +581,7 @@ DBMS 배포의 고가용성 구성을 생성하려는 경우(사용된 개별 DB
 #### <a name="ip-addresses"></a>IP 주소
 복구 가능한 방법으로 HA 구성을 위한 VM을 설정하는 것이 좋습니다. IP 주소를 사용하여 HA 구성 내에서 HA 파트너를 확인하는 것은 Azure에서 고정 IP 주소를 사용하지 않는 한 안정적이지 않습니다. Azure에는 두 가지 “종료” 개념이 있습니다.
 
-* Azure Portal 또는 Azure PowerShell cmdlet Stop-AzureRmVM을 통한 종료: 이 경우 가상 컴퓨터가 종료되고 할당이 취소됩니다. Azure 계정에 더 이상 이 VM에 대해 청구되지 않으므로 사용한 저장소에 대해서만 비용이 발생합니다. 그러나 네트워크 인터페이스의 개인 IP 주소가 고정이 아닌 경우 IP 주소가 해제되고 네트워크 인터페이스가 VM 다시 시작 후 다시 할당된 이전 IP 주소를 가져온다는 것을 보장할 수 없습니다. Azure Portal을 통해 또는 Stop-AzureRmVM을 호출하여 종료를 수행하면 자동으로 할당이 취소됩니다. 컴퓨터 할당을 취소하지 않으려면 Stop-AzureRmVM -StayProvisioned을 사용합니다. 
+* Azure Portal 또는 Azure PowerShell cmdlet Stop-AzureRmVM을 통한 종료: 이 경우 Virtual Machine이 종료되고 할당이 취소됩니다. Azure 계정에 더 이상 이 VM에 대해 청구되지 않으므로 사용한 저장소에 대해서만 비용이 발생합니다. 그러나 네트워크 인터페이스의 개인 IP 주소가 고정이 아닌 경우 IP 주소가 해제되고 네트워크 인터페이스가 VM 다시 시작 후 다시 할당된 이전 IP 주소를 가져온다는 것을 보장할 수 없습니다. Azure Portal을 통해 또는 Stop-AzureRmVM을 호출하여 종료를 수행하면 자동으로 할당이 취소됩니다. 컴퓨터 할당을 취소하지 않으려면 Stop-AzureRmVM -StayProvisioned을 사용합니다. 
 * OS 수준에서 VM을 종료하는 경우 VM이 종료되고 할당이 취소되지 않습니다. 그러나 이 경우 종료 후에도 Azure 계정에 계속 VM에 대해 청구됩니다. 이러한 경우 중지된 VM에 대한 IP 주소 할당은 그대로 유지됩니다. VM을 종료하면 할당 취소가 자동으로 실행되지 않습니다.
 
 프레미스 간 시나리오에서 DHCP 설정의 온-프레미스 정책이 다른 경우에도 기본적으로 종료 및 할당 취소는 VM에서의 IP 주소 할당 취소를 의미합니다. 
@@ -601,7 +601,7 @@ SAPOSCOL 및 SAP 호스트 에이전트에 호스트 데이터를 제공하는 �
 
 ## <a name="3264829e-075e-4d25-966e-a49dad878737"></a>Microsoft SQL Server에 대한 고유 정보
 ### <a name="sql-server-iaas"></a>SQL Server IaaS
-Microsoft Azure부터 Windows Server 플랫폼에 빌드된 기존 SQL Server 응용 프로그램을 쉽게 Azure Virtual Machines로 마이그레이션할 수 있습니다. 가상 컴퓨터에서 SQL Server를 사용하면 이러한 응용 프로그램을 Microsoft Azure로 쉽게 마이그레이션하여 엔터프라이즈 수준의 응용 프로그램에 대한 배포, 관리 및 유지 관리의 총 소유 비용을 줄일 수 있습니다. Azure 가상 컴퓨터에서 SQL Server를 사용하면 관리자와 개발자가 온-프레미스와 동일한 개발 및 관리 도구를 사용할 수 있습니다. 
+Microsoft Azure부터 Windows Server 플랫폼에 빌드된 기존 SQL Server 응용 프로그램을 쉽게 Azure Virtual Machines로 마이그레이션할 수 있습니다. Virtual Machine에서 SQL Server를 사용하면 이러한 응용 프로그램을 Microsoft Azure로 쉽게 마이그레이션하여 엔터프라이즈 수준의 응용 프로그램에 대한 배포, 관리 및 유지 관리의 총 소유 비용을 줄일 수 있습니다. Azure Virtual Machine에서 SQL Server를 사용하면 관리자와 개발자가 온-프레미스와 동일한 개발 및 관리 도구를 사용할 수 있습니다. 
 
 > [!IMPORTANT]
 > 여기에서는 Microsoft Azure 플랫폼의 PaaS(Platform as a Service) 제품인 Microsoft Azure SQL Database에 대해서는 다루지 않습니다. 이 문서에서는 Azure의 IaaS(서비스 제공 인프라)를 활용하여 Azure Virtual Machines에서 온-프레미스 배포에 대해 알려진 SQL Server 제품을 실행하는 방법에 대해 설명합니다. 이러한 두 환경에서의 데이터베이스 기능은 다르므로 서로 혼합하지 않아야 합니다. 참고 항목: <https://azure.microsoft.com/services/sql-database/>
@@ -615,7 +615,7 @@ Microsoft Azure부터 Windows Server 플랫폼에 빌드된 기존 SQL Server �
 계속하기 전에 다음과 같은 IaaS의 SQL Server 관련 정보를 참조하세요.
 
 * **Virtual Machine SLA**: Azure에서 실행 중인 Virtual Machines용 SLA는 <https://azure.microsoft.com/support/legal/sla/>에 있습니다.  
-* **SQL 버전 지원**: SAP 고객의 경우 Microsoft Azure Virtual Machines에서 SQL Server 2008 R2 이상 버전을 지원합니다. 이전 버전은 지원되지 않습니다. 자세한 내용은 이 일반 [지원 설명](https://support.microsoft.com/kb/956893) 을 참조하세요. 일반적으로 SQL Server 2008은 Microsoft에서도 지원됩니다. 그러나 SQL Server 2008 R2에 SAP용 중요 기능이 도입되어 있으므로 SQL Server 2008 R2 이상 릴리스를 사용해야 합니다. SQL Server 2012 및 2014에서는 IaaS 시나리오(Azure Storage에 대한 직접 백업 등)와 더 밀접하게 통합되어 확장되었습니다. 따라서 이 문서는 SQL Server 2012 및 2014와 Azure용 최신 패치 수준으로 제한됩니다.
+* **SQL 버전 지원**: SAP 고객의 경우 Microsoft Azure Virtual Machine에서 SQL Server 2008 R2 이상 버전을 지원합니다. 이전 버전은 지원되지 않습니다. 자세한 내용은 이 일반 [지원 설명](https://support.microsoft.com/kb/956893) 을 참조하세요. 일반적으로 SQL Server 2008은 Microsoft에서도 지원됩니다. 그러나 SQL Server 2008 R2에 SAP용 중요 기능이 도입되어 있으므로 SQL Server 2008 R2 이상 릴리스를 사용해야 합니다. SQL Server 2012 및 2014에서는 IaaS 시나리오(Azure Storage에 대한 직접 백업 등)와 더 밀접하게 통합되어 확장되었습니다. 따라서 이 문서는 SQL Server 2012 및 2014와 Azure용 최신 패치 수준으로 제한됩니다.
 * **SQL 기능 지원**: 대부분의 SQL Server 기능이 Microsoft Azure Virtual Machines에서 지원되지만 몇 가지 예외가 있습니다. **공유 디스크를 사용하는 SQL Server 장애 조치(failover) 클러스터링은 지원되지 않습니다**.  데이터베이스 미러링, AlwaysOn 가용성 그룹, 복제, 로그 전달 및 Service Broker와 같은 분산 기술은 단일 Azure 지역 내에서 지원됩니다. SQL Server AlwaysOn은 여기(<https://blogs.technet.com/b/dataplatforminsider/archive/2014/06/19/sql-server-alwayson-availability-groups-supported-between-microsoft-azure-regions.aspx>)에 설명된 대로 다른 Azure 지역 간 지원됩니다.  자세한 내용은 [지원 설명](https://support.microsoft.com/kb/956893) 을 참조하세요. AlwaysOn 구성을 배포하는 방법에 대한 예제는 [이 문서][virtual-machines-workload-template-sql-alwayson]에 보여 줍니다. 또한 [여기][virtual-machines-sql-server-infrastructure-services]서 설명하는 모범 사례도 참조하세요. 
 * **SQL 성능**: Microsoft Azure에서 호스트되는 Virtual Machines는 다른 공용 클라우드 가상화 서비스보다 훨씬 뛰어난 성능을 제공하지만 개별 결과는 다를 수 있습니다. [이 문서][virtual-machines-sql-server-performance-best-practices]를 참조하세요.
 * **Azure Marketplace에서 이미지 사용**: 새 Microsoft Azure VM을 배포하는 가장 빠른 방법은 Azure Marketplace의 이미지를 사용하는 것입니다. Azure Marketplace에는 SQL Server를 포함한 이미지가 있습니다. SQL Server가 이미 설치된 이미지는 SAP NetWeaver 응용 프로그램에 즉시 사용할 수 없습니다. 그 이유는 이러한 이미지 내에 SAP NetWeaver 시스템에 필요한 데이터 정렬이 아닌 기본 SQL Server 데이터 정렬이 설치되어 있기 때문입니다. 이러한 이미지를 사용하려면 [Microsoft Azure Marketplace에서 SQL Server 이미지 사용][dbms-guide-5.6] 챕터에서 설명하는 단계를 확인하세요. 
@@ -858,7 +858,7 @@ Always On의 경우 데이터베이스 미러링에 비해 더 복잡한 설정�
 10. [배포 가이드][deployment-guide]에서 설명한 대로 Azure용 SAP 호스트 모니터링을 설치 및 구성합니다.
 
 ## <a name="specifics-to-sap-ase-on-windows"></a>Windows의 SAP ASE에 대한 고유 정보
-Microsoft Azure부터 기존 SAP ASE 응용 프로그램을 쉽게 Azure Virtual Machines로 마이그레이션할 수 있습니다. 가상 컴퓨터에서 SAP ASE를 사용하면 이러한 응용 프로그램을 Microsoft Azure로 쉽게 마이그레이션하여 엔터프라이즈 수준의 응용 프로그램에 대한 배포, 관리 및 유지 관리의 총 소유 비용을 줄일 수 있습니다. Azure 가상 컴퓨터에서 SAP ASE를 사용하면 관리자와 개발자가 온-프레미스와 동일한 개발 및 관리 도구를 사용할 수 있습니다.
+Microsoft Azure부터 기존 SAP ASE 응용 프로그램을 쉽게 Azure Virtual Machines로 마이그레이션할 수 있습니다. Virtual Machine에서 SAP ASE를 사용하면 이러한 응용 프로그램을 Microsoft Azure로 쉽게 마이그레이션하여 엔터프라이즈 수준의 응용 프로그램에 대한 배포, 관리 및 유지 관리의 총 소유 비용을 줄일 수 있습니다. Azure Virtual Machine에서 SAP ASE를 사용하면 관리자와 개발자가 온-프레미스와 동일한 개발 및 관리 도구를 사용할 수 있습니다.
 
 Azure Virtual Machines용 SLA는 <https://azure.microsoft.com/support/legal/sla/virtual-machines>에 있습니다.
 
@@ -929,7 +929,7 @@ DBACockpit의 Webdynpro 구현에 의해 사용되는 모든 SAP NetWeaver 기�
 > 
 > 
 
-SAP 시스템을 호스트하는 Azure 가상 컴퓨터가 사이트 간, 다중 사이트 또는 ExpressRoute(프레미스 간 배포)를 통해 연결되었는지 여부 및 그 방법에 따라 ICM이 DBACockpit를 열려는 컴퓨터에서 확인할 수 있는 정규화된 호스트 이름을 사용하는지 확인해야 합니다. ICM에서 프로필 매개 변수에 따라 정규화된 호스트 이름을 확인하는 방법을 이해하고 필요한 경우 icm/host_name_full 매개 변수를 명시적으로 설정하려면 SAP Note [773830]을 참조하세요.
+SAP 시스템을 호스트하는 Azure Virtual Machine이 사이트 간, 다중 사이트 또는 ExpressRoute(프레미스 간 배포)를 통해 연결되었는지 여부 및 그 방법에 따라 ICM이 DBACockpit를 열려는 컴퓨터에서 확인할 수 있는 정규화된 호스트 이름을 사용하는지 확인해야 합니다. ICM에서 프로필 매개 변수에 따라 정규화된 호스트 이름을 확인하는 방법을 이해하고 필요한 경우 icm/host_name_full 매개 변수를 명시적으로 설정하려면 SAP Note [773830]을 참조하세요.
 
 온-프레미스와 Azure 간에 프레미스 간 연결이 없는 클라우드 전용 시나리오에서 VM을 배포한 경우 공용 IP 주소 및 도메인 레이블을 정의해야 합니다. VM의 공용 DNS 이름 형식은 다음과 같습니다.
 
@@ -979,7 +979,7 @@ Azure에서의 데이터베이스 백업 및 복원은 온-프레미스와 동�
 
 여기에는 덤프 구성 생성 및 백업 예약에 대한 자세한 내용이 나와 있습니다. 전략 및 요구 사항에 따라 데이터베이스를 구성하고 디스크 덤프를 기존 디스크 중 하나에 기록하거나 백업을 위해 다른 디스크를 추가할 수 있습니다. 오류가 발생할 경우 데이터 손실의 위험을 줄이기 위해서는 데이터베이스 장치가 없는 디스크를 사용하는 것이 좋습니다.
 
-데이터 및 LOB 압축 SAP ASE 외에도 백업 압축을 제공합니다. 데이터베이스 및 로그 덤프의 공간 사용량을 줄이려면 백업 압축을 사용하는 것이 좋습니다. 자세한 내용은 SAP Note [1588316]을 참조하세요. 백업 압축은 백업 또는 백업 덤프를 포함하는 VHD를 Azure 가상 컴퓨터에서 온-프레미스로 다운로드하려고 할 때 전송되는 데이터 양을 줄이는 데도 효과적입니다.
+데이터 및 LOB 압축 SAP ASE 외에도 백업 압축을 제공합니다. 데이터베이스 및 로그 덤프의 공간 사용량을 줄이려면 백업 압축을 사용하는 것이 좋습니다. 자세한 내용은 SAP Note [1588316]을 참조하세요. 백업 압축은 백업 또는 백업 덤프를 포함하는 VHD를 Azure Virtual Machine에서 온-프레미스로 다운로드하려고 할 때 전송되는 데이터 양을 줄이는 데도 효과적입니다.
 
 데이터베이스 또는 로그 덤프 대상으로 D:\ 드라이브를 사용하지 마세요.
 
@@ -1001,12 +1001,12 @@ Azure에서의 데이터베이스 백업 및 복원은 온-프레미스와 동�
 #### <a name="data-replication-with-sap-sybase-replication-server"></a>SA Sybase Replication Server를 사용한 데이터 복제
 SAP SRS(Sybase Replication Server)를 사용하면 SAP ASE에서 멀리 떨어진 위치에 데이터베이스 트랜잭션을 비동기적으로 전송하는 웜 대기 솔루션을 제공합니다. 
 
-SRS 설치 및 작동은 Azure 가상 컴퓨터 서비스에서 호스트되는 VM에서도 온-프레미스에서처럼 기능적으로 작동합니다.
+SRS 설치 및 작동은 Azure Virtual Machine 서비스에서 호스트되는 VM에서도 온-프레미스에서처럼 기능적으로 작동합니다.
 
 SAP Replication Server를 통한 ASE HADR은 향후 릴리스에 도입될 예정입니다. 이 기능은 곧 Microsoft Azure Platform에 대해 테스트되고 릴리스될 예정입니다.
 
 ## <a name="specifics-to-sap-ase-on-linux"></a>Linux의 SAP ASE에 대한 고유 정보
-Microsoft Azure부터 기존 SAP ASE 응용 프로그램을 쉽게 Azure Virtual Machines로 마이그레이션할 수 있습니다. 가상 컴퓨터에서 SAP ASE를 사용하면 이러한 응용 프로그램을 Microsoft Azure로 쉽게 마이그레이션하여 엔터프라이즈 수준의 응용 프로그램에 대한 배포, 관리 및 유지 관리의 총 소유 비용을 줄일 수 있습니다. Azure 가상 컴퓨터에서 SAP ASE를 사용하면 관리자와 개발자가 온-프레미스와 동일한 개발 및 관리 도구를 사용할 수 있습니다.
+Microsoft Azure부터 기존 SAP ASE 응용 프로그램을 쉽게 Azure Virtual Machines로 마이그레이션할 수 있습니다. Virtual Machine에서 SAP ASE를 사용하면 이러한 응용 프로그램을 Microsoft Azure로 쉽게 마이그레이션하여 엔터프라이즈 수준의 응용 프로그램에 대한 배포, 관리 및 유지 관리의 총 소유 비용을 줄일 수 있습니다. Azure Virtual Machine에서 SAP ASE를 사용하면 관리자와 개발자가 온-프레미스와 동일한 개발 및 관리 도구를 사용할 수 있습니다.
 
 Azure VM을 배포하려면 공식 SLA를 알아야 합니다. <https://azure.microsoft.com/support/legal/sla>에서 확인할 수 있습니다.
 
@@ -1082,7 +1082,7 @@ DBACockpit의 Webdynpro 구현에 의해 사용되는 모든 SAP NetWeaver 기�
 > 
 > 
 
-SAP 시스템을 호스트하는 Azure 가상 컴퓨터가 사이트 간, 다중 사이트 또는 ExpressRoute(프레미스 간 배포)를 통해 연결되었는지 여부 및 그 방법에 따라 ICM이 DBACockpit를 열려는 컴퓨터에서 확인할 수 있는 정규화된 호스트 이름을 사용하는지 확인해야 합니다. ICM에서 프로필 매개 변수에 따라 정규화된 호스트 이름을 확인하는 방법을 이해하고 필요한 경우 icm/host_name_full 매개 변수를 명시적으로 설정하려면 SAP Note [773830]을 참조하세요.
+SAP 시스템을 호스트하는 Azure Virtual Machine이 사이트 간, 다중 사이트 또는 ExpressRoute(프레미스 간 배포)를 통해 연결되었는지 여부 및 그 방법에 따라 ICM이 DBACockpit를 열려는 컴퓨터에서 확인할 수 있는 정규화된 호스트 이름을 사용하는지 확인해야 합니다. ICM에서 프로필 매개 변수에 따라 정규화된 호스트 이름을 확인하는 방법을 이해하고 필요한 경우 icm/host_name_full 매개 변수를 명시적으로 설정하려면 SAP Note [773830]을 참조하세요.
 
 온-프레미스와 Azure 간에 프레미스 간 연결이 없는 클라우드 전용 시나리오에서 VM을 배포한 경우 공용 IP 주소 및 도메인 레이블을 정의해야 합니다. VM의 공용 DNS 이름 형식은 다음과 같습니다.
 
@@ -1132,7 +1132,7 @@ Azure에서의 데이터베이스 백업 및 복원은 온-프레미스와 동�
 
 여기에는 덤프 구성 생성 및 백업 예약에 대한 자세한 내용이 나와 있습니다. 전략 및 요구 사항에 따라 데이터베이스를 구성하고 디스크 덤프를 기존 디스크 중 하나에 기록하거나 백업을 위해 다른 디스크를 추가할 수 있습니다. 오류가 발생할 경우 데이터 손실의 위험을 줄이기 위해서는 데이터베이스 디렉터리/파일이 없는 디스크를 사용하는 것이 좋습니다.
 
-데이터 및 LOB 압축 SAP ASE 외에도 백업 압축을 제공합니다. 데이터베이스 및 로그 덤프의 공간 사용량을 줄이려면 백업 압축을 사용하는 것이 좋습니다. 자세한 내용은 SAP Note [1588316]을 참조하세요. 백업 압축은 백업 또는 백업 덤프를 포함하는 VHD를 Azure 가상 컴퓨터에서 온-프레미스로 다운로드하려고 할 때 전송되는 데이터 양을 줄이는 데도 효과적입니다.
+데이터 및 LOB 압축 SAP ASE 외에도 백업 압축을 제공합니다. 데이터베이스 및 로그 덤프의 공간 사용량을 줄이려면 백업 압축을 사용하는 것이 좋습니다. 자세한 내용은 SAP Note [1588316]을 참조하세요. 백업 압축은 백업 또는 백업 덤프를 포함하는 VHD를 Azure Virtual Machine에서 온-프레미스로 다운로드하려고 할 때 전송되는 데이터 양을 줄이는 데도 효과적입니다.
 
 Azure VM 임시 공간 /mnt 또는 /mnt/resource를 데이터베이스 또는 로그 덤프 대상으로 사용하지 마세요.
 
@@ -1154,7 +1154,7 @@ Azure VM 임시 공간 /mnt 또는 /mnt/resource를 데이터베이스 또는 �
 #### <a name="data-replication-with-sap-sybase-replication-server"></a>SA Sybase Replication Server를 사용한 데이터 복제
 SAP SRS(Sybase Replication Server)를 사용하면 SAP ASE에서 멀리 떨어진 위치에 데이터베이스 트랜잭션을 비동기적으로 전송하는 웜 대기 솔루션을 제공합니다. 
 
-SRS 설치 및 작동은 Azure 가상 컴퓨터 서비스에서 호스트되는 VM에서도 온-프레미스에서처럼 기능적으로 작동합니다.
+SRS 설치 및 작동은 Azure Virtual Machine 서비스에서 호스트되는 VM에서도 온-프레미스에서처럼 기능적으로 작동합니다.
 
 SAP Replication Server를 통한 ASE HADR은 현재 지원되지 않습니다. 이 기능은 곧 Microsoft Azure Platform에 대해 테스트되고 릴리스될 예정입니다.
 
@@ -1207,7 +1207,7 @@ Azure Virtual Machines에서 Oracle의 SAP 실행을 위해 지원되는 Oracle 
 Oracle에서의 SAP Business Suite 실행에 대한 일반 정보는 1DX: <https://www.sap.com/community/topic/oracle.html>에서 찾을 수 있습니다.
 
 ### <a name="oracle-configuration-guidelines-for-sap-installations-in-azure-vms"></a>Azure VM의 SAP 설치에 대한 Oracle 구성 지침
-#### <a name="storage-configuration"></a>저장소 구성
+#### <a name="storage-configuration"></a>Storage 구성
 ext3, ext4 및 xfs로 포맷된 디스크를 사용하는 하나의 Oracle 인스턴스만 지원됩니다. 모든 데이터베이스 파일은 VHD 또는 Managed Disks 기반의 파일 시스템에 저장되어야 합니다. 이러한 디스크는 Azure VM에 탑재되고 Azure Page BLOB Storage(<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) 또는 Managed Disks(<https://docs.microsoft.com/azure/storage/storage-managed-disks-overview>)를 기반으로 합니다. 모든 종류의 네트워크 드라이브 또는 Azure 파일 서비스와 같은 원격 공유:
 
 * <https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx> 
@@ -1270,14 +1270,12 @@ SAP MaxDB에 대한 Azure Storage 모범 사례는 [RDBMS 배포 구조][dbms-gu
 
 ![SAP MaxDB DBMS에 대한 Azure IaaS VM의 참조 구성][dbms-guide-figure-600]
 
-#### <a name="23c78d3b-ca5a-4e72-8a24-645d141a3f5d">
-            </a>Backup 및 복원
+#### <a name="23c78d3b-ca5a-4e72-8a24-645d141a3f5d"></a>Backup 및 복원
 Azure에 SAP MaxDB를 배포하는 경우 백업 방법을 검토해야 합니다. 생산성이 높은 시스템이 아니더라도 SAP MaxDB에서 호스트하는 SAP 데이터베이스를 정기적으로 백업해야 합니다. Azure Storage에는 세 개의 이미지가 유지되므로 저장소 오류 및 더 중요한 작동 또는 관리 오류에 대한 시스템 보호 면에서 백업의 중요성이 줄어들었습니다. 적절한 백업 및 복원 계획 유지 관리가 중요한 이유는 지정 시간 복구 기능을 제공하여 논리 또는 수동 오류를 보완할 수 있기 때문입니다. 따라서 목표는 백업을 사용하여 데이터베이스를 특정 시점으로 복원하거나 기존 데이터베이스를 복사하여 Azure의 백업을 다른 시스템에 시딩하는 데 Azure의 백업을 사용하는 것입니다. 예를 들어 백업을 복구하여 2계층 SAP 구성을 동일한 시스템의 3계층 시스템 설정으로 전송할 수 있습니다.
 
 Azure에서의 데이터베이스 백업 및 복원 방법은 온-프레미스 시스템에서와 동일합니다. 그러므로 SAP Note [767598]에 나열된 SAP MaxDB 설명서 중 하나에서 설명한 표준 SAP MaxDB 백업/복원 도구를 사용할 수 있습니다. 
 
-#### <a name="77cd2fbb-307e-4cbf-a65f-745553f72d2c">
-            </a>Backup 및 복원에 대한 성능 고려 사항
+#### <a name="77cd2fbb-307e-4cbf-a65f-745553f72d2c"></a>Backup 및 복원에 대한 성능 고려 사항
 완전 배포에서처럼 백업 및 복원 성능은 병렬로 읽을 수 있는 볼륨 수와 이러한 볼륨의 처리량에 따라 달라집니다. 또한 백업 압축에서 사용하는 CPU 사용량은 최대 8개 CPU 스레드까지 VM에서 중요 역할을 수행할 수 있습니다. 따라서 다음을 가정할 수 있습니다.
 
 * 데이터베이스 장치를 저장하는 데 사용하는 디스크 수가 적을수록 전반적인 읽기 처리량이 줄어듭니다.
@@ -1329,7 +1327,7 @@ SAP에서 지원하는 Azure VM 형식(SAP Note [1928533])의 경우, VM에 할�
 SAP liveCache는 SAP MaxDB 기술을 기반으로 하므로 SAP MaxDB에 대해 [저장소 구성][dbms-guide-8.4.1] 챕터에서 설명한 모든 Azure Storage 모범 사례 권장 사항이 SAP liveCache에도 적용됩니다. 
 
 #### <a name="dedicated-azure-vm-for-livecache"></a>liveCache용 전용 Azure VM
-SAP liveCache는 컴퓨팅 기능을 집중적으로 사용하므로 생산적인 사용을 위해 전용 Azure 가상 컴퓨터에 배포하는 것이 좋습니다. 
+SAP liveCache는 컴퓨팅 기능을 집중적으로 사용하므로 생산적인 사용을 위해 전용 Azure Virtual Machine에 배포하는 것이 좋습니다. 
 
 ![생산적인 사용 사례를 위한 liveCache용 전용 Azure VM][dbms-guide-figure-700]
 
@@ -1397,13 +1395,13 @@ SAP MaxDB 데이터베이스에 파일을 저장하도록 SAP Content Server를 
 * SAP Note [1619726]  
 
 ## <a name="specifics-to-ibm-db2-for-luw-on-windows"></a>Windows의 LUW용 IBM DB2에 대한 고유 정보
-Microsoft Azure를 사용하면 Linux, UNIX, Windows(LUW)용 IBM DB2에서 실행 중인 기존 SAP 응용 프로그램을 Azure 가상 컴퓨터로 쉽게 마이그레이션할 수 있습니다. LUW용 IBM DB2에서 SAP를 사용하면 관리자와 개발자가 온-프레미스와 동일한 개발 및 관리 도구를 사용할 수 있습니다.
+Microsoft Azure를 사용하면 Linux, UNIX, Windows(LUW)용 IBM DB2에서 실행 중인 기존 SAP 응용 프로그램을 Azure 가상 머신으로 쉽게 마이그레이션할 수 있습니다. LUW용 IBM DB2에서 SAP를 사용하면 관리자와 개발자가 온-프레미스와 동일한 개발 및 관리 도구를 사용할 수 있습니다.
 LUW용 IBM DB2에서의 SAP Business Suite 실행에 대한 일반 정보는 <https://www.sap.com/community/topic/db2-for-linux-unix-and-windows.html>의 SCN(SAP Community Network)을 참조하세요.
 
 Azure에서 LUW용 DB2의 SAP에 대한 추가 정보 및 업데이트는 SAP Note [2233094]를 참조하세요. 
 
 ### <a name="ibm-db2-for-linux-unix-and-windows-version-support"></a>Linux, UNIX 및 Windows용 IBM DB2 버전 지원
-Microsoft Azure Virtual Machines 서비스에서 LUW용 IBM DB2의 SAP는 DB2 버전 10.5부터 지원됩니다.
+Microsoft Azure Virtual Machine 서비스에서 LUW용 IBM DB2의 SAP는 DB2 버전 10.5부터 지원됩니다.
 
 지원되는 SAP 제품 및 Azure VM 형식에 대한 내용은 SAP Note [1928533]을 참조하세요.
 
@@ -1444,7 +1442,7 @@ LUW용 IBM DB2의 백업/복원 기능은 표준 Windows Server 운영 체제 �
 #### <a name="high-availability-and-disaster-recovery"></a>고가용성 및 재해 복구
 MSCS(Microsoft Cluster Server)는 지원되지 않습니다.
 
-DB2 HADR(고가용성 재해 복구)은 지원됩니다. HA 구성의 가상 컴퓨터에 이름 확인 작업이 있는 경우 Azure 설정이 온-프레미스의 설정과 다르지 않습니다. IP 확인만 사용하는 것은 권장되지 않습니다.
+DB2 HADR(고가용성 재해 복구)은 지원됩니다. HA 구성의 가상 머신에 이름 확인 작업이 있는 경우 Azure 설정이 온-프레미스의 설정과 다르지 않습니다. IP 확인만 사용하는 것은 권장되지 않습니다.
 
 데이터베이스 디스크를 저장하는 저장소 계정에는 지역에서 복제를 사용하지 마세요. 자세한 내용은 [Microsoft Azure Storage][dbms-guide-2.3] 및 [Azure VM을 사용한 고가용성 및 재해 복구][dbms-guide-3] 챕터를 참조하세요.
 
@@ -1454,12 +1452,12 @@ Azure 가용성 집합 또는 SAP 모니터링과 같은 기타 일반적인 항
 또한 [Azure의 SAP용 SQL Server에 대한 일반적 요약][dbms-guide-5.8] 챕터를 참조하세요.
 
 ## <a name="specifics-to-ibm-db2-for-luw-on-linux"></a>Linux의 LUW용 IBM DB2에 대한 고유 정보
-Microsoft Azure를 사용하면 Linux, UNIX, Windows(LUW)용 IBM DB2에서 실행 중인 기존 SAP 응용 프로그램을 Azure 가상 컴퓨터로 쉽게 마이그레이션할 수 있습니다. LUW용 IBM DB2에서 SAP를 사용하면 관리자와 개발자가 온-프레미스와 동일한 개발 및 관리 도구를 사용할 수 있습니다. LUW용 IBM DB2에서의 SAP Business Suite 실행에 대한 일반 정보는 <https://www.sap.com/community/topic/db2-for-linux-unix-and-windows.html>의 SCN(SAP Community Network)을 참조하세요.
+Microsoft Azure를 사용하면 Linux, UNIX, Windows(LUW)용 IBM DB2에서 실행 중인 기존 SAP 응용 프로그램을 Azure 가상 머신으로 쉽게 마이그레이션할 수 있습니다. LUW용 IBM DB2에서 SAP를 사용하면 관리자와 개발자가 온-프레미스와 동일한 개발 및 관리 도구를 사용할 수 있습니다. LUW용 IBM DB2에서의 SAP Business Suite 실행에 대한 일반 정보는 <https://www.sap.com/community/topic/db2-for-linux-unix-and-windows.html>의 SCN(SAP Community Network)을 참조하세요.
 
 Azure에서 LUW용 DB2의 SAP에 대한 추가 정보 및 업데이트는 SAP Note [2233094]를 참조하세요.
 
 ### <a name="ibm-db2-for-linux-unix-and-windows-version-support"></a>Linux, UNIX 및 Windows용 IBM DB2 버전 지원
-Microsoft Azure Virtual Machines 서비스에서 LUW용 IBM DB2의 SAP는 DB2 버전 10.5부터 지원됩니다.
+Microsoft Azure Virtual Machine 서비스에서 LUW용 IBM DB2의 SAP는 DB2 버전 10.5부터 지원됩니다.
 
 지원되는 SAP 제품 및 Azure VM 형식에 대한 내용은 SAP Note [1928533]을 참조하세요.
 
@@ -1498,7 +1496,7 @@ LUW용 IBM DB2의 백업/복원 기능은 온-프레미스의 표준 Linux 설�
 * 둘 이상의 대상 디렉터리를 사용하여 백업을 작성합니다.
 
 #### <a name="high-availability-and-disaster-recovery"></a>고가용성 및 재해 복구
-DB2 HADR(고가용성 재해 복구)은 지원됩니다. HA 구성의 가상 컴퓨터에 이름 확인 작업이 있는 경우 Azure 설정이 온-프레미스의 설정과 다르지 않습니다. IP 확인만 사용하는 것은 권장되지 않습니다.
+DB2 HADR(고가용성 재해 복구)은 지원됩니다. HA 구성의 가상 머신에 이름 확인 작업이 있는 경우 Azure 설정이 온-프레미스의 설정과 다르지 않습니다. IP 확인만 사용하는 것은 권장되지 않습니다.
 
 데이터베이스 디스크를 저장하는 저장소 계정에는 지역에서 복제를 사용하지 마세요. 자세한 내용은 [Microsoft Azure Storage][dbms-guide-2.3] 및 [Azure VM을 사용한 고가용성 및 재해 복구][dbms-guide-3] 챕터를 참조하세요.
 

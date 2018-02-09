@@ -14,11 +14,11 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: bdca9d4968e9e68314f350787907f15e417821f7
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: db1ed08c4d4c9e9abd525ec13f5511da82ee1fe4
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="monitor-published-apis"></a>게시된 API 모니터링
 
@@ -56,7 +56,8 @@ API Management 서비스에서 활동 로그에 액세스하거나 Azure Monitor
 
 활동 로그를 보려면
 
-1. **API Management** 인스턴스에서 **활동 로그**를 클릭합니다.
+1. APIM 서비스 인스턴스를 선택합니다.
+2. **활동 로그**를 클릭합니다.
 
 ## <a name="view-diagnostic-logs"></a>진단 로그 보기
 
@@ -64,7 +65,8 @@ API Management 서비스에서 활동 로그에 액세스하거나 Azure Monitor
 
 진단 로그에 액세스하려면
 
-1. **API Management** 인스턴스에서 **진단 로그**를 클릭합니다.
+1. APIM 서비스 인스턴스를 선택합니다.
+2. **진단 로그**를 클릭합니다.
 
 ## <a name="view-metrics-of-your-apis"></a>API의 메트릭 보기
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 6803e22a78e27c15ff4fec301cd5bdd55aacd3e3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5cc6837ed0b0f4467e48c736f5d596a51a799fae
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="overview-of-azure-serverless-with-functions-and-logic-apps"></a>함수 및 Logic Apps로 Azure 서버를 사용하지 않음 개요
 
@@ -41,7 +41,7 @@ Azure Functions를 바로 시작하려면 [첫 번째 Azure 함수 만들기](..
 
 Azure Logic Apps는 클라우드에서 확장 가능한 통합 및 워크플로를 단순화하고 구현하는 방법을 제공합니다. 모델에 비주얼 디자이너를 제공하고 프로세스를 워크플로라는 일련의 단계로 자동화합니다.  클라우스 및 온-프레미스 서비스에는 서버를 사용하지 않는 앱을 다른 API에 신속하게 연결하는 [많은 커넥터](../connectors/apis-list.md)가 있습니다.  논리 앱은 ('Dynamics CRM에 계정을 추가하는 경우'와 같이) 트리거로 시작하고 실행 후에 여러 조합 작업, 변환 및 조건 논리 실행을 시작할 수 있습니다.  Logic Apps는 프로세스에서 다른 Azure Functions를 오케스트레이션하는 경우(특히 프로세스가 외부 시스템 또는 API와 상호 작용해야 하는 경우) 탁월한 선택입니다.
 
-Logic Apps를 시작하려면 [첫 번째 논리 앱 만들기](logic-apps-create-a-logic-app.md)로 시작합니다.  Logic Apps에 대한 자세한 기술 정보는 [개발자 참조](logic-apps-workflow-actions-triggers.md)를 참조하세요.
+Logic Apps를 시작하려면 [첫 번째 논리 앱 만들기](quickstart-create-first-logic-app-workflow.md)로 시작합니다.  Logic Apps에 대한 자세한 기술 정보는 [개발자 참조](logic-apps-workflow-actions-triggers.md)를 참조하세요.
 
 ## <a name="how-can-i-build-and-deploy-serverless-applications-in-azure"></a>Azure에서 서버를 사용하지 않는 응용 프로그램을 빌드 및 배포하려면 어떻게 해야 합니까?
 

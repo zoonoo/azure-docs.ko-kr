@@ -1,6 +1,6 @@
 ---
 title: "Azure Marketplace에 대한 가상 컴퓨터 이미지 만들기 | Microsoft Docs"
-description: "Azure Marketplace에서 다른 사용자가 구입할 수 있도록 가상 컴퓨터 이미지를 만드는 방법에 대한 자세한 지침입니다."
+description: "Azure Marketplace에서 다른 사용자가 구입할 수 있도록 가상 머신 이미지를 만드는 방법에 대한 자세한 지침입니다."
 services: Azure Marketplace
 documentationcenter: 
 author: HannibalSII
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio; v-divte
-ms.openlocfilehash: e37c55dbcc8de49aee32272b2f51b0792bef132c
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 8915abbb27184c2f0b47747e422e5a4fa7bc1cbb
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Azure Marketplace에 대한 가상 컴퓨터 이미지 만들기 가이드
+# <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Azure Marketplace에 대한 가상 머신 이미지 만들기 가이드
 이 문서의 **2단계**에서는 Azure Marketplace에 배포할 VHD(가상 하드 디스크)를 준비하는 과정을 안내합니다. VHD는 SKU의 기반입니다. Linux 기반 SKU를 제공할지 Windows 기반 SKU를 제공할지 여부에 따라 프로세스는 다릅니다. 이 문서에서는 두 시나리오를 모두 다룹니다. 이 프로세스는 [계정 만들기 및 등록][link-acct-creation]과 함께 병렬로 수행할 수 있습니다.
 
 ## <a name="1-define-offers-and-skus"></a>1. 제품 및 SKU 정의
@@ -31,7 +31,7 @@ ms.lasthandoff: 11/07/2017
 * Azure.com: http://azure.microsoft.com/marketplace/partners/{PartnerNamespace}/{OfferIdentifier}-{SKUidentifier}
 * Azure Preview 포털: https://portal.azure.com/#gallery/{PublisherNamespace}.{OfferIdentifier}{SKUIDdentifier}  
 
-SKU는 VM 이미지에 대한 상업용 이름입니다. VM 이미지에는 운영 체제 디스크 하나와 0개 이상의 데이터 디스크가 포함되어 있습니다. 가상 컴퓨터에 대한 완벽한 저장소 프로필입니다. 디스크당 VHD 하나가 필요합니다. 데이터 디스크가 비어 있는 경우에도 VHD를 만들어야 합니다.
+SKU는 VM 이미지에 대한 상업용 이름입니다. VM 이미지에는 운영 체제 디스크 하나와 0개 이상의 데이터 디스크가 포함되어 있습니다. 가상 머신에 대한 완벽한 저장소 프로필입니다. 디스크당 VHD 하나가 필요합니다. 데이터 디스크가 비어 있는 경우에도 VHD를 만들어야 합니다.
 
 사용 중인 운영 체제에 상관없이 SKU에 필요한 최소 개수의 데이터 디스크만 추가합니다. 고객은 배포 시 이미지의 일부인 디스크를 제거할 수 없지만, 필요한 경우 배포 중이나 이후에 언제든지 디스크를 추가할 수 있습니다.
 
@@ -58,7 +58,7 @@ SKU는 VM 이미지에 대한 상업용 이름입니다. VM 이미지에는 운�
 3. Windows 기반 SKU를 사용할 경우 제안된 링크를 따라 Windows Server의 승인된 버전을 습득하세요.
 
 ## <a name="2-create-an-azure-compatible-vhd-linux-based"></a>2. Azure 호환 VHD 만들기(Linux 기반)
-이 섹션에서는 Azure Marketplace에 대한 Linux 기반 VM 이미지를 만드는 모범 사례를 중심으로 다룹니다. 단계별 연습은 [Linux 운영 체제가 포함된 가상 하드 디스크 만들기 및 업로드](../virtual-machines/linux/classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) 설명서를 참조하세요.
+이 섹션에서는 Azure Marketplace에 대한 Linux 기반 VM 이미지를 만드는 모범 사례를 중심으로 다룹니다. 단계별 연습은 [사용자 지정 Linux VM 이미지 만들기](../virtual-machines/linux/create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 설명서를 참조하세요.
 
 ## <a name="3-create-an-azure-compatible-vhd-windows-based"></a>3. Azure 호환 VHD 만들기(Windows 기반)
 이 섹션에서는 Azure Marketplace에 대해 Windows Server 기반 SKU를 만드는 단계를 중심으로 다룹니다.
@@ -82,9 +82,9 @@ VM 이미지용 운영 체제 VHD는 Windows Server 또는 SQL Server를 포함�
 ### <a name="32-create-your-windows-based-vm"></a>3.2 Windows 기반 VM 만들기
 Microsoft Azure 포털에서 승인된 기본 이미지를 기반으로 VM을 간단히 만들 수 있습니다. 프로세스 개요는 다음과 같습니다.
 
-1. 기본 이미지 페이지에서 **가상 컴퓨터 만들기**를 선택합니다. 그러면 새 [Microsoft Azure Portal][link-azure-portal]로 이동합니다.
+1. 기본 이미지 페이지에서 **Virtual Machine 만들기**를 선택합니다. 그러면 새 [Microsoft Azure Portal][link-azure-portal]로 이동합니다.
 
-    ![그리기][img-acom-1]
+    ![drawing][img-acom-1]
 2. 사용할 Azure 구독에 대한 Microsoft 계정 및 암호를 사용하여 포털에 로그인합니다.
 3. 프롬프트에 따라 선택한 기본 이미지를 사용하여 VM을 만듭니다. VM에 대한 호스트 이름(컴퓨터 이름), 사용자 이름(관리자로 등록됨) 및 암호를 제공해야 합니다.
 
@@ -93,23 +93,23 @@ Microsoft Azure 포털에서 승인된 기본 이미지를 기반으로 VM을 �
 
     a.    온-프레미스에서 VHD를 개발하려는 경우 크기는 중요하지 않습니다. 더 작은 VM 중 하나를 사용하는 것이 좋습니다.
 
-    b.    Azure에서 이미지를 개발하려는 경우 선택된 이미지에 대한 권장 VM 크기 중 하나를 사용하는 것이 좋습니다.
+    나.    Azure에서 이미지를 개발하려는 경우 선택된 이미지에 대한 권장 VM 크기 중 하나를 사용하는 것이 좋습니다.
 
-    c.    가격 책정에 대한 자세한 내용은 포털에 표시되는 **권장 가격 책정 계층** 선택기를 참조하세요. 게시자가 제공한 세 개의 권장 크기를 제공합니다. 이 경우 게시자는 Microsoft입니다.
+    다.    가격 책정에 대한 자세한 내용은 포털에 표시되는 **권장 가격 책정 계층** 선택기를 참조하세요. 게시자가 제공한 세 개의 권장 크기를 제공합니다. 이 경우 게시자는 Microsoft입니다.
 
     ![drawing][img-portal-vm-size]
 5. 속성을 설정합니다.
 
     a.    빠른 배포를 위해 **선택적 구성** 및 **리소스 그룹**에서 속성에 대한 기본값을 그대로 사용할 수 있습니다.
 
-    b.    필요에 따라 **Storage 계정**에서 운영 체제 VHD를 저장할 Storage 계정을 선택할 수 있습니다.
+    나.    필요에 따라 **Storage 계정**에서 운영 체제 VHD를 저장할 Storage 계정을 선택할 수 있습니다.
 
-    c.    필요에 따라 **리소스 그룹**에서 VM을 배치할 논리 그룹을 선택할 수 있습니다.
+    다.    필요에 따라 **리소스 그룹**에서 VM을 배치할 논리 그룹을 선택할 수 있습니다.
 6. 배포를 위한 **위치** 를 선택합니다.
 
     a.    온-프레미스에서 VHD를 개발하려면 나중에 이미지를 Azure에 업로드할 것이므로 위치는 중요하지 않습니다.
 
-    b.    Azure에서 이미지를 개발하려면 처음부터 미국 기반 Microsoft Azure 지역 중 하나를 사용하는 것이 좋습니다. 그러면 개발자가 인증을 위해 이미지를 제출할 때 Microsoft에서 자동으로 수행되는 VHD 복사 프로세스가 단축됩니다.
+    나.    Azure에서 이미지를 개발하려면 처음부터 미국 기반 Microsoft Azure 지역 중 하나를 사용하는 것이 좋습니다. 그러면 개발자가 인증을 위해 이미지를 제출할 때 Microsoft에서 자동으로 수행되는 VHD 복사 프로세스가 단축됩니다.
 
     ![drawing][img-portal-vm-location]
 7. **만들기**를 클릭합니다. VM 배포를 시작합니다. 몇 분 이내에 배포되고 SKU에 대한 이미지 만들기를 시작할 수 있습니다.
@@ -118,14 +118,17 @@ Microsoft Azure 포털에서 승인된 기본 이미지를 기반으로 VM을 �
 RDP(원격 데스크톱 프로토콜)를 사용하여 클라우드에서 VHD를 개발하는 것이 좋습니다. 프로비전 중에 지정한 사용자 이름과 암호를 사용하여 RDP에 연결합니다.
 
 > [!IMPORTANT]
-> 온-프레미스에서 VHD를 개발하는 경우(권장되지 않음) [온-프레미스에 가상 컴퓨터 이미지 만들기](marketplace-publishing-vm-image-creation-on-premise.md)를 참조하세요. 클라우드에서 개발 중인 경우에는 VHD를 다운로드할 필요가 없습니다.
+> **관리되는 디스크는 사용하지 마세요.** 클라우드에 대한 VHD를 개발하는 데 사용된 가상 머신은 관리되는 디스크를 사용해서 만들지 않아야 합니다. 현재는 이 디스크에서 이미지를 만드는 것이 지원되지 않기 때문입니다.
+> 옵션 기능에서 가상 머신을 만들면 관리되는 디스크의 기본값이 변경됩니다.
+
+> 온-프레미스에서 VHD를 개발하는 경우(권장되지 않음) [온-프레미스에 가상 머신 이미지 만들기](marketplace-publishing-vm-image-creation-on-premise.md)를 참조하세요. 클라우드에서 개발 중인 경우에는 VHD를 다운로드할 필요가 없습니다.
 >
 >
 
 **[Microsoft Azure Portal][link-azure-portal]**을 사용하여 RDP를 통해 연결
 
 1. **찾아보기** > **VM**을 선택합니다.
-2. 가상 컴퓨터 블레이드가 열립니다. 연결하려는 VM이 실행 중인지 확인하고 배포된 VM 목록에서 해당 VM을 선택합니다.
+2. 가상 머신 블레이드가 열립니다. 연결하려는 VM이 실행 중인지 확인하고 배포된 VM 목록에서 해당 VM을 선택합니다.
 3. 선택된 VM을 설명하는 블레이드가 열립니다. 맨 위에 있는 **연결**을 클릭합니다.
 4. 프로비전 중에 지정한 사용자 이름과 암호를 입력하라는 메시지가 표시됩니다.
 
@@ -134,7 +137,7 @@ RDP(원격 데스크톱 프로토콜)를 사용하여 클라우드에서 VHD를 
 원격 데스크톱 파일을 로컬 컴퓨터에 다운로드하려면 [Get-AzureRemoteDesktopFile cmdlet][link-technet-2]을 사용합니다. 이 cmdlet을 사용하려면 서비스 이름과 VM 이름을 알아야 합니다. [Microsoft Azure Portal][link-azure-portal]에서 VM을 만든 경우 VM 속성에서 이 정보를 찾을 수 있습니다.
 
 1. Microsoft Azure Portal에서 **찾아보기** > **VM**을 선택합니다.
-2. 가상 컴퓨터 블레이드가 열립니다. 배포된 VM을 선택합니다.
+2. 가상 머신 블레이드가 열립니다. 배포된 VM을 선택합니다.
 3. 선택된 VM을 설명하는 블레이드가 열립니다.
 4. **속성**을 클릭합니다.
 5. 도메인 이름의 첫 부분은 서비스 이름입니다. 호스트 이름은 VM 이름입니다.
@@ -148,7 +151,7 @@ RDP에 대한 자세한 내용은 MSDN의 [RDP 또는 SSH를 사용하여 Azure 
 
 **VM 구성 및 SKU 만들기**
 
-운영 체제 VHD를 다운로드한 후 Hyper­V를 사용하고 SKU 만들기를 시작하도록 VM을 구성합니다. 세부 단계는 TechNet에서 [Hyper­V 설치 및 VM 구성](http://technet.microsoft.com/library/hh846766.aspx)링크를 참조하세요.
+운영 체제 VHD를 다운로드한 후 Hyper­V를 사용하고 VM을 구성하여 SKU를 만들기 시작합니다. 자세한 단계는 [Hyper­V 설치 및 VM 구성](http://technet.microsoft.com/library/hh846766.aspx) TechNet 링크에서 찾을 수 있습니다.
 
 ### <a name="34-choose-the-correct-vhd-size"></a>3.4 올바른 VHD 크기 선택
 VM 이미지의 Windows 운영 체제 VHD는 128GB 고정 형식 VHD로 만들어져야 합니다.  
@@ -346,9 +349,9 @@ Azure Storage Explorer를 사용하여 SAS URL을 생성하는 단계는 다음�
 
     a. **액세스 허용 시작**: UTC 시간에 대한 보호를 위해 현재 날짜 이전으로 선택합니다. 예를 들어, 현재 날짜가 2014년 10월 6일이면 2014년 10월 5일을 선택합니다.
 
-    b. **액세스 허용 종료**: **액세스 허용 시작** 날짜로부터 3주 이상 지난 날짜를 선택합니다.
+    나. **액세스 허용 종료**: **액세스 허용 시작** 날짜로부터 3주 이상 지난 날짜를 선택합니다.
 
-    c. **허용 동작**: **나열** 및 **읽기** 권한을 선택합니다.
+    다. **허용 동작**: **나열** 및 **읽기** 권한을 선택합니다.
 
     d. vhd 파일을 올바르게 선택한 경우 **액세스할 Blob 이름** 에 확장명이 .vhd인 파일이 표시됩니다.
 
@@ -394,9 +397,9 @@ Microsoft Azure Storage Explorer를 사용하여 SAS URL을 생성하는 단계�
 
     a.  **시작 시간:** UTC 시간을 보호하려면 현재 이전 날짜를 선택합니다. 예를 들어, 현재 날짜가 2014년 10월 6일이면 2014년 10월 5일을 선택합니다.
 
-    b.  **만료 시간:** **시작 시간** 날짜 이후 3주 이상 지난 날짜를 선택합니다.
+    나.  **만료 시간:** **시작 시간** 날짜 이후 3주 이상 지난 날짜를 선택합니다.
 
-    c.  **사용 권한**: **나열** 및 **읽기** 권한을 선택합니다.
+    다.  **사용 권한**: **나열** 및 **읽기** 권한을 선택합니다.
 
 8.  컨테이너 공유 액세스 서명 URI를 복사합니다.
 
@@ -408,7 +411,7 @@ Microsoft Azure Storage Explorer를 사용하여 SAS URL을 생성하는 단계�
 
     아래와 같이 SAS URL의 컨테이너 이름 뒤에 VHD 이름을 삽입합니다.`https://testrg009.blob.core.windows.net/vhds/<VHD NAME>?st=2016-04-22T23%3A05%3A00Z&se=2016-04-30T23%3A05%3A00Z&sp=rl&sv=2015-04-05&sr=c&sig=J3twCQZv4L4EurvugRW2klE2l2EFB9XyM6K9FkuVB58%3D`
 
-    예제:
+    예:
 
     ![drawing](media/marketplace-publishing-vm-image-creation/img5.2_15.png)
 
@@ -442,9 +445,9 @@ Azure CLI를 사용하여 SAS URL을 생성하는 단계는 다음과 같습니�
 
     a. **`<StorageAccountName>`**: 저장소 계정 이름을 제공합니다.
 
-    b. **`<Storage Account Key>`**: 저장소 계정 키를 제공합니다.
+    나. **`<Storage Account Key>`**: 저장소 계정 키를 제공합니다.
 
-    c. **`<Permission Start Date>`**: UTC 시간을 보호하려면 현재 이전 날짜를 선택합니다. 예를 들어, 현재 날짜가 2016년 10월 26일이면 값은 2016/10/25입니다. Azure CLI 2.0(az 명령)을 사용하는 경우 시작 및 종료 날짜에 날짜 및 시간을 제공합니다(예: 10-25-2016T00:00:00Z).
+    다. **`<Permission Start Date>`**: UTC 시간을 보호하려면 현재 이전 날짜를 선택합니다. 예를 들어, 현재 날짜가 2016년 10월 26일이면 값은 2016/10/25입니다. Azure CLI 2.0(az 명령)을 사용하는 경우 시작 및 종료 날짜에 날짜 및 시간을 제공합니다(예: 10-25-2016T00:00:00Z).
 
     d. **`<Permission End Date>`**: **시작 날짜** 이후 3주 이상 지난 날짜를 선택합니다. 값은 **11/02/2016**이어야 합니다. Azure CLI 2.0(az 명령)을 사용하는 경우 시작 및 종료 날짜에 날짜 및 시간을 제공합니다(예: 11-02-2016T00:00:00Z).
 
@@ -470,7 +473,7 @@ Azure CLI를 사용하여 SAS URL을 생성하는 단계는 다음과 같습니�
 
 7.  아래 `https://st20151.blob.core.windows.net/vhds/<VHDName>?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`와 같이 SAS URL의 컨테이너 이름 뒤에 VHD 이름을 삽입합니다.
 
-    예제:
+    예:
 
     TestRGVM201631920152.vhd는 VHD 이름이고 VHD SAS URL은 다음과 같습니다.
 
@@ -496,7 +499,7 @@ Azure CLI를 사용하여 SAS URL을 생성하는 단계는 다음과 같습니�
 4. **SKU** 섹션에 속성을 입력합니다.
 5. **운영 체제 제품군**에서 운영 체제 VHD에 연결된 운영 체제 유형을 클릭합니다.
 6. **운영 체제** 상자에서 운영 체제에 대해 설명합니다. 운영 체제 제품군, 유형, 버전, 업데이트 등과 같은 형식을 고려하세요. 예를 들어 "Windows Server Datacenter 2014 R2"를 고려합니다.
-7. 권장된 가상 컴퓨터 크기를 최대 6개까지 선택합니다. 이는 이미지를 구입하여 배포하려는 경우에 Azure Portal에서 고객의 가격 책정 계층 블레이드에 표시되는 권장 사항입니다. **이는 유일한 권장 사항입니다. 고객은 이미지에 지정된 디스크에 적용되는 VM 크기를 선택할 수 있습니다.**
+7. 권장된 가상 머신 크기를 최대 6개까지 선택합니다. 이는 이미지를 구입하여 배포하려는 경우에 Azure Portal에서 고객의 가격 책정 계층 블레이드에 표시되는 권장 사항입니다. **이는 유일한 권장 사항입니다. 고객은 이미지에 지정된 디스크에 적용되는 VM 크기를 선택할 수 있습니다.**
 8. 버전을 입력합니다. 버전 필드는 제품 및 해당 업데이트를 식별하는 의미 체계 버전을 캡슐화합니다.
    * 버전은 X.Y.Z 형식이며, X, Y 및 Z는 정수여야 합니다.
    * 다른 SKU에서 이미지는 다른 주 버전과 부 버전을 가질 수 있습니다.

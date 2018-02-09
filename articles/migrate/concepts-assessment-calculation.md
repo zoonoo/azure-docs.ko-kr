@@ -6,11 +6,11 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: raynew
-ms.openlocfilehash: 2b274244cc7b7fd0fc3eee22a57a51db77370370
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: b8075f0e1149a6fc5194347fc34e2a16d5eb2ffc
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="assessment-calculations"></a>평가 계산
 
@@ -47,10 +47,11 @@ Azure로 마이그레이션하려는 컴퓨터는 Azure 요구 사항 및 제한
 
 컴퓨터가 Azure에 적합한 것으로 표시되면 Azure Migrate는 다음 조건을 사용하여 Azure의 VM 크기에 매핑합니다.
 
-- **저장소 검사**: Azure Migrate에서 컴퓨터에 연결된 모든 디스크를 Azure의 디스크에 매핑하려고 합니다. Azure Migrate에서 IOPS(초당 I/O 횟수)와 쾌적 인자를 곱합니다. 또한 각 디스크의 처리량(MBps 단위)과 쾌적 인자를 곱합니다. 이렇게 하면 효과적인 디스크 IOPS 및 처리량을 제공합니다. 이에 따라 Azure Migrate는 해당 디스크를 Azure의 표준 또는 프리미엄 디스크에 매핑합니다.
-    - 서비스에서 필요한 IOPS 및 처리량을 갖춘 디스크를 찾지 못하면 컴퓨터가 Azure에 적합하지 않은 것으로 표시됩니다.
-    - 적합한 디스크 집합을 찾으면 Azure Migrate는 저장소 중복 방법 및 평가 설정에 지정된 위치를 지원하는 디스크를 선택합니다.
-    - 적합한 디스크가 여러 개인 경우 비용이 가장 낮은 디스크를 선택합니다.
+- **저장소 검사**: Azure Migrate는 컴퓨터에 연결된 모든 디스크를 Azure의 디스크에 매핑하려고 합니다.
+    - Azure Migrate은 IOPS(초당 I/O)와 쾌적 인자를 곱합니다. 또한 각 디스크의 처리량(MBps 단위)과 쾌적 인자를 곱합니다. 이렇게 하면 효과적인 디스크 IOPS 및 처리량을 제공합니다. 이에 따라 Azure Migrate는 해당 디스크를 Azure의 표준 또는 프리미엄 디스크에 매핑합니다.
+      - 서비스에서 필요한 IOPS 및 처리량을 갖춘 디스크를 찾지 못하면 컴퓨터가 Azure에 적합하지 않은 것으로 표시됩니다.
+      - 적합한 디스크 집합을 찾으면 Azure Migrate는 저장소 중복 방법 및 평가 설정에 지정된 위치를 지원하는 디스크를 선택합니다.
+      - 적합한 디스크가 여러 개인 경우 비용이 가장 낮은 디스크를 선택합니다.
 - **저장소 디스크 처리량**: 디스크 및 VM당 Azure 제한에 대해 [자세히 알아보세요](../azure-subscription-service-limits.md#storage-limits).
 - **디스크 유형**: Azure Migrate는 관리 디스크만 지원합니다.
 - **네트워크 검사**: Azure Migrate는 온-프레미스 컴퓨터의 NIC 수를 지원할 수 있는 Azure VM을 찾으려고 합니다.

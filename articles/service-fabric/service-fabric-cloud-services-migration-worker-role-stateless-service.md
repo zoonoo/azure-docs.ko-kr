@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: d6dc1cddd6228d2841e1e77b6f2800f788e5e1bb
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: fd24881444846d3905f8db61356656960698b7eb
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>웹 및 작업자 역할을 서비스 패브릭 상태 비저장 서비스로 변환하기 위한 가이드
 이 문서에서는 Cloud Services 웹 및 작업자 역할을 서비스 패브릭 상태 비저장 서비스로 마이그레이션하는 방법을 설명합니다. Cloud Services에서 전반적인 아키텍처를 대략적으로 동일하게 유지하는 응용 프로그램에 대한 서비스 패브릭으로의 가장 간단한 마이그레이션 경로입니다.
@@ -56,7 +56,7 @@ ms.lasthandoff: 11/04/2017
 | 클라이언트 요청에 대한 수신기 열기 |해당 없음 |<ul><li> 상태 비저장인 경우 `CreateServiceInstanceListener()`</li><li>상태 저장인 경우 `CreateServiceReplicaListener()`</li></ul> |
 
 ### <a name="worker-role"></a>작업자 역할
-```C#
+```csharp
 
 using Microsoft.WindowsAzure.ServiceRuntime;
 
@@ -81,7 +81,7 @@ namespace WorkerRole1
 ```
 
 ### <a name="service-fabric-stateless-service"></a>서비스 패브릭 상태 비저장 서비스
-```C#
+```csharp
 
 using System.Collections.Generic;
 using System.Threading;
@@ -117,7 +117,7 @@ namespace Stateless1
 ## <a name="application-api-and-environment"></a>응용 프로그램 API 및 환경
 Cloud Services 환경 API는 현재 VM 인스턴스에 대한 정보 및 기능 뿐만 아니라 다른 VM 역할 인스턴스에 대한 정보를 제공합니다. 서비스 패브릭은 해당 런타임과 관련된 정보 및 서비스가 현재 실행 중인 노드에 대한 일부 정보를 제공합니다. 
 
-| **환경 작업** | **Cloud Services** | **서비스 패브릭** |
+| **환경 작업** | **Cloud Services** | **Service Fabric** |
 | --- | --- | --- |
 | 구성 설정 및 변경 알림 |`RoleEnvironment` |`CodePackageActivationContext` |
 | 로컬 저장소 |`RoleEnvironment` |`CodePackageActivationContext` |
@@ -138,18 +138,18 @@ Cloud Services의 구성 설정은 VM 역할에 대해 설정되고 해당 VM �
 #### <a name="cloud-services"></a>Cloud Services
 ServiceConfiguration.*.cscfg의 구성 설정은 `RoleEnvironment`을(를) 통해 액세스할 수 있습니다. 이러한 설정은 동일한 클라우드 서비스 배포 내에서 모든 역할 인스턴스에 전역적으로 제공됩니다.
 
-```C#
+```csharp
 
 string value = RoleEnvironment.GetConfigurationSettingValue("Key");
 
 ```
 
-#### <a name="service-fabric"></a>서비스 패브릭
+#### <a name="service-fabric"></a>Service Fabric
 각 서비스에는 자체 개별 구성 패키지가 있습니다. 클러스터의 모든 응용 프로그램에서 액세스할 수 있는 전역 구성 설정에 대한 기본 제공 메커니즘이 없습니다. 구성 패키지 내에서 서비스 패브릭의 특별한 Settings.xml 구성 파일을 사용할 때 가능한 응용 프로그램 수준에서 응용 프로그램 수준 구성 설정을 가능하도록 하는 Settings.xml의 값을 덮어쓸 수 있습니다.
 
 구성 설정은 서비스의 `CodePackageActivationContext`을(를) 통한 각 서비스 인스턴스 내의 액세스입니다.
 
-```C#
+```csharp
 
 ConfigurationPackage configPackage = this.Context.CodePackageActivationContext.GetConfigurationPackageObject("Config");
 
@@ -170,7 +170,7 @@ using (StreamReader reader = new StreamReader(Path.Combine(configPackage.Path, "
 #### <a name="cloud-services"></a>Cloud Services
 `RoleEnvironment.Changed` 이벤트는 환경에서 구성 변경과 같은 변경이 발생할 때 모든 역할 인스턴스를 알리는 데 사용됩니다. 역할 인스턴스를 재활용하거나 작업자 프로세스를 다시 시작하지 않고 구성 업데이트를 사용하는 데 사용됩니다.
 
-```C#
+```csharp
 
 RoleEnvironment.Changed += RoleEnvironmentChanged;
 
@@ -186,12 +186,12 @@ foreach (var settingChange in settingChanges)
 
 ```
 
-#### <a name="service-fabric"></a>서비스 패브릭
+#### <a name="service-fabric"></a>Service Fabric
 서비스의 각 세 가지 패키지 유형(코드, 구성 및 데이터)은 패키지를 업데이트, 추가 또는 제거하는 경우 서비스 인스턴스를 알리는 이벤트를 가집니다. 서비스는 각 유형의 여러 패키지를 포함할 수 있습니다. 예를 들어 서비스에는 각각 개별적으로 버전이 지정되고 업그레이드 가능한 여러 config 패키지가 있을 수 있습니다. 
 
 이러한 이벤트는 서비스 인스턴스를 다시 시작하지 않고 서비스 패키지의 변경 내용을 사용하는 데 사용할 수 있습니다.
 
-```C#
+```csharp
 
 this.Context.CodePackageActivationContext.ConfigurationPackageModifiedEvent +=
                     this.CodePackageActivationContext_ConfigurationPackageModifiedEvent;
@@ -207,7 +207,7 @@ private void CodePackageActivationContext_ConfigurationPackageModifiedEvent(obje
 ## <a name="startup-tasks"></a>시작 작업
 시작 작업은 응용 프로그램이 시작되기 전에 수행되는 작업입니다. 시작 작업은 상승된 권한을 사용하여 설치 스크립트를 실행하는 데 일반적으로 사용됩니다. Cloud Services와 서비스 패브릭은 시작 작업을 지원합니다. 주요 차이점은 Cloud Services에서 시작 작업은 역할 인스턴스의 일부이므로 VM에 연결되는 반면 서비스 패브릭에서 시작 작업은 특정 VM에 연결되지 않은 서비스에 연결된다는 점입니다.
 
-| Cloud Services | 서비스 패브릭 |
+| Cloud Services | Service Fabric |
 | --- | --- | --- |
 | 구성 위치 |ServiceDefinition.csdef |
 | 권한 |"제한된" 또는 "상승된" |
@@ -231,7 +231,7 @@ Cloud Services에서 시작 진입점은 ServiceDefinition.csdef에서 역할별
 
 ```
 
-### <a name="service-fabric"></a>서비스 패브릭
+### <a name="service-fabric"></a>Service Fabric
 서비스 패브릭에서 시작 진입점은 ServiceManifest.xml에서 서비스별로 구성됩니다.
 
 ```xml

@@ -1,14 +1,15 @@
 ---
 layout: HubPage
-hide_bc: True
+hide_bc: 
 title: "Microsoft Azure 설명서"
 description: "Microsoft Azure 클라우드 서비스를 사용하여 강력한 응용 프로그램을 관리하는 방법을 알아봅니다. 설명서, 샘플 코드, 자습서 등을 가져옵니다."
-featureFlags: clicktale
-ms.openlocfilehash: 7a707abdb949927e5f3affe208001f245ace51f2
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+featureFlags:
+- clicktale
+ms.openlocfilehash: 88c99f7aa0af914210e760d498bb4fb514798207
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/03/2018
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -155,7 +156,7 @@ ms.lasthandoff: 01/12/2018
                                                             <img src="media/index/logo_PHP.svg" alt=""> PHP</a>
                                                     </li>
                                                     <li>
-                                                        <a class="barLink" href="/nodejs/azure/">
+                                                        <a class="barLink" href="/javascript/azure/">
                                                             <img src="media/index/logo_nodejs.svg" alt=""> Node.js</a>
                                                     </li>
                                                 </ul></td></tr></table>
@@ -800,19 +801,19 @@ ms.lasthandoff: 01/12/2018
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/storage/blobs/storage-blobs-introduction/">
+                                            <a href="/azure/storage/blobs/storage-blobs-introduction">
                                                 <img src="media/index/logo_azure-blob-storage.svg" alt="" />
                                                 <p>Blob Storage</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/virtual-machines/disks/">
+                                            <a href="/azure/virtual-machines/windows/about-disks-and-vhds">
                                                 <img src="media/index/Disks-color.svg" alt="" />
                                                 <p>Disk Storage</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/storage/queues/storage-queues-introduction/">
+                                            <a href="/azure/storage/queues/storage-queues-introduction">
                                                 <img src="media/index/logo_azure-storage-q.svg" alt="" />
                                                 <p>Queue Storage</p>
                                             </a>
@@ -1050,7 +1051,7 @@ ms.lasthandoff: 01/12/2018
                                                 <img src="media/index/LogicApp.svg" alt="" />
                                                 <p>Logic Apps</p>
                                             </a>
-                                        </li>                                        
+                                        </li>
                                     </ul>
                                 </div>
                                 <div class="group">
@@ -1306,7 +1307,7 @@ ms.lasthandoff: 01/12/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Virtual Machine Scale Sets</h3>
-                                                    <p>수십 개에서 수천 개에 이르는 Linux 및 Windows 가상 머신 관리 및 규모 조정</p>
+                                                    <p>Linux 및 Windows 가상 머신을 관리하며 수천 대까지 확장</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1344,7 +1345,7 @@ ms.lasthandoff: 01/12/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>App Service</h3>
-                                                    <p>컨테이너를 사용하여 Linux에 웹앱 배포</p>
+                                                    <p>신속하게 강력한 웹 및 모바일용 클라우드 앱 구축</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1382,7 +1383,7 @@ ms.lasthandoff: 01/12/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Container Service(AKS)</h3>
-                                                    <p>Kubernetes를 사용하여 컨테이너화된 대규모 응용 프로그램 실행</p>
+                                                    <p>배포, 관리 및 Kubernetes 작업 간소화</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1540,8 +1541,7 @@ ms.lasthandoff: 01/12/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Application Gateway</h3>
-                                                    <p>
-기본 제공 HTTP 부하 분산 및 배달 제어를 사용하는 Layer 7 Load Balancer </p>
+                                                    <p>Azure에서 확장성 있는 고가용성의 보안 웹 프런트 엔드 빌드</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1598,7 +1598,7 @@ ms.lasthandoff: 01/12/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Content Delivery Network</h3>
-                                                    <p>글로벌 데이터 센터의 강력한 네트워크를 통해 최종 사용자에게 콘텐츠 제공</p>
+                                                    <p>광범위한 글로벌 고객에게 안전하고 신뢰할 수 있는 콘텐츠 배달 보장</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1674,7 +1674,7 @@ ms.lasthandoff: 01/12/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Network Watcher</h3>
-                                                    <p>네트워크 시나리오 수준에서 상태 모니터링 및 진단</p>
+                                                    <p>네트워크 성능 모니터링 및 진단 솔루션</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1717,7 +1717,7 @@ ms.lasthandoff: 01/12/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Blob Storage</h3>
-                                                    <p>구조화되지 않은 데이터를 위한 대규모 확장 가능한 개체 저장소</p>
+                                                    <p>구조화되지 않은 데이터용 REST 기반 개체 저장소</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1736,7 +1736,7 @@ ms.lasthandoff: 01/12/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Disk Storage</h3>
-                                                    <p>VM의 디스크 저장소</p>
+                                                    <p>가상 머신을 지원하고 영속성과 안전성을 갖춘 디스크 옵션</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1755,7 +1755,7 @@ ms.lasthandoff: 01/12/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Queue Storage</h3>
-                                                    <p>대량 볼륨 클라우드 서비스를 위한 지속형 큐</p>
+                                                    <p>트래픽에 따른 효율적인 앱 확장</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1774,7 +1774,7 @@ ms.lasthandoff: 01/12/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>File Storage</h3>
-                                                    <p>간단하고 분산된 플랫폼 간 파일 시스템</p>
+                                                    <p>표준 SMB 3.0 프로토콜을 사용하는 파일 공유</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1812,7 +1812,7 @@ ms.lasthandoff: 01/12/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>StorSimple</h3>
-                                                    <p>엔터프라이즈를 위한 하이브리드 클라우드 저장소로 데이터 보안 향상</p>
+                                                    <p>엔터프라이즈 하이브리드 클라우드 저장소 솔루션으로 비용 절감</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1850,7 +1850,7 @@ ms.lasthandoff: 01/12/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Site Recovery</h3>
-                                                    <p>Azure VM, 온-프레미스 VM 및 물리적 서버의 재해 복구 오케스트레이션</p>
+                                                    <p>사설 클라우드의 보호 및 복구 오케스트레이션</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1950,7 +1950,7 @@ ms.lasthandoff: 01/12/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Content Delivery Network</h3>
-                                                    <p>글로벌 데이터 센터의 강력한 네트워크를 통해 최종 사용자에게 콘텐츠 제공 </p>
+                                                    <p>광범위한 글로벌 고객에게 안전하고 신뢰할 수 있는 콘텐츠 배달 보장</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2026,7 +2026,7 @@ ms.lasthandoff: 01/12/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Notification Hubs</h3>
-                                                    <p>수백만 개의 메시지를 신속하게 보내기 위한 확장 가능한 푸시 알림 엔진</p>
+                                                    <p>임의 백 엔드에서 임의 플랫폼으로 푸시 알림 전송</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2050,7 +2050,7 @@ ms.lasthandoff: 01/12/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Container Service(AKS)</h3>
-                                                    <p>Kubernetes를 사용하여 컨테이너화된 대규모 응용 프로그램 실행</p>
+                                                    <p>배포, 관리 및 Kubernetes 작업 간소화</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2169,7 +2169,7 @@ ms.lasthandoff: 01/12/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>SQL Database</h3>
-                                                    <p>관리되는 관계형 DaaS(Database-as-a-Service)</p>
+                                                    <p>관리되는 관계형 SQL Database-as-a-Service</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2283,7 +2283,7 @@ ms.lasthandoff: 01/12/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Table Storage</h3>
-                                                    <p>모든 규모를 위한 전역 배포 다중 모델 데이터베이스</p>
+                                                    <p>반구조화된 데이터 집합을 사용하는 NoSQL 키-값 저장소</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2302,7 +2302,7 @@ ms.lasthandoff: 01/12/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Redis Cache</h3>
-                                                    <p>높은 처리량과 대기 시간이 짧은 데이터 액세스로 빠르고 확장 가능한 응용 프로그램 빌드</p>
+                                                    <p>높은 처리량과 짧은 대기 시간으로 응용 프로그램에 강력한 성능 부여</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2326,7 +2326,7 @@ ms.lasthandoff: 01/12/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>HDInsight</h3>
-                                                    <p>클라우드 Hadoop, Spark, R Server, Hbase 및 Storm 클러스터 프로비전</p>
+                                                    <p>클라우드 Hadoop, Spark, R Server, HBase 및 Storm 클러스터 프로비전</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2402,7 +2402,7 @@ ms.lasthandoff: 01/12/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Analysis Services</h3>
-                                                    <p>클라우드에서 엔터프라이즈급 데이터 모델링</p>
+                                                    <p>엔터프라이즈 수준 분석 엔진을 서비스로 제공</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2479,7 +2479,7 @@ ms.lasthandoff: 01/12/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Machine Learning Studio</h3>
-                                                    <p>예측 유지 관리를 실현하는 강력한 클라우드 기반 예측 분석 도구</p>
+                                                    <p>예측 분석 솔루션을 간단히 빌드, 배포 및 관리</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2498,7 +2498,7 @@ ms.lasthandoff: 01/12/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Data Catalog</h3>
-                                                    <p>기업 전체에서 셀프 서비스 데이터 원본 검색 사용</p>
+                                                    <p>엔터프라이즈 데이터 자산에서 더 많은 가치 창출</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2563,7 +2563,7 @@ ms.lasthandoff: 01/12/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Machine Learning 서비스</h3>
-                                                    <p>예측 유지 관리를 실현하는 강력한 클라우드 기반 예측 분석 도구</p>
+                                                    <p>실험 및 모델 관리를 갖춘 종단 간 확장 가능하고 신뢰할 수 있는 플랫폼 사용자에게 AI 적용</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2734,7 +2734,7 @@ ms.lasthandoff: 01/12/2018
                                             <div class="cardPadding">
                                                 <div class="card">
                                                     <div class="cardText">
-                                                        <h3>Search</h3>
+                                                        <h3>검색</h3>
                                                         <ul class="noBullet">
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/bing-news-search/search-the-web"><img src="media/index/API_Bing_News_Search.svg" alt="" />Bing News</a>
@@ -2839,7 +2839,7 @@ ms.lasthandoff: 01/12/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>IoT Edge</h3>
-                                                    <p>클라우드 인텔리전스를 에지 장치로 확장</p>
+                                                    <p>클라우드로부터 에지 장치까지 인텔리전스 확장</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2877,13 +2877,13 @@ ms.lasthandoff: 01/12/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Location Based Services</h3>
-                                                    <p>지도, 방향, 검색 및 기타 강력한 지리 공간적 서비스</p>
+                                                    <p>간단하고 안전한 위치 API는 데이터에 지리 공간적 컨텍스트를 제공</p>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </a>
-                            </li>                            
+                            </li>
                             <li>
                                 <a href="/azure/event-hubs/">
                                     <div class="cardSize">
@@ -2935,7 +2935,7 @@ ms.lasthandoff: 01/12/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Machine Learning 서비스</h3>
-                                                    <p>예측 유지 관리를 실현하는 강력한 클라우드 기반 예측 분석 도구</p>
+                                                    <p>실험 및 모델 관리를 갖춘 종단 간 확장 가능하고 신뢰할 수 있는 플랫폼 사용자에게 AI 적용</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2954,7 +2954,7 @@ ms.lasthandoff: 01/12/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Notification Hubs</h3>
-                                                    <p>수백만 개의 메시지를 신속하게 보내기 위한 확장 가능한 푸시 알림 엔진</p>
+                                                    <p>임의 백 엔드에서 임의 플랫폼으로 푸시 알림 전송</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3036,7 +3036,7 @@ ms.lasthandoff: 01/12/2018
                                         </div>
                                     </div>
                                 </a>
-                            </li>                            
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -3111,7 +3111,7 @@ ms.lasthandoff: 01/12/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>StorSimple</h3>
-                                                    <p>엔터프라이즈를 위한 하이브리드 클라우드 저장소로 데이터 보안 향상</p>
+                                                    <p>엔터프라이즈 하이브리드 클라우드 저장소 솔루션으로 비용 절감</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3149,7 +3149,7 @@ ms.lasthandoff: 01/12/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Data Catalog</h3>
-                                                    <p>기업 전체에서 셀프 서비스 데이터 원본 검색 사용</p>
+                                                    <p>엔터프라이즈 데이터 자산에서 더 많은 가치 창출</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3230,7 +3230,7 @@ ms.lasthandoff: 01/12/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Security Center</h3>
-                                                    <p>향상된 가시성을 통해 위협을 예방, 감지 및 대응</p>
+                                                    <p>하이브리드 클라우드 워크로드 전체에서 보안 관리 통합 및 고급 위협 방지 사용</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3268,7 +3268,7 @@ ms.lasthandoff: 01/12/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Key Vault</h3>
-                                                    <p>암호화 키 및 비밀을 관리하는 방법 알아보기</p>
+                                                    <p>키 및 기타 암호의 보호 및 유지 관리 제어</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3344,7 +3344,7 @@ ms.lasthandoff: 01/12/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Multi-Factor Authentication</h3>
-                                                    <p>인증 수준을 높여 데이터 및 앱에 대한 액세스를 보호</p>
+                                                    <p>사용자의 번거로운 작업 없이 데이터 및 앱의 보안 강화</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3506,7 +3506,7 @@ ms.lasthandoff: 01/12/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Policy</h3>
-                                                    <p>정책 정의 만들기, 할당 및 관리 </p>
+                                                    <p>Azure 리소스에 대해 대규모로 기업 거버넌스 및 표준을 구현합니다.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3525,7 +3525,7 @@ ms.lasthandoff: 01/12/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Cost Management</h3>
-                                                    <p>클라우드 사용량 및 비용 추적</p>
+                                                    <p>클라우드 사용량은 최적화하고 클라우드 잠재력은 최대화</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3582,7 +3582,7 @@ ms.lasthandoff: 01/12/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Log Analytics</h3>
-                                                    <p>머신 데이터를 운영 인텔리전스로 변환하는 방법 알아보기</p>
+                                                    <p>온-프레미스 및 클라우드에서 컴퓨터 데이터 수집, 검색, 시각화</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3696,7 +3696,7 @@ ms.lasthandoff: 01/12/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Advisor</h3>
-                                                    <p>비용 효율성, 성능, 고가용성 및 Azure 리소스의 보안 향상</p>
+                                                    <p>맞춤형의 Azure 모범 사례 추천 엔진</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3715,7 +3715,7 @@ ms.lasthandoff: 01/12/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Service Health</h3>
-                                                    <p>Azure 서비스 문제로 영향 받는 경우 개인 설정된 지침 및 지원 제공</p>
+                                                    <p>Azure 서비스의 문제가 영향을 주는 경우에 대해 개인 설정된 지침 및 지원을 받습니다.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3734,7 +3734,7 @@ ms.lasthandoff: 01/12/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Managed Applications</h3>
-                                                    <p>고객을 위해 배포된 솔루션 관리</p>
+                                                    <p>클라우드 제품 관리 간소화</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3918,13 +3918,13 @@ ms.lasthandoff: 01/12/2018
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="/nodejs/azure/node-sdk-azure-install">Node.js용 Azure 라이브러리 가져오기</a>
+                                                    <a href="/javascript/azure/node-sdk-azure-get-started">Node.js용 Azure 라이브러리 가져오기</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="/nodejs/azure/">시작</a>
+                                                    <a href="/javascript/azure/">시작</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/nodejs/api/overview/azure">API 참조</a>
+                                                    <a href="/javascript/api/overview/azure/">API 참조</a>
                                                 </p>
                                             </div>
                                         </div>

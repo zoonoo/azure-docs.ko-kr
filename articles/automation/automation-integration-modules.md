@@ -11,28 +11,28 @@ ms.service: automation
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 01/13/2017
 ms.author: magoedte
-ms.openlocfilehash: 589043f45a87595c9356cd8143beca23a4f83517
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 4eddce9d355a4b709e266129935766376d352045
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="azure-automation-integration-modules"></a>Azure Automation 통합 모듈
 PowerShell은 Azure Automation의 기본 기술입니다. Azure Automation은 PowerShell을 기반으로 하기 때문에 PowerShell 모듈은 Azure Automation의 확장성에 대한 키입니다. 이 문서에서는 "통합 모듈"이라고 하는 PowerShell 모듈에서 Azure Automation을 만드는 세부 정보 및 Azure Automation 내에서 통합 모듈로 작동하도록 고유한 PowerShell 모듈을 만드는 모범 사례를 안내합니다. 
 
 ## <a name="what-is-a-powershell-module"></a>PowerShell 모듈이란?
-PowerShell 모듈은 WindowsFeature 또는 파일과 같은 PowerShell 콘솔, 스크립트, 워크플로, Runbook 및 PowerShell DSC 리소스에서 사용할 수 있고 PowerShell DSC 구성에서 사용할 수 있는 **Get-Date** 또는 **Copy-Item**와 같은 PowerShell cmdlet의 그룹입니다. 모든 PowerShell의 기능은 cmdlet 및 DSC 리소스를 통해 노출되고 모든 cmdlet/DSC 리소스는 PowerShell 모듈에서 지원됩니다. 이 대부분은 PowerShell 자체와 함께 지원됩니다. 예를 들어 **Get-Date** cmdlet은 Microsoft.PowerShell.Utility PowerShell 모듈의 일부이며 **Copy-Item** cmdlet은 Microsoft.PowerShell.Management PowerShell 모듈의 일부이고 패키지 DSC 리소스는 PSDesiredStateConfiguration PowerShell 모듈의 일부입니다. 이러한 모듈은 모두 PowerShell과 함께 제공됩니다. 하지만 많은 PowerShell 모듈은 PowerShell의 일부로 제공되지 않으며 대신 System Center 2012 Configuration Manager에서 자사 또는 타사 제품으로 배포되거나 PowerShell 갤러리와 같은 곳의 방대한 PowerShell 커뮤니티에서 배포됩니다.  모듈은 캡슐화된 기능을 통해 복잡한 작업을 간단하게 만들 수 있기 때문에 유용합니다.  [MSDN의 PowerShell 모듈](https://msdn.microsoft.com/library/dd878324%28v=vs.85%29.aspx)에 대해 자세히 알아볼 수 있습니다. 
+PowerShell 모듈은 WindowsFeature 또는 파일과 같은 PowerShell 콘솔, 스크립트, 워크플로, Runbook 및 PowerShell DSC 리소스에서 사용할 수 있고 PowerShell DSC 구성에서 사용할 수 있는 **Get-Date** 또는 **Copy-Item**와 같은 PowerShell cmdlet의 그룹입니다. 모든 PowerShell의 기능은 cmdlet 및 DSC 리소스를 통해 노출되고 모든 cmdlet/DSC 리소스는 PowerShell 모듈에서 지원됩니다. 이 대부분은 PowerShell 자체와 함께 지원됩니다. 예를 들어 **Get-Date** cmdlet은 Microsoft.PowerShell.Utility PowerShell 모듈의 일부이며 **Copy-Item** cmdlet은 Microsoft.PowerShell.Management PowerShell 모듈의 일부이고 패키지 DSC 리소스는 PSDesiredStateConfiguration PowerShell 모듈의 일부입니다. 이러한 모듈은 모두 PowerShell과 함께 제공됩니다. 하지만 많은 PowerShell 모듈은 PowerShell의 일부로 제공되지 않으며 대신 System Center 2012 Configuration Manager에서 자사 또는 타사 제품으로 배포되거나 PowerShell 갤러리와 같은 곳의 방대한 PowerShell 커뮤니티에서 배포됩니다. 모듈은 캡슐화된 기능을 통해 복잡한 작업을 간단하게 만들 수 있기 때문에 유용합니다.  [MSDN의 PowerShell 모듈](https://msdn.microsoft.com/library/dd878324%28v=vs.85%29.aspx)에 대해 자세히 알아볼 수 있습니다. 
 
 ## <a name="what-is-an-azure-automation-integration-module"></a>Azure Automation 통합 모듈이란?
-통합 모듈은 PowerShell 모듈과 다르지 않습니다. 단순히 필요에 따라 추가 파일(Runbook에서 모듈의 cmdlet과 함께 사용되는 Azure Automation 연결 형식을 지정하는 메타데이터 파일)을 포함하는 PowerShell 모듈입니다. 선택 사항 파일인지 여부와 상관 없이 이러한 PowerShell 모듈은 Azure Automation으로 가져와서 DSC 구성 내에서 사용할 수 있는 runbook 및 DSC 리소스 내에서 해당 cmdlet을 사용할 수 있도록 합니다. 배후에서 Azure Automation는 이러한 모듈을 저장하고 runbook 작업 및 DSC 컴파일 작업 실행 시 runbook을 실행하고 DSC 구성을 컴파일하는 Azure Automation 샌드박스에 로드합니다.  또는 모듈의 DSC 리소스는 DSC 구성을 적용하려는 컴퓨터에서 가져올 수 있도록 자동으로 Automation DSC 끌어오기 서버에 배치됩니다.  
+통합 모듈은 PowerShell 모듈과 다르지 않습니다. 단순히 필요에 따라 추가 파일(Runbook에서 모듈의 cmdlet과 함께 사용되는 Azure Automation 연결 형식을 지정하는 메타데이터 파일)을 포함하는 PowerShell 모듈입니다. 선택 사항 파일인지 여부와 상관 없이 이러한 PowerShell 모듈은 Azure Automation으로 가져와서 DSC 구성 내에서 사용할 수 있는 runbook 및 DSC 리소스 내에서 해당 cmdlet을 사용할 수 있도록 합니다. 배후에서 Azure Automation는 이러한 모듈을 저장하고 runbook 작업 및 DSC 컴파일 작업 실행 시 runbook을 실행하고 DSC 구성을 컴파일하는 Azure Automation 샌드박스에 로드합니다. 또는 모듈의 DSC 리소스는 DSC 구성을 적용하려는 컴퓨터에서 가져올 수 있도록 자동으로 Automation DSC 끌어오기 서버에 배치됩니다.  
 
 Azure 관리를 즉시 자동화하기 시작할 수 있도록 Azure Automation에서 다양한 Azure PowerShell 모듈을 기본적으로 제공하지만 통합하려는 시스템, 서비스 또는 도구가 무엇이든 PowerShell 모듈을 가져올 수 있습니다. 
 
 > [!NOTE]
-> 특정 모듈은 Automation 서비스에서 "전역 모듈"로 제공됩니다. 이러한 전역 모듈은 자동화 계정을 만들 경우에 제공되고 때로 업데이트되어 자동화 계정에 자동으로 푸시됩니다. 자동 업데이트하지 않으려면 언제든지 같은 모듈을 직접 가져올 수 있습니다. 그렇게 하면 서비스에 제공된 해당 모듈의 전역 모듈 버전보다 우선적으로 적용됩니다. 
+> 특정 모듈은 Automation 서비스에서 "전역 모듈"로 제공됩니다. 이러한 전역 모듈은 Automation 계정을 만들 경우에 제공되고 때로 업데이트되어 Automation 계정에 자동으로 푸시됩니다. 자동 업데이트하지 않으려면 언제든지 같은 모듈을 직접 가져올 수 있습니다. 그렇게 하면 서비스에 제공된 해당 모듈의 전역 모듈 버전보다 우선적으로 적용됩니다. 
 
 통합 모듈 패키지를 가져온 형식은 모듈 및.zip 확장명과 동일한 이름을 가진 압축된 파일입니다. Windows PowerShell 모듈 및 모듈에 있는 매니페스트 파일(.psd1)를 포함한 모든 지원 파일을 포함합니다.
 
@@ -64,7 +64,7 @@ Azure 관리를 즉시 자동화하기 시작할 수 있도록 Azure Automation�
 }
 ```
 
-서비스 관리 Automation을 배포하고 Automation runbook에 통합 모듈 패키지를 만든 경우 분명히 매우 익숙하게 느껴질 것입니다. 
+서비스 관리 Automation을 배포하고 Automation Runbook에 통합 모듈 패키지를 만든 경우 분명히 익숙하게 느껴질 것입니다. 
 
 ## <a name="authoring-best-practices"></a>작성 모범 사례
 통합 모듈이 기본적으로 PowerShell 모듈임에도 불구하고 Azure Automation에서도 유용하게 만들려면 PowerShell 모듈을 작성하는 동안 고려해야 할 점이 많습니다. 그 중 일부는 Azure Automation에 특정되고 일부는 Automation을 사용하는지 여부에 관계 없이 PowerShell 워크플로에서 모듈이 잘 작동할 수 있도록 합니다. 
@@ -109,7 +109,7 @@ Azure 관리를 즉시 자동화하기 시작할 수 있도록 Azure Automation�
 2. 원격 시스템에 대해 모듈을 실행하는 경우
 
     a. 해당 원격 시스템 즉, 파일 연결 형식에 연결하는 데 필요한 정보를 정의하는 통합 모듈 메타데이터 파일을 포함해야 합니다.  
-    b. 모듈의 각 cmdlet은 매개 변수로 연결 개체(해당 연결 형식의 인스턴스)를 포함해야 합니다.  
+    나. 모듈의 각 cmdlet은 매개 변수로 연결 개체(해당 연결 형식의 인스턴스)를 포함해야 합니다.  
 
     연결 형식의 필드가 포함된 개체를 cmdlet에 대한 매개 변수로 전달하도록 허용하는 경우 모듈의 cmdlet은 Azure Automation에서 쉽게 사용할 수 있게 됩니다. 이 방식으로 사용자는 cmdlet를 호출할 때마다 cmdlet의 해당 매개 변수에 연결 자산의 매개 변수를 매핑할 필요가 없습니다. 위의 runbook 예제에 따라 CorpTwilio라는 Twilio 연결 자산을 사용하여 Twilio에 액세스하고 계정에서 모든 전화 번호를 반환합니다.  cmdlet의 매개 변수에 연결의 필드를 매핑하는 방법을 알고 있나요?<br>
    

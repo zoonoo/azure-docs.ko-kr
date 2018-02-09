@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: bbf357b902474a1812eb7a5a2c914d0c8b91934b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9a8e0154faccca356c7fb8ce93e43ce67cc0aae2
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="security-frame-exception-management--mitigations"></a>보안 프레임: 예외 관리 | 해결 방법 
 | 제품/서비스 | 문서 |
@@ -38,7 +38,7 @@ ms.lasthandoff: 10/11/2017
 | **참조**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify, 영국](https://vulncat.fortify.com/en/vulncat/index.html) |
 | **단계** | WCF(Windows Communication Framework) 서비스는 디버깅 정보를 노출하도록 구성할 수 있습니다. 디버그 정보를 프로덕션 환경에서는 사용하지 않아야 합니다. `<serviceDebug>` 태그는 WCF 서비스에 대해 디버그 정보 기능이 사용되는지 여부를 정의합니다. 특성 includeExceptionDetailInFaults를 true로 설정하면 응용 프로그램에서 예외 정보가 클라이언트로 반환됩니다. 공격자는 디버깅 출력에서 얻은 추가 정보를 활용하여 프레임워크, 데이터베이스 또는 응용 프로그램이 사용하는 기타 리소스를 대상으로 공격을 수행할 수 있습니다. |
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 다음 구성 파일에는 `<serviceDebug>` 태그가 포함됩니다. 
 ```
 <configuration> 
@@ -73,9 +73,9 @@ ms.lasthandoff: 10/11/2017
 | **참조**              | [ASP.NET Web API에서 예외 처리](http://www.asp.net/web-api/overview/error-handling/exception-handling), [ASP.NET Web API의 모델 유효성 검사](http://www.asp.net/web-api/overview/formats-and-model-binding/model-validation-in-aspnet-web-api) |
 | **단계** | 기본적으로 ASP.NET Web API에서 확인할 수 없는 대부분의 예외는 `500, Internal Server Error` 상태 코드의 HTTP 응답으로 변환됩니다.|
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 API에서 반환되는 상태 코드를 제어하려면 아래와 같이 `HttpResponseException`을 사용할 수 있습니다. 
-```C#
+```csharp
 public Product GetProduct(int id)
 {
     Product item = repository.Get(id);
@@ -87,9 +87,9 @@ public Product GetProduct(int id)
 }
 ```
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 예외 응답을 추가적으로 제어하려면 아래와 같이 `HttpResponseMessage` 클래스를 사용할 수 있습니다. 
-```C#
+```csharp
 public Product GetProduct(int id)
 {
     Product item = repository.Get(id);
@@ -107,9 +107,9 @@ public Product GetProduct(int id)
 ```
 `HttpResponseException` 형식이 아닌 처리되지 않은 예외를 catch하려면 예외 필터를 사용할 수 있습니다. 예외 필터는 `System.Web.Http.Filters.IExceptionFilter` 인터페이스를 구현합니다. 예외 필터를 작성하는 가장 간단한 방법은 `System.Web.Http.Filters.ExceptionFilterAttribute` 클래스에서 파생하고 OnException 메서드를 재정의하는 것입니다. 
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 다음은 `NotImplementedException`을 HTTP 상태 코드 `501, Not Implemented`로 변환하는 필터입니다. 
-```C#
+```csharp
 namespace ProductStore.Filters
 {
     using System;
@@ -135,9 +135,9 @@ namespace ProductStore.Filters
 - 컨트롤러 기준
 - 전역적으로
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 특정 작업에 필터를 적용하려면 필터를 작업에 특성으로 추가합니다. 
-```C#
+```csharp
 public class ProductsController : ApiController
 {
     [NotImplExceptionFilter]
@@ -147,10 +147,10 @@ public class ProductsController : ApiController
     }
 }
 ```
-### <a name="example"></a>예제
+### <a name="example"></a>예
 `controller`의 모든 작업에 필터를 적용하려면 필터를 `controller` 클래스에 특성으로 추가합니다. 
 
-```C#
+```csharp
 [NotImplExceptionFilter]
 public class ProductsController : ApiController
 {
@@ -158,16 +158,16 @@ public class ProductsController : ApiController
 }
 ```
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 모든 Web API 컨트롤러에는 전역적으로 필터를 적용하려면 필터의 인스턴스를 `GlobalConfiguration.Configuration.Filters` 컬렉션에 추가합니다. 이 컬렉션의 예외 필터는 모든 Web API 컨트롤러 작업에 적용됩니다. 
-```C#
+```csharp
 GlobalConfiguration.Configuration.Filters.Add(
     new ProductStore.NotImplExceptionFilterAttribute());
 ```
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 모델 유효성 검사를 위해 모델 상태를 아래와 같이 CreateErrorResponse 메서드에 전달할 수 있습니다. 
-```C#
+```csharp
 public HttpResponseMessage PostProduct(Product item)
 {
     if (!ModelState.IsValid)
@@ -224,8 +224,8 @@ ASP.Net Web API에서 예외 처리 및 모델 유효성 검사에 대한 자세
 | **참조**              | [안전하게 실패](https://www.owasp.org/index.php/Fail_securely) |
 | **단계** | 응용 프로그램은 안전하게 실패해야 합니다. 수행되는 특정 결정에 따라 부울 값을 반환하는 모든 메서드는 신중하게 예외 블록을 만들어야 합니다. 부주의하게 예외 블록이 작성되면 보안 문제로 인한 논리적 오류가 많이 발생합니다.|
 
-### <a name="example"></a>예제
-```C#
+### <a name="example"></a>예
+```csharp
         public static bool ValidateDomain(string pathToValidate, Uri currentUrl)
         {
             try

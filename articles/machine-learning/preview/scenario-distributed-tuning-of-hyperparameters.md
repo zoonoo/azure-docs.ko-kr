@@ -4,15 +4,17 @@ description: "이 시나리오에서는 Azure Machine Learning Workbench를 사�
 services: machine-learning
 author: pechyony
 ms.service: machine-learning
+ms.workload: data-services
 ms.topic: article
 ms.author: dmpechyo
+manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.date: 09/20/2017
-ms.openlocfilehash: 4f739ff26c3df8add01bed6d797f292ff6e26db9
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: f0c466c433701c295bde00258d9ff7fd267b71f7
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="distributed-tuning-of-hyperparameters-using-azure-machine-learning-workbench"></a>Azure Machine Learning Workbench를 사용하여 하이퍼 매개 변수의 분산 튜닝
 
@@ -26,7 +28,7 @@ ms.lasthandoff: 12/08/2017
 ## <a name="use-case-overview"></a>사용 사례 개요
 
 많은 Machine Learning 알고리즘에는 하이퍼 매개 변수라는 하나 이상의 노브가 있어야 합니다. 이러한 노브를 사용하면 사용자 지정 메트릭(예: 정확성, AUC, RMSE)에 따라 측정된 이후 데이터에 대한 성능을 최적화하도록 알고리즘을 튜닝할 수 있습니다. 데이터 과학자는 학습 데이터에 대한 모델을 작성할 때 및 이후 테스트 데이터를 표시하기 전에 하이퍼 매개 변수의 값을 제공해야 합니다. 모델이 알 수 없는 알려진 테스트 데이터에 대한 성능을 향상하도록 학습 데이터에 따라 하이퍼 매개 변수의 값을 설정할 수 있으려면 어떻게 할까요? 
-
+    
 하이퍼 매개 변수를 튜닝하는 일반적인 기술은 *교차 유효성 검사*와 결합된 *그리드 검색*입니다. 교차 유효성 검사는 학습 집합에서 학습된 모델이 테스트 집합을 예측하는 정도를 평가하는 기술입니다. 먼저 이 기술을 사용하여 데이터 집합을 K단계로 나누고 라운드 로빈 방식으로 K번 알고리즘을 학습합니다. “보류된 단계”를 제외한 모든 단계에서 이를 수행합니다. 보류된 K단계에서 K 모델 메트릭의 평균 값을 계산합니다. *교차 유효성 검사된 성능 예측*이라는 평균 값은 K 모델을 만들 때 사용되는 하이퍼 매개 변수의 값에 따라 달라집니다. 하이퍼 매개 변수를 튜닝하는 경우 후보 하이퍼 매개 변수 값의 공간을 검색하여 교차 유효성 검사 성능 추정을 최적화하는 값을 찾습니다. 그리드 검색은 일반적인 검색 기술입니다. 그리드 검색에서 여러 하이퍼 매개 변수의 후보 값 공간은 개별 하이퍼 매개 변수의 후보 값 집합의 교차곱입니다. 
 
 교차 유효성 검사를 사용하는 그리드 검색은 시간이 오래 걸릴 수 있습니다. 알고리즘에 5개의 후보 값을 가진 5개의 하이퍼 매개 변수가 있으면 K=5단계를 사용합니다. 그 다음, 5<sup>6</sup>=15625개 모델을 학습하여 그리드 검색을 완료합니다. 다행히 교차 유효성 검사를 사용하는 그리드 검색은 병렬 프로시저이며 이러한 모든 모델은 병렬로 학습할 수 있습니다.
@@ -36,14 +38,16 @@ ms.lasthandoff: 12/08/2017
 * [Azure 계정](https://azure.microsoft.com/free/)(평가판 사용 가능)
 * Workbench를 설치하고 계정을 만들기 위해 [빠른 시작 설치 및 만들기](./quickstart-installation.md)에 따라 설치된 [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md)의 복사본
 * 이 시나리오에서는 Docker 엔진이 로컬로 설치된 Windows 10 또는 MacOS에서 Azure ML Workbench를 실행 중이라고 가정합니다. 
-* 원격 Docker 컨테이너를 사용하는 시나리오를 실행하려면 [지침](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-provision-vm)에 따라 Ubuntu DSVM(데이터 과학 가상 컴퓨터)을 프로비전합니다. 적어도 8개의 코어와 28GB의 메모리가 있는 가상 컴퓨터를 사용하는 것이 좋습니다. 가상 컴퓨터의 D4 인스턴스에는 이러한 용량이 포함됩니다. 
-* Spark 클러스터에서 이 시나리오를 실행하려면 이러한 [지침](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters)에 따라 Azure HDInsight 클러스터를 프로비전합니다. 클러스터에는 최소한 다음 조건 이상을 포함하는 것이 좋습니다. 
-- 6개의 작업자 노드
-- 8개의 코어
-- 헤더 및 작업자 노드에서 28GB의 메모리. 가상 컴퓨터의 D4 인스턴스에는 이러한 용량이 포함됩니다. 클러스터의 성능을 최대화하기 위해 다음 매개 변수를 변경하는 것이 좋습니다.
-- spark.executor.instances
-- spark.executor.cores
-- spark.executor.memory 
+* 원격 Docker 컨테이너를 사용하는 시나리오를 실행하려면 [지침](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-provision-vm)에 따라 Ubuntu DSVM(데이터 과학 Virtual Machine)을 프로비전합니다. 적어도 8개의 코어와 28GB의 메모리가 있는 가상 머신을 사용하는 것이 좋습니다. 가상 머신의 D4 인스턴스에는 이러한 용량이 포함됩니다. 
+* Spark 클러스터에서 이 시나리오를 실행하려면 이러한 [지침](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters)에 따라 Azure HDInsight 클러스터를 프로비전합니다.   
+클러스터에는 최소한 다음 조건 이상을 포함하는 것이 좋습니다.
+    - 6개의 작업자 노드
+    - 8개의 코어
+    - 헤더 및 작업자 노드에서 28GB의 메모리. 가상 머신의 D4 인스턴스에는 이러한 용량이 포함됩니다.       
+    - 클러스터의 성능을 최대화하기 위해 다음 매개 변수를 변경하는 것이 좋습니다.
+        - spark.executor.instances
+        - spark.executor.cores
+        - spark.executor.memory 
 
 이러한 [지침](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-resource-manager)에 따라 "사용자 지정 Spark 기본값" 섹션의 정의를 편집할 수 있습니다.
 

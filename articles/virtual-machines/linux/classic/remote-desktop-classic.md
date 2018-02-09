@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: mingzhan
-ms.openlocfilehash: 65098dbad2cfb2de1f2e5156fbcc3d6477311867
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 72c814aece7626b19cefccb18e1b90f8c44d7f57
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="using-remote-desktop-to-connect-to-a-microsoft-azure-linux-vm"></a>원격 데스크톱을 사용하여 Microsoft Azure Linux VM에 연결
 > [!IMPORTANT] 
@@ -34,7 +34,7 @@ RDP(원격 데스크톱 프로토콜)는 Windows에 사용되는 독점 프로�
 xrdp 도구는 Windows 컴퓨터에서 원격 데스크톱으로 Linux 서버에 연결할 수 있도록 해주는 오픈 소스 RDP 서버입니다. RDP는 VNC(Virtual Network Computing)보다 더 강력한 성능을 구현합니다. RDP는 빠르고 선명한 반면 VNC는 JPEG 수준의 그래픽을 사용하여 렌더링하며 속도가 느려질 수 있습니다.
 
 > [!NOTE]
-> Linux를 실행하는 Microsoft Azure VM이 있어야 합니다. Linux VM을 만들고 설정하려면 [Azure Linux VM 자습서](createportal.md)를 참조하세요.
+> Linux를 실행하는 Microsoft Azure VM이 있어야 합니다. Linux VM을 만들고 설정하려면 [Azure Linux VM 자습서](createportal-classic.md)를 참조하세요.
 > 
 > 
 

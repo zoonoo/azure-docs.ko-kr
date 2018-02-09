@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2017
 ms.author: xshi
-ms.openlocfilehash: 5b7a5057bdfb5920fbb5759bed1f5561cfa1d7e0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 02d3241ae4ae515a8c2deaa14f50b5b7dbd4766f
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="use-iothub-explorer-for-azure-iot-hub-device-management"></a>iothub-explorer를 사용하여 Azure IoT Hub 장치 관리
 
@@ -29,8 +29,8 @@ ms.lasthandoff: 10/11/2017
 
 [iothub-explorer](https://github.com/azure/iothub-explorer)는 호스트 컴퓨터에서 실행하여 IoT Hub 레지스트리의 장치 ID를 관리하는 CLI 도구입니다. 다양한 작업을 수행하는 데 사용할 수 있는 관리 옵션이 제공됩니다.
 
-| 관리 옵션          | 작업                                                                                                                            |
-|----------------------------|---------------------------------------------------------------------------------------------------------------------------------|
+| 관리 옵션          | Task                                                                                                                            |
+|----------------------------|------------------------------------------------------------------------------------------------------------------------------|
 | 직접 메서드             | 메시지 보내기 시작 또는 중지, 장치 다시 부팅 등의 장치 작업을 수행합니다.                                        |
 | Twin desired 속성    | 장치를 특정 상태(예: LED를 녹색으로 설정 또는 원격 분석 전송 간격을 30 분으로 설정)로 지정합니다.         |
 | Twin reported 속성   | 장치의 보고된 상태를 가져옵니다. 예를 들어 장치에서 지금 LED가 깜박이고 있다고 보고합니다.                                    |
@@ -54,9 +54,9 @@ ms.lasthandoff: 10/11/2017
 ## <a name="what-you-need"></a>필요한 항목
 
 - 다음 요구 사항을 다루는 자습서 [장치 설정](iot-hub-raspberry-pi-kit-node-get-started.md) 완료:
-  - 활성 Azure 구독.
-  - 구독 중인 Azure IoT Hub
-  - 메시지를 Azure IoT Hub로 보내는 클라이언트 응용 프로그램
+- 활성 Azure 구독.
+- 구독 중인 Azure IoT Hub
+- 메시지를 Azure IoT Hub로 보내는 클라이언트 응용 프로그램
 - 이 자습서를 진행하는 동안 장치가 클라이언트 응용 프로그램을 사용해서 실행되고 있어야 합니다.
 - iothub-explorer, 개발 컴퓨터에 [iothub-explorer를 설치](https://github.com/azure/iothub-explorer)합니다.
 
@@ -114,7 +114,6 @@ iothub-explorer get-twin <your device id>
 
 ```bash
 iothub-explorer update-twin <your device id> "{\"tags\":{\"role\":\"temperature&humidity\"}}"
-
 ```
 
 ## <a name="use-iothub-explorer-with-cloud-to-device-messages"></a>클라우드-장치 메시지로 iothub-explorer 사용

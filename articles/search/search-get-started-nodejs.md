@@ -14,11 +14,11 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.date: 04/26/2017
 ms.author: evboyle
-ms.openlocfilehash: 32865ed986f5eea961ef2c3813dcc6531498c90a
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 511f3327972672deaa321fb34bc5f91d355370a2
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="get-started-with-azure-search-in-nodejs"></a>Node.js에서 Azure Search 시작
 > [!div class="op_single_selector"]
@@ -48,7 +48,7 @@ ms.lasthandoff: 12/18/2017
 ## <a name="find-the-service-name-and-api-key-of-your-azure-search-service"></a>Azure Search 서비스의 서비스 이름 및 api-key 찾기
 서비스를 만든 후 포털로 돌아가서 URL 또는 `api-key`를 가져옵니다. Search 서비스에 연결하려면 URL과 호출을 인증할 `api-key` 가 둘 다 있어야 합니다.
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 점프 모음에서 **검색 서비스**를 클릭하여 구독에 프로비전된 모든 Azure Search 서비스를 나열합니다.
 3. 사용하려는 서비스를 선택합니다.
 4. 서비스 대시보드에는 관리 키에 액세스할 수 있는 키 아이콘과 같은 필수 정보에 대한 타일이 표시됩니다.
@@ -57,7 +57,7 @@ ms.lasthandoff: 12/18/2017
 ## <a name="download-the-sample-files"></a>샘플 파일 다운로드
 다음 방법 중 하나를 사용하여 샘플을 다운로드합니다.
 
-1. [AzureSearchNodeJSIndexerDemo](https://github.com/AzureSearch/AzureSearchNodejsIndexerDemo)로 이동합니다.
+1. [search-node-indexer-demo](https://github.com/Azure-Samples/search-node-indexer-demo)로 이동합니다.
 2. **Download ZIP**을 클릭하고 .zip 파일을 저장한 다음 포함된 모든 파일을 추출합니다.
 
 이후의 모든 파일 수정 및 실행 문은 이 폴더의 파일에 대해 수행됩니다.

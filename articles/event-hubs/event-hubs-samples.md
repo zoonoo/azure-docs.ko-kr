@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/15/2017
+ms.date: 12/19/2017
 ms.author: sethm
-ms.openlocfilehash: ae9fbd97a1747d8f14c561f247a0973bb11fd039
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e037d0e291384849739825ae7ad59064a135db95
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="event-hubs-samples"></a>Event Hubs 샘플 
 
@@ -53,17 +53,13 @@ Azure Event Hubs 샘플 집합은 [Azure Event Hubs](/azure/event-hubs/)의 주�
 
 [AppToNotifyUsers](https://github.com/Azure-Samples/event-hubs-dotnet-user-notifications) 샘플은 센서 또는 다른 시스템으로부터 받은 데이터를 사용자에게 알립니다.
 
-### <a name="get-started-with-event-hubs"></a>이벤트 허브 시작 
+### <a name="get-started-with-event-hubs"></a>Event Hubs 시작 
 
 [Event Hubs 시작](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097) 샘플은 이벤트 허브를 만드는 방법, 이벤트 허브로 이벤트를 전송하는 방법, [이벤트 프로세서 호스트](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/)를 사용하여 이벤트를 소비하는 방법 등 Event Hubs의 기본 기능을 보여 줍니다.
 
 ### <a name="scale-out-event-processing"></a>이벤트 처리 확장 
 
 [이벤트 처리 확장](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3) 샘플은 [이벤트 프로세서 호스트](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/)를 사용하여 Event Hubs 스트림 사용 워크로드를 분산하는 방법을 보여 줍니다. 또한 이벤트 스트림을 관리하도록 **EventProcessor** 및 **EventProcessorFactory** 개체를 구현하는 방법도 보여 줍니다. 
-
-###  <a name="pull-data-from-sql-into-an-event-hub"></a>SQL의 데이터를 이벤트 허브로 끌어오기
-
-[SQL 데이터 끌어오기](https://github.com/Azure-Samples/event-hubs-dotnet-import-from-sql) 샘플은 SQL 테이블의 데이터를 끌어와 이벤트 허브에 푸시하여 다운스트림 분석 응용 프로그램에 대한 입력으로 사용하도록 하는 방법을 보여 줍니다.
 
 ### <a name="pull-web-data-into-an-event-hub"></a>웹 데이터를 이벤트 허브로 끌어오기 
 
@@ -78,6 +74,6 @@ Azure Event Hubs 샘플 집합은 [Azure Event Hubs](/azure/event-hubs/)의 주�
 
 Event Hubs에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-- [이벤트 허브 개요](event-hubs-what-is-event-hubs.md)
+- [Event Hubs 개요](event-hubs-what-is-event-hubs.md)
 - [이벤트 허브 만들기](event-hubs-create.md)
 - [Event Hubs FAQ](event-hubs-faq.md)

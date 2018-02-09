@@ -1,6 +1,6 @@
 ---
-title: "Cortana Intelligence 갤러리 컬렉션 | Microsoft Docs"
-description: "Cortana Intelligence 갤러리의 컬렉션을 검색 및 공유합니다."
+title: "Azure AI 갤러리 컬렉션 | Microsoft Docs"
+description: "Azure AI 갤러리에서 컬렉션을 검색하고 공유합니다."
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.author: roopalik;garye
-ms.openlocfilehash: 9ca9b45bf977a562982535feb4093fcee0f10a05
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: garye
+ms.openlocfilehash: b7850b55baa690df22d8ebe14e9fa17fd91e0bad
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/03/2018
 ---
-# <a name="discover-and-share-collections-in-cortana-intelligence-gallery"></a>Cortana Intelligence 갤러리의 컬렉션 검색 및 공유
+# <a name="discover-and-share-collections-in-azure-ai-gallery"></a>Azure AI 갤러리에서 컬렉션 검색 및 공유
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="collections"></a>컬렉션
@@ -71,7 +71,7 @@ ms.lasthandoff: 10/11/2017
     ![“공개” 또는 “비공개” 선택](./media/gallery-collections/create-collection-page-3.png)
 7. **만들기**를 선택합니다.
 
-컬렉션이 Cortana Intelligence 갤러리에 포함되었습니다. 컬렉션이 **컬렉션** 탭의 계정 페이지에 나타납니다.
+이제 컬렉션이 Azure AI 갤러리에 있습니다. 컬렉션이 **컬렉션** 탭의 계정 페이지에 나타납니다.
 
 ### <a name="add-items-to-a-collection"></a>컬렉션에 항목 추가
 컬렉션에 항목을 추가하려면 컬렉션을 열고 **편집**을 선택한 다음 **항목 추가**를 선택합니다.

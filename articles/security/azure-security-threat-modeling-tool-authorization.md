@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 9fc92916b4164990059010645daa29e72b7143cb
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: b9ad3ceeb77a4adc2c47b262aa40a48c14423198
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="security-frame-authorization--mitigations"></a>보안 프레임: 권한 부여 | 완화 
 | 제품/서비스 | 문서 |
@@ -117,7 +117,7 @@ ms.lasthandoff: 12/11/2017
 | **참조**              | 해당 없음  |
 | **단계** | 사용자가 특정 데이터를 검토하도록 제한되는지 확인할 때마다 액세스 제한이 서버 쪽에서 처리되어야 합니다. userID는 로그인에 대한 세션 변수 안에 저장해야 하며, 데이터베이스에서 사용자 데이터를 검색하는 데 사용해야 합니다. |
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 ```SQL
 SELECT data 
 FROM personaldata 
@@ -314,7 +314,7 @@ WHERE userID=:id < - session var
 | **참조**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify, 영국](https://vulncat.fortify.com/en/vulncat/index.html) |
 | **단계** | <p>공격자가 시스템에서 약한 클래스 참조를 사용하여 권한이 없는 코드를 실행할 수 있습니다. 프로그램은 고유하게 식별되지 않은 사용자 정의 클래스를 참조합니다. .NET에서 이처럼 약하게 식별된 클래스를 로드하면 CLR 형식 로더는 지정된 순서대로 다음 위치에 있는 클래스를 검색합니다.</p><ol><li>형식의 어셈블리를 알고 있는 경우 로더는 구성 파일의 리디렉션 위치, GAC, 구성 정보를 사용 중인 현재 어셈블리 및 응용 프로그램 기본 디렉터리를 검색합니다.</li><li>어셈블리를 알고 있지 않은 경우 로더는 현재 어셈블리, mscorlib 및 TypeResolve 이벤트 처리기에서 반환한 위치를 검색합니다.</li><li>이 CLR 검색 순서는 형식 전달 메커니즘 및 AppDomain.TypeResolve 이벤트와 같은 후크를 사용하여 수정할 수 있습니다.</li></ol><p>공격자가 CLR 검색 순서를 악용하여 동일한 이름의 대체 클래스를 만들어 CLR에서 먼저 로드할 대체 위치에 배치하는 경우 CLR에서 의도한 것은 아니지만 공격자가 제공한 코드를 실행하게 됩니다.</p>|
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 아래 WCF 구성 파일의 `<behaviorExtensions/>` 요소는 특정 WCF 확장에 사용자 지정 동작 클래스를 추가하도록 WCF에 지시합니다.
 ```
 <system.serviceModel>
@@ -327,7 +327,7 @@ WHERE userID=:id < - session var
 ```
 정규화된(강력한) 이름을 사용하면 형식을 고유하게 식별하고 시스템 보안을 더욱 강화할 수 있습니다. machine.config 및 app.config 파일에 형식을 등록할 때 정규화된 어셈블리 이름을 사용합니다.
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 아래 WCF 구성 파일의 `<behaviorExtensions/>` 요소는 특정 WCF 확장에 강력하게 참조되는 사용자 지정 동작 클래스를 추가하도록 WCF에 지시합니다.
 ```
 <system.serviceModel>
@@ -351,7 +351,7 @@ WHERE userID=:id < - session var
 | **참조**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify, 영국](https://vulncat.fortify.com/en/vulncat/index.html) |
 | **단계** | <p>이 서비스는 권한 부여 제어를 사용하지 않습니다. 클라이언트에서 특정 WCF 서비스를 호출하면 WCF는 호출자에게 서버에서 서비스 메서드를 실행할 수 있는 권한이 있는지 확인하는 다양한 권한 부여 체계를 제공합니다. WCF 서비스에 대해 권한 부여 제어를 사용할 수 없으면 인증된 사용자가 권한 에스컬레이션을 수행할 수 있습니다.</p>|
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 다음 구성에서는 서비스를 실행할 때 클라이언트의 권한 수준을 확인하지 않도록 WCF에 지시합니다.
 ```
 <behaviors>
@@ -365,7 +365,7 @@ WHERE userID=:id < - session var
 ```
 서비스 권한 부여 체계를 사용하여 서비스 메서드의 호출자가 이렇게 수행할 수 있는 권한을 부여받았는지 확인합니다. WCF는 두 가지 모드를 제공하며 사용자 지정 권한 부여 체계를 정의할 수 있습니다. UseWindowsGroups 모드에서는 Windows 역할 및 사용자를 사용하며, UseAspNetRoles 모드에서는 SQL Server와 같은 ASP.NET 역할 공급자를 사용하여 인증합니다.
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 다음 구성에서는 추가 서비스를 실행하기 전에 클라이언트가 관리자 그룹에 속하는지 확인하도록 WCF에 지시합니다.
 ```
 <behaviors>
@@ -399,8 +399,8 @@ return result;
 | **참조**              | [ASP.NET Web API의 인증 및 권한 부여](http://www.asp.net/web-api/overview/security/authentication-and-authorization-in-aspnet-web-api)(영문) |
 | **단계** | <p>응용 프로그램 사용자의 역할 정보는 응용 프로그램을 ID 공급자로 사용하거나 응용 프로그램 자체에서 제공하는 경우 Azure AD 또는 ADFS 클레임에서 파생될 수 있습니다. 이러한 경우에는 사용자 지정 권한 부여 구현에서 사용자 역할 정보의 유효성을 검사해야 합니다.</p><p>응용 프로그램 사용자의 역할 정보는 응용 프로그램을 ID 공급자로 사용하거나 응용 프로그램 자체에서 제공하는 경우 Azure AD 또는 ADFS 클레임에서 파생될 수 있습니다. 이러한 경우에는 사용자 지정 권한 부여 구현에서 사용자 역할 정보의 유효성을 검사해야 합니다.</p>
 
-### <a name="example"></a>예제
-```C#
+### <a name="example"></a>예
+```csharp
 [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, Inherited = true, AllowMultiple = true)]
 public class ApiAuthorizeAttribute : System.Web.Http.AuthorizeAttribute
 {
@@ -431,7 +431,7 @@ public bool ValidateRoles(actionContext)
 }
 ```
 보호해야 하는 모든 컨트롤러와 작업 메서드는 위의 특성으로 데코레이팅해야 합니다.
-```C#
+```csharp
 [ApiAuthorize]
 public class CustomController : ApiController
 {

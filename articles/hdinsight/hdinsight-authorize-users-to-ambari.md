@@ -16,16 +16,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2017
 ms.author: maxluk
-ms.openlocfilehash: 02761b0e4a25e9aa2312d66bb8c6ab861fb0c3cc
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: b2040bfad42f2913882792c0055225b2c3d521b5
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="authorize-users-for-ambari-views"></a>사용자에게 Ambari 보기에 대한 권한 부여
 
-[도메인에 가입된 HDInsight 클러스터](./domain-joined/apache-domain-joined-introduction.md)는 Azure Active Directory 기반 인증을 비롯한 엔터프라이즈급 기능을 제공합니다. 새로운 사용자를 동기화 할 수 있습니다.
-<!-- [synchronize new users](hdinsight-sync-aad-users-to-cluster.md) --> added to Azure AD groups that have been provided access to the cluster, allowing those specific users to perform certain actions. Working with users, groups, and permissions in Ambari is supported for both domain-joined HDInsight cluster and standard HDInsight cluster.
+[도메인에 가입된 HDInsight 클러스터](./domain-joined/apache-domain-joined-introduction.md)는 Azure Active Directory 기반 인증을 비롯한 엔터프라이즈급 기능을 제공합니다. 클러스터에 대한 액세스를 제공 받은 Azure AD 그룹에 추가된 새 사용자 <!-- [synchronize new users](hdinsight-sync-aad-users-to-cluster.md) -->를 동기화하여 특정 사용자가 특정 작업을 수행할 수 있게 할 수 있습니다. Ambari의 사용자, 그룹, 권한 작업은 도메인 조인 HDInsight 클러스터와 표준 HDInsight 클러스터 모두에 대해 지원됩니다.
 
 Active Directory 사용자는 자신의 도메인 자격 증명을 사용하여 클러스터 노드에 로그온할 수 있습니다. 또한 자신의 도메인 자격 증명을 사용하여 Hue, Ambari 보기, ODBC, JDBC, PowerShell, REST API 등 다른 승인된 끝점과의 클러스터 상호 작용을 인증할 수 있습니다.
 

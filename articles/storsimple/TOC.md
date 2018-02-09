@@ -2,7 +2,6 @@
 
 ## 개요
 ### [솔루션이란?](storsimple-ova-overview.md)
-### [지역 가용성](storsimple-regions.md)
 
 ## 시작하기
 ### 계획
@@ -13,6 +12,7 @@
 ### 배포
 #### [배포 준비](storsimple-virtual-array-deploy1-portal-prep.md)
 ##### [StorSimple Manager 서비스 배포](storsimple-virtual-array-manage-service.md)
+##### [새 인증](storsimple-virtual-array-aad-registration-key.md)
 #### [Hyper-V에서 프로비전](storsimple-virtual-array-deploy2-provision-hyperv.md)
 #### [VMware에서 프로비전](storsimple-virtual-array-deploy2-provision-vmware.md)
 #### [파일 서버로 설정](storsimple-virtual-array-deploy3-fs-setup.md)
@@ -79,6 +79,7 @@
 
 ### 배포
 #### [StorSimple 장치 관리자 서비스](storsimple-8000-manage-service.md)
+#### [서비스에 대한 새 인증](storsimple-8000-aad-registration-key.md)
 #### [Azure의 물리적 장치](storsimple-8000-deployment-walkthrough-u2.md)
 #### [정부 포털의 물리적 장치](storsimple-8000-deployment-walkthrough-gov-u2.md)
 #### [Azure에서 클라우드 어플라이언스](storsimple-8000-cloud-appliance-u2.md)
@@ -202,7 +203,7 @@
 ### [StorSimple용 Windows PowerShell cmdlet](https://technet.microsoft.com/library/dn688168.aspx)
 
 
-# StorSimple 데이터 관리자(비공개 미리 보기)
+# StorSimple 데이터 관리자
 
 ## 개요
 ### [솔루션이란?](storsimple-data-manager-overview.md)

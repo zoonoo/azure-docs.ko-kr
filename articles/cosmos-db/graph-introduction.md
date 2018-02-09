@@ -2,7 +2,7 @@
 title: "Azure Cosmos DB Graph API 소개 | Microsoft Docs"
 description: "Azure Cosmos DB를 사용하여 Apache TinkerPop의 Gremlin 그래프 쿼리 언어로 대기 시간을 단축하면서 대량의 그래프를 저장하고 쿼리하고 트래버스하는 방법을 알아봅니다."
 services: cosmos-db
-author: dennyglee
+author: luisbosquez
 documentationcenter: 
 ms.assetid: b916644c-4f28-4964-95fe-681faa6d6e08
 ms.service: cosmos-db
@@ -10,13 +10,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/15/2017
-ms.author: denlee
-ms.openlocfilehash: 71d9d03b45d8c4fcf8acb41871dcf3f1304955aa
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.date: 01/05/2017
+ms.author: lbosq
+ms.openlocfilehash: 14921dbeb0b670e4ec29a224caca07da12bfb82b
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="introduction-to-azure-cosmos-db-graph-api"></a>Azure Cosmos DB: Graph API 소개
 
@@ -86,7 +86,7 @@ Azure Cosmos DB는 시중에 판매되는 다른 그래프 데이터베이스에
 
 * 완전히 관리
 
- Azure Cosmos DB는 데이터베이스 및 컴퓨터 리소스를 관리할 필요가 없습니다. 완전히 관리되는 Microsoft Azure 서비스의 경우 가상 컴퓨터를 관리하거나 소프트웨어를 배포 및 구성하거나 크기 조정을 관리하거나 복잡한 데이터 계층 업그레이드를 처리할 필요가 없습니다. 모든 그래프가 자동으로 백업되고 지역적 실패로부터 보호됩니다. 필요 시 쉽게 Azure Cosmos DB 계정을 추가하고 용량을 프로비전할 수 있으므로 데이터베이스 작동 및 관리 대신 응용 프로그램에 집중할 수 있습니다.
+ Azure Cosmos DB는 데이터베이스 및 컴퓨터 리소스를 관리할 필요가 없습니다. 완전히 관리되는 Microsoft Azure 서비스의 경우 가상 머신을 관리하거나 소프트웨어를 배포 및 구성하거나 크기 조정을 관리하거나 복잡한 데이터 계층 업그레이드를 처리할 필요가 없습니다. 모든 그래프가 자동으로 백업되고 지역적 실패로부터 보호됩니다. 필요 시 쉽게 Azure Cosmos DB 계정을 추가하고 용량을 프로비전할 수 있으므로 데이터베이스 작동 및 관리 대신 응용 프로그램에 집중할 수 있습니다.
 
 * 자동 인덱싱
 
@@ -98,12 +98,12 @@ Azure Cosmos DB는 시중에 판매되는 다른 그래프 데이터베이스에
 
 * 튜닝 가능한 일관성 수준
 
- 잘 정의된 5가지 일관성 수준에서 선택하여 일관성과 성능 간의 최적 절충을 실현합니다. 쿼리 및 읽기 작업에 대해 Azure Cosmos DB는 강력, 제한된 부실, 세션, 일관된 접두사, 최종의 5가지 일관성 수준을 제공합니다. 이러한 잘 정의된 세부적인 일관성 수준을 통해 일관성, 가용성 및 대기 시간 간에 적절한 절충을 이룰 수 있습니다. [일관성 수준을 사용하여 DocumentDB에서 가용성 및 성능 최대화](consistency-levels.md)에서 자세히 알아보세요.
+ 잘 정의된 5가지 일관성 수준에서 선택하여 일관성과 성능 간의 최적 절충을 실현합니다. 쿼리 및 읽기 작업에 대해 Azure Cosmos DB는 강력, 제한된 부실, 세션, 일관된 접두사, 최종의 5가지 일관성 수준을 제공합니다. 이러한 잘 정의된 세부적인 일관성 수준을 통해 일관성, 가용성 및 대기 시간 간에 적절한 절충을 이룰 수 있습니다. [Azure Cosmos DB의 튜닝 가능한 데이터 일관성 수준](consistency-levels.md)에서 자세히 알아봅니다.
 
 Azure Cosmos DB는 동일한 컨테이너/데이터베이스 내에서 문서 및 그래프와 같은 여러 모델을 사용할 수도 있습니다. 문서 컬렉션을 사용하여 그래프 데이터를 문서와 나란히 저장할 수 있습니다. JSON에 대한 SQL 쿼리와 Gremlin 쿼리를 둘 다 사용하여 그래프와 동일한 데이터를 쿼리할 수 있습니다.
 
-## <a name="get-started"></a>시작
-Graph API에 대한 지원을 포함하는 Azure CLI(명령줄 인터페이스), Azure PowerShell 또는 Azure Portal을 사용하여 Azure Cosmos DB 계정을 만들 수 있습니다. 계정을 만들면 Azure Portal에서 Gremlin에 대한 WebSocket 프런트 엔드를 제공하는 `https://<youraccount>.graphs.azure.com`과 같은 서비스 끝점을 제공합니다. 이 끝점에 연결하고 Java, Node.js 또는 임의 Gremlin 클라이언트 드라이버에서 응용 프로그램을 빌드하도록 [Gremin 콘솔](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console)과 같은 TinkerPop 호환 도구를 구성할 수 있습니다.
+## <a name="get-started"></a>시작하기
+Graph API에 대한 지원을 포함하는 Azure CLI(명령줄 인터페이스), Azure PowerShell 또는 Azure Portal을 사용하여 Azure Cosmos DB 계정을 만들 수 있습니다. 계정을 만들면 Azure Portal에서 Gremlin에 대한 WebSocket 프런트 엔드를 제공하는 `https://<youraccount>.gremlin.cosmosdb.azure.com`과 같은 서비스 끝점을 제공합니다. 이 끝점에 연결하고 Java, Node.js 또는 임의 Gremlin 클라이언트 드라이버에서 응용 프로그램을 빌드하도록 [Gremin 콘솔](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console)과 같은 TinkerPop 호환 도구를 구성할 수 있습니다.
 
 다음 표에서는 Azure Cosmos DB에 대해 사용할 수 있는 인기 있는 Gremlin 드라이버를 보여 줍니다.
 
@@ -113,7 +113,7 @@ Graph API에 대한 지원을 포함하는 Azure CLI(명령줄 인터페이스),
 | [Node.JS](https://www.npmjs.com/package/gremlin) |[Github의 Gremlin-JavaScript](https://github.com/jbmusso/gremlin-javascript) |
 | [Gremlin 콘솔](https://tinkerpop.apache.org/downloads.html) |[TinkerPop 문서](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console) |
 
-또한 Azure Cosmos DB는 NuGet을 통한 [Azure Cosmos DB SDK](documentdb-sdk-dotnet.md)에 더하여 Gremlin 확장 메서드가 있는 .NET 라이브러리를 제공합니다. 이 라이브러리는 DocumentDB 데이터 파티션에 직접 연결하는 데 사용할 수 있는 "In-process" Gremlin 서버를 제공합니다.
+또한 Azure Cosmos DB는 NuGet을 통한 [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md)에 더하여 Gremlin 확장 메서드가 있는 .NET 라이브러리를 제공합니다. 이 라이브러리는 데이터 파티션에 직접 연결하는 데 사용할 수 있는 "사용 중인" Gremlin 서버를 제공합니다.
 
 | 다운로드 | 문서화 |
 | --- | --- |

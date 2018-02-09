@@ -1,6 +1,6 @@
 ---
-title: "OMS의 솔루션 대상 지정 | Microsoft Docs"
-description: "솔루션 대상 지정은 관리 솔루션을 특정 에이전트 집합으로 제한할 수 있도록 하는 OMS(Operations Management Suite)의 기능입니다.  이 문서에서는 범위 구성을 만들고 솔루션에 적용하는 방법을 설명합니다."
+title: "Azure의 관리 솔루션을 대상으로 지정 | Microsoft Docs"
+description: "관리 솔루션을 대상으로 지정하면 관리 솔루션을 특정 에이전트 집합으로 한정할 수 있습니다.  이 문서에서는 범위 구성을 만들고 솔루션에 적용하는 방법을 설명합니다."
 services: operations-management-suite
 documentationcenter: 
 author: bwren
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: bwren
-ms.openlocfilehash: cb73a2d7ae57a5a11869259dbe913ae83ffb2b01
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e24a7540a67f842b8229223bf6602cd9e0ee5dbd
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="use-solution-targeting-in-operations-management-suite-oms-to-scope-management-solutions-to-specific-agents-preview"></a>OMS(Operations Management Suite)의 솔루션 대상 지정 기능을 사용하여 관리 솔루션의 범위를 특정 에이전트(미리 보기)로 지정할 수 있습니다.
-OMS에 솔루션을 추가하면 기본적으로 Log Analytics 작업 영역에 연결된 모든 Windows 및 Linux 에이전트에 의해 배포됩니다.  특정 에이전트 집합으로 제한하여 비용을 관리하고 솔루션에 대해 수집되는 데이터 양을 제한할 수 있습니다.  이 문서에서는 솔루션에 범위를 적용할 수 있는 OMS 기능인 **솔루션 대상 지정**을 사용하는 방법을 설명합니다.
+# <a name="targeting-management-solutions-in-azure-preview"></a>Azure에서 관리 솔루션 대상 지정(미리 보기)
+관리 솔루션을 구독에 추가하면 기본적으로 Log Analytics 작업 영역에 연결된 모든 Windows 및 Linux 에이전트에 의해 배포됩니다.  특정 에이전트 집합으로 제한하여 비용을 관리하고 솔루션에 대해 수집되는 데이터 양을 제한할 수 있습니다.  이 문서에서는 솔루션에 범위를 적용할 수 있는 기능인 **솔루션 대상 지정**을 사용하는 방법을 설명합니다.
 
 ## <a name="how-to-target-a-solution"></a>솔루션 대상 지정 방법
-솔루션 대상 지정은 다음 섹션에 설명된 것처럼 3단계로 진행됩니다.  OMS 포털 및 Azure Portal은 세 가지 단계에 둘 다 필요합니다.
+솔루션 대상 지정은 다음 섹션에 설명된 것처럼 3단계로 진행됩니다. 
 
 
 ### <a name="1-create-a-computer-group"></a>1. 컴퓨터 그룹 만들기

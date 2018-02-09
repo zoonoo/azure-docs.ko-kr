@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/21/2017
 ms.author: mandia; ladocs
-ms.openlocfilehash: 36d3474c2b8dde0355a265c149fe6ba1920a9f22
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: ec532ce0871d11fea222050bb08ec73afe5f2be3
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="connectors-list"></a>커넥터 목록
 각 커넥터의 Swagger 설명과 모든 커넥터 제한에서 정의된 트리거 및 작업을 찾으려면 [커넥터 세부 정보](/connectors/)를 참조하세요.
@@ -82,7 +82,7 @@ EIP(엔터프라이즈 통합 팩)는 BizTalk Server 커뮤니티에 잘 알려�
 | --- | --- | --- | --- |
 | [![API 아이콘][as2icon]<br/>**AS2</br> 디코딩**][as2decode] | [![API 아이콘][as2icon]<br/>**AS2</br> 인코딩**][as2encode] | [![API 아이콘][x12icon]<br/>**EDIFACT</br> 디코딩**][EDIFACTdecode] | [![API 아이콘][x12icon]<br/>**EDIFACT</br> 인코딩**][EDIFACTencode] |
 [![API 아이콘][flatfileicon]<br/>**플랫 파일</br> 인코딩**][flatfiledoc] | [![API 아이콘][flatfiledecodeicon]<br/>**플랫 파일</br> 디코딩**][flatfiledecodedoc] | [![API 아이콘][integrationaccounticon]<br/>**통합<br/>계정**][integrationaccountdoc] | [![API 아이콘][xmltransformicon]<br/>**변형<br/>XML**][xmltransformdoc] |
-| [![API 아이콘][x12icon]<br/>**X12</br> 디코딩**][x12decode] | [![API 아이콘][x12icon]<br/>**X12</br> 인코딩**][x12encode] | [![API 아이콘][xmlvalidateicon]<br/>**XML <br/>유효성 검사**][xmlvalidatedoc] | |
+| [![API 아이콘][x12icon]<br/>**X12</br> 디코딩**][x12decode] | [![API 아이콘][x12icon]<br/>**X12</br> 인코딩**][x12encode] | [![API 아이콘][xmlvalidateicon]<br/>**XML <br/>유효성 검사**][xmlvalidatedoc] | [![API 아이콘][liquidicon]<br/>**JSON<br/> 변환**][JSONliquidtransformdoc] |
 
 ### <a name="enterprise-connectors"></a>엔터프라이즈 커넥터
 
@@ -126,7 +126,7 @@ Logic Apps에는 다음과 같은 종류의 트리거가 포함되어 있습니�
 | **배열 필터링**(쿼리) | 결과 집합을 관심 있는 항목으로 필터링합니다. 예를 들어 `#Azure`로 모든 트윗을 검색한 후 반환된 트윗을 "필터링"하여 `Tweeted_by_followers > 50`인 결과만 반환합니다. |
 | **Join** | 구분 기호를 사용하여 배열을 조인합니다. 예를 들어 핵심 문구 검색 작업은 핵심 문구 배열을 반환합니다. `,` 또는 비슷한 것을 사용하여 핵심 문구를 "조인"할 수 있습니다. 따라서 `["Some", "Phrase"]` 대신 `"Some, Phrase"`가 있습니다. |
 | **JSON 구문 분석** | 디자이너에서 JSON 개체의 값을 구문 분석하고 액세스합니다. 예를 들어 Azure Function이 JSON 페이로드를 반환하는 경우 해당 페이로드를 구문 분석하여 나중에 다른 단계에서 JSON 속성에 액세스할 수 있습니다. 또한 이 작업은 JSON이 런타임에 지정된 스키마와 일치하는지 확인합니다. | 
-| **선택** | 추가 처리를 위해 배열의 특정 속성을 선택합니다. SQL에서 "레코드 나열" 작업을 수행했더니 15개 열이 반환되는 경우 그 중에서 추가로 처리할 열 몇 개만 선택합니다. 출력은 사용자가 선택하는 속성만 포함하는 배열입니다. |
+| **Select** | 추가 처리를 위해 배열의 특정 속성을 선택합니다. SQL에서 "레코드 나열" 작업을 수행했더니 15개 열이 반환되는 경우 그 중에서 추가로 처리할 열 몇 개만 선택합니다. 출력은 사용자가 선택하는 속성만 포함하는 배열입니다. |
 
 ## <a name="custom-connectors-and-azure-certification"></a>사용자 지정 커넥터 및 Azure 인증 
 
@@ -143,7 +143,7 @@ Azure Logic Apps 및 커넥터 개선에 도움을 주려면 [Logic Apps 사용�
 커넥터 항목이나 중요하다고 생각 한 세부 정보를 빠뜨린 것이 있습니까? 그렇다면 이 기존 항목에 추가하거나 직접 작성해주세요. 설명서는 오픈 소스이며 GitHub에서 호스트됩니다. [GitHub 리포지토리](https://github.com/Microsoft/azure-docs)에서 시작하세요. 
 
 ## <a name="next-steps"></a>다음 단계
-* [첫 번째 논리 앱 만들기](../logic-apps/logic-apps-create-a-logic-app.md)
+* [첫 번째 논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [논리 앱에 대한 사용자 지정 API 만들기](../logic-apps/logic-apps-create-api-app.md)
 * [논리 앱 모니터링](../logic-apps/logic-apps-monitor-your-logic-apps.md)
 
@@ -189,6 +189,7 @@ Azure Logic Apps 및 커넥터 개선에 도움을 주려면 [Logic Apps 사용�
 [EDIFACTdecode]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-decode.md "엔터프라이즈 통합 EDIFACT 디코딩에 대해 알아봅니다."
 [EDIFACTencode]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-encode.md "엔터프라이즈 통합 EDIFACT 인코딩에 대해 알아봅니다."
 [integrationaccountdoc]: ../logic-apps/logic-apps-enterprise-integration-metadata.md "통합 계정에서 스키마, 맵, 파트너 등을 조회"
+[JSONliquidtransformdoc]: ../logic-apps/logic-apps-enterprise-integration-liquid-transform.md "Liquid를 사용한 JSON 변환에 대해 알아보기"
 
 
 [boxDoc]: ./connectors-create-api-box.md "상자에 연결합니다. 파일 업로드, 가져오기, 삭제, 나열 등"
@@ -328,3 +329,4 @@ Azure Logic Apps 및 커넥터 개선에 도움을 주려면 [Logic Apps 사용�
 [xmlvalidateicon]: ./media/apis-list/xmlvalidation.png
 [xmltransformicon]: ./media/apis-list/xsltransform.png
 [integrationaccounticon]: ./media/apis-list/integrationaccount.png
+[liquidicon]: ./media/apis-list/liquidtransform.png

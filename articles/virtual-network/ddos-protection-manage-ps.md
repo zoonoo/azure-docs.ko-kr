@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2017
 ms.author: jdial
-ms.openlocfilehash: baac97db61b84000557e7150a64ffb64d81ce00c
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 33ff6cfcacd1632dc49b448e70361e1cb2ce1176
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="manage-azure-ddos-protection-standard-using-azure-powershell"></a>Azure PowerShell을 사용하여 Azure DDoS 보호 표준 관리
 
-DDoS(배포된 서비스 거부) 보호를 사용 및 사용하지 않도록 설정하는 방법과 원격 분석을 사용하여 Azure DDoS 보호 표준으로 DDoS 공격을 완화하는 방법에 대해 알아봅니다. DDoS 보호 표준은 할당된 Azure [공용 IP 주소](virtual-network-public-ip-address.md)가 있는 Application Gateway, 부하 분산 장치 및 가상 컴퓨터와 같은 Azure 리소스를 보호합니다. DDoS 보호 표준 및 해당 기능에 대한 자세한 내용은 [DDoS 보호 표준 개요](ddos-protection-overview.md)를 참조하세요. 
+DDoS(배포된 서비스 거부) 보호를 사용 및 사용하지 않도록 설정하는 방법과 원격 분석을 사용하여 Azure DDoS 보호 표준으로 DDoS 공격을 완화하는 방법에 대해 알아봅니다. DDoS 보호 표준은 할당된 Azure [공용 IP 주소](virtual-network-public-ip-address.md)가 있는 Application Gateway, 부하 분산 장치 및 가상 머신과 같은 Azure 리소스를 보호합니다. DDoS 보호 표준 및 해당 기능에 대한 자세한 내용은 [DDoS 보호 표준 개요](ddos-protection-overview.md)를 참조하세요. 
 
 >[!IMPORTANT]
 >Azure DDoS 보호 표준(DDoS 보호)은 현재 미리 보기로 제공됩니다. 제한된 수의 Azure 리소스는 DDoS 보호를 지원하며 선택한 수의 지역에서만 사용할 수 있습니다. 사용 가능한 지역 목록은 [DDoS 보호 표준 개요](ddos-protection-overview.md)를 참조하세요. 제한된 미리 보기 동안 구독에 대해 DDoS 보호를 사용하도록 설정하려면 [서비스에 등록](http://aka.ms/ddosprotection)해야 합니다. 등록 후 Azure DDoS 팀에서 사용 설정 프로세스를 안내하기 위해 연락합니다.
@@ -31,7 +31,7 @@ DDoS(배포된 서비스 거부) 보호를 사용 및 사용하지 않도록 설
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
 
-`Login-AzureRmAccount` 명령으로 Azure 구독에 로그인하고 화면의 지시를 따릅니다. Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다. Azure PowerShell을 설치하거나 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요.
+`Login-AzureRmAccount` 명령으로 Azure 구독에 로그인하고 화면의 지시를 따릅니다. Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다. Azure PowerShell을 설치하거나 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요.
 
 ```powershell
 Login-AzureRmAccount
@@ -127,7 +127,7 @@ Azure Monitor 경고 구성을 통해 사용 가능한 DDoS 보호 메트릭을 
     Get-AzureRmAlertRule -Name myMetricRuleWithEmail -ResourceGroup myresourcegroup -DetailedOutput 
     ```
 
-경고를 만들기 위해 [웹후크 구성](../monitoring-and-diagnostics/insights-webhooks-alerts.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 및 [Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md)에 대해 자세히 알아볼 수도 있습니다.
+경고를 만들기 위해 [웹후크 구성](../monitoring-and-diagnostics/insights-webhooks-alerts.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 및 [Logic Apps](../logic-apps/logic-apps-overview.md)에 대해 자세히 알아볼 수도 있습니다.
 
 ## <a name="configure-logging-on-ddos-protection-metrics"></a>DDoS 보호 메트릭에 대한 로깅 구성
 

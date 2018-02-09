@@ -4,7 +4,7 @@ description: "Traffic Manager로 실제 사용자 측정을 보내도록 웹 페
 services: traffic-manager
 documentationcenter: traffic-manager
 author: KumudD
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: 
 ms.assetid: 
@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 09/19/2017
 ms.author: kumud
 ms.custom: 
-ms.openlocfilehash: ce5d333ad5d339b64d1fc1d081651052f71a8b67
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7f4088cf4470b1f9fa22c4ec83a9f92657032734
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="how-to-send-real-user-measurements-to-azure-traffic-manager-using-web-pages"></a>웹 페이지를 사용하여 Azure Traffic Manager의 실제 사용자 측정을 보내는 방법
 
@@ -61,7 +61,7 @@ RUM 키를 가져온 후에 다음 단계는 복사한 JavaScript를 최종 사�
 1.  텍스트 편집기에서 HTML 페이지를 엽니다.
 2.  HTML의 본문 섹션에 이전 단계에서 복사한 JavaScript 코드를 붙여 넣습니다(복사한 코드는 8 및 9줄에 있음. 그림 3 참조).
  
-    ![실제 사용자 측정을 위해 웹 페이지에 Javascript 코드 포함](./media/traffic-manager-create-rum-web-pages/rum-javascript-code.png)  
+    ![실제 사용자 측정을 위해 웹 페이지에 Javascript 코드 포함](./media/traffic-manager-create-rum-web-pages/real-user-measurement-embed-script.png)  
 
     **그림 3: 실제 사용자 측정 JavaScript가 포함된 간단한 HTML**
 
@@ -73,5 +73,5 @@ RUM 키를 가져온 후에 다음 단계는 복사한 JavaScript를 최종 사�
 - [실제 사용자 측정](traffic-manager-rum-overview.md)에 대한 자세한 정보
 - [Traffic Manager 작동 방식](traffic-manager-overview.md)
 - Traffic Manager가 지원하는 [트래픽 라우팅 방법](traffic-manager-routing-methods.md) 에 대해 자세히 알아봅니다.
-- [트래픽 관리자 프로필을 만드는](traffic-manager-create-profile.md)
+- [Traffic Manager 프로필을 만드는](traffic-manager-create-profile.md)
 

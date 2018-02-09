@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: wesmc
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ae97045c27f3ad8b62e7798b2060ea59ccd66ac5
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 52a45f1b67e3194739fe97daad56de2d3515dee3
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="twilio-binding-for-azure-functions"></a>Azure Functions에 대한 Twilio 바인딩
 
@@ -28,17 +28,17 @@ ms.lasthandoff: 11/30/2017
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="example"></a>예제
+## <a name="example"></a>예
 
 언어 관련 예제를 참조하세요.
 
-* [미리 컴파일된 C#](#c-example)
-* [C# 스크립트](#c-script-example)
+* [C#](#c-example)
+* [C# 스크립트(.csx)](#c-script-example)
 * [JavaScript](#javascript-example)
 
 ### <a name="c-example"></a>C# 예제
 
-다음 예제에서는 큐 메시지에서 트리거되면 문자 메시지를 보내는 [미리 컴파일된 C# 함수](functions-dotnet-class-library.md)를 보여 줍니다.
+다음 예제에서는 큐 메시지에서 트리거되면 문자 메시지를 보내는 [C# 함수](functions-dotnet-class-library.md)를 보여 줍니다.
 
 ```cs
 [FunctionName("QueueTwilio")]
@@ -195,7 +195,7 @@ module.exports = function (context, myQueueItem) {
 
 ## <a name="attributes"></a>특성
 
-[미리 컴파일된 C#](functions-dotnet-class-library.md) 함수의 경우 [Microsoft.Azure.WebJobs.Extensions.Twilio](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Twilio) NuGet 패키지에 정의되어 있는 [TwilioSms](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/TwilioSMSAttribute.cs) 특성을 사용합니다.
+[C# 클래스 라이브러리](functions-dotnet-class-library.md)에서는 [Microsoft.Azure.WebJobs.Extensions.Twilio](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Twilio) NuGet 패키지에 정의되어 있는 [TwilioSms](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/TwilioSMSAttribute.cs) 특성을 사용합니다.
 
 구성할 수 있는 특성 속성에 대한 자세한 내용은 [구성](#configuration)을 참조하세요. 다음은 메서드 서명의 `TwilioSms` 특성 예제입니다.
 
@@ -213,7 +213,7 @@ public static SMSMessage Run(
 }
  ```
 
-전체 예제는 [미리 컴파일된 C# 예제](#c-example)를 참조하세요.
+전체 예제는 [C# 예제](#c-example)를 참조하세요.
 
 ## <a name="configuration"></a>구성
 

@@ -1,5 +1,5 @@
 ---
-title: "Polybase 데이터 로드 - Azure Storage Blob에서 Azure SQL Data Warehouse로 | Microsoft Docs"
+title: "자습서: Polybase 데이터 로드 - Azure Storage Blob에서 Azure SQL Data Warehouse로 | Microsoft Docs"
 description: "Azure Portal 및 SQL Server Management Studio를 사용하여 Azure Blob Storage에서 Azure SQL Data Warehouse로 뉴욕 택시 데이터를 로드하는 자습서입니다."
 services: sql-data-warehouse
 documentationcenter: 
@@ -17,13 +17,13 @@ ms.workload: Active
 ms.date: 11/17/2017
 ms.author: cakarst
 ms.reviewer: barbkess
-ms.openlocfilehash: fe3ea6c22fafad0d0dcf611ceb365a2ebca80011
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.openlocfilehash: a1f504f5bb728ce080e51678d44ed4eef4c3faa7
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="use-polybase-to-load-data-from-azure-blob-storage-to-azure-sql-data-warehouse"></a>PolyBase를 사용하여 Azure Blob Storage에서 Azure SQL Data Warehouse로 데이터 로드
+# <a name="tutorial-use-polybase-to-load-data-from-azure-blob-storage-to-azure-sql-data-warehouse"></a>자습서: PolyBase를 사용하여 Azure Blob Storage에서 Azure SQL Data Warehouse로 데이터 로드
 
 PolyBase는 SQL Data Warehouse로 데이터를 가져오기 위한 표준 로드 기술입니다. 이 자습서에서는 PolyBase를 사용하여 Azure Blob Storage에서 Azure SQL Data Warehouse로 뉴욕 택시 데이터를 로드합니다. 이 자습서에서는 [Azure Portal](https://portal.azure.com) 및 SSMS([SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md))를 사용합니다. 
 
@@ -125,7 +125,7 @@ SQL Data Warehouse 서비스는 외부 응용 프로그램 및 도구가 서버 
 
 4. 도구 모음에서 **클라이언트 IP 추가**를 클릭하여 현재 IP 주소를 새 방화벽 규칙에 추가합니다. 방화벽 규칙은 단일 IP 주소 또는 IP 주소의 범위에 1433 포트를 열 수 있습니다.
 
-5. **Save**를 클릭합니다. 논리 서버의 1433 포트를 여는 현재 IP 주소에 서버 수준 방화벽 규칙이 생성됩니다.
+5. **저장**을 클릭합니다. 논리 서버의 1433 포트를 여는 현재 IP 주소에 서버 수준 방화벽 규칙이 생성됩니다.
 
 6. **확인**을 클릭한 후 **방화벽 설정** 페이지를 닫습니다.
 
@@ -170,7 +170,7 @@ Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 
 
 ## <a name="create-a-user-for-loading-data"></a>데이터를 로드하기 위한 사용자 만들기
 
-서버 관리자 계정은 관리 작업을 수행하며 사용자 데이터에 대해 쿼리를 실행하는 데는 적합하지 않습니다. 일반적으로 데이터를 로드하려면 많은 양의 메모리가 필요합니다. [메모리 최대값](performance-tiers.md#memory-maximums)은 [성능 계층](performance-tiers.md) 및 [리소스 클래스](resource-classes-for-workload-management.md)에 따라 정의됩니다. 
+서버 관리자 계정은 관리 작업을 수행하며 사용자 데이터에 대해 쿼리를 실행하는 데는 적합하지 않습니다. 데이터 로드는 메모리를 많이 사용하는 작업입니다. [메모리 최대값](performance-tiers.md#memory-maximums)은 [성능 계층](performance-tiers.md) 및 [리소스 클래스](resource-classes-for-workload-management.md)에 따라 정의됩니다. 
 
 데이터 로드 전용 로그인 및 사용자를 만드는 것이 좋습니다. 그런 후 로드 사용자를 [리소스 클래스](resource-classes-for-workload-management.md)에 추가하여 적절한 최대 메모리가 할당되도록 합니다.
 
@@ -211,7 +211,7 @@ Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 
 
     ![새 로그인으로 연결](media/load-data-from-azure-blob-storage-using-polybase/connect-as-loading-user.png)
 
-2. 정규화된 서버 이름을 입력하되, 로그인으로 **LoaderRC20**을 입력합니다.  LoaderRC20에 대한 암호를 입력합니다.
+2. 정규화된 서버 이름을 입력하고, 로그인으로 **LoaderRC20**을 입력합니다.  LoaderRC20에 대한 암호를 입력합니다.
 
 3. **Connect**를 클릭합니다.
 
@@ -452,6 +452,10 @@ Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 
 
 이 섹션에서는 방금 정의한 외부 테이블을 사용하여 Azure Storage Blob에서 SQL Data Warehouse로 샘플 데이터를 로드합니다.  
 
+> [!NOTE]
+> 이 자습서에서는 최종 테이블에 직접 데이터를 로드합니다. 프로덕션 환경에서는 일반적으로 CREATE TABLE AS SELECT를 사용하여 준비 테이블에 로드합니다. 데이터가 준비 테이블에 있는 동안에는 필요한 모든 변환을 수행할 수 있습니다. 준비 테이블의 데이터를 프로덕션 테이블에 추가하려면 INSERT...SELECT 문을 사용합니다. 자세한 내용은 [프로덕션 테이블에 데이터 삽입](guidance-for-loading-data.md#inserting-data-into-a-production-table)을 참조하세요.
+> 
+
 이 스크립트는 [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse.md) T-SQL 문을 사용하여 Azure Storage Blob에서 데이터 웨어하우스의 새로운 테이블로 데이터를 로드합니다. CTAS는 select 문의 결과에 따라 새 테이블을 만듭니다. 새 테이블은 select 문의 결과에 부합하는 동일한 열과 데이터 형식을 포함합니다. select 문이 외부 테이블에서 선택할 경우 SQL Data Warehouse는 데이터를 데이터 웨어하우스의 관계형 테이블로 가져옵니다. 
 
 1. 다음 스크립트를 실행하여 데이터를 데이터 웨어하우스의 새 테이블로 로드합니다.
@@ -567,7 +571,7 @@ Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 
 
 SQL Data Warehouse는 통계 자동 만들기 또는 자동 업데이트를 수행하지 않습니다. 따라서 높은 쿼리 성능을 달성하려면, 처음 로드한 후에 각 테이블의 각 열에 대한 통계를 만드는 것이 중요합니다. 데이터에 상당한 변화가 발생한 후에는 통계를 업데이트하는 것이 중요합니다.
 
-1. 조인에 사용할 열에 대해 통계를 만들려면 다음 명령을 실행합니다.
+조인에 사용할 열에 대해 통계를 만들려면 다음 명령을 실행합니다.
 
     ```sql
     CREATE STATISTICS [dbo.Date DateID stats] ON dbo.Date (DateID);

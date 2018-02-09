@@ -14,11 +14,11 @@ ms.devlang: python
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: lmazuel
-ms.openlocfilehash: a55a38df765dcd1947312e729dbd37e3284876cf
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: ca6e892e9f40204682be4ed00c413696f2022622
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="how-to-use-service-management-from-python"></a>Python에서 서비스 관리를 사용하는 방법
 이 가이드에서는 Python에서 프로그래밍 방식으로 일반 서비스 관리 작업을 수행하는 방법을 보여 줍니다. [Python용 Azure SDK](https://github.com/Azure/azure-sdk-for-python)의 **ServiceManagementService** 클래스는 [Azure Portal][management-portal]에서 사용할 수 있는 대부분의 서비스 관리 관련 기능에 대해 프로그래밍 방식의 액세스를 지원합니다(예: **클라우드 서비스, 배포, 데이터 관리 서비스, Virtual Machines 만들기, 업데이트 및 삭제**). 이 기능은 서비스 관리에 프로그래밍 방식으로 액세스해야 하는 응용 프로그램을 빌드하는 데 유용할 수 있습니다.
@@ -285,7 +285,7 @@ Azure 인증서에 대한 자세한 내용은 [Azure Cloud Services 인증서](c
     print('Operation status: ' + operation_result.status)
 
 ## <a name="CreateVM"> </a>방법: 가상 컴퓨터 만들기
-가상 컴퓨터를 만들려면 먼저 [클라우드 서비스](#CreateCloudService)를 만들어야 합니다.  그런 다음 **create\_virtual\_machine\_deployment** 메서드를 사용하여 가상 컴퓨터 배포를 만듭니다.
+가상 머신을 만들려면 먼저 [클라우드 서비스](#CreateCloudService)를 만들어야 합니다.  그런 다음 **create\_virtual\_machine\_deployment** 메서드를 사용하여 가상 머신 배포를 만듭니다.
 
     from azure import *
     from azure.servicemanagement import *
@@ -323,7 +323,7 @@ Azure 인증서에 대한 자세한 내용은 [Azure Cloud Services 인증서](c
         role_size='Small')
 
 ## <a name="DeleteVM"> </a>방법: 가상 컴퓨터 삭제
-가상 컴퓨터를 삭제하려면 **delete\_deployment** 메서드를 사용하여 먼저 배포를 삭제합니다.
+가상 머신을 삭제하려면 **delete\_deployment** 메서드를 사용하여 먼저 배포를 삭제합니다.
 
     from azure import *
     from azure.servicemanagement import *
@@ -337,7 +337,7 @@ Azure 인증서에 대한 자세한 내용은 [Azure Cloud Services 인증서](c
 
     sms.delete_hosted_service(service_name='myvm')
 
-## <a name="how-to-create-a-virtual-machine-from-a-captured-virtual-machine-image"></a>방법: 캡처된 가상 컴퓨터 이미지에서 가상 컴퓨터 만들기
+## <a name="how-to-create-a-virtual-machine-from-a-captured-virtual-machine-image"></a>방법: 캡처된 Virtual Machine 이미지에서 Virtual Machine 만들기
 VM 이미지를 캡처하기 위해 먼저 **capture\_vm\_image** 메서드를 호출합니다.
 
     from azure import *
@@ -369,7 +369,7 @@ VM 이미지를 캡처하기 위해 먼저 **capture\_vm\_image** 메서드를 �
 
     images = sms.list_vm_images()
 
-최종적으로 캡처된 이미지를 사용하여 가상 컴퓨터를 만들기 위해 이전처럼 **create\_virtual\_machine\_deployment** 메서드를 사용하지만, 이번에는 대신 vm_image_name을 전달합니다.
+최종적으로 캡처된 이미지를 사용하여 가상 머신을 만들기 위해 이전처럼 **create\_virtual\_machine\_deployment** 메서드를 사용하지만, 이번에는 대신 vm_image_name을 전달합니다.
 
     from azure import *
     from azure.servicemanagement import *
@@ -394,9 +394,9 @@ VM 이미지를 캡처하기 위해 먼저 **capture\_vm\_image** 메서드를 �
         role_size='Small',
         vm_image_name = image_name)
 
-Linux 가상 컴퓨터를 캡처하는 방법에 대한 자세한 내용은 [Linux 가상 컴퓨터를 캡처하는 방법](../virtual-machines/linux/classic/capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)을 참조하세요.
+클래식 배포 모델에서 Linux Virtual Machine을 캡처하는 방법에 대한 자세한 내용은 [Linux Virtual Machine을 캡처하는 방법](../virtual-machines/linux/classic/capture-image-classic.md)을 참조하세요.
 
-Windows 가상 컴퓨터를 캡처하는 방법에 대한 자세한 내용은 [Windows 가상 컴퓨터를 캡처하는 방법](../virtual-machines/windows/classic/capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)을 참조하세요.
+클래식 배포 모델에서 Windows Virtual Machine을 캡처하는 방법에 대한 자세한 내용은 [Windows Virtual Machine을 캡처하는 방법](../virtual-machines/windows/classic/capture-image-classic.md)을 참조하세요.
 
 ## <a name="What's Next"> </a>다음 단계
 서비스 관리의 기본 사항을 배웠으므로 이제 [Azure Python SDK에 대한 전체 API 참조 설명서](http://azure-sdk-for-python.readthedocs.org/) 에 액세스하고 쉽게 복잡한 작업을 수행하여 Python 응용 프로그램을 관리할 수 있습니다.

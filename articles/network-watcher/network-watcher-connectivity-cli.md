@@ -1,10 +1,10 @@
 ---
-title: "Azure Network Watcher를 사용하여 연결 확인 - Azure CLI 2.0 | Microsoft Docs"
-description: "이 페이지에서는 Azure CLI 2.0을 사용하여 Network Watcher를 통해 연결 확인을 사용하는 방법을 설명합니다."
+title: "Azure Network Watcher로 연결 문제 해결 - Azure CLI 2.0 | Microsoft Docs"
+description: "Azure CLI 2.0을 사용하여 Azure Network Watcher의 연결 문제 해결 기능을 사용하는 방법을 알아봅니다."
 services: network-watcher
 documentationcenter: na
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.service: network-watcher
 ms.devlang: na
@@ -13,74 +13,42 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
-ms.openlocfilehash: 996fe0ef31a5bea9111324a661b714e77dffff64
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: dfe77b0a9620ccb8ac91fa8843d01d1cb7bdc44f
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="check-connectivity-with-azure-network-watcher-using-azure-cli-20"></a>Azure CLI 2.0을 사용하여 Azure Network Watcher를 통해 연결 확인
+# <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-cli-20"></a>Azure CLI 2.0을 사용하여 Azure Network Watcher로 연결 문제 해결
 
 > [!div class="op_single_selector"]
 > - [PowerShell](network-watcher-connectivity-powershell.md)
 > - [CLI 2.0](network-watcher-connectivity-cli.md)
 > - [Azure REST API](network-watcher-connectivity-rest.md)
 
-연결을 사용하여 가상 머신에서 지정된 끝점으로의 직접 TCP 연결을 설정할 수 있는지를 확인하는 방법을 알아봅니다.
+연결 문제 해결을 사용하여 가상 머신에서 지정된 엔드포인트로 직접 TCP 연결을 설정하는 방법을 알아봅니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
 이 문서에서는 사용자에게 다음 리소스가 있는 것으로 가정합니다.
 
-* 연결을 확인하려는 영역의 Network Watcher 인스턴스
-
-* 연결을 확인하는 데 사용할 가상 머신
-
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
+* 연결 문제를 해결하려는 지역의 Network Watcher 인스턴스
+* 연결 문제를 해결할 가상 머신
 
 > [!IMPORTANT]
-> 연결 확인에는 가상 머신 확장 `AzureNetworkWatcherExtension`이 필요합니다. Windows VM에서 확장을 설치하려면 [Windows용 Azure Network Watcher 에이전트 가상 머신 확장](../virtual-machines/windows/extensions-nwa.md)을 방문하고 Linux VM인 경우 [Linux용 Azure Network Watcher 에이전트 가상 머신 확장](../virtual-machines/linux/extensions-nwa.md)을 방문하세요.
-
-## <a name="register-the-preview-capability"></a>미리 보기 기능 등록 
-
-연결 확인은 현재 공개 미리 보기로, 등록해야 이 기능을 사용할 수 있습니다. 이렇게 하려면 다음 CLI 샘플을 실행합니다.
-
-```azurecli 
-az feature register --namespace Microsoft.Network --name AllowNetworkWatcherConnectivityCheck
-
-az provider register --namespace Microsoft.Network 
-``` 
-
-등록이 성공했는지 확인하려면 다음 CLI 명령을 실행합니다.
-
-```azurecli
-az feature show --namespace Microsoft.Network --name AllowNetworkWatcherConnectivityCheck 
-```
-
-기능이 올바르게 등록된 경우 출력은 다음과 일치해야 합니다. 
-
-```json
-{
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Features/providers/Microsoft.Network/features/AllowNetworkWatcherConnectivityCheck",
-  "name": "Microsoft.Network/AllowNetworkWatcherConnectivityCheck",
-  "properties": {
-    "state": "Registered"
-  },
-  "type": "Microsoft.Features/providers/features"
-}
-``` 
+> 연결 문제 해결에는 `AzureNetworkWatcherExtension`이라는 가상 머신 확장이 필요합니다. Windows VM에서 확장을 설치하려면 [Windows용 Azure Network Watcher 에이전트 가상 머신 확장](../virtual-machines/windows/extensions-nwa.md)을 방문하고 Linux VM인 경우 [Linux용 Azure Network Watcher 에이전트 가상 머신 확장](../virtual-machines/linux/extensions-nwa.md)을 방문하세요.
 
 ## <a name="check-connectivity-to-a-virtual-machine"></a>가상 머신에 대한 연결 확인
 
 이 예제에서는 포트 80을 통해 대상 가상 머신에 대한 연결을 확인합니다.
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 ```azurecli
 az network watcher test-connectivity --resource-group ContosoRG --source-resource MultiTierApp0 --dest-resource Database0 --dest-port 80
 ```
 
-### <a name="response"></a>응답
+### <a name="response"></a>response
 
 다음 응답은 이전 예제에서 가져온 것입니다.  이 응답에서 `ConnectionStatus`는 **Unreachable**입니다. 전송된 모든 프로브가 실패한 것을 볼 수 있습니다. 포트 80에서 들어오는 트래픽을 차단하도록 구성된, 사용자가 구성한 **UserRule_Port80**이라는 `NetworkSecurityRule`로 인해 가상 어플라이언스에서 연결이 실패했습니다. 이 정보는 연결 문제를 조사하는 데 사용할 수 있습니다.
 
@@ -153,15 +121,15 @@ Nic0/ipConfigurations/ipconfig1",
 
 ## <a name="validate-routing-issues"></a>라우팅 문제 확인
 
-이 예제에서는 가상 컴퓨터와 원격 끝점 간의 연결을 확인합니다.
+이 예제에서는 가상 머신과 원격 엔드포인트 간의 연결을 확인합니다.
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 ```azurecli
 az network watcher test-connectivity --resource-group ContosoRG --source-resource MultiTierApp0 --dest-address 13.107.21.200 --dest-port 80
 ```
 
-### <a name="response"></a>응답
+### <a name="response"></a>response
 
 다음 예제에서 `connectionStatus`는 **Unreachable**로 표시됩니다. `hops` 세부 정보의 `issues`에서 트래픽이 `UserDefinedRoute`로 인해 차단되었음을 알 수 있습니다.
 
@@ -213,13 +181,13 @@ pNic0/ipConfigurations/ipconfig1",
 
 다음 예제에서는 웹 사이트에 대한 연결을 확인합니다.
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 ```azurecli
 az network watcher test-connectivity --resource-group ContosoRG --source-resource MultiTierApp0 --dest-address http://bing.com --dest-port 80
 ```
 
-### <a name="response"></a>응답
+### <a name="response"></a>response
 
 다음 응답에서 `connectionStatus`가 **Reachable**로 표시된 것을 볼 수 있습니다. 연결에 성공하면 대기 시간 값이 제공됩니다.
 
@@ -259,13 +227,13 @@ pNic0/ipConfigurations/ipconfig1",
 
 다음 예제에서는 가상 컴퓨터에서 BLOB 저장소 계정으로의 연결을 확인합니다.
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 ```azurecli
 az network watcher test-connectivity --resource-group ContosoRG --source-resource MultiTierApp0 --dest-address https://contosoexamplesa.blob.core.windows.net/
 ```
 
-### <a name="response"></a>응답
+### <a name="response"></a>response
 
 다음 json은 이전 cmdlet 실행에서 가져온 예제 응답입니다. 확인에 성공했으므로 `connectionStatus` 속성이 **Reachable**로 표시됩니다.  저장소 BLOB 및 대기 시간에 도달하는 데 필요한 홉 수에 대한 세부 정보가 제공됩니다.
 

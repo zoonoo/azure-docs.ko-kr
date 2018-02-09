@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 08/14/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 180a476445760930ab4f3505e0e6e9474e404445
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: a0f1d9aa733e023bbc544e28ce4d4a89168f7398
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="deploy-docker-swarm-cluster"></a>Docker Swarm 클러스터 배포
 
@@ -25,7 +25,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-[az group create](/cli/azure/group#create) 명령을 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포되고 관리되는 논리 그룹입니다.
+[az group create](/cli/azure/group#az_group_create) 명령을 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포되고 관리되는 논리 그룹입니다.
 
 다음 예제에서는 *westus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
 
@@ -33,7 +33,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 az group create --name myResourceGroup --location westus
 ```
 
-출력:
+출력
 
 ```json
 {
@@ -50,7 +50,7 @@ az group create --name myResourceGroup --location westus
 
 ## <a name="create-docker-swarm-cluster"></a>Docker Swarm 클러스터 만들기
 
-[az acs create](/cli/azure/acs#create) 명령을 사용하여 Azure Container Service에서 Docker Swarm 클러스터를 만듭니다. 
+[az acs create](/cli/azure/acs#az_acs_create) 명령을 사용하여 Azure Container Service에서 Docker Swarm 클러스터를 만듭니다. 
 
 다음 예제에서는 하나의 Linux 마스터 노드와 세 개의 Linux 에이전트 노드가 있는 *mySwarmCluster*라는 클러스터를 만듭니다.
 
@@ -58,7 +58,7 @@ az group create --name myResourceGroup --location westus
 az acs create --name mySwarmCluster --orchestrator-type Swarm --resource-group myResourceGroup --generate-ssh-keys
 ```
 
-제한 평가판과 같이 Azure 구독의 Azure 리소스 액세스 권한이 제한되는 경우도 있습니다. 사용 가능한 코어 제한으로 인해 배포가 실패하는 경우 [az acs create](/cli/azure/acs#create) 명령에 `--agent-count 1`을 추가하여 기본 에이전트 수를 줄이세요. 
+제한 평가판과 같이 Azure 구독의 Azure 리소스 액세스 권한이 제한되는 경우도 있습니다. 사용 가능한 코어 제한으로 인해 배포가 실패하는 경우 [az acs create](/cli/azure/acs#az_acs_create) 명령에 `--agent-count 1`을 추가하여 기본 에이전트 수를 줄이세요. 
 
 몇 분 후 명령이 완료되고 클러스터에 대해 json으로 형식화된 정보가 반환됩니다.
 
@@ -71,7 +71,7 @@ az acs create --name mySwarmCluster --orchestrator-type Swarm --resource-group m
 az network public-ip list --resource-group myResourceGroup --query "[*].{Name:name,IPAddress:ipAddress}" -o table
 ```
 
-출력:
+출력
 
 ```bash
 Name                                                                 IPAddress
@@ -109,7 +109,7 @@ services:
         - "6379:6379"
 
   azure-vote-front:
-    image: microsoft/azure-vote-front:redis-v1
+    image: microsoft/azure-vote-front:v1
     container_name: azure-vote-front
     environment:
       REDIS: azure-vote-back
@@ -123,13 +123,13 @@ services:
 docker-compose up -d
 ```
 
-출력:
+출력
 
 ```bash
 Creating network "user_default" with the default driver
-Pulling azure-vote-front (microsoft/azure-vote-front:redis-v1)...
-swarm-agent-EE873B23000005: Pulling microsoft/azure-vote-front:redis-v1...
-swarm-agent-EE873B23000004: Pulling microsoft/azure-vote-front:redis-v1... : downloaded
+Pulling azure-vote-front (microsoft/azure-vote-front:v1)...
+swarm-agent-EE873B23000005: Pulling microsoft/azure-vote-front:v1...
+swarm-agent-EE873B23000004: Pulling microsoft/azure-vote-front:v1... : downloaded
 Pulling azure-vote-back (redis:latest)...
 swarm-agent-EE873B23000004: Pulling redis:latest... : downloaded
 Creating azure-vote-front ... 
@@ -145,7 +145,7 @@ Azure Vote 응용 프로그램을 테스트하려면 Swarm 에이전트 풀의 I
 ![Azure Vote로 이동하는 이미지](media/container-service-docker-swarm-mode-walkthrough/azure-vote.png)
 
 ## <a name="delete-cluster"></a>클러스터 삭제
-클러스터가 더 이상 필요하지 않으면 [az group delete](/cli/azure/group#delete) 명령을 사용하여 리소스 그룹, 컨테이너 서비스 및 모든 관련 리소스를 제거할 수 있습니다.
+클러스터가 더 이상 필요하지 않으면 [az group delete](/cli/azure/group#az_group_delete) 명령을 사용하여 리소스 그룹, 컨테이너 서비스 및 모든 관련 리소스를 제거할 수 있습니다.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait

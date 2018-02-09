@@ -235,8 +235,6 @@
               items:
                 - name: SQL 문법 치트 시트
                   href: sql-api-sql-query-cheat-sheet.md
-                - name: 스택 오버플로
-                  href: 'http://stackoverflow.com/questions/tagged/azure-cosmosdb'
                 - name: 동영상
                   href: 'https://azure.microsoft.com/documentation/videos/index/?services=cosmos-db'
                 - name: 서비스 업데이트
@@ -250,7 +248,7 @@
           items:
             - name: MongoDB 계정에 연결
               href: connect-mongodb-account.md
-            - name: MongoChef 사용
+            - name: Studio 3T 사용
               href: mongodb-mongochef.md
             - name: Robomongo 사용
               href: mongodb-robomongo.md
@@ -343,7 +341,7 @@
         - name: 관리 키 및 일관성
           href: manage-account.md
         - name: Azure Storage 탐색기
-          href: tutorial-documentdb-and-mongodb-in-storage-explorer.md
+          href: storage-explorer.md
         - name: 보안
           items:
             - name: 휴지 상태의 암호화
@@ -354,10 +352,14 @@
               href: secure-access-to-data.md
     - name: 통합
       items:
+        - name: HDInsight로 람다 아키텍처 구현
+          href: lambda-architecture.md
         - name: Spark에 연결
           href: spark-connector.md
         - name: Spark GraphX에 연결
           href: spark-connector-graph.md
+        - name: HDInsight에서 Kafka 및 Spark로 스트리밍
+          href: ../hdinsight/apache-kafka-spark-structured-streaming-cosmosdb.md
         - name: Azure App Service로 웹 사이트 배포
           href: create-website.md
         - name: Logic Apps를 통한 응용 프로그램 로깅
@@ -382,7 +384,7 @@
           href: odbc-driver.md
         - name: SQL API에 Spring Boot Starter 사용
           href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db.md
-- name: 참조
+- name: 참고 자료
   items:
     - name: 코드 샘플
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=cosmos-db'
@@ -430,7 +432,5 @@
       href: 'https://azure.microsoft.com/pricing/details/cosmos-db/'
     - name: FAQ
       href: faq.md
-    - name: 스택 오버플로
-      href: 'http://stackoverflow.com/questions/tagged/azure-cosmosdb'
     - name: 야구를 통해 설명하는 데이터 일관성
       href: 'http://research.microsoft.com/apps/pubs/default.aspx?id=206913'

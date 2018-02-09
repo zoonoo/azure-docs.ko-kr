@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/25/2017
+ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: 8f0e2fff8ea32874729cf9c4645d547df2449089
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 88e1f17184be07ec8499ad3049f7210b56fdfc15
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="create-a-complete-linux-virtual-machine-environment-in-azure-with-ansible"></a>Azure에서 Ansible을 사용하여 전체 Linux 가상 컴퓨터 환경 만들기
-Ansible을 사용하면 사용자 환경에서 리소스의 배포 및 구성을 자동화할 수 있습니다. Azure에서 Ansible을 사용하여 다른 리소스와 동일한 방식으로 VM(가상 컴퓨터)을 관리할 수 있습니다. 이 문서에서는 Ansible을 사용하여 전체 Linux 환경 및 지원 리소스를 만드는 방법을 보여 줍니다. 또한 [Ansible을 사용하여 기본 VM을 만드는](ansible-create-vm.md) 방법을 배울 수 있습니다.
+Ansible을 사용하면 사용자 환경에서 리소스의 배포 및 구성을 자동화할 수 있습니다. Azure에서 Ansible을 사용하여 다른 리소스와 동일한 방식으로 VM(가상 머신)을 관리할 수 있습니다. 이 문서에서는 Ansible을 사용하여 전체 Linux 환경 및 지원 리소스를 만드는 방법을 보여 줍니다. 또한 [Ansible을 사용하여 기본 VM을 만드는](ansible-create-vm.md) 방법을 배울 수 있습니다.
 
 
 ## <a name="prerequisites"></a>필수 조건
@@ -105,7 +105,7 @@ Ansible Playbook의 다음 섹션에서는 *10.0.0.0/16* 주소 공간에 *myVne
 
 
 ## <a name="create-virtual-machine"></a>가상 컴퓨터 만들기
-마지막 단계에서는 VM을 만들고 생성한 모든 리소스를 사용합니다. Ansible Playbook의 다음 섹션에서는 *myVM*이라는 VM을 만들고 *myNIC*라는 가상 NIC를 연결합니다. 다음과 같이 *key_data* 쌍으로 사용자 고유의 공개 키 데이터를 입력합니다.
+마지막 단계에서는 VM을 만들고 생성한 모든 리소스를 사용합니다. Ansible Playbook의 다음 섹션에서는 *myVM*이라는 VM을 만들고 *myNIC*라는 가상 NIC를 연결합니다. 다음과 같이 *key_data* 쌍으로 사용자 고유의 전체 공개 키 데이터를 입력합니다.
 
 ```yaml
 - name: Create VM
@@ -127,7 +127,7 @@ Ansible Playbook의 다음 섹션에서는 *10.0.0.0/16* 주소 공간에 *myVne
 ```
 
 ## <a name="complete-ansible-playbook"></a>전체 Ansible Playbook
-이 모든 섹션을 함께 가져오려면 *azure_create_complete_vm.yml*이라는 Ansible Playbook을 만들고 다음 내용을 붙여넣습니다.
+이 모든 섹션을 함께 가져오려면 *azure_create_complete_vm.yml*이라는 Ansible Playbook을 만들고 다음 내용을 붙여넣습니다. *key_data* 쌍으로 사용자 고유의 전체 공개 키 데이터를 입력합니다.
 
 ```yaml
 - name: Create Azure VM

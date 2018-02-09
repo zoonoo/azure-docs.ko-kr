@@ -1,5 +1,5 @@
 ---
-title: "Azure AD SSPR 작동 방법 | Microsoft Docs"
+title: "셀프 서비스 암호 재설정 작동 방법 - Azure Active Directory"
 description: "Azure AD 셀프 서비스 암호 재설정 자세히 알아보기"
 services: active-directory
 keywords: 
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 01/11/2018
 ms.author: joflore
-ms.custom: it-pro
-ms.openlocfilehash: ad1735d618856fb13ec2846f1da4fdaec1c4e614
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: it-pro;seohack1
+ms.openlocfilehash: 8799931f6233f0f18b56bea39e3cbcbbf51274e9
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Azure AD에서 셀프 서비스 암호 재설정 자세히 알아보기
 
@@ -100,7 +100,7 @@ SSPR을 사용하는 경우 인증 방법으로 다음 옵션 중 하나 이상�
 
 사용자가 사용할 수 있는 인증 방법 유형을 변경하면 사용 가능한 최소 데이터 양이 없는 경우 사용자가 실수로 SSPR을 사용할 수 없게 될 수 있습니다.
 
-예제: 
+예: 
 1. 원래 정책은 필요한 두 가지 인증 방법으로 구성됩니다. 사무실 전화 번호와 보안 질문만 사용합니다. 
 2. 관리자는 더 이상 보안 질문을 사용하지 않도록 정책을 변경하지만 휴대폰 및 보조 메일은 사용하도록 허용합니다.
 3. 휴대폰 및 채워진 대체 전자 메일 필드가 없는 사용자는 암호를 다시 설정할 수 없습니다.
@@ -175,7 +175,7 @@ SSPR을 사용하는 경우 인증 방법으로 다음 옵션 중 하나 이상�
 이 옵션을 사용하려면 암호 재설정을 사용하도록 설정된 사용자가 Azure AD를 사용하여 응용 프로그램에 로그인할 때 암호 재설정 등록을 수행해야 합니다. 이 제품에는 다음이 포함됩니다.
 
 * Office 365
-* Azure 포털
+* Azure portal
 * 액세스 패널
 * 페더레이션된 응용 프로그램
 * Azure AD를 사용하여 응용 프로그램 사용자 지정
@@ -193,7 +193,7 @@ SSPR을 사용하는 경우 인증 방법으로 다음 옵션 중 하나 이상�
 
 유효한 값은 0-730일이며, 여기서 "0"은 사용자가 해당 인증 정보를 다시 확인하도록 요청받지 않습니다.
 
-## <a name="notifications"></a>알림
+## <a name="notifications"></a>공지
 
 ### <a name="notify-users-on-password-resets"></a>사용자에게 암호 재설정에 대해 알림
 

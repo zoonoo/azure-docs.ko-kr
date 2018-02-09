@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2017
 ms.author: carlrab
-ms.openlocfilehash: 9b218756277e52a4d582b1e8e42200f78d38580e
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: e75facfd77fc1cb3c23aa4e1f6f7f799620fef39
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="configure-and-restore-from-azure-sql-database-long-term-backup-retention"></a>Azure SQL Database 장기 백업 보존에서 구성 및 복원
 
 Azure Recovery Services 자격 증명 모음을 구성하여 Azure SQL Database 백업을 저장한 후 Azure Portal 또는 PowerShell을 사용하여 자격 증명 모음에 보존된 백업을 사용하여 데이터베이스를 복구할 수 있습니다.
 
-## <a name="azure-portal"></a>Azure 포털
+## <a name="azure-portal"></a>Azure portal
 
 다음 섹션에서는 Azure Portal을 사용하여 Azure Recovery Services 자격 증명 모음을 구성하고 자격 증명 모음에서 백업을 보고 자격 증명 모음에서 복원하는 방법을 보여 줍니다.
 
@@ -82,6 +82,9 @@ Azure Recovery Services 자격 증명 모음을 구성하여 Azure SQL Database 
 12. **구성** 페이지에서 새 보존 정책에 대한 유효한 이름을 제공하고 기본 보존 정책을 적절하게 수정한 다음 **확인**을 클릭합니다.
 
    ![보존 정책 정의](./media/sql-database-get-started-backup-recovery/define-retention-policy.png)
+   
+   >[!NOTE]
+   >보존 정책 이름은 공백을 비롯한 일부 문자를 허용하지 않습니다.
 
 13. 데이터베이스에 대한 **장기 백업 보존** 페이지에서 **저장**을 클릭한 다음 **확인**을 클릭하여 선택된 모든 데이터베이스에 장기 백업 보존 정책을 적용합니다.
 

@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 09/28/2017
-ms.openlocfilehash: f417154c2c2a27b356cefb94739838bd2136e756
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 4e558518a5a1fb7b4cd0a58fe2453fd4c083b46a
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="classify-iris-part-1-prepare-the-data"></a>아이리스 분류 1부: 데이터 준비
 Azure Machine Learning 서비스(미리 보기)는 데이터를 준비하고, 실험을 개발하고, 클라우드 범위에서 모델을 배포할 수 있는 전문 데이터 과학자를 위한 종단 간 데이터 과학 및 고급 분석 통합 솔루션입니다.
@@ -64,26 +64,30 @@ Azure Machine Learning 서비스(미리 보기)는 데이터를 준비하고, �
 
    ![데이터 뷰](media/tutorial-classifying-iris/data_view.png)
 
-3. 기본 값을 그대로 두고 **다음** 단추를 선택합니다.  
+3. **텍스트 파일(*.csv, .json, .txt.,...)**을 선택하고 **다음**을 클릭합니다.
+   ![데이터 원본](media/tutorial-classifying-iris/data-source.png)
+   
+
+4. **iris.csv** 파일을 찾아 **다음**을 클릭합니다.  
  
    ![아이리스 선택](media/tutorial-classifying-iris/select_iris_csv.png)
 
    >[!IMPORTANT]
    >이 연습에서는 현재 프로젝트 디렉터리에 있는 **iris.csv** 파일을 선택해야 합니다. 그렇지 않으면 이후 단계가 실패할 수 있습니다.
    
-4. 파일을 선택한 후 **마침** 단추를 선택합니다.
+5. 기본값을 유지하고 **마침**을 클릭합니다.
 
-4. **iris-1.dsource**라는 새 파일이 만들어집니다. 샘플 프로젝트에는 번호가 지정되지 않은 **iris.dsource** 파일이 이미 있으므로 파일 이름이 대시가 있는 1로 지정되었습니다.  
+6. **iris-1.dsource**라는 새 파일이 만들어집니다. 샘플 프로젝트에는 번호가 지정되지 않은 **iris.dsource** 파일이 이미 있으므로 파일 이름이 “-1”로 지정되었습니다.  
 
    파일이 열리고 데이터가 표시됩니다. 일련의 열 머리글(**Column1**에서 **Column5**까지)이 이 데이터 집합에 자동으로 추가됩니다. 아래로 스크롤하여 데이터 집합의 마지막 행이 비어 있음을 확인합니다. 행은 추가 줄 바꿈이 CSV 파일에 있기 때문에 비어 있습니다.
 
    ![아이리스 데이터 뷰](media/tutorial-classifying-iris/iris_data_view.png)
 
-5. **메트릭** 단추를 선택합니다. 히스토그램을 관찰합니다. 각 열에 대한 통계의 전체 집합이 계산됩니다. **데이터** 단추를 선택하여 데이터를 다시 볼 수도 있습니다. 
+7. **메트릭** 단추를 선택합니다. 히스토그램을 관찰합니다. 각 열에 대한 통계의 전체 집합이 계산됩니다. **데이터** 단추를 선택하여 데이터를 다시 볼 수도 있습니다. 
 
    ![아이리스 데이터 뷰](media/tutorial-classifying-iris/iris_metrics_view.png)
 
-6. **준비** 단추를 선택합니다. **준비** 대화 상자가 열립니다. 
+8. **준비** 단추를 선택합니다. **준비** 대화 상자가 열립니다. 
 
    샘플 프로젝트는 **iris.dprep** 파일과 함께 제공됩니다. 기본적으로 이미 있는 **iris.dprep** 데이터 준비 패키지에 새 데이터 흐름을 만들도록 합니다. 
 
@@ -93,27 +97,27 @@ Azure Machine Learning 서비스(미리 보기)는 데이터를 준비하고, �
 
    **iris-1.dprep**라는 새 데이터 준비 패키지가 만들어지고 데이터 준비 편집기에서 열립니다.
 
-7. 이제 기본적인 데이터 준비 작업 몇 가지를 수행해 보겠습니다. 열 이름을 바꿉니다. 각 열 머리글을 선택하여 헤더 텍스트를 편집할 수 있도록 합니다. 
+9. 이제 기본적인 데이터 준비 작업 몇 가지를 수행해 보겠습니다. 열 이름을 바꿉니다. 각 열 머리글을 선택하여 헤더 텍스트를 편집할 수 있도록 합니다. 
 
    5가지 열 각각에 대해 **꽃받침 길이**, **꽃받침 너비**, **꽃잎 길이**, **꽃잎 너비** 및 **종류**를 입력합니다.
 
    ![열 이름 바꾸기](media/tutorial-classifying-iris/rename_column.png)
 
-8. 고유 값을 계산하려면 **종류** 열을 선택한 다음 마우스 오른쪽 단추로 클릭하여 선택합니다. 드롭다운 메뉴에서 **값 계산**을 선택합니다. 
+10. 고유 값을 계산하려면 **종류** 열을 선택한 다음 마우스 오른쪽 단추로 클릭하여 선택합니다. 드롭다운 메뉴에서 **값 계산**을 선택합니다. 
 
    ![값 개수 선택](media/tutorial-classifying-iris/value_count.png)
 
    이 작업으로 **검사기** 창이 열리고 4개 막대에 대한 히스토그램이 표시됩니다. 대상 열에 **Iris_virginica**, **Iris_versicolor**, **Iris-setosa**의 3가지 고유 값과 **(null)** 값이 있습니다.
 
-9. Null 값을 필터링하려면 Null 값을 나타내는 그래프에서 막대를 선택합니다. **(null)** 값이 있는 행 하나가 있습니다. 이 행을 제거하려면 빼기 기호(**-**)를 선택합니다.
+11. Null 값을 필터링하려면 Null 값을 나타내는 그래프에서 막대를 선택합니다. **(null)** 값이 있는 행 하나가 있습니다. 이 행을 제거하려면 빼기 기호(**-**)를 선택합니다.
 
    ![값 개수 히스토그램](media/tutorial-classifying-iris/filter_out.png)
 
-10. **단계** 창에 자세히 설명된 개별 단계를 확인합니다. 열 이름을 변경하고 Null 값 행을 필터링했으므로 각 작업은 데이터 준비 단계로 기록되지 않았습니다. 개별 단계를 편집하여 설정을 조정하고, 단계 순서를 조정하고, 단계를 제거할 수 있습니다.
+12. **단계** 창에 자세히 설명된 개별 단계를 확인합니다. 열 이름을 변경하고 Null 값 행을 필터링했으므로 각 작업은 데이터 준비 단계로 기록되지 않았습니다. 개별 단계를 편집하여 설정을 조정하고, 단계 순서를 조정하고, 단계를 제거할 수 있습니다.
 
    ![단계](media/tutorial-classifying-iris/steps.png)
 
-11. 데이터 준비 편집기를 닫습니다. 그래프 아이콘으로 **iris-1** 탭에서 **닫기**(x)를 선택합니다. 작업은 **데이터 준비** 제목 아래 표시된 **iris-1.dprep** 파일에 자동으로 저장됩니다.
+13. 데이터 준비 편집기를 닫습니다. 그래프 아이콘으로 **iris-1** 탭에서 **닫기**(x)를 선택합니다. 작업은 **데이터 준비** 제목 아래 표시된 **iris-1.dprep** 파일에 자동으로 저장됩니다.
 
 ## <a name="generate-pythonpyspark-code-to-invoke-a-data-preparation-package"></a>데이터 준비 패키지를 호출하는 Python/PySpark 코드 생성
 

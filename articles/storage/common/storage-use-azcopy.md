@@ -1,6 +1,6 @@
 ---
 title: "Windows에서 AzCopy 사용하여 Azure Storage로 데이터 복사 또는 이동 | Microsoft Docs"
-description: "Windows에서 AzCopy 유틸리티를 사용하여 Blob, 테이블 및 파일 콘텐츠에서 데이터를 이동하거나 복사합니다. 로컬 파일에서 Azure 저장소로 데이터를 복사하거나, 저장소 계정 내에서 데이터를 복사하거나, 저장소 계정 간에 데이터를 복사합니다. 데이터를 Azure 저장소로 손쉽게 마이그레이션할 수 있습니다."
+description: "Windows에서 AzCopy 유틸리티를 사용하여 Blob, 테이블 및 파일 콘텐츠에서 데이터를 이동하거나 복사합니다. 로컬 파일에서 Azure Storage로 데이터를 복사하거나, Storage 계정 내에서 데이터를 복사하거나, Storage 계정 간에 데이터를 복사합니다. 데이터를 Azure Storage로 손쉽게 마이그레이션할 수 있습니다."
 services: storage
 documentationcenter: 
 author: seguler
@@ -12,16 +12,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/14/2017
+ms.date: 01/29/2018
 ms.author: seguler
-ms.openlocfilehash: 1a4c52babe76e59eacb30e8be91ed934cdbe305b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7d875a1e43908f49424f4e40fe923639cfa02385
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="transfer-data-with-the-azcopy-on-windows"></a>Windows에서 AzCopy를 사용하여 데이터 전송
-AzCopy는 간단한 명령과 최적의 성능으로 데이터를 Microsoft Azure Blob, File 및 Table Storage에(로부터) 복사하도록 디자인된 명령줄 유틸리티입니다. 저장소 계정 내에서나 저장소 계정 사이에서 개체 간에 데이터 복사할 수 있습니다.
+AzCopy는 최적의 성능을 내는 간단한 명령을 사용하여 데이터를 Microsoft Azure Blob, File 및 Table Storage에 복사하거나 이들 저장소에서 복사하기 위한 명령줄 유틸리티입니다. 파일 시스템과 저장소 계정 간 또는 저장소 계정 간에 데이터를 복사할 수 있습니다.  
 
 두 가지 버전의 AzCopy를 다운로드할 수 있습니다. Windows에서 AzCopy는 .NET Framework를 기반으로 하며 Windows 스타일 명령줄 옵션을 제공합니다. [Linux에서 AzCopy](storage-use-azcopy-linux.md)는 POSIX 스타일 명령줄 옵션을 제공하는 Linux 플랫폼을 대상으로 하는 .NET Core Framework를 기반으로 합니다. 이 문서에서는 Windows에서 AzCopy를 설명합니다.
 
@@ -227,7 +227,7 @@ AzCopy를 사용하여 위치 간에 Blob을 복사하는 여러 방법을 살�
 AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer1 /Dest:https://myaccount.blob.core.windows.net/mycontainer2 /SourceKey:key /DestKey:key /Pattern:abc.txt
 ```
 
-저장소 계정 내에 Blob을 복사할 때는 [서버 쪽 복사](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) 작업이 수행됩니다.
+Storage 계정 내에 Blob을 복사할 때는 [서버 쪽 복사](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) 작업이 수행됩니다.
 
 ### <a name="copy-a-single-blob-from-one-storage-account-to-another"></a>저장소 계정 간에 단일 Blob 복사
 
@@ -235,7 +235,7 @@ AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer1 /Dest:https:
 AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1 /Dest:https://destaccount.blob.core.windows.net/mycontainer2 /SourceKey:key1 /DestKey:key2 /Pattern:abc.txt
 ```
 
-저장소 계정 간 Blob을 복사할 때는 [서버 쪽 복사](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) 작업이 수행됩니다.
+Storage 계정 간 Blob을 복사할 때는 [서버 쪽 복사](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) 작업이 수행됩니다.
 
 ### <a name="copy-a-single-blob-from-the-secondary-region-to-the-primary-region"></a>보조 지역에서 주 지역으로 단일 Blob 복사
 
@@ -349,7 +349,7 @@ Blob에서 파일 공유로 파일을 복사할 때는 [서버 쪽 복사](http:
 
 ### <a name="synchronously-copy-files"></a>동기적으로 파일 복사
 
-`/SyncCopy` 옵션을 지정하여 파일 저장소 간에, 파일 저장소에서 Blob 저장소로, Blob 저장소에서 파일 저장소로 동기적으로 데이터를 복사할 수 있습니다. AzCopy는 로컬 메모리에 원본 데이터를 다운로드한 후 대상에 다시 업로드하여 이 작업을 수행합니다. 표준 송신 비용이 적용됩니다.
+`/SyncCopy` 옵션을 지정하여 File Storage 간에, File Storage에서 Blob Storage로, Blob Storage에서 File Storage로 동기적으로 데이터를 복사할 수 있습니다. AzCopy는 로컬 메모리에 원본 데이터를 다운로드한 후 대상에 다시 업로드하여 이 작업을 수행합니다. 표준 송신 비용이 적용됩니다.
 
 ```azcopy
 AzCopy /Source:https://myaccount1.file.core.windows.net/myfileshare1/ /Dest:https://myaccount2.file.core.windows.net/myfileshare2/ /SourceKey:key1 /DestKey:key2 /S /SyncCopy
@@ -642,7 +642,7 @@ AzCopy의 매개 변수는 아래에 설명되어 있습니다. 명령줄에서 
 
 AzCopy는 /Source가 blob 컨테이너 또는 blob 가상 디렉터리일 때 대/소문자를 구분해서 검색하고 다른 모든 경우에서 대/소문자를 구분하지 않습니다.
 
-파일 패턴을 지정하지 않을 때 사용되는 기본 파일 패턴은 파일 시스템 위치의 경우 *에 대해 잘 알고 있다는 것을 가정합니다.* 이고 Azure 저장소 위치의 경우에는 빈 접두사입니다. 여러 파일 패턴을 지정할 수는 없습니다.
+파일 패턴을 지정하지 않을 때 사용되는 기본 파일 패턴은 파일 시스템 위치의 경우 *에 대해 잘 알고 있다는 것을 가정합니다.* 이고 Azure Storage 위치의 경우에는 빈 접두사입니다. 여러 파일 패턴을 지정할 수는 없습니다.
 
 **적용 대상:** Blob, 파일
 
@@ -694,7 +694,7 @@ AzCopy는 /Source가 blob 컨테이너 또는 blob 가상 디렉터리일 때 �
 
 다운로드한 데이터의 MD5 해시를 계산하고 Blob 또는 파일의 Content-MD5 속성에 저장된 MD5 해시가 계산된 해시와 일치하는지 확인합니다. 기본적으로 이 MD5 검사는 해제되어 있으므로 데이터를 다운로드할 때 MD5 검사를 수행하도록 이 옵션을 지정해야 합니다.
 
-Azure 저장소는 Blob 또는 파일에 대해 저장된 MD5 해시가 최신 버전임을 보장하지 않습니다. Blob 또는 파일이 수정될 때마다 MD5를 업데이트하는 것은 클라이언트의 책임입니다.
+Azure Storage는 Blob 또는 파일에 대해 저장된 MD5 해시가 최신 버전임을 보장하지 않습니다. Blob 또는 파일이 수정될 때마다 MD5를 업데이트하는 것은 클라이언트의 책임입니다.
 
 AzCopy는 Azure Blob 또는 파일을 서비스로 업로드하기 전에 항상 해당 Content-MD5 속성을 설정합니다.  
 
@@ -750,7 +750,7 @@ AzCopy로 명령을 실행할 때마다 AzCopy는 기본 폴더에 저널 파일
 
 ### <a name="y"></a>/Y
 
-모든 AzCopy 확인 프롬프트를 표시하지 않습니다.
+모든 AzCopy 확인 프롬프트를 표시하지 않습니다. /XO 및 /XN이 지정되지 않을 경우, 이 옵션을 사용하여 데이터 업로드 시나리오에 쓰기 전용 SAS 토큰을 사용할 수 있습니다.
 
 **적용 대상:** Blob, 파일, 테이블
 
@@ -907,9 +907,9 @@ AzCopy는 데이터 전송 처리량을 높이기 위해 기본적으로 특정 
 
 ### <a name="synccopy"></a>/SyncCopy
 
-두 Azure 저장소 끝점 간에 Blob 또는 파일을 동기적으로 복사할지 여부를 나타냅니다.
+두 Azure Storage 끝점 간에 Blob 또는 파일을 동기적으로 복사할지 여부를 나타냅니다.
 
-기본적으로 AzCopy에서는 서버 쪽 비동기 복사를 사용합니다. Blob 또는 파일을 로컬 메모리에 다운로드한 다음 Azure 저장소에 업로드하는 동기 복사를 수행하려면 이 옵션을 지정합니다.
+기본적으로 AzCopy에서는 서버 쪽 비동기 복사를 사용합니다. Blob 또는 파일을 로컬 메모리에 다운로드한 다음 Azure Storage에 업로드하는 동기 복사를 수행하려면 이 옵션을 지정합니다.
 
 Blob 저장소 내에서, 파일 저장소 내에서 또는 Blob 저장소에서 파일 저장소로 혹은 그 반대로 파일을 복사할 때 이 옵션을 사용할 수 있습니다.
 
@@ -939,7 +939,7 @@ Blob 저장소 내에서, 파일 저장소 내에서 또는 Blob 저장소에서
 
 ### <a name="limit-concurrent-writes-while-copying-data"></a>데이터를 복사하는 동안 동시 쓰기 제한
 
-AzCopy를 사용하여 Blob 또는 파일을 복사할 때는 복사하는 동안 다른 응용 프로그램이 데이터를 수정할 수 있다는 사실을 유의해야 합니다. 가능한 경우 복사 중인 데이터가 복사 작업 중에 수정되지 않도록 합니다. 예를 들어 Azure 가상 컴퓨터와 연결된 VHD를 복사할 때는 다른 응용 프로그램이 현재 VHD에 쓰고 있지 않은지 확인합니다. 이렇게 하려면 복사할 리소스를 임대하는 것이 좋습니다. 또는 먼저 VHD의 스냅샷을 만든 후 스냅샷을 복사할 수 있습니다.
+AzCopy를 사용하여 Blob 또는 파일을 복사할 때는 복사하는 동안 다른 응용 프로그램이 데이터를 수정할 수 있다는 사실을 유의해야 합니다. 가능한 경우 복사 중인 데이터가 복사 작업 중에 수정되지 않도록 합니다. 예를 들어 Azure 가상 머신과 연결된 VHD를 복사할 때는 다른 응용 프로그램이 현재 VHD에 쓰고 있지 않은지 확인합니다. 이렇게 하려면 복사할 리소스를 임대하는 것이 좋습니다. 또는 먼저 VHD의 스냅샷을 만든 후 스냅샷을 복사할 수 있습니다.
 
 다른 응용 프로그램이 복사 중인 Blob 또는 파일에 쓰지 못하게 할 수 없으면 작업이 완료될 때까지 복사된 리소스가 소스 리소스와 더 이상 완전히 동일하지 않을 수 있습니다.
 
@@ -971,16 +971,16 @@ FIPS 규격 알고리즘은 Windows에서 기본적으로 비활성화됩니다.
 
 Azure Storage 및 AzCopy에 대한 자세한 내용은 다음 리소스를 참조하세요.
 
-### <a name="azure-storage-documentation"></a>Azure 저장소 설명서
-* [Azure 저장소 소개](../storage-introduction.md)
+### <a name="azure-storage-documentation"></a>Azure Storage 설명서
+* [Azure Storage 소개](../storage-introduction.md)
 * [.NET에서 Blob 저장소를 사용하는 방법](../blobs/storage-dotnet-how-to-use-blobs.md)
 * [.NET에서 파일 저장소를 사용하는 방법](../storage-dotnet-how-to-use-files.md)
 * [.NET에서 테이블 저장소를 사용하는 방법](../../cosmos-db/table-storage-how-to-use-dotnet.md)
 * [저장소 계정을 만들거나, 관리하거나, 삭제하는 방법](../storage-create-storage-account.md)
 * [Linux에서 AzCopy를 사용하여 데이터 전송](storage-use-azcopy-linux.md)
 
-### <a name="azure-storage-blog-posts"></a>Azure 저장소 블로그 게시물:
-* [Azure 저장소 데이터 이동 라이브러리 미리 보기 소개](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)
+### <a name="azure-storage-blog-posts"></a>Azure Storage 블로그 게시물:
+* [Azure Storage 데이터 이동 라이브러리 미리 보기 소개](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)
 * [AzCopy: 동기 복사본 및 사용자 지정 콘텐츠 형식 소개(영문)](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/01/13/azcopy-introducing-synchronous-copy-and-customized-content-type.aspx)
 * [AzCopy: AzCopy 3.0의 일반 공급 및 테이블 및 파일을 지원하는 AzCopy 4.0의 미리 보기 릴리스 발표(영문)](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/10/29/azcopy-announcing-general-availability-of-azcopy-3-0-plus-preview-release-of-azcopy-4-0-with-table-and-file-support.aspx)
 * [AzCopy: 대량 복사 시나리오에 맞게 최적화(영문)](http://go.microsoft.com/fwlink/?LinkId=507682)

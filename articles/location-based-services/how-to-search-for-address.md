@@ -6,21 +6,21 @@ keywords: "SEO champ를 조회하지 않고 키워드를 추가하거나 편집�
 author: philmea
 ms.author: philmea
 ms.date: 11/29/2017
-ms.topic: how-to
+ms.topic: article
 ms.service: location-based-services
-ms.openlocfilehash: d928e4ff7c6e35291bcc1e6a1359d54542968278
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: cacaaab869d3a7752b5a750f01bbfbdaf79814f7
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="how-to-find-an-address-using-the-azure-location-based-services-preview-search-service"></a>Azure Location Based Services(미리 보기) 검색 서비스를 사용하여 주소를 검색하는 방법
 검색 서비스는 개발자가 주소, 위치, 관심 지점, 비즈니스 목록 및 기타 지리 정보를 검색할 수 있는 API의 RESTful 세트입니다. 검색 서비스는 특정 주소, 교차로, 지리적 특징 또는 관심 지점(POI)에 위도/경고를 할당합니다. 검색 서비스 API에서 반환된 위도 및 경도를 Route 및 Traffic Flow API 등의 다른 Azure Location Based Services에 매개 변수로 사용할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
-[Postman 앱](https://www.getpostman.com/apps)을 설치합니다.
+* [Postman 앱](https://www.getpostman.com/apps)을 설치합니다.
 
-Azure Location Based Services 계정 및 구독 키입니다. 계정 만들기 및 구독 키 검색에 대한 자세한 내용은 [Azure Location Based Services 계정 및 키](how-to-manage-account-keys.md)를 참조하세요. 
+* Azure Location Based Services 계정 및 키가 있습니다. 계정 만들기 및 구독 키 검색에 대한 자세한 내용은 [Azure Location Based Services 계정 및 키를 관리하는 방법](how-to-manage-account-keys.md)을 참조하세요. 
 
 ## <a name="using-fuzzy-search"></a>유사 항목 검색 사용
 
@@ -44,7 +44,7 @@ Azure Location Based Services 계정 및 구독 키입니다. 계정 만들기 �
     | 요청 URL | https://atlas.microsoft.com/search/fuzzy/json? |
     | 권한 부여 | 인증 없음 |
 
-    URL 경로의 **json** 특성은 응답 형식을 결정합니다. 이 문서 전체에서 편의성과 가독성을 위해 json을 사용합니다. [Location Based Services Functional API 참조](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchfuzzy)의 **유사 항목 검색 가져오기** 정의에서 사용 가능한 응답 형식을 찾을 수 있습니다.
+    URL 경로의 **json** 특성은 응답 형식을 결정합니다. 이 문서 전체에서 편의성과 가독성을 위해 json을 사용합니다. [Location Based Services Functional API 참조](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchfuzzy)의 **유사 항목 검색 가져오기** 정의에서 사용 가능한 응답 형식을 찾을 수 있습니다.
 
 3. **Params**를 클릭하고 요청 URL에 쿼리 또는 경로 매개 변수로 사용할 다음 키 / 값 쌍을 입력합니다.
 
@@ -53,7 +53,7 @@ Azure Location Based Services 계정 및 구독 키입니다. 계정 만들기 �
     | 키 | 값 |
     |------------------|-------------------------|
     | api-version | 1.0 |
-    | 구독 키 | *구독 키* |
+    | 구독 키 | \<Azure Location Based Services 키\> |
     | 쿼리 | 피자 |
 
 4. **보내기**를 클릭하고 응답 본문을 검토합니다. 
@@ -103,7 +103,7 @@ Azure Location Based Services 계정 및 구독 키입니다. 계정 만들기 �
     | 키 | 값 |
     |------------------|-------------------------|
     | api-version | 1.0 |
-    | 구독 키 | *구독 키* |
+    | 구독 키 | \<Azure Location Based Services 키\> |
     | 쿼리 | 400 한 광범위 한 St, 시애틀, WA 98109 |
     
 3. **보내기**를 클릭하고 응답 본문을 검토합니다. 
@@ -143,7 +143,7 @@ Azure Location Based Services 계정 및 구독 키입니다. 계정 만들기 �
     | 키 | 값 |
     |------------------|-------------------------|
     | api-version | 1.0 |
-    | 구독 키 | *구독 키* |
+    | 구독 키 | \<Azure Location Based Services 키\> |
     | 쿼리 | 47.59093,-122.33263 |
     
 3. **보내기**를 클릭하고 응답 본문을 검토합니다. 
@@ -156,7 +156,7 @@ Azure Location Based Services 계정 및 구독 키입니다. 계정 만들기 �
     |-----|------------|
     | number | true |
 
-    요청과 함께 [숫자](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) 쿼리 매개 변수를 보내는 경우 응답은 도로의 측면(왼쪽/오른쪽) 및 해당 번호에 대한 오프셋 위치로 포함할 수 있습니다.
+    요청과 함께 [숫자](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) 쿼리 매개 변수를 보내는 경우 응답은 도로의 측면(왼쪽/오른쪽) 및 해당 번호에 대한 오프셋 위치로 포함할 수 있습니다.
     
 5. **Params** 섹션에 다음 키/값 쌍을 추가하고 **보내기**를 클릭합니다.
 
@@ -164,7 +164,7 @@ Azure Location Based Services 계정 및 구독 키입니다. 계정 만들기 �
     |-----|------------|
     | spatialKeys | true |
 
-    [spatialKeys](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) 쿼리 매개 변수를 설정한 경우, 응답은 지정된 위치에 대한 독자적인 지역-공간 키 정보를 포함합니다.
+    [spatialKeys](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) 쿼리 매개 변수를 설정한 경우, 응답은 지정된 위치에 대한 독자적인 지역-공간 키 정보를 포함합니다.
 
 6. **Params** 섹션에 다음 키/값 쌍을 추가하고 **보내기**를 클릭합니다.
 
@@ -172,7 +172,7 @@ Azure Location Based Services 계정 및 구독 키입니다. 계정 만들기 �
     |-----|------------|
     | returnSpeedLimit | true |
     
-    [returnSpeedLimit](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) 쿼리 매개 변수를 설정한 경우 응답은 게시된 속도 제한을 반환합니다.
+    [returnSpeedLimit](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) 쿼리 매개 변수를 설정한 경우 응답은 게시된 속도 제한을 반환합니다.
 
 7. **Params** 섹션에 다음 키/값 쌍을 추가하고 **보내기**를 클릭합니다.
 
@@ -180,7 +180,7 @@ Azure Location Based Services 계정 및 구독 키입니다. 계정 만들기 �
     |-----|------------|
     | returnRoadUse | true |
 
-    [returnRoadUse](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) 쿼리 매개 변수를 설정한 경우 응답은 도로 수준의 리버스 지오코드(reversegeocode)에 대한 도로 사용 배열을 반환합니다.
+    [returnRoadUse](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) 쿼리 매개 변수를 설정한 경우 응답은 도로 수준의 리버스 지오코드(reversegeocode)에 대한 도로 사용 배열을 반환합니다.
 
 8. **Params** 섹션에 다음 키/값 쌍을 추가하고 **보내기**를 클릭합니다.
 
@@ -188,7 +188,7 @@ Azure Location Based Services 계정 및 구독 키입니다. 계정 만들기 �
     |-----|------------|
     | roadUse | true |
 
-    [roadUse](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) 쿼리 매개 변수를 사용하면 역 지오코드 쿼리를 특정 유형의 도로 사용으로 제한할 수 있습니다.
+    [roadUse](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) 쿼리 매개 변수를 사용하면 역 지오코드 쿼리를 특정 유형의 도로 사용으로 제한할 수 있습니다.
     
 ## <a name="search-for-the-cross-street-using-reverse-address-cross-street-search"></a>역 주소 교차로 검색을 사용하여 교차로 검색
 
@@ -209,10 +209,10 @@ Azure Location Based Services 계정 및 구독 키입니다. 계정 만들기 �
     | 키 | 값 |
     |------------------|-------------------------|
     | api-version | 1.0 |
-    | 구독 키 | *구독 키* |
+    | 구독 키 | \<Azure Location Based Services 키\> |
     | 쿼리 | 47.59093,-122.33263 |
     
 4. **보내기**를 클릭하고 응답 본문을 검토합니다. 
 
 ## <a name="next-steps"></a>다음 단계
-- [Azure Location Based Serices Search 서비스](https://docs.microsoft.com/en-us/rest/api/location-based-services/search) API 문서 탐색 
+- [Azure Location Based Serices Search 서비스](https://docs.microsoft.com/rest/api/location-based-services/search) API 문서 탐색 

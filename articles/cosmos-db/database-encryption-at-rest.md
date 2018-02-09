@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: voellm
-ms.openlocfilehash: d8967d4504a8ccabb444c7f3d5635e2d00f287c5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 193dbede0655376714c6f8f12c826ba3f9bc8933
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-cosmos-db-database-encryption-at-rest"></a>미사용 Azure Cosmos DB 데이터베이스 암호화
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 
 PaaS 서비스인 Cosmos DB는 사용하기가 매우 간편합니다. Cosmos DB에 저장된 모든 사용자 데이터는 미사용 및 전송 시 암호화되기 때문에 어떤 조치도 취할 필요가 없습니다. 또한 미사용 암호화가 기본적으로 "설정" 상태라는 것도 이러한 노력 중 하나입니다. 설정하거나 해제하는 데 사용되는 컨트롤이 없습니다. Microsoft는 [가용성 및 성능 SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db)를 지속적으로 충족하면서 이 기능을 제공합니다.
 
-## <a name="implement-encryption-at-rest"></a>미사용 암호화 구현
+## <a name="implementation-of-encryption-at-rest-for-azure-cosmos-db"></a>Azure Cosmos DB에 대한 미사용 암호화 구현
 
 미사용 암호화는 보안 키 저장소 시스템, 암호화된 네트워크 및 암호화 API를 비롯한 수많은 보안 기술을 사용하여 구현되었습니다. 데이터를 암호 해독하고 처리하는 시스템은 키를 관리하는 시스템과 통신해야 합니다. 다이어그램에서는 암호화된 데이터의 저장소와 키 관리가 어떻게 구분되는지를 보여 줍니다. 
 

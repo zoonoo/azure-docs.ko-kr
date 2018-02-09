@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/04/2017
 ms.author: larryfr
-ms.openlocfilehash: b05dbdcec3cfb5c78115061567bb6229623cd0ff
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: b451a80934a19f8a38ab9e8ace358674827aefa0
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="run-hive-queries-with-hadoop-in-hdinsight-using-rest"></a>REST를 사용하여 HDInsight에서 Hadoop으로 Hive 쿼리 실행
 
@@ -50,7 +50,9 @@ WebHCat REST API를 사용하여 Azure HDInsight 클러스터에서 Hadoop으로
 
     다음 텍스트와 유사한 응답이 수신됩니다.
 
-        {"status":"ok","version":"v1"}
+    ```json
+    {"status":"ok","version":"v1"}
+    ```
 
     이 명령에서 사용된 매개 변수는 다음과 같습니다.
 
@@ -65,7 +67,9 @@ WebHCat REST API를 사용하여 Azure HDInsight 클러스터에서 Hadoop으로
 
     이 요청은 다음 텍스트와 유사한 응답을 반환합니다.
 
+    ```json
         {"module":"hive","version":"0.13.0.2.1.6.0-2103"}
+    ```
 
 2. 다음을 사용하여 **log4jLogs**라는 새 테이블을 만듭니다.
 
@@ -105,7 +109,9 @@ WebHCat REST API를 사용하여 Azure HDInsight 클러스터에서 Hadoop으로
 
    이 명령은 작업 상태를 확인하는 데 사용할 수 있는 작업 ID를 반환합니다.
 
+    ```json
        {"id":"job_1415651640909_0026"}
+    ```
 
 3. 작업 상태를 확인하려면 다음 명령을 사용합니다.
 

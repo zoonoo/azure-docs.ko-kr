@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/26/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 2a8b883975ed0c0a2a6ee9a2a7ad0c0b1e938fd4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ec7fe2adfb89edd635adcf247eea0b98f7007b1b
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-custom-apis-that-you-can-call-from-logic-app-workflows"></a>논리 앱 워크플로에서 호출할 수 있는 사용자 지정 API 만들기
 
@@ -31,7 +31,7 @@ Azure Logic Apps는 논리 앱 워크플로에서 사용할 수 있는[100개 �
 
 기본적으로 커넥터는 플러그형 인터페이스에 대한 REST, 문서에 대한 [Swagger 메타데이터 형식](http://swagger.io/specification/) 및 JSON(데이터 교환 형식)을 사용하는 웹 API입니다. 커넥터는 HTTP 끝점을 통해 통신하는 REST API이므로 .NET, Java 또는 Node.js와 같은 언어를 사용하여 커넥터를 빌드할 수 있습니다. API 호스팅을 위한 가장 쉽고, 확장성 있는, 최상의 방법 중 하나를 제공하는 PaaS(Platform-as-a-Service) 제품인 [Azure App Service](../app-service/app-service-web-overview.md)에서 API를 호스팅할 수도 있습니다. 
 
-사용자 지정 API가 논리 앱에서 작동하려면 API가 논리 앱 워크플로에서 특정 작업을 수행하는 [*동작*](./logic-apps-what-are-logic-apps.md#logic-app-concepts)을 제공할 수 있습니다. 또한 API는 [*트리거*](./logic-apps-what-are-logic-apps.md#logic-app-concepts)의 역할을 수행하여 새 데이터 또는 이벤트가 지정된 조건을 충족할 때 논리 앱 워크플로를 시작할 수도 있습니다. 이 항목에서는 API에서 제공할 동작에 따라 API에서 동작과 트리거를 빌드할 때 따라야 하는 일반적인 패턴에 대해 설명합니다.
+사용자 지정 API가 논리 앱에서 작동하려면 API가 논리 앱 워크플로에서 특정 작업을 수행하는 [*동작*](./logic-apps-overview.md#logic-app-concepts)을 제공할 수 있습니다. 또한 API는 [*트리거*](./logic-apps-overview.md#logic-app-concepts)의 역할을 수행하여 새 데이터 또는 이벤트가 지정된 조건을 충족할 때 논리 앱 워크플로를 시작할 수도 있습니다. 이 항목에서는 API에서 제공할 동작에 따라 API에서 동작과 트리거를 빌드할 때 따라야 하는 일반적인 패턴에 대해 설명합니다.
 
 확장성이 뛰어나고 쉬운 API 호스팅을 제공하는 PaaS(Platform-as-a-Service) 제품인 [Azure App Service](../app-service/app-service-web-overview.md)에서 API를 호스트할 수 있습니다.
 
@@ -40,7 +40,7 @@ Azure Logic Apps는 논리 앱 워크플로에서 사용할 수 있는[100개 �
 > 
 > * [ASP.NET](../app-service/app-service-web-get-started-dotnet.md). 
 > * [Java](../app-service/app-service-web-get-started-java.md)
-> * [Node.JS](../app-service/app-service-web-get-started-nodejs.md)
+> * [Node.js](../app-service/app-service-web-get-started-nodejs.md)
 > * [PHP](../app-service/app-service-web-get-started-php.md)
 > * [Python](../app-service/app-service-web-get-started-python.md)
 >
@@ -73,7 +73,7 @@ API 작업 및 매개 변수를 설명하는 [Swagger 문서](http://swagger.io/
 
 ## <a name="action-patterns"></a>동작 패턴
 
-논리 앱에서 작업을 수행하려면 사용자 지정 API에서 [*동작*](./logic-apps-what-are-logic-apps.md#logic-app-concepts)을 제공해야 합니다. API 작업 각각은 동작에 맵핑됩니다. 기본 동작은 HTTP 요청을 받아들이고 HTTP 응답을 반환하는 컨트롤러입니다. 예를 들어 논리 앱은 웹앱 또는 API 앱에 HTTP 요청을 보냅니다. 그런 다음 앱은 논리 앱에서 처리할 수 있는 내용과 함께 HTTP 응답을 반환합니다.
+논리 앱에서 작업을 수행하려면 사용자 지정 API에서 [*동작*](./logic-apps-overview.md#logic-app-concepts)을 제공해야 합니다. API 작업 각각은 동작에 맵핑됩니다. 기본 동작은 HTTP 요청을 받아들이고 HTTP 응답을 반환하는 컨트롤러입니다. 예를 들어 논리 앱은 웹앱 또는 API 앱에 HTTP 요청을 보냅니다. 그런 다음 앱은 논리 앱에서 처리할 수 있는 내용과 함께 HTTP 응답을 반환합니다.
 
 표준 동작의 경우 API에 HTTP 요청 메서드를 작성하고 해당 메서드를 Swagger 파일에 설명할 수 있습니다. 그런 다음 [HTTP 동작](../connectors/connectors-native-http.md) 또는 [HTTP + Swagger](../connectors/connectors-native-http-swagger.md) 동작을 사용하여 API를 직접 호출할 수 있습니다. 기본적으로 응답은 [요청 시간 제한](./logic-apps-limits-and-config.md) 내에 반환되어야 합니다. 
 
@@ -153,7 +153,7 @@ API가 이 패턴을 따르는 경우 작업 상태를 계속 확인하기 위�
 
 ## <a name="trigger-patterns"></a>트리거 패턴
 
-사용자 지정 API는 [*트리거*](./logic-apps-what-are-logic-apps.md#logic-app-concepts)의 역할을 수행하여 새 데이터 또는 이벤트가 지정된 조건을 충족할 때 논리 앱을 시작할 수 있습니다. 이 트리거는 서비스 끝점에서 새 데이터 또는 이벤트를 정기적으로 확인하거나 대기 및 수신 대기할 수 있습니다. 새 데이터 또는 이벤트가 지정된 조건을 충족하면 트리거가 시작되고 해당 트리거를 수신하는 논리 앱이 시작됩니다. 이러한 방식으로 논리 앱을 시작하려면 API에서 [*폴링 트리거*](#polling-triggers) 또는 [*웹후크 트리거*](#webhook-triggers) 패턴을 따르면 됩니다. 이러한 패턴은 [폴링 동작](#async-pattern) 및 [웹후크 동작](#webhook-actions)의 해당 패턴과 비슷합니다. 또한 [트리거 사용량 측정](logic-apps-pricing.md)에 대해서도 자세히 알아보세요.
+사용자 지정 API는 [*트리거*](./logic-apps-overview.md#logic-app-concepts)의 역할을 수행하여 새 데이터 또는 이벤트가 지정된 조건을 충족할 때 논리 앱을 시작할 수 있습니다. 이 트리거는 서비스 끝점에서 새 데이터 또는 이벤트를 정기적으로 확인하거나 대기 및 수신 대기할 수 있습니다. 새 데이터 또는 이벤트가 지정된 조건을 충족하면 트리거가 시작되고 해당 트리거를 수신하는 논리 앱이 시작됩니다. 이러한 방식으로 논리 앱을 시작하려면 API에서 [*폴링 트리거*](#polling-triggers) 또는 [*웹후크 트리거*](#webhook-triggers) 패턴을 따르면 됩니다. 이러한 패턴은 [폴링 동작](#async-pattern) 및 [웹후크 동작](#webhook-actions)의 해당 패턴과 비슷합니다. 또한 [트리거 사용량 측정](logic-apps-pricing.md)에 대해서도 자세히 알아보세요.
 
 <a name="polling-triggers"></a>
 

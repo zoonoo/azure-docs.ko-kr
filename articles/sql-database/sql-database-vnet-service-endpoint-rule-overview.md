@@ -1,6 +1,6 @@
 ---
 title: "Azure SQL Database에 대한 가상 네트워크 서비스 끝점 및 규칙 | Microsoft Docs"
-description: "서브넷을 Virtual Network 서비스 끝점으로 표시합니다. 그런 다음 해당 끝점을 가상 네트워크 규칙으로 Azure SQL Database의 ACL에 추가합니다. 그러면 SQL Database가 해당 서브넷에 있는 모든 가상 컴퓨터와 다른 노드에서 보낸 통신을 수락합니다."
+description: "서브넷을 Virtual Network 서비스 끝점으로 표시합니다. 그런 다음 해당 끝점을 가상 네트워크 규칙으로 Azure SQL Database의 ACL에 추가합니다. 그러면 SQL Database가 해당 서브넷에 있는 모든 가상 머신과 다른 노드에서 보낸 통신을 수락합니다."
 services: sql-database
 documentationcenter: 
 author: MightyPen
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: On Demand
-ms.date: 11/13/2017
+ms.date: 01/31/2018
 ms.author: genemi
-ms.openlocfilehash: 66dbc9c2c3ba9b9f0c7eb405dbafbd002ce50fbc
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: d4179c590ef418633158dd5a5dbadbc8c20bcde7
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Azure SQL Database에 대한 Virtual Network 서비스 끝점 및 규칙 사용
 
@@ -28,9 +28,6 @@ ms.lasthandoff: 11/17/2017
 
 가상 네트워크 규칙을 만들려면 먼저 참조할 규칙에 대한 [가상 네트워크 서비스 끝점][vm-virtual-network-service-endpoints-overview-649d]이 있어야 합니다.
 
-
-> [!NOTE]
-> Azure SQL Database의 경우 이 기능은 Azure 공용 클라우드의 모든 지역에서 미리 보기로 제공됩니다.
 
 #### <a name="how-to-create-a-virtual-network-rule"></a>가상 네트워크 규칙을 만드는 방법
 
@@ -47,7 +44,7 @@ ms.lasthandoff: 11/17/2017
 
 **가상 네트워크:** Azure 구독과 연결된 가상 네트워크가 있을 수 있습니다.
 
-**서브넷:** 가상 네트워크에 **서브넷**이 포함됩니다. 소유한 Azure VM(가상 컴퓨터)은 서브넷에 할당됩니다. 하나의 서브넷에 여러 VM 또는 다른 계산 노드가 포함될 수 있습니다. 액세스를 허용하도록 보안을 구성해야 가상 네트워크 외부의 계산 노드가 가상 네트워크에 액세스할 수 있습니다.
+**서브넷:** 가상 네트워크에 **서브넷**이 포함됩니다. 소유한 Azure VM(가상 머신)은 서브넷에 할당됩니다. 하나의 서브넷에 여러 VM 또는 다른 계산 노드가 포함될 수 있습니다. 액세스를 허용하도록 보안을 구성해야 가상 네트워크 외부의 계산 노드가 가상 네트워크에 액세스할 수 있습니다.
 
 **Virtual Network 서비스 끝점:** [Virtual Network 서비스 끝점][vm-virtual-network-service-endpoints-overview-649d]은 속성 값에 하나 이상의 정식 Azure 서비스 유형 이름이 포함된 서브넷입니다. 이 문서에서는 SQL Database라는 Azure 서비스를 나타내는 **Microsoft.Sql**의 형식 이름을 살펴봅니다.
 
@@ -65,9 +62,9 @@ ms.lasthandoff: 11/17/2017
 
 ## <a name="benefits-of-a-virtual-network-rule"></a>가상 네트워크 규칙의 이점
 
-작업을 수행할 때까지 서브넷의 VM은 SQL Database와 통신할 수 없습니다. 통신 허용에 대한 가상 네트워크 규칙 방법을 선택하는 원리에는 방화벽에서 제공된 경쟁 보안 옵션에 관련된 비교-대비 토론이 필요합니다.
+작업을 수행할 때까지 서브넷의 VM은 SQL Database와 통신할 수 없습니다. 통신을 설정하는 한 동작은 가상 네트워크 규칙을 생성하는 것입니다. VNet 규칙 접근 방식을 선택하는 원리에는 방화벽에서 제공된 경쟁 보안 옵션에 관련된 비교-대비 토론이 필요합니다.
 
-#### <a name="a-allow-access-to-azure-services"></a>A. Azure 서비스에 대한 액세스 허용
+#### <a name="a-allow-access-to-azure-services"></a>a. Azure 서비스에 대한 액세스 허용
 
 방화벽 창에는 **Azure 서비스에 대한 액세스 허용**이라고 표시된 **켜기/끄기** 단추가 있습니다. **켜기** 설정은 모든 Azure IP 주소와 모든 Azure 서브넷에서 보낸 통신을 허용합니다. 이러한 Azure IP 또는 서브넷은 사용자가 소유할 수 없습니다. 이 **켜기** 설정은 SQL Database에 필요한 것보다 더 개방적일 수 있습니다. 가상 네트워크 규칙 기능으로 훨씬 더 세밀하게 제어할 수 있습니다.
 
@@ -75,7 +72,7 @@ ms.lasthandoff: 11/17/2017
 
 SQL Database 방화벽을 사용하여 SQL Database에 대한 통신이 수락되는 IP 주소 범위를 지정할 수 있습니다. 이 방법은 Azure 개인 네트워크 외부에 있는 안정적인 IP 주소에 적합합니다. 하지만 Azure 개인 네트워크 내부의 많은 노드는 *동적* IP 주소로 구성됩니다. 동적 IP 주소는, 예를 들어 VM이 다시 시작될 때 변경될 수 있습니다. 프로덕션 환경의 방화벽 규칙에서는 동적 IP 주소를 지정하면 안 됩니다.
 
-VM에 대한 *정적* IP 주소를 가져와서 IP 옵션을 복원할 수 있습니다. 자세한 내용은 [Azure Portal을 사용하여 가상 컴퓨터에 대한 개인 IP 주소 구성][vm-configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal-321w]을 참조하세요.
+VM에 대한 *정적* IP 주소를 가져와서 IP 옵션을 복원할 수 있습니다. 자세한 내용은 [Azure Portal을 사용하여 가상 머신에 대한 개인 IP 주소 구성][vm-configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal-321w]을 참조하세요.
 
 그러나 정적 IP 방법은 관리가 어려워질 수 있고 대규모로 이루어질 경우 비용이 많이 듭니다. 가상 네트워크 규칙은 설정 및 관리가 더 쉽습니다.
 
@@ -115,16 +112,16 @@ Virtual Network 서비스 끝점 관리에는 보안 역할 분리가 있습니�
 - **네트워크 관리자:** &nbsp; 끝점을 켭니다.
 - **데이터베이스 관리자:** &nbsp; ACL(액세스 제어 목록)을 업데이트하여 제공된 서브넷을 SQL Database 서버에 추가합니다.
 
-*RBAC 대체:* 
+*RBAC 대체:*
 
 네트워크 관리자 및 데이터베이스 관리자 역할에는 가상 네트워크 규칙을 관리하는 데 필요한 것보다 많은 기능이 포함됩니다. 해당 기능의 하위 집합만 필요합니다.
 
 Azure에서 [RBAC(역할 기반 액세스 제어)][rbac-what-is-813s]를 사용하여 기능의 필요한 하위 집합만 포함된 단일 사용자 지정 역할을 만들 수도 있습니다. 네트워크 관리자 또는 데이터베이스 관리자를 포함하는 대신 사용자 지정 역할을 사용할 수 있습니다. 사용자 지정 역할에 사용자를 추가할 경우 다른 두 개의 주요 관리자 역할에 사용자를 추가하는 것보다 보안 노출의 노출 영역이 감소합니다.
 
-
-
-
-
+> [!NOTE]
+> 일부 경우에 Azure SQL Database 및 VNet 서브넷은 서로 다른 구독에 있습니다. 이러한 경우에는 다음과 같은 구성을 확인해야 합니다.
+> - 두 구독은 모두 동일한 Azure Active Directory 테넌트에 있어야 합니다.
+> - 서비스 엔드포인트를 사용하도록 설정하고 지정된 서버에 VNet 서브넷을 추가하는 등의 작업을 시작하는 데 필요한 권한이 사용자에게 있습니다.
 
 ## <a name="limitations"></a>제한 사항
 
@@ -158,8 +155,41 @@ FYI: Re ARM, 'Azure Service Management (ASM)' was the old name of 'classic deplo
 When searching for blogs about ASM, you probably need to use this old and now-forbidden name.
 -->
 
+## <a name="impact-of-removing-allow-all-azure-services"></a>‘모든 Azure 서비스 허용’ 제거의 영향
+
+많은 사용자가 자신의 Azure SQL Server에서 **모든 Azure 서비스 허용**을 제거하고 VNet 방화벽 규칙으로 바꾸려고 합니다.
+그러나 이를 제거하면 다음과 같은 Azure SQLDB 기능에 영향을 미칩니다.
+
+#### <a name="import-export-service"></a>가져오기/내보내기 서비스
+Azure SQLDB 가져오기/내보내기 서비스는 Azure의 VM에서 실행됩니다. 이러한 VM은 VNet에 있지 않으므로 데이터베이스에 연결할 때 Azure IP를 가져옵니다. **모든 Azure 서비스 허용**을 제거하면 이러한 VM은 데이터베이스에 액세스할 수 없게 됩니다.
+이 문제는 해결할 수 있습니다. DACFx API를 사용하여 코드에서 직접 BACPAC 가져오기 또는 내보내기를 실행합니다. 방화벽 규칙을 설정한 VNet 서브넷에 있는 VM에 배포되었는지 확인합니다.
+
+#### <a name="sql-database-query-editor"></a>SQL Database 쿼리 편집기
+Azure SQL Database 쿼리 편집기는 Azure의 VM에 배포됩니다. 이러한 VM은 VNet에 있지 않습니다. 따라서 VM은 데이터베이스에 연결할 때 Azure IP를 가져옵니다. **모든 Azure 서비스 허용**을 제거하면 이러한 VM은 데이터베이스에 액세스할 수 없게 됩니다.
+
+#### <a name="table-auditing"></a>테이블 감사
+현재 SQL Database에서 감사를 활성화하는 방법에는 두 가지가 있습니다. Azure SQL Server에서 서비스 엔드포인트를 활성화한 후에는 테이블 감사에 실패합니다. 여기서 완화책은 Blob 감사로 이동하는 것입니다.
 
 
+## <a name="impact-of-using-vnet-service-endpoints-with-azure-storage"></a>Azure 저장소에서 VNet 서비스 엔드포인트 사용의 영향
+
+Azure Storage는 사용자가 저장소 계정에 대한 연결성을 제한하도록 허용하는 동일한 기능을 구현했습니다.
+Azure SQL Server에서 사용 중인 저장소 계정에서 이 기능을 사용하도록 선택한 경우 문제가 발생할 수 있습니다. 다음은 이로 인해 영향을 받는 Azure SQLDB 기능의 목록 및 토론입니다.
+
+#### <a name="azure-sqldw-polybase"></a>Azure SQLDW PolyBase
+PolyBase는 대개 저장소 계정에서 Azure SQLDW로 데이터를 로드하는 데 사용됩니다. 데이터를 로드하는 저장소 계정이 액세스를 VNet 서브넷 집합으로만 제한하는 경우 PolyBase에서 계정으로의 연결은 중단됩니다.
+
+#### <a name="azure-sqldb-blob-auditing"></a>Azure SQLDB Blob 감사
+Blob 감사는 사용자 고유의 저장소 계정에 감사 로그를 푸시합니다. 이 저장소 계정이 VENT 서비스 엔드포인트 기능을 사용하는 경우 Azure SQLDB에서 저장소 계정으로의 연결은 중단됩니다.
+
+
+## <a name="adding-a-vnet-firewall-rule-to-your-server-without-turning-on-vnet-service-endpoints"></a>VNET 서비스 엔드포인트를 켜지 않고 서버에 VNET 방화벽 규칙 추가
+
+이 기능을 강화하기 오래 전에는 VNet 서비스 엔드포인트를 켜야 방화벽에 라이브 VNet 규칙을 구현할 수 있었습니다. 엔드포인트는 Azure SQL Database에 지정된 VNet 서브넷과 관련이 있었습니다. 하지만 2018년 1월 현재는 **IgnoreMissingServiceEndpoint** 플래그를 설정하면 이 요구 사항을 우회할 수 있습니다.
+
+단순히 방화벽 규칙을 설정하는 것은 서버 보안에 도움이 되지 않습니다. 보안이 효력을 나타내려면 VNet 서비스 엔드포인트도 켜야 합니다. 서비스 엔드포인트를 켜면 전환을 끈 상태에서 켠 상태로 완료할 때까지 VNet 서브넷에서 가동 중지 시간이 발생합니다. 이는 특히 대규모 VNet의 컨텍스트에 적용됩니다. **IgnoreMissingServiceEndpoint** 플래그를 사용하여 전환 시 가동 중지 시간을 줄이거나 없앨 수 있습니다.
+
+PowerShell을 사용하여 **IgnoreMissingServiceEndpoint** 플래그를 설정할 수 있습니다. 자세한 내용은 [PowerShell을 사용하여 Azure SQL Database에 대한 Virtual Network 서비스 엔드포인트 및 규칙 만들기][sql-db-vnet-service-endpoint-rule-powershell-md-52d]를 참조하세요.
 
 
 ## <a name="errors-40914-and-40615"></a>오류 40914 및 40615
@@ -217,16 +247,17 @@ Azure SQL Database에 관련된 특정 Virtual Network 서비스 끝점 *형식 
 3. **Azure 서비스에 대한 액세스 허용** 컨트롤을 [끄기]로 설정합니다.
 
     > [!IMPORTANT]
-    > 컨트롤을 [켜기] 설정으로 유지하면 Azure SQL Database 서버는 서브넷에서 보낸 통신을 수락하지 않으므로 보안 관점에서 지나친 액세스가 발생할 수 있습니다. Microsoft Azure Virtual Network 서비스 끝점 기능을 SQL Database의 가상 네트워크 규칙 기능과 함께 사용하여 보안 노출 영역을 줄일 수 있습니다.
+    > 컨트롤 집합을 ON으로 설정하면 Azure SQL Database 서버는 모든 서브넷으로부터의 통신을 수락합니다. 제어 집합을 ON으로 유지하면 보안 관점에서 과도하게 액세스할 수도 있습니다. Microsoft Azure Virtual Network 서비스 끝점 기능을 SQL Database의 가상 네트워크 규칙 기능과 함께 사용하여 보안 노출 영역을 줄일 수 있습니다.
 
 4. **가상 네트워크** 섹션에서 **+ 기존 항목 추가** 컨트롤을 클릭합니다.
 
     ![[기존 항목 추가]를 클릭합니다(SQL 규칙으로서 서브넷 끝점).][image-portal-firewall-vnet-add-existing-10-png]
 
 5. 새 **만들기/업데이트** 창에서 Azure 리소스 이름으로 컨트롤을 채웁니다.
- 
+
     > [!TIP]
-    > 서브넷에 대한 정확한 **주소 접두사**를 포함해야 합니다. Portal에서 값을 찾을 수 있습니다. **모든 리소스** &gt; **모든 형식** &gt; **가상 네트워크**를 탐색합니다. 필터에 가상 네트워크가 표시됩니다. 사용 중인 가상 네트워크를 클릭하고 **서브넷**을 클릭합니다. **주소 범위** 열에 필요한 주소 접두사가 있습니다.
+    > 서브넷에 대한 정확한 **주소 접두사**를 포함해야 합니다. Portal에서 값을 찾을 수 있습니다.
+    > **모든 리소스** &gt; **모든 형식** &gt; **가상 네트워크**를 탐색합니다. 필터에 가상 네트워크가 표시됩니다. 사용 중인 가상 네트워크를 클릭하고 **서브넷**을 클릭합니다. **주소 범위** 열에 필요한 주소 접두사가 있습니다.
 
     ![새 규칙에 대한 필드를 입력합니다.][image-portal-firewall-create-update-vnet-rule-20-png]
 
@@ -237,22 +268,26 @@ Azure SQL Database에 관련된 특정 Virtual Network 서비스 끝점 *형식 
     ![방화벽 창에서 새 규칙을 확인합니다.][image-portal-firewall-vnet-result-rule-30-png]
 
 
-
-
+> [!NOTE]
+> 다음 상태는 규칙에 적용됩니다.
+> - **Ready:** 시작한 작업이 성공했음을 나타냅니다.
+> - **Failed:** 시작한 작업이 실패했음을 나타냅니다.
+> - **Deleted:** 삭제 작업에만 적용되고 규칙이 삭제되었으며 더 이상 적용되지 않음을 나타냅니다.
+> - **InProgress:** 작업이 진행 중임을 나타냅니다. 작업이 이 상태인 동안에는 이전 규칙이 적용됩니다.
 
 
 <a name="anchor-how-to-links-60h" />
 
 ## <a name="related-articles"></a>관련 문서
 
-- [PowerShell을 사용하여 Azure SQL Database에 대한 Virtual Network 서비스 끝점 및 가상 네트워크 규칙 만들기][sql-db-vnet-service-endpoint-rule-powershell-md-52d]
 - [Azure 가상 네트워크 서비스 끝점][vm-virtual-network-service-endpoints-overview-649d]
 - [Azure SQL Database 서버 수준 및 데이터베이스 수준 방화벽 규칙][sql-db-firewall-rules-config-715d]
 
-Microsoft Azure Virtual Network 서비스 끝점 기능과 Azure SQL Database에 대한 가상 네트워크 규칙 기능은 둘 다 2017년 말에 제공될 예정입니다.
+Azure SQL Database에 대한 가상 네트워크 규칙 기능은 2017년 9월 말에 사용할 수 있습니다.
 
+## <a name="next-steps"></a>다음 단계
 
-
+- [PowerShell을 사용하여 가상 네트워크 서비스 끝점을 만든 다음, Azure SQL Database에 대한 가상 네트워크 규칙을 만듭니다.][sql-db-vnet-service-endpoint-rule-powershell-md-52d]
 
 
 <!-- Link references, to images. -->
@@ -304,4 +339,3 @@ Microsoft Azure Virtual Network 서비스 끝점 기능과 Azure SQL Database에
 
 - ARM templates
 -->
-

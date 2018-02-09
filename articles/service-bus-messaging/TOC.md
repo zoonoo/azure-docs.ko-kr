@@ -21,7 +21,6 @@
 ### [PHP](service-bus-php-how-to-use-topics-subscriptions.md)
 ### [Python](service-bus-python-how-to-use-topics-subscriptions.md)
 ### [Ruby](service-bus-ruby-how-to-use-topics-subscriptions.md)
-## [다중 계층 Service Bus 응용 프로그램 빌드](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 
 # 방법
 ## 계획 및 디자인
@@ -35,6 +34,7 @@
 ### [중단 및 재해 처리](service-bus-outages-disasters.md)
 
 ## 개발
+### [다중 계층 Service Bus 응용 프로그램 빌드](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 ### 메시지 처리
 #### [큐, 토픽 및 구독](service-bus-queues-topics-subscriptions.md)
 #### [메시지, 페이로드 및 직렬화](service-bus-messages-payloads.md)
@@ -79,7 +79,7 @@
 #### 
 ### [Azure PowerShell을 사용하여 엔터티 프로비전](service-bus-manage-with-ps.md)
 
-# 참조
+# 참고 자료
 ## .NET
 ### [Microsoft.ServiceBus.Messaging(.NET Framework)](/dotnet/api/microsoft.servicebus.messaging)
 ### [Microsoft.Azure.ServiceBus(.NET 표준)](/dotnet/api/microsoft.azure.servicebus)
@@ -95,7 +95,7 @@
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=enterprise-integration)
 ## [블로그](https://blogs.msdn.microsoft.com/servicebus/)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/forums/home?forum=servbus)
-## [가격 책정](https://azure.microsoft.com/pricing/details/service-bus/)
+## [가격](https://azure.microsoft.com/pricing/details/service-bus/)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [가격 정보](service-bus-pricing-billing.md)
 ## [샘플](service-bus-samples.md)

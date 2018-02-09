@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: wesmc
-ms.openlocfilehash: 5e0ff1b98be73eb5990601ae7c5528e4a7af670b
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 0d48d0b008d76cfb2d7d7815a69774976e184467
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Azure Functions의 Azure Event Hubs 바인딩
 
@@ -43,7 +43,7 @@ Event Hub-Triggered 함수의 각 인스턴스는 하나의 EPH(EventProcessorHo
 1. 10개의 파티션
 1. 모든 파티션에 고르게 분산된 1000개의 이벤트 => 각 파티션에 100개의 메시지
 
-기능을 처음 사용하는 경우 하나의 함수 인스턴스가 있습니다. 이 기능 인스턴스를 Function_0이라고 하겠습니다. Function_0에는 10개의 모든 파티션에 대해 임대를 가져오도록 관리하는 하나의 EPH가 있습니다. 0-9 파티션에서 이벤트를 읽기 시작합니다. 이 지점부터 다음 중 하나가 발생합니다.
+기능을 처음 사용하는 경우 함수 인스턴스 1개가 있습니다. 이 기능 인스턴스를 Function_0이라고 하겠습니다. Function_0에는 10개의 모든 파티션에 대해 임대를 가져오도록 관리하는 하나의 EPH가 있습니다. 0-9 파티션에서 이벤트를 읽기 시작합니다. 이 지점부터 다음 중 하나가 발생합니다.
 
 * **하나의 함수 인스턴스가 필요함** - Function_0은 Azure Functions의 크기 조정 논리가 시작하기 전에 1000개를 모두 처리할 수 있습니다. 따라서 모든 1000개의 메시지는 Function_0에서 처리됩니다.
 
@@ -59,14 +59,14 @@ Azure Functions의 현재 크기 조정 논리에서 고유한 점은 N이 파�
 
 언어 관련 예제를 참조하세요.
 
-* [미리 컴파일된 C#](#trigger---c-example)
-* [C# 스크립트](#trigger---c-script-example)
+* [C#](#trigger---c-example)
+* [C# 스크립트(.csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
 * [JavaScript](#trigger---javascript-example)
 
 ### <a name="trigger---c-example"></a>트리거 - C# 예제
 
-다음 예제에서는 이벤트 허브 트리거의 메시지 본문을 기록하는 [미리 컴파일된 C#](functions-dotnet-class-library.md) 코드를 보여줍니다.
+다음 예제에서는 이벤트 허브 트리거의 메시지 본문을 기록하는 [C# 함수](functions-dotnet-class-library.md)를 보여줍니다.
 
 ```csharp
 [FunctionName("EventHubTriggerCSharp")]
@@ -199,7 +199,7 @@ module.exports = function (context, myEventHubMessage) {
 
 ## <a name="trigger---attributes"></a>트리거 - 특성
 
-[미리 컴파일된 C#](functions-dotnet-class-library.md) 함수의 경우 [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus) NuGet 패키지에 정의되어 있는 [EventHubTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubTriggerAttribute.cs) 특성을 사용합니다.
+[C# 클래스 라이브러리](functions-dotnet-class-library.md)에서는 [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus) NuGet 패키지에 정의되어 있는 [EventHubTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubTriggerAttribute.cs) 특성을 사용합니다.
 
 특성의 생성자는 이벤트 허브의 이름, 소비자 그룹의 이름 및 연결 문자열을 포함하는 앱 설정의 이름을 사용합니다. 이러한 설정에 대한 자세한 내용은 [트리거 구성 섹션](#trigger---configuration)을 참조하세요. `EventHubTriggerAttribute` 특성 예제는 다음과 같습니다.
 
@@ -211,7 +211,7 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 }
 ```
 
-전체 예제는 [트리거 - 미리 컴파일된 C# 예제](#trigger---c-example)를 참조하세요.
+전체 예제는 [트리거 - C# 예제](#trigger---c-example)를 참조하세요.
 
 ## <a name="trigger---configuration"></a>트리거 - 구성
 
@@ -242,14 +242,14 @@ Event Hubs 출력 바인딩을 사용하여 이벤트 스트림에 이벤트를 
 
 언어 관련 예제를 참조하세요.
 
-* [미리 컴파일된 C#](#output---c-example)
-* [C# 스크립트](#output---c-script-example)
+* [C#](#output---c-example)
+* [C# 스크립트(.csx)](#output---c-script-example)
 * [F#](#output---f-example)
 * [JavaScript](#output---javascript-example)
 
 ### <a name="output---c-example"></a>출력 - C# 예제
 
-다음 예제에서는 메서드 반환 값을 출력으로 사용하여 이벤트 허브로 메시지를 쓰는 [미리 컴파일된 C# 함수](functions-dotnet-class-library.md)를 보여줍니다.
+다음 예제에서는 메서드 반환 값을 출력으로 사용하여 이벤트 허브로 메시지를 쓰는 [C# 함수](functions-dotnet-class-library.md)를 보여줍니다.
 
 ```csharp
 [FunctionName("EventHubOutput")]
@@ -371,7 +371,7 @@ module.exports = function(context) {
 
 ## <a name="output---attributes"></a>출력 - 특성
 
-[미리 컴파일된 C#](functions-dotnet-class-library.md) 함수의 경우 [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus) NuGet 패키지에 정의되어 있는 [EventHubAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs) 특성을 사용합니다.
+[C# 클래스 라이브러리](functions-dotnet-class-library.md)의 경우 [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus) NuGet 패키지에 정의되어 있는 [EventHubAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs) 특성을 사용합니다.
 
 특성의 생성자는 이벤트 허브의 이름 및 연결 문자열을 포함하는 앱 설정의 이름을 사용합니다. 이러한 설정에 대한 자세한 내용은 [출력 - 구성](#output---configuration)을 참조하세요. `EventHub` 특성 예제는 다음과 같습니다.
 
@@ -384,7 +384,7 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, Trac
 }
 ```
 
-전체 예제는 [출력 - 미리 컴파일된 C# 예제](#output---c-example)를 참조하세요.
+전체 예제는 [출력 - C# 예제](#output---c-example)를 참조하세요.
 
 ## <a name="output---configuration"></a>출력 - 구성
 

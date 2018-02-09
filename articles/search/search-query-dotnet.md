@@ -13,18 +13,18 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 05/19/2017
 ms.author: brjohnst
-ms.openlocfilehash: 52bd0fd4cf70401dcf881c7f28d5cd91397bb059
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: c3c22b83346269cf3c0327fe3fb98510a6266733
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="query-your-azure-search-index-using-the-net-sdk"></a>.NET SDK를 사용하여 Azure Search 인덱스 쿼리
 > [!div class="op_single_selector"]
 > * [개요](search-query-overview.md)
 > * [포털](search-explorer.md)
 > * [.NET](search-query-dotnet.md)
-> * [REST](search-query-rest-api.md)
+> * [REST (영문)](search-query-rest-api.md)
 > 
 > 
 
@@ -71,7 +71,7 @@ private static SearchIndexClient CreateSearchIndexClient(IConfigurationRoot conf
 .NET SDK로 검색하는 작업은 `SearchIndexClient`에서 `Documents.Search` 메서드를 호출하는 것 만큼 간단합니다. 이 메서드는 쿼리를 구체화하는 데 사용할 수 있는 `SearchParameters` 개체와 함께 검색 텍스트를 비롯한 몇 가지 매개 변수를 사용합니다.
 
 #### <a name="types-of-queries"></a>쿼리 유형
-사용할 두 가지 기본 [쿼리 유형](search-query-overview.md#types-of-queries)은 `search` 및 `filter`입니다. `search` 쿼리는 인덱스에서 모든 *검색 가능한* 필드에 대해 하나 이상의 단어를 검색합니다. `filter` 쿼리는 인덱스의 *필터링 가능한* 모든 필드에 걸쳐 부울 식을 계산합니다.
+사용할 두 가지 기본 [쿼리 유형](search-query-overview.md#types-of-queries)은 `search` 및 `filter`입니다. `search` 쿼리는 인덱스에서 모든 *검색 가능한* 필드에 대해 하나 이상의 단어를 검색합니다. `filter` 쿼리는 인덱스의 *필터링 가능한* 모든 필드에 걸쳐 부울 식을 계산합니다. 검색 및 필터를 함께 또는 별도로 사용할 수 있습니다.
 
 검색 및 필터는 모두 `Documents.Search` 메서드를 사용하여 수행됩니다. 검색 쿼리는 `searchText` 매개 변수에 전달될 수 있는 반면 필터 식은 `SearchParameters` 클래스의 `Filter` 속성에 전달될 수 있습니다. 검색하지 않고 필터링하려면 `searchText` 매개 변수에 `"*"`를 전달합니다. 필터링하지 않고 검색하려면 `Filter` 속성을 설정하지 않고 그대로 두거나 `SearchParameters` 인스턴스에 전달하지 않아야 합니다.
 

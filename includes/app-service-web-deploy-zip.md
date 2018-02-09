@@ -1,6 +1,6 @@
 ## <a name="deploy-uploaded-zip-file"></a>업로드된 ZIP 파일 배포
 
-Cloud Shell에서 [az webapp deployment source config-zip](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az_webapp_deployment_source_config_zip) 명령을 사용하여 업로드된 ZIP 파일을 웹앱에 배포합니다. *\<app_name>*을 웹앱의 이름으로 바꿉니다.
+Cloud Shell에서 [`az webapp deployment source config-zip`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az_webapp_deployment_source_config_zip) 명령을 사용하여 업로드된 ZIP 파일을 웹앱에 배포합니다. *\<app_name>*을 웹앱의 이름으로 바꿉니다.
 
 ```azurecli-interactive
 az webapp deployment source config-zip --resource-group myResouceGroup --name <app_name> --src clouddrive/myAppFiles.zip

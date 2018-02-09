@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 58f23406f20f6b0e75ec65197e4cebb6e4e788ac
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: e1e8b019fe4632b0b6ac02888b562d6718c14fcc
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="install-the-durable-functions-extension-and-samples-azure-functions"></a>지속성 함수 확장 및 샘플 설치(Azure Functions)
 
@@ -26,7 +26,7 @@ Azure Functions에 대한 [지속성 함수](durable-functions-overview.md) 확�
 
 * Visual Studio 2017(권장) 
 
-* Azure 포털
+* Azure portal
 
 ## <a name="visual-studio-2017"></a>Visual Studio 2017
 
@@ -115,7 +115,7 @@ Visual Studio Code는 주요 플랫폼인 Windows, macOS 및 Linux를 포함하�
     func host start
     ```
 
-## <a name="azure-portal"></a>Azure 포털
+## <a name="azure-portal"></a>Azure portal
 
 원하는 경우 지속성 함수 개발을 위해 Azure Portal을 사용할 수 있습니다.
 
@@ -123,7 +123,7 @@ Visual Studio Code는 주요 플랫폼인 Windows, macOS 및 Linux를 포함하�
 
 1. [functions.azure.com](https://functions.azure.com/signin)에서 새 함수 앱을 만듭니다.
 
-2. [2.0 런타임 버전을 사용](functions-versions.md)하도록 함수 앱을 구성합니다.
+2. [2.0 런타임 버전을 사용](set-runtime-version.md)하도록 함수 앱을 구성합니다.
 
 3. **"사용자 고유의 사용자 지정 함수 만들기"**를 선택하여 새 함수를 만듭니다.
 
@@ -173,7 +173,7 @@ Visual Studio Code는 주요 플랫폼인 Windows, macOS 및 Linux를 포함하�
         }
     ```
 
-축하합니다. 첫 번째 지속성 함수가 Azure Portal에서 작동되고 실행됩니다.
+축하합니다! 첫 번째 지속성 함수가 Azure Portal에서 작동되고 실행됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/05/2017
-ms.author: sethm; babanisa
-ms.openlocfilehash: 236d49b7d8104b410e2a4c768820c3c9ebcdce96
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 01/30/2018
+ms.author: sethm
+ms.openlocfilehash: 9b7be70d726edfa9dbda3719d431e532106724b6
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="what-is-event-hubs"></a>Event Hubs란?
 
@@ -44,7 +44,7 @@ Event Hubs는 메시지 스트림 처리 기능을 제공하지만 기존 엔터
 
 ## <a name="event-hubs-features"></a>Event Hubs 기능
 
-Event Hubs에는 다음과 같은 주요 요소가 포함되어 있습니다.
+Event Hubs는 다음과 같은 주요 요소를 제공합니다.
 
 - [**이벤트 생산자/게시자**](event-hubs-features.md#event-publishers): 이벤트 허브에 데이터를 보내는 엔터티입니다. 이벤트는 AMQP 1.0 또는 HTTPS를 통해 게시됩니다.
 - [**캡처**](event-hubs-features.md#capture): Event Hubs 스트리밍 데이터를 캡처하고 Azure Blob Storage 계정에 저장할 수 있습니다.

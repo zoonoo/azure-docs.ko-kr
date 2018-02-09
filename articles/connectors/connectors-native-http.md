@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/15/2016
 ms.author: jehollan; LADocs
-ms.openlocfilehash: d422a07a27ffa62a673bd2d471ae4fc837251dee
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3eae7a4a47680fc36849fd413b76a80865cf3c9f
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-http-action"></a>HTTP 동작 시작
 
@@ -30,7 +30,7 @@ HTTP 작업을 사용하여 조직에 대한 워크플로를 확장하고 HTTP�
 * 관리하는 웹 사이트가 중단되면 활성화되는(트리거) 논리 앱 워크플로를 만듭니다.
 * HTTP를 통해 모든 끝점과 통신하여 다른 서비스로 워크플로를 확장합니다.
 
-논리 앱에서 HTTP 동작 사용을 시작하려면 [논리 앱 만들기](../logic-apps/logic-apps-create-a-logic-app.md)를 참조하세요.
+논리 앱에서 HTTP 동작 사용을 시작하려면 [논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)를 참조하세요.
 
 ## <a name="use-the-http-trigger"></a>HTTP 트리거 사용
 트리거는 논리 앱에서 정의된 워크플로를 시작하는 데 사용할 수 있는 이벤트입니다. [트리거에 대해 자세히 알아보세요](connectors-overview.md).
@@ -95,27 +95,27 @@ HTTP 트리거 매개 변수에 대한 전체 세부 정보는 [MSDN](https://ms
 
 | 트리거 | 설명 |
 | --- | --- |
-| http |HTTP 호출을 수행하고 응답 콘텐츠를 반환합니다. |
+| HTTP |HTTP 호출을 수행하고 응답 콘텐츠를 반환합니다. |
 
 ## <a name="http-action"></a>HTTP 동작
 여기에는 이 커넥터가 지원하는 동작에 대한 세부 정보가 나와 있습니다. HTTP 커넥터에는 1개의 가능한 동작이 있습니다.
 
-| 작업 | 설명 |
+| 조치 | 설명 |
 | --- | --- |
-| http |HTTP 호출을 수행하고 응답 콘텐츠를 반환합니다. |
+| HTTP |HTTP 호출을 수행하고 응답 콘텐츠를 반환합니다. |
 
 ## <a name="http-details"></a>HTTP 세부 정보
 다음 표에서는 동작의 필수 및 선택적 입력 필드와 함께 동작 사용과 연관된 해당 출력 세부 정보를 설명합니다.
 
 #### <a name="http-request"></a>HTTP 요청
 HTTP 아웃바운드 요청을 하는 동작에 대한 입력 필드는 다음과 같습니다.
-*는 필수 필드임을 의미합니다.
+A*는 필수 필드 임을 의미합니다.
 
 | 표시 이름 | 속성 이름 | 설명 |
 | --- | --- | --- |
 | Method* |메서드 |사용할 HTTP 동사 |
 | URI* |uri |HTTP 요청에 대한 URI |
-| 헤더 |헤더 |포함할 HTTP 헤더의 JSON 개체 |
+| 헤더 |headers |포함할 HTTP 헤더의 JSON 개체 |
 | 본문 |본문 |HTTP 요청 본문 |
 | 인증 |인증 |[인증](#authentication) 섹션의 세부 정보 |
 
@@ -140,19 +140,19 @@ Logic Apps 기능을 사용하면 HTTP 끝점에 대해 다른 유형의 인증�
 #### <a name="basic-authentication"></a>기본 인증
 
 기본 인증 개체는 기본 인증에 필요합니다.
-*는 필수 필드임을 의미합니다.
+A*는 필수 필드 임을 의미합니다.
 
 | 속성 이름 | 데이터 형식 | 설명 |
 | --- | --- | --- |
-| 형식* |type |인증 유형(기본 인증의 경우 `Basic` 이어야 함) |
-| 사용자 이름* |username |인증할 사용자 이름 |
-| 암호* |password |인증하기 위한 암호 |
+| 형식* |형식 |인증 유형(기본 인증의 경우 `Basic` 이어야 함) |
+| 사용자 이름* |사용자 이름 |인증할 사용자 이름 |
+| 암호* |암호 |인증하기 위한 암호 |
 
 > [!TIP]
 > 정의에서 검색할 수 없는 암호를 사용하려는 경우 `securestring` 매개 변수 및 `@parameters()` 
 > [워크플로 정의 함수](http://aka.ms/logicappdocs)를 사용합니다.
 
-예:
+예: 
 
 ```javascript
 {
@@ -164,19 +164,19 @@ Logic Apps 기능을 사용하면 HTTP 끝점에 대해 다른 유형의 인증�
 
 #### <a name="client-certificate-authentication"></a>클라이언트 인증서 인증
 
-다음 인증 개체는 클라이언트 인증서 인증에 필요합니다. *는 필수 필드임을 의미합니다.
+다음 인증 개체는 클라이언트 인증서 인증에 필요합니다. A*는 필수 필드 임을 의미합니다.
 
 | 속성 이름 | 데이터 형식 | 설명 |
 | --- | --- | --- |
-| 형식* |type |인증 유형(SSL 클라이언트 인증서의 경우 `ClientCertificate` 여야 함) |
+| 형식* |형식 |인증 유형(SSL 클라이언트 인증서의 경우 `ClientCertificate` 여야 함) |
 | PFX* |pfx |PFX(개인 정보 교환) 파일의 Base64로 인코딩된 콘텐츠 |
-| 암호* |password |PFX 파일에 액세스하기 위한 암호 |
+| 암호* |암호 |PFX 파일에 액세스하기 위한 암호 |
 
 > [!TIP]
 > 논리 앱을 저장한 후 정의에서 읽을 수 없는 매개 변수를 사용하려면 `securestring` 매개 변수 및 `@parameters()` 
 > [워크플로 정의 함수](http://aka.ms/logicappdocs)를 사용할 수 있습니다.
 
-예:
+예: 
 
 ```javascript
 {
@@ -187,11 +187,11 @@ Logic Apps 기능을 사용하면 HTTP 끝점에 대해 다른 유형의 인증�
 ```
 
 #### <a name="azure-ad-oauth-authentication"></a>Azure AD OAuth 인증
-다음 인증 개체는 Azure AD OAuth 인증에 필요합니다. *는 필수 필드임을 의미합니다.
+다음 인증 개체는 Azure AD OAuth 인증에 필요합니다. A*는 필수 필드 임을 의미합니다.
 
 | 속성 이름 | 데이터 형식 | 설명 |
 | --- | --- | --- |
-| 형식* |type |인증 유형(Azure AD OAuth의 경우 `ActiveDirectoryOAuth` 여야 함) |
+| 형식* |형식 |인증 유형(Azure AD OAuth의 경우 `ActiveDirectoryOAuth` 여야 함) |
 | 테넌트* |tenant |Azure AD 테넌트의 테넌트 식별자 |
 | 대상* |audience |사용 권한을 요청하는 리소스. 예: `https://management.core.windows.net/` |
 | 클라이언트 ID* |clientId |Azure AD 응용 프로그램의 클라이언트 ID |
@@ -202,7 +202,7 @@ Logic Apps 기능을 사용하면 HTTP 끝점에 대해 다른 유형의 인증�
 > 
 > 
 
-예:
+예: 
 
 ```javascript
 {
@@ -215,5 +215,5 @@ Logic Apps 기능을 사용하면 HTTP 끝점에 대해 다른 유형의 인증�
 ```
 
 ## <a name="next-steps"></a>다음 단계
-이제 플랫폼을 사용해 보고 [논리 앱을 만듭니다](../logic-apps/logic-apps-create-a-logic-app.md). [API 목록](apis-list.md)에서 논리 앱의 사용 가능한 다른 커넥터를 확인할 수 있습니다.
+이제 플랫폼을 사용해 보고 [논리 앱을 만듭니다](../logic-apps/quickstart-create-first-logic-app-workflow.md). [API 목록](apis-list.md)에서 Logic Apps의 사용 가능한 다른 커넥터를 확인할 수 있습니다.
 

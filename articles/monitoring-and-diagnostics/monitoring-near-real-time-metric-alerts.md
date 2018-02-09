@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/16/2017
+ms.date: 12/06/2017
 ms.author: snmuvva
 ms.custom: 
-ms.openlocfilehash: aeeb6c2fb87e6c19991ef243ee7230f4e8f4e251
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d3e88a98e0ba93a630d131c25ca4dd5cb16f1b1a
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="near-real-time-metric-alerts-preview"></a>근 실시간 메트릭 경고(미리 보기)
 이제 Azure Monitor는 근 실시간 메트릭 경고(미리 보기)라는 새로운 유형의 메트릭 경고를 지원합니다. 이 기능은 현재 공개 미리 보기로 제공됩니다.
@@ -38,6 +38,7 @@ ms.lasthandoff: 10/11/2017
 근 실시간 메트릭 경고에서 지원되는 리소스 종류의 전체 목록:
 
 * Microsoft.ApiManagement/service
+* Microsoft.Automation/automationAccounts
 * Microsoft.Batch/batchAccounts
 * Microsoft.Cache/Redis
 * Microsoft.Compute/virtualMachines
@@ -51,48 +52,77 @@ ms.lasthandoff: 10/11/2017
 * Microsoft.Network/publicipaddresses
 * Microsoft.Search/searchServices
 * Microsoft.ServiceBus/namespaces
-* Microsoft.Sql/servers/elasticpools
+* Microsoft.Storage/storageAccounts
+* Microsoft.Storage/storageAccounts/services
 * Microsoft.StreamAnalytics/streamingjobs
-* Microsoft.Timeseriesinsights
 * Microsoft.CognitiveServices/accounts
+
+## <a name="near-real-time-metric-alerts-on-metrics-with-dimensions"></a>차원으로 메트릭의 근 실시간 메트릭 경고
+근 실시간 메트릭 경고는 차원으로 메트릭의 경고를 지원합니다. 차원은 메트릭을 적절한 수준으로 필터링하는 방법입니다. 차원으로 메트릭의 근 실시간 메트릭 경고는 다음 리소스 종류에 대해 지원됩니다.
+
+* Microsoft.ApiManagement/service
+* Microsoft.Storage/storageAccounts(US 지역의 저장소 계정에 대해서만 지원됨)
+* Microsoft.Storage/storageAccounts/services(US 지역의 저장소 계정에 대해서만 지원됨)
 
 
 ## <a name="create-a-near-real-time-metric-alert"></a>근 실시간 메트릭 경고 만들기
 현재 근 실시간 메트릭 경고는 Azure Portal을 통해서만 만들 수 있습니다. PowerShell, CLI(명령줄 인터페이스) 및 Azure Monitor REST API를 통해 근 실시간 메트릭 경고를 구성하는 지원이 곧 제공됩니다.
 
-1. [포털](https://portal.azure.com/)에서 모니터링하려는 리소스를 찾아 선택합니다. 이 리소스는 [이전 섹션](#what-resources-can-i-create-near-real-time-metric-alerts-for)에 나열된 리소스 종류 중 하나여야 합니다. 모니터 > 경고에서 지원되는 모든 리소스 형식에 대해 동일하게 수행할 수 있습니다.
+근 실시간 메트릭 경고에 대한 경고 만들기 환경은 새 **경고(미리 보기)** 환경으로 이동했습니다. 현재 경고 페이지가 **근 실시간 메트릭 경고 추가**를 표시하더라도 새 환경으로 리디렉션됩니다.
 
-2. MONITORING 섹션에서 **경고** 또는 **경고 규칙**을 선택합니다. 텍스트와 아이콘은 리소스마다 약간씩 다를 수 있습니다.
-   ![모니터링](./media/insights-alerts-portal/AlertRulesButton.png)
-
-3. **근 실시간 메트릭 알림(미리 보기) 추가** 명령을 클릭합니다. 명령이 회색으로 표시되는 경우 리소스가 필터에서 선택되었는지 확인합니다.
-
-    ![근 실시간 메트릭 경고 추가 단추](./media/monitoring-near-real-time-metric-alerts/AddNRTAlertButton.png)
-
-4. 경고 규칙의 **이름**을 지정하고 **설명**을 선택합니다. 알림 이메일에도 표시되는 항목입니다.
-5. 모니터링할 **메트릭**을 선택하고 해당 메트릭에 대한 **조건**, **시간 집계** 및 **임계값**을 선택합니다. 선택적으로 모니터링할 다른 **메트릭**을 선택하고 두 번째 메트릭에 대한 **조건**, **시간 집계** 및 **임계값**을 선택합니다. 
-
-    ![근 실시간 메트릭 알림1 추가](./media/monitoring-near-real-time-metric-alerts/AddNRTAlert1.png) ![근 실시간 메트릭 알림2 추가](./media/monitoring-near-real-time-metric-alerts/AddNRTAlert2.png)
-6. 경고를 트리거하기 전에 메트릭 규칙을 만족해야 하는 **기간**을 선택합니다. 예를 들어 "지난 5분" 기간을 사용하고 경고가 80% 이상인 CPU를 찾는다면 이 경고는 CPU가 5분 동안 계속 80%(및 500MB 이상의 네트워크 입력)를 넘으면 트리거됩니다. 첫 번째 트리거가 발생한 후 CPU가 5분 동안 80% 미만을 유지하면 다시 트리거됩니다. 경고는 **평가 빈도**에 따라 평가됩니다.
-
-
-6. 드롭다운 목록에서 적절한 **심각도**를 선택합니다.
-
-7. 기존 또는 새 **작업 그룹**을 사용할지 여부를 지정합니다.
-
-8. **새** 작업 그룹을 만들도록 선택한 경우 동작 그룹에 이름과 약식 이름을 지정하고 작업(SMS, 전자 메일, Webhook)을 지정하고 해당 세부 정보를 입력합니다.
-
-
-8. 경고 만들기가 완료되면 **확인**을 선택합니다.   
-
-앞서 설명한 대로 몇 분 안에 경고가 활성화 및 트리거됩니다.
+[여기](monitor-alerts-unified-usage.md#create-an-alert-rule-with-the-azure-portal)에 설명된 단계를 사용하여 근 실시간 메트릭 경고를 만들 수 있습니다.
 
 ## <a name="managing-near-real-time-metric-alerts"></a>근 실시간 메트릭 경고 관리
-경고를 만든 후 해당 경고를 선택하여 다음을 수행할 수 있습니다.
+**근 실시간 메트릭 경고**를 만들면 [여기](monitor-alerts-unified-usage.md#managing-your-alerts-in-azure-portal)에 설명된 단계를 사용하여 관리할 수 있습니다.
 
-* 전날의 메트릭 임계값 및 실제 값을 표시하는 그래프 확인
-* 편집 또는 삭제
-* 해당 경고에 대한 알림 수신을 일시 중지 또는 재개하려면 **사용 중지** 또는 **사용**하도록 설정합니다.
+## <a name="payload-schema"></a>페이로드 스키마
 
+POST 작업에는 모든 근 실시간 메트릭 경고에 대해 다음과 같은 JSON 페이로드와 스키마가 포함됩니다.
 
+```json
+{
+    "WebhookName": "Alert1510875839452",
+    "RequestBody": {
+        "status": "Activated",
+        "context": {
+            "condition": {
+                "metricName": "Percentage CPU",
+                "metricUnit": "Percent",
+                "metricValue": "17.7654545454545",
+                "threshold": "1",
+                "windowSize": "10",
+                "timeAggregation": "Average",
+                "operator": "GreaterThan"
+            },
+            "resourceName": "ContosoVM1",
+            "resourceType": "microsoft.compute/virtualmachines",
+            "resourceRegion": "westus",
+            "portalLink": "https://portal.azure.com/#resource/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/automationtest/providers/Microsoft.Compute/virtualMachines/ContosoVM1",
+            "timestamp": "2017-11-16T23:54:03.9517451Z",
+            "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ContosoVM/providers/microsoft.insights/alertrules/VMMetricAlert1",
+            "name": "VMMetricAlert1",
+            "description": "A metric alert for the VM Win2012R2",
+            "conditionType": "Metric",
+            "subscriptionId": "00000000-0000-0000-0000-000000000000",
+            "resourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ContosoVM/providers/Microsoft.Compute/virtualMachines/ContosoVM1",
+            "resourceGroupName": "ContosoVM"
+        },
+        "properties": {
+                "key1": "value1",
+                "key2": "value2"
+        }
+    },
+    "RequestHeader": {
+        "Connection": "Keep-Alive",
+        "Host": "s1events.azure-automation.net",
+        "User-Agent": "azure-insights/0.9",
+        "x-ms-request-id": "00000000-0000-0000-0000-000000000000"
+    }
+}
+```
 
+## <a name="next-steps"></a>다음 단계
+
+* [새 경고(미리 보기) 환경에 대해 자세히 알아보기](monitoring-overview-unified-alerts.md)
+* [Azure Alerts(미리 보기)에서 로그 경고에 대해 알아보기](monitor-alerts-unified-log.md)
+* [Azure에서 경고에 대해 알아보기](monitoring-overview-alerts.md)

@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 10/05/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: d8688ab2daefd400e9c0948853459dd238fa0d43
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 0fb8c55937c1f4c29c542204673a2f41e3ae29db
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="understand-iot-edge-deployments-for-single-devices-or-at-scale---preview"></a>단일 장치 또는 대규모 IoT Edge 배포에 대한 이해 - 미리 보기
 
@@ -49,7 +49,7 @@ Azure IoT Edge는 IoT Edge 장치에서 실행되도록 모듈을 구성하는 �
 
 각 모듈의 구성 메타데이터에는 다음 항목이 포함됩니다. 
 * 버전 
-* 형식 
+* type 
 * 상태(예: 실행 중 또는 중지됨) 
 * 다시 시작 정책 
 * 이미지 및 컨테이너 리포지토리 
@@ -57,7 +57,23 @@ Azure IoT Edge는 IoT Edge 장치에서 실행되도록 모듈을 구성하는 �
 
 ### <a name="target-condition"></a>대상 조건
 
-대상 조건은 IoT Edge 장치가 배포 범위 내에 있어야 하는지 여부를 지정합니다. 대상 조건은 장치 쌍 태그를 기반으로 합니다. 
+대상 조건은 요구 사항을 충족하는 새 장치를 포함하거나 더 이상 배포 수명 주기에서 요구 사항을 충족하지 않는 장치를 제거하기 위해 지속적으로 평가됩니다. 서비스에서 대상 조건 변경이 검색되면 배포가 다시 활성화됩니다. 예를 들어 배포 A의 대상 조건이 tags.environment = 'prod'인 경우 다시 활성화됩니다. 배포를 시작하면 10개의 프로덕션 장치가 있습니다. 이 10개 장치에 모듈이 성공적으로 설치됩니다. IoT Edge 에이전트 상태는 총 10개 장치, 성공한 응답 10개, 실패한 응답 0개, 보류 중인 응답 0개로 표시됩니다. 이제 tags.environment = 'prod'인 장치 5개를 추가합니다. 새 장치 5개에 배포하려고 시도하면 서비스에서 변경을 감지하고 IoT Edge 에이전트 상태는 총 15개 장치, 성공한 응답 10개, 실패한 응답 0개. 보류 중인 응답 5개가 됩니다.
+
+장치 쌍 태그 또는 deviceId에 부울 조건을 사용하여 대상 장치를 선택합니다. 조건을 태그와 함께 사용하려면 속성과 동일한 수준에서 장치 쌍에 "tags":{} 섹션을 추가해야 합니다. [장치 쌍의 태그에 대해 자세히 알아보기](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-device-twins)
+
+대상 조건 예:
+* deviceId ='linuxprod1'
+* tags.environment ='prod'
+* tags.environment = 'prod' AND tags.location = 'westus'
+* tags.environment = 'prod' OR tags.location = 'westus'
+* tags.operator = 'John' AND tags.environment = 'prod' NOT deviceId = 'linuxprod1'
+
+대상 조건을 생성할 때 다음과 같은 몇 가지 제약 조건이 있습니다.
+
+* 장치 쌍에서 태그 또는 deviceId를 사용하여 대상 조건만 작성할 수 있습니다.
+* 큰따옴표는 대상 조건의 어떤 부분에도 허용되지 않습니다. 작은따옴표를 사용하세요.
+* 작은따옴표는 대상 조건의 값을 나타냅니다. 따라서 작은따옴표가 장치 이름의 일부인 경우 또 다른 작은따옴표로 작은따옴표를 이스케이프해야 합니다. 예를 들어 operator'sDevice에 대한 대상 조건은 deviceId='operator''sDevice'로 작성해야 합니다.
+* 숫자, 문자 및 특수 문자(-:.+%_#*?!(),=@;$)는 대상 조건 값에 사용할 수 있습니다.
 
 ### <a name="priority"></a>우선 순위
 

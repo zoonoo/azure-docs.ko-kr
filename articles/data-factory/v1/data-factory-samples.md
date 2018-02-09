@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 4241aedebd388f24834e573fac7a8a61371e728a
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: e72cdee5b164fcd4944f4f1f95ff22bb5ceba6a4
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-data-factory---samples"></a>Azure 데이터 팩터리 - 샘플
 > [!NOTE]
@@ -37,9 +37,11 @@ ms.lasthandoff: 11/03/2017
 | [크로스 AppDomain .Net 작업 샘플](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/CrossAppDomainDotNetActivitySample) |이 샘플에서는 ADF 시작 관리자에서 사용하는 어셈블리 버전(예: WindowsAzure.Storage v4.3.0, Newtonsoft.Json v6.0.x 등)의 제약을 받지 않는 사용자 지정 .NET 작업을 만드는 방법을 보여 줍니다. |
 | [R 스크립트 실행](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample) |이 샘플에서는 RScript.exe를 호출하는 데 사용할 수 있는 Data Factory 사용자 지정 작업이 포함되어 있습니다. 이 샘플은 R이 이미 설치되어 있는 사용자 고유(주문형 아님) HDInsight 클러스터에만 작동합니다. |
 | [HDInsight Hadoop 클러스터에서 Spark 작업 호출](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/Spark) |이 샘플에서는 MapReduce 작업을 사용하여 Spark 프로그램을 호출하는 방법을 보여 줍니다. Spark 프로그램은 단순히 Azure Blob 컨테이너에서 다른 컨테이너로 데이터를 복사합니다. |
-| [Azure 기계 학습 Batch 평가 작업을 사용한 Twitter 분석](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TwitterAnalysisSample-AzureMLBatchScoringActivity) |이 샘플에서는 AzureMLBatchScoringActivity를 사용하여 Twitter 감성 분석, 점수 지정, 예측 등을 수행하는 Azure 기계 학습 모델을 호출하는 방법을 보여 줍니다. |
-| [사용자 지정 작업을 사용한 Twitter 분석](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TwitterAnalysisSample-CustomC%23Activity) |이 샘플에서는 사용자 지정 .NET 작업을 사용하여 Twitter 감성 분석, 점수 지정, 예측 등을 수행하는 Azure 기계 학습 모델을 호출하는 방법을 보여 줍니다. |
-| [Azure 기계 학습에 대한 매개 변수가 있는 파이프라인](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ParameterizedPipelinesForAzureML/) |이 샘플에서는 지역 목록을 이 샘플에 포함된 parameters.txt 파일에서 가져오는 다른 지역 매개 변수를 사용하여 각각의 점수를 매기고 제한하기 위해 N 파이프라인을 배포하는 종단 간 C# 코드를 제공합니다. |
+| 
+            [Azure Machine Learning Batch 평가 작업을 사용한 Twitter 분석](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TwitterAnalysisSample-AzureMLBatchScoringActivity) |이 샘플에서는 AzureMLBatchScoringActivity를 사용하여 Twitter 감성 분석, 점수 지정, 예측 등을 수행하는 Azure Machine Learning 모델을 호출하는 방법을 보여 줍니다. |
+| [사용자 지정 작업을 사용한 Twitter 분석](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TwitterAnalysisSample-CustomC%23Activity) |이 샘플에서는 사용자 지정 .NET 작업을 사용하여 Twitter 감성 분석, 점수 지정, 예측 등을 수행하는 Azure Machine Learning 모델을 호출하는 방법을 보여 줍니다. |
+| 
+            [Azure Machine Learning에 대한 매개 변수가 있는 파이프라인](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ParameterizedPipelinesForAzureML/) |이 샘플에서는 지역 목록을 이 샘플에 포함된 parameters.txt 파일에서 가져오는 다른 지역 매개 변수를 사용하여 각각의 점수를 매기고 제한하기 위해 N 파이프라인을 배포하는 종단 간 C# 코드를 제공합니다. |
 | [Azure Stream Analytics 작업에 대한 참조 데이터 새로 고침](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ReferenceDataRefreshForASAJobs) |이 샘플에서는 Azure Data Factory 및 Azure Stream Analytics를 함께 사용하여 참조 데이터로 쿼리를 실행하고 일정에 따라 참조 데이터에 대한 새로 고침을 설정하는 방법을 보여 줍니다. |
 | [온-프레미스 Hortonworks Hadoop을 사용한 하이브리드 파이프라인](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/HybridPipelineWithOnPremisesHortonworksHadoop) |이 샘플에서는 클라우드의 HDInsight 기반 Hadoop 클러스터와 같은 기타 계산 대상을 추가하는 경우처럼 Data Factory에서 작업을 실행하기 위한 계산 대상으로 온-프레미스 Hadoop 클러스터를 사용합니다. |
 | [JSON 변환 도구](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/JSONConversionTool) |이 도구를 사용하면 Json을 2015-07-01-preview 이전 버전에서 2015-07-01-preview(기본값)로 변환할 수 있습니다. |
@@ -106,7 +108,7 @@ GitHub의 데이터 팩터리에 대한 다음 Azure Resource Manager 템플릿�
    3. 데이터 팩터리를 만들려는 위치에 **Azure 구독** 을 선택합니다.
    4. 데이터 팩터리의 **리소스 그룹** 을 선택합니다.
    5. **지역**에서 **미국 서부**, **미국 동부** 또는 **북유럽**을 선택합니다.
-   6. **다음**을 누릅니다.
+   6. **다음**을 클릭합니다.
 6. **데이터 저장소 구성** 페이지에서 기존 **Azure SQL Database** 및 **Azure Storage 계정**을 지정하거나, 데이터베이스/저장소를 만들고 다음을 클릭합니다.
 7. **계산 구성** 페이지에서 기본값을 선택하고 **다음**을 클릭합니다.
 8. **요약** 페이지에서 모든 설정을 검토하고 **다음**을 클릭합니다.

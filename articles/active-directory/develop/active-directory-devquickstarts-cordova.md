@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 11/30/2017
 ms.author: vittorib
 ms.custom: aaddev
-ms.openlocfilehash: eceeccc0d6225613fdd75a92b894290665168fc6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b489add83a462d1d3902831d63be0b70e2443718
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
-# <a name="integrate-azure-ad-with-an-apache-cordova-app"></a>Azure AD를 Apache Cordova 앱에 통합
+# <a name="azure-ad-cordova-getting-started"></a>Azure AD Cordova 시작
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -56,7 +56,7 @@ Azure AD 테넌트가 없는 경우 [여기에서 가져오는 방법에 대한 
 컴퓨터에 Apache Cordova를 설정하지 않으려면 다음을 설치하세요.
 
 * [Git](http://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
-* [Node.JS](https://nodejs.org/download/)
+* [Node.js](https://nodejs.org/download/)
 * [Cordova CLI](https://cordova.apache.org/)(`npm install -g cordova` NPM 패키지 관리자를 통해 쉽게 설치 가능)
 
 이전 설치는 PC와 Mac 둘 다에서 작동합니다.
@@ -86,7 +86,7 @@ Azure AD 테넌트가 없는 경우 [여기에서 가져오는 방법에 대한 
 
 Azure AD는 알려진 응용 프로그램으로만 토큰을 발급합니다. 앱에서 Azure AD를 사용하려면 먼저 테넌트에서 해당 항목을 만들어야 합니다. 테넌트에 새 응용 프로그램을 등록하려면
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 위쪽 막대에서 계정을 클릭합니다. **디렉터리** 목록에서 응용 프로그램을 등록할 Azure AD 테넌트를 선택합니다.
 3. 왼쪽 창에서 **더 많은 서비스**를 클릭하고 **Azure Active Directory**를 선택합니다.
 4. **앱 등록**을 클릭하고 **추가**를 선택합니다.
@@ -243,7 +243,7 @@ var authority = "https://login.microsoftonline.com/common",
 
 앱을 실행하는 구체적인 단계는 플랫폼에 따라 다릅니다.
 
-### <a name="windows-10"></a>Windows 10
+### <a name="windows-10"></a>윈도우 10
    태블릿/PC: `cordova run windows --archs=x64 -- --appx=uap`
 
    모바일(Windows 10 모바일 장치가 PC에 연결되어야 함): `cordova run windows --archs=arm -- --appx=uap --phone`
@@ -258,7 +258,7 @@ var authority = "https://login.microsoftonline.com/common",
    > 처음 실행하는 동안 개발자 라이선스를 확인하기 위해 로그인하라는 메시지가 표시될 수 있습니다. 자세한 내용은 [개발자 라이선스](https://msdn.microsoft.com/library/windows/apps/hh974578.aspx)를 참조하세요.
 
 ### <a name="windows-phone-81"></a>Windows Phone 8.1
-   연결된 장치에서 실행하려면: `cordova run windows --device -- --phone`
+   연결된 장치에서 실행하려면 `cordova run windows --device -- --phone`
 
    기본 에뮬레이터에서 실행하려면: `cordova emulate windows -- --phone`
 
@@ -267,7 +267,7 @@ var authority = "https://login.microsoftonline.com/common",
 ### <a name="android"></a>Android
    연결된 장치에서 실행하려면: `cordova run android --device`
 
-   기본 에뮬레이터에서 실행하려면: `cordova emulate android`
+   기본 에뮬레이터에서 실행하려면 `cordova emulate android`
 
    이전에 "필수 조건" 섹션에서 설명한 대로 AVD Manager를 사용하여 에뮬레이터 인스턴스를 만들었는지 확인합니다.
 

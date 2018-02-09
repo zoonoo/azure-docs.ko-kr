@@ -1,5 +1,5 @@
 ---
-title: 'FAQ: Azure AD SSPR | Microsoft Docs'
+title: "셀프 서비스 암호 재설정 FAQ - Azure Active Directory"
 description: "Azure AD 셀프 서비스 암호 재설정에 대해 자주 묻는 질문과 대답"
 services: active-directory
 keywords: "Active Directory 암호 관리, 암호 관리, Azure AD 셀프 서비스 암호 재설정"
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2017
+ms.date: 01/11/2018
 ms.author: joflore
-ms.custom: it-pro
-ms.openlocfilehash: 4216c417d137c00587bf65b39410eca6f4cef8bc
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.custom: seohack1
+ms.openlocfilehash: afa609d7b47f3c743f5d3bfd4011e09c762ccbd1
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="password-management-frequently-asked-questions"></a>암호 관리 질문과 대답
 
@@ -70,7 +70,7 @@ ms.lasthandoff: 12/14/2017
   >
 * **Q: 내 사용자 대신 인증 전화, 인증 메일 인증 또는 대체 인증 전화 필드를 동기화하거나 설정할 수 있나요?**
 
-  > **A:** 아니요. 현재로서는 불가능합니다.
+  > **A:** 전역 관리자가 설정할 수 있는 필드는 [SSPR 데이터 요구 사항](active-directory-passwords-data.md) 문서에서 정의합니다.
   >
   >
 * **Q: 등록 포털에서 사용자에게 어떤 옵션이 표시되나요?**

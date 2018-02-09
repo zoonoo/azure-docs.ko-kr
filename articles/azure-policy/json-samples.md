@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: samples
 ms.tgt_pltfrm: 
 ms.workload: 
-ms.date: 11/13/2017
+ms.date: 01/17/2018
 ms.author: banders
 ms.custom: mvc
-ms.openlocfilehash: 4ac9696028b9f24341a630d630b583ac5041cee0
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 19641f3b1f2781cf23955743bf65172ff84fb544
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="templates-for-azure-policy"></a>Azure Policy에 대한 템플릿
 
@@ -30,13 +30,13 @@ ms.lasthandoff: 12/05/2017
 |---|---|
 |**Compute**||
 | [승인된 VM 이미지](scripts/allowed-custom-images.md) | 승인된 사용자 지정 이미지만 환경에 배포되어야 합니다. 승인된 이미지 ID 배열을 지정합니다. |
-| [VM이 관리 디스크를 사용하지 않을 경우 감사](scripts/create-vm-managed-disk.md) | 관리 디스크를 사용하지 않는 가상 컴퓨터를 만들 때 감사합니다.|
-| [확장이 존재하지 않을 경우 감사](scripts/audit-ext-not-exist.md) | 확장이 가상 컴퓨터와 함께 배포되지 않은 경우 감사합니다. 확장 게시자를 지정하고 배포되었는지 여부를 확인하기 위해 입력합니다. |
+| [VM이 관리 디스크를 사용하지 않을 경우 감사](scripts/create-vm-managed-disk.md) | 관리 디스크를 사용하지 않는 가상 머신을 만들 때 감사합니다.|
+| [확장이 존재하지 않을 경우 감사](scripts/audit-ext-not-exist.md) | 확장이 가상 머신과 함께 배포되지 않은 경우 감사합니다. 확장 게시자를 지정하고 배포되었는지 여부를 확인하기 위해 입력합니다. |
 | [리소스 그룹으로부터 사용자 지정 VM 이미지 허용](scripts/allow-custom-vm-image.md) |  사용자 지정 이미지가 승인된 리소스 그룹으로부터 와야 합니다. 승인된 리소스 그룹의 이름을 지정합니다. |
 | [하이브리드 사용 혜택 거부](scripts/deny-hybrid-use.md) | AHUB(Azure Hybrid Use Benefit) 사용을 금지합니다. 온-프레미스 라이선스 사용을 허용하기 원하지 않을 때 사용합니다. |
 | [허용되는 않는 VM 확장](scripts/not-allowed-vm-ext.md) | 지정된 확장의 사용을 금지합니다. 금지된 확장 형식을 포함하는 배열을 지정합니다. |
-| [특정 VM 플랫폼 이미지만을 허용함](scripts/allow-certain-vm-image.md) | 가상 컴퓨터가 특정 버전의 UbuntuServer를 사용해야 합니다. |
-| [관리 디스크를 사용하여 VM 만들기](scripts/use-managed-disk-vm.md) | 가상 컴퓨터가 관리 디스크를 사용해야 합니다.|
+| [특정 VM 플랫폼 이미지만을 허용함](scripts/allow-certain-vm-image.md) | 가상 머신이 특정 버전의 UbuntuServer를 사용해야 합니다. |
+| [관리 디스크를 사용하여 VM 만들기](scripts/use-managed-disk-vm.md) | 가상 머신이 관리 디스크를 사용해야 합니다.|
 |**모니터링**||
 | [진단 설정 감사](scripts/audit-diag-setting.md) | 진단 설정이 지정된 리소스 형식에 대해 사용하도록 설정되지 않은 경우 감사합니다. 진단 설정이 사용되도록 설정되었는지 여부를 확인하려면 리소스 형식의 배열을 지정합니다. |
 |**이름 및 텍스트 규칙**||
@@ -55,7 +55,7 @@ ms.lasthandoff: 12/05/2017
 | [허용되는 Load Balancer SKU](scripts/allowed-lb-skus.md) | 부하 분산 장치는 승인된 SKU를 사용해야 합니다. 허용되는 SKU 배열을 지정합니다. |
 | [ER 네트워크에 피어링하는 네트워크 없음](scripts/no-peering-er-net.md) | 네트워크 피어링이 지정된 리소스 그룹의 한 네트워크에 연결되는 것을 금지합니다. 중앙 관리 네트워크 인프라와의 연결을 예방하기 위해 사용합니다. 연결을 예방하기 위해 리소스 그룹의 이름을 지정합니다. |
 | [사용자 정의 경로 테이블 없음](scripts/no-user-def-route-table.md)  |가상 네트워크가 사용자 정의 경로 테이블과 함께 배포되는 것을 금지합니다. |
-| [허용되는 가상 네트워크 게이트웨이 SKU](scripts/no-user-def-route-table.md) | 가상 네트워크 게이트웨이는 승인된 SKU 및 게이트웨이 유형을 사용해야 합니다. 승인된 SKU 배열 및 승인된 게이트웨이 유형 배열을 지정합니다. |
+| [허용되는 가상 네트워크 게이트웨이 SKU](scripts/allowed-vn-gate-sku.md) | 가상 네트워크 게이트웨이는 승인된 SKU 및 게이트웨이 유형을 사용해야 합니다. 승인된 SKU 배열 및 승인된 게이트웨이 유형 배열을 지정합니다. |
 | [VM 네트워크 인터페이스에 승인된 서브넷 사용](scripts/use-approved-subnet-vm-nics.md) | 네트워크 인터페이스는 승인된 서브넷을 사용해야 합니다. 승인된 서브넷의 ID를 지정합니다. |
 | [VM 네트워크 인터페이스에 승인된 VNet 사용](scripts/use-approved-vnet-vm-nics.md) | 네트워크 인터페이스는 승인된 가상 네트워크를 사용해야 합니다. 승인된 가상 네트워크 ID를 지정합니다. |
 |**태그**||
@@ -69,8 +69,8 @@ ms.lasthandoff: 12/05/2017
 | [서버 수준 위협 감지 설정 감사](scripts/audit-sql-ser-threat-det-setting.md) | 해당 정책이 지정된 상태로 설정되지 않은 경우 SQL 데이터베이스 보안 경고 정책을 감사합니다. 위협 감지가 사용 또는 사용 안 함으로 설정되었는지 여부를 나타내는 값을 지정 합니다.  |
 | [Azure Active Directory 관리자가 없을 경우 감사](scripts/audit-no-aad-admin.md) | SQL Server에 할당된 Azure Active Directory 관리자가 없을 때 감사합니다. |
 | [허용되는 SQL DB SKU](scripts/allowed-sql-db-skus.md) | Microsoft Azure SQL Database는 승인된 SKU를 사용합니다. 허용되는 SKU ID 배열 또는 허용되는 SKU 이름 배열을 지정합니다. |
-|**저장소**||
-| [저장소 계정 및 가상 컴퓨터에 대해 허용된 SKU](scripts/allowed-skus-storage.md) | 저장소 계정 및 가상 컴퓨터는 승인된 SKU를 사용해야 합니다. 승인된 SKU를 확보하려면 기본 제공 정책을 사용합니다. 승인된 가상 컴퓨터 SKU 배열 및 승인된 저장소 계정 SKU 배열을 지정합니다. |
+|**Storage**||
+| [저장소 계정 및 Virtual Machine에 대해 허용된 SKU](scripts/allowed-skus-storage.md) | 저장소 계정 및 가상 머신은 승인된 SKU를 사용해야 합니다. 승인된 SKU를 확보하려면 기본 제공 정책을 사용합니다. 승인된 가상 머신 SKU 배열 및 승인된 저장소 계정 SKU 배열을 지정합니다. |
 | [저장소 계정에 대해서만 https 트래픽 확인](scripts/ensure-https-stor-acct.md) | 저장소 계정은 HTTPS 트래픽을 사용합니다.  |
 | [저장소 계정에 대한 쿨 액세스 계층 거부](scripts/deny-cool-access-tiering.md) | BLOB 저장소 계정에 쿨 액세스 계층을 사용하는 것을 금지합니다.  |
 | [저장소 파일 암호화 확인](scripts/ensure-store-file-enc.md) | 저장소 계정에 대해 파일 암호화를 사용할 수 있도록 해야 합니다.  |

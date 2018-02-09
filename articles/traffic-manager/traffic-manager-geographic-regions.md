@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: kumud
-ms.openlocfilehash: 93db099e9e25856e13c398c4a03a5728d178e5dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 45fa209b4417ce8b65d1fa4f2f59ff6c2d50f3a4
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="countryregion-hierarchy-used-by-azure-traffic-manager-for-geographic-traffic-routing-method"></a>지리적 트래픽 라우팅 메소드에 대해 Azure Traffic Manager에서 사용하는 국가/지역 계층 구조
 
@@ -65,14 +65,6 @@ ms.lasthandoff: 10/11/2017
         - FR(프랑스)
 
         - GB(영국)
-
-            - GB-ENG(잉글랜드)
-
-            - GB-NIR(북아일랜드)
-
-            - GB-SCT(스코틀랜드)
-
-            - GB-WLS(웨일즈)
 
         - GG(건지)
 
@@ -228,7 +220,7 @@ ms.lasthandoff: 10/11/2017
 
         - CU(쿠바)
 
-        - CW(CuraÃ§ao)
+        - CW(퀴라소)
 
         - DM(도미니카)
 

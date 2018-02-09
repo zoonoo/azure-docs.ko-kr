@@ -15,11 +15,11 @@ ms.custom:
 ms.workload: infrastructure-services
 ms.date: 06/07/2017
 ms.author: davidmu
-ms.openlocfilehash: abed4095bcacac4ca3995acfaafae2f16d5f1532
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e0ae5d797a2a502cceeb1be20af4953f16f1320a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="overview-of-integration-between-application-gateway-and-azure-security-center"></a>Application Gateway와 Azure Security Center 간의 통합 개요
 
@@ -65,7 +65,7 @@ Security Center를 통해 응용 프로그램 게이트웨이에 웹 응용 프�
 
 ## <a name="finalize-configuration"></a>구성 완료
 
-Security Center에서는 응용 프로그램 게이트웨이에 추가한 응용 프로그램을 보호된 리소스로 추적합니다.  이 리소스의 상태를 모니터링하고, 해당 리소스가 응용 프로그램 게이트웨이에서 보호되는지 확인합니다. 다음 단계는 가상 컴퓨터의 개인 IP, 공용 IP 또는 NIC를 응용 프로그램 게이트웨이의 백 엔드 풀에 추가하는 것입니다. **응용 프로그램 보호 마무리**에 대한 추가 권장 사항은 이 작업을 완료할 때까지 표시되며, 리소스를 추가하면 표시되지 않습니다.
+Security Center에서는 응용 프로그램 게이트웨이에 추가한 응용 프로그램을 보호된 리소스로 추적합니다.  이 리소스의 상태를 모니터링하고, 해당 리소스가 응용 프로그램 게이트웨이에서 보호되는지 확인합니다. 다음 단계는 가상 머신의 개인 IP, 공용 IP 또는 NIC를 응용 프로그램 게이트웨이의 백 엔드 풀에 추가하는 것입니다. **응용 프로그램 보호 마무리**에 대한 추가 권장 사항은 이 작업을 완료할 때까지 표시되며, 리소스를 추가하면 표시되지 않습니다.
 
 ![웹 응용 프로그램 방화벽 추가 블레이드][5]
 
@@ -81,7 +81,7 @@ Security Center에서 **검색** > **보안 경고**로 차례로 이동합니�
 
 ## <a name="next-steps"></a>다음 단계
 
-기존 응용 프로그램 게이트웨이에서 웹 응용 프로그램 방화벽을 사용하도록 설정하는 방법을 알아보려면 [웹 응용 프로그램 방화벽이 있는 Azure Application Gateway 만들기 또는 업데이트](application-gateway-web-application-firewall-portal.md#add-web-application-firewall-to-an-existing-application-gateway)를 참조하세요.
+기존 응용 프로그램 게이트웨이에서 웹 응용 프로그램 방화벽을 사용하도록 설정하는 방법을 알아보려면 [웹 응용 프로그램 방화벽이 있는 Azure Application Gateway 만들기 또는 업데이트](application-gateway-web-application-firewall-portal.md)를 참조하세요.
 
 [1]: ./media/application-gateway-integration-security-center/figure1.png
 [2]: ./media/application-gateway-integration-security-center/figure2.png

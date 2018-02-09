@@ -1,6 +1,6 @@
 ---
-title: "Azure Virtual Network 게이트웨이 및 연결 문제 해결 - PowerShell | Microsoft Docs"
-description: "이 페이지에서는 Azure Network Watcher 문제 해결 PowerShell cmdlet을 사용하는 방법을 설명합니다."
+title: "Azure Virtual Network 게이트웨이 및 연결 문제 해결 - 포털 | Microsoft Docs"
+description: "이 페이지에서는 Azure Network Watcher 문제 해결 포털을 사용하는 방법을 설명합니다."
 services: network-watcher
 documentationcenter: na
 author: jimdial
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: jdial
-ms.openlocfilehash: c3fa22bd599026b0838b134e26062d9837df703e
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: fb8f60eea0eaa24649f584ae4183aa8e552a433e
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/24/2018
 ---
-# <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher-powershell"></a>Azure Network Watcher PowerShell을 사용하여 Virtual Network 게이트웨이 및 연결 문제 해결
+# <a name="troubleshoot-virtual-network-gateway-and-connections-using-network-watcher-from-azure-portal"></a>Azure Portal에서 Network Watcher를 사용하여 Virtual Network 게이트웨이 및 연결 문제 해결
 
 > [!div class="op_single_selector"]
 > - [포털](network-watcher-troubleshoot-manage-portal.md)
@@ -60,7 +60,7 @@ Network Watcher는 Azure에서 네트워크 리소스를 이해하는 데 관련
 
 창의 **세부 정보** 섹션에 있는 **상태** 탭에는 선택한 리소스에 대한 마지막 문제 해결 실행의 상태가 표시됩니다. 마지막 진단 결과는 마지막 실행 xx분 후에 표시됩니다.
 
-|속성  |설명  |
+|자산  |설명  |
 |---------|---------|
 |리소스     | 리소스에 대한 링크        |
 |저장소 경로     |  로그(실행 중에 생성된 경우)가 포함된 컨테이너 및 저장소 계정 경로 이 설정은 포털을 벗어난 후에는 유지되지 않습니다.        |

@@ -3,7 +3,7 @@ title: "Azure CLI를 사용하여 MSI에 Azure 리소스 액세스 권한을 할
 description: "Azure CLI를 사용하여 특정 리소스에 MSI를 할당하고 다른 리소스에 대한 액세스 권한을 할당하기 위한 단계별 지침을 제공합니다."
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: daveba
 manager: mtillman
 editor: 
 ms.service: active-directory
@@ -12,12 +12,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/25/2017
-ms.author: bryanla
-ms.openlocfilehash: 7d817a90277a1320ccc028822032916c98cae4b4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: daveba
+ms.openlocfilehash: be80065f83e8c80e7c1d6ab383cea04e0d2679a0
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="assign-a-managed-service-identity-msi-access-to-a-resource-using-azure-cli"></a>Azure CLI를 사용하여 MSI(관리 서비스 ID)에 리소스 액세스 권한 할당
 
@@ -41,13 +41,13 @@ CLI 스크립트 예제는 다음의 세 가지 옵션 중 하나로 실행할 �
 
 [Azure VM](msi-qs-configure-cli-windows-vm.md)과 같은 Azure 리소스에서 MSI를 사용하도록 설정한 후에 다음을 수행합니다. 
 
-1. Azure CLI를 로컬 콘솔에서 사용하는 경우 [az login](/cli/azure/#login)을 사용하여 먼저 Azure에 로그인합니다. VM을 배포하려는 Azure 구독과 연결된 계정을 사용하세요.
+1. Azure CLI를 로컬 콘솔에서 사용하는 경우 [az login](/cli/azure/#az_login)을 사용하여 먼저 Azure에 로그인합니다. VM을 배포하려는 Azure 구독과 연결된 계정을 사용하세요.
 
    ```azurecli-interactive
    az login
    ```
 
-2. 이 예제에서는 Azure VM에 저장소 계정 액세스 권한을 제공합니다. 먼저 [az resource list](/cli/azure/resource/#list)를 사용하여 VM에서 MSI를 사용하도록 설정할 때 만든 VM "myVM"의 서비스 주체를 가져옵니다.
+2. 이 예제에서는 Azure VM에 저장소 계정 액세스 권한을 제공합니다. 먼저 [az resource list](/cli/azure/resource/#az_resource_list)를 사용하여 VM에서 MSI를 사용하도록 설정할 때 만든 VM "myVM"의 서비스 주체를 가져옵니다.
 
    ```azurecli-interactive
    spID=$(az resource list -n myVM --query [*].identity.principalId --out tsv)

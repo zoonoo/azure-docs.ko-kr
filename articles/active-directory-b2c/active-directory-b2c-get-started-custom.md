@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 08/04/2017
 ms.author: joroja;parahk;gsacavdm
-ms.openlocfilehash: 826211dca59128a8b87ace44348dd5e2764bc0c3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 86b86c7c670b34b4f3303adbcb55aff8d5edb53a
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-active-directory-b2c-get-started-with-custom-policies"></a>Azure Active Directory B2C: 사용자 지정 정책 시작
 
@@ -39,8 +39,8 @@ ms.lasthandoff: 12/11/2017
 2. **정책 키**를 선택하여 테넌트에 사용 가능한 키를 봅니다.
 3. B2C_1A_TokenSigningKeyContainer가 없으면 만듭니다.<br>
     a. **추가**를 선택합니다. <br>
-    b. **생성**을 선택합니다.<br>
-    c. **이름**에는 `TokenSigningKeyContainer`를 사용합니다. <br> 
+    나. **생성**을 선택합니다.<br>
+    다. **이름**에는 `TokenSigningKeyContainer`를 사용합니다. <br> 
     `B2C_1A_` 접두사가 자동으로 추가될 수 있습니다.<br>
     d. **키 유형**에는 **RSA**를 사용합니다.<br>
     e. **날짜**에는 기본값을 사용합니다. <br>
@@ -48,8 +48,8 @@ ms.lasthandoff: 12/11/2017
     g. **만들기**를 선택합니다.<br>
 4. B2C_1A_TokenEncryptionKeyContainer가 없으면 만듭니다.<br>
  a. **추가**를 선택합니다.<br>
- b. **생성**을 선택합니다.<br>
- c. **이름**에는 `TokenEncryptionKeyContainer`를 사용합니다. <br>
+ 나. **생성**을 선택합니다.<br>
+ 다. **이름**에는 `TokenEncryptionKeyContainer`를 사용합니다. <br>
    `B2C_1A`_ 접두사가 자동으로 추가될 수 있습니다.<br>
  d. **키 유형**에는 **RSA**를 사용합니다.<br>
  e. **날짜**에는 기본값을 사용합니다.<br>
@@ -58,8 +58,8 @@ ms.lasthandoff: 12/11/2017
 5. B2C_1A_FacebookSecret를 만듭니다. <br>
 Facebook 응용 프로그램 비밀이 이미 있을 경우 해당 비밀을 정책 키로 테넌트에 추가합니다. 그렇지 않으면 정책이 유효성 검사를 통과하도록 자리 표시자 값이 있는 키를 만들어야 합니다.<br>
  a. **추가**를 선택합니다.<br>
- b. **옵션**에는 **수동**을 사용합니다.<br>
- c. **이름**에는 `FacebookSecret`를 사용합니다. <br>
+ 나. **옵션**에는 **수동**을 사용합니다.<br>
+ 다. **이름**에는 `FacebookSecret`를 사용합니다. <br>
  `B2C_1A_` 접두사가 자동으로 추가될 수 있습니다.<br>
  d. **비밀** 상자에서 developers.facebook.com의 FacebookSecret 또는 `0`을 자리 표시자로 입력합니다. *Facebook 앱 ID가 아닙니다.* <br>
  e. **키 사용**에는 **서명**을 사용합니다. <br>
@@ -157,7 +157,7 @@ Azure AD B2C에서는 엔진에서 사용자를 등록하고 로그인하는 데
 2. `IdentityExperienceFrameworkAppId`의 두 인스턴스를 이전에 만든 ID 경험 프레임워크의 응용 프로그램 ID로 바꿉니다. 다음은 예제입니다.
 
    ```xml
-   <Item Key="client_id">8322dedc-cbf4-43bc-8bb6-141d16f0f489</Item>
+   <Item Key="IdTokenAudience">8322dedc-cbf4-43bc-8bb6-141d16f0f489</Item>
    ```
 3. `ProxyIdentityExperienceFrameworkAppId`의 두 인스턴스를 이전에 만든 프록시 ID 경험 프레임워크 응용 프로그램의 응용 프로그램 ID로 바꿉니다.
 4. 확장 파일을 저장합니다.

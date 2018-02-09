@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: jdial
-ms.openlocfilehash: 85ba6ef3e51c339a77eb9b4198c4f87e2a64cf09
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 413ec2ef4fcc7752b95984a209818eeba535746e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>가상 네트워크 서브넷 추가, 변경 또는 삭제
 
 가상 네트워크 서브넷을 추가, 변경 또는 삭제하는 방법을 알아봅니다. 
 
 가상 네트워크에 대해 잘 모르는 경우 서브넷을 추가, 변경 또는 삭제하기 전에 [Azure Virtual Network 개요](virtual-networks-overview.md) 및 [가상 네트워크 만들기, 변경 또는 삭제](virtual-network-manage-network.md)를 확인하는 것이 좋습니다. 가상 네트워크에 배포된 모든 Azure 리소스는 가상 네트워크 내의 서브넷에 배포됩니다. 일반적으로 다음을 위해 하나의 가상 네트워크 내에 여러 서브넷이 생성됩니다.
-- **서브넷 간의 트래픽 필터링**. 서브넷에 네트워크 보안 그룹을 적용하여 가상 네트워크에 있는 모든 리소스(예: 가상 컴퓨터)에 대한 인바운드 및 아웃바운드 네트워크 트래픽을 필터링할 수 있습니다. 네트워크 보안 그룹을 만드는 방법에 대한 자세한 내용은 [네트워크 보안 그룹 만들기](virtual-networks-create-nsg-arm-pportal.md)를 참조하세요.
+- **서브넷 간의 트래픽 필터링**. 서브넷에 네트워크 보안 그룹을 적용하여 가상 네트워크에 있는 모든 리소스(예: 가상 머신)에 대한 인바운드 및 아웃바운드 네트워크 트래픽을 필터링할 수 있습니다. 네트워크 보안 그룹을 만드는 방법에 대한 자세한 내용은 [네트워크 보안 그룹 만들기](virtual-networks-create-nsg-arm-pportal.md)를 참조하세요.
 - **서브넷 간 라우팅 제어**. 트래픽이 서브넷 간에 자동으로 라우팅되도록 Azure에서 기본 경로를 만듭니다. 사용자 정의 경로를 만들어 Azure 기본 경로를 재정의할 수 있습니다. 사용자 정의 경로에 대한 자세한 내용은 [사용자 정의 경로 만들기](virtual-network-create-udr-arm-ps.md)를 참조하세요. 
 
 이 문서에서는 Azure Resource Manager 배포 모델을 사용하여 만든 가상 네트워크에 대한 서브넷을 추가, 변경 및 삭제하는 방법을 설명합니다.
@@ -35,7 +35,7 @@ ms.lasthandoff: 10/11/2017
 
 이 문서에 설명된 작업을 시작하기 전에 다음 전제 조건을 완료합니다.
 
-- 가상 네트워크에서 처음 작업하는 경우 [첫 번째 Azure Virtual Network 만들기](virtual-network-get-started-vnet-subnet.md)의 연습을 검토하는 것이 좋습니다. 이 연습을 통해 가상 네트워크에 친숙해질 수 있습니다.
+- 가상 네트워크에서 처음 작업하는 경우 [첫 번째 Azure Virtual Network 만들기](quick-create-portal.md)의 연습을 검토하는 것이 좋습니다. 이 연습을 통해 가상 네트워크에 친숙해질 수 있습니다.
 - 가상 네트워크에 대한 제한 사항은 [Azure 제한](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)을 참조하세요.
 - Azure 계정을 사용하여 Azure Portal, Azure CLI(명령줄 도구) 또는 Azure PowerShell에 로그인합니다. Azure 계정이 없으면 [평가판 계정](https://azure.microsoft.com/free)에 등록합니다.
 - PowerShell 명령을 사용하여 이 문서의 작업을 수행하려면 먼저 [Azure PowerShell을 설치 및 구성](/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json)해야 합니다. 최신 버전의 Azure PowerShell cmdlet을 설치했는지 확인합니다. 예제에서 PowerShell 명령에 대한 도움말을 보려면 `get-help <command> -full`을 입력합니다.
@@ -78,7 +78,7 @@ ms.lasthandoff: 10/11/2017
 3. **가상 네트워크** 블레이드에서 서브넷 주소 범위를 변경할 가상 네트워크를 클릭합니다.
 4. 주소 범위를 변경할 서브넷을 클릭합니다.
 5. 서브넷 블레이드에서 **주소 범위** 상자에 새 주소 범위를 입력합니다. 범위는 가상 네트워크의 주소 공간 내에서 고유해야 합니다. 범위는 가상 네트워크 내에서 다른 서브넷 주소 범위와 겹칠 수 없습니다. CIDR 표기법을 사용하여 주소 공간을 지정해야 합니다. 예를 들어 주소 공간이 10.0.0.0/16인 가상 네트워크에서 서브넷 주소 공간을 10.0.0.0/24로 정의할 수 있습니다. 지정할 수 있는 최소 범위는 /29이며, 서브넷에 대해 8개의 IP 주소를 제공합니다. Azure는 프로토콜 준수를 위해 각 서브넷의 첫 번째 및 마지막 주소를 예약합니다. 세 개의 추가 주소가 Azure 서비스를 사용하기 위해 예약되어 있습니다. 결과적으로 주소 범위가 /29인 서브넷에는 사용할 수 있는 3개의 IP 주소가 있습니다. 가상 네트워크를 VPN Gateway에 연결하려면 게이트웨이 서브넷을 만들어야 합니다. [게이트웨이 서브넷에 대한 특정 주소 범위 고려 사항](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub)에서 대해 자세히 알아보세요. 특정 조건에서 서브넷을 만든 후에 주소 범위를 변경할 수 있습니다. 서브넷 주소 범위를 변경하는 방법에 대한 자세한 내용은 이 문서에서 [서브넷 설정 변경](#change-subnet)을 참조하세요.
-6. **Save**를 클릭합니다.
+6. **저장**을 클릭합니다.
 
 **명령**
 
@@ -107,4 +107,4 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="next-steps"></a>다음 단계
 
-서브넷에서 가상 컴퓨터를 만들려면 [가상 네트워크 만들기 및 서브넷에서 VM 배포](virtual-network-get-started-vnet-subnet.md#create-vms)를 참조하세요.
+서브넷에서 가상 머신을 만들려면 [가상 네트워크 만들기 및 서브넷에서 VM 배포](quick-create-portal.md#create-virtual-machines)를 참조하세요.

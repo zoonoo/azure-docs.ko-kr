@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 727041edf457ef55a39eb91ba2369c163f5b4712
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 17ffd0de41964736d2f59b0cf891d0c6b2e7d16b
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Azure Data Factory 복사 활동을 사용하여 DB2에서 데이터 이동
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -80,12 +80,12 @@ Data Factory DB2 커넥터는 DRDA(Distributed Relational Database Architecture)
 ## <a name="db2-linked-service-properties"></a>DB2 연결된 서비스 속성
 다음 표에는 DB2 연결된 서비스와 관련된 JSON 속성이 나열되어 있습니다.
 
-| 속성 | 설명 | 필수 |
+| 자산 | 설명 | 필수 |
 | --- | --- | --- |
 | **type** |이 속성을 **OnPremisesDb2**로 설정해야 합니다. |예 |
 | **server** |DB2 서버의 이름입니다. |예 |
 | **database** |DB2 데이터베이스의 이름입니다. |예 |
-| **schema** |DB2 데이터베이스의 스키마 이름입니다. 대/소문자를 구분합니다. |아니요 |
+| **schema** |DB2 데이터베이스의 스키마 이름입니다. 대/소문자를 구분합니다. |아니오 |
 | **authenticationType** |DB2 데이터베이스에 연결하는 데 사용되는 인증 유형입니다. 가능한 값은 Anonymous, Basic 및 Windows입니다. |예 |
 | **사용자 이름** |Basic 또는 Windows 인증을 사용하는 경우 사용자 계정의 이름입니다. |아니요 |
 | **암호** |사용자 계정의 암호입니다. |아니요 |
@@ -96,7 +96,7 @@ Data Factory DB2 커넥터는 DRDA(Distributed Relational Database Architecture)
 
 **typeProperties** 섹션은 데이터 집합의 각 형식에 따라 다르며 데이터 저장소에 있는 데이터의 위치에 대한 정보를 제공합니다. DB2 데이터 집합을 포함하는 **RelationalTable** 형식의 데이터 집합에 대한 **typeProperties** 섹션에는 다음과 같은 속성이 있습니다.
 
-| 속성 | 설명 | 필수 |
+| 자산 | 설명 | 필수 |
 | --- | --- | --- |
 | **tableName** |연결된 서비스에서 참조하는 DB2 데이터베이스 인스턴스의 테이블 이름입니다. 대/소문자를 구분합니다. |아니요(**RelationalSource** 형식 복사 활동의 **query** 속성이 지정된 경우) |
 
@@ -105,7 +105,7 @@ Data Factory DB2 커넥터는 DRDA(Distributed Relational Database Architecture)
 
 복사 활동의 경우 원본이 **RelationalSource** 형식인 경우(DB2 포함) **typeProperties** 섹션에서 다음과 같은 속성을 사용할 수 있습니다.
 
-| 속성 | 설명 | 허용되는 값 | 필수 |
+| 자산 | 설명 | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
 | **query** |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예: `"query": "select * from "MySchema"."MyTable""` |아니요(데이터 집합의 **tableName** 속성이 지정된 경우) |
 
@@ -310,7 +310,7 @@ Data Factory DB2 커넥터는 DRDA(Distributed Relational Database Architecture)
 | DB2 데이터베이스 형식 | .NET Framework 형식 |
 | --- | --- |
 | SmallInt |Int16 |
-| Integer |Int32 |
+| 정수  |Int32 |
 | BigInt |Int64 |
 | Real |단일 |
 | Double |Double |
@@ -318,9 +318,9 @@ Data Factory DB2 커넥터는 DRDA(Distributed Relational Database Architecture)
 | 10진수 |10진수 |
 | DecimalFloat |10진수 |
 | 숫자 |10진수 |
-| Date |DateTime |
-| Time |TimeSpan |
-| Timestamp |Datetime |
+| Date |Datetime |
+| Time |timespan |
+| 타임 스탬프 |Datetime |
 | xml |Byte[] |
 | Char |문자열 |
 | VarChar |문자열 |
@@ -336,7 +336,7 @@ Data Factory DB2 커넥터는 DRDA(Distributed Relational Database Architecture)
 | Blob |Byte[] |
 | DbClob |문자열 |
 | SmallInt |Int16 |
-| Integer |Int32 |
+| 정수  |Int32 |
 | BigInt |Int64 |
 | Real |단일 |
 | Double |Double |
@@ -344,11 +344,11 @@ Data Factory DB2 커넥터는 DRDA(Distributed Relational Database Architecture)
 | 10진수 |10진수 |
 | DecimalFloat |10진수 |
 | 숫자 |10진수 |
-| Date |DateTime |
-| Time |TimeSpan |
-| Timestamp |Datetime |
+| Date |Datetime |
+| Time |timespan |
+| 타임 스탬프 |Datetime |
 | xml |Byte[] |
-| Char |String |
+| Char |문자열 |
 
 ## <a name="map-source-to-sink-columns"></a>원본을 싱크 열로 매핑
 원본 데이터 집합의 열을 싱크 데이터 집합의 열에 매핑하는 방법을 알아보려면 [Azure Data Factory의 데이터 집합 열 매핑](data-factory-map-columns.md)을 참조하세요.

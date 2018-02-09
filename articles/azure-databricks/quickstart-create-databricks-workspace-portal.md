@@ -11,14 +11,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 11/15/2017
+ms.date: 01/22/2018
 ms.author: nitinme
 ms.custom: mvc
-ms.openlocfilehash: 6a90ac77cd605a41f1fc7d0958662a7e752e3849
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 8a91e92e0e535b047ddfcfeff53de72d769f05c7
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure Databricks에서 Spark 작업 실행
 
@@ -38,10 +38,7 @@ ms.lasthandoff: 12/05/2017
 
 2. **Azure Databricks(미리 보기)** 아래에 있는 **만들기**를 클릭합니다.
 
-    > [!NOTE]
-    > Azure Databricks는 현재 제한된 미리 보기로 제공됩니다. Azure 구독을 미리보기 허용 목록으로 간주하려면 [등록 양식](https://databricks.azurewebsites.net/)을 작성해야 합니다.
-
-2. **Azure Databricks 서비스**아래에 다음 값을 제공합니다.
+3. **Azure Databricks 서비스**아래에 다음 값을 제공합니다.
 
     ![Azure Databricks 작업 영역 만들기](./media/quickstart-create-databricks-workspace-portal/create-databricks-workspace.png "Azure Databricks 작업 영역 만들기")
 
@@ -50,7 +47,7 @@ ms.lasthandoff: 12/05/2017
     * **리소스 그룹**에서 새 리소스 그룹을 만들지 아니면 기존 집합을 사용할지 여부를 지정합니다. 리소스 그룹은 Azure 솔루션에 관련된 리소스를 보유하는 컨테이너입니다. 자세한 내용은 [Azure Resource Manager 개요](../azure-resource-manager/resource-group-overview.md)를 참조하세요.
     * **위치**에서는 **미국 동부 2**를 선택합니다. 사용 가능한 다른 영역은 [지역별 사용 가능한 Azure 서비스](https://azure.microsoft.com/regions/services/)를 참조하세요.
 
-3. **만들기**를 클릭합니다.
+4. **만들기**를 클릭합니다.
 
 ## <a name="create-a-spark-cluster-in-databricks"></a>Databricks에서 Spark 클러스터 만들기
 
@@ -149,7 +146,7 @@ ms.lasthandoff: 12/05/2017
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-Spark 클러스터를 생성하는 동안  **___ 분 후 작업 종료 확인란**을 선택한 경우 클러스터가 지정된 시간 동안 비활성 상태인 경우 클러스터가 자동으로 종료됩니다.
+Spark 클러스터를 생성하는 동안  **__분 후 작업 종료 확인란**을 선택한 경우 클러스터가 지정된 시간 동안 비활성 상태인 경우 클러스터가 자동으로 종료됩니다.
 
 이 확인란을 선택하지 않으면 수동으로 클러스터를 종료해야 합니다. 이렇게 하려면 왼쪽 창의 Azure Databricks 작업 영역에서 **클러스터**를 클릭합니다. 종료하려는 클러스터에서 커서를 **작업** 열의 줄임표 위로 이동한 다음 **종료** 아이콘을 클릭합니다.
 

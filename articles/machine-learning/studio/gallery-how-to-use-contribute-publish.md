@@ -1,6 +1,6 @@
 ---
-title: "Cortana Intelligence 갤러리 | Microsoft Docs"
-description: "Cortana Intelligence 갤러리의 분석 리소스 등 공유 및 검색 다른 사용자로부터 배우고 커뮤니티에 직접 제공합니다."
+title: "Azure AI 갤러리 | Microsoft Docs"
+description: "Azure AI 갤러리의 분석 리소스 등을 공유 및 검색합니다. 다른 사용자로부터 배우고 커뮤니티에 직접 제공합니다."
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.author: roopalik;garye
-ms.openlocfilehash: 9da6cc9d306930fbec33ecebc85784d0d1e1532d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: garye
+ms.openlocfilehash: 5ccb595e24d8ee169cc6ee589a3ddc2f9fef5dcd
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/03/2018
 ---
-# <a name="share-and-discover-resources-in-the-cortana-intelligence-gallery"></a>Cortana Intelligence 갤러리의 리소스 공유 및 검색
+# <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Azure AI 갤러리의 리소스 공유 및 검색
 [!INCLUDE [gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 <!-- separating these 2 includes -->
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 ## <a name="what-can-i-find-in-the-gallery"></a>갤러리에는 어떤 응용 프로그램이 있습니까?
-Cortana Intelligence Gallery에는 쟈체 분석 솔루션을 개발하는 데 사용할 수 있는 다양한 리소스가 있습니다.
+Azure AI 갤러리에는 자체 분석 솔루션을 개발하는 데 사용할 수 있는 다양한 리소스가 있습니다.
 
 * **[실험](gallery-experiments.md)** - 갤러리에는 Azure Machine Learning Studio에서 개발된 매우 다양한 실험이 들어 있습니다. 이러한 실험은 특정한 기계 학습 기법을 보여주는 빠른 개념 증명 실험에서 복잡한 기계 학습 문제에 대한 완전히 개발된 솔루션에 이르기까지 다양합니다.
 * **[Jupyter 노트북](gallery-jupyter-notebooks.md)** - Jupyter 노트북은 하나의 단일 대화형 캔버스에 코드, 데이터 시각화 및 문서를 포함합니다.
@@ -48,7 +48,7 @@ Cortana Intelligence Gallery에는 쟈체 분석 솔루션을 개발하는 데 �
 
 마지막으로, **[대회](gallery-competitions.md)**는 Cortana Intelligence Suite을 사용하여 복잡한 문제를 해결하기 위해 데이터 과학자 커뮤니티와 경쟁할 멋진 기회를 제공합니다.
 
-![Cortana Intelligence 갤러리 홈 페이지](./media/gallery-how-to-use-contribute-publish/gallery-home-page.png)
+![Azure AI 갤러리 홈페이지](./media/gallery-how-to-use-contribute-publish/gallery-home-page.png)
 
 ## <a name="discover-and-learn"></a>검색 및 배우기
 누구나 갤러리에서 Microsoft 및 고급 분석 커뮤니티에서 제공된 다양한 종류의 리소스를 찾아보고 검색할 수 있습니다.
@@ -66,7 +66,7 @@ Cortana Intelligence Gallery에는 쟈체 분석 솔루션을 개발하는 데 �
 LinkedIn 또는 Twitter의 공유 기능을 사용하여 친구나 동료와 관심 있는 리소스를 공유할 수 있습니다.
 페이지를 보도록 다른 사용자를 초대하기 위해 이러한 리소스의 링크를 메일로 보낼 수도 있습니다.
 
-![이 항목을 친구들과 공유](./media/gallery-how-to-use-contribute-publish/comment-and-share.png)
+![이 항목을 친구 들과 공유](./media/gallery-how-to-use-contribute-publish/comment-and-share.png)
 
 ## <a name="contribute-to-the-gallery"></a>갤러리에 기고
 로그인할 때 갤러리 커뮤니티의 구성원이 됩니다. 구성원이 되면 자신이 발견한 솔루션을 다른 사용자가 활용할 수 있도록 자신의 갤러리 항목을 기고할 수 있습니다.

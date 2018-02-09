@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 3c29c43f88608760cc6d5f19f27f692c8448ebd9
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: a1e4f15747031ba75ba5ae589557750919a71853
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>Azure Functions의 Mobile Apps 바인딩 
 
@@ -37,8 +37,7 @@ Mobile Apps 입력 바인딩은 모바일 테이블 끝점에서 레코드를 �
 
 언어 관련 예제를 참조하세요.
 
-<!-- * [Precompiled C#](#input---c-example)-->
-* [C# 스크립트](#input---c-script-example)
+* [C# 스크립트(.csx)](#input---c-script-example)
 * [JavaScript](#input---javascript-example)
 
 ### <a name="input---c-script-example"></a>입력 - C# 스크립트 예제
@@ -129,7 +128,7 @@ module.exports = function (context, myQueueItem) {
 
 ## <a name="input---attributes"></a>입력 - 특성
 
-[미리 컴파일된 C#](functions-dotnet-class-library.md) 함수의 경우 [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps) NuGet 패키지에 정의되어 있는 [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) 특성을 사용합니다.
+[C# 클래스 라이브러리](functions-dotnet-class-library.md)에서는 [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps) NuGet 패키지에 정의되어 있는 [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) 특성을 사용합니다.
 
 구성할 수 있는 특성 속성에 대한 자세한 내용은 [다음 구성 섹션](#input---configuration)을 참조하세요.
 
@@ -168,13 +167,13 @@ Mobile Apps 출력 바인딩을 사용하여 Mobile Apps 테이블에 새 레코
 
 언어 관련 예제를 참조하세요.
 
-* [미리 컴파일된 C#](#output---c-example)
-* [C# 스크립트](#output---c-script-example)
+* [C#](#output---c-example)
+* [C# 스크립트(.csx)](#output---c-script-example)
 * [JavaScript](#output---javascript-example)
 
 ### <a name="output---c-example"></a>출력 - C# 예제
 
-다음 예에서는 큐 메시지에 의해 트리거된 [미리 컴파일된 C# 함수](functions-dotnet-class-library.md)를 보여주고 모바일 앱 테이블에 레코드를 만듭니다.
+다음 예에서는 큐 메시지에 의해 트리거된 [C# 함수](functions-dotnet-class-library.md)를 보여주고 모바일 앱 테이블에 레코드를 만듭니다.
 
 ```csharp
 [FunctionName("MobileAppsOutput")]        
@@ -275,7 +274,7 @@ module.exports = function (context, myQueueItem) {
 
 ## <a name="output---attributes"></a>출력 - 특성
 
-[미리 컴파일된 C#](functions-dotnet-class-library.md) 함수의 경우 [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps) NuGet 패키지에 정의되어 있는 [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) 특성을 사용합니다.
+[C# 클래스 라이브러리](functions-dotnet-class-library.md)에서는 [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps) NuGet 패키지에 정의되어 있는 [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) 특성을 사용합니다.
 
 구성할 수 있는 특성 속성에 대한 자세한 내용은 [출력 - 구성](#output---configuration)을 참조하세요. 다음은 메서드 서명의 `MobileTable` 특성 예제입니다.
 
@@ -290,7 +289,7 @@ public static object Run(
 }
 ```
 
-전체 예제는 [출력 - 미리 컴파일된 C# 예제](#output---c-example)를 참조하세요.
+전체 예제는 [출력 - C# 예제](#output---c-example)를 참조하세요.
 
 ## <a name="output---configuration"></a>출력 - 구성
 
@@ -312,7 +311,7 @@ public static object Run(
 
 ## <a name="output---usage"></a>출력 - 사용
 
-C# 스크립트 함수에서 `out object` 형식의 명명된 출력 매개 변수를 사용하여 출력 레코드에 액세스합니다. 미리 컴파일된 C# 함수에서 `MobileTable` 특성은 다음 유형 중 하나와 함께 사용할 수 있습니다.
+C# 스크립트 함수에서 `out object` 형식의 명명된 출력 매개 변수를 사용하여 출력 레코드에 액세스합니다. C# 클래스 라이브러리에서 `MobileTable` 특성은 다음 유형 중 하나와 함께 사용할 수 있습니다.
 
 * `T`가 `JObject` 또는 `public string Id` 속성이 있는 type인 경우, `ICollector<T>` 또는 `IAsyncCollector<T>`.
 * `out JObject`

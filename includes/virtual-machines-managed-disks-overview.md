@@ -12,7 +12,7 @@ Channel 9 비디오 [Better Azure VM Resiliency with Managed Disks](https://chan
 
 Managed Disks는 배후에서 저장소를 처리해줍니다. 이전에는 Azure VM의 디스크(VHD 파일)를 갖기 위해 저장소 계정을 만들어야 했습니다. 확장하는 경우에는 디스크를 포함하는 저장소의 IOPS 제한을 초과하지 않도록 저장소 계정을 추가로 만들었는지 확인해야 했습니다. Managed Disks로 저장소를 처리하면 저장소 계정 한도(예: 20,000 IOPS/계정)로 인해 더 이상 제한을 받지 않습니다. 사용자 지정 이미지(VHD 파일)를 여러 저장소 계정에 복사할 필요도 없습니다. 중앙 위치(Azure 지역당 하나의 저장소 계정)에서 저장소 계정을 관리할 수 있고 이를 통해 구독에 수백 개의 VM을 만들 수 있습니다.
 
-Managed Disks를 사용하면 구독에 VM **디스크**를 10,000개까지 만들 수 있고 따라서 단일 구독에 수천 개의 **VM**을 만들 수 있습니다. 이 기능을 사용하면 Marketplace 이미지를 사용하여 VMSS에 VM을 천 개까지 만들 수 있기 때문에 [Virtual Machine Scale Sets(VMSS)](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)의 확장성을 훨씬 더 높일 수도 있습니다.
+Managed Disks를 사용하면 구독에 VM **디스크**를 10,000개까지 만들 수 있고 따라서 단일 구독에 수천 개의 **VM**을 만들 수 있습니다. 이 기능을 사용하면 Marketplace 이미지를 사용하여 VMSS에 VM을 천 개까지 만들 수 있기 때문에 [VMSS(Virtual Machine Scale Sets)](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)의 확장성을 훨씬 더 높일 수도 있습니다.
 
 ### <a name="better-reliability-for-availability-sets"></a>가용성 집합에 대한 안정성 향상
 
@@ -51,16 +51,16 @@ Managed Disks를 사용하는 경우 다음과 같은 청구 고려 사항이 �
 
 프리미엄 관리 디스크에 사용 가능한 디스크 크기는 다음과 같습니다.
 
-| **프리미엄 관리 <br>디스크 유형** | **P4** | **P6** |**P10** | **P20** | **P30** | **P40** | **P50** | 
-|------------------|---------|---------|---------|---------|----------------|----------------|----------------|  
-| 디스크 크기        | 32GB   | 64GB   | 128GB  | 512GB  | 1,024GB(1TB) | 2,048GB(2TB) | 4,095GB(4TB) | 
+| **프리미엄 관리 <br>디스크 유형** | **P4** | **P6** |**P10** | **P15** | **P20** | **P30** | **P40** | **P50** | 
+|------------------|---------|---------|---------|---------|---------|----------------|----------------|----------------|  
+| 디스크 크기        | 32GiB   | 64GiB   | 128GiB  | 256GiB  | 512GiB  | 1024GiB(1TiB) | 2048GiB(2TiB) | 4095GiB(4TiB) | 
 
 
 표준 관리 디스크에 사용 가능한 디스크 크기는 다음과 같습니다.
 
 | **표준 관리 <br>디스크 유형** | **S4** | **S6** | **S10** | **S20** | **S30** | **S40** | **S50** |
 |------------------|---------|---------|--------|--------|----------------|----------------|----------------| 
-| 디스크 크기        | 32GB   | 64GB   | 128GB | 512GB | 1,024GB(1TB) | 2,048GB(2TB) | 4,095GB(4TB) | 
+| 디스크 크기        | 32GiB   | 64GiB   | 128GiB | 512GiB | 1024GiB(1TiB) | 2048GiB(2TiB) | 4095GiB(4TiB) | 
 
 
 **트랜잭션 수**: 표준 관리 디스크에서 수행하는 트랜잭션 수에 따라 요금이 청구됩니다. 프리미엄 관리 디스크에 대한 트랜잭션 비용은 없습니다.
@@ -72,7 +72,7 @@ Managed Disks 가격 책정에 대한 자세한 내용은 [Managed Disks 가격 
 
 ## <a name="managed-disk-snapshots"></a>관리 디스크 스냅숏
 
-관리 스냅숏은 기본적으로 표준 관리 디스크로 저장되는 관리 디스크의 완전한 읽기 전용 복사본입니다. 스냅숏을 사용하면 관리 디스크를 언제든지 백업할 수 있습니다. 이 스냅숏은 원본 디스크와 별도로 존재하고 새 Managed Disks를 만드는 데 사용될 수도 있습니다. 사용된 크기에 따라 요금이 청구됩니다. 예를 들어 프로비전된 용량이 64GB이고 실제 사용된 데이터 크기가 10GB인 Managed Disks의 스냅숏을 만들 경우 사용된 10GB의 데이터 크기에 대해서만 스냅숏 요금이 청구됩니다.  
+관리 스냅숏은 기본적으로 표준 관리 디스크로 저장되는 관리 디스크의 완전한 읽기 전용 복사본입니다. 스냅숏을 사용하면 관리 디스크를 언제든지 백업할 수 있습니다. 이 스냅숏은 원본 디스크와 별도로 존재하고 새 Managed Disks를 만드는 데 사용될 수도 있습니다. 사용된 크기에 따라 요금이 청구됩니다. 예를 들어 프로비전된 용량이 64GiB이고 실제 사용된 데이터 크기가 10GiB인 Managed Disks의 스냅숏을 만들 경우 사용된 10GiB의 데이터 크기에 대해서만 스냅숏 요금이 청구됩니다.  
 
 [증분 스냅숏](../articles/virtual-machines/windows/incremental-snapshots.md)은 현재 Managed Disks에 지원되지 않지만 나중에 지원될 예정입니다.
 
@@ -88,7 +88,7 @@ Managed Disks는 관리되는 사용자 지정 이미지 만들기도 지원합�
 
 이미지 만들기에 대한 내용은 다음 문서를 참조하세요.
 * [Azure에서 일반화된 VM의 관리 이미지를 캡처하는 방법](../articles/virtual-machines/windows/capture-image-resource.md)
-* [Azure CLI 2.0을 사용하여 Linux 가상 컴퓨터를 일반화하고 캡처하는 방법](../articles/virtual-machines/linux/capture-image.md)
+* [Azure CLI 2.0을 사용하여 Linux 가상 머신을 일반화하고 캡처하는 방법](../articles/virtual-machines/linux/capture-image.md)
 
 ## <a name="images-versus-snapshots"></a>이미지 및 스냅숏
 

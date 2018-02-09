@@ -1,6 +1,6 @@
 ---
 title: "Azure에서 Linux VM에 대한 Docker Compose 사용 | Microsoft Docs"
-description: "Azure CLI와 함께 Linux 가상 컴퓨터에서 Docker 및 Compose를 사용하는 방법"
+description: "Azure CLI와 함께 Linux 가상 머신에서 Docker 및 Compose를 사용하는 방법"
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
@@ -13,13 +13,13 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/26/2017
+ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: e187b51769754a757991f7b5bdb335e62512b488
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 474a2d66cc46fcac35b145633e802d72881b10d8
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="get-started-with-docker-and-compose-to-define-and-run-a-multi-container-application-in-azure"></a>Azure에서 다중 컨테이너 응용 프로그램 정의 및 실행을 위해 Docker 및 Compose 시작
 [Compose](http://github.com/docker/compose)를 사용하면 간단한 텍스트 파일을 사용하여 여러 Docker 컨테이너로 구성된 응용 프로그램을 정의할 수 있습니다. 그런 다음 정의된 환경을 배포하도록 모든 작업을 수행하는 단일 명령으로 응용 프로그램을 스핀업합니다. 그 예로, 이 문서에서는 Ubuntu VM의 백 엔드 MariaDB SQL Database로 WordPress 블로그를 신속하게 설정하는 방법을 보여주지만 Compose를 사용하여 좀더 복잡한 응용 프로그램을 설정할 수도 있습니다.
@@ -40,30 +40,14 @@ Docker VM 확장을 사용하면 VM이 자동으로 Docker 호스트로 설정�
 az group create --name myResourceGroup --location eastus
 ```
 
-다음으로 [GitHub의 이 Azure Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu)의 Azure Docker VM 확장을 포함하는 [az group deployment create](/cli/azure/group/deployment#create)로 VM을 배포합니다. *newStorageAccountName*, *adminUsername*, *adminPassword* 및 *dnsNameForPublicIP*에 대한 고유한 값을 제공합니다.
+다음으로 [GitHub의 이 Azure Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu)의 Azure Docker VM 확장을 포함하는 [az group deployment create](/cli/azure/group/deployment#create)로 VM을 배포합니다. 메시지가 표시되면 *newStorageAccountName*, *adminUsername*, *adminPassword* 및 *dnsNameForPublicIP*에 대한 고유한 값을 제공합니다.
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup \
-  --parameters '{"newStorageAccountName": {"value": "mystorageaccount"},
-    "adminUsername": {"value": "azureuser"},
-    "adminPassword": {"value": "P@ssw0rd!"},
-    "dnsNameForPublicIP": {"value": "mypublicdns"}}' \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/docker-simple-on-ubuntu/azuredeploy.json
+    --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/docker-simple-on-ubuntu/azuredeploy.json
 ```
 
-배포를 완료하려면 몇 분 정도 소요됩니다. 배포가 완료되면 [다음 단계로 이동](#verify-that-compose-is-installed)하여 VM에 SSH를 사용합니다. 
-
-필요에 따라 프롬프트에 대한 제어를 반환하고 백그라운드에서 배포를 계속하려면 `--no-wait` 플래그를 이전 명령에 추가합니다. 이 프로세스를 통해 배포가 몇 분 동안 계속되는 동안 CLI에서 다른 작업을 수행할 수 있습니다. [az vm show](/cli/azure/vm#show)를 사용하여 Docker 호스트 상태에 대한 자세한 정보를 볼 수 있습니다. 다음 예제에서는 *myResourceGroup*이라는 리소스 그룹에서 *myDockerVM*(템플릿의 기본 이름이므로 변경하지 말 것)이라는 VM의 상태를 확인합니다.
-
-```azurecli
-az vm show \
-    --resource-group myResourceGroup \
-    --name myDockerVM \
-    --query [provisioningState] \
-    --output tsv
-```
-
-이 명령이 *Succeeded*를 반환하는 경우 배포가 완료되었으며 다음 단계에서 VM에 SSH를 사용할 수 있습니다.
+배포를 완료하려면 몇 분 정도 소요됩니다.
 
 
 ## <a name="verify-that-compose-is-installed"></a>Compose 설치 여부 확인
@@ -78,7 +62,7 @@ az vm show \
     --output tsv
 ```
 
-새 Docker 호스트로 SSH를 수행합니다. 다음과 같이 사용자 고유의 DNS 이름을 제공합니다.
+새 Docker 호스트로 SSH를 수행합니다. 이전 단계에서 자신의 사용자 이름 및 DNS 이름을 제공합니다.
 
 ```bash
 ssh azureuser@mypublicdns.eastus.cloudapp.azure.com

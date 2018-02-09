@@ -5,18 +5,18 @@ services: machine-learning
 author: euangMS
 ms.author: euang
 manager: lanceo
-ms.reviewer: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
-ms.date: 09/15/2017
-ms.openlocfilehash: 413bc8a0e0347498c004b93fb37f51d86ad029f5
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.date: 02/01/2018
+ms.openlocfilehash: 9025982d2a350941ef82733292ebbf15ab48d7fe
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="supported-matrix-for-this-release"></a>이 릴리스에 지원되는 행렬 
 코드가 Azure Machine Learning 데이터 원본을 사용하여 데이터를 로드하거나 Azure Machine Learning 데이터 준비에서 Pandas 또는 Spark 데이터 프레임을 가져올 때 다음과 같은 실험 계산 환경 및 데이터 위치의 조합이 지원됩니다.
@@ -26,8 +26,8 @@ ms.lasthandoff: 10/20/2017
 |로컬 Python    |     지원됨    |지원되지 않음         | 지원되지 않음        |         |
 |Docker(Linux VM) Python     |프로젝트 파일에서만 지원됨*         | 지원되지 않음        |        지원되지 않음 |         |
 |Docker(Linux VM) PySpark     |프로젝트 파일에서만 지원됨*     |지원됨         | 지원됨**        |         |
-|Azure 데이터 과학 가상 컴퓨터 Python     |프로젝트 파일에서만 지원됨*         |지원되지 않음         |지원되지 않음         |         |
-|Azure 데이터 과학 가상 컴퓨터 PySPark     | 프로젝트 파일에서만 지원됨*        |지원되지 않음         |지원되지 않음         |         |
+|Azure 데이터 과학 Virtual Machine Python     |프로젝트 파일에서만 지원됨*         |지원되지 않음         |지원되지 않음         |         |
+|Azure 데이터 과학 Virtual Machine PySPark     | 프로젝트 파일에서만 지원됨*        |지원되지 않음         |지원되지 않음         |         |
 |Azure HDInsight PySpark     | 지원되지 않음        |지원됨         |지원됨**         |         |
 |Azure HDInsight Python     | 지원되지 않음        | 지원되지 않음        | 지원되지 않음        |         |
 
@@ -37,4 +37,4 @@ ms.lasthandoff: 10/20/2017
 
 **Maven JDBC SQL Server 드라이버 6.2.1 사용 이 패키지(또는 호환 가능한 제품)가 계산 환경의 spark_dependencies.yml 파일에 포함되어 있어야 합니다.
 
-***계산 환경에서 데이터베이스에 연결할 수 있다면 Azure SQL Database, Azure SQL Data Warehouse 또는 SQL Server를 지원합니다. 
+***계산 환경에서 데이터베이스에 연결할 수 있다면 Azure SQL Database 또는 SQL Server를 지원합니다. 

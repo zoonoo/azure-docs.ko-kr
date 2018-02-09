@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 01/04/2018
 ms.author: billmath
-ms.openlocfilehash: 12ebfdfaaf9325ba57fe3972ee073fa5181cdbff
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 077a60949b5eed24cb9a1c56008a0073693f121e
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory 통과 인증: 질문과 대답
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="is-pass-through-authentication-available-in-the-microsoft-azure-germany-cloudhttpwwwmicrosoftdecloud-deutschland-and-the-microsoft-azure-government-cloudhttpsazuremicrosoftcomfeaturesgov"></a>통과 인증은 [Microsoft Azure 독일 클라우드](http://www.microsoft.de/cloud-deutschland) 및 [Microsoft Azure Government 클라우드](https://azure.microsoft.com/features/gov/)에서 사용할 수 있나요?
 
-아니요. 통과 인증은 Azure AD의 전 세계 인스턴스에서만 사용할 수 있습니다.
+번호 통과 인증은 Azure AD의 전 세계 인스턴스에서만 사용할 수 있습니다.
 
 ## <a name="does-conditional-accessactive-directory-conditional-access-azure-portalmd-work-with-pass-through-authentication"></a>[조건부 액세스](../active-directory-conditional-access-azure-portal.md)는 통과 인증에서 작동하나요?
 
@@ -46,7 +46,7 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="does-password-hash-synchronization-act-as-a-fallback-to-pass-through-authentication"></a>암호 해시 동기화가 통과 인증을 대체하는 역할을 하나요?
 
-아니요. 통과 인증은 자동으로 암호 해시 동기화로 장애 조치하지 _않습니다_. [통과 인증이 현재 지원하지 않는 시나리오](active-directory-aadconnect-pass-through-authentication-current-limitations.md#unsupported-scenarios)에 대한 대체 방식으로만 사용됩니다. 사용자 로그인 오류를 방지하려면 [고가용성](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability)에 대해 통과 인증을 구성해야 합니다.
+번호 통과 인증은 자동으로 암호 해시 동기화로 장애 조치하지 _않습니다_. [통과 인증이 현재 지원하지 않는 시나리오](active-directory-aadconnect-pass-through-authentication-current-limitations.md#unsupported-scenarios)에 대한 대체 방식으로만 사용됩니다. 사용자 로그인 오류를 방지하려면 [고가용성](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability)에 대해 통과 인증을 구성해야 합니다.
 
 ## <a name="can-i-install-an-azure-ad-application-proxyactive-directory-application-proxy-get-startedmd-connector-on-the-same-server-as-a-pass-through-authentication-agent"></a>통과 인증 에이전트와 동일한 서버에 [Azure AD 응용 프로그램 프록시](../active-directory-application-proxy-get-started.md)를 설치할 수 있나요?
 
@@ -81,6 +81,12 @@ ms.lasthandoff: 12/11/2017
 ## <a name="can-i-install-two-or-more-pass-through-authentication-agents-on-the-same-server"></a>동일한 서버에 둘 이상의 통과 인증 에이전트를 설치할 수 있나요?
 
 아니요, 단일 서버에는 통과 인증 에이전트 하나만 설치할 수 있습니다. 고가용성에 대한 통과 인증을 구성하려면 [Azure Active Directory 통과 인증: 빠른 시작](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability)의 지침을 따르세요.
+
+## <a name="how-do-i-remove-a-pass-through-authentication-agent"></a>통과 인증 에이전트를 제거하려면 어떻게 해야 하나요?
+
+통과 인증 에이전트는 실행되는 동안 활성 상태를 유지하며, 지속적으로 사용자 로그인 요청을 처리합니다. 인증 에이전트를 제거하려는 경우 **제어판 -> 프로그램 -> 프로그램 및 기능**으이로 동한 후 **Microsoft Azure AD Connect Authentication Agent** 및 **Microsoft Azure AD Connect Agent Updater** 프로그램을 둘 다 제거합니다.
+
+위의 단계를 완료한 후 [Azure Active Directory 관리 센터](https://aad.portal.azure.com)에서 통과 인증 블레이드를 확인하는 경우 인증 에이전트가 **비활성** 상태로 표시됩니다. _예상된_ 동작입니다. 인증 에이전트는 며칠 후에 목록에서 자동으로 삭제됩니다.
 
 ## <a name="i-already-use-ad-fs-to-sign-in-to-azure-ad-how-do-i-switch-it-to-pass-through-authentication"></a>이미 AD FS를 사용하여 Azure AD에 로그인하고 있습니다. 통과 인증으로 전환하려면 어떻게 하나요?
 

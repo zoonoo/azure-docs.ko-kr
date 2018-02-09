@@ -39,10 +39,18 @@
         - name: 비대화형 인증 .NET HDInsight 응용 프로그램 만들기
           href: ../hdinsight-create-non-interactive-authentication-dotnet-applications.md
           maintainContext: true
+        - name: HDInsight의 Apache Phoenix
+          href: ../hdinsight-phoenix-in-hdinsight.md
+          maintainContext: true
         - name: Phoenix 및 SQLLine 사용
           href: apache-hbase-phoenix-squirrel-linux.md
         - name: Phoenix Query Server REST SDK 사용
           href: apache-hbase-using-phoenix-query-server-rest-sdk.md
+    - name: 빅 데이터 분석
+      items:
+        - name: Spark를 사용하여 HBase 데이터 읽기 및 쓰기
+          href: ../hdinsight-using-spark-query-hbase.md
+          maintainContext: true
     - name: 클러스터 확장
       items:
         - name: 부트스트랩을 사용하여 클러스터 사용자 지정
@@ -63,6 +71,21 @@
               href: 'https://msdn.microsoft.com/library/mt706515.aspx'
             - name: Azure Marketplace에 HDInsight 앱 게시
               href: ../hdinsight-apps-publish-applications.md
+              maintainContext: true
+            - name: 게시된 앱 설치 - Cask 데이터 응용 프로그램 플랫폼(CDAP)
+              href: ../hdinsight-apps-install-cask.md
+              maintainContext: true
+            - name: 게시된 앱 설치 - Dataiku
+              href: ../hdinsight-apps-install-dataiku.md
+              maintainContext: true
+            - name: 게시된 앱 설치 - Datameer
+              href: ../hdinsight-apps-install-datameer.md
+              maintainContext: true
+            - name: 게시된 앱 설치 - H2O
+              href: ../hdinsight-apps-install-h2o.md
+              maintainContext: true
+            - name: 게시된 앱 설치 - Streamsets
+              href: ../hdinsight-apps-install-streamsets.md
               maintainContext: true
     - name: 보안
       items:
@@ -122,6 +145,9 @@
             - name: Ambari REST API 사용
               href: ../hdinsight-hadoop-manage-ambari-rest-api.md
               maintainContext: true
+        - name: HDInsight 클러스터 확장
+          href: ../hdinsight-scaling-best-practices.md
+          maintainContext: true
         - name: HDInsight 클러스터에 대한 로그 관리
           href: ../hdinsight-log-management.md
           maintainContext: true
@@ -157,6 +183,8 @@
         - name: HDInsight 클러스터를 최신 버전으로 업그레이드
           href: ../hdinsight-upgrade-cluster.md
           maintainContext: true
+        - name: HBase 클러스터를 최신 버전으로 마이그레이션
+          href: apache-hbase-migrate-new-version.md
         - name: HDInsight 클러스터의 OS 패치
           href: ../hdinsight-os-patching.md
           maintainContext: true
@@ -164,7 +192,7 @@
       href: ../hdinsight-troubleshoot-guide.md
       maintainContext: true
       items:
-        - name: 저속 또는 문제 발생 HDInsight 클러스터 문제 해결
+        - name: 속도가 느리거나 오류가 발생하는 HDInsight 클러스터 문제 해결
           href: ../hdinsight-troubleshoot-failed-cluster.md
           maintainContext: true
         - name: HDFS 문제 해결
@@ -219,11 +247,15 @@
           href: apache-hbase-provision-vnet.md
         - name: Azure VNet의 HBase 클러스터 복제
           href: apache-hbase-replication.md
+        - name: HBase 및 Phoenix에 대한 백업 및 복제 설정
+          href: apache-hbase-backup-replication.md
     - name: OMS를 사용한 모니터링
       items:
         - name: Azure Log Analytics 사용
           href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
           maintainContext: true
+        - name: OMS로 HBase 모니터링
+          href: apache-hbase-monitor-with-oms.md
         - name: 클러스터 지정 대시보드
           href: ../hdinsight-hadoop-oms-log-analytics-management-solutions.md
           maintainContext: true
@@ -233,7 +265,9 @@
         - name: 클러스터 성능 모니터링
           href: ../hdinsight-key-scenarios-to-monitor.md
           maintainContext: true
-- name: 참조
+        - name: Phoenix 성능 모범 사례
+          href: apache-hbase-phoenix-performance.md
+- name: 참고 자료
   items:
     - name: 코드 샘플
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight'

@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: juliako
-ms.openlocfilehash: f7d2fd61dce93e8100ec33f82cd648b77efc1c0f
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: bb02aaf541d2d2f4b1206136847af2b46621501d
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="azure-media-services-concepts"></a>Azure Media Services 개념
 이 항목에서는 가장 중요한 Media Services 개념에 대한 개요를 제공합니다.
 
-## <a id="assets"></a>자산 및 저장소
+## <a name="a-idassetsassets-and-storage"></a><a id="assets"/>자산 및 저장소
 ### <a name="assets"></a>자산
 [자산](https://docs.microsoft.com/rest/api/media/operations/asset) 에는 디지털 파일(비디오, 오디오, 이미지, 미리 보기 컬렉션, 텍스트 트랙 및 선택 캡션 파일 포함)과 이러한 파일에 대한 메타데이터가 포함됩니다. 디지털 파일은 자산에 업로드한 후 Media Services 인코딩 및 스트리밍 워크플로에서 사용할 수 있습니다.
 
@@ -61,7 +61,7 @@ Media Service API를 사용하지 않고 Media Services에서 생성된 Blob 컨
 [AccessPolicy](https://docs.microsoft.com/rest/api/media/operations/accesspolicy) 는 자산에 대한 액세스 권한(예: 읽기, 쓰기 및 목록) 및 기간을 정의합니다. 일반적으로 자산에 포함된 파일에 액세스하는 데 사용되는 로케이터로 AccessPolicy 개체를 전달합니다.
 
 >[!NOTE]
->다른 AMS 정책(예: 로케이터 정책 또는 ContentKeyAuthorizationPolicy의 경우)은 1,000,000개의 정책으로 제한됩니다. 항상 같은 날짜/액세스 권한을 사용하는 경우(예: 비 업로드 정책처럼 오랫동안 배치되는 로케이터에 대한 정책) 동일한 정책 ID를 사용해야 합니다. 자세한 내용은 [이 항목](media-services-dotnet-manage-entities.md#limit-access-policies) 을 참조하세요.
+>다른 AMS 정책(예: 로케이터 정책 또는 ContentKeyAuthorizationPolicy의 경우)은 1,000,000개의 정책으로 제한됩니다. 항상 같은 날짜/액세스 권한을 사용하는 경우(예: 비 업로드 정책처럼 오랫동안 배치되는 로케이터에 대한 정책) 동일한 정책 ID를 사용해야 합니다. 자세한 내용은 [이 항목](media-services-dotnet-manage-entities.md#limit-access-policies)을 참조하세요.
 
 ### <a name="blob-container"></a>Blob 컨테이너
 Blob 컨테이너는 Blob 집합의 그룹화를 제공합니다. Blob 컨테이너는 Media Services에서 액세스 제어의 경계 지점 및 자산에 대한 SAS(공유 액세스 서명)으로 사용됩니다. 한 Azure Storage 계정에 포함될 수 있는 Blob 컨테이너 수에는 제한이 없습니다. 한 컨테이너에 저장될 수 있는 Blob 수에도 제한이 없습니다.
@@ -71,7 +71,7 @@ Blob 컨테이너는 Blob 집합의 그룹화를 제공합니다. Blob 컨테이
 > 
 > 
 
-### <a id="locators"></a>로케이터
+### <a name="a-idlocatorslocators"></a><a id="locators"/>로케이터
 [로케이터](https://docs.microsoft.com/rest/api/media/operations/locator)는 자산에 포함된 파일에 액세스할 수 있는 진입점을 제공합니다. 액세스 정책은 클라이언트가 지정된 자산에 액세스할 수 있는 권한 및 기간을 정의하는 데 사용됩니다. 로케이터는 액세스 정책과 다 대 일 관계가 있으므로 로케이터에 따라 여러 클라이언트에 다양한 시작 시간 및 연결 유형을 제공할 수 있지만 모두 동일한 권한 및 기간을 사용합니다. 그러나 Azure 저장소 서비스에 의해 설정된 공유 액세스 정책 제한으로 인해 한 번에 5개 이상의 고유한 로케이터를 지정된 자산에 연결할 수 없습니다. 
 
 Media Services는 두 가지 유형의 로케이터를 지원합니다. 미디어를 스트리밍(예: MPEG DASH, HLS 또는 부드러운 스트리밍)하거나 미디어 및 SAS URL 로케이터를 점진적으로 다운로드하는 데 사용되는 OnDemandOrigin 로케이터는 Azure 저장소에서 미디어 파일을 업로드하거나 다운로드하는 데 사용됩니다. 
@@ -156,7 +156,7 @@ Media Services에서 자산을 암호화하려는 경우 암호화 키(CommonEnc
 - [PlayReady/Widevine으로 보호](media-services-protect-with-playready-widevine.md)
 
 ## <a name="delivering"></a>배달
-### <a id="dynamic_packaging"></a>동적 패키징
+### <a name="a-iddynamicpackagingdynamic-packaging"></a><a id="dynamic_packaging"/>동적 패키징
 Media Services를 사용할 때는 mezzanine 파일을 적응 비트 전송률 MP4 집합으로 인코딩한 다음 [동적 패키징](media-services-dynamic-packaging-overview.md)을 사용하여 집합을 원하는 형식으로 변환하는 것이 좋습니다.
 
 ### <a name="streaming-endpoint"></a>스트리밍 끝점
@@ -169,7 +169,7 @@ StreamingEndpoint는 추가 배포를 위해 콘텐츠를 클라이언트 플레
 >[!NOTE]
 >AMS 계정이 만들어질 때 **기본** 스트리밍 끝점은 **중지됨** 상태에서 계정에 추가됩니다. 콘텐츠 스트리밍을 시작하고 동적 패키징 및 동적 암호화를 활용하려면 콘텐츠를 스트리밍하려는 스트리밍 끝점은 **실행** 상태에 있어야 합니다. 
 
-자세한 내용은 [이 항목](media-services-portal-manage-streaming-endpoints.md) 을 참조하세요.
+자세한 내용은 [이 항목](media-services-portal-manage-streaming-endpoints.md)을 참조하세요.
 
 기본적으로 Media Services 계정에 최대 2개의 스트리밍 끝점이 있을 수 있습니다. 더 높은 한도를 요청하려면 [할당량 및 제한 사항](media-services-quotas-and-limitations.md)을 참조하세요
 
@@ -186,7 +186,7 @@ Media Services 콘텐츠 배달 워크플로의 단계 중 하나는 스트리�
 >[!NOTE]
 >암호화된 자산을 점진적 다운로드에 사용할 수 있도록 하려면 해당 자산의 암호를 해독해야 합니다.
 
-사용자에게 점진적 다운로드 ,URL을 제공하려면 먼저 OnDemandOrigin 로케이터를 만들어야 합니다. 로케이터를 만들면 자산에 대한 기본 경로가 제공됩니다. 그러면 MP4 파일의 이름을 추가해야 합니다. 예:
+사용자에게 점진적 다운로드 ,URL을 제공하려면 먼저 OnDemandOrigin 로케이터를 만들어야 합니다. 로케이터를 만들면 자산에 대한 기본 경로가 제공됩니다. 그러면 MP4 파일의 이름을 추가해야 합니다. 예: 
 
 http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4
 

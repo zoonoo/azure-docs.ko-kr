@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: joflore
-ms.openlocfilehash: c7e880b6632e3a1456cf2fa535e6218d3bb31e4a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: af86434e1205d67829fc7079d97a37f013c0f2d8
+ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="how-to-get-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication 획득 방법
 
@@ -38,8 +38,8 @@ ms.lasthandoff: 12/11/2017
 | 버전 | 설명 |
 | --- | --- |
 | Office 365용 Multi-Factor Authentication |이 버전은 Office 365 응용프로그램에서만 작동되며 Office 365 포털에서 관리됩니다. 관리자는 [2단계 인증을 사용하여 Office 365 리소스의 보안을 유지](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6)할 수 있습니다. 이 버전은 Office 365 구독에 포함되어 있습니다. |
-| Azure 관리자를 위한 Multi-Factor Authentication | Azure 테넌트의 전역 관리자는 전역 관리자 계정에 대해 2단계 인증을 추가 비용 없이 사용할 수 있습니다.|
-| Azure Multi-Factor Authentication | 대개 "전체" 버전이라고 하는 Azure Multi-factor Authentication은 가장 다양한 기능을 제공합니다. [Azure 클래식 포털](https://manage.windowsazure.com), 고급 보고, 온-프레미스 범위에 대한 지원 및 클라우드 응용 프로그램을 통해 추가 구성 옵션을 제공합니다. Azure Multi-Factor Authentication은 [Azure Active Directory Premium 계획](https://www.microsoft.com/cloud-platform/azure-active-directory-features) 및 [Enterprise Mobility + Security 계획](https://www.microsoft.com/cloud-platform/enterprise-mobility-security-pricing)에 포함되며 클라우드 또는 온-프레미스에 배포할 수 있습니다. |
+| Azure AD 관리자를 위한 Multi-Factor Authentication | Azure AD 테넌트에서 전역 관리자 역할이 할당된 사용자는 추가 비용 없이 Azure AD 전역 관리자 계정에 2단계 인증을 사용하도록 설정할 수 있습니다.|
+| Azure Multi-Factor Authentication | 대개 "전체" 버전이라고 하는 Azure Multi-factor Authentication은 가장 다양한 기능을 제공합니다. [Azure Portal](https://portal.azure.com), 고급 보고, 다양한 온-프레미스 및 클라우드 응용 프로그램 지원을 통해 추가 구성 옵션을 제공합니다. Azure Multi-Factor Authentication은 [Azure Active Directory Premium 계획](https://www.microsoft.com/cloud-platform/azure-active-directory-features) 및 [Enterprise Mobility + Security 계획](https://www.microsoft.com/cloud-platform/enterprise-mobility-security-pricing)에 포함되며 클라우드 또는 온-프레미스에 배포할 수 있습니다. |
 
 ## <a name="feature-comparison-of-versions"></a>버전 기능 비교
 다음 표에서 다양한 버전의 Azure Multi-Factor Authentication에서 사용 가능한 기능의 목록을 제공합니다.
@@ -48,9 +48,9 @@ ms.lasthandoff: 12/11/2017
 > 다음은 각 Multi-Factor Authentication에 포함된 기능을 비교하는 테이블입니다. 완전한 Azure Multi-Factor Authentication 서비스를 사용하는 경우 [클라우드 또는 온-프레미스에서 MFA를 사용하는지](multi-factor-authentication-get-started.md)에 따라 일부 기능을 사용할 수 없을 수도 있습니다.
 
 
-| 기능 | Office 365용 Multi-Factor Authentication | Azure 관리자를 위한 Multi-Factor Authentication | Azure Multi-Factor Authentication |
+| 기능 | Office 365용 Multi-Factor Authentication | Azure AD 관리자를 위한 Multi-Factor Authentication | Azure Multi-Factor Authentication |
 | --- |:---:|:---:|:---:|
-| MFA를 사용하여 관리자 계정 보호 |● |● (전역 관리자 계정에만 해당) |● |
+| MFA를 사용하여 Azure AD 관리자 계정 보호 |● |● (Azure AD 전역 관리자 계정에만 해당) |● |
 | 두 번째 단계로 모바일 앱 |● |● |● |
 | 두 번째 단계로 전화 통화 |● |● |● |
 | 두 번째 단계로 SMS |● |● |● |

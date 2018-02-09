@@ -42,7 +42,7 @@
 ## 캐시
 ### [성능 개선을 위해 캐싱 추가](api-management-howto-cache.md)
 ## 백 엔드 보호
-### [AAD로 웹 API 백 엔드 보호](api-management-howto-protect-backend-with-aad.md)
+### [Azure AD를 사용하여 Web API 백 엔드 보호](api-management-howto-protect-backend-with-aad.md)
 ### [가상 네트워크에 연결](api-management-using-with-vnet.md)
 ### [내부 가상 네트워크에 연결](api-management-using-with-internal-vnet.md)
 ### [내부 VNet에 Application Gateway 통합](api-management-howto-integrate-internal-vnet-appgateway.md)
@@ -50,8 +50,8 @@
 ## 개발자 환경 사용자 지정
 ### [페이지 콘텐츠 및 레이아웃 수정](api-management-modify-content-layout.md)
 ### [템플릿을 사용하여 시스템 페이지 사용자 지정](api-management-developer-portal-templates.md)
-### [AAD로 인증](api-management-howto-aad.md)
-### [AAD B2C로 인증](api-management-howto-aad-b2c.md)
+### [Azure AD를 사용하는 인증](api-management-howto-aad.md)
+### [Azure AD B2C를 사용하는 인증](api-management-howto-aad-b2c.md)
 ### [위임된 인증](api-management-howto-setup-delegation.md)
 ### [전자 메일 알림 및 템플릿](api-management-howto-configure-notifications.md)
 ### [콘솔 OAuth 지원 사용](api-management-howto-oauth2.md)
@@ -93,9 +93,9 @@
 ### Service Fabric과 통합
 #### [개요](../service-fabric/service-fabric-api-management-overview.md)
 #### [자습서](../service-fabric/service-fabric-tutorial-deploy-api-management.md)
-# 참조
+# 참고 자료
 ## [Azure PowerShell](/powershell/azure/overview)
-## [REST (영문)](/rest/api/apimanagement/)
+## [REST](/rest/api/apimanagement/)
 ## [REST(원본)](/rest/api/apimanagement/ApiManagementREST/api-management-REST)
 # 리소스
 ## [FAQ](api-management-faq.md)

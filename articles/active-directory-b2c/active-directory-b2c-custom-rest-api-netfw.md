@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 09/30/2017
 ms.author: yoelh
-ms.openlocfilehash: b7ce383b5297b0973f2999e7310fad94a0abe7dd
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: fd9c95ae78590aa772fde10c8c80914c905767a8
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>Azure AD B2C 사용자 경험에서 REST API 클레임 교환을 사용자 입력의 유효성 검사로 통합
 Azure AD B2C(Azure Active Directory B2C)의 기반이 되는 ID 경험 프레임워크를 사용하여 사용자 경험에서 RESTful API와 통합할 수 있습니다. 이 연습에서는 Azure AD B2C가 .NET Framework RESTful 서비스(Web API)와 상호 작용하는 방법을 알아봅니다.
@@ -88,7 +88,7 @@ Azure AD B2C를 사용하면 RESTful 서비스를 호출하여 사용자 경험�
 
 3. `InputClaimsModel` 클래스의 이름을 지정하고 `InputClaimsModel` 클래스에 다음 속성을 추가합니다.
 
-    ```C#
+    ```csharp
     namespace Contoso.AADB2C.API.Models
     {
         public class InputClaimsModel
@@ -102,7 +102,7 @@ Azure AD B2C를 사용하면 RESTful 서비스를 호출하여 사용자 경험�
 
 4. 새 모델인 `OutputClaimsModel`을 만들고 `OutputClaimsModel` 클래스에 다음 속성을 추가합니다.
 
-    ```C#
+    ```csharp
     namespace Contoso.AADB2C.API.Models
     {
         public class OutputClaimsModel
@@ -114,7 +114,7 @@ Azure AD B2C를 사용하면 RESTful 서비스를 호출하여 사용자 경험�
 
 5. `B2CResponseContent`라는 모델을 하나 더 만듭니다. 이 모델을 입력 유효성 검사 오류 메시지를 throw하는 데 사용합니다. 다음 속성을 `B2CResponseContent` 클래스에 추가하고 누락된 참조를 제공하고 해당 파일을 저장합니다.
 
-    ```C#
+    ```csharp
     namespace Contoso.AADB2C.API.Models
     {
         public class B2CResponseContent
@@ -152,7 +152,7 @@ Web API에서 _컨트롤러_는 HTTP 요청을 처리하는 개체입니다. 컨
 
 4. *IdentityController.cs* 파일이 열려있지 않으면 두 번 클릭한 후 파일의 코드를 다음 코드로 바꿉니다.
 
-    ```C#
+    ```csharp
     using Contoso.AADB2C.API.Models;
     using Newtonsoft.Json;
     using System;

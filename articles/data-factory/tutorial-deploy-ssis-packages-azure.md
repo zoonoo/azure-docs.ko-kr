@@ -11,19 +11,22 @@ ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: powershell
 ms.topic: hero-article
-ms.date: 10/06/2017
+ms.date: 01/22/2018
 ms.author: spelluru
-ms.openlocfilehash: 350c7784da1abb24df4ccd292cad28f73f3f8c0c
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 37b984229a4be6c8f3ab337ea25820428922a466
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="deploy-sql-server-integration-services-packages-to-azure"></a>Azure에 SQL Server Integration Services 패키지 배포
 이 자습서에서는 Azure Data Factory에서 Azure-SSIS IR(통합 런타임)을 프로비전하는 단계를 제공합니다. 그런 다음 SSDT(SQL Server Data Tools) 또는 SSMS(SQL Server Management Studio)를 사용하여 Azure에서 이 런타임에 SSIS(SQL Server Integration Services) 패키지를 배포할 수 있습니다. 이 자습서에서 수행하는 단계는 다음과 같습니다.
 
+> [!NOTE]
+> 이 문서에서는 Azure PowerShell을 사용하여 Azure SSIS IR을 프로비전합니다. Data Factory UI(사용자 인터페이스)를 사용하여 Azure SSIS IR을 프로비전하려면 [자습서: Azure SSIS 통합 런타임 만들기](tutorial-create-azure-ssis-runtime-portal.md)를 참조하세요. 
+
 > [!div class="checklist"]
-> * 데이터 팩터리를 만듭니다.
+> * 데이터 팩터리 만들기
 > * Azure-SSIS 통합 런타임 만들기
 > * Azure-SSIS 통합 런타임 시작
 > * SSIS 패키지 배포
@@ -34,10 +37,12 @@ ms.lasthandoff: 01/03/2018
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다. Azure-SSIS IR의 개념 정보는 [Azure-SSIS 통합 런타임 개요](concepts-integration-runtime.md#azure-ssis-integration-runtime)를 참조하세요.
 
+
 ## <a name="prerequisites"></a>필수 조건
 - **Azure SQL Database 서버**. 데이터베이스 서버가 아직 없는 경우 시작하기 전에 Azure Portal에서 이 서버를 만듭니다. 이 서버는 SSISDB(SSIS 카탈로그 데이터베이스)를 호스팅합니다. Integration Runtime과 동일한 Azure 지역에 데이터베이스 서버를 만드는 것이 좋습니다. 이 구성을 사용하면 Integration Runtime에서 Azure 지역을 벗어나지 않고 SSISDB에 실행 로그를 쓸 수 있습니다. 
     - 데이터베이스 서버에 대해 "**Azure 서비스에 대한 액세스 허용**" 설정이 **켜져** 있는지 확인합니다. 자세한 내용은 [Azure SQL Database 보호](../sql-database/sql-database-security-tutorial.md#create-a-server-level-firewall-rule-in-the-azure-portal)를 참조하세요. PowerShell을 사용하여 이 설정을 사용하려면 [New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule?view=azurermps-4.4.1)을 참조하세요.
     - 데이터베이스 서버에 대한 방화벽 설정에서 클라이언트 IP 주소 목록에 클라이언트 컴퓨터의 IP 주소를 포함하는 클라이언트 컴퓨터의 IP 주소 또는 IP 주소의 범위를 추가합니다. 자세한 내용은 [Azure SQL Database 서버 수준 및 데이터베이스 수준 방화벽 규칙 구성](../sql-database/sql-database-firewall-configure.md)을 참조하세요. 
+    - Azure SQL Database 서버에 SSIS 카탈로그(SSIDB 데이터베이스)가 없는지 확인합니다. Azure-SSIS IR 프로비전은 기존 SSIS 카탈로그 사용을 지원하지 않습니다. 
 - **Azure PowerShell**. [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/install-azurerm-ps)의 지침을 따르세요. PowerShell을 사용하여 클라우드에서 SSIS 패키지를 실행하는 Azure-SSIS 통합 런타임을 프로비전하는 스크립트를 실행합니다. 
 
 > [!NOTE]
@@ -62,11 +67,11 @@ $DataFactoryLocation = "EastUS"
 $AzureSSISName = "<Specify a name for your Azure-SSIS IR>"
 $AzureSSISDescription = "<Specify description for your Azure-SSIS IR"
 $AzureSSISLocation = "EastUS" 
- # In public preview, only Standard_A4_v2, Standard_A8_v2, Standard_D1_v2, Standard_D2_v2, Standard_D3_v2, Standard_D4_v2 are supported
-$AzureSSISNodeSize = "Standard_A4_v2"
+# In public preview, only Standard_A4_v2, Standard_A8_v2, Standard_D1_v2, Standard_D2_v2, Standard_D3_v2, Standard_D4_v2 are supported
+$AzureSSISNodeSize = "Standard_D3_v2"
 # In public preview, only 1-10 nodes are supported.
 $AzureSSISNodeNumber = 2 
-# In public preview, only 1-8 parallel executions per node are supported.
+# For a Standard_D1_v2 node, 1-4 parallel executions per node are supported. For other nodes, it's 1-8.
 $AzureSSISMaxParallelExecutionsPerNode = 2 
 
 # SSISDB info
@@ -204,7 +209,9 @@ SSIS 설명서에서 다음 문서를 참조하세요.
 5. 스크립트를 실행합니다. 스크립트 끝 부분의 `Start-AzureRmDataFactoryV2IntegrationRuntime` 명령은 **20-30분** 동안 실행됩니다.
 
 > [!NOTE]
-> 이 스크립트는 SSISDB(SSIS 카탈로그 데이터베이스)를 준비하기 위해 Azure SQL Database에 연결합니다. 또한 이 스크립트는 VNet에 대한 권한 및 설정을 구성하고(지정된 경우) Azure-SSIS Integration Runtime의 새 인스턴스를 VNet에 조인합니다.
+> - 이 스크립트는 SSISDB(SSIS 카탈로그 데이터베이스)를 준비하기 위해 Azure SQL Database에 연결합니다. 또한 이 스크립트는 VNet에 대한 권한 및 설정을 구성하고(지정된 경우) Azure-SSIS Integration Runtime의 새 인스턴스를 VNet에 조인합니다.
+> - Azure-SSIS IR의 인스턴스를 프로비전하는 경우 Azure Feature Pack for SSIS 및 Access 재배포 가능 패키지도 설치됩니다. 이러한 구성 요소는 기본 제공 구성 요소가 지원하는 데이터 원본 외에도 Excel 및 Access 파일 및 다양한 Azure 데이터 원본에 대한 연결을 제공합니다. 이 시점에서는 SSIS에 대한 타사 구성 요소를 설치할 수 없습니다(Attunity 제공 Oracle 및 Teradata 구성 요소 및 SAP BI 구성 요소와 같은 Microsoft로부터의 타사 구성 요소 포함).
+
 
 Azure SQL Database에 지원되는 **가격 책정 계층**의 목록은 [SQL Database 리소스 제한](../sql-database/sql-database-resource-limits.md)을 참조하세요. 
 
@@ -224,10 +231,10 @@ $AzureSSISName = "<Specify a name for your Azure-SSIS (IR)>"
 $AzureSSISDescription = "<Specify description for your Azure-SSIS IR"
 $AzureSSISLocation = "EastUS" 
  # In public preview, only Standard_A4_v2, Standard_A8_v2, Standard_D1_v2, Standard_D2_v2, Standard_D3_v2, Standard_D4_v2 are supported
-$AzureSSISNodeSize = "Standard_A4_v2"
+$AzureSSISNodeSize = "Standard_D3_v2"
 # In public preview, only 1-10 nodes are supported.
 $AzureSSISNodeNumber = 2 
-# In public preview, only 1-8 parallel executions per node are supported.
+# For a Standard_D1_v2 node, 1-4 parallel executions per node are supported. For other nodes, it's 1-8.
 $AzureSSISMaxParallelExecutionsPerNode = 2 
 
 # SSISDB info
@@ -288,7 +295,7 @@ write-host("If any cmdlet is unsuccessful, please consider using -Debug option f
 ```
 
 ## <a name="join-azure-ssis-ir-to-a-vnet"></a>Azure-SSIS IR을 VNet에 조인
-VNet(가상 네트워크) 내에서 SSIS(SQL Server Integration Services) 카탈로그를 호스팅하는 데 Azure SQL 관리되는 인스턴스(비공개 미리 보기)를 사용하는 경우 Azure-SSIS 통합 런타임을 동일한 가상 네트워크에 조인해야 합니다. Azure Data Factory 버전 2(미리 보기)를 사용하면 Azure-SSIS 통합 런타임을 클래식 VNet에 조인할 수 있습니다. 자세한 내용은 [Azure-SSIS 런타임을 VNet에 조인](join-azure-ssis-integration-runtime-virtual-network.md)을 참조하세요.
+VNet(가상 네트워크) 내에서 SSIS(SQL Server Integration Services) 카탈로그를 호스팅하는 데 Azure SQL 관리되는 인스턴스(비공개 미리 보기)를 사용하는 경우 Azure-SSIS 통합 런타임을 동일한 가상 네트워크에 조인해야 합니다. Azure Data Factory 버전 2(미리 보기)를 사용하면 Azure-SSIS 통합 런타임을 VNet에 조인할 수 있습니다. 자세한 내용은 [Azure-SSIS 런타임을 VNet에 조인](join-azure-ssis-integration-runtime-virtual-network.md)을 참조하세요.
 
 VNet을 조인하는 Azure-SSIS 런타임을 만드는 전체 스크립트는 [Azure-SSIS 통합 런타임 만들기](create-azure-ssis-integration-runtime.md)를 참조하세요.
 
@@ -302,7 +309,7 @@ Azure-SSIS IR 모니터링 및 관리에 대한 자세한 내용은 다음 문�
 이 자습서에서는 다음 방법에 대해 알아보았습니다. 
 
 > [!div class="checklist"]
-> * 데이터 팩터리를 만듭니다.
+> * 데이터 팩터리 만들기
 > * Azure-SSIS 통합 런타임 만들기
 > * Azure-SSIS 통합 런타임 시작
 > * SSIS 패키지 배포

@@ -1,6 +1,6 @@
 ---
-title: "Cortana Intelligence 갤러리 실험 | Microsoft Docs"
-description: "Cortana Intelligence 갤러리의 실험 검색 및 공유."
+title: "Azure AI 갤러리 실험 | Microsoft Docs"
+description: "Azure AI 갤러리에서 실험을 검색 및 공유합니다."
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
-ms.author: roopalik;garye
-ms.openlocfilehash: 472ecac4ac1d9a86f0a3ad8271dd96257c331e5f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: garye
+ms.openlocfilehash: 80c2ab0cd97ce5afef7e38bad9f0fa0e4f3f363c
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/03/2018
 ---
-# <a name="discover-experiments-in-cortana-intelligence-gallery"></a>Cortana Intelligence 갤러리의 실험 검색
+# <a name="discover-experiments-in-azure-ai-gallery"></a>Azure AI 갤러리의 실험 검색
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="experiments-for-machine-learning-studio"></a>Machine Learning Studio용 실험
@@ -45,7 +45,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="download"></a>다운로드
 갤러리에서 Machine Learning Studio 작업 영역으로 모든 실험의 복사본을 다운로드할 수 있습니다. 그런 다음 복사본을 수정하여 사용자 고유의 솔루션을 만들 수 있습니다.
 
-Cortana Intelligence 갤러리는 실험의 복사본을 가져오는 두 가지 방법을 제공합니다.
+Azure AI 갤러리는 실험의 복사본을 가져오는 두 가지 방법을 제공합니다.
 
 * **갤러리에서** 갤러리에서 원하는 실험을 찾으면 복사본을 다운로드하여 Machine Learning Studio 작업 영역에서 열 수 있습니다.
 * **Machine Learning Studio 내에서** Machine Learning Studio에서 갤러리의 모든 실험을 템플릿으로 사용하여 새 실험을 만들 수 있습니다.

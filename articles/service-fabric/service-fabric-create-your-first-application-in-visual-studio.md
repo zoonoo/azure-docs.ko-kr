@@ -12,17 +12,17 @@ ms.devlang: dotNet
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/04/2017
+ms.date: 01/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: 70d365910569a2acb1c230c803fdfca5cb6b35af
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 2ecb8f8068043936d00f2c9752666490137414e3
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-your-first-c-service-fabric-stateful-reliable-services-application"></a>첫 번째 C# Service Fabric 상태 저장 Reliable Services 응용 프로그램 만들기
 
-Windows에서 첫 번째 .NET용 Service Fabric 응용 프로그램을 몇 분 안에 배포하는 방법에 대해 알아봅니다. 완료된 경우 로컬 클러스터가 Reliable Service 응용 프로그램과 실행됩니다.
+Windows에서 첫 번째 .NET용 Service Fabric 응용 프로그램을 몇 분 안에 배포하는 방법에 대해 알아봅니다. 완료하면 로컬 클러스터가 Reliable Service 응용 프로그램과 실행됩니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -82,13 +82,24 @@ Visual Studio에서 `F5`를 눌러 응용 프로그램을 디버깅하기 위해
    
 ![진단 이벤트 뷰어][5]
 
+>[!NOTE]
+>이벤트는 진단 이벤트 뷰어에서 추적을 자동으로 시작해야 하지만 수동으로 구성해야 하는 경우 먼저 **MyStatefulService** 프로젝트에 있는 `ServiceEventSource.cs` 파일을 엽니다. `ServiceEventSource` 클래스 위쪽에 있는 `EventSource` 특성 값을 복사합니다. 아래 예제에서 이벤트 원본은 `"MyCompany-MyApplication-MyStatefulService"`라고 하며, 상황에 따라 달라질 수 있습니다.
+>
+>![서비스 이벤트 원본 이름 찾기][service-event-source-name]
+>
+>다음으로 진단 이벤트 뷰어 탭에 있는 기어 아이콘을 클릭하여 **ETW 공급자** 대화 상자를 엽니다. 방금 복사한 이벤트 원본의 이름을 **ETW 공급자** 입력 상자에 붙여넣습니다. 그런 다음 **적용** 단추를 클릭합니다. 그러면 이벤트 추적이 자동으로 시작됩니다.
+>
+>![진단 이벤트 원본 이름 설정][setting-event-source-name]
+>
+>이제 진단 이벤트 창에 이벤트가 나타납니다.
+
 사용한 상태 저장 서비스 템플릿에서는 **MyStatefulService.cs**의 `RunAsync` 메서드에서 증분하는 카운터 값을 표시합니다.
 
 코드가 실행되는 노드를 포함하여 자세한 정보를 보려면 이벤트 중 하나를 확장합니다. 이 경우에 \_Node\_0이지만 컴퓨터에서 달라질 수 있습니다.
    
 ![진단 이벤트 뷰어 세부 정보][6]
 
-로컬 클러스터는 단일 컴퓨터에서 호스트되는 다섯 개의 노드를 포함합니다. 프로덕션 환경에서 각 노드는 고유한 물리적 컴퓨터 또는 가상 컴퓨터에서 호스팅됩니다. 컴퓨터의 손실을 시뮬레이션하는 동시에 Visual Studio 디버거를 실행하기 위해 로컬 클러스터의 노드 중 하나를 확인합니다.
+로컬 클러스터는 단일 컴퓨터에서 호스트되는 다섯 개의 노드를 포함합니다. 프로덕션 환경에서 각 노드는 고유한 물리적 컴퓨터 또는 가상 머신에서 호스팅됩니다. 컴퓨터의 손실을 시뮬레이션하는 동시에 Visual Studio 디버거를 실행하기 위해 로컬 클러스터의 노드 중 하나를 확인합니다.
 
 **솔루션 탐색기** 창에서 **MyStatefulService.cs**를 엽니다. 
 
@@ -146,3 +157,5 @@ Visual Studio에서 `F5`를 눌러 응용 프로그램을 디버깅하기 위해
 [sfe-delete-application]: ./media/service-fabric-create-your-first-application-in-visual-studio/sfe-delete-application.png
 [switch-cluster-mode]: ./media/service-fabric-create-your-first-application-in-visual-studio/switch-cluster-mode.png
 [cluster-setup-success-1-node]: ./media/service-fabric-get-started-with-a-local-cluster/cluster-setup-success-1-node.png
+[service-event-source-name]: ./media/service-fabric-create-your-first-application-in-visual-studio/event-source-attribute-value.png
+[setting-event-source-name]: ./media/service-fabric-create-your-first-application-in-visual-studio/setting-event-source-name.png

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2016
 ms.author: inqiu;yijichen;ilanr9
-ms.openlocfilehash: ccad7e41921c2fecbac113f3b950f654c62b1c8e
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: bb3520d36e4c34c752fe388f3126da285e2161cd
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-demand-forecast-in-energy"></a>에너지 수요 예측을 위한 Cortana Intelligence 솔루션 템플릿 기술 가이드
 ## <a name="overview"></a>**개요**
@@ -52,8 +52,9 @@ ms.lasthandoff: 12/09/2017
 ### <a name="hdinsight-custom-aggregation"></a>HDInsight 사용자 지정 집계
 Azure HDInsight 서비스는 Azure Stream Analytics 서비스를 사용하여 보관된 원시 이벤트에 집계를 제공하도록 [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 스크립트(Azure Data Factory에서 오케스트레이션됨)를 실행하는 데 사용됩니다.
 
-### <a name="azure-machine-learning"></a>Azure 기계 학습
-[Azure 기계 학습](https://azure.microsoft.com/services/machine-learning/) 서비스는 수신된 입력이 제공된 특정 하위 지역의 향후 전력 소비량을 예측하는 데 사용됩니다(Azure 데이터 팩터리에서 오케스트레이션된).
+### <a name="azure-machine-learning"></a>Azure Machine Learning
+
+            [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) 서비스는 수신된 입력이 제공된 특정 하위 지역의 향후 전력 소비량을 예측하는 데 사용됩니다(Azure 데이터 팩터리에서 오케스트레이션된).
 
 ## <a name="data-publishing"></a>**데이터 게시**
 ### <a name="azure-sql-database-service"></a>Azure SQL Database 서비스
@@ -139,8 +140,8 @@ Azure Stream Analytics 쿼리 생성에 대한 정보는 MSDN의 [Stream Analyti
 #### <a name="copyregiondatapipeline-copysubstationdatapipeline-copytopologydatapipeline"></a>*CopyRegionDataPipeline, CopySubstationDataPipeline, CopyTopologyDataPipeline*
 이 [파이프라인](data-factory/concepts-pipelines-activities.md)은 솔루션 템플릿 설치의 일부로 Azure Storage Blob에 업로드된 하위 지역/변전소/Topologygeo의 참조 데이터를 솔루션 템플릿 설치의 일부로 프로비전되는 Azure SQL Database로 이동하는 단일 작업([복사](https://msdn.microsoft.com/library/azure/dn835035.aspx) 작업)을 포함합니다.
 
-### <a name="azure-machine-learning"></a>Azure 기계 학습
-이 솔루션 템플릿에 사용된 [Azure 기계 학습](https://azure.microsoft.com/services/machine-learning/) 실험은 하위 지역의 수요 예측을 제공합니다. 실험은 사용된 데이터 집합에 특정되므로 가져온 데이터에 특정된 수정 또는 대체가 필요합니다.
+### <a name="azure-machine-learning"></a>Azure Machine Learning
+이 솔루션 템플릿에 사용된 [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) 실험은 하위 지역의 수요 예측을 제공합니다. 실험은 사용된 데이터 집합에 특정되므로 가져온 데이터에 특정된 수정 또는 대체가 필요합니다.
 
 ## <a name="monitor-progress"></a>**진행률 모니터링**
 데이터 생성기가 시작되면 파이프라인이 하이드레이션하기 시작하고 솔루션의 다양한 구성 요소가 데이터 팩터리에서 발급한 명령을 실행하는 작업을 시작합니다. 두 가지 방법으로 파이프라인을 모니터링할 수 있습니다.
@@ -150,7 +151,7 @@ Azure Stream Analytics 쿼리 생성에 대한 정보는 MSDN의 [Stream Analyti
     Stream Analytics 작업 중 하나는 Blob Storage에 들어오는 원시 데이터를 씁니다. 솔루션을 성공적으로 배포한 화면에서 솔루션의 **Azure Blob Storage** 구성 요소를 클릭하고 오른쪽 패널에서 **열기**를 클릭하면 [Azure Portal](https://portal.azure.com)로 이동합니다. **Blobs**을 클릭합니다. 다음 패널에서 컨테이너 목록이 표시됩니다. **"energysadata"**를 클릭합니다. 다음 패널에 **“demandongoing”** 폴더가 표시됩니다. rawdata 폴더 안에 date=2016-01-28 등과 같은 이름을 가진 폴더가 표시됩니다. 이러한 폴더가 표시되는 경우 원시 데이터가 성공적으로 컴퓨터에 생성되고 Blob 저장소에 저장되고 있음을 나타냅니다. 해당 폴더에 한정된 크기(MB)로 있어야 하는 파일이 표시됩니다.
 2. Azure SQL Database에서 데이터를 확인합니다.
 
-    파이프라인의 마지막 단계는 SQL Database에 데이터(예: Machine Learning에서 예측)를 작성하는 것입니다. 데이터를 SQL Database에 표시하려면 최대 2시간을 기다려야 할 수도 있습니다. 얼마나 많은 데이터를 SQL Database에서 사용할 수 있는지를 모니터링하는 한 가지 방법은 [Azure Portal](https://manage.windowsazure.com/)을 통한 방법입니다. 왼쪽 패널에서 SQL Database![](media/cortana-analytics-technical-guide-demand-forecast/SQLicon2.png)를 찾아 클릭합니다. 그런 다음 데이터베이스(예: demo123456db)를 찾고 클릭합니다. 다음 페이지의 **"데이터베이스에 연결"** 섹션 아래에서 **"SQL Database에 대해 Transact-SQL 쿼리 실행"**을 클릭합니다.
+    파이프라인의 마지막 단계는 SQL Database에 데이터(예: Machine Learning에서 예측)를 작성하는 것입니다. 데이터를 SQL Database에 표시하려면 최대 2시간을 기다려야 할 수도 있습니다. 얼마나 많은 데이터를 SQL Database에서 사용할 수 있는지를 모니터링하는 한 가지 방법은 [Azure Portal](https://portal.azure.com/)을 통한 방법입니다. 왼쪽 패널에서 SQL Database![](media/cortana-analytics-technical-guide-demand-forecast/SQLicon2.png)를 찾아 클릭합니다. 그런 다음 데이터베이스(예: demo123456db)를 찾고 클릭합니다. 다음 페이지의 **"데이터베이스에 연결"** 섹션 아래에서 **"SQL Database에 대해 Transact-SQL 쿼리 실행"**을 클릭합니다.
 
     여기서 새 쿼리를 클릭하고, 데이터베이스 증가에 따라 테이블의 행 수도 증가해야 하므로 여러 행에 대해 쿼리할 수 있습니다(예: “DemandRealHourly에서 수( * ) 선택”).
 3. Power BI 대시보드에서 데이터를 확인합니다.
@@ -167,7 +168,7 @@ Azure Stream Analytics 쿼리 생성에 대한 정보는 MSDN의 [Stream Analyti
 1. Azure Stream Analytics(ASA)에 Power BI 출력을 추가합니다.
 
    * [Azure Stream Analytics 및 Power BI: 스트리밍 데이터의 실시간 가시성에 대한 실시간 분석 대시보드](stream-analytics/stream-analytics-power-bi-dashboard.md)의 지침에 따라 Power BI 대시보드로 Azure Stream Analytics 작업의 출력을 설정해야 합니다.
-   * [Azure Portal](https://manage.windowsazure.com)에서 스트림 분석 작업을 찾습니다. 작업의 이름은 솔루션 이름+"streamingjob"+난수+"asapbi"(예: demostreamingjob123456asapbi)여야 합니다.
+   * [Azure Portal](https://portal.azure.com)에서 스트림 분석 작업을 찾습니다. 작업의 이름은 솔루션 이름+"streamingjob"+난수+"asapbi"(예: demostreamingjob123456asapbi)여야 합니다.
    * ASA 작업에 PowerBI 출력을 추가합니다. **출력 별칭**을 **‘PBIoutput’**으로 설정합니다. **데이터 집합 이름**과 **테이블 이름**을 **‘EnergyStreamData’**로 설정합니다. 출력을 추가했으면 페이지 하단에서 **"시작"** 을 클릭하여 Stream Analytics 작업을 시작합니다. 확인 메시지가 표시되어야 합니다(예: “스트림 분석 작업 myteststreamingjob12345asablob 성공”).
 2. [Power BI 온라인](http://www.powerbi.com)
 

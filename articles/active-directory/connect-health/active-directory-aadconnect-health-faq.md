@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 8cbe60ad3eb26aa1152f8eec3bdc36b8006cf242
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: bd93b3473143f425b47f141efb3af3007614794f
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Azure AD Connect Health에 대한 질문과 대답
 이 문서에는 Azure AD(Azure Active Directory) Connect Health에 대한 FAQ(질문과 대답)가 포함되어 있습니다. 이 FAQ에서는 청구 모델, 기능, 제한 및 지원을 포함한 서비스 사용 방법에 대해 다룹니다.
@@ -45,10 +45,11 @@ ms.lasthandoff: 12/11/2017
 * 첫 번째 Connect Health 에이전트에는 하나 이상의 Azure AD Premium 라이선스가 필요합니다.
 * 등록된 추가 에이전트에는 각각 25개의 추가 Azure AD Premium 라이선스가 필요합니다.
 * 에이전트 수는 모든 모니터링된 역할(AD FS, Azure AD Connect 및/또는 AD DS)에 등록된 에이전트의 총 수와 같습니다.
+* AAD Connect 상태 라이선스의 경우 특정 사용자에게 라이선스를 할당할 필요가 없습니다. 필요한 수의 유효한 라이선스만 있으면 됩니다.
 
 라이선스 정보는 [Azure AD 가격 책정 페이지](https://aka.ms/aadpricing)에서 찾을 수 있습니다.
 
-예제:
+예:
 
 | 등록된 에이전트 | 필요한 라이선스 | 모니터링 구성 예제 |
 | ------ | --------------- | --- |
@@ -84,7 +85,7 @@ Microsoft Azure AD Connect Health 에이전트, AD FS, 웹 응용 프로그램 �
 
 **Q: Azure AD Connect Health Agent를 설치하는 동안 내 서버를 재부팅해야 하나요?**
 
-아니요. 에이전트를 설치하는 데 서버를 재부팅할 필요는 없습니다. 그러나 일부 필수 구성 요소 설치 단계에서 서버를 재부팅해야 할 수 있습니다.
+번호 에이전트를 설치하는 데 서버를 재부팅할 필요는 없습니다. 그러나 일부 필수 구성 요소 설치 단계에서 서버를 재부팅해야 할 수 있습니다.
 
 예를 들어 Windows Server 2008 R2에 .NET 4.5 Framework를 설치하는 경우 서버를 재부팅해야 합니다.
 
@@ -101,7 +102,7 @@ Microsoft Azure AD Connect Health 에이전트, AD FS, 웹 응용 프로그램 �
 
 **Q: Azure AD Connect Health는 HTTP 프록시에 연결할 때 기본 인증을 지원하나요?**
 
-아니요. 기본 인증에 필요한 임의 사용자 이름/암호를 지정하는 메커니즘은 현재 지원되지 않습니다.
+번호 기본 인증에 필요한 임의 사용자 이름/암호를 지정하는 메커니즘은 현재 지원되지 않습니다.
 
 **Q: Azure AD Connect Health Agent가 작동하도록 하기 위해 열어야 하는 방화벽 포트는 무엇인가요?**
 

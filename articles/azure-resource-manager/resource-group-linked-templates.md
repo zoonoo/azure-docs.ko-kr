@@ -12,23 +12,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2017
+ms.date: 01/17/2018
 ms.author: tomfitz
-ms.openlocfilehash: 78e5749369de1dd9865f61baefd70e6ce4bde31d
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 38d4281dfadaefdf331e493745363e8b4152209d
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/23/2018
 ---
-# <a name="using-linked-templates-when-deploying-azure-resources"></a>Azure 리소스를 배포할 때 연결된 템플릿 사용
+# <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Azure 리소스를 배포할 때 연결 및 중첩된 템플릿 사용
 
-솔루션을 배포하려면 단일 템플릿 또는 여러 개의 연결된 템플릿이 있는 주 템플릿 중 하나를 사용할 수 있습니다. 중소기업에게는 단일 템플릿이 더 간편하게 이해하고 유지 관리할 수 있습니다. 모든 리소스 및 값을 단일 파일에서 볼 수 있습니다. 고급 시나리오의 경우 연결된 템플릿을 통해 솔루션을 대상 구상 요소로 분리하고 템플릿을 재사용할 수 있습니다.
+솔루션을 배포하려면 단일 템플릿 또는 여러 개의 관련 템플릿이 있는 주 템플릿 중 하나를 사용할 수 있습니다. 관련 템플릿은 주 템플릿에 연결된 별도 파일이거나 주 템플릿 내에 중첩된 템플릿일 수 있습니다.
+
+중소기업에게는 단일 템플릿이 더 간편하게 이해하고 유지 관리할 수 있습니다. 모든 리소스 및 값을 단일 파일에서 볼 수 있습니다. 고급 시나리오의 경우 연결된 템플릿을 통해 솔루션을 대상 구상 요소로 분리하고 템플릿을 재사용할 수 있습니다.
 
 연결된 템플릿을 사용할 때는 배포 중에 매개 변수 값을 받는 기본 템플릿을 만듭니다. 기본 템플릿은 연결된 모든 템플릿을 포함하여 필요에 따라 해당 템플릿에 값을 전달합니다.
 
 ![연결된 템플릿](./media/resource-group-linked-templates/nestedTemplateDesign.png)
 
-## <a name="link-to-a-template"></a>템플릿에 연결
+## <a name="link-or-nest-a-template"></a>템플릿 연결 또는 중첩
 
 다른 템플릿에 연결하려면 **배포** 리소스를 기본 템플릿에 추가합니다.
 
@@ -40,17 +42,17 @@ ms.lasthandoff: 12/13/2017
       "type": "Microsoft.Resources/deployments",
       "properties": {
           "mode": "Incremental",
-          <inline-template-or-external-template>
+          <nested-template-or-external-template>
       }
   }
 ]
 ```
 
-배포 리소스에 제공하는 속성은 외부 템플릿에 연결하는지 또는 기본 템플릿에 인라인 템플릿을 포함하는지 여부에 따라 달라집니다.
+배포 리소스에 제공하는 속성은 외부 템플릿에 연결하는지 또는 기본 템플릿에 인라인 템플릿을 중첩하는지 여부에 따라 달라집니다.
 
-### <a name="inline-template"></a>인라인 템플릿
+### <a name="nested-template"></a>중첩된 템플릿
 
-연결된 템플릿을 포함하려면 **template** 속성을 사용하고 템플릿을 포함합니다.
+템플릿을 주 템플릿 내에 중첩하려면 **template** 속성을 사용하고 템플릿 구문을 지정합니다.
 
 ```json
 "resources": [
@@ -63,8 +65,6 @@ ms.lasthandoff: 12/13/2017
       "template": {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
         "contentVersion": "1.0.0.0",
-        "parameters": {},
-        "variables": {},
         "resources": [
           {
             "type": "Microsoft.Storage/storageAccounts",
@@ -76,12 +76,16 @@ ms.lasthandoff: 12/13/2017
             }
           }
         ]
-      },
-      "parameters": {}
+      }
     }
   }
 ]
 ```
+
+> [!NOTE]
+> 중첩된 템플릿의 경우, 중첩된 템플릿 내에 정의된 매개 변수 또는 변수를 사용할 수 없습니다. 주 템플릿의 매개 변수 및 변수를 사용할 수 있습니다. 앞의 예제에서 `[variables('storageName')]`은 중첩된 템플릿이 아닌 주 템플릿에서 값을 검색합니다. 이러한 제한은 외부 템플릿에 적용되지 않습니다.
+>
+> `reference` 함수는 중첩된 템플릿의 출력 섹션에 사용할 수 없습니다. 중첩된 템플릿에서 배포된 리소스의 값을 반환하려면 중첩된 템플릿을 연결된 템플릿으로 변환합니다.
 
 ### <a name="external-template-and-external-parameters"></a>외부 템플릿 및 외부 매개 변수
 
@@ -176,7 +180,7 @@ ms.lasthandoff: 12/13/2017
 }
 ```
 
-부모 템플릿은 연결된 템플릿을 배포하고 반환된 값을 가져옵니다. 배포 리소스를 이름으로 참조하고 연결된 템플릿에서 반환한 속성의 이름을 사용합니다.
+주 템플릿은 연결된 템플릿을 배포하고 반환된 값을 가져옵니다. 배포 리소스를 이름으로 참조하고 연결된 템플릿에서 반환한 속성의 이름을 사용합니다.
 
 ```json
 {
@@ -309,9 +313,9 @@ Load Balancer를 배포할 때 이전 템플릿의 공개 IP 주소를 사용하
 }
 ```
 
-## <a name="linked-templates-in-deployment-history"></a>배포 기록의 연결된 템플릿
+## <a name="linked-and-nested-templates-in-deployment-history"></a>배포 기록의 연결 및 중첩된 템플릿
 
-Resource Manager는 연결된 각 템플릿을 배포 기록에서 별도 배포로 처리합니다. 따라서 3개의 연결된 템플릿이 있는 부모 템플릿은 배포 기록에 다음과 같이 나타납니다.
+Resource Manager는 각 템플릿을 배포 기록에서 별도 배포로 처리합니다. 따라서 3개의 연결 또는 중첩된 템플릿이 있는 주 템플릿은 배포 기록에 다음과 같이 나타납니다.
 
 ![배포 기록](./media/resource-group-linked-templates/deployment-history.png)
 

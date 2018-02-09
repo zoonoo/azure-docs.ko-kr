@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory B2C | Microsoft Docs
+title: "보호된 웹 API 호출 ASP.NET Azure Active Directory B2C | Microsoft Docs"
 description: "Azure Active Directory B2C 및 OAuth 2.0 액세스 토큰을 사용하여 .NET 웹앱을 빌드하고 웹 API를 호출하는 방법입니다."
 services: active-directory-b2c
 documentationcenter: .net
@@ -14,11 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/17/2017
 ms.author: parakhj
-ms.openlocfilehash: 42b2b698493408f11ee23f06f99d9ba22860746a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: d81976988a26ce264dd7b9ed24f43aed21d4ee99
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-b2c-call-a-net-web-api-from-a-net-web-app"></a>Azure AD B2C: .NET 웹앱에서 .NET 웹 API 호출
 
@@ -57,7 +58,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
 
 샘플은 데모 테넌트의 정책 및 클라이언트 ID를 사용하도록 구성되어 있습니다. 자신의 테넌트를 사용하려는 경우:
 
-1. `TaskService` 프로젝트에서 `web.config`을 열고 다음 값을 바꿉니다.
+1. `TaskService` 프로젝트에서 `web.config`를 열고 다음 값을 바꿉니다.
 
     * `ida:Tenant`를 테넌트 이름으로 바꿉니다.
     * `ida:ClientId`를 웹 API 응용 프로그램 ID로 바꿉니다.

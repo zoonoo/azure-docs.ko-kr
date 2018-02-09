@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/23/2017
+ms.date: 01/15/2018
 ms.author: shlo
-ms.openlocfilehash: 197ecff6728a7a2ce78cc6ca2861a10222a6b56b
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: dd2475d5940927c65cae4d12b9697cbe535b69a8
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-data-factory-faq"></a>Azure Data Factory FAQ
 이 문서는 Azure Data Factory 서비스의 버전 2에 적용됩니다. Data Factory에 대한 질문과 대답입니다.  
@@ -39,7 +39,7 @@ Azure Data Factory 버전 2는 원래 Azure Data Factory 데이터 이동 및 �
 - 제어 흐름 및 크기 조정
 - Azure에서 SSIS 패키지 배포 및 실행
 
-버전 1 릴리스 후에 고객이 클라우드, 온-프레미스 및 클라우드 VM(가상 컴퓨터)에서 데이터 이동과 처리가 모두 필요한 복잡한 하이브리드 데이터 통합 시나리오를 필요로 한다는 사실을 알았습니다. 이러한 요구 사항에 따라 보안되는 가상 네트워크 환경 내에서 데이터를 전송 및 처리하고 요청 시 처리 능력을 통해 확장할 필요가 있습니다.
+버전 1 릴리스 후에 고객이 클라우드, 온-프레미스 및 클라우드 VM(가상 머신)에서 데이터 이동과 처리가 모두 필요한 복잡한 하이브리드 데이터 통합 시나리오를 필요로 한다는 사실을 알았습니다. 이러한 요구 사항에 따라 보안되는 가상 네트워크 환경 내에서 데이터를 전송 및 처리하고 요청 시 처리 능력을 통해 확장할 필요가 있습니다.
 
 데이터 파이프라인이 비즈니스 분석 전략의 중요한 부분이 됨에 따라, 우리는 이러한 증가하는 데이터 로드 및 이벤트 트리거형 실행을 지원하는 유연한 일정 계획이 필요하다는 것을 확인했습니다. 복잡성이 늘어나면서 서비스가 분기, 루프 및 조건 처리를 포함한 일반적인 워크플로 패러다임을 지원해야 한다는 요구 사항도 증가하고 있습니다.
 
@@ -68,7 +68,7 @@ Azure Data Factory 버전 2는 원래 Azure Data Factory 데이터 이동 및 �
 자세한 내용은 [자습서: 제어 흐름](tutorial-control-flow.md)을 참조하세요.
 
 ### <a name="deploy-ssis-packages-to-azure"></a>Azure에 SSIS 패키지 배포 
-SSIS 워크로드를 이동하려는 경우 Data Factory 버전 2를 만들고 Azure-SSIS Integration Runtime을 프로비전할 수 있습니다. Azure-SSIS Integration Runtime은 클라우드에서 SSIS 패키지 실행을 전담하는 완전히 관리되는 Azure VM(노드) 클러스터입니다. 단계별 지침은 [Azure에 SSIS 패키지 배포](tutorial-deploy-ssis-packages-azure.md) 자습서를 참조하세요. 
+SSIS 워크로드를 이동하려는 경우 Data Factory 버전 2를 만들고 Azure-SSIS Integration Runtime을 프로비전할 수 있습니다. Azure-SSIS Integration Runtime은 클라우드에서 SSIS 패키지 실행을 전담하는 완전히 관리되는 Azure VM(노드) 클러스터입니다. 단계별 지침은 [Azure에 SSIS 패키지 배포](tutorial-create-azure-ssis-runtime-portal.md) 자습서를 참조하세요. 
  
 
 ### <a name="sdks"></a>SDK
@@ -164,7 +164,7 @@ Azure Data Factory에 대한 최신 정보를 얻으려면 다음 사이트로 �
 ## <a name="technical-deep-dive"></a>기술 심층 분석 
 
 ### <a name="can-version-1-and-version-2-pipelines-run-side-by-side"></a>버전 1과 버전 2 파이프라인을 함께 실행할 수 있나요?
-아니요. 버전 2 및 버전 1 Data Factory는 다른 버전의 엔터티(예: 연결된 서비스, 데이터 집합 또는 파이프라인)를 포함할 수 없습니다.   
+번호 버전 2 및 버전 1 Data Factory는 다른 버전의 엔터티(예: 연결된 서비스, 데이터 집합 또는 파이프라인)를 포함할 수 없습니다.   
 
 ### <a name="do-i-still-need-to-define-data-sets-in-version-2"></a>버전 2에서도 데이터 집합을 정의해야 하나요?
 데이터 집합은 대부분의 활동에서 더 이상 필수 엔터티가 아닙니다. 변환을 위해 데이터 집합의 스키마 및 기타 메타데이터 정보를 사용하는 복사, Machine Learning, 조회, 유효성 검사 및 사용자 지정 활동에 필요합니다. 나머지 작업에도 데이터 집합이 더 이상 필요하지 않습니다.

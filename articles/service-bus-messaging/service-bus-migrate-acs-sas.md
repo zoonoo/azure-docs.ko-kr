@@ -11,17 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2017
+ms.date: 12/21/2017
 ms.author: sethm
-ms.openlocfilehash: 52015dc2f8450bb1af1587df8c0ccc3bda3c9db8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7a2a55a6ad6a721a39c9f064aad817f841dd3235
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Azure Active Directory Access Control Service에서 공유 액세스 서명 권한 부여로 마이그레이션
 
-기존에는 Service Bus 응용 프로그램에서 두 가지 권한 부여 모델 중 하나를 선택하여 사용할 수 있었습니다. 그중 하나는 Service Bus에서 직접 제공되는 [SAS(공유 액세스 서명)](service-bus-sas.md) 토큰 모델이고, 다른 하나는 페더레이션 모델입니다. 페더레이션 모델에서는 권한 부여 규칙 관리 작업이 [Azure Active Directory](/azure/active-directory/) ACS(Access Control Service)를 통해 내부에서 관리되며, 원하는 기능에 대한 액세스 권한을 부여하기 위해 ACS에서 가져온 토큰이 Service Bus로 전달됩니다.
+기존에는 Service Bus 응용 프로그램에서 두 가지 권한 부여 모델 중 하나를 선택하여 사용할 수 있었습니다. 그 중 하나는 Service Bus에서 직접 제공되는 [SAS(공유 액세스 서명)](service-bus-sas.md) 토큰 모델이고, 다른 하나는 페더레이션 모델입니다. 페더레이션 모델에서는 권한 부여 규칙 관리 작업이 [Azure Active Directory](/azure/active-directory/) ACS(Access Control Service)를 통해 내부에서 관리되며, 원하는 기능에 대한 액세스 권한을 부여하기 위해 ACS에서 가져온 토큰이 Service Bus로 전달됩니다.
 
 ACS 권한 부여 모델은 [SAS 권한 부여](service-bus-authentication-and-authorization.md)가 기본 모델로 사용되면서 이미 오래전에 교체되었으며 현재는 모든 설명서, 지침 및 샘플에서 SAS만 사용되고 있습니다. 또한 ACS와 쌍으로 지정된 새 Service Bus 네임스페이스도 더 이상 만들 수 없습니다.
 
@@ -63,7 +63,7 @@ SAS 규칙은 계정이 아니라 권한과 연결되어 있는 명명된 서명
 
 Service Bus 인증에 대한 자세한 내용은 다음 항목을 참조하세요.
 
-* [서비스 버스 인증 및 권한 부여](service-bus-authentication-and-authorization.md)
+* [Service Bus 인증 및 권한 부여](service-bus-authentication-and-authorization.md)
 * [공유 액세스 서명을 사용한 Service Bus 인증](service-bus-sas.md)
-* [서비스 버스 기본 사항](service-bus-fundamentals-hybrid-solutions.md)
+* [Service Bus 기본 사항](service-bus-fundamentals-hybrid-solutions.md)
 

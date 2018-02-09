@@ -1,6 +1,6 @@
 ---
-title: "Azure 인터넷 연결 부하 분산 장치 만들기 - PowerShell | Microsoft Docs"
-description: "PowerShell을 사용하여 Resource Manager에서 인터넷 연결 부하 분산 장치를 만드는 방법에 대해 알아보기"
+title: "공용 부하 분산 장치 만들기 - PowerShell | Microsoft Docs"
+description: "PowerShell을 사용하여 Resource Manager에서 공용 부하 분산 장치를 만드는 방법에 대해 알아봅니다."
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: d11ad8ff7f3d3357d1af276a9643b7a74e6c3f6d
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 15e1c868a72a61d9721b96032d304fdec6d6e213
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/23/2018
 ---
-# <a name="get-started"></a>PowerShell을 사용하여 Resource Manager에서 인터넷 연결 부하 분산 장치 만들기
+# <a name="get-started"></a>PowerShell을 사용하여 Resource Manager에서 공용 부하 분산 장치 만들기
 
 > [!div class="op_single_selector"]
 > * [포털](../load-balancer/load-balancer-get-started-internet-portal.md)
@@ -36,7 +36,7 @@ ms.lasthandoff: 12/18/2017
 
 ## <a name="deploying-the-solution-by-using-azure-powershell"></a>Azure PowerShell을 사용하여 솔루션 배포
 
-다음 절차에서는 PowerShell과 함께 Azure Resource Manager를 사용하여 인터넷 연결 부하 분산 장치를 만드는 방법을 설명합니다. Azure Resource Manager를 사용하면 각 리소스가 개별적으로 생성되고 구성된 다음, 함께 사용되어 부하 분산 장치를 만듭니다.
+다음 절차에서는 PowerShell과 함께 Azure Resource Manager를 사용하여 공용 부하 분산 장치를 만드는 방법을 설명합니다. Azure Resource Manager를 사용하면 각 리소스가 개별적으로 생성되고 구성된 다음, 함께 사용되어 부하 분산 장치를 만듭니다.
 
 부하 분산 장치를 배포하려면 다음 개체를 만들고 구성해야 합니다.
 

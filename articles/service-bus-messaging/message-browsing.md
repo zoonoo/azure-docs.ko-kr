@@ -11,21 +11,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2017
+ms.date: 01/25/2018
 ms.author: sethm
-ms.openlocfilehash: b0bc1ef7570ccac07975e2560a1d0501d3cde2b3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 124c4592a41bf9f3e2a148ba5c3b928bb051d160
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="message-browsing"></a>메시지 찾아보기
 
-메시지 찾아보기("미리 보기")를 통해 클라이언트는 큐 또는 구독에 있는 모든 메시지를 일반적으로 진단 및 디버깅 용도로 열거할 수 있습니다.
+메시지 찾아보기("미리 보기")를 통해 Service Bus 클라이언트는 큐 또는 구독에 있는 모든 메시지를 일반적으로 진단 및 디버깅 용도로 열거할 수 있습니다.
 
-미리 보기(peek) 작업은 *Receive()* 또는 *OnMessage()* 루프를 사용하여 즉시 가져올 수 있는 메시지뿐만 아니라 큐 또는 구독 메시지 로그에 있는 모든 메시지를 반환합니다. 각 메시지의 *State* 속성은 메시지가 활성(수신 가능)인지, 지연되었는지(지연 [TBD 링크] 참조) 또는 예약되었는지(예약된 메시지 [TBD 링크] 참조)를 알려줍니다.
+미리 보기(peek) 작업은 `Receive()` 또는 `OnMessage()` 루프를 사용하여 즉시 가져올 수 있는 메시지뿐만 아니라 큐 또는 구독 메시지 로그에 있는 모든 메시지를 반환합니다. 각 메시지의 `State` 속성은 메시지가 활성(수신 가능)인지, [지연되었는지](message-deferral.md) 또는[예약되었는지](message-sequencing.md)를 알려줍니다.
 
-사용되고 만료된 메시지는 비동기 "가비지 수집" 실행에 의해 정리되며 정확히 메시지가 만료될 때 정리되는 것은 아닙니다. 따라서 Peek은 큐 또는 구독에서 수신 작업이 다음에 호출되면 이미 만료되어 삭제될 메시지나 배달 못한 메시지를 반환할 수 있습니다.
+사용되고 만료된 메시지는 비동기 "가비지 수집" 실행에 의해 정리되며 정확히 메시지가 만료될 때 정리되는 것은 아닙니다. 따라서 `Peek`은 큐 또는 구독에서 수신 작업이 다음에 호출되면 이미 만료되어 삭제될 메시지나 배달 못한 메시지를 반환할 수 있습니다.
 
 이런 내용은 지연된 메시지를 큐에서 복구하려고 시도할 때 특히 유의해야 합니다. [ExpiresAtUtc](/dotnet/api/microsoft.azure.servicebus.message.expiresatutc#Microsoft_Azure_ServiceBus_Message_ExpiresAtUtc) 인스턴트를 통과 한 메시지는 어떠한 방법으로도(Peek에 의해 반환되는 경우에도) 일반 검색을 수행할 수 없습니다. Peek은 로그의 현재 상태를 반영하는 진단 도구이기 때문에 이러한 메시지를 반환하는 것은 의도적입니다.
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 10/11/2017
 
 Service Bus 메시징에 대해 자세히 알아보려면 다음 항목을 참조하세요.
 
-* [서비스 버스 기본 사항](service-bus-fundamentals-hybrid-solutions.md)
+* [Service Bus 기본 사항](service-bus-fundamentals-hybrid-solutions.md)
 * [Service Bus 큐, 토픽 및 구독](service-bus-queues-topics-subscriptions.md)
 * [Service Bus 큐 시작](service-bus-dotnet-get-started-with-queues.md)
 * [Service Bus 토픽 및 구독을 사용하는 방법](service-bus-dotnet-how-to-use-topics-subscriptions.md)

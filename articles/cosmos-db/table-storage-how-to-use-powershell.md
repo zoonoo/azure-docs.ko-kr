@@ -1,24 +1,24 @@
 ---
 title: "PowerShell을 사용하여 Azure Table Storage 작업 수행 | Microsoft Docs"
 description: "PowerShell을 사용하여 Azure Table Storage 작업을 수행합니다."
-services: storage
+services: cosmos-db
 documentationcenter: storage
 author: robinsh
 manager: timlt
 editor: tysonn
 ms.assetid: 
-ms.service: storage
-ms.workload: storage
+ms.service: cosmos-db
+ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: how-to
+ms.topic: article
 ms.date: 11/02/2017
 ms.author: robinsh
-ms.openlocfilehash: 0174b6fe02008a1c22a165b077c694af7e8618ab
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 15a4ed2370598cb98565c48b4563bee3a4445827
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="perform-azure-table-storage-operations-with-azure-powershell"></a>Azure PowerShell을 사용하여 Azure Table Storage 작업 수행 
 
@@ -40,7 +40,7 @@ Azure Table Storage는 매우 큰 비관계형 구조적 데이터 집합을 저
 
 이 문서에서는 새 리소스 그룹에 새 저장소 계정을 만드는 방법을 보여 주며, 이 경우 작업을 완료할 때 쉽게 제거할 수 있습니다. 기존 저장소 계정을 사용하려는 경우 해당 저장소 계정을 대신 사용할 수 있습니다.
 
-이 예제에는 Azure PowerShell 모듈 버전 4.4.0 이상이 필요합니다. PowerShell 창에서 `Get-Module -ListAvailable AzureRM`을 실행하여 버전을 확인합니다. 표시되는 항목이 없거나 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. 
+이 예제에는 Azure PowerShell 모듈 버전 4.4.0 이상이 필요합니다. PowerShell 창에서 `Get-Module -ListAvailable AzureRM`을 실행하여 버전을 확인합니다. 표시되는 항목이 없거나 업그레이드가 필요한 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. 
 
 Azure PowerShell을 설치하거나 업데이트한 후에 엔터티 관리 명령이 있는 **AzureRmStorageTable** 모듈을 설치해야 합니다. 이 모듈을 설치하려면 PowerShell을 관리자 권한으로 실행하고 **Install-Module** 명령을 사용합니다.
 

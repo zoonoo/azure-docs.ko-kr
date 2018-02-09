@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/10/2017
 ms.author: nberdy
-ms.openlocfilehash: db03cfdd486a3172b258379928fac12cc0af730a
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 94cbef9d01299547a48923876cf134d5f3dafa6b
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="iot-hub-operations-monitoring"></a>IoT Hub 작업 모니터링
 
 IoT Hub 작업 모니터링을 사용하면 실시간으로 IoT Hub에 대한 작업의 상태를 모니터링할 수 있습니다. IoT Hub는 몇 가지 작업 범주에 걸쳐 이벤트를 추적합니다. 하나 이상의 범주에서 IoT hub의 끝점으로 처리할 이벤트를 보내도록 선택할 수 있습니다. 데이터에 오류가 있는지 모니터링하거나 데이터 패턴을 기반으로 좀 더 복잡한 처리를 설정할 수 있습니다.
 
 >[!NOTE]
->IoT Hub 작업 모니터링은 사용되지 않으며 나중에 IoT 허브에서 제거될 예정입니다. IoT Hub의 작동 및 상태 모니터링은 [Azure IoT Hub의 상태를 모니터링하고 문제를 신속하게 진단][lnk-monitor]을 참조하세요. 사용 중단 타임라인에 대한 자세한 내용은 [Azure Monitor 및 Azure Resource Health로 Azure IoT 솔루션 모니터링][lnk-blog-announcement]을 참조하세요.
+>IoT Hub 작업 모니터링은 더 이상 사용되지 않으며, 2018년 10월 10일에 IoT Hub에서 제거됩니다. IoT Hub의 작동 및 상태 모니터링은 [Azure IoT Hub의 상태를 모니터링하고 문제를 신속하게 진단][lnk-monitor]을 참조하세요. 사용 중단 타임라인에 대한 자세한 내용은 [Azure Monitor 및 Azure Resource Health로 Azure IoT 솔루션 모니터링][lnk-blog-announcement]을 참조하세요.
 
 IoT Hub는 다음 여섯 가지 범주의 이벤트를 모니터링합니다.
 

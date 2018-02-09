@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: get-started-article
 ms.date: 12/19/2017
 ms.author: iainfou
-ms.openlocfilehash: 1a4c69427e0fa38e9206e2720c4746c97d922df1
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: c5ca90ae303d62c4ad453971f84da78866b0c599
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="create-a-virtual-machine-scale-set-with-azure-powershell"></a>Azure PowerShell을 사용하여 가상 머신 확장 집합 만들기
 가상 머신 확장 집합을 사용하면 동일한 자동 크기 조정 가상 머신 집합을 배포하고 관리할 수 있습니다. 확장 집합의 VM 수를 수동으로 조정하거나 CPU와 같은 리소스 사용량, 메모리 요구량 또는 네트워크 트래픽을 기반으로 자동으로 크기를 조정하는 규칙을 정의할 수도 있습니다. 이 시작 문서에서는 Azure PowerShell을 사용하여 가상 머신 확장 집합을 만듭니다. 확장 집합은 [Azure CLI 2.0](virtual-machine-scale-sets-create-cli.md) 또는 [Azure Portal](virtual-machine-scale-sets-create-portal.md)을 사용하여 만들 수도 있습니다.
@@ -120,7 +120,7 @@ $ipConfig = New-AzureRmVmssIpConfig `
 
 
 ## <a name="create-a-scale-set"></a>확장 집합 만들기
-이제 [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvm)를 사용하여 가상 머신 확장 집합을 만듭니다. 다음 예제에서는 *Windows Server 2016 Datacenter* 플랫폼 이미지를 사용하는 *myScaleSet*이라는 확장 집합을 만듭니다. *vmssConfig* 개체는 *adminUsername* 및 *securePassword* 변수에 지정된 자격 증명을 사용하여 미국 동부에 2개의 VM 인스턴스를 만듭니다. 사용자 고유의 자격 증명을 제공하고 다음과 같이 확장 집합을 만듭니다.
+이제 [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvmss)를 사용하여 가상 머신 확장 집합을 만듭니다. 다음 예제에서는 *Windows Server 2016 Datacenter* 플랫폼 이미지를 사용하는 *myScaleSet*이라는 확장 집합을 만듭니다. *vmssConfig* 개체는 *adminUsername* 및 *securePassword* 변수에 지정된 자격 증명을 사용하여 미국 동부에 2개의 VM 인스턴스를 만듭니다. 사용자 고유의 자격 증명을 제공하고 다음과 같이 확장 집합을 만듭니다.
 
 ```azurepowershell-interactive
 # Provide your own secure password for use with the VM instances

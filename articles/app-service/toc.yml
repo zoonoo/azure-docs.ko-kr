@@ -31,6 +31,8 @@
   items:
     - name: 1 - DB를 사용한 앱
       items:
+        - name: SQL DB를 사용한 .NET Core
+          href: app-service-web-tutorial-dotnetcore-sqldb.md
         - name: SQL DB를 사용하는 .NET
           href: app-service-web-tutorial-dotnet-sqldatabase.md
         - name: MySQL을 사용하는 PHP
@@ -39,6 +41,8 @@
           href: app-service-web-tutorial-nodejs-mongodb-app.md
         - name: MySQL을 사용하는 Java
           href: app-service-web-tutorial-java-mysql.md
+        - name: PostgreSQL을 사용하는 Python
+          href: app-service-web-tutorial-python-postgresql.md
     - name: 1 - RESTful API 만들기
       href: app-service-web-tutorial-rest-api.md
     - name: 2 - 사용자 지정 도메인 매핑
@@ -71,6 +75,8 @@
       href: app-service-local-cache-overview.md
     - name: 진단
       href: app-service-diagnostics.md
+    - name: OS 및 런타임 패치
+      href: app-service-patch-os-runtime.md
 - name: 방법 가이드
   items:
     - name: 앱 구성
@@ -81,7 +87,7 @@
           href: web-sites-java-add-app.md
         - name: PHP 구성
           href: web-sites-php-configure.md
-        - name: Python
+        - name: 파이썬
           href: web-sites-python-configure.md
         - name: 온-프레미스 리소스에 연결
           href: web-sites-integrate-with-vnet.md
@@ -160,14 +166,14 @@
         - name: 앱 복제
           href: app-service-web-app-cloning.md
         - name: 리소스 이동
-          href: app-service-move-resources.md
+          href: '../azure-resource-manager/resource-group-move-resources.md?toc=%2fazure%2fapp-service%2ftoc.json#app-service-limitations'
     - name: 백그라운드 작업 실행
       items:
         - name: WebJob 만들기
           href: web-sites-create-web-jobs.md
         - name: VS를 사용하여 WebJob 개발
           href: websites-dotnet-deploy-webjobs.md
-- name: 참조
+- name: 참고 자료
   items:
     - name: Azure CLI
       href: /cli/azure/appservice
@@ -215,7 +221,7 @@
       href: app-service-best-practices.md
     - name: 샘플
       href: 'https://azure.microsoft.com/resources/samples/?service=app-service'
-    - name: 비디오
+    - name: 동영상
       href: 'https://azure.microsoft.com/resources/videos/index/?services=app-service'
     - name: 쿡북
       items:

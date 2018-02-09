@@ -3,8 +3,8 @@ title: "Azure AD Connect: 동기화 중의 오류 문제 해결 | Microsoft Docs
 description: "Azure AD Connect와의 동기화 중에 발생하는 오류의 문제 해결 방법을 설명합니다."
 services: active-directory
 documentationcenter: 
-author: karavar
-manager: samueld
+author: billmath
+manager: mtillman
 editor: curtand
 ms.assetid: 2209d5ce-0a64-447b-be3a-6f06d47995f8
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: billmath
-ms.openlocfilehash: 5a319de69c4e142414ab8f2be980a6576acbf8bb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: aaa374d5a11ef5b5860f83a87386ff981319189f
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="troubleshooting-errors-during-synchronization"></a>동기화 중 오류 문제 해결
 ID 데이터가 Windows Server Active Directory(AD DS)로부터 Azure AD(Azure Active Directory)로 동기화되는 중에 오류가 발생할 수 있습니다. 이 문서에서는 여러 동기화 오류 유형, 오류가 발생할 수 있는 몇 가지 상황, 오류를 해결할 수 있는 가능한 방법에 대한 개요를 제공합니다. 이 문서는 일반적인 오류 유형을 다루며 가능한 모든 오류를 포괄하지 못할 수 있습니다.
@@ -171,7 +171,7 @@ Azure Active Directory는 데이터를 디렉터리에 쓰도록 허용하기 �
 
 #### <a name="scenarios"></a>시나리오
 a. UserPrincipalName 특성 값에 잘못된/지원되지 않는 문자가 있습니다.
-b. UserPrincipalName 특성이 필요한 형식을 따르지 않습니다.
+나. UserPrincipalName 특성이 필요한 형식을 따르지 않습니다.
 
 #### <a name="how-to-fix-identitydatavalidationfailed-error"></a>IdentityDataValidationFailed 오류 해결 방법
 a. UserPrincipalName 특성이 지원되는 문자와 필요한 형식을 따르는지 확인합니다.

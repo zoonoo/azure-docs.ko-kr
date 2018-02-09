@@ -11,130 +11,181 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 12/26/2017
 ms.author: willzhan;juliako;johndeu
-ms.openlocfilehash: e5d7a5ec1c28a552420aba5e2cd6c8c7bbf4213d
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: ed78d6c6d4c695b841dbfbf917cd1681adc44ee7
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="use-azure-ad-authentication-to-access-the-azure-media-services-api-with-rest"></a>Azure AD 인증을 사용하여 REST로 Azure Media Services API 액세스
 
-Azure Media Services 팀은 Azure Media Services 액세스를 위한 Azure AD(Azure Active Directory) 인증 지원을 공개했습니다. 또한 Media Services 액세스를 위한 Azure Access Control 서비스 인증을 더 이상 사용하지 않을 계획이라고 발표했습니다. 모든 Azure 구독과 Media Services 계정은 Azure AD 테넌트에 연결되며 Azure AD 인증 지원은 다양한 보안 이점을 제공합니다. 이 변경 내용과 마이그레이션에 대한 자세한 내용은 다음 블로그 게시물 및 문서를 참조하세요(앱에 Media Services .NET SDK을 사용하는 경우).
+Azure Media Services와 함께 Azure AD 인증을 사용할 때 다음 두 가지 방법 중 하나로 인증할 수 있습니다.
 
-- [Azure Media Services의 Azure AD 지원 및 Access Control 인증 중단 발표](https://azure.microsoft.com/blog/azure%20media%20service%20aad%20auth%20and%20acs%20deprecation)
-- [Azure AD 인증을 사용하여 Azure Media Services API 액세스](media-services-use-aad-auth-to-access-ams-api.md)
-- [Azure AD 인증을 사용하여 Microsoft .NET으로 Azure Media Services API 액세스](media-services-dotnet-get-started-with-aad.md)
-- [Azure Portal을 사용하여 Azure AD 인증 시작](media-services-portal-get-started-with-aad.md)
+- **사용자 인증**은 Azure Media Services 리소스와 상호 작용하는 데 앱을 사용하는 사용자를 인증합니다. 대화형 응용 프로그램은 먼저 사용자에게 자격 증명을 묻는 메시지를 표시합니다. 예제는 권한 있는 사용자가 인코딩 작업 또는 라이브 스트리밍을 모니터링하기 위해 사용한 관리 콘솔 앱입니다. 
+- **서비스 주체 인증**은 서비스를 인증합니다. 이 인증 방법을 일반적으로 사용하는 응용 프로그램은 디먼 서비스, 중간 계층 서비스 또는 예약된 작업(예: 웹앱, 함수 앱, 논리 앱, API 또는 마이크로 서비스)을 실행하는 앱입니다.
 
-일부 고객은 다음 제약 조건에 따라 해당 Media Services 솔루션을 개발해야 합니다.
+    이 자습서에서는 Azure AD **서비스 주체** 인증을 사용하여 REST를 통해 AMS API에 액세스하는 방법을 설명합니다. 
 
-*   이들은 Microsoft .NET 또는 C#이 아닌 프로그래밍 언어를 사용하거나 런타임 환경이 Windows가 아닙니다.
-*   Active Directory 인증 라이브러리와 같은 Azure AD 라이브러리는 이러한 프로그래밍 언어 또는 런타임 환경에 사용할 수 없습니다.
+    > [!NOTE]
+    > **서비스 주체**는 Azure Media Services에 연결하는 대다수 응용 프로그램에 사용하는 것이 좋은 모범 사례입니다. 
 
-일부 고객은 Access Control 인증 및 Azure Media Services 액세스 모두에 REST API를 사용하여 응용 프로그램을 개발했습니다. 이러한 고객에게는 Azure AD 인증 및 후속 Azure Media Services 액세스에 REST API만 사용하는 방법이 필요합니다. Azure AD 라이브러리나 Media Services .NET SDK에 의존하지 않아도 됩니다. 이 문서에서는 솔루션에 대해 설명하고 이 시나리오에 대한 심플 코드를 제공합니다. 코드는 모두 REST API 호출이고 Azure AD 또는 Azure Media Services 라이브러리에 종속성이 없으므로 코드를 다른 프로그래밍 언어로 쉽게 변환할 수 있습니다.
+이 자습서에서는 다음 방법에 대해 알아봅니다.
+
+> [!div class="checklist"]
+> * Azure Portal에서 인증 정보 가져오기
+> * Postman을 사용하여 액세스 토큰 가져오기
+> * 액세스 토큰을 사용하여 **Assets** API 테스트
+
 
 > [!IMPORTANT]
 > 현재 Media Services는 Azure Access Control 서비스 인증 모델을 지원합니다. 하지만 Access Control 인증은 2018년 6월 1일부로 사용 중단되었습니다. 가능한 빨리 Azure AD 인증 모델로 마이그레이션하는 것이 좋습니다.
 
+## <a name="prerequisites"></a>필수 조건
 
-## <a name="design"></a>디자인
+- Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
+- [Azure Portal을 사용하여 Azure Media Services 계정을 만듭니다](media-services-portal-create-account.md).
+- [AAD 인증을 사용하여 Azure Media Services API 액세스 개요](media-services-use-aad-auth-to-access-ams-api.md) 문서를 검토합니다.
+- [Postman](https://www.getpostman.com/) REST 클라이언트를 설치하여 이 문서에 나와 있는 REST API를 실행합니다. 
 
-이 문서에서는 다음 인증 및 권한 부여 디자인을 사용합니다.
+    이 자습서에서는 **Postman**을 사용하지만 어떤 REST 도구든 사용할 수 있습니다. **Visual Studio Code**와 REST 플러그 인을 함께 사용하거나, **Telerik Fiddler**를 사용할 수도 있습니다. 
 
-*  권한 부여 프로토콜: OAuth 2.0. OAuth 2.0은 인증 및 권한 부여 모두에 적용되는 웹 보안 표준입니다. Google, Microsoft, Facebook 및 PayPal에서 지원됩니다. 2012년 10월에 비준되었습니다. Microsoft는 OAuth 2.0 및 OpenID Connect를 지원합니다. 이러한 두 표준은 Azure Active Directory, .NET용 OWIN(Open Web Interface for .NET), Katana 및 Azure AD 라이브러리와 같은 여러 서비스 및 클라이언트 라이브러리에서 지원됩니다.
-*  부여 유형: 클라이언트 자격 증명 부여 유형. 클라이언트 자격 증명은 OAuth 2.0에서 4가지 부여 유형 중 하나입니다. Azure AD Microsoft Graph API 액세스에 주로 사용됩니다.
-*  인증 모드: 서비스 주체. 다른 인증 모드는 사용자 또는 대화형 인증입니다.
+## <a name="get-the-authentication-information-from-the-azure-portal"></a>Azure Portal에서 인증 정보 가져오기
 
-Media Services 사용에 대한 Azure AD 인증 및 권한 부여 흐름에는 총 4가지 응용 프로그램 또는 서비스가 포함되어 있습니다. 응용 프로그램 및 서비스, 흐름은 다음 표에 설명되어 있습니다.
+### <a name="overview"></a>개요
 
-|응용 프로그램 형식 |응용 프로그램 |흐름|
-|---|---|---|
-|클라이언트 | 고객 앱 또는 솔루션 | 이 앱(실제로는 프록시)은 Azure 구독 및 미디어 서비스 계정이 상주하는 Azure AD 테넌트에 등록됩니다. 그런 다음 등록된 앱의 서비스 주체는 미디어 서비스 계정의 Access Control(IAM)에서 소유자 또는 참가자 역할을 부여받습니다. 서비스 주체는 앱 클라이언트 ID 및 클라이언트 암호로 표시됩니다. |
-|IDP(ID 공급자) | IDP로 Azure AD | 등록된 앱 서비스 주체(클라이언트 ID 및 클라이언트 암호)는 IDP로 Azure AD에 의해 인증됩니다. 이 인증은 내부에서 암시적으로 수행됩니다. 클라이언트 자격 증명 흐름에서와 같이 클라이언트는 사용자 대신 인증됩니다. |
-|STS(보안 토큰 서비스)/OAuth 서버 | STS로 Azure AD | IDP에 의한 인증 후(또는 OAuth 2.0 조건에서 OAuth 서버), 액세스 토큰 또는 JWT(JSON Web Token)가 중간 계층 리소스(여기서는 Media Services REST API 끝점)에 액세스하기 위한 STS/OAuth 서버로서의 Azure AD에 의해 발급됩니다. |
-|리소스 | Media Services REST API | 모든 Media Services REST API 호출은 STS 또는 OAuth 서버로서 Azure AD에서 발급한 액세스 토큰으로 권한 부여됩니다. |
+Media Services API에 액세스하려면 다음 데이터 요소를 수집해야 합니다.
 
-샘플 코드를 실행하고 JWT 또는 액세스 토큰을 캡처하면 JWT에 다음 특성이 있습니다.
+|설정|예|설명|
+|---|-------|-----|
+|Azure Active Directory 테넌트 도메인|microsoft.onmicrosoft.com|Azure AD as a Secure Token Service(STS) 끝점은 https://login.microsoftonline.com/{your-aad-tenant-name.onmicrosoft.com}/oauth2/token 형식으로 작성됩니다. Azure AD는 리소스(액세스 토큰)에 액세스하기 위해 JWT를 발급합니다.|
+|REST API 끝점|https://amshelloworld.restv2.westus.media.azure.net/api/|응용 프로그램에서 모든 Media Services REST API 호출이 수행되는 끝점입니다.|
+|클라이언트 ID(응용 프로그램 ID)|f7fbbb29-a02d-4d91-bbc6-59a2579259d2|Azure AD 응용 프로그램(클라이언트) ID입니다. 액세스 토큰을 가져오려면 클라이언트 ID가 필요합니다. |
+|클라이언트 암호|+mUERiNzVMoJGggD6aV1etzFGa1n6KeSlLjIq+Dbim0=|Azure AD 응용 프로그램 키(클라이언트 암호)입니다. 액세스 토큰을 가져오려면 클라이언트 암호가 필요합니다.|
 
-    aud: "https://rest.media.azure.net",
+### <a name="get-aad-auth-info-from-the-azure-portal"></a>Azure Portal에서 AAD 인증 정보 가져오기
 
-    iss: "https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47/",
+정보를 가져오려면 다음 단계를 수행합니다.
 
-    iat: 1497146280,
+1. [Azure 포털](http://portal.azure.com) 에 로그인합니다.
+2. AMS 인스턴스로 이동합니다.
+3. **API 액세스**를 선택합니다.
+4. **서비스 주체를 사용하여 Azure Media Services API에 연결**을 클릭합니다.
 
-    nbf: 1497146280,
-    exp: 1497150180,
+    ![API 액세스](./media/connect-with-rest/connect-with-rest01.png)
 
-    aio: "Y2ZgYDjuy7SptPzO/muf+uRu1B+ZDQA=",
+5. 기존 **Azure AD 응용 프로그램**을 선택하거나 아래와 같이 새 응용 프로그램을 만듭니다.
 
-    appid: "02ed1e8e-af8b-477e-af3d-7e7219a99ac6",
+    > [!NOTE]
+    > Azure Media REST 요청이 성공하려면, 호출하는 사용자가 액세스하려는 Media Services 계정에 대한 **참가자** 또는 **소유자** 역할을 가지고 있어야 합니다. "원격 서버에서 (401) 권한 없음 오류를 반환했습니다."라는 예외가 표시되면 [액세스 제어](media-services-use-aad-auth-to-access-ams-api.md#access-control)를 참조하세요.
 
-    appidacr: "1",
+    새 AD 앱을 만들어야 하는 경우 다음 단계를 수행합니다.
+    
+    1. **새로 만들기**를 누릅니다.
+    2. 이름을 입력합니다.
+    3. **새로 만들기**를 다시 누릅니다.
+    4. **저장**을 누릅니다.
 
-    idp: "https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47/",
+    ![API 액세스](./media/connect-with-rest/new-app.png)
 
-    oid: "a938cfcc-d3de-479c-b0dd-d4ffe6f50f7c",
+    새 앱이 페이지에 표시됩니다.
 
-    sub: "a938cfcc-d3de-479c-b0dd-d4ffe6f50f7c",
+6. **클라이언트 ID**(응용 프로그램 ID)를 가져옵니다.
+    
+    1. 응용 프로그램을 선택합니다.
+    2. 오른쪽 창에서 **클라이언트 ID**를 가져옵니다. 
 
-    tid: "72f988bf-86f1-41af-91ab-2d7cd011db47",
+    ![API 액세스](./media/connect-with-rest/existing-client-id.png)에서도 확인할 수 있습니다.
 
-다음은 JWT에 있는 특성과 이전 표에서 4가지 응용 프로그램 또는 서비스 간의 매핑입니다.
+7.  응용 프로그램의 **키**(클라이언트 암호) 가져오기 
 
-|응용 프로그램 형식 |응용 프로그램 |JWT 특성 |
-|---|---|---|
-|클라이언트 |고객 앱 또는 솔루션 |appid: "02ed1e8e-af8b-477e-af3d-7e7219a99ac6". 다음 섹션에서 Azure AD에 등록할 응용 프로그램의 클라이언트 ID입니다. |
-|IDP(ID 공급자) | IDP로 Azure AD |idp: "https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47/"  GUID는 Microsoft 테넌트의 ID입니다(microsoft.onmicrosoft.com). 각 테넌트가 자기만의 ID를 가지고 있습니다. |
-|STS(보안 토큰 서비스)/OAuth 서버 |STS로 Azure AD | iss: "https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47/". GUID는 Microsoft 테넌트의 ID입니다(microsoft.onmicrosoft.com). |
-|리소스 | Media Services REST API |aud: "https://rest.media.azure.net". 액세스 토큰의 받는 사람 또는 대상입니다. |
+    1. **응용 프로그램 관리** 단추를 클릭합니다. 클라이언트 ID 정보는 **응용 프로그램 ID** 아래에 있습니다. 
+    2. **키**를 누릅니다.
+    
+        ![API 액세스](./media/connect-with-rest/manage-app.png)
+    3. **설명**과 **만료 날짜**를 입력하고 **저장**을 눌러 앱 키(클라이언트 암호)를 생성합니다.
+    
+        **저장** 단추를 누르면 키 값이 표시됩니다. 블레이드에서 나가기 전에 키 값을 복사합니다.
 
-## <a name="steps-for-setup"></a>설치 단계
+    ![API 액세스](./media/connect-with-rest/connect-with-rest03.png)
 
-AAD(Azure Active Directory) 응용 프로그램을 등록 및 설정하고 Azure Media Services REST API 끝점을 호출하기 위한 키를 가져오려면 [Azure Portal을 사용하여 Azure AD 인증 시작](media-services-portal-get-started-with-aad.md) 문서를 참조하세요.
+코드에서 나중에 사용할 수 있도록 web.config 또는 app.config 파일에 AD 연결 매개 변수의 값을 추가할 수 있습니다.
 
+> [!IMPORTANT]
+> **클라이언트 키**는 중요한 암호이므로 키 자격 증명 모음에서 적절하게 보호하거나 프로덕션 환경에서 암호화해야 합니다.
 
-## <a name="info-to-collect"></a>수집할 정보
+## <a name="get-the-access-token-using-postman"></a>Postman을 사용하여 액세스 토큰 가져오기
 
-REST 코딩을 준비하려면 코드에 포함할 다음 데이터 요소를 수집합니다.
+이 섹션에서는 **Postman**을 사용하여 JWT 전달자 토큰(액세스 토큰)을 반환하는 REST API를 실행하는 방법을 설명합니다. Media Services REST API를 호출하려면 호출에 "Authorization" 헤더를 추가한 다음, 이 자습서의 다음 섹션에 나와 있는 것처럼 각 호출에 "Bearer *your_access_token*" 값을 추가해야 합니다. 
 
-*   STS 끝점으로 Azure AD: https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/token. 이 끝점에서 JWT 액세스 토큰이 요청됩니다. Azure AD는 IDP 외에 STS로도 사용됩니다. Azure AD는 리소스 액세스를 위한 JWT(액세스 토큰)를 발급합니다. JWT 토큰은 다양한 클레임을 포함합니다.
-*   리소스 또는 대상으로 Azure Media Services REST API: https://rest.media.azure.net.
-*   클라이언트 ID: [설치 단계](#steps-for-setup)의 2단계를 참조하세요.
-*   클라이언트 암호: [설치 단계](#steps-for-setup)의 2단계를 참조하세요.
-*   다음과 같은 형식의 Media Services 계정 REST API 끝점:
+1. **Postman**을 엽니다.
+2. **POST**를 선택합니다.
+3. 다음 형식을 사용하여 테넌트 이름을 포함하는 URL을 입력합니다. 테넌트 이름은 **.onmicrosoft.com**으로 끝나야 하며 URL은 **oauth2/token**으로 끝나야 합니다. 
 
-    https://[media_service_account_name].restv2.[data_center].media.azure.net/API 
+    https://login.microsoftonline.com/{your-aad-tenant-name.onmicrosoft.com}/oauth2/token
 
-    응용 프로그램에서 모든 Media Services REST API 호출이 수행되는 끝점입니다. 예를 들어, https://willzhanmswjapan.restv2.japanwest.media.azure.net/API.
+4. **Headers** 탭을 선택합니다.
+5. "Key/Value" 데이터 표를 사용하여 **Headers** 정보를 입력합니다. 
 
-그런 다음 코드에 사용하기 위해 이러한 5개의 매개 변수를 web.config 또는 app.config 파일에 넣을 수 있습니다.
+    ![데이터 표](./media/connect-with-rest/headers-data-grid.png)
 
-## <a name="sample-code"></a>샘플 코드
+    Postman 창 오른쪽의 **Bulk Edit** 링크를 클릭하고 다음 코드를 붙여 넣어도 됩니다.
 
-[Azure Media Services 액세스를 위한 Azure AD 인증: 둘 다 REST API를 통해](https://github.com/willzhan/WAMSRESTSoln)에서 샘플 코드를 확인할 수 있습니다.
+        Content-Type:application/x-www-form-urlencoded
+        Keep-Alive:true
 
-샘플 코드는 두 부분으로 구성되어 있습니다.
+6. **Body** 탭을 누릅니다.
+7. "Key/Value" 데이터 표를 사용하여 본문 정보를 입력합니다. 클라이언트 ID와 암호 값은 적절한 값으로 바꿉니다. 
 
-*   Azure AD 인증 및 권한 부여를 위한 모든 REST API 코드를 포함하는 DLL 라이브러리 프로젝트. 또한 액세스 토큰을 이용해 Media Services REST API 끝점에 대해 REST API 호출을 수행하는 메서드도 포함합니다.
-*   Azure AD 인증을 시작하고 다양한 Media Services REST API를 호출하는 콘솔 테스트 클라이언트.
+    ![데이터 표](./media/connect-with-rest/data-grid.png)
 
-샘플 프로젝트는 3가지 기능을 포함합니다.
+    Postman 창 오른쪽의 **Bulk Edit**를 클릭하고 다음 본문을 붙여 넣어도 됩니다. 클라이언트 ID와 암호 값은 적절한 값으로 바꿉니다.
 
-*   REST API만 사용하여 클라이언트 자격 증명 부여를 통한 Azure AD 인증.
-*   REST API만 사용하여 Azure Media Services 액세스.
-*   REST API만 사용하여 Azure Storage 액세스(REST API를 사용하여 Media Services 계정을 만드는 데 사용됨).
+        grant_type:client_credentials
+        client_id:{Your Client ID that you got from your AAD Application}
+        client_secret:{Your client secret that you got from your AAD Application's Keys}
+        resource:https://rest.media.azure.net
 
+8. **보내기**를 누릅니다.
 
-## <a name="where-is-the-refresh-token"></a>새로 고침 토큰 위치
+    ![토큰 가져오기](./media/connect-with-rest/connect-with-rest04.png)
 
-일부 독자는 새로 고침 토큰이 있는 위치를 궁금해할 수 있습니다. 여기서 새로 고침을 사용하지 않는 이유
+반환되는 응답에는 AMS API에 액세스하려면 사용해야 하는 **액세스 토큰**이 포함되어 있습니다.
 
-새로 고침 토큰의 용도는 액세스 토큰을 새로 고치는 것이 아닙니다. 최종 사용자 인증을 우회하고 이전 토큰이 만료될 때 유효한 액세스 토큰을 계속 가져오기 위해 설계되었습니다. 새로 고침 토큰에는 “사용자 다시 로그인 바이패스 토큰”과 같은 표현이 더 적절한 이름일 수 있습니다.
+## <a name="test-the-assets-api-using-the-access-token"></a>액세스 토큰을 사용하여 **Assets** API 테스트
 
-OAuth 2.0 권한 부여 흐름(사용자 이름 및 암호, 사용자를 대신하여 작동)을 사용하는 경우 새로 고침 토큰을 사용하여 사용자 개입을 요청하지 않고도 갱신된 액세스 토큰을 가져올 수 있습니다. 하지만 이 문서에서 설명한 OAuth 2.0 클라이언트 자격 증명 부여 흐름의 경우 클라이언트는 자체적으로 작동합니다. 사용자 개입이 전혀 필요하지 않으며 권한 부여 서버에서 사용자에게 새로 고침 토큰을 제공하지 않아도 됩니다. **GetUrlEncodedJWT** 메서드를 디버깅하는 경우 토큰 끝점에서의 응답에는 액세스 토큰이 있지만 새로 고침 토큰은 없습니다.
+이 섹션에서는 **Postman**을 사용하여 **Assets** API에 액세스하는 방법을 설명합니다.
+
+1. **Postman**을 엽니다.
+2. **GET**을 선택합니다.
+3. REST API 끝점(예: https://amshelloworld.restv2.westus.media.azure.net/api/Assets)를 붙여 넣습니다.
+4. **Authorization** 탭을 선택합니다. 
+5. **Bearer Token**을 선택합니다.
+6. 이전 섹션에서 만든 토큰을 붙여 넣습니다.
+
+    ![토큰 가져오기](./media/connect-with-rest/connect-with-rest05.png)
+
+    > [!NOTE]
+    > Postman UX는 Mac과 PC 간에 서로 다를 수 있습니다. Mac 버전의 **Authorization** 섹션 드롭다운에 "Bearer Token" 옵션이 없으면 Mac 클라이언트에서 **Authorization** 헤더를 수동으로 추가해야 합니다.
+
+   ![Auth 헤더](./media/connect-with-rest/auth-header.png)
+
+7. **Headers**를 선택합니다.
+5. Postman 창 오른쪽의 **Bulk Edit** 링크를 클릭합니다.
+6. 다음 헤더를 붙여 넣습니다.
+
+        x-ms-version:2.15
+        Accept:application/json
+        Content-Type:application/json
+        DataServiceVersion:3.0
+        MaxDataServiceVersion:3.0
+
+7. **보내기**를 누릅니다.
+
+반환되는 응답에는 계정 내의 자산이 포함됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-[계정에 파일 업로드](media-services-dotnet-upload-files.md) 시작
+* [Azure Media Services 액세스를 위한 Azure AD 인증: 둘 다 REST API를 통해](https://github.com/willzhan/WAMSRESTSoln)의 샘플 코드를 사용해 보세요.
+* [.NET을 사용하여 파일 업로드](media-services-dotnet-upload-files.md)

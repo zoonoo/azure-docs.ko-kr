@@ -24,9 +24,11 @@ ACU: 195~210
 | Standard_F16s_v2 | 16     | 32          | 128            | 32             | 32000 (256)                                                           | 높음                                           |
 | Standard_F32s_v2 | 32     | 64          | 256            | 32             | 64000 (512)                                                           | 극히 높음                                 |
 | Standard_F64s_v2 | 64     | 128         | 512            | 32             | 128000 (1024)                                                         | 극히 높음                                 |
-| Standard_F72s_v2 | 72     | 144         | 576            | 32             | 144000 (1520)                                                         | 극히 높음                                 |
+| Standard_F72s_v2<sup>2</sup> | 72     | 144         | 576            | 32             | 144000 (1520)                                                         | 극히 높음                                 |
 
 <sup>1</sup> Fsv2 시리즈 VM은 Intel® 하이퍼 스레딩 기술 제공
+
+<sup>2</sup> 64개 이상의 vCPU에는 Windows Server 2016, Ubuntu 16.04 LTS, SLES 12 SP2 및 Red Hat Enterprise Linux, LIS 4.2.1을 사용하는 CentOS 7.3 또는 Oracle Linux 7.3과 같이 지원되는 게스트 OS 중 하나가 필요합니다.
 
 ## <a name="fs-series-sup1sup"></a>Fs 시리즈 <sup>1</sup>
 
@@ -38,11 +40,11 @@ ACU: 210-250
 | Standard_F2s |2 |4 |8 |8 |8,000/64(24) |6,400/96 |2 / 1500 |
 | Standard_F4s |4 |8 |16 |16 |16,000/128 (48) |12,800/192 |4 / 3000 |
 | Standard_F8s |8 |16 |32 |32 |32,000/256(96) |25,600/384 |8 / 6000 |
-| Standard_F16s |16 |32 |64 |64 |64,000/512(192) |51,200/768 |8 / 6000-12000 &#8224; |
+| Standard_F16s |16 |32 |64 |64 |64,000/512(192) |51,200/768 |8 / 12000 |
 
 MBps = 초당 10^6바이트, GiB = 1024^3바이트
 
-<sup>1</sup> Fs 시리즈 VM에서 제공 가능한 최대 디스크 처리량(IOPS 또는 MBps)은 연결된 디스크의 수, 크기 및 스트라이핑에 따라 제한될 수 있습니다.  자세한 내용은 [Premium Storage: Azure 가상 컴퓨터 작업을 위한 고성능 저장소](../articles/virtual-machines/windows/premium-storage.md)를 참조하세요.
+<sup>1</sup> Fs 시리즈 VM에서 제공 가능한 최대 디스크 처리량(IOPS 또는 MBps)은 연결된 디스크의 수, 크기 및 스트라이핑에 따라 제한될 수 있습니다.  자세한 내용은 [Premium Storage: Azure 가상 머신 작업을 위한 고성능 저장소](../articles/virtual-machines/windows/premium-storage.md)를 참조하세요.
 
 
 <br>
@@ -57,7 +59,7 @@ ACU: 210-250
 | Standard_F2  | 2         | 4           | 32             | 6000 / 93 / 46                                           | 8 / 8x500                         | 2 / 1500                     |
 | Standard_F4  | 4         | 8           | 64             | 12000 / 187 / 93                                         | 16 / 16x500                         | 4 / 3000                     |
 | Standard_F8  | 8         | 16          | 128            | 24000 / 375 / 187                                        | 32 / 32x500                       | 8 / 6000                     |
-| Standard_F16 | 16        | 32          | 256            | 48000 / 750 / 375                                        | 64 / 64x500                       | 8 / 6000 - 12000 &#8224;           |
+| Standard_F16 | 16        | 32          | 256            | 48000 / 750 / 375                                        | 64 / 64x500                       | 8 / 12000           |
 
 
 <br>

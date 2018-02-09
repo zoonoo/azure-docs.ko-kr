@@ -1,29 +1,21 @@
 ---
-title: "Azure Site Recovery를 사용한 Azure로의 Hyper-V 아키텍처 검토 | Microsoft 문서"
+title: "Azure Site Recovery의 Hyper-V와 Azure 간 복제 아키텍처 | Microsoft Docs"
 description: "이 문서에서는 Azure Site Recovery 서비스를 사용하여 온-프레미스 Hyper-V VM(VMM 없음)을 Azure로 복제할 때 사용되는 구성 요소 및 아키텍처 개요를 제공합니다."
-services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: 737cd30b-3994-4b18-9bd4-78c723601310
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2017
+ms.date: 12/19/2017
 ms.author: raynew
-ms.openlocfilehash: 991c72352eaa4c3b12fcdc1e4112063fb698e772
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: aa27d75c5a1efe3971cabfe2b6a39433c772a40a
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="hyper-v-to-azure-replication-architecture"></a>Hyper-V와 Azure 간 복제 아키텍처
 
 
-이 문서에서는 [Azure Site Recovery](site-recovery-overview.md) 서비스를 사용하여 온-프레미스 Hyper-V와 Azure 간에 Hyper-V 가상 컴퓨터를 복제, 장애 조치 및 복구할 때 사용되는 아키텍처와 프로세스에 대해 설명합니다.
+이 문서에서는 [Azure Site Recovery](site-recovery-overview.md) 서비스를 사용하여 온-프레미스 Hyper-V와 Azure 간에 Hyper-V 가상 머신을 복제, 장애 조치 및 복구할 때 사용되는 아키텍처와 프로세스에 대해 설명합니다.
 
 Hyper-V호스트는 선택적으로 System Center VMM(Virtual Machine Manager) 사설 클라우드에서 관리할 수 있습니다.
 
@@ -42,7 +34,7 @@ Hyper-V호스트는 선택적으로 System Center VMM(Virtual Machine Manager) �
 
 **Hyper-V에서 Azure로 아키텍처(VMM 없음)**
 
-![아키텍처](./media/concepts-hyper-v-to-azure-architecture/arch-onprem-azure-hypervsite.png)
+![건축](./media/concepts-hyper-v-to-azure-architecture/arch-onprem-azure-hypervsite.png)
 
 
 
@@ -90,7 +82,7 @@ Hyper-V호스트는 선택적으로 System Center VMM(Virtual Machine Manager) �
 
 ### <a name="finalize-protection-process"></a>보호 프로세스 완료
 
-1. 초기 복제를 마친 후에는 **가상 컴퓨터에 대한 보호 완료** 작업이 실행됩니다. 네트워크 및 기타 사후 설정을 구성하므로 VM이 보호됩니다.
+1. 초기 복제를 마친 후에는 **가상 머신에 대한 보호 완료** 작업이 실행됩니다. 네트워크 및 기타 사후 설정을 구성하므로 VM이 보호됩니다.
 2. 이 단계에서 VM 설정이 장애 조치에 대비하고 있는지 확인할 수 있습니다. VM에 대한 재해 복구 훈련(장애 조치 테스트)을 실행하여 장애 조치가 기대한 대로 작동하는지 확인할 수 있습니다. 
 
 
@@ -149,6 +141,7 @@ Hyper-V호스트는 선택적으로 System Center VMM(Virtual Machine Manager) �
 
 ## <a name="next-steps"></a>다음 단계
 
-지원 매트릭스 검토. 자습서에 따라 Azure에 대한 Hyper-V 복제를 사용하도록 설정합니다.
-장애 조치 및 장애 복구 실행
+
+[이 자습서](tutorial-prepare-azure.md)를 따라 Hyper-V와 Azure 간의 복제를 시작합니다.
+
 

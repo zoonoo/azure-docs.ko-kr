@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: juliako
-ms.openlocfilehash: c175d359f93e7cd8cd73aa498ad8b71c4ec497f2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c8792535eeeb71e7233c42bd9ea2a446a1c4d43c
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="output-metadata"></a>출력 메타데이터
 ## <a name="overview"></a>개요
@@ -26,10 +26,10 @@ ms.lasthandoff: 10/11/2017
 
 메타데이터 파일을 검사하려는 경우 **SAS** 로케이터를 만들어 로컬 컴퓨터에 파일을 다운로드할 수 있습니다.  
 
-이 항목에서는 출력 메타데이터(&lt;source_file_name&gt;_manifest.xml)의 기초가 되는 XML 스키마의 요소 및 형식에 대해 설명합니다. 입력 자산에 대한 메타데이터가 포함된 파일에 대한 자세한 내용은 [입력 메타데이터](media-services-input-metadata-schema.md)를 참조하세요.  
+이 문서에서는 출력 메타데이터(&lt;source_file_name&gt;_manifest.xml)의 기초가 되는 XML 스키마의 요소 및 형식에 대해 설명합니다. 입력 자산에 대한 메타데이터가 포함된 파일에 대한 자세한 내용은 [입력 메타데이터](media-services-input-metadata-schema.md)를 참조하세요.  
 
 > [!NOTE]
-> 스키마 코드 및 XML 예제는 이 항목의 끝에 있습니다.  
+> 스키마 코드 및 XML 예제는 이 문서의 끝에 있습니다.  
 >
 >
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 10/11/2017
 [XML 예제](media-services-output-metadata-schema.md#xml)에서 XML 예제를 찾을 수 있습니다.  
 
 ### <a name="attributes"></a>특성
-| 이름 | 형식 | 설명 |
+| 이름 | type | 설명 |
 | --- | --- | --- |
 | **Name**<br/><br/> 필수 |**xs:string** |미디어 자산 파일 이름입니다. |
 | **크기**<br/><br/> minInclusive ="0"<br/><br/> 필수 |**xs:long** |자산 파일의 크기(바이트)입니다. |
@@ -55,7 +55,7 @@ ms.lasthandoff: 10/11/2017
 | 이름 | 설명 |
 | --- | --- |
 | **Sources** |이 AssetFile을 생성하기 위해 처리된 입력/원본 미디어 파일의 컬렉션입니다. 자세한 내용은 [Source 요소](media-services-output-metadata-schema.md)를 참조하세요. |
-| **VideoTracks**<br/><br/> minOccurs="0" maxOccurs="1" |각각의 실제 AssetFile에는 적절한 컨테이너 형식으로 인터리빙된 0개 이상의 비디오 트랙이 포함될 수 있습니다. 이 요소는 이러한 모든 비디오 트랙의 컬렉션입니다. 자세한 내용은 [VideoTracks 요소](media-services-output-metadata-schema.md)를 참조하세요. |
+| **VideoTracks**<br/><br/> minOccurs="0" maxOccurs="1" |각각의 실제 AssetFile에는 적절한 컨테이너 형식으로 인터리빙된 0개 이상의 비디오 트랙이 포함될 수 있습니다. 자세한 내용은 [VideoTracks 요소](media-services-output-metadata-schema.md)를 참조하세요. |
 | **AudioTracks**<br/><br/> minOccurs="0" maxOccurs="1" |각각의 실제 AssetFile에는 적절한 컨테이너 형식으로 인터리빙된 0개 이상의 오디오 트랙이 포함될 수 있습니다. 이 요소는 이러한 모든 오디오 트랙의 컬렉션입니다. 자세한 내용은 [AudioTracks 요소](media-services-output-metadata-schema.md)를 참조하세요. |
 
 ## <a name="Sources "></a> Sources 요소
@@ -74,12 +74,12 @@ ms.lasthandoff: 10/11/2017
 [XML 예제](media-services-output-metadata-schema.md#xml)에서 XML 예제를 찾을 수 있습니다.  
 
 ### <a name="attributes"></a>특성
-| 이름 | 형식 | 설명 |
+| 이름 | type | 설명 |
 | --- | --- | --- |
 | **Name**<br/><br/> 필수 |**xs:string** |입력 원본 파일 이름입니다. |
 
 ## <a name="VideoTracks "></a> VideoTracks 요소
-각각의 실제 AssetFile에는 적절한 컨테이너 형식으로 인터리빙된 0개 이상의 비디오 트랙이 포함될 수 있습니다. 이 요소는 이러한 모든 비디오 트랙의 컬렉션입니다.  
+각각의 실제 AssetFile에는 적절한 컨테이너 형식으로 인터리빙된 0개 이상의 비디오 트랙이 포함될 수 있습니다. **VideoTracks** 요소는 모든 비디오 트랙의 컬렉션을 나타냅니다.  
 
 [XML 예제](media-services-output-metadata-schema.md#xml)에서 XML 예제를 찾을 수 있습니다.  
 
@@ -94,9 +94,9 @@ ms.lasthandoff: 10/11/2017
 [XML 예제](media-services-output-metadata-schema.md#xml)에서 XML 예제를 찾을 수 있습니다.  
 
 ### <a name="attributes"></a>특성
-| 이름 | 형식 | 설명 |
+| 이름 | type | 설명 |
 | --- | --- | --- |
-| **Id**<br/><br/> minInclusive ="0"<br/><br/> 필수 |**xs:int** |이 비디오 트랙의 0 기준 인덱스입니다. **참고:** 반드시 MP4 파일에 사용되는 TrackID일 필요는 없습니다. |
+| **Id**<br/><br/> minInclusive ="0"<br/><br/> 필수 |**xs:int** |이 비디오 트랙의 0 기준 인덱스입니다. **참고:** 이 **ID**가 반드시 MP4 파일에 사용되는 TrackID일 필요는 없습니다. |
 | **FourCC**<br/><br/> 필수 |**xs:string** |비디오 코덱 FourCC 코드입니다. |
 | **프로필** |**xs:string** |H264 프로파일입니다(H264 코덱에만 적용). |
 | **Level** |**xs:string** |H264 수준입니다(H264 코덱에만 적용). |
@@ -111,7 +111,7 @@ ms.lasthandoff: 10/11/2017
 | **MaxGOPBitrate**<br/><br/> minInclusive ="0" |**xs:int** |이 비디오 트랙의 최대 GOP 평균 비트 전송률(Kb/초)입니다. |
 
 ## <a name="AudioTracks "></a> AudioTracks 요소
-각각의 실제 AssetFile에는 적절한 컨테이너 형식으로 인터리빙된 0개 이상의 오디오 트랙이 포함될 수 있습니다. 이 요소는 이러한 모든 오디오 트랙의 컬렉션입니다.  
+각각의 실제 AssetFile에는 적절한 컨테이너 형식으로 인터리빙된 0개 이상의 오디오 트랙이 포함될 수 있습니다. **AudioTracks** 요소는 모든 오디오 트랙의 컬렉션을 나타냅니다.  
 
 [XML 예제](media-services-output-metadata-schema.md#xml)에서 XML 예제를 찾을 수 있습니다.  
 
@@ -126,7 +126,7 @@ ms.lasthandoff: 10/11/2017
 [XML 예제](media-services-output-metadata-schema.md#xml)에서 XML 예제를 찾을 수 있습니다.  
 
 ### <a name="attributes"></a>특성
-| 이름 | 형식 | 설명 |
+| 이름 | type | 설명 |
 | --- | --- | --- |
 | **Id**<br/><br/> minInclusive ="0"<br/><br/> 필수 |**xs:int** |이 오디오 트랙의 0 기준 인덱스입니다. **참고:** 반드시 MP4 파일에 사용되는 TrackID일 필요는 없습니다. |
 | **Codec** |**xs:string** |오디오 트랙 코덱 문자열입니다. |
@@ -147,7 +147,7 @@ ms.lasthandoff: 10/11/2017
 [XML 예제](media-services-output-metadata-schema.md#xml)에서 XML 예제를 찾을 수 있습니다.  
 
 ### <a name="attributes"></a>특성
-| 이름 | 형식 | 설명 |
+| 이름 | type | 설명 |
 | --- | --- | --- |
 | **DPLMVersionInformation** |**xs:string** |**DPLM**(Dolby Professional Loudness Metering) 개발 키트 버전입니다. |
 | **DialogNormalization**<br/><br/> minInclusive="-31" maxInclusive="-1"<br/><br/> 필수 |**xs:int** |DPLM을 통해 생성되며, LoudnessMetering을 설정할 때 필요합니다. |
@@ -510,7 +510,8 @@ ms.lasthandoff: 10/11/2017
 
 
 ## <a name="xml"></a> XML 예제
- 다음은 출력 메타데이터 파일의 예제입니다.  
+
+다음 XML은 출력 메타데이터 파일의 예제입니다.  
 
     <AssetFiles xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"   
                 xmlns="http://schemas.microsoft.com/windowsazure/mediaservices/2013/05/mediaencoder/metadata">  

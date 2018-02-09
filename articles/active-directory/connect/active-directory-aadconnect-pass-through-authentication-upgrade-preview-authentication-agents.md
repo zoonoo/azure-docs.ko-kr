@@ -1,5 +1,5 @@
 ---
-title: "Azure AD Connect: 통과 인증 - 미리 보기 인증 에이전트 업그레이드 | Microsoft Docs"
+title: "Azure AD Connect - 통과 인증 - 인증 에이전트 업그레이드 | Microsoft Docs"
 description: "이 문서에서는 Azure AD(Azure Active Directory) 통과 인증 구성을 업그레이드하는 방법에 대해 설명합니다."
 services: active-directory
 keywords: "Azure AD Connect 통과 인증, Active Directory 설치, Azure AD에 대한 필수 구성 요소, SSO, Single Sign-on"
@@ -12,13 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/04/2017
+ms.date: 01/14/2018
 ms.author: billmath
-ms.openlocfilehash: 96d4e8e240d845be5f04bf0e724d91d740ad9cdf
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: f0a254b7216ca6fda40e26bafb7de57e796a5218
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-upgrade-preview-authentication-agents"></a>Azure Active Directory 통과 인증: 미리 보기 인증 에이전트 업그레이드
 

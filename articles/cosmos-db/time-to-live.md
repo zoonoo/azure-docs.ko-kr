@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2017
 ms.author: arramac
-ms.openlocfilehash: 9b236ab8dd80b0c34501e0d60ba74dee3043d262
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 3737a240d92d9420bac7d42475622182fb425a2b
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="expire-data-in-azure-cosmos-db-collections-automatically-with-time-to-live"></a>TTL(Time To Live)을 사용하여 자동으로 Azure Cosmos DB 컬렉션의 데이터 만료
-응용 프로그램은 방대한 양의 데이터을 생성하고 저장할 수 있습니다. 컴퓨터에서 생성한 이벤트 데이터, 로그 및 사용자 세션 정보와 같은 이 데이터 중 일부는 한정된 기간에만 사용할 수 있습니다. 데이터가 응용 프로그램의 요구를 넘게 되면 이 데이터를 삭제하고 응용 프로그램의 저장소 요구를 줄이는 것이 안전합니다.
+응용 프로그램은 방대한 양의 데이터를 생성하고 저장할 수 있습니다. 컴퓨터에서 생성한 이벤트 데이터, 로그 및 사용자 세션 정보와 같은 이 데이터 중 일부는 한정된 기간에만 사용할 수 있습니다. 데이터가 응용 프로그램의 요구를 넘게 되면 이 데이터를 삭제하고 응용 프로그램의 저장소 요구를 줄이는 것이 안전합니다.
 
 "time to live" 또는 TTL을 사용하여 Microsoft Azure Cosmos DB는 일정 기간 후에 데이터베이스에서 문서를 자동으로 삭제하는 기능을 제공합니다. 기본 TTL(Time to live)을 컬렉션 수준에서 설정할 수 있고 문서별로 재정의할 수 있습니다. TTL을 컬렉션 기본값으로 설정하거나 문서 수준에서 설정하면 Cosmos DB는 마지막으로 수정된 이후 해당 기간(초) 후에 존재하는 문서를 자동으로 제거합니다.
 
@@ -149,8 +149,11 @@ TTL 기능은 컬렉션 수준 및 문서 수준 등 두 가지 수준으로 TTL
     
     await client.ReplaceDocumentCollectionAsync(collection);
 
+<a id="ttl-and-index-interaction"></a> 
 ## <a name="ttl-and-index-interaction"></a>TTL 및 인덱스 상호 작용
-TTL 추가 또는 변경은 기본 인덱스에 대한 변경입니다. TTL이 없을 때 유효한 TTL 값을 제공하면 인덱싱 작업이 다시 수행됩니다. 일관된 인덱스의 경우 인덱스 상태가 변경된 것으로 표시되지 않습니다. 지연 인덱스의 경우 인덱스는 언제나 변경을 우선 캐치 업하고 TTL의 변경을 통해 인덱스가 처음부터 다시 만들어집니다. 후자의 경우 미치는 영향으로 인해 인덱스 다시 작성 중에 수행된 쿼리는 완전하거나 올바른 결과를 반환하지 않습니다. 정확인 데이터 수 등이 필요한 경우, 인덱스 모드 자체가 지연 모드이므로 지연 인덱스에 대해 TTL을 변경하지 마십시오.  이상적으로는 항상 일관적인 인덱스만 선택되어야 합니다. 
+컬렉션에서 TTL 설정을 추가하거나 변경하면 기본 인덱스를 변경합니다. TTL 값이 Off에서 On으로 변경되면 컬렉션 인덱스가 다시 작성됩니다. 인덱싱 모드가 일관될 때 인덱싱 정책을 변경하는 경우 사용자는 인덱스에 대한 변경을 알지 못합니다. 인덱싱 모드가 지연으로 설정된 경우 인덱스는 항상 따라 잡고 TTL 값이 변경되면 인덱스는 처음부터 다시 만들어집니다. TTL 값이 변경되고 인덱스 모드가 지연으로 설정된 경우 인덱스 다시 작성 중에 수행된 쿼리는 전체 또는 올바른 결과를 반환하지 않습니다.
+
+반환된 정확한 데이터가 필요한 경우 인덱싱 모드가 지연으로 설정된 경우 TTL 값을 변경하지 마십시오. 이상적으로 일관된 쿼리 결과를 보장하도록 일관된 인덱스를 선택해야 합니다. 
 
 ## <a name="faq"></a>FAQ
 **TTL의 비용은 얼마인가요?**

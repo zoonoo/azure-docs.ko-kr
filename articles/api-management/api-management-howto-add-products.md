@@ -14,11 +14,11 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 89e1115291fbb2ba3499801981b70e10eb23eb94
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: e6b11145506780f9a08799c4c9daf55ba17b366d
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="create-and-publish-a-product"></a>제품 만들기 및 게시  
 
@@ -34,7 +34,7 @@ Azure API Management에서 제품은 하나 이상의 API뿐만 아니라 사용
 
 ## <a name="prerequisites"></a>필수 조건
 
-+ 다음 빠른 시작을 완료합니다. [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)
++ 다음 빠른 시작 [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)를 완료합니다.
 + 또한, 다음 자습서를 완료합니다. [첫 번째 API 가져오기 및 게시](import-and-publish.md)
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
@@ -48,18 +48,18 @@ Azure API Management에서 제품은 하나 이상의 API뿐만 아니라 사용
 
     제품을 추가하는 경우 다음 정보를 제공해야 합니다. 
 
-    |이름|설명|
+    |Name|설명|
     |---|---|
     |표시 이름|**개발자 포털**에 표시하려는 이름입니다.|
-    |이름|제품에 대한 설명이 포함된 이름입니다.|
+    |Name|제품에 대한 설명이 포함된 이름입니다.|
     |설명|**설명** 필드에서 용도, 제품을 통해 액세스할 수 있는 API, 기타 유용한 정보 등의 자세한 정보를 제공할 수 있습니다.|
     |시스템 상태|제품을 게시하려는 경우 **게시됨**을 누릅니다. 제품의 API를 호출하려면 먼저 제품을 게시해야 합니다. 기본적으로 새 제품은 게시되지 않으며 **관리자** 그룹에만 표시됩니다.|
     |승인 필요|관리자가 이 제품에 대한 구독을 검토하고 허용하거나 거부하도록 하려면 **구독 승인 필요** 를 선택합니다. 상자의 선택을 취소하면 구독 시도가 자동으로 승인됩니다. |
     |구독 수 제한|동시에 여러 개의 구독 수를 제한하려면 구독 제한을 입력합니다. |
     |약관|구독자가 제품을 사용하기 위해 허용해야 하는 제품의 사용 약관을 포함할 수 있습니다.|
-    |API|제품은 하나 이상의 API와 연결됩니다. 다양한 API를 포함하고 개발자 포털을 통해 개발자에게 제공할 수 있습니다. <br/> 제품 만들기 중에 기존 API를 추가할 수 있습니다. 제품 **설정** 페이지 또는 API를 만드는 동안 나중에 제품에 API를 추가할 수 있습니다.|<br/>개발자는 API에 액세스하는 제품을 먼저 구독해야 합니다. 구독하면 해당 제품의 모든 API에 적합한 구독 키를 받게 됩니다.<br/> APIM 인스턴스를 만든 경우 사용자는 이미 관리자이므로 기본적으로 모든 제품을 구독합니다.|
+    |API|제품은 하나 이상의 API와 연결됩니다. 다양한 API를 포함하고 개발자 포털을 통해 개발자에게 제공할 수 있습니다. <br/> 제품 만들기 중에 기존 API를 추가할 수 있습니다. 제품 **설정** 페이지 또는 API를 만드는 동안 나중에 제품에 API를 추가할 수 있습니다.|<br/>개발자는 API에 액세스하는 제품을 먼저 구독해야 합니다. 구독하면 해당 제품의 모든 API에 적합한 구독 키를 받게 됩니다.<br/> APIM 인스턴스를 만든 경우 사용자는 이미 관리자이므로 기본적으로 모든 제품을 구독한 상태가 됩니다.|
 
-3. **저장**을 클릭하여 새 제품을 만듭니다.
+3. **만들기**를 클릭하여 새 제품을 만듭니다.
 
 ### <a name="add-more-configurations"></a>구성 더 추가
 

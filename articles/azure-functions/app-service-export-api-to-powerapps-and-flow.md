@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 09/06/2017
+ms.date: 12/15/2017
 ms.author: mahender; mblythe
-ms.openlocfilehash: efa5a50564d94dbecd4bc7fcb4082b01d16f680d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7482ca27c2edcb281180fb8fbbfb1884a515d379
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="exporting-an-azure-hosted-api-to-powerapps-and-microsoft-flow"></a>Azure에서 호스트되는 API를 PowerApps 및 Microsoft Flow로 내보내기
 
@@ -34,7 +34,7 @@ API를 내보내기 전에 먼저 OpenAPI 정의(이전에는 [Swagger](http://s
 
 API 정의를 내보내려면 다음 단계를 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com)에서 Azure Functions 또는 App Service 응용 프로그램으로 이동합니다.
+1. [Azure Portal](https://portal.azure.com)에서 Azure Functions 또는 또 다른 App Service 응용 프로그램으로 이동합니다.
 
     Azure Functions를 사용하는 경우 함수 앱을 선택하고 **플랫폼 기능**, **API 정의**를 차례로 선택합니다.
 
@@ -50,9 +50,9 @@ API 정의를 내보내려면 다음 단계를 수행합니다.
 
 3. **내보내기 모드**를 선택합니다.
 
-    **기본**을 사용하면 Azure Portal 내에서 사용자 지정 커넥터를 만들 수 있습니다. 이렇게 하려면 PowerApps 또는 Microsoft Flow에 로그인해야 하며 대상 환경에서 커넥터를 만들 수 있는 권한이 필요합니다. 이 모드는 해당 요구 사항을 충족할 수 있는 경우 권장되는 방법입니다. 이 모드를 사용하는 경우 아래의 [기본 내보내기 사용](#express) 지침을 따릅니다.
+    **기본**을 사용하면 Azure Portal 내에서 사용자 지정 커넥터를 만들 수 있습니다. 이렇게 하려면 PowerApps 또는 Microsoft Flow에 로그인해야 하며 대상 환경에서 커넥터를 만들 수 있는 권한이 필요합니다. 이 모드는 이러한 두 가지 요구 사항을 충족할 수 있는 경우 권장되는 방법입니다. 이 모드를 사용하는 경우 아래의 [기본 내보내기 사용](#express) 지침을 따릅니다.
 
-    **수동**을 사용하면 API 정의를 내보낸 후 PowerApps 또는 Microsoft Flow 포털을 사용하여 가져올 수 있습니다. 이 모드는 Azure 사용자와 커넥터를 만들 수 있는 권한이 있는 사용자가 다른 사람이거나 다른 테넌트에서 커넥터를 만들어야 하는 경우 권장되는 방법입니다. 이 모드를 사용하는 경우 아래의 [수동 내보내기 사용](#manual) 지침을 따릅니다.
+    **수동**을 사용하면 API 정의를 내보낸 후 PowerApps 또는 Microsoft Flow 포털을 사용하여 가져올 수 있습니다. 이 모드는 Azure 사용자와 커넥터를 만들 수 있는 권한이 있는 사용자가 다른 사람이거나 다른 Azure 테넌트에서 커넥터를 만들어야 하는 경우 권장되는 방법입니다. 이 모드를 사용하는 경우 아래의 [수동 내보내기 사용](#manual) 지침을 따릅니다.
 
     ![내보내기 모드](media/app-service-export-api-to-powerapps-and-flow/export-mode.png)
 
@@ -95,21 +95,25 @@ Azure Functions에 **기본** 모드를 사용하는 예제는 [PowerApps에서 
 
     이 예제에서는 OpenAPI 정의에 포함된 API 키 보안 정의를 보여 줍니다.
 
-API 정의를 내보냈으니, 이제 PowerApps 및 Microsoft Flow로 가져와서 사용자 지정 커넥터를 만들어야 합니다. 다음 예제에서는 PowerApps를 사용하지만 사용자 지정 커넥터가 두 서비스 간에 공유되므로 정의를 한 번만 가져오면 됩니다.
+API 정의를 내보냈으니, 이제 PowerApps 및 Microsoft Flow로 가져와서 사용자 지정 커넥터를 만들어야 합니다. 사용자 지정 커넥터는 두 서비스 간에 공유되므로 정의를 한 번만 가져오면 됩니다.
 
 PowerApps 및 Microsoft Flow로 API 정의를 가져오려면 다음 단계를 수행합니다.
 
-1. [web.powerapps.com](https://web.powerapps.com) 또는 [flow.microsoft.com](https://flow.microsoft.com/)에 로그인합니다. 
+1. [powerapps.com](https://web.powerapps.com) 또는 [flow.microsoft.com](https://flow.microsoft.com)으로 이동합니다.
 
-2. 페이지 오른쪽 위에서 **설정** 단추(기어 모양 아이콘)를 클릭하고 **사용자 지정 커넥터**를 선택합니다.
+2. 오른쪽 위에서 기어 아이콘을 클릭한 다음, **사용자 지정 커넥터**를 클릭합니다.
 
-    ![사용자 지정 커넥터](media/app-service-export-api-to-powerapps-and-flow/custom-connectors.png)
+   ![서비스의 기어 아이콘](media/app-service-export-api-to-powerapps-and-flow/icon-gear.png)
 
-3. **사용자 지정 커넥터 만들기**를 클릭합니다.
+3. **사용자 지정 커넥터 만들기**, **OpenAPI 정의 가져오기**를 차례로 클릭합니다.
 
-4. **일반** 탭에서 API 이름을 입력한 다음 OpenAPI 정의를 업로드하거나 메타데이터 URL에 붙여 넣습니다. **업로드**를 클릭한 다음 **계속**을 클릭합니다.
+   ![사용자 지정 커넥터 만들기](media/app-service-export-api-to-powerapps-and-flow/flow-apps-create-connector.png)
 
-    ![일반 탭](media/app-service-export-api-to-powerapps-and-flow/tab-general.png)
+4. 사용자 지정 커넥터에 대한 이름을 입력한 다음, 내보낸 OpenAPI 정의로 이동하고, **계속**을 클릭합니다.
+
+   ![OpenAPI 정의 업로드](media/app-service-export-api-to-powerapps-and-flow/flow-apps-upload-definition.png)
+
+4. **일반** 탭에서 OpenAPI 정의에서 제공되는 정보를 검토합니다.
 
 5. **보안** 탭에서 인증 세부 정보를 입력하라는 메시지가 나오면 인증 유형에 적합한 값을 입력합니다. **계속**을 클릭합니다.
 

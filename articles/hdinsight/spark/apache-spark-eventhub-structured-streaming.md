@@ -4,7 +4,7 @@ description: "Azure 이벤트 허브에 데이터 스트림을 보내는 방법�
 keywords: "apache spark 스트리밍, spark 스트리밍, spark 샘플, apache spark 스트리밍 예제, 이벤트 허브 azure 샘플, spark 샘플"
 services: hdinsight
 documentationcenter: 
-author: nitinme
+author: mumian
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
-ms.author: nitinme
-ms.openlocfilehash: a542295e91a641289fa4261920a08eddbad6a217
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.author: jgao
+ms.openlocfilehash: e0486d2c5f78da1d1e4a12703f120eccef43c305
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="apache-spark-structured-streaming-on-hdinsight-to-process-events-from-event-hubs"></a>Event Hubs에서 이벤트를 처리하는 HDInsight의 Apache Spark 구조적 스트리밍
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 12/01/2017
 1. 로컬 워크스테이션에서 Event Hubs에 보낼 이벤트를 생성하는 샘플 이벤트 생산자 응용 프로그램을 컴파일하고 실행합니다.
 2. [Spark 셸](apache-spark-shell.md)을 사용하여 간단한 Spark 구조적 스트리밍 응용 프로그램을 정의하고 실행합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독. [Azure 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
 
@@ -84,7 +84,7 @@ ms.lasthandoff: 12/01/2017
 
 5. 빌드할 응용 프로그램에는 Spark 스트리밍 Event Hubs 패키지가 필요합니다. Spark 셸이 실행되어 [Maven Central](https://search.maven.org)에서 이 종속성을 자동으로 검색하려면 다음과 같이 Maven 좌표를 사용하여 패키지 스위치를 제공해야 합니다.
 
-        spark-shell --packages "com.microsoft.azure:spark-streaming-eventhubs_2.11:2.1.0"
+        spark-shell --packages "com.microsoft.azure:spark-streaming-eventhubs_2.11:2.1.5"
 
 6. Spark 셸 로드가 완료되면 다음이 표시됩니다.
 
@@ -92,10 +92,10 @@ ms.lasthandoff: 12/01/2017
             ____              __
             / __/__  ___ _____/ /__
             _\ \/ _ \/ _ `/ __/  '_/
-        /___/ .__/\_,_/_/ /_/\_\   version 2.1.0.2.6.0.10-29
+        /___/ .__/\_,_/_/ /_/\_\   version 2.1.1.2.6.2.3-1
             /_/
                 
-        Using Scala version 2.11.8 (OpenJDK 64-Bit Server VM, Java 1.8.0_131)
+        Using Scala version 2.11.8 (OpenJDK 64-Bit Server VM, Java 1.8.0_151)
         Type in expressions to have them evaluated.
         Type :help for more information.
 
@@ -113,8 +113,12 @@ ms.lasthandoff: 12/01/2017
             "eventhubs.progressTrackingDir" -> "/eventhubs/progress",
             "eventhubs.sql.containsProperties" -> "true"
             )
+            
+8. 다음과 같은 형식의 EventHub 호환 엔드포인트를 살펴보는 경우 `iothub-xxxxxxxxxx`를 읽는 부분은 EventHub 호환 네임스페이스 이름이며, `eventhubs.namespace`에 사용할 수 있습니다. `SharedAccessKeyName` 필드는 `eventhubs.policyname`에, `SharedAccessKey`는 `eventhubs.policykey`에 사용할 수 있습니다. 
 
-8. 대기 중인 scala> 프롬프트에 수정된 코드 조각을 붙여넣고 반환 키를 누릅니다. 다음과 유사한 결과가 표시됩니다.
+        Endpoint=sb://iothub-xxxxxxxxxx.servicebus.windows.net/;SharedAccessKeyName=xxxxx;SharedAccessKey=xxxxxxxxxx 
+
+9. 대기 중인 scala> 프롬프트에 수정된 코드 조각을 붙여넣고 반환 키를 누릅니다. 다음과 유사한 결과가 표시됩니다.
 
         scala> val eventhubParameters = Map[String, String] (
             |       "eventhubs.policyname" -> "RootManageSharedAccessKey",
@@ -128,31 +132,31 @@ ms.lasthandoff: 12/01/2017
             |     )
         eventhubParameters: scala.collection.immutable.Map[String,String] = Map(eventhubs.sql.containsProperties -> true, eventhubs.name -> hub1, eventhubs.consumergroup -> $Default, eventhubs.partition.count -> 2, eventhubs.progressTrackingDir -> /eventhubs/progress, eventhubs.policykey -> 2P1Q17Wd1rdLP1OZQYn6dD2S13Bb3nF3h2XZD9hvyyU, eventhubs.namespace -> hdiz-docs-eventhubs, eventhubs.policyname -> RootManageSharedAccessKey)
 
-9. 원본을 지정하도록 Spark 구조적 스트리밍 쿼리를 작성하기 시작합니다. 다음을 Spark 셸에 붙여넣고 반환 키를 누릅니다.
+10. 원본을 지정하도록 Spark 구조적 스트리밍 쿼리를 작성하기 시작합니다. 다음을 Spark 셸에 붙여넣고 반환 키를 누릅니다.
 
         val inputStream = spark.readStream.
         format("eventhubs").
         options(eventhubParameters).
         load()
 
-10. 다음과 유사한 결과가 표시됩니다.
+11. 다음과 유사한 결과가 표시됩니다.
 
         inputStream: org.apache.spark.sql.DataFrame = [body: binary, offset: bigint ... 5 more fields]
 
-11. 다음으로 해당 출력을 콘솔에 기록하도록 쿼리를 작성합니다. Spark 셸에 다음을 붙여넣고 반환 키를 눌러 이 작업을 수행합니다.
+12. 다음으로 해당 출력을 콘솔에 기록하도록 쿼리를 작성합니다. Spark 셸에 다음을 붙여넣고 반환 키를 눌러 이 작업을 수행합니다.
 
         val streamingQuery1 = inputStream.writeStream.
         outputMode("append").
         format("console").start().awaitTermination()
 
-12. 다음과 유사한 출력을 사용하여 몇 가지 일괄 처리가 시작됩니다.
+13. 다음과 유사한 출력을 사용하여 몇 가지 일괄 처리가 시작됩니다.
 
         -------------------------------------------
         Batch: 0
         -------------------------------------------
         [Stage 0:>                                                          (0 + 2) / 2]
 
-13. 이벤트의 각 microbatch를 처리하는 출력 결과가 나옵니다. 
+14. 이벤트의 각 microbatch를 처리하는 출력 결과가 나옵니다. 
 
         -------------------------------------------
         Batch: 0
@@ -184,8 +188,8 @@ ms.lasthandoff: 12/01/2017
         +--------------------+------+---------+------------+---------+------------+----------+
         only showing top 20 rows
 
-14. 새 이벤트가 이벤트 재생기에서 전송되면 이 구조적 스트리밍 쿼리에 의해 처리됩니다.
-15. 이 샘플의 실행을 완료할 때 HDInsight 클러스터를 삭제해야 합니다.
+15. 새 이벤트가 이벤트 재생기에서 전송되면 이 구조적 스트리밍 쿼리에 의해 처리됩니다.
+16. 이 샘플의 실행을 완료할 때 HDInsight 클러스터를 삭제해야 합니다.
 
 
 

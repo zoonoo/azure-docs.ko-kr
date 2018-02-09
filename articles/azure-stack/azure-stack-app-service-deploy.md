@@ -12,21 +12,22 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/29/2018
 ms.author: anwestg
-ms.openlocfilehash: 522e5a334b5165344b66524d03f0d85468b81332
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 6851fd46d243fcdce4f69811495c74dfe8311478
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Azure 스택 앱 서비스 리소스 공급자 추가
+*적용 대상: Azure 스택 통합 시스템과 Azure 스택 개발 키트*
 
 Azure 스택 클라우드 운영자, 웹 및 API 응용 프로그램을 만들 수 있습니다 프로그램 사용자에 게 제공할 수 있습니다. 이 수행 하려면 먼저 추가 해야는 [앱 서비스 리소스 공급자](azure-stack-app-service-overview.md) 를이 문서에 설명 된 대로 Azure 스택 배포 합니다. 앱 서비스 리소스 공급자를 설치한 후에 제안 및 계획에 포함할 수 있습니다. 사용자를 구독 하는 서비스를 가져오고 응용 프로그램을 만들기 시작 합니다.
 
 > [!IMPORTANT]
 > 설치 프로그램을 실행 하기 전에 지침에 따라 있는지 확인 [시작 하기 전에](azure-stack-app-service-before-you-get-started.md)합니다.
-> 
+>
 >
 
 
@@ -59,12 +60,12 @@ Azure 스택 환경에 앱 서비스 리소스 공급자를 설치 합니다. �
 6. 다음 페이지:
     1. 클릭는 **연결** 단추 옆에 **Azure 스택 구독** 상자입니다.
         - Azure Active Directory (Azure AD)를 사용 하 여 Azure AD 관리자 계정 및 Azure 스택을 배포할 때 사용자가 제공한 암호를 입력 합니다. **로그인**을 클릭합니다.
-        - Active Directory Federation Services (AD FS)를 사용 하 여 관리자 계정을 제공 합니다. 예: cloudadmin@azurestack.local. 암호를 입력 하 고 클릭 **로그인**합니다.
+        - Active Directory Federation Services (AD FS)를 사용 하 여 관리자 계정을 제공 합니다. 예: cloudadmin@azurestack.local 암호를 입력 하 고 클릭 **로그인**합니다.
     2. 에 **Azure 스택 구독** 상자에서 구독을 선택 합니다.
     3. 에 **Azure 스택 위치** 상자에 배포 하는 영역에 해당 하는 위치를 선택 합니다. 예를 들어 선택 **로컬** 경우 Azure 스택 개발 키트를 배포 합니다.
     4. 입력 한 **리소스 그룹 이름은** 앱 서비스 배포에 대 한 합니다. 기본적으로 설정은 **APPSERVICE\<지역\>**합니다.
     5. 입력은 **저장소 계정 이름** 원하는 설치의 일부로 만들려면 앱 서비스입니다. 기본적으로 설정은 **appsvclocalstor**합니다.
-    6. **다음**을 누릅니다.
+    6. **다음**을 클릭합니다.
 
     ![앱 서비스 설치 관리자](media/azure-stack-app-service-deploy/image03.png)
 
@@ -77,7 +78,7 @@ Azure 스택 환경에 앱 서비스 리소스 공급자를 설치 합니다. �
     2. 에 **Identity 응용 프로그램 인증서 파일** 상자 입력 (하거나로 이동) 인증서 파일의 위치입니다.
     3. 에 **Identity 응용 프로그램 인증서 암호** 상자에 인증서에 대 한 암호를 입력 합니다. 이 암호는 기록한는 인증서를 만드는 스크립트를 사용 하는 경우입니다.
     4. 에 **루트 인증서 파일을 Azure 리소스 관리자** 상자 입력 (하거나로 이동) 인증서 파일의 위치입니다.
-    5. **다음**을 누릅니다.
+    5. **다음**을 클릭합니다.
 
     ![앱 서비스 설치 관리자](media/azure-stack-app-service-deploy/image05.png)
 
@@ -85,7 +86,7 @@ Azure 스택 환경에 앱 서비스 리소스 공급자를 설치 합니다. �
 
     | Box | 인증서 파일 이름 예 |
     | --- | --- |
-    | **기본 SSL 인증서 파일을 앱 서비스** | \_. appservice.local.AzureStack.external.pfx |
+    | **기본 SSL 인증서 파일을 앱 서비스** | \_.appservice.local.AzureStack.external.pfx |
     | **앱 서비스 API SSL 인증서 파일** | api.appservice.local.AzureStack.external.pfx |
     | **응용 프로그램 서비스 게시자 SSL 인증서 파일** | ftp.appservice.local.AzureStack.external.pfx |
 
@@ -101,10 +102,10 @@ Azure 스택 환경에 앱 서비스 리소스 공급자를 설치 합니다. �
 
     > [!NOTE]
     > 프로덕션 배포의 경우의 지침에 따라 [용량 Azure 스택에서 Azure 앱 서비스 서버 역할에 대 한 계획](azure-stack-app-service-capacity-planning.md)합니다.
-    > 
+    >
     >
 
-    | 역할 | 최소 인스턴스 | 최소 SKU | 참고 사항 |
+    | 역할 | 최소 인스턴스 | 최소 SKU | 메모 |
     | --- | --- | --- | --- |
     | Controller | 1 | -Standard_A1 (1 vCPU, 1792 MB) | 클라우드 앱 서비스의 상태를 유지 관리 및 관리 합니다. |
     | 관리 | 1 | -Standard_A2 (2 개의 Vcpu, 3584 MB) | 앱 서비스 Azure 리소스 관리자 및 API 끝점, 포털 확장 (관리, 테 넌 트, 함수 포털) 및 데이터 서비스를 관리합니다. 장애 조치를 지원 하기 위해 권장 되는 인스턴스 2로 증가 합니다. |
@@ -117,12 +118,12 @@ Azure 스택 환경에 앱 서비스 리소스 공급자를 설치 합니다. �
     > [!NOTE]
     > **Windows Server 2016 Core Azure 스택 앱 서비스를 Azure와 사용 하기 위해 지원 되는 플랫폼 이미지가 아닙니다.**합니다.
 
-12. 에 **플랫폼 이미지 선택** 상자에서 응용 프로그램 서비스 집합에 대 한 계산 리소스 공급자에서 사용할 수 있는 Windows Server 2016 배포 가상 컴퓨터 이미지를 선택 합니다. **다음**을 누릅니다.
+12. 에 **플랫폼 이미지 선택** 상자에서 응용 프로그램 서비스 집합에 대 한 계산 리소스 공급자에서 사용할 수 있는 Windows Server 2016 배포 가상 컴퓨터 이미지를 선택 합니다. **다음**을 클릭합니다.
 
 13. 다음 페이지:
      1. 작업자 역할 가상 컴퓨터 관리자 사용자 이름 및 암호를 입력 합니다.
      2. 다른 역할 가상 컴퓨터 관리자 사용자 이름 및 암호를 입력 합니다.
-     3. **다음**을 누릅니다.
+     3. **다음**을 클릭합니다.
 
     ![앱 서비스 설치 관리자](media/azure-stack-app-service-deploy/image09.png)    
 

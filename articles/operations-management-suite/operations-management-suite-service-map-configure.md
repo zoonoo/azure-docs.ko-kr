@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/18/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: 0823cc54731ac1cd7f39de256a899696683375a8
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: e23173fb6708104c39071145595e4eec3454ee76
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="configure-service-map-in-operations-management-suite"></a>Operations Management Suite의 서비스 맵 구성
 서비스 맵은 Windows 및 Linux 시스템에서 응용 프로그램 구성 요소를 자동으로 검색하고 서비스 간 통신을 매핑합니다. 이것을 사용하여 서버를 생각한 것처럼(중요한 서비스를 제공하는 상호 연결된 시스템으로) 볼 수 있습니다. 서비스 맵은 서버, 프로세스 및 에이전트 설치 이외에 구성이 필요 없는 TCP 연결 아키텍처의 포트 간 연결을 보여 줍니다.
@@ -28,8 +28,8 @@ ms.lasthandoff: 11/22/2017
 ## <a name="dependency-agent-downloads"></a>종속성 에이전트 다운로드
 | 파일 | OS | 버전 | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.2.1 | CBF050BFEA78B56A138CB1313DE0E75ABC30187C1B96EF9B4CBDEDD9EDFF6A17 |
-| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.2.1 | F4560E951F6C57A7466C82052BAFBF9515DC80DDA794ED8FB4DB02CEBA743277 |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.3.0 | 1F5261CAAF6C8DF4E03E4927DA918B3461B40B41C6BF5845803878D7CF975693 |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.3.0 | 7BADFF2411899114F0214766160E4E871A2462DC137141CEEDEFAF528F428ADD  |
 
 
 ## <a name="connected-sources"></a>연결된 소스
@@ -37,10 +37,10 @@ ms.lasthandoff: 11/22/2017
 
 | 연결된 원본 | 지원됨 | 설명 |
 |:--|:--|:--|
-| Windows 에이전트 | 예 | 서비스 맵은 Windows 에이전트 컴퓨터에서 데이터를 분석하고 수집합니다. <br><br>[OMS 에이전트](../log-analytics/log-analytics-windows-agents.md) 외에도 Windows 에이전트에는 Microsoft 종속성 에이전트가 필요합니다. 운영 체제 버전의 전체 목록은 [지원되는 운영 체제](#supported-operating-systems)를 참조하세요. |
+| Windows 에이전트 | 예 | 서비스 맵은 Windows 에이전트 컴퓨터에서 데이터를 분석하고 수집합니다. <br><br>[OMS 에이전트](../log-analytics/log-analytics-windows-agent.md) 외에도 Windows 에이전트에는 Microsoft 종속성 에이전트가 필요합니다. 운영 체제 버전의 전체 목록은 [지원되는 운영 체제](#supported-operating-systems)를 참조하세요. |
 | Linux 에이전트 | 예 | 서비스 맵은 Linux 에이전트 컴퓨터에서 데이터를 분석하고 수집합니다. <br><br>[OMS 에이전트](../log-analytics/log-analytics-linux-agents.md) 외에도 Linux 에이전트에는 Microsoft 종속성 에이전트가 필요합니다. 운영 체제 버전의 전체 목록은 [지원되는 운영 체제](#supported-operating-systems)를 참조하세요. |
 | System Center Operations Manager 관리 그룹 | 예 | 서비스 맵은 연결된 [System Center Operations Manager 관리 그룹](../log-analytics/log-analytics-om-agents.md)의 Windows 및 Linux 에이전트에서 데이터를 분석하고 수집합니다. <br><br>System Center Operations Manager 에이전트 컴퓨터에서 Operations Management Suite로의 직접 연결이 필요합니다. 데이터는 관리 그룹에서 Operations Management Suite 리포지토리로 전달됩니다.|
-| Azure 저장소 계정 | 아니요 | 서비스 맵은 에이전트 컴퓨터에서 데이터를 수집하므로 Azure Storage에서 수집할 데이터는 없습니다. |
+| Azure Storage 계정 | 아니요 | 서비스 맵은 에이전트 컴퓨터에서 데이터를 수집하므로 Azure Storage에서 수집할 데이터는 없습니다. |
 
 서비스 맵은 64비트 플랫폼만 지원합니다.
 
@@ -74,7 +74,7 @@ Operations Manager Suite 작업 영역에서 서비스 맵이 활성화되면 �
 
 각 Windows 컴퓨터에서 종속성 에이전트를 설치하려면 다음 단계를 따르세요.
 
-1.  [Azure에서 Log Analytics 서비스에 Windows 컴퓨터 연결](../log-analytics/log-analytics-windows-agents.md)의 지침을 사용하여 OMS 에이전트를 설치하세요.
+1.  [Azure에서 Log Analytics 서비스에 Windows 컴퓨터 연결](../log-analytics/log-analytics-windows-agent.md)의 지침을 사용하여 OMS 에이전트를 설치하세요.
 2.  Windows 에이전트를 다운로드하고 다음 명령을 사용하여 실행합니다. <br>`InstallDependencyAgent-Windows.exe`
 3.  마법사에 따라 에이전트를 설치합니다.
 4.  종속성 에이전트를 시작하지 못하는 경우 로그에서 자세한 오류 정보를 확인합니다. Windows 에이전트에서 로그 디렉터리는 %Programfiles%\Microsoft Dependency Agent\logs입니다. 
@@ -139,7 +139,7 @@ sudo sh InstallDependencyAgent-Linux64.bin -s
 ```
 
 ## <a name="azure-vm-extension"></a>Azure VM 확장
-[Azure VM 확장](https://docs.microsoft.com/azure/virtual-machines/windows/classic/agents-and-extensions)을 사용하여 종속성 에이전트를 Azure VM에 쉽게 배포할 수 있습니다.  Azure VM 확장을 사용하면 PowerShell 스크립트를 통해 또는 VM의 Azure Resource Manager 템플릿에서 직접 종속성 에이전트를 VM에 배포할 수 있습니다.  Windows(DependencyAgentWindows)와 Linux(DependencyAgentLinux) 모두에 사용할 수 있는 확장이 있습니다.  Azure VM 확장을 통해 배포하는 경우 에이전트가 자동으로 최신 버전으로 업데이트될 수 있습니다.
+[Azure VM 확장](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-features)을 사용하여 종속성 에이전트를 Azure VM에 쉽게 배포할 수 있습니다.  Azure VM 확장을 사용하면 PowerShell 스크립트를 통해 또는 VM의 Azure Resource Manager 템플릿에서 직접 종속성 에이전트를 VM에 배포할 수 있습니다.  Windows(DependencyAgentWindows)와 Linux(DependencyAgentLinux) 모두에 사용할 수 있는 확장이 있습니다.  Azure VM 확장을 통해 배포하는 경우 에이전트가 자동으로 최신 버전으로 업데이트될 수 있습니다.
 
 PowerShell을 통해 Azure VM 확장을 배포하려는 경우 다음 예제를 사용할 수 있습니다.
 ```PowerShell
@@ -262,8 +262,8 @@ Microsoft 종속성 에이전트는 Microsoft Visual Studio 런타임 라이브�
 #### <a name="server-doesnt-appear-in-service-map"></a>서버가 서비스 맵에 표시되지 않습니다.
 종속성 에이전트 설치가 성공했지만 서비스 맵 솔루션에 서버가 표시되지 않습니다.
 * 종속성 에이전트가 성공적으로 설치되었나요? 서비스가 설치되어 실행 중인지 확인하여 성공적인 설치 여부를 검사할 수 있습니다.<br><br>
-**Windows**: "Microsoft 종속성 에이전트"라는 서비스를 찾아봅니다.<br>
-**Linux**: "microsoft-dependency-agent" 실행 프로세스를 찾아봅니다.
+**Windows**: “Microsoft 종속성 에이전트”라는 서비스를 찾아봅니다.<br>
+**Linux**: “microsoft-dependency-agent” 실행 프로세스를 찾아봅니다.
 
 * [Operations Management Suite/Log Analytics의 무료 가격 책정 등급](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions#offers-and-pricing-tiers)에 있습니까? 무료 계획에서는 고유한 서비스 맵 서버를 5개까지 허용합니다. 따라서 이전의 5개 서비스 맵 서버에서 데이터를 더 이상 보내지 않더라도 이후의 모든 서버는 서비스 맵에 표시되지 않습니다.
 
@@ -301,7 +301,7 @@ C:\Program Files\Microsoft Dependency Agent\logs\wrapper.log 파일(Windows) 또
 - Windows Server 2008 R2 SP1
 
 ### <a name="windows-desktop"></a>Windows 데스크톱
-- Windows 10
+- 윈도우 10
 - Windows 8.1
 - Windows 8
 - Windows 7
@@ -350,8 +350,8 @@ C:\Program Files\Microsoft Dependency Agent\logs\wrapper.log 파일(Windows) 또
 
 | OS 버전 | 커널 버전 |
 |:--|:--|
-| 16.04 | 4.4.0-98 |
-| 14.04 | 3.13.0-135<br>4.4.0-98 |
+| 16.04 | 4.4.0-103<br>4.11.0-1016 |
+| 14.04 | 3.13.0-137<br>4.4.0-103 |
 
 ### <a name="oracle-enterprise-linux-with-unbreakable-enterprise-kernel"></a>Unbreakable Enterprise Kernel을 갖춘 Oracle Enterprise Linux
 #### <a name="oracle-linux-6"></a>Oracle Linux 6
@@ -367,8 +367,6 @@ C:\Program Files\Microsoft Dependency Agent\logs\wrapper.log 파일(Windows) 또
 
 | OS 버전 | 커널 버전
 |:--|:--|
-| 5.8 | Oracle 2.6.32-300(UEK R1) |
-| 5.9 | Oracle 2.6.39-300(UEK R2) |
 | 5.10 | Oracle 2.6.39-400(UEK R2) |
 | 5.11 | Oracle 2.6.39-400(UEK R2) |
 
@@ -377,16 +375,10 @@ C:\Program Files\Microsoft Dependency Agent\logs\wrapper.log 파일(Windows) 또
 #### <a name="suse-linux-11"></a>SUSE Linux 11
 | OS 버전 | 커널 버전
 |:--|:--|
-| 11 | 2.6.27 |
-| 11 SP1 | 2.6.32 |
-| 11 SP2 | 3.0.13 |
-| 11 SP3 | 3.0.76 |
-| 11 SP4 | 3.0.101 |
+| 11 SP2 | 3.0.101-0.7 |
+| 11 SP3 | 3.0.101-0.47 |
+| 11 SP4 | 3.0.101-65 |
 
-#### <a name="suse-linux-10"></a>SUSE Linux 10
-| OS 버전 | 커널 버전
-|:--|:--|
-| 10 SP4 | 2.6.16.60 |
 
 ## <a name="diagnostic-and-usage-data"></a>진단 및 사용 현황 데이터
 Microsoft는 서비스 맵 서비스를 사용하여 사용 현황 및 성능 데이터를 자동으로 수집합니다. Microsoft는 이 데이터를 사용하여 서비스 맵 서비스의 품질, 보안 및 무결성을 제공 및 개선합니다. 데이터에는 운영 체제 및 버전과 같은 소프트웨어 구성 정보가 포함됩니다. 정확하고 효율적인 문제 해결 기능을 제공하기 위해 IP 주소, DNS 이름 및 워크스테이션 이름도 포함됩니다. 이름, 주소 또는 기타 연락처 정보는 수집하지 않습니다.

@@ -3,7 +3,7 @@ title: "Azure AD 응용 프로그램 프록시에서 커넥터 그룹을 사용�
 description: "Azure AD 응용 프로그램 프록시에서 커넥터 그룹을 만들고 관리하는 방법에 대해 설명합니다."
 services: active-directory
 documentationcenter: 
-author: daveba
+author: MarkusVi
 manager: mtillman
 ms.assetid: 
 ms.service: active-directory
@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2017
-ms.author: daveba
+ms.date: 01/31/2018
+ms.author: markvi
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: 7c409e5419a2bd393cb5c7ec265e44310f7e9027
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 58886fc8d1b713207d8cd2c5547d2f99420ba6eb
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>커넥터 그룹을 사용하여 별도의 네트워크 및 위치에서 응용 프로그램 게시
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 01/05/2018
 >[!TIP] 
 >대규모 응용 프로그램 프록시 배포가 있는 경우 기본 커넥터 그룹에 응용 프로그램을 할당하지 마십시오. 이런 방식으로 새 커넥터는 활성 커넥터 그룹에 할당될 때까지 라이브 트래픽을 수신하지 않습니다. 또한 이 구성을 통해 사용자에 영향을 주지 않고 유지 관리를 수행할 수 있도록 기본 그룹으로 다시 이동하여 커넥터를 유휴 모드로 전환할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 커넥터를 그룹화하려면 [여러 커넥터를 설치](active-directory-application-proxy-enable.md)해야 합니다. 새 커넥터를 설치하면 자동으로 **기본** 커넥터 그룹을 조인합니다.
 
 ## <a name="create-connector-groups"></a>커넥터 그룹 만들기

@@ -12,17 +12,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2018
+ms.date: 02/06/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 8708f13109767c7cb9e4a1bf0d2797d7c4fb9a23
-ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
+ms.openlocfilehash: e697dec0f3d104af073fd61bac81a00e182524e1
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Azure 스택에 대 한 결정을 계획 하는 azure 연결이 끊긴된 배포 시스템을 통합
-결정 한 다음 [Azure 스택 하이브리드 클라우드 환경으로 통합 됩니다는 어떻게](azure-stack-deployment-decisions.md), Azure 스택 배포 결정 사항 마무리 다음 수 있습니다.
+결정 한 다음 [Azure 스택 하이브리드 클라우드 환경으로 통합 됩니다는 어떻게](azure-stack-connection-models.md), Azure 스택 배포 결정 사항 마무리 다음 수 있습니다.
 
 연결 되지 않은 Azure 배포 옵션을 하면 배포 하 고 인터넷에 연결 하지 않고도 Azure 스택을 사용 합니다. 그러나 연결이 끊긴된 배포는 AD FS id 저장소 용량 기반 청구 모델을 제한 됩니다. 
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 01/17/2018
 > [!TIP]
 > 경우에 따라 이러한 유형의 환경도 라고 "잠수함 시나리오"입니다.
 
-연결이 끊긴된 배포 엄격 하 게 의미가 있는지 연결할 수 없으면 나중에 Azure 스택 인스턴스 Azure 테 넌 트 VM 하이브리드 시나리오에 대 한 합니다. 배포 하는 동안 Azure에 대 한 연결 없는 또는 Azure Active Directory를 id 저장소로 사용 하지 않음 의미 합니다. 그러나 identity 저장소로 사용 하 여 대상에 관계 없이 배포 후 Azure에 연결 하려는 경우에 연결 Azure 배포 옵션을 선택 해야 합니다. 
+연결이 끊긴된 배포 엄격 하 게 의미가 있는지 연결할 수 없으면 나중에 Azure 스택 인스턴스 Azure 테 넌 트 VM 하이브리드 시나리오에 대 한 합니다. 배포 하는 동안 Azure에 대 한 연결 없는 또는 Azure Active Directory를 id 저장소로 사용 하지 않음 의미 합니다.
 
 ## <a name="features-that-are-impaired-or-unavailable-in-disconnected-deployments"></a>장애가 있는 사용자 또는에서 사용할 수 없는 연결 되지 않은 배포 않는 기능 
 Azure 스택은 장애가 있는 사용자 또는 완전히 연결이 끊어진된 모드에서 사용할 수 없는 일부 기능 및 기능은 해야 하므로 Azure에 연결 된 경우 가장 잘 작동 하도록 설계 되었습니다. 
@@ -60,3 +60,5 @@ Azure 스택은 장애가 있는 사용자 또는 완전히 연결이 끊어진�
 - Azure 스택에 대 한 로드맵 및 지리적 가용성에 대 한 정보에 대 한 통합된 시스템 백서를 참조: [Azure 스택: Azure의 확장](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/)합니다. 
 - Microsoft Azure 스택 패키징 및 가격에 대 한 자세한 내용을 보려면 [다운로드는.pdf](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf)합니다. 
 
+## <a name="next-steps"></a>다음 단계
+[데이터 센터 네트워크 통합](azure-stack-network.md)

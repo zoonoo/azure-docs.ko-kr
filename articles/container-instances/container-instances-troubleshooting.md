@@ -6,14 +6,14 @@ author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: article
-ms.date: 11/18/2017
+ms.date: 01/02/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 6d8fbddc2f26fe739dd725f417961d7b3d7f77e6
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 1fd3b2c251860e883519744b11fcfc2b925cd2fa
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="troubleshoot-deployment-issues-with-azure-container-instances"></a>Azure Container Instances로의 배포 문제 해결
 
@@ -21,15 +21,15 @@ ms.lasthandoff: 12/05/2017
 
 ## <a name="get-diagnostic-events"></a>진단 이벤트 가져오기
 
-컨테이너 내에서 응용 프로그램 코드에서 로그를 보려면 [az 컨테이너 로그](/cli/azure/container#logs) 명령을 사용할 수 있습니다. 하지만 컨테이너가 성공적으로 배포되지 않을 경우 Azure Container Instances 리소스 공급자가 제공하는 진단 정보를 검토해야 합니다. 컨테이너에 대한 이벤트를 보려면 다음 명령을 실행하십시오.
+컨테이너 내에서 응용 프로그램 코드에서 로그를 보려면 [az container logs][az-container-logs] 명령을 사용할 수 있습니다. 하지만 컨테이너가 성공적으로 배포되지 않을 경우 Azure Container Instances 리소스 공급자가 제공하는 진단 정보를 검토해야 합니다. 컨테이너에 대한 이벤트를 보려면 [az container show][az-container-show] 명령을 실행합니다.
 
 ```azurecli-interactive
-az container show -n mycontainername -g myresourcegroup
+az container show --resource-group myResourceGroup --name mycontainer
 ```
 
-출력에 배포 이벤트와 함께 컨테이너의 핵심 속성이 포함되어 있습니다.
+출력에는 배포 이벤트와 함께 컨테이너의 핵심 속성이 포함되어 있습니다(여기에서 잘려서 표시됨).
 
-```bash
+```JSON
 {
   "containers": [
     {
@@ -37,45 +37,54 @@ az container show -n mycontainername -g myresourcegroup
       "environmentVariables": [],
       "image": "microsoft/aci-helloworld",
       ...
-
-      "events": [
-      {
-        "count": 1,
-        "firstTimestamp": "2017-08-03T22:12:52+00:00",
-        "lastTimestamp": "2017-08-03T22:12:52+00:00",
-        "message": "Pulling: pulling image \"microsoft/aci-helloworld\"",
-        "type": "Normal"
+        "events": [
+          {
+            "count": 1,
+            "firstTimestamp": "2017-12-21T22:50:49+00:00",
+            "lastTimestamp": "2017-12-21T22:50:49+00:00",
+            "message": "pulling image \"microsoft/aci-helloworld\"",
+            "name": "Pulling",
+            "type": "Normal"
+          },
+          {
+            "count": 1,
+            "firstTimestamp": "2017-12-21T22:50:59+00:00",
+            "lastTimestamp": "2017-12-21T22:50:59+00:00",
+            "message": "Successfully pulled image \"microsoft/aci-helloworld\"",
+            "name": "Pulled",
+            "type": "Normal"
+          },
+          {
+            "count": 1,
+            "firstTimestamp": "2017-12-21T22:50:59+00:00",
+            "lastTimestamp": "2017-12-21T22:50:59+00:00",
+            "message": "Created container with id 2677c7fd54478e5adf6f07e48fb71357d9d18bccebd4a91486113da7b863f91f",
+            "name": "Created",
+            "type": "Normal"
+          },
+          {
+            "count": 1,
+            "firstTimestamp": "2017-12-21T22:50:59+00:00",
+            "lastTimestamp": "2017-12-21T22:50:59+00:00",
+            "message": "Started container with id 2677c7fd54478e5adf6f07e48fb71357d9d18bccebd4a91486113da7b863f91f",
+            "name": "Started",
+            "type": "Normal"
+          }
+        ],
+        "previousState": null,
+        "restartCount": 0
       },
-      {
-        "count": 1,
-        "firstTimestamp": "2017-08-03T22:12:55+00:00",
-        "lastTimestamp": "2017-08-03T22:12:55+00:00",
-        "message": "Pulled: Successfully pulled image \"microsoft/aci-helloworld\"",
-        "type": "Normal"
-      },
-      {
-        "count": 1,
-        "firstTimestamp": "2017-08-03T22:12:55+00:00",
-        "lastTimestamp": "2017-08-03T22:12:55+00:00",
-        "message": "Created: Created container with id 61602059d6c31529c27609ef4ec0c858b0a96150177fa045cf944d7cf8fbab69",
-        "type": "Normal"
-      },
-      {
-        "count": 1,
-        "firstTimestamp": "2017-08-03T22:12:55+00:00",
-        "lastTimestamp": "2017-08-03T22:12:55+00:00",
-        "message": "Started: Started container with id 61602059d6c31529c27609ef4ec0c858b0a96150177fa045cf944d7cf8fbab69",
-        "type": "Normal"
-      }
-    ],
-    "name": "helloworld",
+      "name": "mycontainer",
       "ports": [
         {
-          "port": 80
+          "port": 80,
+          "protocol": null
         }
       ],
-    ...
-  ]
+      ...
+    }
+  ],
+  ...
 }
 ```
 
@@ -85,32 +94,35 @@ az container show -n mycontainername -g myresourcegroup
 
 ## <a name="unable-to-pull-image"></a>이미지를 풀링할 수 없음
 
-Azure Container Instances가 초기에 이미지를 풀링할 수 없는 경우 결과적으로 실패하기 전까지 당분간 재시도합니다. 이미지를 풀링할 수 없는 경우에는 다음과 같은 이미지가 표시됩니다
+Azure Container Instances가 초기에 이미지를 풀링할 수 없는 경우 결과적으로 실패하기 전까지 당분간 재시도합니다. 이미지를 풀링할 수 없는 경우에는 다음과 같은 이미지가 [az container show][az-container-show]의 출력에 표시됩니다
 
 ```bash
 "events": [
   {
-    "count": 1,
-    "firstTimestamp": "2017-08-03T22:19:31+00:00",
-    "lastTimestamp": "2017-08-03T22:19:31+00:00",
-    "message": "Pulling: pulling image \"microsoft/aci-hellowrld\"",
+    "count": 3,
+    "firstTimestamp": "2017-12-21T22:56:19+00:00",
+    "lastTimestamp": "2017-12-21T22:57:00+00:00",
+    "message": "pulling image \"microsoft/aci-hellowrld\"",
+    "name": "Pulling",
     "type": "Normal"
   },
   {
-    "count": 1,
-    "firstTimestamp": "2017-08-03T22:19:32+00:00",
-    "lastTimestamp": "2017-08-03T22:19:32+00:00",
-    "message": "Failed: Failed to pull image \"microsoft/aci-hellowrld\": rpc error: code 2 desc Error: image microsoft/aci-hellowrld:latest not found",
+    "count": 3,
+    "firstTimestamp": "2017-12-21T22:56:19+00:00",
+    "lastTimestamp": "2017-12-21T22:57:00+00:00",
+    "message": "Failed to pull image \"microsoft/aci-hellowrld\": rpc error: code 2 desc Error: image t/aci-hellowrld:latest not found",
+    "name": "Failed",
     "type": "Warning"
   },
   {
-    "count": 1,
-    "firstTimestamp": "2017-08-03T22:19:33+00:00",
-    "lastTimestamp": "2017-08-03T22:19:33+00:00",
-    "message": "BackOff: Back-off pulling image \"microsoft/aci-hellowrld\"",
+    "count": 3,
+    "firstTimestamp": "2017-12-21T22:56:20+00:00",
+    "lastTimestamp": "2017-12-21T22:57:16+00:00",
+    "message": "Back-off pulling image \"microsoft/aci-hellowrld\"",
+    "name": "BackOff",
     "type": "Normal"
   }
-]
+],
 ```
 
 해결하려면 해당 컨테이너를 삭제하고 이미지 이름을 정확하게 입력했는 세심하게 주의하면서 배포를 다시 시도하세요.
@@ -119,7 +131,7 @@ Azure Container Instances가 초기에 이미지를 풀링할 수 없는 경우 
 
 컨테이너가 완료되었다가 자동으로 다시 시작되면 [다시 시작 정책](container-instances-restart-policy.md)을 **OnFailure** 또는 **Never**로 설정해야 합니다. **OnFailure**를 지정해도 컨테이너가 계속 다시 시작되면 컨테이너에서 실행된 응용 프로그램이나 스크립트에 문제가 있을 수 있습니다.
 
-컨테이너 인스턴스 API는 `restartCount` 속성을 포함합니다. 컨테이너에 대한 다시 시작 횟수를 확인하기 위해 Azure CLI 2.0의 [az container show](/cli/azure/container#az_container_show) 명령을 사용할 수 있습니다. 다음 예제 출력(간단히 하기 위해 일부 자름)에서는 출력 마지막에 `restartCount` 속성이 있습니다.
+컨테이너 인스턴스 API는 `restartCount` 속성을 포함합니다. 컨테이너에 대한 다시 시작 횟수를 확인하기 위해 Azure CLI 2.0에서 [az container show][az-container-show] 명령을 사용할 수 있습니다. 다음 예제 출력(간단히 하기 위해 일부 자름)에서는 출력 마지막에 `restartCount` 속성이 있습니다.
 
 ```json
 ...
@@ -172,14 +184,14 @@ Docker CLI를 사용하여 컨테이너 이미지의 크기를 볼 수 있습니
 docker images
 ```
 
-출력:
+출력
 
 ```bash
 REPOSITORY                             TAG                 IMAGE ID            CREATED             SIZE
 microsoft/aci-helloworld               latest              7f78509b568e        13 days ago         68.1MB
 ```
 
-이미지 크기를 작게 유지하는 핵심 요소는 최종 이미지에 런타임 시 필요하지 않은 것은 아무 것도 포함하지 않는 것입니다. 이 작업을 수행하는 한 가지 방법은 [다단계 빌드](https://docs.docker.com/engine/userguide/eng-image/multistage-build/)를 활용하는 것입니다. 다단계 빌드를 통해 간편하게 최종 이미지에 빌드 시간에 필요한 추가 콘텐츠가 아닌 응용 프로그램에 필요한 아티팩트만 포함하도록 할 수 있습니다.
+이미지 크기를 작게 유지하는 핵심 요소는 최종 이미지에 런타임 시 필요하지 않은 것은 아무 것도 포함하지 않는 것입니다. 이 작업을 수행하는 한 가지 방법은 [다단계 빌드][docker-multi-stage-builds]를 사용하는 것입니다. 다단계 빌드를 통해 간편하게 최종 이미지에 빌드 시간에 필요한 추가 콘텐츠가 아닌 응용 프로그램에 필요한 아티팩트만 포함하도록 할 수 있습니다.
 
 컨테이너 시작 시간에서 이미지 풀의 영향을 줄이는 다른 방법은 Azure Container Instances를 사용하는 같은 영역에서 Azure Container Registry를 사용하여 컨테이너 이미지를 호스팅하는 것입니다. 이를 통해 컨테이너 이미지가 이동해야 하는 네트워크 경를 단축하여 다운로드 시간을 크게 줄여 줍니다.
 
@@ -191,7 +203,14 @@ Azure에서 다양한 지역별 리소스 부하로 인해 컨테이너 인스�
 
 이 오류는 배포하려는 지역에서 과부하로 인해 컨테이너에 대해 지정된 리소스를 해당 시간에 할당할 수 없음을 나타냅니다. 다음 위험 완화 단계 중 하나 이상을 사용하여 문제를 해결합니다.
 
-* [Azure Container Instances에 대한 지역 가용성](container-instances-region-availability.md)에 정의된 매개 변수 내에 컨테이너 배포 설정이 속하는지 확인합니다.
+* [Azure Container Instances에 대한 할당량 및 지역 가용성](container-instances-quotas.md#region-availability)에 정의된 매개 변수 내에 컨테이너 배포 설정이 속하는지 확인합니다.
 * 컨테이너에 대해 낮은 CPU 및 메모리 설정 지정
 * 다른 Azure 지역에 배포
 * 나중에 배포
+
+<!-- LINKS - External -->
+[docker-multi-stage-builds]: https://docs.docker.com/engine/userguide/eng-image/multistage-build/
+
+<!-- LINKS - Internal -->
+[az-container-logs]: /cli/azure/container#az_container_logs
+[az-container-show]: /cli/azure/container#az_container_show

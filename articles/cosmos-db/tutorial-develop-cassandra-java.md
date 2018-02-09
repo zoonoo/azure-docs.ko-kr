@@ -16,17 +16,17 @@ ms.workload:
 ms.date: 11/15/2017
 ms.author: mimig
 ms.custom: mvc
-ms.openlocfilehash: 7e1a17517890f8ed738b6afdcbe073a2bf1ebc6f
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 53987e5863d9fc11b4fa377295d198293819269c
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-cosmosdb-develop-with-the-cassandra-api-in-java"></a>Azure CosmosDB: Java의 Cassandra API를 사용하여 개발
 
 Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터베이스 서비스입니다. Azure Cosmos DB의 핵심인 전역 배포 및 수평적 크기 조정 기능의 이점을 활용하여 문서, 키/값 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있습니다. 
 
-이 자습서에서는 Azure Portal을 사용하여 Azure Cosmos DB 계정을 만든 다음 [Cassandra API](cassandra-introduction.md)를 사용하여 Cassandra 테이블(documentdb-partition-data.md#partition-keys)을 만드는 방법을 보여 줍니다. 테이블을 만들 때 기본 키를 정의하면 데이터가 커짐에 따라 응용 프로그램을 쉽게 확장할 수 있습니다. 
+이 자습서에서는 Azure Portal을 사용하여 Azure Cosmos DB 계정을 만든 다음 [Cassandra API](cassandra-introduction.md)를 사용하여 Cassandra 테이블(sql-api-partition-data.md#partition-keys)을 만드는 방법을 보여줍니다. 테이블을 만들 때 기본 키를 정의하면 데이터가 커짐에 따라 응용 프로그램을 쉽게 확장할 수 있습니다. 
 
 이 자습서에서는 Cassandra API를 사용하여 다음 작업을 설명합니다.
 
@@ -140,7 +140,7 @@ Azure Cosmos DB Cassandra API 미리 보기 프로그램에 액세스합니다. 
     }
     ```
 
-* 단일 사용자의 정보를 얻기 위한 쿼리입니다.
+* 단일 사용자 정보를 가져오기 위한 쿼리입니다.
 
     ```java
     public void selectUser(int id) {

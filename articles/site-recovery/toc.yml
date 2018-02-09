@@ -69,10 +69,12 @@
       href: concepts-hyper-v-to-secondary-architecture.md
     - name: Azure에서 Azure로 지원 매트릭스
       href: site-recovery-support-matrix-azure-to-azure.md
-    - name: 온-프레미스에서 Azure로 지원 매트릭스
-      href: site-recovery-support-matrix-to-azure.md
+    - name: VMware에서 Azure로 지원 매트릭스
+      href: support-matrix-vmware-to-azure.md
     - name: Hyper-V에서 Azure로 지원 매트릭스
       href: support-matrix-hyper-v-to-azure.md
+    - name: 온-프레미스에서 Azure로 지원 매트릭스
+      href: site-recovery-support-matrix-to-azure.md
     - name: 온-프레미스에서 보조 사이트로 지원 매트릭스
       href: site-recovery-support-matrix-to-sec-site.md
     - name: 작업에 대한 재해 복구
@@ -121,6 +123,8 @@
           href: site-recovery-create-recovery-plans.md
         - name: Azure Runbook을 복구 계획에 추가
           href: site-recovery-runbook-automation.md
+        - name: VMM 스크립트를 복구 계획에 추가
+          href: site-recovery-how-to-add-vmmscript.md
         - name: 장애 조치
           items:
             - name: 장애 조치 정보
@@ -181,6 +185,8 @@
           items:
             - name: VMware에서 Azure로 원본 환경
               href: site-recovery-set-up-vmware-to-azure.md
+            - name: VMware 및 물리적 서버용 구성 서버 배포
+              href: how-to-deploy-configuration-server.md
             - name: 물리적 서버에서 Azure로 원본 환경
               href: site-recovery-set-up-physical-to-azure.md
         - name: 대상 환경 설정
@@ -247,8 +253,6 @@
           href: 'site-recovery-workload.md#workload-summary'
     - name: 관리
       items:
-        - name: Recovery Services 자격 증명 모음으로 업그레이드
-          href: upgrade-site-recovery-vaults.md
         - name: Azure에서 프로세스 서버 관리
           href: site-recovery-vmware-setup-azure-ps-resource-manager.md
         - name: 구성 서버 관리
@@ -261,7 +265,7 @@
           href: site-recovery-manage-registration-and-protection.md
         - name: 자격 증명 모음 삭제
           href: delete-vault.md
-    - name: 문제 해결
+    - name: 모니터링 및 문제 해결
       items:
         - name: Azure 간 복제 문제
           href: site-recovery-azure-to-azure-troubleshoot-errors.md
@@ -271,9 +275,9 @@
           href: site-recovery-vmware-to-azure-push-install-error-codes.md
         - name: Azure 장애 조치(failover) 문제
           href: site-recovery-failover-to-azure-troubleshoot.md
-        - name: 로그 수집 및 온-프레미스 문제 해결
-          href: site-recovery-monitoring-and-troubleshooting.md
-- name: 참조
+        - name: Azure Site Recovery 모니터링
+          href: site-recovery-monitor-and-troubleshoot.md
+- name: 참고 자료
   items:
     - name: Azure PowerShell
       href: /powershell/module/azurerm.recoveryservices.siterecovery

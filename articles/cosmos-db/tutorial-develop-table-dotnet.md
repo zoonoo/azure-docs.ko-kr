@@ -12,14 +12,14 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 11/20/2017
+ms.date: 12/18/2017
 ms.author: arramac
 ms.custom: mvc
-ms.openlocfilehash: 29e6187c59f34122e98819b5775af261494995ca
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.openlocfilehash: 41d7e42f203170e4fa3b8e3a8c973e23808f941b
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="azure-cosmos-db-develop-with-the-table-api-in-net"></a>Azure Cosmos DB: .NET의 Table API를 사용하여 개발
 
@@ -65,7 +65,7 @@ Azure Cosmos DB는 스키마를 사용하지 않는 키-값 저장소가 필요�
 ### <a name="about-this-tutorial"></a>이 자습서 정보
 이 자습서는 Azure Table 저장소 SDK에 익숙하고 Azure Cosmos DB를 사용하여 제공되는 프리미엄 기능을 사용하려는 개발자를 위한 것입니다. [.NET을 사용하여 Azure Table 저장소 시작](table-storage-how-to-use-dotnet.md)을 기반으로 하며, 보조 인덱스, 프로비전된 처리량 및 멀티 호밍과 같은 추가 기능을 활용하는 방법을 보여 줍니다. Azure Portal을 사용하여 Azure Cosmos DB 계정을 만든 다음 Table 응용 프로그램을 빌드하고 배포하는 방법에 대해 설명합니다. 또한 테이블을 만들고 삭제하며, 테이블 데이터를 삽입, 업데이트, 삭제 및 쿼리하기 위한 .NET 예제를 단계별로 안내합니다. 
 
-Visual Studio 2017을 아직 설치하지 않은 경우 [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/) **평가판**을 다운로드하고 사용할 수 있습니다. Visual Studio를 설정하는 동안 **Azure 개발**을 사용할 수 있는지 확인합니다.
+Visual Studio 2017을 아직 설치하지 않은 경우 [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/) **평가판**을 다운로드하고 사용할 수 있습니다. Visual Studio를 설치하는 동안 **Azure 개발**을 사용하도록 설정합니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -122,7 +122,7 @@ Azure Portal에서 Azure Cosmos DB 계정을 만들어 보겠습니다.
     > 끝점에서 documents.azure.com을 사용하면 미리 보기 계정이 있다는 것을 의미하고 일반 공급 Table API SDK를 사용하려면 [새 Table API 계정](#create-a-database-account)을 만들어야 합니다. 
     >
 
-    줄 8은 다음과 같이 보일 것입니다.
+    8줄은 다음과 같이 표시됩니다.
 
     ```
     <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=txZACN9f...==;TableEndpoint=https://<account name>.table.cosmosdb.azure.com;" />
@@ -148,8 +148,6 @@ Azure Cosmos DB는 Azure Table 저장소 API에서 사용할 수 없는 기능�
 
 | 키 | 설명 |
 | --- | --- |
-| TableThroughput | 테이블에 대해 예약되는 처리량이며, 초당 요청 단위(RU/s)로 표시됩니다. 테이블당 100-수백만 RU/s를 지원할 수 있습니다. [요청 단위](request-units.md)를 참조하세요. 기본값은 `400`입니다. |
-| TableIndexingPolicy | 인덱싱 정책 사양을 준수하는 JSON 문자열입니다. 특정 열을 포함/제외하도록 인덱싱 정책을 변경하는 방법은 [인덱싱 정책](indexing-policies.md)을 참조하세요. |
 | TableQueryMaxItemCount | 단일 왕복에서 테이블 쿼리당 반환되는 최대 항목 수를 구성합니다. 기본값은 `-1`이며, Azure Cosmos DB에서 런타임에 값을 동적으로 결정할 수 있게 합니다. |
 | TableQueryEnableScan | 쿼리에서 모든 필터에 대해 인덱스를 사용할 수 없더라도 스캔을 통해 인덱싱을 실행합니다. 기본값은 `false`입니다.|
 | TableQueryMaxDegreeOfParallelism | 파티션 간 쿼리 실행에 대한 병렬 처리 수준입니다. `0`은 프리페치(pre-fetch)가 없는 직렬 처리이고, `1`는 프리페치가 있는 직렬 처리이며, 값이 높을수록 병렬 처리 속도가 빨라집니다. 기본값은 `-1`이며, Azure Cosmos DB에서 런타임에 값을 동적으로 결정할 수 있게 합니다. |
@@ -164,10 +162,6 @@ Azure Cosmos DB는 Azure Table 저장소 API에서 사용할 수 없는 기능�
       <add key="CosmosDBStorageConnectionString" 
         value="DefaultEndpointsProtocol=https;AccountName=MYSTORAGEACCOUNT;AccountKey=AUTHKEY;TableEndpoint=https://account-name.table.cosmosdb.azure.com" />
       <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key; TableEndpoint=https://account-name.documents.azure.com" />
-
-      <!--Table creation options -->
-      <add key="TableThroughput" value="700"/>
-      <add key="TableIndexingPolicy" value="{""indexingMode"": ""Consistent""}"/>
 
       <!-- Table query options -->
       <add key="TableQueryMaxItemCount" value="-1"/>
@@ -194,13 +188,13 @@ CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
 ```csharp
 CloudTable table = tableClient.GetTableReference("people");
-
-table.CreateIfNotExists();
+400
+table.CreateIfNotExists(throughput: 800);
 ```
 
 테이블을 만드는 방법에는 중요한 차이가 있습니다. Azure Cosmos DB는 트랜잭션에 대한 Azure 저장소의 사용량 기반 모델과 달리 처리량을 예약합니다. 처리량은 전용/예약되어 있으므로 요청 속도가 프로비전된 처리량 이하인 경우에는 절대로 제한할 수 없습니다
 
-초당 RU(요청 단위)로 `TableThroughput`의 설정을 구성하여 기본 처리량을 구성할 수 있습니다. 
+CreateIfNotExists의 매개 변수로 포함하여 기본 처리량을 구성할 수 있습니다.
 
 1KB 엔터티의 읽기는 1RU로 정규화되며, 다른 작업은 CPU, 메모리 및 IOPS 사용량에 따라 고정된 RU 값으로 정규화됩니다. [Azure Cosmos DB의 요청 단위](request-units.md) 및 특히 [키 값 저장소](key-value-store-cost.md)에 대해 자세히 알아보세요.
 
@@ -301,7 +295,7 @@ foreach (CustomerEntity entity in table.ExecuteQuery(emailQuery))
 }
 ```
 
-Azure Cosmos DB는 Table API에 대한 Azure Table 저장소와 동일한 쿼리 기능을 지원합니다. 또한 Azure Cosmos DB는 정렬, 집계, 지리 공간적 쿼리, 계층 구조 및 다양한 기본 제공 함수도 지원합니다. 추가 기능은 향후 서비스 업데이트의 Table API에서 제공됩니다. 이러한 기능에 대한 개요는 [Azure Cosmos DB 쿼리](documentdb-sql-query.md)를 참조하세요. 
+Azure Cosmos DB는 Table API에 대한 Azure Table 저장소와 동일한 쿼리 기능을 지원합니다. 또한 Azure Cosmos DB는 정렬, 집계, 지리 공간적 쿼리, 계층 구조 및 다양한 기본 제공 함수도 지원합니다. 추가 기능은 향후 서비스 업데이트의 Table API에서 제공됩니다. 이러한 기능에 대한 개요는 [Azure Cosmos DB 쿼리](sql-api-sql-query.md)를 참조하세요. 
 
 ## <a name="replace-an-entity"></a>엔터티 바꾸기
 엔터티를 업데이트하려면 Table service에서 검색하고 엔터티 개체를 수정한 다음 변경 내용을 다시 Table service에 저장합니다. 다음 코드에서는 기존 고객의 전화 번호를 변경합니다. 

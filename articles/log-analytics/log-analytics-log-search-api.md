@@ -1,6 +1,6 @@
 ---
-title: "Log Analytics 로그 검색 REST API | Microsoft Docs"
-description: "이 가이드에서는 OMS(Operations Management Suite)의 Log Analytics 검색 REST API를 사용하는 방법을 설명하는 기본 자습서를 제공하며, 명령 사용 방법을 보여 주는 예제를 제공합니다."
+title: "Azure Log Analytics 로그 검색 REST API | Microsoft Docs"
+description: "이 가이드에서는 명령을 사용하는 방법을 보여 주는 예제와 함께 Azure Log Analytics 검색 REST API를 사용하는 방법을 설명하는 기본 자습서를 제공합니다."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,27 +12,24 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2017
+ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: 5b51c6fcc69c8dff6579a1a1221e88822eccc1a3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 46c88f7cc250d4c35043039a6f0440aaac85b1c2
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="log-analytics-log-search-rest-api"></a>Log Analytics 로그 검색 REST API
-이 가이드는 Log Analytics 검색 REST API를 사용하는 방법의 예제를 비롯한 기본 자습서를 제공합니다. Log Analytics는 OMS(Operations Management Suite)의 일부입니다.
 
-> [!NOTE]
-> 작업 영역을 [새 Log Analytics 쿼리 언어](log-analytics-log-search-upgrade.md)로 업그레이드한 경우 [새 버전의 로그 검색 API에 대한 문서](https://dev.loganalytics.io/)를 참조해야 합니다.
+> [!IMPORTANT]
+> 작업 영역을 [새 Log Analytics 쿼리 언어](log-analytics-log-search-upgrade.md)로 업그레이드한 경우 [새 버전의 로그 검색 API에 대한 문서](https://dev.loganalytics.io/)를 참조해야 합니다.  이 레거시 API는 업그레이드된 작업 영역에서 계속 작동할 수 있지만 곧 사용되지 않을 예정입니다.  새 API를 사용하려면 기존 솔루션을 수정해야 합니다.
 
-> [!NOTE]
-> Log Analytics는 이전에 Operational Insights라고 했기 때문에 리소스 공급자에서는 Operational Insights라고 합니다.
->
->
+이 가이드는 Log Analytics Search REST API를 사용하는 방법의 예제를 비롯한 기본 자습서를 제공합니다. 
+
 
 ## <a name="overview-of-the-log-search-rest-api"></a>로그 검색 REST API의 개요
-Log Analytics 검색 REST API는 RESTful이며 Azure Resource Manager API를 통해 액세스할 수 있습니다. 이 문서에서는 Azure Resource Manager API를 호출하여 단순화하는 공개 소스 명령줄 도구인 [ARMClient](https://github.com/projectkudu/ARMClient)를 통해 API에 액세스하는 예제를 제공합니다. ARMClient의 사용은 Log Analytics 검색 API에 액세스하는 다양한 옵션 중 하나입니다. 또 다른 방법은 검색에 액세스하기 위한 Cmdlet을 포함하고 있는 OperationalInsights용 Azure PowerShell 모듈을 사용하는 것입니다. 이러한 도구를 사용하면 Azure Resource Manager API를 통해 OMS 작업 영역을 호출하고 작업 영역 내에서 검색 명령을 수행할 수 있습니다. API는 JSON 형식으로 검색 결과를 출력하여 다양한 프로그래밍 방식으로 검색 결과를 사용하게 됩니다.
+Log Analytics Search REST API는 RESTful이며 Azure Resource Manager API를 통해 액세스할 수 있습니다. 이 문서에서는 Azure Resource Manager API를 호출하여 단순화하는 공개 소스 명령줄 도구인 [ARMClient](https://github.com/projectkudu/ARMClient)를 통해 API에 액세스하는 예제를 제공합니다. ARMClient의 사용은 Log Analytics 검색 API에 액세스하는 다양한 옵션 중 하나입니다. 또 다른 방법은 검색에 액세스하기 위한 Cmdlet을 포함하고 있는 OperationalInsights용 Azure PowerShell 모듈을 사용하는 것입니다. 이러한 도구를 사용하면 Azure Resource Manager API를 활용하여 Log Analytics 작업 영역을 호출하고, 이 작업 영역 내에서 검색 명령을 수행할 수 있습니다. API는 JSON 형식으로 검색 결과를 출력하여 다양한 프로그래밍 방식으로 검색 결과를 사용하게 됩니다.
 
 Azure Resource Manager는 [Library for.NET](https://msdn.microsoft.com/library/azure/dn910477.aspx) 및 [REST API](https://msdn.microsoft.com/library/azure/mt163658.aspx)를 통해 사용할 수 있습니다. 자세한 내용은 연결된 웹 페이지를 검토합니다.
 
@@ -41,7 +38,7 @@ Azure Resource Manager는 [Library for.NET](https://msdn.microsoft.com/library/a
 >
 >
 
-## <a name="basic-log-analytics-search-rest-api-tutorial"></a>기본 Log Analytics 검색 REST API 자습서
+## <a name="basic-log-analytics-search-rest-api-tutorial"></a>기본 Log Analytics Search REST API 자습서
 ### <a name="to-use-armclient"></a>ARMClient를 사용하려면
 1. Windows용 오픈 소스 패키지 관리자인 [Chocolatey](https://chocolatey.org/)를 설치합니다. 관리자 권한으로 명령 프롬프트 창을 열고 다음 명령을 실행합니다.
 
@@ -107,7 +104,7 @@ Azure Resource Manager는 [Library for.NET](https://msdn.microsoft.com/library/a
     armclient post /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{WORKSPACE NAME}/search?api-version=2015-03-20 $mySearch
     ```
 
-## <a name="log-analytics-search-rest-api-reference-examples"></a>Log Analytics 검색 REST API 참조 예제
+## <a name="log-analytics-search-rest-api-reference-examples"></a>Log Analytics Search REST API참조 예제
 다음 예제에서는 검색 API를 사용하는 방법을 보여줍니다.
 
 ### <a name="search---actionread"></a>검색-동작/읽기
@@ -221,7 +218,7 @@ Azure Resource Manager는 [Library for.NET](https://msdn.microsoft.com/library/a
 
 다음 테이블에서 사용할 수 있는 속성을 설명합니다.
 
-| 속성 | 설명 |
+| 자산 | 설명 |
 | --- | --- |
 | Id |고유 식별자 |
 | ETag |**패치에 필요합니다**. 각 쓰기에 대해 서버에서 업데이트되었습니다. 값은 현재 저장 된 값 또는 업데이트할 ‘*’과 같아야 합니다. 오래되거나 잘못된 값에 대해 409가 반환되었습니다. |
@@ -304,9 +301,9 @@ Azure Resource Manager는 [Library for.NET](https://msdn.microsoft.com/library/a
 
 | **속성** | **설명** |
 | --- | --- |
-| name |필드 이름. |
+| 이름 |필드 이름. |
 | displayName |필드의 표시 이름입니다. |
-| type |필드 값의 형식입니다. |
+| 형식 |필드 값의 형식입니다. |
 | facetable |현재 'indexed', 'store' 및 'facet' 속성의 조합입니다. |
 | display |현재 'display' 속성입니다. 필드를 검색에서 볼 수 있는 경우 true입니다. |
 | ownerType |등록된 IP에 속하는 형식에만 줄어듭니다. |

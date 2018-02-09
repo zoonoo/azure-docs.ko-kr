@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
-ms.openlocfilehash: ff938697add98f3d21b4971175432335ee2e39ba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b3c3b036a8294e17aec103ba470402c1f8f707d8
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="take-action-with-an-automation-runbook-from-a-log-analytics-log-search-result"></a>Log Analytics 로그 검색 결과에서 Automation Runbook으로 작업 수행
 
@@ -30,7 +30,7 @@ Azure Log Analytics의 로그 검색 결과에서 이제 Automation Runbook을 �
 
 ## <a name="to-initiate-runbook-from-log-search"></a>로그 검색에서 Runbook을 시작하려면
 
-이벤트에서 작업을 수행하고 로그 검색 결과에서 Runbook을 시작하려면 로그 검색을 생성하여 시작하고 결과에서 요청 시 Runbook을 호출할 수 있습니다.  Azure 또는 [OMS 포털](../log-analytics/log-analytics-log-searches.md)의 로그 검색 기능에서 수행할 수도 있습니다.  이 예제에서는 이 기능의 기본적인 데모를 사용하여 Azure Portal에서 로그 검색을 수행합니다.
+이벤트에서 작업을 수행하고 로그 검색 결과에서 Runbook을 시작하려면 로그 검색을 생성하여 시작하고 결과에서 요청 시 Runbook을 호출할 수 있습니다.  이 작업은 [Azure Portal](../log-analytics/log-analytics-log-search-new.md)의 로그 검색 기능에서 수행할 수 있습니다.  이 예제에서는 이 기능의 기본적인 데모를 사용하여 Azure Portal에서 로그 검색을 수행합니다.
 
 1. Azure Portal의 허브 메뉴에서 **더 많은 서비스**를 클릭하고 **Log Analytics**를 선택합니다.  
 2. Log Analytics 블레이드에서 Log Analytics 작업 영역을 선택하고 작업 영역 블레이드에서 **로그 검색**을 선택합니다.  
@@ -49,4 +49,4 @@ Azure Log Analytics의 로그 검색 결과에서 이제 Automation Runbook을 �
 ## <a name="next-steps"></a>다음 단계
 
 * Log Analytics에 제공되는 모든 검색 필드 및 패싯을 보려면 [Log Analytics log search reference](log-analytics-search-reference.md) (Log Analytics 로그 검색 참조)를 검토합니다.
-* Automation Runbook을 자동으로 호출하는 방법을 알아보려면 [OMS Log Analytics 경고에서 Azure Automation Runbook 호출](../automation/automation-invoke-runbook-from-omsla-alert.md)을 참조하세요.  
+* Automation Runbook을 자동으로 호출하는 방법을 알아보려면 [Log Analytics 경고에서 Azure Automation Runbook 호출](../automation/automation-invoke-runbook-from-omsla-alert.md)을 검토합니다.  

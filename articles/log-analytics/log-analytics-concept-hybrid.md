@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2017
+ms.date: 01/30/2018
 ms.author: magoedte
-ms.openlocfilehash: 513855084c8b89d97b049f1df2ec24d0f9789afe
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: d12743b752c42e6a7373e9c15df6dac71b7f9d27
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="collect-data-from-computers-in-your-environment-with-log-analytics"></a>Log Analytics를 사용하여 환경의 컴퓨터에서 데이터 수집
 
@@ -42,6 +42,10 @@ Linux 및 Windows용 에이전트는 Log Analytics에 연결할 뿐만 아니라
 
 IT 보안 정책이 네트워크의 컴퓨터가 인터넷에 연결하도록 허용하지 않을 경우 OMS 게이트웨이에 연결하여 구성 정보를 받고 사용하도록 설정한 솔루션에 따라 수집된 데이터를 보내도록 에이전트를 구성할 수 있습니다. Linux 또는 Windows 에이전트가 OMS 게이트웨이를 통해 Log Analytics와 통신할 수 있도록 구성하는 방법에 대한 자세한 내용 및 단계에 대해서는 [OMS 게이트웨이를 사용하여 OMS에 컴퓨터 연결](log-analytics-oms-gateway.md)을 참조하세요. 
 
+> [!NOTE]
+> Windows용 에이전트는 TLS(전송 계층 보안) 1.0 및 1.1만 지원합니다.  
+> 
+
 ## <a name="prerequisites"></a>필수 조건
 시작하기 전에 다음 세부 정보를 검토하여 최소 시스템 요구 사항을 충족하는지 확인합니다.
 
@@ -58,7 +62,7 @@ Windows 에이전트에 대해 다음 버전의 Windows 운영 체제가 공식�
 |----------------|-------|------------------------|
 |*.ods.opinsights.azure.com |443 | 예 |
 |*.oms.opinsights.azure.com | 443 | 예 | 
-|*.blob.core.windows.net | 443 | 예 | 
+|\*.blob.core.windows.net | 443 | 예 | 
 |*.azure-automation.net | 443 | 예 | 
 
 ### <a name="linux-operating-systems"></a>Linux 운영 체제
@@ -79,8 +83,8 @@ Windows 에이전트에 대해 다음 버전의 Windows 운영 체제가 공식�
 |------|---------|  
 |*.ods.opinsights.azure.com | 포트 443|   
 |*.oms.opinsights.azure.com | 포트 443|   
-|*.blob.core.windows.net | 포트 443|   
-|*.azure-automation.net | 포트 443|  
+|\*.blob.core.windows.net | 포트 443|   
+|* .azure-automation.net | 포트 443|  
 
 Linux 에이전트는 HTTPS 프로토콜을 사용하여 프록시 서버 또는 OMS 게이트웨이를 통해 Log Analytics 서비스와 통신하도록 지원합니다.  익명 및 기본 인증(사용자 이름/암호)이 둘 다 지원됩니다.  설치 중에 또는 설치 후에 proxy.conf 구성 파일을 수정하여 프록시 서버를 지정할 수 있습니다.  
 
@@ -91,11 +95,11 @@ Linux 에이전트는 HTTPS 프로토콜을 사용하여 프록시 서버 또는
 > [!NOTE]
 > 프록시 서버에 인증할 필요가 없는 경우에도 Linux 에이전트는 의사 사용자/암호를 제공해야 합니다. 이는 사용자 이름 또는 암호일 수 있습니다.
 
-|속성| 설명 |
+|자산| 설명 |
 |--------|-------------|
 |프로토콜 | https |
 |사용자 | 프록시 인증을 위한 선택적 사용자 이름 |
-|password | 프록시 인증을 위한 선택적 암호 |
+|암호 | 프록시 인증을 위한 선택적 암호 |
 |proxyhost | 프록시 서버/OMS 게이트웨이의 주소 또는 FQDN |
 |포트 | 프록시 서버/OMS 게이트웨이 대한 선택적 포트 번호 |
 
@@ -107,7 +111,7 @@ Linux 에이전트는 HTTPS 프로토콜을 사용하여 프록시 서버 또는
 ## <a name="install-and-configure-agent"></a>에이전트 설치 및 구성 
 요구 사항에 따라 다른 방법을 사용하여 Log Analytics와 온-프레미스 컴퓨터를 직접 연결할 수 있습니다. 다음 표는 조직에서 어떤 방법이 가장 적합한지 결정하기 위해 각 방법을 설명합니다.
 
-|원본 | 메서드 | 설명|
+|원본 | 방법 | 설명|
 |-------|-------------|-------------|
 | Windows 컴퓨터|- [수동 설치](log-analytics-agent-windows.md)<br>- [Azure Automation DSC](log-analytics-agent-windows.md#install-the-agent-using-dsc-in-azure-automation)<br>- [Azure Stack을 사용한 Resource Manager 템플릿](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/MicrosoftMonitoringAgent-ext-win) |Azure Automation DSC, [System Center Configuration Manager](https://docs.microsoft.com/sccm/apps/deploy-use/deploy-applications) 또는 Azure Resource Manager 템플릿(데이터 센터에 Microsoft Azure Stack을 배포한 경우)과 같은 자동화된 방법을 사용하거나 명령줄에서 Microsoft Monitoring Agent를 설치합니다.| 
 |Linux 컴퓨터| [수동 설치](log-analytics-quick-collect-linux-computer.md)|GitHub에 호스트된 래퍼 스크립트를 호출하는 Linux용 에이전트를 설치합니다. | 
@@ -117,6 +121,6 @@ Linux 에이전트는 HTTPS 프로토콜을 사용하여 프록시 서버 또는
 
 * [데이터 원본](log-analytics-data-sources.md)을 검토하여 Windows 또는 Linux 시스템에서 데이터를 수집할 수 있는 데이터 원본을 이해하세요. 
 
-* 데이터 원본 및 솔루션에서 수집한 데이터를 분석하기 위해 [로그 검색](log-analytics-log-searches.md) 에 대해 알아봅니다. 
+* 데이터 원본 및 솔루션에서 수집한 데이터를 분석하기 위해 [로그 검색](log-analytics-log-searches.md)에 대해 알아봅니다. 
 
 * Log Analytics에 기능을 추가하고 OMS 리포지토리로 데이터를 수집하는 [솔루션](log-analytics-add-solutions.md) 에 대해 알아봅니다.

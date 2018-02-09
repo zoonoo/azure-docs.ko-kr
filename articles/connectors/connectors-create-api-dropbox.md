@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 07/15/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: 0d09580c60fd620811b539147439d0922839fe7e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3fecdc33a08c82d9ad13226e75d0d704a5557f98
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-dropbox-connector"></a>Dropbox 커넥터 시작
 Dropbox에 연결하여 파일을 관리합니다. Dropbox에서 파일 업로드, 업데이트, 가져오기 및 삭제와 같은 다양한 작업을 수행할 수 있습니다.
 
-[커넥터](apis-list.md)를 사용하려면 먼저 논리 앱을 만들어야 합니다. [지금 논리 앱을 만들어](../logic-apps/logic-apps-create-a-logic-app.md) 시작할 수 있습니다.
+[커넥터](apis-list.md)를 사용하려면 먼저 논리 앱을 만들어야 합니다. [지금 논리 앱을 만들어](../logic-apps/quickstart-create-first-logic-app-workflow.md) 시작할 수 있습니다.
 
 ## <a name="connect-to-dropbox"></a>Dropbox에 연결
 논리 앱에서 서비스에 액세스하려면 먼저 서비스에 대한 *연결*을 만들어야 합니다. 연결은 논리 앱과 다른 서비스 간의 연결을 제공합니다. 예를 들어 Dropbox에 연결하려면 먼저 Dropbox *연결*이 필요합니다. 연결을 만들려면 연결하려는 서비스에 액세스할 때 일반적으로 사용하는 자격 증명을 제공해야 합니다. 따라서 Dropbox 예제에서는 Dropbox에 대한 연결을 만들기 위해 Dropbox 계정에 대한 자격 증명이 필요합니다. [연결에 대한 자세한 정보]()
@@ -35,17 +35,17 @@ Dropbox에 연결하여 파일을 관리합니다. Dropbox에서 파일 업로�
 > 
 
 ## <a name="use-a-dropbox-trigger"></a>Dropbox 트리거 사용
-트리거는 논리 앱에 정의된 워크플로를 시작하는 데 사용할 수 있는 이벤트입니다. [트리거에 대해 자세히 알아보세요.](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts)
+트리거는 논리 앱에 정의된 워크플로를 시작하는 데 사용할 수 있는 이벤트입니다. [트리거에 대해 자세히 알아보세요.](../logic-apps/logic-apps-overview.md#logic-app-concepts)
 
 이 예제에서는 **파일을 만들 때** 트리거를 사용합니다. 이 트리거가 발생하면 **경로를 사용하여 파일 콘텐츠 가져오기** Dropbox 작업을 호출합니다. 
 
-1. 논리 앱 디자이너의 검색 상자에 *dropbox*를 입력한 후 **Dropbox - 파일을 만들 때** 트리거를 선택합니다.      
+1. Logic Apps 디자이너의 검색 상자에 *dropbox*를 입력한 후 **Dropbox - 파일을 만들 때** 트리거를 선택합니다.      
    ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-trigger.PNG)  
 2. 파일 생성을 추적할 폴더를 선택합니다. ...(빨간색 상자에 표시)를 선택하고 트리거의 입력을 선택할 폴더를 찾습니다.  
    ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-trigger-2.PNG)  
 
 ## <a name="use-a-dropbox-action"></a>Dropbox 작업 사용
-작업은 논리 앱에 정의된 워크플로에 의해 수행되는 작업입니다. [작업에 대해 자세히 알아봅니다.](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts)
+작업은 논리 앱에 정의된 워크플로에 의해 수행되는 작업입니다. [작업에 대해 자세히 알아봅니다.](../logic-apps/logic-apps-overview.md#logic-app-concepts)
 
 이제 트리거가 추가되었고 다음 단계에 따라 새 파일의 콘텐츠를 가져올 작업을 추가합니다.
 

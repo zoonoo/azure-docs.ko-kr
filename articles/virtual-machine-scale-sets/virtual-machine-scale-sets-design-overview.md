@@ -1,11 +1,11 @@
 ---
-title: "Azure 가상 컴퓨터 확장 집합에 대한 디자인 고려 사항 | Microsoft Docs"
-description: "Azure 가상 컴퓨터 확장 집합에 대한 디자인 고려 사항에 대해 알아보기"
-keywords: "linux 가상 컴퓨터, 가상 컴퓨터 확장 집합"
+title: "Azure Virtual Machine Scale Sets에 대한 디자인 고려 사항 | Microsoft Docs"
+description: "Azure Virtual Machine Scale Sets에 대한 디자인 고려 사항에 대해 알아보기"
+keywords: "linux 가상 머신, 가상 머신 크기 집합"
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: gatneil
-manager: madhana
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: c27c6a59-a0ab-4117-a01b-42b049464ca1
@@ -16,21 +16,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: negat
-ms.openlocfilehash: 0b05359938f4da544c4cb2a6fe60cfaf228478e1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: efb9f7f7daa5dbb8cd3120b21ef812106fdc7fb9
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="design-considerations-for-scale-sets"></a>확장 집합 디자인 고려 사항
-이 항목은 Virtual Machine 확장 집합을 설계할 때 고려할 사항에 대해 논의합니다. Virtual Machine 확장 집합에 대한 자세한 내용은 [Virtual Machine 확장 집합 개요](virtual-machine-scale-sets-overview.md)를 참조하세요.
+이 문서에서는 Virtual Machine Scale Sets를 설계할 때 고려할 사항에 대해 논의합니다. Virtual Machine Scale Sets에 대한 자세한 내용은 [Virtual Machine Scale Sets 개요](virtual-machine-scale-sets-overview.md)를 참조하세요.
 
-## <a name="when-to-use-scale-sets-instead-of-virtual-machines"></a>가상 컴퓨터 대신 확장 집합을 사용하는 경우
+## <a name="when-to-use-scale-sets-instead-of-virtual-machines"></a>가상 머신 대신 확장 집합을 사용하는 경우
 일반적으로 확장 집합은 유사한 구성을 가진 일련의 컴퓨터로 구성된 고가용성 인프라를 배포하는 데 유용합니다. 그러나 일부 기능은 확장 집합에서만 사용할 수 있고, 다른 일부 기능은 VM에서만 사용할 수 있습니다. 각 기술을 언제 사용할지에 대한 정보를 바탕으로 의사 결정을 내리려면 먼저, 일반적으로 사용되는 기능 중 확장 집합에서는 사용 가능하지만 VM에서는 사용할 수 없는 기능 몇 가지를 살펴보면 됩니다.
 
 ### <a name="scale-set-specific-features"></a>확장 집합 특정 기능
 
-- 확장 집합 구성을 지정하고 나면 추가 VM을 병렬로 배포하도록 간단히 “용량” 속성을 업데이트할 수 있습니다. 이 방법은 다수의 개별 VM을 병렬로 배포하는 작업을 오케스트레이션하는 스크립트를 작성하는 것보다 훨씬 더 간단합니다.
+- 확장 집합 구성을 지정하고 나면 추가 VM을 병렬로 배포하도록 “용량” 속성을 업데이트할 수 있습니다. 이 방법은 다수의 개별 VM을 병렬로 배포하는 작업을 오케스트레이션하는 스크립트를 작성하는 것보다 훨씬 더 간단합니다.
 - [Azure 자동 크기 조정을 사용하여 확장 집합의 크기를 자동으로 조정](./virtual-machine-scale-sets-autoscale-overview.md)할 수 있지만 개별 VM의 경우는 불가능합니다.
 - [확장 집합 VM을 이미지로 다시 설치](https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-a-vm)할 수 있지만 [개별 VM의 경우는 불가능합니다](https://docs.microsoft.com/rest/api/compute/virtualmachines).
 - 안정성 향상과 배포 시간 단축을 위해 확장 집합 VM을 [오버프로비전](./virtual-machine-scale-sets-design-overview.md)할 수 있습니다. 개별 VM에 대해서는 사용자 지정 코드를 작성하지 않는 한 이렇게 할 수 없습니다.
@@ -38,7 +38,7 @@ ms.lasthandoff: 10/11/2017
 
 ### <a name="vm-specific-features"></a>VM 특정 기능
 
-위와 달리, 일부 기능은 (적어도 당분간) VM에서만 사용할 수 있습니다.
+일부 기능은 현재 VM에서만 사용할 수 있습니다.
 
 - 특정 개별 VM에 데이터 디스크를 연결할 수 있지만, 연결된 데이터 디스크는 확장 집합의 모든 VM에 대해 구성됩니다.
 - 비어 있지 않은 데이터 디스크를 개별 VM에 연결할 수 있지만 확장 집합의 VM에는 연결할 수 없습니다.
@@ -47,7 +47,7 @@ ms.lasthandoff: 10/11/2017
 - 네이티브 디스크에서 관리되는 디스크로 개별 VM을 마이그레이션할 수 있지만, 확장 집합의 VM에 대해서는 불가능합니다.
 - 개별 VM NIC에 IPv6 공용 IP 주소를 할당할 수 있지만, 확장 집합의 VM에 대해서는 불가능합니다. 개별 VM이나 확장 집합 VM 앞에 놓인 부하 분산 장치에 IPv6 공용 IP 주소를 할당할 수 있습니다.
 
-## <a name="storage"></a>저장소
+## <a name="storage"></a>Storage
 
 ### <a name="scale-sets-with-azure-managed-disks"></a>Azure Managed Disks를 사용하는 확장 집합
 확장 집합은 기존의 Azure Storage 계정 대신 [Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md)를 사용하여 만들 수 있습니다. Managed Disks는 다음과 같은 이점을 제공합니다.
@@ -57,7 +57,7 @@ ms.lasthandoff: 10/11/2017
 
 기존 템플릿이 있는 경우에는 [Managed Disks를 사용하도록 템플릿을 업데이트](virtual-machine-scale-sets-convert-template-to-md.md)할 수도 있습니다.
 
-### <a name="user-managed-storage"></a>사용자 관리 저장소
+### <a name="user-managed-storage"></a>사용자 관리 Storage
 Azure Managed Disks로 정의되지 않은 확장 집합은 사용자가 생성한 저장소 계정을 사용하여 집합에 VM의 OS 디스크를 저장합니다. 저장소 계정당 20개 이하의 VM 비율은 최대 IO를 수행하고 _오버프로비전_을 활용하는 것도 좋습니다(아래 참조). 또한 저장소 계정 이름의 시작하는 문자에 알파벳을 고르게 사용하는 것이 좋습니다. 그러면 여러 내부 시스템에서 부하를 분산할 수 있습니다. 
 
 
@@ -69,7 +69,7 @@ Azure Managed Disks로 정의되지 않은 확장 집합은 사용자가 생성�
 확장 집합이 사용자 관리 저장소를 사용하고 오버프로비전을 해제하는 경우 저장소 계정당 20개 이상의 VM을 가질 수 있지만 IO 성능상의 이유로 40개 이상은 권장되지 않습니다. 
 
 ## <a name="limits"></a>제한
-Marketplace 이미지에 구축되고(플랫폼 이미지라고도 함) Azure Managed Disks를 사용하도록 구성된 확장 집합은 최대 1,000개의 VM 용량을 지원합니다. 100개 이상의 VM을 지원하도록 확장 집합을 구성하는 경우 모든 시나리오가 동일하게 동작하지 않습니다(예: 부하 분산). 자세한 내용은 [대규모 가상 컴퓨터 확장 집합과 작동](virtual-machine-scale-sets-placement-groups.md)을 참조하세요. 
+Marketplace 이미지에 구축되고(플랫폼 이미지라고도 함) Azure Managed Disks를 사용하도록 구성된 확장 집합은 최대 1,000개의 VM 용량을 지원합니다. 100개 이상의 VM을 지원하도록 확장 집합을 구성하는 경우 모든 시나리오가 동일하게 동작하지 않습니다(예: 부하 분산). 자세한 내용은 [대규모 가상 머신 확장 집합과 작동](virtual-machine-scale-sets-placement-groups.md)을 참조하세요. 
 
 사용자 관리 저장소 계정으로 구성된 확장 집합은 현재 100개의 VM으로 제한되어 있습니다(5개의 저장소 계정이 이 규모에 권장됨).
 

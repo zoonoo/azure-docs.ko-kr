@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/23/2017
 ms.author: spelluru
-ms.openlocfilehash: e1bfb7199ddf9f02297db9de529729ba3833cf8c
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: b243115eef7e59279fbb1df2a3e3c288477a5b8c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Azure Data Factory의 통합 런타임 모니터링  
 **통합 런타임**은 서로 다른 네트워크 환경에서 다양한 데이터 통합 기능을 제공하기 위해 Azure Data Factory에서 사용하는 계산 인프라입니다. Data Factory는 세 가지 유형의 통합 런타임을 제공합니다.
@@ -43,19 +43,19 @@ Azure 통합 런타임의 계산 리소스는 Azure에서 완전히 탄력적으
 ### <a name="properties"></a>properties
 다음 테이블은 Azure 통합 런타임에 대해 cmdlet에서 반환하는 속성에 대한 설명을 제공합니다.
 
-| 속성 | 설명 |
+| 자산 | 설명 |
 -------- | ------------- | 
-| 이름 | Azure 통합 런타임의 이름. |  
+| Name | Azure 통합 런타임의 이름. |  
 | 시스템 상태 | Azure 통합 런타임의 상태. | 
 | 위치 | Azure 통합 런타임의 위치. Azure 통합 런타임의 위치에 대한 자세한 내용은 [통합 런타임 소개](concepts-integration-runtime.md)를 참조하세요. |
 | DataFactoryName | Azure 통합 런타임이 속한 데이터 팩터리의 이름. | 
 | ResourceGroupName | 데이터 팩터리가 속한 리소스 그룹의 이름.  |
 | 설명 | 통합 런타임에 대한 설명.  |
 
-### <a name="status"></a>가동 상태
+### <a name="status"></a>상태
 다음 테이블은 Azure 통합 런타임의 가능한 상태를 제공합니다.
 
-| 가동 상태 | 설명/시나리오 | 
+| 상태 | 설명/시나리오 | 
 | ------ | ------------------ |
 | 온라인 | Azure 통합 런타임이 온라인 상태이며 사용할 준비가 되었습니다. | 
 | 오프라인 | Azure 통합 런타임이 내부 오류로 인해 오프라인 상태입니다. |
@@ -70,10 +70,10 @@ Azure 통합 런타임의 계산 리소스는 Azure에서 완전히 탄력적으
 
 다음 테이블은 **각 노드**의 속성 모니터링에 대한 설명을 제공합니다.
 
-| 속성 | 설명 | 
+| 자산 | 설명 | 
 | -------- | ----------- | 
-| 이름 | 자체 호스팅 통합 런타임의 이름 및 이와 연결된 노드. 노드는 자체 호스팅 통합 런타임이 설치된 온-프레미스 Windows 컴퓨터입니다. |  
-| 가동 상태 | 전반적인 자체 호스팅 통합 런타임 및 각 노드의 상태. 예를 들어 온라인/오프라인/제한 등이 있습니다. 이러한 상태에 대한 자세한 내용은 다음 섹션을 참조하세요. | 
+| Name | 자체 호스팅 통합 런타임의 이름 및 이와 연결된 노드. 노드는 자체 호스팅 통합 런타임이 설치된 온-프레미스 Windows 컴퓨터입니다. |  
+| 상태 | 전반적인 자체 호스팅 통합 런타임 및 각 노드의 상태. 예를 들어 온라인/오프라인/제한 등이 있습니다. 이러한 상태에 대한 자세한 내용은 다음 섹션을 참조하세요. | 
 | 버전 | 자체 호스팅 통합 런타임 및 각 노드의 버전. 자체 호스팅 통합 런타임 버전은 그룹에 있는 노드의 대다수 버전을 기반으로 결정됩니다. 자체 호스팅 통합 런타임 설정에 다른 버전의 노드가 있는 경우 논리 자체 호스팅 통합 런타임과 버전 번호가 동일한 노드만 제대로 작동합니다. 다른 버전의 노드는 제한된 모드에 있으므로 수동으로 업데이트해야 합니다(자동 업데이트가 실패할 경우에만). | 
 | 사용 가능한 메모리 | 자체 호스팅 통합 런타임 노드에서 사용 가능한 메모리. 이 값은 거의 실시간 스냅숏입니다. | 
 | CPU 사용률 | 자체 호스팅 통합 런타임 노드의 CPU 사용률. 이 값은 거의 실시간 스냅숏입니다. |
@@ -86,7 +86,7 @@ Azure 통합 런타임의 계산 리소스는 Azure에서 완전히 탄력적으
 ### <a name="status-per-node"></a>상태(노드당)
 다음 테이블은 자체 호스팅 통합 런타임 노드의 가능한 상태를 제공합니다.
 
-| 가동 상태 | 설명 |
+| 상태 | 설명 |
 | ------ | ------------------ | 
 | 온라인 | 노드가 Data Factory 서비스에 연결되어 있습니다. |
 | 오프라인 | 노드가 오프라인 상태입니다. |
@@ -99,7 +99,7 @@ Azure 통합 런타임의 계산 리소스는 Azure에서 완전히 탄력적으
 ### <a name="status-overall-self-hosted-integration-runtime"></a>상태(전반적인 자체 호스팅 통합 런타임)
 다음 테이블은 자체 호스팅 통합 런타임의 가능한 상태를 제공합니다. 이 상태는 런타임에 속한 모든 노드의 상태에 따라 달라집니다. 
 
-| 가동 상태 | 설명 |
+| 상태 | 설명 |
 | ------ | ----------- | 
 | 등록 필요 | 자체 호스팅 통합 런타임에 등록된 노드가 아직 없습니다. |
 | 온라인 | 모든 노드가 온라인 상태입니다. |
@@ -147,7 +147,7 @@ Get-AzureRmDataFactoryV2IntegrationRuntimeMetric -name $integrationRuntimeName -
 
 
 ## <a name="azure-ssis-integration-runtime"></a>Azure SSIS 통합 런타임
-Azure-SSIS 통합 런타임은 SSIS 패키지 실행 전용 Azure 가상 컴퓨터(또는 노드)의 완전히 관리되는 클러스터입니다. Azure Data Factory의 다른 작업은 실행하지 않습니다. 프로비저닝되면 속성을 쿼리하고 전체/노드별 상태를 모니터링할 수 있습니다.
+Azure-SSIS 통합 런타임은 SSIS 패키지 실행 전용 Azure 가상 머신(또는 노드)의 완전히 관리되는 클러스터입니다. Azure Data Factory의 다른 작업은 실행하지 않습니다. 프로비저닝되면 속성을 쿼리하고 전체/노드별 상태를 모니터링할 수 있습니다.
 
 ### <a name="properties"></a>properties
 
@@ -172,13 +172,13 @@ Azure-SSIS 통합 런타임은 SSIS 패키지 실행 전용 Azure 가상 컴퓨�
 | 형식 | Azure-SSIS 통합 런타임의 유형(관리되는/자체 호스팅). |
 | ResourceGroupName | 데이터 팩터리 및 Azure-SSIS 통합 런타임이 만들어진 Azure 리소스 그룹의 이름입니다. |
 | DataFactoryName | Azure Data Factory의 이름. |
-| 이름 | Azure-SSIS 통합 런타임의 이름. |
+| Name | Azure-SSIS 통합 런타임의 이름. |
 | 설명 | Azure-SSIS 통합 런타임에 대한 설명. |
 
   
 ### <a name="status-per-node"></a>상태(노드당)
 
-| 가동 상태 | 설명 |
+| 상태 | 설명 |
 | ------ | ----------- | 
 | 시작 중 | 이 노드가 준비 중입니다. |
 | 사용 가능 | 이 노드는 SSIS 패키지를 배포/실행할 준비가 되었습니다. |
@@ -198,7 +198,7 @@ Azure-SSIS 통합 런타임은 SSIS 패키지 실행 전용 Azure 가상 컴퓨�
 Azure-SSIS 통합 런타임에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 - [Azure-SSIS 통합 런타임](concepts-integration-runtime.md#azure-ssis-integration-runtime). 이 문서는 Azure-SSIS IR을 비롯한 일반적인 통합 런타임에 대한 개념 정보를 제공합니다. 
-- [자습서: Azure에 SSIS 패키지 배포](tutorial-deploy-ssis-packages-azure.md). 이 문서는 Azure-SSIS IR을 만들고 Azure SQL 데이터베이스를 사용하여 SSIS 카탈로그를 호스트하는 단계별 지침을 제공합니다. 
+- [자습서: Azure에 SSIS 패키지 배포](tutorial-create-azure-ssis-runtime-portal.md). 이 문서는 Azure-SSIS IR을 만들고 Azure SQL 데이터베이스를 사용하여 SSIS 카탈로그를 호스트하는 단계별 지침을 제공합니다. 
 - [방법: Azure-SSIS 통합 런타임 만들기](create-azure-ssis-integration-runtime.md). 이 문서는 자습서를 확장하고 Azure SQL 관리되는 인스턴스(비공개 미리 보기)를 사용하고 IR을 VNet에 조인하는 지침을 제공합니다. 
 - [Azure-SSIS IR 관리](manage-azure-ssis-integration-runtime.md). 이 문서는 Azure-SSIS IR을 중지, 시작 또는 제거하는 방법을 설명합니다. 또한 IR에 노드를 추가하여 Azure-SSIS IR 규모를 확장하는 방법을 보여줍니다. 
 - [Azure-SSIS IR을 VNet에 조인](join-azure-ssis-integration-runtime-virtual-network.md). 이 문서는 Azure-SSIS IR을 Azure 가상 네트워크(VNet)에 조인하는 방법에 대한 개념 정보를 제공합니다. 또한 Azure Portal을 사용하여 Azure-SSIS IR이 VNet에 조인할 수 있도록 VNet을 구성하는 단계도 제공합니다. 

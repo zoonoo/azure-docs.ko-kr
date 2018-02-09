@@ -4,7 +4,7 @@ description: "Azure CLI 2.0을 사용하여 보안 강화를 위해 Linux VM에�
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 2a23b6fa-6941-4998-9804-8efe93b647b3
@@ -13,16 +13,16 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/05/2017
+ms.date: 12/14/2017
 ms.author: iainfou
-ms.openlocfilehash: 172b4c8f5c098d776cb689543f5d8f163b8895b4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2489d4bfda5d9a08b35e8d80b6cc9d00bf69117b
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="how-to-encrypt-virtual-disks-on-a-linux-vm"></a>Linux VM에서 가상 디스크를 암호화하는 방법
-VM(가상 컴퓨터)의 보안과 규정 준수 상태를 향상시키기 위해 Azure에서 가상 디스크를 암호화할 수 있습니다. 디스크는 Azure Key Vault에 안전하게 보관되는 암호화 키를 사용하여 암호화됩니다. 이러한 암호화 키를 제어하고 용도를 감사할 수 있습니다. 이 문서에서는 Azure CLI 2.0을 사용하여 Linux VM에서 가상 디스크를 암호화하는 방법을 자세히 설명합니다. [Azure CLI 1.0](encrypt-disks-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에서 이러한 단계를 수행할 수도 있습니다.
+VM(가상 머신)의 보안과 규정 준수 상태를 향상시키기 위해 가상 디스크 및 VM 자체를 암호화할 수 있습니다. VM은 Azure Key Vault에 안전하게 보관되는 암호화 키를 사용하여 암호화됩니다. 이러한 암호화 키를 제어하고 용도를 감사할 수 있습니다. 이 문서에서는 Azure CLI 2.0을 사용하여 Linux VM에서 가상 디스크를 암호화하는 방법을 자세히 설명합니다. [Azure CLI 1.0](encrypt-disks-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에서 이러한 단계를 수행할 수도 있습니다.
 
 ## <a name="quick-commands"></a>빠른 명령
 작업을 빠르게 완료해야 하는 경우 다음 섹션에서 VM에서 가상 디스크를 암호화하는 기본 명령에 대해 자세히 알아보세요. 각 단계에 대한 보다 자세한 내용 및 상황 설명은 [여기서부터](#overview-of-disk-encryption) 문서 끝까지 참조하세요.
@@ -39,7 +39,7 @@ az group create --name myResourceGroup --location eastus
 [az keyvault create](/cli/azure/keyvault#create)를 사용하여 Azure Key Vault을 만들고 디스크 암호화에 사용할 Key Vault를 사용하도록 설정합니다. *keyvault_name*에 대한 고유한 Key Vault 이름을 다음과 같이 지정합니다.
 
 ```azurecli
-keyvault_name=mykeyvaultikf
+keyvault_name=myuniquekeyvaultname
 az keyvault create \
     --name $keyvault_name \
     --resource-group myResourceGroup \
@@ -53,7 +53,7 @@ az keyvault create \
 az keyvault key create --vault-name $keyvault_name --name myKey --protection software
 ```
 
-[az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac)에서 Azure Active Directory를 사용하여 서비스 사용자를 만듭니다. 서비스 사용자는 인증 및 Key Vault에서의 암호화 키 교환을 처리합니다. 다음 예제에서는 후속 명령에서 사용하기 위해 서비스 사용자 ID 및 암호 값을 읽습니다.
+[az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac)에서 Azure Active Directory를 사용하여 서비스 사용자를 만듭니다. 서비스 사용자는 인증 및 Key Vault에서의 암호화 키 교환을 처리합니다. 다음 예제에서는 후속 명령에서 사용하기 위해 서비스 주체 ID 및 암호 값을 읽습니다.
 
 ```azurecli
 read sp_id sp_password <<< $(az ad sp create-for-rbac --query [appId,password] -o tsv)
@@ -69,7 +69,7 @@ az keyvault set-policy --name $keyvault_name --spn $sp_id \
     --secret-permissions set
 ```
 
-[az vm create](/cli/azure/vm#create)를 사용하여 VM을 만들고 5GB 데이터 디스크를 연결합니다. 특정 Marketplace 이미지만 디스크 암호화를 지원합니다. 다음 예제는 **CentOS 7.2n** 이미지를 사용하여 `myVM`이라는 VM을 만듭니다.
+[az vm create](/cli/azure/vm#create)를 사용하여 VM을 만들고 5GB 데이터 디스크를 연결합니다. 특정 Marketplace 이미지만 디스크 암호화를 지원합니다. 다음 예제는 *CentOS 7.2n* 이미지를 사용하여 *myVM*이라는 VM을 만듭니다.
 
 ```azurecli
 az vm create \
@@ -81,9 +81,9 @@ az vm create \
     --data-disk-sizes-gb 5
 ```
 
-위 명령의 출력에 표시된 `publicIpAddress`를 사용해서 VM에 대해 SSH를 수행합니다. 파티션 및 파일 시스템을 만든 후 데이터 디스크를 탑재합니다. 자세한 내용은 [Linux VM에 연결하여 새 디스크 탑재](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#connect-to-the-linux-vm-to-mount-the-new-disk)를 참조하세요. SSH 세션을 닫습니다.
+위 명령의 출력에 표시된 *publicIpAddress*를 사용하여 VM에 대해 SSH를 수행합니다. 파티션 및 파일 시스템을 만든 후 데이터 디스크를 탑재합니다. 자세한 내용은 [Linux VM에 연결하여 새 디스크 탑재](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#connect-to-the-linux-vm-to-mount-the-new-disk)를 참조하세요. SSH 세션을 닫습니다.
 
-[az vm encryption enable](/cli/azure/vm/encryption#enable)을 사용하여 VM을 암호화합니다. 다음 예제에서는 이전 `ad sp create-for-rbac` 명령의 `$sp_id` 및 `$sp_password` 변수를 사용합니다.
+[az vm encryption enable](/cli/azure/vm/encryption#enable)을 사용하여 VM을 암호화합니다. 다음 예제에서는 이전 `ad sp create-for-rbac` 명령의 *$sp_id* 및 *$sp_password* 변수를 사용합니다.
 
 ```azurecli
 az vm encryption enable \
@@ -108,13 +108,14 @@ az vm encryption show --resource-group myResourceGroup --name myVM
 az vm restart --resource-group myResourceGroup --name myVM
 ```
 
-부팅 프로세스 동안 디스크 암호화 프로세스가 완료되므로, 몇 분 정도 기다렸다가 **az vm encryption show**를 사용하여 암호화 상태를 다시 확인하세요.
+부팅 프로세스 동안 디스크 암호화 프로세스가 완료되므로, 몇 분 정도 기다렸다가 [az vm encryption show](/cli/azure/vm/encryption#show)를 사용하여 암호화 상태를 다시 확인하세요.
 
 ```azurecli
 az vm encryption show --resource-group myResourceGroup --name myVM
 ```
 
 이제 상태는 OS 디스크와 데이터 디스크를 둘 다 **Encrypted**로 표시합니다.
+
 
 ## <a name="overview-of-disk-encryption"></a>디스크 암호화 개요
 Linux VM의 가상 디스크는 미사용 시 [dm-crypt](https://wikipedia.org/wiki/Dm-crypt)를 사용하여 암호화됩니다. Azure에서 가상 디스크 암호화는 무료입니다. 암호화 키는 소프트웨어 보호를 사용하여 Azure Key Vault에 저장되거나 FIPS 140-2 레벨 2 표준 인증 HSM(하드웨어 보안 모듈)에서 키를 가져오거나 생성할 수 있습니다. 이러한 암호화 키에 대한 제어를 유지하고 그 사용을 감사할 수 있습니다. 이러한 암호화 키는 VM에 연결된 가상 디스크를 암호화하고 암호를 해독하는 데 사용됩니다. Azure Active Directory 서비스 사용자는 VM이 켜지고 꺼지는 경우 이러한 암호화 키 발급을 위한 보안 메커니즘을 제공합니다.
@@ -142,15 +143,19 @@ VM을 암호화하는 프로세스는 다음과 같습니다.
 디스크 암호화에 대해 지원되는 시나리오 및 요구 사항은 다음과 같습니다.
 
 * 다음 Linux Server SKU - Ubuntu, CentOS, SUSE 및 SLES(SUSE Linux Enterprise Server)와 Red Hat Enterprise Linux.
-* 모든 리소스(예: Key Vault, 저장소 계정, VM)는 동일한 Azure 지역 및 구독 내에 있어야 합니다.
-* 표준 A, D, DS, G 및 GS 시리즈 VM.
+* 모든 리소스(예: Key Vault, Storage 계정, VM)는 동일한 Azure 지역 및 구독 내에 있어야 합니다.
+* 표준 A, D, DS, G, GS 등, 시리즈 VM.
+* 이미 암호화된 Linux VM에서 암호화 키 업데이트.
 
 다음 시나리오의 경우 디스크 암호화가 현재 지원되지 않습니다.
 
 * 기본 계층 VM.
 * 클래식 배포 모델을 사용하여 만든 VM.
 * Linux VM에서 OS 디스크 암호화 비활성화.
-* 이미 암호화된 Linux VM에서 암호화 키 업데이트.
+* 사용자 지정 Linux 이미지 사용.
+
+지원되는 시나리오 및 제한 사항에 대한 자세한 내용은 [IaaS VM에 대한 Azure Disk Encryption](../../security/azure-security-disk-encryption.md)을 참조하세요.
+
 
 ## <a name="create-azure-key-vault-and-keys"></a>Azure Key Vault 및 키 만들기
 최신 [Azure CLI 2.0](/cli/azure/install-az-cli2)을 설치하고 [az login](/cli/azure/#login)을 사용하여 Azure 계정에 로그인해야 합니다. 다음 예제에서 매개 변수 이름을 고유한 값으로 바꿉니다. 예제 매개 변수 이름에는 *myResourceGroup*, *myKey*, *myVM*이 포함됩니다.
@@ -167,7 +172,7 @@ az group create --name myResourceGroup --location eastus
 암호화 키를 포함하는 Azure Key Vault와 저장소 및 VM과 같은 연결된 계산 리소스는 동일한 지역에 상주해야 합니다. [az keyvault create](/cli/azure/keyvault#create)를 사용하여 Azure Key Vault을 만들고 디스크 암호화에 사용할 Key Vault를 사용하도록 설정합니다. *keyvault_name*에 대한 고유한 Key Vault 이름을 다음과 같이 지정합니다.
 
 ```azurecli
-keyvault_name=myUniqueKeyVaultName
+keyvault_name=myuniquekeyvaultname
 az keyvault create \
     --name $keyvault_name \
     --resource-group myResourceGroup \
@@ -205,7 +210,7 @@ az keyvault set-policy --name $keyvault_name --spn $sp_id \
 
 
 ## <a name="create-virtual-machine"></a>가상 컴퓨터 만들기
-일부 가상 디스크를 실제로 암호화하기 위해 VM을 만들고 데이터 디스크를 추가해 보겠습니다. [az vm create](/cli/azure/vm#create)를 사용하여 암호화할 VM을 만들고 5GB 데이터 디스크를 연결합니다. 특정 Marketplace 이미지만 디스크 암호화를 지원합니다. 다음 예제는 **CentOS 7.2n** 이미지를 사용하여 *myVM*이라는 VM을 만듭니다.
+[az vm create](/cli/azure/vm#create)를 사용하여 암호화할 VM을 만들고 5GB 데이터 디스크를 연결합니다. 특정 Marketplace 이미지만 디스크 암호화를 지원합니다. 다음 예제는 *CentOS 7.2n* 이미지를 사용하여 *myVM*이라는 VM을 만듭니다.
 
 ```azurecli
 az vm create \
@@ -217,10 +222,10 @@ az vm create \
     --data-disk-sizes-gb 5
 ```
 
-위 명령의 출력에 표시된 `publicIpAddress`를 사용해서 VM에 대해 SSH를 수행합니다. 파티션 및 파일 시스템을 만든 후 데이터 디스크를 탑재합니다. 자세한 내용은 [Linux VM에 연결하여 새 디스크 탑재](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#connect-to-the-linux-vm-to-mount-the-new-disk)를 참조하세요. SSH 세션을 닫습니다.
+위 명령의 출력에 표시된 *publicIpAddress*를 사용하여 VM에 대해 SSH를 수행합니다. 파티션 및 파일 시스템을 만든 후 데이터 디스크를 탑재합니다. 자세한 내용은 [Linux VM에 연결하여 새 디스크 탑재](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#connect-to-the-linux-vm-to-mount-the-new-disk)를 참조하세요. SSH 세션을 닫습니다.
 
 
-## <a name="encrypt-virtual-machine"></a>가상 컴퓨터 암호화
+## <a name="encrypt-virtual-machine"></a>가상 머신 암호화
 가상 디스크를 암호화하기 위해서 이전의 구성 요소를 모두 가져옵니다.
 
 1. Azure Active Directory 서비스 사용자 및 암호를 지정합니다.
@@ -228,7 +233,7 @@ az vm create \
 3. 실제 암호화 및 암호 해독에 사용될 암호화 키를 지정합니다.
 4. OS 디스크, 데이터 디스크 또는 모든 디스크를 암호화할지 여부를 지정합니다.
 
-[az vm encryption enable](/cli/azure/vm/encryption#enable)을 사용하여 VM을 암호화합니다. 다음 예제에서는 이전 `ad sp create-for-rbac` 명령의 `$sp_id` 및 `$sp_password` 변수를 사용합니다.
+[az vm encryption enable](/cli/azure/vm/encryption#enable)을 사용하여 VM을 암호화합니다. 다음 예제에서는 이전 [az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac) 명령의 *$sp_id* 및 *$sp_password* 변수를 사용합니다.
 
 ```azurecli
 az vm encryption enable \

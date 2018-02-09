@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 12/13/2017
 ms.author: barbkess
-ms.openlocfilehash: 10d06fd29640a350c5522c00c4c9ebd9c6b24c89
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 80974f7660696887783e97b674e2d9921fe2feac
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="best-practices-for-loading-data-into-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에 데이터를 로드하는 모범 사례
 Azure SQL Data Warehouse를 사용하여 데이터를 로드하기 위한 권장 사항 및 성능 최적화입니다. 
@@ -31,7 +31,7 @@ Azure SQL Data Warehouse를 사용하여 데이터를 로드하기 위한 권장
 ## <a name="preparing-data-in-azure-storage"></a>Azure Storage에 데이터 준비
 대기 시간을 최소화하려면 저장소 계층과 데이터 웨어하우스를 함께 배치합니다.
 
-ORC 파일 형식으로 데이터를 내보낼 때 텍스트가 많은 열은 Java 메모리 부족 오류로 인해 최소 50열로 제한될 수 있습니다. 이러한 제한 사항을 해결하려면 열의 하위 집합만 내보냅니다.
+ORC 파일 형식으로 데이터를 내보낼 때 큰 텍스트 열이 있으면 Java 메모리 부족 오류가 발생할 수 있습니다. 이러한 제한 사항을 해결하려면 열의 하위 집합만 내보냅니다.
 
 PolyBase는 1,000,000바이트 이상의 데이터를 포함하는 행을 로드할 수 없습니다. Azure Blob 저장소 또는 Azure Data Lake Store의 텍스트 파일에 데이터를 배치한 경우 데이터가 1,000,000바이트 미만이어야 합니다. 바이트 제한은 테이블 스키마에 관계없이 true입니다.
 
@@ -45,14 +45,22 @@ PolyBase는 1,000,000바이트 이상의 데이터를 포함하는 행을 로드
 
 적절한 계산 리소스가 포함된 로드를 실행하려면 부하를 실행하기 위해 지정된 로드 사용자를 만듭니다. 특정 리소스 클래스에 각 로드 사용자를 할당합니다. 로드를 실행하려면 로드 사용자 중 한 명으로 로그인하고 부하를 실행합니다. 사용자의 리소스 클래스를 사용하여 부하를 실행합니다.  이 메서드는 현재 리소스 클래스 요구 사항에 맞게 사용자의 리소스 클래스를 변경하는 것보다 더 간단합니다.
 
-이 코드는 staticrc20 리소스 클래스에 대한 로드 사용자를 만듭니다. 데이터베이스에서 사용자 정의 컨트롤 사용 권한을 부여하고 staticrc20 데이터베이스 역할의 멤버인 사용자를 추가합니다. staticRC20 리소스 클래스에 대한 리소스를 사용하여 로드를 실행하려면 단순히 LoaderRC20로 로그인하고 부하를 실행합니다. 
+### <a name="example-of-creating-a-loading-user"></a>로드 사용자를 만드는 예제
+이 예제에서는 staticrc20 리소스 클래스에 대한 로드 사용자를 만듭니다. 첫 번째 단계는 **마스터에 연결**하고 로그인을 만드는 것입니다.
 
-    ```sql
-    CREATE LOGIN LoaderRC20 WITH PASSWORD = 'a123STRONGpassword!';
-    CREATE USER LoaderRC20 FOR LOGIN LoaderRC20;
-    GRANT CONTROL ON DATABASE::[mySampleDataWarehouse] to LoaderRC20;
-    EXEC sp_addrolemember 'staticrc20', 'LoaderRC20';
-    ```
+```sql
+   -- Connect to master
+   CREATE LOGIN LoaderRC20 WITH PASSWORD = 'a123STRONGpassword!';
+```
+데이터 웨어하우스에 연결하고 사용자를 만듭니다. 다음 코드에서는 mySampleDataWarehouse라는 데이터베이스에 연결되어 있는 것으로 가정합니다. LoaderRC20이라는 사용자를 만들고 사용자에게 데이터베이스 제어 권한을 부여하는 방법을 보여줍니다. 그런 다음 사용자를 staticrc20 데이터베이스 역할의 구성원으로 추가합니다.  
+
+```sql
+   -- Connect to the database
+   CREATE USER LoaderRC20 FOR LOGIN LoaderRC20;
+   GRANT CONTROL ON DATABASE::[mySampleDataWarehouse] to LoaderRC20;
+   EXEC sp_addrolemember 'staticrc20', 'LoaderRC20';
+```
+staticRC20 리소스 클래스에 대한 리소스를 사용하여 로드를 실행하려면 단순히 LoaderRC20로 로그인하고 부하를 실행합니다.
 
 동적 리소스 클래스가 아닌 고정 리소스 클래스에서 로드를 실행합니다. 고정 리소스 클래스를 사용하면 [서비스 수준](performance-tiers.md#service-levels)에 관계 없이 동일한 리소스를 사용하도록 보장합니다. 동적 리소스 클래스를 사용하는 경우 리소스는 서비스 수준에 따라 달라집니다. 동적 클래스의 경우 서비스 수준이 낮으면 로드 사용자에 대해 큰 리소스 클래스를 사용해야 합니다.
 
@@ -124,7 +132,7 @@ Azure Storage 계정 키를 회전하려면:
 
 
 ## <a name="next-steps"></a>다음 단계
-로드 프로세스를 모니터링하려면 [DMV를 사용하여 작업 모니터링](sql-data-warehouse-manage-monitor.md)을 참조하세요.
+데이터 로드를 모니터링하려면 [DMV를 사용하여 워크로드 모니터링](sql-data-warehouse-manage-monitor.md)을 참조하세요.
 
 
 

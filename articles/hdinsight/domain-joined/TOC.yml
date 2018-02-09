@@ -10,6 +10,9 @@
       href: apache-domain-joined-configure.md
     - name: Azure AD DS를 사용하여 도메인 가입 클러스터 구성
       href: apache-domain-joined-configure-using-azure-adds.md
+    - name: Azure AD 사용자를 HDInsight 클러스터에 동기화
+      href: ../hdinsight-sync-aad-users-to-cluster.md
+      maintainContext: true
     - name: Hive 정책 구성
       href: apache-domain-joined-run-hive.md
       maintainContext: true

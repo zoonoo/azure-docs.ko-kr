@@ -1,5 +1,5 @@
 ---
-title: "정보 근로자가 Azure Active Directory에 B2B 공동 작업 사용자를 추가하는 방법 | Microsoft Docs"
+title: "B2B 공동 작업 사용자를 정보 근로자로 추가 - Azure Active Directory | Microsoft Docs"
 description: "B2B 공동 작업을 사용하여 액세스를 위해 정보 근로자가 조직의 사용자를 Azure AD에 추가 | Microsoft Docs"
 services: active-directory
 documentationcenter: 
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/23/2017
 ms.author: sasubram
-ms.openlocfilehash: 255ee5c11aa7e76fec23837d3bdccf2175c2f9fc
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e02f23c055af24b42fd41394b26a4df827cb0fc8
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="how-do-information-workers-add-b2b-collaboration-users-to-azure-active-directory"></a>정보 근로자가 Azure Active Directory에 B2B 공동 작업 사용자를 추가하는 방법
 

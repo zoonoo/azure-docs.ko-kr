@@ -1,6 +1,6 @@
 ---
-title: "Cortana Intelligence 갤러리 사용자 지정 모듈 | Microsoft Docs"
-description: "Cortana Intelligence 갤러리에서 사용자 지정 Machine Learning 모듈을 검색합니다."
+title: "Azure AI 갤러리 사용자 지정 모듈 | Microsoft Docs"
+description: "Azure AI 갤러리에서 사용자 지정 기계 학습 모듈을 검색합니다."
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2017
-ms.author: roopalik;garye
-ms.openlocfilehash: 4bab94c04f09261eaa88b9e6a225c05f57992ab0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: garye
+ms.openlocfilehash: bec2860d1da5044ad6969e2b23142256aa90042e
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/03/2018
 ---
-# <a name="discover-custom-machine-learning-modules-in-cortana-intelligence-gallery"></a>Cortana Intelligence 갤러리에서 사용자 지정 Machine Learning 모듈 검색
+# <a name="discover-custom-machine-learning-modules-in-azure-ai-gallery"></a>Azure AI 갤러리에서 사용자 지정 기계 학습 모듈 검색
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="custom-modules-for-machine-learning-studio"></a>Machine Learning Studio
-Cortana Intelligence 갤러리는 Azure Machine Learning Studio의 역량을 확장하는 여러 [사용자 지정 모듈](https://gallery.cortanaintelligence.com/customModules)을 제공합니다. 실험에서 사용하도록 모듈을 가져와서 한층 더 진보된 예측 분석 솔루션을 개발할 수 있습니다.
+Azure AI 갤러리는 Azure Machine Learning Studio의 역량을 확장하는 여러 [사용자 지정 모듈](https://gallery.cortanaintelligence.com/customModules)을 제공합니다. 실험에서 사용하도록 모듈을 가져와서 한층 더 진보된 예측 분석 솔루션을 개발할 수 있습니다.
 
 현재 갤러리는 *시계열 분석*, *연결 규칙*, *클러스터링 알고리즘*(K-means 외) 및 *시각화* 모듈과 기타 자주 사용되는 유틸리티 모듈을 제공합니다.
 
@@ -52,7 +52,7 @@ Cortana Intelligence 갤러리는 Azure Machine Learning Studio의 역량을 확
 ## <a name="import"></a>가져오기
 갤러리에 있는 모든 사용자 지정 모듈을 자신의 실험으로 가져올 수 있습니다.
 
-Cortana Intelligence 갤러리는 모듈의 복사본을 가져오는 두 가지 방법을 제공합니다.
+Azure AI 갤러리는 모듈의 복사본을 가져오는 두 가지 방법을 제공합니다.
 
 * **갤러리에서** 갤러리에서 사용자 지정 모듈을 가져오는 경우 모듈을 사용하는 방법에 대한 예를 제공하는 샘플 실험도 받게 됩니다.
 * **Machine Learning Studio 내에서** Machine Learning Studio에서 작업 하는 동안에 모든 사용자 지정 모듈을 가져올 수 있습니다(이 경우 샘플 실험을 가져오지 못함).

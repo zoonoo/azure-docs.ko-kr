@@ -3,7 +3,7 @@ title: "Azure AD Connect 동기화: 동기화의 이해 및 사용자 지정 | M
 description: "Azure AD Connect 동기화 작업 및 사용자 지정 방법에 대해 설명합니다."
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: ee4bf802-045b-4da0-986e-90aba2de58d6
@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/08/2017
 ms.author: markvi
-ms.openlocfilehash: c3f5d469850cf06d21821bd2f642666dc5c48644
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d58baa89c9d11b6b7a6bbb3b53974184ef1903b5
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="azure-ad-connect-sync-understand-and-customize-synchronization"></a>Azure AD Connect 동기화: 동기화의 이해 및 사용자 지정
 Azure Active Directory Connect 동기화 서비스(Azure AD Connect 동기화)는 Azure AD Connect의 주요 구성 요소입니다. 온-프레미스 환경과 Azure AD 간의 ID 데이터를 동기화하는 데 관련된 모든 작업을 담당합니다. Azure AD Connect 동기화는 DirSync, Azure AD Sync 및 Azure Active Directory Connector가 구성된 Forefront Identity Manager의 후속 제품입니다.
 
 이 항목은 **Azure AD Connect 동기화**(**동기화 엔진**이라고도 함)를 다루며 관련된 모든 다른 항목에 대한 링크를 나열합니다. Azure AD Connect에 대한 링크는 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)을 참조하세요.
 
-동기화 서비스는 두 개의 구성 요소, 온-프레미스 **Azure AD Connect 동기화** 및 **Azure AD Connect 동기화 서비스**라는 Azure AD의 서비스 쪽 구성 요소로 구성됩니다. 
+동기화 서비스는 두 개의 구성 요소, 온-프레미스 **Azure AD Connect 동기화** 및 **Azure AD Connect 동기화 서비스**라는 Azure AD의 서비스 쪽 구성 요소로 구성됩니다.
 
 ## <a name="azure-ad-connect-sync-topics"></a>Azure AD Connect 동기화 항목
 | 항목 | 포함된 내용 및 적용 시기 |
@@ -49,6 +49,7 @@ Azure Active Directory Connect 동기화 서비스(Azure AD Connect 동기화)�
 | [암호 동기화 구현](active-directory-aadconnectsync-implement-password-synchronization.md) |암호 동기화의 작동 방식, 구현 방법, 작동 및 문제 해결 방법에 대해 설명합니다. |
 | [장치 쓰기 저장](active-directory-aadconnect-feature-device-writeback.md) |Azure AD Connect에서 장치 쓰기 저장이 작동하는 방식에 대해 설명합니다. |
 | [디렉터리 확장](active-directory-aadconnectsync-feature-directory-extensions.md) |자체 사용자 지정 특성을 사용하여 Azure AD 스키마를 확장하는 방법에 대해 설명합니다. |
+| [Office 365 PreferredDataLocation](active-directory-aadconnectsync-feature-preferreddatalocation.md) |사용자의 Office 365 리소스를 사용자와 동일한 지역에 배치하는 방법을 설명합니다. |
 | **동기화 서비스** | |
 | [Azure AD Connect 동기화 서비스 기능](active-directory-aadconnectsyncservice-features.md) |동기화 서비스 쪽과 Azure AD에서 동기화 설정을 변경하는 방법을 설명합니다. |
 | [중복 특성 복원력](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md) |**userPrincipalName** 및 **proxyAddresses** 중복 특성 값 복원력을 사용하도록 설정하고 사용하는 방법을 설명합니다. |
@@ -64,4 +65,3 @@ Azure Active Directory Connect 동기화 서비스(Azure AD Connect 동기화)�
 
 ## <a name="additional-resources"></a>추가 리소스
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
-

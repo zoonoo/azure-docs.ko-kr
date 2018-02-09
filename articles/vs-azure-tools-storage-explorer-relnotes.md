@@ -1,5 +1,5 @@
 ---
-title: "Microsoft Azure Storage 탐색기(미리 보기) 릴리스 정보 | Microsoft 문서"
+title: "Microsoft Azure Storage 탐색기(미리 보기) 릴리스 정보"
 description: "Microsoft Azure Storage 탐색기(미리 보기) 릴리스 정보"
 services: storage
 documentationcenter: na
@@ -14,25 +14,77 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: cawa
-ms.openlocfilehash: b5cd022c87a6a7a9e18f33b869db04e72be5cef7
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: fb47ceb63d45a3e896d55d8c304562cc667d0414
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="microsoft-azure-storage-explorer-preview-release-notes"></a>Microsoft Azure Storage 탐색기(미리 보기) 릴리스 정보
 
-이 문서에서는 Azure Storage 탐색기 0.9.2(미리 보기) 릴리스의 릴리스 정보와 이전 버전의 릴리스 정보를 모두 제공합니다.
+이 문서에서는 Azure Storage 탐색기 0.9.4(미리 보기) 릴리스의 릴리스 정보와 이전 버전의 릴리스 정보를 모두 제공합니다.
 
 [Microsoft Azure Storage 탐색기(미리 보기)](./vs-azure-tools-storage-manage-with-storage-explorer.md)는 Windows, macOS 및 Linux에서 Azure Storage 데이터를 손쉽게 사용할 수 있는 독립 실행형 앱입니다.
+
+## <a name="version-094--093"></a>버전 0.9.4/0.9.3
+2018년 1월 21일
+
+### <a name="download-azure-storage-explorer-094-preview"></a>Azure Storage 탐색기 0.9.4(미리 보기) 다운로드
+- [Windows용 Azure Storage 탐색기 0.9.4(미리 보기)](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Mac용 Azure Storage 탐색기 0.9.4(미리 보기)](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Linux용 Azure Storage 탐색기 0.9.4(미리 보기)](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### <a name="new"></a>새로 만들기
+* 다음과 같은 경우에 기존 Storage 탐색기 창을 다시 사용합니다.
+    * Storage 탐색기에 생성된 직접 링크를 여는 경우
+    * 포털에서 Storage 탐색기를 여는 경우
+    * Azure Storage VS Code 확장(출시 예정)에서 Storage 탐색기를 여는 경우
+* Storage 탐색기 내에서 새 Storage 탐색기 창을 여는 기능이 추가되었습니다.
+    * Windows의 경우 파일 메뉴 아래 및 작업 표시줄의 상황에 맞는 메뉴 아래에 '새 창' 옵션이 있습니다.
+    * Mac의 경우 앱 메뉴 아래에 '새 창' 옵션이 있습니다.
+
+### <a name="fixes"></a>수정 프로그램
+* 보안 문제가 해결되었습니다. 가장 빠른 편의를 위해 0.9.4로 업그레이드하세요.
+* 이전 작업은 적절하게 정리되지 않았습니다. 그러면 장기 실행 작업의 성능에 영향을 주었습니다. 이제 올바르게 정리되었습니다.
+* 많은 수의 파일 및 디렉터리를 포함하는 작업으로 인해 경우에 따라 Storage 탐색기가 중지됩니다. 시스템 리소스 사용을 제한하기 위해 파일 공유를 위한 Azure에 대한 요청이 제한됩니다.
+
+### <a name="known-issues"></a>알려진 문제
+* 저장소 탐색기는 ADFS 계정을 지원하지 않습니다.
+* "탐색기 보기" 및 "계정 관리 보기"에 대한 바로 가기 키는 각각 Ctrl/Cmd+Shift+E 및 Ctrl/Cmd+Shift+A입니다.
+* Azure Stack을 대상으로 지정할 때 특정 파일을 추가 Blob으로 업로드하는 데 실패할 수 있습니다.
+* 작업에서 "취소"를 클릭한 후 해당 작업이 취소될 때까지 시간이 걸릴 수 있습니다. 여기 설명된 취소 필터 해결 방법을 사용하기 때문입니다.
+* 잘못된 PIN/스마트 카드 인증서를 선택하는 경우 해당 선택을 취소하려면 저장소 탐색기를 다시 시작해야 합니다.
+* 계정 설정 패널에 구독을 필터링하기 위해 자격 증명을 다시 입력하라고 표시될 수 있습니다.
+* blob 이름을 바꿀 경우(개별적으로 또는 이름이 바뀐 blob 컨테이너 내에서) 스냅숏을 보존되지 않습니다. Blob, 파일 및 엔터티의 기타 모든 속성과 메타데이터는 이름을 바꾸어도 보존됩니다.
+* Azure Stack은 현재 파일 공유를 지원하지 않지만, 연결된 Azure Stack 저장소 계정에는 파일 공유 노드가 계속 표시됩니다.
+* 저장소 탐색기에서 사용하는 전자 셸에는 GPU(그래픽 처리 장치) 하드웨어 가속과 관련된 문제가 발생합니다. 저장소 탐색기가 빈(비어 있는) 주 창을 표시하는 경우 `--disable-gpu` 스위치를 추가하여 명령줄에서 저장소 탐색기를 시작하고 GPU 가속을 사용하지 않도록 설정할 수 있습니다.
+```
+./StorageExplorer --disable-gpu
+```
+* Ubuntu 14.04 사용자의 경우 GCC가 최신 상태인지 확인해야 합니다. 이를 위해 다음 명령을 실행한 후 컴퓨터를 다시 시작합니다.
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* Ubuntu 17.04 사용자의 경우에는 GConf를 설치해야 합니다. 이렇게 하려면 다음 명령을 실행한 후 컴퓨터를 다시 시작합니다.
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
 
 ## <a name="version-092"></a>0.9.2 버전
 11/01/2017
 
 ### <a name="download-azure-storage-explorer-092-preview"></a>Azure Storage 탐색기 0.9.2(미리 보기) 다운로드
-- [Windows용 Azure Storage 탐색기 0.9.2(미리 보기)](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Mac용 Azure Storage 탐색기 0.9.2(미리 보기)](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Linux용 Azure Storage 탐색기 0.9.2(미리 보기)](https://go.microsoft.com/fwlink/?LinkId=722418)
+* [Windows용 Azure Storage 탐색기 0.9.2(미리 보기) 다운로드](https://go.microsoft.com/fwlink/?LinkId=809306)
+* [Mac용 Azure Storage 탐색기 0.9.2(미리 보기) 다운로드](https://go.microsoft.com/fwlink/?LinkId=809307)
+* [Linux용 Azure Storage 탐색기 0.9.2(미리 보기) 다운로드](https://go.microsoft.com/fwlink/?LinkId=809308)
+
+
 
 ### <a name="hotfixes"></a>핫픽스
 * 현지 표준 시간대에 따라 테이블 엔터티에 대한 Edm.DateTime 값을 편집할 때, 예기치 않은 데이터 변경이 가능합니다. 이제 편집기는 Edm.DateTime 값에 대해 정확하고 일관된 제어를 제공하는 일반 텍스트 상자를 사용합니다.
@@ -43,7 +95,7 @@ ms.lasthandoff: 12/05/2017
 
 ### <a name="new"></a>새로 만들기
 * Azure Cosmos DB에 대한 미리 보기 지원:
-    * [온라인 설명서](./cosmos-db/tutorial-documentdb-and-mongodb-in-storage-explorer.md)
+    * [온라인 설명서](./cosmos-db/storage-explorer.md)
     * 데이터베이스 및 컬렉션 만들기
     * 데이터 조작
     * 문서 쿼리, 만들기 또는 삭제
@@ -95,16 +147,35 @@ ms.lasthandoff: 12/05/2017
 
 
 
+
+
+
+## <a name="previous-releases"></a>이전 릴리스
+
+* [버전 0.9.1 / 0.9.0](#version-091)
+* [버전 0.8.16](#version-0816)
+* [버전 0.8.14](#version-0814)
+* [버전 0.8.13](#version-0813)
+* [버전 0.8.12/0.8.11/0.8.10](#version-0812--0811--0810)
+* [버전 0.8.9/0.8.8](#version-089--088)
+* [버전 0.8.7](#version-087)
+* [버전 0.8.6](#version-086)
+* [버전 0.8.5](#version-085)
+* [버전 0.8.4](#version-084)
+* [버전 0.8.3](#version-083)
+* [버전 0.8.2](#version-082)
+* [버전 0.8.0](#version-080)
+* [버전 0.7.20160509.0](#version-07201605090)
+* [버전 0.7.20160325.0](#version-07201603250)
+* [버전 0.7.20160129.1](#version-07201601291)
+* [버전 0.7.20160105.0](#version-07201601050)
+* [버전 0.7.20151116.0](#version-07201511160)
+
 ## <a name="version-091--090-preview"></a>버전 0.9.1/0.9.0(미리 보기)
 10/20/2017
-### <a name="download-azure-storage-explorer-091-preview"></a>Azure Storage 탐색기 0.9.1(미리 보기) 다운로드
-* [Windows용 Azure Storage 탐색기 0.9.1(미리 보기) 다운로드](https://go.microsoft.com/fwlink/?LinkId=809306)
-* [Mac용 Azure Storage 탐색기 0.9.1(미리 보기) 다운로드](https://go.microsoft.com/fwlink/?LinkId=809307)
-* [Linux용 Azure Storage 탐색기 0.9.1(미리 보기) 다운로드](https://go.microsoft.com/fwlink/?LinkId=809308)
-
 ### <a name="new"></a>새로 만들기
 * Azure Cosmos DB에 대한 미리 보기 지원:
-    * [온라인 설명서](./cosmos-db/tutorial-documentdb-and-mongodb-in-storage-explorer.md)
+    * [온라인 설명서](./cosmos-db/storage-explorer.md)
     * 데이터베이스 및 컬렉션 만들기
     * 데이터 조작
     * 문서 쿼리, 만들기 또는 삭제
@@ -153,28 +224,6 @@ ms.lasthandoff: 12/05/2017
     ```
     sudo apt-get install libgconf-2-4
     ```
-
-
-
-## <a name="previous-releases"></a>이전 릴리스
-
-* [버전 0.8.16](#version-0816)
-* [버전 0.8.14](#version-0814)
-* [버전 0.8.13](#version-0813)
-* [버전 0.8.12/0.8.11/0.8.10](#version-0812--0811--0810)
-* [버전 0.8.9/0.8.8](#version-089--088)
-* [버전 0.8.7](#version-087)
-* [버전 0.8.6](#version-086)
-* [버전 0.8.5](#version-085)
-* [버전 0.8.4](#version-084)
-* [버전 0.8.3](#version-083)
-* [버전 0.8.2](#version-082)
-* [버전 0.8.0](#version-080)
-* [버전 0.7.20160509.0](#version-07201605090)
-* [버전 0.7.20160325.0](#version-07201603250)
-* [버전 0.7.20160129.1](#version-07201601291)
-* [버전 0.7.20160105.0](#version-07201601050)
-* [버전 0.7.20151116.0](#version-07201511160)
 
 ## <a name="version-0816"></a>0.8.16 버전
 8/21/2017
@@ -324,9 +373,9 @@ ms.lasthandoff: 12/05/2017
 ### <a name="version-089--088"></a>버전 0.8.9/0.8.8
 02/23/2017
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/R6gonK3cYAc?ecver=1" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/R6gonK3cYAc?ecver=1]
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/SrRPCm94mfE?ecver=1" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/SrRPCm94mfE?ecver=1]
 
 
 #### <a name="new"></a>새로 만들기
@@ -357,7 +406,7 @@ ms.lasthandoff: 12/05/2017
 12/16/2016
 ### <a name="version-087"></a>버전 0.8.7
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Me4Y4jxoer8?ecver=1" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/Me4Y4jxoer8?ecver=1]
 
 #### <a name="new"></a>새로 만들기
 
@@ -445,7 +494,7 @@ ms.lasthandoff: 12/05/2017
 09/12/2016
 ### <a name="version-084"></a>버전 0.8.4
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/cr5tOGyGrIQ?ecver=1" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/cr5tOGyGrIQ?ecver=1]
 
 #### <a name="new"></a>새로 만들기
 
@@ -466,7 +515,7 @@ ms.lasthandoff: 12/05/2017
 08/03/2016
 ### <a name="version-083"></a>버전 0.8.3
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/HeGW-jkSd9Y?ecver=1" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/HeGW-jkSd9Y?ecver=1]
 
 #### <a name="new"></a>새로 만들기
 
@@ -492,7 +541,7 @@ ms.lasthandoff: 12/05/2017
 07/07/2016
 ### <a name="version-082"></a>버전 0.8.2
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/nYgKbRUNYZA?ecver=1" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/nYgKbRUNYZA?ecver=1]
 
 #### <a name="new"></a>새로 만들기
 
@@ -515,11 +564,11 @@ ms.lasthandoff: 12/05/2017
 06/15/2016
 ### <a name="version-080"></a>버전 0.8.0
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ycfQhKztSIY?ecver=1" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/ycfQhKztSIY?ecver=1]
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/k4_kOUCZ0WA?ecver=1" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/k4_kOUCZ0WA?ecver=1]
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/3zEXJcGdl_k?ecver=1" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/3zEXJcGdl_k?ecver=1]
 
 #### <a name="new"></a>새로 만들기
 
@@ -560,10 +609,9 @@ ms.lasthandoff: 12/05/2017
 
 ### <a name="version-07201603250"></a>버전 0.7.20160325.0
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/imbgBRHX65A?ecver=1" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/imbgBRHX65A?ecver=1]
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ceX-P8XZ-s8?ecver=1" frameborder="0" allowfullscreen></iframe>
-
+>[!VIDEO https://www.youtube.com/embed/ceX-P8XZ-s8?ecver=1]
 
 #### <a name="new"></a>새로 만들기
 

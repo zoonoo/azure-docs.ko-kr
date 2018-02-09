@@ -2,17 +2,18 @@
 title: "Azure 데이터 센터 통합 스택-끝점 게시"
 description: "데이터 센터에서 Azure 스택 끝점을 게시 하는 방법을 알아봅니다"
 services: azure-stack
-author: troettinger
+author: jeffgilb
 ms.service: azure-stack
 ms.topic: article
-ms.date: 01/16/2018
-ms.author: victorh
+ms.date: 01/31/2018
+ms.author: jeffgilb
+ms.reviewer: wamota
 keywords: 
-ms.openlocfilehash: 1cc74cb2214918d6bfd0c0827cf5d9832b84f317
-ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
+ms.openlocfilehash: e368109adc7db4c589ac37b28c4891cb3ec5346f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure 데이터 센터 통합 스택-끝점 게시
 
@@ -45,11 +46,13 @@ Azure 스택 게시에 필요 하지 않기 때문에 내부 인프라 Vip 나�
 |그래프|Graph.*&lt;region>.&lt;fqdn>*|HTTPS|443|
 |인증서 해지 목록|Crl.*&lt;region>.&lt;fqdn>*|HTTP|80|
 |DNS|&#42;.*&lt;region>.&lt;fqdn>*|TCP 및 UDP|53|
-|주요 자격 증명 모음 (사용자)|*.vault.*&lt;region>.&lt;fqdn>*|TCP|443|
-|주요 자격 증명 모음 (관리자)|&#42;.adminvault.*&lt;region>.&lt;fqdn>*|TCP|443|
+|주요 자격 증명 모음 (사용자)|&#42;.vault.*&lt;region>.&lt;fqdn>*|HTTPS|443|
+|주요 자격 증명 모음 (관리자)|&#42;.adminvault.*&lt;region>.&lt;fqdn>*|HTTPS|443|
 |저장소 큐|&#42;.queue.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
 |저장소 테이블|&#42;.table.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
 |저장소 Blob|&#42;.blob.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
+|SQL 리소스 공급자|sqladapter.dbadapter.*&lt;region>.&lt;fqdn>*|HTTPS|44300-44304|
+|MySQL 리소스 공급자|mysqladapter.dbadapter.*&lt;region>.&lt;fqdn>*|HTTPS|44300-44304
 
 ## <a name="ports-and-urls-outbound"></a>포트 및 Url (아웃 바운드)
 
@@ -64,49 +67,6 @@ Azure 스택 투명 프록시 서버만 지원합니다. 배포에서 여기서 
 |등록|https://management.azure.com|HTTPS|443|
 |사용 현황|https://&#42;.microsoftazurestack.com<br>https://*.trafficmanager.com|HTTPS|443|
 
-## <a name="firewall-publishing"></a>방화벽 게시
-
-이전 섹션에 나열 된 포트에 적용할 기존 방화벽을 통해 Azure 스택 서비스를 게시할 때 인바운드 통신 합니다.
-
-Azure 스택 보안을 위해 방화벽 장치를 사용 하는 것이 좋습니다. 그러나 엄격한 요구 사항은 아닙니다. 하지만 방화벽 등으로 분산 된 서비스 거부 (DDOS) 공격 및 콘텐츠 검사에 도움이 될 수, blob, 테이블 및 큐와 같은 Azure 저장소 서비스에 대 한 처리량 병목 지점이 될 수도 있습니다.
-
-Id 모델 (Azure AD 또는 AD FS)에 따라, 그렇지 AD FS 끝점을 게시 하지 않아도 될 수 있습니다. 연결이 끊긴된 배포 모드를 사용 하는 경우 AD FS 끝점을 게시 해야 합니다. (자세한 내용은 데이터 센터 통합 identity 항목 참조).
-
-Azure 리소스 관리자 (관리자), 관리자 포털 및 주요 자격 증명 모음 (관리자) 끝점 하지 않아도 외부 게시 합니다. 시나리오에 따라 다릅니다. 예를 들어 서비스 공급자로 하려는 공격 노출 영역 제한 및 내부 네트워크 및 인터넷에서에서 Azure 스택만 관리 합니다.
-
-엔터프라이즈 조직 외부 네트워크에 기존 회사 네트워크 가능 합니다. 이 시나리오에서는 Azure 스택 회사 네트워크에서 작동 하도록 해당 끝점을 게시 해야 합니다.
-
-## <a name="edge-firewall-scenario"></a>가장자리 방화벽 시나리오
-
-가장자리 배포에서 Azure 스택 유무에 방화벽 앞에 관계 없이 (ISP에서 제공)에 지 라우터 뒤에 직접 배포 됩니다.
-
-![Azure 스택 지 배포의 아키텍처 다이어그램](media/azure-stack-integrate-endpoints/Integrate-Endpoints-02.png)
-
-일반적으로 라우팅 가능한 공용 IP 주소는 공용 VIP 풀에 대 한 지 배포에 배포 시간에 지정 됩니다. 이 시나리오에는 공용에서 Azure와 같은 클라우드 처럼 전체 자체 제어 클라우드 환경을 구현 하려면 사용자 수 있습니다.
-
-### <a name="using-nat"></a>NAT를 사용 하 여
-
-오버 헤드로 인해 권장 되지는 않지만 끝점 게시에 대 한 네트워크 주소 변환 (NAT)를 사용할 수 있습니다. 사용자가 완전히 제어 하는 끝점 게시 하기 위해 사용자가 사용할 수 있는 모든 포트를 포함 하는 VIP 사용자 당 NAT 규칙이 있어야 합니다.
-
-또 다른 고려 사항은 Azure VPN 터널을 Azure 사용한 하이브리드 클라우드 시나리오에서 NAT를 사용 하는 끝점 설정을 지원 하지 않습니다.
-
-## <a name="enterpriseintranetperimeter-network-firewall-scenario"></a>기업/인트라넷 경계 네트워크 방화벽 시나리오
-
-경계/enterprise/인트라넷 배포에서 Azure 스택 일반적으로 경계 네트워크 (DMZ 라고도 함)의 일부인 두 번째 방화벽 외부 배포 됩니다.
-
-![Azure 스택 방화벽 시나리오](media/azure-stack-integrate-endpoints/Integrate-Endpoints-03.png)
-
-Azure 스택의 공용 VIP 풀에 대 한 라우팅 가능한 공용 IP 주소가 지정 된 경우 이러한 주소 논리적으로 경계 네트워크에 속하며 기본 방화벽에서 게시 규칙을 필요로 합니다.
-
-### <a name="using-nat"></a>NAT를 사용 하 여
-
-Azure 스택 공용 VIP 풀에 대 한 public이 아닌 라우팅 가능한 IP 주소를 사용 하면 NAT Azure 스택 끝점 게시 하려면 보조 방화벽에서 사용 됩니다. 이 시나리오에서는 보조 방화벽 및 너머로, 기본 방화벽에서 게시 규칙을 구성 해야 합니다. NAT를 사용 하려는 경우 다음 사항을 고려 하십시오.
-
-- 사용자가 고유한 끝점 및 소프트웨어 정의 네트워킹 (SDN) 스택에 직접 게시 규칙을 제어 하기 때문에 방화벽 규칙을 관리 하는 경우 NAT 오버 헤드가 추가 합니다. 사용자가 자신의 Vip를 게시 하 고 포트 목록을 업데이트 하는 Azure 스택 연산자를 연결 해야 합니다.
-- 사용자 환경을 제한 하는 NAT를 사용 하는 동안이 전체 운영자에 게 효과적으로 제어할을 수 게시 요청을 처리 합니다.
-- Azure 사용한 하이브리드 클라우드 시나리오에 대 한 Azure 설정을 NAT.를 사용 하는 끝점에 대 한 VPN 터널을 지원 하지 않습니다 것이 좋습니다
-
 
 ## <a name="next-steps"></a>다음 단계
-
-[Azure 스택 데이터 센터 통합-보안](azure-stack-integrate-security.md)
+[Azure 스택 PKI 요구 사항](azure-stack-pki-certs.md)

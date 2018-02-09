@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/30/2017
 ms.author: rajanaki
-ms.openlocfilehash: 0302b4f8f4171d288a7e7c62de036c6f1cec8212
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: a72c9104dc2df0c8a874f757c100a19dc26c1564
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-on-premises-to-azure"></a>온-프레미스에서 Azure로 복제하기 위한 Azure Site Recovery 지원 매트릭스
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 11/22/2017
 이 문서에서는 Azure로 복제 및 복구할 때 Azure Site Recovery에 대해 지원되는 구성 및 구성 요소를 요약하여 설명합니다. Azure Site Recovery 요구 사항에 대한 자세한 내용은 [필수 구성 요소](site-recovery-prereq.md)를 참조하세요.
 
 > [!NOTE]
-> 지원되는 매트릭스의 업데이트와 호환되려면 Site Recovery 공급자와 에이전트를 최신 버전으로 업데이트해야 합니다.
+> 지원 매트릭스의 업데이트와 호환되려면 Site Recovery 공급자와 에이전트를 최신 버전으로 업데이트해야 합니다.
 
 
 ## <a name="support-for-deployment-options"></a>배포 옵션에 대한 지원
@@ -35,7 +35,7 @@ ms.lasthandoff: 11/22/2017
 --- | --- | ---
 **Azure 포털** | Azure Resource Manager 또는 클래식 저장소 및 네트워크를 사용하여 Azure Storage에 온-프레미스 VMware VM을 복제합니다.<br/><br/> Resource Manager 기반 또는 클래식 VM에 장애 조치합니다. | Resource Manager 또는 클래식 저장소 및 네트워크를 사용하여 Azure Storage에 온-프레미스 Hyper-V VM을 복제합니다.<br/><br/> Resource Manager 기반 또는 클래식 VM에 장애 조치합니다.
 **클래식 포털** | 유지 관리 모드에만 해당됩니다. 새 자격 증명 모음은 만들 수 없습니다. | 유지 관리 모드에만 해당됩니다.
-**PowerShell** | 현재 지원되지 않습니다. | 지원됨
+**PowerShell** | 지원됨 | 지원됨
 
 
 ## <a name="support-for-datacenter-management-servers"></a>데이터 센터 관리 서버에 대한 지원
@@ -63,35 +63,35 @@ ms.lasthandoff: 11/22/2017
 
 ## <a name="support-for-replicated-machine-os-versions"></a>복제된 컴퓨터 운영 체제 버전에 대한 지원
 
-Azure에 복제하는 경우 보호되는 가상 컴퓨터가 [Azure 요구 사항](#failed-over-azure-vm-requirements)을 충족해야 합니다.
+Azure에 복제하는 경우 보호되는 가상 머신이 [Azure 요구 사항](#failed-over-azure-vm-requirements)을 충족해야 합니다.
 다음은 Azure Site Recovery를 사용하는 경우 다양한 배포 시나리오에서 지원되는 복제된 운영 체제를 요약한 테이블입니다. 이 지원은 언급된 OS에서 실행되는 모든 워크로드에 적용됩니다.
 
  **VMware/물리적 서버** | **Hyper-V(VMM 포함/제외)** |
 --- | --- |
-64비트 Windows Server 2016(Server Core, 데스크톱 환경 포함 서버)\*, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 SP1 이상<br/><br/> Red Hat Enterprise Linux : 5.2 ~ 5.11, 6.1 ~ 6.9, 7.0 to 7.3 <br/><br/>CentOS : 5.2 ~ 5.11, 6.1 ~ 6.9, 7.0 ~ 7.3 <br/><br/>Ubuntu 14.04 LTS 서버[(지원되는 커널 버전)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Ubuntu 16.04 LTS 서버[(지원되는 커널 버전)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Debian 7 <br/><br/>Debian 8<br/><br/>Red Hat 호환 커널 또는 UEK3(Unbreakable Enterprise Kernel Release 3)을 실행하는 Oracle Enterprise Linux 6.4, 6.5 <br/><br/>SUSE Linux Enterprise Server 11 SP3 <br/><br/>SUSE Linux Enterprise Server 11 SP4 <br/>복제 컴퓨터를 SLES 11 SP3에서 SLES 11 SP4로 업그레이드하는 것은 지원되지 않습니다. 복제된 컴퓨터가 SLES 11SP3에서 SLES 11 SP4로 업그레이드된 경우 복제를 비활성화하고 업그레이드 후 컴퓨터를 다시 보호해야 합니다. | [Azure에서 지원하는](https://technet.microsoft.com/library/cc794868.aspx) 모든 게스트 OS
+64비트 Windows Server 2016(Server Core, 데스크톱 환경 포함 서버)\*, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 SP1 이상<br/><br/> Red Hat Enterprise Linux: 5.2 ~ 5.11, 6.1 ~ 6.9, 7.0 ~ 7.4<br/><br/>CentOS: 5.2 ~ 5.11, 6.1 ~ 6.9, 7.0 ~ 7.4 <br/><br/>Ubuntu 14.04 LTS 서버[(지원되는 커널 버전)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Ubuntu 16.04 LTS 서버[(지원되는 커널 버전)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Debian 7 <br/><br/>Debian 8<br/><br/>Red Hat 호환 커널 또는 UEK3(Unbreakable Enterprise Kernel Release 3)을 실행하는 Oracle Enterprise Linux 6.4, 6.5 <br/><br/>SUSE Linux Enterprise Server 11 SP3 <br/><br/>SUSE Linux Enterprise Server 11 SP4 <br/>복제 컴퓨터를 SLES 11 SP3에서 SLES 11 SP4로 업그레이드하는 것은 지원되지 않습니다. 복제된 컴퓨터가 SLES 11SP3에서 SLES 11 SP4로 업그레이드된 경우 복제를 비활성화하고 업그레이드 후 컴퓨터를 다시 보호해야 합니다. | [Azure에서 지원하는](https://technet.microsoft.com/library/cc794868.aspx) 모든 게스트 OS
 
 >[!NOTE]
 >
 > \* Windows Server 2016 Nano Server는 지원되지 않습니다.
-
->[!IMPORTANT]
->(Azure에 복제하는 VMware/물리적 서버에 적용 가능)
 >
-> Red Hat Enterprise Linux Server 7+ 및 CentOS 7+ 서버에서 커널 버전 3.10.0-514는 Azure Site Recovery 모바일 서비스 9.8 버전부터 지원됩니다.<br/><br/>
-> 버전 9.8보다 낮은 모바일 서비스 버전을 사용하는 3.10.0-514 커널의 고객은 복제를 사용하지 않도록 설정하고 모바일 서비스 버전을 버전 9.8로 업데이트한 다음 복제를 다시 사용하도록 설정해야 합니다.
+> Linux 배포판에서는 배포판의 부 버전 릴리스/업데이트에 포함된 스톡 커널만 지원됩니다.
+>
+> Azure Site Recovery 보호 VMware 가상 머신 또는 물리적 서버에 있는 Linux 배포판의 주 버전 업그레이드는 지원되지 않습니다. 주 버전에서 운영 체제를 업그레이드하는 동안(예: CentOS 6.*에서 CentOS 7.*), 컴퓨터에 복제를 사용하지 않도록 설정하고, 컴퓨터에서 운영 체제를 업그레이드한 다음 복제를 다시 사용하도록 설정합니다.
+> 
 
 
 ### <a name="supported-ubuntu-kernel-versions-for-vmwarephysical-servers"></a>VMware/물리적 서버에 대해 지원되는 Ubuntu 커널 버전
 
 **릴리스** | **모바일 서비스 버전** | **커널 버전** |
 --- | --- | --- |
-14.04 LTS | 9.9 | 3.13.0-24-generic에서 3.13.0-117-generic<br/>3.16.0-25-generic에서 3.16.0-77-generic<br/>3.19.0-18-generic에서 3.19.0-80-generic<br/>4.2.0-18-generic에서 4.2.0-42-generic<br/>4.4.0-21-generic에서 4.4.0-75-generic |
 14.04 LTS | 9.10 | 3.13.0-24-generic에서 3.13.0-121-generic<br/>3.16.0-25-generic에서 3.16.0-77-generic<br/>3.19.0-18-generic에서 3.19.0-80-generic<br/>4.2.0-18-generic에서 4.2.0-42-generic<br/>4.4.0-21-generic에서 4.4.0-81-generic |
 14.04 LTS | 9.11 | 3.13.0-24-generic에서 3.13.0-128-generic<br/>3.16.0-25-generic에서 3.16.0-77-generic<br/>3.19.0-18-generic에서 3.19.0-80-generic<br/>4.2.0-18-generic에서 4.2.0-42-generic<br/>4.4.0-21-generic에서 4.4.0-91-generic |
 14.04 LTS | 9.12 | 3.13.0-24-generic에서 3.13.0-132-generic<br/>3.16.0-25-generic에서 3.16.0-77-generic<br/>3.19.0-18-generic에서 3.19.0-80-generic<br/>4.2.0-18-generic에서 4.2.0-42-generic<br/>4.4.0-21-generic에서 4.4.0-96-generic |
+14.04 LTS | 9.13 | 3.13.0-24-generic에서 3.13.0-137-generic,<br/>3.16.0-25-generic에서 3.16.0-77-generic<br/>3.19.0-18-generic에서 3.19.0-80-generic<br/>4.2.0-18-generic에서 4.2.0-42-generic<br/>4.4.0-21-generic에서 4.4.0-104-generic |
 16.04 LTS | 9.10 | 4.4.0-21-generic에서 4.4.0-81-generic<br/>4.8.0-34-generic에서 4.8.0-56-generic<br/>4.10.0-14-generic에서 4.10.0-24-generic |
 16.04 LTS | 9.11 | 4.4.0-21-generic에서 4.4.0-91-generic<br/>4.8.0-34-generic에서 4.8.0-58-generic<br/>4.10.0-14-generic에서 4.10.0-32-generic |
 16.04 LTS | 9.12 | 4.4.0-21-generic에서 4.4.0-96-generic<br/>4.8.0-34-generic에서 4.8.0-58-generic<br/>4.10.0-14-generic에서 4.10.0-35-generic |
+16.04 LTS | 9.13 | 4.4.0-21-generic에서 4.4.0-104-generic<br/>4.8.0-34-generic에서 4.8.0-58-generic<br/>4.10.0-14-generic에서 4.10.0-42-generic |
 
 ## <a name="supported-file-systems-and-guest-storage-configurations-on-linux-vmwarephysical-servers"></a>Linux(VMware/물리적 서버)에서 지원되는 파일 시스템 및 게스트 저장소 구성
 
@@ -105,8 +105,7 @@ Azure에 복제하는 경우 보호되는 가상 컴퓨터가 [Azure 요구 사�
 HP CCISS 저장소 컨트롤러가 있는 물리적 서버는 지원되지 않습니다.<br/>
 
 >[!Note]
-> Linux 서버에서 /(root), /boot, /usr, /usr/local, /var, /etc 디렉터리(별도의 파티션/파일 시스템으로 설정된 경우)는 모두 원본 서버의 동일한 디스크(OS 디스크)에 있어야 합니다.<br/><br/>
-> 버전 9.10의 모바일 서비스부터 메타데이터 체크섬과 같은 XFS 파일 시스템의 XFSv5 기능이 지원됩니다. XFSv5 기능을 사용하는 경우 9.10 이상 버전의 모바일 서비스를 실행하고 있어야 합니다. xfs_info 유틸리티를 사용하여 파티션에 대한 XFS 수퍼 블록을 확인할 수 있습니다. ftype이 1로 설정되면 XFSv5 기능이 사용됩니다.
+> Linux 서버에서 /(root), /boot, /usr, /usr/local, /var, /etc 디렉터리(별도의 파티션/파일 시스템으로 설정된 경우)는 모두 원본 서버의 동일한 디스크(OS 디스크)에 있어야 하고 /boot는 디스크 파티션에 있어야 하며 LVM 볼륨이 아니어야 합니다.<br/><br/>
 >
 
 
@@ -128,9 +127,9 @@ IPv6 | 아니요 | 아니요
 --- | --- | ---
 NIC 팀 | 아니요 | 아니요
 IPv4 | 예 | 예
-IPv6 | 아니요 | 아니요
+IPv6 | 아니오 | 아니요
 고정 IP(Windows) | 예 | 예
-고정 IP(Linux) | 예 <br/><br/>가상 컴퓨터가 장애 복구(failback) 시 DHCP를 사용하도록 구성됨  | 아니요
+고정 IP(Linux) | 예 <br/><br/>가상 머신이 장애 복구(failback) 시 DHCP를 사용하도록 구성됨  | 아니요
 다중 NIC | 예 | 예
 
 ### <a name="failed-over-azure-vm-network-configuration"></a>장애 조치(Failover)된 Azure VM 네트워크 구성
@@ -167,11 +166,11 @@ SAN(ISCSI) | 예 | 예
 VMDK | 예 | 해당 없음
 VHD/VHDX | 해당 없음 | 예
 2세대 VM | 해당 없음 | 예
-EFI/UEFI| 아니요 | 예
-공유 클러스터 디스크 | 아니요 | 아니요
+EFI/UEFI| Windows Server 2012 이상에서만 Azure로 마이그레이션합니다. </br></br> ** 테이블 끝에 있는 메모를 참조하세요.  | 예
+공유 클러스터 디스크 | 아니요 | 아니오
 암호화된 디스크 | 아니요 | 아니요
 NFS | 아니요 | 해당 없음
-SMB 3.0 | 아니요 | 아니요
+SMB 3.0 | 아니오 | 아니오
 RDM | 예<br/><br/> 물리적 서버의 경우 해당 없음 | 해당 없음
 디스크 > 1TB | 예<br/><br/>최대 4095GB | 예<br/><br/>최대 4095GB
 4K 논리 및 4k 물리적 섹터 크기 포함 디스크 | 예 | 1세대 VM에 지원되지 않음<br/><br/>2세대 VM에 지원되지 않음
@@ -182,18 +181,25 @@ RDM | 예<br/><br/> 물리적 서버의 경우 해당 없음 | 해당 없음
 디스크 제외 | 예 | 예
 다중 경로(MPIO) | 해당 없음 | 예
 
+> [!NOTE]
+> ** Windows Server 2012 이상을 실행하는 물리적 서버나 UEFI 부팅 VMware 가상 머신은 Azure로 마이그레이션될 수 있습니다. 다음 제한 사항이 적용됩니다.
+> - Azure로만 마이그레이션합니다. 온-프레미스 VMware 사이트에 장애 복구는 지원되지 않습니다.
+> - 서버의 OS 디스크에 파티션이 4개 까지만 지원됩니다.
+> - Azure Site Recovery 모바일 서비스 버전 9.13 이상이 필요합니다.
+
 **Azure 저장소** | **VMware/물리적 서버** | **Hyper-V(Virtual Machine Manager 있음/없음)**
 --- | --- | ---
 LRS | 예 | 예
 GRS | 예 | 예
 RA-GRS | 예 | 예
 쿨 저장소 | 아니요 | 아니요
-핫 저장소| 아니요 | 아니요
+핫 저장소| 아니요 | 아니오
 블록 Blob | 아니요 | 아니요
 휴지 상태의 암호화(SSE)| 예 | 예
 Premium Storage | 예 | 예
 Import/Export 서비스 | 아니요 | 아니요
-복제 데이터를 저장하는 데 사용되는 대상 저장소 계정 또는 캐시 저장소 계정에 구성된 Virtual Network 서비스 끝점(Azure Storage 방화벽 및 Virtual Network) | 아니요 | 아니요
+복제 데이터를 저장하는 데 사용되는 대상 저장소 계정 또는 캐시 저장소 계정에 구성된 Virtual Network 서비스 끝점(Azure Storage 방화벽 및 Virtual Network) | 아니오 | 아니요
+범용 V2 저장소 계정(핫 및 쿨 계층 모두) | 아니요 | 아니요
 
 
 ## <a name="support-for-azure-compute-configuration"></a>Azure 계산 구성에 대한 지원
@@ -206,7 +212,7 @@ HUB | 예 | 예
 
 ## <a name="failed-over-azure-vm-requirements"></a>장애 조치(Failover)된 Azure VM 요구 사항
 
-Azure에서 지원하는 운영 체제를 실행하는 가상 컴퓨터와 물리적 서버를 복제하기 위해 Site Recovery를 배포할 수 있습니다. 여기에는 대부분 버전의 Windows 및 Linux가 포함됩니다. 복제하려는 온-프레미스 VM이 Azure에 복제하는 동안 아래의 Azure 요구 사항을 준수해야 합니다.
+Azure에서 지원하는 운영 체제를 실행하는 가상 머신과 물리적 서버를 복제하기 위해 Site Recovery를 배포할 수 있습니다. 여기에는 대부분 버전의 Windows 및 Linux가 포함됩니다. 복제하려는 온-프레미스 VM이 Azure에 복제하는 동안 아래의 Azure 요구 사항을 준수해야 합니다.
 
 **엔터티** | **요구 사항** | **세부 정보**
 --- | --- | ---
@@ -219,17 +225,17 @@ Azure에서 지원하는 운영 체제를 실행하는 가상 컴퓨터와 물�
 **네트워크 어댑터** | 여러 어댑터가 지원됩니다. |
 **공유 VHD** | 지원되지 않음 | 지원되지 않는 경우 필수 구성 요소 확인이 실패합니다.
 **FC 디스크** | 지원되지 않음 | 지원되지 않는 경우 필수 구성 요소 확인이 실패합니다.
-**하드 디스크 형식** | VHD  <br/><br/> VHDX | 현재 Azure에서는 VHDX가 지원되지 않지만 Azure로 장애 조치하면 Site Recovery가  자동으로 VHDX를 VHD로 변환합니다. 온-프레미스에 장애 복구 시 가상 컴퓨터에서 계속해서 VHDX 형식을 사용합니다.
-**Bitlocker** | 지원되지 않음 | 가상 컴퓨터를 보호하기 전에 Bitlocker를 사용하지 않도록 설정해야 합니다.
-**VM 이름** | 1 자에서 63자 사이입니다. 문자, 숫자 및 하이픈으로 제한됩니다. VM 이름은 문자 또는 숫자로 시작하고 끝나야 합니다. | Site Recovery에서 가상 컴퓨터 속성의 값을 업데이트합니다.
+**하드 디스크 형식** | VHD  <br/><br/> VHDX | 현재 Azure에서는 VHDX가 지원되지 않지만 Azure로 장애 조치하면 Site Recovery가  자동으로 VHDX를 VHD로 변환합니다. 온-프레미스에 장애 복구 시 가상 머신에서 계속해서 VHDX 형식을 사용합니다.
+**Bitlocker** | 지원되지 않음 | 가상 머신을 보호하기 전에 Bitlocker를 사용하지 않도록 설정해야 합니다.
+**VM 이름** | 1 자에서 63자 사이입니다. 문자, 숫자 및 하이픈으로 제한됩니다. VM 이름은 문자 또는 숫자로 시작하고 끝나야 합니다. | Site Recovery에서 가상 머신 속성의 값을 업데이트합니다.
 **VM 유형** | 1세대<br/><br/> 2세대 -- Windows | 기본 OS 디스크 형식이 있는 2세대 VM(VHDX로 포맷된 한 개 또는 두 개의 데이터 볼륨을 포함) 및 300GB 미만의 디스크 공간이 지원됩니다.<br></br>Linux 2세대 VM은 지원되지 않습니다. [자세히 알아보기](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/)|
 
 ## <a name="support-for-recovery-services-vault-actions"></a>Recovery Services 자격 증명 모음 작업 지원
 
 **작업** | **VMware/물리적 서버** | **Hyper-V(Virtual Machine Manager 없음)** | **Hyper-V(Virtual Machine Manager 있음)**
 --- | --- | --- | ---
-리소스 그룹 간 자격 증명 모음 이동<br/><br/> 구독 내 및 구독 간 | 아니요 | 아니요 | 아니요
-저장소 그룹 간 저장소, 네트워크, Azure VM 이동<br/><br/> 구독 내 및 구독 간 | 아니요 | 아니요 | 아니요
+리소스 그룹 간 자격 증명 모음 이동<br/><br/> 구독 내 및 구독 간 | 아니오 | 아니요 | 아니오
+저장소 그룹 간 저장소, 네트워크, Azure VM 이동<br/><br/> 구독 내 및 구독 간 | 아니오 | 아니요 | 아니오
 
 
 ## <a name="support-for-provider-and-agent"></a>공급자 및 에이전트에 대한 지원

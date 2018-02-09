@@ -251,6 +251,8 @@
           href: ../workloads/sap/get-started.md
         - name: MATLAB 클러스터
           href: matlab-mdcs-cluster.md
+        - name: Visual Studio
+          href: using-visual-studio-vm.md
         - name: 고성능 컴퓨팅(HPC)
           href: hpcpack-cluster-options.md
           items:
@@ -286,6 +288,8 @@
           href: convert-disk-storage.md
         - name: Azure Site Recovery를 사용하여 프리미엄 저장소로 마이그레이션
           href: migrate-to-premium-storage-using-azure-site-recovery.md
+        - name: 연결되지 않은 디스크 찾기
+          href: find-unattached-disks.md
         - name: 파일 저장소 사용
           href: mount-azure-file-storage.md
         - name: 템플릿을 사용하여 디스크 배포
@@ -418,7 +422,7 @@
           href: performance-diagnostics-vm-extension.md
         - name: 중첩된 가상화 사용
           href: troubleshoot-vm-by-use-nested-virtualization.md
-- name: 참조
+- name: 참고 자료
   items:
     - name: Azure CLI
       href: /cli/azure/vm

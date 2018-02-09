@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: f490aeef07b142b6a28319581b01c6cfc00054ba
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: be0bdf771327e57a75a4f95b513f9e80aeaef5a4
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="sql-server-stored-procedure-activity"></a>SQL Server 저장 프로시저 작업
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -164,7 +164,7 @@ Data Factory [파이프라인](data-factory-create-pipelines.md)의 데이터 �
 - type 속성의 **storedProcedureName**은 **sp_sample**(저장 프로시저의 이름)로 설정되어 있어야 합니다.
 - **storedProcedureParameters** 섹션에는 **DataTime** 매개 변수 하나가 있어야 합니다. JSON에서 이 매개 변수의 이름 및 대/소문자는 저장 프로시저 정의에 있는 매개 변수의 이름 및 대/소문자와 일치해야 합니다. 매개 변수에 대해 null을 전달해야 하는 경우 구문: `"param1": null`(모두 소문자)을 사용합니다.
  
-1. 단추가 표시되지 않는 경우 도구 모음에서 **... 추가**를 클릭하고 **새 파이프라인**을 클릭합니다.
+1. 도구 모음에서 **... 추가**를 클릭하고 **새 파이프라인**을 클릭합니다.
 2. 다음 JSON 코드 조각을 복사하여 붙여넣습니다.   
 
     ```JSON
@@ -309,12 +309,12 @@ Data Factory [파이프라인](data-factory-create-pipelines.md)의 데이터 �
 
 다음 표에서는 이러한 JSON 속성에 대해 설명합니다.
 
-| 속성 | 설명 | 필수 |
+| 자산 | 설명 | 필수 |
 | --- | --- | --- |
-| name | 작업의 이름 |예 |
-| 설명 |작업이 무엇에 사용되는지 설명하는 텍스트입니다. |아니요 |
-| type | **SqlServerStoredProcedure**로 설정되어야 합니다. | 예 |
-| inputs | 선택 사항입니다. 입력 데이터 집합을 지정하는 경우 실행할 저장 프로시저 작업에 사용할 수 있어야 합니다('Ready' 상태). 저장 프로시저에서 입력 데이터 집합을 매개 변수로 사용할 수 없습니다. 저장 프로시저 작업을 시작하기 전에 종속성을 확인하는 데만 사용됩니다. |아니요 |
+| 이름 | 작업의 이름 |예 |
+| description |작업이 무엇에 사용되는지 설명하는 텍스트입니다. |아니오 |
+| 형식 | **SqlServerStoredProcedure**로 설정되어야 합니다. | 예 |
+| inputs | 선택 사항입니다. 입력 데이터 집합을 지정하는 경우 실행할 저장 프로시저 작업에 사용할 수 있어야 합니다('Ready' 상태). 저장 프로시저에서 입력 데이터 집합을 매개 변수로 사용할 수 없습니다. 저장 프로시저 작업을 시작하기 전에 종속성을 확인하는 데만 사용됩니다. |아니오 |
 | outputs | 저장 프로시저 작업에 대한 출력 데이터 집합을 지정해야 합니다. 출력 데이터 집합은 저장 프로시저 작업에 대한 **일정** (매시간, 매주, 매월 등)을 지정합니다. <br/><br/>출력 데이터 집합은 Azure SQL Database 또는 Azure SQL Data Warehouse나 저장 프로시저를 실행하려는 SQL Server 데이터베이스를 참조하는 **연결된 서비스** 를 사용해야 합니다. <br/><br/>출력 데이터 집합은 파이프라인에서 다른 활동을 통한 후속 처리([활동 체이닝](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline))를 위해 저장 프로시저의 결과를 전달하는 방법으로 사용할 수 있습니다. 그러나 Data Factory는 저장 프로시저의 출력을 이 데이터 집합에 자동으로 쓰지 않습니다. 출력 데이터 집합이 가리키는 SQL 테이블에 기록하는 저장 프로시저입니다. <br/><br/>경우에 따라 출력 데이터 집합은 저장 프로시저 작업을 실행하는 일정을 지정하기 위해서만 사용되는 **더미 데이터 집합**일 수 있습니다. |예 |
 | storedProcedureName |출력 테이블에서 사용하는 연결된 서비스로 표시되는 Azure SQL Database, Azure SQL Data Warehouse 또는 SQL Server Database의 저장 프로시저 이름을 지정합니다. |예 |
 | storedProcedureParameters |저장 프로시저 매개 변수의 값을 지정합니다. 매개 변수에 대해 null을 전달해야 하는 경우 구문: "param1": null(모두 소문자)을 사용합니다. 이 속성을 사용하는 방법에 대한 자세한 내용은 다음 샘플을 참조하세요. |아니요 |

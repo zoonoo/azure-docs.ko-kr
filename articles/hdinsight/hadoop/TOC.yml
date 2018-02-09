@@ -4,6 +4,9 @@
   items:
     - name: 개요
       href: apache-hadoop-introduction.md
+    - name: HDInsight의 Hadoop 아키텍처
+      href: ../hdinsight-hadoop-architecture.md
+      maintainContext: true
     - name: HDInsight의 Hadoop 구성 요소
       href: ../hdinsight-component-versioning.md
       maintainContext: true
@@ -153,6 +156,12 @@
           maintainContext: true
         - name: HDInsight에 대한 고급 분석
           href: apache-hadoop-deep-dive-advanced-analytics.md
+        - name: HDInsight에서 기계 학습
+          href: ../hdinsight-machine-learning-overview.md
+          maintainContext: true
+        - name: HDInsight에서 대규모 스트리밍
+          href: ../hdinsight-streaming-at-scale-overview.md
+          maintainContext: true
     - name: 클러스터 확장
       items:
         - name: 부트스트랩을 사용하여 클러스터 사용자 지정
@@ -197,6 +206,21 @@
               href: 'https://msdn.microsoft.com/library/mt706515.aspx'
             - name: Azure Marketplace에 HDInsight 앱 게시
               href: ../hdinsight-apps-publish-applications.md
+              maintainContext: true
+            - name: 게시된 앱 설치 - Cask 데이터 응용 프로그램 플랫폼(CDAP)
+              href: ../hdinsight-apps-install-cask.md
+              maintainContext: true
+            - name: 게시된 앱 설치 - Dataiku
+              href: ../hdinsight-apps-install-dataiku.md
+              maintainContext: true
+            - name: 게시된 앱 설치 - Datameer
+              href: ../hdinsight-apps-install-datameer.md
+              maintainContext: true
+            - name: 게시된 앱 설치 - H2O
+              href: ../hdinsight-apps-install-h2o.md
+              maintainContext: true
+            - name: 게시된 앱 설치 - Streamsets
+              href: ../hdinsight-apps-install-streamsets.md
               maintainContext: true
     - name: 보안
       items:
@@ -262,6 +286,9 @@
             - name: Ambari REST API 사용
               href: ../hdinsight-hadoop-manage-ambari-rest-api.md
               maintainContext: true
+        - name: HDInsight 클러스터 확장
+          href: ../hdinsight-scaling-best-practices.md
+          maintainContext: true
         - name: HDInsight 클러스터에 대한 로그 관리
           href: ../hdinsight-log-management.md
           maintainContext: true
@@ -313,7 +340,7 @@
       href: ../hdinsight-troubleshoot-guide.md
       maintainContext: true
       items:
-        - name: 저속 또는 문제 발생 HDInsight 클러스터 문제 해결
+        - name: 속도가 느리거나 오류가 발생하는 HDInsight 클러스터 문제 해결
           href: ../hdinsight-troubleshoot-failed-cluster.md
           maintainContext: true
         - name: HDFS 문제 해결

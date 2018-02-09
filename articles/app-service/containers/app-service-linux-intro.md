@@ -16,11 +16,11 @@ ms.topic: overview
 ms.date: 02/16/2017
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: 89cb7dc488da42724f212d13f8550064ff8b9188
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: dea6b137fb12467a881afaa9a3e6985b584f5559
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Linux의 Azure App Service 소개
 
@@ -35,7 +35,7 @@ Linux의 App Service는 개발자의 생산성을 향상시키기 위해 수많�
 | Node.js | 4.4, 4.5, 6.2, 6.6, 6.9-6.11, 8.0, 8.1 |
 | PHP | 5.6, 7.0 |
 | .NET Core | 1.0, 1.1 |
-| 루비 | 2.3 |
+| Ruby | 2.3 |
 
 ## <a name="deployments"></a>배포
 
@@ -73,7 +73,7 @@ Azure Portal에는 현재 Web App for Containers에 대해 작동하는 기능�
 Linux의 App Service는 [기본 및 표준](https://azure.microsoft.com/pricing/details/app-service/plans/) 앱 서비스 계획에서만 지원되며 [체험 또는 공유](https://azure.microsoft.com/pricing/details/app-service/plans/) 계층은 없습니다. 다음은 Linux의 App Service에 대한 중요한 제한 사항입니다.
 
 * 이미 비 Linux Web Apps를 호스트 중인 App Service 계획에서는 Web App for Containers를 만들 수 없습니다.
-* 비 Linux Web Apps을 포함하는 리소스 그룹에 Web App for Containers를 만드는 경우 기존 App Service 계획과 다른 지역에 App Service 계획을 만들어야 합니다.
+* 비 Linux Web Apps를 포함하는 리소스 그룹에 Web App for Containers를 만드는 경우 기존 App Service 계획과 다른 리소스 그룹에 App Service 계획을 만들어야 합니다.
 
 ## <a name="troubleshooting"></a>문제 해결
 

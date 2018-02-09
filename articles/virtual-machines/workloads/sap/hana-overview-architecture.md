@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/31/2017
+ms.date: 01/02/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2461e5fbf620fa2651792b47d41e9835d4d6ef8c
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: e48e0e256306707ca7fde3636a4215b235fa2eb7
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="sap-hana-large-instances-overview-and-architecture-on-azure"></a>Azure의 SAP HANA(대규모 인스턴스) 개요 및 아키텍처
 
@@ -29,23 +29,25 @@ SAP HANA on Azure(대규모 인스턴스)는 Azure의 고유한 솔루션입니�
 인프라 스탬프 내에서 고객 격리는 테넌트에서 수해오디며 세부적인 형태는 다음과 같습니다.
 
 - 네트워킹: 고객 할당 테넌트별로 가상 네트워크를 통해 인프라 스택 내의 고객 격리. 테넌트는 단일 고객에게 할당됩니다. 고객은 여러 개의 테넌트를 둘 수 있습니다. 테넌트의 네트워크 격리는 인프라 스탬프 수준에서 테넌트 간 네트워크 통신을 차단합니다. 테넌트가 동일한 고객에게 속한 경우에도 마찬가지입니다.
-- 저장소 구성 요소: 저장소 볼륨이 할당된 저장소 가상 컴퓨터를 통해 격리. 저장소 볼륨은 하나의 스토리지 가상 컴퓨터에만 할당될 수 있습니다. 저장소 가상 컴퓨터는 SAP HANA TDI 인증 인프라 스택에서 단일 테넌트에만 독점적으로 할당됩니다. 따라서 저장소 가상 컴퓨터에 할당되는 저장소 볼륨은 관련된 단일 특정 테넌트에서만 액세스할 수 있습니다. 다른 배포된 테넌트 간에는 보이지 않습니다.
-- 서버 또는 호스트: 서버 또는 호스트 단위는 고객 또는 테넌트 간 공유되지 않습니다. 고객에게 배포되는 서버 또는 호스트는 단일 테넌트에 할당되는 원자성 베어 메탈 계산 단위입니다. 고객이 호스트 또는 서버를 다른 고객과 공유하는 결과를 초래할 수 있는 하드웨어 파티션 또는 소프트 파티션은 사용되지 **않습니다**. 특정 테넌트의 저장소 가상 컴퓨터에 할당되는 저장소 볼륨은 그러한 서버에 탑재됩니다. 테넌트에는 다양한 SKU의 하나 또는 다수의 서버 단위가 할당될 수 있습니다.
+- 저장소 구성 요소: 저장소 볼륨이 할당된 저장소 가상 머신을 통해 격리. 저장소 볼륨은 하나의 스토리지 가상 머신에만 할당될 수 있습니다. 저장소 가상 머신은 SAP HANA TDI 인증 인프라 스택에서 단일 테넌트에만 독점적으로 할당됩니다. 따라서 저장소 가상 머신에 할당되는 저장소 볼륨은 관련된 단일 특정 테넌트에서만 액세스할 수 있습니다. 다른 배포된 테넌트 간에는 보이지 않습니다.
+- 서버 또는 호스트: 서버 또는 호스트 단위는 고객 또는 테넌트 간 공유되지 않습니다. 고객에게 배포되는 서버 또는 호스트는 단일 테넌트에 할당되는 원자성 베어 메탈 계산 단위입니다. 고객이 호스트 또는 서버를 다른 고객과 공유하는 결과를 초래할 수 있는 하드웨어 파티션 또는 소프트 파티션은 사용되지 **않습니다**. 특정 테넌트의 저장소 가상 머신에 할당되는 저장소 볼륨은 그러한 서버에 탑재됩니다. 테넌트에는 다양한 SKU의 하나 또는 다수의 서버 단위가 할당될 수 있습니다.
 - SAP HANA on Azure(대규모 인스턴스) 인프라 스탬프 내에서 많은 수의 다양한 테넌트가 배포되며 네트워킹, 저장소 및 계산 수준에 대한 테넌트 개념을 통해 상호 격리됩니다. 
 
 
 이러한 베어 메탈 서버 단위는 SAP HANA 실행만 지원합니다. SAP 응용 프로그램 계층 또는 워크로드 미들웨어 계층은 Microsoft Azure Virtual Machines에서 실행됩니다. SAP HANA on Azure(대규모 인스턴스) 단위를 실행하는 인프라 스탬프는 Azure 네트워크 백본에 연결되며 따라서 SAP HANA on Azure(대규모 인스턴스) 단위와 Azure Virtual Machines 간 연결의 지연은 낮습니다.
 
-이 문서는 SAP HANA on Azure(대규모 인스턴스)를 다루는 5개 문서 중 하나입니다. 이 문서에서는 솔루션의 기본 아키텍처, 책임, 제공되는 서비스와 전반적인 기능에 대해 살펴봅니다. 네트워킹 및 연결과 같은 영역의 경우 다른 4개의 문서에서 세부 사항 및 구체적인 내용을 다룹니다. SAP HANA on Azure(대규모 인스턴스) 문서에서는 SAP NetWeaver 설치 또는 Azure VM에 SAP NetWeaver를 배포하는 부분에 대해서는 다루지 않습니다. 이 항목은 동일한 문서 컨테이너에 있는 별도의 문서에서 다룹니다. 
+이 문서는 Azure의 SAP HANA(대규모 인스턴스)를 다루는 여러 문서 중 하나입니다. 이 문서에서는 솔루션의 기본 아키텍처, 책임, 제공되는 서비스와 전반적인 기능에 대해 살펴봅니다. 네트워킹 및 연결과 같은 영역의 경우 다른 4개의 문서에서 세부 사항 및 구체적인 내용을 다룹니다. SAP HANA on Azure(대규모 인스턴스) 문서에서는 SAP NetWeaver 설치 또는 Azure VM에 SAP NetWeaver를 배포하는 부분에 대해서는 다루지 않습니다. Azure의 SAP NetWeaver는 동일한 Azure 문서 컨테이너에 있는 별도의 문서에서 다룹니다. 
 
 
-다섯 부분으로 구성된 이 가이드는 다음 항목에 대해 설명합니다.
+HANA 대규모 인스턴스 지침의 다른 문서는 다음 영역을 다룹니다.
 
 - [Azure에서 SAP HANA(큰 인스턴스) 개요 및 아키텍처](hana-overview-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Azure의 SAP HANA(큰 인스턴스) 인프라 및 연결](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Azure에서 SAP HANA(큰 인스턴스)를 설치하고 구성하는 방법](hana-installation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Azure의 SAP HANA(큰 인스턴스) 고가용성 및 재해 복구](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Azure의 SAP HANA(큰 인스턴스) 문제 해결 및 모니터링](troubleshooting-monitoring.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [STONITH를 사용하여 SUSE에서 고가용성 설정](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/ha-setup-with-stonith)
+- [형식 II SKU에 대한 OS 백업 및 복원](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/os-backup-type-ii-skus)
 
 ## <a name="definitions"></a>정의
 
@@ -67,7 +69,7 @@ SAP HANA on Azure(대규모 인스턴스)는 Azure의 고유한 솔루션입니�
     - **형식 II 클래스:** S384, S384m, S384xm, S576, S768 및 S960
 
 
-Microsoft Azure 공용 클라우드에서 SAP 워크로드를 배포하는 토픽에 게시된 여러 가지의 추가 리소스가 있습니다. Azure에서 SAP HANA 배포를 계획하고 실행하는 사용자라면 누구든지 Azure IaaS의 보안 주체와 Azure IaaS에서 SAP 워크로드 배포를 경험하고 잘 이해하는 것이 좋습니다. 다음 리소스를 통해 더 많은 정보를 얻고 진행하기 전에 참조합니다.
+Microsoft Azure 공용 클라우드에서 SAP 워크로드를 배포하는 방법에 게시된 여러 가지의 추가 리소스가 있습니다. Azure에서 SAP HANA 배포를 계획하고 실행하는 사용자라면 누구든지 Azure IaaS의 보안 주체와 Azure IaaS에서 SAP 워크로드 배포를 경험하고 잘 이해하는 것이 좋습니다. 다음 리소스를 통해 더 많은 정보를 얻고 진행하기 전에 참조합니다.
 
 
 - [Microsoft Azure Virtual Machines에서 SAP 솔루션 사용](get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -111,7 +113,7 @@ Azure(큰 인스턴스)에서 SAP HANA의 전체적인 아키텍처는 SAP TDI �
 <br />SAP 시스템을 다른 응용 프로그램과 함께 Azure Virtual Networks(VNet)로 그룹화하는 데 Azure 네트워킹이 사용됩니다. 이러한 VNet은 온-프레미스 시스템 및 Azure(큰 인스턴스)에서 SAP HANA에 연결됩니다.
 <br />Microsoft Azure에서 실행이 지원되는 SAP NetWeaver 응용 프로그램 및 데이터베이스의 경우 [SAP Support Note #1928533 – Azure의 SAP 응용 프로그램: 지원 제품 및 Azure VM 유형](https://launchpad.support.sap.com/#/notes/1928533)을 참조하세요. Azure에서 SAP 솔루션 배포에 대한 설명서는 다음을 검토합니다.
 
-  -  [Windows VM(가상 컴퓨터)에서 SAP 사용](../../virtual-machines-windows-sap-get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+  -  [Windows VM(가상 머신)에서 SAP 사용](../../virtual-machines-windows-sap-get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
   -  [Microsoft Azure Virtual Machines에서 SAP 솔루션 사용](get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 - **왼쪽:** Azure 큰 인스턴스 스탬프에서 SAP HANA TDI 인증 하드웨어를 표시합니다. HANA 큰 인스턴스 단위는 온-프레미스에서 Azure로 연결 시와 동일한 기술을 사용하여 사용자 구독의 Azure VNet에 연결됩니다.
@@ -130,7 +132,7 @@ Azure Virtual Machines로 서로 다른 VM 유형 간에 선택할 수 있는 �
 
 2017년 7월 현재 Azure(대형 인스턴스)의 SAP HANA는 미국 서부, 미국 동부, 오스트레일리아 동부, 오스트레일리아 남동부, 유럽 서부 및 북유럽의 Azure 지역에서 여러 구성으로 사용하도록 제공됩니다.
 
-| SAP 솔루션 | CPU | 메모리 | 저장소 | Availability |
+| SAP 솔루션 | CPU | 메모리 | Storage | Availability |
 | --- | --- | --- | --- | --- |
 | OLAP에 대해 최적화됨: SAP BW, BW/4HANA<br /> 또는 SAP HANA(일반 OLAP 워크로드용) | Azure S72에서 SAP HANA<br /> – 2 x Intel® Xeon® 프로세서 E7-8890 v3<br /> 36 CPU 코어 및 72 CPU 스레드 |  768 GB |  3 TB | 사용 가능 |
 | --- | Azure S144에서 SAP HANA<br /> – 4 x Intel® Xeon® 프로세서 E7-8890 v3<br /> 72 CPU 코어 및 144 CPU 스레드 |  1.5 TB |  6 TB | 더 이상 제공되지 않음 |
@@ -161,7 +163,7 @@ Azure Virtual Machines로 서로 다른 VM 유형 간에 선택할 수 있는 �
 중요한 점은 전체 HANA 대규모 인스턴스 스탬프가 단일 고객 용도로 단독으로 할당되지 않는다는 것입니다. 이 사실은 Azure에 배포된 네트워크 패브릭을 통해 연결된 계산 및 저장소 리소스 랙에도 적용됩니다. HANA 대규모 인스턴스 인프라는 Azure와 마찬가지로 다음과 같은 세 가지 수준에서 서로 격리된 서로 다른 고객 &quot;테넌트&quot;를 배포합니다.
 
 - 네트워크: HANA 대규모 인스턴스 스탬프 내의 가상 네트워크를 통해 격리.
-- 저장소: 저장소 볼륨이 할당되고 테넌트 간 저장소 볼륨을 격리하는 저장소 가상 컴퓨터를 통해 격리.
+- 저장소: 저장소 볼륨이 할당되고 테넌트 간 저장소 볼륨을 격리하는 저장소 가상 머신을 통해 격리.
 - Compute: 서버 단위를 단일 테넌트에 전용으로 할당 서버 단위의 하드 또는 소프트 파티션 없음. 테넌트 간 단일 서버 또는 호스트 단위의 공유 없음. 
 
 따라서 서로 다른 테넌트 간 HANA 대규모 인스턴스 단위 배포는 상호 보이지 않습니다. 또한 서로 다른 테넌트에 배포된 HANA 대규모 인스턴스 단위가 HANA 대규모 인스턴스 스탬프 수준에서 상호 직접 통신하지도 않습니다. 한 테넌트 내의 HANA 대규모 인스턴스 단위만 HANA 대규모 인스턴스 스탬프 수준에서 상호 통신할 수 있습니다.
@@ -318,7 +320,7 @@ HANA 큰 인스턴스에 대한 크기 조정은 일반적인 HANA에 대한 크
 - 특히 HANA 큰 인스턴스 SKU의 Type II 클래스에 구현을 위해, SAP와 SAP HANA 버전 및 큰 크기 정률 증가 하드웨어 상의 최종 구성에 대해 문의하는 것이 좋습니다.
 
 
-## <a name="storage"></a>저장소
+## <a name="storage"></a>Storage
 
 Azure(큰 인스턴스)에서 SAP HANA에 대한 저장소 레이아웃은 [SAP HANA 저장소 요구 사항](http://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) 백서에 문서화된 SAP 권장 지침을 통해 Azure Service Management의 SAP HANA에 의해 구성됩니다.
 
@@ -357,7 +359,7 @@ HANA 큰 인스턴스 SKU를 세분화하면 가능한 분할 조각들의 몇 �
 
 고객이 더 많은 저장소를 필요로 할 수도 있으므로 1TB 단위로 추가 저장소를 구매하여 저장소를 추가할 가능성이 있습니다. 이 추가 저장소는 추가 볼륨으로 추가되거나 하나 이상의 기존 볼륨을 확장하는 데 사용할 수 있습니다. 위의 테이블에 의해 원래 배포되고 대부분 문서화된 볼륨의 크기를 줄이는 것이 불가능합니다. 또한 볼륨의 이름을 변경하거나 이름을 탑재할 수 없습니다. 저장소 볼륨은 위에서 설명한 대로 NFS4 볼륨으로 HANA 큰 인스턴스 단위에 연결됩니다.
 
-고객은 백업/복원 및 재해 복구 용도로 저장소 스냅숏을 사용하도록 선택할 수 있습니다. 이 항목에 대한 자세한 내용은 [Azure의 SAP HANA(큰 인스턴스) 고가용성 및 재해 복구](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에 설명되어 있습니다.
+고객은 백업/복원 및 재해 복구 용도로 저장소 스냅숏을 사용하도록 선택할 수 있습니다. 자세한 내용은 [Azure의 SAP HANA(대규모 인스턴스) 고가용성 및 재해 복구](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에 설명되어 있습니다.
 
 ### <a name="encryption-of-data-at-rest"></a>미사용 데이터 암호화
 HANA 큰 인스턴스에 사용된 저장소를 통해 디스크에 저장된 대로 데이터의 투명한 암호화가 가능합니다. HANA 큰 인스턴스 단위 배포 시 이러한 종류의 암호화를 설정하는 옵션이 제공됩니다. 또한 이미 배포 후에는 암호화된 볼륨으로 변경하도록 선택할 수 있습니다. 암호화되지 않은 볼륨에서 암호화된 볼륨으로의 이동은 투명하며 가동 중지 시간이 필요하지 않습니다. 
@@ -464,14 +466,18 @@ Azure(큰 인스턴스)에서 SAP HANA에 연결되는 여러 SAP 시스템 또�
 
 ### <a name="routing-in-azure"></a>Azure에서 라우팅
 
-Azure(큰 인스턴스)의 SAP HANA에 대한 두 가지 중요한 네트워크 라우팅 고려 사항이 있습니다.
+Azure의 SAP HANA(대규모 인스턴스)에 대한 세 가지 중요한 네트워크 라우팅 고려 사항이 있습니다.
 
-1. Azure(큰 인스턴스)에서 SAP HANA는 전용 ExpressRoute 연결의 Azure VM에서만 액세스할 수 있으며 온-프레미스에서 직접 연결은 불가능합니다. 따라서 온-프레미스에서 실행되는 SAP Solution Manager처럼 직접 액세스가 필요한 관리 클라이언트 및 응용 프로그램은 SAP HANA 데이터베이스에 액세스할 수 없습니다.
+1. Azure의 SAP HANA(대규모 인스턴스)는 Azure VM 및 전용 ExpressRoute 연결을 통해서만 액세스할 수 있으며 온-프레미스에서 직접 연결은 불가능합니다. 현재 Microsoft에서 제공한 대로 온-프레미스에서 HANA 대규모 인스턴스 장치로의 직접 액세스는 SAP HANA 대규모 인스턴스에 사용되는 Azure 네트워크 아키텍처의 전이적 라우팅 제한으로 인해 불가능합니다. 따라서 온-프레미스에서 실행되는 SAP Solution Manager처럼 직접 액세스가 필요한 관리 클라이언트 및 응용 프로그램은 SAP HANA 데이터베이스에 액세스할 수 없습니다.
 
-2. Azure(큰 인스턴스) 단위의 SAP HANA에는 고객이 제출한 서버 IP 풀 주소 범위의 IP 주소가 할당되어 있습니다(자세한 내용은 [Azure의 SAP HANA(큰 인스턴스) 인프라 및 연결](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 참조).  이 IP 주소는 Azure(큰 인스턴스)에서 Azure VNet을 HANA에 연결하는 Azure 구독 및 ExpressRoute를 통해 액세스할 수 있습니다. 해당 서버 IP 풀 주소 범위를 벗어나 할당된 IP 주소는 하드웨어 장치에 직접 할당되며 이 솔루션의 첫 번째 배포에서처럼 더 이상 NAT되지 않습니다. 
+2. HANA 대규모 인스턴스가 재해 복구 목적으로 두 개의 다른 Azure 지역에 배포된 경우 동일하게 일시적인 라우팅 제한이 적용됩니다. 즉, 하나의 지역(예: 미국 서부)에 있는 HANA 대규모 인스턴스의 IP 주소는 다른 지역(예: 미국 동부)에 배포된 HANA 대규모 인스턴스 장치로 라우팅되지 않습니다. 교차 지역 또는 HANA 대규모 인스턴스 장치를 Azure VNet에 연결하는 ExpressRoute 회로를 연결하는 경우 Azure 네트워크 피어링의 사용과 독립적입니다. 이 설명서에서 아래에 표시된 대로입니다. 배포된 아키텍처를 포함하는 이 제한으로 인해 재해 복구 기능인 HANA 시스템 복제를 즉시 사용하지 않도록 금지합니다.
+
+3. Azure(큰 인스턴스) 단위의 SAP HANA에는 고객이 제출한 서버 IP 풀 주소 범위의 IP 주소가 할당되어 있습니다(자세한 내용은 [Azure의 SAP HANA(큰 인스턴스) 인프라 및 연결](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 참조).  이 IP 주소는 Azure(큰 인스턴스)에서 Azure VNet을 HANA에 연결하는 Azure 구독 및 ExpressRoute를 통해 액세스할 수 있습니다. 해당 서버 IP 풀 주소 범위를 벗어나 할당된 IP 주소는 하드웨어 장치에 직접 할당되며 이 솔루션의 첫 번째 배포에서처럼 더 이상 NAT되지 않습니다. 
 
 > [!NOTE] 
-> _데이터 웨어하우스_ 시나리오에서 Azure(큰 인스턴스)의 SAP HANA에 연결해야 하는 경우 응용 프로그램 및/또는 최종 사용자는 SAP HANA 데이터베이스(직접 실행)에 연결해야 하며 다른 네트워킹 구성 요소(데이터를 앞뒤로 라우팅하는 역방향 프록시)를 사용해야 합니다. 예를 들어 F5 BIG-IP, NGINX(Traffic Manager 포함)가 가상 방화벽/트래픽 라우팅 솔루션으로 Azure에 배포되어 있습니다.
+> 위의 처음 두 가지 목록 항목에 설명된 대로 일시적인 라우팅에 대한 제한을 해결해야 하는 경우 라우팅에 추가 구성 요소를 사용해야 합니다. 제한을 해결하기 위해 사용할 수 있는 구성 요소는 데이터를 라우팅하는 역방향 프록시입니다. 예를 들어 F5 BIG-IP, NGINX(Traffic Manager 포함)가 가상 방화벽/트래픽 라우팅 솔루션으로 Azure에 배포되어 있습니다.
+> Linux VM에서 [IPTables 규칙](http://www.linuxhomenetworking.com/wiki/index.php/Quick_HOWTO_%3a_Ch14_%3a_Linux_Firewalls_Using_iptables#.Wkv6tI3rtaQ)을 사용하여 온-프레미스 위치 및 HANA 대규모 인스턴스 장치 간 또는 다른 지역의 HANA 대규모 인스턴스 장치 간에 라우팅을 사용하도록 설정합니다.
+> Microsoft에서는 타사 네트워크 어플라이언스 또는 IPTables와 관련된 사용자 지정 솔루션에 대한 구현 및 지원을 제공하지 않습니다. 사용되는 구성 요소의 공급 업체 또는 통합자에서 지원을 제공해야 합니다. 
 
 ### <a name="internet-connectivity-of-hana-large-instances"></a>HANA 큰 인스턴스의 인터넷 연결
 HANA 큰 인스턴스에는 직접 인터넷 연결이 없습니다. 예를 들어 OS 공급업체에 OS 이미지 직접 등록처럼 이로 인해 사용자의 기능이 제한됩니다. 따라서 로컬 SLES SMT 서버 또는 RHEL Subscription Manager로 작업해야 할 수 있습니다

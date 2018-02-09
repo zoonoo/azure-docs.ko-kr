@@ -3,7 +3,7 @@ title: "Azure CLI를 사용하여 Azure VM에서 MSI를 구성하는 방법"
 description: "Azure CLI를 사용하여 Azure VM에서 MSI(관리 서비스 ID)를 구성하기 위한 단계별 지침을 제공합니다."
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: daveba
 manager: mtillman
 editor: 
 ms.service: active-directory
@@ -12,12 +12,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
-ms.author: bryanla
-ms.openlocfilehash: 70500ab572be9902c040388ee31a3fbed601445f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: daveba
+ms.openlocfilehash: d5fc509efa0437af93326d716c37514be82e8af1
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="configure-a-vm-managed-service-identity-msi-using-azure-cli"></a>Azure CLI를 사용하여 VM MSI(관리 서비스 ID) 구성
 
@@ -43,19 +43,19 @@ CLI 스크립트 예제는 다음의 세 가지 옵션 중 하나로 실행할 �
 
 MSI 기반 VM을 만들려면:
 
-1. Azure CLI를 로컬 콘솔에서 사용하는 경우 [az login](/cli/azure/#login)을 사용하여 먼저 Azure에 로그인합니다. VM을 배포하려는 Azure 구독과 연결된 계정을 사용하세요.
+1. Azure CLI를 로컬 콘솔에서 사용하는 경우 [az login](/cli/azure/#az_login)을 사용하여 먼저 Azure에 로그인합니다. VM을 배포하려는 Azure 구독과 연결된 계정을 사용하세요.
 
    ```azurecli-interactive
    az login
    ```
 
-2. [az group create](/cli/azure/group/#create)를 사용하여 VM 및 관련 리소스를 포함하고 배포하는 데 사용할 [리소스 그룹](../azure-resource-manager/resource-group-overview.md#terminology)을 만듭니다. 대신 사용하려는 리소스 그룹이 이미 있다면 이 단계를 건너뛰어도 됩니다.
+2. [az group create](/cli/azure/group/#az_group_create)를 사용하여 VM 및 관련 리소스를 포함하고 배포하는 데 사용할 [리소스 그룹](../azure-resource-manager/resource-group-overview.md#terminology)을 만듭니다. 대신 사용하려는 리소스 그룹이 이미 있다면 이 단계를 건너뛰어도 됩니다.
 
    ```azurecli-interactive 
    az group create --name myResourceGroup --location westus
    ```
 
-3. [az vm create](/cli/azure/vm/#create)를 사용하여 VM을 만듭니다. 다음 예제에서는 `--assign-identity` 매개 변수의 요청에 따라 MSI를 사용하여 *myVM*이라는 VM을 만듭니다. `--admin-username` 및 `--admin-password` 매개 변수는 가상 컴퓨터 로그인을 위한 관리자 이름 및 암호 계정을 지정합니다. 이러한 값은 사용자 환경에 적절하게 업데이트합니다. 
+3. [az vm create](/cli/azure/vm/#az_vm_create)를 사용하여 VM을 만듭니다. 다음 예제에서는 `--assign-identity` 매개 변수의 요청에 따라 MSI를 사용하여 *myVM*이라는 VM을 만듭니다. `--admin-username` 및 `--admin-password` 매개 변수는 가상 머신 로그인을 위한 관리자 이름 및 암호 계정을 지정합니다. 이러한 값은 사용자 환경에 적절하게 업데이트합니다. 
 
    ```azurecli-interactive 
    az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter --generate-ssh-keys --assign-identity --admin-username azureuser --admin-password myPassword12
@@ -63,9 +63,9 @@ MSI 기반 VM을 만들려면:
 
 ## <a name="enable-msi-on-an-existing-azure-vm"></a>기존 Azure VM에서 MSI를 사용하도록 설정
 
-기존 가상 컴퓨터에서 MSI를 사용하도록 설정해야 하는 경우 다음을 수행합니다.
+기존 Virtual Machine에서 MSI를 사용하도록 설정해야 하는 경우 다음을 수행합니다.
 
-1. Azure CLI를 로컬 콘솔에서 사용하는 경우 [az login](/cli/azure/#login)을 사용하여 먼저 Azure에 로그인합니다. VM을 포함하는 Azure 구독과 연결된 계정을 사용합니다. 또한 계정이 VM에 대한 쓰기 권한을 부여하는 역할에 속해야 합니다. 예, “가상 컴퓨터 참여자”:
+1. Azure CLI를 로컬 콘솔에서 사용하는 경우 [az login](/cli/azure/#az_login)을 사용하여 먼저 Azure에 로그인합니다. VM을 포함하는 Azure 구독과 연결된 계정을 사용합니다. 또한 계정이 VM에 대한 쓰기 권한을 부여하는 역할에 속해야 합니다. 예, “Virtual Machine 참여자”:
 
    ```azurecli-interactive
    az login
@@ -79,9 +79,9 @@ MSI 기반 VM을 만들려면:
 
 ## <a name="remove-msi-from-an-azure-vm"></a>Azure VM에서 MSI 제거
 
-MSI가 더 이상 필요하지 않은 가상 컴퓨터가 있는 경우 다음을 수행합니다.
+MSI가 더 이상 필요하지 않은 Virtual Machine이 있는 경우 다음을 수행합니다.
 
-1. Azure CLI를 로컬 콘솔에서 사용하는 경우 [az login](/cli/azure/#login)을 사용하여 먼저 Azure에 로그인합니다. VM을 포함하는 Azure 구독과 연결된 계정을 사용합니다. 또한 계정이 VM에 대한 쓰기 권한을 부여하는 역할에 속해야 합니다. 예, “가상 컴퓨터 참여자”:
+1. Azure CLI를 로컬 콘솔에서 사용하는 경우 [az login](/cli/azure/#az_login)을 사용하여 먼저 Azure에 로그인합니다. VM을 포함하는 Azure 구독과 연결된 계정을 사용합니다. 또한 계정이 VM에 대한 쓰기 권한을 부여하는 역할에 속해야 합니다. 예, “Virtual Machine 참여자”:
 
    ```azurecli-interactive
    az login
@@ -98,8 +98,8 @@ MSI가 더 이상 필요하지 않은 가상 컴퓨터가 있는 경우 다음�
 - [관리 서비스 ID 개요](msi-overview.md)
 - 전체 Azure VM 만들기 퀵 스타트는 다음 참조: 
 
-  - [CLI를 사용하여 Windows 가상 컴퓨터 만들기](../virtual-machines/windows/quick-create-cli.md)  
-  - [CLI를 사용하여 Linux 가상 컴퓨터 만들기](../virtual-machines/linux/quick-create-cli.md) 
+  - [CLI를 사용하여 Windows 가상 머신 만들기](../virtual-machines/windows/quick-create-cli.md)  
+  - [CLI를 사용하여 Linux 가상 머신 만들기](../virtual-machines/linux/quick-create-cli.md) 
 
 다음 설명 섹션을 사용하여 피드백을 제공하고 콘텐츠를 구체화하고 모양을 갖출 수 있습니다.
 

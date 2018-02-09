@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/01/2017
+ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: 9bfa673cd9fc896aaeeeb355950177d47e6428fa
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: edf6e1d8b86d9773b54353bb70f000bcdf40e5ec
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="what-is-azure-data-catalog"></a>Azure 데이터 카탈로그란?
 Azure Data Catalog는 사용자가 필요한 데이터 원본을 검색하고 찾은 데이터 원본을 파악할 수 있는 완전히 관리되는 클라우드 서비스입니다. 이와 동시에, 데이터 카탈로그를 통해 조직은 기존 투자에서 더 많은 가치를 창출할 수 있습니다. 
@@ -74,4 +74,4 @@ Azure Data Catalog는 사용자가 필요한 데이터 원본을 검색하고 �
 ## <a name="next-steps"></a>다음 단계
 데이터 카탈로그를 시작하려면 다음으로 이동합니다.
 * [Microsoft Azure Data Catalog](https://www.azuredatacatalog.com)
-* [Azure 데이터 카탈로그 시작](data-catalog-get-started.md)
+* [Azure Azure Data Catalog 시작](data-catalog-get-started.md)

@@ -1,5 +1,5 @@
 # 개요
-## [Mobile Apps란?](app-service-mobile-value-prop.md)
+## [Mobile Apps 정의](app-service-mobile-value-prop.md)
 ## [App Service 계획](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 # 시작
@@ -73,7 +73,7 @@
 #### [클라이언트 및 서버 버전 관리](app-service-mobile-client-and-server-versioning.md)
 
 ### App Service 환경
-#### [App Service 환경에서 웹앱 만들기](../app-service/environment/app-service-web-how-to-create-a-web-app-in-an-ase.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [App Service Environment에서 웹앱 만들기](../app-service/environment/app-service-web-how-to-create-a-web-app-in-an-ase.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 #### [Azure Resource Manager 템플릿을 사용하여 ILB ASE를 만드는 방법](../app-service/environment/app-service-app-service-environment-create-ilb-ase-resourcemanager.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 #### [내부 부하 분산 장치 사용](../app-service/environment/app-service-environment-with-internal-load-balancer.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
@@ -100,7 +100,7 @@
 
 ### [기존 앱 복제](../app-service/app-service-web-app-cloning.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Azure Virtual Network](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [리소스 그룹](../app-service/app-service-move-resources.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [리소스 그룹](../azure-resource-manager/resource-group-move-resources.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json#app-service-limitations)
 #### [WebJob으로 백그라운드 작업 실행](../app-service/web-sites-create-web-jobs.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 #### [구성](../app-service/environment/app-service-web-configure-an-app-service-environment.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
@@ -155,7 +155,7 @@
 ### [진단 로깅 사용](../app-service/web-sites-enable-diagnostic-log.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Visual Studio를 사용하여 문제 해결](../app-service/web-sites-dotnet-troubleshoot-visual-studio.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
-# 참조
+# 참고 자료
 ## [.NET 백 엔드 SDK](https://msdn.microsoft.com/library/azure/dn961176.aspx)
 ## [Node.js 백 엔드 SDK](https://azure.github.io/azure-mobile-apps-node/)
 ## [Android 클라이언트 SDK](https://azure.github.io/azure-mobile-apps-android-client/)
@@ -170,7 +170,7 @@
 ## [App Service 모범 사례](../app-service/app-service-best-practices.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=azuremobile)
-## [가격](https://azure.microsoft.com/en-us/pricing/details/app-service/)
+## [가격 책정](https://azure.microsoft.com/en-us/pricing/details/app-service/)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=mobile-services)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-mobile-services)

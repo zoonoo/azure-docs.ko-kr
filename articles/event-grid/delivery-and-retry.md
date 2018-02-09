@@ -2,17 +2,17 @@
 title: "Azure Event Grid 배달 및 다시 시도"
 description: "Azure Event Grid에서 이벤트를 배달하는 방법 및 배달되지 않은 메시지를 처리하는 방법을 설명합니다."
 services: event-grid
-author: djrosanova
+author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 08/11/2017
-ms.author: darosa
-ms.openlocfilehash: e0f8afdfd84ea3c0c061459c27da285f6ae8957e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 01/30/2018
+ms.author: tomfitz
+ms.openlocfilehash: cdf6a4e999d55196e8f4eac5695163a7e5a933de
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Event Grid 메시지 배달 및 다시 시도 
 
@@ -58,13 +58,14 @@ Event Grid는 이벤트 배달에 대해 지수 백오프 재시도 정책을 �
 6. 30분
 7. 1시간
 
-Event Grid는 약간의 불규칙을 모든 다시 시도 간격에 추가합니다.
+Event Grid는 약간의 불규칙을 모든 다시 시도 간격에 추가합니다. 한 시간 후에 이벤트 배달은 한 시간에 한 번 다시 시도됩니다.
 
 ## <a name="retry-duration"></a>다시 시도 기간
 
-미리 보기 동안 Azure Event Grid는 2시간 이내에 배달되지 않는 모든 이벤트를 만료합니다. 일반 공급 전에 이 시간은 24시간으로 증가될 예정입니다. 
+Azure Event Grid는 24시간 이내에 배달되지 않는 모든 이벤트를 만료합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
+* 이벤트 배달 상태를 보려면 [Event Grid 메시지 배달 모니터링](monitor-event-delivery.md)을 참조하세요.
 * Event Grid에 대한 소개는 [Event Grid 정보](overview.md)를 참조하세요.
 * Event Grid를 빠르게 시작하려면 [Azure Event Grid를 사용하여 사용자 지정 이벤트 만들기 및 라우팅](custom-event-quickstart.md)을 참조하세요.

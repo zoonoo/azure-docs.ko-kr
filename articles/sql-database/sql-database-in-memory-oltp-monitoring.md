@@ -13,23 +13,23 @@ ms.workload: Inactive
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2017
+ms.date: 01/16/2018
 ms.author: jodebrui
-ms.openlocfilehash: 613a9ced91d71cc9a65ea67e6ede1a78a03b4bd5
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 1e7088e80cc86e3c7cf8ae8ea180d797de613e71
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="monitor-in-memory-oltp-storage"></a>메모리 내 OLTP 저장소 모니터링
-[메모리 내 OLTP](sql-database-in-memory.md)를 사용하는 경우 메모리에 최적화된 테이블 및 테이블 변수에 있는 데이터는 메모리 내 OLTP 저장소에 상주합니다. 각 프리미엄 서비스 계층은 최대 메모리 내 OLTP 저장소 크기가 있으며 이는 [단일 데이터베이스 리소스 제한](sql-database-resource-limits.md#single-database-storage-sizes-and-performance-levels) 및 [탄력적 풀 리소스 제한](sql-database-resource-limits.md#elastic-pool-change-storage-size)에서 설명합니다. 이 제한이 초과되면 삽입 및 업데이트 작업이 실패(오류 41823)하기 시작할 수 있습니다. 해당 시점에서 데이터를 삭제하여 하나에 메모리를 회수하거나 데이터베이스의 성능 계층을 업그레이드해야 합니다.
+[메모리 내 OLTP](sql-database-in-memory.md)를 사용하는 경우 메모리 최적화 테이블 및 테이블 변수에 있는 데이터는 메모리 내 OLTP 저장소에 상주합니다. 각 프리미엄 서비스 계층은 최대 메모리 내 OLTP 저장소 크기가 있으며 이는 [단일 데이터베이스 리소스 제한](sql-database-resource-limits.md#single-database-storage-sizes-and-performance-levels) 및 [탄력적 풀 리소스 제한](sql-database-resource-limits.md#elastic-pool-change-storage-size)에서 설명합니다. 이 제한이 초과되면 삽입 및 업데이트 작업이 실패할 수 있습니다(독립 실행형 데이터베이스의 경우 오류 41823, 탄력적 풀의 경우 오류 41840). 해당 시점에서 데이터를 삭제하여 메모리를 회수하거나 데이터베이스의 성능 계층을 업그레이드해야 합니다.
 
-## <a name="determine-whether-data-will-fit-within-the-in-memory-storage-cap"></a>데이터가 메모리 내 저장소 용량에 맞는지 여부 결정
+## <a name="determine-whether-data-fits-within-the-in-memory-oltp-storage-cap"></a>데이터가 메모리 내 OLTP 저장소 용량에 맞는지 여부 결정
 다른 프리미엄 서비스 계층의 저장소 용량을 결정합니다. [단일 데이터베이스 리소스 제한](sql-database-resource-limits.md#single-database-storage-sizes-and-performance-levels) 및 [탄력적 풀 리소스 제한](sql-database-resource-limits.md#elastic-pool-change-storage-size)을 참조하세요.
 
-메모리에 최적화된 테이블에 대한 메모리 요구 사항을 추정하면 Azure SQL Database에서 SQL Server가 작동과 동일한 방식으로 작동합니다. [MSDN](https://msdn.microsoft.com/library/dn282389.aspx)의 항목을 검토하는 데 몇 분이 걸립니다.
+메모리 최적화 테이블에 대한 메모리 요구 사항을 추정하면 Azure SQL Database에서 SQL Server가 작동과 동일한 방식으로 작동합니다. [MSDN](https://msdn.microsoft.com/library/dn282389.aspx)의 해당 문서를 검토하는 데 몇 분이 걸립니다.
 
-테이블 및 테이블 변수 행 뿐만 아니라 인덱스가 사용자 데이터 크기를 계산합니다. 또한 ALTER TABLE은 전체 테이블 및 인덱스의 새 버전을 만들기 위해 충분한 공간이 필요합니다.
+테이블 및 테이블 변수 행뿐만 아니라 인덱스가 최대 사용자 데이터 크기를 계산합니다. 또한 ALTER TABLE은 전체 테이블 및 인덱스의 새 버전을 만들기 위해 충분한 공간이 필요합니다.
 
 ## <a name="monitoring-and-alerting"></a>모니터링 및 경고
 메모리 내 저장소 사용량을 [Azure Portal](https://portal.azure.com/)에서 성능 계층에 대한 저장소 용량 비율로 모니터링할 수 있습니다. 
@@ -43,15 +43,18 @@ ms.lasthandoff: 10/31/2017
     SELECT xtp_storage_percent FROM sys.dm_db_resource_stats
 
 
-## <a name="correct-out-of-memory-situations---error-41823"></a>메모리 부족 상황 수정 - 오류 41823
-메모리가 부족하면 오류 메시지 41823과 함께 삽입, 업데이트 및 만들기 작업이 실패합니다.
+## <a name="correct-out-of-in-memory-oltp-storage-situations---errors-41823-and-41840"></a>메모리 내 OLTP 저장소 부족 상황 수정 - 오류 41823 및 41840
+데이터베이스에서 메모리 내 OLTP 저장소 용량에 도달하면 독립 실행형 데이터베이스의 경우 오류 메시지 41823 또는 탄력적 풀의 경우 오류 41840과 함께 INSERT, UPDATE, ALTER 및 CREATE 작업이 실패할 수 있습니다. 두 오류 모두 활성 트랜잭션이 중단됩니다.
 
-오류 메시지 41823은 메모리 액세스에 최적화된 테이블 및 테이블 변수가 최대 크기를 초과했음을 나타냅니다.
+오류 메시지 41823 및 41840은 데이터베이스 또는 풀에서 메모리에 최적화된 테이블 및 테이블 변수가 최대 메모리 내 OLTP 저장소 크기에 도달했음을 나타냅니다.
 
 이 오류를 해결하려면
 
-* 잠재적으로 데이터를 기존의 디스크 기반 테이블에 오프로드딩하여 메모리에 최적화된 테이블에서 데이터를 삭제합니다. 또는
-* 메모리에 최적화된 테이블에서 유지하는 데 필요한 데이터에 대한 충분한 메모리 내 저장소가 있는 서비스 계층을 업그레이드합니다.
+* 잠재적으로 데이터를 기존의 디스크 기반 테이블에 오프로드딩하여 메모리 최적화 테이블에서 데이터를 삭제합니다. 또는
+* 메모리 최적화 테이블에서 유지하는 데 필요한 데이터에 대한 충분한 메모리 내 저장소가 있는 서비스 계층을 업그레이드합니다.
+
+> [!NOTE] 
+> 드문 경우지만 오류 41823 및 41840은 일시적일 수 있습니다. 즉, 메모리 내 OLTP 저장소 용량이 충분하고 작업을 다시 시도하면 성공할 수 있습니다. 따라서 사용 가능한 전체 메모리 내 OLTP 저장소를 모니터링하고 처음 41823 또는 41840 오류가 발생하는 경우에는 다시 시도하는 것이 좋습니다. 다시 시도 논리에 대한 자세한 내용은 [메모리 내 OLTP를 통해 충돌 검색 및 다시 시도 논리](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/transactions-with-memory-optimized-tables#conflict-detection-and-retry-logic)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 모니터링 지침은 [동적 관리 뷰를 사용하여 Azure SQL Database 모니터링](sql-database-monitoring-with-dmvs.md)을 참조하세요.

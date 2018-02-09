@@ -1,6 +1,6 @@
 ---
 title: "Azure에서 SAP HANA 운영 | Microsoft Docs"
-description: "Azure 기본 VM에서 SAP HANA 운영"
+description: "Azure Virtual Machines에 배포된 SAP HANA 시스템에 대한 운영 가이드입니다."
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: 
 author: juergent
@@ -16,132 +16,140 @@ ms.workload: infrastructure
 ms.date: 11/17/2017
 ms.author: msjuergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0328bdc40429e1e82a76f290f5bde39089db0a9d
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 1d6991d40b9bb8543898bbbdc9d7c905dfe11536
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="sap-hana-on-azure-operations-guide"></a>Azure의 SAP HANA 운영 가이드
-이 가이드에서는 Azure Virtual Machines에 배포된 SAP HANA 시스템 운영을 위한 지침을 제공합니다. 이 문서는 어떠한 표준 SAP 문서도 대신하지 않습니다. SAP 가이드와 참고는 다음 위치에서 제공합니다.
+이 문서에서는 Azure VM(Virtual Machines)에 배포된 SAP HANA 시스템 운영을 위한 지침을 제공합니다. 이 문서는 다음 내용을 포함하는 표준 SAP 설명서를 대체하기 위한 것이 아닙니다.
 
-- [SAP 관리 가이드](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/330e5550b09d4f0f8b6cceb14a64cd22.html)
-- [SAP 설치 가이드](https://service.sap.com/instguides)
-- [SAP 참고](https://sservice.sap.com/notes)
+- [SAP administration guide](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/330e5550b09d4f0f8b6cceb14a64cd22.html)(SAP 관리 가이드)
+- [SAP installation guides](https://service.sap.com/instguides)(SAP 설치 가이드)
+- [SAP notes](https://sservice.sap.com/notes)(SAP 참고)
 
-먼저 다음의 여러 Azure 구성 요소에 대한 기본 지식이 있어야 합니다.
+## <a name="prerequisites"></a>필수 조건
+이 가이드를 사용하려면 다음 Azure 구성 요소에 대한 기본 지식이 필요합니다.
 
-- [Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
-- [Azure Networking 및 VNet](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-virtual-network)
+- [Azure 가상 머신](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
+- [Azure 네트워킹 및 가상 네트워크](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-virtual-network)
 - [Azure Storage](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-disks)
 
-SAP NetWeaver 및 기타 Azure의 SAP 구성 요소에 관한 추가적인 문서는 [Azure 문서](https://docs.microsoft.com/azure/)의 [Azure의 SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started) 섹션에서 찾을 수 있습니다.
+Azure의 SAP NetWeaver 및 기타 SAP 구성 요소에 대해 자세히 알아보려면 [Azure 설명서](https://docs.microsoft.com/azure/)의 [Azure의 SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started) 섹션을 참조하세요.
 
 ## <a name="basic-setup-considerations"></a>기본 설치 고려 사항
-### <a name="connecting-into-azure"></a>Azure에 연결
-[SAP NetWeaver에 대한 Azure Virtual Machines 계획 및 구현][계획 -가이드]에서 설명한 것처럼 두 가지 기본 방법으로 Azure Virtual Machines에 연결할 수 있습니다. 
+다음 섹션에서는 Azure VM에 SAP HANA 시스템을 배포하기 위한 기본 설치 고려 사항을 설명합니다.
 
-- 인터넷과, Jump VM 또는 SAP HANA를 실행하는 VM의 공개 끝점을 통해 연결
+### <a name="connect-into-azure-virtual-machines"></a>Azure Virtual Machines에 연결
+[Azure Virtual Machines 계획 가이드](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide)에 설명된 대로 Azure VM에 연결하기 위한 두 가지 기본 방법이 있습니다.
+
+- SAP HANA를 실행하는 VM 또는 Jump VM의 공개 끝점과 인터넷을 통해 연결
 - [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal) 또는 Azure [ExpressRoute](https://azure.microsoft.com/services/expressroute/)를 통해 연결
 
-프로덕션 시나리오나, SAP 소프트웨어와 연계하여 프로덕션 시나리오를 준비하는 비 프로덕션 시나리오의 경우 이 그림에서 보듯 VPN이나 ExpressRoute를 통한 사이트 간 연결이 필요합니다.
+VPN 또는 ExpressRoute를 통한 사이트 간 연결은 프로덕션 시나리오에 필요합니다. 이 유형의 연결은 SAP 소프트웨어가 사용되는 프로덕션 시나리오로 제공되는 비프로덕션 시나리오에도 필요합니다. 다음 그림은 사이트 간 연결의 예를 보여 줍니다.
 
 ![사이트 간 연결](media/virtual-machines-shared-sap-planning-guide/300-vpn-s2s.png)
 
 
-### <a name="choice-of-azure-vm-types"></a>선택한 Azure VM 형식
-프로덕션 시나리오에 사용할 수 있는 Azure VM 유형은 [여기](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html)에서 확인할 수 있습니다. 비 프로덕션 시나리오의 경우 더 다양한 기본 Azure VM을 선택할 수 있습니다. 그러나 [SAP 참고 #1928533](https://launchpad.support.sap.com/#/notes/1928533)에 해당하는 VM 유형을 사용하도록 합니다. Azure에서 그러한 VM의 배포는 다음을 통해 수행할 수 있습니다.
+### <a name="choose-azure-vm-types"></a>Azure VM 유형 선택
+프로덕션 시나리오에 사용할 수 있는 Azure VM 유형은 [SAP documentation for IAAS](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html)(IAAS에 대한 SAP 설명서)에 나와 있습니다. 비프로덕션 시나리오의 경우 더 다양한 네이티브 Azure VM 유형을 사용할 수 있습니다.
 
-- Azure 포털
-- Azure Powershell Cmdlet
+>[!NOTE]
+>비프로덕션 시나리오의 경우 [SAP note #1928533](https://launchpad.support.sap.com/#/notes/1928533)(SAP 참고 #1928533)에 나열된 VM 유형을 사용합니다.
+
+다음을 사용하여 Azure에 VM을 배포합니다.
+
+- Azure Portal
+- Azure PowerShell cmdlet
 - Azure CLI
 
-[여기](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-s4h)에서 설명한 대로 [SAP 클라우드 플랫폼](https://cal.sap.com/)을 통해 Azure Virtual machines 서비스에 전체 설치된 SAP HANA 플랫폼을 배포할 수 있습니다.
+[SAP 클라우드 플랫폼](https://cal.sap.com/)을 통해 Azure VM 서비스에 전체 설치된 SAP HANA 플랫폼을 배포할 수도 있습니다. 설치 프로세스는 [Azure에서 SAP S/4HANA 또는 BW/4HANA 배포](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-s4h)에 설명되어 있습니다.
 
-### <a name="choice-of-azure-storage"></a>선택한 Azure Storage 
-Azure는 SAP HANA를 실행하는 Azure VM에 적합한 두 가지 주 저장소 유형을 제공합니다.
+### <a name="choose-azure-storage-type"></a>Azure Storage 유형 선택
+Azure에서는 SAP HANA를 실행하는 Azure VM에 적합한 두 가지 저장소 유형을 제공합니다.
 
 - [Azure Standard Storage](https://docs.microsoft.com/azure/virtual-machines/windows/standard-storage)
 - [Azure Premium Storage](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage)
 
-Azure는 Azure Standard 및 Premium Storage에서 VHD를 위한 두 가지 배포 방법을 제공합니다. 전반적인 시나리오에서 가능하다면 [Azure Managed Disk](https://azure.microsoft.com/services/managed-disks/) 배포를 활용하는 것이 좋습니다.
+Azure는 Azure Standard 및 Premium Storage에서 VHD를 위한 두 가지 배포 방법을 제공합니다. 전반적인 시나리오에서 가능하다면 [Azure Managed Disks](https://azure.microsoft.com/services/managed-disks/) 배포를 활용하세요.
 
-이러한 저장소 유형과 관련한 정확한 저장소 유형과 SLA는 [이 설명서](https://azure.microsoft.com/pricing/details/managed-disks/)를 확인하세요.
+저장소 유형 및 해당 SLA의 목록을 보려면 [관리 디스크에 대한 Azure 설명서](https://azure.microsoft.com/pricing/details/managed-disks/)를 참조하세요.
 
-/hana/data 및 /hana/log 볼륨에는 Azure Premium Disk를 사용하는 것이 좋습니다. 여러 Premium Storage 디스크에 걸쳐 LVM RAID를 빌드하고 이러한 RAID 볼륨을 /hana/data 및 /hana/log 볼륨으로 사용할 수 있습니다.
+/hana/data 및 /hana/log 볼륨에는 Azure Premium Disks를 사용하는 것이 좋습니다. 여러 Premium Storage 디스크에 LVM RAID를 빌드하고 이러한 RAID 볼륨을 /hana/data 및 /hana/log 볼륨으로 사용할 수 있습니다.
 
-고객이 지금까지 Azure VM에서 SAP HANA를 호스팅하는 데 사용한 여러 일반적인 VM 유형에 가능한 구성은 다음과 같을 수 있습니다.
+다음 표에서는 고객이 Azure VM에서 SAP HANA를 호스트하는 데 일반적으로 사용하는 VM 유형의 구성을 보여 줍니다.
 
-| VM SKU | RAM | /hana/data 및 /hana/log<br /> (LVM 또는 MDADM으로 스트라이프됨) | /hana/shared | /root 볼륨 | /usr/sap | hana/backup |
-| --- | --- | --- | --- | --- | --- | -- |
-| E16v3 | 128GB | 2 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S10 |
-| E32v3 | 256GB | 2 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S20 |
-| E64v3 | 443GB | 2 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S30 |
-| GS5 | 448GB | 2 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S30 |
-| M64s | 1TB | 2 x P30 | 1 x S30 | 1 x S6 | 1 x S6 |2 x S30 |
-| M64ms | 1.7TB | 3 x P30 | 1 x S30 | 1 x S6 | 1 x S6 | 3 x S30 |
-| M128s | 2TB | 3 x P30 | 1 x S30 | 1 x S6 | 1 x S6 | 3 x S30 |
-| M128ms | 3.8TB | 5 x P30 | 1 x S30 | 1 x S6 | 1 x S6 | 5 x S30 |
+| VM SKU | RAM | 최대 VM I/O<br /> 처리량 | /hana/data 및 /hana/log<br /> (LVM 또는 MDADM으로 스트라이프됨) | /hana/shared | /root 볼륨 | /usr/sap | hana/backup |
+| --- | --- | --- | --- | --- | --- | --- | -- |
+| E16v3 | 128GiB | 384MB | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S15 |
+| E32v3 | 256GiB | 768 MB | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S20 |
+| E64v3 | 443GiB | 1200GB | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S30 |
+| GS5 | 448GiB | 2000GB | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S30 |
+| M64s | 1000GiB | 1000GB | 2 x P30 | 1 x S30 | 1 x S6 | 1 x S6 |2 x S30 |
+| M64ms | 1750GiB | 1000GB | 3 x P30 | 1 x S30 | 1 x S6 | 1 x S6 | 3 x S30 |
+| M128s | 2000GiB | 2000GB |3 x P30 | 1 x S30 | 1 x S6 | 1 x S6 | 2 x S40 |
+| M128ms | 3800GiB | 2000GB | 5 x P30 | 1 x S30 | 1 x S6 | 1 x S6 | 2 x S50 |
 
 
-### <a name="azure-networking"></a>Azure 네트워킹
-VPN이나, Azure에 대한 ExpressRoute 사이트 간 연결이 있다고 가정하면 최소한 가상 게이트웨이를 통해 VPN이나 ExpressRoute 회로에 연결된 하나의 [Azure VNet](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)이 있을 것입니다. 가상 게이트웨이는 Azure Vnet의 서브넷에서 실행됩니다. HANA를 설치하려면 VNet 안에 다른 두 서브넷을 만들게 됩니다. 한 서브넷은 SAP HANA 인스턴스를 실행하는 VM을 호스팅하고, 다른 서브넷은 SAP HANA Studio나 다른 관리 소프트웨어를 호스팅할 수 있는 최종 점프박스나 관리 VM을 실행합니다.
-HANA를 실행하는 VM을 설치할 때 이 VM은 다음을 갖게 됩니다.
+> [!NOTE]
+> 3 x P20을 사용하는 작은 VM 유형에 권장되는 디스크는 [SAP TDI Storage Whitepaper](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html)(SAP TDI 저장소 백서)에 따른 공간 권장 사항과 관련된 볼륨 크기를 초과합니다. 하지만 이 표에 표시된 항목은 SAP HANA에 필요한 충분한 디스크 처리량을 제공하도록 선택되었습니다. 더 적은 I/O 처리량이 필요한 경우 /hana/data 및 /hana/log에 대한 Premium Storage 디스크 선택을 조정할 수 있습니다. 메모리 볼륨의 두 배인 백업을 유지하기 위해 크기 지정된 /hana/backup 볼륨의 크기 조정도 마찬가지입니다. 즉, 필요한 공간이 적으면 조정할 수 있습니다. VM의 크기를 조정하거나 결정할 때도 전체 VM I/O 처리량을 고려하세요. 전체 VM 처리량은 [메모리 최적화 가상 머신 크기](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory) 문서에 설명되어 있습니다.  
 
-- 두 가상 NIC 설치. 하나의 NIC는 관리 서브넷에 연결되고 다른 NIC는 온-프레미스나 다른 네트워크에서 Azure VM의 SAP HANA 인스턴스에 연결하는 데 사용됩니다.
-- 두 vNIC에 대해 배포된 고정 개인 IP 주소
+> [!NOTE]
+> [Azure 가상 머신 단일 VM SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_6/)를 활용하려면 Standard Storage(Sxx)로 나열된 모든 VHD를 Premium Storage(Pxx)로 변경해야 합니다. 
 
-다양한 IP 주소 할당 방식의 개요는 [여기](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm)에서 확인할 수 있습니다. 
 
-SAP HANA 인스턴스에 직접 라우팅되거나 점프박스에 라우팅되는 트래픽은 HANA 서브넷과 관리 서브넷에 연결된 [Azure Network Security Groups](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-nsg)에서 지시합니다.
+### <a name="set-up-azure-virtual-networks"></a>Azure 가상 네트워크 설정
+VPN 또는 ExpressRoute를 통해 Azure로의 사이트 간 연결이 있다면 가상 게이트웨이를 통해 VPN 또는 ExpressRoute 회로에 연결된 [Azure 가상 네트워크](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)가 하나 이상 있어야 합니다. 가상 게이트웨이는 Azure 가상 네트워크의 서브넷에서 실행됩니다. SAP HANA를 설치하려면 가상 네트워크 내에 두 개의 서브넷을 추가로 만듭니다. 한 서브넷은 SAP HANA 인스턴스를 실행하는 VM을 호스트하고, 다른 서브넷은 SAP HANA Studio 또는 기타 관리 소프트웨어를 호스트하는 Jumpbox 또는 관리 VM을 실행합니다.
 
-대략적인 전체 배포 스키마는 다음과 같습니다.
+SAP HANA를 실행할 VM을 설치할 때 VM에는 다음이 필요합니다.
+
+- 두 가상 NIC 설치: 하나의 NIC는 관리 서브넷에 연결되고 다른 NIC는 온-프레미스 네트워크나 다른 네트워크에서 Azure VM의 SAP HANA 인스턴스에 연결됩니다.
+- 두 가상 NIC에 대해 배포된 고정 개인 IP 주소
+
+IP 주소를 할당하는 다른 방법에 대한 개요는 [IP 주소 유형 및 Azure에서 할당 방법](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm)을 참조하세요. 
+
+[Azure NSG(네트워크 보안 그룹)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg)는 SAP HANA 인스턴스 또는 Jumpbox로 라우팅된 트래픽을 전달하는 데 사용됩니다. NSG는 SAP HANA 서브넷 및 관리 서브넷에 연결됩니다.
+
+다음 그림은 SAP HANA의 대략적인 배포 스키마를 간단하게 보여 줍니다.
 
 ![SAP HANA의 대략적인 배포 스키마](media/hana-vm-operations/hana-simple-networking.PNG)
 
 
-사이트 간 연결(VPN이나 ExpressRoute에서 Azure로) 없이 Azure에 SAP HANA를 배포한 경우, 점프박스 VM을 실행하는 Azure VM에 공개 IP 주소가 할당되지만 SAP HANA 인스턴스에는 액세스할 수 있습니다. 간단한 경우 Azure 기본 제공 DNS 서비스를 사용하여 호스트 이름을 확인합니다. 특히 공용 연결 IP 주소를 사용할 경우, Azure Network Security Groups를 사용하여 공용 연결 IP 주소를 통해 자산을 실행하는 Azure 서브넷에 연결할 수 있는 개방 포트나 IP 주소 범위를 제한합니다. 이러한 배포의 스키마는 다음과 유사합니다.
+사이트 간 연결 없이 Azure에 SAP HANA를 배포하려면 공용 IP 주소를 통해 SAP HANA 인스턴스에 액세스합니다. Jumpbox VM을 실행하는 Azure VM에 이 IP 주소를 할당해야 합니다. 이러한 기본 시나리오의 배포에서는 Azure 기본 제공 DNS 서비스가 호스트 이름을 확인해야 합니다. 공용 IP 주소가 사용되는 더 복잡한 배포에서는 Azure 기본 제공 DNS 서비스가 특히 중요합니다. Azure NSG를 사용하여 공용 IP 주소를 사용하는 자산이 있는 Azure 서브넷에 연결할 수 있는 열린 포트 또는 IP 주소 범위를 제한합니다. 다음 그림은 사이트 간 연결 없이 SAP HANA를 배포하는 경우의 대략적인 스키마를 보여 줍니다.
   
 ![사이트 간 연결 없는 SAP HANA의 대략적인 배포 스키마](media/hana-vm-operations/hana-simple-networking2.PNG)
  
 
 
-## <a name="operations"></a>작업
-### <a name="backup-and-restore-operations-on-azure-vms"></a>Azure VM의 백업 및 복원 작업
-SAP HANA 백업 및 복원 가능성은 다음 문서에서 설명합니다.
+## <a name="operations-for-deploying-sap-hana-on-azure-vms"></a>Azure VM에서 SAP HANA를 배포하기 위한 작업
+다음 섹션에서는 Azure VM에서 SAP HANA 시스템을 배포하는 일과 관련된 몇 가지 작업을 설명합니다.
+
+### <a name="back-up-and-restore-operations-on-azure-vms"></a>Azure VM의 백업 및 복원 작업
+다음 문서에서는 SAP HANA 배포를 백업 및 복원하는 방법을 설명합니다.
 
 - [SAP HANA 백업 개요](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-guide)
 - [SAP HANA 파일 수준 백업](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-file-level)
-- [SAP HANA 저장소 스냅숏 벤치마크](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/sap-hana-backup-storage-snapshots)
+- [SAP HANA 저장소 스냅숏 벤치마크](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-storage-snapshots)
 
 
-
-### <a name="start-and-restart-of-vms-containing-sap-hana"></a>SAP HANA가 들어 있는 VM의 시작 및 다시 시작
-Azure 공용 클라우드의 장점 중 하나는 지출한 연산 시간에 대해서만 요금이 청구된다는 것입니다. 즉 SAP HANA를 실행하는 VM을 종료했다면 해당 시간 동안은 저장소 비용만 청구됩니다. 다시 SAP HANA가 있는 VM을 시작하면 VM이 시작되고 같은 IP 주소를 갖게 됩니다(고정 IP 주소로 배포한 경우). 
-
-
-### <a name="saprouter-enabling-sap-remote-support"></a>SAP 원격 지원 구현하는 SAPRouter 
-온-프레미스 위치와 Azure 간에 사이트 간 연결이 있고 SAP 구성 요소를 실행하고 있다면 이미 SAProuter를 실행하고 있을 가능성이 높습니다. 이 경우 Azure에서 SAP HANA 인스턴스 작업이 필요하지 않습니다. 단 SAPRouter 구성에서 HANA를 호스팅하는 VM의 개인 및 고정 IP 주소를 그대로 유지하고 HANA VM을 호스팅하는 서브넷의 NSG를 조절해야 합니다(포트 TCP/IP 3299를 통한 트래픽 허용).
-
-SAP HANA를 배포하고 있고 인터넷을 통해 Azure에 연결하며 SAP HANA가 있는 VM을 실행하는 Vnet에 SAP 라우터를 설치하지 않은 경우 아래와 같이 관리 서브넷에서 별도의 VM에 SAPRouter를 설치해야 합니다.
+### <a name="start-and-restart-vms-that-contain-sap-hana"></a>SAP HANA를 포함하는 VM 시작 및 다시 시작
+Azure 공용 클라우드의 두드러진 기능으로 사용한 컴퓨팅 시간(분)에 대해서만 요금이 부과되는 것을 들 수 있습니다. 예를 들어 SAP HANA를 실행 중인 VM을 종료하는 경우 해당 시간 동안의 저장소 비용만 청구됩니다. 초기 배포에서 VM에 대해 고정 IP 주소를 지정하는 경우 또 다른 기능을 사용할 수 있습니다. SAP HANA가 있는 VM을 다시 시작하면 VM이 이전 IP 주소로 다시 시작됩니다. 
 
 
-![사이트 간 연결 및 SAPRouter 없는 SAP HANA의 대략적인 배포 스키마](media/hana-vm-operations/hana-simple-networking3.PNG)
+### <a name="use-saprouter-for-sap-remote-support"></a>SAP 원격 지원에 SAProuter 사용
+온-프레미스 위치와 Azure 사이에 사이트 간 연결이 있고 SAP 구성 요소를 실행하고 있는 경우 이미 SAProuter를 실행 중일 것입니다. 이 경우 원격 지원을 위해 다음 항목을 완료하세요.
 
-SAPRouter는 점프박스 VM이 아니라 별도의 VM에 설치해야 합니다. 별도의 VM에는 고정 IP 주소가 필요합니다. SAP가 호스팅하는 SAPRouter(VM을 설치한 SAPRouter 인스턴스의 짝)에 SAPRouter를 연결하려면 SAP에 문의하여 SAPRouter 인스턴스 구성에 필요한 IP 주소를 SAP로부터 받아야 합니다. 필요한 유일한 포트는 TCP 포트 3299입니다.
-SAPRouter를 통한 원격 지원 연결의 설정 및 유지 관리 방법에 대한 자세한 내용은 이 [SAP 원본](https://support.sap.com/en/tools/connectivity-tools/remote-support.html)을 참조하세요.
+- SAP HANA를 호스트하는 VM의 개인 및 고정 IP 주소를 SAProuter 구성에서 유지 관리합니다.
+- HANA VM을 호스트하는 서브넷의 NSG에서 TCP/IP 포트 3299를 통해 트래픽을 허용하도록 구성합니다.
 
-### <a name="high-availability-with-sap-hana-on-azure-native-vms"></a>기본 Azure VM의 SAP HANA 고가용성 
-SUSE Linux 12 SP1 이상을 실행하면 STONITH 장치로 페이스메이커를 설정하여 HANA 시스템 복제 및 자동 장애 조치(failover)를 통해 동기화 복제를 사용하는 SAP HANA 구성을 설정할 수 있습니다. 설정 절차는 [Azure Virtual Machines의 SAP HANA 고가용성](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/sap-hana-high-availability)에서 설명합니다.
+인터넷을 통해 Azure에 연결 중이고 SAP HANA를 사용하는 VM에 대한 SAP 라우터가 없는 경우 이 구성 요소를 설치해야 합니다. 관리 서브넷에서 별도의 VM에 SAProuter를 설치합니다. 다음 그림은 사이트 간 연결 없이 SAProuter를 사용하여 SAP HANA를 배포하는 경우의 대략적인 스키마를 보여 줍니다.
 
- 
+![사이트 간 연결 및 SAProuter 없는 SAP HANA의 대략적인 배포 스키마](media/hana-vm-operations/hana-simple-networking3.PNG)
 
+SAPRouter는 Jumpbox VM이 아니라 별도의 VM에 설치해야 합니다. 별도의 VM에는 고정 IP 주소가 있어야 합니다. SAProuter를 SAP에서 호스트하는 SAProuter에 연결하려면 SAP에 IP 주소를 문의하세요. (SAP에서 호스트하는 SAProuter는 VM에 설치하는 SAProuter 인스턴스에 해당합니다.) SAP의 IP 주소를 사용하여 SAProuter 인스턴스를 구성합니다. 구성 설정에서 필수 포트는 TCP 포트 3299뿐입니다.
 
+SAProuter를 통해 원격 지원 연결을 설정하고 유지 관리하는 방법에 대한 자세한 내용은 [SAP documentation](https://support.sap.com/en/tools/connectivity-tools/remote-support.html)(SAP 설명서)을 참조하세요.
 
-
-
-
-
-
-
-
+### <a name="high-availability-with-sap-hana-on-azure-native-vms"></a>Azure 네이티브 VM의 SAP HANA 고가용성
+SUSE Linux 12 SP1 이상을 실행 중인 경우 STONITH 장치를 포함하는 Pacemaker 클러스터를 설정할 수 있습니다. 이 장치를 사용하면 HANA 시스템 복제를 통한 동기 복제와 자동 장애 조치(failover)를 사용하는 SAP HANA 구성을 설정할 수 있습니다. 설정 절차에 대한 자세한 내용은 [Azure Virtual Machines의 SAP HANA 고가용성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability)을 참조하세요.

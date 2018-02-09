@@ -1,5 +1,5 @@
 ---
-title: "Azure 세부 사용량 이해 | Microsoft Docs"
+title: "Azure 세부 사용량 이해"
 description: "Azure 구독에 대한 세부 사용량 CSV 섹션을 읽고 이해하는 방법을 알아봅니다."
 services: 
 documentationcenter: 
@@ -14,13 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
 ms.author: tonguyen
-ms.openlocfilehash: a99e0dfea16f9fe9776d24fc94eac9ee18c7b2b6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 999f24b5a5c1bd5d259b785f9107697d2928b4eb
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="understand-terms-on-your-microsoft-azure-detailed-usage-charges"></a>Microsoft Azure 세부 사용 요금 조건 이해 
+
 세부 사용 요금 CSV 파일에는 현재 청구 기간에 대한 일별 요금과 측정기 수준 사용 요금이 포함되어 있습니다. 
 
 세부 사용량 파일을 가져오려면 [Azure 청구서 및 일별 사용 현황 데이터를 받는 방법](billing-download-azure-invoice-daily-usage-date.md)을 참조하세요.
@@ -28,15 +29,14 @@ ms.lasthandoff: 10/11/2017
 
 사용 요금은 구독에 대한 총 **월별** 요금입니다. 사용 요금에서는 신용 또는 할인이 고려되지 않습니다.
 
-
-<div style="padding-top: 56.25%; position: relative; width: 100%;">
-<iframe style="position: absolute;top: 0;left: 0;right: 0;bottom: 0;" width="100%" height="100%" src="https://www.youtube.com/embed/p13S350M2Vk" frameborder="0" allowfullscreen></iframe>
-</div>
+>[!VIDEO https://www.youtube.com/embed/p13S350M2Vk]
 
 ## <a name="detailed-terms-and-descriptions-of-your-detailed-usage-file"></a>세부 사용량 파일에 대한 자세한 내용 및 설명
+
 다음 섹션에서는 자세한 사용 현황 파일 버전 2에 표시된 중요한 용어에 대해 설명합니다.
 
 ### <a name="statement"></a>문
+
 자세한 사용 현황 CSV 파일의 위쪽 섹션에는 해당 월 청구 기간 동안 사용된 서비스가 표시됩니다. 다음 표에는 이 섹션에 표시되는 용어와 설명이 나와 있습니다.
 
 | 용어 | 설명 |
@@ -76,7 +76,7 @@ CSV 파일의 일일 사용량 섹션에는 청구 요금에 영향을 주는 �
 |사용되는 서비스 |사용한 Azure 플랫폼 서비스입니다. |
 |리소스 그룹 |배포된 측정기가 실행되는 리소스 그룹입니다. <br/><br/>자세한 내용은 [Azure Resource Manager 개요](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)를 참조하세요. |
 |인스턴스 ID | 측정기에 대한 식별자입니다. <br/><br/> 식별자를 만들 때 측정기에 대해 지정한 이름을 포함합니다. 리소스의 이름 또는 정규화된 리소스 ID입니다. 자세한 내용은 [Azure Resource Manager API](https://docs.microsoft.com/rest/api/resources/resources)를 참조하세요. |
-|태그 | 측정기에 할당하는 태그입니다. 태그를 사용하여 청구 레코드를 그룹화합니다.<br/><br/>예를 들어 측정기를 사용하는 부서는 비용을 배분하는 데 태그를 사용할 수 있습니다. 태그를 내보내도록 지원하는 서비스에는 [Azure Resource Manager API](https://docs.microsoft.com/rest/api/resources/resources)를 사용하여 프로비전된 가상 컴퓨터, 저장소 및 네트워킹 서비스가 있습니다. 자세한 내용은 [태그를 사용하여 Azure 리소스 구성](http://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/)을 참조하세요. |
+|태그들 | 측정기에 할당하는 태그입니다. 태그를 사용하여 청구 레코드를 그룹화합니다.<br/><br/>예를 들어 측정기를 사용하는 부서는 비용을 배분하는 데 태그를 사용할 수 있습니다. 태그를 내보내도록 지원하는 서비스에는 [Azure Resource Manager API](https://docs.microsoft.com/rest/api/resources/resources)를 사용하여 프로비전된 가상 머신, 저장소 및 네트워킹 서비스가 있습니다. 자세한 내용은 [태그를 사용하여 Azure 리소스 구성](http://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/)을 참조하세요. |
 |추가 정보 |서비스 특정 메타데이터입니다. 예를 들어 가상 컴퓨터용 이미지 형식입니다. |
 |서비스 정보 1 |구독에서 서비스가 속한 프로젝트 이름입니다. |
 |서비스 정보 2 |선택적 서비스 특정 메타데이터를 캡처하는 레거시 필드입니다. |

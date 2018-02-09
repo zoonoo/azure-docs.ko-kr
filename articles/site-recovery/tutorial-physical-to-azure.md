@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/13/2017
 ms.author: raynew
-ms.openlocfilehash: ceb4b13e326b24360799c1a7a25fe48f213fabd7
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 1761da23c669d5370d12e5619e09b56c8b00c9a6
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Azure에 온-프레미스 물리적 서버에 대한 재해 복구 설정
 
-[Azure Site Recovery](site-recovery-overview.md) 서비스는 온-프레미스 컴퓨터와 Azure VM(Virtual Machines)의 복제, 장애 조치(Failover), 장애 복구(failback)를 관리 및 오케스트레이션하여 재해 복구 전략에 기여합니다.
+[Azure Site Recovery](site-recovery-overview.md) 서비스는 온-프레미스 컴퓨터와 Azure VM(Virtual Machines)의 복제, 장애 조치(failover), 장애 복구(failback)를 관리 및 오케스트레이션하여 재해 복구 전략에 기여합니다.
 
 이 자습서에서는 Azure에 대한 온-프레미스 물리적 Windows 및 Linux 서버의 재해 복구를 설정하는 방법을 보여 줍니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -62,9 +62,9 @@ Azure 계정에 Azure로 VM을 복제하기 위한 권한이 있는지 확인합
 
 
 
-### <a name="set-up-an-azure-network"></a>Azure 네트워크를 설정
+### <a name="set-up-an-azure-network"></a>Azure 네트워크를 설정합니다
 
-[Azure 네트워크](../virtual-network/virtual-network-get-started-vnet-subnet.md)를 설정합니다.
+[Azure 네트워크](../virtual-network/quick-create-portal.md)를 설정합니다.
 
 - Azure VM은 장애 조치 후 처음 만들 때 이 네트워크에 배치됩니다.
 - 네트워크가 Recovery Services 자격 증명 모음과 같은 지역에 있어야 합니다.
@@ -158,7 +158,7 @@ Azure 계정에 Azure로 VM을 복제하기 위한 권한이 있는지 확인합
 
 정책은 구성 서버와 자동으로 연결됩니다. 기본적으로 장애 복구(failback)에 대해 일치 정책이 자동으로 만들어집니다. 예를 들어 복제 정책이 **rep-policy**인 경우 장애 복구(failback) 정책 **rep-policy-failback**이 만들어집니다. 이 정책은 Azure에서 장애 복구(failback)를 시작하기 전에는 사용되지 않습니다.
 
-## <a name="enable-replication"></a>복제 활성화
+## <a name="enable-replication"></a>복제 사용
 
 각 서버에 대해 복제를 사용하도록 설정합니다.
 
@@ -183,4 +183,4 @@ Azure 계정에 Azure로 VM을 복제하기 위한 권한이 있는지 확인합
 
 ## <a name="next-steps"></a>다음 단계
 
-[재해 복구 훈련 실행](tutorial-dr-drill-azure.md)
+[재해 복구 드릴 실행](tutorial-dr-drill-azure.md)

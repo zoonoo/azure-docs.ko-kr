@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 10/05/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 7b37f9e103644d2492f69f4a4cc80d3fd57d4aa4
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 4727560df897f6c1a0aaa6d7f5d4e1c76fc02a46
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture---preview"></a>Azure IoT Edge 런타임 및 아키텍처에 대한 이해 - 미리 보기
 
@@ -99,7 +99,15 @@ Edge 에이전트의 실행을 시작하려면 azure-iot-runtime-ctl.py 시작 �
    * onFailure - 모듈이 충돌하면 Edge 에이전트에서 해당 모듈을 다시 시작합니다. 모듈이 완전히 종료되면 Edge 에이전트에서 해당 모듈을 다시 시작하지 않습니다.
    * Unhealthy - 모듈이 충돌하거나 비정상 상태로 간주되면 Edge 에이전트에서 해당 모듈을 다시 시작합니다.
    * Always - 모듈이 충돌하거나 비정상 상태로 간주되거나 어떤 방법으로든 종료되면 Edge 에이전트에서 해당 모듈을 다시 시작합니다. 
-   
+
+IoT Edge 에이전트는 IoT Hub에 런타임 응답을 보냅니다. 가능한 응답 목록은 다음과 같습니다.
+  * 200 - 확인
+  * 400 - 배포 구성이 잘못되었거나 유효하지 않습니다.
+  * 417 - 장치에 배포 구성 집합이 없습니다.
+  * 412 - 배포 구성의 스키마 버전이 잘못되었습니다.
+  * 406 - 에지 장치가 오프라인 상태이거나 상태 보고서를 전송하지 않습니다.
+  * 500 - 에지 런타임에서 오류가 발생했습니다.
+
 ### <a name="security"></a>보안
 
 IoT Edge 에이전트는 IoT Edge 장치의 보안에서 중요한 역할을 합니다. 예를 들어 모듈의 이미지를 시작하기 전에 해당 이미지의 확인과 같은 작업을 수행합니다. 이러한 기능은 V2 기능의 일반 공급 시에 추가됩니다. 

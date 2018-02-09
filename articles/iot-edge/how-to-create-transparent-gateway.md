@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 12/04/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 25f4cea1908a0f9bdf387ddfed5f29e6d19bdd20
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: c3621cb860339499089ebdf3c3581faf770f1fe3
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="create-an-iot-edge-device-that-acts-as-a-transparent-gateway---preview"></a>투명한 게이트웨이 역할을 하는 IoT Edge 장치 만들기 - 미리 보기
 
@@ -45,7 +45,7 @@ Azure IoT 장치 SDK를 사용하여 IoT Edge 게이트웨이에 장치를 연�
 장치-게이트웨이 토폴로지에 필요한 신뢰를 설정하는 어떤 인증서 인프라도 만들 수 있습니다. 이 문서에서는 IoT Hub에서 [X.509 CA 보안][lnk-iothub-x509]을 사용하도록 설정하는 데 사용하는 것과 동일한 인증서 설정을 가정합니다. 여기에는 특정 IoT Hub에 연결된 X.509 CA 인증서(*IoT Hub 소유자 CA*) 및 이 CA로 서명되고 IoT Edge 장치에 설치된 인증서 시리즈가 포함됩니다.
 
 >[!IMPORTANT]
->현재 IoT Edge 장치 및 다운트림 장치는 [SAS 토큰][lnk-iothub-tokens]만 사용하여 IoT Hub에서 인증을 받을 수 있습니다. 인증서는 리프 및 게이트웨이 장치 간의 TLS 연결이 유효한지 검사하는 데만 사용됩니다.
+>현재 IoT Edge 장치 및 다운스트림 장치는 [SAS 토큰][lnk-iothub-tokens]만 사용하여 IoT Hub에서 인증을 받을 수 있습니다. 인증서는 리프 및 게이트웨이 장치 간의 TLS 연결이 유효한지 검사하는 데만 사용됩니다.
 
 이 구성에서는 **IoT Hub 소유자 CA**를 다음으로 모두 사용합니다.
 * 모든 IoT Edge 장치에 IoT Edge 런타임을 설치하기 위한 서명 인증서
@@ -61,7 +61,7 @@ Azure IoT 장치 SDK를 사용하여 IoT Edge 게이트웨이에 장치를 연�
 >이 샘플은 테스트 목적으로만 사용됩니다. 프로덕션 시나리오를 보려면 [IoT 배포 보안 유지][lnk-iothub-secure-deployment]에서 IoT 솔루션 보안 유지 및 인증서 프로비전 방법에 대한 Azure IoT 지침을 참조하세요.
 
 
-1. GitHub에서 [Microsoft Azure IoT SDK 및 C 라이브러리]를 복제합니다.
+1. GitHub에서 Microsoft Azure IoT SDK 및 C 라이브러리를 복제합니다.
 
    ```
    git clone -b modules-preview https://github.com/Azure/azure-iot-sdk-c.git 
@@ -104,12 +104,12 @@ IoT Edge 장치를 게이트웨이로 구성하려면 이전 섹션에서 만든
 
 위의 샘플 스크립트에 나오는 다음 파일 이름을 사용합니다.
 
-| 출력 | Bash 스크립트 | PowerShell |
-| ------ | ----------- | ---------- |
-| 장치 인증서 | `certs/new-edge-device.cert.pem` | `certs/new-edge-device.cert.pem` |
-| 장치 개인 키 | `private/new-edge-device.cert.pem` | `private/new-edge-device.cert.pem` |
-| 장치 인증서 체인 | `certs/new-edge-device-full-chain.cert.pem` | `certs/new-edge-device-full-chain.cert.pem` |
-| IoT Hub 소유자 CA | `certs/azure-iot-test-only.root.ca.cert.pem` | `RootCA.pem` |
+| 출력 | 파일 이름 |
+| ------ | --------- |
+| 장치 인증서 | `certs/new-edge-device.cert.pem` |
+| 장치 개인 키 | `private/new-edge-device.cert.pem` |
+| 장치 인증서 체인 | `certs/new-edge-device-full-chain.cert.pem` |
+| IoT Hub 소유자 CA | `certs/azure-iot-test-only.root.ca.cert.pem`  |
 
 IoT Edge 런타임에 장치 및 인증서 정보를 제공합니다. 
  
@@ -168,8 +168,8 @@ Windows에서 PowerShell 출력 사용:
 
 OS 수준에서 이 단계를 수행하는 방식이 Windows와 Linux 배포판 간에 다릅니다.
 
-두 번째 단계는 게이트웨이 장치의 호스트 이름으로 참조하는 연결 문자열을 사용하여 IoT Hub 장치 SDK를 초기화하는 것입니다.
-이 작업은 장치 연결 문자열에 `GatewayHostName`을 추가하여 수행합니다. 예를 들어, `GatewayHostName` 속성을 추가하는 장치에 대한 샘플 장치 연결 문자열입니다.
+두 번째 단계는 게이트웨이 장치의 호스트 이름을 참조하는 연결 문자열을 사용하여 IoT Hub 장치 SDK를 초기화하는 것입니다.
+이 작업은 장치 연결 문자열에 `GatewayHostName`을 추가하여 수행합니다. 예를 들어, 다음은 `GatewayHostName` 속성을 추가하는 장치에 대한 샘플 장치 연결 문자열입니다.
 
    ```
    HostName=yourHub.azure-devices-int.net;DeviceId=yourDevice;SharedAccessKey=2BUaYca45uBS/O1AsawsuQslH4GX+SPkrytydWNdFxc=;GatewayHostName=mygateway.contoso.com

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 32adec024b2ee2649f2631cfa72ee575094aa0c0
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 603a22059dcf07c68f4c6576ea1df97d810eacf3
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="how-to-protect-a-web-api-backend-with-azure-active-directory-and-api-management"></a>Azure Active Directory 및 API Management로 Web API 백 엔드를 보호하는 방법
 다음 비디오에서는 Web API 백 엔드 빌드 및 Azure Active Directory 및 API Management로 OAuth 2.0 프로토콜을 사용하여 보호하는 방법을 보여줍니다.  이 문서에서는 비디오로 해당 단계에 대한 개요 및 추가 정보를 제공합니다. 이 24분 비디오에서는 다음을 수행할 수 있는 방법을 보여줍니다.
@@ -42,7 +42,7 @@ Azure Active Directory를 사용하여 Web API 백 엔드를 보호하려면 먼
 ![Azure Active Directory][api-management-create-aad]
 
 ## <a name="create-a-web-api-service-secured-by-azure-active-directory"></a>Azure Active Directory로 보안이 유지된 Web API 서비스 만들기
-이 단계에서는 Web API 백 엔드는 Visual Studio 2013을 사용하여 생성됩니다. 이 단계의 비디오는 1분 30초에 시작됩니다. Visual Studio에서 Web API 백 엔드 프로젝트를 만들려면 **파일**->**새로 만들기**->**프로젝트**를 클릭하고 **웹** 템플릿 목록에서 **ASP.NET 웹 응용 프로그램**을 선택합니다. 이 비디오에서 프로젝트의 이름은 **APIMAADDemo**입니다. **확인** 을 클릭하여 프로젝트를 만듭니다. 
+이 단계에서는 Web API 백 엔드는 Visual Studio 2013을 사용하여 생성됩니다. 이 단계의 비디오는 1분 30초에 시작됩니다. Visual Studio에서 Web API 백 엔드 프로젝트를 만들려면 **파일**->**새로 만들기**->**프로젝트**를 클릭하고 **웹** 템플릿 목록에서 **ASP.NET 웹 응용 프로그램**을 선택합니다. 이 비디오에서 프로젝트의 이름은 **APIMAADDemo**입니다. **확인**을 클릭하여 프로젝트를 만듭니다. 
 
 ![Visual Studio][api-management-new-web-app]
 
@@ -81,13 +81,13 @@ Azure에 로그인하라는 메시지가 표시될 수 있으며, 다음 웹앱�
 
 다음 `using` 명령문을 `CalcInput.cs` 파일의 맨 위에 추가합니다.
 
-```c#
+```csharp
 using Newtonsoft.Json;
 ```
 
 생성된 클래스를 다음 코드로 바꿉니다.
 
-```c#
+```csharp
 public class CalcInput
 {
     [JsonProperty(PropertyName = "a")]
@@ -104,7 +104,7 @@ public class CalcInput
 
 다음 `using` 명령문을 `CalcController.cs` 파일의 맨 위에 추가합니다.
 
-```c#
+```csharp
 using System.IO;
 using System.Web;
 using APIMAADDemo.Models;
@@ -112,7 +112,7 @@ using APIMAADDemo.Models;
 
 생성된 컨트롤러를 다음 코드로 바꿉니다. 이 코드는 기본 계산기 API의 `Add`, `Subtract`, `Multiply` 및 `Divide` 작업을 구현합니다.
 
-```c#
+```csharp
 [Authorize]
 public class CalcController : ApiController
 {
@@ -364,7 +364,7 @@ API를 가져오면 API에 대한 요약 페이지가 게시자 포털에 표시
 
 **사용해 보세요**를 클릭합니다.
 
-![시도][api-management-dev-portal-try-it]
+![사용해 보세요][api-management-dev-portal-try-it]
 
 **보내기**를 클릭하여 **401 권한 없음**의 응답 상태를 기록합니다.
 

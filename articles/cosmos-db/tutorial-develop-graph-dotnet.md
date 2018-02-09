@@ -1,9 +1,9 @@
 ---
 title: "Azure Cosmos DB: .NET의 Graph API를 사용하여 개발 | Microsoft Docs"
-description: ".NET을 사용하는 Azure Cosmos DB의 DocumentDB API를 통해 개발하는 방법에 대해 알아봅니다."
+description: ".NET을 사용하는 Azure Cosmos DB의 SQL API를 통해 개발하는 방법에 대해 알아봅니다."
 services: cosmos-db
 documentationcenter: 
-author: dennyglee
+author: luisbosquez
 manager: jhubbard
 editor: 
 ms.assetid: cc8df0be-672b-493e-95a4-26dd52632261
@@ -12,19 +12,19 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 05/10/2017
-ms.author: denlee
+ms.date: 01/02/2018
+ms.author: lbosq
 ms.custom: mvc
-ms.openlocfilehash: 613956416d35687c5f2fe0123a9a59182390b440
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: ddbfe11e4415e1c240914142f4daf54b3032f5d8
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-cosmos-db-develop-with-the-graph-api-in-net"></a>Azure Cosmos DB: .NET의 Graph API를 사용하여 개발
 Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터베이스 서비스입니다. Azure Cosmos DB의 핵심인 전역 배포 및 수평적 크기 조정 기능의 이점을 활용하여 문서, 키/값 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있습니다. 
 
-이 자습서에서는 Azure Portal을 사용하여 Azure Cosmos DB 계정을 만드는 방법 및 그래프 데이터베이스와 컨테이너를 만드는 방법을 보여 줍니다. 그런 다음 응용 프로그램에서 [Graph API](graph-sdk-dotnet.md)(미리 보기)를 사용하여 4명의 사람으로 구성된 간단한 소셜 네트워크를 만든 다음 Gremlin을 사용하여 그래프를 순회하고 쿼리합니다.
+이 자습서에서는 Azure Portal을 사용하여 Azure Cosmos DB 계정을 만드는 방법 및 그래프 데이터베이스와 컨테이너를 만드는 방법을 보여 줍니다. 그런 다음, 응용 프로그램에서 [Graph API](graph-sdk-dotnet.md)를 사용하여 4명으로 구성된 간단한 소셜 네트워크를 만든 다음 Gremlin을 사용하여 그래프를 트래버스하고 쿼리합니다.
 
 이 자습서에서 다루는 작업은 다음과 같습니다.
 
@@ -44,7 +44,7 @@ Gremlin은 쓰기 작업(DML)과 쿼리 및 순회 작업을 지원하는 함수
 다음 항목이 있는지 확인합니다.
 
 * 활성 Azure 계정. 계정이 없는 경우 [무료 계정](https://azure.microsoft.com/free/)에 등록할 수 있습니다. 
-    * 또는 이 자습서에 [Azure DocumentDB 에뮬레이터](local-emulator.md)를 사용할 수 있습니다.
+    * 또는 이 자습서에 [로컬 에뮬레이터](local-emulator.md)를 사용할 수 있습니다.
 * [Visual Studio](http://www.visualstudio.com/).
 
 ## <a name="create-database-account"></a>데이터베이스 계정 만들기
@@ -96,7 +96,7 @@ DocumentClient client = new DocumentClient(new Uri(endpoint), authKey);
 
 ## <a id="create-database"></a>데이터베이스 만들기 
 
-이제 [DocumentDB .NET SDK](documentdb-sdk-dotnet.md)에서 **DocumentClient** 클래스의 [CreateDatabaseAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) 메서드 또는 [CreateDatabaseIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync.aspx) 메서드를 사용하여 Azure Cosmos DB [데이터베이스](documentdb-resources.md#databases)를 만듭니다.  
+이제 [SQL .NET SDK](sql-api-sdk-dotnet.md)에서 **DocumentClient** 클래스의 [CreateDatabaseAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) 메서드 또는 [CreateDatabaseIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync.aspx) 메서드를 사용하여 Azure Cosmos DB [데이터베이스](sql-api-resources.md#databases)를 만듭니다.  
 
 ```csharp 
 Database database = await client.CreateDatabaseIfNotExistsAsync(new Database { Id = "graphdb" }); 

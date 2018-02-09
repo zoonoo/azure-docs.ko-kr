@@ -2,7 +2,7 @@
 title: "Azure Cosmos DB 테이블 API 소개 | Microsoft Docs"
 description: "인기 있는 OSS MongoDB API를 사용하여 대기 시간이 짧은 엄청난 양의 키-값 데이터를 저장하고 쿼리하는 데 Azure Cosmos DB를 사용하는 방법을 알아봅니다."
 services: cosmos-db
-author: mimig
+author: mimig1
 manager: jhubbard
 editor: monicar
 documentationcenter: 
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/20/2017
-ms.author: mimig1
-ms.openlocfilehash: 9321cf648e149408e68456d30e331e05720b60ab
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.author: mimig
+ms.openlocfilehash: 7e116400f55375afe1e57abc6dadae0536cdfceb
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Azure Cosmos DB 테이블 API 소개
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 11/28/2017
 * 보장된 고가용성
 * [자동 보조 인덱싱(영문)](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)
 
-Azure Table Storage에 대해 작성된 응용 프로그램은 코드를 변경하지 않고 테이블 API를 사용하여 Azure Cosmos DB로 마이그레이션할 수 있으며 프리미엄 기능을 활용할 수 있습니다. 테이블 API에는 .NET에 사용 가능한 하나의 클라이언트 SDK가 있습니다.
+Azure Table Storage에 대해 작성된 응용 프로그램은 코드를 변경하지 않고 테이블 API를 사용하여 Azure Cosmos DB로 마이그레이션할 수 있으며 프리미엄 기능을 활용할 수 있습니다. 테이블 API에는 .NET, Java, Python 및 Node.js에 사용할 수 있는 클라이언트 SDK가 있습니다.
 
 Aravind Ramachandran이 Azure Cosmos DB 테이블 API를 시작하는 방법을 설명하는 다음 비디오를 시청하는 것이 좋습니다.
 
@@ -52,7 +52,7 @@ Aravind Ramachandran이 Azure Cosmos DB 테이블 API를 시작하는 방법을 
 | 가격 | 저장소 최적화 | 처리량 최적화 |
 | SLA | 99.99% 가용성입니다. | 모든 단일 지역 계정 및 모든 다중 지역 계정에는 99.99% 가용성 SLA와 완화된 일관성이 제공되고, 일반 공급 시에는 모든 다중 지역 데이터베이스 계정에 [업계 최고 수준의 포괄적인 SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/)와 99.999% 읽기 가용성이 제공됩니다. |
 
-## <a name="get-started"></a>시작
+## <a name="get-started"></a>시작하기
 
 [Azure Portal](https://portal.azure.com)에서 새 Azure Cosmos DB 계정을 만듭니다. 그런 다음 [.NET을 사용하여 테이블 API에 대한 빠른 시작](create-table-dotnet.md)을 시작합니다. 
 

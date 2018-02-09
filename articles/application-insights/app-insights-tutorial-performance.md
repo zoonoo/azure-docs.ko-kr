@@ -10,11 +10,11 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 0edec15c7f14ee5338555b03700b7be32c3a1023
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 437c45891d1d20f5fadca8a58954185a3aef56ac
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>Azure Application Insights를 사용하여 성능 문제 찾기 및 진단
 
@@ -63,6 +63,14 @@ Application Insights는 응용 프로그램에서 다른 작업에 대한 성능
 5.  이 예제에서는 상당한 요청의 수가 처리되는 데 1초 이상이 소요되는 것을 볼 수 있습니다. **작업 세부 정보**를 클릭하여 이 작업의 세부 정보를 볼 수 있습니다.
 
     ![작업 세부 정보](media/app-insights-tutorial-performance/operation-details.png)
+
+    > [!NOTE]
+    “통합된 세부 정보: E2E 트랜잭션 진단” [미리 보기 환경](app-insights-previews.md)을 사용하도록 설정하여 요청, 종속성, 예외, 추적, 이벤트 등과 같은 모든 관련 서버 쪽 원격 분석을 하나의 전체 화면 보기에서 확인할 수 있습니다. 
+
+    미리 보기를 사용하도록 설정하면 통합된 환경에서 오류 또는 예외와 함께 종속성 호출에 소요된 시간을 볼 수 있습니다. 구성 요소 간 트랜잭션의 경우 세부 정보 창 함께 Gantt 차트를 통해 근본 원인 구성 요소, 종속성 또는 예외를 신속하게 진단할 수 있습니다. 아래쪽 섹션을 확장하여 선택한 구성 요소 작업에 수집된 모든 추적 또는 이벤트의 시간 시퀀스를 확인할 수 있습니다. [새 환경에 대해 자세히 알아보세요](app-insights-transaction-diagnostics.md).  
+
+    ![트랜잭션 진단](media/app-insights-tutorial-performance/e2e-transaction-preview.png)
+
 
 6.  지금까지 수집한 정보는 성능 저하가 있다는 것만을 확인하지만 근본 원인에 조금 접근합니다.  **프로파일러**는 작업에 대해 실행되는 실제 코드 및 각 단계에 필요한 시간을 표시하여 이를 돕습니다. 일부 작업은 프로파일러가 주기적으로 실행되므로 추적이 없을 수 있습니다.  시간이 지남에 따라 더 많은 작업에 추적이 있어야 합니다.  작업에 대한 프로파일러를 시작하려면 **프로파일러 추적**을 클릭합니다.
 5.  추적은 각 작업에 대한 개별 이벤트를 보여주므로 전반적인 작업의 기간에 대한 근본 원인을 진단할 수 있습니다.  가장 긴 기간을 포함하는 상위 예 중 하나를 클릭합니다.

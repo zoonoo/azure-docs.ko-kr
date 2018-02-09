@@ -15,15 +15,19 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/27/2017
 ms.author: glenga
-ms.openlocfilehash: 576167502fdb77c98c449dc5a448323dc5b23f35
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 6985d631bdac7114a72f105716c9483d0c5733ba
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Functions의 Azure Blob Storage 바인딩
 
-이 문서에서는 Azure Functions에서 Azure Blob Storage 바인딩을 사용하는 방법을 설명합니다. Azure Functions는 Blob에 대한 트리거, 입력 및 출력 바인딩을 지원합니다.
+이 문서에서는 Azure Functions에서 Azure Blob Storage 바인딩을 사용하는 방법을 설명합니다. Azure Functions는 Blob에 대한 트리거, 입력 및 출력 바인딩을 지원합니다. 문서에는 각 바인딩에 대한 섹션이 포함됩니다.
+
+* [Blob 트리거](#trigger)
+* [Blob 입력 바인딩](#input)
+* [Blob 출력 바인딩](#output)
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
@@ -37,19 +41,19 @@ Blob Storage 트리거를 사용하여 신규 또는 업데이트된 Blob를 검
 > [!NOTE]
 > 소비 계획에서 Blob 트리거를 사용하는 경우 함수 앱이 유휴 상태가 된 후 새 Blob을 처리하는 데 최대 10분이 지연될 수 있습니다. 함수 앱이 실행된 후에는 Blob이 즉시 처리됩니다. 이 초기 지연을 방지하려면 다음 옵션 중 하나를 고려합니다.
 > - 무중단이 사용되는 App Service 계획을 사용합니다.
-> - Blob 이름을 포함하는 큐 메시지와 같은 다른 메커니즘을 사용하여 Blob 처리를 트리거합니다. 예를 들어 [이 문서의 뒷부분에 나오는 Blob 입/출력 바인딩 예제](#input--output---example)를 참조하세요.
+> - Blob 이름을 포함하는 큐 메시지와 같은 다른 메커니즘을 사용하여 Blob 처리를 트리거합니다. 예를 들어 [이 문서의 뒷부분에 나오는 Blob 입력 바인딩 예제](#input---example)를 참조하세요.
 
 ## <a name="trigger---example"></a>트리거 - 예제
 
 언어 관련 예제를 참조하세요.
 
-* [미리 컴파일된 C#](#trigger---c-example)
-* [C# 스크립트](#trigger---c-script-example)
+* [C#](#trigger---c-example)
+* [C# 스크립트(.csx)](#trigger---c-script-example)
 * [JavaScript](#trigger---javascript-example)
 
 ### <a name="trigger---c-example"></a>트리거 - C# 예제
 
-다음 예제에서는 `samples-workitems` 컨테이너에서 Blob을 추가하거나 업데이트할 때 로그를 기록하는 [미리 컴파일된 C#](functions-dotnet-class-library.md) 코드를 보여줍니다.
+다음 예제에서는 `samples-workitems` 컨테이너에서 Blob을 추가하거나 업데이트할 때 로그를 기록하는 [C# 함수](functions-dotnet-class-library.md)를 보여줍니다.
 
 ```csharp
 [FunctionName("BlobTriggerCSharp")]        
@@ -59,11 +63,11 @@ public static void Run([BlobTrigger("samples-workitems/{name}")] Stream myBlob, 
 }
 ```
 
-`BlobTrigger` 특성에 대한 자세한 내용은 [트리거 - 특성](#trigger---attributes-for-precompiled-c)을 참조하세요.
+`BlobTrigger` 특성에 대한 자세한 내용은 [트리거 - 특성](#trigger---attributes)을 참조하세요.
 
 ### <a name="trigger---c-script-example"></a>트리거 - C# 스크립트 예제
 
-다음 예에서는 바인딩을 사용하는 *function.json* 파일 및 [C# 스크립트](functions-reference-csharp.md) 코드에서 Blob 트리거 바인딩을 보여줍니다. 함수는 `samples-workitems` 컨테이너에서 Blob을 추가하거나 업데이트할 때 로그를 씁니다.
+다음 예제에서는 바인딩을 사용하는 *function.json* 파일 및 [C# 스크립트(.csx)](functions-reference-csharp.md) 코드에서 Blob 트리거 바인딩을 보여줍니다. 함수는 `samples-workitems` 컨테이너에서 Blob을 추가하거나 업데이트할 때 로그를 씁니다.
 
 *function.json* 파일의 바인딩 데이터는 다음과 같습니다.
 
@@ -140,7 +144,7 @@ module.exports = function(context) {
 
 ## <a name="trigger---attributes"></a>트리거 - 특성
 
-[미리 컴파일된 C#](functions-dotnet-class-library.md) 함수의 경우 다음 특성을 사용하여 Blob 트리거를 구성합니다.
+[C# 클래스 라이브러리](functions-dotnet-class-library.md)에서 다음 특성을 사용하여 Blob 트리거를 구성합니다.
 
 * [BlobTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobTriggerAttribute.cs)는 [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet 패키지에 정의되어 있습니다.
 
@@ -168,7 +172,7 @@ module.exports = function(context) {
   }
   ```
 
-  전체 예제는 [트리거 - 미리 컴파일된 C# 예제](#trigger---c-example)를 참조하세요.
+  전체 예제는 [트리거 - C# 예제](#trigger---c-example)를 참조하세요.
 
 * [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)는 [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet 패키지에 정의되어 있습니다.
 
@@ -210,10 +214,12 @@ module.exports = function(context) {
 
 ## <a name="trigger---usage"></a>트리거 - 사용
 
-C# 및 C# 스크립트에서는 `Stream paramName`과 같은 메서드 매개 변수를 사용하여 Blob 데이터에 액세스합니다. C# 스크립트에서 `paramName`은 *function.json*의 `name` 속성에 지정된 값입니다. 다음 중 원하는 형식으로 바인딩할 수 있습니다.
+C# 및 C# 스크립트에서는 `T paramName`과 같은 메서드 매개 변수를 사용하여 Blob 데이터에 액세스합니다. C# 스크립트에서 `paramName`은 *function.json*의 `name` 속성에 지정된 값입니다. 다음 중 원하는 형식으로 바인딩할 수 있습니다.
 
-* `TextReader`
 * `Stream`
+* `TextReader`
+* `Byte[]`
+* `string`
 * `ICloudBlob`(*function.json*에서 "inout" 바인딩 방향 필요)
 * `CloudBlockBlob`(*function.json*에서 "inout" 바인딩 방향 필요)
 * `CloudPageBlob`(*function.json*에서 "inout" 바인딩 방향 필요)
@@ -271,7 +277,7 @@ Blob이 *original-Blob1.txt*인 경우 함수 코드에 있는 `blobname` 및 `b
 Blob 트리거는 몇 가지 메타데이터 속성을 제공합니다. 이러한 속성을 다른 바인딩에서 바인딩 식의 일부로 사용하거나 코드에서 매개 변수로 사용할 수 있습니다. 이러한 값은 [CloudBlob](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob?view=azure-dotnet) 형식과 동일한 의미 체계를 가집니다.
 
 
-|속성  |형식  |설명  |
+|자산  |type  |설명  |
 |---------|---------|---------|
 |`BlobTrigger`|`string`|Blob을 트리거하는 경로입니다.|
 |`Uri`|`System.Uri`|기본 위치에 대한 Blob의 URI입니다.|
@@ -308,54 +314,39 @@ Blob을 강제로 처리하려면 *azure-webjobs-hosts* 컨테이너에서 해�
 
 모니터링 중인 Blob 컨테이너에 10,000개 이상의 Blob이 포함된 경우 Functions 런타임은 로그 파일을 스캔하여 새롭거나 변경된 Blob을 확인합니다. 이 프로세스는 지연이 발생할 수 있습니다. Blob을 만든 후 몇 분이 경과할 때까지 함수가 트리거되지 않을 수도 있습니다. 또한 [저장소 로그는 "최선을 다해" 생성됩니다](/rest/api/storageservices/About-Storage-Analytics-Logging). 하지만 모든 이벤트가 캡처되는 것은 아닙니다. 경우에 따라 로그가 누락될 수 있습니다. 더 빠르거나 안정적인 Blob 처리가 필요한 경우 Blob을 만들 때 [큐 메시지](../storage/queues/storage-dotnet-how-to-use-queues.md)를 만드는 것이 좋습니다. 그런 다음 Blob 트리거 대신 [큐 트리거](functions-bindings-storage-queue.md)를 사용하여 Blob을 처리합니다. 다른 옵션은 Event Grid를 사용하는 겻입니다. [Event Grid를 사용하여 업로드된 이미지 크기 자동 조정](../event-grid/resize-images-on-storage-blob-upload-event.md) 자습서를 참조하세요.
 
-## <a name="input--output"></a>입력 및 출력
+## <a name="input"></a>입력
 
-Blob Storage 입력 및 출력 바인딩을 사용하여 Blob 읽기 및 쓰기
+Blob Storage 입력 바인딩을 사용하여 Blob을 읽습니다.
 
-## <a name="input--output---example"></a>입력 및 출력 - 예제
+## <a name="input---example"></a>입력 - 예제
 
 언어 관련 예제를 참조하세요.
 
-* [미리 컴파일된 C#](#input--output---c-example)
-* [C# 스크립트](#input--output---c-script-example)
-* [JavaScript](#input--output---javascript-example)
+* [C#](#input---c-example)
+* [C# 스크립트(.csx)](#input---c-script-example)
+* [JavaScript](#input---javascript-example)
 
-### <a name="input--output---c-example"></a>입력 및 출력 - C# 예제
+### <a name="input---c-example"></a>입력 - C# 예제
 
-다음 예제는 하나의 Blob 트리거와 두 개의 출력 Blob 바인딩을 사용하는 [미리 컴파일된 C#](functions-dotnet-class-library.md) 함수입니다. *샘플 이미지* 컨테이너에서 이미지 Blob을 만들어서 함수를 트리거합니다. 그러면 이미지 Blob의 소량 및 중간 크기 복사본을 만듭니다. 
+다음 예제는 하나의 큐 트리거와 입력 Blob 바인딩을 사용하는 [C# 함수](functions-dotnet-class-library.md)입니다. 큐 메시지에는 Bob의 이름이 포함되고 함수는 Bob의 크기를 기록합니다.
 
 ```csharp
-[FunctionName("ResizeImage")]
+[FunctionName("BlobInput")]
 public static void Run(
-    [BlobTrigger("sample-images/{name}")] Stream image, 
-    [Blob("sample-images-sm/{name}", FileAccess.Write)] Stream imageSmall, 
-    [Blob("sample-images-md/{name}", FileAccess.Write)] Stream imageMedium)
+    [QueueTrigger("myqueue-items")] string myQueueItem,
+    [Blob("samples-workitems/{queueTrigger}", FileAccess.Read)] Stream myBlob,
+    TraceWriter log)
 {
-    var imageBuilder = ImageResizer.ImageBuilder.Current;
-    var size = imageDimensionsTable[ImageSize.Small];
+    log.Info($"BlobInput processed blob\n Name:{myQueueItem} \n Size: {myBlob.Length} bytes");
 
-    imageBuilder.Build(image, imageSmall,
-        new ResizeSettings(size.Item1, size.Item2, FitMode.Max, null), false);
-
-    image.Position = 0;
-    size = imageDimensionsTable[ImageSize.Medium];
-
-    imageBuilder.Build(image, imageMedium,
-        new ResizeSettings(size.Item1, size.Item2, FitMode.Max, null), false);
 }
-
-public enum ImageSize { ExtraSmall, Small, Medium }
-
-private static Dictionary<ImageSize, (int, int)> imageDimensionsTable = new Dictionary<ImageSize, (int, int)>() {
-    { ImageSize.ExtraSmall, (320, 200) },
-    { ImageSize.Small,      (640, 400) },
-    { ImageSize.Medium,     (800, 600) }
-};
 ```        
 
-### <a name="input--output---c-script-example"></a>입력 및 출력 - C# 스크립트 예제
+### <a name="input---c-script-example"></a>입력 - C# 스크립트 예제
 
-다음 예에서는 바인딩을 사용하는 *function.json* 파일 및 [C# 스크립트](functions-reference-csharp.md) 코드에서 Blob 입력 및 출력 바인딩을 보여줍니다. 함수는 텍스트 Blob의 복사본을 만듭니다. 함수는 복사할 Blob의 이름을 포함하는 큐 메시지에 의해 트리거됩니다. 새 Blob의 이름은 *{originalblobname}-Copy*입니다.
+<!--Same example for input and output. -->
+
+다음 예제에서는 바인딩을 사용하는 *function.json* 파일 및 [C# 스크립트(.csx)](functions-reference-csharp.md) 코드에서 Blob 입력 및 출력 바인딩을 보여줍니다. 함수는 텍스트 Blob의 복사본을 만듭니다. 함수는 복사할 Blob의 이름을 포함하는 큐 메시지에 의해 트리거됩니다. 새 Blob의 이름은 *{originalblobname}-Copy*입니다.
 
 *function.json* 파일에서 `queueTrigger` 메타데이터 속성은 `path` 속성에서 Blob 이름을 지정하는 데 사용됩니다.
 
@@ -388,7 +379,7 @@ private static Dictionary<ImageSize, (int, int)> imageDimensionsTable = new Dict
 }
 ``` 
 
-[구성](#input--output---configuration) 섹션에서는 이러한 속성을 설명합니다.
+[구성](#input---configuration) 섹션에서는 이러한 속성을 설명합니다.
 
 C# 스크립트 코드는 다음과 같습니다.
 
@@ -400,7 +391,9 @@ public static void Run(string myQueueItem, string myInputBlob, out string myOutp
 }
 ```
 
-### <a name="input--output---javascript-example"></a>입력 및 출력 - JavaScript 예제
+### <a name="input---javascript-example"></a>입력 - JavaScript 예제
+
+<!--Same example for input and output. -->
 
 다음 예에서는 바인딩을 사용하는 *function.json* 파일 및 [JavaScript 코드](functions-reference-node.md)에서 Blob 입력 및 출력 바인딩을 보여줍니다. 함수는 Blob의 복사본을 만듭니다. 함수는 복사할 Blob의 이름을 포함하는 큐 메시지에 의해 트리거됩니다. 새 Blob의 이름은 *{originalblobname}-Copy*입니다.
 
@@ -435,7 +428,7 @@ public static void Run(string myQueueItem, string myInputBlob, out string myOutp
 }
 ``` 
 
-[구성](#input--output---configuration) 섹션에서는 이러한 속성을 설명합니다.
+[구성](#input---configuration) 섹션에서는 이러한 속성을 설명합니다.
 
 JavaScript 코드는 다음과 같습니다.
 
@@ -447,9 +440,221 @@ module.exports = function(context) {
 };
 ```
 
-## <a name="input--output---attributes"></a>입력 및 출력 - 특성
+## <a name="input---attributes"></a>입력 - 특성
 
-[미리 컴파일된 C#](functions-dotnet-class-library.md) 함수의 경우 [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet 패키지에 정의되어 있는 [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs)를 사용합니다.
+[C# 클래스 라이브러리](functions-dotnet-class-library.md)에서 [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet 패키지에 정의되어 있는 [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs)를 사용합니다.
+
+특성의 생성자는 다음 예제에 표시된 대로 Blob에 대한 경로 및 읽기 또는 쓰기를 나타내는 `FileAccess` 매개 변수를 사용합니다.
+
+```csharp
+[FunctionName("BlobInput")]
+public static void Run(
+    [QueueTrigger("myqueue-items")] string myQueueItem,
+    [Blob("samples-workitems/{queueTrigger}", FileAccess.Read)] Stream myBlob,
+    TraceWriter log)
+{
+    log.Info($"BlobInput processed blob\n Name:{myQueueItem} \n Size: {myBlob.Length} bytes");
+}
+
+```
+
+다음 예와 같이 사용할 저장소 계정을 지정하도록 `Connection` 속성을 설정할 수 있습니다.
+
+```csharp
+[FunctionName("BlobInput")]
+public static void Run(
+    [QueueTrigger("myqueue-items")] string myQueueItem,
+    [Blob("samples-workitems/{queueTrigger}", FileAccess.Read, Connection = "StorageConnectionAppSetting")] Stream myBlob,
+    TraceWriter log)
+{
+    log.Info($"BlobInput processed blob\n Name:{myQueueItem} \n Size: {myBlob.Length} bytes");
+}
+```
+
+`StorageAccount` 특성을 사용하여 클래스, 메서드 또는 매개 변수 수준에서 저장소 계정을 지정합니다. 자세한 내용은 [트리거 - 특성](#trigger---attributes)을 참조하세요.
+
+## <a name="input---configuration"></a>입력 - 구성
+
+다음 표에서는 *function.json* 파일 및 `Blob` 특성에 설정된 바인딩 구성 속성을 설명합니다.
+
+|function.json 속성 | 특성 속성 |설명|
+|---------|---------|----------------------|
+|**type** | 해당 없음 | `blob`로 설정해야 합니다. |
+|**direction** | 해당 없음 | `in`로 설정해야 합니다. 예외는 [사용](#input---usage) 섹션에서 표시됩니다. |
+|**name** | 해당 없음 | 함수 코드에서 Blob을 나타내는 변수의 이름입니다.|
+|**path** |**BlobPath** | Blob에 대한 경로입니다. | 
+|**연결** |**연결**| 이 바인딩에 사용할 저장소 연결 문자열을 포함하는 앱 설정의 이름입니다. 앱 설정 이름이 "AzureWebJobs"로 시작하는 경우 여기에서 이름의 나머지만을 지정할 수 있습니다. 예를 들어 `connection`을 "MyStorage"로 설정한 경우 함수 런타임 기능은 "AzureWebJobsMyStorage"라는 앱 설정을 찾습니다. `connection`을 비워 두면 함수 런타임 기능은 `AzureWebJobsStorage`라는 앱 설정에서 기본 저장소 연결 문자열을 사용합니다.<br><br>연결 문자열은 [Blob 전용 저장소 계정](../storage/common/storage-create-storage-account.md#blob-storage-accounts)이 아닌 범용 저장소 계정의 문자열이어야 합니다.|
+|해당 없음 | **Access** | 읽기 또는 쓰기를 나타냅니다. |
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
+
+## <a name="input---usage"></a>입력 - 사용
+
+C# 클래스 라이브러리 및 C# 스크립트에서는 `Stream paramName`과 같은 메서드 매개 변수를 사용하여 Blob에 액세스합니다. C# 스크립트에서 `paramName`은 *function.json*의 `name` 속성에 지정된 값입니다. 다음 중 원하는 형식으로 바인딩할 수 있습니다.
+
+* `TextReader`
+* `string`
+* `Byte[]`
+* `Stream`
+* `CloudBlobContainer`
+* `CloudBlobDirectory`
+* `ICloudBlob`(*function.json*에서 "inout" 바인딩 방향 필요)
+* `CloudBlockBlob`(*function.json*에서 "inout" 바인딩 방향 필요)
+* `CloudPageBlob`(*function.json*에서 "inout" 바인딩 방향 필요)
+* `CloudAppendBlob`(*function.json*에서 "inout" 바인딩 방향 필요)
+
+언급했 듯이 이러한 형식 중 일부에는 *function.json*에서 `inout` 바인딩 방향이 필요합니다. 이 방향은 Azure Portal의 표준 편집기에서 지원되지 않으므로 고급 편집기를 사용해야 합니다.
+
+텍스트 Blob을 읽는 경우 `string` 형식에 바인딩할 수 있습니다. 전체 Blob 내용이 메모리에 로드되므로 이 형식은 Blob 크기가 작은 경우에만 권장됩니다. 일반적으로 `Stream` 또는 `CloudBlockBlob` 형식을 사용하는 것이 좋습니다.
+
+JavaScript에서는 `context.bindings.<name>`을 사용하여 Blob 데이터에 액세스합니다.
+
+## <a name="output"></a>출력
+
+Blob Storage 출력 바인딩을 사용하여 Blob을 작성합니다.
+
+## <a name="output---example"></a>출력 - 예제
+
+언어 관련 예제를 참조하세요.
+
+* [C#](#output---c-example)
+* [C# 스크립트(.csx)](#output---c-script-example)
+* [JavaScript](#output---javascript-example)
+
+### <a name="output---c-example"></a>출력 - C# 예제
+
+다음 예제는 하나의 Blob 트리거와 두 개의 출력 Blob 바인딩을 사용하는 [C# 함수](functions-dotnet-class-library.md)입니다. *샘플 이미지* 컨테이너에서 이미지 Blob을 만들어서 함수를 트리거합니다. 그러면 이미지 Blob의 소량 및 중간 크기 복사본을 만듭니다. 
+
+```csharp
+[FunctionName("ResizeImage")]
+public static void Run(
+    [BlobTrigger("sample-images/{name}")] Stream image, 
+    [Blob("sample-images-sm/{name}", FileAccess.Write)] Stream imageSmall, 
+    [Blob("sample-images-md/{name}", FileAccess.Write)] Stream imageMedium)
+{
+    var imageBuilder = ImageResizer.ImageBuilder.Current;
+    var size = imageDimensionsTable[ImageSize.Small];
+
+    imageBuilder.Build(image, imageSmall,
+        new ResizeSettings(size.Item1, size.Item2, FitMode.Max, null), false);
+
+    image.Position = 0;
+    size = imageDimensionsTable[ImageSize.Medium];
+
+    imageBuilder.Build(image, imageMedium,
+        new ResizeSettings(size.Item1, size.Item2, FitMode.Max, null), false);
+}
+
+public enum ImageSize { ExtraSmall, Small, Medium }
+
+private static Dictionary<ImageSize, (int, int)> imageDimensionsTable = new Dictionary<ImageSize, (int, int)>() {
+    { ImageSize.ExtraSmall, (320, 200) },
+    { ImageSize.Small,      (640, 400) },
+    { ImageSize.Medium,     (800, 600) }
+};
+```        
+
+### <a name="output---c-script-example"></a>출력 - C# 스크립트 예제
+
+<!--Same example for input and output. -->
+
+다음 예제에서는 바인딩을 사용하는 *function.json* 파일 및 [C# 스크립트(.csx)](functions-reference-csharp.md) 코드에서 Blob 입력 및 출력 바인딩을 보여줍니다. 함수는 텍스트 Blob의 복사본을 만듭니다. 함수는 복사할 Blob의 이름을 포함하는 큐 메시지에 의해 트리거됩니다. 새 Blob의 이름은 *{originalblobname}-Copy*입니다.
+
+*function.json* 파일에서 `queueTrigger` 메타데이터 속성은 `path` 속성에서 Blob 이름을 지정하는 데 사용됩니다.
+
+```json
+{
+  "bindings": [
+    {
+      "queueName": "myqueue-items",
+      "connection": "MyStorageConnectionAppSetting",
+      "name": "myQueueItem",
+      "type": "queueTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "myInputBlob",
+      "type": "blob",
+      "path": "samples-workitems/{queueTrigger}",
+      "connection": "MyStorageConnectionAppSetting",
+      "direction": "in"
+    },
+    {
+      "name": "myOutputBlob",
+      "type": "blob",
+      "path": "samples-workitems/{queueTrigger}-Copy",
+      "connection": "MyStorageConnectionAppSetting",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
+``` 
+
+[구성](#output---configuration) 섹션에서는 이러한 속성을 설명합니다.
+
+C# 스크립트 코드는 다음과 같습니다.
+
+```cs
+public static void Run(string myQueueItem, string myInputBlob, out string myOutputBlob, TraceWriter log)
+{
+    log.Info($"C# Queue trigger function processed: {myQueueItem}");
+    myOutputBlob = myInputBlob;
+}
+```
+
+### <a name="output---javascript-example"></a>출력 - JavaScript 예제
+
+<!--Same example for input and output. -->
+
+다음 예에서는 바인딩을 사용하는 *function.json* 파일 및 [JavaScript 코드](functions-reference-node.md)에서 Blob 입력 및 출력 바인딩을 보여줍니다. 함수는 Blob의 복사본을 만듭니다. 함수는 복사할 Blob의 이름을 포함하는 큐 메시지에 의해 트리거됩니다. 새 Blob의 이름은 *{originalblobname}-Copy*입니다.
+
+*function.json* 파일에서 `queueTrigger` 메타데이터 속성은 `path` 속성에서 Blob 이름을 지정하는 데 사용됩니다.
+
+```json
+{
+  "bindings": [
+    {
+      "queueName": "myqueue-items",
+      "connection": "MyStorageConnectionAppSetting",
+      "name": "myQueueItem",
+      "type": "queueTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "myInputBlob",
+      "type": "blob",
+      "path": "samples-workitems/{queueTrigger}",
+      "connection": "MyStorageConnectionAppSetting",
+      "direction": "in"
+    },
+    {
+      "name": "myOutputBlob",
+      "type": "blob",
+      "path": "samples-workitems/{queueTrigger}-Copy",
+      "connection": "MyStorageConnectionAppSetting",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
+``` 
+
+[구성](#output---configuration) 섹션에서는 이러한 속성을 설명합니다.
+
+JavaScript 코드는 다음과 같습니다.
+
+```javascript
+module.exports = function(context) {
+    context.log('Node.js Queue trigger function processed', context.bindings.myQueueItem);
+    context.bindings.myOutputBlob = context.bindings.myInputBlob;
+    context.done();
+};
+```
+
+## <a name="output---attributes"></a>출력 - 특성
+
+[C# 클래스 라이브러리](functions-dotnet-class-library.md)에서 [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet 패키지에 정의되어 있는 [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs)를 사용합니다.
 
 특성의 생성자는 다음 예제에 표시된 대로 Blob에 대한 경로 및 읽기 또는 쓰기를 나타내는 `FileAccess` 매개 변수를 사용합니다.
 
@@ -475,18 +680,18 @@ public static void Run(
 }
 ```
 
-전체 예제는 [입력 및 출력 - 미리 컴파일된 C# 예제](#input--output---c-example)를 참조하세요.
+전체 예제는 [출력 - C# 예제](#output---c-example)를 참조하세요.
 
-`StorageAccount` 특성을 사용하여 클래스, 메서드 또는 매개 변수 수준에서 저장소 계정을 지정합니다. 자세한 내용은 [트리거 - 특성](#trigger---attributes-for-precompiled-c)을 참조하세요.
+`StorageAccount` 특성을 사용하여 클래스, 메서드 또는 매개 변수 수준에서 저장소 계정을 지정합니다. 자세한 내용은 [트리거 - 특성](#trigger---attributes)을 참조하세요.
 
-## <a name="input--output---configuration"></a>입력 및 출력 - 구성
+## <a name="output---configuration"></a>출력 - 구성
 
 다음 표에서는 *function.json* 파일 및 `Blob` 특성에 설정된 바인딩 구성 속성을 설명합니다.
 
 |function.json 속성 | 특성 속성 |설명|
 |---------|---------|----------------------|
 |**type** | 해당 없음 | `blob`로 설정해야 합니다. |
-|**direction** | 해당 없음 | 입력 바인딩의 경우 `in`으로 설정하거나 출력 바인딩의 경우 out으로 설정해야 합니다. 예외는 [사용](#input--output---usage) 섹션에서 표시됩니다. |
+|**direction** | 해당 없음 | 출력 바인딩에 대해 `out`로 설정해야 합니다. 예외는 [사용](#output---usage) 섹션에서 표시됩니다. |
 |**name** | 해당 없음 | 함수 코드에서 Blob을 나타내는 변수의 이름입니다.  `$return`으로 설정하여 함수 반환 값을 참조합니다.|
 |**path** |**BlobPath** | Blob에 대한 경로입니다. | 
 |**연결** |**연결**| 이 바인딩에 사용할 저장소 연결 문자열을 포함하는 앱 설정의 이름입니다. 앱 설정 이름이 "AzureWebJobs"로 시작하는 경우 여기에서 이름의 나머지만을 지정할 수 있습니다. 예를 들어 `connection`을 "MyStorage"로 설정한 경우 함수 런타임 기능은 "AzureWebJobsMyStorage"라는 앱 설정을 찾습니다. `connection`을 비워 두면 함수 런타임 기능은 `AzureWebJobsStorage`라는 앱 설정에서 기본 저장소 연결 문자열을 사용합니다.<br><br>연결 문자열은 [Blob 전용 저장소 계정](../storage/common/storage-create-storage-account.md#blob-storage-accounts)이 아닌 범용 저장소 계정의 문자열이어야 합니다.|
@@ -494,14 +699,17 @@ public static void Run(
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
-## <a name="input--output---usage"></a>입력 및 출력 - 사용
+## <a name="output---usage"></a>출력 - 사용
 
-미리 컴파일된 C# 및 C# 스크립트에서는 `Stream paramName`과 같은 메서드 매개 변수를 사용하여 Blob에 액세스합니다. C# 스크립트에서 `paramName`은 *function.json*의 `name` 속성에 지정된 값입니다. 다음 중 원하는 형식으로 바인딩할 수 있습니다.
+C# 클래스 라이브러리 및 C# 스크립트에서는 `Stream paramName`과 같은 메서드 매개 변수를 사용하여 Blob에 액세스합니다. C# 스크립트에서 `paramName`은 *function.json*의 `name` 속성에 지정된 값입니다. 다음 중 원하는 형식으로 바인딩할 수 있습니다.
 
+* `TextWriter`
 * `out string`
-* `TextWriter` 
-* `TextReader`
+* `out Byte[]`
+* `CloudBlobStream`
 * `Stream`
+* `CloudBlobContainer`
+* `CloudBlobDirectory`
 * `ICloudBlob`(*function.json*에서 "inout" 바인딩 방향 필요)
 * `CloudBlockBlob`(*function.json*에서 "inout" 바인딩 방향 필요)
 * `CloudPageBlob`(*function.json*에서 "inout" 바인딩 방향 필요)

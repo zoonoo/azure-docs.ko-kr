@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: jgao
-ms.openlocfilehash: 18f495864befafd26e7adafb5c01612222d2cfdf
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 074415ba50ecdb1799093a3ead3bdd22fd02cc15
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="apache-spark-bi-using-data-visualization-tools-with-azure-hdinsight"></a>Azure HDInsight와 함께 데이터 시각화 도구를 사용하는 Apache Spark BI
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 12/05/2017
 
 ## <a name="prerequisites"></a>필수 조건
 
-* **[HDInsight의 Spark 클러스터에서 대화형 쿼리 실행](./apache-spark-load-data-run-query.md)을 완료합니다**.
+* **[HDInsight의 Spark 클러스터에서 대화형 쿼리 실행](./apache-spark-load-data-run-query.md) 문서를 완료합니다**.
 * **Power BI**: [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/) 및 [Power BI 평가판 구독](https://app.powerbi.com/signupredirect?pbi_source=web)(선택 사항)
 * **Tableau**: [Tableau Desktop](http://www.tableau.com/products/desktop) 및 [Microsoft Spark ODBC 드라이버](http://go.microsoft.com/fwlink/?LinkId=616229)
 
@@ -109,7 +109,7 @@ Spark를 사용하는 첫 번째 단계는 Power BI Desktop에서 클러스터�
 
     ![Spark 클러스터 사용자 이름 및 암호](./media/apache-spark-use-bi-tools/apache-spark-bi-select-table.png "Spark 클러스터 사용자 이름 및 암호")
 
-    Power BI Desktop에 Spark 클러스터에 연결하고 `hvac` 테이블에서 데이터를 로드하는 데 필요한 정보가 있습니다. 테이블 및 해당 열이 **필드** 창에 표시됩니다.  다음 스크린샷이 표시됩니다.
+    Power BI Desktop에 Spark 클러스터에 연결하고 `hvac` 테이블에서 데이터를 로드하는 데 필요한 정보가 있습니다. 테이블 및 해당 열이 **필드** 창에 표시됩니다.  다음 스크린샷을 참조하세요.
 
 6. 각 건물에 대한 대상 온도와 실제 온도 간의 차이를 시각화합니다. 
 
@@ -212,11 +212,11 @@ Power BI 서비스를 사용하면 조직 전체에서 보고서 및 대시보�
 6. 왼쪽 아래에서 **Sheet1** 탭을 클릭합니다. 날짜별로 모든 건물에 대한 대상 및 실제 온도 평균을 보여 주는 시각화를 만듭니다. **날짜** 및 **건물 ID**를 **열**로, **실제 온도**/**대상 온도**를 **행**으로 끌어갑니다. **표시** 아래에서 **영역**을 선택하여 Spark 데이터 시각화에 대한 영역 맵을 사용합니다.
 
      ![Spark 데이터 시각화를 위한 필드 추가](./media/apache-spark-use-bi-tools/spark-data-visualization-add-fields.png "Spark 데이터 시각화를 위한 필드 추가")
-7. 기본적으로 온도 필드가 집계로 표시됩니다. 대신, 평균 온도를 표시하려면 아래 스크린샷에 표시된 것과 같이 드롭다운에서 이 작업을 하면 됩니다.
+7. 기본적으로 온도 필드가 집계로 표시됩니다. 대신, 평균 온도를 표시하려면 다음 스크린샷에 표시된 것과 같이 드롭다운에서 이 작업을 하면 됩니다.
 
     ![Spark 데이터 시각화에 대한 온도 평균 구하기](./media/apache-spark-use-bi-tools/spark-data-visualization-average-temperature.png "Spark 데이터 시각화에 대한 온도 평균 구하기")
 
-8. 또한 한 온도 맵을 다른 온도 맵 위에 겹쳐 놓아 대상 및 실제 온도 간의 차이를 보다 잘 파악할 수도 있습니다. 마우스를 하단 영역 맵의 모서리로 이동하면 빨간색 원으로 강조 표시된 핸들 모양이 나타납니다. 맵을 위쪽의 다른 맵으로 끌어온 후 빨간색 사각형으로 강조 표시된 모양이 표시되면 마우스를 놓습니다.
+8. 또한 한 온도 맵을 다른 온도 맵 위에 겹쳐 놓아 대상 및 실제 온도 간의 차이를 보다 잘 파악할 수도 있습니다. 빨간색 원으로 강조 표시된 핸들 모양이 나타날 때까지 마우스를 하단 영역 맵의 모서리로 이동합니다. 맵을 위쪽의 다른 맵으로 끌어온 후 빨간색 사각형으로 강조 표시된 모양이 표시되면 마우스를 놓습니다.
 
     ![Spark 데이터 시각화를 위한 맵 병합](./media/apache-spark-use-bi-tools/spark-data-visualization-merge-maps.png "Spark 데이터 시각화를 위한 맵 병합")
 

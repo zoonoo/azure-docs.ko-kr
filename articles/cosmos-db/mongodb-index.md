@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
 ms.author: mimig
-ms.openlocfilehash: 63cfa92feb08f32081fe02d4202fa6256c7b99dc
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: c65013fefe6750e82c71cb3d201a3195acd64127
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-cosmos-db-mongodb-api-documentation"></a>Azure Cosmos DB: MongoDB API 설명서
 
@@ -50,7 +50,7 @@ Azure Cosmos DB용 MongoDB API에 대한 학습을 시작하기 위해 일거야
 
 ### <a name="create-a-console-app"></a>콘솔 앱 만들기
 
-- [Node.JS](mongodb-samples.md) 
+- [Node.js](mongodb-samples.md) 
 - [.NET](tutorial-develop-mongodb.md)
 
 ### <a name="create-a-web-app"></a>웹앱 만들기
@@ -69,5 +69,5 @@ Azure Cosmos DB용 MongoDB API에 대한 학습을 시작하기 위해 일거야
 
 ## <a name="developers-guide"></a>개발자 가이드
 
-- [MongoChef 사용](mongodb-mongochef.md)
+- [Studio 3T(MongoChef) 사용](mongodb-mongochef.md)
 - [Robomongo 사용](mongodb-robomongo.md)

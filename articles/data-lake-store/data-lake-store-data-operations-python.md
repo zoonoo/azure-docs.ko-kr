@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: ffb691b5c04457e5781934b18304fac7b3c43cbb
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 19e41cb0bb22bf27db4581954f1f6e68b8a941c2
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/19/2018
 ---
-# <a name="filesystem-operations-on-azure-data-lake-store-using-rest-api"></a>REST API를 사용한 Azure Data Lake Store에서의 파일 시스템 작업
+# <a name="filesystem-operations-on-azure-data-lake-store-using-python"></a>Python을 사용한 Azure Data Lake Store에서의 파일 시스템 작업
 > [!div class="op_single_selector"]
 > * [.NET SDK](data-lake-store-data-operations-net-sdk.md)
 > * [Java SDK](data-lake-store-get-started-java-sdk.md)
@@ -30,7 +30,7 @@ ms.lasthandoff: 01/10/2018
 
 이 문서에서는 Python SDK를 사용하여 Azure Data Lake Store에서 파일 시스템 작업을 수행하는 방법을 알아봅니다. Python을 사용하여 Data Lake Store에서 계정 관리 작업을 수행하는 방법에 대한 지침은 [Python을 사용한 Data Lake Store에서의 계정 관리 작업](data-lake-store-get-started-python.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 * **Python**. Python을 [여기](https://www.python.org/downloads/)에서 다운로드할 수 있습니다. 이 문서에서는 Python 3.6.2를 사용합니다.
 

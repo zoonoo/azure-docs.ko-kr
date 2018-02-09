@@ -12,15 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2017
+ms.date: 01/29/2018
 ms.author: anwestg
-ms.openlocfilehash: 4ad91def00ca73f91f0ffd8e57afa442a93176f6
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: 93e10235e3de4ecea4d0e356bb4b52922c8afac8
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="capacity-planning-for-azure-app-service-server-roles-in-azure-stack"></a>Azure 앱 서비스 서버 역할에 Azure 스택을 위한 용량 계획
+*적용 대상: Azure 스택 통합 시스템과 Azure 스택 개발 키트*
 
 Azure 스택 앱 서비스를 Azure의 프로덕션 준비 배포를 프로 비전 하려면 지원 하기 위해 시스템 예상 용량 계획 해야 합니다.  다음은 최소 인스턴스 및 모든 프로덕션 배포에 사용 해야 하는 Sku 계산에 대 한 지침입니다.
 

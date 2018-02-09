@@ -3,32 +3,31 @@ title: "Actions 및 NotActions - Azure RBAC(역할 기반 액세스 제어) | Mi
 description: "이 항목에서는 역할 기반 액세스 제어(RBAC)에 대한 기본 제공 역할에 대해 설명합니다. 역할은 지속적으로 추가되므로 설명서가 최신 상태인지 확인합니다."
 services: active-directory
 documentationcenter: 
-author: andredm7
-manager: femila
+author: curtand
+manager: mtillman
 editor: 
-ms.assetid: b547c5a5-2da2-4372-9938-481cb962d2d6
 ms.service: active-directory
-ms.devlang: na
+ms.devlang: 
 ms.topic: article
-ms.tgt_pltfrm: na
+ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 06/28/2017
-ms.author: andredm
-ms.reviewer: 
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9a5de00793621cfdecea887c53a22d482a25d1b8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 01/30/2018
+ms.author: curtand
+ms.reviewer: rqureshi
+ms.custom: it-pro
+ms.openlocfilehash: 43a958129b3c86f5e7a596b992d793a600c46dfd
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Azure 역할 기반 액세스 제어의 기본 제공 역할
-Azure 역할 기반 액세스 제어(RBAC)에는 사용자, 그룹 및 서비스에 할당할 수 있는 다음 기본 제공 역할이 포함되었습니다. 기본 제공 역할의 정의는 수정할 수 없습니다. 그러나 조직의 특정 요구 사항에 맞게 [Azure RBAC에서 사용자 지정 역할](role-based-access-control-custom-roles.md) 을 만들 수 있습니다.
+Azure 역할 기반 Access Control(RBAC)에는 사용자, 그룹 및 서비스에 할당할 수 있는 다음 기본 제공 역할이 포함되었습니다. 기본 제공 역할의 정의는 수정할 수 없습니다. 그러나 조직의 특정 요구 사항에 맞게 [Azure RBAC에서 사용자 지정 역할](role-based-access-control-custom-roles.md) 을 만들 수 있습니다.
 
 ## <a name="roles-in-azure"></a>Azure의 역할
 다음 테이블은 기본 제공 역할을 간략하게 설명합니다. 역할 이름을 클릭하면 역할에 대한 **작업** 및 **작업 안 함** 목록을 자세히 볼 수 있습니다. **작업** 속성은 Azure 리소스에 허용되는 작업을 지정합니다. 작업 문자열에는 와일드카드 문자를 사용할 수 있습니다. **작업 안 함** 속성은 허용된 작업에서 제외되는 작업을 지정합니다.
 
-이 동작은 지정된 리소스 형식에 대해 수행할 수 있는 작업의 유형을 정의합니다. 예:
+이 동작은 지정된 리소스 형식에 대해 수행할 수 있는 작업의 유형을 정의합니다. 예: 
 - **쓰기**를 사용하여 PUT, POST, PATCH 및 DELETE 작업을 수행할 수 있습니다.
 - **읽기**를 사용하여 GET 작업을 수행할 수 있습니다.
 
@@ -40,22 +39,22 @@ Azure 역할 기반 액세스 제어(RBAC)에는 사용자, 그룹 및 서비스
 
 | 역할 이름 | 설명 |
 | --- | --- |
-| [API 관리 서비스 참여자](#api-management-service-contributor) |API Management 서비스 및 API를 관리할 수 있음 |
+| [API Management 서비스 참여자](#api-management-service-contributor) |API Management 서비스 및 API를 관리할 수 있음 |
 | [API Management 서비스 운영자 역할](#api-management-service-operator-role) | API 자체가 아닌 API Management 서비스를 관리할 수 있음 |
 | [Azure API Management 읽기 권한자 역할](#api-management-service-reader-role) | API Management 서비스 및 API에 대한 읽기 전용 액세스 |
 | [Application Insights 구성 요소 참여자](#application-insights-component-contributor) |Application Insights 구성 요소를 관리할 수 있음 |
-| [자동화 운영자](#automation-operator) |작업을 시작, 중지, 일시 중단 및 다시 시작할 수 있음 |
-| [백업 참여자](#backup-contributor) | Recovery Services 자격 증명 모음에서 백업을 관리할 수 있습니다. |
-| [백업 운영자](#backup-operator) | Recovery Services 자격 증명 모음에서 백업 제거를 제외한 백업 관리를 수행할 수 있습니다. |
-| [백업 읽기 권한자](#backup-reader) | 모든 백업 관리 서비스를 볼 수 있습니다.  |
+| [Automation 운영자](#automation-operator) |작업을 시작, 중지, 일시 중단 및 다시 시작할 수 있음 |
+| [Backup 참여자](#backup-contributor) | Recovery Services 자격 증명 모음에서 백업을 관리할 수 있습니다. |
+| [Backup 운영자](#backup-operator) | Recovery Services 자격 증명 모음에서 백업 제거를 제외한 백업 관리를 수행할 수 있습니다. |
+| [Backup 읽기 권한자](#backup-reader) | 모든 백업 관리 서비스를 볼 수 있습니다.  |
 | [청구 읽기 권한자](#billing-reader) | 대금 청구 정보를 볼 수 있음  |
 | [BizTalk 참여자](#biztalk-contributor) |BizTalk 서비스를 관리할 수 있음 |
 | [ClearDB MySQL DB 참여자](#cleardb-mysql-db-contributor) |ClearDB MySQL 데이터베이스를 관리할 수 있음 |
 | [참여자](#contributor) |액세스를 제외한 모든 것을 관리할 수 있음 |
 | [데이터 팩터리 참여자](#data-factory-contributor) |데이터 팩터리 및 그 안에 포함된 자식 리소스를 만들고 관리할 수 있습니다. |
-| [DevTest Lab 사용자](#devtest-labs-user) |모든 항목을 볼 수 있으며 가상 컴퓨터를 연결, 시작, 다시 시작 및 종료할 수 있음 |
+| [DevTest Lab 사용자](#devtest-labs-user) |모든 항목을 볼 수 있으며 가상 머신을 연결, 시작, 다시 시작 및 종료할 수 있음 |
 | [DNS 영역 참여자](#dns-zone-contributor) |DNS 영역 및 레코드를 관리할 수 있음 |
-| [Azure Cosmos DB 계정 참가자](#documentdb-account-contributor) |Azure Cosmos DB 계정을 관리할 수 있음 |
+| [DocumentDB 계정 참여자](#documentdb-account-contributor) |Azure Cosmos DB 계정을 관리할 수 있음 |
 | [지능형 시스템 계정 참여자](#intelligent-systems-account-contributor) |지능형 시스템 계정을 관리할 수 있음 |
 | 논리 앱 참가자 | 논리 앱의 모든 측면을 관리할 수 있지만 새로 만들 수 없음 |
 | 논리 앱 운영자 |논리 앱 내에서 정의된 워크플로를 시작하고 중지할 수 있음 |
@@ -66,21 +65,23 @@ Azure 역할 기반 액세스 제어(RBAC)에는 사용자, 그룹 및 서비스
 | [소유자](#owner) |액세스를 제외한 모든 것을 관리할 수 있음 |
 | [판독기](#reader) |모든 항목을 볼 수 있지만 변경할 수는 없음 |
 | [Redis 캐시 참여자](#redis-cache-contributor) |Redis 캐시를 관리할 수 있음 |
-| [스케줄러 작업 컬렉션 참여자](#scheduler-job-collections-contributor) |스케줄러 작업 컬렉션을 관리할 수 있음 |
-| [검색 서비스 참여자](#search-service-contributor) |검색 서비스를 관리할 수 있음 |
-| [보안 관리자](#security-manager) |보안 구성 요소, 보안 정책 및 가상 컴퓨터를 관리할 수 있음 |
+| [Scheduler 작업 컬렉션 참여자](#scheduler-job-collections-contributor) |스케줄러 작업 컬렉션을 관리할 수 있음 |
+| [Search 서비스 참여자](#search-service-contributor) |검색 서비스를 관리할 수 있음 |
+| [보안 관리자](#security-administrator) | Security Center에서만: 보안 정책 보기, 보안 상태 보기, 보안 정책 편집, 경고 및 권장 사항 보기, 경고 및 권장 사항 해제 |
+| [보안 관리자](#security-manager) | 보안 구성 요소, 보안 정책 및 가상 머신을 관리할 수 있음 |
+| [보안 판독기](#security-reader) | Security Center에서만: 권장 사항 및 경고 보기, 보안 정책 보기, 보안 상태 보기 가능, 변경 불가 |
 | [Site Recovery 참가자](#site-recovery-contributor) | Recovery Services 자격 증명 모음에서 Site Recovery를 관리할 수 있음 |
 | [Site Recovery 운영자](#site-recovery-operator) | Recovery Services 자격 증명 모음에서 장애 조치(failover) 및 장애 복구(failback) 작업 Site Recovery를 관리할 수 있음 |
 | [Site Recovery 구독자](#site-recovery-reader) | 모든 Site Recovery 관리 작업을 볼 수 있음  |
 | [SQL DB 참여자](#sql-db-contributor) |해당 보안 관련 정책을 제외한 SQL 데이터베이스를 관리할 수 있음 |
 | [SQL 보안 관리자](#sql-security-manager) |SQL 서버 및 데이터베이스의 보안 관련 정책을 관리할 수 있음 |
 | [SQL Server 참여자](#sql-server-contributor) |해당 보안 관련 정책을 제외한 SQL Server 및 데이터베이스를 관리할 수 있음 |
-| [클래식 저장소 계정 참여자](#classic-storage-account-contributor) |클래식 저장소 계정을 관리할 수 있음 |
-| [저장소 계정 참여자](#storage-account-contributor) |저장소 계정을 관리할 수 있음 |
+| [클래식 Storage 계정 참여자](#classic-storage-account-contributor) |클래식 저장소 계정을 관리할 수 있음 |
+| [Storage 계정 참여자](#storage-account-contributor) |저장소 계정을 관리할 수 있음 |
 | [지원 요청 참가자](#support-request-contributor) | 지원 요청을 만들고 관리할 수 있음 |
 | [사용자 액세스 관리자](#user-access-administrator) |Azure 리소스에 대한 사용자 액세스를 관리할 수 있음 |
-| [클래식 가상 컴퓨터 참여자](#classic-virtual-machine-contributor) |클래식 가상 컴퓨터를 관리할 수 있으나 여기에 연결된 가상 네트워크 또는 저장소 계정은 관리할 수 없음 |
-| [가상 컴퓨터 참여자](#virtual-machine-contributor) |가상 컴퓨터를 관리할 수 있으나 여기에 연결된 가상 네트워크 또는 저장소 계정은 관리할 수 없음 |
+| [Classic Virtual Machine 참여자](#classic-virtual-machine-contributor) |클래식 가상 머신을 관리할 수 있으나 여기에 연결된 가상 네트워크 또는 저장소 계정은 관리할 수 없음 |
+| [Virtual Machine 참여자](#virtual-machine-contributor) |가상 머신을 관리할 수 있으나 여기에 연결된 가상 네트워크 또는 저장소 계정은 관리할 수 없음 |
 | [클래식 네트워크 참여자](#classic-network-contributor) |클래식 가상 네트워크 및 예약된 IP를 관리할 수 있음 |
 | [웹 계획 참여자](#web-plan-contributor) |웹 계획을 관리할 수 있음 |
 | [웹 사이트 참여자](#website-contributor) |웹 사이트를 관리할 수 있으나 여기에 연결된 웹 계획은 관리할 수 없음 |
@@ -88,8 +89,8 @@ Azure 역할 기반 액세스 제어(RBAC)에는 사용자, 그룹 및 서비스
 ## <a name="role-permissions"></a>역할 권한
 다음 표에서는 각 역할에 부여되는 특정 권한에 대해 설명합니다. 여기에는 권한을 부여하는 **작업**과 권한을 제한하는 **작업 안 함**이 포함될 수 있습니다.
 
-### <a name="api-management-service-contributor"></a>API 관리 서비스 참여자
-API 관리 서비스를 관리할 수 있음
+### <a name="api-management-service-contributor"></a>API Management 서비스 참여자
+API Management 서비스를 관리할 수 있음
 
 | **actions** |  |
 | --- | --- |
@@ -102,7 +103,7 @@ API 관리 서비스를 관리할 수 있음
 | Microsoft.Support/* |지원 티켓 만들기 및 관리 |
 
 ### <a name="api-management-service-operator-role"></a>API Management 서비스 운영자 역할
-API 관리 서비스를 관리할 수 있음
+API Management 서비스를 관리할 수 있음
 
 | **actions** |  |
 | --- | --- |
@@ -122,7 +123,7 @@ API 관리 서비스를 관리할 수 있음
 | Microsoft.Support/* |지원 티켓 만들기 및 관리 |
 
 ### <a name="api-management-service-reader-role"></a>Azure API Management 읽기 권한자 역할
-API 관리 서비스를 관리할 수 있음
+API Management 서비스를 관리할 수 있음
 
 | **actions** |  |
 | --- | --- |
@@ -149,7 +150,7 @@ Application Insights 구성 요소를 관리할 수 있음
 | Microsoft.Resources/subscriptions/resourceGroups/read |리소스 그룹 읽기 |
 | Microsoft.Support/* |지원 티켓 만들기 및 관리 |
 
-### <a name="automation-operator"></a>자동화 운영자
+### <a name="automation-operator"></a>Automation 운영자
 작업을 시작, 중지, 일시 중단 및 다시 시작할 수 있음
 
 | **actions** |  |
@@ -173,7 +174,7 @@ Application Insights 구성 요소를 관리할 수 있음
 | Microsoft.Resources/subscriptions/resourceGroups/read |리소스 그룹 읽기 |
 | Microsoft.Support/* |지원 티켓 만들기 및 관리 |
 
-### <a name="backup-contributor"></a>백업 참여자
+### <a name="backup-contributor"></a>Backup 참여자
 Recovery Services 자격 증명 모음 생성 및 다른 사용자에게 액세스 권한 부여를 제외한 모든 백업 관리 작업을 관리할 수 있습니다.
 
 | **actions** | |
@@ -200,7 +201,7 @@ Recovery Services 자격 증명 모음 생성 및 다른 사용자에게 액세�
 | Microsoft.Storage/storageAccounts/read | 저장소 계정 읽기 |
 | Microsoft.Support/* |지원 티켓 만들기 및 관리 |
 
-### <a name="backup-operator"></a>백업 운영자
+### <a name="backup-operator"></a>Backup 운영자
 자격 증명 모음 생성, 백업 제거 및 다른 사용자에게 액세스 권한 부여를 제외한 모든 백업 관리 작업을 관리할 수 있습니다.
 
 | **actions** | |
@@ -238,7 +239,7 @@ Recovery Services 자격 증명 모음 생성 및 다른 사용자에게 액세�
 | Microsoft.Storage/storageAccounts/read | 저장소 계정 읽기 |
 | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 
-### <a name="backup-reader"></a>백업 읽기 권한자
+### <a name="backup-reader"></a>Backup 읽기 권한자
 Recovery Services 자격 증명 모음의 백업 관리를 모니터링할 수 있습니다.
 
 | **actions** | |
@@ -300,7 +301,7 @@ ClearDB MySQL 데이터베이스를 관리할 수 있음
 | Microsoft.Support/* |지원 티켓 만들기 및 관리 |
 | successbricks.cleardb/databases/* |ClearDB MySQL 데이터베이스 만들기 및 관리 |
 
-### <a name="contributor"></a>참여자
+### <a name="contributor"></a>참가자
 액세스를 제외한 모든 것을 관리할 수 있음
 
 | **actions** |  |
@@ -326,17 +327,17 @@ ClearDB MySQL 데이터베이스를 관리할 수 있음
 | Microsoft.Support/* |지원 티켓 만들기 및 관리 |
 
 ### <a name="devtest-labs-user"></a>DevTest Lab 사용자
-모든 항목을 볼 수 있으며 가상 컴퓨터를 연결, 시작, 다시 시작 및 종료할 수 있음
+모든 항목을 볼 수 있으며 가상 머신을 연결, 시작, 다시 시작 및 종료할 수 있음
 
 | **actions** |  |
 | --- | --- |
 | Microsoft.Authorization/*/read |역할 및 역할 할당 읽기 |
 | Microsoft.Compute/availabilitySets/read |가용성 집합의 속성 읽기 |
-| Microsoft.Compute/virtualMachines/*/read |가상 컴퓨터(VM 크기, 런타임 상태, VM 확장 등)의 속성 읽기 |
-| Microsoft.Compute/virtualMachines/deallocate/action |가상 컴퓨터 할당 취소 |
-| Microsoft.Compute/virtualMachines/read |가상 컴퓨터의 속성 읽기 |
-| Microsoft.Compute/virtualMachines/restart/action |가상 컴퓨터 다시 시작 |
-| Microsoft.Compute/virtualMachines/start/action |가상 컴퓨터 시작 |
+| Microsoft.Compute/virtualMachines/*/read |가상 머신(VM 크기, 런타임 상태, VM 확장 등)의 속성 읽기 |
+| Microsoft.Compute/virtualMachines/deallocate/action |가상 머신 할당 취소 |
+| Microsoft.Compute/virtualMachines/read |가상 머신의 속성 읽기 |
+| Microsoft.Compute/virtualMachines/restart/action |가상 머신 다시 시작 |
+| Microsoft.Compute/virtualMachines/start/action |가상 머신 시작 |
 | Microsoft.DevTestLab/*/read |랩의 속성 읽기 |
 | Microsoft.DevTestLab/labs/createEnvironment/action |랩 환경 만들기 |
 | Microsoft.DevTestLab/labs/formulas/delete |수식 삭제 |
@@ -346,7 +347,7 @@ ClearDB MySQL 데이터베이스를 관리할 수 있음
 | Microsoft.Network/loadBalancers/backendAddressPools/join/action |부하 분산 장치 백 엔드 주소 풀 연결 |
 | Microsoft.Network/loadBalancers/inboundNatRules/join/action |부하 분산 장치 인바운드 NAT 규칙 연결 |
 | Microsoft.Network/networkInterfaces/*/read |네트워크 인터페이스(예: 네트워크 인터페이스의 일부인 모든 부하 분산 장치)의 속성 읽기 |
-| Microsoft.Network/networkInterfaces/join/action |네트워크 인터페이스에 가상 컴퓨터 연결 |
+| Microsoft.Network/networkInterfaces/join/action |네트워크 인터페이스에 Virtual Machine 연결 |
 | Microsoft.Network/networkInterfaces/read |네트워크 인터페이스 읽기 |
 | Microsoft.Network/networkInterfaces/write |네트워크 인터페이스 작성 |
 | Microsoft.Network/publicIPAddresses/*/read |공용 IP 주소의 속성 읽기 |
@@ -371,13 +372,13 @@ DNS 영역 및 레코드를 관리할 수 있음
 | Microsoft.Resources/subscriptions/resourceGroups/read |리소스 그룹 읽기 |
 | Microsoft.Support/\* |지원 티켓 만들기 및 관리 |
 
-### <a name="azure-cosmos-db-account-contributor"></a>Azure Cosmos DB 계정 참가자
-Azure Cosmos DB 계정을 관리할 수 있음
+### <a name="documentdb-account-contributor"></a>DocumentDB 계정 참여자
+Azure Cosmos DB 계정을 관리할 수 있습니다. Azure Cosmos DB는 이전의 DocumentDB입니다.
 
 | **actions** |  |
 | --- | --- |
 | Microsoft.Authorization/*/read |역할 및 역할 할당 읽기 |
-| Microsoft.DocumentDb/databaseAccounts/* |DocumentDB 계정 만들기 및 관리 |
+| Microsoft.DocumentDb/databaseAccounts/* |Azure Cosmos DB 계정 만들기 및 관리 |
 | Microsoft.Insights/alertRules/* |경고 규칙 만들기 및 관리 |
 | Microsoft.ResourceHealth/availabilityStatuses/read |리소스 상태 읽기 |
 | Microsoft.Resources/deployments/* |리소스 그룹 배포 만들기 및 관리 |
@@ -480,8 +481,8 @@ Redis 캐시를 관리할 수 있음
 | Microsoft.Resources/subscriptions/resourceGroups/read |리소스 그룹 읽기 |
 | Microsoft.Support/* |지원 티켓 만들기 및 관리 |
 
-### <a name="scheduler-job-collections-contributor"></a>스케줄러 작업 컬렉션 참여자
-스케줄러 작업 컬렉션을 관리할 수 있음
+### <a name="scheduler-job-collections-contributor"></a>Scheduler 작업 컬렉션 참여자
+Scheduler 작업 컬렉션을 관리할 수 있음
 
 | **actions** |  |
 | --- | --- |
@@ -493,8 +494,8 @@ Redis 캐시를 관리할 수 있음
 | Microsoft.Scheduler/jobcollections/* |스케줄러 작업 컬렉션 만들기 및 관리 |
 | Microsoft.Support/* |지원 티켓 만들기 및 관리 |
 
-### <a name="search-service-contributor"></a>검색 서비스 참여자
-검색 서비스를 관리할 수 있음
+### <a name="search-service-contributor"></a>Search 서비스 참여자
+Search 서비스를 관리할 수 있음
 
 | **actions** |  |
 | --- | --- |
@@ -506,21 +507,50 @@ Redis 캐시를 관리할 수 있음
 | Microsoft.Search/searchServices/* |검색 서비스 만들기 및 관리 |
 | Microsoft.Support/* |지원 티켓 만들기 및 관리 |
 
-### <a name="security-manager"></a>보안 관리자
-보안 구성 요소, 보안 정책 및 가상 컴퓨터를 관리할 수 있음
+### <a name="security-administrator"></a>보안 관리자
+Security Center에서만: 보안 정책 보기, 보안 상태 보기, 보안 정책 편집, 경고 및 권장 사항 보기, 경고 및 권장 사항 해제
 
 | **actions** |  |
 | --- | --- |
 | Microsoft.Authorization/*/read |역할 및 역할 할당 읽기 |
-| Microsoft.ClassicCompute/*/read |클래식 계산 가상 컴퓨터에 대한 구성 정보 읽기 |
-| Microsoft.ClassicCompute/virtualMachines/*/write |가상 컴퓨터에 대한 구성 작성 |
+| Microsoft.Authorization/policyAssignments/* | 정책 할당 만들기 및 관리 |
+| Microsoft.Authorization/policySetDefinitions/* | 정책 집합 만들기 및 관리 |
+| Microsoft.Authorization/policyDefinitions/* | 정책 정의 만들기 및 관리 |
+| Microsoft.Insights/alertRules/* | 경고 규칙 만들기 및 관리 |
+| Microsoft.operationalInsights/workspaces/*/read | Log Analytics 데이터 보기 |
+| Microsoft.Resources/deployments/* |리소스 그룹 배포 만들기 및 관리 |
+| Microsoft.Resources/subscriptions/resourceGroups/read |리소스 그룹 읽기 |
+| Microsoft.Security/*/read | 보안 구성 요소 및 정책 읽기 |
+| Microsoft.Support/* |지원 티켓 만들기 및 관리 |
+
+### <a name="security-manager"></a>보안 관리자
+보안 구성 요소, 보안 정책 및 가상 머신을 관리할 수 있음
+
+| **actions** |  |
+| --- | --- |
+| Microsoft.Authorization/*/read |역할 및 역할 할당 읽기 |
+| Microsoft.ClassicCompute/*/read |클래식 가상 머신에 대한 구성 정보 읽기 |
+| Microsoft.ClassicCompute/virtualMachines/*/write |클래식 가상 머신에 대한 구성 정보 쓰기 |
 | Microsoft.ClassicNetwork/*/read |클래식 네트워크에 대한 구성 정보 읽기 |
-| Microsoft.Insights/alertRules/* |경고 규칙 만들기 및 관리 |
+| Microsoft.Insights/alertRules/* | 경고 규칙 만들기 및 관리 |
 | Microsoft.ResourceHealth/availabilityStatuses/read |리소스 상태 읽기 |
 | Microsoft.Resources/deployments/* |리소스 그룹 배포 만들기 및 관리 |
 | Microsoft.Resources/subscriptions/resourceGroups/read |리소스 그룹 읽기 |
 | Microsoft.Security/* |보안 구성 요소 및 정책 만들기 및 관리 |
 | Microsoft.Support/* |지원 티켓 만들기 및 관리 |
+
+### <a name="security-reader"></a>보안 판독기
+Security Center에서만: 권장 사항 및 경고 보기, 보안 정책 보기, 보안 상태 보기 가능, 변경 불가
+
+| **actions** |  |
+| --- | --- |
+| Microsoft.Authorization/*/read |역할 및 역할 할당 읽기 |
+| Microsoft.Insights/alertRules/* | 경고 규칙 만들기 및 관리 |
+| Microsoft.operationalInsights/workspaces/*/read | Log Analytics 데이터 보기 |
+| Microsoft.Resources/subscriptions/resourceGroups/read |리소스 그룹 읽기 |
+| Microsoft.Security/*/read | 보안 구성 요소 및 정책 읽기 |
+| Microsoft.Support/* |지원 티켓 만들기 및 관리 |
+| Microsoft.Resources/deployments/* |리소스 그룹 배포 만들기 및 관리 |
 
 ### <a name="site-recovery-contributor"></a>Site Recovery 참가자
 Recovery Services 자격 증명 모음 생성 및 다른 사용자에게 액세스 권한 부여를 제외한 모든 Site Recovery 관리 작업을 관리할 수 있음
@@ -703,7 +733,7 @@ SQL 서버 및 데이터베이스의 보안 관련 정책을 관리할 수 있�
 
 | **actions** |  |
 | --- | --- |
-| Microsoft.Authorization/*/read |읽기 권한 부여 |
+| Microsoft.Authorization/*/read |역할 및 역할 할당 읽기 |
 | Microsoft.Insights/alertRules/* |Insights 경고 규칙 만들기 및 관리 |
 | Microsoft.ResourceHealth/availabilityStatuses/read |리소스 상태 읽기 |
 | Microsoft.Resources/deployments/* |리소스 그룹 배포 만들기 및 관리 |
@@ -724,7 +754,7 @@ SQL 서버 및 데이터베이스의 보안 관련 정책을 관리할 수 있�
 | Microsoft.Sql/servers/databases/securityMetrics/* |SQL 서버 데이터베이스 보안 메트릭을 편집할 수 없음 |
 | Microsoft.Sql/servers/securityAlertPolicies/* |SQL 서버 보안 경고 정책을 편집할 수 없음 |
 
-### <a name="classic-storage-account-contributor"></a>클래식 저장소 계정 참여자
+### <a name="classic-storage-account-contributor"></a>클래식 Storage 계정 참여자
 클래식 저장소 계정을 관리할 수 있음
 
 | **actions** |  |
@@ -737,7 +767,7 @@ SQL 서버 및 데이터베이스의 보안 관련 정책을 관리할 수 있�
 | Microsoft.Resources/subscriptions/resourceGroups/read |리소스 그룹 읽기 |
 | Microsoft.Support/* |지원 티켓 만들기 및 관리 |
 
-### <a name="storage-account-contributor"></a>저장소 계정 참여자
+### <a name="storage-account-contributor"></a>Storage 계정 참여자
 저장소 계정을 관리할 수 있지만 액세스할 수 없습니다.
 
 | **actions** |  |
@@ -769,14 +799,14 @@ Azure 리소스에 대한 사용자 액세스를 관리할 수 있음
 | Microsoft.Authorization/* |권한 부여 관리 |
 | Microsoft.Support/* |지원 티켓 만들기 및 관리 |
 
-### <a name="classic-virtual-machine-contributor"></a>클래식 가상 컴퓨터 참여자
-클래식 가상 컴퓨터를 관리할 수 있으나 여기에 연결된 가상 네트워크 또는 저장소 계정은 관리할 수 없음
+### <a name="classic-virtual-machine-contributor"></a>클래식 Virtual Machine 참여자
+클래식 가상 머신을 관리할 수 있으나 여기에 연결된 가상 네트워크 또는 저장소 계정은 관리할 수 없음
 
 | **actions** |  |
 | --- | --- |
 | Microsoft.Authorization/*/read |읽기 권한 부여 |
 | Microsoft.ClassicCompute/domainNames/* |클래식 계산 도메인 이름 만들기 및 관리 |
-| Microsoft.ClassicCompute/virtualMachines/* |가상 컴퓨터 만들기 및 관리 |
+| Microsoft.ClassicCompute/virtualMachines/* |가상 머신 만들기 및 관리 |
 | Microsoft.ClassicNetwork/networkSecurityGroups/join/action |네트워크 보안 그룹 연결 |
 | Microsoft.ClassicNetwork/reservedIps/link/action |예약된 IP 연결 |
 | Microsoft.ClassicNetwork/reservedIps/read |예약된 IP 주소 읽기 |
@@ -792,16 +822,16 @@ Azure 리소스에 대한 사용자 액세스를 관리할 수 있음
 | Microsoft.Resources/subscriptions/resourceGroups/read |리소스 그룹 읽기 |
 | Microsoft.Support/* |지원 티켓 만들기 및 관리 |
 
-### <a name="virtual-machine-contributor"></a>가상 컴퓨터 참여자
-가상 컴퓨터를 관리할 수 있으나 여기에 연결된 가상 네트워크 또는 저장소 계정은 관리할 수 없음
+### <a name="virtual-machine-contributor"></a>Virtual Machine 참가자
+가상 머신을 관리할 수 있으나 여기에 연결된 가상 네트워크 또는 저장소 계정은 관리할 수 없음
 
 | **actions** |  |
 | --- | --- |
 | Microsoft.Authorization/*/read |읽기 권한 부여 |
 | Microsoft.Compute/availabilitySets/* |계산 가용성 집합 만들기 및 관리 |
 | Microsoft.Compute/locations/* |계산 위치 만들기 및 관리 |
-| Microsoft.Compute/virtualMachines/* |가상 컴퓨터 만들기 및 관리 |
-| Microsoft.Compute/virtualMachineScaleSets/* |가상 컴퓨터 크기 집합 만들기 및 관리 |
+| Microsoft.Compute/virtualMachines/* |가상 머신 만들기 및 관리 |
+| Microsoft.Compute/virtualMachineScaleSets/* |가상 머신 크기 집합 만들기 및 관리 |
 | Microsoft.Insights/alertRules/* |Insights 경고 규칙 만들기 및 관리 |
 | Microsoft.Network/applicationGateways/backendAddressPools/join/action |네트워크 응용 프로그램 게이트웨이 백 엔드 주소 풀 연결 |
 | Microsoft.Network/loadBalancers/backendAddressPools/join/action |부하 분산 장치 백 엔드 주소 풀 연결 |
@@ -868,7 +898,8 @@ Azure 리소스에 대한 사용자 액세스를 관리할 수 있음
 | Microsoft.Web/sites/* |웹 사이트 만들기 및 관리(사이트 만들기도 관련 App Service 계획에 대한 쓰기 권한이 필요) |
 
 ## <a name="see-also"></a>참고 항목
-* [역할 기반 액세스 제어](role-based-access-control-configure.md): Azure 포털에서 RBAC를 통해 시작합니다.
+* [역할 기반 Access Control](role-based-access-control-configure.md): Azure Portal에서 RBAC를 통해 시작합니다.
 * [Azure RBAC에서 사용자 지정 역할](role-based-access-control-custom-roles.md): 액세스 요구 사항에 맞게 사용자 지정 역할을 만드는 방법에 대해 알아봅니다.
 * [액세스 변경 기록 보고서 만들기](role-based-access-control-access-change-history-report.md): RBAC에서 역할 할당 변경을 추적합니다.
-* [역할 기반 액세스 제어 문제 해결](role-based-access-control-troubleshooting.md): 일반적인 문제를 수정하기 위한 제안 사항을 봅니다.
+* [역할 기반 Access Control 문제 해결](role-based-access-control-troubleshooting.md): 일반적인 문제를 수정하기 위한 제안 사항을 봅니다.
+* [Azure Security Center의 권한](../security-center/security-center-permissions.md)

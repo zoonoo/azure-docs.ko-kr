@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/20/2017
+ms.date: 01/24/2018
 ms.author: makromer
-ms.openlocfilehash: 8ae6c1eabf87b51dd04b6b6c9686bb89efff3bc0
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 673bc4e0d1609e445e3d18e7cf516ad532be4bc2
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="compare-azure-data-factory-v1-and-v2"></a>Azure Data Factory V1과 V2 비교
 이 문서에서는 Azure Data Factory V1과 V2를 비교합니다. V1에 대한 소개는 [Azure Data Factory 소개](v1/data-factory-introduction.md)를 참조하세요. V2에 대한 소개는 [Data Factory(V2 - 미리 보기) 소개](introduction.md)를 참조하세요.
@@ -86,7 +86,7 @@ SSIS 워크로드를 클라우드로 이동하고 V2를 사용하여 데이터 �
 
 Azure-SSIS Integration Runtime은 클라우드에서 SSIS 패키지 실행을 전담하는 완전히 관리되는 Azure VM(노드) 클러스터입니다. Azure-SSIS Integration Runtime을 프로비전한 후에 온-프레미스 SSIS 환경에 SSIS 패키지를 배포하는 데 사용한 것과 동일한 도구를 사용할 수 있습니다. 
 
-예를 들어 SQL Server Data Tools 또는 SQL Server Management Studio를 사용하여 Azure에서 이 런타임에 SSIS 패키지를 배포할 수 있습니다. 단계별 지침은 자습서 [Azure에 SQL Server 통합 서비스 패키지 배포](tutorial-deploy-ssis-packages-azure.md)를 참조하세요. 
+예를 들어 SQL Server Data Tools 또는 SQL Server Management Studio를 사용하여 Azure에서 이 런타임에 SSIS 패키지를 배포할 수 있습니다. 단계별 지침은 자습서 [Azure에 SQL Server 통합 서비스 패키지 배포](tutorial-create-azure-ssis-runtime-portal.md)를 참조하세요. 
 
 ## <a name="flexible-scheduling"></a>유연한 일정 계획
 Data Factory V2에서는 데이터 집합 가용성 일정을 정의할 필요가 없습니다. 클록 스케줄러 패러다임에서 파이프라인을 예약할 수 있는 트리거 리소스를 정의할 수 있습니다. 유연한 일정 예약/실행 모델을 위해 트리거에서 파이프라인으로 매개 변수를 전달할 수도 있습니다. 
@@ -128,7 +128,16 @@ V2 사용자 지정 작업에서는 .NET 인터페이스를 구현할 필요가 
 V2용으로 업데이트된 SDK는 V1 클라이언트와 호환되지 않습니다. 
 
 ## <a name="authoring-experience"></a>작성 환경
-Data Factory V1을 사용하면 Azure Portal에서 Data Factory Editor를 사용하여 파이프라인을 작성할 수 있습니다. 현재 Data Factory V2는 프로그래밍 방식(.NET SDK, REST API, PowerShell, Python 등)으로 데이터 팩터리를 만드는 방법만 지원합니다. 아직 사용자 인터페이스가 지원되지 않습니다.  Data Factory V1은 SDK, REST 및 PowerShell 작성도 지원합니다.
+
+| &nbsp; | V2 | V1 |
+| ------ | -- | -- | 
+| Azure portal | [예](quickstart-create-data-factory-portal.md) | [예](data-factory-build-your-first-pipeline-using-editor.md) |
+| Azure PowerShell | [예](quickstart-create-data-factory-powershell.md) | [예](data-factory-build-your-first-pipeline-using-powershell.md) |
+| .NET SDK | [예](quickstart-create-data-factory-dot-net.md) | [예](data-factory-build-your-first-pipeline-using-vs.md) |
+| REST API | [예](quickstart-create-data-factory-rest-api.md) | [예](data-factory-build-your-first-pipeline-using-rest-api.md) |
+| Python SDK | [예](quickstart-create-data-factory-python.md) | 아니오 |
+| Resource Manager 템플릿 | [예](quickstart-create-data-factory-resource-manager-template.md) | [예](data-factory-build-your-first-pipeline-using-arm.md) | 
+
 
 ## <a name="monitoring-experience"></a>모니터링 환경
 V2에서는 [Azure Monitor](monitor-using-azure-monitor.md)를 사용하여 데이터 팩터리를 모니터링할 수도 있습니다. 새로운 PowerShell cmdlet은 [통합 런타임](monitor-integration-runtime.md)에 대한 모니터링을 지원합니다. V1과 V2 모두 Azure Portal에서 시작할 수 있는 모니터링 응용 프로그램을 통해 시각적인 모니터링을 지원합니다.

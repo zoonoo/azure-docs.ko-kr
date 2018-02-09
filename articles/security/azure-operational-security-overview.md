@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: dba643f5c8e926bee1c5d13e71f785e5cc72a2dc
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: f656edee1460ce2bb17a582ca240e3bb4089b708
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-operational-security-overview"></a>Azure 운영 보안 개요
 Azure 운영 보안은 사용자가 Microsoft Azure에서 자신의 데이터, 응용 프로그램 및 기타 자산을 보호할 수 있는 서비스, 제어 및 기능을 나타냅니다. [Azure 운영 보안](https://docs.microsoft.com/azure/security/azure-operational-security)은 Microsoft SDL(Security Development Lifecycle), Microsoft 보안 대응 센터 프로그램 및 사이버 보안 위협 상황에 대한 심층 인식을 포함하여 Microsoft 고유의 다양한 기능을 통해 얻은 지식을 통합한 프레임워크입니다.
@@ -56,7 +56,7 @@ Microsoft [Azure Automation](https://docs.microsoft.com/azure/automation/automat
 [Azure Backup](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup)은 Microsoft 클라우드에서 데이터를 백업(또는 보호)하고 복원하는 데 사용할 수 있는 Azure 기반 서비스입니다. 기존의 온-프레미스 또는 오프사이트 백업 솔루션을 신뢰할 수 있고 안전하며 가격 경쟁력이 있는 클라우드 기반 솔루션으로 대체합니다. Azure Backup에서는 컴퓨터, 서버 또는 클라우드에 적절히 다운로드하고 배포하는 여러 구성 요소를 제공합니다. 배포하는 구성 요소 또는 에이전트는 보호하려는 대상에 따라 달라집니다. 온-프레미스 또는 클라우드에서 데이터를 보호하는지 여부에 관계 없이 모든 Azure Backup 구성 요소는 Azure에서 Recovery Services 자격 증명 모음에 데이터를 백업하는 데 사용할 수 있습니다. [Azure Backup 구성 요소 표](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup#which-azure-backup-components-should-i-use)를 참조하세요.
 
 ### <a name="site-recovery"></a>Site Recovery
-[Azure Site Recovery](http://azure.microsoft.com/documentation/services/site-recovery)는 온-프레미스 가상 컴퓨터 및 실제 컴퓨터를 Azure 또는 보조 사이트로 복제하는 작업을 오케스트레이션하여 비즈니스 연속성을 제공합니다. 기본 사이트를 사용할 수 없는 경우 사용자가 계속 작업할 수 있도록 보조 위치에 장애 조치(Failover)하고, 시스템이 다시 정상 상태가 되면 장애 복구합니다. 지능적이고 효과적인 위협 검색.
+[Azure Site Recovery](http://azure.microsoft.com/documentation/services/site-recovery)는 온-프레미스 가상 컴퓨터 및 실제 컴퓨터를 Azure 또는 보조 사이트로 복제하는 작업을 오케스트레이션하여 비즈니스 연속성을 제공합니다. 기본 사이트를 사용할 수 없는 경우 사용자가 계속 작업할 수 있도록 보조 위치에 장애 조치(Failover)하고, 시스템이 다시 정상 상태가 되면 장애 복구합니다. Azure Security Center를 사용하여 좀 더 지능적이고 효과적인 위협 검색을 수행할 수 있습니다.
 
 ## <a name="azure-active-directory"></a>Azure Active Directory
 [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-enable-sso-scenario)는 Microsoft의 포괄적인 IDaaS(Identity as a Service) 솔루션입니다.
@@ -72,7 +72,7 @@ Azure Active Directory를 사용하여 파트너 및 고객(비즈니스 또는 
 ## <a name="azure-security-center"></a>Azure Security Center
 [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-get-started)를 사용하면 Azure 리소스의 보안에 대한 향상된 가시성과 제어를 통해 위협을 예방, 검색 및 대응할 수 있습니다. 이는 구독에 대해 통합된 보안 모니터링 및 정책 관리를 제공하고 다른 방법으로 발견되지 않을 수 있는 위협을 감지하는 데 도움이 되며 보안 솔루션의 광범위한 환경에서 작동합니다.
 
-[Security Center](https://docs.microsoft.com/azure/security-center/security-center-linux-virtual-machine)를 사용하면 가상 컴퓨터의 보안 설정에 대한 가시성을 제공하고 위협을 모니터링하여 Azure의 가상 컴퓨터 데이터를 보호할 수 있습니다. Security Center는 다음의 목적으로 가상 컴퓨터를 모니터링할 수 있습니다.
+[Security Center](https://docs.microsoft.com/azure/security-center/security-center-linux-virtual-machine)를 사용하면 가상 머신의 보안 설정에 대한 가시성을 제공하고 위협을 모니터링하여 Azure의 가상 머신 데이터를 보호할 수 있습니다. Security Center는 다음의 목적으로 가상 머신을 모니터링할 수 있습니다.
 
 -   권장된 구성 규칙으로 운영 체제(OS) 보안 설정
 -   시스템 보안 및 누락된 중요 업데이트
@@ -123,12 +123,12 @@ Azure 모니터에서는 원격 분석을 사용하여 Azure에서 워크로드�
 
 종단 간 네트워크는 복잡하게 구성되고 리소스 간에 상호 작용하므로 Network Watcher를 통해 시나리오 기반 모니터링이 필요한 복잡한 시나리오를 만듭니다.
 
-[Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)는 Azure 네트워크의 모니터링 및 진단을 간소화합니다. Network Watcher에서 제공되는 진단 및 시각화 도구를 사용하면 Azure 가상 컴퓨터에서 원격 패킷 캡처를 수행하고, 흐름 로그를 사용하여 네트워크 트래픽에 대한 정보를 얻고, VPN Gateway 및 연결을 진단할 수 있습니다.
+[Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)는 Azure 네트워크의 모니터링 및 진단을 간소화합니다. Network Watcher에서 제공되는 진단 및 시각화 도구를 사용하면 Azure Virtual Machine에서 원격 패킷 캡처를 수행하고, 흐름 로그를 사용하여 네트워크 트래픽에 대한 정보를 얻고, VPN Gateway 및 연결을 진단할 수 있습니다.
 
 Network Watcher는 현재 다음과 같은 기능을 제공합니다.
 
 - [토폴로지](https://docs.microsoft.com/azure/network-watcher/network-watcher-topology-overview) - 리소스 그룹의 네트워크 리소스 간 다양한 연결 및 상호 연결을 보여 주는 네트워크 수준 보기를 제공합니다.
--   [변수 패킷 캡처](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview) - 가상 컴퓨터의 내부 및 외부 패킷 데이터를 캡처합니다. 고급 필터링 옵션과 세밀한 조정 컨트롤(예: 시간 및 크기 제한 설정)이 다양하게 제공됩니다. 패킷 데이터는 Blob 저장소 또는 .cap 형식의 로컬 디스크에 저장할 수 있습니다.
+-   [변수 패킷 캡처](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview) - 가상 머신의 내부 및 외부 패킷 데이터를 캡처합니다. 고급 필터링 옵션과 세밀한 조정 컨트롤(예: 시간 및 크기 제한 설정)이 다양하게 제공됩니다. 패킷 데이터는 Blob 저장소 또는 .cap 형식의 로컬 디스크에 저장할 수 있습니다.
 -   [IP 흐름 확인](https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview) - 흐름 정보의 5개 튜플 패킷 매개 변수(대상 IP, 원본 IP, 대상 포트, 원본 포트 및 프로토콜)에 따라 패킷을 허용하거나 거부하는지 확인합니다. 보안 그룹에서 패킷을 거부하면 해당 패킷을 거부한 규칙과 그룹이 반환됩니다.
 -   [다음 홉](https://docs.microsoft.com/azure/network-watcher/network-watcher-next-hop-overview) - Azure 네트워크 패브릭에서 라우팅되는 패킷의 다음 홉을 결정하여 잘못 구성된 사용자 정의 경로를 진단할 수 있습니다.
 -   [보안 그룹 보기](https://docs.microsoft.com/azure/network-watcher/network-watcher-security-group-view-overview) - VM에 적용되는 효과적이고 실용적인 보안 규칙을 가져옵니다.
@@ -151,7 +151,7 @@ DevOps 응용 프로그램을 개발하기 전에 팀에서 소프트웨어 프�
 -   [연속 통합](https://www.visualstudio.com/learn/what-is-continuous-integration/)은 진행 중인 코드를 병합 및 테스트하여 결함을 초기에 찾아내도록 합니다.  다른 이점으로 병합 문제를 해결하는 데 걸리는 시간을 줄이고 개발 팀에게 신속한 피드백을 제공할 수 있습니다.
 -   프로덕션 및 테스트 환경에 대한 소프트웨어 솔루션의 [지속적인 업데이트](https://www.visualstudio.com/learn/what-is-continuous-delivery/)를 통해 조직에서 버그를 신속하게 수정하고 끊임없이 변화하는 비즈니스 요구 사항에 대응할 수 있습니다.
 -   응용 프로그램 상태뿐만 아니라 고객 사용을 위한 프로덕션 환경을 포함하여 실행 중인 응용 프로그램의 [모니터링](https://www.visualstudio.com/learn/what-is-monitoring/)을 사용하면 조직에서 가설을 세우고 전략을 신속하게 유효성을 검사하거나 반증할 수 있습니다.  자세한 데이터가 캡처되어 다양한 로깅 형식으로 저장됩니다.
--   안전하고 안정적인 응용 프로그램 호스팅 플랫폼을 제공하도록 지원하기 위해 [IaC(Infrastructure as Code)](https://www.visualstudio.com/learn/what-is-infrastructure-as-code/)를 사용하여 네트워크 및 가상 컴퓨터의 만들기 및 해제에 대한 자동화 및 유효성 검사를 사용하도록 설정하는 것이 좋습니다.
+-   안전하고 안정적인 응용 프로그램 호스팅 플랫폼을 제공하도록 지원하기 위해 [IaC(Infrastructure as Code)](https://www.visualstudio.com/learn/what-is-infrastructure-as-code/)를 사용하여 네트워크 및 가상 머신의 만들기 및 해제에 대한 자동화 및 유효성 검사를 사용하도록 설정하는 것이 좋습니다.
 -   [마이크로 서비스](https://www.visualstudio.com/learn/what-are-microservices/) 아키텍처를 활용하여 비즈니스 사용 사례를 다시 사용할 수 있는 작은 서비스로 격리합니다.  이 아키텍처는 확장성과 효율성을 가능하게 합니다.
 
 ## <a name="next-steps"></a>다음 단계

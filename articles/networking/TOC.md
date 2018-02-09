@@ -1,6 +1,6 @@
 # 개요
 ## [Azure 네트워킹 정보](networking-overview.md)
-## 아키텍처
+## 건축
 ### [가상 데이터 센터](networking-virtual-datacenter.md)
 ### [여러 네트워크 경로를 포함한 비대칭 라우팅](../expressroute/expressroute-asymmetric-routing.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [네트워크 설계 보안](../best-practices-network-security.md?toc=%2fazure%2fnetworking%2ftoc.json)
@@ -23,8 +23,8 @@
 ### [온-프레미스 연결 - VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [온-프레미스 연결 - 전용](../expressroute/expressroute-introduction.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
-# 시작
-## [첫 가상 네트워크 만들기](../virtual-network/virtual-network-get-started-vnet-subnet.md?toc=%2fazure%2fnetworking%2ftoc.json)
+# 시작하기
+## [첫 가상 네트워크 만들기](../virtual-network/quick-create-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
 # 방법
 ## 인터넷 연결
@@ -56,12 +56,12 @@
 ### [VM 부하 분산](../virtual-machines/linux/tutorial-load-balance-nodejs.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [가상 네트워크에 컴퓨터 연결](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
-# 참조
+# 참고 자료
 ## [Azure CLI](https://docs.microsoft.com/cli/azure/network)
 ## [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.network/?view=azurermps-3.8.0)
 ## [.Net](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.network?view=azuremgmtnetwork-9.1.0-preview)
-## [Node.JS](https://azure.microsoft.com/develop/nodejs/#azure-sdk)
-## [REST (영문)](https://msdn.microsoft.com/library/mt163658.aspx)
+## [Node.js](https://azure.microsoft.com/develop/nodejs/#azure-sdk)
+## [REST](https://msdn.microsoft.com/library/mt163658.aspx)
 
 # 리소스
 ## [작성자 템플릿](/azure/azure-resource-manager/resource-group-authoring-templates?toc=%2fazure%2fnetworking%2ftoc.json)

@@ -6,13 +6,13 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 10/06/2017
+ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: f7d2b1970cb7b1330b3d9bdff7987a90fa381392
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dba17a860dffd87b3784c53cf288b7a312c77e33
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="stream-big-data-into-a-data-warehouse"></a>데이터 웨어하우스로 빅 데이터 스트림
 
@@ -68,13 +68,13 @@ Event Grid는 구독자에게 이벤트 데이터를 배포합니다. 다음 예
 
 이 자습서를 완료하려면 다음 항목이 필요합니다.
 
-* Azure 구독. Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+* Azure 구독. Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 * .NET 데스크톱 개발, Azure 개발, ASP.NET 및 웹 개발, Node.js 개발, Python 개발용 작업이 포함된 [Visual Studio 2017 버전 15.3.2 이상](https://www.visualstudio.com/vs/)
 * 컴퓨터에 다운로드한 [EventHubsCaptureEventGridDemo 샘플 프로젝트](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo)
 
 ## <a name="deploy-the-infrastructure"></a>인프라 배포
 
-이 문서의 작업을 간편하게 수행하려면 Resource Manager 템플릿을 사용하여 필요한 인프라를 배포합니다. 배포되는 리소스를 보려면 [템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/event-grid/EventHubsDataMigration.json)을 확인하세요. 미리 보기 릴리스의 경우 Event Grid는 **westus2** 및 **westcentralus** 지역을 지원합니다. 리소스 그룹 위치로 다음 지역 중 하나를 사용합니다.
+이 문서의 작업을 간편하게 수행하려면 Resource Manager 템플릿을 사용하여 필요한 인프라를 배포합니다. 배포되는 리소스를 보려면 [템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/event-grid/EventHubsDataMigration.json)을 확인하세요. 리소스 그룹 위치로 [지원되는 지역](overview.md) 중 하나를 사용합니다.
 
 Azure CLI의 경우 
 
@@ -170,10 +170,14 @@ Azure CLI 또는 Portal을 사용하여 이벤트를 구독할 수 있습니다.
 
 ### <a name="azure-cli"></a>Azure CLI
 
-이벤트를 구독하려면 다음 명령을 실행합니다.
+이벤트를 구독하려면 다음 명령을 실행합니다(Azure CLI 버전 2.0.24 이상 필요).
 
 ```azurecli-interactive
-az eventgrid resource event-subscription create -g rgDataMigrationSample --provider-namespace Microsoft.EventHub --resource-type namespaces --resource-name <your-EventHubs-namespace> --name captureEventSub --endpoint <your-function-endpoint>
+namespaceid=$(az resource show --namespace Microsoft.EventHub --resource-type namespaces --name <your-EventHubs-namespace> --resource-group rgDataMigrationSample --query id --output tsv)
+az eventgrid event-subscription create \
+  --resource-id $namespaceid \
+  --name captureEventSub \
+  --endpoint <your-function-endpoint>
 ```
 
 ## <a name="run-the-app-to-generate-data"></a>앱을 실행하여 데이터 생성

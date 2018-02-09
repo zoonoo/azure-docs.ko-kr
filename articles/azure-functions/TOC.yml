@@ -63,6 +63,8 @@
       href: functions-cli-samples.md
 - name: 개념
   items:
+    - name: 1.x와 2.x 비교
+      href: functions-versions.md
     - name: 비율 크기 조정 및 호스팅
       href: functions-scale.md
     - name: 트리거 및 바인딩
@@ -146,7 +148,7 @@
         - name: 함수 앱 관리
           href: functions-how-to-use-azure-function-app-settings.md
         - name: 런타임 버전 설정
-          href: functions-versions.md
+          href: set-runtime-version.md
     - name: 모니터
       href: functions-monitoring.md
     - name: 통합
@@ -175,7 +177,7 @@
           href: durable-functions-counter.md
         - name: 사용자 개입
           href: durable-functions-phone-verification.md
-- name: 참조
+- name: 참고 자료
   items:
     - name: 바인딩
       items:
@@ -183,7 +185,10 @@
           href: functions-bindings-storage-blob.md
         - name: Azure Cosmos DB
           href: functions-bindings-cosmosdb.md
-        - name: "Event Hubs\r\n"
+        - name: Event Grid
+          href: functions-bindings-event-grid.md
+        - name: |
+            Event Hubs
           href: functions-bindings-event-hubs.md
         - name: 외부 파일
           href: functions-bindings-external-file.md

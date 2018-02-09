@@ -3,8 +3,8 @@ title: "Azure CLI 스크립트 샘플 - Azure Redis Cache 만들기 | Microsoft 
 description: "Azure CLI 스크립트 샘플 - Azure Redis Cache 만들기"
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 tags: azure-service-management
 ms.assetid: afd7f6e0-9297-4c98-a95e-597be939cef7
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 08/30/2017
-ms.author: sdanie
-ms.openlocfilehash: 19b582a0cecd72b9f30283ccf822b74cf400a155
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: wesmc
+ms.openlocfilehash: 35b148b49d4265c6a44dbd5cd05276a7e4e717b5
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-an-azure-redis-cache"></a>Azure Redis Cache 만들기
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 10/11/2017
 
 이 스크립트는 다음 명령을 사용하여 리소스 그룹 및 Redis Cache를 만듭니다. 테이블에 있는 각 명령은 명령에 해당하는 문서에 연결됩니다.
 
-| 명령 | 참고 사항 |
+| 명령 | 메모 |
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
 | [az redis create](https://docs.microsoft.com/cli/azure/redis#az_redis_create) | Redis Cache 인스턴스를 만듭니다. |

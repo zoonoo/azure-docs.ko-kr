@@ -1,26 +1,26 @@
 ---
-title: "Azure Active Directory Node.js 시작 | Microsoft Docs"
+title: "Azure AD Node.js Web API 시작 | Microsoft Docs"
 description: "인증을 위해 Azure AD와 통합되는 Node.js REST Web API를 빌드하는 방법."
 services: active-directory
 documentationcenter: nodejs
 author: craigshoemaker
-manager: routlaw
+manager: mtillman
 ms.assetid: 7654ab4c-4489-4ea5-aba9-d7cdc256e42a
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 11/30/2017
 ms.author: cshoe
 ms.custom: aaddev
-ms.openlocfilehash: 6f67a2cf2baabfa10c6a8e81b085ca6991b981dd
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 2ed0874b79601976e0d5a73fe82c7c03331d9bea
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 01/18/2018
 ---
-# <a name="secure-nodejs-web-api-with-azure-active-directory"></a>Azure Active Directory를 사용하여 Node.js Web API 보안 유지
+# <a name="azure-ad-nodejs-web-api-getting-started"></a>Azure AD Node.js Web API 시작
 
 이 문서에서는 [passport-azure-ad](https://github.com/AzureAD/passport-azure-ad) 모듈을 사용하여 AAD(Azure Active Directory)와의 통신을 처리함으로써 [Passport](http://passportjs.org/)로 [Restify](http://restify.com/) API 끝점의 보안을 유지하는 방법을 보여 줍니다. 
 
@@ -73,7 +73,7 @@ az ad app create --display-name node-aad-demo --homepage http://localhost --iden
 
 Azure Active Directory에 연결하려면 다음 정보가 필요합니다.
 
-| 이름  | 설명 | 구성 파일의 변수 이름 |
+| Name  | 설명 | 구성 파일의 변수 이름 |
 | ------------- | ------------- | ------------- |
 | 테넌트 이름  | 인증에 사용할 [테넌트 이름](active-directory-howto-tenant.md) | `tenantName`  |
 | 클라이언트 ID  | 클라이언트 ID는 AAD _응용 프로그램 ID_에 사용되는 OAuth 용어입니다. |  `clientID`  |
@@ -129,13 +129,18 @@ const
 
 ```JavaScript
 const authenticationStrategy = new BearerStrategy(config.credentials, (token, done) => {
-    let userToken = authenticatedUserTokens.find((user) => user.sub === token.sub);
+    let currentUser = null;
+
+    let userToken = authenticatedUserTokens.find((user) => {
+        currentUser = user;
+        user.sub === token.sub;
+    });
 
     if(!userToken) {
         authenticatedUserTokens.push(token);
     }
 
-    return done(null, user, token);
+    return done(null, currentUser, token);
 });
 ```
 이 구현은 `authenticatedUserTokens` 배열에 인증 토큰이 아직 없는 경우 추가하여 자동 등록을 사용합니다.

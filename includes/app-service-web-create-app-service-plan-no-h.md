@@ -1,4 +1,4 @@
-Cloud Shell에서 [az appservice plan create](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) 명령으로 App Service 계획을 만듭니다.
+Cloud Shell에서 [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) 명령을 사용하여 App Service 계획을 만듭니다.
 
 [!INCLUDE [app-service-plan](app-service-plan.md)]
 

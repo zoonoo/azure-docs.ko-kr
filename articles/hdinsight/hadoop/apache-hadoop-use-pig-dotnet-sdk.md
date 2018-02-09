@@ -14,13 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/08/2017
+ms.date: 01/29/2018
 ms.author: larryfr
-ms.openlocfilehash: c828a7b63e70669ed38ecea898442a3978e67ba7
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: 5510d64b518e4694caa8e35140907b55c01ecd8a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="run-pig-jobs-using-the-net-sdk-for-hadoop-in-hdinsight"></a>HDInsight에서 Hadoop용 .NET SDK를 사용하여 Pig 작업 실행
 
@@ -49,13 +49,13 @@ HDInsight .NET SDK는 .NET에서 HDInsight 클러스터로 더 쉽게 작업하�
 
 2. 새 프로젝트에서 다음 값을 입력하거나 선택합니다.
 
-   | 속성 | 값 |
+   | 자산 | 값 |
    | ------ | ------ |
    | Category | Templates/Visual C#/Windows |
    | Template | 콘솔 응용 프로그램 |
-   | 이름 | SubmitPigJob |
+   | Name | SubmitPigJob |
 
-3. **확인** 을 클릭하여 프로젝트를 만듭니다.
+3. **확인**을 클릭하여 프로젝트를 만듭니다.
 
 4. **도구** 메뉴에서 **라이브러리 패키지 관리자** 또는 **NuGet 패키지 관리자**를 선택한 다음 **패키지 관리자 콘솔**을 선택합니다.
 
@@ -70,7 +70,7 @@ HDInsight .NET SDK는 .NET에서 HDInsight 클러스터로 더 쉽게 작업하�
     using Microsoft.Azure.Management.HDInsight.Job.Models;
     using Hyak.Common;
 
-    namespace SubmitHDInsightJobDotNet
+    namespace SubmitPigJob
     {
         class Program
         {

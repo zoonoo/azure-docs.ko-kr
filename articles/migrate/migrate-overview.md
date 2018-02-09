@@ -4,13 +4,13 @@ description: "Azure Migrate 서비스의 개요를 제공합니다."
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 12/19/2017
+ms.date: 01/08/2018
 ms.author: raynew
-ms.openlocfilehash: e998a085399718340e2e3ce2524244844f4e6a14
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 393f2dfa29b930622a37b8ad90ee17b794c70aeb
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="about-azure-migrate"></a>Azure Migrate 정보
 
@@ -42,7 +42,7 @@ Azure Migrate의 기능:
 
 ## <a name="what-do-i-need-to-pay-for"></a>어떤 요금이 발생하나요?
 
-Azure Migrate는 추가 요금 없이 사용할 수 있습니다. 그러나 공개 미리 보기 기간 동안 종속성 시각화 기능 사용에 대해서는 추가 요금이 부과됩니다. Azure Migrate는 [종속성 시각화](concepts-dependency-visualization.md)를 지원하기 위해 기본적으로 Log Analytics 작업 영역을 만듭니다. 종속성 시각화를 사용하거나 Azure Migrate 외부에서 작업 영역을 사용하는 경우 작업 영역 사용 요금이 부과됩니다. 요금에 대해 [자세히 알아보세요](https://azure.microsoft.com/en-us/pricing/details/insight-analytics/). 서비스가 출시되면 종속성 시각화 기능 사용에 대해 요금이 부과되지 않습니다.
+[여기](https://azure.microsoft.com/en-in/pricing/details/azure-migrate/)에서 Azure Migrate 가격 책정에 대해 자세히 알아보세요.
 
 
 ## <a name="whats-in-an-assessment"></a>평가의 내용
@@ -66,7 +66,7 @@ Azure Migrate는 추가 요금 없이 사용할 수 있습니다. 그러나 공�
 3.  vCenter Server의 콘솔 연결을 사용하여 VM에 연결하고, 연결하는 동안 VM의 새 암호를 지정한 다음 VM에서 수집기 응용 프로그램을 실행하여 검색을 시작합니다.
 4.  수집기는 VMware PowerCLI cmdlet을 사용하여 VM 메타데이터를 수집합니다. 검색은 에이전트 없이 수행되며, 및 VMware 호스트 또는 VM에 어떠한 것도 설치하지 않습니다. 수집된 메타데이터에는 VM 정보(코어, 메모리, 디스크, 디스크 크기 및 네트워크 어댑터)가 포함됩니다. 수집기는 CPU 및 메모리 사용량, 디스크 IOPS, 디스크 처리량(MBps) 및 네트워크 출력(MBps)을 포함하여 VM에 대한 성능 데이터도 수집합니다.
 5.  메타데이터는 Azure Migrate 프로젝트에 푸시됩니다. Azure Portal에서 메타데이터를 볼 수 있습니다.
-6.  평가를 위해 검색한 VM을 그룹으로 모읍니다. 예를 들면 동일한 응용 프로그램을 실행하는 VM을 그룹화할 수 있습니다. Azure Migrate 포털에서 VM을 그룹화하거나 vCenter Server에서 태그 지정을 사용할 수 있습니다. 또한 종속성 시각화를 사용하여 특정 컴퓨터나 그룹의 모든 시스템에 대한 종속성을 보고 그룹을 구체화할 수 있습니다.
+6.  평가를 위해 검색한 VM을 그룹으로 모읍니다. 예를 들면 동일한 응용 프로그램을 실행하는 VM을 그룹화할 수 있습니다. 더 상세한 그룹화를 위해 종속성 시각화를 사용하여 특정 컴퓨터나 그룹의 모든 시스템에 대한 종속성을 보고 그룹을 구체화할 수 있습니다.
 7.  그룹이 형성되면 그룹에 대한 평가를 만듭니다. 
 8.  평가가 완료되면 포털에서 보거나 Excel 형식으로 다운로드할 수 있습니다.
 
