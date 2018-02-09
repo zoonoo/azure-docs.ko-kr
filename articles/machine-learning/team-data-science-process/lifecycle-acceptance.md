@@ -27,7 +27,7 @@ ms.lasthandoff: 11/09/2017
    1. **비즈니스 이해**
    2. **데이터 취득 및 이해**
    3. **모델링**
-   4. **배포웹사이트를**
+   4. **배포**
    5. **고객 승인**
 
 다음은 TDSP 수명 주기를 시각적으로 나타낸 것입니다. 
@@ -57,7 +57,7 @@ TDSP의 수명 주기에서 각 단계에 대한 링크는 다음과 같습니�
    1. [비즈니스 이해](lifecycle-business-understanding.md)
    2. [데이터 취득 및 이해](lifecycle-data.md)
    3. [모델링](lifecycle-modeling.md)
-   4. [배포웹사이트를](lifecycle-deployment.md)
+   4. [배포](lifecycle-deployment.md)
    5. [고객 승인](lifecycle-acceptance.md)
 
 특정 시나리오 프로세스의 모든 단계를 보여주는 종합적인 전체 연습도 제공됩니다. [예제 연습](walkthroughs.md) 문서는 링크 및 썸네일 설명을 포함하는 시나리오 목록을 제공합니다. 이 연습에서는 클라우드 및 온-프레미스 도구와 서비스를 워크플로 또는 파이프라인에 결합하여 지능형 응용 프로그램을 만드는 방법을 설명합니다. 
