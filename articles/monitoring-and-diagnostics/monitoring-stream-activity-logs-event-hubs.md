@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 6/06/2017
+ms.date: 01/30/2018
 ms.author: johnkem
-ms.openlocfilehash: f0e507cf2804edbcdd6c87f47b30defbc6a5eb94
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: c3c7ffe00263b8f76d89aa8d15fe2d502538527d
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="stream-the-azure-activity-log-to-event-hubs"></a>Azure 활동 로그를 Event Hubs로 스트림
 포털에서 기본 제공 "내보내기" 옵션을 사용하거나 Azure PowerShell Cmdlet 또는 Azure CLI를 통해 로그 프로필에서 Service Bus 규칙 ID를 사용하도록 설정하여 [**Azure 활동 로그**](monitoring-overview-activity-logs.md)를 거의 실시간으로 응용 프로그램에 스트림할 수 있습니다.
@@ -35,16 +35,17 @@ ms.lasthandoff: 12/14/2017
 설정을 구성하는 사용자가 두 구독에 대한 적절한 RBAC 액세스를 가진 경우 서비스 버스 또는 이벤트 허브 네임스페이스는 로그를 내보내는 구독과 동일한 구독을 가지고 있지 않아도 됩니다.
 
 ### <a name="via-azure-portal"></a>Azure 포털을 통해
-1. 포털 왼쪽에 있는 메뉴를 사용하여 **활동 로그** 블레이드로 이동합니다.
+1. 포털 왼쪽에 있는 모든 서비스 검색을 사용하여 **활동 로그** 블레이드로 이동합니다.
    
-    ![포털에서 활동 로그로 이동](./media/monitoring-overview-activity-logs/activity-logs-portal-navigate.png)
-2. 블레이드 맨 위에서 **내보내기** 단추를 클릭합니다.
+    ![포털에서 활동 로그로 이동](./media/monitoring-stream-activity-logs-event-hubs/activity.png)
+2. 활동 로그 블레이드 맨 위에서 **내보내기** 단추를 클릭합니다.
    
-    ![포털에서 내보내기 단추](./media/monitoring-overview-activity-logs/activity-logs-portal-export.png)
-3. 표시되는 블레이드에서 이벤트를 스트림할 지역, 이러한 이벤트를 스트리밍하기 위해 Event Hub를 생성할 Service Bus 네임스페이스를 선택할 수 있습니다.
+    ![포털에서 내보내기 단추](./media/monitoring-stream-activity-logs-event-hubs/export.png)
+3. 표시되는 블레이드에서 이벤트를 스트림할 지역, 이러한 이벤트를 스트리밍하기 위해 Event Hub를 생성할 Service Bus 네임스페이스를 선택할 수 있습니다. **모든 지역**을 선택합니다.
    
-    ![활동 로그 내보내기 블레이드](./media/monitoring-overview-activity-logs/activity-logs-portal-export-blade.png)
+    ![활동 로그 내보내기 블레이드](./media/monitoring-stream-activity-logs-event-hubs/export-audit.png)
 4. **저장**을 클릭하여 이러한 설정을 저장합니다. 해당 설정이 구독에 즉시 적용됩니다.
+5. 여러 구독이 있는 경우 이 작업을 반복하고 모든 데이터를 동일한 Event Hub로 보내야 합니다.
 
 ### <a name="via-powershell-cmdlets"></a>PowerShell Cmdlet을 통해
 로그 프로필이 이미 있는 경우 먼저 해당 프로필을 제거해야 합니다.
@@ -53,8 +54,10 @@ ms.lasthandoff: 12/14/2017
 2. 있는 경우 `Remove-AzureRmLogProfile` 를 사용하여 제거합니다.
 3. `Set-AzureRmLogProfile` 을 사용하여 프로필을 만듭니다.
 
-```
+```powershell
+
 Add-AzureRmLogProfile -Name my_log_profile -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Locations global,westus,eastus -RetentionInDays 90 -Categories Write,Delete,Action
+
 ```
 
 Service Bus 규칙 ID는 예를 들어, {service bus resource ID}/authorizationrules/{key name} 형식의 문자열입니다. 
@@ -66,7 +69,7 @@ Service Bus 규칙 ID는 예를 들어, {service bus resource ID}/authorizationr
 2. 있는 경우 `azure insights logprofile delete` 를 사용하여 제거합니다.
 3. `azure insights logprofile add` 을 사용하여 프로필을 만듭니다.
 
-```
+```azurecli-interactive
 azure insights logprofile add --name my_log_profile --storageId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Storage/storageAccounts/my_storage --serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey --locations global,westus,eastus,northeurope --retentionInDays 90 –categories Write,Delete,Action
 ```
 

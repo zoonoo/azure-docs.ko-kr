@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: fashah;garye;bradsev
-ms.openlocfilehash: a31b77ca2d315b506c925a83a5050c0e70c54842
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.author: garye;bradsev
+ms.openlocfilehash: f3388728b2c2ea699a2caf764dc0fd3e9ff19505
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="heading"></a>고급 분석을 사용하여 Azure blob 데이터 처리
 이 문서에서는 Azure Blob 저장소에 저장된 데이터를 탐색하고 기능을 생성하는 방법을 다룹니다. 
@@ -132,7 +132,7 @@ ms.lasthandoff: 11/14/2017
         dataframe_blobdata_with_bin_bool = dataframe_blobdata.join(dataframe_blobdata_bin_bool)    
 
 ## <a name="sql-featuregen"></a>다시 Azure blob에 데이터를 쓰고 Azure 기계 학습에서 데이터 사용
-데이터를 탐색하고 필요한 기능을 만든 후에는 다음 단계에 따라 샘플링한 또는 기능화한 데이터를 Azure blob에 업로드하여 Azure 기계 학습에서 사용할 수 있습니다. Azure 기계 학습 스튜디오에서 추가 기능을 만들 수도 있습니다. 
+데이터를 탐색하고 필요한 기능을 만든 후에는 다음 단계에 따라 샘플링한 또는 기능화한 데이터를 Azure blob에 업로드하여 Azure Machine Learning에서 사용할 수 있습니다. Azure Machine Learning Studio에서 추가 기능을 만들 수도 있습니다. 
 
 1. 로컬 파일에 데이터 프레임을 씁니다.
    
@@ -158,7 +158,7 @@ ms.lasthandoff: 11/14/2017
    
         except:            
             print ("Something went wrong with uploading blob:"+BLOBNAME)
-3. 이제 아래 그림과 같이 Azure 기계 학습 [데이터 가져오기][import-data] 모듈을 사용하여 blob에서 데이터를 읽을 수 있습니다.
+3. 이제 아래 그림과 같이 Azure Machine Learning [데이터 가져오기][import-data] 모듈을 사용하여 blob에서 데이터를 읽을 수 있습니다.
 
 ![판독기 blob][1]
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: c283fb4d1a390de88b425ce51a312b5404503f0d
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: a43d2ea10bfd6de2f8177283821f7aad59e9f610
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>포털에서 Azure Network Watcher를 사용하여 패킷 캡처 관리
 
@@ -80,6 +80,7 @@ Network Watcher 패킷 캡처를 사용하면 가상 컴퓨터 간에 트래픽�
 
 **캡처 구성**
 
+- **로컬 파일 경로** - 패킷 캡처가 저장되는 가상 머신의 로컬 경로(**[파일]**을 선택했을 때만 유효)입니다. 유효한 경로를 지정해야 합니다. Linux 가상 머신의 경우 경로는 / var / captures로 시작해야 합니다.
 - **Storage 계정** - 패킷 캡처를 Storage 계정에 저장할지 여부를 결정합니다.
 - **파일** - 패킷 캡처를 가상 머신에 로컬로 저장할지 여부를 결정합니다.
 - **Storage 계정** - 패킷 캡처를 저장할 선택한 Storage 계정입니다. 기본 위치는 https://{저장소 계정 이름}.blob.core.windows.net/network-watcher-logs/subscriptions/{구독 ID}/resourcegroups/{리소스 그룹 이름}/providers/microsoft.compute/virtualmachines/{가상 머신 이름}/{YY}/{MM}/{DD}/packetcapture_{HH}_{MM}_{SS}_{XXX}.cap입니다. (**저장소**를 선택한 경우에만 사용됨)

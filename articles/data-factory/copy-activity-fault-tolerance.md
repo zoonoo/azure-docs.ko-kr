@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: 293ffb2a56ae970c71d495d7d929720ddf758307
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: b7ca3f6da104da16bd64db042a2a13f593a393b6
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/03/2018
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Azure Data Factory의 복사 작업 내결함성
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -36,9 +36,17 @@ Azure Data Factory의 복사 작업은 원본 및 싱크 데이터 저장소 간
  ## <a name="supported-scenarios"></a>지원되는 시나리오
 복사 작업은 호환되지 않는 데이터의 검색, 건너뛰기 및 로깅에 대한 다음 세 가지 시나리오를 지원합니다.
 
-- **원본 데이터 형식 및 싱크 원시 형식 간의 비호환성** <br/><br/> 예제: 3개의 INT 형식 열을 포함하는 스키마 정의를 사용하여 Blob Storage에 있는 CSV 파일의 데이터를 SQL Database로 복사합니다. 123,456,789와 같은 숫자 데이터를 포함하는 CSV 파일 행은 싱크 저장소에 성공적으로 복사됩니다. 그러나 123,456, abc와 같은 숫자가 아닌 값을 포함하는 행을 호환되지 않는 것으로 감지하고 건너뜁니다.
-- **원본과 싱크 간의 열 수 불일치** <br/><br/> 예제: 6개의 열이 포함된 스키마 정의를 사용하여 Blob Storage에 있는 CSV 파일의 데이터를 SQL Database로 복사합니다. 6개의 열이 포함된 CSV 파일 행은 싱크 저장소에 성공적으로 복사됩니다. 6개보다 많거나 적은 열을 포함하는 CSV 파일 행을 호환되지 않는 것으로 감지하고 건너뜁니다.
-- **관계형 데이터베이스에 쓰는 중 기본 키 위반**<br/><br/> 예제: SQL Server에서 SQL Database로 데이터를 복사합니다. 기본 키가 싱크 SQL Database에 정의되어 있지만 이러한 기본 키가 원본 SQL Server에 정의되어 있지 않습니다. 원본에 있는 중복된 행을 싱크로 복사할 수 없습니다. 복사 작업은 원본 데이터의 첫 번째 행만 싱크에 복사합니다. 중복된 기본 키 값을 포함하는 후속 원본 행을 호환되지 않는 것으로 감지하고 건너뜁니다.
+- **원본 데이터 형식 및 싱크 원시 형식 간의 비호환성** 
+
+    예제: 3개의 INT 형식 열을 포함하는 스키마 정의를 사용하여 Blob Storage에 있는 CSV 파일의 데이터를 SQL Database로 복사합니다. 123,456,789와 같은 숫자 데이터를 포함하는 CSV 파일 행은 싱크 저장소에 성공적으로 복사됩니다. 그러나 123,456, abc와 같은 숫자가 아닌 값을 포함하는 행을 호환되지 않는 것으로 감지하고 건너뜁니다.
+
+- **원본과 싱크 간의 열 수 불일치**
+
+    예제: 6개의 열이 포함된 스키마 정의를 사용하여 Blob Storage에 있는 CSV 파일의 데이터를 SQL Database로 복사합니다. 6개의 열이 포함된 CSV 파일 행은 싱크 저장소에 성공적으로 복사됩니다. 6개보다 많거나 적은 열을 포함하는 CSV 파일 행을 호환되지 않는 것으로 감지하고 건너뜁니다.
+
+- **관계형 데이터베이스에 쓰는 중 기본 키 위반**
+
+    예제: SQL Server에서 SQL Database로 데이터를 복사합니다. 기본 키가 싱크 SQL Database에 정의되어 있지만 이러한 기본 키가 원본 SQL Server에 정의되어 있지 않습니다. 원본에 있는 중복된 행을 싱크로 복사할 수 없습니다. 복사 작업은 원본 데이터의 첫 번째 행만 싱크에 복사합니다. 중복된 기본 키 값을 포함하는 후속 원본 행을 호환되지 않는 것으로 감지하고 건너뜁니다.
 
 >[!NOTE]
 >이 기능은 복사 작업이 [Azure SQL Data Warehouse PolyBase](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) 또는 [Amazon Redshift Unload](connector-amazon-redshift.md#use-unload-to-copy-data-from-amazon-redshift)를 포함하는 외부 데이터 로드 메커니즘을 호출하도록 구성된 경우에는 적용되지 않습니다. PolyBase를 사용하여 SQL Data Warehouse로 데이터를 로드하려는 경우, 복사 작업에서 "[polyBaseSettings](connector-azure-sql-data-warehouse.md#azure-sql-data-warehouse-as-sink)"를 지정하여 PolyBase의 네이티브 내결함성 지원을 사용합니다.
@@ -67,10 +75,10 @@ Azure Data Factory의 복사 작업은 원본 및 싱크 데이터 저장소 간
 
 자산 | 설명 | 허용되는 값 | 필수
 -------- | ----------- | -------------- | -------- 
-enableSkipIncompatibleRow | 복사 중에 호환되지 않는 행을 건너뛸지 지정합니다. | True<br/>False(기본값) | 아니요
-redirectIncompatibleRowSettings | 호환되지 않는 행을 기록하려는 경우 지정할 수 있는 속성 그룹입니다. | &nbsp; | 아니요
-linkedServiceName | 건너뛰는 행을 포함하는 로그를 저장하는 [Azure Storage](connector-azure-blob-storage.md#linked-service-properties) 또는 [Azure Data Lake Store](connector-azure-data-lake-store.md#linked-service-properties)의 연결된 서비스입니다. | `AzureStorage` 또는 `AzureDataLakeStore` 형식 연결된 서비스의 이름은 로그 파일을 저장하는 데 사용하려는 인스턴스를 참조합니다. | 아니요
-경로 | 건너뛴 행을 포함하는 로그 파일의 경로입니다. | 호환되지 않는 데이터를 기록하는 데 사용하려는 경로를 지정합니다. 경로를 지정하지 않으면 서비스가 대신 컨테이너를 만듭니다. | 아니요
+enableSkipIncompatibleRow | 복사 중에 호환되지 않는 행을 건너뛸지 지정합니다. | True<br/>False(기본값) | 아니오
+redirectIncompatibleRowSettings | 호환되지 않는 행을 기록하려는 경우 지정할 수 있는 속성 그룹입니다. | &nbsp; | 아니오
+linkedServiceName | 건너뛰는 행을 포함하는 로그를 저장하는 [Azure Storage](connector-azure-blob-storage.md#linked-service-properties) 또는 [Azure Data Lake Store](connector-azure-data-lake-store.md#linked-service-properties)의 연결된 서비스입니다. | `AzureStorage` 또는 `AzureDataLakeStore` 형식 연결된 서비스의 이름은 로그 파일을 저장하는 데 사용하려는 인스턴스를 참조합니다. | 아니오
+경로 | 건너뛴 행을 포함하는 로그 파일의 경로입니다. | 호환되지 않는 데이터를 기록하는 데 사용하려는 경로를 지정합니다. 경로를 지정하지 않으면 서비스가 대신 컨테이너를 만듭니다. | 아니오
 
 ## <a name="monitor-skipped-rows"></a>건너뛴 행 모니터링
 복사 작업 실행이 완료되면 복사 작업 출력에서 건너뛴 행의 수를 볼 수 있습니다.

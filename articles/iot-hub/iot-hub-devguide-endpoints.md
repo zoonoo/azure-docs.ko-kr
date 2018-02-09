@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/19/2017
+ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: dc983549aea53ed29859205102d6308a3367bec7
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 54491d0ca1f515786af07146d83ef65fc7d46f11
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="reference---iot-hub-endpoints"></a>참조 - IoT Hub 끝점
 
@@ -82,7 +82,12 @@ IoT Hub는 메시지 라우팅을 작동하기 위해 이러한 서비스 끝점
 
 ### <a name="when-using-azure-storage-containers"></a>Azure Storage 컨테이너를 사용하는 경우
 
-IoT Hub는 데이터를 Azure Storage 컨테이너에 [Apache Avro](http://avro.apache.org/) 형식의 BLOB으로 쓰는 것만 지원합니다. IoT Hub는 일정 크기에 도달하거나 일정 시간이 소요되는 중 먼저 발생한 상황에서 메시지를 일괄 처리하고 데이터를 BLOB에 씁니다. 쓸 데이터가 없으면 IoT Hub가 빈 BLOB를 작성하지 않습니다.
+IoT Hub는 데이터를 Azure Storage 컨테이너에 [Apache Avro](http://avro.apache.org/) 형식의 BLOB으로 쓰는 것만 지원합니다. IoT Hub는 메시지를 일괄 처리하고 다음 조건이 충족될 때마다 Blob에 데이터를 씁니다.
+
+* 일괄 처리가 특정 크기에 도달할 경우
+* 또는 특정 시간이 경과할 경우
+
+쓸 데이터가 없으면 IoT Hub가 빈 BLOB를 작성합니다.
 
 IoT Hub는 기본적으로 다음 파일 명명 규칙을 따릅니다.
 

@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: nitinme
-ms.openlocfilehash: ede1a974b32227edf44464ed56ae85a1ea7ee97b
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: c668dde33b3571436711c6c5e5289993a9edf1a2
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-spark-applications-for-an-hdinsight-cluster"></a>Eclipse용 Azure 도구 키트를 사용하여 HDInsight 클러스터용 Spark 응용 프로그램 만들기
 
@@ -44,7 +44,7 @@ Eclipse용 Azure 도구 키트의 HDInsight Tools를 사용하여 Scala로 작�
 
 
 ## <a name="install-hdinsight-tools-in-azure-toolkit-for-eclipse-and-the-scala-plug-in"></a>Eclipse용 Azure 도구 키트의 HDInsight 도구 및 Scala 플러그 인 설치
-### <a name="install-hdinsight-toolsazure-toolkit-for"></a>HDInsight Toolsazure-toolkit-for 설치
+### <a name="install-azure-toolkit-for-eclipse"></a>Eclipse용 Azure 도구 키트 설치
 Eclipse용 HDInsight Tools는 Eclipse용 Azure 도구 키트의 일부분으로 제공됩니다. 설치 지침은 [Eclipse용 Azure 도구 키트 설치](https://docs.microsoft.com/java/azure/eclipse/azure-toolkit-for-eclipse-installation)를 참조하세요.
 ### <a name="install-the-scala-plug-in"></a>Scala 플러그 인 설치
 Eclipse를 열면 HDInsight Tools는 Scala 플러그 인을 설치했는지 여부를 자동으로 검색합니다. **확인**을 선택하여 계속 진행한 다음 Eclipse Marketplace에서 해당 플러그 인을 설치하는 지침을 따릅니다.
@@ -119,7 +119,7 @@ Eclipse를 열면 HDInsight Tools는 Scala 플러그 인을 설치했는지 여�
 5. HDInsight Spark 클러스터에서 응용 프로그램 실행:
    
    a. 패키지 탐색기에서 프로젝트 이름을 마우스 오른쪽 단추로 클릭한 다음 **HDInsight에 Spark 응용 프로그램 제출**을 선택합니다.        
-   b. **Spark 제출** 대화 상자에 다음 값을 제공한 다음 **제출**을 선택합니다.
+   나. **Spark 제출** 대화 상자에 다음 값을 제공한 다음 **제출**을 선택합니다.
       
       * **클러스터 이름**의 경우 응용 프로그램을 실행하려는 HDInsight Spark 클러스터를 선택합니다.
       * Eclipse 프로젝트에서 아티팩트를 선택하거나 하드 디스크에서 아티팩트를 선택합니다. 기본값은 패키지 탐색기에서 마우스 오른쪽 단추로 클릭한 항목에 따라 달라집니다.
@@ -223,8 +223,10 @@ Windows 컴퓨터에서 로컬 Spark Scala 응용 프로그램을 실행하는 �
 
 ### <a name="scenarios"></a>시나리오
 * [BI와 Spark: BI 도구와 함께 HDInsight에서 Spark를 사용하여 대화형 데이터 분석 수행](apache-spark-use-bi-tools.md)
-* [기계 학습과 Spark: HVAC 데이터를 사용하여 건물 온도를 분석하는 데 HDInsight의 Spark 사용](apache-spark-ipython-notebook-machine-learning.md)
-* [기계 학습과 Spark: 음식 검사 결과를 예측하는 데 HDInsight의 Spark 사용](apache-spark-machine-learning-mllib-ipython.md)
+* 
+            [Machine Learning과 Spark: HVAC 데이터를 사용하여 건물 온도를 분석하는 데 HDInsight의 Spark 사용](apache-spark-ipython-notebook-machine-learning.md)
+* 
+            [Machine Learning과 Spark: 음식 검사 결과를 예측하는 데 HDInsight의 Spark 사용](apache-spark-machine-learning-mllib-ipython.md)
 * [Spark 스트리밍: HDInsight에서 Spark를 사용하여 실시간 스트리밍 응용 프로그램 빌드](../hdinsight-apache-spark-eventhub-streaming.md)
 * [HDInsight의 Spark를 사용하여 웹 사이트 로그 분석](apache-spark-custom-library-website-log-analysis.md)
 

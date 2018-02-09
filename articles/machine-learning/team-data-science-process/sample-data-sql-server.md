@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: fashah;garye;bradsev
-ms.openlocfilehash: fd669f3951b1f7f05932634f039a04e02993399f
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.author: garye;bradsev
+ms.openlocfilehash: a82e4703f68271d6d10719e6be8465efa9b71a79
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="heading"></a>Azure의 SQL Server에서 데이터 샘플링
-이 문서에서는 SQL 또는 Python 프로그래밍 언어를 사용하여 Azure의 SQL Server에 저장된 데이터를 샘플링하는 방법을 보여줍니다. 또한 샘플링된 데이터를 파일에 저장하고, Azure blob에 업로드한 다음, Azure 기계 학습 스튜디오로 읽어 들여 Azure 기계 학습으로 이동하는 방법을 보여 줍니다.
+이 문서에서는 SQL 또는 Python 프로그래밍 언어를 사용하여 Azure의 SQL Server에 저장된 데이터를 샘플링하는 방법을 보여줍니다. 또한 샘플링된 데이터를 파일에 저장하고, Azure blob에 업로드한 다음, Azure Machine Learning Studio로 읽어 들여 Azure Machine Learning으로 이동하는 방법을 보여 줍니다.
 
 Python 샘플링은 Azure의 SQL Sever와 [Pandas](http://pandas.pydata.org/) 라이브러리에 연결하기 위해 [pyodbc](https://code.google.com/p/pyodbc/) ODBC 라이브러리를 사용하여 샘플링을 수행합니다.
 
@@ -65,7 +65,7 @@ Python 샘플링은 Azure의 SQL Sever와 [Pandas](http://pandas.pydata.org/) �
 > 
 
 ### <a name="sql-aml"></a>Azure 기계 학습에 연결
-Azure 기계 학습 [데이터 가져오기][import-data] 모듈에서 위의 샘플 쿼리를 직접 사용하여 데이터를 즉시 다운 샘플링한 후 Azure 기계 학습 실험으로 가져올 수 있습니다. 판독기 모듈을 사용하여 샘플링된 데이터를 읽는 스크린 샷이 여기에 표시되어 있습니다.
+Azure Machine Learning [데이터 가져오기][import-data] 모듈에서 위의 샘플 쿼리를 직접 사용하여 데이터를 즉시 다운 샘플링한 후 Azure Machine Learning 실험으로 가져올 수 있습니다. 판독기 모듈을 사용하여 샘플링된 데이터를 읽는 스크린 샷이 여기에 표시되어 있습니다.
 
 ![판독기 sql][1]
 
@@ -86,7 +86,8 @@ Python의 [Pandas](http://pandas.pydata.org/) 라이브러리에서는 Python �
 이제 Pandas 데이터 프레임에서 샘플링된 데이터로 작업할 수 있습니다. 
 
 ### <a name="python-aml"></a>Azure 기계 학습에 연결
-다음 샘플 코드를 사용하여 다운 샘플링한 데이터를 파일에 저장한 후 Azure Blob에 업로드할 수 있습니다. [데이터 가져오기][import-data] 모듈을 사용하여 Blob의 데이터를 Azure 기계 학습 실험으로 직접 읽을 수 있습니다. 단계는 다음과 같습니다. 
+다음 샘플 코드를 사용하여 다운 샘플링한 데이터를 파일에 저장한 후 Azure Blob에 업로드할 수 있습니다. 
+            [데이터 가져오기][import-data] 모듈을 사용하여 Blob의 데이터를 Azure Machine Learning 실험으로 직접 읽을 수 있습니다. 단계는 다음과 같습니다. 
 
 1. pandas 데이터 프레임을 로컬 파일에 기록합니다.
    

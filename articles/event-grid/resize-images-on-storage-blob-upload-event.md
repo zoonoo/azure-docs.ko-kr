@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 10/20/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 22eafca56eb5677c63a833d298799b725c50f768
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: d8ffd9b3b9a315129ab0442908a9b3ad3bbecd1c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="automate-resizing-uploaded-images-using-event-grid"></a>Event Grid를 사용하여 업로드된 이미지 크기 자동 조정
 
@@ -51,7 +51,7 @@ Cloud Shell을 사용하지 않는 경우 먼저 `az login`을 사용하여 로�
 
 ## <a name="create-an-azure-storage-account"></a>Azure Storage 계정 만들기
 
-Azure Functions에는 일반 저장소 계정이 필요합니다. [az storage account create](/cli/azure/storage/account#create) 명령을 사용하여 리소스 그룹에 별도의 일반 저장소 계정을 만듭니다.
+Azure Functions에는 일반 저장소 계정이 필요합니다. [az storage account create](/cli/azure/storage/account#az_storage_account_create) 명령을 사용하여 리소스 그룹에 별도의 일반 저장소 계정을 만듭니다.
 
 Storage 계정 이름은 3자에서 24자 사이여야 하고 숫자 및 소문자만 포함할 수 있습니다. 
 
@@ -65,7 +65,7 @@ az storage account create --name <general_storage_account> \
 
 ## <a name="create-a-function-app"></a>함수 앱 만들기  
 
-함수 실행을 호스트하는 함수 앱이 있어야 합니다. 함수 앱은 서버를 사용하지 않는 함수 코드 실행을 위한 환경을 제공합니다. [az functionapp create](/cli/azure/functionapp#create) 명령을 사용하여 함수 앱을 만듭니다. 
+함수 실행을 호스트하는 함수 앱이 있어야 합니다. 함수 앱은 서버를 사용하지 않는 함수 코드 실행을 위한 환경을 제공합니다. [az functionapp create](/cli/azure/functionapp#az_functionapp_create) 명령을 사용하여 함수 앱을 만듭니다. 
 
 다음 명령에서 `<function_app>` 자리 표시자를 고유한 함수 앱 이름으로 대체합니다. `<function_app>`은 함수 앱의 기본 DNS 도메인으로 사용되므로 이름이 Azure의 모든 앱에서 고유해야 합니다. 이 경우 `<general_storage_account>`는 사용자가 만든 일반 저장소 계정의 이름입니다.  
 
@@ -78,7 +78,7 @@ az functionapp create --name <function_app> --storage-account  <general_storage_
 
 ## <a name="configure-the-function-app"></a>함수 앱 구성
 
-함수에는 BLOB 저장소 계정 연결을 위한 연결 문자열이 필요합니다. 이 경우 `<blob_storage_account>`는 이전 자습서에서 만든 BLOB 저장소 계정의 이름입니다. [az storage account show-connection-string](/cli/azure/storage/account#show-connection-string) 명령으로 연결 문자열을 가져옵니다. 미리 보기 이미지 컨테이너 이름도 `thumbs`로 설정되어야 합니다. 함수 앱에서 [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#set) 명령으로 이 응용 프로그램 설정을 추가합니다.
+함수에는 BLOB 저장소 계정 연결을 위한 연결 문자열이 필요합니다. 이 경우 `<blob_storage_account>`는 이전 자습서에서 만든 BLOB 저장소 계정의 이름입니다. [az storage account show-connection-string](/cli/azure/storage/account#az_storage_account_show_connection_string) 명령으로 연결 문자열을 가져옵니다. 미리 보기 이미지 컨테이너 이름도 `thumbs`로 설정되어야 합니다. 함수 앱에서 [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az_functionapp_config_appsettings_set) 명령으로 이 응용 프로그램 설정을 추가합니다.
 
 ```azurecli-interactive
 storageConnectionString=$(az storage account show-connection-string \
@@ -95,7 +95,7 @@ myContainerName=thumbs
 
 ## <a name="deploy-the-function-code"></a>함수 코드 배포 
 
-이미지 크기 조정을 수행하는 C# 함수는 이 [샘플 GitHub 리포지토리](https://github.com/Azure-Samples/function-image-upload-resize)에서 영어로 제공됩니다. 이 Functions 코드 프로젝트를 [az functionapp deployment source config](/cli/azure/functionapp/deployment/source#config) 명령을 사용하여 함수 앱에 배포합니다. 
+이미지 크기 조정을 수행하는 C# 함수는 이 [샘플 GitHub 리포지토리](https://github.com/Azure-Samples/function-image-upload-resize)에서 영어로 제공됩니다. 이 Functions 코드 프로젝트를 [az functionapp deployment source config](/cli/azure/functionapp/deployment/source#az_functionapp_deployment_source_config) 명령을 사용하여 함수 앱에 배포합니다. 
 
 다음 명령에서 `<function_app>`은 이전 스크립트에서 만들 것과 동일한 함수 앱입니다.
 
@@ -106,7 +106,9 @@ az functionapp deployment source config --name <function_app> \
 ```
 
 BLOB이 만든 이벤트에 대한 이벤트 구독에 의해 이미지 크기 조정 함수가 트리거됩니다. 트리거로 전달되는 데이터에는 BLOB URL이 포함되며 이 데이터는 다시 입력 바인딩으로 전달되어 BLOB 저장소에서 업로드된 이미지를 가져옵니다. 이 함수는 미리 보기 이미지를 생성하고 BLOB 저장소에서 결과 스트림을 별도의 컨테이너에 기록합니다. 이 함수에 대한 자세한 내용은 [샘플 리포지토리의 추가 정보 파일](https://github.com/Azure-Samples/function-image-upload-resize/blob/master/README.md)을 참조하세요.
- 
+
+이 프로젝트에서는 트리거 형식에 `EventGridTrigger`를 사용합니다. 일반 HTTP 트리거보다는 Event Grid 트리거를 사용하는 것이 좋습니다. Event Grid는 Event Grid Function 트리거의 유효성을 자동으로 검사합니다. 일반 HTTP 트리거를 사용하면 [유효성 검사 응답](security-authentication.md#webhook-event-delivery)을 구현해야 합니다.
+
 함수 프로젝트 코드는 공개 샘플 리포지토리에서 직접 배포됩니다. Azure Functions의 배포 옵션에 대한 자세한 내용은 [Azure Functions에 대한 지속적인 배포](../azure-functions/functions-continuous-deployment.md)를 참조하세요.
 
 ## <a name="create-your-event-subscription"></a>이벤트 구독 만들기
@@ -129,8 +131,8 @@ BLOB이 만든 이벤트에 대한 이벤트 구독에 의해 이미지 크기 �
     | ------------ |  ------- | -------------------------------------------------- |
     | **Name** | imageresizersub | 새 이벤트 구독을 식별하는 이름입니다. | 
     | **항목 유형** |  Storage 계정 | 저장소 계정 이벤트 공급자를 선택합니다. | 
-    | **구독** | 사용자의 구독 | 기본적으로 현재 구독을 선택해야 합니다.   |
-    | **리소스 그룹** | myResourceGroup | **기존 항목 사용**을 선택하고 이 항목에서 사용한 리소스 그룹을 선택합니다.  |
+    | **구독** | Azure 구독 | 기본적으로 현재 Azure 구독을 선택해야 합니다.   |
+    | **리소스 그룹** | myResourceGroup | **기존 항목 사용**을 선택하고 이 자습서에서 사용한 리소스 그룹을 선택합니다.  |
     | **인스턴스** |  `<blob_storage_account>` |  만든 BLOB 저장소 계정을 선택합니다. |
     | **이벤트 유형** | 만든 BLOB  | 만든 **BLOB** 이외의 모든 유형을 선택 취소합니다. `Microsoft.Storage.BlobCreated` 이벤트 유형만 함수에 전달됩니다.| 
     | **구독자 끝점** | autogenerated | 사용자에 대해 생성되는 끝점 URL을 사용합니다. | 

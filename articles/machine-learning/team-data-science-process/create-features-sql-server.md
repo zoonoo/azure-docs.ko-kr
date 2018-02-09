@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
-ms.author: bradsev;fashah;garye
-ms.openlocfilehash: dd919e7f87080b8c4ad1f8d3de26d6f71470a264
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.author: bradsev;garye
+ms.openlocfilehash: df1e658d532dcb23fdf0aa14bfad59e98c8ff7a8
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="create-features-for-data-in-sql-server-using-sql-and-python"></a>SQL 및 Python을 사용하여 SQL Server의 데이터에 대한 기능 만들기
 이 문서에서는 데이터에서 알고리즘을 효율적으로 학습할 수 있는 Azure의 SQL Server VM에 저장된 데이터에 대한 기능을 생성하는 방법을 보여 줍니다. SQL 또는 Python 같은 프로그래밍 언어를 사용하여 이 작업을 수행할 수 있습니다. 여기에는 두 방법이 모두 설명되어 있습니다.
@@ -36,7 +36,7 @@ ms.lasthandoff: 11/23/2017
 이 문서에서는 사용자가 다음 작업을 수행한 것으로 가정합니다.
 
 * Azure 저장소 계정을 만들었습니다. 지침이 필요한 경우 [Azure Storage 계정 만들기](../../storage/common/storage-create-storage-account.md#create-a-storage-account)를 참조하세요.
-* 데이터가 SQL Server에 저장되어 있습니다. 그렇지 않은 경우, 데이터를 이동하는 방법에 대한 지침은 [Azure 기계 학습을 위해 Azure SQL Database로 데이터 이동](move-sql-azure.md) 을 참조하세요.
+* 데이터가 SQL Server에 저장되어 있습니다. 그렇지 않은 경우, 데이터를 이동하는 방법에 대한 지침은 [Azure Machine Learning을 위해 Azure SQL Database로 데이터 이동](move-sql-azure.md) 을 참조하세요.
 
 ## <a name="sql-featuregen"></a>SQL로 기능 생성
 이 섹션에서는 SQL을 사용하여 기능을 생성하는 방법에 대해 설명합니다.  

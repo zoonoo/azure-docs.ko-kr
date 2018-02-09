@@ -3,7 +3,7 @@ title: "Azure Cosmos DB에서 변경 피드 지원 사용 | Microsoft Docs"
 description: "Azure Cosmos DB의 변경 피드 지원을 사용하여 문서에서 변경 내용을 추적하고 트리거와 마찬가지로 이벤트 기반 처리를 수행하고 캐시 및 분석 시스템을 최신 상태로 유지합니다."
 keywords: "변경 피드"
 services: cosmos-db
-author: arramac
+author: rafats
 manager: jhubbard
 editor: mimig
 documentationcenter: 
@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: 
 ms.topic: article
-ms.date: 10/30/2017
-ms.author: arramac
-ms.openlocfilehash: d1968e9fea0fb08edfdbf9e09acca9c4af00b048
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.date: 01/29/2018
+ms.author: rafats
+ms.openlocfilehash: d179f2880b026cb10db53c1218507e7d1e396b8a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>Azure Cosmos DB에서 변경 피드 지원 사용
 
@@ -60,6 +60,7 @@ Azure Cosmos DB의 변경 피드 지원은 모든 변경 사항에 대해 Azure 
 * 특정 시점에서 변경 내용을 동기화할 수 있습니다. 즉, 변경 내용을 사용할 수 있는 고정 데이터 보존 기간이 없습니다.
 * 변경 내용은 파티션 키 범위에서 사용할 수 있습니다. 이 기능을 사용하면 대규모 컬렉션의 변경 내용을 여러 소비자/서버에 의해 병렬로 처리할 수 있습니다.
 * 응용 프로그램은 동일한 컬렉션에서 동시에 여러 변경 피드를 요청할 수 있습니다.
+* ChangeFeedOptions.StartTime을 사용하여 최초 시작 지점을 제공할 수 있습니다. 예를 들어 이렇게 주어진 클록 시간에 해당하는 연속 토큰을 찾을 수 있습니다. ContinuationToken을 지정할 경우 이것이 StartTime 및 StartFromBeginning 값보다 우선합니다. ChangeFeedOptions.StartTime의 정확도는 5초입니다. 
 
 ## <a name="use-cases-and-scenarios"></a>사용 사례 및 시나리오
 

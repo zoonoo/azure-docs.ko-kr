@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 01/26/2018
 ms.author: sethm
-ms.openlocfilehash: 504010a39a4012b9a9edb60bb9a5b33ac20499c1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6e1f6177ccacf24955763982189bcdb1ef69c788
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="message-expiration-time-to-live"></a>메시지 만료(TTL(Time To Live))
 
@@ -25,11 +25,11 @@ ms.lasthandoff: 10/11/2017
 
 큐 및 토픽이 주로 응용 프로그램 또는 응용 프로그램 부분의 부분 실행 컨텍스트에서 사용되는 개발 및 테스트 환경에서는 다음 테스트 실행이 새로 시작될 수 있게 표준 테스트 메시지를 자동으로 가비지 수집되도록 할 수 있습니다.
 
-모든 개별 메시지에 대한 만료는 상대적 기간을 지정하는 [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) 시스템 속성을 설정하여 제어할 수 있습니다. 만료는 메시지가 엔터티 큐에 추가될 때 절대 인스턴스가 됩니다. 이때 [ExpiresAtUtc](/dotnet/api/microsoft.azure.servicebus.message.expiresatutc) 속성은 값 [ **EnqueuedTimeUtc**](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc#Microsoft_ServiceBus_Messaging_BrokeredMessage_EnqueuedTimeUtc) + [**TimeToLive**](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive)를 갖습니다.
+모든 개별 메시지에 대한 만료는 상대적 기간을 지정하는 [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) 시스템 속성을 설정하여 제어할 수 있습니다. 만료는 메시지가 엔터티 큐에 추가될 때 절대 인스턴스가 됩니다. 이때 [ExpiresAtUtc](/dotnet/api/microsoft.azure.servicebus.message.expiresatutc) 속성 값은 [(**EnqueuedTimeUtc**](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc#Microsoft_ServiceBus_Messaging_BrokeredMessage_EnqueuedTimeUtc) + [**TimeToLive**)](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive)입니다.
 
 **ExpiresAtUtc** 인스턴트 후에 메시지는 검색할 수 없게 됩니다. 만료는 현재 배달 잠금 처리된 메시지에는 영향을 주지 않습니다. 이러한 메시지는 계속 정상적으로 처리됩니다. 잠금이 만료되거나 메시지가 중단되면 만료가 즉시 적용됩니다.
 
-메시지가 잠금 상태인 경우 응용 프로그램은 명목상 만료된 메시지를 소유할 수 있습니다. 응용 프로그램이 메시지를 계속 처리하려고 할지 또는 메시지를 중단하도록 선택할지는 구현자가 결정합니다.
+메시지가 잠금 상태인 경우 응용 프로그램이 만료된 메시지를 소유하고 있을 수 있습니다. 응용 프로그램이 메시지를 계속 처리하려고 할지 또는 메시지를 중단하도록 선택할지는 구현자가 결정합니다.
 
 ## <a name="entity-level-expiration"></a>엔터티 수준 만료
 
@@ -51,14 +51,14 @@ Service Bus 큐, 토픽 및 구독을 임시 엔터티로 생성할 수 있습�
 
 이 기능은 [autoDeleteOnIdle](/azure/templates/microsoft.servicebus/namespaces/queues) 속성을 사용하여 사용하도록 설정합니다. 이 속성은 엔터티를 자동으로 삭제하기까지 유휴(사용되지 않은) 상태를 유지해야 하는 기간으로 설정됩니다. 최소 기간은 5분입니다.
  
-이 속성은 Azure Resource Manager 작업 또는 .NET Framework 클라이언트의 [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) API를 통해 설정해야 합니다. 포털을 통해서는 설정할 수 없습니다.
+**autoDeleteOnIdle** 속성은 Azure Resource Manager 작업 또는 .NET Framework 클라이언트 [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) API를 통해 설정해야 합니다. 포털을 통해서는 설정할 수 없습니다.
 
 
 ## <a name="next-steps"></a>다음 단계
 
 Service Bus 메시징에 대해 자세히 알아보려면 다음 항목을 참조하세요.
 
-* [서비스 버스 기본 사항](service-bus-fundamentals-hybrid-solutions.md)
+* [Service Bus 기본 사항](service-bus-fundamentals-hybrid-solutions.md)
 * [Service Bus 큐, 토픽 및 구독](service-bus-queues-topics-subscriptions.md)
 * [Service Bus 큐 시작](service-bus-dotnet-get-started-with-queues.md)
 * [Service Bus 토픽 및 구독을 사용하는 방법](service-bus-dotnet-how-to-use-topics-subscriptions.md)

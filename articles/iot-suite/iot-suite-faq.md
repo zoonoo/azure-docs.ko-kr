@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: 945b985e69c14bb513477fc740652f13236d7518
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: 432b4c080572c72dc131ee198a59c81631495415
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="frequently-asked-questions-for-iot-suite"></a>IoT Suite에 대한 질문과 대답
 
@@ -77,6 +77,10 @@ ms.lasthandoff: 01/05/2018
 ### <a name="how-many-azure-cosmos-db-instances-can-i-provision-in-a-subscription"></a>하나의 구독에 프로비전할 수 있는 Azure Cosmos DB 인스턴스는 몇 개인가요?
 
 50개입니다. [Azure 지원 티켓](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade)을 만들어서 이 한도를 높일 수 있지만, 기본적으로 구독당 Cosmos DB 인스턴스를 50개만 프로비전할 수 있습니다.
+
+### <a name="how-do-i-configure-a-dynamic-map-on-the-dashboard"></a>대시보드에서 동적 맵을 구성하려면 어떻게 해야 할까요?
+
+자세한 내용은 [동적 맵에서 장치를 보기 위해 맵 키 업그레이드](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide#upgrade-map-key-to-see-devices-on-a-dynamic-map)를 참조하세요.
 
 ### <a name="how-many-free-bing-maps-apis-can-i-provision-in-a-subscription"></a>하나의 구독에 프로비전할 수 있는 무료 Bing 지도 API는 몇 개인가요?
 

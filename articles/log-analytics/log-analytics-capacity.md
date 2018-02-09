@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: banders
-ms.openlocfilehash: 031a538c7e3a7dd381fa9bd996d8a027f761a50a
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: c7516c6d4fa8cfe8e146c325af7ca7ca70475a94
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-preview"></a>용량 및 성능 솔루션으로 Hyper-V 가상 컴퓨터 용량 계획(미리 보기)
+# <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-preview"></a>용량 및 성능 솔루션으로 Hyper-V 가상 머신 용량 계획(미리 보기)
 
 ![용량 및 성능 기호](./media/log-analytics-capacity/capacity-solution.png)
 
@@ -46,24 +46,24 @@ Log Analytics의 용량 및 성능 솔루션을 사용하면 Hyper-V 서버의 �
 | 연결된 소스 | 지원 | 설명 |
 |---|---|---|
 | [Windows 에이전트](log-analytics-windows-agent.md) | 예 | 솔루션에서 Windows 에이전트의 용량 및 성능 데이터 정보를 수집합니다. |
-| [Linux 에이전트](log-analytics-linux-agents.md) | 아니요    | 솔루션에서 Linux 에이전트의 용량 및 성능 데이터 정보를 직접 수집하지 않습니다.|
-| [SCOM 관리 그룹](log-analytics-om-agents.md) | 예 |솔루션에서 연결된 SCOM 관리 그룹에 있는 에이전트의 용량 및 성능 데이터를 수집합니다. SCOM 에이전트에서 OMS로 직접 연결할 필요가 없습니다. 데이터는 관리 그룹에서 OMS 리포지토리로 전달됩니다.|
-| [Azure 저장소 계정](log-analytics-azure-storage.md) | 아니요 | Azure 저장소는 용량 및 성능 데이터를 포함하지 않습니다.|
+| [Linux 에이전트](log-analytics-linux-agents.md) | 아니오    | 솔루션에서 Linux 에이전트의 용량 및 성능 데이터 정보를 직접 수집하지 않습니다.|
+| [SCOM 관리 그룹](log-analytics-om-agents.md) | 예 |솔루션에서 연결된 SCOM 관리 그룹에 있는 에이전트의 용량 및 성능 데이터를 수집합니다. SCOM에서 Log Analytics로 직접 연결은 필요하지 않습니다.|
+| [Azure 저장소 계정](log-analytics-azure-storage.md) | 아니오 | Azure 저장소는 용량 및 성능 데이터를 포함하지 않습니다.|
 
 ## <a name="prerequisites"></a>필수 조건
 
-- Windows 또는 Operations Manager 에이전트는 가상 컴퓨터가 아닌 Windows Server 2012 이상의 Hyper-V 호스트에 설치해야 합니다.
+- Windows 또는 Operations Manager 에이전트는 가상 머신이 아닌 Windows Server 2012 이상의 Hyper-V 호스트에 설치해야 합니다.
 
 
 ## <a name="configuration"></a>구성
 
 다음 단계를 수행하여 용량 및 성능 솔루션을 작업 영역에 추가합니다.
 
-- [솔루션 갤러리에서 Log Analytics 솔루션 추가](log-analytics-add-solutions.md)에서 설명하는 프로세스를 사용하여 OMS 작업 영역에 용량 및 성능 솔루션을 추가합니다.
+- [솔루션 갤러리에서 Log Analytics 솔루션 추가](log-analytics-add-solutions.md)에서 설명하는 프로세스를 사용하여 Log Analytics 작업 영역에 용량 및 성능 솔루션을 추가합니다.
 
 ## <a name="management-packs"></a>관리 팩
 
-SCOM 관리 그룹이 OMS 작업 영역에 연결된 경우 이 솔루션을 추가할 때 다음 관리 팩이 SCOM에 설치됩니다. 이 관리 팩에 대한 구성 또는 유지 관리는 필요 없습니다.
+SCOM 관리 그룹이 Log Analytics 작업 영역에 연결된 경우 이 솔루션을 추가할 때 다음 관리 팩이 SCOM에 설치됩니다. 이 관리 팩에 대한 구성 또는 유지 관리는 필요 없습니다.
 
 - Microsoft.IntelligencePacks.CapacityPerformance
 
@@ -80,7 +80,7 @@ New Management Pack with id:"Microsoft.IntelligencePacks.CapacityPerformance", v
 
 ## <a name="using-the-solution"></a>솔루션 사용
 
-용량 및 성능 솔루션을 작업 영역에 추가하면 [용량 및 성능]이 [개요] 대시보드에 추가됩니다. 이 타일에서는 현재 활성 상태인 Hyper-V 호스트의 수와 선택한 기간 동안 모니터링된 활성 가상 컴퓨터의 수를 표시합니다.
+용량 및 성능 솔루션을 작업 영역에 추가하면 [용량 및 성능]이 [개요] 대시보드에 추가됩니다. 이 타일에서는 현재 활성 상태인 Hyper-V 호스트의 수와 선택한 기간 동안 모니터링된 활성 가상 머신의 수를 표시합니다.
 
 ![용량 및 성능 타일](./media/log-analytics-capacity/capacity-tile.png)
 
@@ -93,20 +93,20 @@ New Management Pack with id:"Microsoft.IntelligencePacks.CapacityPerformance", v
     - **호스트 CPU 사용률** 선택한 기간을 기준으로 호스트 컴퓨터 CPU 사용률과 호스트 목록의 그래픽 추세를 표시합니다. 특정 시점의 세부 정보를 보려면 마우스로 꺾은선형 차트 위를 가리킵니다. 자세한 로그 검색 정보를 보려면 차트를 클릭합니다. 로그 검색을 열어 호스팅된 VM의 CPU 카운터 세부 정보를 보려면 호스트 이름을 클릭합니다.
     - **호스트 메모리 사용률** 선택한 기간을 기준으로 호스트 컴퓨터 메모리 사용률과 호스트 목록의 그래픽 추세를 표시합니다. 특정 시점의 세부 정보를 보려면 마우스로 꺾은선형 차트 위를 가리킵니다. 자세한 로그 검색 정보를 보려면 차트를 클릭합니다. 로그 검색을 열어 호스팅된 VM의 메모리 카운터 세부 정보를 보려면 호스트 이름을 클릭합니다.
 - **Virtual Machines**
-    - **VM CPU 사용률** 선택한 기간을 기준으로 가상 컴퓨터 CPU 사용률 및 가상 컴퓨터 목록의 그래픽 추세를 표시합니다. 특정 시점의 상위 3개 VM에 대한 세부 정보를 보려면 마우스로 꺾은선형 차트 위를 가리킵니다. 자세한 로그 검색 정보를 보려면 차트를 클릭합니다. 로그 검색을 열어 VM에 대해 집계된 CPU 카운터 세부 정보를 보려면 VM 이름을 클릭합니다.
-    - **VM 메모리 사용률** 선택한 기간을 기준으로 가상 컴퓨터 메모리 사용률과 가상 컴퓨터 목록의 그래픽 추세를 표시합니다. 특정 시점의 상위 3개 VM에 대한 세부 정보를 보려면 마우스로 꺾은선형 차트 위를 가리킵니다. 자세한 로그 검색 정보를 보려면 차트를 클릭합니다. 로그 검색을 열어 VM에 대해 집계된 메모리 카운터 세부 정보를 보려면 VM 이름을 클릭합니다.
-    - **VM 총 디스크 IOPS** 선택한 기간을 기준으로 가상 컴퓨터의 총 디스크 IOPS 및 각각의 IOPS를 포함한 가상 컴퓨터의 목록에 대한 그래픽 추세를 표시합니다. 특정 시점의 상위 3개 VM에 대한 세부 정보를 보려면 마우스로 꺾은선형 차트 위를 가리킵니다. 자세한 로그 검색 정보를 보려면 차트를 클릭합니다. 로그 검색을 열어 VM에 대해 집계된 디스크 IOPS 카운터 세부 정보를 보려면 VM 이름을 클릭합니다.
-    - **VM 총 디스크 처리량** 선택한 기간을 기준으로 가상 컴퓨터의 총 디스크 처리량 및 각각의 총 디스크 처리량을 포함한 가상 컴퓨터의 목록에 대한 그래픽 추세를 표시합니다. 특정 시점의 상위 3개 VM에 대한 세부 정보를 보려면 마우스로 꺾은선형 차트 위를 가리킵니다. 자세한 로그 검색 정보를 보려면 차트를 클릭합니다. 로그 검색을 열어 VM에 대해 집계된 총 디스크 처리량 카운터 세부 정보를 보려면 VM 이름을 클릭합니다.
+    - **VM CPU 사용률** 선택한 기간을 기준으로 가상 머신 CPU 사용률 및 가상 머신 목록의 그래픽 추세를 표시합니다. 특정 시점의 상위 3개 VM에 대한 세부 정보를 보려면 마우스로 꺾은선형 차트 위를 가리킵니다. 자세한 로그 검색 정보를 보려면 차트를 클릭합니다. 로그 검색을 열어 VM에 대해 집계된 CPU 카운터 세부 정보를 보려면 VM 이름을 클릭합니다.
+    - **VM 메모리 사용률** 선택한 기간을 기준으로 가상 머신 메모리 사용률과 가상 머신 목록의 그래픽 추세를 표시합니다. 특정 시점의 상위 3개 VM에 대한 세부 정보를 보려면 마우스로 꺾은선형 차트 위를 가리킵니다. 자세한 로그 검색 정보를 보려면 차트를 클릭합니다. 로그 검색을 열어 VM에 대해 집계된 메모리 카운터 세부 정보를 보려면 VM 이름을 클릭합니다.
+    - **VM 총 디스크 IOPS** 선택한 기간을 기준으로 가상 머신의 총 디스크 IOPS 및 각각의 IOPS를 포함한 가상 머신의 목록에 대한 그래픽 추세를 표시합니다. 특정 시점의 상위 3개 VM에 대한 세부 정보를 보려면 마우스로 꺾은선형 차트 위를 가리킵니다. 자세한 로그 검색 정보를 보려면 차트를 클릭합니다. 로그 검색을 열어 VM에 대해 집계된 디스크 IOPS 카운터 세부 정보를 보려면 VM 이름을 클릭합니다.
+    - **VM 총 디스크 처리량** 선택한 기간을 기준으로 가상 머신의 총 디스크 처리량 및 각각의 총 디스크 처리량을 포함한 가상 머신의 목록에 대한 그래픽 추세를 표시합니다. 특정 시점의 상위 3개 VM에 대한 세부 정보를 보려면 마우스로 꺾은선형 차트 위를 가리킵니다. 자세한 로그 검색 정보를 보려면 차트를 클릭합니다. 로그 검색을 열어 VM에 대해 집계된 총 디스크 처리량 카운터 세부 정보를 보려면 VM 이름을 클릭합니다.
 - **클러스터된 공유 볼륨**
     - **총 처리량** 클러스터된 공유 볼륨에 대한 읽기와 쓰기의 합계를 표시합니다.
     - **총 IOPS** 클러스터된 공유 볼륨에 대한 초당 입출력 작업의 합계를 표시합니다.
     - **총 대기 시간** 클러스터된 공유 볼륨에 대한 총 대기 시간을 표시합니다.
-- **호스트 밀도** 상위 타일에서 솔루션에 사용할 수 있는 호스트와 가상 컴퓨터의 총 수를 표시합니다. 로그 검색의 추가 세부 정보를 보려면 상위 타일을 클릭합니다. 모든 호스트와 호스팅되는 가상 컴퓨터의 수도 나열합니다. 로그 검색의 VM 결과를 자세히 분석하려면 호스트를 클릭합니다.
+- **호스트 밀도** 상위 타일에서 솔루션에 사용할 수 있는 호스트와 가상 머신의 총 수를 표시합니다. 로그 검색의 추가 세부 정보를 보려면 상위 타일을 클릭합니다. 모든 호스트와 호스팅되는 가상 머신의 수도 나열합니다. 로그 검색의 VM 결과를 자세히 분석하려면 호스트를 클릭합니다.
 
 
 ![호스트 블레이드 대시보드](./media/log-analytics-capacity/dashboard-hosts.png)
 
-![가상 컴퓨터 블레이드 대시보드](./media/log-analytics-capacity/dashboard-vms.png)
+![가상 머신 블레이드 대시보드](./media/log-analytics-capacity/dashboard-vms.png)
 
 
 ### <a name="evaluate-performance"></a>성능 평가

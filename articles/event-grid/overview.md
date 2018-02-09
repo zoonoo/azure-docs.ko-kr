@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 12/14/2017
+ms.date: 01/30/2018
 ms.author: babanisa
-ms.openlocfilehash: e6665b3b0c6e92ed462f18dbd41d62ccd9304928
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 5e700e3e9d17e790083facf00c7f4b8decf9037a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="an-introduction-to-azure-event-grid"></a>Azure Event Grid 소개
 
@@ -22,18 +22,20 @@ Azure Event Grid를 사용하면 이벤트 기반 아키텍처를 가진 응용 
 
 현재 Event Grid는 다음 지역을 지원합니다.
 
+* 동남아시아
+* 아시아 동부
 * 미국 중부
 *   미국 동부
 *   미국 동부 2
+* 서유럽
+* 북유럽
 *   미국 중서부
 *   미국 서부
 *   미국 서부 2
 
-다른 지역이 추가됩니다.
-
 이 문서는 Azure Event Grid의 개요를 제공합니다. Event Grid를 시작하려는 경우 [Azure Event Grid를 사용하여 사용자 지정 이벤트 만들기 및 라우팅](custom-event-quickstart.md)을 참조하세요. 다음 이미지에서는 Event Grid가 게시자 및 처리기를 연결하는 방법을 보여주지만 지원되는 옵션의 포괄적인 목록을 제공하지 않습니다.
 
-![Event Grid 기능 모델](./media/overview/event-grid-functional-model.png)
+![Event Grid 기능 모델](./media/overview/functional-model.png)
 
 ## <a name="event-publishers"></a>이벤트 게시자
 
@@ -43,10 +45,10 @@ Azure Event Grid를 사용하면 이벤트 기반 아키텍처를 가진 응용 
 * 사용자 지정 토픽
 * Event Hubs
 
+* IoT 허브
 * 리소스 그룹(관리 작업)
 * 저장소 Blob
-
-올해 다른 Azure 서비스가 추가될 예정입니다.
+* 저장소 범용 v2(GPv2)
 
 ## <a name="event-handlers"></a>이벤트 처리기
 
@@ -60,7 +62,7 @@ Azure Event Grid를 사용하면 이벤트 기반 아키텍처를 가진 응용 
 * Microsoft Flow
 * 웹후크
 
-올해 다른 Azure 서비스가 추가될 예정입니다.
+Azure Functions를 처리기로 사용할 때는 일반 HTTP 트리거 대신 Event Grid 트리거를 사용합니다. Event Grid는 Event Grid Function 트리거의 유효성을 자동으로 검사합니다. 일반 HTTP 트리거를 사용하면 [유효성 검사 응답](security-authentication.md#webhook-event-delivery)을 구현해야 합니다.
 
 ## <a name="concepts"></a>개념
 
@@ -113,9 +115,7 @@ Event Grid는 앱을 다른 서비스와 연결합니다. 예를 들어 앱의 �
 
 ## <a name="how-much-does-event-grid-cost"></a>Event Grid의 비용은 얼마입니까?
 
-Azure Event Grid는 이벤트별 요금 가격 책정 모델을 사용하므로 사용한 것에 대해서만 지불하면 됩니다.
-
-Event Grid의 비용은 백만 작업당 $0.60(미리 보기 중 $0.30)이며, 매달 처음 100, 000개 작업은 무료입니다. 작업은 이벤트 수신, 고급 일치, 배달 시도 및 관리 호출로 정의됩니다.  자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/event-grid/)에서 찾을 수 있습니다.
+Azure Event Grid는 이벤트별 요금 가격 책정 모델을 사용하므로 사용한 것에 대해서만 지불하면 됩니다. 매월 처음 100,000개 작업은 무료입니다. 작업은 이벤트 수신, 고급 일치, 배달 시도 및 관리 호출로 정의됩니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/event-grid/)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -13,13 +13,16 @@ Azure 테이블 저장소는 많은 양의 구조화된 데이터를 저장합�
 
 ![테이블 저장소 구성 요소 다이어그램][Table1]
 
-* **URL 형식**: 코드에서 다음 주소 형식을 사용하여 계정의 테이블 주소를 지정합니다.   
-  http://`<storage account>`.table.core.windows.net/`<table>`  
-  
+* **URL 형식:** Azure Table Storage 계정은 이 형식을 사용합니다. `http://<storage account>.table.core.windows.net/<table>`
+
+  Azure Cosmos DB Table API 계정은 이 형식을 사용합니다. `http://<storage account>.table.cosmosdb.azure.com/<table>`  
+
   OData 프로토콜과 함께 이 주소를 사용하여 Azure 테이블 주소를 직접 지정할 수 있습니다. 자세한 내용은 [OData.org][OData.org]를 참조하세요.
-* **저장소 계정:** Azure 저장소에 대한 모든 액세스는 저장소 계정을 통해 수행됩니다. 저장소 계정 용량에 대한 자세한 내용은 [Azure 저장소 확장성 및 성능 목표](../articles/storage/common/storage-scalability-targets.md) (영문)를 참조하십시오.
-* **테이블**: 테이블은 엔터티 컬렉션입니다. 테이블은 엔터티에 스키마를 적용하지 않으므로 단일 테이블에 각기 다른 속성 집합을 가진 엔터티가 포함될 수 있습니다. 저장소 계정에 포함될 수 있는 테이블 수는 저장소 계정 용량 제한에 의해서만 제한됩니다.
-* **엔터티**: 엔터티는 데이터베이스 행과 유사한 속성 집합입니다. 엔터티의 크기는 최대 1MB일 수 있습니다.
+* **계정:** Azure Storage에 대한 모든 액세스는 Storage 계정을 통해 수행됩니다. Storage 계정 용량에 대한 자세한 내용은 [Microsoft Azure Storage 확장성 및 성능 목표](../articles/storage/common/storage-scalability-targets.md) (영문)를 참조하십시오. 
+
+    Azure Cosmos DB에 대한 모든 액세스는 Table API 계정을 통해 수행됩니다. Table API 계정 만들기에 관한 자세한 내용은 [Table API 계정 만들기](../articles/cosmos-db/create-table-dotnet.md#create-a-database-account)를 참조하세요.
+* **테이블**: 테이블은 엔터티 컬렉션입니다. 테이블은 엔터티에 스키마를 적용하지 않으므로 단일 테이블에 각기 다른 속성 집합을 가진 엔터티가 포함될 수 있습니다.  
+* **엔터티**: 엔터티는 데이터베이스 행과 유사한 속성 집합입니다. Azure Storage 엔터티의 크기는 최대 1MB일 수 있습니다. Azure Cosmos DB 엔터티의 크기는 최대 2MB일 수 있습니다.
 * **속성**: 속성은 이름 값 쌍입니다. 각 엔터티에 데이터를 저장할 속성을 최대 252개까지 포함할 수 있습니다. 또한 각 엔터티에는 파티션 키, 행 키 및 타임스탬프를 지정하는 세 가지 시스템 속성이 있습니다. 동일한 파티션 키를 가진 엔터티는 보다 신속하게 쿼리할 수 있으며 원자성 작업으로 삽입/업데이트할 수 있습니다. 엔터티의 행 키는 파티션 내의 고유 식별자입니다.
 
 테이블 및 속성의 명명에 대한 자세한 내용은 [테이블 서비스 데이터 모델 이해](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model)를 참조하세요.

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: zivr
-ms.openlocfilehash: b0103acf1e407a6a198159fad227b7ccc25052d2
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: d6d8507508ef1946c1dfa41c47ae81f51c0ad4ef
+ms.sourcegitcommit: 8fc9b78a2a3625de2cecca0189d6ee6c4d598be3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="handling-planned-maintenance-notifications-for-windows-virtual-machines"></a>Windows 가상 머신에 대한 계획된 유지 관리 알림 처리
 
@@ -56,9 +56,7 @@ Azure Portal, PowerShell, REST API 및 CLI를 사용하여 사용자 VM에 대�
 
 **가용성 집합**을 사용하는 배포의 경우 특정 시간에 업데이트 도메인 하나만 영향을 받는 고가용성 설치이므로 셀프 서비스 유지 관리를 사용하지 않는 것이 좋습니다. 
     - Azure가 유지 관리를 트리거하게 두세요. 하지만 영향을 받는 업데이트 도메인의 순서가 반드시 순차적으로 발생하는 것은 아니며 업데이트 도메인 사이에 30분의 일시 중지가 있다는 점에 유의해야 합니다.
-    - 일부 용량이 일시적으로 손실(1/업데이트 도메인 수)될 것이 우려되는 경우 유지 관리 기간에 추가 인스턴스를 할당하면 간단하게 보정할 수 있습니다. 
-
-다음 시나리오에서는 셀프 서비스 유지 관리를 사용하지 **마세요**. 
+    - 일부 용량이 일시적으로 손실(1/업데이트 도메인 수)될 것이 우려되는 경우 유지 관리 기간에 추가 인스턴스를 할당하면 간단하게 보정할 수 있습니다. 다음 시나리오에서는 셀프 서비스 유지 관리를 사용하지 **마세요**. 
     - 수동으로, DevTest 랩을 사용하여, 자동 종료를 사용하여 또는 일정에 따라 VM을 자주 종료하는 경우, 유지 관리 상태를 되돌려서 가동 중지 시간이 추가로 발생할 수 있습니다.
     - 유지 관리 웨이브가 끝나기 전에 삭제될 것을 알고 있는 단기간용 VM. 
     - 업데이트 시 유지 관리하려는 로컬(임시) 디스크에 대규모 상태가 저장되는 워크로드. 
@@ -93,8 +91,8 @@ MaintenanceRedeployStatus의 다음과 같은 속성이 반환됩니다.
 | IsCustomerInitiatedMaintenanceAllowed | 이번에 VM에서 유지 관리를 시작할 수 있는지 여부를 나타냅니다. ||
 | PreMaintenanceWindowStartTime         | VM에서 유지 관리를 시작할 수 있을 때 유지 관리 셀프 서비스 기간의 시작 시간입니다. ||
 | PreMaintenanceWindowEndTime           | VM에서 유지 관리를 시작할 수 있을 때 유지 관리 셀프 서비스 기간의 종료 시간입니다. ||
-| MaintenanceWindowStartTime            | VM에서 유지 관리를 시작할 수 있을 때 유지 관리 예약 기간의 시작 시간입니다. ||
-| MaintenanceWindowEndTime              | VM에서 유지 관리를 시작할 수 있을 때 유지 관리 예약 기간의 종료 시간입니다. ||
+| MaintenanceWindowStartTime            | Azure가 VM에서 유지 관리를 시작하는 유지 관리 예약 기간의 시작 시간입니다. ||
+| MaintenanceWindowEndTime              | Azure가 VM에서 유지 관리를 시작하는 유지 관리 예약 기간의 종료 시간입니다. ||
 | LastOperationResultCode               | VM에서 유지 관리를 시작하는 마지막 시도의 결과입니다. ||
 
 
@@ -117,7 +115,8 @@ function MaintenanceIterator
 
     for ($rgIdx=0; $rgIdx -lt $rgList.Length ; $rgIdx++)
     {
-        $rg = $rgList[$rgIdx]        $vmList = Get-AzureRMVM -ResourceGroupName $rg.ResourceGroupName 
+        $rg = $rgList[$rgIdx]        
+    $vmList = Get-AzureRMVM -ResourceGroupName $rg.ResourceGroupName 
         for ($vmIdx=0; $vmIdx -lt $vmList.Length ; $vmIdx++)
         {
             $vm = $vmList[$vmIdx]
@@ -160,11 +159,9 @@ Restart-AzureVM -InitiateMaintenance -ServiceName <service name> -Name <VM name>
 ## <a name="faq"></a>FAQ
 
 
+**Q: 왜 내 가상 머신을 지금 다시 부팅해야 하나요?**
 
-            **Q: 왜 내 가상 머신을 지금 다시 부팅해야 하나요?**
-
-
-            **A:** Azure 플랫폼에 대한 대부분의 업데이트와 업그레이드는 가상 머신의 가용성에 영향을 주지 않으나, Azure에서 호스팅되는 가상 머신을 불가피하게 다시 부팅해야 하는 경우가 있습니다. 서버 재시작이 필요한 여러 변경 사항이 누적되면 가상 머신 다시 부팅이 발생하게 됩니다.
+**A:** Azure 플랫폼에 대한 대부분의 업데이트와 업그레이드는 가상 머신의 가용성에 영향을 주지 않으나, Azure에서 호스팅되는 가상 머신을 불가피하게 다시 부팅해야 하는 경우가 있습니다. 서버 재시작이 필요한 여러 변경 사항이 누적되면 가상 머신 다시 부팅이 발생하게 됩니다.
 
 **Q: 가용성 집합을 사용한 고가용성 제안을 따르는 것이 안전한가요?**
 
@@ -180,15 +177,13 @@ Restart-AzureVM -InitiateMaintenance -ServiceName <service name> -Name <VM name>
 
 **A:** 계획된 유지 관리 관련 정보는 영향을 받게 되는 VM에 대해서만 계획된 유지 관리 주기 중에 제공됩니다. 즉 데이터가 표시되지 않는다면 유지 관리 주기가 이미 완료되었거나(또는 시작되지 않음) 가상 머신이 이미 업데이트된 서버에서 호스팅되는 것일 수 있습니다.
 
-
-            **Q: 내 가상 머신이 정확히 언제 영향을 받는지 확인할 수 있나요?**
+**Q: 내 가상 머신이 정확히 언제 영향을 받는지 확인할 수 있나요?**
 
 **A:** 예약을 설정할 때 며칠의 시간 창을 정의합니다. 그러나 이 창 내에서의 정확한 서버(및 VM) 순서는 알 수 없습니다. VM에 해당하는 정확한 시간을 알고자 하는 고객은 [예약된 이벤트](scheduled-events.md)를 사용하고 가상 머신 안에서 쿼리하여 VM이 다시 부팅되기 15분 전에 알림을 수신할 수 있습니다.
 
+**Q: 가상 머신을 다시 부팅하는 데 얼마나 걸리나요?**
 
-            **Q: 가상 머신을 다시 부팅하는 데 얼마나 걸리나요?**
-
-**A:** VM의 크기에 따라 다시 부팅은 최대 몇 분이 소요될 수 있습니다. Cloud Services(웹/작업자 역할), Virtual Machine Scale Sets 또는 가용성 집합을 사용하는 경우 각 VM 그룹(UD) 사이에 30분이 주어집니다. 
+**A:** VM의 크기에 따라 다시 부팅은 셀프 서비스 유지 관리 기간 동안 최대 몇 분이 소요될 수 있습니다. Azure가 예약된 유지 관리 기간에서 다시 부팅을 시작하는 동안 다시 부팅은 일반적으로 약 25분 정도가 걸립니다. Cloud Services(웹/작업자 역할), Virtual Machine Scale Sets 또는 가용성 집합을 사용하는 경우 예약된 유지 관리 기간 동안 각 VM 그룹(UD) 사이에 30분이 주어집니다. 
 
 **Q: Cloud Services(웹/작업자 역할), Service Fabric 및 Virtual Machine Scale Sets의 경험이란 무엇입니까?**
 

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2018
+ms.date: 01/31/2018
 ms.author: jeedes
-ms.openlocfilehash: 22189c3d2d2164ba0fa3c2d790c36361fb0f5854
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 4151811a74fc0e58f6171e11d77e070f3cb40f95
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-confluence-saml-sso-by-microsoft"></a>자습서: Confluence SAML SSO by Microsoft와 Azure Active Directory 통합
 
@@ -133,7 +133,6 @@ Confluence SAML SSO by Microsoft에서 Azure AD Single Sign-On을 구성하고 �
 
     > [!NOTE] 
     > 이러한 값은 실제 값이 아닙니다. 이러한 값을 실제 식별자, 회신 URL 및 로그온 URL로 업데이트합니다. 명명된 URL인 경우 포트는 선택 사항입니다. 이러한 값은 Confluence 플러그 인 구성 중에 수신되며 자습서의 뒷부분에 설명되어 있습니다.
- 
 
 4. **메타데이터** URL을 생성하려면 다음 단계를 수행합니다.
 
@@ -165,7 +164,7 @@ Confluence SAML SSO by Microsoft에서 Azure AD Single Sign-On을 구성하고 �
     
     ![Configure Single Sign-On](./media/active-directory-saas-Confluencemicrosoft-tutorial/addon1.png)
 
-8. [Microsoft 다운로드 센터](https://www.microsoft.com/en-us/download/details.aspx?id=56503)에서 플러그 인을 다운로드합니다. **업로드 추가 기능** 메뉴를 사용하여 Microsoft에서 제공하는 플러그 인을 수동으로 업로드합니다.
+8. [Microsoft 다운로드 센터](https://www.microsoft.com/en-us/download/details.aspx?id=56503)에서 플러그 인을 다운로드합니다. **업로드 추가 기능** 메뉴를 사용하여 Microsoft에서 제공하는 플러그 인을 수동으로 업로드합니다. 플러그 인 다운로드에는 [Microsoft 서비스 계약](https://www.microsoft.com/en-us/servicesagreement/)이 적용됩니다. 
     
     ![Configure Single Sign-On](./media/active-directory-saas-Confluencemicrosoft-tutorial/addon12.png)
 

@@ -3,8 +3,8 @@ title: "Azure Active Directory용 MSI(관리 서비스 ID)"
 description: "Azure 리소스용 관리 서비스 ID에 대해 대략적으로 설명합니다."
 services: active-directory
 documentationcenter: 
-author: bryanla
-manager: mbaldwin
+author: daveba
+manager: mtillman
 editor: 
 ms.service: active-directory
 ms.devlang: 
@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
 ms.date: 12/15/2017
-ms.author: bryanla
+ms.author: daveba
 ms.reviewer: skwan
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 53577c8da5f82235284d1cb9e48f2d47254aa6bd
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: 95980c082b09ad959ab8bbaae0250b40ac08d2c8
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/03/2018
 ---
 #  <a name="managed-service-identity-msi-for-azure-resources"></a>Azure 리소스용 MSI(관리 서비스 ID)
 

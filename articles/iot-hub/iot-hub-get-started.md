@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2017
+ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 764c6bd3c2466ceb93e33d03bece1c9036c1b1d9
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 34742208e9189eb31310b58770ee4a22e33f56d5
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-iot-hub-get-started-tutorials"></a>Azure IoT Hub 시작 자습서
 
 Azure IoT Hub 및 Azure IoT 장치 SDK를 사용하여 IoT(사물 인터넷) 솔루션을 구축할 수 있습니다.
 
 * Azure IoT Hub는 IoT 장치를 안전하게 연결하고, 모니터링하고, 관리하는 클라우드의 완전히 관리되는 서비스입니다. Azure IoT 장치 SDK를 사용하여 IoT 장치를 구현합니다.
-* 보다 복잡한 IoT 시나리오에서는 IoT 게이트웨이를 사용합니다. 레거시 장치, 대역폭 비용, 보안 및 개인 정보 보호 정책 또는 Edge 데이터 처리 등의 요소를 고려해야 하는 경우를 예로 들 수 있습니다. 이러한 시나리오에서는 Azure IoT Edge를 사용하여 장치를 IoT Hub에 연결하는 게이트웨이를 구축합니다.
+* 보다 복잡한 IoT 시나리오에서는 IoT 게이트웨이를 사용합니다. 레거시 장치, 대역폭 비용, 보안 및 개인 정보 보호 정책 또는 Edge 데이터 처리 등의 요소를 고려해야 하는 경우를 예로 들 수 있습니다. 이러한 시나리오에서는 [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/)를 사용하여 장치를 IoT Hub에 연결하는 게이트웨이를 구현합니다.
 
 ## <a name="what-the-tutorials-cover"></a>자습서에 포함된 내용
 

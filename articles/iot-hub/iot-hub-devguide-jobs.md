@@ -3,7 +3,7 @@ title: "Azure IoT Hub 작업 이해 | Microsoft 문서"
 description: "개발자 가이드 - IoT 허브에 연결된 여러 장치에서 실행할 작업 예약 작업은 태그와 원하는 속성을 업데이트하고 여러 장치에서 직접 메서드를 호출할 수 있습니다."
 services: iot-hub
 documentationcenter: .net
-author: juanjperez
+author: dominicbetts
 manager: timlt
 editor: 
 ms.assetid: fe78458f-4f14-4358-ac83-4f7bd14ee8da
@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/24/2017
-ms.author: juanpere
-ms.openlocfilehash: f90ecb70ad12ed05d5d40f8b26a0a4e461c9f835
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.date: 01/29/2018
+ms.author: dobett
+ms.openlocfilehash: 7e0af40b2fd5bbb12d5565765aae4026922aec5c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>여러 장치에서 작업 예약
 
@@ -101,7 +101,7 @@ queryCondition = "deviceId IN ['MyDevice1']
 ## <a name="jobs-properties"></a>작업 속성
 다음 목록은 작업 또는 작업 결과를 쿼리할 때 사용할 수 있는 속성 목록 및 해당 설명을 나타냅니다.
 
-| 속성 | 설명 |
+| 자산 | 설명 |
 | --- | --- |
 | **jobId** |작업에 대해 응용 프로그램에서 제공한 ID입니다. |
 | **startTime** |작업에 대해 응용 프로그램에서 제공한 시작 시간(ISO-8601)입니다. |
@@ -130,11 +130,11 @@ queryCondition = "deviceId IN ['MyDevice1']
 * [IoT Hub 끝점][lnk-endpoints] - 각 IoT Hub에서 런타임 및 관리 작업에 대해 공개하는 다양한 끝점에 대해 설명합니다.
 * [제한 및 할당량][lnk-quotas] - IoT Hub 서비스에 적용되는 할당량과 서비스를 사용할 때 예상되는 제한 동작에 대해 설명합니다.
 * [Azure IoT 장치 및 서비스 SDK][lnk-sdks] - IoT Hub와 상호 작용하는 장치 및 서비스 앱 모두를 개발할 때 사용할 수 있는 다양한 언어 SDK를 나열합니다.
-* [장치 쌍, 작업 및 메시지 라우팅을 위한 IoT Hub 쿼리 언어][lnk-query]에서는 IoT Hub에서 장치 쌍 및 작업에 대한 정보를 검색하는 데 사용할 수 있는 IoT Hub 쿼리 언어에 대해 설명합니다.
+* [장치 쌍, 작업 및 메시지 라우팅에 대한 IoT Hub 쿼리 언어][lnk-query]에서는 IoT Hub 쿼리 언어를 설명합니다. 이 쿼리 언어를 사용하여 IoT Hub에서 장치 쌍 및 작업에 대한 정보를 검색합니다.
 * [IoT Hub MQTT 지원][lnk-devguide-mqtt] - MQTT 프로토콜에 대한 IoT Hub 지원에 대해 자세히 설명합니다.
 
 ## <a name="next-steps"></a>다음 단계
-이 문서에서 설명한 일부 개념을 시도해 보려면 다음과 같은 IoT Hub 자습서를 살펴보세요.
+이 문서에서 설명한 일부 개념을 시도해 보려면 다음과 같은 IoT Hub 자습서를 참조하세요.
 
 * [작업 예약 및 브로드캐스트][lnk-jobs-tutorial]
 

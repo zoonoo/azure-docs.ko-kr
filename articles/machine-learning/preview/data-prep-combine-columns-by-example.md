@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: dc3870e81edd47a9932db86d347290451c4f1eb8
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 528d7ff5f74948fd1ae7b829d4b2fc38fa2f1109
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="combine-columns-by-example-transformation"></a>예제별 열 결합 변환
 이 변환을 사용하여 여러 열의 값을 결합하여 새 열을 추가할 수 있습니다. 사용자는 이 변환을 수행하기 위해 구분 기호를 지정하거나 결합된 값 예제를 제공할 수 있습니다. 사용자가 결합 예제를 제공하면, **예제별 열 파생** 변환에서 사용된 것과 같은 **By-Example** 엔진을 사용하여 변환이 처리됩니다.
@@ -36,7 +36,11 @@ ms.lasthandoff: 12/18/2017
 
 **열 결합 기준** 아래에서 **예제**를 선택하여 결합된 값 예제를 제공할 수 있습니다. 예를 들어 행을 승격하려면 표의 행을 두 번 클릭합니다. 승격된 행에 대해 예상되는 출력을 텍스트 상자에 입력합니다. **구분 기호** 텍스트 상자 밖을 눌러 데이터 표에서 결과를 미리 볼 수 있습니다. **확인**을 눌러 변환을 커밋합니다. 
 
-변환 편집기에서 링크를 클릭하여 **기본 모드** 및 **고급 모드** 간을 전환할 수 있습니다.
+사용자는 변환 편집기에 있는 링크를 클릭하여 **기본 모드**와 **고급 모드** 간을 전환할 수 있습니다.
+
+### <a name="transform-editor-send-feedback"></a>변환 편집기: 피드백 보내기
+
+**피드백 보내기** 링크를 클릭하면 사용자가 제공한 예제로 주석 상자가 미리 채워진 **피드백** 대화 상자가 열립니다. 사용자는 주석 상자의 내용을 검토하고 문제를 이해하는 데 필요한 자세한 정보를 제공해야 합니다. Microsoft와 데이터를 공유하지 않으려면 **피드백 보내기** 단추를 클릭하기 전에 미리 채워진 예제 데이터를 삭제해야 합니다. 
 
 ### <a name="editing-existing-transformation"></a>기존 변환 편집
 

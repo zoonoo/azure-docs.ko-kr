@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: df31e5b0dfd3b41f5fc125bf3a59cfd6e8e5f4e1
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 5d624735a91d0828c4ac3796bde6c17acf6e131a
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="split-column-by-example-transformation"></a>예제별 열 분할 변환
 이 변환은 사용자가 입력할 필요 없이 의미 있는 경계에서 열의 내용을 자동으로 분할합니다. 분할 알고리즘은 열의 내용을 분석한 후 경계를 선택합니다. 이러한 경계는 다음에 따라 정의될 수 있습니다.
@@ -51,7 +51,12 @@ ms.lasthandoff: 12/18/2017
 
 분할의 예를 제공하기 위해 하나의 셀에서 값을 복사하여 다른 셀에 붙여넣을 수 있습니다.
 
-변환 편집기에서 링크를 클릭하여 **기본 모드**와 **고급 모드** 간에 전환할 수 있습니다.
+사용자는 변환 편집기에 있는 링크를 클릭하여 **기본 모드**와 **고급 모드** 간을 전환할 수 있습니다.
+
+### <a name="transform-editor-send-feedback"></a>변환 편집기: 피드백 보내기
+
+**피드백 보내기** 링크를 클릭하면 매개 변수 선택 영역과 사용자가 제공한 예제로 미리 채워진 주석 상자의 **피드백** 대화 상대가 열립니다. 사용자는 주석 상자의 내용을 검토하고 문제를 이해하는 데 필요한 자세한 정보를 제공해야 합니다. Microsoft와 데이터를 공유하지 않으려면 **피드백 보내기** 단추를 클릭하기 전에 미리 채워진 예제 데이터를 삭제해야 합니다. 
+
 
 ### <a name="editing-an-existing-transformation"></a>기존 변환 편집
 

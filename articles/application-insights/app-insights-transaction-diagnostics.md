@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: sdash
-ms.openlocfilehash: b090699cf90c74af8480b811901b6e3078b007b3
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 8c1d8600b7f4aaa1e95f4acfbbdd55fdbfebb8fb
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>통합된 구성 요소 간 트랜잭션 진단
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 01/23/2018
 
 ## <a name="what-does-component-mean-in-the-context-of-application-insights"></a>Application Insights의 맥락에서 구성 요소의 의미
 
-구성 요소는 독립적으로 배포할 수 있는 분산/마이크로 서비스 응용 프로그램의 부분입니다. 개발자 및 운영 팀은 이러한 응용 프로그램 구성 요소에서 생성된 원격 분석에 대한 코드 수준의 가시성 또는 액세스 권한을 갖습니다. 
+구성 요소는 독립적으로 배포할 수 있는 분산/마이크로 서비스 응용 프로그램의 부분입니다. 개발자 및 운영 팀은 이러한 응용 프로그램 구성 요소에서 생성된 원격 분석에 대한 코드 수준의 가시성 또는 액세스 권한을 갖습니다.
 
 * 구성 요소는 팀/조직에서 액세스할 수 없는 SQL, EventHub 등과 같은 "관찰된" 외부 종속성(코드 또는 원격 분석)과 다릅니다.
 * 구성 요소는 서버/역할/컨테이너 인스턴스의 수에 관계없이 실행됩니다.
@@ -40,11 +40,11 @@ ms.lasthandoff: 01/23/2018
 
 ![미리 보기 사용](media/app-insights-e2eTxn-diagnostics/previews.png)
 
-이 미리 보기는 현재 서버 쪽 요청, 종속성 및 예외에 사용할 수 있습니다. **검색 결과**, **성능** 또는 **실패** 심사 환경에서 새 환경에 액세스할 수 있습니다. 이 미리 보기는 해당 세부 정보 블레이드를 대체합니다. 
+이 미리 보기는 현재 서버 쪽 요청, 종속성 및 예외에 사용할 수 있습니다. **검색 결과**, **성능** 또는 **실패** 심사 환경에서 새 환경에 액세스할 수 있습니다. 이 미리 보기는 해당 세부 정보 블레이드를 대체합니다.
 
 ![성능 샘플](media/app-insights-e2eTxn-diagnostics/performanceSamplesClickThrough.png)
 
-## <a name="transaction-diagnostics-experience"></a>트랜잭션 진단 환경 
+## <a name="transaction-diagnostics-experience"></a>트랜잭션 진단 환경
 이 보기에는 세 가지 주요 부분, 즉 구성 요소 간 트랜잭션 차트, 특정 구성 요소 작업의 모든 원격 분석에 대한 시간 순서 목록 및 선택한 원격 분석 항목에 대한 왼쪽의 세부 정보 창이 있습니다.
 
 ![주요 부분](media/app-insights-e2eTxn-diagnostics/3partsCrossComponent.png)
@@ -77,6 +77,10 @@ ms.lasthandoff: 01/23/2018
 ## <a name="profiler-and-snapshot-debugger"></a>프로파일러 및 스냅숏 디버거
 
 [Application Insights 프로파일러](app-insights-profiler.md) 또는 [스냅숏 디버거](app-insights-snapshot-debugger.md)는 성능 및 오류 문제에 대한 코드 수준 진단에 도움이 됩니다. 이 환경을 사용하면 한 번의 클릭으로 모든 구성 요소에서 프로파일러 추적 또는 스냅숏을 볼 수 있습니다.
+
+Profiler를 작동시키지 못한 경우 **serviceprofilerhelp@microsoft.com**에 문의하세요.
+
+스냅숏 디버거를 작동시키지 못한 경우 **snapshothelp@microsoft.com**에 문의하세요.
 
 ![디버거 통합](media/app-insights-e2eTxn-diagnostics/debugSnapshot.png)
 

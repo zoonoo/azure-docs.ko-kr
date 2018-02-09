@@ -13,17 +13,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/16/2017
+ms.date: 01/20/2018
 ms.author: miprasad
-ms.openlocfilehash: 255c39ea21378aae23fc61da6dc882138fb66ab1
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 3b0a5bfc911f3edf91367cbf4fde907cbf98e114
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="sentiment-analysis-using-deep-learning-with-azure-machine-learning"></a>Azure Machine Learning에서 심층 학습을 사용하여 감정 분석
 
-감정 분석은 자연어 처리 영역에서 잘 알려진 작업입니다. 일련의 텍스트에서 해당 텍스트의 감정을 결정하는 작업입니다. 이 솔루션은 CNTK를 Keras(모델 수준 라이브러리, 심층 학습 모델을 개발하기 위한 높은 수준의 구성 요소 제공)의 백 엔드로 사용하고 영화 리뷰에서 감정 분석을 구현하려고 합니다.
+감정 분석은 자연어 처리 영역에서 잘 알려진 작업입니다. 일련의 텍스트에서 해당 텍스트의 감정을 결정하는 작업입니다. 이 솔루션의 목표는 영화 리뷰에서 감정을 예측하기 위해 심층 학습을 사용하는 것입니다.
 
 솔루션은 https://github.com/Azure/MachineLearningSamples-SentimentAnalysis에 위치합니다.
 

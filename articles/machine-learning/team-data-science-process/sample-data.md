@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: fashah;garye;bradsev
-ms.openlocfilehash: 97d344fd31d711454f3e4aa251361b86351cc283
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.author: garye;bradsev
+ms.openlocfilehash: 202a70bf17f9cbf655cb4220c4480a5bcc8563f1
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="heading"></a>Azure blob 컨테이너, SQL Server 및 Hive 테이블의 데이터 샘플링
 이 문서는 세 가지 다른 Azure 위치 중 하나에 저장된 데이터를 샘플링하는 방법을 설명하는 문서에 대한 링크를 포함합니다.

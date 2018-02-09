@@ -36,7 +36,8 @@ Azure의 가상 컴퓨터가 초래할 수 있는 세 가지 시나리오, 즉, 
 ## <a name="use-managed-disks-for-vms-in-an-availability-set"></a>가용성 집합에서 VM에 Managed Disks 사용
 현재 관리되지 않는 디스크에서 VM을 사용하는 경우 [가용성 집합에서 VM을 변환하여 Managed Disks를 사용](../articles/virtual-machines/windows/convert-unmanaged-to-managed-disks.md)하는 것이 좋습니다.
 
-[Managed Disks](../articles/virtual-machines/windows/managed-disks-overview.md)는 단일 실패 지점을 피할 만큼 가용성 집합의 VM 디스크가 서로 충분히 격리되도록 하여 가용성 집합에 더 나은 안정성을 제공합니다. 디스크를 다른 저장소 장애 도메인(스탬프)에 자동으로 배치하고 VM 장애 도메인에 맞게 조정하여 작업을 수행합니다. 하드웨어나 소프트웨어 오류로 인해 저장소 장애 도메인에 장애가 발생하면 저장소 장애 도메인의 디스크가 있는 VM 인스턴스만 실패합니다.
+[Managed Disks](../articles/virtual-machines/windows/managed-disks-overview.md)는 단일 실패 지점을 피할 만큼 가용성 집합의 VM 디스크가 서로 충분히 격리되도록 하여 가용성 집합에 더 나은 안정성을 제공합니다. 디스크를 다른 저장소 장애 도메인(저장소 클러스터)에 자동으로 배치하고 VM 장애 도메인에 맞게 조정하여 작업을 수행합니다. 하드웨어나 소프트웨어 오류로 인해 저장소 장애 도메인에 장애가 발생하면 저장소 장애 도메인의 디스크가 있는 VM 인스턴스만 실패합니다.
+![Managed Disks FD](./media/virtual-machines-common-manage-availability/md-fd-updated.png)
 
 > [!IMPORTANT]
 > 관리되는 가용성 집합에 대한 장애 도메인 수는 지역에 따라 다르며 - 지역마다 2개 또는 3개입니다. 다음 표는 지역별 수를 보여줍니다.
@@ -47,7 +48,7 @@ Azure의 가상 컴퓨터가 초래할 수 있는 세 가지 시나리오, 즉, 
 
 1. **동일한 저장소 계정에서 VM과 모든 디스크(OS 및 데이터) 연결 유지**
 2. 저장소 계정에 더 많은 VHD를 추가하기 전에 **Storage 계정에서 관리되지 않는 디스크의 수에 대한 [제한](../articles/storage/common/storage-scalability-targets.md) 검토**
-3. **가용성 집합의 각 VM마다 별도의 저장소 계정을 사용합니다.** 동일한 가용성 집합에서 여러 VM을 사용하여 Storage 계정을 공유하지 않습니다. 위의 모범 사례를 따르면 여러 가용성 집합의 VM에서 저장소 계정을 공유할 수 있습니다. ![관리되지 않는 디스크 FD](./media/virtual-machines-common-manage-availability/md-fd.png)
+3. **가용성 집합의 각 VM마다 별도의 저장소 계정을 사용합니다.** 동일한 가용성 집합에서 여러 VM을 사용하여 Storage 계정을 공유하지 않습니다. 위의 모범 사례를 따르면 여러 가용성 집합의 VM에서 저장소 계정을 공유할 수 있습니다. ![관리되지 않는 디스크 FD](./media/virtual-machines-common-manage-availability/umd-updated.png)
 
 ## <a name="configure-each-application-tier-into-separate-availability-sets"></a>각 응용 프로그램 계층을 별도의 가용성 집합으로 구성
 가상 머신이 모두 거의 동일하고 응용 프로그램에 같은 목적으로 사용될 경우에는 응용 프로그램의 각 계층에 대해 가용성 집합을 구성하는 것이 좋습니다.  동일한 가용성 집합에 두 가지 계층을 배치하면 같은 응용 프로그램 계층에 있는 모든 가상 머신이 동시에 재부팅될 수 있습니다. 각 계층에 대해 최소 두 개의 가상 머신을 가용성 집합 안에 구성하면 각 계층에서 최소한 하나의 가상 머신은 사용할 수 있습니다.

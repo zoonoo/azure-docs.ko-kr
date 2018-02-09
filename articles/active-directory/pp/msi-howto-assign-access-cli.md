@@ -3,7 +3,7 @@ title: "Azure CLI를 사용하여 사용자 할당 MSI에 Azure 리소스 액세
 description: "Azure CLI를 사용하여 특정 리소스에 사용자 할당 MSI를 할당하고 다른 리소스에 액세스 권한을 할당하기 위한 단계별 지침을 제공합니다."
 services: active-directory
 documentationcenter: 
-author: bryanLa
+author: daveba
 manager: mtillman
 editor: 
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/22/2017
-ms.author: bryanla
+ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 6e3bab5356812c256cfd147e42f065f381e0f63d
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 5bea41999f59fe8be7ae0a0bd5b726527beeddd5
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="assign-a-user-assigned-managed-service-identity-msi-access-to-a-resource-using-azure-cli"></a>Azure CLI를 사용하여 사용자 할당 MSI(관리 서비스 ID)에 리소스 액세스 권한 할당
 

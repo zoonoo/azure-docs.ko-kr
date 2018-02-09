@@ -11,17 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2017
+ms.date: 01/25/2018
 ms.author: sethm
-ms.openlocfilehash: edb6e207852fa59d5828906c891693f367739c9c
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 4789da3c84d52b2615bf4250a36093a74154e1d4
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="message-transfers-locks-and-settlement"></a>메시지 전송, 잠금 및 확인
 
-Service Bus와 같은 메시지 브로커의 가장 핵심적인 기능은 메시지를 큐 또는 토픽으로 수신한 후 나중에 검색할 수 있게 보관하는 것입니다. *송신*은 메시지 브로커에 대한 메시지 전송에 일반적으로 사용되는 용어입니다. *수신*은 검색 클라이언트로의 메시지 전송에 일반적으로 사용되는 용어입니다.
+Service Bus와 같은 메시지 브로커의 핵심적인 기능은 메시지를 큐 또는 토픽에 수신한 후 나중에 검색할 수 있도록 보관하는 것입니다. *송신*은 메시지 브로커에 대한 메시지 전송에 일반적으로 사용되는 용어입니다. *수신*은 검색 클라이언트로의 메시지 전송에 일반적으로 사용되는 용어입니다.
 
 클라이언트는 메시지를 송신할 때 일반적으로 메시지가 브로커로 제대로 전송되었는지와 브로커에 수신되었는지 또는 오류가 발생했는지 여부를 알기 원합니다. 이러한 긍정 또는 부정 응답은 클라이언트 및 브로커가 메시지의 전송 상태를 확인하도록 하므로 *확인*이라고 합니다.
 
@@ -125,7 +125,7 @@ for (int i = 0; i < 100; i++)
 
 Service Bus 메시징에 대해 자세히 알아보려면 다음 항목을 참조하세요.
 
-* [서비스 버스 기본 사항](service-bus-fundamentals-hybrid-solutions.md)
+* [Service Bus 기본 사항](service-bus-fundamentals-hybrid-solutions.md)
 * [Service Bus 큐, 토픽 및 구독](service-bus-queues-topics-subscriptions.md)
 * [Service Bus 큐 시작](service-bus-dotnet-get-started-with-queues.md)
 * [Service Bus 토픽 및 구독을 사용하는 방법](service-bus-dotnet-how-to-use-topics-subscriptions.md)

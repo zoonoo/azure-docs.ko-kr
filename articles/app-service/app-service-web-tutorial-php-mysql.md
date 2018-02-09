@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 10/20/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: bcbe59d5e2f085f055b99b715bcbcd91d9845f2d
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 39bfc4e6a4f4066e8aeda0da387fe570525b6086
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="build-a-php-and-mysql-web-app-in-azure"></a>Azure에서 PHP 및 MySQL 웹앱 빌드
 
@@ -41,7 +41,9 @@ ms.lasthandoff: 01/04/2018
 > * Azure에서 진단 로그 스트림
 > * Azure Portal에서 앱 관리
 
-## <a name="prerequisites"></a>필수 구성 요소
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+## <a name="prerequisites"></a>필수 조건
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -50,8 +52,6 @@ ms.lasthandoff: 01/04/2018
 * [작성기 설치](https://getcomposer.org/doc/00-intro.md)
 * PHP 확장 Laravel에 필요한 OpenSSL, Pdo-mysql, Mbstring, Tokenizer, XML 사용
 * [MySQL 설치 및 시작](https://dev.mysql.com/doc/refman/5.7/en/installing.html) 
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prepare-local-mysql"></a>로컬 MySQL 준비
 
@@ -162,7 +162,7 @@ PHP 서버를 중지하려면 터미널에서 `Ctrl + C`를 입력합니다.
 
 ### <a name="create-a-mysql-server"></a>MySQL 서버 만들기
 
-Cloud Shell에서 [az mysql server create](/cli/azure/mysql/server?view=azure-cli-latest#az_mysql_server_create) 명령을 사용하여 Azure Database for MySQL(미리 보기)의 서버를 만듭니다.
+Cloud Shell에서 [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az_mysql_server_create) 명령을 사용하여 Azure Database for MySQL(미리 보기)의 서버를 만듭니다.
 
 다음 명령에서 _&lt;mysql_server_name>_ 자리 표시자를 고유한 MySQL 서버 이름으로 바꿉니다(유효한 문자: `a-z`, `0-9` 및 `-`). 이 이름은 MySQL 서버의 호스트 이름(`<mysql_server_name>.database.windows.net`)의 일부이며, 전역적으로 고유해야 합니다.
 
@@ -192,7 +192,7 @@ MySQL 서버를 만들면 Azure CLI는 다음 예제와 비슷한 정보를 표�
 
 ### <a name="configure-server-firewall"></a>서버 방화벽 구성
 
-Cloud Shell에서 [az mysql server firewall-rule create](/cli/azure/mysql/server/firewall-rule?view=azure-cli-latest#az_mysql_server_firewall_rule_create) 명령을 사용하여 클라이언트 연결을 허용하도록 MySQL 서버에 대한 방화벽 규칙을 만듭니다.
+Cloud Shell에서 [`az mysql server firewall-rule create`](/cli/azure/mysql/server/firewall-rule?view=azure-cli-latest#az_mysql_server_firewall_rule_create) 명령을 사용하여 클라이언트 연결을 허용하도록 MySQL 서버에 대한 방화벽 규칙을 만듭니다.
 
 ```azurecli-interactive
 az mysql server firewall-rule create --name allIPs --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
@@ -265,25 +265,21 @@ MYSQL_SSL=true
 
 ### <a name="configure-ssl-certificate"></a>SSL 인증서 구성
 
-기본적으로 MySQL용 Azure 데이터베이스에는 클라이언트로부터의 SSL 연결이 적용됩니다. Azure에서 MySQL 데이터베이스에 연결하려면 _.pem_ SSL 인증서를 사용해야 합니다.
+기본적으로 MySQL용 Azure 데이터베이스에는 클라이언트로부터의 SSL 연결이 적용됩니다. Azure의 MySQL 데이터베이스에 연결하려면 [Azure Database for MySQL에서 제공하는 _.pem_ 인증서](../mysql/howto-configure-ssl.md)를 사용해야 합니다.
 
-다음 코드와 같이 _config/database.php_를 열고 _sslmode_ 및 _options_ 매개 변수를 `connections.mysql`에 추가합니다.
+다음 코드와 같이 _config/database.php_를 열고 `sslmode` 및 `options` 매개 변수를 `connections.mysql`에 추가합니다.
 
 ```php
 'mysql' => [
     ...
     'sslmode' => env('DB_SSLMODE', 'prefer'),
     'options' => (env('MYSQL_SSL')) ? [
-        PDO::MYSQL_ATTR_SSL_KEY    => '/ssl/certificate.pem', 
+        PDO::MYSQL_ATTR_SSL_KEY    => '/ssl/BaltimoreCyberTrustRoot.crt.pem', 
     ] : []
 ],
 ```
 
-이 _certificate.pem_을 생성하는 방법에 대한 내용은 [MySQL용 Azure 데이터베이스에 안전하게 연결하기 위한 사용자 응용 프로그램의 SSL 연결 구성](../mysql/howto-configure-ssl.md)을 참조하세요.
-
-> [!TIP]
-> _/ssl/certificate.pem_ 경로는 Git 리포지토리의 기존 _certificate.pem_ 파일을 가리킵니다. 이 파일은 이 자습서의 편의를 위해 제공됩니다. 최상의 방법으로 _.pem_ 인증서를 원본 제어에 커밋하지 않아야 합니다. 
->
+이 자습서에서는 편의를 위해 리포지토리에 `BaltimoreCyberTrustRoot.crt.pem` 인증서가 제공됩니다. 
 
 ### <a name="test-the-application-locally"></a>로컬에서 응용 프로그램 테스트
 
@@ -345,7 +341,7 @@ git commit -m "database.php updates"
 
 앞서 설명한 것처럼 App Service에서 환경 변수를 사용하여 Azure MySQL 데이터베이스에 연결할 수 있습니다.
 
-Cloud Shell에서 [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) 명령을 사용하여 환경 변수를 _앱 설정_으로 지정합니다.
+Cloud Shell에서 [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) 명령을 사용하여 환경 변수를 _앱 설정_으로 설정합니다.
 
 다음 명령에서는 `DB_HOST`, `DB_DATABASE`, `DB_USERNAME` 및 `DB_PASSWORD` 앱 설정을 구성합니다. _&lt;appname>_ 및 _&lt;mysql_server_name>_ 자리 표시자를 바꿉니다.
 
@@ -376,7 +372,7 @@ Laravel에는 App Service의 응용 프로그램 키가 필요합니다. 앱 설
 php artisan key:generate --show
 ```
 
-Cloud Shell에서 [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) 명령을 사용하여 App Service 웹앱에서 응용 프로그램 키를 설정합니다. 자리 표시자 _&lt;appname>_ 및 _&lt;outputofphpartisankey:generate>_를 바꿉니다.
+Cloud Shell에서 [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) 명령을 사용하여 App Service 웹앱에서 응용 프로그램 키를 설정합니다. 자리 표시자 _&lt;appname>_ 및 _&lt;outputofphpartisankey:generate>_를 바꿉니다.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings APP_KEY="<output_of_php_artisan_key:generate>" APP_DEBUG="true"
@@ -388,7 +384,7 @@ az webapp config appsettings set --name <app_name> --resource-group myResourceGr
 
 웹앱에 대한 가상 응용 프로그램 경로를 설정합니다. [Laravel 응용 프로그램 수명 주기](https://laravel.com/docs/5.4/lifecycle)(영문)가 응용 프로그램의 루트 디렉터리 대신 _public_ 디렉터리에서 시작되므로 이 단계가 필요합니다. 해당 수명 주기가 루트 디렉터리에서 시작하는 다른 PHP 프레임워크는 가상 응용 프로그램 경로를 수동으로 구성하지 않아도 작동될 수 있습니다.
 
-Cloud Shell에서 [az resource update](/cli/azure/resource#update) 명령을 사용하여 가상 응용 프로그램 경로를 설정합니다. _&lt;appname>_ 자리 표시자를 바꿉니다.
+Cloud Shell에서 [`az resource update`](/cli/azure/resource#az_resource_update) 명령을 사용하여 가상 응용 프로그램 경로를 설정합니다. _&lt;appname>_ 자리 표시자를 바꿉니다.
 
 ```azurecli-interactive
 az resource update --name web --resource-group myResourceGroup --namespace Microsoft.Web --resource-type config --parent sites/<app_name> --set properties.virtualApplications[0].physicalPath="site\wwwroot\public" --api-version 2015-06-01
@@ -398,19 +394,7 @@ az resource update --name web --resource-group myResourceGroup --namespace Micro
 
 ### <a name="push-to-azure-from-git"></a>Git에서 Azure에 푸시
 
-로컬 터미널 창에서 로컬 Git 리포지토리에 Azure 원격을 추가합니다. _&lt;paste\_copied\_url\_here>_를 [웹앱 만들기](#create)에 저장된 Git 원격의 URL로 바꿉니다.
-
-```bash
-git remote add azure <paste_copied_url_here>
-```
-
-Azure 원격 위치에 푸시하여 PHP 응용 프로그램을 배포합니다. 배포 사용자를 만드는 작업의 일부로 이전에 제공한 암호를 묻는 메시지가 표시됩니다.
-
-```bash
-git push azure master
-```
-
-배포하는 동안 Azure App Service는 진행 상황을 Git에 전합니다.
+[!INCLUDE [app-service-plan-no-h](../../includes/app-service-web-git-push-to-azure-no-h.md)]
 
 ```bash
 Counting objects: 3, done.
@@ -591,7 +575,7 @@ git push azure master
 
 PHP 응용 프로그램이 Azure App Service에서 실행되는 동안 콘솔 로그를 터미널에 파이프할 수 있습니다. 이 방법으로 응용 프로그램 오류를 디버깅하는 데 도움이 되는 진단 메시지를 동일하게 받을 수 있습니다.
 
-로그 스트리밍을 시작하려면 Cloud Shell에서 [az webapp log tail](/cli/azure/webapp/log?view=azure-cli-latest#az_webapp_log_tail) 명령을 사용합니다.
+로그 스트리밍을 시작하려면 Cloud Shell에서 [`az webapp log tail`](/cli/azure/webapp/log?view=azure-cli-latest#az_webapp_log_tail) 명령을 사용합니다.
 
 ```azurecli-interactive
 az webapp log tail --name <app_name> --resource-group myResourceGroup

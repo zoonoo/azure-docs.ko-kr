@@ -5,8 +5,7 @@ keywords: "데이터 암호화, 암호화 키, 클라우드 암호화"
 services: sql-database
 documentationcenter: 
 author: stevestein
-manager: jhubbard
-editor: cgronlun
+manager: craigg
 ms.assetid: 6ca16644-5969-497b-a413-d28c3b835c9b
 ms.service: sql-database
 ms.custom: security
@@ -16,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: sstein
-ms.openlocfilehash: 4fb189abfaddcf27c8af223773ab0e5fc9dfca14
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 0f26ce26b8b33274291c115ae136d124d79ed349
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="always-encrypted-protect-sensitive-data-in-sql-database-and-store-your-encryption-keys-in-azure-key-vault"></a>상시 암호화: SQL Database의 중요한 데이터 보호 및 Azure Key Vault에 암호화 키 저장
 
@@ -48,30 +47,18 @@ ms.lasthandoff: 10/31/2017
 * [Azure PowerShell](/powershell/azure/overview) 버전 1.0 이상. 실행 중인 PowerShell 버전을 보려면 **(Get-Module azure -ListAvailable).Version** 을 입력합니다.
 
 ## <a name="enable-your-client-application-to-access-the-sql-database-service"></a>클라이언트 응용 프로그램에서 SQL Database 서비스에 액세스하도록 설정
-필요한 인증을 설정하고 다음 코드에서 응용 프로그램을 인증하는 데 필요한 *ClientId* 및 *Secret*를 가져와 클라이언트 응용 프로그램에서 SQL Database 서비스에 액세스하도록 설정해야 합니다.
+AAD(Azure Active Directory) 응용 프로그램을 설정하고 응용 프로그램을 인증하는 데 필요한 *응용 프로그램 ID* 및 *키*를 복사하여 클라이언트 응용 프로그램에서 SQL Database 서비스에 액세스할 수 있게 해야 합니다.
 
-1. [Azure 클래식 포털](http://manage.windowsazure.com)을 엽니다.
-2. **Active Directory** 를 선택하고 응용 프로그램에서 사용할 Active Directory 인스턴스를 클릭합니다.
-3. **응용 프로그램**을 클릭한 다음 **추가**를 클릭합니다.
-4. 응용 프로그램 이름(예: *myClientApp*)을 입력하고 **웹 응용 프로그램**을 선택한 후 화살표를 클릭하여 계속합니다.
-5. **로그온 URL** 및 **앱 ID URI**의 경우 유효한 URL(예: *http://myClientApp*)을 입력하고 계속할 수 있습니다.
-6. **구성**을 클릭합니다.
-7. **클라이언트 ID**를 복사합니다. (코드에서 나중에 이 값이 필요합니다.)
-8. **키** 섹션에서 **기간 선택** 드롭다운 목록에서 **1년**을 선택합니다. (13단계에서 저장한 후 키를 복사합니다.)
-9. 아래로 스크롤하여 **응용 프로그램 추가**를 클릭합니다.
-10. **표시**를 **Microsoft 앱**으로 설정하고 **Microsoft Azure Service Management API**를 선택합니다. 계속하려면 확인 표시를 클릭합니다.
-11. **위임된 권한** 드롭다운 목록에서 **Azure 서비스 관리 액세스...**를 선택합니다.
-12. **저장**을 클릭합니다.
-13. 저장이 끝나면 **키** 섹션에서 키 값을 복사합니다. (코드에서 나중에 이 값이 필요합니다.)
+*응용 프로그램 ID* 및 *키*를 가져오려면 [리소스에 액세스할 수 있는 Azure Active Directory 응용 프로그램 및 서비스 주체 만들기](../azure-resource-manager/resource-group-create-service-principal-portal.md)의 단계를 수행합니다.
 
 ## <a name="create-a-key-vault-to-store-your-keys"></a>키를 저장할 주요 자격 증명 모음 만들기
-클라이언트 앱이 구성되고 클라이언트 ID가 있으므로 이제 주요 자격 증명 모음을 만들고 사용자와 사용자 응용 프로그램에서 이 자격 증명 모음의 암호에 액세스하도록 허용하는 액세스 정책을 구성해야 합니다(항상 암호화된 키). 새 열 마스터 키를 만들고 SQL Server Management Studio에서 암호화를 설정하기 위해서는 *create*, *get*, *list*, *sign*, *verify*, *wrapKey* 및 *unwrapKey* 권한이 필요합니다.
+클라이언트 앱이 구성되었고 응용 프로그램 ID가 있으므로, 이제 키 자격 증명 모음을 만들고 사용자와 사용자 응용 프로그램에서 이 자격 증명 모음의 암호(Always Encrypted 키)에 액세스할 수 있도록 액세스 정책을 구성해야 합니다. 새 열 마스터 키를 만들고 SQL Server Management Studio에서 암호화를 설정하기 위해서는 *create*, *get*, *list*, *sign*, *verify*, *wrapKey* 및 *unwrapKey* 권한이 필요합니다.
 
 다음 스크립트를 실행하여 주요 자격 증명 모음을 빠르게 만들 수 있습니다. 이러한 cmdlet에 대한 자세한 설명 및 주요 자격 증명 모음을 만들고 구성하는 방법은 [Azure Key Vault 시작](../key-vault/key-vault-get-started.md)을 참조하세요.
 
     $subscriptionName = '<your Azure subscription name>'
     $userPrincipalName = '<username@domain.com>'
-    $clientId = '<client ID that you copied in step 7 above>'
+    $applicationId = '<application ID from your AAD application>'
     $resourceGroupName = '<resource group name>'
     $location = '<datacenter location>'
     $vaultName = 'AeKeyVault'
@@ -85,7 +72,7 @@ ms.lasthandoff: 10/31/2017
     New-AzureRmKeyVault -VaultName $vaultName -ResourceGroupName $resourceGroupName -Location $location
 
     Set-AzureRmKeyVaultAccessPolicy -VaultName $vaultName -ResourceGroupName $resourceGroupName -PermissionsToKeys create,get,wrapKey,unwrapKey,sign,verify,list -UserPrincipalName $userPrincipalName
-    Set-AzureRmKeyVaultAccessPolicy  -VaultName $vaultName  -ResourceGroupName $resourceGroupName -ServicePrincipalName $clientId -PermissionsToKeys get,wrapKey,unwrapKey,sign,verify,list
+    Set-AzureRmKeyVaultAccessPolicy  -VaultName $vaultName  -ResourceGroupName $resourceGroupName -ServicePrincipalName $applicationId -PermissionsToKeys get,wrapKey,unwrapKey,sign,verify,list
 
 
 
@@ -151,7 +138,7 @@ SSMS는 쉽게 열 마스터 키, 열 암호화 키 및 암호화된 열을 설�
 
 각 환자에 대해 **SSN** 및 **BirthDate** 정보를 암호화합니다. SSN 열은 같음 조회, 조인 및 그룹화를 지원하는 결정적 암호화를 사용합니다. BirthDate 열은 작업을 지원하지 않는 임의의 암호화를 사용합니다.
 
-SSN 열에 대한 **암호화 형식**을 **결정적**으로 설정하고 BirthDate 열을 **무작위**로 설정합니다. **다음**을 누릅니다.
+SSN 열에 대한 **암호화 형식**을 **결정적**으로 설정하고 BirthDate 열을 **무작위**로 설정합니다. **다음**을 클릭합니다.
 
 ![열 암호화](./media/sql-database-always-encrypted-azure-key-vault/column-selection.png)
 
@@ -162,7 +149,7 @@ SSN 열에 대한 **암호화 형식**을 **결정적**으로 설정하고 Birth
 
 1. **Azure Key Vault**를 선택합니다.
 2. 드롭다운 목록에서 원하는 주요 자격 증명 모음을 선택합니다.
-3. **다음**을 누릅니다.
+3. **다음**을 클릭합니다.
 
 ![마스터 키 구성](./media/sql-database-always-encrypted-azure-key-vault/master-key-configuration.png)
 
@@ -233,7 +220,7 @@ SSN 열에 대한 **암호화 형식**을 **결정적**으로 설정하고 Birth
 
     static void InitializeAzureKeyVaultProvider()
     {
-       _clientCredential = new ClientCredential(clientId, clientSecret);
+       _clientCredential = new ClientCredential(applicationId, clientKey);
 
        SqlColumnEncryptionAzureKeyVaultProvider azureKeyVaultProvider =
           new SqlColumnEncryptionAzureKeyVaultProvider(GetToken);
@@ -275,8 +262,8 @@ SSN 열에 대한 **암호화 형식**을 **결정적**으로 설정하고 Birth
     {
         // Update this line with your Clinic database connection string from the Azure portal.
         static string connectionString = @"<connection string from the portal>";
-        static string clientId = @"<client id from step 7 above>";
-        static string clientSecret = "<key from step 13 above>";
+        static string applicationId = @"<application ID from your AAD application>";
+        static string clientKey = "<key from your AAD application>";
 
 
         static void Main(string[] args)
@@ -399,7 +386,7 @@ SSN 열에 대한 **암호화 형식**을 **결정적**으로 설정하고 Birth
         static void InitializeAzureKeyVaultProvider()
         {
 
-            _clientCredential = new ClientCredential(clientId, clientSecret);
+            _clientCredential = new ClientCredential(applicationId, clientKey);
 
             SqlColumnEncryptionAzureKeyVaultProvider azureKeyVaultProvider =
               new SqlColumnEncryptionAzureKeyVaultProvider(GetToken);

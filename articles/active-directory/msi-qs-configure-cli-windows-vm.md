@@ -3,7 +3,7 @@ title: "Azure CLI를 사용하여 Azure VM에서 MSI를 구성하는 방법"
 description: "Azure CLI를 사용하여 Azure VM에서 MSI(관리 서비스 ID)를 구성하기 위한 단계별 지침을 제공합니다."
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: daveba
 manager: mtillman
 editor: 
 ms.service: active-directory
@@ -12,12 +12,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
-ms.author: bryanla
-ms.openlocfilehash: 36218c50a7d43cf266459f5cf001350a3ecc84cf
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.author: daveba
+ms.openlocfilehash: d5fc509efa0437af93326d716c37514be82e8af1
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="configure-a-vm-managed-service-identity-msi-using-azure-cli"></a>Azure CLI를 사용하여 VM MSI(관리 서비스 ID) 구성
 

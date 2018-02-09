@@ -3,8 +3,8 @@ title: "Visual Studio를 사용하여 Azure App Service에서 웹앱 문제 해�
 description: "Visual Studio 2013에서 기본 제공되는 원격 디버깅, 추적 및 로깅 도구를 사용하여 Azure 웹 앱 문제를 해결하는 방법에 대해 알아봅니다."
 services: app-service
 documentationcenter: .net
-author: tdykstra
-manager: erikre
+author: cephalin
+manager: cfowler
 editor: 
 ms.assetid: def8e481-7803-4371-aa55-64025d116c97
 ms.service: app-service
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
-ms.author: rachelap
-ms.openlocfilehash: 1e3aff1898665c834a70e6c49f23e408a508b10a
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.author: cephalin
+ms.openlocfilehash: 6b1d5694c4d80a4db584b0c76a044dd596c5d553
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="troubleshoot-a-web-app-in-azure-app-service-using-visual-studio"></a>Visual Studio를 사용하여 Azure App Service에서 웹앱 문제 해결
 ## <a name="overview"></a>개요
@@ -117,9 +117,9 @@ Web.config 파일을 편집하는 방법은 문제를 더 쉽게 해결할 수 �
 
 원격 디버깅은 Visual Studio의 Express Edition에서 작동하지 않습니다.
 
-이 섹션에서는 [Azure에서 ASP.NET 웹앱 만들기][app-service-web-get-started-dotnet.md]에서 만든 프로젝트를 사용하여 원격으로 디버그하는 방법을 보여 줍니다.
+이 섹션에서는 [Azure에서 ASP.NET 웹앱 만들기](app-service-web-get-started-dotnet.md)에서 만든 프로젝트를 사용하여 원격으로 디버그하는 방법을 보여 줍니다.
 
-1. [Azure에서 ASP.NET 웹앱 만들기][app-service-web-get-started-dotnet.md]에서 만든 웹 프로젝트를 엽니다.
+1. [Azure에서 ASP.NET 웹앱 만들기](app-service-web-get-started-dotnet.md)에서 만든 웹 프로젝트를 엽니다.
 
 2. *Controllers\HomeController.cs*를 엽니다.
 
@@ -135,7 +135,7 @@ Web.config 파일을 편집하는 방법은 문제를 더 쉽게 해결할 수 �
 
 5. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 클릭합니다.
 
-6. **프로필** 드롭다운 목록에서 [Azure에서 ASP.NET 웹앱 만들기][app-service-web-get-started-dotnet.md]에서 사용한 것과 동일한 프로필을 선택합니다. 그런 후 설정을 클릭합니다.
+6. **프로필** 드롭다운 목록에서 [Azure에서 ASP.NET 웹앱 만들기](app-service-web-get-started-dotnet.md)에서 사용한 것과 동일한 프로필을 선택합니다. 그런 후 설정을 클릭합니다.
 
 7. **게시** 대화 상자에서 **설정** 탭을 클릭한 다음, **구성**을 **디버그**로 변경하고 **저장**을 클릭합니다.
 

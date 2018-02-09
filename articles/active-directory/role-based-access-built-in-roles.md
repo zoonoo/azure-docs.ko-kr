@@ -3,24 +3,23 @@ title: "Actions 및 NotActions - Azure RBAC(역할 기반 액세스 제어) | Mi
 description: "이 항목에서는 역할 기반 액세스 제어(RBAC)에 대한 기본 제공 역할에 대해 설명합니다. 역할은 지속적으로 추가되므로 설명서가 최신 상태인지 확인합니다."
 services: active-directory
 documentationcenter: 
-author: andredm7
+author: curtand
 manager: mtillman
 editor: 
-ms.assetid: b547c5a5-2da2-4372-9938-481cb962d2d6
 ms.service: active-directory
-ms.devlang: na
+ms.devlang: 
 ms.topic: article
-ms.tgt_pltfrm: na
+ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 06/28/2017
-ms.author: andredm
-ms.reviewer: 
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3e7c563547f04a16a1059ed709d9ded25d60792f
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.date: 01/30/2018
+ms.author: curtand
+ms.reviewer: rqureshi
+ms.custom: it-pro
+ms.openlocfilehash: 43a958129b3c86f5e7a596b992d793a600c46dfd
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Azure 역할 기반 액세스 제어의 기본 제공 역할
 Azure 역할 기반 Access Control(RBAC)에는 사용자, 그룹 및 서비스에 할당할 수 있는 다음 기본 제공 역할이 포함되었습니다. 기본 제공 역할의 정의는 수정할 수 없습니다. 그러나 조직의 특정 요구 사항에 맞게 [Azure RBAC에서 사용자 지정 역할](role-based-access-control-custom-roles.md) 을 만들 수 있습니다.
@@ -68,7 +67,9 @@ Azure 역할 기반 Access Control(RBAC)에는 사용자, 그룹 및 서비스�
 | [Redis 캐시 참여자](#redis-cache-contributor) |Redis 캐시를 관리할 수 있음 |
 | [Scheduler 작업 컬렉션 참여자](#scheduler-job-collections-contributor) |스케줄러 작업 컬렉션을 관리할 수 있음 |
 | [Search 서비스 참여자](#search-service-contributor) |검색 서비스를 관리할 수 있음 |
-| [보안 관리자](#security-manager) |보안 구성 요소, 보안 정책 및 가상 머신을 관리할 수 있음 |
+| [보안 관리자](#security-administrator) | Security Center에서만: 보안 정책 보기, 보안 상태 보기, 보안 정책 편집, 경고 및 권장 사항 보기, 경고 및 권장 사항 해제 |
+| [보안 관리자](#security-manager) | 보안 구성 요소, 보안 정책 및 가상 머신을 관리할 수 있음 |
+| [보안 판독기](#security-reader) | Security Center에서만: 권장 사항 및 경고 보기, 보안 정책 보기, 보안 상태 보기 가능, 변경 불가 |
 | [Site Recovery 참가자](#site-recovery-contributor) | Recovery Services 자격 증명 모음에서 Site Recovery를 관리할 수 있음 |
 | [Site Recovery 운영자](#site-recovery-operator) | Recovery Services 자격 증명 모음에서 장애 조치(failover) 및 장애 복구(failback) 작업 Site Recovery를 관리할 수 있음 |
 | [Site Recovery 구독자](#site-recovery-reader) | 모든 Site Recovery 관리 작업을 볼 수 있음  |
@@ -506,21 +507,50 @@ Search 서비스를 관리할 수 있음
 | Microsoft.Search/searchServices/* |검색 서비스 만들기 및 관리 |
 | Microsoft.Support/* |지원 티켓 만들기 및 관리 |
 
+### <a name="security-administrator"></a>보안 관리자
+Security Center에서만: 보안 정책 보기, 보안 상태 보기, 보안 정책 편집, 경고 및 권장 사항 보기, 경고 및 권장 사항 해제
+
+| **actions** |  |
+| --- | --- |
+| Microsoft.Authorization/*/read |역할 및 역할 할당 읽기 |
+| Microsoft.Authorization/policyAssignments/* | 정책 할당 만들기 및 관리 |
+| Microsoft.Authorization/policySetDefinitions/* | 정책 집합 만들기 및 관리 |
+| Microsoft.Authorization/policyDefinitions/* | 정책 정의 만들기 및 관리 |
+| Microsoft.Insights/alertRules/* | 경고 규칙 만들기 및 관리 |
+| Microsoft.operationalInsights/workspaces/*/read | Log Analytics 데이터 보기 |
+| Microsoft.Resources/deployments/* |리소스 그룹 배포 만들기 및 관리 |
+| Microsoft.Resources/subscriptions/resourceGroups/read |리소스 그룹 읽기 |
+| Microsoft.Security/*/read | 보안 구성 요소 및 정책 읽기 |
+| Microsoft.Support/* |지원 티켓 만들기 및 관리 |
+
 ### <a name="security-manager"></a>보안 관리자
 보안 구성 요소, 보안 정책 및 가상 머신을 관리할 수 있음
 
 | **actions** |  |
 | --- | --- |
 | Microsoft.Authorization/*/read |역할 및 역할 할당 읽기 |
-| Microsoft.ClassicCompute/*/read |클래식 계산 가상 머신에 대한 구성 정보 읽기 |
-| Microsoft.ClassicCompute/virtualMachines/*/write |가상 머신에 대한 구성 작성 |
+| Microsoft.ClassicCompute/*/read |클래식 가상 머신에 대한 구성 정보 읽기 |
+| Microsoft.ClassicCompute/virtualMachines/*/write |클래식 가상 머신에 대한 구성 정보 쓰기 |
 | Microsoft.ClassicNetwork/*/read |클래식 네트워크에 대한 구성 정보 읽기 |
-| Microsoft.Insights/alertRules/* |경고 규칙 만들기 및 관리 |
+| Microsoft.Insights/alertRules/* | 경고 규칙 만들기 및 관리 |
 | Microsoft.ResourceHealth/availabilityStatuses/read |리소스 상태 읽기 |
 | Microsoft.Resources/deployments/* |리소스 그룹 배포 만들기 및 관리 |
 | Microsoft.Resources/subscriptions/resourceGroups/read |리소스 그룹 읽기 |
 | Microsoft.Security/* |보안 구성 요소 및 정책 만들기 및 관리 |
 | Microsoft.Support/* |지원 티켓 만들기 및 관리 |
+
+### <a name="security-reader"></a>보안 판독기
+Security Center에서만: 권장 사항 및 경고 보기, 보안 정책 보기, 보안 상태 보기 가능, 변경 불가
+
+| **actions** |  |
+| --- | --- |
+| Microsoft.Authorization/*/read |역할 및 역할 할당 읽기 |
+| Microsoft.Insights/alertRules/* | 경고 규칙 만들기 및 관리 |
+| Microsoft.operationalInsights/workspaces/*/read | Log Analytics 데이터 보기 |
+| Microsoft.Resources/subscriptions/resourceGroups/read |리소스 그룹 읽기 |
+| Microsoft.Security/*/read | 보안 구성 요소 및 정책 읽기 |
+| Microsoft.Support/* |지원 티켓 만들기 및 관리 |
+| Microsoft.Resources/deployments/* |리소스 그룹 배포 만들기 및 관리 |
 
 ### <a name="site-recovery-contributor"></a>Site Recovery 참가자
 Recovery Services 자격 증명 모음 생성 및 다른 사용자에게 액세스 권한 부여를 제외한 모든 Site Recovery 관리 작업을 관리할 수 있음
@@ -872,3 +902,4 @@ Azure 리소스에 대한 사용자 액세스를 관리할 수 있음
 * [Azure RBAC에서 사용자 지정 역할](role-based-access-control-custom-roles.md): 액세스 요구 사항에 맞게 사용자 지정 역할을 만드는 방법에 대해 알아봅니다.
 * [액세스 변경 기록 보고서 만들기](role-based-access-control-access-change-history-report.md): RBAC에서 역할 할당 변경을 추적합니다.
 * [역할 기반 Access Control 문제 해결](role-based-access-control-troubleshooting.md): 일반적인 문제를 수정하기 위한 제안 사항을 봅니다.
+* [Azure Security Center의 권한](../security-center/security-center-permissions.md)

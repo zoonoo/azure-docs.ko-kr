@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: ebe489b6e0993dad42950acdafac48e662da7f77
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 033d696f0d219fef66b4acd523f28a35afcf9929
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-same-subscription"></a>가상 네트워크 피어링 만들기 - 서로 다른 배포 모델 및 같은 구독 
 
@@ -37,11 +37,11 @@ ms.lasthandoff: 11/06/2017
 
 이 자습서는 동일한 지역에 가상 네트워크를 피어링합니다. 서로 다른 지역에서 가상 네트워크를 피어링하는 기능은 현재 미리 보기 상태입니다. 서로 다른 지역에서 가상 네트워크 피어링을 시도하기 전에 [전역 가상 네트워크 피어링 등록](#register)의 단계를 완료하도록 합니다. 그렇지 않으면 피어링은 실패합니다. Azure [VPN Gateway](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 사용하여 서로 다른 지역에서 가상 네트워크를 연결하는 기능을 일반적으로 사용할 수 있으며 등록이 필요하지 않습니다.
 
-[Azure Portal](#portal), Azure 명령줄 인터페이스([명령줄 인터페이스](#cli)), Azure [PowerShell](#powershell) 또는 [Azure Resource Manager 템플릿](#template)을 사용하여 가상 네트워크 피어링을 만들 수 있습니다. 앞의 도구 링크 중 원하는 도구 링크를 클릭하여 원하는 도구를 사용하여 가상 네트워크 피어링을 만드는 단계로 바로 이동하세요.
+[Azure Portal](#portal), Azure CLI([명령줄 인터페이스](#cli)), Azure [PowerShell](#powershell) 또는 [Azure Resource Manager 템플릿](#template)을 사용하여 가상 네트워크 피어링을 만들 수 있습니다. 앞의 도구 링크 중 원하는 도구 링크를 클릭하여 원하는 도구를 사용하여 가상 네트워크 피어링을 만드는 단계로 바로 이동하세요.
 
 ## <a name="create-peering---azure-portal"></a>피어링 만들기 - Azure Portal
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 로그인하는 데 사용하는 계정에 가상 네트워크 피어링을 만드는 데 필요한 권한이 있어야 합니다. 자세한 내용은 이 문서의 [권한](#permissions) 섹션을 참조하세요.
+1. [Azure 포털](https://portal.azure.com) 에 로그인합니다. 로그인하는 데 사용하는 계정에 가상 네트워크 피어링을 만드는 데 필요한 권한이 있어야 합니다. 자세한 내용은 이 문서의 [권한](#permissions) 섹션을 참조하세요.
 2. **+ 새로 만들기**, **네트워킹**, **가상 네트워크**를 차례로 클릭합니다.
 3. **가상 네트워크 만들기** 블레이드에서 다음 설정에 대한 값을 입력하거나 선택한 다음 **만들기**를 클릭합니다.
     - **이름**: *myVnet1*
@@ -75,12 +75,12 @@ ms.lasthandoff: 11/06/2017
 12. 이전 단계에서 **확인**을 클릭한 후 **피어링 추가** 블레이드가 닫히고 **myVnet1 - 피어링** 블레이드가 다시 표시됩니다. 몇 초 후 만든 피어링이 블레이드에 나타납니다. 만든 **myVnet1ToMyVnet2** 피어링의 **PEERING STATUS** 열에**Connected**가 나열됩니다.
 
     이제 피어링이 설정되었습니다. 어느 쪽 가상 네트워크에서든 만든 모든 Azure 리소스는 이제 해당 IP 주소를 통해 서로 통신할 수 있습니다. 가상 네트워크에 대해 기본 Azure 이름 확인을 사용 중인 경우 가상 네트워크의 리소스가 가상 네트워크에서 이름을 확인할 수 없습니다. 피어링의 가상 네트워크에서 이름을 확인하려면 자체 DNS 서버를 만들어야 합니다. [자체 DNS 서버를 이용한 이름 확인](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) 설정 방법을 알아보세요.
-13. **선택 사항**: 이 자습서에서 가상 컴퓨터를 만드는 내용은 다루지 않지만, 각 가상 네트워크에서 가상 컴퓨터를 만들고 한 가상 컴퓨터에서 다른 가상 컴퓨터로 연결하여 연결의 유효성을 검사할 수 있습니다.
+13. **선택 사항**: 이 자습서에서 가상 머신을 만드는 내용은 다루지 않지만, 각 가상 네트워크에서 가상 머신을 만들고 한 가상 머신에서 다른 가상 머신으로 연결하여 연결의 유효성을 검사할 수 있습니다.
 14. **선택 사항**: 이 자습서에서 만든 리소스를 삭제하려면 이 문서의 [리소스 삭제](#delete-portal) 섹션에서 설명하는 단계를 완료합니다.
 
-## <a name="cli"></a>피어링 만들기 - Azure 명령줄 인터페이스
+## <a name="cli"></a>피어링 만들기 - Azure CLI
 
-1. 가상 네트워크(클래식)를 만들려면 Azure 명령줄 인터페이스 1.0을 [설치](../cli-install-nodejs.md?toc=%2fazure%2fvirtual-network%2ftoc.json)합니다.
+1. 가상 네트워크(클래식)를 만들려면 Azure CLI 1.0을 [설치](../cli-install-nodejs.md?toc=%2fazure%2fvirtual-network%2ftoc.json)합니다.
 2. 명령 세션을 열고 `azure login` 명령을 사용하여 Azure에 로그인합니다.
 3. `azure config mode asm` 명령을 입력하여 CLI를 서비스 관리 모드에서 실행합니다. 
 4. 다음 명령을 입력하여 가상 네트워크(클래식)를 만듭니다.
@@ -89,7 +89,7 @@ ms.lasthandoff: 11/06/2017
     azure network vnet create --vnet myVnet2 --address-space 10.1.0.0 --cidr 16 --location "East US"
     ```
 
-5. 리소스 그룹 및 가상 네트워크(리소스 관리자)를 만듭니다. CLI 1.0 또는 2.0을 사용할 수 있습니다([설치](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json)). 피어링을 만들 때는 CLI 2.0을 사용해야 하기 때문에 이 자습서에서는 2.0을 사용하여 가상 네트워크(리소스 관리자)를 만듭니다. CLI 2.0.4 이상을 설치한 로컬 컴퓨터에서 다음 Bash CLI 스크립트를 실행합니다. Windows 클라이언트에서의 Bash CLI 스크립트 실행과 관련한 옵션은 [Windows에서 Azure 명령줄 인터페이스 실행](../virtual-machines/windows/cli-options.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 참조하세요. Azure Cloud Shell을 사용하여 스크립트를 실행할 수도 있습니다. Azure Cloud Shell은 Azure Portal에서 직접 실행할 수 있는 평가판 Bash 셸입니다. Azure 명령줄 인터페이스가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 다음 스크립트에서 **사용해보기** 단추를 클릭하면 Azure 계정 로그인 가능성을 기록하는 Cloud Shell이 호출됩니다. 스크립트를 실행하려면 **복사** 단추를 클릭하여 내용을 Cloud Shell에 붙여 넣고 `Enter`를 누릅니다.
+5. 리소스 그룹 및 가상 네트워크(리소스 관리자)를 만듭니다. CLI 1.0 또는 2.0을 사용할 수 있습니다([설치](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json)). 피어링을 만들 때는 CLI 2.0을 사용해야 하기 때문에 이 자습서에서는 2.0을 사용하여 가상 네트워크(리소스 관리자)를 만듭니다. CLI 2.0.4 이상을 설치한 로컬 컴퓨터에서 다음 Bash CLI 스크립트를 실행합니다. Windows 클라이언트에서의 Bash CLI 스크립트 실행과 관련한 옵션은 [Windows에서 Azure CLI 실행](../virtual-machines/windows/cli-options.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 참조하세요. Azure Cloud Shell을 사용하여 스크립트를 실행할 수도 있습니다. Azure Cloud Shell은 Azure Portal에서 직접 실행할 수 있는 평가판 Bash 셸입니다. Azure CLI가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 다음 스크립트에서 **사용해보기** 단추를 클릭하면 Azure 계정 로그인 가능성을 기록하는 Cloud Shell이 호출됩니다. 스크립트를 실행하려면 **복사** 단추를 클릭하여 내용을 Cloud Shell에 붙여 넣고 `Enter`를 누릅니다.
 
     ```azurecli-interactive
     #!/bin/bash
@@ -136,7 +136,7 @@ ms.lasthandoff: 11/06/2017
     출력에서 **PeeringState** 열에 **Connected**가 표시됩니다. 
 
     어느 쪽 가상 네트워크에서든 만든 모든 Azure 리소스는 이제 해당 IP 주소를 통해 서로 통신할 수 있습니다. 가상 네트워크에 대해 기본 Azure 이름 확인을 사용 중인 경우 가상 네트워크의 리소스가 가상 네트워크에서 이름을 확인할 수 없습니다. 피어링의 가상 네트워크에서 이름을 확인하려면 자체 DNS 서버를 만들어야 합니다. [자체 DNS 서버를 이용한 이름 확인](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) 설정 방법을 알아보세요.
-8. **선택 사항**: 이 자습서에서 가상 컴퓨터를 만드는 내용은 다루지 않지만, 각 가상 네트워크에서 가상 컴퓨터를 만들고 한 가상 컴퓨터에서 다른 가상 컴퓨터로 연결하여 연결의 유효성을 검사할 수 있습니다.
+8. **선택 사항**: 이 자습서에서 가상 머신을 만드는 내용은 다루지 않지만, 각 가상 네트워크에서 가상 머신을 만들고 한 가상 머신에서 다른 가상 머신으로 연결하여 연결의 유효성을 검사할 수 있습니다.
 9. **선택 사항**: 이 자습서에서 만든 리소스를 삭제하려면 이 문서의 [리소스 삭제](#delete-cli)에서 설명하는 단계를 완료합니다.
 
 ## <a name="powershell"></a>피어링 만들기 - PowerShell
@@ -160,8 +160,8 @@ ms.lasthandoff: 11/06/2017
     ```
 
     > [!WARNING]
-    > 변경된 네트워크 구성 파일을 가져오면 구독의 기존 가상 네트워크(클래식)에 변경을 초래할 수 있습니다. 이전 가상 네트워크만 추가하고, 구독에서 기존 가상 네트워크를 변경하거나 제거하지 않도록 합니다. 
-5. `login-azurermaccount` 명령을 입력하여 Azure에 로그인하고 가상 네트워크(리소스 관리자)를 만듭니다.  로그인하는 데 사용하는 계정에 가상 네트워크 피어링을 만드는 데 필요한 권한이 있어야 합니다. 자세한 내용은 이 문서의 [권한](#permissions) 섹션을 참조하세요.
+    > 변경된 네트워크 구성 파일을 가져오면 구독의 기존 가상 네트워크가 변경될 수 있습니다. 이전 가상 네트워크만 추가하고, 구독에서 기존 가상 네트워크를 변경하거나 제거하지 않도록 합니다. 
+5. `login-azurermaccount` 명령을 입력하여 Azure에 로그인하고 가상 네트워크(리소스 관리자)를 만듭니다.  로그인하는 데 사용한 계정에 가상 네트워크 피어링을 만드는 데 필요한 권한이 있어야 합니다. 자세한 내용은 이 문서의 [권한](#permissions) 섹션을 참조하세요.
 6. 리소스 그룹 및 가상 네트워크(리소스 관리자)를 만듭니다. 스크립트 복사하여 PowerShell에 붙여 넣고 `Enter`를 누릅니다.
 
     ```powershell
@@ -199,7 +199,7 @@ ms.lasthandoff: 11/06/2017
 
     어느 쪽 가상 네트워크에서든 만든 모든 Azure 리소스는 이제 해당 IP 주소를 통해 서로 통신할 수 있습니다. 가상 네트워크에 대해 기본 Azure 이름 확인을 사용 중인 경우 가상 네트워크의 리소스가 가상 네트워크에서 이름을 확인할 수 없습니다. 피어링의 가상 네트워크에서 이름을 확인하려면 자체 DNS 서버를 만들어야 합니다. [자체 DNS 서버를 이용한 이름 확인](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) 설정 방법을 알아보세요.
 
-9. **선택 사항**: 이 자습서에서 가상 컴퓨터를 만드는 내용은 다루지 않지만, 각 가상 네트워크에서 가상 컴퓨터를 만들고 한 가상 컴퓨터에서 다른 가상 컴퓨터로 연결하여 연결의 유효성을 검사할 수 있습니다.
+9. **선택 사항**: 이 자습서에서 가상 머신을 만드는 내용은 다루지 않지만, 각 가상 네트워크에서 가상 머신을 만들고 한 가상 머신에서 다른 가상 머신으로 연결하여 연결의 유효성을 검사할 수 있습니다.
 10. **선택 사항**: 이 자습서에서 만든 리소스를 삭제하려면 이 문서의 [리소스 삭제](#delete-powershell)에서 설명하는 단계를 완료합니다.
  
 ## <a name="permissions"></a>권한
@@ -213,7 +213,7 @@ ms.lasthandoff: 11/06/2017
 |myVnet2|리소스 관리자|[네트워크 참여자](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/peer|
 ||클래식|[클래식 네트워크 참여자](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|Microsoft.ClassicNetwork/virtualNetworks/peer|
 
-[기본 제공 역할](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) 및 [사용자 지정 역할](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에 특정 권한 할당(리소스 관리자만 해당)에 대해 자세히 알아보세요.
+[기본 제공 역할](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) 및 [사용자 지정 역할](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에 특정 권한 할당(Resource Manager만 해당)에 대해 자세히 알아보세요.
 
 ## <a name="delete"></a>리소스 삭제
 이 자습서를 마친 경우 사용 요금이 발생하지 않도록 자습서에서 만든 리소스를 삭제하려고 할 것입니다. 리소스 그룹을 삭제하면 리소스 그룹에 있는 리소스도 모두 삭제됩니다.
@@ -224,15 +224,15 @@ ms.lasthandoff: 11/06/2017
 2. **myResourceGroup** 블레이드에서 **삭제** 아이콘을 클릭합니다.
 3. 삭제를 확인하려면 **리소스 그룹 이름 입력** 상자에 **myResourceGroup**을 입력한 다음 **삭제**를 클릭합니다.
 
-### <a name="delete-cli"></a>Azure 명령줄 인터페이스
+### <a name="delete-cli"></a>Azure CLI
 
-1. Azure 명령줄 인터페이스 2.0을 사용하여 다음 명령을 통해 가상 네트워크(리소스 관리자)를 삭제합니다.
+1. Azure CLI 2.0을 사용하여 다음 명령을 통해 가상 네트워크(리소스 관리자)를 삭제합니다.
 
     ```azurecli-interactive
     az group delete --name myResourceGroup --yes
     ```
 
-2. Azure 명령줄 인터페이스 1.0을 사용하여 다음 명령을 통해 가상 네트워크(클래식)를 삭제합니다.
+2. Azure CLI 1.0을 사용하여 다음 명령을 통해 가상 네트워크(클래식)를 삭제합니다.
 
     ```azurecli
     azure config mode asm
@@ -268,9 +268,7 @@ ms.lasthandoff: 11/06/2017
 
 ## <a name="register"></a>전역 가상 네트워크 피어링 미리 보기에 등록
 
-서로 다른 지역에서 가상 네트워크를 피어링하는 기능은 현재 미리 보기 상태입니다. 기능은 제한된 영역 집합에서 제공됩니다(처음에는 미국 중서부, 캐나다 중부 및 미국 서부 2). 서로 다른 지역에서 가상 네트워크 간에 만들어진 가상 네트워크 피어링에는 같은 지역에서 가상 네트워크 간의 피어링과 같은 수준의 가용성 및 안정성이 없을 수도 있습니다. 이 기능의 가용성 및 상태에 대한 최신 알림을 보려면 [Azure Virtual Network 업데이트](https://azure.microsoft.com/updates/?product=virtual-network) 페이지를 참조하세요.
-
-여러 지역에 걸쳐 가상 네트워크를 피어링하려면 먼저 Azure PowerShell 또는 Azure CLI를 사용하여 (피어링하려는 각 가상 네트워크가 있는 구독 내에서) 다음 단계를 완료하여 미리 보기에 등록해야 합니다.
+동일한 지역의 가상 네트워크 피어링은 일반 공급됩니다. 서로 다른 지역에서 가상 네트워크를 피어링하는 기능은 현재 미리 보기 상태입니다. 사용 가능한 지역에 대해서는 [가상 네트워크 업데이트](https://azure.microsoft.com/en-us/updates/?product=virtual-network)를 참조하세요. 여러 지역에 걸쳐 가상 네트워크를 피어링하려면 먼저 Azure PowerShell 또는 Azure CLI를 사용하여 (피어링하려는 각 가상 네트워크가 있는 구독 내에서) 다음 단계를 완료하여 미리 보기에 등록해야 합니다.
 
 ### <a name="powershell"></a>PowerShell
 
@@ -296,10 +294,10 @@ ms.lasthandoff: 11/06/2017
 
     두 구독에 대해 모두 이전 명령을 입력하여 받은 **RegistrationState** 출력이 **Registered**가 되기 전까지는 이 문서의 포털, Azure 명령줄 인터페이스 또는 PowerShell 또는 리소스 관리자 템플릿 섹션에 있는 절차를 수행하지 않습니다.
 
-### <a name="azure-cli"></a>Azure 명령줄 인터페이스
+### <a name="azure-cli"></a>Azure CLI
 
-1. [Azure 명령줄 인터페이스를 설치 및 구성합니다](/cli/azure/install-azure-cli?toc=%2Fazure%2Fvirtual-network%2Ftoc.json).
-2. `az --version` 명령을 입력하여 Azure 명령줄 인터페이스 버전 2.0.18 이상을 사용하고 있는지 확인합니다. 그렇지 않을 경우 최신 버전을 설치합니다.
+1. [Azure CLI를 설치 및 구성합니다](/cli/azure/install-azure-cli?toc=%2Fazure%2Fvirtual-network%2Ftoc.json).
+2. `az --version` 명령을 입력하여 Azure CLI 버전 2.0.18 이상을 사용하고 있는지 확인합니다. 그렇지 않을 경우 최신 버전을 설치합니다.
 3. `az login` 명령을 사용하여 Azure에 로그인합니다.
 4. 다음 명령을 입력하여 미리 보기에 등록합니다.
 

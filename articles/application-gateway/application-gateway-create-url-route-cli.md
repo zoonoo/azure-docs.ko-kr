@@ -1,125 +1,251 @@
 ---
-title: "URL 라우팅 규칙을 사용하여 응용 프로그램 게이트웨이 만들기 - Azure CLI 2.0 | Microsoft Docs"
-description: "이 페이지에서는 URL 라우팅 규칙을 사용하여 응용 프로그램 게이트웨이를 만들고 구성하는 방법에 대한 지침을 제공합니다."
-documentationcenter: na
+title: "URL 경로 기반 라우팅 규칙을 사용하여 응용 프로그램 게이트웨이 만들기 - Azure CLI | Microsoft Docs"
+description: "Azure CLI를 사용하여 응용 프로그램 게이트웨이 및 가상 머신 확장 집합에 URL 경로 기반 라우팅 규칙을 만드는 방법을 알아봅니다."
 services: application-gateway
 author: davidmu1
 manager: timlt
 editor: tysonn
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/26/2017
+ms.date: 01/26/2018
 ms.author: davidmu
-ms.openlocfilehash: 10d01d5d80e2d111d6b39598eed3612f80162b23
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 0593e37def43770efad7e07b306d8290b0590a48
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="create-an-application-gateway-by-using-path-based-routing-with-azure-cli-20"></a>Azure CLI 2.0에서 경로 기반 라우팅을 사용하여 응용 프로그램 게이트웨이 만들기
+# <a name="create-an-application-gateway-with-url-path-based-routing-rules-using-the-azure-cli"></a>Azure CLI를 사용하는 URL 경로 기반 라우팅 규칙을 사용하여 응용 프로그램 게이트웨이 만들기
 
-> [!div class="op_single_selector"]
-> * [Azure 포털](application-gateway-create-url-route-portal.md)
-> * [Azure Resource Manager PowerShell](application-gateway-create-url-route-arm-ps.md)
-> * [Azure CLI 2.0](application-gateway-create-url-route-cli.md)
+Azure CLI를 사용하여 [응용 프로그램 게이트웨이](application-gateway-introduction.md)를 만들 때 [URL 경로 기반 라우팅 규칙](application-gateway-url-route-overview.md)을 구성할 수 있습니다. 이 자습서에서는 [가상 머신 확장 집합](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)을 사용하여 백 엔드 풀을 만듭니다. 그런 다음, 웹 트래픽이 풀의 적절한 서버에 도착하도록 하는 라우팅 규칙을 만듭니다.
 
-URL 경로 기반 라우팅을 사용하면 HTTP 요청의 URL 경로에 따라 경로를 연결할 수 있습니다. URL 경로 기반 라우팅에서는 응용 프로그램 게이트웨이에 나열되어 있는 URL용으로 구성된 백 엔드 서버 풀에 대한 경로가 있는지 확인한 다음 정의된 풀로 네트워크 트래픽을 전송합니다. URL 경로 기반 라우팅은 다양한 콘텐츠 형식에 대한 요청을 여러 백 엔드 서버 풀로 부하 분산하는 데 흔히 사용됩니다.
+이 문서에서는 다음 방법을 설명합니다.
 
-Azure Application Gateway는 기본 규칙과 URL 경로 기반 규칙의 두 가지 규칙 유형을 사용합니다. 기본 규칙 유형에서는 백 엔드 풀용 라운드 로빈 서비스가 제공됩니다. 경로 기반 규칙에서는 라운드 로빈 배포뿐 아니라 요청 URL의 경로 패턴도 사용하여 적절한 백 엔드 풀을 선택합니다.
+> [!div class="checklist"]
+> * 네트워크 설정
+> * URL 맵을 사용하여 응용 프로그램 게이트웨이 만들기
+> * 백 엔드 풀을 사용하여 가상 머신 확장 집합 만들기
 
-## <a name="scenario"></a>시나리오
+![URL 라우팅 예제](./media/application-gateway-create-url-route-cli/scenario.png)
 
-다음 예제에서 응용 프로그램 게이트웨이는 두 개의 백 엔드 서버 풀(기본 서버 풀 및 이미지 서버 풀)을 사용하여 contoso.com의 트래픽을 처리합니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-http://contoso.com/image*에 대한 요청은 이미지 서버 풀(**imagesBackendPool**)로 라우팅됩니다. 경로 패턴이 일치하지 않으면 응용 프로그램 게이트웨이는 기본 서버 풀(**appGatewayBackendPool**)을 선택합니다.
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-![URL 경로](./media/application-gateway-create-url-route-cli/scenario.png)
+CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 빠른 시작에서 Azure CLI 버전 2.0.4 이상을 실행해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
-## <a name="sign-in-to-azure"></a>Azure에 로그인
+## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-**Microsoft Azure 명령 프롬프트**를 열고 로그인합니다.
+리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. [az group create](/cli/azure/group#create)를 사용하여 리소스 그룹을 만듭니다.
 
-```azurecli
-az login -u "username"
+다음 예제에서는 *eastus* 위치에 *myResourceGroupAG*라는 리소스 그룹을 만듭니다.
+
+```azurecli-interactive 
+az group create --name myResourceGroupAG --location eastus
 ```
 
-> [!NOTE]
-> aka.ms/devicelogin에서 코드를 입력해야 하는 장치 로그인에 대한 스위치 없이 `az login`을 사용할 수도 있습니다.
+## <a name="create-network-resources"></a>네트워크 리소스 만들기 
 
-위의 명령을 입력하고 나면 코드가 수신됩니다. 브라우저에서 https://aka.ms/devicelogin으로 이동하여 로그인 프로세스를 계속합니다.
+[az network vnet create](/cli/azure/network/vnet#az_net)를 사용하여 *myVNet*이라는 가상 네트워크와 *myAGSubnet*이라는 서브넷을 만듭니다. 그런 후 [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create)를 사용하여 백 엔드 서버에 필요한 *myBackendSubnet*이라는 서브넷을 추가할 수 있습니다. [az network public-ip create](/cli/azure/public-ip#az_network_public_ip_create)를 사용하여 *myAGPublicIPAddress*라는 IP 주소를 만듭니다.
 
-![장치 로그인을 보여 주는 cmd][1]
+```azurecli-interactive
+az network vnet create \
+  --name myVNet \
+  --resource-group myResourceGroupAG \
+  --location eastus \
+  --address-prefix 10.0.0.0/16 \
+  --subnet-name myAGSubnet \
+  --subnet-prefix 10.0.1.0/24
+az network vnet subnet create \
+  --name myBackendSubnet \
+  --resource-group myResourceGroupAG \
+  --vnet-name myVNet \
+  --address-prefix 10.0.2.0/24
+az network public-ip create \
+  --resource-group myResourceGroupAG \
+  --name myAGPublicIPAddress
+```
 
-브라우저에서 받은 코드를 입력합니다. 이렇게 하면 로그인 페이지로 리디렉션됩니다.
+## <a name="create-the-application-gateway-with-url-map"></a>URL 맵을 사용하여 응용 프로그램 게이트웨이 만들기
 
-![코드를 입력할 수 있는 브라우저 화면][2]
+[az network application-gateway create](/cli/azure/application-gateway#create)를 사용하여 *myAppGateway*라는 응용 프로그램 게이트웨이를 만들 수 있습니다. Azure CLI를 사용하여 응용 프로그램 게이트웨이를 만들 때 용량, sku, HTTP 설정 등의 구성 정보를 지정합니다. 응용 프로그램 게이트웨이는 앞에서 만든 *myAGSubnet* 및 *myAGPublicIPAddress*에 할당됩니다. 
 
-코드를 입력하여 로그인한 후 브라우저를 닫고 계속 진행합니다.
+```azurecli-interactive
+az network application-gateway create \
+  --name myAppGateway \
+  --location eastus \
+  --resource-group myResourceGroupAG \
+  --vnet-name myVNet \
+  --subnet myAGsubnet \
+  --capacity 2 \
+  --sku Standard_Medium \
+  --http-settings-cookie-based-affinity Disabled \
+  --frontend-port 80 \
+  --http-settings-port 80 \
+  --http-settings-protocol Http \
+  --public-ip-address myAGPublicIPAddress
+```
 
-![정상 로그인된 후의 화면][3]
+ 응용 프로그램 게이트웨이가 생성될 때까지 몇 분 정도 걸릴 수 있습니다. 응용 프로그램 게이트웨이가 생성되면 다음과 같은 새 기능을 볼 수 있습니다.
 
-## <a name="add-a-path-based-rule-to-an-existing-application-gateway"></a>기존 응용 프로그램 게이트웨이에 경로 기반 규칙 추가
+- *appGatewayBackendPool* - 응용 프로그램 게이트웨이에 백 엔드 주소 풀이 하나 이상 있어야 합니다.
+- *appGatewayBackendHttpSettings* - 포트 80 및 HTTP 프로토콜을 통신에 사용하도록 지정합니다.
+- *appGatewayHttpListener* - *appGatewayBackendPool*에 연결되는 기본 수신기입니다.
+- *appGatewayFrontendIP* - *myAGPublicIPAddress*를 *appGatewayHttpListener*에 할당합니다.
+- *rule1* - *appGatewayHttpListener*에 연결되는 기본 라우팅 규칙입니다.
 
-다음 단계에서는 기존 응용 프로그램 게이트웨이에 경로 기반 규칙을 추가하는 방법을 설명합니다.
-### <a name="create-a-new-back-end-pool"></a>새 백 엔드 풀 만들기
 
-백 엔드 풀에서 부하가 분산된 네트워크 트래픽에 대해 응용 프로그램 게이트웨이 설정 **imagesBackendPool**을 구성합니다. 이 예제에서는 새 백 엔드 풀에 대한 다른 백 엔드 풀 설정을 구성합니다. 각 백 엔드 풀에는 고유한 설정이 있을 수 있습니다. 경로 기반 규칙은 백 엔드 HTTP 설정을 사용하여 올바른 백 엔드 풀 멤버로 트래픽을 라우팅합니다. 이 과정을 통해 백 엔드 풀 멤버로 트래픽을 보낼 때 사용되는 프로토콜과 포트가 결정됩니다. 쿠키 기반 세션도 백 엔드 HTTP 설정에 따라 결정됩니다.  쿠키 기반 세션 선호도가 사용하도록 설정되어 있으면 각 패킷에 대해 이전 요청과 동일한 백 엔드로 트래픽이 전송됩니다.
+### <a name="add-image-and-video-backend-pools-and-port"></a>이미지 및 비디오 백 엔드 풀 및 포트 추가
+
+[az network application-gateway address-pool create](/cli/azure/application-gateway#az_network_application_gateway_address-pool_create)를 사용하여 응용 프로그램 게이트웨이에 *imagesBackendPool* 및 *videoBackendPool*이라는 백 엔드 풀을 추가할 수 있습니다. [az network application-gateway frontend-port create](/cli/azure/application-gateway#az_network_application_gateway_frontend_port_create)를 사용하여 풀에 프런트 엔드 포트를 추가합니다. 
 
 ```azurecli-interactive
 az network application-gateway address-pool create \
---gateway-name AdatumAppGateway \
---name imagesBackendPool  \
---resource-group myresourcegroup \
---servers 10.0.0.6 10.0.0.7
+  --gateway-name myAppGateway \
+  --resource-group myResourceGroupAG \
+  --name imagesBackendPool
+az network application-gateway address-pool create \
+  --gateway-name myAppGateway \
+  --resource-group myResourceGroupAG \
+  --name videoBackendPool
+az network application-gateway frontend-port create \
+  --port 8080 \
+  --gateway-name myAppGateway \
+  --resource-group myResourceGroupAG \
+  --name port8080
 ```
 
-### <a name="create-a-new-front-end-port-for-an-application-gateway"></a>응용 프로그램 게이트웨이용 새 프런트 엔드 포트 만들기
+### <a name="add-backend-listener"></a>백 엔드 수신기 추가
 
-프런트 엔드 포트 구성 개체는 응용 프로그램 게이트웨이가 수신기에서 트래픽을 수신 대기하는 포트를 정의하기 위해 수신기에서 사용됩니다.
+[az network application-gateway http-listener create](/cli/azure/application-gateway#az_network_application_gateway_http_listener_create)를 사용하여 트래픽을 라우팅하는 데 필요한 *backendListener*라는 백 엔드 수신기를 추가합니다.
+
 
 ```azurecli-interactive
-az network application-gateway frontend-port create --port 82 --gateway-name AdatumAppGateway --resource-group myresourcegroup --name port82
+az network application-gateway http-listener create \
+  --name backendListener \
+  --frontend-ip appGatewayFrontendIP \
+  --frontend-port port8080 \
+  --resource-group myResourceGroupAG \
+  --gateway-name myAppGateway
 ```
 
-### <a name="create-a-new-listener"></a>새 수신기 만들기
+### <a name="add-url-path-map"></a>URL 경로 맵 추가
 
-이 단계에서는 들어오는 네트워크 트래픽을 수신하는 데 사용되는 공용 IP 주소 및 포트에 대한 수신기를 구성합니다. 다음 예제에서는 이전에 구성한 프런트 엔드 IP 구성, 프런트 엔드 포트 구성 및 프로토콜(http 또는 https, 대/소문자 구분)을 가져와 수신기를 구성합니다. 이 예제에서 수신기는 이 시나리오의 앞부분에서 만든 공용 IP 주소의 82 포트에서 HTTP 트래픽을 수신 대기합니다.
-
-```azurecli-interactive
-az network application-gateway http-listener create --name imageListener --frontend-ip appGatewayFrontendIP  --frontend-port port82 --resource-group myresourcegroup --gateway-name AdatumAppGateway
-```
-
-### <a name="create-the-url-path-map"></a>URL 경로 맵 만들기
-
-이 단계에서는 들어오는 트래픽을 처리하는 데 할당되는 백 엔드 풀과 경로 간의 매핑을 정의하기 위해 응용 프로그램 게이트웨이가 사용하는 상대 URL 경로를 구성합니다.
-
-> [!IMPORTANT]
-> 각 경로는 "/"로 시작해야 하며 별표는 경로 끝에만 추가할 수 있습니다. 사용 가능한 예는 /xyz, /xyz* 또는 /xyz/*입니다. 경로 검사기에 제공하는 문자열은 "?" 또는 "#"으로 시작하는 텍스트는 포함하지 않습니다. 이러한 문자는 허용되지 않습니다. 
-
-다음 예제에서는 백 엔드 **imagesBackendPool** 로 트래픽을 라우팅하는 /images/\* 경로용 규칙 하나를 만듭니다. 이 규칙을 통해 각 URL 집합에 대한 트래픽이 백 엔드로 라우팅됩니다. 예를 들어 http://adatum.com/images/figure1.jpg는 **imagesBackendPool** 로 이동합니다. 또한 경로가 미리 정의된 경로 규칙과 일치하지 않으면 규칙 경로 맵 구성은 기본 백 엔드 주소 풀을 구성합니다. 예를 들어 http://adatum.com/shoppingcart/test.html은 일치하지 않는 트래픽에 대한 기본 풀로 정의된 **pool1** 로 이동합니다.
+URL 경로 맵은 특정 URL을 특정 백 엔드 풀로 라우팅하도록 합니다. [az network application-gateway url-path-map create](/cli/azure/application-gateway#az_network_application_gateway_url_path_map_create) 및 [az network application-gateway url-path-map rule create](/cli/azure/application-gateway#az_network_application_gateway_url_path_map_rule_create)를 사용하여 *imagePathRule* 및 *videoPathRule*이라는 URL 경로 맵을 만들 수 있습니다.
 
 ```azurecli-interactive
 az network application-gateway url-path-map create \
---gateway-name AdatumAppGateway \
---name imagespathmap \
---paths /images/* \
---resource-group myresourcegroup2 \
---address-pool imagesBackendPool \
---default-address-pool appGatewayBackendPool \
---default-http-settings appGatewayBackendHttpSettings \
---http-settings appGatewayBackendHttpSettings \
---rule-name images
+  --gateway-name myAppGateway \
+  --name myPathMap \
+  --paths /images/* \
+  --resource-group myResourceGroupAG \
+  --address-pool imagesBackendPool \
+  --default-address-pool appGatewayBackendPool \
+  --default-http-settings appGatewayBackendHttpSettings \
+  --http-settings appGatewayBackendHttpSettings \
+  --rule-name imagePathRule
+az network application-gateway url-path-map rule create \
+  --gateway-name myAppGateway \
+  --name videoPathRule \
+  --resource-group myResourceGroupAG \
+  --path-map-name myPathMap \
+  --paths /video/* \
+  --address-pool videoBackendPool
 ```
+
+### <a name="add-routing-rule"></a>라우팅 규칙 추가
+
+라우팅 규칙은 URL 맵을 만든 수신기에 연결합니다. [az network application-gateway rule create](/cli/azure/application-gateway#az_network_application_gateway_rule_create)를 사용하여 *rule2*라는 규칙을 추가할 수 있습니다.
+
+```azurecli-interactive
+az network application-gateway rule create \
+  --gateway-name myAppGateway \
+  --name rule2 \
+  --resource-group myResourceGroupAG \
+  --http-listener backendListener \
+  --rule-type PathBasedRouting \
+  --url-path-map myPathMap \
+  --address-pool appGatewayBackendPool
+```
+
+## <a name="create-virtual-machine-scale-sets"></a>가상 머신 확장 집합 만들기
+
+이 예제에서는 생성된 세 개의 백 엔드 풀을 지원하는 세 개의 가상 머신 확장 집합을 만듭니다. 생성된 확장 집합의 이름은 *myvmss1*, *myvmss2* 및 *myvmss3*입니다. 각 확장 집합에는 NGINX를 설치하는 두 개의 가상 머신 인스턴스가 포함됩니다.
+
+```azurecli-interactive
+for i in `seq 1 3`; do
+  if [ $i -eq 1 ]
+  then
+    poolName="appGatewayBackendPool" 
+  fi
+  if [ $i -eq 2 ]
+  then
+    poolName="imagesBackendPool"
+  fi
+  if [ $i -eq 3 ]
+  then
+    poolName="videoBackendPool"
+  fi
+  az vmss create \
+    --name myvmss$i \
+    --resource-group myResourceGroupAG \
+    --image UbuntuLTS \
+    --admin-username azureuser \
+    --admin-password Azure123456! \
+    --instance-count 2 \
+    --vnet-name myVNet \
+    --subnet myBackendSubnet \
+    --vm-sku Standard_DS2 \
+    --upgrade-policy-mode Automatic \
+    --app-gateway myAppGateway \
+    --backend-pool-name $poolName
+done
+```
+
+### <a name="install-nginx"></a>NGINX 설치
+
+```azurecli-interactive
+for i in `seq 1 3`; do
+  az vmss extension set \
+    --publisher Microsoft.Azure.Extensions \
+    --version 2.0 \
+    --name CustomScript \
+    --resource-group myResourceGroupAG \
+    --vmss-name myvmss$i \
+    --settings '{ "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"], "commandToExecute": "./install_nginx.sh" }'
+done
+```
+
+## <a name="test-the-application-gateway"></a>응용 프로그램 게이트웨이 테스트
+
+응용 프로그램 게이트웨이의 공용 IP 주소를 가져오려면 [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show)를 사용합니다. 공용 IP 주소를 복사하여 브라우저의 주소 표시줄에 붙여넣습니다. *http://40.121.222.19*, *http://40.121.222.19:8080/images/test.htm* 또는 *http://40.121.222.19:8080/video/test.htm*과 같습니다.
+
+```azurepowershell-interactive
+az network public-ip show \
+  --resource-group myResourceGroupAG \
+  --name myAGPublicIPAddress \
+  --query [ipAddress] \
+  --output tsv
+```
+
+![응용 프로그램 게이트웨이의 기준 URL 테스트](./media/application-gateway-create-url-route-cli/application-gateway-nginx.png)
+
+URL을 기준 URL에 대한 http://<ip-address>:8080/video/test.html로 변경하면 다음 예제와 같은 항목이 표시됩니다.
+
+![응용 프로그램 게이트웨이의 이미지 URL 테스트](./media/application-gateway-create-url-route-cli/application-gateway-nginx-images.png)
+
+URL을 http://<ip-address>:8080/video/test.html로 변경하면 다음 예제와 같은 항목이 표시됩니다.
+
+![응용 프로그램 게이트웨이의 비디오 URL 테스트](./media/application-gateway-create-url-route-cli/application-gateway-nginx-video.png)
 
 ## <a name="next-steps"></a>다음 단계
 
-SSL(Secure Sockets Layer) 오프로드에 대해 알아보려는 경우 [SSL 오프로드에 대해 응용 프로그램 게이트웨이 구성](application-gateway-ssl-cli.md)을 참조하세요.
+이 자습서에서는 다음 방법에 대해 알아보았습니다.
 
+> [!div class="checklist"]
+> * 네트워크 설정
+> * URL 맵을 사용하여 응용 프로그램 게이트웨이 만들기
+> * 백 엔드 풀을 사용하여 가상 머신 확장 집합 만들기
 
-[scenario]: ./media/application-gateway-create-url-route-cli/scenario.png
-[1]: ./media/application-gateway-create-url-route-cli/figure1.png
-[2]: ./media/application-gateway-create-url-route-cli/figure2.png
-[3]: ./media/application-gateway-create-url-route-cli/figure3.png
+응용 프로그램 게이트웨이 및 관련 리소스에 대해 자세히 알아보려면 방법 문서를 참조하세요.

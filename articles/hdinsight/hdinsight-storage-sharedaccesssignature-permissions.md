@@ -4,7 +4,7 @@ description: "공유 액세스 서명을 사용하여 Azure 저장소 Blob에 �
 services: hdinsight
 documentationcenter: 
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: 7bcad2dd-edea-467c-9130-44cffc005ff3
 ms.service: hdinsight
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/02/2017
+ms.date: 01/25/2018
 ms.author: larryfr
-ms.openlocfilehash: 92ad526d034591b8f463ef6b01e115101b74e1ae
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 83a93f433769e880a729cd918198909696071594
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Azure Storage 공유 액세스 서명을 사용하여 HDInsight에서 데이터 액세스 제한
 
@@ -216,7 +216,7 @@ SAS를 사용하는 HDInsight 클러스터를 만드는 예제는 리포지토�
    > [!IMPORTANT]
    > 변경 내용을 적용하기 전에 여러 서비스를 다시 시작해야 합니다.
 
-6. Ambari 웹 UI의 왼쪽 목록에서 **HDFS**를 선택한 다음 오른쪽의 **Service Actions** 드롭다운 목록에서 **Restart All**을 선택합니다. 메시지가 나타나면 **Turn on maintenance mode**을 선택한 다음 __Conform Restart All"을 선택합니다.
+6. Ambari 웹 UI의 왼쪽 목록에서 **HDFS**를 선택한 다음, 오른쪽의 **Service Actions** 드롭다운 목록에서 **Restart All Affected**을 선택합니다. 메시지가 나타나면, __Conform Restart All__을 선택합니다.
 
     MapReduce2 및 YARN에 대해 이 프로세스를 반복합니다.
 
@@ -304,7 +304,7 @@ SAS를 사용하는 HDInsight 클러스터를 만드는 예제는 리포지토�
 
 이제 HDInsight 클러스터에 액세스가 제한된 저장소를 추가하는 방법을 배웠으므로 클러스터에서 데이터에 대해 작업하는 다른 방법에 알아보겠습니다.
 
-* [HDInsight에서 Hive 사용](hadoop/hdinsight-use-hive.md)
+* [HDInsight에서 하이브 사용](hadoop/hdinsight-use-hive.md)
 * [HDInsight에서 Pig 사용](hadoop/hdinsight-use-pig.md)
 * [HDInsight와 함께 MapReduce 사용](hadoop/hdinsight-use-mapreduce.md)
 

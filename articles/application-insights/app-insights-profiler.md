@@ -12,86 +12,54 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: f8ba1a6308dfe234fff700d363fb9252b94570e2
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 5f691fb88c6764309bf012dfc65b561ec87afede
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="profile-live-azure-web-apps-with-application-insights"></a>Application Insights를 사용하여 라이브 Azure Web Apps 프로파일링
 
 *Application Insights의 이 기능은 일반적으로 Azure App Service에서 사용할 수 있으며 Azure 계산 리소스에 대한 미리 보기에 있습니다.*
 
-[Application Insights Profiler](app-insights-overview.md)를 사용하여 라이브 웹 응용 프로그램의 각 메서드에서 얼마나 많은 시간이 소요되는지 알아봅니다. Application Insights 프로파일링 도구는 앱에서 제공한 실시간 요청의 세부 프로필을 표시하고 가장 많은 시간을 사용하는 *실행 부하 과다 경로*를 강조 표시합니다. 프로파일러는 응답 시간이 다른 예제를 자동으로 선택한 다음 다양한 기술을 사용하여 오버헤드를 최소화합니다.
+[Application Insights](app-insights-overview.md)를 사용할 때 라이브 웹 응용 프로그램의 각 메서드에서 얼마나 많은 시간이 소요되는지 알아봅니다. Application Insights 프로파일링 도구는 앱에서 제공한 실시간 요청의 세부 프로필을 표시하고 가장 많은 시간을 사용하는 *실행 부하 과다 경로*를 강조 표시합니다. 응답 시간이 다른 요청은 샘플링 기준으로 프로파일링됩니다. 응용 프로그램에 대한 오버헤드는 다양한 기술을 사용하여 최소화됩니다.
 
-프로파일러는 현재 최소한 기본 서비스 계층의 Azure App Service에서 실행 중인 ASP.NET 웹앱에 대해 작동합니다.
+프로파일러는 현재 **Basic** 이상 서비스 계층의 Azure App Service에서 실행 중인 ASP.NET 및 ASP.NET Core 웹앱에서 작동합니다.
 
-## <a id="installation"></a> 프로파일러 사용
+## <a id="installation"></a> App Services 웹앱에 대한 프로파일러 사용
+응용 프로그램을 App Services에 게시했지만 Application Insights를 사용하도록 소스 코드를 변경하지 경우, Azure Portal의 App Services로 이동하고, **모니터링 | Application Insights**로 이동하여 창의 지침에 따라 웹앱을 모니터링할 Application Insights 리소스를 새로 만들거나 기존 Application Insights 리소스를 선택합니다. Profiler는 **기본** App Services 계획 이상에서만 작동합니다.
 
-코드에서 [Application Insights를 설치합니다](app-insights-asp-net.md). 이미 설치된 경우 최신 버전인지 확인합니다. 최신 버전을 확인하려면 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **NuGet 패키지 관리** > **업데이트** > **모든 패키지 업데이트**를 선택합니다. 그런 다음 앱을 다시 배포합니다.
+![App Services 포털에서 App Insights를 사용하도록 설정][appinsights-in-appservices]
 
-*ASP.NET Core를 사용 중입니까? [자세한 정보](#aspnetcore)를 참조하세요.*
+프로젝트 소스 코드에 액세스할 수 있으면 [Application Insights를 설치](app-insights-asp-net.md)합니다. 이미 설치된 경우 최신 버전인지 확인합니다. 최신 버전을 확인하려면 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **NuGet 패키지 관리** > **업데이트** > **모든 패키지 업데이트**를 선택합니다. 그런 다음, 앱을 배포합니다.
+
+ASP.NET Core 응용 프로그램을 사용하려면 Microsoft.ApplicationInsights.AspNetCore Nuget 패키지 2.1.0-beta6 이상을 설치하여 프로파일러와 작동하도록 해야 합니다. 2017년 6월 27일부터 이전 버전은 지원되지 않습니다.
 
 [Azure Portal](https://portal.azure.com)에서 웹앱에 대한 Application Insights 리소스를 엽니다. **성능** > **Application Insights Profiler 사용**을 선택합니다.
 
 ![프로파일러 사용 배너 선택][enable-profiler-banner]
 
-또는 **구성**을 선택하여 상태를 보고 프로파일러를 사용하거나 사용하지 않도록 설정할 수 있습니다.
+또는 **Profiler** 구성을 선택하여 상태를 보고 프로파일러를 사용하거나 사용하지 않도록 설정할 수 있습니다.
 
-![성능에서 구성 선택][performance-blade]
+![성능에서 Profiler 구성 선택][performance-blade]
 
-Application Insights로 구성된 웹앱은 **구성**에 나열됩니다. 필요한 경우 지침에 따라 프로파일러 에이전트를 설치합니다. Application Insights로 구성된 웹앱이 없는 경우 **연결된 앱 추가**를 선택합니다.
+Application Insights로 구성된 웹앱은 **Profiler** 구성 창에 나열됩니다. 위의 단계를 수행한 경우 프로파일러 에이전트가 이미 설치되어 있습니다. **Profiler** 구성 창에서 **프로파일러 사용**을 선택합니다.
 
-연결된 모든 웹앱의 프로파일러를 제어하려면 **구성** 창에서 **Profiler 사용** 또는 **Profiler 사용 안 함**을 선택합니다.
+필요한 경우 지침에 따라 프로파일러 에이전트를 설치합니다. Application Insights로 구성된 웹앱이 없는 경우 **연결된 앱 추가**를 선택합니다.
 
 ![구성 창 옵션][linked app services]
 
 App Service 계획을 통해 호스트되는 웹앱과 달리 Azure 계산 리소스(예: Azure Virtual Machines, 가상 머신 크기 집합, Azure Service Fabric 또는 Azure Cloud Services)에서 호스트되는 응용 프로그램은 Azure에서 직접 관리되지 않습니다. 이 경우 연결할 웹앱이 없습니다. 앱에 연결하는 대신 **Profiler 사용** 단추를 선택합니다.
 
-## <a name="disable-the-profiler"></a>프로파일러 사용 안 함
-개별 App Service 인스턴스에 대해 프로파일러를 중지하거나 다시 시작하려면 **웹 작업**에서 App Service 리소스로 이동합니다. 프로파일러를 삭제하려면 **확장**으로 이동합니다.
-
-![웹 작업에 대한 프로파일러 사용 안 함][disable-profiler-webjob]
-
-성능 문제를 가능한 한 빨리 검색하려면 모든 웹앱에서 프로파일러를 사용하도록 설정하는 것이 좋습니다.
-
-WebDeploy를 사용하여 웹 응용 프로그램에 변경 내용을 배포하는 경우 배포하는 동안 App_Data 폴더가 삭제되는 것을 제외하도록 확인합니다. 그렇지 않으면 다음에 Azure에 웹 응용 프로그램을 배포할 때 프로파일러 확장의 파일이 삭제됩니다.
-
-### <a name="using-profiler-with-azure-vms-and-azure-compute-resources-preview"></a>Azure VM 및 Azure 계산 리소스에서 프로파일러 사용(미리 보기)
-
-[런타임 시 Azure App Service에 대해 Application Insights를 사용하도록 설정](app-insights-azure-web-apps.md#run-time-instrumentation-with-application-insights)하면 Application Insights Profiler를 자동으로 사용할 수 있습니다. 리소스에 대해 Application Insights를 이미 사용하도록 설정한 경우 구성 마법사를 사용하여 최신 버전으로 업데이트해야 할 수 있습니다.
+### <a name="enable-the-profiler-for-azure-compute-resources-preview"></a>Azure 계산 리소스에 프로파일러를 사용하도록 설정(미리 보기)
 
 자세한 내용은 [Azure 계산 리소스에 대한 미리 보기 버전의 프로파일러](https://go.microsoft.com/fwlink/?linkid=848155)를 참조하세요.
 
-
-## <a name="limitations"></a>제한 사항
-
-기본 데이터 보존 기간은 5일입니다. 하루에 수집되는 최대 데이터는 10GB입니다.
-
-프로파일러 서비스 사용료는 청구되지 않습니다. 프로파일러 서비스를 사용하려면 웹앱이 적어도 App Service의 기본 계층에서 호스트되어야 합니다.
-
-## <a name="overhead-and-sampling-algorithm"></a>오버헤드 및 샘플링 알고리즘
-
-프로파일러는 프로파일러가 추적을 캡처하도록 설정된 응용 프로그램을 호스트하는 각 가상 머신에서 시간당 2분씩 임의로 실행됩니다. 프로파일러는 실행되는 동안 서버에 CPU 오버헤드를 5-15% 가중시킵니다.
-응용 프로그램을 호스트하는 데 사용할 수 있는 서버가 많을수록 프로파일러가 전체 응용 프로그램 성능에 주는 영향은 감소합니다. 이는 샘플링 알고리즘으로 인해 프로파일러가 언제든지 서버의 5%에서만 실행되기 때문입니다. 프로파일러 실행으로 인한 서버 오버헤드를 상쇄하기 위해 더 많은 서버를 사용하여 웹 요청을 처리할 수 있습니다.
-
-
 ## <a name="view-profiler-data"></a>프로파일러 데이터 보기
 
-**성능** 창으로 이동한 다음 작업 목록에서 아래로 스크롤합니다.
+**응용 프로그램이 트래픽을 수신하는지 확인합니다.** 실험을 수행하는 경우 [Application Insights 성능 테스트](https://docs.microsoft.com/en-us/vsts/load-test/app-service-web-app-performance-test)를 사용하여 웹앱에 요청을 생성할 수 있습니다. Profiler를 새로 활성화한 경우 약 15분 동안 짧은 로드 테스트를 실행하면 프로파일러 추적을 얻을 수 있습니다. Profiler를 사용하도록 이미 설정되어 있는 경우에는 Profiler는 매시간 2번 임의로 실행되며 실행될 때마다 2분간 실행되는 점에 유의합니다. 샘플 프로파일러 추적을 얻을 수 있는지 확인하려면 1시간 동안 부하 테스트를 실행합니다.
 
-![Application Insights 성능 창 예제 열][performance-blade-examples]
-
-작업 테이블에는 다음과 같은 열이 있습니다.
-
-* **수**: **수** 창의 시간 범위에서 이러한 요청 수입니다.
-* **중앙값**: 앱이 요청에 응답하는 데 걸리는 일반적인 시간입니다. 모든 응답의 절반은 이 값보다 더 빨랐습니다.
-* **95 백분위수**: 응답의 95%는 이 값보다 더 빨랐습니다. 이 값이 중앙값과 전혀 다른 경우 앱에 간헐적 문제가 있을 수 있습니다. (또는 캐시와 같은 디자인 기능으로 설명될 수 있습니다.)
-* **프로파일러 추적**: 아이콘은 프로파일러가 이 작업에 대한 스택 추적을 캡처했음을 나타냅니다.
-
-**보기**를 선택하여 추적 탐색기를 엽니다. 탐색기는 응답 시간에 따라 분류된 프로파일러가 캡처한 몇 가지 샘플을 보여 줍니다.
-
-**미리 보기 성능** 창을 사용하는 경우 페이지의 **작업 수행** 섹션으로 이동하여 프로파일러 추적을 확인합니다. **프로파일러 추적** 단추를 선택합니다.
+응용 프로그램에서 트래픽을 수신하면 **성능** 블레이드로 이동하고 페이지의 **작업 수행** 섹션으로 이동하여 프로파일러 추적을 봅니다. **프로파일러 추적** 단추를 선택합니다.
 
 ![Application Insights 성능 창 미리 보기 프로파일러 추적][performance-blade-v2-examples]
 
@@ -113,7 +81,7 @@ Microsoft 서비스 프로파일러는 샘플링 메서드와 계측의 조합�
 타임라인 보기에 표시된 호출 스택은 샘플링 및 계측의 결과입니다. 각 샘플은 스레드의 전체 호출 스택을 캡처하므로 Microsoft .NET Framework의 코드뿐만 아니라 참조하는 다른 프레임워크의 코드를 포함합니다.
 
 ### <a id="jitnewobj"></a>개체 할당(clr!JIT\_New 또는 clr!JIT\_Newarr1)
-**clr!JIT\_New** 및 **clr!JIT\_Newarr1**은 관리되는 힙에서 메모리를 할당하는 .NET Framework의 도우미 함수입니다. 개체가 할당되면 **clr!JIT\_New**가 호출됩니다. **clr!JIT\_Newarr1**은 개체 배열이 할당될 때 호출됩니다. 이 두 함수는 일반적으로 매우 빠르며 상대적으로 적은 양의 시간을 사용합니다. **clr!JIT\_New** 또는 **clr!JIT\_Newarr1**이 타임라인에서 상당한 양의 시간을 사용하는 경우 코드에 많은 개체가 할당되고 많은 양의 메모리가 소비될 수 있음을 나타냅니다.
+**clr!JIT\_New** 및 **clr!JIT\_Newarr1**은 관리되는 힙에서 메모리를 할당하는 .NET Framework의 도우미 함수입니다. 개체가 할당되면 **clr!JIT\_New**가 호출됩니다. **clr!JIT\_Newarr1**은 개체 배열이 할당될 때 호출됩니다. 이 두 함수는 일반적으로 빠르며 상대적으로 시간이 적게 걸립니다. **clr!JIT\_New** 또는 **clr!JIT\_Newarr1**이 타임라인에서 상당한 양의 시간을 사용하는 경우 코드에 많은 개체가 할당되고 많은 양의 메모리가 소비될 수 있음을 나타냅니다.
 
 ### <a id="theprestub"></a>코드 로드(clr!ThePreStub)
 **clr!ThePreStub**은 처음으로 실행할 코드를 준비하는 .NET Framework 내부의 도우미 함수입니다. 일반적으로 JIT(Just-In-Time) 컴파일을 포함하지만 이에 제한되지 않습니다. 각 C# 메서드의 경우 **clr!ThePreStub**은 프로세스의 수명 동안 한 번만 호출되어야 합니다.
@@ -151,6 +119,26 @@ CPU는 명령을 실행 중입니다.
 
 ### <a id="when"></a>때 열
 **시기** 열은 노드에 대해 수집된 INCLUSIVE 샘플이 시간에 따라 달라지는 방식의 시각화입니다. 요청의 전체 범위는 32시간 버킷으로 나뉩니다. 해당 노드에 대한 포괄적인 샘플은 이러한 32개의 버킷에 누적됩니다. 각 버킷은 막대로 표시됩니다. 막대의 높이는 크기 조정된 값을 나타냅니다. 리소스(CPU, 디스크, 스레드)를 사용하는 확실한 관계가 있는 **CPU_TIME** 또는 **BLOCKED_TIME**으로 표시된 노드의 경우 막대는 해당 버킷의 기간 동안 이러한 리소스 중 하나를 사용함을 나타냅니다. 이러한 메트릭의 경우 여러 리소스를 소비하여 100% 이상의 값을 얻을 수 있습니다. 예를 들어 간격 동안 평균적으로 두 개의 CPU를 사용하면 200%가 됩니다.
+
+## <a name="limitations"></a>제한 사항
+
+기본 데이터 보존 기간은 5일입니다. 하루에 수집되는 최대 데이터는 10GB입니다.
+
+프로파일러 서비스 사용료는 청구되지 않습니다. 프로파일러 서비스를 사용하려면 웹앱이 적어도 App Service의 기본 계층에서 호스트되어야 합니다.
+
+## <a name="overhead-and-sampling-algorithm"></a>오버헤드 및 샘플링 알고리즘
+
+프로파일러는 프로파일러가 추적을 캡처하도록 설정된 응용 프로그램을 호스트하는 각 가상 머신에서 시간당 2분씩 임의로 실행됩니다. 프로파일러는 실행되는 동안 서버에 CPU 오버헤드를 5-15% 가중시킵니다.
+응용 프로그램을 호스트하는 데 사용할 수 있는 서버가 많을수록 프로파일러가 전체 응용 프로그램 성능에 주는 영향은 감소합니다. 이는 샘플링 알고리즘으로 인해 프로파일러가 언제든지 서버의 5%에서만 실행되기 때문입니다. 프로파일러 실행으로 인한 서버 오버헤드를 상쇄하기 위해 더 많은 서버를 사용하여 웹 요청을 처리할 수 있습니다.
+
+## <a name="disable-the-profiler"></a>프로파일러 사용 안 함
+개별 App Service 인스턴스에 대해 프로파일러를 중지하거나 다시 시작하려면 **웹 작업**에서 App Service 리소스로 이동합니다. 프로파일러를 삭제하려면 **확장**으로 이동합니다.
+
+![웹 작업에 대한 프로파일러 사용 안 함][disable-profiler-webjob]
+
+성능 문제를 가능한 한 빨리 검색하려면 모든 웹앱에서 프로파일러를 사용하도록 설정하는 것이 좋습니다.
+
+WebDeploy를 사용하여 웹 응용 프로그램에 변경 내용을 배포하는 경우 배포하는 동안 App_Data 폴더가 삭제되는 것을 제외하도록 확인합니다. 그렇지 않으면 다음에 Azure에 웹 응용 프로그램을 배포할 때 프로파일러 확장의 파일이 삭제됩니다.
 
 
 ## <a id="troubleshooting"></a>문제 해결
@@ -263,7 +251,7 @@ a.  `start` 명령은 프로파일러를 시작합니다.
 나.  `--engine-mode immediate`는 프로파일링을 즉시 시작하고자 함을 프로파일러에 알립니다.
 다.  `--single`은 d를 실행한 다음 자동으로 중지하는 것을 의미합니다.  `--immediate-profiling-duration 120`은 프로파일러를 120초 또는 2분 동안 실행하는 것을 의미합니다.
 5.  이 파일을 저장합니다.
-6.  이 폴더를 보관합니다. 폴더를 마우스 오른쪽 단추로 클릭하고 압축된(zip) 폴더로 보내기를 선택할 수 있습니다. 이렇게 하면 폴더의 이름을 사용하여 .zip 파일을 만듭니다.
+6.  이 폴더를 보관합니다. 폴더를 마우스 오른쪽 단추로 클릭하고 전송 대상 -> 압축(ZIP) 폴더를 선택합니다. 이렇게 하면 폴더의 이름을 사용하여 .zip 파일을 만듭니다.
 
 ![프로파일러 명령 시작](./media/app-insights-profiler/start-profiler-command.png)
 
@@ -297,21 +285,15 @@ a.  `start` 명령은 프로파일러를 시작합니다.
 이 메서드는 비교적 간단하지만 몇 가지 고려할 사항이 있습니다.
 
 1.  이는 서비스에 의해 관리되지 않으므로 웹 작업에 대한 에이전트 이진 파일을 업데이트할 방법이 없습니다. 현재 이진 파일에 대한 안정적인 다운로드 페이지가 없으므로 최신 항목을 가져올 유일한 방법은 확장을 업데이트하고 위에서 수행한 것과 같이 연속 폴더에서 가져오는 것입니다.
-2.  이는 최종 사용자 용도가 아닌 개발자 용도로 설계되었던 명령줄 인수를 활용하기 때문에 이 인수는 나중에 변경될 수 있으므로 업그레이드할 때 주의해야 합니다. 웹 작업을 추가하고 작동하는지 테스트할 수 있으므로 그렇게 큰 문제가 되지는 않습니다. 결국 수동 프로세스 없이 이 작업을 수행할 UI를 빌드할 예정이지만 고려해야 할 사항입니다.
+2.  원래 최종 사용자가 아닌 개발자가 사용하도록 설계된 명령줄 인수를 활용하기 때문에 이 인수는 나중에 변경될 수 있으므로 업그레이드할 때 주의해야 합니다. 웹 작업을 추가하고 작동하는지 테스트할 수 있으므로 그렇게 큰 문제가 되지는 않습니다. 결국 수동 프로세스 없이 이 작업을 수행할 UI를 빌드할 예정이지만 고려해야 할 사항입니다.
 3.  App Services에 대한 웹 작업 기능은 웹 작업을 실행할 때 프로세스가 웹 사이트가 갖게 되는 동일한 환경 변수와 앱 설정을 갖도록 보장한다는 점에서 고유합니다. 즉 명령줄을 통해 프로파일러에 계측 키를 전달할 필요가 없습니다. 환경에서 계측 키를 선택하기만 하면 됩니다. 그러나 개발자 상자 또는 App Services 외부의 컴퓨터에서 프로파일러를 실행하려는 경우 계측 키를 제공해야 합니다. `--ikey <instrumentation-key>` 인수에서 전달하여 이를 수행할 수 있습니다. 이 값은 응용 프로그램이 사용 중인 계측 키와 일치해야 합니다. 프로파일러의 로그 출력에서 프로파일러가 시작한 ikey와 프로파일링하는 동안 해당 계측 키에서 작업을 감지했는지를 알려줍니다.
-4.  수동으로 트리거된 웹 작업은 실제로 웹 후크를 통해 트리거될 수 있습니다. 대시보드에서 웹 작업을 마우스 오른쪽 단추로 클릭하고 속성을 보거나 테이블에서 웹 작업을 선택한 후 도구 모음에서 속성을 선택하여 이 url을 가져올 수 있습니다. 이에 대해 온라인에서 찾을 수 있는 많은 문서가 있으므로 더 자세히 살펴보지 않겠습니다. 하지만 이는 CI/CD 파이프라인(예: VSTS) 또는 Microsoft Flow(https://flow.microsoft.com/en-us/)와 같은 것에서 프로파일러를 트리거할 가능성을 엽니다. run.cmd(run.ps1이 될 수 있음)를 만들려는 바람에 따라 가능성은 광범위합니다.  
-
-
-
-
-## <a id="aspnetcore"></a>ASP.NET Core 지원
-
-ASP.NET Core 응용 프로그램을 사용하려면 Microsoft.ApplicationInsights.AspNetCore Nuget 패키지 2.1.0-beta6 이상을 설치하여 프로파일러와 작동하도록 해야 합니다. 2017년 6월 27일부터 이전 버전은 지원되지 않습니다.
+4.  수동으로 트리거된 웹 작업은 실제로 웹 후크를 통해 트리거될 수 있습니다. 대시보드에서 웹 작업을 마우스 오른쪽 단추로 클릭하고 속성을 보거나 테이블에서 웹 작업을 선택한 후 도구 모음에서 속성을 선택하여 이 url을 얻을 수 있습니다. 이에 대해 온라인에서 찾을 수 있는 많은 문서가 있으므로 더 자세히 살펴보지 않겠습니다. 하지만 이는 CI/CD 파이프라인(예: VSTS) 또는 Microsoft Flow(https://flow.microsoft.com/en-us/)와 같은 것에서 프로파일러를 트리거할 가능성을 엽니다. run.cmd(run.ps1이 될 수 있음)를 만들려는 바람에 따라 가능성은 광범위합니다.  
 
 ## <a name="next-steps"></a>다음 단계
 
 * [Visual Studio에서 Application Insights로 작업](https://docs.microsoft.com/azure/application-insights/app-insights-visual-studio)
 
+[appinsights-in-appservices]:./media/app-insights-profiler/AppInsights-AppServices.png
 [performance-blade]: ./media/app-insights-profiler/performance-blade.png
 [performance-blade-examples]: ./media/app-insights-profiler/performance-blade-examples.png
 [performance-blade-v2-examples]:./media/app-insights-profiler/performance-blade-v2-examples.png

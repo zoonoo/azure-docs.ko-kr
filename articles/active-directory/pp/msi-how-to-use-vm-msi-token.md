@@ -3,7 +3,7 @@ title: "사용자 할당 관리 서비스 ID를 사용하여 VM에서 액세스 
 description: "Azure VM에서 사용자 할당 MSI를 사용하여 OAuth 액세스 토큰을 가져오는 단계별 지침과 예제를 제공합니다."
 services: active-directory
 documentationcenter: 
-author: BryanLa
+author: daveba
 manager: mtillman
 editor: 
 ms.service: active-directory
@@ -12,17 +12,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/22/2017
-ms.author: bryanla
+ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 5c9bf052ecb2e9c79e0eb627a0fd709d587125cd
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: a9513a59ec4540c6d63236519873c6e1e177b65a
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="acquire-an-access-token-for-a-vm-user-assigned-managed-service-identity-msi"></a>VM 사용자 할당 MSI(관리 서비스 ID)용 토큰 가져오기
 
-[!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]이 문서에서는 토큰 획득을 위한 뿐만 다양한 코드 및 스크립트 예제뿐만 아니라 토큰 만료 및 HTTP 오류를 처리하는 등 중요한 항목에 대한 지침을 제공합니다.
+[!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
+이 문서에서는 토큰 획득을 위한 다양한 코드 및 스크립트 예제뿐만 아니라 토큰 만료 및 HTTP 오류를 처리하는 등 중요한 항목에 대한 지침을 제공합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 

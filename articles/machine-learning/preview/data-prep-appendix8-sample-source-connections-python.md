@@ -12,11 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/11/2017
-ms.openlocfilehash: 3ffe0e385f9dd71d8341305f42ceb10e0ea49af4
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 125911a47192a6bb37582a3ecf7cf14c8e2cc96f
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="sample-of-custom-source-connections-python"></a>사용자 지정 원본 연결 샘플(Python) 
 이 부록을 읽기 전에 [Python 확장성 개요](data-prep-python-extensibility-overview.md)를 참조하세요.
@@ -59,34 +59,5 @@ lds = dw.load_dataset('data-society/the-simpsons-by-the-data')
 df = lds.dataframes['simpsons_episodes']
 
 ```
-
-## <a name="load-azure-cosmos-db-data-into-data-preparation"></a>데이터 준비로 Azure Cosmos DB 데이터 로드
-
-새 스크립트 기반 데이터 흐름을 만들고, 다음 스크립트를 사용하여 Azure Cosmos DB에서 데이터를 로드합니다. (먼저 라이브러리를 설치해야 합니다. 자세한 내용은 연결된 이전 참조 문서를 참조하세요.)
-
-```python
-import pydocumentdb
-import pydocumentdb.document_client as document_client
-
-import pandas as pd
-
-config = { 
-    'ENDPOINT': '<Endpoint>',
-    'MASTERKEY': '<Key>',
-    'DOCUMENTDB_DATABASE': '<DBName>',
-    'DOCUMENTDB_COLLECTION': '<collectionname>'
-};
-
-# Initialize the Python DocumentDB client.
-client = document_client.DocumentClient(config['ENDPOINT'], {'masterKey': config['MASTERKEY']})
-
-# Read databases and take first since id should not be duplicated.
-db = next((data for data in client.ReadDatabases() if data['id'] == config['DOCUMENTDB_DATABASE']))
-
-# Read collections and take first since id should not be duplicated.
-coll = next((coll for coll in client.ReadCollections(db['_self']) if coll['id'] == config['DOCUMENTDB_COLLECTION']))
-
-docs = client.ReadDocuments(coll['_self'])
-
-df = pd.DataFrame(list(docs))
-```
+## <a name="azure-cosmos-db-as-a-data-source-connection"></a>Azure Cosmos DB를 데이터 원본 연결로 로드
+데이터 연결로 로드되는 Azure Cosmos DB의 예는 [Azure Cosmos DB를 원본 데이터 연결로 로드](data-prep-load-azure-cosmos-db.md)를 참조하세요.

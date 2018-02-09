@@ -1,5 +1,5 @@
 ---
-title: "Azure Storage 방화벽 및 Virtual Network 구성(미리 보기) | Microsoft Docs"
+title: "Azure Storage 방화벽 및 Virtual Network 구성 | Microsoft Docs"
 description: "저장소 계정에 대한 계층화된 네트워크 보안을 구성합니다."
 services: storage
 documentationcenter: 
@@ -13,20 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 10/25/2017
 ms.author: cbrooks
-ms.openlocfilehash: d29f2d180df93f45202e881336e492c45587b276
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: fc13b7cc164c948f25a6908bdf71124a5be02fb9
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="configure-azure-storage-firewalls-and-virtual-networks-preview"></a>Azure Storage 방화벽 및 Virtual Network 구성(미리 보기)
+# <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Azure Storage 방화벽 및 Virtual Network 구성
 Azure Storage는 계층화된 보안을 제공하여 허용되는 특정 네트워크 집합에만 연결되도록 저장소 계정을 보호할 수 있도록 합니다.  네트워크 규칙이 구성된 경우 허용되는 네트워크의 응용 프로그램만 저장소 계정에 액세스할 수 있습니다.  허용되는 네트워크에서 호출되면 응용 프로그램은 저장소 계정에 액세스하기 위한 적절한 인증(유효한 액세스 키 또는 SAS 토큰)을 계속 요구합니다.
 
-## <a name="preview-availability-and-support"></a>미리 보기 가용성 및 지원
-Storage 방화벽 및 Virtual Network는 미리 보기로 제공됩니다.  이 기능은 모든 Azure 공용 클라우드 지역의 신규 또는 기존 저장소 계정에 사용할 수 있습니다.
-
-> [!NOTE]
-> 미리 보기 중에는 프로덕션 워크로드가 지원되지 않습니다.
+> [!IMPORTANT]
+> 저장소 계정에 대한 방화벽 규칙을 설정하면 다른 Azure 서비스에서 들어오는 요청을 포함하여, 들어오는 데이터 요청에 대한 액세스가 차단됩니다.  여기에는 포털 사용, 로그 작성 등이 포함됩니다.  서비스에 참여하기 위해 아래의 [예외](#Exceptions) 섹션에서 기능을 사용하도록 설정할 수 있습니다.  포털에 액세스하려면 설정한 신뢰할 수 있는 경계(IP 또는 VNet) 내의 컴퓨터에서 액세스해야 합니다.
 >
 
 ## <a name="scenarios"></a>시나리오
@@ -55,9 +52,6 @@ Virtual Machine 디스크 트래픽(탑재 및 분리 작업 및 디스크 IO �
 
 #### <a name="azure-portal"></a>Azure portal
 1. 보호하려는 저장소 계정으로 이동합니다.  
-> [!NOTE]
-> 저장소 계정이 공개 미리 보기의 지원되는 영역 중 하나인지 확인합니다.
->
 
 2. **Firewall 및 Virtual Network**이라는 설정 메뉴를 클릭합니다.
 3. 기본적으로 액세스를 거부하려면 '선택한 네트워크'의 액세스를 허용하도록 선택합니다.  모든 네트워크의 트래픽을 허용하려면 '모든 네트워크'의 액세스를 허용하도록 선택합니다.

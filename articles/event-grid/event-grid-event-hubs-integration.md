@@ -6,13 +6,13 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/19/2018
+ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: b315bd77a47a6f106c5768da56828a5169de5fe9
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: dba17a860dffd87b3784c53cf288b7a312c77e33
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="stream-big-data-into-a-data-warehouse"></a>데이터 웨어하우스로 빅 데이터 스트림
 
@@ -74,7 +74,7 @@ Event Grid는 구독자에게 이벤트 데이터를 배포합니다. 다음 예
 
 ## <a name="deploy-the-infrastructure"></a>인프라 배포
 
-이 문서의 작업을 간편하게 수행하려면 Resource Manager 템플릿을 사용하여 필요한 인프라를 배포합니다. 배포되는 리소스를 보려면 [템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/event-grid/EventHubsDataMigration.json)을 확인하세요. 미리 보기 릴리스의 경우 Event Grid는 **westus2** 및 **westcentralus** 지역을 지원합니다. 리소스 그룹 위치로 다음 지역 중 하나를 사용합니다.
+이 문서의 작업을 간편하게 수행하려면 Resource Manager 템플릿을 사용하여 필요한 인프라를 배포합니다. 배포되는 리소스를 보려면 [템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/event-grid/EventHubsDataMigration.json)을 확인하세요. 리소스 그룹 위치로 [지원되는 지역](overview.md) 중 하나를 사용합니다.
 
 Azure CLI의 경우 
 

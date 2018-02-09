@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/12/2017
 ms.author: billgib
-ms.openlocfilehash: 1b6c780000d8c5e31a78f7f83ae74c002e8f8349
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: c4c5b79342aaa3c9b09e922956b095e8191cafd9
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>다중 테넌트 SaaS 데이터베이스 테넌시 패턴
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 12/08/2017
 
 다른 테넌시 모델에 대한 설명은 다음에 나와 있습니다.
 
-## <a name="a-how-to-choose-the-appropriate-tenancy-model"></a>A. 적절한 테넌시 모델을 선택하는 방법
+## <a name="a-how-to-choose-the-appropriate-tenancy-model"></a>a. 적절한 테넌시 모델을 선택하는 방법
 
 일반적으로 테넌시 모델은 응용 프로그램의 기능에 영향을 주지 않지만 전체 솔루션의 다른 측면에 영향을 주기 쉽습니다.  각 모델을 평가하는 데 다음 기준이 사용됩니다.
 

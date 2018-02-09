@@ -15,11 +15,11 @@ ms.date: 10/04/2017
 ms.author: bryanla
 ms.custom: aaddev
 ms.reviewer: luleon
-ms.openlocfilehash: e398536ff6f660c75e4e063040eab33a831d65c6
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: f08e7327e266c342fe7f869f0b7a6a251792a071
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="integrating-applications-with-azure-active-directory"></a>Azure Active Directory와 응용 프로그램 통합
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -309,7 +309,7 @@ SPA(단일 페이지 응용 프로그램)는 일반적으로 브라우저에서 
 ### <a name="removing-a-multi-tenant-application-authorized-by-another-organization"></a>다른 조직이 권한을 부여한 다중 테넌트 응용프로그램 제거
 테넌트의 기본 "앱 등록" 페이지의 "모든 앱" 필터 아래에서 표시되는 응용 프로그램의 하위 집합("내 앱" 등록 제외)은 다중 테넌트 응용 프로그램입니다. 기술적인 측면에서 이러한 다중 테넌트 응용 프로그램은 다른 테넌트에서 비롯되어 동의 프로세스 중에 테넌트에 등록되었습니다. 구체적으로 말하면 해당하는 응용 프로그램 개체 없이 테넌트의 서비스 주체 개체에 의해서만 제공됩니다. 응용 프로그램 및 서비스 주체 개체의 차이에 대한 자세한 내용은 [Azure AD의 응용 프로그램 및 서비스 주체 개체](active-directory-application-objects.md)를 참조하세요.
 
-(동의를 표시한 후에) 자사의 디렉토리에 대한 다중 테넌트 응용 프로그램 액세스 권한을 제거하려면 회사 관리자는 해당 서비스 주체를 제거해야 합니다. 관리자에게는 전역 관리자 액세스 권한이 있어야 하고 Azure Portal을 통해 액세스 권한을 제거하는 [Azure AD PowerShell Cmdlet](http://go.microsoft.com/fwlink/?LinkId=294151)을 제거할 수 있습니다.
+(동의를 표시한 후에) 자사의 디렉토리에 대한 다중 테넌트 응용 프로그램 액세스 권한을 제거하려면 회사 관리자는 해당 서비스 주체를 제거해야 합니다. 관리자에게는 전역 관리자 액세스 권한이 있어야 하고 Azure Portal을 통해 액세스 권한을 제거하거나 [Azure AD PowerShell Cmdlet](http://go.microsoft.com/fwlink/?LinkId=294151)을 사용하여 액세스를 제거할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 - Azure AD에서 인증이 작동하는 방법에 대한 자세한 내용은 [Azure AD에 대한 인증 시나리오](active-directory-authentication-scenarios.md)를 참조하세요.

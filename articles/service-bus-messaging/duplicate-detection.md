@@ -11,19 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2017
+ms.date: 01/25/2018
 ms.author: sethm
-ms.openlocfilehash: 91a6e62a03ffe39e456129ea78821250b65091e4
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: efc5608d4812edbb3f477dffbc2b495b331bd787
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="duplicate-detection"></a>중복 검색
 
-응용 프로그램이 메시지를 보낸 직후 치명적인 오류가 발생하여 다시 시작된 응용 프로그램 인스턴스가 이전 메시지 배달이 발생하지 않았다고 잘못 판단한 경우, 후속 보내기로 인해 동일한 메시지가 시스템에 두 번 표시됩니다.
+응용 프로그램이 메시지를 보낸 직후 치명적인 오류가 발생하고 다시 시작된 응용 프로그램 인스턴스가 이전 메시지 배달이 발생하지 않았다고 잘못 판단하면, 후속 보내기로 인해 동일한 메시지가 시스템에 두 번 표시됩니다.
 
-또한 클라이언트 또는 네트워크 수준의 오류가 잠시 전에 발생하고, 보낸 메시지가 클라이언트에 성공적으로 되돌아 가지 않는 확인 메시지와 함께 큐에 커밋될 수 있습니다. 이런 시나리오에서 클라이언트는 보내기 작업의 결과에 의문을 갖게 됩니다.
+또한 클라이언트 또는 네트워크 수준의 오류가 잠시 전에 발생하고, 보낸 메시지가 큐에 커밋되어, 승인이 클라이언트에 성공적으로 반환되지 않을 수도 있습니다. 이런 시나리오에서 클라이언트는 보내기 작업의 결과에 의문을 갖게 됩니다.
 
 중복 검색은 보낸 사람이 동일한 메시지를 다시 보낼 수 있도록 하고 큐 또는 토픽에서 중복된 복사본을 삭제하여 이러한 상황에 대한 의문을 해소합니다.
 
@@ -57,7 +57,7 @@ ms.lasthandoff: 10/18/2017
 
 Service Bus 메시징에 대해 자세히 알아보려면 다음 항목을 참조하세요.
 
-* [서비스 버스 기본 사항](service-bus-fundamentals-hybrid-solutions.md)
+* [Service Bus 기본 사항](service-bus-fundamentals-hybrid-solutions.md)
 * [Service Bus 큐, 토픽 및 구독](service-bus-queues-topics-subscriptions.md)
 * [Service Bus 큐 시작](service-bus-dotnet-get-started-with-queues.md)
 * [Service Bus 토픽 및 구독을 사용하는 방법](service-bus-dotnet-how-to-use-topics-subscriptions.md)

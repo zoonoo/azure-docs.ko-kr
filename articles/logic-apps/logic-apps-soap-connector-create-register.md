@@ -1,7 +1,7 @@
 ---
 title: "SOAP 커넥터 만들기 및 등록 - Azure Logic Apps | Microsoft Docs"
 description: "Azure Logic Apps에서 사용할 SOAP 커넥터 설정"
-author: divyaswarnkar
+author: ecfan
 manager: anneta
 editor: 
 services: logic-apps
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2017
-ms.author: LADocs; divswa
-ms.openlocfilehash: 0323b0f7ee03dce209d5a71c6711988a34ba7633
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.author: LADocs; estfan
+ms.openlocfilehash: 031762e5639fc52e0b0a6a5bf8d12db25da25e12
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="create-and-register-soap-connectors-in-azure-logic-apps"></a>Azure Logic Apps에서 SOAP 커넥터 만들기 및 등록
 
@@ -54,7 +54,7 @@ SOAP 커넥터를 등록하려면 다음 항목이 필요합니다.
 
    ![Logic App 사용자 지정 커넥터 세부 정보](./media/logic-apps-soap-connector-create-register/logic-apps-soap-connector-details.png)
 
-   | 속성 | 제안 값 | 설명 | 
+   | 자산 | 제안 값 | 설명 | 
    | -------- | --------------- | ----------- | 
    | **Name** | *soap-connector-name* | 커넥터 이름을 제공합니다. | 
    | **구독** | *Azure-subscription-name* | Azure 구독을 선택합니다. | 
@@ -134,7 +134,7 @@ SOAP 커넥터를 등록하려면 다음 항목이 필요합니다.
 
 준비가 되면 커넥터를 배포할 수 있도록 **커넥터 업데이트**를 선택합니다. 
 
-축하합니다. 이제 논리 앱을 만들 때 논리 앱 디자이너에서 커넥터를 찾아서 논리 앱에 해당 커넥터를 추가할 수 있습니다.
+축하합니다! 이제 논리 앱을 만들 때 논리 앱 디자이너에서 커넥터를 찾아서 논리 앱에 해당 커넥터를 추가할 수 있습니다.
 
 ![논리 앱 디자이너에서 커넥터 찾기](./media/logic-apps-soap-connector-create-register/soap-connector-created.png)
 
@@ -151,10 +151,10 @@ SOAP 커넥터를 등록하려면 다음 항목이 필요합니다.
 ## <a name="faq"></a>FAQ
 
 **Q:** SOAP 커넥터를 일반적으로 사용(GA)할 수 있나요? </br>
-**A:** SOAP 커넥터는 **미리 보기** 상태이며 아직 GA 서비스가 지원되지 않습니다.
+**A:** SOAP 커넥터는 **미리 보기** 상태이며, 아직 GA 서비스로 지원되지 않습니다.
 
 **Q:** SOAP 커넥터에 대한 제한 사항 및 알려진 문제점이 있나요? </br>
-**A:** 예, [SOAP 커넥터의 제한 사항 및 알려진 문제](../api-management/api-management-api-import-restrictions.md#wsdl)를 참조하세요.
+**A:** 예, [SOAP 커넥터 제한 사항 및 알려진 문제](../api-management/api-management-api-import-restrictions.md#wsdl)를 참조하세요.
 
 **Q:** 사용자 지정 커넥터에 제한이 있나요? </br>
 **A:** 예, [여기에서 사용자 지정 커넥터 제한](../logic-apps/logic-apps-limits-and-config.md#custom-connector-limits)을 참조하세요.

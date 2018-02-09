@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/24/2017
+ms.date: 01/29/2018
 ms.author: elioda
-ms.openlocfilehash: 450f2d38f7b641bcf6b8be061969404a1b582b4c
-ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
+ms.openlocfilehash: 01951afa983e7a578281fda38bb4714df6b41891
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="iot-hub-query-language-for-device-twins-jobs-and-message-routing"></a>장치 쌍, 작업 및 메시지 라우팅에 대한 IoT Hub 쿼리 언어
 
@@ -131,7 +131,7 @@ FROM devices
 GROUP BY properties.reported.telemetryConfig.status
 ```
 
-이 그룹화 쿼리는 다음 예제와 비슷한 결과를 반환합니다. 여기서 세 장치는 성공적인 구성을 보고하고 두 장치는 구성을 계속 적용하고 있으며 하나는 오류를 보고했습니다. 
+이 그룹화 쿼리는 다음 예제와 비슷한 결과를 반환합니다.
 
 ```json
 [
@@ -149,6 +149,8 @@ GROUP BY properties.reported.telemetryConfig.status
     }
 ]
 ```
+
+이 예제에서는 세 장치는 성공적인 구성을 보고하고 두 장치는 구성을 계속 적용하고 있으며 하나는 오류를 보고했습니다.
 
 개발자는 프로젝션 쿼리를 사용하여 관심 있는 속성만 반환할 수 있습니다. 예를 들어, 연결된 모든 장치의 마지막 작업 시간을 검색하려면 다음 쿼리를 사용합니다.
 
@@ -172,8 +174,9 @@ while (query.HasMoreResults)
 }
 ```
 
-**query** 개체가 페이지 크기(최대 100)로 인스턴스화되는 방식과, **GetNextAsTwinAsync** 메서드를 여러 번 호출하여 여러 페이지를 가져오는 방식에 주목합니다.
-쿼리 개체는 장치 쌍이나 작업 개체 또는 프로젝션을 사용할 때 사용되는 일반 JSON과 같은 쿼리에 필요한 역직렬화 옵션에 따라 여러 **Next** \*를 표시합니다.
+**query** 개체는 페이지 크기로 인스턴스화됩니다(최대 100). 그런 후 **GetNextAsTwinAsync** 메서드를 여러 번 호출하여 여러 페이지가 검색됩니다.
+
+query 개체는 쿼리에 필요한 역직렬화 옵션에 따라 여러 개의 **Next** 값을 노출합니다. 프로젝션을 사용할 경우의 장치 쌍이나 작업 개체 또는 일반 JSON을 예로 들 수 있습니다.
 
 ### <a name="nodejs-example"></a>Node.js 예제
 쿼리 기능은 [Node.js용 Azure IoT 서비스 SDK][lnk-hub-sdks]의 **Registry** 개체에서 공개합니다.
@@ -198,16 +201,19 @@ var onResults = function(err, results) {
 query.nextAsTwin(onResults);
 ```
 
-**query** 개체가 페이지 크기(최대 100)로 인스턴스화되는 방식과, **nextAsTwin** 메서드를 여러 번 호출하여 여러 페이지를 가져오는 방식에 주목합니다.
-쿼리 개체는 장치 쌍이나 작업 개체 또는 프로젝션을 사용할 때 사용되는 일반 JSON과 같은 쿼리에 필요한 역직렬화 옵션에 따라 여러 **next** \*를 표시합니다.
+**query** 개체는 페이지 크기로 인스턴스화됩니다(최대 100). 그런 후 **nextAsTwin** 메서드를 여러 번 호출하여 여러 페이지가 검색됩니다.
+
+query 개체는 쿼리에 필요한 역직렬화 옵션에 따라 여러 개의 **Next** 값을 노출합니다. 프로젝션을 사용할 경우의 장치 쌍이나 작업 개체 또는 일반 JSON을 예로 들 수 있습니다.
 
 ### <a name="limitations"></a>제한 사항
+
 > [!IMPORTANT]
-> 쿼리 결과는 장치 쌍의 최신 값에 따라 몇 분 정도 지연될 수 있습니다. ID별로 개별 장치 쌍을 쿼리하는 경우 항상 최신 값을 포함하며 더 높은 조정 제한을 가지는 장치 쌍 검색 API를 사용하는 것이 항상 바람직합니다.
+> 쿼리 결과는 장치 쌍의 최신 값에 따라 몇 분 정도 지연될 수 있습니다. ID별로 개별 장치 쌍을 쿼리하는 경우 장치 쌍 검색 API를 사용합니다. 이 API는 항상 최신 값을 포함하며 더 높은 제한을 적용합니다.
 
 현재 비교는 기본 형식(개체 없음) 간에만 지원됩니다. 예를 들어 `... WHERE properties.desired.config = properties.reported.config`는 해당 속성에 기본 값이 있는 경우에만 지원됩니다.
 
 ## <a name="get-started-with-jobs-queries"></a>작업 쿼리 시작
+
 [작업][lnk-jobs]은 장치 집합에 대해 작업을 실행하는 방법을 제공합니다. 각 장치 쌍은 작업에 대한 정보를 포함하며 이것은 **jobs**라는 컬렉션에 속합니다.
 로컬에서,
 
@@ -243,7 +249,7 @@ query.nextAsTwin(onResults);
 현재 이 컬렉션은 IoT Hub 쿼리 언어를 사용하여 **devices.jobs**로 쿼리할 수 있습니다.
 
 > [!IMPORTANT]
-> 현재 장치 쌍을 쿼리할 때(예: 'FROM devices'가 포함된 쿼리) jobs 속성이 반환되지 않습니다. `FROM devices.jobs`를 사용하여 쿼리를 통해서만 직접 액세스할 수 있습니다.
+> 현재 jobs 속성은 장치 쌍을 쿼리하는 경우에는 반환되지 않습니다. 'FROM devices'를 포함하는 쿼리가 여기에 해당합니다. 작업 속성은 `FROM devices.jobs`를 사용하여 쿼리를 통해서만 직접 액세스할 수 있습니다.
 >
 >
 
@@ -282,9 +288,9 @@ WHERE devices.jobs.jobId = 'myJobId'
 
 ## <a name="device-to-cloud-message-routes-query-expressions"></a>장치-클라우드 메시지 경로에 대한 쿼리 식
 
-[장치-클라우드 경로][lnk-devguide-messaging-routes]를 사용하면 개별 메시지에 대해 평가된 식에 따라 장치-클라우드 메시지를 다른 끝점으로 전달하도록 IoT Hub를 구성할 수 있습니다.
+[장치-클라우드 경로][lnk-devguide-messaging-routes]를 사용하면 장치-클라우드 메시지를 다른 끝점으로 전달하도록 IoT Hub를 구성할 수 있습니다. 이러한 전달은 개별 메시지에 대해 평가된 식을 기준으로 합니다.
 
-경로 [조건][lnk-query-expressions]은 쌍 및 작업 쿼리의 조건과 동일한 IoT Hub 쿼리 언어를 사용합니다. 메시지 헤더 및 본문에서 경로 조건이 평가됩니다. 라우팅 쿼리 식에 메시지 본문 헤더만 포함될 수도 있고, 메시지 본문만 포함될 수도 있고, 메시지 헤더와 메시지 본문이 모두 포함될 수도 있습니다. IoT Hub는 메시지를 라우팅하기 위해 헤더와 메시지 본문에 대한 특정 스키마를 가정합니다. 다음 섹션에서는 IoT Hub가 제대로 라우팅하는 데 필요한 사항을 설명합니다.
+경로 [조건][lnk-query-expressions]은 쌍 및 작업 쿼리의 조건과 동일한 IoT Hub 쿼리 언어를 사용합니다. 메시지 헤더 및 본문에서 경로 조건이 평가됩니다. 라우팅 쿼리 식에 메시지 본문 헤더만 포함될 수도 있고, 메시지 본문만 포함될 수도 있고, 둘 다포함될 수도 있습니다. IoT Hub는 메시지를 라우팅하기 위해 헤더와 메시지 본문에 대한 특정 스키마를 가정합니다. 다음 섹션에서는 IoT Hub가 제대로 라우팅하는 데 필요한 사항을 설명합니다.
 
 ### <a name="routing-on-message-headers"></a>메시지 헤더에서 라우팅
 
@@ -342,7 +348,7 @@ messageType = 'alerts' AND as_number(severity) <= 2
 
 ### <a name="routing-on-message-bodies"></a>메시지 본문에서 라우팅
 
-메시지 본문이 UTF-8, UTF-16 또는 UTF-32로 적절하게 인코딩된 JSON 형식이어야 IoT Hub가 메시지 본문 콘텐츠를 기반으로 라우팅할 수 있습니다. 메시지의 콘텐츠 유형을 `application/json`으로 설정하고 콘텐츠 인코딩을 메시지 헤더에서 지원되는 UTF 인코딩 중 하나로 설정합니다. 헤더 중 하나를 지정하지 않으면 IoT Hub는 메시지에 대한 본문과 관련된 쿼리 식을 평가하지 않습니다. 메시지가 JSON 메시지가 아니거나 메시지에서 콘텐츠 유형 및 콘텐츠 인코딩을 지정하지 않더라도 여전히 메시지 라우팅을 사용하여 메시지 헤더를 기반으로 메시지를 라우팅할 수도 있습니다.
+메시지 본문이 UTF-8, UTF-16 또는 UTF-32로 적절하게 인코딩된 JSON 형식이어야 IoT Hub가 메시지 본문 콘텐츠를 기반으로 라우팅할 수 있습니다. 메시지 콘텐츠 형식을 `application/json`으로 설정합니다. 콘텐츠 인코딩을 메시지 헤더에서 지원되는 UTF 인코딩 중 하나로 설정합니다. 헤더 중 하나를 지정하지 않으면 IoT Hub는 메시지에 대한 본문과 관련된 쿼리 식을 평가하지 않습니다. 메시지가 JSON 메시지가 아니거나 메시지에서 콘텐츠 유형 및 콘텐츠 인코딩을 지정하지 않더라도 여전히 메시지 라우팅을 사용하여 메시지 헤더를 기반으로 메시지를 라우팅할 수도 있습니다.
 
 쿼리 식에 `$body`를 사용하여 메시지를 라우팅할 수 있습니다. 쿼리 식에 간단한 본문 참조, 본문 배열 참조 또는 여러 본문 참조를 사용할 수 있습니다. 쿼리 식에서 본문 참조를 메시지 헤더 참조와 결합할 수도 있습니다. 예를 들어 다음은 모든 유효한 쿼리 식입니다.
 
@@ -355,7 +361,7 @@ $body.Weather.Temperature = 50 AND Status = 'Active'
 ```
 
 ## <a name="basics-of-an-iot-hub-query"></a>IoT Hub 쿼리의 기초
-모든 IoT Hub 쿼리는 SELECT 및 FROM 절로 이루어지며 선택적으로 WHERE 및 GROUP BY 절이 포함됩니다. 모든 쿼리는 JSON 문서(예: 장치 쌍) 컬렉션에 대해 실행됩니다. FROM 절은 반복이 수행될 문서 컬렉션을 나타냅니다(예: **devices** 또는 **devices.jobs**). 그런 다음 WHERE 절의 필터가 적용됩니다. 집계를 사용하면 이 단계의 결과가 GROUP BY 절에 지정된 대로 그룹화되며, 각 그룹에 대해서는 SELECT 절에 지정된 대로 행이 생성됩니다.
+모든 IoT Hub 쿼리는 SELECT 및 FROM 절로 이루어지며 선택적으로 WHERE 및 GROUP BY 절이 포함됩니다. 모든 쿼리는 JSON 문서(예: 장치 쌍) 컬렉션에 대해 실행됩니다. FROM 절은 반복이 수행될 문서 컬렉션을 나타냅니다(예: **devices** 또는 **devices.jobs**). 그런 다음 WHERE 절의 필터가 적용됩니다. 집계를 사용할 경우 이 단계의 결과는 GROUP BY 절에 지정된 대로 그룹화됩니다. 각 그룹에 대해 SELECT 절에 지정된 대로 행이 생성됩니다.
 
 ```sql
 SELECT <select_list>
@@ -374,7 +380,7 @@ FROM <from_specification>
 
 ## <a name="select-clause"></a>SELECT 절
 **SELECT <select_list>**는 필수이며 쿼리에서 검색되는 값을 지정합니다. 새 JSON 개체를 생성하는 데 사용될 JSON 값을 지정합니다.
-FROM 컬렉션의 필터링된(그리고 선택적으로 그룹화된) 하위 집합의 각 요소에 대해 프로젝션 단계는 SELECT 절에 지정된 값으로 구성된 새 JSON 개체를 생성합니다.
+FROM 컬렉션의 필터링된(그리고 선택적으로 그룹화된) 하위 집합의 각 요소에 대해 프로젝션 단계는 새 JSON 개체를 생성합니다. 이 개체는 SELECT 절에 지정된 값으로 구성됩니다.
 
 다음은 SELECT 절의 문법입니다.
 
@@ -403,7 +409,7 @@ SELECT [TOP <max number>] <projection list>
 현재 **SELECT** \*와 다른 선택 절은 장치 쌍에 대한 집계 쿼리에서만 지원됩니다.
 
 ## <a name="group-by-clause"></a>GROUP BY 절
-**GROUP BY <group_specification>** 절은 WHERE 절에 지정된 필터 뒤에서, 그리고 SELECT에 지정된 프로젝션 앞에서 실행될 수 있는 선택적 단계입니다. 특성의 값을 기반으로 문서를 그룹화합니다. 이러한 그룹은 SELECT 절에 지정된 대로 집계된 값을 생성하는 데 사용됩니다.
+**GROUP BY <group_specification>** 절은 WHERE 절에 지정된 필터 뒤에서, 그리고 SELECT에 지정된 프로젝션 앞에서 실행되는 선택적 단계입니다. 특성의 값을 기반으로 문서를 그룹화합니다. 이러한 그룹은 SELECT 절에 지정된 대로 집계된 값을 생성하는 데 사용됩니다.
 
 GROUP BY를 사용한 쿼리의 예:
 
@@ -433,7 +439,7 @@ GROUP BY <group_by_element>
 * JSON 형식(예: 부울, 숫자, 문자열, 배열 또는 개체)의 인스턴스로 평가됩니다.
 * 기본 제공되는 연산자와 함수를 사용하여 상수 및 장치 JSON 문서에서 오는 조작 데이터에 의해 정의됩니다.
 
-*조건*은 부울 값으로 평가되는 식입니다. 부울 **true**와 다른 모든 상수는 **false**로 간주됩니다(**null**, **undefined**, 모든 개체 또는 배열 인스턴스, 모든 문자열 및 명확한 부울 **false** 포함).
+*조건*은 부울 값으로 평가되는 식입니다. 부울 **true**와는 다른 상수는 **false**로 간주됩니다. 이 규칙에는 **null**, **정의되지 않음**, 개체 또는 배열 인스턴스, 문자열 및 부울 **false**가 포함됩니다.
 
 식에 대한 구문:
 

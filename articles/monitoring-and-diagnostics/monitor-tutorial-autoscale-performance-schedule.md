@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: ancav
 ms.custom: mvc
-ms.openlocfilehash: e56b637858af27f9a09f70867e455d06dd122d92
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 012183b8e6c15d62eda2534985bf73140187d7af
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>성능 데이터 또는 일정에 따라 Azure 리소스에 대한 자동 크기 조정 설정 만들기
 
@@ -35,11 +35,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 ## <a name="create-a-web-app-and-app-service-plan"></a>Web App 및 App Service 계획 만들기
-왼쪽 탐색 창에서 **새로 만들기** 옵션을 클릭합니다.
+1. 왼쪽 탐색 창에서 **새로 만들기** 옵션을 클릭합니다.
 
-*Web App* 항목을 검색하고 선택하여 **만들기**를 클릭합니다.
+2. *Web App* 항목을 검색하고 선택하여 **만들기**를 클릭합니다.
 
-*MyTestScaleWebApp*과 같은 앱 이름을 선택합니다. *myResourceGroup'이라는 새 리소스 그룹을 만들고 선택한 리소스 그룹에 배치합니다.
+3. *MyTestScaleWebApp*과 같은 앱 이름을 선택합니다. *myResourceGroup*이라는 새 리소스 그룹을 만들고 선택한 리소스 그룹에 배치합니다.
 
 몇 분 내에 리소스를 프로비전해야 합니다. 이 자습서의 나머지 부분에서는 웹앱 및 해당 App Service 계획을 사용합니다.
 

@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Azure에서 자동 사용자 프로비전에 대한 Google Apps 구성 | Microsoft Docs"
+title: "자습서: Azure Active Directory로 자동 사용자 프로비전을 위한 Google Apps 구성 | Microsoft Docs"
 description: "사용자 계정을 Azure AD에서 Google Apps로 자동으로 프로비전 및 프로비전 해제하도록 구성하는 방법을 알아봅니다."
 services: active-directory
 documentationCenter: na
@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2017
+ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: a77b5b1fff670ed7698d0ef48fa63f8a8f9be819
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0a0dd38fda35b1eee1fdce196a3ed15f6e73dde6
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="tutorial-configure-google-apps-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전에 대한 Google Apps 구성
 
@@ -73,13 +73,13 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
   
     a. [Azure Portal](https://portal.azure.com)의 왼쪽 탐색 창에서 **Active Directory**를 선택합니다. 디렉터리 목록에서 해당 디렉터리를 선택합니다. 
 
-    b. 왼쪽 탐색 창에서 **도메인 이름**을 선택하고 **추가**를 선택합니다.
+    나. 왼쪽 탐색 창에서 **도메인 이름**을 선택하고 **추가**를 선택합니다.
      
      ![도메인](./media/active-directory-saas-google-apps-provisioning-tutorial/domain_1.png)
 
      ![도메인 추가](./media/active-directory-saas-google-apps-provisioning-tutorial/domain_2.png)
 
-    c. **도메인 이름** 필드에 사용자 도메인 이름을 입력합니다. 이 도메인 이름은 Google Apps에 사용하려는 도메인 이름과 같아야 합니다. 그런 다음 **도메인 추가** 단추를 선택합니다.
+    다. **도메인 이름** 필드에 사용자 도메인 이름을 입력합니다. 이 도메인 이름은 Google Apps에 사용하려는 도메인 이름과 같아야 합니다. 그런 다음 **도메인 추가** 단추를 선택합니다.
      
      ![도메인 이름](./media/active-directory-saas-google-apps-provisioning-tutorial/domain_3.png)
 
@@ -101,11 +101,11 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
      
      ![도메인 선택][20]
 
-    b. **Add a domain or a domain alias(도메인 또는 도메인 별칭 추가)**를 선택합니다.
+    나. **Add a domain or a domain alias(도메인 또는 도메인 별칭 추가)**를 선택합니다.
      
      ![새 도메인 추가][21]
 
-    c. **다른 도메인 추가**를 선택하고 추가하려는 도메인 이름을 입력합니다.
+    다. **다른 도메인 추가**를 선택하고 추가하려는 도메인 이름을 입력합니다.
      
      ![사용자의 도메인 이름을 입력합니다.][22]
 
@@ -164,7 +164,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 ## <a name="additional-resources"></a>추가 리소스
 
 * [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](active-directory-saas-tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)
+* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](active-directory-appssoaccess-whatis.md)
 * [Single Sign-on 구성](active-directory-saas-google-apps-tutorial.md)
 
 

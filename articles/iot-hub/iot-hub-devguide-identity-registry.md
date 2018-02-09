@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/19/2017
+ms.date: 01/29/2018
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 653c31fb1115c79216f882a52484cd37303e0322
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 05b1f11158233a7c02950320741b405429a08d50
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>IoT Hub의 ID 레지스트리 이해
 
@@ -105,7 +105,7 @@ IoT 솔루션에서 장치가 연결되었는지 여부를 알아야 하는 경�
 
 속성: 메시지 시스템 속성 앞에 `'$'` 기호를 붙입니다.
 
-| 이름 | 값 |
+| Name | 값 |
 | --- | --- |
 $content-type | application/json |
 $iothub-enqueuedtime |  알림이 전송된 시간 |
@@ -180,7 +180,7 @@ IoT Hub ID 레지스트리를 사용하는 방법에 대해 알아봤으니 다�
 * [장치에서 직접 메서드 호출][lnk-devguide-directmethods]
 * [여러 장치에서 jobs 예약][lnk-devguide-jobs]
 
-이 문서에서 설명한 일부 개념을 시도해 보려면 다음과 같은 IoT Hub 자습서를 살펴보세요.
+이 문서에서 설명한 일부 개념을 시도해 보려면 다음과 같은 IoT Hub 자습서를 참조하세요.
 
 * [Azure IoT Hub 시작][lnk-getstarted-tutorial]
 

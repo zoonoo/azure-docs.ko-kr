@@ -3,7 +3,7 @@ title: "Linux VM MSI를 사용하여 Azure Resource Manager 액세스"
 description: "Linux VM MSI(관리 서비스 ID)를 사용하여 Azure Resource Manager에 액세스하는 프로세스를 안내하는 자습서입니다."
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: daveba
 manager: mtillman
 editor: bryanla
 ms.service: active-directory
@@ -12,21 +12,21 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
-ms.author: bryanla
-ms.openlocfilehash: 391b9297ee9cf30cded0f5cb6e91d728d196d6b5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: daveba
+ms.openlocfilehash: 717738f68b8c91562a8fe842ad49dbee67a515ac
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="use-a-linux-vm-managed-service-identity-msi-to-access-azure-resource-manager"></a>Linux VM MSI(관리 서비스 ID)를 사용하여 Azure Resource Manager에 액세스
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
 
-이 자습서에서는 Linux 가상 컴퓨터에 대해 MSI(관리 서비스 ID)를 사용하도록 설정한 다음 해당 ID를 사용하여 Azure Resource Manager API에 액세스하는 방법을 보여 줍니다. Azure에서 자동으로 관리되는 관리 서비스 ID를 사용하면 Azure AD 인증을 지원하는 서비스에 인증할 수 있으므로 코드에 자격 증명을 삽입할 필요가 없습니다. 다음 방법에 대해 알아봅니다.
+이 자습서에서는 Linux Virtual Machine에 대해 MSI(관리 서비스 ID)를 사용하도록 설정한 다음 해당 ID를 사용하여 Azure Resource Manager API에 액세스하는 방법을 보여 줍니다. Azure에서 자동으로 관리되는 관리 서비스 ID를 사용하면 Azure AD 인증을 지원하는 서비스에 인증할 수 있으므로 코드에 자격 증명을 삽입할 필요가 없습니다. 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
-> * Linux 가상 컴퓨터에서 MSI를 사용하도록 설정 
+> * Linux Virtual Machine에서 MSI를 사용하도록 설정 
 > * VM에 Azure Resource Manager의 리소스 그룹 액세스 권한 부여 
 > * VM ID를 사용하여 액세스 토큰을 가져온 다음 Azure Resource Manager를 호출하는 데 사용 
 
@@ -40,25 +40,25 @@ ms.lasthandoff: 12/11/2017
 
 [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
 
-## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>새 리소스 그룹에 Linux 가상 컴퓨터 만들기
+## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>새 리소스 그룹에 Linux Virtual Machine 만들기
 
 이 자습서에서는 새 Linux VM을 만듭니다. 기존 VM에서 MSI를 사용하도록 설정할 수도 있습니다.
 
 1. Azure Portal의 왼쪽 위에 있는 **새로 만들기** 단추를 클릭합니다.
 2. **Compute**를 선택한 후 **Ubuntu Server 16.04 LTS**를 선택합니다.
-3. 가상 컴퓨터 정보를 입력합니다. **인증 유형**으로 **SSH 공용 키** 또는 **암호**를 선택합니다. 생성된 자격 증명을 사용하면 VM에 로그인할 수 있습니다.
+3. 가상 머신 정보를 입력합니다. **인증 유형**으로 **SSH 공용 키** 또는 **암호**를 선택합니다. 생성된 자격 증명을 사용하면 VM에 로그인할 수 있습니다.
 
     ![대체 이미지 텍스트](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
 
-4. 드롭다운에서 가상 컴퓨터의 **구독**을 선택합니다.
-5. 가상 컴퓨터를 만들 새 **리소스 그룹**을 선택하려면 **새로 만들기**를 선택합니다. 완료되면 **확인**을 클릭합니다.
+4. 드롭다운에서 가상 머신의 **구독**을 선택합니다.
+5. 가상 머신을 만들 새 **리소스 그룹**을 선택하려면 **새로 만들기**를 선택합니다. 완료되면 **확인**을 클릭합니다.
 6. VM의 크기를 선택합니다. 더 많은 크기를 보려면 **모두 보기**를 선택하거나 지원되는 디스크 형식 필터를 변경합니다. 설정 블레이드에서 기본값을 그대로 유지하고 **확인**을 클릭합니다.
 
 ## <a name="enable-msi-on-your-vm"></a>VM에서 MSI를 사용하도록 설정
 
-가상 컴퓨터 MSI를 사용하면 코드에 자격 증명을 포함하지 않고도 Azure AD에서 액세스 토큰을 가져올 수 있습니다. MSI를 사용하도록 설정하는 경우 내부적으로는 두 가지 작업이 수행됩니다. 즉, VM에 MSI VM 확장이 설치되고 VM에 대해 MSI가 사용하도록 설정됩니다.  
+Virtual Machine MSI를 사용하면 코드에 자격 증명을 포함하지 않고도 Azure AD에서 액세스 토큰을 가져올 수 있습니다. MSI를 사용하도록 설정하는 경우 내부적으로는 두 가지 작업이 수행됩니다. 즉, VM에 MSI VM 확장이 설치되고 VM에 대해 MSI가 사용하도록 설정됩니다.  
 
-1. MSI를 사용하도록 설정할 **가상 컴퓨터**를 선택합니다.
+1. MSI를 사용하도록 설정할 **Virtual Machine**을 선택합니다.
 2. 왼쪽 탐색 모음에서 **구성**을 클릭합니다.
 3. **관리 서비스 ID**가 표시됩니다. MSI를 등록하고 사용하도록 설정하려면 **예**를 선택하고, 사용하지 않도록 설정하려면 아니요를 선택합니다.
 4. **저장**을 클릭하여 구성을 저장합니다.
@@ -77,9 +77,9 @@ ms.lasthandoff: 12/11/2017
 2. 앞에서 만든 특정 **리소스 그룹**을 선택합니다.
 3. 왼쪽 패널의 **액세스 제어(IAM)**로 이동합니다.
 4. **추가**를 클릭하여 VM에 대한 새 역할 할당을 추가합니다. **역할**로 **독자**를 선택합니다.
-5. 다음 드롭다운인 **다음에 대한 액세스 할당:**에서 **가상 컴퓨터** 리소스에 대한 액세스 권한을 할당합니다.
+5. 다음 드롭다운인 **다음에 대한 액세스 할당:**에서 **Virtual Machine** 리소스에 대한 액세스 권한을 할당합니다.
 6. 그런 다음 **구독** 드롭다운에 적절한 구독이 나열되어 있는지 확인합니다. 그리고 **리소스 그룹**에서는 **모든 리소스 그룹**을 선택합니다.
-7. 마지막으로 **선택**의 드롭다운에서 Linux 가상 컴퓨터를 선택하고 **저장**을 클릭합니다.
+7. 마지막으로 **선택**의 드롭다운에서 Linux Virtual Machine을 선택하고 **저장**을 클릭합니다.
 
     ![대체 이미지 텍스트](media/msi-tutorial-linux-vm-access-arm/msi-permission-linux.png)
 

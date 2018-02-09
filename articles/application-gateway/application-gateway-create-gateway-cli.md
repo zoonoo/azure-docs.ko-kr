@@ -1,211 +1,186 @@
 ---
-title: "응용 프로그램 게이트웨이 만들기 - Azure CLI 2.0 | Microsoft Docs"
-description: "Resource Manager에서 Azure CLI 2.0을 사용하여 응용 프로그램 게이트웨이를 만드는 방법을 알아봅니다."
+title: "응용 프로그램 게이트웨이 만들기 - Azure CLI | Microsoft Docs"
+description: "Azure CLI를 사용하여 응용 프로그램 게이트웨이를 만드는 방법을 알아봅니다."
 services: application-gateway
-documentationcenter: na
 author: davidmu1
 manager: timlt
 editor: 
 tags: azure-resource-manager
-ms.assetid: c2f6516e-3805-49ac-826e-776b909a9104
 ms.service: application-gateway
 ms.devlang: azurecli
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/31/2017
+ms.date: 01/25/2018
 ms.author: davidmu
-ms.openlocfilehash: beb2dab177d021fee1dbbe630f8b6854a7d94f68
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: bf7e22e86e593045d25a9f31166aebe992caeb45
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="create-an-application-gateway-by-using-the-azure-cli-20"></a>Azure CLI 2.0을 사용하여 Application Gateway 만들기
+# <a name="create-an-application-gateway-using-the-azure-cli"></a>Azure CLI를 사용하여 응용 프로그램 게이트웨이 만들기
 
-> [!div class="op_single_selector"]
-> * [Azure Portal](application-gateway-create-gateway-portal.md)
-> * [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
-> * [Azure 클래식 PowerShell](application-gateway-create-gateway.md)
-> * [Azure Resource Manager 템플릿](application-gateway-create-gateway-arm-template.md)
-> * [Azure CLI 1.0](application-gateway-create-gateway-cli.md)
-> * [Azure CLI 2.0](application-gateway-create-gateway-cli.md)
+Azure CLI를 사용하여 명령줄 또는 스크립트로 응용 프로그램 게이트웨이를 생성하거나 관리할 수 있습니다. 이 빠른 시작에서는 네트워크 리소스, 백 엔드 서버 및 응용 프로그램 게이트웨이를 만드는 방법을 보여줍니다.
 
-Azure Application Gateway는 ADC(응용 프로그램 배달 컨트롤러)를 서비스로 제공하여 응용 프로그램에 대해 다양한 7계층 부하 분산 기능을 제공하는 전용 가상 어플라이언스입니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="cli-versions"></a>CLI 버전
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-다음 CLI(명령줄 인터페이스) 버전 중 하나를 사용하여 응용 프로그램 게이트웨이를 만들 수 있습니다.
+CLI를 로컬로 설치하여 사용하려면 이 빠른 시작에서 Azure CLI 버전 2.0.4 이상을 실행해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요.
 
-* [Azure CLI 1.0](application-gateway-create-gateway-cli-nodejs.md): 클래식 및 Azure Resource Manager 배포 모델용 Azure CLI
-* [Azure CLI 2.0](application-gateway-create-gateway-cli.md): Resource Manager 배포 모델용 차세대 CLI
+## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-## <a name="prerequisite-install-the-azure-cli-20"></a>필수 조건: Azure CLI 2.0 설치
+[az group create](/cli/azure/group#az_group_create)를 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 
 
-이 문서의 단계를 수행하려면 [macOS, Linux 및 Windows용 Azure CLI를 설치](https://docs.microsoft.com/cli/azure/install-az-cli2)해야 합니다.
+다음 예제에서는 *eastus* 위치에 *myResourceGroupAG*라는 리소스 그룹을 만듭니다.
 
-> [!NOTE]
-> 응용 프로그램 게이트웨이를 만들려면 Azure 계정이 필요합니다. 없는 경우 지금 [무료 평가판](../active-directory/sign-up-organization.md)에 등록하세요.
-
-## <a name="scenario"></a>시나리오
-
-이 시나리오에서는 Azure Portal을 사용하여 응용 프로그램 게이트웨이를 만드는 방법을 알아봅니다.
-
-이 시나리오에서는 다음을 수행합니다.
-
-* 두 인스턴스를 사용하여 중간 응용 프로그램 게이트웨이를 만듭니다.
-* 예약된 CIDR 블록이 10.0.0.0/16이고 이름이 AdatumAppGatewayVNET인 가상 네트워크를 만듭니다.
-* CIDR 블록으로 10.0.0.0/28을 사용하는 Appgatewaysubnet이라고 하는 서브넷을 만듭니다.
-
-> [!NOTE]
-> 사용자 지정 상태 프로브, 백 엔드 풀 주소, 추가 규칙 등을 비롯한 응용 프로그램 게이트웨이의 추가 구성은 초기 배포 중이 아니라 응용 프로그램 게이트웨이를 만든 후에 수행됩니다.
-
-## <a name="before-you-begin"></a>시작하기 전에
-
-응용 프로그램 게이트웨이에는 자체 서브넷이 필요합니다. 가상 네트워크를 만들 때 여러 서브넷을 둘 수 있는 충분한 주소 공간이 있는지 확인합니다. 응용 프로그램 게이트웨이를 서브넷에 배포한 후에는 해당 서브넷에 응용 프로그램 게이트웨이를 더 추가하는 것만 가능합니다.
-
-## <a name="sign-in-to-azure"></a>Azure에 로그인
-
-**Microsoft Azure 명령 프롬프트**를 열고 로그인합니다.
-
-```azurecli-interactive
-az login -u "username"
+```azurecli-interactive 
+az group create --name myResourceGroupAG --location eastus
 ```
 
-> [!NOTE]
-> aka.ms/devicelogin에서 코드를 입력해야 하는 장치 로그인에 대한 스위치 없이 `az login`을 사용할 수도 있습니다.
+## <a name="create-network-resources"></a>네트워크 리소스 만들기 
 
-위의 명령을 입력하고 나면 코드가 수신됩니다. 브라우저에서 https://aka.ms/devicelogin으로 이동하여 로그인 프로세스를 계속합니다.
-
-![장치 로그인을 보여 주는 cmd][1]
-
-브라우저에서 받은 코드를 입력합니다. 이렇게 하면 로그인 페이지로 리디렉션됩니다.
-
-![코드를 입력할 수 있는 브라우저 화면][2]
-
-코드를 입력하여 로그인한 후 브라우저를 닫고 계속 진행합니다.
-
-![정상 로그인된 후의 화면][3]
-
-## <a name="create-the-resource-group"></a>리소스 그룹 만들기
-
-응용 프로그램 게이트웨이를 만들기 전에 해당 게이트웨이를 포함할 리소스 그룹을 만듭니다. 다음 명령을 사용합니다.
+[az network vnet create](/cli/azure/vnet#az_vnet_create)를 사용하여 가상 네트워크 및 서브넷을 만듭니다. [az network public-ip create](/cli/azure/public-ip#az_public_ip_create)를 사용하여 공용 IP 주소를 만듭니다.
 
 ```azurecli-interactive
-az group create --name myresourcegroup --location "eastus"
+az network vnet create \
+  --name myVNet \
+  --resource-group myResourceGroupAG \
+  --location eastus \
+  --address-prefix 10.0.0.0/16 \
+  --subnet-name myAGSubnet \
+  --subnet-prefix 10.0.1.0/24
+az network vnet subnet create \
+  --name myBackendSubnet \
+  --resource-group myResourceGroupAG \
+  --vnet-name myVNet   \
+  --address-prefix 10.0.2.0/24
+az network public-ip create \
+  --resource-group myResourceGroupAG \
+  --name myAGPublicIPAddress
+```
+
+## <a name="create-backend-servers"></a>백 엔드 서버 만들기
+
+이 예제에서는 응용 프로그램 게이트웨이의 백 엔드 서버로 사용될 두 개의 가상 머신을 만듭니다. 또한 응용 프로그램 게이트웨이가 성공적으로 만들어 졌는지 확인하기 위해 가상 머신에 NGINX를 설치합니다.
+
+### <a name="create-two-virtual-machines"></a>두 개의 가상 머신 만들기
+
+cloud-init 구성 파일을 사용하여 NGINX를 설치하고 Linux 가상 머신에서 'Hello World' Node.js 앱을 실행할 수 있습니다. 현재 셸에서 cloud-init.txt라는 파일을 만들고 다음 구성을 복사하여 셸에 붙여넣습니다. 전체 cloud-init 파일, 특히 첫 줄이 올바르게 복사해야 합니다.
+
+```yaml
+#cloud-config
+package_upgrade: true
+packages:
+  - nginx
+  - nodejs
+  - npm
+write_files:
+  - owner: www-data:www-data
+  - path: /etc/nginx/sites-available/default
+    content: |
+      server {
+        listen 80;
+        location / {
+          proxy_pass http://localhost:3000;
+          proxy_http_version 1.1;
+          proxy_set_header Upgrade $http_upgrade;
+          proxy_set_header Connection keep-alive;
+          proxy_set_header Host $host;
+          proxy_cache_bypass $http_upgrade;
+        }
+      }
+  - owner: azureuser:azureuser
+  - path: /home/azureuser/myapp/index.js
+    content: |
+      var express = require('express')
+      var app = express()
+      var os = require('os');
+      app.get('/', function (req, res) {
+        res.send('Hello World from host ' + os.hostname() + '!')
+      })
+      app.listen(3000, function () {
+        console.log('Hello world app listening on port 3000!')
+      })
+runcmd:
+  - service nginx restart
+  - cd "/home/azureuser/myapp"
+  - npm init
+  - npm install express -y
+  - nodejs index.js
+```
+
+[az network nic create](/cli/azure/network/nic#az_network_nic_create)를 사용하여 네트워크 인터페이스를 만듭니다. [az vm create](/cli/azure/vm#az_vm_create)를 사용하여 가상 머신을 만듭니다.
+
+```azurecli-interactive
+for i in `seq 1 2`; do
+  az network nic create \
+    --resource-group myResourceGroupAG \
+    --name myNic$i \
+    --vnet-name myVNet \
+    --subnet myBackendSubnet
+  az vm create \
+    --resource-group myResourceGroupAG \
+    --name myVM$i \
+    --nics myNic$i \
+    --image UbuntuLTS \
+    --admin-username azureuser \
+    --generate-ssh-keys \
+    --custom-data cloud-init.txt
+done
 ```
 
 ## <a name="create-the-application-gateway"></a>Application Gateway 만들기
 
-백 엔드 서버 IP 주소에는 백 엔드 IP 주소를 사용합니다. 이러한 값은 가상 네트워크의 개인 IP, 공용 IP 또는 백 엔드 서버의 정규화된 도메인 이름일 수 있습니다. 다음 예제에서는 HTTP 설정, 포트 및 규칙에 대한 추가 구성으로 응용 프로그램 게이트웨이를 만듭니다.
+[az network application-gateway create](/cli/azure/application-gateway#az_application_gateway_create)를 사용하여 응용 프로그램 게이트웨이를 만듭니다. Azure CLI를 사용하여 응용 프로그램 게이트웨이를 만들 때 용량, sku, HTTP 설정 등의 구성 정보를 지정합니다. 네트워크 인터페이스의 개인 IP 주소는 응용 프로그램 게이트웨이의 백 엔드 풀에 서버로 추가됩니다.
 
 ```azurecli-interactive
+address1=$(az network nic show --name myNic1 --resource-group myResourceGroupAG | grep "\"privateIpAddress\":" | grep -oE '[^ ]+$' | tr -d '",')
+address2=$(az network nic show --name myNic2 --resource-group myResourceGroupAG | grep "\"privateIpAddress\":" | grep -oE '[^ ]+$' | tr -d '",')
 az network application-gateway create \
---name "AdatumAppGateway" \
---location "eastus" \
---resource-group "myresourcegroup" \
---vnet-name "AdatumAppGatewayVNET" \
---vnet-address-prefix "10.0.0.0/16" \
---subnet "Appgatewaysubnet" \
---subnet-address-prefix "10.0.0.0/28" \
---servers 10.0.0.4 10.0.0.5 \
---capacity 2 \
---sku Standard_Small \
---http-settings-cookie-based-affinity Enabled \
---http-settings-protocol Http \
---frontend-port 80 \
---routing-rule-type Basic \
---http-settings-port 80 \
---public-ip-address "pip2" \
---public-ip-address-allocation "dynamic" \
-
+  --name myAppGateway \
+  --location eastus \
+  --resource-group myResourceGroupAG \
+  --capacity 2 \
+  --sku Standard_Medium \
+  --http-settings-cookie-based-affinity Enabled \
+  --public-ip-address myAGPublicIPAddress \
+  --vnet-name myVNet \
+  --subnet myAGSubnet \
+  --servers "$address1" "$address2"
 ```
 
-앞의 예제에서는 응용 프로그램 게이트웨이를 만드는 동안 필요하지 않은 많은 속성을 보여 줍니다. 다음 코드 예제는 필요한 정보를 사용하여 응용 프로그램 게이트웨이를 만듭니다.
+응용 프로그램 게이트웨이가 생성될 때까지 몇 분 정도 걸릴 수 있습니다. 응용 프로그램 게이트웨이가 생성되면 다음과 같은 기능을 볼 수 있습니다.
 
-```azurecli-interactive
-az network application-gateway create \
---name "AdatumAppGateway" \
---location "eastus" \
---resource-group "myresourcegroup" \
---vnet-name "AdatumAppGatewayVNET" \
---vnet-address-prefix "10.0.0.0/16" \
---subnet "Appgatewaysubnet" \
---subnet-address-prefix "10.0.0.0/28" \
---servers "10.0.0.5"  \
---public-ip-address pip
-```
- 
-> [!NOTE]
-> 만드는 동안 사용할 수 있는 매개 변수 목록을 확인하려면 `az network application-gateway create --help` 명령을 실행합니다.
+- *appGatewayBackendPool* - 응용 프로그램 게이트웨이에 백 엔드 주소 풀이 하나 이상 있어야 합니다.
+- *appGatewayBackendHttpSettings* - 포트 80 및 HTTP 프로토콜을 통신에 사용하도록 지정합니다.
+- *appGatewayHttpListener* - *appGatewayBackendPool*에 연결되는 기본 수신기입니다.
+- *appGatewayFrontendIP* - *myAGPublicIPAddress*를 *appGatewayHttpListener*에 할당합니다.
+- *rule1* - *appGatewayHttpListener*에 연결되는 기본 라우팅 규칙입니다.
 
-이 예제에서는 수신기, 백 엔드 풀, 백 엔드 HTTP 설정 및 규칙에 대한 기본 설정으로 기본 응용 프로그램 게이트웨이를 만듭니다. 프로비전에 성공하면 배포에 맞게 이러한 설정을 수정할 수 있습니다.
+## <a name="test-the-application-gateway"></a>응용 프로그램 게이트웨이 테스트
 
-웹 응용 프로그램이 이전 단계의 백 엔드 풀로 정의된 경우에는 이제 부하 분산이 시작됩니다.
+응용 프로그램 게이트웨이의 공용 IP 주소를 가져오려면 [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show)를 사용합니다. 공용 IP 주소를 복사하여 브라우저의 주소 표시줄에 붙여넣습니다.
 
-## <a name="get-the-application-gateway-dns-name"></a>응용 프로그램 게이트웨이 DNS 이름 가져오기
-게이트웨이를 만든 후에는 통신용 프런트 엔드를 구성합니다. 공용 IP를 사용할 때 응용 프로그램 게이트웨이는 식별 이름이 아닌 동적으로 할당된 DNS 이름이 필요합니다. 사용자가 응용 프로그램 게이트웨이에 연결할 수 있도록 하려면 CNAME 레코드를 사용하여 응용 프로그램 게이트웨이의 공용 끝점을 가리킵니다. 자세한 내용은 [Azure DNS를 사용하여 Azure 서비스에 대해 사용자 지정 도메인 설정 제공](../dns/dns-custom-domain.md)을 참조하세요.
+```azurepowershell-interactive
+az network public-ip show \
+  --resource-group myResourceGroupAG \
+  --name myAGPublicIPAddress \
+  --query [ipAddress] \
+  --output tsv
+``` 
 
-별칭을 구성하려면 응용 프로그램 게이트웨이에 연결된 PublicIPAddress 요소를 사용하여 응용 프로그램 게이트웨이 및 관련 IP/DNS 이름에 대한 세부 정보를 검색합니다. 응용 프로그램 게이트웨이의 DNS 이름을 사용하여 두 개의 웹 응용 프로그램을 이 DNS 이름으로 가리키는 CNAME 레코드를 만듭니다. A 레코드는 사용하지 마세요. 응용 프로그램 게이트웨이 다시 시작 시 VIP가 변경될 수 있습니다.
+![응용 프로그램 게이트웨이 테스트](./media/application-gateway-create-gateway-cli/application-gateway-nginxtest.png)
 
+## <a name="clean-up-resources"></a>리소스 정리
 
-```azurecli-interactive
-az network public-ip show --name "pip" --resource-group "AdatumAppGatewayRG"
-```
+더 이상 필요하지 않은 경우 [az group delete](/cli/azure/group#az_group_delete) 명령을 사용하여 리소스 그룹, 응용 프로그램 게이트웨이 및 관련된 모든 리소스를 제거할 수 있습니다.
 
-```
-{
-  "dnsSettings": {
-    "domainNameLabel": null,
-    "fqdn": "8c786058-96d4-4f3e-bb41-660860ceae4c.cloudapp.net",
-    "reverseFqdn": null
-  },
-  "etag": "W/\"3b0ac031-01f0-4860-b572-e3c25e0c57ad\"",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/AdatumAppGatewayRG/providers/Microsoft.Network/publicIPAddresses/pip2",
-  "idleTimeoutInMinutes": 4,
-  "ipAddress": "40.121.167.250",
-  "ipConfiguration": {
-    "etag": null,
-    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/AdatumAppGatewayRG/providers/Microsoft.Network/applicationGateways/AdatumAppGateway2/frontendIPConfigurations/appGatewayFrontendIP",
-    "name": null,
-    "privateIpAddress": null,
-    "privateIpAllocationMethod": null,
-    "provisioningState": null,
-    "publicIpAddress": null,
-    "resourceGroup": "AdatumAppGatewayRG",
-    "subnet": null
-  },
-  "location": "eastus",
-  "name": "pip2",
-  "provisioningState": "Succeeded",
-  "publicIpAddressVersion": "IPv4",
-  "publicIpAllocationMethod": "Dynamic",
-  "resourceGroup": "AdatumAppGatewayRG",
-  "resourceGuid": "3c30d310-c543-4e9d-9c72-bbacd7fe9b05",
-  "tags": {
-    "cli[2] owner[administrator]": ""
-  },
-  "type": "Microsoft.Network/publicIPAddresses"
-}
-```
-
-## <a name="delete-all-resources"></a>모든 리소스 삭제
-
-이 문서에서 만든 모든 리소스를 삭제하려면 다음 명령을 실행합니다.
-
-```azurecli-interactive
-az group delete --name AdatumAppGatewayRG
+```azurecli-interactive 
+az group delete --name myResourceGroupAG
 ```
  
 ## <a name="next-steps"></a>다음 단계
 
-사용자 지정 상태 프로브를 만드는 방법을 알아보려면 [Portal을 사용하여 Application Gateway에 대한 사용자 지정 프로브 만들기](application-gateway-create-probe-portal.md)로 이동하세요.
+이 빠른 시작에서 리소스 그룹, 네트워크 리소스 및 백 엔드 서버를 만들었습니다. 그런 다음, 이러한 리소스를 사용하여 응용 프로그램 게이트웨이를 만들었습니다. 응용 프로그램 게이트웨이 및 관련 리소스에 대해 자세히 알아보려면 방법 문서를 참조하세요.
 
-SSL 오프로딩을 구성하여 웹 서버에서 비용이 많이 드는 SSL 암호 해독을 수행하지 않아도 되도록 설정하려면 [Azure Resource Manager를 사용하여 SSL 오프로드에 대한 응용 프로그램 게이트웨이 구성](application-gateway-ssl-arm.md)을 참조하세요.
-
-<!--Image references-->
-
-[scenario]: ./media/application-gateway-create-gateway-cli/scenario.png
-[1]: ./media/application-gateway-create-gateway-cli/figure1.png
-[2]: ./media/application-gateway-create-gateway-cli/figure2.png
-[3]: ./media/application-gateway-create-gateway-cli/figure3.png

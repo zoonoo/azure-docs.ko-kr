@@ -3,7 +3,7 @@ title: "PowerShell을 사용하여 MSI에 Azure 리소스 액세스 권한을 �
 description: "PowerShell을 사용하여 특정 리소스에 MSI를 할당하고 다른 리소스에 대한 액세스 권한을 할당하기 위한 단계별 지침을 제공합니다."
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: daveba
 manager: mtillman
 editor: 
 ms.service: active-directory
@@ -12,12 +12,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
-ms.author: bryanla
-ms.openlocfilehash: 2211146dec8ea1f460785af9efd801780c46df60
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: daveba
+ms.openlocfilehash: bdc6268bd56598b917f51f39e604f858cfe81868
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="assign-a-managed-service-identity-msi-access-to-a-resource-using-powershell"></a>PowerShell을 사용하여 MSI(관리 서비스 ID)에 리소스 액세스 권한 할당
 

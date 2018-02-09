@@ -12,13 +12,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2017
+ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7d500d20dcce3e472e3e1e15b9ce307874caf22a
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: ea0c2487e24fcb924632d3277163b7732442b414
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>새 리소스 그룹 또는 구독으로 리소스 이동
 
@@ -53,7 +53,10 @@ ms.lasthandoff: 01/22/2018
   az account show --subscription <your-destination-subscription> --query tenantId
   ```
 
-  원본 및 대상 구독에 대한 테넌트 ID가 동일하지 않으면 [지원](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)에 문의하여 리소스를 새 테넌트로 이동해야 합니다.
+  원본 및 대상 구독에 대한 테넌트 ID가 다른 경우 다음 메서드를 사용하여 테넌트 ID를 조정합니다. 
+
+  * [Azure 구독의 소유권을 다른 계정으로 이전](../billing/billing-subscription-transfer.md)
+  * [Azure Active Directory에 Azure 구독을 연결하거나 추가하는 방법](../active-directory/active-directory-how-subscriptions-associated-directory.md)
 
 2. 서비스는 리소스 이동 기능을 사용하도록 설정해야 합니다. 이 문서에서는 리소스 이동이 가능한 서비스와 그렇지 않은 서비스를 나열합니다.
 3. 이동되는 리소스의 리소스 공급자가 대상 구독에 등록되어야 합니다. 그러지 않으면 **구독이 리소스 형식에 대해 등록되지 않았음**을 알리는 오류 메시지가 표시됩니다. 해당 리소스 종류와 함께 사용된 적이 없는 새 구독으로 리소스를 이동할 때 이 문제가 발생할 수 있습니다.
@@ -93,7 +96,7 @@ ms.lasthandoff: 01/22/2018
 
 다음을 수행해야 하는 경우 [지원](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)에 문의하세요.
 
-* 리소스를 새 Azure 계정(및 Azure Active Directory 테넌트)으로 이동합니다.
+* 새 Azure 계정(및 Azure Active Directory 테넌트)로 리소스를 이동하며 앞의 섹션의 지침을 수행하는 데 지원이 필요합니다.
 * 클래식 리소스를 이동하지만 제한 사항으로 문제가 발생합니다.
 
 ## <a name="services-that-enable-move"></a>이동을 사용하는 서비스
@@ -321,7 +324,7 @@ Azure Site Recovery로 재해 복구를 설정하는 데 사용된 Storage, Netw
  1. 일시적으로 백업을 중지하고 백업 데이터를 보존합니다.
  2. VM을 대상 리소스 그룹으로 이동합니다.
  3. 사용자가 이동 작업 이전에 만든 사용 가능한 복원 지점에서 복원할 수 있는 VM을 동일하거나 새로운 자격 증명 모음으로 다시 보호합니다.
-사용자가 백업된 VM을 구독 간에 이동하는 경우 1단계와 2단계는 동일합니다. 3단계에서는 사용자가 대상 구독에 있거나 만들어진 VM을 새 자격 증명 모음으로 보호해야 합니다. Recovery Services 자격 증명 모음은 구독 간 백업을 지원하지 않습니다.
+사용자가 백업된 VM을 구독 간에 이동하는 경우 1단계와 2단계는 동일합니다. 3단계에서, 대상 구독에 있는/만들어진 새 자격 증명 모음에서 VM을 보호해야 합니다. Recovery Services 자격 증명 모음은 구독 간 백업을 지원하지 않습니다.
 
 ## <a name="hdinsight-limitations"></a>HDInsight 제한 사항
 

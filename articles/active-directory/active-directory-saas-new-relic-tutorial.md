@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/31/2017
 ms.author: jeedes
-ms.openlocfilehash: a97038b942998b611bdde50ccf67c5b2e3fa4cd5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5c5d6eb8333083cf87e35a667159ecc71b944e9a
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-new-relic"></a>자습서: New Relic과 Azure Active Directory 통합
 
@@ -108,12 +108,9 @@ New Relic에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     ![New Relic 도메인 및 URL Single Sign-On 정보](./media/active-directory-saas-new-relic-tutorial/tutorial_new-relic_url.png)
 
-    a. **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://<subdomain>.newrelic.com`
+    a. **로그온 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다. `https://rpm.newrelic.com/accounts/{acc_id}/sso/saml/login` – 자신의 New Relic 계정 ID를 반드시 대체해야 합니다.
 
-    b. **식별자** 텍스트 상자에 해당 값으로 `rpm.newrelic.com`를 입력합니다.
-
-    > [!NOTE] 
-    > 로그온 URL 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트합니다. 값을 얻으려면 [New Relic 클라이언트 지원 팀](https://support.newrelic.com/)에 문의하세요. 
+    나. **식별자** 텍스트 상자에 해당 값으로 `rpm.newrelic.com`를 입력합니다.
 
 4. **SAML 서명 인증서** 섹션에서 **인증서(Base64)**를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
 
@@ -143,9 +140,9 @@ New Relic에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
    
    a. **파일 선택** 을 클릭하여 다운로드한 Azure Active Directory 인증서를 업로드합니다.
 
-   b. Azure Portal에서 복사한 **SAML Single Sign-On 서비스 URL** 값을 **원격 로그인 URL** 텍스트 상자에 붙여넣습니다.
+   나. Azure Portal에서 복사한 **SAML Single Sign-On 서비스 URL** 값을 **원격 로그인 URL** 텍스트 상자에 붙여넣습니다.
    
-   c. Azure Portal에서 복사한 **로그아웃 URL** 값을 **Logout landing URL**(로그아웃 방문 URL) 텍스트 상자에 붙여넣습니다.
+   다. Azure Portal에서 복사한 **로그아웃 URL** 값을 **Logout landing URL**(로그아웃 방문 URL) 텍스트 상자에 붙여넣습니다.
 
    d. **내 변경 내용 저장**을 클릭합니다.
 
@@ -179,9 +176,9 @@ New Relic에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     a. **이름** 상자에 **BrittaSimon**을 입력합니다.
 
-    b. **사용자 이름** 상자에 사용자인 Britta Simon의 전자 메일 주소를 입력합니다.
+    나. **사용자 이름** 상자에 사용자인 Britta Simon의 전자 메일 주소를 입력합니다.
 
-    c. **암호 표시** 확인란을 선택한 다음 **암호** 상자에 표시된 값을 적어둡니다.
+    다. **암호 표시** 확인란을 선택한 다음 **암호** 상자에 표시된 값을 적어둡니다.
 
     d. **만들기**를 클릭합니다.
  
@@ -207,9 +204,9 @@ Azure Active Directory 사용자가 New Relic에 로그인할 수 있도록 하�
    
     a. **이메일** 텍스트 상자에 프로비전하려는 유효한 Azure Active Directory 사용자의 이메일 주소를 입력합니다.
 
-    b. **역할**로 **사용자**를 선택합니다.
+    나. **역할**로 **사용자**를 선택합니다.
 
-    c. **이 사용자 추가**를 클릭합니다.
+    다. **이 사용자 추가**를 클릭합니다.
 
 >[!NOTE]
 >다른 New Relic 사용자 계정 생성 도구 또는 New Relic이 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
@@ -255,7 +252,7 @@ Azure Active Directory 사용자가 New Relic에 로그인할 수 있도록 하�
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)
+* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](active-directory-appssoaccess-whatis.md)
 
 
 

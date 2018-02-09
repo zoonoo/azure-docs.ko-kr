@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/17/2017
+ms.date: 01/24/2018
 ms.author: magoedte
-ms.openlocfilehash: 5f598da9b82b4425ca509a26a2e6e366ba4c3394
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 895a77a66f50b4c5217ec7d672f6441b85bf1856
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="how-to-troubleshoot-issues-with-the-linux-agent-for-log-analytics"></a>Log Analytics용 Linux 에이전트의 문제를 해결하는 방법
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 12/19/2017
 1. 다음 명령과 `-v` 옵션을 사용하여 OMS Agent for Linux가 있는 Log Analytics 서비스에 다시 등록합니다. OMS 서비스에 대한 프록시를 통해 연결되는 에이전트의 자세한 정보를 출력할 수 있습니다. 
 `/opt/microsoft/omsagent/bin/omsadmin.sh -w <OMS Workspace ID> -s <OMS Workspace Key> -p <Proxy Conf> -v`
 
-2. [프록시 서버 또는 OMS 게이트웨이에서 사용할 에이전트 구성](#configuring the-agent-for-use-with-a-proxy-server-or-oms-gateway) 섹션을 검토하여 프록시 서버를 통해 통신하도록 에이전트를 제대로 구성했는지 확인합니다.    
+2. [프록시 설정 업데이트](log-analytics-agent-manage.md#update-proxy-settings) 섹션을 검토하여 프록시 서버를 통해 통신하도록 에이전트를 제대로 구성했는지 확인합니다.    
 * 다음 Log Analytics 서비스 끝점이 허용 목록에 있는지 한 번 더 확인합니다.
 
     |에이전트 리소스| 포트 |  

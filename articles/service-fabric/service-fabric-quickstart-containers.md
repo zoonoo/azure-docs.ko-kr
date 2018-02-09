@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/02/2017
+ms.date: 01/25/18
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 9d3d15c63055f3eeb0e6cb292d75a8c42b33f7fe
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 4043c600dcc79cc85b66d66051416218507432af
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="deploy-a-service-fabric-windows-container-application-on-azure"></a>Azure에서 Service Fabric Windows 컨테이너 응용 프로그램 배포
 Azure Service Fabric은 확장성 있고 안정성이 뛰어난 마이크로 서비스 및 컨테이너를 배포 및 관리하기 위한 분산 시스템 플랫폼입니다. 
@@ -79,24 +79,44 @@ ApplicationManifest.xml 파일의 `ContainerHostPolicies`에서 `PortBinding` �
 이 문서의 끝에서 전체 ApplicationManifest.xml 예제 파일을 제공합니다.
 
 ## <a name="create-a-cluster"></a>클러스터 만들기
-응용 프로그램을 Azure의 클러스터에 배포하려면 사용자 고유의 클러스터를 만들거나 파티 클러스터를 만들도록 선택할 수 있습니다.
+응용 프로그램을 Azure의 클러스터에 배포하려면 파티 클러스터를 조인하거나 [Azure에서 고유한 클러스터를 생성](service-fabric-tutorial-create-vnet-and-windows-cluster.md)할 수 있습니다.
 
-Party 클러스터는 평가판으로, Azure에서 호스트되고 Service Fabric 팀이 실행하는 제한 시간 Service Fabric 클러스터입니다. 여기서 누구나 응용 프로그램을 배포하고 플랫폼에 대해 알아볼 수 있습니다. 파티 클러스터에 대한 액세스 권한을 얻으려면 [지침에 따릅니다](http://aka.ms/tryservicefabric).  
+Party 클러스터는 평가판으로, Azure에서 호스트되고 Service Fabric 팀이 실행하는 제한 시간 Service Fabric 클러스터입니다. 여기서 누구나 응용 프로그램을 배포하고 플랫폼에 대해 알아볼 수 있습니다. 클러스터는 노드-노드뿐만 아니라 클라이언트-노드 보안에도 단일 자체 서명 인증서를 사용합니다. 
 
-자체 클러스터를 만드는 방법은 [Azure에서 Service Fabric 클러스터 만들기](service-fabric-tutorial-create-vnet-and-windows-cluster.md)를 참조하세요.
+[Windows 클러스터에 로그인하고 조인](http://aka.ms/tryservicefabric)합니다. **PFX** 링크를 클릭하여 PFX 인증서를 컴퓨터에 다운로드합니다. 인증서 및 **연결 엔드포인트** 값은 다음 단계에서 사용됩니다.
 
-연결 끝점을 기록해 두고 다음 단계에서 사용합니다.  
+![PFX 및 연결 엔드포인트](./media/service-fabric-quickstart-containers/party-cluster-cert.png)
+
+Windows 컴퓨터에서 *CurrentUser\My* 인증서 저장소에 PFX를 설치합니다.
+
+```powershell
+PS C:\mycertificates> Import-PfxCertificate -FilePath .\party-cluster-873689604-client-cert.pfx -CertStoreLocation Cert:
+\CurrentUser\My
+
+
+  PSParentPath: Microsoft.PowerShell.Security\Certificate::CurrentUser\My
+
+Thumbprint                                Subject
+----------                                -------
+3B138D84C077C292579BA35E4410634E164075CD  CN=zwin7fh14scd.westus.cloudapp.azure.com
+```
+
+다음 단계를 위해 지문을 기억합니다.  
 
 ## <a name="deploy-the-application-to-azure-using-visual-studio"></a>Visual Studio를 사용하여 Azure에 응용 프로그램 배포
 응용 프로그램이 준비되면 Visual Studio에서 클러스터에 직접 배포할 수 있습니다.
 
 솔루션 탐색기에서 **MyFirstContainer**를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다. [게시] 대화 상자가 나타납니다.
 
-![[게시] 대화 상자](./media/service-fabric-quickstart-dotnet/publish-app.png)
+파티 클러스터 페이지의 **연결 끝점**을 **연결 끝점** 필드에 복사합니다. 예: `zwin7fh14scd.westus.cloudapp.azure.com:19000` **고급 연결 매개 변수**를 클릭하고 다음 정보를 채웁니다.  *FindValue* 및 *ServerCertThumbprint* 값은 이전 단계에서 설치한 인증서의 지문과 일치해야 합니다. 
 
-**연결 끝점** 필드에 클러스터의 연결 끝점을 입력합니다. 파티 클러스터에 등록하면 연결 끝점이 브라우저에 제공됩니다. 예: `winh1x87d1d.westus.cloudapp.azure.com:19000`  **게시**를 클릭하면 응용 프로그램이 배포됩니다.
+![[게시] 대화 상자](./media/service-fabric-quickstart-containers/publish-app.png)
 
-브라우저를 열고 http://winh1x87d1d.westus.cloudapp.azure.com:80 으로 이동합니다. IIS 기본 웹 페이지가 표시됩니다. ![IIS 기본 웹 페이지][iis-default]
+**게시**를 클릭합니다.
+
+클러스터의 각 응용 프로그램에는 고유한 이름이 있어야 합니다.  Party 클러스터가 공용 공유 환경이지만 기존 응용 프로그램과 충돌이 발생할 수 있습니다.  이름이 충돌하는 경우 Visual Studio 프로젝트의 이름을 바꾸고 다시 배포합니다.
+
+브라우저를 열고 http://zwin7fh14scd.westus.cloudapp.azure.com:80으로 이동합니다. IIS 기본 웹 페이지가 표시됩니다. ![IIS 기본 웹 페이지][iis-default]
 
 ## <a name="complete-example-service-fabric-application-and-service-manifests"></a>Service Fabric 응용 프로그램 및 서비스 매니페스트의 전체 예제
 이 빠른 시작에서 사용되는 전체 서비스 및 응용 프로그램 매니페스트는 다음과 같습니다.
@@ -167,6 +187,7 @@ Party 클러스터는 평가판으로, Azure에서 호스트되고 Service Fabri
         <PortBinding ContainerPort="80" EndpointRef="MyContainerServiceTypeEndpoint"/>
       </ContainerHostPolicies>
     </Policies>
+
   </ServiceManifestImport>
   <DefaultServices>
     <!-- The section below creates instances of service types, when an instance of this 

@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/14/2017
+ms.date: 01/29/2018
 ms.author: seguler
-ms.openlocfilehash: 3d4a7ceabc8cdb97fc8a0f29756d7648d253fe21
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 7d875a1e43908f49424f4e40fe923639cfa02385
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="transfer-data-with-the-azcopy-on-windows"></a>Windows에서 AzCopy를 사용하여 데이터 전송
 AzCopy는 최적의 성능을 내는 간단한 명령을 사용하여 데이터를 Microsoft Azure Blob, File 및 Table Storage에 복사하거나 이들 저장소에서 복사하기 위한 명령줄 유틸리티입니다. 파일 시스템과 저장소 계정 간 또는 저장소 계정 간에 데이터를 복사할 수 있습니다.  
@@ -750,7 +750,7 @@ AzCopy로 명령을 실행할 때마다 AzCopy는 기본 폴더에 저널 파일
 
 ### <a name="y"></a>/Y
 
-모든 AzCopy 확인 프롬프트를 표시하지 않습니다.
+모든 AzCopy 확인 프롬프트를 표시하지 않습니다. /XO 및 /XN이 지정되지 않을 경우, 이 옵션을 사용하여 데이터 업로드 시나리오에 쓰기 전용 SAS 토큰을 사용할 수 있습니다.
 
 **적용 대상:** Blob, 파일, 테이블
 

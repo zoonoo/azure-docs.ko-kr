@@ -3,7 +3,7 @@ title: "Azure SDK를 사용하여 Azure VM에 사용자 할당 MSI를 구성하�
 description: "Azure SDK를 사용하여 Azure VM에 사용자 할당 MSI(관리 서비스 ID)를 구성하기 위한 단계별 지침을 제공합니다."
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: daveba
 manager: mtillman
 editor: 
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/22/2017
-ms.author: bryanla
+ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 19b6179803b8de4102818c1522b00e6b4881d0f0
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: 097304162b85599acd1f4591091f986a646ebc2a
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="configure-a-user-assigned-managed-service-identity-msi-for-a-vm-using-an-azure-sdk"></a>Azure SDK를 사용하여 VM에 사용자 할당 MSI(관리 서비스 ID) 구성
 

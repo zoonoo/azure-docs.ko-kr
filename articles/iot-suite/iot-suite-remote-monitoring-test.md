@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 0bf1cff4058bfe46b54f3f0b6836ede3e04ed5dd
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 3343dbe0093ad8fbeebe5893d44abdbe356e1789
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="test-your-solution-with-simulated-devices"></a>시뮬레이트된 장치로 솔루션 테스트
 
@@ -77,6 +77,10 @@ ms.lasthandoff: 01/24/2018
 > * 사용자 지정 장치 동작 시뮬레이트
 > * 대시보드에 새 장치 유형 추가
 > * 기존의 장치 유형에서 사용자 지정 원격 분석 보내기
+
+다음 비디오에서는 원격 모니터링 솔루션에 시뮬레이션 및 실제 장치를 연결하는 연습을 보여 줍니다.
+
+>[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Part-38-Customizing-Azure-IoT-Suite-solution-and-connect-a-real-device/Player]
 
 ## <a name="prerequisites"></a>필수 조건
 

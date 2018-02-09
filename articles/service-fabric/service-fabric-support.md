@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/22/2017
+ms.date: 1/26/2018
 ms.author: pkc
-ms.openlocfilehash: 0e4a2aa0ed7327a8ed19e9a716b0bd97abc71d5c
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 970f1ff59560beaf898f22eb4e701088a6d5902a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-service-fabric-support-options"></a>Azure Service Fabric 지원 옵션
 
@@ -76,7 +76,8 @@ Service Fabric 문제를 보고하기 위해 GitHub 리포지토리를 설정했
 | 5.5.* | 5.4.164.* |버전 2.5보다 작거나 같음 |2017년 8월 10일    |
 | 5.6.* | 5.4.164.* |버전 2.6보다 작거나 같음 |2017년 10월 13일   |
 | 5.7.* | 5.4.164.* |버전 2.7보다 작거나 같음 |2017년 12월 15일  |
-| 6.0.* | 5.6.205.* |버전 2.8보다 작거나 같음 |현재 버전 및 종료 날짜 |
+| 6.0.* | 5.6.205.* |버전 2.8보다 작거나 같음 |2018년 3월 30일     | 
+| 6.1.* | 5.7.221.* |버전 3.0보다 작거나 같음 |현재 버전 및 종료 날짜 |
 
 ## <a name="service-fabric-preview-versions---unsupported-for-production-use"></a>Service Fabric 미리 보기 버전 - 프로덕션 사용이 지원되지 않습니다.
 종종 피드백이 필요한 중요한 기능이 포함된 버전이 미리 보기로 릴리스됩니다. 이러한 미리 보기 버전은 테스트 용도로만 사용해야 합니다. 프로덕션 클러스터는 항상 지원되는 안정적인 Service Fabric 버전으로 실행해야 합니다. 미리 보기 버전은 항상 주 버전과 부 버전 번호가 255로 시작합니다. 예를 들어 Service Fabric 버전 255.255.5703.949가 표시되면 해당 릴리스 버전은 테스트 클러스터에서만 미리 보기로 사용됩니다. 이러한 미리 보기 릴리스는 포함된 기능에 관한 자세한 내용과 함께 [Service Fabric 팀 블로그](https://blogs.msdn.microsoft.com/azureservicefabric)에서 발표됩니다.

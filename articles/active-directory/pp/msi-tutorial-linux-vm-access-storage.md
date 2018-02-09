@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: bryanla
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 91fe06825d1db586b715617241b0ca39115414c0
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 4de290c2200aa3beffe277313d0b0b44a32d1fe5
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="use-a-user-assigned-managed-service-identity-msi-on-a-linux-vm-to-access-azure-storage"></a>Linux VM에서 사용자 할당 MSI(관리 서비스 ID)를 사용하여 Azure Storage에 액세스
 
@@ -32,13 +32,13 @@ ms.lasthandoff: 01/12/2018
 > * Azure Storage 인스턴스에 대한 MSI 액세스 권한 부여
 > * 사용자 할당 MSI ID를 사용하여 액세스 토큰을 가져오고, 해당 토큰을 사용하여 Azure Storage에 액세스
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 [!INCLUDE [msi-core-prereqs](~/includes/active-directory-msi-core-prereqs-ua.md)]
 
 [!INCLUDE [msi-tut-prereqs](~/includes/active-directory-msi-tut-prereqs.md)]
 
-이 자습서의 CLI 스크립트 예제를 실행하는 두 가지 옵션이 있습니다.
+이 자습서의 CLI 스크립트 예제는 두 가지 옵션을 통해 실행할 수 있습니다.
 
 - Azure Portal에서 또는 각 코드 블록의 오른쪽 상단 모서리에 있는 "사용해 보세요" 단추를 통해 [Azure Cloud Shell](~/articles/cloud-shell/overview.md)을 사용합니다.
 - 로컬 CLI 콘솔을 사용하려는 경우 [CLI 2.0의 최신 버전(2.0.23 이상)을 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)합니다.
@@ -69,7 +69,7 @@ ms.lasthandoff: 01/12/2018
     az login
     ```
 
-2. [az identity create](/cli/azure/identity#az_identity_create)를 사용하여 사용자 할당 MSI를 만듭니다. `-g` 매개 변수는 MSI가 만들어지는 리소스 그룹을 지정하고, `-n` 매개 변수는 그 이름을 지정합니다. `<RESOURCE GROUP>` 및 `<MSI NAME>` 매개 변수 값을 원하는 값으로 바꿉니다.
+2. [az identity create](/cli/azure/identity#az_identity_create)를 사용하여 사용자 할당 MSI를 만듭니다. `-g` 매개 변수는 MSI가 만들어지는 리소스 그룹을 지정하고, `-n` 매개 변수는 그 이름을 지정합니다. `<RESOURCE GROUP>` 및 `<MSI NAME>` 매개 변수 값을 원하는 값으로 바꾸세요.
 
     ```azurecli-interactive
     az identity create -g <RESOURCE GROUP> -n <MSI NAME>
@@ -96,7 +96,7 @@ ms.lasthandoff: 01/12/2018
 
 시스템 할당 MSI와는 달리, 사용자 할당 MSI는 클라이언트가 여러 Azure 리소스에 사용할 수 있습니다. 이 자습서에서는 단일 VM에 할당하겠습니다. 여러 VM에 할당해도 됩니다.
 
-[az vm assign-identity](/cli/azure/vm#az_vm_assign_identity)를 사용하여 Linux VM에 사용자 할당 MSI를 할당합니다. `<RESOURCE GROUP>` 및 `<VM NAME>` 매개 변수 값을 원하는 값으로 바꿉니다. 이전 단계에서 반환된 `id` 속성을 `--identities` 매개 변수 값에 사용합니다.
+[az vm assign-identity](/cli/azure/vm#az_vm_assign_identity)를 사용하여 Linux VM에 사용자 할당 MSI를 할당합니다. `<RESOURCE GROUP>` 및 `<VM NAME>` 매개 변수 값을 원하는 값으로 바꾸세요. 이전 단계에서 반환된 `id` 속성을 `--identities` 매개 변수 값에 사용합니다.
 
 ```azurecli-interactive
 az vm assign-identity -g <RESOURCE GROUP> -n <VM NAME> --identities "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>"
@@ -134,10 +134,10 @@ az vm assign-identity -g <RESOURCE GROUP> -n <VM NAME> --identities "/subscripti
 
 코드는 MSI를 사용하여 Azure AD 인증을 지원하는 리소스에 인증하기 위한 액세스 토큰을 가져올 수 있습니다. 이 자습서에서는 Azure Storage를 사용합니다.
 
-먼저 Azure Storage 컨테이너에 대한 MSI ID 액세스 권한을 부여합니다. 이 예에서는 앞에서 만든 컨테이너를 사용합니다. `<MSI PRINCIPALID>`, `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, `<STORAGE ACCOUNT NAME>` 및 `<CONTAINER NAME>`의 값을 환경에 적합하게 업데이트합니다. `<CLIENT ID>`를 [사용자 할당 MSI 만들기](#create-a-user-assigned-msi)의 `az identity create` 명령에서 반환한 `clientId` 속성으로 바꿉니다.
+먼저 Azure Storage 컨테이너에 대한 MSI ID 액세스 권한을 부여합니다. 이 예에서는 앞에서 만든 컨테이너를 사용합니다. `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, `<STORAGE ACCOUNT NAME>` 및 `<CONTAINER NAME>`의 값을 환경에 적합하게 업데이트합니다. 또한 `<MSI PRINCIPALID>`를 [사용자 할당 MSI 만들기](#create-a-user-assigned-msi)의 `az identity create` 명령에서 반환한 `principalId` 속성으로 바꿉니다.
 
 ```azurecli-interactive
-az role assignment create --assignee <MSI PRINCIPALID> --role ‘Reader’ --scope "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>/blobServices/default/containers/<CONTAINER NAME>"
+az role assignment create --assignee <MSI PRINCIPALID> --role 'Reader' --scope "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>/blobServices/default/containers/<CONTAINER NAME>"
 ```
 
 응답에는 생성된 역할 할당에 대한 세부 정보가 포함됩니다.

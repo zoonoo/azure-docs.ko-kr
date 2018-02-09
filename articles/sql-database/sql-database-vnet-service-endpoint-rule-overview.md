@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: On Demand
-ms.date: 01/23/2018
+ms.date: 01/31/2018
 ms.author: genemi
-ms.openlocfilehash: 6294216568e1d4c50ef6e6b6d2348a2a221406b0
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: d4179c590ef418633158dd5a5dbadbc8c20bcde7
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Azure SQL Database에 대한 Virtual Network 서비스 끝점 및 규칙 사용
 
@@ -28,9 +28,6 @@ ms.lasthandoff: 01/24/2018
 
 가상 네트워크 규칙을 만들려면 먼저 참조할 규칙에 대한 [가상 네트워크 서비스 끝점][vm-virtual-network-service-endpoints-overview-649d]이 있어야 합니다.
 
-
-> [!NOTE]
-> Azure SQL Database의 경우 이 기능은 Azure 공용 클라우드의 모든 지역에서 미리 보기로 제공됩니다.
 
 #### <a name="how-to-create-a-virtual-network-rule"></a>가상 네트워크 규칙을 만드는 방법
 

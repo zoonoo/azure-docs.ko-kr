@@ -1,5 +1,5 @@
 ---
-title: "자습서: GoToMeeting과 Azure Active Directory 통합 | Microsoft 문서"
+title: "자습서: Azure Active Directory로 자동 사용자 프로비전을 위한 GoToMeeting 구성 | Microsoft Docs"
 description: "Azure Active Directory 및 GoToMeeting 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
 services: active-directory
 documentationCenter: na
@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: ac664e2b4035f3572584e6f00e86453b10ce44e5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 82c7e8ff7d8a6692005bdc7a40d5e12be09bca5d
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configuring-gotomeeting-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전에 대한 GoToMeeting 구성
+# <a name="tutorial-configure-gotomeeting-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 GoToMeeting 구성
 
 이 자습서의 목적은 사용자 계정을 Azure AD에서 GoToMeeting으로 자동으로 프로비전 및 프로비전 해제하기 위해 GoToMeeting 및 Azure AD에서 수행해야 하는 단계를 설명하는 것입니다.
 
@@ -68,7 +68,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
    
     a. **GoToMeeting 관리자 사용자 이름** 텍스트 상자에 관리자의 사용자 이름을 입력합니다.
 
-    b. **GoToMeeting 관리자 암호** 텍스트 상자에 관리자의 암호를 입력입니다.
+    나. **GoToMeeting 관리자 암호** 텍스트 상자에 관리자의 암호를 입력입니다.
 
 6. Azure Portal에서 **연결 테스트**를 클릭하여 Azure AD가 GoToMeeting 앱에 연결할 수 있는지 확인합니다. 연결에 실패하면 사용자의 GoToMeeting 계정에 팀 관리자 권한이 있는지 확인하고 **"관리자 자격 증명"** 단계를 다시 시도합니다.
 
@@ -89,7 +89,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 ## <a name="additional-resources"></a>추가 리소스
 
 * [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](active-directory-saas-tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)
+* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](active-directory-appssoaccess-whatis.md)
 * [Single Sign-On 구성](https://docs.microsoft.com/azure/active-directory/active-directory-saas-citrix-gotomeeting-tutorial)
 
 

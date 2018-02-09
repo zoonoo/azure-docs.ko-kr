@@ -1,11 +1,24 @@
- ---
-제목: Azure Media Services REST 호출에 대한 Postman 환경 가져오기 설명: 이 항목에서는 Azure Media Services REST 호출에 대한 Postman 환경의 정의를 제공합니다.
-services: media-services documentationcenter: '' author: Juliako manager: cfowler editor: ''
-
-ms.service: media-services ms.workload: media ms.tgt_pltfrm: na ms.devlang: na ms.topic: article ms.date: 01/04/2017 ms.author: juliako
-
 ---
-
+title: "Azure Media Services REST 호출에 대한 Postman 환경 가져오기"
+description: "이 항목에서는 Azure Media Services REST 호출에 대한 Postman 환경 정의를 제공합니다."
+services: media-services
+documentationcenter: 
+author: Juliako
+manager: cfowler
+editor: 
+ms.service: media-services
+ms.workload: media
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 01/04/2018
+ms.author: juliako
+ms.openlocfilehash: aa3e1bb4c6ae53e24e3153dd55f6a6d07e29e091
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 02/01/2018
+---
 # <a name="import-the-postman-environment"></a>Postman 환경 가져오기 
 
 이 문서에는 Media Services REST API를 호출하는 그룹화된 HTTP 요청이 포함된 [Postman 컬렉션](postman-collection.md)을 사용하는 **Postman** 환경 변수의 정의가 포함되어 있습니다. 환경 및 컬렉션 파일은 [Media Services REST API 호출에 대한 Postman 구성](media-rest-apis-with-postman.md) 자습서에서 사용됩니다.

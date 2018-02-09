@@ -1,5 +1,5 @@
 ---
-title: "OMSManagement 솔루션 모범 사례 | Microsoft Docs"
+title: "Azure 모범 사례의 관리 솔루션 | Microsoft Docs"
 description: 
 services: operations-management-suite
 documentationcenter: 
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: bwren
-ms.openlocfilehash: b3d07ad3164609a5628c0d9805de55a32870ab94
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 155a7117f4c02bafcf66d0f7abca7dd97dc1236f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="best-practices-for-creating-management-solutions-in-operations-management-suite-oms-preview"></a>OMS(Operations Management Suite)(미리 보기)의 관리 솔루션 만들기 모범 사례
+# <a name="best-practices-for-creating-management-solutions-in-azure-preview"></a>Azure에서 관리 솔루션을 만들기 위한 모범 사례(미리 보기)
 > [!NOTE]
-> 현재 Preview로 제공되는 OMS의 사용자 지정 솔루션 만들기에 대한 예비 설명서입니다. 아래 설명된 스키마는 변경될 수 있습니다.  
+> 현재 미리 보기 상태로 제공되는 Azure에서 관리 솔루션을 만드는 예비 설명서입니다. 아래 설명된 스키마는 변경될 수 있습니다.  
 
-이 문서에서는 OMS(Operations Management Suite)에서 [관리 솔루션 파일 만들기](operations-management-suite-solutions-solution-file.md)에 대한 모범 사례를 제공합니다.  이 정보는 추가 모범 사례가 있으면 업데이트됩니다.
+이 문서에서는 Azure에서 [관리 솔루션 파일을 만드는](operations-management-suite-solutions-solution-file.md) 모범 사례를 제공합니다.  이 정보는 추가 모범 사례가 있으면 업데이트됩니다.
 
 ## <a name="data-sources"></a>데이터 원본
 - 데이터 원본은 [Resource Manager 템플릿을 사용하여 구성](../log-analytics/log-analytics-template-workspace-configuration.md)할 수 있으나 솔루션 파일에 포함되지 않아야 합니다.  그 이유는 데이터 원본을 구성하는 것이 현재 idempotent가 아니어서 솔루션이 사용자의 작업 영역에서 기존 구성을 덮어쓸 수 있기 때문입니다.<br><br>예를 들어 솔루션에 응용 프로그램 이벤트 로그의 경고 및 오류 이벤트가 필요할 수 있습니다.  이것을 솔루션에서 데이터 원본으로 지정하면 사용자가 해당 작업 영역에서 이 데이터 원본을 구성한 경우 정보 이벤트가 제거될 위험이 있습니다.  모든 이벤트를 포함하는 경우 사용자의 작업 영역에서 과도한 정보 이벤트를 수집하게 될 수 있습니다.
@@ -43,7 +43,7 @@ ms.lasthandoff: 10/11/2017
 - 솔루션의 모든 보기에 [데이터 흐름 확인](../log-analytics/log-analytics-view-designer-tiles.md) 메시지를 추가하여 필요한 데이터를 수집하기 위해 구성해야 하는 데이터 원본을 사용자에게 지시합니다.
 - 솔루션이 제거되면 제거될 수 있게 보기를 [포함](operations-management-suite-solutions-solution-file.md#solution-resource)하도록 솔루션을 구성합니다.
 
-## <a name="alerts"></a>경고
+## <a name="alerts"></a>Alerts
 - 사용자가 솔루션을 설치할 때 받는 사람을 정의할 수 있도록 솔루션 파일에 매개 변수로 받는 사람 목록을 정의합니다.
 - 사용자의 구성을 변경할 수 있게 경고 규칙을 [참조](operations-management-suite-solutions-solution-file.md#solution-resource)하도록 솔루션을 구성합니다.  받는 사람 목록 수정, 경고의 임계값 변경 또는 경고 규칙을 사용하지 않도록 설정 등의 변경을 수행할 수도 있습니다. 
 

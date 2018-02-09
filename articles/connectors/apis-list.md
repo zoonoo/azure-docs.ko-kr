@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/21/2017
 ms.author: mandia; ladocs
-ms.openlocfilehash: 948b91a9fabc3ab3c4d6708968a88cb9d203b171
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: ec532ce0871d11fea222050bb08ec73afe5f2be3
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="connectors-list"></a>커넥터 목록
 각 커넥터의 Swagger 설명과 모든 커넥터 제한에서 정의된 트리거 및 작업을 찾으려면 [커넥터 세부 정보](/connectors/)를 참조하세요.
@@ -82,7 +82,7 @@ EIP(엔터프라이즈 통합 팩)는 BizTalk Server 커뮤니티에 잘 알려�
 | --- | --- | --- | --- |
 | [![API 아이콘][as2icon]<br/>**AS2</br> 디코딩**][as2decode] | [![API 아이콘][as2icon]<br/>**AS2</br> 인코딩**][as2encode] | [![API 아이콘][x12icon]<br/>**EDIFACT</br> 디코딩**][EDIFACTdecode] | [![API 아이콘][x12icon]<br/>**EDIFACT</br> 인코딩**][EDIFACTencode] |
 [![API 아이콘][flatfileicon]<br/>**플랫 파일</br> 인코딩**][flatfiledoc] | [![API 아이콘][flatfiledecodeicon]<br/>**플랫 파일</br> 디코딩**][flatfiledecodedoc] | [![API 아이콘][integrationaccounticon]<br/>**통합<br/>계정**][integrationaccountdoc] | [![API 아이콘][xmltransformicon]<br/>**변형<br/>XML**][xmltransformdoc] |
-| [![API 아이콘][x12icon]<br/>**X12</br> 디코딩**][x12decode] | [![API 아이콘][x12icon]<br/>**X12</br> 인코딩**][x12encode] | [![API 아이콘][xmlvalidateicon]<br/>**XML <br/>유효성 검사**][xmlvalidatedoc] | |
+| [![API 아이콘][x12icon]<br/>**X12</br> 디코딩**][x12decode] | [![API 아이콘][x12icon]<br/>**X12</br> 인코딩**][x12encode] | [![API 아이콘][xmlvalidateicon]<br/>**XML <br/>유효성 검사**][xmlvalidatedoc] | [![API 아이콘][liquidicon]<br/>**JSON<br/> 변환**][JSONliquidtransformdoc] |
 
 ### <a name="enterprise-connectors"></a>엔터프라이즈 커넥터
 
@@ -189,6 +189,7 @@ Azure Logic Apps 및 커넥터 개선에 도움을 주려면 [Logic Apps 사용�
 [EDIFACTdecode]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-decode.md "엔터프라이즈 통합 EDIFACT 디코딩에 대해 알아봅니다."
 [EDIFACTencode]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-encode.md "엔터프라이즈 통합 EDIFACT 인코딩에 대해 알아봅니다."
 [integrationaccountdoc]: ../logic-apps/logic-apps-enterprise-integration-metadata.md "통합 계정에서 스키마, 맵, 파트너 등을 조회"
+[JSONliquidtransformdoc]: ../logic-apps/logic-apps-enterprise-integration-liquid-transform.md "Liquid를 사용한 JSON 변환에 대해 알아보기"
 
 
 [boxDoc]: ./connectors-create-api-box.md "상자에 연결합니다. 파일 업로드, 가져오기, 삭제, 나열 등"
@@ -328,3 +329,4 @@ Azure Logic Apps 및 커넥터 개선에 도움을 주려면 [Logic Apps 사용�
 [xmlvalidateicon]: ./media/apis-list/xmlvalidation.png
 [xmltransformicon]: ./media/apis-list/xsltransform.png
 [integrationaccounticon]: ./media/apis-list/integrationaccount.png
+[liquidicon]: ./media/apis-list/liquidtransform.png

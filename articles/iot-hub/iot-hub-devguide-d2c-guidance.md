@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/09/2017
+ms.date: 01/29/2018
 ms.author: elioda
-ms.openlocfilehash: 335928776e1e62caf2855cd5a5684ccaf37f73cd
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: a9a062ebb8d6e3b37d917064209eda618d0dd308
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="device-to-cloud-communications-guidance"></a>장치-클라우드 통신 지침
 장치 앱에서 솔루션 백 엔드로 정보를 전송할 때 IoT Hub은 다음 세 가지 옵션을 공개합니다.
@@ -37,7 +37,7 @@ ms.lasthandoff: 10/11/2017
 | Frequency(빈도) | 높음. 자세한 내용은 [IoT Hub 제한][lnk-quotas]을 참조하세요. | 중간. 자세한 내용은 [IoT Hub 제한][lnk-quotas]을 참조하세요. | 낮음. 자세한 내용은 [IoT Hub 제한][lnk-quotas]을 참조하세요. |
 | 프로토콜 | 모든 프로토콜에서 사용할 수 있습니다. | MQTT 또는 AMQP를 통해 사용 가능합니다. | 프로토콜을 사용할 때 사용할 수 있지만 장치에 HTTPS가 필요합니다. |
 
-응용 프로그램이 원격 분석 시계열 또는 경고로 정보를 보내고 장치 쌍에서 사용할 수 있게 할 수도 있습니다. 이 시나리오에서는 다음 옵션 중 하나를 선택할 수 있습니다.
+응용 프로그램이 원격 분석 시계열 또는 경고로 정보를 보내고 장치 쌍에도 제공해야 할 수 있습니다. 이 시나리오에서는 다음 옵션 중 하나를 선택할 수 있습니다.
 
 * 장치 앱이 장치-클라우드 메시지를 보내고 속성 변경 사항을 보고합니다.
 * 메시지를 받을 때 솔루션 백 엔드가 장치 쌍의 태그에 정보를 저장할 수 있습니다.

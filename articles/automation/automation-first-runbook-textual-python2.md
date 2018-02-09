@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2017
 ms.author: gwallace
-ms.openlocfilehash: 0cf0b1829c7e1f9b0b8be90983a705d82784c062
-ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
+ms.openlocfilehash: 1f005ae28309879f36a28df499685937c37a3be0
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="my-first-python-runbook"></a>내 첫 번째 Python Runbook
 
@@ -68,12 +68,11 @@ print("Hello World!")
 프로덕션 환경에서 사용할 수 있도록 Runbook을 게시하기 전에 제대로 작동하는지 확인하기 위해 테스트합니다. Runbook을 테스트할 때 **초안** 버전을 실행하고 해당 출력을 대화형으로 봅니다.
 
 1. **테스트 창** 을 클릭하여 테스트 창을 엽니다.
-   ![Test Pane](media/automation-first-runbook-textual-python/automation-runbook-edit-controls-test.png)
-1. **시작** 을 클릭하여 테스트를 시작합니다. 유일하게 사용 가능한 옵션이어야 합니다.
-1. 이 창에서 [runbook 작업](automation-runbook-execution.md) 이 생성되고 상태를 보여줍니다.
+2. **시작** 을 클릭하여 테스트를 시작합니다. 유일하게 사용 가능한 옵션이어야 합니다.
+3. 이 창에서 [runbook 작업](automation-runbook-execution.md) 이 생성되고 상태를 보여줍니다.
    작업 상태는 클라우드의 Runbook worker를 사용할 수 있을 때까지 기다리고 있음을 나타내는 *대기 중*으로 시작됩니다. 작업자가 작업을 요구한 경우 *시작 중*으로 바뀐 다음 Runbook이 실제로 실행되기 시작하면 *실행 중*으로 바뀝니다.
-1. Runbook 작업이 완료되면 해당 출력이 표시됩니다. 이 예에서는 *헬로 월드*가 표시됩니다.
-1. 캔버스로 돌아가려면 테스트 창을 닫습니다.
+4. Runbook 작업이 완료되면 해당 출력이 표시됩니다. 이 예에서는 *헬로 월드*가 표시됩니다.
+5. 캔버스로 돌아가려면 테스트 창을 닫습니다.
 
 ## <a name="publish-and-start-the-runbook"></a>Runbook 게시 및 시작
 
@@ -82,19 +81,18 @@ Runbook을 게시하면 초안 버전으로 기존의 게시된 버전을 덮어
 이 예에서는 Runbook을 방금 만들었으므로 아직 게시된 버전이 없습니다.
 
 1. **게시**를 클릭하여 Runbook을 게시한 다음 확인 메시지가 표시되면 **예**를 클릭합니다.
-   ![게시 단추](media/automation-first-runbook-textual-python/automation-runbook-edit-controls-publish.png)
-1. 이제 **Runbooks** 창에서 Runbook을 보기 위해 왼쪽으로 스크롤하면 **작성 상태**가 **게시됨**으로 표시됩니다.
+2. 이제 **Runbooks** 창에서 Runbook을 보기 위해 왼쪽으로 스크롤하면 **작성 상태**가 **게시됨**으로 표시됩니다.
 1. 오른쪽으로 다시 스크롤하면 **MyFirstRunbook-Python**창이 표시됩니다.
    위쪽에 표시되는 옵션을 사용하여 Runbook을 시작하거나 보고 미래의 특정 시간에 시작하도록 예약할 수 있으며 [웹후크](automation-webhooks.md)를 생성하여 HTTP 호출을 통해 시작할 수 있습니다.
-1. Runbook을 시작하려면 Runbook 시작 블레이드가 열린 후 **시작**을 클릭하고 **확인**을 클릭합니다.
-1. 만든 Runbook 작업에 대한 작업 창이 열립니다. 이 창을 닫아도 되지만, 이 예에서는 작업 진행 상황을 볼 수 있도록 열어 놓겠습니다.
-1. Runbook을 테스트할 때와 동일한 작업 상태가 **작업 요약**에 표시됩니다.
-1. Runbook 상태가 *완료됨*으로 표시되면 **출력**을 클릭합니다. 출력 창이 열리고 *헬로 월드*가 표시됩니다.
-1. 출력 창을 닫습니다.
-1. **모든 로그** 를 클릭하여 Runbook 작업에 대한 스트림 창을 엽니다. 출력 스트림에 *Hello World*만이 표시되어야 하지만 Runbook이 자세한 정보 표시, 오류와 같은 Runbook 작업에 대한 다른 스트림에 작성된 경우 해당 스트림이 표시될 수 있습니다.
-1. MyFirstRunbook-Python 창으로 돌아가려면 스트림 창 및 작업 창을 닫습니다.
-1. **작업** 을 클릭하여 이 Runbook에 대한 작업 창을 엽니다. runbook으로 만든 모든 작업을 나열합니다. 작업을 한 번만 실행했으므로 하나의 작업만 표시됩니다.
-1. Runbook을 시작했을 때 표시된 동일한 작업창을 열려면 이 작업을 클릭하면 됩니다. 이 기능을 사용하면 예전으로 돌아가 특정 runbook으로 생성된 모든 작업의 세부 정보를 볼 수 있습니다.
+2. Runbook을 시작하려면 Runbook 시작 블레이드가 열린 후 **시작**을 클릭하고 **확인**을 클릭합니다.
+3. 만든 Runbook 작업에 대한 작업 창이 열립니다. 이 창을 닫아도 되지만, 이 예에서는 작업 진행 상황을 볼 수 있도록 열어 놓겠습니다.
+4. Runbook을 테스트할 때와 동일한 작업 상태가 **작업 요약**에 표시됩니다.
+5. Runbook 상태가 *완료됨*으로 표시되면 **출력**을 클릭합니다. 출력 창이 열리고 *헬로 월드*가 표시됩니다.
+6. 출력 창을 닫습니다.
+7. **모든 로그** 를 클릭하여 Runbook 작업에 대한 스트림 창을 엽니다. 출력 스트림에 *Hello World*만이 표시되어야 하지만 Runbook이 자세한 정보 표시, 오류와 같은 Runbook 작업에 대한 다른 스트림에 작성된 경우 해당 스트림이 표시될 수 있습니다.
+8. MyFirstRunbook-Python 창으로 돌아가려면 스트림 창 및 작업 창을 닫습니다.
+9. **작업** 을 클릭하여 이 Runbook에 대한 작업 창을 엽니다. runbook으로 만든 모든 작업을 나열합니다. 작업을 한 번만 실행했으므로 하나의 작업만 표시됩니다.
+10. Runbook을 시작했을 때 표시된 동일한 작업창을 열려면 이 작업을 클릭하면 됩니다. 이 기능을 사용하면 예전으로 돌아가 특정 runbook으로 생성된 모든 작업의 세부 정보를 볼 수 있습니다.
 
 ## <a name="add-authentication-to-manage-azure-resources"></a>Azure 리소스를 관리하는 인증 추가
 
@@ -194,9 +192,7 @@ async_vm_start = compute_client.virtual_machines.start(resource_group_name, vm_n
 async_vm_start.wait()
 ```
 
-**테스트** 블레이드에서 또는 게시된 Runbook으로 Python Runbook을 시작할 때 **Runbook 시작** 블레이드의 **매개 변수** 아래에 매개 변수의 값을 입력할 수 있습니다.
-
-![매개 변수 값 상자](media/automation-first-runbook-textual-python/runbook-python-param-highlight.png)
+**테스트** 페이지에서 또는 게시된 Runbook으로 Python Runbook을 시작할 때 **Runbook 시작** 페이지의 **매개 변수** 아래에서 매개 변수의 값을 입력할 수 있습니다.
 
 첫 번째 상자에 값을 입력하기 시작하면 두 번째 상자가 나타나는 식으로 상자가 계속 표시되므로 매개 변수 값을 필요한 수만큼 입력할 수 있습니다.
 

@@ -6,13 +6,13 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 11/07/2017
+ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 80959ee589a1cfcf317a98c3bafd7f92c796fc2d
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 9fdc8816d8db88d4f1fd7b6ce722b7d2763eeaeb
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-event-grid-event-schema-for-event-hubs"></a>Azure Event Grid 이벤트 허브에 대한 이벤트 스키마
 
@@ -44,7 +44,9 @@ Event Hubs는 캡처 파일이 생성되면 **Microsoft.EventHub.CaptureFileCrea
             "lastSequenceNumber": 3899,
             "firstEnqueueTime": "2017-08-31T19:12:14.674Z",
             "lastEnqueueTime": "2017-08-31T19:12:44.309Z"
-        }
+        },
+        "dataVersion": "",
+        "metadataVersion": "1"
     }
 ]
 ```
@@ -53,18 +55,20 @@ Event Hubs는 캡처 파일이 생성되면 **Microsoft.EventHub.CaptureFileCrea
 
 이벤트에는 다음과 같은 최상위 데이터가 있습니다.
 
-| 속성 | 형식 | 설명 |
+| 자산 | 형식 | 설명 |
 | -------- | ---- | ----------- |
-| 토픽 | string | 이벤트 원본에 대한 전체 리소스 경로입니다. 이 필드는 쓸 수 없습니다. |
+| 토픽 | string | 이벤트 원본에 대한 전체 리소스 경로입니다. 이 필드는 쓸 수 없습니다. Event Grid가 이 값을 제공합니다. |
 | subject | string | 게시자가 정의한 이벤트 주체에 대한 경로입니다. |
 | eventType | string | 이 이벤트 원본에 대해 등록된 이벤트 유형 중 하나입니다. |
 | eventTime | string | 공급자의 UTC 시간을 기준으로 이벤트가 생성되는 시간입니다. |
 | id | string | 이벤트에 대한 고유 식별자입니다. |
 | 데이터 | object | 이벤트 허브 이벤트 데이터입니다. |
+| dataVersion | string | 데이터 개체의 스키마 버전입니다. 게시자가 스키마 버전을 정의합니다. |
+| metadataVersion | string | 이벤트 메타데이터의 스키마 버전입니다. Event Grid는 최상위 속성의 스키마를 정의합니다. Event Grid가 이 값을 제공합니다. |
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | 형식 | 설명 |
+| 자산 | 형식 | 설명 |
 | -------- | ---- | ----------- |
 | fileUrl | string | 캡처 파일에 대한 경로입니다. |
 | fileType | string | 캡처 파일의 파일 형식입니다. |

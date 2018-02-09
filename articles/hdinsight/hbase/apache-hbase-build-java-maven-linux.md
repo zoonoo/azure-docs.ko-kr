@@ -4,7 +4,7 @@ description: "Apache Maven을 사용하여 Java 기반 Apache HBase 응용 프�
 services: hdinsight
 documentationcenter: 
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: 
 ms.assetid: 1d1ed180-e0f4-4d1c-b5ea-72e0eda643bc
 ms.service: hdinsight
@@ -13,13 +13,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 01/25/2018
 ms.author: larryfr
-ms.openlocfilehash: 07f6d49b6d5c0a5b77ef5a7a7395a37e79419955
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 7f5e4cd36b32ae86bc6f498c81d5a558ca6974d2
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>Apache HBase에 대한 Java 응용 프로그램 빌드
 
@@ -642,7 +642,7 @@ Java에서 [Apache HBase](http://hbase.apache.org/) 응용 프로그램을 만�
     Add-HDInsightFile -localPath target\hbaseapp-1.0-SNAPSHOT.jar -destinationPath example/jars/hbaseapp-1.0-SNAPSHOT.jar -clusterName hdinsightclustername
     ```
 
-    `hdinsightclustername`을 클러스터의 이름으로 바꿉니다. 이 명령은 `hbaseapp-1.0-SNAPSHOT.jar`을 클러스터용 기본 저장소에서 `example/jars` 위치에 업로드합니다.
+    `hdinsightclustername`을 클러스터의 이름으로 바꿉니다. 메시지가 표시되면 클러스터 로그인(관리자) 이름 및 암호를 입력합니다. 이 명령은 `hbaseapp-1.0-SNAPSHOT.jar`을 클러스터용 기본 저장소에서 `example/jars` 위치에 업로드합니다.
 
 5. `hbaseapp`을 사용하는 테이블을 만들려면 다음 명령을 사용합니다.
 
@@ -650,7 +650,7 @@ Java에서 [Apache HBase](http://hbase.apache.org/) 응용 프로그램을 만�
     Start-HBaseExample -className com.microsoft.examples.CreateTable -clusterName hdinsightclustername
     ```
 
-    `hdinsightclustername`을 클러스터의 이름으로 바꿉니다.
+    `hdinsightclustername`을 클러스터의 이름으로 바꿉니다. 메시지가 표시되면 클러스터 로그인(관리자) 이름 및 암호를 입력합니다.
 
     이 명령은 HDInsight 클러스터에 HBase의 **people**이라는 테이블을 만듭니다. 이 명령은 콘솔 창에 출력을 표시하지 않습니다.
 
@@ -660,7 +660,7 @@ Java에서 [Apache HBase](http://hbase.apache.org/) 응용 프로그램을 만�
     Start-HBaseExample -className com.microsoft.examples.SearchByEmail -clusterName hdinsightclustername -emailRegex contoso.com
     ```
 
-    `hdinsightclustername`을 클러스터의 이름으로 바꿉니다.
+    `hdinsightclustername`을 클러스터의 이름으로 바꿉니다. 메시지가 표시되면 클러스터 로그인(관리자) 이름 및 암호를 입력합니다.
 
     이 명령은 `SearchByEmail` 클래스를 사용하여 `contactinformation` 열 패밀리 및 `email` 열에 `contoso.com` 문자열이 포함된 모든 행을 검색합니다. 다음과 같은 결과가 표시됩니다.
 

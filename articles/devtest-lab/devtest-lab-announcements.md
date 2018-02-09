@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 1/29/2018
 ms.author: v-craic
-ms.openlocfilehash: d376909a46da11ac1b6b1fa968e53ebef8f3dbf7
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 99b0938d5f4c8b022ead3473a0367de5d75cd6ff
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="post-an-announcement-to-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs에서 랩에 공지 게시
 
@@ -47,6 +47,13 @@ ms.lasthandoff: 01/02/2018
 
 1. 이 랩에서 사용자를 위한 메시지를 만들려면 **사용**을 **예**로 설정합니다.
 
+1. **만료 날짜**를 입력하여 공지가 사용자에게 더 이상 표시되지 않는 이후 시간 및 날짜를 지정할 수 있습니다. 만료 날짜를 입력하지 않으면 사용하지 않을 때까지 공지가 유지됩니다.
+
+   > [!NOTE]
+   > 공지가 만료된 후에 사용자에게는 더 이상 표시되지 않지만 여전히 **랩 공지** 창에 존재합니다. 이를 편집하고 재사용하여 다시 활성화할 수 있습니다.
+   >
+   >
+
 1. **공지 제목** 및 **공지 텍스트**를 입력합니다.
 
    제목은 100자까지 가능하고 랩의 개요 페이지에 표시됩니다. 사용자가 제목을 선택하면 공지 텍스트가 표시됩니다.
@@ -58,7 +65,7 @@ ms.lasthandoff: 01/02/2018
 
 1. 공지를 게시할 준비가 되면 **저장**을 선택합니다.
 
-이 공지를 랩 사용자에게 더 이상 표시하지 않으려는 경우 **랩 공지** 페이지로 돌아가서 **사용**을 **아니요**로 설정합니다.
+이 공지를 랩 사용자에게 더 이상 표시하지 않으려는 경우 **랩 공지** 페이지로 돌아가서 **사용**을 **아니요**로 설정합니다. 만료 날짜를 지정하는 경우 공지는 해당 날짜 및 시간에 자동으로 비활성화됩니다.
 
 ## <a name="steps-for-users-to-view-an-announcement"></a>알림을 보기 위한 단계
 

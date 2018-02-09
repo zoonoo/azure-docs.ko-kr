@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: ddove
-ms.openlocfilehash: d985008bf4aa6710f3aae89f13fc7e36ac0c176b
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: c5fe5256d4a8b8479f5e4aff95ec03fc1ba1018a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="getting-started-with-elastic-database-jobs"></a>Elastic Database 작업 시작
 Azure SQL Database에 대한 Elastic Database job(미리 보기)을 사용하면 자동으로 다시 시도하여 최종 완료를 보장하는 동시에 여러 데이터베이스에 걸친 T-SQL 스크립트를 안정적으로 실행할 수 있습니다. Elastic Database 작업 기능에 대한 자세한 내용은 [탄력적 작업](sql-database-elastic-jobs-overview.md)을 참조하세요.
@@ -454,7 +454,7 @@ Elastic Database 작업은 비동기 작업 삭제를 지원합니다. 작업을
 
    ![다른 원본에서 Excel 가져오기](./media/sql-database-elastic-query-getting-started/exel-sources.png)
 
-4. **데이터 연결 마법사** 에서 서버 이름 및 로그인 자격 증명을 입력합니다. 그런 후 **Next**를 클릭합니다.
+4. **데이터 연결 마법사** 에서 서버 이름 및 로그인 자격 증명을 입력합니다. 그런 후 **Next** 를 클릭합니다.
 5. 대화 상자에서 **원하는 데이터를 포함하는 데이터베이스를 선택**하고 **ElasticDBQuery** 데이터베이스를 선택합니다.
 6. 목록 보기에서 **사용자**테이블을 선택하고 **다음**을 클릭합니다. **마침**을 클릭합니다.
 7. **데이터 가져오기** 양식에서, **통합 문서에서 원하는 데이터를 보는 방법을 선택**하고 **테이블**을 선택하고 **확인**을 클릭합니다.

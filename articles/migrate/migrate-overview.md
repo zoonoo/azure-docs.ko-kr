@@ -6,11 +6,11 @@ ms.service: azure-migrate
 ms.topic: overview
 ms.date: 01/08/2018
 ms.author: raynew
-ms.openlocfilehash: 0bd3d7a9961e7a095684262ae1031f5a3ac0c3fb
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 393f2dfa29b930622a37b8ad90ee17b794c70aeb
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="about-azure-migrate"></a>Azure Migrate 정보
 
@@ -42,7 +42,7 @@ Azure Migrate의 기능:
 
 ## <a name="what-do-i-need-to-pay-for"></a>어떤 요금이 발생하나요?
 
-Azure Migrate는 추가 요금 없이 사용할 수 있습니다. 그러나 공개 미리 보기 기간 동안 종속성 시각화 기능 사용에 대해서는 추가 요금이 부과됩니다. Azure Migrate는 [종속성 시각화](concepts-dependency-visualization.md)를 지원하기 위해 기본적으로 Log Analytics 작업 영역을 만듭니다. 종속성 시각화를 사용하거나 Azure Migrate 외부에서 작업 영역을 사용하는 경우 작업 영역 사용 요금이 부과됩니다. 요금에 대해 [자세히 알아보세요](https://azure.microsoft.com/en-us/pricing/details/insight-analytics/). 서비스가 출시되면 종속성 시각화 기능 사용에 대해 요금이 부과되지 않습니다.
+[여기](https://azure.microsoft.com/en-in/pricing/details/azure-migrate/)에서 Azure Migrate 가격 책정에 대해 자세히 알아보세요.
 
 
 ## <a name="whats-in-an-assessment"></a>평가의 내용

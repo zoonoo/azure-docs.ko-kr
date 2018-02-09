@@ -2,7 +2,7 @@
 ## [Azure AD Connect의 정의](active-directory-aadconnect.md)
 ## [Azure AD Connect 동기화란?](active-directory-aadconnectsync-whatis.md)
 ### [사용자 및 연락처](active-directory-aadconnectsync-understanding-users-and-contacts.md)
-### [아키텍처](active-directory-aadconnectsync-understanding-architecture.md)
+### [Architecture](active-directory-aadconnectsync-understanding-architecture.md)
 ### [선언적 프로비전](active-directory-aadconnectsync-understanding-declarative-provisioning.md)
 #### [선언적 프로비전 식](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md)
 ### [기본 구성](active-directory-aadconnectsync-understanding-default-configuration.md)
@@ -55,9 +55,10 @@
 ### [암호 동기화](active-directory-aadconnectsync-implement-password-synchronization.md)
 ### [Azure AD 서비스 계정](active-directory-aadconnectsync-howto-azureadaccount.md)
 ### [설치 마법사](active-directory-aadconnectsync-installation-wizard.md)
+### [UserPrincipalName 채워지는 방법](active-directory-aadconnect-userprincipalname.md)
 ### [기본 구성 변경](active-directory-aadconnectsync-best-practices-changing-default-configuration.md)
 ### [필터링 구성](active-directory-aadconnectsync-configure-filtering.md)
-### [스케줄러](active-directory-aadconnectsync-feature-scheduler.md)
+### [Scheduler](active-directory-aadconnectsync-feature-scheduler.md)
 ### [디렉터리 확장](active-directory-aadconnectsync-feature-directory-extensions.md)
 
 ### [Azure AD Sync 서비스 계정 암호 변경](active-directory-aadconnectsync-change-serviceacct-pass.md)
@@ -84,7 +85,7 @@
 ### [userCertificate로 인해 발생한 LargeObject 오류](active-directory-aadconnectsync-largeobjecterror-usercertificate.md)
 ### [LocalDB 10GB 제한에서 복구하는 방법](active-directory-aadconnect-recover-from-localdb-10gb-limit.md)
 
-# 참조
+# 참고 자료
 ## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 ## [ID 동기화 및 중복 특성 복원력](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md)
 ## [포트 및 프로토콜이 필요한 하이브리드 ID](active-directory-aadconnect-ports.md)

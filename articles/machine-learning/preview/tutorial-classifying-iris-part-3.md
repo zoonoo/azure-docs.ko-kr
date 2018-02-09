@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 11/29/2017
-ms.openlocfilehash: 97cd46819a4547ec743270871bcb6b4eef3eb365
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 12cbd7d9682e70fc5bc65b2eda5b8eddf6bbb7f0
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="classify-iris-part-3-deploy-a-model"></a>아이리스 분류 3부: 모델 배포
 Azure Machine Learning 서비스(미리 보기)는 전문 데이터 과학자를 위한 종단 간 데이터 과학 및 고급 분석 통합 솔루션입니다. 데이터 과학자는 클라우드 규모로 데이터를 준비하고, 실험을 개발하며, 모델을 배포하는 데 사용할 수 있습니다.
@@ -146,6 +146,17 @@ _로컬 모드_ 배포를 사용하여 로컬 컴퓨터의 Docker 컨테이너�
    
    클러스터 이름은 환경을 식별할 수 있는 방법입니다. 위치는 Azure Portal에서 만든 모델 관리 계정의 위치와 동일해야 합니다.
 
+   환경이 성공적으로 설정되었는지 확인하려면 다음 명령을 사용하여 상태를 확인합니다.
+
+   ```azurecli
+   az ml env show -n <deployment environment name> -g <existing resource group name>
+   ```
+
+   5단계에서 환경을 설정하기 전에 "프로비전 상태" 값이 "성공"(아래에 표시됨)인지 확인하세요.
+
+   ![프로비전 상태](media/tutorial-classifying-iris/provisioning_state.png)
+ 
+   
 3. 모델 관리 계정을 만듭니다. 이 설정은 한 번만 수행하면 됩니다.  
    ```azurecli
    az ml account modelmanagement create --location <e.g. eastus2> -n <new model management account name> -g <existing resource group name> --sku-name S1
@@ -258,8 +269,9 @@ _로컬 모드_ 배포를 사용하여 로컬 컴퓨터의 Docker 컨테이너�
 
 2. 서비스를 테스트하려면 반환된 서비스 실행 명령을 실행합니다.
 
+    
    ```azurecli
-   az ml service run realtime -i irisapp -d "{\"input_df\": [{\"petal width\": 0.25, \"sepal length\": 3.0, \"sepal width\": 3.6, \"petal length\": 1.3}]}"
+   az ml service run realtime -i <web service ID> -d "{\"input_df\": [{\"petal width\": 0.25, \"sepal length\": 3.0, \"sepal width\": 3.6, \"petal length\": 1.3}]}"
    ```
    출력은 예상된 클래스인 **“2”**입니다. (결과가 다를 수도 있습니다.) 
 

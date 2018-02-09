@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/18/2017
+ms.date: 1/31/2018
 ms.author: ancav
-ms.openlocfilehash: 673f5a5cd6832adb031ef72ce25f8a1622717cfd
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: a7d28de33090995b0a036d528fb82f9e0d7335bf
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Azure Monitor에서 지원되는 메트릭
 Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세스, PowerShell이나 CLI를 통한 쿼리 등, 메트릭과 상호 작용하는 몇 가지 방법을 제공합니다. 다음은 현재 Azure Monitor의 메트릭 파이프라인을 통해 사용할 수 있는 모든 메트릭의 전체 목록입니다. 
@@ -529,6 +529,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |jobs.failed|실패한 작업|개수|합계|실패한 모든 작업의 수입니다.|차원 없음|
 |d2c.telemetry.ingress.sendThrottle|제한 오류 수|개수|합계|장치 처리량 제한으로 인한 제한 오류 수|차원 없음|
 |dailyMessageQuotaUsed|사용된 전체 메시지 수|개수|평균|오늘 사용된 전체 메시지 수입니다. 매일 00:00 UTC에 0으로 다시 설정되는 누적 값입니다.|차원 없음|
+|deviceDataUsage|총 장치 데이터 사용|개수|합계|IotHub에 연결된 모든 장치에서 전송된 바이트|차원 없음|
 
 ## <a name="microsoftdevicesprovisioningservices"></a>Microsoft.Devices/provisioningServices
 
@@ -707,15 +708,6 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |BillableTriggerExecutions|청구 가능한 트리거 실행|개수|합계|청구되는 워크플로 트리거 실행 수.|차원 없음|
 |TotalBillableExecutions|총 청구 가능 실행|개수|합계|청구되는 워크플로 실행 수.|차원 없음|
 
-## <a name="microsoftnetworknetworkinterfaces"></a>Microsoft.Network/networkInterfaces
-
-|메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원|
-|---|---|---|---|---|---|
-|BytesSentRate|보낸 바이트|개수|합계|네트워크 인터페이스가 보낸 바이트 수|차원 없음|
-|BytesReceivedRate|수신된 바이트|개수|합계|네트워크 인터페이스가 수신한 바이트 수|차원 없음|
-|PacketsSentRate|보낸 패킷|개수|합계|네트워크 인터페이스가 보낸 패킷 수|차원 없음|
-|PacketsReceivedRate|수신된 패킷|개수|합계|네트워크 인터페이스가 수신한 패킷 수|차원 없음|
-
 ## <a name="microsoftnetworkloadbalancers"></a>Microsoft.Network/loadBalancers
 
 |메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원|
@@ -757,13 +749,6 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |ByteCount|바이트 수|개수|합계|기간 내에 전송된 총 바이트 수|포트, 방향|
 |PacketCount|패킷 수|개수|합계|기간 내에 전송된 총 패킷 수|포트, 방향|
 |SynCount|SYN 수|개수|합계|기간 내에 전송된 총 SYN 패킷 수|포트, 방향|
-
-## <a name="microsoftnetworkvirtualnetworks"></a>Microsoft.Network/virtualNetworks
-
-|메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원|
-|---|---|---|---|---|---|
-|PacketsInDroppedVMProtection|VM 보호를 위해 삭제된 인바운드 패킷|초당 개수|평균|VM 보호를 위해 삭제된 인바운드 패킷|차원 없음|
-|PacketsOutDroppedVMProtection|VM 보호를 위해 삭제된 아웃바운드 패킷|초당 개수|평균|VM 보호를 위해 삭제된 아웃바운드 패킷|차원 없음|
 
 ## <a name="microsoftnetworkapplicationgateways"></a>Microsoft.Network/applicationGateways
 
@@ -864,6 +849,13 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |incoming.all.requests|들어오는 모든 요청|개수|합계|알림 허브에 대해 들어오는 전체 요청|차원 없음|
 |incoming.all.failedrequests|들어오는 모든 실패한 요청|개수|합계|알림 허브에 대해 들어오는 실패한 전체 요청|차원 없음|
 
+## <a name="microsoftpowerbidedicatedcapacities"></a>Microsoft.PowerBIDedicated/capacities
+
+|메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|---|---|---|---|---|---|
+|QueryDuration||개수|평균||차원 없음|
+|QueryPoolJobQueueLength|스레드: 쿼리 풀 작업 큐 길이|개수|평균|쿼리 스레드 풀의 큐에 있는 작업 수입니다.|차원 없음|
+
 ## <a name="microsoftrelaynamespaces"></a>Microsoft.Relay/namespaces
 
 |메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원|
@@ -937,23 +929,16 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원|
 |---|---|---|---|---|---|
 |cpu_percent|CPU 비율|백분율|평균|CPU 비율|차원 없음|
-|database_cpu_percent|CPU 비율|백분율|평균|CPU 비율|DatabaseResourceId|
 |physical_data_read_percent|데이터 IO 비율|백분율|평균|데이터 IO 비율|차원 없음|
-|database_physical_data_read_percent|데이터 IO 비율|백분율|평균|데이터 IO 비율|DatabaseResourceId|
 |log_write_percent|로그 IO 비율|백분율|평균|로그 IO 비율|차원 없음|
-|database_log_write_percent|로그 IO 비율|백분율|평균|로그 IO 비율|DatabaseResourceId|
 |dtu_consumption_percent|DTU 비율|백분율|평균|DTU 비율|차원 없음|
-|database_dtu_consumption_percent|DTU 비율|백분율|평균|DTU 비율|DatabaseResourceId|
 |storage_percent|저장소 비율|백분율|평균|저장소 비율|차원 없음|
 |workers_percent|작업자 백분율|백분율|평균|작업자 백분율|차원 없음|
-|database_workers_percent|작업자 백분율|백분율|평균|작업자 백분율|DatabaseResourceId|
 |sessions_percent|세션 백분율|백분율|평균|세션 백분율|차원 없음|
-|database_sessions_percent|세션 백분율|백분율|평균|세션 백분율|DatabaseResourceId|
 |eDTU_limit|eDTU 제한|개수|평균|eDTU 제한|차원 없음|
 |storage_limit|저장소 제한|바이트|평균|저장소 제한|차원 없음|
 |eDTU_used|eDTU 사용|개수|평균|eDTU 사용|차원 없음|
 |storage_used|저장소 사용됨|바이트|평균|저장소 사용됨|차원 없음|
-|database_storage_used|저장소 사용됨|바이트|평균|저장소 사용됨|DatabaseResourceId|
 |xtp_storage_percent|메모리 내 OLTP 저장소 백분율|백분율|평균|메모리 내 OLTP 저장소 백분율|차원 없음|
 
 ## <a name="microsoftsqlservers"></a>Microsoft.Sql/servers
@@ -961,9 +946,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원|
 |---|---|---|---|---|---|
 |dtu_consumption_percent|DTU 비율|백분율|평균|DTU 비율|ElasticPoolResourceId|
-|database_dtu_consumption_percent|DTU 비율|백분율|평균|DTU 비율|DatabaseResourceId, ElasticPoolResourceId|
 |storage_used|저장소 사용됨|바이트|평균|저장소 사용됨|ElasticPoolResourceId|
-|database_storage_used|저장소 사용됨|바이트|평균|저장소 사용됨|DatabaseResourceId, ElasticPoolResourceId|
 
 ## <a name="microsoftstoragestorageaccounts"></a>Microsoft.Storage/storageAccounts
 
@@ -1080,6 +1063,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |MemoryWorkingSet|메모리 작업 집합|바이트|평균|메모리 작업 집합|인스턴스|
 |AverageMemoryWorkingSet|평균 메모리 작업 집합|바이트|평균|평균 메모리 작업 집합|인스턴스|
 |AverageResponseTime|평균 응답 시간|초|평균|평균 응답 시간|인스턴스|
+|AppConnections|연결|개수|평균|연결|인스턴스|
 
 ## <a name="microsoftwebsites-functions"></a>Microsoft.Web/sites(functions)
 
@@ -1113,8 +1097,9 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |MemoryWorkingSet|메모리 작업 집합|바이트|평균|메모리 작업 집합|인스턴스|
 |AverageMemoryWorkingSet|평균 메모리 작업 집합|바이트|평균|평균 메모리 작업 집합|인스턴스|
 |AverageResponseTime|평균 응답 시간|초|평균|평균 응답 시간|인스턴스|
-|FunctionExecutionUnits|함수 실행 단위|개수|평균|함수 실행 단위|인스턴스|
-|FunctionExecutionCount|함수 실행 횟수|개수|평균|함수 실행 횟수|인스턴스|
+|FunctionExecutionUnits|함수 실행 단위|개수|합계|함수 실행 단위|인스턴스|
+|FunctionExecutionCount|함수 실행 횟수|개수|합계|함수 실행 횟수|인스턴스|
+|AppConnections|연결|개수|평균|연결|인스턴스|
 
 ## <a name="microsoftwebhostingenvironmentsmultirolepools"></a>Microsoft.Web/hostingEnvironments/multiRolePools
 
@@ -1138,18 +1123,18 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |DiskQueueLength|디스크 큐 길이|개수|평균|디스크 큐 길이|인스턴스|
 |HttpQueueLength|Http 큐 길이|개수|평균|Http 큐 길이|인스턴스|
 |ActiveRequests|활성 요청|개수|합계|활성 요청|인스턴스|
-|TotalFrontEnds|총 프런트 엔드|개수|평균|총 프런트 엔드|인스턴스|
-|SmallAppServicePlanInstances|소형 App Service 계획 작업자|개수|평균|소형 App Service 계획 작업자|인스턴스|
-|MediumAppServicePlanInstances|중형 App Service 계획 작업자|개수|평균|중형 App Service 계획 작업자|인스턴스|
-|LargeAppServicePlanInstances|대형 App Service 계획 작업자|개수|평균|대형 App Service 계획 작업자|인스턴스|
+|TotalFrontEnds|총 프런트 엔드|개수|평균|총 프런트 엔드|차원 없음|
+|SmallAppServicePlanInstances|소형 App Service 계획 작업자|개수|평균|소형 App Service 계획 작업자|차원 없음|
+|MediumAppServicePlanInstances|중형 App Service 계획 작업자|개수|평균|중형 App Service 계획 작업자|차원 없음|
+|LargeAppServicePlanInstances|대형 App Service 계획 작업자|개수|평균|대형 App Service 계획 작업자|차원 없음|
 
 ## <a name="microsoftwebhostingenvironmentsworkerpools"></a>Microsoft.Web/hostingEnvironments/workerPools
 
 |메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원|
 |---|---|---|---|---|---|
-|WorkersTotal|총 작업자|개수|평균|총 작업자|인스턴스|
-|WorkersAvailable|사용 가능한 작업자|개수|평균|사용 가능한 작업자|인스턴스|
-|WorkersUsed|사용된 작업자|개수|평균|사용된 작업자|인스턴스|
+|WorkersTotal|총 작업자|개수|평균|총 작업자|차원 없음|
+|WorkersAvailable|사용 가능한 작업자|개수|평균|사용 가능한 작업자|차원 없음|
+|WorkersUsed|사용된 작업자|개수|평균|사용된 작업자|차원 없음|
 |CpuPercentage|CPU 비율|백분율|평균|CPU 비율|인스턴스|
 |MemoryPercentage|메모리 비율|백분율|평균|메모리 비율|인스턴스|
 

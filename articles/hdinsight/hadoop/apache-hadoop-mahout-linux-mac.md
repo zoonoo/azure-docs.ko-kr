@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/06/2017
+ms.date: 01/29/2018
 ms.author: larryfr
-ms.openlocfilehash: 65d6dc7bf96666f004038c6dae00d2f4e9ea5d7f
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 4674008523704b9b1fb86de8606641f6140e2910
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="generate-movie-recommendations-by-using-apache-mahout-with-linux-based-hadoop-in-hdinsight-ssh"></a>HDInsight(SSH)의 Linux 기반 Hadoop와 함께 Apache Mahout를 사용하여 영화 추천 생성
 
@@ -51,9 +51,9 @@ Mahout에서 제공하는 기능 중 하나가 추천 엔진입니다. 이 엔�
 
 * **동시 발생**: Joe, Alice 및 Bob은 모두 *스타워즈*, *제국의 역습* 및 *제다이의 귀환*을 좋아합니다. Mahout은 이러한 영화 중 하나를 좋아하면서 다른 두 개도 좋아하는 사용자를 확인합니다.
 
-* **동시 발생**: Bob 및 Alice는 *보이지 않는 위협*, *클론의 습격* 및 *시스의 복수*도 좋아합니다. Mahout은 이전의 세 영화를 좋아했던 사용자가 이 세 영화도 좋아하는지 확인합니다.
+* **동시 발생**: Bob 및 Alice는 *보이지 않는 위협*, *클론의 습격* 및 *시스의 복수*도 좋아합니다. Mahout은 이전의 3개 영화를 좋아했던 사용자가 이 3개 영화도 좋아하는지 확인합니다.
 
-* **유사성 추천**: Joe가 처음 세 영화를 좋아하므로, Mahout은 유사한 선호도를 가진 다른 사람이 좋아하지만 Joe는 본(좋아하거나 평가한) 적이 없는 영화를 검색합니다. 이 경우 Mahout은 *보이지 않는 위협*, *클론의 습격* 및 *시스의 복수*를 추천합니다.
+* **유사성 추천**: Joe가 첫 3개 영화를 좋아하므로, Mahout은 유사한 선호도를 가진 다른 사람이 좋아하지만 Joe는 본(좋아하거나 평가한) 적이 없는 영화를 검색합니다. 이 경우 Mahout은 *보이지 않는 위협*, *클론의 습격* 및 *시스의 복수*를 추천합니다.
 
 ### <a name="understanding-the-data"></a>데이터 이해
 

@@ -12,15 +12,16 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: f05524f9ec70fea243ab6cb3e87a70e762b0fa48
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: 4c06127c44a1ea5a3b0ef5e755e5212bfe417fed
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="enroll-x509-devices-to-iot-hub-device-provisioning-service-using-java-service-sdk"></a>Java 서비스 SDK를 사용하여 IoT Hub Device Provisioning Service에 X.509 장치 등록
 > [!div class="op_single_selector"]
 > * [Java](quick-enroll-device-x509-java.md)
+> * [C#](quick-enroll-device-x509-csharp.md)
 > * [Node.js](quick-enroll-device-x509-node.md)
 
 다음 단계에서는 샘플 Java 응용 프로그램을 통해 [Java 서비스 SDK](https://azure.github.io/azure-iot-sdk-java/service/)를 사용하여 시뮬레이션된 X.509 장치 그룹을 Azure IoT Hub Device Provisioning Service에 프로그래밍 방식으로 등록하는 방법을 보여 줍니다. Java 서비스 SDK는 Windows 및 Linux 컴퓨터 모두에서 작동하지만, 이 문서에서는 Windows 개발 컴퓨터를 사용하여 등록 프로세스를 안내합니다.

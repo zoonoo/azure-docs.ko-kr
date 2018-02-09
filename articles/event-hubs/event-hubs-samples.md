@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2017
 ms.author: sethm
-ms.openlocfilehash: 0af3f6bc6e074fae4d830f163419d6437d04e2df
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: e037d0e291384849739825ae7ad59064a135db95
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="event-hubs-samples"></a>Event Hubs 샘플 
 
@@ -60,10 +60,6 @@ Azure Event Hubs 샘플 집합은 [Azure Event Hubs](/azure/event-hubs/)의 주�
 ### <a name="scale-out-event-processing"></a>이벤트 처리 확장 
 
 [이벤트 처리 확장](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3) 샘플은 [이벤트 프로세서 호스트](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/)를 사용하여 Event Hubs 스트림 사용 워크로드를 분산하는 방법을 보여 줍니다. 또한 이벤트 스트림을 관리하도록 **EventProcessor** 및 **EventProcessorFactory** 개체를 구현하는 방법도 보여 줍니다. 
-
-###  <a name="pull-data-from-sql-into-an-event-hub"></a>SQL의 데이터를 이벤트 허브로 끌어오기
-
-[SQL 데이터 끌어오기](https://github.com/Azure-Samples/event-hubs-dotnet-import-from-sql) 샘플은 SQL 테이블의 데이터를 끌어와 이벤트 허브에 푸시하여 다운스트림 분석 응용 프로그램에 대한 입력으로 사용하도록 하는 방법을 보여 줍니다.
 
 ### <a name="pull-web-data-into-an-event-hub"></a>웹 데이터를 이벤트 허브로 끌어오기 
 

@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 6febd3f12248a96f54415a91fcf0513ef7412e78
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 7ee5a720b12152c27a96ee18f1b11e5fc03a531a
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="derive-column-by-example-transformation"></a>예제별 열 파생 변환
 
@@ -67,6 +67,10 @@ Round, Floor, Ceiling, 범주화, 0이나 공백인 안쪽 여백, 또는 1000�
 고급 모드에서 눈금의 행을 두 번 클릭하여 어떤 행이든 예제 행으로 추가할 수 있습니다. 행이 예제 행으로 복사되면, 원본 열의 데이터를 편집하여 가상 예제를 만들 수 있습니다. 이렇게 하면 현재 샘플 데이터에 존재하지 않는 사례를 추가할 수 있습니다.
 
 사용자는 변환 편집기에 있는 링크를 클릭하여 **기본 모드**와 **고급 모드** 간을 전환할 수 있습니다.
+
+### <a name="transform-editor-send-feedback"></a>변환 편집기: 피드백 보내기
+
+**피드백 보내기** 링크를 클릭하면 사용자가 제공한 예제로 주석 상자가 미리 채워진 **피드백** 대화 상자가 열립니다. 사용자는 주석 상자의 내용을 검토하고 문제를 이해하는 데 필요한 자세한 정보를 제공해야 합니다. Microsoft와 데이터를 공유하지 않으려면 **피드백 보내기** 단추를 클릭하기 전에 미리 채워진 예제 데이터를 삭제해야 합니다. 
 
 ### <a name="editing-existing-transformation"></a>기존 변환 편집
 
