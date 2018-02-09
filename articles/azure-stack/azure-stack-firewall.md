@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: f7b621312677c0b250e267770ae0c445ee9f083f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 919618c0779d47f0add02d5e7d3ab9ab4b5bdd10
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-stack-firewall-integration"></a>Azure 스택 방화벽 통합
 Azure 스택 보안을 위해 방화벽 장치를 사용 하는 것이 좋습니다. 하지만 방화벽 등으로 분산 된 서비스 거부 (DDOS) 공격, 침입 감지 및 콘텐츠 검사에 도움이 될 수, blob, 테이블 및 큐와 같은 Azure 저장소 서비스에 대 한 처리량 병목 지점이 될 수도 있습니다.
@@ -41,7 +41,7 @@ NAT에서 외부 네트워크 또는 공용 Vip에 공용 IP 주소에 대 한 �
 - Azure 사용한 하이브리드 클라우드 시나리오에 대 한 Azure 설정을 NAT.를 사용 하는 끝점에 대 한 VPN 터널을 지원 하지 않습니다 것이 좋습니다
 
 ### <a name="ssl-decryption"></a>SSL 암호 해독
-현재 권장 SSL 암호 해독 하는 것은 모든 Azure 스택 트래픽을 사용 하지 않도록 설정, 나중에에서는 Azure 스택에 대 한 SSL 암호 해독을 설정 하는 방법에 지침을 제공 합니다.
+현재 모든 Azure 스택 트래픽을 SSL 암호 해독을 사용 하지 않도록 설정 하는 것이 좋습니다. 향후 업데이트에서 지원 않을 경우 Azure 스택에 대 한 SSL 암호 해독을 설정 하는 방법에 대 한 지침을 제공 됩니다.
 
 ## <a name="edge-firewall-scenario"></a>가장자리 방화벽 시나리오
 가장자리 배포에서 Azure 스택은에 지 라우터 또는 방화벽 뒤에 직접 배포 됩니다. 이러한 시나리오에서는 테두리 또는 같은 비용 다중 경로 ECMP ()를 BGP 또는 정적 라우팅를 지 원하는 경우 테두리 장치 역할을 초과 하는 방화벽에 대 한 지원 됩니다.

@@ -5,22 +5,22 @@ services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: 
-ms.openlocfilehash: 2f15e130859272a729fb0ad6e0b718d4724f2103
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 03dc26ba3fcf10b52f6d6b77445de3f6770c4162
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Azure 스택 데이터 센터 통합-Identity
 Id 공급자와 Azure Active Directory (Azure AD) 또는 Active Directory Federation Services (AD FS)을 사용 하 여 Azure 스택을 배포할 수 있습니다. Azure 스택을 배포 하기 전에 선택을 해야 합니다. AD FS를 사용 하 여 배포를 Azure 스택 연결이 끊어진된 모드에서 배포는 라고도 합니다.
 
 다음 표에서 두 가지 identity 옵션 간의 차이점을 보여 줍니다.
 
-||물리적으로 연결 끊김|물리적으로 연결|
+||인터넷에서 분리|인터넷에 연결|
 |---------|---------|---------|
 |결제|용량 이어야 합니다.<br> 기업 계약 (EA)만|용량 또는 사용량 기준 과금으로-있습니다-사용<br>EA 또는 클라우드 솔루션 공급자 (CSP)|
 |ID|AD FS 여야 합니다.|Azure AD 또는 AD FS|

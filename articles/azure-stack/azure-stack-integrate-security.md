@@ -9,16 +9,13 @@ ms.date: 01/31/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: 
-ms.openlocfilehash: 0ce7585552f39f59f83df88320e52ea257bb74dd
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 16d97765c9340555bfc0db22975a43227cc6b517
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-stack-datacenter-integration---security"></a>Azure 스택 데이터 센터 통합-보안
-
-*적용 대상: Azure 스택 시스템 통합*
-
 Azure 스택 설계 및 보안 염두에서에 두고 작성 되었습니다. Azure 스택 잠금 시스템 이므로 소프트웨어 보안 에이전트 설치가 지원 되지 않습니다.
 
 이 문서를 사용 하면 Azure 스택 보안 기능 데이터 센터에 이미 배포 된 보안 솔루션을 통합할 수 있습니다.
