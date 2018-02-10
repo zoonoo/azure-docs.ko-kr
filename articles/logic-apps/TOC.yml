@@ -142,10 +142,14 @@
           href: logic-apps-enterprise-integration-as2.md
         - name: Azure Blob Storage
           href: ../connectors/connectors-create-api-azureblobstorage.md
+        - name: Azure Event Hubs
+          href: ../connectors/connectors-create-api-azure-event-hubs.md
         - name: Azure 기능
           href: logic-apps-azure-functions.md
         - name: Azure Logic Apps
           href: logic-apps-http-endpoint.md
+        - name: Azure Service Bus
+          href: ../connectors/connectors-create-api-servicebus.md
         - name: Azure SQL Database
           href: ../connectors/connectors-create-api-sqlazure.md
         - name: 사용자 지정 API 및 웹앱
@@ -156,9 +160,6 @@
           href: ../connectors/connectors-create-api-crmonline.md
         - name: EDIFACT
           href: logic-apps-enterprise-integration-edifact.md
-        - name: |
-            Event Hubs
-          href: ../connectors/connectors-create-api-azure-event-hubs.md
         - name: 파일 시스템
           href: logic-apps-using-file-connector.md
         - name: 플랫 파일
@@ -189,8 +190,6 @@
           href: logic-apps-using-sap-connector.md
         - name: 일정
           href: ../connectors/connectors-native-recurrence.md
-        - name: Azure Service Bus
-          href: ../connectors/connectors-create-api-servicebus.md
         - name: SharePoint Online
           href: ../connectors/connectors-create-api-sharepointonline.md
         - name: SharePoint Server

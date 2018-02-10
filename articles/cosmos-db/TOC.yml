@@ -360,6 +360,7 @@
           href: spark-connector-graph.md
         - name: HDInsight에서 Kafka 및 Spark로 스트리밍
           href: ../hdinsight/apache-kafka-spark-structured-streaming-cosmosdb.md
+          maintainContext: true
         - name: Azure App Service로 웹 사이트 배포
           href: create-website.md
         - name: Logic Apps를 통한 응용 프로그램 로깅

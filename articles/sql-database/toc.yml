@@ -359,6 +359,8 @@
           items:
             - name: 예제 앱 배포
               href: saas-standaloneapp-get-started-deploy.md
+            - name: 테넌트 프로비전
+              href: saas-standaloneapp-provision-and-catalog.md
         - name: 테넌트당 데이터베이스
           href: saas-dbpertenant-wingtip-app-overview.md
           items:

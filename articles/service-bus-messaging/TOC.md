@@ -4,7 +4,7 @@
 ## [Service Bus 아키텍처](service-bus-architecture.md)
 ## [FAQ](service-bus-faq.md)
 
-# 시작
+# 빠른 시작
 ## [네임스페이스 만들기](service-bus-create-namespace-portal.md)
 ## 큐 사용
 ### [.NET](service-bus-dotnet-get-started-with-queues.md)
@@ -95,7 +95,7 @@
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=enterprise-integration)
 ## [블로그](https://blogs.msdn.microsoft.com/servicebus/)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/forums/home?forum=servbus)
-## [가격](https://azure.microsoft.com/pricing/details/service-bus/)
+## [가격 책정](https://azure.microsoft.com/pricing/details/service-bus/)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [가격 정보](service-bus-pricing-billing.md)
 ## [샘플](service-bus-samples.md)
