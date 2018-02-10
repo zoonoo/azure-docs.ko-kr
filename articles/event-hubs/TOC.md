@@ -3,7 +3,7 @@
 ## [Event Hubs 기능](event-hubs-features.md)
 ## [FAQ](event-hubs-faq.md)
 
-# 시작
+# 빠른 시작
 ## [이벤트 허브 만들기](event-hubs-create.md)
 ## 이벤트 보내기
 ### [.NET Standard](event-hubs-dotnet-standard-getstarted-send.md)

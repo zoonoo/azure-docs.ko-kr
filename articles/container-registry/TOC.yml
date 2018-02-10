@@ -69,6 +69,8 @@
       href: /dotnet/api/overview/azure/containerregistry
     - name: 파이썬
       href: /python/api/overview/azure/container-registry
+    - name: 자바
+      href: /java/api/overview/azure/containerregistry
     - name: Node.js
       href: /javascript/api/overview/azure/container-registry
     - name: Resource Manager 템플릿

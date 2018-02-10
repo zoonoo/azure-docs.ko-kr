@@ -2,12 +2,12 @@
 ## [릴레이란?](relay-what-is-it.md)
 ## [FAQ](relay-faq.md)
 
-# 시작
+# 빠른 시작
 ## [네임스페이스 만들기](relay-create-namespace-portal.md)
 ## [하이브리드 온-프레미스/클라우드 응용 프로그램 만들기](service-bus-dotnet-hybrid-app-using-service-bus-relay.md)
 ## 하이브리드 연결
 ### [.NET](relay-hybrid-connections-dotnet-get-started.md)
-### [노드](relay-hybrid-connections-node-get-started.md)
+### [Node](relay-hybrid-connections-node-get-started.md)
 ## [WCF 릴레이](relay-wcf-dotnet-get-started.md)
 ## [WCF 릴레이 자습서](service-bus-relay-tutorial.md)
 ## [WCF 릴레이 REST 자습서](service-bus-relay-rest-tutorial.md)
@@ -24,7 +24,7 @@
 ## 관리
 ### [Azure Monitoring을 사용하여 Azure Relay 모니터링](relay-metrics-azure-monitor.md)
 
-# 참조
+# 참고 자료
 ## .NET
 ### [Microsoft.Azure.Relay](/dotnet/api/microsoft.azure.relay)
 ### [Microsoft.ServiceBus](/dotnet/api/Microsoft.ServiceBus)

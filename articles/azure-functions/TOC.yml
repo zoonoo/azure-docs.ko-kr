@@ -133,6 +133,8 @@
           href: functions-run-local.md
         - name: Visual Studio 개발
           href: functions-develop-vs.md
+        - name: 오류 처리
+          href: functions-bindings-error-pages.md
     - name: 배포
       items:
         - name: 연속 배포
