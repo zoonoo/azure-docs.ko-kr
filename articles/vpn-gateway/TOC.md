@@ -34,6 +34,7 @@
 ### P2S VPN 구성
 #### [Azure PowerShell](point-to-site-how-to-radius-ps.md)
 ### [VPN 클라이언트 구성 파일 생성 및 설치](point-to-site-vpn-client-configuration-radius.md)
+### [NPS 서버와 P2S VPN RADIUS 인증 통합](vpn-gateway-radiuis-mfa-nsp.md)
 
 ## VNet 간 연결 구성
 ### [Azure 포털](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
@@ -96,7 +97,7 @@
 ## [Application Gateway](/azure/application-gateway/)
 ## [Azure DNS](/azure/dns/)
 ## [Traffic Manager](/azure/traffic-manager/)
-## [부하 분산 장치](/azure/load-balancer/)
+## [Load Balancer](/azure/load-balancer/)
 ## [ExpressRoute](/azure/expressroute/)
 
 # 리소스

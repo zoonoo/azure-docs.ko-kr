@@ -77,6 +77,8 @@
       href: site-recovery-support-matrix-to-azure.md
     - name: 온-프레미스에서 보조 사이트로 지원 매트릭스
       href: site-recovery-support-matrix-to-sec-site.md
+    - name: 장애 복구(failback) 유형
+      href: concepts-types-of-failback.md
     - name: 작업에 대한 재해 복구
       href: site-recovery-workload.md
     - name: Azure로 마이그레이션
@@ -93,6 +95,8 @@
           href: site-recovery-azure-to-azure-networking-guidance.md
         - name: Azure VM 장애 복구(미리 보기)에 네트워크 매핑 설정
           href: site-recovery-network-mapping-azure-to-azure.md
+        - name: Azure VM 재해 복구(미리 보기)용 IP 유지
+          href: site-recovery-retain-ip-azure-vm-failover.md
         - name: Azure로 Hyper-V VM을 복제하기 위한 네트워크 매핑 준비
           href: site-recovery-network-mapping.md
         - name: 장애 조치한 후 Azure에 액세스하기 위한 IP 주소 설정
@@ -275,6 +279,8 @@
           href: site-recovery-vmware-to-azure-push-install-error-codes.md
         - name: Azure 장애 조치(failover) 문제
           href: site-recovery-failover-to-azure-troubleshoot.md
+        - name: 다시 보호 및 장애 복구(failback) 문제
+          href: troubleshoot-failback-reprotect.md
         - name: Azure Site Recovery 모니터링
           href: site-recovery-monitor-and-troubleshoot.md
 - name: 참고 자료

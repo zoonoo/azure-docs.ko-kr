@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/22/2018
+ms.date: 02/01/2018
 ms.author: yurid
-ms.openlocfilehash: 8c5c999d7c9924726804ccd18183d8e383a037cc
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: e2e8b16bf720e2be8b8bc8ae81fc944af79dddab
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Azure Security Center 문제 해결 가이드
 이 가이드는 Azure Security Center를 사용 중인 정보 기술(IT) 전문가, 정보 보안 분석가 및 클라우드 관리자를 대상으로 하고 문제와 관련된 Security Center 문제를 해결해야 합니다.
@@ -92,7 +92,7 @@ Security Center는 Azure 가상 머신에서 보안 데이터를 수집하는 �
 |---|---|---|
 | *.ods.opinsights.azure.com | 443 | 예 |
 | *.oms.opinsights.azure.com | 443 | 예 |
-| *.blob.core.windows.net | 443 | 예 |
+| \*.blob.core.windows.net | 443 | 예 |
 | *.azure-automation.net | 443 | 예 |
 
 에이전트와 온보딩 문제가 발생하는 경우 [Operations Management Suite 온보딩 문제를 해결하는 방법](https://support.microsoft.com/en-us/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues) 문서를 참조하도록 합니다.

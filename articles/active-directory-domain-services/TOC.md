@@ -28,6 +28,7 @@
 ## 관리되는 도메인 관리
 ### [관리되는 도메인 관리](active-directory-ds-admin-guide-administer-domain.md)
 ### [관리되는 도메인에서 DNS 관리](active-directory-ds-admin-guide-administer-dns.md)
+### [도메인의 상태 확인](active-directory-ds-check-health.md)
 ### 관리되는 도메인에 대한 LDAP 구성
 #### [작업 1: 보안 LDAP를 위한 인증서 가져오기](active-directory-ds-admin-guide-configure-secure-ldap.md)
 #### [작업 2: 보안 LDAP 인증서 내보내기](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md)

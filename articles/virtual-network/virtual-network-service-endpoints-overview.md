@@ -12,23 +12,23 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/15/2017
+ms.date: 01/31/2018
 ms.author: anithaa
 ms.custom: 
-ms.openlocfilehash: 7b5675dacd1d9effd73f3bc51ea4efc0ea6be029
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 61859e86f38e4666be01f218922ce00c698de960
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="virtual-network-service-endpoints-preview"></a>Virtual Network 서비스 끝점(미리 보기)
+# <a name="virtual-network-service-endpoints"></a>Virtual Network 서비스 엔드포인트
 
 VNet(Virtual Network) 서비스 끝점은 직접 연결을 통해 가상 네트워크 개인 주소 공간 및 Azure 서비스에 대한 VNet의 ID를 확장합니다. 끝점을 사용하면 가상 네트워크에 대해 중요한 Azure 서비스 리소스를 보호할 수 있습니다. VNet에서 Azure 서비스에 대한 트래픽은 Microsoft Azure 백본 네트워크에 항상 유지됩니다.
 
-이 기능은 다음과 같은 Azure 서비스 및 지역에서 미리 보기 상태로 제공됩니다.
+이 기능은 다음과 같은 Azure 서비스 및 지역에서 제공됩니다.
 
-- **Azure Storage**: Azure 공용 클라우드에서 모든 지역입니다.
-- **Azure SQL**: Azure 공용 클라우드에서 모든 지역입니다.
+- **Azure Storage**: 일반 공급됩니다. Azure 공용 클라우드 및 Azure Government에서 모든 지역입니다.
+- **Azure SQL**: 미리 보기 상태입니다. Azure 공용 클라우드에서 모든 지역입니다.
 
 미리 보기에 대한 최신 알림은 [Azure Virtual Network 업데이트](https://azure.microsoft.com/updates/?product=virtual-network) 페이지를 확인하세요.
 
@@ -66,7 +66,7 @@ VNet(Virtual Network) 서비스 끝점은 직접 연결을 통해 가상 네트�
 ### <a name="configuration"></a>구성
 
 - 서비스 끝점은 가상 네트워크의 서브넷에 구성됩니다. 끝점은 해당 서브넷 내에서 실행되는 모든 계산 인스턴스를 사용합니다.
-- 하나의 서비스 끝점만을 서브넷의 특정 서비스에 사용할 수 있습니다. 서브넷에 지원되는 모든 Azure 서비스(예: Azure Storage, Azure SQL Database)에 여러 개의 서비스 끝점을 구성할 수 있습니다.
+- 서브넷에 지원되는 모든 Azure 서비스(예: Azure Storage, Azure SQL Database)에 여러 개의 서비스 끝점을 구성할 수 있습니다.
 - 가상 네트워크는 Azure 서비스 리소스와 동일한 지역에 있어야 합니다. GRS 및 RA-GRS Azure Storage 계정을 사용하는 경우 기본 계정은 가상 네트워크와 동일한 지역에 있어야 합니다.
 - 끝점이 구성된 가상 네트워크는 Azure 서비스 리소스와 동일하거나 다른 구독에 구성될 수 있습니다. 끝점을 설정하고 Azure 서비스를 보호하는 데 필요한 사용 권한에 대한 자세한 내용은 [프로비전](#Provisioning)을 참조하세요.
 - 지원되는 서비스의 경우 서비스 끝점을 사용하여 가상 네트워크에 대한 기존 또는 새로운 리소스를 보호할 수 있습니다.
@@ -106,7 +106,7 @@ VNet(Virtual Network) 서비스 끝점은 직접 연결을 통해 가상 네트�
 
 [기본 제공 역할](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 및 [사용자 지정 역할](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에 특정 권한 할당에 대해 자세히 알아보세요.
 
-가상 네트워크 및 Azure 서비스 리소스가 동일한 구독이나 다른 구독에 있을 수 있습니다. 가상 네트워크 및 Azure 서비스 리소스가 다른 구독에 있는 경우 미리 보기 중에 리소스가 동일한 AD(Active Directory) 테넌트 아래에 있어야 합니다. 
+가상 네트워크 및 Azure 서비스 리소스가 동일한 구독이나 다른 구독에 있을 수 있습니다. 가상 네트워크 및 Azure 서비스 리소스가 다른 구독에 있는 경우 동일한 AD(Active Directory) 테넌트 아래에 있어야 합니다. 
 
 ## <a name="pricing-and-limits"></a>가격 책정 및 제한
 

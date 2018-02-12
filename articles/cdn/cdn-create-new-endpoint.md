@@ -14,19 +14,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/25/2018
 ms.author: mazha
-ms.openlocfilehash: 81a88f6495ca9092ca3b55b8ffb3e41def3b4623
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: f1681b0796885cd6dc880303485edb97c15cda71
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="getting-started-with-azure-cdn"></a>Azure CDN 시작
-이 문서에서는 새로운 CDN 프로필 및 엔드포인트를 만들어서 Azure CDN(Content Delivery Network)을 활성화하는 방법을 설명합니다.
-
-> [!IMPORTANT]
-> CDN에 대한 소개 및 기능 목록은 [CDN 개요](cdn-overview.md)를 참조하세요.
-> 
-> 
+이 문서에서는 새로운 CDN 프로필 및 엔드포인트를 만들어서 Azure [CDN(Content Delivery Network)](cdn-overview.md)을 활성화하는 방법을 설명합니다.
 
 ## <a name="create-a-new-cdn-profile"></a>새 CDN 프로필 만들기
 CDN 프로필은 CDN 끝점의 컬렉션입니다. 각 프로필에는 CDN 엔드포인트가 하나 이상 있을 수 있습니다. 인터넷 도메인, 웹 응용 프로그램 또는 일부 기타 조건으로 CDN 엔드포인트를 구성하려면 여러 프로필을 사용하면 됩니다.

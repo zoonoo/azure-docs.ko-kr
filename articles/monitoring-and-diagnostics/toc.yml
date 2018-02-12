@@ -41,6 +41,8 @@
           href: monitoring-overview-autoscale.md
         - name: 활동 로그
           href: monitoring-overview-activity-logs.md
+        - name: 활동 로그 경고(미리 보기)
+          href: monitoring-activity-log-alerts-new-experience.md
         - name: 작업 그룹
           href: monitoring-action-groups.md
         - name: 진단 로그
@@ -84,8 +86,8 @@
           href: insights-alerts-command-line-interface.md
         - name: Azure PowerShell을 사용하여 경고 구성
           href: insights-alerts-powershell.md
-        - name: 메트릭 경고에서 웹후크 호출
-          href: insights-webhooks-alerts.md
+        - name: 로그 경고에 대한 웹후크 작업
+          href: monitor-alerts-unified-log-webhook.md
         - name: Resource Manager 템플릿을 사용하여 메트릭 경고 만들기
           href: monitoring-enable-alerts-using-template.md
     - name: 자동 크기 조정 사용

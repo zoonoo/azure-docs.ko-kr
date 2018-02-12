@@ -236,6 +236,7 @@
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
 ## [마케팅 블로그](http://blogs.technet.com/b/cis/)
 ## [Marketing](https://www.microsoft.com/server-cloud/products/storsimple/explore.aspx)
+## [StorSimple 지원 옵션](storsimple-8000-support-options.md)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=StorSimple)
 ## [가격 책정](https://azure.microsoft.com/pricing/details/storsimple/)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)

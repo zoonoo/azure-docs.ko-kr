@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/15/2017
+ms.date: 01/31/2018
 ms.author: anithaa
 ms.custom: 
-ms.openlocfilehash: c9c23462f80533a224c3c2ac3658b9630f1798f9
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: e2242851d51dee56679231b9f34c8b474ba6578d
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="configure-virtual-network-service-endpoints"></a>가상 네트워크 서비스 끝점 구성
 
@@ -54,7 +54,7 @@ VNet(Virtual Network) 서비스 끝점을 사용하면 이러한 리소스에 �
    서비스 끝점이 올바르게 구성되어 있는지 유효성을 검사하려면 서브넷의 모든 NIC에서 서비스별 및 지역별 "유효 경로"가 nextHopType: VirtualNetworkServiceEndpoint인 새 "기본" 경로를 표시해야 합니다. [유효 경로 관련 문제 해결](https://docs.microsoft.com/azure/virtual-network/virtual-network-routes-troubleshoot-portal#using-effective-routes-to-troubleshoot-vm-traffic-flow)에 대해 자세히 알아봅니다.
 
    >[!NOTE]
-   하나 이상의 NIC(네트워크 인터페이스)를 구성하고 서브넷에서 실행 중인 가상 컴퓨터와 연결한 경우 유효 경로를 볼 수 있습니다.
+   하나 이상의 NIC(네트워크 인터페이스)를 구성하고 서브넷에서 실행 중인 가상 머신과 연결한 경우 유효 경로를 볼 수 있습니다.
 
 ## <a name="azure-portal"></a>Azure Portal
 
@@ -67,7 +67,7 @@ Azure 계정을 사용하여 Azure에 로그인합니다. Azure 계정이 없으
 
 설정 | 값
 ------- | -----
-이름    | myVnet
+Name    | myVnet
 주소 공간 | 10.0.0.0/16
 서브넷 이름|mySubnet
 서브넷 주소 범위|10.0.0.0/24
@@ -75,7 +75,7 @@ Azure 계정을 사용하여 Azure에 로그인합니다. Azure 계정이 없으
 위치|지원되는 지역, 예: 오스트레일리아 동부
 구독|사용 중인 구독을 선택합니다.
 __ServiceEndpoints__|사용
-__서비스__ | 사용 가능한 서비스 중 하나 또는 모두를 선택합니다. 미리 보기에서 지원되는 서비스입니다. __"Microsoft.Storage", "Microsoft.Sql"__
+__서비스__ | 사용 가능한 서비스 중 하나 또는 모두를 선택합니다. 지원되는 서비스: __"Microsoft.Storage", "Microsoft.Sql"__
 
 끝점에 대한 서비스를 선택합니다. ![서비스 끝점 서비스 선택](media/virtual-network-service-endpoints-portal/vnet-create-flow-services.png)
 
@@ -135,8 +135,8 @@ __서비스__ | 사용 가능한 서비스 중 하나 또는 모두를 선택합
 Get-AzureRmVirtualNetworkAvailableEndpointService -location eastus
 ```
 
-출력: 
-이름 | ID | 형식
+출력 
+Name | ID | 형식
 -----|----|-------
 Microsoft.Storage|/subscriptions/xxxx-xxx-xxx/providers/Microsoft.Network/virtualNetworkEndpointServices/Microsoft.Storage|Microsoft.Network/virtualNetworkEndpointServices
 Microsoft.Sql|/subscriptions/xxxx-xxx-xxx/providers/Microsoft.Network/virtualNetworkEndpointServices/Microsoft.Sql|Microsoft.Network/virtualNetworkEndpointServices
@@ -214,7 +214,7 @@ Subnets : [
 $subnet=Get-AzureRmVirtualNetwork -ResourceGroupName "myRG" -Name "myVNet" | Get-AzureRmVirtualNetworkSubnetConfig -Name "mySubnet"
 $subnet.ServiceEndpoints
 ```
-출력:
+출력
 ```
 ProvisioningState Service           Locations
 ----------------- -------           ---------
@@ -241,7 +241,7 @@ Get-AzureRmVirtualNetwork -ResourceGroupName "myRG" -Name "myVNet" | Set-AzureRm
 ```azure-cli
 az network vnet list-endpoint-services -l eastus
 ```
-출력:
+출력
 ```
     {
     "id": "/subscriptions/xxxx-xxxx-xxxx/providers/Microsoft.Network/virtualNetworkEndpointServices/Microsoft.Storage",
@@ -265,7 +265,7 @@ az network vnet subnet create -g myRG -n mySubnet --vnet-name myVNet --address-p
 
 여러 끝점을 추가하려면: --service-endpoints Microsoft.Storage Microsoft.Sql
 
-출력:
+출력
 ```
 {
   "addressPrefix": "10.0.1.0/24",
@@ -335,7 +335,7 @@ az network vnet subnet show -g myRG -n mySubnet --vnet-name myVNet
 az network vnet subnet update -g myRG -n mySubnet --vnet-name myVNet --service-endpoints ""
 ```
 
-출력: 
+출력 
 ```
 {
   "addressPrefix": "10.0.1.0/24",
@@ -387,7 +387,7 @@ VNet에 대한 Azure 서비스 리소스를 보호하려면 사용자는 추가�
 
 [기본 제공 역할](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) 및 [사용자 지정 역할](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles)에 특정 권한 할당에 대해 자세히 알아보세요.
 
-VNet 및 Azure 서비스 리소스가 동일한 구독이나 다른 구독에 있을 수 있습니다. 리소스가 다른 구독에 있는 경우 이 미리 보기에서는 리소스가 동일한 AD(Active Directory) 테넌트 아래에 있어야 합니다.
+VNet 및 Azure 서비스 리소스가 동일한 구독이나 다른 구독에 있을 수 있습니다. 리소스가 다른 구독에 있는 경우 동일한 AD(Active Directory) 테넌트 아래에 있어야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

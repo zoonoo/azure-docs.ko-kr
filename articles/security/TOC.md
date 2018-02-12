@@ -90,7 +90,6 @@
 ### [Microsoft Azure 로그 통합 소개](security-azure-log-integration-overview.md)
 #### [Azure 로그 통합 시작](security-azure-log-integration-get-started.md)
 #### [Azure Active Directory 감사 로그 통합](security-azure-log-integration-ad.md)
-#### [Security Center 경고 통합](security-azure-log-integration-security-center.md)
 #### [Event Hubs를 사용하여 Key Vault의 로그 통합](security-azure-log-integration-keyvault-eventhub.md)
 #### [FAQ](security-azure-log-integration-faq.md)
 

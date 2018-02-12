@@ -422,6 +422,8 @@
           href: performance-diagnostics-vm-extension.md
         - name: 중첩된 가상화 사용
           href: troubleshoot-vm-by-use-nested-virtualization.md
+        - name: 오프라인 모드에서 VM 에이전트 설치
+          href: install-vm-agent-offline.md
 - name: 참고 자료
   items:
     - name: Azure CLI

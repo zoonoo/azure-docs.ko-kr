@@ -9,13 +9,13 @@ editor: spelluru
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: hero-article
-ms.date: 01/16/2018
+ms.date: 02/01/2018
 ms.author: jingwang
-ms.openlocfilehash: 0973a7ae8316d413244367f5407a89d1ba809847
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: f17dc18825c929a75169875594c7b1a13ba1f6d7
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Azure Data Factory UI를 사용하여 데이터 팩터리 만들기
 > [!div class="op_single_selector" title1="Select the version of Data Factory service that you are using:"]
@@ -133,7 +133,7 @@ ms.lasthandoff: 01/25/2018
 
    다. 이름에 대해 **OutputDataset**를 지정합니다.
 
-   d. 폴더에 대해 **adftutorial/output**을 입력합니다. 출력 폴더가 없으면 복사 활동에서 해당 폴더를 만듭니다.
+   d. 폴더에 대해 **adftutorial/output**을 입력합니다. **출력** 폴더가 존재하지 않는 경우 복사 작업은 런타임 시 해당 폴더를 만듭니다.
 
    e. 파일 이름에 대해 `@CONCAT(pipeline().RunId, '.txt')`를 입력합니다. 
    
@@ -141,8 +141,8 @@ ms.lasthandoff: 01/25/2018
 
    ![출력 데이터 집합 설정](./media/quickstart-create-data-factory-portal/output-dataset-settings.png)
 
-## <a name="create-a-pipeline"></a>파이프라인을 만듭니다. 
-이 절차에서는 입력 및 출력 데이터 집합을 사용하는 복사 활동이 있는 파이프라인을 만들고 유효성을 검사합니다. 복사 활동은 입력 데이터 집합 설정에 지정된 파일의 데이터를 출력 데이터 집합 설정에 지정된 파일로 복사합니다. 입력 데이터 집합에서 폴더(파일 이름 제외)만 지정하면 복사 활동에서 원본 폴더의 모든 파일을 대상에 복사합니다. 
+## <a name="create-a-pipeline"></a>파이프라인 만들기 
+이 절차에서는 입력 및 출력 데이터 집합을 사용하는 복사 활동이 있는 파이프라인을 만들고 유효성을 검사합니다. 복사 작업은 입력 데이터 집합 설정에 지정된 파일의 데이터를 출력 데이터 집합 설정에 지정된 파일로 복사합니다. 입력 데이터 집합에서 폴더(파일 이름 제외)만 지정하면 복사 활동에서 원본 폴더의 모든 파일을 대상에 복사합니다. 
 
 1. **+**(더하기) 단추를 선택한 다음 **파이프라인**을 선택합니다. 
 
@@ -180,7 +180,7 @@ ms.lasthandoff: 01/25/2018
 ## <a name="trigger-the-pipeline-manually"></a>수동으로 파이프라인 트리거
 이 절차에서는 엔터티(연결된 서비스, 데이터 집합, 파이프라인)를 Azure Data Factory에 배포합니다. 그런 다음 파이프라인 실행을 수동으로 트리거합니다. 또한 [다른 자습서](tutorial-copy-data-portal.md?#configure-code-repository)에서 설명하는 사용자 고유의 Visual Studio Team Services GIT 리포지토리에 엔터티를 게시할 수도 있습니다.
 
-1. 파이프라인을 트리거하기 전에 엔터티를 데이터 팩터리에 게시해야 합니다. 게시하려면 왼쪽 창에서 **게시**를 선택합니다. 
+1. 파이프라인을 트리거하기 전에 엔터티를 데이터 팩터리에 게시해야 합니다. 게시하려면 왼쪽 창에서 **모두 게시**를 선택합니다. 
 
    ![게시 단추](./media/quickstart-create-data-factory-portal/publish-button.png)
 2. 파이프라인을 수동으로 트리거하려면 도구 모음에서 **트리거**를 선택한 다음 **지금 트리거**를 선택합니다. 
@@ -224,9 +224,9 @@ ms.lasthandoff: 01/25/2018
 5. 경고 메시지를 검토하고 **마침**을 선택합니다.
 
    ![경고 및 "마침" 단추](./media/quickstart-create-data-factory-portal/new-trigger-finish.png)
-6. **게시**를 선택하여 변경 내용을 데이터 팩터리에 게시합니다. 
+6. **모두 게시**를 선택하여 변경 내용을 Data Factory에 게시합니다. 
 
-   ![게시 단추](./media/quickstart-create-data-factory-portal/publish-2.png)
+   ![게시 단추](./media/quickstart-create-data-factory-portal/publish-button.png)
 8. 왼쪽의 **모니터** 탭으로 전환합니다. **새로 고침**을 선택하여 목록을 새로 고칩니다. 파이프라인이 게시 시간에서 종료 시간까지 매분 한 번씩 실행되는 것을 볼 수 있습니다. 
 
    **트리거 기준** 열의 값을 확인합니다. 수동 트리거 실행은 이전 단계(**지금 트리거**)에서 수행되었습니다. 

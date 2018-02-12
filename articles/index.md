@@ -5,11 +5,11 @@ title: "Microsoft Azure 설명서"
 description: "Microsoft Azure 클라우드 서비스를 사용하여 강력한 응용 프로그램을 관리하는 방법을 알아봅니다. 설명서, 샘플 코드, 자습서 등을 가져옵니다."
 featureFlags:
 - clicktale
-ms.openlocfilehash: 88c99f7aa0af914210e760d498bb4fb514798207
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 2f0316b17dc1bedab724b3174f8f88d9e92f74f8
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -4269,12 +4269,12 @@ SQL 도구 </h3>
                             <li>
                                 <div class="container intro">
                                     <p>
-클라우드 응용 프로그램에 대한 권장되는 아키텍처의 집합입니다. 각 아키텍처는 권장되는 사례, 조치 단계 및 권장 사항을 구현하는 실행 가능한 구성 요소를 포함합니다.
+Azure 아키텍처 센터에는 Microsoft Azure에서 종단 간 솔루션을 구축하는 방법에 대한 지침이 있습니다. 여기에서 참조 아키텍처, 모범 사례, 디자인 패턴, 시나리오 가이드 및 참조 구현을 확인할 수 있습니다.
                                     </p>
                                 </div>
                             </li>
                             <li>
-                                <a href="/azure/architecture/guide/">
+                                <a href="/azure/architecture/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -4284,8 +4284,27 @@ SQL 도구 </h3>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
+                                                    <h3>Azure 아키텍처 센터</h3>
+                                                    <p>Microsoft Azure에서 종단 간 솔루션을 구축하는 방법에 대한 지침입니다.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/architecture/guide/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="media/index/azure_best-practices.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
                                                     <h3>Azure 응용 프로그램 아키텍처 가이드</h3>
-                                                    <p>클라우드에서 성공하기 위한 기본 정보입니다. 클라우드 또는 Azure를 처음 사용하는 경우 여기에서 시작합니다.</p>
+                                                    <p>이 가이드는 확장성과 복원력이 있고 가용성이 뛰어난 Azure에서 응용 프로그램을 디자인하기 위한 체계적인 방식을 제시합니다. 고객의 참여를 통해 확보한 검증된 사례를 기반으로 합니다.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -4324,27 +4343,6 @@ SQL 도구 </h3>
                                                 <div class="cardText">
                                                     <h3>클라우드 디자인 패턴</h3>
                                                     <p>클라우드에 대한 디자인 패턴입니다. 각 패턴은 문제, 문제를 해결하는 패턴 및 Azure를 기반으로 하는 예를 설명합니다.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/architecture/best-practices/api-design">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage bgdAccent1">
-                                                        <img src="media/index/azure_best-practices.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>클라우드 응용 프로그램에 대한 모범 사례</h3>
-                                                    <p>
-자동 크기 조정, 캐싱, 데이터 분할, API 디자인 및 모니터링과 같은 측면을 다루는 클라우드 응용 프로그램에 대한 모범 사례 집합입니다.
-                                                    </p>
                                                 </div>
                                             </div>
                                         </div>
