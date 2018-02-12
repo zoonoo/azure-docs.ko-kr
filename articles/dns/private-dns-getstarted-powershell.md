@@ -15,21 +15,25 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/20/2017
 ms.author: kumud
-ms.openlocfilehash: d71e2391b6415b2403447479dea4fd0a3b818ed0
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.openlocfilehash: 4613e152336eda7ce7cdc4c44b0c6b5e96abac10
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="get-started-with-azure-dns-private-zones-using-powershell"></a>PowerShell을 사용하여 Azure DNS 사설 영역 시작
 
 이 문서에서는 Azure PowerShell을 사용하여 첫 번째 사설 DNS 영역 및 레코드를 만드는 단계를 안내합니다.
 
+[!INCLUDE [private-dns-preview-notice](../../includes/private-dns-preview-notice.md)]
+
 DNS 영역은 특정 도메인에 대한 DNS 레코드를 호스트하는 데 사용됩니다. Azure DNS에서 도메인 호스팅을 시작하려면 해당 도메인 이름의 DNS 영역을 만들어야 합니다. 그러면 이 DNS 영역 안에 도메인의 각 DNS 레코드가 생성됩니다. 가상 네트워크에 사설 DNS 영역에 게시하려면 영역 내에서 레코드를 확인하도록 허용된 가상 네트워크 목록을 지정합니다.  이것을 ‘해상도 네트워크’라고 합니다.  또한 VM이 생성되고, IP가 변경되고, 제거될 때마다 Azure DNS가 호스트 이름 레코드를 유지 관리하게 되는 가상 네트워크 집합을 지정할 수 있습니다.  이것을 ‘등록 네트워크’라고 합니다.
 
-현재 이 기능은 관리 미리 보기이므로 미리 보기 PowerShell 모듈이 제공됩니다.
+현재 이 기능은 관리 미리 보기이므로 [AzureDNS-PrivateZone@microsoft.com](mailto:AzureDNS-PrivateZone@microsoft.com)에 이메일을 보낼 때 미리 보기 PowerShell 모듈이 제공됩니다.
 
-[!INCLUDE [private-dns-preview-notice](../../includes/private-dns-preview-notice.md)]
+## <a name="get-the-preview-powershell-module"></a>미리 보기 PowerShell 모듈 가져오기
+
+PowerShell을 사용하여 사설 DNS 영역을 만들기 위해 [AzureDNS-PrivateZone@microsoft.com](mailto:AzureDNS-PrivateZone@microsoft.com)에 이메일을 보내어 미리 보기 PowerShell 모듈을 가져옵니다.
 
 ## <a name="create-the-resource-group"></a>리소스 그룹 만들기
 

@@ -6,6 +6,7 @@
 
 # 시작하기
 ## [포털 사용](data-lake-store-get-started-portal.md)
+## [Storage 탐색기에서 Data Lake Store 사용](data-lake-store-in-storage-explorer.md)
 ## [PowerShell 사용](data-lake-store-get-started-powershell.md)
 ## [Azure CLI 2.0 사용](data-lake-store-get-started-cli-2.0.md)
 
@@ -13,6 +14,7 @@
 # 방법
 ## 데이터 로드 및 이동
 ### [Azure Data Factory 사용](../data-factory/load-azure-data-lake-store.md)
+### [Storage 탐색기에서 Data Lake Store 사용](data-lake-store-in-storage-explorer.md)
 ### [AdlCopy 사용](data-lake-store-copy-data-azure-storage-blob.md)
 ### [DistCp 사용](data-lake-store-copy-data-wasb-distcp.md)
 ### [Sqoop 사용](data-lake-store-data-transfer-sql-sqoop.md)

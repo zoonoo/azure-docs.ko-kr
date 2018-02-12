@@ -40,11 +40,19 @@
 ## 멀티 사이트 호스팅 구성
 ### [Azure 포털](application-gateway-create-multisite-portal.md)
 ### [Azure PowerShell](application-gateway-create-multisite-azureresourcemanager-powershell.md)
-## 리디렉션 구성
-### [Azure PowerShell](application-gateway-configure-redirect-powershell.md)
+### [Azure CLI](tutorial-multisite-cli.md)
 ## 외부 리디렉션 구성
-### [Azure PowerShell](tutorial-external-site-redirect-cli.md)
-### [Azure CLI](tutorial-external-site-redirect-powershell.md)
+### [Azure PowerShell](tutorial-external-site-redirect-powershell.md)
+### [Azure CLI](tutorial-external-site-redirect-cli.md)
+## 외부 리디렉션 구성
+### [Azure PowerShell](tutorial-internal-site-redirect-powershell.md)
+### [Azure CLI](tutorial-internal-site-redirect-cli.md)
+## HTTP에서 HTTPS로 리디렉션 구성
+### [Azure PowerShell](tutorial-http-redirect-powershell.md)
+### [Azure CLI](tutorial-http-redirect-cli.md)
+## URL 리디렉션 구성
+### [Azure PowerShell](tutorial-url-redirect-powershell.md)
+### [Azure CLI](tutorial-url-redirect-cli.md)
 ## 백 엔드 풀 구성원으로 웹앱 구성
 ### [Azure PowerShell](application-gateway-web-app-powershell.md)
 ## 상태 프로브 구성
@@ -75,7 +83,7 @@
 # 리소스
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=networking)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
-## [가격 책정](https://azure.microsoft.com/pricing/details/application-gateway/)
+## [가격](https://azure.microsoft.com/pricing/details/application-gateway/)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=application-gateway)
 ## [SLA](https://azure.microsoft.com/support/legal/sla/)

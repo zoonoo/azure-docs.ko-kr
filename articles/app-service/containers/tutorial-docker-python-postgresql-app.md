@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 01/28/2018
 ms.author: beverst;cephalin
 ms.custom: mvc
-ms.openlocfilehash: 01320b93920ae04c72ed80f6a6090232c673f228
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 070f69cab63525c3209380bc5f7121812be4a899
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="build-a-docker-python-and-postgresql-web-app-in-azure"></a>Azure에서 Docker Python 및 PostgreSQL 웹앱 빌드
 
@@ -33,7 +33,7 @@ Web App for Containers는 확장성이 높은 자체 패치 웹 호스팅 서비
 > * 데이터 모델 업데이트 및 앱 다시 배포
 > * Azure Portal에서 앱 관리
 
-macOS에서 다음 단계를 수행하면 됩니다. Linux와 Windows의 지침은 대부분 동일하지만, 차이점은 이 자습서에서 자세히 설명하지 않습니다.
+macOS에서 이 문서의 단계를 수행할 수 있습니다. Linux와 Windows의 지침은 대부분 동일하지만, 차이점은 이 자습서에서 자세히 설명하지 않습니다.
  
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -88,7 +88,7 @@ git checkout tags/0.1-initialapp
 ### <a name="run-the-application"></a>응용 프로그램 실행
 
 > [!NOTE] 
-> 이후 단계에서 프로덕션 데이터베이스와 함께 사용할 Docker 컨테이너를 빌드하여 이 프로세스를 간소화합니다.
+> 이후 단계에서 프로덕션 데이터베이스에서 사용할 Docker 컨테이너를 빌드하여 이 프로세스를 간소화합니다.
 
 필요한 패키지를 설치하고 응용 프로그램을 시작합니다.
 

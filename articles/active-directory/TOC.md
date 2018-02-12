@@ -83,6 +83,7 @@
 #### [그룹에 라이선스 할당](active-directory-licensing-group-assignment-azure-portal.md)
 #### [그룹에서 라이선스 문제 식별 및 해결](active-directory-licensing-group-problem-resolution-azure-portal.md)
 #### [개별 라이선스 사용자를 그룹 기반 라이선스로 마이그레이션](active-directory-licensing-group-migration-azure-portal.md)
+#### [제품 라이선스 간 사용자 마이그레이션](active-directory-licensing-group-product-migration.md)
 #### [그룹 기반 라이선스에 대한 추가 시나리오](active-directory-licensing-group-advanced.md)
 #### [그룹 기반 라이선스에 대한 Azure PowerShell 예제](active-directory-licensing-ps-examples.md)
 #### [Azure AD의 제품 및 서비스 계획을 위한 참조](active-directory-licensing-product-and-service-plan-reference.md)
@@ -200,8 +201,6 @@
 ##### [커넥터](application-proxy-understand-connectors.md)
 ##### [보안](application-proxy-security-considerations.md)
 ##### [네트워크](application-proxy-network-topology-considerations.md)
-
-
 ##### [TMG 또는 UAG에서 업그레이드](application-proxy-transition-from-uag-tmg.md)
 
 #### 고급 구성
@@ -212,6 +211,8 @@
 ##### [자동 설치](active-directory-application-proxy-silent-installation.md)
 ##### [사용자 지정 홈 페이지](application-proxy-office365-app-launcher.md)
 ##### [인라인 링크 변환](application-proxy-link-translation.md)
+##### [와일드카드 응용 프로그램](active-directory-application-proxy-wildcard.md)
+
 #### 게시 연습
 ##### [원격 데스크톱](application-proxy-publish-remote-desktop.md)
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
@@ -293,8 +294,9 @@
 
 ## ID 보안
 ### [조건부 액세스](active-directory-conditional-access-azure-portal.md)
-#### [컨트롤](active-directory-conditional-access-controls.md)
+#### [조건](active-directory-conditional-access-conditions.md)
 #### [위치 조건](active-directory-conditional-access-locations.md)
+#### [컨트롤](active-directory-conditional-access-controls.md)
 #### [시작](active-directory-conditional-access-azure-portal-get-started.md)
 #### [모범 사례](active-directory-conditional-access-best-practices.md)
 #### [Office 365 서비스에 대한 장치 정책 이해](active-directory-conditional-access-device-policies.md)

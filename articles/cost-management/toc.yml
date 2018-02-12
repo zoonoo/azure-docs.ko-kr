@@ -33,6 +33,10 @@
       href: activate-subs-accounts.md
     - name: VM의 확장된 메트릭 추가
       href: azure-vm-extended-metrics.md
+    - name: Google 계정 연결
+      href: connect-google-account.md
+    - name: AWS 계정 연결
+      href: connect-aws-account.md
     - name: 비용 관리 보고서 사용
       href: use-reports.md
 - name: 리소스

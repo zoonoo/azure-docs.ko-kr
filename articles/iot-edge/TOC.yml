@@ -48,6 +48,8 @@
           href: how-to-vscode-develop-azure-function.md
         - name: Azure Functions 디버그
           href: how-to-vscode-debug-azure-function.md
+    - name: 에지에 데이터 저장
+      href: sql-storage.md
     - name: 문제 해결
       href: troubleshoot.md
 - name: 개념

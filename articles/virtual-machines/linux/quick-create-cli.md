@@ -1,6 +1,6 @@
 ---
 title: "Azure 빠른 시작 - VM 만들기 CLI | Microsoft Docs"
-description: "Azure CLI를 사용하여 가상 컴퓨터를 만드는 방법을 빠르게 이해합니다."
+description: "Azure CLI를 사용하여 가상 머신을 만드는 방법을 빠르게 이해합니다."
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: neilpeterson
@@ -16,17 +16,17 @@ ms.workload: infrastructure
 ms.date: 10/13/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: c10f4c575c7b9a68e7a1ff8fedf0f17f4fb8599d
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 767b378331d994bb48a83726b1ebbfcb99649d12
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 02/03/2018
 ---
-# <a name="create-a-linux-virtual-machine-with-the-azure-cli"></a>Azure CLI를 사용하여 Linux 가상 컴퓨터 만들기
+# <a name="create-a-linux-virtual-machine-with-the-azure-cli"></a>Azure CLI를 사용하여 Linux 가상 머신 만들기
 
-명령줄 또는 스크립트에서 Azure 리소스를 만들고 관리하는 데 Azure CLI가 사용됩니다. 이 빠른 시작에서는 Azure CLI를 사용하여 Ubuntu 서버를 실행하는 가상 컴퓨터를 배포하는 방법에 대해 자세히 설명합니다. 서버가 배포되면 SSH 연결을 만들고 NGINX 웹 서버를 설치합니다.
+명령줄 또는 스크립트에서 Azure 리소스를 만들고 관리하는 데 Azure CLI가 사용됩니다. 이 빠른 시작에서는 Azure CLI를 사용하여 Ubuntu 서버를 실행하는 가상 머신을 배포하는 방법에 대해 자세히 설명합니다. 서버가 배포되면 SSH 연결을 만들고 NGINX 웹 서버를 설치합니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -69,7 +69,7 @@ VM을 만든 경우 Azure CLI는 다음 예제와 비슷한 정보를 표시합�
 
 ## <a name="open-port-80-for-web-traffic"></a>웹 트래픽에 대해 포트 80 열기 
 
-기본적으로 Azure에 배포된 Linux 가상 컴퓨터에는 SSH 연결만이 가능합니다. 이 VM이 웹 서버가 되는 경우 인터넷에서 포트 80을 열어야 합니다. [az vm open-port](/cli/azure/vm#open-port) 명령을 사용하여 원하는 포트를 엽니다.  
+기본적으로 Azure에 배포된 Linux 가상 머신에는 SSH 연결만이 가능합니다. 이 VM이 웹 서버가 되는 경우 인터넷에서 포트 80을 열어야 합니다. [az vm open-port](/cli/azure/vm#open-port) 명령을 사용하여 원하는 포트를 엽니다.  
  
  ```azurecli-interactive 
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM
@@ -77,10 +77,10 @@ az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 
 ## <a name="ssh-into-your-vm"></a>VM에 SSH 수행
 
-다음 명령을 사용하여 가상 컴퓨터와의 SSH 세션을 만듭니다. *<publicIpAddress>*을 가상 컴퓨터의 올바른 공용 IP 주소로 바꿔야 합니다.  예제에서 IP 주소는 *40.68.254.142*입니다.
+다음 명령을 사용하여 가상 머신과의 SSH 세션을 만듭니다. **publicIpAddress**를 가상 머신의 올바른 공용 IP 주소로 바꿔야 합니다.  예제에서 IP 주소는 *40.68.254.142*입니다.
 
 ```bash 
-ssh <publicIpAddress>
+ssh publicIpAddress
 ```
 
 ## <a name="install-nginx"></a>NGINX 설치
@@ -112,8 +112,8 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서 간단한 가상 컴퓨터, 네트워크 보안 그룹 규칙을 배포했으며 웹 서버를 설치했습니다. Azure 가상 컴퓨터에 대한 자세한 내용을 알아보려면 Linux VM의 자습서를 계속 진행합니다.
+이 빠른 시작에서 간단한 가상 머신, 네트워크 보안 그룹 규칙을 배포했으며 웹 서버를 설치했습니다. Azure 가상 머신에 대한 자세한 내용을 알아보려면 Linux VM의 자습서를 계속 진행합니다.
 
 
 > [!div class="nextstepaction"]
-> [Azure Linux 가상 컴퓨터 자습서](./tutorial-manage-vm.md)
+> [Azure Linux 가상 머신 자습서](./tutorial-manage-vm.md)

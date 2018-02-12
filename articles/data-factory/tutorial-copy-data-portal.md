@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 424a5ec49018e969edbf90c374a9da7e1d22395d
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 8b5211e9c932221c6b6134e7e0627f4d7f964123
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Blob에서 Azure SQL Database로 데이터 복사
 이 자습서에서는 Azure Data Factory UI(사용자 인터페이스)를 사용하여 데이터 팩터리를 만듭니다. 데이터 팩터리의 파이프라인은 Azure Blob Storage에서 Azure SQL Database로 데이터를 복사합니다. 이 자습서의 구성 패턴은 파일 기반 데이터 저장소에서 관계형 데이터 저장소로 복사하는 데 적용됩니다. 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 표를 참조하세요.
@@ -30,7 +30,7 @@ ms.lasthandoff: 01/23/2018
 이 자습서에서 수행하는 단계는 다음과 같습니다.
 
 > [!div class="checklist"]
-> * 데이터 팩터리를 만듭니다.
+> * 데이터 팩터리 만들기
 > * 복사 활동이 있는 파이프라인을 만들기
 > * 파이프라인 실행 테스트
 > * 수동으로 파이프라인 트리거
@@ -111,7 +111,7 @@ ms.lasthandoff: 01/23/2018
    ![데이터 팩터리 홈페이지](./media/tutorial-copy-data-portal/data-factory-home-page.png)
 10. **작성 및 모니터링** 타일을 클릭하여 별도의 탭에서 Azure Data Factory UI(사용자 인터페이스)를 시작합니다.
 
-## <a name="create-a-pipeline"></a>파이프라인을 만듭니다.
+## <a name="create-a-pipeline"></a>파이프라인 만들기
 이 단계에서는 복사 활동이 있는 파이프라인을 데이터 팩터리에 만듭니다. 복사 활동은 Azure Blob Storage에서 Azure SQL Database로 데이터를 복사합니다. [빠른 시작 자습서](quickstart-create-data-factory-portal.md)에서 다음 단계에 따라 파이프라인을 만들었습니다.
 
 1. 연결된 서비스를 만듭니다. 
@@ -144,10 +144,7 @@ ms.lasthandoff: 01/23/2018
 9. 아래쪽의 **속성** 창에 있는 **일반** 탭에서 **이름**에 대해 **SourceBlobDataset**를 지정합니다.
 
     ![데이터 집합 이름](./media/tutorial-copy-data-portal/dataset-name.png)
-10. 속성 창에서 **연결** 탭으로 전환합니다.   
-
-    ![연결 탭](./media/tutorial-copy-data-portal/source-dataset-connection-tab.png)
-11. **연결된 서비스** 텍스트 상자 옆에 있는 **+ 새로 만들기**를 클릭합니다. 연결된 서비스는 데이터 저장소 또는 계산을 데이터 팩터리에 연결합니다. 여기서는 Azure Storage 연결된 서비스를 만들어 Azure 저장소 계정을 데이터 저장소에 연결합니다. 연결된 서비스에는 런타임에 Data Factory 서비스에서 Blob 저장소에 연결하는 데 사용하는 연결 정보가 있습니다. 데이터 집합은 원본 데이터가 포함된 컨테이너, 폴더 및 파일(선택 사항)을 지정합니다. 
+10. 속성 창에서 **연결** 탭으로 전환합니다. **연결된 서비스** 텍스트 상자 옆에 있는 **+ 새로 만들기**를 클릭합니다. 연결된 서비스는 데이터 저장소 또는 계산을 데이터 팩터리에 연결합니다. 여기서는 Azure Storage 연결된 서비스를 만들어 Azure 저장소 계정을 데이터 저장소에 연결합니다. 연결된 서비스에는 런타임에 Data Factory 서비스에서 Blob 저장소에 연결하는 데 사용하는 연결 정보가 있습니다. 데이터 집합은 원본 데이터가 포함된 컨테이너, 폴더 및 파일(선택 사항)을 지정합니다. 
 
     ![새 연결된 서비스 단추](./media/tutorial-copy-data-portal/source-dataset-new-linked-service-button.png)
 12. **새 연결된 서비스** 창에서 다음 단계를 수행합니다. 
@@ -283,7 +280,7 @@ ms.lasthandoff: 01/23/2018
 2. 원본 파일의 데이터가 대상 SQL 데이터베이스에 삽입되었는지 확인합니다. 
 
     ![SQL 출력 확인](./media/tutorial-copy-data-portal/verify-sql-output.png)
-3. 왼쪽 창에서 **게시**를 클릭합니다. 이 작업은 사용자가 만든 엔터티(연결된 서비스, 데이터 집합 및 파이프라인)를 Azure Data Factory에 게시합니다.
+3. 왼쪽 창에서 **모두 게시**를 클릭합니다. 이 작업은 사용자가 만든 엔터티(연결된 서비스, 데이터 집합 및 파이프라인)를 Azure Data Factory에 게시합니다.
 
     ![게시 단추](./media/tutorial-copy-data-portal/publish-button.png)
 4. **게시됨** 메시지가 표시될 때까지 기다립니다. 알림 메시지를 보려면 왼쪽 세로 막대에서 **알림 표시** 탭을 클릭합니다. **X**를 클릭하여 알림 창을 닫습니다.
@@ -343,7 +340,7 @@ VSTS 코드 리포지토리를 사용하지 않으려면 이 단계를 건너뛰
 ## <a name="trigger-the-pipeline-manually"></a>수동으로 파이프라인 트리거
 이 단계에서는 이전 단계에서 게시한 파이프라인을 수동으로 트리거합니다. 
 
-1. 도구 모음에서 **트리거**, **지금 트리거**를 차례로 클릭합니다. 
+1. 도구 모음에서 **트리거**, **지금 트리거**를 차례로 클릭합니다. **파이프라인 실행** 페이지에서 **마침**을 클릭합니다.  
 
     ![지금 트리거 메뉴](./media/tutorial-copy-data-portal/trigger-now-menu.png)
 2. 왼쪽의 **모니터** 탭으로 전환합니다. 수동 트리거로 트리거되는 파이프라인 실행이 표시됩니다. [작업] 열의 링크를 사용하여 활동 세부 정보를 보고 파이프라인을 다시 실행할 수 있습니다.
@@ -386,10 +383,10 @@ VSTS 코드 리포지토리를 사용하지 않으려면 이 단계를 건너뛰
 6. **트리거 실행 매개 변수** 페이지에서 경고를 검토하고 **마침**을 클릭합니다. 이 예의 파이프라인은 매개 변수를 사용하지 않습니다. 
 
     ![파이프라인 매개 변수](./media/tutorial-copy-data-portal/trigger-pipeline-parameters.png)
-7. **게시**를 클릭하여 변경 내용을 리포지토리에 게시합니다. 실제로 게시가 성공할 때까지 트리거는 활성화되지 않습니다. 
+7. **동기화**를 클릭하여 마스터 분기를 포함한 분기의 변경 내용을 동기화합니다. 기본적으로 **동기화 후 변경 내용 게시**를 선택합니다. 따라서 **동기화**를 선택할 때 업데이트된 엔터티를 마스터 분기에서 Azure Data Factory 서비스에 게시합니다. 실제로 게시가 성공할 때까지 트리거는 활성화되지 않습니다.
 
-    ![트리거 게시](./media/tutorial-copy-data-portal/publish-trigger.png) 
-8. 왼쪽의 **모니터** 탭으로 전환하여 트리거된 파이프라인 실행을 살펴봅니다. 
+    ![트리거 게시](./media/tutorial-copy-data-portal/sync-your-changes-with-trigger.png) 
+9. 왼쪽의 **모니터** 탭으로 전환하여 트리거된 파이프라인 실행을 살펴봅니다. 
 
     ![트리거된 파이프라인 실행](./media/tutorial-copy-data-portal/triggered-pipeline-runs.png)    
 9. 파이프라인 실행 보기에서 트리거 실행 보기로 전환하려면 [파이프라인 실행]을 클릭하고 [트리거 실행]을 선택합니다.
@@ -404,7 +401,7 @@ VSTS 코드 리포지토리를 사용하지 않으려면 이 단계를 건너뛰
 이 샘플의 파이프라인은 Azure Blob 저장소의 한 위치에서 다른 위치로 데이터를 복사합니다. 다음 방법에 대해 알아보았습니다. 
 
 > [!div class="checklist"]
-> * 데이터 팩터리를 만듭니다.
+> * 데이터 팩터리 만들기
 > * 복사 활동이 있는 파이프라인을 만들기
 > * 파이프라인 실행 테스트
 > * 수동으로 파이프라인 트리거

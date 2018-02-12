@@ -1,6 +1,6 @@
 # [개요](active-directory-b2c-overview.md)
 
-# 시작
+# 시작하기
 ## [Azure AD B2C 웹앱 시험 사용](active-directory-b2c-quickstarts-web-app.md)
 ## [Azure AD B2C 데스크톱 앱 시험 사용](active-directory-b2c-quickstarts-desktop-app.md)
 ## [Azure AD B2C 단일 페이지 앱 시험 사용](active-directory-b2c-quickstarts-spa.md)
@@ -19,17 +19,19 @@
 ### [Xamarin](https://github.com/Azure-Samples/active-directory-b2c-xamarin-native)
 ## 웹 앱
 ### [개요](active-directory-b2c-reference-oidc.md)
+### [ASP.NET에서 사용자 인증](active-directory-b2c-tutorials-web-app.md)
 ### [ASP.NET](active-directory-b2c-devquickstarts-web-dotnet-susi.md)
 ### [ASP.NET Core](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapp)
-### [Node.JS](active-directory-b2c-devquickstarts-web-node.md)
+### [Node.js](active-directory-b2c-devquickstarts-web-node.md)
 ## 단일 페이지 앱
 ### [개요](active-directory-b2c-reference-spa.md)
 ### [MSAL을 사용하여 JavaScript](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp)
 ### [Hello를 사용하여 JavaScript](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi)
 ## Web API
+### [ASP.NET API 보호](active-directory-b2c-tutorials-web-api.md)
 ### [ASP.NET](active-directory-b2c-devquickstarts-api-dotnet.md)
 ### [ASP.NET Core](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapi)
-### [Node.JS](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi)
+### [Node.js](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi)
 ### [.NET Web API 호출](active-directory-b2c-devquickstarts-web-api-dotnet.md)
 
 # 가이드
@@ -40,6 +42,7 @@
 ### [Amazon](active-directory-b2c-setup-amzn-app.md)
 ### [LinkedIn](active-directory-b2c-setup-li-app.md)
 ### [Twitter](active-directory-b2c-setup-twitter-app.md)
+### [GitHub](active-directory-b2c-setup-github-app.md)
 ### [Weibo](active-directory-b2c-setup-weibo-app.md)
 ### [QQ](active-directory-b2c-setup-qq-app.md)
 ### [WeChat](active-directory-b2c-setup-wechat-app.md)
@@ -87,13 +90,13 @@
 #### [로그인 유지 사용](active-directory-b2c-reference-kmsi-custom.md)
 ### 문제 해결
 #### [Application Insights를 사용하여 로그 수집](active-directory-b2c-troubleshoot-custom.md)
-## 참조
+## 참고 자료
 ### [릴리스 정보](active-directory-b2c-developer-notes-custom.md)
 ### [SSO 세션 공급자](active-directory-b2c-reference-sso-custom.md)
 ### [언어 사용자 지정](active-directory-b2c-language-customization-custom.md)
 ### [보안 프레임워크 정의](active-directory-b2c-reference-trustframeworks-defined-ief-custom.md) 
 
-# 참조
+# 참고 자료
 ## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory-b2c)
 ## 용어
 ### [응용 프로그램 유형](active-directory-b2c-apps.md)
@@ -113,7 +116,7 @@
 ## [Azure AD B2C 피드백 포럼](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c)
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [질문과 대답](active-directory-b2c-faqs.md)
-## [가격](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
+## [가격 책정](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=active-directory-b2c)
 ## [스택 오버플로](https://stackoverflow.com/questions/tagged/azure-ad-b2c)

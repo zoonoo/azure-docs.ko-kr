@@ -29,6 +29,8 @@
       href: apache-kafka-mirroring.md
     - name: Kafka 로그 분석
       href: apache-kafka-log-analytics-operations-management.md
+    - name: Azure Container Service에서 Kafka 사용
+      href: apache-kafka-azure-container-services.md
     - name: 스트리밍 파이프라인 만들기
       items:
         - name: Kafka 및 Spark(구조적 스트림)

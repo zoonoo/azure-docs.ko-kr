@@ -3,7 +3,7 @@
 ## [Azure IoT 옵션 비교](iot-suite-options.md)
 ## [미리 구성된 솔루션 개요](iot-suite-what-are-preconfigured-solutions.md)
 
-# 시작
+# 시작하기
 ## 원격 모니터링
 ### [미리 구성된 솔루션 배포](iot-suite-remote-monitoring-deploy.md)
 ### [미리 구성된 솔루션 작동](iot-suite-remote-monitoring-explore.md)
@@ -30,7 +30,7 @@
 #### 시뮬레이션된 장치 연결
 ##### [Windows에서 C](iot-suite-v1-connecting-devices.md)
 ##### [Linux에서 C](iot-suite-v1-connecting-devices-linux.md)
-##### [Node.JS](iot-suite-v1-connecting-devices-node.md)
+##### [Node.js](iot-suite-v1-connecting-devices-node.md)
 #### [논리 앱을 원격 모니터링 솔루션에 연결](iot-suite-v1-logic-apps-tutorial.md)
 #### [미리 구성된 솔루션 사용자 지정](iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md)
 #### [원격 모니터링 솔루션과 함께 동적 원격 분석 사용](iot-suite-v1-dynamic-telemetry.md)
@@ -58,7 +58,9 @@
 ### [문제를 감지하는 규칙 사용](iot-suite-remote-monitoring-automate.md)
 ### [장치 관리](iot-suite-remote-monitoring-manage.md)
 ### [장치 문제 해결](iot-suite-remote-monitoring-maintain.md)
-### [시뮬레이션된 장치 사용](iot-suite-remote-monitoring-test.md)
+### [장치 모델 스키마 이해](iot-suite-remote-monitoring-device-schema.md)
+### [장치 모델 동작 이해](iot-suite-remote-monitoring-device-behavior.md)
+### [시뮬레이션된 새 장치 만들기](iot-suite-remote-monitoring-test.md)
 ### [솔루션 사용자 지정](iot-suite-remote-monitoring-customize.md)
 ### [CLI를 사용하여 배포](iot-suite-remote-monitoring-deploy-cli.md)
 ### 실제 장치 연결
@@ -78,7 +80,7 @@
 ### [연결된 팩터리 구성](iot-suite-connected-factory-configure.md)
 ## [azureiotsuite.com의 사용 권한](iot-suite-permissions.md)
 
-# 참조
+# 참고 자료
 ## [개발자 참조 가이드](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide)
 ## [개발자 문제 해결 가이드](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide)
 ## [보안 아키텍처](iot-security-architecture.md)
@@ -91,8 +93,7 @@
 ## [Event Hubs](/azure/event-hubs/)
 ## [IoT 허브](/azure/iot-hub/)
 ## [Microsoft IoT Central](/azure/index#pivot=services&panel=iot)
-## 
-            [Machine Learning](/azure/machine-learning/)
+## [Machine Learning](/azure/machine-learning/)
 
 # 리소스
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/)

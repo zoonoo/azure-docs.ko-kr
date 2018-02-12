@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 12/13/2017
 ms.author: cephalin;cfowler
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 2e173394f4ad55f8e94ef3db60bd171463b2cf48
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: bc4f2fd72860278fcd6c41c64f6f55715eb1884c
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Azure에서 Node.js 웹앱 만들기
 
@@ -69,8 +69,6 @@ npm start
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-[!INCLUDE [Upload zip file](../../includes/app-service-web-upload-zip.md)]
-
 [!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group.md)] 
 
 [!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan.md)] 
@@ -106,15 +104,18 @@ az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name
 ```bash
 http://<app name>.azurewebsites.net
 ```
+
+새로운 웹앱은 다음과 같아야 합니다.
+
 ![빈 웹앱 페이지](media/app-service-web-get-started-php/app-service-web-service-created.png)
 
-[!INCLUDE [Deploy uploaded ZIP file](../../includes/app-service-web-deploy-zip.md)]
+[!INCLUDE [Deploy ZIP file](../../includes/app-service-web-deploy-zip.md)]
 
 ## <a name="browse-to-the-app"></a>앱으로 이동
 
 웹 브라우저를 사용하여 배포된 응용 프로그램으로 이동합니다.
 
-```bash
+```
 http://<app_name>.azurewebsites.net
 ```
 
@@ -142,13 +143,7 @@ zip -r myUpdatedAppFiles.zip .
 Compress-Archive -Path * -DestinationPath myUpdatedAppFiles.zip
 ``` 
 
-[ZIP 파일 업로드](#upload-the-zip-file)와 동일한 단계를 사용하여 새로운 이 ZIP 파일을 Cloud Shell에 업로드합니다.
-
-그런 다음 Cloud Shell에서 업로드된 ZIP 파일을 다시 배포합니다.
-
-```azurecli-interactive
-az webapp deployment source config-zip --resource-group myResouceGroup --name <app_name> --src clouddrive/myUpdatedAppFiles.zip
-```
+[ZIP 파일 업로드](#upload-the-zip-file)와 동일한 단계를 사용하여 새로운 ZIP 파일을 App Service에 배포합니다.
 
 **앱으로 이동** 단계에서 연 브라우저 창으로 다시 전환하고 페이지를 새로 고칩니다.
 

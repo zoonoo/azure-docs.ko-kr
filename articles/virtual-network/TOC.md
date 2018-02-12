@@ -157,6 +157,7 @@
 #### [Azure CLI](virtual-network-manage-nsg-arm-cli.md)
 
 #### [로그](virtual-network-nsg-manage-log.md)
+### [경로 테이블](manage-route-table.md)
 ### NIC(네트워크 인터페이스)
 #### [NIC 만들기, 변경 또는 삭제](virtual-network-network-interface.md)
 #### [IP 주소 추가, 변경 또는 제거](virtual-network-network-interface-addresses.md)
@@ -177,6 +178,7 @@
 ### [처리량 테스트](virtual-network-bandwidth-testing.md)
 ### [가상 네트워크를 삭제할 수 없음](virtual-network-troubleshoot-cannot-delete-vnet.md)
 ### [VM 간 연결 문제](virtual-network-troubleshoot-connectivity-problem-between-vms.md)
+### [SMTP 배너 검사를 위한 PTR 구성](create-ptr-for-smtp-service.md)
 
 # 참고 자료
 ## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=virtual-network)
@@ -193,7 +195,7 @@
 ## [Application Gateway](/azure/application-gateway/)
 ## [Azure DNS](/azure/dns/)
 ## [Traffic Manager](/azure/traffic-manager/)
-## [부하 분산 장치](/azure/load-balancer/)
+## [Load Balancer](/azure/load-balancer/)
 ## [VPN Gateway](/azure/vpn-gateway/)
 ## [ExpressRoute](/azure/expressroute/)
 
@@ -201,7 +203,7 @@
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=networking)
 ## [네트워킹 블로그](http://azure.microsoft.com/blog/topics/networking)
 ## [네트워킹 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)
-## [가격](https://azure.microsoft.com/pricing/details/virtual-network)
+## [가격 책정](https://azure.microsoft.com/pricing/details/virtual-network)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-virtual-network)
 ## [네트워크 리소스 공급자](resource-groups-networking.md)

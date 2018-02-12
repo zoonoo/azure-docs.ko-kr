@@ -64,13 +64,13 @@
 
 ## 모니터
 ### [클라우드 서비스 모니터링](cloud-services-how-to-monitor.md)
+### [성능 카운터 사용](diagnostics-performance-counters.md)
 ### [성능 테스트](../vs-azure-tools-performance-profiling-cloud-services.md)
 #### [Visual Studio 프로파일러를 사용하여 테스트](cloud-services-performance-testing-visual-studio-profiler.md)
 ### 진단 사용
 #### [Azure PowerShell](cloud-services-diagnostics-powershell.md)
 #### [.NET](cloud-services-dotnet-diagnostics.md)
 #### [Visual Studio](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)
-### [Azure 진단에서 성능 카운터 사용](cloud-services-dotnet-diagnostics-performance-counters.md)
 ### [Azure Storage에서 진단 데이터 저장 및 보기](cloud-services-dotnet-diagnostics-storage.md)
 ### [진단을 사용하여 클라우드 서비스 추적](cloud-services-dotnet-diagnostics-trace-flow.md)
 ### [App Insights로 진단 데이터 보내기](cloud-services-dotnet-diagnostics-applicationinsights.md)
@@ -109,7 +109,7 @@
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=compute)
 ## [학습 경로](https://azure.microsoft.com/documentation/learning-paths/cloud-services/)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-us/home?forum=windowsazuredevelopment)
-## [가격 책정](https://azure.microsoft.com/pricing/details/cloud-services/)
+## [가격](https://azure.microsoft.com/pricing/details/cloud-services/)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=cloud-services&updatetype=&platform=)
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=cloud-services)

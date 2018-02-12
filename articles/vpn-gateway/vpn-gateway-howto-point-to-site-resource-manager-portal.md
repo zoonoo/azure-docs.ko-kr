@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/17/2018
+ms.date: 02/02/2018
 ms.author: cherylmc
-ms.openlocfilehash: 39129572ac9908429dc9b9ef64930e896afc355f
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 8cc387fafb2771577b55f57f79cc8b3a6ee8cfa9
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>네이티브 Azure 인증서 인증을 사용하여 VNet에 지점 및 사이트 간 연결 구성: Azure portal
 
@@ -41,7 +41,7 @@ ms.lasthandoff: 01/18/2018
 
 이 문서에서는 네이티브 Azure 인증서 인증을 사용하는 인증으로 P2S 구성을 구성하도록 합니다. RADIUS를 사용하여 사용자를 연결하도록 인증하려는 경우 [RADIUS 인증을 사용하는 P2S](point-to-site-how-to-radius-ps.md)를 참조하세요.
 
-![Azure VNet-지점 및 사이트 간 연결 다이어그램에 컴퓨터 연결](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/p2snativeps.png)
+![Azure VNet-지점 및 사이트 간 연결 다이어그램에 컴퓨터 연결](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/p2snativeportal.png)
 
 P2S 연결을 작동하는 데는 VPN 장치 또는 공용 IP 주소가 필요하지 않습니다. P2S는 SSTP(Secure Socket Tunneling Protocol) 또는 IKEv2를 통한 VPN 연결을 만듭니다.
 
@@ -113,12 +113,12 @@ P2S 연결을 작동하는 데는 VPN 장치 또는 공용 IP 주소가 필요�
 
 ## <a name="addresspool"></a>6. 클라이언트 주소 풀 추가
 
-클라이언트 주소 풀은 사용자가 지정한 개인 IP 주소 범위입니다. 지점 및 사이트 간 VPN을 통해 연결하는 클라이언트는 이 범위의 IP 주소를 받습니다. 연결 원본이 되는 온-프레미스 위치 또는 연결 대상이 되는 VNet과 겹치지 않는 개인 IP 주소 범위를 사용합니다.
+클라이언트 주소 풀은 사용자가 지정한 개인 IP 주소 범위입니다. 지점 및 사이트 간 VPN을 통해 연결하는 클라이언트는 동적으로 이 범위의 IP 주소를 수신합니다. 연결 원본이 되는 온-프레미스 위치 또는 연결 대상이 되는 VNet과 겹치지 않는 개인 IP 주소 범위를 사용합니다.
 
 1. 가상 네트워크 게이트웨이가 생성된 후에는 가상 네트워크 게이트웨이 페이지의 **설정** 섹션으로 이동합니다. **설정** 섹션에서 **지점 및 사이트 간 구성**을 클릭하여 **지점 및 사이트 간 구성** 페이지를 엽니다.
 
   ![지점 및 사이트 간 페이지](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/gatewayblade.png)
-2. **지점 및 사이트 간 구성** 페이지에서 자동으로 채워진 범위를 삭제한 다음 사용하려는 개인 IP 주소 범위를 추가할 수 있습니다. **저장**을 클릭하여 설정을 확인하고 저장합니다.
+2. **지점 및 사이트 간 구성** 페이지에서 자동으로 채워진 범위를 삭제한 다음 사용하려는 개인 IP 주소 범위를 추가할 수 있습니다. VPN 클라이언트는 동적으로 지정된 범위에서 IP 주소를 수신합니다. **저장**을 클릭하여 설정을 확인하고 저장합니다.
 
   ![클라이언트 주소 풀](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/ipaddresspool.png)
 

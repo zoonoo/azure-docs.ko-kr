@@ -171,6 +171,7 @@
 #### [Face Redactor 연습](media-services-redactor-walkthrough.md)
 ### [비디오 미리 보기로 처리](media-services-video-summarization.md)
 ### [OCR을 사용하여 처리](media-services-video-optical-character-recognition.md)
+### [Content Moderator를 사용하여 처리](media-services-content-moderation.md)
 
 ## [원격 분석 구성](media-services-telemetry-overview.md)
 ###[.NET](media-services-dotnet-telemetry.md)
@@ -234,7 +235,7 @@
 # 리소스
 ## [Azure Media Services 커뮤니티](media-services-community.md)
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=web-mobile)
-## [가격 책정](https://azure.microsoft.com/pricing/details/media-services/)
+## [가격](https://azure.microsoft.com/pricing/details/media-services/)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [릴리스 정보](media-services-release-notes.md)
 ## [비디오](https://azure.microsoft.com/resources/videos/index/?services=media-services)
