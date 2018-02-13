@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 12/14/2017
 ms.author: brenduns
 ms.reviewer: jiahan
-ms.openlocfilehash: dce4252846732ca5161018103438df1f9ff6146d
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 30e5265fbad66ab3c68bc5d5e90687b1a968167b
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>Azure 스택에 대 한 저장소 용량 관리
 
@@ -130,7 +130,7 @@ PowerShell 또는 관리 포털을 사용 하 여 사용 가능한 공간이 제
 - 리소스 그룹에 권한이 부족 하 고 PowerShell을 사용 하 여 오버플로 데이터에 대 한 추가 볼륨을 쿼리할 수 없습니다 해당 리소스 그룹 및 컨테이너의 데이터의 전체 크기를 이해 하려면 해당 데이터를 마이그레이션하기 전에 마이그레이션 소유자와 협력 합니다.  
 
 > [!IMPORTANT]
-> Blob 컨테이너에 대 한 마이그레이션은 PowerShell 사용 해야 하는 오프 라인 작업. 마이그레이션 완료 될 때까지 마이그레이션하는 컨테이너에 대 한 모든 blob는 오프 라인으로 유지 하 고 사용할 수 없습니다.
+> Blob 컨테이너에 대 한 마이그레이션은 PowerShell 사용 해야 하는 오프 라인 작업. 마이그레이션 완료 될 때까지 마이그레이션하는 컨테이너에 대 한 모든 blob는 오프 라인으로 유지 하 고 사용할 수 없습니다. 모든 진행 중인 마이그레이션 완료 될 때까지 Azure 스택 업그레이드 피해 야 합니다.
 
 #### <a name="to-migrate-containers-using-powershell"></a>PowerShell을 사용 하 여 컨테이너를 마이그레이션하려면
 1. 있는지 확인 [Azure PowerShell 설치 및 구성](http://azure.microsoft.com/documentation/articles/powershell-install-configure/)합니다. 자세한 내용은 [Azure 리소스 관리자에서 Azure PowerShell 사용](http://go.microsoft.com/fwlink/?LinkId=394767)을 참조하세요.
