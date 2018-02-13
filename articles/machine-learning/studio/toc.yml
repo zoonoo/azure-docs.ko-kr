@@ -1,5 +1,5 @@
 - name: Machine Learning Studio 설명서
-  href: index.md
+  href: index.yml
 - name: 개요
   expanded: true
   items:

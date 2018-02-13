@@ -1,8 +1,6 @@
-- name: Machine Learning 미리 보기 기능
+- name: Azure Machine Learning 서비스(미리 보기)
   href: preview/index.yml
-- name: Machine Learning 스튜디오
-  href: studio/index.md
-- name: 데이터 과학 가상 컴퓨터
-  href: data-science-virtual-machine/overview.md
-- name: Team Data Science Process
-  href: team-data-science-process/overview.md
+- name: Azure Machine Learning Studio
+  href: studio/index.yml
+- name: 데이터 과학 Virtual Machine
+  href: data-science-virtual-machine/index.yml

@@ -1,4 +1,5 @@
-- name: 데이터 과학 가상 컴퓨터 설명서
+- name: 데이터 과학 Virtual Machine 설명서
+  href: index.yml
   items: null
 - name: 개요
   expanded: true
@@ -7,7 +8,7 @@
       href: overview.md
     - name: 심층 학습 VM은 무엇입니까?
       href: deep-learning-dsvm-overview.md
-- name: 시작
+- name: 시작하기
   items:
     - name: Windows 데이터 과학 VM 만들기
       href: provision-vm.md
@@ -25,7 +26,7 @@
       href: linux-dsvm-walkthrough.md
     - name: 심층 학습 VM 사용
       href: use-deep-learning-dsvm.md
-- name: 참조
+- name: 참고 자료
   expanded: true
   items:
     - name: DSVM 검색

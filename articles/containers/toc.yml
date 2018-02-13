@@ -51,12 +51,12 @@
           href: 'https://docs.microsoft.com/azure/service-fabric/service-fabric-containers-overview'
         - name: 방법
           items:
-            - name: Docker 호스트 만들기
-              href: 'https://docs.microsoft.com/azure/virtual-machines/linux/dockerextension'
-            - name: Docker 컴퓨터 사용
-              href: 'https://docs.microsoft.com/azure/virtual-machines/linux/docker-machine'
-            - name: Docker Compose 사용
-              href: 'https://docs.microsoft.com/azure/virtual-machines/linux/docker-compose-quickstart'
+            - name: Windows에서 컨테이너 응용 프로그램 만들기
+              href: 'https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-containers'
+            - name: Linux에서 컨테이너 응용 프로그램 만들기
+              href: 'https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-containers-linux'
+            - name: 기존 .NET 응용 프로그램 컨테이너화
+              href: 'https://docs.microsoft.com/azure/service-fabric/service-fabric-host-app-in-a-container'
     - name: Windows 컨테이너
       href: 'https://docs.microsoft.com/azure/virtual-machines/windows/overview'
       items:
@@ -64,7 +64,7 @@
           href: 'https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server'
         - name: Windows 컨테이너 정보
           href: 'https://docs.microsoft.com/virtualization/windowscontainers/about/index'
-    - name: 참조
+    - name: 참고 자료
       items:
         - name: Azure Container Instances(az container)
           href: 'https://docs.microsoft.com/cli/azure/container'

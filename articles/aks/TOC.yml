@@ -37,6 +37,8 @@
   items:
     - name: 클러스터 작업
       items:
+        - name: AKS 클러스터 만들기
+          href: create-cluster.md
         - name: AKS 클러스터 크기 조정
           href: scale-cluster.md
         - name: AKS 클러스터 업그레이드
@@ -45,10 +47,14 @@
           href: delete-cluster.md
     - name: 데이터 볼륨 구성
       items:
-        - name: Azure 디스크 - 영구 볼륨
+        - name: Azure 디스크
           href: azure-disks-dynamic-pv.md
-        - name: Azure 파일 - 영구 볼륨
+        - name: Azure 파일
           href: azure-files-dynamic-pv.md
+    - name: 네트워킹 구성
+      items:
+        - name: 고정 IP 주소
+          href: static-ip.md
     - name: 보안 및 인증
       items:
         - name: 서비스 주체 만들기
