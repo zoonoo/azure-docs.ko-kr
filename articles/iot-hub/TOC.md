@@ -107,6 +107,7 @@
 #### [.NET 백 엔드/Node.js 장치](iot-hub-csharp-node-device-management-get-started.md)
 #### [.NET 백 엔드/.NET 장치](iot-hub-csharp-csharp-device-management-get-started.md)
 #### [Java 백 엔드/Java 장치](iot-hub-java-java-device-management-getstarted.md)
+#### [Python 백 엔드/Python 장치](iot-hub-python-python-device-management-get-started.md)
 ### 쌍 속성 사용 방법
 #### [Node.js 백 엔드/Node.js 장치](iot-hub-node-node-twin-how-to-configure.md)
 #### [.NET 백 엔드/Node.js 장치](iot-hub-csharp-node-twin-how-to-configure.md)
@@ -186,7 +187,7 @@
 ## [iothub-explorer 도구](https://github.com/Azure/iothub-explorer)
 ## [학습 경로](https://azure.microsoft.com/documentation/learning-paths/iot-hub/)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureiothub)
-## [가격](https://azure.microsoft.com/pricing/details/iot-hub/)
+## [가격 책정](https://azure.microsoft.com/pricing/details/iot-hub/)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=iot-hub)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-iot-hub)
