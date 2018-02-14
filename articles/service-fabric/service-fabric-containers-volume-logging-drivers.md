@@ -14,8 +14,8 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: 8918d6d53d7dd04e2a685707979526230ebfbc42
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: cbe7e338ac7da9dc7e8d03cb1bb07a69af70cb17
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/01/2018
@@ -41,7 +41,7 @@ docker plugin install --alias azure --grant-all-permissions docker4x/cloudstor:1
 ```
 
 > [!NOTE]
-> Windows Server 2016 Datacenter는 커넥터에 SMB 마운트를 매핑하도록 지원하지 않습니다([Windows Server 버전 1709에서만 지원됨](https://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-containers/container-storage)). 그러면 1709보다 오래된 버전에서 네트워크 볼륨 매핑 및 Azure Files 볼륨 드라이버를 지원하지 않습니다. 
+> Windows Server 2016 Datacenter는 커넥터에 SMB 마운트를 매핑하도록 지원하지 않습니다([Windows Server 버전 1709에서만 지원됨](https://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-containers/container-storage)). 이러한 제약으로 인해 1709보다 오래된 버전에서 네트워크 볼륨 매핑 및 Azure Files 볼륨 드라이버를 사용할 수 없습니다. 
 >   
 
 
@@ -53,8 +53,9 @@ docker plugin install --alias azure --grant-all-permissions docker4x/cloudstor:1
 <ApplicationManifest ApplicationTypeName="WinNodeJsApp" ApplicationTypeVersion="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <Description>Calculator Application</Description>
     <Parameters>
-        <Parameter Name="ServiceInstanceCount" DefaultValue="3"></Parameter>
+      <Parameter Name="ServiceInstanceCount" DefaultValue="3"></Parameter>
       <Parameter Name="MyCpuShares" DefaultValue="3"></Parameter>
+      <Parameter Name="MyStorageVar" DefaultValue="c:\tmp"></Parameter>
     </Parameters>
     <ServiceManifestImport>
         <ServiceManifestRef ServiceManifestName="NodeServicePackage" ServiceManifestVersion="1.0"/>
@@ -66,7 +67,7 @@ docker plugin install --alias azure --grant-all-permissions docker4x/cloudstor:1
           <DriverOption Name="test" Value="vale"/>
         </LogConfig>
         <Volume Source="c:\workspace" Destination="c:\testmountlocation1" IsReadOnly="false"></Volume>
-        <Volume Source="d:\myfolder" Destination="c:\testmountlocation2" IsReadOnly="true"> </Volume>
+        <Volume Source="[MyStorageVar]" Destination="c:\testmountlocation2" IsReadOnly="true"> </Volume>
         <Volume Source="myvolume1" Destination="c:\testmountlocation2" Driver="azure" IsReadOnly="true">
            <DriverOption Name="share" Value="models"/>
         </Volume>
@@ -83,6 +84,8 @@ docker plugin install --alias azure --grant-all-permissions docker4x/cloudstor:1
 
 **Volume** 요소의 **Source** 태그는 소스 폴더를 참조합니다. 소스 폴더는 컨테이너 또는 영구 원격 저장소를 호스트하는 VM의 폴더일 수 있습니다. **Destination** 태그는 실행 중인 컨테이너에서 **Source**가 매핑되는 위치입니다. 따라서 대상은 컨테이너 내에 이미 존재하는 위치가 될 수 없습니다.
 
+앞의 매니페스트 조각에 표시된 대로, 볼륨에 대해 응용 프로그램 매개 변수가 지원됩니다(예제 사용에 대해서는 `MyStoreVar` 확인).
+
 볼륨 플러그 인을 지정할 때 Service Fabric은 지정된 매개 변수를 사용하여 볼륨을 자동으로 만듭니다. **Source** 태그는 볼륨의 이름이며 **Driver** 태그는 볼륨 드라이버 플러그 인을 지정합니다. 옵션은 **DriverOption** 태그를 사용하여 다음과 같이 지정할 수 있습니다.
 
 ```xml
@@ -93,4 +96,4 @@ docker plugin install --alias azure --grant-all-permissions docker4x/cloudstor:1
 Docker 로그 드라이버가 지정된 경우 클러스터의 로그를 처리할 에이전트(또는 컨테이너)를 배포해야 합니다. **DriverOption** 태그는 로그 드라이버에 대한 옵션을 지정하는 데 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-컨테이너를 Service Fabric 클러스터에 배포하려면 [Service Fabric에 컨테이너 배포](service-fabric-deploy-container.md)를 참조하세요.
+컨테이너를 Service Fabric 클러스터에 배포하려면 [Service Fabric에 컨테이너 배포](service-fabric-deploy-container.md) 문서를 참조하세요.

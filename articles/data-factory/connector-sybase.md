@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 02/02/2018
 ms.author: jingwang
-ms.openlocfilehash: 4d9a87f244501b91c60a895f0e16d0c979163444
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 88d71510c1d966c3250891eb9a430503959a91ba
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="copy-data-from-sybase-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Sybase에서 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -35,7 +35,7 @@ Sybase 데이터베이스에서 지원되는 모든 싱크 데이터 저장소�
 
 특히 이 Sybase 커넥터는 다음을 지원합니다.
 
-- Sybase **버전 16 이상**
+- SAP Sybase SQL ASA(Anywhere) **버전 16 이상**. IQ 및 ASE는 지원되지 않습니다.
 - **Basic** 또는 **Windows** 인증을 사용한 데이터 복사
 
 ## <a name="prerequisites"></a>필수 조건

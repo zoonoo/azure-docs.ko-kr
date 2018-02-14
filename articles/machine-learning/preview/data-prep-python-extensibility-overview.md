@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
-ms.date: 09/07/2017
-ms.openlocfilehash: 3c3864480d2fcba4f6d388d4e0d00b917cb62d2b
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.date: 02/01/2018
+ms.openlocfilehash: 76ed1a93af22620ccc2074168b3ff20f6bb4c37d
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="data-preparations-python-extensions"></a>데이터 준비 Python 확장
 기본 제공 기능 사이의 격차를 해소하기 위해 Azure Machine Learning 데이터 준비에는 여러 수준의 확장성이 포함되어 있습니다. 이 문서에서는 Python 스크립트를 통해 확장성을 설명합니다. 
@@ -125,7 +125,7 @@ Mac에서 해당 위치를 찾으려면 Python의 앱별 설치와 해당 스크
 `./pip install <libraryname>`
 
 ## <a name="use-custom-modules"></a>사용자 지정 모듈 사용
-데이터 흐름 변환(스크립트)에서 다음과 같은 python 코드를 작성합니다.
+데이터 흐름 변환(스크립트)에서 다음과 같은 Python 코드를 작성합니다.
 
 ```python
 import sys
@@ -135,7 +135,7 @@ from UserModule import ExtensionFunction1
 df = ExtensionFunction1(df)
 ```
 
-열 추가(스크립트)에서 Code Block Type = Module을 설정하고 다음과 같이 python 코드를 작성합니다.
+열 추가(스크립트)에서 Code Block Type = Module을 설정하고 다음과 같이 Python 코드를 작성합니다.
 
 ```python 
 import sys
@@ -146,7 +146,7 @@ from UserModule import ExtensionFunction2
 def newvalue(row):
     return ExtensionFunction2(row)
 ```
-다른 실행 컨텍스트(로컬, Docker spark)의 경우 절대 경로로 적절한 위치를 가리킵니다. “os.getcwd() + relativePath”를 사용하여 해당 위치를 지정할 수도 있습니다.
+다른 실행 컨텍스트(로컬, Docker Spark)의 경우 절대 경로로 적절한 위치를 가리킵니다. “os.getcwd() + relativePath”를 사용하여 해당 위치를 지정할 수도 있습니다.
 
 
 ## <a name="column-data"></a>열 데이터 

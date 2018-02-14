@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 01/12/2018
+ms.date: 02/01/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: de82062f605d060dc388022cdb8ee9d5c09b2b89
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 421e594f7bd4df1bc1c5faedc2c8bfab0540ca61
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Linux를 실행하는 N 시리즈 VM의 NVIDIA GPU 드라이버 설치
 
@@ -101,18 +101,21 @@ sudo apt-get install cuda-drivers
 sudo reboot
 ```
 
-### <a name="centos-based-73-or-red-hat-enterprise-linux-73"></a>CentOS 기반 7.3 또는 Red Hat Enterprise Linux 7.3
+### <a name="centos-or-red-hat-enterprise-linux-73-or-74"></a>CentOS 또는 Red Hat Enterprise Linux 7.3/7.4
 
-1. Hyper-V에 대한 최신 Linux 통합 서비스를 설치하십시오.
+1. 커널을 업데이트합니다.
 
-  > [!IMPORTANT]
-  > NC24r VM에서 CentOS 기반 HPC 이미지를 설치한 경우 3단계로 건너뜁니다. Azure RDMA 드라이버 및 LIS(Linux Integration Services)는 HPC 이미지에 사전 설치되어 있으므로, LIS는 업그레이드하면 안되며 커널 업데이트는 기본적으로 사용하지 않도록 설정되어 있습니다.
-  >
+  ```
+  sudo yum install kernel kernel-tools kernel-headers kernel-devel
+  
+  sudo reboot
+
+2. Install the latest Linux Integration Services for Hyper-V.
 
   ```bash
-  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-2.tar.gz
+  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-5.tar.gz
  
-  tar xvzf lis-rpms-4.2.3-2.tar.gz
+  tar xvzf lis-rpms-4.2.3-5.tar.gz
  
   cd LISISO
  
@@ -124,8 +127,6 @@ sudo reboot
 3. VM에 다시 연결하고 다음 명령을 사용하여 설치를 계속합니다.
 
   ```bash
-  sudo yum install kernel-devel
-
   sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 
   sudo yum install dkms
@@ -162,20 +163,22 @@ GPU 장치 상태를 쿼리하려면 VM에 대해 SSH를 실행하고 드라이�
 ![NVIDIA 장치 상태](./media/n-series-driver-setup/smi.png)
 
 
-
 ## <a name="rdma-network-connectivity"></a>RDMA 네트워크 연결
 
 동일한 가용성 집합에 배포된 NC24r처럼 RDMA 지원 N 시리즈 VM에서 RDMA 네트워크 연결을 사용할 수 있습니다. RDMA 네트워크는 Intel MPI 5.x 이상 버전을 사용하여 실행되는 응용 프로그램에 대한 MPI(Message Passing Interface) 트래픽을 지원합니다. 추가 요구 사항은 다음과 같습니다.
 
 ### <a name="distributions"></a>배포
 
-RDMA 연결을 지원하는 Azure Marketplace의 다음 이미지 중 하나에서 RDMA 지원 N 시리즈 VM을 배포합니다.
+N 시리즈 VM에서 RDMA 연결을 지원하는 Azure Marketplace의 이미지에서 RDMA 지원 N 시리즈 VM을 배포합니다.
   
-* **Ubuntu** - Ubuntu Server 16.04 LTS. Intel MPI를 다운로드하도록 VM에서 RDMA 드라이버를 구성하고 Intel에 등록:
+* **Ubuntu 16.04 LTS** - Intel MPI를 다운로드하도록 VM에서 RDMA 드라이버를 구성하고 Intel에 등록합니다.
 
   [!INCLUDE [virtual-machines-common-ubuntu-rdma](../../../includes/virtual-machines-common-ubuntu-rdma.md)]
 
-* **CentOS 기반 HPC** - CentOS 기반 7.3 HPC. RDMA 드라이버 및 Intel MPI 5.1은 VM에 설치됩니다. 
+> [!NOTE]
+> CentOS 기반 HPC 이미지는 현재, N 시리즈 VM의 RDMA 연결에 대해 권장되지 않습니다. RDMA는 NVIDIA GPU를 지원하는 최신 CentOS 7.4 커널에서 지원되지 않습니다.
+> 
+
 
 ## <a name="install-grid-drivers-for-nv-vms"></a>NV VM용 GRID 드라이버 설치
 
@@ -237,7 +240,7 @@ NVIDIA GRID 드라이버를 NV VM에 설치하려면 각 VM에 대한 SSH 연결
 9. VM 다시 부팅하고 계속해서 설치를 확인합니다.
 
 
-### <a name="centos-based-73-or-red-hat-enterprise-linux-73"></a>CentOS 기반 7.3 또는 Red Hat Enterprise Linux 7.3
+### <a name="centos-or-red-hat-enterprise-linux"></a>CentOS 또는 Red Hat Enterprise Linux 
 
 1. 커널 및 DKMS를 업데이트합니다.
  
@@ -262,9 +265,9 @@ NVIDIA GRID 드라이버를 NV VM에 설치하려면 각 VM에 대한 SSH 연결
 3. VM을 다시 부팅하고, 다시 연결한 후, Hyper-V에 대한 최신 Linux 통합 서비스를 설치합니다.
  
   ```bash
-  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-2.tar.gz
+  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-5.tar.gz
 
-  tar xvzf lis-rpms-4.2.3-2.tar.gz
+  tar xvzf lis-rpms-4.2.3-5.tar.gz
 
   cd LISISO
 
@@ -343,8 +346,6 @@ if grep -Fxq "${BUSID}" /etc/X11/XF86Config; then     echo "BUSID is matching"; 
 이 파일은 `/etc/rc.d/rc3.d`에서 이에 대한 항목을 만들면 부팅에 대한 루트로 호출될 수 있습니다.
 
 ## <a name="troubleshooting"></a>문제 해결
-
-* Ubuntu 16.04 LTS에서 4.4.0-75 Linux 커널을 실행하는 Azure N 시리즈 VM의 CUDA 드라이버에 알려진 문제가 있습니다. 이전 커널 버전에서 업그레이드하는 경우 커널 버전 4.4.0-77 이상으로 업그레이드합니다.
 
 * `nvidia-smi`를 사용하여 지속성 모드를 설정할 수 있으므로 카드를 쿼리해야 할 때 명령 출력이 더 빠릅니다. 지속성 모드를 설정하려면 `nvidia-smi -pm 1`을 실행합니다. VM을 다시 시작하면 모드 설정이 사라집니다. 모드 설정은 시작할 때 실행되도록 항상 스크립팅할 수 있습니다.
 

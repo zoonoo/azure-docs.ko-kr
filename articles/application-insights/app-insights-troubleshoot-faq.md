@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: 9f6cf019d681ce6e844481ca58de1ff472b3d32c
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: ed10b364a809c519fe9fe49e019df22598b8c04e
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: 질문과 대답
 
@@ -152,7 +152,7 @@ ms.lasthandoff: 01/03/2018
 
 코드에서 이러한 데이터를 전송하는 경우 가능합니다. 스택 추적의 변수에 PII가 포함된 경우에도 전송될 수 있습니다. 개발 팀은 PII가 제대로 처리되도록 위험 평가를 수행해야 합니다. [데이터 보존 및 개인 정보](app-insights-data-retention-privacy.md)에 대해 자세히 알아보세요.
 
-포털에서 수집된 후 클라이언트 웹 주소의 마지막 옥텟은 항상 0으로 설정됩니다.
+클라이언트 웹 주소의 **모든** 8진수는 지리적 위치 특성을 조회한 후에 항상 0으로 설정됩니다.
 
 ## <a name="my-ikey-is-visible-in-my-web-page-source"></a>내 iKey가 내 웹 페이지 원본에 표시됩니다. 
 

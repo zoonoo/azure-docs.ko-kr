@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: 32ddb1489c89303ca3d094c1346d5071c7380c56
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 4e3c17a86281176726be64008fa9e59e08e026f0
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>가상 네트워크에서 Azure API Management를 사용하는 방법
 Azure VNET(Virtual Network)을 사용하면 인터넷에서 사용할 수 없고 라우팅할 있는 네트워크(액세스를 제어하는)에 다수의 Azure 리소스를 배치할 수 있습니다. 이러한 네트워크는 다양한 VPN 기술을 사용하여 온-프레미스 네트워크에 연결될 수 있습니다. Azure Virtual Network에 대해 자세히 알아보려면 [Azure Virtual Network 개요](../virtual-network/virtual-networks-overview.md)부터 참조하세요.
@@ -111,20 +111,21 @@ API Management 서비스 인스턴스가 VNET에 호스트된 경우 다음 표�
 | * / 3443 |인바운드 |TCP |인터넷 / VIRTUAL_NETWORK|Azure Portal 및 Powershell용 관리 끝점 |내부 |
 | * / 80, 443 |아웃바운드 |TCP |VIRTUAL_NETWORK / 인터넷|**Azure Storage, Azure Service Bus 및 Azure Active Directory에 대한 종속성**(해당되는 경우).|외부 및 내부 | 
 | * / 1433 |아웃바운드 |TCP |VIRTUAL_NETWORK / 인터넷|**Azure SQL 끝점에 대한 액세스** |외부 및 내부 |
-| * / 5671, 5672 |아웃바운드 |TCP |VIRTUAL_NETWORK / 인터넷|이벤트 허브 정책 및 모니터링 에이전트에 대한 로그의 종속성 |외부 및 내부 |
+| * / 5672 |아웃바운드 |TCP |VIRTUAL_NETWORK / 인터넷|이벤트 허브 정책 및 모니터링 에이전트에 대한 로그의 종속성 |외부 및 내부 |
 | * / 445 |아웃바운드 |TCP |VIRTUAL_NETWORK / 인터넷|GIT의 Azure 파일 공유에 대한 종속성 |외부 및 내부 |
+| * / 1886 |아웃바운드 |TCP |VIRTUAL_NETWORK / 인터넷|리소스 상태에 상태를 게시하는 데 필요 |외부 및 내부 |
 | * / 25028 |아웃바운드 |TCP |VIRTUAL_NETWORK / 인터넷|전자 메일을 보내기 위한 SMTP 릴레이에 연결 |외부 및 내부 |
 | * / 6381 - 6383 |인바운드 및 아웃바운드 |TCP |VIRTUAL_NETWORK / VIRTUAL_NETWORK|역할 인스턴스 간 Redis 캐시 인스턴스에 대한 액세스 |외부 및 내부 |
 | * / * | 인바운드 |TCP |AZURE_LOAD_BALANCER / VIRTUAL_NETWORK| Azure 인프라 부하 분산 장치 |외부 및 내부 |
 
 >[!IMPORTANT]
-> * API Management 서비스를 성공적으로 배포하려면 *목적*이 **볼드**인 포트가 필요합니다. 하지만 다른 포트를 차단할 경우 실행 중인 서비스사를 용 및 모니터링하는 기능이 저하됩니다.
+> API Management 서비스를 성공적으로 배포하려면 *목적*이 **볼드**인 포트가 필요합니다. 하지만 다른 포트를 차단할 경우 실행 중인 서비스사를 용 및 모니터링하는 기능이 저하됩니다.
 
 * **SSL 기능**: SSL 인증서 체인 작성 및 유효성 검사를 사용하도록 설정하려면 API Management에서 ocsp.msocsp.com, mscrl.microsoft.com 및 crl.microsoft.com으로의 아웃바운드 네트워크 연결이 필요합니다. API Management에 업로드하는 인증서에 CA 루트의 전체 체인이 포함되어 있으면 이 종속성은 필요하지 않습니다.
 
 * **DNS 액세스**: DNS 서버와의 통신을 위해서는 53 포트에서 아웃바운드 액세스가 필요합니다. 사용자 지정 DNS 서버가 VPN 게이트웨이의 다른 쪽 끝에 있는 경우 API Management를 호스팅하는 서브넷에서 DNS 서버에 연결할 수 있어야 합니다.
 
-* **메트릭 및 상태 모니터링**: global.metrics.nsatc.net, shoebox2.metrics.nsatc.net, prod3.metrics.nsatc.net, prod.warmpath.msftcloudes.com 도메인에서 확인되는 Azure 모니터링 엔드포인트로 아웃바운드 네트워크 연결.
+* **메트릭 및 상태 모니터링**: global.metrics.nsatc.net, shoebox2.metrics.nsatc.net, prod3.metrics.nsatc.net, prod.warmpath.msftcloudes.com, prod3-black.prod3.metrics.nsatc.net 및 prod3-red.prod3.metrics.nsatc.net 도메인에서 확인되는 Azure 모니터링 엔드포인트로 아웃바운드 네트워크 연결
 
 * **Express Route 설정**: 고객의 일반적인 구성은 온-프레미스 흐름 대신 아웃바운드 인터넷 트래픽을 강제하는 기본 경로(0.0.0.0/0)로 정의되어 있습니다. 이 트래픽 흐름은 변함없이 Azure API Management와의 연결을 끊습니다. 그 이유는 아웃바운드 트래픽이 온-프레미스에서 막히거나 다양한 Azure 끝점에서 더 이상 작동하지 않는 인식 불가능한 주소 집합으로 NAT되기 때문입니다. 해결책은 하나의(또는 그 이상) [UDR][UDRs](사용자 정의 경로)을 Azure API Management를 포함하는 서브넷에 정의하는 것입니다. UDR이 정의한 특정 서브넷 경로는 기본 경로대신 적용됩니다.
   가능하면 다음 구성을 사용하는 것이 좋습니다.
@@ -132,7 +133,7 @@ API Management 서비스 인스턴스가 VNET에 호스트된 경우 다음 표�
  * Azure API Management를 포함하는 서브넷에 적용된 UDR은 다음 홉 형식을 갖는 인터넷으로 0.0.0.0/0을 정의합니다.
  이러한 단계의 결합된 효과는 서브넷 수준 UDR이 강제된 터널링에 ExpressRoute를 담당하고 Azure API Management에서 아웃바운드 인터넷 액세스를 보장합니다.
 
-**네트워크 가상 어플라이언스를 통한 라우팅**: UDR을 사용하여 기본 경로(0.0.0.0/0)로 Azure에서 실행 중인 네트워크 가상 어플라이언스를 통해 API 관리 서브넷에서 인터넷으로 향하는 트래픽을 라우팅하도록 구성하면 API 관리와 필요한 서비스 사이의 완벽한 통신을 방해합니다. 이 구성은 지원되지 않습니다. 
+* **네트워크 가상 어플라이언스를 통한 라우팅**: UDR을 사용하여 기본 경로(0.0.0.0/0)로 Azure에서 실행 중인 네트워크 가상 어플라이언스를 통해 API 관리 서브넷에서 인터넷으로 향하는 트래픽을 라우팅하도록 구성하면 인터넷에서 가상 네트워크 서브넷 내에 배포된 API Management 서비스 인스턴스로 들어오는 관리 트래픽이 차단됩니다. 이 구성은 지원되지 않습니다.
 
 >[!WARNING]  
 >**공용 피어링 경로에서 개인 피어링 경로로 경로의 교차 보급을 잘못**한 ExpressRoute 구성에서는 Azure API Management가 지원되지 않습니다. 구성된 공용 피어링이 있는 ExpressRoute 구성은 다양한 Microsoft Azure IP 주소 범위 집합에 대해 Microsoft에서 경로 보급을 받습니다. 이러한 주소 범위의 교차 보급을 개인 피어링 경로에 잘못한 경우 Azure API Management 인스턴스의 서브넷에서 모든 아웃바운드 네트워크 패킷이 고객의 온-프레미스 네트워크 인프라에 강제 터널링되는 잘못된 최종 결과를 발생시킵니다. 이 네트워크 흐름은 Azure API Management를 중단합니다. 이 문제를 해결하려면 공용 피어링 경로에서 개인 피어링 경로로 이어진 교차 보급 경로를 중지합니다.
@@ -153,7 +154,7 @@ API Management 서비스 인스턴스가 VNET에 호스트된 경우 다음 표�
 ## <a name="subnet-size"> </a> 서브넷 크기 요구 사항
 Azure는 각 서브넷 내의 일부 IP 주소를 예약하며, 이러한 주소는 사용할 수 없습니다. 서브넷의 첫 번째 및 마지막 IP 주소는 Azure 서비스에 사용되는 3개 이상의 주소와 함께 프로토콜 적합성을 위해 예약됩니다. 자세한 내용은 [이러한 서브넷 내에서 IP 주소를 사용하는데 제한 사항이 있습니까?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)
 
-Azure VNET 인프라에 사용되는 IP 주소 외에도, 서브넷의 각 API Management 인스턴스는 프리미엄 SKU 단위당 두 개의 IP 주소를 사용하거나 개발자 SKU에 대해 하나의 IP 주소를 사용합니다. 각 인스턴스는 외부 부하 분산 장치에 대해 하나의 IP 주소를 예약합니다. 내부 VNET에 배포할 때 내부 부하 분산 장치에 대해 추가 IP 주소가 필요합니다.
+Azure VNET 인프라에 사용되는 IP 주소 외에도, 서브넷의 각 API Management 인스턴스는 프리미엄 SKU 단위당 두 개의 IP 주소를 사용하거나 개발자 SKU에 대해 하나의 IP 주소를 사용합니다. 각 인스턴스는 외부 부하 분산 장치에 대해 하나의 추가 IP 주소를 예약합니다. 내부 VNET에 배포할 때 내부 부하 분산 장치에 대해 추가 IP 주소가 필요합니다.
 
 API Management가 배포될 수 있는 서브넷의 최소 크기 이상으로 계산하면 /29이며 3개의 IP 주소를 제공합니다.
 

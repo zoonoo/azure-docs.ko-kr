@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2017
 ms.author: szark
-ms.openlocfilehash: ccadf55c492c097ef96f25e469dbf36fc87b6102
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 771b3ffa0ece10e7373011536a12ed4cb1a1dd6d
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="information-for-non-endorsed-distributions"></a>보증되지 않는 배포에 대한 정보
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
-[보증 배포판](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 중 하나를 사용하는 경우에만 Linux OS를 실행하는 가상 컴퓨터에 Azure 플랫폼 SLA가 적용됩니다. Azure 이미지 갤러리에 제공된 모든 Linux 배포는 필요한 구성이 포함된 보증 배포판입니다.
+[보증 배포판](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 중 하나를 사용하는 경우에만 Linux OS를 실행하는 가상 머신에 Azure 플랫폼 SLA가 적용됩니다. Azure 이미지 갤러리에 제공된 모든 Linux 배포는 필요한 구성이 포함된 보증 배포판입니다.
 
 * [Azure의 Linux - 보증 배포판](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Microsoft Azure의 Linux 이미지 지원](https://support.microsoft.com/kb/2941892)
@@ -44,7 +44,7 @@ Azure에서 실행되는 모든 배포가 플랫폼에서 올바르게 실행되
 
 ## <a name="general-linux-installation-notes"></a>일반 Linux 설치 참고 사항
 * VHDX 형식은 Azure에서 지원되지 않습니다. **고정된 VHD**만 지원됩니다.  Hyper-V 관리자 또는 convert-vhd cmdlet을 사용하여 디스크를 VHD 형식으로 변환할 수 있습니다. VirtualBox를 사용하면 디스크를 만들 때 기본적으로 동적 할당되지 않고 **고정 크기**가 선택됩니다.
-* Azure에서는 1세대 가상 컴퓨터만 지원합니다. VHDX에서 VHD 파일 형식으로, 동적 확장에서 고정된 크기의 디스크로 1세대 가상 컴퓨터를 변환할 수 있습니다. 하지만 가상 컴퓨터의 세대를 변경할 수 없습니다. 자세한 내용은 [Hyper-V에 1 또는 2세대 가상 컴퓨터를 만들어야 합니까?](https://technet.microsoft.com/en-us/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v)를 참조하세요.
+* Azure에서는 1세대 가상 머신만 지원합니다. VHDX에서 VHD 파일 형식으로, 동적 확장에서 고정된 크기의 디스크로 1세대 가상 컴퓨터를 변환할 수 있습니다. 하지만 가상 머신의 세대를 변경할 수 없습니다. 자세한 내용은 [Hyper-V에 1 또는 2세대 가상 머신을 만들어야 합니까?](https://technet.microsoft.com/en-us/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v)를 참조하세요.
 * VHD에 허용되는 최대 크기는 1,023GB입니다.
 * Linux 시스템 설치 시에는 LVM(설치 기본값인 경우가 많음)이 아닌 표준 파티션을 사용하는 것이 *좋습니다*. 이렇게 하면 특히 문제 해결을 위해 OS 디스크를 다른 VM에 연결해야 하는 경우 복제된 VM과 LVM 이름이 충돌하지 않도록 방지합니다. 데이터 디스크에서 [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 또는 [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 사용할 수 있습니다.
 * UDF 파일 시스템 탑재에 대한 커널 지원이 필요합니다. Azure에서 처음 부팅 시 프로비저닝 구성이 게스트에 연결된 UDF 형식의 미디어를 통해 Linux VM에 전달됩니다. Azure Linux 에이전트는 해당 구성을 읽고 VM을 프로비전하기 위해 UDF 파일 시스템을 탑재할 수 있어야 합니다.
@@ -137,12 +137,13 @@ Red Hat Enterprise Linux 버전 **6.0-6.3**의 변형을 실행하는 경우에�
 * [scsi_sysfs: __scsi_remove_device 이중 실행 방지](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/scsi_sysfs.c?id=be821fd8e62765de43cc4f0e2db363d0e30a7e9b)
 
 ## <a name="the-azure-linux-agent"></a>Azure Linux 에이전트
-Azure에서 Linux 가상 컴퓨터를 올바르게 프로비전하려면 [Azure Linux 에이전트](../windows/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (waagent)가 필요합니다. [Linux Agent GitHub 리포지토리](https://github.com/Azure/WALinuxAgent)에서 최신 버전을 가져오거나 문제를 보고하거나 끌어오기 요청을 제출할 수 있습니다.
+Azure에서 Linux 가상 머신을 올바르게 프로비전하려면 [Azure Linux 에이전트](../windows/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (waagent)가 필요합니다. [Linux Agent GitHub 리포지토리](https://github.com/Azure/WALinuxAgent)에서 최신 버전을 가져오거나 문제를 보고하거나 끌어오기 요청을 제출할 수 있습니다.
 
 * Linux 에이전트는 Apache 2.0 라이선스 하에서 릴리스되었습니다. 대부분의 배포에서는 에이전트의 RPM 또는 deb 패키지가 이미 제공되므로 매우 간편하게 이러한 패키지를 설치 및 업데이트할 수 있는 경우도 있습니다.
 * Azure Linux 에이전트를 사용하려면 Python v2.6 이상이 필요합니다.
 * 또한 에이전트에는 python-pyasn1 모듈도 필요합니다. 대부분의 배포에서는 이 모듈이 설치 가능한 별도의 패키지로 제공됩니다.
 * Azure Linux 에이전트가 NetworkManager와 호환되지 않는 경우도 있습니다. 배포를 통해 제공되는 RPM/Deb 패키지는 대부분 NetworkManager를 waagent 패키지에 대한 충돌 항목으로 구성하므로 Linux 에이전트 패키지 설치 시 NetworkManager가 제거됩니다.
+* Azure Linux 에이전트는 해야 지원되는 최소 버전보다 높아야 합니다. [세부 정보](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support)에 대해서는 이 문서를 참조하세요.
 
 ## <a name="general-linux-system-requirements"></a>일반 Linux 시스템 요구 사항
 
@@ -174,7 +175,7 @@ Azure에서 Linux 가상 컴퓨터를 올바르게 프로비전하려면 [Azure 
         ResourceDisk.EnableSwap=y
         ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
 
-* 마지막 단계로 다음 명령을 실행하여 가상 컴퓨터의 프로비전을 해제합니다.
+* 마지막 단계로 다음 명령을 실행하여 가상 머신의 프로비전을 해제합니다.
   
         # sudo waagent -force -deprovision
         # export HISTSIZE=0
@@ -185,5 +186,5 @@ Azure에서 Linux 가상 컴퓨터를 올바르게 프로비전하려면 [Azure 
   > 
   > 
 
-* 그런 다음 가상 컴퓨터를 종료하고 VHD를 Azure에 업로드해야 합니다.
+* 그런 다음 가상 머신을 종료하고 VHD를 Azure에 업로드해야 합니다.
 

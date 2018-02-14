@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: sdash
-ms.openlocfilehash: 8c1d8600b7f4aaa1e95f4acfbbdd55fdbfebb8fb
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 1c7eaafe99717324ad03287a1f1e0699d77cc74f
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>통합된 구성 요소 간 트랜잭션 진단
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 02/01/2018
 
 이 미리 보기에는 모든 Application Insights 모니터링 구성 요소에서 서버 쪽 원격 분석을 단일 보기로 자동으로 상호 연관하는 새로운 통합 진단 환경이 도입되었습니다. 별도의 계측 키가 있는 여러 리소스가 있는 경우에는 문제가 되지 않습니다. Application Insights는 기본 관계를 감지하여 트랜잭션 속도 저하 또는 실패가 발생하는 응용 프로그램 구성 요소, 종속성 또는 예외를 쉽게 진단할 수 있도록 합니다.
 
-## <a name="what-does-component-mean-in-the-context-of-application-insights"></a>Application Insights의 맥락에서 구성 요소의 의미
+## <a name="what-is-a-component"></a>구성 요소란?
 
 구성 요소는 독립적으로 배포할 수 있는 분산/마이크로 서비스 응용 프로그램의 부분입니다. 개발자 및 운영 팀은 이러한 응용 프로그램 구성 요소에서 생성된 원격 분석에 대한 코드 수준의 가시성 또는 액세스 권한을 갖습니다.
 
@@ -32,10 +32,12 @@ ms.lasthandoff: 02/01/2018
 * 구성 요소는 서버/역할/컨테이너 인스턴스의 수에 관계없이 실행됩니다.
 * 구성 요소는 별도의 Application Insights 계측 키(구독이 다른 경우에도) 또는 단일 Application Insights 계측 키에 보고하는 다른 역할일 수 있습니다. 새 환경에서는 설정 방법에 관계없이 모든 구성 요소에 대한 세부 정보가 표시됩니다.
 
-> [!Tip]
-> 최상의 결과를 얻으려면 안정적인 최신의 Application Insights SDK를 사용하여 모든 구성 요소가 계측되도록 확인합니다. 다른 Application Insights 리소스가 있는 경우 원격 분석을 볼 수 있는 적절한 권한이 있는지 확인합니다.
+> [!NOTE]
+> * **관련 항목 링크가 누락되었나요?** 서버 쪽 요청, 종속성 및 예외와 관련된 모든 원격 분석은 왼쪽의 [위쪽](#cross-component-transaction-chart) 및 [아래쪽](#all-telemetry-related-to-the-selected-component-operation) 섹션에 있습니다. 
+> * [위쪽](#cross-component-transaction-chart) 섹션에는 모든 구성 요소의 트랜잭션 간 관계가 표시됩니다. 최상의 결과를 얻으려면 안정적인 최신의 Application Insights SDK를 사용하여 모든 구성 요소가 계측되도록 확인합니다. 다른 Application Insights 리소스가 있는 경우 원격 분석을 볼 수 있는 적절한 권한이 있는지 확인합니다.
+> * 왼쪽의 [아래쪽](#all-telemetry-related-to-the-selected-component-operation) 섹션에는 선택한 구성 요소의 요청과 관련된 추적 및 이벤트를 포함하는 **모든** 원격 분석이 표시됩니다.
 
-## <a name="enable-and-access"></a>사용 및 액세스
+## <a name="enable-transaction-diagnostics-experience"></a>트랜잭션 진단 환경 사용
 [미리 보기 목록](app-insights-previews.md)에서 "Unified details: E2E Transaction Diagnostics"(통합 세부 정보: E2E 트랜잭션 진단)를 사용하도록 설정합니다.
 
 ![미리 보기 사용](media/app-insights-e2eTxn-diagnostics/previews.png)
@@ -49,7 +51,7 @@ ms.lasthandoff: 02/01/2018
 
 ![주요 부분](media/app-insights-e2eTxn-diagnostics/3partsCrossComponent.png)
 
-### <a name="1-cross-component-transaction-chart"></a>[1] 구성 요소 간 트랜잭션 차트
+## <a name="cross-component-transaction-chart"></a>구성 요소 간 트랜잭션 차트
 
 이 차트는 구성 요소 간의 요청 및 종속성의 기간에 대한 가로 막대가 있는 타임라인을 제공합니다. 수집된 모든 예외도 타임라인에 표시됩니다.
 
@@ -57,20 +59,20 @@ ms.lasthandoff: 02/01/2018
 * 외부 종속성에 대한 호출은 종속성 유형을 나타내는 아이콘이 있으며, 접을 수 없는 간단한 행입니다.
 * 다른 구성 요소에 대한 호출은 접을 수 있는 행입니다. 각 행은 구성 요소에서 호출된 특정 작업에 해당합니다.
 * 기본적으로 처음에 선택한 요청, 종속성 또는 예외가 차트에 표시됩니다.
-* 행을 선택하면 해당 세부 정보가 오른쪽에 표시됩니다. 해당 세부 정보 창에서 코드 수준 진단에 대한 "프로파일러 추적 열기" 또는 "디버그 스냅숏 열기"를 클릭합니다.
+* 행을 선택하면 [해당 세부 정보가 오른쪽](#details-of-the-selected-telemetry)에 표시됩니다. 
 
 > [!NOTE]
 다른 구성 요소에 대한 호출에는 두 행이 있습니다. 한 행은 호출자 구성 요소의 아웃바운드 호출(종속성)을 나타내고, 다른 한 행은 호출된 구성 요소의 인바운드 요청에 해당합니다. 기간 막대의 선행 아이콘과 고유한 스타일은 구분하는 데 도움이 됩니다.
 
-### <a name="2-time-sequenced-telemetry-of-the-selected-component-operation"></a>[2] 선택한 구성 요소 작업에 대한 시간순 원격 분석
+## <a name="all-telemetry-related-to-the-selected-component-operation"></a>선택한 구성 요소 작업과 관련된 모든 원격 분석
 
-구성 요소 간 트랜잭션 차트에서 선택하는 모든 행은 특정 구성 요소에서 호출된 작업과 관련되어 있습니다. 선택한 이 구성 요소 작업은 아래쪽 섹션의 제목에 반영됩니다. 이 섹션을 열어 특정 작업과 관련된 모든 원격 분석에 대한 플랫 시간 순서를 확인합니다. 이 목록에서 원격 분석 항목을 선택하면 해당 세부 정보가 오른쪽에 표시됩니다.
+구성 요소 간 트랜잭션 차트에서 선택하는 모든 행은 특정 구성 요소에서 호출된 작업과 관련되어 있습니다. 선택한 이 구성 요소 작업은 아래쪽 섹션의 제목에 반영됩니다. 이 섹션을 열어 특정 작업과 관련된 모든 원격 분석에 대한 플랫 시간 순서를 확인합니다. 이 목록에서 원격 분석 항목을 선택하면 해당 [세부 정보가 오른쪽](#details-of-the-selected-telemetry)에 표시됩니다.
 
 ![모든 원격 분석에 대한 시간 순서](media/app-insights-e2eTxn-diagnostics/allTelemetryDrawerOpened.png)
 
-### <a name="3-details-pane"></a>[3] 세부 정보 창
+## <a name="details-of-the-selected-telemetry"></a>선택한 원격 분석의 세부 정보
 
-이 창에는 왼쪽의 두 섹션 중 하나에서 선택한 항목의 세부 정보가 표시됩니다. "모두 표시"는 수집된 표준 특성을 모두 나열합니다. 모든 사용자 지정 특성은 표준 집합 아래에 별도로 나열됩니다.
+이 창에는 왼쪽의 두 섹션 중 하나에서 선택한 항목의 세부 정보가 표시됩니다. "모두 표시"는 수집된 표준 특성을 모두 나열합니다. 모든 사용자 지정 특성은 표준 집합 아래에 별도로 나열됩니다. 해당 세부 정보 창에서 코드 수준 진단에 대한 "프로파일러 추적 열기" 또는 "디버그 스냅숏 열기"를 클릭합니다.
 
 ![예외 세부 정보](media/app-insights-e2eTxn-diagnostics/exceptiondetail.png)
 

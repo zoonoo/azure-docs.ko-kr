@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: ashishth
-ms.openlocfilehash: 59382931d4b5478888238760b268af7f962a10b5
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 00c4ac0e2ac059efebbfbe0b2426b27361ad8e37
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="troubleshoot-a-slow-or-failing-hdinsight-cluster"></a>속도가 느리거나 오류가 발생하는 HDInsight 클러스터 문제 해결
 
@@ -112,7 +112,7 @@ HDInsight는 여러 Azure 서비스를 사용합니다. Azure HDInsight에서 �
 
 HDInsight 클러스터는 가상 머신 인스턴스에서 실행되는 여러 가지 유형의 노드로 구성됩니다. 각 노드를 모니터링하여 리소스 부족, 네트워크 연결 문제 및 클러스터 성능을 저하할 수 있는 기타 문제를 확인할 수 있습니다. 각 클러스터는 두 개의 헤드 노드를 포함하고 있으며, 대부분의 클러스터는 작업자 노드와 에지 노드의 조합으로 구성됩니다. 
 
-<!-- For a description of the various nodes each cluster type uses, see [HDInsight Architecture](hdinsight-architecture.md). -->
+각 클러스터 유형이 사용하는 다양한 노드에 대한 설명을 보려면 [Hadoop, Spark, Kafka 등으로 HDInsight에서 클러스터를 설정](hdinsight-hadoop-provision-linux-clusters.md)을 참조하세요.
 
 다음 섹션에서는 각 노드 및 전체 클러스터의 상태를 확인하는 방법을 설명합니다.
 
@@ -255,7 +255,7 @@ HDInsight 클러스터는 Azure 테이블 및 Azure Blob Storage에 기록된 �
 
 HDInsight 클러스터는 기본 설정을 사용하여 Hadoop, Hive, HBase 등의 관련 서비스에 대해 미리 구성됩니다. 클러스터 종류, 하드웨어 구성, 노드 수, 실행 중인 작업 유형, 작업하는 데이터(및 해당 데이터가 처리되는 방식)에 따라 구성 최적화가 필요할 수 있습니다.
 
-<!-- For detailed instructions on optimizing performance configurations for most scenarios, see [Changing configurations with Ambari](hdinsight-changing-configs-via-ambari.md). When using Spark, see [Optimizing Spark jobs for performance](spark/apache-spark-perf.md).  -->
+대부분의 시나리오에 대해 성능 구성을 최적화하는 방법에 대한 자세한 내용은 [Ambari를 사용하여 클러스터 구성 최적화](hdinsight-changing-configs-via-ambari.md)를 참조하세요. Spark를 사용할 때 [성능을 위해 Spark 작업 최적화](spark/apache-spark-perf.md)를 참조하세요. 
 
 ## <a name="step-7-reproduce-the-failure-on-a-different-cluster"></a>7단계: 다른 클러스터에서 오류 재현
 

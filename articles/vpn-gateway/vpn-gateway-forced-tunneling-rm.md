@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/31/2017
+ms.date: 02/01/2018
 ms.author: cherylmc
-ms.openlocfilehash: cc8a3e7f2a907b1eea4ecf39df2b291b0fb8b207
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 00330f49d4acc9bd2d720a60b743b78c86b08f86
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="configure-forced-tunneling-using-the-azure-resource-manager-deployment-model"></a>Azure Resource Manager 배포 모델을 사용하여 강제 터널링 구성
 
@@ -123,15 +123,22 @@ Azure에서 강제 터널링은 가상 네트워크 사용자 정의 경로를 �
   Set-AzureRmVirtualNetworkSubnetConfig -Name "Backend" -VirtualNetwork $vnet -AddressPrefix "10.1.2.0/24" -RouteTable $rt
   Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
   ```
-6. 기본 사이트로 게이트웨이를 만듭니다. 이 단계에서 게이트웨이를 만들고 구성하기 때문에 완료되기까지 약간의 시간이 걸리며, 45분 이상 걸리는 경우도 있습니다.<br> **-GatewayDefaultSite**는 이 설정을 올바르게 구성할 수 있도록 강제 라우팅 구성을 수행할 수 있도록 하는 cmdlet 매개 변수입니다. GatewaySKU 값과 관련한 ValidateSet 오류가 표시되는 경우 [PowerShell cmdlet 최신 버전](#before)을 설치했는지 확인합니다. PowerShell cmdlet 최신 버전은 최신 게이트웨이 SKU에 대한 유효성이 검사된 새 값을 포함합니다.
+6. 가상 네트워크 게이트웨이를 만듭니다. 이 단계에서 게이트웨이를 만들고 구성하기 때문에 완료되기까지 약간의 시간이 걸리며, 45분 이상 걸리는 경우도 있습니다. GatewaySKU 값과 관련한 ValidateSet 오류가 표시되는 경우 [PowerShell cmdlet 최신 버전](#before)을 설치했는지 확인합니다. PowerShell cmdlet 최신 버전은 최신 게이트웨이 SKU에 대한 유효성이 검사된 새 값을 포함합니다.
 
   ```powershell
   $pip = New-AzureRmPublicIpAddress -Name "GatewayIP" -ResourceGroupName "ForcedTunneling" -Location "North Europe" -AllocationMethod Dynamic
   $gwsubnet = Get-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet
   $ipconfig = New-AzureRmVirtualNetworkGatewayIpConfig -Name "gwIpConfig" -SubnetId $gwsubnet.Id -PublicIpAddressId $pip.Id
-  New-AzureRmVirtualNetworkGateway -Name "Gateway1" -ResourceGroupName "ForcedTunneling" -Location "North Europe" -IpConfigurations $ipconfig -GatewayType Vpn -VpnType RouteBased -GatewaySku VpnGw1 -GatewayDefaultSite $lng1 -EnableBgp $false
+  New-AzureRmVirtualNetworkGateway -Name "Gateway1" -ResourceGroupName "ForcedTunneling" -Location "North Europe" -IpConfigurations $ipconfig -GatewayType Vpn -VpnType RouteBased -GatewaySku VpnGw1 -EnableBgp $false
   ```
-7. 사이트 간 VPN 연결을 설정합니다.
+7. 기본 사이트를 가상 네트워크 게이트웨이에 할당합니다. **-GatewayDefaultSite**는 이 설정을 올바르게 구성할 수 있도록 강제 라우팅 구성을 수행할 수 있도록 하는 cmdlet 매개 변수입니다. 
+
+  ```powershell
+  $LocalGateway = Get-AzureRmLocalNetworkGateway -Name "DefaultSiteHQ" -ResourceGroupName "ForcedTunneling"
+  $VirtualGateway = Get-AzureRmVirtualNetworkGateway -Name "Gateway1" -ResourceGroupName "ForcedTunneling"
+  Set-AzureRmVirtualNetworkGatewayDefaultSite -GatewayDefaultSite $LocalGateway -VirtualNetworkGateway $VirtualGateway
+  ```
+8. 사이트 간 VPN 연결을 설정합니다.
 
   ```powershell
   $gateway = Get-AzureRmVirtualNetworkGateway -Name "Gateway1" -ResourceGroupName "ForcedTunneling"

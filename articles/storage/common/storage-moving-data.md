@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2017
 ms.author: jarrettr
-ms.openlocfilehash: db0f09433750a3af2d70039d780a25ad64bb4df1
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: 980e4675c2d2e88716a3133abb027988aecd538f
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="moving-data-to-and-from-azure-storage"></a>Azure Storage의 데이터 이동
 온-프레미스 데이터를 Azure Storage로(또는 그 반대로) 이동하는 여러 방법이 있습니다. 가장 적합한 방법은 시나리오에 따라 달라집니다. 이 문서에서는 다양한 시나리오 그리고 각 시나리오에 적합한 방법을 신속하게 살펴보겠습니다.
@@ -41,9 +41,9 @@ Azure Storage는 .NET, iOS, Java, Android, UWP(Universal Windows Platform), Xama
 시스템 관리자처럼 명령줄 유틸리티가 필요하거나 더 편한 분들은 다음 옵션을 고려해 보세요.
 
 ### <a name="azcopy"></a>AzCopy
-AzCopy는 Azure Storage의 데이터를 고속으로 복사하기 위해 설계된 Windows 명령줄 유틸리티입니다. 저장소 계정 내에서 또는 여러 저장소 계정 간에 데이터를 복사할 수도 있습니다.
+AzCopy는 Azure Storage의 데이터를 고속으로 복사하기 위해 설계된 명령줄 유틸리티입니다. 저장소 계정 내에서 또는 여러 저장소 계정 간에 데이터를 복사할 수도 있습니다. AzCopy는 [Windows](storage-use-azcopy.md) 및 [Linux](storage-use-azcopy-linux.md)에서 사용할 수 있습니다.
 
-자세한 내용은 [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy.md) 을 참조하세요.
+자세한 내용은 [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy.md) 또는 [Linux에서 AzCopy로 데이터 전송](storage-use-azcopy-linux.md)을 참조하세요.
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 Azure PowerShell은 Azure의 서비스를 관리하는 cmdlet을 제공하는 모듈입니다. 시스템 관리를 위해 특별히 설계된 작업 기반 명령줄 셸 및 스크립트 언어입니다.
@@ -71,7 +71,7 @@ Azure Storage에 데이터를 백업해야 하는 경우 Azure Backup을 사용�
 자세한 내용은 [StorSimple](../../storsimple/storsimple-overview.md) 을 참조하세요.
 
 ## <a name="recovering-your-data"></a>데이터 복구
-온-프레미스 워크로드 및 응용 프로그램이 있는 경우 재해가 발생하더라도 비즈니스를 계속 실행할 수 있는 솔루션이 필요합니다. Azure Site Recovery는 가상 컴퓨터 및 실제 서버의 복제, 장애 조치 및 복구를 처리합니다. 복제된 데이터는 Azure Storage에 저장되므로 보조 현장 데이터 센터가 필요 없습니다.
+온-프레미스 워크로드 및 응용 프로그램이 있는 경우 재해가 발생하더라도 비즈니스를 계속 실행할 수 있는 솔루션이 필요합니다. Azure Site Recovery는 가상 머신 및 실제 서버의 복제, 장애 조치 및 복구를 처리합니다. 복제된 데이터는 Azure Storage에 저장되므로 보조 현장 데이터 센터가 필요 없습니다.
 
 자세한 내용은 [Azure Site Recovery](../../site-recovery/site-recovery-overview.md) 를 참조하세요.
 ### <a name="moving-data-faq"></a>데이터 이동 FAQ:

@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/26/2018
 ms.author: asmalser
-ms.openlocfilehash: 3a84a7ae7572145df8154ec5cbccf9f97e81866b
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: ed35a703774fdb2f2896414b6022b6f13fb7a307
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Workday 구성
 
@@ -164,13 +164,17 @@ Azure AD의 프로비전 커넥터 인스턴스와 앱 인스턴스는 일대일
     ![시스템 보안 그룹](./media/active-directory-saas-workday-inbound-tutorial/IC750985.png "시스템 보안 그룹")  
 
 ### <a name="configure-security-group-options"></a>보안 그룹 옵션 구성
-이 단계에서는 다음 도메인 보안 정책에 의해 보호되는 개체에 대한 **Get** 및 **Put** 작업을 위해 새 보안 그룹 사용 권한을 할당합니다.
+이 단계에서는 다음 도메인 보안 정책으로 보호되는 작업자 데이터에 대해 도메인 보안 정책 권한을 부여합니다.
 
-* 외부 계정 프로비저닝
-* 작업자 데이터: 공용 작업자 보고서
-* 작업자 데이터: 모든 위치
-* 작업자 데이터: 현재 인력 관리 정보
-* 작업자 데이터: 작업자 프로필 직함
+
+| 작업 | 도메인 보안 정책 |
+| ---------- | ---------- | 
+| 가져오기 및 넣기 |  외부 계정 프로비저닝 |
+| 가져오기 및 넣기 | 작업자 데이터: 공용 작업자 보고서 |
+| 가져오기 및 넣기 | 작업자 데이터: 모든 위치 |
+| 가져오기 및 넣기 | 작업자 데이터: 현재 인력 관리 정보 |
+| 가져오기 및 넣기 | 작업자 데이터: 작업자 프로필 직함 |
+| 보기 및 수정 | 작업자 데이터: 업무용 메일 |
 
 **보안 그룹 옵션을 구성하려면**
 
@@ -348,7 +352,7 @@ Azure AD의 프로비전 커넥터 인스턴스와 앱 인스턴스는 일대일
 | **AddressLineData**    |  streetAddress  |     |   만들기 + 업데이트 |
 | **PrimaryWorkTelephone**  |  telephoneNumber   |     | 만들기 + 업데이트 |
 | **BusinessTitle**   |  title     |     |  만들기 + 업데이트 |
-| **Join("@",Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Join(".", [FirstName], [LastName]), , "([Øø])", , "oe", , ), , "[Ææ]", , "ae", , ), , "([äãàâãåáąÄÃÀÂÃÅÁĄA])", , "a", , ), , "([B])", , "b", , ), , "([CçčćÇČĆ])", , "c", , ), , "([ďĎD])", , "d", , ), , "([ëèéêęěËÈÉÊĘĚE])", , "e", , ), , "([F])", , "f", , ), , "([G])", , "g", , ), , "([H])", , "h", , ), , "([ïîìíÏÎÌÍI])", , "i", , ), , "([J])", , "j", , ), , "([K])", , "k", , ), , "([ľłŁĽL])", , "l", , ), , "([M])", , "m", , ), , "([ñńňÑŃŇN])", , "n", , ), , "([öòőõôóÖÒŐÕÔÓO])", , "o", , ), , "([P])", , "p", , ), , "([Q])", , "q", , ), , "([řŘR])", , "r", , ), , "([ßšśŠŚS])", , "s", , ), , "([TŤť])", , "t", , ), , "([üùûúůűÜÙÛÚŮŰU])", , "u", , ), , "([V])", , "v", , ), , "([W])", , "w", , ), , "([ýÿýŸÝY])", , "y", , ), , "([źžżŹŽŻZ])", , "z", , ), " ", , , "", , ), "contoso.com")**   | userPrincipalName     |     | 만들기 + 업데이트                                                   
+| **Join("@",Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Join(".", [FirstName], [LastName]), , "([Øø])", , "oe", , ), , "[Ææ]", , "ae", , ), , "([äãàâãåáąÄÃÀÂÃÅÁĄA])", , "a", , ), , "([B])", , "b", , ), , "([CçčćÇČĆ])", , "c", , ), , "([ďĎD])", , "d", , ), , "([ëèéêęěËÈÉÊĘĚE])", , "e", , ), , "([F])", , "f", , ), , "([G])", , "g", , ), , "([H])", , "h", , ), , "([ïîìíÏÎÌÍI])", , "i", , ), , "([J])", , "j", , ), , "([K])", , "k", , ), , "([ľłŁĽL])", , "l", , ), , "([M])", , "m", , ), , "([ñńňÑŃŇN])", , "n", , ), , "([öòőõôóÖÒŐÕÔÓO])", , "o", , ), , "([P])", , "p", , ), , "([Q])", , "q", , ), , "([řŘR])", , "r", , ), , "([ßšśŠŚS])", , "s", , ), , "([TŤť])", , "t", , ), , "([üùûúůűÜÙÛÚŮŰU])", , "u", , ), , "([V])", , "v", , ), , "([W])", , "w", , ), , "([ýÿýŸÝY])", , "y", , ), , "([źžżŹŽŻZ])", , "z", , ), " ", , , "", , ), "contoso.com")**   | userPrincipalName     |     | 만들기 작업 시에만 기록                                                   
 | **Switch(\[Municipality\], "OU=Standard Users,OU=Users,OU=Default,OU=Locations,DC=contoso,DC=com", "Dallas", "OU=Standard Users,OU=Users,OU=Dallas,OU=Locations,DC=contoso,DC=com", "Austin", "OU=Standard Users,OU=Users,OU=Austin,OU=Locations,DC=contoso,DC=com", "Seattle", "OU=Standard Users,OU=Users,OU=Seattle,OU=Locations,DC=contoso,DC=com", “London", "OU=Standard Users,OU=Users,OU=London,OU=Locations,DC=contoso,DC=com")**  | parentDistinguishedName     |     |  만들기 + 업데이트 |
   
 ### <a name="part-3-configure-the-on-premises-synchronization-agent"></a>3부: 온-프레미스 동기화 에이전트 구성
@@ -638,11 +642,121 @@ Azure AD Connect 설정에 대한 자세한 지침은 [Azure AD Connect 설명�
 
 5. 작업이 완료되면 아래와 같이 **프로비전** 탭에 감사 요약 보고서가 작성됩니다.
 
+
+## <a name="customizing-the-list-of-workday-user-attributes"></a>Workday 사용자 특성 목록 사용자 지정
+Active Directory 및 Azure AD 둘 다에 대한 Workday 프로비저닝 앱에는 선택할 수 있는 Workday사용자 특성의 기본 목록이 포함되어 있습니다. 그러나 이러한 목록은 포괄적이지 않습니다. Workday는 Workday 테넌트에 고유할 수 있는 수백 개의 가능한 사용자 특성을 지원합니다. 
+
+Azure AD 프로비저닝 서비스는 인사 API의[Get_Workers](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v29.2/Get_Workers.html) 작업에 노출되는 특성을 포함하도록 목록 또는 Workday 특성을 사용자 지정하는 기능을 지원합니다.
+
+이를 수행하려면 [Workday Studio](https://community.workday.com/studio-download)를 사용하여 사용하려는 특성을 나타내는 XPath 식을 추출한 다음, Azure Portal에서 고급 특성 편집기를 사용하여 프로비저닝 구성에 추가해야 합니다.
+
+**Workday 사용자 특성에 대한 XPath 식을 검색하려면**
+
+1. [Workday Studio](https://community.workday.com/studio-download)를 다운로드하고 설치합니다. 설치 관리자에 액세스하려면 Workday 커뮤니티 계정이 필요합니다.
+
+2. URL https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v29.2/Human_Resources.wsdl에서 Workday Human_Resources WDSL 파일을 다운로드합니다.
+
+3. Workday Studio를 시작합니다.
+
+4. 명령 모음에서 **Workday > 테스터에서 웹 서비스 테스트** 옵션을 선택합니다.
+
+5. **외부**를 선택하고 2단계에서 다운로드한 Human_Resources WSDL 파일을 선택합니다.
+
+    ![Workday Studio](./media/active-directory-saas-workday-inbound-tutorial/WDstudio1.PNG)
+
+6. "IMPL-CC"를 실제 인스턴스 유형으로, "TENANT"를 실제 테넌트 이름으로 바꾸어 **위치** 필드를 `https://IMPL-CC.workday.com/ccx/service/TENANT/Human_Resources`로 설정합니다.
+
+7. **작업**을 **Get_Workers**로 설정합니다.
+
+8.  요청/응답 창 아래의 작은 **구성** 링크를 클릭하여 Workday 자격 증명을 설정합니다. **인증**을 선택하고 Workday 통합 시스템 계정의 사용자 이름 및 암호를 입력합니다. 사용자 이름 형식을 name@tenant로 지정하고 **WS-Security UsernameToken** 옵션을 선택된 상태로 둡니다.
+
+    ![Workday Studio](./media/active-directory-saas-workday-inbound-tutorial/WDstudio2.PNG)
+
+9. **확인**을 선택합니다.
+
+10. **요청** 창에서 아래의 XML을 붙여 넣고 **Employee_ID**를 Workday 테넌트에 있는 실제 사용자의 직원 ID로 설정합니다. 추출하려는 특성으로 채워진 사용자를 선택합니다.
+
+    ```
+    <?xml version="1.0" encoding="UTF-8"?>
+    <env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <env:Body>
+        <wd:Get_Workers_Request xmlns:wd="urn:com.workday/bsvc" wd:version="v28.0">
+          <wd:Request_References wd:Skip_Non_Existing_Instances="true">
+            <wd:Worker_Reference>
+              <wd:ID wd:type="Employee_ID">21008</wd:ID>
+            </wd:Worker_Reference>
+          </wd:Request_References>
+        </wd:Get_Workers_Request>
+      </env:Body>
+    </env:Envelope>
+    ```
+ 
+11. **요청 보내기**(녹색 화살표)를 클릭하여 명령을 실행합니다. 성공한 경우, **응답** 창에 응답이 표시됩니다. 응답에서 입력한 사용자 ID의 데이터를 확인하여 오류가 없는지 검토합니다.
+
+12. 성공한 경우 **응답** 창의 XML을 복사한 후 XML 파일로 저장합니다.
+
+13. Workday Studio의 명령 모음에서 **파일 > 파일 열기...**를 선택하고 방금 저장한 XML 파일을 엽니다. 그러면 Workday Studio XML 편집기에서 열립니다.
+
+    ![Workday Studio](./media/active-directory-saas-workday-inbound-tutorial/WDstudio3.PNG)
+
+14. 파일 트리에서 **/env:Envelope > env:Body > wd:Get_Workers_Response > wd:Response_Data > wd:Worker**로 이동하여 사용자의 데이터를 찾습니다. 
+
+15. **wd:Worker** 아래에서 추가하려는 특성을 찾은 후 선택합니다.
+
+16. **문서 경로** 필드에서 선택한 특성에 대한 XPath 식을 복사합니다.
+
+17. 복사한 식에서 **/env:Envelope/env:Body/wd:Get_Workers_Response/wd:Response_Data/** 접두사를 제거합니다. 
+
+18. 복사한 식의 마지막 항목이 노드(예: "/wd:Birth_Date")인 경우 식 끝에 **/text()**를 붙입니다. 마지막 항목이 특성(예: "/@wd:type")인 경우에는 이 작업이 필요하지 않습니다.
+
+19. 결과는 `wd:Worker/wd:Worker_Data/wd:Personal_Data/wd:Birth_Date/text()`와 같아야 합니다. 이 내용을 Azure Portal에 복사해야 합니다.
+
+
+**프로비저닝 구성에 사용자 지정 Workday 사용자 특성을 추가하려면**
+
+1. [Azure Portal](https://portal.azure.com)을 시작하고 이 자습서 앞부분에 설명된 것처럼 Workday 프로비저닝 응용 프로그램의 프로비저닝 섹션으로 이동합니다.
+
+2. **프로비전 상태**를 **해제**로 설정하고 **저장**을 선택합니다. 이렇게 하면 준비가 되었을 때만 변경 내용을 적용할 수 있게 됩니다.
+
+3. **매핑**에서 **온-프레미스에 관리자 동기화**(또는 **Azure AD에 작업자 동기화**)를 선택합니다.
+
+4. 다음 화면 아래로 스크롤하여 **고급 옵션 표시**를 선택합니다.
+
+5. **Workday에 대한 특성 목록 편집**을 선택합니다.
+
+    ![Workday Studio](./media/active-directory-saas-workday-inbound-tutorial/WDstudio_AAD1.PNG)
+
+6. 특성 목록에서 입력 필드가 있는 맨 아래로 스크롤합니다.
+
+7. **이름**으로 해당 특성의 표시 이름을 입력합니다.
+
+8. **형식**에 대해 특성에 해당하는 형식(**문자열**이 가장 일반적임)을 선택합니다.
+
+9. **API 식**에 대해 Workday Studio에서 복사한 XPath 식을 입력합니다. 예제: `wd:Worker/wd:Worker_Data/wd:Personal_Data/wd:Birth_Date/text()`
+
+10. **특성 추가**를 선택합니다.
+
+    ![Workday Studio](./media/active-directory-saas-workday-inbound-tutorial/WDstudio_AAD2.PNG)
+
+11. 위의 **저장**을 선택하고 대화 상자에서 **예**를 선택합니다. 특성 매핑 화면이 계속 열려 있으면 닫습니다.
+
+12. 주 **프로비전** 탭으로 돌아가 **온-프레미스에 작업자 동기화**(또는 **Azure AD에 작업자 동기화**)를 선택합니다.
+
+13. **새 매핑 추가**를 선택합니다.
+
+14. 이제 새 사용자 특성이 **원본 특성** 목록에 표시됩니다.
+
+15. 필요에 따라 새 사용자 특성에 대한 매핑을 추가합니다.
+
+16. 완료되면 **프로비전 상태**를 다시 **설정**으로 지정하고 저장합니다.
+
+
 ## <a name="known-issues"></a>알려진 문제
 
 * **Add-ADSyncAgentAzureActiveDirectoryConfiguration** Powershell 명령을 실행할 때 현재 사용자 지정 도메인을 사용하는 경우 작동하지 않는 전역 관리자 자격 증명으로 알려진 문제가 있습니다(예: admin@contoso.com). 해결 방법으로 Azure AD에서 onmicrosoft.com 도메인으로 전역 관리자 계정을 만들고 사용합니다(예: admin@contoso.onmicrosoft.com).
 
 * 유럽 연합에 있는 Azure AD 테넌트에 표시되지 않는 감사 로그와 관련된 이전 문제는 해결되었습니다. 그러나 EU의 Azure AD 테넌트에 추가 에이전트가 구성이 필요합니다. 자세한 내용은 [3부: 온-프레미스 동기화 에이전트 구성](#Part 3: Configure the on-premises synchronization agent)을 참조하세요.
+
 
 ## <a name="additional-resources"></a>추가 리소스
 * [자습서: Workday와 Azure Active Directory 간 Single Sign-On 구성](active-directory-saas-workday-tutorial.md)
