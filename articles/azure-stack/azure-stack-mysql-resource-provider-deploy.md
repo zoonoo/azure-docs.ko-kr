@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: mabrigg
-ms.openlocfilehash: db7daf61fa80854c17b58252d7d6cb30c329dfb1
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 3273f435cb65411c85e3a22369682d51e7a12baf
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>MySQL 데이터베이스를 사용 하 여 Microsoft Azure 스택
 
@@ -88,7 +88,7 @@ Azure 스택 MySQL 리소스 공급자를 배포할 수 있습니다. 리소스 
 
     - 단일 인증서 파일이는 DependencyFilesLocalPath에 있습니다.
     
-    - 파일 이름에 특수 문자가 없어야 합니다.
+    - 파일 이름은 특수 문자 또는 공백을 사용할 수 없습니다.
 
 
 5. 열기는 **새** 관리자 권한 (관리자) PowerShell 콘솔. 다음 파일의 압축을 푼 디렉터리로 변경 합니다. 시스템에 이미 로드 되어 있는 잘못 된 PowerShell 모듈에서 발생할 수 있는 문제를 방지 하기 위해 새 창을 사용 합니다.
