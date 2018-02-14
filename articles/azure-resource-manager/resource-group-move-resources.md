@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: ea0c2487e24fcb924632d3277163b7732442b414
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 3f8b5e8b8af4be85e830bde8eb0587c632a9dd1f
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/01/2018
@@ -136,7 +136,7 @@ ms.lasthandoff: 02/01/2018
 * Power BI
 * Redis Cache
 * Scheduler
-* Search
+* 검색
 * 서버 관리
 * Service Bus
 * Service Fabric
@@ -192,43 +192,29 @@ Key Vault에 저장된 인증서가 있는 Virtual Machines는 동일한 구독�
 
 ## <a name="app-service-limitations"></a>App Service 제한
 
-App Service 앱으로 작업할 경우에는 App Service 계획만 이동할 수 없습니다. App Service 앱을 이동할 때는 다음 옵션을 사용할 수 있습니다.
+App Service 리소스를 구독 내에서 이동할지 또는 새 구독으로 이동할지에 따라 리소스 이동에 대한 제한 사항이 다릅니다.
 
-* App Service 계획과 해당 리소스 그룹에 있는 모든 기타 App Service 리소스를 이미 App Service 리소스가 없는 새 리소스 그룹으로 이동합니다. 이 요구 사항은 App Service 계획에 연결되지 않은 App Service 리소스도 이동해야 함을 의미합니다.
-* 앱을 다른 리소스 그룹으로 이동하지만 모든 App Service는 원래 리소스 그룹에 유지합니다.
+### <a name="moving-within-the-same-subscription"></a>동일한 구독 내에서 이동
 
-App Service 계획은 제대로 기능하기 위해 해당 앱에 대해 앱과 같은 리소스 그룹에 상주하지 않아도 됩니다.
+_동일한 구독 내에서_ Web App을 이동할 때 업로드된 SSL 인증서는 이동할 수 없습니다. 그러나 업로드된 SSL 인증서를 이동하지 않고 Web App을 새 리소스 그룹으로 이동할 수 있으며 앱의 SSL 기능도 계속 작동합니다. 
 
-예를 들어 리소스 그룹에 다음 사항이 포함된 경우:
+Web App을 사용하여 SSL 인증서를 이동하려면 다음 단계를 수행합니다.
 
-* **plan-a**와 연결된 **web-a**
-* **plan-b**와 연결된 **web-b**
+1.  Web App에서 업로드된 인증서를 삭제합니다.
+2.  Web App을 이동합니다.
+3.  이동된 Web App에 인증서를 업로드합니다.
 
-옵션은 다음과 같습니다.
+### <a name="moving-across-subscriptions"></a>구독 간 이동
 
-* **web-a**, **plan-a**, **web-b** 및 **plan-b** 이동
-* **web-a** 및 **web-b** 이동
-* **web-a**
-* **web-b**
+_구독 간에_ Web App을 이동할 때 적용되는 제한 사항은 다음과 같습니다.
 
-다른 모든 조합에는 App Service 계획 이동 시 그대로 남겨 둘 수 없는 리소스 형식(App Service 리소스 형식)을 남겨두는 것이 있습니다.
-
-웹앱이 해당 App Service 계획과는 다른 리소스 그룹에 상주하지만 이 두 가지를 새로운 리소스 그룹으로 이동하려는 경우에는 두 단계로 이동을 수행해야 합니다. 예: 
-
-* **web-a**가 **web-group**에 상주하는 경우
-* **plan-a**가 **plan-group**에 상주하는 경우
-* **web-a** 및 **plan-a**를 **combined-group**에 상주시키려는 경우
-
-이 이동을 수행하려면 다음 순서로 두 개의 별도 이동 작업을 수행하세요.
-
-1. **web-a**를 **plan-group**으로 이동
-2. **web-a** 및 **plan-a**를 **combined-group**으로 이동
-
-아무런 문제 없이 App Service Certificate를 새 리소스 그룹 또는 구독으로 이동할 수 있습니다. 하지만 외부에서 구매하여 앱에 업로드한 SSL 인증서가 웹앱에 포함된 경우 웹앱을 이동하기 전에 해당 인증서를 삭제해야 합니다. 예를 들어, 다음 단계를 수행해야 합니다.
-
-1. 웹앱에서 업로드한 인증서 삭제
-2. 웹앱 이동
-3. 웹앱에 인증서 업로드
+- 대상 리소스 그룹에 기존 App Service 리소스가 없어야 합니다. App Service 리소스에는 다음이 포함됩니다.
+    - Web Apps
+    - App Service 계획
+    - 업로드되거나 가져온 SSL 인증서
+    - App Service Environment
+- 리소스 그룹의 모든 App Service 리소스는 함께 이동해야 합니다.
+- App Service 리소스는 처음 만들었던 리소스 그룹에서만 이동할 수 있습니다. App Service 리소스가 원래의 리소스 그룹에 더 이상 없으면 먼저 원래의 리소스 그룹으로 다시 이동해야 합니다. 그런 다음 구독 간에 App Service 리소스를 이동하면 됩니다. 
 
 ## <a name="classic-deployment-limitations"></a>클래식 배포 제한 사항
 

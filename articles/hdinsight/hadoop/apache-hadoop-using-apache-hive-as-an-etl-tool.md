@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 1ccbfe23e9c887a98a0dbfa8031078a15c6e41b6
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 6d0d7c8643551dde69a7bf785de72c1ca984c580
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="use-apache-hive-as-an-extract-transform-and-load-etl-tool"></a>Apache Hive를 ETL(추출, 변환 및 로드) 도구로 사용
 
@@ -94,7 +94,8 @@ ETL 모델은 일반적으로 다음 작업을 수행하려는 경우에 사용�
 
 ETL 프로세스의 일부로 해당 데이터에 대해 여러 작업을 실행해야 할 경우 관리 방법을 고려하세요. 작업이 솔루션 내의 워크플로가 아닌 외부 프로그램에 의해 제어되는 경우, 일부 작업을 병렬로 실행할 수 있는지를 결정하고 각 작업이 완료되는 시기를 감지해야 합니다. Hadoop 내에서 Oozie와 같은 워크플로 메커니즘을 사용하는 것이 외부 스크립트 또는 사용자 지정 프로그램을 사용하여 작업 시퀀스를 오케스트레이션하는 것보다 더 쉬울 수 있습니다. Oozie에 대한 자세한 내용은 [워크플로 및 작업 오케스트레이션](https://msdn.microsoft.com/library/dn749829.aspx)을 참조하세요.
 
-<!-- ## Next steps -->
-<!-- * [ETL at scale](../hdinsight-etl-at-scale.md): Learn more about performing ETL at scale. -->
-<!-- * [Operationalize Data Pipelines with Oozie](hdinsight-operationalize-data-pipeline.md): Learn how to build a data pipeline that uses Hive to summarize CSV flight delay data, stage the prepared data in Azure Storage blobs, and then use Sqoop to load the summarized data into Azure SQL Database. -->
-<!-- * [ETL Deep Dive](../hdinsight-etl-deep-dive.md): Walk through an end-to-end ETL pipeline.  -->
+## <a name="next-steps"></a>다음 단계
+
+* [최대 규모의 ETL](apache-hadoop-etl-at-scale.md)
+* [데이터 파이프라인 운용](../hdinsight-operationalize-data-pipeline.md)
+<!-- * [ETL Deep Dive](../hdinsight-etl-deep-dive.md) -->

@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 11/16/2017
 ms.author: genli
-ms.openlocfilehash: 54ca65ac6fa794c542fc07cd64458b17c327d56d
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: 362614d28cf62bd288d8aff10539c81381474955
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Azure Storage 마이그레이션에 대한 FAQ(질문과 대답)
 
@@ -41,7 +41,7 @@ Automation 스크립트는 저장소 콘텐츠 조작 대신 Azure Resource Mana
 
 **동일한 지역 내의 동일한 저장소 계정에 있는 별도의 두 파일 공유 간에 데이터를 복사하기 위해 요금이 있나요?**
 
-아니요. 이 프로세스에는 요금이 부과되지 않습니다.
+번호 이 프로세스에는 요금이 부과되지 않습니다.
 
 **내 저장소 계정 전체를 다른 저장소 계정에 백업하려면 어떻게 할까요?**
 
@@ -195,7 +195,7 @@ AzCopy를 사용하여 다른 저장소 계정으로 데이터를 복사한 다�
 
 **저장소 계정의 복제를 지역 중복 저장소에서 로컬 중복 저장소로 변경하기 위한 필수 구성 요소가 있나요?**
 
-아니요. 
+번호 
 
 **Azure Files 중복 저장소에 액세스하려면 어떻게 할까요?**
 
@@ -278,7 +278,7 @@ Azure CLI를 사용할 수 있습니다.
 
 -   읽기 액세스 지역 중복 저장소를 사용하는 경우 언제든지 보조 지역의 데이터에 액세스할 수 있습니다. 다음 방법 중 하나를 사용합니다.  
       
-    - **AzCopy**: 보조 엔드포인트에 액세스하려면 URL의 저장소 계정 이름에 **-secondary**를 추가합니다. 예:  
+    - **AzCopy**: 보조 엔드포인트에 액세스하려면 URL의 저장소 계정 이름에 **-secondary**를 추가합니다. 예:   
      
       https://storageaccountname-secondary.blob.core.windows.net/vhds/BlobName.vhd
 
@@ -294,6 +294,10 @@ SSL은 현재 사용자 지정 도메인이 있는 저장소 계정에서 지원
 FTP를 사용하여 저장소 계정에 직접 액세스할 수 있는 방법은 없습니다. 그러나 Azure 가상 머신을 설정한 다음 가상 머신에 FTP 서버를 설치할 수 있습니다. FTP 서버는 Azure Files 공유 또는 가상 머신에서 사용할 수 있는 데이터 디스크에 파일을 저장할 수 있습니다.
 
 Storage 탐색기 또는 유사한 응용 프로그램을 사용하지 않고 데이터만 다운로드하려는 경우 SAS 토큰을 사용할 수 있습니다. 자세한 내용은 [공유 액세스 서명 사용](storage-dotnet-shared-access-signature-part-1.md)을 참조하세요.
+
+**저장소 계정 간에 Blob을 마이그레이션하는 방법**
+
+ [Blob 마이그레이션 스크립트](../scripts/storage-common-transfer-between-storage-accounts.md)를 사용하여 이 작업을 수행할 수 있습니다.
 
 ## <a name="need-help-contact-support"></a>도움이 필요하세요? 지원에 문의하세요.
 

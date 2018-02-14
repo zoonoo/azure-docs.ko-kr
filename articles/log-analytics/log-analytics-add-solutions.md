@@ -1,6 +1,6 @@
 ---
 title: "Azure Log Analytics 관리 솔루션 추가 | Microsoft Docs"
-description: "OMS(Operations Management Suite)/Log Analytics 관리 솔루션은 특정 문제 영역을 중심으로 피벗된 메트릭을 제공하는 논리, 시각화 및 데이터 취득 규칙 컬렉션입니다."
+description: "Azure의 관리 솔루션은 특정 문제 영역을 중심으로 피벗된 메트릭을 제공하는 논리, 시각화 및 데이터 취득 규칙의 컬렉션입니다."
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 01/23/2018
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d951387882a5a8f5e0ebdc01841bb8384e4848ee
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 6c7d8d6946d89e4c6541636287e3022c444e0eb8
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="add-azure-log-analytics-management-solutions-to-your-workspace"></a>작업 영역에 Azure Log Analytics 관리 솔루션 추가
 
-Log Analytics 관리 솔루션은 특정 문제 영역을 중심으로 피벗된 메트릭을 제공하는 **논리**, **시각화** 및 **데이터 취득 규칙** 컬렉션입니다. 이 문서는 Log Analytics에서 지원되는 관리 솔루션 목록 및 Azure Portal을 사용하여 작업 영역에 추가 및 제거하는 방법을 보여줍니다. 솔루션 갤러리를 사용하여 OMS 포털에서 솔루션을 추가할 수도 있습니다.
+Log Analytics 관리 솔루션은 특정 문제 영역을 중심으로 피벗된 메트릭을 제공하는 **논리**, **시각화** 및 **데이터 취득 규칙** 컬렉션입니다. 이 문서는 Log Analytics에서 지원되는 관리 솔루션 목록 및 Azure Portal을 사용하여 작업 영역에 추가 및 제거하는 방법을 보여줍니다.
 
 관리 솔루션을 사용하면:
 
@@ -34,9 +34,9 @@ Log Analytics 관리 솔루션은 특정 문제 영역을 중심으로 피벗된
 > [!NOTE]
 > Log Analytics에는 로그 검색 기능이 포함되어 있으므로 이 기능을 사용하기 위해 관리 솔루션을 설치할 필요가 없습니다. 하지만 작업 영역에 관리 솔루션을 추가하면 데이터 시각화, 제안된 검색 및 통찰력을 얻을 수 있습니다.
 
-이 문서에서는 Azure Portal Marketplace를 사용하여 작업 영역에 관리 솔루션을 추가합니다. 솔루션을 추가한 후에는 데이터가 사용자 인프라의 서버에서 수집되고 OMS 서비스로 전송됩니다. OMS 서비스에서 처리는 일반적으로 몇 분 정도에서 한 시간이 소요됩니다. 서비스에서 데이터를 처리한 후에는 OMS에서 볼 수 있습니다.
+이 문서에서는 Azure Portal Marketplace를 사용하여 작업 영역에 관리 솔루션을 추가합니다. 솔루션을 추가한 후에는 데이터가 사용자 인프라의 서버에서 수집되고 Log Analytics로 전송됩니다. 처리는 일반적으로 몇 분 정도에서 한 시간이 소요됩니다. 서비스에서 데이터를 처리한 후에는 Log Analytics에서 볼 수 있습니다.
 
-관리 솔루션이 더 이상 필요 없으면 손쉽게 제거할 수 있습니다. 관리 솔루션을 제거하면 해당 데이터가 OMS로 전송되지 않습니다. 무료 가격 책정 계층에 있는 경우 솔루션을 제거하면 사용되는 데이터 양을 줄여 일일 데이터 할당량 미만으로 유지하는 데 도움이 됩니다.
+관리 솔루션이 더 이상 필요 없으면 손쉽게 제거할 수 있습니다. 관리 솔루션을 제거하면 해당 데이터가 Log Analytics로 전송되지 않습니다. 무료 가격 책정 계층에 있는 경우 솔루션을 제거하면 사용되는 데이터 양을 줄여 일일 데이터 할당량 미만으로 유지하는 데 도움이 됩니다.
 
 ## <a name="view-available-management-solutions"></a>사용할 수 있는 관리 솔루션 보기
 
@@ -126,14 +126,14 @@ Azure Marketplace는 [Log Analytics을 위한 관리 솔루션](https://azuremar
 ## <a name="data-collection-details"></a>데이터 수집 세부 정보
 다음 테이블은 Log Analytics 관리 솔루션 및 데이터 원본에 사용할 데이터 수집 방법 및 기타 세부 정보를 보여줍니다. 이 테이블은 [구독 가격 책정 계층](https://go.microsoft.com/fwlink/?linkid=827926)에 상응하는 솔루션 제품별로 분류되어 있습니다. Activity Log Analytics 솔루션은 모든 가격 책정 계층에서 무료로 사용할 수 있습니다.
 
-Log Analytics Windows 에이전트 및 System Center Operations Manager 에이전트는 기본적으로 동일합니다. Windows 에이전트에는 OMS 작업 영역에 연결하고 프록시를 통해 전달할 수 있는 추가적인 기능이 포함되어 있습니다. Operations Manager 에이전트를 사용하는 경우 OMS와의 통신을 위해 OMS 에이전트로 타게팅되어야 합니다. 이 테이블의 Operations Manager 에이전트는 Operations Manager에 연결되는 OMS 에이전트입니다. 기존 Operations Manager 환경을 OMS에 연결하기 위한 자세한 내용은 [Log Analytics에 Operations Manager 연결](log-analytics-om-agents.md)을 참조하세요.
+Log Analytics Windows 에이전트 및 System Center Operations Manager 에이전트는 기본적으로 동일합니다. Windows 에이전트에는 Log Analytics 작업 영역에 연결하고 프록시를 통해 전달할 수 있는 추가적인 기능이 포함되어 있습니다. Operations Manager 에이전트를 사용하는 경우 Log Analytics와의 통신을 위해 OMS 에이전트로 타게팅되어야 합니다. 이 테이블의 Operations Manager 에이전트는 Operations Manager에 연결되는 OMS 에이전트입니다. 기존 Operations Manager 환경을 Log Analytics에 연결하기 위한 자세한 내용은 [Log Analytics에 Operations Manager 연결](log-analytics-om-agents.md)을 참조하세요.
 
 > [!NOTE]
-> 사용하는 에이전트 유형에 따라 다음 조건을 통해 OMS에 데이터를 보내는 방식이 결정됩니다.
+> 사용하는 에이전트 유형에 따라 다음 조건을 통해 Log Analytics에 데이터를 보내는 방식이 결정됩니다.
 > - Windows 에이전트 또는 Operations Manager 연결 OMS 에이전트를 사용합니다.
-> - Operations Manager가 필요한 경우 솔루션의 Operations Manager 에이전트 데이터는 항상 OMS Operations Manager 관리 그룹을 사용하여 OMS로 전송됩니다. 또한 Operations Manager가 필요한 경우 솔루션에서 Operations Manager 에이전트에만 사용합니다.
-> - Operations Manager가 필요하지 않으며 Operations Manager 에이전트 데이터가 관리 그룹을 통해 OMS로 전송되는 것으로 테이블에 나와 있는 경우 Operations Manager 에이전트 데이터는 항상 관리 그룹을 통해 OMS로 전송됩니다. Windows 에이전트는 관리 그룹을 건너뛰고 데이터를 직접 OMS로 보냅니다.
-> - Operations Manager 에이전트 데이터가 관리 그룹을 사용하여 전송되지 않는 경우 데이터가 관리 그룹을 건너뛰고 직접 OMS로 전송됩니다.
+> - Operations Manager가 필요한 경우 솔루션의 Operations Manager 에이전트 데이터는 항상 OMS Operations Manager 관리 그룹을 사용하여 Log Analytics로 전송됩니다. 또한 Operations Manager가 필요한 경우 솔루션에서 Operations Manager 에이전트에만 사용합니다.
+> - Operations Manager가 필요하지 않으며 Operations Manager 에이전트 데이터가 관리 그룹을 통해 Log Analytics로 전송되는 것으로 테이블에 나와 있는 경우 Operations Manager 에이전트 데이터는 항상 관리 그룹을 통해 Log Analytics로 전송됩니다. Windows 에이전트는 관리 그룹을 건너뛰고 데이터를 직접 Log Analytics로 보냅니다.
+> - Operations Manager 에이전트 데이터가 관리 그룹을 사용하여 전송되지 않는 경우 데이터가 관리 그룹을 건너뛰고 직접 Log Analytics로 전송됩니다.
 
 ### <a name="insight--analytics--log-analytics"></a>정보 및 분석/Log Analytics
 
@@ -242,7 +242,7 @@ Log Analytics Windows 에이전트 및 System Center Operations Manager 에이�
 * 항상 올바르게 작동하지 않을 수 있습니다.
   * 사소한 불편에서 전혀 작동하지 않는 것에 이르기까지 다양한 문제가 있을 수 있습니다.
 * 미리 보기의 경우 시스템/환경에 부정적인 영향을 줄 수 있습니다.
-  * OMS를 사용하는 시스템에 부정적인 영향이 발생하는 것을 방지하려고 노력하지만 때때로 예기치 않은 상황이 발생합니다.
+  * 사용하는 시스템에 부정적인 영향이 발생하는 것을 방지하려고 노력하지만 때때로 예기치 않은 상황이 발생합니다.
 * 데이터 손실.손상이 발생할 수 있습니다.
 * 문제를 해결하기 위해 진단 로그 또는 다른 데이터를 수집하도록 요청할 수 있습니다.
 * 기능 또는 솔루션은 제거될 수 있습니다(일시적으로 또는 영구적으로).

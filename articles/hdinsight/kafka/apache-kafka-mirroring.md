@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/07/2017
+ms.date: 01/31/2018
 ms.author: larryfr
-ms.openlocfilehash: a7063375ac4a2f9f172b5c380c2d5472a12e1bfb
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 87b5912e7f9244dc1be74ac357200122b194dbdc
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>MirrorMaker를 사용하여 HDInsight에서 Kafka와 함께 Apache Kafka 토픽 복제
 
@@ -54,7 +54,7 @@ HDInsight의 Apache Kafka는 공용 인터넷을 통한 액세스를 Kafka 서�
 
 * **이름 확인**: 각 네트워크의 Kafka 클러스터는 호스트 이름을 사용하여 서로 연결할 수 있어야 합니다. 이렇게 하려면 요청을 다른 네트워크로 전달하도록 구성된 DNS(도메인 이름 시스템) 서버가 각 네트워크에 필요할 수 있습니다.
 
-    Azure Virtual Network를 만들 때 네트워크에서 제공되는 자동 DNS를 사용하는 대신 사용자 지정 DNS 서버와 해당 서버의 IP 주소를 지정해야 합니다. 가상 네트워크를 만든 후에는 해당 IP 주소를 사용하는 Azure Virtual Network를 만든 다음 DNS 소프트웨어를 설치하고 구성해야 합니다.
+    Azure Virtual Network를 만들 때 네트워크에서 제공되는 자동 DNS를 사용하는 대신 사용자 지정 DNS 서버와 해당 서버의 IP 주소를 지정해야 합니다. 가상 네트워크를 만든 후에는 해당 IP 주소를 사용하는 Azure Virtual Machine을 만든 다음 DNS 소프트웨어를 설치하고 구성해야 합니다.
 
     > [!WARNING]
     > HDInsight를 Virtual Network에 설치하기 전에 사용자 지정 DNS 서버를 만들고 구성합니다. Virtual Network에 구성된 DNS 서버를 사용하기 위해 HDInsight를 추가로 구성할 필요는 없습니다.
@@ -210,6 +210,41 @@ Azure 가상 네트워크와 Kafka 클러스터를 수동으로 만들 수 있�
 
     생산자 구성에 대한 자세한 내용은 kafka.apache.org의 [생산자 구성](https://kafka.apache.org/documentation#producerconfigs)(영문)을 참조하세요.
 
+5. 다음 명령을 사용하여 대상 클러스터에 대한 Zookeeper 호스트를 찾습니다.
+
+    ```bash
+    # Install jq if it is not installed
+    sudo apt -y install jq
+    # get the zookeeper hosts for the source cluster
+    export DEST_ZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
+    ```
+
+    `$CLUSTERNAME`을 대상 클러스터의 이름으로 바꿉니다. 메시지가 표시되면 클러스터 로그인(관리자) 계정에 대한 암호를 입력합니다.
+
+7. HDInsight의 Kafka에 대한 기본 구성이 토픽의 자동 만들기를 허용하지 않습니다. 미러링 프로세스를 시작하기 전에 다음 옵션 중 하나를 사용해야 합니다.
+
+    * **대상 클러스터에 토픽 만들기**: 이 옵션을 사용하면 파티션 및 복제 요소 수를 설정할 수 있습니다.
+
+        다음 명령을 사용하여 사전에 토픽을 만들 수 있습니다.
+
+        ```bash
+        /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 2 --partitions 8 --topic testtopic --zookeeper $DEST_ZKHOSTS
+        ```
+
+        `testtopic`을 만들려는 토픽의 이름으로 바꿉니다.
+
+    * **자동 토픽을 만들기 위한 클러스터 구성**: 이 옵션을 사용하면 MirrorMaker에서 자동으로 토픽을 만들 수 있지만, 원본 토픽과는 다른 파티션 수 또는 복제 계수로 만들 수 있습니다.
+
+        자동으로 토픽을 만들도록 대상 클러스터를 구성하려면 이러한 단계를 수행합니다.
+
+        1. [Azure Portal](https://portal.azure.com)에서 대상 Kafka 클러스터를 선택합니다.
+        2. 클러스터 개요에서 __클러스터 대시보드__를 선택합니다. 그런 다음 __HDInsight 클러스터 대시보드__를 선택합니다. 메시지가 표시되면 클러스터에 대한 로그인(관리자) 자격 증명을 사용하여 인증을 받습니다.
+        3. 페이지 왼쪽 목록에서 __Kafka__ 서비스를 선택합니다.
+        4. 페이지 중간의 __구성__을 선택합니다.
+        5. __필터__ 필드에 `auto.create` 값을 입력합니다. 이렇게 하면 속성 목록이 필터링되고 `auto.create.topics.enable` 설정이 표시됩니다.
+        6. `auto.create.topics.enable` 값을 true로 변경하고 __저장__을 선택합니다. 메모를 추가하고 __저장__을 다시 선택합니다.
+        7. __Kafka__ 서비스를 선택하고 __다시 시작__을 선택한 후 __영향을 받는 모든 서비스 다시 시작__을 선택합니다. 메시지가 나타나면 __모두 다시 시작 확인__을 선택합니다.
+
 ## <a name="start-mirrormaker"></a>MirrorMaker 시작
 
 1. **대상** 클러스터에 대한 SSH 연결에서 다음 명령을 사용하여 MirrorMaker 프로세스를 시작합니다.
@@ -247,11 +282,9 @@ Azure 가상 네트워크와 Kafka 클러스터를 수동으로 만들 수 있�
 
      커서로 빈 라인에 도달하면 몇 개의 텍스트 메시지를 입력합니다. 메시지는 **원본** 클러스터의 토픽으로 보내집니다. 완료되면 **Ctrl + C**를 클릭하여 프로듀서 프로세스를 종료합니다.
 
-3. **대상** 클러스터에 대한 SSH 연결에서 **Ctrl + C**를 사용하여 MirrorMaker 프로세스를 종료합니다. 토픽과 메시지가 대상에 복제되었는지 확인하려면 다음 명령을 사용합니다.
+3. **대상** 클러스터에 대한 SSH 연결에서 **Ctrl + C**를 사용하여 MirrorMaker 프로세스를 종료합니다. 이 프로세스를 종료하는 데 몇 초 정도 걸릴 수 있습니다. 메시지가 대상에 복제되었는지 확인하려면 다음 명령을 사용합니다.
 
     ```bash
-    DEST_ZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
-    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --list --zookeeper $DEST_ZKHOSTS
     /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --zookeeper $DEST_ZKHOSTS --topic testtopic --from-beginning
     ```
 

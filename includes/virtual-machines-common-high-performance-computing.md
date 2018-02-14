@@ -9,7 +9,7 @@ Azure 클라우드를 사용하여 병렬 일괄 처리 작업에서 기존의 H
 
 
 * **직접 솔루션**
-    * Azure 가상 컴퓨터 또는 [가상 컴퓨터 확장 집합](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)에서 고유한 클러스터 환경을 설정합니다. 
+    * Azure 가상 머신 또는 [가상 머신 확장 집합](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)에서 고유한 클러스터 환경을 설정합니다. 
     * 추가 용량을 위해 온-프레미스 클러스터를 전환하거나 Azure에서 새 클러스터를 배포합니다. 
     * Azure Resource Manager 템플릿을 사용하여 선행 [워크로드 관리자](#workload-managers), 인프라 및 [응용 프로그램](#hpc-applications)을 배포합니다. 
     * MPI 또는 GPU 워크로드에 대한 특수한 하드웨어 및 네트워크 연결을 포함하는 [HPC 및 GPU VM 크기](#hpc-and-gpu-sizes)를 선택합니다. 
@@ -32,7 +32,7 @@ Azure 클라우드를 사용하여 병렬 일괄 처리 작업에서 기존의 H
 
 ## <a name="marketplace-solutions"></a>Marketplace 솔루션
 
-HPC용으로 설계된 Linux 및 Windows VM 이미지 및 솔루션은 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/)를 방문하세요. 예를 들면 다음과 같습니다.
+HPC용으로 설계된 Linux 및 Windows VM 이미지 및 솔루션은 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/)를 방문하세요. 이러한 예로 다음이 포함됩니다.
 
 * [RogueWave CentOS 기반 HPC](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased73HPC?tab=Overview)
 * [SUSE Linux Enterprise Server for HPC](https://azure.microsoft.com/marketplace/partners/suse/suselinuxenterpriseserver12optimizedforhighperformancecompute/)
@@ -64,7 +64,7 @@ Azure에서 사용자 지정 또는 상용 HPC 응용 프로그램을 실행합�
 
 ### <a name="graphics-and-rendering"></a>그래픽 및 렌더링
 
-* Azure Batch(미리 보기)에 있는 [Autodesk Maya, 3ds Max 및 Arnold](../articles/batch/batch-rendering-service.md)
+* Azure Batch의 [Autodesk Maya, 3ds Max 및 Arnold](../articles/batch/batch-rendering-service.md) 
 
 ### <a name="ai-and-deep-learning"></a>AI 및 심층 학습
 
@@ -97,17 +97,18 @@ N 시리즈 VM은 AI(인공 지능) 학습 및 시각화를 포함한 계산 집
 
 
 ## <a name="azure-batch"></a>Azure Batch
-[Batch](../articles/batch/batch-technical-overview.md)는 클라우드에서 대규모 병렬 및 HPC(고성능 컴퓨팅) 응용 프로그램을 효율적으로 실행하기 위한 플랫폼 서비스입니다. Azure Batch는 가상 컴퓨터의 관리되는 풀에서 실행되는 계산 집약적 작업을 예약하고, 작업 요구에 맞게 계산 리소스를 자동으로 크기 조정할 수 있습니다. 
+[Batch](../articles/batch/batch-technical-overview.md)는 클라우드에서 대규모 병렬 및 HPC(고성능 컴퓨팅) 응용 프로그램을 효율적으로 실행하기 위한 플랫폼 서비스입니다. Azure Batch는 가상 머신의 관리되는 풀에서 실행되는 계산 집약적 작업을 예약하고, 작업 요구에 맞게 계산 리소스를 자동으로 크기 조정할 수 있습니다. 
 
 SaaS 공급자 및 개발자는 Batch SDK 및 도구를 사용하여 HPC 응용 프로그램 또는 컨테이너 작업을 Azure에 통합하고, 데이터를 Azure로 스테이징하고, 작업 실행 파이프라인을 빌드할 수 있습니다. 
 
 방법 배우기:
 
-* [Batch를 사용하여 개발 시작](../articles/batch/batch-dotnet-get-started.md)
+* [Batch를 사용하여 개발 시작](../articles/batch/quick-run-dotnet.md)
 * [Azure Batch 샘플 코드 사용(영문)](https://github.com/Azure/azure-batch-samples)
 * [Batch에서 낮은 우선 순위 VM 사용](../articles/batch/batch-low-pri-vms.md)
 * [Batch Shipyard를 사용하여 컨테이너화된 HPC 작업 실행(영문)](https://github.com/Azure/batch-shipyard)
 * [Batch에서 R 언어 사용(영문)](https://github.com/Azure/doAzureParallel)
+* [Batch에서 Azure 분산 데이터 엔지니어링 도구 키트 실행](https://github.com/Azure/aztk)
 
 ## <a name="workload-managers"></a>워크로드 관리자
 
@@ -127,23 +128,27 @@ Azure 인프라에서 실행할 수 있는 클러스터 및 워크로드 관리�
 자세한 정보:
 
 * [Azure의 HPC 저장소를 위한 병렬 파일 시스템](https://blogs.msdn.microsoft.com/azurecat/2017/03/17/parallel-file-systems-for-hpc-storage-on-azure/)
+* [Avere](http://www.averesystems.com/about-us/about-avere)(현재 [Microsoft와 연합](https://blogs.microsoft.com/blog/2018/01/03/microsoft-to-acquire-avere-systems-accelerating-high-performance-computing-innovation-for-media-and-entertainment-industry-and-beyond/))의 고성능 클라우드 저장소 솔루션
 
 
 ## <a name="related-azure-services"></a>관련 Azure 서비스
 
-Azure 가상 컴퓨터, 가상 컴퓨터 확장 집합, Batch 및 관련 계산 서비스는 Azure HPC 솔루션 대부분의 기초가 됩니다. 그러나 이 솔루션에서는 다양한 Azure 관련 서비스를 이용할 수 있습니다. 다음은 목록의 일부입니다.
+Azure 가상 머신, 가상 머신 확장 집합, Batch 및 관련 계산 서비스는 Azure HPC 솔루션 대부분의 기초가 됩니다. 그러나 이 솔루션에서는 다양한 Azure 관련 서비스를 이용할 수 있습니다. 다음은 목록의 일부입니다.
 
-### <a name="storage"></a>저장소
+### <a name="storage"></a>Storage
 
 * [Blob, 테이블 및 큐 저장소](../articles/storage/storage-introduction.md)
 * [File Storage](../articles/storage/storage-files-introduction.md)
 
 ### <a name="data-and-analytics"></a>데이터 및 분석
-* Azure의 Hadoop 클러스터용 [HDInsight](../articles/hdinsight/hadoop/apache-hadoop-introduction.md)
-* [데이터 팩터리](../articles/data-factory/introduction.md)
+* [HDInsight](../articles/hdinsight/hadoop/apache-hadoop-introduction.md)
+* [Data Factory](../articles/data-factory/introduction.md)
 * [Data Lake Store](../articles/data-lake-store/data-lake-store-overview.md)
-* [기계 학습](../articles/machine-learning/machine-learning-what-is-machine-learning.md)
+* [Machine Learning](../articles/machine-learning/machine-learning-what-is-machine-learning.md)
 * [SQL Database](../articles/sql-database/sql-database-technical-overview.md)
+
+### <a name="ai-and-cognitive-services"></a>AI 및 Cognitive Services
+* [Batch AI](../articles/batch-ai/overview.md)
 
 ### <a name="networking"></a>네트워킹
 * [Virtual Network](../articles/virtual-network/virtual-networks-overview.md)

@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: banders
-ms.openlocfilehash: e3ff3d9c667e00995daa2023a7137870247b9ab3
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 49a78faa98bd7eb3da16dc069f65ef39b5e092af
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
-# <a name="application-insights-connector-solution-preview-in-operations-management-suite-oms"></a>OMS(Operations Management Suite)의 Application Insights 커넥터 솔루션(미리 보기)
+# <a name="application-insights-connector-management-solution-preview"></a>Application Insights 커넥터관 리 솔루션(미리 보기) 
 
 ![Application Insights 기호](./media/log-analytics-app-insights-connector/app-insights-connector-symbol.png)
 
-Application Insights 커넥터 솔루션은 성능 문제를 진단하고 [Application Insights](../application-insights/app-insights-overview.md)를 통해 모니터링하는 경우 사용자가 해당 앱으로 수행하는 작업을 파악하는 데 도움이 됩니다. 개발자가 Application Insights에서 참조하는 것과 동일한 응용 프로그램 원격 분석 뷰를 OMS에서 사용할 수 있습니다. 그러나 OMS와 Application Insights 앱을 통합하는 경우 작업 및 응용 프로그램 데이터가 한 곳에 있게 되므로 응용 프로그램에 대한 가시성이 향상됩니다. 동일한 뷰가 있으면 앱 개발자와 공동 작업을 수행하는 데 도움이 됩니다. 공통 뷰는 응용 프로그램 및 플랫폼 문제를 감지하고 해결하는 데 소요되는 시간을 줄일 수 있습니다.
+Application Insights 커넥터 솔루션은 성능 문제를 진단하고 [Application Insights](../application-insights/app-insights-overview.md)를 통해 모니터링하는 경우 사용자가 해당 앱으로 수행하는 작업을 파악하는 데 도움이 됩니다. 개발자가 Application Insights에서 참조하는 것과 동일한 응용 프로그램 원격 분석 뷰를 Log Analytics에서 사용할 수 있습니다. 그러나 Log Analytics와 Application Insights 앱을 통합하는 경우 작업 및 응용 프로그램 데이터가 한 곳에 있게 되므로 응용 프로그램에 대한 가시성이 향상됩니다. 동일한 뷰가 있으면 앱 개발자와 공동 작업을 수행하는 데 도움이 됩니다. 공통 뷰는 응용 프로그램 및 플랫폼 문제를 감지하고 해결하는 데 소요되는 시간을 줄일 수 있습니다.
 
 이 솔루션을 사용하면 다음을 수행할 수 있습니다.
 
 - Application Insights 앱이 서로 다른 Azure 구독에 있는 경우에도 모두 한 곳에서 보기
 - 응용 프로그램 데이터와 인프라 데이터 연결
 - 로그 검색에서 큐브 뷰로 응용 프로그램 데이터 시각화
-- OMS 및 Azure Portal의 Log Analytics 데이터에서 Application Insights 앱으로 피벗
+- Azure Portal의 Log Analytics 데이터에서 Application Insights 앱으로 피벗
 
 ## <a name="connected-sources"></a>연결된 소스
 
@@ -42,7 +42,7 @@ Application Insights 커넥터 솔루션은 성능 문제를 진단하고 [Appli
 | [Windows 에이전트](log-analytics-windows-agent.md) | 아니요 | 솔루션이 Windows 에이전트에서 정보를 수집하지 않습니다. |
 | [Linux 에이전트](log-analytics-linux-agents.md) | 아니요 | 솔루션이 Linux 에이전트에서 정보를 수집하지 않습니다. |
 | [SCOM 관리 그룹](log-analytics-om-agents.md) | 아니요 | 솔루션이 연결된 SCOM 관리 그룹의 에이전트에서 정보를 수집하지 않습니다. |
-| [Azure 저장소 계정](log-analytics-azure-storage.md) | 아니오 | 솔루션이 Azure Storage에서 정보를 수집하지 않습니다. |
+| [Azure 저장소 계정](log-analytics-azure-storage.md) | 아니요 | 솔루션이 Azure Storage에서 정보를 수집하지 않습니다. |
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -63,8 +63,8 @@ Application Insights 커넥터 솔루션은 성능 문제를 진단하고 [Appli
 
 기타 주의할 사항은 다음과 같습니다.
 
-- 하나의 OMS 작업 영역에만 Application Insights 앱을 연결할 수 있습니다.
-- [표준 또는 프리미엄 Application Insights 리소스](https://azure.microsoft.com/pricing/details/application-insights)만 OMS Log Analytics에 연결할 수 있습니다. 그러나 Log Analytics의 무료 계층을 사용할 수 있습니다.
+- 하나의 Log Analytics 작업 영역에만 Application Insights 앱을 연결할 수 있습니다.
+- [표준 또는 프리미엄 Application Insights 리소스](https://azure.microsoft.com/pricing/details/application-insights)만 Log Analytics에 연결할 수 있습니다. 그러나 Log Analytics의 무료 계층을 사용할 수 있습니다.
 
 ## <a name="management-packs"></a>관리 팩
 
@@ -129,7 +129,7 @@ Application Insights 커넥터 솔루션은 성능 문제를 진단하고 [Appli
 
 ### <a name="pivot-to-an-app-in-the-azure-portal"></a>Azure Portal에서 앱에 피벗
 
-Application Insights 커넥터 블레이드는 사용자가 *OMS 포털을 사용하는 경우* 선택한 Application Insights 앱에 피벗할 수 있도록 설계되었습니다. 솔루션을 앱 문제 해결에 도움이 되는 상위 수준 모니터링 플랫폼으로 사용할 수 있습니다. 연결된 응용 프로그램에서 잠재적인 문제가 발견되면 OMS 검색에서 자세히 알아보거나 Application Insights 앱에 직접 피벗할 수 있습니다.
+Application Insights 커넥터 블레이드는 사용자가 *OMS 포털을 사용하는 경우* 선택한 Application Insights 앱에 피벗할 수 있도록 설계되었습니다. 솔루션을 앱 문제 해결에 도움이 되는 상위 수준 모니터링 플랫폼으로 사용할 수 있습니다. 연결된 응용 프로그램에서 잠재적인 문제가 발견되면 Log Analytics 검색에서 자세히 알아보거나 Application Insights 앱에 직접 피벗할 수 있습니다.
 
 피벗하려면 각 행의 끝에 표시되는 줄임표(**…**)를 클릭하고 **Open in Application Insights**(Application Insights에서 열기)를 선택합니다.
 
@@ -140,7 +140,7 @@ Application Insights 커넥터 블레이드는 사용자가 *OMS 포털을 사�
 
 ### <a name="sample-corrected-data"></a>샘플 수정 데이터
 
-Application Insights는  *[샘플링 수정](../application-insights/app-insights-sampling.md)* 을 제공하므로 원격 분석 트래픽을 줄이는 데 도움이 됩니다. Application Insights 앱에서 샘플링을 사용하도록 설정하는 경우 Application Insights 및 OMS 모두에서 저장되는 항목의 수가 감소됩니다. **Application Insights 커넥터** 페이지 및 큐브 뷰에서 데이터 일관성이 유지되지만 사용자 지정 쿼리를 위해 샘플링된 데이터는 수동으로 수정해야 합니다.
+Application Insights는  *[샘플링 수정](../application-insights/app-insights-sampling.md)* 을 제공하므로 원격 분석 트래픽을 줄이는 데 도움이 됩니다. Application Insights 앱에서 샘플링을 사용하도록 설정하는 경우 Application Insights 및 Log Analytics 모두에서 저장되는 항목의 수가 감소됩니다. **Application Insights 커넥터** 페이지 및 큐브 뷰에서 데이터 일관성이 유지되지만 사용자 지정 쿼리를 위해 샘플링된 데이터는 수동으로 수정해야 합니다.
 
 다음은 로그 검색 쿼리의 샘플링 수정 예입니다.
 
@@ -162,7 +162,7 @@ Type=ApplicationInsights | measure sum(SampledCount) by TelemetryType
 - 페이지 보기 - 작업 영역에서 페이지 보기를 받으려면 앱에서 해당 정보를 수집하도록 구성해야 합니다. 자세한 내용은 [PageViews](../application-insights/app-insights-api-custom-events-metrics.md#page-views)를 참조하세요.
 - 사용자 지정 이벤트 - 작업 영역에서 사용자 지정 이벤트를 받으려면 앱에서 해당 정보를 수집하도록 구성해야 합니다. 자세한 내용은 [TrackEvent](../application-insights/app-insights-api-custom-events-metrics.md#trackevent)를 참조하세요.
 
-데이터를 사용할 수 있게 되면 Application Insights에서 OMS로 수신됩니다.
+데이터를 사용할 수 있게 되면 Application Insights에서 Log Analytics로 수신됩니다.
 
 ## <a name="output-data"></a>출력 데이터
 

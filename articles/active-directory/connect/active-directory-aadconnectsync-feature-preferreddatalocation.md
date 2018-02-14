@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 01/31/2018
 ms.author: billmath
-ms.openlocfilehash: 8a36fc45334a2f1d12e6eabbfb16731ccc9998bf
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 021f009e66e57665a2252646b210f0e6dc55d33c
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-ad-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Azure AD Connect 동기화: Office 365 리소스에 대한 기본 데이터 위치 구성
-이 항목의 목적은 Azure AD Connect 동기화에서 PreferredDataLocation을 구성하는 방법을 안내하는 것입니다. 고객이 Office 365에서 다중 지역 기능을 사용하는 경우 이 특성을 사용해서 사용자의 Office 365 데이터에 대한 지리적 위치를 지정합니다.
+이 항목의 목적은 Azure AD Connect 동기화에서 PreferredDataLocation을 구성하는 방법을 안내하는 것입니다. 고객이 Office 365에서 다중 지역 기능을 사용하는 경우 이 특성을 사용해서 사용자의 Office 365 데이터에 대한 지리적 위치를 지정합니다. 용어 **region(지역)**과 **Geo(지역)**는 서로 바꿔 사용할 수 있습니다.
 
 > [!IMPORTANT]
 > 다중 지역은 현재 미리 보기로 제공되고 있습니다. 미리 보기 프로그램에 가입하려는 경우 Microsoft 담당자에게 문의하세요.
@@ -38,20 +38,25 @@ ms.lasthandoff: 02/01/2018
 >
 >
 
+Office 365의 모든 지역 목록은 [데이터 위치](https://aka.ms/datamaps)에서 찾을 수 있습니다.
+
 다중 지역 기능을 사용할 수 있는 Office 365의 지역은 다음과 같습니다.
 
-| 지역 | 설명 |
+| 지역 | preferredDataLocation value |
 | --- | --- |
-| NAM | 북아메리카 |
-| EUR | 유럽 |
-| APC | 아시아 태평양 |
-| JPN | 일본 |
-| AUS | 오스트레일리아 |
-| CAN | 캐나다 |
-| GBR | 영국 |
-| LAM | 라틴 아메리카 |
+| 아시아 태평양 | APC |
+| 오스트레일리아 | AUS |
+| 캐나다 | CAN |
+| 유럽 연합 | EUR |
+| 인도 | IND |
+| 일본 | JPN |
+| 대한민국 | KOR |
+| 영국 | GBR |
+| 미국 | NAM |
 
-일부 Office 365 워크로드는 사용자의 지역 설정 사용을 지원하지 않습니다.
+* 지역이 이 표에 없는 경우(예: 남아메리카) 다중 지역에 사용할 수 없습니다.
+* 인도 및 대한민국 지역은 청구 주소와 해당 지역에서 구입한 라이선스가 있는 고객만 사용할 수 있습니다.
+* 일부 Office 365 워크로드는 사용자의 지역 설정 사용을 지원하지 않습니다.
 
 Azure AD Connect는 1.1.524.0 이상 버전의 **User** 개체에 대한 **PreferredDataLocation** 특성의 동기화를 지원합니다. 구체적으로 다음과 같은 변경 내용이 도입되었습니다.
 

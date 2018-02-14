@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/31/2018
 ms.author: ancav
-ms.openlocfilehash: a7d28de33090995b0a036d528fb82f9e0d7335bf
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: bc25f58070d8871a92df249a2d48f27de0bc9498
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Azure Monitor에서 지원되는 메트릭
 Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세스, PowerShell이나 CLI를 통한 쿼리 등, 메트릭과 상호 작용하는 몇 가지 방법을 제공합니다. 다음은 현재 Azure Monitor의 메트릭 파이프라인을 통해 사용할 수 있는 모든 메트릭의 전체 목록입니다. 
@@ -667,6 +667,14 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |ObservedCapacity|관찰된 용량|개수|평균|실행될 때 자동 크기 조정을 위해 보고된 용량입니다.|차원 없음|
 |ScaleActionsInitiated|시작된 크기 조정 작업|개수|합계|크기 조정 작업의 방향입니다.|ScaleDirection|
 
+## <a name="microsoftkeyvaultvaults"></a>Microsoft.KeyVault/vaults
+
+|메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|---|---|---|---|---|---|
+|ServiceApiHit|Service API 총 방문 횟수|개수|Count,Total|Service API의 총 방문 횟수|ActivityType, ActivityName|
+|ServiceApiLatency|전체 Service API 대기 시간|밀리초|Count,Average,Minimum,Maximum|Service API 요청의 전체 대기 시간|ActivityType, ActivityName, StatusCode|
+|ServiceApiResult|Service API 총 결과|개수|Count,Total|Service API의 총 결과 수|ActivityType, ActivityName, StatusCode|
+
 ## <a name="microsoftlocationbasedservicesaccounts"></a>Microsoft.LocationBasedServices/accounts
 
 |메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원|
@@ -853,7 +861,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 
 |메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원|
 |---|---|---|---|---|---|
-|QueryDuration||개수|평균||차원 없음|
+|QueryDuration|쿼리 기간|개수|평균|마지막 간격의 DAX 쿼리 기간|차원 없음|
 |QueryPoolJobQueueLength|스레드: 쿼리 풀 작업 큐 길이|개수|평균|쿼리 스레드 풀의 큐에 있는 작업 수입니다.|차원 없음|
 
 ## <a name="microsoftrelaynamespaces"></a>Microsoft.Relay/namespaces

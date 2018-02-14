@@ -4,7 +4,11 @@
 ### <a name="nc-ncv2-and-nd-instances---nvidia-cuda-drivers"></a>NC, NCv2 및 ND 인스턴스 - NVIDIA CUDA 드라이버
 | 배포 | 드라이버 |
 | --- | --- | 
-| Ubuntu 16.04 LTS<br/><br/> Red Hat Enterprise Linux 7.3<br/><br/> CentOS 기반 7.3 | NVIDIA CUDA 9.1, 드라이버 분기 R387 |
+| Ubuntu 16.04 LTS<br/><br/> Red Hat Enterprise Linux 7.3 또는 7.4<br/><br/> CentOS 7.3 또는 7.4 | NVIDIA CUDA 9.1, 드라이버 분기 R390 |
+
+> [!IMPORTANT]
+> 배포에 필요한 최신 CUDA 드라이버를 설치 또는 업그레이드해야 합니다. 버전 R390보다 오래된 드라이버의 업데이트된 Linux 커널에 문제가 있을 수 있습니다.
+>
 
 ### <a name="nv-instances---nvidia-grid-drivers"></a>NV 인스턴스 - NVIDIA GRID 드라이버
 

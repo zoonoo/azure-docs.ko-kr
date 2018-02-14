@@ -4,7 +4,7 @@ description: "이 문서에서는 Traffic Manager에 대한 질문과 대답을 
 services: traffic-manager
 documentationcenter: 
 author: KumudD
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 75d5ff9a-f4b9-4b05-af32-700e7bdfea5a
 ms.service: traffic-manager
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2017
+ms.date: 02/01/2018
 ms.author: kumud
-ms.openlocfilehash: d6681a5b46aa352b1aa0dadedad8a51c9d1e5eaf
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: 09fd133ec72f7ebbbcb45f652855e7640656a0ca
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Traffic Manager FAQ(질문과 대답)
 
@@ -58,7 +58,7 @@ Traffic Manager는 DNS 수준에서 응용 프로그램과 통합하므로 추�
 
 ### <a name="can-i-use-traffic-manager-with-a-naked-domain-name"></a>'naked' 도메인 이름으로 Traffic Manager를 사용할 수 있나요?
 
-아니요. DNS 표준은 CNAME이 동일한 이름의 다른 DNS 레코드와 함께 존재하는 것을 허용하지 않습니다. DNS 영역의 apex(또는 루트)는 항상 SOA 및 권한이 있는 NS 레코드라는 두 개의 기존 DNS 레코드를 포함합니다. 즉, DNS 표준을 위반하지 않고 영역 apex에 CNAME 레코드를 만들 수 없습니다.
+번호 DNS 표준은 CNAME이 동일한 이름의 다른 DNS 레코드와 함께 존재하는 것을 허용하지 않습니다. DNS 영역의 apex(또는 루트)는 항상 SOA 및 권한이 있는 NS 레코드라는 두 개의 기존 DNS 레코드를 포함합니다. 즉, DNS 표준을 위반하지 않고 영역 apex에 CNAME 레코드를 만들 수 없습니다.
 
 Traffic Manager는 베니티 DNS 이름을 매핑하는 데 DNS CNAME 레코드가 필요합니다. 예를 들어 www.contoso.com을 Traffic Manager 프로필 DNS 이름 contoso.trafficmanager.net에 매핑합니다. 또한 Traffic Manager 프로필은 클라이언트가 연결해야 하는 끝점을 나타내는 보조 DNS CNAME을 반환합니다.
 
@@ -235,7 +235,7 @@ Traffic Manager 프로필의 Azure 지역 외부에서 호스팅되는 외부 �
 
 Azure Web Apps의 경우 여러 구독에서 끝점을 사용하는 것은 가능하지 않습니다. Azure Web Apps은 Web Apps와 함께 사용되는 모든 사용자 지정 도메인 이름을 단일 구독 내에서만 사용할 것을 요구합니다. 여러 구독에서 동일한 도메인 이름을 가지고 Web Apps를 사용하는 것은 불가능합니다.
 
-다른 끝점 유형의 경우 Traffic Manager를 둘 이상의 구독에서 끝점과 함께 사용할 수 있습니다. Traffic Manager 프로필을 구성하는 사용자에게 끝점에 대한 읽기 권한이 있는 한, Resource Manager에서 모든 구독의 끝점을 Traffic Manager에 추가할 수 있습니다. 이러한 권한은 [Azure Resource Manager 역할 기반 액세스 제어(RBAC)](../active-directory/role-based-access-control-configure.md)를 사용하여 부여될 수 있습니다.
+다른 끝점 형식의 경우 Traffic Manager를 둘 이상의 구독에서 끝점과 함께 사용할 수 있습니다. Traffic Manager 프로필을 구성하는 사용자에게 끝점에 대한 읽기 권한이 있는 한, Resource Manager에서 모든 구독의 끝점을 Traffic Manager에 추가할 수 있습니다. 이러한 권한은 [Azure Resource Manager 역할 기반 액세스 제어(RBAC)](../active-directory/role-based-access-control-configure.md)를 사용하여 부여될 수 있습니다.
 
 
 ### <a name="can-i-use-traffic-manager-with-cloud-service-staging-slots"></a>클라우드 서비스 '스테이징' 슬롯으로 Traffic Manager를 사용할 수 있습니까?
@@ -321,42 +321,7 @@ Traffic Manager는 HTTP 및 HTTPS 상태 검사에서 호스트 헤더를 사용
 
 ### <a name="what-are-the-ip-addresses-from-which-the-health-checks-originate"></a>상태 검사가 시작되는 IP 주소는 무엇인가요?
 
-다음 목록에는 Traffic Manager 상태 검사가 시작될 수 있는 IP 주소가 나와 있습니다. 이 목록의 IP 주소에서 들어오는 연결의 끝점에서는 상태 검사가 허용됩니다.
-
-* 40.68.30.66
-* 40.68.31.178
-* 137.135.80.149
-* 137.135.82.249
-* 23.96.236.252
-* 65.52.217.19
-* 40.87.147.10
-* 40.87.151.34
-* 13.75.124.254
-* 13.75.127.63
-* 52.172.155.168
-* 52.172.158.37
-* 104.215.91.84
-* 13.75.153.124
-* 13.84.222.37
-* 23.101.191.199
-* 23.96.213.12
-* 137.135.46.163
-* 137.135.47.215
-* 191.232.208.52
-* 191.232.214.62
-* 13.75.152.253
-* 104.41.187.209
-* 104.41.190.203
-* 52.173.90.107
-* 52.173.250.232
-* 104.45.149.110
-* 40.114.5.197
-* 52.240.151.125
-* 52.240.144.45
-* 13.65.95.152
-* 13.65.92.252
-* 40.78.67.110
-* 104.42.192.195
+[여기](https://azuretrafficmanagerdata.blob.core.windows.net/probes/azure/probe-ip-ranges.json)를 클릭하여 Traffic Manager 상태 검사가 시작될 수 있는 IP 주소를 나열하는 JSON 파일을 볼 수 있습니다. JSON 파일에 나열된 IP를 검토하여 이 목록의 IP 주소에서 들어오는 연결의 끝점에서 상태 검사가 허용되는지 확인합니다.
 
 ### <a name="how-many-health-checks-to-my-endpoint-can-i-expect-from-traffic-manager"></a>Traffic Manager에서 내 끝점에 대해 수행하는 예상 상태 검사 수는 몇 개인가요?
 
@@ -391,7 +356,7 @@ Traffic Manager 요금 청구는 끝점 상태 검사 및 수백만 개의 DNS �
 
 ### <a name="is-there-a-performance-impact-for-nested-profiles"></a>중첩 프로필이 성능에 영향을 미치나요?
 
-아니요. 중첩 프로필을 사용해도 성능에 미치는 영향은 없습니다.
+번호 중첩 프로필을 사용해도 성능에 미치는 영향은 없습니다.
 
 Traffic Manager 이름 서버는 각 DNS 쿼리를 처리하는 경우 프로필 계층 구조를 내부적으로 통과합니다. 상위 프로필에 대한 DNS 쿼리는 하위 프로필의 끝점에 대한 DNS 응답을 받을 수 있습니다. 단일 CNAME 레코드는 단일 프로필이나 중첩 프로필을 사용하는 경우 사용합니다. 계층 구조에서 각 프로필에 대한 CNAME 레코드를 만들 필요가 없습니다.
 
@@ -401,7 +366,7 @@ Traffic Manager 이름 서버는 각 DNS 쿼리를 처리하는 경우 프로필
 
 다음 테이블에서는 중첩 끝점에 대한 Traffic Manager의 상태 검사 동작에 대해 설명합니다.
 
-| 자식 프로필 모니터 상태 | 부모 끝점 모니터 상태 | 참고 사항 |
+| 자식 프로필 모니터 상태 | 부모 끝점 모니터 상태 | 메모 |
 | --- | --- | --- |
 | Disabled. 하위 프로필을 사용하지 않도록 설정했습니다. |중지됨 |부모 끝점 상태는 Stopped이며 Disabled가 아닙니다. Disabled 상태는 부모 프로필에서 끝점을 사용할 수 없도록 설정했음을 표시하도록 예약되어 있습니다. |
 | Degraded. 하나 이상의 자식 프로필 끝점이 Degraded 상태입니다. |Online: 자식 프로필의 Online 끝점 수가 MinChildEndpoints 값 이상입니다.<BR>CheckingEndpoint: 자식 프로필의 Online 및 CheckingEndpoint 끝점 수 합계가 MinChildEndpoints 값 이상입니다.<BR>Degraded: 그렇지 않은 경우 |트래픽이 CheckingEndpoint 상태의 끝점으로 라우팅됩니다. MinChildEndpoints를 너무 높게 설정하는 경우 끝점의 성능이 항상 저하됩니다. |

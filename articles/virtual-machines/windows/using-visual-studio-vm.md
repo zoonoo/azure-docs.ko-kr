@@ -15,11 +15,11 @@ ms.prod: vs-devops-alm
 ms.date: 01/30/2018
 ms.author: phillee
 keywords: visualstudio
-ms.openlocfilehash: 813022f1778e2c7f3174e11192b845c2c33ad219
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 599a890be4d014d22bae899be4cf6e281c4109d4
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a id="top"> </a> Azure의 Visual Studio 이미지
 미리 구성된 Azure VM(Virtual Machine)에서 실행되는 Visual Studio를 사용하는 것이 아무 작업도 하지 않고 실행 중인 개발 환경으로 전환하는 가장 쉽고 빠른 방법입니다.  다양한 Visual Studio 구성이 적용된 시스템 이미지를 [Azure Marketplace](https://portal.azure.com/)에서 사용할 수 있습니다. VM을 부팅하기만 하면 됩니다.
@@ -27,14 +27,14 @@ ms.lasthandoff: 02/01/2018
 Azure를 처음 사용하세요? [평가판 Azure 계정을 만듭니다](https://azure.microsoft.com/free).
 
 ## <a name="what-configurations-and-versions-are-available"></a>어떤 구성 및 버전을 사용할 수 있나요?
-Azure Marketplace에서 가장 최근의 주 버전인 Visual Studio 2015 및 Visual Studio 2017에 대한 이미지를 찾습니다.  각 주 버전에 대해 처음에 출시된(즉, 'RTW') 버전과 "최신" 업데이트 버전이 표시됩니다.  이러한 서로 다른 버전 각각에 대해 Visual Studio Enterprise 및 Visual Studio Community Edition을 찾을 수 있습니다.
+Azure Marketplace에서 가장 최근의 주 버전인 Visual Studio 2015 및 Visual Studio 2017에 대한 이미지를 찾습니다.  각 주 버전에 대해 처음에 출시된(즉, 'RTW') 버전과 "최신" 업데이트 버전이 표시됩니다.  이러한 서로 다른 버전 각각에 대해 Visual Studio Enterprise 및 Visual Studio Community Edition을 찾을 수 있습니다.  적어도 매월 이러한 이미지를 업데이트하여 최신 Visual Studio 및 Windows 업데이트를 포함하도록 합니다.  이미지의 이름은 그대로 유지되지만, 각 이미지의 설명에는 설치된 제품 버전 및 이미지의 '당시' 날짜가 포함됩니다.
 
-|               릴리스 버전              |          에디션            |    제품 버전    |
-|:------------------------------------------:|:----------------------------:|:---------------------:|
-| Visual Studio 2017 - 최신 버전(버전 15.5) |    Enterprise, Community     |     버전 15.5.3    |
-|         Visual Studio 2017 - RTW           |    Enterprise, Community     |     버전 15.0.7    |
-|   Visual Studio 2015 - 최신 버전(업데이트 3)   |    Enterprise, Community     | 버전 14.0.25431.01 |
-|         Visual Studio 2015 - RTW           | 없음(서비스를 위해 만료됨) |          ---          |
+|               릴리스 버전              |          에디션            |     제품 버전     |
+|:------------------------------------------:|:----------------------------:|:-----------------------:|
+| Visual Studio 2017 - 최신 버전(버전 15.5) |    Enterprise, Community     |      버전 15.5.3     |
+|         Visual Studio 2017 - RTW           |    Enterprise, Community     |      버전 15.0.7     |
+|   Visual Studio 2015 - 최신 버전(업데이트 3)   |    Enterprise, Community     |  버전 14.0.25431.01  |
+|         Visual Studio 2015 - RTW           |              없음            | (서비스를 위해 만료됨) |
 
 > [!NOTE]
 > Microsoft 서비스 정책에 따라 최초 릴리스(즉, 'RTW') 버전의 Visual Studio 2015는 서비스 만료되었습니다.  따라서 Visual Studio 2015 Update 3은 Visual Studio 2015 제품 라인에 대해 제공되는 유일하게 남은 버전입니다.
@@ -52,20 +52,32 @@ Azure Marketplace에서 가장 최근의 주 버전인 Visual Studio 2015 및 Vi
 
 다음은 이미지를 빌드할 때 Visual Studio를 설치하는 데 사용하는 명령줄입니다.
 
-   * vs_enterprise.exe --allWorkloads --includeRecommended --passive ^
-   * add Microsoft.Net.Component.4.7.SDK ^
-   * add Microsoft.Net.Component.4.7.TargetingPack ^ 
-   * add Microsoft.Net.Component.4.6.2.SDK ^
-   * add Microsoft.Net.Component.4.6.2.TargetingPack ^
-   * add Microsoft.Net.ComponentGroup.4.7.DeveloperTools ^
-   * add Microsoft.VisualStudio.Component.FSharp ^
-   * add Component.GitHub.VisualStudio ^
-   * add Microsoft.VisualStudio.Component.LinqToSql
+```
+    vs_enterprise.exe --allWorkloads --includeRecommended --passive ^
+       add Microsoft.Net.Component.4.7.SDK ^
+       add Microsoft.Net.Component.4.7.TargetingPack ^ 
+       add Microsoft.Net.Component.4.6.2.SDK ^
+       add Microsoft.Net.Component.4.6.2.TargetingPack ^
+       add Microsoft.Net.ComponentGroup.4.7.DeveloperTools ^
+       add Microsoft.VisualStudio.Component.FSharp ^
+       add Component.GitHub.VisualStudio ^
+       add Microsoft.VisualStudio.Component.LinqToSql
+```
 
 이미지에 필요한 Visual Studio 기능에 포함되어 있지 않으면, 사용자 의견 도구(페이지 오른쪽 위 모서리에 있음)를 통해 해당 사용자 의견을 제공합니다.
 
 ## <a name="what-size-vm-should-i-choose"></a>어떤 VM 크기를 선택해야 하나요?
-새 가상 컴퓨터를 프로비전하는 것은 간단하며, Azure는 모든 범위의 가상 머신 크기를 제공합니다.  하드웨어 구입과 마찬가지로, 성능 대비 가격을 고려할 수 있습니다.  Visual Studio는 강력한 다중 스레드 응용 프로그램이므로, 2개 이상의 프로세서와 7GB 메모리를 포함하는 VM 크기를 원할 수 있습니다.  최신 컴퓨터 크기에 대한 자세한 내용은 [Azure에서 Windows 가상 컴퓨터에 대한 크기](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes)를 참조하세요.
+새 가상 컴퓨터를 프로비전하는 것은 간단하며, Azure는 모든 범위의 가상 머신 크기를 제공합니다.  하드웨어 구입과 마찬가지로, 성능 대비 가격을 고려할 수 있습니다.  Visual Studio는 강력한 다중 스레드 응용 프로그램이므로, 2개 이상의 프로세서와 7GB 메모리를 포함하는 VM 크기를 원할 수 있습니다.  다음은 Visual Studio 이미지에 대해 권장되는 VM 크기입니다.
+
+   * Standard_D2_v3
+   * Standard_D2s_v3
+   * Standard_D4_v3
+   * Standard_D4s_v3
+   * Standard_D2_v2
+   * Standard_D2S_v2
+   * Standard_D3_v2
+    
+최신 컴퓨터 크기에 대한 자세한 내용은 [Azure에서 Windows 가상 컴퓨터에 대한 크기](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes)를 참조하세요.
 
 Azure를 사용할 경우 처음 선택한 상태를 반드시 유지할 필요는 없으며 VM 크기를 조정하여 처음과는 다르게 선택할 수 있습니다.  좀 더 적절한 크기를 사용하여 새 VM을 프로비전할 수도 있고, 기존 VM의 크기를 다른 기본 하드웨어에 맞게 조정할 수도 있습니다.  자세한 내용은 [Windows VM 크기 조정](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/resize-vm)을 참조하세요.
 

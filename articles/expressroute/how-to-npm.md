@@ -13,10 +13,10 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/13/2017
-ms.author: cherylmc
-ms.openlocfilehash: 63160bc8f334b975ade8b35ce809578ad3a5b3fa
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.date: 01/31/2018
+ms.author: pareshmu
+ms.openlocfilehash: 269c2e8a7867521b34128980e33ed97aa7b62a04
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/01/2018
@@ -43,7 +43,8 @@ NPM(네트워크 성능 모니터)은 Azure 클라우드 배포 및 온-프레�
 
 다음 지역 중 하나에 호스트된 작업 영역을 사용하여 전 세계 어디서나 ExpressRoute 회로를 모니터링할 수 있습니다.
 
-* 서유럽 
+* 서유럽
+* 미국 중서부
 * 미국 동부 
 * 동남아시아 
 * 오스트레일리아 동남부
@@ -57,14 +58,13 @@ NPM(네트워크 성능 모니터)은 Azure 클라우드 배포 및 온-프레�
     * 온-프레미스 서버와 Azure VM에서 모니터링 에이전트를 설치합니다.
     * 모니터링 에이전트가 통신할 수 있도록 모니터링 에이전트 서버의 설정을 구성합니다. (방화벽 포트 등을 엽니다.)
 3. Azure VM에 설치된 모니터링 에이전트가 온-프레미스 모니터링 에이전트와 통신하도록 NSG(네트워크 보안 그룹) 규칙을 구성합니다.
-4. NPM 작업 영역을 허용 목록에 추가하도록 요청합니다.
-5. 모니터링 설정: NPM에서 볼 수 있는 네트워크를 자동으로 검색하고 관리합니다.
+4. 모니터링 설정: NPM에서 볼 수 있는 네트워크를 자동으로 검색하고 관리합니다.
 
 이미 네트워크 성능 모니터를 사용하여 다른 개체 또는 서비스를 모니터링하며 지원되는 지역 중 하나에 작업 영역이 이미 있는 경우 1단계와 2단계를 건너뛰고 3단계에서 구성을 시작할 수 있습니다.
 
-## <a name="configure"></a>1단계: 작업 영역 만들기
+## <a name="configure"></a>1단계: 작업 영역 만들기(Vnet이 ExpressRoute 회로에 연결된 구독)
 
-1. [Azure Portal](https://portal.azure.com)의 **Marketplace** 서비스 목록에서 ‘네트워크 성능 모니터’를 검색합니다. 반환된 결과에서 클릭하여 **네트워크 성능 모니터** 페이지를 엽니다.
+1. [Azure Portal](https://portal.azure.com)에서 Vnet이 ExpressRoute 회로에 연결된 구독을 선택합니다. 그런 후 **Marketplace**의 서비스 목록에서 ‘네트워크 성능 모니터’를 검색합니다. 반환된 결과에서 클릭하여 **네트워크 성능 모니터** 페이지를 엽니다.
 
   ![portal](.\media\how-to-npm\3.png)<br><br>
 2. 주 **네트워크 성능 모니터** 페이지 아래쪽에서 **만들기**를 클릭하여 **네트워크 성능 모니터 - 새 솔루션 만들기** 페이지를 엽니다. **OMS 작업 영역 - 작업 영역 선택**을 클릭하여 작업 영역 페이지를 엽니다. **+ 새 작업 영역 만들기**를 클릭하여 작업 영역 페이지를 엽니다.
@@ -105,7 +105,7 @@ NPM(네트워크 성능 모니터)은 Azure 클라우드 배포 및 온-프레�
 
   ![PowerShell 스크립트](.\media\how-to-npm\7.png)
 
-### <a name="installagent"></a>2.2: 각 모니터링 서버에서 모니터링 에이전트 설치
+### <a name="installagent"></a>2.2: 각 모니터링 서버에 모니터링 에이전트 설치(모니터링하려는 각 VNET)
 
 중복성을 위해 ExpressRoute 연결의 각 끝(즉, 온-프레미스, Azure VNET)에 두 개 이상의 에이전트를 설치하는 것이 좋습니다. 다음 단계를 사용하여 에이전트를 설치합니다.
 
@@ -127,6 +127,8 @@ NPM(네트워크 성능 모니터)은 Azure 클라우드 배포 및 온-프레�
 6. **설치 준비** 페이지에서 선택 항목을 검토한 다음 **설치**를 클릭합니다.
 7. **구성 완료** 페이지에서 **마침**을 클릭합니다.
 8. 완료되면 제어판에 Microsoft Monitoring Agent가 나타납니다. 여기에서 구성을 검토하고 에이전트가 Operational Insights(OMS)에 연결되었는지 확인합니다. OMS에 연결되면 에이전트에 **Microsoft Monitoring Agent가 Microsoft Operations Management Suite 서비스에 성공적으로 연결되었습니다.**와 같은 메시지가 표시됩니다.
+
+9. 모니터링해야 하는 각 VNET에 대해 이 작업을 반복합니다.
 
 ### <a name="proxy"></a>2.3: 프록시 설정 구성(선택 사항)
 
@@ -165,7 +167,7 @@ TCP 프로토콜을 사용하려면 모니터링 에이전트가 통신할 수 �
 >
 >
 
-에이전트 서버에서 관리자 권한으로 PowerShell 창을 엽니다. [EnableRules](https://gallery.technet.microsoft.com/OMS-Network-Performance-04a66634) PowerShell 스크립트를 실행합니다(이전에 다운로드한). 매개 변수는 사용하지 마세요.
+에이전트 서버에서 관리자 권한으로 PowerShell 창을 엽니다. [EnableRules](https://aka.ms/npmpowershellscript) PowerShell 스크립트를 실행합니다(이전에 다운로드한). 매개 변수는 사용하지 마세요.
 
   ![PowerShell_Script](.\media\how-to-npm\script.png)
 
@@ -183,12 +185,7 @@ NSG에 대한 자세한 내용은 [네트워크 보안 그룹](../virtual-networ
 
 ## <a name="setupmonitor"></a>4단계: ExpressRoute 모니터링용 NPM 구성
 
->[!WARNING]
->작업 영역이 허용 목록에 있고 확인 전자 메일이 수신될 때까지 더 이상 진행하지 않도록 합니다.
->
->
-
-이전 섹션을 완료하고 허용 목록에 포함되어 있는지를 확인한 후에는 모니터링을 설정할 수 있습니다.
+이전 섹션을 완료한 후 모니터링을 설정할 수 있습니다.
 
 1. **모든 리소스** 페이지로 이동한 후 허용 목록에 포함된 NPM 작업 영역을 클릭하여 네트워크 성능 모니터 개요 타일로 이동합니다.
 

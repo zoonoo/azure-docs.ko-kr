@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
-ms.date: 09/11/2017
-ms.openlocfilehash: ff5fcbc6df8cb07e0b98b877f20d981d6bef5117
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.date: 02/01/2018
+ms.openlocfilehash: 1046f08d4e3b1111f8f82551b71252856174a308
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="supported-inspectors-for-the-azure-machine-learning-data-preparation-preview"></a>Azure Machine Learning 데이터 준비 미리 보기에 지원되는 검사기
 이 문서에서는 이 미리 보기에서 사용할 수 있는 일단의 검사기에 대해 간략히 설명합니다.
@@ -52,6 +52,7 @@ ms.lasthandoff: 12/18/2017
 - 기본 버킷 수(Scott의 규칙) 
 - Halo 표시
 - 커널 밀도 점도 오버레이(가우스 커널) 
+- 로그 눈금 간격 사용
 
 
 ### <a name="actions"></a>작업
@@ -65,6 +66,7 @@ ms.lasthandoff: 12/18/2017
 - 내림차순
 - Null/오류 값 포함
 - Halo 표시
+- 로그 눈금 간격 사용
 
 
 ### <a name="actions"></a>작업 

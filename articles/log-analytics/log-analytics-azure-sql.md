@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: magoedte;banders
-ms.openlocfilehash: 209968a598d3a579cc40edaf52bd7344fa3f60ed
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: e2176a41a115d77a60a8348d2d1b5928109dd65b
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>Log Analytics에 Azure SQL Analytics(미리 보기)를 사용하여 Azure SQL Database 모니터링
 
@@ -157,7 +157,7 @@ AzureMetrics | where ResourceProvider=="MICROSOFT.SQL" and ResourceId contains "
 AzureMetrics | where ResourceProvider=="MICROSOFT.SQL" and ResourceId contains "/ELASTICPOOLS/" and MetricName=="dtu_consumption_percent" | summarize avg(Maximum) by ResourceId
 ```
 
-이러한 경고 기반 쿼리를 사용하여 Azure SQL Database와 탄력적 풀에 대한 특정 임계값에 대해 경고를 발생할 수 있습니다. OMS 작업 영역에 대해 경고를 구성하려면
+이러한 경고 기반 쿼리를 사용하여 Azure SQL Database와 탄력적 풀에 대한 특정 임계값에 대해 경고를 발생할 수 있습니다. Log Analytics 작업 영역에 대한 경고를 구성하려면
 
 #### <a name="to-configure-an-alert-for-your-workspace"></a>작업 영역에 대해 경고를 구성하려면
 

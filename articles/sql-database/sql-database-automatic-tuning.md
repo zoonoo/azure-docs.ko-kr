@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: On Demand
-ms.date: 11/08/2017
+ms.date: 11/09/2017
 ms.author: jovanpop
-ms.openlocfilehash: 50d1548637ecc6862f680f73e333e8d7f8d20e39
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: dcea2c34ab26349c6f937c582bfe35d7a42f24a6
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Azure SQL Database에서 자동 조정
 
@@ -79,5 +79,6 @@ Azure SQL Database는 데이터베이스를 최적화하고 Azure Portal에 표�
 
 - Azure SQL Database에서 자동 조정을 사용하도록 설정하고 워크로드를 관리하려면 [자동 조정 사용](sql-database-automatic-tuning-enable.md)을 참조하세요.
 - 자동 조정 권장 사항을 수동으로 검토 및 적용하려면 [성능 권장 사항 찾기 및 적용](sql-database-advisor-portal.md)을 참조하세요.
-- 자동 조정에 사용된 기본 제공 인텔리전스에 대한 자세한 내용은 [인공 지능으로 Azure SQL Database 조정](https://azure.microsoft.com/blog/artificial-intelligence-tunes-azure-sql-databases/)을 참조하세요.
-- Azure SQL Database 및 SQL server 2017에서 자동 조정이 작동하는 방식에 대한 자세한 내용은 [SQL Server 자동 조정](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning)을 참조하세요.
+- 자동 조정 권장 구성에 대한 전자 메일 알림을 작성하는 방법에 대한 자세한 내용은 [자동 조정에 대한 전자 메일 알림](sql-database-automatic-tuning-email-notifications.md)을 참조하세요.
+- 자동 조정에 사용된 기본 제공 인텔리전스에 대한 내용은 [인공 지능으로 Azure SQL Database 조정](https://azure.microsoft.com/blog/artificial-intelligence-tunes-azure-sql-databases/)을 참조하세요.
+- Azure SQL Database 및 SQL server 2017에서 자동 조정이 작동하는 방식에 대한 내용은 [SQL Server 자동 조정](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning)을 참조하세요.

@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2017
 ms.author: maxluk
-ms.openlocfilehash: b4bdf3339e585a7b22a1945871f802854020fb94
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 391b691e895c672ef872f8b98c88567175ad8030
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>HDInsight 클러스터의 용량 계획
 
@@ -31,7 +31,7 @@ HDInsight 클러스터를 배포하기 전에 필요한 성능 및 크기를 확
 * 클러스터를 어떤 지리적 지역에 배포하려고 하나요?
 * 저장 공간은 얼마나 필요한가요?
 * 어떤 클러스터 유형을 배포해야 하나요?
-* 클러스터 노드는 어떤 크기 및 유형의 VM(가상 컴퓨터)을 사용해야 하나요?
+* 클러스터 노드는 어떤 크기 및 유형의 VM(가상 머신)을 사용해야 하나요?
 * 클러스터는 몇 개의 작업자 노드가 있어야 하나요?
 
 ## <a name="choose-an-azure-region"></a>Azure 지역 선택
@@ -67,9 +67,7 @@ Azure Storage에는 [용량 제한](../azure-subscription-service-limits.md#stor
 
 ## <a name="choose-a-cluster-type"></a>클러스터 유형 선택
 
-클러스터 유형은 HDInsight 클러스터(Hadoop, Storm, Kafka 또는 Spark)가 실행하도록 구성되는 워크로드를 결정합니다. 
-<!-- For a detailed description of the available cluster types, see [HDInsight Architecture](hdinsight-architecture.md). -->
-각 클러스터 유형은 필요한 노드 크기 및 개수를 포함하는 배포 토폴로지를 갖습니다.
+클러스터 유형은 HDInsight 클러스터(Hadoop, Storm, Kafka 또는 Spark)가 실행하도록 구성되는 워크로드를 결정합니다. 사용 가능한 클러스터 형식의 대한 자세한 설명은 [Azure HDInsight 소개](hadoop/apache-hadoop-introduction.md#cluster-types-in-hdinsight)를 참조하세요. 각 클러스터 유형은 필요한 노드 크기 및 개수를 포함하는 배포 토폴로지를 갖습니다.
 
 ## <a name="choose-the-vm-size-and-type"></a>VM 크기 및 유형 선택
 
@@ -96,9 +94,7 @@ VM 크기와 유형은 CPU 처리 성능, RAM 크기 및 네트워크 대기 시
 
 ### <a name="cluster-lifecycle"></a>클러스터 수명 주기
 
-클러스터의 수명은 사용자의 책임입니다. 특정 시간에만 클러스터를 가동하고 실행해야 하는 경우 Azure Data Factory를 사용하여 요청 시 클러스터를 만들 수 있습니다.
-<!-- [create on-demand clusters using Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md). -->
-클러스터를 프로비전하고 삭제하는 PowerShell 스크립트를 만든 다음 [Azure Automation](https://azure.microsoft.com/services/automation/)을 사용하여 해당 스크립트를 예약할 수도 있습니다.
+클러스터의 수명은 사용자의 책임입니다. 특정 시간에만 클러스터를 가동하고 실행해야 하는 경우 [Azure Data Factory를 사용하여 요청 시 클러스터를 만들 수 있습니다](hdinsight-hadoop-create-linux-clusters-adf.md). 클러스터를 프로비전하고 삭제하는 PowerShell 스크립트를 만든 다음 [Azure Automation](https://azure.microsoft.com/services/automation/)을 사용하여 해당 스크립트를 예약할 수도 있습니다.
 
 > [!NOTE]
 > 클러스터를 삭제하면 해당 기본 Hive metastore도 삭제됩니다. 다음에 클러스터를 다시 만들 때를 대비해서 metastore를 보존하려면 Azure Database 또는 Oozie와 같은 외부 메타데이터 저장소를 사용합니다.

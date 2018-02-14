@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 47c2d129cb296f6387142e03b14356bcd83ad698
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 8b55bafee83dd43d535f9ebb0488134b5c7b3446
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>규모에 맞게 ETL(추출, 변환 및 로드)
 
@@ -42,9 +42,7 @@ ETL 프로세스에서 HDInsight를 사용하는 방법은 다음과 같은 파�
 
 Apache Oozie는 Hadoop 작업을 관리하는 워크플로 조정 시스템입니다. Oozie는 HDInsight 클러스터 내에서 실행되며 Hadoop 스택과 통합됩니다. Oozie는 Apache MapReduce, Apache Pig, Apache Hive 및 Apache Sqoop에 대한 Hadoop 작업을 지원합니다. 또한 Oozie를 사용하여 Java 프로그램 또는 셸 스크립트와 같이 시스템 특정의 작업을 예약할 수 있습니다.
 
-자세한 내용은 [Hadoop과 함께 Oozie를 사용하여 HDInsight에서 워크플로 정의 및 실행](../hdinsight-use-oozie-linux-mac.md)을 참조하세요.
-
-<!-- For a deep dive showing how to use Oozie to drive an end-to-end pipeline, see [Operationalize the Data Pipeline](hdinsight-operationalize-data-pipeline.md). -->
+자세한 내용은 [Hadoop과 함께 Oozie를 사용하여 HDInsight에서 워크플로 정의 및 실행](../hdinsight-use-oozie-linux-mac.md)을 참조하세요. Oozie를 사용하여 종단 간 파이프라인을 구동하는 방법에 대한 자세한 내용은 [데이터 파이프라인 운용](../hdinsight-operationalize-data-pipeline.md)을 참조하세요. 
 
 ### <a name="azure-data-factory"></a>Azure 데이터 팩터리
 
@@ -145,4 +143,4 @@ Apache Flume은 Azure HDInsight와 함께 사용할 수 없습니다.  온-프�
 ## <a name="next-steps"></a>다음 단계
 
 * [HDInsight에서 Hadoop과 Pig 사용](hdinsight-use-pig.md)
-<!-- * [Using Apache Hive as an ETL Tool](hdinsight-using-apache-hive-as-an-etl-tool.md) -->
+* [Apache Hive를 ETL 도구로 사용](apache-hadoop-using-apache-hive-as-an-etl-tool.md) 

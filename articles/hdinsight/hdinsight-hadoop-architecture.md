@@ -16,20 +16,18 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/19/2018
 ms.author: ashishth
-ms.openlocfilehash: 85383cc32e67db1f7e6964dc0b55bf3977311d40
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 49277871026e79b871b0216c05e051a1c93336b3
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="hadoop-architecture-in-hdinsight"></a>HDInsight의 Hadoop 아키텍처
 
 Hadoop에는 저장소를 제공하는 HDFS(고밀도 파일 시스템)와 처리 제공하는 YARN(Yet Another Resource Negotiator)의 두 가지 핵심 구성 요소가 포함되어 있습니다. 저장소 및 처리 기능을 사용하면 클러스터에서 MapReduce 프로그램을 실행하여 원하는 데이터 처리를 수행할 수 있게 됩니다.
 
 > [!NOTE]
-> 일반적으로 HDFS는 HDInsight 클러스터 내에 배포되어 저장소를 제공하지 않습니다. 대신 Hadoop 구성 요소에서 HDFS 호환 인터페이스 계층을 사용합니다. 실제 저장소 용량은 Azure Storage 또는 Azure Data Lake Store에서 제공합니다. Hadoop의 경우 HDFS가 있는 것처럼 HDInsight 클러스터에서 실행되는 MapReduce 작업이 실행되므로 저장소 요구 사항을 지원하기 위해 변경할 필요가 없습니다. HDInsight의 Hadoop에서 저장소는 아웃소싱되지만 YARN 처리는 핵심 구성 요소로 남아 있습니다. 
-
-<!--   As described in [HDInsight architecture](hdinsight-architecture.md)  -->
+> 일반적으로 HDFS는 HDInsight 클러스터 내에 배포되어 저장소를 제공하지 않습니다. 대신 Hadoop 구성 요소에서 HDFS 호환 인터페이스 계층을 사용합니다. 실제 저장소 용량은 Azure Storage 또는 Azure Data Lake Store에서 제공합니다. Hadoop의 경우 HDFS가 있는 것처럼 HDInsight 클러스터에서 실행되는 MapReduce 작업이 실행되므로 저장소 요구 사항을 지원하기 위해 변경할 필요가 없습니다. HDInsight의 Hadoop에서 저장소는 아웃소싱되지만 YARN 처리는 핵심 구성 요소로 남아 있습니다. 자세한 내용은 [Azure HDInsight 소개](hadoop/apache-hadoop-introduction.md)를 참조하세요.
 
 이 문서에서는 YARN과 HDInsight에서 응용 프로그램 실행을 조정하는 방법에 대해 소개합니다.
 
@@ -56,8 +54,7 @@ NodeManager는 응용 프로그램을 구성하는 작업을 실행한 다음, �
 
 ![HDInsight의 YARN](./media/hdinsight-hadoop-architecture/yarn-on-hdinsight.png)
 
-## <a name="see-also"></a>참고 항목
+## <a name="next-steps"></a>다음 단계
 
 * [HDInsight에서 Hadoop과 MapReduce 사용](hadoop/hdinsight-use-mapreduce.md)
-
-<!--  * [HDInsight Architecture](hdinsight-architecture.md)  -->
+* [Azure HDInsight 소개](hadoop/apache-hadoop-introduction.md)

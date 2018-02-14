@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 02/02/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: e7694b2b5703175e4b83a84869ba2964bad7671e
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 26c0f3216014afdaaa6556537f15f23c844e4c19
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="move-data-from-sybase-using-azure-data-factory"></a>Azure 데이터 팩터리를 사용하여 Sybase에서 데이터 이동
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -42,7 +42,9 @@ ms.lasthandoff: 01/23/2018
 > 연결/게이트웨이 관련 문제 해결에 대한 팁은 [게이트웨이 문제 해결](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) 을 참조하세요.
 
 ## <a name="supported-versions-and-installation"></a>지원되는 버전 및 설치
-Sybase 데이터베이스에 연결할 데이터 관리 게이트웨이의 경우 데이터 관리 게이트웨이와 동일한 시스템에 [data provider for Sybase iAnywhere.Data.SQLAnywhere](http://go.microsoft.com/fwlink/?linkid=324846) 16 이상을 설치해야 합니다. Sybase 버전 16 이상이 지원됩니다.
+Sybase 데이터베이스에 연결할 데이터 관리 게이트웨이의 경우 데이터 관리 게이트웨이와 동일한 시스템에 [data provider for Sybase iAnywhere.Data.SQLAnywhere](http://go.microsoft.com/fwlink/?linkid=324846) 16 이상을 설치해야 합니다. 
+
+Sybase SQL ASA(Anywhere) 버전 16 이상이 지원됩니다. IQ 및 ASE는 지원되지 않습니다.
 
 ## <a name="getting-started"></a>시작
 여러 도구/API를 사용하여 온-프레미스 Cassandra 데이터 저장소의 데이터를 이동하는 복사 작업으로 파이프라인을 만들 수 있습니다. 
@@ -68,7 +70,7 @@ Sybase 데이터베이스에 연결할 데이터 관리 게이트웨이의 경�
 | 형식 |형식 속성은 **OnPremisesSybase** |예 |
 | 서버 |Sybase 서버의 이름입니다. |예 |
 | 데이터베이스 |Sybase 데이터베이스의 이름입니다. |예 |
-| schema |데이터베이스에서 스키마의 이름입니다. |아니오 |
+| schema |데이터베이스에서 스키마의 이름입니다. |아니요 |
 | authenticationType |Sybase 데이터베이스에 연결하는 데 사용되는 인증 형식입니다. 가능한 값은 익명, 기본 및 Windows입니다. |예 |
 | 사용자 이름 |기본 또는 Windows 인증을 사용하는 경우 사용자 이름을 지정합니다. |아니오 |
 | 암호 |사용자 이름에 지정한 사용자 계정의 암호를 지정합니다. |아니요 |
