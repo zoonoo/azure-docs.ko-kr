@@ -1,4 +1,4 @@
----
+﻿---
 title: "데이터 과학 작업 실행 - Azure Machine Learning | Microsoft Docs"
 description: "데이터 과학자가 추적 가능하고, 버전을 제어하고, 공동 작업을 수행하는 방식으로 데이터 과학 프로젝트를 실행하는 방법을 설명합니다."
 documentationcenter: 
