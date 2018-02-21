@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/11/2017
 ms.author: oanapl
-ms.openlocfilehash: cd9a144baf06422b425a0bc6c516600d6fcd4b97
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: f2a07d58938ae77701d8df8099ec0aedf1524d6b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>시스템 상태 보고서를 사용하여 문제 해결
 Azure Service Fabric 구성 요소가 클러스터 내의 모든 엔터티에 대해 즉각적으로 시스템 상태 보고서를 제공합니다. [Health 스토어](service-fabric-health-introduction.md#health-store) 는 시스템 보고서를 기반으로 엔터티를 만들고 삭제합니다. 또한 엔터티 상호 작용을 캡처하는 계층 구조에서 보고서를 구성합니다.
@@ -638,6 +638,21 @@ HealthEvents          :
 
 - **IReplicator.BuildReplica(<Remote ReplicaId>)**: 이 경고는 빌드 프로세스 중의 문제를 나타냅니다. 자세한 내용은 [복제본 수명 주기](service-fabric-concepts-replica-lifecycle.md)를 참조하세요. 복제기 주소의 잘못된 구성이 원인일 수 있습니다. 자세한 내용은 [상태 저장 신뢰할 수 있는 서비스 구성](service-fabric-reliable-services-configuration.md) 및 [서비스 매니페스트에서 리소스 지정](service-fabric-service-manifest-resources.md)을 참조하세요. 원격 노드의 문제일 수도 있습니다.
 
+### <a name="replicator-system-health-reports"></a>복제자 시스템 상태 보고서
+**복제 큐가 가득 찼습니다.**
+**System.Replicator**는 복제본 큐가 가득 차면 경고를 보고합니다. 보통은 기본 데이터베이스에서는 하나 이상의 보조 복제본이 작업을 승인하는 속도가 느리기 때문에 복제본 큐가 가득차게 됩니다. 보조 데이터베이스에서는 서비스가 작업에 적용하는 속도가 느릴 때 일반적으로 발생합니다. 큐가 더 이상 가득 차지 않으면 경고가 지워집니다.
+
+* **SourceId**: System.Replicator
+* **Property**: 복제본의 역할에 따라 **PrimaryReplicationQueueStatus** 또는 **SecondaryReplicationQueueStatus**입니다.
+* **다음 단계**: 보고서가 기본 데이터베이스에 있는 경우 클러스터의 노드 간 연결을 확인합니다. 모든 연결이 정상이면 작업을 적용할 보조 데이터베이스 중 하나 이상에서 디스크 대기 시간이 높고 속도가 느릴 수 있습니다. 보고서가 보조 데이터베이스에 있는 경우 먼저 노드의 디스크 사용량 및 성능을 확인한 다음, 느린 노드에서 기본 데이터베이스로 나가는 연결을 확인합니다.
+
+**RemoteReplicatorConnectionStatus**: 기본 복제본의 
+**System.Replicator**는 보조(원격) 복제자에 대한 연결이 정상이 아닐 경우 경고를 보고합니다. 원격 복제자의 주소가 보고서 메시지에 표시되므로 잘못된 구성이 전달되었는지 또는 복제자 간에 네트워크 문제가 있는지를 보다 편리하게 감지할 수 있습니다.
+
+* **SourceId**: System.Replicator
+* **Property**: **RemoteReplicatorConnectionStatus**
+* **다음 단계**: 오류 메시지를 확인하고 원격 복제자 주소가 올바르게 구성되었는지 확인합니다(예를 들어 원격 복제자가 “localhost” 수신 주소로 열리는 경우 외부에서 연결할 수 없음). 주소가 올바르면 주 노드와 원격 주소 간의 연결을 확인하여 잠재적인 네트워크 문제를 찾습니다.
+
 ### <a name="replication-queue-full"></a>복제 큐 전체
 **System.Replicator**는 복제본 큐가 가득 차면 경고를 보고합니다. 보통은 기본 데이터베이스에서는 하나 이상의 보조 복제본이 작업을 승인하는 속도가 느리기 때문에 복제본 큐가 가득차게 됩니다. 보조 데이터베이스에서는 서비스가 작업에 적용하는 속도가 느릴 때 일반적으로 발생합니다. 큐가 더 이상 가득 차지 않으면 경고가 지워집니다.
 
@@ -764,7 +779,7 @@ System.Hosting은 노드에서 서비스 패키지 활성화가 성공하면 확
 System.Hosting은 활성화가 성공한 경우 각 코드 패키지에 대해 확인을 보고합니다. 활성화에 실패하는 경우 구성된 대로 경고를 보고합니다. **CodePackage**가 활성화에 실패하거나 구성된 **CodePackageHealthErrorThreshold**보다 큰 오류와 함께 종료되면 호스팅이 오류를 보고합니다. 서비스 패키지에 여러 코드 패키지가 있다면 각 패키지에 대해 생성된 활성화 보고서가 있습니다.
 
 * **SourceId**: System.Hosting
-* **Property** : 접두사 **CodePackageActivation**을 사용하고 코드 패키지 및 진입점의 이름을 **CodePackageActivation:***CodePackageName*:*SetupEntryPoint/EntryPoint*로 포함합니다. 예를 들어 **CodePackageActivation:Code:SetupEntryPoint**입니다.
+* **Property**: **CodePackageActivation** 접두사를 사용하고 코드 패키지 및 진입점의 이름을 **CodePackageActivation:***CodePackageName*:*SetupEntryPoint/EntryPoint*로 포함합니다. 예를 들어 **CodePackageActivation:Code:SetupEntryPoint**입니다.
 
 ### <a name="service-type-registration"></a>서비스 유형 등록
 서비스 유형이 제대로 등록되면 System.Hosting이 OK를 보고합니다. 등록이 제시간에 완료되지 않으면 **ServiceTypeRegistrationTimeout**을 사용하여 구성된 대로 오류를 보고합니다. 런타임은 닫혀 있는 경우 서비스 유형이 노드에서 등록 해제되고 호스팅이 경고를 보고합니다.

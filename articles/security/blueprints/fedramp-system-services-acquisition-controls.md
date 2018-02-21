@@ -1,6 +1,6 @@
 ---
-title: "FedRAMP Azure Blueprint 자동화 - 시스템 및 서비스 취득"
-description: "FedRAMP용 웹 응용 프로그램 - 시스템 및 서비스 취득"
+title: "Azure 보안 및 규정 준수 청사진 - FedRAMP 웹 응용 프로그램 자동화 - 시스템 및 서비스 취득"
+description: "FedRAMP 웹 응용 프로그램 자동화 - 시스템 및 서비스 취득"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: f38f2c7069c4edd0983fd1c2a723287950ace708
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 490632a77fd9fb72bda075b996c40378a394f389
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="system-and-services-acquisition-sa"></a>SA(시스템 및 서비스 획득)
 

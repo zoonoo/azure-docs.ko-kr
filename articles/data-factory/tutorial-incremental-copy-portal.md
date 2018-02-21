@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: ff26d3ae159320f8c726b37eb0c68e6c5f2c2cc3
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: edde9d8c6fe070e5323cf63d222c7cd6a8983e8a
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Azure SQL 데이터베이스에서 Azure Blob 저장소로 데이터 증분 로드
 이 자습서에서는 Azure SQL 데이터베이스의 테이블에서 Azure Blob 저장소로 델타 데이터를 로드하는 파이프라인이 있는 Azure 데이터 팩터리를 만듭니다. 
@@ -31,8 +31,8 @@ ms.lasthandoff: 01/23/2018
 
 > [!div class="checklist"]
 > * 워터마크 값을 저장할 데이터 저장소를 준비합니다.
-> * 데이터 팩터리를 만듭니다.
-> * 연결된 서비스 만들기. 
+> * 데이터 팩터리 만들기
+> * 연결된 서비스 만들기 
 > * 원본, 싱크 및 워터마크 데이터 집합을 만듭니다.
 > * 파이프라인을 만듭니다.
 > * 파이프라인을 실행합니다.
@@ -154,6 +154,7 @@ END
 
 ## <a name="create-a-data-factory"></a>데이터 팩터리를 만듭니다.
 
+1. **Microsoft Edge** 또는 **Google Chrome** 웹 브라우저를 시작합니다. 현재 Data Factory UI는 Microsoft Edge 및 Google Chrome 웹 브라우저에서만 지원됩니다.
 1. 왼쪽 메뉴에서 **새로 만들기**를 클릭하고 **데이터 + 분석**, **Data Factory**를 차례로 클릭합니다. 
    
    ![새로 만들기->DataFactory](./media/tutorial-incremental-copy-portal/new-azure-data-factory-menu.png)
@@ -183,7 +184,7 @@ END
    ![데이터 팩터리 홈페이지](./media/tutorial-incremental-copy-portal/data-factory-home-page.png)
 10. **작성 및 모니터링** 타일을 클릭하여 별도의 탭에서 Azure Data Factory UI(사용자 인터페이스)를 시작합니다.
 
-## <a name="create-a-pipeline"></a>파이프라인을 만듭니다.
+## <a name="create-a-pipeline"></a>파이프라인 만들기
 이 자습서에서는 하나의 파이프라인에 두 개의 조회 작업, 하나의 복사 작업 및 하나의 StoredProcedure 작업이 연결되어 있는 파이프라인을 만듭니다. 
 
 1. Data Factory UI의 **시작** 페이지에서 **파이프라인 만들기** 타일을 클릭합니다. 
@@ -192,7 +193,7 @@ END
 3. 파이프라인에 대한 **속성** 창의 **일반** 페이지에서 **IncrementalCopyPipeline** 이름을 입력합니다. 
 
    ![파이프라인 이름](./media/tutorial-incremental-copy-portal/pipeline-name.png)
-4. 이전 워터마크 값을 가져오는 첫 번째 조회 활동을 추가하겠습니다. **활동** 도구 상자에서 **SQL Database**를 펼치고, **조회** 활동을 파이프라인 디자이너 화면으로 끌어서 놓습니다. 활동 이름을 **LookupOldWaterMarkActivity**로 변경합니다.
+4. 이전 워터마크 값을 가져오는 첫 번째 조회 활동을 추가하겠습니다. **활동** 도구 상자에서 **일반**을 펼치고, **조회** 활동을 파이프라인 디자이너 화면으로 끌어서 놓습니다. 활동 이름을 **LookupOldWaterMarkActivity**로 변경합니다.
 
    ![첫 번째 조회 활동 - 이름](./media/tutorial-incremental-copy-portal/first-lookup-name.png)
 5. **설정** 탭으로 전환하고, **원본 데이터 집합**에 대해 **+ 새로 만들기**를 클릭합니다. 이 단계에서는 **watermarktable**에 데이터를 나타내기 위한 데이터 집합을 만듭니다. 이 테이블에는 이전 복사 작업에서 사용된 이전 워터마크가 포함되어 있습니다. 
@@ -224,7 +225,7 @@ END
 11. 위쪽의 파이프라인 탭을 클릭하거나 왼쪽의 트리 뷰에서 파이프라인 이름을 클릭하여 파이프라인 편집기로 전환합니다. **조회** 활동에 대한 속성 창에서 **원본 데이터 집합** 필드에 대해 **WatermarkDataset**가 선택되어 있는지 확인합니다. 
 
     ![파이프라인 - 이전 워터마크 데이터 집합](./media/tutorial-incremental-copy-portal/pipeline-old-watermark-dataset-selected.png)
-12. **활동** 도구 상자에서 **SQL Database**를 펼치고, 다른 **조회** 활동을 파이프라인 디자이너 화면으로 끌어서 놓고, 속성 창의 **일반** 탭에서 이름을 **LookupNewWaterMarkActivity**로 설정합니다. 이 조회 활동은 대상에 복사될 원본 데이터가 있는 테이블에서 새 워터마크 값을 가져옵니다. 
+12. **활동** 도구 상자에서 **일반**을 펼치고, 다른 **조회** 활동을 파이프라인 디자이너 화면으로 끌어서 놓고, 속성 창의 **일반** 탭에서 이름을 **LookupNewWaterMarkActivity**로 설정합니다. 이 조회 활동은 대상에 복사될 원본 데이터가 있는 테이블에서 새 워터마크 값을 가져옵니다. 
 
     ![두 번째 조회 활동 - 이름](./media/tutorial-incremental-copy-portal/second-lookup-activity-name.png)
 13. 두 번째 **조회** 활동에 대한 속성 창에서 **설정** 탭으로 전환하고, **새로 만들기**를 클릭합니다. 새 워터마크 값(LastModifyTime의 최대값)이 포함된 원본 테이블을 가리키도록 데이터 집합을 만듭니다. 
@@ -295,7 +296,7 @@ END
 
         ![싱크 데이터 집합 - 연결 설정](./media/tutorial-incremental-copy-portal/sink-dataset-connection-settings.png)
 28. 위쪽의 파이프라인 탭을 클릭하거나 왼쪽의 트리 뷰에서 파이프라인 이름을 클릭하여 **파이프라인** 편집기로 전환합니다. 
-29. **활동** 도구 상자에서 **SQL Database**를 펼치고, **저장 프로시저** 활동을 **활동** 도구 상자에서 파이프라인 디자이너 화면으로 끌어서 놓습니다. **복사** 활동의 녹색(성공) 출력을 **저장 프로시저** 활동에 **연결**합니다. 
+29. **활동** 도구 상자에서 **일반**을 펼치고, **저장 프로시저** 활동을 **활동** 도구 상자에서 파이프라인 디자이너 화면으로 끌어서 놓습니다. **복사** 활동의 녹색(성공) 출력을 **저장 프로시저** 활동에 **연결**합니다. 
     
     ![복사 활동 - 원본](./media/tutorial-incremental-copy-portal/connect-copy-to-stored-procedure-activity.png)
 24. 파이프라인 디자이너에서 **저장 프로시저 활동**을 선택하고, 이름을 **StoredProceduretoWriteWatermarkActivity**로 변경합니다. 
@@ -306,8 +307,8 @@ END
     ![저장 프로시저 활동 - SQL 계정](./media/tutorial-incremental-copy-portal/sp-activity-sql-account-settings.png)
 26. **저장 프로시저** 탭으로 전환하고 다음 단계를 수행합니다. 
 
-    1. **저장 프로시저 이름**에 대해 **sp_write_watermark**를 입력합니다. 
-    2. 저장 프로시저 매개 변수의 값을 지정하려면, **저장 프로시저 매개 변수** 섹션에서 **+ 새로 만들기**를 클릭하고 다음 값을 입력합니다. 
+    1. **저장 프로시저 이름**에 대해 **sp_write_watermark**를 선택합니다. 
+    2. 저장 프로시저 매개 변수에 대한 값을 지정하려면, **가져오기 매개 변수**를 클릭하고 매개 변수에 대해 다음 값을 입력합니다. 
 
         | Name | 형식 | 값 | 
         | ---- | ---- | ----- | 
@@ -318,14 +319,15 @@ END
 27. 파이프라인 설정에 대한 유효성을 검사하려면 도구 모음에서 **유효성 검사**를 클릭합니다. 유효성 검사 오류가 없는지 확인합니다. **파이프라인 유효성 검사 보고서** 창을 닫으려면 >>를 클릭합니다.   
 
     ![파이프라인 유효성 검사](./media/tutorial-incremental-copy-portal/validate-pipeline.png)
-28. **게시** 단추를 클릭하여 항목(연결된 서비스, 데이터 집합 및 파이프라인)을 Azure Data Factory 서비스에 게시합니다. 게시 성공 메시지가 표시될 때까지 기다립니다. 
+28. **모두 게시** 단추를 선택하여 엔터티(연결된 서비스, 데이터 집합 및 파이프라인)를 Azure Data Factory 서비스에 게시합니다. 게시 성공 메시지가 표시될 때까지 기다립니다. 
 
     ![게시 단추](./media/tutorial-incremental-copy-portal/publish-button.png)
 
 ## <a name="trigger-a-pipeline-run"></a>파이프라인 실행 트리거
-도구 모음에서 **트리거**, **지금 트리거**를 차례로 클릭합니다. 
+1. 도구 모음에서 **트리거**, **지금 트리거**를 차례로 클릭합니다. 
 
-![지금 트리거 단추](./media/tutorial-incremental-copy-portal/trigger-now.png)
+    ![지금 트리거 단추](./media/tutorial-incremental-copy-portal/trigger-now.png)
+2. **파이프라인 실행** 창에서 **마침**을 선택합니다. 
 
 ## <a name="monitor-the-pipeline-run"></a>파이프라인 실행을 모니터링합니다.
 
@@ -431,8 +433,8 @@ PersonID | Name | LastModifytime
 
 > [!div class="checklist"]
 > * 워터마크 값을 저장할 데이터 저장소를 준비합니다.
-> * 데이터 팩터리를 만듭니다.
-> * 연결된 서비스 만들기. 
+> * 데이터 팩터리 만들기
+> * 연결된 서비스 만들기 
 > * 원본, 싱크 및 워터마크 데이터 집합을 만듭니다.
 > * 파이프라인을 만듭니다.
 > * 파이프라인을 실행합니다.

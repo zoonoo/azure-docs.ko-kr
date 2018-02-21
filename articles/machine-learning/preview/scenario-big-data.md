@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: daden
-ms.openlocfilehash: f2482c7a47c72d192f26f3d8d9b9249af53da25d
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: c8e023d68ec2c7e40675f985d3e13b0714cec8ea
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="server-workload-forecasting-on-terabytes-of-data"></a>TB 단위의 데이터에 대한 서버 작업 예측
 
@@ -42,7 +42,7 @@ Machine Learning Workbench의 다음 주요 기능에 대해 알아봅니다.
 이 시나리오에서는 각 컴퓨터(또는 서버)에 대한 워크로드 예측에 중점을 둡니다. 특히 각 서버의 세션 데이터를 사용하여 향후 서버의 워크로드 클래스를 예측합니다. [Apache Spark ML](https://spark.apache.org/docs/2.1.1/ml-guide.html)의 임의 포리스트 분류자를 사용하여 각 서버의 로드를 낮음, 중간 및 높음 클래스로 분류합니다. 이 예제의 기계 학습 기술 및 워크플로는 다른 유사한 문제로 쉽게 확장될 수 있습니다. 
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 이 예제를 실행하기 위한 필수 조건은 다음과 같습니다.
 
@@ -51,7 +51,7 @@ Machine Learning Workbench의 다음 주요 기능에 대해 알아봅니다.
 * Windows 10(이 예제의 지침은 일반적으로 macOS 시스템에 대해 동일함)
 * 가급적이면 데이터가 있는 미국 동부 지역에 위치한 Linux(Ubuntu)용 DSVM(데이터 과학 가상 머신). [이러한 지침](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro)에 따라 Ubuntu DSVM을 프로비전할 수 있습니다. [이 빠른 시작](https://ms.portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu)을 참조할 수도 있습니다. 적어도 8개의 코어와 32GB의 메모리가 있는 가상 컴퓨터를 사용하는 것이 좋습니다. 
 
-[지침](https://docs.microsoft.com/azure/machine-learning/preview/known-issues-and-troubleshooting-guide#remove-vm-execution-error-no-tty-present)에 따라 AML Workbench에 대한 VM에 암호 없이 sudoer 액세스할 수 있도록 설정합니다.  [AML Workbench에서 VM을 만들어 사용할 때 SSH 키 기반 인증을 사용](https://docs.microsoft.com/azure/machine-learning/preview/experimentation-service-configuration#using-ssh-key-based-authentication-for-creating-and-using-compute-targets)하도록 선택할 수 있습니다. 이 예제에서는 암호를 사용하여 VM에 액세스합니다.  이후 단계를 위해 DSVM 정보와 함께 다음 표를 저장합니다.
+[지침](known-issues-and-troubleshooting-guide.md#remove-vm-execution-error-no-tty-present)에 따라 AML Workbench에 대한 VM에 암호 없이 sudoer 액세스할 수 있도록 설정합니다.  [AML Workbench에서 VM을 만들어 사용할 때 SSH 키 기반 인증을 사용](experimentation-service-configuration.md#using-ssh-key-based-authentication-for-creating-and-using-compute-targets)하도록 선택할 수 있습니다. 이 예제에서는 암호를 사용하여 VM에 액세스합니다.  이후 단계를 위해 DSVM 정보와 함께 다음 표를 저장합니다.
 
  필드 이름| 값 |  
  |------------|------|
@@ -99,7 +99,7 @@ DSVM IP 주소 | xxx|
 
 총 데이터 크기는 약 1TB입니다. 각 파일은 약 1-3GB이며 헤더가 없는 CSV 파일 형식입니다. 각 데이터 행은 특정 서버에서의 트랜잭션 로드를 나타냅니다. 데이터 스키마의 자세한 정보는 다음과 같습니다.
 
-열 번호 | 필드 이름| type | 설명 |  
+열 번호 | 필드 이름| 형식 | 설명 |  
 |------------|------|-------------|---------------|
 1  | `SessionStart` | DateTime |    세션 시작 시간
 2  |`SessionEnd`    | DateTime | 세션 종료 시간
@@ -127,7 +127,7 @@ DSVM IP 주소 | xxx|
 
 이 예제에 있는 파일은 다음과 같이 구성됩니다.
 
-| 파일 이름 | type | 설명 |
+| 파일 이름 | 형식 | 설명 |
 |-----------|------|-------------|
 | `Code` | 폴더 | 폴더는 제의 모든 코드를 포함합니다. |
 | `Config` | 폴더 | 폴더는 구성 파일을 포함합니다. |
@@ -158,7 +158,7 @@ DSVM IP 주소 | xxx|
 
 1개월 데이터 집합 실험에 하나의 컨테이너를 사용하고 전체 데이터 집합 실험에 또 하나의 컨테이너를 사용해야 합니다. 데이터와 모델은 Parquet 파일로 저장되기 때문에 각 파일은 실제로 컨테이너의 폴더이며 여러 개의 Blob을 포함합니다. 결과 컨테이너 모양은 다음과 같습니다.
 
-| Blob 접두사 이름 | type | 설명 |
+| Blob 접두사 이름 | 형식 | 설명 |
 |-----------|------|-------------|
 | featureScaleModel | Parquet | 숫자 기능용 표준 조정기 모델입니다. |
 | stringIndexModel | Parquet | 숫자가 아닌 기능용 문자열 인덱서 모델입니다.|
@@ -184,7 +184,7 @@ DSVM IP 주소 | xxx|
 
 첫 번째 인수인 `configFilename`은 Blob 저장소 정보를 저장하고 데이터를 로드할 위치를 지정하는 로컬 구성 파일입니다. 기본적으로 [`Config/storageconfig.json`](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Config/storageconfig.json)이며 1개월 데이터 실행에 사용됩니다. 또한 전체 데이터 집합 실행에 사용해야 하는 [`Config/fulldata_storageconfig.json`](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Config/fulldatastorageconfig.json)이 포함됩니다. 구성의 콘텐츠는 다음과 같습니다. 
 
-| 필드 | type | 설명 |
+| 필드 | 형식 | 설명 |
 |-----------|------|-------------|
 | storageAccount | 문자열 | Azure Storage 계정 이름 |
 | storageContainer | 문자열 | 중간 결과를 저장하는 Azure Storage 계정의 컨테이너 |
@@ -330,7 +330,7 @@ Workbench의 오른쪽 사이드바에서 **실행**으로 이동하여 각 Pyth
 
 이 섹션에서는 이전 단계에서 웹 서비스로 만든 모델을 운영합니다. 또한 웹 서비스를 사용하여 작업을 예측하는 방법을 배웁니다. 기계 언어 운영화 CLI(Command-Line Interface)를 사용하여 코드와 종속성을 Docker 이미지로 패키징하고 모델을 컨테이너화된 웹 서비스로 게시합니다.
 
-Machine Learning Workbench에서 명령줄 프롬프트를 사용하여 CLI를 실행할 수 있습니다.  [설치 가이드](https://github.com/Azure/Machine-Learning-Operationalization/blob/master/documentation/install-on-ubuntu-linux.md)에 따라 Ubuntu Linux에서 CLI를 실행할 수도 있습니다. 
+Machine Learning Workbench에서 명령줄 프롬프트를 사용하여 CLI를 실행할 수 있습니다.  [설치 가이드](./deployment-setup-configuration.md#using-the-cli)에 따라 Ubuntu Linux에서 CLI를 실행할 수도 있습니다. 
 
 > [!NOTE]
 > 다음 모든 명령에서 모든 인수 변수를 실제 값으로 대체합니다. 이 섹션을 마치려면 약 40분 정도 걸립니다.
@@ -416,7 +416,7 @@ Machine Learning Workbench에서 명령줄 프롬프트를 사용하여 CLI를 �
 
 8. 웹 서비스의 크기를 조정합니다. 
 
-   자세한 내용은 [Azure Container Service 클러스터에서 운영화의 크기를 조정하는 방법](https://github.com/Azure/Machine-Learning-Operationalization/blob/master/documentation/how-to-scale.md)을 참조하세요.
+   자세한 내용은 [Azure Container Service 클러스터에서 운영화의 크기를 조정하는 방법](how-to-scale-clusters.md)을 참조하세요.
  
 
 ## <a name="next-steps"></a>다음 단계

@@ -16,6 +16,8 @@
       href: time-series-insights-explorer.md
     - name: 제한 완화
       href: time-series-insights-environment-mitigate-latency.md
+    - name: 데이터 보존의 이해
+      href: time-series-insights-concepts-retention.md
     - name: 진단 및 문제 해결
       href: time-series-insights-diagnose-and-solve-problems.md
     - name: 개발
@@ -38,6 +40,8 @@
       href: time-series-insights-how-to-add-an-event-source-eventhub.md
     - name: IoT Hub에 연결
       href: time-series-insights-how-to-add-an-event-source-iothub.md
+    - name: 데이터 보존 구성하기
+      href: time-series-insights-how-to-configure-retention.md
     - name: 참조 데이터 집합 만들기
       href: time-series-insights-add-reference-data-set.md
     - name: 이벤트 보내기

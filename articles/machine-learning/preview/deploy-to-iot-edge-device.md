@@ -10,18 +10,18 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 2/1/2018
-ms.openlocfilehash: a48c2a78ec22a663dd3e8a0b22611d61181e3eef
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: e33ff3fdc38b5aca6bbaef2c1ac6888217797541
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="deploy-an-azure-machine-learning-model-to-an-azure-iot-edge-device"></a>Azure Machine Learning 모델을 Azure IoT Edge 장치에 배포
 
 Docker 기반 웹 서비스로 컨테이너화된 모든 Azure Machine Learning 모델을 Azure IoT Edge 장치에서 실행할 수도 있습니다. 추가 스크립트 및 지침은 [Azure IoT Edge용 AI 도구](http://aka.ms/AI-toolkit)에서 찾을 수 있습니다.
 
 ## <a name="operationalize-the-model"></a>모델 운영
-[Azure Machine Learning 모델 관리 웹 서비스 배포](https://docs.microsoft.com/azure/machine-learning/preview/model-management-service-deploy)의 지침에 따라 모델을 운영화하여 모델이 포함된 Docker 이미지를 만듭니다.
+[Azure Machine Learning 모델 관리 웹 서비스 배포](model-management-service-deploy.md)의 지침에 따라 모델을 운영화하여 모델이 포함된 Docker 이미지를 만듭니다.
 
 ## <a name="deploy-to-azure-iot-edge"></a>Azure IoT Edge에 배포
 Azure IoT Edge는 클라우드 분석 및 사용자 지정 비즈니스 논리를 장치로 이동합니다. 모든 Machine Learning 모델이 IoT Edge 장치에서 실행될 수 있습니다. IoT Edge 장치를 설정하고 배포를 만들기 위한 설명서는 [ataka.ms/azure-iot-edge-doc](https://aka.ms/azure-iot-edge-doc)에서 찾을 수 있습니다.

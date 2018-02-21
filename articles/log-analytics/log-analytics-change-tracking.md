@@ -3,7 +3,7 @@ title: "Azure Log Analytics로 변경 추적 | Microsoft Docs"
 description: "Log Analytics에서 변경 내용 추적 솔루션을 사용하여 사용자 환경에서 발생하는 소프트웨어 및 Windows Services 변경 내용을 식별할 수 있습니다."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: f8040d5d-3c89-4f0c-8520-751c00251cb7
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
-ms.author: banders
+ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 81cc7f78ef777e02b195422a81d9a9f15cb63564
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: ede3519b0b61ed20d85ea141dc6dee2505420448
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="track-software-changes-in-your-environment-with-the-change-tracking-solution"></a>변경 내용 추적 솔루션으로 사용자 환경에서 소프트웨어 변경 추적
 
@@ -40,8 +40,8 @@ ms.lasthandoff: 12/13/2017
 
 1. OMS 포털에서 **설정**을 클릭합니다(기어 기호).
 2. **설정** 페이지에서 **데이터**를 클릭한 다음 **Linux 파일 추적**을 클릭합니다.
-3. Linux 파일 변경 내용 추적에서 추적하려는 파일의 파일 이름을 포함한 전체 경로를 입력한 다음 **추가** 기호를 클릭합니다. 예: "/etc/* .conf"
-4. **Save**를 클릭합니다.  
+3. Linux 파일 변경 내용 추적에서 추적하려는 파일의 파일 이름을 포함한 전체 경로를 입력한 다음 **추가** 기호를 클릭합니다. 예: "/etc/*.conf"
+4. **저장**을 클릭합니다.  
 
 > [!NOTE]
 > Linux 파일 추적에는 디렉터리 추적, 디렉터리를 통한 재귀 및 와일드 카드 추적과 같은 추가적인 기능이 포함됩니다.
@@ -52,7 +52,7 @@ ms.lasthandoff: 12/13/2017
 1. OMS 포털에서 **설정**을 클릭합니다(기어 기호).
 2. **설정** 페이지에서 **데이터**를 클릭한 다음 **Windows 파일 추적**을 클릭합니다.
 3. Windows 파일 변경 내용 추적에서 추적하려는 파일의 파일 이름을 포함한 전체 경로를 입력한 다음 **추가** 기호를 클릭합니다. 예: C:\Program Files (x86)\Internet Explorer\iexplore.exe or C:\Windows\System32\drivers\etc\hosts
-4. **Save**를 클릭합니다.  
+4. **저장**을 클릭합니다.  
    ![Windows 파일 변경 내용 추적](./media/log-analytics-change-tracking/windows-file-change-tracking.png)
 
 ### <a name="configure-windows-registry-keys-to-track"></a>추적할 Windows 레지스트리 키 구성
@@ -61,7 +61,7 @@ ms.lasthandoff: 12/13/2017
 1. OMS 포털에서 **설정**을 클릭합니다(기어 기호).
 2. **설정** 페이지에서 **데이터**를 클릭한 다음 **Windows 레지스트리 추적**을 클릭합니다.
 3. Windows 레지스트리 변경 내용 추적에서 추적하려는 전체 키를 입력한 다음 **추가** 기호를 클릭합니다.
-4. **Save**를 클릭합니다.  
+4. **저장**을 클릭합니다.  
    ![Windows 레지스트리 변경 내용 추적](./media/log-analytics-change-tracking/windows-registry-change-tracking.png)
 
 ### <a name="explanation-of-linux-file-collection-properties"></a>Linux 파일 컬렉션 속성 설명
@@ -114,7 +114,7 @@ ms.lasthandoff: 12/13/2017
 
 | **change type** | **frequency** | **에이전트****가** **차이를 발견한 경우 전송하나요?** |
 | --- | --- | --- |
-| Windows 레지스트리 | 50분 | 아니요 |
+| Windows 레지스트리 | 50분 | 아니오 |
 | Windows 파일 | 30분 | 예. 24시간 동안 변경 사항이 없는 경우 스냅숏이 전송됩니다. |
 | Linux 파일 | 15분 | 예. 24시간 동안 변경 사항이 없는 경우 스냅숏이 전송됩니다. |
 | Windows 서비스 | 30분 | 예, 변경 내용이 발견되는 경우 30분마다 전송됩니다. 변경에 관계없이 24시간마다 스냅숏이 전송됩니다. 따라서 변경 사항이 없는 경우에도 스냅숏이 전송됩니다. |

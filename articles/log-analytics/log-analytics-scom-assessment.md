@@ -3,7 +3,7 @@ title: "Azure Log Analytics를 사용하여 System Center Operations Manager 환
 description: "System Center Operations Manager Health Check 솔루션을 사용하여 일정한 간격으로 환경의 위험 및 상태를 평가할 수 있습니다."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: tysonn
 ms.assetid: 49aad8b1-3e05-4588-956c-6fdd7715cda1
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/27/2017
-ms.author: magoedte;banders
+ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3a66cc13d05c81de571e2710519ad9474304d656
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: 86484ca2bc7dc14035f48b8f7b1514a4fc471b74
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>System Center Operations Manager Health Check(미리 보기) 솔루션을 사용하여 환경 최적화
 
@@ -60,7 +60,7 @@ System Center Operations Manager Health Check 솔루션을 사용하여 일정�
 
 ## <a name="system-center-operations-manager-assessment-data-collection-details"></a>System Center Operations Manager 평가 데이터 수집 세부 정보
 
-System Center Operations Manager 평가는 다음과 같은 원본에서 데이터를 수집합니다. 
+System Center Operations Manager 평가는 다음과 같은 원본에서 데이터를 수집합니다.
 
 * 레지스트리
 * WMI(Windows Management Instrumentation)
@@ -72,7 +72,7 @@ System Center Operations Manager 평가는 다음과 같은 원본에서 데이�
 
 ## <a name="operations-manager-run-as-accounts-for-log-analytics"></a>Log Analytics용 Operations Manager 실행 계정
 
-Log Analytics는 부가 가치 서비스를 제공하는 작업을 위해 관리 팩을 빌드합니다. 도메인 사용자 계정과 같은 다른 보안 컨텍스트에서 관리 팩을 실행하려면 각 작업에 워크로드 관련 권한이 필요합니다. 권한이 있는 자격 증명을 통해 Operations Manager 실행 계정을 구성합니다. 자세한 내용은 Operations Manager 설명서의 [실행 계정을 만드는 방법](https://technet.microsoft.com/library/hh321655(v=sc.12).aspx)을 참조하세요.  
+Log Analytics는 부가 가치 서비스를 제공하는 작업을 위해 관리 팩을 빌드합니다. 도메인 사용자 계정과 같은 다른 보안 컨텍스트에서 관리 팩을 실행하려면 각 작업에 워크로드 관련 권한이 필요합니다. 권한이 있는 자격 증명을 통해 Operations Manager 실행 계정을 구성합니다. 자세한 내용은 Operations Manager 설명서의 [실행 계정을 만드는 방법](https://technet.microsoft.com/library/hh321655(v=sc.12).aspx)을 참조하세요. 
 
 다음 정보를 사용하여 System Center Operations Manager Health Check를 위한 Operations Manager 실행 계정을 설정할 수 있습니다.
 
@@ -82,13 +82,13 @@ Log Analytics는 부가 가치 서비스를 제공하는 작업을 위해 관리
 
 * 모든 Operations Manager 역할 - 관리 서버, 운영, 데이터 웨어하우스 및 ACS 데이터베이스를 호스팅하는 SQL Server, 보고, 웹 콘솔 및 게이트웨이 서버를 지원하는 모든 서버의 로컬 관리자 그룹의 구성원인 도메인 사용자 계정
 * 평가 중인 관리 그룹에 대한 Operation Manager 관리자 역할
-* 계정에 SQL sysadmin 권한이 없는 경우, [스크립트](#sql-script-to-grant-granular-permissions-to-the-run-as-account)를 실행하여 하나 또는 모든 Operations Manager 데이터베이스를 호스팅하는 각각의 SQL Server 인스턴스에 대해 세부 권한을 계정에 부여합니다. 
+* 계정에 SQL sysadmin 권한이 없는 경우, [스크립트](#sql-script-to-grant-granular-permissions-to-the-run-as-account)를 실행하여 하나 또는 모든 Operations Manager 데이터베이스를 호스팅하는 각각의 SQL Server 인스턴스에 대해 세부 권한을 계정에 부여합니다.
 
 1. Operations Manager 콘솔에서 **관리** 탐색 버튼을 선택합니다.
 2. **실행 구성**에서 **계정**을 클릭합니다.
 3. **실행 계정 만들기** 마법사의 **소개** 페이지에서 **다음**을 클릭합니다.
 4. **일반 속성** 페이지의 **실행 계정 형식:** 목록에서 **Windows**를 선택합니다.
-5. **표시 이름** 텍스트 상자에 표시 이름을 입력하고 선택적으로 **설명** 상자에 설명을 입력한 다음 **다음**을 클릭합니다. 
+5. **표시 이름** 텍스트 상자에 표시 이름을 입력하고 선택적으로 **설명** 상자에 설명을 입력한 다음 **다음**을 클릭합니다.
 6. **배포 보안** 페이지에서 **더 안전**을 선택합니다.
 7. **만들기**를 클릭합니다.  
 
@@ -96,7 +96,7 @@ Log Analytics는 부가 가치 서비스를 제공하는 작업을 위해 관리
 
 1. **실행 구성**, **계정**의 결과 창에서 이전에 만든 계정을 두 번 클릭합니다.
 2. **배포** 탭에서 **선택된 컴퓨터** 상자에 대해 **추가**를 클릭하고 계정을 배포할 관리 서버를 추가합니다.  **확인**을 두 번 클릭하여 변경 내용을 저장합니다.
-3. **실행 구성**에서 **프로필**을 클릭합니다. 
+3. **실행 구성**에서 **프로필**을 클릭합니다.
 4. *SCOM 평가 프로필*을 검색합니다.
 5. 프로필 이름은 *Microsoft System Center Advisor SCOM 평가 실행 프로필*이어야 합니다.
 6. 오른쪽 클릭하여 속성을 업데이트하고 앞에서 만든 실행 계정을 추가합니다.
@@ -205,7 +205,7 @@ System Center Operations Manager Health Check 솔루션의 관리 팩에는 *Mic
 
 ### <a name="should-you-aim-to-score-100-in-every-focus-area"></a>모든 주요 영역에서 100%의 점수를 목표로 해야 하나요?
 
-그럴 필요는 없습니다. 권장 사항은 수천 번의 고객 방문에서 Microsoft 엔지니어가 얻은 지식과 경험을 기반으로 합니다. 그러나 두 서버 인프라는 동일하지 않으며 특정 권장 사항은 거의 사용자와 관련 될 수 있습니다. 예를 들어, 가상 컴퓨터가 인터넷에 노출되지 않는 경우 일부 보안 권장 사항의 관련성은 떨어질 수 있습니다. 일부 가용성 권장 사항은 우선순위가 낮은 임시 데이터 수집 및 보고를 제공하는 서비스와는 관련성이 떨어질 수 있습니다. 성숙한 비즈니스에 중요한 문제는 시작에 덜 중요할 수 있습니다. 우선하는 주요 영역을 식별하고 시간이 지남에 따라 다음 점수가 어떻게 변경되는지 확인할 수 있습니다.
+그럴 필요는 없습니다. 권장 사항은 수천 번의 고객 방문에서 Microsoft 엔지니어가 얻은 지식과 경험을 기반으로 합니다. 그러나 두 서버 인프라는 동일하지 않으며 특정 권장 사항은 거의 사용자와 관련 될 수 있습니다. 예를 들어, 가상 머신이 인터넷에 노출되지 않는 경우 일부 보안 권장 사항의 관련성은 떨어질 수 있습니다. 일부 가용성 권장 사항은 우선순위가 낮은 임시 데이터 수집 및 보고를 제공하는 서비스와는 관련성이 떨어질 수 있습니다. 성숙한 비즈니스에 중요한 문제는 시작에 덜 중요할 수 있습니다. 우선하는 주요 영역을 식별하고 시간이 지남에 따라 다음 점수가 어떻게 변경되는지 확인할 수 있습니다.
 
 모든 권장 사항에는 중요한 이유에 대한 지침이 포함됩니다. IT 서비스의 특성 및 조직의 비즈니스 요구를 고려해 볼 때, 이 가이드를 사용하여 권장 사항 구현이 사용자에 적절한지 여부를 평가해야 합니다.
 
@@ -216,7 +216,7 @@ Log Analytics에서 상태 검사 솔루션을 사용하려면 먼저 솔루션�
 인프라에 대한 요약된 규정 준수 평가를 본 다음 세부 권장 사항을 확인합니다.
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>주요 영역에 대한 권장 사항을 보고 수정 작업을 수행하려면
-1. [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다. 
+1. [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
 2. Azure Portal의 왼쪽 아래 모서리에 있는 **추가 서비스**를 클릭합니다. 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Log Analytics**를 선택합니다.
 3. Log Analytics 구독 창에서 작업 영역을 선택한 다음 **OMS 포털** 타일을 선택합니다.  
 4. **개요** 페이지에서 **System Center Operations Manager Health Check** 타일을 클릭합니다.
@@ -228,7 +228,7 @@ Log Analytics에서 상태 검사 솔루션을 사용하려면 먼저 솔루션�
 
 무시하려는 권장 사항이 있는 경우 Log Analytics에서 평가 결과에 권장 사항이 표시되는 것을 방지하는 데 사용할 텍스트 파일을 만들 수 있습니다.
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ### <a name="to-identify-recommendations-that-you-want-to-ignore"></a>무시할 권장 사항을 식별하려면
 1. Azure Portal에서 선택한 작업 영역에 대한 Log Analytics 작업 영역 페이지에서 **로그 검색** 타일을 클릭합니다.

@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 5e3147cbc9fce6737cfb9b2e93e8bf1662163f3c
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 8de3cc6665fc3861aedcf4f36cdce4a4a776e80d
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="logic-apps-limits-and-configuration"></a>Logic Apps 제한 및 구성
 
-이 항목에서는 Azure Logic Apps에 대한 현재 제한 및 구성 정보를 설명합니다.
+이 문서에서는 Azure Logic Apps에 대한 현재 제한 및 구성 세부 정보를 설명합니다.
 
 ## <a name="limits"></a>제한
 
@@ -66,7 +66,7 @@ ms.lasthandoff: 01/29/2018
 | 최대 되풀이 간격 | 500일 | 
 ||| 
 
-정상적인 처리 흐름에서 실행 기간 또는 저장소 보존 한도를 초과하게 되면 [저희에게 연락](mailto://logicappsemail@microsoft.com)하여 요구 사항을 확인하세요.
+정상적인 처리 흐름에서 실행 기간 또는 저장소 보존 한도를 초과하게 되면 [제품 팀에 연락](mailto://logicappsemail@microsoft.com)하여 요구 사항에 대한 지원을 받으세요.
 
 ### <a name="looping-and-debatching-limits"></a>반복 및 분리 한도
 
@@ -82,18 +82,18 @@ ms.lasthandoff: 01/29/2018
 
 ### <a name="throughput-limits"></a>처리량 한도
 
-이러한 제한은 단일 논리 앱 인스턴스에 적용됩니다.
+이러한 제한은 단일 논리 앱 리소스에 적용됩니다.
 
 | Name | 제한 | 메모 | 
 | ----- | ----- | ----- | 
-| 5분당 작업 실행 | 100,000 |<p>이 한도는 `High Througput` 모드에서 논리 앱을 실행하면 최대 300,000까지 높일 수 있으며 이 작업은 워크플로 리소스의 `runtimeConfiguration` 아래 `operationOptions` 속성을 `OptimizedForHighThroughput`으로 설정하여 수행할 수 있습니다. <p>높은 처리량 모드는 미리 보기로 제공됩니다. 또한 필요에 따라 워크로드가 여러 앱에 분산될 수 있습니다. | 
+| 5분당 작업 실행 | 100,000 |<p>`High Througput` 모드에서 논리 앱을 실행하면 이 제한이 300,000으로 늘어날 수 있습니다. 워크플로 리소스에서 `runtimeConfiguration` 아래의 `operationOptions` 속성을 `OptimizedForHighThroughput`으로 설정하면 높은 처리량 모드를 구성할 수 있습니다. <p>높은 처리량 모드는 미리 보기로 제공됩니다. 또한 필요에 따라 워크로드가 여러 앱에 분산될 수 있습니다. | 
 | 작업 나가는 동시 호출 | ~2,500 | 필요에 따라 동시 요청 수를 줄이거나 기간을 단축합니다. | 
 | 런타임 끝점: 들어오는 동시 호출 |~1,000 | 필요에 따라 동시 요청 수를 줄이거나 기간을 단축합니다. | 
 | 런타임 끝점: 5분마다 호출을 읽습니다.  | 60,000 | 필요에 따라 여러 앱에 워크로드를 배포할 수 있습니다. | 
 | 런타임 끝점: 5분마다 호출을 수행합니다.| 45,000 |필요에 따라 여러 앱에 워크로드를 배포할 수 있습니다. | 
 |||| 
 
-일반적인 처리에서 이러한 제한을 초과하거나 이러한 제한을 초과할 수 있는 부하 테스트를 실행하려면 [저희에게 연락](mailto://logicappsemail@microsoft.com)하여 요구 사항을 확인하세요.
+일반적인 처리에서 이러한 제한을 초과하거나 이러한 제한을 초과할 수 있는 부하 테스트를 실행하려면 [제품 팀에 연락](mailto://logicappsemail@microsoft.com)하여 요구 사항을 확인하세요.
 
 ### <a name="logic-app-definition-limits"></a>논리 앱 정의 제한
 

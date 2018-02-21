@@ -12,13 +12,13 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 8da7d9112c9527945ab4b524625603faa84cf00d
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 791992028d11633fc20f55ae1a34e7fcd442bf3a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="search-nearby-point-of-interest-using-azure-location-based-services"></a>Azure Location Based Services를 사용하여 주변 관심 지점 검색
+# <a name="search-nearby-points-of-interest-using-azure-location-based-services"></a>Azure Location Based Services를 사용하여 주변 관심 지점 검색
 
 이 자습서에서는 Azure Location Based Services를 사용해 계정을 설정한 다음 제공된 API를 사용하여 관심 지점을 검색하는 방법을 보여 줍니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -26,11 +26,11 @@ ms.lasthandoff: 01/24/2018
 > * Azure Location Based Services를 사용해 계정 만들기
 > * Azure Location Based Services 계정에 대한 기본 키 확인
 > * 맵 컨트롤 API를 사용하여 새 웹 페이지 만들기
-> * 주변 관심 지점을 찾기 위해 Search Service 사용
+> * Search Service를 사용하여 주변 관심 지점 찾기
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
-# <a name="log-in-to-the-azure-portal"></a>Azure Portal에 로그인
+## <a name="log-in-to-the-azure-portal"></a>Azure Portal에 로그인
 [Azure 포털](https://portal.azure.com) 에 로그인합니다.
 
 <a id="createaccount"></a>

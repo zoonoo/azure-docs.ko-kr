@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 6aa5d4aa032ef4dc3583bf76b9c451874b74f9a6
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 5f0703a3cb2ce912bfc042d0717ad8d921ec43e3
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 여러 테이블 대량 복사
 이 자습서에서는 **Azure SQL Database에서 Azure SQL Data Warehouse로 여러 테이블을 복사**하는 방법을 보여 줍니다. 다른 복사 시나리오에도 동일한 패턴을 적용할 수 있습니다. 예를 들어 SQL Server/Oracle에서 Azure SQL Database/Data Warehouse/Azure Blob으로 테이블을 복사하고, Blob에서 Azure SQL Database 테이블로 다른 경로를 복사합니다.
@@ -29,7 +29,7 @@ ms.lasthandoff: 01/23/2018
 이 자습서에서 수행하는 단계는 대략적으로 다음과 같습니다.
 
 > [!div class="checklist"]
-> * 데이터 팩터리를 만듭니다.
+> * 데이터 팩터리 만들기
 > * Azure SQL Database, Azure SQL Data Warehouse 및 Azure Storage 연결된 서비스를 만듭니다.
 > * Azure SQL Database 및 Azure SQL Data Warehouse 데이터 집합을 만듭니다.
 > * 복사할 테이블을 조회하는 파이프라인을 만들고, 실제 복사 작업을 수행하는 다른 파이프라인을 만듭니다. 
@@ -74,6 +74,7 @@ SQL Database와 SQL Data Warehouse 모두에서 Azure 서비스를 통해 SQL �
 3. **방화벽 설정** 페이지에서 **Azure 서비스에 대한 액세스 허용**에 대해 **켜기**를 클릭합니다.
 
 ## <a name="create-a-data-factory"></a>데이터 팩터리를 만듭니다.
+1. **Microsoft Edge** 또는 **Google Chrome** 웹 브라우저를 시작합니다. 현재 Data Factory UI는 Microsoft Edge 및 Google Chrome 웹 브라우저에서만 지원됩니다.
 1. 왼쪽 메뉴에서 **새로 만들기**를 클릭하고 **데이터 + 분석**, **Data Factory**를 차례로 클릭합니다. 
    
    ![새로 만들기->DataFactory](./media/tutorial-bulk-copy-portal/new-azure-data-factory-menu.png)
@@ -286,7 +287,7 @@ AzureSqlDWDataset 출력 데이터 집합은 AzureSqlDWLinkedService를 참조�
 2. [속성] 창에서 파이프라인 이름을 **GetTableListAndTriggerCopyData**로 변경합니다. 
 
     ![파이프라인 이름](./media/tutorial-bulk-copy-portal/second-pipeline-name.png)
-3. **활동** 도구 상자에서 **SQL Database**를 펼치고, **조회** 활동을 파이프라인 디자이너 화면으로 끌어서 놓고, 다음 단계를 수행합니다.
+3. **활동** 도구 상자에서 **일반**을 펼치고, **조회** 활동을 파이프라인 디자이너 화면으로 끌어서 놓고, 다음 단계를 수행합니다.
 
     1. **이름**에 대해 **LookupTableList**를 입력합니다. 
     2. **설명**에 대해 **Azure SQL Database 에서 테이블 목록을 검색합니다.**를 입력합니다.
@@ -322,7 +323,7 @@ AzureSqlDWDataset 출력 데이터 집합은 AzureSqlDWLinkedService를 참조�
 8. 파이프라인에 대한 유효성을 검사하려면 도구 모음에서 **유효성 검사**를 클릭합니다. 유효성 검사 오류가 없는지 확인합니다. **파이프라인 유효성 검사 보고서**를 닫으려면 **>>**를 클릭합니다.
 
     ![두 번째 파이프라인 - 유효성 검사 보고서](./media/tutorial-bulk-copy-portal/second-pipeline-validation-report.png)
-9. 엔터티(데이터 집합, 파이프라인 등)를 Data Factory 서비스에 게시하려면 **게시**를 클릭합니다. 게시가 성공적으로 완료될 때까지 기다립니다. 
+9. 엔터티(데이터 집합, 파이프라인 등)를 Data Factory 서비스에 게시하려면 **모두 게시**를 클릭합니다. 게시가 성공적으로 완료될 때까지 기다립니다. 
 
     ![게시 단추](./media/tutorial-bulk-copy-portal/publish.png)
 
@@ -405,7 +406,7 @@ AzureSqlDWDataset 출력 데이터 집합은 AzureSqlDWLinkedService를 참조�
 이 자습서에서 다음 단계를 수행했습니다. 
 
 > [!div class="checklist"]
-> * 데이터 팩터리를 만듭니다.
+> * 데이터 팩터리 만들기
 > * Azure SQL Database, Azure SQL Data Warehouse 및 Azure Storage 연결된 서비스를 만듭니다.
 > * Azure SQL Database 및 Azure SQL Data Warehouse 데이터 집합을 만듭니다.
 > * 복사할 테이블을 조회하는 파이프라인을 만들고, 실제 복사 작업을 수행하는 다른 파이프라인을 만듭니다. 

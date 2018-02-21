@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 01/07/2018
 ms.author: raynew
 ms.openlocfilehash: e7b925d2daed11ee4e070cda6bcbd4a3511d9c17
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="migrate-azure-vms-to-another-region"></a>다른 지역으로 Azure VM 마이그레이션
 
@@ -32,7 +32,7 @@ BCDR(비즈니스 지속성 및 재해 복구)을 위해 [Azure Site Recovery](s
 
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 이 자습서를 완료하려면 마이그레이션할 Azure 지역에 Azure VM이 있어야 합니다. 또한 시작하기 전에 확인해야 할 여러 설정이 있습니다.
 
@@ -121,7 +121,7 @@ Site Recovery는 구독 및 리소스 그룹과 연관된 VM 목록을 검색합
 
 1. **설정** > **복제된 항목**에서 컴퓨터를 클릭한 다음 **장애 조치(Failover)**를 클릭합니다.
 2. **장애 조치(failover)**에서 **최신**을 선택합니다. 암호화 키 설정은 이 시나리오와 관련이 없습니다.
-3. **장애 조치(failover)를 시작하기 전에 컴퓨터 종료**를 선택합니다. Site Recovery는 장애 조치(failover)를 트리거하기 전에 원본 VM을 종료하려고 합니다. 종료가 실패하더라도 장애 조치는 계속됩니다. **작업** 페이지에서 장애 조치 진행 상황 확인을 수행할 수 있습니다.
+3. **장애 조치(failover)를 시작하기 전에 컴퓨터를 종료합니다.**를 선택합니다. Site Recovery는 장애 조치(failover)를 트리거하기 전에 원본 VM을 종료하려고 합니다. 종료가 실패하더라도 장애 조치는 계속됩니다. **작업** 페이지에서 장애 조치 진행 상황 확인을 수행할 수 있습니다.
 4. Azure VM이 예상대로 Azure에 표시되는지 확인합니다.
 5. **복제된 항목**에서 VM를 마우스 오른쪽 단추로 클릭하고 **마이그레이션 완료**를 클릭합니다. 그러면 마이그레이션 프로세스가 완료되고 VM에 대한 복제가 중지됩니다.
 

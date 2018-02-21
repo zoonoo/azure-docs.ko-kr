@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako;anilmur
-ms.openlocfilehash: e18de2adc9aac585d6890dd7b43a54f1a0ca177e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eb1cadec240dc7f6e3ac5b8932d66c3d55c76e42
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="media-encoder-premium-workflow-formats-and-codecs"></a>미디어 인코더 Premium 워크플로 형식 및 코덱
 > [!NOTE]
-> 프리미엄 인코더 관련 질문은 mepd@microsoft.com으로 문의하세요.
+> 프리미엄 인코더와 관련해서 궁금한 점이 있으면 mepd@microsoft.com으로 메일을 보내 문의하세요.
 > 
 > 중국에서는 이 토픽에서 설명하는 미디어 인코더 Premium 워크플로 미디어 프로세서를 사용할 수 없습니다. 
 > 
@@ -120,12 +120,12 @@ ms.lasthandoff: 10/11/2017
 5. SRT 자막 파일
 6. DVB 자막 스트림
 
-참고: 위의 출력 형식 중 일부는 Azure 미디어 서비스에서 스트리밍을 통해 배달되지 않습니다.
+참고: 위의 출력 형식 중 일부는 Azure Media Services에서 스트리밍을 통해 배달되지 않습니다.
 
 ## <a name="known-issues"></a>알려진 문제
 입력된 비디오에 자막이 없는 경우, 출력 자산은 빈 TTML 파일을 포함합니다. 
 
-## <a name="media-services-learning-paths"></a>미디어 서비스 학습 경로
+## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>피드백 제공

@@ -10,17 +10,17 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/22/2018
-ms.openlocfilehash: f75fcec3b722563949b6553f17c4f3db3e223675
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: 266a56d5e247fd4926031e563c8be302599838eb
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="sprint-3---january-2018"></a>스프린트 3 - 2018년 1월 
 
 #### <a name="version-number-01171218263"></a>버전 번호: 0.1.1712.18263
 
->다음은 [버전 번호를 찾는 방법](https://docs.microsoft.com/en-us/azure/machine-learning/preview/known-issues-and-troubleshooting-guide)입니다.
+>다음은 [버전 번호를 찾는 방법](known-issues-and-troubleshooting-guide.md)입니다.
 
 네 번째 Azure Machine Learning Workbench 업데이트를 시작합니다. 다음은 이번 스프린트의 업데이트 및 개선 사항입니다. 아래 업데이트 중 많은 부분은 사용자가 보내 주신 피드백에 따른 직접적인 결과입니다. 
 

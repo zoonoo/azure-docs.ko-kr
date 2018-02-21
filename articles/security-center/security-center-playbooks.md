@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/18/2017
+ms.date: 02/09/2018
 ms.author: yurid
-ms.openlocfilehash: 15257e6ee8744b11fd3965e365cf4fb0e1d429ab
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a89048b0d49d5b3715931285accafda2406ab969
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="security-playbook-in-azure-security-center-preview"></a>Azure Security Center의 보안 플레이북(미리 보기)
 이 문서를 통해 Azure Security Center에서 보안 플레이북을 사용하여 보안 관련 문제에 응답할 수 있습니다.
@@ -35,7 +35,7 @@ ms.lasthandoff: 10/11/2017
 1.  **Security Center** 대시보드를 엽니다.
 2.  왼쪽 창의 **자동화 및 오케스트레이션** 섹션 아래에서 **플레이북(미리 보기)**을 클릭합니다.
 
-    ![논리 앱](./media/security-center-playbooks/security-center-playbooks-fig1.png)
+    ![논리 앱](./media/security-center-playbooks/security-center-playbooks-fig17.png)
  
 3. **Security Center - 플레이북(미리 보기)** 페이지에서 **추가** 단추를 클릭합니다.
 
@@ -64,7 +64,7 @@ ms.lasthandoff: 10/11/2017
 1.  **Security Center** 대시보드를 엽니다.
 2.  왼쪽 창의 **위협 감지** 아래에서 **보안 인시던트 및 경고**를 클릭합니다.
 
-    ![경고](./media/security-center-playbooks/security-center-playbooks-fig6.png)
+    ![Alerts](./media/security-center-playbooks/security-center-playbooks-fig6.png)
 
 3.  조사하려는 경고를 클릭합니다.
 4.  경고 페이지 맨 위에서 **플레이북 실행** 단추를 클릭합니다.
@@ -96,7 +96,7 @@ Security Center에서 기존 플레이북을 변경하여 작업이나 조건을
 
 
 ## <a name="see-also"></a>참고 항목
-이 문서에서는 Azure Security Center에서 플레이북을 사용하는 방법을 살펴보았습니다. Azure 보안 센터에 대한 자세한 내용은 다음을 참조하세요.
+이 문서에서는 Azure Security Center에서 플레이북을 사용하는 방법을 살펴보았습니다. Azure Security Center에 대한 자세한 내용은 다음을 참조하세요.
 
 * [Azure Security Center에서 보안 경고 관리 및 대응](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts) Security Center에서 경고를 관리하고 보안 인시던트에 대응하는 방법을 알아봅니다.
 * [Azure Security Center에서 보안 상태 모니터링](security-center-monitoring.md). Azure 리소스의 상태를 모니터링하는 방법을 알아봅니다.

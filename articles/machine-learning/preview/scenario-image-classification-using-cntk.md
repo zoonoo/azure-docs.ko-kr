@@ -11,11 +11,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 10/17/2017
-ms.openlocfilehash: 53d182d84c8f28c7b4055780a5b41df00fdc8583
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: c3ad1cf8651858a2cb1fdadc2beed4e5c7bef56c
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="image-classification-using-azure-machine-learning-workbench"></a>Azure Machine Learning Workbench를 사용하여 이미지 분류
 
@@ -193,7 +193,7 @@ DNN은 이미지 분류뿐만 아니라 개체 검색 및 이미지 유사성과
 ### <a name="step-6-deployment"></a>6단계: 배포
 `Scripts: 6_callWebservice.py, deploymain.py. Notebook: deploy.ipynb`
 
-이제 학습된 시스템을 REST API로 게시할 수 있습니다. 배포는 `deploy.ipynb` 노트북에 설명되어 있으며 Azure Machine Learning Workbench의 기능을 기반으로 합니다(이름이 “PROJECTNAME local”인 로컬 프로젝트 커널을 커널로 설정해야 함). 배포에 대한 자세한 내용은 [아이리스 자습서](https://docs.microsoft.com/azure/machine-learning/preview/tutorial-classifying-iris-part-3)의 배포 섹션도 참조하세요.
+이제 학습된 시스템을 REST API로 게시할 수 있습니다. 배포는 `deploy.ipynb` 노트북에 설명되어 있으며 Azure Machine Learning Workbench의 기능을 기반으로 합니다(이름이 “PROJECTNAME local”인 로컬 프로젝트 커널을 커널로 설정해야 함). 배포에 대한 자세한 내용은 [아이리스 자습서](tutorial-classifying-iris-part-3.md)의 배포 섹션도 참조하세요.
 
 일단 배포되면 `6_callWebservice.py` 스크립트를 사용하여 웹 서비스를 호출할 수 있습니다. 웹 서비스의 IP 주소(로컬 또는 클라우드)는 스크립트에서 맨 먼저 설정해야 합니다. 이 IP 주소를 찾는 방법은 `deploy.ipynb` 노트북에 설명되어 있습니다.
 
@@ -228,7 +228,7 @@ SVM 대신 신경망을 학습하는 경우 `PARAMETERS.py`의 `classifier` 변�
 
 ### <a name="run-history-tracking"></a>실행 기록 추적
 
-Azure Machine Learning Workbench는 각 실행의 기록을 Azure에 저장하여 주 간격으로도 두 개 이상의 실행을 비교할 수 있습니다. 이는 [아이리스 자습서](https://docs.microsoft.com/azure/machine-learning/preview/tutorial-classifying-iris-part-2)에서 자세히 설명하고 있습니다. 또한 다음 스크린샷에서도 `classifier = "dnn"` DNN 구체화(실행 번호 148) 또는 `classifier = "svm"` SVM 학습(실행 번호 150) 중 하나를 사용하여 `5_evaluate.py` 스크립트의 두 번 실행을 비교하고 있습니다.
+Azure Machine Learning Workbench는 각 실행의 기록을 Azure에 저장하여 주 간격으로도 두 개 이상의 실행을 비교할 수 있습니다. 이는 [아이리스 자습서](tutorial-classifying-iris-part-2.md)에서 자세히 설명하고 있습니다. 또한 다음 스크린샷에서도 `classifier = "dnn"` DNN 구체화(실행 번호 148) 또는 `classifier = "svm"` SVM 학습(실행 번호 150) 중 하나를 사용하여 `5_evaluate.py` 스크립트의 두 번 실행을 비교하고 있습니다.
 
 첫 번째 스크린샷에서는 DNN 구체화는 모든 클래스의 SVM 학습보다 더 나은 정확도를 제공합니다. 두 번째 스크린샷에서는 분류자를 포함하여 추적 중인 모든 메트릭이 표시됩니다. 이 추적은 Azure Machine Learning Workbench 로거를 호출하여 `5_evaluate.py` 스크립트에서 수행됩니다. 또한 이 스크립트는 ROC 곡선 및 혼동 행렬을 *outputs* 폴더에 저장합니다. 특히 이 *outputs* 폴더는 Workbench 기록 기능에 따라 해당 내용도 추적되므로 로컬 복사본이 덮어쓰였는지 여부에 관계없이 언제든지 출력 파일에 액세스할 수 있습니다.
 

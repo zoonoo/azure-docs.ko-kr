@@ -88,7 +88,7 @@
     - name: 학습 경로
       href: 'https://azure.microsoft.com/documentation/learning-paths/iot-hub/'
     - name: MSDN 포럼
-      href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureiothub'
+      href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=iotedge'
     - name: 가격
       href: 'https://azure.microsoft.com/pricing/details/iot-hub/'
     - name: 요금 계산기

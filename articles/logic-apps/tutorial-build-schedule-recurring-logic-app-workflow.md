@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
 ms.author: LADocs; estfan
-ms.openlocfilehash: deb2572de363ca5d0dec0f78f2e30ad648e9b5f8
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: ff9a396f09b675e798e2b2a04fdf0fdb0cdaa09d
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="check-traffic-with-a-scheduler-based-logic-app"></a>스케줄러 기반 논리 앱으로 트래픽 확인
 
@@ -148,7 +148,7 @@ Azure 계정 자격 증명을 사용하여 <a href="https://portal.azure.com" ta
    | **Distance unit** | <*원하는 단위*> | 경로의 거리 단위. 이 문서에서는 "마일" 단위 사용  | 
    | **Travel mode** | Driving | 경로의 이동 모드. "Driving" 모드 선택 | 
    | **Transit Date-Time** | 없음 | 수송 모드에만 적용 | 
-   | **Transit Date-Type Type** | 없음 | 수송 모드에만 적용 | 
+   | **날짜 및 시간 형식** | 없음 | 수송 모드에만 적용 | 
    |||| 
 
    이러한 매개 변수에 대한 자세한 내용은 [경로 계산](https://msdn.microsoft.com/library/ff701717.aspx)을 참조하세요.

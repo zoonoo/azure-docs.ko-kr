@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/09/2017
-ms.openlocfilehash: 9d8a9f1c32578abff1d98e093469e1a780f6cd80
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: 4a8681bfdfe6b387d5790446d8b6dce04aaec580
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-use-jupyter-notebook-in-azure-machine-learning-workbench"></a>Azure Machine Learning Workbench의 Jupyter Notebook을 사용하는 방법
 
@@ -42,15 +42,15 @@ Azure Machine Learning Workbench는 Jupyter Notebook 통합을 통해 대화형 
 >실행 구성 및 계산 대상에 대한 자세한 내용은 [실행 구성](experimentation-service-configuration.md)을 검토하세요.
 
 ### <a name="kernel-naming-convention"></a>커널 명명 규칙
-커널 이름은 일반적으로 "\<프로젝트 이름> \<실행 구성 이름>" 형식입니다. 예를 들어 _myIris_라는 프로젝트에 _docker-python_이라는 실행 구성이 있는 경우 Jupyter Notebook노트북을 열 때 커널 목록에서 "myIris docker-python"이라는 커널을 찾을 수 있습니다.
-
+Azure ML 워크벤치는 사용자 지정 Jupyter 커널을 생성합니다.  이름은 "\<프로젝트 이름> \<실행 구성 이름>"입니다. 예를 들어 _myIris_라는 프로젝트에 _docker-python_이라는 실행 구성이 있는 경우 Azure ML에서 "myIris docker-python"이라는 커널을 사용할 수 있습니다.  Jupyter 노트북 "커널" 메뉴, “커널 변경” 하위 메뉴에서 실행 커널을 설정합니다. 실행 커널 이름이 메뉴 모음의 오른쪽 끝에 나타납니다.
+ 
 현재 Workbench에서 다음과 같은 종류의 커널을 지원합니다.
 
 ### <a name="local-python-kernel"></a>로컬 Python 커널
 이 Python 커널은 로컬 컴퓨터에서 실행을 지원합니다. Azure Machine Learning의 실행 기록 지원과 통합되었습니다. 커널 이름은 일반적으로 "my_project_name local"입니다.
 
 >[!NOTE]
->"Python 3" 커널은 사용하지 마십시오. Jupyter에 기본 제공되는 독립 실행형 커널입니다. Azure Machine Learning 기능과 통합되어 있지 않습니다.
+>"Python 3" 커널은 사용하지 마십시오. Jupyter에 기본 제공되는 독립 실행형 커널입니다. Azure Machine Learning 기능과 통합되어 있지 않습니다. 예를 들어 _%azureml_ Jupyter 매직 함수는 "찾을 수 없음" 오류를 반환합니다. 
 
 ### <a name="python-kernel-in-docker-local-or-remote"></a>Docker의 Python 커널(로컬 또는 원격)
 이 Python 커널은 로컬 컴퓨터 또는 원격 Linux VM의 Docker 컨테이너에서 실행됩니다. 커널 이름은 일반적으로 "my_project docker"입니다. 연결된 `docker.runconfig` 파일에는 `Python`으로 설정된 `Framework` 필드가 있습니다.

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2017
 ms.author: ancav
-ms.openlocfilehash: 7e16926b5a1c28c0c8c80ee8c17e8c2fdb9e55a7
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 9ff52bd29644c7c585d2a85fcbe49e8800f6a035
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="scale-instance-count-manually-or-automatically"></a>수동 또는 자동으로 인스턴스 개수 조정
 [Azure Portal](https://portal.azure.com/)에서 서비스의 인스턴스 개수를 수동으로 설정하거나, 수요에 다라 자동으로 크기가 조정되도록 매개 변수를 설정할 수 있습니다. 이를 일반적으로 *규모 확장* 또는 *규모 감축*이라고 합니다.
@@ -30,7 +30,7 @@ ms.lasthandoff: 12/14/2017
 ## <a name="scaling-manually"></a>수동으로 크기 조정
 1. [Azure Portal](https://portal.azure.com/)에서 **찾아보기**를 클릭한 다음 크기를 조정할 리소스(예: **App Service 계획**)로 이동합니다.
 2. **설정 > 규모 확장(App Service 계획)**을 클릭합니다.
-3. **크기 조정** 블레이드의 맨 위에서 서비스의 자동 크기 조정 작업 기록을 볼 수 있습니다.
+3. **크기 조정** 블레이드의 맨 위에 있는 **실행 기록** 탭에서 서비스의 자동 크기 조정 작업 기록을 볼 수 있습니다.
    
     ![크기 조정 블레이드](./media/insights-how-to-scale/Insights_ScaleBladeDayZero.png)
    
@@ -38,7 +38,7 @@ ms.lasthandoff: 12/14/2017
    > 자동 크기 조정에 의해 수행되는 작업만 이 차트에 표시됩니다. 인스턴스 개수를 수동으로 조정하는 경우 이 차트에 변경 내용이 반영되지 않습니다.
    > 
    > 
-4. 슬라이더를 사용하여 수동으로 **인스턴스** 수를 조정할 수 있습니다.
+4. **구성** 탭에서 수동으로 **인스턴스** 수를 조정할 수 있습니다.
 5. **저장** 을 클릭하면 거의 즉시 해당 인스턴스 수로 크기가 조정됩니다.
 
 ## <a name="scaling-based-on-a-pre-set-metric"></a>미리 설정된 메트릭을 기준으로 크기 조정
@@ -121,5 +121,5 @@ ms.lasthandoff: 12/14/2017
 * [경고 알림을 수신](insights-receive-alert-notifications.md) 합니다.
 * [응용 프로그램 성능을 모니터링](../application-insights/app-insights-azure-web-apps.md) 합니다.
 * [이벤트 및 활동 로그를 보고](insights-debugging-with-events.md) 서비스에서 발생한 모든 사항을 알아봅니다.
-* [웹 페이지의 가용성 및 응답성을 모니터링](../application-insights/app-insights-monitor-web-app-availability.md) 합니다.
+* [웹 페이지의 가용성 및 응답성을 모니터링](../application-insights/app-insights-monitor-web-app-availability.md) 하여 페이지가 다운된 경우를 찾을 수 있습니다.
 

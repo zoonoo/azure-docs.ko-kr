@@ -10,11 +10,11 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 0d2f98ca2fb39289b2916ddd24590924856507d6
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 50d2545d5145f1d93a1ea9fed3e4f98b474d41b2
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="create-custom-kpi-dashboards-using-azure-application-insights"></a>Azure Application Insights를 사용하여 사용자 지정 KPI 대시보드 만들기
 
@@ -88,7 +88,7 @@ ms.lasthandoff: 11/01/2017
 
 3. 화면 위쪽에서 **대시보드 보기**를 클릭하여 대시보드로 돌아갑니다.
 
-4. 이제 개요 타임라인이 대시보드에 추가됩니다.  위치로 클릭하여 끌어온 다음 **사용자 지정 완료** 및 **변경 내용 게시**를 차례로 클릭합니다. 
+4. 이제 타임라인 메트릭 차트가 대시보드에 추가되었습니다. 위치로 클릭하여 끌어온 다음 **사용자 지정 완료** 및 **변경 내용 게시**를 차례로 클릭합니다. 
 
     ![메트릭이 표시된 대시보드](media/app-insights-tutorial-dashboards/dashboard-03.png)
 

@@ -17,6 +17,7 @@
 #### [azureiotsuite.com의 사용 권한](iot-suite-v1-permissions.md)
 #### [원격 모니터링 솔루션 연습](iot-suite-v1-remote-monitoring-sample-walkthrough.md)
 #### [Raspberry Pi에 연결](iot-suite-v1-raspberry-pi-kit-get-started.md)
+#### [MXChip IoT DevKit 연결](../iot-hub/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring.md)
 ##### C 사용
 ###### [시뮬레이션된 데이터](iot-suite-v1-raspberry-pi-kit-c-get-started-simulator.md)
 ###### [실제 센서 사용](iot-suite-v1-raspberry-pi-kit-c-get-started-basic.md)
@@ -76,7 +77,7 @@
 ## 연결된 공장
 ### [연결된 공장에 대한 게이트웨이 배포](iot-suite-connected-factory-gateway-deployment.md)
 ### [연결된 공장 사용자 지정](iot-suite-connected-factory-customize.md)
-### [연결된 팩터리에 OPC 게시자 사용](iot-suite-connected-factory-publisher.md)
+### [연결된 팩터리에 OPC 게시자 사용](https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md)
 ### [연결된 팩터리 구성](iot-suite-connected-factory-configure.md)
 ## [azureiotsuite.com의 사용 권한](iot-suite-permissions.md)
 

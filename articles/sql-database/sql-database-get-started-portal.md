@@ -14,13 +14,13 @@ ms.workload: Active
 ms.tgt_pltfrm: portal
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 01/29/2018
-ms.author: ninarn
-ms.openlocfilehash: 63a16df5f36bba4ffb97529100b878f0a1591127
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.date: 02/12/2018
+ms.author: carlrab
+ms.openlocfilehash: 7a57593825f816a03b59f6c5228243670f1e9e9e
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="create-an-azure-sql-database-in-the-azure-portal"></a>Azure Portal에서 Azure SQL Database 만들기
 
@@ -81,10 +81,10 @@ Azure SQL Database는 일련의 정의된 [계산 및 저장소 리소스](sql-d
    > [!IMPORTANT]
    > \* 포함된 저장소보다 큰 저장소 크기는 미리 보기로 있으며 추가 비용이 적용됩니다. 자세한 내용은 [SQL Database 가격](https://azure.microsoft.com/pricing/details/sql-database/)을 참조하세요.
    >
-   >\* 프리미엄 계층의 경우 현재 오스트레일리아 동부, 오스트레일리아 남동부, 브라질 남부, 캐나다 중부, 캐나다 동부, 미국 중부, 프랑스 중부, 독일 중부, 일본 동부, 일본 서부, 한국 중부, 미국 중북부, 유럽 북부, 미국 중남부, 동남 아시아, 영국 남부, 영국 서부, 미국 동부 2, 미국 서부, 미국 버지니아 주 정부 및 유럽 서부에서 1TB 이상의 저장소를 사용할 수 있습니다. [P11-P15 현재 제한 사항](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb)을 참조하세요.  
+   >\* 프리미엄 계층의 경우 현재 오스트레일리아 동부, 오스트레일리아 남동부, 브라질 남부, 캐나다 중부, 캐나다 동부, 미국 중부, 프랑스 중부, 독일 중부, 일본 동부, 일본 서부, 한국 중부, 미국 중북부, 북유럽, 미국 중남부, 동남 아시아, 영국 남부, 영국 서부, 미국 동부 2, 미국 서부, 미국 버지니아 주 정부 및 유럽 서부에서 1TB 이상의 저장소를 사용할 수 있습니다. [P11-P15 현재 제한 사항](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb)을 참조하세요.  
    >
 
-7. 이 빠른 시작 자습서에서는 **표준** 서비스 계층을 선택한 다음 슬라이더를 사용하여 **100DTU(S3)** 및 **400**GB 저장소를 선택합니다.
+7. 이 빠른 시작 자습서에서는 **Standard** 서비스 계층을 선택한 다음, 슬라이더를 사용하여 **10DTU(S0)** 및 **1GB** 저장소를 선택합니다.
 
    ![create database-s1](./media/sql-database-get-started-portal/create-database-s1.png)
 
@@ -93,7 +93,7 @@ Azure SQL Database는 일련의 정의된 [계산 및 저장소 리소스](sql-d
    > [!IMPORTANT]
    > \* 포함된 저장소보다 큰 저장소 크기는 미리 보기로 있으며 추가 비용이 적용됩니다. 자세한 내용은 [SQL Database 가격](https://azure.microsoft.com/pricing/details/sql-database/)을 참조하세요.
    >
-   >\* 프리미엄 계층의 경우 현재 오스트레일리아 동부, 오스트레일리아 남동부, 브라질 남부, 캐나다 중부, 캐나다 동부, 미국 중부, 프랑스 중부, 독일 중부, 일본 동부, 일본 서부, 한국 중부, 미국 중북부, 유럽 북부, 미국 중남부, 동남 아시아, 영국 남부, 영국 서부, 미국 동부 2, 미국 서부, 미국 버지니아 주 정부 및 유럽 서부에서 1TB 이상의 저장소를 사용할 수 있습니다. [P11-P15 현재 제한 사항](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb)을 참조하세요.  
+   >\* 프리미엄 계층의 경우 현재 오스트레일리아 동부, 오스트레일리아 남동부, 브라질 남부, 캐나다 중부, 캐나다 동부, 미국 중부, 프랑스 중부, 독일 중부, 일본 동부, 일본 서부, 한국 중부, 미국 중북부, 북유럽, 미국 중남부, 동남 아시아, 영국 남부, 영국 서부, 미국 동부 2, 미국 서부, 미국 버지니아 주 정부 및 유럽 서부에서 1TB 이상의 저장소를 사용할 수 있습니다. [P11-P15 현재 제한 사항](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb)을 참조하세요.  
    >
 
 9. 서버 계층, DTU 수 및 저장소 크기를 선택한 후에 **적용**을 클릭합니다.  
@@ -138,17 +138,13 @@ Azure SQL Database는 일련의 정의된 [계산 및 저장소 리소스](sql-d
 
 이제 Azure에서 샘플 데이터베이스를 만들었으므로 Azure Portal 내에서 기본 제공 쿼리 도구를 사용하여 데이터베이스에 연결하고 데이터를 쿼리할 수 있는지 확인해 보겠습니다.
 
-1. 데이터베이스의 SQL Database 페이지에서 왼쪽 메뉴에 있는 **데이터 탐색기(미리 보기)**를 찾아 클릭합니다.
+1. 데이터베이스에 대한 SQL Database 페이지의 왼쪽 메뉴에서 **쿼리 편집기(미리 보기)**, **로그인**을 차례로 클릭합니다.
 
-   ![쿼리 편집기 찾기](./media/sql-database-get-started-portal/find-query-editor.PNG)
+   ![로그인](./media/sql-database-get-started-portal/query-editor-login.png)
 
-2. **로그인**을 클릭하고 로그인 정보를 검토한 다음 **확인**을 클릭하여 이전에 만든 서버 관리자 로그인 및 암호로 SQL 서버 인증을 통해 로그인합니다.
+2. SQL 서버 인증을 선택하고, 필요한 로그인 정보를 제공한 다음, **확인**을 클릭하여 로그인합니다.
 
-   ![로그인](./media/sql-database-get-started-portal/login-menu.png)
-
-3. **확인**을 클릭하여 로그인합니다.
-
-4. **ServerAdmin**으로 인증된 후에 쿼리 편집기 창에서 다음 쿼리를 입력합니다.
+3. **ServerAdmin**으로 인증된 후에 쿼리 편집기 창에서 다음 쿼리를 입력합니다.
 
    ```sql
    SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
@@ -157,11 +153,11 @@ Azure SQL Database는 일련의 정의된 [계산 및 저장소 리소스](sql-d
    ON pc.productcategoryid = p.productcategoryid;
    ```
 
-5. **실행**을 클릭한 후 **결과** 창에서 쿼리 결과를 검토합니다.
+4. **실행**을 클릭한 후 **결과** 창에서 쿼리 결과를 검토합니다.
 
    ![쿼리 편집기 결과](./media/sql-database-get-started-portal/query-editor-results.png)
 
-6. **데이터 탐색기** 페이지를 닫고 **확인**을 클릭하여 저장하지 않은 편집 내용을 삭제합니다.
+5. **데이터 탐색기** 페이지를 닫고 **확인**을 클릭하여 저장하지 않은 편집 내용을 삭제합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: b55d186aba49e91bab6814da2380a372f61f39cb
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 082b410c9375dbdfa7f95ccd4c176e7384dad0d7
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="getting-started"> </a>Azure App Service의 Mobile Apps 정보
 Azure App Service는 완전히 관리되는 PaaS([platform as a service](https://azure.microsoft.com/overview/what-is-paas/))로써 전문 개발자를 위해 제공됩니다. 이 서비스는 웹, 모바일 및 통합 시나리오에 풍부한 기능 집합을 제공합니다. 
@@ -33,12 +33,12 @@ Mobile Apps 기능을 사용하면 다음을 수행할 수 있습니다.
 * **네이티브 앱 및 크로스 플랫폼 앱 빌드**: 빌드하는 앱이 네이티브 iOS, Android 및 Windows 앱인지 또는 크로스 플랫폼 Xamarin 앱이나 Cordova(PhoneGap) 앱인지에 관계없이 네이티브 SDK를 통해 App Service를 사용할 수 있습니다.
 * **엔터프라이즈 시스템에 연결**: Mobile Apps 기능을 사용하면 몇 분 내에 회사 로그인을 추가하고 엔터프라이즈 온-프레미스 또는 클라우드 리소스에 연결할 수 있습니다.
 * **데이터 동기화를 사용하여 오프라인 지원 앱 빌드**: 오프라인에서 작동하는 앱을 빌드하여 모바일 작업자의 생산성을 높이고 엔터프라이즈 데이터 원본이나 SaaS(software as a service) API와 연결된 경우 Mobile Apps를 사용하여 백그라운드에서 데이터를 동기화합니다.
-* **몇 초 내에 수백만 명에게 푸시 알림 전송**: 요구에 맞게 개인 설정되고 적절한 시간에 전송되는 인스턴트 푸시 알림을 모든 장치에서 지원하여 고객을 관리합니다.
+* **몇 초 내에 수백만 명에게 푸시 알림 전송**: 모든 장치에서 고객의 요구에 맞게 개인 설정하고 적절한 시간에 보내는 즉시 푸시 알림을 통해 고객을 끌어들입니다.
 
 ## <a name="mobile-apps-features"></a>Mobile Apps 기능
 다음 기능은 클라우드 사용 모바일 개발에 중요합니다.
 
-* **인증 및 권한 부여**: 엔터프라이즈 인증을 위한 Azure Active Directory 및 Facebook, Google, Twitter, Microsoft 계정과 같은 소셜 공급자를 포함하여 점점 증가하는 ID 공급자 목록에서 선택합니다. Mobile Apps은 각 공급자에 대해 OAuth 2.0 서비스를 제공합니다. 또한 공급자 특정 기능에 대한 ID 공급자의 SDK도 통합할 수 있습니다.
+* **인증 및 권한 부여**: 엔터프라이즈 인증용 Azure Active Directory 및 소셜 공급자(예: Facebook, Google, Twitter 및 Microsoft 계정)를 포함한 ID 공급자를 지원합니다. Mobile Apps은 각 공급자에 대해 OAuth 2.0 서비스를 제공합니다. 또한 공급자 특정 기능에 대한 ID 공급자의 SDK도 통합할 수 있습니다.
 
     [인증 기능]에 대해 자세히 알아보세요.
 
@@ -48,11 +48,11 @@ Mobile Apps 기능을 사용하면 다음을 수행할 수 있습니다.
 
   [데이터 기능]에 대해 자세히 알아보세요.
 
-* **푸시 알림**: 클라이언트 SDK는 Azure Notification Hubs의 등록 기능과 원활하게 통합되어 동시에 수백만 명의 사용자에게 푸시 알림을 보낼 수 있습니다.
+* **푸시 알림**: 클라이언트 SDK는 Azure Notification Hubs의 등록 기능과 원활하게 통합되어 수백만 명의 사용자에게 푸시 알림을 동시에 보낼 수 있습니다.
 
   [푸시 알림 기능]에 대해 자세히 알아보세요.
 
-* **클라이언트 SDK**: 네이티브 개발([iOS], [Android] 및 [Windows]), 플랫폼 간 개발([Xamarin.iOS 및 Xamarin.Android], [Xamarin.Forms]) 및 하이브리드 응용 프로그램 개발([Apache Cordova])을 포함하는 전체 집합의 클라이언트 SDK를 제공합니다. 각 클라이언트 SDK는 MIT 라이선스로 사용할 수 있으며 오픈 소스입니다.
+* **클라이언트 SDK**: 완전한 클라이언트 SDK 모음으로, 네이티브 개발([iOS], [Android] 및 [Windows]), 플랫폼 간 개발([Xamarin.iOS 및 Xamarin.Android], [Xamarin.Forms]) 및 하이브리드 응용 프로그램 개발([Apache Cordova])을 포함하고 있습니다. 각 클라이언트 SDK는 MIT 라이선스로 사용할 수 있으며 오픈 소스입니다.
 
 ## <a name="azure-app-service-features"></a>Azure App Service 기능
 다음 플랫폼 기능은 모바일 프로덕션 사이트에 유용합니다.
@@ -65,7 +65,7 @@ Mobile Apps 기능을 사용하면 다음을 수행할 수 있습니다.
 
   [스테이징 환경]에 대해 자세히 알아보세요.
 
-* **지속적인 배포**: App Service는 일반 SCM(원본 제어 관리) 시스템과 통합할 수 있으므로 SCM 시스템의 분기에 푸시하여 새 버전의 백 엔드를 자동으로 배포할 수 있습니다.
+* **지속적인 배포**: App Service는 일반 _SCM(원본 제어 관리)_ 시스템과 통합되어 새 버전의 백 엔드를 쉽게 배포할 수 있습니다.
 
   [배포 옵션](../app-service/app-service-deploy-local-git.md)에 대해 자세히 알아보세요.
 
@@ -73,7 +73,7 @@ Mobile Apps 기능을 사용하면 다음을 수행할 수 있습니다.
 
   [하이브리드 연결], [가상 네트워크] 및 [ExpressRoute]에 대해 자세히 알아보세요.
 
-* **격리 및 전용 환경**: 높은 확장성으로 Azure App Service 앱을 안전하게 실행하기 위해 완전히 격리된 전용 환경에서 App Service를 실행할 수 있습니다. 이 환경은 높은 확장성, 격리 또는 보안된 네트워크 액세스가 요구되는 응용 프로그램 워크로드에 이상적입니다.
+* **격리 및 전용 환경**: Azure App Service 앱을 안전하게 실행하기 위해 완전히 격리된 전용 환경에서 App Service를 실행할 수 있습니다. 이 환경은 높은 확장성, 격리 또는 보안된 네트워크 액세스가 요구되는 응용 프로그램 워크로드에 이상적입니다.
 
   [App Service 환경]에 대해 자세히 알아보세요.
 

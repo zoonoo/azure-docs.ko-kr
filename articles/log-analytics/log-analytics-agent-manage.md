@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2018
+ms.date: 02/09/2018
 ms.author: magoedte
-ms.openlocfilehash: a17418142fb5f52a93d7a56cb2e6e6e97a250002
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 2e4daebf18d5edeba92bc14d5a4f699fbd2d94ce
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Windows 및 Linux용 Log Analytics 에이전트 관리 및 유지 관리
 
-Log Analytics용 Windows 또는 Linux 에이전트의 초기 배포 후 상황에 따라 에이전트를 다시 구성하거나 수명 주기의 사용 중지 단계에 도달한 경우 컴퓨터에서 제거해야 할 수 있습니다.  이러한 일상적인 유지 관리 작업을 수동으로 또는 자동화를 통해 간단히 관리하여 조작 오류와 비용을 모두 줄일 수 있습니다.
+Log Analytics용 Windows 또는 Linux 에이전트의 초기 배포 후 에이전트를 다시 구성하거나 수명 주기의 사용 중지 단계에 도달한 경우 컴퓨터에서 제거해야 할 수 있습니다.  이러한 일상적인 유지 관리 작업을 수동으로 또는 자동화를 통해 간단히 관리하여 조작 오류와 비용을 모두 줄일 수 있습니다.
 
 ## <a name="adding-or-removing-a-workspace"></a>작업 영역 추가 또는 제거 
 
@@ -148,12 +148,9 @@ Linux 컴퓨터가 프록시 서버 또는 OMS 게이트웨이를 통해 Log Ana
 3. 프롬프트에 `%WinDir%\System32\msiexec.exe /x <Path>:\MOMAgent.msi /qb`를 입력합니다.  
 
 ### <a name="linux-agent"></a>Linux 에이전트
-에이전트를 제거하려면 다음 단계를 수행합니다.
+에이전트를 제거하려면 Linux 컴퓨터에서 다음 명령을 실행합니다.  *--purge* 인수는 에이전트와 해당 구성을 완전히 제거합니다.
 
-1. Linux 에이전트 [범용 스크립트](https://github.com/Microsoft/OMS-Agent-for-Linux/releases)를 컴퓨터에 다운로드합니다.
-2. 컴퓨터에서 *--purge* 인수로 에이전트와 해당 구성을 완전히 제거하는 번들 .sh 파일을 실행합니다.
-
-    `sudo sh ./omsagent-<version>.universal.x64.sh --purge`
+   `wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh --purge`
 
 ## <a name="configure-agent-to-report-to-an-operations-manager-management-group"></a>에이전트에서 Operations Manager 관리 그룹에 보고하도록 구성
 

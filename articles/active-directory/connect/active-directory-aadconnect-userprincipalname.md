@@ -8,11 +8,11 @@ ms.topic: article
 ms.workload: identity
 ms.service: active-Directory
 manager: mtillman
-ms.openlocfilehash: 1fca41a8498cec506298748acd3511a5c5802d26
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 96b12fbddd4293c55e9029b194416541ca44c622
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="azure-ad-userprincipalname-population"></a>Azure AD userPrincipalName 채우기
 
@@ -67,9 +67,10 @@ Azure AD UserPrincipalName 특성 값이 MOERA로 설정될 수 있으므로 MOE
 사용자 개체가 처음으로 Azure AD 테넌트와 동기화되면 Azure AD는 지정된 순서로 다음을 확인하고, MailNickName 특성 값을 기존 첫 번째 값으로 설정합니다.
 
 - 온-프레미스 mailNickName 특성
-- 온-프레미스 mail 특성의 접두사
 - 기본 SMTP 주소의 접두사
+- 온-프레미스 mail 특성의 접두사
 - 온-프레미스 userPrincipalName 특성/대체 로그인 ID의 접두사
+- 보조 SMTP 주소의 접두사
 
 사용자 개체에 대한 업데이트가 Azure AD 테넌트와 동기화될 때 Azure AD는 온-프레미스 mailNickName 특성 값에 대한 업데이트가 있을 때만 MailNickName 특성 값을 업데이트합니다.
 
@@ -85,12 +86,12 @@ Azure AD UserPrincipalName 특성 값이 MOERA로 설정될 수 있으므로 MOE
 
 온-프레미스 사용자 개체:
 - mailNickName      : &lt;not set&gt;
-- mail          : us1@contoso.com
-- proxyAddresses        : {SMTP:us2@contoso.com}
+- proxyAddresses        : {SMTP:us1@contoso.com}
+- mail          : us2@contoso.com
 - userPrincipalName : us3@contoso.com`
 
 사용자 개체를 처음으로 Azure AD 테넌트와 동기화
-- Azure AD MailNickName 특성을 온-프레미스 메일 특성 접두사로 설정합니다.
+- Azure AD MailNickName 특성을 기본 SMTP 주소 접두사로 설정합니다.
 - MOERA를 &lt;MailNickName&gt;&#64;&lt; 초기 도메인&gt;으로 설정합니다.
 - Azure AD UserPrincipalName 특성을 MOERA로 설정합니다.
 
@@ -103,8 +104,8 @@ Azure AD 테넌트 사용자 개체:
 
 온-프레미스 사용자 개체:
 - mailNickName      : us4
-- mail          : us1@contoso.com
-- proxyAddresses        : {SMTP:us2@contoso.com}
+- proxyAddresses        : {SMTP:us1@contoso.com}
+- mail          : us2@contoso.com
 - userPrincipalName : us3@contoso.com
 
 온-프레미스 mailNickName 특성에 대한 업데이트를 Azure AD 테넌트와 동기화
@@ -119,8 +120,8 @@ Azure AD 테넌트 사용자 개체:
 
 온-프레미스 사용자 개체:
 - mailNickName      : us4
-- mail          : us1@contoso.com
-- proxyAddresses        : {SMTP:us2@contoso.com}
+- proxyAddresses        : {SMTP:us1@contoso.com}
+- mail          : us2@contoso.com
 - userPrincipalName : us5@contoso.com
 
 온-프레미스 userPrincipalName 특성에 대한 업데이트를 Azure AD 테넌트와 동기화
@@ -132,12 +133,12 @@ Azure AD 테넌트 사용자 개체:
 - MailNickName      : us4
 - UserPrincipalName : us4@contoso.onmicrosoft.com
 
-### <a name="scenario-4-non-verified-upn-suffix--update-on-premises-mail-attribute-and-primary-smtp-address"></a>시나리오 4: 확인되지 않은 UPN 접미사 – 온-프레미스 mail 특성 및 기본 SMTP 주소 업데이트
+### <a name="scenario-4-non-verified-upn-suffix--update-primary-smtp-address-and-on-premises-mail-attribute"></a>시나리오 4: 확인되지 않은 UPN 접미사 – 기본 SMTP 주소 및 온-프레미스 mail 특성 업데이트
 
 온-프레미스 사용자 개체:
 - mailNickName      : us4
-- mail          : us6@contoso.com
-- proxyAddresses        : {SMTP:us7@contoso.com}
+- proxyAddresses        : {SMTP:us6@contoso.com}
+- mail          : us7@contoso.com
 - userPrincipalName : us5@contoso.com
 
 온-프레미스 mail 특성 및 기본 SMTP 주소에 대한 업데이트를 Azure AD 테넌트와 동기화
@@ -151,8 +152,8 @@ Azure AD 테넌트 사용자 개체:
 
 온-프레미스 사용자 개체:
 - mailNickName      : us4
-- mail          : us6@contoso.com
-- proxyAddresses        : {SMTP:us7@contoso.com}
+- proxyAddresses        : {SMTP:us6@contoso.com}
+- mail          : us7@contoso.com
 - serPrincipalName  : us5@verified.contoso.com
 
 온-프레미스 userPrincipalName 특성에 대한 업데이트를 Azure AD 테넌트와 동기화

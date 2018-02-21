@@ -12,13 +12,13 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 4bdcd6d57989df3d1b67c87d56b8c57035ef2f63
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 9f51c35be09af6f3a8dde7061dcf57a9c4cc9fdb
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="test-your-solution-with-simulated-devices"></a>시뮬레이트된 장치로 솔루션 테스트
+# <a name="create-a-new-simulated-device"></a>시뮬레이션된 새 장치 만들기
 
 이 자습서는 미리 구성된 원격 모니터링 솔루션에서 장치 시뮬레이터 마이크로 서비스를 사용자 지정하는 방법을 보여 줍니다. 장치 시뮬레이터의 기능을 표시하기 위해 이 자습서에서는 Contoso IoT 응용 프로그램에서 두 가지 시나리오를 사용합니다.
 

@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 08/09/2017
 ms.author: mikhegn
 ms.custom: mvc
-ms.openlocfilehash: cb9d20bcb4b863736229bb920f5d4615b2c28c94
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 91d4398589707e8007c4b93639ddb568e39f51a7
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="deploy-an-application-to-a-party-cluster-in-azure"></a>Azure에서 Party 클러스터에 응용 프로그램 배포
 이 자습서는 시리즈의 2부로, Azure에서 Party 클러스터에 Azure Service Fabric 응용 프로그램을 배포하는 방법을 보여 줍니다.
@@ -59,14 +59,33 @@ Party 클러스터에 대한 액세스 권한을 얻으려면 http://aka.ms/trys
 > [!NOTE]
 > Party 클러스터는 보호되지 않으므로 응용 프로그램과 그 안에 있는 데이터는 다른 사람에게 표시될 수 있습니다. 다른 사람이 보기를 원하지 않는 항목은 배포하지 마세요. 모든 세부 사항은 사용 약관을 읽어 보아야 합니다.
 
+[Windows 클러스터에 로그인하고 조인](http://aka.ms/tryservicefabric)합니다. **PFX** 링크를 클릭하여 PFX 인증서를 컴퓨터에 다운로드합니다. 인증서 및 **연결 엔드포인트** 값은 다음 단계에서 사용됩니다.
+
+![PFX 및 연결 엔드포인트](./media/service-fabric-quickstart-containers/party-cluster-cert.png)
+
+Windows 컴퓨터에서 *CurrentUser\My* 인증서 저장소에 PFX를 설치합니다.
+
+```powershell
+PS C:\mycertificates> Import-PfxCertificate -FilePath .\party-cluster-873689604-client-cert.pfx -CertStoreLocation Cert:
+\CurrentUser\My
+
+
+  PSParentPath: Microsoft.PowerShell.Security\Certificate::CurrentUser\My
+
+Thumbprint                                Subject
+----------                                -------
+3B138D84C077C292579BA35E4410634E164075CD  CN=zwin7fh14scd.westus.cloudapp.azure.com
+```
+
+
 ## <a name="deploy-the-app-to-the-azure"></a>Azure에 앱 배포
 이제 응용 프로그램이 준비되면 Visual Studio에서 Party 클러스터에 직접 배포할 수 있습니다.
 
-1. 솔루션 탐색기에서 **Voting**을 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
+1. 솔루션 탐색기에서 **Voting**을 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다. 
 
-    ![[게시] 대화 상자](./media/service-fabric-tutorial-deploy-app-to-party-cluster/publish-app.png)
+    ![[게시] 대화 상자](./media/service-fabric-quickstart-containers/publish-app.png)
 
-2. **연결 끝점** 필드에 Party 클러스터의 연결 끝점을 입력하고 **게시**를 클릭합니다.
+2. 파티 클러스터 페이지의 **연결 끝점**을 **연결 끝점** 필드에 복사합니다. 예: `zwin7fh14scd.westus.cloudapp.azure.com:19000` **고급 연결 매개 변수**를 클릭하고 다음 정보를 채웁니다.  *FindValue* 및 *ServerCertThumbprint* 값은 이전 단계에서 설치한 인증서의 지문과 일치해야 합니다. **게시**를 클릭합니다. 
 
     게시가 완료되면 브라우저를 통해 요청을 응용 프로그램에 보낼 수 있습니다.
 
@@ -81,9 +100,9 @@ Service Fabric Explorer는 Service Fabric 클러스터에서 응용 프로그램
 
 Party 클러스터에서 응용 프로그램을 제거하려면:
 
-1. Party 클러스터 등록 페이지에 제공된 링크를 사용하여 Service Fabric Explorer로 이동합니다. 예를 들어 http://win1kw5649s.westus.cloudapp.azure.com:19080/Explorer/index.html입니다.
+1. Party 클러스터 등록 페이지에 제공된 링크를 사용하여 Service Fabric Explorer로 이동합니다. 예를 들어 https://win1kw5649s.westus.cloudapp.azure.com:19080/Explorer/index.html입니다.
 
-2. Service Fabric Explorer의 왼쪽 트리 뷰에서 **fabric://Voting** 노드로 이동합니다.
+2. Service Fabric Explorer 왼쪽의 트리 뷰에서 **fabric://Voting** 노드로 이동합니다.
 
 3. 오른쪽 **Essentials** 창에서 **작업** 단추를 클릭하고 **응용 프로그램 삭제**를 선택합니다. 클러스터에서 실행 중인 응용 프로그램의 인스턴스를 제거하는 응용 프로그램 인스턴스 삭제를 확인합니다.
 

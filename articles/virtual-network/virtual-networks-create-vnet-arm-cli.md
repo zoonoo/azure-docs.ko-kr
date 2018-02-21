@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 659a791124eab002290ac0b7f0898cf1c06c2951
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 72ed9ecd7a4c8e846818f7a19ad25c566fa57f64
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-a-virtual-network-using-the-azure-cli"></a>Azure CLI를 사용하여 가상 네트워크 만들기
 
@@ -45,9 +45,9 @@ Azure에는 Azure Resource Manager 및 클래식이라는 두 가지 배포 모�
 
 Azure CLI를 사용하여 가상 네트워크를 만들려면 다음 단계를 완료하세요.
 
-1. 최신 [Azure CLI 2.0](/cli/azure/install-az-cli2)을 설치 및 구성하고 [az login](/cli/azure/#login)을 사용하여 Azure 계정에 로그인합니다.
+1. 최신 [Azure CLI 2.0](/cli/azure/install-az-cli2)을 설치 및 구성하고 [az login](/cli/azure/#az_login)을 사용하여 Azure 계정에 로그인합니다.
 
-2. `--name` 및 `--location` 인수를 포함한 [az group create](/cli/azure/group#create) 명령을 사용하여 VNet에 대한 리소스 그룹을 만듭니다.
+2. `--name` 및 `--location` 인수를 포함한 [az group create](/cli/azure/group#az_group_create) 명령을 사용하여 VNet에 대한 리소스 그룹을 만듭니다.
 
     ```azurecli
     az group create --name TestRG --location centralus

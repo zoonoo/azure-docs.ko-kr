@@ -6,14 +6,14 @@ author: neilpeterson
 manager: timlt
 ms.service: container-registry
 ms.topic: quickstart
-ms.date: 10/08/2017
+ms.date: 02/12/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: c7d74395b1c8b386ce190906aa5b63b48c1bb1bf
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 80b5055dee35cd6efe62ee949c05aef386a3ba14
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="create-an-azure-container-registry-using-powershell"></a>PowerShell을 사용하여 Azure Container Registry 만들기
 
@@ -21,7 +21,7 @@ Azure Container Registry는 개인 Docker 컨테이너 이미지를 저장하는
 
 이 빠른 시작에서는 Azure PowerShell 모듈 버전 3.6 이상이 필요합니다. `Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요.
 
-또한 Docker가 로컬에 설치되어 있어야 합니다. Docker는 모든 [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) 또는 [Linux](https://docs.docker.com/engine/installation/#supported-platforms) 시스템에서 쉽게 Docker를 구성하는 패키지를 제공합니다.
+또한 Docker가 로컬에 설치되어 있어야 합니다. Docker는 모든 [Mac][docker-mac], [Windows][docker-windows] 또는 [Linux][docker-linux] 시스템에서 쉽게 Docker를 구성하는 패키지를 제공합니다.
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
 
@@ -57,13 +57,13 @@ $registry = New-AzureRMContainerRegistry -ResourceGroupName "myResourceGroup" -N
 $creds = Get-AzureRmContainerRegistryCredential -Registry $registry
 ```
 
-다음으로, [docker login](https://docs.docker.com/engine/reference/commandline/login/) 명령을 사용하여 ACR 인스턴스에 로그인합니다.
+다음으로, [docker login][docker-login] 명령을 사용하여 ACR 인스턴스에 로그인합니다.
 
 ```bash
 docker login $registry.LoginServer -u $creds.Username -p $creds.Password
 ```
 
-이 명령은 완료되면 '로그인했습니다.'라는 메시지를 반환합니다.
+완료되면 이 명령은 `Login Succeeded`를 반환합니다. `--password-stdin` 매개 변수를 사용하도록 권장하는 보안 경고가 표시될 수 있습니다. 이 문서의 범위 외부에서 사용하는 경우 이 모범 사례를 따르는 것이 좋습니다. 자세한 내용은 [docker login][docker-login] 명령 참조를 참조하세요.
 
 ## <a name="push-image-to-acr"></a>ACR에 이미지 푸시
 
@@ -79,13 +79,13 @@ docker pull microsoft/aci-helloworld
 Get-AzureRmContainerRegistry | Select Loginserver
 ```
 
-[docker tag](https://docs.docker.com/engine/reference/commandline/tag/) 명령을 사용하여 이미지에 태그를 지정합니다. *acrLoginServer*를 ACR 인스턴스의 로그인 서버 이름으로 바꿉니다.
+[docker tag][docker-tag] 명령을 사용하여 이미지에 태그를 지정합니다. *acrLoginServer*를 ACR 인스턴스의 로그인 서버 이름으로 바꿉니다.
 
 ```bash
 docker tag microsoft/aci-helloworld <acrLoginServer>/aci-helloworld:v1
 ```
 
-마지막으로 [docker push](https://docs.docker.com/engine/reference/commandline/push/)를 사용하여 ACR 인스턴스로 이미지를 푸시합니다. *acrLoginServer*를 ACR 인스턴스의 로그인 서버 이름으로 바꿉니다.
+마지막으로 [docker push][docker-push]를 사용하여 이미지를 ACR 인스턴스로 푸시합니다. *acrLoginServer*를 ACR 인스턴스의 로그인 서버 이름으로 바꿉니다.
 
 ```bash
 docker push <acrLoginServer>/aci-helloworld:v1
@@ -105,3 +105,11 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 > [!div class="nextstepaction"]
 > [Azure Container Instances 자습서](../container-instances/container-instances-tutorial-prepare-app.md)
+
+<!-- LINKS - external -->
+[docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms
+[docker-login]: https://docs.docker.com/engine/reference/commandline/login/
+[docker-mac]: https://docs.docker.com/docker-for-mac/
+[docker-push]: https://docs.docker.com/engine/reference/commandline/push/
+[docker-tag]: https://docs.docker.com/engine/reference/commandline/tag/
+[docker-windows]: https://docs.docker.com/docker-for-windows/

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: wesmc
-ms.openlocfilehash: 74ec104bebec2004a8b7116865c2394c02b12638
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 5ed5af627fa8ec8007f095face2cbf115ead4b27
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-redis-cache"></a>프리미엄 Azure Redis Cache에 Virtual Network 지원을 구성하는 방법 
 Azure Redis Cache에는 클러스터링, 지속성, 가상 네트워크 지원 등의 프리미엄 계층 기능을 포함하여 캐시 크기 및 기능을 유연하게 선택할 수 있는 다양한 캐시 제품이 있습니다. VNet은 클라우드의 개인 네트워크입니다. Azure Redis Cache 인스턴스를 VNet으로 구성한 경우 클라이언트에서만 공개적으로 주소를 지정할 수 없으며, VNet 내의 가상 머신 및 응용 프로그램에서만 액세스할 수 있습니다. 이 문서에서는 프리미엄 Azure Redis Cache에 가상 네트워크 지원을 구성하는 방법을 설명합니다.
@@ -117,6 +117,7 @@ Azure Redis Cache가 VNet에 호스트된 경우 다음 표의 포트가 사용�
 | 20226 |아웃바운드 |TCP |Redis에 대한 내부 통신 | (Redis 서브넷) |(Redis 서브넷) |
 | 13000-13999 |아웃바운드 |TCP |Redis에 대한 내부 통신 | (Redis 서브넷) |(Redis 서브넷) |
 | 15000-15999 |아웃바운드 |TCP |Redis에 대한 내부 통신 | (Redis 서브넷) |(Redis 서브넷) |
+| 6379-6380 |아웃바운드 |TCP |Redis에 대한 내부 통신 | (Redis 서브넷) |(Redis 서브넷) |
 
 
 ### <a name="inbound-port-requirements"></a>인바운드 포트 요구 사항
@@ -125,7 +126,7 @@ Azure Redis Cache가 VNet에 호스트된 경우 다음 표의 포트가 사용�
 
 | 포트 | 방향 | 전송 프로토콜 | 목적 | 로컬 IP | 원격 IP |
 | --- | --- | --- | --- | --- | --- |
-| 6379, 6380 |인바운드 |TCP |Redis에 대한 클라이언트 통신, Azure 부하 분산 | (Redis 서브넷) |Virtual Network, Azure Load Balancer |
+| 6379, 6380 |인바운드 |TCP |Redis에 대한 클라이언트 통신, Azure 부하 분산 | (Redis 서브넷) | (redis 서브넷), Virtual Network, Azure Load Balancer |
 | 8443 |인바운드 |TCP |Redis에 대한 내부 통신 | (Redis 서브넷) |(Redis 서브넷) |
 | 8500 |인바운드 |TCP/UDP |Azure 부하 분산 | (Redis 서브넷) |Azure Load Balancer |
 | 10221-10231 |인바운드 |TCP |Redis에 대한 내부 통신 | (Redis 서브넷) |(Redis 서브넷), Azure Load Balancer |
@@ -146,7 +147,7 @@ Azure Redis Cache가 VNet에 호스트된 경우 다음 표의 포트가 사용�
 ### <a name="how-can-i-verify-that-my-cache-is-working-in-a-vnet"></a>캐시가 VNET에서 작동하는지 확인하려면 어떻게 해야 하나요?
 
 >[!IMPORTANT]
->VNET에서 호스트되는 Azure Redis Cache 인스턴스에 연결할 때 테스트 응용 프로그램이나 진단 ping 도구를 포함하여 캐시 클라이언트는 동일한 VNET에 있어야 합니다.
+>VNET에서 호스트되는 Azure Redis Cache 인스턴스에 연결할 때 캐시 클라이언트는 동일한 VNET 또는 VNET 피어링이 사용하도록 설정된 VNET에 있어야 합니다. 여기에는 모든 테스트 응용 프로그램 또는 진단 핑 도구가 포함됩니다. 클라이언트 응용 프로그램이 호스트된 위치와 상관없이 네트워크 보안 그룹은 클라이언트의 네트워크 트래픽이 Redis 인스턴스에 도달할 수 있도록 구성되어야 합니다.
 >
 >
 

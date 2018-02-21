@@ -1,6 +1,6 @@
 ---
-title: "Azure Active Directory 조건부 액세스의 컨트롤 | Microsoft Docs"
-description: "Azure Active Directory 조건부 액세스에서 컨트롤이 작동하는 방식을 알아봅니다."
+title: "Azure Active Directory 조건부 액세스의 액세스 제어 | Microsoft Docs"
+description: "Azure Active Directory 조건부 액세스의 액세스 제어가 작동하는 방식을 알아봅니다."
 services: active-directory
 keywords: "앱에 조건부 액세스, Azure AD로 조건부 액세스, 회사 리소스에 대한 액세스 보호, 조건부 액세스 정책"
 documentationcenter: 
@@ -13,28 +13,32 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/29/2017
+ms.date: 02/09/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 533229ae90828a0aeba9f10cbdfdb70afa21e1c5
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: c5a2ab3b8d2fe55eee1f67e4b697a1e5b0dd2daf
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/11/2018
 ---
-# <a name="controls-in-azure-active-directory-conditional-access"></a>Azure Active Directory 조건부 액세스의 컨트롤 
+# <a name="access-controls-in-azure-active-directory-conditional-access"></a>Azure Active Directory 조건부 액세스의 액세스 제어 
 
-[Azure AD(Azure Active Directory) 조건부 액세스](active-directory-conditional-access-azure-portal.md)를 사용하여 권한 있는 사용자가 클라우드 앱에 액세스하는 방법을 제어할 수 있습니다. 조건부 액세스 정책에서 특정 조건("when this happens")에 대한 응답("do this")을 정의합니다. 조건부 액세스의 컨텍스트에서, 
+[Azure AD(Azure Active Directory) 조건부 액세스](active-directory-conditional-access-azure-portal.md)를 사용하여 권한 있는 사용자가 클라우드 앱에 액세스하는 방법을 제어할 수 있습니다. 조건부 액세스 정책에서 정책을 트리거하는 이유(“when this happens”)에 대한 응답(“do this”)을 정의합니다. 
 
-- "**When this happens**"는 **조건 문**이라고 합니다.
+![제어](./media/active-directory-conditional-access-controls/10.png)
 
-- "**Then do this**"는 **제어 문**이라고 합니다.
 
-![제어](./media/active-directory-conditional-access-controls/11.png)
+조건부 액세스의 컨텍스트에서, 
+
+- “**When this happens**”는 **조건**이라고 합니다.
+
+- “**Then do this**”는 **액세스 제어**라고 합니다.
+
 
 조건 문과 제어 문의 조합은 조건부 액세스 정책을 나타냅니다.
 
-![제어](./media/active-directory-conditional-access-controls/12.png)
+![제어](./media/active-directory-conditional-access-controls/61.png)
 
 각 컨트롤은 로그인하는 사용자 또는 시스템에 의해 충족되어야 하는 요구 사항 또는 사용자가 로그인한 후 수행할 수 있는 작업에 대한 제한입니다. 
 
