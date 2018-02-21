@@ -93,6 +93,8 @@
         - name: Reliable Services
           href: service-fabric-reliable-services-introduction.md
           items:
+            - name: 복제 및 인스턴스 수명 주기
+              href: service-fabric-concepts-replica-lifecycle.md
             - name: 'Reliable Services 수명 주기 - C#'
               href: service-fabric-reliable-services-lifecycle.md
             - name: Reliable Services 수명 주기 - Java
@@ -144,8 +146,6 @@
           href: service-fabric-concepts-scalability.md
         - name: 서비스 가용성
           href: service-fabric-availability-services.md
-        - name: 복제 및 인스턴스 수명 주기
-          href: service-fabric-concepts-replica-lifecycle.md
         - name: Reconfiguration
           href: service-fabric-concepts-reconfiguration.md
         - name: 서비스 통신

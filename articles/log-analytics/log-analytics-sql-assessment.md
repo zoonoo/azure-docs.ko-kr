@@ -3,7 +3,7 @@ title: "Azure Log Analytics를 사용하여 SQL Server 환경 최적화 | Micros
 description: "Azure Log Analytics에서 SQL Health Check 솔루션을 사용하여 일정한 간격으로 환경의 위험 및 상태를 평가할 수 있습니다."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: e297eb57-1718-4cfe-a241-b9e84b2c42ac
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
-ms.author: magoedte;banders
+ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 09fed11830bbbce23f7098050568d68a3b3bebec
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 5da04e9479ebd6cec886a8c5ca38d040aec2758d
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-log-analytics"></a>Log Analytics에서 SQL Server Health Check 솔루션을 사용하여 사용자 SQL 환경 최적화
 
@@ -43,7 +43,7 @@ SQL Health Check 솔루션을 사용하여 일정한 간격으로 서버 환경�
 
 * SQL Health Check 솔루션을 사용하려면 MMA(Microsoft Monitoring Agent)가 설치된 각 컴퓨터에 지원되는 버전의 .NET Framework 4를 설치해야 합니다.  MMA 에이전트는 System Center 2016 - Operations Manager, Operations Manager 2012 R2 및 Log Analytics 서비스에서 사용됩니다.  
 * 이 솔루션은 SQL Server 2012, 2014 및 2016 버전을 지원합니다.
-* Azure Marketplace로부터 SQL Health Check 솔루션을 추가하기 위한 Azure Portal의 Log Analytics 작업 공간  솔루션을 설치하기 위해서는 사용자가 Azure 구독의 관리자 또는 참가자여야 합니다. 
+* Azure Marketplace로부터 SQL Health Check 솔루션을 추가하기 위한 Azure Portal의 Log Analytics 작업 공간  솔루션을 설치하기 위해서는 사용자가 Azure 구독의 관리자 또는 참가자여야 합니다.
 
   > [!NOTE]
   > 솔루션을 추가하면 에이전트가 있는 서버에 AdvisorAssessment.exe 파일이 추가됩니다. 구성 데이터가 판독되고 처리를 위해 클라우드의 Log Analytics 서비스로 전송됩니다. 논리는 수신된 데이터에 적용되며 클라우드 서비스는 데이터를 기록합니다.
@@ -61,12 +61,12 @@ Operations Manager 관리 그룹에 보고하는 에이전트는 데이터를 �
 SQL Server를 Operations Manager에서 모니터링하는 경우 Operations Manager 실행 계정을 구성해야 합니다. 자세한 내용은 아래의 [Log Analytics용 Operations Manager 실행 계정](#operations-manager-run-as-accounts-for-log-analytics)을 참조하세요.
 
 ## <a name="sql-health-check-data-collection-details"></a>SQL Health Check 데이터 수집 세부 정보
-SQL Health Check는 사용자가 사용하도록 설정한 에이전트를 통해 다음과 같은 소스에서 데이터를 수집합니다. 
+SQL Health Check는 사용자가 사용하도록 설정한 에이전트를 통해 다음과 같은 소스에서 데이터를 수집합니다.
 
-* WMI(Windows Management Instrumentation) 
-* 레지스트리 
+* WMI(Windows Management Instrumentation)
+* 레지스트리
 * 성능 카운터
-* SQL Server 동적 관리 뷰 결과 
+* SQL Server 동적 관리 뷰 결과
 
 데이터는 SQL Server에서 수집되고 7일 마다 Log Analytics에 전달됩니다.
 
@@ -163,10 +163,10 @@ Log Analytics에서 평가 솔루션을 사용하려면 먼저 솔루션이 설�
 인프라에 대한 요약된 규정 준수 평가를 본 다음 세부 권장 사항을 확인합니다.
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>주요 영역에 대한 권장 사항을 보고 수정 작업을 수행하려면
-1. [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다. 
+1. [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
 2. Azure Portal의 왼쪽 아래 모서리에 있는 **추가 서비스**를 클릭합니다. 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Log Analytics**를 선택합니다.
 3. Log Analytics 구독 창에서 작업 영역을 선택한 다음 **개요** 타일을 선택합니다.  
-4. **개요** 페이지에서 **SQL Health Check** 타일을 클릭합니다. 
+4. **개요** 페이지에서 **SQL Health Check** 타일을 클릭합니다.
 5. **상태 검사** 페이지에서, 주요 영역 블레이드 중 하나에 있는 요약 정보를 검토한 다음 하나를 클릭하여 해당 주요 영역에 대한 권장 사항을 봅니다.
 6. 주요 영역 페이지에서 사용자 환경에 대해 우선순위가 지정된 권장 사항을 볼 수 있습니다. 권장하는 이유에 대한 세부 정보를 보려면 **영향을 받는 개체** 아래에서 해당 권장 사항을 클릭합니다.<br><br> ![SQL Health Check 권장 사항의 이미지](./media/log-analytics-sql-assessment/sql-healthcheck-dashboard-02.png)<br>
 7. **권장 조치**에 제안된 올바른 조치를 수행할 수 있습니다. 항목의 주소가 지정되면, 이후 평가는 수행된 권장 조치 및 늘어난 규정 준수 점수를 기록합니다. 수정된 항목은 **전달된 개체**로 나타납니다.
@@ -174,7 +174,7 @@ Log Analytics에서 평가 솔루션을 사용하려면 먼저 솔루션이 설�
 ## <a name="ignore-recommendations"></a>권장 사항 무시
 무시하려는 권장 사항이 있는 경우 Log Analytics에서 평가 결과에 권장 사항이 표시되는 것을 방지하는 데 사용할 텍스트 파일을 만들 수 있습니다.
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ### <a name="to-identify-recommendations-that-you-will-ignore"></a>무시할 권장 사항을 식별하려면
 1. Azure Portal에서 선택한 작업 영역에 대한 Log Analytics 작업 영역 페이지에서 **로그 검색** 타일을 클릭합니다.

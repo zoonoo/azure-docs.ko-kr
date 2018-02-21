@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: bradsev;
-ms.openlocfilehash: df1124ddb436f0cfeec8f4ed9728fa15278b9325
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 9bae3971f438659c121bfc18a23746a016e5ef97
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="predict-twitter-sentiment-with-word-embeddings-by-using-the-team-data-science-process"></a>Team Data Science Process를 사용하여 단어 포함으로 Twitter 감정 예측
 
@@ -125,13 +125,13 @@ SSWE 알고리즘에 대한 자세한 내용은 Duyu Tang 등이 발표한 논�
 SSWE 기능이 있는 그라데이션 부스팅 모델은 AUC(곡선 아래 면적) 메트릭을 사용하여 모델을 비교할 때 최상의 성능을 제공합니다.
 
 
-## <a name="deploymenthttpsgithubcomazuremachinelearningsamples-twittersentimentpredictiontreemastercode03deployment"></a>[배포웹사이트를](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction/tree/master/code/03_deployment)
+## <a name="deploymenthttpsgithubcomazuremachinelearningsamples-twittersentimentpredictiontreemastercode03deployment"></a>[배포](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction/tree/master/code/03_deployment)
 
 마지막 단계는 Azure Container Service의 클러스터에 있는 웹 서비스에 학습된 감정 예측 모델을 배포하는 것입니다. 이 샘플에서는 SSWE 포함 알고리즘이 있는 그라데이션 부스팅 모델을 학습된 모델로 사용합니다. 운영화 환경에서는 다음 그림과 같이 클러스터의 Docker 및 Kubernetes를 프로비전하여 웹 서비스 배포를 관리합니다. 
 
 ![Kubernetes 대시보드](./media/predict-twitter-sentiment/kubernetes-dashboard.PNG)
 
-운영화 프로세스에 대한 자세한 내용은 [웹 서비스로 Azure Machine Learning 모델 배포](https://docs.microsoft.com/azure/machine-learning/preview/model-management-service-deploy)를 참조하세요.
+운영화 프로세스에 대한 자세한 내용은 [웹 서비스로 Azure Machine Learning 모델 배포](../preview/model-management-service-deploy.md)를 참조하세요.
 
 ## <a name="conclusion"></a>결론
 
@@ -143,8 +143,8 @@ SSWE 기능이 있는 그라데이션 부스팅 모델은 AUC(곡선 아래 면�
 * [Team Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/overview) 
 * [Azure Machine Learning에서 TDSP(Team Data Science Process)를 사용하는 방법](https://aka.ms/how-to-use-tdsp-in-aml)
 * [Azure Machine Learning용 TDSP 프로젝트 템플릿](https://aka.ms/tdspamlgithubrepo)
-* [Azure Machine Learning Workbench](https://docs.microsoft.com/azure/machine-learning/preview/)
+* [Azure Machine Learning Workbench](../preview/index.yml)
 * [UCI ML 리포지토리의 미국 소득 데이터 집합](https://archive.ics.uci.edu/ml/datasets/adult)
-* [TDSP 템플릿을 사용하여 생명 공학 엔터티 인식](https://docs.microsoft.com/azure/machine-learning/preview/scenario-tdsp-biomedical-recognition)
+* [TDSP 템플릿을 사용하여 생명 공학 엔터티 인식](../preview/scenario-tdsp-biomedical-recognition.md)
 * [Mikolov, Tomas 외 공저, "단어와 구문의 분산된 표현 및 합성성 - 신경 정보 처리 시스템의 발전" 2013.](https://arxiv.org/abs/1310.4546)
 * [Tang, Duyu 외 공저, "Twitter 감정 분류에 대한 감정 관련 단어 포함 학습" ACL (1). 2014.](http://www.aclweb.org/anthology/P14-1146)

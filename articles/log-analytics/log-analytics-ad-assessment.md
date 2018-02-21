@@ -3,7 +3,7 @@ title: "Azure Log Analytics를 사용하여 Active Directory 환경 최적화 | 
 description: "Active Directory Health Check 솔루션을 사용하여 일정한 간격으로 환경의 위험 및 상태를 평가할 수 있습니다."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: 81eb41b8-eb62-4eb2-9f7b-fde5c89c9b47
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2017
-ms.author: magoedte;banders
+ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a8f6cfc678d0b6443ac1aa440941eb2b5c664564
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: f026c605b84c5f2b6420e975a06d7c02227efbd9
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-log-analytics"></a>Log Analytics에서 Active Directory Health Check 솔루션을 사용하여 사용자의 Active Directory 환경 최적화
 
@@ -41,7 +41,7 @@ Active Directory Health Check 솔루션을 사용하여 일정한 간격으로 �
 
 ## <a name="prerequisites"></a>필수 조건
 
-* Active Directory Health Check 솔루션을 사용하려면 MMA(Microsoft Monitoring Agent)가 설치된 각 컴퓨터에 지원되는 버전의 .NET Framework 4.5.2 이상을 설치해야 합니다.  MMA 에이전트는 System Center 2016 - Operations Manager, Operations Manager 2012 R2 및 Log Analytics 서비스에서 사용됩니다. 
+* Active Directory Health Check 솔루션을 사용하려면 MMA(Microsoft Monitoring Agent)가 설치된 각 컴퓨터에 지원되는 버전의 .NET Framework 4.5.2 이상을 설치해야 합니다.  MMA 에이전트는 System Center 2016 - Operations Manager, Operations Manager 2012 R2 및 Log Analytics 서비스에서 사용됩니다.
 * 이 솔루션은 Windows Server 2008 및 2008 R2, Windows Server 2012 및 2012 R2 및 Windows Server 2016을 실행하는 도메인 컨트롤러를 지원합니다.
 * Azure Marketplace로부터 Active Directory Health Check 솔루션을 추가하기 위한 Azure Portal의 Log Analytics 작업 공간  추가 구성은 필요 없습니다.
 
@@ -62,13 +62,13 @@ Operations Manager 관리 그룹에 보고하는 도메인 컨트롤러의 에�
 
 Active Directory Health Check는 사용자가 사용하도록 설정한 에이전트를 통해 다음과 같은 소스에서 데이터를 수집합니다.
 
-- 레지스트리 
-- LDAP 
+- 레지스트리
+- LDAP
 - .NET Framework
-- 이벤트 로그 
+- 이벤트 로그
 - ADSI(Active Directory 서비스 인터페이스)
 - Windows PowerShell
-- 파일 데이터 
+- 파일 데이터
 - WMI(Windows Management Instrumentation)
 - DCDIAG 도구 API
 - NTFRS(파일 복제 서비스) API
@@ -109,7 +109,7 @@ Active Directory Health Check는 사용자가 사용하도록 설정한 에이�
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>주요 영역에 대한 권장 사항을 보고 수정 작업을 수행하려면
 3. Azure Portal에서 Log Analytics 작업 영역의 **개요** 타일을 클릭합니다.
-4. **개요** 페이지에서 **Active Directory 상태 검사** 타일을 클릭합니다. 
+4. **개요** 페이지에서 **Active Directory 상태 검사** 타일을 클릭합니다.
 5. **상태 검사** 페이지에서, 주요 영역 블레이드 중 하나에 있는 요약 정보를 검토한 다음 하나를 클릭하여 해당 주요 영역에 대한 권장 사항을 봅니다.
 6. 주요 영역 페이지에서 사용자 환경에 대해 우선순위가 지정된 권장 사항을 볼 수 있습니다. 권장하는 이유에 대한 세부 정보를 보려면 **영향을 받는 개체** 아래에서 해당 권장 사항을 클릭합니다.<br><br> ![Health Check 권장 사항의 이미지](./media/log-analytics-ad-assessment/ad-healthcheck-dashboard-02.png)
 7. **권장 조치**에 제안된 올바른 조치를 수행할 수 있습니다. 항목이 처리되면, 이후 평가는 수행된 권장 조치 및 늘어난 규정 준수 점수를 기록합니다. 수정된 항목은 **전달된 개체**로 나타납니다.
@@ -133,7 +133,7 @@ Active Directory Health Check는 사용자가 사용하도록 설정한 에이�
 2. Log Analytics에서 무시할 각 권장 사항에 대한 RecommendationId를 별도의 줄에 붙여 넣거나 입력한 다음 파일을 저장하고 닫습니다.
 3. Log Analytics에서 권장 사항을 무시할 각 컴퓨터의 다음 폴더에 파일을 둡니다.
    * Microsoft Monitoring Agent(직접 또는 Operations Manager를 통해 연결됨)가 있는 컴퓨터 - *SystemDrive*:\Program Files\Microsoft Monitoring Agent\Agent
-   * Operations Manager 2012 R2 관리 서버 - *SystemDrive*:\Program Files\Microsoft System Center 2012 R2\Operations Manager\Server 
+   * Operations Manager 2012 R2 관리 서버 - *SystemDrive*:\Program Files\Microsoft System Center 2012 R2\Operations Manager\Server
    * Operations Manager 2016 관리 서버 - *SystemDrive*:\Program Files\Microsoft System Center 2016\Operations Manager\Server
 
 ### <a name="to-verify-that-recommendations-are-ignored"></a>권장 사항이 무시되었는지 확인하려면

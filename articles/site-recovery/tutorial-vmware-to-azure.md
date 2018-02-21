@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 01/15/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 8acc8deff8b635c97e8722d65a728aebf0e49bb3
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 3d9248d2501c7fea0492bad2687b6bdfb0b903e8
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Azure에 온-프레미스 VMware VM 재해 복구 설정
 
@@ -38,7 +38,7 @@ ms.lasthandoff: 01/17/2018
 1. **Recovery Services 자격 증명 모음**에서 자격 증명 모음 이름 **ContosoVMVault**를 클릭합니다.
 2. **시작**에서 Site Recovery를 클릭합니다. 그런 다음 **인프라 준비**를 클릭합니다.
 3. **보호 목표** > **컴퓨터가 있는 위치**에서 **온-프레미스**를 선택합니다.
-4. **컴퓨터를 복제하려는 위치에서 **대상 Azure**를 선택합니다.
+4. **컴퓨터를 복제할 위치를 선택하세요.**에서 **Azure**를 선택합니다.
 5. **컴퓨터가 가상화된 경우**에서 **예, VMware vSphere 하이퍼바이저 사용**을 선택합니다. 그런 후 **OK**를 클릭합니다.
 
 ## <a name="set-up-the-source-environment"></a>원본 환경 설정
@@ -104,7 +104,7 @@ ms.lasthandoff: 01/17/2018
 1. 구성 서버 관리 마법사 > **연결 설정**에서 복제 트래픽을 수신할 NIC를 선택합니다. 그런 다음 **Save**를 클릭합니다. 구성된 후에는 이 설정을 변경할 수 없습니다.
 2. **Recovery Services 자격 증명 모음 선택**에서 Azure 구독을 선택하고 관련 리소스 그룹 및 자격 증명 모음을 선택합니다.
 3. **타사 소프트웨어 설치**에서 사용권 계약에 동의하고 **다운로드 및 설치**를 클릭하여 MySQL 서버를 설치합니다.
-4. **VMware PowerLCI 설치**를 클릭합니다. 이렇게 하기 전에 모든 브라우저 창을 닫아야 합니다. 그런 후 **계속**을 클릭합니다.
+4. **VMware PowerCLI 설치**를 클릭합니다. 이렇게 하기 전에 모든 브라우저 창을 닫아야 합니다. 그런 후 **계속**을 클릭합니다.
 5. 계속하기 전에 **어플라이언스 구성 유효성 검사**에서 필수 구성 요소가 확인됩니다.
 6. **vCenter Server/vSphere ESXi 서버 구성**에서 복제하려는 VM이 있는 vCenter 서버의 FQDN 또는 IP 주소, 또는 vSphere 호스트를 지정합니다. 서버가 수신 대기하는 포트를 지정하고, 자격 증명 모음에 있는 VMware 서버에 사용할 이름을 지정합니다.
 7. 구성 서버가 VMware 서버에 연결하는 데 사용할 자격 증명을 지정합니다. Site Recovery는 이러한 자격 증명을 사용하여 복제에 사용 가능한 VMware VM을 자동으로 검색합니다. **추가**를 클릭한 후 **계속**을 클릭합니다.

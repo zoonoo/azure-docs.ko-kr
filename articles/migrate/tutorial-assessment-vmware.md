@@ -6,11 +6,12 @@ ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 01/08/2018
 ms.author: raynew
-ms.openlocfilehash: a5019d3f729f2efbd01fca021b0089c7f99b0014
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.custom: mvc
+ms.openlocfilehash: bbcfe95f5427681f8d55d647b102d35fc37f15ee
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Azure로의 마이그레이션에 대한 온-프레미스 VMware VM 검색 및 평가
 
@@ -27,7 +28,7 @@ ms.lasthandoff: 01/08/2018
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/pricing/free-trial/)을 만듭니다.
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 - **VMware**: 마이그레이션하려는 VM은 버전 5.5, 6.0 또는 6.5를 실행하는 vCenter Server에서 관리해야 합니다. 또한 수집기 VM을 배포하려면 5.0 이상을 실행하는 ESXi 호스트가 하나 필요합니다. 
  
@@ -76,15 +77,15 @@ Azure Migrate는 수집기 어플라이언스로 알려진 온-프레미스 VM�
     OVA 버전 1.0.8.49의 경우
     **알고리즘** | **해시 값**
     --- | ---
-    MD5 | 8779eea842a1ac465942295c988ac0c7 
-    SHA1 | c136c52a0f785e1fd98865e16479dd103704887d
-    SHA256 | 5143b1144836f01dd4eaf84ff94bc1d2c53f51ad04b1ca43ade0d14a527ac3f9
+    MD5 | cefd96394198b92870d650c975dbf3b8 
+    SHA1 | 4367a1801cf79104b8cd801e4d17b70596481d6f
+    SHA256 | fda59f076f1d7bd3ebf53c53d1691cc140c7ed54261d0dc4ed0b14d7efef0ed9
 
     OVA 버전 1.0.8.40의 경우:
 
     **알고리즘** | **해시 값**
     --- | ---
-    MD5 |afbae5a2e7142829659c21fd8a9def3f
+    MD5 | afbae5a2e7142829659c21fd8a9def3f
     SHA1 | 1751849c1d709cdaef0b02a7350834a754b0e71d
     SHA256 | d093a940aebf6afdc6f616626049e97b1f9f70742a094511277c5f59eacc41ad
 

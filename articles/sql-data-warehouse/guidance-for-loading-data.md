@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 12/13/2017
 ms.author: barbkess
-ms.openlocfilehash: 80974f7660696887783e97b674e2d9921fe2feac
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 277766c22e25945fb314aa51017a72f415cbab46
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="best-practices-for-loading-data-into-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에 데이터를 로드하는 모범 사례
 Azure SQL Data Warehouse를 사용하여 데이터를 로드하기 위한 권장 사항 및 성능 최적화입니다. 
@@ -120,15 +120,19 @@ create statistics [YearMeasured] on [Customer_Speed] ([YearMeasured]);
 
 Azure Storage 계정 키를 회전하려면:
 
-1. 보조 저장소 액세스 키를 기반으로 두 번째 데이터베이스 범위 자격 증명을 만듭니다.
-2. 이 새 자격 증명을 기반으로 하는 두 번째 외부 데이터 원본을 만듭니다.
-3. 새 외부 데이터 원본을 가리키도록 새 외부 테이블을 삭제하고 만듭니다. 
+키가 변경된 각 저장소 계정에 대해 [ALTER DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/alter-database-scoped-credential-transact-sql.md)을 실행합니다.
 
-외부 테이블을 새 데이터 원본으로 마이그레이션한 후에 다음 정리 작업을 수행합니다.
+예:
 
-1. 첫 번째 외부 데이터 원본을 삭제합니다.
-2. 기본 저장소 액세스 키를 기반으로 하는 첫 번째 데이터베이스 범위 자격 증명을 삭제합니다.
-3. Azure에 로그인하고 다음 회전에 사용할 준비가 되도록 기본 액세스 키를 다시 생성합니다.
+원래 키를 만드는 경우
+
+CREATE DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SECRET = 'key1' 
+
+키 1에서 키 2로 키를 회전하는 경우
+
+ALTER DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SECRET = 'key2' 
+
+기본 외부 데이터 원본에 대한 다른 변경은 필요하지 않습니다.
 
 
 ## <a name="next-steps"></a>다음 단계

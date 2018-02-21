@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/12/2018
 ms.author: jingwang
-ms.openlocfilehash: 93df74da6e9db1bd03885179cd3917205ab3b4ee
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: ddc299d0a292ba17624aa3d0617e420a82f2abf3
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>변경 내용 추적 정보를 사용하여 Azure SQL Database에서 Azure Blob Storage로 데이터 증분 로드 
 이 자습서에서는 원본 Azure SQL 데이터베이스의 **변경 내용 추적** 정보를 기반으로 Azure Blob 저장소에 델타 데이터를 로드하는 파이프라인이 있는 Azure 데이터 팩터리를 만듭니다.  
@@ -26,8 +26,8 @@ ms.lasthandoff: 01/23/2018
 
 > [!div class="checklist"]
 > * 원본 데이터 저장소를 준비합니다.
-> * 데이터 팩터리를 만듭니다.
-> * 연결된 서비스 만들기. 
+> * 데이터 팩터리 만들기
+> * 연결된 서비스 만들기 
 > * 원본, 싱크 및 변경 내용 추적 데이터 집합을 만듭니다.
 > * 전체 복사 파이프라인을 생성, 실행 및 모니터링합니다.
 > * 원본 테이블의 데이터를 추가 또는 업데이트합니다.
@@ -151,6 +151,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="create-a-data-factory"></a>데이터 팩터리를 만듭니다.
 
+1. **Microsoft Edge** 또는 **Google Chrome** 웹 브라우저를 시작합니다. 현재 Data Factory UI는 Microsoft Edge 및 Google Chrome 웹 브라우저에서만 지원됩니다.
 1. 왼쪽 메뉴에서 **새로 만들기**를 클릭하고 **데이터 + 분석**, **Data Factory**를 차례로 클릭합니다. 
    
    ![새로 만들기->DataFactory](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-azure-data-factory-menu.png)
@@ -360,7 +361,7 @@ SET [Age] = '10', [name]='update' where [PersonID] = 1
 2. 파이프라인을 구성하기 위한 새 탭이 표시됩니다. 또한 트리 뷰에도 파이프라인이 표시됩니다. **속성** 창에서 파이프라인 이름을 **IncrementalCopyPipeline**으로 변경합니다.
 
     ![파이프라인 이름](./media/tutorial-incremental-copy-change-tracking-feature-portal/incremental-copy-pipeline-name.png)
-3. **활동** 도구 상자에서 **SQL Database**를 펼치고, **조회** 활동을 파이프라인 디자이너 화면으로 끌어서 놓습니다. 활동 이름을 **LookupLastChangeTrackingVersionActivity**로 설정합니다. 이 활동은 **table_store_ChangeTracking_version** 테이블에 저장된 마지막 복사 작업에서 사용된 변경 내용 추적 버전을 가져옵니다.
+3. **활동** 도구 상자에서 **일반**을 펼치고, **조회** 활동을 파이프라인 디자이너 화면으로 끌어서 놓습니다. 활동 이름을 **LookupLastChangeTrackingVersionActivity**로 설정합니다. 이 활동은 **table_store_ChangeTracking_version** 테이블에 저장된 마지막 복사 작업에서 사용된 변경 내용 추적 버전을 가져옵니다.
 
     ![조회 활동 - 이름](./media/tutorial-incremental-copy-change-tracking-feature-portal/first-lookup-activity-name.png)
 4. **속성** 창에서 **설정**으로 전환하고, **원본 데이터 집합** 필드에 대해 **ChangeTrackingDataset**를 선택합니다. 
@@ -408,12 +409,13 @@ SET [Age] = '10', [name]='update' where [PersonID] = 1
     ![저장 프로시저 활동 - SQL 계정](./media/tutorial-incremental-copy-change-tracking-feature-portal/sql-account-tab.png)
 13. **저장 프로시저** 탭으로 전환하고 다음 단계를 수행합니다. 
 
-    1. **저장 프로시저 이름**에 대해 **Update_ChangeTracking_Version**을 입력합니다.  
-    2. **저장 프로시저 매개 변수** 섹션에서 **+ 새로 만들기** 단추를 사용하여 다음 두 매개 변수를 추가합니다.
+    1. **저장 프로시저 이름**에 대해 **Update_ChangeTracking_Version**을 선택합니다.  
+    2. **가져오기 매개 변수**를 선택합니다. 
+    3. **저장 프로시저 매개 변수** 섹션에서 매개 변수에 대해 다음 값을 지정합니다. 
 
         | Name | 형식 | 값 | 
         | ---- | ---- | ----- | 
-        | CurrentTrackingVersion | INT64 | @{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion} | 
+        | CurrentTrackingVersion | Int64 | @{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion} | 
         | TableName | 문자열 | @{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.TableName} | 
     
         ![저장 프로시저 활동 - 매개 변수](./media/tutorial-incremental-copy-change-tracking-feature-portal/stored-procedure-parameters.png)
@@ -423,14 +425,15 @@ SET [Age] = '10', [name]='update' where [PersonID] = 1
 15. 도구 모음에서 **유효성 검사**를 클릭합니다. 유효성 검사 오류가 없는지 확인합니다. **>>**를 클릭하여 **파이프라인 유효성 검사 보고서** 창을 닫습니다. 
 
     ![유효성 검사 단추](./media/tutorial-incremental-copy-change-tracking-feature-portal/validate-button.png)
-16.  **게시** 단추를 클릭하여 항목(연결된 서비스, 데이터 집합 및 파이프라인)을 Data Factory 서비스에 게시합니다. **게시 성공** 메시지가 표시될 때까지 기다립니다. 
+16.  **모두 게시** 단추를 클릭하여 엔터티(연결된 서비스, 데이터 집합 및 파이프라인)를 Data Factory 서비스에 게시합니다. **게시 성공** 메시지가 표시될 때까지 기다립니다. 
 
         ![게시 단추](./media/tutorial-incremental-copy-change-tracking-feature-portal/publish-button-2.png)    
 
 ### <a name="run-the-incremental-copy-pipeline"></a>증분 복사 파이프라인 실행
-파이프라인에 대한 도구 모음에서 **트리거**, **지금 트리거**를 차례로 클릭합니다. 
+1. 파이프라인에 대한 도구 모음에서 **트리거**, **지금 트리거**를 차례로 클릭합니다. 
 
-![지금 트리거 메뉴](./media/tutorial-incremental-copy-change-tracking-feature-portal/trigger-now-menu-2.png)
+    ![지금 트리거 메뉴](./media/tutorial-incremental-copy-change-tracking-feature-portal/trigger-now-menu-2.png)
+2. **파이프라인 실행** 창에서 **마침**을 선택합니다.
 
 ### <a name="monitor-the-incremental-copy-pipeline"></a>증분 복사 파이프라인 모니터링
 1. 왼쪽의 **모니터** 탭을 클릭합니다. 파이프라인 실행 및 해당 상태가 목록에 표시됩니다. 목록을 새로 고치려면 **새로 고침**을 클릭합니다. **작업** 열의 링크를 사용하면 파이프라인 실행과 연결된 활동 실행을 보고 파이프라인을 다시 실행할 수 있습니다. 

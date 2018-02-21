@@ -10,11 +10,11 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 437c45891d1d20f5fadca8a58954185a3aef56ac
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 26f5acf369dd80d7877ab760806e0e08a49cfe6d
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>Azure Application Insights를 사용하여 성능 문제 찾기 및 진단
 
@@ -74,7 +74,7 @@ Application Insights는 응용 프로그램에서 다른 작업에 대한 성능
 
 6.  지금까지 수집한 정보는 성능 저하가 있다는 것만을 확인하지만 근본 원인에 조금 접근합니다.  **프로파일러**는 작업에 대해 실행되는 실제 코드 및 각 단계에 필요한 시간을 표시하여 이를 돕습니다. 일부 작업은 프로파일러가 주기적으로 실행되므로 추적이 없을 수 있습니다.  시간이 지남에 따라 더 많은 작업에 추적이 있어야 합니다.  작업에 대한 프로파일러를 시작하려면 **프로파일러 추적**을 클릭합니다.
 5.  추적은 각 작업에 대한 개별 이벤트를 보여주므로 전반적인 작업의 기간에 대한 근본 원인을 진단할 수 있습니다.  가장 긴 기간을 포함하는 상위 예 중 하나를 클릭합니다.
-6.  **실행 부하 과다 경로 표시**를 클릭하여 작업의 총 기간에 가장 큰 영향을 주는 이벤트의 특정 경로를 강조 표시합니다.  이 예에서는 가장 느린 호출이 *FabrikamFiberAzureStorage.GetStorageTableData* 메서드에서 비롯되었음을 확인할 수 있습니다. 대부분의 시간을 사용하는 파트는 *CloudTable.CreateIfNotExist* 메서드입니다. 함수가 호출될 때마다 이 코드 줄을 실행하면 불필요한 네트워크 호출 및 CPU 리소스가 사용됩니다. 코드를 수정하는 가장 좋은 방법은 한 번 실행되는 일부 시작 메서드에만 이 줄을 배치하는 것입니다. 
+6.  **실행 부하 과다 경로 표시**를 클릭하여 작업의 총 기간에 가장 큰 영향을 주는 이벤트의 특정 경로를 강조 표시합니다.  이 예에서는 가장 느린 호출이 *FabrikamFiberAzureStorage.GetStorageTableData* 메서드에서 비롯되었음을 확인할 수 있습니다. 대부분의 시간을 사용하는 파트는 *CloudTable.CreateIfNotExist* 메서드입니다. 함수가 호출될 때마다 이 코드 줄을 실행하면 불필요한 네트워크 호출 및 CPU 리소스가 사용됩니다. 코드를 수정하는 가장 좋은 방법은 한 번만 실행하는 일부 시작 메서드에 이 줄을 배치하는 것입니다. 
 
     ![프로파일러 세부 정보](media/app-insights-tutorial-performance/profiler-details.png)
 

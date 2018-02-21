@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/20/2018
 ms.author: jingwang
-ms.openlocfilehash: c79bce401b0f1d67d7955f4c97a5dfac5008be0d
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 11dedc8866fcc0239fd4a34b7ed73af34c6d5a4e
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>SQL Server의 여러 테이블에서 Azure SQL 데이터베이스로 데이터 증분 로드
 이 자습서에서는 델타 데이터를 온-프레미스 SQL Server의 여러 테이블에서 Azure SQL 데이터베이스로 로드하는 파이프라인이 있는 Azure 데이터 팩터리를 만듭니다.    
@@ -25,13 +25,13 @@ ms.lasthandoff: 01/23/2018
 이 자습서에서 수행하는 단계는 다음과 같습니다.
 
 > [!div class="checklist"]
-> * 원본 및 대상 데이터 저장소를 준비합니다.
-> * 데이터 팩터리를 만듭니다.
+> * 원본 및 대상 데이터 저장소 준비
+> * 데이터 팩터리 만들기
 > * 자체 호스팅 통합 런타임을 만듭니다.
 > * Integration Runtime을 설치합니다. 
-> * 연결된 서비스 만들기. 
+> * 연결된 서비스 만들기 
 > * 원본, 싱크 및 워터마크 데이터 집합을 만듭니다.
-> * 파이프라인을 만들고 실행하고 모니터링합니다.
+> * 파이프라인 만들기, 실행 및 모니터링
 > * 결과를 검토합니다.
 > * 원본 테이블의 데이터를 추가 또는 업데이트합니다.
 > * 파이프 라인을 다시 실행하고 모니터링합니다.
@@ -53,7 +53,7 @@ ms.lasthandoff: 01/23/2018
 
 3. **다음 작업을 사용하여 파이프라인을 만듭니다.** 
     
-    a. 파이프라인에 매개 변수로 전달되는 원본 테이블 이름 목록을 반복하는 ForEach 작업을 만듭니다. 각 원본 테이블에 해당 테이블에 대한 델타 로드를 수행하는 다음 작업을 호출합니다.
+    a. 파이프라인에 매개 변수로 전달되는 원본 테이블 이름 목록을 반복하는 ForEach 작업을 만듭니다. 이 작업은 각 원본 테이블에 대해 다음 작업을 호출하여 해당 테이블의 델타 로딩을 수행합니다.
 
     나. 두 가지 조회 작업을 만듭니다. 첫 번째 조회 작업을 사용하여 마지막 워터마크 값을 검색합니다. 두 번째 조회 작업을 사용하여 새 워터마크 값을 검색합니다. 이러한 워터마크 값은 복사 작업에 전달됩니다.
 
@@ -135,7 +135,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
     ```
 
-### <a name="create-another-table-in-the-sql-database-to-store-the-high-watermark-value"></a>상위 워터마크 값을 저장하기 위해 SQL 데이터베이스에 다른 테이블 만들기
+### <a name="create-another-table-in-the-azure-sql-database-to-store-the-high-watermark-value"></a>상위 워터마크 값을 저장하기 위해 Azure SQL 데이터베이스에 또 다른 테이블 만들기
 1. SQL 데이터베이스에 대해 다음 SQL 명령을 실행하여 워터마크 값을 저장할 `watermarktable` 테이블을 만듭니다. 
     
     ```sql
@@ -157,7 +157,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     
     ```
 
-### <a name="create-a-stored-procedure-in-the-sql-database"></a>SQL 데이터베이스에 저장 프로시저 만들기 
+### <a name="create-a-stored-procedure-in-the-azure-sql-database"></a>Azure SQL 데이터베이스에 저장 프로시저 만들기 
 
 다음 명령을 실행하여 SQL 데이터베이스에 저장 프로시저를 만듭니다. 이 저장 프로시저는 파이프라인을 실행이 끝날 때마다 워터마크 값을 업데이트합니다. 
 
@@ -175,7 +175,7 @@ END
 
 ```
 
-### <a name="create-data-types-and-additional-stored-procedures"></a>데이터 형식 및 추가 저장 프로시저 만들기
+### <a name="create-data-types-and-additional-stored-procedures-in-azure-sql-database"></a>Azure SQL 데이터베이스에 데이터 형식 및 추가 저장 프로시저 만들기
 다음 쿼리를 실행하여 SQL 데이터베이스에 두 개의 데이터 형식과 두 개의 저장 프로시저를 만듭니다. 원본 테이블의 데이터를 대상 테이블에 병합하는 데 사용됩니다.
 
 ```sql
@@ -228,6 +228,7 @@ END
 
 ## <a name="create-a-data-factory"></a>데이터 팩터리를 만듭니다.
 
+1. **Microsoft Edge** 또는 **Google Chrome** 웹 브라우저를 시작합니다. 현재 Data Factory UI는 Microsoft Edge 및 Google Chrome 웹 브라우저에서만 지원됩니다.
 1. 왼쪽 메뉴에서 **새로 만들기**를 클릭하고 **데이터 + 분석**, **Data Factory**를 차례로 클릭합니다. 
    
    ![새로 만들기->DataFactory](./media/tutorial-incremental-copy-multiple-tables-portal/new-azure-data-factory-menu.png)
@@ -396,7 +397,7 @@ END
 
        ![워터마크 데이터 집합 - 연결](./media/tutorial-incremental-copy-multiple-tables-portal/watermark-dataset-connection.png)
 
-## <a name="create-a-pipeline"></a>파이프라인을 만듭니다.
+## <a name="create-a-pipeline"></a>파이프라인 만들기
 파이프라인에서는 테이블 이름 목록을 매개 변수로 사용합니다. ForEach 작업은 테이블 이름 목록을 반복하고 다음 작업을 수행합니다. 
 
 1. 조회 작업을 사용하여 이전 워터마크 값을 검색합니다(초기 값 또는 마지막 반복에서 사용된 값).
@@ -422,7 +423,7 @@ END
     3. 매개 변수 **형식**에 대해 **Object**를 선택합니다.
 
     ![파이프라인 매개 변수](./media/tutorial-incremental-copy-multiple-tables-portal/pipeline-parameters.png) 
-4. **ForEach** 활동을 **활동** 도구 상자에서 파이프라인 디자이너 화면으로 끌어서 놓습니다. **속성** 창의 **일반** 탭에서 **IterateSQLTables**를 입력합니다. 
+4. **활동** 도구 상자에서 **반복 및 조건부**를 펼치고, **ForEach** 활동을 파이프라인 디자이너 화면으로 끌어서 놓습니다. **속성** 창의 **일반** 탭에서 **IterateSQLTables**를 입력합니다. 
 
     ![ForEach 활동 - 이름](./media/tutorial-incremental-copy-multiple-tables-portal/foreach-name.png)
 5. **속성** 창에서 **설정** 탭으로 전환하고 **항목**에 대해 `@pipeline().parameters.tableList`를 입력합니다. ForEach 작업은 테이블 목록을 반복하고 증분 복사 작업을 수행합니다. 
@@ -431,7 +432,7 @@ END
 6. 아직 선택되지 않은 경우 파이프라인에서 **ForEach** 활동을 선택합니다. **편집(연필 아이콘)** 단추를 클릭합니다.
 
     ![ForEach 활동 - 편집](./media/tutorial-incremental-copy-multiple-tables-portal/edit-foreach.png)
-7. **활동** 도구 상자에서 **조회** 활동을 끌어서 놓고 **이름**에 대해 **LookupOldWaterMarkActivity**를 입력합니다.
+7. **활동** 도구 상자에서 **일반**을 펼치고, **조회** 활동을 파이프라인 디자이너 화면으로 끌어서 놓고, **Name**에 대해 **LookupOldWaterMarkActivity**를 입력합니다.
 
     ![첫 번째 조회 활동 - 이름](./media/tutorial-incremental-copy-multiple-tables-portal/first-lookup-name.png)
 8. **속성** 창에서 **설정** 탭으로 전환하고 다음 단계를 수행합니다. 
@@ -498,7 +499,8 @@ END
 19. **저장 프로시저** 탭으로 전환하고 다음 단계를 수행합니다.
 
     1. **저장 프로시저 이름**에 `sp_write_watermark`를 입력합니다. 
-    2. **새로 만들기** 단추를 사용하여 다음 매개 변수를 추가합니다. 
+    2. **가져오기 매개 변수**를 선택합니다. 
+    3. 매개 변수에 대해 다음 값을 지정합니다. 
 
         | Name | 형식 | 값 | 
         | ---- | ---- | ----- |
@@ -545,7 +547,7 @@ END
 1. 왼쪽의 **모니터** 탭으로 전환합니다. **수동 트리거**로 트리거된 파이프라인 실행이 표시됩니다. **새로 고침** 단추를 클릭하여 목록을 새로 고칩니다. **작업** 열의 링크를 사용하면 파이프라인 실행과 연결된 활동 실행을 보고 파이프라인을 다시 실행할 수 있습니다. 
 
     ![파이프라인 실행](./media/tutorial-incremental-copy-multiple-tables-portal/pipeline-runs.png)
-2. **작업** 열에서 **활동 실행 보기** 링크를 클릭합니다. 선택한 파이프라인 실행과 연결된 활동 실행이 표시됩니다. 
+2. **작업** 열에서 **작업 실행 보기** 링크를 클릭합니다. 선택한 파이프라인 실행과 연결된 활동 실행이 표시됩니다. 
 
     ![작업 실행](./media/tutorial-incremental-copy-multiple-tables-portal/activity-runs.png)
 
@@ -647,7 +649,7 @@ VALUES
 1. 왼쪽의 **모니터** 탭으로 전환합니다. **수동 트리거**로 트리거된 파이프라인 실행이 표시됩니다. **새로 고침** 단추를 클릭하여 목록을 새로 고칩니다. **작업** 열의 링크를 사용하면 파이프라인 실행과 연결된 활동 실행을 보고 파이프라인을 다시 실행할 수 있습니다. 
 
     ![파이프라인 실행](./media/tutorial-incremental-copy-multiple-tables-portal/pipeline-runs.png)
-2. **작업** 열에서 **활동 실행 보기** 링크를 클릭합니다. 선택한 파이프라인 실행과 연결된 활동 실행이 표시됩니다. 
+2. **작업** 열에서 **작업 실행 보기** 링크를 클릭합니다. 선택한 파이프라인 실행과 연결된 활동 실행이 표시됩니다. 
 
     ![작업 실행](./media/tutorial-incremental-copy-multiple-tables-portal/activity-runs.png) 
 
@@ -715,13 +717,13 @@ project_table   2017-10-01 00:00:00.000
 이 자습서에서 다음 단계를 수행했습니다. 
 
 > [!div class="checklist"]
-> * 원본 및 대상 데이터 저장소를 준비합니다.
-> * 데이터 팩터리를 만듭니다.
+> * 원본 및 대상 데이터 저장소 준비
+> * 데이터 팩터리 만들기
 > * 자체 호스팅 IR(통합 런타임)을 만듭니다.
 > * Integration Runtime을 설치합니다.
-> * 연결된 서비스 만들기. 
+> * 연결된 서비스 만들기 
 > * 원본, 싱크 및 워터마크 데이터 집합을 만듭니다.
-> * 파이프라인을 만들고 실행하고 모니터링합니다.
+> * 파이프라인 만들기, 실행 및 모니터링
 > * 결과를 검토합니다.
 > * 원본 테이블의 데이터를 추가 또는 업데이트합니다.
 > * 파이프 라인을 다시 실행하고 모니터링합니다.

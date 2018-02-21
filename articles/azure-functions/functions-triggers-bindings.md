@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: a122271b5fdffd9db33a7dca5908e15f002041d7
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 90a192f58f0e4b285f7aece8a3555c08df051f38
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure Functions 트리거 및 바인딩 개념
 
@@ -483,6 +483,12 @@ C# 및 기타 .NET 언어에서는 *function.json* 및 특성의 바인딩과 �
 ## <a name="functionjson-file-schema"></a>function.json 파일 스키마
 
 *function.json* 파일 스키마는 [http://json.schemastore.org/function](http://json.schemastore.org/function)에서 제공됩니다.
+
+## <a name="handling-binding-errors"></a>바인딩 오류 처리
+
+[!INCLUDE [bindings errors intro](../../includes/functions-bindings-errors-intro.md)]
+
+함수에서 지원하는 다양한 서비스와 관련된 모든 오류 항목은 [Azure Functions 오류 처리](functions-bindings-error-pages.md) 개요 항목의 [바인딩 오류 코드](functions-bindings-error-pages.md#binding-error-codes) 섹션을 참조하세요.  
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -13,14 +13,15 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/17/2017
+ms.date: 01/21/2018
 ms.author: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 754ca6e5297c3be9166efa7a40a5ba3714911c99
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+experiment: 
+ms.openlocfilehash: 82f87447a2176dffd55dcf71155c389398f7d64c
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Azure Portal에서 첫 번째 Azure Function을 만듭니다.
 
@@ -30,9 +31,9 @@ Azure Functions를 사용하면 먼저 VM을 만들거나 웹 응용 프로그�
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="sign-in-to-azure"></a>Azure에 로그인
+## <a name="log-in-to-azure"></a>Azure에 로그인
 
-Azure Portal을 엽니다. 이 작업을 수행하려면 Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+Azure 계정으로 Azure Portal(<http://portal.azure.com>)에 로그인합니다.
 
 ## <a name="create-a-function-app"></a>함수 앱 만들기
 
@@ -64,7 +65,7 @@ Azure Portal을 엽니다. 이 작업을 수행하려면 Azure 계정을 사용�
 
 2. 함수 URL을 브라우저의 주소 표시줄에 붙여 넣습니다. `&name=<yourname>` 쿼리 문자열을 이 URL의 마지막에 추가하고 키보드에서 `Enter` 키를 눌러 요청을 실행합니다. 브라우저에 함수에서 반환한 응답이 표시될 것입니다.  
 
-    다음은 Edge 브라우저(다른 브라우저에는 XML 표시가 포함될 수 있음)의 응답 예입니다.
+    다음 예제에서는 Edge 브라우저의 응답을 보여 줍니다(표시된 XML은 다른 브라우저에도 포함될 수 있음).
 
     ![브라우저에 함수 응답.](./media/functions-create-first-azure-function/function-app-browser-testing.png)
 
@@ -76,7 +77,7 @@ Azure Portal을 엽니다. 이 작업을 수행하려면 Azure 계정을 사용�
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-[!INCLUDE [Clean up resources](../../includes/functions-quickstart-cleanup.md)]
+[!INCLUDE [Clean-up resources](../../includes/functions-quickstart-cleanup.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: juliako
-ms.openlocfilehash: 2743ef7e60371329bcad0090733eb8e40560c5f1
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: b32997f9a936b73a08b367ca69341da24f31f3a8
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="azure-media-services-community"></a>Azure Media Services 커뮤니티
 이 AMS(Azure Media Services) 커뮤니티 페이지에서는 AMS에 대한 업데이트를 받는 다양한 방법에 대해 설명합니다. 새 비디오 및 팟캐스트를 보고, 질문을 하고 피드백을 제공할 수도 있습니다.   
@@ -59,4 +59,6 @@ Azure Media Services 기본 전자 메일은 **amshelp@microsoft.com**입니다.
 | Azure Media Player |ampinfo@microsoft.com |
 | Azure 미디어 탐색기 |amse@microsoft.com |
 | Workflow Designer |mepd@microsoft.com |
+| 파일 스트리밍 및 패키징 |amsstreaming@microsoft.com |
+| 라이브 스트리밍 및 패키징 |amslived@microsoft.com |
 

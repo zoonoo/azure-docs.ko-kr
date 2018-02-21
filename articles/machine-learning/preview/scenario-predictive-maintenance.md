@@ -11,21 +11,21 @@ ms.workload: data-services
 ms.topic: article
 ms.custom: mvc
 ms.date: 10/05/2017
-ms.openlocfilehash: 0299e73aecca3b3e5714b37c8b0b776ec8561e29
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 21cf8201236224244e6ed34f91f9c5c601ab9a79
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="predictive-maintenance-real-world-scenario"></a>예측 유지 관리 실제 시나리오.
 
-예정되지 않은 장비 가동 중지 시간은 비즈니스에 큰 영향을 줄 수 있습니다. 따라서 비용 및 예기치 않은 가동 중지 시간을 최소화하여 사용량 및 성능을 최대화하고 현장 장비를 실행 상태로 유지하는 것이 중요합니다. 문제를 사전에 파악하므로 보다 비용 효율적인 방법으로 제한된 유지 관리 리소스를 할당하고 품질 및 공급망 프로세스를 개선할 수 있도록 합니다. 
+예정되지 않은 장비 가동 중지 시간은 비즈니스에 큰 영향을 줄 수 있습니다. 비용 및 예기치 않은 가동 중지 시간을 최소화하여 사용량 및 성능을 최대화하고 현장 장비를 실행 상태로 유지하는 것이 중요합니다. 문제를 사전에 파악하므로 보다 비용 효율적인 방법으로 제한된 유지 관리 리소스를 할당하고 품질 및 공급망 프로세스를 개선할 수 있도록 합니다. 
 
 이 시나리오에서는 상대적으로 [많은 양의 시뮬레이트된 데이터 집합](https://github.com/Microsoft/SQL-Server-R-Services-Samples/tree/master/PredictiveMaintanenceModelingGuide/Data)을 탐색하여 데이터 수집, 기능 엔지니어링, 모델 구축, 모델 운영화 및 배포 등의 예측 유지 관리 데이터 과학 프로젝트를 안내합니다. 전체 프로세스의 코드는 Azure ML Workbench 내의 Jupyter 노트북에서 PySpark로 작성되었습니다. 최종 모델은 Azure Machine Learning 모델 관리를 사용하여 배포되어 장비 오류를 실시간으로 예측합니다.   
 
 ## <a name="link-to-the-gallery-github-repository"></a>갤러리 GitHub 리포지토리에 연결
 
-다음은 공개 GitHub 리포지토리에 대한 링크입니다. [https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance)
+다음은 문제 보고서 및 기고물의 공개 GitHub 리포지토리에 대한 링크입니다. [https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance)
 
 
 ## <a name="use-case-overview"></a>사용 사례 개요
@@ -36,11 +36,11 @@ ms.lasthandoff: 01/12/2018
 
 이 시뮬레이션된 데이터의 비즈니스 문제는 구성 요소 오류로 인한 문제를 예측하는 것입니다. 따라서 비즈니스 질문은 "*구성 요소의 실패로 인해 컴퓨터가 작동 중지될 확률은 얼마인가요*?"입니다. 이 문제는 여러 클래스 분류 문제(컴퓨터당 여러 구성 요소)로 형식이 지정되며 기계 학습 알고리즘이 예측 모델을 만드는 데 사용됩니다. 모델은 기계에서 수집된 기록 데이터에 대해 학습됩니다. 이 시나리오에서 사용자는 Azure Machine Learning Workbench 환경에서 이러한 모델을 구현하는 다양한 단계를 수행합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 * [Azure 계정](https://azure.microsoft.com/en-us/free/)(평가판 사용 가능)
 * 프로그램을 설치하고 작업 영역을 만들기 위한, [빠른 시작 설치 가이드](./quickstart-installation.md)에 따라 설치된 [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md)의 복사본
-* Azure Machine Learning 운용화를 사용하려면 로컬 배포 환경과 [모델 관리 계정](https://docs.microsoft.com/azure/machine-learning/preview/model-management-overview)이 필요합니다.
+* Azure Machine Learning 운용화를 사용하려면 로컬 배포 환경과 [모델 관리 계정](model-management-overview.md)이 필요합니다.
 
 이 예제는 모든 AML Workbench 계산 컨텍스트에서 실행할 수 있습니다. 하지만 16GB 이상의 메모리로 실행하는 것이 좋습니다. 이 시나리오는 원격 DS4_V2 표준 [Linux(Ubuntu)용 데이터 과학 Virtual Machine](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu)을 실행하는 Windows 10 컴퓨터에서 빌드되고 테스트되었습니다.
 
@@ -52,8 +52,8 @@ ms.lasthandoff: 01/12/2018
 1.  Azure Machine Learning Workbench 열기
 2.  **프로젝트** 페이지에서 **+** 기호를 클릭하고 **새 프로젝트**를 선택합니다.
 3.  **새 프로젝트 만들기** 창에서 새 프로젝트에 대한 정보를 입력합니다.
-4.  **프로젝트 템플릿 검색** 검색 상자에 "예측 유지 관리"를 입력하고 템플릿을 선택합니다.
-5.  **만들기**
+4.  **프로젝트 템플릿 검색** 검색 상자에 "예측 유지 관리"를 입력하고 **예측 유지 관리** 템플릿을 선택합니다.
+5.  **만들기** 단추를 클릭합니다.
 
 ## <a name="prepare-the-notebook-server-computation-target"></a>노트북 서버 계산 대상 준비
 
@@ -125,13 +125,15 @@ GitHub 리포지토리에서 원시 데이터 집합을 다운로드하고 이 �
 
 ## <a name="references"></a>참조
 
-이 사용 사례는 이전에 여러 플랫폼에서 개발되었습니다.
+다양한 플랫폼에서 사용할 수 있는 예측 유지 관리 사용 사례 예제가 있습니다.
 
 * [예측 유지 관리 솔루션 템플릿](https://docs.microsoft.com/azure/machine-learning/cortana-analytics-playbook-predictive-maintenance)
 * [예측 유지 관리 모델링 가이드](https://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Modelling-Guide-1)
 * [SQL R Services를 사용한 예측 유지 관리 모델링 가이드](https://gallery.cortanaintelligence.com/Tutorial/Predictive-Maintenance-Modeling-Guide-using-SQL-R-Services-1)
 * [예측 유지 관리 모델링 가이드 Python Notebook](https://gallery.cortanaintelligence.com/Notebook/Predictive-Maintenance-Modelling-Guide-Python-Notebook-1)
 * [PySpark를 사용한 예측 유지 관리](https://gallery.cortanaintelligence.com/Tutorial/Predictive-Maintenance-using-PySpark)
+* [예측 유지 관리에 대한 딥 러닝](
+ https://docs.microsoft.com/en-us/azure/machine-learning/preview/scenario-deep-learning-for-predictive-maintenance)
 
 ## <a name="next-steps"></a>다음 단계
 

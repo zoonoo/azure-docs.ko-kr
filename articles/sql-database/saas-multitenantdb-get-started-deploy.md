@@ -15,23 +15,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: genemi
-ms.openlocfilehash: a7e6e319fb2fa8fee762055b625427403d14d679
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: dc652b1d0357a815b14820fc837d7a287e5d4ba0
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application-that-uses-azure-sql-database"></a>Azure SQL Database를 사용하는 분할된 다중 테넌트 응용 프로그램 배포 및 탐색
 
-이 자습서에서는 Wingtip Tickets라는 샘플 SaaS 다중 테넌트 데이터베이스 응용 프로그램을 배포하고 탐색합니다. Wingtip 앱은 SaaS 시나리오 구현을 간소화하는 Azure SQL Database의 기능을 보여 주도록 설계되었습니다.
+이 자습서에서는 Wingtip Tickets라는 샘플 다중 테넌트 SaaS 응용 프로그램을 배포하고 탐색합니다. Wingtip Tickets 앱은 SaaS 시나리오 구현을 간소화하는 Azure SQL Database의 기능을 보여 주도록 설계되었습니다.
 
-이 Wingtips 구현에는 분할된 다중 테넌트 데이터베이스 패턴이 사용됩니다. 분할은 테넌트 식별자를 기준으로 합니다. 테넌트 데이터는 테넌트 식별자 값에 따라 특정 데이터베이스에 배포됩니다. 지정된 데이터베이스에 포함된 테넌트 수에 관계없이 테이블 스키마에 테넌트 식별자가 포함된다는 점에서 모든 데이터베이스는 다중 테넌트입니다. 
+이 Wingtip Tickets 앱 구현에는 분할된 다중 테넌트 데이터베이스 패턴이 사용됩니다. 분할은 테넌트 식별자를 기준으로 합니다. 테넌트 데이터는 테넌트 식별자 값에 따라 특정 데이터베이스에 배포됩니다. 
 
 이 데이터베이스 패턴을 사용하여 각 분할 또는 데이터베이스에 하나 이상의 테넌트를 저장할 수 있습니다. 각 데이터베이스를 여러 테넌트에서 공유하여 최저 비용에 대해 최적화할 수 있습니다. 또는 각 데이터베이스에 하나의 테넌트만 저장하여 격리에 대해 최적화할 수 있습니다. 최적화는 각 특정 테넌트에 대해 개별적으로 선택할 수 있습니다. 테넌트가 처음 저장될 때 선택할 수 있고 나중에 변경할 수도 있습니다. 응용 프로그램은 어떤 방식으로도 잘 작동하도록 설계되었습니다.
 
 #### <a name="app-deploys-quickly"></a>빠르게 앱 배포
 
-다음 배포 섹션에서는 파란색 **Azure에 배포** 단추를 제공합니다. 단추를 누르면 5분 후에 Wingtip 앱이 완전히 배포됩니다. Wingtip 앱은 Azure 클라우드에서 실행되고 Azure SQL Database를 사용합니다. Wingtip은 Azure 구독에 배포됩니다. 개별 응용 프로그램 구성 요소를 사용할 수 있는 전체 액세스 권한이 있습니다.
+앱은 Azure 클라우드에서 실행되고 Azure SQL Database를 사용합니다. 다음 배포 섹션에서는 파란색 **Azure에 배포** 단추를 제공합니다. 단추를 누르면 앱이 5분 내에 Azure 구독에 완전히 배포됩니다. 개별 응용 프로그램 구성 요소를 사용할 수 있는 전체 액세스 권한이 있습니다.
 
 응용 프로그램은 세 개의 샘플 테넌트에 대한 데이터를 사용하여 배포됩니다. 테넌트는 하나의 다중 테넌트 데이터베이스에 함께 저장됩니다.
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 12/19/2017
 #### <a name="learn-in-this-tutorial"></a>이 자습서에서 알아보기
 
 > [!div class="checklist"]
-> - Wingtip SaaS 응용 프로그램을 배포하는 방법.
+> - Wingtip Tickets SaaS 응용 프로그램을 배포하는 방법.
 > - 응용 프로그램 소스 코드 및 관리 스크립트를 가져올 위치.
 > - 앱을 구성하는 서버 및 데이터베이스 정보.
 > - *카탈로그*를 통해 테넌트가 데이터에 매핑되는 방법.

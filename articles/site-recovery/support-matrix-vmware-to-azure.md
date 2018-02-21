@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: raynew
-ms.openlocfilehash: ead133318d8660e8b8f4b3e9c5dddb6d75878b19
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: 837d53c4a70353c92de2475bb355051fdb2fcbb2
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>Azure에 VMware 및 물리적 서버 복제를 위한 지원 매트릭스
 
@@ -122,18 +122,22 @@ Virtual Network 서비스 엔드포인트<br/><br/> (Azure Storage 방화벽 및
 호스트 다중 경로(MPIO) | 예 - 테스트 제품: Microsoft DSM, EMC PowerPath 5.7 SP4, EMC PowerPath DSM for CLARiiON
 게스트/서버 VMDK | 예 
 게스트/서버 EFI/UEFI| 일부(Windows Server 2012 이상에서만 Azure로 마이그레이션) </br></br> ** 테이블 끝에 있는 메모를 참조하세요.
-게스트/서버 공유 클러스터 디스크 | 아니오 
+게스트/서버 공유 클러스터 디스크 | 아니요 
 게스트/서버 암호화된 디스크 | 아니요 
-게스트/서버 NFS | 아니요 
-게스트/서버 SMB 3.0 | 아니오
+게스트/서버 NFS | 아니오 
+게스트/서버 SMB 3.0 | 아니요
 게스트/서버 RDM | 예<br/><br/> 물리적 서버의 경우 해당 없음 
 게스트/서버 디스크 > 1 TB | 예<br/><br/>최대 4095GB 
 4K 논리적 및 4k 물리적 섹터 크기 포함 게스트/서버 디스크 | 예
 4K 논리적 및 512바이트 물리적 섹터 크기 포함 게스트/서버 디스크 | 예 
-스트라이프 디스크 볼륨이 > 1TB인 게스트/서버<br/><br/> LVM-논리 볼륨 관리 게스트/서버 - 저장소 공간 | 게스트/서버 없음 최신 내용 추가/제거 디스크 | 게스트/서버 없음 - 디스크 제외 | 예 게스트/서버 다중 경로(MPIO) | N/A
+게스트/서버 스트라이프 디스크 포함 볼륨 > 4TB <br><br/>LVM 논리 볼륨 관리 | 예
+게스트/서버 - 저장소 공간 | 아니요 
+게스트/서버 디스크 핫 추가/제거 | 아니요 
+게스트/서버 - 디스크 제외 | 예 
+게스트/서버 다중 경로(MPIO) | 해당 없음
 
 > [!NOTE]
-> ** Windows Server 2012 이상을 실행하는 물리적 서버나 UEFI 부팅 VMware 가상 머신은 Azure로 마이그레이션될 수 있습니다. 다음 제한 사항이 적용됩니다.
+> Windows Server 2012 이상을 실행하는 물리적 서버나 **UEFI** 부팅 VMware 가상 머신을 Azure로 마이그레이션할 수 있습니다. 다음 제한 사항이 적용됩니다.
 > - Azure로 마이그레이션만 지원됩니다. 온-프레미스 VMware 사이트에 장애 복구는 지원되지 않습니다.
 > - 서버는 OS 디스크에 4개 이상의 파티션을 가질 수 없습니다.
 > - Azure Site Recovery 모바일 서비스 버전 9.13 이상이 필요합니다.
@@ -151,8 +155,8 @@ RA-GRS | 예
 블록 Blob | 아니오 
 휴지 상태의 암호화(SSE)| 예 
 Premium Storage | 예 
-Import/Export 서비스 | 아니오 
-Virtual Network 서비스 엔드포인트<br/><br/> Azure 저장소 방화벽 및 대상 저장소/캐시 저장소 계정에 구성된 VNET(복제 데이터 저장에 사용) | 아니요 
+Import/Export 서비스 | 아니요 
+Virtual Network 서비스 엔드포인트<br/><br/> Azure 저장소 방화벽 및 대상 저장소/캐시 저장소 계정에 구성된 VNET(복제 데이터 저장에 사용) | 아니오 
 범용 V2 저장소 계정(핫 및 쿨 계층 모두) | 아니요 
 
 

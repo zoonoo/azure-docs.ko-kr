@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: giladm
-ms.openlocfilehash: 4538ad9c048a3e84bbe793572f569dd7126803da
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 1ff7f3509ccdaa6911cee0487d5a6d90b11eb79f
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="azure-sql-database-data-discovery-and-classification"></a>Azure SQL Database 데이터 검색 및 분류
-데이터 검색 및 분류(현재 미리 보기)는 데이터베이스에 있는 중요한 데이터를 검색, 분류, 레이블 지정 및 보호하기 위한 Azure SQL Database에 내장된 고급 기능을 제공합니다.
-가장 중요한 데이터(비즈니스/금융, 보건, PII 등)를 검색하고 분류하는 일은 조직 정보 보호 스태쳐에서 중추적인 역할을 할 수 있습니다. 그것은 다음에 대한 인프라 역할을 할 수 있습니다.
+데이터 검색 및 분류(현재 미리 보기)는 데이터베이스에 있는 중요한 데이터의 **검색**, **분류**, **레이블 지정** & **보호**를 위해 Azure SQL Database에 내장된 고급 기능을 제공합니다.
+가장 중요한 데이터(비즈니스, 재무, 보건, PII 등)를 검색하고 분류하는 기능은 조직 정보 보호 평판에 중추적인 역할을 할 수 있습니다. 그것은 다음에 대한 인프라 역할을 할 수 있습니다.
+* GDPR과 같은 데이터 프라이버시 표준 및 규정 준수 요구 사항을 충족하도록 지원.
 * 중요한 데이터에 대한 비정상적인 엑세스 모니터링(감사) 및 경고하는 것과 같은 다양한 보안 시나리오.
 * 매우 중요한 데이터가 들어 있는 데이터베이스에 대한 엑세스 제어 및 보안 강화.
-* GDPR과 같은 데이터 프라이버시 표준 및 규정 준수 요구 사항을 충족하도록 지원.
 
 ## <a id="subheading-1"></a>개요
 데이터 검색 및 분류는 고급 서비스 및 새로운 SQL 기능 집합을 도입하여 데이터베이스 뿐 아니라 데이터를 보호 대상으로 하는 새로운 SQL Information Protection 패러다임을 형성합니다.
@@ -93,7 +93,9 @@ ms.lasthandoff: 02/01/2018
 
 ## <a id="subheading-3"></a>중요한 데이터에 대한 액세스 감사
 
-[Azure SQL Database 감사](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-auditing)는 *data_sensitivity_information*이라는 감사 로그에 새 필드를 포함하도록 개선되어, 쿼리로 반환된 실제 데이터의 민감도 분류(레이블)를 기록합니다.
+정보 보호 패러다임의 중요한 측면은 중요한 데이터에 대한 액세스를 모니터링하는 기능입니다.
+
+[Azure SQL Database 감사](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-auditing)는 *data_sensitivity_information*이라는 감사 로그에 새 필드를 포함하도록 개선되어, 쿼리에서 반환된 실제 데이터의 민감도 분류(레이블)를 기록합니다.
 
 ![탐색 창][11]
 

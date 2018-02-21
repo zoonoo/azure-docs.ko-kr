@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/08/2017
+ms.date: 02/12/2018
 ms.author: larryfr
-ms.openlocfilehash: 5bab7a0646d34de3b6d71370a0fa4216845ee6a2
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: e6cc5fd3d45691dbdc004f346c10d7b4568ae9aa
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Azure Data Lake Analytics에 대한 진단 로그에 액세스
 
@@ -51,7 +51,7 @@ ms.lasthandoff: 11/09/2017
 
    * __저장소 계정에 보관__의 경우 데이터를 보관할 일 수를 지정합니다.
 
-   * __저장__을 클릭합니다.
+   * __Save__를 클릭합니다.
 
         > [!NOTE]
         > __저장__ 단추를 클릭하기 전에 __저장소 계정에 보관__, __이벤트 허브로 스트리밍__ 또는 __Log Analytics로 보내기__를 선택해야 합니다.
@@ -133,9 +133,9 @@ ms.lasthandoff: 11/09/2017
 | Name | 형식 | 설명 |
 | --- | --- | --- |
 | 실시간 |문자열 |로그의 타임스탬프(UTC) |
-| resourceId |문자열 |작업이 수행되는 리소스의 식별자 |
+| ResourceId |문자열 |작업이 수행되는 리소스의 식별자 |
 | 카테고리 |문자열 |로그 범주 예: **Requests** |
-| operationName |String |기록된 작업의 이름 예를 들어 GetAggregatedJobHistory |
+| operationName |문자열 |기록된 작업의 이름 예를 들어 GetAggregatedJobHistory |
 | resultType |문자열 |작업의 상태, 예를 들어 200 |
 | callerIpAddress |문자열 |요청한 클라이언트의 IP 주소 |
 | CorrelationId |문자열 |로그의 식별자입니다. 이 값을 사용하여 관련된 로그 항목의 집합을 그룹화할 수 있습니다. |
@@ -146,8 +146,8 @@ ms.lasthandoff: 11/09/2017
 
 | Name | 형식 | 설명 |
 | --- | --- | --- |
-| HttpMethod |String |작업에 사용된 HTTP 메서드 예를 들어 GET |
-| Path |문자열 |작업이 수행된 경로 |
+| HttpMethod |문자열 |작업에 사용된 HTTP 메서드 예를 들어 GET |
+| path |문자열 |작업이 수행된 경로 |
 | RequestContentLength |int |HTTP 요청의 콘텐츠 길이 |
 | ClientRequestId |문자열 |이 요청을 고유하게 식별하는 식별자 |
 | StartTime |문자열 |서버가 요청을 받은 시간 |
@@ -185,12 +185,12 @@ ms.lasthandoff: 11/09/2017
 | Name | 형식 | 설명 |
 | --- | --- | --- |
 | 실시간 |문자열 |로그의 타임스탬프(UTC) |
-| resourceId |문자열 |작업이 수행되는 리소스의 식별자 |
+| ResourceId |문자열 |작업이 수행되는 리소스의 식별자 |
 | 카테고리 |문자열 |로그 범주 예: **Audit**. |
-| operationName |String |기록된 작업의 이름 예를 들어 JobSubmitted |
+| operationName |문자열 |기록된 작업의 이름 예를 들어 JobSubmitted |
 | resultType |문자열 |작업 상태(operationName)에 대한 하위 상태입니다. |
 | resultSignature |문자열 |작업 상태(operationName)에 추가 세부 정보입니다. |
-| ID |문자열 |작업을 요청한 사용자입니다. 예: susan@contoso.com. |
+| ID |문자열 |작업을 요청한 사용자입니다. 예: susan@contoso.com |
 | properties |JSON |자세한 내용은 다음 섹션(감사 로그 속성 스키마)을 참조하세요. |
 
 > [!NOTE]

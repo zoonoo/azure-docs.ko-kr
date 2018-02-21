@@ -12,20 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 02/02/2018
 ms.author: vinagara
-ms.openlocfilehash: 99d222102ab0245c7c4dc8603eaedcfc88ae7a66
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: f6072e4e8a9ab72f677c35e498e31b5218579f1b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="log-alerts-in-azure-monitor---alerts-preview"></a>Azure Monitor의 로그 경고 - 경고(미리 보기)
 이 문서에서는 Azure Alerts(미리 보기)에서 Analytics 쿼리의 경고 규칙이 작동하는 방법 및 다양한 종류의 로그 경고 규칙 간의 차이점에 대해 자세히 설명합니다.
-현재 Azure Alerts(미리 보기)는 [새로운 Log Analytics 쿼리 언어](../log-analytics/log-analytics-log-search-upgrade.md)로 작성된 [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md)에서 쿼리의 로그 경고만을 지원합니다.
+
+현재 Azure Alerts(미리 보기)는 [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md)와 [Application Insights](../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events)에서 쿼리에 대한 로그 경고를 지원합니다.
 
 > [!WARNING]
-> Azure Alerts(미리 보기) - 로그 경고는 현재 작업 영역 간 또는 앱 간 쿼리를 지원하지 않습니다. 
+
+> 현재 Azure Alerts(미리 보기)의 로그 경고는 작업 영역 간 또는 앱 간 쿼리를 지원하지 않습니다.
 
 ## <a name="log-alert-rules"></a>로그 경고 규칙
 
@@ -70,7 +72,16 @@ Log Analytics의 각 경고 규칙은 두 가지 형식 중 하나입니다.  �
 
 **집계 함수**: 수행되는 계산과 잠재적으로 집계할 숫자 필드를 결정합니다.  예를 들어 **count()**는 쿼리의 레코드 수를 반환하고, **avg(CounterValue)**는 해당 간격 동안 CounterValue 필드의 평균을 반환합니다.
 
+> [!NOTE]
+
+> 쿼리의 집계 함수는 AggregatedValue로 명명되어야 하며 숫자 값을 제공해야 합니다.다.
+
+
 **그룹 필드**: 이 필드의 각 인스턴스에 대해 집계된 값이 있는 레코드가 만들어지며 각각에 대해 경고가 생성될 수 있습니다.  예를 들어 각 컴퓨터에 대해 경고를 생성하려면 **컴퓨터별**을 사용합니다.   
+
+> [!NOTE]
+
+> Application Insights를 기반으로 하는 메트릭 측정 경고 규칙에 대해서는 데이터를 그룹화하기 위한 필드를 지정할 수 있습니다. 이를 위해 규칙 정의의 **집계** 옵션을 사용합니다.   
 
 **시간 간격**: 데이터가 집계되는 시간 간격을 정의합니다.  예를 들어 **5분**을 지정한 경우 경고에 대해 지정한 기간 동안 5분 간격으로 집계된 그룹 필드의 각 인스턴스에 대한 레코드가 만들어집니다.
 
@@ -93,6 +104,6 @@ Log Analytics의 각 경고 규칙은 두 가지 형식 중 하나입니다.  �
 
 
 ## <a name="next-steps"></a>다음 단계
-* [Azure Alerts(미리 보기) 개요 보기](monitoring-overview-unified-alerts.md) 
+* [Azure Alerts(미리 보기) 개요 보기](monitoring-overview-unified-alerts.md)
 * [Azure Alerts(미리 보기) 사용](monitor-alerts-unified-usage.md)에 대해 알아보기
 * [Log Analytics](../log-analytics/log-analytics-overview.md)에 대해 자세히 알아보기    

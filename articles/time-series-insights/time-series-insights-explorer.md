@@ -12,11 +12,11 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/30/2017
-ms.openlocfilehash: 04e5465a56b8da9f2a078e513d5176f134fd011d
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: d09292cce1414a1b89e4b75df27d0a689738b4d6
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-time-series-insights-explorer"></a>Azure Time Series Insights 탐색기
 이 문서에서는 Time Series Insights 탐색기 웹앱의 다양한 기능과 옵션을 살펴봅니다. 웹 브라우저에서 Time Series Insights 탐색기를 사용하여 데이터를 시각화할 수 있습니다.
@@ -37,7 +37,7 @@ Time Series Insights 탐색기를 사용하려면 다음을 준비해야 합니�
 
 2. 환경을 선택한 다음에는 상단의 **FROM** 및 **TO** 구성을 사용하거나 마우스로 클릭하여 원하는 시간 범위로 끌어서 놓습니다.  오른쪽 상단에 있는 돋보기를 클릭하거나 선택한 시간 범위를 마우스 오른쪽 단추로 클릭하고 **검색**을 선택합니다.  
 
-3. **자동 켜기** 단추를 선택하면 1분에 한 번씩 자동으로 사용 가능 시간이 업데이트됩니다.
+3. **자동 켜기** 단추를 선택하면 1분에 한 번씩 자동으로 사용 가능 시간이 업데이트됩니다.  '자동 켜기' 단추는 기본 시각화의 콘텐츠가 아닌 가용성 차트에만 적용됩니다.
 
 4. Azure 클라우드 아이콘을 클릭하면 Azure Portal 환경으로 이동하게 됩니다.
 
@@ -55,7 +55,7 @@ Time Series Insights 탐색기를 사용하려면 다음을 준비해야 합니�
 
       - **조건자**: 조건자 옵션을 사용하면 아래와 같은 연산자를 사용하여 이벤트를 빠르게 필터링할 수 있습니다. 선택/클릭하여 검색을 수행하면 검색을 바탕으로 조건자가 자동으로 업데이트됩니다.      지원되는 연산자는 다음과 같습니다.
 
-         |작업  |지원되는 형식  |참고 사항  |
+         |작업  |지원되는 형식  |메모  |
          |---------|---------|---------|
          |<, >, <=, >=     |  Double, DateTime, TimeSpan       |         |
          |=, !=, <>     | String, Bool, Double, DateTime, TimeSpan, NULL        |         |

@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro;seohack1
-ms.openlocfilehash: 88123cead40968ebf7327b81f94233529f97aa2f
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 34a6722fdd06cf0b198320e551daccc21956dc69
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="azure-ad-self-service-password-reset-rapid-deployment"></a>신속한 Azure AD 셀프 서비스 암호 재설정 배포
 
@@ -33,7 +33,7 @@ IT 관리자는 SSPR(셀프 서비스 암호 재설정)을 사용하여 사용�
 
 ## <a name="enable-sspr-for-your-azure-ad-tenant"></a>Azure AD 테넌트에 대한 SSPR 사용 설정
 
-1. 기존 Azure AD 테넌트에서 **암호 재설정**을 선택합니다.
+1. 기존 Azure AD 테넌트의 **Azure Portal**에 있는 **Azure Active Directory** 아래에서 **암호 재설정**을 선택합니다.
 
 2. **속성** 페이지의 **셀프 서비스 암호 재설정이 사용하도록 설정됨** 옵션 아래에서 다음 중 하나를 선택합니다.
    * **없음**: 아무도 SSPR 기능을 사용할 수 없습니다.

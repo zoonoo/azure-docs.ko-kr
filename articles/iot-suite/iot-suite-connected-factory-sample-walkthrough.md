@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 88fe50460baf8b7180da113b33a03120f39cf44f
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 10497097bfda36a0a8a2b6b677ac26394217d8b4
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="connected-factory-preconfigured-solution-walkthrough"></a>연결된 공장 미리 구성된 솔루션 연습
 
@@ -233,7 +233,7 @@ OEE 및 KPI 계기 및 시간열 차트에 대한 데이터를 검색하기 위�
 
 * [azureiotsuite.com 사이트에 대한 사용 권한][lnk-permissions]
 * [연결된 팩터리 미리 구성된 솔루션을 위해 Windows 또는 Linux에 게이트웨이 배포](iot-suite-connected-factory-gateway-deployment.md)
-* [OPC 게시자 참조 구현](iot-suite-connected-factory-publisher.md)
+* [OPC 게시자 참조 구현](https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md)
 
 [connected-factory-logical]:media/iot-suite-connected-factory-walkthrough/cf-logical-architecture.png
 

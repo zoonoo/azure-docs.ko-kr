@@ -12,13 +12,13 @@ ms.devlang: java
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/19/2018
+ms.date: 01/27/2018
 ms.author: ryanwi
-ms.openlocfilehash: afa7f569853df15a5d52e38f476665e34781acfd
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: abbcb246ada9974e53c677eed37a1ab9ce48d6c5
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>Linux에서 첫 번째 Java Service Fabric Reliable Actors 응용 프로그램 만들기
 > [!div class="op_single_selector"]
@@ -31,24 +31,12 @@ ms.lasthandoff: 01/20/2018
 이 빠른 시작을 통해 몇 분만에 Linux 개발 환경에서 첫 번째 Azure Service Fabric Java 응용 프로그램을 만들 수 있습니다.  작업이 완료되면 간단한 Java 단일 서비스 응용 프로그램이 로컬 개발 클러스터에서 실행됩니다.  
 
 ## <a name="prerequisites"></a>필수 조건
-시작하기 전에 Service Fabric SDK, Service Fabric CLI를 설치하고 [Linux 개발 환경](service-fabric-get-started-linux.md)에 개발 클러스터를 설정합니다. Mac OS X을 사용하는 경우 [Vagrant를 사용하여 가상 컴퓨터에서 Linux 개발 환경을 설정](service-fabric-get-started-mac.md)할 수 있습니다.
+시작하기 전에 [Linux 개발 환경](service-fabric-get-started-linux.md)에서 Service Fabric SDK, Service Fabric CLI, Yeoman을 설치하고, Java 개발 환경을 설정하고, 개발 클러스터를 설정합니다. Mac OS X을 사용하는 경우 [Docker를 사용하여 Mac에서 개발 환경 설정](service-fabric-get-started-mac.md)할 수 있습니다.
 
 [Service Fabric CLI](service-fabric-cli.md)도 설치합니다.
 
 ### <a name="install-and-set-up-the-generators-for-java"></a>Java용 생성기 설치 및 설정
-Service Fabric은 Yeoman 템플릿 생성기를 사용하여 터미널에서 Service Fabric Java 응용 프로그램을 만들 수 있는 스캐폴딩 도구를 제공합니다. 컴퓨터에서 Java용 Service Fabric Yeoman 템플릿 생성기가 작동하는지 확인하려면 다음 단계를 따르세요.
-1. 컴퓨터에서 Node.js 및 NPM 설치
-
-  ```bash
-  sudo apt-get install npm
-  sudo apt install nodejs-legacy
-  ```
-2. NPM의 컴퓨터에 [Yeoman](http://yeoman.io/) 템플릿 생성기 설치
-
-  ```bash
-  sudo npm install -g yo
-  ```
-3. NPM에서 Service Fabric Yeoman Java 응용 프로그램 생성기 설치
+Service Fabric은 Yeoman 템플릿 생성기를 사용하여 터미널에서 Service Fabric Java 응용 프로그램을 만들 수 있는 스캐폴딩 도구를 제공합니다.  Yeoman이 아직 설치되지 않은 경우 Yeoman 설정에 대한 지침은 [Linux로 시작하는 Service Fabric](service-fabric-get-started-linux.md#set-up-yeoman-generators-for-containers-and-guest-executables)을 참조하세요. 다음 명령을 실행하여 Java용 Service Fabric Yeoman 템플릿 생성기를 설치합니다.
 
   ```bash
   sudo npm install -g generator-azuresfjava
@@ -199,12 +187,7 @@ public static void main(String[] args) throws Exception {
 
 ## <a name="build-the-application"></a>응용 프로그램 빌드
 Service Fabric Yeoman 템플릿은 [Gradle](https://gradle.org/)에 대한 빌드 스크립트를 포함하며 이것을 사용하여 터미널에서 응용 프로그램을 빌드할 수 있습니다.
-Maven에서 Service Fabric Java 종속성을 가져옵니다. Service Fabric Java 응용 프로그램을 빌드하고 사용하려면 JDK 및 Gradle이 설치되어 있는지 확인해야 합니다. 설치하지 않은 경우 다음을 실행하여 JDK(openjdk-8-jdk) 및 Gradle을 설치할 수 있습니다.
-
-  ```bash
-  sudo apt-get install openjdk-8-jdk-headless
-  sudo apt-get install gradle
-  ```
+Maven에서 Service Fabric Java 종속성을 가져옵니다. Service Fabric Java 응용 프로그램을 빌드하고 사용하려면 JDK 및 Gradle이 설치되어 있는지 확인해야 합니다. 아직 설치되지 않은 경우 JDK 및 Gradle 설치에 대한 지침은 [Linux로 시작하는 Service Fabric](service-fabric-get-started-linux.md#set-up-java-development)을 참조하세요.
 
 응용 프로그램을 빌드하고 패키징하려면 다음을 실행합니다.
 
@@ -347,9 +330,6 @@ Service Fabric에 대한 시스템 수준 지원이며 네이티브 Service Fabr
       compile 'com.microsoft.servicefabric:sf-preview:0.12.0'
   }
   ```
-
-## <a name="migrating-old-service-fabric-java-applications-to-be-used-with-maven"></a>이전의 Service Fabric Java 응용 프로그램을 마이그레이션하여 Maven에서 사용
-최근에 Service Fabric Java 라이브러리를 Service Fabric Java SDK에서 Maven 리포지토리로 이동했습니다. Yeoman 또는 Eclipse를 사용하여 생성한 새 응용 프로그램은 최신 업데이트된 프로젝트를 생성하는 반면(Maven에서 작업할 수 있음) Maven에서 Service Fabric Java 종속성을 사용하기 위해 이전에 Service Fabric Java SDK를 사용했던 기존 Service Fabric 상태 비저장 또는 작업자 Java 응용 프로그램을 업데이트할 수 있습니다. [여기](service-fabric-migrate-old-javaapp-to-use-maven.md)에서 언급한 단계에 따라 Maven에서 이전의 응용 프로그램이 작동되는지 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

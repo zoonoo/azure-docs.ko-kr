@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/31/2018
+ms.date: 02/07/2018
 ms.author: anithaa
 ms.custom: 
-ms.openlocfilehash: 61859e86f38e4666be01f218922ce00c698de960
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: aa1ac804c9cd623e5fb03c97a38f9352ac8a42ad
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="virtual-network-service-endpoints"></a>Virtual Network 서비스 엔드포인트
 
@@ -28,7 +28,8 @@ VNet(Virtual Network) 서비스 끝점은 직접 연결을 통해 가상 네트�
 이 기능은 다음과 같은 Azure 서비스 및 지역에서 제공됩니다.
 
 - **Azure Storage**: 일반 공급됩니다. Azure 공용 클라우드 및 Azure Government에서 모든 지역입니다.
-- **Azure SQL**: 미리 보기 상태입니다. Azure 공용 클라우드에서 모든 지역입니다.
+- **Azure SQL Database**: 모든 Azure 지역에서 일반 공급됩니다. 
+- **Azure SQL Data Warehouse**: 미리 보기 상태입니다. Azure 공용 클라우드에서 모든 지역입니다.
 
 미리 보기에 대한 최신 알림은 [Azure Virtual Network 업데이트](https://azure.microsoft.com/updates/?product=virtual-network) 페이지를 확인하세요.
 

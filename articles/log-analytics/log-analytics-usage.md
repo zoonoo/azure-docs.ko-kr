@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/01/2018
+ms.date: 02/13/2018
 ms.author: magoedte
-ms.openlocfilehash: d873fe37ba2c4e851df35b9d5afe69b4adbf001c
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 9125f3db8929a41f49ff3ae53de9f3a71f5bf051
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Log Analytics에서 데이터 사용 현황 분석
 Log Analytics는 데이터를 전송한 시스템 및 전송되는 데이터의 다양한 형식과 같이 수집된 데이터의 양에 대한 정보를 포함합니다.  **Log Analytics 사용량** 대시보드를 사용하여 Log Analytics 서비스에 전송된 데이터의 양을 확인합니다. 대시보드는 각 솔루션에서 수집되는 데이터의 양 및 컴퓨터에서 전송한 데이터의 양을 표시합니다.
@@ -36,7 +36,9 @@ Log Analytics는 데이터를 전송한 시스템 및 전송되는 데이터의 
 - 제품
     - 이해 및 분석 노드
     - Automation 및 제어 노드
-    - 보안 노드
+    - 보안 노드  
+- 성능
+    - 데이터 수집 및 인덱싱 소요 시간  
 - 쿼리 목록
 
 ![사용량 대시보드](./media/log-analytics-usage/usage-dashboard01.png)
@@ -151,19 +153,6 @@ Log Analytics [경고](log-analytics-alerts-creating.md)는 검색 쿼리를 사
 
 [솔루션 대상](../operations-management-suite/operations-management-suite-solution-targeting.md)을 사용하여 필수 그룹의 컴퓨터에서 데이터를 수집합니다.
 
-## <a name="check-if-there-is-ingestion-latency"></a>수집 대기 시간이 있는지 확인
-Log Analytics를 사용하면 수집된 데이터의 수집에서 예상되는 대기 시간이 발생합니다.  데이터를 인덱싱하는 시점과 검색에 제공되는 시간 간의 절대 시간을 예측할 수 없습니다. 이전에 데이터를 수집하고 인덱싱하는 데 걸린 시간을 보여주는 대시보드에 성능 차트가 포함되었다면 새로운 쿼리 언어를 도입하여 이 차트를 일시적으로 제거합니다.  업데이트된 데이터 수집 대기 시간 메트릭이 해제될 때까지 일시적인 해결 방법으로 다음 쿼리를 사용하여 각 데이터 형식에 대한 대기 시간의 근사치를 구할 수 있습니다.  
-
-    search *
-    | where TimeGenerated > ago(8h)
-    | summarize max(TimeGenerated) by Type
-    | extend LatencyInMinutes = round((now() - max_TimeGenerated)/1m,2)
-    | project Type, LatencyInMinutes
-    | sort by LatencyInMinutes desc
-
-> [!NOTE]
-> 수집 대기 시간 쿼리는 기록 대기 시간을 표시하지 않고 현재 시간에 대한 결과만을 반환하도록 제한됩니다.  *TimeGenerated*에 대한 값은 일반 스키마 로그에 대한 에이전트에서 채워지고 사용자 지정 로그에 대한 컬렉션 끝점에서 채워집니다.  
->
 
 ## <a name="next-steps"></a>다음 단계
 * [Log Analytics에서 로그 검색](log-analytics-log-searches.md)을 참조하여 검색 언어를 사용하는 방법을 배울 수 있습니다. 사용 데이터에 대한 추가 분석을 수행하려면 검색 쿼리를 사용할 수 있습니다.

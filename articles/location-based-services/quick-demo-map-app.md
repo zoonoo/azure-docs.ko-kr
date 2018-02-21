@@ -12,15 +12,15 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: bfc31553c32ac4dbfde55aa30b33025b579f6139
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 09022648c03ffa12aa3b060e5094c40ea5c3d61e
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="launch-a-demo-interactive-map-search-using-azure-location-based-services-preview"></a>Azure Location Based Services(미리 보기)를 사용하여 데모 대화형 맵 검색 시작
 
-이 문서에서는 Azure Maps를 통한 대화형 검색을 사용하는 Azure LBS(Location Based Services, 미리 보기)의 기능을 보여 줍니다. 또한 자체 LBS 계정을 만들고 데모 웹 응용 프로그램에 사용할 계정 키를 가져오는 방법도 안내합니다. 
+이 문서에서는 Azure Maps를 사용하여 대화형 검색을 수행하는 Azure LBS(Location Based Services)의 기능을 보여 줍니다. 또한 자체 LBS 계정을 만들고 데모 웹 응용 프로그램에 사용할 계정 키를 가져오는 방법도 안내합니다. 
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -34,7 +34,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 1. [Azure Portal](https://portal.azure.com)의 왼쪽 위 모서리에서 **리소스 만들기**를 클릭합니다.
 2. *Marketplace 검색* 상자에 **Location Based Services**를 입력합니다.
 3. *결과*에서 **Location Based Services(미리 보기)**를 클릭합니다. 맵 아래에 나타나는 **만들기** 단추를 클릭합니다. 
-4. **Location Based Services 계정 만들기** 페이지에서 새 계정의 *이름*을 입력하고 사용할 *구독*을 선택한 다음 새 또는 기존  *리소스 그룹*의 이름을 입력합니다. 리소스 그룹의 위치를 선택하고 *미리 보기 약관*에 동의한 다음 **만들기**를 클릭합니다.
+4. **Location Based Services 계정 만들기** 페이지에서 새 계정에 대한 *이름*을 입력하고, 사용할 *구독*을 선택한 다음, 새 또는 기존 *리소스 그룹*의 이름을 입력합니다. 리소스 그룹의 위치를 선택하고 *미리 보기 약관*에 동의한 다음 **만들기**를 클릭합니다.
 
     ![포털에서 Location Based Services 계정 만들기](./media/quick-demo-map-app/create-lbs-account.png)
 
@@ -50,7 +50,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 ## <a name="launch-the-demo-application-for-azure-maps"></a>Azure Maps의 데모 응용 프로그램 시작
 
 1. 원하는 브라우저에서 **AzureMapDemo.html** 파일을 엽니다.
-2. 로스앤젤레스의 지도를 관찰합니다. 도시는 *AzureMapDemo.html*에서 이름이 **center**인 JavaScript 변수에 주어진 `[longitude, latitude]` 값 쌍으로 결정됩니다.  이 좌표를 원하는 도시로 변경할 수 있습니다. 예를 들어 뉴욕의 좌표는 *[-74.0060, 40.7128]*입니다.
+2. 로스앤젤레스의 지도를 관찰합니다. 도시는 *AzureMapDemo.html*에서 **center**라는 JavaScript 변수에 지정된 `[longitude, latitude]` 값 쌍으로 결정됩니다. 이 좌표를 원하는 도시로 변경할 수 있습니다. 예를 들어 뉴욕의 좌표는 *[-74.0060, 40.7128]*입니다.
 3. 데모 웹 응용 프로그램의 왼쪽 위 모서리에 있는 검색 상자에 검색할 위치 유형이나 주소를 입력합니다. 
 4. 검색 상자 아래 표시되는 주소/위치 목록 위에 마우스를 가져가 지도 위의 해당 핀에 해당 위치에 관한 정보가 어떻게 팝업 표시되는지 확인합니다. 예를 들어, 이 웹 응용 프로그램의 샘플 시작과 *restaurants* 검색 결과는 다음과 같습니다. 개인 회사의 정보 보호를 위해 가상의 이름과 주소가 표시됩니다. 
 

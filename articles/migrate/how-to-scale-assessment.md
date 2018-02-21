@@ -6,17 +6,17 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 01/08/2018
 ms.author: raynew
-ms.openlocfilehash: 67661e03e65cde3ec2f1aafd5ef755899cf0c77b
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 2e17d30dcc95677053fd6c8c1ee75fd3cc0afb5b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>대규모 VMware 환경 검색 및 평가
 
 이 문서에서는 [Azure Migrate](migrate-overview.md)를 사용하여 많은 수의 온-프레미스 가상 머신을 평가하는 방법을 설명합니다. Azure Migrate는 Azure로의 마이그레이션에 적합한지를 확인하기 위해 컴퓨터를 평가합니다. 서비스는 Azure에서 실행되는 컴퓨터의 크기 조정 및 비용 예상을 제공합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 - **VMware**: 마이그레이션하려는 VM은 vCenter Server 버전 5.5, 6.0 또는 6.5에서 관리되어야 합니다. 또한 수집기 VM을 배포하려면 5.0 이상을 실행하는 ESXi 호스트가 하나 필요합니다.
 - **vCenter 계정**: vCenter Server에 액세스하려면 읽기 전용 계정이 필요합니다. Azure Migrate는 이 계정을 사용하여 온-프레미스 VM을 검색합니다.
@@ -38,7 +38,7 @@ ms.lasthandoff: 01/08/2018
 - 컴퓨터가 1,001~1,500대인 경우 두 번 검색을 사용하는 단일 프로젝트가 필요합니다.
 - 컴퓨터가 1,500대 이상인 경우 필요한 요구 사항에 따라 여러 프로젝트를 만들고 여러 검색을 수행해야 합니다. 예: 
     - 컴퓨터가 3000대인 경우 두 개의 검색을 사용한 두 개의 프로젝트 또는 단일 검색을 사용한 세 개의 프로젝트를 설정할 수 있습니다.
-    - 컴퓨터가 5,000대인 경우 4개(1,500대 컴퓨터의 검색에 두 개 및 500대 컴퓨터의 검색에 두 개)의 프로젝트를 설정할 수 있습니다. 또는 각각 단일 검색을 사용한 프로젝트 5개를 설정할 수도 있습니다. 
+    - 컴퓨터가 5,000대인 경우 세 개(1,500대 컴퓨터의 검색에 두 개 및 500대 컴퓨터의 검색에 한 개)의 프로젝트를 설정할 수 있습니다. 또는 각각 단일 검색을 사용한 프로젝트 5개를 설정할 수도 있습니다. 
 
 ## <a name="plan-multiple-discoveries"></a>여러 검색 계획
 
@@ -88,9 +88,9 @@ Azure Migrate는 수집기 어플라이언스라고 하는 온-프레미스 VM�
 
     **알고리즘** | **해시 값**
     --- | ---
-    MD5 | 8779eea842a1ac465942295c988ac0c7
-    SHA1 | c136c52a0f785e1fd98865e16479dd103704887d
-    SHA256 | 5143b1144836f01dd4eaf84ff94bc1d2c53f51ad04b1ca43ade0d14a527ac3f9
+    MD5 | cefd96394198b92870d650c975dbf3b8
+    SHA1 | 4367a1801cf79104b8cd801e4d17b70596481d6f
+    SHA256 | fda59f076f1d7bd3ebf53c53d1691cc140c7ed54261d0dc4ed0b14d7efef0ed9
 
     OVA 버전 1.0.8.40의 경우:
 

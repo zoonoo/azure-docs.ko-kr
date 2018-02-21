@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/28/2017
+ms.date: 02/04/2018
 ms.author: kumud
-ms.openlocfilehash: ddcbe895bdaa6eaa49e8ed129fe92b415f2600ef
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: cf7be370ab0d79be9068534f0c43b88f454bc024
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-load-balancer-standard-overview-preview"></a>Azure Load Balancer 표준 개요(미리 보기)
 
 Azure Load Balancer 표준 SKU 및 공용 IP 표준 SKU를 함께 사용하여 확장성이 매우 크고 신뢰할 수 있는 아키텍처를 만들 수 있습니다. Load Balancer 표준을 사용하는 응용 프로그램은 새로운 기능을 활용할 수 있습니다. 모든 TCP 및 UDP 응용 프로그램의 수백만 흐름에 대해 짧은 대기 시간, 높은 처리량 및 규모가 제공됩니다.
 
 >[!NOTE]
-> Load Balancer 표준 SKU는 현재 미리 보기 상태입니다. 미리 보기 중 이 기능은 일반 공급 릴리스에 있는 기능과 동일한 수준의 가용성 및 안정성을 제공하지 못할 수도 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 Microsoft Azure 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요. 프로덕션 서비스의 경우 일반 공급 [Load Balancer 기본 SKU](load-balancer-overview.md)를 사용합니다. 이 미리 보기와 연결된 기능([가용성 영역](https://aka.ms/availabilityzones) 및 [HA 포트](https://aka.ms/haports))은 현재 별도의 등록이 필요합니다. Load Balancer [표준 미리 보기](#preview-sign-up) 등록에 대한 지침과 함께 이러한 기능의 등록에 대한 각각의 지침을 따르세요.
+> Load Balancer 표준 SKU는 현재 미리 보기 상태입니다. 미리 보기 중 이 기능은 일반 공급 릴리스에 있는 기능과 동일한 수준의 가용성 및 안정성을 제공하지 못할 수도 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 Microsoft Azure 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요. 프로덕션 서비스의 경우 일반 공급 [Load Balancer 기본 SKU](load-balancer-overview.md)를 사용합니다. 이 미리 보기와 함께 [가용성 영역 미리 보기](https://aka.ms/availabilityzones)를 사용하려면 Load Balancer [표준 미리 보기](#preview-sign-up) 등록뿐 아니라 [별도의 등록](https://aka.ms/availabilityzones)이 필요합니다.
 
 ## <a name="why-use-load-balancer-standard"></a>Load Balancer 표준을 사용하는 이유
 
@@ -325,13 +325,11 @@ SKU는 변경할 수 없습니다. 이 섹션의 단계에 따라 리소스 SKU 
 
 ## <a name="region-availability"></a>지역 가용성
 
-Load Balancer 표준은 현재 다음 지역에서 사용할 수 있습니다.
-- 미국 동부 2
-- 미국 중부
-- 북유럽
-- 미국 중서부
-- 서유럽
-- 동남아시아
+Load Balancer 표준은 현재 모든 공용 클라우드 지역에서 사용할 수 있습니다.
+
+>[!IMPORTANT]
+> 짧은 기간 동안 초기 실행 지역(미국 동부 2, 미국 중부, 북유럽, 미국 중서부, 유럽 서부, 동남 아시아) 이외의 지역에 액세스하려면 추가 구독 기능(AllowLBPreviewWave2 및 AllowLBPreviewWave3)에 등록해야 합니다.  [다음 단계를 따르세요](#additionalpreviewregions). 이전에 AllowLBPreview에 이미 등록한 경우에도 모든 단계를 실행하시기 바랍니다.
+> 이 요구 사항은 몇 주 후에 제거됩니다.
 
 ## <a name="sku-service-limits-and-abilities"></a>SKU 서비스 제한 및 기능
 
@@ -369,7 +367,12 @@ Load Balancer 표준은 현재 다음 지역에서 사용할 수 있습니다.
 Load Balancer 표준 SKU 및 해당 공용 IP 표준 SKU에 대한 미리 보기에 참여하려면 구독을 등록합니다.  구독을 등록하면 PowerShell 또는 Azure CLI 2.0에서 액세스할 수 있습니다. 등록하려면 다음 단계를 수행합니다.
 
 >[!NOTE]
->Load Balancer 표준 기능 등록이 전역으로 적용되는 데 최대 1시간이 소요될 수 있습니다. [가용성 영역](https://aka.ms/availabilityzones) 및 [HA 포트](https://aka.ms/haports)가 있는 Load Balancer 표준을 사용하려면 다음 미리 보기에 대한 별도의 등록이 필요합니다. 이러한 기능을 등록하려면 해당하는 지침을 따르세요.
+>Load Balancer 표준 기능 등록이 전역으로 적용되는 데 최대 1시간이 소요될 수 있습니다. [가용성 영역](https://aka.ms/availabilityzones)과 함께 Load Balancer 표준을 사용하려는 경우 AZ 미리 보기에 대한 [별도의 등록](https://aka.ms/availabilityzones)이 필요합니다.
+
+<a name="additionalpreviewregions"></a>
+>[!IMPORTANT]
+> 짧은 기간 동안 초기 실행 지역(미국 동부 2, 미국 중부, 북유럽, 미국 중서부, 유럽 서부, 동남 아시아) 이외의 지역에 액세스하려면 추가 구독 기능(AllowLBPreviewWave2 및 AllowLBPreviewWave3)에 등록해야 합니다.  추가 구독 기능을 사용하도록 설정하기 위해 아래 단계가 수정되었습니다. 이전에 AllowLBPreview에 이미 등록한 경우에도 모든 단계를 실행하시기 바랍니다. 이 요구 사항은 몇 주 후에 제거됩니다.
+
 
 ### <a name="sign-up-by-using-azure-cli-20"></a>Azure CLI 2.0을 사용하여 등록
 
@@ -377,15 +380,19 @@ Load Balancer 표준 SKU 및 해당 공용 IP 표준 SKU에 대한 미리 보기
 
     ```cli
     az feature register --name AllowLBPreview --namespace Microsoft.Network
+    az feature register --name AllowLBPreviewWave2 --namespace Microsoft.Network
+    az feature register --name AllowLBPreviewWave3 --namespace Microsoft.Network
     ```
     
 2. 이 작업을 완료하려면 최대 10분이 걸릴 수 있습니다. 다음 명령을 사용하여 작업 상태를 확인할 수 있습니다.
 
     ```cli
-    az feature show --name AllowLBPreview --namespace Microsoft.Network
+    az feature list --query "[?name=='Microsoft.Network/AllowLBPreview']" --output json
+    az feature list --query "[?name=='Microsoft.Network/AllowLBPreviewWave2']" --output json
+    az feature list --query "[?name=='Microsoft.Network/AllowLBPreviewWave3']" --output json
     ```
     
-    기능 등록 상태가 ‘등록됨’인 경우 다음 단계로 진행합니다.
+    위의 각 구독 기능에 대해 기능 등록 상태가 ‘등록됨’인 경우 다음 단계로 진행합니다. 예:
    
     ```json
     {
@@ -398,28 +405,33 @@ Load Balancer 표준 SKU 및 해당 공용 IP 표준 SKU에 대한 미리 보기
     }
     ```
     
-3. 리소스 공급자에 구독을 다시 등록하여 미리 보기 등록을 완료합니다.
+4. 리소스 공급자에 구독을 다시 등록하여 미리 보기 등록을 완료합니다.
 
     ```cli
     az provider register --namespace Microsoft.Network
     ```
     
+
 ### <a name="sign-up-by-using-powershell"></a>PowerShell을 사용하여 등록
 
 1. 공급자에 기능을 등록합니다.
 
     ```powershell
     Register-AzureRmProviderFeature -FeatureName AllowLBPreview -ProviderNamespace Microsoft.Network
+    Register-AzureRmProviderFeature -FeatureName AllowLBPreviewWave2 -ProviderNamespace Microsoft.Network
+    Register-AzureRmProviderFeature -FeatureName AllowLBPreviewWave3 -ProviderNamespace Microsoft.Network
     ```
     
 2. 이 작업을 완료하려면 최대 10분이 걸릴 수 있습니다. 다음 명령을 사용하여 작업 상태를 확인할 수 있습니다.
 
     ```powershell
     Get-AzureRmProviderFeature -FeatureName AllowLBPreview -ProviderNamespace Microsoft.Network
+    Get-AzureRmProviderFeature -FeatureName AllowLBPreviewWave2 -ProviderNamespace Microsoft.Network
+    Get-AzureRmProviderFeature -FeatureName AllowLBPreviewWave3 -ProviderNamespace Microsoft.Network
     ```
 
-    기능 등록 상태가 ‘등록됨’인 경우 다음 단계로 진행합니다.
-   
+  위의 각 구독 기능에 대해 기능 등록 상태가 ‘등록됨’인 경우 다음 단계로 진행합니다. 예:
+
     ```
     FeatureName      ProviderName        RegistrationState
     -----------      ------------        -----------------
@@ -450,11 +462,14 @@ Load Balancer 표준 SKU 요금은 구성한 규칙과 처리된 데이터를 �
 - IPv6은 지원되지 않습니다.
 - 가용성 영역의 컨텍스트에서 프런트 엔드는 영역에서 영역 중복으로 또는 반대로 변경할 수 없습니다. 프런트 엔드를 영역 중복으로 작성하면 영역 중복으로 유지됩니다. 프런트 엔드를 영역으로 작성하면 영역으로 유지됩니다.
 - 가용성 영역의 컨텍스트에서 영역 공용 IP 주소는 한 영역에서 다른 영역으로 이동할 수 없습니다.
+- 현재 [Azure Monitor 경고](../monitoring-and-diagnostics/monitoring-overview-alerts.md)는 지원되지 않습니다.
+- 포털에서 아직 확장된 미리 보기 지역을 지원하지 않습니다.  템플릿, Azure CLI 2.0 또는 PowerShell 등의 클라이언트 도구를 임시 해결책으로 사용하세요.
 
 
 ## <a name="next-steps"></a>다음 단계
 
 - [Load Balancer 기본](load-balancer-overview.md)에 대해 자세히 알아보세요.
 - [가용성 영역](../availability-zones/az-overview.md)에 대해 자세히 알아보세요.
+- [네트워크 보안 그룹](../virtual-network/virtual-networks-nsg.md)에 대해 자세히 알아보세요.
 - Azure의 다른 주요 [네트워킹 기능](../networking/networking-overview.md)에 대해 알아보세요.
-
+- [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md)에 [표시되는 메트릭](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnetworkloadbalancers)에 대해 알아봅니다.

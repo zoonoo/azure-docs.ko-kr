@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 09/12/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: caa7f58860c4540fa6914b1c0f0cfcba437468fa
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: eb838903802de5a04084a60924fc52d988180c11
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="package-and-deploy-containers-as-a-service-fabric-application"></a>Service Fabric 응용 프로그램으로 컨테이너 패키징 및 배포
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 01/11/2018
 > * 응용 프로그램 배포 및 실행 
 > * 응용 프로그램 정리
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 - 이 자습서의 [1부](service-fabric-tutorial-create-container-images.md)에서 만든 Azure Container Registry에 푸시된 컨테이너 이미지가 사용됩니다.
 - Linux 개발 환경을 [설정합니다](service-fabric-tutorial-create-container-images.md).
@@ -218,9 +218,17 @@ r = redis.StrictRedis(host=redis_server, port=6379, db=0)
 자습서의 이 시점에서 서비스 패키지 응용 프로그램의 템플릿은 클러스터에 배포하는 데 사용할 수 있습니다. 이후 자습서에서 이 응용 프로그램을 배포하고 Service Fabric 클러스터에서 실행합니다.
 
 ## <a name="create-a-service-fabric-cluster"></a>Service Fabric 클러스터 만들기
-응용 프로그램을 Azure의 클러스터에 배포하려면 고유한 클러스터 또는 파티 클러스터를 사용합니다.
+응용 프로그램을 Azure의 클러스터에 배포하려면 고유한 클러스터를 만듭니다.
 
-파티 클러스터는 Azure에서 호스팅되는 시간이 제한된 체험용 Service Fabric 클러스터이며 Service Fabric 팀에서 유지 관리하며 여기에서 누구든지 응용 프로그램을 배포하고 플랫폼에 대해 알아볼 수 있습니다. 파티 클러스터에 대한 액세스 권한을 얻으려면 [지침에 따릅니다](http://aka.ms/tryservicefabric). 
+파티 클러스터는 Azure에서 호스팅되는 시간이 제한된 체험용 Service Fabric 클러스터이며 누구든지 응용 프로그램을 배포하고 플랫폼에 대해 알아볼 수 있는 Service Fabric 팀에서 실행합니다. 파티 클러스터에 대한 액세스 권한을 얻으려면 [지침에 따릅니다](http://aka.ms/tryservicefabric). 
+
+보안 파티 클러스터에서 관리 작업을 수행하기 위해 Service Fabric Explorer, CLI 또는 Powershell을 사용할 수 있습니다. Service Fabric Explorer를 사용하려면 파티 클러스터 웹 사이트에서 PFX 파일을 다운로드하고, 인증서 저장소(Windows 또는 Mac) 또는 브라우저 자체(Ubuntu)로 인증서를 가져와야 합니다. 파티 클러스터의 자체 서명된 인증서에는 암호가 없습니다. 
+
+Powershell 또는 CLI를 사용하여 관리 작업을 수행하려면 PFX(Powershell) 또는 PEM(CLI)이 필요합니다. PFX를 PEM 파일로 변환하려면 다음 명령을 실행합니다.  
+
+```bash
+openssl pkcs12 -in party-cluster-1277863181-client-cert.pfx -out party-cluster-1277863181-client-cert.pem -nodes -passin pass:
+```
 
 자체 클러스터를 만드는 방법은 [Azure에서 Service Fabric 클러스터 만들기](service-fabric-tutorial-create-vnet-and-linux-cluster.md)를 참조하세요.
 
@@ -230,7 +238,7 @@ Service Fabric CLI를 사용하여 Azure 클러스터에 응용 프로그램을 
 Azure에서 Service Fabric 클러스터에 연결합니다. 자리 표시자 엔드포인트를 고유한 값으로 대체합니다. 엔드포인트는 아래와 비슷한 전체 URL이어야 합니다.
 
 ```bash
-sfctl cluster select --endpoint <http://lin4hjim3l4.westus.cloudapp.azure.com:19080>
+sfctl cluster select --endpoint https://linh1x87d1d.westus.cloudapp.azure.com:19080 --pem party-cluster-1277863181-client-cert.pem --no-verify
 ```
 
 **TestContainer** 디렉터리에 제공된 설치 스크립트를 사용하여 클러스터의 이미지 저장소에 응용 프로그램 패키지를 복사하고 응용 프로그램 유형을 등록하며 응용 프로그램의 인스턴스를 만듭니다.

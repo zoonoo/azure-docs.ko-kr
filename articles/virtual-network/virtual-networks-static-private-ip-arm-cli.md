@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/16/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d9925b29a60fc46e9ecc775ca132bd2365f64b15
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: c936518c3cc431bb74dcdfe7f967687d3dc71e42
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-cli"></a>Azure CLI를 사용하여 가상 머신에 대한 개인 IP 주소 구성
 
@@ -41,9 +41,9 @@ ms.lasthandoff: 11/17/2017
 
 *192.168.1.101*의 정적 개인 IP 주소를 사용하여 *TestVNet*이라는 VNet의 *FrontEnd* 서브넷에 *DNS01*이라는 VM을 만들려면 다음 단계를 완료하세요.
 
-1. 아직 설치하지 않은 경우 최신 [Azure CLI 2.0](/cli/azure/install-az-cli2)을 설치 및 구성하고 [az login](/cli/azure/#login)을 사용하여 Azure 계정에 로그인합니다. 
+1. 아직 설치하지 않은 경우 최신 [Azure CLI 2.0](/cli/azure/install-az-cli2)을 설치 및 구성하고 [az login](/cli/azure/#az_login)을 사용하여 Azure 계정에 로그인합니다. 
 
-2. [az network public-ip create](/cli/azure/network/public-ip#create) 명령을 사용하여 VM의 공용 IP를 만듭니다. 출력 다음에 표시되는 목록은 사용되는 매개 변수를 설명합니다.
+2. [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) 명령을 사용하여 VM의 공용 IP를 만듭니다. 출력 다음에 표시되는 목록은 사용되는 매개 변수를 설명합니다.
 
     > [!NOTE]
     > 사용자 환경에 따라 이 단계 및 이후 단계에 다른 값을 사용할 수 있습니다.
@@ -74,7 +74,7 @@ ms.lasthandoff: 11/17/2017
    * `--name`: 공용 IP의 이름입니다.
    * `--location`: 공용 IP를 만들 Azure 지역입니다.
 
-3. [az network nic create](/cli/azure/network/nic#create) 명령을 실행하여 고정 개인 IP를 가진 NIC를 만듭니다. 출력 다음에 표시되는 목록은 사용되는 매개 변수를 설명합니다. 
+3. [az network nic create](/cli/azure/network/nic#az_network_nic_create) 명령을 실행하여 고정 개인 IP를 가진 NIC를 만듭니다. 출력 다음에 표시되는 목록은 사용되는 매개 변수를 설명합니다. 
    
     ```azurecli
     az network nic create \
@@ -126,7 +126,7 @@ ms.lasthandoff: 11/17/2017
     * `--vnet-name`: NIC가 만들어질 VNet의 이름입니다.
     * `--subnet`: NIC가 만들어질 서브넷의 이름입니다.
 
-4. [azure vm create](/cli/azure/vm/nic#create) 명령을 실행하여 이전에 만든 공용 IP 및 NIC를 사용하여 VM을 만듭니다. 출력 다음에 표시되는 목록은 사용되는 매개 변수를 설명합니다.
+4. [azure vm create](/cli/azure/vm/nic#az_vm_nic_create) 명령을 실행하여 이전에 만든 공용 IP 및 NIC를 사용하여 VM을 만듭니다. 출력 다음에 표시되는 목록은 사용되는 매개 변수를 설명합니다.
    
     ```azurecli
     az vm create \
@@ -154,7 +154,7 @@ ms.lasthandoff: 11/17/2017
     }
     ```
    
-   기본 [az vm create](/cli/azure/vm#create) 매개 변수가 아닌 매개 변수입니다.
+   기본 [az vm create](/cli/azure/vm#az_vm_create) 매개 변수가 아닌 매개 변수입니다.
 
    * `--nics`: VM이 연결된 NIC의 이름입니다.
    

@@ -10,18 +10,20 @@ ms.author: grhuynh
 ms.service: microsoft-genomics
 ms.workload: genomics
 ms.topic: quickstart
-ms.date: 12/07/2017
-ms.openlocfilehash: d410516f807b7914e15bed1fb93ee58d3e340d1e
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.date: 02/05/2018
+ms.openlocfilehash: 7aeb4d5ad939cefcf8300b78b4afcc9d91ca0624
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="submit-a-workflow-using-multiple-inputs-from-the-same-sample"></a>동일한 샘플의 여러 입력을 사용하여 워크플로 제출
 
-이 빠른 시작은 입력 파일이 **동일한 샘플에서 입력되는** 다수의 FASTQ 또는 BAM 파일인 경우 Microsoft Genomics 서비스에 워크플로를 제출하는 방법을 보여줍니다. 그러나 같은 제출에서 FASTQ와 BAM 파일을 혼합**할 수** 없습니다.
+이 빠른 시작은 입력 파일이 **동일한 샘플에서 입력되는** 다수의 FASTQ 또는 BAM 파일인 경우 Microsoft Genomics 서비스에 워크플로를 제출하는 방법을 보여줍니다. 예를 들어 시퀀서의 여러 레인에서 **동일한 샘플**을 실행한 경우 시퀀서는 각 레인별로 한 쌍의 FASTQ 파일을 출력할 수 있습니다. 정렬 및 변이 추출 전에 이러한 FASTQ 파일을 연결하는 대신 이러한 입력을 모두 `msgen` 클라이언트에 직접 제출할 수 있습니다. `msgen` 클라이언트의 출력은 .bam, .bai, .vcf 파일을 포함한 파일의 **단일 집합**입니다. 
 
-이 항목에서는 사용자가 이미 `msgen` 클라이언트를 설치하여 실행하고 있으며 Azure Storage 사용 방법에 익숙하다고 가정합니다. 제공된 샘플 데이터를 사용하여 워크플로를 성공적으로 제출한 경우 이 빠른 시작을 진행할 준비가 된 것입니다. 
+그러나 같은 제출에서 FASTQ와 BAM 파일을 혼합**할 수** 없습니다. 또한 여러 개인의 여러 FASTQ 또는 BAM 파일은 **제출할 수 없습니다**. 
+
+이 문서에서는 `msgen` 클라이언트를 이미 설치하여 실행하고 있으며 Azure Storage를 사용하는 방법을 잘 알고 있다고 가정합니다. 제공된 샘플 데이터를 사용하여 워크플로를 성공적으로 제출한 경우 이 빠른 시작을 진행할 준비가 된 것입니다. 
 
 
 ## <a name="multiple-bam-files"></a>여러 개의 BAM 파일
@@ -32,7 +34,7 @@ ms.lasthandoff: 12/13/2017
 
 ### <a name="submit-your-job-to-the-msgen-client"></a>`msgen` 클라이언트에게 작업을 제출합니다. 
 
---input-blob-name-1 인수에 모든 이름을 전달하여 여러 BAM 파일을 제출할 수 있습니다. 모든 파일은 동일한 샘플에서 가져와야 하지만 순서는 중요하지 않습니다. 아래는 Windows, Unix 및 구성 파일을 사용하는 명령줄에서 제출 된 예제입니다. 쉽게 알 수 있도록 줄 바꿈이 추가되었습니다.
+--input-blob-name-1 인수에 모든 이름을 전달하여 여러 BAM 파일을 제출할 수 있습니다. 모든 파일은 동일한 샘플에서 가져와야 하지만 순서는 중요하지 않습니다. 다음 섹션에서는 Windows, Unix 및 구성 파일을 사용하는 명령줄의 예제 제출에 대해 자세히 설명합니다. 쉽게 알 수 있도록 줄 바꿈이 추가되었습니다.
 
 
 Windows의 경우:
@@ -97,7 +99,7 @@ output_storage_account_container: outputs
 
 쌍으로 연결된 FASTQ 파일은 동일한 샘플에서 나온 것이어야 할 뿐만 아니라 함께 처리해야 합니다.  파일 이름의 순서는 --input-blob-name-1 및 --input-blob-name-2에 인수로서 전달될 때와 관련이 있습니다. 
 
-아래는 Windows, Unix 및 구성 파일을 사용하는 명령줄에서 제출 된 예제입니다. 쉽게 알 수 있도록 줄 바꿈이 추가되었습니다.
+다음 섹션에서는 Windows, Unix 및 구성 파일을 사용하는 명령줄의 예제 제출에 대해 자세히 설명합니다. 쉽게 알 수 있도록 줄 바꿈이 추가되었습니다.
 
 
 Windows의 경우:
@@ -155,4 +157,4 @@ output_storage_account_container: outputs
 이 호출로 `config.txt` 파일 제출: `msgen submit -f config.txt`
 
 ## <a name="next-steps"></a>다음 단계
-이 문서에서는 여러 개의 BAM 파일 또는 쌍으로 연결된 FASTQ 파일을 Azure Storage에 업로드했고 `msgen` python 클라이언트를 통해 워크플로를 Microsoft Genomics 서비스에 제출했습니다. Microsoft Genomics 서비스에서 사용할 수 있는 워크플로 제출 및 기타 명령에 대한 추가 정보는 [FAQ](frequently-asked-questions-genomics.md)를 참조하세요. 
+이 문서에서는 여러 개의 BAM 파일 또는 쌍으로 연결된 FASTQ 파일을 Azure Storage에 업로드했고 `msgen` python 클라이언트를 통해 워크플로를 Microsoft Genomics 서비스에 제출했습니다. Microsoft Genomics 서비스에서 사용할 수 있는 워크플로 제출 및 기타 명령에 대한 자세한 내용은 [FAQ](frequently-asked-questions-genomics.md)를 참조하세요. 

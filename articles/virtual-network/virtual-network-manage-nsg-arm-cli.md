@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3c8d9f932746811a5b21dbd667d7c7bdc8f721fb
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 36ff6d8fc956f5c863884e4591cbcb2909fcb200
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="manage-network-security-groups-using-the-azure-cli"></a>Azure CLI를 사용하여 네트워크 보안 그룹 관리
 
@@ -35,10 +35,10 @@ ms.lasthandoff: 11/17/2017
 [!INCLUDE [virtual-network-manage-nsg-arm-scenario-include.md](../../includes/virtual-network-manage-nsg-arm-scenario-include.md)]
 
 ## <a name="prerequisite"></a>필수 요소
-아직 설치하지 않은 경우 최신 [Azure CLI 2.0](/cli/azure/install-az-cli2)을 설치 및 구성하고 [az login](/cli/azure/#login)을 사용하여 Azure 계정에 로그인합니다. 
+아직 설치하지 않은 경우 최신 [Azure CLI 2.0](/cli/azure/install-az-cli2)을 설치 및 구성하고 [az login](/cli/azure/#az_login)을 사용하여 Azure 계정에 로그인합니다. 
 
 ## <a name="view-existing-nsgs"></a>기존 NSG 보기
-특정 리소스 그룹에서 NSG 목록을 보려면 `-o table` 출력 형식으로 [az network nsg list](/cli/azure/network/nsg#list) 명령을 실행합니다.
+특정 리소스 그룹에서 NSG 목록을 보려면 `-o table` 출력 형식으로 [az network nsg list](/cli/azure/network/nsg#az_network_nsg_list) 명령을 실행합니다.
 
 ```azurecli
 az network nsg list -g RG-NSG -o table
@@ -52,7 +52,7 @@ az network nsg list -g RG-NSG -o table
     centralus   NSG-FrontEnd  Succeeded            RG-NSG           <guid>
 
 ## <a name="list-all-rules-for-an-nsg"></a>NSG에 대한 모든 규칙 나열
-**NSG-FrontEnd**라는 NSG 규칙을 보려면 [JMESPATH 쿼리 필터](/cli/azure/query-az-cli2) 및 `-o table` 출력 형식을 사용하여 [az network nsg show](/cli/azure/network/nsg#show) 명령을 실행합니다.
+**NSG-FrontEnd**라는 NSG 규칙을 보려면 [JMESPATH 쿼리 필터](/cli/azure/query-az-cli2) 및 `-o table` 출력 형식을 사용하여 [az network nsg show](/cli/azure/network/nsg#az_network_nsg_show) 명령을 실행합니다.
 
 ```azurecli
     az network nsg show \
@@ -75,7 +75,7 @@ az network nsg list -g RG-NSG -o table
     rdp-rule                                                                               Allow     Inbound      3389             *                 *               Internet
     web-rule                                                                               Allow     Inbound      80               *                 *               Internet
 > [!NOTE]
-> [az network nsg rule list](/cli/azure/network/nsg/rule#list)를 사용하여 NSG에서 사용자 지정 규칙만 나열할 수도 있습니다.
+> [az network nsg rule list](/cli/azure/network/nsg/rule#az_network_nsg_rule_list)를 사용하여 NSG에서 사용자 지정 규칙만 나열할 수도 있습니다.
 >
 
 ## <a name="view-nsg-associations"></a>NSG 연결 보기
@@ -151,7 +151,7 @@ az network nsg rule create  \
 ```
 
 ## <a name="change-a-rule"></a>규칙 변경
-**인터넷**에서만 인바운드 트래픽을 허용하도록 이전에 만든 규칙을 변경하려면 [az network nsg rule update](/cli/azure/network/nsg/rule#update) 명령을 실행합니다.
+**인터넷**에서만 인바운드 트래픽을 허용하도록 이전에 만든 규칙을 변경하려면 [az network nsg rule update](/cli/azure/network/nsg/rule#az_network_nsg_rule_update) 명령을 실행합니다.
 
 ```azurecli
 az network nsg rule update \
@@ -194,7 +194,7 @@ az network nsg rule delete \
 
 
 ## <a name="associate-an-nsg-to-a-nic"></a>NIC에 NSG 연결
-**NSG-FrontEnd** NSG를 **TestNICWeb1** NIC에 연결하려면 [az network nic update](/cli/azure/network/nic#update) 명령을 사용합니다.
+**NSG-FrontEnd** NSG를 **TestNICWeb1** NIC에 연결하려면 [az network nic update](/cli/azure/network/nic#az_network_nic_update) 명령을 사용합니다.
 
 ```azurecli
 az network nic update \
@@ -277,7 +277,7 @@ az network nic update \
 
 ## <a name="dissociate-an-nsg-from-a-nic"></a>NIC에서 NSG 분리
 
-**TestNICWeb1** NIC에서 **NSG-FrontEnd** NSG의 연결을 해제하려면 [az network nsg rule update](/cli/azure/network/nsg/rule#update) 명령을 다시 실행하고 `--network-security-group` 인수를 빈 문자열(`""`)로 바꿉니다.
+**TestNICWeb1** NIC에서 **NSG-FrontEnd** NSG의 연결을 해제하려면 [az network nsg rule update](/cli/azure/network/nsg/rule#az_network_nsg_rule_update) 명령을 다시 실행하고 `--network-security-group` 인수를 빈 문자열(`""`)로 바꿉니다.
 
 ```azurecli
 az network nic update --resource-group RG-NSG --name TestNICWeb3 --network-security-group ""
@@ -286,7 +286,7 @@ az network nic update --resource-group RG-NSG --name TestNICWeb3 --network-secur
 출력에서 `networkSecurityGroup` 키는 null로 설정됩니다.
 
 ## <a name="dissociate-an-nsg-from-a-subnet"></a>서브넷에서 NSG 분리
-**FrontEnd** 서브넷에서 **NSG-FrontEnd** NSG의 연결을 해제하려면 [az network nsg rule update](/cli/azure/network/nsg/rule#update) 명령을 다시 실행하고 `--network-security-group` 인수를 빈 문자열(`""`)로 바꿉니다.
+**FrontEnd** 서브넷에서 **NSG-FrontEnd** NSG의 연결을 해제하려면 [az network nsg rule update](/cli/azure/network/nsg/rule#az_network_nsg_rule_update) 명령을 다시 실행하고 `--network-security-group` 인수를 빈 문자열(`""`)로 바꿉니다.
 
 ```azurecli
 az network vnet subnet update \

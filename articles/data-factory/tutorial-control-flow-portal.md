@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: de48d61af0e8056a749715343ef821cfc35cb93d
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 2b1e3fa7fa57d92dbc3a33af20ed258d674e1625
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Data Factory 파이프라인 분기 및 연결 작업
 이 자습서에서는 몇 가지 컨트롤 흐름 기능을 보여 주는 Data Factory 파이프라인을 만듭니다. 이 파이프라인은 Azure Blob Storage의 컨테이너에서 동일한 저장소 계정의 다른 컨테이너로 간단한 복사를 수행합니다. 복사 활동이 성공하면 파이프라인에서 성공적인 복사 작업에 대한 세부 정보(예: 기록된 데이터 양)를 성공 전자 메일에 보냅니다. 복사 활동이 실패하면 파이프라인에서 실패한 복사 작업에 대한 세부 정보(예: 오류 메시지)를 실패 전자 메일에 보냅니다. 자습서 전체에서 매개 변수를 전달하는 방법을 확인할 수 있습니다.
@@ -30,7 +30,7 @@ ms.lasthandoff: 01/19/2018
 이 자습서에서 수행하는 단계는 다음과 같습니다.
 
 > [!div class="checklist"]
-> * 데이터 팩터리를 만듭니다.
+> * 데이터 팩터리 만들기
 > * Azure Storage 연결된 서비스 만들기
 > * Azure Blob 데이터 집합 만들기
 > * 복사 활동 및 웹 활동이 포함된 파이프라인 만들기
@@ -129,6 +129,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 
 ## <a name="create-a-data-factory"></a>데이터 팩터리를 만듭니다.
 
+1. **Microsoft Edge** 또는 **Google Chrome** 웹 브라우저를 시작합니다. 현재 Data Factory UI는 Microsoft Edge 및 Google Chrome 웹 브라우저에서만 지원됩니다.
 1. 왼쪽 메뉴에서 **새로 만들기**를 클릭하고 **데이터 + 분석**, **Data Factory**를 차례로 클릭합니다. 
    
    ![새로 만들기->DataFactory](./media/tutorial-control-flow-portal/new-azure-data-factory-menu.png)
@@ -159,7 +160,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 10. **작성 및 모니터링** 타일을 클릭하여 별도의 탭에서 Azure Data Factory UI(사용자 인터페이스)를 시작합니다.
 
 
-## <a name="create-a-pipeline"></a>파이프라인을 만듭니다.
+## <a name="create-a-pipeline"></a>파이프라인 만들기
 이 단계에서는 하나의 복사 활동과 두 개의 웹 활동이 있는 파이프라인을 만듭니다. 다음 기능을 사용하여 파이프라인을 만듭니다.
 
 - 데이터 집합에서 액세스하는 파이프라인에 대한 매개 변수 
@@ -241,8 +242,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
         - 데이터 팩터리 이름 - `@{pipeline().DataFactory}`의 값을 전달합니다. 이 변수는 시스템 변수이며, 해당 데이터 팩터리 이름에 액세스할 수 있게 합니다. 시스템 변수 목록은 [시스템 변수](control-flow-system-variables.md) 문서를 참조하세요.
         - 파이프라인 이름 - `@{pipeline().Pipeline}`의 값을 전달합니다. 이는 시스템 변수이기도 하므로 해당 파이프라인 액세스할 수 있게 합니다. 
         - 받는 사람 - "@pipeline().parameters.receiver")의 값을 전달합니다. 파이프라인 매개 변수에 액세스합니다.
-    6. **설정**은 다음 이미지와 같이 표시됩니다. 
-
+    
         ![첫 번째 웹 활동에 대한 설정](./media/tutorial-control-flow-portal/web-activity1-settings.png)         
 19. 복사 활동 옆의 녹색 단추를 끌어 웹 활동에 놓아서 **복사** 활동을 **웹** 활동에 연결합니다. 
 
@@ -266,8 +266,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
             "receiver": "@pipeline().parameters.receiver"
         }
         ```
-    6. **설정**은 다음 이미지와 같이 표시됩니다. 
-    
+
         ![두 번째 웹 활동에 대한 설정](./media/tutorial-control-flow-portal/web-activity2-settings.png)         
 22. 파이프라인 디자이너에서 **복사** 활동을 선택하고, **+->** 단추를 클릭하고, **오류**를 선택합니다.  
 
@@ -278,7 +277,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 24. 파이프라인에 대한 유효성을 검사하려면 도구 모음에서 **유효성 검사** 단추를 클릭합니다. **>>** 단추를 클릭하여 **파이프라인 유효성 검사 출력** 창을 닫습니다.
 
     ![파이프라인 유효성 검사](./media/tutorial-control-flow-portal/validate-pipeline.png)
-24. 엔터티(데이터 집합, 파이프라인 등)를 Data Factory 서비스에 게시하려면 **게시**를 클릭합니다. **게시됨** 메시지가 표시될 때까지 기다립니다.
+24. 엔터티(데이터 집합, 파이프라인 등)를 Data Factory 서비스에 게시하려면 **모두 게시**를 선택합니다. **게시됨** 메시지가 표시될 때까지 기다립니다.
 
     ![게시](./media/tutorial-control-flow-portal/publish-button.png)
  
@@ -333,7 +332,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 이 자습서에서 다음 단계를 수행했습니다. 
 
 > [!div class="checklist"]
-> * 데이터 팩터리를 만듭니다.
+> * 데이터 팩터리 만들기
 > * Azure Storage 연결된 서비스 만들기
 > * Azure Blob 데이터 집합 만들기
 > * 복사 작업 및 웹 작업이 포함된 파이프라인 만들기

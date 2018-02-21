@@ -67,8 +67,10 @@
           href: kubernetes-helm.md
         - name: Draft를 사용하여 응용 프로그램 개발
           href: kubernetes-draft.md
-        - name: OSBA를 사용하여 Azure와 통합
+        - name: Open Service Broker for Azure
           href: integrate-azure.md
+        - name: Jenkins 연속 배포
+          href: jenkins-continuous-deployment.md
     - name: Kubernetes 기본 사항
       items:
         - name: Kubernetes 대시보드 사용
