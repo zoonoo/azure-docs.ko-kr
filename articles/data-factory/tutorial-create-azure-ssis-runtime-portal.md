@@ -13,11 +13,11 @@ ms.devlang:
 ms.topic: hero-article
 ms.date: 01/29/2018
 ms.author: spelluru
-ms.openlocfilehash: 9e0b0efdf28e6d8b99d1cdf702dd0698ad87da7b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: abb5fd4953709198f6071bbdd4a1dc86900f0183
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="provision-an-azure-ssis-integration-runtime-by-using-the-azure-data-factory-ui"></a>Azure Data Factory UI를 사용하여 Azure-SSIS 통합 런타임 프로비전
 이 자습서에서는 Azure Portal을 사용하여 Azure Data Factory에서 Azure-SSIS IR(통합 런타임)을 프로비전하는 단계를 제공합니다. 그런 다음 SQL Server Data Tools 또는 SQL Server Management Studio를 사용하여 Azure에서 이 런타임에 SSIS(SQL Server Integration Services) 패키지를 배포할 수 있습니다. Azure-SSIS IR의 개념 정보는 [Azure-SSIS 통합 런타임 개요](concepts-integration-runtime.md#azure-ssis-integration-runtime)를 참조하세요.
@@ -26,7 +26,7 @@ ms.lasthandoff: 02/01/2018
 
 > [!div class="checklist"]
 > * 데이터 팩터리 만들기
-> * Azure-SSIS 통합 런타임을 만들고 시작합니다.
+> * Azure-SSIS 통합 런타임 프로비전
 
 > [!NOTE]
 > 이 문서는 현재 미리 보기 상태인 Data Factory 버전 2에 적용됩니다. 일반 공급(GA)되는 Data Factory 버전 1 서비스를 사용하는 경우 [Data Factory 버전 1 설명서](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
@@ -41,8 +41,9 @@ ms.lasthandoff: 02/01/2018
  
 ## <a name="create-a-data-factory"></a>데이터 팩터리를 만듭니다.
 
-1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.    
-2. 왼쪽 메뉴에서 **새로 만들기**를 선택하고 **데이터 + 분석**을 선택한 다음 **데이터 팩터리**를 선택합니다. 
+1. **Microsoft Edge** 또는 **Google Chrome** 웹 브라우저를 시작합니다. 현재 Data Factory UI는 Microsoft Edge 및 Google Chrome 웹 브라우저에서만 지원됩니다.
+2. [Azure 포털](https://portal.azure.com/)에 로그인합니다.    
+3. 왼쪽 메뉴에서 **새로 만들기**를 선택하고 **데이터 + 분석**을 선택한 다음 **데이터 팩터리**를 선택합니다. 
    
    !["새로 만들기" 창에서 데이터 팩터리 선택](./media/tutorial-create-azure-ssis-runtime-portal/new-data-factory-menu.png)
 3. **새 데이터 팩터리** 페이지에서 **이름**에 **MyAzureSsisDataFactory**를 입력합니다. 
@@ -69,7 +70,7 @@ ms.lasthandoff: 02/01/2018
 11. 만들기가 완료되면 **데이터 팩터리** 페이지가 표시됩니다.
    
    ![데이터 팩터리의 홈 페이지](./media/tutorial-create-azure-ssis-runtime-portal/data-factory-home-page.png)
-12. **모니터링 및 관리**를 선택하여 별도의 탭에서 Data Factory UI(사용자 인터페이스)를 엽니다. 
+12. **작성 및 모니터링 관리**를 선택하여 별도의 탭에서 Data Factory UI(사용자 인터페이스)를 엽니다. 
 
 ## <a name="provision-an-azure-ssis-integration-runtime"></a>Azure-SSIS 통합 런타임 프로비전
 
@@ -160,7 +161,7 @@ SSIS 설명서에서 다음 문서를 참조하세요.
 
 > [!div class="checklist"]
 > * 데이터 팩터리 만들기
-> * Azure-SSIS 통합 런타임을 만들고 시작합니다.
+> * Azure-SSIS 통합 런타임 프로비전
 
 온-프레미스에서 클라우드로 데이터를 복사하는 방법을 알아보려면 다음 자습서로 이동하세요. 
 

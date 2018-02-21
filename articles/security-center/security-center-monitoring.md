@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/03/2018
+ms.date: 02/06/2018
 ms.author: yurid
-ms.openlocfilehash: 04f2dd3dcaa44a243cb9620ab8192e15aae82a01
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 608947ec4a94cad276e34e8d3457f05b06d04ad6
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="security-health-monitoring-in-azure-security-center"></a>Azure Security Center에서 보안 상태 모니터링
 이 문서는 Azure Security Center의 모니터링 기능을 사용하여 정책 준수를 모니터링하는 데 도움이 됩니다.
@@ -87,6 +87,13 @@ ms.lasthandoff: 01/04/2018
 > [!NOTE]
 > 여기와 **권장 사항** 옵션에서 보여 주는 보안 권장 사항은 동일합니다. 권장 사항 해결에 대한 자세한 내용은 [Azure Security Center에서 보안 권장 사항 구현](security-center-recommendations.md)을 참조하세요. 이 내용은 가상 머신 및 컴퓨터뿐만 아니라 **Resource Health** 타일에서 제공되는 모든 리소스에도 적용할 수 있습니다.
 >
+
+#### <a name="unmonitored-vms"></a>모니터링되지 않는 VM
+VM이 Microsoft Monitoring Agent 확장을 실행하지 않으면 Security Center에서 VM을 모니터링하지 않습니다. VM에는 OMS 직접 에이전트 또는 SCOM 에이전트와 같은 로컬 에이전트가 이미 설치되어 있을 수 있습니다. 이러한 에이전트가 있는 VM은 Security Center에서 완전히 지원되지 않으므로 모니터링되지 않음으로 식별됩니다. Security Center의 모든 기능을 최대한 활용하려면 Microsoft Monitoring Agent 확장이 필요합니다.
+
+확장은 이미 설치된 로컬 에이전트 외에도 모니터링되지 않는 VM에 설치할 수 있습니다. 두 에이전트를 동일하게 구성하여 동일한 작업 영역에 연결합니다. 이렇게 하면 Security Center에서 Microsoft Monitoring Agent Extension과 상호 작용하고 데이터를 수집할 수 있습니다.  Microsoft Monitoring Agent 확장을 설치하는 방법에 대한 지침은 [VM 확장 사용](../log-analytics/log-analytics-quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)을 참조하세요.
+
+Security Center에서 자동 프로비전을 위해 초기화된 VM 및 컴퓨터를 성공적으로 모니터링할 수 없는 이유에 대한 자세한 내용은 [에이전트 상태 문제 모니터링](security-center-troubleshooting-guide.md#monitoring-agent-health-issues)을 참조하세요.
 
 #### <a name="vms--computers-section"></a>VM 및 컴퓨터 섹션
 가상 머신 및 컴퓨터 섹션에서는 모든 가상 머신과 컴퓨터의 권장 사항에 대한 개요를 제공합니다. 각 열에는 아래와 같이 일단의 권장 사항이 표시됩니다.

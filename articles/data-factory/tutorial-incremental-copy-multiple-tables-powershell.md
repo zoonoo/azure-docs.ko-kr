@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 9eeb265e063e6642b90dd641d41d0a54cbc6951e
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 593894b33dfcab4bc03a6223e2fdee1ff9bd7d15
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>SQL Server의 여러 테이블에서 Azure SQL 데이터베이스로 데이터 증분 로드
 이 자습서에서는 델타 데이터를 온-프레미스 SQL Server의 여러 테이블에서 Azure SQL 데이터베이스로 로드하는 파이프라인이 있는 Azure 데이터 팩터리를 만듭니다.    
@@ -25,13 +25,13 @@ ms.lasthandoff: 01/23/2018
 이 자습서에서 수행하는 단계는 다음과 같습니다.
 
 > [!div class="checklist"]
-> * 원본 및 대상 데이터 저장소를 준비합니다.
-> * 데이터 팩터리를 만듭니다.
+> * 원본 및 대상 데이터 저장소 준비
+> * 데이터 팩터리 만들기
 > * 자체 호스팅 통합 런타임을 만듭니다.
 > * Integration Runtime을 설치합니다. 
-> * 연결된 서비스 만들기. 
+> * 연결된 서비스 만들기 
 > * 원본, 싱크 및 워터마크 데이터 집합을 만듭니다.
-> * 파이프라인을 만들고 실행하고 모니터링합니다.
+> * 파이프라인 만들기, 실행 및 모니터링
 > * 결과를 검토합니다.
 > * 원본 테이블의 데이터를 추가 또는 업데이트합니다.
 > * 파이프 라인을 다시 실행하고 모니터링합니다.
@@ -51,7 +51,7 @@ ms.lasthandoff: 01/23/2018
 
 3. **다음 작업을 사용하여 파이프라인을 만듭니다.** 
     
-    a. 파이프라인에 매개 변수로 전달되는 원본 테이블 이름 목록을 반복하는 ForEach 작업을 만듭니다. 각 원본 테이블에 해당 테이블에 대한 델타 로드를 수행하는 다음 작업을 호출합니다.
+    a. 파이프라인에 매개 변수로 전달되는 원본 테이블 이름 목록을 반복하는 ForEach 작업을 만듭니다. 이 작업은 각 원본 테이블에 대해 다음 작업을 호출하여 해당 테이블의 델타 로딩을 수행합니다.
 
     나. 두 가지 조회 작업을 만듭니다. 첫 번째 조회 작업을 사용하여 마지막 워터마크 값을 검색합니다. 두 번째 조회 작업을 사용하여 새 워터마크 값을 검색합니다. 이러한 워터마크 값은 복사 작업에 전달됩니다.
 
@@ -110,7 +110,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     
     ```
 
-### <a name="create-destination-tables-in-your-sql-database"></a>SQL 데이터베이스에 대상 테이블 만들기
+### <a name="create-destination-tables-in-your-azure-sql-database"></a>Azure SQL 데이터베이스에 대상 테이블 만들기
 1. SQL Server Management Studio를 열고 SQL Server 데이터베이스에 연결합니다.
 
 2. **서버 탐색기**에서 데이터베이스를 마우스 오른쪽 단추로 클릭하고 **새 쿼리**를 선택합니다.
@@ -133,7 +133,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
     ```
 
-### <a name="create-another-table-in-the-sql-database-to-store-the-high-watermark-value"></a>상위 워터마크 값을 저장하기 위해 SQL 데이터베이스에 다른 테이블 만들기
+### <a name="create-another-table-in-the-azure-sql-database-to-store-the-high-watermark-value"></a>상위 워터마크 값을 저장하기 위해 Azure SQL 데이터베이스에 또 다른 테이블 만들기
 1. SQL 데이터베이스에 대해 다음 SQL 명령을 실행하여 워터마크 값을 저장할 `watermarktable` 테이블을 만듭니다. 
     
     ```sql
@@ -155,7 +155,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     
     ```
 
-### <a name="create-a-stored-procedure-in-the-sql-database"></a>SQL 데이터베이스에 저장 프로시저 만들기 
+### <a name="create-a-stored-procedure-in-the-azure-sql-database"></a>Azure SQL 데이터베이스에 저장 프로시저 만들기 
 
 다음 명령을 실행하여 SQL 데이터베이스에 저장 프로시저를 만듭니다. 이 저장 프로시저는 파이프라인을 실행이 끝날 때마다 워터마크 값을 업데이트합니다. 
 
@@ -173,7 +173,7 @@ END
 
 ```
 
-### <a name="create-data-types-and-additional-stored-procedures"></a>데이터 형식 및 추가 저장 프로시저 만들기
+### <a name="create-data-types-and-additional-stored-procedures-in-the-azure-sql-database"></a>Azure SQL 데이터베이스에 데이터 형식 및 추가 저장 프로시저 만들기
 다음 쿼리를 실행하여 SQL 데이터베이스에 두 개의 데이터 형식과 두 개의 저장 프로시저를 만듭니다. 원본 테이블의 데이터를 대상 테이블에 병합하는 데 사용됩니다.
 
 ```sql
@@ -509,7 +509,7 @@ END
     Properties        : Microsoft.Azure.Management.DataFactory.Models.AzureSqlTableDataset    
     ```
 
-## <a name="create-a-pipeline"></a>파이프라인을 만듭니다.
+## <a name="create-a-pipeline"></a>파이프라인 만들기
 파이프라인에서는 테이블 이름 목록을 매개 변수로 사용합니다. ForEach 작업은 테이블 이름 목록을 반복하고 다음 작업을 수행합니다. 
 
 1. 조회 작업을 사용하여 이전 워터마크 값을 검색합니다(초기 값 또는 마지막 반복에서 사용된 값).
@@ -875,13 +875,13 @@ project_table   2017-10-01 00:00:00.000
 이 자습서에서 다음 단계를 수행했습니다. 
 
 > [!div class="checklist"]
-> * 원본 및 대상 데이터 저장소를 준비합니다.
-> * 데이터 팩터리를 만듭니다.
+> * 원본 및 대상 데이터 저장소 준비
+> * 데이터 팩터리 만들기
 > * 자체 호스팅 IR(통합 런타임)을 만듭니다.
 > * Integration Runtime을 설치합니다.
-> * 연결된 서비스 만들기. 
+> * 연결된 서비스 만들기 
 > * 원본, 싱크 및 워터마크 데이터 집합을 만듭니다.
-> * 파이프라인을 만들고 실행하고 모니터링합니다.
+> * 파이프라인 만들기, 실행 및 모니터링
 > * 결과를 검토합니다.
 > * 원본 테이블의 데이터를 추가 또는 업데이트합니다.
 > * 파이프 라인을 다시 실행하고 모니터링합니다.

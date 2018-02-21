@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 01/21/2018
+ms.date: 02/05/2018
 ms.author: glenga
 ms.custom: mvc, devcenter
 experiment: 
-ms.openlocfilehash: 82f87447a2176dffd55dcf71155c389398f7d64c
+ms.openlocfilehash: 9c038b1330bdd9ee0c922b98158c45f3c7b797ae
 ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
@@ -39,9 +39,7 @@ Azure 계정으로 Azure Portal(<http://portal.azure.com>)에 로그인합니다
 
 함수 실행을 호스트하는 함수 앱이 있어야 합니다. 함수 앱을 통해 함수를 논리 단위로 그룹화하여 더욱 쉽게 관리, 배포 및 리소스 공유할 수 있습니다. 
 
-[!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
-
-[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
+[!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal-experiment.md)]
 
 다음으로 새 함수 앱에서 함수를 만듭니다.
 

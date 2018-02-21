@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/24/2017
+ms.date: 02/06/2018
 ms.author: adegeo
 ms.custom: mvc
-ms.openlocfilehash: 63b4747164959b0e95f6d3f1908d1fd265589a98
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: bbbb31687ab0980d62b35d627c4b1708b7ae8288
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="scale-a-service-fabric-cluster"></a>Service Fabric 클러스터 크기 조정
 
@@ -63,7 +63,7 @@ az account set --subscription <guid>
 
 ## <a name="connect-to-the-cluster"></a>클러스터에 연결
 
-자습서의 이 부분을 성공적으로 완료하려면 Service Fabric 클러스터와 가상 컴퓨터 확장 집합(클러스터 호스팅)을 모두 연결해야 합니다. 가상 컴퓨터 확장 집합은 Azure에서 Service Fabric을 호스팅하는 Azure 리소스입니다.
+자습서의 이 부분을 성공적으로 완료하려면 Service Fabric 클러스터와 가상 머신 확장 집합(클러스터 호스팅)을 모두 연결해야 합니다. 가상 머신 확장 집합은 Azure에서 Service Fabric을 호스팅하는 Azure 리소스입니다.
 
 클러스터에 연결하는 경우 클러스터에서 정보를 쿼리할 수 있습니다. 클러스터를 사용하여 클러스터에서 인식할 수 있는 노드를 알 수 있습니다. 다음 코드에서 클러스터에 연결하는 경우 이 시리즈의 첫 번째 파트에서 작성된 것과 동일한 인증서를 사용합니다. `$endpoint` 및 `$thumbprint` 변수를 실제 값으로 설정해야 합니다.
 
@@ -85,7 +85,7 @@ sfctl cluster select --endpoint https://aztestcluster.southcentralus.cloudapp.az
 --pem ./aztestcluster201709151446.pem --no-verify
 ```
 
-이제 연결되었으며 명령을 사용하여 클러스터에 있는 각 노드의 상태를 가져올 수 있습니다. PowerShell에서는 `Get-ServiceFabricClusterHealth` 명령을 사용하고 **sfctl**에 `` 명령을 사용합니다.
+이제 연결되었으며 명령을 사용하여 클러스터에 있는 각 노드의 상태를 가져올 수 있습니다. PowerShell의 경우 `Get-ServiceFabricClusterHealth` 명령을 사용하고, **sfctl**의 경우 `sfctl cluster select` 명령을 사용합니다.
 
 ## <a name="scale-out"></a>확장
 
@@ -95,7 +95,7 @@ sfctl cluster select --endpoint https://aztestcluster.southcentralus.cloudapp.az
 $scaleset = Get-AzureRmVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm
 $scaleset.Sku.Capacity += 1
 
-Update-AzureRmVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm -VirtualMachineScaleSet $scaleset
+Update-AzureRmVmss -ResourceGroupName $scaleset.ResourceGroupName -VMScaleSetName $scaleset.Name -VirtualMachineScaleSet $scaleset
 ```
 
 이 코드는 용량을 6으로 설정합니다.
@@ -110,21 +110,21 @@ az vmss scale -g sfclustertutorialgroup -n nt1vm --new-capacity 6
 
 ## <a name="scale-in"></a>규모 감축
 
-규모 감축은 더 낮은 **용량** 값을 사용하는 것을 제외하고 규모 확장과 동일합니다. 확장 집합을 규모 감축하는 경우 확장 집합에서 가상 컴퓨터 인스턴스를 제거합니다. 일반적으로 Service Fabric은 어떤 일이 발생했는지 알지 못하며 노드가 누락되었다고 생각합니다. 그러면 Service Fabric은 클러스터의 비정상 상태를 보고합니다. 잘못된 상태를 방지하려면 노드가 사라질 것으로 예상한다는 것을 서비스 패브릭에 알려야 합니다.
+규모 감축은 더 낮은 **용량** 값을 사용하는 것을 제외하고 규모 확장과 동일합니다. 확장 집합을 규모 감축하는 경우 확장 집합에서 가상 머신 인스턴스를 제거합니다. 일반적으로 Service Fabric은 어떤 일이 발생했는지 알지 못하며 노드가 누락되었다고 생각합니다. 그러면 Service Fabric은 클러스터의 비정상 상태를 보고합니다. 잘못된 상태를 방지하려면 노드가 사라질 것으로 예상한다는 것을 서비스 패브릭에 알려야 합니다.
 
 ### <a name="remove-the-service-fabric-node"></a>서비스 패브릭 노드 제거
 
 > [!NOTE]
 > 이 부분만 *Bronze* 내구성 계층에 적용됩니다. 내구성에 자세한 내용은 [Service Fabric 클러스터 용량 계획][durability]을 참조하세요.
 
-가상 컴퓨터 확장 집합의 규모를 감축할 때 확장 집합(대부분의 경우)은 마지막으로 만든 가상 컴퓨터 인스턴스를 제거합니다. 따라서 마지막으로 만들고 일치하는 서비스 패브릭 노드를 찾아야 합니다. 서비스 패브릭 노드에서 가장 큰 `NodeInstanceId` 속성 값을 확인하여 이 마지막 노드를 찾을 수 있습니다. 아래의 코드 예제는 노드 인스턴스별로 정렬하고 가장 큰 ID 값을 가진 인스턴스에 대한 세부 정보를 반환합니다. 
+가상 머신 확장 집합의 규모를 감축할 때 확장 집합(대부분의 경우)은 마지막으로 만든 가상 머신 인스턴스를 제거합니다. 따라서 마지막으로 만들고 일치하는 서비스 패브릭 노드를 찾아야 합니다. 서비스 패브릭 노드에서 가장 큰 `NodeInstanceId` 속성 값을 확인하여 이 마지막 노드를 찾을 수 있습니다. 아래의 코드 예제는 노드 인스턴스별로 정렬하고 가장 큰 ID 값을 가진 인스턴스에 대한 세부 정보를 반환합니다. 
 
 ```powershell
-Get-ServiceFabricNode | Sort-Object NodeInstanceId -Descending | Select-Object -First 1
+Get-ServiceFabricNode | Sort-Object { $_.NodeName.Substring($_.NodeName.LastIndexOf('_') + 1) } -Descending | Select-Object -First 1
 ```
 
 ```azurecli
-`sfctl node list --query "sort_by(items[*], &instanceId)[-1]"`
+sfctl node list --query "sort_by(items[*], &name)[-1]"
 ```
 
 서비스 패브릭 클러스터는 이 노드가 제거될 것임을 알아야 합니다. 수행해야 하는 세 가지 단계가 있습니다.
@@ -146,8 +146,9 @@ sfcli: `sfctl node remove-state`
 다음 코드 블록은 마지막으로 만든 노드를 가져오고 클러스터에서 해당 노드를 사용하지 않도록 설정하고 중지 및 제거합니다.
 
 ```powershell
+#### After you've connected.....
 # Get the node that was created last
-$node = Get-ServiceFabricNode | Sort-Object NodeInstanceId -Descending | Select-Object -First 1
+$node = Get-ServiceFabricNode | Sort-Object { $_.NodeName.Substring($_.NodeName.LastIndexOf('_') + 1) } -Descending | Select-Object -First 1
 
 # Node details for the disable/stop process
 $nodename = $node.NodeName
@@ -202,7 +203,7 @@ else
 }
 ```
 
-아래 **sfctl** 코드에서 다음 명령을 사용하여 마지막으로 만든 노드의 **node-name** 및 **node-instance-id** 값을 가져옵니다. `sfctl node list --query "sort_by(items[*], &instanceId)[-1].[instanceId,name]"`
+아래 **sfctl** 코드에서 `sfctl node list --query "sort_by(items[*], &name)[-1].name"` 명령을 사용하여 마지막으로 만든 노드의 **node-name** 값을 가져옵니다.
 
 ```azurecli
 # Inform the node that it is going to be removed
@@ -219,16 +220,16 @@ sfctl node remove-state --node-name _nt1vm_5
 > 다음 **sfctl** 쿼리를 사용하여 각 단계의 상태를 확인합니다.
 >
 > **비활성화 상태 확인**  
-> `sfctl node list --query "sort_by(items[*], &instanceId)[-1].nodeDeactivationInfo"`
+> `sfctl node list --query "sort_by(items[*], &name)[-1].nodeDeactivationInfo"`
 >
 > **중지 상태 확인**  
-> `sfctl node list --query "sort_by(items[*], &instanceId)[-1].isStopped"`
+> `sfctl node list --query "sort_by(items[*], &name)[-1].isStopped"`
 >
 
 
 ### <a name="scale-in-the-scale-set"></a>확장 집합 규모 감축
 
-이제 클러스터에서 서비스 패브릭 노드가 제거되었으며 가상 컴퓨터 확장 집합을 규모 감축할 수 있습니다. 아래 예제에서는 확장 집합 용량이 1식 줄어듭니다.
+이제 클러스터에서 서비스 패브릭 노드가 제거되었으며 가상 머신 확장 집합을 규모 감축할 수 있습니다. 아래 예제에서는 확장 집합 용량이 1식 줄어듭니다.
 
 ```powershell
 $scaleset = Get-AzureRmVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm

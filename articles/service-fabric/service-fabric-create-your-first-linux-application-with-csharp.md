@@ -12,13 +12,13 @@ ms.devlang: csharp
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 9/19/2017
+ms.date: 1/27/2018
 ms.author: subramar
-ms.openlocfilehash: e18dcad73486ab7610c53c269fbc81de73b5147e
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 7a7bda1b2bab05459e4266f7bac0d32ea4093c8b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>첫 번째 Azure Service Fabric 응용 프로그램 만들기
 > [!div class="op_single_selector"]
@@ -40,10 +40,18 @@ Service Fabric은 Yeoman 템플릿 생성기를 사용하여 터미널에서 Ser
 
 1. 컴퓨터에서 Node.js 및 NPM 설치
 
-  ```bash
-  sudo apt-get install npm
-  sudo apt install nodejs-legacy
-  ```
+   Ubuntu
+   ```bash
+   sudo apt-get install npm
+   sudo apt install nodejs-legacy
+   ```
+
+   Red Hat Enterprise Linux 7.4(Service Fabric 미리 보기 지원)
+   ```bash
+   sudo yum install nodejs
+   sudo yum install npm
+   ```
+
 2. NPM의 컴퓨터에 [Yeoman](http://yeoman.io/) 템플릿 생성기 설치
 
   ```bash
@@ -117,12 +125,7 @@ Service Fabric Yeoman 템플릿은 빌드 스크립트를 포함하며 이것을
 
 `yo`을 사용하여 만든 응용 프로그램에 다른 서비스를 추가하려면 다음 단계를 수행합니다.
 1. 기존 응용 프로그램의 루트로 디렉터리를 변경합니다.  예를 들어 `MyApplication`이 Yeoman에서 만든 응용 프로그램인 경우 `cd ~/YeomanSamples/MyApplication`입니다.
-2. `yo azuresfcsharp:AddService`을 실행합니다.
-
-## <a name="migrating-from-projectjson-to-csproj"></a>project.json에서 .csproj로 마이그레이션
-1. 프로젝트 루트 디렉터리에서 'dotnet migrate'를 실행하면 모든 project.json을 csproj 형식으로 마이그레이션합니다.
-2. 프로젝트 파일에서 csproj 파일에 따라 프로젝트 참조를 업데이트합니다.
-3. 프로젝트 파일 이름을 build.sh의 csproj 파일로 업데이트합니다.
+2. `yo azuresfcsharp:AddService` 실행
 
 ## <a name="next-steps"></a>다음 단계
 

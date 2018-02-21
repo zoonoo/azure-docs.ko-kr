@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 09/05/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 23cc9ce855eeba9e9a365e42beeee01b09f0fee3
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 6aec2146d83c18a1e1714843cd49890f178e4fb3
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="deploy-an-azure-service-fabric-linux-container-application-on-azure"></a>Azure에서 Azure Service Fabric Linux 컨테이너 응용 프로그램 배포
 Azure Service Fabric은 확장성 있고 안정성이 뛰어난 마이크로 서비스 및 컨테이너를 배포 및 관리하기 위한 분산 시스템 플랫폼입니다. 
@@ -34,50 +34,47 @@ Azure Service Fabric은 확장성 있고 안정성이 뛰어난 마이크로 서
 > * Service Fabric에서 컨테이너 크기 조정 및 장애 조치
 
 ## <a name="prerequisite"></a>필수 요소
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/)을 만듭니다.
-  
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+1. Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
-CLI(명령줄 인터페이스)를 로컬로 설치하고 사용하도록 선택한 경우 Azure CLI 버전 2.0.4 이상을 실행하도록 합니다. 버전을 찾으려면 az --version을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)를 참조하세요.
+2. CLI(명령줄 인터페이스)를 로컬로 설치하고 사용하도록 선택한 경우 Azure CLI 버전 2.0.4 이상을 실행하도록 합니다. 버전을 찾으려면 az --version을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)를 참조하세요.
 
 ## <a name="get-application-package"></a>응용 프로그램 패키지 가져오기
 Service Fabric에 컨테이너를 배포하려면 개별 컨테이너 및 응용 프로그램에 대해 설명하는 매니페스트 파일(응용 프로그램 정의)의 집합이 필요합니다.
 
 클라우드 셸에서 git을 사용하여 응용 프로그램 정의의 복사본을 복제합니다.
 
-```azurecli-interactive
+```bash
 git clone https://github.com/Azure-Samples/service-fabric-containers.git
 
 cd service-fabric-containers/Linux/container-tutorial/Voting
 ```
+## <a name="deploy-the-application-to-azure"></a>Azure에 응용 프로그램 배포
 
-## <a name="deploy-the-containers-to-a-service-fabric-cluster-in-azure"></a>Azure에서 Service Fabric 클러스터에 컨테이너 배포
-응용 프로그램을 Azure의 클러스터에 배포하려면 고유한 클러스터 또는 파티 클러스터를 사용합니다.
+### <a name="set-up-your-azure-service-fabric-cluster"></a>Azure Service Fabric Cluster 설정
+응용 프로그램을 Azure의 클러스터에 배포하려면 고유한 클러스터를 만듭니다.
 
-> [!Note]
-> 응용 프로그램은 로컬 개발 컴퓨터의 Service Fabric 클러스터가 아니라 Azure의 클러스터에 배포되어야 합니다. 
->
+파티 클러스터는 Azure에서 호스팅되는 시간이 제한된 체험용 Service Fabric 클러스터이며 누구든지 응용 프로그램을 배포하고 플랫폼에 대해 알아볼 수 있는 Service Fabric 팀에서 실행합니다. 파티 클러스터에 대한 액세스 권한을 얻으려면 [지침에 따릅니다](http://aka.ms/tryservicefabric). 
 
-파티 클러스터는 Azure에서 호스팅되는 시간이 제한된 체험용 Service Fabric 클러스터이며 누구든지 응용 프로그램을 배포하고 플랫폼에 대해 알아볼 수 있는 Service Fabric 팀에서 유지 관리합니다. 파티 클러스터에 대한 액세스 권한을 얻으려면 [지침에 따릅니다](http://aka.ms/tryservicefabric). 
+보안 파티 클러스터에서 관리 작업을 수행하기 위해 Service Fabric Explorer, CLI 또는 Powershell을 사용할 수 있습니다. Service Fabric Explorer를 사용하려면 파티 클러스터 웹 사이트에서 PFX 파일을 다운로드하고, 인증서 저장소(Windows 또는 Mac) 또는 브라우저 자체(Ubuntu)로 인증서를 가져와야 합니다. 파티 클러스터의 자체 서명된 인증서에는 암호가 없습니다. 
+
+Powershell 또는 CLI를 사용하여 관리 작업을 수행하려면 PFX(Powershell) 또는 PEM(CLI)이 필요합니다. PFX를 PEM 파일로 변환하려면 다음 명령을 실행합니다.  
+
+```bash
+openssl pkcs12 -in party-cluster-1277863181-client-cert.pfx -out party-cluster-1277863181-client-cert.pem -nodes -passin pass:
+```
 
 자체 클러스터를 만드는 방법은 [Azure에서 Service Fabric 클러스터 만들기](service-fabric-tutorial-create-vnet-and-linux-cluster.md)를 참조하세요.
 
 > [!Note]
-> 웹 프런트 엔드 서비스는 들어오는 트래픽에 대해 포트 80에서 수신 대기하도록 구성됩니다. 클러스터에 대해 포트가 열려 있는지 확인합니다. 파티 클러스터를 사용하는 경우 이 포트가 열려 있습니다.
+> 웹 프런트 엔드 서비스는 들어오는 트래픽에 대해 80 포트에서 수신 대기하도록 구성됩니다. 클러스터에 대해 포트가 열려 있는지 확인합니다. Party 클러스터를 사용하는 경우 이 포트가 열려 있습니다.
 >
 
 ### <a name="install-service-fabric-command-line-interface-and-connect-to-your-cluster"></a>Service Fabric 명령줄 인터페이스 설치 및 클러스터에 연결
-CLI 환경에서 [Service Fabric CLI(sfctl)](service-fabric-cli.md) 설치
 
-```azurecli-interactive
-pip3 install --user sfctl 
-export PATH=$PATH:~/.local/bin
-```
+Azure CLI를 사용하여 Azure에서 Service Fabric 클러스터에 연결합니다. 끝점은 클러스터의 관리 끝점입니다. 예: `https://linh1x87d1d.westus.cloudapp.azure.com:19080`
 
-Azure CLI를 사용하여 Azure에서 Service Fabric 클러스터에 연결합니다. 끝점은 클러스터의 관리 끝점입니다. 예: `http://linh1x87d1d.westus.cloudapp.azure.com:19080`
-
-```azurecli-interactive
-sfctl cluster select --endpoint http://linh1x87d1d.westus.cloudapp.azure.com:19080
+```bash
+sfctl cluster select --endpoint https://linh1x87d1d.westus.cloudapp.azure.com:19080 --pem party-cluster-1277863181-client-cert.pem --no-verify
 ```
 
 ### <a name="deploy-the-service-fabric-application"></a>Service Fabric 응용 프로그램 배포 
@@ -86,13 +83,13 @@ Service Fabric 컨테이너 응용 프로그램은 설명하는 Service Fabric �
 #### <a name="deploy-using-service-fabric-application-package"></a>Service Fabric 응용 프로그램 패키지를 사용하여 배포
 제공된 설치 스크립트를 사용하여 클러스터에 선택 응용 프로그램 정의를 복사하고, 응용 프로그램 유형을 등록하며, 응용 프로그램의 인스턴스를 만듭니다.
 
-```azurecli-interactive
+```bash
 ./install.sh
 ```
 
 #### <a name="deploy-the-application-using-docker-compose"></a>Docker Compose를 사용하여 응용 프로그램 배포
 다음 명령을 통해 Docker Compose를 사용하여 Service Fabric 클러스터에 응용 프로그램을 배포 및 설치합니다.
-```azurecli-interactive
+```bash
 sfctl compose create --deployment-name TestApp --file-path docker-compose.yml
 ```
 

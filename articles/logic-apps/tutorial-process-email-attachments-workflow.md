@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
 ms.author: LADocs; estfan
-ms.openlocfilehash: 210731ce2e792452650b7a92cfc542c78a0e8014
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 16db5bc948b1eac0ef996b449d89211fb210a91e
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="process-emails-and-attachments-with-a-logic-app"></a>논리 앱으로 이메일 및 첨부 파일 처리
 
@@ -71,7 +71,7 @@ Azure 계정 자격 증명을 사용하여 <a href="https://portal.azure.com" ta
    | **복제** | LRS(로컬 중복 저장소) | 이 설정은 데이터가 복사, 저장, 관리 및 동기화되는 방식을 지정합니다. [복제](../storage/common/storage-introduction.md#replication)를 참조하세요. | 
    | **보안 전송 필요** | 사용 안 함 | 이 설정은 연결의 요청에 필요한 보안을 지정합니다. [보안 전송 필요](../storage/common/storage-require-secure-transfer.md)를 참조하세요. | 
    | **구독** | <*your-Azure-subscription-name*> | Azure 구독의 이름 | 
-   | **리소스 그룹** | LA-Tutorial-RG | 관련 리소스를 구성하고 관리하는 데 사용되는 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md)의 이름. <p>**참고:** 리소스 그룹은 특정 지역 내에 있습니다. 이 자습서의 항목을 사용할 수 없는 지역이 있을 수도 있지만, 가능하다면 동일한 지역을 사용하세요. | 
+   | **리소스 그룹** | LA-Tutorial-RG | 관련 리소스를 구성하고 관리하는 데 사용되는 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md)의 이름. <p>**참고:** 리소스 그룹은 특정 지역 내에 있습니다. 일부 지역에서 이 자습서의 항목을 사용할 수 없을 수도 있지만, 가능하면 동일한 지역을 사용해 보세요. | 
    | **위치**: | 미국 동부 2 | 저장소 계정에 대한 정보를 저장할 지역 | 
    | **가상 네트워크 구성** | 사용 안 함 | 이 자습서에서는 **사용 안 함** 설정을 유지합니다. | 
    |||| 
@@ -409,7 +409,7 @@ Azure 계정 자격 증명을 사용하여 <a href="https://portal.azure.com" ta
    | **Storage 계정** | attachmentstorageacct | 앞에서 첨부 파일 저장용으로 만든 저장소 계정의 이름 | 
    |||| 
 
-4. **설명이 포함되도록** BLOB 만들기```Create blob for email body``` 작업 이름을 바꿉니다.
+4.  **설명이 포함되도록** BLOB 만들기```Create blob for email body``` 작업 이름을 바꿉니다.
 
 5. **BLOB 만들기** 작업에서 다음 정보를 입력하고, 여기에 설명된 것처럼 BLOB을 만들 매개 변수를 선택합니다.
 
@@ -494,7 +494,7 @@ Azure 계정 자격 증명을 사용하여 <a href="https://portal.azure.com" ta
 
    ![BLOB을 만드는 작업 추가](./media/tutorial-process-email-attachments-workflow/create-blob-action-for-attachments.png)
 
-3. **설명이 포함되도록** BLOB 2 만들기```Create blob for each email attachment``` 작업 이름을 바꿉니다.
+3.  **설명이 포함되도록** BLOB 2 만들기```Create blob for each email attachment``` 작업 이름을 바꿉니다.
 
 4. **각 이메일 첨부파일에 대한 BLOB 만들기** 작업에서 다음 정보를 입력하고, 여기에 설명된 것처럼 각 BLOB을 만들 매개 변수를 선택합니다.
 

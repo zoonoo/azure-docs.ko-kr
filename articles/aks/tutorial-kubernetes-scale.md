@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: ff8cf813f9c932f867413dbf7e76f949e0de2f26
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 993a8b71b29952394a2ab6a2bdddd0fc5fd241ae
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="scale-application-in-azure-container-service-aks"></a>Azure Container Service(AKS)에서 응용 프로그램 크기 조정
 
@@ -38,10 +38,10 @@ ms.lasthandoff: 12/11/2017
 
 이전 자습서에서 명령을 사용하여 Kubernetes 클러스터를 만든 경우 한 개의 노드가 있습니다. 클러스터에 대한 컨테이너 워크로드를 더 늘리거나 줄일 계획인 경우 수동으로 노드 수를 조정할 수 있습니다.
 
-다음 예제에서는 *myK8sCluster*라는 Kubernetes 클러스터의 노드 수를 3개로 늘립니다. 이 명령은 완료되는 데 2~3분이 걸립니다.
+다음 예제에서는 *myAKSCluster*라는 Kubernetes 클러스터의 노드 수를 3개로 늘립니다. 이 명령은 완료되는 데 2~3분이 걸립니다.
 
 ```azurecli
-az aks scale --resource-group=myResourceGroup --name=myK8SCluster --node-count 3
+az aks scale --resource-group=myResourceGroup --name=myAKSCluster --node-count 3
 ```
 
 다음과 유사하게 출력됩니다.
@@ -52,7 +52,7 @@ az aks scale --resource-group=myResourceGroup --name=myK8SCluster --node-count 3
     "count": 3,
     "dnsPrefix": null,
     "fqdn": null,
-    "name": "myK8sCluster",
+    "name": "myAKSCluster",
     "osDiskSizeGb": null,
     "osType": "Linux",
     "ports": null,
@@ -70,7 +70,7 @@ az aks scale --resource-group=myResourceGroup --name=myK8SCluster --node-count 3
 kubectl get pods
 ```
 
-출력:
+출력
 
 ```
 NAME                               READY     STATUS    RESTARTS   AGE
@@ -90,7 +90,7 @@ kubectl scale --replicas=5 deployment/azure-vote-front
 kubectl get pods
 ```
 
-출력:
+출력
 
 ```
 NAME                                READY     STATUS    RESTARTS   AGE
@@ -129,7 +129,7 @@ kubectl autoscale deployment azure-vote-front --cpu-percent=50 --min=3 --max=10
 kubectl get hpa
 ```
 
-출력:
+출력
 
 ```
 NAME               REFERENCE                     TARGETS    MINPODS   MAXPODS   REPLICAS   AGE

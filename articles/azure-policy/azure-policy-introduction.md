@@ -10,17 +10,17 @@ ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 37fdb8156e4507046a574ba681e2ea3f6909c4a6
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: bb6f08e8e6252233c51c47c63ca0aec4636247dd
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="what-is-azure-policy"></a>Azure Policy이란?
 
 IT 거버넌스는 비즈니스 목표와 IT 프로젝트를 쉽게 구분할 수 있게 합니다. 좋은 IT 거버넌스에는 이니셔티브 계획과 전략적 수준의 우선 순위 설정이 필요합니다. 회사에서 해결할 수 없는 IT 문제가 많이 있나요? 정책을 구현하면 이러한 문제를 보다 효과적으로 관리하고 예방할 수 있습니다. 정책을 구현하려면 Azure Policy가 필요합니다.
 
-Azure Policy는 정책 정의를 만들고, 할당하고, 관리하는 데 사용하는 Azure의 서비스입니다. 정책 정의는 리소스에 대해 다양한 규칙과 작업을 적용하여 리소스를 회사 표준 및 서비스 수준 계약을 준수하는 상태로 유지합니다. Azure Policy는 리소스 평가를 실행하여 사용자의 정책 정의를 준수하지 않는 리소스를 검색합니다. 예를 들어 특정 유형의 가상 컴퓨터만 허용하도록 정책을 지정할 수 있습니다. 또는 모든 리소스가 특정 태그를 갖도록 요구할 수 있습니다. 이러한 정책은 리소스를 만들고 업데이트할 때 평가됩니다.
+Azure Policy는 정책 정의를 만들고, 할당하고, 관리하는 데 사용하는 Azure의 서비스입니다. 정책 정의는 리소스에 대해 다양한 규칙과 작업을 적용하여 리소스를 회사 표준 및 서비스 수준 계약을 준수하는 상태로 유지합니다. Azure Policy는 리소스 평가를 실행하여 사용자의 정책 정의를 준수하지 않는 리소스를 검색합니다. 예를 들어 특정 유형의 가상 머신만 허용하는 정책이 있을 수 있습니다. 또는 모든 리소스가 특정 태그를 갖도록 요구할 수 있습니다. 이러한 정책은 리소스를 만들고 업데이트할 때 평가됩니다.
 
 ## <a name="how-is-it-different-from-rbac"></a>RBAC(역할 기반 액세스 제어)와 어떻게 다르나요?
 

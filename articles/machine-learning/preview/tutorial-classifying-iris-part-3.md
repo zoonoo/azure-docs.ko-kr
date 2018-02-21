@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 11/29/2017
-ms.openlocfilehash: 12cbd7d9682e70fc5bc65b2eda5b8eddf6bbb7f0
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: ab0c10b2eeaa4388ef9b4dab90b99b37fa32df74
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="classify-iris-part-3-deploy-a-model"></a>아이리스 분류 3부: 모델 배포
 Azure Machine Learning 서비스(미리 보기)는 전문 데이터 과학자를 위한 종단 간 데이터 과학 및 고급 분석 통합 솔루션입니다. 데이터 과학자는 클라우드 규모로 데이터를 준비하고, 실험을 개발하며, 모델을 배포하는 데 사용할 수 있습니다.
@@ -198,7 +198,7 @@ _로컬 모드_ 배포를 사용하여 로컬 컴퓨터의 Docker 컨테이너�
    * `-n`: 모두 소문자여야 하는 앱 이름입니다.
    * `-f`: 점수 매기기 스크립트 파일 이름입니다.
    * `--model-file`: 모델 파일입니다. 이 경우 pickle 처리된 model.pkl 파일입니다.
-   * `-r`: 모델의 형식입니다. 이 경우 Python 모델입니다.
+   * `-r`: 모델의 런타임입니다. 이 경우 Python 모델입니다. 유효한 런타임은 `python` 및 `spark-py`입니다.
    * `--collect-model-data true`:데이터 컬렉션을 활성화합니다.
    * `-c`: 추가 패키지가 지정된 conda 종속성 파일의 경로입니다.
 

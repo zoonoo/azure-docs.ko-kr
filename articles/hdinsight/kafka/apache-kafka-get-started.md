@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/18/2018
 ms.author: larryfr
-ms.openlocfilehash: 6191d81d6b55f5ffe943f800be542d7ea4614eaf
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 639adb2fdc5a7d76c11397b5027199626a0a4016
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="start-with-apache-kafka-on-hdinsight"></a>HDInsight에서 Apache Kafka 시작
 
@@ -233,3 +233,5 @@ HDInsight 클러스터를 만드는 동안 문제가 발생할 경우 [액세스
 * [Apache Spark 구조적 스트리밍을 사용하여 HDInsight의 Kafka에서 Cosmos DB로 데이터 이동](../apache-kafka-spark-structured-streaming-cosmosdb.md)
 * [HDInsight의 Kafka에서 Apache Storm 사용](../hdinsight-apache-storm-with-kafka.md)
 * [Azure Virtual Network를 통해 Kafka에 연결](apache-kafka-connect-vpn-gateway.md)
+* [Azure Container Service에서 Kafka 사용](apache-kafka-azure-container-services.md)
+* [Azure 함수 앱에서 Kafka 사용](apache-kafka-azure-functions.md)

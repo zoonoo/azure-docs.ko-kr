@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 01/23/2018
+ms.date: 02/11/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 839fc3a326dca8b60c6750231b06d2369c3de2fc
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 804d9df37b5c89501200fc4e233108c09cce9262
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/13/2018
 ---
-# <a name="collect-data-from-linux-computers-hosted-in-your-environment"></a>사용자 환경에서 호스팅되는 Linux 컴퓨터에서 데이터 수집
-[Azure Log Analytics](log-analytics-overview.md)는 상세한 분석 및 상관 관계 파악을 위해 물리적 또는 가상 Linux 컴퓨터 및 사용자 환경의 다른 리소스의 데이터를 단일 저장소로 직접 수집할 수 있습니다.  이 빠른 시작 가이드에서는 몇 가지 간단한 단계로 Linux 컴퓨터에서 데이터를 구성 및 수집하는 방법을 보여 줍니다.  Azure Linux VM의 경우 다음 항목 [Azure Virtual Machines에 대한 데이터 수집](log-analytics-quick-collect-azurevm.md)을 참조하세요.  
+# <a name="collect-data-from-linux-computer-hosted-in-your-environment"></a>사용자 환경에서 호스팅되는 Linux 컴퓨터에서 데이터 수집
+[Azure Log Analytics](log-analytics-overview.md)는 자세한 분석 및 상관 관계를 위해 물리적 또는 가상 Linux 컴퓨터 및 사용자 환경의 다른 리소스의 데이터를 단일 리포지토리로 직접 수집할 수 있습니다.  이 빠른 시작 가이드에서는 몇 가지 간단한 단계로 Linux 컴퓨터에서 데이터를 구성 및 수집하는 방법을 보여 줍니다.  Azure Linux VM의 경우 다음 항목 [Azure Virtual Machines에 대한 데이터 수집](log-analytics-quick-collect-azurevm.md)을 참조하세요.  
 
-Linux 에이전트를 배포하기 위한 네트워크 및 시스템 요구 사항을 이해하려면 [Azure Log Analytics를 사용하여 환경에서 데이터 수집](log-analytics-concept-hybrid.md#prerequisites)을 검토하세요.
+Linux 에이전트를 배포하기 위한 네트워크 및 시스템 요구 사항을 이해하려면 [Linux 운영 체제에 대한 필수 구성 요소](log-analytics-concept-hybrid.md#prerequisites)를 검토하세요.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -61,30 +61,33 @@ Linux용 OMS 에이전트를 설치하기 전에 Log Analytics 작업 영역에 
 >[!NOTE]
 >Linux용 OMS 에이전트는 여러 Log Analytics 작업 공간에 보고하도록 구성할 수 없습니다.  
 
-1. Linux 컴퓨터를 Log Analytics에 연결하도록 구성하려면 앞에서 복사한 작업 영역 ID 및 기본 키를 제공하는 다음 명령을 실행합니다.  이 명령은 에이전트를 다운로드하고, 해당 체크섬의 유효성을 검사하고, 설치합니다. 
+Linux 컴퓨터에서 프록시 서버를 통해 Log Analytics에 통신해야 하는 경우 프록시 구성은 명령줄에 `-p [protocol://][user:password@]proxyhost[:port]`를 포함하여 지정할 수 있습니다.  *proxyhost* 속성은 프록시 서버의 정규화된 도메인 이름 또는 IP 주소를 허용합니다. 
+
+예: `https://user01:password@proxy01.contoso.com:30443`
+
+1. Linux 컴퓨터를 Log Analytics에 연결하도록 구성하려면 앞에서 복사한 작업 영역 ID 및 기본 키를 제공하는 다음 명령을 실행합니다.  다음 명령은 에이전트를 다운로드하고, 해당 체크섬의 유효성을 검사한 다음, 설치합니다. 
     
     ```
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY>
     ```
 
-2. Azure Government 클라우드에서 Linux 컴퓨터를 Log Analytics에 연결하도록 구성하려면 앞에서 복사한 작업 영역 ID 및 기본 키를 제공하는 다음 명령을 실행합니다.  이 명령은 에이전트를 다운로드하고, 해당 체크섬의 유효성을 검사하고, 설치합니다. 
+    다음 명령에는 `-p` 프록시 매개 변수와 예제 구문이 포함됩니다.
+
+   ```
+    wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -p [protocol://][user:password@]proxyhost[:port] -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY>
+    ```
+
+2. Azure Government 클라우드에서 Linux 컴퓨터를 Log Analytics에 연결하도록 구성하려면 앞에서 복사한 작업 영역 ID 및 기본 키를 제공하는 다음 명령을 실행합니다.  다음 명령은 에이전트를 다운로드하고, 해당 체크섬의 유효성을 검사한 다음, 설치합니다. 
 
     ```
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY> -d opinsights.azure.us
     ``` 
 
-## <a name="configure-agent-to-communicate-with-a-proxy-server"></a>프록시 서버와 통신하도록 에이전트 구성
+    다음 명령에는 `-p` 프록시 매개 변수와 예제 구문이 포함됩니다.
 
-Linux 컴퓨터가 프록시 서버를 통해 Log Analytics와 통신해야 하는 경우 다음 단계를 수행합니다.  프록시 구성 값은 다음 구문 `[protocol://][user:password@]proxyhost[:port]`를 갖습니다.  *proxyhost* 속성은 정규화된 도메인 이름 또는 프록시 서버의 IP 주소를 허용합니다.    
-
-1. 다음 명령을 실행하여 `/etc/opt/microsoft/omsagent/proxy.conf` 파일을 편집하고 특정 설정으로 값을 변경합니다.
-
+   ```
+    wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -p [protocol://][user:password@]proxyhost[:port] -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY> -d opinsights.azure.us
     ```
-    proxyconf="https://proxyuser:proxypassword@proxyserver01:30443"
-    sudo echo $proxyconf >>/etc/opt/microsoft/omsagent/proxy.conf
-    sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/proxy.conf 
-    ```
-
 2. 다음 명령을 실행하여 에이전트를 다시 시작합니다. 
 
     ```
@@ -99,7 +102,7 @@ Log Analytics는 Linux Syslog에서 이벤트를 수집하고, 좀 더 긴 기�
 3. 표에서 심각도 **정보**, **알림** 및 **디버그**를 선택 취소합니다. 
 4. 페이지 맨 위에서 **저장**을 클릭하여 구성을 저장합니다.
 5. **Linux 성능 데이터**를 선택하여 Windows 컴퓨터의 성능 카운터 수집을 사용하도록 설정합니다. 
-6. 새 Log Analytics 작업 영역에 대한 Linux 성능 카운터를 처음으로 구성하는 경우, 몇 가지 공용 카운터를 신속하게 만드는 옵션이 제공됩니다. 각 항목은 옆에 확인란과 함께 나열됩니다.<br><br> ![기본 Windows 성능 카운터가 선택됨](media/log-analytics-quick-collect-azurevm/linux-perfcounters-default.png).<br><br> **선택한 성능 카운터 추가**를 클릭합니다.  해당 성능 카운터가 추가되고, 10초의 수집 샘플 간격으로 미리 설정됩니다.  
+6. 새 Log Analytics 작업 영역에 대한 Linux 성능 카운터를 처음으로 구성하는 경우, 몇 가지 공용 카운터를 신속하게 만드는 옵션이 제공됩니다. 각 항목은 옆에 확인란과 함께 나열됩니다.<br><br> ![선택된 기본 Windows 성능 카운터](media/log-analytics-quick-collect-azurevm/linux-perfcounters-default.png)<br> **선택한 성능 카운터 추가**를 클릭합니다.  해당 성능 카운터가 추가되고, 10초의 수집 샘플 간격으로 미리 설정됩니다.  
 7. 페이지 맨 위에서 **저장**을 클릭하여 구성을 저장합니다.
 
 ## <a name="view-data-collected"></a>수집되는 데이터 보기
@@ -111,12 +114,9 @@ Log Analytics는 Linux Syslog에서 이벤트를 수집하고, 좀 더 긴 기�
 ## <a name="clean-up-resources"></a>리소스 정리
 더 이상 필요하지 않은 경우 Linux 컴퓨터에서 에이전트를 제거하고 Log Analytics 작업 영역을 삭제할 수 있습니다.  
 
-에이전트를 제거하려면 다음 단계를 수행합니다.
+에이전트를 제거하려면 Linux 컴퓨터에서 다음 명령을 실행합니다.  *--purge* 인수는 에이전트와 해당 구성을 완전히 제거합니다.
 
-1. Linux 에이전트 [범용 스크립트](https://github.com/Microsoft/OMS-Agent-for-Linux/releases)를 컴퓨터에 다운로드합니다.
-2. 컴퓨터에서 *--purge* 인수로 에이전트와 해당 구성을 완전히 제거하는 번들 .sh 파일을 실행합니다.
-
-    `sudo sh ./omsagent-<version>.universal.x64.sh --purge`
+   `wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh --purge`
 
 작업 영역을 삭제하려면 앞서 만든 Log Analytics 작업 영역을 선택하고 리소스 페이지에서 **삭제**를 클릭합니다.<br><br> ![Log Analytics 리소스 삭제](media/log-analytics-quick-collect-azurevm/log-analytics-portal-delete-resource.png)
 

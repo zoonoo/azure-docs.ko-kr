@@ -2,18 +2,18 @@
 title: "Azure 빠른 시작 - Java를 사용하여 Azure Blob Storage에서 개체 전송 | Microsoft Docs"
 description: "Java를 사용하여 Azure Blob Storage에서 개체를 전송하는 방법을 간단히 알아봅니다."
 author: roygara
-manager: timlt
+manager: jeconnoc
 services: storage
 ms.service: storage
 ms.topic: quickstart
 ms.date: 11/01/2017
-ms.author: v-rogara
+ms.author: rogarana
 ms.custom: mvc
-ms.openlocfilehash: 5676cef446de7a68d3d8fd1a3b6833a5de184ea1
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 12e234b483ca7e3b030256bf1cedaed2bcc120d3
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-java"></a>Java를 사용하여 Azure Blob Storage에서 개체 전송
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 11/17/2017
 
 이 자습서에서는 "Java 개발자를 위한 Eclipse IDE" 구성으로 [Eclipse](http://www.eclipse.org/downloads/)를 사용합니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 [!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
 
@@ -96,7 +96,7 @@ Deleting the source, and downloaded files
 
 가장 먼저 할 일은 Blob Storage의 액세스 및 관리에 사용되는 개체에 대한 참조를 만드는 것입니다. 이러한 개체는 서로를 기준으로 작성됩니다. 즉, 각 개체가 목록의 다음 개체에 사용됩니다.
 
-* [저장소 계정](/java/api/com.microsoft.azure.management.storage._storage_account)을 가리키는 **CloudStorageAccount** 개체의 인스턴스를 만듭니다.
+* 저장소 계정을 가리키는 [CloudStorageAccount](/java/api/com.microsoft.azure.management.storage._storage_account) 개체의 인스턴스를 만듭니다.
 
     **CloudStorageAccount** 개체는 저장소 계정을 나타내며 이를 통해 저장소 계정 속성을 프로그래밍 방식으로 설정하고 액세스할 수 있습니다. **CloudStorageAccount** 개체를 사용하여 Blob 서비스에 액세스하는 데 필요한 **CloudBlobClient** 인스턴스를 만들 수 있습니다.
 
@@ -104,9 +104,9 @@ Deleting the source, and downloaded files
 
     **CloudBlobClient**는 BLOB 서비스에 대한 액세스 지점을 제공하여 이를 통해 BLOB 저장소 속성을 프로그래밍 방식으로 설정하고 액세스할 수 있습니다. **CloudBlobClient** 개체를 사용하여 컨테이너를 만드는 데 필요한 **CloudBlobContainer** 인스턴스를 만들 수 있습니다.
 
-* 액세스하는 [컨테이너](/java/api/com.microsoft.azure.storage.blob._cloud_blob_container)를 나타내는 **CloudBlobContainer** 개체의 인스턴스를 만듭니다. 컨테이너는 컴퓨터에서 폴더를 사용하여 파일을 구성하는 것과 같이 blob을 구성하는 데 사용됩니다.    
+* 액세스하는 컨테이너를 나타내는 [CloudBlobContainer](/java/api/com.microsoft.azure.storage.blob._cloud_blob_container) 개체의 인스턴스를 만듭니다. 컨테이너는 컴퓨터에서 폴더를 사용하여 파일을 구성하는 것과 같이 blob을 구성하는 데 사용됩니다.    
 
-    **CloudBlobContainer**가 있으면 관심 있는 특정 [blob](/java/api/com.microsoft.azure.storage.blob._cloud_block_blob)을 가리키는 **CloudBlockBlob** 개체의 인스턴스를 만들고, 업로드, 다운로드, 복사 등을 수행할 수 있습니다.
+    **CloudBlobContainer**가 있으면 관심 있는 특정 Blob을 가리키는 [CloudBlockBlob](/java/api/com.microsoft.azure.storage.blob._cloud_block_blob) 개체의 인스턴스를 만들고, 업로드, 다운로드, 복사 등을 수행할 수 있습니다.
 
 > [!IMPORTANT]
 > 컨테이너 이름은 소문자여야 합니다. 컨테이너 및 Blob 이름에 대한 자세한 내용은 [컨테이너, Blob, 메타데이터 이름 지정 및 참조](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)를 참조하세요.
@@ -115,7 +115,7 @@ Deleting the source, and downloaded files
 
 이 섹션에서는 개체의 인스턴스를 만들고, 새 컨테이너를 만든 다음, 컨테이너에 대해 사용 권한을 설정하여 Blob을 공용 Blob으로 유지하고 URL을 통해서만 액세스할 수 있게 합니다. 컨테이너를 **quickstartblobs**로 지칭합니다. 
 
-이 예제에서는 샘플이 실행될 때마다 새 컨테이너를 만들려고 하기 때문에 **CreateIfNotExists**를 사용합니다. 응용 프로그램 전체에서 동일한 컨테이너를 사용하는 프로덕션 환경에서는 **CreateIfNotExists**를 한 번만 호출하는 것이 더 좋은 방법입니다. 또는 코드에서 만들 필요가 없도록 컨테이너를 미리 만들 수도 있습니다.
+이 예제에서는 샘플이 실행될 때마다 새 컨테이너를 만들려고 하기 때문에 [CreateIfNotExists](/java/api/com.microsoft.azure.storage.blob._cloud_blob_container.createifnotexists)를 사용합니다. 응용 프로그램 전체에서 동일한 컨테이너를 사용하는 프로덕션 환경에서는 **CreateIfNotExists**를 한 번만 호출하는 것이 좋습니다. 또는 코드에서 만들 필요가 없도록 컨테이너를 미리 만들 수도 있습니다.
 
 ```java
 // Parse the connection string and create a blob client to interact with Blob storage
@@ -152,7 +152,7 @@ System.out.println("Uploading the sample file ");
 blob.uploadFromFile(sourceFile.getAbsolutePath());
 ```
 
-Blob 저장소에서 사용할 수 있는 몇 가지 [업로드 메서드](/java/api/com.microsoft.azure.storage.blob._cloud_block_blob)가 있습니다. 예를 들어 문자열이 있는 경우 Upload 메서드 대신 UploadText 메서드를 사용할 수 있습니다. 
+[upload](/java/api/com.microsoft.azure.storage.blob._cloud_block_blob.upload), [uploadBlock](/java/api/com.microsoft.azure.storage.blob._cloud_block_blob.uploadblock), [uploadFullBlob](/java/api/com.microsoft.azure.storage.blob._cloud_block_blob.uploadfullblob), [uploadStandardBlobTier](/java/api/com.microsoft.azure.storage.blob._cloud_block_blob.uploadstandardblobtier) 및 [uploadText](/java/api/com.microsoft.azure.storage.blob._cloud_block_blob.uploadtext)를 포함하여 Blob 저장소에서 사용할 수 있는 몇 가지 업로드 메서드가 있습니다. 예를 들어 문자열이 있는 경우 Upload 메서드 대신 UploadText 메서드를 사용할 수 있습니다. 
 
 블록 Blob은 모든 유형의 텍스트 또는 이진 파일이 될 수 있습니다. 페이지 blob은 IaaS VM을 백업하는 데 사용되는 VHD 파일에 주로 사용됩니다. 추가 Blob은 파일에 쓰고 더 많은 정보를 계속해서 추가하려는 경우처럼 로깅에 사용됩니다. Blob Storage에 저장된 대부분의 개체는 블록 Blob입니다.
 
@@ -211,3 +211,5 @@ sourceFile.deleteOnExit();
 > [Blob Storage 작업 방법](storage-java-how-to-use-blob-storage.md)
 
 Storage 탐색기 및 Blob에 대한 자세한 내용은 [Storage 탐색기를 사용하여 Azure Blob Storage 리소스 관리](../../vs-azure-tools-storage-explorer-blobs.md)를 참조하세요.
+
+더 많은 Java 샘플은 [Java를 사용한 Azure Storage 샘플](../common/storage-samples-java.md)을 참조하세요.

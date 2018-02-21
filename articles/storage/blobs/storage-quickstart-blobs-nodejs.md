@@ -2,24 +2,18 @@
 title: "Azure 빠른 시작 - Node.js를 사용하여 Azure Blob Storage에서 개체 전송 | Microsoft Docs"
 description: "Node.js를 사용하여 Azure Blob Storage에서 개체를 전송하는 방법을 간단히 알아봅니다."
 services: storage
-documentationcenter: storage
-author: georgewallace
-manager: timlt
-editor: tysonn
-ms.assetid: 
+author: tamram
+manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
-ms.date: 10/30/2017
-ms.author: gwallace
-ms.openlocfilehash: dd4d3abf082767c40760d020c0997b365452e769
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.date: 02/06/2018
+ms.author: tamram
+ms.openlocfilehash: 07845d0e1917c00dbd6098ef2bfbd9dcbbf2f97b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-nodejs"></a>Node.js를 사용하여 Azure Blob Storage에서 개체 전송
 
@@ -31,7 +25,7 @@ ms.lasthandoff: 11/13/2017
 
 * [Node.js](https://nodejs.org/en/)
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 [!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
 
@@ -109,9 +103,9 @@ Sample finished running. When you hit <ENTER> key, the temporary files will be d
 
 ### <a name="get-references-to-the-storage-objects"></a>저장소 개체에 대한 참조 가져오기
 
-가장 먼저 할 일은 Blob Storage의 액세스 및 관리에 사용되는 `BlobService`에 대한 참조를 만드는 것입니다. 이러한 개체는 서로를 기준으로 작성됩니다. 즉, 각 개체가 목록의 다음 개체에 사용됩니다.
+가장 먼저 수행할 작업은 Blob 저장소를 액세스하고 관리하는 데 사용되는 **BlobService** 개체에 대한 참조를 만드는 것입니다. 이러한 개체는 서로를 기준으로 작성됩니다. 즉, 각 개체가 목록의 다음 개체에 사용됩니다.
 
-* 저장소 계정의 Blob service를 가리키는 **[BlobService](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService__ctor)** 개체의 인스턴스를 만듭니다.
+* 저장소 계정의 Blob service를 가리키는 [BlobService](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService__ctor) 개체의 인스턴스를 만듭니다.
 
 * 새 컨테이너를 만든 다음, 컨테이너에 대해 사용 권한을 설정하여 blob을 공용 blob으로 유지하고 URL을 통해서만 액세스할 수 있게 합니다. 컨테이너는 **quickstartcontainer-**로 시작합니다.
 
@@ -199,4 +193,4 @@ console.log('6. Deleting block Blob\n');
 > [!div class="nextstepaction"]
 > [Blob Storage 작업 방법](storage-nodejs-how-to-use-blob-storage.md)
 
-Storage 탐색기 및 Blob에 대한 자세한 내용은 [Storage 탐색기를 사용하여 Azure Blob Storage 리소스 관리](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)를 참조하세요.
+Azure Storage에 대한 Node.js 참조는 [azure-storage package](https://docs.microsoft.com/javascript/api/azure-storage/?view=azure-node-latest)를 참조하세요.
