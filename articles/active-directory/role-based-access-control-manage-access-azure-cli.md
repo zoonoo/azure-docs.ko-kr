@@ -3,7 +3,7 @@ title: "Azure CLI를 사용하여 RBAC(역할 기반 Access Control) 관리 | Mi
 description: "Azure 명령줄 인터페이스에서 역할 및 역할 작업을 나열하고, 구독 및 응용 프로그램 범위에 역할을 할당하여 RBAC(역할 기반 Access Control)를 관리하는 방법을 알아봅니다."
 services: active-directory
 documentationcenter: 
-author: andredm7
+author: rolyon
 manager: mtillman
 ms.assetid: 3483ee01-8177-49e7-b337-4d5cb14f5e32
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/29/2018
-ms.author: andredm
+ms.author: rolyon
 ms.reviewer: rqureshi
-ms.openlocfilehash: f9ca915718cb9016b82ba6a415715c5527657dad
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 1995cb34595fa9195e176e9ee341d551162f8ea5
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="manage-role-based-access-control-with-the-azure-command-line-interface"></a>Azure 명령줄 인터페이스를 사용하여 역할 기반 Access Control 관리
 > [!div class="op_single_selector"]

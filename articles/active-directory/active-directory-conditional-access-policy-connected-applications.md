@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2017
+ms.date: 02/08/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: fb646a56b51960d5b076027d942dabe8f2afbe97
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2354a8bf81189f70bb8d0d63c3df3236403c11fc
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="configure-azure-active-directory-device-based-conditional-access-policies"></a>Azure Active Directory 장치 기반 조건부 액세스 정책 구성
 
@@ -41,11 +41,11 @@ ms.lasthandoff: 12/11/2017
 
 모바일 우선, 클라우드 우선 세계에서 Azure Active Directory는 어디에서나 장치, 앱 및 서비스에 대한 Single Sign-On을 가능하게 합니다. 작업 환경의 특정 리소스의 경우, 적절한 사용자에게 액세스 권한을 부여하는 것만으로 충분하지 않을 수 있습니다. 적절한 사용자 외에도, 리소스에 액세스할 때 신뢰할 수 있는 장치를 사용하도록 요구할 수 있습니다. 사용자 환경에서 다음 구성 요소 중에서 장치를 신뢰할 수 있는 장치로 만들어주는 요인을 정의할 수 있습니다.
 
-- 장치의 [장치 플랫폼](active-directory-conditional-access-azure-portal.md#device-platforms)
+- 장치의 [장치 플랫폼](active-directory-conditional-access-conditions.md#device-platforms)
 - 장치는 규정을 준수하는지 여부
 - 장치가 도메인에 가입되어 있는지 여부 
 
-[장치 플랫폼](active-directory-conditional-access-azure-portal.md#device-platforms)은 다음 장치에서 실행되는 운영 체제를 특징으로 합니다. 장치 기반 조건부 액세스 정책에서 특정 리소스에 대 한 액세스를 특정 장치 플랫폼으로 제한할 수 있습니다.
+[장치 플랫폼](active-directory-conditional-access-conditions.md#device-platforms)은 다음 장치에서 실행되는 운영 체제를 특징으로 합니다. 장치 기반 조건부 액세스 정책에서 특정 리소스에 대 한 액세스를 특정 장치 플랫폼으로 제한할 수 있습니다.
 
 
 

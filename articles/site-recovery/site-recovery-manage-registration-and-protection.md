@@ -1,26 +1,21 @@
 ---
 title: "서버 제거 및 보호 사용 안 함 | Microsoft Docs"
-description: "이 문서에서는 사이트 복구 자격 증명 모음에서 서버 등록을 취소하고 가상 컴퓨터 및 물리적 서버의 보호를 사용하지 않도록 설정하는 방법을 설명합니다."
+description: "이 문서에서는 사이트 복구 자격 증명 모음에서 서버 등록을 취소하고 가상 머신 및 물리적 서버의 보호를 사용하지 않도록 설정하는 방법을 설명합니다."
 services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
-manager: cfreeman
-editor: 
-ms.assetid: ef1f31d5-285b-4a0f-89b5-0123cd422d80
+manager: carmonm
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 10/3/2017
+ms.date: 02/07/2018
 ms.author: raynew
-ms.openlocfilehash: 471d68742668e2b1b1c72579cee9dd493f1bd042
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b26766ec26cc5afd82ec86c21e52d2737512fe8a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="remove-servers-and-disable-protection"></a>서버 제거 및 보호 사용 안 함
+
 이 문서에는 Recovery Services 자격 증명 모음에서 서버의 등록을 취소하는 방법 및 Site Recovery를 통해 보호되는 컴퓨터에 대한 보호를 사용하지 않도록 설정하는 방법을 설명합니다.
 
 
@@ -28,13 +23,13 @@ ms.lasthandoff: 10/11/2017
 
 VMware VM 또는 Windows/Linux 물리적 서버를 Azure에 복제하는 경우 다음과 같이 자격 증명 모음에서 연결되지 않은 구성 서버를 등록 취소할 수 있습니다.
 
-1. [가상 컴퓨터의 보호를 사용하지 않도록 설정합니다](#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure).
+1. [가상 머신의 보호를 사용하지 않도록 설정합니다](#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure).
 2. 모든 복제본 정책 [분리](site-recovery-setup-replication-settings-vmware.md#dissociate-a-configuration-server-from-a-replication-policy) 및 [삭제](site-recovery-setup-replication-settings-vmware.md#delete-a-replication-policy) 
 3. [구성 서버 삭제](site-recovery-vmware-to-azure-manage-configuration-server.md#delete-or-unregister-a-configuration-server)
 
 ## <a name="unregister-a-vmm-server"></a>VMM 서버 등록 취소
 
-1. 제거할 VMM에서 클라우드에서 가상 컴퓨터 복제를 중지합니다.
+1. 제거할 VMM에서 클라우드에서 가상 머신 복제를 중지합니다.
 2. 삭제할 VMM 서버에서 클라우드에 사용된 모든 네트워크 매핑을 삭제합니다. **사이트 복구 인프라** > **System Center VMM** > **네트워크 매핑**에서 네트워크 매핑을 마우스 오른쪽 단추로 클릭하고 > **삭제**를 클릭합니다.
 3. VMM 서버의 ID를 메모해 둡니다.
 4. 제거할 VMM 서버의 클라우드에서 복제 정책을 연결 해제합니다.  **사이트 복구 인프라** > **System Center VMM** >  **복제 정책**에서 연결된 정책을 두 번 클릭합니다. 클라우드를 마우스 오른쪽 단추로 클릭하고 > **연결 해제**를 클릭합니다.
@@ -43,7 +38,7 @@ VMware VM 또는 Windows/Linux 물리적 서버를 Azure에 복제하는 경우 
 5. 모든 보조 VMM 서버에서 정리 스크립트를 실행합니다.
 6. 공급자가 설치된 다른 모든 수동 VMM 클러스터 노드에서 정리 스크립트를 실행합니다.
 7. VMM 서버에서 공급자를 수동으로 제거합니다. 클러스터가 있는 경우 모든 노드에서 제거합니다.
-8. 가상 컴퓨터를 Azure에 복제한 경우 삭제된 클라우드의 Hyper-V 호스트에서 Microsoft Recovery Services 에이전트를 제거해야 합니다.
+8. 가상 머신을 Azure에 복제한 경우 삭제된 클라우드의 Hyper-V 호스트에서 Microsoft Recovery Services 에이전트를 제거해야 합니다.
 
 ## <a name="unregister-a-hyper-v-host-in-a-hyper-v-site"></a>Hyper-V 사이트에서 Hyper-V 호스트 등록 취소
 
@@ -149,19 +144,19 @@ VMM에 의해 관리되지 않는 Hyper-V 호스트가 Hyper-V 사이트로 수�
 > [!NOTE]
 > 두 옵션 모두에서 모바일 서비스는 보호되는 서버에서 제거되지 않으므로 수동으로 제거해야 합니다. 동일한 구성 서버를 사용하여 서버를 보호하려는 경우 모바일 서비스 제거를 생략할 수 있습니다.
 
-## <a name="disable-protection-for-a-hyper-v-virtual-machine-hyper-v-to-azure"></a>Hyper-V 가상 컴퓨터에 대해 보호 사용 안 함(Hyper-V에서 Azure로)
+## <a name="disable-protection-for-a-hyper-v-virtual-machine-hyper-v-to-azure"></a>Hyper-V 가상 머신에 대해 보호 사용 안 함(Hyper-V에서 Azure로)
 
 > [!NOTE]
-> VMM 서버 없이 Hyper-V VM을 Azure에 복제하는 경우 이 절차를 사용합니다. **System Center VMM에서 Azure로** 시나리오를 사용하여 가상 컴퓨터를 복제하는 경우 [System Center VMM에서 Azure로 시나리오를 사용하여 복제하는 Hyper-V 가상 컴퓨터에 보호 사용 안 함](#disable-protection-for-a-hyper-v-virtual-machine-replicating-using-the-system-centet-vmm-to-azure-scenario)의 지침을 따릅니다.
+> VMM 서버 없이 Hyper-V VM을 Azure에 복제하는 경우 이 절차를 사용합니다. **System Center VMM에서 Azure로** 시나리오를 사용하여 가상 머신을 복제하는 경우 [System Center VMM에서 Azure로 시나리오를 사용하여 복제하는 Hyper-V 가상 머신에 보호 사용 안 함](#disable-protection-for-a-hyper-v-virtual-machine-replicating-using-the-system-centet-vmm-to-azure-scenario)의 지침을 따릅니다.
 
 1. **보호된 항목** > **복제된 항목**에서 컴퓨터를 마우스 오른쪽 단추로 클릭한 후 **복제 사용 안 함**을 클릭합니다.
 2. **복제 사용 안 함**에서 다음 옵션을 선택할 수 있습니다.
-     - **복제 사용 안 함 및 제거(권장)** - 이 옵션을 사용하면 Azure Site Recovery에서 복제된 항목을 제거하고 컴퓨터에 대한 복제가 중지됩니다. 온-프레미스 가상 컴퓨터에서 복제 구성을 정리하고 이 보호되는 서버에 대한 Site Recovery 청구가 중지됩니다. 
-    - **제거** - 이 옵션은 원본 환경이 삭제되었거나 액세스할 수 없는 경우(연결 안 됨)에만 사용합니다. 이 옵션은 Azure Site Recovery에서 복제된 항목을 제거합니다(청구 중지). 온-프레미스 가상 컴퓨터에서 복제 구성이 정리되지 **않습니다**. 
+     - **복제 사용 안 함 및 제거(권장)** - 이 옵션을 사용하면 Azure Site Recovery에서 복제된 항목을 제거하고 컴퓨터에 대한 복제가 중지됩니다. 온-프레미스 가상 머신에서 복제 구성을 정리하고 이 보호되는 서버에 대한 Site Recovery 청구가 중지됩니다. 
+    - **제거** - 이 옵션은 원본 환경이 삭제되었거나 액세스할 수 없는 경우(연결 안 됨)에만 사용합니다. 이 옵션은 Azure Site Recovery에서 복제된 항목을 제거합니다(청구 중지). 온-프레미스 가상 머신에서 복제 구성이 정리되지 **않습니다**. 
 
     > [!NOTE]
     > **제거** 옵션을 선택한 경우 다음 스크립트 집합을 실행하여 온-프레미스 Hyper-V 서버의 복제 설정을 정리합니다.
-1. 원본 Hyper-V 호스트 서버에서 가상 컴퓨터에 대한 복제를 제거합니다. SQLVM1을 가상 컴퓨터 이름으로 바꾸고 관리 권한이 있는 PowerShell에서 스크립트를 실행합니다.
+1. 원본 Hyper-V 호스트 서버에서 가상 머신에 대한 복제를 제거합니다. SQLVM1을 가상 머신 이름으로 바꾸고 관리 권한이 있는 PowerShell에서 스크립트를 실행합니다.
 
 
     
@@ -173,12 +168,12 @@ VMM에 의해 관리되지 않는 Hyper-V 호스트가 Hyper-V 사이트로 수�
 1. **보호된 항목** > **복제된 항목**에서 컴퓨터를 마우스 오른쪽 단추로 클릭한 후 **복제 사용 안 함**을 클릭합니다.
 2. **복제 사용 안 함** 페이지에서 다음 옵션 중 하나를 선택합니다.
 
-    - **복제 사용 안 함 및 제거(권장)** - 이 옵션을 사용하면 Azure Site Recovery에서 복제된 항목을 제거하고 컴퓨터에 대한 복제가 중지됩니다. 온-프레미스 가상 컴퓨터에서 복제 구성을 정리하고 이 보호되는 서버에 대한 Site Recovery 청구가 중지됩니다. 
-    - **제거** - 이 옵션은 원본 환경이 삭제되었거나 액세스할 수 없는 경우(연결 안 됨)에만 사용합니다. 이 옵션은 Azure Site Recovery에서 복제된 항목을 제거합니다(청구 중지). 온-프레미스 가상 컴퓨터에서 복제 구성이 정리되지 **않습니다**. 
+    - **복제 사용 안 함 및 제거(권장)** - 이 옵션을 사용하면 Azure Site Recovery에서 복제된 항목을 제거하고 컴퓨터에 대한 복제가 중지됩니다. 온-프레미스 가상 머신에서 복제 구성을 정리하고 이 보호되는 서버에 대한 Site Recovery 청구가 중지됩니다. 
+    - **제거** - 이 옵션은 원본 환경이 삭제되었거나 액세스할 수 없는 경우(연결 안 됨)에만 사용합니다. 이 옵션은 Azure Site Recovery에서 복제된 항목을 제거합니다(청구 중지). 온-프레미스 가상 머신에서 복제 구성이 정리되지 **않습니다**. 
 
     > [!NOTE]
     > **제거** 옵션을 선택한 경우 다음 스크립트를 실행하여 온-프레미스 VMM 서버의 복제 설정을 정리합니다.
-3. VMM 콘솔에서 PowerShell을 사용하여(관리 권한 필요) 원본 VMM 서버에서 이 스크립트를 실행합니다. 자리 표시자 **SQLVM1**을 가상 컴퓨터의 이름으로 바꿉니다.
+3. VMM 콘솔에서 PowerShell을 사용하여(관리 권한 필요) 원본 VMM 서버에서 이 스크립트를 실행합니다. 자리 표시자 **SQLVM1**을 가상 머신의 이름으로 바꿉니다.
 
         $vm = get-scvirtualmachine -Name "SQLVM1"
         Set-SCVirtualMachine -VM $vm -ClearDRProtection
@@ -189,13 +184,13 @@ VMM에 의해 관리되지 않는 Hyper-V 호스트가 Hyper-V 사이트로 수�
     
        
  
-## <a name="disable-protection-for-a-hyper-v-virtual-machine-replicating-to-secondary-vmm-server-using-the-system-center-vmm-to-vmm-scenario"></a>System Center VMM에서 Azure로 시나리오를 사용하여 보조 VMM에 복제하는 Hyper-V 가상 컴퓨터에 보호 사용 안 함
+## <a name="disable-protection-for-a-hyper-v-virtual-machine-replicating-to-secondary-vmm-server-using-the-system-center-vmm-to-vmm-scenario"></a>System Center VMM에서 Azure로 시나리오를 사용하여 보조 VMM에 복제하는 Hyper-V 가상 머신에 보호 사용 안 함
 
 1. **보호된 항목** > **복제된 항목**에서 컴퓨터를 마우스 오른쪽 단추로 클릭한 후 **복제 사용 안 함**을 클릭합니다.
 2. **복제 사용 안 함** 페이지에서 다음 옵션 중 하나를 선택합니다.
 
-    - **복제 사용 안 함 및 제거(권장)** - 이 옵션을 사용하면 Azure Site Recovery에서 복제된 항목을 제거하고 컴퓨터에 대한 복제가 중지됩니다. 온-프레미스 가상 컴퓨터에서 복제 구성을 정리하고 이 보호되는 서버에 대한 Site Recovery 청구가 중지됩니다. 
-    - **제거** - 이 옵션은 원본 환경이 삭제되었거나 액세스할 수 없는 경우(연결 안 됨)에만 사용합니다. 이 옵션은 Azure Site Recovery에서 복제된 항목을 제거합니다(청구 중지). 온-프레미스 가상 컴퓨터에서 복제 구성이 정리되지 **않습니다**. 다음 스크립트 집합을 실행하여 온-프레미스 가장 컴퓨터의 복제 설정을 정리합니다.
+    - **복제 사용 안 함 및 제거(권장)** - 이 옵션을 사용하면 Azure Site Recovery에서 복제된 항목을 제거하고 컴퓨터에 대한 복제가 중지됩니다. 온-프레미스 가상 머신에서 복제 구성을 정리하고 이 보호되는 서버에 대한 Site Recovery 청구가 중지됩니다. 
+    - **제거** - 이 옵션은 원본 환경이 삭제되었거나 액세스할 수 없는 경우(연결 안 됨)에만 사용합니다. 이 옵션은 Azure Site Recovery에서 복제된 항목을 제거합니다(청구 중지). 온-프레미스 가상 머신에서 복제 구성이 정리되지 **않습니다**. 다음 스크립트 집합을 실행하여 온-프레미스 가장 컴퓨터의 복제 설정을 정리합니다.
 > [!NOTE]
 > **제거** 옵션을 선택한 경우 다음 스크립트를 실행하여 온-프레미스 VMM 서버의 복제 설정을 정리합니다.
 
@@ -203,12 +198,12 @@ VMM에 의해 관리되지 않는 Hyper-V 호스트가 Hyper-V 사이트로 수�
 
          $vm = get-scvirtualmachine -Name "SQLVM1"
          Set-SCVirtualMachine -VM $vm -ClearDRProtection
-4. 보조 VMM 서버에서 이 스크립트를 실행하여 보조 가상 컴퓨터의 설정을 정리합니다.
+4. 보조 VMM 서버에서 이 스크립트를 실행하여 보조 가상 머신의 설정을 정리합니다.
 
         $vm = get-scvirtualmachine -Name "SQLVM1"
         Remove-SCVirtualMachine -VM $vm -Force
-5. 두 번째 VMM 서버에서 Hyper-V 호스트 서버에서 가상 컴퓨터를 새로 고쳐 보조 VM이 VMM 콘솔에서 다시 감지되도록 합니다.
-6. 위의 단계는 VMM 서버에서 복제 설정을 정리합니다. 가상 컴퓨터에 대한 복제를 중지하려면 주 및 보조 VM에서 다음 스크립트를 실행합니다. SQLVM1을 가상 컴퓨터의 이름으로 바꿉니다.
+5. 두 번째 VMM 서버에서 Hyper-V 호스트 서버에서 가상 머신을 새로 고쳐 보조 VM이 VMM 콘솔에서 다시 감지되도록 합니다.
+6. 위의 단계는 VMM 서버에서 복제 설정을 정리합니다. 가상 머신에 대한 복제를 중지하려면 주 및 보조 VM에서 다음 스크립트를 실행합니다. SQLVM1을 가상 머신의 이름으로 바꿉니다.
 
         Remove-VMReplication –VMName “SQLVM1”
 

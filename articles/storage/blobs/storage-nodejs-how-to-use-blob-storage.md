@@ -14,11 +14,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: tamram
-ms.openlocfilehash: e52f38d5fb3c100e4275032f9a2a1234961c672b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 52f1f1543fe0ef15cf71d2cf1f9a8bfeaae8933f
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-use-blob-storage-from-nodejs"></a>Node.js에서 Blob Storage를 사용하는 방법
 [!INCLUDE [storage-selector-blob-include](../../../includes/storage-selector-blob-include.md)]
@@ -33,10 +33,10 @@ ms.lasthandoff: 10/11/2017
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-nodejs-application"></a>Node.js 응용 프로그램 만들기
-Node.js 응용 프로그램을 만드는 방법에 대한 지침은 [Azure App Service에서 Node.js 웹앱 만들기], [Azure Cloud Service에 Node.js 응용 프로그램 빌드 및 배포](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md)(Windows PowerShell 사용) 또는 [Web Matrix를 사용하여 Azure에 Node.js 웹앱 빌드 및 배포](https://www.microsoft.com/web/webmatrix/)를 참조하세요.
+Node.js 응용 프로그램을 만드는 방법에 대한 지침은 [Azure App Service에서 Node.js 웹앱 만들기](../../app-service/app-service-web-get-started-nodejs.md), [Azure Cloud Service에 Node.js 응용 프로그램 빌드 및 배포](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md)(Windows PowerShell 사용) 또는 [Web Matrix를 사용하여 Azure에 Node.js 웹앱 빌드 및 배포](https://www.microsoft.com/web/webmatrix/)를 참조하세요.
 
 ## <a name="configure-your-application-to-access-storage"></a>저장소에 액세스하도록 응용 프로그램 구성
-Azure 저장소를 사용하려면 저장소 REST 서비스와 통신하는 편리한 라이브러리 집합이 포함되어 있는 Node.js용 Azure 저장소 SDK가 필요합니다.
+Azure Storage를 사용하려면 저장소 REST 서비스와 통신하는 편리한 라이브러리 집합이 포함되어 있는 Node.js용 Azure Storage SDK가 필요합니다.
 
 ### <a name="use-node-package-manager-npm-to-obtain-the-package"></a>NPM(Node Package Manager)을 사용하여 패키지 가져오기
 1. **PowerShell**(Windows), **Terminal**(Mac), **Bash**(Unix) 등과 같은 명령줄 인터페이스를 사용하여 샘플 응용 프로그램을 만든 폴더로 이동합니다.
@@ -61,7 +61,7 @@ Azure 저장소를 사용하려면 저장소 REST 서비스와 통신하는 편�
 var azure = require('azure-storage');
 ```
 
-## <a name="set-up-an-azure-storage-connection"></a>Azure 저장소 연결 설정
+## <a name="set-up-an-azure-storage-connection"></a>Azure Storage 연결 설정
 Azure 모듈은 및 또는 환경 변수를 읽고 `AZURE_STORAGE_ACCOUNT``AZURE_STORAGE_ACCESS_KEY`Azure 저장소 계정에 연결하는 데 `AZURE_STORAGE_CONNECTION_STRING`필요한 정보를 확인합니다. 이러한 환경 변수가 설정되어 있지 않은 경우 **createBlobService**를 호출할 때 계정 정보를 지정해야 합니다.
 
 ## <a name="create-a-container"></a>컨테이너 만들기
@@ -192,7 +192,7 @@ blobSvc.createAppendBlobFromLocalFile('mycontainer', 'myappendblob', 'test.txt',
 * **appendBlockFromText** -기존 추가 Blob에 문자열 내용을 추가합니다.
 
 > [!NOTE]
-> appendFromXXX API는 불필요한 서버 호출을 방지하기 위해 빠른 오류에 대한 일부 클라이언트 쪽 유효성 검사를 수행합니다. appendBlockFromXXX는 이를 수행하지 않습니다.
+> appendFromXXX API는 불필요한 서버 호출을 방지하기 위해 페일 패스트에 대한 일부 클라이언트 쪽 유효성 검사를 수행합니다. appendBlockFromXXX는 이를 수행하지 않습니다.
 >
 >
 
@@ -425,4 +425,4 @@ blobSAS = blobSvc.generateSharedAccessSignature('mycontainer', { Id: 'user2' });
 [Azure portal]: https://portal.azure.com  
 [Azure Cloud Service에 Node.js 응용 프로그램 빌드 및 배포](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md)  
 [Azure Storage 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage/  
-[Node용 Azure Storage SDK API 참조]: http://dl.windowsazure.com/nodestoragedocs/index.html  
+[노드 API 참조를 위한 Azure Storage SDK]: http://dl.windowsazure.com/nodestoragedocs/index.html  

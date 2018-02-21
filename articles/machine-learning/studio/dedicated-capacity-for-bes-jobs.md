@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: v-donglo
-ms.openlocfilehash: 7f7498c63db89a77121d33afc9d48a4132b1a51d
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.author: raymondl
+ms.openlocfilehash: 4a4c5e6bf44fb4774d9ba501479383d6c7d3b128
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-batch-service-for-machine-learning-jobs"></a>Machine Learning 작업에 대한 Azure Batch 서비스
 
@@ -32,7 +32,7 @@ Batch 풀 처리의 구성은 현재 Azure Portal을 통해 사용할 수 없습
 -   Batch 풀 계정을 만들고 풀 서비스 URL 및 권한 부여 키를 가져오기 위해 CSS 호출
 -   새 Resource Manager 기반 웹 서비스 및 청구 계획 만들기
 
-계정을 만들려면 Microsoft 고객 서비스 및 지원 센터(CSS)에 전화하여 구독 ID를 제공합니다. CSS에서는 사용자와 협의하여 시나리오에 적합한 용량을 결정합니다. 그런 다음 CSS에서 만들 수 있는 최대 풀 수와 각 풀에 배치할 수 있는 VM(가상 컴퓨터)의 최대 수를 사용하여 계정을 구성합니다. 계정이 구성되면 풀 서비스 URL과 인증 키가 제공됩니다.
+계정을 만들려면 Microsoft 고객 서비스 및 지원 센터(CSS)에 전화하여 구독 ID를 제공합니다. CSS에서는 사용자와 협의하여 시나리오에 적합한 용량을 결정합니다. 그런 다음 CSS에서 만들 수 있는 최대 풀 수와 각 풀에 배치할 수 있는 VM(가상 머신)의 최대 수를 사용하여 계정을 구성합니다. 계정이 구성되면 풀 서비스 URL과 인증 키가 제공됩니다.
 
 계정을 만든 후에 풀 서비스 URL과 인증 키를 사용하여 Batch 풀에 대한 풀 관리 작업을 수행합니다.
 
@@ -97,15 +97,15 @@ https://ussouthcentral.services.azureml.net/subscriptions/80c77c7674ba4c8c82294c
 
 ## <a name="considerations-when-using-batch-pool-processing"></a>Batch 풀 처리 사용 시 고려 사항
 
-Batch 풀 처리는 항상 청구 가능한 서비스이며, 이를 Resource Manager 기반 청구 계획과 연결해야 합니다. 시간 풀에서 실행되는 작업 수에 관계 없이 해당 풀이 실행되는 계산 시간에 대해서만 청구됩니다. 풀을 만드는 경우 풀에서 실행되는 일괄 처리 작업이 없더라도 해당 풀을 삭제할 때까지 풀에 있는 각 가상 컴퓨터의 계산 시간에 대해 요금이 청구됩니다. 가상 컴퓨터에 대한 청구는 프로비전을 완료하면 시작되고, 해당 프로비전을 삭제하면 중지됩니다. [Machine Learning 가격](https://azure.microsoft.com/pricing/details/machine-learning/) 페이지에 있는 계획 중 하나를 사용할 수 있습니다.
+Batch 풀 처리는 항상 청구 가능한 서비스이며, 이를 Resource Manager 기반 청구 계획과 연결해야 합니다. 시간 풀에서 실행되는 작업 수에 관계 없이 해당 풀이 실행되는 계산 시간에 대해서만 청구됩니다. 풀을 만드는 경우 풀에서 실행되는 일괄 처리 작업이 없더라도 해당 풀을 삭제할 때까지 풀에 있는 각 가상 머신의 계산 시간에 대해 요금이 청구됩니다. 가상 머신에 대한 청구는 프로비전을 완료하면 시작되고, 해당 프로비전을 삭제하면 중지됩니다. [Machine Learning 가격](https://azure.microsoft.com/pricing/details/machine-learning/) 페이지에 있는 계획 중 하나를 사용할 수 있습니다.
 
 청구 예제:
 
-2개의 가상 컴퓨터로 Batch 풀을 만들고 24시간 후에 삭제하는 경우 해당 기간 동안 실행된 작업 수에 관계 없이 48 계산 시간에 대한 청구 계획이 계상됩니다.
+2개의 가상 머신으로 Batch 풀을 만들고 24시간 후에 삭제하는 경우 해당 기간 동안 실행된 작업 수에 관계 없이 48 계산 시간에 대한 청구 계획이 계상됩니다.
 
-4개의 가상 컴퓨터로 Batch 풀을 만들고 12시간 후에 삭제하는 경우에도 48 계산 시간에 대한 청구 계획이 계상됩니다.
+4개의 가상 머신으로 Batch 풀을 만들고 12시간 후에 삭제하는 경우에도 48 계산 시간에 대한 청구 계획이 계상됩니다.
 
-작업 상태를 폴링하여 작업 완료 시기를 결정하는 것이 좋습니다. 모든 작업의 실행을 완료하면 풀 크기 조정 작업을 호출하여 풀의 가상 컴퓨터 수를 0으로 설정합니다. 예를 들어 풀 리소스가 부족하고 다른 청구 계획에 대해 청구하도록 새 풀을 만들어야 하는 경우 모든 작업의 실행을 완료하는 대신 해당 풀을 삭제할 수 있습니다.
+작업 상태를 폴링하여 작업 완료 시기를 결정하는 것이 좋습니다. 모든 작업의 실행을 완료하면 풀 크기 조정 작업을 호출하여 풀의 가상 머신 수를 0으로 설정합니다. 예를 들어 풀 리소스가 부족하고 다른 청구 계획에 대해 청구하도록 새 풀을 만들어야 하는 경우 모든 작업의 실행을 완료하는 대신 해당 풀을 삭제할 수 있습니다.
 
 
 | **Batch 풀 처리를 사용하는 경우**    | **클래식 일괄 처리를 사용하는 경우**  |

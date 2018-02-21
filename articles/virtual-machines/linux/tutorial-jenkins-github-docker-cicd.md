@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 12/15/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 66dee639ddb1f59199af2905bcd7b1d87a62289c
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 8a595ead7da8dfa5544903bd698bfdff40555eb9
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>Jenkins, GitHub 및 Docker를 사용하여 Azure에서 Linux VM의 개발 인프라를 만드는 방법
 응용 프로그램 개발의 빌드 및 테스트 단계를 자동화하려면 CI/CD(연속 통합 및 배포) 파이프라인을 사용할 수 있습니다. 이 자습서에서는 Azure VM에서 CI/CD 파이프라인을 만들며 다음 방법이 포함됩니다.
@@ -68,13 +68,13 @@ runcmd:
   - service jenkins restart
 ```
 
-VM을 만들려면 먼저 [az group create](/cli/azure/group#create)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroupJenkins*라는 리소스 그룹을 만듭니다.
+VM을 만들려면 먼저 [az group create](/cli/azure/group#az_group_create)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroupJenkins*라는 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive 
 az group create --name myResourceGroupJenkins --location eastus
 ```
 
-이제 [az vm create](/cli/azure/vm#create)로 VM을 만듭니다. `--custom-data` 매개 변수를 사용하여 cloud-init 구성 파일을 전달합니다. 현재 작업 디렉터리 외부에 파일을 저장한 경우 *cloud-init-jenkins.txt*에 전체 경로를 제공합니다.
+이제 [az vm create](/cli/azure/vm#az_vm_create)로 VM을 만듭니다. `--custom-data` 매개 변수를 사용하여 cloud-init 구성 파일을 전달합니다. 현재 작업 디렉터리 외부에 파일을 저장한 경우 *cloud-init-jenkins.txt*에 전체 경로를 제공합니다.
 
 ```azurecli-interactive 
 az vm create --resource-group myResourceGroupJenkins \
@@ -87,7 +87,7 @@ az vm create --resource-group myResourceGroupJenkins \
 
 VM을 만들고 구성하는 데 몇 분 정도 걸립니다.
 
-웹 트래픽이 VM에 연결되도록 허용하려면 [az vm open-port](/cli/azure/vm#open-port)를 사용하여 샘플 앱을 실행하는 데 사용되는 Jenkins 트래픽에 대한 포트 *8080* 및 Node.js 앱에 대한 포트 *1337*을 엽니다.
+웹 트래픽이 VM에 연결되도록 허용하려면 [az vm open-port](/cli/azure/vm#az_vm_open_port)를 사용하여 샘플 앱을 실행하는 데 사용되는 Jenkins 트래픽에 대한 포트 *8080* 및 Node.js 앱에 대한 포트 *1337*을 엽니다.
 
 ```azurecli-interactive 
 az vm open-port --resource-group myResourceGroupJenkins --name myVM --port 8080 --priority 1001

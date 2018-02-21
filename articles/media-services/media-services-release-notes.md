@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: juliako
-ms.openlocfilehash: 4775374b7e91930daa686e48e2869b4891615c4c
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 919851db455e1ac727d8c98346d13e45d4336bc7
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-media-services-release-notes"></a>Azure Media Services 릴리스 정보
 Azure Media Services에 대한 이 릴리스 정보에는 이전 릴리스 이후의 변경 내용과 알려진 문제가 요약되어 있습니다.
@@ -348,8 +348,8 @@ Media Services REST 메타데이터의 현재 버전은 2.7입니다. 최신 RES
 * 라이브 스트리밍 미리 보기 자세한 내용은 [Media Services 라이브 스트리밍 사용](http://msdn.microsoft.com/library/azure/dn783466.aspx)을 참조하세요.
 * 키 전달 서비스 자세한 내용은 [AES-128 동적 암호화 및 키 배달 서비스 사용](http://msdn.microsoft.com/library/azure/dn783457.aspx)을 참조하세요.
 * AES 동적 암호화 자세한 내용은 [AES-128 동적 암호화 및 키 배달 서비스 사용](http://msdn.microsoft.com/library/azure/dn783457.aspx)을 참조하세요.
-* PlayReady 라이선스 배달 서비스 자세한 내용은 [PlayReady 동적 암호화 및 라이선스 배달 서비스 사용](http://msdn.microsoft.com/library/azure/dn783467.aspx)을 참조하세요.
-* PlayReady 동적 암호화 자세한 내용은 [PlayReady 동적 암호화 및 라이선스 배달 서비스 사용](http://msdn.microsoft.com/library/azure/dn783467.aspx)을 참조하세요.
+* PlayReady 라이선스 배달 서비스 
+* PlayReady 동적 암호화 
 * Media Services PlayReady 라이선스 템플릿 자세한 정보는 [Media Services PlayReady 라이선스 템플릿 개요]를 참조하세요.
 * 저장소에서 암호화된 자산 스트리밍 자세한 내용은 [저장소에서 암호화된 콘텐츠 스트리밍](http://msdn.microsoft.com/library/azure/dn783451.aspx)을 참조하세요.
 

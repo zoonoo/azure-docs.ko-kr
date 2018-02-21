@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: Inactive
 ms.date: 01/10/2017
 ms.author: carlrab
-ms.openlocfilehash: 7a05836be4a0879fa7103d070c683f45c06cd741
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 4ecef0526bcdc61d29ae0ee0ac0d55c5651a1b2b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="daxkocsi-used-azure-to-accelerate-its-development-cycle-and-to-enhance-its-customer-services-and-performance"></a>Daxko/CSI에서 Azure를 사용하여 개발 주기를 가속화하고 고객 서비스 및 성능 개선
 ![Daxko/CSI 로고](./media/sql-database-implementation-daxko/csidaxkologo25.png)
@@ -91,7 +91,6 @@ Azure SQL Database는 빠르고 안정적인 서비스를 즐기는 SpectrumNG�
 * 데이터베이스 도구 및 탄력적 크기 조정에 대한 자세한 내용은 [탄력적 데이터베이스 도구 및 탄력적 크기 조정](sql-database-elastic-scale-get-started.md)을 참조하세요.
 * SQL Server 데이터베이스 마이그레이션에 대한 자세한 내용은 [Azure에 SQL Server 데이터베이스 마이그레이션](sql-database-cloud-migrate.md)을 참조하세요.
 * 활성 지역 복제에 대한 자세한 내용은 [활성 지역 복제](sql-database-geo-replication-overview.md)를 참조하세요.
-* 웹 역할 및 작업자 역할에 대한 자세한 내용은 [작업자 역할](../fundamentals-introduction-to-azure.md#compute)을 참조하세요.    
 * Azure Service Bus에 대한 자세한 내용은 [Azure Service Bus](https://azure.microsoft.com/services/service-bus/)를 참조하세요.
 * 자동 크기 조정에 대한 자세한 내용은 [클라우드 서비스 크기 조정](../cloud-services/cloud-services-how-to-scale-portal.md)을 참조하세요.
 

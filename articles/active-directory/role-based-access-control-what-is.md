@@ -3,7 +3,7 @@ title: "RBAC를 통한 액세스 및 사용 권한 관리 - Azure RBAC | Microso
 description: "Azure Portal에서 Azure 역할 기반 액세스 제어를 통해 액세스 관리를 시작합니다. 디렉터리에서 사용 권한을 할당하기 위해 역할 할당을 사용합니다."
 services: active-directory
 documentationcenter: 
-author: curtand
+author: rolyon
 manager: mtillman
 ms.assetid: 8f8aadeb-45c9-4d0e-af87-f1f79373e039
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/02/2018
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: rqureshi
-ms.openlocfilehash: ce9a9c95664a818919df756917180e102a5f1e0a
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: aa0f5be837daf70c8d9ede38b3fd9b4230f4e1c9
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="get-started-with-role-based-access-control-in-the-azure-portal"></a>Azure Portal에서 역할 기반 Access Control 시작
 보안 지향적 회사는 직원에게 정확히 필요한 권한을 제공하는 데 중점을 두어야 합니다. 권한이 너무 많으면 공격자에게 계정이 노출될 수 있고, 권한이 너무 적으면 직원이 업무를 효율적으로 수행할 수 없습니다. Azure 역할 기반 Access Control(RBAC)은 Azure에 대한 세밀한 액세스 관리를 제공하여 이 문제를 해결하도록 도와줍니다.

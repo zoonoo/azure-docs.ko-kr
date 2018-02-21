@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 12/14/2017
 ms.author: joeyong;barbkess;kevin
-ms.openlocfilehash: 56bae284bb83b1ff18bf2caf644e6dd071b8eb69
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 1895e9c6174dfb05212991040cc265b8cb6e0651
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="monitor-your-workload-using-dmvs"></a>DMV를 사용하여 작업 모니터링
 이 문서에서는 DMV(동적 관리 뷰)를 사용하여 작업을 모니터링하고 Azure SQL Data Warehouse의 쿼리 실행을 조사하는 방법을 설명합니다.
@@ -269,7 +269,6 @@ FROM sys.dm_pdw_nodes_os_performance_counters
 WHERE 
 instance_name like 'Distribution_%' 
 AND counter_name = 'Log File(s) Used Size (KB)'
-AND counter_name = 'Target Server Memory (KB)'
 ```
 ## <a name="monitor-transaction-log-rollback"></a>트랜잭션 로그 롤백 모니터링
 쿼리가 실패하거나 진행하는 데 시간이 오래 걸리는 경우 트랜잭션 롤백이 있는지 확인하고 모니터링할 수 있습니다.

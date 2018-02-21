@@ -15,27 +15,27 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/14/2017
 ms.author: iainfou
-ms.openlocfilehash: cd470144dc0fcbbfab662125b57d414c6ee1ccdd
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: 2fceb97e836db1c1f7a15d375a534a9187d3f2d2
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-a-complete-linux-virtual-machine-with-the-azure-cli"></a>Azure CLI를 사용하여 완전한 Linux 가상 머신 만들기
 Azure에서 가상 머신(VM)를 신속하게 만들려면 기본 값을 사용하여 모든 필요한 지원 리소스를 생성하는 단일 Azure CLI 명령을 사용할 수 있습니다. 가상 네트워크, 공용 IP 주소 및 네트워크 보안 그룹 규칙 등의 리소스는 자동으로 생성됩니다. 프로덕션 환경에서의 더 높은 제어를 위해 미리 이 리소스를 만들어 VM을 여기에 추가할 수 있습니다. 이 문서에서는 VM을 만들고 지원 리소스를 하나씩 만드는 방법을 안내합니다. 
 
-최신 [Azure CLI 2.0](/cli/azure/install-az-cli2)을 설치했고 [az login](/cli/azure/#login)을 사용하여 Azure 계정에 로그인했는지 확인합니다.
+최신 [Azure CLI 2.0](/cli/azure/install-az-cli2)을 설치했고 [az login](/cli/azure/#az_login)을 사용하여 Azure 계정에 로그인했는지 확인합니다.
 
 다음 예제에서 매개 변수 이름을 고유한 값으로 바꿉니다. 예제 매개 변수 이름에는 *myResourceGroup*, *myVnet*, *myVM*이 포함됩니다.
 
 ## <a name="create-resource-group"></a>리소스 그룹 만들기
-Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 리소스 그룹은 가상 머신과 지원하는 가상 네트워크 리소스에 앞서 만들어져야 합니다. [az group create](/cli/azure/group#create)을 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
+Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 리소스 그룹은 가상 머신과 지원하는 가상 네트워크 리소스에 앞서 만들어져야 합니다. [az group create](/cli/azure/group#az_group_create)을 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-기본적으로 Azure CLI 명령의 출력은 JSON(JavaScript Object Notation)으로 제공됩니다. 기본 출력을 목록이나 테이블로 변경하려면 [az configure --output](/cli/azure/#configure)을 사용합니다. 출력 형식을 1번 변경하기 위해 명령에 `--output`을 추가할 수도 있습니다. 다음 예제에서는 `az group create` 명령에서의 JSON 출력을 표시합니다.
+기본적으로 Azure CLI 명령의 출력은 JSON(JavaScript Object Notation)으로 제공됩니다. 기본 출력을 목록이나 테이블로 변경하려면 [az configure --output](/cli/azure/#az_configure)을 사용합니다. 출력 형식을 1번 변경하기 위해 명령에 `--output`을 추가할 수도 있습니다. 다음 예제에서는 `az group create` 명령에서의 JSON 출력을 표시합니다.
 
 ```json                       
 {
@@ -50,7 +50,7 @@ az group create --name myResourceGroup --location eastus
 ```
 
 ## <a name="create-a-virtual-network-and-subnet"></a>가상 네트워크 및 서브넷 만들기
-다음에는 Azure에서 실행되는 가상 네트워크와, VM을 만들 수 있는 서브넷을 만듭니다. [az network vnet create](/cli/azure/network/vnet#create)를 사용하여 이름이 *myVnet*이고 주소 접두사가 *192.168.0.0/16*인 가상 네트워크를 만듭니다. 주소 접두사로 *192.168.1.0/24*를 사용하는 *mySubnet*이라는 서브넷도 추가합니다.
+다음에는 Azure에서 실행되는 가상 네트워크와, VM을 만들 수 있는 서브넷을 만듭니다. [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create)를 사용하여 이름이 *myVnet*이고 주소 접두사가 *192.168.0.0/16*인 가상 네트워크를 만듭니다. 주소 접두사로 *192.168.1.0/24*를 사용하는 *mySubnet*이라는 서브넷도 추가합니다.
 
 ```azurecli
 az network vnet create \
@@ -102,7 +102,7 @@ az network vnet create \
 
 
 ## <a name="create-a-public-ip-address"></a>공용 IP 주소 만들기
-이제 [az network public-ip create](/cli/azure/network/public-ip#create)를 사용하여 공용 IP 주소를 만듭니다. 이 공용 IP 주소를 사용하면 인터넷에서 VM에 연결할 수 있습니다. 기본 주소가 동적이므로 `--domain-name-label` 매개 변수를 사용하여 명명된 DNS 항목을 만듭니다. 다음 예제는 *mypublicdns*라는 DNS 이름으로 *myPublicIP*라는 공용 IP를 만듭니다. DNS 이름은 고유해야 하므로 자체 DNS 이름을 입력합니다.
+이제 [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create)를 사용하여 공용 IP 주소를 만듭니다. 이 공용 IP 주소를 사용하면 인터넷에서 VM에 연결할 수 있습니다. 기본 주소가 동적이므로 `--domain-name-label` 매개 변수를 사용하여 명명된 DNS 항목을 만듭니다. 다음 예제는 *mypublicdns*라는 DNS 이름으로 *myPublicIP*라는 공용 IP를 만듭니다. DNS 이름은 고유해야 하므로 자체 DNS 이름을 입력합니다.
 
 ```azurecli
 az network public-ip create \
@@ -141,7 +141,7 @@ az network public-ip create \
 
 
 ## <a name="create-a-network-security-group"></a>네트워크 보안 그룹 만들기
-VM 내/외부 네트워크 트래픽의 흐름을 제어하려면 네트워크 보안 그룹을 가상 NIC 또는 서브넷에 적용합니다. 다음 예제에서는 [az network nsg create](/cli/azure/network/nsg#create)를 사용하여 *myNetworkSecurityGroup*이라는 네트워크 보안 그룹을 만듭니다.
+VM 내/외부 네트워크 트래픽의 흐름을 제어하려면 네트워크 보안 그룹을 가상 NIC 또는 서브넷에 적용합니다. 다음 예제에서는 [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create)를 사용하여 *myNetworkSecurityGroup*이라는 네트워크 보안 그룹을 만듭니다.
 
 ```azurecli
 az network nsg create \
@@ -149,7 +149,7 @@ az network nsg create \
     --name myNetworkSecurityGroup
 ```
 
-특정 트래픽을 허용하거나 거부하는 규칙을 정의합니다. (SSH를 지원하기 위해) 포트 22에 인바운드 연결이 가능하도록 하려면 [az network nsg rule create](/cli/azure/network/nsg/rule#create)를 사용하여 인바운드 규칙을 만듭니다. 다음 예제에서는 *myNetworkSecurityGroupRuleSSH*이라는 규칙을 만듭니다.
+특정 트래픽을 허용하거나 거부하는 규칙을 정의합니다. (SSH를 지원하기 위해) 포트 22에 인바운드 연결이 가능하도록 하려면 [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create)를 사용하여 인바운드 규칙을 만듭니다. 다음 예제에서는 *myNetworkSecurityGroupRuleSSH*이라는 규칙을 만듭니다.
 
 ```azurecli
 az network nsg rule create \
@@ -175,7 +175,7 @@ az network nsg rule create \
     --access allow
 ```
 
-[az network nsg show](/cli/azure/network/nsg#show)를 사용하여 네트워크 보안 그룹 및 규칙을 검사합니다.
+[az network nsg show](/cli/azure/network/nsg#az_network_nsg_show)를 사용하여 네트워크 보안 그룹 및 규칙을 검사합니다.
 
 ```azurecli
 az network nsg show --resource-group myResourceGroup --name myNetworkSecurityGroup
@@ -332,7 +332,7 @@ az network nsg show --resource-group myResourceGroup --name myNetworkSecurityGro
 ```
 
 ## <a name="create-a-virtual-nic"></a>가상 NIC 만들기
-가상 네트워크 인터페이스 카드(NIC)는 사용할 때 규칙을 적용할 수 있으므로 프로그래밍 방식으로 사용할 수 있습니다. [VM 크기](sizes.md)에 따라 여러 가상 NIC를 VM에 연결할 수 있습니다. 다음 [az network nic create](/cli/azure/network/nic#create) 명령에서 *myNic*이라는 NIC를 만들고 네트워크 보안 그룹과 연결합니다. 공용 IP 주소 *myPublicIP*도 가상 NIC에 연결됩니다.
+가상 네트워크 인터페이스 카드(NIC)는 사용할 때 규칙을 적용할 수 있으므로 프로그래밍 방식으로 사용할 수 있습니다. [VM 크기](sizes.md)에 따라 여러 가상 NIC를 VM에 연결할 수 있습니다. 다음 [az network nic create](/cli/azure/network/nic#az_network_nic_create) 명령에서 *myNic*이라는 NIC를 만들고 네트워크 보안 그룹과 연결합니다. 공용 IP 주소 *myPublicIP*도 가상 NIC에 연결됩니다.
 
 ```azurecli
 az network nic create \
@@ -444,7 +444,7 @@ az network nic create \
 
 Azure는 가용성 집합에 VM을 배치할 때 VM을 전체 장애 및 업데이트 도메인에 자동으로 분산합니다. 자세한 내용은 [VM의 가용성 관리](manage-availability.md)를 참조하세요.
 
-[az vm availability-set create](/cli/azure/vm/availability-set#create)를 사용하여 VM에 대한 가용성 집합을 만듭니다. 다음 예제는 *myAvailabilitySet*이라는 가용성 집합을 만듭니다.
+[az vm availability-set create](/cli/azure/vm/availability-set#az_vm_availability_set_create)를 사용하여 VM에 대한 가용성 집합을 만듭니다. 다음 예제는 *myAvailabilitySet*이라는 가용성 집합을 만듭니다.
 
 ```azurecli
 az vm availability-set create \
@@ -477,11 +477,11 @@ az vm availability-set create \
 
 
 ## <a name="create-a-vm"></a>VM 만들기
-인터넷에서 액세스 가능한 VM을 지원하기 위해 네트워크 리소스를 만들었습니다. 이제 VM을 만들어 SSH 키로 보호합니다. 이 예에서는 가장 최근의 LTS를 기반으로 Ubuntu VM을 만들겠습니다. [Azure VM 이미지 찾기](cli-ps-findimage.md)에서 설명한 대로 [az vm image list](/cli/azure/vm/image#list)를 통해 추가적인 이미지를 찾을 수 있습니다.
+인터넷에서 액세스 가능한 VM을 지원하기 위해 네트워크 리소스를 만들었습니다. 이제 VM을 만들어 SSH 키로 보호합니다. 이 예에서는 가장 최근의 LTS를 기반으로 Ubuntu VM을 만들겠습니다. [Azure VM 이미지 찾기](cli-ps-findimage.md)에서 설명한 대로 [az vm image list](/cli/azure/vm/image#az_vm_image_list)를 통해 추가적인 이미지를 찾을 수 있습니다.
 
 인증에 사용할 SSH 키를 지정합니다. SSH 공개 키 쌍이 없는 경우 [만들거나 ](mac-create-ssh-keys.md) `--generate-ssh-keys` 매개 변수를 사용하여 만들 수 있습니다. 키 쌍이 있으면 이 매개 변수는 `~/.ssh`의 기존 키를 사용합니다.
 
-[az vm create](/cli/azure/vm#create) 명령으로 모든 리소스 및 정보를 결합하여 VM을 만듭니다. 다음 예제에서는 *myVM*이라는 VM을 만듭니다.
+[az vm create](/cli/azure/vm#az_vm_create) 명령으로 모든 리소스 및 정보를 결합하여 VM을 만듭니다. 다음 예제에서는 *myVM*이라는 VM을 만듭니다.
 
 ```azurecli
 az vm create \
@@ -558,7 +558,7 @@ sudo apt-get install -y nginx
 ![VM의 기본 NGINX 사이트](media/create-cli-complete/nginx.png)
 
 ## <a name="export-as-a-template"></a>템플릿으로 내보내기
-동일한 매개 변수를 사용하여 추가 개발 환경을 만들려고 하거나 일치하는 프로덕션 환경을 만들려면 어떻게 해야 할까요? Resource Manager는 사용자 환경에 대한 모든 매개 변수를 정의하는 JSON 템플릿을 사용합니다. 이 JSON 템플릿을 참조하여 전체 환경을 빌드합니다. [JSON 템플릿을 수동으로 빌드](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)하거나 기존 환경을 내보내 JSON 템플릿을 만들 수 있습니다. 다음과 같이 [az group export](/cli/azure/group#export)를 사용하여 리소스 그룹을 내보냅니다.
+동일한 매개 변수를 사용하여 추가 개발 환경을 만들려고 하거나 일치하는 프로덕션 환경을 만들려면 어떻게 해야 할까요? Resource Manager는 사용자 환경에 대한 모든 매개 변수를 정의하는 JSON 템플릿을 사용합니다. 이 JSON 템플릿을 참조하여 전체 환경을 빌드합니다. [JSON 템플릿을 수동으로 빌드](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)하거나 기존 환경을 내보내 JSON 템플릿을 만들 수 있습니다. 다음과 같이 [az group export](/cli/azure/group#az_group_export)를 사용하여 리소스 그룹을 내보냅니다.
 
 ```azurecli
 az group export --name myResourceGroup > myResourceGroup.json
@@ -566,7 +566,7 @@ az group export --name myResourceGroup > myResourceGroup.json
 
 이 명령을 실행하면 `myResourceGroup.json` 파일이 현재 작업 디렉터리에 만들어집니다. 이 템플릿에서 환경을 만들면 모든 리소스 이름을 입력하라는 메시지가 표시됩니다. `az group export` 명령에 `--include-parameter-default-value` 매개 변수를 추가하여 템플릿 파일에 이러한 이름을 입력할 수 있습니다. JSON 템플릿을 편집하여 리소스 이름을 지정하거나 리소스 이름을 지정하는 [parameters.json 파일을 만듭니다](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) .
 
-템플릿에서 환경을 만들려면 다음과 같이 [az group deployment create](/cli/azure/group/deployment#create)를 사용합니다.
+템플릿에서 환경을 만들려면 다음과 같이 [az group deployment create](/cli/azure/group/deployment#az_group_deployment_create)를 사용합니다.
 
 ```azurecli
 az group deployment create \

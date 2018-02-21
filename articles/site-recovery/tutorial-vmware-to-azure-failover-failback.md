@@ -2,24 +2,18 @@
 title: "Site Recovery를 사용하여 복제된 VMware VM 및 물리적 서버를 Azure로 장애 조치(Failover) 및 장애 복구(Failback) | Microsoft Docs"
 description: "Azure Site Recovery를 사용하여 VMware VM 및 물리적 서버를 Azure로 장애 조치(Failover)고, 온-프레미스 사이트로 장애 복구(Failback)하는 방법 알아보기"
 services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
 manager: carmonm
-editor: 
-ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
 ms.service: site-recovery
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 11/01/2017
+ms.topic: tutorial
+ms.date: 02/07/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 28a14a9b28dfe9c2014add9b9f691bce6ba91a4c
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: f074312ecee39d4b3022df64b51aadd2bb8f968c
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="fail-over-and-fail-back-vmware-vms-and-physical-servers-replicated-to-azure"></a>복제된 VMware VM 및 물리적 서버를 Azure로 장애 조치(Failover) 및 장애 복구(Failback)
 
@@ -38,7 +32,7 @@ ms.lasthandoff: 11/01/2017
 1. [Azure 준비](tutorial-prepare-azure.md)
 2. [온-프레미스 VMware 준비](tutorial-prepare-on-premises-vmware.md)
 3. [재해 복구 설정](tutorial-vmware-to-azure.md)
-4. [재해 복구 훈련 실행](tutorial-dr-drill-azure.md)
+4. [재해 복구 드릴 실행](tutorial-dr-drill-azure.md)
 
 ## <a name="preparing-for-failover-and-failback"></a>장애 조치(Failover) 및 장애 복구(Failback) 준비
 
@@ -76,7 +70,7 @@ VM 속성을 확인하고 VM이 [Azure 요구 사항](site-recovery-support-matr
    - **최신 앱 일치**: 이 옵션은 VM을 Site Recovery에서 처리된 최신 앱 일치 복구 지점으로 장애 조치합니다.
    - **사용자 지정**: 복구 지점을 지정합니다.
 
-3. 장애 조치를 트리거하기 전에 원본 가상 컴퓨터를 종료하려고 시도하려면 **장애 조치(Failover)를 시작하기 전에 컴퓨터를 종료합니다**를 선택합니다. 종료가 실패하더라도 장애 조치는 계속됩니다. **작업** 페이지에서 장애 조치 진행 상황 확인을 수행할 수 있습니다.
+3. 장애 조치를 트리거하기 전에 원본 가상 머신을 종료하려고 시도하려면 **장애 조치(Failover)를 시작하기 전에 컴퓨터를 종료합니다**를 선택합니다. 종료가 실패하더라도 장애 조치는 계속됩니다. **작업** 페이지에서 장애 조치 진행 상황 확인을 수행할 수 있습니다.
 
 4. Azure VM에 연결할 준비가 된 경우 연결하고, 장애 조치(failover) 후에 유효성을 검사합니다.
 
@@ -119,7 +113,7 @@ VM에서 vCenter를 사용하지 않는 경우 컴퓨터를 다시 보호하기 
 
 4. **데이터 저장소**에서 온-프레미스에서 디스크를 복구하려는 마스터 대상 데이터 저장소를 선택합니다. 온-프레미스 VM이 삭제되었고 새 디스크를 만들어야 하는 경우에 이 옵션을 사용합니다. 디스크가 이미 있으면 이 설정을 무시합니다. 하지만 값은 지정해야 합니다.
 5. 마스터 대상 보존 드라이브를 선택합니다. 장애 복구 정책이 자동으로 선택됩니다.
-6. **확인**을 클릭하여 다시 보호를 시작합니다. Azure에서 온-프레미스 사이트로 가상 컴퓨터를 복제하는 작업을 시작합니다. **작업** 탭에서 진행률을 추적할 수 있습니다.
+6. **확인**을 클릭하여 다시 보호를 시작합니다. Azure에서 온-프레미스 사이트로 가상 머신을 복제하는 작업을 시작합니다. **작업** 탭에서 진행률을 추적할 수 있습니다.
 
 > [!NOTE]
 > Azure VM을 기존 온-프레미스 VM으로 복구하려면 마스터 대상 서버의 ESXi 호스트에 읽기/쓰기 액세스 권한으로 온-프레미스 VM의 데이터 저장소를 탑재합니다.

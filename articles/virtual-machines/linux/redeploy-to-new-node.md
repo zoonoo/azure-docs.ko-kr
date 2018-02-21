@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/14/2017
 ms.author: iainfou
-ms.openlocfilehash: 29e41b100f594d044e00054c91fb0095679ca627
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 48b4e5f2429ce2bd8a875b084694f83e467b5575
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="redeploy-linux-virtual-machine-to-new-azure-node"></a>새 Azure 노드로 Linux 가상 머신 다시 배포
 Azure에서 Linux VM(가상 머신)에 대한 SSH 또는 응용 프로그램 액세스 문제를 해결하는 데 어려움이 있는 경우 VM을 다시 배포하는 것이 도움이 될 수 있습니다. VM을 다시 배포하면 VM이 Azure 인프라 내의 새 노드로 이동된 다음 전원이 다시 켜집니다. 모든 구성 옵션 및 관련 리소스는 그대로 유지됩니다. 이 문서에서는 Azure CLI 또는 Azure 포털을 사용하여 VM을 다시 배포하는 방법을 보여 줍니다.
@@ -33,9 +33,9 @@ Azure에서 Linux VM(가상 머신)에 대한 SSH 또는 응용 프로그램 액
 - [Azure 포털](#using-azure-portal)
 
 ## <a name="use-the-azure-cli-20"></a>Azure CLI 2.0 사용
-최신 [Azure CLI 2.0](/cli/azure/install-az-cli2)을 설치하고 [az login](/cli/azure/#login)을 사용하여 Azure 계정에 로그인합니다.
+최신 [Azure CLI 2.0](/cli/azure/install-az-cli2)을 설치하고 [az login](/cli/azure/#az_login)을 사용하여 Azure 계정에 로그인합니다.
 
-[az vm redeploy](/cli/azure/vm#redeploy)를 사용하여 VM을 다시 배포합니다. 다음 예제에서는 리소스 그룹 *myResourceGroup*에서 *myVM*이라는 VM을 다시 배포합니다.
+[az vm redeploy](/cli/azure/vm#az_vm_redeploy)를 사용하여 VM을 다시 배포합니다. 다음 예제에서는 리소스 그룹 *myResourceGroup*에서 *myVM*이라는 VM을 다시 배포합니다.
 
 ```azurecli
 az vm redeploy --resource-group myResourceGroup --name myVM 

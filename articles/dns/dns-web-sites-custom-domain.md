@@ -53,7 +53,7 @@ $rs= New-AzureRMDnsRecordSet -Name "@" -RecordType "A" -ZoneName "contoso.com" -
 
 ### <a name="step-2"></a>2단계
 
-할당된 $rs 변수를 사용하여 이전에 만든 레코드 집합 "@"에 IPv4 값을 추가합니다. 할당된 IPv4 값은 웹앱의 IP 주소가 됩니다.
+할당된 $rs 변수를 사용하여 이전에 만든 레코드 집합 "\@\" 에 IPv4 값을 추가합니다. 할당된 IPv4 값은 웹앱의 IP 주소가 됩니다.
 
 웹앱의 IP 주소를 찾으려면 [Azure App Service에서 사용자 지정 도메인 이름 구성](../app-service/app-service-web-tutorial-custom-domain.md)의 단계를 따르세요.
 

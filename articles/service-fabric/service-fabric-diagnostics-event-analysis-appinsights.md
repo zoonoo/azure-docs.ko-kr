@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 34f14f42150e46edae2d1352827f96a411117a62
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: 479e486dca432020d5fcbaf98971a9803888bf98
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>Application Insights를 사용하여 이벤트 분석 및 시각화
 
@@ -100,7 +100,7 @@ EventFlow를 사용하여 이벤트를 집계하는 경우 `Microsoft.Diagnostic
 
 일반적으로 EventFlow 및 WAD는 진단 및 모니터링에 좀 더 모듈 방식으로 접근할 수 있으므로 집계 솔루션으로 사용하는 것이 좋습니다. 즉, EventFlow의 출력을 변경하려는 경우 실제 계측을 변경할 필요 없이 구성 파일을 간단히 수정하기만 하면 됩니다. 그러나 Application Insights를 사용하기로 결정하고 다른 플랫폼으로 변경할 가능성이 없는 경우 이벤트를 집계하여 AI에 보내는 작업에 대해 AI의 새 SDK 사용에 대해 살펴봐야 합니다. 즉, 데이터를 AI로 보내도록 EventFlow를 구성할 필요가 없으며 대신 ApplicationInsight의 Service Fabric NuGet 패키지를 설치합니다. 패키지에 대한 자세한 내용은 [여기](https://github.com/Microsoft/ApplicationInsights-ServiceFabric)를 참조하세요.
 
-[Application Insights support for Microservices and Containers](https://azure.microsoft.com/app-insights-microservices/)(마이크로 서비스 및 컨테이너에 대한 Application Insights 지원)에서는 작업 중인 새로운 기능 중 일부(현재 베타 버전)를 보여 주며 이를 통해 AI에서 보다 풍부한 기본 모니터링 옵션을 사용할 수 있습니다. 여기에는 종속성 추적(클러스터의 모든 서비스 및 응용 프로그램의 AppMap을 빌드하고 그 사이의 통신을 설정하는 데 사용됨) 및 서비스에서 발생한 추적의 상관 관계가 포함됩니다(앱 또는 서비스의 워크플로 문제를 정확히 발견 가능).
+[Application Insights support for Microservices and Containers](https://azure.microsoft.com/en-us/blog/app-insights-microservices/)(마이크로 서비스 및 컨테이너에 대한 Application Insights 지원)에서는 작업 중인 새로운 기능 중 일부(현재 베타 버전)를 보여 주며 이를 통해 AI에서 보다 풍부한 기본 모니터링 옵션을 사용할 수 있습니다. 여기에는 종속성 추적(클러스터의 모든 서비스 및 응용 프로그램의 AppMap을 빌드하고 그 사이의 통신을 설정하는 데 사용됨) 및 서비스에서 발생한 추적의 상관 관계가 포함됩니다(앱 또는 서비스의 워크플로 문제를 정확히 발견 가능).
 
 .NET에서 개발 중이고 Service Fabric의 프로그래밍 모델 중 일부를 사용하고 있으며 이벤트 및 로그 데이터를 시각화하고 분석하기 위한 플랫폼으로 AI를 사용하려는 경우 모니터링 및 진단 워크플로인 AI SDK 경로를 통해 이동하는 것이 좋습니다. AI를 사용하여 로그를 수집 및 표시하려면 [이 문서](../application-insights/app-insights-asp-net-more.md) 및 [이 문서](../application-insights/app-insights-asp-net-trace-logs.md)를 참조하세요.
 

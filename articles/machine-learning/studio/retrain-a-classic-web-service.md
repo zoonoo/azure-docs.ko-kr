@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: v-donglo
-ms.openlocfilehash: ad18d82109e3048625f32d90af9677956350fb84
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.author: raymondl
+ms.openlocfilehash: a0ec3191448362f8bf98ca6b5133d173735046ed
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="retrain-a-classic-web-service"></a>기존 웹 서비스 재학습
 배포한 예측 웹 서비스는 기본 점수 매기기 끝점입니다. 기본 끝점은 원래 학습 및 점수 매기기 실험과 동기화 상태를 유지하므로 기본 끝점에 대한 학습된 모델을 바꿀 수 없습니다. 웹 서비스를 다시 학습하려면 웹 서비스에 새 끝점을 추가해야 합니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 학습 실험 및 예측 실험을 [프로그래밍 방식으로 Machine Learning 모델 재학습](retrain-models-programmatically.md)에서 보듯이 설정해야 합니다. 
 
 > [!IMPORTANT]

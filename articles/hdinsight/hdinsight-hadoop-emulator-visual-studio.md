@@ -13,23 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/09/2017
+ms.date: 02/07/2018
 ms.author: larryfr
-ms.openlocfilehash: 904bbfcd02984b301d9eb9faaa6203f16139eba5
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 7c79e66c6ee4d5aa3ffd052306f57666df866313
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="use-the-azure-data-lake-tools-for-visual-studio-with-the-hortonworks-sandbox"></a>Hortonworks Sandbox와 Azure Data Lake tools for Visual Studio 사용
 
-Azure Data Lake는 제네릭 Hadoop 클러스터를 사용하기 위한 도구를 포함합니다. 이 문서에서는 로컬 가상 컴퓨터에서 실행되는 Hortonworks Sandbox와 Data Lake 도구를 사용하는 데 필요한 단계를 제공합니다.
+Azure Data Lake는 제네릭 Hadoop 클러스터를 사용하기 위한 도구를 포함합니다. 이 문서에서는 로컬 가상 머신에서 실행되는 Hortonworks Sandbox와 Data Lake 도구를 사용하는 데 필요한 단계를 제공합니다.
 
 Hortonworks Sandbox를 사용하여 개발 환경에서 로컬로 Hadoop를 사용할 수 있습니다. 솔루션을 개발하여 대규모로 배포했으므로 HDInsight 클러스터를 살펴볼 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-* 개발 환경의 가상 컴퓨터에서 실행되는 Hortonworks Sandbox입니다. 이 문서는 Oracle VirtualBox에서 실행 중인 샌드박스로 작성 및 테스트되었으며, 샌드박스 설정에 대한 자세한 내용은 [Hortonworks 샌드박스 시작](hadoop/apache-hadoop-emulator-get-started.md) 문서를 참조하세요.
+* 개발 환경의 가상 머신에서 실행되는 Hortonworks Sandbox입니다. 이 문서는 Oracle VirtualBox에서 실행 중인 샌드박스로 작성 및 테스트되었으며, 샌드박스 설정에 대한 자세한 내용은 [Hortonworks 샌드박스 시작](hadoop/apache-hadoop-emulator-get-started.md) 문서를 참조하세요.
 
 * Visual Studio 2013, Visual Studio 2015 또는 Visual Studio 2017(모든 에디션)
 
@@ -72,7 +72,7 @@ Hortonworks Sandbox가 실행 중인지 확인합니다. [Hortonworks 샌드박�
     ![마침 단추가 강조 표시된 대화 상자의 스크린샷](./media/hdinsight-hadoop-emulator-visual-studio/finished-connect.png)
 
      >[!NOTE]
-     > 개발 환경의 속도 및 가상 컴퓨터에 할당된 메모리 양에 따라 서비스를 구성하고 유효성을 검사하는 데 몇 분 정도 걸릴 수 있습니다.
+     > 개발 환경의 속도 및 가상 머신에 할당된 메모리 양에 따라 서비스를 구성하고 유효성을 검사하는 데 몇 분 정도 걸릴 수 있습니다.
 
 이러한 단계를 따르면 **HDInsight** 섹션의 서버 탐색기에서 **HDInsight 로컬 클러스터** 항목이 생성됩니다.
 

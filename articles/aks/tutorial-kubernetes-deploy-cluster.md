@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 2c2318d9a5f72800f9cfbd430dca448fd1e5746f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e0d5bd57a40fca837ead42e691e1fa0c802dc013
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="deploy-an-azure-container-service-aks-cluster"></a>AKS(Azure Container Service) 클러스터 배포
 
@@ -41,10 +41,10 @@ az provider register -n Microsoft.ContainerService
 
 ## <a name="create-kubernetes-cluster"></a>Kubernetes 클러스터 만들기
 
-다음 예제에서는 `myResourceGroup` 리소스 그룹에 `myK8sCluster` 클러스터를 만듭니다. 이 리소스 그룹은 [이전 자습서][aks-tutorial-prepare-acr]에서 만든 것입니다.
+다음 예제에서는 `myResourceGroup` 리소스 그룹에 `myAKSCluster` 클러스터를 만듭니다. 이 리소스 그룹은 [이전 자습서][aks-tutorial-prepare-acr]에서 만든 것입니다.
 
 ```azurecli
-az aks create --resource-group myResourceGroup --name myK8sCluster --node-count 1 --generate-ssh-keys
+az aks create --resource-group myResourceGroup --name myAKSCluster --node-count 1 --generate-ssh-keys
 ```
 
 몇 분 후 배포가 완료되고 json 형식의 AKS 배포 관련 정보가 반환됩니다.
@@ -64,7 +64,7 @@ az aks install-cli
 Kubernetes 클러스터에 연결하도록 kubectl을 구성하려면 다음 명령을 실행합니다.
 
 ```azurecli
-az aks get-credentials --resource-group=myResourceGroup --name=myK8sCluster
+az aks get-credentials --resource-group=myResourceGroup --name=myAKSCluster
 ```
 
 클러스터에 대한 연결을 확인하려면 [kubectl get nodes][kubectl-get] 명령을 실행합니다.
@@ -73,11 +73,11 @@ az aks get-credentials --resource-group=myResourceGroup --name=myK8sCluster
 kubectl get nodes
 ```
 
-출력:
+출력
 
 ```
 NAME                          STATUS    AGE       VERSION
-k8s-myk8scluster-36346190-0   Ready     49m       v1.7.7
+k8s-myAKSCluster-36346190-0   Ready     49m       v1.7.7
 ```
 
 이 자습서를 마치면 AKS 클러스터가 워크로드에 대해 준비됩니다. 이후 자습서에서는 다중 컨테이너 응용 프로그램이 이 클러스터에 배포, 규모 확장, 업데이트 및 모니터링됩니다.

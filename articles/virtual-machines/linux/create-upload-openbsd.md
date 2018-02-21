@@ -15,22 +15,22 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: huishao
-ms.openlocfilehash: 9b4163471f3dc8483993b9ac762694af4e926aa0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 322514debd42714142434106748e4acac220ebee
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-and-upload-an-openbsd-disk-image-to-azure"></a>OpenBSD 디스크 이미지 만들기 및 Azure로 업로드
-이 문서에서는 OpenBSD 운영 체제가 포함된 VHD(가상 하드 디스크)를 만들고 업로드하는 방법에 대해 알아봅니다. VHD를 업로드한 후에는 VHD를 사용자 고유의 이미지로 사용하여 Azure CLI를 통해 Azure에서 VM(가상 컴퓨터)을 만들 수 있습니다.
+이 문서에서는 OpenBSD 운영 체제가 포함된 VHD(가상 하드 디스크)를 만들고 업로드하는 방법에 대해 알아봅니다. VHD를 업로드한 후에는 VHD를 사용자 고유의 이미지로 사용하여 Azure CLI를 통해 Azure에서 VM(가상 머신)을 만들 수 있습니다.
 
 
 ## <a name="prerequisites"></a>필수 조건
 이 문서에서는 사용자에게 다음 항목이 있다고 가정합니다.
 
 * **Azure 구독** - 계정이 없는 경우 몇 분 만에 계정을 만들 수 있습니다. MSDN 구독이 있는 경우에는 [Visual Studio 구독자를 위한 월간 Azure 크레딧](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 참조하세요. 그렇지 않으면 [무료 평가판 계정 만들기](https://azure.microsoft.com/pricing/free-trial/)를 참조하세요.  
-* **Azure CLI 2.0** - 최신 [Azure CLI 2.0](/cli/azure/install-azure-cli)을 설치했고 [az login](/cli/azure/#login)을 사용하여 Azure 계정에 로그인했는지 확인합니다.
-* **.vhd 파일에 설치된 OpenBSD 운영 체제** - 가상 하드 디스크에 지원되는 OpenBSD 운영 체제(6.1 버전)를 설치해야 합니다. .vhd 파일을 만드는 도구는 여러 가지가 있습니다. 예를 들어 Hyper-V와 같은 가상화 솔루션을 사용하여 .vhd 파일을 만들고 운영 체제를 설치할 수 있습니다. Hyper-V를 설치하고 사용하는 방법에 대한 자세한 내용은 [Hyper-V 설치 및 가상 컴퓨터 만들기](http://technet.microsoft.com/library/hh846766.aspx)를 참조하세요.
+* **Azure CLI 2.0** - 최신 [Azure CLI 2.0](/cli/azure/install-azure-cli)을 설치했고 [az login](/cli/azure/#az_login)을 사용하여 Azure 계정에 로그인했는지 확인합니다.
+* **.vhd 파일에 설치된 OpenBSD 운영 체제** - 가상 하드 디스크에 지원되는 OpenBSD 운영 체제(6.1 버전)를 설치해야 합니다. .vhd 파일을 만드는 도구는 여러 가지가 있습니다. 예를 들어 Hyper-V와 같은 가상화 솔루션을 사용하여 .vhd 파일을 만들고 운영 체제를 설치할 수 있습니다. Hyper-V를 설치하고 사용하는 방법에 대한 자세한 내용은 [Hyper-V 설치 및 가상 머신 만들기](http://technet.microsoft.com/library/hh846766.aspx)를 참조하세요.
 
 
 ## <a name="prepare-openbsd-image-for-azure"></a>OpenBSD 이미지를 Azure에 사용하도록 준비
@@ -55,7 +55,7 @@ Hyper-V 지원을 추가한, OpenBSD 운영 체제 6.1을 설치한 VM에서 다
     echo "https://ftp.openbsd.org/pub/OpenBSD" > /etc/installurl
     ```
    
-4. 기본적으로 `root` 사용자는 Azure의 가상 컴퓨터에서는 사용되지 않도록 설정됩니다. 사용자는 OpenBSD VM에서 `doas` 명령을 사용하여 상승된 권한으로 명령을 실행할 수 있습니다. Doas는 기본적으로 사용하도록 설정됩니다. 자세한 내용은 [doas.conf](http://man.openbsd.org/doas.conf.5)를 참조하세요. 
+4. 기본적으로 `root` 사용자는 Azure의 가상 머신에서는 사용되지 않도록 설정됩니다. 사용자는 OpenBSD VM에서 `doas` 명령을 사용하여 상승된 권한으로 명령을 실행할 수 있습니다. Doas는 기본적으로 사용하도록 설정됩니다. 자세한 내용은 [doas.conf](http://man.openbsd.org/doas.conf.5)를 참조하세요. 
 
 5. 다음과 같이 Azure 에이전트에 대한 필수 구성 요소를 설치하고 구성합니다.
 
@@ -102,13 +102,13 @@ Convert-VHD OpenBSD61.vhdx OpenBSD61.vhd -VHDType Fixed
 ```
 
 ## <a name="create-storage-resources-and-upload"></a>저장소 리소스 만들기 및 업로드
-먼저 [az group create](/cli/azure/group#create)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
+먼저 [az group create](/cli/azure/group#az_group_create)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-VHD를 업로드하려면 [az storage account create](/cli/azure/storage/account#create)를 사용하여 저장소 계정을 만듭니다. 저장소 계정 이름은 고유해야 하므로 자신만의 이름을 제공하세요. 다음 예제에서는 *mystorageaccount*라는 저장소 계정을 만듭니다.
+VHD를 업로드하려면 [az storage account create](/cli/azure/storage/account#az_storage_account_create)를 사용하여 저장소 계정을 만듭니다. Storage 계정 이름은 고유해야 하므로 자신만의 이름을 제공하세요. 다음 예제에서는 *mystorageaccount*라는 저장소 계정을 만듭니다.
 
 ```azurecli
 az storage account create --resource-group myResourceGroup \
@@ -117,7 +117,7 @@ az storage account create --resource-group myResourceGroup \
     --sku Premium_LRS
 ```
 
-저장소 계정에 대한 액세스를 제어하려면 다음과 같이 [az storage account key list](/cli/azure/storage/account/keys#list)를 사용하여 저장소 키를 확보합니다.
+저장소 계정에 대한 액세스를 제어하려면 다음과 같이 [az storage account key list](/cli/azure/storage/account/keys#az_storage_account_keys_list)를 사용하여 저장소 키를 확보합니다.
 
 ```azurecli
 STORAGE_KEY=$(az storage account keys list \
@@ -126,7 +126,7 @@ STORAGE_KEY=$(az storage account keys list \
     --query "[?keyName=='key1']  | [0].value" -o tsv)
 ```
 
-업로드하는 VHD를 논리적으로 분리하려면 [az storage container create](/cli/azure/storage/container#create)를 사용하여 저장소 계정 내에서 컨테이너를 만듭니다.
+업로드하는 VHD를 논리적으로 분리하려면 [az storage container create](/cli/azure/storage/container#az_storage_container_create)를 사용하여 저장소 계정 내에서 컨테이너를 만듭니다.
 
 ```azurecli
 az storage container create \
@@ -135,7 +135,7 @@ az storage container create \
     --account-key ${STORAGE_KEY}
 ```
 
-마지막으로 다음과 같이 [az storage blob upload](/cli/azure/storage/blob#upload)를 사용하여 VHD를 업로드합니다.
+마지막으로 다음과 같이 [az storage blob upload](/cli/azure/storage/blob#az_storage_blob_upload)를 사용하여 VHD를 업로드합니다.
 
 ```azurecli
 az storage blob upload \
@@ -148,7 +148,7 @@ az storage blob upload \
 
 
 ## <a name="create-vm-from-your-vhd"></a>VHD에서 VM 만들기
-[샘플 스크립트](../scripts/virtual-machines-linux-cli-sample-create-vm-vhd.md)를 사용하거나 직접 [az vm create](/cli/azure/vm#create)를 사용하여 VM을 만들 수 있습니다. 업로드한 OpenBSD VHD를 지정하려면 다음과 같이 `--image` 매개 변수를 사용합니다.
+[샘플 스크립트](../scripts/virtual-machines-linux-cli-sample-create-vm-vhd.md)를 사용하거나 직접 [az vm create](/cli/azure/vm#az_vm_create)를 사용하여 VM을 만들 수 있습니다. 업로드한 OpenBSD VHD를 지정하려면 다음과 같이 `--image` 매개 변수를 사용합니다.
 
 ```azurecli
 az vm create \

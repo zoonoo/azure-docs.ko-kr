@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 12/18/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a7bd5b8c0534a51c6b6c9e8871be513194d38788
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 2750bed40707872bb120a7cb7130d8be01aabf7d
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-create-a-linux-virtual-machine-with-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하여 Linux 가상 머신을 만드는 방법
 이 문서에서는 Azure Resource Manager 템플릿 및 Azure CLI 2.0을 사용하여 Linux VM(가상 머신)을 신속하게 배포하는 방법을 보여 줍니다. [Azure CLI 1.0](create-ssh-secured-vm-from-template-nodejs.md)에서 이러한 단계를 수행할 수도 있습니다.
@@ -38,7 +38,7 @@ az group create --name myResourceGroup --location eastus
 ```
 
 ## <a name="create-a-virtual-machine"></a>가상 머신 만들기
-다음 예제에서는 [az group deployment create](/cli/azure/group/deployment#create)를 사용하여 [이 Azure Resource Manager 템플릿](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json)에서 VM을 만듭니다. SSH 인증만 허용됩니다. 메시지가 표시되면 *~/.ssh/id_rsa.pub*의 내용과 같은 고유한 SSH 공용 키의 값을 제공합니다. SSH 키 쌍을 만들어야 하는 경우 [Azure에서 Linux VM용 SSH 키 쌍을 만들고 사용하는 방법](mac-create-ssh-keys.md)을 참조하세요.
+다음 예제에서는 [az group deployment create](/cli/azure/group/deployment#az_group_deployment_create)를 사용하여 [이 Azure Resource Manager 템플릿](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json)에서 VM을 만듭니다. SSH 인증만 허용됩니다. 메시지가 표시되면 *~/.ssh/id_rsa.pub*의 내용과 같은 고유한 SSH 공용 키의 값을 제공합니다. SSH 키 쌍을 만들어야 하는 경우 [Azure에서 Linux VM용 SSH 키 쌍을 만들고 사용하는 방법](mac-create-ssh-keys.md)을 참조하세요.
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup \
@@ -49,7 +49,7 @@ az group deployment create --resource-group myResourceGroup \
 
 
 ## <a name="connect-to-virtual-machine"></a>가상 머신에 연결
-VM에 SSH하려면 [az vm show](/cli/azure/vm#show)를 사용하여 공용 IP 주소를 가져옵니다.
+VM에 SSH하려면 [az vm show](/cli/azure/vm#az_vm_show)를 사용하여 공용 IP 주소를 가져옵니다.
 
 ```azurecli
 az vm show \

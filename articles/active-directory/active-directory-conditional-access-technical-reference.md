@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/12/2017
+ms.date: 02/08/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 1ce1fc4c03130dfea4e79c89c25cf5a9004e4dc8
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.openlocfilehash: fd82d77e79f05a67f8e818095753b8dc22ccf314
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Azure Active Directory 조건부 액세스 설정 참조
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 12/23/2017
 
 ## <a name="cloud-apps-assignments"></a>클라우드 앱 할당
 
-조건부 액세스 정책을 사용하면 사용자가 [클라우드 앱](active-directory-conditional-access-azure-portal.md#who)에 액세스하는 방법을 제어할 수 있습니다. 조건부 액세스 정책을 구성할 경우 하나 이상의 클라우드 앱을 선택해야 합니다. 
+조건부 액세스 정책을 사용하면 사용자가 [클라우드 앱](active-directory-conditional-access-conditions.md#cloud-apps)에 액세스하는 방법을 제어할 수 있습니다. 조건부 액세스 정책을 구성할 경우 하나 이상의 클라우드 앱을 선택해야 합니다. 
 
 ![정책에 대한 클라우드 앱 선택](./media/active-directory-conditional-access-technical-reference/09.png)
 
@@ -105,7 +105,7 @@ Microsoft 클라우드 앱 외에도 다음과 같은 형식의 클라우드 앱
 
 ## <a name="client-apps-condition"></a>클라이언트 앱 조건 
 
-조건부 액세스 정책에서 액세스 시도를 시작한 클라이언트 앱에 정책을 연결하도록 [클라이언트 앱](active-directory-conditional-access-azure-portal.md#client-apps) 조건을 구성할 수 있습니다. 다음과 같은 종류의 클라이언트 앱에서 액세스를 시도할 때 액세스를 차단하거나 부여하는 클라이언트 앱 조건을 설정합니다.
+조건부 액세스 정책에서 액세스 시도를 시작한 클라이언트 앱에 정책을 연결하도록 [클라이언트 앱](active-directory-conditional-access-conditions.md#client-apps) 조건을 구성할 수 있습니다. 다음과 같은 종류의 클라이언트 앱에서 액세스를 시도할 때 액세스를 차단하거나 부여하는 클라이언트 앱 조건을 설정합니다.
 
 - 브라우저
 - 모바일 앱 및 데스크톱 앱
@@ -169,10 +169,9 @@ Microsoft 클라우드 앱 외에도 다음과 같은 형식의 클라우드 앱
 |Outlook 2016(macOS용 Office)|Office 365 Exchange Online|Mac OS X|
 |Outlook 2016, Outlook 2013(최신 인증 사용), 비즈니스용 Skype(최신 인증 사용)|Office 365 Exchange Online|Windows 8.1, Windows 7|
 |Outlook 모바일 앱|Office 365 Exchange Online|Android, iOS|
-|PowerBI 앱. Android용 Power BI 앱은 장치 기반 조건부 액세스를 현재 지원하지 않습니다.|PowerBI 서비스|Windows 10, Windows 8.1, Windows 7 및 iOS|
+|PowerBI 앱|PowerBI 서비스|Windows 10, Windows 8.1, Windows 7 및 iOS|
 |비즈니스용 Skype|Office 365 Exchange Online|Android, iOS |
 |Visual Studio Team Services 앱|Visual Studio Team Services|Windows 10, Windows 8.1, Windows 7, iOS 및 Android|
-
 
 
 ## <a name="approved-client-app-requirement"></a>승인된 클라이언트 앱 요구 사항 
@@ -186,6 +185,7 @@ Microsoft 클라우드 앱 외에도 다음과 같은 형식의 클라우드 앱
 
 - Microsoft Azure Information Protection
 - Microsoft Excel
+- Microsoft Kaizala 
 - Microsoft OneDrive
 - Microsoft OneNote
 - Microsoft Outlook
@@ -193,6 +193,7 @@ Microsoft 클라우드 앱 외에도 다음과 같은 형식의 클라우드 앱
 - Microsoft PowerPoint
 - Microsoft SharePoint
 - 비즈니스용 Microsoft Skype
+- Microsoft StaffHub
 - Microsoft 팀
 - Microsoft Visio
 - Microsoft Word

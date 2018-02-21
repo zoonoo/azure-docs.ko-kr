@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: iainfou
-ms.openlocfilehash: b7fe6dadb444ebbe6af6239562f507e451f9f605
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: edf21d59bf3916a014706c2a298536262906fbf7
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>실패하거나 오류가 발생하거나 거부되는 Azure Linux VM에 대한 SSH 연결 문제 해결
 Linux VM(가상 머신)에 연결하려고 할 때 다양한 이유로 인해 SSH(Secure Shell) 오류, SSH 연결 실패 또는 SSH 연결 거부 문제가 발생할 수 있습니다. 이 문서는 문제를 찾아 해결하는 데 도움이 됩니다. Azure Portal, Azure CLI 또는 Linux용 VM 액세스 확장을 사용하여 연결 문제를 해결할 수 있습니다.
@@ -70,20 +70,20 @@ Azure Portal에서 VM을 선택합니다. **지원 + 문제 해결** 섹션까�
 이 메뉴에서 VM에 대해 sudo 권한이 있는 사용자를 만들 수도 있습니다. 새 사용자 이름 및 연결된 암호 또는 SSH 키를 입력한 다음 **다시 설정** 단추를 클릭합니다.
 
 ## <a name="use-the-azure-cli-20"></a>Azure CLI 2.0 사용
-아직 설치하지 않은 경우 최신 [Azure CLI 2.0](/cli/azure/install-az-cli2)을 설치하고 [az login](/cli/azure/#login)을 사용하여 Azure 계정에 로그인합니다.
+아직 설치하지 않은 경우 최신 [Azure CLI 2.0](/cli/azure/install-az-cli2)을 설치하고 [az login](/cli/azure/#az_login)을 사용하여 Azure 계정에 로그인합니다.
 
 사용자 지정 Linux 디스크 이미지를 만들고 업로드한 경우 [Microsoft Azure Linux 에이전트](../windows/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 버전 2.0.5 이상을 설치해야 합니다. 갤러리 이미지를 사용하여 만든 VM의 경우 이 액세스 확장이 이미 설치되어 자동으로 구성됩니다.
 
 ### <a name="reset-ssh-configuration"></a>SSH 구성 다시 설정
 처음에 SSH 구성을 기본값으로 다시 설정하고 VM에서 SSH 서버를 다시 부팅할 수 있습니다. 사용자 계정 이름, 암호 또는 SSH 키는 변경되지 않습니다.
-다음 예제에서는 [az vm user reset-ssh](/cli/azure/vm/user#reset-ssh)를 사용하여 `myResourceGroup`의 `myVM`이라는 VM에서 SSH 구성을 다시 설정합니다. 다음과 같이 사용자 고유의 값을 사용합니다.
+다음 예제에서는 [az vm user reset-ssh](/cli/azure/vm/user#az_vm_user_reset_ssh)를 사용하여 `myResourceGroup`의 `myVM`이라는 VM에서 SSH 구성을 다시 설정합니다. 다음과 같이 사용자 고유의 값을 사용합니다.
 
 ```azurecli
 az vm user reset-ssh --resource-group myResourceGroup --name myVM
 ```
 
 ### <a name="reset-ssh-credentials-for-a-user"></a>사용자에 대한 SSH 자격 증명 다시 설정
-다음 예제에서는 [az vm user update](/cli/azure/vm/user#update)를 사용하여 `myResourceGroup`의 `myVM`이라는 VM에서 `myUsername`의 자격 증명을 `myPassword`에 지정된 값으로 다시 설정합니다. 다음과 같이 사용자 고유의 값을 사용합니다.
+다음 예제에서는 [az vm user update](/cli/azure/vm/user#az_vm_user_update)를 사용하여 `myResourceGroup`의 `myVM`이라는 VM에서 `myUsername`의 자격 증명을 `myPassword`에 지정된 값으로 다시 설정합니다. 다음과 같이 사용자 고유의 값을 사용합니다.
 
 ```azurecli
 az vm user update --resource-group myResourceGroup --name myVM \
@@ -109,7 +109,7 @@ Linux용 VM 액세스 확장은 수행하는 작업을 정의하는 json 파일�
 }
 ```
 
-Azure CLI를 사용하여 json 파일을 지정하여 SSHD 연결을 다시 설정하도록 `VMAccessForLinux` 확장을 호출합니다. 다음 예제에서는 [az vm extension set](/cli/azure/vm/extension#set)을 사용하여 `myResourceGroup`의 `myVM`이라는 VM에서 SSHD를 다시 설정합니다. 다음과 같이 사용자 고유의 값을 사용합니다.
+Azure CLI를 사용하여 json 파일을 지정하여 SSHD 연결을 다시 설정하도록 `VMAccessForLinux` 확장을 호출합니다. 다음 예제에서는 [az vm extension set](/cli/azure/vm/extension#az_vm_extension_set)을 사용하여 `myResourceGroup`의 `myVM`이라는 VM에서 SSHD를 다시 설정합니다. 다음과 같이 사용자 고유의 값을 사용합니다.
 
 ```azurecli
 az vm extension set --resource-group philmea --vm-name Ubuntu \
@@ -191,7 +191,7 @@ azure vm restart --resource-group myResourceGroup --name myVM
 ```
 
 ### <a name="azure-cli-20"></a>Azure CLI 2.0
-다음 예제에서는 [az vm restart](/cli/azure/vm#restart)를 사용하여 `myResourceGroup`이라는 리소스 그룹의 `myVM`이라는 VM을 다시 시작합니다. 다음과 같이 사용자 고유의 값을 사용합니다.
+다음 예제에서는 [az vm restart](/cli/azure/vm#az_vm_restart)를 사용하여 `myResourceGroup`이라는 리소스 그룹의 `myVM`이라는 VM을 다시 시작합니다. 다음과 같이 사용자 고유의 값을 사용합니다.
 
 ```azurecli
 az vm restart --resource-group myResourceGroup --name myVM
@@ -219,7 +219,7 @@ azure vm redeploy --resource-group myResourceGroup --name myVM
 ```
 
 ### <a name="azure-cli-20"></a>Azure CLI 2.0
-다음 예제에서는 [az vm redeploy](/cli/azure/vm#redeploy)를 사용하여 `myResourceGroup`이라는 리소스 그룹의 `myVM`이라는 VM을 다시 배포합니다. 다음과 같이 사용자 고유의 값을 사용합니다.
+다음 예제에서는 [az vm redeploy](/cli/azure/vm#az_vm_redeploy)를 사용하여 `myResourceGroup`이라는 리소스 그룹의 `myVM`이라는 VM을 다시 배포합니다. 다음과 같이 사용자 고유의 값을 사용합니다.
 
 ```azurecli
 az vm redeploy --resource-group myResourceGroup --name myVM

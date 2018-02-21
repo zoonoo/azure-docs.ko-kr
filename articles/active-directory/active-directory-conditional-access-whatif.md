@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/21/2017
+ms.date: 02/08/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: de6b3dcd77132154e583d7333983d6745c4aa3bd
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 19ebb30164eee8e03a3cd8f18b6d575c6eee5438
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-active-directory-conditional-access-what-if-tool---preview"></a>Azure Active Directory 조건부 액세스 what if 도구 - 미리 보기
 
@@ -78,14 +78,14 @@ Azure Portal의 **[조건부 액세스 - 정책](https://portal.azure.com/#blade
 
 ### <a name="ip-address"></a>IP 주소
 
-IP 주소는 [위치 조건](active-directory-conditional-access-azure-portal.md#locations)을 모방하기 위한 단일 IPv4 주소입니다. 이 주소는 사용자가 로그인하는 데 사용하는 장치의 인터넷 연결 주소를 나타냅니다. 예를 들어 [What is my IP address](https://whatismyipaddress.com)(내 IP 주소)로 이동하여 장치의 IP 주소를 확인할 수 있습니다.    
+IP 주소는 [위치 조건](active-directory-conditional-access-locations.md)을 모방하기 위한 단일 IPv4 주소입니다. 이 주소는 사용자가 로그인하는 데 사용하는 장치의 인터넷 연결 주소를 나타냅니다. 예를 들어 [What is my IP address](https://whatismyipaddress.com)(내 IP 주소)로 이동하여 장치의 IP 주소를 확인할 수 있습니다.    
 
 ### <a name="device-platforms"></a>장치 플랫폼
 
-이 설정은 [장치 플랫폼 조건](active-directory-conditional-access-azure-portal.md#device-platforms)을 모방하며, **모든 플랫폼(비지원 플랫폼 포함)**과 같은 설정을 나타냅니다. 
+이 설정은 [장치 플랫폼 조건](active-directory-conditional-access-conditions.md#device-platforms)을 모방하며, **모든 플랫폼(비지원 플랫폼 포함)**과 같은 설정을 나타냅니다. 
 ### <a name="client-apps"></a>클라이언트 앱
 
-이 설정은 [클라이언트 앱 조건](active-directory-conditional-access-azure-portal.md#client-apps)을 모방합니다.
+이 설정은 [클라이언트 앱 조건](active-directory-conditional-access-conditions.md#client-apps)을 모방합니다.
 기본적으로 이 설정을 사용하면 **브라우저** 또는 **모바일 앱 및 데스크톱 클라이언트**가 따로 또는 둘 다 선택되어 있는 모든 정책이 평가됩니다. 또한 **EAS(Exchange ActiveSync)**를 적용하는 정책도 감지됩니다. 다음을 선택하여 이 설정의 범위를 좁힐 수 있습니다.
 
 - **브라우저**: 하나 이상의 **브라우저**가 선택된 모든 정책을 평가합니다. 
@@ -95,7 +95,7 @@ IP 주소는 [위치 조건](active-directory-conditional-access-azure-portal.md
 
 ### <a name="sign-in-risk"></a>로그인 위험
 
-이 설정은 [로그인 위험 조건](active-directory-conditional-access-azure-portal.md#sign-in-risk)을 모방합니다.   
+이 설정은 [로그인 위험 조건](active-directory-conditional-access-conditions.md#sign-in-risk)을 모방합니다.   
 
 
 ## <a name="evaluation"></a>평가 

@@ -1,5 +1,5 @@
 ---
-title: "Azure의 개발 가상 컴퓨터에서 ElasticSearch 배포"
+title: "Azure의 개발 가상 머신에서 ElasticSearch 배포"
 description: "자습서 - Azure에서 개발 Linux VM에 Elastic Stack 설치"
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -13,11 +13,11 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 10/11/2017
 ms.author: routlaw
-ms.openlocfilehash: 5b0b51504478cc0d501a89760ccd60808a69ccbd
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 7941e557dfbb71df7c2d55608c4a14c026535db8
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="install-the-elastic-stack-on-an-azure-vm"></a>Azure VM에 Elastic Stack 설치
 
@@ -40,7 +40,7 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에�
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-[az group create](/cli/azure/group#create) 명령을 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 
+[az group create](/cli/azure/group#az_group_create) 명령을 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 
 
 다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
 
@@ -48,9 +48,9 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에�
 az group create --name myResourceGroup --location eastus
 ```
 
-## <a name="create-a-virtual-machine"></a>가상 컴퓨터 만들기
+## <a name="create-a-virtual-machine"></a>가상 머신 만들기
 
-[az vm create](/cli/azure/vm#create) 명령을 사용하여 VM을 만듭니다. 
+[az vm create](/cli/azure/vm#az_vm_create) 명령을 사용하여 VM을 만듭니다. 
 
 다음 예제에서는 *myVM*이라는 VM을 만들고 기본 키 위치에 SSH 키가 없는 경우 이 키를 만듭니다. 특정 키 집합을 사용하려면 `--ssh-key-value` 옵션을 사용합니다.  
 
@@ -80,13 +80,13 @@ VM을 만든 경우 Azure CLI는 다음 예제와 비슷한 정보를 표시합�
 
 ## <a name="ssh-into-your-vm"></a>VM에 SSH 수행
 
-VM의 공용 IP 주소를 알고 있는 경우 [az network public-ip list](/cli/azure/network/public-ip#list) 명령을 실행합니다.
+VM의 공용 IP 주소를 알고 있는 경우 [az network public-ip list](/cli/azure/network/public-ip#az_network_public_ip_list) 명령을 실행합니다.
 
 ```azurecli-interactive
 az network public-ip list --resource-group myResourceGroup --query [].ipAddress
 ```
 
-다음 명령을 사용하여 가상 컴퓨터와의 SSH 세션을 만듭니다. 가상 컴퓨터의 올바른 공용 IP 주소로 대체합니다. 이 예제에서 IP 주소는 *40.68.254.142*입니다.
+다음 명령을 사용하여 가상 머신과의 SSH 세션을 만듭니다. 가상 머신의 올바른 공용 IP 주소로 대체합니다. 이 예제에서 IP 주소는 *40.68.254.142*입니다.
 
 ```bash
 ssh azureuser@40.68.254.142

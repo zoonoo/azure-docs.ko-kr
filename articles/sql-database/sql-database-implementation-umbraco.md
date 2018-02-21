@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: Inactive
 ms.date: 01/10/2017
 ms.author: carlrab
-ms.openlocfilehash: c76ba2189929113c2c6fbdf13f0c9b2b714ae73b
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: c25a66daa87da96d4e77c9021a1ceb4366d7a224
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="umbraco-uses-azure-sql-database-to-quickly-provision-and-scale-services-for-thousands-of-tenants-in-the-cloud"></a>Umbraco는 Azure SQL Database를 사용하여 클라우드의 수천 개의 테넌트를 위해 서비스를 신속하게 프로비전하고 확장합니다.
 ![Umbraco 로고](./media/sql-database-implementation-umbraco/umbracologo.png)
@@ -124,7 +124,6 @@ Azure를 클라우드 파트너로 선택한 이후부터 Umbraco는 셀프 호�
 ## <a name="more-information"></a>자세한 정보
 * Azure의 탄력적 풀에 대한 자세한 내용은 [탄력적 풀](sql-database-elastic-pool.md)을 참조하세요.
 * Azure Service Bus에 대한 자세한 내용은 [Azure Service Bus](https://azure.microsoft.com/services/service-bus/)를 참조하세요.
-* 웹 역할 및 작업자 역할에 대한 자세한 내용은 [작업자 역할](../fundamentals-introduction-to-azure.md#compute)을 참조하세요.    
 * 가상 네트워킹에 대해 자세히 알아보려면 [가상 네트워킹](https://azure.microsoft.com/documentation/services/virtual-network/)을 참조하세요.    
 * 백업 및 복구에 대한 자세한 내용은 [비즈니스 연속성](sql-database-business-continuity.md)을 참조하세요.    
 * 모니터링 풀에 대한 자세한 내용은 [모니터링 풀](sql-database-elastic-pool-manage-portal.md)을 참조하세요.    
