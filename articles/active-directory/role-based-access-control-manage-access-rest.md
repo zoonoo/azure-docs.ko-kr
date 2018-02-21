@@ -3,7 +3,7 @@ title: "REST를 사용한 역할 기반 액세스 제어 - Azure AD | Microsoft 
 description: "REST API를 사용하여 역할 기반 액세스 제어 관리"
 services: active-directory
 documentationcenter: na
-author: andredm7
+author: rolyon
 manager: mtillman
 editor: 
 ms.assetid: 1f90228a-7aac-4ea7-ad82-b57d222ab128
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2017
-ms.author: andredm
-ms.openlocfilehash: 9ec64dc3ce95de9c29331699ad2140e5a3c25673
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: rolyon
+ms.openlocfilehash: d449b53d348471275cea3c7129245569e2151864
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="manage-role-based-access-control-with-the-rest-api"></a>REST API를 사용하여 역할 기반 Access Control 관리
 > [!div class="op_single_selector"]
@@ -52,7 +52,7 @@ URI 내에서 다음을 대체하여 요청을 사용자 지정합니다.
    * 특정 사용자, 그룹 또는 응용 프로그램에 대해서만 역할 할당 나열: `principalId%20eq%20'{objectId of user, group, or service principal}'`  
    * 그룹에서 상속된 역할 할당을 포함하여 특정 사용자에 대한 역할 할당 나열 | `assignedTo('{objectId of user}')`
 
-### <a name="response"></a>응답
+### <a name="response"></a>response
 상태 코드: 200
 
 ```
@@ -98,7 +98,7 @@ URI 내에서 다음을 대체하여 요청을 사용자 지정합니다.
 2. *{role-assignment-id}* 를 역할 할당의 GUID 식별자로 바꿉니다.
 3. *{api-version}* 을 2015-07-01로 바꿉니다.
 
-### <a name="response"></a>응답
+### <a name="response"></a>response
 상태 코드: 200
 
 ```
@@ -156,7 +156,7 @@ URI 내에서 다음을 대체하여 요청을 사용자 지정합니다.
 | roleDefinitionId |예 |문자열 |역할의 식별자입니다. 식별자의 형식은 `{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id-guid}` |
 | principalId |예 |문자열 |역할을 할당할 Azure AD 보안 주체(사용자, 그룹 또는 서비스 사용자)의 objectId입니다. |
 
-### <a name="response"></a>응답
+### <a name="response"></a>response
 상태 코드: 201
 
 ```
@@ -197,7 +197,7 @@ URI 내에서 다음을 대체하여 요청을 사용자 지정합니다.
 2. *{role-assignment-id}* 를 역할 할당 id GUID로 바꿉니다.
 3. *{api-version}* 을 2015-07-01로 바꿉니다.
 
-### <a name="response"></a>응답
+### <a name="response"></a>response
 상태 코드: 200
 
 ```
@@ -241,7 +241,7 @@ URI 내에서 다음을 대체하여 요청을 사용자 지정합니다.
    * 지정된 범위 및 해당 자식 범위에서 할당에 사용할 수 있는 역할 나열: `atScopeAndBelow()`
    * 정확한 표시 이름을 사용하여 역할 검색: `roleName%20eq%20'{role-display-name}'`역할의 정확한 표시 이름에 대한 URL 인코딩 형식을 사용합니다. 역할의 정확한 표시 이름에 대한 URL 인코딩 형식을 사용합니다. 예를 들어, `$filter=roleName%20eq%20'Virtual%20Machine%20Contributor'` |
 
-### <a name="response"></a>응답
+### <a name="response"></a>response
 상태 코드: 200
 
 ```
@@ -321,7 +321,7 @@ URI 내에서 다음을 대체하여 요청을 사용자 지정합니다.
 2. *{role-definition-id}* 를 역할 정의의 GUID 식별자로 바꿉니다.
 3. *{api-version}* 을 2015-07-01로 바꿉니다.
 
-### <a name="response"></a>응답
+### <a name="response"></a>response
 상태 코드: 200
 
 ```
@@ -436,7 +436,7 @@ URI 내에서 다음을 대체하여 요청을 사용자 지정합니다.
 
 | 요소 이름 | 필수 | 형식 | 설명 |
 | --- | --- | --- | --- |
-| name |예 |문자열 |사용자 지정 역할의 GUID 식별자입니다. |
+| 이름 |예 |문자열 |사용자 지정 역할의 GUID 식별자입니다. |
 | properties.roleName |예 |문자열 |사용자 지정 역할의 표시 이름입니다. 최대 128자입니다. |
 | properties.description |아니요 |문자열 |사용자 지정 역할에 대한 설명입니다. 최대 1024자입니다. |
 | properties.type |예 |문자열 |"CustomRole"로 설정합니다. |
@@ -444,7 +444,7 @@ URI 내에서 다음을 대체하여 요청을 사용자 지정합니다.
 | properties.permissions.notActions |아니요 |문자열[] |사용자 지정 역할이 권한을 부여하는 작업에서 제외할 작업을 지정하는 동작 문자열의 배열입니다. |
 | properties.assignableScopes |예 |문자열[] |사용자 지정 역할을 사용할 수 있는 범위의 배열입니다. |
 
-### <a name="response"></a>응답
+### <a name="response"></a>response
 상태 코드: 201
 
 ```
@@ -539,15 +539,15 @@ URI 내에서 다음을 대체하여 요청을 사용자 지정합니다.
 
 | 요소 이름 | 필수 | 형식 | 설명 |
 | --- | --- | --- | --- |
-| name |예 |문자열 |사용자 지정 역할의 GUID 식별자입니다. |
+| 이름 |예 |문자열 |사용자 지정 역할의 GUID 식별자입니다. |
 | properties.roleName |예 |문자열 |업데이트된 사용자 지정 역할의 표시 이름입니다. |
 | properties.description |아니요 |문자열 |업데이트된 사용자 지정 역할의 설명입니다. |
 | properties.type |예 |문자열 |"CustomRole"로 설정합니다. |
 | properties.permissions.actions |예 |문자열[] |업데이트된 사용자 지정 역할이 액세스 권한을 부여하는 작업을 지정하는 동작 문자열의 배열입니다. |
-| properties.permissions.notActions |아니요 |문자열[] |업데이트된 사용자 지정 역할이 권한을 부여하는 작업에서 제외할 작업을 지정하는 동작 문자열의 배열입니다. |
+| properties.permissions.notActions |아니오 |문자열[] |업데이트된 사용자 지정 역할이 권한을 부여하는 작업에서 제외할 작업을 지정하는 동작 문자열의 배열입니다. |
 | properties.assignableScopes |예 |문자열[] |업데이트된 사용자 지정 역할을 사용할 수 있는 범위의 배열입니다. |
 
-### <a name="response"></a>응답
+### <a name="response"></a>response
 상태 코드: 201
 
 ```
@@ -607,7 +607,7 @@ URI 내에서 다음을 대체하여 요청을 사용자 지정합니다.
 2. *{role-definition-id}* 를 사용자 지정 역할의 GUID 역할 정의 ID로 바꿉니다.
 3. *{api-version}* 을 2015-07-01로 바꿉니다.
 
-### <a name="response"></a>응답
+### <a name="response"></a>response
 상태 코드: 200
 
 ```

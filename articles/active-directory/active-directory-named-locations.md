@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 02/08/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 231255d9a119c404c0c947c00414572aaab82719
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b6f80cde24edcbec68309ba033d4da16ee97b731
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="named-locations-in-azure-active-directory"></a>Azure Active Directory의 명명된 위치
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/11/2017
 
 - 보고되는 거짓 긍정의 수를 줄이기 위한 [위험 이벤트](active-directory-reporting-risk-events.md) 검색.  
 
-- [위치 기반 조건부 액세스](active-directory-conditional-access-azure-portal.md#locations).
+- [위치 기반 조건부 액세스](active-directory-conditional-access-locations.md).
 
 
 이 문서에서는 명명된 위치를 환경에 구성할 수 있는 방법을 설명합니다.
@@ -83,9 +83,9 @@ ms.lasthandoff: 12/11/2017
 
     a. **이름** 상자에 명명된 위치의 이름을 입력합니다.
 
-    b. **IP 범위** 상자에 IP 범위를 입력합니다. IP 범위는 CIDR(*Classless Inter-Domain Routing*) 형식이어야 합니다.  
+    나. **IP 범위** 상자에 IP 범위를 입력합니다. IP 범위는 CIDR(*Classless Inter-Domain Routing*) 형식이어야 합니다.  
 
-    c. **만들기**를 클릭합니다.
+    다. **만들기**를 클릭합니다.
 
 
 

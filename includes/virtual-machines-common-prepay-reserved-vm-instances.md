@@ -14,7 +14,7 @@
 
     | 필드      | 설명|
     |:------------|:--------------|
-    |이름        |이 예약의 이름입니다.| 
+    |Name        |이 예약의 이름입니다.| 
     |구독|예약에 대해 비용을 지불하는 데 사용하는 구독입니다. 구독 시 지불 방법은 예약에 대해 선불로 비용이 청구됩니다. 구독 유형은 기업 계약(제품 번호: MS-AZR-0017P) 또는 종량제(제품 번호: MS-AZR-0003P)여야 합니다. Enterprise 구독에 대한 요금은 등록의 금액 약정 잔액에서 차감되거나 초과 비용으로 청구됩니다. 종량제 구독에 대한 요금은 신용 카드 또는 구독 시 선택한 청구서 결제 방법으로 청구됩니다.|    
     |범위       |예약 범위에는 하나 또는 여러 개의 구독(공유 범위)이 포함될 수 있습니다. 다음을 선택하는 경우: <ul><li>단일 구독 - 예약 할인이 이 구독의 VM에 적용됩니다. </li><li>공유 - 예약 할인이 청구 컨텍스트 내의 모든 구독에서 실행 중인 VM에 적용됩니다. 기업 고객의 공유 범위는 등록이며 등록 내의 모든 구독(개발/테스트 구독 제외)을 포함합니다. 종량제 고객의 공유 범위는 계정 관리자가 만든 모든 종량제 구독입니다.</li></ul>|
     |위치    |예약 범위에 해당하는 Azure 지역입니다.|    
@@ -30,8 +30,15 @@
 
     ![예약 구매를 제출하기 전의 스크린샷](./media/virtual-machines-buy-compute-reservations/virtualmachines-reservedvmInstance-submit.png)
 
-## <a name="next-steps-after-buying-a-reservation"></a>예약 구매 후 다음 단계
+## <a name="next-steps"></a>다음 단계 
 예약 할인은 예약 범위 및 특성과 일치하는 실행 중인 가상 머신 수에 자동으로 적용됩니다. [Azure Portal](https://portal.azure.com), PowerShell, CLI 또는 API를 통해 예약의 범위를 업데이트할 수 있습니다. 
 
 예약을 관리하는 방법을 알아보려면 [Azure Reserved Virtual Machine Instances 관리](../articles/billing/billing-manage-reserved-vm-instance.md)를 참조합니다.
 
+Reserved Virtual Machine Instances에 대한 자세한 내용은 다음 아티클을 참조하세요.
+
+- [Reserved Virtual Machine Instances를 사용하여 가상 머신에서 비용 절감](../articles/billing/billing-save-compute-costs-reservations.md)
+- [Reserved Virtual Machine Instance 할인이 적용되는 방식 이해](../articles/billing/billing-understand-vm-reservation-charges.md)
+- [종량제 구독에서 Reserved Instance 사용량 이해](../articles/billing/billing-understand-reserved-instance-usage.md)
+- [Enterprise 등록의 Reserved Instance 사용량 이해](../articles/billing/billing-understand-reserved-instance-usage-ea.md)
+- [Reserved Instances를 포함하지 않는 Windows 소프트웨어 비용](../articles/billing/billing-reserved-instance-windows-software-costs.md)

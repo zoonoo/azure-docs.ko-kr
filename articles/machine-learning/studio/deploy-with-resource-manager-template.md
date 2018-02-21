@@ -1,6 +1,6 @@
 ---
 title: "Azure Resource Manager를 사용하여 Machine Learning 작업 영역 배포 | Microsoft Docs"
-description: "Azure Resource Manager 템플릿을 사용하여 Azure 기계 학습에 대한 작업 영역을 배포하는 방법"
+description: "Azure Resource Manager 템플릿을 사용하여 Azure Machine Learning에 대한 작업 영역을 배포하는 방법"
 services: machine-learning
 documentationcenter: 
 author: ahgyger
@@ -12,23 +12,23 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/15/2017
+ms.date: 2/05/2018
 ms.author: ahgyger
-ms.openlocfilehash: e3cbcb8118aa05e554b2493506280d0e24706059
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6189cd2dce2be8c87255dedecd4493767e857031
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="deploy-machine-learning-workspace-using-azure-resource-manager"></a>Azure Resource Manager를 사용하여 기계 학습 작업 영역 배포
+# <a name="deploy-machine-learning-workspace-using-azure-resource-manager"></a>Azure Resource Manager를 사용하여 Machine Learning 작업 영역 배포
 ## <a name="introduction"></a>소개
-Azure Resource Manager 배포 템플릿을 사용하면 유효성 검사와 상호 연결된 구성 요소를 배포하고 메커니즘을 다시 시도하는 확장성 있는 방법을 제공하여 시간을 절약할 수 있습니다. Azure 기계 학습 작업 영역을 설정하려면 예를 들어 먼저 Azure 저장소 계정을 구성한 다음 작업 영역을 배포해야 합니다. 수백 개의 작업 영역에 대해 이 작업을 수동으로 수행한다고 가정합니다. 쉬운 대안은 Azure Resource Manager 템플릿을 사용하여 Azure 기계 학습 작업 영역 및 모든 종속성을 배포하는 것입니다. 이 문서는 이 과정을 단계별로 안내합니다. Azure Resource Manager에 대한 개요는 [Azure Resource Manager 개요](../../azure-resource-manager/resource-group-overview.md)를 참조하세요.
+Azure Resource Manager 배포 템플릿을 사용하면 유효성 검사와 상호 연결된 구성 요소를 배포하고 메커니즘을 다시 시도하는 확장성 있는 방법을 제공하여 시간을 절약할 수 있습니다. Azure Machine Learning 작업 영역을 설정하려면 예를 들어 먼저 Azure 저장소 계정을 구성한 다음 작업 영역을 배포해야 합니다. 수백 개의 작업 영역에 대해 이 작업을 수동으로 수행한다고 가정합니다. 쉬운 대안은 Azure Resource Manager 템플릿을 사용하여 Azure Machine Learning 작업 영역 및 모든 종속성을 배포하는 것입니다. 이 문서는 이 과정을 단계별로 안내합니다. Azure Resource Manager에 대한 개요는 [Azure Resource Manager 개요](../../azure-resource-manager/resource-group-overview.md)를 참조하세요.
 
-## <a name="step-by-step-create-a-machine-learning-workspace"></a>단계별: 기계 학습 작업 영역 만들기
-Azure 리소스 그룹을 만든 다음 리소스 관리자 템플릿을 사용하여 새 Azure 저장소 계정 및 새 Azure 기계 학습 작업 영역을 배포합니다. 배포가 완료되면 생성된 작업 영역에 대한 중요한 정보를 인쇄합니다(기본 키, workspaceID 및 작업 영역에 대한 URL).
+## <a name="step-by-step-create-a-machine-learning-workspace"></a>단계별: Machine Learning 작업 영역 만들기
+Azure 리소스 그룹을 만든 다음 리소스 관리자 템플릿을 사용하여 새 Azure 저장소 계정 및 새 Azure Machine Learning 작업 영역을 배포합니다. 배포가 완료되면 생성된 작업 영역에 대한 중요한 정보를 인쇄합니다(기본 키, workspaceID 및 작업 영역에 대한 URL).
 
 ### <a name="create-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿 만들기
-기계 학습 작업 영역은 연결된 데이터 집합을 저장하려면 Azure 저장소 계정이 필요합니다.
+Machine Learning 작업 영역은 연결된 데이터 집합을 저장하려면 Azure 저장소 계정이 필요합니다.
 다음 템플릿은 리소스 그룹의 이름을 사용하여 저장소 계정 이름 및 작업 영역 이름을 생성합니다.  또한 작업 영역을 만들 때 속성으로 저장소 계정 이름을 사용합니다.
 
 ```
@@ -116,7 +116,7 @@ $rg
 
 ![리소스 그룹][2]
 
-* 리소스 그룹 배포를 사용하여 새 기계 학습 작업 영역을 배포합니다.
+* 리소스 그룹 배포를 사용하여 새 Machine Learning 작업 영역을 배포합니다.
 
 ```
 # Create a Resource Group, TemplateFile is the location of the JSON template.
@@ -136,7 +136,7 @@ $rgd.Outputs.mlWorkspaceToken.Value
 # List the primary and secondary tokens of all workspaces
 Get-AzureRmResource |? { $_.ResourceType -Like "*MachineLearning/workspaces*"} |% { Invoke-AzureRmResourceAction -ResourceId $_.ResourceId -Action listworkspacekeys -Force}  
 ```
-작업 영역이 프로비전되면 [Azure 기계 학습에 대한 PowerShell 모듈](http://aka.ms/amlps)을 사용하여 많은 Azure 기계 학습 스튜디오 작업을 자동화할 수도 있습니다.
+작업 영역이 프로비전되면 [Azure Machine Learning에 대한 PowerShell 모듈](http://aka.ms/amlps)을 사용하여 많은 Azure Machine Learning Studio 작업을 자동화할 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure Resource Manager 템플릿 작성](../../azure-resource-manager/resource-group-authoring-templates.md)에 대해 자세히 알아봅니다. 

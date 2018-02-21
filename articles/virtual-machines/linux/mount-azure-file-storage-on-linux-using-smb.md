@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/13/2017
 ms.author: v-livech
-ms.openlocfilehash: 9eae17b304f8a987b44ebed8906dabd8ff3a36a8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4566e9b236049c336858e9149cca80066b029775
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>SMB를 사용하여 Linux VM에 Azure File Storage 탑재
 
@@ -67,7 +67,7 @@ VM에서 File Storage에서 호스팅되는 SMB 탑재로 파일을 이동하는
 
 이 자세한 연습 과정에서는 먼저 File Storage 공유를 만드는 데 필요한 필수 구성 요소 만든 다음 Linux VM에서 SMB를 통해 탑재합니다.
 
-1. [az group create](/cli/azure/group#create)를 사용하여 리소스 그룹을 만들어서 파일 공유를 저장합니다.
+1. [az group create](/cli/azure/group#az_group_create)를 사용하여 리소스 그룹을 만들어서 파일 공유를 저장합니다.
 
     "미국 서부" 지역에 `myResourceGroup`이라는 리소스 그룹을 만들려면 다음 예제를 사용합니다.
 
@@ -75,7 +75,7 @@ VM에서 File Storage에서 호스팅되는 SMB 탑재로 파일을 이동하는
     az group create --name myResourceGroup --location westus
     ```
 
-2. 실제 파일을 저장하기 위해 [az storage account create](/cli/azure/storage/account#create)를 사용하여 Azure Storage 계정을 만듭니다.
+2. 실제 파일을 저장하기 위해 [az storage account create](/cli/azure/storage/account#az_storage_account_create)를 사용하여 Azure Storage 계정을 만듭니다.
 
     Standard_LRS 저장소 SKU를 사용하여 mystorageaccount라는 저장소 계정을 만들려면 다음 예제를 사용합니다.
 
@@ -90,7 +90,7 @@ VM에서 File Storage에서 호스팅되는 SMB 탑재로 파일을 이동하는
 
     저장소 계정을 만드는 경우 서비스 중단 없이 키를 순환할 수 있도록 저장소 계정 키는 쌍으로 만들어집니다. 쌍에서 두 번째 키로 전환하는 경우 새 키 쌍이 만들어집니다. 새 저장소 계정 키는 항상 쌍으로 만들어지므로 항상 사용하지 않은 저장소 계정 키를 전환할 준비가 되어 있습니다.
 
-    [az storage account keys list](/cli/azure/storage/account/keys#list)를 사용하여 저장소 계정 키를 봅니다. `mystorageaccount`라는 저장소 계정 키를 다음 예제에서 나열합니다.
+    [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list)를 사용하여 저장소 계정 키를 봅니다. `mystorageaccount`라는 저장소 계정 키를 다음 예제에서 나열합니다.
 
     ```azurecli
     az storage account keys list --resource-group myResourceGroup \
@@ -107,7 +107,7 @@ VM에서 File Storage에서 호스팅되는 SMB 탑재로 파일을 이동하는
 
 4. File Storage 공유를 만듭니다.
 
-    File Storage 공유는 [az storage share create](/cli/azure/storage/share#create)를 사용하여 SMB 공유를 포함합니다. 할당량은 항상 GB(기가바이트) 단위로 표현됩니다. 앞의 `az storage account keys list` 명령에서 키 중 하나를 전달합니다. 다음 예제를 사용하여 10GB 할당량을 가진 mystorageshare라는 공유를 만듭니다.
+    File Storage 공유는 [az storage share create](/cli/azure/storage/share#az_storage_share_create)를 사용하여 SMB 공유를 포함합니다. 할당량은 항상 GB(기가바이트) 단위로 표현됩니다. 앞의 `az storage account keys list` 명령에서 키 중 하나를 전달합니다. 다음 예제를 사용하여 10GB 할당량을 가진 mystorageshare라는 공유를 만듭니다.
 
     ```azurecli
     az storage share create --name mystorageshare \
@@ -137,7 +137,7 @@ VM에서 File Storage에서 호스팅되는 SMB 탑재로 파일을 이동하는
     Linux VM를 다시 부팅하면 탑재된 SMB 공유가 종료하는 동안 분리됩니다. 부팅 시 SMB 공유를 다시 탑재하려면 Linux /etc/fstab에 줄을 추가합니다. Linux는 부팅 프로세스 중에 탑재해야 하는 파일 시스템을 나열하기 위해 /etc/fstab 파일을 사용합니다. SMB 공유를 추가하면 File Storage 공유가 Linux VM용으로 영구히 탑재된 파일 시스템이 됩니다. cloud-init를 사용하는 경우 File Storage SMB 공유를 새 VM에 추가할 수 있습니다.
 
     ```bash
-    //myaccountname.file.core.windows.net/mysharename /mymountpoint cifs vers=3.0,username=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
+    //myaccountname.file.core.windows.net/mystorageshare /mnt/mymountdirectory cifs vers=3.0,username=mystorageaccount,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
     ```
 
 ## <a name="next-steps"></a>다음 단계

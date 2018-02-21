@@ -2,23 +2,17 @@
 title: "Azure Site Recovery를 사용하여 Azure에 VMware 복제를 위한 용량 및 크기 조정 계획 | Microsoft Docs"
 description: "Azure Site Recovery를 사용하여 Azure에 VMware VM을 복제하는 경우 용량 및 크기 조정을 계획하려면 이 문서를 사용합니다."
 services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
-manager: jwhit
-editor: 
-ms.assetid: 0a1cd8eb-a8f7-4228-ab84-9449e0b2887b
+manager: carmonm
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 10/30/2017
+ms.date: 02/07/2018
 ms.author: rayne
-ms.openlocfilehash: 0f4d82d450a6ca2e73c68452a409f300841dbf32
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 02f5a7270b5d8b7657a585fce99946cff8ed8d67
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-replication-with-azure-site-recovery"></a>Azure Site Recovery를 사용하여 VMware 복제를 위한 용량 및 크기 조정 계획
 
@@ -45,7 +39,7 @@ VMware 복제를 위해 [Azure Site Recovery Deployment Planner](https://aka.ms/
 16개 vCPU(2개 소켓 * 8코어 @ 2.5GHz) | 32GB | 1TB | 1TB ~ 2TB | 150-200대 컴퓨터를 복제합니다.
 다른 프로세스 서버 배포 | | | > 2TB | 200대 이상의 컴퓨터를 복제하는 경우 또는 일일 데이터 변경률이 2TB를 초과하는 경우 추가 프로세스 서버를 배포합니다.
 
-여기서,
+위치:
 
 * 각 원본 컴퓨터는 각각 100GB의 디스크 3개로 구성됩니다.
 * 캐시 디스크 측정을 위해 벤치마킹 저장소로 RAID 10을 이용한 10K RPM의 8개 SAS 드라이브를 사용했습니다.
@@ -61,7 +55,7 @@ VMware 복제를 위해 [Azure Site Recovery Deployment Planner](https://aka.ms/
 
 * 구성 서버를 프로세스 서버로 사용할 계획이 없습니다.
 * 추가 프로세스 서버를 설정했습니다.
-* 추가 프로세스 서버를 사용하도록 보호된 가상 컴퓨터를 구성했습니다.
+* 추가 프로세스 서버를 사용하도록 보호된 가상 머신을 구성했습니다.
 * 보호된 원본 컴퓨터는 각각 100GB의 디스크 3개로 구성됩니다.
 
 **구성 서버** | **추가 프로세스 서버** | **캐시 디스크 크기** | **데이터 변경률** | **보호된 컴퓨터**
@@ -137,7 +131,7 @@ VMware 복제를 위해 [Azure Site Recovery Deployment Planner](https://aka.ms/
 2. 현재 사용 중인 프로세스 서버를 마우스 오른쪽 버튼으로 클릭하고 **스위치**를 클릭합니다.
 
     ![구성 서버 대화 상자의 스크린샷](./media/site-recovery-vmware-to-azure/migrate-ps3.png)
-3. **대상 프로세스 서버 선택**에서 사용할 새 프로세스 서버를 선택한 다음 서버가 처리할 가상 컴퓨터를 선택합니다. 서버에 대한 정보를 얻으려면 정보 아이콘을 클릭합니다. 부하 결정을 할 때 도움이 되도록 선택된 각 가상 컴퓨터를 새 프로세스 서버로 복제하는 데 필요한 평균 공간이 표시됩니다. 새 프로세스 서버로 복제를 시작하려면 확인 표시를 클릭합니다.
+3. **대상 프로세스 서버 선택**에서 사용할 새 프로세스 서버를 선택한 다음 서버가 처리할 가상 머신을 선택합니다. 서버에 대한 정보를 얻으려면 정보 아이콘을 클릭합니다. 부하 결정을 할 때 도움이 되도록 선택된 각 가상 머신을 새 프로세스 서버로 복제하는 데 필요한 평균 공간이 표시됩니다. 새 프로세스 서버로 복제를 시작하려면 확인 표시를 클릭합니다.
 
 
 ## <a name="next-steps"></a>다음 단계

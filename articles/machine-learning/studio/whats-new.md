@@ -1,6 +1,6 @@
 ---
 title: "Azure Machine Learning의 새로운 기능 | Microsoft Docs"
-description: "Azure 기계 학습에서 사용할 수 있는 새로운 기능입니다."
+description: "Azure Machine Learning에서 사용할 수 있는 새로운 기능입니다."
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
-ms.author: v-donglo
-ms.openlocfilehash: 82ec23f4edba88ec75c2073e24cad24b66323d72
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.author: raymondl
+ms.openlocfilehash: 0e97a8906bf0e5ea790725efbef16b883138c87a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="whats-new-in-azure-machine-learning"></a>Azure 기계 학습의 새로운 기능
+# <a name="whats-new-in-azure-machine-learning"></a>Azure Machine Learning의 새로운 기능
 
 ### <a name="the-march-2017-release-of-microsoft-azure-machine-learning-updates-provides-the-following-feature"></a>Microsoft Azure Machine Learning 업데이트 2017년 3월 릴리스에서는 다음 기능을 제공합니다.
 

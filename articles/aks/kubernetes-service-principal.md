@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.date: 11/30/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 9814dca53f1a410f4d1e95cc18b98373f27f9802
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: be01d3104db04ebd759f2eab99505a2be4762c6c
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="service-principals-with-azure-container-service-aks"></a>Azure Container Service(AKS)를 사용하는 서비스 주체
 
@@ -35,7 +35,7 @@ Azure AD 서비스 주체를 만들려면 Azure AD 테넌트에 응용 프로그
 기존 서비스 주체를 지정하지 않았기 때문에 다음 예제에서 AKS 클러스터를 만들고, 클러스터에 대한 서비스 주체를 만듭니다. 이 작업을 완료하려면 사용자 계정에는 서비스 주체를 만드는 적절한 권한이 있어야 합니다.
 
 ```azurecli
-az aks create --name myK8SCluster --resource-group myResourceGroup --generate-ssh-keys
+az aks create --name myAKSCluster --resource-group myResourceGroup --generate-ssh-keys
 ```
 
 ## <a name="use-an-existing-sp"></a>기존 SP 사용
@@ -67,7 +67,7 @@ az ad sp create-for-rbac --skip-assignment
 미리 만든 서비스 주체를 사용하는 경우 `az aks create` 명령에 대한 인수 값으로 `appId` 및 `password`를 입력합니다.
 
 ```azurecli-interactive
-az aks create --resource-group myResourceGroup --name myK8SCluster --service-principal <appId> --client-secret <password>
+az aks create --resource-group myResourceGroup --name myAKSCluster --service-principal <appId> --client-secret <password>
 ```
 
 Azure Portal을 사용하여 AKS 클러스터를 배포하는 경우 AKS 클러스터 구성 양식 **서비스 주체 클라이언트 ID** 필드에 `appId` 값을 입력하고 **서비스 주체 클라이언트 비밀** 필드에 `password` 값을 입력합니다.

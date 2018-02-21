@@ -9,14 +9,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/23/2017
+ms.date: 02/06/2018
 ms.author: rajanaki
 ms.custom: mvc
-ms.openlocfilehash: ac734ffc6cb57188b7b0959cbe7655949b2853de
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 779ec70a3b45a0ac3e766c956aac94932d4d126b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="protect-a-file-server-using-azure-site-recovery"></a>Azure Site Recovery를 사용하여 파일 서버 보호 
 
@@ -58,7 +58,7 @@ ms.lasthandoff: 12/08/2017
 |Environment  |권장 사항  |고려할 항목 |
 |---------|---------|---------|
 |DFSR 포함/제외 파일 서버 환경|   [복제를 위해 Azure Site Recovery 사용](#replicate-an-onpremises-file-servers-using-azure-site-recovery)   |    Site Recovery에서는 공유 디스크 클러스터인 NAS를 지원하지 않습니다. 환경에서 이러한 구성 중 하나를 사용하는 경우 적절한 다른 인증 방법 중 하나를 사용합니다. <br> Azure Site Recovery는 SMB 3.0을 지원하지 않습니다. 즉, 파일의 원래 위치에서 파일의 변경 내용이 업데이트되는 경우에만 복제된 VM이 변경 내용을 통합합니다.
-|DFSR 포함 파일 서버 환경     |  [Azure IaaS 가상 컴퓨터로 DFSR을 확장합니다.](#extend-dfsr-to-an-azure-iaas-virtual-machine)  |     DFSR은 대역폭 환경에서 잘 작동합니다. 하지만 이 방법에서는 Azure VM을 항상 실행해야 합니다. 계획에서 VM의 비용이 고려되어야 합니다.         |
+|DFSR 포함 파일 서버 환경     |  [Azure IaaS 가상 머신으로 DFSR을 확장합니다.](#extend-dfsr-to-an-azure-iaas-virtual-machine)  |     DFSR은 대역폭 환경에서 잘 작동합니다. 하지만 이 방법에서는 Azure VM을 항상 실행해야 합니다. 계획에서 VM의 비용이 고려되어야 합니다.         |
 |Azure Iaas VM     |     [Azure File Sync](#use-azure-file-sync-service-to-replicate-your-files)   |     DR 시나리오에서 Azure File Sync를 사용하는 경우 장애 조치 중에 클라이언트 컴퓨터에 투명한 방식으로 액세스할 수 있도록 파일을 공유하는지 확인하기 위해 수동 작업을 수행해야 합니다. AFS에는 클라이언트 컴퓨터에서 포트 445가 열려 있어야 합니다.     |
 
 
@@ -81,14 +81,14 @@ Site Recovery 복제는 응용 프로그램을 제한하지 않으므로 여기�
 **Active Directory**: DFSR은 Active Directory에 따라 달라집니다.  즉, 로컬 도메인 컨트롤러와 Active Directory 포리스트를 Azure의 DR 사이트로 확장합니다. 의도된 사용자가 대부분의 조직에서 액세스를 부여/확인해야 하는 경우 DFSR를 사용하지 않더라도 이러한 단계를 수행해야 합니다.
 참조: [온-프레미스 Active Directory를 확장합니다](https://docs.microsoft.com/azure/site-recovery/site-recovery-active-directory).
 
-## <a name="disaster-recovery-recommendation-for-azure-iaas-virtual-machines"></a>Azure IaaS 가상 컴퓨터에 대한 재해 복구 권장 사항
+## <a name="disaster-recovery-recommendation-for-azure-iaas-virtual-machines"></a>Azure IaaS 가상 머신에 대한 재해 복구 권장 사항
 
 Azure IaaS VM에 호스팅되는 파일 서버의 재해 복구를 관리하는 경우 [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)로 이동할지 여부에 따라 두 가지 옵션 중에서 선택할 수 있습니다.
 
 1. [Azure File Sync 사용](#use-azure-file-sync-service-to-replicate-files-hosted-on-iaas-virtual-machine)
 2. [Azure Site Recovery 사용](#replicate-an-iaas-file-server-virtual-machine-using-azure-site-recovery)
 
-## <a name="use-azure-file-sync-service-to-replicate-files-hosted-on-iaas-virtual-machine"></a>Azure File Sync 서비스를 사용하여 IaaS 가상 컴퓨터에서 호스팅되는 파일 복제
+## <a name="use-azure-file-sync-service-to-replicate-files-hosted-on-iaas-virtual-machine"></a>Azure File Sync 서비스를 사용하여 IaaS 가상 머신에서 호스팅되는 파일 복제
 
 **Azure Files**는 기존의 온-프레미스 파일 서버 또는 NAS 장치를 완전히 바꾸거나 보완하는 데 사용할 수 있습니다. Azure File 공유는 데이터가 사용되는 위치에 효율적으로 분산 캐싱하기 위해 온-프레미스 또는 클라우드에서 Azure File Sync를 사용하여 Windows Servers에 복제될 수도 있습니다. 다음 단계에서는 기존의 파일 서버와 동일한 기능을 수행하는 Azure VM에 대한 DR 권장 사항에 대해 자세히 설명합니다.
 1.  [여기](azure-to-azure-quickstart.md)에 언급된 단계를 사용하는 Azure Site Recovery를 사용하여 컴퓨터를 보호합니다.
@@ -104,7 +104,7 @@ Azure IaaS VM에 호스팅되는 파일 서버의 재해 복구를 관리하는 
 5.  파일은 이제 Azure 파일 공유 및 온-프레미스서버와 동기화된 상태를 유지합니다.
 6.  온-프레미스 환경에서 재해 발생 시 [복구 계획](site-recovery-create-recovery-plans.md)을 사용하여 장애 조치를 수행하고 [Azure 파일 공유를 탑재](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows)하고 가상 머신에서 공유에 액세스하는 스크립트를 추가합니다.
 
-### <a name="replicate-an-iaas-file-server-virtual-machine-using-azure-site-recovery"></a>Azure Site Recovery를 사용하여 IaaS 파일 서버 가상 컴퓨터 복제
+### <a name="replicate-an-iaas-file-server-virtual-machine-using-azure-site-recovery"></a>Azure Site Recovery를 사용하여 IaaS 파일 서버 가상 머신 복제
 
 온-프레미스 클라이언트가 IaaS 파일 서버 가상 머신에 액세스하는 경우 처음 2단계를 실행하고 그렇지 않으면 3단계를 진행합니다.
 
@@ -131,7 +131,7 @@ Azure IaaS VM에 호스팅되는 파일 서버의 재해 복구를 관리하는 
 1.  온-프레미스와 Azure 네트워크 간에 사이트 간 VPN 연결을 설정합니다. 
 2.  온-프레미스 Active Directory를 확장합니다.
 3.  Windows Azure Virtual Network에서 [파일 서버 VM을 만들고 프로비전합니다](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json).
-가상 컴퓨터를 온-프레미스 환경과 교차 연결한 동일한 Windows Azure Virtual Network에 추가했는지 확인합니다. 
+가상 머신을 온-프레미스 환경과 교차 연결한 동일한 Windows Azure Virtual Network에 추가했는지 확인합니다. 
 4.  Windows Server에서 [DFS 복제를 설치하고 구성합니다](https://blogs.technet.microsoft.com/b/filecab/archive/2013/08/21/dfs-replication-initial-sync-in-windows-server-2012-r2-attack-of-the-clones.aspx).
 5.  [DFS 네임스페이스를 구현합니다](https://docs.microsoft.com/windows-server/storage/dfs-namespaces/deploying-dfs-namespaces).
 6.  DFS 네임스페이스를 구현하면 프로덕션에서 DR 사이트로 공유 폴더의 장애 조치는 DFS 네임스페이스 폴더 대상을 업데이트하여 수행할 수 있습니다.  이러한 DFS 네임스페이스 변경 내용이 Active Directory를 통해 복제되면 사용자가 적절한 폴더 대상에 투명하게 연결됩니다.

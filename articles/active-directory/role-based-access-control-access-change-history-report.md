@@ -3,7 +3,7 @@ title: "액세스 보고 - Azure RBAC | Microsoft Docs"
 description: "지난 90일 동안 역할 기반 액세스 제어와 함께 Azure 구독 액세스에 대한 모든 변경 내용을 나열하는 보고서를 생성합니다."
 services: active-directory
 documentationcenter: 
-author: andredm7
+author: rolyon
 manager: mtillman
 ms.assetid: 2bc68595-145e-4de3-8b71-3a21890d13d9
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/17/2017
-ms.author: andredm
+ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c430e1206e6e97f2c7fb7d2a6ff0dd6e65ee8bbf
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 169ed8dd6d14d8d9d0fd49ad7306b1d4fb2c4d90
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-an-access-report-for-role-based-access-control"></a>역할 기반 Access Control에 대한 액세스 보고서 만들기
 언제든지 누군가가 구독 내부의 액세스를 부여하거나 취소하면 변경 내용이 Azure 이벤트에 기록됩니다. 지난 90일 동안 모든 변경 내용을 보려면 액세스 변경 기록 보고서를 만들 수 있습니다.
@@ -29,7 +29,7 @@ PowerShell에서 액세스 변경 기록 보고서를 만들려면 [Get-AzureRMA
 
 이 명령을 호출하는 경우 다음을 비롯하여 나열하려는 할당의 속성을 지정할 수 있습니다.
 
-| 속성 | 설명 |
+| 자산 | 설명 |
 | --- | --- |
 | **작업** |액세스를 부여 또는 취소했는지 여부 |
 | **Caller** |액세스 변경을 담당하는 소유자 |

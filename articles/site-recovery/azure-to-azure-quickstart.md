@@ -2,21 +2,21 @@
 title: "다른 Azure 지역에 Azure VM 복제(미리 보기)"
 description: "이 빠른 시작에서는 한 Azure 지역의 Azure VM을 다른 지역에 복제하는 데 필요한 단계를 제공합니다."
 services: site-recovery
-author: rajani-janaki-ram
+author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
+ms.topic: quickstart
+ms.date: 02/07/2018
+ms.author: raynew
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 12/08/2017
-ms.author: rajanaki
 ms.custom: mvc
-ms.openlocfilehash: 27066c3b5b9d52901dbd3790ba4b5abd97fe7d2b
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 213b218a50506ace2298aa3f77721db1b81e2efe
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="replicate-an-azure-vm-to-another-azure-region-preview"></a>다른 Azure 지역에 Azure VM 복제(미리 보기)
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 12/08/2017
 
 이 빠른 시작에서는 Azure VM을 다른 Azure 지역에 복제하는 방법을 설명합니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
 
@@ -32,7 +32,7 @@ Azure Portal( http://portal.azure.com )에 로그인합니다.
 
 ## <a name="enable-replication-for-the-azure-vm"></a>Azure VM에 대해 복제 사용
 
-1. Azure Portal에서 **가상 컴퓨터**를 클릭한 다음 복제할 VM을 선택합니다.
+1. Azure Portal에서 **가상 머신**를 클릭한 다음 복제할 VM을 선택합니다.
 
 2. **설정**에서 **재해 복구(미리 보기)**를 클릭합니다.
 3. **재해 복구 구성** > **대상 지역**에서 복제할 대상 지역을 선택합니다.

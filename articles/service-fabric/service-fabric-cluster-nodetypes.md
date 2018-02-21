@@ -1,6 +1,6 @@
 ---
-title: "Azure Service Fabric 노드 형식 및 가상 컴퓨터 확장 집합 | Microsoft Docs"
-description: "가상 컴퓨터 확장 집합과 Azure Service Fabric 노드가 어떤 관련이 있으며 확장 집합 인스턴스 또는 클러스터를 원격으로 연결하는 방법에 대해 알아봅니다."
+title: "Azure Service Fabric 노드 형식 및 가상 머신 확장 집합 | Microsoft Docs"
+description: "가상 머신 확장 집합과 Azure Service Fabric 노드가 어떤 관련이 있으며 확장 집합 인스턴스 또는 클러스터를 원격으로 연결하는 방법에 대해 알아봅니다."
 services: service-fabric
 documentationcenter: .net
 author: ChackDan
@@ -12,22 +12,22 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/05/2017
+ms.date: 2/5/2018
 ms.author: chackdan
-ms.openlocfilehash: 2bd3053d645d9acd4850fddf7f27237ff954e8c7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 720bb83c9d8540549852ce78ee1709f8c8717348
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Azure Service Fabric 노드 형식 및 가상 컴퓨터 확장 집합 
-가상 컴퓨터 확장 집합은 Azure 계산 리소스입니다. 확장 집합을 사용하여 가상 컴퓨터 컬렉션을 배포 및 관리할 수 있습니다. Azure Service Fabric 클러스터에서 정의한 각 노드 형식에 대해 별도의 확장 집합을 설정합니다. 각 노드 형식을 독립적으로 확장 또는 축소하고, 다른 포트의 집합을 열며 다른 용량 메트릭을 사용할 수 있습니다.
+# <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Azure Service Fabric 노드 형식 및 가상 머신 확장 집합 
+가상 머신 확장 집합은 Azure 계산 리소스입니다. 확장 집합을 사용하여 가상 머신 컬렉션을 배포 및 관리할 수 있습니다. Azure Service Fabric 클러스터에서 정의한 각 노드 형식에 대해 별도의 확장 집합을 설정합니다. 각 노드 형식을 독립적으로 확장 또는 축소하고, 다른 포트의 집합을 열며 다른 용량 메트릭을 사용할 수 있습니다.
 
 다음 그림에서는 이름이 FrontEnd 및 BackEnd인 두 노드 유형이 있는 클러스터를 보여줍니다. 각 노드 형식에는 5개의 노드가 있습니다.
 
 ![두 가지 노드 유형이 있는 클러스터][NodeTypes]
 
-## <a name="map-virtual-machine-scale-set-instances-to-nodes"></a>노드에 가상 컴퓨터 확장 집합 인스턴스 매핑
+## <a name="map-virtual-machine-scale-set-instances-to-nodes"></a>노드에 가상 머신 확장 집합 인스턴스 매핑
 위의 그림에서처럼 확장 집합 인스턴스는 인스턴스 0에서 시작한 다음 1씩 증가합니다. 노드 이름에 이러한 번호 매기기가 반영됩니다. 예를 들어 노드 BackEnd_0은BackEnd 확장 집합의 인스턴스 0입니다. 이 특정 VM 확장 집합에는 이름이 BackEnd_0, BackEnd_1, BackEnd_2, BackEnd_3 및 BackEnd_4인 5개의 인스턴스가 있습니다.
 
 확장 집합을 확대하는 경우 새 인스턴스가 생성됩니다. 새 확장 집합 인스턴스 이름은 일반적으로 확장 집합 이름 + 다음 인스턴스 번호입니다. 이 예제에서는 BackEnd_5입니다.
@@ -36,7 +36,7 @@ ms.lasthandoff: 10/11/2017
 Azure Portal에 클러스터를 배포했거나 샘플 Azure Resource Manager 템플릿을 사용한 경우 리소스 그룹의 모든 리소스가 목록에 열거됩니다. 각 확장 집합 또는 노드 형식에 대해 부하 분산 장치를 확인할 수 있습니다. 부하 분산 장치 이름은 **LB-&lt;노드 형식 이름&gt;** 형식을 사용합니다. 다음 그림에서처럼 LB-sfcluster4doc-0을 예로 들 수 있습니다.
 
 ![리소스][Resources]
-## <a name="remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node"></a>가상 컴퓨터 확장 집합 인스턴스 또는 클러스터 노드에 원격 연결
+## <a name="remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node"></a>가상 머신 확장 집합 인스턴스 또는 클러스터 노드에 원격 연결
 클러스터에서 정의한 각 노드 형식에 대해 별도의 확장 집합을 설정합니다. 노드 형식을 독립적으로 확대 또는 축소할 수 있습니다. 다른 VM SKU를 사용할 수도 있습니다. 단일 인스턴스 VM과 달리 확장 집합 인스턴스는 고유한 가상 IP 주소가 없습니다. 따라서 특정 인스턴스에 원격으로 연결하는 데 사용할 수 있는 IP 주소 및 포트를 찾는 것이 어려울 수 있습니다.
 
 특정 인스턴스에 원격으로 연결하는 데 사용할 수 있는 IP 주소 및 특정 인스턴스를 찾으려면 다음 단계를 완료합니다.
@@ -59,7 +59,7 @@ Azure Portal의 부하 분산 장치 페이지에서 **설정** > **인바운드
 
 포트는 확장 집합 인스턴스에 맞게 오름차순으로 할당됩니다. 앞의 FrontEnd 노드 형식 예에서 다음 표는 5개 노드 인스턴스 각각에 대한 포트를 열거합니다. 확장 집합 인스턴스에 동일한 매핑을 적용합니다.
 
-| **가상 컴퓨터 확장 집합 인스턴스** | **포트** |
+| **가상 머신 확장 집합 인스턴스** | **포트** |
 | --- | --- |
 | FrontEnd_0 |3389 |
 | FrontEnd_1 |3390 |

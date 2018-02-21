@@ -16,15 +16,15 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: bef7f6ef13f6d31c16d40deb46f168ae52a9e61b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b2e9324cbe7ae683a472ecc0ee93329773886f88
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-and-manage-linux-vms-with-the-azure-cli"></a>Azure CLI로 Linux VM 만들기 및 관리
 
-Azure 가상 컴퓨터는 완전히 구성 가능하고 유연한 컴퓨팅 환경을 제공합니다. 이 자습서에서는 VM 크기 선택, VM 이미지 선택 및 VM 배포 등 기본적인 Azure Virtual Machines 배포 항목에 대해 설명합니다. 다음 방법에 대해 알아봅니다.
+Azure Virtual Machines는 완전히 구성 가능하고 유연한 컴퓨팅 환경을 제공합니다. 이 자습서에서는 VM 크기 선택, VM 이미지 선택 및 VM 배포 등 기본적인 Azure Virtual Machines 배포 항목에 대해 설명합니다. 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * VM 만들기 및 연결
@@ -42,7 +42,7 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에�
 
 [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) 명령을 사용하여 리소스 그룹을 만듭니다. 
 
-Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 가상 컴퓨터보다 먼저 리소스 그룹을 만들어야 합니다. 이 예제에서는 *eastus* 지역에 *myResourceGroupVM*이라는 리소스 그룹을 만듭니다. 
+Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 가상 머신보다 먼저 리소스 그룹을 만들어야 합니다. 이 예제에서는 *eastus* 지역에 *myResourceGroupVM*이라는 리소스 그룹을 만듭니다. 
 
 ```azurecli-interactive 
 az group create --name myResourceGroupVM --location eastus
@@ -52,15 +52,15 @@ az group create --name myResourceGroupVM --location eastus
 
 ## <a name="create-virtual-machine"></a>가상 컴퓨터 만들기
 
-[az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) 명령을 사용하여 가상 컴퓨터를 만듭니다. 
+[az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) 명령을 사용하여 가상 머신을 만듭니다. 
 
-가상 컴퓨터를 만들 때 운영 체제 이미지, 디스크 크기 조정 및 관리 자격 증명 등의 몇 가지 옵션을 사용할 수 있습니다. 이 예제에서는 Ubuntu Server를 실행하는 *myVM*이라는 가상 컴퓨터를 만듭니다. 
+가상 머신을 만들 때 운영 체제 이미지, 디스크 크기 조정 및 관리 자격 증명 등의 몇 가지 옵션을 사용할 수 있습니다. 이 예제에서는 Ubuntu Server를 실행하는 *myVM*이라는 가상 머신을 만듭니다. 
 
 ```azurecli-interactive 
 az vm create --resource-group myResourceGroupVM --name myVM --image UbuntuLTS --generate-ssh-keys
 ```
 
-VM을 만드는 데 몇 분이 걸릴 수 있습니다. VM이 만들어지면 Azure CLI에서 VM에 대한 정보를 출력합니다. `publicIpAddress`를 메모해 둡니다. 이 주소는 가상 컴퓨터에 액세스하는 데 사용할 수 있습니다. 
+VM을 만드는 데 몇 분이 걸릴 수 있습니다. VM이 만들어지면 Azure CLI에서 VM에 대한 정보를 출력합니다. `publicIpAddress`를 메모해 둡니다. 이 주소는 가상 머신에 액세스하는 데 사용할 수 있습니다. 
 
 ```azurecli-interactive 
 {
@@ -93,7 +93,7 @@ exit
 
 Azure Marketplace에는 VM을 만드는 데 사용할 수 있는 여러 VM 이미지가 포함되어 있습니다. 이전 단계에서는 Ubuntu 이미지를 사용하여 가상 컴퓨터를 만들었습니다. 이 단계에서는 Azure CLI를 사용하여 Marketplace에서 CentOS 이미지를 검색한 후 두 번째 가상 컴퓨터를 배포합니다.  
 
-가장 일반적으로 사용되는 이미지 목록을 보려면 [az vm image list](/cli/azure/vm/image#list) 명령을 사용하세요.
+가장 일반적으로 사용되는 이미지 목록을 보려면 [az vm image list](/cli/azure/vm/image#az_vm_image_list) 명령을 사용하세요.
 
 ```azurecli-interactive 
 az vm image list --output table
@@ -144,7 +144,7 @@ az vm create --resource-group myResourceGroupVM --name myVM2 --image OpenLogic:C
 
 ## <a name="understand-vm-sizes"></a>VM 크기 이해
 
-가상 컴퓨터 크기에 따라 CPU, GPU, 메모리 등 가상 컴퓨터에 사용할 수 있는 계산 리소스의 양이 결정됩니다. 가상 컴퓨터는 예상되는 워크로드에 맞게 적절히 크기 조정되어야 합니다. 워크로드가 증가할 경우 기존 가상 컴퓨터의 크기를 조정할 수 있습니다.
+가상 머신 크기에 따라 CPU, GPU, 메모리 등 가상 머신에 사용할 수 있는 계산 리소스의 양이 결정됩니다. 가상 머신은 예상되는 워크로드에 맞게 적절히 크기 조정되어야 합니다. 워크로드가 증가할 경우 기존 가상 머신의 크기를 조정할 수 있습니다.
 
 ### <a name="vm-sizes"></a>VM 크기
 
@@ -162,7 +162,7 @@ az vm create --resource-group myResourceGroupVM --name myVM2 --image OpenLogic:C
 
 ### <a name="find-available-vm-sizes"></a>사용 가능한 VM 크기 찾기
 
-특정 지역에서 사용할 수 있는 VM 크기의 목록을 보려면 [az vm list-sizes](/cli/azure/vm#list-sizes) 명령을 사용합니다. 
+특정 지역에서 사용할 수 있는 VM 크기의 목록을 보려면 [az vm list-sizes](/cli/azure/vm#az_vm_list_sizes) 명령을 사용합니다. 
 
 ```azurecli-interactive 
 az vm list-sizes --location eastus --output table
@@ -193,7 +193,7 @@ az vm list-sizes --location eastus --output table
 
 ### <a name="create-vm-with-specific-size"></a>특정 크기로 VM 만들기
 
-이전 VM 만들기 예제에서는 크기가 제공되지 않았으므로 기본 크기가 사용되었습니다. [az vm create](/cli/azure/vm#create) 및 `--size` 인수를 사용하여 만들 때 VM 크기를 선택할 수 있습니다. 
+이전 VM 만들기 예제에서는 크기가 제공되지 않았으므로 기본 크기가 사용되었습니다. [az vm create](/cli/azure/vm#az_vm_create) 및 `--size` 인수를 사용하여 만들 때 VM 크기를 선택할 수 있습니다. 
 
 ```azurecli-interactive 
 az vm create \
@@ -206,24 +206,24 @@ az vm create \
 
 ### <a name="resize-a-vm"></a>VM 크기 조정
 
-VM을 배포한 후에 크기를 조정하여 리소스 할당을 늘리거나 줄일 수 있습니다. [az vm show](/cli/azure/vm#show)를 사용하여 VM의 현재 크기를 볼 수 있습니다.
+VM을 배포한 후에 크기를 조정하여 리소스 할당을 늘리거나 줄일 수 있습니다. [az vm show](/cli/azure/vm#az_vm_show)를 사용하여 VM의 현재 크기를 볼 수 있습니다.
 
 ```azurecli-interactive
 az vm show --resource-group myResourceGroupVM --name myVM --query hardwareProfile.vmSize
 ```
 
-VM의 크기를 조정하기 전에 원하는 크기를 현재 Azure 클러스터에서 사용할 수 있는지 확인합니다. [az vm list-vm-resize-options](/cli/azure/vm#list-vm-resize-options) 명령은 크기 목록을 반환합니다. 
+VM의 크기를 조정하기 전에 원하는 크기를 현재 Azure 클러스터에서 사용할 수 있는지 확인합니다. [az vm list-vm-resize-options](/cli/azure/vm#az_vm_list_vm_resize_options) 명령은 크기 목록을 반환합니다. 
 
 ```azurecli-interactive 
 az vm list-vm-resize-options --resource-group myResourceGroupVM --name myVM --query [].name
 ```
-원하는 크기를 사용할 수 있는 경우 전원이 켜진 상태에서 VM 크기를 조정할 수 있지만 작업 중 다시 부팅됩니다. [az vm resize]( /cli/azure/vm#resize) 명령을 사용하여 크기 조정을 수행합니다.
+원하는 크기를 사용할 수 있는 경우 전원이 켜진 상태에서 VM 크기를 조정할 수 있지만 작업 중 다시 부팅됩니다. [az vm resize]( /cli/azure/vm#az_vm_resize) 명령을 사용하여 크기 조정을 수행합니다.
 
 ```azurecli-interactive 
 az vm resize --resource-group myResourceGroupVM --name myVM --size Standard_DS4_v2
 ```
 
-원하는 크기가 현재 클러스터에 없는 경우 크기 조정 작업 전에 VM 할당을 취소해야 합니다. [az vm deallocate]( /cli/azure/vm#deallocate) 명령을 사용하여 VM을 중지하고 할당을 취소합니다. 참고로 VM의 전원이 다시 켜지면 임시 디스크의 모든 데이터가 제거됩니다. 고정 IP 주소를 사용하지 않는 한 공용 IP 주소도 변경됩니다. 
+원하는 크기가 현재 클러스터에 없는 경우 크기 조정 작업 전에 VM 할당을 취소해야 합니다. [az vm deallocate]( /cli/azure/vm#az_vm_deallocate) 명령을 사용하여 VM을 중지하고 할당을 취소합니다. 참고로 VM의 전원이 다시 켜지면 임시 디스크의 모든 데이터가 제거됩니다. 고정 IP 주소를 사용하지 않는 한 공용 IP 주소도 변경됩니다. 
 
 ```azurecli-interactive 
 az vm deallocate --resource-group myResourceGroupVM --name myVM
@@ -249,17 +249,17 @@ Azure VM의 전원 상태는 여러 상태 중 하나일 수 있습니다. 이 �
 
 | 전원 상태 | 설명
 |----|----|
-| Starting | 가상 컴퓨터가 시작되고 있음을 나타냅니다. |
-| 실행 중 | 가상 컴퓨터가 실행되고 있음을 나타냅니다. |
-| 중지 중 | 가상 컴퓨터가 중지되고 있음을 나타냅니다. | 
-| 중지됨 | 가상 컴퓨터가 중지되었음을 나타냅니다. 중지됨 상태의 가상 컴퓨터에도 여전히 계산 요금이 발생됩니다.  |
+| 시작 중 | 가상 머신이 시작되고 있음을 나타냅니다. |
+| 실행 중 | 가상 머신이 실행되고 있음을 나타냅니다. |
+| 중지 중 | 가상 머신이 중지되고 있음을 나타냅니다. | 
+| 중지됨 | 가상 머신이 중지되었음을 나타냅니다. 중지됨 상태의 가상 머신에도 여전히 계산 요금이 발생됩니다.  |
 | 할당 취소 중 | 가상 컴퓨터의 할당이 취소되고 있음을 나타냅니다. |
-| 할당 취소됨 | 가상 컴퓨터가 하이퍼바이저에서 제거되었지만 제어 영역에서 계속 사용할 수 있음을 나타냅니다. 할당 취소됨 상태의 가상 컴퓨터에는 계산 요금이 발생하지 않습니다. |
-| - | 가상 컴퓨터의 전원 상태가 알 수 없음을 나타냅니다. |
+| 할당 취소됨 | 가상 컴퓨터가 하이퍼바이저에서 제거되었지만 제어 영역에서 계속 사용할 수 있음을 나타냅니다. 할당 취소됨 상태의 가상 머신에는 계산 요금이 발생하지 않습니다. |
+| - | 가상 머신의 전원 상태가 알 수 없음을 나타냅니다. |
 
 ### <a name="find-power-state"></a>전원 상태 찾기
 
-특정 VM의 상태를 검색하려면 [az vm get instance-view](/cli/azure/vm#get-instance-view) 명령을 사용합니다. 가상 컴퓨터 및 리소스 그룹에 대한 올바른 이름을 지정해야 합니다. 
+특정 VM의 상태를 검색하려면 [az vm get instance-view](/cli/azure/vm#az_vm_get_instance_view) 명령을 사용합니다. 가상 머신 및 리소스 그룹에 대한 올바른 이름을 지정해야 합니다. 
 
 ```azurecli-interactive 
 az vm get-instance-view \
@@ -268,7 +268,7 @@ az vm get-instance-view \
     --query instanceView.statuses[1] --output table
 ```
 
-출력:
+출력
 
 ```azurecli-interactive 
 ode                DisplayStatus    Level
@@ -278,23 +278,23 @@ PowerState/running  VM running       Info
 
 ## <a name="management-tasks"></a>관리 작업
 
-가상 컴퓨터의 수명 주기 동안 가상 컴퓨터 시작, 중지 또는 삭제 등의 관리 작업을 실행하려고 할 수 있습니다. 또한 반복적이거나 복잡한 작업을 자동화하는 스크립트를 만들 수도 있습니다. Azure CLI를 사용하여 명령줄이나 스크립트에서 여러 가지 일반적인 관리 작업을 실행할 수 있습니다. 
+가상 머신의 수명 주기 동안 가상 머신 시작, 중지 또는 삭제 등의 관리 작업을 실행하려고 할 수 있습니다. 또한 반복적이거나 복잡한 작업을 자동화하는 스크립트를 만들 수도 있습니다. Azure CLI를 사용하여 명령줄이나 스크립트에서 여러 가지 일반적인 관리 작업을 실행할 수 있습니다. 
 
 ### <a name="get-ip-address"></a>IP 주소 가져오기
 
-이 명령은 가상 컴퓨터의 개인 및 공용 IP 주소를 반환합니다.  
+이 명령은 가상 머신의 개인 및 공용 IP 주소를 반환합니다.  
 
 ```azurecli-interactive 
 az vm list-ip-addresses --resource-group myResourceGroupVM --name myVM --output table
 ```
 
-### <a name="stop-virtual-machine"></a>가상 컴퓨터 중지
+### <a name="stop-virtual-machine"></a>가상 머신 중지
 
 ```azurecli-interactive 
 az vm stop --resource-group myResourceGroupVM --name myVM
 ```
 
-### <a name="start-virtual-machine"></a>가상 컴퓨터 시작
+### <a name="start-virtual-machine"></a>가상 머신 시작
 
 ```azurecli-interactive 
 az vm start --resource-group myResourceGroupVM --name myVM

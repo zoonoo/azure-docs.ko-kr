@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 10/30/2017
+ms.date: 02/06/2018
 ms.author: rajanaki
-ms.openlocfilehash: a72c9104dc2df0c8a874f757c100a19dc26c1564
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: 426a456f8d979c8fb68b469f01eb68f378e876e8
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-on-premises-to-azure"></a>온-프레미스에서 Azure로 복제하기 위한 Azure Site Recovery 지원 매트릭스
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 01/25/2018
 
 ### <a name="virtualization-management-entities"></a>가상화 관리 엔터티
 
-**배포웹사이트를** | **지원**
+**배포** | **지원**
 --- | ---
 **VMware VM/물리적 서버** | vCenter 6.5, 6.0 또는 5.5
 **Hyper-V(Virtual Machine Manager 있음)** | System Center Virtual Machine Manager 2016 및 System Center Virtual Machine Manager 2012 R2
@@ -52,7 +52,7 @@ ms.lasthandoff: 01/25/2018
   > 기존 SCVMM 2012 R2를 2016으로 업그레이드하는 구성은 현재 지원되지 않습니다.
 ### <a name="host-servers"></a>호스트 서버
 
-**배포웹사이트를** | **지원**
+**배포** | **지원**
 --- | ---
 **VMware VM/물리적 서버** | vSphere 6.5, 6.0, 5.5
 **Hyper-V(Virtual Machine Manager 있음/없음)** | Windows Server 2016, 최신 업데이트가 포함된 Windows Server 2012 R2<br></br>SCVMM을 사용하는 경우 Windows Server 2016 호스트는 SCVMM 2016을 통해 관리되어야 합니다.
@@ -119,7 +119,7 @@ HP CCISS 저장소 컨트롤러가 있는 물리적 서버는 지원되지 않�
 NIC 팀 | 예<br/><br/>물리적 컴퓨터가 복제되는 경우 지원되지 않음| 예
 VLAN | 예 | 예
 IPv4 | 예 | 예
-IPv6 | 아니요 | 아니요
+IPv6 | 아니오 | 아니요
 
 ### <a name="guest-vm-network-configuration"></a>게스트 VM 네트워크 구성
 
@@ -127,7 +127,7 @@ IPv6 | 아니요 | 아니요
 --- | --- | ---
 NIC 팀 | 아니요 | 아니요
 IPv4 | 예 | 예
-IPv6 | 아니오 | 아니요
+IPv6 | 아니요 | 아니요
 고정 IP(Windows) | 예 | 예
 고정 IP(Linux) | 예 <br/><br/>가상 머신이 장애 복구(failback) 시 DHCP를 사용하도록 구성됨  | 아니요
 다중 NIC | 예 | 예
@@ -144,7 +144,7 @@ Traffic Manager | 예 | 예
 예약된 IP | 예 | 예
 IPv4 | 예 | 예
 원본 IP 유지 | 예 | 예
-Virtual Network 서비스 끝점(Azure Storage 방화벽 및 Virtual Network) | 아니요 | 아니요
+Virtual Network 서비스 끝점(Azure Storage 방화벽 및 Virtual Network) | 아니오 | 아니오
 
 
 ## <a name="support-for-storage"></a>저장소에 대한 지원
@@ -170,14 +170,14 @@ EFI/UEFI| Windows Server 2012 이상에서만 Azure로 마이그레이션합니�
 공유 클러스터 디스크 | 아니요 | 아니오
 암호화된 디스크 | 아니요 | 아니요
 NFS | 아니요 | 해당 없음
-SMB 3.0 | 아니오 | 아니오
+SMB 3.0 | 아니요 | 아니요
 RDM | 예<br/><br/> 물리적 서버의 경우 해당 없음 | 해당 없음
 디스크 > 1TB | 예<br/><br/>최대 4095GB | 예<br/><br/>최대 4095GB
 4K 논리 및 4k 물리적 섹터 크기 포함 디스크 | 예 | 1세대 VM에 지원되지 않음<br/><br/>2세대 VM에 지원되지 않음
 4K 논리 및 512바이트 물리적 섹터 크기 포함 디스크 | 예 |  예
 스트라이프 디스크 포함 볼륨 > 1TB<br/><br/> LVM 논리 볼륨 관리 | 예 | 예
 저장소 공간 | 아니요 | 예
-디스크 핫 추가/제거 | 아니요 | 아니요
+디스크 핫 추가/제거 | 아니오 | 아니요
 디스크 제외 | 예 | 예
 다중 경로(MPIO) | 해당 없음 | 예
 
@@ -192,14 +192,14 @@ RDM | 예<br/><br/> 물리적 서버의 경우 해당 없음 | 해당 없음
 LRS | 예 | 예
 GRS | 예 | 예
 RA-GRS | 예 | 예
-쿨 저장소 | 아니요 | 아니요
-핫 저장소| 아니요 | 아니오
-블록 Blob | 아니요 | 아니요
+쿨 저장소 | 아니오 | 아니요
+핫 저장소| 아니오 | 아니요
+블록 Blob | 아니오 | 아니요
 휴지 상태의 암호화(SSE)| 예 | 예
 Premium Storage | 예 | 예
 Import/Export 서비스 | 아니요 | 아니요
-복제 데이터를 저장하는 데 사용되는 대상 저장소 계정 또는 캐시 저장소 계정에 구성된 Virtual Network 서비스 끝점(Azure Storage 방화벽 및 Virtual Network) | 아니오 | 아니요
-범용 V2 저장소 계정(핫 및 쿨 계층 모두) | 아니요 | 아니요
+복제 데이터를 저장하는 데 사용되는 대상 저장소 계정 또는 캐시 저장소 계정에 구성된 Virtual Network 서비스 끝점(Azure Storage 방화벽 및 Virtual Network) | 아니요 | 아니요
+범용 V2 저장소 계정(핫 및 쿨 계층 모두) | 아니오 | 아니요
 
 
 ## <a name="support-for-azure-compute-configuration"></a>Azure 계산 구성에 대한 지원
@@ -234,8 +234,8 @@ Azure에서 지원하는 운영 체제를 실행하는 가상 머신과 물리�
 
 **작업** | **VMware/물리적 서버** | **Hyper-V(Virtual Machine Manager 없음)** | **Hyper-V(Virtual Machine Manager 있음)**
 --- | --- | --- | ---
-리소스 그룹 간 자격 증명 모음 이동<br/><br/> 구독 내 및 구독 간 | 아니오 | 아니요 | 아니오
-저장소 그룹 간 저장소, 네트워크, Azure VM 이동<br/><br/> 구독 내 및 구독 간 | 아니오 | 아니요 | 아니오
+리소스 그룹 간 자격 증명 모음 이동<br/><br/> 구독 내 및 구독 간 | 아니요 | 아니요 | 아니요
+저장소 그룹 간 저장소, 네트워크, Azure VM 이동<br/><br/> 구독 내 및 구독 간 | 아니요 | 아니오 | 아니요
 
 
 ## <a name="support-for-provider-and-agent"></a>공급자 및 에이전트에 대한 지원

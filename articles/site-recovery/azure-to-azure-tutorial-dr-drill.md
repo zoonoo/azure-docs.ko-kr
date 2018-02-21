@@ -5,18 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 11/01/2017
+ms.topic: tutorial
+ms.date: 02/07/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 5bcd3d64714951508d984c17326e845ae4842670
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 66ad4f782917d41a0fd1fbbe5ce50de0dda4589e
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="run-a-disaster-recovery-drill-for-azure-vms-to-a-secondary-azure-region-preview"></a>보조 Azure 지역(미리 보기)에 Azure VM의 재해 복구 훈련 실행
 
@@ -34,7 +31,7 @@ ms.lasthandoff: 11/01/2017
 - 복제를 활성화할 때 설정된 기본 네트워크가 아니라 테스트 장애 조치에 대한 별도의 Azure VM 네트워크를 사용하는 것이 좋습니다.
 
 
-## <a name="run-a-test-failover"></a>테스트 장애 조치(Failover) 실행
+## <a name="run-a-test-failover"></a>테스트 장애 조치(failover) 실행
 
 1. **설정** > **복제된 항목**에서 VM **+테스트 장애 조치** 아이콘을 클릭합니다.
 

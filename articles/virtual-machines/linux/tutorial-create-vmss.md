@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 12/15/2017
 ms.author: iainfou
-ms.openlocfilehash: 8703d0c06f2507cc3c21d4280d887a8772145a28
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 263983017e08dcc9a8e614c159ef5afaaf1d924e
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-linux"></a>Virtual Machine Scale Set 만들기 및 Linux에 항상 사용 가능한 앱 배포
 가상 머신 확장 집합을 사용하면 동일한 자동 크기 조정 가상 머신 집합을 배포하고 관리할 수 있습니다. 확장 집합의 VM 수를 수동으로 조정하거나 CPU와 같은 리소스 사용량, 메모리 요구량 또는 네트워크 트래픽을 기반으로 자동으로 크기를 조정하는 규칙을 정의할 수도 있습니다. 이 자습서에서는 Azure에서 가상 머신 확장 집합을 배포합니다. 다음 방법에 대해 알아봅니다.
@@ -96,13 +96,13 @@ runcmd:
 
 
 ## <a name="create-a-scale-set"></a>확장 집합 만들기
-확장 집합을 만들려면 먼저 [az group create](/cli/azure/group#create)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroupScaleSet*이라는 리소스 그룹을 만듭니다.
+확장 집합을 만들려면 먼저 [az group create](/cli/azure/group#az_group_create)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroupScaleSet*이라는 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive 
 az group create --name myResourceGroupScaleSet --location eastus
 ```
 
-이제 [az vmss create](/cli/azure/vmss#create)를 사용하여 가상 머신 확장 집합을 만듭니다. 다음 예제에서는 *myScaleSet*이라는 확장 집합을 만들고, cloud-init 파일을 사용하여 VM을 사용자 지정하고, SSH 키가 없는 경우 SSH 키를 생성합니다.
+이제 [az vmss create](/cli/azure/vmss#az_vmss_create)를 사용하여 가상 머신 확장 집합을 만듭니다. 다음 예제에서는 *myScaleSet*이라는 확장 집합을 만들고, cloud-init 파일을 사용하여 VM을 사용자 지정하고, SSH 키가 없는 경우 SSH 키를 생성합니다.
 
 ```azurecli-interactive 
 az vmss create \
@@ -121,7 +121,7 @@ az vmss create \
 ## <a name="allow-web-traffic"></a>웹 트래픽 허용
 부하 분산 장치는 가상 머신 확장 집합의 일부로 자동으로 생성되었습니다. 부하 분산 장치는 부하 분산 장치 규칙을 사용하여 정의된 VM 집합 전역에 트래픽을 분산시킵니다. 다음 자습서 [Azure에서 Virtual Machines의 부하를 분산하는 방법](tutorial-load-balancer.md)에서 부하 분산 장치 개념 및 구성에 대해 자세히 알아볼 수 있습니다.
 
-트래픽이 Web App에 도달하도록 허용하려면 [az network lb rule create](/cli/azure/network/lb/rule#create)를 사용하여 규칙을 만듭니다. 다음 예제는 *myLoadBalancerRuleWeb*이라는 규칙을 만듭니다.
+트래픽이 Web App에 도달하도록 허용하려면 [az network lb rule create](/cli/azure/network/lb/rule#az_network_lb_rule_create)를 사용하여 규칙을 만듭니다. 다음 예제는 *myLoadBalancerRuleWeb*이라는 규칙을 만듭니다.
 
 ```azurecli-interactive 
 az network lb rule create \
@@ -136,7 +136,7 @@ az network lb rule create \
 ```
 
 ## <a name="test-your-app"></a>앱 테스트
-웹에서 Node.js 앱을 보려면 [az network public-ip show](/cli/azure/network/public-ip#show)를 사용하여 부하 분산 장치의 공용 IP 주소를 가져옵니다. 다음 예제에서는 확장 집합의 일부로 만든 *myScaleSetLBPublicIP*의 IP 주소를 가져옵니다.
+웹에서 Node.js 앱을 보려면 [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show)를 사용하여 부하 분산 장치의 공용 IP 주소를 가져옵니다. 다음 예제에서는 확장 집합의 일부로 만든 *myScaleSetLBPublicIP*의 IP 주소를 가져옵니다.
 
 ```azurecli-interactive 
 az network public-ip show \
@@ -157,7 +157,7 @@ az network public-ip show \
 확장 집합의 수명 주기 내내 하나 이상의 관리 작업을 실행해야 합니다. 또한 다양한 수명 주기 작업을 자동화하는 스크립트를 만들어야 하는 경우가 있습니다. Azure CLI 2.0은 이러한 작업을 수행할 수 있는 빠른 방법을 제공합니다. 다음은 몇 가지 일반적인 작업입니다.
 
 ### <a name="view-vms-in-a-scale-set"></a>확장 집합의 VM 보기
-확장 집합에서 실행 중인 VM 목록을 보려면 다음과 같이 [az vmss list-instances](/cli/azure/vmss#list-instances)를 사용합니다.
+확장 집합에서 실행 중인 VM 목록을 보려면 다음과 같이 [az vmss list-instances](/cli/azure/vmss#az_vmss_list_instances)를 사용합니다.
 
 ```azurecli-interactive 
 az vmss list-instances \
@@ -177,7 +177,7 @@ az vmss list-instances \
 
 
 ### <a name="increase-or-decrease-vm-instances"></a>VM 인스턴스 증가 또는 감소
-현재 확장 집합의 인스턴스 수를 보려면 [az vmss show](/cli/azure/vmss#show)를 사용하여 *sku.capacity*를 쿼리합니다.
+현재 확장 집합의 인스턴스 수를 보려면 [az vmss show](/cli/azure/vmss#az_vmss_show)를 사용하여 *sku.capacity*를 쿼리합니다.
 
 ```azurecli-interactive 
 az vmss show \
@@ -187,7 +187,7 @@ az vmss show \
     --output table
 ```
 
-그런 다음[az vmss scale](/cli/azure/vmss#scale)을 사용하여 확장 집합의 Virtual Machines 수를 수동으로 증가 또는 감소시킬 수 있습니다. 다음 예제는 확장 집합의 VM 수를 *3*으로 설정합니다.
+그런 다음[az vmss scale](/cli/azure/vmss#az_vmss_scale)을 사용하여 확장 집합의 Virtual Machines 수를 수동으로 증가 또는 감소시킬 수 있습니다. 다음 예제는 확장 집합의 VM 수를 *3*으로 설정합니다.
 
 ```azurecli-interactive 
 az vmss scale \
@@ -198,7 +198,7 @@ az vmss scale \
 
 
 ### <a name="configure-autoscale-rules"></a>자동 크기 조정 규칙 구성
-확장 집합에서 인스턴스 수를 수동으로 확장하는 대신 자동 크기 조정 규칙을 정의할 수 있습니다. 이러한 규칙은 확장 집합의 인스턴스를 모니터링하고 사용자가 정의한 메트릭 및 임계값에 따라 적절하게 대응합니다. 평균 CPU 부하가 5분 넘게 60%를 초과하면 다음 예제에서는 인스턴스 수를 하나 늘립니다. 평균 CPU 부하가 5분 넘게 30% 미만이면 인스턴스 수를 하나 줄입니다. 구독 ID를 사용하여 다양한 확장 집합 구성 요소에 리소스 URI를 빌드합니다. [az monitor autoscale-settings create](/cli/azure/monitor/autoscale-settings#create) 명령을 사용하여 이러한 규칙을 만들려면 다음 자동 크기 조정 명령 프로필을 복사하고 붙여넣습니다.
+확장 집합에서 인스턴스 수를 수동으로 확장하는 대신 자동 크기 조정 규칙을 정의할 수 있습니다. 이러한 규칙은 확장 집합의 인스턴스를 모니터링하고 사용자가 정의한 메트릭 및 임계값에 따라 적절하게 대응합니다. 평균 CPU 부하가 5분 넘게 60%를 초과하면 다음 예제에서는 인스턴스 수를 하나 늘립니다. 평균 CPU 부하가 5분 넘게 30% 미만이면 인스턴스 수를 하나 줄입니다. 구독 ID를 사용하여 다양한 확장 집합 구성 요소에 리소스 URI를 빌드합니다. [az monitor autoscale-settings create](/cli/azure/monitor/autoscale-settings#az_monitor_autoscale_settings_create) 명령을 사용하여 이러한 규칙을 만들려면 다음 자동 크기 조정 명령 프로필을 복사하고 붙여넣습니다.
 
 ```azurecli-interactive 
 sub=$(az account show --query id -o tsv)
@@ -271,7 +271,7 @@ az monitor autoscale-settings create \
 
 
 ### <a name="get-connection-info"></a>연결 정보 가져오기
-확장 집합의 VM에 대한 연결 정보를 가져오려면 [az vmss list-instance-connection-info](/cli/azure/vmss#list-instance-connection-info)를 사용합니다. 이 명령은 SSH와 연결할 수 있도록 각 VM의 공용 IP 주소 및 포트를 출력합니다.
+확장 집합의 VM에 대한 연결 정보를 가져오려면 [az vmss list-instance-connection-info](/cli/azure/vmss#az_vmss_list_instance_connection_info)를 사용합니다. 이 명령은 SSH와 연결할 수 있도록 각 VM의 공용 IP 주소 및 포트를 출력합니다.
 
 ```azurecli-interactive 
 az vmss list-instance-connection-info \
@@ -284,7 +284,7 @@ az vmss list-instance-connection-info \
 확장 집합으로 데이터 디스크를 사용할 수 있습니다. OS 디스크 대신 데이터 디스크에 앱을 빌드하는 모범 사례 및 성능 향상에 대해 설명하는 이전 자습서에서는 [Azure 디스크를 관리하는 방법](tutorial-manage-disks.md)을 배웠습니다.
 
 ### <a name="create-scale-set-with-data-disks"></a>데이터 디스크로 확장 집합 만들기
-확장 집합을 만들고 데이터 디스크를 연결하려면 [az vmss create](/cli/azure/vmss#create) 명령에 `--data-disk-sizes-gb` 매개 변수를 추가합니다. 다음 예제에서는 각 인스턴스에 *50*Gb 데이터 디스크가 연결된 확장 집합을 만듭니다.
+확장 집합을 만들고 데이터 디스크를 연결하려면 [az vmss create](/cli/azure/vmss#az_vmss_create) 명령에 `--data-disk-sizes-gb` 매개 변수를 추가합니다. 다음 예제에서는 각 인스턴스에 *50*Gb 데이터 디스크가 연결된 확장 집합을 만듭니다.
 
 ```azurecli-interactive 
 az vmss create \
@@ -301,7 +301,7 @@ az vmss create \
 확장 집합에서 인스턴스가 제거되면 연결된 데이터 디스크도 제거됩니다.
 
 ### <a name="add-data-disks"></a>데이터 디스크 추가
-확장 집합의 인스턴스에 데이터 디스크를 추가하려면 [az vmss disk attach](/cli/azure/vmss/disk#attach) 명령을 사용합니다. 다음 예제는 각 인스턴스에 *50*Gb 디스크를 추가합니다.
+확장 집합의 인스턴스에 데이터 디스크를 추가하려면 [az vmss disk attach](/cli/azure/vmss/disk#az_vmss_disk_attach) 명령을 사용합니다. 다음 예제는 각 인스턴스에 *50*Gb 디스크를 추가합니다.
 
 ```azurecli-interactive 
 az vmss disk attach \
@@ -312,7 +312,7 @@ az vmss disk attach \
 ```
 
 ### <a name="detach-data-disks"></a>데이터 디스크 분리
-확장 집합의 인스턴스에서 데이터 디스크를 제거하려면 [az vmss disk detach](/cli/azure/vmss/disk#detach) 명령을 사용합니다. 다음 예제는 각 인스턴스의 LUN *2*에서 데이터 디스크를 제거합니다.
+확장 집합의 인스턴스에서 데이터 디스크를 제거하려면 [az vmss disk detach](/cli/azure/vmss/disk#az_vmss_disk_detach) 명령을 사용합니다. 다음 예제는 각 인스턴스의 LUN *2*에서 데이터 디스크를 제거합니다.
 
 ```azurecli-interactive 
 az vmss disk detach \

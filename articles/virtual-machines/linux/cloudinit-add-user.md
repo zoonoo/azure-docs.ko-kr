@@ -14,11 +14,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: 728ffed27747cb298d5da312014a3c9e98b44f1e
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: ce4421fc8276f215564cb7a171a215cc166c8517
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="use-cloud-init-to-add-a-user-to-a-linux-vm-in-azure"></a>cloud-init를 사용하여 Azure에서 Linux VM에 사용자 추가
 이 문서는 [cloud-init](https://cloudinit.readthedocs.io)를 사용하여 Azure의 프로비전 시간에서 VM(가상 머신) 또는 VMSS(가상 머신 확장 집합)에 사용자를 추가하는 방법을 보여 줍니다. Azure에서 리소스가 프로비전되면 처음 부팅 시 이 cloud-init 스크립트가 실행됩니다. 기본적으로 cloud-init가 Azure에서 작동되는 방식과 지원되는 Linux 배포판에 대한 자세한 내용은 [cloud-init 개요](using-cloud-init.md)를 참조하세요.
@@ -42,13 +42,13 @@ users:
 > [!NOTE] 
 > #cloud-config 파일은 포함된 `- default` 매개 변수를 포함합니다. 프로비전 중에 만든 기존 관리 사용자에 사용자를 추가합니다. `- default` 매개 변수 없이 사용자를 만드는 경우 Azure 플랫폼에서 만든 자동 생성된 관리 사용자를 덮어쓸 수 있습니다. 
 
-이 이미지를 배포하기 전에 [az group create](/cli/azure/group#create) 명령을 사용하여 리소스 그룹을 만들어야 합니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
+이 이미지를 배포하기 전에 [az group create](/cli/azure/group#az_group_create) 명령을 사용하여 리소스 그룹을 만들어야 합니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
 ```
 
-이제 [az vm create](/cli/azure/vm#create)로 VM을 만들고 다음과 같이 `--custom-data cloud_init_add_user.txt`로 cloud-init 파일을 지정합니다.
+이제 [az vm create](/cli/azure/vm#az_vm_create)로 VM을 만들고 다음과 같이 `--custom-data cloud_init_add_user.txt`로 cloud-init 파일을 지정합니다.
 
 ```azurecli-interactive 
 az vm create \

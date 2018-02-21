@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 47b8e43d1da031bdbe356917fd950ae106f8d96f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 860b1e0a214b107cfe37ffe9c77e804503ef2dde
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="api-management-advanced-policies"></a>API Management 고급 정책
 이 항목에서는 다음 API Management 정책에 대한 참조를 제공합니다. 정책의 추가 및 구성에 대한 자세한 내용은 [API Management 정책](http://go.microsoft.com/fwlink/?LinkID=398186)을 참조하세요.  
@@ -126,7 +126,7 @@ ms.lasthandoff: 02/01/2018
 |-------------|-----------------|--------------|  
 |choose|루트 요소입니다.|예|  
 |when|`choose` 정책의 `if` 또는 `ifelse` 부분에 사용할 조건입니다. `choose` 정책에 여러 `when` 섹션이 있는 경우 순차적으로 평가됩니다. when 요소의 `condition`이 `true`로 평가되면 `when` 조건이 더 이상 평가되지 않습니다.|예|  
-|otherwise|`true`로 평가되는 `when` 조건이 없으면 사용할 정책 조각을 포함합니다.|아니오|  
+|otherwise|`true`로 평가되는 `when` 조건이 없으면 사용할 정책 조각을 포함합니다.|아니요|  
   
 ### <a name="attributes"></a>특성  
   
@@ -382,8 +382,8 @@ status code and media type. If no example or schema found, the content is empty.
   
 |특성|설명|필수|기본값|  
 |---------------|-----------------|--------------|--------------|  
-|status-code|응답 상태 코드를 지정하며, 해당 예제 또는 스키마를 선택하는 데 사용됩니다.|아니오|200|  
-|content-type|`Content-Type` 응답 헤더 값을 지정하며, 해당 예제 또는 스키마를 선택하는 데 사용됩니다.|아니오|없음|  
+|status-code|응답 상태 코드를 지정하며, 해당 예제 또는 스키마를 선택하는 데 사용됩니다.|아니요|200|  
+|content-type|`Content-Type` 응답 헤더 값을 지정하며, 해당 예제 또는 스키마를 선택하는 데 사용됩니다.|아니요|없음|  
   
 ### <a name="usage"></a>사용 현황  
  이 정책은 다음과 같은 정책 [섹션](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.  
@@ -443,7 +443,7 @@ status code and media type. If no example or schema found, the content is empty.
 |interval|재시도 횟수 간에 대기 간격을 지정하는 양수(초)입니다.|예|해당 없음|  
 |max-interval|재시도 횟수 간에 최대 대기 간격을 지정하는 양수(초)입니다. 지수 재시도 알고리즘을 구현하는 데 사용됩니다.|아니요|해당 없음|  
 |delta|대기 간격 증분을 지정하는 양수(초)입니다. 선형 및 지수 재시도 알고리즘을 구현하는 데 사용됩니다.|아니요|해당 없음|  
-|first-fast-retry|`true`로 설정하면 첫 번째 재시도가 즉시 수행됩니다.|아니요|`false`|  
+|first-fast-retry|`true`로 설정하면 첫 번째 재시도가 즉시 수행됩니다.|아니오|`false`|  
   
 > [!NOTE]
 >  `interval`만 지정된 경우, **고정된** 간격 재시도가 수행됩니다.  
@@ -489,7 +489,7 @@ status code and media type. If no example or schema found, the content is empty.
 |-------------|-----------------|--------------|  
 |return-response|루트 요소입니다.|예|  
 |set-header|[set-header](api-management-transformation-policies.md#SetHTTPheader) 정책 문.|아니요|  
-|set-body|[set-body](api-management-transformation-policies.md#SetBody) 정책 문.|아니요|  
+|set-body|[set-body](api-management-transformation-policies.md#SetBody) 정책 문.|아니오|  
 |set-status|[set-status](api-management-advanced-policies.md#SetStatus) 정책 문.|아니요|  
   
 ### <a name="attributes"></a>특성  
@@ -615,7 +615,7 @@ status code and media type. If no example or schema found, the content is empty.
         <!-- Check active property in response -->  
         <when condition="@((bool)((IResponse)context.Variables["tokenstate"]).Body.As<JObject>()["active"] == false)">  
             <!-- Return 401 Unauthorized with http-problem payload -->  
-            <return-response response-variable-name="existing response variable">  
+            <return-response>  
                 <set-status code="401" reason="Unauthorized" />  
                 <set-header name="WWW-Authenticate" exists-action="override">  
                     <value>Bearer error="invalid_token"</value>  
@@ -642,10 +642,10 @@ status code and media type. If no example or schema found, the content is empty.
   
 |특성|설명|필수|기본값|  
 |---------------|-----------------|--------------|-------------|  
-|mode="string"|새 요청인지 현재 요청의 복사본인지 여부를 결정합니다. 아웃바운드 모드에서 mode=copy는 요청 본문을 초기화하지 않습니다.|아니오|새로 만들기|  
+|mode="string"|새 요청인지 현재 요청의 복사본인지 여부를 결정합니다. 아웃바운드 모드에서 mode=copy는 요청 본문을 초기화하지 않습니다.|아니요|새로 만들기|  
 |response-variable-name="string"|없는 경우 `context.Response`가 사용됩니다.|아니요|해당 없음|  
-|timeout="integer"|URL 호출이 실패하는 시간 초과 간격(초)입니다.|아니오|60|  
-|ignore-error|true인 경우 요청 결과 오류가 발생합니다.<br /><br /> -   response-variable-name이 지정된 경우 null 값을 포함합니다.<br />-   response-variable-name이 지정되지 않은 경우 context.Request가 업데이트되지 않습니다.|아니요|false|  
+|timeout="integer"|URL 호출이 실패하는 시간 초과 간격(초)입니다.|아니요|60|  
+|ignore-error|true인 경우 요청 결과 오류가 발생합니다.<br /><br /> -   response-variable-name이 지정된 경우 null 값을 포함합니다.<br />-   response-variable-name이 지정되지 않은 경우 context.Request가 업데이트되지 않습니다.|아니오|false|  
 |이름|설정할 헤더의 이름을 지정합니다.|예|해당 없음|  
 |exists-action|헤더가 이미 지정되어 있는 경우 수행할 작업을 지정합니다. 이 특성에는 다음 값 중 하나가 있어야 합니다.<br /><br /> - override: 기존 헤더 값을 바꿉니다.<br />- skip: 기존 헤더 값을 바꾸지 않습니다.<br />- append: 기존 헤더 값에 값을 추가합니다.<br />- delete: 요청에서 헤더를 제거합니다.<br /><br /> `override`로 설정할 때 동일한 이름의 여러 항목을 등록하면 모든 항목(여러 번 나열됨)에 따라 헤더가 설정되며, 나열된 값만 결과에 설정됩니다.|아니요|재정의|  
   
@@ -685,7 +685,7 @@ status code and media type. If no example or schema found, the content is empty.
 |특성|설명|필수|기본값|  
 |---------------|-----------------|--------------|-------------|  
 |url="문자열"|http://host:port 형식의 프록시 URL입니다.|예|해당 없음|  
-|사용자 이름="문자열"|프록시 인증에 사용할 사용자 이름입니다.|아니오|해당 없음|  
+|사용자 이름="문자열"|프록시 인증에 사용할 사용자 이름입니다.|아니요|해당 없음|  
 |암호="문자열"|프록시 인증에 사용할 암호입니다.|아니요|해당 없음|  
 
 ### <a name="usage"></a>사용 현황  

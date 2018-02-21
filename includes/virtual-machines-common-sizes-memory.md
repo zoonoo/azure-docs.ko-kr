@@ -81,7 +81,7 @@ ACU: 180-240
 
 <sup>1</sup> GS 시리즈 VM에서 제공 가능한 최대 디스크 처리량(IOPS 또는 MBps)은 연결된 디스크의 수, 크기 및 스트라이핑에 따라 제한될 수 있습니다. 자세한 내용은 [Premium Storage: Azure 가상 머신 작업을 위한 고성능 저장소](../articles/virtual-machines/windows/premium-storage.md)를 참조하세요. 
 
-<sup>2</sup> 인스턴스는 단일 고객 전용의 하드웨어에 격리되어 있습니다.
+<sup>2</sup> 인스턴스는 단일 고객 전용의 하드웨어에 격리되어 있습니다. 
 
 <sup>3</sup> 사용 가능한 코어 크기 제한 
 
@@ -117,7 +117,7 @@ ACU: 210-250
 
 <sup>1</sup> DSv2 시리즈 VM에서 제공 가능한 최대 디스크 처리량(IOPS 또는 MBps)은 연결된 디스크의 수, 크기 및 스트라이핑에 따라 제한될 수 있습니다.  자세한 내용은 [Premium Storage: Azure 가상 머신 작업을 위한 고성능 저장소](../articles/virtual-machines/windows/premium-storage.md)를 참조하세요.
 
-<sup>2</sup> 인스턴스는 VM이 Intel Haswell 노드의 유일한 VM임을 보장하는 격리 노드입니다.
+<sup>2</sup> 인스턴스는 단일 고객 전용의 하드웨어에 격리되어 있습니다. 
 
 <sup>3</sup> 가속 네트워킹 사용 시 25,000Mbps
 
@@ -135,7 +135,7 @@ ACU: 210-250
 | Standard_D14_v2   | 16        | 112         | 800            | 48000 / 750 / 375                                        | 64 / 64x500                       | 8 / 12000          |
 | Standard_D15_v2 <sup>1</sup> | 20        | 140         | 1,000          | 60000 / 937 / 468                                        | 64 / 64x500                       | 8 / 25000 <sup>2</sup> |
 
-<sup>1</sup> 인스턴스는 VM이 Intel Haswell 노드의 유일한 VM임을 보장하는 격리 노드입니다.
+<sup>1</sup> 인스턴스는 단일 고객 전용의 하드웨어에 격리되어 있습니다. 
 
 <sup>2</sup> 가속 네트워킹 사용 시 25,000Mbps
 

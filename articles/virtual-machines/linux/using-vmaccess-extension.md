@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 08/04/2017
 ms.author: danlep
-ms.openlocfilehash: 3596b50b68cabf212218825566c0f8313f054f65
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5fb3941e0b55f8b5d79c9fc794ec984e074caafe
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli-20"></a>Azure CLI 2.0에서 VMAccess 확장을 사용하여 관리 사용자, SSH를 관리하고 Linux VM의 디스크를 검사 또는 복구
 Linux VM의 디스크에 오류가 표시되어 있습니다. 사용자가 Linux VM의 루트 암호를 재설정했거나 SSH 개인 키를 실수로 삭제했습니다. 데이터 센터를 사용할 때는 이러한 경우 데이터 센터로 직접 가서 KVM을 열어 서버 콘솔에 액세스해야 했습니다. Azure VMAccess 확장을 콘솔에 액세스하여 Linux에 대한 액세스 권한을 재설정하거나 디스크 수준 유지 관리를 수행할 수 있는 이 KVM 스위치로 생각하세요.
@@ -33,7 +33,7 @@ Linux VM에서 두 가지 방법으로 VMAccess 확장을 사용할 수 있습�
 * Azure CLI 2.0 및 필수 매개 변수를 사용합니다.
 * [VMAccess 확장을 처리하고 관련 작업을 수행하는 원시 JSON 파일을 사용](#use-json-files-and-the-vmaccess-extension)합니다.
 
-다음 예에서는 [az vm user](/cli/azure/vm/user) 명령을 사용합니다. 이러한 단계를 수행하려면 최신 [Azure CLI 2.0](/cli/azure/install-az-cli2)을 설치하고 [az login](/cli/azure/#login)을 사용하여 Azure 계정에 로그인해야 합니다.
+다음 예에서는 [az vm user](/cli/azure/vm/user) 명령을 사용합니다. 이러한 단계를 수행하려면 최신 [Azure CLI 2.0](/cli/azure/install-az-cli2)을 설치하고 [az login](/cli/azure/#az_login)을 사용하여 Azure 계정에 로그인해야 합니다.
 
 ## <a name="reset-ssh-key"></a>SSH 키 다시 설정
 다음 예제에서는 VM `myVM`에서 사용자 `azureuser`에 대한 SSH 키를 다시 설정합니다.
@@ -91,7 +91,7 @@ az vm user delete \
 
 
 ## <a name="use-json-files-and-the-vmaccess-extension"></a>JSON 파일 및 VMAccess 확장 사용
-다음 예제에서는 원시 JSON 파일을 사용합니다. [az vm extension set](/cli/azure/vm/extension#set)을 사용하여 JSON 파일을 호출합니다. 이러한 JSON 파일은 Azure 템플릿에서도 호출할 수 있습니다. 
+다음 예제에서는 원시 JSON 파일을 사용합니다. [az vm extension set](/cli/azure/vm/extension#az_vm_extension_set)을 사용하여 JSON 파일을 호출합니다. 이러한 JSON 파일은 Azure 템플릿에서도 호출할 수 있습니다. 
 
 ### <a name="reset-user-access"></a>사용자 액세스 다시 설정
 Linux VM의 루트에 액세스할 수 없게 된 경우 VMAccess 스크립트를 시작하여 사용자의 SSH 키 또는 암호를 다시 설정할 수 있습니다.
@@ -230,7 +230,7 @@ az vm extension set \
 ## <a name="next-steps"></a>다음 단계
 실행 중인 Linux VM에서 변경을 수행하는 한 가지 방법은 Azure VMAccess 확장을 사용하여 Linux를 업데이트하는 것입니다. cloud-init 및 Azure Resource Manager 템플릿 등의 도구를 사용하여 부팅 시 Linux VM을 수정할 수도 있습니다.
 
-[Linux용 가상 컴퓨터 확장 및 기능](extensions-features.md)
+[Linux용 가상 머신 확장 및 기능](extensions-features.md)
 
 [Linux VM 확장을 사용하여 Azure Resource Manager 템플릿 작성](../windows/template-description.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
