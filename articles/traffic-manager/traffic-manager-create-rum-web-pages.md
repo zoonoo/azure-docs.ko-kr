@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 09/19/2017
 ms.author: kumud
 ms.custom: 
-ms.openlocfilehash: 7f4088cf4470b1f9fa22c4ec83a9f92657032734
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: c8b345cd973b8cd939ad111132f1afdadae9f2b7
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="how-to-send-real-user-measurements-to-azure-traffic-manager-using-web-pages"></a>웹 페이지를 사용하여 Azure Traffic Manager의 실제 사용자 측정을 보내는 방법
 
@@ -65,7 +65,7 @@ RUM 키를 가져온 후에 다음 단계는 복사한 JavaScript를 최종 사�
 
     **그림 3: 실제 사용자 측정 JavaScript가 포함된 간단한 HTML**
 
-3.  HTML 파일 저장
+3.  HTML 파일을 저장하고 인터넷에 연결된 웹 서버에 호스트합니다. 
 4. 다음에 이 페이지가 웹 브라우저에서 렌더링될 때 참조된 JavaScript가 다운로드되고 스크립트가 측정 및 보고 작업을 실행합니다.
 
 

@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/17/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ecc50a54feca6c3e9304821e0a5bdbb50708bd11
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: cb99f121a1ddf079008ed97edde71b067d6b5edb
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-network-security-groups-using-the-azure-cli"></a>Azure CLI를 사용하여 네트워크 보안 그룹 만들기
 
@@ -36,9 +36,9 @@ ms.lasthandoff: 11/17/2017
 
 앞의 시나리오에 따라 *NSG-FrontEnd*라는 NSG를 만들려면 다음 단계를 따르세요.
 
-1. 아직 설치하지 않은 경우 최신 [Azure CLI 2.0](/cli/azure/install-az-cli2)을 설치 및 구성하고 [az login](/cli/azure/#login)을 사용하여 Azure 계정에 로그인합니다. 
+1. 아직 설치하지 않은 경우 최신 [Azure CLI 2.0](/cli/azure/install-az-cli2)을 설치 및 구성하고 [az login](/cli/azure/#az_login)을 사용하여 Azure 계정에 로그인합니다. 
 
-2. [az network nsg create](/cli/azure/network/nsg#create) 명령을 실행하여 NSG를 만듭니다. 
+2. [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create) 명령을 실행하여 NSG를 만듭니다. 
 
     ```azurecli
     az network nsg create \
@@ -47,7 +47,7 @@ ms.lasthandoff: 11/17/2017
     --location centralus 
     ```
 
-    매개 변수:
+    매개 변수
    
    * `--resource-group`: NSG가 만들어지는 리소스 그룹의 이름입니다. 이 시나리오에서는 *TestRG*입니다.
    * `--location`: 새 NSG를 만들 Azure 지역입니다. 이 시나리오에서는 *westus*입니다.
@@ -76,7 +76,7 @@ ms.lasthandoff: 11/17/2017
 
 
 
-3. [az network nsg rule create](/cli/azure/network/nsg/rule#create) 명령을 실행하여 인터넷에서 포트 3389(RDP)에 대한 액세스를 허용하는 규칙을 만듭니다.
+3. [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) 명령을 실행하여 인터넷에서 포트 3389(RDP)에 대한 액세스를 허용하는 규칙을 만듭니다.
 
     > [!NOTE]
     > 사용하는 셸에 따라 인수를 실행하기 전에 확장하지 못하도록 다음 인수에서 `*` 문자를 수정해야 합니다.
@@ -117,7 +117,7 @@ ms.lasthandoff: 11/17/2017
     }
     ```
 
-    매개 변수:
+    매개 변수
 
     * `--resource-group testrg`: 사용할 리소스 그룹입니다. 대/소문자를 구분하지 않습니다.
     * `--nsg-name NSG-FrontEnd`: 규칙이 만들어질 NSG의 이름입니다.
@@ -171,7 +171,7 @@ ms.lasthandoff: 11/17/2017
     }
     ```
 
-5. [az network vnet subnet update](/cli/azure/network/vnet/subnet#update) 명령을 사용하여 NSG를 **FrontEnd** 서브넷에 바인딩합니다.
+5. [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update) 명령을 사용하여 NSG를 **FrontEnd** 서브넷에 바인딩합니다.
         
     ```azurecli
     az network vnet subnet update \

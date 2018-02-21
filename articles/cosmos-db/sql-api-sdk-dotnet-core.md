@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/17/2017
+ms.date: 02/12/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f8e3e0e8868c05188d9d6cb26fe6c2bd2891c17d
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: c62ea8efe56186a2f3ee934823b4ea03775037b0
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB .NET Core SDK for SQL API: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
@@ -58,6 +58,14 @@ Azure Cosmos DB .NET Core SDK에는 [Azure Cosmos DB .NET SDK](sql-api-sdk-dotne
 
 > [!NOTE] 
 > Azure Cosmos DB .NET Core SDK는 UWP(유니버설 Windows 플랫폼) 앱과 호환되지 않습니다. UWP 앱을 지원하는 .NET Core SDK에 관심이 있는 경우 [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com)(으)로 전자 메일을 보내세요.
+
+### <a name="a-name180181"></a><a name="1.8.0"/>1.8.1
+
+* FeedOptions.MaxItemCount = -1에서 System.ArithmeticException: 페이지 크기가 음수입니다를 throw하는 회기가 수정되었습니다.
+* QueryMetrics에 새 tostring() 함수가 추가되었습니다.
+* 컬렉션을 읽을 때 파티션 통계가 노출되었습니다.
+* PartitionKey 속성이 ChangeFeedOptions에 추가되었습니다.
+* 사소한 버그가 수정되었습니다.
 
 ### <a name="a-name171171"></a><a name="1.7.1"/>1.7.1
  
@@ -157,6 +165,7 @@ Azure Cosmos DB .NET Core Preview SDK에는 [Azure Cosmos DB .NET SDK](sql-api-s
 
 | 버전 | 릴리스 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
+| [1.8.1](#1.8.1) |2018년 2월 5일 |--- |
 | [1.7.1](#1.7.1) |2017년 11월 16일 |--- |
 | [1.7.0](#1.7.0) |2017년 11월 10일 |--- |
 | [1.6.0](#1.6.0) |2017년 10월 17일 |--- |

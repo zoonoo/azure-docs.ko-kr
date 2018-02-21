@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: milanga;juliako;johndeu
-ms.openlocfilehash: c0bbe6f80370515fa783b12757434897fe2221b6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 88c854a6a2bc98a6851246c0ac3481869bbd9c34
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="media-analytics-on-the-media-services-platform"></a>Media Services 플랫폼에서 미디어 분석
 ## <a name="overview"></a>개요
@@ -50,11 +50,13 @@ Microsoft Hyperlapse는 긴 형식의 콘텐츠에서 빠르고 사용할 수 �
 Azure Media OCR(광학 문자 인식)을 사용하여 비디오 파일의 텍스트 콘텐츠를 편집 및 검색 가능한 디지털 텍스트로 변환할 수 있습니다. 그러면 미디어의 비디오 신호에서 의미 있는 메타데이터를 자동으로 추출할 수 있습니다.
 ### <a name="scalable-face-redaction"></a>확장 가능한 얼굴 편집
 Azure Media Redactor는 클라우드에서 확장성 있는 얼굴 편집 기능을 제공하는 Media Analytics 미디어 프로세서입니다. 얼굴 편집을 사용하면 선택한 개인의 얼굴을 흐리게 표시하기 위해 동영상을 수정할 수 있습니다. 뉴스 미디어 또는 공공 안전과 관련된 경우 얼굴 편집 서비스를 사용할 수 있습니다. 짧은 장면이라도 여러 명의 얼굴이 포함된 경우 수동으로 편집하려면 많은 시간이 걸릴 수 있지만 이 서비스를 사용하면 몇 번의 간단한 단계를 통해 얼굴을 편집할 수 있습니다. 자세한 내용은 [Azure Media 분석으로 얼굴 편집](media-services-face-redaction.md) 문서를 참조하세요.
+### <a name="content-moderation"></a>콘텐츠 조정
+Azure Content Moderator를 통해 비디오에 대해 컴퓨터에서 지원하는 조정을 사용할 수 있습니다. 예를 들어 휴먼 조정 팀이 비디오에서 혹시라도 있을 수 있는 성인/외설 콘텐츠를 검색하고 플래그가 지정된 콘텐츠를 검토하게 하고 싶을 수 있습니다. 원치 않는 콘텐츠에 대해 비디오를 수동으로 조정하는 것은 시간도 많이 걸리고 비용도 많이 드는 작업입니다. 이 서비스 및 관련 검토 도구를 사용하면 컴퓨터에서 지원하는 조정과 휴먼 인 루프 기능을 결합하여 최상의 결과를 효율적이고 경제적으로 얻을 수 있습니다. 자세한 내용은 [Azure Content Moderator에서 비디오 처리](media-services-content-moderation.md) 문서를 참조하세요.
 
 ## <a name="common-scenarios"></a>일반적인 시나리오
 미디어 분석은 조직 및 기업이 비디오에서 새로운 통찰력을 얻고 대용량의 비디오 콘텐츠를 효율적으로 관리하는 데 도움이 됩니다. 다음은 몇 가지 시나리오입니다.
 
-* **콜 센터** 소셜 미디어의 출현에도 고객 콜 센터는 여전히 고객 서비스 트랜잭션의 많은 부분을 용이하게 합니다. 높은 고객 만족도 달성하기 위해 분석될 수 있는 많은 양의 고객 정보가 이 오디오 데이터에서 인코딩됩니다. 미디어 인덱서를 사용하여 조직은 텍스트를 추출하고 검색 인덱스와 대시보드를 빌드할 수 있습니다. 그런 다음 일반적인 불만, 불만의 원인 및 기타 관련 데이터 인텔리전스를 추출할 수 있습니다.
+* **콜 센터** 소셜 미디어의 출현에도 고객 콜 센터는 여전히 고객 서비스 트랜잭션의 많은 부분을 용이하게 합니다. 높은 고객 만족도 달성하기 위해 분석될 수 있는 많은 양의 고객 정보가 이 오디오 데이터에서 인코딩됩니다. Media Indexer를 사용하여 조직은 텍스트를 추출하고 검색 인덱스와 대시보드를 빌드할 수 있습니다. 그런 다음 일반적인 불만, 불만의 원인 및 기타 관련 데이터 인텔리전스를 추출할 수 있습니다.
 * **사용자 생성 콘텐츠 조정** 뉴스 미디어 방송국부터 경찰서까지 많은 조직에는 비디오 및 이미지와 같은 사용자 생성 미디어를 허용하는 공공 포털이 있습니다. 예기치 않은 이벤트로 인해 콘텐츠 양이 급증할 수 있습니다. 이러한 시나리오에서는 콘텐츠의 적합성을 수동으로 효과적으로 검토하는 것이 어렵습니다. 고객은 콘텐츠 감수 서비스에 의존하여 적절한 콘텐츠에 중점을 둘 수 있습니다.
 * **감시** IP 카메라 사용이 증가함에 따라 감시 비디오의 인벤토리도 증가합니다. 감시 비디오를 수동으로 검토하는 것은 많은 시간이 소요되고 실수가 발생하기 쉽습니다. 미디어 분석에서는 파생물을 보다 쉽게 검토, 관리 및 생성할 수 있도록 동작 감지, 얼굴 감지 및 Hyperlapse와 같은 서비스를 제공합니다.
 
@@ -62,13 +64,14 @@ Azure Media Redactor는 클라우드에서 확장성 있는 얼굴 편집 기능
 이 섹션에서는 미디어 분석 미디어 프로세서를 나열하고 .NET 또는 REST를 사용하여 미디어 프로세서(MP) 개체를 가져옵니다.
 
 ### <a name="mp-names"></a>MP 이름
-* Azure 미디어 인덱서 2 미리 보기
-* Azure 미디어 인덱서
+* Azure Media Indexer 2 미리 보기
+* Azure Media Indexer
 * Azure 미디어 Hyperlapse
 * Azure 미디어 얼굴 탐지기
 * Azure 미디어 동작 탐지기
 * Azure 미디어 비디오 미리 보기
 * Azure 미디어 OCR
+* Azure Media Content Moderator
 
 ### <a name="net"></a>.NET
 다음 함수는 지정된 MP 이름 중 하나를 사용하고 MP 개체를 반환합니다.
@@ -123,17 +126,17 @@ Azure Media Redactor는 클라우드에서 확장성 있는 얼굴 편집 기능
 ## <a name="demos"></a>데모
 [Azure Media 분석 데모](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)를 참조하세요.
 
-## <a name="next-steps"></a>다음 단계
-Media Services 학습 경로를 검토합니다.
-
-[!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
-
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-## <a name="related-articles"></a>관련된 문서
+## <a name="related-articles"></a>관련 문서
 [Media Services 분석 알림](https://azure.microsoft.com/blog/introducing-azure-media-analytics/)을 참조하세요.
 
 <!-- Images -->
 
 [overview]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
+
+## <a name="next-steps"></a>다음 단계
+Media Services 학습 경로를 검토합니다.
+
+[!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

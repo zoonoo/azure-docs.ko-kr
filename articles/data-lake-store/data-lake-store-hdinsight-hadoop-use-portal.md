@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 4a27ae1402717c91029eda9d635db124f8bb6b8d
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 43f045033648534e9c0fea344bbc38da34f8454b
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="create-hdinsight-clusters-with-data-lake-store-by-using-the-azure-portal"></a>Azure Portal을 사용하여 Data Lake Store로 HDInsight 클러스터 만들기 | Azure
 > [!div class="op_single_selector"]
@@ -50,13 +50,13 @@ Azure Portal을 사용하여 기본 저장소 또는 추가 저장소로 Azure D
 
 **Data Lake Store를 기본 저장소 계정으로 사용하여 HDInsight 클러스터를 만들려면**
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. HDInsight 클러스터를 만드는 방법에 대한 일반 정보는 [클러스터 만들기](../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md#create-clusters)를 따릅니다.
 3. **저장소** 블레이드의 **기본 저장소 형식** 아래에서 **Data Lake Store**를 선택한 후 다음 정보를 입력합니다.
 
     ![HDInsight 클러스터에 서비스 주체 추가](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.adls.storage.png "HDInsight 클러스터에 서비스 주체 추가")
 
-    - **Data Lake Store 계정 선택**: 기존 Data Lake Store 계정을 선택합니다. 기존 Data Lake Store 계정은 필수입니다.  [필수 조건](#prereuisites)을 참조하세요.
+    - **Data Lake Store 계정 선택**: 기존 Data Lake Store 계정을 선택합니다. 기존 Data Lake Store 계정은 필수입니다.  [필수 조건](#prerequisites)을 참조하세요.
     - **루트 경로**: 클러스터 관련 파일이 저장되는 경로를 입력합니다. 스크린샷에서 __/clusters__ 폴더가 존재해야 하는 __/clusters/myhdiadlcluster/__이며 포털은 *myhdicluster* 폴더를 만듭니다.  *myhdicluster*는 클러스터 이름입니다.
     - **Data Lake Store 액세스**: Data Lake Store 계정과 HDInsight 클러스터 간의 액세스를 구성합니다. 지침은 [Data Lake Store 액세스 구성](#configure-data-lake-store-access)을 참조하세요.
     - **추가 저장소 계정**: 클러스터에 대한 추가 저장소 계정으로 Azure Storage 계정을 추가합니다. 추가 Data Lake Store 추가는 Data Lake Store 계정을 기본 저장소 형식으로 구성하는 동안 Data Lake Store 계정에 더 많은 데이터의 클러스터 권한을 제공하여 수행됩니다. [Data Lake Store 액세스 구성](#configure-data-lake-store-access)을 참조하세요.
@@ -69,7 +69,7 @@ Azure Portal을 사용하여 기본 저장소 또는 추가 저장소로 Azure D
 다음 지침은 기본 저장소로 Azure Storage 계정을 사용하고 추가 저장소로 Data Lake Store 계정을 사용하여 HDInsight 클러스터를 만듭니다.
 **Data Lake Store를 기본 저장소 계정으로 사용하여 HDInsight 클러스터를 만들려면**
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. HDInsight 클러스터를 만드는 방법에 대한 일반 정보는 [클러스터 만들기](../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md#create-clusters)를 따릅니다.
 3. **저장소** 블레이드의 **기본 저장소 형식** 아래에서 **Azure Storage**를 선택한 후 다음 정보를 입력합니다.
 

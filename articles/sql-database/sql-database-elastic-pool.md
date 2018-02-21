@@ -14,13 +14,12 @@ ms.devlang: NA
 ms.date: 10/11/2017
 ms.author: carlrab
 ms.workload: Active
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.openlocfilehash: 2f1ff7a7c2ecf04069ffa6afcc66e2f0f9915b35
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.topic: 02/12/2018
+ms.openlocfilehash: 7c1cbc16d968bd13d0486cd434b095f8d3ecf636
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>탄력적 풀이 여러 Azure SQL Database를 관리하고 크기를 조정하는 데 도움을 주는 방식
 
@@ -171,7 +170,7 @@ SQL Database 서비스는 사용 기록을 평가하고 단일 데이터베이�
 
 풀 권장 사항은 다음으로 구성됩니다.
 
-- 풀에 대한 가격 책정 계층(Basic, Standard, Premium 또는 Premium RS)
+- 풀에 대한 가격 책정 계층(Basic, Standard 또는 Premium)
 - 적절한 **풀 eDTU** (풀당 최대 eDTU)
 - 데이터베이스당 **eDTU 최대** 및 **eDTU 최소**
 - 풀에 대한 권장 데이터베이스 목록
@@ -344,7 +343,7 @@ Azure PowerShell을 사용하여 SQL Database 탄력적 풀을 만들고 관리�
 
 | 명령 | 설명 |
 | --- | --- |
-|[CREATE DATABASE(Azure SQL Database)](/sql/t-sql/statements/create-database-azure-sql-database)|기존 풀 또는 단일 데이터베이스에서 새 데이터베이스를 만듭니다. 새 데이터베이스를 만들려면 master 데이터베이스에 연결되어 있어야 합니다.|
+|[CREATE DATABASE (Azure SQL Database)](/sql/t-sql/statements/create-database-azure-sql-database)|기존 풀 또는 단일 데이터베이스에서 새 데이터베이스를 만듭니다. 새 데이터베이스를 만들려면 master 데이터베이스에 연결되어 있어야 합니다.|
 | [ALTER DATABASE (Azure SQL Database)](/sql/t-sql/statements/alter-database-azure-sql-database) |탄력적 풀 간에 데이터베이스를 이동합니다.|
 |[DROP DATABASE(Transact-SQL)](/sql/t-sql/statements/drop-database-transact-sql)|데이터베이스를 삭제합니다.|
 |[sys.elastic_pool_resource_stats (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)|논리 서버에서 모든 Elastic Database 풀에 대한 리소스 사용 통계를 반환합니다. 각 Elastic Database 풀의 경우 매 15초 보고 창에 대해 한 행이 있습니다(분당 4개 행). 여기에는 풀의 모든 데이터베이스에 의한 CPU, IO, 로그, 저장소 계산 및 동시 요청/세션 사용률이 포함됩니다.|

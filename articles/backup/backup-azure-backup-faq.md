@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/21/2017
 ms.author: markgal;arunak;trinadhk;sogup;
-ms.openlocfilehash: d6ee96b17c6bc85a2278bbe98867a579ff9c550a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: da589905babd20b46ea7bc0baba753415b3b5d5b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Azure Backup 서비스에 대한 질문
 이 문서에서는 Azure Backup 구성 요소에 대한 일반적인 질문과 대답을 제공합니다. 대답 중 일부에는 포괄적인 정보를 포함하는 문서에 대한 링크가 있습니다. **의견**(오른쪽)을 클릭하여 Azure Backup에 대한 질문을 할 수 있습니다. 의견은 이 문서의 하단에 나타납니다. Livefyre 계정은 메모가 필수입니다. 또한 [토론 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)에 Azure Backup 서비스에 대한 질문도 게시할 수 있습니다.
@@ -132,7 +132,8 @@ Azure Backup은 Azure Backup Server 및 System Center DPM(Data Protection Manage
 | Microsoft Exchange |백업되는 Exchange 서버의 모든 Exchange 데이터베이스 합계 |
 | BMR/시스템 상태 |백업되는 컴퓨터의 각 개별 BMR 복사본 또는 시스템 상태 |
 
-Azure VM 백업의 경우 각 VM은 최대 16개의 데이터 디스크를 가질 수 있으며, 각 데이터 디스크의 크기는 1,023GB 이하입니다. 
+Azure VM 백업의 경우 각 VM은 최대 16개의 데이터 디스크를 가질 수 있으며, 각 데이터 디스크의 크기는 1024GB 이하입니다. <br>
+최대 4TB의 디스크를 지원하기 위한 [비공개 미리 보기](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a?redir=0)가 있습니다. 
 
 ## <a name="retention-policy-and-recovery-points"></a>보존 정책 및 복구 지점
 ### <a name="is-there-a-difference-between-the-retention-policy-for-dpm-and-windows-serverclient-that-is-on-windows-server-without-dpmbr"></a>DPM과 Windows Server/클라이언트(즉, DPM이 없는 Windows Server)에 대한 보존 정책 간에 차이가 있나요?<br/>

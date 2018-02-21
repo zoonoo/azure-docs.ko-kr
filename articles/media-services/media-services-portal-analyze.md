@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: juliako
-ms.openlocfilehash: 22032aef0cc8b7b015503043028873e70c21ee85
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fee9f8d2204869cbe5cac7f446e8011305e92bfa
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="analyze-your-media-using-the-azure-portal"></a>Azure Portal을 사용하여 미디어 분석
 > [!NOTE]
@@ -29,12 +29,12 @@ ms.lasthandoff: 10/11/2017
 ## <a name="overview"></a>개요
 Azure Media Services Analytics는 조직과 기업이 비디오 파일에서 실질적인 통찰력을 끌어내기 쉽도록 만드는 언어 및 시각 구성 요소 모음으로, 미디어 분석을 엔터프라이즈 규모, 규정 준수, 보안 및 전 세계 범위로 제공합니다. Azure Media Services Analytics에 대한 자세한 개요는 [이](media-services-analytics-overview.md) 항목을 참조하세요. 
 
-이 항목에서는 Azure Portal을 사용하여 미디어 분석 미디어 프로세서(MP)로 미디어를 처리하는 방법을 설명합니다. 미디어 분석 MP는 MP4 파일 또는 JSON 파일을 생성합니다. 미디어 프로세서가 MP4 파일을 생한 경우 파일을 점진적으로 다운로드할 수 있습니다. 미디어 프로세서가 JSON 파일을 생성한 경우 Azure Blob 저장소에서 해당 파일을 다운로드할 수 있습니다. 
+이 항목에서는 Azure Portal을 사용하여 미디어 분석 미디어 프로세서(MP)로 미디어를 처리하는 방법을 설명합니다. 미디어 분석 MP는 MP4 파일 또는 JSON 파일을 생성합니다. 미디어 프로세서가 MP4 파일을 생성한 경우 파일을 점진적으로 다운로드합니다. 미디어 프로세서가 JSON 파일을 생성한 경우 Azure Blob Storage에서 해당 파일을 다운로드합니다. 
 
 ## <a name="choose-an-asset-that-you-want-to-analyze"></a>분석하려는 자산을 선택
 1. [Azure Portal](https://portal.azure.com/)에서 Azure Media Services 계정을 선택합니다.
 2. **설정** 창에서 **자산**을 선택합니다.  
-   을 참조하세요.
+   에서도 확인할 수 있습니다.
     ![비디오 분석](./media/media-services-portal-analyze/media-services-portal-analyze001.png)
 3. 분석할 자산을 선택하고 **분석** 단추를 누릅니다.
    
@@ -44,8 +44,8 @@ Azure Media Services Analytics는 조직과 기업이 비디오 파일에서 실
     문서의 나머지 부분에서는 각 프로세서를 사용하는 이유와 방법을 설명합니다. 
 5. **만들기**를 눌러 작업을 시작합니다.
 
-## <a name="azure-media-indexer"></a>Azure 미디어 인덱서
-**Azure Media Indexer** 미디어 프로세서를 사용하여 미디어 파일과 콘텐츠를 검색 가능하도록 설정할 수 있으며 선택 캡션 트랙을 생성할 수 있습니다. 이 섹션에서는 이 MP에 대해 지정할 수 있는 옵션에 대한 자세한 내용을 제공합니다.
+## <a name="azure-media-indexer"></a>Azure Media Indexer
+**Azure Media Indexer** 미디어 프로세서를 사용하여 미디어 파일과 콘텐츠를 검색 가능하도록 설정할 수 있으며 선택 캡션 트랙을 생성할 수 있습니다. 이 섹션에서는 이 MP에 대해 지정하는 옵션에 대한 자세한 내용을 제공합니다.
 
 ![비디오 분석](./media/media-services-portal-analyze/media-services-portal-analyze003.png)
 
@@ -74,7 +74,7 @@ Azure Media Services Analytics는 조직과 기업이 비디오 파일에서 실
 출력 콘텐츠를 식별할 수 있는 친숙한 이름입니다. 
 
 ## <a name="azure-media-hyperlapse"></a>Azure 미디어 Hyperlapse
-Azure Media Hyperlapse는 1인칭 또는 액션 카메라 콘텐츠에서 부드러운 시간 경과 비디오를 만드는 MP입니다.  자세한 내용은 [이 항목](media-services-hyperlapse-content.md)을 참조하세요. 이 섹션에서는 이 MP에 대해 지정할 수 있는 옵션에 대한 자세한 내용을 제공합니다.
+Azure Media Hyperlapse는 1인칭 또는 액션 카메라 콘텐츠에서 부드러운 시간 경과 비디오를 만드는 MP입니다.  자세한 내용은 [이 항목](media-services-hyperlapse-content.md)을 참조하세요. 이 섹션에서는 이 MP에 대해 지정하는 옵션에 대한 자세한 내용을 제공합니다.
 
 ![비디오 분석](./media/media-services-portal-analyze/media-services-portal-analyze004.png)
 
@@ -135,6 +135,17 @@ Azure Media Hyperlapse는 1인칭 또는 액션 카메라 콘텐츠에서 부드
 ### <a name="output-file"></a>출력 파일
 출력 콘텐츠를 식별할 수 있는 친숙한 이름입니다. 
 
+## <a name="azure-media-content-moderator"></a>Azure Media Content Moderator
+이 프로세서를 사용하면 비디오에서 혹시라도 있을 수 있는 성인/외설 콘텐츠를 검색할 수 있습니다. 프로세서가 비디오의 샷과 키프레임을 자동으로 검색합니다. 성인/외설 콘텐츠에 대해 키프레임 점수를 매기고 기본 임계값에 따라 검토를 제안합니다. 자세한 내용 및 예제는 [Azure Media Content Moderator를 사용하여 비디오 조정](media-services-content-moderation.md)을 참조하세요.
+
+![비디오 조정](./media/media-services-portal-analyze/media-services-portal-analyze-content-moderator.PNG)
+
+### <a name="version"></a>버전 
+"2.0"을 사용합니다.
+
+### <a name="mode"></a>Mode
+2.0 버전은 `Mode` 설정을 무시합니다.
+
 ## <a name="next-steps"></a>다음 단계
 Media Services 학습 경로 보기.
 
@@ -142,4 +153,3 @@ Media Services 학습 경로 보기.
 
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-

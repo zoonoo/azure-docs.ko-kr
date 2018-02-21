@@ -13,17 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: bradsev;
-ms.openlocfilehash: 1ad4e8c117f93f2f085c01fae2a5ab38cdd10d2f
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 7f3bf3bb5743bfb64489188d1016fb18d4967f79
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="execute-data-science-tasks-exploration-modeling-and-deployment"></a>데이터 과학 작업 실행: 탐색, 모델링 및 배포
 
 일반적인 데이터 과학 작업으로 데이터 탐색, 모델링 및 배포가 있습니다. 이 문서에서는 **IDEAR(대화형 데이터 탐색, 분석 및 보고)** 및 **AMAR(자동 모델링 및 보고)** 유틸리티를 사용하여 대화형 데이터 탐색, 데이터 분석, 보고 및 모델 생성 등과 같은 여러 가지 일반적인 데이터 과학 작업을 완료하는 방법을 보여 줍니다. 또한 다양한 도구 키트 및 다음과 같은 데이터 플랫폼을 사용하여 프로덕션 환경에서 모델을 배포하는 옵션도 개괄적으로 설명합니다.
 
-- [Azure 기계 학습](../preview/index.yml)
+- 
+            [Azure Machine Learning](../preview/index.yml)
 - [ML 서비스 포함 SQL-Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-services#in-database-analytics-with-sql-server)
 - [Microsoft Machine Learning Server](https://docs.microsoft.com/machine-learning-server/what-is-machine-learning-server)
 
@@ -63,9 +64,9 @@ YAML 파일은 다음을 지정하는 데 사용됩니다.
 - 학습 및 테스트에 사용되는 부분
 - 실행할 알고리즘 
 - 모델 최적화에 대한 제어 매개 변수 선택:
-    - 교차 검증 
+    - 교차 유효성 검사 
     - 부트스트래핑
-    - 교차 검증 겹(폴드)
+    - 교차 유효성 검사 접기
 - 각 알고리즘에 대한 하이퍼 파라미터 집합 
 
 또한 모델을 빠르게 실행하기 위해 Yaml 파일에서 알고리즘 수, 최적화 겹(폴드) 횟수, 하이퍼 파라미터 및 스윕하도록 설정된 하이퍼 파라미터 집합 수를 수정할 수 있습니다. 예를 들어 더 적은 수의 CV(교차 검증) 겹과 파라미터 집합으로 모델을 실행할 수 있습니다.  신뢰할 수 있는 경우 CV 접기 수를 높이거나 매개 변수 집합을 더 많이 사용하면 더 포괄적으로 실행할 수도 있습니다.
@@ -88,7 +89,7 @@ YAML 파일은 다음을 지정하는 데 사용됩니다.
 모델을 프로덕션으로 전환하기 위한 여러 접근법과 플랫폼이 있습니다. 다음은 몇 가지 옵션입니다.
 
 
-- [Azure Machine Learning에서 배포 모델링](https://docs.microsoft.com/azure/machine-learning/preview/model-management-overview)
+- [Azure Machine Learning에서 배포 모델링](../preview/model-management-overview.md)
 - [SQL-Server의 모델 배포](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-py6-operationalize-the-model)
 - [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
 

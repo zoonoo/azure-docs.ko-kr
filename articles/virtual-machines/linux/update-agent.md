@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: mingzhan
-ms.openlocfilehash: c79e37976a58ae5384b5856e0f7f258a773ef0fd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 455de7bc0bca86ad542b6606181b0daf146a5e6a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-update-the-azure-linux-agent-on-a-vm"></a>VM에서 Azure Linux 에이전트를 업데이트하는 방법
 
@@ -29,6 +29,9 @@ Azure Linux VM에서 [Azure Linux 에이전트](https://github.com/Azure/WALinux
 - SSH를 사용하여 해당 Linux VM에 연결
 
 항상 Linux 배포판 리포지토리의 패키지에 대해 먼저 확인해야 합니다. 사용 가능한 패키지는 최신 버전이 아닐 수도 있지만 자동 업데이트를 사용하면 Linux 에이전트에서 항상 최신 업데이트를 가져올 수 있습니다. 패키지 관리자에서 설치 문제가 있는 경우 배포판 공급 업체에서 지원을 검색해야 합니다.
+
+## <a name="minimum-virtual-machine-agent-support-in-azure"></a>Azure의 최소 가상 머신 에이전트 지원
+계속하기 전에 [Azure의 가상 머신 에이전트에 대한 최소 버전 지원](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support)을 확인합니다.
 
 ## <a name="updating-the-azure-linux-agent"></a>Azure Linux 에이전트 업데이트
 
@@ -358,7 +361,7 @@ sudo yum install WALinuxAgent
 
 추가 기능 리포지토리를 찾을 수 없는 경우 Oracle Linux 릴리스에 따라 .repo 파일의 맨 뒤에 다음 줄을 추가하기만 하면 됩니다.
 
-Oracle Linux 6 가상 컴퓨터의 경우:
+Oracle Linux 6 가상 머신의 경우:
 
 ```sh
 [ol6_addons]
@@ -369,7 +372,7 @@ gpgcheck=1
 enabled=1
 ```
 
-Oracle Linux 7 가상 컴퓨터의 경우:
+Oracle Linux 7 가상 머신의 경우:
 
 ```sh
 [ol7_addons]

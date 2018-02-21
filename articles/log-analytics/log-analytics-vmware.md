@@ -3,7 +3,7 @@ title: "Log Analytics의 VMware 모니터링 솔루션 | Microsoft Docs"
 description: "VMware 모니터링 솔루션으로 로그를 관리하고 ESXi 호스트를 모니터링하는 방법을 알아봅니다."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: 16516639-cc1e-465c-a22f-022f3be297f1
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
-ms.author: banders
-ms.openlocfilehash: 287a98c59a33b603f7186dd99505ecd0ef4f0941
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.author: magoedte
+ms.openlocfilehash: f54d24659ad13aa02462938711482326c5bf763c
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>Log Analytics의 VMware 모니터링(미리 보기) 솔루션
 
@@ -149,7 +149,7 @@ ESXi 호스트마다 가상 머신을 만들고 삭제할 수 있습니다. 이�
 #### <a name="common-search-queries"></a>일반적 검색 쿼리
 솔루션에는 대규모 저장소 공간, 저장소 대기 시간, 경로 오류 등 ESXi 호스트를 관리하는 데 유용한 쿼리들이 포함되어 있습니다.
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ![쿼리](./media/log-analytics-vmware/queries.png)
 

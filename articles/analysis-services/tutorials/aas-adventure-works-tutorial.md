@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 01/08/2018
+ms.date: 02/10/2018
 ms.author: owend
-ms.openlocfilehash: 9b81e011d3e1ed23465bbd554a0c7376b432b585
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: ecc95181f61f556b18fa820617ea5ad0636c7a4b
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="azure-analysis-services---adventure-works-tutorial"></a>Azure Analysis Services - Adventure Works 자습서
 
@@ -45,12 +45,12 @@ Analysis Services 및 테이블 형식 모델링을 처음 사용하는 경우 �
   
 -   테이블 형식 모델을 **Azure Analysis Services** 서버나 온-프레미스 SQL Server 2017 Analysis Services 서버에 배포하는 방법  
   
-## <a name="prerequisites"></a>필수 구성 요소  
+## <a name="prerequisites"></a>필수 조건  
 이 자습서를 완료하려면 다음이 필요합니다.  
   
 -   Azure Analysis Services 서버. [Azure Analysis Services 평가판](https://azure.microsoft.com/services/analysis-services/)을 등록하고 [서버를 만듭니다](../analysis-services-create-server.md). 
 
--   **AdventureWorksDW 샘플 데이터베이스**가 있는 [Azure SQL 데이터 웨어하우스](../../sql-data-warehouse/create-data-warehouse-portal.md) 또는 [Adventure Works 샘플 데이터베이스](http://go.microsoft.com/fwlink/?LinkID=335807)가 있는 SQL Server 데이터 웨어하우스
+-   **AdventureWorksDW 샘플 데이터베이스**가 있는 [Azure SQL 데이터 웨어하우스](../../sql-data-warehouse/create-data-warehouse-portal.md) 또는 [Adventure Works 샘플 데이터베이스](https://github.com/Microsoft/sql-server-samples/releases/tag/adventureworks)가 있는 SQL Server 데이터 웨어하우스
 
     **중요:** 샘플 데이터베이스를 온-프레미스 SQL Server 데이터 웨어하우스에 설치하고, 모델을 Azure Analysis Services 서버에 배포하는 경우 [온-프레미스 데이터 게이트웨이](../analysis-services-gateway.md)가 필요합니다.
 

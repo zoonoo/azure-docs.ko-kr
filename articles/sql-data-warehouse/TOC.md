@@ -117,12 +117,11 @@
 ### [워크로드 분석](analyze-your-workload.md)
 
 ## 확장
-### [계산 관리 - REST API](sql-data-warehouse-manage-compute-rest-api.md)
+
 ### [계산 수준 자동화](manage-compute-with-azure-functions.md)
 
 
 # 참고 자료
-
 
 ## T-SQL
 ### [전체 참조](https://docs.microsoft.com/sql/t-sql/language-reference/)
@@ -130,11 +129,12 @@
 ### [SQL DW 문](sql-data-warehouse-reference-tsql-statements.md)
 ## [시스템 뷰](sql-data-warehouse-reference-tsql-system-views.md)
 ## [PowerShell cmdlet](sql-data-warehouse-reference-powershell-cmdlets.md)
+## [REST API](sql-data-warehouse-manage-compute-rest-api.md)
 
 # 리소스
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=databases)
 ## [포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSQLDataWarehouse)
-## [가격 책정](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)
+## [가격](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [기능 요청](https://feedback.azure.com/forums/307516-sql-data-warehouse/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=sql-data-warehouse)

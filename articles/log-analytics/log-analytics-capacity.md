@@ -3,7 +3,7 @@ title: "Azure Log Analytics의 용량 및 성능 솔루션 | Microsoft Docs"
 description: "Log Analytics의 용량 및 성능 솔루션을 사용하면 Hyper-V 서버의 용량을 이해할 수 있습니다."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: 51617a6f-ffdd-4ed2-8b74-1257149ce3d4
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
-ms.author: banders
-ms.openlocfilehash: c7516c6d4fa8cfe8e146c325af7ca7ca70475a94
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.author: magoedte
+ms.openlocfilehash: 26e87da60dc02dce8122c82a2208477a8b1813a7
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-preview"></a>용량 및 성능 솔루션으로 Hyper-V 가상 머신 용량 계획(미리 보기)
 
@@ -46,9 +46,9 @@ Log Analytics의 용량 및 성능 솔루션을 사용하면 Hyper-V 서버의 �
 | 연결된 소스 | 지원 | 설명 |
 |---|---|---|
 | [Windows 에이전트](log-analytics-windows-agent.md) | 예 | 솔루션에서 Windows 에이전트의 용량 및 성능 데이터 정보를 수집합니다. |
-| [Linux 에이전트](log-analytics-linux-agents.md) | 아니오    | 솔루션에서 Linux 에이전트의 용량 및 성능 데이터 정보를 직접 수집하지 않습니다.|
+| [Linux 에이전트](log-analytics-linux-agents.md) | 아니요    | 솔루션에서 Linux 에이전트의 용량 및 성능 데이터 정보를 직접 수집하지 않습니다.|
 | [SCOM 관리 그룹](log-analytics-om-agents.md) | 예 |솔루션에서 연결된 SCOM 관리 그룹에 있는 에이전트의 용량 및 성능 데이터를 수집합니다. SCOM에서 Log Analytics로 직접 연결은 필요하지 않습니다.|
-| [Azure 저장소 계정](log-analytics-azure-storage.md) | 아니오 | Azure 저장소는 용량 및 성능 데이터를 포함하지 않습니다.|
+| [Azure 저장소 계정](log-analytics-azure-storage.md) | 아니요 | Azure 저장소는 용량 및 성능 데이터를 포함하지 않습니다.|
 
 ## <a name="prerequisites"></a>필수 조건
 

@@ -1,6 +1,6 @@
 ---
-title: "FedRAMP Azure Blueprint Automation - 개요"
-description: "FedRAMP 개요"
+title: "Azure Security 및 Compliance Blueprint - FedRAMP 웹 응용 프로그램 자동화 - 개요"
+description: "FedRAMP 웹 응용 프로그램 자동화 - 개요"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 505a2fdc90abfcdd269b5e30537ea338b8c3774b
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 968f9013dcf438ccb3a97f0bbc291b1c58a392ea
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="fedramp-overview"></a>FedRAMP 개요
 
 [FedRAMP(Federal Risk and Authorization Management Program)](https://www.fedramp.gov)는 미국 정부 차원 프로그램으로 클라우드 제품 및 서비스에 대한 보안 평가, 권한 부여 및 연속 모니터링에 대한 표준화된 접근 방법을 제공합니다. FedRAMP는 [NIST(National Institute of Standards and Technology) Special Publication SP 800-53](https://csrc.nist.gov/publications/detail/sp/800-53/rev-4/final) 보안 컨트롤에서 파생된 요구 사항의 표준화 집합에 따라 보안 평가 프로세스를 정의합니다.
 
-이 Blueprint Automation이 컨트롤 요구 사항과 부합하는 방법을 보려면 아래 컨트롤 제품군으로 이동합니다.
+이 Azure Security 및 Compliance Blueprint Automation이 컨트롤 요구 사항과 부합하는 방법을 보려면 아래 컨트롤 제품군으로 이동합니다.
 
 | | |
 |---|---|

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 02/07/2018
 ms.author: abnarain
-ms.openlocfilehash: 8bd5ae2aac23b18aeb3ef44692f448b50b7e3d44
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 898e6914a427b2e8864d97a7188eb718811ce263
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory - 데이터 이동을 위한 보안 고려 사항
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -57,9 +57,6 @@ Azure 규정 준수 및 Azure의 자체 인프라 보안 방법에 관심이 있
 
    이제 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)에 데이터 저장소의 자격 증명을 저장하도록 선택한 다음 작업을 실행하는 동안 Azure Data Factory에서 검색할 수 있습니다. 자세한 내용은 [Azure Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md)을 참조하세요.
 
-   > [!NOTE]
-   > 현재 [Dynamics 커넥터](connector-dynamics-crm-office-365.md)만 이 기능을 지원합니다. 
-
 ### <a name="data-encryption-in-transit"></a>전송 중 암호화
 클라우드 데이터 저장소가 HTTPS 또는 TLS를 지원하는 경우 Data Factory의 데이터 이동 서비스와 클라우드 데이터 저장소 간의 모든 데이터 전송은 보안 채널 HTTPS 또는 TLS를 통해 이루어집니다.
 
@@ -82,10 +79,10 @@ Azure SQL Database는 응용 프로그램을 변경할 필요 없이 실시간�
 Azure Blob Storage 및 Azure Table Storage는 자동으로 스토리지에 영구히 저장하기 전에 데이터를 암호화하고 검색하기 전에 데이터를 해독하는 SSE(저장소 서비스 암호화)를 지원합니다. 자세한 내용은 [미사용 데이터에 대한 Azure Storage 서비스 암호화](../storage/common/storage-service-encryption.md)를 참조하세요.
 
 #### <a name="amazon-s3"></a>Amazon S3
-Amazon S3는 미사용 데이터의 클라이언트 및 서버 암호화를 모두 지원합니다. 자세한 내용은 [암호화를 사용하여 데이터 보호](http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingEncryption.html)를 참조하세요. 현재, 데이터 팩터리는 VPC(가상 사설 클라우드) 내에서 Amazon S3를 지원하지 않습니다.
+Amazon S3는 미사용 데이터의 클라이언트 및 서버 암호화를 모두 지원합니다. 자세한 내용은 [암호화를 사용하여 데이터 보호](http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingEncryption.html)를 참조하세요.
 
 #### <a name="amazon-redshift"></a>Amazon Redshift
-Amazon Redshift는 미사용 데이터에 대한 클러스터 암호화를 지원합니다. 자세한 내용은 [Amazon Redshift 데이터베이스 암호화](http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html)를 참조하세요. 현재, 데이터 팩터리는 VPC 내에서 Amazon Redshift를 지원하지 않습니다. 
+Amazon Redshift는 미사용 데이터에 대한 클러스터 암호화를 지원합니다. 자세한 내용은 [Amazon Redshift 데이터베이스 암호화](http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html)를 참조하세요. 
 
 #### <a name="salesforce"></a>Salesforce
 Salesforce는 모든 파일, 첨부 파일, 사용자 정의 필드의 암호화를 허용하는 Shield Platform Encryption을 지원합니다. 자세한 내용은 [웹 서버 OAuth 인증 흐름 이해](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_web_server_oauth_flow.htm)를 참조하세요.  

@@ -8,11 +8,11 @@ ms.service: container-service
 ms.topic: article
 ms.date: 2/01/2018
 ms.author: nepeters
-ms.openlocfilehash: 2b78479c257930669729a7781b3893b3e2064bab
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 73c49510512c9148f4fee98423b14770fa8602b9
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="frequently-asked-questions-about-azure-container-service-aks"></a>AKS(Azure Container Service)에 대한 질문과 대답
 
@@ -50,7 +50,15 @@ ACS는 AKS가 GA가 될 때쯤에 지원이 종료될 예정입니다. 이 날�
 
 ## <a name="why-are-two-resource-groups-created-with-aks"></a>AKS를 통해 2개의 리소스 그룹이 생성되는 이유는 무엇인가요? 
 
-두 번째 리소스 그룹은 AKS 배포와 관련된 모든 리소스의 쉬운 삭제를 위해 자동으로 생성됩니다.
+각 AKS(Azure Container Service) 클러스터는 두 리소스 그룹에 포함됩니다. 첫 번째 리소스 그룹이 만들어지고 AKS 리소스만 포함됩니다. 배포하는 동안 두 번째 리소스 그룹이 자동으로 만들어지고 VM, 네트워킹 및 저장소 리소스 같은 모든 클러스터 인프라 리소스를 포함합니다. 이 리소스 그룹은 리소스 정리를 쉽게 하기 위해 만들어집니다. 
+
+자동으로 생성된 리소스 그룹의 이름은 다음과 유사합니다.
+
+```
+MC_myResourceGRoup_myAKSCluster_eastus
+```
+
+저장소 계정 또는 예약된 공용 IP 주소 같은 Kubernetes 클러스터에서 사용되는 Azure 리소스를 추가할 때 이러한 리소스는 자동으로 만들어진 리소스 그룹에 만들어져야 합니다.   
 
 ## <a name="is-azure-key-vault-integrated-with-aks"></a>Azure Key Vault는 AKS와 통합되나요? 
 

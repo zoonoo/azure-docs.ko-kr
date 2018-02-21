@@ -1,6 +1,6 @@
 ---
-title: "FedRAMP Azure Blueprint Automation - 구성 관리"
-description: "FedRAMP용 웹 응용 프로그램 - 구성 관리"
+title: "Azure Security 및 Compliance Blueprint - FedRAMP 웹 응용 프로그램 자동화 - 구성 관리"
+description: "FedRAMP 웹 애플리케이션 자동화 - 구성 관리"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: e93aa430b7150f07210f5d1f37e2027d95334a59
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 6566783769d37ee829df3894fdb5673b4edafd2c
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="configuration-management-cm"></a>CM(구성 관리)
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **고객** | Azure Resource Manager 템플릿 그리고 템플릿과 함께 제공되며 이 Azure Blueprint를 구성하는 리소스는 배포된 아키텍처의 "코드로 구성" 기준을 나타냅니다. 솔루션은 GitHub를 통해 제공되며, 구성 제어에 사용할 수 있습니다. 솔루션에는 배포된 각 가상 머신에 대한 DSC(필요한 상태 구성) 기준이 포함되어 있습니다. |
+| **고객** | Azure Resource Manager 템플릿과 이 청사진을 구성하는 함께 제공되는 리소스는 배포된 아키텍처의 “코드로 구성” 기준을 나타냅니다. 솔루션은 GitHub를 통해 제공되며, 구성 제어에 사용할 수 있습니다. 솔루션에는 배포된 각 가상 머신에 대한 DSC(필요한 상태 구성) 기준이 포함되어 있습니다. |
 | **공급자(Microsoft Azure)** | 해당 없음 |
 
 
@@ -105,7 +105,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **고객** | Azure Resource Manager 템플릿 그리고 템플릿과 함께 제공되며 이 Azure Blueprint를 구성하는 리소스는 배포된 아키텍처의 "코드로 구성" 기준을 나타냅니다. 솔루션은 GitHub를 통해 제공되며, 구성 제어에 사용할 수 있습니다. Azure Portal에서 자동화 스크립트는 배포된 모든 리소스서 사용할 수 있으며 언제나 이러한 리소스의 최신 표현을 제공합니다.  |
+| **고객** | Azure Resource Manager 템플릿과 이 청사진을 구성하는 함께 제공되는 리소스는 배포된 아키텍처의 “코드로 구성” 기준을 나타냅니다. 솔루션은 GitHub를 통해 제공되며, 구성 제어에 사용할 수 있습니다. Azure Portal에서 자동화 스크립트는 배포된 모든 리소스서 사용할 수 있으며 언제나 이러한 리소스의 최신 표현을 제공합니다.  |
 | **공급자(Microsoft Azure)** | 해당 없음 |
 
 
@@ -455,7 +455,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **고객** | 이 Azure Blueprint에서 배포한 가상 머신은 특정 응용 프로그램을 설치 및/또는 실행할 수 있는 사용자를 지정하는 Windows AppLocker를 구현합니다. 또한 모든 Windows 운영 체제 업데이트가 디지털로 서명됩니다. |
+| **고객** | 이 청사진에서 배포한 가상 머신은 특정 응용 프로그램을 설치 및/또는 실행할 수 있는 사용자를 지정하는 Windows AppLocker를 구현합니다. 또한 모든 Windows 운영 체제 업데이트가 디지털로 서명됩니다. |
 | **공급자(Microsoft Azure)** | 해당 없음 |
 
 
@@ -497,7 +497,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **고객** | 이 Azure Blueprint에는 배포된 각 가상 머신에 대한 DSC(필요한 상태 구성) 기준이 포함되어 있습니다. 이러한 선언적 PowerShell 스크립트는 적용될 리소스를 정의 및 구성합니다. 이 솔루션을 통해 배포된 리소스에 대해 포함된 기준 DSC는 고객이 업무 요구 사항에 맞게 확장할 수 있습니다. |
+| **고객** | 이 청사진에는 배포된 각 가상 머신에 대한 DSC(필요한 상태 구성) 기준이 포함되어 있습니다. 이러한 선언적 PowerShell 스크립트는 적용될 리소스를 정의 및 구성합니다. 이 솔루션을 통해 배포된 리소스에 대해 포함된 기준 DSC는 고객이 업무 요구 사항에 맞게 확장할 수 있습니다. |
 | **공급자(Microsoft Azure)** | 해당 없음 |
 
 
@@ -511,7 +511,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **고객** | 이 Azure Blueprint에는 배포된 각 가상 머신에 대한 DSC(필요한 상태 구성) 기준이 포함되어 있습니다. 기준은 사용자 지정 스크립트 가상 머신 확장을 사용하여 배포하는 동안 가상 머신에 자동으로 적용됩니다. |
+| **고객** | 이 청사진에는 배포된 각 가상 머신에 대한 DSC(필요한 상태 구성) 기준이 포함되어 있습니다. 기준은 사용자 지정 스크립트 가상 머신 확장을 사용하여 배포하는 동안 가상 머신에 자동으로 적용됩니다. |
 | **공급자(Microsoft Azure)** | 해당 없음 |
 
 
@@ -539,7 +539,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **고객** | 이 Azure Blueprint는 자동화 DSC를 배포합니다. 자동화 DSC는 컴퓨터 구성을 특정 조직에서 정의한 구성에 맞춥니다. |
+| **고객** | 이 청사진은 자동화 DSC를 배포합니다. 자동화 DSC는 컴퓨터 구성을 특정 조직에서 정의한 구성에 맞춥니다. |
 | **공급자(Microsoft Azure)** | 해당 없음 |
 
 
@@ -553,7 +553,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **고객** | 이 Azure Blueprint는 Azure 자동화 DSC를 배포합니다. 자동화 DSC는 컴퓨터 구성을 특정 조직에서 정의한 구성에 맞추고 변경 내용을 지속적으로 모니터링합니다. |
+| **고객** | 이 청사진은 Azure Automation DSC를 배포합니다. 자동화 DSC는 컴퓨터 구성을 특정 조직에서 정의한 구성에 맞추고 변경 내용을 지속적으로 모니터링합니다. |
 | **공급자(Microsoft Azure)** | 해당 없음 |
 
 
@@ -567,7 +567,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **고객** | 이 Azure Blueprint는 Azure 자동화 DSC를 배포합니다. Azure OMS(Operations Management Suite)에 포함되어 있는 자동화 DSC는 구성 오류를 감지하면 경고를 생성하거나 오류를 해결하도록 구성할 수 있습니다. |
+| **고객** | 이 청사진은 Azure Automation DSC를 배포합니다. Azure OMS(Operations Management Suite)에 포함되어 있는 자동화 DSC는 구성 오류를 감지하면 경고를 생성하거나 오류를 해결하도록 구성할 수 있습니다. |
 | **공급자(Microsoft Azure)** | 해당 없음 |
 
 
@@ -581,7 +581,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **고객** | 이 Azure Blueprint를 통해 배포된 리소스는 원래 용도에 필요한 최소한의 기능을 제공하도록 구성 됩니다. 배포된 각 가상 머신에 대한 DSC(필요한 상태 구성) 기준이 포함되어 있습니다. 이러한 선언적 PowerShell 스크립트는 적용될 리소스를 정의 및 구성합니다. 이 솔루션을 통해 배포된 리소스에 대해 포함된 기준 DSC는 고객이 업무 요구 사항을 충족하는 기능을 더욱 제한하도록 확장할 수 있습니다. |
+| **고객** | 이 청사진을 통해 배포된 리소스는 원래 용도에 필요한 최소한의 기능을 제공하도록 구성됩니다. 배포된 각 가상 머신에 대한 DSC(필요한 상태 구성) 기준이 포함되어 있습니다. 이러한 선언적 PowerShell 스크립트는 적용될 리소스를 정의 및 구성합니다. 이 솔루션을 통해 배포된 리소스에 대해 포함된 기준 DSC는 고객이 업무 요구 사항을 충족하는 기능을 더욱 제한하도록 확장할 수 있습니다. |
 | **공급자(Microsoft Azure)** | 해당 없음 |
 
 
@@ -595,7 +595,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **고객** | 이 Azure Blueprint는 포트 및 프로토콜을 꼭 필요한 경우에만 사용하도록 제한하는 Azure Application Gateway 및 네트워크 보안 그룹을 배포합니다. 고객은 가상 머신의 Application Gateway, 네트워크 보안 그룹 및 DSC 기준을 추가로 구성하여 의도한 기능만 제공하도록 함수, 포트, 프로토콜 및 서비스 사용을 제한할 수 있습니다. |
+| **고객** | 이 청사진은 포트 및 프로토콜을 꼭 필요한 경우에만 사용하도록 제한하는 Azure Application Gateway 및 네트워크 보안 그룹을 배포합니다. 고객은 가상 머신의 Application Gateway, 네트워크 보안 그룹 및 DSC 기준을 추가로 구성하여 의도한 기능만 제공하도록 함수, 포트, 프로토콜 및 서비스 사용을 제한할 수 있습니다. |
 | **공급자(Microsoft Azure)** | 해당 없음 |
 
 
@@ -693,7 +693,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **고객** | 이 Azure Blueprint는 모든 리소스를 Azure Resource Manager 리소스 그룹에 배포합니다. Azure Resource Manager는 항상 배포된 리소스의 최신 목록을 제공하며, 사용자 지정을 통해 리소스에 태그를 지정하고 그룹화하여 인벤토리 관리에 사용할 수 있습니다. 이 솔루션을 통해 배포된 리소스에는 시스템 경계와 연결할 수 있는 특정 리소스 태그가 지정됩니다. |
+| **고객** | 이 청사진은 모든 리소스를 Azure Resource Manager 리소스 그룹에 배포합니다. Azure Resource Manager는 항상 배포된 리소스의 최신 목록을 제공하며, 사용자 지정을 통해 리소스에 태그를 지정하고 그룹화하여 인벤토리 관리에 사용할 수 있습니다. 이 솔루션을 통해 배포된 리소스에는 시스템 경계와 연결할 수 있는 특정 리소스 태그가 지정됩니다. |
 | **공급자(Microsoft Azure)** | 해당 없음 |
 
 
@@ -707,7 +707,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **고객** | 이 Azure Blueprint는 모든 리소스를 Azure Resource Manager 리소스 그룹에 배포합니다. Azure Resource Manager는 항상 배포된 리소스의 최신 목록을 제공하며 이 목록은 Azure Portal에서 검토할 수 있습니다. |
+| **고객** | 이 청사진은 모든 리소스를 Azure Resource Manager 리소스 그룹에 배포합니다. Azure Resource Manager는 항상 배포된 리소스의 최신 목록을 제공하며 이 목록은 Azure Portal에서 검토할 수 있습니다. |
 | **공급자(Microsoft Azure)** | 해당 없음 |
 
 
@@ -721,7 +721,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **고객** | 이 Azure Blueprint는 모든 리소스를 Azure Resource Manager 리소스 그룹에 배포합니다. Azure Portal의 리소스 블레이드는 배포된 모든 리소스를 표시하며, 리소스가 배포 및 제거될 때마다 항상 최신 인벤토리를 제공합니다. |
+| **고객** | 이 청사진은 모든 리소스를 Azure Resource Manager 리소스 그룹에 배포합니다. Azure Portal의 리소스 블레이드는 배포된 모든 리소스를 표시하며, 리소스가 배포 및 제거될 때마다 항상 최신 인벤토리를 제공합니다. |
 | **공급자(Microsoft Azure)** | 해당 없음 |
 
 
@@ -735,7 +735,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **고객** | 이 Azure Blueprint는 모든 리소스를 Azure Resource Manager 리소스 그룹에 배포합니다. Azure Portal의 리소스 블레이드는 배포된 모든 리소스를 표시하며, 리소스가 배포 및 제거될 때마다 항상 최신 인벤토리를 제공합니다. |
+| **고객** | 이 청사진은 모든 리소스를 Azure Resource Manager 리소스 그룹에 배포합니다. Azure Portal의 리소스 블레이드는 배포된 모든 리소스를 표시하며, 리소스가 배포 및 제거될 때마다 항상 최신 인벤토리를 제공합니다. |
 | **공급자(Microsoft Azure)** | 해당 없음 |
 
 
@@ -777,7 +777,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **고객** | 이 Azure Blueprint는 모든 리소스를 Azure Resource Manager 리소스 그룹에 배포합니다. Azure 리소스 태그는 책임 및/또는 관리 목적으로 리소스를 분류하는 데 사용할 수 있는 키/값 쌍입니다. |
+| **고객** | 이 청사진은 모든 리소스를 Azure Resource Manager 리소스 그룹에 배포합니다. Azure 리소스 태그는 책임 및/또는 관리 목적으로 리소스를 분류하는 데 사용할 수 있는 키/값 쌍입니다. |
 | **공급자(Microsoft Azure)** | 해당 없음 |
 
 
@@ -791,7 +791,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **고객** | 이 Azure Blueprint는 모든 리소스를 Azure Resource Manager 리소스 그룹에 배포합니다. Azure Resource Manager는 항상 배포된 리소스의 최신 목록을 제공합니다. 이 솔루션을 통해 배포된 리소스에는 시스템 경계와 연결할 수 있는 특정 리소스 태그가 지정됩니다. |
+| **고객** | 이 청사진은 모든 리소스를 Azure Resource Manager 리소스 그룹에 배포합니다. Azure Resource Manager는 항상 배포된 리소스의 최신 목록을 제공합니다. 이 솔루션을 통해 배포된 리소스에는 시스템 경계와 연결할 수 있는 특정 리소스 태그가 지정됩니다. |
 | **공급자(Microsoft Azure)** | 해당 없음 |
 
 
@@ -861,7 +861,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **고객** | 이 Azure Blueprint를 통해 배포된 리소스를 위해 Windows 및 SQL Server 라이선스가 포함됩니다. 이것은 Azure의 기본 기능입니다. 기존 소프트웨어 라이선스 계약을 보유한 조직에서는 대체 라이선스 모델을 배포하는 방안을 고려해 볼 수 있습니다. |
+| **고객** | 이 청사진을 통해 배포된 리소스를 위해 Windows 및 SQL Server 라이선스가 포함됩니다. 이것은 Azure의 기본 기능입니다. 기존 소프트웨어 라이선스 계약을 보유한 조직에서는 대체 라이선스 모델을 배포하는 방안을 고려해 볼 수 있습니다. |
 | **공급자(Microsoft Azure)** | 해당 없음 |
 
 
@@ -875,7 +875,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **고객** | 이 Azure Blueprint를 통해 배포된 리소스를 위해 Windows 및 SQL Server 라이선스가 포함됩니다. 사용자는 라이선스 사용을 별도로 추적할 의무는 없습니다. |
+| **고객** | 이 청사진을 통해 배포된 리소스를 위해 Windows 및 SQL Server 라이선스가 포함됩니다. 사용자는 라이선스 사용을 별도로 추적할 의무는 없습니다. |
 | **공급자(Microsoft Azure)** | 해당 없음 |
 
 
@@ -889,7 +889,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **고객** | 이 Azure Blueprint가 배포한 P2P 파일 공유 기능은 없습니다. |
+| **고객** | 이 청사진이 배포한 P2P 파일 공유 기능은 없습니다. |
 | **공급자(Microsoft Azure)** | 해당 없음 |
 
 

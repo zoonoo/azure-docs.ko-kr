@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/12/2017
 ms.author: jdial
-ms.openlocfilehash: 55aece3f20ee98d21d7bb2b96cb3d039d4849f8f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 892aa03bd058b50fc4868a225dfe602624ff19ef
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-virtual-network"></a>Azure Virtual Network
 
@@ -44,7 +44,7 @@ Microsoft Azure Virtual Network 서비스를 사용하면 Azure 리소스가 가
 - Azure에서 제공하는 이름 확인을 사용하거나 가상 네트워크의 리소스가 사용할 자체 DNS 서버를 지정합니다. 가상 네트워크의 이름 확인에 대한 자세한 내용은 [가상 네트워크의 리소스에 대한 이름 확인](virtual-networks-name-resolution-for-vms-and-role-instances.md) 문서를 참조하세요.
 
 ## <a name = "internet"></a>인터넷 통신
-가상 네트워크의 모든 리소스는 인터넷으로 아웃바운드 통신을 할 수 있습니다. 기본적으로 리소스의 개인 IP 주소는 Azure 인프라에서 선택한 공용 IP 주소로 SNAT(원본 네트워크 주소 변환)가 이루어집니다. 아웃바운드 인터넷 연결에 대한 자세한 내용은 [Azure에서 아웃바운드 연결 이해](..\load-balancer\load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json#standalone-vm-with-no-instance-level-public-ip-address) 문서를 참조하세요. 아웃바운드 인터넷 연결을 차단하려면 사용자 지정 경로 또는 트래픽 필터링을 구현하면 됩니다.
+가상 네트워크의 모든 리소스는 인터넷으로 아웃바운드 통신을 할 수 있습니다. 기본적으로 리소스의 개인 IP 주소는 Azure 인프라에서 선택한 공용 IP 주소로 SNAT(원본 네트워크 주소 변환)가 이루어집니다. 아웃바운드 인터넷 연결에 대한 자세한 내용은 [Azure에서 아웃바운드 연결 이해](..\load-balancer\load-balancer-outbound-connections.md) 문서를 참조하세요. 아웃바운드 인터넷 연결을 차단하려면 사용자 지정 경로 또는 트래픽 필터링을 구현하면 됩니다.
 
 인터넷에서 Azure 리소스에 인바운드로 통신하거나 SNAT 없이 인터넷에 아웃바운드로 통신하려면 리소스에 공용 IP 주소가 할당되어야 합니다. 공용 IP 주소에 대해 자세히 알아보려면 [공용 IP 주소](virtual-network-public-ip-address.md) 문서를 참조하세요.
 

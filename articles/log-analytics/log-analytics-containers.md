@@ -3,7 +3,7 @@ title: "Azure Log Analytics의 컨테이너 모니터링 솔루션 | Microsoft D
 description: "Log Analytics의 컨테이너 모니터링 솔루션을 사용하여 단일 위치에서 Docker 및 Windows 컨테이너 호스트를 보고 관리할 수 있습니다."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: e1e4b52b-92d5-4bfa-8a09-ff8c6b5a9f78
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/06/2017
-ms.author: magoedte;banders
-ms.openlocfilehash: 4087cb787e43c3d1b40ad082e84534b34918c9e9
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.author: magoedte
+ms.openlocfilehash: b3f78f6cc89a3d4bf8712c339f66b5d50f373919
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Log Analytics의 컨테이너 모니터링 솔루션
 
@@ -46,7 +46,7 @@ ms.lasthandoff: 12/13/2017
 ### <a name="container-monitoring-solution-support-for-docker-orchestrator-and-os-platform"></a>Docker Orchestrator 및 OS 플랫폼에 대한 컨테이너 모니터링 솔루션 지원
 아래 표에는 Log Analytics를 통한 컨테이너 인벤토리/성능/로그의 Docker 오케스트레이션 및 운영 체제 모니터링 지원에 대한 설명이 요약되어 있습니다.   
 
-| | ACS | Linux | Windows | 컨테이너<br>인벤토리 | 이미지<br>인벤토리 | 노드<br>인벤토리 | 컨테이너<br>성능 | 컨테이너<br>이벤트 | 이벤트<br>로그 | 컨테이너<br>로그 |
+| | ACS | Linux | Windows | 컨테이너<br>인벤토리 | 이미지<br>인벤토리 | 노드<br>인벤토리 | 컨테이너<br>성능 | 컨테이너<br>행사 | 행사<br>로그 | 컨테이너<br>로그 |
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
 | kubernetes | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
 | Mesosphere<br>DC/OS | &#8226; | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; |
@@ -402,8 +402,8 @@ Windows Kubernetes의 경우 OMS 에이전트를 설치하려면 스크립트를
         ```
     3. ``` kubectl create -f omsagentsecret.yaml ```을 실행하여 omsagent daemon-set 만들기
     4. 확인하려면 다음을 실행합니다.
-    
-        ``` 
+
+        ```
         root@ubuntu16-13db:~# kubectl get secrets
         ```
 
@@ -418,13 +418,13 @@ Windows Kubernetes의 경우 OMS 에이전트를 설치하려면 스크립트를
         Namespace:      default
         Labels:         <none>
         Annotations:    <none>
-    
+
         Type:   Opaque
-    
+
         Data
         ====
         WSID:   36 bytes
-        KEY:    88 bytes 
+        KEY:    88 bytes
         ```
 
     5. ```kubectl create -f ws-omsagent-de-secrets.yaml```을 실행하여 omsagent daemon-set 만들기
@@ -437,9 +437,9 @@ Windows Kubernetes의 경우 OMS 에이전트를 설치하려면 스크립트를
     omsagent   1         1         <none>          1h
     ```
 
-3. Windows를 실행하는 작업자 노드에 에이전트를 설치하려면 [Windows 컨테이너 호스트 설치 및 구성](#install-and-configure-windows-container-hosts) 섹션의 단계를 따릅니다. 
+3. Windows를 실행하는 작업자 노드에 에이전트를 설치하려면 [Windows 컨테이너 호스트 설치 및 구성](#install-and-configure-windows-container-hosts) 섹션의 단계를 따릅니다.
 
-#### <a name="use-helm-to-deploy-oms-agent-on-linux-kubernetes"></a>Helm을 사용하여 Linux Kubernetes에 OMS 에이전트 배포 
+#### <a name="use-helm-to-deploy-oms-agent-on-linux-kubernetes"></a>Helm을 사용하여 Linux Kubernetes에 OMS 에이전트 배포
 Helm을 사용하여 Linux Kubernetes 환경에 OMS 에이전트를 배포하려면 다음 단계를 수행합니다.
 
 1. ```helm install --name omsagent --set omsagent.secret.wsid=<WSID>,omsagent.secret.key=<KEY> stable/msoms```을 실행하여 omsagent daemon-set 만들기
@@ -485,7 +485,7 @@ Windows 컨테이너 호스트를 설치하고 구성하는 섹션의 정보를 
 
 #### <a name="preparation-before-installing-windows-agents"></a>Windows 에이전트 설치 전 준비
 
-Windows를 실행하는 컴퓨터에 에이전트를 설치하기 전에 Docker 서비스를 구성해야 합니다. 구성을 통해 Windows 에이전트 또는 Log Analytics 가상 컴퓨터 확장에서 Docker TCP 소켓을 사용하도록 하여 에이전트가 Docker 데몬에 원격으로 액세스하고 모니터링할 데이터를 캡처하도록 할 수 있습니다.
+Windows를 실행하는 컴퓨터에 에이전트를 설치하기 전에 Docker 서비스를 구성해야 합니다. 구성을 통해 Windows 에이전트 또는 Log Analytics 가상 머신 확장에서 Docker TCP 소켓을 사용하도록 하여 에이전트가 Docker 데몬에 원격으로 액세스하고 모니터링할 데이터를 캡처하도록 할 수 있습니다.
 
 ##### <a name="to-start-docker-and-verify-its-configuration"></a>Docker를 시작하고 구성을 확인하려면
 
@@ -515,9 +515,9 @@ Windows 컨테이너에서 사용하는 Docker 데몬 구성에 대한 자세한
 
 #### <a name="install-windows-agents"></a>Windows 에이전트 설치
 
-Windows 및 Hyper-V 컨테이너 모니터링을 사용하도록 설정하려면 컨테이너 호스트인 Windows 컴퓨터에 MMA(Microsoft Monitoring Agent)를 설치합니다. 온-프레미스 환경에서 Windows를 실행하는 컴퓨터는 [Log Analytics에 Windows 컴퓨터 연결](log-analytics-windows-agent.md)을 참조하세요. Azure에서 실행되는 가상 컴퓨터의 경우 [가상 컴퓨터 확장](log-analytics-azure-vm-extension.md)을 사용하여 Log Analytics에 연결합니다.
+Windows 및 Hyper-V 컨테이너 모니터링을 사용하도록 설정하려면 컨테이너 호스트인 Windows 컴퓨터에 MMA(Microsoft Monitoring Agent)를 설치합니다. 온-프레미스 환경에서 Windows를 실행하는 컴퓨터는 [Log Analytics에 Windows 컴퓨터 연결](log-analytics-windows-agent.md)을 참조하세요. Azure에서 실행되는 가상 머신의 경우 [가상 머신 확장](log-analytics-azure-vm-extension.md)을 사용하여 Log Analytics에 연결합니다.
 
-Service Fabric에서 실행 중인 Windows 컨테이너를 모니터링할 수 있습니다. 그러나 [Azure에서 실행 중인 가상 컴퓨터](log-analytics-azure-vm-extension.md) 및 [온-프레미스 환경에서 Windows를 실행하는 컴퓨터](log-analytics-windows-agent.md)만 현재 Service Fabric에 대해 지원됩니다.
+Service Fabric에서 실행 중인 Windows 컨테이너를 모니터링할 수 있습니다. 그러나 [Azure에서 실행 중인 가상 머신](log-analytics-azure-vm-extension.md) 및 [온-프레미스 환경에서 Windows를 실행하는 컴퓨터](log-analytics-windows-agent.md)만 현재 Service Fabric에 대해 지원됩니다.
 
 컨테이너 모니터링 솔루션이 Windows에 대해 올바르게 설정되어 있는지 확인할 수 있습니다. 관리 팩이 제대로 다운로드되었는지 확인하려면 *ContainerManagement.xxx*를 찾습니다. 파일은 C:\Program Files\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs 폴더에 있어야 합니다.
 
@@ -653,7 +653,7 @@ Type=Perf <containerName>
 ## <a name="example-log-search-queries"></a>로그 검색 쿼리 예제
 한두 가지 예제로 쿼리 구성을 시작한 다음 환경에 맞게 수정하는 것이 유용한 경우가 종종 있습니다. 먼저 **샘플 쿼리** 영역에서 테스트하면 고급 쿼리를 빌드하는 데 도움이 될 수 있습니다.
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ![컨테이너 쿼리](./media/log-analytics-containers/containers-queries.png)
 

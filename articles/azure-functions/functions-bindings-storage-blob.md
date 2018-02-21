@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/27/2017
 ms.author: glenga
-ms.openlocfilehash: 6985d631bdac7114a72f105716c9483d0c5733ba
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 120a65a271291b75661d7d070cbd4a7222edd18a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Functions의 Azure Blob Storage 바인딩
 
@@ -277,7 +277,7 @@ Blob이 *original-Blob1.txt*인 경우 함수 코드에 있는 `blobname` 및 `b
 Blob 트리거는 몇 가지 메타데이터 속성을 제공합니다. 이러한 속성을 다른 바인딩에서 바인딩 식의 일부로 사용하거나 코드에서 매개 변수로 사용할 수 있습니다. 이러한 값은 [CloudBlob](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob?view=azure-dotnet) 형식과 동일한 의미 체계를 가집니다.
 
 
-|자산  |type  |설명  |
+|자산  |형식  |설명  |
 |---------|---------|---------|
 |`BlobTrigger`|`string`|Blob을 트리거하는 경로입니다.|
 |`Uri`|`System.Uri`|기본 위치에 대한 Blob의 URI입니다.|
@@ -720,6 +720,14 @@ C# 클래스 라이브러리 및 C# 스크립트에서는 `Stream paramName`과 
 텍스트 Blob을 읽는 경우 `string` 형식에 바인딩할 수 있습니다. 전체 Blob 내용이 메모리에 로드되므로 이 형식은 Blob 크기가 작은 경우에만 권장됩니다. 일반적으로 `Stream` 또는 `CloudBlockBlob` 형식을 사용하는 것이 좋습니다.
 
 JavaScript에서는 `context.bindings.<name>`을 사용하여 Blob 데이터에 액세스합니다.
+
+## <a name="exceptions-and-return-codes"></a>예외 및 반환 코드
+
+| 바인딩 |  참고 자료 |
+|---|---|
+| Blob | [Blob 오류 코드](https://docs.microsoft.com/rest/api/storageservices/fileservices/blob-service-error-codes) |
+| Blob, 테이블, 큐 |  [저장소 오류 코드](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
+| Blob, 테이블, 큐 |  [문제 해결](https://docs.microsoft.com/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
 
 ## <a name="next-steps"></a>다음 단계
 

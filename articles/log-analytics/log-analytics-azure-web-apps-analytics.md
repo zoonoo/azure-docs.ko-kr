@@ -3,7 +3,7 @@ title: "Azure Web Apps 분석 데이터 보기 | Microsoft Docs"
 description: "Azure Web Apps 분석 솔루션을 사용하여 모든 Azure Web Apps 리소스의 다양한 메트릭을 수집함으로써 Azure Web Apps에 대한 자세한 정보를 얻을 수 있습니다."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: 20ff337f-b1a3-4696-9b5a-d39727a94220
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
-ms.author: banders
-ms.openlocfilehash: d910339cc35e09705e543706b40dfe8e0ea9dd42
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.author: magoedte
+ms.openlocfilehash: 7c22950c391707cdfe14ca242ea82a317be0e46e
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="view-analytic-data-for-metrics-across-all-your-azure-web-app-resources"></a>모든 Azure Web Apps 리소스의 메트릭에 대한 분석 데이터 보기
 
@@ -39,9 +39,9 @@ Azure Web Apps 분석(미리 보기) 솔루션은 모든 Azure Web Apps 리소�
 
 | 연결된 소스 | 지원됨 | 설명 |
 | --- | --- | --- |
-| [Windows 에이전트](log-analytics-windows-agent.md) | 아니요 | 솔루션이 Windows 에이전트에서 정보를 수집하지 않습니다. |
+| [Windows 에이전트](log-analytics-windows-agent.md) | 아니오 | 솔루션이 Windows 에이전트에서 정보를 수집하지 않습니다. |
 | [Linux 에이전트](log-analytics-linux-agents.md) | 아니요 | 솔루션이 Linux 에이전트에서 정보를 수집하지 않습니다. |
-| [SCOM 관리 그룹](log-analytics-om-agents.md) | 아니요 | 솔루션이 연결된 SCOM 관리 그룹의 에이전트에서 정보를 수집하지 않습니다. |
+| [SCOM 관리 그룹](log-analytics-om-agents.md) | 아니오 | 솔루션이 연결된 SCOM 관리 그룹의 에이전트에서 정보를 수집하지 않습니다. |
 | [Azure 저장소 계정](log-analytics-azure-storage.md) | 아니요 | 솔루션이 Azure Storage에서 정보를 수집하지 않습니다. |
 
 ## <a name="prerequisites"></a>필수 조건
@@ -90,7 +90,7 @@ Azure Web Apps 분석 솔루션을 작업 영역에 추가하면 개요 대시�
 
 **Azure Web Apps 분석** 타일을 클릭하여 **Azure Web Apps 분석** 대시보드를 엽니다. 대시보드에는 다음 테이블의 블레이드가 포함되어 있습니다. 각 블레이드에는 지정된 범위 및 시간 범위에 대한 해당 블레이드의 기준과 일치하는 항목이 최대 10개까지 나열됩니다. 블레이드 맨 아래에서 **모두 보기**를 클릭하거나 블레이드 헤더를 클릭하여 모든 레코드를 반환하는 로그 검색을 실행할 수 있습니다.
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 | 열 | 설명 |
 | --- | --- |

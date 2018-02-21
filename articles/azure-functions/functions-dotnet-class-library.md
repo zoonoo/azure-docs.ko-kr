@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: glenga
-ms.openlocfilehash: 3de1e9b042a7a356c3c88e604e1e26c256d85657
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 8a098d2ecc004b1593310579c47c53778858e799
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure Functions C# 개발자 참조
 
@@ -40,6 +40,9 @@ Visual Studio에서 **Azure Functions** 프로젝트 템플릿은 다음 파일�
 
 * [host.json](functions-host-json.md) -로컬로 또는 Azure에서 실행될 경우 프로젝트의 모든 함수에 영향을 주는 구성 설정을 저장합니다.
 * [local.settings.json](functions-run-local.md#local-settings-file) - 로컬로 실행될 때 사용되는 앱 설정 및 연결 문자열을 저장합니다.
+
+> [!IMPORTANT]
+> 빌드 프로세스는 각 함수에 대해 *function.json* 파일을 만듭니다. 이 *function.json* 파일은 직접 편집할 수 없습니다. 이 파일을 편집하여 바인딩 구성을 변경하거나 함수를 사용하지 않도록 설정할 수 없습니다. 기능을 사용하지 않도록 설정하려면 [Disable](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/DisableAttribute.cs) 특성을 사용합니다. 예를 들어 부울 앱 설정 MY_TIMER_DISABLED를 추가하고 함수에 `[Disable("MY_TIMER_DISABLED")]`를 적용합니다. 그런 다음 앱 설정을 변경하여 사용하거나 사용하지 않도록 설정할 수 있습니다.
 
 ### <a name="functionname-and-trigger-attributes"></a>FunctionName 및 트리거 특성
 
@@ -83,7 +86,7 @@ public static class SimpleExampleWithOutput
 
 ### <a name="conversion-to-functionjson"></a>Function.json으로 변환
 
-빌드 프로세스는 build 폴더의 function 폴더에 *function.json* 파일을 만듭니다. 이 파일은 직접 편집하는 용도로 사용되지 않습니다. 이 파일을 편집하여 바인딩 구성을 변경하거나 함수를 사용하지 않도록 설정할 수 없습니다. 
+빌드 프로세스는 build 폴더의 function 폴더에 *function.json* 파일을 만듭니다. 앞에서 설명한 대로 이 파일은 직접 편집할 수 없습니다. 이 파일을 편집하여 바인딩 구성을 변경하거나 함수를 사용하지 않도록 설정할 수 없습니다. 
 
 이 파일은 [소비 계획에 대한 크기 결정](functions-scale.md#how-the-consumption-plan-works)에 사용하기 위해 크기 조정 컨트롤러에 정보를 제공하는 데 필요합니다. 이러한 이유로 이 파일에는 트리거 정보만 있고 입력 또는 출력 바인딩은 없습니다.
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: d2b93eec9d3ac575e771bceb0ac45823254c142d
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: 7f86c5abb47cdd69cf07410570b02ba0076d1c18
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="get-started-with-storage-explorer-preview"></a>저장소 탐색기(미리 보기) 시작
 ## <a name="overview"></a>개요
@@ -239,6 +239,20 @@ Azure 구독을 통해 Azure Cosmos DB 계정을 관리하는 것 외에, Azure 
 
     ![connection-string][22]
 
+ ## <a name="connect-to-azure-data-lake-store-by-uri"></a>URI로 Azure Data Lake Store에 연결
+구독에 없는 리소스에 액세스하려고 합니다. 하지만 다른 사용자가 리소스의 URI를 가져오는 권한을 부여합니다. 이 경우 로그인한 후 URI를 사용하여 Data Lake Store에 연결할 수 있습니다. 다음 단계를 참조하세요.
+1. 저장소 탐색기(미리 보기)를 엽니다.
+2. 왼쪽 창에서 **로컬 및 연결됨**을 확장합니다.
+3. **Data Lake Store**를 마우스 오른쪽 단추로 클릭하고 상황에 맞는 메뉴에서 **Data Lake Store에 연결...**을 선택합니다.
+
+    ![Data Lake Store에 연결 상황에 맞는 메뉴](./media/vs-azure-tools-storage-manage-with-storage-explorer/storageexplorer-adls-uri-attach.png)
+
+4. URI를 입력하면 도구가 방금 입력한 URL의 위치로 이동합니다.
+
+    ![Data Lake Store에 연결 상황에 맞는 대화 상자](./media/vs-azure-tools-storage-manage-with-storage-explorer/storageexplorer-adls-uri-attach-dialog.png)
+
+    ![Data Lake Store에 연결 결과](./media/vs-azure-tools-storage-manage-with-storage-explorer/storageexplorer-adls-attach-finish.png)
+
 ## <a name="search-for-storage-accounts"></a>저장소 계정 검색
 저장소 리소스를 찾아야 하며 위치를 잘 모를 경우, 왼쪽 창 위쪽에 있는 검색 상자를 사용하여 리소스를 검색할 수 있습니다.
 
@@ -254,6 +268,7 @@ Azure 구독을 통해 Azure Cosmos DB 계정을 관리하는 것 외에, Azure 
 ## <a name="next-steps"></a>다음 단계
 * [저장소 탐색기(미리 보기)를 사용하여 Azure Blob Storage 리소스 관리](vs-azure-tools-storage-explorer-blobs.md)
 * [Azure Storage 탐색기에서 Azure Cosmos DB 관리(미리 보기)](./cosmos-db/storage-explorer.md)
+* [저장소 탐색기(미리 보기)를 사용하여 Azure Data Lake Store 리소스 관리](./data-lake-store/data-lake-store-in-storage-explorer.md)
 
 [0]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/Overview.png
 [1]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ManageAccounts.png
