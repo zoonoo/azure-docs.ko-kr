@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: barlan
-ms.openlocfilehash: 683badcfb67dd9e98058d560a6b13d1a3474d3e9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 19c8d9084c9ce03d347e58b3359b65cdbcd80651
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="a-multi-tiered-approach-to-azure-ad-password-security"></a>Azure AD 암호 보호에 대한 다중 계층 접근 방법
 
@@ -46,7 +46,7 @@ Azure AD 및 Microsoft 계정 시스템은 사용자 및 관리자 암호를 안
 * 동적으로 금지된 암호
 * 스마트 암호 잠금
 
-현재 연구 결과에 따른 암호 관리에 대한 내용은 [암호 지침](http://aka.ms/passwordguidance) 백서를 참조하세요.
+현재 연구 결과에 따른 암호 관리에 대한 내용은 [암호 지침](https://aka.ms/passwordguidance) 백서를 참조하세요.
 
 ### <a name="dynamically-banned-passwords"></a>동적으로 금지된 암호
 

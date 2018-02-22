@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: anandy; billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7e83eece09d9802792b87b89fd334ea67df14dc9
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: ba14244a3f5786ebcd667aa090d0245ce45f741d
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="deploying-active-directory-federation-services-in-azure"></a>Azure에서 Active Directory Federation Services 배포
 AD FS는 간편하고 안전한 ID 페더레이션 및 웹 Single Sign-on(SSO) 기능을 제공합니다. 사용자는 Azure AD 또는 O365와 함께 페더레이션을 통해 온-프레미스 자격 증명을 사용하여 인증하고 클라우드에서 모든 리소스에 액세스할 수 있습니다. 결과적으로 온-프레미스 및 클라우드에서 리소스에 대한 액세스를 보장하는 항상 사용 가능한 AD FS 인프라가 있는 것이 중요합니다. Azure에서 AD FS를 배포하면 필요한 최소한의 노력으로 고가용성을 실현할 수 있습니다.
@@ -354,7 +354,7 @@ ILB와 같은 단계를 수행하여 TCP 443에 대한 부하 분산 규칙을 �
 * [인터넷 연결 부하 분산 장치](https://aka.ms/Azure/ILB/Internet)
 * [Storage 계정](https://aka.ms/Azure/Storage)
 * [Azure Virtual Network](https://aka.ms/Azure/VNet)
-* [AD FS 및 웹 응용 프로그램 프록시 링크](http://aka.ms/ADFSLinks) 
+* [AD FS 및 웹 응용 프로그램 프록시 링크](https://aka.ms/ADFSLinks) 
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)

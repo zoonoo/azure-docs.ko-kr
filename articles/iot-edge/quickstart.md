@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 17675f870a015e86f98bf286a9b1c2bbc05c16cd
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 803b0bbff12c8ce471c0bff5e22e24601b8ce07f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>빠른 시작: Azure Portal에서 Windows 장치(미리 보기)로 첫 번째 IoT Edge 모듈을 배포합니다.
 
@@ -23,16 +23,16 @@ ms.lasthandoff: 11/18/2017
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 자습서에서는 사용자가 Windows를 실행하는 컴퓨터 또는 가상 컴퓨터를 사용하여 사물 인터넷을 시뮬레이션한다고 가정합니다. 가상 컴퓨터에서 Windows를 실행하는 경우 [중첩된 가상화][lnk-nested]를 사용하도록 설정하고 최소 2GB 메모리를 할당하세요. 
+이 자습서에서는 사용자가 Windows를 실행하는 컴퓨터 또는 가상 머신을 사용하여 사물 인터넷을 시뮬레이션한다고 가정합니다. 가상 머신에서 Windows를 실행하는 경우 [중첩된 가상화][lnk-nested]를 사용하도록 설정하고 최소 2GB 메모리를 할당하세요. 
 
 1. 지원되는 Windows 버전을 사용하고 있는지 확인합니다.
-   * Windows 10 
+   * 윈도우 10 
    * Windows Server
 2. [Windows용 Docker][lnk-docker]를 설치하고, 지금 실행 중인지 확인합니다.
 3. [Windows에 Python 2.7][lnk-python]을 설치하고 pip 명령을 사용할 수 있는지 확인합니다.
 4. 다음 명령을 실행하여 IoT Edge 제어 스크립트를 다운로드합니다.
 
-   ```
+   ```cmd
    pip install -U azure-iot-edge-runtime-ctl
    ```
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 11/18/2017
 >    * x64 기반 장치에서 Windows IoT Core(빌드 16299)
 >
 > Windows IoT Core의 경우 [Windows IoT Core에 IoT Edge 런타임 설치][lnk-install-iotcore]의 지침을 따릅니다. 아니면 [Windows 컨테이너를 사용하도록 Docker를 구성][lnk-docker-containers]하고, 선택적으로 다음과 같은 powershell 명령을 사용하여 필수 조건을 검증합니다.
->    ```
+>    ```powershell
 >    Invoke-Expression (Invoke-WebRequest -useb https://aka.ms/iotedgewin)
 >    ```
 
@@ -78,19 +78,19 @@ IoT Edge 런타임은 모든 IoT Edge 장치에 배포되며, 두 개의 모듈�
 
 이전 섹션의 IoT Edge 장치 연결 문자열로 런타임을 구성합니다.
 
-```
+```cmd
 iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
 ```
 
 런타임을 시작합니다.
 
-```
+```cmd
 iotedgectl start
 ```
 
 Docker를 확인하여 IoT Edge 에이전트가 모듈로 실행되고 있는지 알아봅니다.
 
-```
+```cmd
 docker ps
 ```
 

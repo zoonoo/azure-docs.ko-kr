@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: a27d4422e0d7b116d2aea6f743b9efc27570cdb9
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 91173a14d40f8259927af720986a4efbc9c573ce
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="install-and-configure-ansible-to-manage-virtual-machines-in-azure"></a>Azure에서 가상 머신을 관리하기 위한 Ansible 설치 및 구성
 이 문서에는 가장 일반적인 Linux 배포판 중 일부에 대해 Ansible 및 필요한 Azure Python SDK 모듈을 설치하는 방법을 자세히 설명합니다. 설치된 패키지를 특정 플랫폼에 맞게 조정하여 다른 배포판에 Ansible을 설치할 수 있습니다. Azure 리소스를 안전하게 만들기 위해 Ansible에 대한 자격 증명을 만들고 정의하는 방법도 알아봅니다. 
@@ -144,7 +144,7 @@ Ansible은 사용자 이름 및 암호 또는 서비스 주체를 사용하여 A
 [az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac)를 사용하여 호스트 컴퓨터에 서비스 주체를 만들고 Ansible에서 요구하는 자격 증명을 출력합니다.
 
 ```azurecli
-az ad sp create-for-rbac --query [client_id: appId, secret: password, tenant: tenant]
+az ad sp create-for-rbac --query '{"client_id": appId, "secret": password, "tenant": tenant}'
 ```
 
 이전 명령에서 출력의 예는 다음과 같습니다.

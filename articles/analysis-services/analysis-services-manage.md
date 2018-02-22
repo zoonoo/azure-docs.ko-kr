@@ -13,18 +13,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: cd452ff46f8a87fd04eaca037b6bc0120ca86e4d
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 11aa42fbe15dd68dfac128b707fd6bdbfd0b24d1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-analysis-services"></a>Analysis Services 관리
 Azure에 Analysis Services 서버를 만들었으면 즉시 또는 조만간에 수행해야 하는 몇 가지 운영 및 관리 작업이 있습니다. 예를 들어 데이터 새로 고침 처리를 실행하거나, 서버의 모델에 대한 액세스 권한이 있는 사용자를 제어하거나, 서버의 상태를 모니터링합니다. 일부 관리 작업은 Azure 포털에서만, 일부 다른 작업은 SSMS(SQL Server Management Studio)에서만, 일부 작업은 둘 중 하나에서 수행할 수 있습니다.
 
-## <a name="azure-portal"></a>Azure 포털
+## <a name="azure-portal"></a>Azure portal
 [Azure Portal](http://portal.azure.com/)은 서버를 생성 및 삭제하고, 서버 리소스를 모니터링하고, 크기를 변경하고, 서버에 액세스할 수 있는 사용자를 관리할 수 있는 포털입니다.  몇 가지 문제가 발생하면 지원 요청을 제출할 수도 있습니다.
 
 ![Azure에서 서버 이름 가져오기](./media/analysis-services-manage/aas-manage-portal.png)

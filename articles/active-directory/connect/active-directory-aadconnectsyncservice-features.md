@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: e939c6a53a1154b23431581e789605d83e849fe2
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: b716e553f7c4c11f6d566b43d771217fdf4b3a93
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Azure AD Connect 동기화 서비스 기능
 Azure AD Connect의 동기화 기능에는 두 가지 구성 요소가 있습니다.
@@ -28,7 +28,7 @@ Azure AD Connect의 동기화 기능에는 두 가지 구성 요소가 있습니
 
 이 항목에서는 다음 **Azure AD Connect 동기화 서비스** 기능 작동 방법 및 Windows PowerShell을 사용하여 구성할 수 있는 방법에 대해 설명합니다.
 
-이러한 설정은 [Windows PowerShell용 Azure Active Directory 모듈](http://aka.ms/aadposh)에서 구성됩니다. Azure AD Connect에서 다운로드하여 별도로 설치합니다. 이 항목에서 설명한 cmdlet은 [2016년 3월 릴리스(빌드 9031.1)](http://social.technet.microsoft.com/wiki/contents/articles/28552.microsoft-azure-active-directory-powershell-module-version-release-history.aspx#Version_9031_1)에 도입되었습니다. 이 항목에서 설명하는 cmdlet이 없거나 동일한 결과가 생성되지 않는 경우 최신 버전을 실행하고 있는지 확인합니다.
+이러한 설정은 [Windows PowerShell용 Azure Active Directory 모듈](https://aka.ms/aadposh)에서 구성됩니다. Azure AD Connect에서 다운로드하여 별도로 설치합니다. 이 항목에서 설명한 cmdlet은 [2016년 3월 릴리스(빌드 9031.1)](http://social.technet.microsoft.com/wiki/contents/articles/28552.microsoft-azure-active-directory-powershell-module-version-release-history.aspx#Version_9031_1)에 도입되었습니다. 이 항목에서 설명하는 cmdlet이 없거나 동일한 결과가 생성되지 않는 경우 최신 버전을 실행하고 있는지 확인합니다.
 
 Azure AD 디렉터리의 구성을 보려면 `Get-MsolDirSyncFeatures`를 실행합니다.  
 ![Get-MsolDirSyncFeatures 결과](./media/active-directory-aadconnectsyncservice-features/getmsoldirsyncfeatures.png)

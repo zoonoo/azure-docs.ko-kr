@@ -6,16 +6,16 @@ author: jasonwhowell
 ms.author: jasonh
 manager: jhubbard
 editor: jasonwhowell
-ms.service: mysql
+ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: sample
 ms.custom: mvc
 ms.date: 01/11/2018
-ms.openlocfilehash: 89eb523bd30c3223dde5f6099ca2e3f9d5c575c6
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: c43bbbfaf98f1c35631f017bf256b38014a4fd4e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-cli-samples-for-azure-database-for-mysql"></a>MySQL용 Azure Database에 대한 Azure CLI 샘플 
 다음 테이블은 MySQL용 Azure Database의 Azure CLI 샘플 스크립트에 대한 링크를 포함합니다.

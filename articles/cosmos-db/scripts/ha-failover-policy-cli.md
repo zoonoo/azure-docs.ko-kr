@@ -16,11 +16,11 @@ ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 06/02/2017
 ms.author: mimig
-ms.openlocfilehash: 96083d66cc1a2ef179f9313c1b3ed04162c1c048
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 139679eb58516c9eda02f048e8c839e1b7bceb48
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-a-failover-policy-for-high-availability-using-the-azure-cli"></a>Azure CLI를 사용하여 고가용성을 위한 장애 조치 정책 만들기
 
@@ -46,12 +46,12 @@ az group delete --name myResourceGroup
 
 이 스크립트는 다음 명령을 사용합니다. 테이블에 있는 각 명령은 명령에 해당하는 문서에 연결됩니다.
 
-| 명령 | 참고 사항 |
+| 명령 | 메모 |
 |---|---|
-| [az group create](/cli/azure/group#create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
-| [az cosmosdb create](/cli/azure/sql/server#create) | Azure Cosmos DB 계정을 만듭니다. |
-| [az cosmosdb update](/cli/azure/cosmosdb#update) | Azure Cosmos DB 계정을 업데이트합니다. |
-| [az group delete](/cli/azure/resource#delete) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
+| [az group create](/cli/azure/group#az_group_create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
+| [az cosmosdb create](/cli/azure/sql/server#az_sql_server_create) | Azure Cosmos DB 계정을 만듭니다. |
+| [az cosmosdb update](/cli/azure/cosmosdb#az_cosmosdb_update) | Azure Cosmos DB 계정을 업데이트합니다. |
+| [az group delete](/cli/azure/resource#az_resource_delete) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

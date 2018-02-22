@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 09/20/2017
 ms.author: vturecek
-ms.openlocfilehash: df4a86e3de87daad22646672f278c7f3226660c6
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 3bdd271eff6f6ea5b337d148f661c7eada429991
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="service-remoting-with-reliable-services"></a>Reliable Services로 서비스 원격 호출
 특정한 통신 프로토콜 또는 스택에 얽매여 있지 않는 서비스(예: WebAPI, WCF(Windows Communication Foundation) 등)의 경우, Reliable Services 프레임워크가 원격 메커니즘을 제공하여 서비스에 대한 원격 프로시저 호출을 신속하고 간편하게 설정합니다.
@@ -59,7 +59,7 @@ class MyService : StatelessService, IMyService
 
     protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
     {
-        return new[] { new ServiceInstanceListener(context =>            this.CreateServiceRemotingListener(context)) };
+        return new[] { new ServiceInstanceListener(context => this.CreateServiceRemotingListener(context)) };
     }
 }
 ```
@@ -146,7 +146,7 @@ Remoting V2은 V1(이전 Remoting 스택)과 호환되지 않습니다. 따라�
   </Resources>
   ```
 
-2. [Remoting V2Listener](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.runtime.fabrictransportserviceremotingistener?view=azure-dotnet)를 사용합니다. 사용된 Default Service Endpoint Resource 이름은 "ServiceEndpointV2"이며 Service Manifest에 정의되어야 합니다.
+2. [Remoting V2Listener](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.runtime.fabrictransportserviceremotingListener?view=azure-dotnet)를 사용합니다. 사용된 Default Service Endpoint Resource 이름은 "ServiceEndpointV2"이며 Service Manifest에 정의되어야 합니다.
 
   ```csharp
   protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()

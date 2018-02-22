@@ -14,11 +14,11 @@ ms.tgt_pltfrm:
 ms.workload: identity
 ms.date: 12/19/2017
 ms.author: skwan
-ms.openlocfilehash: b28f5c7c90783c5abd933b50ddb9631739b8f421
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 72e1d5250de214c063a970f5761105b2329ccf7f
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/22/2018
 ---
 #  <a name="managed-service-identity-msi-for-azure-resources"></a>Azure 리소스용 MSI(관리 서비스 ID)
 
@@ -87,12 +87,12 @@ Azure AD 인증을 지원하며, 관리 서비스 ID를 사용하는 클라이�
 
 | 서비스 | 리소스 ID | 상태 | Date | 액세스 권한 할당 |
 | ------- | ----------- | ------ | ---- | ------------- |
-| Azure 리소스 관리자 | https://management.azure.com/ | 사용 가능 | 2017년 9월 | [Azure 포털](msi-howto-assign-access-portal.md) <br>[PowerShell](msi-howto-assign-access-powershell.md) <br>[Azure CLI](msi-howto-assign-access-CLI.md) |
-| Azure Key Vault | https://vault.azure.net/ | 사용 가능 | 2017년 9월 | |
-| Azure Data Lake | https://datalake.azure.net/ | 사용 가능 | 2017년 9월 | |
-| Azure SQL | https://database.windows.net/ | 사용 가능 | 2017년 10월 | |
-| Azure Event Hubs | https://eventhubs.azure.net/ | 사용 가능 | 2017년 12월 | |
-| Azure Service Bus | https://servicebus.azure.net/ | 사용 가능 | 2017년 12월 | |
+| Azure 리소스 관리자 | https://management.azure.com | 사용 가능 | 2017년 9월 | [Azure 포털](msi-howto-assign-access-portal.md) <br>[PowerShell](msi-howto-assign-access-powershell.md) <br>[Azure CLI](msi-howto-assign-access-CLI.md) |
+| Azure Key Vault | https://vault.azure.net | 사용 가능 | 2017년 9월 | |
+| Azure Data Lake | https://datalake.azure.net | 사용 가능 | 2017년 9월 | |
+| Azure SQL | https://database.windows.net | 사용 가능 | 2017년 10월 | |
+| Azure Event Hubs | https://eventhubs.azure.net | 사용 가능 | 2017년 12월 | |
+| Azure Service Bus | https://servicebus.azure.net | 사용 가능 | 2017년 12월 | |
 
 ## <a name="how-much-does-managed-service-identity-cost"></a>관리 서비스 ID의 비용은 어느 정도인가요?
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2017
 ms.author: markvi
-ms.openlocfilehash: 054705e802867fda666c80217396db197c60f50e
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 0aac3a9d3595ea0e761ba14070bf7cff4d4b264c
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="settings-and-data-roaming-faq"></a>설정 및 데이터 로밍 FAQ
 이 토픽에서는 설정 및 앱 데이터 동기화에 대한 IT 관리자의 질문에 답변합니다.
@@ -80,7 +80,7 @@ Windows 10의 2015년 11월 이후 릴리스에서 엔터프라이즈 상태 로
 ## <a name="what-are-the-roaming-settings-options-for-existing-windows-desktop-applications"></a>기존 Windows 데스크톱 응용 프로그램의 로밍 설정 옵션은 무엇인가요?
 로밍은 유니버설 Windows 앱에서만 작동합니다. 기존 Windows 데스크톱 응용 프로그램에서 로밍을 활성화할 수 있는 두 가지 옵션이 있습니다.
 
-* [데스크톱 브리지](http://aka.ms/desktopbridge) 를 사용하면 유니버설 Windows 플랫폼에 기존 Windows 데스크톱 앱을 쉽게 가져올 수 있습니다. 이때 Azure AD 앱 데이터 로밍을 활용하려면 최소한의 코드 변경 작업이 필요합니다. 데스크톱 브리지는 앱 ID를 사용하여 앱을 제공하며 이는 기존 데스크톱 앱에 앱 데이터 로밍을 사용하는 데 필요합니다.
+* [데스크톱 브리지](https://aka.ms/desktopbridge) 를 사용하면 유니버설 Windows 플랫폼에 기존 Windows 데스크톱 앱을 쉽게 가져올 수 있습니다. 이때 Azure AD 앱 데이터 로밍을 활용하려면 최소한의 코드 변경 작업이 필요합니다. 데스크톱 브리지는 앱 ID를 사용하여 앱을 제공하며 이는 기존 데스크톱 앱에 앱 데이터 로밍을 사용하는 데 필요합니다.
 * [UE-V(사용자 경험 가상화)](https://technet.microsoft.com/library/dn458947.aspx) 를 사용하면 기존 Windows 데스크톱 앱에 대한 사용자 지정 설정 템플릿을 만들 수 있고 Win32 앱에 대해서만 로밍을 사용할 수 있습니다. 이 옵션은 앱의 코드를 변경하기 위해 앱 개발자가 필요하지 않습니다. UE-V는 Microsoft Desktop Optimization Pack을 구매한 고객에 대한 온-프레미스 Active Directory 로밍으로 제한됩니다.
 
 관리자는 [UE-V 그룹 정책](https://technet.microsoft.com/itpro/mdop/uev-v2/configuring-ue-v-2x-with-group-policy-objects-both-uevv2)을 통해 Windows OS 설정 및 유니버설 앱 데이터의 로밍을 변경하여 Windows 데스크톱 앱 데이터를 로밍하도록 UEV를 구성할 수 있습니다.
