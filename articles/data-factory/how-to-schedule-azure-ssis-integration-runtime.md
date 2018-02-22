@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: article
 ms.date: 01/25/2018
 ms.author: spelluru
-ms.openlocfilehash: 60a4afdb8a78cffdc7eb1ee82c7daf3b06e5fe15
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 814ef63f317c2c0c9081579c16a12a908c05ff74
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-schedule-starting-and-stopping-of-an-azure-ssis-integration-runtime"></a>Azure SSIS 통합 런타임의 시작 및 중지를 예약하는 방법 
 Azure SSIS(SQL Server Integration Services) IR(통합 런타임)을 실행할 때는 비용이 발생합니다. 따라서 Azure에서 SSIS 패키지를 실행해야 할 때만 IR을 실행하고 필요하지 않을 때는 중지할 수 있습니다. Data Factory UI 또는 Azure PowerShell을 사용하여 [Azure SSIS IR을 수동으로 시작 또는 중지 ](manage-azure-ssis-integration-runtime.md)할 수 있습니다. 이 문서에서는 Azure Automation 및 Azure Data Factory를 사용하여 Azure SSIS IR(통합 런타임)의 시작 및 중지를 예약하는 방법을 설명합니다. 이 문서에서 설명하는 개략적인 단계는 다음과 같습니다.
@@ -44,8 +44,9 @@ Azure SSIS 통합 런타임을 아직 프로비전하지 않은 경우 [자습�
 ### <a name="create-an-azure-automation-account"></a>Azure Automation 계정 만들기
 Azure Automation 계정이 없는 경우 이 단계의 지침에 따라 하나 만듭니다. 자세한 내용은 [Azure Automation 계정 만들기](../automation/automation-quickstart-create-account.md)를 참조하세요. 이 단계의 일부로 **Azure 실행** 계정(Azure Active Directory의 서비스 사용자)을 만든 후 Azure 구독의 **참가자** 역할에 추가합니다. Azure SSIS IR이 있는 데이터 팩터리가 포함된 구독과 같은 구독인지 확인합니다. Azure Automation 기능은 이 계정을 사용하여 Azure Resource Manager에서 인증을 받고 리소스에 작동합니다. 
 
-1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.    
-2. 왼쪽 메뉴에서 **새로 만들기**를 선택하고 **모니터링 + 관리**를 선택한 후 **Automation**을 선택합니다. 
+1. **Microsoft Edge** 또는 **Google Chrome** 웹 브라우저를 시작합니다. 현재 Data Factory UI는 Microsoft Edge 및 Google Chrome 웹 브라우저에서만 지원됩니다.
+2. [Azure Portal](https://portal.azure.com/)에 로그인합니다.    
+3. 왼쪽 메뉴에서 **새로 만들기**를 선택하고 **모니터링 + 관리**를 선택한 후 **Automation**을 선택합니다. 
 
     ![새로 만들기 -> 모니터링 + 관리 -> Automation](./media/how-to-schedule-azure-ssis-integration-runtime/new-automation.png)
 2. **Automation 계정 추가** 창에서 다음 단계를 수행합니다. 

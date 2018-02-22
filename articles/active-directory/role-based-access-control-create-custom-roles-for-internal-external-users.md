@@ -3,7 +3,7 @@ title: "사용자 지정 역할 기반 액세스 제어 역할 만들기 및 Azu
 description: "내부 및 외부 사용자에게 PowerShell 및 CLI를 사용하여 만든 사용자 지정 RBAC 역할 할당"
 services: active-directory
 documentationcenter: 
-author: andreicradu
+author: rolyon
 manager: mtillman
 editor: kgremban
 ms.assetid: 
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
 ms.date: 12/06/2017
-ms.author: a-crradu
+ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: b3b65812d453a9f7d93ee4381c4261e685a60376
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 75a45b492c230b19d2f7237f8ea7fe2c49de29bf
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="intro-on-role-based-access-control"></a>역할 기반 액세스 제어 소개
 
@@ -79,7 +79,7 @@ Azure Portal에서 관리자로 로그인한 후에 "구독"을 선택하고 원
 
 다음 단계에서는 할당하고 역할 및 RBAC 역할에 할당할 사용자를 선택합니다. **역할** 드롭다운 메뉴에서는 Azure에서 사용할 수 있는 기본 제공 RBAC 역할만을 관리 사용자에게 표시합니다. 각 역할 및 해당 할당 가능한 범위에 대한 자세한 설명은 [Azure 역할 기반 Access Control의 기본 제공 역할](role-based-access-built-in-roles.md)을 참조하세요.
 
-관리 사용자는 외부 사용자의 이메일 주소를 추가해야 합니다. 예상된 동작을 기존 테넌트에서 외부 사용자에세 표시하지 않습니다. 외부 사용자를 초대한 후에 현재 구독 범위에서 RBAC 역할에 할당한 모든 사용자와 함께 **구독 > Access Control(IAM)**을 표시합니다.
+관리 사용자는 외부 사용자의 이메일 주소를 추가해야 합니다. 예상된 동작을 기존 테넌트에서 외부 사용자에세 표시하지 않습니다. 외부 사용자를 초대한 후에 현재 구독 범위에서 RBAC 역할에 할당한 모든 사용자와 함께 **[구독] > [액세스 제어(IAM)]**를 표시합니다.
 
 
 
@@ -116,7 +116,7 @@ Azure Portal에서 관리자로 로그인한 후에 "구독"을 선택하고 원
 
 **사용자** 보기에서는 외부 사용자가 Azure Portal의 다른 아이콘 형식으로 인식될 수 있습니다.
 
-그러나 **구독** 범위에서 외부 사용자에 대한 **소유자** 또는 **참가자** 액세스 권한을 부여하면 **전역 관리자**가 허용하지 않는 한 관리 사용자의 디렉터리에 대한 액세스를 허용하지 않습니다. 사용자 속성에서 두 공통 매개 변수가 있는 **사용자 형식**, **멤버** 및 **게스트**를 식별할 수 있습니다. 구성원은 디렉터리에 등록되어 있는 사용자인 반면 게스트는 외부 소스의 디렉터리로 초대된 사용자입니다. 자세한 내용은 [Azure Active Directory 관리자가 B2B 공동 작업 사용자를 추가하는 방법](active-directory-b2b-admin-add-users.md)을 참조하세요.
+그러나 **구독** 범위에서 외부 사용자에 대한 **소유자** 또는 **참가자** 액세스 권한을 부여하면 **전역 관리자**가 허용하지 않는 한 관리 사용자의 디렉터리에 대한 액세스를 허용하지 않습니다. 사용자 속성에서 두 공통 매개 변수가 있는 **사용자 형식**, **멤버** 및 **게스트**를 식별할 수 있습니다. 멤버는 디렉터리에 등록되어 있는 사용자인 반면 게스트는 외부 소스의 디렉터리로 초대된 사용자입니다. 자세한 내용은 [Azure Active Directory 관리자가 B2B 공동 작업 사용자를 추가하는 방법](active-directory-b2b-admin-add-users.md)을 참조하세요.
 
 > [!NOTE]
 > 포털에서 자격 증명을 입력한 후에 외부 사용자가 올바른 디렉터리에 로그인하는지 확인합니다. 동일한 사용자는 여러 디렉터리에 대한 액세스 권한이 있을 수 있고 Azure Portal의 오른쪽 위에 있는 사용자 이름을 클릭 그 중 하나를 선택한 다음 드롭다운 목록에서 적절한 디렉터리를 선택할 수 있습니다.
@@ -129,26 +129,26 @@ Azure Portal에서 관리자로 로그인한 후에 "구독"을 선택하고 원
 
 ![Azure Active Directory Azure Portal에 제한된 액세스](./media/role-based-access-control-create-custom-roles-for-internal-external-users/9.png)
 
-Azure Active Directory와 Azure 구독에는 다른 Azure 리소스와 Azure 구독이 가진 것과 같은 자식-부모 관계가 없습니다(예: 가상 컴퓨터, 가상 네트워크, 웹앱, 저장소 등). 후자가 모두 Azure 구독에서 생성되고 관리되며 요금이 청구되는 반면 Azure 구독은 Azure 디렉터리에 대한 액세스를 관리하는 데 사용됩니다. 자세한 내용은 [Azure 구독과 Azure AD의 연관 관계](/active-directory/active-directory-how-subscriptions-associated-directory)를 참조하세요.
+Azure Active Directory와 Azure 구독에는 다른 Azure 리소스와 Azure 구독이 가진 것과 같은 자식-부모 관계가 없습니다(예: 가상 머신, 가상 네트워크, 웹앱, 저장소 등). 후자가 모두 Azure 구독에서 생성되고 관리되며 요금이 청구되는 반면 Azure 구독은 Azure 디렉터리에 대한 액세스를 관리하는 데 사용됩니다. 자세한 내용은 [Azure 구독과 Azure AD의 연관 관계](/active-directory/active-directory-how-subscriptions-associated-directory)를 참조하세요.
 
-모든 기본 제공 RBAC 역할에서 **소유자** 및 **참가자**는 환경에서 모든 리소스에 대한 완전한 관리 액세스를 제공합니다. 두 역할의 차이는 새 RBAC 역할을 만들고 삭제할 수 없다는 점입니다. **가상 컴퓨터 참여자**와 같은 다른 기본 제공 역할은 생성되는 **리소스 그룹**에 관계없이 이름으로 표시된 리소스에만 완전한 관리 액세스를 제공합니다.
+모든 기본 제공 RBAC 역할에서 **소유자** 및 **참가자**는 환경에서 모든 리소스에 대한 완전한 관리 액세스를 제공합니다. 두 역할의 차이는 새 RBAC 역할을 만들고 삭제할 수 없다는 점입니다. **Virtual Machine 참여자**와 같은 다른 기본 제공 역할은 생성되는 **리소스 그룹**에 관계없이 이름으로 표시된 리소스에만 완전한 관리 액세스를 제공합니다.
 
-**가상 컴퓨터 참여자**의 기본 제공 RBAC 역할을 구독 수준에서 할당한다는 것은 사용자에게 역할을 할당했다는 의미입니다.
+**Virtual Machine 참여자**의 기본 제공 RBAC 역할을 구독 수준에서 할당한다는 것은 사용자에게 역할을 할당했다는 의미입니다.
 
-* 해당 배포 날짜 및 일부인 리소스 그룹에 관계 없이 모든 가상 컴퓨터를 볼 수 있습니다.
-* 구독에는 가상 컴퓨터에 대한 완전한 관리 액세스 권한이 있습니다.
+* 해당 배포 날짜 및 일부인 리소스 그룹에 관계 없이 모든 가상 머신을 볼 수 있습니다.
+* 구독에는 가상 머신에 대한 완전한 관리 액세스 권한이 있습니다.
 * 구독에서 다른 리소스 형식을 볼 수 없습니다.
 * 요금 청구 관점에서 변경 사항을 수행할 수 없습니다.
 
 ## <a name="assign-a-built-in-rbac-role-to-an-external-user"></a>외부 사용자에게 기본 제공 RBAC 역할 할당
-이 테스트의 다른 시나리오에서 외부 사용자 "alflanigan@gmail.com"은 **가상 컴퓨터 참여자**로 추가됩니다.
+이 테스트의 다른 시나리오에서 외부 사용자 "alflanigan@gmail.com"은 **Virtual Machine 참여자**로 추가됩니다.
 
 
 
 
-![가상 컴퓨터 참여자 기본 제공 역할](./media/role-based-access-control-create-custom-roles-for-internal-external-users/11.png)
+![가상 머신 참여자 기본 제공 역할](./media/role-based-access-control-create-custom-roles-for-internal-external-users/11.png)
 
-이 기본 제공 역할을 가진 외부 사용자에 대한 정상 동작은 가상 컴퓨터와 배포 시 필요한 리소스에 인접한 Resource Manager만을 보고 관리하는 것입니다. 기본적으로 이러한 제한된 역할은 Azure Portal에서 만든 해당 리소스에 대해서만 액세스를 제공합니다.
+이 기본 제공 역할을 가진 외부 사용자에 대한 정상 동작은 가상 머신과 배포 시 필요한 리소스에 인접한 Resource Manager만을 보고 관리하는 것입니다. 기본적으로 이러한 제한된 역할은 Azure Portal에서 만든 해당 리소스에 대해서만 액세스를 제공합니다.
 
 
 
@@ -191,7 +191,7 @@ Azure에서 사용할 수 있는 기본 제공 RBAC 역할은 환경에서 사�
 
 구독 수준에서 세분화된 액세스 권한을 부여하고 초대받은 사용자에게 지원 요청을 여는 유연성을 허용할 수 있는 사용자 지정 역할을 만드는 필수 구성 요소를 이해해야 합니다.
 
-이 예제에서 기본 제공 역할 **판독기**는 사용자에게 모든 리소스 범위를 볼 수 있는 액세스 권한을 허용하지만 편집하거나 새로 만들지 않도록 사용자가 지원 요청을 열 수 있는 옵션을 사용자 지정합니다.
+이 예제에서 기본 제공 역할 **Reader**는 사용자에게 모든 리소스 범위를 볼 수 있는 액세스 권한을 허용하지만 편집하거나 새로 만들지 않도록 사용자가 지원 요청을 열 수 있는 옵션을 사용자 지정합니다.
 
 **판독기** 역할을 내보내는 첫 번째 작업은 PowerShell에서 완료해야 하고 관리자로 승격된 권한으로 실행해야 합니다.
 
@@ -267,7 +267,7 @@ New-AzureRMRoleDefinition -InputFile "C:\rbacrole2.json"
 
 예제는 다음과 같이 이 사용자 지정 RBAC 역할의 한계를 강조하여 추가적으로 설명합니다.
 * 새 지원 요청을 만들 수 있습니다.
-* 새 리소스 범위를 만들 수 없습니다(예: 가상 컴퓨터).
+* 새 리소스 범위를 만들 수 없습니다(예: 가상 머신).
 * 새 리소스 그룹을 만들 수 없습니다.
 
 
@@ -293,7 +293,7 @@ Mac에서 및 PowerShell에 액세스하지 않고 실행하려면 Azure CLI를 
 
 CLI를 사용하여 JSON 템플릿에서 역할을 다운로드할 수 없지만 CLI에서 볼 수 있다는 예외를 제외하면 사용자 지정 역할을 만드는 단계는 동일합니다.
 
-이 예제에서 **Backup 판독기**의 기본 제공 역할을 선택했습니다.
+이 예제에서 **Backup 독자**의 기본 제공 역할을 선택했습니다.
 
 ```
 

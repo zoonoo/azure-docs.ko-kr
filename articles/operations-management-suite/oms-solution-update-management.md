@@ -1,5 +1,5 @@
 ---
-title: "OMS의 업데이트 관리 솔루션 | Microsoft Docs"
+title: "Azure의 업데이트 관리 솔루션 | Microsoft Docs"
 description: "이 문서는 이 솔루션을 사용하여 Windows 및 Linux 컴퓨터에 대한 업데이트를 관리하는 방법을 이해할 수 있도록 제공됩니다."
 services: operations-management-suite
 documentationcenter: 
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: magoedte;eslesar
-ms.openlocfilehash: 71322c650b2ee464bab91bf8d4b176f3b2d93949
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 5156beb82e1ca8aeb9817badc4fcb38971143d4f
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="update-management-solution-in-oms"></a>OMS의 업데이트 관리 솔루션
+# <a name="update-management-solution-in-azure"></a>Azure의 업데이트 관리 솔루션
 
 ![업데이트 관리 기호](./media/oms-solution-update-management/update-management-symbol.png)
 
-OMS의 업데이트 관리 솔루션을 사용하면 Azure, 온-프레미스 환경 또는 다른 클라우드 공급자에 배포된 Windows 및 Linux 컴퓨터에 대한 운영 체제 보안 업데이트를 관리할 수 있습니다.  모든 에이전트 컴퓨터에서 사용 가능한 업데이트의 상태를 신속하게 평가하고 서버에 대한 필수 업데이트를 설치하는 프로세스를 관리할 수 있습니다.
+Azure의 업데이트 관리 솔루션을 사용하면 Azure, 온-프레미스 환경 또는 다른 클라우드 공급자에 배포된 Windows 및 Linux 컴퓨터에 대한 운영 체제 보안 업데이트를 관리할 수 있습니다.  모든 에이전트 컴퓨터에서 사용 가능한 업데이트의 상태를 신속하게 평가하고 서버에 대한 필수 업데이트를 설치하는 프로세스를 관리할 수 있습니다.
 
 ## <a name="update-management-in-azure-automation"></a>Azure Automation의 업데이트 관리
 
@@ -48,13 +48,13 @@ OMS를 통해 관리되는 컴퓨터는 다음을 사용하여 평가 및 업데
 #### <a name="linux"></a>Linux
 ![Linux 업데이트 관리 프로세스 흐름](media/oms-solution-update-management/update-mgmt-linux-updateworkflow.png)
 
-컴퓨터가 업데이트 준수를 검색한 후 OMS 에이전트는 OMS에 대량으로 정보를 전달합니다. Windows 컴퓨터에서 준수 검사는 기본적으로 12시간마다 수행됩니다.  검사 일정 외에도 MMA(Microsoft Monitoring Agent)가 다시 시작되면 업데이트 설치 전 그리고 업데이트 설치 후 15분 내에 업데이트 준수 검사가 시작됩니다.  Linux 컴퓨터의 경우 기본적으로 3시간마다 준수 검사가 수행되며, MMA 에이전트가 다시 시작되면 15분 내에 준수 검사가 시작됩니다.  
+컴퓨터가 업데이트 준수를 검색한 후 OMS 에이전트는 Log Analytics에 대량으로 정보를 전달합니다. Windows 컴퓨터에서 준수 검사는 기본적으로 12시간마다 수행됩니다.  검사 일정 외에도 MMA(Microsoft Monitoring Agent)가 다시 시작되면 업데이트 설치 전 그리고 업데이트 설치 후 15분 내에 업데이트 준수 검사가 시작됩니다.  Linux 컴퓨터의 경우 기본적으로 3시간마다 준수 검사가 수행되며, MMA 에이전트가 다시 시작되면 15분 내에 준수 검사가 시작됩니다.  
 
 그런 다음 준수 정보가 처리되어 솔루션에 포함된 대시보드 또는 사용자 정의 쿼리/미리 지정된 쿼리를 사용하여 검색할 수 있는 대시보드에 요약됩니다.  솔루션은 동기화하도록 구성된 소스를 기반으로 컴퓨터가 최신 상태를 유지하는 방식을 보고합니다.  Windows 컴퓨터가 WSUS에 보고하도록 구성된 경우 WSUS가 Microsoft Update와 마지막으로 동기화된 시기에 따라 그 결과는 Microsoft Update가 표시하는 것과 다를 수 있습니다.  로컬 리포지토리에 보고하도록 구성된 Linux 컴퓨터와 공용 리포지토리에 보고하도록 구성된 Linux 컴퓨터도 마찬가지입니다.   
 
 예약 배포를 만들어서 업데이트가 필요한 컴퓨터에 소프트웨어 업데이트를 배포하고 설치할 수 있습니다.  *선택 사항*으로 분류된 업데이트는 Windows 컴퓨터의 배포 범위에 포함되지 않으며, 필수 업데이트만 포함됩니다.  예약 배포는 명시적으로 컴퓨터를 지정하거나 특정 컴퓨터 집합의 로그 검색을 기반으로 하는 [컴퓨터 그룹](../log-analytics/log-analytics-computer-groups.md)을 선택하여 해당 업데이트를 받을 대상 컴퓨터를 정의합니다.  또한 업데이트 설치가 허용되는 시간을 승인하고 지정하는 일정을 지정합니다.  Azure Automation의 runbook에서 업데이트가 설치됩니다.  이러한 runbook을 볼 수 없고 구성이 필요하지 않습니다.  업데이트 배포가 생성되면 업데이트 배포는 포함된 컴퓨터에 지정된 시간에 마스터 업데이트 runbook을 시작하는 일정을 만듭니다.  이 마스터 runbook은 필수 업데이트를 설치하는 각 에이전트에서 하위 runbook을 시작합니다.       
 
-업데이트 배포에 지정된 날짜 및 시간에 대상 컴퓨터는 배포를 병렬로 실행합니다.  업데이트가 여전히 필수인지 확인하기 위한 검사가 수행된 수 업데이트가 설치됩니다.  WSUS 클라이언트 컴퓨터의 경우 업데이트가 WSUS에서 승인되지 않으면 업데이트 배포가 실패합니다.  적용된 업데이트의 결과는 OMS로 전달되어 대시보드에서 또는 검색 이벤트를 통해 처리 및 요약됩니다.     
+업데이트 배포에 지정된 날짜 및 시간에 대상 컴퓨터는 배포를 병렬로 실행합니다.  업데이트가 여전히 필수인지 확인하기 위한 검사가 수행된 수 업데이트가 설치됩니다.  WSUS 클라이언트 컴퓨터의 경우 업데이트가 WSUS에서 승인되지 않으면 업데이트 배포가 실패합니다.  적용된 업데이트의 결과는 Log Analytics로 전달되어 대시보드에서 또는 검색 이벤트를 통해 처리 및 요약됩니다.     
 
 ## <a name="prerequisites"></a>필수 조건
 * 이 솔루션은 Windows Server 2008 이상에 대한 업데이트 평가 및 Windows Server 2008 R2 SP1 이상에 대한 업데이트 배포 수행을 지원합니다.  Nano 서버는 지원되지 않습니다.
@@ -78,7 +78,7 @@ OMS를 통해 관리되는 컴퓨터는 다음을 사용하여 평가 및 업데
 * Linux 에이전트에는 업데이트 리포지토리에 대한 액세스 권한이 있어야 합니다.  
 
     > [!NOTE]
-    > 여러 OMS 작업 영역에 보고하도록 구성된 Linux용 OMS 에이전트는 이 솔루션에서 지원되지 않습니다.  
+    > 여러 Log Analytics 작업 영역에 보고하도록 구성된 Linux용 OMS 에이전트는 이 솔루션에서 지원되지 않습니다.  
     >
 
 Linux용 OMS 에이전트를 설치하고 최신 버전을 다운로드하는 방법에 대한 자세한 내용은 [Linux용 Operations Management Suite 에이전트](https://github.com/microsoft/oms-agent-for-linux)를 참조하세요.  Windows용 OMS 에이전트를 설치하는 방법은 [Windows용 Operations Management Suite 에이전트](../log-analytics/log-analytics-windows-agent.md)를 검토하세요.  
@@ -90,7 +90,7 @@ Linux용 OMS 에이전트를 설치하고 최신 버전을 다운로드하는 �
 이 솔루션은 Automation 계정 및 직접 연결된 에이전트 또는 Operations Manager와 연결된 관리 그룹에 추가되는 다음 리소스로 구성됩니다.
 
 ### <a name="management-packs"></a>관리 팩
-System Center Operations Manager 관리 그룹이 OMS 작업 영역에 연결된 경우 다음 관리 팩이 Operations Manager에 설치됩니다.  이 솔루션을 추가한 후 직접 연결된 Windows 컴퓨터에 이러한 관리 팩도 함께 설치됩니다. 이러한 관리 팩과 관련하여 아무 것도 구성하거나 관리할 필요가 없습니다.
+System Center Operations Manager 관리 그룹이 Log Analytics 작업 영역에 연결된 경우 다음 관리 팩이 Operations Manager에 설치됩니다.  이 솔루션을 추가한 후 직접 연결된 Windows 컴퓨터에 이러한 관리 팩도 함께 설치됩니다. 이러한 관리 팩과 관련하여 아무 것도 구성하거나 관리할 필요가 없습니다.
 
 * Microsoft System Center Advisor 업데이트 평가 인텔리전스 팩(Microsoft.IntelligencePacks.UpdateAssessment)
 * Microsoft.IntelligencePack.UpdateAssessment.Configuration(Microsoft.IntelligencePack.UpdateAssessment.Configuration)
@@ -99,34 +99,31 @@ System Center Operations Manager 관리 그룹이 OMS 작업 영역에 연결된
 솔루션 관리 팩이 업데이트되는 방법에 대한 자세한 내용은 [Log Analytics에 Operations Manager 연결](../log-analytics/log-analytics-om-agents.md)을 참조하세요.
 
 ### <a name="hybrid-worker-groups"></a>Hybrid Worker 그룹
-이 솔루션을 사용하도록 설정하면 이 솔루션에 포함된 Runbook을 지원하기 위해 OMS 작업 영역에 직접 연결된 모든 Windows 컴퓨터가 자동으로 Hybrid Runbook Worker로 구성됩니다.  솔루션에서 관리하는 각 Windows 컴퓨터는 Automation 계정의 Hybrid Runbook Worker 그룹 블레이드에 *Hostname FQDN_GUID* 명명 규칙에 따라 나열됩니다.  계정의 Runbook을 사용하여 이러한 그룹을 대상으로 지정할 수 없으며, 만약 지정하면 오류가 발생합니다. 이러한 그룹은 관리 솔루션을 지원하는 용도로만 사용할 수 있습니다.   
+이 솔루션을 사용하도록 설정하면 이 솔루션에 포함된 Runbook을 지원하기 위해 Log Analytics 작업 영역에 직접 연결된 모든 Windows 컴퓨터가 자동으로 Hybrid Runbook Worker로 구성됩니다.  솔루션에서 관리하는 각 Windows 컴퓨터는 Automation 계정의 Hybrid Runbook Worker 그룹 블레이드에 *Hostname FQDN_GUID* 명명 규칙에 따라 나열됩니다.  계정의 Runbook을 사용하여 이러한 그룹을 대상으로 지정할 수 없으며, 만약 지정하면 오류가 발생합니다. 이러한 그룹은 관리 솔루션을 지원하는 용도로만 사용할 수 있습니다.   
 
 하지만 솔루션과 Hybrid Runbook Worker 그룹 멤버 자격에 동일한 계정을 사용하는 한 Automation Runbook을 지원하기 위해 Automation 계정의 Hybrid Runbook Worker 그룹에 Windows 컴퓨터를 추가할 수 있습니다.  이 기능은 Hybrid Runbook Worker의 7.2.12024.0 버전에 추가되었습니다.  
 
 ## <a name="configuration"></a>구성
-다음 단계를 수행하여 업데이트 관리 솔루션을 OMS 작업 영역에 추가하고 에이전트가 보고하는지 확인합니다. 작업 영역에 이미 연결된 Windows 에이전트는 추가 구성 없이 자동으로 추가됩니다.
+다음 단계를 수행하여 업데이트 관리 솔루션을 Log Analytics 작업 영역에 추가하고 에이전트가 보고하는지 확인합니다. 작업 영역에 이미 연결된 Windows 에이전트는 추가 구성 없이 자동으로 추가됩니다.
 
-다음 메서드를 사용하여 솔루션을 배포할 수 있습니다.
+Automation & Control 기능 또는 업데이트 관리 솔루션을 선택하여 Azure Portal의 Azure Marketplace에서 솔루션을 배포할 수 있습니다.
 
-* Automation 및 제어 기능 또는 업데이트 관리 솔루션을 선택하는 Azure Portal의 Azure Marketplace의 경우
-* OMS 작업 영역의 OMS 솔루션 갤러리의 경우
+같은 리소스 그룹 및 지역에서 Automation 계정과 Log Analytics 작업 영역이 이미 연결된 경우 Automation & Control을 선택하면 현재 구성을 확인한 후 이 솔루션만 설치되고 두 서비스에서 구성됩니다.  Azure Marketplace에서 업데이트 관리 솔루션을 선택해도 동일한 동작이 제공됩니다.  구독에 두 서비스 중 어떤 것도 배포하지 않은 경우 **새 솔루션 만들기** 블레이드의 단계에 따라 다른 미리 선택된 권장 솔루션을 설치할 것을 확인합니다.  필요에 따라 [OMS 솔루션 추가](../log-analytics/log-analytics-add-solutions.md)에 설명된 단계에 따라 Log Analytics 작업 영역에 업데이트 관리 솔루션을 추가할 수 있습니다.  
 
-같은 리소스 그룹 및 지역에서 Automation 계정과 OMS 작업 영역이 이미 연결된 경우 Automation 및 제어를 선택하면 현재 구성을 확인한 후 이 솔루션만 설치되고 두 서비스에서 구성됩니다.  Azure Marketplace에서 업데이트 관리 솔루션을 선택해도 동일한 동작이 제공됩니다.  구독에 두 서비스 중 어떤 것도 배포하지 않은 경우 **새 솔루션 만들기** 블레이드의 단계에 따라 다른 미리 선택된 권장 솔루션을 설치할 것을 확인합니다.  필요에 따라 솔루션 갤러리에서 [OMS 솔루션 추가](../log-analytics/log-analytics-add-solutions.md)에 설명된 단계에 따라 OMS 작업 영역에 업데이트 관리 솔루션을 추가할 수 있습니다.  
+### <a name="confirm-oms-agents-and-operations-manager-management-group-connected-to-log-analytics"></a>OMS 에이전트 및 Operations Manager 관리 그룹이 Log Analytics에 연결되었는지 확인
 
-### <a name="confirm-oms-agents-and-operations-manager-management-group-connected-to-oms"></a>OMS 에이전트 및 Operations Manager 관리 그룹이 OMS에 연결되었는지 확인
-
-몇 분 후 다음 로그 검색을 실행하여 직접 연결된 Linux용 및 Windows용 OMS 에이전트가 OMS와 통신하는지 확인할 수 있습니다.
+몇 분 후 다음 로그 검색을 실행하여 직접 연결된 Linux용 및 Windows용 OMS 에이전트가 Log Analytics와 통신하는지 확인할 수 있습니다.
 
 * Linux - `Type=Heartbeat OSType=Linux | top 500000 | dedup SourceComputerId | Sort Computer | display Table`.  
 
 * Windows - `Type=Heartbeat OSType=Windows | top 500000 | dedup SourceComputerId | Sort Computer | display Table`
 
-Windows 컴퓨터에서 다음 사항을 검토하여 에이전트가 OMS에 연결되었는지 확인할 수 있습니다.
+Windows 컴퓨터에서 다음 사항을 검토하여 에이전트가 Log Analytics에 연결되었는지 확인할 수 있습니다.
 
 1.  제어판에서 Microsoft Monitoring Agent를 열면 **OMS(Azure Log Analytics)** 탭에서 에이전트가 **Microsoft Monitoring Agent가 Microsoft Operations Management Suite 서비스에 성공적으로 연결되었습니다.**와 같은 메시지를 표시합니다.   
-2.  Windows 이벤트 로그를 열고, **응용 프로그램 및 서비스 Logs\Operations Manager**로 이동하여 원본 서비스 커넥터에서 이벤트 ID 3000 및 5002를 검색합니다.  이러한 이벤트는 컴퓨터가 OMS 작업 영역에 등록되었으며 구성을 수신하고 있음을 나타냅니다.  
+2.  Windows 이벤트 로그를 열고, **응용 프로그램 및 서비스 Logs\Operations Manager**로 이동하여 원본 서비스 커넥터에서 이벤트 ID 3000 및 5002를 검색합니다.  이러한 이벤트는 컴퓨터가 Log Analytics 작업 영역에 등록되었으며 구성을 수신하고 있음을 나타냅니다.  
 
-에이전트가 OMS 서비스와 통신할 수 없고 방화벽 또는 프록시 서버를 통해 인터넷과 통신하도록 구성된 경우 [Windows 에이전트에 대한 네트워크 구성](../log-analytics/log-analytics-windows-agent.md) 또는 [Linux 에이전트에 대한 네트워크 구성](../log-analytics/log-analytics-agent-linux.md)을 검토하여 방화벽 또는 프록시 서버가 올바르게 구성되었는지 확인합니다.
+에이전트가 Log Analytics 서비스와 통신할 수 없고 방화벽 또는 프록시 서버를 통해 인터넷과 통신하도록 구성된 경우 [Windows 에이전트에 대한 네트워크 구성](../log-analytics/log-analytics-windows-agent.md) 또는 [Linux 에이전트에 대한 네트워크 구성](../log-analytics/log-analytics-agent-linux.md)을 검토하여 방화벽 또는 프록시 서버가 올바르게 구성되었는지 확인합니다.
 
 > [!NOTE]
 > Linux 시스템이 프록시 또는 OMS Gateway와 통신하도록 구성되고 이 솔루션을 온보딩하는 경우 다음 명령을 수행하여 파일에 omiuser 그룹 읽기 권한을 부여하도록 *proxy.conf* 사용 권한을 업데이트하세요.  
@@ -136,7 +133,7 @@ Windows 컴퓨터에서 다음 사항을 검토하여 에이전트가 OMS에 연
 
 평가가 수행된 후 새로 추가된 Linux 에이전트의 상태가 **업데이트됨**으로 표시됩니다.  이 프로세스는 최대 6시간까지 걸릴 수 있습니다.
 
-Operations Manager 관리 그룹이 OMS와 통신하는지 확인하려면 [OMS와 Operations Manager 통합 유효성 검사](../log-analytics/log-analytics-om-agents.md#validate-operations-manager-integration-with-oms)를 참조하세요.
+Operations Manager 관리 그룹이 Log Analytics와 통신하는지 확인하려면 [OMS와 Operations Manager 통합 유효성 검사](../log-analytics/log-analytics-om-agents.md#validate-operations-manager-integration-with-oms)를 참조하세요.
 
 ## <a name="data-collection"></a>데이터 수집
 ### <a name="supported-agents"></a>지원되는 에이전트
@@ -146,8 +143,8 @@ Operations Manager 관리 그룹이 OMS와 통신하는지 확인하려면 [OMS�
 | --- | --- | --- |
 | Windows 에이전트 |예 |솔루션은 Windows 에이전트에서 시스템 업데이트에 대한 정보를 수집하고 필수 업데이트를 설치하기 시작합니다. |
 | Linux 에이전트 |예 |이 솔루션은 Linux 에이전트에서 시스템 업데이트에 대한 정보를 수집하고 지원되는 배포판에서 필수 업데이트 설치를 시작합니다. |
-| Operations Manager 관리 그룹 |예 |솔루션은 연결된 관리 그룹의 에이전트에서 시스템 업데이트에 대한 정보를 수집합니다.<br>Operations Manager 에이전트에서 Log Analytics로 직접 연결은 필요하지 않습니다. 데이터는 관리 그룹에서 OMS 리포지토리로 전달됩니다. |
-| Azure Storage 계정 |아니오 |Azure Storage는 시스템 업데이트에 대한 정보를 포함하지 않습니다. |
+| Operations Manager 관리 그룹 |예 |솔루션은 연결된 관리 그룹의 에이전트에서 시스템 업데이트에 대한 정보를 수집합니다.<br>Operations Manager 에이전트에서 Log Analytics로 직접 연결은 필요하지 않습니다. 데이터는 관리 그룹에서 Log Analytics 작업 영역으로 전달됩니다. |
+| Azure Storage 계정 |아니요 |Azure Storage는 시스템 업데이트에 대한 정보를 포함하지 않습니다. |
 
 ### <a name="collection-frequency"></a>수집 빈도
 관리되는 Windows 컴퓨터 각각의 경우 검색은 하루에 두 번 수행됩니다. 15분마다 Windows API가 호출되어 마지막 업데이트 시간을 쿼리하여 상태가 변경되었는지, 상태가 변경되었다면 준수 검사가 시작되었는지 확인합니다.  관리되는 Linux 컴퓨터 각각의 경우 검색은 세 시간마다 수행됩니다.
@@ -155,7 +152,7 @@ Operations Manager 관리 그룹이 OMS와 통신하는지 확인하려면 [OMS�
 관리되는 컴퓨터의 업데이트 데이터가 대시보드에 표시될 때까지 30분에서 6시간이 걸릴 수 있습니다.   
 
 ## <a name="using-the-solution"></a>솔루션 사용
-업데이트 관리 솔루션을 OMS 작업 영역에 추가할 때 OMS 대시보드에 **업데이트 관리** 타일이 추가됩니다. 이 타일은 현재 환경의 컴퓨터 수 및 그래픽 표현과 업데이트 준수를 표시합니다.<br><br>
+업데이트 관리 솔루션을 Log Analytics 작업 영역에 추가할 때 Log Analytics 대시보드에 **업데이트 관리** 타일이 추가됩니다. 이 타일은 현재 환경의 컴퓨터 수 및 그래픽 표현과 업데이트 준수를 표시합니다.<br><br>
 ![업데이트 관리 요약 타일](media/oms-solution-update-management/update-management-summary-tile.png)  
 
 
@@ -220,14 +217,14 @@ Azure Marketplace에서 사용할 수 있는 주문형 RHEL(Red Hat Enterprise L
 데이터의 시간 범위를 변경하려면 대시보드 위쪽에서 **데이터 기반**을 선택합니다. 지난 7일, 1일 또는 6시간 내에 생성되거나 업데이트된 레코드를 선택할 수 있습니다. 또는 **사용자 지정**을 선택하고 사용자 지정 날짜 범위를 지정할 수 있습니다.
 
 ## <a name="log-analytics-records"></a>Log Analytics 레코드
-업데이트 관리 솔루션은 OMS 리포지토리에 두 가지 유형의 레코드를 만듭니다.
+업데이트 관리 솔루션은 Log Analytics 작업 영역에 두 가지 유형의 레코드를 만듭니다.
 
 ### <a name="update-records"></a>업데이트 레코드
 **업데이트**라는 형식의 레코드가 각 컴퓨터에 설치되었거나 필요한 각 업데이트에 만들어집니다. 업데이트 레코드는 다음 테이블의 속성을 가집니다.
 
 | 자산 | 설명 |
 | --- | --- |
-| type |*업데이트* |
+| 형식 |*업데이트* |
 | SourceSystem |업데이트의 설치를 승인하는 원본입니다.<br>가능한 값은 다음과 같습니다.<br>- Microsoft 업데이트<br>- Windows 업데이트<br>- SCCM<br>- Linux 서버(패키지 관리자에서 가져옴) |
 | 승인됨 |설치에 대한 업데이트를 승인했는지 여부를 명시합니다.<br> Linux 서버의 경우 패치가 OMS에서 관리되지 않기 때문에 현재 선택 사항입니다. |
 | Windows용 분류 |업데이트의 분류입니다.<br>가능한 값은 다음과 같습니다.<br>- 응용 프로그램<br>- 중요 업데이트<br>- 정의 업데이트<br>- 기능 팩<br>- 보안 업데이트<br>- 서비스 팩<br>- 업데이트 롤업<br>- 업데이트 |
@@ -268,7 +265,7 @@ Azure Marketplace에서 사용할 수 있는 주문형 RHEL(Red Hat Enterprise L
 
 | 자산 | 설명 |
 | --- | --- |
-| type |UpdateSummary |
+| 형식 |UpdateSummary |
 | SourceSystem |OpsManager |
 | Computer |컴퓨터의 이름입니다. |
 | CriticalUpdatesMissing |컴퓨터에 누락된 중요 업데이트 수입니다. |
@@ -317,7 +314,7 @@ Azure Marketplace에서 사용할 수 있는 주문형 RHEL(Red Hat Enterprise L
 
 PC, 서버 및 모바일 장치를 관리하기 위해 System Center Configuration Manager에 투자하는 고객들은 SUM(소프트웨어 업데이트 관리) 주기의 일환으로 이 강력하고 완성도 있는 소프트웨어 업데이트 관리를 신뢰합니다.
 
-Sytem Center Configuration Manager와 OMS 업데이트 관리 솔루션을 통합하는 방법을 알아보려면 [OMS 업데이트 관리와 System Center Configuration Manager 통합](../automation/oms-solution-updatemgmt-sccmintegration.md)을 참조하세요.
+System Center Configuration Manager와 OMS 업데이트 관리 솔루션을 통합하는 방법을 알아보려면 [OMS 업데이트 관리와 System Center Configuration Manager 통합](../automation/oms-solution-updatemgmt-sccmintegration.md)을 참조하세요.
 
 ## <a name="troubleshooting"></a>문제 해결
 
@@ -335,7 +332,7 @@ Sytem Center Configuration Manager와 OMS 업데이트 관리 솔루션을 통�
 | 패치 관리용 컴퓨터를 등록할 수 없습니다.<br>예외와 함께 등록이 실패했습니다.<br>AgentService.HybridRegistration.<br>PowerShell.Certificates.CertificateCreationException:<br>자체 서명된 인증서를 만들지 못했습니다. ---><br>System.UnauthorizedAccessException: 액세스가 거부되었습니다. | 자체 서명된 인증서 생성 오류 | 시스템 계정에<br>다음 폴더에 대한 읽기 권한이 있는지 확인합니다.<br>**C:\ProgramData\Microsoft\**<br>**Crypto\RSA**|  
 
 ### <a name="how-do-i-troubleshoot-update-deployments"></a>업데이트 배포를 문제를 해결하려면 어떻게 해야 하나요?
-이 솔루션을 지원하는 OMS 작업 영역과 연결된 Automation 계정의 작업 블레이드에서 예약된 업데이트 배포에 포함된 업데이트의 배포를 담당하는 Runbook의 결과를 살펴볼 수 있습니다.  **Patch-MicrosoftOMSComputer** Runbook은 특정 관리형 컴퓨터를 대상으로 하는 자식 Runbook이며, 자세한 정보 스트림이 해당 배포에 대한 자세한 정보를 제공하는지 검토합니다.  출력에는 적용되는 필수 업데이트, 다운로드 상태, 설치 상태 및 추가 세부 정보가 표시됩니다.<br><br> ![배포 작업 상태 업데이트](media/oms-solution-update-management/update-la-patchrunbook-outputstream.png)<br>
+이 솔루션을 지원하는 Log Analytics 작업 영역과 연결된 Automation 계정의 작업 블레이드에서 예약된 업데이트 배포에 포함된 업데이트의 배포를 담당하는 Runbook의 결과를 살펴볼 수 있습니다.  **Patch-MicrosoftOMSComputer** Runbook은 특정 관리형 컴퓨터를 대상으로 하는 자식 Runbook이며, 자세한 정보 스트림이 해당 배포에 대한 자세한 정보를 제공하는지 검토합니다.  출력에는 적용되는 필수 업데이트, 다운로드 상태, 설치 상태 및 추가 세부 정보가 표시됩니다.<br><br> ![배포 작업 상태 업데이트](media/oms-solution-update-management/update-la-patchrunbook-outputstream.png)<br>
 
 자세한 내용은 [Automation Runbook 출력 및 메시지](../automation/automation-runbook-output-and-messages.md)를 참조하세요.   
 

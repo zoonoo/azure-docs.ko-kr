@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: ab3044b46c37a2a50d271fa8e8a6b924da1e131b
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: c9f750f0e2764e7753c9d6c62de60ab27df9620c
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-odata-source-using-azure-data-factory"></a>Azure Data Factory를 사용하여 OData 원본에서 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -54,8 +54,8 @@ OData 연결된 서비스에 다음 속성이 지원됩니다.
 | URL | OData 서비스의 루트 URL입니다. |예 |
 | authenticationType | OData 소스에 연결하는 데 사용되는 인증 형식입니다.<br/>가능한 값은 **Anonymous**, **Basic** 및 **Windows**입니다. OAuth는 지원되지 않습니다. | 예 |
 | userName | 기본 또는 Windows 인증을 사용하는 경우 사용자 이름을 지정합니다. | 아니오 |
-| 암호 | userName에 지정한 사용자 계정의 암호를 지정합니다. 이 필드를 SecureString으로 표시합니다. | 아니요 |
-| connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 Integration Runtime을 사용할 수 있습니다(데이터 저장소가 개인 네트워크에 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아니오 |
+| 암호 | userName에 지정한 사용자 계정의 암호를 지정합니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 암호를 참조](store-credentials-in-key-vault.md)합니다. | 아니오 |
+| connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 Integration Runtime을 사용할 수 있습니다(데이터 저장소가 개인 네트워크에 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아니요 |
 
 **예제 1: 익명 인증 사용**
 
@@ -166,7 +166,7 @@ OData에서 데이터를 복사하려면 복사 작업의 원본 형식을 **Rel
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | 형식 | 복사 작업 원본의 형식 속성을 **RelationalSource**로 설정해야 합니다. | 예 |
-| 쿼리 | 데이터를 필터링하는 OData 쿼리 옵션입니다. 예: “?$select=Name,Description&$top=5”.<br/><br/>마지막에 OData 커넥터가 결합된 URL(`[url specified in linked service]/[path specified in dataset][query specified in copy activity source]`)에서 데이터를 복사합니다. [OData URL 구성 요소](http://www.odata.org/documentation/odata-version-3-0/url-conventions/)를 참조하세요. | 아니오 |
+| 쿼리 | 데이터를 필터링하는 OData 쿼리 옵션입니다. 예: “?$select=Name,Description&$top=5”.<br/><br/>마지막에 OData 커넥터가 결합된 URL(`[url specified in linked service]/[path specified in dataset][query specified in copy activity source]`)에서 데이터를 복사합니다. [OData URL 구성 요소](http://www.odata.org/documentation/odata-version-3-0/url-conventions/)를 참조하세요. | 아니요 |
 
 **예제:**
 

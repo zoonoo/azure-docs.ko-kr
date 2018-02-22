@@ -3,8 +3,8 @@ title: "Azure 스택 사용할 수 있는 azure 마켓플레이스 항목 | Micr
 description: "Azure 스택에 이러한 Azure 마켓플레이스 항목을 사용할 수 있습니다."
 services: azure-stack
 documentationcenter: 
-author: JeffGoldner
-manager: bradleyb
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 
 ms.service: azure-stack
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2018
-ms.author: JeffGoldner
-ms.openlocfilehash: a23b5ff4dc8b0cf18e529d9cdc9925ea7fcedba0
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.author: brenduns
+ms.reviewer: jeffgo
+ms.openlocfilehash: bfc55a305fd0099af5cc2bb394420e547d2703bc
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure 스택 사용할 수 있는 azure 마켓플레이스 항목
 
@@ -30,14 +31,14 @@ ms.lasthandoff: 02/01/2018
 
 |  | 항목 이름 | 설명 | 게시자 | OS 종류 |
 | --- | --- | --- | --- | --- |
-|![](media/azure-stack-marketplace-azure-items/cse.png) | [SQL IaaS 확장](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)| <b>모든 SQL Server에서 Windows 마켓플레이스 항목을 배포 하려면이 확장을 다운로드-이것이 필요 합니다.</b> | Microsoft | Windows |
-|![](media/azure-stack-marketplace-azure-items/cse.png) | [사용자 지정 스크립트 확장](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/extensions-customscript)| <b>기본 버전의 Windows 사용자 지정 스크립트 확장이이 업데이트를 다운로드 합니다.</b> | Microsoft | Windows |
-|![](media/azure-stack-marketplace-azure-items/dsc.png) | [PowerShell DSC 확장](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-dsc-overview)| <b>PowerShell DSC 확장의 기본 버전으로이 업데이트를 다운로드 합니다.</b> | Microsoft | Windows |
-| ![](media/azure-stack-marketplace-azure-items/cse.png) | [Microsoft 맬웨어 방지 확장](https://docs.microsoft.com/en-us/azure/security/azure-security-antimalware)| Azure를 위한 Microsoft 맬웨어 방지는 응용 프로그램 및 테넌트 환경에 대한 단일 에이전트 솔루션이며 사용자의 개입 없이 백그라운드에서 실행되도록 설계됩니다. | Microsoft | Windows |
+|![](media/azure-stack-marketplace-azure-items/cse.png) | [ SQL IaaS 확장 ](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)| <b>모든 SQL Server에서 Windows 마켓플레이스 항목을 배포 하려면이 확장을 다운로드-이것이 필요 합니다.</b> | Microsoft | Windows |
+|![](media/azure-stack-marketplace-azure-items/cse.png) | [ 사용자 지정 스크립트 확장 ](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/extensions-customscript)| <b>기본 버전의 Windows 사용자 지정 스크립트 확장이이 업데이트를 다운로드 합니다.</b> | Microsoft | Windows |
+|![](media/azure-stack-marketplace-azure-items/dsc.png) | [ PowerShell DSC 확장 ](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-dsc-overview)| <b>PowerShell DSC 확장의 기본 버전으로이 업데이트를 다운로드 합니다.</b> | Microsoft | Windows |
+| ![](media/azure-stack-marketplace-azure-items/cse.png) | [ Microsoft 맬웨어 방지 확장 ](https://docs.microsoft.com/en-us/azure/security/azure-security-antimalware)| Azure를 위한 Microsoft 맬웨어 방지는 응용 프로그램 및 테넌트 환경에 대한 단일 에이전트 솔루션이며 사용자의 개입 없이 백그라운드에서 실행되도록 설계됩니다. | Microsoft | Windows |
 | ![](media/azure-stack-marketplace-azure-items/dockerextension.png) | [Docker](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft.docker-arm) | Linux 가상 컴퓨터에 docker 확장 합니다. | Microsoft | Linux |
-| ![](media/azure-stack-marketplace-azure-items/cse.png) | [Linux 용 VM 액세스](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/)| <b>Linux 확장용는 VMAccess의 기본 버전으로이 업데이트를 다운로드 합니다. Debian Linux Vm을 사용 하려는 경우에 유용 합니다.</b> | Microsoft | Linux |
-| ![](media/azure-stack-marketplace-azure-items/acronis.png) | [Linux 용 Acronis 백업 확장](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-lin-arm) | Microsoft Azure에 대 한 Acronis 백업 확장에는 데이터 보호 제품의 Acronis 백업 제품군의 일부입니다. | Acronis 국제 GmbH 합니다. | Linux |
-| ![](media/azure-stack-marketplace-azure-items/acronis.png) | [Windows 용 Acronis 백업 확장](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-win-arm) | Microsoft Azure에 대 한 Acronis 백업 확장에는 데이터 보호 제품의 Acronis 백업 제품군의 일부입니다. | Acronis 국제 GmbH 합니다. | Windows |
+| ![](media/azure-stack-marketplace-azure-items/cse.png) | [ Linux 용 VM 액세스 ](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/)| <b>Linux 확장용는 VMAccess의 기본 버전으로이 업데이트를 다운로드 합니다. Debian Linux Vm을 사용 하려는 경우에 유용 합니다.</b> | Microsoft | Linux |
+| ![](media/azure-stack-marketplace-azure-items/acronis.png) | [ Linux 용 Acronis 백업 확장 ](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-lin-arm) | Microsoft Azure에 대 한 Acronis 백업 확장에는 데이터 보호 제품의 Acronis 백업 제품군의 일부입니다. | Acronis 국제 GmbH 합니다. | Linux |
+| ![](media/azure-stack-marketplace-azure-items/acronis.png) | [ Windows 용 Acronis 백업 확장 ](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-win-arm) | Microsoft Azure에 대 한 Acronis 백업 확장에는 데이터 보호 제품의 Acronis 백업 제품군의 일부입니다. | Acronis 국제 GmbH 합니다. | Windows |
 
 ## <a name="microsoft-virtual-machine-images-and-solution-templates"></a>Microsoft 가상 컴퓨터 이미지 및 솔루션 템플릿
 
@@ -70,9 +71,9 @@ Microsoft Azure 스택 솔루션 템플릿과 다음 Azure 마켓플레이스 �
 | ![](media/azure-stack-marketplace-azure-items/sql.png) | [SUSE Linux Enterprise Server 12 (SLES)의 SQL Server 2017 Express s p 2](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeSQLServerLicenseSQLServer2017ExpressonSLES12SP2) | Express 버전을 SQL Server 2016 s p 1의 무료입니다. | Microsoft + SUSE |
 | ![](media/azure-stack-marketplace-azure-items/sql.png) | [SUSE Linux Enterprise Server 12 (SLES)에서 SQL Server 2017 Enterprise SP2](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.Microsoft.SQLServer2017EnterpriseonSLES12SP2) | 지능적이 고 중요 한 응용 프로그램에 대 한 데이터베이스 플랫폼입니다. | Microsoft + SUSE |
 | ![](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2017 웹 SUSE Linux Enterprise Server (SLES)를에 12 SP2](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.Microsoft.SQLServer2017WebonSLES12SP2) | 지능적이 고 중요 한 응용 프로그램에 대 한 데이터베이스 플랫폼입니다. | Microsoft + SUSE |
-| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Windows Server 2016에서 9.2.1 서버 학습 Microsoft 컴퓨터](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onWindowsServer2016) | Microsoft 기계 9.2.1 Windows Server 2016에서 서버를 학습 합니다. | Microsoft |
-| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft 기계 16.04 ubuntu Server 9.2.1 학습](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onUbuntu1604) | Microsoft 기계 16.04 ubuntu Server 9.2.1를 학습 합니다. | Microsoft + Canonical |
-| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft 기계 CentOS linux 7.2 9.2.1 서버 학습](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onCentOSLinux72) | Microsoft 기계 CentOS linux 7.2 9.2.1 서버를 학습 합니다. | Microsoft + Rogue Wave |
+| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Windows Server 2016에서 9.2.1 서버 학습 Microsoft 컴퓨터 ](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onWindowsServer2016) | Microsoft 기계 9.2.1 Windows Server 2016에서 서버를 학습 합니다. | Microsoft |
+| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft 기계 16.04 ubuntu Server 9.2.1 학습 ](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onUbuntu1604) | Microsoft 기계 16.04 ubuntu Server 9.2.1를 학습 합니다. | Microsoft + Canonical |
+| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft 기계 CentOS linux 7.2 9.2.1 서버 학습 ](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onCentOSLinux72) | Microsoft 기계 CentOS linux 7.2 9.2.1 서버를 학습 합니다. | Microsoft + Rogue Wave |
 
 
 ## <a name="linux-distributions"></a>Linux 배포
@@ -85,7 +86,7 @@ Microsoft Azure 스택 솔루션 템플릿과 다음 Azure 마켓플레이스 �
 | ![](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS 기반 6.9](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased69) | 이 배포의 Linux CentOS을 기반으로 하 고 Rogue 웨이브 소프트웨어에 의해 제공 됩니다. | 불량 웨이브 소프트웨어 (이전의 OpenLogic)  |
 | ![](media/azure-stack-marketplace-azure-items/roguewave.png) | [7.4 centOS 기반](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased74) | 이 배포의 Linux CentOS을 기반으로 하 고 Rogue 웨이브 소프트웨어에 의해 제공 됩니다. | 불량 웨이브 소프트웨어 (이전의 OpenLogic) |
 | ![](media/azure-stack-marketplace-azure-items/roguewave.png) | [7.4 LVM centOS 기반](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased74LVM) | 이 배포의 Linux CentOS을 기반으로 하 고 Rogue 웨이브 소프트웨어에 의해 제공 됩니다. | 불량 웨이브 소프트웨어 (이전의 OpenLogic) |
-| ![](media/azure-stack-marketplace-azure-items/suse.png) | [SLES 12 SP3 (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SUSELinuxEnterpriseServer12SP3BringYourOwnSubscription) | SUSE Linux Enterprise Server 12 SP3. | SUSE |
+| ![](media/azure-stack-marketplace-azure-items/suse.png) | [SLES 12 SP3 (BYOS) ](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SUSELinuxEnterpriseServer12SP3BringYourOwnSubscription) | SUSE Linux Enterprise Server 12 SP3. | SUSE |
 
 ## <a name="third-party-byol-free-and-trial-images-and-solution-templates"></a>제 3 자 BYOL, Free 및 평가판 이미지 및 솔루션 템플릿
 
@@ -209,5 +210,5 @@ Microsoft Azure 스택 솔루션 템플릿과 다음 Azure 마켓플레이스 �
 | ![](media/azure-stack-marketplace-azure-items/kemp.png) | [LoadMaster 부하 분산 장치 ADC 콘텐츠 스위치](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure) | 계층 4-7 응용 프로그램 배달 컨트롤러 (ADC) 부하 분산 장치, 콘텐츠 스위치 및 트래픽 관리자. | KEMP Technologies Inc. |
 | ![](media/azure-stack-marketplace-azure-items/noobaa.png) | [NooBaa 하이브리드 AWS S3 compatibe-Community Edition](https://azuremarketplace.microsoft.com/marketplace/apps/noobaa.noobaa-hybrid-s3-archive-05) | S3 호환 저장소 서비스 공개에 걸쳐 있고 온-프레미스 리소스 용량입니다. | NooBaa |
 | ![](media/azure-stack-marketplace-azure-items/puppet.png) | [Puppet Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2017-2) | Puppet Enterprise를 사용 하면 Azure 스택 인프라의 전체 수명 주기를 자동화할 수 있습니다. <b>Puppet 마켓플레이스 항목을 모두 다운로드 합니다.</b> | Puppet |
-| ![](media/azure-stack-marketplace-azure-items/suse.png) | [SUSE Manager 3.0 프록시 (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SUSEManager30ProxyBringYourOwnSubscription) | 클래스의 가장 소스 인프라 관리를 엽니다. | SUSE |
-| ![](media/azure-stack-marketplace-azure-items/zerodown.png) | [ZeroDown 소프트웨어 도구](https://azuremarketplace.microsoft.com/marketplace/apps/zerodown_software.zerodown-software-tool-7_1) | ZeroDown 소프트웨어 도구 v7.1-마이그레이션할 + HA 합니다. | ZeroDown 소프트웨어 |
+| ![](media/azure-stack-marketplace-azure-items/suse.png) | [SUSE Manager 3.0 프록시 (BYOS) ](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SUSEManager30ProxyBringYourOwnSubscription) | 클래스의 가장 소스 인프라 관리를 엽니다. | SUSE |
+| ![](media/azure-stack-marketplace-azure-items/zerodown.png) | [ZeroDown 소프트웨어 도구 ](https://azuremarketplace.microsoft.com/marketplace/apps/zerodown_software.zerodown-software-tool-7_1) | ZeroDown 소프트웨어 도구 v7.1-마이그레이션할 + HA 합니다. | ZeroDown 소프트웨어 |

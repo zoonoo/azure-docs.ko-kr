@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: ab55281b6adcc8867f207e6887c88a26c1a8616b
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: e1cf4da324d082e0ee09feb3344cd2340ab59af7
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions"></a>Azure Functions의 Azure Cosmos DB 바인딩
 
@@ -745,6 +745,12 @@ JavaScript 코드는 다음과 같습니다.
 
 > [!Note]  
 > 기존 문서의 ID를 지정하면 새 출력 문서에 의해 덮어쓰여집니다. 
+
+## <a name="exceptions-and-return-codes"></a>예외 및 반환 코드
+
+| 바인딩 | 참고 자료 |
+|---|---|
+| DocumentDB | [DocumentDB 오류 코드](https://docs.microsoft.com/en-us/rest/api/documentdb/http-status-codes-for-documentdb) |
 
 ## <a name="next-steps"></a>다음 단계
 

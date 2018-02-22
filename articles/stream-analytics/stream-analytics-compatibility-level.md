@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 01/03/2018
 ms.author: sngun
-ms.openlocfilehash: 0d89259d54fba0bd57881ec69cb61b5af6d603b5
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: f354c39fc3b366795fe4ed8dbeeb961bb11d5420
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Azure Stream Analytics 작업의 호환성 수준
  
@@ -57,7 +57,10 @@ ms.lasthandoff: 01/12/2018
   * **이전 버전:** Azure Stream Analytics 엔진에서 필드 이름이 처리될 때 소문자로 변경되었습니다. 
 
   * **현재 버전:** Azure Stream Analytics 엔진에서 필드 이름이 처리될 때 대/소문자 구분이 유지됩니다. 
- 
+
+  > [!NOTE] 
+  > 지속적인 대/소문자 구분은 에지 환경을 사용하여 호스팅되는 Stream Analytic 작업에 아직 사용할 수 없습니다. 결과적으로, 작업이 에지에서 호스팅되는 경우 모든 필드 이름은 소문자로 변환됩니다. 
+
 * **FloatNaNDeserializationDisabled**  
 
   * **이전 버전:** CREATE TABLE 명령은 FLOAT 열 형식이 NaN(숫자가 아님. 예: 무한대, -무한대)인 이벤트를 필터링하지 않습니다. 왜냐하면 이러한 이벤트는 이러한 숫자에 대해 문서화된 범위를 벗어나기 때문입니다.

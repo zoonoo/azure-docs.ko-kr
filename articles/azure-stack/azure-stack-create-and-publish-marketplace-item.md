@@ -3,8 +3,8 @@ title: "만들기 및 Azure 스택의 마켓플레이스 항목을 게시 | Micr
 description: "만들고 스택의 Azure 마켓플레이스 항목을 게시 합니다."
 services: azure-stack
 documentationcenter: 
-author: ErikjeMS
-manager: byronr
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 77e5f60c-a86e-4d54-aa8d-288e9a889386
 ms.service: azure-stack
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2017
-ms.author: erikje
-ms.openlocfilehash: 64203ce186665aada98fbe8daed971164a650399
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: brenduns
+ms.reviewer: jeffgo
+ms.openlocfilehash: 5ac91dac3cb446abaf07492d8b6ec8aa0c120ef4
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-and-publish-a-marketplace-item"></a>Marketplace 항목 만들기 및 게시
 
@@ -72,7 +73,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="publish-a-marketplace-item"></a>Marketplace 항목 게시
 1. PowerShell 또는 Azure 저장소 탐색기를 사용 하 여 프로그램 마켓플레이스 항목 (.azpkg) Azure Blob 저장소에 업로드 합니다. 로컬 스택 Azure 저장소에 업로드 하거나 Azure 저장소에 업로드할 수 있습니다. (이 패키지에 대 한 임시 위치입니다.) Blob는 공개적으로 액세스할 수 있는지 확인 합니다.
 2. Microsoft Azure 스택 환경에서 클라이언트 가상 컴퓨터에서 PowerShell 세션 서비스 관리자 자격 증명으로 설정 되어 있는지 확인 합니다. PowerShell에서 Azure 스택에 인증 하는 방법에 대 한 지침을 제공 [PowerShell과 함께 서식 파일을 배포](user/azure-stack-deploy-template-powershell.md)합니다.
-3. 사용 하 여는 **추가 AzureRMGalleryItem** 스택에 Azure 마켓플레이스 항목을 게시 하려면 PowerShell cmdlet. 예:
+3. 사용 하 여는 **추가 AzureRMGalleryItem** 스택에 Azure 마켓플레이스 항목을 게시 하려면 PowerShell cmdlet. 예: 
    
        Add-AzureRMGalleryItem -GalleryItemUri `
        https://sample.blob.core.windows.net/gallerypackages/Microsoft.SimpleTemplate.1.0.0.azpkg –Verbose
@@ -89,7 +90,7 @@ ms.lasthandoff: 10/11/2017
    > 
    > 
 5. 마켓플레이스 항목 이제 Azure 스택 마켓플레이스로 저장 되었습니다. Blob 저장소 위치에서 삭제할 수 있습니다.
-6. 사용 하 여 마켓플레이스 항목을 제거할 수 있습니다는 **제거 AzureRMGalleryItem** cmdlet. 예제:
+6. 사용 하 여 마켓플레이스 항목을 제거할 수 있습니다는 **제거 AzureRMGalleryItem** cmdlet. 예:
    
         Remove-AzureRMGalleryItem -Name Microsoft.SimpleTemplate.1.0.0  –Verbose
    
@@ -109,7 +110,7 @@ ms.lasthandoff: 10/11/2017
 ### <a name="metadata"></a>Metadata
 | 이름 | 필수 | 형식 | 제약 조건 | 설명 |
 | --- | --- | --- | --- | --- |
-| displayName |X |문자열 |문자의 경우 80 자의 권장 사항 |문자의 경우 80 자 보다 긴 경우 포털 항목 이름 정상적으로 표시 되지 수도 있습니다. |
+| DisplayName |X |문자열 |문자의 경우 80 자의 권장 사항 |문자의 경우 80 자 보다 긴 경우 포털 항목 이름 정상적으로 표시 되지 수도 있습니다. |
 | PublisherDisplayName |X |문자열 |30 자의 권장 사항 |30 자 보다 긴 경우 포털 게시자 이름을 적절 하 게 표시 되지 수도 있습니다. |
 | PublisherLegalName |X |문자열 |최대 256 자 | |
 | 요약 |X |문자열 |60-100자 | |
@@ -119,10 +120,10 @@ ms.lasthandoff: 10/11/2017
 ### <a name="images"></a>이미지
 마켓플레이스는 다음 아이콘을 사용합니다.
 
-| 이름 | 너비 | 높이 | 참고 사항 |
+| 이름 | 너비 | 높이 | 메모 |
 | --- | --- | --- | --- |
 | 넓은 |255 px |115 px |항상 필요 |
-| 큼 |115 px |115 px |항상 필요 |
+| 큰 |115 px |115 px |항상 필요 |
 | 중간 |90 px |90 px |항상 필요 |
 | 작음 |40 픽셀 |40 픽셀 |항상 필요 |
 | 스크린샷 |533 px |32 픽셀 |옵션 |
@@ -135,7 +136,7 @@ ms.lasthandoff: 10/11/2017
 
 | 이름 | 필수 | 형식 | 제약 조건 | 설명 |
 | --- | --- | --- | --- | --- |
-| displayName |X |문자열 |최대 64 자 | |
+| DisplayName |X |문자열 |최대 64 자 | |
 | Uri |X |URI | | |
 
 ### <a name="additional-properties"></a>추가 속성
@@ -143,13 +144,13 @@ ms.lasthandoff: 10/11/2017
 
 | 이름 | 필수 | 형식 | 제약 조건 | 설명 |
 | --- | --- | --- | --- | --- |
-| displayName |X |문자열 |최대 25 자 | |
+| DisplayName |X |문자열 |최대 25 자 | |
 | 값 |X |문자열 |최대 30 자 | |
 
 ### <a name="html-sanitization"></a>HTML 삭제
 HTML 수 있는 모든 필드에 대해 다음 요소와 특성이 허용 됩니다.
 
-h1, h2 h3 h4, h5, p, ol, ul, li, 한 [대상 | href], 브라질, em, b, i
+h1, h2, h3, h4, h5, p, ol, ul, li, a[target|href], br, strong, em, b, i
 
 ## <a name="reference-marketplace-item-ui"></a>참조: 마켓플레이스 항목 UI
 아이콘 및 스택 Azure 포털에서 표시 된 대로 마켓플레이스 항목에 대 한 텍스트는 다음과 같습니다.

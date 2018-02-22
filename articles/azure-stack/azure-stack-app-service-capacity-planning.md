@@ -3,8 +3,8 @@ title: "Azure 앱 서비스 서버 역할에 Azure 스택을 위한 용량 계�
 description: "Azure 앱 서비스 서버 역할에 Azure 스택을 위한 용량 계획"
 services: azure-stack
 documentationcenter: 
-author: apwestgarth
-manager: stefsch
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 
 ms.service: azure-stack
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
-ms.author: anwestg
-ms.openlocfilehash: 93e10235e3de4ecea4d0e356bb4b52922c8afac8
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.author: brenduns
+ms.reviewer: anwestg
+ms.openlocfilehash: 8926955d5e0260b5971e07b6988bb21df9980847
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="capacity-planning-for-azure-app-service-server-roles-in-azure-stack"></a>Azure 앱 서비스 서버 역할에 Azure 스택을 위한 용량 계획
 *적용 대상: Azure 스택 통합 시스템과 Azure 스택 개발 키트*

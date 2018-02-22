@@ -10,13 +10,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: c388fe0cfe85ec2bf2b752f74d39eb2ebe38ceb1
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: e8326cedfbf22b5ddf19626642b63312babe5fb6
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-store-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Data Lake Store 간에 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -71,15 +71,15 @@ Azure Data Lake Store 연결된 서비스에 다음 속성이 지원됩니다.
 
 >[!IMPORTANT]
 > Azure Data Lake Store에서 서비스 주체에게 적절한 권한을 부여해야 합니다.
->- **원본으로** 적어도 **읽기 + 실행** 데이터 액세스 권한을 부여하여 폴더의 내용을 나열하고 복사하거나 **읽기** 권한을 부여하여 단일 파일을 복사합니다. 계정 수준 액세스 제어(IAM)가 필요하지 않습니다.
->- **싱크로** 적어도 **쓰기 + 실행** 데이터 액세스 권한을 부여하여 폴더에서 자식 항목을 만듭니다. Azure IR을 사용하여 복사하는 경우(클라우드의 소스와 싱크 모두) Data Factory가 Data Lake Store의 지역을 감지하기 위해 계정 액세스 제어(IAM)에서 적어도 **읽기 권한자** 역할을 부여합니다. 이 IAM 역할을 방지하려면 Data Lake Store의 위치에서 명시적으로 [Azure IR을 만들고](create-azure-integration-runtime.md#create-azure-ir), 다음 예제와 같이 Data Lake Store 연결된 서비스에서 연결합니다.
+>- **원본으로**, 데이터 탐색기 -> 액세스에서 폴더/하위 폴더의 파일을 나열하고 복사할 수 있도록 적어도 **읽기 + 실행** 권한을 부여하거나, 단일 파일을 복수할 수 있도록 **읽기** 권한을 부여하고 **액세스 권한 및 기본 권한 항목**으로 추가합니다. 계정 수준 액세스 제어(IAM)가 필요하지 않습니다.
+>- **싱크로**, 데이터 탐색기 -> 액세스에서 폴더에 자식 항목을 만들 수 있도록 적어도 **쓰기 + 실행** 권한을 부여하고, **액세스 권한 및 기본 권한 항목**을 추가합니다. Azure IR을 사용하여 복사하는 경우(원본과 싱크가 모두 클라우드에 있음) Data Factory가 Data Lake Store의 지역을 감지할 수 있도록 계정 액세스 제어(IAM)에서 적어도 **읽기 권한자** 역할을 부여합니다. 이 IAM 역할을 방지하려면 Data Lake Store의 위치에서 명시적으로 [Azure IR을 만들고](create-azure-integration-runtime.md#create-azure-ir), 다음 예제와 같이 Data Lake Store 연결된 서비스에서 연결합니다.
 
 다음과 같은 속성이 지원됩니다.
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | servicePrincipalId | 응용 프로그램의 클라이언트 ID를 지정합니다. | 예 |
-| servicePrincipalKey | 응용 프로그램의 키를 지정합니다. 이 필드를 SecureString으로 표시합니다. | 예 |
+| servicePrincipalKey | 응용 프로그램의 키를 지정합니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 암호를 참조](store-credentials-in-key-vault.md)합니다. | 예 |
 
 **예제:**
 
@@ -114,12 +114,12 @@ Azure Data Lake Store 연결된 서비스에 다음 속성이 지원됩니다.
 MSI(관리 서비스 ID) 인증을 사용하려면:
 
 1. 팩터리와 함께 생성된 "서비스 ID 응용 프로그램 ID"의 값을 복사하여 [데이터 팩터리 서비스 ID를 검색](data-factory-service-identity.md#retrieve-service-identity)합니다.
-2. 서비스 주체에서 수행한 것과 동일한 방식으로 Data Lake Store에 서비스 ID 액세스 권한을 부여합니다. 자세한 단계는 [서비스 간 인증 - Azure Data Lake Store 계정 파일 또는 폴더에 Azure AD 응용 프로그램 할당](../data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory.md#step-3-assign-the-azure-ad-application-to-the-azure-data-lake-store-account-file-or-folder)을 참조하세요.
+2. 아래 메모에 따라 서비스 주체에서 수행한 것과 동일한 방식으로 Data Lake Store에 서비스 ID 액세스 권한을 부여합니다.
 
 >[!IMPORTANT]
 > Azure Data Lake Store에서 데이터 팩터리 서비스 ID에 적절한 사용 권한을 부여해야 합니다.
->- **원본으로** 적어도 **읽기 + 실행** 데이터 액세스 권한을 부여하여 폴더의 내용을 나열하고 복사하거나 **읽기** 권한을 부여하여 단일 파일을 복사합니다. 계정 수준 액세스 제어(IAM)가 필요하지 않습니다.
->- **싱크로** 적어도 **쓰기 + 실행** 데이터 액세스 권한을 부여하여 폴더에서 자식 항목을 만듭니다. Azure IR을 사용하여 복사하는 경우(클라우드의 소스와 싱크 모두) Data Factory가 Data Lake Store의 지역을 감지하기 위해 계정 액세스 제어(IAM)에서 적어도 **읽기 권한자** 역할을 부여합니다. 이 IAM 역할을 방지하려면 Data Lake Store의 위치에서 명시적으로 [Azure IR을 만들고](create-azure-integration-runtime.md#create-azure-ir), 다음 예제와 같이 Data Lake Store 연결된 서비스에서 연결합니다.
+>- **원본으로**, 데이터 탐색기 -> 액세스에서 폴더/하위 폴더의 파일을 나열하고 복사할 수 있도록 적어도 **읽기 + 실행** 권한을 부여하거나, 단일 파일을 복수할 수 있도록 **읽기** 권한을 부여하고 **액세스 권한 및 기본 권한 항목**으로 추가합니다. 계정 수준 액세스 제어(IAM)가 필요하지 않습니다.
+>- **싱크로**, 데이터 탐색기 -> 액세스에서 폴더에 자식 항목을 만들 수 있도록 적어도 **쓰기 + 실행** 권한을 부여하고, **액세스 권한 및 기본 권한 항목**을 추가합니다. Azure IR을 사용하여 복사하는 경우(원본과 싱크가 모두 클라우드에 있음) Data Factory가 Data Lake Store의 지역을 감지할 수 있도록 계정 액세스 제어(IAM)에서 적어도 **읽기 권한자** 역할을 부여합니다. 이 IAM 역할을 방지하려면 Data Lake Store의 위치에서 명시적으로 [Azure IR을 만들고](create-azure-integration-runtime.md#create-azure-ir), 다음 예제와 같이 Data Lake Store 연결된 서비스에서 연결합니다.
 
 Azure Data Factory에서 연결된 서비스의 일반 Data Lake Store 정보 이외의 속성을 지정할 필요가 없습니다.
 
@@ -197,7 +197,7 @@ Azure Data Lake Store에서 데이터를 복사하려면 복사 작업의 원본
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | 형식 | 복사 작업 원본의 type 속성을 **AzureDataLakeStoreSource**로 설정해야 합니다. |예 |
-| recursive | 하위 폴더에서 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. recursive가 true로 설정되고 싱크가 파일 기반 저장소인 경우 싱크에서 빈 폴더/하위 폴더가 복사/생성되지 않습니다.<br/>허용되는 값은 **true**(기본값), **false**입니다. | 아니요 |
+| recursive | 하위 폴더에서 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. recursive가 true로 설정되고 싱크가 파일 기반 저장소인 경우 싱크에서 빈 폴더/하위 폴더가 복사/생성되지 않습니다.<br/>허용되는 값은 **true**(기본값), **false**입니다. | 아니오 |
 
 **예제:**
 

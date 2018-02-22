@@ -5,13 +5,13 @@ services: site-recovery
 author: AnoopVasudavan
 ms.service: site-recovery
 ms.topic: article
-ms.date: 01/15/2017
+ms.date: 02/04/2018
 ms.author: anoopkv
-ms.openlocfilehash: e9e4bfc86df2cae1facac62472c915d91fb8c84c
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 9cdabfb4e24423d76e4f247f184ac4156c3b257b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="manage-the-configuration-server"></a>구성 서버 관리
 
@@ -72,6 +72,22 @@ OVF 템플릿은 단일 네트워크 어댑터를 사용하여 구성 서버 VM�
       net stop obengine
       net start obengine
       ```
+## <a name="upgrade-the-configuration-server"></a>구성 서버 업그레이드
+
+구성 서버를 업데이트하려면 업데이트 롤업을 실행합니다. 업데이트는 N-4 버전까지 적용할 수 있습니다. 예: 
+
+- 9.7, 9.8, 9.9 또는 9.10을 실행 중인 경우 9.11로 바로 업그레이드할 수 있습니다.
+- 9.6 이하를 실행 중이고 9.11로 업그레이드하려는 경우 먼저 9.7 버전으로 업그레이드한 후 9.11로 업그레이드해야 합니다.
+
+모든 버전의 구성 서버로 업그레이드할 수 있는 업데이트 롤업 링크가 [wiki 업데이트 페이지](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx)에 제공됩니다.
+
+다음과 같이 서버를 업그레이드합니다.
+
+1. 업데이트 설치 관리자 파일을 구성 서버에 다운로드합니다.
+2. 두 번 클릭하여 설치 관리자를 실행합니다.
+3. 설치 관리자는 컴퓨터에서 실행 중인 현재 버전을 검색합니다.
+4. **확인**을 클릭하여 확인하고 업그레이드를 실행합니다. 
+
 
 ## <a name="delete-or-unregister-a-configuration-server"></a>구성 서버 삭제 또는 등록 취소
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 70c43b25aea364d7254137b46af31f851dcf8bc6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e1beb06301807c35a1b070989a0f80f4c8097762
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-an-external-app-service-environment"></a>외부 App Service Environment 만들기 #
 
@@ -65,7 +65,7 @@ App Service 계획을 만들면서 ASE를 만드는 경우 다음을 수행합�
 
 2. 사용 중인 구독을 선택합니다. 앱 및 ASE는 동일한 구독에 생성됩니다.
 
-3. 리소스 그룹을 선택하거나 만듭니다. 리소스 그룹을 사용하여 관련된 Azure 리소스를 하나의 단위로 관리할 수 있습니다. 리소스 그룹은 앱에 대해 역할 기반 액세스 제어 규칙을 설정하려는 경우 유용합니다. 자세한 내용은 [Azure Resource Manager 개요][ARMOverview]를 참조하세요.
+3. 리소스 그룹을 선택하거나 만듭니다. 리소스 그룹을 사용하여 관련된 Azure 리소스를 하나의 단위로 관리할 수 있습니다. 리소스 그룹은 앱에 대해 역할 기반 Access Control 규칙을 설정하려는 경우 유용합니다. 자세한 내용은 [Azure Resource Manager 개요][ARMOverview]를 참조하세요.
 
 4. App Service 계획을 선택한 다음 **새로 만들기**를 선택합니다.
 
@@ -85,9 +85,9 @@ App Service 계획을 만들면서 ASE를 만드는 경우 다음을 수행합�
 
     a. 여러 개의 항목이 있는 경우 VNet 주소 블록을 선택합니다.
 
-    b. 새 서브넷 이름을 입력합니다.
+    나. 새 서브넷 이름을 입력합니다.
 
-    c. 서브넷의 크기를 선택합니다. *ASE의 향후 증가에 맞게 충분히 큰 크기를 설정해야 합니다.* 권장되는 크기는 `/25`입니다. 여기에는 128개의 주소가 있고 최대 크기의 ASE를 다룰 수 있습니다. 예를 들어 16개의 주소만을 사용할 수 있기 때문에 `/28`은 권장되지 않습니다. 인프라는 최소 5개의 주소를 사용합니다. `/28` 서브넷에서 11개 인스턴스의 최대 확장이 있습니다.
+    다. 서브넷의 크기를 선택합니다. *ASE의 향후 증가에 맞게 충분히 큰 크기를 설정해야 합니다.* 권장되는 크기는 `/25`입니다. 여기에는 128개의 주소가 있고 최대 크기의 ASE를 다룰 수 있습니다. 예를 들어 16개의 주소만을 사용할 수 있기 때문에 `/28`은 권장되지 않습니다. 인프라는 적어도 7개의 주소를 사용하고 Azure Networking은 다른 5개를 사용합니다. `/28` 서브넷에서는 외부 ASE에 대해 최대 4개의 App Service 계획 인스턴스를, ILB ASE에 대해서는 3개의 App Service 계획 인스턴스만 확장할 수 있습니다.
 
     d. 서브넷 IP 범위를 선택합니다.
 

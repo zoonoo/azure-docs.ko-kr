@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2018
+ms.date: 02/02/2018
 ms.author: ergreenl
-ms.openlocfilehash: ad98f3fb1ddb753976be627764d34864e5bf3d50
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: c6c47d1f9776f9e45711d8139661255dcd44c2a1
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-ad-domain-services---troubleshooting-secure-ldap-configuration"></a>Azure AD Domain Services - 보안 LDAP 구성 문제 해결
 
@@ -48,6 +48,9 @@ ms.lasthandoff: 01/18/2018
 5. 규칙이 만들어졌는지 확인합니다.
 6. 2시간 후에 도메인 상태를 확인하여 단계를 올바르게 완료했는지 검사합니다.
 
+> [!TIP]
+> 636 포트는 Azure AD Domain Services를 원활하게 실행하는 데 필요한 규칙 중 하나입니다. 자세한 내용은 [네트워킹 지침](active-directory-ds-networking.md) 또는 [NSG 구성 문제 해결](active-directory-ds-troubleshoot-nsg.md) 아티클을 참조하세요.
+>
 
 ## <a name="contact-us"></a>문의처
 [지원이 필요하거나 피드백을 공유하려면](active-directory-ds-contact-us.md)Azure Active Directory Domain Services 제품 팀에 문의하세요.

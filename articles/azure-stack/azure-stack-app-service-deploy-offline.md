@@ -3,8 +3,8 @@ title: "오프 라인 환경에 앱 서비스 배포: Azure 스택 | Microsoft D
 description: "AD FS로 보호 되는 연결이 끊어진된 Azure 스택 환경에서 응용 프로그램 서비스를 배포 하는 방법에 대 한 자세한 지침."
 services: azure-stack
 documentationcenter: 
-author: apwestgarth
-manager: stefsch
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 
 ms.service: azure-stack
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
-ms.author: anwestg
-ms.openlocfilehash: 2e527620825a3b419c0191244ba0baff4b74f0fa
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.author: brenduns
+ms.reviewer: anwestg
+ms.openlocfilehash: 89571468e7f74f45bc1b679737f634fa0c76fa07
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>AD FS로 보호 되는 연결이 끊어진된 Azure 스택 환경에 앱 서비스 리소스 공급자 추가
 *적용 대상: Azure 스택 통합 시스템과 Azure 스택 개발 키트*

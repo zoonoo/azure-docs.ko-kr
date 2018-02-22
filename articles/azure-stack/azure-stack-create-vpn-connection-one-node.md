@@ -3,8 +3,8 @@ title: "다양 한 Azure 스택 개발 키트 환경에서 두 가상 네트워�
 description: "클라우드 관리자를 사용 하 여 두 개의 단일 노드 Azure 스택 개발 키트 환경 간에 사이트 간 VPN 연결을 만드는 단계별 절차입니다."
 services: azure-stack
 documentationcenter: 
-author: ScottNapolitan
-manager: darmour
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 3f1b4e02-dbab-46a3-8e11-a777722120ec
 ms.service: azure-stack
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 7/10/2017
-ms.author: scottnap
-ms.openlocfilehash: fa2a940620e06521fa110fa13dcbc3050635a502
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: brenduns
+ms.reviewer: scottnap
+ms.openlocfilehash: 886d56169c5500c9175b7ddc43edfc29c5142fbb
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-azure-stack-development-kit-environments"></a>다양 한 Azure 스택 개발 키트 환경에서 두 가상 네트워크 간의 사이트 간 VPN 연결 만들기
 ## <a name="overview"></a>개요
@@ -50,9 +51,9 @@ POC1와 POC2 모두에서 제공 하는 서비스 사용자는 제품 구독 하
 **네트워크 구성 테이블**
 |   |POC1|POC2|
 |---------|---------|---------|
-|가상 네트워크 이름     |VNET 01|VNET 02 |
+|가상 네트워크 이름     |VNET-01|VNET-02 |
 |가상 네트워크 주소 공간 |10.0.10.0/23|10.0.20.0/23|
-|서브넷 이름     |서브넷-01|서브넷-02|
+|서브넷 이름     |서브넷-01|Subnet-02|
 |서브넷 주소 범위|10.0.10.0/24 |10.0.20.0/24 |
 |게이트웨이 서브넷      |10.0.11.0/24|10.0.21.0/24|
 |외부 BGPNAT 주소     |         |         |
@@ -94,7 +95,7 @@ POC1와 POC2 모두에서 제공 하는 서비스 사용자는 제품 구독 하
     ![새 가상 네트워크 만들기](media/azure-stack-create-vpn-connection-one-node-tp2/image3.png)
 
 3. 로 이동 **마켓플레이스**를 선택한 후 **네트워킹**합니다.
-4. 선택 **가상 네트워크**합니다.
+4. **가상 네트워크**를 선택합니다.
 5. 에 대 한 **이름**, **주소 공간**, **서브넷 이름**, 및 **서브넷 주소 범위**, 네트워크의 앞부분에 표시 되는 값을 사용 하 여 구성 테이블입니다.
 6. **구독**, 이전에 만든 구독 나타납니다.
 7. 에 대 한 **리소스 그룹**, 리소스 그룹을 만들 하거나 이미 있는 경우 하나를 선택 **기존 항목 사용**합니다.
@@ -184,7 +185,7 @@ VPN 연결을 통해 전송 되는 데이터의 유효성을 검사 하려면 �
 1. 테 넌 트 계정을 사용 하 여 로그인 합니다.
 2. 사용자 포털에서 선택 **새로**합니다.
 3. 로 이동 **마켓플레이스**를 선택한 후 **네트워킹**합니다.
-4. 선택 **가상 네트워크**합니다.
+4. **가상 네트워크**를 선택합니다.
 5. POC2에 대 한 값을 확인 하려면 네트워크 구성 테이블의 앞부분에 표시 되는 정보를 사용 하 여 **이름**, **주소 공간**, **서브넷 이름**, 및 **서브넷 주소 범위**합니다.
 6. **구독**, 이전에 만든 구독 나타납니다.
 7. 에 대 한 **리소스 그룹**, 새 리소스 그룹을 만들거나 이미 있는 경우 하나를 선택 **기존 항목 사용**합니다.
@@ -235,7 +236,7 @@ VPN 연결을 통해 전송 되는 데이터의 유효성을 검사 하려면 �
 9. **공유 키 (PSK)**, 입력 **12345**합니다. 다른 값을 선택 하면 해당 it 기억 *해야* POC1에서 만든 공유 키에 대 한 값과 일치 합니다. **확인**을 선택합니다.
 10. 검토는 **요약** 블레이드에서 다음을 선택 하 고 **확인**합니다.
 
-## <a name="create-a-virtual-machine"></a>가상 컴퓨터 만들기
+## <a name="create-a-virtual-machine"></a>가상 머신 만들기
 가상 네트워크에 VM 서브넷에 저장 합니다 POC2에서 이제 가상 컴퓨터를 만듭니다.
 
 1. Azure 포털에서 선택 **새로**합니다.
@@ -339,7 +340,7 @@ VPN 연결을 구성 하려면 BGPNAT 가상 컴퓨터에서 외부 인터페이
 1. POC2에 대 한 Azure 스택 물리적 컴퓨터에 로그인 한 다음 테 넌 트 계정을 사용 하 여 사용자 포털에 로그인 합니다.
 2. 왼쪽된 탐색 모음에서 **계산**합니다.
 3. 가상 컴퓨터의 목록에서 찾을 **v m 02** 는 이전에 만든 하 고 선택 합니다.
-4. 가상 컴퓨터 블레이드에서 **연결**을 클릭합니다.
+4. 가상 머신 블레이드에서 **연결**을 클릭합니다.
 5. 가상 컴퓨터를 만들 때 구성한 계정으로 로그인 합니다.
 6. 관리자 권한 열고 **Windows PowerShell** 창.
 7. 입력 **ipconfig /all**합니다.
@@ -365,4 +366,4 @@ VPN 연결을 구성 하려면 BGPNAT 가상 컴퓨터에서 외부 인터페이
 2. 로 이동 **모든 리소스**를 선택한 후는 **POC2 POC1** 연결 합니다. **연결** 나타납니다.
 4. 에 **연결** 블레이드에 대 한 통계 **데이터에** 및 **데이터 출력** 나타납니다. 다음 스크린샷에 추가 파일 전송 되는 많은 되는 특성이 합니다. 일부 0이 아닌 값이 있는 표시 되어야 합니다.
    
-    ![데이터 시작 및 종료](media/azure-stack-create-vpn-connection-one-node-tp2/image20.png)
+    ![들어오는/나가는 데이터](media/azure-stack-create-vpn-connection-one-node-tp2/image20.png)

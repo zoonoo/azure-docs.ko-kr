@@ -7,14 +7,14 @@ author: vhorne
 manager: byronr
 ms.service: azure-stack
 ms.topic: quickstart
-ms.date: 09/25/2017
+ms.date: 12/11/2017
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: a97372002052570ccad2bb8bc442eb0dd1ca76d9
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.openlocfilehash: 1e1732f48de9f95e669d0282d120e48b5fe5f0ef
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-the-azure-stack-portal"></a>Azure 스택 포털과 Linux 가상 컴퓨터 만들기
 
@@ -57,9 +57,9 @@ Azure 스택 포털에 로그인 합니다. Azure 스택 포털의 주소에 따
 * Azure 스택 개발 키트 (ASDK)에 대 한 이동: https://portal.local.azurestack.external 합니다.
 * Azure 스택 통합 하는 시스템에 대 한 Azure 스택 연산자를 제공 하는 URL로 이동 합니다.
 
-## <a name="create-the-virtual-machine"></a>가상 컴퓨터 만들기
+## <a name="create-the-virtual-machine"></a>가상 머신 만들기
 
-1. 클릭는 **새로** 스택 Azure 포털의 왼쪽 위 모서리에서 단추를 찾을 수 있습니다.
+1. 클릭 **리소스 만들기** 스택 Azure 포털의 왼쪽 위 모퉁이에 있습니다.
 
 2. **Compute**를 선택한 후 **Ubuntu Server 16.04 LTS**를 선택합니다.
 3. **만들기**를 클릭합니다.
@@ -77,7 +77,7 @@ Azure 스택 포털에 로그인 합니다. Azure 스택 포털의 주소에 따
 7. 에 **요약** 페이지 **확인** 가상 컴퓨터 배포를 시작 합니다.
 
 
-## <a name="connect-to-the-virtual-machine"></a>가상 컴퓨터에 연결
+## <a name="connect-to-the-virtual-machine"></a>가상 머신에 연결
 
 1. 클릭 **연결** 가상 컴퓨터 페이지. 이 가상 컴퓨터에 연결 하는 데 사용할 수 있는 SSH 연결 문자열을 표시 합니다.
 
@@ -135,7 +135,7 @@ NSG(네트워크 보안 그룹)는 인바운드 및 아웃바운드 트래픽의
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-더 이상 필요하지 않을 때 리소스 그룹, 가상 컴퓨터 및 모든 관련 리소스를 삭제합니다. 이렇게 하려면 가상 컴퓨터 페이지에서 리소스 그룹을 선택 하 고 클릭 **삭제**합니다.
+더 이상 필요하지 않을 때 리소스 그룹, 가상 머신 및 모든 관련 리소스를 삭제합니다. 이렇게 하려면 가상 컴퓨터 페이지에서 리소스 그룹을 선택 하 고 클릭 **삭제**합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

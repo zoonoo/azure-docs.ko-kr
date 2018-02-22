@@ -8,6 +8,9 @@
 > Azure는 리소스를 만들고 작업하기 위한 두 가지 배포 모델로 리소스 관리자와 클래식을 제공합니다. 이 문서에서는 리소스 관리자 모델에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다.
 > 
 > 
+> [!WARNING]
+> Azure Virtual Machine의 OS 디스크 크기를 조정하면 다시 시작됩니다.
+>
 
 ## <a name="resize-the-os-drive"></a>OS 드라이브 크기 조정
 이 문서에서는 [Azure Powershell](/powershell/azureps-cmdlets-docs)의 리소스 관리자 모듈을 사용하여 OS 드라이브의 크기를 조정하겠습니다. 디스크의 크기를 조정하는 방법이 디스크 형식 간에 다르므로 관리되지 않는 디스크와 Managed Disks에 대한 OS 드라이브의 크기를 조정하는 방법을 보여줍니다.

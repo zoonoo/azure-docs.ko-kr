@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/09/2017
 ms.author: vikdesai
-ms.openlocfilehash: 96e9cf2fed0b22fd7aa7b9ffeab0e94738ce510d
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 799abddc4894bc090d860e7fe100ee65d4d085ab
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="save-money-on-virtual-machines-with-reserved-virtual-machine-instances"></a>예약 가상 머신 인스턴스를 사용하여 가상 머신에서 비용을 절감합니다. 
 예약 가상 머신 인스턴스를 사용하면 1년 또는 3년 계산 용량을 선불로 결제하여 사용하는 가상 머신에서 할인을 받을 수 있습니다. 1년 또는 3년 사전 약정을 통해 종량제 가격으로 최대 72%까지 가상 머신 비용을 크게 절감할 수 있습니다. 예약 가상 머신 인스턴스는 청구 할인으로, 가상 머신의 런타임 상태에 영향을 주지 않습니다.
@@ -60,5 +60,14 @@ ms.lasthandoff: 11/17/2017
 
 ## <a name="next-steps"></a>다음 단계
 [예약 가상 머신 인스턴스](https://go.microsoft.com/fwlink/?linkid=861721) 구매를 통해 가상 머신에서 비용 절감을 시작합니다. 
+
+예약 가상 머신 인스턴스에 대한 자세한 내용은 다음 문서를 참조하세요.
+
+- [예약 VM 인스턴스를 사용하여 Virtual Machines 선불 결제](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [예약 가상 머신 인스턴스 관리](billing-manage-reserved-vm-instance.md)
+- [예약 가상 머신 인스턴스 할인이 적용되는 방식 이해](billing-understand-vm-reservation-charges.md)
+- [종량제 구독에서 예약 인스턴스 사용량 이해](billing-understand-reserved-instance-usage.md)
+- [Enterprise 등록의 예약 인스턴스 사용량 이해](billing-understand-reserved-instance-usage-ea.md)
+- [예약 인스턴스를 포함하지 않는 Windows 소프트웨어 비용](billing-reserved-instance-windows-software-costs.md)
 
 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.

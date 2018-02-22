@@ -3,8 +3,8 @@ title: "Azure 스택 계획, 제안, 할당량 및 구독 개요 | Microsoft Doc
 description: "클라우드 연산자로 Azure 스택 계획, 제안, 할당량 및 구독을 이해 하려고 합니다."
 services: azure-stack
 documentationcenter: 
-author: ErikjeMS
-manager: byronr
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 3dc92e5c-c004-49db-9a94-783f1f798b98
 ms.service: azure-stack
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 8/22/2017
-ms.author: erikje
-ms.openlocfilehash: 083ca2f0a06625810d2f90a682ba0b3110032e60
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: brenduns
+ms.reviewer: 
+ms.openlocfilehash: 7c395dfcdfcd509d8b32028badd1c1310ea67657
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="plan-offer-quota-and-subscription-overview"></a>계획, 제안, 할당량 및 구독 개요
 
@@ -51,11 +52,11 @@ ms.lasthandoff: 10/11/2017
 
 지역에 따라 할당량을 구성할 수 있습니다. 예를 들어 영역 A의에서 계산 서비스를 포함 하는 계획의 두 가상 컴퓨터, 4GB RAM 및 10 CPU 코어 할당량이 있을 수 있습니다. Azure 스택 개발 키트 한 지역에에서 (라는 *로컬*)를 사용할 수 있습니다.
 
-### <a name="base-plan"></a>기본 계획
+### <a name="base-plan"></a>기본 요금제
 
 제공 하는 서비스를 만들 때 서비스 관리자는 기본 계획을 포함할 수 있습니다. 이러한 기본 계획은 해당 제품을 구독 하는 사용자 때 기본적으로 포함 됩니다. 사용자가 구독 (해당 할당량)와 해당 기본 계획에 지정 된 모든 리소스 공급자에 대 한 액세스를 유지 됩니다.
 
-### <a name="add-on-plans"></a>추가 기능 계획
+### <a name="add-on-plans"></a>추가 요금제
 
 제공 하는 선택적 추가 기능 계획을 포함할 수도 있습니다. 추가 기능 계획은 구독에서 기본적으로 포함되지 않습니다. 추가 기능 계획은 추가 계획 (할당량)와 구독자의 구독에 추가할 수 있는 제품에서 사용할 수 있는입니다. 예를 들어 서비스를 도입 하기로 결정 하는 고객는 평가판에 대 한 제한 된 리소스를 사용 하 여 기본 계획 및 추가 기능 계획 더 많은 리소스를 제안할 수 있습니다.
 

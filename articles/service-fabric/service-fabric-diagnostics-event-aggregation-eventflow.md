@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 9a6e629582b6966d270a2378e585572efe133f3e
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: 69750db615460b3ac69ba9ffe707a970ca8e2e11
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="event-aggregation-and-collection-using-eventflow"></a>EventFlow를 사용하여 이벤트 집계 및 수집
 
@@ -43,6 +43,9 @@ EventFlow 이진을 NuGet 패키지 집합으로 사용할 수 있습니다. Eve
 
 ## <a name="configure-and-enable-log-collection"></a>로그 수집 구성 및 활성화
 로그 보내기를 담당하는 EventFlow 파이프라인은 구성 파일에 저장된 사양으로부터 만들어집니다. `Microsoft.Diagnostics.EventFlow.ServiceFabric` 패키지는 시작 EventFlow 구성 파일을 `PackageRoot\Config` 솔루션 폴더에 `eventFlowConfig.json` 이름으로 설치합니다. 기본 서비스 `EventSource` 클래스 및 구성하려는 다른 입력에서 데이터를 수집하고 적절한 위치로 데이터를 보내도록 이 구성 파일을 수정해야 합니다.
+
+>[!NOTE]
+>프로젝트 파일에 VisualStudio 2017 형식이 있는 경우 `eventFlowConfig.json` 파일이 자동으로 추가되지 않습니다. 이를 해결하려면 `Config` 폴더에 파일을 만들고 빌드 작업을 `Copy if newer`로 설정합니다. 
 
 다음은 위에서 언급한 NuGet 패키지를 기반으로 하는 샘플 *eventFlowConfig.json*입니다.
 ```json

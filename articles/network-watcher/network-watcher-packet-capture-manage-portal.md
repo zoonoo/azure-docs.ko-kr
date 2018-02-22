@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: a43d2ea10bfd6de2f8177283821f7aad59e9f610
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 40414afbfcd456353b4290585ccd9d594fbf55dd
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>포털에서 Azure Network Watcher를 사용하여 패킷 캡처 관리
 
@@ -61,7 +61,10 @@ Network Watcher 패킷 캡처를 사용하면 가상 컴퓨터 간에 트래픽�
 개요 페이지에 상태에 관계없이, 존재하는 모든 패킷 캡처 목록이 표시됩니다.
 
 > [!NOTE]
-> 패킷 캡처를 사용하려면 포트 443을 통해 저장소 계정에 연결되어야 합니다.
+> 패킷을 캡처하려면 다음 연결이 필요합니다.
+> * 포트 443을 통해 저장소 계정에 아웃바운드 연결
+> * 169.254.169.254에 인바운드 및 아웃 바운드 연결
+> * 168.63.129.16에 인바운드 및 아웃 바운드 연결
 
 ![패킷 캡처 개요 화면][1]
 

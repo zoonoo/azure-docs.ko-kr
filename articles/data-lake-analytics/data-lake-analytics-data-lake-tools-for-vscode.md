@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/10/2017
+ms.date: 02/09/2018
 ms.author: jejiang
-ms.openlocfilehash: c70cfc309fe60f0641c89b4a341e3364af74771a
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: 7e1e2c0a5481a81e9267bcf87076076b377a1496
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="use-azure-data-lake-tools-for-visual-studio-code"></a>Azure Data Lake Tools for Visual Studio Code 사용
 
@@ -86,36 +86,52 @@ U-SQL을 사용하려면 U-SQL 파일이나 폴더를 열어야 합니다.
 
     스크립트는 /output 폴더에 일부 데이터가 포함된 departments.csv 파일을 만듭니다.
 
-5. 열린 폴더에서 파일을 **myUSQL.usql**로 저장합니다. xxx_settings.json 구성 파일도 폴더에 추가됩니다.
-6. xxx_settings.json을 열고 다음 속성을 사용하여 구성합니다.
-
-    - account: U-SQL 작업을 컴파일하고 실행하는 데 필요한 Azure 구독의 Data Lake Analytics 계정이므로 U-SQL 작업을 컴파일하고 실행하기 전에 해당 컴퓨터 계정을 구성해야 합니다.
-    - Database: 사용자 계정의 데이터베이스입니다. 기본은 **master**입니다.
-    - Schema: 데이터베이스의 스키마입니다. 기본은 **dbo**입니다.
-    - 선택적 설정
-        - Priority: 우선 순위의 범위는 1-1000이며, 가장 높은 우선 순위는 1입니다. 기본값은 **1000**입니다.
-        - Parallelism: 병렬 처리의 범위는 1-150입니다. 기본값은 Azure Data Lake Analytics 계정에 허용되는 최대 병렬 처리입니다. 
-        
-        ![Data Lake Tools for Visual Studio Code 구성 파일](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-configuration-file.png)
-      
-        > [!NOTE] 
-        > 구성이 저장되면 계정, 데이터베이스 및 스키마 정보가 해당 .usql 파일의 왼쪽 아래 모서리에 있는 상태 표시줄에 표시됩니다.
+5. 열린 폴더에서 파일을 **myUSQL.usql**로 저장합니다.
 
 **U-SQL 스크립트를 컴파일하려면**
 
 1. Ctrl+Shift+P를 선택하여 명령 팔레트를 엽니다. 
 2. **ADL:Compile Script**를 누릅니다. 컴파일 결과는 **출력** 창에 나타납니다. 또한 스크립트 파일을 마우스 오른쪽 단추로 클릭한 다음 **ADL: Compile Script**를 선택하여 U-SQL 작업을 컴파일할 수도 있습니다. 컴파일 결과가 **출력** 창에 나타납니다.
  
-
 **U-SQL 스크립트를 제출하려면**
 
 1. Ctrl+Shift+P를 선택하여 명령 팔레트를 엽니다. 
 2. **ADL:Submit Job**을 누릅니다.  또한 스크립트 파일을 마우스 오른쪽 단추로 클릭한 다음 **ADL: Submit Job**을 선택할 수도 있습니다. 
 
-U-SQL 작업을 제출한 후 전송 로그가 VS Code의 **출력** 창에 나타납니다. 성공적으로 제출되면 작업 URL도 함께 나타납니다. 웹 브라우저에서 작업 URL을 열어 실시간 작업 상태를 추적할 수 있습니다.
+ U-SQL 작업을 제출한 후 전송 로그가 VS Code의 **출력** 창에 나타납니다. 작업 보기가 오른쪽 창에 표시됩니다. 성공적으로 제출되면 작업 URL도 함께 나타납니다. 웹 브라우저에서 작업 URL을 열어 실시간 작업 상태를 추적할 수 있습니다. 작업 보기 요약 탭에서 작업 세부 정보를 볼 수 있습니다. 주요 기능에는 스크립트 다시 제출, 스크립트 중복, 포털에서 열기가 있습니다. 작업 보기 데이터 탭에서 입력 파일, 출력 파일, 리소스를 참조할 수 있습니다. 파일을 로컬 컴퓨터에 다운로드할 수 있습니다.
 
-작업 세부 정보의 출력을 활성화하려면 **vs code for u-sql_settings.json** 파일에서 **jobInformationOutputPath**를 설정합니다.
- 
+   ![Data Lake Tools for Visual Studio Code 구성 파일](./media/data-lake-analytics-data-lake-tools-for-vscode/job-view-summary.png)
+
+   ![Data Lake Tools for Visual Studio Code 구성 파일](./media/data-lake-analytics-data-lake-tools-for-vscode/job-view-data.png)
+
+**기본 컨텍스트 설정**
+
+ 파일에 대한 매개 변수를 각각 설정하지 않은 경우 이 설정을 모든 스크립트 파일에 적용하도록 기본 컨텍스트를 설정할 수 있습니다.
+
+1. Ctrl+Shift+P를 선택하여 명령 팔레트를 엽니다. 
+2. **ADL: Set Default Context**를 입력합니다.
+3. 또는 스크립트 편집기를 마우스 오른쪽 단추로 클릭하고 **ADL: Set Default Context**를 선택한 다음, 원하는 계정, 데이터베이스 및 스키마를 선택합니다. 설정은 xxx_settings.json 구성 파일에 저장됩니다.
+
+    ![Data Lake Tools for Visual Studio Code 구성 파일](./media/data-lake-analytics-data-lake-tools-for-vscode/default-context-sequence.png)
+
+**스크립트 매개 변수 설정**
+
+1. Ctrl+Shift+P를 선택하여 명령 팔레트를 엽니다. 
+2. **ADL: Set Script Parameters**를 입력합니다.
+3. xxx_settings.json 파일이 열리고 다음 속성이 표시됩니다.
+
+  - account: U-SQL 작업을 컴파일하고 실행하는 데 필요한 Azure 구독의 Data Lake Analytics 계정이므로 U-SQL 작업을 컴파일하고 실행하기 전에 해당 컴퓨터 계정을 구성해야 합니다.
+    - Database: 사용자 계정의 데이터베이스입니다. 기본은 **master**입니다.
+    - Schema: 데이터베이스의 스키마입니다. 기본은 **dbo**입니다.
+    - 선택적 설정
+        - Priority: 우선 순위의 범위는 1-1000이며, 가장 높은 우선 순위는 1입니다. 기본값은 **1000**입니다.
+        - Parallelism: 병렬 처리의 범위는 1-150입니다. 기본값은 Azure Data Lake Analytics 계정에 허용되는 최대 병렬 처리입니다. 
+
+        ![Data Lake Tools for Visual Studio Code 구성 파일](./media/data-lake-analytics-data-lake-tools-for-vscode/default-context-setting.png)
+      
+        > [!NOTE] 
+        > 구성이 저장되면 계정, 기본 컨텍스트가 설정되지 않은 경우, 데이터베이스 및 스키마 정보가 해당 .usql 파일의 왼쪽 아래 모서리에 있는 상태 표시줄에 표시됩니다.
+
 **Git 설정 무시**
 
 1. Ctrl+Shift+P를 선택하여 명령 팔레트를 엽니다. 
@@ -124,7 +140,7 @@ U-SQL 작업을 제출한 후 전송 로그가 VS Code의 **출력** 창에 나�
     - VSCode 작업 폴더에 **.gitIgnore** 파일이 없는 경우 **.gitIgnor**이라는 파일이 폴더에 생성됩니다. 네 개의 항목(**usqlCodeBehindReference**, **usqlCodeBehindGenerated**, **.cache**, **obj**)이 기본적으로 파일에 추가됩니다. 필요한 경우 추가로 업데이트할 수 있습니다.
     - 이미 **.gitIgnore** 파일이 VSCode 작업 폴더에 있는 경우, 도구는 네 개 항목(**usqlCodeBehindReference**, **usqlCodeBehindGenerated**, **.cache**, **obj**)을 (해당 항목들이 파일에 포함되지 않은 경우) **.gitIgnore** 파일에 추가합니다.
 
-  ![Data Lake Tools for Visual Studio Code 구성 파일](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-gitignore.png)
+    ![Data Lake Tools for Visual Studio Code 구성 파일](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-gitignore.png)
 
 ## <a name="use-python-r-and-csharp-code-behind-file"></a>Python, R 및 CSharp 코드 숨김 파일 사용
 Azure Data Lake Tool은 여러 개의 사용자 지정 코드를 지원하며, 관련 지침은 [VSCode에서 Python, R 및 CSharp를 사용하여 Azure Data Lake Analytics용 U-SQL 개발](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md)을 참조하세요.
@@ -137,7 +153,7 @@ Data Lake Tools를 사용하여 사용자 지정 코드 어셈블리를 Data Lak
 
 **어셈블리를 등록하려면**
 
-**ADL: Register Assembly** 또는 **ADL: Register Assembly through Configuration** 명령을 통해 어셈블리를 등록할 수 있습니다.
+**ADL: Register Assembly** 또는 **ADL: Register Assembly(Advanced)** 명령을 통해 어셈블리를 등록할 수 있습니다.
 
 **ADL: Register Assembly 명령을 통해 등록하려면**
 1.  Ctrl+Shift+P를 선택하여 명령 팔레트를 엽니다.
@@ -150,51 +166,52 @@ Data Lake Tools를 사용하여 사용자 지정 코드 어셈블리를 Data Lak
 
 **ADL: Register Assembly** 명령을 트리거하는 다른 편리한 방법은 파일 탐색기에서 .dll 파일을 마우스 오른쪽 단추로 클릭하는 것입니다. 
 
-**ADL: Register Assembly through Configuration 명령을 통해 등록하려면**
+**ADL: Register Assembly(Advanced)를 통해 등록하려면**
 1.  Ctrl+Shift+P를 선택하여 명령 팔레트를 엽니다.
-2.  **ADL: Register Assembly through Configuration**을 입력합니다. 
+2.  **ADL: Register Assembly(Advanced)**를 입력합니다. 
 3.  로컬 어셈블리 경로를 지정합니다. 
 4.  JSON 파일이 표시됩니다. 필요한 경우 어셈블리 종속성 및 리소스 매개 변수를 검토하고 편집합니다. 지침이 **출력** 창에 표시됩니다. 어셈블리 등록을 계속하려면 JSON 파일을 저장(Ctrl+S)합니다.
 
-![Data Lake Tools for Visual Studio Code 코드 숨김](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-register-assembly-advance.png)
->[!NOTE]
->- 어셈블리 종속성: Azure Data Lake Tools는 DLL에 종속성이 있는지 여부를 자동으로 감지합니다. 종속성이 감지되면 JSON 파일에 표시됩니다. 
->- 리소스: 어셈블리 등록의 일환으로 DLL 리소스(예: .txt, .png 및 .csv)를 업로드할 수 있습니다. 
+    ![Data Lake Tools for Visual Studio Code 코드 숨김](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-register-assembly-advance.png)
+    
+   >[!NOTE]
+   >- 어셈블리 종속성: Azure Data Lake Tools는 DLL에 종속성이 있는지 여부를 자동으로 감지합니다. 종속성이 감지되면 JSON 파일에 표시됩니다. 
+   >- 리소스: 어셈블리 등록의 일환으로 DLL 리소스(예: .txt, .png 및 .csv)를 업로드할 수 있습니다. 
 
-**ADL: Register Assembly through Configuration** 명령을 트리거하는 다른 방법은 파일 탐색기에서 .dll 파일을 마우스 오른쪽 단추로 클릭하는 것입니다. 
+**ADL: Register Assembly(Advanced)** 명령을 트리거하는 다른 방법은 파일 탐색기에서 .dll 파일을 마우스 오른쪽 단추로 클릭하는 것입니다. 
 
 다음 U-SQL 코드는 어셈블리를 호출하는 방법을 보여 줍니다. 이 샘플에서 어셈블리 이름은 *test*입니다.
 
-```
-REFERENCE ASSEMBLY [test];
 
-@a = 
-    EXTRACT 
-        Iid int,
-    Starts DateTime,
-    Region string,
-    Query string,
-    DwellTime int,
-    Results string,
-    ClickedUrls string 
-    FROM @"Sample/SearchLog.txt" 
-    USING Extractors.Tsv();
+        REFERENCE ASSEMBLY [test];
 
-@d =
-    SELECT DISTINCT Region 
-    FROM @a;
+        @a = 
+            EXTRACT 
+                Iid int,
+            Starts DateTime,
+            Region string,
+            Query string,
+            DwellTime int,
+            Results string,
+            ClickedUrls string 
+            FROM @"Sample/SearchLog.txt" 
+            USING Extractors.Tsv();
 
-@d1 = 
-    PROCESS @d
-    PRODUCE 
-        Region string,
-    Mkt string
-    USING new USQLApplication_codebehind.MyProcessor();
+        @d =
+            SELECT DISTINCT Region 
+            FROM @a;
 
-OUTPUT @d1 
-    TO @"Sample/SearchLogtest.txt" 
-    USING Outputters.Tsv();
-```
+        @d1 = 
+            PROCESS @d
+            PRODUCE 
+                Region string,
+            Mkt string
+            USING new USQLApplication_codebehind.MyProcessor();
+
+        OUTPUT @d1 
+            TO @"Sample/SearchLogtest.txt" 
+            USING Outputters.Tsv();
+
 
 ## <a name="connect-to-azure"></a>Azure에 연결
 
@@ -243,10 +260,10 @@ Azure에 연결한 후에는 다음 단계를 사용하여 U-SQL 카탈로그에
 ## <a name="view-data-lake-analytics-jobs"></a>Data Lake Analytics 작업 보기
 
 **Data Lake Analytics 작업을 보려면**
-1.  명령 팔레트(Ctrl+Shift+P)를 열고 **ADL: Show Job**을 선택합니다. 
+1.  명령 팔레트를 열고(Ctrl+Shift+P) **ADL: Show Jobs**를 선택합니다. 
 2.  Data Lake Analytics 또는 로컬 계정을 선택합니다. 
 3.  계정의 작업 목록이 표시되기를 기다립니다.
-4.  작업 목록에서 작업을 선택하고 Data Lake Tools는 Azure Portal에서 작업 세부 정보를 열고 VS Code에서 JobInfo 파일을 표시합니다.
+4.  작업 목록에서 작업을 선택하면 Data Lake Tools의 오른쪽 창에 작업 보기가 열리고 VS 코드 **출력**에 몇 가지 정보가 표시됩니다.
 
     ![Data Lake Tools for Visual Studio Code IntelliSense 개체 형식](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-show-job.png)
 
@@ -258,7 +275,7 @@ Azure에 연결한 후에는 다음 단계를 사용하여 U-SQL 카탈로그에
  - VS Code의 Azure Data Lake Storage에 직접 파일 업로드 [파일 또는 폴더 업로드](#upload-file-or-folder)
  - VS Code의 Azure Data Lake Storage에서 직접 파일 다운로드 [파일 다운로드](#download-file)
 
-## <a name="list-the-storage-path"></a>저장소 경로 나열 
+### <a name="list-the-storage-path"></a>저장소 경로 나열 
 
 **명령 팔레트를 통해 저장소 경로를 나열하려면**
 
@@ -277,7 +294,7 @@ Azure에 연결한 후에는 다음 단계를 사용하여 U-SQL 카탈로그에
 ![Data Lake Tools for Visual Studio Code에서 바로 가기 메뉴를 마우스 오른쪽 단추로 클릭](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-right-click-path.png)
 
 
-## <a name="preview-the-storage-file"></a>저장소 파일 미리 보기
+### <a name="preview-the-storage-file"></a>저장소 파일 미리 보기
 
 스크립트 편집기를 마우스 오른쪽 단추로 클릭하고 **ADL: Preview File**을 선택합니다.
 
@@ -287,7 +304,7 @@ Azure에 연결한 후에는 다음 단계를 사용하여 U-SQL 카탈로그에
 
 파일을 미리 볼 수 있는 다른 방법은 스크립트 편집기에서 파일의 전체 경로 또는 상대 경로에 있는 오른쪽 클릭 메뉴를 사용하는 것입니다. 
 
-## <a name="upload-file-or-folder"></a>파일 또는 폴더 업로드
+### <a name="upload-file-or-folder"></a>파일 또는 폴더 업로드
 
 1. 스크립트 편집기를 마우스 오른쪽 단추로 클릭하고 **Upload File**(파일 업로드) 또는 **Upload Folder**(폴더 업로드)를 선택합니다.
 
@@ -301,7 +318,7 @@ Azure에 연결한 후에는 다음 단계를 사용하여 U-SQL 카탈로그에
 동시에 [업로드 상태](#check-storage-tasks-status)를 모니터링할 수 있습니다.
 
 
-## <a name="download-file"></a>파일 다운로드 
+### <a name="download-file"></a>파일 다운로드 
 **ADL: Download File** 또는 **ADL: Download File(Advanced)** 명령을 입력하여 파일을 다운로드할 수 있습니다.
 
 **ADL: Download File(Advanced)를 통해 파일을 다운로드하려면**
@@ -329,7 +346,7 @@ Azure에 연결한 후에는 다음 단계를 사용하여 U-SQL 카탈로그에
 
 동시에 [다운로드 상태](#check-storage-tasks-status)를 모니터링할 수 있습니다.
 
-## <a name="check-storage-tasks-status"></a>저장소 작업의 상태 확인
+### <a name="check-storage-tasks-status"></a>저장소 작업의 상태 확인
 다운로드 및 업로드를 완료하면 상태 표시줄의 아래쪽에 상태가 표시됩니다.
 1. 아래의 상태 표시줄을 클릭하면 **OUTPUT** 패널에 다운로드 및 업로드 상태가 표시됩니다.
 

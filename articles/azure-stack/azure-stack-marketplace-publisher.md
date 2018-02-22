@@ -3,8 +3,8 @@ title: "마켓플레이스 도구 키트를 사용 하 여 만들고 마켓플�
 description: "게시 도구 키트에 마켓플레이스 항목을 만들 신속 하 게 하는 방법을 알아봅니다"
 services: azure-stack
 documentationcenter: 
-author: HeathL17
-manager: ByronR
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 
 ms.service: azure-stack
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 7/14/2017
-ms.author: helaw
-ms.openlocfilehash: 5b2c04d2cbc06e1572dc2e40712f6cf9d886aa1e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: brenduns
+ms.reviewer: jeffgo
+ms.openlocfilehash: 61ee3296429f9641643f1c9268ae89e3691fcfa1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 #  <a name="add-marketplace-items-using-publishing-tool"></a>게시 도구를 사용 하 여 마켓플레이스 항목을 추가 합니다.
 에 콘텐츠를 추가 [Azure 스택 마켓플레이스](azure-stack-marketplace.md) 및 배포에 대 한 테 넌 트를 솔루션을 사용할 수 있게 합니다.  마켓플레이스 Toolkit IaaS Azure 리소스 관리자 템플릿 또는 VM 확장에 따라 Azure 마켓플레이스 패키지 (.azpkg) 파일을 만듭니다.  사용 하거나 도구를 사용 하 여 만든.azpkg 파일을 게시할 마켓플레이스 도구 키트를 사용할 수도 있습니다 [수동](azure-stack-create-and-publish-marketplace-item.md) 단계입니다.  이 항목에서는 도구를 다운로드 하 고 VM 템플릿을 기반으로 마켓플레이스 항목을 만드는 다음 Azure 스택 Marketplace에 해당 항목을 게시 안내 합니다.     
@@ -72,7 +73,7 @@ ms.lasthandoff: 10/11/2017
     
     |필드|설명|
     |-----|-----|
-    | 서비스 관리자 이름 | 서비스 관리자 계정입니다.  예:ServiceAdmin@mydomain.onmicrosoft.com |
+    | 서비스 관리자 이름 | 서비스 관리자 계정입니다.  예제: ServiceAdmin@mydomain.onmicrosoft.com |
     | 암호 | 서비스 관리자 계정에 대 한 암호입니다. |
     | API 끝점 | Azure 스택 Azure 리소스 관리자 끝점입니다.  예: management.local.azurestack.external |
 2.  클릭 **게시** 게시 로그 표시 됩니다.
@@ -88,10 +89,10 @@ ms.lasthandoff: 10/11/2017
 ## <a name="support-files"></a>지원 파일
 | 설명 | 샘플 |
 | ----- | ----- |
-| 40 x 40.png 아이콘 | ![](./media/azure-stack-marketplace-publisher/image1.png) |
-| 90 x 90.png 아이콘 | ![](./media/azure-stack-marketplace-publisher/image2.png) |
-| 115 x 115.png 아이콘 | ![](./media/azure-stack-marketplace-publisher/image3.png) |
-| 255 x 115.png 아이콘 | ![](./media/azure-stack-marketplace-publisher/image4.png) |
+| 40x40 .png icon | ![](./media/azure-stack-marketplace-publisher/image1.png) |
+| 90x90 .png icon | ![](./media/azure-stack-marketplace-publisher/image2.png) |
+| 115x115 .png icon | ![](./media/azure-stack-marketplace-publisher/image3.png) |
+| 255x115 .png icon | ![](./media/azure-stack-marketplace-publisher/image4.png) |
 | 533 x 324.png 미리 보기 | ![](./media/azure-stack-marketplace-publisher/image5.png) |
 
 

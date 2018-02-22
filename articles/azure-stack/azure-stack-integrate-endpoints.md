@@ -5,21 +5,18 @@ services: azure-stack
 author: jeffgilb
 ms.service: azure-stack
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/16/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
 keywords: 
-ms.openlocfilehash: e368109adc7db4c589ac37b28c4891cb3ec5346f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 8af533147f3cc12f2334a43e7b672c69d0d25802
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure 데이터 센터 통합 스택-끝점 게시
-
-*적용 대상: Azure 스택 시스템 통합*
-
-Azure 스택 인프라 역할에 대 한 다양 한 끝점 (Vip-가상 IP 주소)를 설정합니다. 해당이 Vip는 공용 IP 주소 풀에서 할당 됩니다. 각 VIP 소프트웨어 정의 네트워크 계층에서 액세스 제어 목록 (ACL)로 보호 됩니다. Acl은 솔루션을 더욱 강화 하기 위해 각기 물리적 스위치 (될 수 있습니다 앞뒤 및 BMC)도 사용 됩니다. 배포 시에 지정 된 외부 DNS 영역에서 각 끝점에 대 한 DNS 항목이 생성 됩니다.
+Azure 스택 여러 개의 가상 IP 주소 (Vip)를 해당 인프라 역할을 설정합니다. 해당이 Vip는 공용 IP 주소 풀에서 할당 됩니다. 각 VIP 소프트웨어 정의 네트워크 계층에서 액세스 제어 목록 (ACL)로 보호 됩니다. Acl은 솔루션을 더욱 강화 하기 위해 각기 물리적 스위치 (될 수 있습니다 앞뒤 및 BMC)도 사용 됩니다. 배포 시에 지정 된 외부 DNS 영역에서 각 끝점에 대 한 DNS 항목이 생성 됩니다.
 
 
 다음 아키텍처 다이어그램에는 여러 네트워크 계층 및 Acl 보여 줍니다.
@@ -28,7 +25,7 @@ Azure 스택 인프라 역할에 대 한 다양 한 끝점 (Vip-가상 IP 주소
 
 ## <a name="ports-and-protocols-inbound"></a>포트 및 프로토콜 (인바운드)
 
-외부 네트워크에 Azure 스택 끝점 게시에 필요한 인프라 Vip는 다음 표에 나열 됩니다. 목록은 각 끝점의 필요한 포트 및 프로토콜입니다. SQL 리소스 공급자 등과 같은 추가 리소스 공급자에 필요한 끝점은 특정 리소스 공급자 배포 설명서에서 다룹니다.
+외부 네트워크에 Azure 스택 끝점 게시에 필요한 인프라 Vip는 다음과 같습니다. 목록은 각 끝점의 필요한 포트 및 프로토콜입니다. SQL 리소스 공급자 등과 같은 추가 리소스 공급자에 필요한 끝점은 특정 리소스 공급자 배포 설명서에서 다룹니다.
 
 Azure 스택 게시에 필요 하지 않기 때문에 내부 인프라 Vip 나열 되지 않습니다.
 
@@ -52,7 +49,11 @@ Azure 스택 게시에 필요 하지 않기 때문에 내부 인프라 Vip 나�
 |저장소 테이블|&#42;.table.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
 |저장소 Blob|&#42;.blob.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
 |SQL 리소스 공급자|sqladapter.dbadapter.*&lt;region>.&lt;fqdn>*|HTTPS|44300-44304|
-|MySQL 리소스 공급자|mysqladapter.dbadapter.*&lt;region>.&lt;fqdn>*|HTTPS|44300-44304
+|MySQL 리소스 공급자|mysqladapter.dbadapter.*&lt;region>.&lt;fqdn>*|HTTPS|44300-44304|
+|App Service|&#42;.appservice.*&lt;region>.&lt;fqdn>*|TCP|80 (HTTP)<br>443 (HTTPS)<br>8172 (MSDeploy)|
+|  |&#42;.scm.appservice.*&lt;region>.&lt;fqdn>*|TCP|443 (HTTPS)|
+|  |api.appservice.*&lt;region>.&lt;fqdn>*|TCP|443 (HTTPS)<br>44300 (azure 리소스 관리자)|
+|  |ftp.appservice.*&lt;region>.&lt;fqdn>*|TCP, UDP|21, 1021, 10001-101000 (FTP)<br>990 (FTPS)|
 
 ## <a name="ports-and-urls-outbound"></a>포트 및 Url (아웃 바운드)
 

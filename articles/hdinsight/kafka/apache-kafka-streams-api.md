@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: larryfr
-ms.openlocfilehash: 1ea20eceb28fead003c7279632b1e75ae1fd3553
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: be6ed6d4c0c3a5fa55166b84b128881d434c4ab2
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="apache-kafka-streams-api"></a>Apache Kafka Streams API
 
@@ -100,6 +100,12 @@ Apache Kafka로 작업할 때 스트림 처리는 종종 Apache Spark 또는 Sto
     * `test` 토픽에 쓰는 생산자를 시작합니다.
     * `wordcounts` 토픽에 쓴 출력을 볼 수 있도록 소비자를 시작합니다.
 
+    > [!NOTE]
+    > Kafka Broker 구성 파일에서 `auto.create.topics.enable` 속성이 `true`로 설정되어 있는지 확인해야 합니다. Ambari 웹 UI를 사용하여 고급 Kafka Broker 구성 파일에서 이 속성을 확인 및 수정할 수 있습니다. 그렇지 않은 경우 다음 명령을 사용하여 이 예제를 실행하기 전에 수동으로 중간 `RekeyedIntermediateTopic` 항목을 만들어야 합니다.
+    ```bash
+    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic RekeyedIntermediateTopic  --zookeeper $KAFKAZKHOSTS
+    ```
+    
     3개의 SSH 세션을 열어 이러한 작업을 수행할 수 있습니다. 그러나 각 SSH 세션의 이 섹션에서 4단계를 실행하여 각각에 대해 `$KAFKABROKERS` 및 `$KAFKAZKHOSTS`를 설정해야 합니다. 더 쉬운 솔루션은 현재 SSH 디스플레이를 여러 섹션으로 나눌 수 있는 `tmux` 유틸리티를 사용하는 것입니다. `tmux`를 사용하여 스트림, 생산자, 소비자를 시작하려면 다음 명령을 사용합니다.
 
     ```bash

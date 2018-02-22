@@ -14,17 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 4/06/2017
 ms.author: parakhj
-ms.openlocfilehash: dde17c89c49223c75842f328f455c6637aa1915b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4dbc70d866a728a63102bd169a124bd26990aeb2
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-twitter-accounts"></a>Azure Active Directory B2C: 고객에게 Twitter 계정으로 등록 및 로그인 제공
-
-> [!NOTE]
-> 이 기능은 미리 보기로 제공됩니다.
-> 
 
 ## <a name="create-a-twitter-application"></a>Twitter 응용 프로그램 만들기
 Azure AD(Azure Active Directory) B2C에서 Twitter를 ID 공급자로 사용하려면 Twitter 응용 프로그램을 만들고 올바른 매개 변수를 제공해야 합니다. 이렇게 하려면 Twitter 개발자 계정이 필요합니다. 계정이 없는 경우 [https://dev.twitter.com/](https://dev.twitter.com/)에서 가져올 수 있습니다.
@@ -40,9 +36,12 @@ Azure AD(Azure Active Directory) B2C에서 Twitter를 ID 공급자로 사용하�
 ## <a name="configure-twitter-as-an-identity-provider-in-your-tenant"></a>테넌트에서 Twitter를 ID 공급자로 구성
 1. 다음 단계에 따라 [Azure 포털의 B2C 기능 블레이드로 이동합니다](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) .
 2. B2C 기능 블레이드에서 **ID 공급자**를 클릭합니다.
-3. 블레이드의 위쪽에서 **+추가** 를 클릭합니다.
+3. 블레이드의 위쪽에서 **+추가**를 클릭합니다.
 4. ID 공급자 구성에 친숙한 **이름** 을 제공합니다. 예를 들어 "Twitter"를 입력합니다.
 5. **ID 공급자 형식**을 클릭하고 **Twitter**를 선택한 다음 **확인**을 클릭합니다.
 6. **이 ID 공급자 설정**을 클릭하고 **클라이언트 ID**에 Twitter **Consumer Key**(소비자 키)를 입력하고 **클라이언트 암호**에 Twitter **Consumer Secret**(소비자 암호)을 입력합니다.
 7. **확인**을 클릭한 다음 **만들기**를 클릭하여 Twitter 구성을 저장합니다.
 
+## <a name="next-steps"></a>다음 단계
+
+[기본 제공 정책](active-directory-b2c-reference-policies.md)을 만들거나 편집하고 Twitter를 ID 공급자로 추가합니다.

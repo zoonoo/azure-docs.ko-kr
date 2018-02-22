@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/27/2017
 ms.author: jejiang
-ms.openlocfilehash: 89e83dc02f32f6f2a781cf2e35040b29cc3d3c06
-ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
+ms.openlocfilehash: 0e2cd75845eb3613b23409b6bf1ab7d37d992275
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Azure HDInsight Tools for Visual Studio Code 사용
 
@@ -101,6 +101,26 @@ VS Code에서 HDInsight 클러스터에 스크립트를 제출하려면 먼저 A
     - 대화형 PySpark 쿼리 제출
     - PySpark 배치 스크립트 제출
     - 구성 설정
+
+**클러스터를 연결하려면**
+
+Ambari에서 관리하는 사용자 이름을 사용하여 정상적인 클러스터를 연결할 수 있고 도메인 사용자 이름(예: user1@contoso.com)을 사용하여 보안 Hadoop 클러스터를 연결할 수 있습니다.
+1. **CTRL+SHIFT+P**를 선택하여 명령 팔레트를 연 다음, **HDInsight: Link a cluster**를 입력합니다.
+
+   ![클러스터 연결 명령](./media/hdinsight-for-vscode/link-cluster-command.png)
+
+2. HDInsight 클러스터 URL 입력 -> 사용자 이름 입력 -> 암호 입력 -> 클러스터 유형 선택 -> 확인을 통과하면 성공 정보가 표시됩니다.
+   
+   ![클러스터 연결 대화 상자](./media/hdinsight-for-vscode/link-cluster-process.png)
+
+   > [!NOTE]
+   > 클러스터가 Azure 구독 및 연결된 클러스터 모두에 로그인되어 있으면, 연결된 사용자 이름 및 암호를 사용합니다. 
+   
+3. **List cluster** 명령을 사용하여 연결된 클러스터를 볼 수 있습니다. 이제 연결된 클러스터에 스크립트를 제출할 수 있습니다.
+
+   ![연결된 클러스터](./media/hdinsight-for-vscode/linked-cluster.png)
+
+4. 명령 팔레트에서 **HDInsight: Unlink a cluster**를 입력하여 클러스터 연결을 끊을 수도 있습니다.
 
 ## <a name="list-hdinsight-clusters"></a>HDInsight 클러스터 나열
 
@@ -256,6 +276,9 @@ HDInsight Tools for VS Code를 사용하면 HDInsight 대화형 쿼리 클러스
    ![Python 작업 결과 제출](./media/hdinsight-for-vscode/submit-pythonjob-result.png) 
 
 Python 작업을 제출한 후 전송 로그가 VS Code의 **출력** 창에 나타납니다. **Spark UI URL** 및 **Yarn UI URL**도 표시됩니다. 웹 브라우저에서 URL을 열어 작업 상태를 추적할 수 있습니다.
+
+
+   
 
 
 ## <a name="additional-features"></a>추가 기능
