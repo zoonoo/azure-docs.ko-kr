@@ -1,17 +1,17 @@
 ---
 title: "Azure Cloud Shell에서 Terraform 사용"
 description: "Azure Cloud Shell로 Terraform을 사용하여 인증 및 템플릿 구성을 간소합니다."
-keywords: "terraform, devops, 확장 집합, 가상 컴퓨터, 네트워크, 저장소, 모듈"
+keywords: "terraform, devops, 확장 집합, 가상 머신, 네트워크, 저장소, 모듈"
 ms.service: virtual-machines-linux
 author: dcaro
 ms.author: dcaro
 ms.date: 10/19/2017
 ms.topic: article
-ms.openlocfilehash: 253e5d341f93e61d851893eb05832fbf35707cfc
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 5157066086f1bdfa580c1946942bda4505e48935
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="terraform-cloud-shell-development"></a>Terraform Cloud Shell 개발 
 

@@ -1,22 +1,22 @@
 ---
-title: "Azure Cloud Shell에서 Ansible 실행"
-description: "Azure Cloud Shell에서 다양한 Ansible 작업을 수행하는 방법 알아보기"
+title: "Azure Cloud Shell에서 Bash를 사용하여 Ansible 실행"
+description: "Azure Cloud Shell에서 Bash를 사용하여 다양한 Ansible 작업을 수행하는 방법 알아보기"
 ms.service: ansible
-keywords: "ansible, azure, 개발, bash, cloudshell, 플레이북"
+keywords: "Ansible, Azure, DevOps, Bash, cloudshell, 플레이북, Bash"
 author: tomarcher
 manager: routlaw
 ms.author: tarcher
-ms.date: 01/14/2018
+ms.date: 02/01/2018
 ms.topic: article
-ms.openlocfilehash: d5a818616d382954d0880bcae58bb13b632ad757
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 0cd0390a381e85c8f047960ce06c581a433d4a2c
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="run-ansible-in-the-azure-cloud-shell"></a>Azure Cloud Shell에서 Ansible 실행
+# <a name="run-ansible-with-bash-in-azure-cloud-shell"></a>Azure Cloud Shell에서 Bash를 사용하여 Ansible 실행
 
-이 자습서에서는 Azure Cloud Shell에서 다양한 Ansible 작업을 수행하는 방법을 알아봅니다. 이러한 작업에는 가상 머신에 연결하고 Ansible 플레이북을 생성하여 Azure 리소스 그룹을 만들고 삭제하는 작업이 포함됩니다.
+이 자습서에서는 Cloud Shell의 Bash에서 다양한 Ansible 작업을 수행하는 방법을 알아봅니다. 이러한 작업에는 가상 머신에 연결하고 Ansible 플레이북을 생성하여 Azure 리소스 그룹을 만들고 삭제하는 작업이 포함됩니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -24,12 +24,14 @@ ms.lasthandoff: 01/29/2018
 
 - **Azure 자격 증명** - [Azure 자격 증명 만들기 및 Ansible 구성](/azure/virtual-machines/linux/ansible-install-configure#create-azure-credentials)
 
-- **Azure Cloud Shell 구성** - Azure Cloud Shell을 처음 사용하는 경우 Cloud Shell을 시작하고 구성하는 방법이 [Azure Cloud Shell의 Bash 빠른 시작](https://docs.microsoft.com/en-us/azure/cloud-shell/quickstart) 문서에 설명되어 있습니다.
+- **Azure Cloud Shell 구성** - Azure Cloud Shell을 처음 사용하는 경우 Cloud Shell을 시작하고 구성하는 방법이 [Azure Cloud Shell의 Bash 빠른 시작](https://docs.microsoft.com/en-us/azure/cloud-shell/quickstart) 문서에 설명되어 있습니다. 다음에서 Cloud Shell에 대한 전용 웹 사이트를 시작합니다.
+
+[![Cloud Shell 시작](https://shell.azure.com/images/launchcloudshell.png "Cloud Shell 시작")](https://shell.azure.com)
 
 ## <a name="use-ansible-to-connect-to-a-vm"></a>Ansible을 사용하여 VM에 연결
 Ansible은 Azure Resource Manager에 API를 요청하여 Azure 리소스의 동적 인벤토리를 생성하는 [azure_rm.py](https://github.com/ansible/ansible/blob/devel/contrib/inventory/azure_rm.py)라는 Python 스크립트를 만들었습니다. 다음 단계에서는 `azure_rm.py` 스크립트를 사용하여 Azure 가상 머신에 연결하는 과정을 안내합니다.
 
-1. Azure Cloud Shell을 엽니다.
+1. Cloud Shell에서 Bash를 엽니다. 셸 형식은 Cloud Shell 창의 왼쪽에 표시됩니다.
 
 1. 사용할 가상 머신이 없는 경우 다음 명령을 Cloud Shell에 입력하여 테스트에 사용할 가상 머신을 만듭니다.
 

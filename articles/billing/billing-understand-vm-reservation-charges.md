@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/10/2017
 ms.author: vikdesai
-ms.openlocfilehash: d476380fa841617f7eb914167ebd7d5b8aa611c2
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 2a3854077c7c8bdb20804c6b3e77500659c3c484
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="understand-how-the-reserved-virtual-machine-instance-discount-is-applied"></a>Reserved Virtual Machine Instance 할인이 적용되는 방식을 이해합니다
 Reserved VM Instance를 구입한 다음 예약 할인이 예약의 특성 및 수량과 일치하는 가상 머신에 자동으로 적용됩니다. 예약은 가상 머신 인프라 비용을 설명합니다. 다음 표에서는 예약을 구입한 다음 가상 머신에 대한 비용을 설명합니다. 모든 경우에는 정상 요금으로 저장소 및 네트워킹에 대한 요금이 청구됩니다.
@@ -31,7 +31,7 @@ Reserved VM Instance를 구입한 다음 예약 할인이 예약의 특성 및 �
 |[Azure Hybrid Benefit](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing)을 포함한 Windows VM | 예약은 인프라 비용을 포함합니다. Windows 소프트웨어 비용은 Azure Hybrid Benefit에 포함되어 있습니다. 추가 소프트웨어는 별도로 청구됩니다.| 
 
 ## <a name="application-of-reservation-discount-to-non-windows-vms"></a>Windows 외 VM 대상 응용 프로그램 예약 할인
- 예약 할인은 시간 단위로 실행 중인 VM 인스턴스에 적용됩니다. 구입한 예약은 예약 할인을 적용할 실행 중인 VM의 사용량과 일치합니다. 다음 그래프는 청구 가능한 VM 사용량에 예약을 적용하는 작업을 보여줍니다. 일러스트레이션은 하나의 예약 구매 및 일치하는 두 개의 VM 인스턴스를 기반으로 합니다.
+ 예약 할인은 시간 단위로 실행 중인 VM 인스턴스에 적용됩니다. 구입한 예약은 예약 할인을 적용할 실행 중인 VM의 사용량과 일치합니다. 전체 시간을 실행하지 못한 VM의 경우 예약은 현재 실행 중인 VM을 비롯하여 예약을 사용하지 않는 다른 VM에서 채워집니다. 시간이 다 지날 때쯤 해당 시간의 VM에 대한 예약 응용 프로그램이 잠깁니다. 1시간 동안 VM이 실행되지 않거나 1시간 내 동시 VM이 예약 시간을 채우지 못하는 경우 예약이 해당 시간 동안 미달 사용됩니다. 다음 그래프는 청구 가능한 VM 사용량에 예약을 적용하는 작업을 보여줍니다. 일러스트레이션은 하나의 예약 구매 및 일치하는 두 개의 VM 인스턴스를 기반으로 합니다.
 
 ![Reserved VM Instance 응용 프로그램](media/billing-reserved-vm-instance-application/billing-reserved-vm-instance-application.png)
 
@@ -44,6 +44,16 @@ Reserved VM Instance를 구입한 다음 예약 할인이 예약의 특성 및 �
 
 ## <a name="application-of-reservation-discount-to-windows-vms"></a>Windows VM 대상 응용 프로그램 예약 할인
 Windows VM 인스턴스를 실행하면 인프라 비용을 포함하도록 예약이 적용됩니다. Windows VM의 VM 인프라 비용에 예약을 적용하는 것은 Windows 외 VM의 경우와 동일합니다. vCPU를 기준으로 Windows 소프트웨어에 별도로 청구됩니다. [예약에서 Windows 소프트웨어 비용](https://go.microsoft.com/fwlink/?linkid=862756)을 참조하세요. [Windows Server용 Azure Hybrid Benefit](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing)에서 Windows 라이선스 비용을 포함할 수 있습니다.
+
+## <a name="next-steps"></a>다음 단계
+예약 가상 머신 인스턴스에 대한 자세한 내용은 다음 문서를 참조하세요.
+
+- [예약 VM 인스턴스를 사용하여 Virtual Machines 선불 결제](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [예약 가상 머신 인스턴스 관리](billing-manage-reserved-vm-instance.md)
+- [예약 가상 머신 인스턴스를 사용하여 가상 머신에 대한 비용 절감](billing-save-compute-costs-reservations.md)
+- [종량제 구독을 위한 예약 인스턴스 사용 이해](billing-understand-reserved-instance-usage.md)
+- [Enterprise 등록을 위한 예약 인스턴스 사용 이해](billing-understand-reserved-instance-usage-ea.md)
+- [예약 인스턴스를 포함하지 않는 Windows 소프트웨어 비용](billing-reserved-instance-windows-software-costs.md)
 
 ## <a name="need-help-contact-support"></a>도움이 필요하세요? 지원에 문의
 

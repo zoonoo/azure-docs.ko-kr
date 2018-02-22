@@ -1,3 +1,26 @@
+---
+title: "Azure Stream Analytics 사용 시작 : 실시간 부정 행위 감지 | Microsoft Docs"
+description: "Stream Analytics으로 실시간 부정 행위 감지 솔루션을 만드는 방법에 대해 알아봅니다. 이벤트 허브를 사용하여 실시간 이벤트를 처리합니다."
+keywords: "이상 감지, 부정 행위 감지, 실시간 이상 감지"
+services: stream-analytics
+documentationcenter: 
+author: SnehaGunda
+manager: jhubbard
+editor: cgronlun
+ms.assetid: c10dd53f-d17a-4268-a561-cb500a8c04eb
+ms.service: stream-analytics
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: data-services
+ms.date: 03/28/2017
+ms.author: sngun
+ms.openlocfilehash: cc581142ca2c75bbee80f9d980c4984b4863a6cf
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 02/14/2018
+---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Azure Stream Analytics 사용 시작 : 실시간 부정 행위 감지
 
 이 자습서에서는 Azure Stream Analytics를 사용하는 방법에 대한 종단 간 일러스트레이션을 제공합니다. 다음 방법에 대해 알아봅니다. 
@@ -8,7 +31,7 @@
 
 * 추가 정보를 분석할 수 있는 출력 싱크(저장소)로 결과를 보냅니다. 이 경우 의심스러운 호출 데이터를 Azure Blob Storage로 보냅니다.
 
-이 자습서에서는 전화 통화 데이터를 기반으로 하는 실시간 부정 행위 감지의 예를 사용합니다. 하지만 여기서 설명하는 기법은 신용카드 사기 또는 ID 도용 같은 다른 유형의 부정 행위 감지에도 적용 가능합니다. 
+이 자습서에서는 전화 통화 데이터를 기반으로 실시간 사기 감지의 예를 사용합니다. 하지만 여기서 설명하는 기법은 신용카드 사기 또는 ID 도용 같은 다른 유형의 부정 행위 감지에도 적용 가능합니다. 
 
 ## <a name="scenario-telecommunications-and-sim-fraud-detection-in-real-time"></a>시나리오: 실시간으로 통신 및 SIM 사기 감지
 
@@ -300,7 +323,7 @@ TelcoGenerator 앱은 호출 레코드를 이벤트 허브로 보내고 Stream A
 
     ![셀프 조인에 대한 Stream Analytics 작업 출력, 6개 레코드가 생성된 것으로 표시](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-sample-output-self-join.png)
 
-3. **Save**를 클릭합니다. Streaming Analytics 작업의 일부로 셀프 조인 쿼리를 저장합니다. (샘플 데이터를 저장하지 않음)
+3. **저장**을 클릭합니다. Streaming Analytics 작업의 일부로 셀프 조인 쿼리를 저장합니다. (샘플 데이터를 저장하지 않음)
 
     ![Stream Analytics 작업 저장](./media/stream-analytics-real-time-fraud-detection/stream-analytics-query-editor-save-button-new-portal.png)
 
@@ -395,5 +418,5 @@ Blob Storage에서 파일 내용을 검사할 때 다음과 같은 항목이 표
 
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)
 * [Azure Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
-* [Azure Stream Analytics 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure  Stream Analytics 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)

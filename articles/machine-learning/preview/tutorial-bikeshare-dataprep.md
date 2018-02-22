@@ -9,13 +9,13 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial, azure
-ms.topic: tutorial
+ms.topic: article
 ms.date: 09/21/2017
-ms.openlocfilehash: 69f6911a95be382b06313d984f09c7e85aec10df
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: e4bcf7ec2a18f6068554c2eb85b72ffc36dcc4fc
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="bike-share-tutorial-advanced-data-preparation-with-azure-machine-learning-workbench"></a>자전거 공유 자습서: Azure Machine Learning Workbench에서 고급 데이터 준비
 Azure Machine Learning 서비스(미리 보기)는 데이터를 준비하고, 실험을 개발하고, 클라우드 범위에서 모델을 배포할 수 있는 전문 데이터 과학자를 위한 종단 간 데이터 과학 및 고급 분석 통합 솔루션입니다.
@@ -27,15 +27,17 @@ Azure Machine Learning 서비스(미리 보기)는 데이터를 준비하고, �
 > * 데이터 준비 패키지 생성
 > * Python을 사용하여 데이터 준비 패키지 실행
 > * 추가 입력 파일에 대한 데이터 준비 패키지를 다시 사용하여 학습 데이터 집합 생성
+> * 로컬 Azure CLI 창에서 스크립트 실행
+> * 클라우드 Azure HDInsight 환경에서 스크립트 실행
 
-> [!IMPORTANT]
-> 이 자습서에는 데이터 준비할 뿐 예측 모델을 빌드하지 않습니다.
->
-> 준비된 데이터를 사용하여 고유한 예측 모델을 학습할 수 있습니다. 예를 들어 2시간 동안 자전거 수요를 예측하도록 모델을 만들 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 * Azure Machine Learning Workbench는 로컬에 설치되어야 합니다. 자세한 내용은 [설치 빠른 시작](quickstart-installation.md)을 따르세요.
+* Azure CLI가 설치되지 않은 경우 [최신 Azure CLI 버전 설치](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) 지침을 따릅니다.
+* Azure에서 [HDInsights Spark 클러스터](how-to-create-dsvm-hdi.md#create-an-apache-spark-for-azure-hdinsight-cluster-in-azure-portal)를 만들어야 합니다.
+* Azure Storage 계정.
 * Workbench에서 새 프로젝트를 만드는 데 익숙해야 합니다.
+* 필수는 아니지만, [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)를 설치하면 저장소 계정에서 BLOB을 업로드, 다운로드 및 확인할 수 있으므로 많은 도움이 됩니다. 
 
 ## <a name="data-acquisition"></a>데이터 취득
 이 자습서에서는 [Boston Hubway 데이터 집합](https://s3.amazonaws.com/hubway-data/index.html) 및 [NOAA](http://www.noaa.gov/)의 보스턴 날씨 데이터를 사용합니다.
@@ -53,6 +55,22 @@ Azure Machine Learning 서비스(미리 보기)는 데이터를 준비하고, �
       - [201701-hubway-tripdata.zip](https://s3.amazonaws.com/hubway-data/201701-hubway-tripdata.zip)
 
 2. 각 .zip 파일을 다운로드한 후에 압축을 풉니다.
+
+## <a name="upload-data-files-to-azure-blob-storage"></a>Azure Blob 저장소에 데이터 파일 업로드
+Blob 저장소를 사용하여 데이터 파일을 호스트할 수 있습니다.
+
+1. 사용 중인 HDInsight 클러스터에 사용되는 것과 동일한 Azure Storage 계정을 사용합니다.
+
+    ![hdinsightstorageaccount.png](media/tutorial-bikeshare-dataprep/hdinsightstorageaccount.png)
+
+2. 자전거공유 데이터 파일을 저장할 '**data-files**'라고 하는 새 컨테이너를 만듭니다.
+
+3. 데이터 파일을 업로드합니다. `weather` 폴더에 `BostonWeather.csv` 파일을 업로드하고, 데이터 파일을 `tripdata` 폴더로 이동합니다.
+
+    ![azurestoragedatafile.png](media/tutorial-bikeshare-dataprep/azurestoragedatafile.png)
+
+> [!TIP]
+> **Azure Storage 탐색기**를 사용하여 BLOB을 업로드할 수도 있습니다. 자습서에서 생성된 파일의 내용을 보고 싶은 경우에도 이 도구를 사용할 수 있습니다.
 
 ## <a name="learn-about-the-datasets"></a>데이터 집합에 대한 자세한 정보
 1. __보스턴 날씨__ 파일에는 시간 단위로 보고된 다음과 같은 날씨 관련 필드가 포함됩니다.
@@ -78,7 +96,7 @@ Azure Machine Learning 서비스(미리 보기)는 데이터를 준비하고, �
 1. 시작 메뉴 또는 실행 프로그램에서 **Azure Machine Learning Workbench**를 시작합니다.
 
 2. 새 Azure Machine Learning 프로젝트를 만듭니다.  **프로젝트** 페이지에서 **+** 단추 또는 **파일** > **새로 만들기**를 클릭합니다.
-   - **빈 프로젝트** 템플릿을 사용합니다.
+   - **자전거 공유** 템플릿을 사용합니다.
    - 프로젝트 이름을 **자전거 공유**로 지정합니다. 
 
 ## <a id="newdatasource"></a>새 데이터 원본 만들기
@@ -97,9 +115,9 @@ Azure Machine Learning 서비스(미리 보기)는 데이터를 준비하고, �
 
    ![파일/디렉터리 항목의 이미지](media/tutorial-bikeshare-dataprep/datasources.png)
 
-2. **파일 선택 영역**: 날씨 데이터를 추가합니다. 이전에 다운로드한 `BostonWeather.csv` 파일로 이동하고 선택합니다. **다음**을 클릭합니다.
+2. **파일 선택 영역**: 날씨 데이터를 추가합니다. 이전에 __Azure Blob Storage__에 업로드한 `BostonWeather.csv` 파일을 찾아서 선택합니다. **다음**을 클릭합니다.
 
-   ![BostonWeater.csv를 선택한 파일 선택 영역의 이미지](media/tutorial-bikeshare-dataprep/pickweatherdatafile.png)
+   ![BostonWeater.csv를 선택한 파일 선택 영역의 이미지](media/tutorial-bikeshare-dataprep/azureblobpickweatherdatafile.png)
 
 3. **파일 세부 정보**: 검색된 파일 스키마를 확인합니다. Azure Machine Learning Workbench는 파일에서 데이터를 분석하고 사용할 스키마를 유추합니다.
 
@@ -136,9 +154,9 @@ Azure Machine Learning 서비스(미리 보기)는 데이터를 준비하고, �
 
    계속하려면 __다음__을 선택합니다. 
 
-5. **샘플링**: 샘플링 구성표를 만들려면 **+ 새로 만들기** 단추를 선택합니다. 추가된 새 __상위 10000__ 행을 선택하고 __편집__을 선택합니다. __샘플 전략__을 **전체 파일**로 설정한 후 **적용**을 선택합니다.
+5. **샘플링**: 샘플링 구성표를 만들려면 **편집** 단추를 선택합니다. 추가된 새 __상위 10000__ 행을 선택하고 __편집__을 선택합니다. __샘플 전략__을 **전체 파일**로 설정한 후 **적용**을 선택합니다.
 
-   ![새로운 샘플링 전략을 추가하는 이미지](media/tutorial-bikeshare-dataprep/weatherdatasampling.png)
+   ![새로운 샘플링 전략을 추가하는 이미지](media/tutorial-bikeshare-dataprep/weatherdatasamplingfullfile.png)
 
    __전체 파일__ 전략을 사용하려면 __전체 파일__ 항목을 선택하고 __활성으로 설정__을 선택합니다. 별이 __전체 파일__ 옆에 나타나면 해당 항목이 활성 전략임을 나타냅니다.
 
@@ -223,6 +241,8 @@ __REPORTTYPE__ 열이 더 이상 필요하지 않습니다. 열 헤더를 마우
 
    오류가 있는 행을 제거하려면 **HOURLYDRYBULBTEMPF** 열 제목을 마우스 오른쪽 단추로 클릭합니다. **필터 열**을 선택합니다. 기본 **관심 사항**을 **행 유지**로 사용합니다. **조건** 드롭다운을 변경하여 **오류가 아님**을 선택합니다. 필터를 적용하려면 **확인**을 선택합니다.
 
+    ![filtererrorvalues.png](media/tutorial-bikeshare-dataprep/filtererrorvalues.png)
+
 4. 다른 열에서 나머지 오류 행을 제거하려면 **HOURLYRelativeHumidity** 및 **HOURLYWindSpeed** 열에서 이 필터 프로세스를 반복합니다.
 
 ## <a name="use-by-example-transformations"></a>예제 변환에서 사용
@@ -261,7 +281,10 @@ __REPORTTYPE__ 열이 더 이상 필요하지 않습니다. 열 헤더를 마우
 
    > [!NOTE]
    > Azure ML Workbench는 사용자가 제공하는 예제에 따라 프로그램을 합성하고 나머지 행에서 동일한 프로그램을 적용합니다. 다른 모든 행은 사용자가 제공한 예제에 따라 자동으로 채워집니다. 또한 Workbench는 데이터를 분석하고 에지 사례를 식별하려고 합니다. 
-  
+
+   > [!IMPORTANT]
+   > 현재 버전의 Workbench에서는 Mac에서 에지 사례의 식별이 작동하지 않을 수 있습니다. Mac에서 아래의 __3단계__ 및 __4단계__를 건너뜁니다. 대신 모든 행에 파생값이 채워지면 __확인__을 누릅니다.
+   
 3. 그리드 위에 있는 **데이터 분석** 텍스트는 Workbench에서 에지 사례를 검색하고 있음을 나타냅니다. 작업을 완료하면 상태가 **다음 제안된 행 검토** 또는 **제안 없음**으로 변경됩니다. 이 예제에서 **다음 제안된 행 검토**가 반환됩니다.
 
 4. 제안된 변경 내용을 검토하려면 **다음 제안된 행 검토**를 선택합니다. (필요한 경우)검토하고 수정해야 하는 셀이 화면에서 강조 표시됩니다.
@@ -291,6 +314,11 @@ __REPORTTYPE__ 열이 더 이상 필요하지 않습니다. 열 헤더를 마우
 
    ![예제 '2015년 1월 1일 오전 12시~오전 2시의 이미지](media/tutorial-bikeshare-dataprep/wetherdatehourrangeexample.png)
 
+   > [!IMPORTANT]
+   > Mac에서 아래의 __8단계__ 대신 다음 단계를 따릅니다.
+   >
+   > * `Feb 01, 2015 12AM-2AM`이 포함된 첫 번째 셀로 이동합니다. __행 15__입니다. 값을 `Jan 02, 2015 12AM-2AM`으로 수정하고 __Enter__를 누릅니다. 
+   
 
 8. 상태가 **데이터 분석**에서 **다음 제안된 행 검토**로 변경되기를 기다립니다. 이 작업은 몇 초 정도 걸릴 수 있습니다. 상태 링크를 선택하여 제안된 행으로 이동합니다. 
 
@@ -306,6 +334,7 @@ __REPORTTYPE__ 열이 더 이상 필요하지 않습니다. 열 헤더를 마우
 
    > [!TIP]
    > **단계** 창에서 아래쪽 화살표를 클릭하여 이 단계에서 **예제별 열 파생**이라는 고급 모드를 사용할 수 있습니다. 데이터 그리드에는 **DATE\_1** 및 **시간 범위** 열이라는 열 이름 옆에 확인란이 있습니다. **시간 범위** 열 옆에 있는 확인란의 선택을 취소하여 출력을 변경하는 방법을 확인합니다. 입력인 **시간 범위** 열이 없는 경우 **오전 12시~오전 2시**는 상수로 처리되고 파생된 값에 추가됩니다. **취소**를 선택하여 변경 내용을 적용하지 않고 기본 그리드로 돌아갑니다.
+   ![derivedcolumnadvancededitdeselectcolumn.png](media/tutorial-bikeshare-dataprep/derivedcolumnadvancededitdeselectcolumn.png)
 
 10. 열 이름을 바꾸려면 헤더를 두 번 클릭합니다. 이름을 **날짜 시간 범위**로 변경하고 **Enter** 키를 누릅니다.
 
@@ -331,7 +360,7 @@ __REPORTTYPE__ 열이 더 이상 필요하지 않습니다. 열 헤더를 마우
 
 숫자 열에 있는 데이터를 0~1이라는 범위로 변경하면 일부 모델을 신속하게 변환할 수 있습니다. 현재 일반적으로 이 변환을 수행하기 위한 기본 제공 변환이 없지만 Python 스크립트를 사용하여 이 작업을 수행할 수 있습니다.
 
-1. **변환** 메뉴에서 **데이터 흐름 변환**을 선택합니다.
+1. **변환** 메뉴에서 **데이터 흐름 변환(스크립트)**을 선택합니다.
 
 2. 표시되는 텍스트 상자에 다음 코드를 입력합니다. 열 이름을 사용한 경우 수정하지 않고 코드가 작동해야 합니다. Python으로 간단한 최소 최대 정규화 논리를 작성합니다.
 
@@ -372,6 +401,7 @@ __REPORTTYPE__ 열이 더 이상 필요하지 않습니다. 열 헤더를 마우
 
 1. `201701-hubway-tripdata.csv` 파일을 가져오려면 [새 데이터 원본 만들기](#newdatasource) 섹션의 단계를 사용합니다. 가져오기 프로세스 중에 다음 옵션을 사용합니다.
 
+    * __파일 선택__: 파일을 찾아서 선택할 때에는 **Azure Blob**을 선택합니다.
     * __샘플링 구성표__: **전체 파일** 샘플링 구성표는 샘플을 활성화하고 
     * __데이터 형식__: 기본값 적용합니다.
 
@@ -505,7 +535,12 @@ __REPORTTYPE__ 열이 더 이상 필요하지 않습니다. 열 헤더를 마우
     > 행에 대한 예제를 제공할 수 있습니다. 이 예제에서 데이터의 첫 번째 행에 `Jan 01, 2017 12AM-2AM` 값이 유효합니다.
 
     ![예제 데이터의 이미지](media/tutorial-bikeshare-dataprep/tripdataderivebyexamplefirstexample.png)
-   
+
+   > [!IMPORTANT]
+   > Mac에서 아래의 __3단계__ 대신 다음 단계를 따릅니다.
+   >
+   > * `Jan 01, 2017 1AM-2AM`이 포함된 첫 번째 셀로 이동합니다. __행 14__입니다. 값을 `Jan 01, 2017 12AM-2AM`으로 수정하고 __Enter__를 누릅니다. 
+
 3. 응용 프로그램이 모든 행에 대한 값을 계산할 때까지 기다립니다. 이 작업은 몇 초 정도 걸릴 수 있습니다. 분석이 완료되면 __다음 제안된 행 검토__ 링크를 사용하여 데이터를 검토합니다.
 
    ![검토 링크를 사용하여 완성된 분석의 이미지](media/tutorial-bikeshare-dataprep/tripdatabyexanalysiscomplete.png)
@@ -586,19 +621,95 @@ df.head(10)
 
 ## <a name="save-test-data-as-a-csv-file"></a>CSV 파일로 테스트 데이터 저장
 
-**조인 결과** 데이터 흐름을 .CSV 파일로 저장하려면 `BikeShare Data Prep.py` 스크립트를 변경해야 합니다. 다음 코드를 사용하여 Python 스크립트를 업데이트합니다.
+**조인 결과** 데이터 흐름을 .CSV 파일로 저장하려면 `BikeShare Data Prep.py` 스크립트를 변경해야 합니다. 
 
-```python
-from azureml.dataprep.package import run
+1. VSCode에서 편집할 프로젝트를 엽니다.
 
-# dataflow_idx=2 sets the dataflow to the 3rd dataflow (the index starts at 0), the Join Result.
-df = run('BikeShare Data Prep.dprep', dataflow_idx=2)
+    ![openprojectinvscode.png](media/tutorial-bikeshare-dataprep/openprojectinvscode.png)
 
-# Example file path: C:\\Users\\Jayaram\\BikeDataOut\\BikeShareTest.csv
-df.to_csv('Your Test Data File Path here')
-```
+2. 다음 코드를 사용하여 `BikeShare Data Prep.py` 파일의 Python 스크립트를 업데이트합니다.
 
-화면 맨 위에서 **실행**을 선택합니다. 스크립트는 로컬 컴퓨터에 **작업**으로 전송됩니다. 작업 상태가 __완료됨__으로 변경되면 파일이 지정된 위치에 작성됩니다.
+    ```python
+    import pyspark
+
+    from azureml.dataprep.package import run
+    from pyspark.sql.functions import *
+
+    # start Spark session
+    spark = pyspark.sql.SparkSession.builder.appName('BikeShare').getOrCreate()
+
+    # dataflow_idx=2 sets the dataflow to the 3rd dataflow (the index starts at 0), the Join Result.
+    df = run('BikeShare Data Prep.dprep', dataflow_idx=2)
+    df.show(n=10)
+    row_count_first = df.count()
+
+    # Example file name: 'wasb://data-files@bikesharestorage.blob.core.windows.net/testata'
+    # 'wasb://<your container name>@<your azure storage name>.blob.core.windows.net/<csv folder name>
+    blobfolder = 'Your Azure Storage blob path'
+
+    df.write.csv(blobfolder, mode='overwrite') 
+
+    # retrieve csv file parts into one data frame
+    csvfiles = "<Your Azure Storage blob path>/*.csv"
+    df = spark.read.option("header", "false").csv(csvfiles)
+    row_count_result = df.count()
+    print(row_count_result)
+    if (row_count_first == row_count_result):
+        print('counts match')
+    else:
+        print('counts do not match')
+    print('done')
+    ```
+
+3. `Your Azure Storage blob path`를 만들려는 출력 파일의 경로로 바꿉니다. `blobfolder` 및 `csvfiles` 변수를 바꿉니다.
+
+## <a name="create-hdinsight-run-configuration"></a>HDInsight 실행 구성 만들기
+
+1. Azure Machine Learning Workbench에서 명령줄 창을 열고, **파일** 메뉴를 선택한 다음 **명령 프롬프트 열기**를 선택합니다. 명령 프롬프트가 프로젝트 폴더에서 `C:\Projects\BikeShare>` 프롬프트와 함께 시작됩니다.
+
+ ![opencommandprompt.png](media/tutorial-bikeshare-dataprep/opencommandprompt.png)
+
+   >[!IMPORTANT]
+   >다음 단계를 수행하려면 명령줄 창(Workbench에서 열림)을 사용해야 합니다.
+
+2. 명령 프롬프트를 사용하여 Azure에 로그인합니다. 
+
+   Workbench 응용 프로그램과 CLI는 Azure 리소스에 대해 인증할 때 독립적인 자격 증명 캐시를 사용합니다. 캐시된 토큰이 만료될 때까지 한 번만 수행하면 됩니다. `az account list` 명령은 로그인에 사용 가능한 구독 목록을 반환합니다. 둘 이상이 있는 경우 원하는 구독에서 ID 값을 사용합니다. 해당 구독을 기본 계정으로 설정하여 `az account set -s` 명령으로 사용한 다음, 구독 ID 값을 제공합니다. 그런 다음, account `show` 명령을 사용하여 설정을 확인합니다.
+
+   ```azurecli
+   REM login by using the aka.ms/devicelogin site
+   az login
+   
+   REM lists all Azure subscriptions you have access to 
+   az account list -o table
+   
+   REM sets the current Azure subscription to the one you want to use
+   az account set -s <subscriptionId>
+   
+   REM verifies that your current subscription is set correctly
+   az account show
+   ```
+
+3. HDInsight 실행 구성을 만듭니다. 클러스터 이름과 sshuser 암호가 필요합니다.
+    ```azurecli
+    az ml computetarget attach --name hdinsight --address <yourclustername>.azurehdinsight.net --username sshuser --password <your password> --type cluster
+    az ml experiment prepare -c hdinsight
+    ```
+> [!NOTE]
+> 빈 프로젝트가 생성되면 기본 실행 구성은 **로컬** 및 **docker**입니다. 이 단계에서는 스크립트를 실행할 때 **Azure Machine Learning Workbench**에서 사용할 수 있는 새로운 실행 구성을 만듭니다. 
+
+## <a name="run-in-hdinsight-cluster"></a>HDInsight 클러스터에서 실행
+
+HDInsight 클러스터에서 스크립트를 실행할 수 있도록 **Azure Machine Learning Workbench** 응용 프로그램으로 돌아갑니다.
+
+1. 왼쪽의 **홈** 아이콘을 클릭하여 프로젝트의 홈 화면으로 돌아갑니다.
+
+2. HDInsight 클러스터에서 스크립트를 실행할 수 있도록 드롭다운 목록에서 **hdinsight**를 선택합니다.
+
+3. 화면 맨 위에서 **실행**을 선택합니다. 스크립트가 **작업**으로 전송됩니다. 작업 상태가 __완료됨__으로 변경되면 파일이 **Azure Storage Container**의 지정된 위치에 작성됩니다.
+
+    ![hdinsightrunscript.png](media/tutorial-bikeshare-dataprep/hdinsightrunscript.png)
+
 
 ## <a name="substitute-data-sources"></a>데이터 원본 대체
 
@@ -608,7 +719,7 @@ df.to_csv('Your Test Data File Path here')
 
     * __파일 선택 영역__: 파일을 선택할 때 나머지 6개의 여행 데이터 .CSV 파일을 중복 선택합니다.
 
-        ![나머지 6개의 파일 로드](media/tutorial-bikeshare-dataprep/selectsixfiles.png)
+        ![나머지 6개의 파일 로드](media/tutorial-bikeshare-dataprep/browseazurestoragefortripdatafiles.png)
 
         > [!NOTE]
         > __+5__ 항목은 나열된 하나의 항목 이외에도 5개의 추가 파일이 있음을 나타냅니다.
@@ -619,11 +730,13 @@ df.to_csv('Your Test Data File Path here')
 
    이 데이터 원본이 이후 단계에서 사용되므로 이름을 저장합니다.
 
-2. 프로젝트에서 파일을 보려는 폴더 아이콘을 선택합니다. __aml\_config__ 디렉터리를 확장하고 `local.runconfig` 파일을 선택합니다.
+2. 프로젝트에서 파일을 보려는 폴더 아이콘을 선택합니다. __aml\_config__ 디렉터리를 확장하고 `hdinsight.runconfig` 파일을 선택합니다.
 
-    ![local.runconfig의 위치 이미지](media/tutorial-bikeshare-dataprep/localrunconfig.png) 
+    ![hdinsight.runconfig의 위치 이미지](media/tutorial-bikeshare-dataprep/hdinsightsubstitutedatasources.png) 
 
-3. `local.runconfig` 파일의 끝에 다음 줄을 추가하고 파일을 저장할 디스크 아이콘을 선택합니다.
+3. [편집] 단추를 클릭하여 VSCode에서 파일을 엽니다.
+
+4. `hdinsight.runconfig` 파일의 끝에 다음 줄을 추가하고 파일을 저장할 디스크 아이콘을 선택합니다.
 
     ```yaml
     DataSourceSubstitutions:
@@ -637,15 +750,41 @@ df.to_csv('Your Test Data File Path here')
 이전에 편집한 Python 파일 `BikeShare Data Prep.py`로 이동하고 학습 데이터를 저장할 다른 파일 경로를 제공합니다.
 
 ```python
+import pyspark
+
 from azureml.dataprep.package import run
+from pyspark.sql.functions import *
+
+# start Spark session
+spark = pyspark.sql.SparkSession.builder.appName('BikeShare').getOrCreate()
+
 # dataflow_idx=2 sets the dataflow to the 3rd dataflow (the index starts at 0), the Join Result.
 df = run('BikeShare Data Prep.dprep', dataflow_idx=2)
+df.show(n=10)
+row_count_first = df.count()
 
-# Example file path: C:\\Users\\Jayaram\\BikeDataOut\\BikeShareTrain.csv
-df.to_csv('Your Training Data File Path here')
+# Example file name: 'wasb://data-files@bikesharestorage.blob.core.windows.net/traindata'
+# 'wasb://<your container name>@<your azure storage name>.blob.core.windows.net/<csv folder name>
+blobfolder = 'Your Azure Storage blob path'
+
+df.write.csv(blobfolder, mode='overwrite') 
+
+# retrieve csv file parts into one data frame
+csvfiles = "<Your Azure Storage blob path>/*.csv"
+df = spark.read.option("header", "false").csv(csvfiles)
+row_count_result = df.count()
+print(row_count_result)
+if (row_count_first == row_count_result):
+    print('counts match')
+else:
+    print('counts do not match')
+print('done')
 ```
 
-새 작업을 제출하려면 페이지 맨 위에 있는 **실행** 아이콘을 사용합니다. **작업**은 새 구성과 함께 제출됩니다. 이 작업의 출력은 학습 데이터입니다. 이 데이터는 이전에 만든 동일한 데이터 준비 단계를 사용하여 생성됩니다. 작업을 완료하는 데 몇 분 정도 걸릴 수 있습니다.
+1. 학습 데이터 출력에 폴더 이름 `traindata`를 사용합니다.
+
+2. 새 작업을 제출하려면 페이지 맨 위에 있는 **실행** 아이콘을 사용합니다. **hdinsight**를 선택합니다. **작업**은 새 구성과 함께 제출됩니다. 이 작업의 출력은 학습 데이터입니다. 이 데이터는 이전에 만든 동일한 데이터 준비 단계를 사용하여 생성됩니다. 작업을 완료하는 데 몇 분 정도 걸릴 수 있습니다.
+
 
 ## <a name="next-steps"></a>다음 단계
 자전거 공유 데이터 준비 자습서를 완료했습니다. 이 자습서에서는 Azure Machine Learning 서비스(미리 보기)를 사용하여 다음을 수행하는 방법에 대해 알아보았습니다.

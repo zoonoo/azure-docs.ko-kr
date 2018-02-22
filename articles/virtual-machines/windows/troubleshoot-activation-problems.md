@@ -14,17 +14,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: f6095d98ada2974bce03ec8f5527367837daafd3
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: fd3f52de40c6d448d457824bcc675db036d2cb86
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Windows Azure 가상 컴퓨터 정품 인증 문제 해결
 
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 사용자 지정 이미지에서 만든 Azure Windows VM(가상 머신)을 활성화하는 데 문제가 발생하는 경우 문제를 해결하려면 이 문서에 제공된 정보를 사용할 수 있습니다. 
+
+## <a name="understanding-azure-kms-endpoints-for-windows-product-activation-of-azure-virtual-machines"></a>Azure Virtual Machines의 Windows 제품 정품 인증을 위한 Azure KMS 엔드포인트 이해
+Azure는 VM이 상주하는 클라우드 영역에 따라 KMS 정품 인증에 다양한 엔드포인트를 사용합니다. 이 문제 해결 가이드를 사용하는 경우 사용자의 지역에 해당하는 적절한 KMS 엔드포인트를 사용합니다.
+
+* Azure 공용 클라우드 지역: kms.core.windows.net:1688
+* Azure 중국 국가 클라우드 지역: kms.core.chinacloudapi.cn:1688
+* Azure 독일 국가 클라우드 지역: kms.core.cloudapi.de:1688
+* Azure 미국 정부 국가 클라우드 지역: kms.core.usgovcloudapi.net:1688
 
 ## <a name="symptom"></a>증상
 

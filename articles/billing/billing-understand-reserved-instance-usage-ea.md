@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/03/2017
 ms.author: manshuk
-ms.openlocfilehash: 7ef601033b36ee968cb766d40a0a6b05afa9a1a4
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 515eae3c9a84a171bebc5213f5824e1b50336e34
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="understand--reserved-instance-usage-for-your-enterprise-enrollment"></a>Enterprise 등록의 Reserved Instance 사용 이해
 [예약 페이지](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Reservations&Microsoft_Azure_Reservations=true#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade )의 ReservationId 및 [EA 포털](https://ea.azure.com)의 사용량 파일을 사용하여 Reserved Instance의 활용을 이해합니다. [EA 포털](https://ea.azure.com)의 사용량 요약 페이지에서도 예약 사용량을 파악할 수 있습니다.
@@ -37,7 +37,7 @@ ms.lasthandoff: 11/16/2017
 
 ## <a name="reservation-application"></a>예약 응용 프로그램
 
-배포된 VM이 예약 특성과 일치하기 때문에 VM의 하드웨어 부분이 포함됩니다. Reserved Instance에 포함되지 않는 Windows 소프트웨어를 확인하려면 Azure Reserved VM 인스턴스 소프트웨어 비용, [Azure Reserve VM Instances Windows 소프트웨어 비용](billing-reserved-instance-windows-software-costs.md)으로 이동하세요.
+배포된 VM이 예약 특성과 일치하기 때문에 VM의 하드웨어 부분이 포함됩니다. Reserved Instance에 포함되지 않는 Windows 소프트웨어를 확인하려면 Azure Reserved VM Instances 소프트웨어 비용, [Azure Reserve VM Instances Windows 소프트웨어 비용](billing-reserved-instance-windows-software-costs.md)으로 이동하세요.
 
 
 ### <a name="reservation-usage-in-csv"></a>예약 사용량(csv)
@@ -56,6 +56,16 @@ Reserved Instance 사용량은 EA 포털: ![EA 사용량 요약](./media/billing
 
 1. VM의 하드웨어 구성 요소는 Reserved Instance에서 처리되므로 이에 대해서는 청구되지 않습니다. 
 2. Azure Hybrid Benefit을 사용하지 않으면 Windows 소프트웨어에 대해서 청구됩니다. 
+
+## <a name="next-steps"></a>다음 단계
+예약 가상 머신 인스턴스에 대한 자세한 내용은 다음 문서를 참조하세요.
+
+- [예약 VM 인스턴스를 사용하여 Virtual Machines 선불 결제](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [예약 가상 머신 인스턴스 관리](billing-manage-reserved-vm-instance.md)
+- [예약 가상 머신 인스턴스를 사용하여 가상 머신에서 비용 절감](billing-save-compute-costs-reservations.md)
+- [예약 가상 머신 인스턴스 할인이 적용되는 방식 이해](billing-understand-vm-reservation-charges.md)
+- [종량제 구독에서 예약 인스턴스 사용량 이해](billing-understand-reserved-instance-usage.md)
+- [예약 인스턴스를 포함하지 않는 Windows 소프트웨어 비용](billing-reserved-instance-windows-software-costs.md)
 
 ## <a name="need-help-contact-support"></a>도움이 필요하세요? 지원에 문의하세요.
 

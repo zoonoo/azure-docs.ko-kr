@@ -12,19 +12,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 01/31/2018
 ms.author: mimig
-ms.openlocfilehash: 02bb5d23ee9468ab1f74396877cdcd6bdd8b8fba
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 9083ae631f654789b621a1fc62e0b9d31c24f119
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>Azure Cosmos DB Table .NET API: 다운로드 및 릴리스 정보
 > [!div class="op_single_selector"]
 > * [.NET](table-sdk-dotnet.md)
 > * [Java](table-sdk-java.md)
-> * [Node.JS](table-sdk-nodejs.md)
+> * [Node.js](table-sdk-nodejs.md)
 > * [Python](table-sdk-python.md)
 
 |   |   |
@@ -40,6 +40,10 @@ ms.lasthandoff: 12/12/2017
 >
 
 ## <a name="release-notes"></a>릴리스 정보
+
+### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
+* TableRequestOptions에 TableQueryMaxItemCount, TableQueryEnableScan, TableQueryMaxDegreeOfParallelism 및 TableQueryContinuationTokenLimitInKb 추가
+* 버그 수정
 
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
 * 일반 공급 릴리스

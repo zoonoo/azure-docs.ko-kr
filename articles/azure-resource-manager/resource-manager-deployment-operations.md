@@ -15,18 +15,18 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: infrastructure
 ms.date: 01/13/2017
 ms.author: tomfitz
-ms.openlocfilehash: fb6b3b357fd1f66184e480115a9c863ba31ac193
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 197f890690ff68236cba221988ead9b9abd8c04e
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="view-deployment-operations-with-azure-resource-manager"></a>Azure Resource Manager를 사용한 배포 작업 보기
 
 
 Azure 포털을 통해 배포에 대한 작업을 볼 수 있습니다. 배포 중에 오류가 나타날 때 작업을 보는 데 가장 많은 관심을 가질 수 있으므로 이 문서에서는 실패한 작업을 보는 것에 대해 중점적으로 설명합니다. 포털은 쉽게 오류를 찾고 잠재적 해결 방법을 확인할 수 있는 인터페이스를 제공합니다.
 
-[!INCLUDE [resource-manager-troubleshoot-introduction](../../includes/resource-manager-troubleshoot-introduction.md)]
+감사 로그 또는 배포 작업을 확인하여 배포 문제를 해결할 수 있습니다. 이 항목에서는 두 가지 방법을 모두 보여 줍니다. 특정 배포 오류에 대한 도움말은 [Azure Resource Manager를 사용하여 Azure에 리소스를 배포할 때 발생한 일반적인 오류 해결](resource-manager-common-deployment-errors.md)을 참조하세요.
 
 ## <a name="portal"></a>포털
 배포 작업을 확인하려면 다음 단계를 사용합니다.
@@ -42,7 +42,7 @@ Azure 포털을 통해 배포에 대한 작업을 볼 수 있습니다. 배포 �
     ![실패한 배포 보기](./media/resource-manager-deployment-operations/view-error.png)
    
     이 오류 메시지는 문제 해결을 시작하는 데 충분합니다. 그러나 어떤 작업이 완료되었는지에 대한 추가 정보가 필요한 경우 다음 단계에 표시된 대로 작업을 볼 수 있습니다.
-4. **배포** 블레이드에서 모든 배포 작업을 볼 수 있습니다. 보다 자세한 정보를 확인하려면 원하는 작업을 선택합니다.
+4. 모든 배포 작업을 볼 수 있습니다. 보다 자세한 정보를 확인하려면 원하는 작업을 선택합니다.
    
     ![작업 보기](./media/resource-manager-deployment-operations/view-operations.png)
    
@@ -178,7 +178,7 @@ Azure 포털을 통해 배포에 대한 작업을 볼 수 있습니다. 배포 �
   }
   ```
 
-2. [모든 템플릿 배포 작업 나열](https://docs.microsoft.com/rest/api/resources/deployments#Deployments_List) 작업을 사용하여 배포 작업에 대한 정보를 가져오세요. 
+2. [모든 템플릿 배포 작업 나열](https://docs.microsoft.com/rest/api/resources/deployments#Deployments_List)을 사용하여 배포 작업에 대한 정보를 가져오세요. 
 
   ```http
   GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}/operations?$skiptoken={skiptoken}&api-version={api-version}

@@ -3,8 +3,8 @@ title: "Azure 스택에서 서비스를 제공 합니다. | Microsoft Docs"
 description: "클라우드 연산자로 사용자에 게 서비스를 제공할 수 있습니다."
 services: azure-stack
 documentationcenter: 
-author: ErikjeMS
-manager: byronr
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 
 ms.service: azure-stack
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
-ms.author: erikje
-ms.openlocfilehash: 7a54771d99f2719fcc345496b152a5d3acc02121
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: brenduns
+ms.reviewer: 
+ms.openlocfilehash: 7a0fe4e02cf7a5feee90c3a0bf5596b44d5f9038
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="overview-of-offering-services-in-azure-stack"></a>Azure 스택에서 서비스 제공의 개요
 

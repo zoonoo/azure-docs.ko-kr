@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: spelluru
-ms.openlocfilehash: 2131aa75dcfb975f11cff9800087c3e4e7170378
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 72b0965e1fda733651baa04997da1242a73320f1
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Azure-SSIS 통합 런타임을 Azure 가상 네트워크에 조인
 다음 시나리오에서 Azure-SSIS IR(통합 런타임)을 Azure VNet(가상 네트워크)에 조인합니다. 
@@ -31,7 +31,13 @@ ms.lasthandoff: 02/01/2018
 > 이 문서는 현재 미리 보기 상태인 Data Factory 버전 2에 적용됩니다. GA(일반 공급) 상태인 Data Factory 버전 1 서비스를 사용 중인 경우 [Data Factory 버전 1 설명서](v1/data-factory-introduction.md)를 참조하세요.
 
 ## <a name="access-on-premises-data-stores"></a>온-프레미스 데이터 저장소 액세스
-SSIS 패키지가 공용 클라우드 데이터 저장소에만 액세스하는 경우 Azure-SSIS IR을 VNet에 조인할 필요가 없습니다. SSIS 패키지가 온-프레미스 데이터 저장소에 액세스하는 경우 Azure-SSIS IR을 온-프레미스 네트워크에 연결된 VNet에 조인해야 합니다. SSIS 카탈로그가 VNet에 없는 Azure SQL Database에서 호스트되는 경우 적절한 포트를 열어야 합니다. SSIS 카탈로그가 Azure Resource Manager VNet 또는 클래식 VNet에 있는 Azure SQL 관리되는 인스턴스에서 호스팅되는 경우, Azure-SSIS IR을 동일한 VNet (또는) Azure SQL 관리되는 인스턴스가 있는 VNet 간 연결이 있는 다른 VNet에 조인할 수 있습니다. 다음 섹션에 자세한 내용이 제공됩니다.
+SSIS 패키지가 공용 클라우드 데이터 저장소에만 액세스하는 경우 Azure-SSIS IR을 VNet에 조인할 필요가 없습니다. SSIS 패키지가 온-프레미스 데이터 저장소에 액세스하는 경우 Azure-SSIS IR을 온-프레미스 네트워크에 연결된 VNet에 조인해야 합니다. 
+
+SSIS 카탈로그가 VNet에 없는 Azure SQL Database에서 호스트되는 경우 적절한 포트를 열어야 합니다. 
+
+SSIS 카탈로그가 VNet에 있는 Azure SQL 관리되는 인스턴스(MI)에 호스팅되는 경우 Azure-SSIS IR을 동일한 VNet (또는) Azure SQL 관리되는 인스턴스가 있는 VNet 간 연결이 있는 다른 VNet에 조인할 수 있습니다. VNet은 클래식 VNet일 수도 있고 Azure Resource 관리 VNet일 수 있습니다. Azure-SSIS IR을 SQL MI가 있는 **동일한 VNet**에 조인하려는 경우 Azure-SSIS IR은 SQL MI가 있는 서브넷과 **다른 서브넷**에 있어야 합니다.   
+
+다음 섹션에 자세한 내용이 제공됩니다.
 
 다음은 몇 가지 유의할 사항입니다. 
 
@@ -58,10 +64,11 @@ Azure-SSIS 통합 런타임에서 조인한 VNet에 NSG(네트워크 보안 그�
 ### <a name="use-portal-to-configure-a-classic-vnet"></a>포털을 사용하여 클래식 VNet 구성
 먼저 VNet을 구성해야 Azure-SSIS IR을 VNet에 조인할 수 있습니다.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. **추가 서비스**를 클릭합니다. **가상 네트워크(클래식)**를 필터링하여 선택합니다.
-3. 목록에서 **가상 네트워크**를 필터링하고 선택합니다. 
-4. 가상 네트워크(클래식) 페이지에서 **속성**을 선택합니다. 
+1. **Microsoft Edge** 또는 **Google Chrome** 웹 브라우저를 시작합니다. 현재 Data Factory UI는 Microsoft Edge 및 Google Chrome 웹 브라우저에서만 지원됩니다.
+2. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+3. **추가 서비스**를 클릭합니다. **가상 네트워크(클래식)**를 필터링하여 선택합니다.
+4. 목록에서 **가상 네트워크**를 필터링하고 선택합니다. 
+5. 가상 네트워크(클래식) 페이지에서 **속성**을 선택합니다. 
 
     ![클래식 VNet 리소스 ID](media/join-azure-ssis-integration-runtime-virtual-network/classic-vnet-resource-id.png)
 5. **RESOURCE ID**에 대한 복사 단추를 클릭하여 클래식 네트워크의 리소스 ID를 클립보드에 복사합니다. 클립 보드의 ID를 OneNote 또는 파일에 저장합니다.
@@ -93,13 +100,14 @@ Azure-SSIS 통합 런타임에서 조인한 VNet에 NSG(네트워크 보안 그�
 ### <a name="use-portal-to-configure-an-azure-resource-manager-vnet"></a>포털을 사용하여 Azure Resource Manager VNet 구성
 먼저 VNet을 구성해야 Azure-SSIS IR을 VNet에 조인할 수 있습니다.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. **추가 서비스**를 클릭합니다. **가상 네트워크**를 필터링하여 선택합니다.
-3. 목록에서 **가상 네트워크**를 필터링하고 선택합니다. 
-4. 가상 네트워크 페이지에서 **속성**을 선택합니다. 
-5. **리소스 ID**에 대한 복사 단추를 클릭하여 가상 네트워크에 대한 리소스 ID를 클립보드에 복사합니다. 클립 보드의 ID를 OneNote 또는 파일에 저장합니다.
-6. 왼쪽 메뉴에서 **서브넷**을 클릭하고 **사용 가능한 주소**의 수가 Azure-SSIS 통합 런타임의 노드보다 큰지 확인합니다.
-5. Azure 배치 공급자가 VNet이 있는 Azure 구독에 등록되어 있는지 확인하거나 Azure 배치 공급자를 등록합니다. Azure 배치 계정이 구독에 이미 있는 경우 구독이 Azure 배치에 등록됩니다.
+1. **Microsoft Edge** 또는 **Google Chrome** 웹 브라우저를 시작합니다. 현재 Data Factory UI는 Microsoft Edge 및 Google Chrome 웹 브라우저에서만 지원됩니다.
+2. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+3. **추가 서비스**를 클릭합니다. **가상 네트워크**를 필터링하여 선택합니다.
+4. 목록에서 **가상 네트워크**를 필터링하고 선택합니다. 
+5. 가상 네트워크 페이지에서 **속성**을 선택합니다. 
+6. **리소스 ID**에 대한 복사 단추를 클릭하여 가상 네트워크에 대한 리소스 ID를 클립보드에 복사합니다. 클립 보드의 ID를 OneNote 또는 파일에 저장합니다.
+7. 왼쪽 메뉴에서 **서브넷**을 클릭하고 **사용 가능한 주소**의 수가 Azure-SSIS 통합 런타임의 노드보다 큰지 확인합니다.
+8. Azure 배치 공급자가 VNet이 있는 Azure 구독에 등록되어 있는지 확인하거나 Azure 배치 공급자를 등록합니다. Azure 배치 계정이 구독에 이미 있는 경우 구독이 Azure 배치에 등록됩니다.
     1. Azure Portal의 왼쪽 메뉴에서 **구독**을 클릭합니다. 
     2. **구독**을 선택합니다. 
     3. 왼쪽에서 **리소스 공급자**를 클릭하고 `Microsoft.Batch`가 등록된 공급자인지 확인합니다. 
@@ -111,7 +119,8 @@ Azure-SSIS 통합 런타임에서 조인한 VNet에 NSG(네트워크 보안 그�
 ### <a name="join-the-azure-ssis-ir-to-a-vnet"></a>Azure SSIS IR을 VNet에 조인
 
 
-1. [Azure Portal](https://portal.azure.com)의 왼쪽 메뉴에서 **데이터 팩터리**를 선택합니다. 메뉴에 **데이터 팩터리**가 표시되지 않으면 **다른 서비스**를 선택하고 **INTELLIGENCE + ANALYTICS** 섹션에서 **데이터 팩터리**를 선택합니다. 
+1. **Microsoft Edge** 또는 **Google Chrome** 웹 브라우저를 시작합니다. 현재 Data Factory UI는 Microsoft Edge 및 Google Chrome 웹 브라우저에서만 지원됩니다.
+2. [Azure Portal](https://portal.azure.com)의 왼쪽 메뉴에서 **데이터 팩터리**를 선택합니다. 메뉴에 **데이터 팩터리**가 표시되지 않으면 **다른 서비스**를 선택하고 **INTELLIGENCE + ANALYTICS** 섹션에서 **데이터 팩터리**를 선택합니다. 
     
     ![데이터 팩터리 목록](media/join-azure-ssis-integration-runtime-virtual-network/data-factories-list.png)
 2. 목록에서 Azure SSIS 통합 런타임의 데이터 팩터리를 선택합니다. 데이터 팩터리의 홈 페이지가 표시됩니다. **작성자 및 배포** 타일을 선택합니다. 별도의 탭에서 데이터 팩터리 UI(사용자 인터페이스)를 시작합니다. 

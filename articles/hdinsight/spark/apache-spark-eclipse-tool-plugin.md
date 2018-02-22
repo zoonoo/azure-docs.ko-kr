@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: nitinme
-ms.openlocfilehash: c668dde33b3571436711c6c5e5289993a9edf1a2
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: c36d742c61fb85f1b6077dd9156d6e36b37db1e1
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-spark-applications-for-an-hdinsight-cluster"></a>Eclipse용 Azure 도구 키트를 사용하여 HDInsight 클러스터용 Spark 응용 프로그램 만들기
 
@@ -69,6 +69,26 @@ Eclipse를 열면 HDInsight Tools는 Scala 플러그 인을 설치했는지 여�
    
    ![클러스터 이름을 확장하여 리소스 표시](./media/apache-spark-eclipse-tool-plugin/view-explorer-4.png)
 
+## <a name="link-a-cluster"></a>클러스터 연결
+Ambari에서 관리하는 사용자 이름을 사용하여 정상적인 클러스터를 연결할 수 있고 도메인 사용자 이름(예: user1@contoso.com)을 사용하여 보안 Hadoop 클러스터를 연결할 수 있습니다.
+1. **Azure Explorer**에서 **Link a cluster**(클러스터 연결)를 클릭합니다.
+
+   ![클러스터 연결 상황에 맞는 메뉴](./media/apache-spark-intellij-tool-plugin/link-a-cluster-context-menu.png)
+
+2. **클러스터 이름**, **저장소 계정**, **저장소 키**를 입력한 다음, **저장소 컨테이너**에서 컨테이너를 선택하고 마지막으로 사용자 이름과 암호를 입력합니다. 확인 단추를 클릭하여 클러스터를 연결합니다.
+   
+   ![클러스터 연결 대화 상자](./media/apache-spark-eclipse-tool-plugin/link-cluster-dialog.png)
+   
+   > [!NOTE]
+   > 클러스터가 Azure 구독 및 연결된 클러스터 모두에 로그인되어 있으면, 연결된 저장소 키, 사용자 이름 및 암호를 사용합니다.
+
+3. 입력 정보가 올바르면 확인 단추를 클릭한 후 **HDInsight** 노드에 연결된 클러스터가 표시됩니다. 이제 응용 프로그램을 연결된 클러스터에 제출할 수 있습니다.
+
+   ![연결된 클러스터](./media/apache-spark-intellij-tool-plugin/linked-cluster.png)
+
+4. **Azure Explorer**에서 클러스터 연결을 해제할 수도 있습니다.
+   
+   ![연결되지 않은 클러스터](./media/apache-spark-intellij-tool-plugin/unlink.png)
 
 
 ## <a name="set-up-a-spark-scala-project-for-an-hdinsight-spark-cluster"></a>HDInsight Spark 클러스터에 Spark Scala 프로젝트 설정
@@ -130,6 +150,7 @@ Eclipse를 열면 HDInsight Tools는 Scala 플러그 인을 설치했는지 여�
 6. **Spark 제출** 탭에 진행 상태가 표시되기 시작합니다. **Spark 제출** 창에서 빨간색 단추를 선택하여 응용 프로그램을 중지할 수 있습니다. 구형 아이콘(이미지에 파란색 상자로 표시됨)을 선택하여 특정 응용 프로그램을 실행하는 로그를 볼 수도 있습니다.
       
    ![Spark 제출 창](./media/apache-spark-eclipse-tool-plugin/create-scala-proj-4.png)
+
 
 ## <a name="access-and-manage-hdinsight-spark-clusters-by-using-hdinsight-tools-in-azure-toolkit-for-eclipse"></a>Eclipse용 Azure 도구 키트의 HDInsight Tools를 사용하여 HDInsight Spark 클러스터 액세스 및 관리
 HDInsight Tools를 사용하여 작업 출력에 액세스를 포함한 다양한 작업을 수행할 수 있습니다.

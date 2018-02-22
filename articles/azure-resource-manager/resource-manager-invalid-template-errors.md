@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: support-article
 ms.date: 09/13/2017
 ms.author: tomfitz
-ms.openlocfilehash: e58c10cfb4cdd4ba49945e6c19845cbc957d6326
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 87bc6e4def624785c5052a9a25f579b022c940ec
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="resolve-errors-for-invalid-template"></a>잘못된 템플릿 오류 해결
 
@@ -131,6 +131,10 @@ part of the allowed values
 
 템플릿에 허용되는 값을 다시 한 번 확인하고 배포 시 값 하나를 제공합니다.
 
-### <a name="solution-4---circular-dependency-detected"></a>해결 방법 4 - 순환 종속성이 발견됨
+### <a name="solution-4---too-many-target-resource-groups"></a>해결 방법 4 - 너무 많은 대상 리소스 그룹
+
+단일 배포에 6개 이상의 대상 리소스 그룹을 지정하면 이 오류가 표시됩니다. 배포에서 리소스 그룹 수를 통합하거나 일부 템플릿을 별도의 배포로 배포하는 방법을 고려하세요. 자세한 내용은 [둘 이상의 구독 또는 리소스 그룹에 Azure 리소스 배포](resource-manager-cross-resource-group-deployment.md)를 참조하세요.
+
+### <a name="solution-5---circular-dependency-detected"></a>해결 방법 5 - 순환 종속성이 발견됨
 
 이 오류 메시지는 배포가 시작될 수 없도록 리소스가 서로 종속되어 있는 경우에 표시됩니다. 상호 종속성의 조합은 둘 이상의 리소스가 이미 대기 중인 다른 리소스를 기다리게 만듭니다. 예를 들어 리소스1은 리소스3에 종속되고, 리소스2는 리소스1에 종속되고, 리소스3은 리소스2에 종속됩니다. 일반적으로 이런 문제는 불필요한 종속성을 제거하여 해결할 수 있습니다.

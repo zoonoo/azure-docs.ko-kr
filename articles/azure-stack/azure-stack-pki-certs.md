@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/31/2018
 ms.author: jeffgilb
 ms.reviewer: ppacent
-ms.openlocfilehash: 75a8f521135757ceb99cb0086f331c35827e4800
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: d96e2e6767ca01c8c16403a8846e3ab9d16796bc
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Azure 스택 공개 키 인프라에 대 한 인증서 요구 사항
 Azure 스택 소수의 Azure 스택 서비스 및 테 넌 트 Vm에 할당 된 외부에서 액세스할 수 있는 공용 IP 주소를 사용 하는 공용 인프라 네트워크를 있습니다. Azure 스택 배포 하는 동안 이러한 Azure 스택 공개 인프라 끝점에 대 한 적절 한 DNS 이름으로 PKI 인증서가 필요 합니다. 이 문서에 대 한 정보를 제공합니다.
@@ -33,7 +33,7 @@ Azure 스택 소수의 Azure 스택 서비스 및 테 넌 트 Vm에 할당 된 �
 ## <a name="certificate-requirements"></a>인증서 요구 사항
 다음 목록에서는 Azure 스택을 배포 하는 데 필요한 인증서 요구 사항을 설명 합니다. 
 - 인증서는 내부 인증 기관 또는 공용 인증 기관에서 발급 되어야 합니다. 공용 인증 기관 사용 되는 경우 Microsoft 신뢰할 수 있는 루트 인증 기관 프로그램의 일부로 기본 운영 체제 이미지에 포함 되어야 합니다. 전체 목록은 여기를 찾을 수 있습니다: https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca 
-- 인증서 이름 SAN (주체 대체) 필드에서 모든 네임 스페이스를 포함 하는 단일 와일드 카드 인증서를 수 있습니다. 또는 와일드 카드를 사용 하 여 저장소 및 키 자격 증명 모음은 필요 등 끝점에 대 한 개별 인증서를 사용할 수 있습니다. 
+- 인증서 이름 SAN (주체 대체) 필드에서 모든 네임 스페이스를 포함 하는 단일 와일드 카드 인증서를 수 있습니다. 또는 와일드 카드를 사용 하 여 acs는 필요한 키 자격 증명 모음 등 끝점에 대 한 개별 인증서를 사용할 수 있습니다. 
 - 인증서 서명 알고리즘 보다 강력한 이루어야 SHA1, 일 수 없습니다. 
 - Azure 스택 설치에 필요한을 공개 및 개인 키 인증서 형식이 PFX를 해야 합니다. 
 - 인증서 pfx 파일의 "키 사용" 필드에 값 "디지털 서명을" 및 "KeyEncipherment" 있어야 합니다.

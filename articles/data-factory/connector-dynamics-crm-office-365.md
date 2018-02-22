@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 9481d8d9bbdb5081eae9b9a3d4b9a280cba86be5
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: bcf80fe8f10ae8c81b5eea94137bd62558a6447a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-and-to-dynamics-365-or-dynamics-crm-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Dynamics 365 또는 Dynamics CRM 간에 데이터 복사 
 
@@ -66,7 +66,7 @@ Dynamics 연결 서비스에 다음 속성이 지원됩니다.
 | organizationName | Dynamics 인스턴스의 조직 이름입니다. | 아니요. 사용자와 연결된 둘 이상의 Dynamics 인스턴스가 있을 경우 지정해야 합니다. |
 | authenticationType | Dynamics 서버에 연결하기 위한 인증 유형입니다. Dynamics Online에 대해 **"Office365"**를 지정합니다. | 예 |
 | 사용자 이름 | Dynamics에 연결할 사용자 이름을 지정합니다. | 예 |
-| 암호 | username에 지정한 사용자 계정의 암호를 지정합니다. 이 필드를 SecureString으로 표시하여 ADF에 안전하게 저장하도록 선택하거나, Azure Key Vault에 암호를 저장하고 복사 작업이 데이터 복사를 수행할 때 거기에서 끌어오도록 할 수 있습니다. [Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md)에서 자세히 알아보세요. | 예 |
+| 암호 | username에 지정한 사용자 계정의 암호를 지정합니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 암호를 참조](store-credentials-in-key-vault.md)합니다. | 예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. | 원본에 연결된 서비스에 통합 런타임이 없는 경우 원본은 아니요, 싱크는 예입니다. |
 
 >[!IMPORTANT]
@@ -341,4 +341,4 @@ Dynamics에서 데이터를 복사하는 경우 Dynamics 데이터 형식에서 
 > Dynamics 데이터 형식 AttributeType.CalendarRules 및 AttributeType.PartyList는 지원되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
-데이터 팩터리에서 복사 활동을 통해 원본 및 싱크로 지원되는 데이터 저장소의 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)를 참조하세요.
+Data Factory에서 복사 활동을 통해 원본 및 싱크로 지원되는 데이터 저장소의 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)를 참조하세요.

@@ -1,18 +1,22 @@
 ---
-title: "가상 컴퓨터 크기 집합에서에서 사용할 수 있도록 Azure 스택"
-description: "클라우드 관리자가 Azure 스택 마켓플레이스로 가상 컴퓨터 크기를 추가할 수는 방법에 대해 알아봅니다"
+title: "Azure 스택에서 사용할 수 있는 설정 하는 가상 컴퓨터 크기 확인 | Microsoft Docs"
+description: "클라우드 운영자 추가 방법은 가상 컴퓨터 크기를 Azure 스택 Marketplace로"
 services: azure-stack
-author: anjayajodha
+author: brenduns
+manager: femila
+editor: 
+ms.assetid: 
 ms.service: azure-stack
 ms.topic: article
 ms.date: 9/25/2017
-ms.author: anajod
+ms.author: brenduns
+ms.reviewer: anajod
 keywords: 
-ms.openlocfilehash: 31aeb963bdf4fd32712bc6f29f64060ec1c77cb8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6e4c1145b8ff4665024b4532cf9cc9ac6a0a24a1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>가상 컴퓨터 크기 집합에서에서 사용할 수 있도록 Azure 스택
 
@@ -24,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 
 Azure 스택에 가상 컴퓨터 크기 집합은 Azure에서 가상 컴퓨터 크기 집합 같습니다. 자세한 내용은 다음 동영상을 참조 하십시오.
 * [Mark Russinovich의 Azure 확장 집합 설명](https://channel9.msdn.com/Blogs/Regular-IT-Guy/Mark-Russinovich-Talks-Azure-Scale-Sets/)
-* [Guy Bowerman과 가상 컴퓨터 규모 집합](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman)
+* [Guy Bowerman과 Virtual Machine Scale Sets](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman)
 
 Azure 스택, 가상 컴퓨터 크기 집합에는 자동 크기 조정 지원 하지 않습니다. Azure 스택 포털, 리소스 관리자 템플릿 또는 PowerShell을 사용 하 여 설정 눈금에 더 많은 인스턴스를 추가할 수 있습니다.
 
@@ -47,7 +51,7 @@ Azure 스택, 가상 컴퓨터 크기 집합에는 자동 크기 조정 지원 �
 
 사용자 환경에 대해 다음 PowerShell 스크립트를 편집 하 고 가상 컴퓨터 크기 집합 Azure 스택 마켓플레이스로 추가 하도록를 실행 하십시오. 
 
-``$User``관리자 포털을 연결 하는 데 사용할 계정이입니다. 예: serviceadmin@contoso.onmicrosoft.com.
+``$User`` 관리자 포털을 연결 하는 데 사용할 계정이입니다. 예: serviceadmin@contoso.onmicrosoft.com
 
 ```
 $Arm = "https://adminmanagement.local.azurestack.external"

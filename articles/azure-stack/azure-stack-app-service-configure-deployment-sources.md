@@ -3,8 +3,8 @@ title: "Azure Stack에서 App Services에 대한 배포 원본 구성 | Microsof
 description: "서비스 관리자가 Azure Stack에서 App Services에 대해 배포 원본(Git, GitHub, BitBucket, DropBox 및 OneDrive)을 구성하는 방법"
 services: azure-stack
 documentationcenter: 
-author: apwestgarth
-manager: stefsch
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 
 ms.service: azure-stack
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
-ms.author: anwestg
-ms.openlocfilehash: e73a607a7f8ad948ab821b0aeda164418509f076
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.author: brenduns
+ms.reviewer: anwestg
+ms.openlocfilehash: 310bea356ac611a92d9e3899da5d4fb19c50e94e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-deployment-sources"></a>배포 원본 구성
 *적용 대상: Azure 스택 통합 시스템과 Azure 스택 개발 키트*

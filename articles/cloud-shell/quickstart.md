@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: juluk
-ms.openlocfilehash: 4ed83b28fe5f0f1e9626115390f8697dfb2c8ead
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 69431979769a03b62a7f9fd7760e6eb614e37cd6
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="quickstart-for-bash-in-azure-cloud-shell"></a>Azure Cloud Shell의 Bash에 대한 빠른 시작
 
@@ -59,7 +59,7 @@ ms.lasthandoff: 11/15/2017
 `az vm create -n my_vm_name -g MyRG --image UbuntuLTS --generate-ssh-keys`
 
 > [!NOTE]
-> VM을 인증하는 데 사용된 공개 및 개인 키는 기본적으로 Azure CLI 2.0에 의해 `/User/.ssh/id_rsa` 및 `/User/.ssh/id_rsa.pub`에 배치됩니다. .ssh 폴더는 연결된 Azure Files 공유의 5GB 이미지에서 유지됩니다.
+> VM을 인증하는 데 사용된 공개 및 개인 키는 기본적으로 Azure CLI 2.0에 의해 `/home/<user>/.ssh/id_rsa` 및 `/home/<user>/.ssh/id_rsa.pub`에 배치됩니다. .ssh 폴더는 연결된 Azure Files 공유의 5GB 이미지에서 유지됩니다.
 
 이 VM의 사용자 이름은 Cloud Shell에서 사용되는 사용자 이름입니다($User@Azure:).
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: negat
-ms.openlocfilehash: 145f4ec92b142a1585ba17bf6e49c7824cc32529
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: 59dad832977c4afc39db3773edf9789cd1a704e7
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-upgrades"></a>Azure 가상 머신 확장 집합 자동 OS 업그레이드
 
@@ -40,9 +40,7 @@ ms.lasthandoff: 01/06/2018
 미리 보기 버전은 다음과 같은 제한 사항이 적용됩니다.
 
 - 자동 OS 업그레이드가 [OS SKU 4개](#supported-os-images)만 지원합니다. SLA 또는 보장이 없습니다. 미리 보기 기간에는 프로덕션 크리티컬 워크로드에 자동 업그레이드를 사용하지 않는 것이 좋습니다.
-- Service Fabric 클러스터의 확장 집합에 대한 지원이 곧 제공될 예정입니다.
 - Azure Disk Encryption(현재 미리 보기)은 현재 가상 머신 확장 집합 자동 OS 업그레이드를 지원하지 **않습니다**.
-- 포털 환경이 곧 제공될 예정입니다.
 
 
 ## <a name="register-to-use-automatic-os-upgrade"></a>자동 OS 업그레이드를 사용하도록 등록
@@ -58,17 +56,23 @@ Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Compute -FeatureNam
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
 ```
 
-응용 프로그램에서 상태 프로브를 사용하는 것이 좋습니다. 상태 프로브에 대한 공급자 기능을 등록하려면 다음과 같이 [Register-AzureRmProviderFeature](/powershell/module/azurerm.resources/register-azurermproviderfeature) 명령을 사용합니다.
+> [!NOTE]
+> Service Fabric 클러스터에는 응용 프로그램 상태에 대한 고유의 개념이 있지만 Service Fabric이 없는 확장 집합은 부하 분산 장치 상태 프로브를 사용하여 응용 프로그램 상태를 모니터링합니다. 상태 프로브에 대한 공급자 기능을 등록하려면 다음과 같이 [Register-AzureRmProviderFeature](/powershell/module/azurerm.resources/register-azurermproviderfeature) 명령을 사용합니다.
+>
+> ```powershell
+> Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVmssHealthProbe
+> ```
+>
+> 마찬가지로, 등록 상태가 *등록됨*으로 보고될 때까지 약 10분 정도 소요됩니다. [Get-AzureRmProviderFeature](/powershell/module/AzureRM.Resources/Get-AzureRmProviderFeature) 명령을 사용하여 현재 등록 상태를 확인할 수 있습니다. 등록되었으면 다음과 같이 [Register-AzureRmResourceProvider](/powershell/module/AzureRM.Resources/Register-AzureRmResourceProvider) 명령을 사용하여 *Microsoft.Network* 공급자를 등록합니다.
+>
+> ```powershell
+> Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
+> ```
 
-```powershell
-Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVmssHealthProbe
-```
+## <a name="portal-experience"></a>포털 환경
+위의 등록 단계를 수행한 후 [Azure Portal](https://aka.ms/managed-compute)로 이동하여 확장 집합에서 자동 OS 업그레이드를 활성화하고 업그레이드의 진행 상태를 볼 수 있습니다.
 
-마찬가지로, 등록 상태가 *등록됨*으로 보고될 때까지 약 10분 정도 소요됩니다. [Get-AzureRmProviderFeature](/powershell/module/AzureRM.Resources/Get-AzureRmProviderFeature) 명령을 사용하여 현재 등록 상태를 확인할 수 있습니다. 등록되었으면 다음과 같이 [Register-AzureRmResourceProvider](/powershell/module/AzureRM.Resources/Register-AzureRmResourceProvider) 명령을 사용하여 *Microsoft.Network* 공급자를 등록합니다.
-
-```powershell
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
-```
+![](./media/virtual-machine-scale-sets-automatic-upgrade/automatic-upgrade-portal.png)
 
 
 ## <a name="supported-os-images"></a>지원되는 OS 이미지
@@ -85,7 +89,10 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
 
 
 
-## <a name="application-health"></a>응용 프로그램 상태
+## <a name="application-health-without-service-fabric"></a>Service Fabric이 없는 응용 프로그램 상태
+> [!NOTE]
+> 이 섹션은 Service Fabric이 없는 확장 집합에만 적용됩니다. Service Fabric에는 응용 프로그램 상태에 대한 고유의 개념이 있습니다. Service Fabric과 함께 자동 OS 업그레이드를 사용할 때 새 OS 이미지는 Service Fabric에서 실행되는 서비스의 고가용성을 유지하기 위해 업데이트 도메인에 의해 업데이트 도메인에 롤아웃됩니다. Service Fabric 클러스터의 내구성 특성에 대한 자세한 내용은 [이 설명서](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster)를 참조하세요.
+
 OS가 업그레이드되는 동안 확장 집합의 VM 인스턴스는 한 번에 하나의 일괄 처리 단위로 업그레이드됩니다. 업그레이드된 VM 인스턴스에서 고객 응용 프로그램의 상태가 정상인 경우에만 업그레이드를 계속 진행해야 합니다. 응용 프로그램이 확장 집합 OS 업그레이드 엔진에 상태 신호를 제공하는 것이 좋습니다. 기본적으로 OS를 업그레이드하는 동안 플랫폼은 VM 전원 상태 및 확장 프로비전 상태를 고려하여 업그레이드 후 VM 인스턴스가 정상 상태인지 확인합니다. VM 인스턴스의 OS를 업그레이드하는 동안 VM 인스턴스의 OS 디스크는 최신 이미지 버전에 따라 새 디스크로 교체됩니다. OS 업그레이드가 완료되면 구성된 확장이 이러한 VM에서 실행됩니다. VM의 모든 확장이 성공적으로 프로비전된 경우에만 응용 프로그램의 상태가 정상인 것으로 간주됩니다. 
 
 원한다면 플랫폼에 응용 프로그램의 현재 상태에 대한 정확한 정보를 제공하도록 확장 집합을 구성할 수 있습니다. 응용 프로그램 상태 프로브는 상태 신호로 사용되는 사용자 지정 부하 분산 장치 프로브입니다. 확장 집합 VM 인스턴스에서 실행되는 응용 프로그램은 외부 HTTP 또는 TCP 요청에 응답하여 상태를 알릴 수 있습니다. 사용자 지정 부하 분산 장치 프로브에 대한 자세한 내용은 [부하 분산 장치 프로브 이해](../load-balancer/load-balancer-custom-probe-overview.md)를 참조하세요. 자동 OS 업그레이드에 응용 프로그램 상태 프로브가 꼭 필요한 것은 아니지만 사용하는 것이 좋습니다.

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2018
+ms.date: 02/05/2018
 ms.author: ergreenl
-ms.openlocfilehash: b2e0edf3588f3b1db5f4b6641019be1ded9cb50e
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 8a0b30e6c975bd8f3bfbe70a64c085b729115f24
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-ad-domain-services---troubleshoot-alerts"></a>Azure AD Domain Services - 경고 문제 해결
 이 문서에서는 관리되는 도메인에서 발생할 수 있는 경고에 대한 문제 해결 가이드를 제공합니다.
@@ -75,6 +75,11 @@ ms.lasthandoff: 01/18/2018
 
 시작하기 전에 [이 문서](https://en.wikipedia.org/wiki/Private_network#Private_IPv4_address_spaces)의 **개인 IP V4 주소 공간** 섹션을 읽습니다.
 
+가상 네트워크 내에서 컴퓨터는 서브넷에 대해 구성된 것과 동일한 IP 주소 범위에 있는 Azure 리소스를 요청할 수 있습니다. 그러나 가상 네트워크가 이 범위에서 구성되므로 해당 요청은 가상 네트워크 내에서 라우팅되고 의도한 웹 리소스에 도달하지 않습니다. 그러면 Azure AD Domain Services에서 예측할 수 없는 오류가 발생할 수 있습니다.
+
+**가상 네트워크에서 구성된 인터넷의 IP 주소 범위가 있는 경우 이 경고는 무시될 수 있습니다. 그러나 Azure AD Domain Services는 예측할 수 없는 오류를 일으킬 수 있으므로 이 구성을 사용하여 [SLA](https://azure.microsoft.com/support/legal/sla/active-directory-ds/v1_0/)]에 커밋할 수 없습니다.**
+
+
 1. 디렉터리에서 [관리되는 도메인을 삭제](active-directory-ds-disable-aadds.md)합니다.
 2. 서브넷에 대한 IP 주소 범위 수정
   1. [Azure Portal의 가상 네트워크 페이지](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_AAD_DomainServices=preview#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FvirtualNetworks)로 이동합니다.
@@ -86,7 +91,7 @@ ms.lasthandoff: 01/18/2018
   7. 주소 범위를 업데이트하고 변경 내용을 저장합니다.
 3. [Azure AD Domain Services를 사용하여 시작 가이드](active-directory-ds-getting-started.md)에 따라 관리되는 도메인을 다시 만듭니다. 개인 IP 주소 범위를 갖는 가상 네트워크를 선택해야 합니다.
 4. 가상 머신을 새 도메인에 가입하려면 [이 가이드](active-directory-ds-admin-guide-join-windows-vm-portal.md)를 따릅니다.
-8. 2시간 후에 도메인 상태를 확인하여 단계를 올바르게 완료했는지 검사합니다.
+8. 경고를 해결하려면 두 시간 내에 도메인의 상태를 확인합니다.
 
 
 ## <a name="contact-us"></a>문의처

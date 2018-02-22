@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/03/2017
 ms.author: manshuk
-ms.openlocfilehash: 6982d6177ef5c94436a28cd68beb9feb5cc343e5
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 29f153803d5eb74e2d287d97cf9436e81b2a3e20
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="understand-reserved-instance-usage-for-your-pay-as-you-go-subscription"></a>종량제 구독에서 Reserved Instance 사용량 이해
 
@@ -56,6 +56,16 @@ csv의 이 섹션에서는 예약의 총 사용량을 보여줍니다. "Reservat
 3. 예약 - 기본 VM 미터 하위 범주 선은 문 섹션에 있는 0원인 비용 줄을 나타냅니다. 예약에서 이미 이 VM을 실행하는 비용을 지불했습니다.
 4. 예약에 대한 미터 ID입니다. 이 미터의 비용은 0원입니다. Reserved Instance를 정규화하는 VM에서는 비용을 설명하는 csv에 이 MeterId를 저장합니다. 
 5. Standard_DS1_v2는 하나의 vCPU VM이며 해당 VM은 Azure Hybrid Benefit 없이 배포됩니다. 따라서 이 미터는 Windows 소프트웨어의 추가 요금을 포함합니다. [Azure Reserve VM Instances Windows 소프트웨어 비용](billing-reserved-instance-windows-software-costs.md)을 참조하여 D 시리즈 1 코어 VM에 해당하는 미터를 찾습니다. Azure Hybrid Benefit을 사용하면 이 추가 비용이 적용되지 않습니다. 
+
+## <a name="next-steps"></a>다음 단계
+예약 가상 머신 인스턴스에 대한 자세한 내용은 다음 문서를 참조하세요.
+
+- [예약 VM 인스턴스를 사용하여 Virtual Machines 선불 결제](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [예약 가상 머신 인스턴스 관리](billing-manage-reserved-vm-instance.md)
+- [예약 가상 머신 인스턴스를 사용하여 가상 머신에서 비용 절감](billing-save-compute-costs-reservations.md)
+- [예약 가상 머신 인스턴스 할인이 적용되는 방식 이해](billing-understand-vm-reservation-charges.md)
+- [Enterprise 등록의 예약 인스턴스 사용량 이해](billing-understand-reserved-instance-usage-ea.md)
+- [예약 인스턴스를 포함하지 않는 Windows 소프트웨어 비용](billing-reserved-instance-windows-software-costs.md)
 
 ## <a name="need-help-contact-support"></a>도움이 필요하세요? 지원에 문의하세요.
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: de6bddeedbff5fded716db31b1a528466df1d396
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 50d5ecd0542d236d4d68656af7808c329728aa39
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning-with-azure-active-directory"></a>자습서: Azure Active Directory로 자동 사용자 프로비전을 위한 ServiceNow 구성
 
@@ -84,7 +84,9 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 12. **저장**을 클릭합니다.
 
-사용자 및 그룹 섹션에서 Provisioning Status에 할당된 모든 사용자 및/또는 그룹의 초기 동기화가 시작됩니다. 초기 동기화는 서비스가 실행되는 동안 약 20분마다 발생하는 차후 동기화보다 더 많은 시간이 걸립니다. **동기화 세부 정보** 섹션을 사용하여 진행 상태를 모니터링할 수 있으며, ServiceNow 앱에서 프로비전 서비스가 수행하는 모든 작업을 설명하는 프로비전 활동 보고서의 링크를 따라 이동할 수 있습니다.
+사용자 및 그룹 섹션에서 Provisioning Status에 할당된 모든 사용자 및/또는 그룹의 초기 동기화가 시작됩니다. 초기 동기화는 서비스가 실행되는 동안 약 40분마다 발생하는 후속 동기화보다 더 많은 시간이 걸립니다. **동기화 세부 정보** 섹션을 사용하여 진행 상태를 모니터링하고 링크를 클릭하여 ServiceNow 앱의 프로비전 서비스에서 수행한 모든 작업을 설명하는 프로비전 작업 로그를 확인할 수 있습니다.
+
+Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [자동 사용자 계정 프로비저닝에 대한 보고](active-directory-saas-provisioning-reporting.md)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 

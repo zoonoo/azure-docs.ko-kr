@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 0a0dd38fda35b1eee1fdce196a3ed15f6e73dde6
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: a90fe2c919e0c5452072c4129dcb7a1135d9ec25
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="tutorial-configure-google-apps-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전에 대한 Google Apps 구성
 
@@ -157,9 +157,9 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 20. **저장**을 선택합니다.
 
-이 프로세스는 사용자 및 그룹 섹션에서 Google Apps에 할당된 사용자 또는 그룹의 초기 동기화를 시작합니다. 초기 동기화는 서비스가 실행되는 동안 약 20분마다 발생하는 차후 동기화보다 더 많은 시간이 걸립니다. 
+이 프로세스는 사용자 및 그룹 섹션에서 Google Apps에 할당된 사용자 또는 그룹의 초기 동기화를 시작합니다. 초기 동기화는 서비스가 실행되는 동안 약 40분마다 발생하는 차후 동기화보다 더 많은 시간이 걸립니다. **동기화 세부 정보** 섹션을 사용하여 진행 상태를 모니터링하고 링크를 통해 프로비전 작업 로그를 확인할 수 있습니다. 이러한 로그는 Google Apps 앱에서 프로비전 서비스가 수행하는 모든 조치를 설명합니다.
 
-**동기화 세부 정보** 섹션을 사용하여 진행 상태를 모니터링하고 링크를 통해 프로비전 작업 보고서를 확인할 수 있습니다. 이러한 보고서는 Google Apps 앱에서 프로비전 서비스가 수행하는 모든 조치를 설명합니다.
+Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [자동 사용자 계정 프로비저닝에 대한 보고](active-directory-saas-provisioning-reporting.md)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 

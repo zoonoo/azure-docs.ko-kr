@@ -9,7 +9,7 @@
 | 최대 CA 수 | 10 |
 
 > [!NOTE]
-> 이러한 제한은 공개 미리 보기입니다. 서비스가 일반 공급되면 [Microsoft 지원](https://azure.microsoft.com/support/options/)에 문의하여 구독에 있는 인스턴스 수를 늘릴 수 있습니다.
+> [Microsoft 지원](https://azure.microsoft.com/support/options/)에 문의하여 구독에 있는 인스턴스 수를 늘릴 수 있습니다.
 
 다음 할당량이 초과되면 Device Provisioning Service가 요청을 제한합니다.
 

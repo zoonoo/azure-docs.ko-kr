@@ -3,8 +3,8 @@ title: "Azure 스택에서 offers 위임 | Microsoft Docs"
 description: "다른 사용자를 제안 만들기 및 사용자 수에 대 한 등록을 담당 하는 방법에 알아봅니다."
 services: azure-stack
 documentationcenter: 
-author: AlfredoPizzirani
-manager: byronr
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 157f0207-bddc-42e5-8351-197ec23f9d46
 ms.service: azure-stack
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
-ms.author: alfredop
-ms.openlocfilehash: 1a1f2789076b610ee557bde5981a331c55cc1c95
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.author: brenduns
+ms.reviewer: alfredop
+ms.openlocfilehash: 06690d5251954b204b28928b3fe670669000aa7c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="delegate-offers-in-azure-stack"></a>Azure Stack에서 제품 위임
 
@@ -72,9 +73,9 @@ Azure 스택 운영자 위임 기능을 사용 하 여 만들기 제공 및 사�
    a.  [계획 만들기](azure-stack-create-plan.md)합니다.
        이 계획에는 구독 서비스만을 포함 되어야 합니다. 이 문서에서는 사용 하 여 이라는 계획 **PlanForDelegation**합니다.
    
-   b.  [제안 만들기](azure-stack-create-offer.md) 이 계획에 기반 합니다. 이 문서에서는 사용 하 여 제안을 호출 **OfferToDP**합니다.
+   나.  [제안 만들기](azure-stack-create-offer.md) 이 계획에 기반 합니다. 이 문서에서는 사용 하 여 제안을 호출 **OfferToDP**합니다.
    
-   c.  제공의 만들기가 완료 되, 위임 된 공급자 구독자로이 제품을 추가 합니다. 선택 하 여이 작업을 수행 **구독** > **추가** > **새 테 넌 트 구독**합니다.
+   다.  제공의 만들기가 완료 되, 위임 된 공급자 구독자로이 제품을 추가 합니다. 선택 하 여이 작업을 수행 **구독** > **추가** > **새 테 넌 트 구독**합니다.
    
    ![구독자로 위임 된 공급자를 추가 합니다.](media/azure-stack-delegated-provider/image3.png)
 
@@ -123,7 +124,7 @@ Azure 스택 운영자 위임 기능을 사용 하 여 만들기 제공 및 사�
    
     a.  선택 **찾아보기** > **더 많은 서비스** >  **구독**합니다. 위임 된 공급자 구독을 선택 하십시오. 경우에 있기 **DPSubscription** > **속성**합니다.
    
-    b.  복사 포털 URL 메모장과 같은 별도 위치입니다.
+    나.  복사 포털 URL 메모장과 같은 별도 위치입니다.
    
     ![위임 된 공급자 구독 선택](media/azure-stack-delegated-provider/dpportaluri.png)  
    

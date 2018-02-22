@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 01/25/2018
-ms.openlocfilehash: 87bd27147d20fec8c5839b744d70f215e2c1ec47
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 3c1c259cc58eb1adab39d9c0ca376726b798186e
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="faq-about-using-the-azure-database-migration-service"></a>Azure Database Migration Service 사용에 대한 FAQ
 이 문서에는 Azure Database Migration Service 사용에 대한 일반적인 질문이 관련된 답변과 함께 나열되어 있습니다.
@@ -50,7 +50,7 @@ Azure Migrate 서비스는 온-프레미스 가상 머신을 Azure IaaS로 마�
 지원되는 모든 마이그레이션 시나리오에 공통적인 Azure Database Migration Service 필구 구성 요소는 다음을 수행해야 합니다.
 - Azure Resource Manager 배포 모델을 사용하여 Azure Database Migration Service용 VNET을 만듭니다. 이를 통해 [ExpressRoute](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-introduction) 또는 [VPN](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpngateways)을 사용하여 온-프레미스 원본 서버에서 사이트 간 연결을 제공합니다.
 - Azure VNET(Virtual Network) 네트워크 보안 그룹 규칙이 443, 53, 9354, 445, 12000과 같은 통신 포트를 차단하지 않는지 확인합니다. Azure VNET NSG 트래픽 필터링에 대한 자세한 정보는 [네트워크 보안 그룹을 사용하여 네트워크 트래픽 필터링](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-nsg) 문서를 참조하세요.
-- 원본 데이터베이스 앞에 방화벽 어플라이언스를 사용하는 경우, Azure Database Migration Service가 마이그레이션을 위해 원본 데이터베이스에 액세스할 수 있도록 방화벽 규칙을 추가해야 합니다.
+- 원본 데이터베이스 앞에 방화벽 어플라이언스를 사용하는 경우, Azure Database Migration Service가 마이그레이션을 위해 원본 데이터베이스에 액세스할 수 있게 허용하는 방화벽 규칙을 추가해야 합니다.
  
 Azure Database Migration Service를 사용하여 특정 마이그레이션 시나리오를 수행하는 데 필요한 모든 필수 구성 요소 목록은 docs.microsoft.com에 있는 Azure Database Migration Service [설명서](https://docs.microsoft.com/en-us/azure/dms/dms-overview)에서 관련 자습서를 참조하세요.
 
@@ -81,6 +81,9 @@ SQL Server 오류 로그를 쿼리하여 SQL Server가 수신 대기하는 포�
 
 ### <a name="q-how-do-i-set-up-an-azure-virtual-network"></a>Q. Azure Virtual Network는 어떻게 설정하나요?
 Azure VNET 설정 프로세스를 단계별로 안내하는 Microsoft 자습서는 많이 있으며, 공식적인 문서는 [Azure Virtual Network](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview) 문서에 나와있습니다.
+
+### <a name="q-why-is-my-azure-database-migration-service-unavailable-or-stopped"></a>Q. 내 Azure Database Migration Service를 사용할 수 없거나 중지된 이유는 무엇입니까?
+사용자가 명시적으로 Azure DMS(Database Migration Service)를 중지하거나 서비스가 24시간 동안 비활성 상태인 경우 서비스는 중지되거나 자동 일시 중지된 상태에 있게 됩니다. 각각의 경우에서 서비스는 사용할 수 없으며 중지된 상태에 있게 됩니다.  활성 마이그레이션을 다시 시작하려면 서비스를 다시 시작합니다.
 
 ### <a name="q-where-can-i-leave-feedback-about-the-azure-database-migration-service"></a>Q. Azure Database Migration Service에 대한 피드백은 어디에 남길 수 있나요?
 많은 의견 부탁드립니다. Azure Database Migration Service에 대한 피드백이나 아이디어는 [여기](https://feedback.azure.com/forums/906100-azure-database-migration-service)에서 사용자 의견을 통해 보내주세요.

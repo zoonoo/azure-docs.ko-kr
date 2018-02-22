@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2017
 ms.author: ccompy
-ms.openlocfilehash: 3ac630982b47f7105feb034982eae070faa72d9e
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: c4779ada60fab2db5249a107abfc7ca6f80cb16f
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>App Service Environment에 대한 네트워킹 고려 사항 #
 
@@ -54,6 +54,13 @@ ILB ASE가 있는 경우에는 ILB의 IP 주소가 HTTP/S, FTP/S, 웹 배포 및
 |  Visual Studio 원격 디버깅  |  사용자 구성 가능 |  4016, 4018, 4020, 4022 |
 
 외부 ASE를 사용하든, ILB ASE를 사용하든 위 표에 나와 있는 포트가 사용됩니다. 외부 ASE를 사용하는 경우 공용 VIP에서 해당 포트에 액세스합니다. ILB ASE를 사용하는 경우에는 ILB에서 해당 포트에 액세스합니다. 포트 443을 잠그면 포털에 표시되는 일부 기능이 영향을 받을 수 있습니다. 자세한 내용은 [포털 종속성](#portaldep)을 참조하세요.
+
+## <a name="ase-subnet-size"></a>ASE 서브넷 크기 ##
+
+ASE를 배포한 후에는 ASE를 호스팅하는 데 사용되는 서브넷의 크기를 변경할 수 없습니다.  ASE는 격리된 각 App Service 계획 인스턴스뿐만 아니라 각 인프라 역할에 대한 주소를 사용합니다.  또한 생성된 모든 서브넷에 대해 Azure Networking에서 사용하는 5개의 주소가 있습니다.  App Service 계획이 아예 없는 ASE는 앱을 만들기 전에 12개의 주소를 사용합니다.  ILB ASE인 경우 해당 ASE에서 앱을 만들기 전에 13개의 주소를 사용합니다. App Serivce 계획을 확장함에 따라 추가되는 각 프런트 엔드에 대한 추가 주소가 필요합니다.  기본적으로 프런트 엔드 서버는 총 15개의 App Service 계획 인스턴스마다 추가됩니다. 
+
+   > [!NOTE]
+   > ASE 이외의 항목을 서브넷에 포함해서는 안 됩니다. 향후 확장이 가능한 주소 공간을 선택해야 합니다. 이 설정은 나중에 변경할 수 없습니다. 주소 128개를 포함할 수 있는 `/25` 크기를 사용하는 것이 좋습니다.
 
 ## <a name="ase-dependencies"></a>ASE 종속성 ##
 
@@ -102,7 +109,7 @@ VNet이 VPN 반대쪽의 고객 DNS로 구성된 경우 ASE가 포함된 서브�
 ASE의 기능적 종속성 외에 포털 환경과 관련된 몇 가지 추가 항목이 있습니다. Azure Portal의 기능 중 일부는 _SCM 사이트_에 대한 직접 액세스에 의존합니다. Azure App Service의 모든 앱에는 URL이 두 개 있습니다. 첫 번째 URL은 앱에 액세스하는 것입니다. 두 번째 URL은 _Kudu 콘솔_이라고도 하는 SCM 사이트에 액세스하는 것입니다. SCM 사이트를 사용하는 기능은 다음과 같습니다.
 
 -   웹 작업
--   함수
+-   Functions
 -   스트리밍 로그
 -   Kudu
 -   확장
@@ -150,7 +157,7 @@ ASE에서 사용자는 ASE 자체를 호스팅하는 데 사용된 VM에 대한 
 
 NSG는 Azure Portal 또는 PowerShell을 통해 구성할 수 있습니다. 이 문서에서는 Azure Portal의 정보를 제공합니다. **네트워킹** 아래에서 최상위 리소스로 포털에서 NSG를 만들고 관리합니다.
 
-인바운드 및 아웃바운드 요구 사항을 고려할 때, NSG는 이 예제에 나와 있는 NSG와 비슷하게 표시되어야 합니다. VNet 주소 범위는 _192.168.250.0/16_이고 ASE가 있는 서브넷은 _192.168.251.128/25_입니다.
+인바운드 및 아웃바운드 요구 사항을 고려할 때, NSG는 이 예제에 나와 있는 NSG와 비슷하게 표시되어야 합니다. VNet 주소 범위는 _192.168.250.0/23_이고 ASE가 있는 서브넷은 _192.168.251.128/25_입니다.
 
 ASE가 작동하기 위한 가장 우선적인 인바운드 요구 사항 두 가지가 이 예제의 목록 맨 위에 나와 있습니다. 이는 ASE 관리를 가능케 하고 ASE가 자체적으로 통신할 수 있도록 합니다. 다른 항목은 모두 테넌트에서 구성할 수 있으며, ASE에서 호스트되는 응용 프로그램에 대한 네트워크 액세스를 관리하는 데 사용할 수 있습니다. 
 
@@ -168,13 +175,13 @@ NSG를 정의한 후 ASE가 있는 서브넷에 할당합니다. ASE VNet 또는
 
 ## <a name="routes"></a>경로 ##
 
-경로 문제는 Azure ExpressRoute를 사용하여 VNet을 구성할 때 가장 흔히 발생합니다. VNet에는 세 가지 유형의 경로가 있습니다.
+경로는 강제 터널링이 무엇인지, 어떻게 처리하는지에 대한 중요한 측면입니다. Azure Virtual Network에서 라우팅은 LPM(Longest Prefix Match)을 기반으로 수행됩니다. LPM 일치가 동일한 경로가 두 개 이상 있으면 다음 순서대로 해당 원점에 따라 경로가 선택됩니다.
 
--   시스템 경로
--   BGP 경로
--   UDR(사용자 정의 경로)
+- UDR(사용자 정의 경로)
+- BGP 경로(ExpressRoute를 사용하는 경우)
+- 시스템 경로
 
-BGP 경로는 시스템 경로를 재정의합니다. UDR은 BGP 경로를 재정의합니다. Azure Virtual Networks의 경로에 대한 자세한 내용은 [사용자 정의 경로 개요][UDRs]를 참조하세요.
+가상 네트워크의 라우팅에 대한 자세한 내용은 [사용자 정의된 경로 및 IP 전달][UDRs]을 참조하세요.
 
 ASE가 시스템을 관리하는 데 사용하는 Azure SQL Database에는 방화벽이 있습니다. 이 방화벽은 통신이 ASE 공용 VIP에서 시작되어야 하도록 요구합니다. ASE에서 SQL Database로의 연결은 ExpressRoute 연결을 통해 다른 IP 주소로 전송되는 경우 거부됩니다.
 

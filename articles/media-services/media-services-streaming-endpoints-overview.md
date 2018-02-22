@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: juliako
-ms.openlocfilehash: e454778c558b9c17c47ad9eb651737aa0b5e2605
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 80d625a6ab2d3c6d5de0a90fbff0760888154d70
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="streaming-endpoints-overview"></a>스트리밍 끝점 개요 
 
 ##<a name="overview"></a>개요
 
-Microsoft AMS(Azure Media Services)에서 **스트리밍 끝점**은 추가 배포를 위해 CDN(Content Delivery Network) 또는 클라이언트 플레이어 응용 프로그램에 직접 콘텐츠를 배달할 수 있는 스트리밍 서비스를 나타냅니다. 미디어 서비스는 매끄러운 Azure CDN 통합도 제공합니다. StreamingEndpoint 서비스의 아웃바운드 스트림은 Media Services 계정에서 자산의 라이브 스트림, 주문형 비디오 또는 점진적 다운로드일 수 있습니다. 각 Azure Media Services 계정에는 기본 StreamingEndpoint 포함됩니다. 계정에서 추가 StreamingEndpoints를 만들 수 있습니다. StreamingEndpoints 1.0 및 2.0이라는 두 가지 버전이 있습니다. 2017년 1월 10일부터 새로 만든 AMS 계정은 **기본** StreamingEndpoint 버전 2.0을 포함합니다. 이 계정에 추가하는 추가 스트리밍 끝점도 버전 2.0입니다. 이 변경 사항은 기존 계정에 영향을 주지 않습니다. 기존 StreamingEndpoints는 1.0 버전이며 2.0 버전으로 업그레이드할 수 있습니다. 이 변경 사항으로 인해 동작, 청구 및 기능이 변경됩니다(자세한 내용은 아래에서 설명한 **스트리밍 형식 및 버전** 섹션 참조).
+Microsoft AMS(Azure Media Services)에서 **스트리밍 끝점**은 추가 배포를 위해 CDN(Content Delivery Network) 또는 클라이언트 플레이어 응용 프로그램에 직접 콘텐츠를 배달할 수 있는 스트리밍 서비스를 나타냅니다. Media Services는 매끄러운 Azure CDN 통합도 제공합니다. StreamingEndpoint 서비스의 아웃바운드 스트림은 Media Services 계정에서 자산의 라이브 스트림, 주문형 비디오 또는 점진적 다운로드일 수 있습니다. 각 Azure Media Services 계정에는 기본 StreamingEndpoint 포함됩니다. 계정에서 추가 StreamingEndpoints를 만들 수 있습니다. StreamingEndpoints 1.0 및 2.0이라는 두 가지 버전이 있습니다. 2017년 1월 10일부터 새로 만든 AMS 계정은 **기본** StreamingEndpoint 버전 2.0을 포함합니다. 이 계정에 추가하는 추가 스트리밍 끝점도 버전 2.0입니다. 이 변경 사항은 기존 계정에 영향을 주지 않습니다. 기존 StreamingEndpoints는 1.0 버전이며 2.0 버전으로 업그레이드할 수 있습니다. 이 변경 사항으로 인해 동작, 청구 및 기능이 변경됩니다(자세한 내용은 아래에서 설명한 **스트리밍 형식 및 버전** 섹션 참조).
 
 또한 Azure Media Services 2.15 버전(2017년 1월에 릴리스됨)부터 스트리밍 끝점 엔터티에 **CdnProvider**, **CdnProfile**, **FreeTrialEndTime**, **StreamingEndpointVersion** 속성이 추가되었습니다. 이러한 속성의 자세한 개요는 [여기](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint)를 참조하세요. 
 
@@ -42,7 +42,7 @@ Azure Media Services 계정을 만들 경우 기본 표준 스트리밍 끝점�
 
 Media Services의 2017년 1월 릴리스가 시작되면 **표준** 및 **프리미엄**이라는 두 가지 스트리밍 유형이 지원됩니다. 이러한 유형은 스트리밍 끝점 버전 "2.0"의 일부입니다.
 
-유형|설명
+형식|설명
 ---|---
 **Standard**|대부분의 시나리오에 대해 작동하는 기본 옵션입니다.<br/>이 옵션을 사용하여 SLA를 고정/제한합니다. 스트리밍 끝점을 시작한 후에 15일 동안은 무료입니다.<br/>하나 이상의 스트리밍 끝점을 만드는 경우 첫 번째 스트리밍 끝점만 15일 동안 무료이고 다른 끝점은 시작하는 즉시 요금이 청구됩니다. <br/>무료 평가판은 새로 만든 Media Services 계정 및 기본 스트리밍 끝점에만 적용됩니다. 기존 스트리밍 끝점 및 추가로 생성된 스트리밍 끝점은 버전 2.0으로 업그레이드되거나 버전 2.0으로 만들었더라도 무료 평가 기간을 포함하지 않습니다.
 **Premium**|이 옵션은 큰 규모나 세밀한 컨트롤을 필요로 하는 전문 시나리오에 적합합니다.<br/>구입한 프리미엄 SU(스트리밍 단위) 용량을 기반으로 하는 변수 SLA은 격리된 환경에서 스트리밍 끝점 라이브 전용이며 리소스를 두고 경쟁하지 않습니다.
@@ -65,7 +65,7 @@ Media Services의 2017년 1월 릴리스가 시작되면 **표준** 및 **프리
 
 ### <a name="versions"></a>버전
 
-|유형|StreamingEndpointVersion|ScaleUnits|CDN|결제|SLA| 
+|형식|StreamingEndpointVersion|ScaleUnits|CDN|결제|SLA| 
 |--------------|----------|-----------------|-----------------|-----------------|-----------------|    
 |클래식|1.0|0|해당 없음|무료|해당 없음|
 |표준 스트리밍 끝점|2.0|0|예|유료|예|
@@ -74,7 +74,7 @@ Media Services의 2017년 1월 릴리스가 시작되면 **표준** 및 **프리
 
 ### <a name="features"></a>기능
 
-기능|표준|Premium
+기능|Standard|Premium
 ---|---|---
 처음 15일 무료| 예 |아니요
 처리량 |Azure CDN을 사용하지 않는 경우 최대 600Mbps입니다. CDN을 사용하여 크기를 조정합니다.|SU(스트리밍 단위)당 200Mbps CDN을 사용하여 크기를 조정합니다.
@@ -86,14 +86,14 @@ CDN|Azure CDN, 타사 CDN 또는 CDN 없음.|Azure CDN, 타사 CDN 또는 CDN �
 확장|대상 처리량까지 자동으로 확장합니다.|추가 스트리밍 단위
 IP 필터링/G20/사용자 지정 호스트|예|예
 점진적 다운로드|예|예
-권장 사용량 |대부분의 스트리밍 시나리오에 권장됩니다.|전문 사용량입니다.<br/>필요한 경우 표준 이상이 필요할 수 있습니다. 50,000명의 뷰어보다 많은 동시 대상 그룹이 예상되는 경우 문의하세요(microsoft.com에서 amsstreaming).
+권장 사용량 |대부분의 스트리밍 시나리오에 권장됩니다.|전문 사용량입니다.<br/>필요한 경우 표준 이상이 필요할 수 있습니다. 동시 뷰어의 규모가 50,000명을 초과할 것으로 예상되는 경우 문의하세요(amsstreaming@microsoft.com).
 
 
 ## <a name="migration-between-types"></a>유형 간의 마이그레이션
 
-원본 | 받는 사람 | 작업
+원본 | 받는 사람 | 조치
 ---|---|---
-클래식|표준|옵트인할 필요
+클래식|Standard|옵트인할 필요
 클래식|Premium| 크기 조정(추가 스트리밍 단위)
 표준/프리미엄|클래식|사용할 수 없음(스트리밍 끝점 버전이 1.0인 경우 scaleunits을 "0"으로 설정하도록 클래식을 변경할 수 있음)
 표준(CDN 포함/없이)|동일한 구성을 포함한 프리미엄|**시작됨** 상태에서 허용됩니다. (Azure Portal을 통해)

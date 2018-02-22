@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/06/2017
 ms.author: vikdesai
-ms.openlocfilehash: e23eea52ff5d27beacf938a1ef153172e24f1aee
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 8f75bab7fc795a59dabfedca5a4889622f66b73a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="manage-reserved-virtual-machine-instances"></a>Reserved Virtual Machine Instances 관리
 
@@ -75,6 +75,16 @@ Azure Reserved VM Instance를 구입한 다음 구매 중에 지정된 구독이
 5.  **추가** > **역할** > **소유자**(또는 제한된 액세스 권한을 부여하려는 경우 다른 역할)를 선택합니다. 
 6. 소유자로 추가할 사용자의 이메일 주소를 입력하세요. 
 7. 사용자를 선택한 다음 **저장**을 선택합니다.
+
+## <a name="next-steps"></a>다음 단계
+예약 가상 머신 인스턴스에 대한 자세한 내용은 다음 문서를 참조하세요.
+
+- [예약 VM 인스턴스를 사용하여 Virtual Machines 선불 결제](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [예약 가상 머신 인스턴스를 사용하여 가상 머신에서 비용 절감](billing-save-compute-costs-reservations.md)
+- [예약 가상 머신 인스턴스 할인이 적용되는 방식 이해](billing-understand-vm-reservation-charges.md)
+- [종량제 구독에서 예약 인스턴스 사용량 이해](billing-understand-reserved-instance-usage.md)
+- [Enterprise 등록의 예약 인스턴스 사용량 이해](billing-understand-reserved-instance-usage-ea.md)
+- [예약 인스턴스를 포함하지 않는 Windows 소프트웨어 비용](billing-reserved-instance-windows-software-costs.md)
 
 ## <a name="need-help-contact-support"></a>도움이 필요하세요? 지원에 문의
 

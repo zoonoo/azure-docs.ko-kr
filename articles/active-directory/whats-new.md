@@ -14,18 +14,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/01/2017
+ms.date: 02/05/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 34826332db2e63d442d47ada74fcbad4cad600ae
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: ccee4fd0359ab9fe8bd025ead9a2d0993bb718f2
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory의 새로운 기능
-
-
 
 
 > [![RSS](./media/whats-new/feed-icon-16x16.png)](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us) [피드](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us)를 구독하여 Azure AD(Azure Active Directory)의 새로운 기능에 대한 최신 정보를 얻으세요.
@@ -125,7 +123,7 @@ Azure AD Premium P1 버전에서 라이선스가 적용되지 않는 검색 항�
  
 ---
 
-### <a name="azure-ad-administration-experience-in-azure-classic-portal-has-been-retired"></a>Azure 클래식 포털에서 Azure AD 관리 환경 사용 중지
+### <a name="the-phonefactor-web-portal-has-been-retired"></a>PhoneFactor 웹 포털의 사용이 중지됩니다.
 
 **유형:** 사용되지 않음  
 **서비스 범주:** Azure AD  

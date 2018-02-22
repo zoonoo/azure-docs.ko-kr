@@ -3,7 +3,7 @@ title: "테넌트 관리자 권한 상승 액세스 - Azure AD | Microsoft Docs"
 description: "이 항목에서는 역할 기반 액세스 제어(RBAC)에 대한 기본 제공 역할에 대해 설명합니다."
 services: active-directory
 documentationcenter: 
-author: andredm7
+author: rolyon
 manager: mtillman
 editor: rqureshi
 ms.assetid: b547c5a5-2da2-4372-9938-481cb962d2d6
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/30/2017
-ms.author: andredm
-ms.openlocfilehash: 894ccd13684a79590b75821514ef6922abb8fdaf
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: rolyon
+ms.openlocfilehash: 8be842018cadfc36eb74b14a02a8f9bc9ddf098d
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="elevate-access-as-a-tenant-admin-with-role-based-access-control"></a>역할 기반 액세스 제어를 사용하여 테넌트 관리자로 액세스 권한 상승
 
@@ -101,7 +101,7 @@ Remove-AzureRmRoleAssignment -SignInName <username@somedomain.com> -RoleDefiniti
 
 *elevateAccess*를 호출하는 경우 해당 권한을 취소하려면 할당을 삭제해야 하므로 스스로 역할 할당을 만듭니다.
 
-1.  roleName = 사용자 액세스 관리자인 GET 역할 정의를 호출하여 사용자 액세스 관리자 역할의 GUID 이름을 확인합니다.
+1.  roleName = 사용자 액세스 관리자인 GET roleDefinitions를 호출하여 사용자 액세스 관리자 역할의 GUID 이름을 확인합니다.
     1.  GET *https://management.azure.com/providers/Microsoft.Authorization/roleDefinitions?api-version=2015-07-01&$filter=roleName+eq+'User+Access+Administrator*
 
         ```
@@ -127,9 +127,9 @@ Remove-AzureRmRoleAssignment -SignInName <username@somedomain.com> -RoleDefiniti
     1. GET *https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=principalId+eq+'{objectid}'*
     
         >[!NOTE] 
-        >테넌트 관리자는 할당이 많지 않아야 합니다. 위의 쿼리에서 너무 많은 할당을 반환하는 경우, 테넌트 범위 수준의 모든 할당을 쿼리한 다음 결과를 필터링할 수도 있습니다. GET *https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=atScope()*
+        >테넌트 관리자는 할당이 많지 않아야 합니다. 이전 쿼리에서 너무 많은 할당을 반환하는 경우, 테넌트 범위 수준의 모든 할당을 쿼리한 다음 결과를 필터링할 수도 있습니다. GET *https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=atScope()*
         
-    2. 위의 호출은 역할 할당 목록을 반환합니다. 범위가 "/"이고 RoleDefinitionId가 1단계에서 찾은 역할 이름 GUID로 끝나고 PrincipalId가 테넌트 관리자의 ObjectId와 일치하는 역할 할당을 찾습니다. 역할 할당은 다음과 같습니다.
+    2. 이전 호출은 역할 할당 목록을 반환합니다. 범위가 "/"이고 RoleDefinitionId가 1단계에서 찾은 역할 이름 GUID로 끝나고 PrincipalId가 테넌트 관리자의 ObjectId와 일치하는 역할 할당을 찾습니다. 역할 할당은 다음과 같습니다.
 
         ```
         {"value":[{"properties":{

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: cbc22721bbe06fdc5a8a9026b113071e1616bcb8
-ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
+ms.openlocfilehash: 6be75035247f05995949734cd4f4f0d934e30685
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="notification-hubs-output-binding-for-azure-functions"></a>Azure Functions에 대한 Notification Hubs 출력 바인딩
 
@@ -320,6 +320,12 @@ public static async Task Run(string myQueueItem, IAsyncCollector<Notification> n
 이 응용 프로그램 설정의 이름은 *function.json* 또는 .NET 특성의 출력 바인딩 연결 설정에 들어가는 내용입니다. 이 문서의 앞쪽에 있는 [구성 섹션](#configuration)을 참조하세요.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
+
+## <a name="exceptions-and-return-codes"></a>예외 및 반환 코드
+
+| 바인딩 | 참고 자료 |
+|---|---|
+| 알림 허브 | [운영 가이드](https://docs.microsoft.com/rest/api/notificationhubs/) |
 
 ## <a name="next-steps"></a>다음 단계
 

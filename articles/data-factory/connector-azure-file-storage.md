@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: b3f093f84758fe8622f09212b6a11a2c5f3795aa
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 772af3bce6947a92fa62a93a84ee84ee34093d82
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-or-to-azure-file-storage-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure File Storage 간에 데이터 복사
 
@@ -47,7 +47,7 @@ Azure File Storage 연결된 서비스에 다음 속성이 지원됩니다.
 | 형식 | 형식 속성은 **FileServer**로 설정해야 합니다. | 예 |
 | host | Azure File Storage 끝점을 `"host": "\\\\<storage name>.file.core.windows.net\\<file service name>"`로 지정합니다. | 예 |
 | userId | Azure File Storage에 `"userid": "AZURE\\<storage name>"`로 액세스할 사용자를 지정합니다. | 예 |
-| 암호 | 저장소 액세스 키를 지정합니다. 이 필드를 SecureString으로 표시합니다.<br/> | 예 |
+| 암호 | 저장소 액세스 키를 지정합니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 암호를 참조](store-credentials-in-key-vault.md)합니다. | 예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 Integration Runtime을 사용할 수 있습니다(데이터 저장소가 개인 네트워크에 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |원본에는 아니요이고 싱크에는 예입니다 |
 
 >[!IMPORTANT]
@@ -90,7 +90,7 @@ Azure File Storage 간 데이터를 복사하려면 데이터 집합의 형식 �
 | fileName | 특정 파일 간에 복사하려는 경우 **folderPath**에 있는 파일의 이름을 지정합니다. 이 속성에 값을 지정하지 않으면 데이터 집합이 폴더에 있는 모든 파일을 원본으로 가리키고 자동으로 파일 이름을 생성합니다.<br/><br/>**싱크에 대한 fileName 자동 생성:** fileName이 출력 데이터 집합에 대해 지정되지 않고 **preserveHierarchy**가 작업 싱크에 지정되지 않은 경우 복사 작업은 다음과 같은 패턴으로 파일 이름을 생성합니다. <br/>- `Data_[activity run id]_[GUID].[format].[compression if configured]` 예: `Data_0a405f8a-93ff-4c6f-b3be-f69616f1df7a_0d143eda-d5b8-44df-82ec-95c50895ff80.txt.gz` <br/>- 또는 쿼리가 지정되지 않은 경우 관계형 원본에 대해 `[Table name].[format].[compression if configured]` 예: MySourceTable.orc |아니요 |
 | fileFilter | 모든 파일이 아닌 folderPath의 파일 하위 집합을 선택하는데 사용할 필터를 지정합니다. fileName이 지정되어 있지 않은 경우에만 적용됩니다. <br/><br/>허용되는 와일드카드는 `*`(여러 문자) 및 `?`(단일 문자)입니다.<br/>- 예 1: `"fileFilter": "*.log"`<br/>- 예 2: `"fileFilter": 2017-09-??.txt"` |아니요 |
 | format | 파일 기반 저장소(이진 복사) 간에 **파일을 있는 그대로 복사**하려는 경우 입력 및 출력 데이터 집합 정의 둘 다에서 형식 섹션을 건너뜁니다.<br/><br/>특정 형식으로 파일을 생성하거나 구문 분석하려는 경우 **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**과 같은 파일 형식 유형이 지원됩니다. 이 값 중 하나로 서식에서 **type** 속성을 설정합니다. 자세한 내용은 [텍스트 형식](supported-file-formats-and-compression-codecs.md#text-format), [Json 형식](supported-file-formats-and-compression-codecs.md#json-format), [Avro 형식](supported-file-formats-and-compression-codecs.md#avro-format), [Orc 형식](supported-file-formats-and-compression-codecs.md#orc-format) 및 [Parquet 형식](supported-file-formats-and-compression-codecs.md#parquet-format) 섹션을 참조하세요. |아니요(이진 복사 시나리오에만 해당) |
-| 압축 | 데이터에 대한 압축 유형 및 수준을 지정합니다. 자세한 내용은 [지원되는 파일 형식 및 압축 코덱](supported-file-formats-and-compression-codecs.md#compression-support)을 참조하세요.<br/>지원되는 형식은 **GZip**, **Deflate**, **BZip2** 및 **ZipDeflate**입니다.<br/>지원되는 수준은 **최적** 및 **가장 빠름**입니다. |아니요 |
+| 압축 | 데이터에 대한 압축 유형 및 수준을 지정합니다. 자세한 내용은 [지원되는 파일 형식 및 압축 코덱](supported-file-formats-and-compression-codecs.md#compression-support)을 참조하세요.<br/>지원되는 형식은 **GZip**, **Deflate**, **BZip2** 및 **ZipDeflate**입니다.<br/>지원되는 수준은 **최적** 및 **가장 빠름**입니다. |아니오 |
 
 **예제:**
 

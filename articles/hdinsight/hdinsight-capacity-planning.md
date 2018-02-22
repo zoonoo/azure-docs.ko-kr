@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2017
 ms.author: maxluk
-ms.openlocfilehash: 391b691e895c672ef872f8b98c88567175ad8030
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: 70451c5a69a1a268aef0eb957cb92791b92eb221
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>HDInsight 클러스터의 용량 계획
 
@@ -89,8 +89,7 @@ VM 크기와 유형은 CPU 처리 성능, RAM 크기 및 네트워크 대기 시
 
 클러스터 유형에 따라 작업자 노드 수를 늘리면 계산 용량(예: 추가 코어)이 더 추가되지만, 전체 클러스터가 처리되는 데이터의 메모리 내 저장소를 지원하는 데 필요한 총 메모리 양도 추가될 수 있습니다. VM 크기 및 유형을 선택하는 경우처럼 올바른 클러스터 크기 선택도 시뮬레이트된 워크로드 또는 카나리아 쿼리를 사용하여 실험적으로 진행됩니다.
 
-최대 부하 요구를 충족하도록 클러스터를 확장한 후 해당 추가 노드가 더 이상 필요하지 않을 때 축소할 수 있습니다.
-<!-- - see [Scaling - best practices](hdinsight-scaling-best-practices.md). -->
+최대 부하 요구를 충족하도록 클러스터를 확장한 후 해당 추가 노드가 더 이상 필요하지 않을 때 축소할 수 있습니다. 자세한 내용은 [HDInsight 클러스터 크기 조정](hdinsight-scaling-best-practices.md)을 참조하세요.
 
 ### <a name="cluster-lifecycle"></a>클러스터 수명 주기
 

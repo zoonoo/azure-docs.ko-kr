@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 1e1c8e03bbfc2a07f4d4faee4c3b171c44fa312d
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 22bc237d551214997cc21a489c3c4aa20a5fcbd3
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Amazon Redshift에서 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -61,8 +61,8 @@ Amazon Redshift 연결된 서비스에 다음 속성이 지원됩니다.
 | 포트 |Amazon Redshift 서버가 클라이언트 연결을 수신하는 데 사용하는 TCP 포트 수입니다. |아니요(기본값: 5439) |
 | 데이터베이스 |Amazon Redshift 데이터베이스의 이름입니다. |예 |
 | 사용자 이름 |데이터베이스에 대한 액세스 권한이 있는 사용자의 이름입니다. |예 |
-| 암호 |사용자 계정의 password입니다. 이 필드를 SecureString으로 표시합니다. |예 |
-| connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 Integration Runtime을 사용할 수 있습니다(데이터 저장소가 개인 네트워크에 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아니요 |
+| 암호 |사용자 계정의 password입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 암호를 참조](store-credentials-in-key-vault.md)합니다. |예 |
+| connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 Integration Runtime을 사용할 수 있습니다(데이터 저장소가 개인 네트워크에 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아니오 |
 
 **예제:**
 
@@ -130,7 +130,7 @@ Amazon Redshift에서 데이터를 복사하려면 복사 작업의 원본 형�
 |:--- |:--- |:--- |
 | 형식 | 복사 작업 원본의 type 속성을 **AmazonRedshiftSource**로 설정해야 합니다. | 예 |
 | 쿼리 |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예: select * from MyTable. |아니요(데이터 집합의 "tableName"이 지정된 경우) |
-| redshiftUnloadSettings | Amazon Redshift UNLOAD를 사용하는 경우 속성 그룹입니다. | 아니오 |
+| redshiftUnloadSettings | Amazon Redshift UNLOAD를 사용하는 경우 속성 그룹입니다. | 아니요 |
 | s3LinkedServiceName | “AmazonS3” 형식의 연결된 서비스 이름을 지정하여 중간 저장소로 사용하려는 Amazon S3을 참조합니다. | 예(UNLOAD를 사용하는 경우) |
 | bucketName | 중간 데이터를 저장할 S3 버킷을 지정합니다. 제공되지 않은 경우 Data Factory 서비스는 자동으로 생성합니다.  | 예(UNLOAD를 사용하는 경우) |
 

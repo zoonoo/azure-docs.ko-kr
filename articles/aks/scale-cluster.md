@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: gamonroy
 ms.custom: mvc
-ms.openlocfilehash: a5380a3815335d7347b57dac49a3dca02c9d981c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: fbbc24c958152806964412b426aff81a894d4412
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="scale-an-azure-container-service-aks-cluster"></a>Azure Container Service(AKS) 클러스터 크기 조정
 
@@ -21,19 +21,19 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="scale-the-cluster-nodes"></a>클러스터 노드 크기 조정
 
-`az aks scale` 명령을 사용하여 클러스터 노드의 크기를 조정합니다. 다음 예제에서는 *myK8sCluster*라는 클러스터를 단일 노드로 크기 조정합니다.
+`az aks scale` 명령을 사용하여 클러스터 노드의 크기를 조정합니다. 다음 예제에서는 *myAKSCluster*라는 클러스터를 단일 노드로 크기 조정합니다.
 
 ```azurecli-interactive
-az aks scale --name myK8sCluster --resource-group myResourceGroup --node-count 1
+az aks scale --name myAKSCluster --resource-group myResourceGroup --node-count 1
 ```
 
-출력:
+출력
 
 ```json
 {
-  "id": "/subscriptions/4f48eeae-9347-40c5-897b-46af1b8811ec/resourcegroups/myResourceGroup/providers/Microsoft.ContainerService/managedClusters/myK8sCluster",
+  "id": "/subscriptions/<Subscription ID>/resourcegroups/myResourceGroup/providers/Microsoft.ContainerService/managedClusters/myAKSCluster",
   "location": "eastus",
-  "name": "myK8sCluster",
+  "name": "myAKSCluster",
   "properties": {
     "accessProfiles": {
       "clusterAdmin": {
@@ -48,7 +48,7 @@ az aks scale --name myK8sCluster --resource-group myResourceGroup --node-count 1
         "count": 1,
         "dnsPrefix": null,
         "fqdn": null,
-        "name": "myK8sCluster",
+        "name": "myAKSCluster",
         "osDiskSizeGb": null,
         "osType": "Linux",
         "ports": null,

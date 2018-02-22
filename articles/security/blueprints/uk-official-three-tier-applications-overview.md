@@ -1,6 +1,6 @@
 ---
-title: "Azure Blueprint Automation - UK-OFFICIAL에 대한 3계층 웹 응용 프로그램"
-description: "Azure Blueprint Automation - UK-OFFICIAL에 대한 3계층 웹 응용 프로그램"
+title: "Azure 보안 및 규정 준수 청사진 - 영국 공식 3계층 웹 응용 프로그램 자동화"
+description: "Azure 보안 및 규정 준수 청사진 - 영국 공식 3계층 웹 응용 프로그램 자동화"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,25 +12,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 5f5694367d9be2ae66c7303cfea063b7f4979307
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 9d95ccdd536efbff1540fab2b564e7745f5ac397
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/11/2018
 ---
-# <a name="azure-blueprint-automation-three-tier-web-applications-for-uk-official"></a>Azure Blueprint Automation: UK-OFFICIAL에 대한 3계층 웹 응용 프로그램
+# <a name="azure-security-and-compliance-blueprint---uk-offical-three-tier-web-applications-automation"></a>Azure 보안 및 규정 준수 청사진 - 영국 공식 3계층 웹 응용 프로그램 자동화
 
 ## <a name="overview"></a>개요
 
  이 문서에서는 영국에서 공식으로 분류된 다양한 워크로드를 처리하기에 적절한 Microsoft Azure 3계층 웹 기반 아키텍처를 제공하는 지침 및 자동화 스크립트를 제공합니다.
 
- ARM([Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)) 템플릿 집합은 인프라를 코드 방식을 사용하여 영국 NCSC(National Cyber Security Centre) 14개의 [클라우드 보안 원칙](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles) 및 CIS(Center for Internet Security)의 [중요 보안 제어](https://www.cisecurity.org/critical-controls.cfm)에 맞는 환경을 배포합니다.
+ [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) 템플릿 집합은 인프라를 코드 방식을 사용하여 영국 NCSC(National Cyber Security Centre) 14개의 [클라우드 보안 원칙](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles) 및 CIS(Center for Internet Security)의 [중요 보안 제어](https://www.cisecurity.org/critical-controls.cfm)에 맞는 환경을 배포합니다.
 
  NCSC에서는 고객이 서비스의 보안 속성을 평가하고 고객과 공급 업체 간에 책임 분배에 대한 이해를 돕기 위해 해당 클라우드 보안 원칙을 사용하도록 권장합니다. 책임 분배를 쉽게 이해할 수 있도록 이러한 원칙 각각에 대한 정보를 제공했습니다.
 
- 이 아키텍처 및 해당 ARM 템플릿은 Microsoft 백서인 [영국 정부에 대한 Azure Blueprint](https://gallery.technet.microsoft.com/14-Cloud-Security-Controls-670292c1)에서 지원됩니다. 이 문서에서는 영국 NCSC 14개의 클라우드 보안 원칙과 Azure 서비스를 맞추는 방법을 목록으로 만들었습니다. 따라서 조직은 전세계 및 영국에서 Microsoft Azure 클라우드의 클라우드 기반 서비스를 사용하여 해당 준수 의무를 빠르게 충족할 수 있습니다.
+ 이 아키텍처와 해당 Azure Resource Manager 템플릿은 Microsoft 백서 [Microsoft Azure를 사용하여 영국 클라우드용 14개의 클라우드 보안 컨트롤](https://gallery.technet.microsoft.com/14-Cloud-Security-Controls-670292c1)에서 지원됩니다. 이 문서에서는 영국 NCSC 14개의 클라우드 보안 원칙과 Azure 서비스를 맞추는 방법을 목록으로 만들었습니다. 따라서 조직은 전세계 및 영국에서 Microsoft Azure 클라우드의 클라우드 기반 서비스를 사용하여 해당 준수 의무를 빠르게 충족할 수 있습니다.
 
  이 템플릿은 워크로드에 대한 인프라를 배포합니다. 응용 프로그램 코드 및 지원되는 비즈니스 계층과 데이터 계층 소프트웨어를 설치하고 구성해야 합니다. 자세한 배포 지침은 [여기](https://aka.ms/ukwebappblueprintrepo)에 있습니다.
 
@@ -109,12 +109,12 @@ ms.lasthandoff: 11/16/2017
 - (1) Biz 계층 VM 집합 - 2대의 VM
 - (1) 데이터 계층 VM 집합 - 2대의 VM
 
-부하 분산 장치
+Load Balancer
 - (1) 웹 계층 부하 분산 장치
 - (1) Biz 계층 부하 분산 장치
 - (1) 데이터 계층 부하 분산 장치
 
-저장소
+Storage
 - (14) 총 저장소 계정
   - Active Directory 도메인 컨트롤러 가용성 집합
     - (2) 주 LRS(로컬 중복 저장소) 계정 - 각 VM에 한 개  
@@ -195,17 +195,17 @@ ms.lasthandoff: 11/16/2017
 
 ### <a name="security"></a>보안
 
-**관리 보안**: 이 Azure Blueprint를 사용하면 관리자가 신뢰할 수 있는 원본의 RDP를 사용하여 관리 VNet 및 Jumpbox에 연결할 수 있습니다. NSG를 사용하여 관리 VNet에 대한 네트워크 트래픽을 제어합니다. 포트 3389에 대한 액세스는 Jumpbox를 비롯한 서브넷에 액세스할 수 있는 신뢰할 수 있는 IP 범위의 트래픽으로 제한됩니다.
+**관리 보안**: 이 청사진을 통해 관리자는 신뢰할 수 있는 원본의 RDP를 사용하여 관리 VNet 및 Jumpbox에 연결할 수 있습니다. NSG를 사용하여 관리 VNet에 대한 네트워크 트래픽을 제어합니다. 포트 3389에 대한 액세스는 Jumpbox를 비롯한 서브넷에 액세스할 수 있는 신뢰할 수 있는 IP 범위의 트래픽으로 제한됩니다.
 
 또한 고객은 [강화된 보안 관리 모델](https://technet.microsoft.com/windows-server-docs/security/securing-privileged-access/securing-privileged-access)을 사용하여 관리 VNet 및 Jumpbox에 연결할 때 환경을 보호할 수 있습니다. 보안 향상을 위해 고객이 [권한 있는 액세스 워크스테이션](https://technet.microsoft.com/windows-server-docs/security/securing-privileged-access/privileged-access-workstations#what-is-a-privileged-access-workstation-paw) 및 RDGateway 구성을 사용하는 것이 좋습니다. 네트워크 가상 어플라이언스 및 공개/개인 DMZ를 사용하면 더욱 강화된 보안 기능을 제공합니다.
 
-**네트워크 보안**: NSG([네트워크 보안 그룹](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg))는 잘못 구성되었거나 사용할 수 없는 게이트웨이를 무시하는 인바운드 트래픽에 대해 두 번째 수준의 보호를 제공하는 각 서브넷에 권장됩니다. 예제 - [NSG를 배포하는 ARM 템플릿](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/networkSecurityGroups)
+**네트워크 보안**: NSG([네트워크 보안 그룹](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg))는 잘못 구성되었거나 사용할 수 없는 게이트웨이를 무시하는 인바운드 트래픽에 대해 두 번째 수준의 보호를 제공하는 각 서브넷에 권장됩니다. 예제 - [NSG 배포용 Resource Manager 템플릿](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/networkSecurityGroups).
 
 **공용 끝점 보안**: 인터넷 게이트웨이는 인터넷을 통해 사용자에게 응용 프로그램 서비스를 노출합니다. 이러한 서비스에 액세스하는 트래픽은 [Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction)를 사용하여 보호됩니다. 여기서는 웹 응용 프로그램 방화벽 및 HTTPS 프로토콜 관리를 제공합니다.
 
 **IP 범위**: 아키텍처의 IP 범위는 제안된 범위입니다. 고객은 고유한 환경을 고려하고 적절한 범위를 사용하는 것이 좋습니다.
 
-**하이브리드 연결**: 클라우드 기반 워크로드는 Azure VPN Gateway를 사용하여 IPSEC VPN을 통해 온-프레미스 데이터 센터에 연결됩니다. 고객은 Azure에 연결할 적절한 VPN Gateway를 사용하고 있는지 확인해야 합니다. 예제 - [VPN Gateway ARM 템플릿](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/vpn-gateway-vpn-connection) 빅 데이터 요구 사항을 포함하는 대규모의 중요 업무용 워크로드를 실행하는 고객은 Microsoft 클라우드 서비스에 대한 개인 네트워크 연결에 [ExpressRoute](https://docs.microsoft.com/azure/guidance/guidance-hybrid-network-expressroute)를 사용하는 하이브리드 네트워크 아키텍처를 사용하는 것이 좋습니다.
+**하이브리드 연결**: 클라우드 기반 워크로드는 Azure VPN Gateway를 사용하여 IPSEC VPN을 통해 온-프레미스 데이터 센터에 연결됩니다. 고객은 Azure에 연결할 적절한 VPN Gateway를 사용하고 있는지 확인해야 합니다. 예제 - [VPN Gateway Resource Manager 템플릿](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/vpn-gateway-vpn-connection). 빅 데이터 요구 사항을 포함하는 대규모의 중요 업무용 워크로드를 실행하는 고객은 Microsoft 클라우드 서비스에 대한 개인 네트워크 연결에 [ExpressRoute](https://docs.microsoft.com/azure/guidance/guidance-hybrid-network-expressroute)를 사용하는 하이브리드 네트워크 아키텍처를 사용하는 것이 좋습니다.
 
 **문제의 분리**: 이 참조 아키텍처는 관리 작업 및 비즈니스 운영에 대한 VNet을 분리합니다. 별도 VNet 및 서브넷은 [Microsoft 클라우드 서비스 및 네트워크 보안](https://docs.microsoft.com/azure/best-practices-network-security) 모범 사례를 따르는 네트워크 세그먼트 간에 NSG를 사용하여 트래픽 수신 및 송신 제한을 비롯한 트래픽 관리를 허용합니다.
 
@@ -221,23 +221,23 @@ ms.lasthandoff: 11/16/2017
 
 Crown Commercial Service(정부에 의한 상업 및 조달 활동을 개선하기 위해 작동하는 에이전시)는 Microsoft 범위 내의 엔터프라이즈 클라우드 서비스의 분류를 공식 수준에 해당하는 모든 제품을 포함하는 G-Cloud v6로 갱신했습니다. Azure와 G-Cloud의 세부 정보는 [Azure 영국 G-Cloud 보안 평가 요약](https://www.microsoft.com/en-us/trustcenter/compliance/uk-g-cloud)에서 찾을 수 있습니다.
 
-이 UK-OFFICIAL Azure Blueprint 솔루션은 NCSC [클라우드 보안 원칙](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles)에 설명된 14개의 클라우드 보안 원칙에 맞추어 환경에서 UK-OFFICIAL로 분류된 워크로드를 지원하도록 합니다.
+이 청사진은 NCSC [클라우드 보안 원칙](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles)에 설명된 14개의 클라우드 보안 원칙에 맞추어 환경에서 UK-OFFICIAL로 분류된 워크로드를 지원하도록 합니다.
 
 [고객 책임 매트릭스](https://aka.ms/blueprintuk-gcrm)(Excel 통합 문서)은 14개의 클라우드 보안 원칙을 모두 나열하고 행렬은 각 원칙(또는 원칙 하위 부분)에서 원칙 구현이 Microsoft, 고객 또는 둘 간에 공유된 책임인지를 나타냅니다.
 
-[원칙 구현 행렬](https://aka.ms/ukwebappblueprintpim)(Excel 통합 문서)은 14개의 클라우드 보안 원칙을 모두 나열하고 행렬은 고객 책임 행렬에서 고객 책임을 지정한 각 원칙(또는 원칙 하위 부분)에서 1) Azure Blueprint Automation이 원칙을 구현하는지 및 2) 구현을 원칙 요구 사항에 맞추는 방법을 나타냅니다. 이 콘텐츠는 [여기](https://github.com/Azure/uk-official-three-tier-webapp/blob/master/principles-overview.md)에서 사용할 수 있습니다.
+[원칙 구현 행렬](https://aka.ms/ukwebappblueprintpim)(Excel 통합 문서)은 14개의 클라우드 보안 원칙을 모두 나열하고 행렬은 고객 책임 행렬에서 고객 책임을 지정한 각 원칙(또는 원칙 하위 부분)에서 1) Blueprint 자동화가 원칙을 구현하는지 및 2) 구현을 원칙 요구 사항에 맞추는 방법을 나타냅니다. 이 콘텐츠는 [여기](https://github.com/Azure/uk-official-three-tier-webapp/blob/master/principles-overview.md)에서 사용할 수 있습니다.
 
 또한 CSA(Cloud Security Alliance) 클라우드 서비스를 이동하기 전에 클라우드 공급자의 평가에서 고객을 지원하고 응답해야 하는 질문을 식별하는 클라우드 제어 행렬을 게시했습니다. 응답에서 Microsoft Azure는 [CSA CAIQ](https://www.microsoft.com/en-us/TrustCenter/Compliance/CSA)(CSA Consensus Assessment Initiative Questionnaire)에 대답했습니다. 여기서는 Microsoft에서 제안된 원칙을 해결하는 방법을 설명합니다.
 
 ## <a name="deploy-the-solution"></a>솔루션 배포
 
-이 Azure Blueprint 솔루션을 배포하는 데 배포 사용자가 사용할 수 있는 방법은 두 가지가 있습니다. 첫 번째 방법은 PowerShell 스크립트를 사용하는 반면 두 번째 방법은 Azure Portal을 활용하여 참조 아키텍처를 배포합니다. 자세한 배포 지침은 [여기](https://aka.ms/ukwebappblueprintrepo)에 있습니다.
+이 Blueprint 자동화를 배포하기 위해 배포 사용자가 사용할 수 있는 방법은 두 가지입니다. 첫 번째 방법은 PowerShell 스크립트를 사용하는 반면 두 번째 방법은 Azure Portal을 활용하여 참조 아키텍처를 배포합니다. 자세한 배포 지침은 [여기](https://aka.ms/ukwebappblueprintrepo)에 있습니다.
 
 ## <a name="disclaimer"></a>고지 사항
 
- - 이 문서는 오직 정보 제공을 위한 것입니다. Microsoft는 이 문서의 정보에 관해 어떠한 명시적, 묵시적 또는 법적 보증도 하지 않습니다. 이 문서는 "있는 그대로" 제공됩니다. URL 및 기타 인터넷 웹 사이트 참조를 포함하여 본 문서에 명시된 정보 및 보기는 통지 없이 변경될 수 있습니다. 이 문서를 읽는 고객은 그 사용에 따른 위험을 감수합니다.
+ - 이 문서는 오직 정보 제공을 목적으로 합니다. Microsoft는 이 문서의 정보에 관해 어떠한 명시적, 묵시적 또는 법적 보증도 하지 않습니다. 이 문서는 "있는 그대로" 제공됩니다. URL 및 기타 인터넷 웹 사이트 참조를 포함하여 본 문서에 명시된 정보 및 보기는 통지 없이 변경될 수 있습니다. 이 문서를 읽는 고객은 그 사용에 따른 위험을 감수합니다.
  - 이 문서는 Microsoft 제품 또는 솔루션의 지적 소유권에 대한 법적 권한을 고객에게 제공하지 않습니다.
  - 고객은 이 문서는 내부 참조용으로만 복사 및 사용할 수 있습니다.
  - 이 문서의 특정 권장 사항으로 인해 Azure에서 데이터, 네트워크 또는 계산 리소스 사용량이 증가할 수 있으며 이로 인해 고객의 Azure 라이선스 또는 구독 비용이 증가할 수 있습니다.
- - 이 아키텍처는 고객이 특정 요구 사항에 맞게 조정할 수 있는 기반 형태로 제공되며 있는 그대로 프로덕션 환경에서 사용해서는 안 됩니다.
- - 이 문서를 참조로 개발하고 고객이 특정 규정 준수 요구 사항 및 규정을 충족할 수 있는 모든 수단을 정의하는 데 사용되어서는 안됩니다. 고객은 조직에서 승인된 고객 구현에 대한 법적 지원을 찾아야 합니다.
+ - 이 아키텍처는 고객이 특정 요구 사항에 맞게 조정할 수 있는 기반이며 있는 프로덕션 환경에 그대로 사용해서는 안됩니다.
+ - 이 문서는 참조용으로 작성되었으며 고객이 특정 규정 준수 요구 사항 및 규정을 충족할 수 있는 모든 수단을 정의하는 데 사용되어서는 안됩니다. 고객은 승인된 고객 구현에 대해 자체 조직에서 법률 지원을 받아야 합니다.

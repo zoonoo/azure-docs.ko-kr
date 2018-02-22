@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: damaerte
-ms.openlocfilehash: b454720dd5bd2df036a400c8bfc1c383de5af542
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 71ae70c13b4de87593345fd957a773741294b49c
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="quickstart-for-powershell-in-azure-cloud-shell-preview"></a>Azure Cloud Shell의 PowerShell에 대한 빠른 시작(미리 보기)
 
@@ -41,7 +41,7 @@ ms.lasthandoff: 01/22/2018
 
 Azure Cloud Shell에서 다음과 같은 일반 PowerShell 명령을 실행합니다.
 
-```Powershell
+```PowerShell
 PS Azure:\> Get-Date
 Monday, September 25, 2017 08:55:09 AM
 
@@ -58,13 +58,13 @@ MyResourceGroup         MyVM2       eastus   Standard_DS2_v2_Promo  Windows    S
 
  1. 구독 나열
 
-    ``` Powershell
+    ``` PowerShell
     PS Azure:\> dir
     ```
 
  2. 기본 구독에 `cd`
 
-    ``` Powershell
+    ``` PowerShell
     PS Azure:\> cd MySubscriptionName
     PS Azure:\MySubscriptionName>
     ```
@@ -184,20 +184,20 @@ TestVm10   MyResourceGroup2   eastus    Standard_DS1_v2 Windows           mytest
  > [!WARNING]
  > [Azure VM의 원격 관리 문제 해결](troubleshooting.md#powershell-resolutions)을 참조하세요.
 
-  MyVM1이란 VM이 있다고 가정하고 `Invoke-AzureRmVMCommand`을 사용하여 원격 컴퓨터에 PowerShell scriptblock을 호출합니다.
+  MyVM1이란 VM이 있다고 가정하고 `Invoke-AzureRmVMCommand`를 사용하여 원격 컴퓨터에 PowerShell 스크립트 블록을 호출합니다.
 
   ``` Powershell
   Invoke-AzureRmVMCommand -Name MyVM1 -ResourceGroupName MyResourceGroup -Scriptblock {Get-ComputerInfo} -EnableRemoting
   ```
-  또는 먼저 virtualMachines 디렉터리로 이동하고 다음과 같이 `Invoke-AzureRmVMCommand`를 실행할 수 있습니다.
+  또한 먼저 VirtualMachines 디렉터리로 이동하고 다음과 같이 `Invoke-AzureRmVMCommand`를 실행할 수 있습니다.
 
-  ``` Powershell
+  ``` PowerShell
   PS Azure:\> cd MySubscriptionName\MyResourceGroup\Microsoft.Compute\virtualMachines
   PS Azure:\MySubscriptionName\MyResourceGroup\Microsoft.Compute\virtualMachines> Get-Item MyVM1 | Invoke-AzureRmVMCommand -Scriptblock{Get-ComputerInfo}
   ```
   그러면 다음과 같은 출력이 표시됩니다.
 
-  ``` Powershell
+  ``` PowerShell
   PSComputerName                                          : 65.52.28.207
   RunspaceId                                              : 2c2b60da-f9b9-4f42-a282-93316cb06fe1
   WindowsBuildLabEx                                       : 14393.1066.amd64fre.rs1_release_sec.170327-1835
@@ -215,13 +215,13 @@ TestVm10   MyResourceGroup2   eastus    Standard_DS1_v2 Windows           mytest
 
 `Enter-AzureRmVM`을 사용하여 Azure에서 실행하는 VM에 대화형으로 로그인할 수 있습니다.
 
-  ``` Powershell
+  ``` PowerShell
   Enter-AzureRmVM -Name MyVM1 -ResourceGroupName MyResourceGroup -EnableRemoting
   ```
 
-또는 먼저 `virtualMachines` 디렉터리로 이동하고 다음과 같이 `Enter-AzureRmVM`를 실행할 수 있습니다.
+또는 먼저 `VirtualMachines` 디렉터리로 이동하고 다음과 같이 `Enter-AzureRmVM`를 실행할 수 있습니다.
 
-  ``` Powershell
+  ``` PowerShell
  PS Azure:\MySubscriptionName\ResourceGroups\MyResourceGroup\Microsoft.Compute\virtualMachines> Get-Item MyVM1 | Enter-AzureRmVM
  ```
 
@@ -266,20 +266,20 @@ mywebapp3       Running  MyResourceGroup3   {mywebapp3.azurewebsites.net...   So
 
 ## <a name="ssh"></a>SSH
 
-[Win32-OpenSSH](https://github.com/PowerShell/Win32-OpenSSH)는 PowerShell CloudShell에서 사용할 수 있습니다.
-SSH를 사용하여 서버 또는 VM을 인증하려면 CloudShell에서 공개-개인 키 쌍을 생성하고 공개 키를 원격 컴퓨터의 `authorized_keys`(예: `/home/user/.ssh/authorized_keys`)에 게시합니다.
+[Win32-OpenSSH](https://github.com/PowerShell/Win32-OpenSSH)는 PowerShell Cloud Shell에서 사용할 수 있습니다.
+SSH를 사용하여 서버 또는 VM을 인증하려면 Cloud Shell에서 공개-개인 키 쌍을 생성하고 공개 키를 원격 컴퓨터의 `authorized_keys`(예: `/home/user/.ssh/authorized_keys`)에 게시합니다.
 
 > [!NOTE]
-> CloudShell에서 `ssh-keygen`을 사용하여 SSH 개인-공개 키를 만들고 이 키를 `$env:USERPROFILE\.ssh`에 게시할 수 있습니다.
+> Cloud Shell에서 `ssh-keygen`을 사용하여 SSH 개인-공개 키를 만들고 이 키를 `$env:USERPROFILE\.ssh`에 게시할 수 있습니다.
 
 ### <a name="using-a-custom-profile-to-persist-git-and-ssh-settings"></a>사용자 지정 프로필을 사용하여 GIT 및 SSH 설정 유지
 
-로그아웃 시 세션이 유지되지 않으므로 `$env:USERPROFILE\.ssh` 폴더를 `CloudDrive`에 저장하거나 CloudShell을 시작할 때 바로 가기 링크를 만듭니다.
-profile.ps1에 다음 코드 조각을 추가하여 CloudDrive에 대한 바로 가기 링크를 만듭니다.
+로그아웃 시 세션이 유지되지 않으므로 `$env:USERPROFILE\.ssh` 폴더를 `CloudDrive`에 저장하거나 Cloud Shell을 시작할 때 symlink를 만듭니다.
+profile.ps1에 다음 코드 조각을 추가하여 CloudDrive에 대한 symlink를 만듭니다.
 
-``` Powershell
-# Check if the ssh folder exists
-if( -not (Test-Path $home\CloudDrive\.ssh){
+``` PowerShell
+# Check if the .ssh folder exists
+if( -not (Test-Path $home\CloudDrive\.ssh)){
     mkdir $home\CloudDrive\.ssh
 }
 
@@ -298,24 +298,24 @@ if(Test-Path $script:sshFolderPath){
 ### <a name="using-ssh"></a>SSH 사용
 
 [여기](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-powershell)의 지침에 따라 AzureRM cmdlet을 사용하여 새 VM 구성을 만듭니다.
-`New-AzureRMVM`을 호출하여 배포를 시작하기 전에 SSH 공개 키를 VM 구성에 추가합니다.
-새로 만든 VM에는 공개 키가 `~\.ssh\authorized_keys` 위치에 포함되므로 자격 증명이 없는 ssh 세션을 VM에 사용할 수 있습니다.
+`New-AzureRmVM`을 호출하여 배포를 시작하기 전에 SSH 공개 키를 VM 구성에 추가합니다.
+새로 만든 VM에는 공개 키가 `~\.ssh\authorized_keys` 위치에 포함되므로 자격 증명이 없는 SSH 세션을 VM에 사용할 수 있습니다.
 
-``` Powershell
+``` PowerShell
 
 # Create VM config object - $vmConfig using instructions on linked page above
 
-# Generate SSH Keys in CloudShell
+# Generate SSH keys in Cloud Shell
 ssh-keygen -t rsa -b 2048 -f $HOME\.ssh\id_rsa 
 
-# Ensure VM config is updated with SSH Keys
+# Ensure VM config is updated with SSH keys
 $sshPublicKey = Get-Content "$env:USERPROFILE\.ssh\id_rsa.pub"
 Add-AzureRmVMSshPublicKey -VM $vmConfig -KeyData $sshPublicKey -Path "/home/azureuser/.ssh/authorized_keys"
 
 # Create a virtual machine
 New-AzureRmVM -ResourceGroupName <yourResourceGroup> -Location <vmLocation> -VM $vmConfig
 
-# ssh to the VM
+# SSH to the VM
 ssh azureuser@MyVM.Domain.Com
 
 ```
@@ -335,13 +335,13 @@ ssh azureuser@MyVM.Domain.Com
 
 Azure Cloud Shell에서 PowerShell에 대한 정보를 가져오려면 `Get-Help`을 입력합니다.
 
-``` Powershell
+``` PowerShell
 PS Azure:\> Get-Help
 ```
 
-특정 명령에 대해 여전히 Get-Help를 실행한 후 뒤 이어 cmdlet를 실행할 수 있습니다.
+특정 명령에 대해 여전히 `Get-Help`를 실행한 후 뒤 이어 cmdlet을 실행할 수 있습니다.
 
-``` Powershell
+``` PowerShell
 PS Azure:\> Get-Help Get-AzureRmVM
 ```
 
@@ -349,7 +349,7 @@ PS Azure:\> Get-Help Get-AzureRmVM
 
 예를 들어 `helloworld.ps1`이란 스크립트를 만들어 `CloudDrive`에 저장하고 셸 세션 전반에 걸쳐 사용할 수 있습니다.
 
-``` Powershell
+``` PowerShell
 cd C:\users\ContainerAdministrator\CloudDrive
 PS C:\users\ContainerAdministrator\CloudDrive> vim .\helloworld.ps1
 # Add the content, such as 'Hello World!'
@@ -367,7 +367,7 @@ PowerShell 프로필 `profile.ps1` 또는 `Microsoft.PowerShell_profile.ps1`를 
 
 ## <a name="use-git"></a>Git 사용
 
-Cloud Shell에서 git 리포지토리를 복제하려면 [개인용 액세스 토큰][githubtoken]을 만들고 그것을 사용자 이름으로 사용합니다. 토큰이 있다면 다음과 같이 리포지토리를 복제합니다.
+Cloud Shell에서 Git 리포지토리를 복제하려면 [개인용 액세스 토큰][githubtoken]을 만들고 그것을 사용자 이름으로 사용합니다. 토큰이 있다면 다음과 같이 리포지토리를 복제합니다.
 
  ``` PowerShell
   git clone https://<your-access-token>@github.com/username/repo.git
@@ -383,7 +383,7 @@ $script:gitconfigPath = Join-Path $PSScriptRoot .gitconfig
 # Create a symlink to .gitconfig in user's $home
 if(Test-Path $script:gitconfigPath){
 
-    if(-not (Test-Path (Join-Path $Home .gitconfig ))){
+    if(-not (Test-Path (Join-Path $home .gitconfig ))){
          New-Item -ItemType SymbolicLink -Path $home -Name .gitconfig -Value $script:gitconfigPath
     }
 }

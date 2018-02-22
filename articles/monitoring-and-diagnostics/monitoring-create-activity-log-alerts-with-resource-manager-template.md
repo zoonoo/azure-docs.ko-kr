@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2017
 ms.author: ancav
-ms.openlocfilehash: 2bfeba27b6de9e5db623eba1526bd2d2ff1b7211
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: b30912c44bd66f8c6fca548dc905f750e05c8621
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-an-activity-log-alert-with-a-resource-manager-template"></a>리소스 관리자 템플릿을 사용하여 활동 로그 경고 만들기
 이 문서에서는 [Azure 리소스 관리자 템플릿](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates)을 사용하여 활동 로그 경고를 구성하는 방법을 설명합니다. 템플릿을 사용하면 자동화된 배포 프로세스의 일부로 특정 활동 로그 이벤트 조건에 따라 많은 활성화하는 많은 경고를 쉽게 설정할 수 있습니다.
@@ -82,10 +82,10 @@ ms.lasthandoff: 12/08/2017
               "field": "resourceType",
               "equals": "Microsoft.Resources/deployments"
             }
-          ] 
+          ]
         },
         "actions": {
-          "actionGroups": 
+          "actionGroups":
           [
             {
               "actionGroupId": "[parameters('actionGroupResourceId')]"
@@ -99,6 +99,10 @@ ms.lasthandoff: 12/08/2017
 ```
 
 [Azure 빠른 시작 갤러리](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Insights)를 방문하여 활동 로그 경고 템플릿의 몇 가지 예제를 확인해 보세요.
+
+> [!NOTE]
+
+> 모니터 > [경고(미리 보기)](monitoring-overview-unified-alerts.md)에서 향상된 사용자 환경을 사용하여 활동 로그 경고 규칙을 만들 수도 있습니다. 이를 만드는 방법에 대한 자세한 내용은 [이 문서](monitoring-activity-log-alerts-new-experience.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 - [경고](monitoring-overview-alerts.md)에 대해 자세히 알아보세요.

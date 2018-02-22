@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/25/2017
 ms.author: maxluk,jejiang
-ms.openlocfilehash: 77c7163b896c2b364039ea6c669ee70cf8be4d9e
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 077805cedb7895c8c59b650b3ec691244168a9f5
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-spark-applications-for-an-hdinsight-cluster"></a>IntelliJ용 Azure 도구 키트를 사용하여 HDInsight 클러스터용 Spark 응용 프로그램 만들기
 
@@ -69,13 +69,34 @@ IntelliJ 플러그 인용 Azure 도구 키트를 사용하여 Scala로 작성된
    
     ![확장된 클러스터-이름 노드](./media/apache-spark-intellij-tool-plugin/view-explorer-4.png)
 
+## <a name="link-a-cluster"></a>클러스터 연결
+Ambari에서 관리하는 사용자 이름을 사용하여 정상적인 클러스터를 연결할 수 있고 도메인 사용자 이름(예: user1@contoso.com)을 사용하여 보안 Hadoop 클러스터를 연결할 수 있습니다. 
+1. **Azure Explorer**에서 **Link a cluster**(클러스터 연결)를 클릭합니다.
+
+   ![클러스터 연결 상황에 맞는 메뉴](./media/apache-spark-intellij-tool-plugin/link-a-cluster-context-menu.png)
+
+2. **클러스터 이름**, **저장소 계정**, **저장소 키**를 입력한 다음, **저장소 컨테이너**에서 컨테이너를 선택하고 마지막으로 사용자 이름과 암호를 입력합니다. 인증에 실패하면 사용자 이름과 암호를 확인해야 합니다.
+   
+   ![클러스터 연결 대화 상자](./media/apache-spark-intellij-tool-plugin/link-a-cluster-dialog.png)
+
+   > [!NOTE]
+   > 클러스터가 Azure 구독 및 연결된 클러스터 모두에 로그인되어 있으면, 연결된 저장소 키, 사용자 이름 및 암호를 사용합니다. 
+   
+3. 입력 정보가 올바르면 연결된 클러스터가 **HDInsight** 노드에 표시됩니다. 이제 응용 프로그램을 연결된 클러스터에 제출할 수 있습니다.
+
+   ![연결된 클러스터](./media/apache-spark-intellij-tool-plugin/linked-cluster.png)
+
+4. **Azure Explorer**에서 클러스터 연결을 해제할 수도 있습니다.
+   
+   ![연결되지 않은 클러스터](./media/apache-spark-intellij-tool-plugin/unlink.png)
+
 ## <a name="run-a-spark-scala-application-on-an-hdinsight-spark-cluster"></a>HDInsight Spark 클러스터에서 Spark Scala 응용 프로그램 실행
 
 1. IntelliJ IDEA를 시작하고 프로젝트를 만듭니다. **새 프로젝트** 대화 상자에서 다음을 수행합니다. 
 
    a. **HDInsight** > **HDInsight의 Spark(Scala)**를 선택합니다.
 
-   b. **빌드 도구** 목록에서 요구 사항에 따라 다음 중 하나를 선택합니다.
+   나. **빌드 도구** 목록에서 요구 사항에 따라 다음 중 하나를 선택합니다.
 
       * Scala 프로젝트 만들기 마법사 지원에 대해 **Maven**
       * 종속성 관리 및 Scala 프로젝트에 대한 빌드에 대해 **SBT**
@@ -98,9 +119,9 @@ IntelliJ 플러그 인용 Azure 도구 키트를 사용하여 Scala로 작성된
 
    a. 프로젝트 이름 및 위치를 입력합니다.
 
-   b. **프로젝트 SDK** 드롭다운 목록에서 Spark 2.x 클러스터에 대해 **Java 1.8**을 선택하거나 Spark 1.x 클러스터에 대해 **Java 1.7**을 선택합니다.
+   나. **프로젝트 SDK** 드롭다운 목록에서 Spark 2.x 클러스터에 대해 **Java 1.8**을 선택하거나 Spark 1.x 클러스터에 대해 **Java 1.7**을 선택합니다.
 
-   c. **Spark 버전** 드롭다운 목록에서 Scala 프로젝트 생성 마법사는 Spark SDK 및 Scala SDK에 대한 적절한 버전을 통합합니다. Spark 클러스터 2.0 이하 버전을 사용하는 경우 **Spark 1.x**를 선택합니다. 그렇지 않은 경우 **Spark2.x**를 선택합니다. 이 예제에서는 **Spark 2.0.2(Scala 2.11.8)**를 사용합니다.
+   다. **Spark 버전** 드롭다운 목록에서 Scala 프로젝트 생성 마법사는 Spark SDK 및 Scala SDK에 대한 적절한 버전을 통합합니다. Spark 클러스터 2.0 이하 버전을 사용하는 경우 **Spark 1.x**를 선택합니다. 그렇지 않은 경우 **Spark2.x**를 선택합니다. 이 예제에서는 **Spark 2.0.2(Scala 2.11.8)**를 사용합니다.
 
 6. **마침**을 선택합니다.
 
@@ -108,7 +129,7 @@ IntelliJ 플러그 인용 Azure 도구 키트를 사용하여 Scala로 작성된
 
    a. **파일** 메뉴에서 **프로젝트 구조**를 선택합니다.
 
-   b. **프로젝트 구조** 대화 상자에서 **아티팩트**를 선택하여 만들어지는 기본 아티팩트를 봅니다. 더하기 기호(**+**)를 선택하여 사용자 고유의 아티팩트를 만들 수도 있습니다.
+   나. **프로젝트 구조** 대화 상자에서 **아티팩트**를 선택하여 만들어지는 기본 아티팩트를 봅니다. 더하기 기호(**+**)를 선택하여 사용자 고유의 아티팩트를 만들 수도 있습니다.
 
       ![대화 상자의 아티팩트 정보](./media/apache-spark-intellij-tool-plugin/default-artifact.png)
       
@@ -118,11 +139,11 @@ IntelliJ 플러그 인용 Azure 도구 키트를 사용하여 Scala로 작성된
       
       ![프로젝트 탐색기에서 Scala 클래스 만들기에 대한 명령](./media/apache-spark-intellij-tool-plugin/hdi-spark-scala-code.png)
 
-   b. **새 Scala 클래스 만들기** 대화 상자에서 이름을 제공하고 **종류** 상자에 **개체**를 선택한 다음 **확인**을 선택합니다.
+   나. **새 Scala 클래스 만들기** 대화 상자에서 이름을 제공하고 **종류** 상자에 **개체**를 선택한 다음 **확인**을 선택합니다.
       
       ![새 Scala 클래스 만들기 대화 상자](./media/apache-spark-intellij-tool-plugin/hdi-spark-scala-code-object.png)
 
-   c. **MyClusterApp.scala** 파일에 다음 코드를 붙여넣습니다. 이 코드는 HVAC.csv(모든 HDInsight Spark 클러스터에서 사용 가능)에서 데이터를 읽고, CSV 파일의 일곱 번째 열에 한 자리 수만 있는 행을 검색하고, 출력을 클러스터의 기본 저장 컨테이너 아래의 **/HVACOut**에 씁니다.
+   다. **MyClusterApp.scala** 파일에 다음 코드를 붙여넣습니다. 이 코드는 HVAC.csv(모든 HDInsight Spark 클러스터에서 사용 가능)에서 데이터를 읽고, CSV 파일의 일곱 번째 열에 한 자리 수만 있는 행을 검색하고, 출력을 클러스터의 기본 저장 컨테이너 아래의 **/HVACOut**에 씁니다.
 
         import org.apache.spark.SparkConf
         import org.apache.spark.SparkContext
@@ -148,7 +169,7 @@ IntelliJ 플러그 인용 Azure 도구 키트를 사용하여 Scala로 작성된
       
       ![HDInsight에 Spark 응용 프로그램 제출 명령](./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-app-1.png)
 
-   b. Azure 구독 자격 증명을 입력하라는 메시지가 표시됩니다. **Spark 제출** 대화 상자에 다음 값을 제공한 다음 **제출**을 선택합니다.
+   나. Azure 구독 자격 증명을 입력하라는 메시지가 표시됩니다. **Spark 제출** 대화 상자에 다음 값을 제공한 다음 **제출**을 선택합니다.
       
       * **Spark 클러스터(Linux만 해당)**의 경우 응용 프로그램을 실행하려는 HDInsight Spark 클러스터를 선택합니다.
 
@@ -162,14 +183,16 @@ IntelliJ 플러그 인용 Azure 도구 키트를 사용하여 Scala로 작성된
         
         ![Spark 제출 대화 상자](./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-app-2.png)
 
-   c. 창 아래쪽의 **Spark 제출** 탭에 진행 상태가 표시되기 시작합니다. 또한 **Spark 제출** 창에서 빨간색 단추를 선택하여 응용 프로그램을 중지할 수 있습니다.
+   다. 창 아래쪽의 **Spark 제출** 탭에 진행 상태가 표시되기 시작합니다. 또한 **Spark 제출** 창에서 빨간색 단추를 선택하여 응용 프로그램을 중지할 수 있습니다.
       
-      ![Spark 제출 창](./media/apache-spark-intellij-tool-plugin/hdi-spark-app-result.png)
+     ![Spark 제출 창](./media/apache-spark-intellij-tool-plugin/hdi-spark-app-result.png)
       
       작업 출력에 액세스하는 방법을 알아보려면 이 문서의 뒷부분에 나오는 "IntelliJ용 Azure 도구 키트를 사용하여 HDInsight Spark 클러스터 액세스 및 관리" 섹션을 참조하세요.
 
 ## <a name="debug-spark-applications-locally-or-remotely-on-an-hdinsight-cluster"></a>HDInsight 클러스터에서 로컬 또는 원격으로 Spark 응용 프로그램 디버깅 
-Spark 응용 프로그램을 클러스터에 제출하는 또 다른 권장되는 방법이 있습니다. **구성 실행/디버그** IDE에서 매개 변수를 설정하여 이 작업을 수행할 수도 있습니다. 자세한 내용은 [IntelliJ용 Azure 도구 키트를 사용하여 SSH를 통해 HDInsight 클러스터에서 로컬 또는 원격으로 Spark 응용 프로그램 디버그](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh)를 참조하세요.
+Spark 응용 프로그램을 클러스터에 제출하는 또 다른 권장되는 방법이 있습니다. **구성 실행/디버그** IDE에서 매개 변수를 설정하여 이 작업을 수행할 수 있습니다. 자세한 내용은 [IntelliJ용 Azure 도구 키트를 사용하여 SSH를 통해 HDInsight 클러스터에서 로컬 또는 원격으로 Spark 응용 프로그램 디버그](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh)를 참조하세요.
+
+
 
 ## <a name="access-and-manage-hdinsight-spark-clusters-by-using-azure-toolkit-for-intellij"></a>IntelliJ용 Azure 도구 키트를 사용하여 HDInsight Spark 클러스터 액세스 및 관리
 IntelliJ용 Azure 도구 키트를 사용하여 다양한 작업을 수행할 수 있습니다.
@@ -182,6 +205,8 @@ IntelliJ용 Azure 도구 키트를 사용하여 다양한 작업을 수행할 �
 2. 오른쪽 창의 **Spark 작업 보기** 탭에는 클러스터에서 실행된 모든 응용 프로그램이 표시됩니다. 자세한 내용을 보려면 원하는 응용 프로그램 이름을 선택합니다.
 
     ![응용 프로그램 세부 정보](./media/apache-spark-intellij-tool-plugin/view-job-logs.png)
+    >참고
+    >
 
 3. 실행 중인 기본 작업 정보를 표시하려면 작업 그래프 위로 마우스를 가져갑니다. 모든 작업이 생성하는 단계 그래프 및 정보를 보려면 작업 그래프에서 노드를 선택합니다.
 
@@ -274,8 +299,10 @@ Spark 1.6에서 로컬 실행 동안 32비트 Java SDK를 사용하는 경우 �
 
 ### <a name="scenarios"></a>시나리오
 * [BI와 Spark: BI 도구와 함께 HDInsight에서 Spark를 사용하여 대화형 데이터 분석 수행](apache-spark-use-bi-tools.md)
-* [기계 학습과 Spark: HVAC 데이터를 사용하여 건물 온도를 분석하는 데 HDInsight의 Spark 사용](apache-spark-ipython-notebook-machine-learning.md)
-* [기계 학습과 Spark: 음식 검사 결과를 예측하는 데 HDInsight의 Spark 사용](apache-spark-machine-learning-mllib-ipython.md)
+* 
+            [Machine Learning과 Spark: HVAC 데이터를 사용하여 건물 온도를 분석하는 데 HDInsight의 Spark 사용](apache-spark-ipython-notebook-machine-learning.md)
+* 
+            [Machine Learning과 Spark: 음식 검사 결과를 예측하는 데 HDInsight의 Spark 사용](apache-spark-machine-learning-mllib-ipython.md)
 * [Spark 스트리밍: HDInsight에서 Spark를 사용하여 실시간 스트리밍 응용 프로그램 빌드](apache-spark-eventhub-streaming.md)
 * [HDInsight의 Spark를 사용하여 웹 사이트 로그 분석](apache-spark-custom-library-website-log-analysis.md)
 
