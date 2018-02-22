@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 06/28/2017
 ms.author: tamram
-ms.openlocfilehash: 61a553e47a642aead323a19d0724fdccc94a6282
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: f9213018969ab47ce2e78d8c119f22dedaff9452
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="calculate-the-size-of-a-blob-storage-container"></a>Blob Storage 컨테이너 크기 계산
 
@@ -48,11 +48,11 @@ az group delete --name myResourceGroup
 
 이 스크립트는 다음 명령을 사용하여 Blob Storage 컨테이너의 크기를 계산합니다. 표에 있는 각 항목은 명령 관련 설명서에 연결됩니다.
 
-| 명령 | 참고 사항 |
+| 명령 | 메모 |
 |---|---|
-| [az group create](/cli/azure/group#create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
-| [az storage blob upload](/cli/azure/storage/account#create) | Azure Blob Storage 컨테이너에 로컬 파일을 업로드합니다. |
-| [az storage blob list](/cli/azure/storage/account/keys#list) | Azure Blob Storage 컨테이너의 Blob을 나열합니다. |
+| [az group create](/cli/azure/group#az_group_create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
+| [az storage blob upload](/cli/azure/storage/account#az_storage_account_create) | Azure Blob Storage 컨테이너에 로컬 파일을 업로드합니다. |
+| [az storage blob list](/cli/azure/storage/account/keys#az_storage_account_keys_list) | Azure Blob Storage 컨테이너의 Blob을 나열합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

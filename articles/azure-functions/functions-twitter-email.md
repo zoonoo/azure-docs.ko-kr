@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/08/2017
+ms.date: 12/12/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 8137892c4360a6b55cfe48d62226c2421a791d5e
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 9e9369d9dc9f7298b93927b49685f4e24de8a7fd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Azure Logic Apps와 통합하는 함수 만들기
 
@@ -53,7 +53,7 @@ Cognitive Services API는 Azure에서 개별 리소스로 사용할 수 있습�
 
 1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 
-2. Azure Portal의 왼쪽 위에 있는 **새로 만들기** 단추를 클릭합니다.
+2. Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기**를 클릭합니다.
 
 3. **AI + Analytics** > **텍스트 분석 API**를 클릭합니다. 그런 다음 테이블에 지정된 설정을 사용하고 약관에 동의하고 **대시보드에 고정**을 선택합니다.
 

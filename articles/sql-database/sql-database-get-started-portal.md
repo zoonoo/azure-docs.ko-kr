@@ -14,13 +14,13 @@ ms.workload: Active
 ms.tgt_pltfrm: portal
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 02/12/2018
+ms.date: 02/16/2018
 ms.author: carlrab
-ms.openlocfilehash: 7a57593825f816a03b59f6c5228243670f1e9e9e
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 425e2186d4eba5db358ebb3a014c3563c4443eb5
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-an-azure-sql-database-in-the-azure-portal"></a>Azure Portal에서 Azure SQL Database 만들기
 
@@ -38,7 +38,7 @@ Azure SQL Database는 일련의 정의된 [계산 및 저장소 리소스](sql-d
 
 다음 단계에 따라서 Adventure Works LT 샘플 데이터를 포함하는 SQL Database를 만듭니다.
 
-1. Azure Portal의 왼쪽 위에 있는 **새로 만들기** 단추를 클릭합니다.
+1. Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기**를 클릭합니다.
 
 2. **새로 만들기** 페이지에서 **데이터베이스**를 선택하고 **새로 만들기** 페이지의 **SQL Database** 아래에서 **만들기**를 선택합니다.
 
@@ -172,7 +172,7 @@ Azure SQL Database는 일련의 정의된 [계산 및 저장소 리소스](sql-d
 이제 데이터베이스가 생겼으니 자주 사용하는 도구를 사용하여 데이터베이스에 연결하고 쿼리할 수 있습니다. 아래에서 도구를 선택하여 자세한 내용을 알아보세요.
 
 - [SQL Server Management Studio](sql-database-connect-query-ssms.md)
-- [Contact.java](sql-database-connect-query-vscode.md)
+- [Visual Studio Code](sql-database-connect-query-vscode.md)
 - [.NET](sql-database-connect-query-dotnet.md)
 - [PHP](sql-database-connect-query-php.md)
 - [Node.js](sql-database-connect-query-nodejs.md)

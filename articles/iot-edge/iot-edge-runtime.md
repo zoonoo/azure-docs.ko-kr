@@ -6,14 +6,14 @@ keywords:
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 10/05/2017
+ms.date: 02/15/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 4727560df897f6c1a0aaa6d7f5d4e1c76fc02a46
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 7515f6b2e074c33488fc44768705896d7c9d8ce6
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture---preview"></a>Azure IoT Edge 런타임 및 아키텍처에 대한 이해 - 미리 보기
 
@@ -64,14 +64,18 @@ Edge 허브는 모듈 간 통신을 용이하게 합니다. Edge broker를 메�
 
 Edge 허브에 데이터를 보내려면 모듈에서 SendEventAsync 메서드를 호출합니다. 첫 번째 인수는 메시지를 보낼 출력을 지정합니다. 다음 의사 코드는 메시지를 output1에 보냅니다.
 
-    DeviceClient client = new DeviceClient.CreateFromConnectionString(moduleConnectionString, settings); 
-    await client.OpenAsync(); 
-    await client.SendEventAsync(“output1”, message); 
+   ```csharp
+   DeviceClient client = new DeviceClient.CreateFromConnectionString(moduleConnectionString, settings); 
+   await client.OpenAsync(); 
+   await client.SendEventAsync(“output1”, message); 
+   ```
 
 메시지를 수신하려면 특정 입력에 들어오는 메시지를 처리하는 콜백을 등록합니다. 다음 의사 코드는 input1에서 받은 모든 메시지를 처리하는 데 사용할 messageProcessor 함수를 등록합니다.
 
-    await client.SetEventHandlerAsync(“input1”, messageProcessor, userContext);
-    
+   ```csharp
+   await client.SetEventHandlerAsync(“input1”, messageProcessor, userContext);
+   ```
+
 솔루션 개발자는 Edge 허브에서 모듈 간에 메시지를 전달하는 방식을 결정하는 규칙을 지정합니다. 라우팅 규칙은 클라우드에서 정의되며 장치 쌍의 Edge 허브로 푸시 다운됩니다. IoT Hub 경로에 대한 동일한 구문이 Azure IoT Edge의 모듈 간 경로를 정의하는 데 사용됩니다. 
 
 <!--- For more info on how to declare routes between modules, see []. --->   

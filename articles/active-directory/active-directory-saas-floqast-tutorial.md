@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 02/21/2018
 ms.author: jeedes
-ms.openlocfilehash: 63fdd5a5dabdd9083afa23e5400684b3b144b911
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 8973c3289c5b17c03166c09db821e299d50f2f9c
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-floqast"></a>자습서: Azure Active Directory와 FloQast 통합
 
@@ -106,22 +106,17 @@ FloQast에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
     ![FloQast 도메인 및 URL Single Sign-On 정보](./media/active-directory-saas-floqast-tutorial/tutorial_floqast_url.png)
 
-    a. **식별자** 텍스트 상자에서 `https://<subdomain>.floqast.com/` 패턴을 사용하여 URL을 입력합니다.
-
-    나. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://<subdomain>.floqast.com/api/sso/saml/azure`
+     **식별자** 텍스트 상자에 URL `https://go.floqast.com/`를 입력합니다.
 
 4. **SP** 시작 모드에서 응용 프로그램을 구성하려면 **고급 URL 설정 표시**를 확인하고 다음 단계를 수행합니다.
 
     ![FloQast 도메인 및 URL Single Sign-On 정보](./media/active-directory-saas-floqast-tutorial/tutorial_floqast_url1.png)
 
-    **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://<subdomain>.floqast.com/login/sso`
+     **로그온 URL** 텍스트 상자에 URL을 입력합니다. `https://go.floqast.com/login/sso`
      
-    > [!NOTE] 
-    > 이러한 값은 실제 값이 아닙니다. 이러한 값을 실제 식별자, 회신 URL 및 로그온 URL로 업데이트합니다. 이러한 값을 얻으려면 [FloQast 클라이언트 지원 팀](mailto:support@floqast.com)에 문의하세요.
-
 5. FloQast 응용 프로그램은 특정 형식의 SAML 어설션이 필요합니다. 이 응용 프로그램에 대해 다음 클레임을 구성합니다. 응용 프로그램 통합 페이지의 **사용자 특성** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. 다음 스크린샷은 이에 대한 예제를 보여 줍니다.
     
-    ![Single Sign-On 구성 attb](./media/active-directory-saas-floqast-tutorial/tutorial_floqast_attribute.png)
+    ![Single Sign-On 특성 구성](./media/active-directory-saas-floqast-tutorial/tutorial_floqast_attribute.png)
     
 6. **Single Sign-On** 대화 상자의 **사용자 특성** 섹션에서 이미지에 표시된 것과 같이 SAML 토큰 특성을 구성하고 다음 단계를 수행합니다.
     
@@ -241,8 +236,6 @@ FloQast에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
 * [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](active-directory-appssoaccess-whatis.md)
-
-
 
 <!--Image references-->
 

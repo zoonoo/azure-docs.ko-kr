@@ -2,17 +2,17 @@
 title: "OMS Log Analytics를 사용하여 Azure SQL 데이터 동기화 모니터링 | Microsoft Docs"
 description: "OMS Log Analytics를 사용하여 Azure SQL 데이터 동기화를 모니터링하는 방법을 알아봅니다."
 services: sql-database
-ms.date: 11/7/2017
+ms.date: 11/07/2017
 ms.topic: article
 ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.openlocfilehash: ace0eb671556dc980836464a365731d6100eab25
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 8683b3aec569f210529c1188cbbf514f7956b340
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="monitor-sql-data-sync-preview-with-oms-log-analytics"></a>OMS Log Analytics를 사용하여 SQL 데이터 동기화(미리 보기) 모니터링 
 
@@ -126,7 +126,7 @@ OMS Log Analytics를 사용하는 경고를 만들려면 다음을 수행합니�
 
 1.  OMS 포털에서 **로그 검색**을 선택합니다.
 
-2.  선택한 간격 내에서 동기화 그룹별로 오류와 경고를 선택하는 쿼리를 만듭니다. 예:
+2.  선택한 간격 내에서 동기화 그룹별로 오류와 경고를 선택하는 쿼리를 만듭니다. 예: 
 
     `Type=DataSyncLog\_CL LogLevel\_s!=Success| measure count() by SyncGroupName\_s interval 60minute`
 
@@ -140,7 +140,7 @@ OMS Log Analytics를 사용하는 경고를 만들려면 다음을 수행합니�
 
 5.  **작업** 아래에서 **전자 메일 알림**을 "예"로 설정합니다. 원하는 전자 메일 받는 사람을 입력합니다.
 
-6.  **Save**를 클릭합니다. 이제 오류가 발생하면 지정된 받는 사람이 전자 메일 알림을 받습니다.
+6.  **저장**을 클릭합니다. 이제 오류가 발생하면 지정된 받는 사람이 전자 메일 알림을 받습니다.
 
 ## <a name="create-an-oms-view-for-monitoring"></a>OMS 모니터링 보기 만들기
 

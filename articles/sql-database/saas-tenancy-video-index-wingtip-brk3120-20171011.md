@@ -3,21 +3,23 @@ title: "인덱스된 동영상, Azure SaaS SQL 앱 | Microsoft Docs"
 description: "이 문서는 2017년 10월 11일에 열린 Ignite 컨퍼런스에서의 SaaS DB 테넌트 앱 디자인에 관한 81분짜리 동영상에 여러 시점을 인덱싱합니다. 관심 있는 파트로 건너뛸 수 있습니다. 적어도 3 가지 패턴을 설명합니다. 개발 및 관리를 단순화하는 Azure 기능을 설명합니다."
 ms.custom: 
 ms.date: 12/06/2017
-ms.prod: sql-server
+ms.prod: 
+ms.service: sql-database
 ms.reviewer: billgib
 ms.suite: 
-ms.technology: database-engine
+ms.technology:
+- database-engine
 ms.tgt_pltfrm: 
 ms.topic: article
 author: MightyPen
 ms.author: genemi
 manager: craigg
 ms.workload: Inactive
-ms.openlocfilehash: db47d1dd0a6114ebca0715da179cc0629b26781a
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 5e8d5467e676ee178b77c02e387bdfd2c54e6071
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="video-indexed-and-annotated-for-mulit-tenant-saas-app-using-azure-sql-database"></a>Azure SQL Database를 사용하여 다중 테넌트 SaaS 앱에 대해 인덱싱되고 주석이 지정된 동영상
 

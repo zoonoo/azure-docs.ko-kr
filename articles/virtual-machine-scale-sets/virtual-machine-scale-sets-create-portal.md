@@ -17,11 +17,11 @@ ms.topic: article
 ms.date: 12/19/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a501a852a317ec7d087904c3a675ebefce1bece0
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: ae41149bf507e30dc5281fd60a9d6f77d2023293
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-virtual-machine-scale-set-in-the-azure-portal"></a>Azure Portal에서 가상 머신 확장 집합 만들기
 가상 머신 확장 집합을 사용하면 동일한 자동 크기 조정 가상 머신 집합을 배포하고 관리할 수 있습니다. 확장 집합의 VM 수를 수동으로 조정하거나 CPU와 같은 리소스 사용량, 메모리 요구량 또는 네트워크 트래픽을 기반으로 자동으로 크기를 조정하는 규칙을 정의할 수도 있습니다. 이 시작 문서에서는 Azure Portal에서 가상 머신 확장 집합을 만듭니다. 확장 집합은 [Azure CLI 2.0](virtual-machine-scale-sets-create-cli.md) 또는 [Azure PowerShell](virtual-machine-scale-sets-create-powershell.md)을 사용하여 만들 수도 있습니다.
@@ -36,7 +36,7 @@ Azure Portal( http://portal.azure.com )에 로그인합니다.
 ## <a name="create-virtual-machine-scale-set"></a>가상 머신 확장 집합 만들기
 RHEL, CentOS, Ubuntu 또는 SLES와 같은 Windows Server 이미지 또는 Linux 이미지를 사용하여 확장 집합을 배포할 수 있습니다.
 
-1. Azure Portal의 왼쪽 위에 있는 **새로 만들기** 단추를 클릭합니다.
+1. Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기**를 클릭합니다.
 2. *확장 집합*을 검색하고 **가상 머신 확장 집합**을 선택한 다음 **만들기**를 선택합니다.
 3. 확장 집합의 이름을 입력합니다(예: *myScaleSet*).
 4. 원하는 OS 유형을 선택합니다(예: *Windows Server 2016 Datacenter*).

@@ -131,6 +131,8 @@
       href: cli-samples.md
     - name: PowerShell
       href: powershell-samples.md
+    - name: Azure 리소스 관리자 템플릿
+      href: 'https://azure.microsoft.com/resources/templates/?term=cosmos+db&pageNumber=1'
 - name: 개념
   items:
     - name: 서버를 사용하지 않는 데이터베이스
@@ -342,6 +344,8 @@
           href: logging.md
         - name: 관리 키 및 일관성
           href: manage-account.md
+        - name: Access Control
+          href: access-control.md
         - name: Azure Storage 탐색기
           href: storage-explorer.md
         - name: 보안

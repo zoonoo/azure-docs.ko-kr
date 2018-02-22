@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2017
 ms.author: tomfitz
-ms.openlocfilehash: bdbde834695040df4e333bef42fab7d29614ab75
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 1e995a3de33960fa3255074a704528bec9d21491
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-azure-portal-user-interface-for-your-managed-application"></a>관리되는 응용 프로그램에 대한 Azure Portal 사용자 인터페이스 만들기
 이 문서에서는 createUiDefinition.json 파일의 핵심 개념을 소개합니다. Azure Portal에서 이 파일을 사용하여 관리되는 응용 프로그램을 만들기 위한 사용자 인터페이스를 생성합니다.
 
 ```json
 {
-   "$schema": "https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json",
+   "$schema": "https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json#",
    "handler": "Microsoft.Compute.MultiVm",
    "version": "0.1.2-preview",
    "parameters": {

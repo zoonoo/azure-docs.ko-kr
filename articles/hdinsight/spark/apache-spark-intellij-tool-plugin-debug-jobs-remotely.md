@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 3a673d2ad58f85f5437c378a1d05aa4963893df1
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 315a879368e522cc17eeff7be766f0c8a38d470b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-azure-toolkit-for-intellij-to-debug-spark-applications-remotely-in-hdinsight-through-vpn"></a>IntelliJ용 Azure 도구 키트를 사용하여 VPN을 통해 HDInsight에서 원격으로 Spark 응용 프로그램 디버그
 
@@ -70,7 +70,7 @@ SSH를 통해 원격으로 Spark 응용 프로그램을 디버그하는 것이 �
 
    a. 관리자 권한으로 메모장 파일을 엽니다. **파일** 메뉴에서 **열기**를 선택한 다음 hosts 파일의 위치를 찾습니다. Windows 컴퓨터에서 이 위치는 **C:\Windows\System32\Drivers\etc\hosts**입니다.
 
-   b. **hosts** 파일에 다음 정보를 추가합니다.
+   나. **hosts** 파일에 다음 정보를 추가합니다.
 
            # For headnode0
            192.xxx.xx.xx hn0-nitinp
@@ -94,7 +94,7 @@ SSH를 통해 원격으로 Spark 응용 프로그램을 디버그하는 것이 �
 
     a. **HDInsight** > **HDInsight의 Spark(Scala)**를 선택합니다.
 
-    b. **다음**을 선택합니다.
+    나. **다음**을 선택합니다.
 2. 다음 **새 프로젝트** 대화 상자에서 다음을 수행한 후 **마침**을 선택합니다.
 
     - 프로젝트 이름 및 위치를 입력합니다.
@@ -109,7 +109,7 @@ SSH를 통해 원격으로 Spark 응용 프로그램을 디버그하는 것이 �
 
     a. **파일** 메뉴에서 **프로젝트 구조**를 선택합니다.
 
-    b. **프로젝트 구조** 대화 상자에서 **아티팩트**를 선택하여 만들어지는 기본 아티팩트를 봅니다. 더하기 기호(**+**)를 선택하여 사용자 고유의 아티팩트를 만들 수도 있습니다.
+    나. **프로젝트 구조** 대화 상자에서 **아티팩트**를 선택하여 만들어지는 기본 아티팩트를 봅니다. 더하기 기호(**+**)를 선택하여 사용자 고유의 아티팩트를 만들 수도 있습니다.
 
    ![JAR 만들기](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/default-artifact.png)
 
@@ -118,11 +118,11 @@ SSH를 통해 원격으로 Spark 응용 프로그램을 디버그하는 것이 �
 
     a. 프로젝트 트리에서 프로젝트 이름을 마우스 오른쪽 단추로 클릭한 다음 **모듈 설정 열기**를 선택합니다. 
 
-    b. **프로젝트 구조** 대화 상자에서 **라이브러리**를 선택하고 (**+**) 기호를 선택한 후 **Maven에서**를 선택합니다.
+    나. **프로젝트 구조** 대화 상자에서 **라이브러리**를 선택하고 (**+**) 기호를 선택한 후 **Maven에서**를 선택합니다.
 
     ![라이브러리 추가](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/add-library.png)
 
-    c. **Maven 리포지토리에서 라이브러리 다운로드** 대화 상자에서 다음 라이브러리를 검색하고 추가합니다.
+    다. **Maven 리포지토리에서 라이브러리 다운로드** 대화 상자에서 다음 라이브러리를 검색하고 추가합니다.
 
    * `org.scalatest:scalatest_2.10:2.2.1`
    * `org.apache.hadoop:hadoop-azure:2.7.1`
@@ -144,7 +144,7 @@ SSH를 통해 원격으로 Spark 응용 프로그램을 디버그하는 것이 �
                  <name>fs.azure.account.key.hdistoragecentral.blob.core.windows.net</name>
                  <value>access-key-associated-with-the-account</value>
            </property>
-   b. `core-site.xml`에서 다음 항목을 제거합니다.
+   나. `core-site.xml`에서 다음 항목을 제거합니다.
 
            <property>
                  <name>fs.azure.account.keyprovider.hdistoragecentral.blob.core.windows.net</name>
@@ -160,7 +160,7 @@ SSH를 통해 원격으로 Spark 응용 프로그램을 디버그하는 것이 �
                  <name>net.topology.script.file.name</name>
                  <value>/etc/hadoop/conf/topology_script.py</value>
            </property>
-   c. 파일을 저장합니다.
+   다. 파일을 저장합니다.
 7. 응용 프로그램에 대한 기본 클래스를 추가합니다. **프로젝트 탐색기**에서 **src**를 마우스 오른쪽 단추로 클릭하고 **새로 만들기**를 가리킨 다음 **Scala 클래스**를 선택합니다.
 
     ![기본 클래스 선택](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/hdi-spark-scala-code.png)
@@ -273,9 +273,10 @@ SSH를 통해 원격으로 Spark 응용 프로그램을 디버그하는 것이 �
 
 ### <a name="scenarios"></a>시나리오
 * [BI와 Spark: BI 도구와 함께 HDInsight에서 Spark를 사용하여 대화형 데이터 분석 수행](apache-spark-use-bi-tools.md)
-* [기계 학습과 Spark: HVAC 데이터를 사용하여 건물 온도를 분석하는 데 HDInsight의 Spark 사용](apache-spark-ipython-notebook-machine-learning.md)
-* [기계 학습과 Spark: 음식 검사 결과를 예측하는 데 HDInsight의 Spark 사용](apache-spark-machine-learning-mllib-ipython.md)
-* [Spark 스트리밍: HDInsight에서 Spark를 사용하여 실시간 스트리밍 응용 프로그램 빌드](apache-spark-eventhub-streaming.md)
+* 
+            [Machine Learning과 Spark: HVAC 데이터를 사용하여 건물 온도를 분석하는 데 HDInsight의 Spark 사용](apache-spark-ipython-notebook-machine-learning.md)
+* 
+            [Machine Learning과 Spark: 음식 검사 결과를 예측하는 데 HDInsight의 Spark 사용](apache-spark-machine-learning-mllib-ipython.md)
 * [HDInsight의 Spark를 사용하여 웹 사이트 로그 분석](../hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>응용 프로그램 만들기 및 실행

@@ -9,11 +9,11 @@ ms.date: 11/14/2017
 ms.topic: article
 ms.service: location-based-services
 manager: timlt
-ms.openlocfilehash: 3bc28d6744725e7c58d78c5262d9e50d3bb674e8
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: b82ff3edc3515d9dce465c7a7ed6084a2bfe25c2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-manage-your-azure-location-based-services-account-and-keys"></a>Azure Location Based Services 계정 및 키를 관리하는 방법
 
@@ -27,7 +27,7 @@ Azure Portal( http://portal.azure.com )에 로그인합니다.
 
 ## <a name="create-a-new-account"></a>새 계정 만들기
 
-1. Azure Portal의 왼쪽 위에 있는 **새로 만들기** 단추를 클릭합니다.
+1. Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기**를 클릭합니다.
 
 2. **Location Based Services**를 검색하여 선택한 다음 **만들기**를 클릭합니다.
 

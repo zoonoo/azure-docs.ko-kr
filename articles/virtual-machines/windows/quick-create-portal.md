@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 07/15/2017
+ms.date: 12/11/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 663a850cf46bf002808b9f791d9e8daefb6cc308
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: ca18b8b67d9af0c1f80d9726c1e20af0ad7e9c19
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-windows-virtual-machine-with-the-azure-portal"></a>Azure Portal을 사용하여 Windows 가상 머신 만들기
 
@@ -34,7 +34,7 @@ Azure Portal( http://portal.azure.com )에 로그인합니다.
 
 ## <a name="create-virtual-machine"></a>가상 컴퓨터 만들기
 
-1. Azure Portal의 왼쪽 위에 있는 **새로 만들기** 단추를 클릭합니다.
+1. Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기**를 클릭합니다.
 
 2. **Compute**를 선택한 후 **Windows Server 2016 Datacenter**를 선택합니다. 
 

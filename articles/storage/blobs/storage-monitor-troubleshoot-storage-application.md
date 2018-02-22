@@ -2,23 +2,20 @@
 title: "Azure에서 클라우드 저장소 응용 프로그램 모니터링 및 문제 해결 | Microsoft Docs"
 description: "진단 도구, 메트릭 및 경고를 사용하여 클라우드 응용 프로그램 문제를 해결하고 모니터링합니다."
 services: storage
-documentationcenter: 
-author: georgewallace
-manager: timlt
-editor: 
+author: tamram
+manager: jeconnoc
 ms.service: storage
 ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 09/19/2017
-ms.author: gwallace
+ms.date: 02/20/2018
+ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: db88c331f79d83e0124519f8b6dbb34514b456dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a1b3a1d4bb397e19f033b8f3bfe68ca6a63725c4
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="monitor-and-troubleshoot-a-cloud-storage-application"></a>클라우드 저장소 응용 프로그램 모니터링 및 문제 해결
 

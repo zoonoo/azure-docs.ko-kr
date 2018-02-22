@@ -4,7 +4,7 @@ description: "이 자습서에서는 Azure VM에서 SQL Server Always On 가용�
 services: virtual-machines
 documentationCenter: na
 authors: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: monicar
 tags: azure-service-management
 ms.assetid: c492db4c-3faa-4645-849f-5a1a663be55a
@@ -16,17 +16,17 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/09/2017
 ms.author: mikeray
-ms.openlocfilehash: 0748e0ffa405fc02f6da7e2c412beec12510fde5
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 85ad53f0b7b4b14784bb0755ee22763d124e63ba
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="complete-the-prerequisites-for-creating-always-on-availability-groups-on-azure-virtual-machines"></a>Azure Virtual Machines에 Always On 가용성 그룹을 만들기 위한 필수 구성 요소 완료
 
 이 자습서에서는 [Azure VM(Virtual Machines)에 SQL Server Always On 가용성 그룹](virtual-machines-windows-portal-sql-availability-group-tutorial.md)을 만들기 위해 필수 구성 요소를 완료하는 방법을 보여 줍니다. 필수 구성 요소를 완료하면 단일 리소스 그룹에 도메인 컨트롤러, 두 개의 SQL Server VM 및 감시 서버가 포함됩니다.
 
-**예상 시간**: 필수 구성 요소를 완료하는 데 시간이 걸릴 수 있습니다. 이 시간의 대부분은 가상 컴퓨터를 만드는 데 소요됩니다.
+**예상 시간**: 필수 구성 요소를 완료하는 데 시간이 걸릴 수 있습니다. 이 시간의 대부분은 가상 머신을 만드는 데 소요됩니다.
 
 다음 다이어그램은 자습서에서 빌드할 작업을 나타냅니다.
 
@@ -130,11 +130,11 @@ Azure 계정이 필요합니다. [무료 Azure 계정을 열거나](/pricing/fre
 | **서브넷 주소 범위** |이 값은 구독에서 사용 가능한 주소 범위에 따라 달라집니다. 일반적인 값은 10.0.1.0/24입니다. |
 | **구독** |사용하려는 구독을 지정합니다. |
 | **리소스 그룹** |**SQL-HA-RG** |
-| **위치** |리소스 그룹에 대해 선택한 위치와 같은 위치를 지정합니다. |
+| **위치**: |리소스 그룹에 대해 선택한 위치와 같은 위치를 지정합니다. |
 
 ## <a name="create-availability-sets"></a>가용성 집합 만들기
 
-가상 컴퓨터를 만들기 전에 가용성 집합을 만들어야 합니다. 가용성 집합은 계획되거나 계획되지 않은 유지 관리 이벤트에 대한 작동 중지 시간을 줄입니다. Azure 가용성 집합은 Azure에서 물리적 장애 도메인 및 업데이트 도메인에 배치하는 리소스의 논리적 그룹입니다. 장애 도메인을 사용하면 가용성 집합의 구성원이 개별 전원 및 네트워크 리소스를 사용할 수 있습니다. 업데이트 도메인을 사용하면 가용성 집합의 구성원이 유지 관리를 위해 동시에 중단되지 않습니다. 자세한 내용은 [가상 컴퓨터의 가용성 관리](../manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
+가상 머신을 만들기 전에 가용성 집합을 만들어야 합니다. 가용성 집합은 계획되거나 계획되지 않은 유지 관리 이벤트에 대한 작동 중지 시간을 줄입니다. Azure 가용성 집합은 Azure에서 물리적 장애 도메인 및 업데이트 도메인에 배치하는 리소스의 논리적 그룹입니다. 장애 도메인을 사용하면 가용성 집합의 구성원이 개별 전원 및 네트워크 리소스를 사용할 수 있습니다. 업데이트 도메인을 사용하면 가용성 집합의 구성원이 유지 관리를 위해 동시에 중단되지 않습니다. 자세한 내용은 [가상 머신의 가용성 관리](../manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 
 두 개의 가용성 집합이 필요합니다. 하나는 도메인 컨트롤러용이고 두 번째는 SQL Server VM용입니다.
 
@@ -152,22 +152,22 @@ Azure 계정이 필요합니다. [무료 Azure 계정을 열거나](/pricing/fre
 가용성 집합을 만든 후 Azure 포털의 리소스 그룹으로 돌아옵니다.
 
 ## <a name="create-domain-controllers"></a>도메인 컨트롤러 만들기
-네트워크, 서브넷, 가용성 집합 및 인터넷 연결 부하 분산 장치를 만든 후 도메인 컨트롤러에 대한 가상 컴퓨터를 만들 수 있습니다.
+네트워크, 서브넷, 가용성 집합 및 인터넷 연결 부하 분산 장치를 만든 후 도메인 컨트롤러에 대한 가상 머신을 만들 수 있습니다.
 
-### <a name="create-virtual-machines-for-the-domain-controllers"></a>도메인 컨트롤러에 대한 가상 컴퓨터 만들기
+### <a name="create-virtual-machines-for-the-domain-controllers"></a>도메인 컨트롤러에 대한 가상 머신 만들기
 도메인 컨트롤러를 만들고 구성하려면 **SQL-HA-RG** 리소스 그룹으로 돌아갑니다.
 
 1. **추가**를 클릭합니다. **모두** 블레이드가 열립니다.
 2. **Windows Server 2016 Datacenter**를 입력합니다.
-3. **Windows Server 2016 Datacenter**를 클릭합니다. **Windows Server 2016 Datacenter** 블레이드에서 배포 모델이 **Resource Manager**인지 확인하고 **만들기**를 클릭합니다. **가상 컴퓨터 만들기** 블레이드가 열립니다.
+3. **Windows Server 2016 Datacenter**를 클릭합니다. **Windows Server 2016 Datacenter** 블레이드에서 배포 모델이 **Resource Manager**인지 확인하고 **만들기**를 클릭합니다. **가상 머신 만들기** 블레이드가 열립니다.
 
-두 개의 가상 컴퓨터를 만들려면 이전 단계를 반복합니다. 두 개의 가상 컴퓨터 이름을 지정합니다.
+두 개의 가상 머신을 만들려면 이전 단계를 반복합니다. 두 개의 가상 머신 이름을 지정합니다.
 
 * ad-primary-dc
 * ad-secondary-dc
 
   > [!NOTE]
-  > **ad-secondary-dc** 가상 컴퓨터는 Active Directory Domain Services에 대한 고가용성을 제공하기 위한 선택 사항입니다.
+  > **ad-secondary-dc** 가상 머신은 Active Directory Domain Services에 대한 고가용성을 제공하기 위한 선택 사항입니다.
   >
   >
 
@@ -183,7 +183,7 @@ Azure 계정이 필요합니다. [무료 Azure 계정을 열거나](/pricing/fre
 | **리소스 그룹** |SQL-HA-RG |
 | **위치**: |*사용자의 위치* |
 | **크기** |DS1_V2 |
-| **저장소** | **관리되는 디스크 사용** - **Yes** |
+| **Storage** | **관리되는 디스크 사용** - **Yes** |
 | **가상 네트워크** |autoHAVNET |
 | **서브넷** |관리자 |
 | **공용 IP 주소** |*VM과 같은 이름* |
@@ -193,18 +193,18 @@ Azure 계정이 필요합니다. [무료 Azure 계정을 열거나](/pricing/fre
 | **진단 저장소 계정** |*자동으로 생성됨* |
 
    >[!IMPORTANT]
-   >VM을 만들 때 가용성 집합에 VM을 배치할 수 있습니다. VM을 만든 후에는 가용성 집합을 변경할 수 없습니다. [가상 컴퓨터의 가용성 관리](../manage-availability.md)를 참조하세요.
+   >VM을 만들 때 가용성 집합에 VM을 배치할 수 있습니다. VM을 만든 후에는 가용성 집합을 변경할 수 없습니다. [가상 머신의 가용성 관리](../manage-availability.md)를 참조하세요.
 
-가상 컴퓨터가 만들어집니다.
+가상 머신이 만들어집니다.
 
-가상 컴퓨터를 만든 후에 도메인 컨트롤러를 구성합니다.
+가상 머신을 만든 후에 도메인 컨트롤러를 구성합니다.
 
 ### <a name="configure-the-domain-controller"></a>도메인 컨트롤러 구성
 다음 단계에서는 corp.contoso.com에 대한 도메인 컨트롤러로 **ad-primary-dc** 컴퓨터를 구성합니다.
 
 1. 포털에서 **SQL-HA-RG** 리소스 그룹을 선택하고 **ad-primary-dc** 컴퓨터를 선택합니다. **ad-primary-dc** 블레이드에서 **연결**을 클릭하여 원격 데스크톱 액세스를 위한 RDP 파일을 엽니다.
 
-    ![가상 컴퓨터에 연결](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/20-connectrdp.png)
+    ![가상 머신에 연결](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/20-connectrdp.png)
 2. 구성된 관리자 계정(**\DomainAdmin**) 및 암호(**Contoso!0000**)로 로그인합니다.
 3. 기본적으로 **서버 관리자** 대시보드가 표시됩니다.
 4. 대시보드에서 **역할 및 기능 추가** 링크를 클릭합니다.
@@ -234,7 +234,7 @@ Azure 계정이 필요합니다. [무료 Azure 계정을 열거나](/pricing/fre
     | **배포 구성** |**새 포리스트 추가**<br/> **루트 도메인 이름** = corp.contoso.com |
     | **도메인 컨트롤러 옵션** |**암호** = Contoso!0000<br/>**암호 확인** = Contoso!0000 |
 14. **다음**을 클릭하여 마법사의 다른 페이지를 진행합니다. **필수 구성 요소 확인** 페이지에서 다음 메시지가 표시되는지 확인합니다. **모든 필수 구성 요소 검사를 마쳤습니다**. 해당하는 모든 경고 메시지를 검토할 수 있지만 설치를 계속할 수 있습니다.
-15. **Install**을 클릭합니다. **ad-primary-dc** 가상 컴퓨터가 자동으로 다시 부팅됩니다.
+15. **Install**을 클릭합니다. **ad-primary-dc** 가상 머신이 자동으로 다시 부팅됩니다.
 
 ### <a name="note-the-ip-address-of-the-primary-domain-controller"></a>주 도메인 컨트롤러의 IP 주소를 메모합니다.
 
@@ -261,7 +261,7 @@ DNS에 대한 주 도메인 컨트롤러를 사용합니다. 주 도메인 컨�
 
 3. **사용자 지정**을 클릭하고 주 도메인 컨트롤러의 개인 IP 주소를 입력합니다.
 
-4. **Save**를 클릭합니다.
+4. **저장**을 클릭합니다.
 
 ### <a name="configure-the-second-domain-controller"></a>두 번째 도메인 컨트롤러 구성
 주 도메인 컨트롤러를 다시 부팅한 후에 두 번째 도메인 컨트롤러를 구성할 수 있습니다. 이 선택적 단계는 가용성을 높이기 위한 것입니다. 두 번째 도메인 컨트롤러를 구성하려면 다음 단계를 수행합니다.
@@ -278,7 +278,7 @@ DNS에 대한 주 도메인 컨트롤러를 사용합니다. 주 도메인 컨�
 8. **확인**을 클릭한 후 **닫기**를 클릭하여 변경 내용을 커밋합니다. 이제 VM을 **corp.contoso.com**에 연결할 수 있습니다.
 
    >[!IMPORTANT]
-   >DNS 설정을 변경한 후에 원격 데스크톱에 대한 연결을 잃어버리는 경우 Azure Portal로 이동하고 가상 컴퓨터를 다시 시작합니다.
+   >DNS 설정을 변경한 후에 원격 데스크톱에 대한 연결을 잃어버리는 경우 Azure Portal로 이동하고 가상 머신을 다시 시작합니다.
 
 9. 원격 데스크톱에서 보조 도메인 컨트롤러로 **서버 관리자 대시보드**를 엽니다.
 10. 대시보드에서 **역할 및 기능 추가** 링크를 클릭합니다.
@@ -314,7 +314,7 @@ Azure Portal의 가상 네트워크에서 보조 도메인 컨트롤러의 IP �
 | |설치 계정<br/> |sqlserver-0 <br/>SQL Server 및 SQL 에이전트 서비스 계정 |sqlserver-1<br/>SQL Server 및 SQL 에이전트 서비스 계정
 | --- | --- | --- | ---
 |**이름** |Install |SQLSvc1 | SQLSvc2
-|**사용자 SamAccountName** |Install |SQLSvc1 | SQLSvc2
+|**사용자 SamAccountName** |설치 |SQLSvc1 | SQLSvc2
 
 다음 단계를 사용하여 각 계정을 만듭니다.
 
@@ -348,29 +348,29 @@ Active Directory 및 사용자 개체 구성을 완료했으므로 2개의 SQL S
 
 ## <a name="create-sql-server-vms"></a>SQL Server VM 만들기
 
-3개의 가상 컴퓨터를 추가로 만듭니다. 이 경우 SQL Server 인스턴스가 있는 2개의 가상 컴퓨터가 필요합니다. 세 번째 가상 컴퓨터는 미러링 모니터 서버로 작동됩니다. Windows Server 2016에서는 [미러링 모니터 서버](http://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness)를 사용할 수 있지만, 이전 운영 체제와의 일관성을 위해 이 문서에서는 미러링 모니터 서버로 가상 컴퓨터를 사용합니다.  
+3개의 가상 머신을 추가로 만듭니다. 이 경우 SQL Server 인스턴스가 있는 2개의 가상 머신이 필요합니다. 세 번째 가상 머신은 미러링 모니터 서버로 작동됩니다. Windows Server 2016에서는 [미러링 모니터 서버](http://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness)를 사용할 수 있지만, 이전 운영 체제와의 일관성을 위해 이 문서에서는 미러링 모니터 서버로 가상 머신을 사용합니다.  
 
 계속 진행하기 전에 다음 디자인 결정 사항을 고려해야 합니다.
 
 * **저장소 - Azure Managed Disks**
 
-   가상 컴퓨터 저장소에 대해 Azure Managed Disks를 사용합니다. SQL Server 가상 컴퓨터에 대해 Managed Disks가 권장됩니다. Managed Disks는 배후에서 저장소를 처리해줍니다. 또한 Managed Disks가 있는 가상 컴퓨터가 동일한 가용성 집합에 속할 경우 Azure는 저장소 리소스를 배포하여 적절한 중복성을 제공합니다. 자세한 내용은 [Azure Managed Disks 개요](../managed-disks-overview.md)를 참조하세요. 가용성 집합의 Managed Disks에 대한 구체적인 내용을 보려면 [가용성 집합에서 VM에 Managed Disks 사용](../manage-availability.md#use-managed-disks-for-vms-in-an-availability-set)을 참조하세요.
+   가상 머신 저장소에 대해 Azure Managed Disks를 사용합니다. SQL Server 가상 머신에 대해 Managed Disks가 권장됩니다. Managed Disks는 배후에서 저장소를 처리해줍니다. 또한 Managed Disks가 있는 가상 머신이 동일한 가용성 집합에 속할 경우 Azure는 저장소 리소스를 배포하여 적절한 중복성을 제공합니다. 자세한 내용은 [Azure Managed Disks 개요](../managed-disks-overview.md)를 참조하세요. 가용성 집합의 Managed Disks에 대한 구체적인 내용을 보려면 [가용성 집합에서 VM에 Managed Disks 사용](../manage-availability.md#use-managed-disks-for-vms-in-an-availability-set)을 참조하세요.
 
 * **네트워크 - 프로덕션 환경의 개인 IP 주소**
 
-   이 자습서에서는 가상 컴퓨터에 대해 공용 IP 주소를 사용합니다. 이렇게 하면 인터넷을 통해 가상 컴퓨터에 직접 원격으로 연결할 수 있으므로 구성 단계가 좀 더 용이해집니다. 프로덕션 환경에서는 SQL Server 인스턴스 VM 리소스의 취약성을 줄이기 위해 개인 IP 주소만 권장됩니다.
+   이 자습서에서는 가상 머신에 대해 공용 IP 주소를 사용합니다. 이렇게 하면 인터넷을 통해 가상 컴퓨터에 직접 원격으로 연결할 수 있으므로 구성 단계가 좀 더 용이해집니다. 프로덕션 환경에서는 SQL Server 인스턴스 VM 리소스의 취약성을 줄이기 위해 개인 IP 주소만 권장됩니다.
 
 ### <a name="create-and-configure-the-sql-server-vms"></a>SQL Server VM 만들기 및 구성
-다음으로 추가 클러스터 노드의 VM 1개와 SQL Server VM 2개를 포함하는 VM을 3개 만듭니다. 각 VM을 만들려면 **SQL-HA-RG** 리소스 그룹으로 돌아가서 **추가**를 클릭하고, 적합한 갤러리 항목을 검색하고, **가상 컴퓨터**, **갤러리에서**를 차례로 클릭합니다. 아래 표의 정보를 사용하면 VM을 만드는 데 도움이 됩니다.
+다음으로 추가 클러스터 노드의 VM 1개와 SQL Server VM 2개를 포함하는 VM을 3개 만듭니다. 각 VM을 만들려면 **SQL-HA-RG** 리소스 그룹으로 돌아가서 **추가**를 클릭하고, 적합한 갤러리 항목을 검색하고, **Virtual Machine**, **갤러리에서**를 차례로 클릭합니다. 아래 표의 정보를 사용하면 VM을 만드는 데 도움이 됩니다.
 
 
 | Page | VM1 | VM2 | VM3 |
 | --- | --- | --- | --- |
 | 적절한 갤러리 항목 선택 |**Windows Server 2016 Datacenter** |**Windows Server 2016의 SQL Server 2016 SP1 Enterprise** |**Windows Server 2016의 SQL Server 2016 SP1 Enterprise** |
-| 가상 컴퓨터 구성 **기본 사항** |**이름** = cluster-fsw<br/>**사용자 이름** = DomainAdmin<br/>**암호** = Contoso!0000<br/>**구독** = 사용자 구독<br/>**리소스 그룹** = SQL-HA-RG<br/>**위치** = 해당 Azure 위치 |**이름** = sqlserver-0<br/>**사용자 이름** = DomainAdmin<br/>**암호** = Contoso!0000<br/>**구독** = 사용자 구독<br/>**리소스 그룹** = SQL-HA-RG<br/>**위치** = 해당 Azure 위치 |**이름** = sqlserver-1<br/>**사용자 이름** = DomainAdmin<br/>**암호** = Contoso!0000<br/>**구독** = 사용자 구독<br/>**리소스 그룹** = SQL-HA-RG<br/>**위치** = 해당 Azure 위치 |
-| 가상 컴퓨터 구성 **크기** |**SIZE** = DS1\_V2(1개 vCPU, 3.5GB) |**SIZE** = DS2\_V2(2개 vCPU, 7GB)</br>이 크기는 SSD 저장소를 지원해야 합니다(프리미엄 디스크 지원. )) |**SIZE** = DS2\_V2(2개 vCPU, 7GB) |
-| 가상 컴퓨터 구성 **설정** |**저장소**: Managed Disks 사용<br/>**가상 네트워크** = autoHAVNET<br/>**서브넷** = sqlsubnet(10.1.1.0/24)<br/>**공용 IP 주소**: 자동으로 생성됩니다.<br/>**네트워크 보안 그룹** = 없음<br/>**진단 모니터링** = 사용<br/>**진단 Storage 계정** = 자동으로 생성된 Storage계정 사용<br/>**가용성 집합** = sqlAvailabilitySet<br/> |**저장소**: Managed Disks 사용<br/>**가상 네트워크** = autoHAVNET<br/>**서브넷** = sqlsubnet(10.1.1.0/24)<br/>**공용 IP 주소**: 자동으로 생성됩니다.<br/>**네트워크 보안 그룹** = 없음<br/>**진단 모니터링** = 사용<br/>**진단 Storage 계정** = 자동으로 생성된 Storage계정 사용<br/>**가용성 집합** = sqlAvailabilitySet<br/> |**저장소**: Managed Disks 사용<br/>**가상 네트워크** = autoHAVNET<br/>**서브넷** = sqlsubnet(10.1.1.0/24)<br/>**공용 IP 주소**: 자동으로 생성됩니다.<br/>**네트워크 보안 그룹** = 없음<br/>**진단 모니터링** = 사용<br/>**진단 Storage 계정** = 자동으로 생성된 Storage계정 사용<br/>**가용성 집합** = sqlAvailabilitySet<br/> |
-| 가상 컴퓨터 구성 **SQL Server 설정** |해당 없음 |**SQL 연결** = 개인(Virtual Network 내)<br/>**포트** = 1433<br/>**SQL 인증** = 사용 안 함<br/>**Storage 구성** = 일반<br/>**자동화된 패치** = 일요일 2시<br/>**자동화된 백업** = 사용 안 함</br>**Azure Key Vault 통합** = 사용 안 함 |**SQL 연결** = 개인(Virtual Network 내)<br/>**포트** = 1433<br/>**SQL 인증** = 사용 안 함<br/>**Storage 구성** = 일반<br/>**자동화된 패치** = 일요일 2시<br/>**자동화된 백업** = 사용 안 함</br>**Azure Key Vault 통합** = 사용 안 함 |
+| 가상 머신 구성 **기본 사항** |**이름** = cluster-fsw<br/>**사용자 이름** = DomainAdmin<br/>**암호** = Contoso!0000<br/>**구독** = 사용자 구독<br/>**리소스 그룹** = SQL-HA-RG<br/>**위치** = 해당 Azure 위치 |**이름** = sqlserver-0<br/>**사용자 이름** = DomainAdmin<br/>**암호** = Contoso!0000<br/>**구독** = 사용자 구독<br/>**리소스 그룹** = SQL-HA-RG<br/>**위치** = 해당 Azure 위치 |**이름** = sqlserver-1<br/>**사용자 이름** = DomainAdmin<br/>**암호** = Contoso!0000<br/>**구독** = 사용자 구독<br/>**리소스 그룹** = SQL-HA-RG<br/>**위치** = 해당 Azure 위치 |
+| 가상 머신 구성 **크기** |**SIZE** = DS1\_V2(1개 vCPU, 3.5GB) |**SIZE** = DS2\_V2(2개 vCPU, 7GB)</br>이 크기는 SSD 저장소를 지원해야 합니다(프리미엄 디스크 지원. )) |**SIZE** = DS2\_V2(2개 vCPU, 7GB) |
+| 가상 머신 구성 **설정** |**저장소**: Managed Disks 사용<br/>**가상 네트워크** = autoHAVNET<br/>**서브넷** = sqlsubnet(10.1.1.0/24)<br/>**공용 IP 주소**: 자동으로 생성됩니다.<br/>**네트워크 보안 그룹** = 없음<br/>**진단 모니터링** = 사용<br/>**진단 Storage 계정** = 자동으로 생성된 Storage계정 사용<br/>**가용성 집합** = sqlAvailabilitySet<br/> |**저장소**: Managed Disks 사용<br/>**가상 네트워크** = autoHAVNET<br/>**서브넷** = sqlsubnet(10.1.1.0/24)<br/>**공용 IP 주소**: 자동으로 생성됩니다.<br/>**네트워크 보안 그룹** = 없음<br/>**진단 모니터링** = 사용<br/>**진단 Storage 계정** = 자동으로 생성된 Storage계정 사용<br/>**가용성 집합** = sqlAvailabilitySet<br/> |**저장소**: Managed Disks 사용<br/>**가상 네트워크** = autoHAVNET<br/>**서브넷** = sqlsubnet(10.1.1.0/24)<br/>**공용 IP 주소**: 자동으로 생성됩니다.<br/>**네트워크 보안 그룹** = 없음<br/>**진단 모니터링** = 사용<br/>**진단 Storage 계정** = 자동으로 생성된 Storage계정 사용<br/>**가용성 집합** = sqlAvailabilitySet<br/> |
+| 가상 머신 구성 **SQL Server 설정** |해당 없음 |**SQL 연결** = 개인(Virtual Network 내)<br/>**포트** = 1433<br/>**SQL 인증** = 사용 안 함<br/>**Storage 구성** = 일반<br/>**자동화된 패치** = 일요일 2시<br/>**자동화된 백업** = 사용 안 함</br>**Azure Key Vault 통합** = 사용 안 함 |**SQL 연결** = 개인(Virtual Network 내)<br/>**포트** = 1433<br/>**SQL 인증** = 사용 안 함<br/>**Storage 구성** = 일반<br/>**자동화된 패치** = 일요일 2시<br/>**자동화된 백업** = 사용 안 함</br>**Azure Key Vault 통합** = 사용 안 함 |
 
 <br/>
 
@@ -396,7 +396,7 @@ Active Directory 및 사용자 개체 구성을 완료했으므로 2개의 SQL S
 
 ### <a name="add-the-corpinstall-user-as-an-administrator-on-each-cluster-vm"></a>각 클러스터 VM에서 Corp\Install 사용자를 관리자로 추가
 
-각 가상 컴퓨터가 도메인의 구성원으로 다시 시작한 후 **CORP\Install**을 로컬 관리자 그룹의 구성원으로 추가합니다.
+각 가상 머신이 도메인의 구성원으로 다시 시작한 후 **CORP\Install**을 로컬 관리자 그룹의 구성원으로 추가합니다.
 
 1. VM이 다시 시작될 때까지 기다린 후 주 도메인 컨트롤러에서 RDP 파일을 다시 시작하여 **CORP\DomainAdmin** 계정을 사용하여 **sqlserver-0**에 로그인합니다.
    >[!TIP]
@@ -451,7 +451,7 @@ SQL Server 가용성 그룹의 경우 각 SQL Server VM은 도메인 계정으�
 
 장애 조치(failover) 클러스터링 기능을 추가하려면 두 SQL Server VM에서 모두 다음을 수행합니다.
 
-1. *CORP\install* 계정을 사용하여 RDP(원격 데스크톱 프로토콜)를 통해 SQL Server 가상 컴퓨터에 연결합니다. **서버 관리자 대시보드**를 엽니다.
+1. *CORP\install* 계정을 사용하여 RDP(원격 데스크톱 프로토콜)를 통해 SQL Server 가상 머신에 연결합니다. **서버 관리자 대시보드**를 엽니다.
 2. 대시보드에서 **역할 및 기능 추가** 링크를 클릭합니다.
 
     ![서버 관리자 - 역할 추가](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/22-addfeatures.png)
@@ -486,7 +486,7 @@ SQL Server 가용성 그룹의 경우 각 SQL Server VM은 도메인 계정으�
 
    ![SQL 방화벽](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/35-tcpports.png)
 
-5. **다음**을 누릅니다.
+5. **다음**을 클릭합니다.
 6. **작업** 페이지에서 **연결 허용**을 선택한 상태로 유지하고 **다음**을 클릭합니다.
 7. **프로필** 페이지에서 기본 설정을 그대로 적용하고 **다음**을 클릭합니다.
 8. **이름** 페이지에서 **이름** 텍스트 상자에 **Azure LB Probe**와 같은 규칙 이름을 지정하고 **마침**을 클릭합니다.

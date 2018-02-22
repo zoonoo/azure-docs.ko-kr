@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2017
 ms.author: nepeters
-ms.openlocfilehash: 14e9f9d85bc0c1428240f15831632eafe2a0f80e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d12299d08fa989c0990ae45a41c638470e1075a6
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="scale-an-azure-container-service-cluster"></a>Azure Container Service 클러스터 크기 조정
 
@@ -48,9 +48,9 @@ az group delete --name myResourceGroup
 
 이 스크립트는 다음 명령을 사용하여 배포합니다. 테이블에 있는 각 항목은 명령에 해당하는 문서에 연결됩니다.
 
-| 명령 | 참고 |
+| 명령 | 메모 |
 |---|---|
-| [az acs scale](/cli/azure/acs#scale) | ACS 클러스터를 확장합니다. |
+| [az acs scale](/cli/azure/acs#az_acs_scale) | ACS 클러스터를 확장합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 
