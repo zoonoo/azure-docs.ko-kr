@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 09/20/2017
 ms.author: msfussell
 ms.custom: mvc
-ms.openlocfilehash: 4aca25f74d3e22911ab5059a8cdec45f189dc8cf
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: aab15e6981e4f5f3c69ea6a85995fd2db69ff8b8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="overview-of-azure-service-fabric"></a>Azure Service Fabric의 개요
 Azure Service Fabric은 손쉽게 패키지하고 배포하며 확장 가능하고 안정성이 뛰어난 마이크로 서비스 및 컨테이너를 관리하도록 배포된 시스템 플랫폼입니다. 또한 Service Fabric은 클라우드 네이티브 응용 프로그램 개발 및 관리에서 발생하는 중요한 과제를 해결합니다. 개발자와 관리자가 복잡한 인프라 문제를 피하고 업무 수행에 필수적인 까다로운 워크로드를 확장 가능하고 신뢰할 수 있으며 관리가 가능하도록 구현하는 데 집중할 수 있습니다. Service Fabric은 컨테이너에서 실행되는 엔터프라이즈급 계층 1 클라우드 규모의 응용 프로그램을 빌드 및 관리하기 위한 차세대 플랫폼을 나타냅니다.
@@ -37,7 +37,7 @@ Service Fabric은 필요에 따라 작은 규모로 시작하여 수백 또는 �
 
 오늘날 인터넷 범위의 서비스는 마이크로 서비스를 토대로 빌드됩니다. 마이크로 서비스의 예로는 프로토콜 게이트웨이, 사용자 프로필, 쇼핑 카트, 인벤토리 처리, 큐, 캐시 등을 들 수 있습니다. Service Fabric은 모든 마이크로 서비스(또는 컨테이너)에 상태 비저장 또는 상태 저장 중 하나일 수 있는 고유한 이름을 제공하는 마이크로 서비스 플랫폼입니다.
 
-Service Fabric은 이러한 마이크로 서비스로 구성된 응용 프로그램에 포괄적인 런타임 및 수명 주기 관리 기능을 제공합니다. 서비스 패브릭 클러스터에 걸쳐 배포 및 활성화된 컨테이너 내에서 마이크로 서비스를 호스트합니다. 가상 컴퓨터에서 컨테이너로 이동하면 밀도가 큰 순서대로 정렬됩니다. 마찬가지로, 컨테이너에서 다음과 같은 컨테이너의 마이크로 서비스로 이동하면 또 다른 밀도 순서대로 정렬됩니다. 예를 들어, 단일 Azure SQL Database 클러스터는 수십만 개의 데이터베이스를 호스트하는 수만 개의 컨테이너를 실행하는 수백 대의 컴퓨터로 구성됩니다. 각 데이터베이스는 서비스 패브릭 상태 저장 마이크로 서비스입니다. 
+Service Fabric은 이러한 마이크로 서비스로 구성된 응용 프로그램에 포괄적인 런타임 및 수명 주기 관리 기능을 제공합니다. 서비스 패브릭 클러스터에 걸쳐 배포 및 활성화된 컨테이너 내에서 마이크로 서비스를 호스트합니다. 가상 머신에서 컨테이너로 이동하면 밀도가 큰 순서대로 정렬됩니다. 마찬가지로, 컨테이너에서 다음과 같은 컨테이너의 마이크로 서비스로 이동하면 또 다른 밀도 순서대로 정렬됩니다. 예를 들어, 단일 Azure SQL Database 클러스터는 수십만 개의 데이터베이스를 호스트하는 수만 개의 컨테이너를 실행하는 수백 대의 컴퓨터로 구성됩니다. 각 데이터베이스는 서비스 패브릭 상태 저장 마이크로 서비스입니다. 
 
 마이크로 서비스 접근 방식에 대한 자세한 내용은 [응용 프로그램 구축에 마이크로 서비스 접근 방식이 필요한 이유](service-fabric-overview-microservices.md)
 
@@ -49,7 +49,7 @@ Service Fabric은 어디에서나 실행됩니다. Azure 또는 온-프레미스
 
 ![서비스 패브릭 플랫폼][Image1]
 
-Windows 개발을 위해 Service Fabric .NET SDK는 Visual Studio 및 Powershell과 통합됩니다. [Windows에서 개발 환경 준비](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started.md)를 참조하세요. Linux 개발을 위해 Service Fabric Java SDK는 Eclipse와 통합되고, Yeoman은 Java, .NET Core 및 컨테이너 응용 프로그램에 대한 템플릿을 생성하는 데 사용됩니다. [Linux에서 개발 환경 준비](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started.md)를 참조하세요.
+Windows 개발을 위해 Service Fabric .NET SDK는 Visual Studio 및 Powershell과 통합됩니다. [Windows에서 개발 환경 준비](service-fabric-get-started.md)를 참조하세요. Linux 개발을 위해 Service Fabric Java SDK는 Eclipse와 통합되고, Yeoman은 Java, .NET Core 및 컨테이너 응용 프로그램에 대한 템플릿을 생성하는 데 사용됩니다. [Linux에서 개발 환경 준비](service-fabric-get-started.md)를 참조하세요.
 
 클러스터를 만드는 방법에 대한 자세한 내용은 [Windows Server 또는 Linux에서 클러스터 만들기](service-fabric-deploy-anywhere.md) 또는 Azure의 경우 [Azure Portal을 통해](service-fabric-cluster-creation-via-portal.md) 클러스터 만들기를 참조하세요.
 
@@ -64,7 +64,7 @@ Service Fabric은 컨테이너를 비롯하여 클라우드 응용 프로그램�
 
 Service Fabric 응용 프로그램 수명 주기 관리 기능을 사용하면 응용 프로그램 관리자와 IT 운영자가 간단하고 개입할 필요성이 적은 워크플로를 사용하여 응용 프로그램을 프로비전, 배포, 패치 및 모니터링할 수 있습니다. 이러한 기본 제공 워크플로는 응용 프로그램을 지속적으로 사용 가능하게 유지해야 하는 IT 운영자의 부담을 크게 줄여줍니다.
 
-대부분의 응용 프로그램은 함께 배포되는 상태 비저장 및 상태 저장 마이크로 서비스, 컨테이너 및 다른 실행 파일의 조합으로 구성됩니다. 응용 프로그램에 대한 강력한 형식을 가지고 있으므로, Service Fabric을 사용하면 여러 응용 프로그램 인스턴스를 배포할 수 있습니다. 각 인스턴스는 독립적으로 관리 및 업그레이드됩니다. 무엇보다도 Service Fabric은 컨테이너 또는 모든 실행 파일을 배포하고 안정적으로 만들 수 있습니다. 예를 들어 Service Fabric은 .NET, ASP.NET Core, node.js, Windows 컨테이너, Linux 컨테이너, Java 가상 컴퓨터, 스크립트, Angular 또는 응용 프로그램을 구성하는 다른 모든 항목을 배포할 수 있습니다.
+대부분의 응용 프로그램은 함께 배포되는 상태 비저장 및 상태 저장 마이크로 서비스, 컨테이너 및 다른 실행 파일의 조합으로 구성됩니다. 응용 프로그램에 대한 강력한 형식을 가지고 있으므로, Service Fabric을 사용하면 여러 응용 프로그램 인스턴스를 배포할 수 있습니다. 각 인스턴스는 독립적으로 관리 및 업그레이드됩니다. 무엇보다도 Service Fabric은 컨테이너 또는 모든 실행 파일을 배포하고 안정적으로 만들 수 있습니다. 예를 들어 Service Fabric은 .NET, ASP.NET Core, node.js, Windows 컨테이너, Linux 컨테이너, Java 가상 머신, 스크립트, Angular 또는 응용 프로그램을 구성하는 다른 모든 항목을 배포할 수 있습니다.
 
 Service Fabric은 [Visual Studio Team Services](https://www.visualstudio.com/team-services/), [Jenkins](https://jenkins.io/index.html) 및 [Octopus 배포](https://octopus.com/)와 같은 CI/CD 도구와 통합되고 다른 인기 있는 CI/CD 도구와 함께 사용할 수 있습니다.
 

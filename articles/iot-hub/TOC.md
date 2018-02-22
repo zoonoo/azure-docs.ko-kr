@@ -87,6 +87,7 @@
 #### [.NET](iot-hub-csharp-csharp-file-upload.md)
 #### [Java](iot-hub-java-java-file-upload.md)
 #### [Node.js](iot-hub-node-node-file-upload.md)
+#### [Python](iot-hub-python-python-file-upload.md)
 ### 쌍 장치 시작
 #### [Node.js 백 엔드/Node.js 장치](iot-hub-node-node-twin-getstarted.md)
 #### [.NET 백 엔드/Node.js 장치](iot-hub-csharp-node-twin-getstarted.md)
@@ -110,15 +111,19 @@
 #### [.NET 백 엔드/Node.js 장치](iot-hub-csharp-node-twin-how-to-configure.md)
 #### [.NET 백 엔드/.NET 장치](iot-hub-csharp-csharp-twin-how-to-configure.md)
 #### [Java 백 엔드/Java 장치](iot-hub-java-java-twin-how-to-configure.md)
+#### [Python 백 엔드/Python 장치](iot-hub-python-python-twin-how-to-configure.md)
 ### 장치 작업을 사용하여 장치 펌웨어 업데이트
 #### [노드 백 엔드/노드 장치](iot-hub-node-node-firmware-update.md)
 #### [.NET 백 엔드/Node.js 장치](iot-hub-csharp-node-firmware-update.md)
 #### [.NET 백 엔드/.NET 장치](iot-hub-csharp-csharp-firmware-update.md)
 #### [Java 백 엔드/Java 장치](iot-hub-java-java-firmware-update.md)
+#### [Python 백 엔드/Python 장치](iot-hub-python-python-firmware-update.md)
 ### 작업 예약 및 브로드캐스트
 #### [Node.js 백 엔드/Node.js 장치](iot-hub-node-node-schedule-jobs.md)
 #### [.NET 백 엔드/Node.js 장치](iot-hub-csharp-node-schedule-jobs.md)
-#### [Java](iot-hub-java-java-schedule-jobs.md)
+#### [.NET 백 엔드/.NET 장치](iot-hub-csharp-csharp-schedule-jobs.md)
+#### [Java 백 엔드/Java 장치](iot-hub-java-java-schedule-jobs.md)
+#### [Python 백 엔드/Python 장치](iot-hub-python-python-schedule-jobs.md)
 
 ## 관리
 ### IoT Hub 만들기 
@@ -184,7 +189,7 @@
 ## [iothub-explorer 도구](https://github.com/Azure/iothub-explorer)
 ## [학습 경로](https://azure.microsoft.com/documentation/learning-paths/iot-hub/)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureiothub)
-## [가격](https://azure.microsoft.com/pricing/details/iot-hub/)
+## [가격 책정](https://azure.microsoft.com/pricing/details/iot-hub/)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=iot-hub)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-iot-hub)
