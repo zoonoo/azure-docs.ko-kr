@@ -20,13 +20,10 @@
 #### [Blob 저장소 및 연결된 서비스](../visual-studio/vs-storage-cloud-services-getting-started-blobs.md)
 #### [큐 저장소 및 연결된 서비스](../visual-studio/vs-storage-cloud-services-getting-started-queues.md)
 #### [테이블 저장소 및 연결된 서비스](../visual-studio/vs-storage-cloud-services-getting-started-tables.md)
-### 연속 빌드 및 배포에 대한 패키지 구성
-#### [TFS 및 팀 빌드](cloud-services-dotnet-continuous-delivery.md)
 ### [역할에 대한 트래픽 규칙 구성](cloud-services-enable-communication-role-instances.md)
 ### [클라우드 서비스 수명 주기 이벤트 처리](cloud-services-role-lifecycle-dotnet.md)
 ### [Socket.io(Node.js)](cloud-services-nodejs-chat-app-socketio.md)
 ### [Twilio를 사용하여 전화 걸기(.NET)](../partner-twilio-cloud-services-dotnet-phone-call-web-role.md)
-### [New Relic](../store-new-relic-cloud-services-dotnet-application-performance-management.md)
 
 ### 시작 작업 구성
 #### [시작 작업 만들기](cloud-services-startup-tasks.md)
@@ -73,11 +70,9 @@
 #### [Visual Studio](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)
 ### [Azure Storage에서 진단 데이터 저장 및 보기](cloud-services-dotnet-diagnostics-storage.md)
 ### [진단을 사용하여 클라우드 서비스 추적](cloud-services-dotnet-diagnostics-trace-flow.md)
-### [App Insights로 진단 데이터 보내기](cloud-services-dotnet-diagnostics-applicationinsights.md)
 
 ## 문제 해결
 ### 디버그 
-#### [콘텐츠 배달에서 원격 디버깅 사용](cloud-services-virtual-machines-dotnet-continuous-delivery-remote-debugging.md)
 #### [클라우드 서비스 옵션](../vs-azure-tools-debugging-cloud-services-overview.md)
 #### [Visual Studio로 로컬 클라우드 서비스](../vs-azure-tools-debug-cloud-services-virtual-machines.md)
 #### [Visual Studio로 게시된 클라우드 서비스](../vs-azure-tools-intellitrace-debug-published-cloud-services.md)
@@ -109,7 +104,7 @@
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=compute)
 ## [학습 경로](https://azure.microsoft.com/documentation/learning-paths/cloud-services/)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-us/home?forum=windowsazuredevelopment)
-## [가격](https://azure.microsoft.com/pricing/details/cloud-services/)
+## [가격 책정](https://azure.microsoft.com/pricing/details/cloud-services/)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=cloud-services&updatetype=&platform=)
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=cloud-services)

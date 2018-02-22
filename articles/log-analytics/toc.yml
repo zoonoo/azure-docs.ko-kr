@@ -39,6 +39,8 @@
       href: log-analytics-faq.md
     - name: 데이터 사용
       href: log-analytics-usage.md
+    - name: 데이터 보안
+      href: log-analytics-data-security.md
     - name: 액세스 관리
       href: log-analytics-manage-access.md
     - name: 하이브리드 환경 모니터링

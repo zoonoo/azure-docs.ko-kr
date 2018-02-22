@@ -2,23 +2,20 @@
 title: "Azure Portal에서 저장소 계정에 대한 처리량 및 대기 시간 메트릭 확인 | Microsoft Docs"
 description: "포털에서 저장소 계정에 대한 처리량 및 대기 시간 메트릭을 확인하는 방법을 알아봅니다."
 services: storage
-documentationcenter: 
-author: georgewallace
+author: tamram
 manager: jeconnoc
-editor: 
 ms.service: storage
 ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 12/12/2017
-ms.author: gwallace
+ms.date: 02/20/2018
+ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: b3102bd4e40e10fe88c12295794da37e359c56f1
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 5efcb71c4eb67948c69f881c24758631aea989d4
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="verify-throughput-and-latency-metrics-for-a-storage-account"></a>저장소 계정에 대한 처리량 및 대기 시간 메트릭 확인
 
@@ -66,7 +63,7 @@ ms.lasthandoff: 12/13/2017
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-더 이상 필요하지 않을 때 리소스 그룹, 가상 컴퓨터 및 모든 관련 리소스를 삭제합니다. 이렇게 하려면 VM에 대한 리소스 그룹을 선택하고 [삭제]를 클릭합니다.
+더 이상 필요하지 않을 때 리소스 그룹, 가상 머신 및 모든 관련 리소스를 삭제합니다. 이렇게 하려면 VM에 대한 리소스 그룹을 선택하고 [삭제]를 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

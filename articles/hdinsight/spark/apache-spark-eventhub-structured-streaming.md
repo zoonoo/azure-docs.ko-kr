@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: jgao
-ms.openlocfilehash: e0486d2c5f78da1d1e4a12703f120eccef43c305
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 14cc32c22653d5d8bd3dd5a1a41d2f64cfd8c73c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="apache-spark-structured-streaming-on-hdinsight-to-process-events-from-event-hubs"></a>Event Hubs에서 이벤트를 처리하는 HDInsight의 Apache Spark 구조적 스트리밍
 
@@ -29,13 +29,11 @@ ms.lasthandoff: 01/12/2018
 1. 로컬 워크스테이션에서 Event Hubs에 보낼 이벤트를 생성하는 샘플 이벤트 생산자 응용 프로그램을 컴파일하고 실행합니다.
 2. [Spark 셸](apache-spark-shell.md)을 사용하여 간단한 Spark 구조적 스트리밍 응용 프로그램을 정의하고 실행합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 * Azure 구독. [Azure 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
 
 * HDInsight의 Apache Spark 클러스터입니다. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](apache-spark-jupyter-spark-sql.md)를 참조하세요.
-
-* Azure Event Hubs 네임스페이스. 자세한 정보는 [Azure Event Hubs 네임스페이스 만들기](apache-spark-eventhub-streaming.md#create-an-azure-event-hub)를 참조하세요.
 
 * Oracle Java Development 키트. [여기](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)에서 설치할 수 있습니다.
 

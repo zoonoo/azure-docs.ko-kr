@@ -1,26 +1,26 @@
 ---
 title: "Azure에 Windows Server 백업 | Microsoft Docs"
 description: "이 자습서에서는 Recovery Services 자격 증명 모음에 온-프레미스 Windows Server를 백업하는 작업에 대해 자세히 설명합니다."
-services: back up
+services: backup
 documentationcenter: 
 author: saurabhsensharma
 manager: shivamg
 editor: 
 keywords: "Windows Server 백업; 백업 및 재해 복구"
 ms.assetid: 
-ms.service: back up
-ms.workload: storage-back up-recovery
+ms.service: backup
+ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/23/2017
+ms.date: 2/14/2018
 ms.author: saurabhsensharma;markgal;
 ms.custom: mvc
-ms.openlocfilehash: 0dbf3850c7fcccb1a02e70a19b498522a4ce0e79
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: de0398b7f295894a3cac7c67b68cef237c3ac2c2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="back-up-windows-server-to-azure"></a>Azure에 Windows Server 백업
 
@@ -80,13 +80,13 @@ MARS(Microsoft Azure Recovery Services) 에이전트는 Windows Server와 Recove
 4.  **인프라 준비**를 클릭하여 **인프라 준비** 메뉴를 엽니다.
 5.  **인프라 준비** 메뉴에서 **Windows Server 또는 Windows Client용 에이전트 다운로드**를 클릭하여 *MARSAgentInstaller.exe*를 다운로드합니다. 
 
-    ![Windows Server 또는 Windows 클라이언트의 에이전트 다운로드](./media/tutorial-backup-windows-server-to-azure/prepare-infrastructure.png)
+    ![인프라 준비](./media/tutorial-backup-windows-server-to-azure/prepare-infrastructure.png)
 
     설치 관리자가 별도의 브라우저를 열어 **MARSAgentInstaller.exe**를 다운로드합니다.
  
 6.  다운로드한 파일을 실행하려면 먼저 [인프라 준비] 블레이드에서 **다운로드**를 클릭하여 **보관 자격 증명** 파일을 다운로드하고 저장합니다. 이 파일은 MARS 에이전트와 Recovery Services 자격 증명 모음을 연결하는 데 필요합니다.
 
-    ![Windows Server 또는 Windows 클라이언트의 에이전트 다운로드](./media/tutorial-backup-windows-server-to-azure/download-vault-credentials.png)
+    ![인프라 준비](./media/tutorial-backup-windows-server-to-azure/download-vault-credentials.png)
  
 ## <a name="install-and-register-the-agent"></a>에이전트 설치 및 등록
 
@@ -96,13 +96,13 @@ MARS(Microsoft Azure Recovery Services) 에이전트는 Windows Server와 Recove
     - 프록시 서버 정보(프록시 서버를 사용하여 인터넷에 연결하는 경우)
     - 사용자 이름 및 암호 세부 정보(인증된 프록시를 사용하는 경우)
 
-    ![Windows Server 또는 Windows 클라이언트의 에이전트 다운로드](./media/tutorial-backup-windows-server-to-azure/mars-installer.png) 
+    ![인프라 준비](./media/tutorial-backup-windows-server-to-azure/mars-installer.png) 
 
 3. 마법사 끝 단계에서 **등록 진행**을 클릭하고 이전 절차에서 다운로드한 **보관 자격 증명** 파일을 제공합니다.
  
 4. 메시지가 나타나면 Windows Server의 백업을 암호화하는 데 사용할 암호화 암호를 제공합니다. Microsoft는 잃어버린 암호를 복구할 수 없으므로, 암호를 안전한 위치에 저장하세요.
 
-5. **마침**을 클릭합니다. 
+5. **Finish**를 클릭합니다. 
 
 ## <a name="configure-backup-and-retention"></a>백업 및 보존 구성
 
@@ -112,13 +112,13 @@ Microsoft Azure Recovery Services 에이전트를 사용하면 Azure에 백업�
 
 2.  Recovery Services 에이전트 콘솔의 **작업 창**에서 **백업 예약**을 클릭합니다.
 
-    ![Windows Server 또는 Windows 클라이언트의 에이전트 다운로드](./media/tutorial-backup-windows-server-to-azure/mars-schedule-backup.png)
+    ![인프라 준비](./media/tutorial-backup-windows-server-to-azure/mars-schedule-backup.png)
 
 3. **다음**을 클릭하여 **백업할 항목 선택** 페이지로 이동합니다.
 
 4. **항목 추가**를 클릭하고, 열리는 대화 상자에서 **시스템 상태** 및 백업할 파일 또는 폴더를 선택합니다. 그런 후 **OK**를 클릭합니다.
 
-5. **다음**을 누릅니다.
+5. **다음**을 클릭합니다.
 
 6. **백업 일정 지정(시스템 상태)** 페이지에서 시스템 상태에 대해 백업을 트리거해야 하는 시간(일 또는 주)을 지정하고 **다음**을 클릭합니다. 
 
@@ -134,7 +134,7 @@ Microsoft Azure Recovery Services 에이전트를 사용하면 Azure에 백업�
 
 1.  Microsoft Azure Recovery Services 에이전트 콘솔에서 **지금 백업**을 클릭합니다.
 
-    ![Windows Server 또는 Windows 클라이언트의 에이전트 다운로드](./media/tutorial-backup-windows-server-to-azure/backup-now.png)
+    ![인프라 준비](./media/tutorial-backup-windows-server-to-azure/backup-now.png)
 
 2.  **지금 백업** 마법사에서 백업할 **파일 및 폴더** 또는 **시스템 상태** 중 하나를 선택하고 **다음**을 클릭합니다. 
 3. **확인** 페이지에서 서버를 백업하는 데 **지금 백업** 마법사가 사용할 설정을 검토합니다. 그런 다음 **백업**을 클릭합니다.

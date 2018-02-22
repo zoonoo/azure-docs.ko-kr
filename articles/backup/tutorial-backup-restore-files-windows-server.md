@@ -13,14 +13,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/20/2017
+ms.date: 2/14/2018
 ms.author: saurabhsensharma;markgal;
 ms.custom: mvc
-ms.openlocfilehash: b5f77ec04ef6d267583a6dc6a4476f118a4d0f74
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 3bda261bae8155ccb48196a980b14afc56004da8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="recover-files-from-azure-to-a-windows-server"></a>Azure에서 Windows Server로 파일 복구
 
@@ -77,7 +77,7 @@ Microsoft Azure Backup이라는 유용한 사용자 인터페이스 마법사가
 
 ## <a name="next-steps"></a>다음 단계
 
-Windows Server 데이터를 Azure로 백업 및 복원하는 방법에 대한 자습서를 완료했습니다. Azure Backup에 대한 자세한 내용은 암호화된 가상 컴퓨터 백업에 대한 PowerShell 샘플을 참조하세요.
+Windows Server 데이터를 Azure로 백업 및 복원하는 방법에 대한 자습서를 완료했습니다. Azure Backup에 대한 자세한 내용은 암호화된 가상 머신 백업에 대한 PowerShell 샘플을 참조하세요.
 
 > [!div class="nextstepaction"]
 > [암호화된 VM 백업](./scripts/backup-powershell-sample-backup-encrypted-vm.md)

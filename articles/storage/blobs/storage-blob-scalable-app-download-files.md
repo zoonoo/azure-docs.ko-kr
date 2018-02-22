@@ -3,22 +3,20 @@ title: "Azure Storage에서 대량의 임의 데이터 다운로드 | Microsoft 
 description: "Azure SDK를 사용하여 Azure Storage 계정에서 대량의 임의 데이터를 다운로드하는 방법에 대해 알아봅니다."
 services: storage
 documentationcenter: 
-author: georgewallace
+author: tamram
 manager: jeconnoc
-editor: 
 ms.service: storage
 ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 12/12/2017
-ms.author: gwallace
+ms.date: 02/20/2018
+ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 3842860acb1c0fdd9e07f6d2f678ac5d5304003b
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 673dc8fc7fd5d08f9541595af16078d44c7f8308
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="download-large-amounts-of-random-data-from-azure-storage"></a>Azure Storage에서 대량의 임의 데이터 다운로드
 
@@ -31,7 +29,7 @@ ms.lasthandoff: 01/12/2018
 > * 응용 프로그램 실행
 > * 연결 수의 유효성 검사
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 이 자습서를 완료하려면 먼저 이전 Storage 자습서: [Azure Storage에 병렬로 대규모 임의 데이터 업로드][previous-tutorial]를 완료해야 합니다.
 
