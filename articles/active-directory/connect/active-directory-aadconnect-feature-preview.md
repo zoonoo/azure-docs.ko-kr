@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 7173c87dec980130992438954650227c16ad7292
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: d4e76c85af7a9b90867d91a6290c4f4deea19a75
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="more-details-about-features-in-preview"></a>미리 보기 기능에 대한 자세한 내용
 이 항목에서는 현재 미리 보기 상태인 기능을 사용하는 방법에 대해 설명합니다.
@@ -26,7 +26,7 @@ ms.lasthandoff: 01/18/2018
 ## <a name="group-writeback"></a>그룹 쓰기 저장
 선택적 기능의 그룹 쓰기 저장에 대한 옵션을 사용하면 Exchange가 설치된 포리스트로 **Office 365 그룹** 을 쓰기 저장할 수 있습니다. 항상 클라우드에서 마스터되는 그룹입니다. Exchange 온-프레미스가 있는 경우 이러한 그룹을 온-프레미스에 쓰기 저장하여 온-프레미스 Exchange 사서함이 있는 사용자가 이 그룹에서 메일을 보내고 받을 수 있습니다.
 
-Office 365 그룹에 대한 자세한 내용 및 사용 방법은 [여기](http://aka.ms/O365g)를 참조하세요.
+Office 365 그룹에 대한 자세한 내용 및 사용 방법은 [여기](https://aka.ms/O365g)를 참조하세요.
 
 Office 365 그룹은 온-프레미스 AD DS에서 배포 그룹으로 표현됩니다. 이 새 그룹 유형을 인식하려면 온-프레미스 Exchange 서버는 Exchange 2013 누적 업데이트 8(2015년 3월에 릴리스됨) 또는 Exchange 2016이어야 합니다.
 

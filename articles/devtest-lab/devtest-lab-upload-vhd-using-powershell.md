@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2017
 ms.author: v-craic
-ms.openlocfilehash: 27a80ddb110ba47bf9c1284aa48d2f3af1a87145
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: c940f5646bc7845db7b774d7ada40b8105534d69
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="upload-vhd-file-to-labs-storage-account-using-powershell"></a>PowerShell을 사용하여 랩의 저장소 계정에 VHD 파일 업로드
 
@@ -32,7 +32,7 @@ Azure DevTest Labs에서는 VHD 파일을 사용하여 가상 머신을 프로�
 
 1. [Azure 포털](http://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
 
-1. **추가 서비스**를 선택한 후 목록에서 **DevTest Labs**을 선택합니다.
+1. **모든 서비스**를 선택한 다음 목록에서 **DevTest Labs**를 선택합니다.
 
 1. 랩 목록에서 원하는 랩을 탭합니다.  
 

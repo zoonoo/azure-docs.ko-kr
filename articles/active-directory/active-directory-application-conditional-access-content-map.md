@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 955f8bdaf61658bfacfb5c751602a34510d275ad
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 34d375d62cd41acdbbaa8da5f6cc46605aebb81f
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="problems-configuring-conditional-access-to-one-of-my-applications"></a>내 응용 프로그램 중 하나로 조건부 액세스를 구성하는 문제
 
@@ -29,9 +29,9 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="im-having-problems-setting-up-conditional-access"></a>조건부 액세스를 설정하는 데 문제가 있음
   아래 문서는 이 범주에서 가장 일반적인 몇 가지 문제를 해결하는 데 도움이 될 수 있습니다.
-  * [회사 네트워크 규칙이 적용되는 방법 및 시기](http://aka.ms/calocation/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
+  * [회사 네트워크 규칙이 적용되는 방법 및 시기](https://aka.ms/calocation/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
   * [사용자가 Azure AD에 등록할 수 있는 장치 수를 늘리는 방법](https://docs.microsoft.com/azure/active-directory/active-directory-azureadjoin-setup/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
-  * [Exchange Online에 대한 조건부 액세스를 설정하는 방법](http://aka.ms/csforexchange/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
+  * [Exchange Online에 대한 조건부 액세스를 설정하는 방법](https://aka.ms/csforexchange/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
   * [Windows 7 장치에 대한 조건부 액세스를 설정하는 방법](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access#device-based-conditional-access/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
   * [조건부 액세스가 지원되는 응용 프로그램](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-supported-apps/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
 

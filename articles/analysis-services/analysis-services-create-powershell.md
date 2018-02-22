@@ -12,20 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 11/01/2017
+ms.date: 02/14/2018
 ms.author: owend
 ms.custom: mvc
-ms.openlocfilehash: 2db167fd746b53e234aac3dbe2e5b76b56737e24
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 99798af8cb0a2b13f2c3c3808222113656a5a388
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-an-azure-analysis-services-server-by-using-powershell"></a>PowerShell을 사용하여 Azure Analysis Services 서버 만들기
 
 이 빠른 시작은 Azure 구독의 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md)에서 Azure Analysis Services 서버를 만들기 위해 명령줄에서 PowerShell 사용에 대해 설명합니다.
 
-이 작업을 수행하려면 Azure PowerShell 모듈 버전 4.0 이상이 필요합니다. 버전을 찾으려면 ` Get-Module -ListAvailable AzureRM`을 실행합니다. 설치 또는 업그레이드하려면 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. 
+이 작업을 수행하려면 Azure PowerShell 모듈 버전 4.0 이상이 필요합니다. 버전을 확인하려면 ` Get-Module -ListAvailable AzureRM`을 실행합니다. 설치 또는 업그레이드하려면 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. 
 
 > [!NOTE]
 > 서버를 만들면 새로운 유료 서비스가 생성될 수 있습니다. 자세한 내용은 [Analysis Services 가격 책정](https://azure.microsoft.com/pricing/details/analysis-services/)을 참조하세요.
