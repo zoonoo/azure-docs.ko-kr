@@ -301,7 +301,7 @@ SSIS 카탈로그를 호스트하는 Azure SQL 데이터베이스를 데이터 �
 
 ### <a name="monitor-the-pipeline-run"></a>파이프라인 실행을 모니터링합니다.
 
-2. **Get-AzureRmDataFactorySlice**를 실행하여 파이프라인의 출력 테이블인 출력 데이터 집합**의 모든 조각에 대한 세부 정보를 가져옵니다.
+2. **Get-AzureRmDataFactorySlice**를 실행하여 파이프라인의 출력 테이블인 출력 데이터 집합\** 의 모든 조각에 대한 세부 정보를 가져옵니다.
 
     ```PowerShell
     Get-AzureRmDataFactorySlice $df -DatasetName sprocsampleout -StartDateTime 2017-10-01T00:00:00Z

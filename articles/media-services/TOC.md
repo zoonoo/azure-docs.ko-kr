@@ -36,8 +36,11 @@
 #### [여러 저장소 계정 간 자산 관리](meda-services-managing-multiple-storage-accounts.md)
 ### [할당량 및 제한 사항](media-services-quotas-and-limitations.md)
 ## [Postman 구성](media-rest-apis-with-postman.md)
-### [환경](postman-environment.md)
-### [컬렉션](postman-collection.md)
+### 주문형 스트리밍
+#### [환경](postman-environment.md)
+#### [컬렉션](postman-collection.md)
+### 라이브 스트리밍
+#### [컬렉션](postman-live-streaming-collection.md)
 ## 콘텐츠 업로드
 ### 계정에 파일 업로드
 #### [Azure 포털](media-services-portal-upload-files.md)
@@ -235,7 +238,7 @@
 # 리소스
 ## [Azure Media Services 커뮤니티](media-services-community.md)
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=web-mobile)
-## [가격](https://azure.microsoft.com/pricing/details/media-services/)
+## [가격 책정](https://azure.microsoft.com/pricing/details/media-services/)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [릴리스 정보](media-services-release-notes.md)
 ## [비디오](https://azure.microsoft.com/resources/videos/index/?services=media-services)

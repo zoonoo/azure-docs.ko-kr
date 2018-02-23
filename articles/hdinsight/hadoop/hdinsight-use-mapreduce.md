@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/01/2017
+ms.date: 02/20/2018
 ms.author: larryfr
-ms.openlocfilehash: ad12dee2eb01f839db07985fcb0805bf961354cc
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: bfd176aaf02dd96cee8877f1754dd0ce7ebded13
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-mapreduce-in-hadoop-on-hdinsight"></a>HDInsight에서 Hadoop과 MapReduce 사용
 
@@ -29,12 +29,12 @@ HDInsight 클러스터에서 MapReduce 작업을 실행하는 방법에 대해 �
 | **사용 기능**... | **...다음을 수행합니다** | ... **클러스터 운영 체제** | ... **클라이언트 운영 체제** |
 |:--- |:--- |:--- |:--- |
 | [SSH](apache-hadoop-use-mapreduce-ssh.md) |**SSH** |Linux |Linux, Unix, Mac OS X, 또는 Windows |
-| [REST (영문)](apache-hadoop-use-mapreduce-curl.md) |**REST**를 사용하여 작업 원격 제출(예제 용도 cURL) |Linux 또는or Windows |Linux, Unix, Mac OS X, 또는 Windows |
+| [REST](apache-hadoop-use-mapreduce-curl.md) |**REST**를 사용하여 작업 원격 제출(예제 용도 cURL) |Linux 또는or Windows |Linux, Unix, Mac OS X, 또는 Windows |
 | [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) |**Windows PowerShell** |Linux 또는or Windows |Windows |
-| [원격 데스크톱](apache-hadoop-use-mapreduce-remote-desktop.md)(HDInsight 3.2 및 3.3) |**원격 데스크톱** |Windows |Windows |
 
 > [!IMPORTANT]
 > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](../hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
+>
 
 ## <a id="whatis"></a>MapReduce란
 
@@ -57,7 +57,7 @@ MapReduce는 다양한 언어로 구현할 수 있습니다. Java는 가장 일�
 
 ## <a name="development-languages"></a>개발 언어
 
-Java 및 Java 가상 컴퓨터를 기반으로 하는 언어 또는 프레임워크는 MapReduce 작업으로 직접 실행할 수 있습니다. 이 문서에서 사용된 예는 Java MapReduce 응용 프로그램입니다. C#, Python, 독립 실행형 실행 파일 등의 비-Java 언어는 **Hadoop 스트리밍**을 사용해야 합니다.
+Java 및 Java Virtual Machine을 기반으로 하는 언어 또는 프레임워크는 MapReduce 작업으로 직접 실행할 수 있습니다. 이 문서에서 사용된 예는 Java MapReduce 응용 프로그램입니다. C#, Python, 독립 실행형 실행 파일 등의 비-Java 언어는 **Hadoop 스트리밍**을 사용해야 합니다.
 
 Hadoop 스트리밍은 STDIN 및 STDOUT을 통해 매퍼 및 리듀서와 통신합니다. 매퍼와 리듀서는 STDIN에서 한 번에 한 줄씩 데이터를 읽고 STDOUT에 출력을 씁니다. 매퍼 및 리듀서가 읽거나 내보낸 각 줄은 탭 문자로 구분된 키/값 쌍의 형식이어야 합니다.
 
@@ -168,7 +168,6 @@ HDInsight는 다양한 메서드를 사용하여 HiveQL 작업을 실행할 수 
 | [SSH](apache-hadoop-use-mapreduce-ssh.md) |**SSH** |Linux |Linux, Unix, Mac OS X, 또는 Windows |
 | [Curl](apache-hadoop-use-mapreduce-curl.md) |**REST** |Linux 또는or Windows |Linux, Unix, Mac OS X, 또는 Windows |
 | [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) |**Windows PowerShell** |Linux 또는or Windows |Windows |
-| [원격 데스크톱](apache-hadoop-use-mapreduce-remote-desktop.md)(HDInsight 3.2 및 3.3) |**원격 데스크톱** |Windows |Windows |
 
 > [!IMPORTANT]
 > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](../hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.

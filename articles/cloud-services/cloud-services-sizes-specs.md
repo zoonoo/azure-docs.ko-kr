@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 07/18/2017
 ms.author: adegeo
-ms.openlocfilehash: 7bef7643a989caee846f8235e024deb482f4b0a0
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 542632dc61f1acecd8ca8ac45fb29bfa6aa839c2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="sizes-for-cloud-services"></a>Cloud Services에 적합한 크기
 이 항목에서는 클라우드 서비스 역할 인스턴스(웹 역할 및 작업자 역할)에서 사용 가능한 크기 및 옵션을 설명합니다. 또한 이러한 리소스의 사용 계획을 세울 때 알아야 할 배포 고려 사항도 제공합니다. 각 크기에 따라 [서비스 정의 파일](cloud-services-model-and-package.md#csdef)에 입력할 ID가 있습니다. 각 크기의 가격은 [Cloud Services 가격](https://azure.microsoft.com/pricing/details/cloud-services/) 페이지에서 확인할 수 있습니다.
@@ -147,23 +147,23 @@ Azure SKU에서 계산(CPU) 성능을 비교하는 방법을 제공하고 성능
 
 | 크기            | CPU 코어 | 메모리: GiB   | 로컬 SSD: GiB       | 최대 NIC 수/네트워크 대역폭 |
 |---------------- | --------- | ------------- | -------------------- | ---------------------------- |
-| Standard_D2_v3  | 2         | 8             | 16                   | 2/보통 |
-| Standard_D4_v3  | 4         | 16            | 32                   | 2/높음 |
-| Standard_D8_v3  | 8         | 32            | 64                   | 4/높음 |
-| Standard_D16_v3 | 16        | 64            | 128                  | 8/극히 높음 |
-| Standard_D32_v3 | 32        | 128           | 256                  | 8/극히 높음 |
-| Standard_D64_v3 | 64        | 256           | 512                  | 8/극히 높음 |
+| Standard_D2_v3  | 2         | 8             | 50                   | 2/보통 |
+| Standard_D4_v3  | 4         | 16            | 100                  | 2/높음 |
+| Standard_D8_v3  | 8         | 32            | 200                  | 4/높음 |
+| Standard_D16_v3 | 16        | 64            | 400                  | 8/극히 높음 |
+| Standard_D32_v3 | 32        | 128           | 800                  | 8/극히 높음 |
+| Standard_D64_v3 | 64        | 256           | 1600                 | 8/극히 높음 |
 
 ## <a name="ev3-series"></a>Ev3 시리즈
 
 | 크기            | CPU 코어 | 메모리: GiB   | 로컬 SSD: GiB       | 최대 NIC 수/네트워크 대역폭 |
 |---------------- | --------- | ------------- | -------------------- | ---------------------------- |
-| Standard_E2_v3  | 2         | 16            | 32                   | 2/보통 |
-| Standard_E4_v3  | 4         | 32            | 64                   | 2/높음 |
-| Standard_E8_v3  | 8         | 64            | 128                  | 4/높음 |
-| Standard_E16_v3 | 16        | 128           | 256                  | 8/극히 높음 |
-| Standard_E32_v3 | 32        | 256           | 512                  | 8/극히 높음 |
-| Standard_E64_v3 | 64        | 432           | 864                  | 8/극히 높음 |
+| Standard_E2_v3  | 2         | 16            | 50                   | 2/보통 |
+| Standard_E4_v3  | 4         | 32            | 100                  | 2/높음 |
+| Standard_E8_v3  | 8         | 64            | 200                  | 4/높음 |
+| Standard_E16_v3 | 16        | 128           | 400                  | 8/극히 높음 |
+| Standard_E32_v3 | 32        | 256           | 800                  | 8/극히 높음 |
+| Standard_E64_v3 | 64        | 432           | 1600                 | 8/극히 높음 |
 
 
 ## <a name="g-series"></a>G 시리즈

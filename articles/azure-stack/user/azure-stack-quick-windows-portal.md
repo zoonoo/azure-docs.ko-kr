@@ -2,18 +2,19 @@
 title: "Azure 스택 빠른 시작-Windows 가상 컴퓨터 만들기"
 description: "Azure 스택 빠른 시작-포털을 사용 하는 Windows VM 만들기"
 services: azure-stack
-author: ErikjeMS
-manager: byronr
+author: brenduns
+manager: femila
 ms.service: azure-stack
 ms.topic: quickstart
 ms.date: 09/15/2017
-ms.author: erikje
+ms.author: brenduns
+ms.reviewer: 
 ms.custom: mvc
-ms.openlocfilehash: 64a623b3f5cb443e0676e7d89d7040837be95737
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 9df976fd26318038ab4152863638e262d7f284aa
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="create-a-windows-virtual-machine-with-the-azure-stack-portal"></a>Azure 스택 포털과 Windows 가상 컴퓨터 만들기
 
@@ -26,7 +27,7 @@ Azure 스택 포털에 로그인 합니다. Azure 스택 포털의 주소에 따
 * Azure 스택 개발 키트 (ASDK)에 대 한 이동: https://portal.local.azurestack.external 합니다.
 * Azure 스택 통합 하는 시스템에 대 한 Azure 스택 연산자를 제공 하는 URL로 이동 합니다.
 
-## <a name="create-a-virtual-machine"></a>가상 컴퓨터 만들기
+## <a name="create-a-virtual-machine"></a>가상 머신 만들기
 
 1. 클릭 **새** > **계산** > **Windows Server 2016 데이터 센터 Eval** > **만들**합니다. 표시 되지 않으면 **Windows Server 2016 데이터 센터 Eval** 항목, 귀하가 Azure 스택 운영자에 게 문의 하십시오. 요청은에 추가할 시장에 설명 된 대로 [Azure 스택 시장에 Windows Server 2016 VM 이미지를 추가](../azure-stack-add-default-image.md) 문서. 
     ![](media/azure-stack-quick-windows-portal/image01.png)

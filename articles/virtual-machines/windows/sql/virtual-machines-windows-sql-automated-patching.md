@@ -4,7 +4,7 @@ description: "리소스 관리자를 사용하여 Azure에서 실행 중인 SQL 
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
-manager: jhubbard
+manager: craigg
 editor: 
 tags: azure-resource-manager
 ms.assetid: 58232e92-318f-456b-8f0a-2201a541e08d
@@ -15,26 +15,24 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/05/2018
 ms.author: jroth
-ms.openlocfilehash: e3459e8a62386a94938aa52792b94e87315a48ab
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: c1cdf03133d765f7726d16378b042de8e04b2cfc
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-resource-manager"></a>Azure Virtual Machines에서 SQL Server의 자동화된 패치(리소스 관리자)
 > [!div class="op_single_selector"]
 > * [리소스 관리자](virtual-machines-windows-sql-automated-patching.md)
-> * [클래식](../classic/sql-automated-patching.md)
-> 
-> 
+> * [클래식](../sqlclassic/virtual-machines-windows-classic-sql-automated-patching.md)
 
 자동화된 패치는 SQL Server를 실행하는 Azure Virtual Machine에 대한 유지 관리 기간을 설정합니다. 이 유지 관리 기간 동안만 자동화된 업데이트를 설치할 수 있습니다. SQL Server의 경우 이러한 제한을 통해 시스템 업데이트 및 관련 재시작 작업이 데이터베이스에 대해 가장 적절한 시간에 수행되도록 할 수 있습니다. 자동화된 패치는 [SQL Server IaaS 에이전트 확장](virtual-machines-windows-sql-server-agent-extension.md)에 따라 다릅니다.
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-이 문서의 클래식 버전을 보려면 [Azure Virtual Machines에서 SQL Server의 자동화된 패치(클래식)](../classic/sql-automated-patching.md)를 참조하세요.
+이 문서의 클래식 버전을 보려면 [Azure Virtual Machines에서 SQL Server의 자동화된 패치(클래식)](../sqlclassic/virtual-machines-windows-classic-sql-automated-patching.md)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 자동화된 패치를 사용하려면 다음 필수 조건을 고려하세요.
 
 **운영 체제**:

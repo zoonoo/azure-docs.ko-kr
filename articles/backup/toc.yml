@@ -79,6 +79,14 @@
               href: backup-mabs-system-state-and-bmr.md
         - name: Azure Backup Server에서 데이터 복구
           href: backup-azure-alternate-dpm-server.md
+    - name: Azure 파일 공유
+      items:
+        - name: Azure 파일 공유 백업
+          href: backup-azure-files.md
+        - name: Azure 파일 공유 백업 FAQ
+          href: backup-azure-files-faq.md
+        - name: Azure 파일 공유 백업 문제 해결
+          href: troubleshoot-azure-files.md
     - name: Azure VM
       items:
         - name: VM 준비

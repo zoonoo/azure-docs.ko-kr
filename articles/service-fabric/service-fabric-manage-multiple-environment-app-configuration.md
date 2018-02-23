@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/09/2017
 ms.author: mikhegn
-ms.openlocfilehash: 959fdb4aceee48863f3914d1b91f2bec6e256d6b
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 6bc986236d50106485dce151f1f74622f56400c5
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-applications-for-multiple-environments"></a>여러 환경에 대한 응용 프로그램 관리
 
@@ -55,8 +55,8 @@ Service Fabric에서 명명된 응용 프로그램 인스턴스를 만들 때 �
 ## <a name="next-steps"></a>다음 단계
 다음 문서에서는 여기에 설명된 개념 중 일부를 사용하는 방법을 보여 줍니다.
 
-- [Service Fabric에서 서비스에 대한 환경 변수를 지정하는 방법](service-fabric-how-to-specify-port-number-using-parameters.md)
-- [Service Fabric에서 매개 변수를 사용하는 서비스의 포트 번호를 지정하는 방법](service-fabric-how-to-specify-environment-variables.md)
+- [Service Fabric에서 서비스에 대한 환경 변수를 지정하는 방법](service-fabric-how-to-specify-environment-variables.md)
+- [Service Fabric에서 매개 변수를 사용하는 서비스의 포트 번호를 지정하는 방법](service-fabric-how-to-specify-port-number-using-parameters.md)
 - [구성 파일을 매개 변수화하는 방법](service-fabric-how-to-parameterize-configuration-files.md)
 
 - [환경 변수 참조](service-fabric-environment-variables-reference.md)

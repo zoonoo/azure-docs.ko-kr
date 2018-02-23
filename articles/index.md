@@ -5,11 +5,11 @@ title: "Microsoft Azure 설명서"
 description: "Microsoft Azure 클라우드 서비스를 사용하여 강력한 응용 프로그램을 관리하는 방법을 알아봅니다. 설명서, 샘플 코드, 자습서 등을 가져옵니다."
 featureFlags:
 - clicktale
-ms.openlocfilehash: 0eb89abcd31756a2147ac3df49d0c3fffb574eec
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 9f2b958d4a5d7869999d0cbaccaeed69672d6b0b
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/22/2018
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -722,7 +722,7 @@ ms.lasthandoff: 02/13/2018
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cognitive-services/bing-entities-search/search-the-web">
+                                            <a href="/azure/cognitive-services/bing-entities-search/">
                                                 <img src="media/index/API_Bing_Entity_Search.svg" alt="" />
                                                 <p>Bing Entity Search</p>
                                             </a>
@@ -1831,7 +1831,7 @@ ms.lasthandoff: 02/13/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Backup</h3>
-                                                    <p>간단하고 안전하게 클라우드에 서버 백업</p>
+                                                    <p>클라우드 기반 BaaS(Backup as a Service)로 데이터 보호</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2752,7 +2752,7 @@ ms.lasthandoff: 02/13/2018
                                                                 <a class="barLink" href="/azure/cognitive-services/bing-custom-search"><img src="media/index/API_Bing_Custom_Search.svg" alt="" /><span>Bing Custom Search</a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/bing-entities-search/search-the-web"><img src="media/index/API_Bing_Entity_Search.svg" alt="" /><span>Bing Entity Search&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
+                                                                <a class="barLink" href="/azure/cognitive-services/bing-entities-search/"><img src="media/index/API_Bing_Entity_Search.svg" alt="" /><span>Bing 엔터티 검색&nbsp;<sup style="font-size:70%">미리 보기</sup></span></a>
                                                             </li>
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/bing-image-search"><img src="media/index/API_Bing_Image_Search.svg" alt="" />Bing Image Search</a>
@@ -3894,7 +3894,7 @@ ms.lasthandoff: 02/13/2018
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="/python/azure/python-sdk-azure-install">Python용 Azure 라이브러리 가져오기</a>
+                                                    <a href="/python/azure">Python용 Azure 라이브러리 가져오기</a>
                                                 </h3>
                                                 <p>
                                                     <a href="/python/azure">시작</a>

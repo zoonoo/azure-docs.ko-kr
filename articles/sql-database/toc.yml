@@ -378,8 +378,8 @@
               href: saas-dbpertenant-restore-single-tenant.md
             - name: 테넌트 스키마 관리
               href: saas-tenancy-schema-management.md
-            - name: 임시 쿼리 실행
-              href: saas-tenancy-adhoc-analytics.md
+            - name: 교차 테넌트 보고
+              href: saas-tenancy-cross-tenant-reporting.md
             - name: 분석용 ETL
               href: saas-tenancy-tenant-analytics.md
         - name: 다중 테넌트 데이터베이스

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/07/2017
 ms.author: v-craic
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3dcd285761774c3cd1050976894f1f15db61b52c
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 330f6ae246697d54c6bce0690346652b5f2e2dd0
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-azure-devtest-labs-formulas"></a>Azure DevTest Labs 수식 관리
 
@@ -40,7 +40,7 @@ DevTest Lab *사용자* 권한이 있으면 수식을 기준으로 사용하여 
 
 1. [Azure 포털](http://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
 
-2. **추가 서비스**를 선택한 후 목록에서 **DevTest Labs**을 선택합니다.
+2. **모든 서비스**를 선택한 다음, 목록에서 **DevTest Labs**를 선택합니다.
 
 3. 랩 목록에서 원하는 랩을 탭합니다.  
 
@@ -87,7 +87,7 @@ DevTest Lab *사용자* 권한이 있으면 수식을 기준으로 사용하여 
 > 
 
 1. [Azure 포털](http://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
-2. **추가 서비스**를 선택한 후 목록에서 **DevTest Labs**을 선택합니다.
+2. **모든 서비스**를 선택한 다음, 목록에서 **DevTest Labs**를 선택합니다.
 3. 랩 목록에서 원하는 랩을 탭합니다.  
 4. 랩의 **개요** 블레이드에서 수식을 만들 VM을 선택합니다.
    
@@ -104,7 +104,7 @@ DevTest Lab *사용자* 권한이 있으면 수식을 기준으로 사용하여 
 수식을 수정하려면 다음 단계를 수행합니다.
 
 1. [Azure 포털](http://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
-2. **추가 서비스**를 선택한 후 목록에서 **DevTest Labs**을 선택합니다.
+2. **모든 서비스**를 선택한 다음, 목록에서 **DevTest Labs**를 선택합니다.
 3. 랩 목록에서 원하는 랩을 탭합니다.  
 4. 랩의 블레이드에서 **수식(재사용 가능 기준)**을 선택합니다.
    
@@ -116,7 +116,7 @@ DevTest Lab *사용자* 권한이 있으면 수식을 기준으로 사용하여 
 수식을 삭제하려면 다음 단계를 수행합니다.
 
 1. [Azure 포털](http://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
-2. **추가 서비스**를 선택한 후 목록에서 **DevTest Labs**을 선택합니다.
+2. **모든 서비스**를 선택한 다음, 목록에서 **DevTest Labs**를 선택합니다.
 3. 랩 목록에서 원하는 랩을 탭합니다.  
 4. 랩의 **설정** 블레이드에서 **수식**을 선택합니다.
    

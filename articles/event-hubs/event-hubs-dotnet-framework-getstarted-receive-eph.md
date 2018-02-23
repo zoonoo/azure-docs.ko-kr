@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2018
 ms.author: sethm
-ms.openlocfilehash: 8bb5b7e27291a06a713f0dfc7d5ca5a0a961de4c
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 8fd70380dbb88f379789e1a4730934dcd38cac5a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="receive-events-from-azure-event-hubs-using-the-net-framework"></a>.NET Framework를 사용하여 Azure Event Hubs에서 이벤트 수신
 
@@ -45,7 +45,7 @@ Event Hubs는 연결된 장치 및 응용 프로그램에서 많은 양의 이�
 
 [이벤트 프로세서 호스트][EventProcessorHost]를 사용하려면 [Azure Storage 계정][Azure Storage account]이 있어야 합니다.
 
-1. [Azure Portal][Azure portal]에 로그온하고 화면 왼쪽 위에서 **새로 만들기**를 클릭합니다.
+1. [Azure Portal][Azure portal]에 로그온하고 화면 왼쪽 위에서 **리소스 만들기**를 클릭합니다.
 2. **저장소**를 클릭한 다음 **Storage 계정**을 클릭합니다.
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage1.png)

@@ -3,8 +3,8 @@ title: "Azure 스택에서 Azure 리소스 관리자 템플릿을 사용 하 여
 description: "리소스를 제공 하려면 Azure 스택에서 Azure 리소스 관리자 템플릿을 사용 하는 방법을 알아봅니다."
 services: azure-stack
 documentationcenter: 
-author: heathl17
-manager: byronr
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 2022dbe5-47fd-457d-9af3-6c01688171d7
 ms.service: azure-stack
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
-ms.author: helaw
-ms.openlocfilehash: 7648855011e8f77c35713d2d2ae50f2e474a08a6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: brenduns
+ms.reviewer: 
+ms.openlocfilehash: 6d4ef16881ef8dc249116aec706f760b163a2972
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="use-azure-resource-manager-templates-in-azure-stack"></a>Azure Stack에서 Azure Resource Manager 템플릿 사용
 
@@ -58,10 +59,10 @@ PowerShell DSC 확장을 사용 하 여 다음 리소스를 포함 하는 ShareP
 * SQL Server 2014 독립 실행형 서버로 하나의 VM이 구성됨
 
 ## <a name="vm-dsc-extension-azure-automation-pull-server"></a>VM-DSC-Extension-Azure-Automation-Pull-Server
-PowerShell DSC 확장을 사용하여 기존 가상 컴퓨터 로컬 구성 관리자(LCM)를 구성하고 Azure Automation 계정 DSC 끌어오기 서버에 등록합니다.
+PowerShell DSC 확장을 사용하여 기존 가상 머신 로컬 구성 관리자(LCM)를 구성하고 Azure Automation 계정 DSC 끌어오기 서버에 등록합니다.
 
-## <a name="create-a-virtual-machine-from-a-user-image"></a>사용자 이미지에서 가상 컴퓨터 만들기
-사용자 지정 사용자 이미지에서 가상 컴퓨터를 만듭니다. 이 템플릿은 가상 네트워크(DNS 사용), 공용 IP 주소 및 네트워크 인터페이스도 배포합니다.
+## <a name="create-a-virtual-machine-from-a-user-image"></a>사용자 이미지에서 가상 머신 만들기
+사용자 지정 사용자 이미지에서 가상 머신을 만듭니다. 이 템플릿은 가상 네트워크(DNS 사용), 공용 IP 주소 및 네트워크 인터페이스도 배포합니다.
 
 ## <a name="simple-vm"></a>단순 VM
 DNS) (포함 된 가상 네트워크, 공용 IP 주소 및 네트워크 인터페이스를 포함 하는 Windows VM을 배포 합니다.

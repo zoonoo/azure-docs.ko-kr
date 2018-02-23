@@ -30,6 +30,9 @@
 #### [고급 자동 크기 조정](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [확장 집합의 응용 프로그램](virtual-machine-scale-sets-deploy-app.md)
 ### [확장 집합으로 데이터 디스크 사용](virtual-machine-scale-sets-attached-disks.md)
+### 확장 집합의 디스크 암호화
+#### [PowerShell 사용](virtual-machine-scale-sets-encrypt-disks-ps.md)
+#### [Azure CLI 2.0 사용](virtual-machine-scale-sets-encrypt-disks-cli.md)
 ### [큰 확장 집합으로 작업](virtual-machine-scale-sets-placement-groups.md)
 ### [확장 집합 템플릿을 변환하여 관리 디스크 사용](virtual-machine-scale-sets-convert-template-to-md.md)
 

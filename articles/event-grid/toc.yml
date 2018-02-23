@@ -36,6 +36,8 @@
       href: delivery-and-retry.md
 - name: 방법 가이드
   items:
+    - name: HTTP 엔드포인트에 대한 이벤트 수신
+      href: receive-events.md
     - name: Event Hubs에서 데이터 웨어하우스로 데이터 스트림
       href: event-grid-event-hubs-integration.md
     - name: IoT Hub 이벤트에 대한 알림 보내기
