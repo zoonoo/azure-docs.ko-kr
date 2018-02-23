@@ -12,11 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: 76ed1a93af22620ccc2074168b3ff20f6bb4c37d
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 936d3718c84cad49221e64b65e60bea7e37a523c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="data-preparations-python-extensions"></a>데이터 준비 Python 확장
 기본 제공 기능 사이의 격차를 해소하기 위해 Azure Machine Learning 데이터 준비에는 여러 수준의 확장성이 포함되어 있습니다. 이 문서에서는 Python 스크립트를 통해 확장성을 설명합니다. 
@@ -101,7 +101,7 @@ import scipy as sp
 ### <a name="windows"></a>Windows 
 Windows에서 해당 위치를 찾으려면 Python의 앱별 설치와 해당 스크립트 디렉터리를 찾습니다. 기본 위치는 다음과 같습니다.  
 
-`C:\Users\<user>\AppData\Local\AmlWorkbench\Python\Scripts.` 
+`C:\Users\<user>\AppData\Local\AmlWorkbench\Python\Scripts` 
 
 그런 후 다음 명령 중 하나를 실행합니다. 
 
@@ -114,7 +114,7 @@ Windows에서 해당 위치를 찾으려면 Python의 앱별 설치와 해당 �
 ### <a name="mac"></a>Mac 
 Mac에서 해당 위치를 찾으려면 Python의 앱별 설치와 해당 스크립트 디렉터리를 찾습니다. 기본 위치는 다음과 같습니다. 
 
-`/Users/<user>/Library/Caches/AmlWorkbench>/Python/bin` 
+`/Users/<user>/Library/Caches/AmlWorkbench/Python/bin` 
 
 그런 후 다음 명령 중 하나를 실행합니다. 
 

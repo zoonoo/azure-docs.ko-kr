@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 1/19/2017
 ms.author: tamram
-ms.openlocfilehash: 327816874fb2f2d43192e02410bd31c168e574f7
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 66406ed327f496dce7e77bb9ff650e0eec44bbdd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="what-to-do-if-an-azure-storage-outage-occurs"></a>Azure Storage 중단이 발생할 경우 수행할 작업
 Microsoft에서는 서비스를 항상 사용할 수 있도록 하기 위해 많은 노력을 기울입니다. 경우에 따라 강제적으로 우리의 제어 영향을 벗어나 하나 이상의 지역에서 계획되지 않은 서비스 중단이 발생되는 경우가 있습니다. 이러한 드문 경우를 처리할 수 있도록 Azure Storage 서비스에 대해 다음과 같은 높은 수준의 지침을 제공합니다.
@@ -27,9 +27,9 @@ Microsoft에서는 서비스를 항상 사용할 수 있도록 하기 위해 많
 모든 고객은 자체적으로 재해 복구 계획을 준비하는 것이 중요합니다. 저장소 중단을 복구하려면 일반적으로 응용 프로그램을 작동 중인 상태로 다시 활성화하기 위해 운영 직원과 자동화된 프로시저가 모두 작업에 관여합니다. 자체 재해 복구 계획을 빌드하려면 아래 Azure 설명서를 참조하세요.
 
 * [가용성 검사 목록](https://docs.microsoft.com/azure/architecture/checklist/availability)
-* [Azure용 복원 응용 프로그램 디자인](/azure/architecture/resiliency)
+* [Azure용 복원 응용 프로그램 디자인](https://docs.microsoft.com/azure/architecture/resiliency/)
 * [Azure Site Recovery 서비스](https://azure.microsoft.com/services/site-recovery/)
-* [Azure Storage 복제](storage-redundancy)
+* [Azure Storage 복제](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
 * [Azure Backup 서비스](https://azure.microsoft.com/services/backup/)
 
 ## <a name="how-to-detect"></a>검색 방법

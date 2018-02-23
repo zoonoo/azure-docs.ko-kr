@@ -17,7 +17,6 @@
 #### [azureiotsuite.com의 사용 권한](iot-suite-v1-permissions.md)
 #### [원격 모니터링 솔루션 연습](iot-suite-v1-remote-monitoring-sample-walkthrough.md)
 #### [Raspberry Pi에 연결](iot-suite-v1-raspberry-pi-kit-get-started.md)
-#### [MXChip IoT DevKit 연결](../iot-hub/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring.md)
 ##### C 사용
 ###### [시뮬레이션된 데이터](iot-suite-v1-raspberry-pi-kit-c-get-started-simulator.md)
 ###### [실제 센서 사용](iot-suite-v1-raspberry-pi-kit-c-get-started-basic.md)
@@ -26,6 +25,7 @@
 ###### [시뮬레이션된 데이터](iot-suite-v1-raspberry-pi-kit-node-get-started-simulator.md)
 ###### [실제 센서 사용](iot-suite-v1-raspberry-pi-kit-node-get-started-basic.md)
 ###### [펌웨어 업데이트 구현](iot-suite-v1-raspberry-pi-kit-node-get-started-advanced.md)
+#### [MXChip IoT DevKit 연결](../iot-hub/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring.md)
 
 ### 방법 가이드
 #### 시뮬레이션된 장치 연결
@@ -99,5 +99,7 @@
 # 리소스
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
 ## [FAQ](iot-suite-faq.md)
+## [원격 모니터링 FAQ](iot-suite-faq-rm-v2.md)
 ## [연결된 팩터리 FAQ](iot-suite-faq-cf.md)
+## [스택 오버플로](https://stackoverflow.com/questions/tagged/azure-iot-suite)
 ## [IoT Suite 학습 경로](https://azure.microsoft.com/documentation/learning-paths/iot-suite/)

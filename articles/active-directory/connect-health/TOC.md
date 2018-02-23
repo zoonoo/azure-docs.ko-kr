@@ -11,9 +11,10 @@
 ## [Azure AD Connect Health 작업](active-directory-aadconnect-health-operations.md)
 ## [동기화 중 오류](../active-directory-aadconnect-troubleshoot-sync-errors.md)
 
-# 참조
+# 참고 자료
 ## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 ## [Azure AD Connect Health 버전 내역](active-directory-aadconnect-health-version-history.md)
+## [GDPR 규정 준수 및 Azure AD Connect Health](active-directory-aadconnect-health-gdpr.md)
 
 # 관련 항목
 ## [Azure Active Directory와 온-프레미스 ID 통합](../active-directory-aadconnect.md)

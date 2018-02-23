@@ -41,6 +41,8 @@
 #### [메시지 전송, 잠금 및 정산](message-transfers-locks-settlement.md)
 #### [메시지 시퀀싱 및 타임스탬프](message-sequencing.md)
 #### [메시지 만료(TTL(Time To Live))](message-expiration.md)
+#### [Azure Event Grid를 사용하여 메시지 처리](service-bus-to-event-grid-integration-concept.md)
+#### [Azure Event Grid 예제](service-bus-to-event-grid-integration-example.md)
 ### [인증 및 권한 부여](service-bus-authentication-and-authorization.md)
 #### [ACS에서 SAS로 마이그레이션](service-bus-migrate-acs-sas.md)
 #### [공유 액세스 서명을 사용한 인증](service-bus-sas.md)

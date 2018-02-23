@@ -1,23 +1,22 @@
 # [개요](overview.md)
 
 # 빠른 시작
-## [Bash에 대한 빠른 시작](quickstart.md)
-## [PowerShell에 대한 빠른 시작](quickstart-powershell.md)
+## [Bash - 빠른 시작](quickstart.md)
+## [PowerShell-빠른 시작](quickstart-powershell.md)
 
 # 개념
-## [Bash의 기능 및 도구](features.md)
-## [PowerShell의 기능 및 도구](features-powershell.md)
+## [Bash - 기능 및 도구](features.md)
+## [PowerShell - 기능 및 도구](features-powershell.md)
 ## [제한 사항](limitations.md)
 
 # 방법
-## [Bash에서 저장소 유지](persisting-shell-storage.md)
-## [PowerShell에서 저장소 유지](persisting-shell-storage-powershell.md)
+## [Bash - 저장소 유지](persisting-shell-storage.md)
+## [PowerShell - 저장소 유지](persisting-shell-storage-powershell.md)
 ## [창 사용](using-the-shell-window.md)
 
 # 예
-## [Bash에서 Terraform을 사용하여 Azure 리소스 배포](example-terraform-bash.md)
-
-## [Bash에서 Ansible 실행](../ansible/ansible-run-playbook-in-cloudshell.md)
+## [Bash - Terraform으로 리소스 만들기](example-terraform-bash.md)
+## [Bash - Ansible 플레이북 실행](../ansible/ansible-run-playbook-in-cloudshell.md)
 
 # [Cloud Shell 포함](embed-cloud-shell.md)
 

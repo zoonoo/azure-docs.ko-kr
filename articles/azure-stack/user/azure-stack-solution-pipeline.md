@@ -3,8 +3,8 @@ title: "응용 프로그램을 Azure 및 Azure 배포 스택 | Microsoft Docs"
 description: "하이브리드 CI/CD 파이프라인을 Azure 및 Azure 스택 앱을 배포 하는 방법을 알아봅니다."
 services: azure-stack
 documentationcenter: 
-author: HeathL17
-manager: byronr
+author: brenduns
+manager: femila
 editor: 
 ms.service: azure-stack
 ms.workload: na
@@ -12,13 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/25/2017
-ms.author: helaw
+ms.author: brenduns
+ms.reviewer: 
 ms.custom: mvc
-ms.openlocfilehash: 83bb401d5d65cd2c34015a1a14673363aeee81d7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6c073376db196b7d6c73c38d6a0a7b2c24949528
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="deploy-apps-to-azure-and-azure-stack"></a>Azure 및 Azure에 앱 배포 스택
 *적용 대상: Azure 스택 통합 시스템과 Azure 스택 개발 키트*
@@ -40,7 +41,7 @@ ms.lasthandoff: 10/11/2017
 - [Azure 스택 주요 개념](../azure-stack-key-features.md)
 
 ### <a name="azure"></a>Azure
- - Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+ - Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
  - 만들기는 [웹 앱](../../app-service/environment/app-service-web-how-to-create-a-web-app-in-an-ase.md), 및 구성에 대해 [FTP 게시](../../app-service/app-service-deploy-ftp.md)합니다.  나중에 사용 중 이므로 새 웹 앱 URL을 기록해 두십시오.
 
 
@@ -71,7 +72,7 @@ ms.lasthandoff: 10/11/2017
 ### <a name="commit-and-push-changes-to-vsts"></a>커밋 및 VSTS에 변경 내용 적용
 1.  팀 탐색기를 사용 하 여 Visual Studio에서, 드롭다운을 선택 하 고 클릭 **변경**합니다.
 2.  커밋 메시지를 제공 하 고 선택 **모든**합니다. 솔루션 파일 저장을 모두 저장 하려면 예를 클릭 하 라는 메시지가 표시 될 수 있습니다.
-3.  커밋되고 나면 Visual Studio 프로젝트에 변경 내용을 동기화를 제공 합니다. 선택 **동기화**합니다.
+3.  커밋되고 나면 Visual Studio 프로젝트에 변경 내용을 동기화를 제공 합니다. **동기화**를 선택합니다.
 
     ![커밋이 완료 되 면 커밋 화면을 보여 주는 이미지](./media/azure-stack-solution-pipeline/image1.png)
 
@@ -118,7 +119,7 @@ ms.lasthandoff: 10/11/2017
     |사용자 이름 | 웹 앱에 대 한 FTP 자격 증명을 만들 때 구성한 사용자 이름 |
     |암호 | 웹 앱에 대 한 FTP 자격 증명을 설정할 때 만든 암호|
     |원본 디렉터리 | $(System.DefaultWorkingDirectory)\**\ |
-    |원격 디렉터리 | /site/wwwroot / |
+    |원격 디렉터리 | /site/wwwroot/ |
     |파일 경로 유지 합니다. | 사용 하도록 설정 (확인란 선택)|
 
 4.  페이지 맨 아래에 있는 **저장**
@@ -162,7 +163,7 @@ ms.lasthandoff: 10/11/2017
     |사용자 이름 | 웹 앱에 대 한 FTP 자격 증명을 만들 때 구성한 사용자 이름 |
     |암호 | 웹 앱에 대 한 FTP 자격 증명을 설정할 때 만든 암호|
     |원본 디렉터리 | $(System.DefaultWorkingDirectory)\**\ |
-    |원격 디렉터리 | /site/wwwroot /|
+    |원격 디렉터리 | /site/wwwroot/|
     |파일 경로 유지 합니다. | 사용 하도록 설정 (확인란 선택)|
 
 2.  페이지 맨 아래에 있는 **저장**

@@ -15,11 +15,11 @@ ms.date: 01/30/2018
 ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: it-pro
-ms.openlocfilehash: 520a52161438c967b7614ab01b2e9892612254f0
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 82fa6d3f04dc528c0e2d95dae82e7a7f8787ea7c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Azure 역할 기반 액세스 제어의 기본 제공 역할
 Azure 역할 기반 Access Control(RBAC)에는 사용자, 그룹 및 서비스에 할당할 수 있는 다음 기본 제공 역할이 포함되었습니다. 기본 제공 역할의 정의는 수정할 수 없습니다. 그러나 조직의 특정 요구 사항에 맞게 [Azure RBAC에서 사용자 지정 역할](role-based-access-control-custom-roles.md) 을 만들 수 있습니다.
@@ -61,7 +61,6 @@ Azure 역할 기반 Access Control(RBAC)에는 사용자, 그룹 및 서비스�
 | [Monitoring Reader](#monitoring-reader) |모든 모니터링 데이터를 읽을 수 있음 |
 | [Monitoring Contributor](#monitoring-contributor) |모니터링 데이터를 읽고 모니터링 설정을 편집할 수 있음 |
 | [네트워크 참여자](#network-contributor) |모든 네트워크 리소스를 관리할 수 있음 |
-| [NewRelic APM 계정 참여자](#new-relic-apm-account-contributor) |New Relic 응용 프로그램 성능 관리 계정 및 응용 프로그램을 관리할 수 있음 |
 | [소유자](#owner) |액세스를 제외한 모든 것을 관리할 수 있음 |
 | [판독기](#reader) |모든 항목을 볼 수 있지만 변경할 수는 없음 |
 | [Redis 캐시 참여자](#redis-cache-contributor) |Redis 캐시를 관리할 수 있음 |
@@ -440,19 +439,6 @@ Azure Cosmos DB 계정을 관리할 수 있습니다. Azure Cosmos DB는 이전�
 | Microsoft.Resources/deployments/* |리소스 그룹 배포 만들기 및 관리 |
 | Microsoft.Resources/subscriptions/resourceGroups/read |리소스 그룹 읽기 |
 | Microsoft.Support/* |지원 티켓 만들기 및 관리 |
-
-### <a name="new-relic-apm-account-contributor"></a>NewRelic APM 계정 참여자
-New Relic 응용 프로그램 성능 관리 계정 및 응용 프로그램을 관리할 수 있음
-
-| **actions** |  |
-| --- | --- |
-| Microsoft.Authorization/*/read |역할 및 역할 할당 읽기 |
-| Microsoft.Insights/alertRules/* |경고 규칙 만들기 및 관리 |
-| Microsoft.ResourceHealth/availabilityStatuses/read |리소스 상태 읽기 |
-| Microsoft.Resources/deployments/* |리소스 그룹 배포 만들기 및 관리 |
-| Microsoft.Resources/subscriptions/resourceGroups/read |리소스 그룹 읽기 |
-| Microsoft.Support/* |지원 티켓 만들기 및 관리 |
-| NewRelic.APM/accounts/* |New Relic 응용 프로그램 성능 관리 계정 만들기 및 관리 |
 
 ### <a name="owner"></a>소유자
 액세스를 제외한 모든 것을 관리할 수 있음

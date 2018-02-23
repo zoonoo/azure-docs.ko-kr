@@ -3,8 +3,8 @@ title: "Azure 스택에 대 한 앱을 개발 | Microsoft Docs"
 description: "Azure 스택 프로토타입 응용 프로그램의 개발 고려 사항에 알아봅니다"
 services: azure-stack
 documentationcenter: 
-author: HeathL17
-manager: byronr
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: d3ebc6b1-0ffe-4d3e-ba4a-388239d6cdc3
 ms.service: azure-stack
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
-ms.author: helaw
-ms.openlocfilehash: 062c17173f87eec8e0eaa3f74323cbf8a8f48571
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: brenduns
+ms.reviewer: 
+ms.openlocfilehash: 4b9e0f5a264296e59579539dd929f5d75a54b62a
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="develop-for-azure-stack"></a>Azure Stack에 대한 개발
 시작할 수 있는 현재 응용 프로그램을 개발 Azure 스택 환경에 액세스할 수 없는 경우에 합니다. Azure 스택 데이터 센터에서 실행 되는 Microsoft Azure 서비스를 제공, 때문에 Azure와 마찬가지로 Azure 스택에 대해 개발 하기 비슷한 도구와 프로세스를 사용할 수 있습니다.  준비 및 다음 항목의 지침의 비트를 Azure 스택 환경 에뮬레이션 하기 위해 Azure를 사용할 수 있습니다.

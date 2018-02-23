@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/17/2017
 ms.author: kgremban
 ms.custom: pim
-ms.openlocfilehash: e1bc0f27b14beef91b4deb68dc625d75195445fb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6611bd07ad4c65953349c62cae3ece735fd85e70
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="securing-privileged-access-in-azure-ad"></a>Azure AD에서 권한 있는 액세스 보안
 최신 조직에서 비즈니스 자산 보호를 위해 중요한 첫 번째 단계는 권한 있는 액세스 보안입니다. 권한 있는 계정은 IT 시스템을 운영하고 관리하는 계정입니다. 사이버 공격자는 조직의 데이터와 시스템에 대한 액세스 권한을 얻기 위해 이러한 계정을 대상으로 합니다. 권한 있는 액세스를 보호하려면 계정과 시스템을 악의적 사용자에게 노출될 위험으로부터 격리해야 합니다.
@@ -50,7 +50,7 @@ Azure Multi-Factor Authentication의 작동 방식에 대한 개요는 다음 �
 ## <a name="time-bound-privileges"></a>시간 제한 권한
 일부 조직에서는 높은 권한이 있는 역할의 사용자가 너무 많은 것을 볼 수 있습니다. 서비스 등록 등의 특정 작업에 대한 역할에 사용자가 추가되었을 수 있지만 이후 그러한 권한을 자주 사용하지 않았습니다.
 
-권한의 노출 시간을 줄이고 용도에 대한 가시성을 증가하려면 해당 권한 "JIT"(just in time)만 사용하도록 사용자를 제한하거나 확신을 가지고 축약된 기간에 대해 이러한 역할을 할당합니다. 권한은 자동으로 취소됩니다. Azure Active Directory, Azure Resources(미리 보기) 및 Microsoft Online Services에서 [Azure AD PIM(Privileged Identity Management)](http://aka.ms/AzurePIM)을 사용할 수 있습니다.
+권한의 노출 시간을 줄이고 용도에 대한 가시성을 증가하려면 해당 권한 "JIT"(just in time)만 사용하도록 사용자를 제한하거나 확신을 가지고 축약된 기간에 대해 이러한 역할을 할당합니다. 권한은 자동으로 취소됩니다. Azure Active Directory, Azure Resources(미리 보기) 및 Microsoft Online Services에서 [Azure AD PIM(Privileged Identity Management)](https://aka.ms/AzurePIM)을 사용할 수 있습니다.
 
 ![PIM 대시보드][2]
 
@@ -68,7 +68,7 @@ Azure Multi-Factor Authentication의 작동 방식에 대한 개요는 다음 �
 * [Azure AD ID 보호](../active-directory-identityprotection.md) 사용
 * [조건부 액세스 제어](../active-directory-conditional-access-azure-portal.md) 사용
 
-완벽한 보안 로드맵 작성에 대한 자세한 내용은 [Microsoft Cloud Security for Enterprise Architects(엔터프라이즈 설계자를 위한 Microsoft 클라우드 보안)](http://aka.ms/securecustomer) 문서의 "Customer responsibilities and roadmap(고객 책임 및 로드맵)" 섹션을 참조하세요. 이러한 항목에 도움이 되는 Microsoft 서비스 참여에 대한 자세한 내용은 Microsoft 담당자에게 문의하거나 [사이버 보안 솔루션 페이지](https://www.microsoft.com/en-us/microsoftservices/campaigns/cybersecurity-protection.aspx)를 방문하세요.
+완벽한 보안 로드맵 작성에 대한 자세한 내용은 [Microsoft Cloud Security for Enterprise Architects(엔터프라이즈 설계자를 위한 Microsoft 클라우드 보안)](https://aka.ms/securecustomer) 문서의 "Customer responsibilities and roadmap(고객 책임 및 로드맵)" 섹션을 참조하세요. 이러한 항목에 도움이 되는 Microsoft 서비스 참여에 대한 자세한 내용은 Microsoft 담당자에게 문의하거나 [사이버 보안 솔루션 페이지](https://www.microsoft.com/en-us/microsoftservices/campaigns/cybersecurity-protection.aspx)를 방문하세요.
 
 <!--Image references-->
 [1]: ../media/active-directory-privileged-identity-management-configure/Search_PIM.png

@@ -6,14 +6,14 @@ keywords:
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 10/05/2017
+ms.date: 02/15/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 726bbafa9e4ba35cfa4a9cbf4d89056d52fe7963
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 0f3ce7496427b6975eb4ac476e7d1737321ed2e9
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="understand-azure-iot-edge-modules---preview"></a>Azure IoT Edge 모듈 이해 - 미리 보기
 
@@ -50,7 +50,7 @@ IoT Edge 모듈 이미지에는 IoT Edge 런타임의 관리, 보안 및 통신 
 
 모듈 쌍은 모듈 정보와 구성 속성을 저장하는 JSON 문서입니다. 이 개념은 IoT Hub의 [장치 쌍][lnk-device-twin] 개념과 유사합니다. 모듈 쌍의 구조는 장치 쌍과 정확하게 같습니다. 두 유형의 쌍과 상호 작용하는 데 사용되는 API도 같습니다. 이 둘의 유일한 차이점은 클라이언트 SDK를 인스턴스화하는 데 사용되는 ID입니다. 
 
-```
+```csharp
 // Create a DeviceClient object. This DeviceClient will act on behalf of a 
 // module since it is created with a module’s connection string instead 
 // of a device connection string. 

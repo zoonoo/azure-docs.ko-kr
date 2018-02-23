@@ -15,11 +15,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/18/2016
 ms.author: mikejo
-ms.openlocfilehash: 5e3c729ce3e75665078d7f33baed943087fbe0ca
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: ee7febeb04d3a956b4a0a11b69f8f34acee23067
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="testing-the-performance-of-a-cloud-service-locally-in-the-azure-compute-emulator-using-the-visual-studio-profiler"></a>Visual Studio 프로파일러를 사용하여 Azure Compute 에뮬레이터에서 로컬로 클라우드 서비스의 성능 테스트
 다양한 도구와 기법을 사용하여 클라우드 서비스의 성능을 테스트할 수 있습니다.
@@ -44,31 +44,35 @@ ms.lasthandoff: 10/27/2017
 
 예제를 위해 오랜 시간이 걸리고 명백한 성능 문제를 보이는 일부 코드를 프로젝트에 추가합니다. 예를 들어 작업자 역할 프로젝트에 다음 코드를 추가합니다.
 
-    public class Concatenator
+```csharp
+public class Concatenator
+{
+    public static string Concatenate(int number)
     {
-        public static string Concatenate(int number)
+        int count;
+        string s = "";
+        for (count = 0; count < number; count++)
         {
-            int count;
-            string s = "";
-            for (count = 0; count < number; count++)
-            {
-                s += "\n" + count.ToString();
-            }
-            return s;
+            s += "\n" + count.ToString();
         }
+        return s;
     }
+}
+```
 
 작업자 역할의 RoleEntryPoint 파생 클래스의 RunAsync 메서드에서 이 코드를 호출합니다. 동기적으로 실행되는 메서드에 대한 경고는 무시합니다.
 
-        private async Task RunAsync(CancellationToken cancellationToken)
-        {
-            // TODO: Replace the following with your own logic.
-            while (!cancellationToken.IsCancellationRequested)
-            {
-                Trace.TraceInformation("Working");
-                Concatenator.Concatenate(10000);
-            }
-        }
+```csharp
+private async Task RunAsync(CancellationToken cancellationToken)
+{
+    // TODO: Replace the following with your own logic.
+    while (!cancellationToken.IsCancellationRequested)
+    {
+        Trace.TraceInformation("Working");
+        Concatenator.Concatenate(10000);
+    }
+}
+```
 
 솔루션 구성을 **릴리스**로 설정하여 디버깅(Ctrl+F5) 없이 로컬에서 클라우드 서비스를 빌드하고 실행합니다. 그러면 로컬에서 응용 프로그램을 실행하기 위한 모든 파일 및 폴더가 생성되고 모든 시뮬레이터가 시작됩니다. 작업 표시줄에서 Compute 에뮬레이터 UI를 시작하여 작업자 역할이 실행 중인지 확인합니다.
 
@@ -88,9 +92,11 @@ Visual Studio 2010 IDE에서 시작하여 응용 프로그램을 프로파일링
  WaIISHost.exe에 연결하여 웹 역할에 연결할 수도 있습니다.
 응용 프로그램에 작업자 역할 프로세스가 여러 개 있는 경우 processID를 사용하여 구분해야 합니다. Process 개체에 액세스하면 프로그래밍 방식으로 processID를 쿼리할 수 있습니다. 예를 들어 역할에 포함된 RoleEntryPoint 파생 클래스의 Run 메서드에 이 코드를 추가하면 Compute 에뮬레이터 UI의 로그에서 연결할 프로세스를 확인할 수 있습니다.
 
-    var process = System.Diagnostics.Process.GetCurrentProcess();
-    var message = String.Format("Process ID: {0}", process.Id);
-    Trace.WriteLine(message, "Information");
+```csharp
+var process = System.Diagnostics.Process.GetCurrentProcess();
+var message = String.Format("Process ID: {0}", process.Id);
+Trace.WriteLine(message, "Information");
+```
 
 로그를 보려면 Compute 에뮬레이터 UI를 시작합니다.
 
@@ -126,16 +132,18 @@ Concatenate 메서드와 String.Concat가 실행 시간의 대부분을 사용�
 ## <a name="4-make-changes-and-compare-performance"></a>4: 변경 및 성능 비교
 코드 변경 이전과 이후의 성능을 비교할 수도 있습니다.  실행 중인 프로세스를 중지하고 코드를 편집하여 문자열 연결 작업을 StringBuilder 사용으로 바꿉니다.
 
-    public static string Concatenate(int number)
+```csharp
+public static string Concatenate(int number)
+{
+    int count;
+    System.Text.StringBuilder builder = new System.Text.StringBuilder("");
+    for (count = 0; count < number; count++)
     {
-        int count;
-        System.Text.StringBuilder builder = new System.Text.StringBuilder("");
-        for (count = 0; count < number; count++)
-        {
-             builder.Append("\n" + count.ToString());
-        }
-        return builder.ToString();
+        builder.Append("\n" + count.ToString());
     }
+    return builder.ToString();
+}
+```
 
 다시 성능 실행을 수행한 후 성능을 비교합니다. 동일한 세션에서 실행된 경우 성능 탐색기에서 두 보고서를 선택하고 바로 가기 메뉴를 연 후 **성능 보고서 비교**를 선택하면 됩니다. 다른 성능 세션의 실행과 비교하려면 **분석** 메뉴를 열고 **성능 보고서 비교**를 선택합니다. 표시되는 대화 상자에서 두 파일을 지정합니다.
 
@@ -145,7 +153,7 @@ Concatenate 메서드와 String.Concat가 실행 시간의 대부분을 사용�
 
 ![비교 보고서][16]
 
-축하합니다. 프로파일러를 시작했습니다.
+축하합니다! 프로파일러를 시작했습니다.
 
 ## <a name="troubleshooting"></a>문제 해결
 * 릴리스 빌드를 프로파일링하고 있는지 확인하고 디버깅 없이 시작합니다.

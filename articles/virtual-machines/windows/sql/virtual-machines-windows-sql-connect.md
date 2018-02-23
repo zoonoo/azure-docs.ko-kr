@@ -1,10 +1,10 @@
 ---
-title: "SQL Server 가상 컴퓨터에 연결(리소스 관리자) | Microsoft Docs"
-description: "Azure의 가상 컴퓨터에서 실행되는 SQL Server에 연결하는 방법을 알아봅니다. 이 항목에서는 클래식 배포 모드를 사용합니다. 시나리오는 네트워킹 구성 및 클라이언트의 위치에 따라 다릅니다."
+title: "SQL Server Virtual Machine에 연결(리소스 관리자) | Microsoft Docs"
+description: "Azure의 Virtual Machine에서 실행되는 SQL Server에 연결하는 방법을 알아봅니다. 이 항목에서는 클래식 배포 모드를 사용합니다. 시나리오는 네트워킹 구성 및 클라이언트의 위치에 따라 다릅니다."
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
-manager: jhubbard
+manager: craigg
 tags: azure-resource-manager
 ms.assetid: aa5bf144-37a3-4781-892d-e0e300913d03
 ms.service: virtual-machines-sql
@@ -14,23 +14,23 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/12/2017
 ms.author: jroth
-ms.openlocfilehash: 6d90904315e5d0a99ead193d1f95b504e796d587
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 7285cf47c3a5ec731cd9cfe311053e9d19886f1d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure"></a>Azure에서 SQL Server 가상 머신에 연결
 
 ## <a name="overview"></a>개요
 
-이 항목에서는 Azure 가상 컴퓨터에서 실행되는 SQL Server 인스턴스에 연결하는 방법을 설명합니다. [일반적인 연결 시나리오](#connection-scenarios) 일부를 설명하고 [포털에서 연결 설정을 변경하기 위한 단계](#change)를 제공합니다. 포털 외부에서 문제를 해결하거나 연결을 구성해야 하는 경우 이 항목의 끝 부분에 있는 [수동 구성](#manual)을 참조하세요. 
+이 항목에서는 Azure 가상 머신에서 실행되는 SQL Server 인스턴스에 연결하는 방법을 설명합니다. [일반적인 연결 시나리오](#connection-scenarios) 일부를 설명하고 [포털에서 연결 설정을 변경하기 위한 단계](#change)를 제공합니다. 포털 외부에서 문제를 해결하거나 연결을 구성해야 하는 경우 이 항목의 끝 부분에 있는 [수동 구성](#manual)을 참조하세요. 
 
-프로비저닝 및 연결의 전체 연습 과정을 확인하려면 [Azure에서 SQL Server 가상 컴퓨터 프로비전](virtual-machines-windows-portal-sql-server-provision.md)을 참조하세요.
+프로비저닝 및 연결의 전체 연습 과정을 확인하려면 [Azure에서 SQL Server Virtual Machine 프로비전](virtual-machines-windows-portal-sql-server-provision.md)을 참조하세요.
 
 ## <a name="connection-scenarios"></a>연결 시나리오
 
-클라이언트가 가상 컴퓨터를 실행 중인 SQL Server에 연결하는 방법은 클라이언트의 위치 및 네트워킹 구성에 따라 달라집니다.
+클라이언트가 Virtual Machine을 실행 중인 SQL Server에 연결하는 방법은 클라이언트의 위치 및 네트워킹 구성에 따라 달라집니다.
 
 Azure Portal에서 SQL Server VM을 프로비전하는 경우 **SQL 연결**의 형식을 지정하는 옵션이 있습니다.
 
@@ -42,7 +42,7 @@ Azure Portal에서 SQL Server VM을 프로비전하는 경우 **SQL 연결**의 
 |---|---|
 | **공용** | 인터넷을 통해 SQL Server에 연결 |
 | **개인** | 동일한 가상 네트워크의 SQL Server에 연결 |
-| **로컬** | 동일한 가상 컴퓨터의 SQL Server에 로컬로 연결 | 
+| **로컬** | 동일한 가상 머신의 SQL Server에 로컬로 연결 | 
 
 다음 섹션은 **공용** 및 **개인** 옵션을 자세히 설명합니다.
 
@@ -56,9 +56,9 @@ Azure Portal에서 SQL Server VM을 프로비전하는 경우 **SQL 연결**의 
 * SQL Server 포트의 모든 TCP 트래픽에 대해 VM에서 네트워크 보안 그룹을 구성합니다.
 
 > [!IMPORTANT]
-> SQL Server Developer 및 Express 버전용 가상 컴퓨터 이미지는 자동으로 TCP/IP 프로토콜을 사용하지 않습니다. Developer 및 Express 버전의 경우 VM을 만든 후에 SQL Server 구성 관리자를 사용하여 [수동으로 TCP/IP 프로토콜을 사용](#manualtcp)해야 합니다.
+> SQL Server Developer 및 Express 버전용 가상 머신 이미지는 자동으로 TCP/IP 프로토콜을 사용하지 않습니다. Developer 및 Express 버전의 경우 VM을 만든 후에 SQL Server 구성 관리자를 사용하여 [수동으로 TCP/IP 프로토콜을 사용](#manualtcp)해야 합니다.
 
-인터넷에 연결된 모든 클라이언트는 가상 컴퓨터의 공용 IP 주소 또는 IP 주소에 할당된 DNS 이름을 지정하여 SQL Server 인스턴스에 연결할 수 있습니다. SQL Server 포트가 1433인 경우 연결 문자열에 지정할 필요가 없습니다. 다음 연결 문자열은 SQL 인증을 사용하여 `sqlvmlabel.eastus.cloudapp.azure.com`의 DNS 레이블로 SQL VM에 연결합니다(공용 IP 주소를 사용할 수도 있음).
+인터넷에 연결된 모든 클라이언트는 가상 머신의 공용 IP 주소 또는 IP 주소에 할당된 DNS 이름을 지정하여 SQL Server 인스턴스에 연결할 수 있습니다. SQL Server 포트가 1433인 경우 연결 문자열에 지정할 필요가 없습니다. 다음 연결 문자열은 SQL 인증을 사용하여 `sqlvmlabel.eastus.cloudapp.azure.com`의 DNS 레이블로 SQL VM에 연결합니다(공용 IP 주소를 사용할 수도 있음).
 
 ```
 Server=sqlvmlabel.eastus.cloudapp.azure.com;Integrated Security=false;User ID=<login_name>;Password=<your_password>
@@ -80,7 +80,7 @@ Server=sqlvmlabel.eastus.cloudapp.azure.com,1500;Integrated Security=false;User 
 > [!IMPORTANT]
 > SQL Server Developer 및 Express 버전용 가상 컴퓨터 이미지는 자동으로 TCP/IP 프로토콜을 사용하지 않습니다. Developer 및 Express 버전의 경우 VM을 만든 후에 SQL Server 구성 관리자를 사용하여 [수동으로 TCP/IP 프로토콜을 사용](#manualtcp)해야 합니다.
 
-개인 연결은 종종 여러 가지 시나리오를 활성화하는 [Virtual Network](../../../virtual-network/virtual-networks-overview.md)와 함께 사용됩니다. VM이 다른 리소스 그룹에 있더라도 동일한 가상 네트워크의 VM에 연결할 수 있습니다. 또한 [사이트 간 VPN](../../../vpn-gateway/vpn-gateway-site-to-site-create.md)을 통해 온-프레미스 네트워크와 컴퓨터에 VM을 연결하는 하이브리드 아키텍처를 만들 수 있습니다.
+개인 연결은 종종 여러 가지 시나리오를 활성화하는 [Virtual Network](../../../virtual-network/virtual-networks-overview.md)와 함께 사용됩니다. VM이 다른 리소스 그룹에 있더라도 동일한 가상 네트워크의 VM에 연결할 수 있습니다. 또한 [사이트 간 VPN](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)을 통해 온-프레미스 네트워크와 컴퓨터에 VM을 연결하는 하이브리드 아키텍처를 만들 수 있습니다.
 
 가상 네트워크를 사용하면 Azure VM을 도메인에 연결할 수 있습니다. 이것이 SQL Server에 Windows 인증을 사용하는 유일한 방법입니다. 다른 연결 시나리오의 경우 사용자 이름과 암호가 있는 SQL 인증이 필요합니다.
 
@@ -92,7 +92,7 @@ Server=mysqlvm;Integrated Security=true
 
 ## <a id="change"></a> SQL 연결 설정 변경
 
-Azure Portal에서 SQL Server 가상 컴퓨터에 대한 연결 설정을 변경할 수 있습니다.
+Azure Portal에서 SQL Server 가상 머신에 대한 연결 설정을 변경할 수 있습니다.
 
 1. Azure Portal에서 **Virtual Machines**를 선택합니다.
 
@@ -145,6 +145,6 @@ SQL Server 연결 설정을 변경할 때 Azure는 SQL Server Developer 및 Expr
 
 ## <a name="next-steps"></a>다음 단계
 
-이러한 연결 단계와 함께 프로비저닝 지침을 확인하려면 [Azure에서 SQL Server 가상 컴퓨터 프로비전](virtual-machines-windows-portal-sql-server-provision.md)을 참조하세요.
+이러한 연결 단계와 함께 프로비저닝 지침을 확인하려면 [Azure에서 SQL Server Virtual Machine 프로비전](virtual-machines-windows-portal-sql-server-provision.md)을 참조하세요.
 
 Azure VM에서의 SQL Server 실행에 관한 다른 항목은 [Azure Virtual Machines의 SQL Server](virtual-machines-windows-sql-server-iaas-overview.md)를 참조하세요.

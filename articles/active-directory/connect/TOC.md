@@ -17,6 +17,7 @@
 ### [DirSync에서 업그레이드](active-directory-aadconnect-dirsync-upgrade-get-started.md)
 ### [이전 버전에서 업그레이드](active-directory-aadconnect-upgrade-previous-version.md)
 ### [기존 ADSync 데이터베이스를 사용하여 설치](active-directory-aadconnect-existing-database.md)
+### [SQL 위임된 관리자 권한을 사용하여 설치](active-directory-aadconnect-sql-delegation.md)
 
 # 방법
 ## 계획 및 디자인
@@ -51,6 +52,7 @@
 
 
 ## Azure AD Connect 동기화 관리
+### [GDPR 규정 준수 및 Azure AD Connect](active-directory-aadconnect-gdpr.md)
 ### [실수로 인한 삭제 방지](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)
 ### [암호 동기화](active-directory-aadconnectsync-implement-password-synchronization.md)
 ### [Azure AD 서비스 계정](active-directory-aadconnectsync-howto-azureadaccount.md)
@@ -81,6 +83,7 @@
 ### [연결](active-directory-aadconnect-troubleshoot-connectivity.md)
 ### [동기화 중 오류](active-directory-aadconnect-troubleshoot-sync-errors.md)
 ### [개체가 동기화되지 않음](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md)
+### [문제 해결 작업을 사용한 개체 동기화](active-directory-aadconnect-troubleshoot-objectsync.md)
 ### [암호 동기화](active-directory-aadconnectsync-troubleshoot-password-synchronization.md)
 ### [userCertificate로 인해 발생한 LargeObject 오류](active-directory-aadconnectsync-largeobjecterror-usercertificate.md)
 ### [LocalDB 10GB 제한에서 복구하는 방법](active-directory-aadconnect-recover-from-localdb-10gb-limit.md)

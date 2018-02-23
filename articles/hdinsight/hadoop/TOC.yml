@@ -41,7 +41,7 @@
               href: apache-hadoop-use-hive-ambari-view.md
             - name: Beeline 사용
               href: apache-hadoop-use-hive-beeline.md
-            - name: cURL 사용
+            - name: REST API 사용
               href: apache-hadoop-use-hive-curl.md
             - name: Azure PowerShell 사용
               href: apache-hadoop-use-hive-powershell.md
@@ -288,6 +288,9 @@
               maintainContext: true
         - name: HDInsight 클러스터 확장
           href: ../hdinsight-scaling-best-practices.md
+          maintainContext: true
+        - name: 외부 메타데이터 저장소 사용
+          href: ../hdinsight-use-external-metadata-stores.md
           maintainContext: true
         - name: HDInsight 클러스터에 대한 로그 관리
           href: ../hdinsight-log-management.md

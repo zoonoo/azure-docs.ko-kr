@@ -88,6 +88,7 @@
 #### [그룹 기반 라이선스에 대한 Azure PowerShell 예제](active-directory-licensing-ps-examples.md)
 #### [Azure AD의 제품 및 서비스 계획을 위한 참조](active-directory-licensing-product-and-service-plan-reference.md)
 ### [Office 365 그룹 만료 설정](active-directory-groups-lifecycle-azure-portal.md)
+### [그룹에 대한 명명 정책 강제 적용](groups-naming-policy.md)
 ### [모든 그룹 보기](active-directory-groups-view-azure-portal.md)
 ### [SaaS 앱에 대한 그룹 액세스 추가](active-directory-accessmanagement-group-saasapps.md)
 ### [삭제된 Office 365 그룹 복원](active-directory-groups-restore-azure-portal.md)
@@ -217,7 +218,9 @@
 ##### [원격 데스크톱](application-proxy-publish-remote-desktop.md)
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
 ##### [Microsoft 팀](application-proxy-teams.md)
+#### [PowerShell](https://docs.microsoft.com/powershell/module/azuread)
 #### [문제 해결](active-directory-application-proxy-troubleshoot.md)
+
 
 ### 엔터프라이즈 앱 관리
 #### [사용자 할당](active-directory-coreapps-assign-user-azure-portal.md)

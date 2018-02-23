@@ -187,7 +187,8 @@
     - name: Data Factory
       tocHref: /azure/data-factory/
       topicHref: /azure/data-factory/
-    - name: "Data Lake Analytics\r\n"
+    - name: |
+        Data Lake Analytics
       tocHref: /azure/data-lake-analytics/
       topicHref: /azure/data-lake-analytics/
     - name: Data Lake Store
@@ -202,7 +203,8 @@
     - name: Event Grid
       tocHref: /azure/event-grid/
       topicHref: /azure/event-grid
-    - name: "Event Hubs\r\n"
+    - name: |
+        Event Hubs
       tocHref: /azure/event-hubs/
       topicHref: /azure/event-hubs/
     - name: ExpressRoute
@@ -254,6 +256,9 @@
     - name: Key Vault
       tocHref: /azure/key-vault/
       topicHref: /azure/key-vault/
+    - name: 위치 기반 서비스
+      tocHref: /azure/location-based-services/
+      topicHref: /azure/location-based-services/
     - name: Load Balancer
       tocHref: /azure/load-balancer/
       topicHref: /azure/load-balancer/
@@ -368,7 +373,7 @@
     - name: Scheduler
       tocHref: /azure/scheduler/
       topicHref: /azure/scheduler/
-    - name: Search
+    - name: 검색
       tocHref: /azure/search/
       topicHref: /azure/search/
     - name: 보안

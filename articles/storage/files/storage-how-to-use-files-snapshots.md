@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: renash
-ms.openlocfilehash: c4a5f7d28601867c383b8b348568e4bb580a81eb
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: eb5c7d0fcb9e1106dbc0aa577ba5ecfa1bf6bee7
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="work-with-share-snapshots-preview"></a>공유 스냅숏 작업(미리 보기)
 공유 스냅숏은 특정 시점에 생성되는 Azure Files 공유의 읽기 전용 버전입니다. 공유 스냅숏이 생성된 후에는 읽거나 복사하거나 삭제할 수 있지만 수정할 수는 없습니다. 공유 스냅숏은 특정 시점에 표시된 대로 공유를 백업하는 방법을 제공합니다. 
@@ -246,7 +246,6 @@ az storage file download --path IMG_0966.JPG --share-name sharesnapshotdefs --sn
 }
 ```
 
-<<<<<<< HEAD
 ### <a name="file-share-snapshot-operations-in-azure-powershell"></a>Azure PowerShell에서 파일 공유 스냅숏 작업
 Azure PowerShell을 사용하여 공유 스냅숏 나열, 공유 스냅숏 내용 찾아보기, 공유 스냅숏에서 파일 복원 또는 다운로드, 또는 공유 스냅숏 삭제 등 동일한 작업을 수행할 수 있습니다.
 
@@ -281,11 +280,7 @@ $directory = Get-AzureStorageFile -ShareName "ContosoShare06" -Path "ContosoWork
 Get-AzureStorageFileContent -Share $snapshot -Path $file -Destination $directory
 ```
 
-
-## <a name="delete-azure-files-share-snapshot"></a>Azure 파일 공유 스냅숏 삭제
-=======
 ## <a name="delete-a-share-snapshot"></a>공유 스냅숏 삭제
->>>>>>> 6a1833e10031fbf1ab204bb1f30cb54cf5fbcada
 
 Azure Portal, PowerShell, CLI, REST API 또는 저장소 SDK를 사용하여 공유 스냅숏을 삭제할 수 있습니다. 다음 섹션에서는 Azure Portal, CLI 및 PowerShell을 사용하여 공유 스냅숏을 삭제하는 방법에 대해 설명합니다.
 

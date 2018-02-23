@@ -23,6 +23,7 @@
 ### [MPP 아키텍처](massively-parallel-processing-mpp-architecture.md)
 ### [성능 계층](performance-tiers.md)
 ### [데이터 웨어하우스 단위](what-is-a-data-warehouse-unit-dwu-cdwu.md)
+### [스케일 아웃, 일시 중지, 다시 시작](sql-data-warehouse-manage-compute-overview.md)
 ### [데이터 웨어하우스 백업](sql-data-warehouse-backups.md)
 ### [감사](sql-data-warehouse-auditing-overview.md)
 ### [용량 제한](sql-data-warehouse-service-capacity-limits.md)
@@ -50,7 +51,7 @@
 
 
 ## 모니터링 및 튜닝
-### [지침](resource-classes-for-workload-management.md)
+### [워크로드 관리](resource-classes-for-workload-management.md)
 ### [Columnstore 압축](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)
 ### [모니터](sql-data-warehouse-manage-monitor.md)
 ### [문제 해결](sql-data-warehouse-troubleshoot.md)
@@ -134,7 +135,7 @@
 # 리소스
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=databases)
 ## [포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSQLDataWarehouse)
-## [가격](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)
+## [가격 책정](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [기능 요청](https://feedback.azure.com/forums/307516-sql-data-warehouse/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=sql-data-warehouse)
