@@ -22,7 +22,7 @@
 ### [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
 ### [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)
 ## [Azure 연결 함수 만들기](https://docs.microsoft.com/azure/azure-functions/functions-create-an-azure-connected-function)
-## [Linux에서 Docker 배포 웹앱](https://docs.microsoft.com/azure/app-service/containers/quickstart-custom-docker-image) 
+## [Linux에서 Docker 배포 웹앱](https://docs.microsoft.com/azure/app-service/containers/quickstart-docker-go) 
 
 # 샘플
 ## Azure CLI
