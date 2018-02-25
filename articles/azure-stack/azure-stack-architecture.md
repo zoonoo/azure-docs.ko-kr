@@ -3,8 +3,8 @@ title: "Microsoft Azure 스택 개발 키트 아키텍처 | Microsoft Docs"
 description: "Microsoft Azure 스택 개발 키트 아키텍처를 봅니다."
 services: azure-stack
 documentationcenter: 
-author: heathl17
-manager: byronr
+author: jeffgilb
+manager: femila
 editor: 
 ms.assetid: a7e61ea4-be2f-4e55-9beb-7a079f348e05
 ms.service: azure-stack
@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
-ms.author: helaw
-ms.openlocfilehash: e8ff17e069bd9237bf06cd79b4c222c50a999eda
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/21/2018
+ms.author: jeffgilb
+ms.reviewer: unknown
+ms.openlocfilehash: b754ff5b5a82ac284eb59ff9b9d30a581f3d3af5
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="microsoft-azure-stack-development-kit-architecture"></a>Microsoft Azure 스택 개발 키트 아키텍처
 
@@ -36,19 +37,19 @@ Azure 스택 개발 키트는 다음과 같은 Vm 호스트에서 사용 하 여
 
 | 이름 | 설명 |
 | ----- | ----- |
-| **AzS ACS01** | Azure 스택 저장소 서비스입니다.|
-| **AzS ADFS01** | Active Directory Federation Services (ad FS)입니다.  |
-| **AzS BGPNAT01** | 에 지 라우터 및 Azure 스택에 대 한 NAT 및 VPN 기능을 제공 합니다. |
-| **AzS CA01** | Azure 스택 역할 서비스에 대 한 인증서 기관 서비스입니다.|
-| **AzS-d c 01** | Microsoft Azure 스택 active Directory, DNS 및 DHCP 서비스.|
-| **AzS ERCS01** | 응급 복구 콘솔 VM입니다. |
-| **AzS GWY01** | 테 넌 트 네트워크에 대 한 VPN 사이트 간 연결 같은 지 게이트웨이 서비스.|
-| **AzS NC01** | Azure 스택 네트워크 서비스를 관리 하는 네트워크 컨트롤러입니다.  |
-| **AzS SLB01** | 테 넌 트와 Azure 스택 인프라 서비스에 대 한 분산 Azure 스택의 멀티플렉서 서비스를 로드 합니다.  |
-| **AzS SQL01** | Azure 스택 인프라 역할에 대 한 내부 데이터 저장소입니다.  |
-| **AzS WAS01** | Azure 스택 관리 포털 및 Azure Resource Manager 서비스입니다.|
-| **AzS WASP01**| Azure 스택 사용자 (테 넌 트) 포털 및 Azure Resource Manager 서비스입니다.|
-| **AzS XRP01** | Microsoft Azure 스택, 계산, 네트워크 및 저장소 리소스 공급자를 포함 하 여에 대 한 인프라 관리 컨트롤러입니다.|
+| **AzS-ACS01** | Azure 스택 저장소 서비스입니다.|
+| **AzS-ADFS01** | Active Directory Federation Services (ad FS)입니다.  |
+| **AzS-BGPNAT01** | 에 지 라우터 및 Azure 스택에 대 한 NAT 및 VPN 기능을 제공 합니다. |
+| **AzS-CA01** | Azure 스택 역할 서비스에 대 한 인증서 기관 서비스입니다.|
+| **AzS-DC01** | Microsoft Azure 스택 active Directory, DNS 및 DHCP 서비스.|
+| **AzS-ERCS01** | 응급 복구 콘솔 VM입니다. |
+| **AzS-GWY01** | 테 넌 트 네트워크에 대 한 VPN 사이트 간 연결 같은 지 게이트웨이 서비스.|
+| **AzS-NC01** | Azure 스택 네트워크 서비스를 관리 하는 네트워크 컨트롤러입니다.  |
+| **AzS-SLB01** | 테 넌 트와 Azure 스택 인프라 서비스에 대 한 분산 Azure 스택의 멀티플렉서 서비스를 로드 합니다.  |
+| **AzS-SQL01** | Azure 스택 인프라 역할에 대 한 내부 데이터 저장소입니다.  |
+| **AzS-WAS01** | Azure 스택 관리 포털 및 Azure Resource Manager 서비스입니다.|
+| **AzS-WASP01**| Azure 스택 사용자 (테 넌 트) 포털 및 Azure Resource Manager 서비스입니다.|
+| **AzS-XRP01** | Microsoft Azure 스택, 계산, 네트워크 및 저장소 리소스 공급자를 포함 하 여에 대 한 인프라 관리 컨트롤러입니다.|
 
 
 ## <a name="next-steps"></a>다음 단계

@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/30/2018
+ms.date: 02/22/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: a5b321bc06ef14207eddf5aa77ff983ada1e409f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 27b575a1baa793794480d16e91f0f96355b3d303
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Azure에서 Azure 스택에 마켓플레이스 항목을 다운로드
 
@@ -44,7 +44,7 @@ Azure 스택 marketplace에 포함할 콘텐츠를 결정 하는 대로 Azure �
 
     ![](media/azure-stack-download-azure-marketplace-item/image03.png)
 
-5. 클릭 한 다음 목록에서 원하는 항목을 선택 **다운로드**합니다. 선택한 항목에 대 한 VM 이미지를 다운로드 시작 됩니다. 다운로드 시간 달라 집니다.
+5. 클릭 한 다음 목록에서 원하는 항목을 선택 **다운로드**합니다. 다운로드를 시작할 선택한 항목에 대 한 VM 이미지입니다. 다운로드 시간 달라 집니다.
 
     ![](media/azure-stack-download-azure-marketplace-item/image04.png)
 
@@ -62,7 +62,7 @@ Azure 스택 marketplace에 포함할 콘텐츠를 결정 하는 대로 Azure �
 
 1. 관리자 권한으로 PowerShell 콘솔을 열고 및 [Azure 스택 특정 PowerShell 모듈 설치](azure-stack-powershell-install.md)합니다. 설치 하 고 있는지 확인 **PowerShell 1.2.11 버전 이상이**합니다.  
 
-2. Azure 스택 등록를 사용 하 여 Azure 계정을 추가 합니다. 이 작업을 수행 하려면 실행는 **추가 AzureRmAccount** 매개 변수 없이 cmdlet. Azure 계정 자격 증명을 입력 하는 메시지가 및 사용자 계정 구성에 따라 2 단계 인증을 사용 하 여 할 수 있습니다.  
+2. Azure 스택 등록를 사용 하 여 Azure 계정을 추가 합니다. 실행 계정을 추가 하는 **추가 AzureRmAccount** 매개 변수 없이 cmdlet. Azure 계정 자격 증명을 입력 하는 메시지가 및 사용자 계정 구성에 따라 2 단계 인증을 사용 하 여 할 수 있습니다.  
 
 3. 여러 구독이 있는 경우 등록에 사용 되는 항목을 선택 하려면 다음 명령을 실행 합니다.  
 
@@ -75,16 +75,16 @@ Azure 스택 marketplace에 포함할 콘텐츠를 결정 하는 대로 Azure �
 
    ```PowerShell
    # Download the tools archive.
-   invoke-webrequest https://github.com/Azure/AzureStack-Tools/archive/vnext.zip `
-     -OutFile vnext.zip
+   invoke-webrequest https://github.com/Azure/AzureStack-Tools/archive/master.zip `
+     -OutFile master.zip
 
    # Expand the downloaded files.
-   expand-archive vnext.zip `
+   expand-archive master.zip `
      -DestinationPath . `
      -Force
 
    # Change to the tools directory.
-   cd \AzureStack-Tools-vnext
+   cd \AzureStack-Tools-master
 
    ```
 
@@ -94,7 +94,7 @@ Azure 스택 marketplace에 포함할 콘텐츠를 결정 하는 대로 Azure �
    Import-Module .\ Syndication\AzureStack.MarketplaceSyndication.psm1
 
    Sync-AzSOfflineMarketplaceItem `
-     -destination “<Destination folder path>” `
+     -destination "<Destination folder path>" `
      -AzureTenantID $AzureContext.Tenant.TenantId `
      -AzureSubscriptionId $AzureContext.Subscription.Id  
    ```
@@ -103,15 +103,17 @@ Azure 스택 marketplace에 포함할 콘텐츠를 결정 하는 대로 Azure �
 
    ![Azure 마켓플레이스 항목 팝업](./media/azure-stack-download-azure-marketplace-item/image05.png)
 
-7. 이미지를 다운로드 하려면를 선택 (Ctrl 키를 누르고 있으면 여러 이미지 선택 가능)의 이미지 버전을 기록 하 고,이 버전을 사용 하는 다음 섹션에서 이미지를 가져올 > 클릭 **확인** > 약관에 동의 클릭 하 여 **예**합니다. 사용 하 여 이미지 목록을 필터링 할 수도 있습니다는 **조건을 추가** 옵션입니다. 다운로드는 이미지의 크기에 따라 시간이 걸립니다. 한 번 이미지 다운로드, 이전 버전에서 제공 하는 대상 경로가 제공 됩니다. 다운로드는 Azpkg 형식으로 VHD 파일 및 갤러리 항목을 포함합니다.  
+7. 다운로드 하 여 이미지 버전을 기록 하려는 이미지를 선택 합니다. Ctrl 키를 누르고 있으면 여러 이미지를 선택할 수 있습니다. 다음 섹션에서 이미지를 가져올 이미지 버전을 사용 합니다.  그런 다음 클릭 **확인**, 다음을 클릭 하 여 약관에 동의 하 고 **예**합니다. 사용 하 여 이미지 목록을 필터링 할 수도 있습니다는 **조건을 추가** 옵션입니다. 
+
+   다운로드는 이미지의 크기에 따라 시간이 걸립니다. 한 번 이미지 다운로드, 이전 버전에서 제공 하는 대상 경로가 제공 됩니다. 다운로드는 Azpkg 형식으로 VHD 파일 및 갤러리 항목을 포함합니다.
 
 ### <a name="import-the-image-and-publish-it-to-azure-stack-marketplace"></a>이미지를 가져오고 Azure 스택 마켓플레이스에 게시
 
-1. 이미지 및 갤러리 패키지를 다운로드 한 후 및 내용을 AzureStack-도구-vnext 폴더는 이동식 디스크 드라이브에 저장 하 고 Azure 스택 환경에 복사 (복사할 수 있습니다를 로컬로 모든 위치에 같은: "C:\MarketplaceImages"입니다.)   
+1. 이미지 및 갤러리 패키지를 다운로드 한 후 및 내용을 AzureStack 도구 마스터 폴더는 이동식 디스크 드라이브에 저장 하 고 Azure 스택 환경에 복사 (복사할 수 있습니다 로컬로 모든 위치에 같은: "C:\MarketplaceImages").   
 
 2. 이미지를 가져오기 전에 연결 해야 Azure 스택 운영자의 환경에 설명 된 단계를 사용 하 여 [Azure 스택 운영자의 PowerShell 환경을 구성](azure-stack-powershell-configure-admin.md)합니다.  
 
-3. 추가 AzsVMImage cmdlet을 사용 하 여 Azure 스택에 이미지를 가져옵니다. 이 cmdlet을 사용할 경우 가져오는 이미지의 값이 포함 된 게시자, 제품, 및 기타 매개 변수 값을 교체할 수 있는지 확인 합니다. 에서는 이전 단원의 6 단계에서 "publisher", 이전에 다운로드 한 Azpkg 파일의 imageReference 개체에서 이미지의 값을 "제안" 및 "sku" 및 "version" 값을 얻을 수 있습니다.
+3. 추가 AzsVMImage cmdlet을 사용 하 여 Azure 스택에 이미지를 가져옵니다. 이 cmdlet을 사용할 때는 확인 바꿔야는 *게시자*, *제공*, 및 다른 매개 변수 값을 가져올 이미지의 값입니다. 가져올 수는 *게시자*, *제공*, 및 *sku* 이전에 다운로드 한 Azpkg 파일의 imageReference 개체에서 이미지의 값 및  *버전* 이전 단원의 6 단계에서 값입니다.
 
    ```json
    "imageReference": {
@@ -131,8 +133,8 @@ Azure 스택 marketplace에 포함할 콘텐츠를 결정 하는 대로 Azure �
     -offer "WindowsServer" `
     -sku "2016-Datacenter-Server-Core" `
     -osType Windows `
-    -Version "2017.09.25" `
-    -OsDiskLocalPath "C:\AzureStack-Tools-master\Syndication\Microsoft.WindowsServer2016DatacenterServerCore-ARM-Eval.2017.09.25.vhd" `
+    -Version "2016.127.20171215" `
+    -OsDiskLocalPath "C:\AzureStack-Tools-master\Syndication\Windows-Server-2016-DatacenterCore-20171215-en.us-127GB.vhd" `
     -CreateGalleryItem $False `
     -Location Local
    ```

@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/22/2018
 ms.author: jeffgilb
 ms.reviewer: ppacent
-ms.openlocfilehash: a9f2a882947e07cde0e0505458608f86043b2a67
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 991a94e4ca41bad438a3c8d06e4e1f691cff91bc
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="generate-pki-certificates-for-azure-stack-deployment"></a>Azure 스택 배포를 위한 PKI 인증서를 생성 합니다.
 배웠으므로 [PKI 인증서 요구 사항](azure-stack-pki-certs.md) Azure 스택 배포에 대 한에서 CA (인증 기관) 사용자가 선택한 해당 인증서를 확보 해야 합니다. 
@@ -75,4 +75,4 @@ ms.lasthandoff: 02/01/2018
 5. **키를 내보내고 복사 합니다. 배포 폴더에는 PFX**합니다. 인증서 (개인 키 포함)는입니다. PFX 파일을 찾아 복사는 합니다. PFX 파일에 설명 된 배포 폴더에 [Azure 스택 배포에 대 한 PKI 요구 사항](azure-stack-pki-certs.md)합니다.
 
 ## <a name="next-steps"></a>다음 단계
-[Id 통합](azure-stack-integrate-identity.md)
+[Azure 스택 PKI 인증서를 준비 합니다.](prepare-pki-certs.md)
