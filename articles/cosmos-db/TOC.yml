@@ -373,8 +373,6 @@
           href: ../logic-apps/logic-apps-scenario-error-and-exception-handling.md
         - name: Azure Functions에 바인딩
           href: ../azure-functions/functions-bindings-documentdb.md
-        - name: Hadoop으로 데이터 분석
-          href: run-hadoop-with-hdinsight.md
         - name: Azure Search와의 통합
           href: ../search/search-howto-index-documentdb.md
         - name: Azure Data Factory를 사용하여 데이터 이동

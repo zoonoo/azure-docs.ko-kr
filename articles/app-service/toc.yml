@@ -4,7 +4,7 @@
   items:
     - name: Web Apps 정보
       href: app-service-web-overview.md
-    - name: 컨테이너용 웹앱 정보
+    - name: Linux의 App Service 정보
       href: containers/app-service-linux-intro.md
     - name: App Service Environment 정보
       href: environment/intro.md
