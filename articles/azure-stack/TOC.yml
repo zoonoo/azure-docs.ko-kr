@@ -57,8 +57,12 @@
         - name: Azure 스택 배포 PKI 요구 사항
           href: azure-stack-pki-certs.md
           items:
-            - name: Azure 스택 배포를 위한 PKI 인증서 가져오기
+            - name: Azure 스택 PKI 인증서 가져오기
               href: azure-stack-get-pki-certs.md
+            - name: Azure 스택 PKI 인증서를 준비 합니다.
+              href: prepare-pki-certs.md
+            - name: Azure 스택 PKI 인증서의 유효성을 검사합니다
+              href: validate-pki-certs.md
         - name: Id 통합
           href: azure-stack-integrate-identity.md
         - name: Azure 스택 등록
@@ -168,6 +172,10 @@
           href: azure-stack-security-foundations.md
         - name: ID
           items:
+            - name: Identity 개요
+              href: azure-stack-identity-overview.md
+            - name: Id 아키텍처
+              href: azure-stack-identity-architecture.md
             - name: RBAC 관리
               href: azure-stack-manage-permissions.md
             - name: Azure AD 사용자 추가
@@ -288,13 +296,15 @@
       href: /azure/azure-stack/user/
 - name: 리소스
   items:
-    - name: Azure 로드맵
-      href: 'https://azure.microsoft.com/roadmap/'
-    - name: MSDN 포럼
-      href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStack'
+    - name: Azure 스택 로드맵
+      href: 'https://azure.microsoft.com/roadmap/?tag=azure-stack'
+    - name: Azure 스택 MSDN 포럼
+      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack'
+    - name: Azure 스택 설명서 사용자 의견
+      href: 'https://feedback.azure.com/forums/344565-azure-stack?category_id=160275'
     - name: 가격 정보
       href: 'https://azure.microsoft.com/overview/azure-stack/how-to-buy/'
     - name: 스택 오버플로
       href: 'http://stackoverflow.com/questions/tagged/azure-stack'
     - name: 교육 및 인증
-      href: azure-stack-train-and-cert.md
+      href: 'https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert'
