@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 11/28/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 734243a28dc59518dc30d9d86064235795e794ab
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: c867f9ed7ede0dddf6b327b212adbbccbf3d64b0
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="deploy-an-azure-container-service-aks-cluster"></a>AKS(Azure Container Service) 클러스터 배포
 
@@ -51,7 +51,7 @@ Azure Portal에서 AKS 클러스터를 만들기 전에 서비스 주체를 만�
 
 ## <a name="create-aks-cluster"></a>AKS 클러스터 만들기
 
-**새로 만들기** > **컨테이너** > **Azure Container Service - AKS(미리 보기)**를 선택합니다.
+**리소스 만들기** > **컨테이너** > **Azure Container Service - AKS(미리 보기)**를 선택합니다.
 
 클러스터에 대한 클러스터 이름, DNS 접두사, 리소스 그룹 이름, 위치 및 Kubernetes 버전을 제공합니다. 클러스터에 연결할 때 필요하므로 클러스터 이름 및 리소스 그룹 이름을 기록해 둡니다.
 

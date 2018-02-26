@@ -10,15 +10,19 @@ ms.author: cfowler
 ms.date: 01/09/2018
 ms.topic: sample
 ms.custom: mvc
-ms.openlocfilehash: c4224bc7973cd1e3ca36799db9f23a124fcba807
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: 9ad38a7ff00e5cea2cf958b4cb69679a27f84d4a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="create-a-function-in-azure-that-is-deployed-from-github"></a>Azure에서 GitHub로부터 배포되는 함수 만들기
+# <a name="create-a-function-app-in-azure-that-is-deployed-from-github"></a>Azure에서 GitHub로부터 배포되는 함수 앱 만들기
 
-이 샘플 스크립트는 관련 리소스를 통해 [소비 계획](../functions-scale.md#consumption-plan)을 사용하여 함수 앱을 만들고 GitHub 리포지토리의 함수 코드를 연속적으로 배포합니다. 이 샘플에서는 다음이 필요합니다.
+이 Azure Functions 샘플 스크립트는 관련 리소스와 함께 [소비 계획](../functions-scale.md#consumption-plan)을 사용하여 함수 앱을 만듭니다. 이 스크립트는 GitHub 리포지토리에서 지속적으로 배포하기 위한 함수 코드도 구성합니다. 
+
+[!INCLUDE [upgrade runtime](../../../includes/functions-cli-version-note.md)]
+
+이 샘플에서는 다음이 필요합니다.
 
 * 관리 권한이 있는 함수 코드를 포함하는 GitHub 리포지토리
 * GitHub 계정에 대한 [PAT(개인 액세스 토큰)](https://help.github.com/articles/creating-an-access-token-for-command-line-use)

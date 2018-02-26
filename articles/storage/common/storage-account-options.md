@@ -9,11 +9,11 @@ ms.workload: storage
 ms.topic: get-started-article
 ms.date: 01/17/2018
 ms.author: jirwin
-ms.openlocfilehash: bdbcdc7d46d5395b28cf9ba7066703ce5da900a5
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: aa8704b9991dde639b50a5b6c9a27ad5cd08ad02
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-storage-account-options"></a>Azure Storage 계정 옵션
 
@@ -125,7 +125,7 @@ Blob 저장소 계정을 GPv2로 업그레이드하는 기능은 곧 제공됩�
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-2. 허브 메뉴에서 **새로 만들기** > **데이터 + 저장소** > **Storage 계정**을 차례로 선택합니다.
+2. 허브 메뉴에서 **리소스 만들기** > **데이터 + 저장소** > **Storage 계정**을 차례로 선택합니다.
 
 3. 저장소 계정의 이름을 입력합니다.
 
@@ -159,7 +159,7 @@ Blob 저장소 계정을 GPv2로 업그레이드하는 기능은 곧 제공됩�
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-2. 저장소 계정으로 이동하려면 모든 리소스를 선택하고 저장소 계정을 선택합니다.
+2. 저장소 계정으로 이동하려면 **모든 리소스**를 선택하고 저장소 계정을 선택합니다.
 
 3. 설정 섹션에서 **구성**을 클릭합니다.
 
@@ -173,7 +173,7 @@ Blob 저장소 계정을 GPv2로 업그레이드하는 기능은 곧 제공됩�
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-2. 저장소 계정으로 이동하려면 모든 리소스를 선택하고 저장소 계정을 선택합니다.
+2. 저장소 계정으로 이동하려면 **모든 리소스**를 선택하고 저장소 계정을 선택합니다.
 
 3. 설정 블레이드에서 **구성** 을 클릭하여 계정 구성을 보기 및/또는 변경합니다.
 
@@ -185,7 +185,7 @@ Blob 저장소 계정을 GPv2로 업그레이드하는 기능은 곧 제공됩�
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-2. 저장소 계정에서 Blob으로 이동하려면 모든 리소스를 선택하고 저장소 계정을 선택하고 컨테이너를 선택한 다음 Blob을 선택합니다.
+2. 저장소 계정에서 Blob으로 이동하려면 **모든 리소스**를 선택하고 저장소 계정을 선택하고 컨테이너를 선택한 다음, Blob을 선택합니다.
 
 3. Blob 속성 블레이드에서 **액세스 계층** 드롭다운 메뉴를 선택하여 **핫**, **쿨** 또는 **보관** 저장소 계층을 선택합니다.
 

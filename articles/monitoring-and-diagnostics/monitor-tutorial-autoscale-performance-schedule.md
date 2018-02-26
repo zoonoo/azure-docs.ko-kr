@@ -7,14 +7,14 @@ services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.service: monitoring-and-diagnostics
 ms.topic: tutorial
-ms.date: 09/25/2017
+ms.date: 12/11/2017
 ms.author: ancav
 ms.custom: mvc
-ms.openlocfilehash: 012183b8e6c15d62eda2534985bf73140187d7af
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: f956a9436126c2a46d80b20770d7d86309e5b3af
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>성능 데이터 또는 일정에 따라 Azure 리소스에 대한 자동 크기 조정 설정 만들기
 
@@ -35,11 +35,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 ## <a name="create-a-web-app-and-app-service-plan"></a>Web App 및 App Service 계획 만들기
-1. 왼쪽 탐색 창에서 **새로 만들기** 옵션을 클릭합니다.
-
+1. 왼쪽 탐색 창에서 **리소스 만들기** 옵션을 클릭합니다.
 2. *Web App* 항목을 검색하고 선택하여 **만들기**를 클릭합니다.
-
-3. *MyTestScaleWebApp*과 같은 앱 이름을 선택합니다. *myResourceGroup*이라는 새 리소스 그룹을 만들고 선택한 리소스 그룹에 배치합니다.
+3. *MyTestScaleWebApp*과 같은 앱 이름을 선택합니다. *myResourceGroup'이라는 새 리소스 그룹을 만들고 선택한 리소스 그룹에 배치합니다.
 
 몇 분 내에 리소스를 프로비전해야 합니다. 이 자습서의 나머지 부분에서는 웹앱 및 해당 App Service 계획을 사용합니다.
 
@@ -168,7 +166,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 2. 리소스 페이지에서 **삭제**를 클릭하고 텍스트 상자에 **예**를 입력하여 삭제를 확인하고 **삭제**를 클릭합니다.
 
-3. 그런 다음 App Service 계획 리소스를 선택하고 **삭제**를 클릭합니다.
+3. 그런 다음, App Service 계획 리소스를 선택하고 **삭제**를 클릭합니다.
 
 4. 텍스트 상자에 **예**를 입력하여 삭제를 확인하고 **삭제**를 클릭합니다.
 

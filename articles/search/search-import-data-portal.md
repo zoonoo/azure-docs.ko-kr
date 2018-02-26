@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 05/01/2017
 ms.author: heidist
-ms.openlocfilehash: 710543b5423d2b651545151eb4a8d426720e28e0
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 286408fb0c3aa2b83cf17a4646f6f7420b6884f4
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="import-data-to-azure-search-using-the-portal"></a>포털을 사용하여 Azure Search로 데이터 가져오기
 Azure Portal에는 인덱스에 데이터를 로드하기 위한 **데이터 가져오기** 마법사가 Azure Search 대시보드에 제공됩니다. 
@@ -49,7 +49,7 @@ Azure Cosmos DB에서 샘플 데이터를 사용하여 이 워크플로를 시�
 일반 데이터 집합은 필수 입력입니다. 단일 테이블, 데이터베이스 뷰 또는 동등한 데이터 구조에서만 가져올 수 있습니다. 마법사를 실행하기 전에 이 데이터 구조를 만들어야 합니다.
 
 ## <a name="connect-to-your-data"></a>데이터에 연결
-1. [Azure Portal](https://portal.azure.com)에 로그인하여 서비스 대시보드를 엽니다. 표시줄에서 **추가 서비스**를 클릭하면 현재 구독에서 기존 "검색 서비스"를 검색할 수 있습니다. 
+1. [Azure Portal](https://portal.azure.com)에 로그인하여 서비스 대시보드를 엽니다. 표시줄에서 **모든 서비스**를 클릭하면 현재 구독에서 기존 "검색 서비스"를 검색할 수 있습니다. 
 2. 명령 모음에서 **데이터 가져오기** 를 클릭하여 데이터 블레이드 가져오기를 엽니다.  
 3. **데이터에 연결** 을 클릭하여 인덱서에 의해 사용되는 데이터 원본 정의를 지정합니다. 구독 내 데이터 원본의 경우 마법사는 일반적으로 연결 정보를 감지하고 참고하여 전체 구성 요구 사항을 최소화할 수 있습니다.
 

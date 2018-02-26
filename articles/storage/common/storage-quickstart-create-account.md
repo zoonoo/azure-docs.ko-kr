@@ -9,11 +9,11 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 01/19/2018
 ms.author: tamram
-ms.openlocfilehash: f9692156fa2c1eaf9d3a617d339cdbc210bf6dd1
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 2043f635e30de208a29a3da2fcde6bf2a1223fc8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-storage-account"></a>저장소 계정 만들기
 
@@ -161,7 +161,7 @@ Azure Storage는 두 가지 유형의 범용 저장소 계정을 제공합니다
 
 Azure Portal에서 범용 v2 저장소 계정을 만들려면 다음 단계를 수행합니다.
 
-1. Azure Portal에서 왼쪽의 메뉴를 확장하여 서비스의 메뉴를 열고 **더 많은 서비스**를 선택합니다. 그런 다음 **Storage**로 스크롤하고 **Storage 계정**을 선택합니다. 나타나는 **Storage 계정** 창에서 **추가**를 선택합니다.
+1. Azure Portal에서 왼쪽의 메뉴를 확장하여 서비스의 메뉴를 열고 **모든 서비스**를 선택합니다. 그런 다음 **Storage**로 스크롤하고 **Storage 계정**을 선택합니다. 나타나는 **Storage 계정** 창에서 **추가**를 선택합니다.
 2. 저장소 계정의 이름을 입력합니다.
 3. **계정 종류** 필드를 **StorageV2(범용 v2)**로 설정합니다.
 4. **복제** 필드를 **LRS(로컬 중복 저장소)**로 설정된 채로 둡니다. 또는 **영역 중복 저장소(ZRS 미리 보기)**, **GRS(지역 중복 저장소)** 또는 **RA-GRS(읽기 액세스 지역 중복 저장소)**를 선택할 수 있습니다.

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: 3442de96f346ef211672064584700a7ce183d929
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 251795f394d30418e1c03ec7b92fec40a75b2c3d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="deploy"></a>배포
 
@@ -27,8 +27,8 @@ ms.lasthandoff: 01/09/2018
   
 이 단원을 완료하기 위한 예상 시간: **5분**  
   
-## <a name="prerequisites"></a>필수 구성 요소  
-이 항목은 테이블 형식 모델링 자습서에 포함되며 순서대로 완료해야 합니다. 이 단원의 작업을 수행하기 전에 이전 단원인 [단원 12: Excel에서 분석](../tutorials/aas-lesson-12-analyze-in-excel.md)을 완료해야 합니다.  
+## <a name="prerequisites"></a>필수 조건  
+이 문서는 테이블 형식 모델링 자습서에 포함되며 순서대로 완료해야 합니다. 이 단원의 작업을 수행하기 전에 이전 단원인 [단원 12: Excel에서 분석](../tutorials/aas-lesson-12-analyze-in-excel.md)을 완료해야 합니다.  
 
 > [!IMPORTANT]  
 > 원격 Analysis Services 서버에 배포하려면 [관리자 권한](../analysis-services-server-admins.md)이 있어야 합니다.  
@@ -67,6 +67,9 @@ ms.lasthandoff: 01/09/2018
   
 3. 배포가 성공적으로 완료되면 진행하고 **닫기**를 클릭합니다.  
   
+
+이 단원에서는 SSDT에서 테이블 형식 모델을 배포하는 가장 일반적이고 쉬운 방법을 설명합니다. 배포 마법사 또는 XMLA 및 AMO를 사용하여 자동화하는 고급 배포 옵션은 매우 우수한 유연성, 일관성 및 예약된 배포를 제공합니다. 자세한 내용은 [테이블 형식 모델 솔루션 배포](https://docs.microsoft.com/sql/analysis-services/tabular-models/tabular-model-solution-deployment-ssas-tabular)를 참조하세요.
+
 ## <a name="conclusion"></a>결론  
 축하합니다! 첫 번째 Analysis Services 테이블 형식 모델의 작성 및 배포가 완료되었습니다. 이 자습서는 테이블 형식 모델을 만드는 가장 일반적인 작업을 완료하는 과정을 안내합니다. 이제 Adventure Works Internet Sales 모델을 배포했으므로, SQL Server Management Studio를 사용하여 모델을 관리하고 프로세스 스크립트 및 백업 계획을 만들 수 있습니다. 이제 사용자가 Microsoft Excel 또는 Power BI와 같은 보고 클라이언트 응용 프로그램을 사용하여 모델에 연결할 수 있습니다.  
 

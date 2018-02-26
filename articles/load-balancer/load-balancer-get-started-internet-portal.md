@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 29c74c2cc58e7cab1364b2fc2c74951440dea0ab
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: ff61008710766830640c0de31bf9fd23198946fd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="creating-an-internet-facing-load-balancer-using-the-azure-portal"></a>Azure 포털을 사용하여 인터넷 연결 부하 분산 장치 만들기
 
@@ -54,10 +54,10 @@ Azure 리소스 관리자의 분산 장치 구성 요소에 대한 자세한 내
 ## <a name="set-up-a-load-balancer-in-azure-portal"></a>Azure 포털에서 부하 분산 장치 설정
 
 > [!IMPORTANT]
-> 이 예제에서는 **myVNet**이라는 가상 네트워크가 있다고 가정합니다. 이렇게 하려면 [가상 네트워크 만들기](../virtual-network/virtual-networks-create-vnet-arm-pportal.md)를 참조하세요. 또한 **myVNet** 내에 **LB-Subnet-BE**라는 서브넷이 있고 **web1** 및 **web2**라는 2개의 VM이 **myVNet**의 **myAvailSet**이라는 동일한 가용성 집합 내에 각각 포함되어 있다고 가정합니다. VM을 만들려면 [이 링크](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
+> 이 예제에서는 **myVNet**이라는 가상 네트워크가 있다고 가정합니다. 이렇게 하려면 [가상 네트워크 만들기](../virtual-network/virtual-networks-create-vnet-arm-pportal.md)를 참조하세요. 또한 **myVNet** 내에 **LB-Subnet-BE**라는 서브넷이 있고 **web1** 및 **web2**라는 2개의 VM이 **myVNet** 의 **myAvailSet** 이라는 동일한 가용성 집합 내에 각각 포함되어 있다고 가정합니다. VM을 만들려면 [이 링크](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 
 1. 브라우저에서 Azure 포털 [http://portal.azure.com](http://portal.azure.com) 으로 이동하고 Azure 계정으로 로그인합니다.
-2. 화면 왼쪽 상단에서 **새로 만들기** > **네트워킹** > **부하 분산 장치**를 선택합니다.
+2. 화면 왼쪽 상단에서 **리소스 만들기** > **네트워킹** > **부하 분산 장치**를 선택합니다.
 3. **부하 분산 장치 만들기** 블레이드에서 부하 분산 장치의 이름을 입력합니다. 여기서는 **myLoadBalancer**라고 지칭합니다.
 4. **형식**에서 **Public**을 선택합니다.
 5. **공용 IP 주소** 아래에서 **myPublicIP**이라는 새 공용 IP를 만듭니다.

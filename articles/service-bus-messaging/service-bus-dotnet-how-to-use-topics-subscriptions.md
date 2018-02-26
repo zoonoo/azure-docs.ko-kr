@@ -14,11 +14,11 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 12/6/2017
 ms.author: sethm
-ms.openlocfilehash: 5391951c34498b3bd684cd2e223b8288d4040247
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: aa75ac48d650f28d4aaeb612f2900d705cf71b5b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-with-service-bus-topics"></a>Service Bus 큐 항목 시작
 
@@ -52,7 +52,7 @@ Service Bus 메시징 네임스페이스를 이미 만든 경우 [Azure Portal�
 ## <a name="2-create-a-topic-using-the-azure-portal"></a>2. Azure Portal을 사용하여 항목 만들기
 
 1. [Azure Portal][azure-portal]에 로그인합니다.
-2. 포털의 왼쪽 탐색 창에서 **Service Bus**(**Service Bus**가 표시되지 않으면 **추가 서비스** 클릭)를 클릭하거나 **모든 리소스**를 클릭합니다. 항목을 만들려는 네임스페이스를 클릭합니다. 
+2. 포털의 왼쪽 탐색 창에서 **Service Bus**(**Service Bus**가 표시되지 않으면 **모든 서비스** 클릭)를 클릭하거나 **모든 리소스**를 클릭합니다. 항목을 만들려는 네임스페이스를 클릭합니다. 
 3. 네임스페이스 개요 창이 열립니다. **항목**을 클릭합니다.
    
     ![토픽 만들기][createtopic1]

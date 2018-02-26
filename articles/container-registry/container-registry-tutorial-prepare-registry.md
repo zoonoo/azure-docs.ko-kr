@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 10/26/2017
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 7ae0fbf5f7566bd3f1f6591501b8b004a1e5cb0f
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: b73222d9b31ff840273bdb91a15f7eaf37ad2508
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="prepare-a-geo-replicated-azure-container-registry"></a>지리적 복제 Azure Container Registry 준비
 
@@ -47,7 +47,7 @@ Azure Cloud Shell에는 이 자습서의 모든 단계를 완료하는 데 필�
 
 [Azure 포털](http://portal.azure.com)에 로그인합니다.
 
-**새로 만들기** > **컨테이너** > **Azure Container Registry**를 선택합니다.
+**리소스 만들기** > **컨테이너** > **Azure Container Registry**를 선택합니다.
 
 ![Azure Portal에서 컨테이너 레지스트리 만들기][tut-portal-01]
 
@@ -154,7 +154,7 @@ ENTRYPOINT ["dotnet", "AcrHelloworld.dll"]
 az acr show --name <acrName> --query "{acrLoginServer:loginServer}" --output table
 ```
 
-출력:
+출력
 
 ```bash
 AcrLoginServer
@@ -198,7 +198,7 @@ Successfully tagged uniqueregistryname.azurecr.io/acr-helloworld:v1
 docker images
 ```
 
-출력:
+출력
 
 ```bash
 REPOSITORY                                      TAG    IMAGE ID        CREATED               SIZE
@@ -216,7 +216,7 @@ docker push <acrName>.azurecr.io/acr-helloworld:v1
 
 지역에서 복제를 위해 레지스트리를 구성했으므로 단일 `docker push` 명령으로 *미국 서부* 및 *미국 동부* 지역 모두에 이미지가 자동으로 복제됩니다.
 
-출력:
+출력
 
 ```bash
 The push refers to a repository [uniqueregistryname.azurecr.io/acr-helloworld]

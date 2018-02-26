@@ -14,11 +14,11 @@ ms.topic: tutorial
 ms.date: 09/26/2017
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: dfcbb925a16ca1e53d10b7bf70d03e62bc9dae69
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: fc5dcc945750b4ab4eef337dbd96bd051bb4dd81
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="view-or-analyze-data-collected-with-log-analytics-log-search"></a>Log Analytics 로그 검색을 사용하여 수집한 데이터를 보고 분석합니다.
 
@@ -29,7 +29,7 @@ Log Analytics에서 수집된 데이터를 분석하는 쿼리를 생성하여 �
 > * 이벤트 데이터의 단순 검색을 수행하고, 결과를 수정 및 필터링하는 기능 사용 
 > * 성능 데이터를 사용하는 방법 알아보기
 
-이 자습서의 예제를 완료하려면 [Log Analytics 작업 영역에 연결된](log-analytics-quick-collect-azurevm.md) 기존 가상 컴퓨터가 있어야 합니다.  
+이 자습서의 예제를 완료하려면 [Log Analytics 작업 영역에 연결된](log-analytics-quick-collect-azurevm.md) 기존 가상 머신이 있어야 합니다.  
 
 반환된 데이터와 대화형으로 작업하는 것 외에도 쿼리 만들기 및 편집을 두 가지 방법 중 하나로 수행할 수 있습니다.  기본 쿼리의 경우 Azure Portal의 로그 검색 페이지를 사용하고 고급 쿼리의 경우 고급 분석 포털을 사용할 수 있습니다. 두 포털 간의 기능상 차이점에 대해 자세히 알아보려면 [Azure Log Analytics에서 로그 쿼리를 만들고 편집하기 위한 포털](log-analytics-log-search-portals.md)을 참조하세요.
 
@@ -41,7 +41,7 @@ Log Analytics에서 수집된 데이터를 분석하는 쿼리를 생성하여 �
 ## <a name="open-the-log-search-portal"></a>로그 검색 포털 열기 
 로그 검색 포털을 열어서 시작합니다.   
 
-1. Azure Portal의 왼쪽 아래 모서리에 있는 **추가 서비스**를 클릭합니다. 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Log Analytics**를 선택합니다.
+1. Azure Portal에서 **모든 서비스**를 클릭합니다. 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Log Analytics**를 선택합니다.
 2. Log Analytics 구독 창에서 작업 영역을 선택한 다음 **로그 검색** 타일을 선택합니다.<br> ![로그 검색 단추](media/log-analytics-tutorial-viewdata/azure-portal-01.png)
 
 포털의 Log Analytics 리소스 페이지 맨 위에는 업그레이드를 위해 사용자를 초대하는 배너가 표시될 수 있습니다.<br> ![Azure Portal의 Log Analytics 업그레이드 알림](media/log-analytics-tutorial-viewdata/log-analytics-portal-upgradebanner.png)

@@ -7,14 +7,14 @@ services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.service: monitoring-and-diagnostics
 ms.topic: quickstart
-ms.date: 09/25/2017
+ms.date: 02/08/2018
 ms.author: ancav
 ms.custom: mvc
-ms.openlocfilehash: 08d63d47a99bdf9480299a74634bc0e9a09e691e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3c1a6271d0cb2157cb23f1dd4193eadba2c1679b
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="receive-a-notification-when-a-metric-value-meets-a-condition"></a>메트릭 값이 조건을 충족할 경우 알림 받기
 
@@ -30,11 +30,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="create-a-logic-app"></a>논리 앱 만들기
 
-1. Azure Portal의 왼쪽 위에 있는 **새로 만들기** 단추를 클릭합니다.
+1. Azure Portal의 왼쪽 위 모서리에 있는 **리소스 만들기** 단추를 클릭합니다.
 
-2. **논리 앱**을 검색하여 선택합니다. **myResourceGroup**이라는 새 리소스 그룹을 만들고 기본 위치를 사용합니다. **만들기** 단추를 클릭합니다.
+2. **논리 앱**을 검색하여 선택합니다. **만들기** 단추를 클릭합니다.
 
-3. 논리 앱 정보를 입력하고 **대시보드에 고정** 옵션을 선택합니다. 완료되면 **만들기**를 클릭합니다.
+3. 다음 그림에 보이는 논리 앱 정보를 입력합니다.  기본 위치를 사용합니다. **대시보드에 고정** 옵션을 선택합니다.  완료되면 **만들기**를 클릭합니다. 
 
     ![포털에서 논리 앱에 대한 기본 정보 입력](./media/monitoring-quick-resource-metric-alert-portal/create-logic-app-portal.png)  
 
@@ -47,7 +47,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 6. 다음 다이어그램에 표시된 대로 값을 설정합니다.
 
-    ![포털 패널에서 논리 앱 트리거 구성](./media/monitoring-quick-resource-metric-alert-portal/create-logic-app-triggers.png). 
+    ![포털 패널에서 논리 앱 트리거 구성](./media/monitoring-quick-resource-metric-alert-portal/create-logic-app-triggers.png)에서도 확인할 수 있습니다. 
 
 7. 디자이너에서 **되풀이** 트리거를 선택합니다.
 
@@ -59,7 +59,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 11. **메서드**를 POST로, **Uri**를 원하는 웹 주소로 설정합니다.
 
-12. **Save**를 클릭합니다.
+12. **저장**을 클릭합니다.
+
+13. 논리 앱 실행 작업이 발생할 때까지 최대 5분이 걸릴 수 있습니다.  
 
 ## <a name="view-metrics-for-your-logic-app"></a>논리 앱에 대한 메트릭 보기
 
@@ -71,7 +73,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 4. 차트의 **시간 범위**를 수정하여 지난 시간에 대한 데이터를 표시합니다.
 
-5. 이제 지난 시간 동안 논리 앱이 시작된 총 실행 횟수가 플롯된 차트가 표시됩니다.
+5. 이제 지난 시간 동안 논리 앱이 시작된 총 실행 횟수가 플롯된 차트가 표시됩니다. 차트가 표시되지 않으면 위의 단계에서 5분 이상 기다렸는지 확인합니다. 그런 다음, 브라우저를 새로 고칩니다. 
 
     ![논리 앱 리소스에 대한 메트릭 차트 플롯](./media/monitoring-quick-resource-metric-alert-portal/logic-app-metric-chart.png)
 

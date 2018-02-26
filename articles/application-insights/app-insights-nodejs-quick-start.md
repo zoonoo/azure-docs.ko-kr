@@ -10,11 +10,11 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: b2c8b8cab312f581a9ceb14179a0a7cab94516d6
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 30b75f577b5e68614131e6476586921a752768dc
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="start-monitoring-your-nodejs-web-application"></a>Node.js 웹 응용 프로그램 모니터링 시작
 
@@ -40,11 +40,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 Application Insights는 온-프레미스 또는 클라우드에서 실행되는지 여부에 관계 없이 인터넷에 연결된 모든 응용 프로그램에서 원격 분석 데이터를 수집할 수 있습니다. 이 데이터를 보기 시작하려면 다음 단계를 사용합니다.
 
-1. **새로 만들기** > **모니터링 + 관리** > **Application Insights**를 차례로 선택합니다.
+1. **리소스 만들기** > **모니터링 + 관리** > **Application Insights**를 선택합니다.
 
    ![Application Insights 리소스 추가](./media/app-insights-nodejs-quick-start/001-u.png)
 
-   구성 상자가 표시되면 아래 표를 사용하여 입력 필드를 채웁니다.
+   구성 상자가 표시되면 다음 표를 사용하여 입력 필드를 채웁니다.
 
     | 설정        | 값           | 설명  |
    | ------------- |:-------------|:-----|

@@ -10,11 +10,11 @@ ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
 ms.date: 11/03/2017
-ms.openlocfilehash: 1a210f813319a4f21c7c246002c968b8093f8a4e
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 215de7113421670dae5745ddd5fc2cc22d2143e1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="design-your-first-azure-database-for-postgresql-using-the-azure-portal"></a>Azure Portal을 사용하여 첫 번째 Azure Database for PostgreSQL 디자인
 
@@ -34,15 +34,15 @@ Azure Database for PostgreSQL은 클라우드에서 항상 사용 가능한 Post
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 ## <a name="log-in-to-the-azure-portal"></a>Azure Portal에 로그인
-[Azure Portal](https://portal.azure.com)에 로그인합니다.
+[Azure 포털](https://portal.azure.com) 에 로그인합니다.
 
 ## <a name="create-an-azure-database-for-postgresql"></a>PostgreSQL용 Azure Database 만들기
 
 Azure Database for PostgreSQL 서버는 정의된 [계산 및 저장소 리소스](./concepts-compute-unit-and-storage.md) 집합으로 만들어집니다. 서버는 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md) 내에 만들어집니다.
 
-다음 단계에 따라 Azure Database for PostgreSQL 서버를 를 만듭니다.
-1.  Azure Portal의 왼쪽 위 모서리에 있는 **+ 새로 만들기** 단추를 클릭합니다.
-2.  **새로 만들기** 페이지에서 **데이터베이스**를 선택하고, **데이터베이스** 페이지에서 **Azure Database for PostgreSQL**을 선택합니다.
+다음 단계에 따라 Azure Database for PostgreSQL 서버를 만듭니다.
+1.  Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기**를 클릭합니다.
+2.  **새로 만들기** 페이지에서 **데이터베이스**를 선택하고, **데이터베이스** 페이지에서 **PostgreSQL용 Azure Database**를 선택합니다.
  ![PostgreSQL용 Azure Database - 데이터베이스 만들기](./media/tutorial-design-database-using-azure-portal/1-create-database.png)
 
 3.  위 이미지와 같이 다음 정보를 사용하여 새 서버 세부 정보 양식을 채웁니다.
@@ -58,7 +58,7 @@ Azure Database for PostgreSQL 서버는 정의된 [계산 및 저장소 리소�
 
 4.  **가격 책정 계층**을 클릭하고 새 데이터베이스의 서비스 계층 및 성능 수준을 지정합니다. 이 빠른 시작을 위해 **기본** 계층, **계산 단위 50개** 및 **50GB**의 포함된 저장소를 선택합니다.
  ![PostgreSQL용 Azure Database - 서비스 계층 선택](./media/tutorial-design-database-using-azure-portal/2-service-tier.png)
-5.  **확인**을 클릭합니다.
+5.  **Ok**를 클릭합니다.
 6.  **만들기**를 클릭하여 서버를 프로비전합니다. 프로비전하는 데 몇 분이 걸립니다.
 
   > [!TIP]
@@ -115,7 +115,7 @@ Azure Database for PostgreSQL 서버를 만들 때 또한 기본 **postgres** �
 
    ![PostgreSQL용 Azure Database - Azure Shell Bash 프롬프트](./media/tutorial-design-database-using-azure-portal/8-bash.png)
 
-3. Cloud Shell 프롬프트에서 psql 명령을 사용하여 PostgreSQL용 Azure Database 서버에 연결합니다. 다음 형식은 [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) 유틸리티를 사용하여 PostgreSQL용 Azure Database 서버에 연결하는 데 사용됩니다.
+3. Cloud Shell 프롬프트에서 psql 명령을 사용하여 PostgreSQL용 Azure Database 서버에 연결합니다. 다음 형식은 [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) 유틸리티를 사용하여 Azure Database for PostgreSQL 서버에 연결하는 데 사용됩니다.
    ```bash
    psql --host=<myserver> --port=<port> --username=<server admin login> --dbname=<database name>
    ```
@@ -203,4 +203,4 @@ SELECT * FROM inventory;
 > * 데이터 업데이트
 > * 데이터 복원
 
-다음으로 Azure 명령줄 인터페이스를 사용하여 유사한 작업을 수행하는 방법을 알아보려면 [Azure 명령줄 인터페이스를 사용하여 첫 번째 Azure Database for PostgreSQL 디자인](tutorial-design-database-using-azure-cli.md) 자습서를 검토하세요.
+다음으로 Azure CLI를 사용하여 유사한 작업을 수행하는 방법을 알아보려면 [Azure CLI를 사용하여 첫 번째 Azure Database for PostgreSQL 디자인](tutorial-design-database-using-azure-cli.md) 자습서를 검토하세요.

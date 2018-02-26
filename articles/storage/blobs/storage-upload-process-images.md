@@ -3,22 +3,20 @@ title: "Azure Storage를 사용하여 클라우드에 이미지 데이터 업로
 description: "웹앱에서 Azure Blob Storage를 사용하여 응용 프로그램 데이터 저장"
 services: storage
 documentationcenter: 
-author: georgewallace
-manager: timlt
-editor: 
+author: tamram
+manager: jeconnoc
 ms.service: storage
 ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 09/19/2017
-ms.author: gwallace
+ms.date: 02/20/2018
+ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: eae23bed2792e41f73c22658d238e2b03beba17b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e3c40d0f3db1a33a405a341a714a7ce199908ca4
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="upload-image-data-in-the-cloud-with-azure-storage"></a>Azure Storage를 사용하여 클라우드에 이미지 데이터 업로드
 
@@ -67,11 +65,11 @@ az storage account create --name <blob_storage_account> \
  
 ## <a name="create-blob-storage-containers"></a>Blob Storage 컨테이너 만들기
  
-앱은 Blob Storage 계정에서 두 컨테이너를 사용합니다. 컨테이너는 폴더와 비슷하며 blob을 저장하는 데 사용됩니다. _images_ 컨테이너는 앱이 고해상도 이미지를 업로드하는 위치입니다. 시리즈의 뒷부분에서 Azure 함수 앱은 크기가 조정된 이미지 썸네일을 _thumbs_ 컨테이너에 업로드합니다. 
+앱은 Blob Storage 계정에서 두 컨테이너를 사용합니다. 컨테이너는 폴더와 비슷하며 blob을 저장하는 데 사용됩니다. _images_ 컨테이너는 앱이 고해상도 이미지를 업로드하는 위치입니다. 시리즈의 뒷부분에서 Azure 함수 앱은 크기가 조정된 이미지 썸네일을 _썸네일_ 컨테이너에 업로드합니다. 
 
 [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list) 명령을 사용하여 저장소 계정 키를 가져옵니다. 그런 다음 [az storage container create](/cli/azure/storage/container#az_storage_container_create) 명령을 사용하여 이 키로 2개의 컨테이너를 만듭니다.  
  
-이 경우 `<blob_storage_account>`는 만든 BLOB 저장소 계정의 이름입니다. _images_ 컨테이너 공용 액세스는 `off`로 설정되고, _thumbs_ 컨테이너 공용 액세스는 `container`로 설정됩니다. `container` 공용 액세스 설정을 사용하면 웹 페이지를 방문하는 모든 사람이 해당 썸네일을 볼 수 있습니다.
+이 경우 `<blob_storage_account>`는 만든 BLOB 저장소 계정의 이름입니다. _이미지_ 컨테이너 공용 액세스는 `off`로 설정되고, _썸네일_ 컨테이너 공용 액세스는 `container`로 설정됩니다. `container` 공용 액세스 설정을 사용하면 웹 페이지를 방문하는 모든 사람이 해당 썸네일을 볼 수 있습니다.
  
 ```azurecli-interactive 
 blobStorageAccount=<blob_storage_account>
@@ -82,7 +80,7 @@ blobStorageAccountKey=$(az storage account keys list -g myResourceGroup \
 az storage container create -n images --account-name $blobStorageAccount \
 --account-key $blobStorageAccountKey --public-access off 
 
-az storage container create -n thumbs --account-name $blobStorageAccount \
+az storage container create -n thumbnails --account-name $blobStorageAccount \
 --account-key $blobStorageAccountKey --public-access container
 
 echo "Make a note of your blob storage account key..." 
@@ -135,7 +133,7 @@ az webapp deployment source config --name <web_app> \
 az webapp config appsettings set --name <web_app> --resource-group myResourceGroup \
 --settings AzureStorageConfig__AccountName=<blob_storage_account> \
 AzureStorageConfig__ImageContainer=images  \
-AzureStorageConfig__ThumbnailContainer=thumbs \
+AzureStorageConfig__ThumbnailContainer=thumbnails \
 AzureStorageConfig__AccountKey=<blob_storage_key>  
 ``` 
 
@@ -196,15 +194,15 @@ public static async Task<bool> UploadFileToStorage(Stream fileStream, string fil
 
 썸네일 보기를 테스트하려면 응용 프로그램이 썸네일 컨테이너를 읽을 수 있도록 썸네일 컨테이너에 이미지를 업로드합니다.
 
-[Azure Portal](https://portal.azure.com)에 로그인합니다. 왼쪽 메뉴에서 **저장소 계정**을 선택하고 저장소 계정의 이름을 선택합니다. **Blob 서비스** 아래에서 **컨테이너**를 선택하고 **thumbs** 컨테이너를 선택합니다. **업로드**를 선택하여 **blob 업로드** 창을 엽니다.
+[Azure Portal](https://portal.azure.com)에 로그인합니다. 왼쪽 메뉴에서 **저장소 계정**을 선택하고 저장소 계정의 이름을 선택합니다. **Blob 서비스** 아래에서 **컨테이너**를 선택하고 **썸네일** 컨테이너를 선택합니다. **업로드**를 선택하여 **blob 업로드** 창을 엽니다.
 
 파일 선택기를 사용하여 파일을 선택하고 **업로드**를 선택합니다.
 
-앱으로 다시 이동하여 **thumbs** 컨테이너에 업로드된 이미지가 보이는지 확인합니다.
+앱으로 다시 이동하여 **썸네일** 컨테이너에 업로드된 이미지가 보이는지 확인합니다.
 
 ![Images 컨테이너 보기](media/storage-upload-process-images/figure2.png)
 
-Azure Portal의 **thumbs** 컨테이너에서 업로드한 이미지를 선택하고 **삭제**를 선택하여 이미지를 삭제합니다. 시리즈의 2부에서는 썸네일 이미지 생성을 자동화하여 이 테스트 이미지가 필요하지 않도록 합니다.
+Azure Portal의 **썸네일** 컨테이너에서 업로드한 이미지를 선택하고 **삭제**를 선택하여 이미지를 삭제합니다. 시리즈의 2부에서는 썸네일 이미지 생성을 자동화하여 이 테스트 이미지가 필요하지 않도록 합니다.
 
 CDN을 사용하도록 설정하여 Azure Storage 계정의 콘텐츠를 캐시할 수 있습니다. 이 자습서에서는 설명되어 있지 않지만, Azure Storage 계정으로 CDN을 사용하도록 설정하는 방법을 알아보려면 [Azure CDN과 Azure Storage 계정 통합](../../cdn/cdn-create-a-storage-account-with-cdn.md)을 참조하세요.
 

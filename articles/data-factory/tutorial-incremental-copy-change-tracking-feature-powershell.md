@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: d2cf578d6328e6e53d1081b9ab4de3ad262390df
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 69a2967be1709c3b3e3bd9fa5854482ecc5e3aba
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>변경 내용 추적 정보를 사용하여 Azure SQL Database에서 Azure Blob Storage로 데이터 증분 로드 
 이 자습서에서는 원본 Azure SQL 데이터베이스의 **변경 내용 추적** 정보를 기반으로 Azure Blob 저장소에 델타 데이터를 로드하는 파이프라인이 있는 Azure 데이터 팩터리를 만듭니다.  
@@ -26,8 +26,8 @@ ms.lasthandoff: 01/23/2018
 
 > [!div class="checklist"]
 > * 원본 데이터 저장소를 준비합니다.
-> * 데이터 팩터리를 만듭니다.
-> * 연결된 서비스 만들기. 
+> * 데이터 팩터리 만들기
+> * 연결된 서비스 만들기 
 > * 원본, 싱크 및 변경 내용 추적 데이터 집합을 만듭니다.
 > * 전체 복사 파이프라인을 생성, 실행 및 모니터링합니다.
 > * 원본 테이블의 데이터를 추가 또는 업데이트합니다.
@@ -445,7 +445,7 @@ Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "FullCopyPipeline" -ResourceGr
 ### <a name="monitor-the-full-copy-pipeline"></a>전체 복사 파이프라인 모니터링
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. **추가 서비스**를 클릭하고 `data factories` 키워드를 사용하여 검색하고 **데이터 팩터리**를 선택합니다. 
+2. **모든 서비스**를 클릭하고 `data factories` 키워드를 사용하여 검색하고 **데이터 팩터리**를 선택합니다. 
 
     ![데이터 팩터리 메뉴](media\tutorial-incremental-copy-change-tracking-feature-powershell\monitor-data-factories-menu-1.png)
 3. 데이터 팩터리 목록에서 **데이터 팩터리**를 검색하고 선택하여 데이터 팩터리 페이지를 시작합니다. 

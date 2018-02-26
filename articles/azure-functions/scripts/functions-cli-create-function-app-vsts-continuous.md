@@ -9,15 +9,19 @@ ms.date: 01/09/2018
 ms.topic: sample
 ms.service: functions
 ms.custom: mvc
-ms.openlocfilehash: bf9428f23e851bae3485ec3d724dfb9ccd2af4c1
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: 789f4e0b325475ddc3ff7aeb6e014f3814ac3458
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="create-a-function-in-azure-that-is-deployed-from-visual-studio-team-services"></a>Azure에서 Visual Studio Team Services에서 배포되는 함수 만들기
+# <a name="create-a-function-app-and-deploy-function-code-from-visual-studio-team-services"></a>함수 앱 만들기 및 Visual Studio Team Services의 함수 코드 배포
 
-이 항목에서는 Azure Functions를 사용하여 [소비 계획](../functions-scale.md#consumption-plan)을 사용하는 [서버 없는](https://azure.microsoft.com/overview/serverless-computing/) 함수 앱을 만드는 방법을 보여 줍니다. 함수의 컨테이너에 해당하는 함수 앱은 VSTS(Visual Studio Team Services) 리포지토리에서 지속적으로 배포됩니다. 이 항목을 완료하려면 다음 항목이 필요합니다.
+이 항목에서는 Azure Functions를 사용하여 [소비 계획](../functions-scale.md#consumption-plan)을 사용하는 [서버 없는](https://azure.microsoft.com/overview/serverless-computing/) 함수 앱을 만드는 방법을 보여 줍니다. 함수의 컨테이너에 해당하는 함수 앱은 VSTS(Visual Studio Team Services) 리포지토리에서 지속적으로 배포됩니다. 
+
+[!INCLUDE [upgrade runtime](../../../includes/functions-cli-version-note.md)]
+
+이 항목을 완료하려면 다음 항목이 필요합니다.
 
 * 함수 앱 프로젝트를 포함하고 사용자에게 관리 권한이 있는 VSTS 리포지토리
 * VSTS 리포지토리에 액세스하기 위한 [PAT(개인용 액세스 토큰)](https://docs.microsoft.com/vsts/accounts/use-personal-access-tokens-to-authenticate)

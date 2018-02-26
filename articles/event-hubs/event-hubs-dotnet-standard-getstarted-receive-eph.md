@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2017
 ms.author: sethm
-ms.openlocfilehash: 0dd3533ab1556b334c09ba69d096b06c8be85cc8
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 5eb5c2d1f0b85c907f788fb6ac752488601f613a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-receiving-messages-with-the-event-processor-host-in-net-standard"></a>.NET Standard에서 이벤트 프로세서 호스트를 사용하여 메시지 수신 시작
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 02/03/2018
 ## <a name="create-an-azure-storage-account"></a>Azure Storage 계정 만들기  
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.  
-2. 포털의 왼쪽 탐색 창에서 **새로 만들기**, **저장소**, **Storage 계정**을 차례로 클릭합니다.  
+2. 포털의 왼쪽 탐색 창에서 **리소스 만들기**, **Storage**, **Storage 계정**을 차례로 클릭합니다.  
 3. 저장소 계정 창에서 필드를 완성한 후 **만들기**를 클릭합니다.
 
     ![저장소 계정 만들기][1]

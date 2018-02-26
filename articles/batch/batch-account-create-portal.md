@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 11/14/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2e1b5ae05429cba34e3ea71f95414417bffd99a6
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 5efe804806cb9c14a483e7393f0e8202897d53d6
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Azure Portal에서 Batch 계정 만들기
 
@@ -41,7 +41,7 @@ Batch 계정 및 시나리오에 대한 배경은 [기능 개요](batch-api-basi
 > Batch 계정을 만들 때 일반적으로 기본 **Batch 서비스** 모드를 선택해야 합니다. 여기에서 풀이 Azure에서 관리하는 구독에서 배후에 할당됩니다. 대부분의 시나리오에 대해 더 이상 권장되지 않는 대체 **사용자 구독** 모드인 경우 Batch VM 및 기타 리소스는 풀이 만들어질 때 구독에서 직접 만들어집니다. 사용자 구독 모드에서 Batch 계정을 만들려면 또한 Azure Batch를 사용하여 구독을 등록하고 Azure Key Vault와 계정을 연결해야 합니다.
 
 1. [Azure Portal][azure_portal]에 로그인합니다.
-2. **새로 만들기**를 클릭하고 Marketplace에서 **Batch 서비스**를 검색합니다.
+2. **리소스 만들기**를 클릭하고, Marketplace에서 **Batch 서비스**를 검색합니다.
 
     ![Marketplace에서 Batch][marketplace_portal]
 3. **Batch 서비스**를 선택하고 **만들기**를 클릭하고 **새 Batch 계정** 설정을 입력합니다. 다음 세부 정보를 참조하세요.

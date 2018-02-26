@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: b01aa01df198ce75b2f8b66d28a2db68b1c30b87
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 0f55e368586910b771115b39b5ec9b286f031069
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="monitor-azure-container-service-aks"></a>AKS(Azure Container Service) 모니터링
 
@@ -36,7 +36,7 @@ Kubernetes 클러스터 및 컨테이너를 모니터링하는 것은 중요하�
 
 ## <a name="configure-the-monitoring-solution"></a>모니터링 솔루션 구성
 
-Azure Portal에서 **새로 만들기**를 선택하고 `Container Monitoring Solution`을 검색합니다. 찾은 후에는 **만들기**를 선택합니다.
+Azure Portal에서 **리소스 만들기**를 선택하고 `Container Monitoring Solution`을 검색합니다. 찾은 후에는 **만들기**를 선택합니다.
 
 ![솔루션 추가](./media/container-service-tutorial-kubernetes-monitor/add-solution.png)
 

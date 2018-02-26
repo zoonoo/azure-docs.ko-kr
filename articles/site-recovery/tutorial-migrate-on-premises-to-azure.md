@@ -5,14 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 01/07/2018
+ms.date: 02/18/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: ee9397406cbca21d8bd53019d9daac5a037f508c
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 406f0890da1ef4123b16082e7371d67f6328ea2c
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Azure로 온-프레미스 컴퓨터 마이그레이션
 
@@ -45,7 +45,7 @@ BCDR(비즈니스 지속성 및 재해 복구)을 위해 [Azure Site Recovery](s
 ## <a name="create-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음 만들기
 
 1. [Azure Portal](https://portal.azure.com) > **Recovery Services**에 로그인합니다.
-2. **새로 만들기** > **모니터링 및 관리** > **Backup 및 Site Recovery**를 클릭합니다.
+2. **리소스 만들기** > **모니터링 및 관리** > **백업 및 사이트 복구**를 클릭합니다.
 3. **이름**에서 **ContosoVMVault**라는 이름을 지정합니다. 구독이 두 개 이상인 경우 적절한 구독을 선택합니다.
 4. **ContosoRG** 리소스 그룹을 만듭니다.
 5. Azure 지역을 지정합니다. 지원되는 지역을 확인하려면 [Azure Site Recovery 가격 정보](https://azure.microsoft.com/pricing/details/site-recovery/)에서 지리적 가용성을 참조하세요.
@@ -72,7 +72,7 @@ BCDR(비즈니스 지속성 및 재해 복구)을 위해 [Azure Site Recovery](s
 
 - VMware VM에 대한 원본 환경을 [설정](tutorial-vmware-to-azure.md#set-up-the-source-environment)합니다.
 - 물리적 서버에 대한 원본 환경을 [설정](tutorial-physical-to-azure.md#set-up-the-source-environment)합니다.
-- Hyper-V VM에 대한 원본 환경을 [설정](tutorial-hyper-v-to-azure.md#set-up-the-source-environment)합니다.
+- Hyper-V VM에 대한 원본 환경을 [설정](hyper-v-azure-tutorial.md#set-up-the-source-environment)합니다.
 
 ## <a name="set-up-the-target-environment"></a>대상 환경 설정
 
@@ -86,14 +86,14 @@ BCDR(비즈니스 지속성 및 재해 복구)을 위해 [Azure Site Recovery](s
 
 - VMware VM에 대한 [복제 정책을 설정](tutorial-vmware-to-azure.md#create-a-replication-policy)합니다.
 - 물리적 서버에 대한 [복제 정책을 설정](tutorial-physical-to-azure.md#create-a-replication-policy)합니다.
-- Hyper-V VM에 대한 [복제 정책을 설정](tutorial-hyper-v-to-azure.md#set-up-a-replication-policy)합니다.
+- Hyper-V VM에 대한 [복제 정책을 설정](hyper-v-azure-tutorial.md#set-up-a-replication-policy)합니다.
 
 
 ## <a name="enable-replication"></a>복제 사용
 
 - VMware VM에 대해 [복제를 사용하도록 설정](tutorial-vmware-to-azure.md#enable-replication)합니다.
 - 물리적 서버에 [복제를 사용하도록 설정](tutorial-physical-to-azure.md#enable-replication)합니다.
-- Hyper-V VM에 [복제를 사용하도록 설정](tutorial-hyper-v-to-azure.md#enable-replication)합니다.
+- Hyper-V VM에 [복제를 사용하도록 설정](hyper-v-azure-tutorial.md#enable-replication)합니다.
 
 
 ## <a name="run-a-test-migration"></a>테스트 마이그레이션 실행
@@ -108,7 +108,7 @@ BCDR(비즈니스 지속성 및 재해 복구)을 위해 [Azure Site Recovery](s
 1. **설정** > **복제된 항목**에서 컴퓨터 > **장애 조치(Failover)**를 클릭합니다.
 2. **장애 조치(Failover)**에서 장애 조치할 **복구 지점**을 선택합니다. 최신 복구 지점을 선택합니다.
 3. 암호화 키 설정은 이 시나리오와 관련이 없습니다.
-4. **장애 조치(failover)를 시작하기 전에 컴퓨터 종료**를 선택합니다. Site Recovery는 장애 조치(failover)를 트리거하기 전에 원본 가상 머신을 종료하려고 시도합니다. 종료가 실패하더라도 장애 조치는 계속됩니다. **작업** 페이지에서 장애 조치 진행 상황 확인을 수행할 수 있습니다.
+4. **장애 조치(failover)를 시작하기 전에 컴퓨터를 종료합니다.**를 선택합니다. Site Recovery는 장애 조치(failover)를 트리거하기 전에 원본 가상 머신을 종료하려고 시도합니다. 종료가 실패하더라도 장애 조치는 계속됩니다. **작업** 페이지에서 장애 조치 진행 상황 확인을 수행할 수 있습니다.
 5. Azure VM이 예상대로 Azure에 표시되는지 확인합니다.
 6. **복제된 항목**에서 VM를 마우스 오른쪽 단추로 클릭하고 **마이그레이션 완료**를 클릭합니다. 그러면 마이그레이션 프로세스가 완료되고, VM에 대한 복제가 중지되고, VM에 대한 Site Recovery 청구가 중지됩니다.
 

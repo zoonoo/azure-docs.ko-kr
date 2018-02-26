@@ -16,11 +16,11 @@ ms.topic: hero-article
 ms.date: 01/05/2018
 ms.author: markgal;jimpark
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 50f908a166cb56d5654778ebb1f57ab956bf34a1
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: b91da3e3c99cec3a63d747062d4ae9f62720a872
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vaults"></a>Recovery Services 자격 증명 모음에 Azure Virtual Machines 백업
 
@@ -50,9 +50,9 @@ Premium Storage VM 보호에 대한 자세한 내용은 [Premium Storage VM 백�
 다음 단계를 사용하여 Azure Portal의 가상 머신 관리 블레이드에서 백업 작업을 구성합니다. 다음 단계는 Azure Portal의 가상 머신에만 적용됩니다.
 
 1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
-2. 허브 메뉴에서 **추가 서비스**를 클릭하고 필터 대화 상자에서 **Virtual Machines**를 입력합니다. 입력하면 리소스 목록이 필터링됩니다. 가상 머신이 표시되면 선택합니다.
+2. 허브 메뉴에서 **모든 서비스**를 클릭하고 필터 대화 상자에서 **가상 머신**을 입력합니다. 입력하면 리소스 목록이 필터링됩니다. 가상 머신이 표시되면 선택합니다.
 
-  ![허브 메뉴에서 추가 서비스를 클릭하여 텍스트 대화 상자를 열고 가상 머신을 입력합니다.](./media/backup-azure-vms-first-look-arm/open-vm-from-hub.png)
+  ![모든 서비스에서 가상 머신으로 이동하는 방법을 보여주는 스크린샷](./media/backup-azure-vms-first-look-arm/open-vm-from-hub.png)
 
   구독의 가상 머신(VM) 목록이 나타납니다.
 
@@ -131,7 +131,7 @@ Recovery Services 자격 증명 모음은 시간이 지남에 따라 생성된 �
 Recovery Services 자격 증명 모음을 만들려면:
 
 1. [Azure Portal](https://portal.azure.com/)에 아직 로그인하지 않은 경우 Azure 구독을 사용하여 로그인합니다.
-2. 허브 메뉴에서 **추가 서비스**를 클릭하고 필터 대화 상자에서 **Recovery Services**를 입력합니다. 입력하면 리소스 목록이 필터링됩니다. 목록에 Recovery Services 자격 증명 모음이 표시되면 클릭합니다.
+2. 허브 메뉴에서 **모든 서비스**를 클릭하고 필터 대화 상자에서 **Recovery Services**를 입력합니다. 입력하면 리소스 목록이 필터링됩니다. 목록에 Recovery Services 자격 증명 모음이 표시되면 클릭합니다.
 
     ![Recovery Services 자격 증명 모음 만들기 1단계](./media/backup-try-azure-backup-in-10-mins/open-rs-vault-list.png) <br/>
 
@@ -202,7 +202,7 @@ Recovery Services 자격 증명 모음을 만들려면:
 ## <a name="select-a-backup-goal-set-policy-and-define-items-to-protect"></a>백업 목표 선택, 정책 설정, 보호할 항목 정의
 자격 증명 모음으로 VM을 등록하기 전에 검색 프로세스를 실행하여 구독에 추가된 새 가상 머신을 식별하도록 합니다. 프로세스는 클라우드 서비스 이름 및 지역과 같은 추가 정보와 함께 구독의 가상 머신 목록을 Azure에 쿼리합니다. Azure 포털에서 시나리오란 복구 서비스 자격 증명 모음에 저장할 항목을 가리킵니다. 정책은 복구 지점이 발생하는 빈도 및 시기에 대한 일정입니다. 정책에는 복구 지점의 보존 범위(데이터 보존 기간)도 포함됩니다.
 
-1. 복구 서비스 자격 증명 모음이 이미 열려 있으면 2단계를 진행합니다. 또는 허브 메뉴에서 **추가 서비스**를 클릭하고 리소스 목록에서 **Recovery Services**를 입력한 다음 **Recovery Services 자격 증명 모음**을 클릭합니다.
+1. 복구 서비스 자격 증명 모음이 이미 열려 있으면 2단계를 진행합니다. 그렇지 않으면 **모든 서비스**를 클릭합니다. **Recovery Services**를 클릭하고 **Recovery Services 자격 증명 모음**을 클릭합니다.
 
     ![Recovery Services 자격 증명 모음 만들기 1단계](./media/backup-try-azure-backup-in-10-mins/open-rs-vault-list.png) <br/>
 
