@@ -31,23 +31,25 @@
       href: tutorial-load-balancer.md
     - name: 8 - 네트워킹 관리
       href: tutorial-virtual-network.md
-    - name: 9 - 가상 머신 Backup
+    - name: 9 - 가상 머신 백업
       href: tutorial-backup-vms.md
-    - name: 10 - VM 모니터링 및 업데이트
+    - name: 10 - VM 제어
+      href: tutorial-govern-resources.md
+    - name: 11 - VM 모니터링 및 업데이트
       href: tutorial-monitoring.md
-    - name: 11 - VM 보안 관리
+    - name: 12 - VM 보안 관리
       href: tutorial-azure-security.md
-    - name: 12 - Jenkins 배포
+    - name: 13 - Jenkins 배포
       href: tutorial-jenkins-github-docker-cicd.md
-    - name: 13 - Team Services를 사용하는 CI/CD 설정
+    - name: 14 - Team Services를 사용하는 CI/CD
       href: tutorial-build-deploy-jenkins.md
-    - name: 14a - LAMP 스택 만들기
+    - name: 15a - LAMP 스택 만들기
       href: tutorial-lamp-stack.md
-    - name: 14b - LEMP 스택 만들기
+    - name: 15b - LEMP 스택 만들기
       href: tutorial-lemp-stack.md
-    - name: 14c - MEAN 스택 만들기
+    - name: 15c - MEAN 스택 만들기
       href: tutorial-mean-stack.md
-    - name: 15 - SSL로 웹 서버 보안
+    - name: 16 - SSL로 웹 서버 보안
       href: tutorial-secure-web-server.md
 - name: 샘플
   items:

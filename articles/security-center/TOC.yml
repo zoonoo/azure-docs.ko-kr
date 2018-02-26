@@ -48,61 +48,62 @@
           href: security-center-customize-os-security-config.md
         - name: Azure 정책을 사용한 보안 정책
           href: security-center-azure-policy.md
-    - name: 보안 상태 모니터링
-      href: security-center-monitoring.md
-    - name: ID 및 액세스
-      href: security-center-identity-access.md
     - name: 보안 권장 사항 구현
       href: security-center-recommendations.md
-    - name: 보안 계산
-      href: security-center-virtual-machine-recommendations.md
+    - name: 보안 상태 모니터링
+      href: security-center-monitoring.md
       items:
-        - name: 디스크 암호화 적용
-          href: security-center-apply-disk-encryption.md
-        - name: 시스템 업데이트 적용
-          href: security-center-apply-system-updates.md
-        - name: 저장소 계정에 암호화 사용
-          href: security-center-enable-encryption-for-storage-account.md
-        - name: VM 에이전트 사용
-          href: security-center-enable-vm-agent.md
-        - name: Endpoint Protection 설치
-          href: security-center-install-endpoint-protection.md
-        - name: 시스템 업데이트 후 다시 부팅
-          href: 'security-center-apply-system-updates.md#reboot-after-system-updates'
-        - name: 보안 구성 수정
-          href: security-center-remediate-os-vulnerabilities.md
-        - name: OS 버전 업데이트
-          href: security-center-update-os-version.md
-        - name: 취약성 평가 설치되지 않음
-          href: security-center-vulnerability-assessment-recommendations.md
-    - name: 네트워크 보안
-      href: security-center-network-recommendations.md
-      items:
-        - name: 차세대 방화벽 추가
-          href: security-center-add-next-generation-firewall.md
-        - name: 네트워크 보안 그룹 활성화
-          href: security-center-enable-network-security-groups.md
-        - name: 인터넷 끝점을 통한 액세스 제한
-          href: security-center-restrict-access-through-internet-facing-endpoints.md
-        - name: NGFW를 통해서만 트래픽 라우팅
-          href: 'security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only'
-    - name: 저장소 및 데이터 보안
-      href: security-center-sql-service-recommendations.md
-      items:
-        - name: SQL 데이터베이스에서 감사 및 위협 감지 사용
-          href: security-center-enable-auditing-on-sql-databases.md
-        - name: SQL Server에서 감사 및 위협 감지 사용
-          href: security-center-enable-auditing-on-sql-servers.md
-        - name: 투명한 데이터 암호화 활성화
-          href: security-center-enable-transparent-data-encryption.md
-    - name: 응용 프로그램 보안
-      href: security-center-application-recommendations.md
-      items:
-        - name: 웹 응용 프로그램 방화벽 추가
-          href: security-center-add-web-application-firewall.md
-        - name: 응용 프로그램 보호 완료
-          href: 'security-center-add-web-application-firewall.md#finalize-application-protection'
-    - name: 클라우드 방어
+        - name: 보안 계산
+          href: security-center-virtual-machine-recommendations.md
+          items:
+            - name: 디스크 암호화 적용
+              href: security-center-apply-disk-encryption.md
+            - name: 시스템 업데이트 적용
+              href: security-center-apply-system-updates.md
+            - name: 저장소 계정에 암호화 사용
+              href: security-center-enable-encryption-for-storage-account.md
+            - name: VM 에이전트 사용
+              href: security-center-enable-vm-agent.md
+            - name: Endpoint Protection 설치
+              href: security-center-install-endpoint-protection.md
+            - name: 시스템 업데이트 후 다시 부팅
+              href: 'security-center-apply-system-updates.md#reboot-after-system-updates'
+            - name: 보안 구성 수정
+              href: security-center-remediate-os-vulnerabilities.md
+            - name: OS 버전 업데이트
+              href: security-center-update-os-version.md
+            - name: 취약성 평가 설치되지 않음
+              href: security-center-vulnerability-assessment-recommendations.md
+        - name: 네트워크 보안
+          href: security-center-network-recommendations.md
+          items:
+            - name: 차세대 방화벽 추가
+              href: security-center-add-next-generation-firewall.md
+            - name: 네트워크 보안 그룹 활성화
+              href: security-center-enable-network-security-groups.md
+            - name: 인터넷 끝점을 통한 액세스 제한
+              href: security-center-restrict-access-through-internet-facing-endpoints.md
+            - name: NGFW를 통해서만 트래픽 라우팅
+              href: 'security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only'
+        - name: 저장소 및 데이터 보안
+          href: security-center-sql-service-recommendations.md
+          items:
+            - name: SQL 데이터베이스에서 감사 및 위협 감지 사용
+              href: security-center-enable-auditing-on-sql-databases.md
+            - name: SQL Server에서 감사 및 위협 감지 사용
+              href: security-center-enable-auditing-on-sql-servers.md
+            - name: 투명한 데이터 암호화 활성화
+              href: security-center-enable-transparent-data-encryption.md
+        - name: 응용 프로그램 보안
+          href: security-center-application-recommendations.md
+          items:
+            - name: 웹 응용 프로그램 방화벽 추가
+              href: security-center-add-web-application-firewall.md
+            - name: 응용 프로그램 보호 완료
+              href: 'security-center-add-web-application-firewall.md#finalize-application-protection'
+        - name: ID 및 액세스
+          href: security-center-identity-access.md
+    - name: 클라우드 방어 적용
       items:
         - name: JIT(Just-In-Time) 액세스
           href: security-center-just-in-time.md
@@ -136,13 +137,13 @@
           href: security-center-threat-intel.md
         - name: 조사
           href: security-center-investigation.md
-    - name: 자동화 및 오케스트레이션
+    - name: 보안 워크플로 자동화
       items:
         - name: Logic Apps 플레이북
           href: security-center-playbooks.md
         - name: 이벤트 보기
           href: security-center-events-dashboard.md
-        - name: Search
+        - name: 검색
           href: security-center-search.md
     - name: Azure 로그 통합
       href: security-center-integrating-alerts-with-log-integration.md

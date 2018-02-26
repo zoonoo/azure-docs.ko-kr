@@ -23,6 +23,7 @@
 ### [온-프레미스 연결 - VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [온-프레미스 연결 - 전용](../expressroute/expressroute-introduction.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
+
 # 시작하기
 ## [첫 가상 네트워크 만들기](../virtual-network/quick-create-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
@@ -47,6 +48,7 @@
 ### [패킷 캡처 관리](../network-watcher/network-watcher-packet-capture-manage-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [다음 홉 라우팅 확인](../network-watcher/network-watcher-check-next-hop-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [VM에 대한 IP 흐름 확인](../network-watcher/network-watcher-check-ip-flow-verify-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
+### [네트워크 모니터링 개요](network-monitoring-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
 ## 샘플 스크립트
 ### [Azure CLI](cli-samples.md)
@@ -68,7 +70,7 @@
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=networking)
 ## [커뮤니티 템플릿](https://azure.microsoft.com/resources/templates/)
 ## [네트워킹 블로그](http://azure.microsoft.com/blog/topics/networking)
-## [가격](https://azure.microsoft.com/pricing)
+## [가격 책정](https://azure.microsoft.com/pricing)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [국가별 가용성](https://azure.microsoft.com/regions/services/)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-virtual-network)
