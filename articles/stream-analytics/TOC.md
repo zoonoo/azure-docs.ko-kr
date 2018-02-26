@@ -62,6 +62,7 @@
 ### [이벤트 순서 고려 사항](stream-analytics-out-of-order-and-late-events.md)
 ### [이벤트 허브 리더 제한](stream-analytics-event-hub-consumer-groups.md)
 ### [진단 로그](stream-analytics-job-diagnostic-logs.md)
+### [잘못된 형식의 이벤트 가져오기](stream-analytics-malformed-events.md)
 
 ## 자동화
 ### [관리 .NET SDK 사용](stream-analytics-dotnet-management-sdk.md)
@@ -79,7 +80,7 @@
 ## [블로그](http://blogs.msdn.com/b/streamanalytics/)
 ## [피드백 포럼](http://feedback.azure.com/forums/270577-azure-stream-analytics)
 ## [포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
-## [가격](https://azure.microsoft.com/pricing/details/stream-analytics/)
+## [가격 책정](https://azure.microsoft.com/pricing/details/stream-analytics/)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [릴리스 정보](stream-analytics-release-notes.md)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=stream-analytics)

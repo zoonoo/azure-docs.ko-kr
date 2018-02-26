@@ -5,11 +5,11 @@ title: "Microsoft Azure 설명서"
 description: "Microsoft Azure 클라우드 서비스를 사용하여 강력한 응용 프로그램을 관리하는 방법을 알아봅니다. 설명서, 샘플 코드, 자습서 등을 가져옵니다."
 featureFlags:
 - clicktale
-ms.openlocfilehash: 9f2b958d4a5d7869999d0cbaccaeed69672d6b0b
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 8179149046ac8f1240dd547edc0442d0543f4be0
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 02/24/2018
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -593,7 +593,7 @@ ms.lasthandoff: 02/22/2018
                                             </a>
                                         </li>
                                     </ul>
-                                    <h3>AI + Cognitive Services</h3>
+                                    <h3>AI + Machine Learning</h3>
                                     <ul>
                                         <li>
                                             <a href="/azure/machine-learning/preview">
@@ -849,7 +849,7 @@ ms.lasthandoff: 02/22/2018
                                             </a>
                                         </li>
                                     </ul>
-                                    <h3>데이터 + 분석</h3>
+                                    <h3>분석</h3>
                                     <ul>
                                         <li>
                                             <a href="/azure/hdinsight/">
@@ -1163,7 +1163,7 @@ ms.lasthandoff: 02/22/2018
                                             </a>
                                         </li>
                                     </ul>
-                                    <h3>모니터링 + 관리</h3>
+                                    <h3>관리 도구</h3>
                                     <ul>
                                         <li>
                                             <a href="/azure/azure-policy/">
@@ -2312,7 +2312,7 @@ ms.lasthandoff: 02/22/2018
                         </ul>
                     </li>
                     <li>
-                        <a href="#analytics">데이터 + 분석</a>
+                        <a href="#analytics">분석</a>
                         <ul id="analytics" class="cardsA">
                             <li>
                                 <a href="/azure/hdinsight/">
@@ -2546,8 +2546,8 @@ ms.lasthandoff: 02/22/2018
                         </ul>
                     </li>
                     <li>
-                        <a href="#cognitive">AI + Cognitive Services</a>
-                        <ul id="cognitive" class="cardsA">
+                        <a href="#ai">AI + Machine Learning</a>
+                        <ul id="ai" class="cardsA">
                             <li class="fullSpan">
                                 <h2>인공 지능</h2>
                             </li>
@@ -3492,7 +3492,7 @@ ms.lasthandoff: 02/22/2018
                         </ul>
                     </li>
                     <li>
-                        <a href="#mgmt">모니터링 + 관리</a>
+                        <a href="#mgmt">관리 도구</a>
                         <ul id="mgmt" class="cardsA">
                             <li>
                                 <a href="/azure/azure-policy/">

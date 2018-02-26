@@ -5,7 +5,7 @@
 
 1. Microsoft 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.com/)에 로그온합니다.
 
-2. Azure Portal에서 **+**를 클릭한 후 Marketplace에서 **모두 보기**를 클릭합니다.
+2. Azure Portal에서 **리소스 만들기**를 클릭하고 Marketplace에서 **모두 보기**를 클릭합니다.
 
     ![StorSimple 장치 관리자 만들기](./media/storsimple-8000-create-new-service/createssdevman1.png)
 

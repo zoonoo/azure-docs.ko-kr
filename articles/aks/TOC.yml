@@ -55,6 +55,8 @@
       items:
         - name: 고정 IP 주소
           href: static-ip.md
+        - name: 수신 및 TLS
+          href: ingress.md
     - name: 보안 및 인증
       items:
         - name: 서비스 주체 만들기

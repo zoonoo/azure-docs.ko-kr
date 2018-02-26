@@ -19,6 +19,8 @@
 ### [Azure CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 ### [Azure Portal(클래식)](vpn-gateway-howto-site-to-site-classic-portal.md)
 
+## [VPN 장치 구성 스크립트 다운로드](vpn-gateway-download-vpndevicescript.md)
+
 ## 지점 및 사이트 간 연결 구성 - 네이티브 Azure 인증서 인증
 ### P2S VPN 구성
 #### [Azure 포털](vpn-gateway-howto-point-to-site-resource-manager-portal.md)

@@ -36,11 +36,9 @@
 #### [여러 저장소 계정 간 자산 관리](meda-services-managing-multiple-storage-accounts.md)
 ### [할당량 및 제한 사항](media-services-quotas-and-limitations.md)
 ## [Postman 구성](media-rest-apis-with-postman.md)
-### 주문형 스트리밍
-#### [환경](postman-environment.md)
-#### [컬렉션](postman-collection.md)
-### 라이브 스트리밍
-#### [컬렉션](postman-live-streaming-collection.md)
+### [주문형 스트리밍 컬렉션](postman-collection.md)
+### [라이브 스트리밍 컬렉션](postman-live-streaming-collection.md)
+### [환경](postman-environment.md)
 ## 콘텐츠 업로드
 ### 계정에 파일 업로드
 #### [Azure 포털](media-services-portal-upload-files.md)
