@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 9919e326613ce81db32f1d72a8cb5e3668992885
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f8082b632e9fef4aa5d46deb35e415f2b1c55dda
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="monitor-your-on-premises-identity-infrastructure-and-synchronization-services-in-the-cloud"></a>온-프레미스 ID 인프라 및 클라우드 동기화 서비스를 모니터링합니다.
 Azure AD(Azure Active Directory) Connect Health를 사용하면 온-프레미스 ID 인프라 및 동기화 서비스를 모니터링하고 파악할 수 있습니다. AD FS(Active Directory Federation Services) 서버, Azure AD Connect 서버(즉, 동기화 엔진), Active Directory 도메인 컨트롤러 등과 같은 핵심 ID 구성 요소를 위한 모니터링 기능을 제공하여 Office 365 및 Microsoft Online Services에 대해 신뢰할 수 있는 연결을 유지 관리할 수 있습니다. 또한 사용자가 사용 현황 및 기타 중요한 정보를 보고 올바른 의사 결정을 내릴 수 있도록 이러한 구성 요소의 핵심 데이터 요소에 쉽게 액세스할 수 있게 만들어 줍니다.
@@ -110,7 +110,7 @@ Azure AD Connect Health를 시작하려면 다음 단계를 수행하세요.
 Azure AD Connect Health 포털에서 경고 보기, 성능 모니터링 및 사용 현황 분석을 볼 수 있습니다. https://aka.ms/aadconnecthealth URL은 Azure AD Connect Health의 기본 블레이드로 이동합니다. 블레이드를 창으로 생각할 수 있습니다. 기본 블레이드에는 **빠른 시작**, Azure AD Connect Health 내 서비스 및 추가 구성 옵션이 표시됩니다. 다음 스크린샷과 스크린샷 뒤에 이어지는 간략한 설명을 참조하세요. 에이전트를 배포하면 상태 서비스는 Azure AD Connect Health가 모니터링하는 서비스를 자동으로 식별합니다.
 
 > [!NOTE]
-> 라이선스 정보는 [Azure AD Connect FAQ](active-directory-aadconnect-health-faq.md) 또는 [Azure AD 가격 책정 페이지](https://aka.ms/aadpricing)를 참조하세요.
+> 라이선스 정보는 [Azure AD Connect Health FAQ](active-directory-aadconnect-health-faq.md) 또는 [Azure AD 가격 책정 페이지](https://aka.ms/aadpricing)를 참조하세요.
     
 ![Azure AD Connect Health 포털](./media/active-directory-aadconnect-health/portal4.png)
 

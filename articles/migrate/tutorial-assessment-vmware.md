@@ -4,14 +4,14 @@ description: "Azure Migrate 서비스를 사용하여 Azure로의 마이그레�
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 01/08/2018
+ms.date: 06/02/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: bbcfe95f5427681f8d55d647b102d35fc37f15ee
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 0c82eeaeb17fb670b6d277d1b703b44b84343877
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Azure로의 마이그레이션에 대한 온-프레미스 VMware VM 검색 및 평가
 
@@ -33,7 +33,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 - **VMware**: 마이그레이션하려는 VM은 버전 5.5, 6.0 또는 6.5를 실행하는 vCenter Server에서 관리해야 합니다. 또한 수집기 VM을 배포하려면 5.0 이상을 실행하는 ESXi 호스트가 하나 필요합니다. 
  
 > [!NOTE]
-> Hyper-V는 준비 중이며 향후 곧 지원될 예정입니다. 
+> Hyper-V에 대한 지원은 준비 중이며 곧 사용할 수 있습니다. 
 
 - **vCenter Server 계정**: vCenter Server에 액세스하려면 읽기 전용 계정이 필요합니다. Azure Migrate는 이 계정을 사용하여 온-프레미스 VM을 검색합니다.
 - **사용 권한**: vCenter Server에서 .OVA 형식으로 파일을 가져와 VM을 만들려면 사용 권한이 필요합니다. 
@@ -74,6 +74,14 @@ Azure Migrate는 수집기 어플라이언스로 알려진 온-프레미스 VM�
     - 사용 예: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 3. 생성된 해시는 이러한 설정에 일치해야 합니다.
     
+    OVA 버전 1.0.8.59의 경우
+
+    **알고리즘** | **해시 값**
+    --- | ---
+    MD5 | 71139e24a532ca67669260b3062c3dad
+    SHA1 | 1bdf0666b3c9c9a97a07255743d7c4a2f06d665e
+    SHA256 | 6b886d23b24c543f8fc92ff8426cd782a77efb37750afac397591bda1eab8656  
+
     OVA 버전 1.0.8.49의 경우
     **알고리즘** | **해시 값**
     --- | ---
@@ -108,7 +116,7 @@ Azure Migrate는 수집기 어플라이언스로 알려진 온-프레미스 VM�
 ## <a name="run-the-collector-to-discover-vms"></a>VM을 검색하려면 수집기를 실행합니다.
 
 1. vSphere Client 콘솔에서 VM > **Open Console**을 마우스 오른쪽 단추로 클릭합니다.
-2. 어플라이언스에 대한 언어, 표준 시간대 및 암호 선호도를 제공합니다.
+2. 어플라이언스에 대한 언어, 표준 시간대 및 기본 암호를 제공합니다.
 3. 바탕 화면에서 **수집기 실행** 바로 가기를 클릭합니다.
 4. Azure Migrate Collector에서 **필수 조건 설정**을 엽니다.
     - 사용 조건에 동의하고 타사 정보를 읽습니다.
@@ -153,19 +161,27 @@ VM을 검색한 후 그룹화하여 평가를 만듭니다.
 6. 평가를 만든 후 **개요** > **대시보드**에서 봅니다.
 7. **평가 내보내기**를 클릭하고, Excel 파일로 다운로드합니다.
 
-### <a name="sample-assessment"></a>샘플 평가
+### <a name="assessment-details"></a>평가 세부 정보
 
-예제 평가 보고서는 다음과 같습니다. VM이 Azure에 대해 호환되는지 여부 및 예상되는 월별 비용에 관한 정보가 포함되어 있습니다. 
+평가에는 온-프레미스 VM의 Azure 호환성, Azure에서 VM을 실행하기에 적합한 크기, 예상 월별 Azure 비용에 대한 정보가 포함됩니다. 
 
 ![평가 보고서](./media/tutorial-assessment-vmware/assessment-report.png)
 
 #### <a name="azure-readiness"></a>Azure 준비 상태
 
-이 보기는 각 컴퓨터에 대한 준비 상태를 보여줍니다.
+평가의 Azure 준비 상태 보기는 각 VM의 준비 상태를 보여줍니다. VM의 속성에 따라 각 VM이 다음과 같이 표시됩니다.
+- Azure 준비 완료
+- 조건부 Azure 준비 완료
+- Azure를 사용할 준비 안 됨
+- 준비 상태 알 수 없음 
 
-- 준비된 VM의 경우 Azure Migrate는 Azure에서의 VM 크기를 권장합니다.
-- 준비되지 않은 VM의 경우 Azure Migrate 는 그 이유를 설명하고 수정 단계를 제공합니다.
-- Azure Migrate는 마이그레이션에 사용할 수 있는 도구를 제안합니다. 컴퓨터가 신속한 마이그레이션 전환에 적합한 경우 Azure Site Recovery 서비스를 사용하는 것이 좋습니다. 데이터베이스 컴퓨터인 경우 Azure Database Migration Service를 사용하는 것이 좋습니다.
+준비된 VM의 경우 Azure Migrate는 Azure에서의 VM 크기를 권장합니다. Azure Migrate에서 권장하는 크기는 평가 속성에 지정된 크기 조정 기준에 따라 달라집니다. 크기 조정 기준이 성능 기반이면 VM의 성능 기록을 고려하여 권장 크기가 결정됩니다. 크기 조정 기준이 '온-프레미스로'이면 VM 온-프레미스 크기(있는 그대로 크기 조정)를 살펴보고 권장 크기를 결정합니다. 이 경우 사용률 데이터는 고려되지 않습니다. Azure Migrate의 크기 조정 방식에 대해 [자세히 알아보세요](concepts-assessment-calculation.md). 
+
+VM 상태가 Azure 준비 완료 또는 조건부 Azure 준비 완료인 경우 Azure Migrate는 준비 상태 문제를 설명하고 수정 단계를 제공합니다. 
+
+Azure Migrate가 Azure 준비 상태를 알 수 없는(데이터를 사용할 수 없어서) VM은 준비 상태 알 수 없음으로 표시됩니다.
+
+Azure 준비 상태 및 크기 조정 외에도, Azure Migrate는 VM 마이그레이션에 사용할 수 있는 도구를 추천합니다. 컴퓨터가 신속한 마이그레이션 전환에 적합한 경우 [Azure Site Recovery] 서비스를 사용하는 것이 좋습니다. 데이터베이스 컴퓨터인 경우 Azure Database Migration Service를 사용하는 것이 좋습니다.
 
   ![평가 준비 상태](./media/tutorial-assessment-vmware/assessment-suitability.png)  
 
@@ -180,10 +196,31 @@ VM을 검색한 후 그룹화하여 평가를 만듭니다.
 
 ![VM 비용 평가](./media/tutorial-assessment-vmware/assessment-vm-cost.png) 
 
-드릴다운하여 특정 컴퓨터에 대한 세부 정보를 확인할 수 있습니다.
+#### <a name="confidence-rating"></a>신뢰 등급
 
-![VM 비용 평가](./media/tutorial-assessment-vmware/assessment-vm-drill.png) 
+Azure Migrate의 각 평가는 별 1개~5개 사이의 신뢰 등급에 연결됩니다(별 1개가 가장 낮고 5개가 가장 높음). 신뢰 등급은 평가 계산에 필요한 데이터 요소의 가용성에 따라 평가에 할당됩니다. Azure Migrate에서 제공하는 권장 크기의 신뢰성을 추정하는 데 도움이 됩니다. 
 
+신뢰 등급은 *성능 기반 크기 조정*을 사용할 때 유용합니다. 일부 데이터 요소를 사용할 수 없기 때문입니다. *온-프레미스 크기 조정으로*의 경우 신뢰 등급이 항상 별 5개입니다. Azure Migrate가 VM 크기를 조정하는 데 필요한 모든 데이터를 갖고 있기 때문입니다. 
+
+성능 기반 크기 조정의 경우 Azure Migrate는 CPU 및 메모리 사용률 데이터를 필요로 합니다. VM에 연결된 각 디스크에 대해 성능 기반 크기 조정을 수행하려면 읽기/쓰기 IOPS 및 처리량이 필요합니다. 마찬가지로 VM에 연결된 각 네트워크 어댑터에 대해 Azure Migrate는 성능 기반 크기 조정을 수행하려면 네트워크 입/출력이 필요합니다. 위의 사용률 데이터를 vCenter Server에서 사용할 수 없는 경우 Azure Migrate가 권장하는 크기의 신뢰성이 떨어질 수 있습니다. 사용 가능한 데이터 요소의 백분율에 따라 평가의 신뢰 등급이 제공됩니다.
+
+   **데이터 요소 가용성** | **신뢰 등급**
+   --- | ---
+   0%-20% | 별 1개
+   21%-40% | 별 2개
+   41%-60% | 별 3개
+   61%-80% | 별 4개
+   81%-100% | 별 5개
+
+다음과 같은 이유 중 하나로 인해 평가에 일부 데이터 요소가 없을 수도 있습니다.
+- vCenter Server의 통계 설정이 레벨 3로 설정되지 않았으며 평가에서 크기 조정 기준으로 성능 기반 크기 조정을 사용합니다. vCenter Server의 통계 설정이 레벨 3보다 낮으면 vCenter Server에서 디스크 및 네트워크의 성능 데이터가 수집되지 않습니다. 이 경우 디스크 및 네트워크에 대한 Azure Migrate의 권장 크기는 온-프레미스에 할당된 내용만을 기반으로 결정됩니다. 저장소의 경우 디스크의 IOPS/처리량이 많아서 프리미엄 디스크가 필요한지 식별할 방법이 없기 때문에 Azure Migrate에서 표준 디스크를 권장합니다.
+- vCenter Server의 통계 설정이 검색을 시작하기 전까지 잠깐 동안 레벨 3로 설정되었습니다. 예를 들어 오늘 통계 설정을 레벨 3로 변경하고 내일(24시간 후) 수집기 어플라이언스를 사용하여 검색을 시작하면 하루에 대한 평가를 만들 때 모든 데이터 요소를 갖게 됩니다. 하지만 평가 속성의 성능 기간을 한 달로 변경하면 마지막 한 달의 디스크 및 네트워크 성능 데이터를 사용할 수 없으므로 신뢰 등급이 하락합니다. 마지막 한 달의 성능 데이터를 고려하고 싶으면, 검색을 시작하기 전 한 달 동안은 vCenter Server 설정을 레벨 3로 유지하는 것이 좋습니다. 
+- 평가 계산 기간에 일부 VM이 종료되었습니다. 평가 기간 중 일부 VM이 꺼지면 vCenter Server는 해당 기간의 성능 데이터를 얻지 못합니다. 
+- 평가 계산 기간에 일부 VM이 만들어졌습니다. 예를 들어 마지막 한 달의 성능 기록에 대한 평가를 만들려고 하는데, 일부 VM이 불과 일주일 전 환경에서 만들어졌습니다. 이 경우 새 VM의 성능 기록은 전체 기간에 대해 제공되지 않습니다.
+
+> [!NOTE]
+> 평가의 신뢰 등급이 별 3개 미만이면 vCenter Server 통계 설정을 레벨 3로 변경하고, 평가에 사용하고 싶은 기간(1일/1주일/1개월) 동안 기다린 후 검색 및 평가를 수행합니다. 위의 단계를 수행할 수 없는 경우 성능 기반 크기 조정의 신뢰성이 떨어질 수 있으므로 평가 속성을 변경하여 *온-프레미스 크기 조정으로*로 전환하는 것이 좋습니다.
+ 
 ## <a name="next-steps"></a>다음 단계
 
 - 대규모 VMware 환경을 검색하고 평가하는 방법을 [알아봅니다](how-to-scale-assessment.md).

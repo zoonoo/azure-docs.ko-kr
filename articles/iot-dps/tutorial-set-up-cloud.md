@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 088d127521ce89d3a82e30ad8797fe5746ae7e03
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 247c2155943d651c3be7791571522b652cf63483
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-cloud-resources-for-device-provisioning-with-the-iot-hub-device-provisioning-service"></a>IoT Hub Device Provisioning Service를 사용하여 장치 프로비전을 위한 클라우드 리소스 구성
 
@@ -28,17 +28,17 @@ ms.lasthandoff: 10/11/2017
 > * Device Provisioning Service에 IoT Hub 연결
 > * Device Provisioning Service에서 할당 정책 설정
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
 ## <a name="log-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
-[Azure 포털](https://portal.azure.com/) 에 로그인합니다.
+[Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 ## <a name="create-a-device-provisioning-service-instance-and-get-the-id-scope"></a>Device Provisioning Service 인스턴스 만들기 및 ID 범위 가져오기
 
 다음 단계를 수행하여 새 Device Provisioning Service 인스턴스를 만듭니다.
 
-1. Azure Portal의 왼쪽 위 모서리에서 **새로 만들기**를 클릭합니다.
+1. Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기**를 클릭합니다.
 2. 검색 상자에 **장치 프로비전**을 입력합니다. 
 3. **IoT Hub Device Provisioning Service**를 클릭합니다.
 4. 다음 정보로 **IoT Hub Device Provisioning Service** 양식을 채웁니다.
@@ -68,13 +68,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 2. Device Provisioning Service 페이지에서 **연결된 IoT Hub**를 클릭합니다.
 3. **추가**를 클릭합니다.
 4. **IoT Hub에 링크 추가** 페이지에서 라디오 단추를 사용하여 연결된 IoT Hub가 현재 구독 또는 다른 구독 중 어디에 있는지를 지정합니다. 그런 다음 IoT Hub 이름을 **IoT Hub** 상자에서 선택합니다.
-5. **Save**를 클릭합니다.
+5. **저장**을 클릭합니다.
 
    ![포털에서 DPS에 연결할 허브 이름 연결](./media/tutorial-set-up-cloud/link-iot-hub-to-dps-portal.png)
 
 ## <a name="set-the-allocation-policy-on-the-device-provisioning-service"></a>Device Provisioning Service에서 할당 정책 설정
 
-할당 정책은 IoT Hub에 장치를 할당하는 방법을 결정하는 IoT Hub Device Provisioning Service 설정입니다. 지원되는 세 가지 할당 정책은 다음과 같습니다. 
+할당 정책은 IoT Hub에 장치를 할당하는 방법을 결정하는 IoT Hub Device Provisioning Service 설정입니다. 세 가지의 지원되는 할당 정책이 있습니다. 
 
 1. **최소 대기 시간**: 장치가 대기 시간이 가장 낮은 허브를 기준으로 IoT Hub에 프로비전됩니다.
 2. **균등 가중치 배포**(기본값): 연결된 IoT Hub들은 동일하게 해당 허브에 프로비전된 장치를 갖게 됩니다. 기본 설정입니다. 장치를 단 하나의 IoT Hub에 프로비전하려는 경우 이 설정을 유지할 수 있습니다. 

@@ -12,11 +12,11 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: b7ea43419cbbb5f5d38f8ad721d564650c3681a6
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 84758fbf8f19728370280d5d94acb478ff739019
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-new-azure-api-management-service-instance"></a>새 Azure API Management 서비스 인스턴스 만들기
 
@@ -34,7 +34,7 @@ Azure Portal( http://portal.azure.com )에 로그인합니다.
 
 ## <a name="create-a-new-service"></a>새 서비스 만들기
 
-1. [Azure Portal](https://portal.azure.com/)에서 **새로 만들기** > **엔터프라이즈 통합** > **API 관리**를 선택합니다.
+1. [Azure Portal](https://portal.azure.com/)에서 **리소스 만들기** > **엔터프라이즈 통합** > **API 관리**를 선택합니다.
 
     또는 **새로 만들기**를 선택하고 검색 상자에 `API management`를 입력하고 Enter 키를 누릅니다. **만들기**를 클릭합니다.
 
@@ -63,10 +63,10 @@ Azure Portal( http://portal.azure.com )에 로그인합니다.
 더 이상 필요하지 않은 경우 다음 단계에 따라 리소스 그룹 및 모든 관련된 리소스를 제거할 수 있습니다.
 
 
-1. Azure Portal에서 다음을 선택합니다. ![화살표](./media/get-started-create-service-instance/arrow.png).
+1. Azure Portal에서 다음을 선택합니다. ![화살표](./media/get-started-create-service-instance/arrow.png)에서도 확인할 수 있습니다.
 2. **리소스 그룹**을 선택합니다.
 3. 리소스 그룹을 찾습니다.
-4. 다음을 클릭합니다. ". . ." 그룹을 삭제합니다.
+4. 다음을 클릭합니다. ". 에서도 확인할 수 있습니다. ." 그룹을 삭제합니다.
 
 ![cleanup](./media/get-started-create-service-instance/cleanup.png)
 

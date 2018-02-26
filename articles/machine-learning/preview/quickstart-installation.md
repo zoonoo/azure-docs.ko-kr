@@ -11,16 +11,16 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 10/13/2017
-ms.openlocfilehash: 9a2648d800b803bf0d9d565a806e627c49bb1a00
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 1f25e6daa7378be4463bb0322cd702163dff5c3f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-azure-machine-learning-preview-accounts-and-install-azure-machine-learning-workbench"></a>Azure Machine Learning 미리 보기 계정 만들기 및 Azure Machine Learning Workbench 설치
 Azure Machine Learning 서비스(미리 보기)는 통합된 종단 간 데이터 과학 및 고급 분석 솔루션입니다. 이를 통해 전문 데이터 과학자들은 클라우드 규모로 데이터를 준비하고, 실험을 개발하며, 모델을 배포할 수 있습니다.
 
-이 빠른 시작은 Azure Machine Learning 미리 보기에서 실험 및 모델 관리 계정을 만드는 방법을 보여줍니다. 또한 Azure Machine Learning Workbench 데스크톱 응용 프로그램 및 CLI 도구를 설치하는 방법을 보여 줍니다. 그런 다음 [아이리스 꽃 데이터 집합](https://en.wikipedia.org/wiki/iris_flower_data_set)을 사용하여 일부 물리적 특성을 기반으로 아이리스 종류를 예측하는 모델을 만드는 Azure Machine Learning 미리 보기 기능을 둘러봅니다.  
+이 빠른 시작은 Azure Machine Learning 미리 보기에서 실험 및 모델 관리 계정을 만드는 방법을 보여줍니다. 또한 Azure Machine Learning Workbench 데스크톱 응용 프로그램 및 CLI 도구를 설치하는 방법을 보여 줍니다. 그런 다음, [아이리스 꽃 데이터 집합](https://en.wikipedia.org/wiki/iris_flower_data_set)을 사용하여 일부 물리적 특성을 기반으로 아이리스 종류를 예측하는 모델을 만드는 Azure Machine Learning 미리 보기 기능을 둘러봅니다.  
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -32,12 +32,12 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 - macOS Sierra
 - macOS High Sierra
 
-## <a name="sign-in-to-the-azure-portal"></a>Azure 포털에 로그인합니다.
-[Azure 포털](https://portal.azure.com/)에 로그인합니다.
+## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인합니다.
+[Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 ## <a name="create-azure-machine-learning-accounts"></a>Azure Machine Learning 계정 만들기
 Azure Portal을 사용하여 Azure Machine Learning 계정을 프로비전합니다. 
-1. 포털의 왼쪽 위 모서리에 있는 **새로 만들기** 단추(+)를 선택합니다.
+1. 포털의 왼쪽 상단 모서리에서 **리소스 만들기** 단추(+)를 선택합니다.
 
 2. 검색 창에 **Machine Learning**을 입력합니다. **Machine Learning 실험(미리 보기)**이라는 검색 결과를 선택합니다.  별 아이콘을 클릭하여 이 선택 영역을 Azure Portal의 즐겨찾기로 만듭니다.
 
@@ -82,7 +82,7 @@ Windows 10, Windows Server 2016 또는 최신 버전을 실행하는 컴퓨터�
 2. 파일 탐색기에서 다운로드한 설치 관리자 **AmlWorkbenchSetup.msi**를 두 번 클릭합니다.
 
    >[!IMPORTANT]
-   >설치 관리자를 디스크에 완전히 다운로드한 다음 거기에서 실행합니다. 브라우저의 다운로드 위젯에서 직접 실행하지 않습니다.
+   >설치 관리자를 디스크에 완전히 다운로드한 다음, 거기에서 실행합니다. 브라우저의 다운로드 위젯에서 직접 실행하지 않습니다.
 
 3. 화면의 지시에 따라 설치를 완료합니다.
 
@@ -98,7 +98,7 @@ macOS Sierra 이상을 실행하는 컴퓨터에 Azure Machine Learning Workbenc
 1. 최신 Azure Machine Learning Workbench 설치 관리자 [AmlWorkbench.dmg](https://aka.ms/azureml-wb-dmg)를 다운로드합니다.
 
    >[!IMPORTANT]
-   >설치 관리자를 디스크에 완전히 다운로드한 다음 거기에서 실행합니다. 브라우저의 다운로드 위젯에서 직접 실행하지 않습니다.
+   >설치 관리자를 디스크에 완전히 다운로드한 다음, 거기에서 실행합니다. 브라우저의 다운로드 위젯에서 직접 실행하지 않습니다.
 
 2. 파인더에서 다운로드한 설치 관리자 **AmlWorkbench.dmg**를 두 번 클릭합니다.
 
@@ -115,7 +115,7 @@ macOS Sierra 이상을 실행하는 컴퓨터에 Azure Machine Learning Workbenc
 
 2. 이전에 Azure 리소스를 프로비전하는 데 사용한 것과 같은 계정을 사용하여 Workbench에 로그인합니다. 
 
-3. 로그인 프로세스가 성공하면 Workbench가 이전에 만든 Machine Learning 실험 계정을 찾으려고 합니다. 사용자의 자격 증명이 액세스 권한을 가진 모든 Azure 구독을 검색합니다. 적어도 한 개의 실험 계정을 찾으면 Workbench가 해당 계정을 사용하여 열립니다. 그런 다음 해당 계정에서 찾은 작업 영역 및 프로젝트를 나열합니다. 
+3. 로그인 프로세스가 성공하면 Workbench가 이전에 만든 Machine Learning 실험 계정을 찾으려고 합니다. 사용자의 자격 증명이 액세스 권한을 가진 모든 Azure 구독을 검색합니다. 적어도 한 개의 실험 계정을 찾으면 Workbench가 해당 계정을 사용하여 열립니다. 그런 다음, 해당 계정에서 찾은 작업 영역 및 프로젝트를 나열합니다. 
 
    >[!TIP]
    > 두 개 이상의 실험 계정에 대한 액세스 권한이 있는 경우 Workbench 앱의 왼쪽 아래에 있는 아바타 아이콘을 선택하여 다른 계정으로 전환할 수 있습니다.
@@ -130,7 +130,7 @@ macOS Sierra 이상을 실행하는 컴퓨터에 Azure Machine Learning Workbenc
 3. **프로젝트 이름** 및 **프로젝트 디렉터리** 상자를 채웁니다. **프로젝트 설명**은 옵션이지만 유용합니다. **Visualstudio.com GIT 리포지토리 URL** 상자는 지금은 비워 둡니다. 작업 영역을 선택하고 프로젝트 템플릿으로 **아이리스 분류**를 선택합니다.
 
    >[!TIP]
-   >또는 Git 리포지토리 텍스트 상자를 [Visual Studio Team Service](https://www.visualstudio.com)에서 호스팅하는 Git 리포지토리의 URL로 채울 수 있습니다. 이 Git 리포지토리는 이미 존재해야 하며 마스터 분기가 없이 비어 있어야 합니다. 그리고 그에 대한 쓰기 액세스 권한이 있어야 합니다. Git 리포지토리를 지금 추가하면 나중에 시나리오를 로밍 및 공유할 수 있습니다. [자세히 알아보기](using-git-ml-project.md).
+   >또는 Git 리포지토리 텍스트 상자를 [Visual Studio Team Services](https://www.visualstudio.com) 프로젝트에서 호스팅하는 Git 리포지토리의 URL로 채울 수 있습니다. 이 Git 리포지토리는 이미 존재해야 하며 마스터 분기가 없이 비어 있어야 합니다. 그리고 그에 대한 쓰기 액세스 권한이 있어야 합니다. Git 리포지토리를 지금 추가하면 나중에 시나리오를 로밍 및 공유할 수 있습니다. [자세히 알아보기](using-git-ml-project.md).
 
 4. **만들기** 단추를 선택하여 프로젝트를 만듭니다. 새 프로젝트가 만들어지고 열립니다. 이 시점에서 프로젝트 홈페이지, 데이터 소스, 노트북 및 소스 코드 파일을 탐색할 수 있습니다. 
 
@@ -150,7 +150,7 @@ macOS Sierra 이상을 실행하는 컴퓨터에 Azure Machine Learning Workbenc
 
    이 코드는 유명한 Python [scikit-learn](http://scikit-learn.org/stable/index.html) 라이브러리의 [로지스틱 회귀](https://en.wikipedia.org/wiki/logistic_regression) 알고리즘을 사용하여 모델을 빌드합니다.
 
-4. **작업** 패널이 아직 보이지 않는 경우 오른쪽에서 밀어 빼내면 **iris_sklearn** 작업이 패널에 추가됩니다. 그 상태는 작업이 실행하기 시작함에 따라 **제출 중**에서 **실행 중**으로 전환된 다음 몇 초 후 **완료됨**으로 전환됩니다. 
+4. **작업** 패널이 아직 보이지 않는 경우 오른쪽에서 밀어 빼내면 **iris_sklearn** 작업이 패널에 추가됩니다. 그 상태는 작업이 실행하기 시작함에 따라 **제출 중**에서 **실행 중**으로 전환된 다음, 몇 초 후 **완료됨**으로 전환됩니다. 
 
    축하합니다. Azure Machine Learning Workbench에서 Python 스크립트를 실행했습니다.
 

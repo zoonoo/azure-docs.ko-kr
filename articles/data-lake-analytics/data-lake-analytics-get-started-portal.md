@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/21/2017
 ms.author: edmaca
-ms.openlocfilehash: 2722a2d72ed90ea0005362563ecaee30750c040a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ad5316add4b7806a03e777aee1757841ed866070
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-portal"></a>Azure Portal을 사용하여 Azure Data Lake Analytics 시작
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -34,7 +34,7 @@ Azure Portal을 사용하여 Azure Data Lake Analytics 계정을 만들고, [U-S
 이제 Data Lake Analytics 및 Data Lake Store 계정을 동시에 만듭니다.  이 단계는 간단하며 완료하는 데 약 60초가 소요됩니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. **새로 만들기** >  **데이터 + 분석** > **Data Lake Analytics**를 클릭합니다.
+2. **리소스 만들기** >  **데이터 + 분석** > **Data Lake Analytics**를 클릭합니다.
 3. 다음 항목에 대한 값을 선택합니다.
    * **이름**: Data Lake Analytics 계정의 이름을 지정합니다(소문자와 숫자만 허용).
    * **구독**: 분석 계정에 사용할 Azure 구독을 선택합니다.

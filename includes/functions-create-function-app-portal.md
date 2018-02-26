@@ -1,4 +1,4 @@
-1. Azure Portal의 왼쪽 위 모서리에 있는 **새로 만들기** 단추를 클릭한 다음 **계산** > **함수 앱**을 선택합니다. 
+1. Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기**를 클릭한 다음, **계산** > **함수 앱**을 선택합니다. 
 
     ![Azure Portal에서 함수 앱 만들기](./media/functions-create-function-app-portal/function-app-create-flow.png)
 

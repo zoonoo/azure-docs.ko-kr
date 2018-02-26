@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 01/02/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 16e726d10b159d0a3f08f8bca197c675d748c764
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 63f22544276da07ec98e779cc524879603655db6
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-your-first-container-in-azure-container-instances"></a>Azure Container Instances에서 첫 번째 컨테이너 만들기
 
@@ -27,7 +27,7 @@ Azure Portal( http://portal.azure.com )에 로그인합니다.
 
 ## <a name="create-a-container-instance"></a>컨테이너 인스턴스 만들기
 
-**새로 만들기** > **컨테이너** > **Azure Container Instances(미리 보기)**를 선택합니다.
+**리소스 만들기** > **컨테이너** > **Azure Container Instances(미리 보기)**를 선택합니다.
 
 ![Azure Portal에서 새 컨테이너 인스턴스를 만들기 시작][aci-portal-01]
 

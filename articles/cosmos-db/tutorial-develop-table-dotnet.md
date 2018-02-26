@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 12/18/2017
 ms.author: arramac
 ms.custom: mvc
-ms.openlocfilehash: 41d7e42f203170e4fa3b8e3a8c973e23808f941b
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: bb08a60a9ec2db0fa145f75e00be96bc05664e32
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-cosmos-db-develop-with-the-table-api-in-net"></a>Azure Cosmos DB: .NET의 Table API를 사용하여 개발
 
@@ -55,7 +55,7 @@ Azure Cosmos DB는 스키마를 사용하지 않는 키-값 저장소가 필요�
 - 단일 지역 내 99.99% 가용성, 더 높은 가용성을 위해 더 많은 지역을 추가할 수 있는 기능 및 일반 가용성에 대한 [업계 최고의 포괄적 SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 - 기존 Azure 저장소 .NET SDK 사용 및 응용 프로그램에 대한 코드 변경 없음
 
-이 자습서에서는 .NET SDK를 사용하는 Azure Cosmos DB 테이블 API에 대해 설명합니다. NuGet에서 [Azure Storage Preview SDK](https://aka.ms/tableapinuget)를 다운로드할 수 있습니다.
+이 자습서에서는 .NET SDK를 사용하는 Azure Cosmos DB 테이블 API에 대해 설명합니다. NuGet에서 [Azure Cosmos DB 테이블 API .NET SDK](https://aka.ms/tableapinuget)를 다운로드할 수 있습니다.
 
 복잡한 Azure Table 저장소 작업에 대한 자세한 내용은 다음을 참조하세요.
 

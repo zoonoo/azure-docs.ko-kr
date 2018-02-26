@@ -2,7 +2,7 @@
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-2. **새로 만들기** > **웹 + 모바일** > **알림 허브**를 선택합니다.
+2. **리소스 만들기** > **웹 + 모바일** > **알림 허브**를 선택합니다.
    
       ![Azure Portal - 알림 허브 만들기](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-create.png)
       

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 95934ce8be3570918f72ed7f8101a3599512abed
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 365f00ced38a1ddc20df211121fba43efff8ea87
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="getting-started"></a>Mobile Services를 사용하고 있습니다. App Service가 어떤 도움을 주나요?
 ## <a name="overview"></a>개요
@@ -28,7 +28,7 @@ ms.lasthandoff: 02/09/2018
 * 웹 작업, 사용자 지정 CName, 향상된 모니터링을 포함하는 새로운 호스트 기능
 * Traffic Manager와의 통합
 * 하이브리드 연결뿐만 아니라 VNet을 사용하여 온-프레미스 리소스 및 VPN에 연결
-* NewRelic 또는 AppInsights를 사용하여 앱에 대한 모니터링, 경고 및 문제 해결
+* AppInsights를 사용하여 앱에 대한 모니터링, 경고 및 문제 해결
 * 보다 풍부한 기본 계산 리소스 및 가격 책정
 * 기본 제공되는 자동 크기 조정, 부하 분산 및 성능 모니터링
 * 기본 제공되는 스테이징, 백업, 롤백 및 프로덕션에서 테스트 기능
@@ -54,7 +54,7 @@ ms.lasthandoff: 02/09/2018
 Mobile Services에서는 백 엔드 코드의 모든 인스턴스가 작은 VM에서 실행되었습니다. *Azure App Service* 를 사용하면 훨씬 다양한 옵션 집합에서 VM의 크기를 선택할 수 있습니다. 다양한 성능 메트릭에 따라 들어오는 고객 부하에 맞게 크기를 신속하게 확장하거나 축소할 수도 있습니다.
 
 ## <a name="be-in-the-know"></a>풍부한 정보 제공
-사용자와 팀에 자동으로 알리는 모니터링과 경고를 사용하여 실시간으로 문제에 대응합니다. New Relic과 AppInsights의 고급 앱 분석 및 모니터링 기능을 통합하여 모바일 앱의 작동 방식을 파악합니다. *Azure App Service*를 사용하면 프로그래밍 방식으로 또는 Azure Portal을 통해 다양한 성능 메트릭에 기반한 경고를 설정할 수 있습니다.
+사용자와 팀에 자동으로 알리는 모니터링과 경고를 사용하여 실시간으로 문제에 대응합니다. AppInsights의 고급 앱 분석 및 모니터링 기능을 통합하여 모바일 앱의 작동 방식을 파악합니다. *Azure App Service*를 사용하면 프로그래밍 방식으로 또는 Azure Portal을 통해 다양한 성능 메트릭에 기반한 경고를 설정할 수 있습니다.
 
 ## <a name="keep-your-assets-safe"></a>자산을 안전하게 유지
 백 엔드 및 데이터베이스를 자동으로 백업합니다. 코드와 데이터가 재해로부터 보호되고 쉽게 복원되므로 안심하고 비즈니스를 운영할 수 있습니다.

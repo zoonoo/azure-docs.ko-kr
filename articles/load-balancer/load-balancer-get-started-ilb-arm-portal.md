@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 8f0f575319eec0517366079c637ad7565530ac70
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 5274ec13ec2d04194e2dd4c8ec93be0f78329b23
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-an-internal-load-balancer-in-the-azure-portal"></a>Azure Portal에서 내부 부하 분산 장치 만들기
 
@@ -41,7 +41,7 @@ ms.lasthandoff: 01/11/2018
 Azure Portal에서 내부 부하 분산 장치를 만들려면 다음 단계를 수행합니다.
 
 1. 브라우저를 열고 [Azure Portal](http://portal.azure.com)로 이동하여 Azure 계정으로 로그인합니다.
-2. 화면 왼쪽 상단에서 **새로 만들기** > **네트워킹** > **부하 분산 장치**를 클릭합니다.
+2. 화면 왼쪽 상단에서 **리소스 만들기** > **네트워킹** > **부하 분산 장치**를 클릭합니다.
 3. **부하 분산 장치 만들기** 블레이드에서 부하 분산 장치의 **이름**을 입력합니다.
 4. **형식** 아래에서 **내부**를 클릭합니다.
 5. **가상 네트워크**를 클릭한 다음 부하 분산 장치를 만들 가상 네트워크를 선택합니다.

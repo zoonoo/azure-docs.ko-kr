@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: kumud
-ms.openlocfilehash: b2a9a7dbd1fa7da7ebe479ac166602245cdaefde
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 22bf52f7452f182510c3714f7d1c2ca884446953
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-with-azure-dns-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure DNS 시작
 
@@ -35,7 +35,7 @@ DNS 영역은 특정 도메인에 대한 DNS 레코드를 호스트하는 데 �
 ## <a name="create-a-dns-zone"></a>DNS 영역 만들기
 
 1. Azure 포털에 로그인합니다.
-2. 허브 메뉴에서 **새로 만들기 > 네트워킹 >**을 차례로 클릭한 다음 **DNS 영역**을 클릭하여 **DNS 영역 만들기** 페이지를 엽니다.
+2. 허브 메뉴에서 **리소스 만들기 > 네트워킹 >**을 클릭한 다음, **DNS 영역**을 클릭하여 **DNS 영역 만들기** 페이지를 엽니다.
 
     ![DNS 영역](./media/dns-getstarted-portal/openzone650.png)
 

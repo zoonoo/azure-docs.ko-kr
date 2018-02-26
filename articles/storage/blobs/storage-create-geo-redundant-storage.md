@@ -2,23 +2,19 @@
 title: "Azure에서 응용 프로그램 데이터의 고가용성 지원 | Microsoft Docs"
 description: "읽기 액세스 지역 중복 저장소를 사용하여 응용 프로그램 데이터의 고가용성을 지원하세요."
 services: storage
-documentationcenter: 
-author: georgewallace
+author: tamram
 manager: jeconnoc
-editor: 
 ms.service: storage
 ms.workload: web
-ms.tgt_pltfrm: na
-ms.devlang: 
 ms.topic: tutorial
-ms.date: 12/23/2017
-ms.author: gwallace
+ms.date: 02/20/2018
+ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 612d6db6dff569c0ccbda1c88f7ef1c37e98cd47
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 7b7625b3250d7e5b4cdb4090f34072eb58dda07c
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="make-your-application-data-highly-available-with-azure-storage"></a>Azure Storage를 통해 응용 프로그램 데이터의 고가용성 지원
 
@@ -64,7 +60,7 @@ ms.lasthandoff: 02/13/2018
 
 아래 단계에 따라 읽기 액세스 지역 중복 저장소 계정을 만듭니다.
 
-1. Azure Portal의 왼쪽 위에 있는 **새로 만들기** 단추를 선택합니다.
+1. Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기** 단추를 선택합니다.
 
 2. **새로 만들기** 페이지에서 **저장소**를 선택하고 **추천**에서 **저장소 계정 - Blob, 파일, 테이블, 큐**를 선택합니다.
 3. 다음 정보로 저장소 계정 양식을 작성하고(아래 이미지 참조) **만들기**를 선택합니다.

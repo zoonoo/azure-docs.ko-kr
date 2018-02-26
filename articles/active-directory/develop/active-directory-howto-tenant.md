@@ -15,11 +15,11 @@ ms.topic: hero-article
 ms.date: 07/19/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 5874e6ce7d19c5106bc88ce9ff7fddd1842e0c3b
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 85783d58b2b02a9d0c6230429bebf2806514dee5
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-get-an-azure-active-directory-tenant"></a>Azure Active Directory 테넌트를 얻는 방법
 Azure Active Directory (Azure AD)에서 [테넌트](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) 는 조직을 나타냅니다.  조직이 Azure, Microsoft InTune 또는 Office 365와 같은 Microsoft 클라우드 서비스에 등록할 때 받아서 소유하는 Azure AD 서비스의 전용 인스턴스입니다.  각 Azure AD 테넌트는 서로 전혀 다르고 다른 Azure AD 테넌트와 별개입니다.  
@@ -44,7 +44,7 @@ Azure AD 사용자가 응용 프로그램에 로그인하도록 허용하려면 
 이렇게 하려면 다음 단계를 따르세요.  또는 새 테넌트를 만들고 유사한 프로세스 후에 이 테넌트에 관리자를 만들 수도 있습니다.
 
 1. 개인 계정으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. 포털의 "Azure Active Directory" 섹션으로 이동합니다(왼쪽 탐색 모음의 **더 많은 서비스**에 있음).
+2. 포털의 "Azure Active Directory" 섹션으로 이동합니다(왼쪽 탐색 모음의 **모든 서비스**에 있음).
 3. 자동으로 "기본 디렉터리"에 로그인되어야 합니다. 그렇지 않은 경우 오른쪽 위 모퉁이에서 계정 이름을 클릭하여 디렉터리를 전환할 수 있습니다.
 4. **빠른 태스크** 섹션에서 **사용자 추가**를 선택합니다.
 5. [사용자 추가 양식]에 다음 세부 정보를 입력합니다.
@@ -58,7 +58,7 @@ Azure AD 사용자가 응용 프로그램에 로그인하도록 허용하려면 
 8. 임시 암호를 변경하려면 이 새 사용자 계정으로 [https://login.microsoftonline.com](https://login.microsoftonline.com)에 로그인하고 요청된 경우 암호를 변경합니다.
 
 ## <a name="use-an-organizational-azure-subscription"></a>조직 Azure 구독 사용
-이전에 조직 계정으로 Azure 구독을 등록했으면 이미 테넌트를 가지고 있습니다.  [Azure Portal](https://portal.azure.com)에서 "추가 서비스" 및 "Azure Active Directory"로 이동할 때 테넌트를 찾아야 합니다.  필요에 따라 이 테넌트를 무료로 사용할 수 있습니다.
+이전에 조직 계정으로 Azure 구독을 등록했으면 이미 테넌트를 가지고 있습니다.  [Azure Portal](https://portal.azure.com)에서 "모든 서비스" 및 "Azure Active Directory"로 이동할 때 테넌트를 찾아야 합니다.  필요에 따라 이 테넌트를 무료로 사용할 수 있습니다.
 
 ## <a name="start-from-scratch"></a>처음부터 시작
 위의 모든 항목을 이해할 수 없어도 걱정하지 마세요. 새로운 Azure AD 디렉터리를 만들려면 [Azure Portal](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory)에 방문하세요. 프로세스가 완료되면 등록할 때 선택한 도메인 이름으로 자신만의 Azure AD 테넌트를 얻게 됩니다.  [Azure Portal](https://portal.azure.com)의 왼쪽 탐색 모음에서 **Azure Active Directory**로 이동하여 테넌트를 찾을 수 있습니다.

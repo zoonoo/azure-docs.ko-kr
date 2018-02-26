@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 01/31/2018
 ms.author: anithaa
 ms.custom: 
-ms.openlocfilehash: e705946dca839e6b8e11872ad5431f125b9fb41d
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 1e52b89cf8ac1a8ddeaa7e08ebd3734d1affe98e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-virtual-network-service-endpoints"></a>가상 네트워크 서비스 끝점 구성
 
@@ -62,8 +62,8 @@ VNet(Virtual Network) 서비스 끝점을 사용하면 이러한 리소스에 �
 
 1. [Azure Portal](https://portal.azure.com/)을 엽니다.
 Azure 계정을 사용하여 Azure에 로그인합니다. Azure 계정이 없으면 평가판에 등록할 수 있습니다. 계정에는 가상 네트워크 및 서비스 끝점을 만드는 데 필요한 [사용 권한](#provisioning)이 있어야 합니다.
-2. +새로 만들기 > 네트워킹 > 가상 네트워크 > +추가를 클릭합니다.
-3. "가상 네트워크 만들기"에서 다음 값을 입력한 다음 만들기를 클릭합니다.
+2. **리소스 만들기** > **네트워킹** > **가상 머신** > **+추가**를 클릭합니다.
+3. "가상 네트워크 만들기"에서 다음 값을 입력한 다음, **만들기**를 클릭합니다.
 
 설정 | 값
 ------- | -----

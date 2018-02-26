@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 09/17/2017
 ms.author: barclayn
 ms.custom: pim
-ms.openlocfilehash: 11b5d1bc4e931ad902b623fe55e62097ae40d8ef
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9f51daabef7d1e02917869e4e6943b8ea28b56f5
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="start-using-azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management 시작
 
@@ -33,7 +33,7 @@ Azure AD Privileged Identity Management를 사용하기 전에 응용 프로그�
 
 1. 해당 디렉터리의 전역 관리자로 [Azure 포털](https://portal.azure.com/) 에 로그인합니다.
 2. 조직에 둘 이상의 디렉터리가 있는 경우 Azure 포털의 오른쪽 위에서 사용자 이름을 선택합니다. PIM을 사용할 디렉터리를 선택합니다.
-3. **더 많은 서비스**를 선택하고 [필터] 텍스트 상자를 사용하여 **Azure AD Privileged Identity Management**를 검색합니다.
+3. **모든 서비스**를 선택하고 필터 텍스트 상자를 사용하여 **Azure AD Privileged Identity Management**를 검색합니다.
 4. **대시보드에 고정** 옵션을 선택하고 **만들기**를 클릭합니다. Privileged Identity Management 응용 프로그램이 열립니다.
 
 디렉터리에서 Azure AD Privileged Identity Management를 사용하는 첫 번째 사용자인 경우 디렉터리에 **보안 관리자** 및 **권한 있는 역할 관리자** 역할이 자동으로 할당됩니다. 권한 있는 역할 관리자만 사용자의 Azure AD 디렉터리 역할 할당을 관리할 수 있습니다. 또한 [보안 마법사](active-directory-privileged-identity-management-security-wizard.md)를 실행하도록 선택할 수도 있습니다. 초기 검색 및 할당 경험을 안내합니다.

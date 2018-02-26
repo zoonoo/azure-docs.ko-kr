@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 02/10/2018
 ms.author: owend
-ms.openlocfilehash: ecc95181f61f556b18fa820617ea5ad0636c7a4b
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 3bc0ed965aea043fd5c105752ec39d07c4af818f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-analysis-services---adventure-works-tutorial"></a>Azure Analysis Services - Adventure Works 자습서
 
@@ -43,7 +43,7 @@ Analysis Services 및 테이블 형식 모델링을 처음 사용하는 경우 �
   
 -   사용자 멤버와 역할을 만들어 모델 개체와 데이터를 보호하는 방법  
   
--   테이블 형식 모델을 **Azure Analysis Services** 서버나 온-프레미스 SQL Server 2017 Analysis Services 서버에 배포하는 방법  
+-   SSDT를 사용하여 **Azure Analysis Services** 서버 또는 **SQL Server 2017 Analysis Services** 서버에 테이블 형식 모델을 배포하는 방법  
   
 ## <a name="prerequisites"></a>필수 조건  
 이 자습서를 완료하려면 다음이 필요합니다.  

@@ -12,11 +12,11 @@ ms.devlang: na
 ms.service: virtual-machines-sql
 ms.workload: iaas-sql-server
 ms.technology: database-engine
-ms.openlocfilehash: 8d714718e4fc27f0abbfede8fe6d0e2693698ec1
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 4105e0b4038f5dc09c503ac90ba7ad67c2fd93b8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="provision-a-linux-sql-server-virtual-machine-in-the-azure-portal"></a>Azure Portal에서 Linux SQL Server 가상 컴퓨터 프로비전
 
@@ -35,15 +35,15 @@ ms.lasthandoff: 12/18/2017
 
 ## <a name="prerequisites"></a>필수 조건
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free)을 만듭니다.
 
 ## <a id="create"></a>SQL Server가 설치된 Linux VM 만들기
 
 1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 
-1. 왼쪽 창에서 **새로 만들기**를 클릭합니다.
+1. 왼쪽 창에서 **리소스 만들기**를 클릭합니다.
 
-1. **새로 만들기** 창에서 **계산**을 클릭합니다.
+1. **리소스 만들기** 창에서 **계산**을 클릭합니다.
 
 1. **추천** 제목 옆에 있는 **모두 보기**를 클릭합니다.
 

@@ -1,6 +1,6 @@
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. **새로 만들기**, **웹 + 모바일**, **Mobile Engagement**를 차례로 클릭합니다.
+2. **리소스 만들기**, **웹 + 모바일**, **Mobile Engagement**를 차례로 클릭합니다.
    
     ![](./media/mobile-engagement-create-app-in-portal-new/browse-azme-extension.png)
 3. 표시된 **새 Mobile Engagement 앱 컬렉션** 블레이드에서 앱 컬렉션을 만듭니다. 다음 정보를 입력합니다.

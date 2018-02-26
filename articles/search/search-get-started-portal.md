@@ -15,11 +15,11 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.date: 12/04/2017
 ms.author: heidist
-ms.openlocfilehash: 098faa777746ac23ce7e88aa01fc727f88d4259c
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 528fd6e82079f37c1e9f907e081a1e918abd241e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-query-and-filter-an-azure-search-index-in-the-portal"></a>포털에서 Azure Search 인덱스 만들기, 쿼리 및 필터링
 
@@ -43,10 +43,10 @@ Azure Portal에서 미리 정의된 샘플 데이터 집합을 시작하고 **�
 서비스를 즉시 프로비전하지 않으려는 경우 이 [Azure Search 개요 비디오](https://channel9.msdn.com/Events/Connect/2016/138)를 시작하고 약 3분 후에 나오는 이 자습서의 단계에 대한 6분짜리 데모 영상을 시청하셔도 됩니다.
 
 ## <a name="find-your-service"></a>서비스 찾기
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. Azure Search 서비스의 서비스 대시보드를 엽니다. 서비스 타일을 대시보드에 고정하지 않은 경우 다음과 같은 방법으로 서비스를 찾을 수 있습니다. 
    
-   * 표시줄의 왼쪽 탐색 창 맨 아래에서 **더 많은 서비스**를 클릭합니다.
+   * 표시줄의 왼쪽 탐색창에서 **모든 서비스**를 클릭합니다.
    * 검색 상자에 *검색*을 입력하여 구독에 대한 검색 서비스 목록을 가져옵니다. 목록에 서비스가 표시됩니다. 
 
 ## <a name="check-for-space"></a>공간 확인
@@ -159,7 +159,7 @@ Azure Portal에서 미리 정의된 샘플 데이터 집합을 시작하고 **�
 
 **`search=*&facet=city&$top=2`**
 
-+ **search=***는 빈 검색입니다. 빈 검색은 모든 것을 검색합니다. 빈 쿼리를 제출하는 한 가지 이유는 문서는 문서 전체를 필터링하거나 패싯하는 것입니다. 예를 들어 인덱스의 모든 도시로 구성되는 패싯 탐색 구조가 필요할 수 있습니다.
++ **search=**\* 는 빈 검색입니다. 빈 검색은 모든 것을 검색합니다. 빈 쿼리를 제출하는 한 가지 이유는 문서는 문서 전체를 필터링하거나 패싯하는 것입니다. 예를 들어 인덱스의 모든 도시로 구성되는 패싯 탐색 구조가 필요할 수 있습니다.
 
 +  **facet**은 UI 컨트롤에 전달할 수 있는 탐색 구조를 반환합니다. 범주와 개수를 반환합니다. 이 예에서 범주는 도시 수를 기반으로 합니다. Azure Search에는 집계가 없습니다. 하지만 각 범주의 문서 수를 제공하는 `facet`을 통해 근사치를 집계할 수 있습니다.
 

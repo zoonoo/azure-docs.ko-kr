@@ -14,11 +14,11 @@ ms.topic: quickstart
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 9f7343102cf7af6d7f2ba6b4b2f08b7b855da6f8
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 7480c1f71a64e31b65cc76f28734df6f424a6b3f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>App Service Environment에서 내부 부하 분산 장치 만들기 및 사용 #
 
@@ -55,7 +55,7 @@ ILB ASE를 사용하는 경우 수행할 수 없는 작업도 있습니다.
 
 ILB ASE를 만들려면
 
-1. Azure Portal에서 **새로 만들기** > **웹 + 모바일** > **App Service Environment**를 선택합니다.
+1. Azure Portal에서 **리소스 만들기** > **웹 + 모바일** > **App Service Environment**를 선택합니다.
 
 2. 사용 중인 구독을 선택합니다.
 
@@ -106,7 +106,7 @@ ILB ASE를 만들려면
 
 일반적으로 ASE에서 앱을 만드는 것과 동일한 방식으로 ILB ASE에서 앱을 만듭니다.
 
-1. Azure Portal에서 **새로 만들기** > **웹 + 모바일** > **웹**을 선택하거나 **모바일** 또는 **API App**을 선택합니다.
+1. Azure Portal에서 **리소스 만들기** > **웹 + 모바일** > **웹** 또는 **모바일** 또는 **API 앱**을 선택합니다.
 
 2. 앱의 이름을 입력합니다.
 
@@ -172,7 +172,7 @@ SSL 인증서를 .pfx 파일로 변환/저장합니다. .pfx 파일에는 모든
 
     a. ASE의 도메인 이름이 _.ilbase.com_이고 _mytestapp_이라는 웹앱을 만든 경우 _mytestapp.ilbase.com_으로 주소가 지정됩니다. 그런 다음 _mytestapp.ilbase.com_을 설정하여 ILB 주소로 확인할 수 있습니다. (Windows에서 호스트 파일은 _C:\Windows\System32\drivers\etc\_에 있습니다.)
 
-    b. 웹 배포 게시를 테스트하거나 고급 콘솔에 액세스하려면 _mytestapp.scm.ilbase.com_의 레코드를 만듭니다.
+    나. 웹 배포 게시를 테스트하거나 고급 콘솔에 액세스하려면 _mytestapp.scm.ilbase.com_의 레코드를 만듭니다.
 
 7. 해당 VM에서 브라우저를 사용하고 http://mytestapp.ilbase.com으로 이동합니다. (또는 도메인에서 웹앱 이름으로 이동합니다.)
 
@@ -219,7 +219,7 @@ Azure App Service는 시스템을 보호하는 많은 보안 조치를 제공합
 
 WAF 장치를 사용하여 ILB ASE를 구성하는 방법에 대한 자세한 내용은 [App Service Environment를 사용하여 웹 응용 프로그램 방화벽 구성][ASEWAF]을 참조하세요. 이 문서에서는 ASE를 사용하여 Barracuda 가상 어플라이언스를 사용하는 방법을 보여줍니다. 다른 방법은 Azure Application Gateway를 사용하는 것입니다. Application Gateway는 이후에 배치할 모든 응용 프로그램을 보호하기 위해 OWASP 핵심 규칙을 사용합니다. Application Gateway에 대한 자세한 내용은 [Azure 웹 응용 프로그램 방화벽 소개][AppGW]를 참조하세요.
 
-## <a name="get-started"></a>시작 ##
+## <a name="get-started"></a>시작하기 ##
 
 * ASE를 시작하려면 [App Service Environment 소개][Intro]를 참조하세요.
  

@@ -8,11 +8,11 @@ ms.date: 12/13/2017
 ms.topic: quickstart
 ms.service: automation
 ms.custom: mvc
-ms.openlocfilehash: 5522c56749f9c26f376661636dd62f88017f805e
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 1ac5da8950f2aa5504c2e1e4c80e8cf5cc5d5be8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-an-azure-automation-account"></a>Azure Automation 계정 만들기
 
@@ -26,7 +26,7 @@ https://portal.azure.com에서 Azure에 로그인합니다.
 
 ## <a name="create-automation-account"></a>Automation 계정 만들기
 
-1. Azure Portal의 왼쪽 위 모서리에서 **새로 만들기** 단추를 클릭합니다.
+1. Azure의 왼쪽 위 모서리에서 **리소스 만들기** 단추를 클릭합니다.
 
 1. **모니터링 + 관리**를 선택한 다음 **Automation**을 선택합니다.
 

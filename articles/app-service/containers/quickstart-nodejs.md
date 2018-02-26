@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 05/05/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 0013b3b1e95d733191aeafcffcda078a352d034f
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 33889e391d3060f08294f81b35f180c1318d9f4c
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="create-a-nodejs-web-app-in-azure-app-service-on-linux"></a>Linux의 Azure App Service에서 Node.js 웹앱 만들기
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 02/03/2018
 
 ![Azure에서 실행되는 샘플 앱](media/quickstart-nodejs/hello-world-in-browser.png)
 
-Mac, Windows 또는 Linux 컴퓨터를 사용하여 이 자습서의 단계를 수행하면 됩니다.
+Mac, Windows 또는 Linux 컴퓨터를 사용하여 이 자습서의 단계를 수행하면 됩니다. 이 문서의 내용을 다루는 [비디오](#video)를 따라 진행할 수도 있습니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -180,6 +180,10 @@ git push azure master
 왼쪽 메뉴는 앱 구성을 위한 서로 다른 페이지를 제공합니다. 
 
 [!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
+
+## <a name="video"></a>비디오
+
+[!VIDEO https://www.youtube.com/embed/S9eqK7xPKqU]
 
 ## <a name="next-steps"></a>다음 단계
 

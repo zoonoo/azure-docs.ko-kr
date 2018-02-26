@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 11/10/2017
 ms.author: heidist
-ms.openlocfilehash: bebfdfdf72014019a49a6da0e512e72932b096ac
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 22eeccfd692cca74bc0cf12c3400d717c103332f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Azure Search 인덱서를 사용하여 Azure SQL Databases를 탐색하는 방법
 
@@ -38,7 +38,7 @@ ms.lasthandoff: 01/09/2018
 > * 인덱스 검색
 > * 포털에서 인덱서 구성 보기
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 * 활성 Azure 계정. 아직 구독하지 않은 경우 [평가판](https://azure.microsoft.com/free/)에 등록할 수 있습니다. 
 
@@ -121,7 +121,7 @@ Azure Portal 및 샘플의 *hotels.sql* 파일을 사용하여 Azure SQL Databas
 
 1. [Azure 포털](https://portal.azure.com/)에 로그인합니다. 
 
-2. **새로 만들기** > **SQL Database**를 클릭하여 데이터베이스, 서버 및 리소스 그룹을 만듭니다. 기본값 및 가장 낮은 수준의 가격 책정 계층을 사용할 수 있습니다. 서버를 만드는 이점은 이후 단계에서 테이블을 만들고 로드하는 데 필요한 관리자 사용자 이름 및 암호를 지정할 수 있다는 것입니다.
+2. **리소스 만들기** > **SQL Database**를 클릭하여 데이터베이스, 서버 및 리소스 그룹을 만듭니다. 기본값 및 가장 낮은 수준의 가격 책정 계층을 사용할 수 있습니다. 서버를 만드는 이점은 이후 단계에서 테이블을 만들고 로드하는 데 필요한 관리자 사용자 이름 및 암호를 지정할 수 있다는 것입니다.
 
    ![새 데이터베이스 페이지](./media/search-indexer-tutorial/indexer-new-sqldb.png)
 

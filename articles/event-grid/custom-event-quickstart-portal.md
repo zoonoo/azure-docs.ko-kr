@@ -8,11 +8,11 @@ ms.author: tomfitz
 ms.date: 01/30/2018
 ms.topic: hero-article
 ms.service: event-grid
-ms.openlocfilehash: 01472ffc7a98cd2c99793c8675efe2cefffe5558
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: f37d496d43bb24c51d6e1c11b77d9ceba48b7b23
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-and-route-custom-events-with-the-azure-portal-and-event-grid"></a>Azure Portal 및 Event Grid를 사용하여 사용자 지정 이벤트 만들기 및 라우팅
 
@@ -43,7 +43,7 @@ Event Grid 토픽은 Azure 리소스이며 Azure 리소스 그룹에 배치해�
 
 토픽은 이벤트를 게시하는 사용자 정의 끝점을 제공합니다. 
 
-1. 리소스 그룹에서 항목을 만들려면 **추가 서비스**를 선택하고 *Event Grid*를 검색합니다. 사용 가능한 옵션에서 **Event Grid 항목**을 선택합니다.
+1. 리소스 그룹에서 항목을 만들려면 **모든 서비스**를 선택하고 *Event Grid*를 검색합니다. 사용 가능한 옵션에서 **Event Grid 항목**을 선택합니다.
 
    ![Event Grid 항목 만들기](./media/custom-event-quickstart-portal/create-event-grid-topic.png)
 
@@ -61,13 +61,13 @@ Event Grid 토픽은 Azure 리소스이며 Azure 리소스 그룹에 배치해�
 
 ## <a name="create-a-message-endpoint"></a>메시지 끝점 만들기
 
-토픽을 구독하기 전에 이벤트 메시지에 대한 끝점을 만들어 보겠습니다. 이벤트에 응답하는 코드를 작성하지 않고 메시지를 볼 수 있도록 메시지를 수집하는 끝점을 만들어 보겠습니다. RequestBin 및 Hookbin은 타사 도구로, 이 도구를 통해 엔드포인트를 만들고 이 엔드포인트에 전송된 요청을 볼 수 있습니다. [RequestBin](https://requestb.in/)으로 이동하고 **RequestBin 만들기**를 클릭하거나 [Hookbin](https://hookbin.com/)으로 이동하고 **새 끝점 만들기**를 클릭합니다.  토픽을 구독할 때 필요하기 때문에 bin URL을 복사합니다.
+토픽을 구독하기 전에 이벤트 메시지에 대한 끝점을 만들어 보겠습니다. 이벤트에 응답하는 코드를 작성하지 않고 메시지를 볼 수 있도록 메시지를 수집하는 끝점을 만들어 보겠습니다. RequestBin 및 Hookbin은 타사 도구로, 이 도구를 통해 끝점을 만들고 이 끝점에 전송된 요청을 볼 수 있습니다. [RequestBin](https://requestb.in/)으로 이동하고 **RequestBin 만들기**를 클릭하거나 [Hookbin](https://hookbin.com/)으로 이동하고 **새 끝점 만들기**를 클릭합니다.  토픽을 구독할 때 필요하기 때문에 bin URL을 복사합니다.
 
 ## <a name="subscribe-to-a-topic"></a>토픽 구독
 
 토픽을 구독하여 Event Grid에 추적하려는 이벤트를 알립니다. 
 
-1. Event Grid 구독을 만들려면 다시 **추가 서비스**를 선택하고 *Event Grid*를 검색합니다. 사용 가능한 옵션에서 **Event Grid 구독**을 선택합니다.
+1. Event Grid 구독을 만들려면 다시 **모든 서비스**를 선택하고 *Event Grid*를 검색합니다. 사용 가능한 옵션에서 **Event Grid 구독**을 선택합니다.
 
    ![Event Grid 구독 만들기](./media/custom-event-quickstart-portal/create-subscription.png)
 
@@ -106,7 +106,7 @@ CURL은 HTTP 요청을 수행하는 유틸리티입니다. 이 문서에서는 �
 curl -X POST -H "aeg-sas-key: $key" -d "$body" $endpoint
 ```
 
-이벤트를 트리거했고 Event Grid가 구독할 때 구성한 끝점으로 메시지를 보냈습니다. 이전에 만든 엔드포인트 URL로 이동합니다. 또는 열려 있는 브라우저에서 새로 고침을 클릭합니다. 방금 전송 받은 이벤트가 표시됩니다.
+이벤트를 트리거했고 Event Grid가 구독할 때 구성한 끝점으로 메시지를 보냈습니다. 이전에 만든 끝점 URL로 이동합니다. 또는 열려 있는 브라우저에서 새로 고침을 클릭합니다. 방금 전송 받은 이벤트가 표시됩니다.
 
 ```json
 [{
