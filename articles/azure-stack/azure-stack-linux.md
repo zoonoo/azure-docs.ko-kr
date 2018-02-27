@@ -3,8 +3,8 @@ title: "Azure 스택 Linux 이미지를 추가 합니다."
 description: "자세한 내용은 Azure 스택에 Linux 이미지를 추가 하는 방법입니다."
 services: azure-stack
 documentationcenter: 
-author: anjayajodha
-manager: byronr
+author: brenduns
+manager: femila
 editor: 
 ms.service: azure-stack
 ms.workload: na
@@ -12,12 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 9/25/2017
-ms.author: anajod
-ms.openlocfilehash: a8763c01cba4e5a9eaa3b7842b627d6eb9661a95
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.author: brenduns
+ms.reviewer: anajod
+ms.openlocfilehash: 29e5443de4dc43efe6d536b0f8b9cfc6ad37a669
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="add-linux-images-to-azure-stack"></a>Azure 스택 Linux 이미지를 추가 합니다.
 
@@ -40,7 +41,7 @@ Azure 마켓플레이스에서 Linux 이미지를 다운로드 하려면 문서�
    * [CentOS](http://olstacks.cloudapp.net/latest/)
    * [CoreOS](https://stable.release.core-os.net/amd64-usr/current/coreos_production_azure_image.vhd.bz2)
    * [SuSE](https://download.suse.com/Download?buildid=VCFi7y7MsFQ~)
-   * [Ubuntu 14.04 LTS](https://partner-images.canonical.com/azure/azure_stack/) / [16.04 Ubuntu LTS](http://cloud-images.ubuntu.com/releases/xenial/release/ubuntu-16.04-server-cloudimg-amd64-disk1.vhd.zip)
+   * [Ubuntu 14.04 LTS](https://partner-images.canonical.com/azure/azure_stack/) / [Ubuntu 16.04 LTS](http://cloud-images.ubuntu.com/releases/xenial/release/ubuntu-16.04-server-cloudimg-amd64-disk1.vhd.zip)
 
 1. 필요한 경우에 VHD 이미지를 추출 하 고 [시장에 이미지를 추가](azure-stack-add-vm-image.md)합니다. 다음 사항을 확인는 `OSType` 로 설정 된 `Linux`합니다.
 2. 마켓플레이스 이미지를 추가한 후 마켓플레이스 항목이 만들어지고 사용자가 Linux 가상 컴퓨터를 배포할 수 있습니다.
@@ -65,10 +66,10 @@ Azure 마켓플레이스에서 Linux 이미지를 다운로드 하려면 문서�
    a. 첫째,에서 최신 Azure Linux 에이전트를 다운로드 [GitHub](https://github.com/Azure/WALinuxAgent/releases), 예:
      
             # wget https://github.com/Azure/WALinuxAgent/archive/v2.2.16.tar.gz
-   b. Azure 에이전트 압축을 풉니다.
+   나. Azure 에이전트 압축을 풉니다.
      
             # tar -vzxf v2.2.16.tar.gz
-   c. Python setuptools 설치
+   다. Python setuptools 설치
      
         **Debian / Ubuntu**
      
