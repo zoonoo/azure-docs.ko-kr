@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/9/2017
+ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: c12c4fc6cabd695101abf922eba77b9cd3ee00fa
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 4dafedb3fef821cd2562cf47937d034fdc59d92e
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="application-upgrade-parameters"></a>응용 프로그램 업그레이드 매개 변수
 이 문서에서는 Azure 서비스 패브릭 응용 프로그램을 업그레이드하는 동안 적용되는 다양한 매개 변수를 설명합니다. 이 매개 변수는 응용 프로그램의 이름 및 버전을 포함합니다. 업그레이드하는 동안 적용되고 업그레이드에 실패하면 반드시 적용해야 하는 정책을 지정하는 시간 제한 및 상태 확인을 제어하는 노브입니다.

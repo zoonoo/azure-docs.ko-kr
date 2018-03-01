@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/28/2017
+ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: 93de6a574b306e3fd8959454709e84a57ee4fc10
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: e341f6a4b3a6aef0a328aa4f5d8c9ae92dc24137
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="register-data-from-data-lake-store-in-azure-data-catalog"></a>Azure Data Catalog에 Data Lake 저장소의 데이터 등록
 이 문서에서는 데이터 카탈로그와 데이터를 통합하여 조직 내에서 데이터를 검색할 수 있도록 만들기 위해 Azure Data Lake 저장소와 Azure Data Catalog를 통합하는 방법을 알아봅니다. 데이터 카탈로그를 만드는 방법에 대한 자세한 내용은 [Azure Data Catalog](../data-catalog/data-catalog-what-is-data-catalog.md)를 참조하세요. 데이터 카탈로그를 사용할 수 있는 시나리오를 이해하려면 [Azure Data Catalog 일반적인 시나리오](../data-catalog/data-catalog-common-scenarios.md)를 참조하세요.
@@ -26,7 +26,7 @@ ms.lasthandoff: 11/29/2017
 ## <a name="prerequisites"></a>필수 조건
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
 
-* **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
+* **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 * **Azure 구독을 사용하도록 설정합니다** . [지침](data-lake-store-get-started-portal.md)을 참조하세요.
 * **Azure Data Lake Store 계정**. [Azure Portal을 사용하여 Azure Data Lake Store 시작](data-lake-store-get-started-portal.md)에 있는 지침을 따릅니다. 이 자습서에서는 **datacatalogstore**라는 Data Lake Store 계정을 만들겠습니다.
 
@@ -55,9 +55,9 @@ ms.lasthandoff: 11/29/2017
 
     a. **서버 계층 구조** 상자는 Data Lake 저장소 계정 폴더 구조를 나타냅니다. **$Root**는 Data Lake Store 계정 루트를, **AmbulanceData**는 Data Lake Store 계정의 루트에 생성된 폴더를 나타냅니다.
 
-    b. **사용 가능한 개체** 상자에 **AmbulanceData** 폴더의 하위 파일과 폴더가 나열됩니다.
+    나. **사용 가능한 개체** 상자에 **AmbulanceData** 폴더의 하위 파일과 폴더가 나열됩니다.
 
-    c. **등록할 개체** 상자에는 Azure Data Catalog에 등록할 파일과 폴더가 나열됩니다.
+    다. **등록할 개체** 상자에는 Azure Data Catalog에 등록할 파일과 폴더가 나열됩니다.
 
     ![데이터 구조 보기](./media/data-lake-store-with-data-catalog/view-data-structure.png "데이터 구조 보기")
 8. 이 자습서에서는, 디렉터리의 모든 파일을 등록합니다. 이를 위해, (![개체 이동](./media/data-lake-store-with-data-catalog/move-objects.png "개체 이동")) 단추를 클릭하여 모든 파일을 **등록할 개체** 상자로 이동합니다.
@@ -66,7 +66,7 @@ ms.lasthandoff: 11/29/2017
 
     ![데이터 구조 보기](./media/data-lake-store-with-data-catalog/view-selected-data-structure.png "데이터 구조 보기")
 
-    **Register**를 클릭합니다.
+    **등록**을 클릭합니다.
 9. 다음 화면 캡처는 데이터가 데이터 카탈로그에 성공적으로 등록된 것을 나타냅니다.
 
     ![등록 완료](./media/data-lake-store-with-data-catalog/registration-complete.png "데이터 구조 보기")

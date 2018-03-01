@@ -14,15 +14,16 @@ ms.workload: identity
 ms.date: 12/22/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 59d65e42c9b32bd0acd98645342833b4d57ad7a4
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 808b0357494adac8c8ad7f51e668317e378d290d
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="use-azure-sdks-with-a-user-assigned-managed-service-identity-msi"></a>사용자 할당 MSI(관리 서비스 ID)에서 Azure SDK 사용
 
 [!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
+
 이 문서에서는 사용자 할당 MSI에 해당하는 Azure SDK 지원을 사용하는 방법을 보여 주는 SDK 샘플 목록을 제공합니다.
 
 ## <a name="prerequisites"></a>필수 조건

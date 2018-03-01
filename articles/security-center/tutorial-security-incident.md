@@ -9,17 +9,17 @@ editor:
 ms.assetid: 181e3695-cbb8-4b4e-96e9-c4396754862f
 ms.service: security-center
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: tutorial
+ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/07/2018
+ms.date: 02/22/2018
 ms.author: yurid
-ms.custom: mvc
-ms.openlocfilehash: b6adf4bec2d9f92ee3cde9c73a03beb5a58c3f3f
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: 2eb6a2ea2cd9aa70c5b4f60ab2786b21d8996c29
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="tutorial-respond-to-security-incidents"></a>자습서: 보안 인시던트에 대응
 Security Center는 고급 분석 및 위협 인텔리전스를 사용하여 하이브리드 클라우드 워크로드를 지속적으로 분석하여 악의적인 활동을 경고합니다. 또한 다른 보안 제품 및 서비스의 경고를 Security Center에 통합하고, 사용자 고유의 표시기 또는 인텔리전스 원본에 기반한 사용자 지정 경고를 만들 수 있습니다. 경고가 생성되면 조사하고 수정하기 위한 신속한 조치가 필요합니다. 이 자습서에서는 다음 방법을 알아봅니다.
@@ -31,7 +31,7 @@ Security Center는 고급 분석 및 위협 인텔리전스를 사용하여 하�
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/) 을 만듭니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 이 자습서에서 설명하는 기능을 단계별로 실행하려면 Security Center 표준 가격 책정 계층에 있어야 합니다. 처음 60일 동안 추가 비용 없이 Security Center 표준을 사용해 볼 수 있습니다. [Security Center 표준에 Azure 구독 온보딩](security-center-get-started.md) 빠른 시작을 통해 표준 계층으로 업그레이드하는 방법을 안내합니다.
 
 ## <a name="triage-security-alerts"></a>보안 경고 심사
@@ -76,19 +76,19 @@ Security Center의 검색 기능을 사용하여 손상된 시스템에 대한 �
 검색을 수행하려면 **Security Center** 대시보드를 열고, 왼쪽 탐색 창에서 **검색**을 클릭하고, 검색하려는 엔터티가 포함된 작업 영역을 선택하고, 검색 쿼리를 입력한 다음, 검색 단추를 클릭합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
-이 컬렉션의 다른 빠른 시작 및 자습서는 이 빠른 시작을 기반으로 하여 작성됩니다. 이후의 빠른 시작 및 자습서로 계속 작업하려면 표준 계층을 계속 실행하고 자동 프로비전을 사용하도록 유지합니다. 계속하지 않거나 체험 계층으로 돌아가려면 다음을 수행합니다.
+이 컬렉션의 다른 빠른 시작과 자습서는 이 빠른 시작을 기반으로 하여 작성됩니다. 이후의 빠른 시작과 자습서를 계속 사용하려면 표준 계층을 계속 실행하고 자동 프로비저닝을 설정된 상태로 유지합니다. 계속하지 않거나 체험 계층으로 되돌리려면 다음을 수행합니다.
 
 1. Security Center 주 메뉴로 돌아가서 **보안 정책**을 선택합니다.
-2. 체험 계층으로 돌아가려는 구독 또는 정책을 선택합니다. **보안 정책**이 열립니다.
+2. 체험 계층으로 되돌리려는 구독 또는 정책을 선택합니다. **보안 정책**이 열립니다.
 3. **정책 구성 요소** 아래에서 **가격 책정 계층**을 선택합니다.
 4. **체험**을 선택하여 표준 계층에서 체험 계층으로 구독을 변경합니다.
 5. **저장**을 선택합니다.
 
-자동 프로비전을 사용하지 않도록 설정하려면 다음을 수행합니다.
+자동 프로비저닝을 사용하지 않도록 설정하려면 다음을 수행합니다.
 
 1. Security Center 주 메뉴로 돌아가서 **보안 정책**을 선택합니다.
 2. 자동 프로비저닝을 사용하지 않도록 설정할 구독을 선택합니다.
-3. **보안 정책 - 데이터 수집**의 **온보딩** 아래에서 **해제**를 선택하여 자동 프로비전을 사용하지 않도록 설정합니다.
+3. **보안 정책 - 데이터 수집**에서 **온보딩** 아래의 **해제**를 선택하여 자동 프로비저닝을 사용하지 않도록 설정합니다.
 4. **저장**을 선택합니다.
 
 >[!NOTE]

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: jeedes
-ms.openlocfilehash: 76bbee514eac36aec8eaf84e8a20f85a27559fc7
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: ad12dfd525afe1bde7026535dceb25556abf0a96
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adp-federated-sso"></a>자습서: ADP Federated SSO와 Azure Active Directory 통합
 
@@ -197,9 +197,8 @@ ADP 담당자로부터 확인을 받는 즉시 ADP 서비스를 구성하고 특
     ![Single Sign-On 구성 링크][4]
 
 7. **Single Sign-On** 대화 상자에서 **모드**를 **연결된 로그온**으로 선택하여 **ADP Federated SSO**에 응용 프로그램을 연결합니다.
-<!---Loc Comment:Sentence "to link your application to ADP Federated SSO." should be concatenated with the previous sentence--->
 
-    ![Single sign-on linked](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_linked.png)
+    ![연결된 Single Sign-On](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_linked.png)
 
 8. **로그온 URL 구성** 섹션으로 이동하고 다음 단계를 수행합니다.
 

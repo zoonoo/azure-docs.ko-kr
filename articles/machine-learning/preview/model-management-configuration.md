@@ -4,17 +4,17 @@ description: "이 문서에서는 Azure Machine Learning에서 모델 관리를 
 services: machine-learning
 author: raymondlaghaeian
 ms.author: raymondl
-manager: neerajkh
-ms.reviewer: garyericson, jasonwhowell, mldocs
+manager: hjerez
+ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/29/2017
-ms.openlocfilehash: 151e7c2dc808a8fa117a0d7a1950185abe9e3152
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 45ddd4dc6fb5559c020706e2784158b1319f9b52
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="model-management-setup"></a>모델 관리 설치
 
@@ -32,7 +32,7 @@ CLI는 Azure Machine Learning Workbench 및 [Azure DSVM](https://docs.microsoft.
 ## <a name="using-the-cli"></a>CLI 사용
 Workbench에서 CLI(명령줄 인터페이스)를 사용하려면 **파일** -] **명령줄 인터페이스 열기**를 클릭합니다. 
 
-데이터 과학 가상 컴퓨터에서 명령 프롬프트를 연결하고 엽니다. `az ml -h`를 입력하여 옵션을 표시합니다. 명령에 대한 자세한 내용을 보려면 --help 플래그를 사용합니다.
+데이터 과학 Virtual Machine에서 명령 프롬프트를 연결하고 엽니다. `az ml -h`를 입력하여 옵션을 표시합니다. 명령에 대한 자세한 내용을 보려면 --help 플래그를 사용합니다.
 
 다른 모든 시스템에는 CLI를 설치해야 합니다.
 

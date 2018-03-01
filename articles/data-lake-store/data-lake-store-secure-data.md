@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/28/2017
+ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: e246abaf8d1d7939765e1c878f6dfaf6375294f6
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.openlocfilehash: aa71a1cc48449c6ef48365b301bf9e297c0597ae
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="securing-data-stored-in-azure-data-lake-store"></a>Azure 데이터 레이크 저장소에 저장된 데이터 보호
 Azure 데이터 레이크 저장소의 데이터를 보호하는 것은 3단계로 이루어진 방법입니다.
@@ -33,7 +33,7 @@ Azure 데이터 레이크 저장소의 데이터를 보호하는 것은 3단계�
 ## <a name="prerequisites"></a>필수 조건
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
 
-* **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
+* **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 * **Azure 데이터 레이크 저장소 계정**. 만드는 방법에 대한 지침은 [Azure 데이터 레이크 저장소 시작](data-lake-store-get-started-portal.md)
 
 ## <a name="create-security-groups-in-azure-active-directory"></a>Azure Active Directory의 보안 그룹 만들기
@@ -87,7 +87,7 @@ AAD 보안 그룹을 만드는 방법 및 사용자를 그룹에 추가하는 �
 ## <a name="filepermissions"></a>ACL로 사용자 또는 보안 그룹을 Azure 데이터 레이크 저장소 파일 시스템에 할당
 사용자/보안 그룹을 Azure 데이터 레이크 파일 시스템에 할당하여 Azure 데이터 레이크 저장소에 저장된 데이터에 대한 액세스 제어를 설정합니다.
 
-1. 데이터 레이크 저장소 계정 블레이드에서 **데이터 탐색기**를 클릭합니다.
+1. Data Lake Store 계정 블레이드에서 **데이터 탐색기**를 클릭합니다.
    
     ![Data Lake Store 계정에 디렉터리 만들기](./media/data-lake-store-secure-data/adl.start.data.explorer.png "Data Lake Store 계정에 디렉터리 만들기")
 2. **데이터 탐색기** 블레이드에서 ACL을 구성할 파일이나 폴더를 클릭한 다음 **액세스**를 클릭합니다. 파일에 ACL을 할당하려면 **파일 미리 보기** 블레이드에서 **액세스**를 클릭해야 합니다.
@@ -140,7 +140,7 @@ Azure 데이터 레이크 저장소 계정에서 보안 그룹을 제거하는 �
 ## <a name="remove-security-group-acls-from-azure-data-lake-store-file-system"></a>Azure 데이터 레이크 저장소 파일 시스템에서 보안 그룹 ACL 제거
 Azure Data Lake Store 파일 시스템에서 보안 그룹 ACL을 제거하면 Data Lake Store의 데이터에 대한 액세스가 변경됩니다.
 
-1. 데이터 레이크 저장소 계정 블레이드에서 **데이터 탐색기**를 클릭합니다.
+1. Data Lake Store 계정 블레이드에서 **데이터 탐색기**를 클릭합니다.
    
     ![Data Lake 계정에 디렉터리 만들기](./media/data-lake-store-secure-data/adl.start.data.explorer.png "Data Lake 계정에 디렉터리 만들기")
 2. **데이터 탐색기** 블레이드에서 ACL을 제거할 파일이나 폴더를 클릭한 다음 사용자 계정 블레이드에서 **액세스**를 클릭합니다. 파일에 대한 ACL을 제거하려면 **파일 미리 보기** 블레이드에서 **액세스**를 클릭해야 합니다.

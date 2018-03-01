@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 12/12/2017
+ms.date: 02/22/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: e00c4ab2fc8bb13a765f7c2154555607dddfc651
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 9d9fbefd81fed506bcc025fa0f44315ec831cf0d
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="detect-issues-using-threshold-based-rules"></a>임계값 기반 규칙을 사용하여 문제 감지
 
@@ -66,7 +66,7 @@ Contoso에는 **냉각기** 장치에서 보고된 압력이 250PSI를 초과하
 
 | 설정          | 값                                 |
 | ---------------- | ------------------------------------- |
-| 이름             | 냉각기 경고                       |
+| Name             | 냉각기 경고                       |
 | 원본           | **냉각기** 장치 그룹             |
 | 트리거 필드    | pressure                              |
 | 트리거 연산자 | 다음보다 큼                          |

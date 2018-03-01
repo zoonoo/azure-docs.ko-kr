@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 02/23/2018
 ms.author: maheshu
-ms.openlocfilehash: d55abe651f69e3539e7584b40a7aedf419bccda1
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 8b6c1dec6f97311e5fb92f2adef8685b59cbeb2c
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Azure AD Domain Services 관리되는 도메인에 대해 보안 LDAP(LDAPS) 구성
 
@@ -113,7 +113,6 @@ ms.lasthandoff: 12/16/2017
 ## <a name="troubleshooting"></a>문제 해결
 보안 LDAP를 사용하여 관리되는 도메인에 연결하는 데 문제가 있으면 다음 문제 해결 단계를 수행하세요.
 * 보안 LDAP 인증서의 발급자 체인을 클라이언트에서 신뢰할 수 있는지 확인합니다. 트러스트를 설정하려면 클라이언트의 신뢰할 수 있는 루트 인증서 저장소에 루트 인증 기관을 추가할 수 있습니다.
-* 새 Windows 컴퓨터에서 기본적으로 신뢰할 수 없는 중간 인증 기관에서 보안 LDAP 인증서를 발급하지 않았는지 확인합니다.
 * LDAP 클라이언트(예: ldp.exe)가 IP 주소가 아닌 DNS 이름을 사용하여 보안 LDAP 끝점에 연결되는지 확인합니다.
 * LDAP 클라이언트가 연결할 DNS 이름이 관리되는 도메인의 보안 LDAP에 대한 공용 IP 주소로 확인되는지 확인합니다.
 * 관리되는 도메인의 보안 LDAP 인증서의 주체 또는 주체 대체 이름 특성에 DNS 이름이 있는지 확인합니다.
