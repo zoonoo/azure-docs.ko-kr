@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: raynew
 ms.openlocfilehash: 9de0cb3d22a4e500b66640f70f936ae955bbadb8
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/27/2018
 ---
-# <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>보조 사이트에 온-프레미스 VMware 가상 컴퓨터 또는 물리적 서버의 재해 복구 설정
+# <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>보조 사이트에 온-프레미스 VMware 가상 머신 또는 물리적 서버의 재해 복구 설정
 
 [Azure Site Recovery](site-recovery-overview.md)의 InMage Scout는 온-프레미스 VMware 사이트 간 실시간 복제를 제공합니다. InMage Scout는 Azure Site Recovery 서비스 구독에 포함되어 있습니다. 
 
@@ -80,7 +80,7 @@ ms.lasthandoff: 12/13/2017
     업데이트 4로 이미 업데이트되었거나 원본 에이전트가 최신 기본 설치 관리자인 **InMage_UA_8.0.1.0_Windows_GA_28Sep2017_release.exe**를 사용하여 설치되면 원본 서버에서 업데이트 5 에이전트를 설치할 필요가 없습니다.
 8. **Linux 원본 서버**: 통합 에이전트를 업데이트하려면 해당 버전의 통합 에이전트 파일을 Linux 서버에 복사하고 압축을 풉니다. 압축을 푼 폴더에서 **/Install**을 실행합니다.  예: RHEL 6.7 64비트 서버의 경우 **UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz**를 서버에 복사하고 압축을 풉니다. 압축을 푼 폴더에서 **/Install**을 실행합니다.
 
-## <a name="enable-replication"></a>복제 활성화
+## <a name="enable-replication"></a>복제 사용
 
 1. 원본과 대상 VMware 사이트 간 복제를 설정합니다.
 2. 설치, 보호 및 복구에 대한 자세한 내용을 보려면 다음 문서를 참조하세요.

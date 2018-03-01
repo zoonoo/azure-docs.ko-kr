@@ -3,7 +3,7 @@ title: "Azure SSIS 통합 런타임을 예약하는 방법 | Microsoft Docs"
 description: "이 문서에서는 Azure Automation 및 Data Factory를 사용하여 Azure SSIS 통합 런타임의 시작 및 중지를 예약하는 방법을 설명합니다."
 services: data-factory
 documentationcenter: 
-author: spelluru
+author: douglaslMS
 manager: jhubbard
 editor: 
 ms.service: data-factory
@@ -12,12 +12,12 @@ ms.tgt_pltfrm:
 ms.devlang: powershell
 ms.topic: article
 ms.date: 01/25/2018
-ms.author: spelluru
-ms.openlocfilehash: 814ef63f317c2c0c9081579c16a12a908c05ff74
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: douglasl
+ms.openlocfilehash: 522e9b6831c31a90337126380ccc9f2cb6d8713b
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="how-to-schedule-starting-and-stopping-of-an-azure-ssis-integration-runtime"></a>Azure SSIS 통합 런타임의 시작 및 중지를 예약하는 방법 
 Azure SSIS(SQL Server Integration Services) IR(통합 런타임)을 실행할 때는 비용이 발생합니다. 따라서 Azure에서 SSIS 패키지를 실행해야 할 때만 IR을 실행하고 필요하지 않을 때는 중지할 수 있습니다. Data Factory UI 또는 Azure PowerShell을 사용하여 [Azure SSIS IR을 수동으로 시작 또는 중지 ](manage-azure-ssis-integration-runtime.md)할 수 있습니다. 이 문서에서는 Azure Automation 및 Azure Data Factory를 사용하여 Azure SSIS IR(통합 런타임)의 시작 및 중지를 예약하는 방법을 설명합니다. 이 문서에서 설명하는 개략적인 단계는 다음과 같습니다.
@@ -264,7 +264,7 @@ Azure Automation 계정이 없는 경우 이 단계의 지침에 따라 하나 �
    ![데이터 팩터리 홈페이지](./media/tutorial-create-azure-ssis-runtime-portal/data-factory-home-page.png)
 10. **작성 및 모니터링**을 클릭하여 별도의 탭에서 Data Factory UI(사용자 인터페이스)를 시작합니다.
 
-### <a name="create-a-pipeline"></a>파이프라인 만들기
+### <a name="create-a-pipeline"></a>파이프라인을 만듭니다.
 
 1. **시작** 페이지에서 **파이프라인 만들기**를 선택합니다. 
 

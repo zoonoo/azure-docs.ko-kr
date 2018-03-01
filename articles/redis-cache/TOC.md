@@ -1,3 +1,5 @@
+# [Redis Cache 설명서](index.md)
+
 # 개요
 ##[Redis 캐시 사용 이유](https://azure.microsoft.com/services/cache/)
 ##[프리미엄 계층 기능 알아보기](cache-premium-tier-intro.md)
@@ -9,7 +11,7 @@
 ###[패턴 및 작업 방식 캐싱 안내](../best-practices-caching.md?toc=%2fazure%2fredis-cache%2ftoc.json)
 
 
-# 시작
+# 시작하기
 ##[ASP.NET](cache-web-app-howto.md)
 ##[.NET](cache-dotnet-how-to-use-azure-redis-cache.md)
 ##[Node](cache-nodejs-get-started.md)
@@ -34,7 +36,7 @@
 ## 관리
 ###[Azure Portal에서 구성](cache-configure.md)
 ###[지역에서 복제 구성](cache-how-to-geo-replication.md)
-###[데이터 가져오기/내보내기](cache-how-to-import-export-data.md)
+###[데이터 Import/Export](cache-how-to-import-export-data.md)
 ###[Reboot](cache-administration.md#reboot)
 ###[업데이트 예약](cache-administration.md#schedule-updates)
 ## 모니터링 및 문제 해결
@@ -47,7 +49,7 @@
 ## Spring Boot와 통합
 ###[Redis Cache에 Spring Boot Initializer 앱 사용](cache-java-spring-boot-initializer-with-redis-cache.md)
 
-# 참조
+# 참고 자료
 ## [코드 샘플](https://azure.microsoft.com/resources/samples/?service=redis-cache)
 ## [Azure PowerShell](/powershell/module/azurerm.rediscache)
 ## [Azure CLI 미리 보기](/cli/azure/redis)
@@ -55,10 +57,10 @@
 ## [Java](/java/api/com.microsoft.azure.management.redis._redis_cache)
 ## [Redis 클라이언트](http://redis.io/clients)
 ## [Redis 명령](http://redis.io/commands#)
-## [REST (영문)](https://docs.microsoft.com/rest/api/redis/)
+## [REST](https://docs.microsoft.com/rest/api/redis/)
 
 # 리소스
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=databases)
-## [가격 책정](https://azure.microsoft.com/pricing/details/cache/)
+## [가격](https://azure.microsoft.com/pricing/details/cache/)
 ## [Redis Cache 샘플](cache-redis-samples.md)
 

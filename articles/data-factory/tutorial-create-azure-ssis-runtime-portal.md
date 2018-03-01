@@ -3,7 +3,7 @@ title: "Azure Data Factory를 사용하여 SSIS 통합 런타임 프로비전 | 
 description: "이 문서에서는 Azure Data Factory를 사용하여 Azure-SSIS 통합 런타임을 만드는 방법을 설명합니다."
 services: data-factory
 documentationcenter: 
-author: spelluru
+author: douglaslMS
 manager: jhubbard
 editor: spelluru
 ms.service: data-factory
@@ -12,12 +12,12 @@ ms.tgt_pltfrm:
 ms.devlang: 
 ms.topic: hero-article
 ms.date: 01/29/2018
-ms.author: spelluru
-ms.openlocfilehash: 52df89ea8562b343e1bcfb3175016c415e78a1a1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: douglasl
+ms.openlocfilehash: 2e3e1fff385de87e69ea36d8ffec128f662f6e50
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="provision-an-azure-ssis-integration-runtime-by-using-the-azure-data-factory-ui"></a>Azure Data Factory UI를 사용하여 Azure-SSIS 통합 런타임 프로비전
 이 자습서에서는 Azure Portal을 사용하여 Azure Data Factory에서 Azure-SSIS IR(통합 런타임)을 프로비전하는 단계를 제공합니다. 그런 다음 SQL Server Data Tools 또는 SQL Server Management Studio를 사용하여 Azure에서 이 런타임에 SSIS(SQL Server Integration Services) 패키지를 배포할 수 있습니다. Azure-SSIS IR의 개념 정보는 [Azure-SSIS 통합 런타임 개요](concepts-integration-runtime.md#azure-ssis-integration-runtime)를 참조하세요.
@@ -25,7 +25,7 @@ ms.lasthandoff: 02/21/2018
 이 자습서에서는 다음 단계를 완료합니다.
 
 > [!div class="checklist"]
-> * 데이터 팩터리 만들기
+> * 데이터 팩터리를 만듭니다.
 > * Azure-SSIS 통합 런타임 프로비전
 
 > [!NOTE]
@@ -164,7 +164,7 @@ SSIS 설명서에서 다음 문서를 참조하세요.
 이 자습서에서는 다음 방법에 대해 알아보았습니다. 
 
 > [!div class="checklist"]
-> * 데이터 팩터리 만들기
+> * 데이터 팩터리를 만듭니다.
 > * Azure-SSIS 통합 런타임 프로비전
 
 온-프레미스에서 클라우드로 데이터를 복사하는 방법을 알아보려면 다음 자습서로 이동하세요. 

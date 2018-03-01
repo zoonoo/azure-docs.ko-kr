@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Azure Kubernetes에서 Helm을 사용하여 컨테이너 배포"
 description: "Helm 패키징 도구를 사용하여 AKS Kubernetes 클러스터에 컨테이너 배포"
 services: container-service
@@ -6,14 +6,14 @@ author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 39c6de1ce2443cf027d7cde067281355ea0b7207
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f0fa4c667074a1acda70371251172acf9ff119e5
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="use-helm-with-azure-container-service-aks"></a>AKS(Azure Container Service)에서 Helm 사용
 
@@ -35,7 +35,7 @@ Azure Cloud Shell을 사용하는 경우 Helm CLI가 이미 설치되어 있습�
 brew install kubernetes-helm
 ```
 
-출력:
+출력
 
 ```
 ==> Downloading https://homebrew.bintray.com/bottles/kubernetes-helm-2.6.2.sierra.bottle.1.tar.gz
@@ -56,7 +56,7 @@ Bash completion has been installed to:
 helm init
 ```
 
-출력:
+출력
 
 ```
 $HELM_HOME has been configured at /home/user/.helm.
@@ -101,7 +101,7 @@ stable/datadog                  0.8.0   DataDog Agent
 helm repo update
 ```
 
-출력:
+출력
 
 ```
 Hang tight while we grab the latest from your chart repositories...
@@ -153,7 +153,7 @@ Kubernetes에서 NGINX 수신 컨트롤러를 사용하는 방법에 대한 자�
 helm list
 ```
 
-출력:
+출력
 
 ```
 NAME            REVISION    UPDATED                     STATUS      CHART               NAMESPACE

@@ -1,19 +1,19 @@
 ---
-title: "Azure Database for PostgreSQL로 최소 가동 중지 시간 마이그레이션 | Microsoft Docs"
+title: "Azure Database for PostgreSQL로 최소 가동 중지 시간 마이그레이션"
 description: "이 문서에서는 PostgreSQL 데이터베이스를 덤프 파일에 추출하고, pg_dump에서 생성한 아카이브 파일의 PostgreSQL 데이터베이스를 Azure Database for PostgreSQL에 복원하고, Attunity Replicate for Microsoft Migrations를 사용하여 초기 부하 및 원본 데이터베이스에서 대상 데이터베이스로의 지속적 데이터 동기화를 설정하여 최소 가동 중지 시간 마이그레이션을 수행하는 방법을 설명합니다."
 services: postgresql
 author: HJToland3
 ms.author: jtoland
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 01/04/2018
-ms.openlocfilehash: efbd4f227880875c11e2c43c84716dfc49c5717d
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.date: 02/28/2018
+ms.openlocfilehash: 48cf460405ae3985553f9bff29f4fd7abb008196
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="minimal-downtime-migration-to-azure-database-for-postgresql"></a>Azure Database for PostgreSQL로 최소 가동 중지 시간 마이그레이션
 Microsoft 마이그레이션에서 Attunity Replicate를 사용하여 기존 PostgreSQL 데이터베이스를 Azure Database for PostgreSQL에 마이그레이션할 수 있습니다. Attunity Replicate는 Attunity 및 Microsoft에서 제공하는 결합입니다. Azure Database Migration Service와 함께 Microsoft 고객에게 추가 비용 없이 제공됩니다. 

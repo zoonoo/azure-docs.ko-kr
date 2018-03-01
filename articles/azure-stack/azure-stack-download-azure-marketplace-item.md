@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 02/22/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 27b575a1baa793794480d16e91f0f96355b3d303
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 3437bc9f164cbdc6c923498b978291ced6278744
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Azure에서 Azure 스택에 마켓플레이스 항목을 다운로드
 
@@ -109,7 +109,7 @@ Azure 스택 marketplace에 포함할 콘텐츠를 결정 하는 대로 Azure �
 
 ### <a name="import-the-image-and-publish-it-to-azure-stack-marketplace"></a>이미지를 가져오고 Azure 스택 마켓플레이스에 게시
 
-1. 이미지 및 갤러리 패키지를 다운로드 한 후 및 내용을 AzureStack 도구 마스터 폴더는 이동식 디스크 드라이브에 저장 하 고 Azure 스택 환경에 복사 (복사할 수 있습니다 로컬로 모든 위치에 같은: "C:\MarketplaceImages").   
+1. 이미지 및 갤러리 패키지를 다운로드 한 후 및 내용을 AzureStack 도구 마스터 폴더는 이동식 디스크 드라이브에 저장 하 고 Azure 스택 환경에 복사 (복사할 수 있습니다 로컬로 모든 위치에 같은: "C:\MarketplaceImages").     
 
 2. 이미지를 가져오기 전에 연결 해야 Azure 스택 운영자의 환경에 설명 된 단계를 사용 하 여 [Azure 스택 운영자의 PowerShell 환경을 구성](azure-stack-powershell-configure-admin.md)합니다.  
 

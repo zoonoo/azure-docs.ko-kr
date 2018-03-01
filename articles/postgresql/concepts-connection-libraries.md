@@ -1,19 +1,19 @@
 ---
-title: "PostgreSQL용 Azure 데이터베이스에 대한 연결 라이브러리 | Microsoft Docs"
+title: "PostgreSQL용 Azure 데이터베이스에 대한 연결 라이브러리"
 description: "이 문서에서는 개발자가 PostgreSQL용 Azure 데이터베이스에 연결하고 쿼리하도록 응용 프로그램을 코딩할 때 사용할 수 있는 여러 개의 라이브러리 및 드라이버에 대해 설명합니다."
 services: postgresql
-author: SaloniSonpal
-ms.author: salonis
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 09/26/2017
-ms.openlocfilehash: f371d5cd4e20096d5101fadf9066e3a135218d0b
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.date: 02/28/2018
+ms.openlocfilehash: 7f0dd217a124f530ba009c9a5588691f604827e5
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="connection-libraries-for-azure-database-for-postgresql"></a>PostgreSQL용 Azure 데이터베이스에 대한 연결 라이브러리
 이 문서에서는 개발자가 Azure Database for PostgreSQL에 연결하고 쿼리하도록 응용 프로그램을 개발하는 데 사용할 수 있는 라이브러리 및 드라이버를 나열합니다.
@@ -23,11 +23,11 @@ PostgreSQL 서버에 연결하기 위한 대부분의 언어 클라이언트 라
 
 | **언어** | **클라이언트 인터페이스** | **추가 정보** | **다운로드** |
 |--------------|----------------------------------------------------------------|-------------------------------------|--------------------------------------------------------------------|
-| Python | [psycopg](http://initd.org/psycopg/) | DB API 2.0 호환 | [다운로드](http://initd.org/psycopg/download/) |
+| 파이썬 | [psycopg](http://initd.org/psycopg/) | DB API 2.0 호환 | [다운로드](http://initd.org/psycopg/download/) |
 | PHP | [php-pgsql](https://php.net/manual/en/book.pgsql.php) | 데이터베이스 확장 | [설치](https://secure.php.net/manual/en/pgsql.installation.php) |
 | Node.js | [Pg npm package](https://www.npmjs.com/package/pg) | 순수 JavaScript 비차단 클라이언트 | [설치](https://www.npmjs.com/package/pg) |
 | 자바 | [JDBC](http://jdbc.postgresql.org/) | 형식 4 JDBC 드라이버 | [다운로드](https://jdbc.postgresql.org/download.html)  |
-| 루비 | [Pg gem](https://deveiate.org/code/pg/) | Ruby 인터페이스 | [다운로드](https://rubygems.org/downloads/pg-0.20.0.gem) |
+| Ruby | [Pg gem](https://deveiate.org/code/pg/) | Ruby 인터페이스 | [다운로드](https://rubygems.org/downloads/pg-0.20.0.gem) |
 | Go | [Package pq](https://godoc.org/github.com/lib/pq) | 순수 Go postgres 드라이버 | [설치](https://github.com/lib/pq/blob/master/README.md) |
 | C\#/ .NET | [Npgsql](http://www.npgsql.org/) | ADO.NET 데이터 공급자 | [다운로드](https://www.microsoft.com/net/) |
 | ODBC | [psqlODBC](https://odbc.postgresql.org/) | ODBC 드라이버 | [다운로드](http://www.postgresql.org/ftp/odbc/versions/) |

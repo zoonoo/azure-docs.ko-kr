@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 99c9740e3f19e2a09332317b08e06352ffa8eee7
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 1ec845a6491b406c1aef34609b155a9c3d087427
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Java 웹 프로젝트에서 Application Insights 시작하기
 
@@ -70,12 +70,12 @@ Application Insights는 Linux, Unix 또는 Windows에서 실행되는 Java 앱�
         <groupId>com.microsoft.azure</groupId>
         <artifactId>applicationinsights-web</artifactId>
         <!-- or applicationinsights-core for bare API -->
-        <version>[1.0,)</version>
+        <version>[2.0,)</version>
       </dependency>
     </dependencies>
 ```
 
-* *빌드 또는 체크섬 유효성 검사 오류가 있나요?* `<version>1.0.n</version>`과(와) 같은 특정 버전을 사용해 봅니다. [SDK 릴리스 정보](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) 또는 [Maven 아티팩트](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights)에서 최신 버전을 찾을 수 있습니다.
+* *빌드 또는 체크섬 유효성 검사 오류가 있나요?* `<version>2.0.n</version>`과(와) 같은 특정 버전을 사용해 봅니다. [SDK 릴리스 정보](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) 또는 [Maven 아티팩트](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights)에서 최신 버전을 찾을 수 있습니다.
 * *새 SDK로 업데이트해야 하는 경우* 프로젝트의 종속성을 새로 고칩니다.
 
 #### <a name="if-youre-using-gradle"></a>Gradle을 사용하는 경우...
@@ -90,19 +90,19 @@ Application Insights는 Linux, Unix 또는 Windows에서 실행되는 Java 앱�
     }
 
     dependencies {
-      compile group: 'com.microsoft.azure', name: 'applicationinsights-web', version: '1.+'
+      compile group: 'com.microsoft.azure', name: 'applicationinsights-web', version: '2.+'
       // or applicationinsights-core for bare API
     }
 ```
 
-* *빌드 또는 체크섬 유효성 검사 오류가 있나요? 다음과 같은 특정 버전을 사용해 봅니다*`version:'1.0.n'`. *[SDK 릴리스 정보](https://github.com/Microsoft/ApplicationInsights-Java#release-notes)구독.*
+* *빌드 또는 체크섬 유효성 검사 오류가 있나요? 다음과 같은 특정 버전을 사용해 봅니다*`version:'2.0.n'`. *[SDK 릴리스 정보](https://github.com/Microsoft/ApplicationInsights-Java#release-notes)구독.*
 * *새 SDK로 업데이트하려면*
   * 프로젝트의 종속성을 새로 고칩니다.
 
 #### <a name="otherwise-"></a>기타...
 수동으로 SDK 추가:
 
-1. [Java용 Application Insights SDK](https://aka.ms/aijavasdk)를 다운로드합니다.
+1. [Java용 Application Insights SDK](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest)를 다운로드합니다.
 2. zip 파일에서 이진 파일을 추출하고 프로젝트에 추가합니다.
 
 ### <a name="questions"></a>질문...
@@ -112,7 +112,7 @@ Application Insights는 Linux, Unix 또는 Windows에서 실행되는 Java 앱�
   * `applicationinsights-web` 은 HTTP 요청 수와 응답 시간을 추적하는 메트릭을 제공합니다. 사용자가 원격 분석 자동 수집을 원하지 않는 경우 이 구성 요소를 생략할 수 있습니다. 예를 들어 사용자 자신의 코드를 작성하려는 경우입니다.
 * *변경 내용을 게시하는 경우 해당 SDK를 업데이트하려면*
 
-  * 최신 버전의 [Java용 Application Insights SDK](https://aka.ms/qqkaq6) 를 다운로드하여 이전 버전을 대체합니다.
+  * 최신 버전의 [Java용 Application Insights SDK](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest) 를 다운로드하여 이전 버전을 대체합니다.
   * 변경 내용은 [SDK 릴리스 정보](https://github.com/Microsoft/ApplicationInsights-Java#release-notes)에 설명되어 있습니다.
 
 ## <a name="3-add-an-application-insights-xml-file"></a>3. Application Insights .xml 파일 추가
@@ -303,7 +303,7 @@ HTTP 요청 데이터가 개요 블레이드에 표시됩니다. (없는 경우 
 ### <a name="collect-additional-performance-counters"></a>추가 성능 카운터 수집
 추가 성능 카운터가 수집되도록 지정할 수 있습니다.
 
-#### <a name="jmx-counters-exposed-by-the-java-virtual-machine"></a>JMX 카운터(Java 가상 컴퓨터를 통해 노출됨)
+#### <a name="jmx-counters-exposed-by-the-java-virtual-machine"></a>JMX 카운터(Java Virtual Machine을 통해 노출됨)
 
 ```XML
     <PerformanceCounters>

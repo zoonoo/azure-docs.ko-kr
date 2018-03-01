@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 2744c848b81c688f4083cf51b7ef7bc89f0e34e1
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 929843825d19c003b5a97363a03ffdd3ae2a2f7d
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>최종 사용자를 등록할 필요 없이 암호 재설정 배포
 
@@ -112,7 +112,7 @@ Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthentic
 
 ### <a name="use-powershell-version-2"></a>PowerShell 버전 2 사용
 
-시작하려면 [Azure AD 버전 2 PowerShell 모듈을 다운로드하여 설치](https://github.com/Azure/azure-docs-powershell-azuread/blob/master/Azure%20AD%20Cmdlets/AzureAD/index.md)합니다. 설치를 완료한 후에는 다음 단계에 따라서 각 필드를 구성합니다.
+시작하려면 [Azure AD 버전 2 PowerShell 모듈을 다운로드하여 설치](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0)합니다. 설치를 완료한 후에는 다음 단계에 따라서 각 필드를 구성합니다.
 
 아래 명령을 사용하면 Install-Module을 지원하는 최신 버전의 PowerShell에서 빠르게 설치할 수 있습니다. (첫 줄에서는 모듈이 이미 설치되어 있는지 확인합니다.)
 

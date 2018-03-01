@@ -6,14 +6,14 @@ author: gabrtv
 manager: timlt
 ms.service: container-service
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 02/24/2018
 ms.author: gamonroy
 ms.custom: mvc
-ms.openlocfilehash: 6eaa0128c37d74fd2fd4c4bdb377ca76d7c37669
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 9b94f858aa896eaa93430a12cd74e12d9bf02008
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="upgrade-an-azure-container-service-aks-cluster"></a>Azure Container Service(AKS) 클러스터 업그레이드
 
@@ -21,18 +21,18 @@ Azure Container Service(AKS)를 사용하면 Kubernetes 클러스터를 업그�
 
 ## <a name="upgrade-an-aks-cluster"></a>AKS 클러스터 업그레이드
 
-클러스터를 업그레이드하기 전에 `az aks get-versions` 명령을 사용하여 업그레이드할 수 있는 Kubernetes 릴리스를 확인합니다.
+클러스터를 업그레이드하기 전에 `az aks get-upgrades` 명령을 사용하여 업그레이드할 수 있는 Kubernetes 릴리스를 확인합니다.
 
 ```azurecli-interactive
-az aks get-versions --name myAKSCluster --resource-group myResourceGroup --output table
+az aks get-upgrades --name myAKSCluster --resource-group myResourceGroup --output table
 ```
 
 출력
 
 ```console
-Name     ResourceGroup    MasterVersion    MasterUpgrades       NodePoolVersion     NodePoolUpgrades
--------  ---------------  ---------------  -------------------  ------------------  -------------------
-default  myResourceGroup  1.7.7            1.8.2, 1.7.9, 1.8.1  1.7.7               1.8.2, 1.7.9, 1.8.1
+Name     ResourceGroup    MasterVersion    NodePoolVersion    Upgrades
+-------  ---------------  ---------------  -----------------  ----------------------------------
+default  myResourceGroup  1.7.9            1.7.9              1.7.12, 1.8.1, 1.8.2, 1.8.6, 1.8.7
 ```
 
 업그레이드할 수 있는 버전으로 세 가지 버전, 즉 1.7.9, 1.8.1 및 1.8.2가 있습니다. `az aks upgrade` 명령을 사용하여 사용 가능한 최신 버전으로 업그레이드할 수 있습니다.  업그레이드 프로세스 중에는 노드를 신중하게 [통제하고 드레이닝][kubernetes-drain]하여 실행 중인 응용 프로그램의 중단을 최소화합니다.  클러스터 노드가 추가 및 제거되므로 클러스터 업그레이드를 시작하기 전에 워크로드를 처리하기에 충분한 추가 계산 용량이 있는지 확인합니다.

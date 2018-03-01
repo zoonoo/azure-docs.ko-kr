@@ -13,11 +13,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
 ms.author: adamab
-ms.openlocfilehash: d9acb58791cb1412d5e67479ca6490e1548be2c8
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: d2131a9fbb8fcb77a00045924169420773893f91
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Azure 대시보드를 프로그래밍 방식으로 만들기
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="overview"></a>개요
 
-Azure에서 공유 대시보드는 가상 컴퓨터 및 저장소 계정과 같은 [리소스](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)입니다.  따라서 [Azure Resource Manager REST API](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-rest-api), [Azure CLI](https://docs.microsoft.com/cli/azure/overview), [Azure PowerShell 명령](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azurermps-4.2.0) 및 이러한 API를 기반으로 하는 수많은 [Azure Portal](https://portal.azure.com) 기능을 통해 프로그래밍 방식으로 관리하고 리소스를 보다 쉽게 관리할 수 있습니다.  
+Azure에서 공유 대시보드는 가상 머신 및 저장소 계정과 같은 [리소스](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)입니다.  따라서 [Azure Resource Manager REST API](/rest/api/), [Azure CLI](https://docs.microsoft.com/cli/azure/overview), [Azure PowerShell 명령](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azurermps-4.2.0) 및 이러한 API를 기반으로 하는 수많은 [Azure Portal](https://portal.azure.com) 기능을 통해 프로그래밍 방식으로 관리하고 리소스를 보다 쉽게 관리할 수 있습니다.  
 
 이러한 각 API 및 도구는 리소스를 만들고 나열하며 검색, 수정 및 삭제하는 방법을 제공합니다.  대시보드는 리소스이므로 사용할 선호하는 API / 도구를 선택할 수 있습니다.
 
@@ -77,7 +77,7 @@ Azure에서 공유 대시보드는 가상 컴퓨터 및 저장소 계정과 같�
 
 `/subscriptions/6531c8c8-df32-4254-d717-b6e983273e5d/resourceGroups/contoso/providers/Microsoft.Compute/virtualMachines/myVM1`
 
-향후 가상 컴퓨터에 대해 이 대시보드를 게시하려면 이 문자열의 모든 항목을 JSON 내에서 매개 변수화해야 합니다. 
+향후 가상 머신에 대해 이 대시보드를 게시하려면 이 문자열의 모든 항목을 JSON 내에서 매개 변수화해야 합니다. 
 
 Azure에서 리소스를 만드는 API에는 두 종류가 있습니다. 한 번에 하나의 리소스를 만드는 [명령적 API](https://docs.microsoft.com/rest/api/resources/resources), 한 번의 API 호출로 여러 개의 종속 리소스 생성을 오케스트레이션할 수 있는 [템플릿 기반 배포](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy) 시스템입니다. 후자는 기본적으로 매개 변수화 및 템플릿을 지원하므로 예제로 사용합니다.
 
@@ -125,7 +125,7 @@ __이 문서의 끝에서 작동 중인 전체 템플릿을 볼 수 있습니다
 
 ## <a name="json-representation-of-our-example-dashboard-before-templating"></a>예제 대시보드의 JSON 표현(템플릿 이전)
 
-이미 배포된 대시보드의 JSON 표현을 가져오기 위해 이전 지침을 따르는 경우 표시될 수 있습니다. 하드 코드된 리소스 ID는 이 대시보드가 특정 Azure 가상 컴퓨터를 가리키고 있음을 나타냅니다.
+이미 배포된 대시보드의 JSON 표현을 가져오기 위해 이전 지침을 따르는 경우 표시될 수 있습니다. 하드 코드된 리소스 ID는 이 대시보드가 특정 Azure 가상 머신을 가리키고 있음을 나타냅니다.
 
 ```json
 
@@ -379,7 +379,7 @@ __이 문서의 끝에서 작동 중인 전체 템플릿을 볼 수 있습니다
 
 ### <a name="template-representation-of-our-example-dashboard"></a>예제 대시보드의 템플릿 표현
 
-대시보드의 템플릿 버전은 __virtualMachineName__, __virtualMachineResourceGroup__ 및 __dashboardName__이라는 세 개의 매개 변수를 정의합니다.  매개 변수를 사용하면 배포할 때마다 다른 Azure 가상 컴퓨터에서 이 대시보드를 가리키도록 할 수 있습니다. 매개 변수화된 ID는 이 대시보드가 프로그래밍 방식으로 구성 및 배포되어 Azure 가상 컴퓨터를 가리킬 수 있음을 나타내기 위해 강조 표시됩니다. 이 기능을 테스트하는 가장 쉬운 방법은 다음 템플릿을 복사하여 [Azure Portal의 템플릿 배포 페이지](https://portal.azure.com/#create/Microsoft.Template)에 붙여넣는 것입니다. 
+대시보드의 템플릿 버전은 __virtualMachineName__, __virtualMachineResourceGroup__ 및 __dashboardName__이라는 세 개의 매개 변수를 정의합니다.  매개 변수를 사용하면 배포할 때마다 다른 Azure 가상 컴퓨터에서 이 대시보드를 가리키도록 할 수 있습니다. 매개 변수화된 ID는 이 대시보드가 프로그래밍 방식으로 구성 및 배포되어 Azure 가상 머신을 가리킬 수 있음을 나타내기 위해 강조 표시됩니다. 이 기능을 테스트하는 가장 쉬운 방법은 다음 템플릿을 복사하여 [Azure Portal의 템플릿 배포 페이지](https://portal.azure.com/#create/Microsoft.Template)에 붙여넣는 것입니다. 
 
 이 예에서는 자체적으로 대시보드를 배포하지만 템플릿 언어를 사용하면 여러 리소스를 배포하고 하나 이상의 대시보드를 함께 번들링할 수 있습니다. 
 

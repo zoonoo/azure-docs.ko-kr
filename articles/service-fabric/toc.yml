@@ -1,10 +1,11 @@
 - name: Service Fabric 설명서
-  href: /azure/service-fabric
+  href: index.yml
 - name: 개요
   items:
     - name: Service Fabric이란?
       href: service-fabric-overview.md
 - name: 빠른 시작
+  expanded: true
   items:
     - name: .NET 응용 프로그램 만들기
       href: service-fabric-quickstart-dotnet.md

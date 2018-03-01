@@ -11,22 +11,22 @@ ms.topic: hero-article
 ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: shwetams
-ms.openlocfilehash: c48171d8634a651718a0775183414f463c6a468c
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: ce3d6d5aa721f84bda6d8de6eac161deb934a1e5
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>Node.js용 Batch SDK 시작
 
 > [!div class="op_single_selector"]
 > * [.NET](batch-dotnet-get-started.md)
 > * [Python](batch-python-tutorial.md)
-> * [Node.JS](batch-nodejs-get-started.md)
+> * [Node.js](batch-nodejs-get-started.md)
 >
 >
 
-[Azure Batch Node.js SDK](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/)를 사용하여 Node.js로 Batch 클라이언트를 빌드하는 기본 사항을 알아봅니다. 일괄 처리 응용 프로그램에 대한 시나리오를 단계별로 이해한 다음 Node.js 클라이언트를 사용하여 설정해 보겠습니다.  
+[Azure Batch Node.js SDK](/javascript/api/overview/azure/batch)를 사용하여 Node.js로 Batch 클라이언트를 빌드하는 기본 사항을 알아봅니다. 일괄 처리 응용 프로그램에 대한 시나리오를 단계별로 이해한 다음 Node.js 클라이언트를 사용하여 설정해 보겠습니다.  
 
 ## <a name="prerequisites"></a>필수 조건
 이 문서에서는 사용자가 Node.js에 대한 작업 지식을 갖고 있으며 Linux에 익숙하다고 가정합니다. 또한 Batch 및 Storage 서비스를 만들 액세스 권한이 있는 Azure 계정을 갖고 있다고 가정합니다.
@@ -73,7 +73,7 @@ npm install 명령을 사용하여 Node.js용 Azure Batch SDK를 설치할 수 �
 
 ### <a name="step-2-create-an-azure-batch-account"></a>2단계: Azure Batch 계정 만들기
 
-[Azure Portal](batch-account-create-portal.md) 또는 명령줄([Powershell](batch-powershell-cmdlets-get-started.md) /[Azure cli](https://docs.microsoft.com/cli/azure/overview))에서 만들 수 있습니다.
+[Azure Portal](batch-account-create-portal.md) 또는 명령줄([Powershell](batch-powershell-cmdlets-get-started.md) /[Azure cli](/cli/azure/overview))에서 만들 수 있습니다.
 
 다음은 Azure CLI를 통해 계정을 만드는 명령입니다.
 
@@ -360,5 +360,5 @@ var container_list = ["con1","con2","con3","con4"]
 ## <a name="next-steps"></a>다음 단계
 
 - 이 서비스를 처음 사용하는 경우 [Azure Batch 기능 개요](batch-api-basics.md) 문서를 검토하는 것이 좋습니다.
-- Batch API에 대한 내용은 [Batch Node.js 참조](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/)를 살펴보세요.
+- Batch API에 대한 내용은 [Batch Node.js 참조](/javascript/api/overview/azure/batch)를 살펴보세요.
 

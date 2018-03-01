@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 12/15/2017
+ms.date: 02/27/2018
 ms.author: manayar
-ms.openlocfilehash: d7dd35a8382f4a99ababbe804c5c71b29148c44a
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 8f347827c640729112e2e8f4c11288b6bcb176ea
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="map-virtual-networks-in-different-azure-regions"></a>다른 Azure 지역에 있는 가상 네트워크 매핑
 
@@ -70,7 +70,7 @@ ms.lasthandoff: 02/13/2018
 
 
 ## <a name="subnet-selection"></a>서브넷 선택
-원본 가상 머신의 서브넷의 이름에 따라 대상 가상 머신의 서브넷이 선택됩니다. 원본 가상 머신과 동일한 이름의 서브넷을 대상 네트워크에서 사용할 수 있는 경우 해당 서브넷은 대상 가상 머신에서 설정됩니다. 대상 네트워크에 동일한 이름의 서브넷이 없는 경우 사전순으로 첫 번째 서브넷이 대상 서브넷으로 설정됩니다. 
+원본 가상 머신의 서브넷의 이름에 따라 대상 가상 머신의 서브넷이 선택됩니다. 원본 가상 머신과 동일한 이름의 서브넷을 대상 네트워크에서 사용할 수 있는 경우 해당 서브넷은 대상 가상 머신에서 설정됩니다. 대상 네트워크에 동일한 이름의 서브넷이 없는 경우 사전순으로 첫 번째 서브넷이 대상 서브넷으로 설정됩니다.
 
 서브넷을 수정하려면 가상 머신에 대한 **계산 및 네트워크** 설정으로 이동합니다.
 

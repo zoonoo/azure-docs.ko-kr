@@ -1,3 +1,5 @@
+# [Azure AD B2C 설명서](index.md)
+
 # [개요](active-directory-b2c-overview.md)
 
 # 시작하기
