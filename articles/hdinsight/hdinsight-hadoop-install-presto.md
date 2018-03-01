@@ -12,13 +12,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: af6bf1d69761520d20d0a0c5d872377793f6650b
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 1e6f1e1ee37592d974cab01ca229995c4ff6b70e
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="install-and-use-presto-on-hdinsight-hadoop-clusters"></a>HDInsight Hadoop 클러스터에 Presto 설치 및 사용
 
@@ -46,7 +46,7 @@ ms.lasthandoff: 11/29/2017
 
     a. HDInsight 버전 3.5를 사용하는 Hadoop 클러스터여야 합니다.
 
-    b. 데이터 저장소로 Azure Storage를 사용해야 합니다. 저장소 옵션으로 Azure Data Lake Store를 사용하는 클러스터에서 Presto 사용은 아직 지원되지 않습니다. 
+    나. 데이터 저장소로 Azure Storage를 사용해야 합니다. 저장소 옵션으로 Azure Data Lake Store를 사용하는 클러스터에서 Presto 사용은 아직 지원되지 않습니다. 
 
     ![사용자 지정 옵션을 사용하여 HDInsight 클러스터 만들기](./media/hdinsight-hadoop-install-presto/hdinsight-install-custom.png)
 
@@ -131,11 +131,11 @@ ms.lasthandoff: 11/29/2017
 
     ![HDInsight에서 Presto 클러스터에 Airpal 시작](./media/hdinsight-hadoop-install-presto/hdinsight-presto-launch-airpal.png)
 
-    b. **설치된 앱** 블레이드에서 airpal에 대한 **포털**을 클릭합니다.
+    나. **설치된 앱** 블레이드에서 airpal에 대한 **포털**을 클릭합니다.
 
     ![HDInsight에서 Presto 클러스터에 Airpal 시작](./media/hdinsight-hadoop-install-presto/hdinsight-presto-launch-airpal-1.png)
 
-    c. 대화 상자가 나타나면 HDInsight Hadoop 클러스터를 만들 때 지정한 관리자 자격 증명을 입력합니다.
+    다. 대화 상자가 나타나면 HDInsight Hadoop 클러스터를 만들 때 지정한 관리자 자격 증명을 입력합니다.
 
 ## <a name="customize-a-presto-installation-on-hdinsight-cluster"></a>HDInsight 클러스터에서 Presto 설치 사용자 지정
 
