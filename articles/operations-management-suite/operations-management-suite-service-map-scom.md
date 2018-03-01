@@ -1,6 +1,6 @@
 ---
 title: "System Center Operations Manager와 서비스 맵 통합 | Microsoft Docs"
-description: "서비스 맵은 Windows 및 Linux 시스템에서 응용 프로그램 구성 요소를 자동으로 검색하여 서비스 간 통신을 매핑하는 Operations Management Suite 솔루션입니다. 이 문서에서는 서비스 맵을 사용하여 Operations Manager에 자동으로 분산 응용 프로그램 다이어그램을 만드는 방법을 설명합니다."
+description: "서비스 맵은 Windows 및 Linux 시스템의 응용 프로그램 구성 요소를 자동으로 검색하고 서비스 간 통신을 매핑하는 Azure의 솔루션입니다. 이 문서에서는 서비스 맵을 사용하여 Operations Manager에 자동으로 분산 응용 프로그램 다이어그램을 만드는 방법을 설명합니다."
 services: operations-management-suite
 documentationcenter: 
 author: daveirwin1
@@ -14,26 +14,26 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: bwren;dairwin
-ms.openlocfilehash: af1f683f08ff6b70b23ff265f39b9a76f92f4be2
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 906a90acb8754ff4b70235256cd184e2611ff5a0
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="service-map-integration-with-system-center-operations-manager"></a>System Center Operations Manager와 서비스 맵 통합
   > [!NOTE]
   > 이 기능은 공개 미리 보기 상태입니다.
   > 
   
-Operations Management Suite 서비스 맵은 Windows 및 Linux 시스템에서 응용 프로그램 구성 요소를 자동으로 검색하여 서비스 간 통신을 매핑합니다. 서비스 맵을 사용하면 생각하는 방식대로 중요한 서비스를 제공하는 상호 연결된 시스템으로 서버를 볼 수 있습니다. 서비스 맵은 서버, 프로세스 및 에이전트 설치 이외에 구성이 필요 없는 TCP 연결 아키텍처의 포트 간 연결을 보여 줍니다. 자세한 내용은 [서비스 맵 설명서](operations-management-suite-service-map.md)를 참조하세요.
+서비스 맵은 Windows 및 Linux 시스템에서 응용 프로그램 구성 요소를 자동으로 검색하고 서비스 간 통신을 매핑합니다. 서비스 맵을 사용하면 생각하는 방식대로 중요한 서비스를 제공하는 상호 연결된 시스템으로 서버를 볼 수 있습니다. 서비스 맵은 서버, 프로세스 및 에이전트 설치 이외에 구성이 필요 없는 TCP 연결 아키텍처의 포트 간 연결을 보여 줍니다. 자세한 내용은 [서비스 맵 설명서](operations-management-suite-service-map.md)를 참조하세요.
 
 서비스 맵과 System Center Operations Manager 간의 이러한 통합을 통해 서비스 맵의 동적 종속성 맵을 기준으로 하는 분산 응용 프로그램 다이어그램을 Operations Manager에서 자동으로 만들 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 * 일련의 서버를 관리하는 Operations Manager 관리 그룹(2012 R2 이상)
-* 서비스 맵 솔루션이 사용하도록 설정된 Operations Management Suite 작업 영역
+* 서비스 맵 솔루션이 사용하도록 설정된 Log Analytics 작업 영역.
 * Operations Manager로 관리되고 있고 서비스 맵으로 데이터를 전송하는 서버 집합(하나 이상의 서버) Windows 및 Linux 서버가 지원됩니다.
-* Operations Management Suite 작업 영역과 연결된 Azure 구독에 액세스할 수 있는 서비스 주체 자세한 내용은 [서비스 주체 만들기](#creating-a-service-principal)로 이동합니다.
+* Log Analytics 작업 영역과 연결된 Azure 구독에 액세스할 수 있는 서비스 주체. 자세한 내용은 [서비스 주체 만들기](#creating-a-service-principal)로 이동합니다.
 
 ## <a name="install-the-service-map-management-pack"></a>서비스 맵 관리 팩 설치
 Operations Manager와 서비스 맵의 통합은 Microsoft.SystemCenter.ServiceMap 관리 팩 번들(Microsoft.SystemCenter.ServiceMap.mpb)을 가져와야 가능합니다. [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=55763)에서 관리 팩 번들을 다운로드할 수 있습니다. 이 번들에는 다음 관리 팩이 포함됩니다.
@@ -55,7 +55,7 @@ Operations Manager와 서비스 맵의 통합은 Microsoft.SystemCenter.ServiceM
 
     ![연결 구성 창](media/oms-service-map/scom-config-spn.png)
 
-3. **구독 선택** 창에서 Azure 구독, Azure 리소스 그룹(Operations Management Suite를 포함하는 그룹), Operations Management Suite 작업 영역을 선택하고 **다음**을 클릭합니다.
+3. **구독 선택** 창에서 Azure 구독, Azure 리소스 그룹(Log Analytics 작업 영역을 포함하는 그룹), Log Analytics 작업 영역을 선택하고 **다음**을 클릭합니다.
 
     ![Operations Manager 구성 작업 영역](media/oms-service-map/scom-config-workspace.png)
 
@@ -73,22 +73,22 @@ Operations Manager와 서비스 맵의 통합은 Microsoft.SystemCenter.ServiceM
 
     ![Operations Manager 구성 그룹](media/oms-service-map/scom-config-group.png)
 
-6. 선택 사항 - Operations Management Suite와 통신할 관리 서버 리소스 풀을 선택하고 **작업 영역 추가**를 클릭합니다.
+6. 선택 사항: Log Analytics와 통신할 관리 서버 리소스 풀을 선택하고 **작업 영역 추가**를 클릭합니다.
 
     ![Operations Manager 구성 리소스 풀](media/oms-service-map/scom-config-pool.png)
 
-    Operations Management Suite 작업 영역을 구성 및 등록하는 데 1분 정도 걸릴 수 있습니다. 구성된 후에 Operations Manager는 Operations Management Suite의 첫 번째 서비스 맵 동기화를 시작합니다.
+    Log Analytics 작업 영역을 구성 및 등록하는 데 1분 정도 걸릴 수 있습니다. 구성된 후에 Operations Manager는 첫 번째 서비스 맵 동기화를 시작합니다.
 
     ![Operations Manager 구성 리소스 풀](media/oms-service-map/scom-config-success.png)
 
 
 ## <a name="monitor-service-map"></a>서비스 맵 모니터링
-Operations Management Suite 작업 영역이 연결되면 새 폴더인 Service Map이 Operations Manager 콘솔의 **모니터링** 창에 표시됩니다.
+Log Analytics 작업 영역이 연결되면 새 폴더인 Service Map이 Operations Manager 콘솔의 **모니터링** 창에 표시됩니다.
 
 ![Operations Manager 모니터링 창](media/oms-service-map/scom-monitoring.png)
 
 서비스 맵 폴더에는 4개의 노드가 있습니다.
-* **활성 경고**: Operations Manager와 서비스 맵 간의 통신에 대한 모든 활성 경고를 나열합니다.  이러한 경고는 Operations Manager에 동기화되는 Operations Management Suite 경고가 아닙니다. 
+* **활성 경고**: Operations Manager와 서비스 맵 간의 통신에 대한 모든 활성 경고를 나열합니다.  이러한 경고는 Operations Manager에 동기화되는 Log Analytics 경고가 아닙니다. 
 
 * **서버**: 서비스 맵에서 동기화하도록 구성된 모니터링 대상 서버를 나열합니다.
 
@@ -103,7 +103,7 @@ Operations Management Suite 작업 영역이 연결되면 새 폴더인 Service 
     ![Operations Manager 분산 응용 프로그램 다이어그램](media/oms-service-map/scom-dad.png)
 
 ## <a name="edit-or-delete-the-workspace"></a>작업 영역 편집 또는 삭제
-**서비스 맵 개요** 창(**관리** 창 --> Operations Management Suite**Operations Management Suite** > **서비스 맵**)을 통해 구성된 작업 영역을 편집하거나 삭제할 수 있습니다. 지금은 하나의 Operations Management Suite 작업 영역만 구성할 수 있습니다.
+**서비스 맵 개요** 창(**관리** 창 --> Operations Management Suite**Operations Management Suite** > **서비스 맵**)을 통해 구성된 작업 영역을 편집하거나 삭제할 수 있습니다. 현재는 하나의 Log Analytics 작업 영역만 구성할 수 있습니다.
 
 ![Operations Manager 작업 영역 편집 창](media/oms-service-map/scom-edit-workspace.png)
 
@@ -120,7 +120,7 @@ _Microsoft.SystemCenter.ServiceMapImport.Rule_ 규칙은 서비스 맵에서 주
 ## <a name="known-issues-and-limitations"></a>알려진 문제 및 제한 사항
 
 현재 디자인은 다음과 같은 문제 및 제한 사항을 나타냅니다.
-* 단일 Operations Management Suite 작업 영역에만 연결할 수 있습니다.
+* 하나의 Log Analytics 작업 영역에만 연결할 수 있습니다.
 * **제작** 창을 통해 서비스 맵 서버 그룹에 서버를 수동으로 추가할 수는 있지만, 이러한 서버에 대한 맵은 즉시 동기화되지 않으며  다음 동기화 주기 동안에 서비스 맵에서 동기화됩니다.
 * 관리 팩에서 만든 배포 응용 프로그램 다이어그램을 변경하는 경우 이러한 변경 내용은 다음 동기화에서 서비스 맵을 통해 덮어 쓰여집니다.
 

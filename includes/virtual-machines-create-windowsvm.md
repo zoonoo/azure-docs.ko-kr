@@ -1,6 +1,6 @@
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-2. 왼쪽 위에서 **새로 만들기 > Compute > Windows Server 2016 Datacenter**를 클릭합니다.
+2. 왼쪽 위에서 시작하여 **리소스 만들기** > **계산** > **Windows Server 2016 Datacenter**를 클릭합니다.
 
     ![포털에서 Azure VM 이미지로 이동](./media/virtual-machines-common-portal-create-fqdn/marketplace-new.png)
 

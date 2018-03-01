@@ -14,14 +14,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/05/2017
+ms.date: 02/15/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: ccee4fd0359ab9fe8bd025ead9a2d0993bb718f2
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 7cdeb0a996835f976e6c80e9831479a2ff917434
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory의 새로운 기능
 
@@ -219,7 +219,7 @@ Azure AD 로그인 페이지의 **로그인 상태 유지** 확인란을 사용�
 
 **유형:** 새로운 기능  
 **서비스 범주:** 사용 약관  
-**제품 기능:** 거버넌스
+**제품 기능:** 거버넌스/준수
  
 사용 약관을 수락하기 전에 사용 약관을 펼치도록 사용자에게 요구하는 옵션이 관리자에게 필요합니다.
 
@@ -666,7 +666,7 @@ MFA(Multi-Factor Authentication)는 조직을 보호하기 위한 필수적인 �
 
 **유형:** 새로운 기능  
 **서비스 범주:** 사용 약관  
-**제품 기능:** 거버넌스  
+**제품 기능:** 거버넌스/준수  
 
 
 
@@ -709,7 +709,7 @@ Azure Portal에서 Azure RBAC 기능을 사용하는 모든 리소스는 Azure A
 
 **유형:** 새로운 기능  
 **서비스 범주:** 액세스 검토  
-**제품 기능:** 거버넌스  
+**제품 기능:** 거버넌스/준수  
 
 
 

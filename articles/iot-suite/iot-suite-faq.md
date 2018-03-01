@@ -1,7 +1,7 @@
 ---
 title: Azure IoT Suite FAQ | Microsoft Docs
 description: "IoT Suite에 대한 질문과 대답"
-services: 
+services: iot-suite
 suite: iot-suite
 documentationcenter: 
 author: dominicbetts
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/10/2017
+ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: 432b4c080572c72dc131ee198a59c81631495415
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: c79c90c4f6c28153d4d299015a06a6bc37145081
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="frequently-asked-questions-for-iot-suite"></a>IoT Suite에 대한 질문과 대답
 
-연결된 팩터리 관련 [FAQ](iot-suite-faq-cf.md)도 참조하세요.
+[연결된 팩토리-특정 FAQ](iot-suite-faq-cf.md) 그리고 [원격 모니터링-특정 FAQ](iot-suite-faq-rm-v2.md)도 참조하십시오.
 
 ### <a name="where-can-i-find-the-source-code-for-the-preconfigured-solutions"></a>어디에서 미리 구성된 솔루션의 소스 코드를 찾을 수 있습니까?
 
@@ -33,17 +33,6 @@ ms.lasthandoff: 02/01/2018
 * [원격 모니터링 사전 구성 솔루션(Java)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java)
 * [예측 유지 관리 사전 구성 솔루션](https://github.com/Azure/azure-iot-predictive-maintenance)
 * [연결된 팩터리 미리 구성된 솔루션](https://github.com/Azure/azure-iot-connected-factory)
-
-### <a name="how-much-does-it-cost-to-provision-the-new-remote-monitoring-solution"></a>새 원격 모니터링 솔루션을 프로비전하는 비용은 얼마인가요?
-
-새로운 사전 구성 솔루션은 두 가지 배포 옵션을 제공합니다.
-
-* *기본* 옵션은 낮은 개발 비용을 원하는 개발자나 데모 또는 개념 증명을 빌드하려는 고객을 위해 설계되었습니다.
-* *표준* 옵션은 프로덕션이 준비된 인프라를 배포하려는 기업을 위해 설계되었습니다.
-
-### <a name="how-can-i-ensure-i-keep-my-costs-down-while-i-develop-my-solution"></a>솔루션을 개발하는 동안 비용을 낮게 유지하려면 어떻게 해야 하나요?
-
-두 가지 차별화된 배포를 제공하는 것 외에 새로운 원격 모니터링 솔루션에는 시뮬레이션된 모든 장치를 필요할 때 활성화 또는 비활성화할 수 있는 설정이 있습니다. 시뮬레이션을 비활성화하면 솔루션에서 수집된 데이터가 줄어들어 전체 비용이 절감됩니다.
 
 ### <a name="is-the-new-microservices-architecture-available-for-all-the-three-preconfigured-solutions"></a>세 가지 사전 구성 솔루션 모두에 새로운 마이크로 서비스 아키텍처를 사용할 수 있나요?
 
@@ -57,18 +46,14 @@ ms.lasthandoff: 02/01/2018
 
 예, 새로운 원격 모니터링을 동일한 지역에서 사용할 수 있습니다.
 
-### <a name="what-is-the-difference-between-the-basic-and-standard-deployment-options-how-do-i-decide-between-the-two-deployment-options"></a>기본 배포와 표준 배포의 차이가 무엇인가요? 두 가지 배포 옵션 중 적합한 옵션을 어떻게 결정하나요?
-
-각 배포 옵션은 서로 다른 요구에 대응합니다. 기본 배포는 PoC 및 소규모 파일럿을 시작하고 개발하도록 설계되었습니다. 최소한의 필요한 리소스와 보다 저렴한 비용으로 간소화된 아키텍처를 제공합니다. 표준 배포는 프로덕션이 준비된 솔루션을 빌드하고 사용자 지정하도록 설계되었으며 이를 실현하는 데 필요한 요소가 포함된 배포를 제공합니다. 안정성과 확장성을 위해 응용 프로그램 마이크로 서비스는 Docker 컨테이너로 빌드되고 오케스트레이터(기본적으로 Kubernetes)를 사용하여 배포됩니다. 오케스트레이터는 응용 프로그램의 배포, 확장 및 관리를 담당합니다. 현재 필요에 따라 옵션을 선택해야 합니다. 프로젝트 단계에 따라 둘 중 하나를 사용할 수도 있고, 둘 다를 조합하여 사용할 수도 있습니다.
-
-### <a name="can-i-continue-to-leverage-my-existing-investments-in-azure-iot-suite"></a>Azure IoT Suite에 대한 기존 투자를 계속 활용할 수 있나요?
-
-예. 현재 존재하는 모든 솔루션은 Azure 구독에서 계속 작동하며 소스 코드는 GitHub에서 계속 사용할 수 있습니다.
-
 ### <a name="whats-the-difference-between-deleting-a-resource-group-in-the-azure-portal-and-clicking-delete-on-a-preconfigured-solution-in-azureiotsuitecom"></a>Azure 포털에서 리소스 그룹을 삭제하는 것과 azureiotsuite.com의 미리 구성된 솔루션에서 삭제를 클릭하는 것의 차이는 무엇인가요?
 
 * [azureiotsuite.com](https://www.azureiotsuite.com/)에서 미리 구성된 솔루션을 삭제하면, 미리 구성된 솔루션을 만들 때 프로비전된 모든 리소스가 삭제됩니다. 리소스 그룹에 리소스를 추가하면 이들 역시 삭제됩니다.
 * [Azure Portal](https://portal.azure.com)에서 리소스 그룹을 삭제하는 경우 해당 리소스 그룹의 리소스만 삭제됩니다. 또한 미리 구성된 솔루션과 연결된 Azure Active Directory 응용 프로그램을 삭제해야 합니다.
+
+### <a name="can-i-continue-to-leverage-my-existing-investments-in-azure-iot-suite"></a>Azure IoT Suite에 대한 기존 투자를 계속 활용할 수 있나요?
+
+예. 현재 존재하는 모든 솔루션은 Azure 구독에서 계속 작동하며 소스 코드는 GitHub에서 계속 사용할 수 있습니다.
 
 ### <a name="how-many-iot-hub-instances-can-i-provision-in-a-subscription"></a>하나의 구독에 프로비전할 수 있는 IoT Hub 인스턴스는 몇 개인가요?
 
@@ -77,10 +62,6 @@ ms.lasthandoff: 02/01/2018
 ### <a name="how-many-azure-cosmos-db-instances-can-i-provision-in-a-subscription"></a>하나의 구독에 프로비전할 수 있는 Azure Cosmos DB 인스턴스는 몇 개인가요?
 
 50개입니다. [Azure 지원 티켓](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade)을 만들어서 이 한도를 높일 수 있지만, 기본적으로 구독당 Cosmos DB 인스턴스를 50개만 프로비전할 수 있습니다.
-
-### <a name="how-do-i-configure-a-dynamic-map-on-the-dashboard"></a>대시보드에서 동적 맵을 구성하려면 어떻게 해야 할까요?
-
-자세한 내용은 [동적 맵에서 장치를 보기 위해 맵 키 업그레이드](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide#upgrade-map-key-to-see-devices-on-a-dynamic-map)를 참조하세요.
 
 ### <a name="how-many-free-bing-maps-apis-can-i-provision-in-a-subscription"></a>하나의 구독에 프로비전할 수 있는 무료 Bing 지도 API는 몇 개인가요?
 
@@ -105,6 +86,7 @@ Eric Golpe의 블로그 게시물 [Azure AD 테넌트 삭제 연습(영문)](htt
 
 미리 구성된 IoT Suite 솔루션의 몇 가지 다른 기능 및 기능을 탐색할 수 있습니다.
 
+* [미리 구성된 원격 모니터링 솔루션의 기능 탐색](iot-suite-remote-monitoring-explore.md)
 * [예측 유지 관리 사전 구성 솔루션 개요](iot-suite-predictive-overview.md)
 * [연결된 팩터리 미리 구성된 솔루션 개요](iot-suite-connected-factory-overview.md)
 * [처음부터 IoT 보안을 고려](securing-iot-ground-up.md)

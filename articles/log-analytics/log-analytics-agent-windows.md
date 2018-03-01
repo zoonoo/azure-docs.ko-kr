@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2017
 ms.author: magoedte
-ms.openlocfilehash: 35e271f943901091041f7b1e9fad6cb9cd46df5b
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 87513ef82b5f754669a3a21dd736ecab6fb26fba
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Azure에서 Log Analytics 서비스에 Windows 컴퓨터 연결
 
@@ -38,7 +38,7 @@ Windows 에이전트를 배포하기 위한 네트워크 및 시스템 요구 �
 ## <a name="obtain-workspace-id-and-key"></a>작업 영역 ID 및 키 가져오기
 Windows용 Microsoft Monitoring Agent를 설치하기 전에 Log Analytics 작업 영역에 대한 작업 영역 ID 및 키가 필요합니다.  이 정보는 에이전트를 적절히 구성하고 Log Analytics와 성공적으로 통신할 수 있는지 확인하기 위해 각 설치 방법에서 설치하는 동안 필요합니다.  
 
-1. Azure Portal의 왼쪽 아래 모서리에 있는 **추가 서비스**를 클릭합니다. 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Log Analytics**를 선택합니다.
+1. Azure Portal에서 **모든 서비스**를 클릭합니다. 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Log Analytics**를 선택합니다.
 2. Log Analytics 작업 영역 목록에서 에이전트가 보고할 작업 영역을 선택합니다.
 3. **고급 설정**을 선택합니다.<br><br> ![Log Analytics 고급 설정](media/log-analytics-quick-collect-azurevm/log-analytics-advanced-settings-01.png)<br><br>  
 4. **연결된 원본**을 선택한 다음 **Windows 서버**를 선택합니다.   
@@ -160,7 +160,7 @@ Windows용 Microsoft Monitoring Agent를 설치하기 전에 Log Analytics 작�
 
 Azure Portal에서 단순 로그 검색을 수행할 수도 있습니다.  
 
-1. Azure Portal의 왼쪽 아래 모서리에 있는 **추가 서비스**를 클릭합니다. 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Log Analytics**를 선택합니다.  
+1. Azure Portal에서 **모든 서비스**를 클릭합니다. 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Log Analytics**를 선택합니다.  
 2. Log Analytics 작업 영역 페이지에서 대상 작업 영역을 선택한 다음, **로그 검색** 타일을 선택합니다. 
 2. [로그 검색] 창의 쿼리 필드에 다음을 입력합니다.  
 

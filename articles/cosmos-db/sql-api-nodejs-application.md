@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 08/14/2017
+ms.date: 01/30/2018
 ms.author: mimig
-ms.openlocfilehash: 2c64c1dfa558576b47f47c718a80d46ad6687e6e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 441f352555f40c0467df4c466d58ac35e32f9e61
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="_Toc395783175"></a>Azure Cosmos DB를 사용하여 Node.js 웹 응용 프로그램 빌드
 > [!div class="op_single_selector"]
@@ -97,307 +97,317 @@ Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. 계정이 있거�
 
 ### <a name="create-the-model"></a>모델 만들기
 1. 프로젝트 디렉터리에서 package.json 파일과 동일한 디렉터리에 **models**라는 새 디렉터리를 만듭니다.
-2. **models** 디렉터리에서 **taskDao.js**라는 새 파일을 만듭니다. 이 파일에는 응용 프로그램에서 만든 작업 모델이 포함됩니다.
-3. 동일한 **models** 디렉터리에서 **docdbUtils.js**라는 다른 새 파일을 만듭니다. 이 파일에는 응용 프로그램 전체에서 사용할 몇 가지 유용하고, 다시 사용할 수 있는 코드가 포함됩니다. 
-4. 다음 코드를 **docdbUtils.js**
-   
-        var DocumentDBClient = require('documentdb').DocumentClient;
-   
-        var DocDBUtils = {
-            getOrCreateDatabase: function (client, databaseId, callback) {
-                var querySpec = {
-                    query: 'SELECT * FROM root r WHERE r.id= @id',
-                    parameters: [{
-                        name: '@id',
-                        value: databaseId
-                    }]
-                };
-   
-                client.queryDatabases(querySpec).toArray(function (err, results) {
-                    if (err) {
-                        callback(err);
-   
-                    } else {
-                        if (results.length === 0) {
-                            var databaseSpec = {
-                                id: databaseId
-                            };
-   
-                            client.createDatabase(databaseSpec, function (err, created) {
-                                callback(null, created);
-                            });
-   
-                        } else {
-                            callback(null, results[0]);
-                        }
-                    }
-                });
-            },
-   
-            getOrCreateCollection: function (client, databaseLink, collectionId, callback) {
-                var querySpec = {
-                    query: 'SELECT * FROM root r WHERE r.id=@id',
-                    parameters: [{
-                        name: '@id',
-                        value: collectionId
-                    }]
-                };               
-   
-                client.queryCollections(databaseLink, querySpec).toArray(function (err, results) {
-                    if (err) {
-                        callback(err);
-   
-                    } else {        
-                        if (results.length === 0) {
-                            var collectionSpec = {
-                                id: collectionId
-                            };
-   
-                            client.createCollection(databaseLink, collectionSpec, function (err, created) {
-                                callback(null, created);
-                            });
-   
-                        } else {
-                            callback(null, results[0]);
-                        }
-                    }
-                });
-            }
+2. **models** 디렉터리에서 **task-model.js**라는 새 파일을 만듭니다. 이 파일에는 응용 프로그램에서 만든 작업 모델이 포함됩니다.
+3. 동일한 **models** 디렉터리에서 **cosmosdb-manager.js**라는 다른 새 파일을 만듭니다. 이 파일에는 응용 프로그램 전체에서 사용할 몇 가지 유용하고, 다시 사용할 수 있는 코드가 포함됩니다. 
+4. 다음 코드를 **cosmosdb-manager.js**에 복사합니다.
+    ```nodejs
+    let DocumentDBClient = require('documentdb').DocumentClient;
+
+    module.exports = {
+    getOrCreateDatabase: (client, databaseId, callback) => {
+        let querySpec = {
+        query: 'SELECT * FROM root r WHERE r.id = @id',
+        parameters: [{ name: '@id', value: databaseId }]
         };
-   
-        module.exports = DocDBUtils;
-   
-5. **docdbUtils.js** 파일을 저장하고 닫습니다.
-6. **taskDao.js** 파일의 시작 부분에서 위에서 만든 **DocumentDBClient** 및 **docdbUtils.js**를 참조하도록 다음 코드를 추가합니다.
-   
-        var DocumentDBClient = require('documentdb').DocumentClient;
-        var docdbUtils = require('./docdbUtils');
-7. 그런 다음, Task 개체를 정의하고 내보내는 코드를 추가합니다. 이 코드는 작업 개체를 초기화하고 사용할 데이터베이스 및 문서 컬렉션을 설정합니다.
-   
-        function TaskDao(documentDBClient, databaseId, collectionId) {
-          this.client = documentDBClient;
-          this.databaseId = databaseId;
-          this.collectionId = collectionId;
-   
-          this.database = null;
-          this.collection = null;
+
+        client.queryDatabases(querySpec).toArray((err, results) => {
+        if (err) {
+            callback(err);
+        } else {
+            if (results.length === 0) {
+            let databaseSpec = { id: databaseId };
+            client.createDatabase(databaseSpec, (err, created) => {
+                callback(null, created);
+            });
+            } else {
+            callback(null, results[0]);
+            }
         }
-   
-        module.exports = TaskDao;
-8. 이제 다음 코드를 추가하여 Task 개체에서 추가 메서드를 정의합니다. 이러한 메서드를 통해 Azure Cosmos DB에 저장된 데이터를 조작할 수 있습니다.
-   
-        TaskDao.prototype = {
-            init: function (callback) {
-                var self = this;
-   
-                docdbUtils.getOrCreateDatabase(self.client, self.databaseId, function (err, db) {
-                    if (err) {
-                        callback(err);
-                    } else {
-                        self.database = db;
-                        docdbUtils.getOrCreateCollection(self.client, self.database._self, self.collectionId, function (err, coll) {
-                            if (err) {
-                                callback(err);
-   
-                            } else {
-                                self.collection = coll;
-                            }
-                        });
-                    }
-                });
-            },
-   
-            find: function (querySpec, callback) {
-                var self = this;
-   
-                self.client.queryDocuments(self.collection._self, querySpec).toArray(function (err, results) {
-                    if (err) {
-                        callback(err);
-   
-                    } else {
-                        callback(null, results);
-                    }
-                });
-            },
-   
-            addItem: function (item, callback) {
-                var self = this;
-   
-                item.date = Date.now();
-                item.completed = false;
-   
-                self.client.createDocument(self.collection._self, item, function (err, doc) {
-                    if (err) {
-                        callback(err);
-   
-                    } else {
-                        callback(null, doc);
-                    }
-                });
-            },
-   
-            updateItem: function (itemId, callback) {
-                var self = this;
-   
-                self.getItem(itemId, function (err, doc) {
-                    if (err) {
-                        callback(err);
-   
-                    } else {
-                        doc.completed = true;
-   
-                        self.client.replaceDocument(doc._self, doc, function (err, replaced) {
-                            if (err) {
-                                callback(err);
-   
-                            } else {
-                                callback(null, replaced);
-                            }
-                        });
-                    }
-                });
-            },
-   
-            getItem: function (itemId, callback) {
-                var self = this;
-   
-                var querySpec = {
-                    query: 'SELECT * FROM root r WHERE r.id = @id',
-                    parameters: [{
-                        name: '@id',
-                        value: itemId
-                    }]
-                };
-   
-                self.client.queryDocuments(self.collection._self, querySpec).toArray(function (err, results) {
-                    if (err) {
-                        callback(err);
-   
-                    } else {
-                        callback(null, results[0]);
-                    }
-                });
-            }
+        });
+    },
+
+    getOrCreateCollection: (client, databaseLink, collectionId, callback) => {
+        let querySpec = {
+        query: 'SELECT * FROM root r WHERE r.id=@id',
+        parameters: [{ name: '@id', value: collectionId }]
         };
-9. **taskDao.js** 파일을 저장하고 닫습니다. 
+
+        client.queryCollections(databaseLink, querySpec).toArray((err, results) => {
+        if (err) {
+            callback(err);
+        } else {
+            if (results.length === 0) {
+            let collectionSpec = { id: collectionId };
+            client.createCollection(databaseLink, collectionSpec, (err, created) => {
+                callback(null, created);
+            });
+            } else {
+            callback(null, results[0]);
+            }
+        }
+        });
+    }
+    };
+    ```
+5. **cosmosdb-manager.js** 파일을 저장하고 닫습니다.
+6. **task-model.js** 파일의 시작 부분에서 위에서 만든 **DocumentDBClient** 및 **cosmosdb-manager.js**를 참조하도록 다음 코드를 추가합니다. 
+
+    ```nodejs
+    let DocumentDBClient = require('documentdb').DocumentClient;
+    let docdbUtils = require('./docdbUtils');
+    ```
+7. 그런 다음, Task 개체를 정의하고 내보내는 코드를 추가합니다. 이 코드는 작업 개체를 초기화하고 사용할 데이터베이스 및 문서 컬렉션을 설정합니다.  
+
+    ```nodejs
+    function TaskModel(documentDBClient, databaseId, collectionId) {
+      this.client = documentDBClient;
+      this.databaseId = databaseId;
+      this.collectionId = collectionId;
+   
+      this.database = null;
+      this.collection = null;
+    }
+   
+    module.exports = TaskModel;
+    ```
+8. 이제 다음 코드를 추가하여 Task 개체에서 추가 메서드를 정의합니다. 이러한 메서드를 통해 Azure Cosmos DB에 저장된 데이터를 조작할 수 있습니다.
+
+    ```nodejs
+    let DocumentDBClient = require('documentdb').DocumentClient;
+    let docdbUtils = require('./cosmosdb-manager');
+
+    function TaskModel(documentDBClient, databaseId, collectionId) {
+    this.client = documentDBClient;
+    this.databaseId = databaseId;
+    this.collectionId = collectionId;
+
+    this.database = null;
+    this.collection = null;
+    }
+
+    TaskModel.prototype = {
+    init: function(callback) {
+        let self = this;
+
+        docdbUtils.getOrCreateDatabase(self.client, self.databaseId, function(err, db) {
+        if (err) {
+            callback(err);
+        } else {
+            self.database = db;
+            docdbUtils.getOrCreateCollection(self.client, self.database._self, self.collectionId, function(err, coll) {
+            if (err) {
+                callback(err);
+            } else {
+                self.collection = coll;
+            }
+            });
+        }
+        });
+    },
+
+    find: function(querySpec, callback) {
+        let self = this;
+
+        self.client.queryDocuments(self.collection._self, querySpec).toArray(function(err, results) {
+        if (err) {
+            callback(err);
+        } else {
+            callback(null, results);
+        }
+        });
+    },
+
+    addItem: function(item, callback) {
+        let self = this;
+
+        item.date = Date.now();
+        item.completed = false;
+
+        self.client.createDocument(self.collection._self, item, function(err, doc) {
+        if (err) {
+            callback(err);
+        } else {
+            callback(null, doc);
+        }
+        });
+    },
+
+    updateItem: function(itemId, callback) {
+        let self = this;
+
+        self.getItem(itemId, function(err, doc) {
+        if (err) {
+            callback(err);
+        } else {
+            doc.completed = true;
+
+            self.client.replaceDocument(doc._self, doc, function(err, replaced) {
+            if (err) {
+                callback(err);
+            } else {
+                callback(null, replaced);
+            }
+            });
+        }
+        });
+    },
+
+    getItem: function(itemId, callback) {
+        let self = this;
+        let querySpec = {
+        query: 'SELECT * FROM root r WHERE r.id = @id',
+        parameters: [{ name: '@id', value: itemId }]
+        };
+
+        self.client.queryDocuments(self.collection._self, querySpec).toArray(function(err, results) {
+        if (err) {
+            callback(err);
+        } else {
+            callback(null, results[0]);
+        }
+        });
+    }
+    };
+
+    module.exports = TaskModel;
+    ```
+9. **task-model.js** 파일을 저장하고 닫습니다. 
 
 ### <a name="create-the-controller"></a>컨트롤러 만들기
 1. 프로젝트의 **routes** 디렉터리에서 **tasklist.js**라는 새 파일을 만듭니다. 
 2. 아래 코드를 **tasklist.js**에 추가합니다. 이 코드는 **tasklist.js**에서 사용되는 DocumentDBClient 및 async 모듈을 로드합니다. 또한 앞에서 정의한 **Task** 개체의 인스턴스가 전달되는 **TaskList** 함수도 정의되었습니다.
    
-        var DocumentDBClient = require('documentdb').DocumentClient;
-        var async = require('async');
-   
-        function TaskList(taskDao) {
-          this.taskDao = taskDao;
-        }
-   
-        module.exports = TaskList;
+    ```nodejs
+    let DocumentDBClient = require('documentdb').DocumentClient;
+    let async = require('async');
+
+    function TaskList(taskModel) {
+    this.taskModel = taskModel;
+    }
+
+    module.exports = TaskList;
+    ```
 3. **showTasks, addTask** 및 **completeTasks**에 사용된 메서드를 추가하여 **tasklist.js** 파일에 계속 추가합니다.
    
-        TaskList.prototype = {
-            showTasks: function (req, res) {
-                var self = this;
-   
-                var querySpec = {
-                    query: 'SELECT * FROM root r WHERE r.completed=@completed',
-                    parameters: [{
-                        name: '@completed',
-                        value: false
-                    }]
-                };
-   
-                self.taskDao.find(querySpec, function (err, items) {
-                    if (err) {
-                        throw (err);
-                    }
-   
-                    res.render('index', {
-                        title: 'My ToDo List ',
-                        tasks: items
-                    });
-                });
-            },
-   
-            addTask: function (req, res) {
-                var self = this;
-                var item = req.body;
-   
-                self.taskDao.addItem(item, function (err) {
-                    if (err) {
-                        throw (err);
-                    }
-   
-                    res.redirect('/');
-                });
-            },
-   
-            completeTask: function (req, res) {
-                var self = this;
-                var completedTasks = Object.keys(req.body);
-   
-                async.forEach(completedTasks, function taskIterator(completedTask, callback) {
-                    self.taskDao.updateItem(completedTask, function (err) {
-                        if (err) {
-                            callback(err);
-                        } else {
-                            callback(null);
-                        }
-                    });
-                }, function goHome(err) {
-                    if (err) {
-                        throw err;
-                    } else {
-                        res.redirect('/');
-                    }
-                });
+   ```nodejs
+    TaskList.prototype = {
+    showTasks: function(req, res) {
+        let self = this;
+
+        let querySpec = {
+        query: 'SELECT * FROM root r WHERE r.completed=@completed',
+        parameters: [
+            {
+            name: '@completed',
+            value: false
             }
+        ]
         };
+
+        self.taskModel.find(querySpec, function(err, items) {
+        if (err) {
+            throw err;
+        }
+
+        res.render('index', {
+            title: 'My ToDo List ',
+            tasks: items
+        });
+        });
+    },
+
+    addTask: function(req, res) {
+        let self = this;
+        let item = req.body;
+
+        self.taskModel.addItem(item, function(err) {
+        if (err) {
+            throw err;
+        }
+
+        res.redirect('/');
+        });
+    },
+
+    completeTask: function(req, res) {
+        let self = this;
+        let completedTasks = Object.keys(req.body);
+
+        async.forEach(
+        completedTasks,
+        function taskIterator(completedTask, callback) {
+            self.taskModel.updateItem(completedTask, function(err) {
+            if (err) {
+                callback(err);
+            } else {
+                callback(null);
+            }
+            });
+        },
+        function goHome(err) {
+            if (err) {
+            throw err;
+            } else {
+            res.redirect('/');
+            }
+        }
+        );
+    }
+    };
+    ```        
 4. **tasklist.js** 파일을 저장하고 닫습니다.
 
 ### <a name="add-configjs"></a>config.js 추가
 1. 프로젝트 디렉터리에서 **config.js**라는 새 파일을 만듭니다.
 2. 다음을 **config.js**에 추가합니다. 이 파일은 응용 프로그램에 필요한 구성 설정 및 값을 정의합니다.
    
-        var config = {}
+    ```nodejs
+    let config = {}
    
-        config.host = process.env.HOST || "[the URI value from the Azure Cosmos DB Keys page on http://portal.azure.com]";
-        config.authKey = process.env.AUTH_KEY || "[the PRIMARY KEY value from the Azure Cosmos DB Keys page on http://portal.azure.com]";
-        config.databaseId = "ToDoList";
-        config.collectionId = "Items";
+    config.host = process.env.HOST || "[the URI value from the Azure Cosmos DB Keys page on http://portal.azure.com]";
+    config.authKey = process.env.AUTH_KEY || "[the PRIMARY KEY value from the Azure Cosmos DB Keys page on http://portal.azure.com]";
+    config.databaseId = "ToDoList";
+    config.collectionId = "Items";
    
-        module.exports = config;
+    module.exports = config;
+    ```
 3. **config.js** 파일에서 [Microsoft Azure Portal](https://portal.azure.com)에 있는 Azure Cosmos DB 계정의 [키] 페이지에 있는 값을 사용하여 HOST 및 AUTH_KEY 값을 업데이트합니다.
 4. **config.js** 파일을 저장하고 닫습니다.
 
 ### <a name="modify-appjs"></a>app.js 수정
 1. 프로젝트 디렉터리에서 **app.js** 파일을 엽니다. 이 파일은 이전에 Express 웹 응용 프로그램을 만들 때 생성되었습니다.
-2. 다음 코드를 **app.js**
+2. 다음 코드를 **app.js**의 맨 위에 추가합니다.
    
-        var DocumentDBClient = require('documentdb').DocumentClient;
-        var config = require('./config');
-        var TaskList = require('./routes/tasklist');
-        var TaskDao = require('./models/taskDao');
+    ```nodejs
+    var DocumentDBClient = require('documentdb').DocumentClient;
+    var config = require('./config');
+    var TaskList = require('./routes/tasklist');
+    var TaskModel = require('./models/taskModel');
+    ```
 3. 이 코드는 사용할 구성 파일을 정의하고, 이 파일의 값을 곧 사용할 몇 가지 변수로 읽어들입니다.
 4. **app.js** 파일에서 다음 두 줄을
    
-        app.use('/', index);
-        app.use('/users', users); 
+    ```nodejs
+    app.use('/', index);
+    app.use('/users', users); 
+    ```
    
-      다음 코드 조각으로 바꿉니다.
+    다음 코드 조각으로 바꿉니다.
    
-        var docDbClient = new DocumentDBClient(config.host, {
-            masterKey: config.authKey
-        });
-        var taskDao = new TaskDao(docDbClient, config.databaseId, config.collectionId);
-        var taskList = new TaskList(taskDao);
-        taskDao.init();
+    ```nodejs
+    let docDbClient = new DocumentDBClient(config.host, {
+        masterKey: config.authKey
+    });
+    let taskModel = new TaskModel(docDbClient, config.databaseId, config.collectionId);
+    let taskList = new TaskList(taskModel);
+    taskModel.init();
    
-        app.get('/', taskList.showTasks.bind(taskList));
-        app.post('/addtask', taskList.addTask.bind(taskList));
-        app.post('/completetask', taskList.completeTask.bind(taskList));
-        app.set('view engine', 'jade');
-5. 이러한 줄은 Azure Cosmos DB에 대한 새로운 연결을 사용해서 **TaskDao** 개체의 새 인스턴스를 정의하고(**config.js**에서 읽은 값 사용), 작업 개체를 초기화한 후 폼 작업을 **TaskList** 컨트롤러의 메서드에 바인딩합니다. 
+    app.get('/', taskList.showTasks.bind(taskList));
+    app.post('/addtask', taskList.addTask.bind(taskList));
+    app.post('/completetask', taskList.completeTask.bind(taskList));
+    app.set('view engine', 'jade');
+    ```
+5. 이러한 줄은 Azure Cosmos DB에 대한 새로운 연결을 사용해서 **TaskModel** 개체의 새 인스턴스를 정의하고(**config.js**에서 읽은 값 사용), 작업 개체를 초기화한 후 폼 작업을 **TaskList** 컨트롤러의 메서드에 바인딩합니다. 
 6. 끝으로, **app.js** 파일을 저장하고 닫으면 작업이 거의 완료됩니다.
 
 ## <a name="_Toc395783181"></a>5단계: 사용자 인터페이스 작성

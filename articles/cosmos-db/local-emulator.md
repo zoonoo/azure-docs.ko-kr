@@ -13,13 +13,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/29/2018
+ms.date: 02/15/2018
 ms.author: danoble
-ms.openlocfilehash: 40d7b8a52f67d116ab764b9716c917d5c7865467
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: 2512ba4ea89bd3477c7901cda29ab3682d834195
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>로컬 개발 및 테스트에 Azure Cosmos DB 에뮬레이터 사용
 
@@ -195,6 +195,11 @@ Python 및 Node.js SDK에서 에뮬레이터에 연결하면 SSL 확인이 비�
   <td></td>
 </tr>
 <tr>
+  <td>GetStatus</td>
+  <td>Azure Cosmos DB Emulator의 상태를 가져 옵니다. 상태는 종료 코드에 의해 표시 됩니다. 1 = 시작, 2 = 실행, 3 = 정지. 부정적인 종료 코드는 오류가 발생 했음을 나타냅니다. 어떤 출력도 생성되지 않습니다.</td>
+  <td>CosmosDB.Emulator.exe /GetStatus</td>
+  <td></td>
+<tr>
   <td>Shutdown</td>
   <td>Azure Cosmos DB 에뮬레이터를 종료합니다.</td>
   <td>CosmosDB.Emulator.exe /Shutdown</td>
@@ -318,6 +323,40 @@ Azure Cosmos DB 에뮬레이터에서 사용할 수 있는 컬렉션의 수를 �
 4. 최신 버전의 [Azure Cosmos DB 에뮬레이터](https://aka.ms/cosmosdb-emulator)를 설치합니다.
 5. 250 이하의 값을 설정하여 PartitionCount 플래그로 에뮬레이터를 시작합니다. 예: `C:\Program Files\Azure CosmosDB Emulator>CosmosDB.Emulator.exe /PartitionCount=100`
 
+## <a name="controlling-the-emulator"></a>에뮬레이터 제어
+
+에뮬레이터는 해당 서비스 상태의 시작, 중지, 제거 및 검색을 위해 PowerShell 모듈과 함께 제공 됩니다. 이를 사용하려면:
+
+```powershell
+Import-Module "$env:ProgramFiles\Azure Cosmos DB Emulator\PSModules\Microsoft.Azure.CosmosDB.Emulator"
+```
+
+사용자의 `PSModulesPath`에 `PSModules` 디렉터리를 놓고 다음과 같이 가져옵니다.
+
+```powershell
+$env:PSModulesPath += "$env:ProgramFiles\Azure Cosmos DB Emulator\PSModules"
+Import-Module Microsoft.Azure.CosmosDB.Emulator
+```
+
+다음은 PowerShell에서 에뮬레이터를 제어하는 명령을 요약한 것입니다.
+
+### `Get-CosmosDbEmulatorStatus`
+
+ServiceControllerStatus.StartPending, ServiceControllerStatus.Running, 또는 ServiceControllerStatus.Stopped 같은 ServiceControllerStatus 값 중 하나를 반환합니다.
+
+### `Start-CosmosDbEmulator [-NoWait]`
+
+에뮬레이터를 시작합니다. 기본적으로 이 명령은 에뮬레이터가 요청을 수락할 준비가 될 때까지 대기합니다. 에뮬레이터가 시작하자 마자 cmdlet을 반환하고자 하는 경우 -NoWait 옵션을 사용하십시오.
+
+### `Stop-CosmosDbEmulator [-NoWait]`
+
+에뮬레이터를 중지합니다. 기본적으로 이 명령은 에뮬레이터가 완전히 종료할 때까지 대기합니다. 에뮬레이터가 종료를 시작하자 마자 cmdlet을 반환하고자 하는 경우 -NoWait 옵션을 사용하십시오.
+
+### `Uninstall-CosmosDbEmulator [-RemoveData]`
+
+에뮬레이터를 제거하고 $env:LOCALAPPDATA\CosmosDbEmulator의 전체 콘텐츠를 선택적으로 제거합니다.
+Cmdlet는 에뮬레이터가 제거되기 전에 중지되도록 합니다.
+
 ## <a name="running-on-docker"></a>Docker에서 실행
 
 Azure Cosmos DB 에뮬레이터는 Windows용 Docker에서 실행할 수 있습니다. 이 에뮬레이터는 Oracle Linux용 Docker에서 작동하지 않습니다.
@@ -416,7 +455,29 @@ cd $env:LOCALAPPDATA\CosmosDBEmulatorCert
 
 작업 표시줄에서 로컬 에뮬레이터 아이콘을 마우스 오른쪽 단추로 클릭하고 정보 메뉴 항목을 클릭하여 버전 번호를 확인할 수 있습니다.
 
-### <a name="120-released-on-january-26-2018"></a>1.20 - 2018년 1월 26일 릴리스
+### <a name="1201084-released-on-february-14-2018"></a>1.20.108.4 - 2018년 2월 14일 릴리즈
+
+이 릴리즈에 한 개의 새 기능 및 두 개의 버그 수정이 포함됐습니다. 이 문제를 발견하고 해결하는 데 도움을 준 고객에게 감사드립니다.
+
+#### <a name="bug-fixes"></a>버그 수정
+
+1. 에뮬레이터는 이제 1개나 2개 코어(또는 가상 Cpu)를 장착한 컴퓨터에서 작동합니다.
+
+   Cosmos DB는 다양한 서비스를 수행하기 위해 작업을 할당합니다. 할당 작업 수는 호스트의 코어 수의 배수입니다. 코어 수가 방대한 프로덕션 환경에서 기본 배수가 잘 작동 합니다. 그러나 1개 또는 2개 프로세서가 있는 머신에서 이 배수가 적용될 경우 해당 서비스를 수행하도록 작업이 할당되지 않습니다.
+
+   에뮬레이터에 구성 재정의를 추가해 이를 수정했습니다. 이제 1의 배수를 적용합니다. 다양한 서비스를 수행하도록 할당된 작업의 수는 호스트의 코어 수와 동일합니다.
+
+   이 릴리스에 대해 아무 것도 하지 않았다면 이 문제를 해결할 수 있었을 것입니다. 에뮬레이터를 호스팅하는 많은 개발/테스트 환경은 1개 또는 2개의 코어를 갖습니다.
+
+2. 에뮬레이터는 더 이상 Microsoft Visual C++ 2015 재배포 가능 패키지 설치를 요구하지 않습니다.
+
+   Windows(데스크톱 및 서버 버전)의 새로운 설치는 이 재배포 가능 패키지를 포함하지 않습니다. 따라서 재배포 가능 이진 파일을 에뮬레이터와 함께 번들로 제공합니다.
+
+#### <a name="features"></a>기능
+
+대화를 나눈 고객 대부분이 에뮬레이터가 스크립트가 가능하면 좋겠다는 말을 했습니다. 따라서 이 릴리스에 몇 가지 스크립트 기능을 추가했습니다. 에뮬레이터는 자체 시작, 중지, 상태 가져오기 및 제거를 위한 PowerShell 모듈을 포함합니다`Microsoft.Azure.CosmosDB.Emulator`. 
+
+### <a name="120911-released-on-january-26-2018"></a>1.20.91.1 - 2018년 1월 26일 릴리스
 
 * 기본적으로 MongoDB 집계 파이프라인을 사용합니다.
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2017
 ms.author: tomfitz
-ms.openlocfilehash: 6a9128f45d4199404019cee594842d59c7f1aaf3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6b1915288feff8f1d9fc780fef40a247d1c35839
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="resource-providers-and-types"></a>리소스 공급자 및 형식
 
@@ -263,9 +263,9 @@ Azure의 모든 리소스 공급자 및 구독에 대한 등록 상태를 보려
 
 구독에 리소스 공급자의 리소스 종류가 아직 포함되어 있으면 해당 리소스 공급자를 등록 취소할 수 없습니다.
 
-특정 리소스 공급자에 대한 정보를 보려면 **추가 서비스**를 선택합니다.
+특정 리소스 공급자에 대한 정보를 보려면 **모든 서비스**를 선택합니다.
 
-![추가 서비스 선택](./media/resource-manager-supported-services/more-services.png)
+![모든 서비스 선택](./media/resource-manager-supported-services/more-services.png)
 
 **리소스 탐색기**를 검색하고 사용 가능한 옵션 중에서 선택합니다.
 

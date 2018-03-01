@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: spelluru
-ms.openlocfilehash: 86e624476b7869331720e58363ad14b22704b19b
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: f3616214dc63716a382b4374ff82bec33e876177
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-an-azure-ssis-integration-runtime-in-azure-data-factory"></a>Azure Data Factory에서 Azure Integration Runtime 만들기 | Microsoft Docs
 이 문서에서는 Azure Data Factory에서 Azure-SSIS 통합 런타임을 프로비전하는 단계를 제공합니다. 그런 다음 SSDT(SQL Server Data Tools) 또는 SSMS(SQL Server Management Studio)를 사용하여 Azure에서 이 런타임에 SSIS(SQL Server Integration Services) 패키지를 배포할 수 있습니다.
@@ -54,7 +54,8 @@ Azure-SSIS IR의 인스턴스를 프로비전하는 경우 Azure Feature Pack fo
 - **Azure PowerShell**. [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/install-azurerm-ps)의 지침을 따르세요. PowerShell을 사용하여 클라우드에서 SSIS 패키지를 실행하는 Azure-SSIS 통합 런타임을 프로비전하는 스크립트를 실행합니다. 
 
 > [!NOTE]
-> Azure Data Factory V2 및 Azure-SSIS Integration Runtime에서 지원하는 지역 목록은 [지역별 사용 가능한 제품](https://azure.microsoft.com/regions/services/)을 참조하세요. **Data Factory V2** 및 **SSIS Integration Runtime**을 보려면 **데이터 + 분석**을 확장합니다.
+> - 미국 동부, 미국 동부 2, 동남 아시아 및 유럽 서부 등의 지역에서 2 버전의 데이터 팩터리를 만들 수 있습니다. 
+> - 미국 동부, 미국 동부 2, 미국 중부, 유럽 북부, 유럽 서부 및 호주 동부 등에서 Azure SSIS IR를 만들 수 있습니다.
 
 ## <a name="azure-portal"></a>Azure portal
 이 섹션에서는 Azure Portal, 특히 Data Factory UI를 사용하여 Azure-SSIS IR을 만듭니다. 
@@ -164,11 +165,14 @@ Azure-SSIS IR의 인스턴스를 프로비전하는 경우 Azure Feature Pack fo
 $SubscriptionName = "[your Azure subscription name]"
 $ResourceGroupName = "[your Azure resource group name]"
 $DataFactoryName = "[your data factory name]"
+# You can create a data factory of version 2 in the following regions: East US, East US 2, Southeast Asia, and West Europe. 
 $DataFactoryLocation = "EastUS" 
 
 # Azure-SSIS integration runtime information - This is the Data Factory compute resource for running SSIS packages
 $AzureSSISName = "[your Azure-SSIS integration runtime name]"
 $AzureSSISDescription = "This is my Azure-SSIS integration runtime"
+
+# You can create an Azure-SSIS IR in the following regions: East US, East US 2, Central US, North Europe, West Europe, and Australia East.
 $AzureSSISLocation = "EastUS" 
 # In public preview, only Standard_A4_v2|Standard_A8_v2|Standard_D1_v2|Standard_D2_v2|Standard_D3_v2|Standard_D4_v2 are supported.
 $AzureSSISNodeSize = "Standard_D3_v2"

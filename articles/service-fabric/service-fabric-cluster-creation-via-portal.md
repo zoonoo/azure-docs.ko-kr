@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/01/2018
+ms.date: 02/09/2018
 ms.author: chackdan
-ms.openlocfilehash: 7537d7015ee8739be4b9ba08846866d4cfbe38be
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 4a42e36307f440a29740d947314f91dffac51a42
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Azure 포털을 사용하여 Azure에서 서비스 패브릭 클러스터 만들기
 > [!div class="op_single_selector"]
@@ -82,7 +82,7 @@ Azure 포털을 통해 클러스터를 만들 때 응용 프로그램 인증서�
 ![Azure 포털에서 서비스 패브릭 클러스터 템플릿을 검색합니다.][SearchforServiceFabricClusterTemplate]
 
 1. [Azure Portal][azure-portal]에 로그인합니다.
-2. **새로 만들기** 를 클릭하여 새 리소스 템플릿을 추가합니다. **Marketplace**의 **모두**에서 Service Fabric 클러스터 템플릿을 검색합니다.
+2. **리소스 만들기**를 클릭하여 새 리소스 템플릿을 추가합니다. **Marketplace**의 **모두**에서 Service Fabric 클러스터 템플릿을 검색합니다.
 3. 목록에서 **서비스 패브릭 클러스터** 를 선택합니다.
 4. **Service Fabric 클러스터** 블레이드로 이동하여 **만들기**를 클릭합니다.
 5. **Service Fabric 클러스터 만들기** 블레이드는 다음 4단계를 포함합니다.
@@ -134,6 +134,7 @@ Azure 포털을 통해 클러스터를 만들 때 응용 프로그램 인증서�
 #####<a name="basic-option"></a>기본 옵션
 화면 지침에 따라 기존 키 자격 증명 모음을 추가 또는 다시 사용하고 인증서를 추가합니다. 인증서 추가는 동기 프로세스이므로 인증서가 생성될 때까지 기다려야 합니다.
 
+
 이전 프로세스가 완료될 때까지 화면을 벗어나지 마세요.
 
 ![CreateKeyVault]
@@ -142,7 +143,7 @@ Azure 포털을 통해 클러스터를 만들 때 응용 프로그램 인증서�
 
 ![CreateKeyVault2]
 
-고급 액세스 정책을 클릭하고 배포를 위해 Virtual Machines에 액세스할 수 있도록 합니다. 템플릿 배포도 사용하도록 설정하는 것이 좋습니다.
+고급 액세스 정책을 클릭하고 배포를 위해 Virtual Machines에 액세스할 수 있도록 합니다. 템플릿 배포도 사용하도록 설정하는 것이 좋습니다. 선택이 완료되면 **저장** 단추를 클릭하고 **액세스 정책** 창을 닫아야 합니다.
 
 ![CreateKeyVault3]
 

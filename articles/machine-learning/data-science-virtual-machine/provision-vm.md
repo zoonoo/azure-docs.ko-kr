@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: bradsev
-ms.openlocfilehash: d71d8e44d0327515ed302c5c902ce87587e36c7d
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 6f933c75d4829e3b2c5198aeee324f15490d8a93
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="provision-the-windows-data-science-virtual-machine-on-azure"></a>Azure에서 Windows 데이터 과학 Virtual Machine 프로비전
 Microsoft 데이터 과학 Virtual Machine은 데이터 분석 및 기계 학습에 흔히 사용되는 몇 가지 인기 있는 도구로 사전 설치 및 구성된 Microsoft Azure VM(가상 머신) 이미지입니다. 포함된 도구는 다음과 같습니다.
 
-* [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning-services/) Workbench
-* [Microsoft ML Server](https://docs.microsoft.com/machine-learning-server/index) 디벨로퍼 버전
+* [Azure Machine Learning](../preview/index.yml) Workbench
+* [Microsoft Machine Learning Server](https://docs.microsoft.com/machine-learning-server/index) Developer Edition
 * Enthought Python 배포
 * Jupyter Notebook(R, Python, PySpark 커널 포함)
 * Visual Studio Community Edition
@@ -36,8 +36,7 @@ Microsoft 데이터 과학 Virtual Machine은 데이터 분석 및 기계 학습
   * 
             [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): 온라인, 해시, allreduce, 축소, learning2search, 활성 및 대화형 학습 등의 기술을 지원하는 속성 기계 학습 시스템.
   * [XGBoost](https://xgboost.readthedocs.org/en/latest/): 기능이 향상된 빠르고 정확한 트리 구현을 제공하는 도구
-  * 
-            [Rattle](http://rattle.togaware.com/) (R Analytical Tool To Learn Easily): GUI 기반 데이터 탐색 및 모델링을 자동 R 코드 생성과 함께 사용하여 R에서의 데이터 분석 및 기계 학습을 쉽게 시작할 수 있도록 돕는 도구.
+  * [Rattle](http://rattle.togaware.com/)(R Analytical Tool To Learn Easily): R에서 데이터 분석 및 기계 학습을 쉽게 시작할 수 있도록 하는 도구입니다. GUI 기반 데이터 탐색 및 자동 R 코드 생성을 통한 모델링을 지원합니다.
   * [Weka](http://www.cs.waikato.ac.nz/ml/weka/): Java 형식의 시각적인 데이터 마이닝 및 기계 학습 소프트웨어.
   * [Apache Drill](https://drill.apache.org/): Hadoop, NoSQL 및 클라우드 저장소용의 스키마가 없는 SQL 쿼리 엔진.  NoSQL 및 PowerBI, Excel, Tableau와 같은 표준 BI 도구의 파일에 쿼리가 가능하도록 ODBC 및 JDBC 인터페이스를 지원합니다.
 * Azure Machine Learning 및 기타 Azure 서비스에서 사용하기 위한 R 및 Python의 라이브러리
@@ -59,14 +58,14 @@ Microsoft 데이터 과학 Virtual Machine은 분석 프로젝트를 빠르게 �
 ## <a name="other-versions-of-the-data-science-virtual-machine"></a>다른 버전의 데이터 과학 Virtual Machine
 [Ubuntu](dsvm-ubuntu-intro.md) 이미지도 비슷한 많은 도구 및 몇 가지 추가적인 심층 학습 프레임워크와 함께 사용할 수 있습니다. [CentOS](linux-dsvm-intro.md) 이미지도 사용할 수 있습니다. 몇 가지 도구는 Windows Server 2016 버전에서만 사용할 수 있지만 [Windows Server 2012 버전](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.standard-data-science-vm)의 데이터 과학 가상 컴퓨터도 제공됩니다.  그렇지 않은 경우 이 문서는 Windows Server 2012 버전에도 적용됩니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 Microsoft 데이터 과학 Virtual Machine을 만들려면 먼저 다음이 있어야 합니다.
 
 * **Azure 구독**: 다운로드하려면 [Azure 무료 평가판 받기](http://azure.com/free)를 참조하세요.
 
 
 ## <a name="create-your-microsoft-data-science-virtual-machine"></a>Microsoft 데이터 과학 Virtual Machine 만들기
-Microsoft 데이터 과학 Virtual Machine의 인스턴스를 만드는 단계는 다음과 같습니다.
+Microsoft 데이터 과학 Virtual Machine의 인스턴스를 만들려면 다음 단계를 따르세요.
 
 1. [Azure 포털](https://portal.azure.com/#create/microsoft-ads.windows-data-science-vmwindows2016)에서 가상 머신 목록으로 이동합니다.
 2. 마법사로 이동하려면 아래에 있는 **만들기** 단추를 선택합니다.![configure-data-science-vm](./media/provision-vm/configure-data-science-virtual-machine.png)
@@ -85,8 +84,8 @@ Microsoft 데이터 과학 Virtual Machine의 인스턴스를 만드는 단계�
    3. **설정**:
       
       1. **Managed Disks 사용**: Azure가 VM용 디스크를 관리하도록 하려면 관리를 선택합니다.  그렇지 않으면 새 또는 기존 저장소 계정을 지정해야 합니다. 
-      2. **기타 매개 변수**: 일반적으로 기본값을 사용합니다. 기본값이 아닌 것을 사용하려는 경우 특정 필드의 정보 링크를 가리키면 도움말을 볼 수 있습니다.
-   4. **요약**: 입력한 모든 정보가 올바른지 확인하고 **만들기**를 클릭합니다. **참고**: VM은 **크기** 단계에서 선택한 서버 크기에 대한 계산 이외에 추가 요금이 발생하지 않습니다. 
+      2. **기타 매개 변수**: 일반적으로 기본값을 사용합니다. 기본값 이외의 값을 사용하려면 정보 링크를 가리켜 특정 필드에 대한 도움말을 확인합니다.
+    a. **요약**: 입력한 모든 정보가 올바른지 확인하고 **만들기**를 클릭합니다. **참고**: VM은 **크기** 단계에서 선택한 서버 크기에 대한 계산 이외에 추가 요금이 발생하지 않습니다. 
 
 > [!NOTE]
 > 프로비전은 약 10-20분 정도 소요됩니다. 프로비전의 상태는 Azure 포털에 표시됩니다.
@@ -116,7 +115,7 @@ Python을 사용하여 개발하는 경우를 위해, Anaconda Python 배포 2.7
 > 
 > 
 
-Anaconda Python 2.7은 C:\Anaconda 아래에 설치되어 있으며 Anaconda Python 3.5는 c:\Anaconda\envs\py35 아래에 설치되어 있습니다. 자세한 단계는 [PTVS 설명서](https://github.com/Microsoft/PTVS/wiki/Selecting-and-Installing-Python-Interpreters#hey-i-already-have-an-interpreter-on-my-machine-but-ptvs-doesnt-seem-to-know-about-it) 를 참조하세요. 
+Anaconda Python 2.7은 C:\Anaconda 아래에 설치되어 있으며 Anaconda Python 3.5는 c:\Anaconda\envs\py35 아래에 설치되어 있습니다. 자세한 단계는 [PTVS 설명서](/visualstudio/python/python-environments.md#selecting-and-installing-python-interpreters) 를 참조하세요. 
 
 ### <a name="jupyter-notebook"></a>Jupyter 노트북
 Anaconda 배포는 코드 및 분석을 공유하는 환경인 Jupyter 노트북도 제공됩니다. Jupyter 노트북 서버는 Python 2.7, Python 3.5, PySpark, Julia 및 R 커널로 미리 구성되었습니다. Jupyter 서버를 시작하고 브라우저를 실행하여 노트북 서버에 액세스하는 "Jupyter Notebook"이라는 바탕 화면 아이콘이 있습니다. 
@@ -198,9 +197,9 @@ SQL ML Services를 사용하여 데이터베이스 내 분석을 사용하도록
 학습 및 탐색을 계속하려면 다음 단계는 다음과 같습니다. 
 
 * 시작 메뉴를 클릭하여 메뉴에 나열된 도구를 확인하여 데이터 과학 VM에 다양한 데이터 과학 도구를 탐색합니다.
-* Azure Machine Learning Services 및 Workbench에 대해 자세히 알아보려면 [빠른 시작 및 자습서 페이지](https://docs.microsoft.com/azure/machine-learning/preview/)를 참조하세요. 
+* Azure Machine Learning Services 및 Workbench에 대해 자세히 알아보려면 [빠른 시작 및 자습서 페이지](../preview/index.yml)를 참조하세요. 
 * 엔터프라이즈 규모로 데이터 분석을 지원하는 R의 RevoScaleR 라이브러리를 사용하는 샘플을 보려면 **C:\Program Files\Microsoft\ML Server\R_SERVER\library\RevoScaleR\demoScripts**로 이동하세요.  
 * 문서 참조: [데이터 과학 Virtual Machine으로 할 수 있는 10가지 일](http://aka.ms/dsvmtenthings)
-* 체계적으로 [팀 데이터 과학 프로세스](https://azure.microsoft.com/documentation/learning-paths/data-science-process/)를 사용하여 종단 간 분석 솔루션을 구축하는 방법을 알아봅니다.
+* 체계적으로 [팀 데이터 과학 프로세스](../team-data-science-process/index.yml)를 사용하여 종단 간 분석 솔루션을 구축하는 방법을 알아봅니다.
 * Azure의 Azure Machine Learning 및 관련 데이터 서비스를 사용하는 기계 학습 및 데이터 분석 샘플을 보려면 [Azure AI 갤러리](http://gallery.cortanaintelligence.com)를 방문하세요. 또한 가상 머신의 **시작** 메뉴 및 데스크톱에 이 갤러리에 대한 아이콘을 제공합니다.
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2017
 ms.author: rolyon
-ms.openlocfilehash: d449b53d348471275cea3c7129245569e2151864
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: ba25340e41cefe2b7847a39a6c9182cd0fc057d3
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="manage-role-based-access-control-with-the-rest-api"></a>REST API를 사용하여 역할 기반 Access Control 관리
 > [!div class="op_single_selector"]
@@ -26,7 +26,7 @@ ms.lasthandoff: 02/09/2018
 > * [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
 > * [REST API](role-based-access-control-manage-access-rest.md)
 
-Azure Portal 및 Azure Resource Manager API의 RBAC(역할 기반 Access Control)를 사용하면 세밀한 수준에서 구독과 리소스에 대한 액세스를 관리할 수 있습니다. 이 기능을 통해 특정 범위에서 Active Directory 사용자, 그룹 또는 서비스 사용자에게 일부 역할을 할당하여 액세스 권한을 부여할 수 있습니다.
+RBAC(역할 기반 액세스 제어)를 통해 특정 범위에서 역할을 할당하여 사용자, 그룹, 서비스 주체에 대한 액세스를 정의합니다. 이 문서에서는 REST API를 사용하여 액세스를 관리하는 방법을 설명합니다.
 
 ## <a name="list-all-role-assignments"></a>모든 역할 할당 나열
 지정된 범위 및 하위 범위에서 모든 역할 할당을 나열합니다.
@@ -541,7 +541,7 @@ URI 내에서 다음을 대체하여 요청을 사용자 지정합니다.
 | --- | --- | --- | --- |
 | 이름 |예 |문자열 |사용자 지정 역할의 GUID 식별자입니다. |
 | properties.roleName |예 |문자열 |업데이트된 사용자 지정 역할의 표시 이름입니다. |
-| properties.description |아니요 |문자열 |업데이트된 사용자 지정 역할의 설명입니다. |
+| properties.description |아니오 |문자열 |업데이트된 사용자 지정 역할의 설명입니다. |
 | properties.type |예 |문자열 |"CustomRole"로 설정합니다. |
 | properties.permissions.actions |예 |문자열[] |업데이트된 사용자 지정 역할이 액세스 권한을 부여하는 작업을 지정하는 동작 문자열의 배열입니다. |
 | properties.permissions.notActions |아니오 |문자열[] |업데이트된 사용자 지정 역할이 권한을 부여하는 작업에서 제외할 작업을 지정하는 동작 문자열의 배열입니다. |

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/22/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 41ead775c8ce1919d8c3813b58c8a4d648c8bc64
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: e166e73ba45e229d8049738fa4a79f5dc117d806
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="tutorial-copy-data-from-blob-storage-to-sql-database-using-data-factory"></a>자습서: 데이터 팩터리를 사용하여 Blob Storage에서 SQL Database로 데이터 복사
 > [!div class="op_single_selector"]
@@ -56,7 +56,7 @@ ms.lasthandoff: 01/23/2018
 이 자습서를 수행하려면 Azure Storage 계정의 계정 이름과 계정 키가 필요합니다. Azure Storage 계정의 **계정 이름**과 **계정 키**를 적어둡니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. 왼쪽 메뉴의 **더 많은 서비스**를 클릭하고 **Storage 계정**을 선택합니다.
+2. 왼쪽 메뉴의 **모든 서비스**를 클릭하고 **Storage 계정**을 선택합니다.
 
     ![찾아보기 - Storage 계정](media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/browse-storage-accounts.png)
 3. **Storage 계정** 블레이드에서, 이 자습서에서 사용하려는 **Azure Storage 계정**을 선택합니다.
@@ -70,7 +70,7 @@ ms.lasthandoff: 01/23/2018
 ## <a name="collect-sql-server-database-user-names"></a>SQL server, 데이터베이스, 사용자 이름 수집
 이 자습서를 수행하려면 Azure SQL Server, 데이터베이스 및 사용자의 이름이 필요합니다. Azure SQL 데이터베이스의 **서버**, **데이터베이스** 및 **사용자**의 이름을 적어둡니다.
 
-1. **Azure 포털**에서 왼쪽의 **더 많은 서비스**를 클릭하고 **SQL 데이터베이스**를 선택합니다.
+1. **Azure 포털**에서 왼쪽의 **모든 서비스**를 클릭하고 **SQL 데이터베이스**를 선택합니다.
 2. **SQL 데이터베이스 블레이드**에서, 이 자습서에서 사용하려는 **데이터베이스**를 선택합니다. **데이터베이스 이름**을 적어둡니다.  
 3. **SQL 데이터베이스** 블레이드에서 **설정** 아래의 **속성**을 클릭합니다.
 4. **서버 이름** 및 **서버 관리자 로그인**의 값을 적어둡니다.
@@ -79,7 +79,7 @@ ms.lasthandoff: 01/23/2018
 ## <a name="allow-azure-services-to-access-sql-server"></a>Azure 서비스가 SQL server에 액세스하도록 허용
 데이터 팩터리 서비스가 Azure SQL Server에 액세스할 수 있도록 Azure SQL Server에 대해 **Azure 서비스에 대한 액세스 허용** 설정이 **ON**인지 확인합니다. 이 설정을 확인하고 켜려면 다음 단계를 수행합니다.
 
-1. 왼쪽의 **더 많은 서비스** 허브를 클릭하고 **SQL 서버**를 클릭합니다.
+1. 왼쪽의 **모든 서비스** 허브를 클릭하고 **SQL 서버**를 클릭합니다.
 2. 서버를 선택하고 **설정** 아래의 **방화벽**을 클릭합니다.
 3. **방화벽 설정** 블레이드에서 **Azure 서비스에 대한 액세스 허용**에 대해 **켜기**를 클릭합니다.
 4. **X**를 클릭하여 모든 블레이드를 닫습니다.

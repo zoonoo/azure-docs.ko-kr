@@ -16,11 +16,11 @@ ms.date: 08/15/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: 1141245739f86a482bb0b5f550fd3b89d1213ce1
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 9b156f80ae2b52ea7cb07bcb2c047d35d07b9154
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Azure용 네트워크 정책 서버 확장을 사용하여 VPN 인프라를 Azure MFA와 통합
 
@@ -84,7 +84,7 @@ Azure용 NPS 확장을 NPS와 통합한 경우 성공적인 인증 흐름 결과
 
 8. 사용자가 VPN 서버의 가상 포트에 대한 액세스 권한을 부여받고 암호화된 VPN 터널을 설정합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 이 섹션에서는 MFA와 원격 데스크톱 게이트웨이를 통합하기 전에 완료해야 하는 필수 조건에 대해 자세히 설명합니다. 이 문서를 시작하기 전에 다음과 같은 필수 조건이 있어야 합니다.
 
 * VPN 인프라
@@ -376,7 +376,7 @@ NPS 확장은 네트워크 정책 및 액세스 서비스 역할이 설치되고
 
 1. 관리자 권한으로 Windows PowerShell을 실행합니다.
 
-2. PowerShell 명령 프롬프트에서 **cd c:\Program Files\Microsoft\AzureMfa\Config**를 입력하고 Enter 키를 누릅니다.
+2. PowerShell 명령 프롬프트에서 **cd "c:\Program Files\Microsoft\AzureMfa\Config"**를 입력하고 Enter 키를 누릅니다.
 
 3. 다음 명령 프롬프트에서 **.\AzureMfsNpsExtnConfigSetup.ps1**을 입력한 다음 Enter 키를 선택합니다. 스크립트에서 Azure AD PowerShell 모듈이 설치되어 있는지 확인합니다. 설치되어 있지 않으면 스크립트에서 해당 모듈을 설치합니다.
  

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: 619334b3ca65654fd845a62c2fc068156d94d6fc
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 6c949c07c95c5d965b31725bce4ab2deac646bca
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-ad-android-getting-started"></a>Azure AD Android 시작
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -52,7 +52,7 @@ Active Directory는 두 가지 유형의 응용 프로그램 추가를 지원합
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 위쪽 막대에서 계정을 클릭합니다. **디렉터리** 목록에서 응용 프로그램을 등록할 Azure AD 테넌트를 선택합니다.
-3. 왼쪽 창에서 **더 많은 서비스**를 클릭하고 **Azure Active Directory**를 선택합니다.
+3. 왼쪽 창에서 **모든 서비스**를 클릭한 다음, **Azure Active Directory**를 선택합니다.
 4. **앱 등록**을 클릭하고 **추가**를 선택합니다.
 5. 친숙한 응용 프로그램 이름(예:**TodoListService**)을 입력하고 **웹 응용 프로그램 및/또는 Web API**를 선택한 후 **다음**을 클릭합니다.
 6. 로그온 URL에 대해서는 샘플의 기준 URL을 입력합니다. 기본적으로 `https://localhost:8080`입니다.
@@ -70,7 +70,7 @@ Active Directory는 두 가지 유형의 응용 프로그램 추가를 지원합
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 위쪽 막대에서 계정을 클릭합니다. **디렉터리** 목록에서 응용 프로그램을 등록할 Azure AD 테넌트를 선택합니다.
-3. 왼쪽 창에서 **더 많은 서비스**를 클릭하고 **Azure Active Directory**를 선택합니다.
+3. 왼쪽 창에서 **모든 서비스**를 클릭한 다음, **Azure Active Directory**를 선택합니다.
 4. **앱 등록**을 클릭하고 **추가**를 선택합니다.
 5. 응용 프로그램의 이름(예: **TodoListClient-Android**)을 입력하고 **네이티브 클라이언트 응용 프로그램**을 선택한 후 **다음**을 클릭합니다.
 6. 리디렉션 URI로 `http://TodoListClient`를 입력합니다. **Finish**를 클릭합니다.

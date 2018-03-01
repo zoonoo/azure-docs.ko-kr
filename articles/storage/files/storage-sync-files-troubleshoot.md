@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 7562e43f58f303ea34a08b8b9e056a0c3d0c10d0
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 378330149aebc1936846472a522631308fe3eb80
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Azure 파일 동기화(미리 보기) 문제 해결
 Azure File Sync(미리 보기)를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화합니다. Azure File Sync는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -43,6 +43,10 @@ installer.log를 검토하여 설치 실패의 원인을 확인합니다.
 > [!Note]  
 > 컴퓨터를 Microsoft 업데이트를 사용하도록 설정했으며 Windows 업데이트 서비스가 실행되고 있지 않은 경우 에이전트 설치가 실패합니다.
 
+<a id="agent-installation-on-DC"></a>**Active Directory 도메인 컨트롤러에서 에이전트 설치가 실패합니다.** PDC 역할 소유자가 Windows Server 2008 R2 이하 OS 버전에 있는 Active Directory 도메인 컨트롤러에 동기화 에이전트를 설치하려고 하면, 동기화 에이전트를 설치할 수 없는 문제가 발생할 수 있습니다.
+
+이 문제를 해결하려면 PDC 역할을 Windows Server 2012R2 이상을 실행 중인 다른 도메인 컨트롤러로 전송한 다음, 동기화를 설치합니다.
+
 <a id="agent-installation-websitename-failure"></a>**“Storage 동기화 에이전트 마법사 중단” 오류로 인해 에이전트를 설치하는 데 실패했습니다.**  
 이 문제는 IIS 웹 사이트 기본 이름이 변경된 경우에 발생할 수 있습니다. 이 문제를 해결하려면 IIS 기본 웹 사이트의 이름을 “기본 웹 사이트”로 변경하고 설치를 다시 시도합니다. 이 문제는 에이전트의 향후 업데이트에서 수정될 예정입니다. 
 
@@ -51,6 +55,8 @@ installer.log를 검토하여 설치 실패의 원인을 확인합니다.
 1. 등록하려는 서버에 로그인합니다.
 2. 파일 탐색기를 열고 Storage 동기화 에이전트 설치 디렉터리(기본 위치 C:\Program Files\Azure\StorageSyncAgent) 로 이동합니다. 
 3. ServerRegistration.exe를 실행하고 마법사를 완료하여 서버를 Storage 동기화 서비스에 등록합니다.
+
+
 
 <a id="server-already-registered"></a>**Azure File Sync 에이전트가 설치되는 동안 "서버가 이미 등록되었습니다."라는 메시지가 표시됩니다.** 
 
@@ -95,9 +101,7 @@ Azure 파일 공유가 다른 클라우드 엔드포인트에서 이미 사용�
 
 다음과 같은 기본 제공 역할은 필요한 Microsoft 인증 권한을 갖고 있습니다.  
 * 소유자
-* 사용자 액세스 관리자
-
-사용자의 계정 역할에 필요한 사용 권한이 있는지 확인하려면  
+* 사용자 액세스 관리자 사용자의 계정 역할에 필요한 사용 권한이 있는지 확인하려면:  
 1. Azure Portal에서 **리소스 그룹**을 선택합니다.
 2. 저장소 계정이 있는 리소스 그룹을 선택하고 **IAM(Access Control)**를 선택합니다.
 3. 사용자 계정에 대한 **역할**(예: 소유자 또는 참가자)을 선택합니다.
@@ -105,11 +109,24 @@ Azure 파일 공유가 다른 클라우드 엔드포인트에서 이미 사용�
     * **역할 할당**에 **읽기** 권한과 **쓰기** 권한이 있어야 합니다.
     * **역할 정의**에 **읽기**  권한과 **쓰기** 권한이 있어야 합니다.
 
-<a id="server-endpoint-createjobfailed"></a>**“MgmtServerJobFailed”(오류 코드: -2134375898) 오류로 인해 서버 끝점을 생성하는 데 실패했습니다.**                                                                                                                           
+<a id="server-endpoint-createjobfailed"></a>**“MgmtServerJobFailed”(오류 코드: -2134375898) 오류로 인해 서버 끝점을 생성하는 데 실패했습니다.**                                                                                                                    
 이 문제는 서버 끝점 경로가 시스템 볼륨에 있고 클라우드 계층화를 사용하도록 설정한 경우 발생합니다. 클라우드 계층화는 시스템 볼륨에서 지원되지 않습니다. 시스템 볼륨에 서버 끝점을 만들려면 서버 끝점을 만들 때 클라우드 계층화를 사용하지 않도록 설정합니다.
 
 <a id="server-endpoint-deletejobexpired"></a>**“MgmtServerJobExpired” 오류로 인해 서버 끝점을 삭제하는 데 실패했습니다.**                
 이 문제는 서버가 오프라인 상태이거나 네트워크에 연결되어 있지 않은 경우 발생합니다. 서버를 더 이상 사용할 수 없는 경우 Azure Portal에서 서버의 등록을 취소하여 서버 끝점을 삭제합니다. 서버 끝점을 삭제하려면 [Azure File Sync에서 서버 등록 취소](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service)에 설명된 단계를 따릅니다.
+
+<a id="server-endpoint-provisioningfailed"></a>**서버 엔드포인트 속성 페이지를 열거나 클라우드 계층화 정책을 업데이트할 수 없습니다.**
+
+이 문제는 서버 엔드포인트에서 관리 작업이 실패하는 경우 발생합니다. Azure Portal에서 서버 엔드포인트 속성 페이지가 열리지 않는 경우, 서버에서 PowerShell 명령을 사용하여 서버 엔드포인트를 업데이트하면 이 문제가 해결될 수 있습니다. 
+
+```PowerShell
+Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
+# Get the server endpoint id based on the server endpoint DisplayName property
+Get-AzureRmStorageSyncServerEndpoint -SubscriptionId mysubguid -ResourceGroupName myrgname -StorageSyncServiceName storagesvcname -SyncGroupName mysyncgroup
+
+# Update the free space percent policy for the server endpoint
+Set-AzureRmStorageSyncServerEndpoint -Id serverendpointid -CloudTiering true -VolumeFreeSpacePercent 60
+```
 
 ## <a name="sync"></a>동기화
 <a id="afs-change-detection"></a>**SMB 또는 포털을 통해 Azure 파일 공유에 직접 파일을 만든 경우 해당 파일이 동기화 그룹의 서버에 동기화되는 데 얼마나 걸리나요?**  

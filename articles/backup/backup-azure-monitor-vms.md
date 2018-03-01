@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2016
 ms.author: markgal;trinadhk;giridham;
-ms.openlocfilehash: ebd7a886f5853ec3fa9b6e816083e9edd868ef76
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 1e9f6d44965e8a6cd9529ef860f0fb57fd8e572d
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="monitor-alerts-for-azure-virtual-machine-backups"></a>Azure 가상 컴퓨터 백업에 대한 경고 모니터링
 경고는 이벤트 임계값을 만족하거나 초과한 서비스에서 나오는 응답입니다. 문제가 시작되는 시기를 아는 것은 비즈니스 비용을 낮게 유지하는 데 중요할 수 있습니다. 일반적으로 경고는 일정에 따라 발생하지 않으므로 경고가 발생한 후 가능한 빨리 아는 것이 유용합니다. 예를 들어 백업 또는 복원 작업이 실패할 경우 실패의 5분 내에서 경고가 발생합니다. 자격 증명 모음 대시보드의 Backup 경고 타일에 중요 및 경고 수준 이벤트를 표시합니다. Backup 경고 설정에서 모든 이벤트를 볼 수 있습니다. 그러나 별개의 문제에 대해 작업하는 경우 경고가 발생하면 어떻게 하나요? 경고가 발생하는 시기를 모르면 조금 불편할 수도 있고 데이터를 손상시킬 수도 있습니다. 정확한 담당자가 경고를 인식하게 하려면 경고가 발생할 때 전자 메일을 통해 경고 알림을 보내도록 서비스를 구성합니다. 전자 메일 알림 설정에 대한 자세한 내용은 [알림 구성](backup-azure-monitor-vms.md#configure-notifications)을 참조하세요.
@@ -70,9 +70,9 @@ Backup 경고 타일에서 Backup 경고 블레이드를 열려면:
    ### <a name="what-alert-types-are-available-for-azure-iaas-vm-backup"></a>Azure IaaS VM 백업에 사용할 수 있는 경고 유형은 무엇입니까?
    | 경고 수준 | 전송되는 경고 |
    | --- | --- |
-   | 중요 |Backup 실패, 복구 실패 |
-   | Warning |없음 |
-   | 정보 제공 |없음 |
+   | 중요 | 백업 실패, 복구 실패 |
+   | Warning | 백업 작업 성공, 경고 있음(예: 스냅숏을 만드는 중 일부 작성기 오류) |
+   | 정보 제공 | 현재 Azure VM 백업에 사용할 수 있는 정보 경고 없음 |
 
 ### <a name="are-there-situations-where-email-isnt-sent-even-if-notifications-are-configured"></a>알림이 구성된 경우에도 전자 메일이 전송되지 않는 경우가 있습니까?
 알림이 제대로 구성되었더라도 경고가 전송되지 않는 경우가 있습니다. 이처럼 전자 메일 알림이 전송되지 않는 경우는 다음과 같습니다.

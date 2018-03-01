@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: sstein
-ms.openlocfilehash: 0f26ce26b8b33274291c115ae136d124d79ed349
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: ca4566ced525f0cb732afc15d96d9ef73fd8cff5
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="always-encrypted-protect-sensitive-data-in-sql-database-and-store-your-encryption-keys-in-azure-key-vault"></a>상시 암호화: SQL Database의 중요한 데이터 보호 및 Azure Key Vault에 암호화 키 저장
 
@@ -79,7 +79,7 @@ AAD(Azure Active Directory) 응용 프로그램을 설정하고 응용 프로그
 
 ## <a name="create-a-blank-sql-database"></a>빈 SQL 데이터베이스 만들기
 1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
-2. **새로 만들기** > **데이터 + 저장소** > **SQL Database**로 이동합니다.
+2. **리소스 만들기** > **데이터베이스** > **SQL 데이터베이스**로 이동합니다.
 3. 새 서버 또는 기존 서버에 **클리닉**이라는 **빈** 데이터베이스를 만듭니다. Azure Portal에서 데이터베이스를 만드는 방법에 대한 자세한 지침은 [첫 Azure SQL Database](sql-database-get-started-portal.md)를 참조하세요.
    
     ![빈 데이터베이스 만들기](./media/sql-database-always-encrypted-azure-key-vault/create-database.png)

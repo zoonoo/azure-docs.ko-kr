@@ -11,15 +11,15 @@ ms.topic: article
 ms.date: 8/25/2017
 ms.author: mlearned
 ms.custom: Jenkins
-ms.openlocfilehash: dbb30809ab68079666ecfa81a896c1d5101fb6fb
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 4d45ed14be499ed927f1433e134a029066146eea
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="scale-your-jenkins-deployments-to-meet-demand-with-azure-vm-agents"></a>Azure VM 에이전트를 통해 요구 사항을 충족하도록 Jenkins 배포의 비율 크기 조정
 
-이 자습서는 Jenkins [Azure VM 에이전트 플러그 인](https://plugins.jenkins.io/azure-vm-agents)을 사용하여 Azure에서 실행 중인 Linux 가상 컴퓨터를 통해 주문형 용량을 추가하는 방법을 설명합니다.
+이 자습서는 Jenkins [Azure VM 에이전트 플러그 인](https://plugins.jenkins.io/azure-vm-agents)을 사용하여 Azure에서 실행 중인 Linux 가상 머신을 통해 주문형 용량을 추가하는 방법을 설명합니다.
 
 이 자습서에서는 다음을 수행합니다.
 
@@ -55,8 +55,8 @@ ms.lasthandoff: 10/26/2017
 3. **Azure 자격 증명** 섹션에 있는 **추가** 드롭다운에서 기존 서비스 주체를 선택합니다. 아무것도 나열되지 않는 경우 다음 단계를 수행하여 Azure 계정에 대한 [서비스 주체를 만들어](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager) Jenkins 구성에 추가합니다.   
 
     a. **Azure 자격 증명** 옆에 있는 **추가**를 선택하고 **Jenkins**를 선택합니다.   
-    b. **자격 증명 추가** 대화 상자에 있는 **종류** 드롭다운에서 **Microsoft Azure 서비스 주체**를 선택합니다.   
-    c. Azure CLI 또는 [Cloud Shell](/azure/cloud-shell/overview)에서 Active Directory Service 주체를 만듭니다.
+    나. **자격 증명 추가** 대화 상자에 있는 **종류** 드롭다운에서 **Microsoft Azure 서비스 주체**를 선택합니다.   
+    다. Azure CLI 또는 [Cloud Shell](/azure/cloud-shell/overview)에서 Active Directory Service 주체를 만듭니다.
     
     ```azurecli-interactive
     az ad sp create-for-rbac --name jenkins_sp --password secure_password
@@ -91,7 +91,7 @@ ms.lasthandoff: 10/26/2017
             }
      ```
 
-    완료된 서비스 주체는 `https://login.windows.net/<tenant_value>`의 **구독 ID**에 `id` 필드, **클라이언트 ID**에 `appId` 값, **클라이언트 암호**에 `password` 및 **OAuth 2.0 토큰 끝점**의 URL을 사용합니다. **추가**를 선택하여 서비스 주체를 추가한 다음, 새로 만든 자격 증명을 사용하도록 플러그 인을 구성합니다.
+    완료된 서비스 주체는 **구독 ID**에 `id` 필드, **클라이언트 ID**에 `appId` 값, **클라이언트 암호**에 `password` 및 **테넌트 ID**에 `tenant`을 사용해야 합니다. **추가**를 선택하여 서비스 주체를 추가한 다음, 새로 만든 자격 증명을 사용하도록 플러그 인을 구성합니다.
 
     ![Azure 서비스 주체 구성](./media/jenkins-azure-vm-agents/new-service-principal.png)
 
@@ -105,11 +105,11 @@ ms.lasthandoff: 10/26/2017
 
 Azure VM 에이전트를 정의하는 데 사용할 템플릿을 구성합니다. 이 템플릿은 만들 때 각 에이전트가 갖게 되는 계산 리소스를 정의합니다.
 
-1. **Azure Virtual Machine 템플릿 추가** 옆에 있는 **추가**를 선택합니다.
+1. **Azure Virtual Machine Template 추가** 옆에 있는 **추가**를 선택합니다.
 2. **이름**에 `defaulttemplate`을 입력합니다.
 3. **레이블**에 `ubuntu`를 입력합니다.
 4. 콤보 상자에서 원하는 [Azure 지역](https://azure.microsoft.com/regions/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 선택합니다.
-5. **가상 컴퓨터 크기**에 있는 드롭다운 목록에서 [VM 크기](/azure/virtual-machines/linux/sizes)를 선택합니다. 이 자습서에는 범용 `Standard_DS1_v2` 크기가 적합합니다.   
+5. **Virtual Machine 크기**에 있는 드롭다운 목록에서 [VM 크기](/azure/virtual-machines/linux/sizes)를 선택합니다. 이 자습서에는 범용 `Standard_DS1_v2` 크기가 적합합니다.   
 6. **보존 시간**은 `60`으로 둡니다. 이 설정은 Jenkins가 유휴 에이전트를 할당 취소할 때까지 대기할 수 있는 시간(분)을 정의합니다. 유휴 에이전트를 자동으로 제거하지 않으려는 경우 0을 지정합니다.
 
    ![일반 VM 구성](./media/jenkins-azure-vm-agents/general-config.png)

@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: On Demand
-ms.date: 02/07/2017
-ms.author: sashan;carlrab
-ms.openlocfilehash: da463bcaf91321b65c8ad1067e457b88c8dcd58f
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.date: 02/12/2018
+ms.author: carlrab
+ms.openlocfilehash: 4efa053afd26bde208441c4b841c5d02142a2d18
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="sql-database-faq"></a>SQL Database FAQ
 
@@ -30,7 +30,7 @@ SQL Database의 현재 버전은 V12입니다. 버전 V11은 만료되었습니�
 고객의 단일 또는 탄력적인 기본, 표준 또는 프리미엄 Microsoft Azure SQL Database와 인터넷 게이트웨이 간의 연결이 99.99% 이상 작동하도록 보장합니다. 자세한 내용은 [SLA](http://azure.microsoft.com/support/legal/sla/)를 참조하세요.
 
 ## <a name="how-do-i-reset-the-password-for-the-server-admin"></a>서버 관리자에 대한 암호를 재설정하려면 어떻게 하나요?
-[Azure Portal](https://portal.azure.com)에서 **SQL Server**를 클릭하고, 목록에서 서버를 선택한 다음 **암호 재설정**을 클릭합니다.
+[Azure Portal](https://portal.azure.com)에서 **SQL Server**를 클릭하고, 목록에서 서버를 선택한 다음, **암호 재설정**을 클릭합니다.
 
 ## <a name="how-do-i-manage-databases-and-logins"></a>데이터베이스 및 로그인을 관리하려면 어떻게 해야 하나요?
 [데이터베이스 및 로그인 관리](sql-database-manage-logins.md)를 참조하세요.
@@ -44,7 +44,7 @@ SQL Database는 서비스 계층 + 단일 데이터베이스에 대한 성능 �
 ## <a name="what-if-a-single-database-is-active-for-less-than-an-hour-or-uses-a-higher-service-tier-for-less-than-an-hour"></a>단일 데이터베이스가 1시간 미만 동안 활성화되거나 더 높은 서비스 계층을 1시간 미만 사용하는 경우 어떻게 되나요?
 사용량이나 데이터베이스가 한 시간 미만 동안 활성화되었는지 여부에 관계없이, 그 시간에 적용된 최고 서비스 계층 + 성능 수준을 사용하여 데이터베이스가 있었던 각 시간에 대해 요금이 청구됩니다. 예를 들어 단일 데이터베이스를 만들고 5분 후 삭제하더라도 청구서에는 데이터베이스 1시간 사용에 대한 요금이 반영됩니다. 
 
-예
+예제:
 
 * Basic 데이터베이스를 만든 후 즉시 Standard S1로 업그레이드한 경우에는 처음 1시간 사용에 대해 Standard S1 요금이 청구됩니다.
 * 오후 10시에 Basic에서 Premium으로 데이터베이스를 업그레이드하고 다음 날 오전 1시 35분에 업그레이드가 완료되면 오전 1시 시작 시간부터 Premium 요금이 부과됩니다. 
@@ -53,7 +53,7 @@ SQL Database는 서비스 계층 + 단일 데이터베이스에 대한 성능 �
 ## <a name="how-does-elastic-pool-usage-show-up-on-my-bill-and-what-happens-when-i-change-edtus-per-pool"></a>탄력적 풀 사용량은 청구서에 어떻게 표시되며 풀당 eDTU를 변경하면 어떻게 되나요?
 탄력적 풀 요금은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/sql-database/)의 풀당 eDTU 아래 표시된 증분 단위로 탄력적 DTU(eDTU)로 청구서에 표시됩니다. 탄력적 풀에 대한 데이터베이스별 요금은 없습니다. 사용량이나 풀이 한 시간 미만 동안 활성화되었는지 여부에 관계없이, 최고 eDTU를 사용하여 풀이 있었던 각 시간에 대해 요금이 청구됩니다. 
 
-예
+예제:
 
 * 오전 11시 18분에 5개의 데이터베이스를 풀에 추가하면서 200 eDTU로 Standard 탄력적 풀을 만든 경우 오전 11시부터 해당 일의 남은 시간 동안 200 eDTU에 대한 요금이 부과됩니다.
 * 2일차의 오전 5시 5분에 데이터베이스 1은 50 eDTU 사용을 시작하고 그 날 동안 계속 유지합니다. 데이터베이스 2-5는 0과 80 eDTU 사이를 이동합니다. 이 날에는 하루 종일 다양한 eDTU를 사용하는 5개의 다른 데이터베이스를 추가합니다. 2일차는 200 eDTU에서 전일 요금이 청구됩니다. 
@@ -76,7 +76,7 @@ eDTU 및 서비스 계층을 이해하려면 [SQL Database 옵션 및 성능](sq
 단일 데이터베이스와 달리, 탄력적 데이터베이스의 [활성 지역 복제](sql-database-geo-replication-overview.md)를 사용해도 청구서에 직접적인 영향은 없습니다.  각 풀(기본 풀 및 보조 풀)에 프로비전된 eDTU에 대해서만 요금이 청구됩니다.
 
 ## <a name="how-does-the-use-of-the-auditing-feature-impact-my-bill"></a>감사 기능 사용이 청구서 요금에 반영되는 방식
-감사는 추가 비용 없이 SQL Database 서비스에 기본으로 제공되며 Basic, Standard, Premium 및 Premium RS 데이터베이스에서 사용할 수 있습니다. 하지만 감사 로그를 저장할 때 감사 기능은 Azure Storage 계정을 사용하며 감사 로그의 크기에 따라 Azure Storage의 테이블 및 큐에 대한 요금이 부과됩니다.
+감사는 추가 비용 없이 SQL Database 서비스에 기본으로 제공되며 Basic, Standard 및 Premium 데이터베이스에서 사용할 수 있습니다. 하지만 감사 로그를 저장할 때 감사 기능은 Azure Storage 계정을 사용하며 감사 로그의 크기에 따라 Azure Storage의 테이블 및 큐에 대한 요금이 부과됩니다.
 
 ## <a name="how-do-i-find-the-right-service-tier-and-performance-level-for-single-databases-and-elastic-pools"></a>단일 데이터베이스 및 탄력적 풀에 적합한 서비스 계층과 성능 수준을 찾으려면 어떻게 해야 하나요?
 몇 가지 도구를 사용할 수 있습니다. 
@@ -86,7 +86,7 @@ eDTU 및 서비스 계층을 이해하려면 [SQL Database 옵션 및 성능](sq
 * 단일 데이터베이스를 확장 또는 축소해야 할지 여부를 확인하려면 [단일 데이터베이스의 성능 지침](sql-database-performance-guidance.md)을 참조하세요.
 
 ## <a name="how-often-can-i-change-the-service-tier-or-performance-level-of-a-single-database"></a>단일 데이터베이스의 서비스 계층 또는 성능 수준은 얼마나 자주 변경할 수 있나요?
-서비스 계층(Basic, Standard, Premium 및 Premium RS) 또는 서비스 계층 내 성능 수준(예: S1~S2)을 원하는 횟수만큼 변경할 수 있습니다. 이전 버전의 데이터베이스는 서비스 계층 또는 성능 수준을 24시간 동안 총 4번 변경할 수 있습니다.
+서비스 계층(Basic, Standard 및 Premium) 또는 서비스 계층 내 성능 수준(예: S1~S2)을 원하는 횟수만큼 변경할 수 있습니다. 이전 버전의 데이터베이스는 서비스 계층 또는 성능 수준을 24시간 동안 총 4번 변경할 수 있습니다.
 
 ## <a name="how-often-can-i-adjust-the-edtus-per-pool"></a>풀당 eDTU는 얼마나 자주 조정할 수 있나요?
 원하는 횟수만큼 조정할 수 있습니다.
@@ -101,7 +101,7 @@ eDTU 및 서비스 계층을 이해하려면 [SQL Database 옵션 및 성능](sq
 Backup 저장소는 [지정 시간 복원](sql-database-recovery-using-backups.md#point-in-time-restore) 및 [지역 복원](sql-database-recovery-using-backups.md#geo-restore)에 사용되는 자동 데이터베이스 백업과 관련된 저장소입니다. Microsoft Azure SQL Database에서는 추가 비용 없이 최대 프로비전된 데이터베이스 저장소의 최대 200%까지 백업 저장소가 제공됩니다. 예를 들어, 프로비전된 DB의 크기가 250GB인 Standard DB 인스턴스가 있으면 추가 비용 없이 500GB의 백업 저장소가 제공됩니다. 데이터베이스가 제공된 백업 저장소를 초과하는 경우 Azure 지원에 문의하여 보존 기간을 줄이도록 선택하거나 표준 RA-GRS(읽기 액세스 지리 중복 저장소) 요금으로 청구되는 추가 백업 저장소에 대해 비용을 지불할 수 있습니다. RA-GRS 청구에 대한 자세한 내용은 저장소 가격 세부 정보를 참조하세요.
 
 ## <a name="im-moving-from-webbusiness-to-the-new-service-tiers-what-do-i-need-to-know"></a>Web/Business에서 새 서비스 계층으로 옮기려고 합니다. 알아야 할 사항은 무엇인가요?
-Azure SQL Web 및 Business 데이터베이스는 이제 사용되지 않습니다. Basic, Standard, Premium, Premium RS 및 Elastic 계층이 사용되지 않는 Web 및 Business 데이터베이스를 대체합니다. 
+Azure SQL Web 및 Business 데이터베이스는 이제 사용되지 않습니다. Basic, Standard, Premium 및 Elastic 계층이 사용되지 않는 Web 및 Business 데이터베이스를 대체합니다. 
 
 ## <a name="what-is-an-expected-replication-lag-when-geo-replicating-a-database-between-two-regions-within-the-same-azure-geography"></a>동일한 Azure 지리 내의 두 지역 간에 데이터베이스를 지역 복제하는 경우 예상되는 복제 지연은 무엇인가요?
 현재 5초의 RPO를 지원하고 있으며 복제 지연은 지역 보조 데이터베이스가 Azure에서 권장하는 쌍을 이루는 지역에 호스트되고 동일한 서비스 계층인 경우보다 짧았습니다.
@@ -119,7 +119,7 @@ Azure SQL Web 및 Business 데이터베이스는 이제 사용되지 않습니�
 DMV를 통해 주 데이터베이스와 지역 보조 데이터베이스 간의 실시간 복제 지연을 표시합니다. 자세한 내용은 [sys.dm_geo_replication_link_status](https://msdn.microsoft.com/library/mt575504.aspx)를 참조하세요.
 
 ## <a name="to-move-a-database-to-a-different-server-in-the-same-subscription"></a>동일한 구독의 다른 서버에 데이터베이스를 이동하려면
-* [Azure Portal](https://portal.azure.com)에서 **SQL Database**를 클릭하고 목록에서 데이터베이스를 선택한 후 **복사**를 클릭합니다. 자세한 내용은 [Azure SQL Database 복사](sql-database-copy.md) 를 참조하세요.
+[Azure Portal](https://portal.azure.com)에서 **SQL Database**를 클릭하고 목록에서 데이터베이스를 선택한 후 **복사**를 클릭합니다. 자세한 내용은 [Azure SQL Database 복사](sql-database-copy.md) 를 참조하세요.
 
 ## <a name="to-move-a-database-between-subscriptions"></a>구독 간에 데이터베이스를 이동하려면
-* [Azure Portal](https://portal.azure.com)에서 **SQL Server** 를 클릭하고, 목록에서 데이터베이스를 호스팅하는 서버를 선택합니다. **이동**을 클릭한 후 이동할 리소스와 이동 대상인 구독을 선택합니다.
+[Azure Portal](https://portal.azure.com)에서 **SQL Server** 를 클릭하고, 목록에서 데이터베이스를 호스팅하는 서버를 선택합니다. **이동**을 클릭한 후 이동할 리소스와 이동 대상인 구독을 선택합니다.

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 04/11/2017
 ms.author: sasubram
-ms.openlocfilehash: 9e1dcd38e7c05a234e4b8d7a6190770d813a227f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 06de162a82fa096780b4d7faa79ca1c91f9202fa
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="azure-active-directory-b2b-collaboration-api-and-customization"></a>Azure Active Directory B2B 공동 작업 API 및 사용자 지정
 
@@ -77,7 +77,7 @@ API는 다음과 같은 인증 모드에서 실행될 수 있습니다.
 이 모드에서 API를 사용하는 모든 사용자에게 B2B 초대를 만들기 위한 권한이 있어야 합니다.
 
 ### <a name="app-only-mode"></a>앱 전용 모드
-앱 전용 컨텍스트에서 앱은 성공적인 초대를 위해 User.ReadWrite.All 또는 Directory.ReadWrite.All 범위를 지정해야 합니다.
+앱 전용 컨텍스트에서 초대가 성공하려면 앱에 User.Invite.All 범위가 필요합니다.
 
 자세한 내용은 https://graph.microsoft.io/docs/authorization/permission_scopes를 참조하세요.
 

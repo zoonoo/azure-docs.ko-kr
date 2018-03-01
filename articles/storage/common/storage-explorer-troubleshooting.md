@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/08/2017
 ms.author: delhan
-ms.openlocfilehash: 3187939fa813f941c2fe12a359df474a6c487c71
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 2f62de428d1915b1e070350a2837f24c3486f8c7
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure Storage 탐색기 문제 해결 가이드
 
-Microsoft Azure Storage 탐색기(미리 보기)는 Windows, macOS 및 Linux에서 Azure Storage 데이터를 손쉽게 사용할 수 있는 독립 실행형 앱입니다. 앱은 Azure, Sovereign Clouds 및 Azure Stack에서 호스트되는 저장소 계정에 연결할 수 있습니다.
+Microsoft Azure Storage 탐색기(미리 보기)는 Windows, macOS 및 Linux에서 Azure Storage 데이터를 손쉽게 사용할 수 있는 독립 실행형 앱입니다. 앱은 Azure, National Clouds 및 Azure Stack에서 호스트되는 저장소 계정에 연결할 수 있습니다.
 
 이 가이드에는 Storage 탐색기에 나타나는 일반적인 문제에 대한 솔루션이 요약되어 있습니다.
 
@@ -73,7 +73,7 @@ Storage 탐색기에서 문제 중 하나를 발견하면 수신된 HTTPS 메시
 
 - 계정을 제거하고 다시 추가해 봅니다.
 
-- 루트 디렉터리(즉, C:\Users\ContosoUser)에서 다음 파일을 삭제한 다음 계정을 다시 추가합니다.
+- 루트 디렉터리(즉, C:\Users\ContosoUser)에서 다음 파일을 삭제한 다음, 계정을 다시 추가합니다.
 
     - .adalcache
 
@@ -116,7 +116,7 @@ Storage 탐색기에서 문제 중 하나를 발견하면 수신된 HTTPS 메시
     - Linux - ~/.config/StorageExplorer
 
 > [!NOTE]
->  이러한 파일을 삭제하면 모든 자격 증명을 다시 입력해야 합니다.
+>  앞의 파일을 삭제한 후 계정에 다시 로그인해야 합니다.
 
 ## <a name="proxy-issues"></a>프록시 문제
 
@@ -173,13 +173,21 @@ SAS URL을 사용하여 서비스에 연결하고 이 오류가 발생하는 경
 
 - SAS URL이 액세스 정책을 기반으로 하는 경우 액세스 정책이 철회되지 않았는지 확인합니다.
 
-실수로 잘못된 SAS URL을 첨부하여 분리할 수 없는 경우 다음 단계를 따르세요.
+실수로 잘못된 SAS URL을 사용하여 첨부하고 분리할 수 없는 경우 다음 단계를 따릅니다.
 1.  Storage 탐색기를 실행 하는 경우 F12 키를 눌러 개발자 도구 창을 엽니다.
 2.  [응용 프로그램] 탭을 클릭한 다음 왼쪽 트리에서 로컬 저장소 > file://을 클릭합니다.
-3.  문제가 있는 SAS URI의 서비스 유형과 연결된 키를 찾습니다. 예를 들어 잘못된 SAS URI가 Blob 컨테이너에 대한 것이면 “StorageExplorer_AddStorageServiceSAS_v1_blob”으로 명명된 키를 찾아봅니다.
+3.  문제가 있는 SAS URI의 서비스 유형과 연결된 키를 찾습니다. 예를 들어 잘못된 SAS URI가 Blob 컨테이너에 대한 것이면 `StorageExplorer_AddStorageServiceSAS_v1_blob`으로 명명된 키를 찾아봅니다.
 4.  키의 값은 JSON 배열이어야 합니다. 잘못된 URI와 연결된 개체를 찾아 제거합니다.
 5.  Storage 탐색기를 다시 로드하려면 Ctrl+R 키를 누릅니다.
 
+## <a name="linux-dependencies"></a>Linux 종속성
+
+Ubuntu 16.04 이외의 다른 Linux 배포판의 경우 몇 가지 종속성을 수동으로 설치해야 합니다. 일반적으로 다음과 같은 패키지가 필요합니다.
+* libgconf-2-4
+* libsecret
+* 최신 GCC
+
+배포판에 따라 다른 패키지를 설치해야 할 수 있습니다. Storage 탐색기 [릴리스 정보](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409)는 일부 배포판에 대한 특정 단계를 포함합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

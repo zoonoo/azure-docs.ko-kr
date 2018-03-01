@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2016
 ms.author: cephalin
-ms.openlocfilehash: 1cfe7ec37ad8b24a8bd9ab2bf67e95675a57b675
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6b71aa004095a94bea84623fd2b5dbdfc1f81af0
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="troubleshoot-slow-web-app-performance-issues-in-azure-app-service"></a>Azure App Service에서 느린 웹앱 성능 문제 해결
 이 문서에서는 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)의 느린 웹앱 성능 문제를 해결하는 데 도움을 줍니다.
@@ -83,18 +83,14 @@ Microsoft Azure는 서비스가 중단되거나 성능이 저하될 때마다 �
 또한, 끝점 모니터링의 비디오에 대해서는 [Azure Websites 가동 및 끝 점 모니터링 - 스테판 스차코우(Stefan Schackow)](https://channel9.msdn.com/Shows/Azure-Friday/Keeping-Azure-Web-Sites-up-plus-Endpoint-Monitoring-with-Stefan-Schackow) 를 참조하세요.
 
 #### <a name="application-performance-monitoring-using-extensions"></a>확장을 사용하여 응용 프로그램 성능 모니터링
-응용 프로그램 성능을 *사이트 확장*을 사용하여 모니터링 할 수도 있습니다.
+*사이트 확장*을 사용하여 응용 프로그램 성능을 모니터링할 수도 있습니다.
 
 각 App Service 웹앱은 사이트 확장처럼 사용할 수 있는 배포된 강력한 도구 집합인 확장 가능한 관리 끝점을 제공합니다. 확장은 다음을 포함합니다. 
 
 - [Visual Studio Team Services](https://www.visualstudio.com/products/what-is-visual-studio-online-vs.aspx)와 같은 소스 코드 편집기. 
 - 웹앱에 연결된 MySQL 데이터베이스와 같은 연결된 리소스에 대한 관리 도구.
 
-[Azure Application Insights](/services/application-insights/) 및 [New Relic](/marketplace/partners/newrelic/newrelic/)은 두 가지 사이트 확장 성능 모니터링이 가능합니다. New Relic을 사용하려면 런타임에 에이전트를 설치해야 합니다. Azure Application Insights를 사용하려면, SDK를 사용하여 코드를 다시 작성해야 하고 추가 데이터 접근을 제공하는 확장 프로그램을 설치해야 할 수도 있습니다. SDK를 통해 앱의 사용과 성능을 보다 자세하게 모니터링하기 위한 코드를 작성할 수 있습니다.
-
-Application Insights를 사용하려면 [웹 응용 프로그램에서 모니터 성능](../application-insights/app-insights-web-monitor-performance.md)을 참조하세요.
-
-New Relic을 사용하려면 [Azure에서 New Relic 응용 프로그램 성능 관리](../store-new-relic-cloud-services-dotnet-application-performance-management.md)를 참조하세요.
+[Azure Application Insights](/services/application-insights/)도 사용할 수 있는 성능 모니터링 사이트 확장입니다. Application Insights를 사용하려면 SDK를 통해 코드를 다시 빌드합니다. 추가 데이터에 대한 액세스를 제공하는 확장을 설치할 수도 있습니다. SDK를 통해 앱의 사용과 성능을 보다 자세하게 모니터링하기 위한 코드를 작성할 수 있습니다. 자세한 내용은 [웹 응용 프로그램의 성능 모니터링](../application-insights/app-insights-web-monitor-performance.md)을 참조하세요.
 
 <a name="collect" />
 

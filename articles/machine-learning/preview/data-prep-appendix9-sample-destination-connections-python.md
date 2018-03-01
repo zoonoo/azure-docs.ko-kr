@@ -12,11 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: 4cad3343461a6c7eda78566b3d2552b1e3591960
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 203c8399153d2bc2d855fc2602b01ed074852687
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="sample-of-destination-connections-python"></a>대상 연결 샘플(Python) 
 이 부록을 읽기 전에 [Python 확장성 개요](data-prep-python-extensibility-overview.md)를 참조하세요.
@@ -29,7 +29,7 @@ Excel에 쓰려면 추가 라이브러리가 필요합니다. 새 라이브러�
 
 Excel에 쓰기 전에 일부 다른 변경이 필요할 수도 있습니다. 데이터 준비에 사용되는 일부 데이터 유형은 일부 대상 형식에서 지원되지 않습니다. 예를 들어 "Error" 개체가 있으면 Excel로 정확하게 직렬화하지 않습니다. 따라서 Excel에 쓰기 전에 모든 열의 오류를 제거하는 "오류 값 바꾸기"변환이 필요합니다.
 
-이전 작업이 모두 완료되면 다음 줄이 Excel 문서의 단일 시트에 데이터 테이블을 씁니다. 데이터 흐름 작성(스크립트) 변환을 추가합니다. 그런 다음 식 섹션에 다음 코드를 입력합니다.
+이전 작업이 모두 완료되면 다음 줄이 Excel 문서의 단일 시트에 데이터 테이블을 씁니다. 데이터 흐름 변환(스크립트) 변환을 추가합니다. 그런 다음 식 섹션에 다음 코드를 입력합니다.
 
 
 ### <a name="on-windows"></a>Windows  

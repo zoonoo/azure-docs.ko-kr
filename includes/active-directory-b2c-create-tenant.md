@@ -1,4 +1,4 @@
-**새로 만들기** 단추를 클릭합니다. **마켓플레이스 검색** 필드에 `Azure Active Directory B2C`를 입력합니다.
+**리소스 만들기** 단추를 클릭합니다. **마켓플레이스 검색** 필드에 `Azure Active Directory B2C`를 입력합니다.
 
 ![강조 표시된 추가 단추와 마켓플레이스 검색 필드의 Azure Active Directory B2C 텍스트](./media/active-directory-b2c-create-tenant/find-azure-ad-b2c.png)
 

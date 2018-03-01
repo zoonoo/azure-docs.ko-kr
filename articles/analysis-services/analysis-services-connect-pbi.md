@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 01/10/2018
+ms.date: 02/10/2018
 ms.author: owend
-ms.openlocfilehash: ea1094d0ce858cd7df9c49f18fb81b07e31fca53
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 568c18fb0591284995f5986f98b3762a9d19b056
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="connect-with-power-bi"></a>Power BI로 연결
 
@@ -38,7 +38,9 @@ Azure에서 서버를 만들고 테이블 형식 모델을 배포하면 조직�
 
 3. **데이터베이스**에서 연결하려는 테이블 형식 모델 데이터베이스 및 큐브 뷰의 이름을 알고 있는 경우 여기에 붙여 넣습니다. 그러지 않으면 이 필드를 비워 두고 나중에 데이터베이스 또는 큐브 뷰를 선택합니다.
 
-4. 기본 **라이브 연결** 옵션을 그대로 두고 **연결**을 누릅니다. 가져오기 연결은 현재 지원되지 않습니다.
+4. 연결 옵션을 선택하고 **연결**을 누릅니다. 
+
+    **라이브 연결** 및 **가져오기** 옵션 둘 다 지원됩니다. 그러나 가져오기 모드는 몇 가지 제한이 있으며, 특히 가져오는 동안 서버 성능이 영향을 받을 수 있으므로 라이브 연결을 권장합니다. 또한 모델이 Power BI 서비스에서 새로 고침되는 경우 **라이브 연결**을 선택해야만 **Power BI에서 액세스하도록 허용** 설정이 적용됩니다.
 
 5. 메시지가 표시되면 로그인 자격 증명을 입력합니다. 
 

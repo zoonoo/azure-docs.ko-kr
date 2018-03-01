@@ -13,17 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/24/2018
+ms.date: 02/15/2018
 ms.author: saurinsh
-ms.openlocfilehash: 6284b246c071fb99a8b47845aca34b6262e5b856
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: b4d71eeb0aab75e67e851f867f194ed7578d0d1c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-domain-joined-hdinsight-sandbox-environment"></a>도메인 가입 HDInsight 샌드박스 환경 구성
 
-독립 실행형 Active Directory 및 [Apache Ranger](http://hortonworks.com/apache/ranger/)로 Azure HDInsight 클러스터를 설치하여 강력한 인증 및 다양한 RBAC(역할 기반 액세스 제어) 정책을 활용하는 방법을 알아봅니다. 자세한 내용은 [도메인에 가입된 HDInsight 클러스터 소개](apache-domain-joined-introduction.md)를 참조하세요.
+독립 실행형 Active Directory 및 [Apache Ranger](http://hortonworks.com/apache/ranger/)로 Azure HDInsight 클러스터를 설치하여 강력한 인증 및 다양한 RBAC(역할 기반 액세스 제어) 정책을 활용하는 방법을 알아봅니다. 자세한 내용은 [도메인에 가입된 HDInsight 클러스터 소개](apache-domain-joined-introduction.md)를 참조하세요. 
+
+> [!IMPORTANT]
+> 기본적으로 이 설정은 Azure Storage 계정을 사용하는 경우에만 사용할 수 있습니다. Azure Data Lake Store에서 사용하려면 Active Directory를 새 Azure Active Directory에 동기화합니다.
 
 도메인 가입 HDInsight 클러스터가 없으면 각 클러스터는 Hadoop HTTP 사용자 계정과 SSH 사용자 계정만 사용할 수 있습니다.  다음을 사용하여 다중 사용자 인증을 수행할 수 있습니다.
 
@@ -40,6 +43,7 @@ ms.lasthandoff: 01/25/2018
     - HDInsight 클러스터 만들기
 
 > [!IMPORTANT]
+> 
 > 도메인에 연결된 HDInsight에서는 Oozie를 사용할 수 없습니다.
 
 ## <a name="prerequisite"></a>필수 요소

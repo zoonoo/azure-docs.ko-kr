@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/14/2017
+ms.date: 02/16/2018
 ms.author: billmath
-ms.openlocfilehash: 815d2f289e18a97eff0a05ad1d7dfe4cad1fdfc5
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 843582a980280a14f033c6d27965867c063039e2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: 버전 릴리스 내역
 Azure AD(Azure Active Directory) 팀은 새로운 기능과 성능으로 Azure AD Connect를 정기적으로 업데이트합니다. 모든 추가 내용이 모든 대상에 적용되는 것은 아닙니다.
@@ -34,6 +34,73 @@ Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스
 필요한 사용 권한 | 업데이트를 적용하는 데 필요한 사용 권한은 [계정 및 사용 권한](./active-directory-aadconnect-accounts-permissions.md#upgrade)을 참조하세요.
 
 다운로드 | [Azure AD Connect 다운로드](http://go.microsoft.com/fwlink/?LinkId=615771).
+
+## <a name="117490"></a>1.1.749.0
+상태: 고객을 선택하도록 릴리스됨
+
+>[!NOTE]
+>이 새 버전으로 업그레이드가 완료되면 Azure AD 커넥터에 대한 전체 동기화 및 전체 가져오기와 AD 커넥터에 대한 전체 동기화를 자동으로 트리거합니다. Azure AD Connect 환경의 크기에 따라 시간이 걸릴 수 있으므로, 이 기능을 지원하기 위해 필요한 단계를 수행했는지 확인하거나, 수행하기 적합한 시기를 찾을 때까지 업그레이드를 보류해야 합니다.
+
+### <a name="azure-ad-connect"></a>Azure AD Connect
+#### <a name="fixed-issues"></a>해결된 문제
+* 파티션 필터링 페이지에 대한 백그라운드 작업에서 타이밍 창 수정
+* 다음 페이지로 전환할 때 파티션 필터링 페이지에 대한 백그라운드 작업에서 타이밍 창 수정
+
+* ConfigDB 사용자 지정 작업을 수행하는 동안 액세스 위반이 발생하는 버그 수정됨
+
+* SQL 연결 시간 제한에서 복구하도록 버그 수정됨
+
+* SAN 와일드 카드가 있는 인증서가 필수 구성 요소 검사에 실패하는 버그 수정됨
+
+* Azure AD 커넥터를 내보내는 동안 miiserver.exe가 충돌하는 버그 수정됨
+
+* 구성을 변경하기 위해 Azure AD Connect 마법사를 실행할 때 DC에서 잘못된 암호 시도가 기록되는 버그 수정됨
+
+
+#### <a name="new-features-and-improvements"></a>새로운 기능 및 향상 기능
+
+* GDPR(일반 날짜 보호 규정)에 대한 개인 정보 설정을 추가합니다.  GDPR의 경우 Microsoft와 공유하는 고객 데이터(원격 분석, 상태 등)의 종류를 나타내고, 자세한 온라인 설명서에 대한 링크가 있으며, 고객이 해당 기본 설정을 변경할 수 있는 방법을 제공해야 합니다.  이 체크 인은 다음을 추가합니다.
+
+
+    - 새로 설치 EULA 페이지에 데이터 공유 및 개인 정보 알림.
+    - 업그레이드 페이지에 데이터 공유 및 개인 정보 알림.
+    - 사용자가 기본 설정을 변경할 수 있는 새 추가 작업 “개인 정보 설정”.
+
+* 응용 프로그램 원격 분석 - 관리자는 이 데이터 클래스를 설정/해제할 수 있습니다.
+
+* Azure AD 상태 데이터 - 관리자는 상태 설정을 제어하는 상태 포털을 방문해야 합니다.
+   서비스 정책이 변경되고 나면 에이전트에서 읽고 적용합니다.
+
+* 페이지 초기화에 대한 장치 나중 쓰기 구성 작업 및 진행률 표시줄 추가됨
+
+* ZIP 텍스트/HTML 보고서에서 HTML 보고서 및 전체 데이터 컬렉션으로 일반 진단 개선됨
+
+* 자동 업그레이드 안정성 향상 및 서버의 상태를 확인할 수 있도록 추가 원격 분석 추가됨
+
+* AD 커넥터 계정에서 권한 있는 계정에 사용할 수 있는 권한 제한
+
+  * 새로 설치하는 경우 마법사는 MSOL 계정을 만든 후 MSOL 계정에 있는 권한 있는 계정이 갖는 권한을 제한합니다.
+
+변경 내용은 다음 항목을 고려합니다.
+1. Express 설치
+2. 자동 생성 계정을 사용한 사용자 지정 설치
+
+* 설치 관리자 변경으로 Azure AD Connect의 새로 설치에 대한 SA 권한이 필요하지 않음
+
+* 특정 개체에 대한 동기화 문제를 해결하기 위해 새로운 유틸리티가 추가되었습니다. Azure AD 연결 마법사 문제 해결 추가 작업의 ‘개체 동기화 문제 해결’ 옵션에서 사용할 수 있습니다. 현재 유틸리티는 다음 사항을 확인합니다.
+
+  * 동기화된 사용자 개체와 Azure AD 테넌트의 사용자 계정 간의 UserPrincipalName이 일치하지 않습니다.
+  * 도메인 필터링으로 인해 개체가 동기화에서 필터링된 경우
+  * OU(조직 구성 단위) 필터링으로 인해 개체가 동기화에서 필터링된 경우
+
+* 특정 사용자 계정에 대한 온-프레미스 Active Directory에 저장된 현재 암호 해시를 동기화하기 위해 새로운 유틸리티가 추가되었습니다.
+
+유틸리티는 암호 변경이 필요하지 않습니다. Azure AD 연결 마법사 문제 해결 추가 작업의 ‘암호 해시 동기화 문제 해결’ 옵션에서 사용할 수 있습니다.
+
+
+
+
+
 
 ## <a name="116540"></a>1.1.654.0
 상태: 2017년 12월 12일

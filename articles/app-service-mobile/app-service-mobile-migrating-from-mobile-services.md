@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: crdun
-ms.openlocfilehash: f3d89c627f462c9e34b2ff067972be56f5bed32f
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: e94f08b9b9dad20c6f47367c47eb49aea59f4bd8
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="article-top"></a>기존 Azure Mobile Services를 Azure App Service로 마이그레이션
 [Azure App Service의 일반적인 가용성]을 사용하여 Azure Mobile Services 사이트를 쉽게 원래 위치로 마이그레이션하여 Azure App Service의 모든 기능을 활용할 수 있습니다.  이 문서에서는 Azure Mobile Services에서 Azure App Service에 사이트를 마이그레이션하는 경우의 결과를 설명합니다.
@@ -32,7 +32,7 @@ Azure Mobile Services의 마이그레이션은 코드에 영향을 주지 않고
 Microsoft는 다음을 비롯한 Azure App Service의 기능을 활용하기 위해 Azure 모바일 서비스를 마이그레이션하도록 권장합니다.
 
 * [WebJobs] 및 [사용자 지정 도메인 이름]을 포함하는 새로운 호스트 기능.
-* New Relic 또는 [Application Insights]를 통한 모니터링 및 문제 해결.
+* [Application Insights]를 통한 모니터링 및 문제 해결.
 * [스테이징 슬롯], 롤백 및 프로덕션 내 테스트를 포함하는 기본 제공 DevOps 도구.
 * [자동 크기 조정], 부하 분산 및 [성능 모니터링].
 

@@ -9,22 +9,22 @@ manager: jhubbard
 ms.service: mysql-database
 ms.topic: article
 ms.date: 09/15/2017
-ms.openlocfilehash: 6e9c541aac1241b6af0e4a58f5591d46f9a98c40
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b73fe2214a165d7c02c0a58551d8b84bee39f919
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-and-manage-azure-database-for-mysql-server-using-azure-portal"></a>Azure Portal을 사용한 MySQL용 Azure Database 서버 만들기 및 관리
 이 항목에서는 새로운 MySQL용 Azure Database 서버를 빠르게 만들 수 있는 방법을 설명합니다. 또한 Azure Portal을 사용하여 서버를 관리하는 방법에 대한 정보를 포함합니다. 서버 관리에는 서버 세부 정보 및 데이터베이스를 보고, 암호를 다시 설정하고 해당 서버를 삭제하는 것을 포함합니다.
 
 ## <a name="log-in-to-the-azure-portal"></a>Azure Portal에 로그인
-[Azure 포털](https://portal.azure.com)에 로그인합니다.
+[Azure 포털](https://portal.azure.com) 에 로그인합니다.
 
 ## <a name="create-an-azure-database-for-mysql-server"></a>Azure Database for MySQL 서버 만들기
 “mysqlserver4demo”라는 MySQL용 Azure Database 서버를 만들려면 다음과 같은 단계를 수행합니다.
 
-1. Azure Portal의 왼쪽 위에 있는 **새로 만들기** 단추를 클릭합니다.
+1. Azure Portal의 왼쪽 위 모서리에 있는 **리소스 만들기** 단추를 클릭합니다.
 
 2. 새로 만들기 페이지에서 **데이터베이스**를 선택하고 데이터베이스 페이지에서 **MySQL용 Azure Database**를 선택합니다.
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 10/11/2017
     | *서버 관리자 로그인* | myadmin(관리자 계정 이름을 설정함) |
     | *암호* | 암호 관리자 계정 암호 |
     | *암호 확인* | 관리자 계정 암호를 확인합니다. |
-    | *위치*: | 북유럽(북유럽 및 미국 서부 중 선택) |
+    | *위치* | 북유럽(북유럽 및 미국 서부 중 선택) |
     | *버전* | 5.6(MySQL용 Azure Database 서버 버전 선택) |
 
 4. **가격 책정 계층**을 클릭하고 새 서버의 서비스 계층 및 성능 수준을 지정합니다. 계산 단위는 기본 계층 50에서 100 및 표준 계층 100에서 200 사이로 구성할 수 있으며, 저장소는 포함된 금액에 따라 추가할 수 있습니다. 이 방법 가이드에서는 계산 단위 50 및 50GB를 선택합니다. **확인**을 클릭하여 선택 내용을 저장합니다.
@@ -67,7 +67,7 @@ ms.lasthandoff: 10/11/2017
 
 3. **확인**을 클릭하여 새 암호를 저장합니다.
 
-### <a name="scale-updown-by-changing-compute-units"></a>계산 단위를 변경하여 강화/규모 축소
+### <a name="scale-updown-by-changing-compute-units"></a>Compute 단위를 변경하여 강화/규모 축소
 
 1. 서버 블레이드의 **설정**에서 **가격 책정 계층**을 클릭하여 MySQL용 Azure Database 서버에 대한 가격 책정 계층 블레이드를 엽니다.
 

@@ -1,5 +1,5 @@
 ---
-title: "Azure IoT Edge 장치를 다른 장치의 게이트웨이로 사용하는 방법 이해 | Microsoft Docs"
+title: "Azure IoT Edge 장치를 게이트웨이로 사용 | Microsoft Docs"
 description: "Azure IoT Edge를 사용하여 데이터를 여러 다운스트림 장치에서 클라우드로 보내거나 로컬로 처리하는 투명, 불투명 또는 프록시 게이트웨이 장치를 만듭니다."
 services: iot-edge
 keywords: 
@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 11/27/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 3f2f9258b97d4886f41a2b991ff4de7e16379245
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: fe7ad2444b9378550e9624e3d109c8be4fd29f23
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-an-iot-edge-device-can-be-used-as-a-gateway---preview"></a>IoT Edge 장치를 게이트웨이로 사용하는 방법 - 미리 보기
 
@@ -46,10 +46,10 @@ ID를 변환하는 게이트웨이는 프로토콜 변환의 이점을 제공할
 |--------|-------------|--------|--------|
 | IoT Hub ID 레지스트리에 저장된 ID | 연결된 모든 장치의 ID | 게이트웨이 장치의 ID만 | 연결된 모든 장치의 ID |
 | 장치 쌍 | 연결된 각 장치에 자체 장치 쌍이 있음 | 게이트웨이에만 장치 및 모듈 쌍이 있음 | 연결된 각 장치에 자체 장치 쌍이 있음 |
-| 직접 방식 및 장치-클라우드 메시지 | 클라우드가 연결된 각 장치에 개별적으로 주소를 지정할 수 있음 | 클라우드가 게이트웨이 장치에만 주소를 지정할 수 있음 | 클라우드가 연결된 각 장치에 개별적으로 주소를 지정할 수 있음 |
+| 직접 방식 및 클라우드-장치 메시지 | 클라우드가 연결된 각 장치를 개별적으로 처리할 수 있음 | 클라우드가 게이트웨이 장치만 처리할 수 있음 | 클라우드가 연결된 각 장치를 개별적으로 처리할 수 있음 |
 | [IoT Hub 제한 및 할당량][lnk-iothub-throttles-quotas] | 각 장치에 적용 | 게이트웨이 장치에 적용 | 각 장치에 적용 |
 
-불투명 게이트웨이(프로토콜 변환) 패턴을 사용하는 경우 해당 게이트웨이 통해 연결되는 모든 장치는 최대 50개의 메시지를 포함할 수 있는 동일한 클라우드-장치 큐를 공유합니다. 불투명 게이트웨이 패턴은 소수의 장치만 각 필드 게이트웨이를 통해 연결되고 해당 클라우드-장치 트래픽이 낮을 때만 사용하는 것이 좋습니다.
+불투명 게이트웨이(프로토콜 변환) 패턴을 사용하는 경우 해당 게이트웨이 통해 연결되는 모든 장치는 최대 50개의 메시지를 포함할 수 있는 동일한 클라우드-장치 큐를 공유합니다. 따라서 불투명 게이트웨이 패턴은 각 필드 게이트웨이를 통해 연결되는 장치 수가 매우 적고 해당 클라우드-장치의 트래픽이 낮을 때만 사용해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 IoT Edge 장치를 [투명 게이트웨이][lnk-iot-edge-as-transparent-gateway]로 사용 

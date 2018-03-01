@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: it-pro
 ms.date: 11/09/2017
 ms.author: billmath
-ms.openlocfilehash: e2e6e5c40dc4a9f67f94c45f8394512db3f777f5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: deaa52a062eb01450f760324e01e520fcbe894e1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-sign-in-auto-acceleration-for-an-application-by-using-a-home-realm-discovery-policy"></a>홈 영역 검색 정책을 사용한 응용 프로그램에 대한 로그인 자동 가속화 구성
 
@@ -29,7 +29,7 @@ HRD(홈 영역 검색)는 Azure AD(Azure Active Directory)에서 로그인 시 �
 
 - 사용자의 홈 테넌트(사용자가 액세스하려고 하는 리소스와 같은 테넌트일 수 있음) 
 
-- Microsoft 계정.  사용자는 리소스 테넌트의 게스트입니다.
+- Microsoft 계정  사용자는 리소스 테넌트의 게스트입니다.
 
 - Azure AD 테넌트와 페더레이션된 다른 ID 공급자
 

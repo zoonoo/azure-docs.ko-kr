@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/08/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: f1b92c604e20198714e9697bf4d08b3f71f23ae3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5657df412b1f2b7d4d43d7551289620ae4d77de2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>하위 수준 장치에 조인된 하이브리드 Azure Active Directory 문제 해결 
 
@@ -82,6 +82,18 @@ Windows 10 또는 Windows Server 2016의 경우 [Windows 10 및 Windows Server 2
 - 도메인 사용자로 로그온되지 않음
 
     ![Windows에 대한 작업 공간 연결](./media/active-directory-device-registration-troubleshoot-windows-legacy/03.png)
+    
+    발생할 수 있는 몇 가지 다른 이유가 있습니다.
+    
+    1. 로그인한 사용자가 도메인 사용자(예: 로컬 사용자)가 아닌 경우 도메인 사용자에 대해 하위 수준 장치의 하이브리드 Azure AD 조인만 지원됩니다.
+    
+    2. 어떤 이유로든 Autoworkplace.exe가 Azure AD 또는 AD FS를 사용하여 자동으로 인증할 수 없는 경우 몇 가지 가능한 원인은 Azure AD URL에 대한 아웃바운드 네트워크 연결 문제(필수 구성 요소 확인) 또는 MFA가 사용자에 대해 활성화/구성되었는지 여부일 수 있습니다. 그러나 WIAORMUTLIAUTHN이 페더레이션 서버에서 구성되지 않았습니다(구성 단계 확인). 또 다른 가능성은 HRD(홈 영역 검색) 페이지가 자동으로 가져오는 Autoworkplace.exe를 방지하여 사용자 상호 작용에 대해 대기하고 있기 때문입니다. 
+    
+    3. 조직에서 Azure AD 원활한 Single Sign-On을 사용하고 있는 경우 다음 URL은 장치의 IE 인트라넷 설정에 없습니다.
+    - https://autologon.microsoftazuread-sso.com
+    - https://aadg.windows.net.nsatc.net
+    
+    그리고 "스크립트를 통해 상태 표시줄에 업데이트 허용" 설정은 인트라넷 영역에 대해 활성화되어야 합니다.
 
 - 할당량에 도달함
 

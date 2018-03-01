@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: bwren
-ms.openlocfilehash: 88d9c4b23eb676743c004c0d1b3ab45f6cd66055
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 5c6f2b35b48988af533612cb48da8fe79a838cf6
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="send-data-to-log-analytics-with-the-http-data-collector-api-public-preview"></a>HTTP 데이터 수집기 API로 Log Analytics에 데이터 전송(공개 미리 보기)
 이 문서에서는 HTTP 데이터 수집기 API를 사용하여 REST API 클라이언트에서 Log Analytics로 데이터를 전송하는 방법을 보여 줍니다.  스크립트 또는 응용 프로그램에서 수집하는 데이터를 포맷하고 요청에 포함하며 해당 요청을 Log Analytics에서 승인하게 하는 방법을 설명합니다.  PowerShell, C# 및 Python에 예가 제공됩니다.
@@ -49,7 +49,7 @@ HTTP 데이터 수집기 API를 사용하려면 JSON(JavaScript Object Notation)
 ### <a name="request-uri-parameters"></a>URI 매개 변수 요청
 | 매개 변수 | 설명 |
 |:--- |:--- |
-| CustomerID |Microsoft Operations Management Suite 작업 영역에 대한 고유 식별자입니다. |
+| CustomerID |Log Analytics 작업 영역에 대한 고유 식별자입니다. |
 | 리소스 |API 리소스 이름: /api/logs |
 | API 버전 |이 요청에 사용하는 API의 버전입니다. 현재 2016-04-01입니다. |
 
@@ -70,7 +70,7 @@ Log Analytics HTTP 데이터 수집기 API에 대한 모든 요청에는 권한 
 Authorization: SharedKey <WorkspaceID>:<Signature>
 ```
 
-*WorkspaceID*는 Operations Management Suite 작업 영역에 대한 고유 식별자입니다. *서명*은 요청에서 구성되고 [SHA256 알고리즘](https://msdn.microsoft.com/library/system.security.cryptography.sha256.aspx)을 사용하여 계산된 [해시 기반 메시지 인증 코드(HMAC)](https://msdn.microsoft.com/library/system.security.cryptography.hmacsha256.aspx)입니다. 그런 다음 Base64 인코딩을 사용하여 인코딩합니다.
+*WorkspaceID*는 Log Analytics 작업 영역에 대한 고유 식별자입니다. *서명*은 요청에서 구성되고 [SHA256 알고리즘](https://msdn.microsoft.com/library/system.security.cryptography.sha256.aspx)을 사용하여 계산된 [해시 기반 메시지 인증 코드(HMAC)](https://msdn.microsoft.com/library/system.security.cryptography.hmacsha256.aspx)입니다. 그런 다음 Base64 인코딩을 사용하여 인코딩합니다.
 
 이 형식을 사용하여 **SharedKey** 서명 문자열을 인코딩합니다.
 
@@ -204,7 +204,8 @@ Log Analytics HTTP 데이터 수집기 API에서 제출한 데이터를 쿼리�
 
 각각의 샘플에서 다음 절차를 통해 권한 부여 헤더에 대한 변수를 설정합니다.
 
-1. Operations Management Suite 포털에서 **설정** 타일을 선택하고 **연결 원본** 탭을 선택합니다.
+1. Azure Portal에서 Log Analytics 작업 영역을 찾습니다.
+2. **고급 설정** 및 **연결된 원본**을 차례로 선택합니다.
 2. **작업 영역 ID** 오른쪽에서 복사 아이콘을 선택한 다음 이 ID를 **고객 ID** 변수의 값으로 붙여넣습니다.
 3. **기본 키** 오른쪽에서 복사 아이콘을 선택한 다음 이 ID를 **공유 키** 변수의 값으로 붙여넣습니다.
 
@@ -311,7 +312,7 @@ namespace OIAPIExample
         // An example JSON object, with key/value pairs
         static string json = @"[{""DemoField1"":""DemoValue1"",""DemoField2"":""DemoValue2""},{""DemoField3"":""DemoValue3"",""DemoField4"":""DemoValue4""}]";
 
-        // Update customerId to your Operations Management Suite workspace ID
+        // Update customerId to your Log Analytics workspace ID
         static string customerId = "xxxxxxxx-xxx-xxx-xxx-xxxxxxxxxxxx";
 
         // For sharedKey, use either the primary or the secondary Connected Sources client authentication key   
@@ -389,7 +390,7 @@ import hashlib
 import hmac
 import base64
 
-# Update the customer ID to your Operations Management Suite workspace ID
+# Update the customer ID to your Log Analytics workspace ID
 customer_id = 'xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
 
 # For the shared key, use either the primary or the secondary Connected Sources client authentication key   

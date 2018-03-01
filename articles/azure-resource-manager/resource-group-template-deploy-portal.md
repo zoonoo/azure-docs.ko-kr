@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2017
 ms.author: tomfitz
-ms.openlocfilehash: ea91fdd58dd3b5c118fe390afe1eb355e3c26570
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 39680d4e70cc47cfa119b3a46e8d51ea87fa618d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-portal"></a>리소스 관리자 템플릿과 Azure 포털로 리소스 배포
 
@@ -43,11 +43,11 @@ ms.lasthandoff: 10/11/2017
 
    ![리소스 그룹 새로 고침](./media/resource-group-template-deploy-portal/refresh-resource-groups.png)
 
-## <a name="deploy-resources-from-marketplace"></a>마켓플레이스에서 리소스 배포
+## <a name="deploy-resources-from-marketplace"></a>Marketplace에서 리소스 배포
 
-리소스 그룹을 만들면 마켓플레이스에서 리소스 그룹으로 리소스를 배포할 수 있습니다. 마켓플레이스는 일반적인 시나리오에 사전 정의된 솔루션을 제공합니다.
+리소스 그룹을 만들면 Marketplace에서 리소스 그룹으로 리소스를 배포할 수 있습니다. Marketplace는 일반적인 시나리오에 사전 정의된 솔루션을 제공합니다.
 
-1. 배포를 시작하려면 **새로 만들기**를 선택합니다.
+1. 배포를 시작하려면 **리소스 만들기**를 선택합니다.
 
    ![새 리소스](./media/resource-group-template-deploy-portal/new-resources.png)
 
@@ -55,7 +55,7 @@ ms.lasthandoff: 10/11/2017
 
    ![리소스 종류 선택](./media/resource-group-template-deploy-portal/select-resource-type.png)
 
-1. 배포하려는 특정 솔루션이 보이지 않는다면 마켓플레이스를 검색할 수 있습니다. 예를 들어 Wordpress 솔루션을 찾으려면 **Wordpress**라고 입력을 시작하고 원하는 옵션을 선택합니다.
+1. 배포하려는 특정 솔루션이 보이지 않는다면 Marketplace를 검색할 수 있습니다. 예를 들어 Wordpress 솔루션을 찾으려면 **Wordpress**라고 입력을 시작하고 원하는 옵션을 선택합니다.
 
    ![Marketplace 검색](./media/resource-group-template-deploy-portal/search-resource.png)
 
@@ -77,9 +77,9 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="deploy-resources-from-custom-template"></a>사용자 지정 템플릿에서 배포
 
-배포를 실행하려고 하지만 마켓플레이스에서 템플릿 중 하나를 사용하지 않으려는 경우 솔루션에 대한 인프라를 정의하는 사용자 지정된 템플릿을 만들 수 있습니다. 템플릿을 만드는 방법에 대해 알아보려면 [Azure Resource Manager 템플릿의 구조 및 구문 이해](resource-group-authoring-templates.md)를 참조하세요.
+배포를 실행하려고 하지만 Marketplace에서 템플릿 중 하나를 사용하지 않으려는 경우 솔루션에 대한 인프라를 정의하는 사용자 지정된 템플릿을 만들 수 있습니다. 템플릿을 만드는 방법에 대해 알아보려면 [Azure Resource Manager 템플릿의 구조 및 구문 이해](resource-group-authoring-templates.md)를 참조하세요.
 
-1. Portal을 통해 사용자 지정 템플릿을 배포하려면 **새로 만들기**를 선택하고 옵션에서 선택할 수 있을 때까지 **템플릿 배포**를 검색합니다.
+1. Portal을 통해 사용자 지정 템플릿을 배포하려면 **리소스 만들기**를 선택하고 옵션에서 선택할 수 있을 때까지 **템플릿 배포**를 검색합니다.
 
    ![템플릿 배포 검색](./media/resource-group-template-deploy-portal/search-template.png)
 

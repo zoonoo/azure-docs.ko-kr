@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/16/2017
 ms.author: xshi
-ms.openlocfilehash: e037f5c29cabf8e5d0d3e7ded187280a0652d5c3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 54a2defd6bfe2396e24584c686698d3215893cfd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-by-using-the-web-apps-feature-of-azure-app-service"></a>Azure App Service의 Web Apps 기능을 사용하여 Azure IoT Hub에서 실시간 센서 데이터 시각화
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="create-a-web-app"></a>웹앱 만들기
 
-1. [Azure Portal](https://ms.portal.azure.com/)에서 **새로 만들기** > **웹 + 모바일** > **웹앱**을 차례로 클릭합니다.
+1. [Azure Portal](https://portal.azure.com/)에서 **리소스 만들기** > **웹 + 모바일** > **웹앱**을 클릭합니다.
 2. 고유한 작업 이름을 입력하고, 구독을 확인하며, 리소스 그룹 및 위치를 지정하고, **대시보드에 고정**을 선택한 다음, **만들기**를 클릭합니다.
 
    리소스 그룹과 동일한 위치를 선택하는 것이 좋습니다. 이렇게 하면 데이터 전송 속도를 높이고 비용을 절감할 수 있습니다.

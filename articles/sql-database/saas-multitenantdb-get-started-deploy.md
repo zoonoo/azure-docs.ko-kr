@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: genemi
-ms.openlocfilehash: dc652b1d0357a815b14820fc837d7a287e5d4ba0
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 3bbfdccd020f5efc7510d9688ea38f5e1af4ebde
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application-that-uses-azure-sql-database"></a>Azure SQL Database를 사용하는 분할된 다중 테넌트 응용 프로그램 배포 및 탐색
 
@@ -59,11 +59,11 @@ ms.lasthandoff: 02/09/2018
 
 #### <a name="plan-the-names"></a>이름 계획
 
-이 섹션의 단계에서는 두 군데에 *사용자* 및 새 *리소스 그룹*에 대한 이름을 입력해야 합니다. *Ann Finley*라는 사람의 경우 다음 이름을 제안합니다.
-- *사용자:* &nbsp; **af1** &nbsp; *(그녀의 이니셜과 숫자입니다.)*
-- *리소스 그룹:* &nbsp; **wingtip-af1** &nbsp; *(모두 소문자를 권장합니다. 하이픈을 추가한 다음 사용자 이름을 추가합니다.)*
+이 섹션의 단계에서는 리소스 이름을 전역에서 고유하게 설정하는 데 사용되는 ‘사용자’ 값과 앱 배포에서 만들어진 모든 리소스를 포함하는 ‘리소스 그룹’의 이름을 제공합니다. *Ann Finley*라는 사람의 경우 다음을 제안합니다.
+- ‘사용자’: **af1**(Ann Finley의 이니셜과 숫자입니다. *앱을 두 번째로 배포하는 경우 다른 값(예: af2)을 사용하세요.)*
+- ‘리소스 그룹’: **wingtip-dpt-af1**(wingtip-dpt는 테넌트별 데이터베이스 앱임을 나타냅니다. *사용자 이름 af1을 추가하면 리소스 그룹 이름과 해당 그룹에 포함된 리소스 이름이 연결됩니다.)*
 
-이제 이름을 선택하고, 기록합니다.
+이제 이름을 선택하고, 기록합니다. 
 
 #### <a name="steps"></a>단계
 
@@ -72,7 +72,7 @@ ms.lasthandoff: 02/09/2018
 
     [![Azure에 배포 단추.][image-deploy-to-azure-blue-48d]][link-aka-ms-deploywtp-mtapp-52k]
 
-2. 배포에 필요한 매개 변수 값을 입력합니다.
+1. 배포에 필요한 매개 변수 값을 입력합니다.
 
     > [!IMPORTANT]
     > 이 데모의 경우 모든 기존 리소스 그룹, 서버 또는 풀을 사용하지 마십시오. 대신 **새 리소스 그룹 만들기**를 선택합니다. 관련된 결제를 중지하려면 응용 프로그램을 완료할 때 이 리소스 그룹을 삭제합니다.
@@ -82,12 +82,12 @@ ms.lasthandoff: 02/09/2018
         - 드롭다운 목록에서 **위치**를 선택합니다.
     - **사용자**의 경우 - 짧은 **사용자** 값을 선택하는 것이 좋습니다.
 
-3. **응용 프로그램을 배포**합니다.
+1. **응용 프로그램을 배포**합니다.
 
     - 사용 약관에 동의하려면 클릭합니다.
     - **구매**를 클릭합니다.
 
-4. **알림**(검색 상자 오른쪽의 벨 아이콘)을 클릭하여 배포 상태를 모니터링합니다. Wingtip 앱을 배포하는 데는 5분 정도 걸립니다.
+1. **알림**(검색 상자 오른쪽의 벨 아이콘)을 클릭하여 배포 상태를 모니터링합니다. Wingtip 앱을 배포하는 데는 5분 정도 걸립니다.
 
    ![배포 성공](media/saas-multitenantdb-get-started-deploy/succeeded.png)
 
@@ -127,7 +127,7 @@ Wingtip 앱에서 테넌트는 장소입니다. 장소는 콘서트 홀, 스포�
 중앙 **이벤트 허브** 웹 페이지는 특정 배포에 있는 테넌트의 링크 목록을 제공합니다. 다음 단계를 사용하여 **이벤트 허브** 웹 페이지 및 개별 웹앱을 경험합니다.
 
 1. 웹 브라우저에서 **이벤트 허브**를 엽니다.
-    - http://events.wingtip.&lt;사용자&gt;.trafficmanager.net &nbsp; *(&lt;사용자&gt;를 배포의 사용자 값으로 바꿉니다.)*
+    - http://events.wingtip-mt.&lt;user&gt;.trafficmanager.net &nbsp; *(&lt;user&gt;를 배포의 사용자 값으로 바꿉니다.)*
 
     ![Events Hub](media/saas-multitenantdb-get-started-deploy/events-hub.png)
 
@@ -139,7 +139,7 @@ Wingtip 앱에서 테넌트는 장소입니다. 장소는 콘서트 홀, 스포�
 
 들어오는 요청의 배포를 제어하기 위해 Wingtip 앱에서는 [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md)를 사용합니다. 각 테넌트에 대한 이벤트 페이지는 해당 URL에 테넌트 이름을 포함합니다. 각 URL은 특정 사용자 값도 포함합니다. 각 URL은 다음 단계를 사용하여 표시된 형식을 따릅니다.
 
-- http://events.wingtip.&lt;사용자&gt;.trafficmanager.net/*fabrikamjazzclub*
+- http://events.wingtip-mt.&lt;user&gt;.trafficmanager.net/*fabrikamjazzclub*
 
 1. 이벤트 앱은 URL에서 테넌트 이름을 구문 분석합니다. 테넌트 이름은 위의 예제 URL에서 *fabrikamjazzclub*입니다.
 2. 앱은 테넌트 이름을 해시하여 [분할된 데이터베이스 맵 관리](sql-database-elastic-scale-shard-map-management.md)를 사용하는 카탈로그에 액세스하기 위한 키를 만듭니다.
@@ -213,7 +213,7 @@ PowerShell 세션을 닫으면 모든 작업이 중지됩니다.
 
    ![리소스 그룹](./media/saas-multitenantdb-get-started-deploy/resource-group.png)
 
-2. **catalog-mt&lt;USER&gt;** 서버를 클릭합니다. 카탈로그 서버에는 *tenantcatalog* 및 *basetenantdb*라는 두 개의 데이터베이스가 포함되어 있습니다. *basetenantdb* 데이터베이스는 빈 템플릿 데이터베이스입니다. 다중 테넌트 또는 단일 테넌트에만 사용되는지에 관계없이 이 데이터베이스를 복사하여 새 테넌트 데이터베이스를 만듭니다.
+2. **catalog-mt&lt;user&gt;** 서버를 클릭합니다. 카탈로그 서버에는 *tenantcatalog* 및 *basetenantdb*라는 두 개의 데이터베이스가 포함되어 있습니다. *basetenantdb* 데이터베이스는 빈 템플릿 데이터베이스입니다. 다중 테넌트 또는 단일 테넌트에만 사용되는지에 관계없이 이 데이터베이스를 복사하여 새 테넌트 데이터베이스를 만듭니다.
 
    ![카탈로그 서버](./media/saas-multitenantdb-get-started-deploy/catalog-server.png)
 
@@ -228,13 +228,13 @@ PowerShell 세션을 닫으면 모든 작업이 중지됩니다.
 
 몇 분 동안 부하 생성기를 실행한 경우 Azure Portal에 기본 제공되는 데이터베이스 모니터링 기능을 확인할 정도의 충분한 원격 분석을 이용할 수 있습니다.
 
-1. **tenants1-mt&lt;USER&gt;** 서버로 이동하고 **tenants1**을 클릭하여 네 개의 테넌트가 포함되어 있는 데이터베이스의 리소스 사용률을 확인합니다. 각 테넌트에는 로드 생성기로부터 산발적인 과부하가 발생할 수 있습니다.
+1. **tenants1-mt&lt;user&gt;** 서버로 이동하고 **tenants1**을 클릭하여 네 개의 테넌트가 포함되어 있는 데이터베이스의 리소스 사용률을 확인합니다. 각 테넌트에는 로드 생성기로부터 산발적인 과부하가 발생할 수 있습니다.
 
    ![tenants1 모니터링](./media/saas-multitenantdb-get-started-deploy/monitor-tenants1.png)
 
    DTU 사용률 차트는 다중 테넌트 데이터베이스가 많은 테넌트에서 예측할 수 없는 워크로드를 어떻게 지원할 수 있는지 적절하게 설명합니다. 이 경우 부하 생성기는 각 테넌트에 약 30개 DTU의 산발적인 부하를 적용합니다. 이 부하는 50 DTU 데이터베이스의 60% 사용률과 같습니다. 60%를 초과하는 최대값은 동시에 두 개 이상의 테넌트에 부하가 적용될 경우 발생합니다.
 
-2. **tenants1-mt&lt;사용자&gt;** 서버를 찾고 **salixsalsa** 데이터베이스를 클릭합니다. 하나의 테넌트를 포함하는 이 데이터베이스에서 리소스 사용률을 볼 수 있습니다.
+2. **tenants1-mt&lt;user&gt;** 서버를 찾고 **salixsalsa** 데이터베이스를 클릭합니다. 하나의 테넌트를 포함하는 이 데이터베이스에서 리소스 사용률을 볼 수 있습니다.
 
    ![salixsalsa 데이터베이스](./media/saas-multitenantdb-get-started-deploy/monitor-salix.png)
 

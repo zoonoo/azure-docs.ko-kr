@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/18/2017
 ms.author: gwallace
-ms.openlocfilehash: 69a509612e6204fc93dd42bf2fe69cb165b5777c
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: cfb1debf9447cd66856b73166a133d5d498fcc79
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-manage-dns-zones-in-the-azure-portal"></a>Azure Portal에서 DNS 영역을 관리하는 방법
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 12/21/2017
 ## <a name="create-a-dns-zone"></a>DNS 영역 만들기
 
 1. Azure 포털에 로그인합니다.
-2. 허브 메뉴에서 **새로 만들기 > 네트워킹 >**을 클릭한 다음 **DNS 영역**을 클릭하여 DNS 영역 블레이드 만들기를 엽니다.
+2. 허브 메뉴에서 **리소스 만들기 > 네트워킹 >**을 클릭한 다음, **DNS 영역**을 클릭하여 DNS 영역 블레이드 만들기를 엽니다.
 
     ![DNS 영역](./media/dns-operations-dnszones-portal/openzone650.png)
 

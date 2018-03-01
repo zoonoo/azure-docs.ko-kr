@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: vittorib
 ms.custom: aaddev
-ms.openlocfilehash: b489add83a462d1d3902831d63be0b70e2443718
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: d6f1d545265f0965a03afb23e5791cdd5e5e379c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-ad-cordova-getting-started"></a>Azure AD Cordova 시작
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -88,7 +88,7 @@ Azure AD는 알려진 응용 프로그램으로만 토큰을 발급합니다. �
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 위쪽 막대에서 계정을 클릭합니다. **디렉터리** 목록에서 응용 프로그램을 등록할 Azure AD 테넌트를 선택합니다.
-3. 왼쪽 창에서 **더 많은 서비스**를 클릭하고 **Azure Active Directory**를 선택합니다.
+3. 왼쪽 창에서 **모든 서비스**를 클릭한 다음, **Azure Active Directory**를 선택합니다.
 4. **앱 등록**을 클릭하고 **추가**를 선택합니다.
 5. 프롬프트에 따라 새 **네이티브 클라이언트 응용 프로그램**을 만듭니다. (Cordova 앱이 HTML 기반이기는 하지만 여기서는 네이티브 클라이언트 응용 프로그램을 만듭니다. **네이티브 클라이언트 응용 프로그램** 옵션을 선택해야 하며 그렇지 않으면 응용 프로그램이 작동하지 않습니다.)
   * **이름**은 사용자에게 응용 프로그램을 설명합니다.

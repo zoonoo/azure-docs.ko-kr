@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/06/2017
 ms.author: vikdesai
-ms.openlocfilehash: 8f75bab7fc795a59dabfedca5a4889622f66b73a
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: f3f5f974630c4bf1c68599e26612ed729b55bcfc
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-reserved-virtual-machine-instances"></a>Reserved Virtual Machine Instances 관리
 
@@ -28,7 +28,7 @@ Azure Reserved VM Instance를 구입한 다음 구매 중에 지정된 구독이
 
 예약의 범위를 업데이트하려면: 
 1. [Azure 포털](https://portal.azure.com) 에 로그인합니다.
-2. **추가 서비스** > **예약**을 선택합니다.
+2. **모든 서비스** > **예약**을 선택합니다.
 3. 예약을 선택합니다.
 4. **설정** > **구성**을 선택합니다.
 5. 범위를 변경합니다. 범위를 공유에서 단일 범위로 변경하는 경우 소유자인 구독만을 선택할 수 있습니다. 동일한 청구 컨텍스트 내에서 예약된 구독만을 선택할 수 있습니다. 청구 컨텍스트는 예약 구입했을 때 선택한 구독에 의해 결정됩니다. 범위는 종량제 제품 MS-AZR-0003P 구독 및 엔터프라이즈 제품 MS-AZR-0017P 구독에만 적용됩니다. 기업 계약의 경우 개발/테스트 구독은 예약 할인에 해당하지 않습니다.
@@ -69,7 +69,7 @@ Azure Reserved VM Instance를 구입한 다음 구매 중에 지정된 구독이
  
 예약에 대한 액세스 관리를 위임하려면: 
 1.  [Azure 포털](https://portal.azure.com) 에 로그인합니다.
-2.  **추가 서비스** > **예약**을 선택하여 액세스할 수 있는 예약을 나열합니다.
+2.  **모든 서비스** > **예약**을 선택하여 액세스할 수 있는 예약을 나열합니다.
 3.  다른 사용자에게 액세스 권한을 위임하려는 예약을 선택합니다.
 4.  메뉴에서 **액세스 제어(IAM)**를 선택합니다.
 5.  **추가** > **역할** > **소유자**(또는 제한된 액세스 권한을 부여하려는 경우 다른 역할)를 선택합니다. 

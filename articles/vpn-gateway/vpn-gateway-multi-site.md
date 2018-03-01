@@ -1,6 +1,6 @@
 ---
 title: "VPN Gateway 및 PowerShell을 사용하여 가상 네트워크를 여러 사이트에 연결: 클래식 | Microsoft Docs"
-description: "이 문서에서는 클래식 배포 모델에서 VPN Gateway를 사용하여 여러 로컬 온-프레미스 사이트를 가상 네트워크에 연결하는 과정을 설명합니다."
+description: "VPN Gateway를 사용하여 여러 로컬 온-프레미스 사이트를 클래식 가상 네트워크에 연결합니다."
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/20/2017
+ms.date: 02/14/2018
 ms.author: yushwang
-ms.openlocfilehash: 434f84dc6244eddce9b172a617722b218360ffc2
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: c0af4271df0e88354edb717b8d6f4c99ab29e573
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection-classic"></a>기존 VPN Gateway 연결이 있는 VNet에 사이트 간 연결 추가(클래식)
 
@@ -162,7 +162,7 @@ Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
 ## <a name="6-download-keys"></a>6. 키 다운로드
 새 터널을 추가한 후 PowerShell cmdlet 'Get-AzureVNetGatewayKey'를 사용하여 각 터널의 IPsec/IKE 사전 공유 키를 가져옵니다.
 
-예:
+예: 
 
 ```powershell
 Get-AzureVNetGatewayKey –VNetName "VNet1" –LocalNetworkSiteName "Site1"

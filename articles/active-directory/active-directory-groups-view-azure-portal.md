@@ -16,18 +16,18 @@ ms.date: 08/28/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017;it-pro
 ms.reviewer: piotrci
-ms.openlocfilehash: 1aaebb66287edc375909f7367648da6cf5f4cc40
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 25ab1da5a07874596bf5ec62313e672af83a9bb9
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="view-or-search-for-your-user-groups-in-azure-active-directory"></a>Azure Active Directory에서 사용자 그룹을 보거나 검색
 이 문서는 Azure AD(Azure Active Directory)에서 모든 그룹을 보는 방법을 설명합니다. Azure AD의 사용자 관리 기능 중 하나는 여러 사용자에게 라이선스 또는 사용 권한을 한 번에 할당하는 관리 작업을 수행하는 데 그룹을 사용할 수 있다는 것입니다.
 
 ## <a name="how-do-i-see-all-the-groups"></a>모든 그룹을 보려면 어떻게 해야 합니까?
-1. 디렉터리에 대한 전역 관리자인 계정으로 [Azure 포털](https://portal.azure.com) 에 로그인합니다.
-2. **더 많은 서비스**를 선택하고 텍스트 상자에 **사용자 및 그룹**을 입력한 다음 **Enter**를 선택합니다.
+1. 디렉터리에 대한 전역 관리자인 계정으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
+2. **모든 서비스**를 선택하고 텍스트 상자에 **사용자 및 그룹**을 입력한 다음, **입력**을 선택합니다.
 
    ![사용자 및 그룹 열기](./media/active-directory-groups-view-azure-portal/search-user-management.png)
 3. **사용자 및 그룹** 블레이드에서 **모든 그룹**을 선택합니다.

@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/29/2018
 ms.author: curtand
 ms.reviewer: vincesm
-ms.openlocfilehash: 83d23323f050f670680499ecb428c07c94096418
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 880eaedcba2c0cdfe057ddb2460cf6a19bf8298e
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="default-user-permissions-in-azure-active-directory"></a>Azure Active Directory의 기본 사용자 권한
 
@@ -59,7 +59,7 @@ Office 365 그룹을 만드는 기능 | 이 옵션을 아니요로 설정하면 
 관리자 및 게스트 초대자 역할의 사용자가 게스트를 초대할 수 있음 | 이 옵션을 아니요로 설정하면 모든 사용자가 게스트를 초대할 수 없습니다. 멤버 사용자에 대한 기본 권한 구성을 참조하세요. 자세한 내용은 [Azure Active Directory에서 앱, 사용 권한 및 동의](active-directory-apps-permissions-consent.md)를 참조하세요.
 멤버가 게스트를 초대할 수 있음 | 이 옵션을 아니요로 설정하면 사용자가 게스트를 초대할 수 없습니다. 전역 관리자, 사용자 계정 관리자 및 게스트 초대자는 계속 게스트를 초대할 수 있습니다. 자세한 내용은 [Azure Active Directory에서 앱, 사용 권한 및 동의](active-directory-apps-permissions-consent.md)를 참조하세요.
 Azure AD 관리 포털에 대한 액세스 제한 | 이 옵션을 아니요로 설정하면 사용자가 Azure Active Directory 포털에 액세스할 수 없습니다.
-다른 사용자를 읽을 수 있는 기능 | 자세한 내용은 [Azure Active Directory에서 앱, 사용 권한 및 동의](active-directory-apps-permissions-consent.md)를 참조하세요.
+다른 사용자를 읽을 수 있는 기능 | 이 설정은 PowerShell에서만 사용할 수 있습니다. 이 설정을 $false로 설정하면 관리자가 아닌 모든 사용자가 디렉터리에서 사용자 정보를 읽지 못하게 됩니다. 단, Exchange Online과 같은 다른 Microsoft 서비스에서 사용자 정보를 읽지 못하게 되지는 않습니다. 이 설정은 특수한 상황에서만 사용해야 하며, 이 설정을 $false로 설정하는 것은 권장되지 않습니다.
 
 ## <a name="object-ownership"></a>개체 소유권
 

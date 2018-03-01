@@ -1,6 +1,6 @@
 ---
-title: "Operations Management Suite의 서비스 맵 구성 | Microsoft Azure"
-description: "서비스 맵은 Windows 및 Linux 시스템에서 응용 프로그램 구성 요소를 자동으로 검색하여 서비스 간 통신을 매핑하는 Operations Management Suite 솔루션입니다. 이 문서에서는 사용자 환경에 서비스 맵을 배포하고 다양한 시나리오에서 사용하는 것에 대해 자세히 설명합니다."
+title: "Azure에서 서비스 맵 구성 | Microsoft Docs"
+description: "서비스 맵은 Windows 및 Linux 시스템의 응용 프로그램 구성 요소를 자동으로 검색하고 서비스 간 통신을 매핑하는 Azure의 솔루션입니다. 이 문서에서는 사용자 환경에 서비스 맵을 배포하고 다양한 시나리오에서 사용하는 것에 대해 자세히 설명합니다."
 services: operations-management-suite
 documentationcenter: 
 author: daveirwin1
@@ -14,55 +14,55 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/18/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: 1be3dd5718f940c784d22dbafb75c217dddecb9b
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: d535c738943b4fea81798b6fc2eedc60ae6be41f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="configure-service-map-in-operations-management-suite"></a>Operations Management Suite의 서비스 맵 구성
+# <a name="configure-service-map-in-azure"></a>Azure에서 서비스 맵 구성
 서비스 맵은 Windows 및 Linux 시스템에서 응용 프로그램 구성 요소를 자동으로 검색하고 서비스 간 통신을 매핑합니다. 이것을 사용하여 서버를 생각한 것처럼(중요한 서비스를 제공하는 상호 연결된 시스템으로) 볼 수 있습니다. 서비스 맵은 서버, 프로세스 및 에이전트 설치 이외에 구성이 필요 없는 TCP 연결 아키텍처의 포트 간 연결을 보여 줍니다.
 
-이 문서에서는 서비스 맵 및 에이전트 등록에 대해 자세히 설명합니다. 서비스 맵 사용에 대한 자세한 내용은 [Operations Management Suite에서 서비스 맵 솔루션 사용](operations-management-suite-service-map.md)을 참조하세요.
+이 문서에서는 서비스 맵 및 에이전트 등록에 대해 자세히 설명합니다. 서비스 맵 사용에 대한 자세한 내용은 [Azure에서 서비스 맵 솔루션 사용](operations-management-suite-service-map.md)을 참조하세요.
 
 ## <a name="dependency-agent-downloads"></a>종속성 에이전트 다운로드
 | 파일 | OS | 버전 | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.4.0 | 13CE5E232311010A6E63B21615F669C63B5DF450F26F7BA092F951E924656611 |
-| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.4.0 | A8913CA5308A0ED2EAEAC6E1E374B62E0EA4F8A941C560F63E89EBC3F8971D38  |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.4.1 | 0DCCE16495E7A3254A5FE1B5EADE66110984C3BE799A1FAAD7D119F23614592E |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.4.1 | 1E4ED4CA5940BEA462FC7CAEDF4DF1C7F92C927DE6D538C4DC61DCFDFFAB1A0B  |
 
 
 ## <a name="connected-sources"></a>연결된 소스
-서비스 맵은 Microsoft 종속성 에이전트에서 해당 데이터를 가져옵니다. 종속성 에이전트는 OMS 에이전트가 Operations Management Suite에 연결되어 있는지 여부에 따라 달라집니다. 이는 서버에 먼저 OMS 에이전트를 설치하고 구성한 다음, 종속성 에이전트를 설치할 수 있다는 의미입니다. 다음 표는 서비스 맵 솔루션이 지원하는 연결된 원본을 설명합니다.
+서비스 맵은 Microsoft 종속성 에이전트에서 해당 데이터를 가져옵니다. 종속성 에이전트는 Log Analytics 연결에 사용된 OMS 에이전트에 따라 달라집니다. 이는 서버에 먼저 OMS 에이전트를 설치하고 구성한 다음, 종속성 에이전트를 설치할 수 있다는 의미입니다. 다음 표는 서비스 맵 솔루션이 지원하는 연결된 원본을 설명합니다.
 
 | 연결된 원본 | 지원됨 | 설명 |
 |:--|:--|:--|
 | Windows 에이전트 | 예 | 서비스 맵은 Windows 에이전트 컴퓨터에서 데이터를 분석하고 수집합니다. <br><br>[OMS 에이전트](../log-analytics/log-analytics-windows-agent.md) 외에도 Windows 에이전트에는 Microsoft 종속성 에이전트가 필요합니다. 운영 체제 버전의 전체 목록은 [지원되는 운영 체제](#supported-operating-systems)를 참조하세요. |
 | Linux 에이전트 | 예 | 서비스 맵은 Linux 에이전트 컴퓨터에서 데이터를 분석하고 수집합니다. <br><br>[OMS 에이전트](../log-analytics/log-analytics-linux-agents.md) 외에도 Linux 에이전트에는 Microsoft 종속성 에이전트가 필요합니다. 운영 체제 버전의 전체 목록은 [지원되는 운영 체제](#supported-operating-systems)를 참조하세요. |
-| System Center Operations Manager 관리 그룹 | 예 | 서비스 맵은 연결된 [System Center Operations Manager 관리 그룹](../log-analytics/log-analytics-om-agents.md)의 Windows 및 Linux 에이전트에서 데이터를 분석하고 수집합니다. <br><br>System Center Operations Manager 에이전트 컴퓨터에서 Operations Management Suite로의 직접 연결이 필요합니다. 데이터는 관리 그룹에서 Operations Management Suite 리포지토리로 전달됩니다.|
+| System Center Operations Manager 관리 그룹 | 예 | 서비스 맵은 연결된 [System Center Operations Manager 관리 그룹](../log-analytics/log-analytics-om-agents.md)의 Windows 및 Linux 에이전트에서 데이터를 분석하고 수집합니다. <br><br>System Center Operations Manager 에이전트 컴퓨터에서 Log Analytics로의 직접 연결이 필요합니다. 데이터는 관리 그룹에서 Log Analytics 작업 영역으로 전달됩니다.|
 | Azure Storage 계정 | 아니오 | 서비스 맵은 에이전트 컴퓨터에서 데이터를 수집하므로 Azure Storage에서 수집할 데이터는 없습니다. |
 
 서비스 맵은 64비트 플랫폼만 지원합니다.
 
-Windows에서 System Center Operations Manager와 Operations Management Suite는 MMA(Microsoft Monitoring Agent)를 사용하여 모니터링 데이터를 수집하고 전송합니다. (이 에이전트는 컨텍스트에 따라 System Center Operations Manager 에이전트, OMS 에이전트, Log Analytics 에이전트, MMA 또는 직접 에이전트라고 합니다.) System Center Operations Manager 및 Operations Management Suite는 MMA의 다양한 기본 버전을 제공합니다. 이러한 버전은 각각 System Center Operations Manager, Operations Management Suite 또는 양쪽 모두에 보고할 수 있습니다.  
+Windows에서 System Center Operations Manager와 Log Analytics는 MMA(Microsoft Monitoring Agent)를 사용하여 모니터링 데이터를 수집하고 전송합니다. (이 에이전트는 컨텍스트에 따라 System Center Operations Manager 에이전트, OMS 에이전트, Log Analytics 에이전트, MMA 또는 직접 에이전트라고 합니다.) System Center Operations Manager와 Log Analytics는 MMA의 다양한 기본 버전을 제공합니다. 이러한 버전은 각각 System Center Operations Manager, Log Analytics 또는 양쪽 모두에 보고할 수 있습니다.  
 
-Linux에서 Linux용 OMS 에이전트는 Operations Management Suite로 모니터링 데이터를 수집하여 전송합니다. OMS 직접 에이전트가 있는 서버 또는 System Center Operations Manager 관리 그룹을 통해 Operations Management Suite에 연결된 서버에서 서비스 맵을 사용할 수 있습니다.  
+Linux에서는 Linux용 OMS 에이전트가 모니터링 데이터를 수집하여 Log Analytics에 보냅니다. OMS 직접 에이전트가 있는 서버 또는 System Center Operations Manager 관리 그룹을 통해 Log Analytics에 연결된 서버에서 서비스 맵을 사용할 수 있습니다.  
 
-이 문서에서는 System Center Operations Manager 관리 그룹에 연결되어 있든 또는 Operations Management Suite에 직접 연결되어 있든 관계없이 Linux 또는 Windows의 모든 에이전트를 "OMS 에이전트"라고 하겠습니다. 컨텍스트에 필요한 경우에만 에이전트의 특정 배포 이름이 사용됩니다.
+이 문서에서는 System Center Operations Manager 관리 그룹에 연결되어 있든 또는 Log Analytics에 직접 연결되어 있든 관계없이 Linux 또는 Windows의 모든 에이전트를 "OMS 에이전트"라고 하겠습니다. 컨텍스트에 필요한 경우에만 에이전트의 특정 배포 이름이 사용됩니다.
 
-서비스 맵 에이전트는 데이터 자체를 전송하지 않으며 방화벽 또는 포트를 변경하지 않아도 됩니다. 서비스 맵의 데이터는 항상 OMS 에이전트에서 직접 또는 OMS 게이트웨이를 통해 Operations Management Suite로 전송됩니다.
+서비스 맵 에이전트는 데이터 자체를 전송하지 않으며 방화벽 또는 포트를 변경하지 않아도 됩니다. 서비스 맵의 데이터는 OMS 에이전트에 의해 직접 또는 OMS 게이트웨이를 통해 Log Analytics로 항상 전송됩니다.
 
 ![서비스 맵 에이전트](media/oms-service-map/agents.png)
 
-Operations Management Suite에 연결된 관리 그룹이 있는 System Center Operations Manager 고객인 경우 :
+Log Analytics에 연결된 관리 그룹을 사용하는 System Center Operations Manager 고객인 경우:
 
-- System Center Operations Manager 에이전트가 인터넷에 액세스하여 Operations Management Suite에 연결할 수 있으면 추가 구성이 필요하지 않습니다.  
-- System Center Operations Manager 에이전트가 인터넷을 통해 Operations Management Suite에 액세스할 수 없는 경우 OMS 게이트웨이를 System Center Operations Manager와 작동하도록 구성해야 합니다.
+- System Center Operations Manager 에이전트가 인터넷에 액세스하여 Log Analytics에 연결할 수 있으면 추가 구성이 필요하지 않습니다.  
+- System Center Operations Manager 에이전트가 인터넷을 통해 Log Analytics에 액세스할 수 없는 경우 OMS 게이트웨이를 System Center Operations Manager와 작동하도록 구성해야 합니다.
   
-OMS 직접 에이전트를 사용하는 경우 Operations Management Suite 또는 OMS 게이트웨이에 연결하도록 OMS 에이전트 자체를 구성해야 합니다. OMS 게이트웨이는 [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=52666)에서 다운로드할 수 있습니다.
+OMS 직접 에이전트를 사용하는 경우 OMS 에이전트 자체가 OMS 게이트웨이 또는 Log Analytics에 직접 연결되도록 구성해야 합니다. OMS 게이트웨이는 [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=52666)에서 다운로드할 수 있습니다.
 
 ### <a name="management-packs"></a>관리 팩
-Operations Manager Suite 작업 영역에서 서비스 맵이 활성화되면 해당 작업 영역의 모든 Windows 서버에 300KB 관리 팩이 전송됩니다. [연결된 관리 그룹](../log-analytics/log-analytics-om-agents.md)에서 System Center Operations Manager 에이전트를 사용하는 경우 서비스 맵 관리 팩은 System Center Operations Manager에서 배포됩니다. 에이전트가 직접 연결되어 있으면 Operations Management Suite가 관리 팩을 제공합니다.
+Log Analytics 작업 영역에서 서비스 맵이 활성화되면 해당 작업 영역의 모든 Windows 서버에 300KB 관리 팩이 전송됩니다. [연결된 관리 그룹](../log-analytics/log-analytics-om-agents.md)에서 System Center Operations Manager 에이전트를 사용하는 경우 서비스 맵 관리 팩은 System Center Operations Manager에서 배포됩니다. 에이전트가 직접 연결되어 있으면 Log Analytics가 관리 팩을 제공합니다.
 
 관리 팩 이름은 Microsoft.IntelligencePacks.ApplicationDependencyMonitor입니다. 이것은 %Programfiles%\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs\에 기록됩니다. 관리 팩에 사용된 데이터 원본은 %Program files%\Microsoft Monitoring Agent\Agent\Health Service State\Resources\<AutoGeneratedID>\Microsoft.EnterpriseManagement.Advisor.ApplicationDependencyMonitorDataSource.dll입니다.
 
@@ -147,7 +147,7 @@ PowerShell을 통해 Azure VM 확장을 배포하려는 경우 다음 예제를 
 # Deploy the Dependency Agent to every VM in a Resource Group
 #
 
-$version = "9.1"
+$version = "9.3"
 $ExtPublisher = "Microsoft.Azure.Monitoring.DependencyAgent"
 $OsExtensionMap = @{ "Windows" = "DependencyAgentWindows"; "Linux" = "DependencyAgentLinux" }
 $rmgroup = "<Your Resource Group Here>"
@@ -180,7 +180,7 @@ ForEach-Object {
 "properties": {
     "publisher": "Microsoft.Azure.Monitoring.DependencyAgent",
     "type": "DependencyAgentWindows",
-    "typeHandlerVersion": "9.1",
+    "typeHandlerVersion": "9.3",
     "autoUpgradeMinorVersion": true
 }
 
@@ -267,11 +267,11 @@ Microsoft 종속성 에이전트는 Microsoft Visual Studio 런타임 라이브�
 
 * [Operations Management Suite/Log Analytics의 무료 가격 책정 등급](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions#offers-and-pricing-tiers)에 있습니까? 무료 계획에서는 고유한 서비스 맵 서버를 5개까지 허용합니다. 따라서 이전의 5개 서비스 맵 서버에서 데이터를 더 이상 보내지 않더라도 이후의 모든 서버는 서비스 맵에 표시되지 않습니다.
 
-* 서버가 Operations Management Suite에 로그 및 성능 데이터를 보내고 있습니까? [로그 검색]으로 이동하여 컴퓨터에 대해 다음 쿼리를 실행합니다. 
+* 서버에서 Log Analytics로 로그 및 perf 데이터를 보내고 있나요? [로그 검색]으로 이동하여 컴퓨터에 대해 다음 쿼리를 실행합니다. 
 
         * Computer="<your computer name here>" | measure count() by Type
         
-  결과에서 다양한 이벤트를 얻었나요? 최근 데이터인가요? 그렇다면 OMS 에이전트가 올바르게 작동하고 Operations Management Suite 서비스와 통신하는 것입니다. 그렇지 않으면 [Windows용 OMS 에이전트 문제 해결](https://support.microsoft.com/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues) 또는 [Linux용 OMS 에이전트 문제 해결](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md)을 참조하여 서버의 OMS 에이전트를 확인합니다.
+  결과에서 다양한 이벤트를 얻었나요? 최근 데이터인가요? 그렇다면 OMS 에이전트가 올바르게 작동하고 Log Analytics와 통신하고 있습니다. 그렇지 않으면 [Windows용 OMS 에이전트 문제 해결](https://support.microsoft.com/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues) 또는 [Linux용 OMS 에이전트 문제 해결](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md)을 참조하여 서버의 OMS 에이전트를 확인합니다.
 
 #### <a name="server-appears-in-service-map-but-has-no-processes"></a>서버가 서비스 맵에 표시되지만 프로세스가 없습니다.
 서비스 맵에서 서버가 표시되지만 프로세스 또는 연결 데이터가 없는 경우 종속 에이전트가 설치되어 실행 중이지만 커널 드라이버가 로드되지 않았음을 나타냅니다. 

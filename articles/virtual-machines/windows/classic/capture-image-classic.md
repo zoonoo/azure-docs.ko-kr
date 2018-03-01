@@ -16,13 +16,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: cynthn
-ms.openlocfilehash: 6f7d8e8b3d1ed7c8a06f7e11fea492eec8b60409
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: ee6371faa9c3cc72104ba0eb05d17226679fa420
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="capture-an-image-of-an-azure-windows-virtual-machine-created-with-the-classic-deployment-model"></a>클래식 배포 모델을 사용하여 만든 Azure Windows 가상 머신의 이미지를 캡처합니다.
+# <a name="capture-an-image-of-an-azure-windows-virtual-machine-created-with-the-classic-deployment-model"></a>클래식 배포 모델을 사용하여 만든 Azure Windows 가상 머신의 이미지 캡처
 > [!IMPORTANT]
 > Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../../../resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다. Resource Manager 모델 정보는 [Azure에서 일반화된 VM의 관리되는 이미지 캡처](../capture-image-resource.md)를 참조하세요.
 > [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
@@ -57,7 +57,7 @@ Azure Virtual Machine의 이미지를 캡처하기 전에 대상 가상 머신�
 
    ![Sysprep 실행](./media/capture-image/SysprepGeneral.png)
 5. Sysprep을 실행하면 가상 머신이 종료되고 Azure Portal의 가상 머신 상태가 **중지됨**으로 변경됩니다.
-6. Azure Portal에서 **Virtual Machines(클래식)**를 클릭한 후 캡처하려는 Virtual Machines를 선택합니다. **VM 이미지(클래식)** 그룹은 **추가 서비스**를 볼 때 **Compute** 아래에 나열됩니다.
+6. Azure Portal에서 **Virtual Machines(클래식)**를 클릭한 후 캡처하려는 Virtual Machines를 선택합니다. **VM 이미지(클래식)** 그룹은 **모든 서비스**를 볼 때 **Compute** 아래에 나열됩니다.
 
 7. 명령 모음에서 **캡처**를 클릭합니다.
 
@@ -74,7 +74,7 @@ Azure Virtual Machine의 이미지를 캡처하기 전에 대상 가상 머신�
     ![이미지 캡처 성공](./media/capture-image/VMCapturedImageAvailable.png)
 
 ## <a name="next-steps"></a>다음 단계
-이제 이미지를 사용하여 가상 머신을 만들 수 있습니다. 이를 위해 서비스 메뉴의 아래쪽에 있는 **추가 서비스** 메뉴 항목 및 **Compute** 그룹에서 **VM 이미지(클래식)**를 선택하여 가상 머신을 만들 수 있습니다. 지침에 대해서는 [이미지에서 가상 머신 만들기](createportal.md)를 참조하세요.
+이제 이미지를 사용하여 가상 머신을 만들 수 있습니다. 이를 위해 서비스 메뉴의 아래쪽에 있는 **모든 서비스** 메뉴 항목 및 **Compute** 그룹에서 **VM 이미지(클래식)**를 선택하여 가상 머신을 만들 수 있습니다. 지침에 대해서는 [이미지에서 가상 머신 만들기](createportal.md)를 참조하세요.
 
 [How to sign in to a virtual machine running Windows Server]:connect-logon.md
 [How to Use Sysprep: An Introduction]: http://technet.microsoft.com/library/bb457073.aspx

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/10/2017
 ms.author: bhanupr
-ms.openlocfilehash: 77478616eae27828a57a36dc0aaf3884e80ce403
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 08795e6aafc6ccb43bad59189676a8680c03c966
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-domain-joined-hdinsight-clusters-using-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services를 사용하여 도메인에 가입된 HDInsight 클러스터 구성
 
@@ -36,9 +36,11 @@ ms.lasthandoff: 01/24/2018
 HDInsight 클러스터를 만들려면 먼저 Azure AD DS를 만들어야 합니다. Azure ADDS를 만들려면 [Azure Portal을 사용하여 Azure Active Directory Domain Services 활성화](../../active-directory-domain-services/active-directory-ds-getting-started.md)를 참조하세요. 
 
 > [!NOTE]
-> 도메인 서비스를 만들 권한은 테넌트 관리자에게만 있습니다. HDInsight에 대한 기본 저장소로 ADLS(Azure Data Lake Storage)를 사용하는 경우 ADLS에 대한 기본 Azure AD 테넌트가 HDInsight 클러스터에 대한 도메인과 동일한지 확인합니다. 
+> 도메인 서비스를 만들 권한은 테넌트 관리자에게만 있습니다. HDInsight에 대한 기본 저장소로 ADLS(Azure Data Lake Storage)를 사용하는 경우 ADLS에 대한 기본 Azure AD 테넌트가 HDInsight 클러스터에 대한 도메인과 동일한지 확인합니다. 이 설정이 Azure Data Lake Store에서 작동하려면 클러스터에 액세스할 수 있는 사용자에 대해 다단계 인증을 사용하지 않도록 설정해야 합니다.
 
 도메인 서비스를 프로비전한 후에는 **Azure AD DC Administrators** 그룹에 서비스 계정을 만들어 HDInsight 클러스터를 만들어야 합니다. 서비스 계정은 Azure AD의 전역 관리자여야 합니다.
+
+Azure AD Domain Services 관리되는 도메인에 대해 보안 LDAP를 사용하도록 설정해야 합니다. 보안 LDAP를 사용하도록 설정하려면 [Azure AD Domain Services 관리되는 도메인에 대해 보안 LDAP(LDAPS) 구성](../../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md)을 참조하세요.
 
 ## <a name="create-a-domain-joined-hdinsight-cluster"></a>도메인에 가입된 HDInsight 클러스터 만들기
 

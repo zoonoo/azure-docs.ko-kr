@@ -12,36 +12,61 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/29/2018
+ms.date: 02/20/2018
 ms.author: mimig
-ms.openlocfilehash: b8f92953634f9294805521d8b925ed67d121a17d
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 0d76e3bea8b3d24c4232c699354320f6b873722e
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Azure DB Cosmos DB 진단 로깅
 
-하나 이상의 Azure Cosmos DB 데이터베이스를 사용하기 시작한 후에는 데이터베이스에 액세스하는 방법과 시기를 모니터링할 수 있습니다. Azure Cosmos DB의 진단 로깅을 통해 이 모니터링을 수행할 수 있습니다. 진단 로깅을 사용하도록 설정하면 [Azure Storage](https://azure.microsoft.com/services/storage/)로 로그를 전송하고, [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)로 스트리밍하고/또는 [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite)에 포함되는 [Log Analytics](https://azure.microsoft.com/services/log-analytics/)로 내보냅니다.
+하나 이상의 Azure Cosmos DB 데이터베이스를 사용하기 시작한 후에는 데이터베이스에 액세스하는 방법과 시기를 모니터링할 수 있습니다. 이 문서에서는 Azure에서 사용할 수 있는 로그에 대한 개요를 제공한 다음, 모니터링을 위해 진단 로그를 [Azure Storage](https://azure.microsoft.com/services/storage/)로 보내고 [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)에 스트리밍하며 [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite)의 일부인 [Log Analytics](https://azure.microsoft.com/services/log-analytics/)로 내보내는 방법을 설명합니다.
+
+## <a name="logs-available-in-azure"></a>Azure에서 사용할 수 있는 로그
+
+Azure Cosmos DB 계정 모니터링 시작에 앞서 로깅과 모니터링에 관한 몇 가지 사항을 확인해 보겠습니다. Azure 플랫폼에는 여러 로그 유형이 있습니다. 바로 [Azure Activity Logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs), [Azure Diagnostic Logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs), [Metrics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics), 이벤트, 하트비트 모니터링, 작업 로그 등입니다. 로그는 다양합니다. Azure Portal의 [Azure Log Analytics](https://azure.microsoft.com/en-us/services/log-analytics/)에서 전체 로그 목록을 확인할 수 있습니다. 
+
+다음 이미지는 사용할 수 있는 여러 Azure 로그 종류를 나타냅니다.
+
+![다양한 종류의 Azure 로그](./media/logging/azurelogging.png)
+
+여기서는 Azure Activity, Azure Diagnotic 및 Metrics에 초점을 맞추겠습니다. 이 세 로그의 차이는 무엇인가요? 
+
+### <a name="azure-activity-log"></a>Azure 동작 로그
+
+Azure Activity Log는 Azure에서 발생하는 구독 수준 이벤트에 대한 정보를 제공하는 구독 로그입니다. 활동 로그는 관리 범주 하에서 구독에 대한 제어-평면 이벤트를 보고합니다. 활동 로그를 통해 구독의 리소스에 대한 모든 쓰기 작업(PUT, POST, DELETE)에서 '무엇을, 누가, 언제'를 판단할 수 있습니다. 또한 작업 및 기타 관련 속성의 상태도 이해할 수 있습니다. 
+
+활동 로그는 진단 로그와 다릅니다. 활동 로그는 외부("제어 평면")의 리소스에 대한 작업 관련 데이터를 제공합니다. Azure Cosmos DB 일부 제어 평면 작업에는 컬렉션 만들기, 키 나열, 키 삭제, 데이터베이스 나열 등이 포함됩니다. 진단 로그는 리소스에 의해 내보내지며, 해당 리소스의 작업("데이터 평면")에 대한 정보를 제공합니다. 일부 데이터 평면 진단 로그의 예로는 삭제, 삽입, 피드 읽기 작업 등이 있습니다.
+
+활동 로그(제어 평면 작업)는 본질적으로 훨씬 더 다양한데, 호출자의 전체 이메일 주소, 호출자 IP 주소, 리소스 이름, 작업 이름 및 테넌트 ID 등을 포함할 수 있습니다. 활동 로그에는 몇 가지 데이터 [범주](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-activity-log-schema)가 있습니다. 이러한 범주의 스키마에 대한 전체 정보는 [Azure Activity Log 이벤트 스키마](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-activity-log-schema)를 참조하세요.  그러나 진단 로그는 PII 데이터가 제거되는 경우가 종종 있으므로 본질적으로 제한적일 수 있습니다. 즉 호출자의 IP 주소는 있지만 마지막 팔분위가 제거됩니다.
+
+### <a name="azure-metrics"></a>Azure Metrics
+
+[Azure Metrics](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-metrics)에는 대부분의 Azure 리소스에서 내보내는 Azure 원격 분석 데이터(성능 카운터라고도 함)의 가장 중요한 유형이 있습니다. 메트릭을 통해 Azure Cosmos DB 리소스의 처리량, 저장소, 일관성, 가용성 및 대기 시간에 대한 정보를 파악할 수 있습니다. 자세한 내용은 [Azure Cosmos DB에서 메트릭을 사용하여 모니터링 및 디버깅](use-metrics.md)을 참조하세요.
+
+### <a name="azure-diagnostic-logs"></a>Azure 진단 로그
+
+Azure Diagnostic Logs는 리소스에서 내보내며, 해당 리소스의 작업에 대한 풍부하고 빈번한 데이터를 제공합니다. 이러한 로그의 내용은 리소스 유형에 따라 달라집니다. 리소스 수준 진단 로그도 게스트 OS 수준 진단 로그와 다릅니다. 게스트 OS 진단 로그는 가상 머신이나 다른 지원되는 리소스 유형 안에서 실행되는 에이전트가 수집합니다. 리소스 수준 진단 로그는 에이전트가 필요하지 않으며 Azure 플랫폼 자체에서 리소스 특정 데이터를 수집하고, 게스트 OS 수준 진단 로그는 가상 머신에서 실행되는 운영 체제 및 응용 프로그램에서 데이터를 수집합니다.
 
 ![Log Analytics를 통해 Storage, Event Hubs 또는 Operations Management Suite로 진단 로깅](./media/logging/azure-cosmos-db-logging-overview.png)
 
-이 자습서를 사용하여 Azure Portal, CLI 또는 PowerShell을 통해 Azure Cosmos DB 로깅을 시작합니다.
-
-## <a name="what-is-logged"></a>로깅되는 내용
+### <a name="what-is-logged-by-azure-diagnostic-logs"></a>Azure Diagnostic Logs에 기록되는 내용
 
 * 액세스 권한, 시스템 오류 또는 잘못된 요청으로 인해 실패한 요청을 포함하여 모든 인증된 백엔드 요청(REST API)이 로깅됩니다. 사용자가 시작한 Graph, Cassandra 및 Table API 요청은 현재 사용할 수 없습니다.
 * 모든 문서, 컨테이너 및 데이터베이스에 대한 CRUD 작업을 포함하는 데이터베이스 자체에 대한 작업입니다.
 * 이러한 키 만들기, 수정 또는 삭제를 포함하는 계정 키에 대한 작업입니다.
 * 401 응답이 발생하는 인증되지 않은 요청. 예를 들어 전달자 토큰이 없거나 형식이 잘못되거나 만료되거나 토큰이 잘못된 요청이 해당합니다.
 
-## <a name="prerequisites"></a>필수 조건
-이 자습서를 완료하려면 다음 리소스가 필요합니다.
+<a id="#turn-on"></a>
+## <a name="turn-on-logging-in-the-azure-portal"></a>Azure Portal에서 로깅 켜기
+
+진단 로깅을 사용하려면 다음 리소소가 있어야 합니다.
 
 * 기존 Azure Cosmos DB 계정, 데이터베이스 및 컨테이너. 이러한 리소스를 만드는 방법에 대한 지침은 [Azure Portal을 사용하여 데이터베이스 계정 만들기](create-sql-api-dotnet.md#create-a-database-account), [CLI 샘플](cli-samples.md) 또는 [PowerShell 샘플](powershell-samples.md)을 참조하세요.
 
-<a id="#turn-on"></a>
-## <a name="turn-on-logging-in-the-azure-portal"></a>Azure Portal에서 로깅 켜기
+Azure Portal에서 진단 로그를 사용하도록 설정하려면 다음을 수행합니다.
 
 1. [Azure Portal](https://portal.azure.com)의 Azure Cosmos DB 계정에서 왼쪽 탐색 영역의 **진단 로그**를 클릭한 다음 **진단 로그 켜기**를 클릭합니다.
 
@@ -98,7 +123,7 @@ Azure CLI를 사용하여 메트릭 및 진단 로깅을 사용하도록 설정�
 
 ## <a name="turn-on-logging-using-powershell"></a>PowerShell을 사용하여 로깅 켜기
 
-PowerShell을 사용하여 로깅을 켜려면 Azure Powershell 버전 1.0.1 이상이 필요합니다.
+PowerShell을 사용하여 진단 로깅을 켜려면 Azure Powershell 버전 1.0.1 이상이 필요합니다.
 
 Azure PowerShell을 설치하고 Azure 구독에 연결하려면 [Azure PowerShell 설치 및 구성하는 방법](/powershell/azure/overview)을 참조하세요.
 
@@ -315,7 +340,7 @@ $blobs | Get-AzureStorageBlobContent `
 
 ## <a name="managing-your-logs"></a>로그 관리
 
-로그는 Azure Cosmos DB 작업이 수행된 시간부터 2시간 동안 계정에서 사용 가능합니다. 저장소 계정의 로그 관리에 따라 다릅니다.
+진단 로그는 Azure Cosmos DB 작업이 수행된 시간부터 2시간 동안 계정에서 사용 가능합니다. 저장소 계정의 로그 관리에 따라 다릅니다.
 
 * 표준 Azure 액세스 제어 메서드를 사용하여 액세스할 수 있는 사용자를 제한하여 로그를 보호합니다.
 * 더 이상 저장소 계정에 유지하지 않으려는 로그를 삭제합니다.
@@ -325,7 +350,7 @@ $blobs | Get-AzureStorageBlobContent `
 <a id="#view-in-loganalytics"></a>
 ## <a name="view-logs-in-log-analytics"></a>Log Analytics에서 로그 보기
 
-로깅을 사용하도록 설정한 경우 **Log Analytics로 전송** 옵션을 선택하면 컬렉션의 진단 데이터가 2시간 이내에 Log Analytics로 전달됩니다. 로깅을 사용하도록 설정한 직후 Log Analytics를 보면 아무 데이터도 표시되지 않습니다. 2시간을 기다린 후 다시 시도하세요. 
+진단 로깅을 사용하도록 설정한 경우 **Log Analytics로 전송** 옵션을 선택하면 컬렉션의 진단 데이터가 2시간 이내에 Log Analytics로 전달됩니다. 로깅을 사용하도록 설정한 직후 Log Analytics를 보면 아무 데이터도 표시되지 않습니다. 2시간을 기다린 후 다시 시도하세요. 
 
 로그를 보기 전에 Log Analytics 작업 영역이 새로운 Log Analytics 쿼리 언어를 사용할 수 있도록 업그레이드되었는지 여부를 확인하는 것이 좋습니다. 확인하려면 [Azure Portal](https://portal.azure.com)을 열고 왼쪽 끝에서 **Log Analytics**를 클릭하고 다음 그림과 같이 작업 영역 이름을 선택합니다. 아래 그림과 같이 **OMS 작업 영역** 페이지가 표시됩니다.
 

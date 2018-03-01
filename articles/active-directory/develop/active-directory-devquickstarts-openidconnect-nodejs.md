@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: a0079c1f4265e1c2564b85247cf5f5e0289799db
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 0a3bbfe32bde0cd3971450f5a9a909dcf8b5d793
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-ad-nodejs-web-app-getting-started"></a>Azure AD Node.js 웹앱 시작
 여기서는 Passport를 통해 다음 작업을 수행합니다.
@@ -48,14 +48,14 @@ Passport는 Node.js에 대한 인증 미들웨어입니다. 유연한 모듈식 
 
 2. 페이지 위쪽에 있는 메뉴에서 계정을 선택합니다. **디렉터리** 목록에서 응용 프로그램을 등록할 Active Directory 테넌트를 선택합니다.
 
-3. 화면 왼쪽에서 **추가 서비스**를 선택한 후 **Azure Active Directory**를 선택합니다.
+3. 화면 왼쪽에 있는 메뉴에서 **모든 서비스**를 선택한 다음, **Azure Active Directory**를 선택합니다.
 
 4. **앱 등록**을 선택하고 **추가**를 선택합니다.
 
 5. 프롬프트에 따라 새 **웹 응용 프로그램** 및/또는 **WebAPI**를 만듭니다.
   * 응용 프로그램의 **이름**은 사용자에게 응용 프로그램을 설명합니다.
 
-  * **로그온 URL** 은 앱의 기본 URL입니다.  기본값은 `http://localhost:3000/auth/openid/return`` 입니다.
+  * **로그온 URL** 은 앱의 기본 URL입니다.  기본값은 `http://localhost:3000/auth/openid/return`입니다.
 
 6. 등록 후에는 Azure AD가 사용자 앱에 고유한 응용 프로그램 ID를 할당합니다. 이 값은 다음 섹션에서 필요하므로 응용 프로그램 페이지에서 복사해 둡니다.
 7. 응용 프로그램에 대한 **설정** -> **속성** 페이지에서 앱 ID URI를 업데이트합니다. **앱 ID URI** 는 응용 프로그램의 고유 식별자입니다. 규칙은 `https://<tenant-domain>/<app-name>` 형식(예: `https://contoso.onmicrosoft.com/my-first-aad-app`)을 사용하는 것입니다.

@@ -15,28 +15,28 @@ ms.workload: identity
 ms.date: 07/26/2017
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: 122dbdb838377a36020f9ec692b38544004e676c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 846ec63d47ebc787fa1edbf1968f1a843e96ac9d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Azure Portal에서 엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리
 이 문서에서는 [Azure Portal](https://portal.azure.com)을 사용하여 지원하는 응용 프로그램(특히 [Azure Active Directory 응용 프로그램 갤러리](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery)의 "기능을 갖춘" 범주에서 추가된 응용 프로그램)에 대한 자동 사용자 계정 프로비전 및 프로비전 해제를 관리하는 방법을 설명합니다. 자동 사용자 계정 프로비전 및 작동 방식에 대한 자세한 내용은 [Azure Active Directory를 사용하여 SaaS 응용 프로그램에 사용자 프로비전 및 프로비전 해제 자동화](active-directory-saas-app-provisioning.md)를 참조하세요.
 
 ## <a name="finding-your-apps-in-the-portal"></a>포털에서 앱 찾기
-[Azure Active Directory 응용 프로그램 갤러리](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery)를 사용하여 디렉터리 관리자에 의해 디렉터리의 Single Sign-On이 구성된 모든 응용 프로그램을 이제 [Azure Portal](https://portal.azure.com)에서 확인하고 관리할 수 있습니다. 응용 프로그램은 포털의 **추가 서비스** &gt; **엔터프라이즈 응용 프로그램** 섹션에서 찾을 수 있습니다. 엔터프라이즈 앱은 조직 내에서 배포 및 사용되는 앱입니다.
+[Azure Active Directory 응용 프로그램 갤러리](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery)를 사용하여 디렉터리 관리자에 의해 디렉터리의 Single Sign-On이 구성된 모든 응용 프로그램을 이제 [Azure Portal](https://portal.azure.com)에서 확인하고 관리할 수 있습니다. 응용 프로그램은 포털의 **모든 서비스** &gt; **엔터프라이즈 응용 프로그램** 섹션에서 찾을 수 있습니다. 엔터프라이즈 앱은 조직 내에서 배포 및 사용되는 앱입니다.
 
-![엔터프라이즈 응용 프로그램 블레이드][0]
+![Enterprise 응용 프로그램 창][0]
 
-왼쪽의 **모든 응용 프로그램** 링크를 선택하면 갤러리에서 추가된 앱을 포함하여 구성된 모든 앱의 목록이 표시됩니다. 앱을 선택하면 해당 앱의 리소스 블레이드를 로드하며 여기에서 해당 앱에 대한 보고서를 볼 수 있고 다양한 설정을 관리할 수 있습니다.
+왼쪽의 **모든 응용 프로그램** 링크를 선택하면 갤러리에서 추가된 앱을 포함하여 구성된 모든 앱의 목록이 표시됩니다. 앱을 선택하면 해당 앱의 리소스 창이 로드되며 여기에서 해당 앱에 대한 보고서를 볼 수 있고 다양한 설정을 관리할 수 있습니다.
 
 사용자 계정 프로비전 설정은 왼쪽의 **프로비전** 을 선택하여 관리할 수 있습니다.
 
-![응용 프로그램 리소스 블레이드][1]
+![응용 프로그램 리소스 창][1]
 
 ## <a name="provisioning-modes"></a>프로비전 모드
-**프로비전** 블레이드는 엔터프라이즈 응용 프로그램을 위해 지원되는 프로비전 모드를 표시하는 **모드** 메뉴로 시작하고 해당 모드가 구성될 수 있도록 합니다. 사용 가능한 옵션은 다음과 같습니다.
+**프로비전** 창은 엔터프라이즈 응용 프로그램을 위해 지원되는 프로비전 모드를 표시하는 **모드** 메뉴로 시작하고 해당 모드가 구성될 수 있도록 합니다. 사용 가능한 옵션은 다음과 같습니다.
 
 * **자동** - Azure AD가 이 응용 프로그램에 대해 사용자 계정의 자동 API 기반의 프로비전 및/또는 프로비전 해제를 지원하는 경우 이 옵션이 나타납니다. 이 모드를 선택하면 관리자가 응용 프로그램의 사용자 관리 API에 연결하는 Azure AD를 구성하고 Azure AD와 앱 간 사용자 계정 데이터의 흐름 방식을 정의하는 계정 매핑 및 워크플로를 작성하고 Azure AD 프로비전 서비스를 관리할 수 있도록 안내하는 인터페이스가 표시됩니다.
 * **수동** - Azure AD가 이 응용 프로그램에 대한 사용자 계정의 자동 프로비전을 지원하지 않을 경우 이 옵션이 표시됩니다. 이 옵션을 사용하면 응용 프로그램에 저장된 사용자 계정 레코드를 해당 응용 프로그램에서 제공한 사용자 관리 및 프로비전 기능(SAML Just-In-Time 프로비전 포함 가능)에 따라 외부 프로세스를 사용하여 관리해야 합니다.
@@ -54,7 +54,7 @@ Azure AD가 응용 프로그램의 사용자 관리 API에 연결하는 데 필�
 
 Azure AD 사용자 개체와 각 SaaS 앱의 사용자 개체 간의 미리 구성된 매핑 세트가 있습니다. 일부 앱은 그룹이나 연락처 같은 다른 유형의 개체를 관리합니다. 표에서 매핑 중 하나를 선택하면 오른쪽에 표시되는 매핑 편집기에서 매핑을 보고 사용자 지정할 수 있습니다.
 
-![응용 프로그램 리소스 블레이드][2]
+![응용 프로그램 리소스 창][2]
 
 지원되는 사용자 지정은 다음과 같습니다.
 
@@ -81,6 +81,6 @@ Azure AD와 대상 응용 프로그램 간에 만들어지고 업데이트 및 �
 Azure AD 환경이 사용자의 마음에 들기를 바랍니다. 사용자 의견을 계속 보내주세요! [피드백 포럼](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal)의 **관리자 포털Admin Portal** 섹션에서 개선을 위한 의견과 아이디어를 게시합니다.  매일 멋진 새로운 기능을 구축하는 방법을 기대하며, 사용자의 지침에 따라 다음에 구축할 기능을 구체화하고 정의하겠습니다.
 
 
-[0]: ./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-blade.PNG
+[0]: ./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-pane.PNG
 [1]: ./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-provisioning.PNG
 [2]: ./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-provisioning-mapping.PNG

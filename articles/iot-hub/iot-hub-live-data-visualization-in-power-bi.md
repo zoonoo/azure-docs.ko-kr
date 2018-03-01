@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: xshi
-ms.openlocfilehash: b190fea06ffc2406d781c7edad091f097cca9c2d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 82915a92464f240591777595e878a534cde0136c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="visualize-real-time-sensor-data-from-azure-iot-hub-using-power-bi"></a>Power BI를 사용하여 Azure IoT Hub에서 실시간 센서 데이터 시각화
 
@@ -52,7 +52,7 @@ Azure IoT Hub에서 Power BI를 통해 받는 실시간 센서 데이터를 시�
 
 ### <a name="create-a-stream-analytics-job"></a>Stream Analytics 작업 만들기
 
-1. Azure Portal에서 새로 만들기 > 사물 인터넷 > Stream Analytics 작업을 차례로 클릭합니다.
+1. [Azure Portal](https://portal.azure.com)에서 **리소스 만들기** > **사물 인터넷** > **Stream Analytics 작업**을 차례로 클릭합니다.
 1. 작업에 대한 다음 정보를 입력합니다.
 
    **작업 이름**: 작업의 이름입니다. 이름은 전역적으로 고유해야 합니다.
@@ -107,11 +107,11 @@ Azure IoT Hub에서 Power BI를 통해 받는 실시간 센서 데이터를 시�
 1. **작업 토폴로지**에서 **쿼리**를 클릭합니다.
 1. `[YourInputAlias]`를 작업의 입력 별칭으로 바꿉니다.
 1. `[YourOutputAlias]`를 작업의 출력 별칭으로 바꿉니다.
-1. **Save**를 클릭합니다.
+1. **저장**을 클릭합니다.
 
    ![Azure에서 Stream Analytics 작업에 쿼리 추가](media/iot-hub-live-data-visualization-in-power-bi/5_add-query-stream-analytics-job-azure.png)
 
-### <a name="run-the-stream-analytics-job"></a>스트림 분석 작업 실행
+### <a name="run-the-stream-analytics-job"></a>Stream Analytics 작업 실행
 
 Stream Analytics 작업에서 **시작** > **지금 시작** > **시작**을 차례로 클릭합니다. 작업이 성공적으로 시작되면 작업 상태가 **중지됨**에서 **실행 중**으로 변경됩니다.
 

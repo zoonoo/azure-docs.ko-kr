@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 02/21/2017
 ms.author: billmath
-ms.openlocfilehash: b533df58d24b3bc76a229ad09c682d1d8aeaf741
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2d172b22d00f21062237a1af1742bad6a03c864c
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory Seamless Single Sign-On: 빠른 시작
 
@@ -75,10 +75,10 @@ Azure AD Connect가 이미 설치되어 있는 경우 Azure AD Connect에서 **�
 
 ## <a name="step-3-roll-out-the-feature"></a>3단계: 기능 배포
 
-이 기능을 사용자에게 롤아웃하려면 Active Directory의 그룹 정책을 사용하여 사용자의 인트라넷 영역 설정에 다음 Azure AD URL을 추가해야 합니다.
+기능을 사용자에게 롤아웃하려면 Active Directory의 그룹 정책을 사용하여 사용자의 인트라넷 영역 설정에 다음 Azure AD URL을 추가해야 합니다.
 
 - https://autologon.microsoftazuread-sso.com
-- https://aadg.windows.net.nsatc.net
+
 
 또한 그룹 정책을 통해 **스크립트를 통해 상태 표시줄에 대한 업데이트 허용**이라는 인트라넷 영역 정책 설정을 활성화해야 합니다. 
 
@@ -87,7 +87,7 @@ Azure AD Connect가 이미 설치되어 있는 경우 Azure AD Connect에서 **�
 
 ### <a name="why-do-you-need-to-modify-users-intranet-zone-settings"></a>사용자의 인트라넷 영역 설정을 수정해야 하는 이유
 
-기본적으로 브라우저는 특정 URL에서 올바른 영역(인터넷 또는 인트라넷)을 자동으로 계산합니다. 예를 들어 “http://contoso/”는 인트라넷 영역에 매핑되지만, “http://intranet.contoso.com/”은 인터넷 영역에 매핑됩니다(URL에 마침표가 포함되어 있기 때문). 브라우저는 URL이 브라우저의 인트라넷 영역에 명시적으로 추가되지 않는 한 클라우드 엔드포인트(예: 두 개의 Azure AD URL)에 Kerberos 티켓을 보내지 않습니다.
+기본적으로 브라우저는 특정 URL에서 올바른 영역(인터넷 또는 인트라넷)을 자동으로 계산합니다. 예를 들어 “http://contoso/”는 인트라넷 영역에 매핑되지만, “http://intranet.contoso.com/”은 인터넷 영역에 매핑됩니다(URL에 마침표가 포함되어 있기 때문). 브라우저는 URL이 브라우저의 인트라넷 영역에 명시적으로 추가되지 않는 한 클라우드 엔드포인트(예: Azure AD URL)에 Kerberos 티켓을 보내지 않습니다.
 
 ### <a name="detailed-steps"></a>자세한 단계
 
@@ -104,13 +104,9 @@ Azure AD Connect가 이미 설치되어 있는 경우 Azure AD Connect에서 **�
     값: https://autologon.microsoftazuread-sso.com
   
     Data 1
-        
-   값: https://aadg.windows.net.nsatc.net
-
-    Data 1
 
    >[!NOTE]
-   > 일부 사용자가 공유 키오스크에 로그인하는 경우와 같이 이러한 사용자가 Seamless SSO를 사용하지 못하게 하려면 이전 값을 **4**로 설정합니다. 그러면 Azure AD URL이 제한된 영역에 추가되고 Seamless SSO가 항상 실패하게 됩니다.
+   > 일부 사용자가 공유 키오스크에 로그인하는 경우와 같이 이러한 사용자가 Seamless SSO를 사용하지 못하게 하려면 이전 값을 **4**로 설정합니다. 이 작업에서는 Azure AD URL이 제한된 영역에 추가되고 Seamless SSO가 항상 실패하게 됩니다.
    >
 
 5. **확인**을 선택한 다음, 다시 **확인**을 선택합니다.
@@ -142,7 +138,7 @@ Mac OS를 실행하는 컴퓨터가 Azure AD에 가입되어 있는지 확인합
 
 #### <a name="google-chrome-all-platforms"></a>Google Chrome(모든 플랫폼)
 
-환경에서 [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) 또는 [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) 정책 설정을 재정의한 경우 Azure AD의 URL(https://autologon.microsoftazuread-sso.com 및 https://aadg.windows.net.nsatc.net )도 해당 정책 설정에 추가해야 합니다.
+환경에서 [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) 또는 [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) 정책 설정을 재정의한 경우 Azure AD의 URL(https://autologon.microsoftazuread-sso.com 및 https://aadg.windows.net.nsatc.net)도 해당 정책 설정에 추가해야 합니다.
 
 #### <a name="google-chrome-mac-os-only"></a>Google Chrome(Mac OS에만 해당)
 
@@ -181,4 +177,4 @@ Firefox 및 Edge 브라우저의 개인 검색 모드에서는 Seamless SSO가 �
 - [기술 심층 분석](active-directory-aadconnect-sso-how-it-works.md): Seamless Single Sign-On 기능의 작동 방식을 이해합니다.
 - [질문과 대답](active-directory-aadconnect-sso-faq.md): Azure Active Directory Seamless Single Sign-On에 대한 질문과 대답입니다.
 - [문제 해결](active-directory-aadconnect-troubleshoot-sso.md): Seamless Single Sign-On 기능의 일반적인 문제를 해결하는 방법을 알아봅니다.
-- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): Azure Active Directory 포럼을 사용하여 새 기능을 요청하세요.
+- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): Azure Active Directory 포럼을 사용하여 새 기능 요청을 제출합니다.

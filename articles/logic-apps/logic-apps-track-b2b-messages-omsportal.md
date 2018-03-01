@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 128abd504785227c1f27debd329d46d358e6e516
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: d62be25678044ead469f65362b6f47c1a2df893b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="track-b2b-communication-in-the-microsoft-operations-management-suite-oms"></a>Microsoft OMS(Operations Management Suite)에서 B2B 통신 추적
 
@@ -47,7 +47,7 @@ ms.lasthandoff: 01/19/2018
 
 논리 앱에 대한 B2B 메시지를 추적하는 OMS를 가지려면 OMS 포털에 **Logic Apps B2B** 솔루션을 추가해야 합니다. [OMS에 솔루션 추가](../log-analytics/log-analytics-get-started.md)에 대해 자세히 알아봅니다.
 
-1. [Azure Portal](https://portal.azure.com)에서 **더 많은 서비스**를 선택합니다. "로그 분석"에 대해 검색한 후 다음과 같이 **Log Analytics**를 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에서 **모든 서비스**를 선택합니다. "로그 분석"에 대해 검색한 후 다음과 같이 **Log Analytics**를 선택합니다.
 
    ![Log Analytics 찾기](media/logic-apps-track-b2b-messages-omsportal/browseloganalytics.png)
 

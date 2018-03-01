@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: v-jysur
-ms.openlocfilehash: a51ba4b45b7f6c72037d5c562a4ccd59e601cee4
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: e0cae844e8b7f3eab68ed02dbcd17f4d1cebfd25
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>ITSM 제품/서비스를 IT Service Management Connector에 연결
 이 문서에서는 ITSM 제품/서비스와 Log Analytics의 ITSMC(IT 서비스 관리 커넥터) 사이 연결을 구성하여 사용자의 작업 항목을 중앙에서 관리하는 방법에 대한 정보를 제공합니다. ITSMC에 대한 자세한 내용은 [개요](log-analytics-itsmc-overview.md)를 참조하세요.
@@ -185,11 +185,12 @@ Service Manager에 대해 ITSM 웹앱을 설정하려면 다음을 수행합니�
 ### <a name="prerequisites"></a>필수 조건
 다음 필수 조건이 충족되는지 확인합니다.
 - ITSMC가 설치되어 있습니다. 자세한 내용은 [IT Service Management Connector 솔루션 추가](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution)를 참조하세요.
-- ServiceNow 지원 버전: Jakarta, Istanbul, Helsinki, Geneva
+- ServiceNow 지원 버전: Kingston, Jakarta, Istanbul, Helsinki, Geneva
 
 **ServiceNow 관리자는 ServiceNow 인스턴스에서 다음을 수행해야 합니다.**
 - ServiceNow 제품에 대한 클라이언트 ID 및 클라이언트 암호를 생성합니다. 클라이언트 ID와 비밀을 생성하는 방법에 대한 자세한 내용은 필요에 따라 다음을 참조하세요.
 
+    - [Kingston에 대해 OAuth 설정](https://docs.servicenow.com/bundle/kingston-platform-administration/page/administer/security/concept/OAuth-setup.html)
     - [Jakarta에 대해 OAuth 설정](https://docs.servicenow.com/bundle/jakarta-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Istanbul에 대해 OAuth 설정](https://docs.servicenow.com/bundle/istanbul-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Helsinki에 대해 OAuth 설정](https://docs.servicenow.com/bundle/helsinki-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)

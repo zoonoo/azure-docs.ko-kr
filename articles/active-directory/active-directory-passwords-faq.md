@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: seohack1
-ms.openlocfilehash: afa609d7b47f3c743f5d3bfd4011e09c762ccbd1
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 686cc2a94af729e6f872c334a6e5fda947d43725
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="password-management-frequently-asked-questions"></a>암호 관리 질문과 대답
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 02/01/2018
 
 * **Q: 내 사용자가 자신의 암호 재설정 데이터를 등록할 수 있습니까?**
 
-  > **A:** 예. 암호 재설정이 사용되고 라이선스가 부여된 경우 http://aka.ms/ssprsetup의 암호 재설정 등록 포털로 이동하여 인증 정보를 등록할 수 있습니다. 액세스 패널(http://myapps.microsoft.com)을 통해 등록할 수도 있습니다. 액세스 패널을 통해 등록하려면 프로필 사진을 선택하고 **프로필**을 선택한 다음 **암호 재설정 등록** 옵션을 사용해야 합니다.
+  > **A:** 예. 암호 재설정이 사용되고 라이선스가 부여된 경우 https://aka.ms/ssprsetup의 암호 재설정 등록 포털로 이동하여 인증 정보를 등록할 수 있습니다. 액세스 패널(http://myapps.microsoft.com)을 통해 등록할 수도 있습니다. 액세스 패널을 통해 등록하려면 프로필 사진을 선택하고 **프로필**을 선택한 다음 **암호 재설정 등록** 옵션을 사용해야 합니다.
   >
   >
 * **Q: 그룹에 대해 암호 재설정을 사용하도록 설정한 후 모든 사용자에게 이를 사용하도록 설정하려는 경우, 사용자가 다시 등록해야 하나요?**

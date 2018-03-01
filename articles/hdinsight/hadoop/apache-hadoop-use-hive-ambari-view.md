@@ -14,59 +14,64 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/19/2018
+ms.date: 02/13/2018
 ms.author: larryfr
-ms.openlocfilehash: 5f66e60249af489e695029cbb072f3cc881bb039
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: af5fe44b611e8ff9d93aba8a30c71213c452aff9
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-ambari-hive-view-with-hadoop-in-hdinsight"></a>HDInsight에서 Hadoop과 Ambari Hive 보기 사용
 
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
-Ambari Hive 보기를 사용하여 Hive 쿼리를 실행하는 방법을 알아봅니다. Ambari는 Linux 기반 HDInsight 클러스터와 함께 제공되는 관리 및 모니터링 유틸리티입니다. Ambari를 통해 제공되는 기능 중 하나는 Hive 쿼리를 실행하는 데 사용할 수 있는 웹 UI입니다.
-
-> [!NOTE]
-> Ambari에는 이 문서에 설명되지 않은 여러 기능이 있습니다. 자세한 내용은 [Ambari 웹 UI를 사용하여 HDInsight 클러스터 관리](../hdinsight-hadoop-manage-ambari.md)를 참조하세요.
+Ambari Hive 보기를 사용하여 Hive 쿼리를 실행하는 방법을 알아봅니다. Hive 보기를 사용하면 웹 브라우저에서 Hive 쿼리를 작성, 최적화 및 실행할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-* Linux 기반 HDInsight 클러스터입니다. 클러스터를 만드는 방법은 [HDInsight에서 Hadoop 사용 시작](apache-hadoop-linux-tutorial-get-started.md)을 참조하세요.
+* HDInsight 클러스터 버전 3.4 이상의 Linux 기반 Hadoop
 
-> [!IMPORTANT]
-> 이 문서의 단계에는 Linux를 사용하는 Azure HDInsight 클러스터가 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](../hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
+  > [!IMPORTANT]
+  > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](../hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
 
-## <a name="open-the-hive-view"></a>Hive 보기를 엽니다.
+* 웹 브라우저
 
-Azure Portal에서 Ambari 보기를 열 수 있습니다. Azure Portal에서 HDInsight 클러스터를 선택한 다음 **빠른 링크** 섹션에서 **Ambari 보기**를 선택합니다.
+## <a name="run-a-hive-query"></a>HIVE 쿼리 실행
 
-![포털의 빠른 링크 섹션](./media/apache-hadoop-use-hive-ambari-view/quicklinks.png)
+1. [Azure 포털](https://portal.azure.com)을 엽니다.
 
-보기 목록에서 __Hive 보기__를 선택합니다.
+2. Azure Portal에서 HDInsight 클러스터를 선택한 다음 **빠른 링크** 섹션에서 **Ambari 보기**를 선택합니다.
 
-![Hive 보기 선택](./media/apache-hadoop-use-hive-ambari-view/select-hive-view.png)
+    ![포털의 빠른 링크 섹션](./media/apache-hadoop-use-hive-ambari-view/quicklinks.png)
 
-> [!NOTE]
-> Ambari에 액세스할 때 사이트에 인증하라는 메시지가 표시됩니다. 클러스터를 만들 때 사용한 관리자(기본값 `admin`) 계정 이름 및 암호를 입력합니다.
+    인증하라는 메시지가 표시되면 클러스터를 만들 때 제공한 클러스터 로그인(기본값 `admin`) 계정 이름과 암호를 사용합니다.
 
-다음 이미지와 유사한 결과가 표시됩니다.
+3. 보기 목록에서 __Hive 보기__를 선택합니다.
 
-![Hive 보기에 대한 쿼리 워크시트 이미지](./media/apache-hadoop-use-hive-ambari-view/ambari-hive-view.png)
+    ![Hive 보기 선택](./media/apache-hadoop-use-hive-ambari-view/select-hive-view.png)
 
-## <a name="run-a-query"></a>쿼리 실행
+    Hive 보기 페이지는 다음 이미지와 유사합니다.
 
-Hive 쿼리를 실행하려면 Hive 보기에서 다음 단계를 사용합니다.
+    ![Hive 보기에 대한 쿼리 워크시트 이미지](./media/apache-hadoop-use-hive-ambari-view/ambari-hive-view.png)
 
-1. __쿼리__ 탭에서 다음 HiveQL 문을 워크시트에 붙여넣습니다.
+4. __쿼리__ 탭에서 다음 HiveQL 문을 워크시트에 붙여넣습니다.
 
     ```hiveql
     DROP TABLE log4jLogs;
-    CREATE EXTERNAL TABLE log4jLogs(t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
+    CREATE EXTERNAL TABLE log4jLogs(
+        t1 string,
+        t2 string,
+        t3 string,
+        t4 string,
+        t5 string,
+        t6 string,
+        t7 string)
     ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
     STORED AS TEXTFILE LOCATION '/example/data/';
-    SELECT t4 AS sev, COUNT(*) AS cnt FROM log4jLogs WHERE t4 = '[ERROR]' GROUP BY t4;
+    SELECT t4 AS loglevel, COUNT(*) AS count FROM log4jLogs 
+        WHERE t4 = '[ERROR]' 
+        GROUP BY t4;
     ```
 
     이러한 문은 다음 작업을 수행합니다.
@@ -82,42 +87,20 @@ Hive 쿼리를 실행하려면 Hive 보기에서 다음 단계를 사용합니�
 
    * `SELECT`: t4 열에 [ERROR] 값이 포함된 모든 행의 수를 선택합니다.
 
-     > [!NOTE]
-     > 자동화된 데이터 업로드 프로세스나 또 다른 MapReduce 작업과 같은 외부 원본에서 기본 데이터를 업데이트하려는 경우 외부 테이블을 사용합니다. 외부 테이블을 삭제하면 데이터는 삭제되지 *않고* 테이블 정의만 삭제됩니다.
-
     > [!IMPORTANT]
     > __데이터베이스__ 선택 영역을 __기본값__으로 둡니다. 이 문서의 예제에서는 HDInsight에 포함된 기본 데이터베이스를 사용합니다.
 
-2. 쿼리를 시작하려면 워크시트 아래에서 **실행** 단추를 사용합니다. 단추가 주황색으로 바뀌고 텍스트가 **중지**로 변경됩니다.
+5. 쿼리를 시작하려면 워크시트 아래에서 **실행** 단추를 사용합니다. 단추가 주황색으로 바뀌고 텍스트가 **중지**로 변경됩니다.
 
-3. 쿼리가 완료된 후에 **결과** 탭에 작업 결과가 표시됩니다. 다음 텍스트는 쿼리 결과입니다.
+6. 쿼리가 완료된 후에 **결과** 탭에 작업 결과가 표시됩니다. 다음 텍스트는 쿼리 결과입니다.
 
-        sev       cnt
-        [ERROR]   3
+        loglevel       count
+        [ERROR]        3
 
     **로그** 탭을 사용하여 작업에서 생성된 로깅 정보를 볼 수 있습니다.
 
    > [!TIP]
    > **프로세스 결과 쿼리** 섹션의 맨위 왼쪽에서 **결과 저장** 드롭다운 대화 상자의 결과를 다운로드하거나 저장합니다.
-
-4. 이 쿼리의 처음 네 줄을 선택한 다음 **실행**을 선택합니다. 작업이 완료되어도 결과가 없습니다. 쿼리의 일부를 선택했을 때 **실행** 단추를 사용하면 선택한 문만 실행됩니다. 이 예에서는 테이블에서 행을 검색하는 최종 문이 선택한 네 줄에 포함되지 않았습니다. 해당 줄만 선택하고 **실행**단추를 사용하면 예상된 결과가 표시됩니다.
-
-5. 워크시트를 추가하려면 **쿼리 편집기** 아래쪽의 **새 워크시트** 단추를 사용합니다. 새 워크시트에 다음 HiveQL 문을 입력합니다.
-
-    ```hiveql
-    CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
-    INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]';
-    ```
-
-  이러한 문은 다음 작업을 수행합니다.
-
-   * **CREATE TABLE IF NOT EXISTS**: 테이블이 아직 없는 경우 테이블을 만듭니다. **EXTERNAL** 키워드가 사용되지 않으므로 내부 테이블이 생성됩니다. 내부 테이블은 Hive 데이터 웨어하우스에 저장되며 Hive에서 전적으로 관리됩니다. 외부 테이블과 달리 내부 테이블을 삭제하면 기본 데이터도 삭제됩니다.
-
-   * **STORED AS ORC**: 데이터를 ORC(Optimized Row Columnar) 형식으로 저장합니다. ORC는 Hive 데이터를 저장하기 위한 고도로 최적화되고 효율적인 형식입니다.
-
-   * **덮어쓰기 삽입... SELECT**: `[ERROR]`가 포함된 **log4jLogs** 테이블에서 행을 선택한 다음 **errorLogs** 테이블에 데이터를 삽입합니다.
-
-**실행** 단추를 사용하여 해당 쿼리를 실행합니다. 쿼리가 0개의 행을 반환할 때 **결과** 탭에는 어떠한 정보도 포함되지 않습니다. 쿼리가 완료되면 상태는 **SUCCEEDED**로 표시됩니다.
 
 ### <a name="visual-explain"></a>시각적 개체 설명
 
@@ -152,9 +135,14 @@ __테이블__ 탭을 사용하여 Hive 데이터베이스 내의 테이블을 �
 
 ![저장된 쿼리 탭의 이미지](./media/apache-hadoop-use-hive-ambari-view/saved-queries.png)
 
+> [!TIP]
+> 저장된 쿼리는 기본 클러스터 저장소에 저장됩니다. `/user/<username>/hive/scripts` 경로에서 저장된 쿼리를 찾을 수 있습니다. 이러한 쿼리는 일반 텍스트 `.hql` 파일로 저장됩니다.
+>
+> 클러스터를 삭제하지만 저장소는 유지하는 경우 [Azure Portal](https://portal.azure.com)에서 [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/) 또는 Data Lake Storage 탐색기와 같은 유틸리티를 사용하여 쿼리를 검색할 수 있습니다.
+
 ## <a name="user-defined-functions"></a>사용자 정의 함수
 
-UDF(사용자 정의 함수)를 통해 Hive를 확장할 수도 있습니다. UDF를 사용하여 HiveQL에서 쉽게 모델링할 수 있는 기능 또는 논리를 구현합니다.
+UDF(사용자 정의 함수)를 통해 Hive를 확장할 수 있습니다. UDF를 사용하여 HiveQL에서 쉽게 모델링할 수 있는 기능 또는 논리를 구현합니다.
 
 Hive 보기 위쪽의 **UDF** 탭을 사용하여 UDF 집합을 선언하고 저장합니다. UDF는 **쿼리 편집기**를 통해 사용할 수 있습니다.
 

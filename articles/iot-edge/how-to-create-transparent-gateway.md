@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 12/04/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: c3621cb860339499089ebdf3c3581faf770f1fe3
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 0ea4d8ec51211f1208083d3f93c3c100dc54e6b0
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-an-iot-edge-device-that-acts-as-a-transparent-gateway---preview"></a>투명한 게이트웨이 역할을 하는 IoT Edge 장치 만들기 - 미리 보기
 
@@ -63,7 +63,7 @@ Azure IoT 장치 SDK를 사용하여 IoT Edge 게이트웨이에 장치를 연�
 
 1. GitHub에서 Microsoft Azure IoT SDK 및 C 라이브러리를 복제합니다.
 
-   ```
+   ```cmd/sh
    git clone -b modules-preview https://github.com/Azure/azure-iot-sdk-c.git 
    ```
 
@@ -75,7 +75,7 @@ Azure IoT 장치 SDK를 사용하여 IoT Edge 게이트웨이에 장치를 연�
 
 새 장치 인증서를 만듭니다.
 
-   ```
+   ```bash
    ./certGen.sh create_edge_device_certificate myGateway
    ```
 
@@ -83,14 +83,14 @@ Azure IoT 장치 SDK를 사용하여 IoT Edge 게이트웨이에 장치를 연�
  
 `certs` 디렉터리에서 다음 명령을 실행하여 장치 공개 키의 전체 체인을 가져옵니다.
 
-   ```
+   ```bash
    cat ./new-edge-device.cert.pem ./azure-iot-test-only.intermediate.cert.pem ./azure-iot-test-only.root.ca.cert.pem > ./new-edge-device-full-chain.cert.pem
    ```
 
 ### <a name="powershell"></a>PowerShell
 
 새 장치 인증서를 만듭니다. 
-   ```
+   ```powershell
    New-CACertsEdgeDevice myGateway
    ```
 
@@ -115,7 +115,7 @@ IoT Edge 런타임에 장치 및 인증서 정보를 제공합니다.
  
 Linux에서 Bash 출력 사용:
 
-   ```
+   ```bash
    sudo iotedgectl setup --connection-string {device connection string}
         --edge-hostname {gateway hostname, e.g. mygateway.contoso.com}
         --device-ca-cert-file {full path}/certs/new-edge-device.cert.pem
@@ -126,7 +126,7 @@ Linux에서 Bash 출력 사용:
 
 Windows에서 PowerShell 출력 사용:
 
-   ```
+   ```powershell
    iotedgectl setup --connection-string {device connection string}
         --edge-hostname {gateway hostname, e.g. mygateway.contoso.com}
         --device-ca-cert-file {full path}/certs/new-edge-device.cert.pem
@@ -135,15 +135,11 @@ Windows에서 PowerShell 출력 사용:
         --owner-ca-cert-file {full path}/RootCA.pem
    ```
 
-기본적으로 샘플 스크립트는 장치 개인 키에 대해 암호를 설정하지 않습니다. 암호를 설정하는 경우 다음 매개 변수를 추가합니다.
-
-   ```
-   --device-ca-passphrase {passphrase}
-   ```
+기본적으로 샘플 스크립트는 장치 개인 키에 대해 암호를 설정하지 않습니다. 암호를 설정하는 경우 다음 매개 변수를 추가합니다. `--device-ca-passphrase {passphrase}`
 
 이 스크립트는 Edge 에이전트 인증서에 대한 암호를 설정하도록 요구합니다. 이 명령 후에 IoT Edge 런타임을 다시 시작합니다.
 
-   ```
+   ```cmd/sh
    iotedgectl restart
    ```
 
@@ -155,7 +151,7 @@ Windows에서 PowerShell 출력 사용:
 
 예를 들어 .NET 응용 프로그램의 경우 다음 코드 조각을 추가하여 경로 `certPath`에 저장된 PEM 형식의 인증서를 신뢰할 수 있습니다. 사용한 스크립트 버전에 따라 경로는 `certs/azure-iot-test-only.root.ca.cert.pem`(Bash) 또는 `RootCA.pem`(Powershell)을 참조합니다.
 
-   ```
+   ```csharp
    using System.Security.Cryptography.X509Certificates;
    
    ...

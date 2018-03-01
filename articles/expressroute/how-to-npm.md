@@ -1,9 +1,9 @@
 ---
-title: "Azure ExpressRoute 회로의 네트워크 성능 모니터 구성(미리 보기) | Microsoft Docs"
-description: "Azure ExpressRoute 회로의 NPM을 구성합니다. (미리 보기)"
+title: "Azure ExpressRoute 회로의 네트워크 성능 모니터 구성 | Microsoft Docs"
+description: "Azure ExpressRoute 회로에 대해 클라우드 기반 네트워크 모니터링을 구성합니다."
 documentationcenter: na
 services: expressroute
-author: cherylmc
+author: ajaycode
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/31/2018
-ms.author: pareshmu
-ms.openlocfilehash: 269c2e8a7867521b34128980e33ed97aa7b62a04
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.date: 02/14/2018
+ms.author: agummadi
+ms.openlocfilehash: 4d5bf1550ecd5982e51c0ae8d3917102d2f7c253
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="configure-network-performance-monitor-for-expressroute-preview"></a>ExpressRoute에 대한 네트워크 성능 모니터 구성(미리 보기)
+# <a name="configure-network-performance-monitor-for-expressroute"></a>ExpressRoute에 대한 네트워크 성능 모니터 구성
 
 NPM(네트워크 성능 모니터)은 Azure 클라우드 배포 및 온-프레미스 위치(지점 등) 간의 연결을 모니터링하는 클라우드 기반 네트워크 모니터링 솔루션입니다. NPM은 Microsoft OMS(Operations Management Suite)에 속합니다. 현재 NPM은 개인 피어링을 사용하도록 구성된 ExpressRoute 회로에 대한 네트워크 성능을 모니터링할 수 있는 ExpressRoute 확장을 제공합니다. ExpressRoute에 대한 NPM을 구성하면 네트워크 문제를 감지하여 파악하고 제거할 수 있습니다.
 
@@ -62,9 +62,15 @@ NPM(네트워크 성능 모니터)은 Azure 클라우드 배포 및 온-프레�
 
 이미 네트워크 성능 모니터를 사용하여 다른 개체 또는 서비스를 모니터링하며 지원되는 지역 중 하나에 작업 영역이 이미 있는 경우 1단계와 2단계를 건너뛰고 3단계에서 구성을 시작할 수 있습니다.
 
-## <a name="configure"></a>1단계: 작업 영역 만들기(Vnet이 ExpressRoute 회로에 연결된 구독)
+## <a name="configure"></a>1단계: 작업 영역 만들기
+
+ExpressRoute 회로에 대한 VNets 링크가 있는 구독에 작업 영역을 만듭니다.
 
 1. [Azure Portal](https://portal.azure.com)에서 Vnet이 ExpressRoute 회로에 연결된 구독을 선택합니다. 그런 후 **Marketplace**의 서비스 목록에서 ‘네트워크 성능 모니터’를 검색합니다. 반환된 결과에서 클릭하여 **네트워크 성능 모니터** 페이지를 엽니다.
+
+>[!NOTE]
+>새 작업 영역을 만들거나 기존 작업 영역을 사용할 수 있습니다.  기존 작업 영역을 사용하려면 작업 영역이 새 쿼리 언어로 마이그레이션되었는지 확인해야 합니다. [자세한 정보...](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-log-search-upgrade)
+>
 
   ![portal](.\media\how-to-npm\3.png)<br><br>
 2. 주 **네트워크 성능 모니터** 페이지 아래쪽에서 **만들기**를 클릭하여 **네트워크 성능 모니터 - 새 솔루션 만들기** 페이지를 엽니다. **OMS 작업 영역 - 작업 영역 선택**을 클릭하여 작업 영역 페이지를 엽니다. **+ 새 작업 영역 만들기**를 클릭하여 작업 영역 페이지를 엽니다.
@@ -79,29 +85,25 @@ NPM(네트워크 성능 모니터)은 Azure 클라우드 배포 및 온-프레�
   >[!NOTE]
   >ExpressRoute 회로는 전 세계 어디에나 둘 수 있으며, 작업 영역과 동일한 지역에 있지 않아도 됩니다.
   >
-
-
+  
   ![작업 영역](.\media\how-to-npm\4.png)<br><br>
 4. **확인**을 클릭하여 설정 템플릿을 저장 및 배포합니다. 템플릿의 유효성이 확인되면 **만들기**를 클릭하여 작업 영역을 배포합니다.
 5. 작업 영역이 배포된 후 만든 **NetworkMonitoring(name)** 리소스로 이동합니다. 설정이 유효한지 확인한 후 **솔루션에 추가 구성이 필요합니다.**를 클릭합니다.
 
   ![추가 구성](.\media\how-to-npm\5.png)
-6. **네트워크 성능 모니터 시작** 페이지에서 **가상 트랜잭션에 TCP 사용**을 선택하고 **제출**을 클릭합니다. TCP 트랜잭션은 연결을 만들고 끊는 데만 사용됩니다. 이러한 TCP 연결을 통해 데이터가 전송되지는 않습니다.
-
-  ![가상 트랜잭션용 TCP](.\media\how-to-npm\6.png)
 
 ## <a name="agents"></a>2단계: 에이전트 설치 및 구성
 
 ### <a name="download"></a>2.1: 에이전트 설치 파일 다운로드
 
-1. 리소스에 대한 **네트워크 성능 모니터 구성 - TCP 설치 페이지**의 **OMS 에이전트 설치** 섹션에서 서버의 프로세서에 해당하는 에이전트를 클릭하고 설치 파일을 다운로드합니다.
+1. 리소스에 대한 **네트워크 성능 모니터 구성** 페이지의 **일반 설정** 탭으로 이동합니다. **OMS 에이전트 설치** 섹션에서 서버 프로세서에 해당하는 에이전트를 클릭하고 설치 파일을 다운로드합니다.
 
   >[!NOTE]
   >Windows Server(2008 SP1 이상)에 에이전트를 설치해야 합니다. Windows Desktop OS 및 Linux OS를 사용한 ExpressRoute 회로 모니터링은 지원되지 않습니다. 
   >
   >
 2. 이제 **작업 영역 ID** 및 **기본 키**를 메모장에 복사합니다.
-3. **에이전트 구성** 섹션에서 Powershell 스크립트를 다운로드합니다. PowerShell 스크립트는 TCP 트랜잭션에 대한 관련 방화벽 포트를 여는 데 도움이 됩니다.
+3. **TCP 프로토콜을 사용하여 모니터링할 OMS 에이전트 구성** 섹션에서 Powershell 스크립트를 다운로드합니다. PowerShell 스크립트는 TCP 트랜잭션에 대한 관련 방화벽 포트를 여는 데 도움이 됩니다.
 
   ![PowerShell 스크립트](.\media\how-to-npm\7.png)
 

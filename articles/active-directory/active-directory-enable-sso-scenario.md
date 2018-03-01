@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: e825e6be79efad5dfb385f96901a2b5682027963
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: f4035e4c1ef2bc78256ed842bc4b1ac65ecf8b53
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="managing-applications-with-azure-active-directory"></a>Azure Active Directory로 응용 프로그램 관리
 실제 워크플로 또는 콘텐츠를 넘어 비즈니스에는 모든 응용 프로그램에 대한 두 가지 기본 요구 사항이 있습니다.
@@ -90,13 +90,13 @@ Azure AD를 사용하여 응용 프로그램을 관리하고 SSO를 사용하도
 오늘날 기업에서 IT 부서가 사용되는 클라우드 응용 프로그램의 일부를 인지하지 못하는 경우가 있습니다. 클라우드 앱 검색과 함께 Azure AD는 이러한 응용 프로그램을 검색하는 솔루션을 제공합니다.
 
 ## <a name="account-management"></a>계정 관리
-일반적으로 다양한 응용 프로그램의 계정을 관리하는 작업은 조직의 IT 또는 지원 담당자가 수행하는 수동 프로세스입니다. Azure AD는 모든 서비스 공급자 통합 응용 프로그램에 걸쳐 계정 관리를 완전히 자동화했으며 해당 응용 프로그램은 Microsoft가 지원하는 자동화된 사용자 프로비전 또는 SAML JIT에서 사전 통합되었습니다.
+일반적으로 다양한 응용 프로그램의 계정을 관리하는 작업은 조직의 IT 또는 지원 담당자가 수행하는 수동 프로세스입니다. Azure AD는 모든 서비스 공급자 통합 응용 프로그램에 걸쳐 계정 관리를 완전히 자동화했으며 해당 응용 프로그램은 Microsoft가 지원하는 자동화된 사용자 프로비전 또는 SAML JIT(Just-In-Time) 프로비전에서 사전 통합되었습니다.
 
 ## <a name="automated-user-provisioning"></a>자동화된 사용자 프로비전
 일부 응용 프로그램은 계정 만들기 및 제거(또는 비활성화)에 자동화 인터페이스를 제공합니다. 공급자가 이러한 인터페이스를 제공하는 경우 Azure AD에서 활용됩니다. 관리 작업이 자동으로 발생하기 때문에 운영 비용을 감소하고 무단으로 액세스할 가능성이 줄어들기 때문에 사용자 환경의 보안을 향상시킵니다.
 
 ## <a name="access-management"></a>액세스 관리
-Azure AD를 사용하여 개별 또는 규칙 기반 할당을 사용하는 응용 프로그램에 대한 액세스를 관리할 수 있습니다. 또한 최상의 감독을 보장하고 Helpdesk의 부담을 줄이는 조직에서 적당한 사람에게 액세스 관리를 위임할 수 있습니다.
+Azure AD를 통해 개별 또는 규칙 기반 할당을 사용하는 응용 프로그램에 대한 액세스를 관리할 수 있습니다. 또한 최상의 감독을 보장하고 Helpdesk의 부담을 줄이는 조직에서 적당한 사람에게 액세스 관리를 위임할 수 있습니다.
 
 ## <a name="on-premises-applications"></a>온-프레미스 응용 프로그램
 기본 제공 응용 프로그램 프록시를 사용하면 결과적으로 사용자에게 최신 클라우드 응용 프로그램과 함께 일관된 액세스 환경 및 Azure AD 모니터링, 보고 및 보안 기능에서 혜택을 주어 온-프레미스 응용 프로그램을 게시할 수 있습니다.

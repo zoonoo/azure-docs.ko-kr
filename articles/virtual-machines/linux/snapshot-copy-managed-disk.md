@@ -13,11 +13,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 10/09/2017
 ms.author: cynthn
-ms.openlocfilehash: da00c48f7da5a9be146f4fdb626c93db746c0f9b
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 152c5a1103d32af27f689086cfcc9cc1a7acc5d3
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-snapshot"></a>스냅숏 만들기 
 
@@ -64,8 +64,8 @@ az snapshot create -g myResourceGroup --source "$osDiskId" --name osDisk-backup
 
 ## <a name="use-azure-portal-to-take-a-snapshot"></a>Azure Portal을 사용하여 스냅숏 만들기 
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
-2. 왼쪽 위에서 **새로 만들기**를 클릭하고 **스냅숏**을 검색합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+2. 왼쪽 위에서 **리소스 만들기**를 클릭하고 **스냅숏**을 검색합니다.
 3. 스냅숏 블레이드에서 **만들기**를 클릭합니다.
 4. 스냅숏의 **이름**을 입력합니다.
 5. 기존 [리소스 그룹](../../azure-resource-manager/resource-group-overview.md#resource-groups)을 선택하거나 새 리소스 그룹의 이름을 입력합니다. 
@@ -79,5 +79,5 @@ az snapshot create -g myResourceGroup --source "$osDiskId" --name osDisk-backup
 
 ## <a name="next-steps"></a>다음 단계
 
- 스냅숏에서 관리되는 디스크를 만들고 새 관리되는 디스크를 OS 디스크로 연결하여 스냅숏에서 가상 컴퓨터를 만듭니다. 자세한 내용은 [스냅숏에서 VM 만들기](./../scripts/virtual-machines-linux-cli-sample-create-vm-from-snapshot.md?toc=%2fcli%2fmodule%2ftoc.json) 스크립트를 참조하세요.
+ 스냅숏에서 관리되는 디스크를 만들고 새 관리되는 디스크를 OS 디스크로 연결하여 스냅숏에서 가상 머신을 만듭니다. 자세한 내용은 [스냅숏에서 VM 만들기](./../scripts/virtual-machines-linux-cli-sample-create-vm-from-snapshot.md?toc=%2fcli%2fmodule%2ftoc.json) 스크립트를 참조하세요.
 

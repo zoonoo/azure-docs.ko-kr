@@ -8,7 +8,7 @@
 
 ## <a name="buy-a-reserved-virtual-machine-instance"></a>예약 가상 머신 인스턴스 구매
 1. [Azure 포털](https://portal.azure.com) 에 로그인합니다.
-2. **추가 서비스** > **예약**을 선택합니다.
+2. **모든 서비스** > **예약**을 선택합니다.
 3. **추가**를 선택하여 새 예약을 구입합니다.
 4. 필수 필드를 입력합니다. 사용자가 선택한 특성과 일치하는 VM 인스턴스를 실행하면 예약 할인을 받을 수 있습니다. 할인을 받을 실제 VM 인스턴스 수는 선택한 범위 및 수량에 따라 달라집니다.
 
@@ -35,10 +35,10 @@
 
 예약을 관리하는 방법을 알아보려면 [Azure Reserved Virtual Machine Instances 관리](../articles/billing/billing-manage-reserved-vm-instance.md)를 참조합니다.
 
-Reserved Virtual Machine Instances에 대한 자세한 내용은 다음 아티클을 참조하세요.
+예약 가상 머신 인스턴스에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 - [Reserved Virtual Machine Instances를 사용하여 가상 머신에서 비용 절감](../articles/billing/billing-save-compute-costs-reservations.md)
-- [Reserved Virtual Machine Instance 할인이 적용되는 방식 이해](../articles/billing/billing-understand-vm-reservation-charges.md)
-- [종량제 구독에서 Reserved Instance 사용량 이해](../articles/billing/billing-understand-reserved-instance-usage.md)
-- [Enterprise 등록의 Reserved Instance 사용량 이해](../articles/billing/billing-understand-reserved-instance-usage-ea.md)
-- [Reserved Instances를 포함하지 않는 Windows 소프트웨어 비용](../articles/billing/billing-reserved-instance-windows-software-costs.md)
+- [예약 가상 머신 인스턴스 할인이 적용되는 방식 이해](../articles/billing/billing-understand-vm-reservation-charges.md)
+- [종량제 구독에서 예약 인스턴스 사용량 이해](../articles/billing/billing-understand-reserved-instance-usage.md)
+- [Enterprise 등록의 예약 인스턴스 사용량 이해](../articles/billing/billing-understand-reserved-instance-usage-ea.md)
+- [예약 인스턴스를 포함하지 않는 Windows 소프트웨어 비용](../articles/billing/billing-reserved-instance-windows-software-costs.md)

@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: skwan
-ms.openlocfilehash: 4e6645071da5353cbe12c7353d85f95eb8874c4f
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 58c6b5e076e9546aa621c9d1aea8893edf4335c0
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-sql"></a>Windows VM MSI(관리 서비스 ID)를 사용하여 Azure SQL 액세스
 
@@ -44,7 +44,7 @@ ms.lasthandoff: 02/03/2018
 
 이 자습서에서는 새 Windows VM을 만듭니다.  기존 VM에서 MSI를 사용하도록 설정할 수도 있습니다.
 
-1.  Azure Portal의 왼쪽 위에 있는 **새로 만들기** 단추를 클릭합니다.
+1.  Azure Portal의 왼쪽 위 모서리에 있는 **리소스 만들기** 단추를 클릭합니다.
 2.  **Compute**를 선택한 후 **Windows Server 2016 Datacenter**를 선택합니다. 
 3.  가상 머신 정보를 입력합니다. 여기서 만드는 **사용자 이름** 및 **암호**는 가상 머신에 로그인하는 데 사용하는 자격 증명입니다.
 4.  드롭다운에서 가상 머신의 적절한 **구독**을 선택합니다.

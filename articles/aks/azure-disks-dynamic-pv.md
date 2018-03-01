@@ -8,13 +8,13 @@ ms.service: container-service
 ms.topic: article
 ms.date: 1/25/2018
 ms.author: nepeters
-ms.openlocfilehash: e1f5b68d5d39dd846ebec525d1e83a6c0ef4971a
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: aa89cf9fe4e2cd5b63017558e89401de86effdc9
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/13/2018
 ---
-# <a name="persistent-volumes-with-azure-disks---dynamic-provisioning"></a>Azure 디스크가 포함된 영구적 볼륨 - 동적 프로비저닝
+# <a name="persistent-volumes-with-azure-disks"></a>Azure 디스크가 포함된 영구적 볼륨
 
 영구적 볼륨은 Kubernetes 클러스터에서 사용하도록 프로비전된 저장소 부분을 나타냅니다. 하나 이상의 Pod에서 영구적 볼륨을 사용할 수 있으며 동적 또는 정적으로 프로비전할 수 있습니다. 이 문서에서는 Azure 디스크를 AKS 클러스터에 있는 Kubernetes 영구적 볼륨으로 동적으로 프로비전하는 과정을 자세히 설명합니다. 
 

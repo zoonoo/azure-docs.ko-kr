@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 01/02/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: c051fec3369ef0d309ecf6c68b17272bb396eeec
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e4c875d07905b56c0d3eb346c839f7a4917531de
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>가속 네트워킹을 사용하는 Linux 가상 머신 만들기
 
@@ -48,8 +48,8 @@ ms.lasthandoff: 02/09/2018
 ## <a name="supported-operating-systems"></a>지원되는 운영 체제
 * **Ubuntu 16.04**: 4.11.0-1013 이상 커널 버전
 * **SLES SP3**: 4.4.92-6.18 이상 커널 버전
-* **RHEL**: 7.4.2017120423 이상 커널 버전
-* **CentOS**: 7.4.20171206 이상 커널 버전
+* **RHEL 7.4**: 7.4.2017120423 이상 커널 버전
+* **CentOS 7.4**: 7.4.20171206 이상 커널 버전
 
 ## <a name="supported-vm-instances"></a>지원되는 VM 인스턴스
 가속 네트워킹은 가장 일반적인 용도로 4개 이상의 vCPU가 포함된 계산 최적화 인스턴스 크기에서 지원됩니다. 하이퍼스레딩을 지원하는 D/DSv3 또는 E/ESv3과 같은 인스턴스에서 가속 네트워킹은 8개 이상의 vCPU가 포함된 VM 인스턴스에서 지원됩니다.  지원되는 계열은 D/DSv2, D/DSv3, E/ESv3, F/Fs/Fsv2 및 Ms/Mms입니다. 

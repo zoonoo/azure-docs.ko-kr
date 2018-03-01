@@ -8,18 +8,22 @@ editor: TomShinder
 ms.assetid: 
 ms.service: security
 ms.topic: article
-ms.date: 08/07/2017
+ms.date: 02/16/2018
 ms.author: Barclayn
 ms.custom: AzLog
-ms.openlocfilehash: 3cd80817bf8b2ef2f66e9942eddc186a3eb5b5e4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e5bd27c94569228693d1a9c80c6e5362b50c4a44
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-log-integration-tutorial-process-azure-key-vault-events-by-using-event-hubs"></a>Azure 로그 통합 자습서: Event Hubs를 사용하여 Azure Key Vault 이벤트 처리
 
 Azure 로그 통합을 사용하여 기록된 이벤트를 검색하고 SIEM(보안 정보 및 이벤트 관리) 시스템에 제공할 수 있습니다. 이 자습서는 Azure 로그 통합을 사용하여 Azure Event Hubs를 통해 획득한 로그를 처리하는 방법의 예제를 보여 줍니다.
+
+>[!IMPORTANT]
+>Azure 로그를 통합하는 기본 방법은 SIEM 공급업체의 Azure Monitor 커넥터를 사용하고 다음 [지침](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md)을 따르는 것입니다. 그러나 SIEM 공급업체에서 Azure Monitor에 대한 커넥터를 제공하지 않는 경우 이러한 커넥터를 사용할 수 있을 때까지 Azure Log Integration을 임시 솔루션으로 사용할 수 있습니다(Azure Log Integration에서 해당 SIEM이 지원되는 경우).
+
  
 이 자습서를 사용하여 예제 단계를 따르고 각 단계가 솔루션을 어떻게 지원하는지 이해하면 Azure 로그 통합 및 Event Hubs가 연동하는 방식에 익숙해질 수 있습니다. 그런 다음 여기서 학습한 내용을 바탕으로 회사 고유의 요구 사항을 지원하기 위한 자신만의 단계를 만들 수 있습니다.
 
@@ -52,8 +56,8 @@ Azure 로그 통합을 사용하여 기록된 이벤트를 검색하고 SIEM(보
 3. [Azure 로그 통합](https://www.microsoft.com/download/details.aspx?id=53324) 설치됨. 설치하려면:
 
    a. 원격 데스크톱을 사용하여 2단계에서 언급한 시스템에 연결합니다.   
-   b. Azure 로그 통합 설치 관리자를 시스템에 복사합니다. [설치 파일을 다운로드](https://www.microsoft.com/download/details.aspx?id=53324)할 수 있습니다.   
-   c. 설치 관리자를 시작하고 Microsoft 소프트웨어 사용 조건에 동의합니다.   
+   나. Azure 로그 통합 설치 관리자를 시스템에 복사합니다. [설치 파일을 다운로드](https://www.microsoft.com/download/details.aspx?id=53324)할 수 있습니다.   
+   다. 설치 관리자를 시작하고 Microsoft 소프트웨어 사용 조건에 동의합니다.   
    d. 원격 분석 정보를 입력하는 경우 확인란을 선택한 상태로 둡니다. 사용 정보를 Microsoft로 보내지 않으려면 확인란의 선택을 취소합니다.
    
    Azure 로그 통합 및 설치 방법에 대한 자세한 내용은 [Azure 로그 통합, Azure 진단 로깅 및 Windows 이벤트 전달](security-azure-log-integration-get-started.md)을 참조하세요.
@@ -65,7 +69,7 @@ Azure 로그 통합을 사용하여 기록된 이벤트를 검색하고 SIEM(보
    PowerShell 5.0 이상이 있는 경우 최신 버전 설치를 진행할 수 있습니다.
    
    a. PowerShell 창에서 ```Install-Module Azure``` 명령을 입력합니다. 설치 단계를 완료합니다.    
-   b. ```Install-Module AzureRM``` 명령을 입력합니다. 설치 단계를 완료합니다.
+   나. ```Install-Module AzureRM``` 명령을 입력합니다. 설치 단계를 완료합니다.
 
    자세한 내용은 [Azure PowerShell 설치](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.0.0)를 참조하세요.
 
@@ -115,7 +119,7 @@ Azure 로그 통합을 사용하여 기록된 이벤트를 검색하고 SIEM(보
 11. 가능한 모든 Azure 위치를 가져오고 이후 단계에서 사용할 수 있는 변수에 이름을 추가합니다.
     
     a. ```$locationObjects = Get-AzureRMLocation```    
-    b. ```$locations = @('global') + $locationobjects.location```
+    나. ```$locations = @('global') + $locationobjects.location```
     
     이때 `$locations`를 입력하고 Get-AzureRmLocation에서 반환되는 추가 정보 없이 위치 이름이 표시됩니다.
 12. Azure Resource Manager 로그 프로필을 만듭니다. 

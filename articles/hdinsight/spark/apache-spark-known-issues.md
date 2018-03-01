@@ -16,18 +16,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: bb5557eb0672b9ad137bc5817e47bf4f89e1c34d
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 7faa1fa1537dd71bdf0493d92f26ddda2ae59264
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="known-issues-for-apache-spark-cluster-on-hdinsight"></a>HDInsight의 Apache Spark 클러스터에 대한 알려진 문제
 
 이 문서는 HDInsight Spark 공개 미리 보기에 대한 모든 알려진 문제를 추적합니다.  
 
 ## <a name="livy-leaks-interactive-session"></a>Livy 누수 대화형 세션
-Livy가 여전히 활성 상태인 대화형 세션으로 재시작하는 경우(Ambari에서 또는 헤드 노드 0 가상 컴퓨터 재부팅으로 인해) 대화형 작업 세션이 손실됩니다. 이로 인해 새 작업은 수락된 상태에 멈출 수 있으며 시작할 수 없습니다.
+Livy가 여전히 활성 상태인 대화형 세션으로 재시작하는 경우(Ambari에서 또는 헤드 노드 0 가상 머신 재부팅으로 인해) 대화형 작업 세션이 손실됩니다. 이로 인해 새 작업은 수락된 상태에 멈출 수 있으며 시작할 수 없습니다.
 
 **해결 방법:**
 
@@ -39,7 +39,7 @@ Livy가 여전히 활성 상태인 대화형 세션으로 재시작하는 경우
    
         yarn application –list
    
-    작업이 명시적 이름이 지정되지 않은 Livy 대화형 세션으로 시작된 경우 기본 작업 이름은 Livy가 되며 Jupyter 노트북으로 시작된 Livy 세션의 경우 작업 이름은 remotesparkmagics_*로 시작됩니다. 
+    작업이 명시적으로 지정된 이름 없이 Livy 대화형 세션으로 시작된 경우 기본 작업 이름은 Livy가 됩니다. Jupyter 노트북으로 시작된 Livy 세션의 경우 작업 이름은 remotesparkmagics_ *로 시작합니다. 
 3. 다음 명령을 실행하여 해당 작업을 중지합니다. 
    
         yarn application –kill <Application ID>
@@ -99,7 +99,7 @@ Jupyter Notebook에서 Spark 매직을 사용한 첫 번째 코드 문의 경우
 이는 첫 번째 코드 셀이 실행될 때 발생합니다. 백그라운드에서 세션 구성이 시작되고 Spark, SQL 및 Hive 컨텍스트가 설정됩니다. 이러한 컨텍스트가 설정된 후 첫 번째 문이 실행되므로 문이 완료되는 데 시간이 오래 걸린 것 같은 느낌이 듭니다.
 
 ### <a name="jupyter-notebook-timeout-in-creating-the-session"></a>세션 만들기에서 Jupyter 노트북 시간 제한
-Spark 클러스터에 리소스가 부족할 때 Jupyter 노트북에서 Spark 및 Pyspark 커널은 세션을 만들려고 할 때 시간 초과가 됩니다. 
+Spark 클러스터에 리소스가 부족할 때 Jupyter 노트북에서 Spark 및 PySpark 커널은 세션을 만들려고 할 때 시간 초과가 됩니다. 
 
 **해결 방법:** 
 
@@ -114,9 +114,10 @@ Spark 클러스터에 리소스가 부족할 때 Jupyter 노트북에서 Spark �
 
 ### <a name="scenarios"></a>시나리오
 * [BI와 Spark: BI 도구와 함께 HDInsight에서 Spark를 사용하여 대화형 데이터 분석 수행](apache-spark-use-bi-tools.md)
-* [기계 학습과 Spark: HVAC 데이터를 사용하여 건물 온도를 분석하는 데 HDInsight의 Spark 사용](apache-spark-ipython-notebook-machine-learning.md)
-* [기계 학습과 Spark: 음식 검사 결과를 예측하는 데 HDInsight의 Spark 사용](apache-spark-machine-learning-mllib-ipython.md)
-* [Spark 스트리밍: HDInsight에서 Spark를 사용하여 실시간 스트리밍 응용 프로그램 빌드](apache-spark-eventhub-streaming.md)
+* 
+            [Machine Learning과 Spark: HVAC 데이터를 사용하여 건물 온도를 분석하는 데 HDInsight의 Spark 사용](apache-spark-ipython-notebook-machine-learning.md)
+* 
+            [Machine Learning과 Spark: 음식 검사 결과를 예측하는 데 HDInsight의 Spark 사용](apache-spark-machine-learning-mllib-ipython.md)
 * [HDInsight의 Spark를 사용하여 웹 사이트 로그 분석](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>응용 프로그램 만들기 및 실행

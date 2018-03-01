@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 69e8735417bc006296b8a6e5168d9fbeff052247
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: bc1ea42c9fb81fe1e2a2594fda48500132cbb539
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="query-for-as2-x12-and-edifact-messages-in-the-microsoft-operations-management-suite-oms"></a>OMS(Microsoft Operations Management Suite)에서 AS2, X12 및 EDIFACT 메시지에 대한 쿼리
 
@@ -44,7 +44,7 @@ ms.lasthandoff: 01/19/2018
 > [!TIP] 
 > OMS 작업 영역 이름을 알고 있으면 작업 영역 홈페이지(`https://{your-workspace-name}.portal.mms.microsoft.com`)로 이동하고 4단계에서 시작합니다. 그렇지 않은 경우 1단계에서 시작합니다.
 
-1. [Azure Portal](https://portal.azure.com)에서 **더 많은 서비스**를 선택합니다. "로그 분석"에 대해 검색한 후 다음과 같이 **Log Analytics**를 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에서 **모든 서비스**를 선택합니다. "로그 분석"에 대해 검색한 후 다음과 같이 **Log Analytics**를 선택합니다.
 
    ![Log Analytics 찾기](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/browseloganalytics.png)
 

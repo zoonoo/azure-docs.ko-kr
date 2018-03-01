@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/18/2017
 ms.author: jdial
-ms.openlocfilehash: c71e188b74ebfd9420f840957e83190cf476b584
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2042bc44df7d3d61bf52d28a910dae1b125b9fdb
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Azure Virtual Network FAQ(질문과 대답)
 
@@ -51,7 +51,7 @@ VNet을 다음에 사용합니다.
 ### <a name="what-tools-do-i-use-to-create-a-vnet"></a>VNet을 만들려면 어떤 도구를 사용합니까?
 다음 도구를 사용하여 VNet을 만들거나 구성할 수 있습니다.
 
-* Azure 포털(클래식 및 리소스 관리자 VNet용)
+* Azure Portal(클래식 및 Resource Manager VNet용)
 * 네트워크 구성 파일(netcfg - 클래식 VNet 전용) [네트워크 구성 파일을 사용하여 VNet 구성](virtual-networks-using-network-configuration-file.md) 문서를 참조하세요.
 * PowerShell(클래식 및 리소스 관리자 VNet용)
 * Azure CLI(클래식 및 리소스 관리자 VNet용)
@@ -72,22 +72,22 @@ VNet을 다음에 사용합니다.
 지원되는 가장 작은 서브넷은 /29이며 가장 큰 서브넷은 /8(CIDR 서브넷 정의 사용)입니다.
 
 ### <a name="can-i-bring-my-vlans-to-azure-using-vnets"></a>VNet을 사용하여 내 VLAN을 Azure에 가져올 수 있습니까?
-아니요. VNet은 계층 3 오버레이입니다. Azure는 모든 계층 2 의미 체계를 지원하지 않습니다.
+번호 VNet은 계층 3 오버레이입니다. Azure는 모든 계층 2 의미 체계를 지원하지 않습니다.
 
 ### <a name="can-i-specify-custom-routing-policies-on-my-vnets-and-subnets"></a>VNet 및 서브넷에 사용자 지정 라우팅 정책을 지정할 수 있습니까?
 예. UDR(사용자 정의 라우팅)을 사용할 수 있습니다. UDR에 대한 자세한 내용은 [사용자 정의 경로 및 IP 전달](virtual-networks-udr-overview.md)을 참조하세요.
 
 ### <a name="do-vnets-support-multicast-or-broadcast"></a>VNet은 멀티 캐스트 또는 브로드캐스트를 지원합니까?
-아니요. 멀티 캐스트 또는 브로드캐스트는 지원하지 않습니다.
+번호 멀티 캐스트 또는 브로드캐스트는 지원하지 않습니다.
 
 ### <a name="what-protocols-can-i-use-within-vnets"></a>VNet 내에서 사용할 수 있는 프로토콜은 무엇입니까?
-VNet 내에서 TCP, UDP 및 ICMP TCP/IP 프로토콜을 사용할 수 있습니다. 멀티 캐스트, 브로드캐스트, IP-IP 캡슐화 패킷 및 GRE(일반 라우팅 캡슐화) 패킷은 VNet 내에서 차단됩니다. 
+VNet 내에서 TCP, UDP 및 ICMP TCP/IP 프로토콜을 사용할 수 있습니다. 유니캐스트(원본 포트 UDP/68 / 대상 포트 UDP/67)를 통한 DCHP(Dynamic Host Configuration Protocol)를 제외하고 유니캐스트는 VNet 내에서 지원됩니다. 멀티 캐스트, 브로드캐스트, IP-IP 캡슐화 패킷 및 GRE(일반 라우팅 캡슐화) 패킷은 VNet 내에서 차단됩니다. 
 
 ### <a name="can-i-ping-my-default-routers-within-a-vnet"></a>내 기본 라우터를 VNet 내에서 ping할 수 있습니까?
-아니요.
+번호
 
 ### <a name="can-i-use-tracert-to-diagnose-connectivity"></a>Tracert를 사용하여 연결을 진단할 수 있습니까?
-아니요.
+번호
 
 ### <a name="can-i-add-subnets-after-the-vnet-is-created"></a>VNet을 만든 후 서브넷을 추가할 수 있습니까?
 예. 서브넷 주소가 VNet에서 다른 서브넷의 일부가 아닌 경우 언제든지 서브넷을 VNet에 추가할 수 있습니다.
@@ -99,13 +99,13 @@ VNet 내에서 TCP, UDP 및 ICMP TCP/IP 프로토콜을 사용할 수 있습니�
 예. VNet에서 사용되는 CIDR 블록을 추가, 제거 및 수정할 수 있습니다.
 
 ### <a name="can-i-connect-to-the-internet-if-i-am-running-my-services-in-a-vnet"></a>VNet에서 서비스를 실행 중인 경우 인터넷에 연결할 수 있습니까?
-예. VNet 내에 배포된 모든 서비스는 인터넷에 연결할 수 있습니다. Azure에서 배포된 모든 클라우드 서비스에는 공개적으로 주소를 지정할 수 있는 할당된 VIP가 있습니다. 해당 서비스를 활성화하여 인터넷의 연결을 허용하려면 PaaS 역할에 대한 입력 끝점 및 가상 컴퓨터에 대한 끝점을 정의해야 합니다.
+예. VNet 내에 배포된 모든 서비스는 인터넷에 연결할 수 있습니다. Azure에서 배포된 모든 클라우드 서비스에는 공개적으로 주소를 지정할 수 있는 할당된 VIP가 있습니다. 해당 서비스를 활성화하여 인터넷의 연결을 허용하려면 PaaS 역할에 대한 입력 끝점 및 가상 머신에 대한 끝점을 정의해야 합니다.
 
 ### <a name="do-vnets-support-ipv6"></a>VNet은 IPv6를 지원합니까?
-아니요. VNet과 함께 IPv6를 사용할 수 없습니다.
+번호 VNet과 함께 IPv6를 사용할 수 없습니다.
 
 ### <a name="can-a-vnet-span-regions"></a>VNet을 사용하여 지역을 확장할 수 있습니까?
-아니요. VNet은 단일 지역으로 제한됩니다.
+번호 VNet은 단일 지역으로 제한됩니다.
 
 ### <a name="can-i-connect-a-vnet-to-another-vnet-in-azure"></a>Azure에서 다른 VNet에 VNet을 연결할 수 있습니까?
 예. 다음을 사용하여 하나의 VNet을 다른 VNet에 연결할 수 있습니다.
@@ -138,19 +138,19 @@ Azure에서 제공하는 DNS는 Microsoft에서 제공하는 다중 테넌트 DN
 예. 클라우드 서비스 별로 DNS 서버를 설정하여 기본 네트워크 설정을 재정의할 수 있습니다. 그러나 가능한 한 네트워크 차원 DNS를 사용하는 것이 좋습니다.
 
 ### <a name="can-i-bring-my-own-dns-suffix"></a>고유한 DNS 접미사를 가져올 수 있습니까?
-아니요. VNet에 대해 사용자 지정 DNS 접미사를 지정할 수 없습니다.
+번호 VNet에 대해 사용자 지정 DNS 접미사를 지정할 수 없습니다.
 
-## <a name="connecting-virtual-machines"></a>가상 컴퓨터 연결
+## <a name="connecting-virtual-machines"></a>가상 머신 연결
 
 ### <a name="can-i-deploy-vms-to-a-vnet"></a>VNet에 VM을 배포할 수 있습니까?
 예. 리소스 관리자 배포 모델을 통해 배포된 VM에 연결된 모든 NIC(네트워크 인터페이스)는 VNet에 연결되어야 합니다. 클래식 배포 모델을 통해 배포된 VM은 VNet에 선택적으로 연결할 수 있습니다.
 
 ### <a name="what-are-the-different-types-of-ip-addresses-i-can-assign-to-vms"></a>VM에 지정할 수 있는 IP 주소 유형에는 무엇이 있습니까?
 * **개인:** 각 VM 내에서 각 NIC에 할당됩니다. 주소는 고정 또는 동적 방법을 사용하여 할당됩니다. VNet의 서브넷 설정에 지정한 범위에서 개인 IP 주소가 할당됩니다. VNet에 연결되지 않은 경우에도 클래식 배포 모델을 통해 배포된 리소스에는 개인 IP 주소가 할당됩니다. 리소스가 삭제될 때까지(VM 또는 클라우드 서비스 배포 슬롯) 동적 방법으로 할당된 개인 IP 주소는 해당 리소스에 할당된 상태로 유지됩니다. VM이 중지됨(할당 취소됨) 상태에서 다시 시작될 때 동적 방법으로 할당된 개인 IP 주소가 변경될 수 있습니다. 리소스가 삭제될 때까지 고정 방법으로 할당된 개인 IP 주소는 해당 리소스에 할당된 상태로 유지됩니다. 리소스가 삭제될 때까지 리소스의 개인 IP 주소가 변경되지 않도록 하려면 개인 IP 주소를 고정 방법으로 할당합니다.
-* **공용:** 필요에 따라 Azure Resource Manager 배포 모델을 통해 배포된 VM에 연결된 NIC에 할당됩니다. 정적 또는 동적 할당 메서드를 사용하여 주소를 할당할 수 있습니다. 클래식 배포 모델을 통해 배포된 모든 VM 및 클라우드 서비스 역할 인스턴스는 클라우드 서비스 내에 존재하며 *동적*, 공용 VIP(가상 IP) 주소가 할당됩니다. [예약된 IP 주소](virtual-networks-reserved-public-ip.md)라고 하는 공용 *정적* IP 주소는 필요에 따라 VIP로 할당될 수 있습니다. 클래식 배포 모델을 통해 배포된 개별 VM 또는 클라우드 서비스 역할 인스턴스에 공용 IP 주소를 할당할 수 있습니다. 이러한 주소는 [ILPIP(인스턴스 수준 공용 IP)](virtual-networks-instance-level-public-ip.md) 주소라고 하며 동적으로 할당될 수 있습니다.
+* **공용:** 필요에 따라 Azure Resource Manager 배포 모델을 통해 배포된 VM에 연결된 NIC에 할당됩니다. 정적 또는 동적 할당 메서드를 사용하여 주소를 할당할 수 있습니다. 클래식 배포 모델을 통해 배포된 모든 VM 및 Cloud Services 역할 인스턴스는 클라우드 서비스 내에 존재하며 *동적*, 공용 VIP(가상 IP) 주소가 할당됩니다. [예약된 IP 주소](virtual-networks-reserved-public-ip.md)라고 하는 공용 *정적* IP 주소는 필요에 따라 VIP로 할당될 수 있습니다. 클래식 배포 모델을 통해 배포된 개별 VM 또는 Cloud Services 역할 인스턴스에 공용 IP 주소를 할당할 수 있습니다. 이러한 주소는 [ILPIP(인스턴스 수준 공용 IP)](virtual-networks-instance-level-public-ip.md) 주소라고 하며 동적으로 할당될 수 있습니다.
 
 ### <a name="can-i-reserve-a-private-ip-address-for-a-vm-that-i-will-create-at-a-later-time"></a>나중에 만들 VM에 대한 개인 IP 주소를 예약할 수 있습니까?
-아니요. 개인 IP 주소를 예약할 수 없습니다. 개인 IP 주소가 사용 가능한 경우 DHCP 서버에서 VM 또는 역할 인스턴스에 할당됩니다. 해당 VM은 개인 IP 주소를 할당하려는 VM일 수도 아닐 수도 있습니다. 그러나 이미 만든 VM의 개인 IP 주소를 사용 가능한 모든 개인 IP 주소로 변경할 수 있습니다.
+번호 개인 IP 주소를 예약할 수 없습니다. 개인 IP 주소가 사용 가능한 경우 DHCP 서버에서 VM 또는 역할 인스턴스에 할당됩니다. 해당 VM은 개인 IP 주소를 할당하려는 VM일 수도 아닐 수도 있습니다. 그러나 이미 만든 VM의 개인 IP 주소를 사용 가능한 모든 개인 IP 주소로 변경할 수 있습니다.
 
 ### <a name="do-private-ip-addresses-change-for-vms-in-a-vnet"></a>VNet에서 VM에 대한 개인 IP 주소가 변경됩니까?
 경우에 따라 다릅니다. 동적 개인 IP 주소는 중지(할당 취소) 또는 삭제될 때까지 VM과 함께 유지됩니다. 정적 개인 IP 주소는 삭제될 때까지 VM에서 해제되지 않습니다.
@@ -165,31 +165,31 @@ Azure에서 제공하는 DNS는 Microsoft에서 제공하는 다중 테넌트 DN
 예. [다른 서브넷으로 VM 또는 역할 인스턴스를 이동하는 방법](virtual-networks-move-vm-role-to-subnet.md) 문서에서 자세한 정보를 확인할 수 있습니다.
 
 ### <a name="can-i-configure-a-static-mac-address-for-my-vm"></a>VM에 대해 정적 MAC 주소를 구성할 수 있습니까?
-아니요. MAC 주소를 정적으로 구성할 수 없습니다.
+번호 MAC 주소를 정적으로 구성할 수 없습니다.
 
 ### <a name="will-the-mac-address-remain-the-same-for-my-vm-once-it-has-been-created"></a>MAC 주소가 만들어진 후 VM에 대해 동일하게 유지됩니까?
 예, MAC 주소는 삭제될 때까지 리소스 관리자 또는 클래식 배포 모델을 통해 배포된 VM에 대해 동일하게 유지됩니다. 이전에 MAC 주소는 VM이 중지(할당 취소)되는 경우에 해제되었지만 이제 VM이 할당 취소된 상태에 있을 때에도 MAC 주소는 유지됩니다.
 
 ### <a name="can-i-connect-to-the-internet-from-a-vm-in-a-vnet"></a>VNet의 VM에서 인터넷에 연결할 수 있습니까?
-예. VNet 내에 배포된 모든 VM 및 클라우드 서비스 역할 인스턴스는 인터넷에 연결할 수 있습니다.
+예. VNet 내에 배포된 모든 VM 및 Cloud Services 역할 인스턴스는 인터넷에 연결할 수 있습니다.
 
 ## <a name="azure-services-that-connect-to-vnets"></a>VNet에 연결하는 Azure 서비스
 
 ### <a name="can-i-use-azure-app-service-web-apps-with-a-vnet"></a>VNet에 Azure App Service Web Apps를 사용할 수 있습니까?
-예. ASE(앱 서비스 환경)를 사용하여 VNet 내부에 Web Apps를 배포할 수 있습니다. VNet에 대해 지점 및 사이트 간 연결이 구성된 경우 Azure VNet에서 모든 Web Apps를 안전하게 연결하고 리소스에 액세스할 수 있습니다. 자세한 내용은 다음 문서를 참조하세요.
+예. ASE(App Service Environment)를 사용하여 VNet 내부에 Web Apps를 배포할 수 있습니다. VNet에 대해 지점 및 사이트 간 연결이 구성된 경우 Azure VNet에서 모든 Web Apps를 안전하게 연결하고 리소스에 액세스할 수 있습니다. 자세한 내용은 다음 문서를 참조하세요.
 
-* [앱 서비스 환경에서 웹앱 만들기](../app-service/environment/app-service-web-how-to-create-a-web-app-in-an-ase.md)
+* [App Service 환경에서 Web Apps 만들기](../app-service/environment/app-service-web-how-to-create-a-web-app-in-an-ase.md)
 * [Azure Virtual Network에 앱 통합](../app-service/web-sites-integrate-with-vnet.md)
-* [웹앱을 통해 VNet 통합 및 하이브리드 연결 사용](../app-service/web-sites-integrate-with-vnet.md#hybrid-connections-and-app-service-environments)
+* [Web Apps를 통해 VNet 통합 및 하이브리드 연결 사용](../app-service/web-sites-integrate-with-vnet.md#hybrid-connections-and-app-service-environments)
 
 ### <a name="can-i-deploy-cloud-services-with-web-and-worker-roles-paas-in-a-vnet"></a>VNet에서 웹 및 작업자 역할(PaaS)을 사용하여 Cloud Services를 배포할 수 있습니까?
 예. (선택 사항) VNet 내에서 Cloud Services 역할 인스턴스를 배포할 수 있습니다. 이를 수행하려면 서비스 구성의 네트워크 구성 섹션에서 VNet 이름 및 역할/서브넷 매핑을 지정합니다. 이진 파일을 업데이트할 필요가 없습니다.
 
-### <a name="can-i-connect-a-virtual-machine-scale-set-vmss-to-a-vnet"></a>VMSS(가상 컴퓨터 확장 집합)를 VNet에 연결할 수 있습니까?
+### <a name="can-i-connect-a-virtual-machine-scale-set-vmss-to-a-vnet"></a>VMSS(Virtual Machine Scale Set)를 VNet에 연결할 수 있습니까?
 예. VMSS를 VNet에 연결해야 합니다.
 
 ### <a name="can-i-move-my-services-in-and-out-of-vnets"></a>서비스를 VNet 내부 및 외부로 이동할 수 있습니까?
-아니요. 서비스를 VNet 내부 및 외부로 이동할 수 없습니다. 서비스를 삭제하고 다시 배포하여 다른 VNet으로 이동해야 합니다.
+번호 서비스를 VNet 내부 및 외부로 이동할 수 없습니다. 서비스를 삭제하고 다시 배포하여 다른 VNet으로 이동해야 합니다.
 
 ## <a name="security"></a>보안
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: markgal
-ms.openlocfilehash: 58080d0e045f1825e89287fc421b7e84db36331e
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 925aa88d32f6f5cea252616cf079faf35857eb8a
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="monitor-and-manage-azure-recovery-services-vaults-and-servers-for-windows-machines"></a>Windows 컴퓨터용 Azure 복구 서비스 자격 증명 모음 및 서버 모니터링 및 관리
 
@@ -32,13 +32,11 @@ ms.lasthandoff: 11/11/2017
 Recovery Services Vault 대시보드에는 Recovery Services Vault의 세부 정보 또는 특성이 표시됩니다.
 
 1. Azure 구독을 사용하여 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. 허브 메뉴에서 **추가 서비스**를 클릭합니다.
-
-    ![Recovery Services Vault 목록 열기 1단계](./media/backup-azure-manage-windows-server/open-rs-vault-list.png) <br/>
+2. **모든 서비스**를 클릭합니다. 
 
 3. Recovery Services Vault를 열려고 합니다. 대화 상자에서 **Recovery Services** 입력을 시작합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Recovery Services Vault**를 클릭하여 구독의 Recovery Services Vault 목록을 표시합니다.
 
-    ![Recovery Services 자격 증명 모음 만들기 1단계](./media/backup-azure-manage-windows-server/browse-to-rs-vaults-2.png) <br/>
+     ![Recovery Services Vault 목록 열기 1단계](./media/backup-azure-manage-windows-server/open-rs-vault-list.png) <br/>
 
     Recovery Services Vault 목록이 열립니다.
 
@@ -74,9 +72,9 @@ Recovery Services Vault 대시보드에는 Recovery Services Vault의 세부 정
 ## <a name="alerts-for-backups-using-azure-backup-agent"></a>Azure 백업 에이전트에 의한 백업 경고
 | 경고 수준 | 전송되는 경고 |
 | --- | --- |
-| 중요 |Backup 실패, 복구 실패 |
-| Warning |백업이 완료되었지만 경고가 발생했습니다(손상 문제로 인해 100개 미만의 파일이 백업되지 않았고 100만 개 이상의 파일이 성공적으로 백업된 경우). |
-| 정보 제공 |없음 |
+| 중요 | 백업 실패, 복구 실패, 삭제 지연. 누군가 데이터 삭제에서 보호 중지 |
+| Warning | 백업이 완료되었지만 경고가 발생했습니다(손상 문제로 인해 100개 미만의 파일이 백업되지 않았고 1,000,000개 이상의 파일이 성공적으로 백업된 경우). |
+| 정보 제공 | 현재 Azure 백업 에이전트에 사용할 수 있는 정보 경고 없음 |
 
 ## <a name="manage-backup-alerts"></a>Backup 경고 관리
 **백업 경고** 타일을 클릭하여 **백업 경고** 메뉴를 열고 경고를 관리합니다.
@@ -155,7 +153,7 @@ Backup 항목 타일에서 **파일-폴더** 타일을 클릭합니다.
 
 페이지 맨 위의 **열 선택** 단추로 백업 작업 메뉴에 사용할 수 있는 정보를 수정합니다.
 
-**필터** 단추를 사용하여 파일과 폴더 및 Azure 가상 컴퓨터 백업 중에서 선택합니다.
+**필터** 단추를 사용하여 파일과 폴더 및 Azure 가상 머신 백업 중에서 선택합니다.
 
 백업 파일 및 폴더가 보이지 않으면 페이지 맨 위의 **필터** 단추를 클릭하고 항목 유형 메뉴에서 **파일 및 폴더**를 선택합니다.
 

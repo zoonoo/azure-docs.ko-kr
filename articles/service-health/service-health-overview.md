@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 07/07/2017
 ms.author: robb
-ms.openlocfilehash: c463479b7eaee5a0548c8891dd3a20ef070dd39b
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 5f2b68e800f484a64e79f965fc855aebe090186a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-service-health"></a>Azure Service Health
 Azure Service Health는 Azure 서비스의 문제가 사용 중인 서비스에 영향을 줄 때 시기적절하고 개인 설정된 정보를 제공합니다.  향후 계획된 유지 관리에 대해 준비하는 데도 도움이 됩니다.
@@ -32,8 +32,13 @@ Service Health는 리소스에 영향을 줄 수 있는 다음과 같은 세 가
     ![Service Health 이벤트](./media/service-health-overview/azure-service-health-overview-7.png)
 
 ## <a name="get-started-with-service-health"></a>Service Health 시작
-Service Health 대시보드를 시작하려면 포털 대시보드에서 Service Health 타일을 선택합니다. 이전에 타일을 제거했거나 사용자 지정 대시보드를 사용 중인 경우 “추가 서비스”(대시보드의 왼쪽 아래)에서 Service Health 서비스를 검색합니다.
+Service Health 대시보드를 시작하려면 포털 대시보드에서 Service Health 타일을 선택합니다. 
+
 ![Service Health 시작](./media/service-health-overview/azure-service-health-overview-1.png)
+
+이전에 타일을 제거했거나 사용자 지정 대시보드를 사용 중인 경우 “**모든 서비스**”(대시보드의 왼쪽 위)에서 Service Health 서비스를 검색합니다.
+
+![Service Health 시작](./media/service-health-overview/azure-service-health-overview-1a.png)
 
 ## <a name="see-current-issues-which-impact-your-services"></a>서비스에 영향을 주는 현재 문제 확인
 **서비스 문제** 보기에는 리소스에 영향을 주고 있는 Azure 서비스의 진행 중인 문제가 표시됩니다. 문제가 시작된 시점 및 영향을 받는 서비스 및 지역을 파악할 수 있습니다. 또한 최신 업데이트를 읽어 문제를 해결하기 위해 Azure에서 수행 중인 내용을 파악할 수 있습니다. 

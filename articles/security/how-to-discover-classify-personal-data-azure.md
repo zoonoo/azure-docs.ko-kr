@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: 0d99df534da4575f3c34ec6b3475cdd1bdc3308a
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 011fe26c297ff991af1282c1ff3914031a99f1e4
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="discover-identify-and-classify-personal-data-in-microsoft-azure"></a>Microsoft Azure에서 개인 데이터 검색, 식별 및 분류
 
@@ -59,22 +59,22 @@ ms.lasthandoff: 12/14/2017
 
 1. 디렉터리에 대한 전역 관리자인 계정으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-2. **더 많은 서비스**를 선택하고 텍스트 상자에 **사용자 및 그룹**을 입력한 다음 **Enter**를 선택합니다.
+2. **모든 서비스**를 선택하고 텍스트 상자에 **사용자 및 그룹**을 입력한 다음, **입력**을 선택합니다.
 
    ![사용자 프로필 및 작업 정보를 찾으려면 어떻게 할까요?](media/how-to-discover-classify-personal-data-azure/user-profile.png)
 
 3. **사용자 및 그룹** 블레이드에서 **사용자**를 선택합니다.
 
-  ![사용자 및 그룹 열기](media/how-to-discover-classify-personal-data-azure/users-groups.png)
+      ![사용자 및 그룹 열기](media/how-to-discover-classify-personal-data-azure/users-groups.png)
 
 4. **사용자 및 그룹 - 사용자** 블레이드에서 목록의 사용자를 선택한 다음 선택한 사용자에 대한 블레이드에서 **프로필**을 선택하여 개인 데이터를 포함할 수 있는 사용자 프로필 정보를 볼 수 있습니다.
 
-  ![사용자 선택](media/how-to-discover-classify-personal-data-azure/select-user.png)
+      ![사용자 선택](media/how-to-discover-classify-personal-data-azure/select-user.png)
 
 5. 사용자 프로필 정보를 추가하거나 변경해야 하는 경우 명령 모음에서 수행한 후에 **저장**을 선택합니다.
 6. 선택한 사용자에 대한 블레이드에서 **작업 정보**를 선택하여 개인 데이터를 포함할 수 있는 사용자 작업 정보를 볼 수 있습니다.
 
- ![작업 정보 보기](media/how-to-discover-classify-personal-data-azure/work-info.png)
+     ![작업 정보 보기](media/how-to-discover-classify-personal-data-azure/work-info.png)
 
 7. 사용자 작업 정보를 추가하거나 변경해야 하는 경우 명령 모음에서 수행한 후에 **저장**을 선택합니다.
 

@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/01/2017
+ms.date: 01/02/2018
 ms.author: larryfr
-ms.openlocfilehash: 19c5f165b47f7de4a014226460f82f3ca12b3eec
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 5d4e9d6ffb7fa0c2e4b69c5b534f0078aec5f68c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-the-beeline-client-with-apache-hive"></a>Apache Hive와 함께 Beeline 클라이언트 사용
 
@@ -38,13 +38,13 @@ Beeline은 HDInsight 클러스터의 헤드 노드에 포함된 Hive 클라이�
 >
 > `password`를 클러스터 로그인 계정의 암호로 바꿉니다.
 >
-> `clustername` 을 HDInsight 클러스터 이름으로 바꿉니다.
+> `clustername`을 HDInsight 클러스터 이름으로 바꿉니다.
 >
 > 가상 네트워크를 통해 클러스터에 연결할 때 `<headnode-FQDN>`을 클러스터 헤드 노드의 정규화된 도메인 이름으로 바꿉니다.
 
 ## <a id="prereq"></a>필수 조건
 
-* HDInsight 클러스터의 Linux 기반 Hadoop
+* HDInsight 클러스터 버전 3.4 이상의 Linux 기반 Hadoop
 
   > [!IMPORTANT]
   > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](../hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
@@ -53,7 +53,7 @@ Beeline은 HDInsight 클러스터의 헤드 노드에 포함된 Hive 클라이�
 
     SSH를 사용하는 방법에 대한 자세한 내용은 [HDInsight와 함께 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
-## <a id="beeline"></a>Beeline 사용
+## <a id="beeline"></a>Hive 쿼리 실행
 
 1. Beeline을 시작할 때 HDInsight 클러스터에서 HiveServer2에 대한 연결 문자열을 제공해야 합니다.
 
@@ -116,10 +116,19 @@ Beeline은 HDInsight 클러스터의 헤드 노드에 포함된 Hive 클라이�
 
     ```hiveql
     DROP TABLE log4jLogs;
-    CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
+    CREATE EXTERNAL TABLE log4jLogs (
+        t1 string,
+        t2 string,
+        t3 string,
+        t4 string,
+        t5 string,
+        t6 string,
+        t7 string)
     ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
     STORED AS TEXTFILE LOCATION 'wasb:///example/data/';
-    SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
+    SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs 
+        WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' 
+        GROUP BY t4;
     ```
 
     이러한 문은 다음 작업을 수행합니다.
@@ -167,7 +176,7 @@ Beeline은 HDInsight 클러스터의 헤드 노드에 포함된 Hive 클라이�
 
 5. Beeline을 종료하려면 `!exit`을 사용합니다.
 
-## <a id="file"></a>Beeline을 사용하여 HiveQL 파일 실행
+### <a id="file"></a>Beeline을 사용하여 HiveQL 파일 실행
 
 다음 단계를 사용하여 파일을 만든 다음 Beeline를 사용하여 실행합니다.
 

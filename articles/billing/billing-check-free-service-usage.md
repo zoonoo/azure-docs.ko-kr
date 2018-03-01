@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: amberb
-ms.openlocfilehash: 27ff6c92904a0b32cd4a37c8b1930adc121a7231
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8bc63091dfba822f9839f61dd12c212154ba695d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="check-usage-of-free-services-included-with-your-azure-free-account"></a>Azure 무료 계정에 포함된 무료 서비스의 사용량 확인 
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 
 1.  [Azure 포털]( http://portal.azure.com) 에 로그인합니다.
 
-2.  왼쪽 탐색의 아래쪽에서 **더 많은 서비스**를 선택합니다.
+2.  왼쪽 탐색 영역에서 **모든 서비스**를 선택합니다.
 
 3.  **구독**을 선택합니다.
 

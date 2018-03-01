@@ -15,11 +15,11 @@ ms.devlang: python
 ms.topic: article
 ms.date: 02/26/2016
 ms.author: huvalo
-ms.openlocfilehash: 86e19d5bb942937779665eb60d9dc0654c16747d
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: fa5f9afbc595f06bd41e8670fab7730b610f570e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configuring-python-with-azure-app-service-web-apps"></a>Azure App Service Web Apps에서 Python 구성
 이 자습서에서는 [Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714)에서 기본 WSGI(Web Server Gateway Interface) 규격 Python 응용 프로그램을 제작 및 구성하는 옵션을 설명합니다.
@@ -36,7 +36,7 @@ Azure Marketplace에는 Bottle, Django 및 Flask 프레임워크용 템플릿이
 ## <a name="web-app-creation-on-azure-portal"></a>Azure Portal에서 웹앱 만들기
 이 자습서에서는 기존 Azure 구독 및 Azure Portal에 대한 액세스 권한이 있다고 가정합니다.
 
-기존 웹앱이 없는 경우 [Azure Portal](https://portal.azure.com)에서 웹앱을 만들 수 있습니다.  왼쪽 위에 있는 새로 만들기 단추를 클릭한 다음 **웹 + 모바일** > **웹앱**을 클릭합니다.
+기존 웹앱이 없는 경우 [Azure Portal](https://portal.azure.com)에서 웹앱을 만들 수 있습니다. 왼쪽 위 모서리에서 **리소스 만들기** > **웹 + 모바일** > **웹 응용 프로그램**을 클릭합니다.
 
 ## <a name="git-publishing"></a>Git 게시
 [Azure App Service에 로컬 Git 배포](app-service-deploy-local-git.md)의 지침에 따라 새로 만든 웹앱에 대한 Git 게시를 구성합니다. 이 자습서에서는 Git을 사용하여 Python 웹앱을 만들고 관리하며 Azure App Service에 게시합니다.

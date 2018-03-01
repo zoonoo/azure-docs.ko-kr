@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/03/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 0570aab14283b38f9efcc50636f0c0c1c8e3ed13
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0357e67a8920a57b2ab8b79ebd8dd3a64d888478
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="learn-about-certificates-and-enterprise-integration-pack"></a>인증서 및 엔터프라이즈 통합 팩에 대해 알아보기
 ## <a name="overview"></a>개요
@@ -44,7 +44,7 @@ B2B 기능이 포함된 논리 앱에서 *공용 인증서* 를 사용하려면 
 
 Azure Portal에 로그인한 후 통합 계정에 공용 인증서를 업로드하는 자세한 단계는 다음과 같습니다.
 
-1. **추가 서비스**를 선택하고 필터 검색 상자에 **통합**을 입력합니다. 결과 목록에서 **통합 계정**을 선택합니다.     
+1. **모든 서비스**를 선택하고 필터 검색 상자에 **통합**을 입력합니다. 결과 목록에서 **통합 계정**을 선택합니다.     
 ![찾아보기 선택](media/logic-apps-enterprise-integration-certificates/overview-1.png)  
 2. 인증서를 추가할 통합 계정을 선택합니다.  
 ![인증서를 추가할 통합 계정 선택](media/logic-apps-enterprise-integration-certificates/overview-3.png)  

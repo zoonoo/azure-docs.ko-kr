@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: bc0bc80b45e97efc048d9a9c26b8dd5d5f39ce8d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b37ca3c6ca528551ef09a90159e92fd31e0fabf2
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory 개념 증명 플레이 북: 문서 블록
 
@@ -174,9 +174,9 @@ Azure AD Premium에서 POC에 필요한 일부 필수 구성 요소는 다음과
 | 필수 구성 요소 | 리소스 |
 | --- | --- |
 | SaaS 응용 프로그램에 대한 테스트 환경. 암호 SSO의 예로는 HipChat 및 Twitter가 있습니다. 다른 응용 프로그램의 경우 HTML 로그인 폼이 포함된 페이지의 정확한 URL이 필요합니다. | [Microsoft Azure Marketplace의 Twitter](https://azuremarketplace.microsoft.com/marketplace/apps/aad.twitter)<br/>[Microsoft Azure Marketplace의 HipChat](https://azuremarketplace.microsoft.com/marketplace/apps/aad.hipchat) |
-| 응용 프로그램에 대한 테스트 계정. | [Sign up for Twitter](https://twitter.com/signup?lang=en)(Twitter 가입)<br/>[Sign Up for Free: HipChat](https://www.hipchat.com/sign_up)(무료 가입: HipChat) |
+| 응용 프로그램에 대한 테스트 계정. | [Twitter 가입](https://twitter.com/signup?lang=en)<br/>[Sign Up for Free: HipChat](https://www.hipchat.com/sign_up)(무료 가입: HipChat) |
 | 응용 프로그램을 할당할 대상 사용자 집합. 사용자가 포함된 보안 그룹을 사용하는 것이 좋습니다. | [Azure Active Directory에서 엔터프라이즈 앱에 사용자 또는 그룹 할당](active-directory-coreapps-assign-user-azure-portal.md) |
-| Internet Explorer, Chrome 또는 Firefox용 액세스 패널 확장을 배포할 컴퓨터에 대한 로컬 관리자 권한 | [Access Panel Extension for IE](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)(IE용 액세스 패널 확장)<br/>[Access Panel Extension for Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)(Chrome용 액세스 패널 확장)<br/>[Access Panel Extension for Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409)(Firefox용 액세스 패널 확장) |
+| Internet Explorer, Chrome 또는 Firefox용 액세스 패널 확장을 배포할 컴퓨터에 대한 로컬 관리자 권한 | [Access Panel Extension for IE](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)(IE용 액세스 패널 확장)<br/>[Access Panel Extension for Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)(Chrome용 액세스 패널 확장)<br/>[Firefox용 액세스 패널 확장](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 
 ### <a name="steps"></a>단계
 
@@ -211,7 +211,7 @@ Azure AD Premium에서 POC에 필요한 일부 필수 구성 요소는 다음과
 | 사전에 대상 응용 프로그램 및 정확한 로그인 URL 목록 제공. 예를 들어 Twitter를 사용할 수 있습니다. | [Microsoft Azure Marketplace의 Twitter](https://azuremarketplace.microsoft.com/marketplace/apps/aad.twitter)<br/>[Sign up for Twitter](https://twitter.com/signup?lang=en)(Twitter 가입) |
 | 이 SaaS 응용 프로그램에 대한 공유 자격 증명. | [Azure AD를 사용한 계정 공유](active-directory-sharing-accounts.md)<br/>[이제 미리 보기에서 Facebook, Twitter 및 LinkedIn에 대해 Azure AD 자동화된 암호 롤오버! - 엔터프라이즈 모바일 및 보안 블로그(영문)] (https://blogs.technet.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/) |
 | 같은 계정에 액세스할 두 명 이상의 팀원에 대한 자격 증명. 이 팀원은 보안 그룹에 속해야 합니다. | [Azure Active Directory에서 엔터프라이즈 앱에 사용자 또는 그룹 할당](active-directory-coreapps-assign-user-azure-portal.md) |
-| Internet Explorer, Chrome 또는 Firefox용 액세스 패널 확장을 배포할 컴퓨터에 대한 로컬 관리자 권한 | [Access Panel Extension for IE](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)(IE용 액세스 패널 확장)<br/>[Access Panel Extension for Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)(Chrome용 액세스 패널 확장)<br/>[Access Panel Extension for Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409)(Firefox용 액세스 패널 확장) |
+| Internet Explorer, Chrome 또는 Firefox용 액세스 패널 확장을 배포할 컴퓨터에 대한 로컬 관리자 권한 | [Access Panel Extension for IE](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)(IE용 액세스 패널 확장)<br/>[Access Panel Extension for Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)(Chrome용 액세스 패널 확장)<br/>[Firefox용 액세스 패널 확장](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 
 ### <a name="steps"></a>단계
 
@@ -391,7 +391,7 @@ Azure AD Premium에서 POC에 필요한 일부 필수 구성 요소는 다음과
 | Azure AD 관리 포털: 암호 재설정으로 이동합니다. | [Azure AD Management Portal: Password Reset](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/PasswordReset)(Azure AD 관리 포털: 암호 재설정) |
 | 암호 재설정 정책을 확인합니다. POC를 위해 전화 통화 및 Q&A를 사용할 수 있습니다. 액세스 패널에 로그인하는 데 등록이 필요하도록 설정하는 것이 좋습니다. |  |
 | 로그아웃하고 정보 근로자로 로그인합니다. |  |
-| 2단계에서 구성한 셀프 서비스 암호 재설정 데이터를 제공합니다. | http://aka.ms/ssprsetup |
+| 2단계에서 구성한 셀프 서비스 암호 재설정 데이터를 제공합니다. | https://aka.ms/ssprsetup |
 | 브라우저를 닫습니다. |  |
 | 4단계에서 사용한 정보 근로자로 로그인 프로세스를 다시 시작합니다. |  |
 | 암호를 재설정합니다. | [고유 암호 업데이트: 내 암호 재설정](active-directory-passwords-update-your-own-password.md) |
@@ -442,7 +442,7 @@ Azure AD Premium에서 POC에 필요한 일부 필수 구성 요소는 다음과
 | SaaS 응용 프로그램이 이미 구성됨 |  |
 | PoC 사용자가 응용 프로그램에 할당되어 있음 |  |
 | POC 사용자에 대한 자격 증명을 사용할 수 있음 |  |
-| POC 사용자가 MFA에 등록됨. 수신 상태가 좋은 전화 사용 | http://aka.ms/ssprsetup |
+| POC 사용자가 MFA에 등록됨. 수신 상태가 좋은 전화 사용 | https://aka.ms/ssprsetup |
 | 내부 네트워크의 장치. 내부 주소 범위에 구성된 IP 주소 | IP 주소 찾기: https://www.bing.com/search?q=what%27s+my+ip |
 | 외부 네트워크의 장치(이동 통신 사업자의 모바일 네트워크를 사용하는 전화 가능) |  |
 
@@ -499,7 +499,7 @@ Azure AD Premium에서 POC에 필요한 일부 필수 구성 요소는 다음과
 | 필수 구성 요소 | 리소스 |
 | --- | --- |
 | Tor 브라우저가 다운로드 및 설치된 장치 | [Download Tor Browser](https://www.torproject.org/projects/torbrowser.html.en#downloads)(Tor 브라우저 다운로드) |
-| 로그인을 수행할 POC 사용자 권한 | [Azure Active Directory ID 보호 플레이 북](active-directory-identityprotection-playbook.md) |
+| 로그인을 수행할 POC 사용자 권한 | [Azure Active Directory Identity Protection 플레이 북](active-directory-identityprotection-playbook.md) |
 
 ### <a name="steps"></a>단계
 
@@ -509,7 +509,7 @@ Azure AD Premium에서 POC에 필요한 일부 필수 구성 요소는 다음과
 | POC 사용자 계정으로 https://myapps.microsoft.com에 로그인합니다. | [Azure Active Directory ID 보호 플레이 북: 위험 이벤트 시뮬레이트](active-directory-identityprotection-playbook.md#simulating-risk-events) |
 | 5~7분 정도 기다립니다. |  |
 | 전역 관리자로 https://portal.azure.com에 로그인하고 ID 보호 블레이드를 엽니다. | https://aka.ms/aadipgetstarted |
-| 위험 이벤트 블레이드를 엽니다. “익명 IP 주소에서 로그인” 아래에 있는 항목을 확인해야 합니다.  | [Azure Active Directory ID 보호 플레이 북: 위험 이벤트 시뮬레이트](active-directory-identityprotection-playbook.md#simulating-risk-events) |
+| 위험 이벤트 블레이드를 엽니다. “익명 IP 주소에서 로그인” 아래에 있는 항목을 확인해야 합니다.  | [Azure Active Directory Identity Protection 플레이 북: 위험 이벤트 시뮬레이트](active-directory-identityprotection-playbook.md#simulating-risk-events) |
 
 ### <a name="considerations"></a>고려 사항
 
@@ -533,7 +533,7 @@ Azure AD Premium에서 POC에 필요한 일부 필수 구성 요소는 다음과
 | 단계 | 리소스 |
 | --- | --- |
 | 전역 관리자로 https://portal.azure.com에 로그인하고 ID 보호 블레이드를 엽니다. | https://aka.ms/aadipgetstarted |
-| 다음과 같이 로그인 위험 정책을 사용하도록 설정합니다.<br/>- 할당 대상: POC 사용자<br/>- 조건: 로그인 위험 중간 이상(익명 위치에서 로그인을 중간 위험 수준으로 간주함)<br/>- 컨트롤: MFA 필요 | [Azure Active Directory ID 보호 플레이 북: 로그인 위험](active-directory-identityprotection-playbook.md#sign-in-risk) |
+| 다음과 같이 로그인 위험 정책을 사용하도록 설정합니다.<br/>- 할당 대상: POC 사용자<br/>- 조건: 로그인 위험 중간 이상(익명 위치에서 로그인을 중간 위험 수준으로 간주함)<br/>- 컨트롤: MFA 필요 | [Azure Active Directory ID 보호 플레이 북: 로그인 위험](active-directory-identityprotection-playbook.md) |
 | Tor 브라우저를 엽니다. | [Download Tor Browser](https://www.torproject.org/projects/torbrowser.html.en#downloads)(Tor 브라우저 다운로드) |
 | PoC 사용자 계정으로 https://myapps.microsoft.com에 로그인합니다. |  |
 | MFA 챌린지를 확인합니다. | [Azure AD ID 보호를 사용하는 로그인 환경: 위험한 로그인 복구](active-directory-identityprotection-flows.md#risky-sign-in-recovery)

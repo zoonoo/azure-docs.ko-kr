@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: 7f86c5abb47cdd69cf07410570b02ba0076d1c18
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 27b3775d81ec6dc093dae4ee46167c5d5a9c9e19
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-with-storage-explorer-preview"></a>저장소 탐색기(미리 보기) 시작
 ## <a name="overview"></a>개요
@@ -28,6 +28,16 @@ Azure Storage 탐색기(미리 보기)는 Windows, macOS 및 Linux에서 Azure S
 
 ## <a name="prerequisites"></a>필수 조건
 * [저장소 탐색기(미리 보기) 다운로드 및 설치](http://www.storageexplorer.com)
+
+> [!NOTE]
+> Ubuntu 16.04 이외의 다른 Linux 배포판의 경우 몇 가지 종속성을 수동으로 설치해야 합니다. 일반적으로 다음과 같은 패키지가 필요합니다.
+> * libgconf-2-4
+> * libsecret
+> * 최신 GCC
+>
+> 배포판에 따라 다른 패키지를 설치해야 할 수 있습니다. Storage 탐색기 [릴리스 정보](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409)는 일부 배포판에 대한 특정 단계를 포함합니다.
+>
+>
 
 ## <a name="connect-to-a-storage-account-or-service"></a>저장소 계정 또는 서비스에 연결
 저장소 탐색기(미리 보기)는 Storage 계정에 연결하는 여러 방법을 제공합니다. 예를 들어 다음을 수행할 수 있습니다.
@@ -240,16 +250,16 @@ Azure 구독을 통해 Azure Cosmos DB 계정을 관리하는 것 외에, Azure 
     ![connection-string][22]
 
  ## <a name="connect-to-azure-data-lake-store-by-uri"></a>URI로 Azure Data Lake Store에 연결
-구독에 없는 리소스에 액세스하려고 합니다. 하지만 다른 사용자가 리소스의 URI를 가져오는 권한을 부여합니다. 이 경우 로그인한 후 URI를 사용하여 Data Lake Store에 연결할 수 있습니다. 다음 단계를 참조하세요.
+구독에 없는 리소스에 액세스하려고 합니다. 하지만 리소스에 대한 URI를 가져올 수 있도록 다른 사용자가 권한을 부여합니다. 이 경우 로그인한 후 URI를 사용하여 Data Lake Store에 연결할 수 있습니다. 다음 단계를 참조하세요.
 1. 저장소 탐색기(미리 보기)를 엽니다.
-2. 왼쪽 창에서 **로컬 및 연결됨**을 확장합니다.
-3. **Data Lake Store**를 마우스 오른쪽 단추로 클릭하고 상황에 맞는 메뉴에서 **Data Lake Store에 연결...**을 선택합니다.
+2. 왼쪽 창에서 **로컬 및 연결됨**을 펼칩니다.
+3. **Data Lake Store**를 마우스 오른쪽 단추로 클릭하고 바로 가기 메뉴에서 **Data Lake Store에 연결...**을 선택합니다.
 
-    ![Data Lake Store에 연결 상황에 맞는 메뉴](./media/vs-azure-tools-storage-manage-with-storage-explorer/storageexplorer-adls-uri-attach.png)
+    ![Data Lake Store 바로 가기 메뉴에 연결](./media/vs-azure-tools-storage-manage-with-storage-explorer/storageexplorer-adls-uri-attach.png)
 
 4. URI를 입력하면 도구가 방금 입력한 URL의 위치로 이동합니다.
 
-    ![Data Lake Store에 연결 상황에 맞는 대화 상자](./media/vs-azure-tools-storage-manage-with-storage-explorer/storageexplorer-adls-uri-attach-dialog.png)
+    ![Data Lake Store에 연결 팝업 대화 상자](./media/vs-azure-tools-storage-manage-with-storage-explorer/storageexplorer-adls-uri-attach-dialog.png)
 
     ![Data Lake Store에 연결 결과](./media/vs-azure-tools-storage-manage-with-storage-explorer/storageexplorer-adls-attach-finish.png)
 

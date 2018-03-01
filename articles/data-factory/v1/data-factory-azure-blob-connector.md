@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: f66ddecd6b999400b05a4b00aa781ffef3f7887d
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: d94fef9d51c5f696df37b26867c1c8ebe12a15b9
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Blob Storage 사이에서 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -83,9 +83,9 @@ Azure Blob Storage에서 입력 또는 출력 데이터를 표시할 데이터 �
 
 | 자산 | 설명 | 필수 |
 | --- | --- | --- |
-| folderPath |blob 저장소에서 컨테이너 및 폴더에 대한 경로입니다. 예제: myblobcontainer\myblobfolder\ |적용 |
+| folderPath |blob 저장소에서 컨테이너 및 폴더에 대한 경로입니다. 예제: myblobcontainer\myblobfolder\ |예 |
 | fileName |Blob의 이름입니다. fileName은 선택 사항이며 대/소문자를 구분합니다.<br/><br/>filename을 지정하는 경우 활동(복사 포함)은 특정 Blob에서 작동합니다.<br/><br/>fileName을 지정하지 않으면 복사는 입력 데이터 집합에 대한 folderPath에 모든 Blob을 포함합니다.<br/><br/>**fileName**이 출력 데이터 집합에 대해 지정되지 않았고 **preserveHierarchy**가 활동 싱크에 지정되지 않은 경우 생성된 파일의 이름은 다음 형식을 사용합니다. Data.<Guid>.txt(예: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |아니요 |
-| partitionedBy |partitionedBy는 선택적 속성입니다. 동적 folderPath 및 시계열 데이터에 대한 filename을 지정하는 데 사용할 수 있습니다. 예를 들어 folderPath는 매시간 데이터에 대한 매개 변수화됩니다. 자세한 내용과 예제는 [partitionedBy 속성 사용 섹션](#using-partitionedBy-property)을 참조하세요. |아니요 |
+| partitionedBy |partitionedBy는 선택적 속성입니다. 동적 folderPath 및 시계열 데이터에 대한 filename을 지정하는 데 사용할 수 있습니다. 예를 들어 folderPath는 매시간 데이터에 대한 매개 변수화됩니다. 자세한 내용과 예제는 [partitionedBy 속성 사용 섹션](#using-partitionedBy-property)을 참조하세요. |아니오 |
 | format | **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**과 같은 서식 유형이 지원됩니다. 이 값 중 하나로 서식에서 **type** 속성을 설정합니다. 자세한 내용은 [텍스트 형식](data-factory-supported-file-and-compression-formats.md#text-format), [Json 형식](data-factory-supported-file-and-compression-formats.md#json-format), [Avro 형식](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc 형식](data-factory-supported-file-and-compression-formats.md#orc-format) 및 [Parquet 형식](data-factory-supported-file-and-compression-formats.md#parquet-format) 섹션을 참조하세요. <br><br> 파일 기반 저장소(이진 복사) 간에 **파일을 있는 그대로 복사**하려는 경우 입력 및 출력 데이터 집합 정의 둘 다에서 형식 섹션을 건너뜁니다. |아니요 |
 | 압축 | 데이터에 대한 압축 유형 및 수준을 지정합니다. 지원되는 형식은 **GZip**, **Deflate**, **BZip2** 및 **ZipDeflate**입니다. 지원되는 수준은 **최적** 및 **가장 빠름**입니다. 자세한 내용은 [Azure Data Factory의 파일 및 압축 형식](data-factory-supported-file-and-compression-formats.md#compression-support)을 참조하세요. |아니요 |
 
@@ -173,7 +173,7 @@ Azure Blob Storage에서 입력 또는 출력 데이터를 표시할 데이터 �
 ## <a name="walkthrough-use-copy-wizard-to-copy-data-tofrom-blob-storage"></a>연습: 복사 마법사를 사용하여 Blob Storage 간 데이터 복사
 Azure Blob 저장소 간에 데이터를 빠르게 복사하는 방법을 살펴보겠습니다. 이 연습에 나오는 원본 및 대상 데이터 저장소의 유형은 모두 Azure Blob Storage입니다. 이 연습의 파이프라인은 한 폴더의 데이터를 동일한 Blob 컨테이너의 다른 폴더로 복사합니다. 이 연습에서는 Blob Storage를 원본 또는 싱크로 사용할 때 설정 또는 속성을 표시하는 것이 간단합니다. 
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>필수 조건
 1. 아직 만들지 않은 경우 범용 **Azure Storage 계정**을 만듭니다. 이 연습에서는 Blob 저장소를 **원본** 및 **대상** 데이터 저장소로 사용합니다. Azure Storage 계정이 없는 경우 새로 만드는 단계는 [저장소 계정 만들기](../../storage/common/storage-create-storage-account.md#create-a-storage-account) 문서를 참조하세요.
 2. 저장소 계정에 **adfblobconnector**라는 Blob 컨테이너를 만듭니다. 
 4. **adfblobconnector** 컨테이너에 **input**이라는 폴더를 만듭니다.
@@ -184,8 +184,8 @@ Azure Blob 저장소 간에 데이터를 빠르게 복사하는 방법을 살펴
     ```
 ### <a name="create-the-data-factory"></a>데이터 팩터리 만들기
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. 왼쪽 위 모서리에서 **+ 새로 만들기**를 클릭하고 **인텔리전스 + 분석**을 클릭하고 **Data Factory**를 클릭합니다.
-3. **새 데이터 팩터리** 블레이드에서 다음을 수행합니다.   
+2. 왼쪽 위 모서리에서 **리소스 만들기**를 클릭하고 **인텔리전스 + 분석** 및 **Data Factory**를 차례로 클릭합니다.
+3. **새 데이터 팩터리** 창에서 다음을 수행합니다.   
     1. **이름**으로 **ADFBlobConnectorDF** 입력합니다. Azure Data Factory 이름은 전역적으로 고유해야 합니다. `*Data factory name “ADFBlobConnectorDF” is not available` 오류가 표시되면 데이터 팩터리 이름을 변경하고(예: yournameADFBlobConnectorDF) 다시 만듭니다. 데이터 팩터리 아티팩트에 대한 명명 규칙은 [데이터 팩터리 - 명명 규칙](data-factory-naming-rules.md) 항목을 참조하세요.
     2. Azure **구독**을 선택합니다.
     3. 리소스 그룹에 대해 **기존 리소스 그룹 사용**을 선택하고 기존 리소스 그룹을 선택하거나 **새로 만들기**를 선택하여 리소스 그룹의 이름을 입력합니다.

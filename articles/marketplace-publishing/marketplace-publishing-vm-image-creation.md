@@ -14,11 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio; v-divte
-ms.openlocfilehash: 8915abbb27184c2f0b47747e422e5a4fa7bc1cbb
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 0379592f1c4f6e9d3f6fd2127b8e34e99a8b0176
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Azure Marketplace에 대한 가상 머신 이미지 만들기 가이드
 이 문서의 **2단계**에서는 Azure Marketplace에 배포할 VHD(가상 하드 디스크)를 준비하는 과정을 안내합니다. VHD는 SKU의 기반입니다. Linux 기반 SKU를 제공할지 Windows 기반 SKU를 제공할지 여부에 따라 프로세스는 다릅니다. 이 문서에서는 두 시나리오를 모두 다룹니다. 이 프로세스는 [계정 만들기 및 등록][link-acct-creation]과 함께 병렬로 수행할 수 있습니다.
@@ -127,7 +127,7 @@ RDP(원격 데스크톱 프로토콜)를 사용하여 클라우드에서 VHD를 
 
 **[Microsoft Azure Portal][link-azure-portal]**을 사용하여 RDP를 통해 연결
 
-1. **찾아보기** > **VM**을 선택합니다.
+1. **모든 서비스** > **VM**을 선택합니다.
 2. 가상 머신 블레이드가 열립니다. 연결하려는 VM이 실행 중인지 확인하고 배포된 VM 목록에서 해당 VM을 선택합니다.
 3. 선택된 VM을 설명하는 블레이드가 열립니다. 맨 위에 있는 **연결**을 클릭합니다.
 4. 프로비전 중에 지정한 사용자 이름과 암호를 입력하라는 메시지가 표시됩니다.
@@ -136,7 +136,7 @@ RDP(원격 데스크톱 프로토콜)를 사용하여 클라우드에서 VHD를 
 
 원격 데스크톱 파일을 로컬 컴퓨터에 다운로드하려면 [Get-AzureRemoteDesktopFile cmdlet][link-technet-2]을 사용합니다. 이 cmdlet을 사용하려면 서비스 이름과 VM 이름을 알아야 합니다. [Microsoft Azure Portal][link-azure-portal]에서 VM을 만든 경우 VM 속성에서 이 정보를 찾을 수 있습니다.
 
-1. Microsoft Azure Portal에서 **찾아보기** > **VM**을 선택합니다.
+1. Microsoft Azure Portal에서 **모든 서비스** > **VM**을 선택합니다.
 2. 가상 머신 블레이드가 열립니다. 배포된 VM을 선택합니다.
 3. 선택된 VM을 설명하는 블레이드가 열립니다.
 4. **속성**을 클릭합니다.
@@ -212,9 +212,8 @@ API/PowerShell/Azure CLI를 사용하여 VM을 캡처하는 방법에 대한 지
 
 **최신 Azure 포털에서 VM 배포**
 
-1. **새로 만들기** > **계산** > **가상 컴퓨터** > **갤러리에서**를 선택합니다.
+1. **새로 만들기** > **계산** > **가상 머신** > **갤러리에서**를 선택합니다.
 
-    ![drawing][img-manage-vm-new]
 2. **내 이미지**로 이동한 다음 VM을 배포할 VM 이미지를 선택합니다.
 
    1. **내 이미지** 보기에는 운영 체제 이미지와 VM 이미지가 모두 나열되므로 선택한 이미지에 주의하세요.

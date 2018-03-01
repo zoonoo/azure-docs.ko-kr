@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 01/25/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 264dc38383b9adad70325f7fb7802b1dcf2da1c0
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 61100b9786245204502686a47e5aae2a6d210259
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-virtual-network-using-the-azure-portal"></a>Azure 포털을 사용하여 가상 네트워크 만들기
 
@@ -102,7 +102,7 @@ netsh advfirewall firewall add rule name=Allow-ping protocol=icmpv4 dir=in actio
 mstsc /v:myVm2
 ```
 
-두 가상 머신이 *default* 서브넷에서 할당된 개인 IP 주소를 가지고 기본적으로 Windows 방화벽을 통해 원격 데스크톱이 열려 으므로 원격 데스크톱 연결은 성공적으로 수행됩니다. Azure는 가상 네트워크 내의 모든 호스트에 대해 DNS 이름 확인을 제공하므로 호스트 이름으로 *myVm2*에 연결할 수 있습니다. 명령 프롬프트에서 *myVm2*에서 내 *myVm1*으로 Ping합니다.
+두 가상 머신이 *default* 서브넷에서 할당된 개인 IP 주소를 가지고 기본적으로 Windows 방화벽을 통해 원격 데스크톱이 열려 으므로 원격 데스크톱 연결은 성공적으로 수행됩니다. Azure는 가상 네트워크 내의 모든 호스트에 대해 DNS 이름 확인을 제공하므로 호스트 이름으로 *myVm2*에 연결할 수 있습니다. 명령 프롬프트에서 *myVm2*에서 *myVm1*으로 Ping합니다.
 
 ```
 ping myvm1

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: LADocs; divswa
-ms.openlocfilehash: c1a1a5530c19d39a8e37d122235c8340caa88570
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 4bb003afd757faac675a9af8599a781247717a64
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="perform-advanced-json-transformations-with-a-liquid-template"></a>Liquid 템플릿을 사용하여 고급 JSON 변환 수행
 
@@ -110,7 +110,46 @@ Azure Logic Apps는 **작성** 또는 **구문 분석 JSON**과 같은 네이티
 
 [Postman](https://www.getpostman.com/postman) 또는 유사한 도구의 논리 앱에 JSON 입력을 게시합니다. 논리 앱에서 변환된 JSON 출력은 이 예제와 같습니다.
   
-![예제 출력](./media/logic-apps-enterprise-integration-liquid-transform/example-output.png)
+![예제 출력](./media/logic-apps-enterprise-integration-liquid-transform/example-output-jsontojson.png)
+
+## <a name="more-liquid-action-examples"></a>더 많은 Liquid 작업 예제
+Liquid는 JSON 변환으로만 제한되지 않습니다. 다음은 Liquid를 사용하는 다른 사용 가능한 변환 작업입니다.
+
+* JSON을 텍스트로 변환
+  
+  이 예제에 사용되는 Liquid 템플릿은 다음과 같습니다.
+   
+   ``` json
+   {{content.firstName | Append: ' ' | Append: content.lastName}}
+   ```
+   다음은 샘플 입력 및 출력입니다.
+  
+   ![JSON에서 텍스트로 예제 출력](./media/logic-apps-enterprise-integration-liquid-transform/example-output-jsontotext.png)
+
+* XML에서 JSON으로 변환
+  
+  이 예제에 사용되는 Liquid 템플릿은 다음과 같습니다.
+   
+   ``` json
+   [{% JSONArrayFor item in content -%}
+        {{item}}
+    {% endJSONArrayFor -%}]
+   ```
+   다음은 샘플 입력 및 출력입니다.
+
+   ![XML에서 JSON으로 예제 출력](./media/logic-apps-enterprise-integration-liquid-transform/example-output-xmltojson.png)
+
+* XML에서 텍스트로 변환
+  
+  이 예제에 사용되는 Liquid 템플릿은 다음과 같습니다.
+
+   ``` json
+   {{content.firstName | Append: ' ' | Append: content.lastName}}
+   ```
+
+   다음은 샘플 입력 및 출력입니다.
+
+   ![XML에서 텍스트로 예제 출력](./media/logic-apps-enterprise-integration-liquid-transform/example-output-xmltotext.png)
 
 ## <a name="next-steps"></a>다음 단계
 

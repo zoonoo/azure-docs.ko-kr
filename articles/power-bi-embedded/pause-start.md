@@ -14,17 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/28/2017
 ms.author: asaxton
-ms.openlocfilehash: ab5d184fde2cbcb517b325624c8405954b4d0972
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a7f86ebf3e79812eb50e58cbb320336cbd1149e6
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="pause-and-start-your-power-bi-embedded-capacity-in-the-azure-portal"></a>Azure Portal에서 Power BI Embedded 용량을 일시 중지 및 시작
 
 이 문서에서는 Microsoft Azure에서 Power BI Embedded 용량을 일시 중지하고 시작하는 방법을 안내합니다. 여기서는 Power BI Embedded 용량을 만들었다고 가정합니다. [Azure Portal에서 Power BI Embedded 용량 만들기](create-capacity.md)를 아직 참조하지 않은 경우 먼저 참조한 후 시작하세요.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
 ## <a name="pause-your-capacity"></a>용량 일시 중지
 
@@ -35,9 +35,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 
-2. **추가 서비스** > **Power BI Embedded**를 선택하여 용량을 확인합니다.
+2. **모든 서비스** > **Power BI Embedded**를 선택하여 용량을 확인합니다.
 
-    ![Azure Portal 내의 더 많은 서비스](media/pause-start/azure-portal-more-services.png)
+    ![Azure Portal 내에 있는 모든 서비스](media/pause-start/azure-portal-more-services.png)
 
 3. 일시 중지할 용량을 선택합니다.
 
@@ -57,9 +57,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 
-2. **추가 서비스** > **Power BI Embedded**를 선택하여 용량을 확인합니다.
+2. **모든 서비스** > **Power BI Embedded**를 선택하여 용량을 확인합니다.
 
-    ![Azure Portal 내의 더 많은 서비스](media/pause-start/azure-portal-more-services.png)
+    ![Azure Portal 내에 있는 모든 서비스](media/pause-start/azure-portal-more-services.png)
 
 3. 시작할 용량을 선택합니다.
 

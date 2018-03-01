@@ -1,6 +1,6 @@
 ---
-title: "FedRAMP Azure Blueprint 자동화 - 미디어 보호"
-description: "FedRAMP용 웹 응용 프로그램 - 미디어 보호"
+title: "Azure Security 및 Compliance Blueprint - FedRAMP 웹 응용 프로그램 자동화 - 미디어 보호"
+description: "FedRAMP 웹 응용 프로그램 자동화 - 미디어 보호"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 9cb33abc7ab88aaa54a77308c7863f8128f2e6c7
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 37812c2f7ee79685f9014a7999b4355e649ca6e1
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="media-protection-mp"></a>MP(미디어 보호)
 

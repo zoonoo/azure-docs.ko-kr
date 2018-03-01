@@ -14,25 +14,79 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: cawa
-ms.openlocfilehash: fb47ceb63d45a3e896d55d8c304562cc667d0414
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: d23ddfb881695b2310d379a9112e6ab8305c0cce
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="microsoft-azure-storage-explorer-preview-release-notes"></a>Microsoft Azure Storage 탐색기(미리 보기) 릴리스 정보
 
-이 문서에서는 Azure Storage 탐색기 0.9.4(미리 보기) 릴리스의 릴리스 정보와 이전 버전의 릴리스 정보를 모두 제공합니다.
+이 문서에서는 Azure Storage 탐색기 0.9.5(미리 보기) 릴리스의 릴리스 정보와 이전 버전의 릴리스 정보를 제공합니다.
 
 [Microsoft Azure Storage 탐색기(미리 보기)](./vs-azure-tools-storage-manage-with-storage-explorer.md)는 Windows, macOS 및 Linux에서 Azure Storage 데이터를 손쉽게 사용할 수 있는 독립 실행형 앱입니다.
+
+## <a name="version-095"></a>버전 0.9.5
+02/06/2018
+
+### <a name="download-azure-storage-explorer-095-preview"></a>Azure Storage 탐색기 0.9.5(미리 보기) 다운로드
+- [Windows용 Azure Storage 탐색기 0.9.5(미리 보기)](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Mac용 Azure Storage 탐색기 0.9.5(미리 보기)](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Linux용 Azure Storage 탐색기 0.9.5(미리 보기)](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### <a name="new"></a>새로 만들기
+
+* 파일 공유 스냅숏에 대한 지원:
+    * 파일 공유의 스냅숏을 만들고 관리합니다.
+    * 탐색할 때 파일 공유의 스냅숏 간에 보기를 쉽게 전환합니다.
+    * 파일의 이전 버전을 복원합니다.
+* Azure Data Lake Store에 대한 미리 보기 지원:
+    * 여러 계정에서 ADLS 리소스에 연결합니다.
+    * ADL URI를 사용하여 ADLS 리소스에 연결하고 공유합니다.
+    * 기본 파일/폴더 작업을 재귀적으로 수행합니다.
+    * 개별 폴더를 빠른 실행에 고정합니다.
+    * 폴더 통계를 표시합니다.
+
+### <a name="fixes"></a>수정 프로그램
+* 시작 성능 개선
+* 다양한 버그 수정
+
+### <a name="known-issues"></a>알려진 문제
+* 저장소 탐색기는 ADFS 계정을 지원하지 않습니다.
+* Azure Stack을 대상으로 지정할 때 특정 파일을 추가 Blob으로 업로드하는 데 실패할 수 있습니다.
+* 작업에서 "취소"를 클릭한 후 해당 작업이 취소될 때까지 시간이 걸릴 수 있습니다. 여기 설명된 취소 필터 해결 방법을 사용하기 때문입니다.
+* 잘못된 PIN/스마트 카드 인증서를 선택하는 경우 해당 선택을 취소하려면 저장소 탐색기를 다시 시작해야 합니다.
+* 계정 설정 패널에 구독을 필터링하기 위해 자격 증명을 다시 입력하라고 표시될 수 있습니다.
+* blob 이름을 바꿀 경우(개별적으로 또는 이름이 바뀐 blob 컨테이너 내에서) 스냅숏을 보존되지 않습니다. Blob, 파일 및 엔터티의 기타 모든 속성과 메타데이터는 이름을 바꾸어도 보존됩니다.
+* Azure Stack은 현재 파일 공유를 지원하지 않지만, 연결된 Azure Stack 저장소 계정에는 파일 공유 노드가 계속 표시됩니다.
+* 저장소 탐색기에서 사용하는 전자 셸에는 GPU(그래픽 처리 장치) 하드웨어 가속과 관련된 문제가 발생합니다. 저장소 탐색기가 빈(비어 있는) 주 창을 표시하는 경우 `--disable-gpu` 스위치를 추가하여 명령줄에서 저장소 탐색기를 시작하고 GPU 가속을 사용하지 않도록 설정할 수 있습니다.
+
+```
+./StorageExplorer.exe --disable-gpu
+```
+
+* Ubuntu 14.04 사용자의 경우 GCC가 최신 상태인지 확인해야 합니다. 이를 위해 다음 명령을 실행한 후 컴퓨터를 다시 시작합니다.
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* Ubuntu 17.04 사용자의 경우에는 GConf를 설치해야 합니다. 이렇게 하려면 다음 명령을 실행한 후 컴퓨터를 다시 시작합니다.
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
 
 ## <a name="version-094--093"></a>버전 0.9.4/0.9.3
 2018년 1월 21일
 
 ### <a name="download-azure-storage-explorer-094-preview"></a>Azure Storage 탐색기 0.9.4(미리 보기) 다운로드
-- [Windows용 Azure Storage 탐색기 0.9.4(미리 보기)](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Mac용 Azure Storage 탐색기 0.9.4(미리 보기)](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Linux용 Azure Storage 탐색기 0.9.4(미리 보기)](https://go.microsoft.com/fwlink/?LinkId=722418)
+* [Windows용 Azure Storage 탐색기 0.9.4(미리 보기) 다운로드](https://go.microsoft.com/fwlink/?LinkId=809306)
+* [Mac용 Azure Storage 탐색기 0.9.4(미리 보기) 다운로드](https://go.microsoft.com/fwlink/?LinkId=809307)
+* [Linux용 Azure Storage 탐색기 0.9.4(미리 보기) 다운로드](https://go.microsoft.com/fwlink/?LinkId=809308)
 
 ### <a name="new"></a>새로 만들기
 * 다음과 같은 경우에 기존 Storage 탐색기 창을 다시 사용합니다.
@@ -76,15 +130,30 @@ ms.lasthandoff: 01/23/2018
     sudo apt-get install libgconf-2-4
     ```
 
+## <a name="previous-releases"></a>이전 릴리스
+
+* [버전 0.9.2](#version-092)
+* [버전 0.9.1 / 0.9.0](#version-091)
+* [버전 0.8.16](#version-0816)
+* [버전 0.8.14](#version-0814)
+* [버전 0.8.13](#version-0813)
+* [버전 0.8.12/0.8.11/0.8.10](#version-0812--0811--0810)
+* [버전 0.8.9/0.8.8](#version-089--088)
+* [버전 0.8.7](#version-087)
+* [버전 0.8.6](#version-086)
+* [버전 0.8.5](#version-085)
+* [버전 0.8.4](#version-084)
+* [버전 0.8.3](#version-083)
+* [버전 0.8.2](#version-082)
+* [버전 0.8.0](#version-080)
+* [버전 0.7.20160509.0](#version-07201605090)
+* [버전 0.7.20160325.0](#version-07201603250)
+* [버전 0.7.20160129.1](#version-07201601291)
+* [버전 0.7.20160105.0](#version-07201601050)
+* [버전 0.7.20151116.0](#version-07201511160)
+
 ## <a name="version-092"></a>0.9.2 버전
 11/01/2017
-
-### <a name="download-azure-storage-explorer-092-preview"></a>Azure Storage 탐색기 0.9.2(미리 보기) 다운로드
-* [Windows용 Azure Storage 탐색기 0.9.2(미리 보기) 다운로드](https://go.microsoft.com/fwlink/?LinkId=809306)
-* [Mac용 Azure Storage 탐색기 0.9.2(미리 보기) 다운로드](https://go.microsoft.com/fwlink/?LinkId=809307)
-* [Linux용 Azure Storage 탐색기 0.9.2(미리 보기) 다운로드](https://go.microsoft.com/fwlink/?LinkId=809308)
-
-
 
 ### <a name="hotfixes"></a>핫픽스
 * 현지 표준 시간대에 따라 테이블 엔터티에 대한 Edm.DateTime 값을 편집할 때, 예기치 않은 데이터 변경이 가능합니다. 이제 편집기는 Edm.DateTime 값에 대해 정확하고 일관된 제어를 제공하는 일반 텍스트 상자를 사용합니다.
@@ -144,32 +213,6 @@ ms.lasthandoff: 01/23/2018
     ```
     sudo apt-get install libgconf-2-4
     ```
-
-
-
-
-
-
-## <a name="previous-releases"></a>이전 릴리스
-
-* [버전 0.9.1 / 0.9.0](#version-091)
-* [버전 0.8.16](#version-0816)
-* [버전 0.8.14](#version-0814)
-* [버전 0.8.13](#version-0813)
-* [버전 0.8.12/0.8.11/0.8.10](#version-0812--0811--0810)
-* [버전 0.8.9/0.8.8](#version-089--088)
-* [버전 0.8.7](#version-087)
-* [버전 0.8.6](#version-086)
-* [버전 0.8.5](#version-085)
-* [버전 0.8.4](#version-084)
-* [버전 0.8.3](#version-083)
-* [버전 0.8.2](#version-082)
-* [버전 0.8.0](#version-080)
-* [버전 0.7.20160509.0](#version-07201605090)
-* [버전 0.7.20160325.0](#version-07201603250)
-* [버전 0.7.20160129.1](#version-07201601291)
-* [버전 0.7.20160105.0](#version-07201601050)
-* [버전 0.7.20151116.0](#version-07201511160)
 
 ## <a name="version-091--090-preview"></a>버전 0.9.1/0.9.0(미리 보기)
 10/20/2017

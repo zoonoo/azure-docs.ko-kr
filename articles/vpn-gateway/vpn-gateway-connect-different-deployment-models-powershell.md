@@ -1,10 +1,10 @@
 ---
 title: "Azure Resource Manager VNet에 클래식 가상 네트워크를 연결하는 방법: PowerShell | Microsoft Docs"
-description: "VPN Gateway 및 PowerShell을 사용하여 클래식 VNet 및 Resource Manager VNet 간에 VPN 연결을 만드는 방법을 알아봅니다"
+description: "VPN Gateway 및 PowerShell을 사용하여 클래식 VNet 및 Resource Manager VNet 간에 VPN 연결을 만듭니다."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: 
 tags: azure-service-management,azure-resource-manager
 ms.assetid: f17c3bf0-5cc9-4629-9928-1b72d0c9340b
@@ -13,19 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/21/2017
+ms.date: 02/13/2018
 ms.author: cherylmc
-ms.openlocfilehash: da5bddba3a1fad74b2ee08fd2f34d1b01c7345c8
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: a3afd89a928854a1b03bfd4c5645ea12dbb638fc
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-powershell"></a>PowerShell을 사용하여 다양한 배포 모델에서 가상 네트워크 연결
 
-
-
-이 문서에서는 Resource Manager VNet에 클래식 VNet을 연결하여 별도의 배포 모델에 있는 리소스가 서로 통신하도록 허용하는 방법을 보여 줍니다. 이 문서의 단계는 PowerShell을 사용하지만 이 목록에서 문서를 선택하여 Azure Portal을 사용하여 이 구성을 만들 수도 있습니다.
+이 아티클에서는 Resource Manager VNet에 클래식 VNet을 연결하여 별도의 배포 모델에 있는 리소스가 서로 통신하도록 허용하는 데 도움을 줍니다. 이 문서의 단계는 PowerShell을 사용하지만 이 목록에서 문서를 선택하여 Azure Portal을 사용하여 이 구성을 만들 수도 있습니다.
 
 > [!div class="op_single_selector"]
 > * [포털](vpn-gateway-connect-different-deployment-models-portal.md)
@@ -33,9 +31,9 @@ ms.lasthandoff: 12/21/2017
 > 
 > 
 
-클래식 VNet을 Resource Manager VNet에 연결하는 것은 VNet을 온-프레미스 사이트 위치에 연결하는 것과 유사합니다. 두 연결 유형 모두 VPN 게이트웨이를 사용하여 IPsec/IKE를 통한 보안 터널을 제공합니다. 다른 구독 및 다른 지역에 있는 VNet 간에 연결을 만들 수 있습니다. 또한 함께 구성된 게이트웨이가 동적이거나 경로 기반이면 온-프레미스 네트워크에 이미 연결된 VNet을 연결할 수 있습니다. VNet 간 연결에 대한 자세한 내용은 이 문서의 끝에 있는 [VNet 간 FAQ](#faq) 를 참조하세요. 
+클래식 VNet을 Resource Manager VNet에 연결하는 것은 VNet을 온-프레미스 사이트 위치에 연결하는 것과 유사합니다. 두 연결 유형 모두 VPN 게이트웨이를 사용하여 IPsec/IKE를 통한 보안 터널을 제공합니다. 다른 구독 및 다른 지역에 있는 VNet 간에 연결을 만들 수 있습니다. 또한 함께 구성된 게이트웨이가 동적이거나 경로 기반이면 온-프레미스 네트워크에 이미 연결된 VNet을 연결할 수 있습니다. VNet 간 연결에 대한 자세한 내용은 이 문서의 끝에 있는 [VNet 간 FAQ](#faq)를 참조하세요. 
 
-VNet이 동일한 지역에 있는 경우 VNet 피어링을 사용하여 연결하려고 할 수 있습니다. VNet 피어링은 VPN Gateway를 사용하지 않습니다. 자세한 내용은 [VNet 피어링](../virtual-network/virtual-network-peering-overview.md)을 참조하세요. 
+가상 네트워크 게이트웨이가 아직 없으며 만들지 않으려면 VNet 피어링을 사용하여 VNet을 연결하는 것이 좋습니다. VNet 피어링은 VPN Gateway를 사용하지 않습니다. 자세한 내용은 [VNet 피어링](../virtual-network/virtual-network-peering-overview.md)을 참조하세요.
 
 ## <a name="before"></a>시작하기 전에
 
@@ -49,7 +47,7 @@ VNet이 동일한 지역에 있는 경우 VNet 피어링을 사용하여 연결�
 
 ### <a name="exampleref"></a>예제 설정
 
-이러한 값을 사용하여 테스트 환경을 만들거나 이 값을 참조하여 이 문서의 예제를 더 잘 이해할 수 있습니다.
+이러한 값을 사용하여 테스트 환경을 만들거나 이 값을 참조하여 이 문서의 예제를 보다 정확하게 이해할 수 있습니다.
 
 **클래식 VNet 설정**
 
@@ -76,10 +74,22 @@ Virtual Network Gateway name = RMGateway <br>
 
 ## <a name="createsmgw"></a>섹션 1 - 클래식 VNet 구성
 ### <a name="1-download-your-network-configuration-file"></a>1. 네트워크 구성 파일 다운로드
-1. 관리자 권한으로 PowerShell 콘솔에서 Azure 계정에 로그인합니다. 다음 cmdlet가 Azure 계정에 대한 로그인 자격 증명을 유도합니다. 로그인한 다음 Azure PowerShell에 사용할 수 있도록 계정 설정을 다운로드합니다. 구성의 이 부분을 완료하려면 SM PowerShell cmdlet을 사용합니다.
+1. 관리자 권한으로 PowerShell 콘솔에서 Azure 계정에 로그인합니다. 다음 cmdlet가 Azure 계정에 대한 로그인 자격 증명을 유도합니다. 로그인한 다음 Azure PowerShell에 사용할 수 있도록 계정 설정을 다운로드합니다. 이 섹션에서는 클래식 SM(Service Management) Azure PowerShell cmdlet이 사용됩니다.
 
   ```powershell
   Add-AzureAccount
+  ```
+
+  Azure 구독을 가져옵니다.
+
+  ```powershell
+  Get-AzureSubscription
+  ```
+
+  둘 이상의 구독이 있는 경우 사용할 구독을 선택합니다.
+
+  ```powershell
+  Select-AzureSubscription -SubscriptionName "Name of subscription"
   ```
 2. 다음 명령을 실행하여 Azure 네트워크 구성 파일을 내보냅니다. 필요한 경우 다른 위치로 내보낼 파일의 위치를 변경할 수 있습니다.
 
@@ -169,13 +179,13 @@ RM VNet에 대한 VPN 게이트웨이를 만들려면 다음 지침을 따르세
   Login-AzureRmAccount
   ``` 
    
-  둘 이상의 구독이 있는 경우 Azure 구독 목록을 가져옵니다.
+  Azure 구독 목록을 가져옵니다.
 
   ```powershell
   Get-AzureRmSubscription
   ```
    
-  사용할 구독을 지정합니다.
+  둘 이상의 구독이 있는 경우 사용할 구독을 지정합니다.
 
   ```powershell
   Select-AzureRmSubscription -SubscriptionName "Name of subscription"
@@ -290,7 +300,7 @@ RM VNet에 대한 VPN 게이트웨이를 만들려면 다음 지침을 따르세
 
 [!INCLUDE [vpn-gateway-verify-connection-ps-classic](../../includes/vpn-gateway-verify-connection-ps-classic-include.md)]
 
-#### <a name="azure-portal"></a>Azure 포털
+#### <a name="azure-portal"></a>Azure portal
 
 [!INCLUDE [vpn-gateway-verify-connection-azureportal-classic](../../includes/vpn-gateway-verify-connection-azureportal-classic-include.md)]
 
@@ -301,11 +311,10 @@ RM VNet에 대한 VPN 게이트웨이를 만들려면 다음 지침을 따르세
 
 [!INCLUDE [vpn-gateway-verify-ps-rm](../../includes/vpn-gateway-verify-connection-ps-rm-include.md)]
 
-#### <a name="azure-portal"></a>Azure 포털
+#### <a name="azure-portal"></a>Azure portal
 
 [!INCLUDE [vpn-gateway-verify-connection-portal-rm](../../includes/vpn-gateway-verify-connection-portal-rm-include.md)]
 
 ## <a name="faq"></a>VNet 간 FAQ
 
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]
-

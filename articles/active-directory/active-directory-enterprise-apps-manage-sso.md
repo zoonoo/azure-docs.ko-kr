@@ -15,18 +15,18 @@ ms.workload: identity
 ms.date: 09/19/2017
 ms.author: curtand
 ms.reviewer: asmalser
-ms.openlocfilehash: 61579af23acf466a11ae59832a02cb75ba39dc26
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: dd251ca4696101911293caa59c54c3354a1627a5
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="managing-single-sign-on-for-enterprise-apps"></a>엔터프라이즈 앱에 대한 Single Sign-On 관리
 
 이 문서에서는 [Azure Portal](https://portal.azure.com)을 사용하여 엔터프라이즈 응용 프로그램에 대한 Single Sign-On 설정을 관리하는 방법을 설명합니다. 엔터프라이즈 앱은 조직 내에서 배포 및 사용되는 앱입니다. 이 문서는 [Azure Active Directory 응용 프로그램 갤러리](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery)에서 추가된 앱에 특별히 적용됩니다. 
 
 ## <a name="finding-your-apps-in-the-portal"></a>포털에서 앱 찾기
-Single Sign-On에 대해 설정되어 있는 모든 엔터프라이즈 앱은 Azure Portal에서 보고 관리할 수 있습니다. 응용 프로그램은 포털의 **추가 서비스** &gt; **엔터프라이즈 응용 프로그램** 섹션에서 찾을 수 있습니다. 
+Single Sign-On에 대해 설정되어 있는 모든 엔터프라이즈 앱은 Azure Portal에서 보고 관리할 수 있습니다. 응용 프로그램은 포털의 **모든 서비스** &gt; **엔터프라이즈 응용 프로그램** 섹션에서 찾을 수 있습니다. 
 
 ![엔터프라이즈 응용 프로그램 블레이드][1]
 

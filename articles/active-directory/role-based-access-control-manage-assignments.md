@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/04/2017
 ms.author: rolyon
-ms.openlocfilehash: e893aeeabf6a34707fbfe6576293a9e0726dd975
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 7794d25e9111a4c2dbe822f9618d0acdfb69a2d2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="view-access-assignments-for-users-and-groups-in-the-azure-portal"></a>Azure Portal에서 사용자 및 그룹에 대한 액세스 권한 할당 보기
 > [!div class="op_single_selector"]
@@ -39,7 +39,7 @@ Azure AD(Azure Active Directory)의 RBAC(역할 기반 액세스 제어)로 Azur
 ## <a name="view-access-assignments"></a>액세스 권한 할당 보기
 단일 사용자 또는 그룹에 대한 액세스 권한 할당을 살펴보려면 [Azure Portal](http://portal.azure.com)의 Azure Active directory에서 시작합니다.
 
-1. **Azure Active Directory**를 선택합니다. 이 옵션이 탐색 목록에 표시되지 않는 경우 **추가 서비스**를 선택한 다음 아래로 스크롤하여 **Azure Active Directory**를 찾습니다.
+1. **Azure Active Directory**를 선택합니다. 이 옵션이 탐색 목록에 표시되지 않는 경우 **모든 서비스**를 선택한 다음, 아래로 스크롤하여 **Azure Active Directory**를 찾습니다.
 2. **사용자 및 그룹** 및 **모든 사용자** 또는 **모든 그룹**을 차례로 선택합니다. 이 예제에서는 개별 사용자에게 집중합니다.
     ![Azure Active Directory에서 사용자 및 그룹 관리 - 스크린샷](./media/role-based-access-control-manage-assignments/rbac_users_groups.png)
 3. 이름 또는 사용자 이름별로 사용자를 검색합니다.

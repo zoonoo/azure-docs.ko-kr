@@ -9,11 +9,11 @@ ms.date: 01/17/2018
 ms.topic: article
 ms.service: azure-policy
 ms.custom: 
-ms.openlocfilehash: af373e2770ad020b3a3eb669424c001670ec9204
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: ffff4a663b64342142f42a662905a290044e2dfb
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy 정의 구조
 
@@ -66,14 +66,11 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 
 ## <a name="mode"></a>Mode
 
-`mode`을 `all`로 설정하여 형식 정책이 모든 리소스 그룹 및 형식을 평가하도록 하는 것이 좋습니다. [리소스 그룹으로부터 사용자 지정 VM 이미지 허용](scripts/allow-custom-vm-image.md)에서 리소스 그룹에 태그를 강제 적용하는 정책 정의의 보기를 참조할 수 있습니다.
+**mode**는 정책에 대해 평가할 리소스 종류를 결정합니다. 지원되는 모드는 다음과 같습니다.
+* `all`: 리소스 그룹 및 모든 리소스 종류를 평가합니다. 
+* `indexed`: 태그 및 위치를 지원하는 리소스 종류만 평가합니다.
 
-**all**로 설정하면 정책에 대한 리소스 그룹 및 모든 리소스 종류가 평가됩니다. 포털에서는 모든 정책에 대해 **all**을 사용합니다. PowerShell 또는 Azure CLI를 사용하는 경우 `mode` 매개 변수를 지정하고 **all**로 설정해야 합니다.
-
-포털을 사용하여 만든 모든 정책 정의는 `all` 모드를 사용합니다. 하지만 PowerShell 또는 Azure CLI를 사용하려는 경우, `mode` 매개 변수를 지정하고 그것을 `all`에 설정합니다.
-
-모드를 `indexed`로 설정하는 경우, 정책 할당은 태그 및 위치를 지원하는 리소스 형식에 대해서만 평가됩니다.
-
+**mode**를 `all`로 설정하는 것이 좋습니다. 포털을 통해 생성된 모든 정책 정의는 `all` 모드를 사용합니다. PowerShell 또는 Azure CLI를 사용하는 경우 **mode** 매개 변수를 지정하고 `all`로 설정해야 합니다. 
 
 ## <a name="parameters"></a>매개 변수
 
@@ -264,7 +261,8 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 | Microsoft.Compute/virtualMachines/imageSku | 플랫폼 이미지 또는 가상 머신을 만드는 데 사용된 Marketplace 이미지의 SKU를 설정합니다. |
 | Microsoft.Compute/virtualMachines/imageVersion | 플랫폼 이미지 또는 가상 컴퓨터를 만드는 데 사용된 Marketplace 이미지의 버전을 설정합니다. |
 | Microsoft.Compute/virtualMachines/osDisk.Uri | Vhd URI를 설정합니다. |
-| Microsoft.Compute/virtualMachines/sku.name | 가상 컴퓨터의 크기를 설정합니다. |
+| Microsoft.Compute/virtualMachines/sku.name | 가상 머신의 크기를 설정합니다. |
+| Microsoft.Compute/virtualMachines/availabilitySet.id | 가상 머신에 사용할 가용성 집합 ID를 설정합니다. |
 
 **Microsoft.Compute/virtualMachines/extensions**
 
@@ -335,6 +333,7 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 | Microsoft.Storage/storageAccounts/enableFileEncryption | 서비스에서 데이터가 File Storage 서비스에 저장될 때 데이터를 암호화할지 여부를 설정합니다. |
 | Microsoft.Storage/storageAccounts/sku.name | SKU 이름을 설정합니다. |
 | Microsoft.Storage/storageAccounts/supportsHttpsTrafficOnly | 저장소 서비스에 https 트래픽만 허용하도록 설정합니다. |
+| Microsoft.Storage/storageAccounts/networkAcls.virtualNetworkRules[*].id | 가상 네트워크 서비스 엔드포인트가 설정되어 있는지 확인합니다. |
 
 ## <a name="initiatives"></a>이니셔티브
 

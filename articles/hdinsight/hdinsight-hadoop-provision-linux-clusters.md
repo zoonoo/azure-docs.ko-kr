@@ -17,11 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/14/2017
 ms.author: jgao
-ms.openlocfilehash: af4538bb398e6b18aeb9703ba5099b0e2c70fa64
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 39c1be51d7aa54691a6ff55483138a603c3fabed
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="set-up-clusters-in-hdinsight-with-hadoop-spark-kafka-and-more"></a>Hadoop, Spark, Kafka 등으로 HDInsight에서 클러스터를 설정
 
@@ -128,6 +128,8 @@ Hadoop의 온-프레미스 설치가 클러스터의 저장소에 HDFS(Hadoop �
 ### <a name="optional-metastores"></a>선택적 Metastore
 선택적 하이브 또는 Oozie Metastore를 만들 수 있습니다. 그러나 일부 클러스터 형식은 Metastore를 지원하지 않으며, Azure SQL Data Warehouse는 Metastore와 호환되지 않습니다. 
 
+자세한 내용은 [Azure HDInsight에서 외부 메타데이터 저장소 사용](./hdinsight-use-external-metadata-stores.md)을 참조하세요.
+
 > [!IMPORTANT]
 > 사용자 지정 Metastore를 만들 때 데이터베이스 이름에 대시, 하이픈 또는 공백을 포함하지 마세요. 이렇게 하면 클러스터 만들기 프로세스가 실패할 수 있습니다.
 
@@ -152,7 +154,7 @@ Oozie 사용 시 성능을 높이려면 사용자 지정 Metastore를 사용합�
 ### <a name="number-of-nodes-for-each-cluster-type"></a>각 클러스터 유형에 대한 노드 수
 각 클러스터 유형에는 자체 노드 수, 노드에 대한 용어 및 기본 VM 크기가 있습니다. 다음 표에서는 각 노드 유형에 대한 노드 수는 괄호로 묶어서 표시됩니다.
 
-| type | 노드 | 다이어그램 |
+| 형식 | 노드 | 다이어그램 |
 | --- | --- | --- |
 | Hadoop은 |헤드 노드(2), 데이터 노드(1+) |![HDInsight Hadoop 클러스터 노드](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hadoop-cluster-type-nodes.png) |
 | HBase |헤드 서버(2), 지역 서버(1+), 마스터/ZooKeeper 노드(3) |![HDInsight HBase 클러스터 노드](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hbase-cluster-type-setup.png) |

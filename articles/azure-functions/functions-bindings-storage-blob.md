@@ -13,13 +13,13 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/27/2017
+ms.date: 02/12/2018
 ms.author: glenga
-ms.openlocfilehash: 120a65a271291b75661d7d070cbd4a7222edd18a
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 9294d19ea78a2b9cf4282d627eddd16e6588d3ee
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Functions의 Azure Blob Storage 바인딩
 
@@ -225,15 +225,24 @@ C# 및 C# 스크립트에서는 `T paramName`과 같은 메서드 매개 변수�
 * `CloudPageBlob`(*function.json*에서 "inout" 바인딩 방향 필요)
 * `CloudAppendBlob`(*function.json*에서 "inout" 바인딩 방향 필요)
 
-언급했 듯이 이러한 형식 중 일부에는 *function.json*에서 `inout` 바인딩 방향이 필요합니다. 이 방향은 Azure Portal의 표준 편집기에서 지원되지 않으므로 고급 편집기를 사용해야 합니다.
+언급했듯이 이러한 형식 중 일부에는 *function.json*에서 `inout` 바인딩 방향이 필요합니다. 이 방향은 Azure Portal의 표준 편집기에서 지원되지 않으므로 고급 편집기를 사용해야 합니다.
 
-텍스트 Blob이 필요한 경우 `string` 형식에 바인딩할 수 있습니다. 전체 Blob 내용이 메모리에 로드되므로 이는 Blob 크기가 작은 경우에만 권장됩니다. 일반적으로 `Stream` 또는 `CloudBlockBlob` 형식을 사용하는 것이 좋습니다.
+텍스트 Blob이 필요한 경우 `string` 형식에 바인딩할 수 있습니다. 전체 Blob 내용이 메모리에 로드되므로 이는 Blob 크기가 작은 경우에만 권장됩니다. 일반적으로 `Stream` 또는 `CloudBlockBlob` 형식을 사용하는 것이 좋습니다. 자세한 내용은 이 문서의 뒷부분에 나오는 [동시성 및 메모리 사용량](#trigger---concurrency-and-memory-usage)을 참조하세요.
 
 JavaScript에서는 `context.bindings.<name>`을 사용하여 입력 Blob 데이터에 액세스합니다.
 
 ## <a name="trigger---blob-name-patterns"></a>트리거 - Blob 이름 패턴
 
-*function.json*의 `path` 속성 또는 `BlobTrigger` 특성 생성자에서 Blob 이름 패턴을 지정할 수 있습니다. 이름 패턴은 [필터 또는 바인딩 식](functions-triggers-bindings.md#binding-expressions-and-patterns)일 수 있습니다.
+*function.json*의 `path` 속성 또는 `BlobTrigger` 특성 생성자에서 Blob 이름 패턴을 지정할 수 있습니다. 이름 패턴은 [필터 또는 바인딩 식](functions-triggers-bindings.md#binding-expressions-and-patterns)일 수 있습니다. 다음 섹션에서는 예제를 제공합니다.
+
+### <a name="get-file-name-and-extension"></a>파일 이름 및 확장명 가져오기
+
+다음 예제에서는 Blob 파일 이름 및 확장명에 별도로 바인딩하는 방법을 보여줍니다.
+
+```json
+"path": "input/{blobname}.{blobextension}",
+```
+Blob이 *original-Blob1.txt*인 경우 함수 코드에 있는 `blobname` 및 `blobextension` 변수의 값은 *original-Blob1* 및 *txt*입니다.
 
 ### <a name="filter-on-blob-name"></a>Blob 이름에 대한 필터링
 
@@ -262,15 +271,6 @@ Blob 이름이 *original-Blob1.txt*인 경우 함수 코드에 있는 `name` 변
 ```
 
 Blob의 이름이 *{20140101}-soundfile.mp3*인 경우 함수 코드에서 `name` 변수 값은 *soundfile.mp3*입니다. 
-
-### <a name="get-file-name-and-extension"></a>파일 이름 및 확장명 가져오기
-
-다음 예제에서는 Blob 파일 이름 및 확장명에 별도로 바인딩하는 방법을 보여줍니다.
-
-```json
-"path": "input/{blobname}.{blobextension}",
-```
-Blob이 *original-Blob1.txt*인 경우 함수 코드에 있는 `blobname` 및 `blobextension` 변수의 값은 *original-Blob1* 및 *txt*입니다.
 
 ## <a name="trigger---metadata"></a>트리거 - 메타데이터
 
@@ -309,6 +309,14 @@ Blob을 강제로 처리하려면 *azure-webjobs-hosts* 컨테이너에서 해�
 * ContainerName
 * BlobName
 * ETag(Blob 버전 식별자, 예: "0x8D1DC6E70A277EF")
+
+## <a name="trigger---concurrency-and-memory-usage"></a>트리거 - 동시성 및 메모리 사용량
+
+Blob 트리거는 큐를 내부적으로 사용하므로 동시 함수 호출의 최대 수는 [host.json의 큐 구성](functions-host-json.md#queues)에 의해 제어됩니다. 기본 설정은 동시성을 24 호출로 제한합니다. 이 제한은 Blob 트리거를 사용하는 각 함수에 개별적으로 적용됩니다.
+
+[소비 계획](functions-scale.md#how-the-consumption-plan-works)은 하나의 VM(가상 머신)에서 함수 앱을 1.5GB의 메모리로 제한합니다. 메모리는 각각 동시에 함수 인스턴스를 실행하여 함수 런타임 자체에서 사용됩니다. Blob 트리거된 함수에서 전체 Blob을 메모리로 로드하는 경우 Blob에 대해 해당 함수에서 사용되는 최대 메모리는 24 * 최대 Blob 크기입니다. 예를 들어 세 개의 Blob 트리거된 함수 및 기본 설정이 있는 함수 앱은 3*24 = 72 함수 호출의 최대 VM당 동시성을 갖습니다.
+
+JavaScript 함수는 전체 Blob을 메모리로 로드하고 C# 함수는 `string`으로 바인딩하는 경우 로드합니다.
 
 ## <a name="trigger---polling-for-large-containers"></a>트리거 - 큰 컨테이너에 대한 폴링
 
@@ -503,7 +511,7 @@ C# 클래스 라이브러리 및 C# 스크립트에서는 `Stream paramName`과 
 * `CloudPageBlob`(*function.json*에서 "inout" 바인딩 방향 필요)
 * `CloudAppendBlob`(*function.json*에서 "inout" 바인딩 방향 필요)
 
-언급했 듯이 이러한 형식 중 일부에는 *function.json*에서 `inout` 바인딩 방향이 필요합니다. 이 방향은 Azure Portal의 표준 편집기에서 지원되지 않으므로 고급 편집기를 사용해야 합니다.
+언급했듯이 이러한 형식 중 일부에는 *function.json*에서 `inout` 바인딩 방향이 필요합니다. 이 방향은 Azure Portal의 표준 편집기에서 지원되지 않으므로 고급 편집기를 사용해야 합니다.
 
 텍스트 Blob을 읽는 경우 `string` 형식에 바인딩할 수 있습니다. 전체 Blob 내용이 메모리에 로드되므로 이 형식은 Blob 크기가 작은 경우에만 권장됩니다. 일반적으로 `Stream` 또는 `CloudBlockBlob` 형식을 사용하는 것이 좋습니다.
 
@@ -715,7 +723,7 @@ C# 클래스 라이브러리 및 C# 스크립트에서는 `Stream paramName`과 
 * `CloudPageBlob`(*function.json*에서 "inout" 바인딩 방향 필요)
 * `CloudAppendBlob`(*function.json*에서 "inout" 바인딩 방향 필요)
 
-언급했 듯이 이러한 형식 중 일부에는 *function.json*에서 `inout` 바인딩 방향이 필요합니다. 이 방향은 Azure Portal의 표준 편집기에서 지원되지 않으므로 고급 편집기를 사용해야 합니다.
+언급했듯이 이러한 형식 중 일부에는 *function.json*에서 `inout` 바인딩 방향이 필요합니다. 이 방향은 Azure Portal의 표준 편집기에서 지원되지 않으므로 고급 편집기를 사용해야 합니다.
 
 텍스트 Blob을 읽는 경우 `string` 형식에 바인딩할 수 있습니다. 전체 Blob 내용이 메모리에 로드되므로 이 형식은 Blob 크기가 작은 경우에만 권장됩니다. 일반적으로 `Stream` 또는 `CloudBlockBlob` 형식을 사용하는 것이 좋습니다.
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/08/2018
 ms.author: magoedte
-ms.openlocfilehash: 4e43c7a7cea903a2e94e60a519f6ead1e6f932e3
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: d1e70d8f9fb929e3877c88fd4c1169a0c76ac2a6
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="troubleshooting-the-log-analytics-vm-extension"></a>Log Analytics VM 확장 문제 해결
 이 문서는 Microsoft Azure에서 실행되는 Windows 및 Linux 가상 머신에 대한 Log Analytics VM 확장에서 발생할 수 있는 오류를 해결하는 데 도움을 주며, 가능한 해결 방법을 제안합니다.
@@ -26,7 +26,7 @@ ms.lasthandoff: 01/09/2018
 확장의 상태를 확인하려면 Azure Portal에서 다음 단계를 수행합니다.
 
 1. [Azure 포털](http://portal.azure.com)에 로그인합니다.
-2. Azure Portal의 왼쪽 아래 모서리에 있는 **추가 서비스**를 클릭합니다. 리소스 목록에 **가상 머신**을 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **가상 머신**을 선택합니다.
+2. Azure Portal에서 **모든 서비스**를 클릭합니다. 리소스 목록에 **가상 머신**을 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **가상 머신**을 선택합니다.
 3. 가상 머신 목록에서 해당 가상 머신을 찾아 선택합니다.
 3. 가상 머신에서 **확장**을 클릭합니다.
 4. 목록에서 Log Analytics가 사용되도록 설정되어 있는지 여부를 확인합니다.  Linux의 경우 에이전트가 **OMSAgentforLinux**로 표시되고, Windows의 경우에는 에이전트가 **MicrosoftMonitoringAgent**로 표시됩니다.
