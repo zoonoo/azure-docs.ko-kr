@@ -2,23 +2,17 @@
 title: "Azure Blob Storage 끝점에 대한 사용자 지정 도메인 이름 구성 | Microsoft Docs"
 description: "Azure Portal을 사용하여 고유한 CNAME(정식 이름)을 Azure Storage 계정의 Blob Storage 끝점에 매핑합니다."
 services: storage
-documentationcenter: 
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: aaafd8c5-eacb-49dc-8c8b-3f7011ad5e92
+manager: jeconnoc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2017
 ms.author: tamram
-ms.openlocfilehash: 4dfca37e3a369fdfb41b4064b72ccd027bd8cbd3
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 2b776e8f40f6972a60f933b0104312b119439f38
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="configure-a-custom-domain-name-for-your-blob-storage-endpoint"></a>Blob 저장소 끝점에 대한 사용자 지정 도메인 이름 구성
 
@@ -105,7 +99,7 @@ Azure 저장소 계정에서 Blob 데이터에 액세스할 수 있도록 사용
 
 Blob Storage 끝점에 대한 사용자 지정 도메인 등록을 취소하려면 다음 절차 중 하나를 사용합니다.
 
-### <a name="azure-portal"></a>Azure 포털
+### <a name="azure-portal"></a>Azure portal
 
 Azure Portal에서 다음을 수행하여 사용자 지정 도메인 설정을 제거합니다.
 

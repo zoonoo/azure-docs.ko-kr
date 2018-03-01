@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 10/30/2017
+ms.date: 02/22/2018
 ms.author: raynew
-ms.openlocfilehash: da120d8e325867eaf9eb8b9be1ae8d9152db54c4
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 256bad0c3c06182b6be2b647ae27db90fe69724d
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="support-matrix-for-replication-to-a-secondary-site-with-azure-site-recovery"></a>Azure Site Recovery를 사용하여 보조 사이트에 복제하기 위한 지원 매트릭스
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 11/13/2017
 
 ## <a name="supported-scenarios"></a>지원되는 시나리오
 
-**배포웹사이트를** | **세부 정보** 
+**배포** | **세부 정보** 
 --- | ---
 **VMware 간** | 보조 VMware 사이트에 대한 온-프레미스 VMware VM의 재해 복구<br/><br/> [InMage Scout 사용자 가이드](https://aka.ms/asr-scout-user-guide)를 다운로드합니다.
 **Hyper-V 간** | 보조 VMM 클라우드에 대한 VMM 클라우드의 온-프레미스 Hyper-V VM 재해 복구<br></br> VMM이 없으면 지원되지 않음
@@ -37,7 +37,7 @@ ms.lasthandoff: 11/13/2017
 
 ## <a name="host-servers"></a>호스트 서버
 
-**배포웹사이트를** | **지원**
+**배포** | **지원**
 --- | ---
 **VMware VM/물리적 서버** | vCenter 5.5, 6.0 및 6.5(5.5 기능만 지원)
 **Hyper-V(VMM 포함)** | Windows Server 2016 및 최신 업데이트가 포함된 Windows Server 2012 R2<br/><br/> Windows Server 2016 호스트는 VMM 2016에서 관리되어야 합니다.<br/><br/> Windows Server 2016 및 2012 R2 호스트가 혼합된 VMM 2016 클라우드는 현재 지원되지 않습니다.<br/><br/> 기존 VMM 2012 R2를 System Center 2016으로 업그레이드하도록 포함하는 배포는 현재 지원되지 않습니다.
@@ -70,21 +70,21 @@ ms.lasthandoff: 11/13/2017
 NIC 팀 | 예 | 예
 VLAN | 예 | 예
 IPv4 | 예 | 예
-IPv6 | 아니요 | 아니요
+IPv6 | 아니요 | 아니오
 
 ### <a name="guest-vms"></a>게스트 VM
 
 **구성** | **VMware/물리적 서버** | **Hyper-V(VMM 포함)**
 --- | --- | ---
-NIC 팀 | 아니요 | 아니요
+NIC 팀 | 아니오 | 아니오
 IPv4 | 예 | 예
-IPv6 | 아니요 | 아니요
+IPv6 | 아니요 | 아니오
 고정 IP(Windows) | 예 | 예
 고정 IP(Linux) | 예 | 예
 다중 NIC | 예 | 예
 
 
-## <a name="storage"></a>저장소
+## <a name="storage"></a>Storage
 
 ### <a name="host-storage"></a>호스트 저장소
 
@@ -103,14 +103,14 @@ VMDK | 예 | 해당 없음
 VHD/VHDX | 해당 없음 | 예(최대 16개 디스크)
 2세대 VM | 해당 없음 | 예
 공유 클러스터 디스크 | 예  | 아니요
-암호화된 디스크 | 아니요 | 아니요
+암호화된 디스크 | 아니오 | 아니요
 UEFI| 예 | 해당 없음
-NFS | 아니요 | 아니요
-SMB 3.0 | 아니요 | 아니요
+NFS | 아니오 | 아니오
+SMB 3.0 | 아니요 | 아니오
 RDM | 예 | 해당 없음
 디스크 > 1TB | 예 | 예
 스트라이프 디스크 포함 볼륨 > 1TB<br/><br/> LVM | 예 | 예
-저장소 공간 | 아니요 | 예
+저장소 공간 | 아니오 | 예
 디스크 핫 추가/제거 | 예 | 아니요
 디스크 제외 | 예 | 예
 다중 경로(MPIO) | 해당 없음 | 예
@@ -119,7 +119,7 @@ RDM | 예 | 해당 없음
 
 **작업** | **VMware/물리적 서버** | **Hyper-V(VMM 포함)**
 --- | --- | ---
-리소스 그룹 간에 자격 증명 모음 이동(동일 구독 내 또는 구독 간에) | 아니요 | 아니요
+리소스 그룹 간에 자격 증명 모음 이동(동일 구독 내 또는 구독 간에) | 아니요 | 아니오
 리소스 그룹 간에 저장소, 네트워크, Azure VM 이동(동일 구독 내 또는 구독 간에) | 아니요 | 아니요
 
 ## <a name="provider-and-agent"></a>공급자 및 에이전트

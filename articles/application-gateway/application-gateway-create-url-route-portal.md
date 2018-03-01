@@ -11,11 +11,11 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
 ms.author: davidmu
-ms.openlocfilehash: eb07b1811b017f71a003be26522e6b213a300321
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 62063c42ab15a071a4500417a5d8adf6bfeac97f
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Azure Portal을 사용하여 경로 기반 라우팅 규칙을 사용하여 응용 프로그램 게이트웨이 만들기
 
@@ -40,14 +40,14 @@ Azure Portal([http://portal.azure.com](http://portal.azure.com))에 로그인합
 
 ## <a name="create-an-application-gateway"></a>응용 프로그램 게이트웨이 만들기
 
-가상 네트워크는 사용자가 만든 리소스 간의 통신에 필요합니다. 이 예제에서는 두 개의 서브넷이 생성됩니다. 하나는 응용 프로그램 게이트웨이용이고 다른 하나는 백 엔드 서버용입니다. 가상 네트워크는 응용 프로그램 게이트웨이를 만들 때 동시에 만들 수 있습니다.
+가상 네트워크는 사용자가 만든 리소스 간의 통신에 필요합니다. 이 예제에서는 두 개의 서브넷을 만듭니다. 하나는 응용 프로그램 게이트웨이용이고, 다른 하나는 백 엔드 서버용입니다. 응용 프로그램 게이트웨이를 만드는 동시에 가상 네트워크를 만들 수 있습니다.
 
-1. Azure Portal의 왼쪽 위에 있는 **새로 만들기**를 클릭합니다.
+1. Azure Portal의 왼쪽 위에서 **새로 만들기**를 클릭합니다.
 2. **네트워킹**을 선택한 다음, 추천 목록에서 **Application Gateway**를 선택합니다.
 3. 응용 프로그램 게이트웨이에 대해 다음 값을 입력합니다.
 
     - *myAppGateway* - 응용 프로그램 게이트웨이의 이름
-    - *myResourceGroupAG* - 새 리소스 그룹
+    - *myResourceGroupAG* - 새 리소스 그룹의 이름
 
     ![새 응용 프로그램 게이트웨이 만들기](./media/application-gateway-create-url-route-portal/application-gateway-create.png)
 
@@ -85,12 +85,12 @@ Azure Portal([http://portal.azure.com](http://portal.azure.com))에 로그인합
 
     - *myVM1* - 가상 머신의 이름
     - *azureuser* - 관리자 사용자 이름
-    - *Azure123456!* 암호
+    - *Azure123456!* - 암호
     - **기존 항목 사용**을 선택한 다음, *myResourceGroupAG*를 선택합니다.
 
 4. **확인**을 클릭합니다.
-5. 가상 머신의 크기에 **DS1_V2**를 선택하고 **선택**을 클릭합니다.
-6. 가상 네트워크에 **myVNet**이 선택되어 있고 서브넷이 **myBackendSubnet**인지 확인합니다. 
+5. 가상 머신의 크기에 대해 **DS1_V2**를 선택하고 **선택**을 클릭합니다.
+6. 가상 네트워크에 대해 **myVNet**이 선택되어 있고 서브넷이 **myBackendSubnet**인지 확인합니다. 
 7. **사용 안 함**을 클릭하여 부팅 진단을 사용하지 않도록 설정합니다.
 8. **확인**을 클릭하고 요약 페이지에서 설정을 검토한 다음, **만들기**를 클릭합니다.
 
@@ -120,7 +120,7 @@ Azure Portal([http://portal.azure.com](http://portal.azure.com))에 로그인합
 ## <a name="create-backend-pools-with-the-virtual-machines"></a>가상 머신으로 백 엔드 풀 만들기
 
 1. **모든 리소스**를 클릭한 다음, **myAppGateway**를 클릭합니다.
-2. **백 엔드 풀**을 클릭합니다. 기본 풀이 응용 프로그램 게이트웨이와 함께 자동으로 생성되었습니다. **appGateayBackendPool**을 클릭합니다.
+2. **백 엔드 풀**을 클릭합니다. 기본 풀이 응용 프로그램 게이트웨이와 함께 자동으로 만들어졌습니다. **appGatewayBackendPool**을 클릭합니다.
 3. **대상 추가**를 클릭하여 *myVM1*을 appGatewayBackendPool에 추가합니다.
 
     ![백 엔드 서버 추가](./media/application-gateway-create-url-route-portal/application-gateway-backend.png)

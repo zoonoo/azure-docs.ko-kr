@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/07/2017
+ms.date: 2/23/2018
 ms.author: ryanwi
-ms.openlocfilehash: 8e0cf78aef7e973188ce9581ec94f012f6ecde90
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 35288fe5473ab788916503d986aa5360b150b947
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="service-fabric-application-and-service-manifests"></a>Service Fabric 응용 프로그램 및 서비스 매니페스트
 이 문서에서는 Service Fabric 응용 프로그램 및 서비스가 ApplicationManifest.xml 및 ServiceManifest.xml 파일을 사용하여 정의되고 버전화되는 방법에 대해 설명합니다.  이러한 매니페스트 파일의 XML 스키마는 [ServiceFabricServiceModel.xsd 스키마 설명서](service-fabric-service-model-schema.md)에 설명되어 있습니다.
@@ -70,7 +70,7 @@ ms.lasthandoff: 12/11/2017
 
 **EntryPoint** 를 통해 지정되는 실행 파일은 일반적으로 장기 실행 서비스 호스트입니다. **SetupEntryPoint** 는 서비스 패브릭과 같은 자격 증명(일반적으로 *LocalSystem* 계정)을 사용하여 다른 진입점보다 먼저 실행되는 권한 있는 진입점입니다.  별도의 설정 진입점이 있으면 한동안은 높은 권한을 사용하여 서비스 호스트를 실행하지 않아도 됩니다. **EntryPoint**를 통해 지정된 실행 파일은 **SetupEntryPoint**가 성공적으로 종료된 후 실행됩니다. 프로세스가 종료되지 않거나 충돌하는 경우 결과 프로세스를 모니터링하여 다시 시작합니다( **SetupEntryPoint**를 사용하여 다시 시작).  
 
-**SetupEntryPoint** 를 사용하는 일반적인 시나리오는 서비스를 시작하기 전에 실행 파일을 실행하는 경우 또는 높은 권한을 사용하여 작업을 수행하는 경우입니다. 예:
+**SetupEntryPoint** 를 사용하는 일반적인 시나리오는 서비스를 시작하기 전에 실행 파일을 실행하는 경우 또는 높은 권한을 사용하여 작업을 수행하는 경우입니다. 예: 
 
 * 서비스 실행 파일에 필요한 환경 변수를 설정하고 초기화합니다. 이것은 서비스 패브릭 프로그래밍 모델을 통해 작성된 실행 파일에만 국한되지는 않습니다. 예를 들어 npm.exe 파일에는 node.js 응용 프로그램 배포를 위해 구성되는 환경 변수가 필요합니다.
 * 보안 인증서를 설치하여 액세스 제어를 설정합니다.

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/20/2017
 ms.author: jgao
-ms.openlocfilehash: 96faa0cf518e4b02b5ba9fd8aedaf21bd6288b02
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: 62b21db5c52287c1d0d058cba3a433434c364777
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="process-and-analyze-json-documents-by-using-apache-hive-in-azure-hdinsight"></a>Azure HDInsight에서 Apache Hive를 사용하여 JSON 문서 처리 및 분석
 
@@ -151,7 +151,6 @@ SerDe는 중첩된 JSON 문서를 구문 분석하기 위한 최상의 선택입
 * [샘플 Apache log4j 파일 분석을 위해 HDInsight에서 Hadoop과 함께 Hive 및 HiveQL 사용](../hdinsight-use-hive.md)
 * [HDInsight의 Hive를 사용하여 비행 지연 데이터 분석](../hdinsight-analyze-flight-delay-data.md)
 * [HDInsight에서 Hive를 사용하여 Twitter 데이터 분석](../hdinsight-analyze-twitter-data.md)
-* [Azure Cosmos DB 및 HDInsight를 사용하여 Hadoop 작업 실행](../../cosmos-db/run-hadoop-with-hdinsight.md)
 
 [hdinsight-python]:python-udf-hdinsight.md
 

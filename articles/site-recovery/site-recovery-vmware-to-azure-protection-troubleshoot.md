@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/21/2017
+ms.date: 02/22/2018
 ms.author: asgang
-ms.openlocfilehash: 7a8cd09731ccdf7ad7385f7e707125c3902ebdf2
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 9e0c602646009b20c8d4f8a29d55b7f44a089131
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="troubleshoot-on-premises-vmwarephysical-server-replication-issues"></a>온-프레미스 VMware/물리적 서버 복제 문제 해결
-Azure Site Recovery를 사용하여 VMware 가상 컴퓨터 또는 물리적 서버를 보호하는 경우 특정 오류 메시지가 나타날 수 있습니다. 이 문서에서는 발생할 수 있는 일반적인 일부 오류 메시지와 이 문제를 해결하기 위한 문제 해결 단계에 대해 자세히 설명합니다.
+Azure Site Recovery를 사용하여 VMware 가상 머신 또는 물리적 서버를 보호하는 경우 특정 오류 메시지가 나타날 수 있습니다. 이 문서에서는 발생할 수 있는 일반적인 일부 오류 메시지와 이 문제를 해결하기 위한 문제 해결 단계에 대해 자세히 설명합니다.
 
 
 ## <a name="initial-replication-is-stuck-at-0"></a>초기 복제가 0%에 고정됩니다.
@@ -45,13 +45,13 @@ Azure Site Recovery를 사용하여 VMware 가상 컴퓨터 또는 물리적 서
 
 프로세스 서버 컴퓨터에서 작업 관리자(Ctrl+Shift+Esc 키를 눌러)를 엽니다. 성능 탭으로 이동하고 ‘리소스 모니터 열기’ 링크를 클릭합니다. 리소스 관리자에서 네트워크 탭으로 이동합니다. '네트워크 작업을 사용하여 프로세스'의 cbengine.exe가 적극적으로 대량의(단위: Mb) 데이터를 보내는지 확인합니다.
 
-![복제 활성화](./media/site-recovery-protection-common-errors/cbengine.png)
+![복제 사용](./media/site-recovery-protection-common-errors/cbengine.png)
 
 그렇지 않은 경우 아래 나열된 단계를 따르세요.
 
 * **프로세스 서버가 Azure Blob에 연결할 수 있는지 확인**: 'TCP 연결'을 보도록 cbengine.exe를 선택하고 확인하여 프로세스 서버에서 Azure Storage Blob URL로 연결이 있는지 확인합니다.
 
-![복제 활성화](./media/site-recovery-protection-common-errors/rmonitor.png)
+![복제 사용](./media/site-recovery-protection-common-errors/rmonitor.png)
 
 그렇지 않은 경우 제어판 > 서비스로 이동하고 다음 서비스가 실행되고 있는지 확인합니다.
 
@@ -67,7 +67,7 @@ Azure Site Recovery를 사용하여 VMware 가상 컴퓨터 또는 물리적 서
 
 `%programfiles%\Microsoft Azure Recovery Services Agent\Temp`에서 최신 CBEngineCurr.errlog를 열고 443 및 연결 시도 실패를 검색합니다.
 
-![복제 활성화](./media/site-recovery-protection-common-errors/logdetails1.png)
+![복제 사용](./media/site-recovery-protection-common-errors/logdetails1.png)
 
 문제가 있는 경우 프로세스 서버 명령줄에서 포트 443을 사용하여 CBEngineCurr.currLog에서 발견된 Azure 공용 IP 주소(위 이미지에 마스킹된)를 ping하도록 텔넷을 사용합니다.
 
@@ -107,11 +107,11 @@ Azure Site Recovery를 사용하여 VMware 가상 컴퓨터 또는 물리적 서
 이제 Azure Site Recovery에서 데이터를 보내는 데 동일한 설정을 사용하는지 확인합니다.
 Microsoft Azure Backup 검색
 
-![복제 활성화](./media/site-recovery-protection-common-errors/mab.png)
+![복제 사용](./media/site-recovery-protection-common-errors/mab.png)
 
 해당 항목을 열고 작업 > 속성 변경을 클릭합니다. 프록시 구성 탭 아래에 레지스트리 설정에 의해 표시된 것과 동일해야 하는 프록시 주소가 표시됩니다. 그렇지 않은 경우 동일한 주소로 변경하세요.
 
-![복제 활성화](./media/site-recovery-protection-common-errors/mabproxy.png)
+![복제 사용](./media/site-recovery-protection-common-errors/mabproxy.png)
 
 * **대역폭 제한이 프로세스 서버에서 제한되지 않는지 확인**: 대역폭을 늘리고 문제가 여전히 있는지 확인합니다.
 

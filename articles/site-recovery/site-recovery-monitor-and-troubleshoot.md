@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 01/06/2017
+ms.date: 02/22/2018
 ms.author: bsiva
-ms.openlocfilehash: 6dca032c8611ac4f7e66eb6f7e22e53f49209143
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: bb453f6c16440fae8a12cc1c4890a473ce541f45
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="monitoring-and-troubleshooting-azure-site-recovery"></a>Azure Site Recovery 모니터링 및 문제 해결
 
@@ -156,7 +156,7 @@ Azure Site Recovery 대시보드 페이지의 다양한 부분을 10분마다 �
 >|복제 시나리오  | VM 상태  | 인프라 보기 사용 가능  |
 >|---------|---------|---------|
 >|두 온-프레미스 사이트 간에 복제하는 가상 머신     | -        | 아니요      |
->|모두     | 장애 조치됨         |  아니요       |
+>|모두     | 장애 조치됨         |  아니오       |
 >|Azure 두 영역 간에 복제하는 가상 머신     | 진행 중인 초기 복제 또는 보호됨         | 예         |
 >|Azure에 복제하는 VMware 가상 머신     | 진행 중인 초기 복제 또는 보호됨        | 예        |
 >|Azure에 복제하는 VMware 가상 머신     | 온-프레미스 VMware 사이트에 다시 복제되는 장애 조치된 가상 머신         | 아니요        |
