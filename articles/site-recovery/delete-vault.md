@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 07/04/2017
+ms.date: 02/22/2018
 ms.author: rajani-janaki-ram
-ms.openlocfilehash: 77bc7e068629c5dbf650b39844912b1b7a6155b2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4cb5c387319b9659b16f0c98dc38cb79d72987e2
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="delete-a-site-recovery-vault"></a>Site Recovery 자격 증명 모음 삭제
 종속성으로 인해 Azure Site Recovery 자격 증명 모음을 삭제하지 못할 수 있으며, VMWare에서 Azure로, Hyper-V(System Center Virtual Machine Manager 있음 및 없음)에서 Azure로 및 Azure Backup과 같은 Site Recovery 시나리오에 따라 수행해야 하는 작업이 달라집니다. Azure Backup에서 사용되는 자격 증명 모음을 삭제하려면 [Azure에서 백업 자격 증명 모음 삭제](../backup/backup-azure-delete-vault.md)를 참조하세요.
@@ -42,7 +42,7 @@ ms.lasthandoff: 10/11/2017
 
 
 ### <a name="hyper-v-vms-with-virtual-machine-manager-to-azure"></a>Hyper-V VM(Virtual Machine Manager 있음)에서 Azure로
-1. [System Center VMM에서 Azure로 시나리오를 사용하여 Azure에 복제하는 Hyper-V 가상 컴퓨터에 보호 사용 안 함](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-hyper-v-virtual-machine-replicating-to-azure-using-the-system-center-vmm-to-azure-scenario)의 단계에 따라 보호되는 모든 VM을 삭제합니다.
+1. [System Center VMM에서 Azure로 시나리오를 사용하여 Azure에 복제하는 Hyper-V 가상 머신에 보호 사용 안 함](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-hyper-v-virtual-machine-replicating-to-azure-using-the-system-center-vmm-to-azure-scenario)의 단계에 따라 보호되는 모든 VM을 삭제합니다.
 
 2. 자격 증명 모음 -> **Site Recovery 인프라** -> **System Center VMM** -> **복제 정책**으로 이동하여 모든 복제 정책을 분리 및 삭제합니다.
 

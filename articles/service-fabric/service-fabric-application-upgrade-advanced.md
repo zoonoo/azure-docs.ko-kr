@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 2/5/2018
+ms.date: 2/23/2018
 ms.author: subramar;chackdan
-ms.openlocfilehash: 0b0ca553fb96b0a54f3b76d306ed98d95026dcd9
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 1bb3a5e215e3a664cf67727255840696c7f58e8c
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="service-fabric-application-upgrade-advanced-topics"></a>서비스 패브릭 응용 프로그램 업그레이드: 고급 항목
 ## <a name="adding-or-removing-service-types-during-an-application-upgrade"></a>응용 프로그램을 업그레이드하는 동안 서비스 유형 추가 또는 제거
