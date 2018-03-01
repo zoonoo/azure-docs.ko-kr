@@ -12,11 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: a75ad760fe7f9663c5b43500581170d5f8671a13
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 2879daf4b5ba072a3a9b11ec87c01e5904b6a5dc
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="data-preparations-user-guide"></a>데이터 준비 사용자 가이드 
 Azure Machine Learning 데이터 준비 경험은 다양한 기능을 제공합니다. 이 문서는 환경의 심층 부분에 대해 설명합니다.
@@ -89,7 +89,7 @@ Azure Machine Learning 데이터 준비 경험은 다양한 기능을 제공합�
 4. **조건** 뒤에 **필터링된 행을 포함하여 데이터 흐름 만들기**를 선택하여 표시되지 않은 결과 집합을 새 데이터 흐름으로 분기합니다.
 
 
-이 방법은 추가 준비가 필요한 데이터 집합을 구분하는 데 자주 사용됩니다. 분기된 데이터 집합 랭글링을 수행한 후에는 원래 데이터 흐름의 결과 집합과 데이터를 병합하는 것이 일반적입니다. 병합(분기 작업의 반대)을 수행하려면 다음 작업 중 하나를 사용합니다.
+이 방법은 추가 준비가 필요한 데이터 집합을 구분하는 데 자주 사용됩니다. 분기된 데이터 집합을 준비한 후에는 원래 데이터 흐름의 결과 집합과 데이터를 병합하는 것이 일반적입니다. 병합(분기 작업의 반대)을 수행하려면 다음 작업 중 하나를 사용합니다.
 
 - **행 추가**. 두 개 이상의 데이터 흐름을 세로(행 단위)로 병합합니다. 
 - **열 추가**. 두 개 이상의 데이터 흐름을 가로(열 단위)로 병합합니다.

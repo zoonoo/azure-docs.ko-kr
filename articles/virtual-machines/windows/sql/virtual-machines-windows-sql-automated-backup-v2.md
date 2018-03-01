@@ -4,7 +4,7 @@ description: "Azure에서 실행되는 SQL Server 2016 VM의 자동화된 Backup
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
-manager: jhubbard
+manager: craigg
 editor: 
 tags: azure-resource-manager
 ms.assetid: ebd23868-821c-475b-b867-06d4a2e310c7
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 04/05/2017
+ms.date: 02/15/2018
 ms.author: jroth
-ms.openlocfilehash: e7e14b0243f82c672392d5ab4bb6aca01156465b
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: ecae49e70a0fdd30be8a0872d02abcf4a4c228bd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="automated-backup-v2-for-sql-server-2016-azure-virtual-machines-resource-manager"></a>SQL Server 2016 Azure Virtual Machines의 자동화된 Backup v2(Resource Manager)
 
@@ -71,8 +71,8 @@ ms.lasthandoff: 12/21/2017
 | **자동화된 Backup** | 사용/사용 안 함(사용 안 함) | SQL Server 2016 Standard 또는 Enterprise를 실행하는 Azure VM에 대해 자동화된 Backup을 사용하거나 사용하지 않도록 설정합니다. |
 | **보존 기간** | 1-30일(30일) | 백업 보존 기간(일 수)입니다. |
 | **Storage 계정** | Azure 저장소 계정 | Blob 저장소에 자동화된 Backup 파일을 저장하기 위해 사용하여 Azure 저장소 계정입니다. 모든 백업 파일을 저장하려면 컨테이너를 이 위치에 만듭니다. 백업 파일 명명 규칙에는 날짜, 시간 및 데이터베이스 GUID가 포함됩니다. |
-| **암호화** |사용/사용 안 함(사용 안 함) | 암호화 사용 여부를 설정합니다. 암호화 기능을 사용하면 백업을 복원하는 데 사용되는 인증서가 동일한 명명 규칙을 사용하여 동일한 **automaticbackup** 컨테이너에 지정한 저장소 계정에 배치됩니다. 암호가 변경되면 해당 암호를 사용하여 새 인증서가 생성되지만 이전 인증서도 이전 백업의 복원을 위해 유지됩니다. |
-| **암호** |암호 텍스트 | 암호화 키의 암호입니다. 암호화를 사용하는 경우에만 필요합니다. 암호화된 백업을 복원하기 위해서는 올바른 암호 및 백업을 수행할 때 사용한 인증서가 있어야 합니다. |
+| **암호화** |사용/사용 안 함(사용 안 함) | 암호화 사용 여부를 설정합니다. 암호화가 활성화되면 백업을 복원하는 데 사용된 인증서는 지정된 저장소 계정에 있습니다. 동일한 이름 지정 규칙을 사용하여 동일한 **automaticbackup** 컨테이너를 사용합니다. 암호가 변경되면 해당 암호를 사용하여 새 인증서가 생성되지만 이전 인증서도 이전 백업의 복원을 위해 유지됩니다. |
+| **암호** |암호 텍스트 | 암호화 키의 암호입니다. 이 암호는 암호화를 사용하는 경우에만 필요합니다. 암호화된 백업을 복원하기 위해서는 올바른 암호 및 백업을 수행할 때 사용한 인증서가 있어야 합니다. |
 
 ### <a name="advanced-settings"></a>고급 설정
 
@@ -86,7 +86,7 @@ ms.lasthandoff: 12/21/2017
 | **로그 백업 빈도** | 5-60분(60분) | 로그 백업의 빈도입니다. |
 
 ## <a name="understanding-full-backup-frequency"></a>전체 백업 빈도 이해
-매일 및 매주 전체 백업 간 차이를 이해하는 것은 중요합니다. 이를 위해 다음과 같은 두 가지 예제 시나리오를 살펴보겠습니다.
+매일 및 매주 전체 백업 간 차이를 이해하는 것은 중요합니다. 다음 두 가지 예제 시나리오를 고려하세요.
 
 ### <a name="scenario-1-weekly-backups"></a>시나리오 1: 매주 백업
 매우 큰 데이터베이스를 많이 포함하는 SQL Server VM이 있습니다.
@@ -100,11 +100,11 @@ ms.lasthandoff: 12/21/2017
 
 즉, 사용 가능한 다음 백업 기간은 화요일 오전 1시부터 1시간 동안입니다. 해당 시간에 자동화된 Backup은 한 번에 하나씩 데이터베이스를 백업하기 시작합니다. 이 시나리오에서는 처음 두 데이터베이스에 대해 전체 백업이 완료될 정도로 데이터베이스가 큽니다. 그러나 1시간 후에 모든 데이터베이스가 백업되지는 않았습니다.
 
-이 경우 자동화된 Backup은 다음 날인 수요일에 오전 1시부터 1시간 동안 나머지 데이터베이스를 백업하기 시작합니다. 해당 시간에 모든 데이터베이스이 백업되지는 않을 경우 다음 날 같은 시간에 다시 시도됩니다. 이 과정은 모든 데이터베이스가 성공적으로 백업될 때까지 계속됩니다.
+이 경우 자동화된 Backup은 다음 날인 수요일에 오전 1시부터 1시간 동안 나머지 데이터베이스를 백업하기 시작합니다. 해당 시간에 모든 데이터베이스가 백업되지는 않을 경우 다음 날 같은 시간에 다시 시도됩니다. 이 과정은 모든 데이터베이스가 성공적으로 백업될 때까지 계속됩니다.
 
-다시 화요일이 되면 자동화된 Backup은 모든 데이터베이스를 다시 한 번 백업하기 시작합니다.
+다시 화요일이 되면 자동화된 백업이 모든 데이터베이스를 다시 백업하기 시작합니다.
 
-이 시나리오에서는 자동화된 Backup이 지정된 기간 내에만 작동하며 각 데이터베이스가 매주 한 번 백업될 것임을 보여 줍니다. 또한 하루에 모든 백업을 완료할 수 없는 경우 여러 날에 걸쳐 백업이 진행될 수 있다는 사실도 보여 줍니다.
+이 시나리오에서는 자동화된 Backup이 지정된 기간 내에만 작동하며 각 데이터베이스가 매주 한 번 백업될 것임을 보여줍니다. 또한 하루에 모든 백업을 완료할 수 없는 경우 여러 날에 걸쳐 백업이 진행될 수 있다는 사실도 보여 줍니다.
 
 ### <a name="scenario-2-daily-backups"></a>시나리오 2: 매일 백업
 매우 큰 데이터베이스를 많이 포함하는 SQL Server VM이 있습니다.
@@ -118,7 +118,7 @@ ms.lasthandoff: 12/21/2017
 
 즉, 사용 가능한 다음 백업 기간은 월요일 오후 10시부터 6시간 동안입니다. 해당 시간에 자동화된 Backup은 한 번에 하나씩 데이터베이스를 백업하기 시작합니다.
 
-그런 다음 화요일 오후 10부터 6시간 동안 모든 데이터베이스의 전체 백업이 다시 시작됩니다.
+그런 다음, 화요일 오후 10부터 6시간 동안 모든 데이터베이스의 전체 백업이 다시 시작됩니다.
 
 > [!IMPORTANT]
 > 매일 백업 일정을 계획할 때는 모든 데이터베이스가 이 시간 내에 백업될 수 있도록 넓은 기간을 예약하는 것이 좋습니다. 특히 백업할 데이터양이 클 경우 이러한 점을 고려해야 합니다.
@@ -152,7 +152,7 @@ Azure Portal을 사용하여 Resource Manager 배포 모델에서 새 SQL Server
 
 완료되면 **SQL Server 구성** 블레이드 아래쪽의 **확인** 단추를 클릭하여 변경 내용을 저장합니다.
 
-처음으로 자동화된 Backup을 사용 설정할 경우 Azure에서 백그라운드로 SQL Server IaaS 에이전트를 구성합니다. 이 시간 동안에는 구성된 자동화된 Backup이 Azure Portal에 표시되지 않을 수 있습니다. 에이전트가 설치 및 구성될 때까지 몇 분 정도 기다리세요. 그 후 Azure 포털에는 새 설정이 반영됩니다.
+처음으로 자동화된 Backup을 사용 설정할 경우 Azure에서 백그라운드로 SQL Server IaaS 에이전트를 구성합니다. 이 시간 동안에는 구성된 자동화된 Backup이 Azure Portal에 표시되지 않을 수 있습니다. 에이전트가 설치 및 구성될 때까지 몇 분 정도 기다리세요. 그 후 Azure Portal에는 새 설정이 반영됩니다.
 
 ## <a name="configuration-with-powershell"></a>PowerShell을 사용하여 구성
 

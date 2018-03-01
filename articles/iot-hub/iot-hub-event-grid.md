@@ -10,13 +10,13 @@ ms.service: iot-hub
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2018
+ms.date: 02/14/2018
 ms.author: kgremban
-ms.openlocfilehash: 096fcce979bd488a0fe9dead2b1232a057d0ae02
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 6123039ba5eeb720e0ca590fa69af915da91367c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions---preview"></a>작업-미리 보기를 트리거하기 위해 Event Grid를 사용하여 IoT Hub 이벤트에 대응
 
@@ -41,7 +41,7 @@ Event Grid 통합은 공개 미리 보기에 있으므로 사용할 수 있는 �
 
 IoT Hub는 다음과 같은 이벤트 유형을 게시합니다. 
 
-| 일정 유형 | 설명 |
+| 이벤트 유형 | 설명 |
 | ---------- | ----------- |
 | Microsoft.Devices.DeviceCreated | IoT 허브에 장치를 등록하는 경우 게시합니다. |
 | Microsoft.Devices.DeviceDeleted | IoT 허브에서 장치를 삭제하는 경우 게시합니다. | 
@@ -107,7 +107,7 @@ IoT Hub 이벤트에는 장치 수명 주기 변경에 대응하는 데 필요�
 
 ## <a name="filter-events"></a>이벤트 필터링
 
-IoT Hub 이벤트 구독은 이벤트 유형 및 장치 이름을 기반으로 이벤트를 필터링할 수 있습니다. Event Grid의 제목 필터는 **접두사** 및 **접미사** 일치 항목을 기준으로 작동하므로 일치하는 제목이 있는 이벤트는 구독자에게 전달됩니다. 
+IoT Hub 이벤트 구독은 이벤트 유형 및 장치 이름을 기반으로 이벤트를 필터링할 수 있습니다. Event Grid 작업의 제목 필터는 **접두사** 및 **접미사** 일치를 기준으로 작동합니다. 필터는 `AND` 연산자를 사용하므로 접두사와 접미사가 둘 다 일치하는 제목의 이벤트가 구독자에게 전달됩니다. 
 
 IoT 이벤트의 제목은 다음 형식을 사용합니다.
 

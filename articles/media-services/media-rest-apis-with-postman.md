@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/04/2017
 ms.author: juliako
-ms.openlocfilehash: a24b73a93bddbeb5b56ddfdf604fa99faccea442
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 72b110cac8d4945c958d760ff98e2da2f2796b62
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="configure-postman-for-media-services-rest-api-calls"></a>Media Services REST API 호출에 대해 Postman 구성
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 01/08/2018
 
 이 환경 및 컬렉션은 Azure Media Services REST API로 다양한 작업을 수행하는 방법을 보여 주는 문서에서 사용됩니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 - [Postman](https://www.getpostman.com/) REST 클라이언트를 설치하여 일부 AMS REST 자습서에 표시되는 REST API를 실행합니다. 
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 01/08/2018
 
 ## <a name="configure-the-environment"></a>환경 구성 
 
-1. AMS 자습서에 사용되는 환경 변수를 포함하는 .json 파일을 만듭니다. 파일 이름을 **AzureMediaServices.postman_environment.json**으로 지정합니다. 파일을 열고 [이 코드 목록](postman-environment.md)에서 Postman 환경을 정의하는 코드를 붙여 넣습니다. 
+1. AMS 자습서에 사용되는 환경 변수를 포함하는 .json 파일을 만듭니다. 파일 이름을 지정합니다(예: **AzureMediaServices.postman_environment.json**). 파일을 열고 [이 코드 목록](postman-environment.md)에서 Postman 환경을 정의하는 코드를 붙여 넣습니다. 
 2. **Postman**을 엽니다.
 3. 화면 오른쪽에서 **환경 관리** 옵션을 선택합니다.
 
@@ -48,7 +48,7 @@ ms.lasthandoff: 01/08/2018
 
 ## <a name="configure-the-collection"></a>컬렉션 구성
 
-1. Media Services에 파일을 업로드하는 데 필요한 모든 작업이 있는 **Postman** 컬렉션이 포함된 .json 파일을 만듭니다. 파일 이름을 **AzureMediaServicesOperations.postman_collection.json**으로 지정합니다. 파일을 열고 [이 코드 목록](postman-collection.md)에서 **Postman** 컬렉션을 정의하는 코드를 붙여 넣습니다.
+1. Media Services에 파일을 업로드하는 데 필요한 모든 작업이 있는 **Postman** 컬렉션이 포함된 .json 파일을 만듭니다. 파일 이름을 지정합니다(예: **AzureMediaServicesOperations.postman_collection.json**). 파일을 열고 [이 코드 목록](postman-collection.md)에서 **Postman** 컬렉션을 정의하는 코드를 붙여 넣습니다.
 2. **가져오기**를 클릭하여 컬렉션 파일을 가져옵니다.
 3. **AzureMediaServicesOperations.postman_collection.json** 파일을 선택합니다.
 

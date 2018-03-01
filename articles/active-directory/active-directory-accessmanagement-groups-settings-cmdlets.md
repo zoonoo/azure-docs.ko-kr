@@ -6,24 +6,23 @@ documentationcenter:
 author: curtand
 manager: mtillman
 editor: 
-ms.assetid: 9f2090e6-3af4-4f07-bbb2-1d18dae89b73
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.tgt_pltfrm: 
+ms.devlang: 
 ms.topic: article
-ms.date: 12/06/2017
+ms.date: 02/20/2018
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro;
-ms.openlocfilehash: 331dafc9164e315c84036fa0af11820e89066f36
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 75df4436d5d36878f361e87f34d9bfc8bed1e58f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>그룹 설정을 구성하는 Azure Active Directory cmdlets
-이 문서에서는 Azure Active Directory(Azure AD) PowerShell cmdlet을 사용하여 그룹을 만들고 업데이트하는 방법을 설명합니다. 이 콘텐츠는 Office 365 그룹에만 적용됩니다. 
+이 문서에서는 Azure Active Directory(Azure AD) PowerShell cmdlet을 사용하여 그룹을 만들고 업데이트하는 방법을 설명합니다. 이 콘텐츠는 Office 365 그룹에만 적용됩니다(통합 그룹이라고도 함). 
 
 > [!IMPORTANT]
 > 일부 설정에는 Azure Active Directory Premium P1 라이선스가 필요합니다. 자세한 내용은 [템플릿 설정](#template-settings) 표를 참조하세요.
@@ -42,7 +41,7 @@ cmdlet은 Azure Active Directory PowerShell V2 모듈의 일부입니다. 컴퓨
 ```
 
 ## <a name="create-settings-at-the-directory-level"></a>디렉터리 수준에서 설정 만들기
-다음 단계는 디렉터리 수준에서 설정을 만드는 것입니다. 이 설정은 디렉터리에 있는 모든 Office 365 그룹(통합 그룹)에 적용됩니다.
+다음 단계는 디렉터리 수준에서 설정을 만드는 것입니다. 이 설정은 디렉터리에 있는 모든 Office 365 그룹에 적용됩니다.
 
 1. DirectorySettings cmdlet에서 사용하려는 SettingsTemplate의 ID를 지정해야 합니다. 이 ID를 모르면 cmdlet이 모든 설정 템플릿 목록을 반환합니다.
   
@@ -55,7 +54,7 @@ cmdlet은 Azure Active Directory PowerShell V2 모듈의 일부입니다. 컴퓨
   Id                                   DisplayName         Description
   --                                   -----------         -----------
   62375ab9-6b52-47ed-826b-58e47e0e304b Group.Unified       ...
-  08d542b9-071f-4e16-94b0-74abb372e3d9 Group.Unified.Guest Settings for a specific Unified Group
+  08d542b9-071f-4e16-94b0-74abb372e3d9 Group.Unified.Guest Settings for a specific Office 365 group
   16933506-8a8d-4f0d-ad58-e1db05a5b929 Company.BuiltIn     Setting templates define the different settings that can be used for the associ...
   4bc7f740-180e-4586-adb6-38b2e9024e6b Application...
   898f1161-d651-43d1-805c-3b0b388a9fc2 Custom Policy       Settings ...
@@ -93,20 +92,19 @@ cmdlet은 Azure Active Directory PowerShell V2 모듈의 일부입니다. 컴퓨
 
 | **설정** | **설명** |
 | --- | --- |
-|  <ul><li>EnableGroupCreation<li>형식: Boolean<li>기본값: True |관리자가 아닌 사용자에 의해 디렉터리에서 통합 그룹 만들기가 허용되는지 여부를 나타내는 플래그입니다. 이 설정에는 Azure Active Directory Premium P1 라이선스가 필요하지 않습니다.|
-|  <ul><li>GroupCreationAllowedGroupId<li>형식: String<li>기본값: “” |EnableGroupCreation == false일 때도 구성원이 통합 그룹을 만들도록 허용된 보안 그룹의 GUID입니다. |
+|  <ul><li>EnableGroupCreation<li>형식: Boolean<li>기본값: True |관리자가 아닌 사용자에 의해 디렉터리에서 Office 365 그룹 만들기가 허용되는지 여부를 나타내는 플래그입니다. 이 설정에는 Azure Active Directory Premium P1 라이선스가 필요하지 않습니다.|
+|  <ul><li>GroupCreationAllowedGroupId<li>형식: String<li>기본값: “” |EnableGroupCreation == false일 때도 구성원이 Office 365 그룹을 만들도록 허용된 보안 그룹의 GUID입니다. |
 |  <ul><li>UsageGuidelinesUrl<li>형식: String<li>기본값: “” |그룹 사용 지침 링크입니다. |
 |  <ul><li>ClassificationDescriptions<li>형식: String<li>기본값: “” | 쉼표로 구분된 분류 설명 목록입니다. |
 |  <ul><li>DefaultClassification<li>형식: String<li>기본값: “” | 설정이 지정되지 않은 경우에 그룹의 기본 분류로 사용되는 분류입니다.|
-|  <ul><li>PrefixSuffixNamingRequirement<li>형식: String<li>기본값: “” | 사용 안 함. 구현되지 않았습니다. |
-| <ul><li>CustomBlockedWordsList<li>형식: String<li>기본값: “” | 사용 안 함. 구현되지 않았습니다. |
+|  <ul><li>PrefixSuffixNamingRequirement<li>형식: String<li>기본값: “” | Office 365 그룹에 대해 구성된 명명 규칙을 정의하는 최대 64자의 문자열입니다. 자세한 내용은 [Office 365 그룹에 대한 명명 정책 적용(미리 보기)](groups-naming-policy.md)을 참조하세요. |
+| <ul><li>CustomBlockedWordsList<li>형식: String<li>기본값: “” | 사용자가 그룹 이름 또는 별칭에서 사용하도록 허용되지 않은 쉼표로 구분된 구의 문자열입니다. 자세한 내용은 [Office 365 그룹에 대한 명명 정책 적용(미리 보기)](groups-naming-policy.md)을 참조하세요. |
 | <ul><li>EnableMSStandardBlockedWords<li>형식: Boolean<li>기본값: "False" | 사용 안 함
 |  <ul><li>AllowGuestsToBeGroupOwner<li>형식: Boolean<li>기본값: False | 게스트 사용자가 그룹의 소유자일 수 있는지 여부를 나타내는 부울 값입니다. |
-|  <ul><li>AllowGuestsToAccessGroups<li>형식: Boolean<li>기본값: True | 게스트 사용자가 통합 그룹의 콘텐츠에 액세스할 수 있는지 여부를 나타내는 부울 값입니다.  이 설정에는 Azure Active Directory Premium P1 라이선스가 필요하지 않습니다.|
+|  <ul><li>AllowGuestsToAccessGroups<li>형식: Boolean<li>기본값: True | 게스트 사용자가 Office 365 그룹의 콘텐츠에 액세스할 수 있는지 여부를 나타내는 부울 값입니다.  이 설정에는 Azure Active Directory Premium P1 라이선스가 필요하지 않습니다.|
 |  <ul><li>GuestUsageGuidelinesUrl<li>형식: String<li>기본값: “” | 게스트 사용 지침의 링크 url입니다. |
 |  <ul><li>AllowToAddGuests<li>형식: Boolean<li>기본값: True | 이 디렉터리에 게스트를 추가하는 것이 허용되는지 여부를 나타내는 부울 값입니다.|
-|  <ul><li>ClassificationList<li>형식: String<li>기본값: “” |통합 그룹에 적용할 수 있는 유효한 분류 값을 쉼표로 구분한 목록입니다. |
-
+|  <ul><li>ClassificationList<li>형식: String<li>기본값: “” |Office 365 그룹에 적용할 수 있는 유효한 분류 값을 쉼표로 구분한 목록입니다. |
 
 ## <a name="read-settings-at-the-directory-level"></a>디렉터리 수준에서 설정 읽기
 다음 단계는 디렉터리 수준에서 설정을 읽는 것입니다. 이 설정은 디렉터리에 있는 모든 Office 그룹에 적용됩니다.
@@ -138,6 +136,7 @@ cmdlet은 Azure Active Directory PowerShell V2 모듈의 일부입니다. 컴퓨
   ClassificationDescriptions
   DefaultClassification
   PrefixSuffixNamingRequirement
+  CustomBlockedWordsList        
   AllowGuestsToBeGroupOwner     False 
   AllowGuestsToAccessGroups     True
   GuestUsageGuidelinesUrl
@@ -157,7 +156,7 @@ cmdlet은 Azure Active Directory PowerShell V2 모듈의 일부입니다. 컴퓨
   Id                                   DisplayName            Description
   --                                   -----------            -----------
   62375ab9-6b52-47ed-826b-58e47e0e304b Group.Unified          ...
-  08d542b9-071f-4e16-94b0-74abb372e3d9 Group.Unified.Guest    Settings for a specific Unified Group
+  08d542b9-071f-4e16-94b0-74abb372e3d9 Group.Unified.Guest    Settings for a specific Office 365 group
   4bc7f740-180e-4586-adb6-38b2e9024e6b Application            ...
   898f1161-d651-43d1-805c-3b0b388a9fc2 Custom Policy Settings ...
   5cf42378-d67d-4f36-ba46-e8b86229381d Password Rule Settings ...
@@ -186,7 +185,7 @@ cmdlet은 Azure Active Directory PowerShell V2 모듈의 일부입니다. 컴퓨
 
 ## <a name="update-settings-at-the-directory-level"></a>디렉터리 수준에서 설정 업데이트
 
-다음 단계는 디렉터리 수준에서 설정을 업데이트합니다. 이 설정은 디렉터리에 있는 모든 통합 그룹에 적용됩니다. 다음 예에서는 이미 디렉터리에 설정 개체가 있는 것으로 가정합니다.
+다음 단계는 디렉터리 수준에서 설정을 업데이트하는 것입니다. 이 설정은 디렉터리에 있는 모든 Office 365 그룹에 적용됩니다. 다음 예에서는 이미 디렉터리에 설정 개체가 있는 것으로 가정합니다.
 
 1. 기존 설정 개체를 찾습니다.
   ```

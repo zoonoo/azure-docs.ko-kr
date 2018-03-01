@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2017
 ms.author: magoedte
-ms.openlocfilehash: 74d363be48972b40ba6a50b845acea78e1b5cc20
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 30ed7c2f9a65f66d9d45b1bdd5be2957cfe1d08a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="update-your-automation-account-authentication-with-run-as-accounts"></a>실행 계정으로 Automation 계정 인증 업데이트 
 다음과 같은 경우 Azure Portal에서 기존 Automation 계정을 업데이트하거나 PowerShell을 사용할 수 있습니다.
@@ -40,7 +40,7 @@ ms.lasthandoff: 01/10/2018
 * 지정된 Automation 계정에서 *AzureClassicRunAsCertificate*라는 Automation 인증서 자산을 만듭니다. 인증서 자산은 관리 인증서에서 사용되는 인증서 개인 키를 보유합니다.
 * 지정된 Automation 계정에서 *AzureClassicRunAsConnection*이라는 Automation 연결 자산을 만듭니다. 연결 자산은 구독 이름, subscriptionId 및 인증서 자산 이름을 보유합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 [PowerShell을 사용하여 실행 계정을 만들도록](#create-run-as-account-using-powershell) 선택한 경우 이 프로세스에는 다음이 필요합니다.
 
 * Azure Resource Manager 모듈 3.4.1 이상이 설치된 Windows 10 및 Windows Server 2016 - PowerShell 스크립트는 이전 버전의 Windows를 지원하지 않습니다.
@@ -49,7 +49,7 @@ ms.lasthandoff: 01/10/2018
 
 스크립트의 필수 매개 변수인 *SubscriptionID*, *ResourceGroup* 및 *AutomationAccountName*의 값을 가져오려면 다음을 수행합니다.
 
-1. Azure Portal의 왼쪽 아래 모서리에 있는 **추가 서비스**를 클릭합니다. 리소스 목록에서 **Automation**을 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Automation 계정**을 선택합니다.
+1. Azure Portal에서 **모든 서비스**를 클릭합니다. 리소스 목록에서 **Automation**을 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Automation 계정**을 선택합니다.
 2. Automation 계정 페이지에서 Automation 계정을 선택한 다음 **계정 설정** 아래에서 **속성**을 선택합니다.  
 3. **속성** 페이지의 값을 적어둡니다.<br><br> ![Automation 계정 "속성" 블레이드](media/automation-create-runas-account/automation-account-properties.png)  
 
@@ -65,7 +65,7 @@ Automation 계정을 업데이트하려면 이 항목을 완료하는 데 필요
 이 섹션에서는 다음 단계를 수행하여 Azure Portal에서 Azure Automation 계정을 업데이트합니다.  실행 계정과 클래식 실행 계정을 개별적으로 만듭니다. 클래식 리소스를 관리할 필요가 없으면 Azure 실행 계정만 만들면 됩니다.  
 
 1. 구독 관리자 역할의 멤버이자 구독의 공동 관리자인 계정으로 Azure Portal에 로그인합니다.
-2. Azure Portal의 왼쪽 아래 모서리에 있는 **추가 서비스**를 클릭합니다. 리소스 목록에서 **Automation**을 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Automation 계정**을 선택합니다.
+2. Azure Portal에서 **모든 서비스**를 클릭합니다. 리소스 목록에서 **Automation**을 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Automation 계정**을 선택합니다.
 3. **Automation 계정** 페이지의 Automation 계정 목록에서 Automation 계정을 선택합니다.
 4. 왼쪽 창의 **계정 설정** 섹션 아래에서 **실행 계정**을 선택합니다.  
 5. 필요한 계정에 따라 **Azure 실행 계정** 또는 **Azure 클래식 실행 계정**을 선택합니다.  **Azure 실행 계정 추가** 또는 **Azure 클래식 실행 계정 추가** 중 하나를 선택하여 해당 창이 표시되면, 개요 정보를 검토한 후에 **만들기**를 클릭하여 실행 계정 만들기를 계속 진행합니다.  

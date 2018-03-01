@@ -12,13 +12,13 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: 554c5e6e3e3cfa2742ef27a3c1510176184b6bd0
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: ed2bb2fe159db146ee520fc600c8b11f2dd4f761
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="analysis-services-high-availability"></a>Analysis Services 고가용성
 이 문서에서는 Azure Analysis Services 서버에 대한 고가용성을 보장하는 방법을 설명합니다. 
@@ -29,13 +29,14 @@ ms.lasthandoff: 11/02/2017
 
 * 다른 지역의 중복 서버에 모델을 배포합니다. 이 방법을 적용할 경우 모든 서버가 동기화되도록 기본 서버와 중복 서버에서 모두 병렬로 데이터를 처리해야 합니다.
 
-* 기본 서버에서 데이터베이스를 백업하고 중복 서버에 복원합니다. 예를 들어 야간에 Azure Storage에 백업하는 작업을 자동화하고 다른 지역의 다른 중복 서버로 복원할 수 있습니다. 
+* 기본 서버에서 데이터베이스를 [백업](analysis-services-backup.md)하고 중복 서버에서 복원합니다. 예를 들어 야간에 Azure Storage에 백업하는 작업을 자동화하고 다른 지역의 다른 중복 서버로 복원할 수 있습니다. 
 
 어느 경우에나 기본 서버에서 작동 중단이 발생하면 다른 지역 데이터 센터의 서버에 연결하기 위해 보고 클라이언트에서 연결 문자열을 변경해야 합니다. 이 변경은 마지막 수단으로, 치명적인 지역 데이터 센터 작동 중단이 발생한 경우에만 고려해야 합니다. 모든 클라이언트에서 연결을 업데이트하기 전에 기본 서버를 호스트하는 데이터 센터 작동 중단 상태에서 다시 온라인 상태로 전환될 가능성이 높습니다. 
 
-
+보고 클라이언트에서 연결 문자열을 변경하지 않기 위해 주 서버에 대한 서버 [별칭](analysis-services-server-alias.md)을 만들 수 있습니다. 주 서버가 다운되면 다른 지역에서 중복 서버를 가리키도록 별칭을 변경할 수 있습니다. 주 서버에서 엔드포인트 상태 검사를 코딩하여 서버 이름에 대한 별칭을 자동화할 수 있습니다. 상태 검사가 실패하는 경우 동일한 엔드포인트를 다른 지역의 중복 서버로 보낼 수 있습니다. 
 
 ## <a name="related-information"></a>관련 정보
 [Backup 및 복원](analysis-services-backup.md)   
-[Azure Analysis Services 관리](analysis-services-manage.md) 
+[Azure Analysis Services 관리](analysis-services-manage.md)   
+[별칭 서버 이름](analysis-services-server-alias.md) 
 

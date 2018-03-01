@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
-ms.openlocfilehash: eecb20d4a53478471c238018d8fbd5a5f9cb79d8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b8a8e0653221af126ea137b1450ce27c29791ae3
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-network-monitoring-overview"></a>Azure 네트워크 모니터링 개요
 
@@ -43,23 +43,23 @@ Network Watcher는 현재 다음과 같은 기능을 제공합니다.
 * **[다음 홉](network-watcher-next-hop-overview.md)** - Azure 네트워크 패브릭에서 라우팅되는 패킷의 다음 홉을 결정하여 잘못 구성된 사용자 정의 경로를 진단할 수 있습니다.
 * **[보안 그룹 보기](network-watcher-security-group-view-overview.md)** - VM에 적용되는 효과적이고 실용적인 보안 규칙을 가져옵니다.
 * **[NSG 흐름 로깅](network-watcher-nsg-flow-logging-overview.md)** - 네트워크 보안 그룹의 흐름 로그를 사용하면 그룹의 보안 규칙으로 허용되거나 거부되는 트래픽과 관련된 로그를 캡처할 수 있습니다. 흐름은 원본 IP, 대상 IP, 원본 포트, 대상 포트 및 프로토콜의 5개 튜플 정보로 정의됩니다.
-* **[가상 네트워크 게이트웨이 및 연결 문제 해결](network-watcher-troubleshoot-manage-rest.md)** - 가상 네트워크 게이트웨이 및 연결에 발생한 문제를 해결하는 기능을 제공합니다.
+* **[Virtual Network 게이트웨이 및 연결 문제 해결](network-watcher-troubleshoot-manage-rest.md)** - Virtual Network 게이트웨이 및 연결에 발생한 문제를 해결하는 기능을 제공합니다.
 * **[네트워크 구독 제한](#network-subscription-limits)** - 제한과 대조한 네트워크 리소스 사용량을 볼 수 있습니다.
 * **[진단 로그 구성](#diagnostic-logs)** – 리소스 그룹의 네트워크 리소스에 대해 진단 로그를 사용하거나 사용하지 않도록 설정할 수 있는 단일 창을 제공합니다.
-* **[연결(미리 보기)](network-watcher-connectivity-overview.md)** - 가상 컴퓨터에서 지정된 끝점으로의 직접 TCP 연결을 설정할 수 있는지 확인합니다.
+* **[연결 문제 해결](network-watcher-connectivity-overview.md)** - 가상 머신에서 Azure 컨텍스트를 사용해 보강된 지정된 끝점으로의 직접 TCP 연결을 설정할 수 있는지 확인합니다.
 
-### <a name="role-based-access-control-rbac-in-network-watcher"></a>Network Watcher의 RBAC(역할 기반 액세스 제어)
+### <a name="role-based-access-control-rbac-in-network-watcher"></a>Network Watcher의 RBAC(역할 기반 Access Control)
 
-Network Watcher는 [Azure RBAC(역할 기반 액세스 제어) 모델 ](../active-directory/role-based-access-control-what-is.md)을 사용합니다. Network Watcher에 필요한 권한은 다음과 같습니다. Network Watcher API를 시작하거나 포털에서 Network Watcher를 사용하기 위한 역할에 필요한 액세스 권한이 있는지 확인하는 것이 중요합니다.
+Network Watcher는 [Azure 역할 기반 Access Control(RBAC) 모델 ](../active-directory/role-based-access-control-what-is.md)을 사용합니다. Network Watcher에 필요한 권한은 다음과 같습니다. Network Watcher API를 시작하거나 포털에서 Network Watcher를 사용하기 위한 역할에 필요한 액세스 권한이 있는지 확인하는 것이 중요합니다.
 
 |리소스| 사용 권한|
 |---|---| 
 |Microsoft.Storage/ |읽기|
 |Microsoft.Authorization/| 읽기| 
 |Microsoft.Resources/subscriptions/resourceGroups/| 읽기|
-|Microsoft.Storage/storageAccounts/listServiceSas/ | 작업|
-|Microsoft.Storage/storageAccounts/listAccountSas/ |작업|
-|Microsoft.Storage/storageAccounts/listKeys/ | 작업|
+|Microsoft.Storage/storageAccounts/listServiceSas/ | 조치|
+|Microsoft.Storage/storageAccounts/listAccountSas/ |조치|
+|Microsoft.Storage/storageAccounts/listKeys/ | 조치|
 |Microsoft.Compute/virtualMachines/ |읽기|
 |Microsoft.Compute/virtualMachines/ |쓰기|
 |Microsoft.Compute/virtualMachineScaleSets/ |읽기|
@@ -124,7 +124,7 @@ Network Watcher에 대해 알아보았으면 다음을 익힐 수 있습니다.
 
 오픈 소스 도구를 사용하는 [Wireshark로 패킷 캡처 분석](network-watcher-deep-packet-inspection.md)을 통해 보안 취약점을 감지합니다.
 
-Azure의 다른 주요 [네트워킹 기능](../networking/networking-overview.md)을 알아봅니다.
+Azure의 몇 가지 다른 주요 [네트워킹 기능](../networking/networking-overview.md)을 알아봅니다.
 
 <!--Image references-->
 [TS]: ./media/network-watcher-monitoring-overview/troubleshooting.png

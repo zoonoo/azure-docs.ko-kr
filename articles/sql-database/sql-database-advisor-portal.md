@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 07/05/2017
 ms.author: sstein
-ms.openlocfilehash: 2b725c60dbcb9737b00ffd5fb43273b26dda1ea8
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: fe76be59d6ee09049ed8c1343d1a91e42646c262
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="find-and-apply-performance-recommendations"></a>성능 권장 사항 찾기 및 적용
 
@@ -32,7 +32,7 @@ Azure Portal을 사용하여 Azure SQL Database의 성능을 최적화할 수 �
 다음 단계를 사용하여 Azure Portal에서 성능 권장 사항을 찾을 수 있습니다.
 
 1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
-2. **추가 서비스** > **SQL Databases**로 이동하고 데이터베이스를 선택합니다.
+2. **모든 서비스** > **SQL 데이터베이스**로 이동한 다음, 데이터베이스를 선택합니다.
 3. **성능 권장 사항**으로 이동하여 선택된 데이터베이스의 사용 가능한 권장 사항을 봅니다.
 
 성능 권장 사항은 다음 그림에서 보여주는 표와 비슷하게 표시됩니다.

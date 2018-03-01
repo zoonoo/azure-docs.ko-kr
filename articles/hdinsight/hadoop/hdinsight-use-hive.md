@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/17/2018
+ms.date: 01/26/2018
 ms.author: larryfr
-ms.openlocfilehash: ecf08b765ba17ac410f45bc3604a2aa0f3b4823e
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: afd2bc95beb2458ec149824723ec62381b31b2da
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Azure HDInsight의 Apache Hive 및 HiveQL이란?
 
@@ -41,20 +41,19 @@ HDInsight는 특정 워크로드에 맞게 조정되는 여러 클러스터 형�
 
 ## <a name="how-to-use-hive"></a>Hive 사용 방법
 
-다음 테이블을 사용하여 HDInsight와 함께 Hive를 사용하는 방법에 알아봅니다.
+HDInsight에서 Hive를 사용하는 여러 가지 방법을 알아보려면 다음 표를 참조하세요.
 
-| 다음을 원하는 경우 **이 메서드를 사용**... | ... **대화형** 셸 | ...**배치** 처리 | ... **클러스터 운영 체제** | ... **클라이언트 운영 체제** |
+| 다음을 원하는 경우 **이 메서드를 사용**... | ...**대화형** 쿼리 | ...**배치** 처리 | ... **클러스터 운영 체제** | ... **클라이언트 운영 체제** |
 |:--- |:---:|:---:|:--- |:--- |
 | [Hive 보기](../hadoop/apache-hadoop-use-hive-ambari-view.md) |✔ |✔ |Linux |모두(브라우저 기반) |
 | [Beeline 클라이언트](../hadoop/apache-hadoop-use-hive-beeline.md) |✔ |✔ |Linux |Linux, Unix, Mac OS X, 또는 Windows |
 | [REST API](../hadoop/apache-hadoop-use-hive-curl.md) |&nbsp; |✔ |Linux 또는 Windows* |Linux, Unix, Mac OS X, 또는 Windows |
+| [HDInsight tools for Visual Studio Code](../hdinsight-for-vscode.md) |✔ |✔ |Linux | Linux, Unix, Mac OS X, 또는 Windows |
 | [Visual Studio용 HDInsight 도구](../hadoop/apache-hadoop-use-hive-visual-studio.md) |&nbsp; |✔ |Linux 또는 Windows* |Windows |
 | [Windows PowerShell](../hadoop/apache-hadoop-use-hive-powershell.md) |&nbsp; |✔ |Linux 또는 Windows* |Windows |
 
 > [!IMPORTANT]
 > \* Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](../hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
->
-> Windows 기반 HDInsight 클러스터를 사용하는 경우 브라우저에서 [쿼리 콘솔](../hadoop/apache-hadoop-use-hive-query-console.md) 또는 [원격 데스크톱](../hadoop/apache-hadoop-use-hive-remote-desktop.md)을 사용하여 Hive 쿼리를 실행할 수 있습니다.
 
 ## <a name="hiveql-language-reference"></a>HiveQL 언어 참조
 
@@ -65,7 +64,14 @@ HiveQL 언어 참조는 [언어 설명서(https://cwiki.apache.org/confluence/di
 Hive는 구조화되거나 반구조화된 데이터로 작업하는 방법을 이해합니다. 예를 들어 필드가 특정 문자로 구분된 텍스트 파일이 있습니다. 다음 HiveQL 문은 공백으로 구분된 데이터에 대해 테이블을 만듭니다.
 
 ```hiveql
-CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
+CREATE EXTERNAL TABLE log4jLogs (
+    t1 string,
+    t2 string,
+    t3 string,
+    t4 string,
+    t5 string,
+    t6 string,
+    t7 string)
 ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
 STORED AS TEXTFILE LOCATION '/example/data/';
 ```
@@ -74,20 +80,20 @@ STORED AS TEXTFILE LOCATION '/example/data/';
 
 Hive에서 지원하는 파일 형식에 대한 자세한 내용은 [언어 설명서(https://cwiki.apache.org/confluence/display/Hive/LanguageManual)](https://cwiki.apache.org/confluence/display/Hive/LanguageManual)를 참조하세요.
 
-## <a name="hive-internal-tables-vs-external-tables"></a>Hive 내부 테이블과 외부 테이블 비교
+### <a name="hive-internal-tables-vs-external-tables"></a>Hive 내부 테이블과 외부 테이블 비교
 
 Hive로 다음과 같은 두 가지 형식의 테이블을 만들 수 있습니다.
 
 * __내부__: 데이터가 Hive 데이터 웨어하우스에 저장됩니다. 데이터 웨어하우스는 클러스터의 기본 저장소인 `/hive/warehouse/`에 있습니다.
 
-    다음과 같은 경우에 내부 테이블을 사용합니다.
+    다음 조건 중 하나가 적용되는 경우 내부 테이블을 사용합니다.
 
     * 데이터가 일시적입니다.
     * Hive로 테이블 및 데이터의 수명 주기를 관리하고자 합니다.
 
 * __외부__: 데이터가 데이터 웨어하우스 외부에 저장됩니다. 클러스터에서 액세스할 수 있는 저장소에 데이터를 저장할 수 있습니다.
 
-    다음과 같은 경우에 외부 테이블을 사용합니다.
+    다음 조건 중 하나가 적용되는 경우 외부 테이블을 사용합니다.
 
     * 데이터를 Hive 외부에서도 사용합니다. 예를 들어, 데이터 파일이 다른 프로세스에 의해 업데이트됩니다(파일을 잠그지 않음).
     * 테이블을 삭제한 후에도 데이터는 기본 위치에 남아 있어야 합니다.
@@ -102,9 +108,9 @@ Hive는 **사용자 정의 함수(UDF)**를 통해 확장 될 수도 있습니�
 
 * [Hive와 함께 Java 사용자 정의 함수 사용](../hadoop/apache-hadoop-hive-java-udf.md)
 
-* [Hive 및 Pig와 함께 Python 사용자 정의 함수 사용](../hadoop/python-udf-hdinsight.md)
+* [Hive에서 Python 사용자 정의 함수 사용](../hadoop/python-udf-hdinsight.md)
 
-* [Hive 및 Pig와 함께 C# 사용자 정의 함수 사용](../hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
+* [Hive에서 C# 사용자 정의 함수 사용](../hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
 
 * [HDInsight에 사용자 지정 Hive 사용자 정의 함수를 추가하는 방법](http://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
 
@@ -118,16 +124,27 @@ HDInsight에서 Hive는 `hivesampletable`이라는 내부 테이블로 미리 �
 
 다음 HiveQL 문은 열을 `/example/data/sample.log` 파일에 저장합니다.
 
-    set hive.execution.engine=tez;
-    DROP TABLE log4jLogs;
-    CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
-    ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
-    STORED AS TEXTFILE LOCATION '/example/data/';
-    SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
+```hiveql
+set hive.execution.engine=tez;
+DROP TABLE log4jLogs;
+CREATE EXTERNAL TABLE log4jLogs (
+    t1 string,
+    t2 string,
+    t3 string,
+    t4 string,
+    t5 string,
+    t6 string,
+    t7 string)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
+STORED AS TEXTFILE LOCATION '/example/data/';
+SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs 
+    WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' 
+    GROUP BY t4;
+```
 
 이전 예제에서 HiveQL 문은 다음 작업을 수행합니다.
 
-* `set hive.execution.engine=tez;`: Tez를 사용하도록 실행 엔진을 설정합니다. MapReduce 대신 Tez를 사용하면 쿼리 성능 향상을 제공할 수 있습니다. Tez에 대한 자세한 내용은 [향상된 성능을 위해 Apache Tez 사용](#usetez)을 참조하세요.
+* `set hive.execution.engine=tez;`: Tez를 사용하도록 실행 엔진을 설정합니다. Tez를 사용하면 쿼리 성능 향상을 제공할 수 있습니다. Tez에 대한 자세한 내용은 [향상된 성능을 위해 Apache Tez 사용](#usetez)을 참조하세요.
 
     > [!NOTE]
     > 이 문은 Windows 기반 HDInsight 클러스터를 사용할 경우에만 필요합니다. Tez는 Linux 기반 HDInsight의 기본 실행 엔진입니다.
@@ -151,11 +168,21 @@ HDInsight에서 Hive는 `hivesampletable`이라는 내부 테이블로 미리 �
 
 외부 테이블 대신 **내부** 테이블을 만들려면 다음 HiveQL을 사용합니다.
 
-    set hive.execution.engine=tez;
-    CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
-    STORED AS ORC;
-    INSERT OVERWRITE TABLE errorLogs
-    SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]';
+```hiveql
+set hive.execution.engine=tez;
+CREATE TABLE IF NOT EXISTS errorLogs (
+    t1 string,
+    t2 string,
+    t3 string,
+    t4 string,
+    t5 string,
+    t6 string,
+    t7 string)
+STORED AS ORC;
+INSERT OVERWRITE TABLE errorLogs
+SELECT t1, t2, t3, t4, t5, t6, t7 
+    FROM log4jLogs WHERE t4 = '[ERROR]';
+```
 
 이러한 문은 다음 작업을 수행합니다.
 
@@ -195,7 +222,15 @@ Tez를 사용하여 실행된 작업을 디버깅하도록 보조하려면 HDIns
 
 HDInsight는 Interactive Query 클러스터 형식으로 LLAP를 제공합니다. 자세한 내용은 [Interactive Query로 시작](../interactive-query/apache-interactive-query-get-started.md) 문서를 참조하세요.
 
-## <a name="hive-jobs-and-sql-server-integration-services"></a>Hive 작업 및 SQL Server Integration Services
+## <a name="scheduling-hive-queries"></a>Hive 쿼리 예약
+
+예약된 워크플로 또는 주문형 워크플로의 일부로 Hive 쿼리를 실행하는 데 사용할 수 있는 여러 서비스가 있습니다.
+
+### <a name="azure-data-factory"></a>Azure 데이터 팩터리
+
+Azure Data Factory를 사용하면 데이터 팩터리 파이프라인의 일부로 HDInsight를 사용할 수 있습니다. 파이프라인에서 Hive를 사용하는 방법에 대한 자세한 내용은 [Azure Data Factory에서 Hive 활동을 사용하여 데이터 변환](/data-factory/transform-data-using-hadoop-hive.md) 문서를 참조하세요.
+
+### <a name="hive-jobs-and-sql-server-integration-services"></a>Hive 작업 및 SQL Server Integration Services
 
 SSIS(SQL Server Integration Services)를 사용하여 Hive 작업을 실행할 수 있습니다. Azure Feature Pack for SSIS는 HDInsight에서 Hive 작업을 하는 다음 구성 요소를 제공합니다.
 
@@ -203,7 +238,11 @@ SSIS(SQL Server Integration Services)를 사용하여 Hive 작업을 실행할 �
 
 * [Azure 구독 연결 관리자][connectionmanager]
 
-[여기][ssispack]에서 Azure Feature Pack for SSIS에 대해 자세히 알아보세요.
+자세한 내용은 [Azure 기능 팩][ ssispack] 설명서를 참조하세요.
+
+### <a name="apache-oozie"></a>Apache Oozie
+
+Apache Oozie는 Hadoop 작업을 관리하는 워크플로 및 코디네이션 시스템입니다. Hive에서 Oozie를 사용하는 방법에 대한 자세한 내용은 [Oozie를 사용하여 워크플로 정의 및 실행](../hdinsight-use-oozie-linux-mac.md) 문서를 참조하세요.
 
 ## <a id="nextsteps"></a>다음 단계
 

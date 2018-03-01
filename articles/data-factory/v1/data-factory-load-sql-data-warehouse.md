@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 3350645d4f173a6d0d007ff9095bb3115600a13b
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 1b931de564417ab98207321d7798613b187e411f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>Data Factory를 통해 15분 내에 Azure SQL Data Warehouse에 1TB 로드
 > [!NOTE]
@@ -113,9 +113,9 @@ ms.lasthandoff: 01/23/2018
 필수 구성 요소 단계가 완료되면 이제 복사 마법사를 사용하여 복사 활동을 구성할 수 있습니다.
 
 ## <a name="launch-copy-wizard"></a>복사 마법사 시작
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. 왼쪽 위 모서리에서 **+ 새로 만들기**를 클릭하고 **인텔리전스 + 분석**을 클릭하고 **Data Factory**를 클릭합니다.
-3. **새 데이터 팩터리** 블레이드에서 다음을 수행합니다.
+1. [Azure 포털](https://portal.azure.com) 에 로그인합니다.
+2. 왼쪽 위 모서리에서 **리소스 만들기**를 클릭하고 **인텔리전스 + 분석** 및 **Data Factory**를 차례로 클릭합니다.
+3. **새 데이터 팩터리** 창에서 다음을 수행합니다.
 
    1. **이름**으로 **LoadIntoSQLDWDataFactory**를 입력합니다.
        Azure Data Factory 이름은 전역적으로 고유해야 합니다. **Data Factory 이름 “LoadIntoSQLDWDataFactory”를 사용할 수 없습니다.**오류가 표시되는 경우 Data Factory 이름을 변경하고(예: yournameLoadIntoSQLDWDataFactory) 다시 만듭니다. 데이터 팩터리 아티팩트에 대한 명명 규칙은 [데이터 팩터리 - 명명 규칙](data-factory-naming-rules.md) 항목을 참조하세요.  

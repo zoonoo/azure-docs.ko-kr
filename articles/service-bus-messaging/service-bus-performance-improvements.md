@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/31/2018
 ms.author: sethm
-ms.openlocfilehash: be702f0b08ce14012db9da10d874031c7a5a562b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: aba53fcadb9cefa70afc175dd02e4723eb6e5f5d
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Service Bus 메시징을 사용한 성능 향상의 모범 사례
 
@@ -111,7 +111,12 @@ MessagingFactory messagingFactory = MessagingFactory.Create(namespaceUri, mfs);
 
 ## <a name="batching-store-access"></a>저장소 액세스 일괄 처리
 
-큐, 토픽 또는 구독의 처리량을 높이기 위해 Service Bus는 내부 저장소에 쓸 때 여러 메시지를 일괄 처리합니다. 큐 또는 토픽에 설정된 경우 저장소에 메시지를 쓰는 작업이 일괄 처리됩니다. 큐 또는 구독에 설정된 경우 저장소에서 메시지를 삭제하는 작업이 일괄 처리됩니다. 엔터티에 대해 일괄 처리된 저장소 액세스를 사용할 경우 Service Bus는 해당 엔터티와 관련된 저장소 쓰기 작업을 최대 20ms까지 지연합니다. 이 간격 동안 발생하는 추가 저장소 작업은 배치에 추가됩니다. 일괄 처리된 저장소 액세스는 **전송** 및 **완료** 작업에만 영향을 주고 수신 작업은 영향을 받지 않습니다. 일괄 처리된 저장소 액세스는 엔터티의 속성입니다. 일괄 처리는 일괄 처리된 저장소 액세스가 가능한 모든 엔터티에서 발생합니다.
+큐, 토픽 또는 구독의 처리량을 높이기 위해 Service Bus는 내부 저장소에 쓸 때 여러 메시지를 일괄 처리합니다. 큐 또는 토픽에 설정된 경우 저장소에 메시지를 쓰는 작업이 일괄 처리됩니다. 큐 또는 구독에 설정된 경우 저장소에서 메시지를 삭제하는 작업이 일괄 처리됩니다. 엔터티에 대해 일괄 처리된 저장소 액세스를 사용할 경우 Service Bus는 해당 엔터티와 관련된 저장소 쓰기 작업을 최대 20ms까지 지연합니다. 
+
+> [!NOTE]
+> 20ms 일괄 처리 간격이 끝날 때 Service Bus 오류가 있더라도 메시지가 손실될 위험이 없습니다. 
+
+이 간격 동안 발생하는 추가 저장소 작업은 배치에 추가됩니다. 일괄 처리된 저장소 액세스는 **전송** 및 **완료** 작업에만 영향을 주고 수신 작업은 영향을 받지 않습니다. 일괄 처리된 저장소 액세스는 엔터티의 속성입니다. 일괄 처리는 일괄 처리된 저장소 액세스가 가능한 모든 엔터티에서 발생합니다.
 
 새 큐, 토픽 또는 구독을 만들면 기본적으로 일괄 처리된 저장소 액세스가 사용하도록 설정됩니다. 일괄 처리된 저장소 액세스를 사용하지 않으려면 엔터티를 만들기 전에 [EnableBatchedOperations][EnableBatchedOperations] 속성을 **false**로 설정합니다. 예: 
 

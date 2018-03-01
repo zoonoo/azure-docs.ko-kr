@@ -16,15 +16,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/20/2017
 ms.author: jgao
-ms.openlocfilehash: fb2487ec854260bacf98789bd1be482172ead6a7
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: 5606df8770cf611d7d278800c9871bee17c5b895
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="debug-apache-spark-jobs-running-on-azure-hdinsight"></a>Azure HDInsight에서 실행 중인 Apache Spark 작업 디버그
 
-이 문서에서는 YARN UI, Spark UI 및 Spark 기록 서버를 사용하여 HDInsight 클러스터에서 실행 중인 Spark 작업을 추적하고 디버깅하는 방법을 알아봅니다. 이 문서의 경우 Spark 클러스터에서 사용할 수 있는 Notebook을 통해 Spark 작업(**Machine Learning: MLLib를 사용하여 음식 검사 데이터에 대한 예측 분석**)을 시작합니다. **spark-submit**등 다른 방법을 사용하여 제출한 응용 프로그램을 추적하기 위해 이 단계를 사용할 수 있습니다.
+이 문서에서는 YARN UI, Spark UI 및 Spark 기록 서버를 사용하여 HDInsight 클러스터에서 실행 중인 Spark 작업을 추적하고 디버깅하는 방법을 알아봅니다. Spark 클러스터에서 사용할 수 있는 Notebook을 통해 Spark 작업(**Machine Learning: MLLib를 사용하여 음식 검사 데이터에 대한 예측 분석**)을 시작합니다. 다음 단계를 사용하여 **spark-submit** 등의 다른 방법으로 제출한 응용 프로그램을 추적할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 다음이 있어야 합니다.
@@ -34,12 +34,12 @@ ms.lasthandoff: 12/21/2017
 * Notebook, 즉 **[기계 학습: MLLib를 사용하여 음식 검사 데이터에 대한 예측 분석](apache-spark-machine-learning-mllib-ipython.md)**을 실행하기 시작했어야 합니다. 이 Notebook을 실행하는 방법은 링크를 따라갑니다.  
 
 ## <a name="track-an-application-in-the-yarn-ui"></a>YARN UI에서 응용 프로그램 추적
-1. YARN UI를 시작합니다. 클러스터 블레이드에서 **클러스터 대시보드**, **YARN**을 차례로 클릭합니다.
+1. YARN UI를 시작합니다. **클러스터 대시보드**를 클릭한 다음, **YARN**을 클릭합니다.
    
     ![YARN UI 시작](./media/apache-spark-job-debugging/launch-yarn-ui.png)
    
    > [!TIP]
-   > 또는 Ambari UI에서 YARN UI를 시작할 수도 있습니다. Ambari UI를 시작하려면 클러스터 블레이드에서 **클러스터 대시보드**, **HDInsight 클러스터 대시보드의**를 차례로 클릭합니다. Ambari UI에서 **YARN**, **빠른 링크**, 활성 리소스 관리자, **ResourceManager UI**를 차례로 클릭합니다.    
+   > 또는 Ambari UI에서 YARN UI를 시작할 수도 있습니다. Ambari UI를 시작하려면 **클러스터 대시보드**, **HDInsight 클러스터 대시보드**를 차례로 클릭합니다. Ambari UI에서 **YARN**, **빠른 링크**, 활성 Resource Manager, **Resource Manager UI**를 차례로 클릭합니다.    
    > 
    > 
 2. Jupyter Notebook을 사용하여 Spark 작업을 시작했기 때문에 응용 프로그램은 **remotesparkmagics** 이라는 이름을 갖게 됩니다(Notebook에서 시작된 모든 응용 프로그램에 대한 이름임). 응용 프로그램 이름에 대한 응용 프로그램 ID를 클릭하여 작업에 대한 자세한 정보를 봅니다. 그러면 응용 프로그램 보기를 시작합니다.
@@ -102,7 +102,7 @@ Spark UI에서 이전에 시작한 응용 프로그램에 의해 생성된 Spark
    > 또는 Ambari UI에서 Spark 기록 서버를 시작할 수도 있습니다. Ambari UI를 시작하려면 클러스터 블레이드에서 **클러스터 대시보드**, **HDInsight 클러스터 대시보드의**를 차례로 클릭합니다. Ambari UI에서 **Spark**, **빠른 링크**, **Spark 기록 서버 UI**를 차례로 클릭합니다.
    > 
    > 
-2. 완료된 응용 프로그램을 모두 나열하여 표시합니다. 자세한 내용은 응용 프로그램 ID를 클릭하여 응용 프로그램에 대해 더 자세히 살펴봅니다.
+2. 완료된 응용 프로그램이 모두 표시됩니다. 자세한 내용은 응용 프로그램 ID를 클릭하여 응용 프로그램에 대해 더 자세히 살펴봅니다.
    
     ![Spark 기록 서버 시작](./media/apache-spark-job-debugging/view-completed-applications.png)
 
@@ -124,7 +124,6 @@ Spark UI에서 이전에 시작한 응용 프로그램에 의해 생성된 Spark
 * [Scala를 사용하여 독립 실행형 응용 프로그램 만들기](apache-spark-create-standalone-application.md)
 * [Livy를 사용하여 Spark 클러스터에서 원격으로 작업 실행](apache-spark-livy-rest-interface.md)
 * [IntelliJ IDEA용 HDInsight 도구 플러그 인을 사용하여 Spark Scala 응용 프로그램 만들기 및 제출](apache-spark-intellij-tool-plugin.md)
-* [Spark 스트리밍: HDInsight에서 Spark를 사용하여 실시간 스트리밍 응용 프로그램 빌드](apache-spark-eventhub-streaming.md)
 * [IntelliJ IDEA용 HDInsight 도구 플러그 인을 사용하여 Spark 응용 프로그램을 원격으로 디버그](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [HDInsight에서 Spark 클러스터와 함께 Zeppelin Notebook 사용](apache-spark-zeppelin-notebook.md)
 * [HDInsight의 Spark 클러스터에서 Jupyter Notebook에 사용할 수 있는 커널](apache-spark-jupyter-notebook-kernels.md)

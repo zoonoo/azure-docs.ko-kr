@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 57dddcc9114aeec1337b5b5ad8cfda3004fb0a76
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e4a5ee41349a97493636327e3bda25cbd507867c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-choose-which-application-type-to-use-when-adding-an-application"></a>응용 프로그램을 추가할 때 사용할 응용 프로그램 형식을 선택하는 방법
 
@@ -39,9 +39,9 @@ Azure AD는 **엔터프라이즈 응용 프로그램** 아래에 있는 **추가
 
 -   **비 갤러리 응용 프로그램** – 사용자의 응용 프로그램을 가져옵니다! 원하는 모든 웹 링크 또는 사용자 이름 및 암호 필드를 렌더링하는 모든 응용 프로그램은 SAML 또는 OpenID Connect 프로토콜을 지원하거나 Single Sign-On에 대해 Azure AD와 통합하려는 SCIM을 지원합니다.
 
-## <a name="features-and-capabilities-supported-by-all-the-above-application-types"></a>위의 모든 응용 프로그램 형식에서 지원되는 기능 및 특징
+## <a name="features-and-capabilities-supported-by-all-the-preceding-application-types"></a>모든 이전 응용 프로그램 형식에서 지원되는 기능 및 특징
 
-다음 기능은 Azure AD에서 위의 4개의 응용 프로그램 형식 중 하나에서 지원됩니다.
+다음 기능은 Azure AD에서 이전 4개의 응용 프로그램 형식 중 하나에서 지원됩니다.
 
 -   **빠른 시작** – [간단한 배포 단계](https://docs.microsoft.com/azure/active-directory/active-directory-integrating-applications-getting-started)를 수행하여 신속하게 응용 프로그램 시작
 
@@ -61,13 +61,13 @@ Azure AD는 **엔터프라이즈 응용 프로그램** 아래에 있는 **추가
 
 ## <a name="single-sign-on-and-provisioning-modes-supported-by-specific-application-types"></a>특정 응용 프로그램 형식에서 지원되는 Single Sign-On 및 프로비전 모드
 
-다음 표는 위의 각 응용 프로그램 형식에서 지원하는 서로 다른 Single Sign-On 및 프로비전 모드를 설명합니다. 이 테이블을 사용하여 특정 목표를 지원하기 위해 추가해야 하는 응용 프로그램을 이해할 수 있습니다.
+다음 표는 이전 각 응용 프로그램 형식에서 지원하는 서로 다른 Single Sign-On 및 프로비전 모드를 설명합니다. 이 표를 사용하여 특정 목표를 지원하기 위해 추가해야 하는 응용 프로그램을 이해할 수 있습니다.
 
   ![앱 형식 테이블](./media/application-tables/table1.png)
 
 ## <a name="how-to-choose-a-single-sign-on-mode"></a>Single Sign-On 모드를 선택하는 방법
 
-Azure AD 응용 프로그램에 대해 지원되는 **Single Sign-On** 모드는 아래에 나열되어 있습니다.
+다음은 Azure AD 응용 프로그램에 대해 지원되는 **Single Sign-On** 모드입니다.
 
 -   **Azure AD Single Sign-On 사용 안 함** – 이 응용 프로그램을 Single Sign-On을 사용하여 Azure AD와 통합할 준비가 되지 않았거나 단순히 테스트하는 경우 Azure AD Single Sign-On 사용 안 함 **Single Sign-On 모드** 선택
 
@@ -98,7 +98,7 @@ Azure AD 응용 프로그램에 대해 지원되는 **Single Sign-On** 모드는
 
 ## <a name="single-sign-on-modes-for-custom-developed-applications"></a>사용자 지정 개발된 응용 프로그램에 대한 Single Sign-On 모드
 
-[사용자 지정 개발된 응용 프로그램](#_Custom-Developed_Applications) 환경을 통해 사용자 지정 개발한 응용 프로그램은 위에 나열되지 않은 추가 Single Sign-On 모드도 지원합니다. 내용은 다음과 같습니다.
+[사용자 지정 개발된 응용 프로그램](#_Custom-Developed_Applications) 환경을 통해 사용자 지정 개발한 응용 프로그램은 이전에 나열되지 않은 추가 Single Sign-On 모드도 지원하며, 다음을 포함합니다.
 
 -   [OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code) 기반 로그온
 
@@ -116,7 +116,7 @@ Azure AD 응용 프로그램에 대해 지원되는 **Single Sign-On** 모드는
 
 1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 또는 **공동 관리자** 권한으로 로그인합니다.
 
-2.  왼쪽 주 탐색 메뉴의 맨 아래에서 **추가 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
+2.  왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
 3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
@@ -156,7 +156,7 @@ Azure AD 응용 프로그램에 대해 지원되는 **Single Sign-On** 모드는
 
 1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 또는 **공동 관리자** 권한으로 로그인합니다.
 
-2.  왼쪽 주 탐색 메뉴의 맨 아래에서 **추가 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
+2.  왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
 3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 

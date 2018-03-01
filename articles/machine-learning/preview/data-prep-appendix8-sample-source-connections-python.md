@@ -12,11 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: 7fbca027d02512671cb380e9b440b03ffef86b89
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 66c356d6d42254e7443b645bff3393daca67012b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="sample-of-custom-source-connections-python"></a>사용자 지정 원본 연결 샘플(Python) 
 이 부록을 읽기 전에 [Python 확장성 개요](data-prep-python-extensibility-overview.md)를 참조하세요.
@@ -45,7 +45,7 @@ API token (obtained at: https://data.world/settings/advanced): <enter API token 
 
 #### <a name="load-data-into-data-preparation"></a>데이터 준비로 데이터 로드
 
-새 스크립트 기반 데이터 흐름을 만듭니다. 그런 후에 다음 스크립트를 사용하여 data.world에서 데이터를 로드합니다.
+데이터 흐름 변환(스크립트) 변환을 만듭니다. 그런 후에 다음 스크립트를 사용하여 data.world에서 데이터를 로드합니다.
 
 ```python
 #paths = df['Path'].tolist()

@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 06/05/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 250e84550fdf3253f28d682e85fe4bf855e40a4d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f24daaf5690eb1d9a0ab3b27a3626d03e6021d99
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="assign-licenses-to-users-by-group-membership-in-azure-active-directory"></a>Azure Active Directory에서 그룹 멤버 자격별로 사용자에게 라이선스 할당
 
@@ -37,36 +37,36 @@ ms.lasthandoff: 12/11/2017
 
 1. 관리자 계정으로 [**Azure Portal**](https://portal.azure.com)에 로그인합니다. 라이선스를 관리하려면 계정은 전역 관리자 역할 또는 사용자 계정 관리자여야 합니다.
 
-2. 왼쪽 탐색 창에서 **더 많은 서비스**를 선택하고 **Azure Active Directory**를 선택합니다. 이 블레이드를 즐겨찾기에 추가하거나 포털 대시보드에 고정할 수 있습니다.
+2. 왼쪽 탐색 창에서 **모든 서비스**를 선택한 다음, **Azure Active Directory**를 선택합니다. 이 창을 즐겨찾기에 추가하거나 포털 대시보드에 고정할 수 있습니다.
 
-3. **Azure Active Directory** 블레이드에서 **라이선스**를 선택합니다. 이렇게 하면 테넌트에서 사용이 허가된 모든 제품을 보고 관리할 수 있는 블레이드가 열립니다.
+3. **Azure Active Directory** 창에서 **라이선스**를 선택하여 테넌트의 모든 라이선스 대상 제품을 보고 관리할 수 있는 창을 엽니다.
 
-4. **모든 제품**에서 제품 이름을 선택하여 Office 365 Enterprise E3 및 Enterprise Mobility + Security를 둘 다 선택합니다. 할당을 시작하려면 블레이드 맨 위에 있는 **할당**을 선택합니다.
+4. **모든 제품**에서 제품 이름을 선택하여 Office 365 Enterprise E3 및 Enterprise Mobility + Security를 둘 다 선택합니다. 할당을 시작하려면 창 맨 위에 있는 **할당**을 선택합니다.
 
    ![모든 제품, 라이선스 할당](media/active-directory-licensing-group-assignment-azure-portal/all-products-assign.png)
 
-5. **라이선스 할당** 블레이드에서 **사용자 및 그룹**을 클릭하여 **사용자 및 그룹** 블레이드를 엽니다. 그룹 이름 *HR Department*를 검색하고 그룹을 선택한 후 블레이드 맨 아래에서 **선택**을 클릭하여 확인합니다.
+5. **라이선스 할당** 창에서 **사용자 및 그룹**을 클릭하여 **사용자 및 그룹** 창을 엽니다. 그룹 이름 *HR Department*를 검색하고 그룹을 선택한 다음, 창 맨 아래에서 **선택**을 클릭하여 확인합니다.
 
    ![그룹 선택](media/active-directory-licensing-group-assignment-azure-portal/select-a-group.png)
 
-6. **라이선스 할당** 블레이드에서 **할당 옵션(선택 사항)**을 클릭하여 앞서 선택한 두 가지 제품에 포함된 모든 서비스 계획을 표시합니다. **Yammer Enterprise**를 찾은 후 **해제**하여 제품 라이선스에서 해당 서비스를 사용하지 않도록 설정합니다. **할당 옵션** 맨 아래에서 **확인**을 클릭하여 확인합니다.
+6. **라이선스 할당** 창에서 **할당 옵션(선택 사항)**을 클릭하여 앞서 선택한 두 가지 제품에 포함된 모든 서비스 계획을 표시합니다. **Yammer Enterprise**를 찾은 후 **해제**하여 제품 라이선스에서 해당 서비스를 사용하지 않도록 설정합니다. **할당 옵션** 맨 아래에서 **확인**을 클릭하여 확인합니다.
 
    ![할당 옵션](media/active-directory-licensing-group-assignment-azure-portal/assignment-options.png)
 
-7. 할당을 완료하려면 **라이선스 할당** 블레이드 맨 아래에서 **할당**을 클릭합니다.
+7. 할당을 완료하려면 **라이선스 할당** 창에서 창 맨 아래에 있는 **할당**을 클릭합니다.
 
 8. 오른쪽 위 모서리에 프로세스의 상태와 결과를 보여 주는 알림이 표시됩니다. 그룹에 대한 할당을 완료할 수 없으면(예를 들어 그룹의 기존 라이선스 때문에) 알림을 클릭하여 실패 세부 정보를 확인합니다.
 
 이제 HR Department 그룹의 라이선스 템플릿이 지정되었습니다. Azure AD에서 해당 그룹의 모든 기존 멤버를 처리하기 위한 백그라운드 프로세스가 시작되었습니다. 이 초기 작업은 그룹의 현재 크기에 따라 약간 시간이 걸릴 수 있습니다. 다음 단계에서는 프로세스가 완료되었는지와 문제 해결을 위해 추가적인 관리가 필요한지를 확인하는 방법을 설명합니다.
 
 > [!NOTE]
-> 대체 위치인 Azure AD의 **사용자 및 그룹**에서 동일한 할당을 시작할 수 있습니다. **Azure Active Directory** > **사용자 및 그룹** > **모든 그룹**으로 이동합니다. 그 후 그룹을 찾아서 선택한 다음 **라이선스** 탭으로 이동합니다. 블레이드 위쪽의 **할당** 단추를 클릭하면 라이선스 할당 블레이드가 열립니다.
+> 대체 위치인 Azure AD의 **사용자 및 그룹**에서 동일한 할당을 시작할 수 있습니다. **Azure Active Directory** > **사용자 및 그룹** > **모든 그룹**으로 이동합니다. 그 후 그룹을 찾아서 선택한 다음 **라이선스** 탭으로 이동합니다. 창 위쪽의 **할당** 단추를 클릭하면 라이선스 할당 창이 열립니다.
 
 ## <a name="step-2-verify-that-the-initial-assignment-has-finished"></a>2단계: 초기 할당이 완료되었는지 확인
 
 1. **Azure Active Directory** > **사용자 및 그룹** > **모든 그룹**으로 이동합니다. 그런 다음 라이선스가 할당된 **HR Department** 그룹을 찾습니다.
 
-2. **HR Department** 그룹 블레이드에서 **라이선스**를 선택합니다. 그러면 사용자에게 라이선스가 완전히 할당되었는지, 확인해야 할 오류가 있는지 신속하게 확인합니다. 다음과 같은 정보가 제공됩니다.
+2. **HR Department** 그룹 창에서 **라이선스**를 선택합니다. 그러면 사용자에게 라이선스가 완전히 할당되었는지, 확인해야 할 오류가 있는지 신속하게 확인합니다. 다음과 같은 정보가 제공됩니다.
 
    - 현재 그룹에 할당된 제품 라이선스의 목록입니다. 사용하도록 설정된 특정 서비스를 표시하고 변경을 수행할 항목을 선택합니다.
 
@@ -87,12 +87,12 @@ ms.lasthandoff: 12/11/2017
 ## <a name="step-3-check-for-license-problems-and-resolve-them"></a>3단계: 라이선스 문제 확인 및 해결
 
 1. **Azure Active Directory** > **사용자 및 그룹** > **모든 그룹**으로 이동한 후 라이선스가 할당된 **HR Department** 그룹을 찾습니다.
-2. **HR Department** 그룹 블레이드에서 **라이선스**를 선택합니다. 블레이드 맨 위에 라이선스를 할당하지 못한 사용자가 10명이라는 알림이 표시됩니다. 이 알림을 클릭하면 이 그룹에서 라이선스 오류 상태인 모든 사용자 목록이 열립니다.
+2. **HR Department** 그룹 창에서 **라이선스**를 선택합니다. 창 맨 위에 라이선스를 할당하지 못한 사용자가 10명이라는 알림이 표시됩니다. 이 알림을 클릭하면 이 그룹에서 라이선스 오류 상태인 모든 사용자 목록이 열립니다.
 3. **할당 실패** 열에는 두 제품 라이선스 모두 사용자에게 할당하지 못했다는 내용이 표시됩니다. **상위 실패 원인** 열에는 실패의 원인이 포함되어 있습니다. 이 예에서는 **충돌하는 서비스 계획**이 실패의 원인입니다.
 
    ![할당 실패](media/active-directory-licensing-group-assignment-azure-portal/failed-assignments.png)
 
-4. 사용자를 선택하여 **라이선스** 블레이드를 엽니다. 이 블레이드에는 현재 사용자에게 할당된 모든 라이선스가 표시됩니다. 이 예에서는 사용자에게 **키오스크 사용자** 그룹에서 상속된 Office 365 Enterprise E1 라이선스가 있습니다. 이 라이선스는 시스템에서 **HR Department** 그룹에 적용하려고 하는 E3 라이선스와 충돌합니다. 결과적으로 해당 그룹의 어떠한 라이선스도 사용자에게 할당되지 않았습니다.
+4. 사용자를 선택하여 **라이선스** 창을 엽니다. 이 창에는 현재 사용자에게 할당된 모든 라이선스가 표시됩니다. 이 예에서는 사용자에게 **키오스크 사용자** 그룹에서 상속된 Office 365 Enterprise E1 라이선스가 있습니다. 이 라이선스는 시스템에서 **HR Department** 그룹에 적용하려고 하는 E3 라이선스와 충돌합니다. 결과적으로 해당 그룹의 어떠한 라이선스도 사용자에게 할당되지 않았습니다.
 
    ![사용자의 라이선스 보기](media/active-directory-licensing-group-assignment-azure-portal/user-license-view.png)
 

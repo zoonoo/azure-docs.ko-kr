@@ -2,7 +2,7 @@ Azure 고객은 매달 25,000통의 무료 전자 메일의 잠금을 해제할 
 
 ### <a name="to-sign-up-for-a-sendgrid-account"></a>SendGrid 계정을 등록하려면
 1. [Azure Portal][Azure portal]에 로그인합니다.
-2. 왼쪽 메뉴에서 **새로 만들기**를 클릭합니다.
+2. 왼쪽에 있는 메뉴에서 **리소스 만들기**를 클릭합니다.
 
     ![command-bar-new][command-bar-new]
 3. **추가 기능**, **SendGrid 전자 메일 배달**을 차례로 클릭합니다.
@@ -45,7 +45,7 @@ Azure 고객은 매달 25,000통의 무료 전자 메일의 잠금을 해제할 
 
     ![api-keys][api-keys]
 
-3. **API 키 만들기** 드롭다운을 클릭하고 **일반 API 키**를 선택합니다.
+3. **API 키 만들기**를 클릭합니다.
 
     ![general-api-key][general-api-key]
 4. 적어도 **이 키의 이름**을 입력하고 **메일 보내기**에 대한 전체 액세스를 부여한 후 **저장**을 선택합니다.

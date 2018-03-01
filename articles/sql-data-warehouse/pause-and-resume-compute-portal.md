@@ -14,14 +14,14 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 01/23/2018
 ms.author: barbkess
-ms.openlocfilehash: f8b4e29595c6a71696cf2c4939ad4c6c096a28b5
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 30dede32b35f995f89e2946af34da10353f55212
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="quickstart-pause-and-resume-compute-for-an-azure-sql-data-warehouse-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure SQL Data Warehouse에 대한 계산 일시 중지 및 다시 시작
-작업 비용을 절감하기 위해 Azure SQL Data Warehouse에 대한 계산을 일시 중지합니다. 데이터 웨어하우스를 사용할 준비가 되면 계산을 다시 시작합니다.
+작업 비용을 절감하기 위해 Azure SQL Data Warehouse에 대한 계산을 일시 중지합니다. 데이터 웨어하우스를 사용할 준비가 되면 [계산을 다시 시작](sql-data-warehouse-manage-compute-overview.md)합니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
@@ -39,7 +39,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 SQL Data Warehouse를 일시 중지하려면 다음 단계를 따르세요.
 
 1. Azure Portal의 왼쪽 페이지에서 **SQL 데이터베이스**를 클릭합니다.
-2. **SQL 데이터베이스** 페이지에서 **mySampleDataWarehouse**를 선택합니다. 그러면 데이터 웨어하우스를 엽니다. 
+2. **SQL Database** 페이지에서 **mySampleDataWarehouse**를 선택합니다. 그러면 데이터 웨어하우스를 엽니다. 
 3. **mySampleDataWarehouse** 페이지에서 **상태**는 **온라인**이 됩니다.
 
     ![온라인 계산](media/pause-and-resume-compute-portal/compute-online.png)
@@ -60,7 +60,7 @@ SQL Data Warehouse를 일시 중지하려면 다음 단계를 따르세요.
 SQL Data Warehouse를 다시 시작하려면 다음 단계를 따르세요.
 
 1. Azure Portal의 왼쪽 페이지에서 **SQL 데이터베이스**를 클릭합니다.
-2. **SQL 데이터베이스** 페이지에서 **mySampleDataWarehouse**를 선택합니다. 그러면 데이터 웨어하우스를 엽니다. 
+2. **SQL Database** 페이지에서 **mySampleDataWarehouse**를 선택합니다. 그러면 데이터 웨어하우스를 엽니다. 
 3. **mySampleDataWarehouse** 페이지에서 **상태**는 **일시 중지됨**이 됩니다.
 
     ![오프라인 계산](media/pause-and-resume-compute-portal/compute-offline.png)

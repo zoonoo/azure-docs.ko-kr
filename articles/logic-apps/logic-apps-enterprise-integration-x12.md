@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: bfad01d8c14cdd972ebe8e4038f226ffe0da93b1
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 7a274ad33b7181d238203290cf63937df5f13bbc
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="exchange-x12-messages-for-enterprise-integration-with-logic-apps"></a>엔터프라이즈 통합용 X12 메시지를 논리 앱과 교환
 
@@ -39,12 +39,12 @@ Azure Logic Apps의 X12 메시지를 교환하기 전에 X12 규약을 만들고
 
 ## <a name="create-an-x12-agreement"></a>X12 규약 만들기
 
-1.  [Azure Portal](http://portal.azure.com "Azure Portal")에 로그인합니다. 왼쪽 메뉴에서 **추가 서비스**를 클릭합니다. 
+1.  [Azure Portal](http://portal.azure.com "Azure Portal")에 로그인합니다. 왼쪽 메뉴에서 **모든 서비스**를 선택합니다. 
 
     > [!TIP]
-    > **추가 서비스**가 표시되지 않으면 먼저 메뉴를 확장해야 합니다. 축소된 메뉴의 맨 위에 있는 **메뉴 표시**를 선택합니다.
+    > **모든 서비스**가 표시되지 않으면 먼저 메뉴를 확장해야 합니다. 축소된 메뉴의 맨 위에 있는 **메뉴 표시**를 선택합니다.
 
-    ![왼쪽 메뉴에서 "추가 서비스"를 선택합니다.](./media/logic-apps-enterprise-integration-x12/account-1.png)
+    ![왼쪽 메뉴에서 "모든 서비스" 선택](./media/logic-apps-enterprise-integration-x12/account-1.png)
 
 2.  검색 상자에서 필터에 "통합"을 입력합니다. 결과 목록에서 **통합 계정**을 선택합니다.  
 

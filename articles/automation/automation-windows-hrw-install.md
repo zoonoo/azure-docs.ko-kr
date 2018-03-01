@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2017
 ms.author: magoedte
-ms.openlocfilehash: 71c98a7e17472ae0aa7646b9e7fc745363546211
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 4232634f57f9650a35c40ee769cbeb0a3e009dfb
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="how-to-deploy-a-windows-hybrid-runbook-worker"></a>Windows Hybrid Runbook Worker를 배포하는 방법
 
@@ -50,14 +50,14 @@ Hybrid Runbook Worker 배포를 시작하기 전에 [하드웨어 및 소프트�
 
 다음 단계에 따라 Windows Hybrid Worker 역할의 설치와 구성을 자동화합니다.  
 
-1. Hybrid Runbook Worker 역할을 실행하는 컴퓨터에서 직접 또는 사용자 환경의 다른 컴퓨터에서 [PowerShell 갤러리](https://www.powershellgallery.com/packages/New-OnPremiseHybridWorker/1.0/DisplayScript)의 *새로 OnPremiseHybridWorker.ps1* 스크립트를 다운로드한 후 작업자에 복사합니다.  
+1. Hybrid Runbook Worker 역할을 실행하는 컴퓨터에서 직접 또는 사용자 환경의 다른 컴퓨터에서 [PowerShell 갤러리](https://www.powershellgallery.com/packages/New-OnPremiseHybridWorker/)의 *새로 OnPremiseHybridWorker.ps1* 스크립트를 다운로드한 후 작업자에 복사합니다.  
 
     *New-OnPremiseHybridWorker.ps1* 스크립트에는 실행 중 다음 매개 변수가 필요합니다.
 
   * *AutomationAccountName*(필수) - Automation 계정의 이름  
   * *ResourceGroupName*(필수) - Automation 계정과 연결된 리소스 그룹의 이름  
   * *HybridGroupName*(필수) - 이 시나리오를 지원하는 Runbook에 대한 대상으로 지정할 Hybrid Runbook Worker 그룹의 이름 
-  *  *SubscriptionID*(필수) - Automation 계정이 있는 Azure 구독 ID
+  *  *SubscriptionID*(필수) - Automation 계정이 있는 Azure 구독 ID.
   *  *WorkspaceName*(선택) - OMS 작업 영역 이름  OMS 작업 영역이 없는 경우 스크립트에서 하나를 만들어 구성합니다.  
 
      > [!NOTE]
@@ -76,7 +76,7 @@ Hybrid Runbook Worker 배포를 시작하기 전에 [하드웨어 및 소프트�
 
 4. **NuGet**을 설치할지 묻는 메시지가 표시되고 Azure 자격 증명으로 인증을 받도록 요구됩니다.<br><br> ![New-OnPremiseHybridWorker 스크립트 실행](media/automation-hybrid-runbook-worker/new-onpremisehybridworker-scriptoutput.png)
 
-5. 스크립트가 완료되면 Hybrid Worker 그룹 블레이드에 새 그룹 및 멤버 수가 표시되고, 기존 그룹이 있으면 해당 멤버 수가 증가됩니다.  **Hybrid Worker 그룹** 블레이드의 목록에서 그룹을 선택하고 **Hybrid Worker** 타일을 선택합니다.  **Hybrid Worker** 블레이드에서 나열된 그룹의 각 멤버를 확인합니다.  
+5. 스크립트가 완료되면 Hybrid Worker 그룹 페이지에 새 그룹 및 멤버 수가 표시되고, 기존 그룹이 있으면 해당 멤버 수가 증가됩니다.  **Hybrid Worker 그룹** 페이지의 목록에서 그룹을 선택하고 **Hybrid Worker** 타일을 선택합니다.  **Hybrid Worker** 페이지에서 나열된 그룹의 각 멤버를 확인합니다.  
 
 ### <a name="manual-deployment"></a>수동 배포 
 
@@ -113,13 +113,13 @@ Microsoft 모니터링 에이전트는 컴퓨터를 Operations Management Suite�
 
     Add-HybridRunbookWorker –GroupName <String> -EndPoint <Url> -Token <String>
 
-Azure portal의 **키 관리** 블레이드에서 이 cmdlet에 필요한 정보를 가져올 수 있습니다.  Automation 계정의 **설정** 블레이드에서 **키** 옵션을 선택하여 이 블레이드를 엽니다.
+Azure portal의 **키 관리** 페이지에서 이 cmdlet에 필요한 정보를 가져올 수 있습니다.  Automation 계정의 **설정** 페이지에서 **키** 옵션을 선택하여 이 페이지를 엽니다.
 
 ![Hybrid Runbook Worker 개요](media/automation-hybrid-runbook-worker/elements-panel-keys.png)
 
 * **GroupName**은 Hybrid Runbook Worker 그룹의 이름입니다. 이 그룹이 자동화 계정에 이미 있으면 현재 컴퓨터가 추가되고,  그렇지 않으면 이 그룹이 추가됩니다.
-* **끝점**은 **키 관리** 블레이드의 **URL** 필드입니다.
-* **Token**은 **키 관리** 블레이드의 **기본 액세스 키**입니다.  
+* **엔드포인트**는 **키 관리** 페이지의 **URL** 필드입니다.
+* **토큰**은 **키 관리** 페이지의 **기본 액세스 키**입니다.  
 
 설치에 대해 자세한 정보를 받으려면 **Add-HybridRunbookWorker**와 함께 **-Verbose** 스위치를 사용합니다.
 
@@ -143,7 +143,7 @@ Hybrid Runbook Worker는 Automation 계정과 통신하여 작업자를 등록�
 3. Microsoft Monitoring Agent 서비스가 실행되고 있지 않습니다.  
     Microsoft Monitoring Agent Windows 서비스가 실행되고 있지 않으면 Hybrid Runbook Worker가 Azure Automation과 통신할 수 없습니다.  PowerShell에서 `get-service healthservice` 명령을 입력하여 에이전트가 실행 중인지 확인하세요.  서비스가 중지된 경우 PowerShell에서 `start-service healthservice` 명령을 입력하여 서비스를 시작하세요.  
 
-4. **Application and Services Logs\Operations Manager** 이벤트 로그에 이벤트 4502 및 **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**가 포함된 EventMessage와 함께 다음 설명이 보입니다. *<wsid>. oms.opinsights.azure.com 서비스에서 제공한 인증서가 Microsoft 서비스에 사용되는 인증 기관에서 발급한 것이 아닙니다. 네트워크 관리자에게 문의하여 TLS/SSL 통신을 가로채는 프록시를 실행하고 있는지 확인하세요. 문서 KB3126513에는 연결 문제에 대한 추가 문제 해결 정보가 들어 있습니다.*
+4. **Application and Services Logs\Operations Manager** 이벤트 로그에 이벤트 4502 및 **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**가 포함된 EventMessage와 함께 다음 설명이 보입니다. *\<wsid\>.oms.opinsights.azure.com 서비스에서 제공한 인증서가 Microsoft 서비스에 사용되는 인증 기관에서 발급한 것이 아닙니다. 네트워크 관리자에게 문의하여 TLS/SSL 통신을 가로채는 프록시를 실행하고 있는지 확인하세요. 문서 KB3126513에는 연결 문제에 대한 추가 문제 해결 정보가 들어 있습니다.*
     프록시 또는 네트워크 방화벽이 Microsoft Azure와의 통신을 차단하는 것일 수 있습니다.  *.azure-automation.net에 대한 아웃바운드 액세스 권한이 컴퓨터의 443 포트에 있는지 확인합니다.
 
 로그는 각 Hybrid Worker의 로컬에 저장되며 위치는 C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes입니다.  Azure Automation에 역할을 온보딩하는 데 영향을 미치는 연결 또는 기타 문제가 있거나 정상 작업을 수행하는 동안 문제가 발생했음을 나타내는 경고 또는 오류 이벤트가 **Application and Services Logs\Microsoft SMA\Operations** 및 **Application and Services Logs\Operations Manager** 이벤트 로그에 기록되었는지 확인할 수 있습니다.  

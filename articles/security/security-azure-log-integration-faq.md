@@ -12,17 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload8: na
-ms.date: 08/07/2017
+ms.date: 02/16/2018
 ms.author: TomSh
 ms.custom: azlog
-ms.openlocfilehash: bfdc7154160bb6bb7dc9c46eb2352ce74310c4de
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 615bfb1ea86d31733fc1db7139cd995fbbbac7aa
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-log-integration-faq"></a>Azure 로그 통합 FAQ
-이 문서는 Azure 로그 통합에 대한 FAQ(질문과 대답)입니다. 
+
+이 문서는 Azure 로그 통합에 대한 FAQ(질문과 대답)입니다.
+
+>[!IMPORTANT]
+>Azure 로그를 통합하는 가장 좋은 방법은 SIEM 공급업체의 Azure Monitor 커넥터를 사용하고 다음 [지침](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md)을 따르는 것입니다. 하지만, SIEM 공급업체에서 Azure Monitor에 대한 커넥터를 제공하지 않은 경우에는 해당 커넥터를 사용할 수 있을 때까지 임시 해결책으로 Azure Log Integration을 사용할 수 있습니다(Azure Log Integration에서 해당 SIEM이 지원되는 경우).
 
 Azure 로그 통합은 Azure 리소스의 원시 로그를 온-프레미스 SIEM(보안 정보 및 이벤트 관리) 시스템에 통합하는 데 사용할 수 있는 Windows 운영 체제 서비스입니다. 이 통합은 모든 자산, 온-프레미스 또는 클라우드에 대한 통합 대시보드를 제공합니다. 그런 다음 응용 프로그램과 관련된 보안 이벤트를 집계, 상관 관계 설정, 분석 및 경고할 수 있습니다.
 
@@ -34,11 +38,11 @@ Azure 로그 통합은 Azure 리소스의 원시 로그를 온-프레미스 SIEM
 현재 Azure 상용 및 Azure Government에서 사용할 수 있으며 중국 또는 독일에서는 사용할 수 없습니다.
 
 ## <a name="how-can-i-see-the-storage-accounts-from-which-azure-log-integration-is-pulling-azure-vm-logs"></a>Azure 로그 통합이 Azure VM 로그를 가져오는 원본 저장소 계정을 확인하려면 어떻게 하나요?
-**azlog source list**명령을 실행합니다.
+**AzLog source list** 명령을 실행합니다.
 
 ## <a name="how-can-i-tell-which-subscription-the-azure-log-integration-logs-are-from"></a>Azure 로그 통합 로그를 가져오는 원본 구독을 확인하려면 어떻게 하나요?
 
-**AzureResourcemanagerJson** 디렉터리에 배치된 감사 로그의 경우 구독 ID는 로그 파일 이름에 있습니다. **AzureSecurityCenterJson** 폴더에 있는 로그의 경우도 마찬가지입니다. 예:
+**AzureResourcemanagerJson** 디렉터리에 배치된 감사 로그의 경우 구독 ID는 로그 파일 이름에 있습니다. **AzureSecurityCenterJson** 폴더에 있는 로그의 경우도 마찬가지입니다. 예: 
 
 20170407T070805_2768037.0000000023.**1111e5ee-1111-111b-a11e-1e111e1111dc**.json
 
@@ -47,7 +51,7 @@ Azure Active Directory 감사 로그에는 테넌트 ID가 이름의 일부로 �
 이벤트 허브에서 읽는 진단 로그는 구독 ID를 이름의 일부로 포함하지 않습니다. 대신 이벤트 허브 원본을 만들 때 그 일부로 지정된 친밀한 이름이 포함됩니다. 
 
 ## <a name="how-can-i-update-the-proxy-configuration"></a>프록시 구성을 업데이트하려면 어떻게 해야 합니까?
-프록시 설정에서 Azure 저장소에 대한 직접 액세스를 허용하지 않으면 **c:\Program Files\Microsoft Azure Log Integration**에 있는 **AZLOG.EXE.CONFIG** 파일을 엽니다. 조직의 프록시 주소를 사용하여 **defaultProxy** 섹션을 포함하도록 이 파일을 업데이트합니다. 업데이트가 완료되면 **net stop azlog** 및 **net start azlog** 명령을 사용하여 서비스를 중지하고 시작합니다.
+프록시 설정에서 Azure 저장소에 대한 직접 액세스를 허용하지 않으면 **c:\Program Files\Microsoft Azure Log Integration**에 있는 **AZLOG.EXE.CONFIG** 파일을 엽니다. 조직의 프록시 주소를 사용하여 **defaultProxy** 섹션을 포함하도록 이 파일을 업데이트합니다. 업데이트가 완료되면 **net stop AzLog** 및 **net start AzLog** 명령을 사용하여 서비스를 중지하고 시작합니다.
 
     <?xml version="1.0" encoding="utf-8"?>
     <configuration>
@@ -74,7 +78,7 @@ Azure Active Directory 감사 로그에는 테넌트 ID가 이름의 일부로 �
 ![이벤트 XML][1]
 
 ## <a name="error-messages"></a>오류 메시지
-### <a name="when-i-run-the-command-azlog-createazureid-why-do-i-get-the-following-error"></a>**azlog createazureid** 명령을 실행할 때 다음 오류가 발생하는 이유는 무엇인가요?
+### <a name="when-i-run-the-command-azlog-createazureid-why-do-i-get-the-following-error"></a>```AzLog createazureid``` 명령을 실행할 때 다음 오류가 발생하는 이유는 무엇인가요?
 오류:
 
   *AAD 응용 프로그램을 만들 수 없음 - 테넌트 72f988bf-86f1-41af-91ab-2d7cd011db37 - 이유 = '금지됨' - 메시지 = '권한이 부족하여 작업을 완료할 수 없습니다.'*
@@ -86,7 +90,7 @@ Azure Active Directory 감사 로그에는 테넌트 ID가 이름의 일부로 �
 
   *역할 할당 만들기 경고 - AuthorizationFailed: 개체 ID가 'fe9e03e4-4dad-4328-910f-fd24a9660bd2'인 janedo@microsoft.com 클라이언트에는 '/subscriptions/70d95299-d689-4c97-b971-0d8ff0000000' 범위에 대해 'Microsoft.Authorization/roleAssignments/write' 작업을 수행할 권한이 없습니다.*
 
-**azlog authorize** 명령을 사용하면 제공되는 구독에 **azlog createazureid** 명령으로 만들어진 Azure AD 서비스 주체의 읽기 권한자 역할을 할당합니다. Azure 로그인이 구독의 공동 관리자 또는 소유자가 아닌 경우 “권한 부여 실패” 오류 메시지와 오류가 발생합니다. 이 작업을 완료하려면 공동 관리자 또는 소유자의 Azure RBAC(역할 기반 액세스 제어)가 필요합니다.
+**azlog authorize** 명령을 사용하면 제공되는 구독에 **azlog createazureid** 명령으로 만들어진 Azure AD 서비스 주체의 읽기 권한자 역할을 할당합니다. Azure 로그인이 구독의 공동 관리자 또는 소유자가 아닌 경우 “권한 부여 실패” 오류 메시지와 오류가 발생합니다. 이 작업을 완료하려면 공동 관리자 또는 소유자의 Azure RBAC(역할 기반 Access Control)가 필요합니다.
 
 ## <a name="where-can-i-find-the-definition-of-the-properties-in-the-audit-log"></a>감사 로그의 속성 정의는 어디서 찾을 수 있나요?
 다음을 참조하세요.

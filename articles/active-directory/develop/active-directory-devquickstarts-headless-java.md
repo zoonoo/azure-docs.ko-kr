@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 2330ccf734944a8a563f9031a9d51902255c30d5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 895741c6a33434633b8c35df959b3c68d005ba3e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="using-java-command-line-app-to-access-an-api-with-azure-ad"></a>Azure AD에서 API를 액세스하기 위해 Java 명령줄 앱 사용
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -44,9 +44,9 @@ Azure AD를 사용하면 단순하고 간편하게 웹앱의 ID 관리를 아웃
 ## <a name="1--register-an-application-with-azure-ad"></a>1.  Azure AD에 응용 프로그램을 등록합니다.
 앱에서 사용자를 인증할 수 있게 하려면 먼저 새 응용 프로그램을 테넌트에 등록해야 합니다.
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 오른쪽 위에서 계정을 클릭하고 **디렉터리** 목록에서 응용 프로그램을 등록하려는 Active Directory 테넌트를 선택합니다.
-3. 왼쪽 탐색 창에서 **더 많은 서비스**를 클릭하고 **Azure Active Directory**를 선택합니다.
+3. 왼쪽 탐색 창에서 **모든 서비스**를 클릭하고 **Azure Active Directory**를 선택합니다.
 4. **앱 등록**을 클릭하고 **추가**를 선택합니다.
 5. 프롬프트에 따라 새 **웹 응용 프로그램 및/또는 WebAPI**를 만듭니다.
   * 응용 프로그램의 **이름** 은 최종 사용자에게 응용 프로그램을 설명하는 항목입니다.
@@ -263,7 +263,7 @@ public class PublicClient {
 > 
 
 ## <a name="next-steps"></a>다음 단계
-축하합니다. 이제 사용자를 인증하고 OAuth 2.0을 사용하여 Web API를 안전하게 호출하고, 사용자에 대한 기본 정보를 가져올 수 있는 Java 응용 프로그램이 작성되었습니다.  아직 일부 사용자로 테넌트를 채우지 않은 경우 지금 할 수 있습니다.
+축하합니다! 이제 사용자를 인증하고 OAuth 2.0을 사용하여 Web API를 안전하게 호출하고, 사용자에 대한 기본 정보를 가져올 수 있는 Java 응용 프로그램이 작성되었습니다.  아직 일부 사용자로 테넌트를 채우지 않은 경우 지금 할 수 있습니다.
 
 참조를 위해 완료된 샘플(사용자 구성 값 제외)이 [여기에 .zip으로 제공](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect/archive/complete.zip)되거나 GitHub에서 복제할 수 있습니다.
 

@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: ea5453f98c427304fd0b437ba27846a008da2585
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 2bead1a879811349e4bee5dfebdcbbb838130b81
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>부트스트랩을 사용하여 HDInsight 클러스터 사용자 지정
 
@@ -86,7 +86,7 @@ New-AzureRmHDInsightCluster `
 **변경을 확인하려면:**
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. 왼쪽 메뉴에서 **HDInsight 클러스터**를 클릭합니다. 표시되지 않으면 먼저 **추가 서비스**를 클릭합니다.
+2. 왼쪽 메뉴에서 **HDInsight 클러스터**를 클릭합니다. 표시되지 않으면 먼저 **모든 서비스**를 클릭합니다.
 3. PowerShell 스크립트를 사용하여 방금 만든 클러스터를 클릭합니다.
 4. 블레이드 맨 위에서 **대시보드** 를 클릭하여 Ambari UI를 엽니다.
 5. 왼쪽 메뉴에서 **Hive** 를 클릭합니다.

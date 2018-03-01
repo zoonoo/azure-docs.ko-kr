@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2017
 ms.author: tomfitz
-ms.openlocfilehash: c8f19a4f0aadbee2de97bb3ec85c2c85b493a394
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0af34a64cd3cc33519f2cc69653982e00e4c1e9b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="export-an-azure-resource-manager-template-from-existing-resources"></a>기존 리소스에서 Azure Resource Manager 템플릿 내보내기
 이 문서에서는 구독에서 기존 리소스의 Resource Manager 템플릿을 내보내는 방법을 알아봅니다. 생성된 해당 템플릿을 사용하여 템플릿 구문을 깊이 이해할 수 있습니다.
@@ -33,7 +33,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="deploy-resources"></a>리소스 배포
 템플릿으로 내보내는 데 사용할 수 있는 리소스를 Azure에 배포하기 시작하겠습니다. 템플릿을 내보내려는 구독에 리소스 그룹이 이미 있는 경우 이 섹션을 건너뛸 수 있습니다. 이 문서의 나머지 부분에서는 이 섹션에 표시된 웹앱 및 SQL Database 솔루션을 배포했다고 가정합니다. 다른 솔루션을 사용하는 경우 환경은 약간 다를 수 있지만 템플릿을 내보내는 단계는 동일합니다. 
 
-1. [Azure Portal](https://portal.azure.com)에서 **새로 만들기**를 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에서 **리소스 만들기**를 선택합니다.
    
       ![새로 만들기 선택](./media/resource-manager-export-template/new.png)
 2. **웹앱 + SQL**을 검색하고 사용 가능한 옵션 중에서 선택합니다.
@@ -84,7 +84,7 @@ ms.lasthandoff: 10/11/2017
 > 
 > 
 
-1. 리소스 그룹에 대한 템플릿을 보려면 **자동화 스크립트**를 선택합니다.
+1. 리소스 그룹에 대한 템플릿을 보려면 **Automation 스크립트**를 선택합니다.
    
       ![리소스 그룹 내보내기](./media/resource-manager-export-template/select-automation.png)
    

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2018
 ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 68bf84d0f848b60885d3976d3991b606e77ed074
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: f6ec6dd46d28518baf6f105dd232a4b0e77a8c6f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="add-azure-log-analytics-management-solutions-to-your-workspace"></a>작업 영역에 Azure Log Analytics 관리 솔루션 추가
 
@@ -46,8 +46,7 @@ Azure Marketplace는 [Log Analytics을 위한 관리 솔루션](https://azuremar
 
 ## <a name="add-a-management-solution"></a>관리 솔루션 추가
 1. [Azure Portal](https://portal.azure.com)에 아직 로그인하지 않은 경우 Azure 구독을 사용하여 로그인합니다.
-2. **Marketplace** 아래 **새로 만들기** 블레이드에서 **모니터링 + 관리**를 선택합니다.
-3. **모니터링 + 관리** 블레이드에서 **모두 표시**를 클릭합니다.  
+2. **리소스 만들기** > **모니터링 + 관리** > **모두 보기**를 선택합니다.  
     ![모니터링 + 관리 블레이드](./media/log-analytics-add-solutions/monitoring-management-blade.png)  
 4. **관리 솔루션** 오른쪽에서 **기타**를 클릭합니다.
 5. **관리 솔루션** 블레이드에서 작업 영역에 추가할 관리 솔루션을 선택합니다.  

@@ -1,10 +1,10 @@
 ---
 title: "지점 및 사이트 간에 대한 인증서 생성 및 내보내기: MakeCert: Azure | Microsoft Docs"
-description: "이 문서에는 MakeCert를 사용하여 자체 서명된 루트 인증서를 만들고, 공용 키를 내보내고, 클라이언트 인증서를 생성하는 단계가 나와 있습니다."
+description: "MakeCert를 사용하여 자체 서명된 루트 인증서를 만들고, 공개 키를 내보내고, 클라이언트 인증서를 생성합니다."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: 
 tags: azure-resource-manager
 ms.assetid: 
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/09/2017
+ms.date: 02/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: 2beacc461370f268e54e1eedcb32939f7c606b14
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: b2f31761e4560cf4b9b9a5b92f5de9982a663a75
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-connections-using-makecert"></a>MakeCert를 사용하여 지점 및 사이트 간 연결에 대한 인증서 생성 및 내보내기
 
@@ -99,3 +99,5 @@ exported.cer 파일을 Azure에 업로드해야 합니다. 자세한 내용은 [
 
 * **Resource Manager** 배포 모델 단계는 [네이티브 Azure 인증서 인증을 사용하여 P2S 구성](vpn-gateway-howto-point-to-site-resource-manager-portal.md)을 참조하세요.
 * **클래식** 배포 모델 단계의 경우 [VNet에 지점 및 사이트 간 VPN 연결 구성(클래식)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)을 참조하세요.
+
+P2S 문제 해결 정보는 [Azure 지점 및 사이트 간 연결 문제 해결](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)을 참조하세요.

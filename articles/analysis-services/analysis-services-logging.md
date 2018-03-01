@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: 
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 12/29/2017
+ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: 02c25de980b399812676285ad3f87f60af93265f
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: cadd47d2e5f490f82846ea562803fcd60f5405a7
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="setup-diagnostic-logging"></a>진단 로깅 설정
 
@@ -83,12 +83,12 @@ Analysis Services 솔루션의 중요한 기능은 서버가 작동하는 방법
 
     ![Azure Portal에서 Azure Cosmos DB에 대한 진단 로깅 설정](./media/analysis-services-logging/aas-logging-turn-on-diagnostics.png)
 
-2. **진단 설정**에서 다음을 수행합니다. 
+2. **진단 설정**에서 다음 옵션을 지정합니다. 
 
     * **이름**. 만들 로그에 대한 이름을 입력합니다.
 
-    * **저장소 계정에 보관**. 이 옵션을 사용하려면 연결할 기존 저장소 계정이 필요합니다. [저장소 계정 만들기](../storage/common/storage-create-storage-account.md)를 참조하세요. 지침을 따라서 리소스 관리자인 범용 계정을 만듭니다. 그런 다음 포털의 이 페이지로 돌아가 저장소 계정을 선택합니다. 새로 만든 저장소 계정이 드롭다운 메뉴에 나타나기까지 몇 분 정도 걸릴 수 있습니다.
-    * **이벤트 허브로 스트림**. 이 옵션을 사용하려면 연결할 기존 Event Hub 네임스페이스 및 이벤트 허브가 필요합니다. Event Hubs 네임스페이스를 만들려면 [Azure Portal을 사용하여 Event Hubs 네임스페이스 및 이벤트 허브 만들기](../event-hubs/event-hubs-create.md)를 참조하세요. 그런 다음 포털의 이 페이지로 돌아가 Event Hub 네임스페이스 및 정책 이름을 선택합니다.
+    * **저장소 계정에 보관**. 이 옵션을 사용하려면 연결할 기존 저장소 계정이 필요합니다. [저장소 계정 만들기](../storage/common/storage-create-storage-account.md)를 참조하세요. 지침에 따라 리소스 관리자와 범용 계정을 만든 다음 포털에서 이 페이지로 돌아가 해당 저장소 계정을 선택합니다. 새로 만든 저장소 계정이 드롭다운 메뉴에 나타나기까지 몇 분 정도 걸릴 수 있습니다.
+    * **이벤트 허브로 스트림**. 이 옵션을 사용하려면 연결할 기존 Event Hub 네임스페이스 및 이벤트 허브가 필요합니다. 자세한 내용은 [Azure Portal을 사용하여 Event Hubs 네임스페이스 및 이벤트 허브 만들기](../event-hubs/event-hubs-create.md)를 참조하세요. 그런 다음 포털의 이 페이지로 돌아가 Event Hub 네임스페이스 및 정책 이름을 선택합니다.
     * **Log Analytics에 보내기**. 이 옵션을 사용하려면 기존 작업 영역을 사용하거나 포털에서 [새 작업 영역 만들기](../log-analytics/log-analytics-quick-collect-azurevm.md#create-a-workspace) 단계를 따라 새 Log Analytics 작업 영역을 만듭니다. Log Analytics에서 로그를 보는 방법에 대한 자세한 내용은 [Log Analytics에서 로그 보기](#view-in-loganalytics)를 참조하세요.
 
     * **엔진**. xEvents를 기록하려면 이 옵션을 선택합니다. 저장소 계정으로 보관하려는 경우 진단 로그의 보존 기간을 선택할 수 있습니다. 보존 기간이 만료되면 로그가 자동으로 삭제됩니다.
@@ -171,7 +171,7 @@ Log Analytics에서 진단 데이터를 보려면 아래에 표시된 대로 왼
 
 **EventClass\_s** 또는 이벤트 이름 중 하나를 클릭하면 Log Analytics가 계속 쿼리를 구성합니다. 나중에 다시 사용하도록 쿼리를 저장해야 합니다.
 
-Operations Management Suite를 체크 아웃해야 합니다. 여기서는 Log Analytics 데이터에 대한 향상된 쿼리, 대시보드 및 경고 기능이 포함된 웹 사이트를 제공합니다.
+Log Analytics 데이터에 대한 향상된 쿼리, 대시보드 및 경고 기능이 포함된 웹 사이트를 제공하는 Operations Management Suite를 확인하세요.
 
 ### <a name="queries"></a>쿼리
 
@@ -200,7 +200,7 @@ Operations Management Suite를 체크 아웃해야 합니다. 여기서는 Log A
 ## <a name="tutorial---turn-on-logging-by-using-powershell"></a>자습서 - PowerShell을 사용하여 로깅 켜기
 이 빠른 자습서에서는 Analysis Service 서버와 동일한 구독 및 리소스 그룹에서 저장소 계정을 만듭니다. 그러면 Set-AzureRmDiagnosticSetting을 사용하여 진단 로깅을 설정하고, 출력을 새 저장소 계정에 전송합니다.
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>필수 조건
 이 자습서를 완료하려면 다음 리소스가 필요합니다.
 
 * 기존 Azure Analysis Services 서버 서버 리소스를 만드는 방법에 대한 지침은 [Azure Portal에서 서버 만들기](analysis-services-create-server.md) 또는 [PowerShell을 사용하여 Azure Analysis Services 서버 만들기](analysis-services-create-powershell.md)를 참조하세요.

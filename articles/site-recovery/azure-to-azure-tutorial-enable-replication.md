@@ -5,15 +5,18 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.topic: tutorial
-ms.date: 02/07/2018
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: storage-backup-recovery
+ms.date: 12/11/2017
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 9d8d5f1019b1db255c7aa6937c6d3eebed363378
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: ed604209a8db4f2b39d433eb9596064da6104145
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region-preview"></a>보조 Azure 지역에 Azure VM의 재해 복구 설정(미리 보기)
 
@@ -39,7 +42,7 @@ ms.lasthandoff: 02/09/2018
 원본 지역을 제외한 모든 지역에 자격 증명 모음을 만듭니다.
 
 1. [Azure Portal](https://portal.azure.com) > **Recovery Services**에 로그인합니다.
-2. **새로 만들기** > **모니터링 및 관리** > **Backup 및 Site Recovery**를 클릭합니다.
+2. **리소스 만들기** > **모니터링 및 관리** > **Backup 및 Site Recovery**를 클릭합니다.
 3. **이름**에 자격 증명 모음을 식별하기 위한 이름을 지정합니다. 구독이 두 개 이상인 경우 적절한 구독을 선택합니다.
 4. 리소스 그룹을 만들거나 기존 그룹을 선택합니다. Azure 지역을 지정합니다. 지원되는 지역을 확인하려면 [Azure Site Recovery 가격 정보](https://azure.microsoft.com/pricing/details/site-recovery/)에서 지리적 가용성을 참조하세요.
 5. 대시보드에서 자격 증명 모음에 빠르게 액세스하려면 **대시보드에 고정**을 클릭하고 **만들기**를 클릭합니다.

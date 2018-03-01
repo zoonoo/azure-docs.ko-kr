@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 01/25/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: b2fc8a622549a9858c6c769a7e648fe07a3d01c1
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 2cb32ddc67060d9860d172b90cc399622c52b04b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-virtual-network-using-the-azure-cli"></a>Azure CLI를 사용하여 가상 네트워크 만들기
 
@@ -81,7 +81,7 @@ az vm create \
   --no-wait
 ```
 
-Azure에서는 *myVirtualNetwork* 가상 네트워크의 *default* 서브넷에 가상 머신을 자동으로 만듭니다. 이 가상 네트워크는 리소스 그룹에 존재하며, 명령에 가상 네트워크나 서브넷을 지정하지 않았기 때문입니다. Azure DHCP는 10.0.0.4가 *default* 서브넷에서 사용 가능한 첫 번째 주소이므로 이 주소를 가상 머신 생성 중에 자동으로 할당했습니다. 가상 머신이 생성되는 위치는 가상 네트워크가 있는 동일한 위치여야 합니다. 이 문서에는 그렇게 설명되어 있지만 가상 머신을 가상 네트워크가 있는 동일한 리소스 그룹에 둘 필요는 없습니다.
+Azure에서는 *myVirtualNetwork* 가상 네트워크의 *default* 서브넷에 가상 머신을 자동으로 만듭니다. 이 가상 네트워크는 리소스 그룹에 존재하며, 명령에 가상 네트워크나 서브넷을 지정하지 않았기 때문입니다. Azure DHCP는 10.0.0.4가 *default* 서브넷에서 사용 가능한 첫 번째 주소이므로 이 주소를 가상 머신 생성 중에 자동으로 할당했습니다. 가상 머신이 생성되는 위치는 가상 네트워크가 있는 동일한 위치여야 합니다. 이 문서에는 그렇게 설명되어 있지만 가상 머신을 가상 네트워크와 동일한 리소스 그룹에 배치할 필요는 없습니다.
 
 두 번째 가상 머신을 만듭니다. 기본적으로 Azure는 이 가상 머신을 *default* 서브넷에 만듭니다.
 

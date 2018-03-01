@@ -15,11 +15,11 @@ ms.devlang: ruby
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: robmcm
-ms.openlocfilehash: 1ee30aadc1bd07e7ac9a1894e4be832436ab5910
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: fa19f3dc7dded712102d4ba9b66dd4df1bfd20dd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="ruby-on-rails-web-application-on-an-azure-vm"></a>Azure VM의 Ruby on Rails 웹 응용 프로그램
 이 자습서에서는 Azure에서 Linux 가상 머신을 사용하여 Ruby on Rails 웹 사이트를 호스트하는 방법을 보여줍니다.  
@@ -38,7 +38,7 @@ VM을 만들려면 Azure Portal 또는 Azure CLI(명령줄 인터페이스)를 �
 
 ### <a name="azure-portal"></a>Azure portal
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. **새로 만들기**를 클릭한 다음 검색 상자에 "Ubuntu Server 14.04"를 입력합니다. 검색에서 반환된 항목을 클릭합니다. 배포 모델에서 **클래식**을 선택한 다음 "만들기"를 클릭합니다.
+2. **리소스 만들기**를 클릭한 다음, 검색 상자에 “Ubuntu Server 14.04”를 입력합니다. 검색에서 반환된 항목을 클릭합니다. 배포 모델에서 **클래식**을 선택한 다음 "만들기"를 클릭합니다.
 3. 기본 블레이드에서 이름(VM), 사용자 이름, 인증 형식과 해당 자격 증명, Azure 구독, 리소스 그룹 및 위치와 같은 필수 필드에 대한 값을 제공합니다.
 
    ![새 Ubuntu 이미지 만들기](./media/virtual-machines-linux-classic-ruby-rails-web-app/createvm.png)

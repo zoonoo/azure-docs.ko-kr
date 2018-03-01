@@ -15,21 +15,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2017
 ms.author: ramankum
-ms.openlocfilehash: a846d3578d40b19762f185381c92bdf8e225b185
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 15c2550472156d5c1f680af77df2fe771edf3444
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="find-and-delete-unattached-azure-managed-and-unmanaged-disks"></a>연결되지 않은 Azure 관리/비관리 디스크 찾기 및 삭제
-Azure에서 가상 머신을 삭제할 경우 기본적으로 가상 머신에 연결된 디스크는 삭제되지 않습니다. 따라서 실수로 삭제한 가상 머신으로 인한 데이터 손실은 방지할 수 있지만 연결되지 않은 디스크에 대해 불필요하게 비용이 계속 청구됩니다. 이 문서를 사용하여 연결되지 않은 모든 디스크를 찾아 삭제하여 비용을 절감합니다. 
+Azure에서 VM(가상 머신)을 삭제할 때 기본적으로 VM에 연결된 디스크는 삭제되지 않습니다. 이 기능은 의도하지 않은 VM 삭제로 인한 데이터 손실을 방지하는 데 도움이 됩니다. VM을 삭제한 후에도 연결되지 않은 디스크에 대한 요금을 계속 지불합니다. 이 문서에서는 연결되지 않은 디스크를 찾아서 삭제하여 불필요한 비용을 줄이는 방법을 보여줍니다. 
 
 
-## <a name="find-and-delete-unattached-managed-disks"></a>연결되지 않은 관리 디스크 찾기 및 삭제 
+## <a name="managed-disks-find-and-delete-unattached-disks"></a>관리 디스크: 연결되지 않은 디스크 찾기 및 삭제 
 
-다음 스크립트는 *ManagedBy* 속성을 사용하여 연결되지 않은 [Managed Disks](managed-disks-overview.md)를 찾는 방법을 보여 줍니다. 구독의 모든 Managed Disks를 반복하고 연결되지 않은 Managed Disks를 찾기 위해 *ManagedBy* 속성이 null인지 확인합니다. *ManagedBy* 속성은 관리 디스크가 연결되는 가상 머신의 리소스 ID를 저장합니다.
+다음 스크립트는 **ManagedBy** 속성 값을 검사하여 연결되지 않은 [관리 디스크](managed-disks-overview.md)를 찾습니다. 관리 디스크가 VM에 연결되어 있으면 **ManagedBy** 속성에 해당 VM의 리소스 ID가 포함됩니다. 관리 디스크가 연결되어 있지 않으면 **ManagedBy** 속성이 null입니다. 스크립트는 Azure 구독의 모든 관리 디스크를 검사합니다. 스크립트에서 **ManagedBy** 속성이 null로 설정된 관리 디스크를 찾을 경우 디스크가 연결되어 있지 않다고 결정합니다.
 
-연결되지 않은 모든 디스크를 보려면 먼저 *deleteUnattachedDisks* 변수를 0으로 설정하여 스크립트를 실행하는 것이 좋습니다. 연결되지 않은 디스크를 검토한 후 연결되지 않은 모든 디스크를 삭제하려면 *deleteUnattachedDisks*를 1로 설정하여 스크립트를 실행합니다.
+>[!IMPORTANT]
+>먼저 **deleteUnattachedDisks** 변수를 0으로 설정하여 스크립트를 실행합니다. 이 작업을 통해 연결되지 않은 모든 관리 디스크를 찾아서 볼 수 있습니다.
+>
+>연결되지 않은 모든 디스크를 검토한 후 스크립트를 다시 실행하고 **deleteUnattachedDisks** 변수를 1로 설정합니다. 이 작업을 통해 연결되지 않은 모든 관리 디스크를 삭제할 수 있습니다.
+>
 
 ```azurepowershell-interactive
 
@@ -63,12 +67,16 @@ foreach ($md in $managedDisks) {
      
  } 
 ```
-## <a name="find-and-delete-unattached-unmanaged-disks"></a>연결되지 않은 비관리 디스크 찾기 및 삭제 
 
-비관리 디스크는 [Azure Storage 계정](../../storage/common/storage-create-storage-account.md)에 [페이지 Blob](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-page-blobs)으로 저장된 VHD 파일입니다. 다음 스크립트에서는 *LeaseStatus* 속성을 사용하여 연결되지 않은 비관리 디스크(페이지 Blob)를 찾는 방법을 보여 줍니다. 구독의 모든 저장소 계정에서 모든 비관리 디스크를 반복하고 연결되지 않은 비관리 디스크를 찾기 위해 *LeaseStatus* 속성의 잠금이 해제되어 있는지 확인합니다. *LeaseStatus* 속성은 비관리 디스크가 가상 머신에 연결된 경우 잠김으로 설정됩니다.
+## <a name="unmanaged-disks-find-and-delete-unattached-disks"></a>비관리 디스크: 연결되지 않은 디스크 찾기 및 삭제 
 
-연결되지 않은 모든 디스크를 보려면 먼저 *deleteUnattachedVHDs* 변수를 0으로 설정하여 스크립트를 실행하는 것이 좋습니다. 연결되지 않은 모든 디스크를 삭제하려면 연결되지 않은 디스크를 검토한 후 *deleteUnattachedVHDs*를 1로 설정하여 스크립트를 실행합니다.
+비관리 디스크는 [Azure Storage 계정](../../storage/common/storage-create-storage-account.md)에 [페이지 Blob](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-page-blobs)으로 저장된 VHD 파일입니다. 다음 스크립트는 **LeaseStatus** 속성 값을 검사하여 연결되지 않은 비관리 디스크(페이지 Blob)를 찾습니다. 비관리 디스크가 VM에 연결되어 있으면 **LeaseStatus** 속성이 **Locked**로 설정됩니다. 비관리 디스크가 연결되어 있지 않으면 **LeaseStatus** 속성이 **Unlocked**로 설정됩니다. 스크립트는 Azure 구독의 모든 Azure Storage 계정에 있는 모든 비관리 디스크를 검사합니다. 스크립트에서 **LeaseStatus** 속성이 **Unlocked**로 설정된 비관리 디스크를 찾을 경우 디스크가 연결되어 있지 않다고 결정합니다.
 
+>[!IMPORTANT]
+>먼저 **deleteUnattachedVHDs** 변수를 0으로 설정하여 스크립트를 실행합니다. 이 작업을 통해 연결되지 않은 모든 비관리 VHD를 찾아서 볼 수 있습니다.
+>
+>연결되지 않은 모든 디스크를 검토한 후 스크립트를 다시 실행하고 **deleteUnattachedVHDs** 변수를 1로 설정합니다. 이 작업을 통해 연결되지 않은 모든 비관리 VHD를 삭제할 수 있습니다.
+>
 
 ```azurepowershell-interactive
    
@@ -117,7 +125,6 @@ foreach($storageAccount in $storageAccounts){
     }
 
 }
-
 ```
 
 ## <a name="next-steps"></a>다음 단계

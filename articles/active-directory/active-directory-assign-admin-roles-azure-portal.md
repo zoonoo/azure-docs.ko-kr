@@ -6,21 +6,20 @@ documentationcenter:
 author: curtand
 manager: mtillman
 editor: 
-ms.assetid: 7fc27e8e-b55f-4194-9b8f-2e95705fb731
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.tgt_pltfrm: 
+ms.devlang: 
 ms.topic: article
-ms.date: 01/23/2018
+ms.date: 02/07/2018
 ms.author: curtand
 ms.reviewer: vincesm
-ms.custom: it-pro;
-ms.openlocfilehash: 918e1c535ea8779a8aff3d94c6f1ef2cb2a17fd5
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.custom: it-pro
+ms.openlocfilehash: 1fed14fc117c7652e677a245625502c1810068ff
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Azure Active Directory에서 관리자 역할 할당
 
@@ -64,7 +63,7 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 
 * **게스트 초대자**: 이 역할의 사용자는 "구성원이 초대할 수 있음" 사용자 설정이 '아니요'로 설정된 경우 Azure Active Directory B2B 게스트 사용자 초대를 관리할 수 있습니다. B2B 공동 작업에 대한 자세한 내용은 [Azure AD B2B 공동 작업 미리 보기 정보](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)를 참조하세요. 다른 권한은 포함되지 않습니다.
 
-* **정보 보호 관리자**: 이 역할의 사용자는 Azure Portal에서 Azure Information Protection에 액세스할 수 있습니다. Azure Information Protection 정책에 대한 레이블을 구성하고, 보호 템플릿을 관리하고, 보호를 활성화할 수 있습니다.
+* **Information Protection 관리자(미리 보기)**: 이 역할의 사용자는 Azure Information Protection 서비스에 대한 사용자 권한만 가집니다. ID 보호 센터, Privileged Identity Management, Office 365 Service Health 또는 Office 365 Security & Compliance에 대한 사용자 권한은 부여받지 않습니다. Azure Information Protection 정책에 대한 레이블을 구성하고, 보호 템플릿을 관리하고, 보호를 활성화할 수 있습니다.
 
 * **Intune 서비스 관리자**: 이 역할의 사용자는 서비스가 있는 경우 Microsoft Intune Online 내에서 전역 사용 권한을 가집니다. 또한 이 역할은 정책을 연결하고 그룹을 만들고 관리하기 위해 사용자와 장치를 관리하는 기능을 포함합니다.
 
@@ -128,11 +127,10 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 | --- | --- |
 | <p>회사 및 사용자 정보 보기</p><p>Office 지원 티켓 관리</p><p>사용자 및 다른 기술 지원팀 관리자에 대한 암호만 변경</p>|<p>Office 제품의 대금 청구 및 구매 작업 수행</p><p>사용자 보기 만들기 및 관리</p><p>사용자 및 그룹 만들기/편집/삭제, 사용자 라이선스 관리</p><p>도메인 관리</p><p>회사 정보 관리</p><p>다른 사용자에게 관리 역할 위임</p><p>디렉터리 동기화 사용</p><p>보고서 보기</p>|
 
-### <a name="information-protection-administrator"></a>Information Protection 관리자 
+### <a name="information-protection-administrator-preview"></a>Information Protection 관리자(미리 보기)
 그런 다음 | 가능한 작업
 -------- | ---------
-Azure Information Protection | * 전역, 범위 정책 및 레이블 구성<br>* 보호 템플릿 관리, 구성, 업데이트<br>* 사용에 대한 보호 활성화 사용 
-Privileged Identity Management | * 읽기 권한<br>* Azure AD 역할 멤버 자격 또는 설정을 관리할 수 없음
+Azure Information Protection | <li>전역 및 범위 지정된 정책에서 레이블 및 설정 구성<li>보호 템플릿 구성 및 관리<li>보호 활성화 또는 비활성화--
  
 ### <a name="reports-reader"></a>보고서 구독자 
 가능한 작업 | 불가능한 작업

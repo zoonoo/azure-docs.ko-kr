@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/27/2017
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 35064c792b72222d59b1d3f0913a92a4a2b34612
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 5143abdde715424a41a53bb661db342acf817e0c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-cost-of-data-retention-with-your-log-analytics-workspace"></a>Log Analytics 작업 영역으로 데이터 보존 비용 관리
 선택한 요금제에 따라 Log Analytics을 등록할 때 연결된 소스에서 생성된 데이터를 작업 영역에 저장하는 기간이 제한됩니다.  이 문서에서는 여러 다른 기간 동안 이 데이터의 보존 비용에 영향을 미칠 수 있는 고려 사항과 이러한 제한을 구성하는 방법을 중점적으로 설명합니다.   
@@ -44,7 +44,7 @@ Log Analytics는 원본 온-프레미스, 클라우드 및 하이브리드 환�
 ## <a name="change-the-data-retention-period"></a>데이터 보존 기간 변경 
 
 1. [Azure 포털](http://portal.azure.com)에 로그인합니다. 
-2. 왼쪽 아래 구석에 있는 **추가 서비스**를 클릭합니다. 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Log Analytics**를 선택합니다.
+2. **모든 서비스**를 클릭합니다. 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Log Analytics**를 선택합니다.
 3. Log Analytics 구독 창의 목록에서 수정할 작업 영역을 선택 합니다.
 4. 작업 영역 페이지의 왼쪽 창에서 **보존**을 클릭합니다.
 5. 작업 영역 보존 창에서 슬라이더를 이동하여 일 수를 늘리거나 줄인 다음 **저장**을 클릭합니다.  *무료* 계층에서 작업 중인 경우 데이터 보존 기간을 수정할 수 없으며 이 설정을 제어하기 위해 유료 계층으로 업그레이드해야 합니다.<br><br> ![작업 영역 데이터 보존 설정 변경](media/log-analytics-manage-cost/manage-cost-change-retention.png)

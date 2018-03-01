@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2017
 ms.author: jgao
-ms.openlocfilehash: 864d34306dad2915a15b032a27600cefdc632bb9
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 0e1d7b46aeaf8f21fdf2942f986643746dad3313
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Spark MLlib을 사용하여 Machine Learning 응용 프로그램 빌드 및 데이터 집합 분석
 
@@ -81,7 +81,7 @@ MLlib은 다음 작업에 적합한 유틸리티를 비롯하여 Machine Learnin
 ## <a name="construct-an-input-dataframe"></a>입력 데이터 프레임 구축
 `sqlContext` 를 사용하여 구조화된 데이터에 대해 변환을 수행할 수 있습니다. 첫 번째 작업으로 Spark SQL *데이터 프레임*에 샘플 데이터((**Food_Inspections1.csv**))를 로드합니다.
 
-1. 원시 데이터가 CSV 형식이기 때문에 Spark 컨텍스트를 사용하여 파일의 모든 줄을 메모리에 구조화되지 않은 데이터로 가져와야 합니다. 그런 다음 Python의 CSV 라이브러리를 사용하여 각 줄을 개별적으로 구문 분석합니다.
+1. 원시 데이터가 CSV 형식이기 때문에 Spark 컨텍스트를 사용하여 파일의 모든 줄을 메모리에 구조화되지 않은 데이터로 가져와야 합니다. 그런 다음, Python의 CSV 라이브러리를 사용하여 각 줄을 개별적으로 구문 분석합니다.
 
         def csvParse(s):
             import csv
@@ -120,7 +120,7 @@ MLlib은 다음 작업에 적합한 유틸리티를 비롯하여 Machine Learnin
           '41.97583445690982',
           '-87.7107455232781',
           '(41.97583445690982, -87.7107455232781)']]
-1. 위의 출력을 보면 입력 파일의 스키마를 알 수 있습니다. 파일에는 모든 회사의 이름, 회사의 종류, 주소, 검사 데이터 및 위치가 포함되어 있습니다. 예측 분석에 유용한 열 몇 개를 골라서 결과를 데이터 프레임으로 그룹화한 다음 이를 사용하여 임시 테이블을 만들어 보겠습니다.
+1. 위의 출력을 보면 입력 파일의 스키마를 알 수 있습니다. 파일에는 모든 회사의 이름, 회사의 종류, 주소, 검사 데이터 및 위치가 포함되어 있습니다. 예측 분석에 유용한 열 몇 개를 골라서 결과를 데이터 프레임으로 그룹화한 다음, 이를 사용하여 임시 테이블을 만들어 보겠습니다.
 
         schema = StructType([
         StructField("id", IntegerType(), False),
@@ -207,7 +207,7 @@ MLlib은 다음 작업에 적합한 유틸리티를 비롯하여 Machine Learnin
    * 조건부 합격
    * 폐업
 
-     위반이 있을 때 음식 검사의 결과를 추측할 수 있는 모델을 개발해 보겠습니다. 로지스틱 회귀는 이진 분류 방법이므로 데이터를 두 가지 범주, 즉 **불합격** 및 **합격**으로 그룹화할 수 있습니다. "조건부 합격"도 합격이기 때문에 모델을 학습할 때 두 가지 결과를 동일한 것으로 간주해야 합니다. 나머지 결과("회사를 찾을 수 없음" 또는 "폐업")를 포함한 데이터는 쓸모가 없으므로 교육 집합에서 제거할 것입니다. 이 두 범주는 결과의 극히 일부분에 불과하기 때문에 제거해도 상관 없습니다.
+     위반이 있을 때 음식 검사의 결과를 추측할 수 있는 모델을 개발해 보겠습니다. 로지스틱 회귀는 이진 분류 방법이므로 데이터를 두 가지 범주, 즉 **불합격** 및 **합격**으로 그룹화할 수 있습니다. "조건부 합격"도 합격이기 때문에 모델을 학습할 때 두 가지 결과를 동일한 것으로 간주해야 합니다. 나머지 결과("회사를 찾을 수 없음" 또는 "폐업")를 포함한 데이터는 쓸모가 없으므로 교육 집합에서 제거합니다. 이 두 범주는 결과의 극히 일부분에 불과하기 때문에 제거해도 상관 없습니다.
 1. 계속해서 기존 데이터 프레임(`df`)을 각 검사가 레이블-위반 쌍으로 표시되는 새 데이터 프레임으로 변환하겠습니다. 이 예에서 레이블 `0.0`은 불합격, 레이블 `1.0`은 합격, 레이블 `-1.0`은 앞의 두 결과를 제외한 기타 결과를 나타냅니다. 새 데이터 프레임을 계산할 때 이러한 기타 결과를 필터링할 것입니다.
 
         def labelForResults(s):
@@ -303,7 +303,7 @@ MLlib은 이 작업을 간단하게 수행할 수 있는 방법을 제공합니�
 ## <a name="create-a-visual-representation-of-the-prediction"></a>예측의 시각적 표현 만들기
 이제 이 테스트 결과의 이유를 파악하는 데 도움이 되는 최종 시각화를 만들 수 있습니다.
 
-1. 먼저 이전에 만든 **Predictions** 임시 테이블에서 여러 예측 및 결과를 추출합니다. 다음 쿼리는 출력을 *true_positive*, *false_positive*, *true_negative* 및 *false_negative*로 구분합니다. 아래 쿼리에서는 `-q`를 사용하여 시각화를 해제하고 `%%local` 매직에서 사용할 수 있는 데이터 프레임으로 출력을 저장(`-o` 사용)합니다.
+1. 먼저 이전에 만든 **Predictions** 임시 테이블에서 여러 예측 및 결과를 추출합니다. 다음 쿼리는 출력을 *true_positive*, *false_positive*, *true_negative* 및 *false_negative*로 구분합니다. 아래 쿼리에서는 `-q`를 사용하여 시각화를 해제하고 `%%local` 매직에서 사용할 수 있는 데이터 프레임으로 출력을 저장(`-o`를 사용하여)합니다.
 
         %%sql -q -o true_positive
         SELECT count(*) AS cnt FROM Predictions WHERE prediction = 0 AND results = 'Fail'
@@ -344,7 +344,6 @@ MLlib은 이 작업을 간단하게 수행할 수 있는 방법을 제공합니�
 * [BI와 Spark: BI 도구와 함께 HDInsight에서 Spark를 사용하여 대화형 데이터 분석 수행](apache-spark-use-bi-tools.md)
 * 
             [Machine Learning과 Spark: HVAC 데이터를 사용하여 건물 온도를 분석하는 데 HDInsight의 Spark 사용](apache-spark-ipython-notebook-machine-learning.md)
-* [Spark 스트리밍: HDInsight에서 Spark를 사용하여 실시간 스트리밍 응용 프로그램 빌드](apache-spark-eventhub-streaming.md)
 * [HDInsight의 Spark를 사용하여 웹 사이트 로그 분석](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>응용 프로그램 만들기 및 실행

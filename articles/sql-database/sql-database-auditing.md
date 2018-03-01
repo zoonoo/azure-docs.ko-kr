@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: giladm
-ms.openlocfilehash: 9be945493cf013f472566a2c7a1dda05fd9b0ca9
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 0994bdc7e6c86e10f7002649830fc59ad3d1a045
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-with-sql-database-auditing"></a>SQL 데이터베이스 감사 시작
 Azure SQL Database 감사는 데이터베이스 이벤트를 추적하고 Azure Storage 계정의 감사 로그에 이벤트를 기록합니다. 또한
@@ -39,8 +39,11 @@ SQL Database 감사를 사용하여 다음을 수행할 수 있습니다.
 
 [데이터베이스에 대한 감사 설정](#subheading-2) 섹션에 설명된 대로 여러 이벤트 범주 유형에 대해 감사를 구성할 수 있습니다.
 
-감사 로그는 Azure 구독의 Azure Blob Storage에 기록됩니다.
-
+> [!IMPORTANT]
+> 감사 로그는 Azure 구독의 Azure Blob Storage에 있는 **Blob 추가**에 기록됩니다.
+>
+> * **Premium Storage**는 현재 Blob 추가에서 **지원되지 않습니다**.
+> * **VNet의 저장소**는 현재 **지원되지 않습니다**.
 
 ## <a id="subheading-8"></a>서버 수준 및 데이터베이스 수준 감사 정책 정의
 
@@ -80,7 +83,7 @@ SQL Database 감사를 사용하여 다음을 수행할 수 있습니다.
    >감사 보고서 템플릿을 활용하려면 감사되는 모든 데이터베이스에 동일한 저장소 계정을 사용합니다.
 
     <a id="storage-screenshot"></a> ![탐색 창][4]
-6. 감사 이벤트를 사용자 지정하려면 PowerShell 또는 REST API를 통해 다음 작업을 수행합니다. 
+6. 감사 이벤트를 사용자 지정하려면 PowerShell 또는 REST API를 통해 다음 작업을 수행합니다.
 7. 감사 설정을 구성했으면 새로운 위협 감지 기능을 켜고, 보안 경고를 받을 전자 메일을 구성할 수 있습니다. 위협 감지를 사용하면 잠재적인 보안 위협을 나타낼 수 있는 비정상적인 데이터베이스 활동에 대해 사전 경고를 받을 수 있습니다. 자세한 내용은 [위협 감지 시작](sql-database-threat-detection-get-started.md)을 참조하세요.
 8. **저장**을 클릭합니다.
 

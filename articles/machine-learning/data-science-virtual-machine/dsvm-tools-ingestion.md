@@ -1,7 +1,7 @@
 ---
-title: "데이터 과학 가상 컴퓨터 데이터 수집 도구-Azure | Microsoft Docs"
-description: "데이터 과학 가상 컴퓨터 데이터 수집 도구"
-keywords: "데이터 과학 도구, 데이터 과학 가상 컴퓨터, 데이터 과학용 도구, linux 데이터 과학"
+title: "데이터 과학 Virtual Machine 데이터 수집 도구-Azure | Microsoft Docs"
+description: "데이터 과학 Virtual Machine 데이터 수집 도구"
+keywords: "데이터 과학 도구, 데이터 과학 가상 머신, 데이터 과학용 도구, linux 데이터 과학"
 services: machine-learning
 documentationcenter: 
 author: bradsev
@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.openlocfilehash: 8f1477c5fd8f57a815eeb603d2bde580bf78cca2
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: a2422d8a79d102accb72476f6934bae38603973a
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
-# <a name="data-science-virtual-machine-data-ingestion-tools"></a>데이터 과학 가상 컴퓨터 데이터 수집 도구
+# <a name="data-science-virtual-machine-data-ingestion-tools"></a>데이터 과학 Virtual Machine 데이터 수집 도구
 
-데이터 과학 또는 AI 프로젝트에서 첫 번째 기술적 단계 중 하나는 사용할 데이터 집합을 식별하고 분석 환경으로 가져오는 것입니다. 데이터 과학 가상 컴퓨터(DSVM)는 서로 다른 원본에서 데이터를 로컬로 DSVM이나 클라우드 또는 온-프레미스의 데이터 플랫폼에 있는 분석 데이터 저장소로 가져올 도구 및 라이브러리를 제공합니다. 
+데이터 과학 또는 AI 프로젝트에서 첫 번째 기술적 단계 중 하나는 사용할 데이터 집합을 식별하고 분석 환경으로 가져오는 것입니다. 데이터 과학 Virtual Machine(DSVM)은 서로 다른 원본에서 데이터를 로컬로 DSVM이나 클라우드 또는 온-프레미스의 데이터 플랫폼에 있는 분석 데이터 저장소로 가져올 도구 및 라이브러리를 제공합니다. 
 
 다음은 DSVM에 제공한 일부 데이터 이동 도구입니다. 
 
@@ -71,7 +71,7 @@ ms.lasthandoff: 12/11/2017
 | 일반적인 사용 용도      | VM에서 CosmosDB로 파일 가져오기, Azure 테이블 저장소에서 CosmosDB로 데이터 가져오기 또는 SQL Server 데이터베이스에서 CosmosDB로 데이터 가져오기.     |
 |  사용/실행 방법    |   명령줄을 버전을 사용하려면, 명령 프롬프트를 연 다음 `dt`을 입력합니다. GUI 도구를 사용하려면, 명령 프롬프트를 연 다음 `dtui`을 입력합니다.    |
 | 샘플에 대한 링크      | [CosmosDB 데이터 가져오기](https://docs.microsoft.com/azure/cosmos-db/import-data)      |
-| DSVM에 관련된 도구      | AzCopy, AdlCopy      |
+| DSVM의 관련 도구      | AzCopy, AdlCopy      |
 
 
 ## <a name="bcp"></a>bcp
@@ -83,7 +83,18 @@ ms.lasthandoff: 12/11/2017
 | 일반적인 사용 용도      | CSV 파일을 SQL Server 표로 가져오고, SQL Server 표를 파일로 내보냅니다.      |
 |  사용/실행 방법    |   명령 프롬프트를 연 다음 `bcp`을 입력하여 도움말을 봅니다.    |
 | 샘플에 대한 링크      | [대량 복사 유틸리티](https://docs.microsoft.com/sql/tools/bcp-utility)      |
-| DSVM에 관련된 도구      | SQL Server, sqlcmd      |
+| DSVM의 관련 도구      | SQL Server, sqlcmd      |
+
+## <a name="blobfuse"></a>blobfuse
+
+|    |           |
+| ------------- | ------------- |
+| 무엇인가요?   | Linux 파일 시스템에 Azure Blob 컨테이너를 마운트하는 도구      |
+| 지원되는 DSVM 버전      | Linux      |
+| 일반적인 사용 용도      | 컨테이너에서 Blob에 대한 읽기 및 쓰기      |
+|  사용/실행 방법    |   터미널에서 _blobfuse_를 실행합니다.    |
+| 샘플에 대한 링크      | [blobfuse on GitHub)[https://github.com/Azure/azure-storage-fuse]      |
+| DSVM의 관련 도구      | Azure 명령줄      |
 
 
 ## <a name="microsoft-data-management-gateway"></a>Microsoft 데이터 관리 게이트웨이
@@ -95,4 +106,4 @@ ms.lasthandoff: 12/11/2017
 | 일반적인 사용 용도      | VM을 온-프레미스 데이터 원본에 연결합니다.      |
 |  사용/실행 방법    |   시작 메뉴에서 "Microsoft 데이터 관리 게이트웨이"를 시작합니다.    |
 | 샘플에 대한 링크      | [데이터 관리 게이트웨이](https://msdn.microsoft.com/library/dn879362.aspx)      |
-| DSVM에 관련된 도구      | AzCopy AdlCopy, bcp    |
+| DSVM의 관련 도구      | AzCopy AdlCopy, bcp    |

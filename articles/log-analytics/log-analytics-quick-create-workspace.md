@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: magoedte
-ms.openlocfilehash: 8259a97d28effa7bfa9cfb9d7cd9cd2a14c9d906
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 5d8b20d5da442aa1f37eb7e2b2cb8049031e7a24
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-log-analytics-workspace-in-the-azure-portal"></a>Azure Portal에서 Log Analytics 작업 영역 만들기
 Azure Portal에서 고유한 데이터 리포지토리, 데이터 원본 및 솔루션을 포함한 고유한 Log Analytics 환경인 Log Analytics 작업 영역을 설정할 수 있습니다.  이 문서에 설명된 단계는 다음 원본에서 데이터를 수집하려는 경우에 필요합니다.
@@ -34,13 +34,13 @@ Azure VM 및 사용자 환경의 Windows 또는 Linux 컴퓨터 등 다른 원�
 *  [Linux 컴퓨터에 대한 데이터 수집](log-analytics-quick-collect-linux-computer.md)
 *  [Windows 컴퓨터에 대한 데이터 수집](log-analytics-quick-collect-windows-computer.md)
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="log-in-to-azure-portal"></a>Azure Portal에 로그인
 [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다. 
 
 ## <a name="create-a-workspace"></a>작업 영역 만들기
-1. Azure Portal의 왼쪽 아래 모서리에 있는 **추가 서비스**를 클릭합니다. 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Log Analytics**를 선택합니다.<br><br> ![Azure 포털](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
+1. Azure Portal에서 **모든 서비스**를 클릭합니다. 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Log Analytics**를 선택합니다.<br><br> ![Azure 포털](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
 2. **만들기**를 클릭하고 다음 항목에 대한 옵션을 선택합니다.
 
   * 새 **OMS 작업 영역**의 이름(예: *DefaultLAWorkspace*)을 지정합니다. 

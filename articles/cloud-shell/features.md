@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: juluk
-ms.openlocfilehash: a2c5348ea2ea02917472c1c3ae3bb518364c6848
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: 300630919ed832b059dd96fa0f35f89b52b0430d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="features--tools-for-bash-in-azure-cloud-shell"></a>Azure Cloud Shell의 Bash 기능 및 도구
 
@@ -37,7 +37,7 @@ Azure Cloud Shell의 Bash는 Azure CLI 2.0에 대한 계정 액세스를 안전�
 
 ### <a name="ssh-into-azure-linux-virtual-machines"></a>Azure Linux 가상 머신에 SSH
 
-Azure CLI 2.0에서 Linux VM을 만들면 기본 SSH 키를 만들고 `$Home` 디렉터리에 배치할 수 있습니다. SSH 키를 `$Home`에 배치하면 Azure Cloud Shell에서 Azure Linux VM에 직접 SSH 연결을 할 수 있습니다. 키는 파일 공유에서 acc_<user>.img에 보관되어, 파일 공유나 키에 대한 액세스를 사용하거나 공유할 때 모범 사례를 활용합니다.
+Azure CLI 2.0에서 Linux VM을 만들면 기본 SSH 키를 만들고 `$Home` 디렉터리에 배치할 수 있습니다. SSH 키를 `$Home`에 배치하면 Azure Cloud Shell에서 Azure Linux VM에 직접 SSH를 연결할 수 있습니다. 키는 파일 공유에서 acc_<user>.img에 보관되어, 파일 공유나 키에 대한 액세스를 사용하거나 공유할 때 모범 사례를 활용합니다.
 
 ### <a name="home-persistence-across-sessions"></a>여러 세션에 걸친 $Home 지속성
 
@@ -47,6 +47,10 @@ Azure CLI 2.0에서 Linux VM을 만들면 기본 SSH 키를 만들고 `$Home` �
 `$Home` 외부에 있는 파일 및 컴퓨터 상태는 세션 간에 지속 되지 않습니다.
 
 [Azure Cloud Shell에서 Bash의 보관 파일에 대해 자세히 알아보기](persisting-shell-storage.md)
+
+### <a name="deep-integration-with-open-source-tooling"></a>오픈 소스 도구와 완벽한 통합
+
+Cloud Shell의 Bash는 Terraform 및 Ansible 같은 오픈 소스 도구를 위해 사전 구성된 인증을 포함합니다. 예제 연습에서 사용해 보십시오.
 
 ## <a name="tools"></a>도구
 

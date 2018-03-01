@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: johnkem
-ms.openlocfilehash: f093c0cfdc6f59133c39cc8c2b10f9fe74692977
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: aef427483d647c53ba45688ce33a75f876115d08
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Azure 활동 로그로 구독 활동 모니터링
 **Azure 활동 로그**는 Azure에서 발생한 구독 수준 이벤트에 대한 정보를 제공하는 구독 로그입니다. 여기에는 Azure Resource Manager 작동 데이터에서 서비스 상태 이벤트 업데이트에 이르기까지 광범위한 데이터가 포함됩니다. 관리 범주에서 구독의 제어 평면 이벤트를 보고하므로, 이전에는 활동 로그의 명칭이 "감사 로그" 또는 "작업 로그"였습니다. 활동 로그를 통해 구독의 리소스에 대한 모든 쓰기 작업(PUT, POST, DELETE)에서 '무엇을, 누가, 언제'를 판단할 수 있습니다. 또한 작업 및 기타 관련 속성의 상태도 이해할 수 있습니다. 활동 로그에는 읽기(GET) 작업 또는 Classic/"RDFE" 모델을 사용하는 리소스에 대한 작업이 포함되지 않습니다.
@@ -73,9 +73,9 @@ Azure Portal, CLI, PowerShell cmdlet 및 Azure Monitor REST API를 사용하여 
 
 ## <a name="query-the-activity-log-in-the-azure-portal"></a>Azure Portal에서 활동 로그 쿼리
 Azure Portal 내에서는 다음과 같은 여러 위치에서 활동 로그를 볼 수 있습니다.
-* **활동 로그 블레이드**: 왼쪽의 탐색 창에서 “추가 서비스” 아래의 활동 로그를 검색하면 액세스할 수 있습니다.
-* **모니터 블레이드**: 왼쪽의 탐색 창에서 기본적으로 표시됩니다. 활동 로그는 이 Azure Monitor 블레이드의 한 섹션입니다.
-* 다양한 리소스의 **리소스 블레이드**: 예를 들어 Virtual Machine에 대한 구성 블레이드입니다. 활동 로그는 대부분의 이러한 리소스 블레이드에서 섹션 중 하나이며, 클릭하면 해당 특정 리소스와 관련된 이벤트를 자동으로 필터링합니다.
+* **활동 로그**는 왼쪽 탐색 창의 **모든 서비스** 아래에서 에서 활동 로그를 검색하여 액세스할 수 있습니다.
+* **모니터**는 왼쪽 탐색 창에 기본으로 표시됩니다. 활동 로그는 Azure Monitor의 한 섹션입니다.
+* 모든 리소스의 **리소스**, 예를 들어 Virtual Machine에 대한 구성 블레이드에서 볼 수 있습니다. 활동 로그는 대부분의 이러한 리소스 블레이드에서 섹션 중 하나이며, 클릭하면 해당 특정 리소스와 관련된 이벤트를 자동으로 필터링합니다.
 
 Azure Portal에서 이러한 필드에 의해 활동 로그를 필터링할 수 있습니다.
 * Timespan - 이벤트에 대한 시작 및 종료 시간입니다.
@@ -113,7 +113,7 @@ Azure Portal에서 이러한 필드에 의해 활동 로그를 필터링할 수 
 ### <a name="configure-log-profiles-using-the-azure-portal"></a>Azure Portal을 사용하여 로그 프로필 구성
 활동 로그를 Event Hub로 스트림하거나 Azure Portal의 "내보내기" 옵션을 사용하여 Storage 계정에 저장할 수 있습니다.
 
-1. 포털 왼쪽에 있는 메뉴를 사용하여 **활동 로그** 블레이드로 이동합니다.
+1. 포털 왼쪽에 있는 메뉴를 사용하여 **활동 로그**로 이동합니다.
 
     ![포털에서 활동 로그로 이동](./media/monitoring-overview-activity-logs/activity-logs-portal-navigate.png)
 2. 블레이드 맨 위에서 **내보내기** 단추를 클릭합니다.
@@ -142,11 +142,11 @@ Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/r
 | 자산 | 필수 | 설명 |
 | --- | --- | --- |
 | Name |예 |로그 프로필의 이름입니다. |
-| StorageAccountId |아니요 |활동 로그를 저장할 Storage 계정의 리소스 ID입니다. |
-| serviceBusRuleId |아니요 |이벤트 허브를 만들 Service Bus 네임스페이스의 Service Bus 규칙 ID입니다. `{service bus resource ID}/authorizationrules/{key name}` 형식의 문자열입니다. |
+| StorageAccountId |아니오 |활동 로그를 저장할 Storage 계정의 리소스 ID입니다. |
+| serviceBusRuleId |아니오 |이벤트 허브를 만들 Service Bus 네임스페이스의 Service Bus 규칙 ID입니다. `{service bus resource ID}/authorizationrules/{key name}` 형식의 문자열입니다. |
 | 위치 |예 |활동 로그 이벤트를 수집할 쉼표로 구분된 지역 목록입니다. |
 | RetentionInDays |예 |이벤트를 유지해야 하는 일 수는 1에서 2147483647 사이입니다. 0 값은 로그를 무기한(영원히) 저장합니다. |
-| 범주 |아니오 |수집할 쉼표로 구분된 이벤트 범주 목록입니다. 가능한 값은 쓰기, 삭제 및 작업입니다. |
+| 범주 |아니요 |수집할 쉼표로 구분된 이벤트 범주 목록입니다. 가능한 값은 쓰기, 삭제 및 작업입니다. |
 
 #### <a name="remove-a-log-profile"></a>로그 프로필 제거
 ```
@@ -171,11 +171,11 @@ azure insights logprofile add --name my_log_profile --storageId /subscriptions/s
 | 자산 | 필수 | 설명 |
 | --- | --- | --- |
 | 이름 |예 |로그 프로필의 이름입니다. |
-| storageId |아니오 |활동 로그를 저장할 Storage 계정의 리소스 ID입니다. |
-| serviceBusRuleId |아니오 |이벤트 허브를 만들 Service Bus 네임스페이스의 Service Bus 규칙 ID입니다. `{service bus resource ID}/authorizationrules/{key name}` 형식의 문자열입니다. |
+| storageId |아니요 |활동 로그를 저장할 Storage 계정의 리소스 ID입니다. |
+| serviceBusRuleId |아니요 |이벤트 허브를 만들 Service Bus 네임스페이스의 Service Bus 규칙 ID입니다. `{service bus resource ID}/authorizationrules/{key name}` 형식의 문자열입니다. |
 | 위치 |예 |활동 로그 이벤트를 수집할 쉼표로 구분된 지역 목록입니다. |
 | RetentionInDays |예 |이벤트를 유지해야 하는 일 수는 1에서 2147483647 사이입니다. 0 값은 로그를 무기한(영원히) 저장합니다. |
-| 범주 |아니요 |수집할 쉼표로 구분된 이벤트 범주 목록입니다. 가능한 값은 쓰기, 삭제 및 작업입니다. |
+| 범주 |아니오 |수집할 쉼표로 구분된 이벤트 범주 목록입니다. 가능한 값은 쓰기, 삭제 및 작업입니다. |
 
 #### <a name="remove-a-log-profile"></a>로그 프로필 제거
 ```

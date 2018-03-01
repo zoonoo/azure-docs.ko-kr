@@ -14,30 +14,30 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 01/29/2018
+ms.date: 02/12/2018
 ms.author: carlrab
-ms.openlocfilehash: af845d62b8e635449ada98cdea23f407815ffeb0
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: c0dc3181d3cd5c642dfca1c0f6031b83726478c0
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="what-are-azure-sql-database-service-tiers"></a>Azure SQL Database 서비스 계층이란?
 
-[Azure SQL Database](sql-database-technical-overview.md)는 [단일 데이터베이스](sql-database-single-database-resources.md) 및 [탄력적 풀](sql-database-elastic-pool.md) 둘 다에 대해 **기본**, **표준**, **프리미엄** 및 **프리미엄 RS** 서비스 계층을 제공합니다. 서비스 계층은 주로 다양한 성능 수준 및 저장소 크기 선택 항목, 가격으로 식별됩니다.  모든 서비스 계층에서는 성능 수준 및 저장소 크기를 유연하게 변경할 수 있습니다.  단일 데이터베이스 및 탄력적 풀은 서비스 계층, 성능 수준 및 저장소 크기에 따라 시간 단위로 청구됩니다.   
+[Azure SQL Database](sql-database-technical-overview.md)는 [단일 데이터베이스](sql-database-single-database-resources.md) 및 [탄력적 풀](sql-database-elastic-pool.md) 둘 다에 대해 **기본**, **표준** 및 **프리미엄** 서비스 계층을 제공합니다. 서비스 계층은 주로 다양한 성능 수준 및 저장소 크기 선택 항목, 가격으로 식별됩니다.  모든 서비스 계층에서는 성능 수준 및 저장소 크기를 유연하게 변경할 수 있습니다.  단일 데이터베이스 및 탄력적 풀은 서비스 계층, 성능 수준 및 저장소 크기에 따라 시간 단위로 청구됩니다.   
 
 ## <a name="choosing-a-service-tier"></a>서비스 계층 선택
 
 서비스 계층을 선택하는 작업은 주로 비즈니스 연속성, 저장소 및 성능 요구 사항에 따라 다릅니다.
-| | **Basic** | **Standard** |**Premium** |**Premium RS** |
+| | **Basic** | **Standard** |**Premium**  |
 | :-- | --: |--:| --:| --:| 
-|대상 워크로드|개발 및 프로덕션|개발 및 프로덕션|개발 및 프로덕션|서비스 장애로 인한 데이터 손실을 최대 5분 동안 허용할 수 있는 워크로드|
+|대상 워크로드|개발 및 프로덕션|개발 및 프로덕션|개발 및 프로덕션||
 |작동 시간 SLA|99.99%|99.99%|99.99%|미리 보기에 있는 동안 해당 없음|
-|Backup 보존|7 일|35일|35일|35일|
-|CPU|낮음|낮음, 보통, 높음|보통, 높음|중간|
-|IO 처리량|낮음  | 중간 | 표준보다 높음|프리미엄과 동일|
-|IO 대기 시간|프리미엄보다 높음|프리미엄보다 높음|기본 및 표준보다 낮음|프리미엄과 동일|
-|Columnstore 인덱싱 및 메모리 내 OLTP|해당 없음|해당 없음|지원됨|지원됨|
+|Backup 보존|7 일|35일|35일|
+|CPU|낮음|낮음, 보통, 높음|보통, 높음|
+|IO 처리량|낮음  | 중간 | 표준보다 높음|
+|IO 대기 시간|프리미엄보다 높음|프리미엄보다 높음|기본 및 표준보다 낮음|
+|Columnstore 인덱싱 및 메모리 내 OLTP|해당 없음|해당 없음|지원됨|
 |||||
 
 ## <a name="performance-level-and-storage-size-limits"></a>성능 수준 및 저장소 크기 제한
@@ -46,21 +46,21 @@ ms.lasthandoff: 02/01/2018
 
 ### <a name="single-databases"></a>단일 데이터베이스
 
-|  | **Basic** | **Standard** | **Premium** | **Premium RS**|
+|  | **Basic** | **Standard** | **Premium** | 
 | :-- | --: | --: | --: | --: |
-| 최대 저장소 크기* | 2 GB | 1TB | 4 TB  | 1TB  |
-| 최대 DTU | 5 | 3000 | 4000 | 1000 |
+| 최대 저장소 크기* | 2 GB | 1TB | 4 TB  | 
+| 최대 DTU | 5 | 3000 | 4000 | |
 ||||||
 
 ### <a name="elastic-pools"></a>탄력적 풀
 
-| | **Basic** | **Standard** | **Premium** | **Premium RS**|
+| | **Basic** | **Standard** | **Premium** | 
 | :-- | --: | --: | --: | --: |
-| 데이터베이스당 최대 저장소 크기*  | 2 GB | 1TB | 1TB | 1TB |
-| 풀당 최대 저장소 크기* | 156GB | 4 TB | 4 TB | 1TB |
-| 데이터베이스당 최대 eDTU | 5 | 3000 | 4000 | 1000 |
-| 풀당 최대 eDTU | 1600 | 3000 | 4000 | 1000 |
-| 풀당 최대 데이터베이스 수 | 500  | 500 | 100 | 100 |
+| 데이터베이스당 최대 저장소 크기*  | 2 GB | 1TB | 1TB | 
+| 풀당 최대 저장소 크기* | 156GB | 4 TB | 4 TB | 
+| 데이터베이스당 최대 eDTU | 5 | 3000 | 4000 | 
+| 풀당 최대 eDTU | 1600 | 3000 | 4000 | 
+| 풀당 최대 데이터베이스 수 | 500  | 500 | 100 | 
 ||||||
 
 > [!IMPORTANT]

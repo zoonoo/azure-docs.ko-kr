@@ -1,27 +1,14 @@
----
-title: "Postman 컬렉션 가져오기"
-description: "이 문서에서는 Azure Media Services REST 호출에 대한 Postman 컬렉션 정의를 제공합니다."
-services: media-services
-documentationcenter: 
-author: Juliako
-manager: cfowler
-editor: 
-ms.service: media-services
-ms.workload: media
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 01/04/2017
-ms.author: juliako
-ms.openlocfilehash: 9d1937f11d379910437a2e4ea21d4a963aacbc9a
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2018
----
-# <a name="import-the-postman-collection"></a>Postman 컬렉션 가져오기
+ ---
+제목: Azure 주문형 스트리밍 작업으로 Postman 컬렉션 가져오기 설명: 이 문서에서는 Azure Media Services REST 호출에 대한 Postman 컬렉션의 정의를 설명합니다.
+services: media-services documentationcenter: '' author: Juliako manager: cfowler editor: ''
 
-이 문서에는 Media Services REST API를 호출하는 그룹화된 HTTP 요청이 포함된 **Postman** 컬렉션 정의가 포함되어 있습니다. 이 정의는 [Media Services REST API 호출에 대한 Postman 구성](media-rest-apis-with-postman.md) 자습서에서 사용됩니다.
+ms.service: media-services ms.workload: media ms.tgt_pltfrm: na ms.devlang: na ms.topic: article ms.date: 01/04/2017 ms.author: juliako
+
+---
+
+# <a name="import-a-postman-collection-with-on-demand-streaming-operations"></a>주문형 스트리밍 작업으로 Postman 컬렉션 가져오기
+
+이 문서에는 Azure Media Services REST API를 호출하는 그룹화된 HTTP 요청이 포함된 **Postman** 컬렉션 정의가 포함되어 있습니다. Media Services REST API를 호출하는 데 사용할 수 있도록 **Postman**을 구성하는 방법에 대해 자세히 알아보려면 [Media Services REST API 호출에 대해 Postman 구성](media-rest-apis-with-postman.md) 자습서를 참조하세요.
 
 ```
 {

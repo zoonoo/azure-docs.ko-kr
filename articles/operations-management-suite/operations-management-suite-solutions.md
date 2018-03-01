@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 03/01/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2b9ad6da3963fefc5441581d113f6f690bd72be0
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: d46b869815fef44a8137bb5121133a1c0140ca30
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="working-with-management-solutions-in-azure-preview"></a>Azure의 관리 솔루션 사용(Preview)
 > [!NOTE]
@@ -36,7 +36,7 @@ ms.lasthandoff: 02/01/2018
 Microsoft 및 신뢰할 수 있는 파트너에서 제공한 관리 솔루션은 Azure Portal의 Azure Marketplace로부터 설치할 수 있습니다.
 
 1. Azure 포털에 로그인합니다.
-2. 왼쪽 창에서 **더 많은 서비스**를 선택합니다.
+2. 왼쪽 창에서 **모든 서비스**를 선택합니다.
 3. **솔루션**까지 아래로 스크롤하거나 **필터** 대화 상자에 *솔루션*을 입력합니다.
 4. **+추가** 단추를 클릭합니다.
 5. 찾아보거나 **필터** 단추를 클릭하거나 **모두 검색** 상자에 입력하여 관심 있는 솔루션을 검색합니다.
@@ -92,7 +92,7 @@ Log Analytics 작업 영역 및 Automation 계정을 지정하는 방법은 솔�
 다음 절차를 통해 Azure 구독에 연결된 작업 영역에 있는 관리 솔루션을 봅니다.
 
 1. Azure 포털에 로그인합니다.
-2. 왼쪽 창에서 **더 많은 서비스**를 선택합니다.
+2. 왼쪽 창에서 **모든 서비스**를 선택합니다.
 3. **솔루션**까지 아래로 스크롤하거나 **필터** 대화 상자에 *솔루션*을 입력합니다.
 4. 모든 작업 영역에 설치된 솔루션이 나열됩니다.
 

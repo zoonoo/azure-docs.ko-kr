@@ -1,10 +1,10 @@
 ---
 title: "지점 및 사이트 간 연결과 RADIUS 인증을 사용하여 가상 네트워크에 컴퓨터 연결: PowerShell | Azure"
-description: "RADIUS 인증을 사용하는 지점 및 사이트 간 VPN 게이트웨이 연결을 만들어 Azure Virtual Network에 컴퓨터를 안전하게 연결합니다."
+description: "P2S 및 RADIUS 인증을 사용하여 Windows 및 Mac OS X 클라이언트를 가상 네트워크에 안전하게 연결합니다."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: 
 tags: azure-resource-manager
 ms.assetid: 
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/04/2017
+ms.date: 02/12/2018
 ms.author: anzaman
-ms.openlocfilehash: 13ae129eefb717f22db25ab29232fe1efe69a8ce
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 3b7315aaa57d1387e3cea31e8b306131a59a7006
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell"></a>RADIUS 인증을 사용하여 VNet에 지점 및 사이트 간 연결 구성: PowerShell
 
@@ -89,7 +89,7 @@ RADIUS 서버는 온-프레미스 또는 Azure VNet에 있을 수 있습니다. 
 * **구독:** 구독이 2개 이상 있는 경우 올바른 구독을 사용 중인지 확인합니다.
 * **리소스 그룹: TestRG**
 * **위치: 미국 동부**
-* **DNS 서버:** VNet에 대한 이름 확인에 사용하려는 DNS 서버의 IP 주소 (옵션)
+* **DNS 서버:** VNet에 대한 이름 확인에 사용하려는 DNS 서버의 IP 주소 (선택 사항)
 * **GW 이름: Vnet1GW**
 * **공용 IP 이름: VNet1GWPIP**
 * **VpnType: RouteBased** 
@@ -214,11 +214,11 @@ VPN 클라이언트 구성을 사용하면 P2S 연결을 통해 VNet에 장치�
 
 ### <a name="connect-from-a-mac-vpn-client"></a>Mac VPN 클라이언트에서 연결
 
-네트워크 대화 상자에서 사용하려는 클라이언트 프로필을 찾고 **연결**을 클릭합니다.
+[네트워크] 대화 상자에서 사용하려는 클라이언트 프로필을 찾은 다음 **연결**을 클릭합니다.
 
   ![Mac 연결](./media/vpn-gateway-howto-point-to-site-rm-ps/applyconnect.png)
 
-## <a name="verify"></a>연결을 확인하려면
+## <a name="verify"></a>연결 확인
 
 1. VPN 연결이 활성인지를 확인하려면, 관리자 권한 명령 프롬프트를 열고 *ipconfig/all*을 실행합니다.
 2. 결과를 확인합니다. 받은 IP 주소가 구성에 지정한 지점 및 사이트 VPN 클라이언트 주소 풀 내의 주소 중 하나인지 확인합니다. 결과는 다음 예제와 비슷합니다.
@@ -236,6 +236,8 @@ VPN 클라이언트 구성을 사용하면 P2S 연결을 통해 VNet에 장치�
       NetBIOS over Tcpip..............: Enabled
   ```
 
+P2S 연결 문제를 해결하려면 [Azure 지점 및 사이트 간 연결 문제 해결](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)을 참조하세요.
+
 ## <a name="connectVM"></a>가상 컴퓨터에 연결하려면
 
 [!INCLUDE [Connect to a VM](../../includes/vpn-gateway-connect-vm-p2s-include.md)]
@@ -248,4 +250,4 @@ VPN 클라이언트 구성을 사용하면 P2S 연결을 통해 VNet에 장치�
 
 ## <a name="next-steps"></a>다음 단계
 
-연결이 완료되면 가상 네트워크에 가상 컴퓨터를 추가할 수 있습니다. 자세한 내용은 [Virtual Machines](https://docs.microsoft.com/azure/#pivot=services&panel=Compute)를 참조하세요. 네트워킹 및 가상 컴퓨터에 대한 자세한 내용은 [Azure 및 Linux VM 네트워크 개요](../virtual-machines/linux/azure-vm-network-overview.md)를 참조하세요.
+연결이 완료되면 가상 네트워크에 가상 머신을 추가할 수 있습니다. 자세한 내용은 [Virtual Machines](https://docs.microsoft.com/azure/#pivot=services&panel=Compute)를 참조하세요. 네트워킹 및 가상 머신에 대한 자세한 내용은 [Azure 및 Linux VM 네트워크 개요](../virtual-machines/linux/azure-vm-network-overview.md)를 참조하세요.

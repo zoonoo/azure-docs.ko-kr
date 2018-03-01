@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: wesmc
-ms.openlocfilehash: 0d48d0b008d76cfb2d7d7815a69774976e184467
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: aee7352ce6f8dd854ce0c6c61c5485fb9a35bb23
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Azure Functions의 Azure Event Hubs 바인딩
 
@@ -405,6 +405,12 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, Trac
 C# 및 C# 스크립트에서는 `out string paramName`과 같은 메서드 매개 변수를 사용하여 메시지를 보냅니다. C# 스크립트에서 `paramName`은 *function.json*의 `name` 속성에 지정된 값입니다. 여러 메시지를 쓰려면 `out string` 대신 `ICollector<string>` 또는 `IAsyncCollector<string>`를 사용할 수 있습니다.
 
 JavaScript에서 `context.bindings.<name>`를 사용하여 출력 이벤트에 액세스합니다. `<name>`은 *function.json*의 `name` 속성에 지정된 값입니다.
+
+## <a name="exceptions-and-return-codes"></a>예외 및 반환 코드
+
+| 바인딩 | 참고 자료 |
+|---|---|
+| 이벤트 허브 | [운영 가이드](https://docs.microsoft.com/rest/api/eventhub/publisher-policy-operations) |
 
 ## <a name="next-steps"></a>다음 단계
 

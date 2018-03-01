@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/12/2017
-ms.openlocfilehash: 6f9786b75f5160ceaa4dd269a91d7f3a4b6700d5
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 5e6a79a9b716b6797a1af21f0dcb911219b77207
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="collect-model-data-by-using-data-collection"></a>데이터 컬렉션을 사용하여 모델 데이터 수집
 
@@ -88,7 +88,7 @@ Linux에서는 libxml++ 라이브러리를 먼저 설치합니다. 다음 명령
 blob 저장소에 수집된 데이터를 보려면:
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. **추가 서비스**를 선택합니다.
+2. **모든 서비스**를 선택합니다.
 3. 검색 상자에서 **저장소 계정**을 입력하고 Enter 키를 선택합니다.
 4. **저장소 계정** 검색 블레이드에서 **저장소 계정** 리소스를 선택합니다. 저장소 계정을 확인하려면 다음 단계를 사용합니다.
 

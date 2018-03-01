@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: 10f34fe17c6b8faad3bcb7bcffe9d9c3c0d8b10a
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 54b9c9df1c368575c271a44e4738a2fc25ac4798
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-an-azure-analysis-services-server-in-azure-portal"></a>Azure Portal에서 Azure Analysis Services 서버 만들기
 이 문서에서는 Azure 구독에서 Analysis Services 서버 리소스를 만드는 과정을 안내합니다.
@@ -50,7 +50,7 @@ ms.lasthandoff: 11/02/2017
    * **가격 책정 계층**: 가격 책정 계층을 선택합니다. 최대 400GB의 테이블 형식 모델이 지원됩니다. 자세한 내용은 [Azure Analysis Services 가격 책정](https://azure.microsoft.com/pricing/details/analysis-services/)을 참조하세요.
 4. **만들기**를 클릭합니다.
 
-만드는 데 1분 이내, 대개 몇 초가 걸립니다. **포털에 추가**를 선택한 경우 새 서버를 보려면 포털로 이동합니다. 또는 **더 많은 서비스** > **Analysis Services**로 이동하여 서버가 준비되었는지 확인합니다.
+만드는 데 1분 이내, 대개 몇 초가 걸립니다. **포털에 추가**를 선택한 경우 새 서버를 보려면 포털로 이동합니다. 또는 **모든 서비스** > **Analysis Services**로 이동하여 서버가 준비되었는지 확인합니다.
 
  ![대시보드](./media/analysis-services-create-server/aas-create-server-dashboard.png)
 

@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
-ms.date: 12/14/2017
+ms.date: 02/20/2018
 ms.author: acomet
-ms.openlocfilehash: a16c2230c26865913285cb8cbd5b0f81426acdd1
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 6c8278be32ae6c6452283ba946a36f363dd4d76d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="cheat-sheet-for-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에 대한 치트 시트
 이 치트 시트는 Azure SQL Data Warehouse 솔루션을 구축하는 데 유용한 팁과 모범 사례를 제공합니다. 시작하기 전에 [Azure SQL Data Warehouse 작업 패턴 및 안티 패턴](https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/azure-sql-data-warehouse-workload-patterns-and-anti-patterns)을 참조하여 각 단계에 대해 자세히 알아보세요. 이러한 패턴은 SQL Data Warehouse 정의 및 장단점에 대해 설명합니다.
@@ -121,7 +121,7 @@ SQL Data Warehouse는 메모리를 쿼리에 할당하는 방법으로 리소스
 [리소스 클래스 및 동시성]으로 작업하는 방법에 대해 자세히 알아보세요.
 
 ## <a name="lower-your-cost"></a>비용 절감
-SQL Data Warehouse의 핵심 기능은 사용하지 않을 때 일시 중지하여 계산 리소스에 대한 비용이 청구되지 않도록 하는 것입니다. 또 다른 주요 기능은 리소스 규모를 조정하는 기능입니다. 일시 중지 및 크기 조정은 Azure Portal 또는 PowerShell 명령을 통해 수행할 수 있습니다.
+SQL Data Warehouse의 주요 기능은 [계산 리소스 관리](sql-data-warehouse-manage-compute-overview.md) 기능입니다. 데이터 웨어하우스를 사용하지 않을 때 일시 중지하여 계산 리소스에 대한 청구를 중지할 수 있습니다. 성능 요구를 충족하기 위해 리소스를 확장할 수 있습니다. 일시 중지하려면 [Azure Portal](pause-and-resume-compute-portal.md) 또는 [PowerShell](pause-and-resume-compute-powershell.md)을 사용합니다. 확장하려면 [Azure Portal](quickstart-scale-compute-portal.md), [Powershell](quickstart-scale-compute-powershell.md), [T-SQL](quickstart-scale-compute-tsql.md) 또는 [REST API](sql-data-warehouse-manage-compute-rest-api.md#scale-compute)를 사용합니다.
 
 이제 Azure Functions를 통해 원하는 시간에 자동 크기 조정을 수행할 수 있습니다.
 

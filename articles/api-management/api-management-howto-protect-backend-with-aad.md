@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 1ba7a415a56f5147e73faa48fcd51151c3c818a8
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 695db2f5e6ffe794d76d0b9126dc231ed8a87d2c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-protect-a-web-api-backend-with-azure-active-directory-and-api-management"></a>Azure Active Directory 및 API Management로 Web API 백 엔드를 보호하는 방법
 다음 비디오에서는 Web API 백 엔드 빌드 및 Azure Active Directory 및 API Management로 OAuth 2.0 프로토콜을 사용하여 보호하는 방법을 보여줍니다.  이 문서에서는 비디오로 해당 단계에 대한 개요 및 추가 정보를 제공합니다. 이 24분 비디오에서는 다음을 수행할 수 있는 방법을 보여줍니다.
@@ -400,7 +400,7 @@ API를 가져오면 API에 대한 요약 페이지가 게시자 포털에 표시
 
 ![권한 부여 서버 추가][api-management-add-authorization-server]
 
-**이름** 필드에 이름을 입력하고 원하는 경우 **설명** 필드에 설명을 입력합니다. 이러한 필드는 API Management 서비스 인스턴스 내에서 OAuth 2.0 권한 부여 서버를 식별하는 데 사용됩니다. 이 예에서 **권한 부여 서버 데모** 가 사용됩니다. 나중에 API에 대한 인증으로 사용되도록 OAuth 2.0 서버를 지정하면 이 이름을 선택합니다.
+**이름** 필드에 이름을 입력하고 원하는 경우 **설명** 필드에 설명을 입력합니다. 이러한 필드는 API Management 서비스 인스턴스 내에서 OAuth 2.0 권한 부여 서버를 식별하는 데 사용됩니다. 이 예에서 **권한 부여 서버 데모**가 사용됩니다. 나중에 API에 대한 인증으로 사용되도록 OAuth 2.0 서버를 지정하면 이 이름을 선택합니다.
 
 **클라이언트 등록 페이지 URL**로 `http://localhost`와 같은 자리 표시자 값을 입력합니다.  **클라이언트 등록 페이지 URL** 은 사용자가 계정의 사용자 관리를 지원하는 OAuth 2.0 공급자에 대한 계정을 만들고 구성하는 데 사용할 수 있는 페이지를 가리킵니다. 이 예에서 자리 표시자를 사용하도록 사용자는 자신의 계정을 만들거나 구성하지 않습니다.
 
@@ -495,7 +495,7 @@ API를 가져오면 API에 대한 요약 페이지가 게시자 포털에 표시
 비디오의 다음 절차는 16분 30초부터 시작하며 API를 호출하는 간단한 데스크톱 응용 프로그램을 구성합니다. Azure AD에서 데스크톱 응용 프로그램을 등록하고 디렉터리와 백 엔드 서비스에 액세스 권한을 부여하는 것이 첫 번째 단계입니다. 18분 25초에 계산기 API에 대한 작업을 호출하는 데스크톱 응용 프로그램의 데모가 시작됩니다.
 
 ## <a name="configure-a-jwt-validation-policy-to-pre-authorize-requests"></a>미리 요청 권한을 부여하도록 JWT 유효성 검사 정책 구성
-이 비디오에서 최종 절차는 20분 48초에 시작하며 [JWT의 유효성 검사](https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#ValidateJWT) 정책을 사용하여 들어오는 각 요청의 액세스 토큰의 유효성을 검사하는 방법을 보여 줍니다. 요청의 유효성을 JWT 정책으로 검사하지 않은 경우, 요청은 API Management로 차단되며 백 엔드를 따라 전달되지 않습니다.
+이 비디오에서 최종 절차는 20분 48초에 시작하며 [JWT의 유효성 검사](api-management-access-restriction-policies.md#ValidateJWT) 정책을 사용하여 들어오는 각 요청의 액세스 토큰의 유효성을 검사하는 방법을 보여 줍니다. 요청의 유효성을 JWT 정책으로 검사하지 않은 경우, 요청은 API Management로 차단되며 백 엔드를 따라 전달되지 않습니다.
 
 ```xml
 <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">

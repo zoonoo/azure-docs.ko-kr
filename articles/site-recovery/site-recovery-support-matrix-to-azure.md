@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 02/06/2018
 ms.author: rajanaki
-ms.openlocfilehash: 426a456f8d979c8fb68b469f01eb68f378e876e8
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: a17d0918ea5938daf81c469fd6402a7dc9764831
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-on-premises-to-azure"></a>온-프레미스에서 Azure로 복제하기 위한 Azure Site Recovery 지원 매트릭스
 
@@ -76,8 +76,8 @@ Azure에 복제하는 경우 보호되는 가상 머신이 [Azure 요구 사항]
 >
 > Linux 배포판에서는 배포판의 부 버전 릴리스/업데이트에 포함된 스톡 커널만 지원됩니다.
 >
-> Azure Site Recovery 보호 VMware 가상 머신 또는 물리적 서버에 있는 Linux 배포판의 주 버전 업그레이드는 지원되지 않습니다. 주 버전에서 운영 체제를 업그레이드하는 동안(예: CentOS 6.*에서 CentOS 7.*), 컴퓨터에 복제를 사용하지 않도록 설정하고, 컴퓨터에서 운영 체제를 업그레이드한 다음 복제를 다시 사용하도록 설정합니다.
-> 
+> Azure Site Recovery 보호 VMware 가상 머신 또는 물리적 서버에 있는 Linux 배포판의 주 버전 업그레이드는 지원되지 않습니다. 주 버전에서 운영 체제를 업그레이드하는 동안(예: CentOS 6.\* 에서 CentOS 7.\* ), 컴퓨터에 복제를 사용하지 않도록 설정하고, 컴퓨터에서 운영 체제를 업그레이드한 다음, 복제를 다시 사용하도록 설정합니다.
+>
 
 
 ### <a name="supported-ubuntu-kernel-versions-for-vmwarephysical-servers"></a>VMware/물리적 서버에 대해 지원되는 Ubuntu 커널 버전
@@ -119,13 +119,13 @@ HP CCISS 저장소 컨트롤러가 있는 물리적 서버는 지원되지 않�
 NIC 팀 | 예<br/><br/>물리적 컴퓨터가 복제되는 경우 지원되지 않음| 예
 VLAN | 예 | 예
 IPv4 | 예 | 예
-IPv6 | 아니오 | 아니요
+IPv6 | 아니요 | 아니오
 
 ### <a name="guest-vm-network-configuration"></a>게스트 VM 네트워크 구성
 
 **구성** | **VMware/물리적 서버** | **Hyper-V(Virtual Machine Manager 있음/없음)**
 --- | --- | ---
-NIC 팀 | 아니요 | 아니요
+NIC 팀 | 아니오 | 아니오
 IPv4 | 예 | 예
 IPv6 | 아니요 | 아니요
 고정 IP(Windows) | 예 | 예
@@ -144,7 +144,7 @@ Traffic Manager | 예 | 예
 예약된 IP | 예 | 예
 IPv4 | 예 | 예
 원본 IP 유지 | 예 | 예
-Virtual Network 서비스 끝점(Azure Storage 방화벽 및 Virtual Network) | 아니오 | 아니오
+Virtual Network 서비스 끝점(Azure Storage 방화벽 및 Virtual Network) | 아니요 | 아니요
 
 
 ## <a name="support-for-storage"></a>저장소에 대한 지원
@@ -166,11 +166,11 @@ SAN(ISCSI) | 예 | 예
 VMDK | 예 | 해당 없음
 VHD/VHDX | 해당 없음 | 예
 2세대 VM | 해당 없음 | 예
-EFI/UEFI| Windows Server 2012 이상에서만 Azure로 마이그레이션합니다. </br></br> ** 테이블 끝에 있는 메모를 참조하세요.  | 예
-공유 클러스터 디스크 | 아니요 | 아니오
-암호화된 디스크 | 아니요 | 아니요
+EFI/UEFI| Windows Server 2012 이상 VMware 가상 머신에서만 Azure로 마이그레이션합니다. </br></br> ** 테이블 끝에 있는 메모를 참조하세요.  | 예
+공유 클러스터 디스크 | 아니오 | 아니오
+암호화된 디스크 | 아니오 | 아니오
 NFS | 아니요 | 해당 없음
-SMB 3.0 | 아니요 | 아니요
+SMB 3.0 | 아니오 | 아니요
 RDM | 예<br/><br/> 물리적 서버의 경우 해당 없음 | 해당 없음
 디스크 > 1TB | 예<br/><br/>최대 4095GB | 예<br/><br/>최대 4095GB
 4K 논리 및 4k 물리적 섹터 크기 포함 디스크 | 예 | 1세대 VM에 지원되지 않음<br/><br/>2세대 VM에 지원되지 않음
@@ -182,10 +182,11 @@ RDM | 예<br/><br/> 물리적 서버의 경우 해당 없음 | 해당 없음
 다중 경로(MPIO) | 해당 없음 | 예
 
 > [!NOTE]
-> ** Windows Server 2012 이상을 실행하는 물리적 서버나 UEFI 부팅 VMware 가상 머신은 Azure로 마이그레이션될 수 있습니다. 다음 제한 사항이 적용됩니다.
+> Windows Server 2012 이상을 실행하는 ** UEFI 부팅 VMware 가상 머신을 Azure로 마이그레이션할 수 있습니다. 다음 제한 사항이 적용됩니다.
 > - Azure로만 마이그레이션합니다. 온-프레미스 VMware 사이트에 장애 복구는 지원되지 않습니다.
 > - 서버의 OS 디스크에 파티션이 4개 까지만 지원됩니다.
 > - Azure Site Recovery 모바일 서비스 버전 9.13 이상이 필요합니다.
+> - 실제 서버에 대해서는 지원되지 않습니다.
 
 **Azure 저장소** | **VMware/물리적 서버** | **Hyper-V(Virtual Machine Manager 있음/없음)**
 --- | --- | ---
@@ -198,8 +199,8 @@ RA-GRS | 예 | 예
 휴지 상태의 암호화(SSE)| 예 | 예
 Premium Storage | 예 | 예
 Import/Export 서비스 | 아니요 | 아니요
-복제 데이터를 저장하는 데 사용되는 대상 저장소 계정 또는 캐시 저장소 계정에 구성된 Virtual Network 서비스 끝점(Azure Storage 방화벽 및 Virtual Network) | 아니요 | 아니요
-범용 V2 저장소 계정(핫 및 쿨 계층 모두) | 아니오 | 아니요
+복제 데이터를 저장하는 데 사용되는 대상 저장소 계정 또는 캐시 저장소 계정에 구성된 Virtual Network 서비스 끝점(Azure Storage 방화벽 및 Virtual Network) | 아니요 | 아니오
+범용 V2 저장소 계정(핫 및 쿨 계층 모두) | 아니요 | 아니요
 
 
 ## <a name="support-for-azure-compute-configuration"></a>Azure 계산 구성에 대한 지원
@@ -235,7 +236,7 @@ Azure에서 지원하는 운영 체제를 실행하는 가상 머신과 물리�
 **작업** | **VMware/물리적 서버** | **Hyper-V(Virtual Machine Manager 없음)** | **Hyper-V(Virtual Machine Manager 있음)**
 --- | --- | --- | ---
 리소스 그룹 간 자격 증명 모음 이동<br/><br/> 구독 내 및 구독 간 | 아니요 | 아니요 | 아니요
-저장소 그룹 간 저장소, 네트워크, Azure VM 이동<br/><br/> 구독 내 및 구독 간 | 아니요 | 아니오 | 아니요
+저장소 그룹 간 저장소, 네트워크, Azure VM 이동<br/><br/> 구독 내 및 구독 간 | 아니요 | 아니요 | 아니오
 
 
 ## <a name="support-for-provider-and-agent"></a>공급자 및 에이전트에 대한 지원

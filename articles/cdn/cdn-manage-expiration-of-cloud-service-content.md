@@ -3,8 +3,8 @@ title: "Azure CDN(Content Delivery Network)에서 웹 콘텐츠 만료 관리 | 
 description: "Azure CDN에서 Azure Web Apps/Cloud Services, ASP.NET 또는 IIS 콘텐츠의 만료를 관리하는 방법을 알아봅니다."
 services: cdn
 documentationcenter: .NET
-author: zhangmanling
-manager: erikre
+author: dksimpson
+manager: akucer
 editor: 
 ms.assetid: bef53fcc-bb13-4002-9324-9edee9da8288
 ms.service: cdn
@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/10/2017
+ms.date: 02/15/2018
 ms.author: mazha
-ms.openlocfilehash: dca6ca5f21f4a4f1701af57eb40d92094b6a4754
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: db7b5053cb926d2ec86c7feea4ac411acbeb1ae2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-expiration-of-web-content-in-azure-content-delivery-network"></a>Azure CDN(Content Delivery Network)에서 웹 콘텐츠 만료 관리
 > [!div class="op_single_selector"]
@@ -26,9 +26,9 @@ ms.lasthandoff: 12/21/2017
 > * [Azure Blob 저장소](cdn-manage-expiration-of-blob-content.md)
 > 
 
-TTL(time-to-live)이 경과할 때까지 원본 웹 서버에서 공개적으로 액세스할 수 있는 파일은 Azure CDN(Content Delivery Network)에 캐시될 수 있습니다. TTL은 원본 서버의 HTTP 응답에 있는 `Cache-Control` 헤더를 기반으로 결정됩니다. 이 문서에서는 Microsoft Azure App Service, Azure Cloud Services, ASP.NET 응용 프로그램 및 IIS(인터넷 정보 서비스) 사이트에 대한 웹앱 기능의 `Cache-Control` 헤더를 설정하는 방법을 설명하며, 이 헤더들은 모두 비슷하게 구성됩니다. 구성 파일을 사용하거나 프로그래밍 방식으로 `Cache-Control` 헤더를 설정할 수 있습니다. 
+TTL(time-to-live)이 경과할 때까지 원본 웹 서버에서 공개적으로 액세스할 수 있는 파일은 Azure CDN(콘텐츠 전송 네트워크)에 캐시될 수 있습니다. TTL은 원본 서버의 HTTP 응답에 있는 `Cache-Control` 헤더를 기반으로 결정됩니다. 이 문서에서는 Microsoft Azure App Service, Azure Cloud Services, ASP.NET 응용 프로그램 및 IIS(인터넷 정보 서비스) 사이트에 대한 웹앱 기능의 `Cache-Control` 헤더를 설정하는 방법을 설명하며, 이 헤더들은 모두 비슷하게 구성됩니다. 구성 파일을 사용하거나 프로그래밍 방식으로 `Cache-Control` 헤더를 설정할 수 있습니다. 
 
-[CDN 캐시 규칙](cdn-caching-rules.md)을 설정하여 Azure Portal에서 캐시 설정을 제어할 수도 있습니다. 하나 이상의 캐싱 규칙을 설정하고 캐싱 동작을 **재정의** 또는 **캐시 무시**로 설정하는 경우 이 문서에 설명된 원본 제공 캐싱 설정이 무시됩니다. 일반적인 캐싱 개념에 대한 자세한 내용은 [캐싱 동작 방식](cdn-how-caching-works.md)을 참조하세요.
+[CDN 캐시 규칙](cdn-caching-rules.md)을 설정하여 Azure Portal에서 캐시 설정을 제어할 수도 있습니다. 하나 이상의 캐싱 규칙을 만들고 캐싱 동작을 **재정의** 또는 **캐시 무시**로 설정하는 경우 이 문서에 설명된 원본 제공 캐싱 설정이 무시됩니다. 일반적인 캐싱 개념에 대한 자세한 내용은 [캐싱 동작 방식](cdn-how-caching-works.md)을 참조하세요.
 
 > [!TIP]
 > 파일에 TTL을 설정하지 않을 수도 있습니다. 이 경우 Azure CDN은 사용자가 Azure Portal에서 캐싱 규칙을 설정하지 않은 한, 7일의 기본 TTL을 자동으로 적용합니다. 이 기본 TTL은 일반 웹 배달 최적화에만 적용됩니다. 대용량 파일 최적화의 경우 기본 TTL은 1일이고 미디어 스트리밍 최적화의 경우 기본 TTL은 1년입니다.
@@ -36,16 +36,64 @@ TTL(time-to-live)이 경과할 때까지 원본 웹 서버에서 공개적으로
 > 파일과 다른 리소스에 대한 액세스 속도를 높이기 위해 Azure CDN이 작동하는 방법에 대한 자세한 내용은 [Azure CDN(Content Delivery Network) 개요](cdn-overview.md)를 참조하세요.
 > 
 
+## <a name="setting-cache-control-headers-by-using-cdn-caching-rules"></a>CDN 캐싱 규칙을 사용하여 Cache-Control 헤더 설정
+웹 서버 `Cache-Control` 헤더를 설정하기 위한 기본 방법은 Azure Portal에서 캐싱 규칙을 사용하는 것입니다. CDN 캐싱 규칙에 대한 자세한 내용은 [캐싱 규칙을 사용하여 Azure CDN 캐싱 동작 제어](cdn-caching-rules.md)를 참조하세요.
+
+> [!NOTE] 
+> 캐싱 규칙은 **Verizon 표준의 Azure CDN** 및 **Akamai 표준의 Azure CDN** 프로필에만 사용할 수 있습니다. **Verizon 프리미엄의 Azure CDN** 프로필은 유사한 기능을 위해 **관리** 포털에서 [Azure CDN 규칙 엔진](cdn-rules-engine.md)을 사용해야 합니다.
+
+**CDN 캐싱 규칙 페이지로 이동하려면**:
+
+1. Azure Portal에서 CDN 프로필을 선택한 다음, 웹 서버용 끝점을 선택합니다.
+
+2. 설정 아래의 왼쪽 창에서 **캐싱 규칙**을 선택합니다.
+
+   ![CDN 캐싱 규칙 단추](./media/cdn-manage-expiration-of-cloud-service-content/cdn-caching-rules-btn.png)
+
+   **캐싱 규칙** 페이지가 나타납니다.
+
+   ![CDN 캐싱 페이지](./media/cdn-manage-expiration-of-cloud-service-content/cdn-caching-page.png)
+
+
+**전역 캐싱 규칙을 사용하여 웹 서버의 Cache-Control 헤더를 설정하려면:**
+
+1. **전역 캐싱 규칙**에서 **쿼리 문자열 캐시 동작**을 **쿼리 문자열 무시**로 설정하고 **캐싱 동작**을 **재정의**로 설정합니다.
+      
+2. **캐시 만료 기간**은 **초** 상자에 3600초를 입력하거나 **시간** 상자에 1시간을 입력합니다. 
+
+   ![CDN 전역 캐싱 규칙 예](./media/cdn-manage-expiration-of-cloud-service-content/cdn-global-caching-rules-example.png)
+
+   해당 전역 캐싱 규칙은 1시간의 캐시 기간을 설정하고 끝점에 대한 모든 요청에 영향을 줍니다. 끝점에서 지정한 원본 서버가 보낸 `Cache-Control` 또는 `Expires` HTTP 헤더를 재정의합니다.   
+
+3. **저장**을 선택합니다.
+
+**사용자 지정 캐싱 규칙을 사용하여 웹 서버 파일의 Cache-Control 헤더를 설정하려면:**
+
+1. **사용자 지정 캐싱 규칙**에 따라 일치 조건 두 개를 만듭니다.
+
+     a. 첫 번째 일치 조건의 경우 **일치 조건**을 **경로**로 설정하고 **일치 값**으로 `/webfolder1/*`를 입력합니다. **캐싱 동작**을 **재정의**로 설정하고 **시간** 상자에 4시간을 입력합니다.
+
+     나. 두 번째 일치 조건의 경우 **일치 조건**을 **경로**로 설정하고 **일치 값**으로 `/webfolder1/file1.txt`를 입력합니다. **캐싱 동작**을 **재정의**로 설정하고 **시간** 상자에 2시간을 입력합니다.
+
+    ![CDN 사용자 지정 캐싱 규칙 예](./media/cdn-manage-expiration-of-cloud-service-content/cdn-custom-caching-rules-example.png)
+
+    첫 번째 사용자 지정 캐싱 규칙은 끝점에서 지정한 원본 서버의 `/webfolder1`폴더 내 모든 파일에 대해 4시간의 캐시 기간을 설정합니다. 두 번째 규칙은 `file1.txt` 파일을 위한 첫 번째 규칙을 재정의하고 이에 대해 2시간의 캐시 기간을 설정합니다.
+
+2. **저장**을 선택합니다.
+
+
 ## <a name="setting-cache-control-headers-by-using-configuration-files"></a>구성 파일을 사용하여 Cache-Control 헤더 설정
-이미지, 스타일 시트 등 정적 콘텐츠에 대해서는 웹 응용 프로그램의 **applicationHost.config** 또는 **Web.config** 구성 파일을 수정함으로써 업데이트 빈도를 제어할 수 있습니다. 각 파일의 `<system.webServer>/<staticContent>/<clientCache>` 요소는 콘텐츠에 대한 `Cache-Control` 헤더를 설정합니다.
+이미지, 스타일 시트 등 정적 콘텐츠에 대해서는 웹 응용 프로그램의 **applicationHost.config** 또는 **Web.config** 구성 파일을 수정함으로써 업데이트 빈도를 제어할 수 있습니다. 콘텐츠에 대한 `Cache-Control` 헤더를 설정하려면 각 파일의 `<system.webServer>/<staticContent>/<clientCache>` 요소를 사용합니다.
 
 ### <a name="using-applicationhostconfig-files"></a>ApplicationHost.config 파일 사용
 **ApplicationHost.config** 파일은 IIS 구성 시스템의 루트 파일입니다. **ApplicationHost.config** 파일의 구성 설정은 사이트의 모든 응용 프로그램에 영향을 미치지만 웹 응용 프로그램에 대해 존재하는 **Web.config** 파일의 설정에 의해 재정의됩니다.
 
 ### <a name="using-webconfig-files"></a>Web.config 파일 사용
-**Web.config** 파일을 사용하여 전체 웹 응용 프로그램 또는 웹 응용 프로그램에서 특정 디렉터리가 작동하는 방식을 사용자 지정할 수 있습니다. 일반적으로 웹 응용 프로그램의 루트 폴더에 하나 이상의 **Web.config** 파일이 있습니다. 특정 폴더에 있는 각 **Web.config** 파일의 구성 설정은 다른 **Web.config** 파일에 의해 하위 폴더 수준에서 재정의된 경우를 제외하고는 해당 폴더 및 그 하위 폴더의 모든 항목에 영향을 줍니다. 예를 들어 3일 동안 웹 응용 프로그램의 모든 정적 콘텐츠를 캐시하도록 웹 응용 프로그램 루트 폴더의 **Web.config** 파일에 `<clientCache>` 요소를 설정할 수 있습니다. 또한 가변 콘텐츠(예: `\frequent`)가 더 많이 포함된 하위 폴더에 **Web.config** 파일을 추가하고 6시간 동안 하위 폴더의 콘텐츠를 캐시하도록 `<clientCache>` 요소를 설정할 수도 있습니다. 그 결과 전체 웹 사이트의 콘텐츠는 3일 동안 캐시되지만 `\frequent` 디렉터리의 콘텐츠는 6시간 동안만 캐시됩니다.  
+**Web.config** 파일을 사용하여 전체 웹 응용 프로그램 또는 웹 응용 프로그램에서 특정 디렉터리가 작동하는 방식을 사용자 지정할 수 있습니다. 일반적으로 웹 응용 프로그램의 루트 폴더에 하나 이상의 **Web.config** 파일이 있습니다. 특정 폴더에 있는 각 **Web.config** 파일의 구성 설정은 다른 **Web.config** 파일에 의해 하위 폴더 수준에서 재정의된 경우를 제외하고는 해당 폴더 및 그 하위 폴더의 모든 항목에 영향을 줍니다. 
 
-다음 XML 예제에서는 최대 기간을 3일로 지정하도록 구성 파일의 `<clientCache>` 요소를 설정하는 방법을 보여 줍니다.  
+예를 들어 3일 동안 웹 응용 프로그램의 모든 정적 콘텐츠를 캐시하도록 웹 응용 프로그램 루트 폴더의 **Web.config** 파일에 `<clientCache>` 요소를 설정할 수 있습니다. 또한 가변 콘텐츠(예: `\frequent`)가 더 많이 포함된 하위 폴더에 **Web.config** 파일을 추가하고 6시간 동안 하위 폴더의 콘텐츠를 캐시하도록 `<clientCache>` 요소를 설정할 수도 있습니다. 그 결과 전체 웹 사이트의 콘텐츠는 3일 동안 캐시되지만 `\frequent` 디렉터리의 콘텐츠는 6시간 동안만 캐시됩니다.  
+
+다음 XML 구성 파일 예제에서는 최대 기간을 3일로 지정하도록 `<clientCache>` 요소를 설정하는 방법을 보여 줍니다.  
 
 ```xml
 <configuration>

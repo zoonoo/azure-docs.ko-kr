@@ -11,13 +11,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2018
+ms.date: 02/13/2018
 ms.author: apimpm
-ms.openlocfilehash: f377e1aadc126934fb47f6371f12435d2742efa6
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: f4e1f8a701b5584138b92526e0e65e28d45e7c04
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-create-and-use-groups-to-manage-developer-accounts-in-azure-api-management"></a>Azure API Management에서 개발자 계정을 관리하는 그룹을 만들고 사용하는 방법
 API Management에서 그룹은 개발자에 대한 제품 표시 여부를 관리하는 데 사용됩니다. 제품이 먼저 그룹에 표시된 다음, 이러한 그룹의 개발자가 그룹과 연결된 제품을 보고 구독할 수 있습니다. 
@@ -62,10 +62,10 @@ API Management에는 다음과 같은 변경할 수 없는 시스템 그룹이 �
 3. **액세스 제어**를 누릅니다.
 4. **+ 그룹 추가**를 클릭합니다.
 
-    ![새 그룹 추가](./media/api-management-howto-create-groups/groups002.png)
+    ![그룹과 제품 연결](./media/api-management-howto-create-groups/groups002.png)
 5. 추가하려는 그룹을 선택합니다.
 
-    ![새 그룹 추가](./media/api-management-howto-create-groups/groups003.png)
+    ![그룹과 제품 연결](./media/api-management-howto-create-groups/groups003.png)
 
     제품에서 그룹을 제거하려면 **삭제**를 클릭합니다.
 
@@ -89,10 +89,10 @@ API Management에는 다음과 같은 변경할 수 없는 시스템 그룹이 �
     ![멤버 추가](./media/api-management-howto-create-groups/groups006.png)
 4. **선택**을 누릅니다.
 
-
 개발자와 그룹 간의 연결을 추가한 후에는 **사용자** 탭에서 확인할 수 있습니다.
 
 ## <a name="next-steps"> </a>다음 단계
+
 * 그룹에 개발자를 추가하면 개발자가 해당 그룹과 연결된 제품을 보고 구독할 수 있습니다. 자세한 내용은 [Azure API Management에서 제품을 만들고 게시하는 방법][How create and publish a product in Azure API Management]을 참조하세요.
 * 게시자 포털에서 그룹 만들기 및 관리 외에도 API Management REST API [그룹](https://msdn.microsoft.com/library/azure/dn776329.aspx) 엔터티를 사용하여 그룹을 만들고 관리할 수 있습니다.
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/02/2018
 ms.author: mimig
-ms.openlocfilehash: 8797910651c54baa3529b015d4195cf2a5c06ece
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: afbb3392a4726ea067bf19c117792b866d9e79f3
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="set-throughput-for-azure-cosmos-db-containers"></a>Azure Cosmos DB 컨테이너에 대한 처리량 설정
 
@@ -49,7 +49,7 @@ Azure Portal 또는 클라이언트 SDK를 사용하여 Azure Cosmos DB 컨테�
 ## <a name="to-set-the-throughput-by-using-the-azure-portal"></a>Azure Portal을 사용하여 처리량을 설정하려면
 
 1. 새 창에서 [Azure Portal](https://portal.azure.com)을 엽니다.
-2. 왼쪽 모음에서 **Azure Cosmos DB**를 클릭하거나 맨 아래에서 **더 많은 서비스**를 클릭한 다음 **데이터베이스**로 스크롤하고 **Azure Cosmos DB**를 클릭합니다.
+2. 왼쪽 모음에서 **Azure Cosmos DB**를 클릭하거나 맨 아래에서 **모든 서비스**를 클릭한 다음, **데이터베이스**로 스크롤하고 **Azure Cosmos DB**를 클릭합니다.
 3. Cosmos DB 계정을 선택합니다.
 4. 새 창의 탐색 메뉴에서 **데이터 탐색기**를 클릭합니다.
 5. 새 창에서 데이터베이스와 컨테이너를 확장하고 **배율 및 설정**을 클릭합니다.

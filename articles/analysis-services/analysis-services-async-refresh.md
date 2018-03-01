@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 12/18/2017
+ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: 06d807b83f700c675c6979998dd8f74372a4845f
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 1f31c05554db16d604a9825ef9b1317a0f281456
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>REST API를 사용한 비동기 새로 고침
 REST 호출을 지원하는 프로그래밍 언어를 사용하여 Azure Analysis Services 테이블 형식 모델에서 비동기 데이터 새로 고침 작업을 수행할 수 있습니다. 여기에는 쿼리 스케일 아웃을 위한 읽기 전용 복제본의 동기화가 포함됩니다. 
@@ -99,9 +99,9 @@ https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refres
 ### <a name="parameters"></a>매개 변수
 매개 변수를 지정할 필요는 없습니다. 기본값이 적용됩니다.
 
-|Name  |type  |설명  |기본값  |
+|Name  |형식  |설명  |기본값  |
 |---------|---------|---------|---------|
-|type     |  열거형       |  수행할 처리 형식입니다. 이 형식은 TMSL [새로 고침 명령](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/refresh-command-tmsl) 형식인 full, clearValues, calculate, dataOnly, automatic, add 및 defragment에 맞춰 지정됩니다.       |   automatic      |
+|형식     |  열거형       |  수행할 처리 형식입니다. 이 형식은 TMSL [새로 고침 명령](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/refresh-command-tmsl) 형식인 full, clearValues, calculate, dataOnly, automatic, add 및 defragment에 맞춰 지정됩니다.       |   automatic      |
 |CommitMode     |  열거형       |  개체가 일괄로 커밋될지 또는 완료될 때만 커밋될지를 결정합니다. 모드에는 default, transactional, partialBatch가 포함됩니다.  |  transactional       |
 |MaxParallelism     |   int      |  이 값은 처리 명령을 동시에 실행할 최대 스레드 수를 결정합니다. 이 값은 TMSL [Sequence 명령](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/sequence-command-tmsl)에 설정될 수 있는 MaxParallelism 속성에 맞춰 지정되거나 다른 메서드를 사용하여 지정됩니다.       | 10        |
 |RetryCount    |    int     |   작업이 실패하기 전에 다시 시도하는 횟수를 나타냅니다.      |     0    |
@@ -208,7 +208,7 @@ syncstate의 값
 
 이러한 형식의 인증을 위해서는 필요한 API 사용 권한이 할당된 상태로 Azure 응용 프로그램이 생성되어야 합니다. 
 
-1.  Azure Portal에서 **새로 만들기** > **Azure Active Directory** > **앱 등록** > **새 응용 프로그램 등록**을 클릭합니다.
+1.  Azure Portal에서 **리소스 만들기** > **Azure Active Directory** > **앱 등록** > **새 응용 프로그램 등록**을 클릭합니다.
 
     ![새 응용 프로그램 등록](./media/analysis-services-async-refresh/aas-async-app-reg.png)
 

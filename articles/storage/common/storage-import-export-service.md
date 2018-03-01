@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2017
 ms.author: muralikk
-ms.openlocfilehash: 37860425460496c5fc2451713d1d3ec58ac9106d
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 0c34b7ce028ef0fae77322513f62557fa9f9929c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>Microsoft Azure Import/Export 서비스를 사용하여 Azure Storage로 데이터 전송
 이 문서에서는 Azure Import/Export 서비스를 사용하여 디스크 드라이브를 Azure 데이터 센터에 발송하여 많은 양의 데이터를 안전하게 Azure Blob Storage로 전송하는 단계별 지침을 제공합니다. 이 서비스를 사용하여 데이터를 Azure 저장소에서 하드 디스크 드라이브로 전송하고 온-프레미스 사이트로 발송할 수도 있습니다. 단일 내부 SATA 디스크 드라이브의 데이터를 Azure Blob Storage나 Azure 파일로 가져올 수 있습니다. 
@@ -87,7 +87,7 @@ FedEx, UPS 또는 DHL을 통해 패키지를 Azure DC로 보낼 수 있습니다
 이 섹션에서는 이 서비스를 사용하는 데 필요한 필수 조건에 대해 설명합니다. 드라이브를 발송하기 전에 주의 깊게 검토하세요.
 
 ### <a name="storage-account"></a>Storage 계정
-Import/Export 서비스를 사용하려면 기존 Azure 구독과 하나 이상의 저장소 계정이 있어야 합니다. 각 작업은 하나의 저장소 계정에서만 데이터 전송에 사용될 수 있습니다. 다시 말해, 하나의 가져오기/내보내기 작업이 여러 저장소 계정에서 사용될 수 없습니다. 새 Storage 계정 만들기에 대한 자세한 내용은 [Storage 계정을 만드는 방법](storage-create-storage-account.md#create-a-storage-account)(영문)을 참조하세요.
+Import/Export 서비스를 사용하려면 기존 Azure 구독과 하나 이상의 저장소 계정이 있어야 합니다. Azure 가져오기/내보내기는 클래식, Blob Storage 계정 및 일반 용도 v1 저장소 계정만 지원합니다. 각 작업은 하나의 저장소 계정에서만 데이터 전송에 사용될 수 있습니다. 다시 말해, 하나의 가져오기/내보내기 작업이 여러 저장소 계정에서 사용될 수 없습니다. 새 Storage 계정 만들기에 대한 자세한 내용은 [Storage 계정을 만드는 방법](storage-create-storage-account.md#create-a-storage-account)(영문)을 참조하세요.
 
 ### <a name="data-types"></a>데이터 형식
 Azure Import/Export 서비스를 사용하여 데이터를 **블록** Blob, **페이지** Blob 또는 **파일**로 복사할 수 있습니다. 반대로 이 서비스를 사용하여 Azure 저장소에서 **블록** Blob, **페이지** Blob 또는 **추가** Blob을 내보내기만 할 수도 있습니다. 서비스는 Azure Storage로 Azure 파일 가져오기만 지원합니다. Azure 파일 내보내기는 현재 지원되지 않습니다.
@@ -299,7 +299,7 @@ Azure에 드라이브를 발송하는 경우 운송업체에 발송 비용을 �
 
 **트랜잭션 비용**
 
-Azure Storage로 데이터를 가져올 때는 트랜잭션 비용이 없습니다. Blob 저장소에서 데이터를 내보낼 때는 표준 송신 요금이 적용됩니다. 트랜잭션 비용에 대한 자세한 내용은 [데이터 전송 가격 책정](https://azure.microsoft.com/pricing/details/data-transfers/)
+데이터를 Azure Storage로 가져올 때 표준 저장소 트랜잭션 비용 이외에 필요한 트랜잭션 비용은 없습니다. Blob 저장소에서 데이터를 내보낼 때는 표준 송신 요금이 적용됩니다. 트랜잭션 비용에 대한 자세한 내용은 [데이터 전송 가격 책정](https://azure.microsoft.com/pricing/details/data-transfers/)
 
 
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/20/2017
 ms.author: cherylmc;ganesr
-ms.openlocfilehash: 08582d03428acb860bc304c365ffa6626ba33903
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: be97f441d6eb2e97d85d598b0ed66718aec97b14
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-and-modify-an-expressroute-circuit"></a>ExpressRoute 회로 만들기 및 수정
 > [!div class="op_single_selector"]
@@ -49,7 +49,7 @@ ms.lasthandoff: 02/11/2018
 > 
 > 
 
-1. 새 리소스를 만드는 옵션을 선택하여 ExpressRoute 회로를 만들 수 있습니다. 아래 이미지에 표시된 대로, **새로 만들기** > **네트워킹** > **ExpressRoute**를 클릭합니다.
+1. 새 리소스를 만드는 옵션을 선택하여 ExpressRoute 회로를 만들 수 있습니다. 아래 이미지에 표시된 대로, **리소스 만들기** > **네트워킹** > **ExpressRoute**를 클릭합니다.
 
   ![ExpressRoute 회로 만들기](./media/expressroute-howto-circuit-portal-resource-manager/createcircuit1.png)
 2. **ExpressRoute**를 클릭하면 **ExpressRoute 회로 만들기** 페이지가 표시됩니다. 이 페이지의 값에 데이터를 입력할 때 올바른 SKU 계층(Standard 또는 Premium) 및 데이터 계량 청구 모델(제한 없음 또는 요금제)을 지정해야 합니다.

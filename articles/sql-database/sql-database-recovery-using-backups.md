@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: Active
-ms.date: 11/20/2017
+ms.date: 02/13/2018
 ms.author: carlrab
-ms.openlocfilehash: 06eb02e408b95176ca99ca391b437a3751876fac
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 81b61d59e63924e4af5befe4cbd638be98b385e6
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>자동화된 데이터베이스 백업을 사용하여 Azure SQL 데이터베이스 복구
 SQL Database는 [자동화된 데이터베이스 백업](sql-database-automated-backups.md) 및 [장기 보존에서 백업](sql-database-long-term-retention.md)을 사용한 데이터베이스 복구를 위해 다음 옵션을 제공합니다. 데이터베이스 백업에서 다음으로 복원할 수 있습니다.
@@ -34,7 +34,7 @@ SQL Database는 [자동화된 데이터베이스 백업](sql-database-automated-
 
 복원된 데이터베이스에는 다음과 같은 경우에는 추가 저장소 비용이 발생합니다. 
 - 데이터베이스 최대 크기가 500GB보다 큰 경우 P11–P15에서 S4-S12 또는 P1–P6로의 복원
-- 데이터베이스 최대 크기가 250GB보다 큰 경우 P1–P6 또는 PRS1–PRS6에서 S4-S12로의 복원
+- 데이터베이스 최대 크기가 250GB보다 큰 경우 P1–P6에서 S4-S12로의 복원
 
 추가 비용은 복원된 데이터베이스의 최대 크기가 성능 수준에 대해 포함된 저장소의 크기보다 크고, 포함된 크기 이상으로 프로비전된 추가 저장소에는 추가 요금이 부과되기 때문에 발생합니다.  추가 저장소에 대한 가격 책정 정보는 [SQL Database 가격 책정 페이지](https://azure.microsoft.com/pricing/details/sql-database/)를 참조하세요.  실제 사용된 공간의 크기가 포함된 저장소의 크기보다 작은 경우 데이터베이스 최대 크기를 포함된 크기로 줄여 이러한 추가 비용을 방지할 수 있습니다. 데이터베이스 저장소 크기 및 데이터베이스 최대 크기 변경 방법에 대한 자세한 내용은 [단일 데이터베이스 리소스 제한](sql-database-resource-limits.md#single-database-storage-sizes-and-performance-levels)을 참조하세요.  
 

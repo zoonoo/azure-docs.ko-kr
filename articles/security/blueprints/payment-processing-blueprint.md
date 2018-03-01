@@ -1,6 +1,6 @@
 ---
-title: "PCI DSS 규격 환경에 대한 Payment Processing Blueprint"
-description: "PCI DSS 요구 사항"
+title: "Azure Security 및 Compliance Blueprint - PCI DSS 규격 지불 처리 환경"
+description: "Azure Security 및 Compliance Blueprint - PCI DSS 규격 지불 처리 환경"
 services: security
 documentationcenter: na
 author: simorjay
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/29/2017
+ms.date: 02/09/2018
 ms.author: frasim
-ms.openlocfilehash: 7f85c8b0377e57f08044bac41dbddbbedb7a4f55
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 3e97862091e6ea334f2437bd8424b79952f41bf4
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 02/13/2018
 ---
-# <a name="azure-blueprint-automation-payment-processing-for-pci-dss-compliant-environments"></a>Azure Blueprint Automation: PCI DSS 규격 환경에 대한 Payment Processing
+# <a name="azure-security-and-compliance-blueprint---pci-dss-compliant-payment-processing-environments"></a>Azure Security 및 Compliance Blueprint - PCI DSS 규격 지불 처리 환경
 
 ## <a name="overview"></a>개요
 
@@ -43,7 +43,7 @@ PCI DSS 규격 환경에 대한 Payment Processing에서는 중요한 결제 카
 - **배포 템플릿**. 이 배포에서는 설정 중 구성 매개 변수를 지정하여 아키텍처 구성 요소를 Microsoft Azure에 자동으로 설치하는 데 [Azure Resource Manager 템플릿](/azure/azure-resource-manager/resource-group-overview#template-deployment)을 사용합니다.
 - **자동화된 배포 스크립트**. 이 스크립트는 종단 간 솔루션 배포를 지원합니다. 스크립트는 다음으로 구성됩니다.
     - 모듈 설치 및 [전역 관리자](/azure/active-directory/active-directory-assign-admin-roles-azure-portal) 설치 스크립트는 필요한 PowerShell 모듈을 설치하고 전역 관리자 역할이 올바르게 구성되어 있는지 확인하는 데 사용됩니다.
-    - 설치 PowerShell 스크립트는 종단 간 솔루션을 배포하는 데 사용되며, 미리 작성된 데모 웹 응용 프로그램과 [SQL Database 샘플](https://github.com/Microsoft/azure-sql-security-sample) 콘텐츠가 담긴 .zip 파일 및 .bacpac 파일을 통해 제공됩니다. content. 이 솔루션의 소스 코드는 [지불 처리 청사진 코드 리포지토리][code-repo] 검토에 사용할 수 있습니다. 
+    - 설치 PowerShell 스크립트는 종단 간 솔루션을 배포하는 데 사용되며, 미리 작성된 데모 웹 응용 프로그램과 [SQL Database 샘플](https://github.com/Microsoft/azure-sql-security-sample) 콘텐츠가 담긴 .zip 파일 및 .bacpac 파일을 통해 제공됩니다. 이 솔루션의 소스 코드는 [Blueprint 코드 리포지토리][code-repo] 검토에 사용할 수 있습니다. 
 
 ## <a name="architectural-diagram"></a>아키텍처 다이어그램
 
@@ -72,7 +72,7 @@ PCI DSS 규격 환경에 대한 Payment Processing에서는 중요한 결제 카
 
 #### <a name="role-site-and-subscription-admin"></a>역할: 사이트 및 구독 관리자 
 
-|항목      |예제|
+|항목      |예|
 |----------|------|
 |사용자 이름: |`adminXX@contosowebstore.com`|
 | 이름: |`Global Admin Azure PCI Samples`|
@@ -84,7 +84,7 @@ PCI DSS 규격 환경에 대한 Payment Processing에서는 중요한 결제 카
 
 #### <a name="role-sql-administrator"></a>역할: SQL 관리자
 
-|항목      |예제|
+|항목      |예|
 |----------|------|
 |사용자 이름: |`sqlAdmin@contosowebstore.com`|
 | 이름: |`SQLADAdministrator PCI Samples`|
@@ -97,7 +97,7 @@ PCI DSS 규격 환경에 대한 Payment Processing에서는 중요한 결제 카
 
 #### <a name="role-clerk"></a>역할: 직원
 
-|항목      |예제|
+|항목      |예|
 |----------|------|
 |사용자 이름:| `receptionist_EdnaB@contosowebstore.com`|
 | 이름: |`Edna Benson`|
@@ -110,8 +110,6 @@ Edna Benson은 리셉셔니스트이자 비즈니스 관리자입니다. 고객 
 - Edna는 고객 정보를 만들고 읽을 수 있습니다.
 - Edna는 고객 정보를 수정할 수 있습니다.
 - Edna는 신용 카드 번호, 만료일 및 CVV 정보를 덮어쓰거나 바꿀 수 있습니다.
-
-> Contoso Webstore에서 배포된 환경의 기능을 테스트하기 위해 사용자는 자동으로 **Edna** 사용자가 됩니다.
 
 ### <a name="contoso-webstore---estimated-pricing"></a>Contoso Webstore - 예상 가격
 
@@ -266,7 +264,7 @@ App Service 환경은 보호되고 잠겨 있으므로 Kudu를 사용한 웹 앱
 
 ### <a name="security-and-malware-protection"></a>보안 및 맬웨어 방지
 
-[Azure Security Center](https://azure.microsoft.com/services/security-center/)는 모든 Azure 리소스의 보안 상태에 대한 중앙화된 보기를 제공합니다. 적합한 보안 제어를 구현하고 올바르게 구성했는지 한눈에 확인하고 주의가 필요한 리소스를 신속히 확인할 수 있습니다.  
+[Azure Security Center](https://azure.microsoft.com/services/security-center/)는 모든 Azure 리소스의 보안 상태에 대한 중앙화된 보기를 제공합니다. 적절한 보안 제어가 준비되고 올바르게 구성되었는지와 주의가 필요한 리소스를 한눈에 빠르게 확인할 수 있습니다.  
 
 [Azure Advisor](/azure/advisor/advisor-overview)는 Azure 배포를 최적화하기 위한 모범 사례를 따르는 데 도움이 되는 개인 설정된 클라우드 컨설턴트입니다. 리소스 구성 및 사용량 원격 분석을 수행하고 Azure 리소스의 경제성, 성능, 고가용성 및 보안을 개선하는 데 도움이 되는 해결 방법을 권장합니다.
 
@@ -357,7 +355,7 @@ Azure Cloud Services 및 Virtual Machines용 [Microsoft Antimalware](/azure/secu
     
 ## <a name="threat-model"></a>위협 모델
 
-Contoso Webstore [지불 처리 청사진 위협 모델](https://aka.ms/pciblueprintthreatmodel)의 데이터 흐름 다이어그램(DFD) 및 샘플 위협 모델입니다.
+Contoso Webstore [Blueprint 위협 모델](https://aka.ms/pciblueprintthreatmodel)의 데이터 흐름 다이어그램(DFD) 및 샘플 위협 모델입니다.
 
 ![](images/pci-threat-model.png)
 
@@ -375,7 +373,7 @@ Contoso Webstore [지불 처리 청사진 위협 모델](https://aka.ms/pcibluep
 
 *2017년 9월*
 
-- 이 문서는 오직 정보 제공을 위한 것입니다. Microsoft 및 AVYAN은 이 문서의 정보에 관해 어떠한 명시적, 묵시적 또는 법적 보증도 하지 않습니다. 이 문서는 "있는 그대로" 제공됩니다. URL 및 기타 인터넷 웹 사이트 참조를 포함하여 본 문서에 명시된 정보 및 보기는 통지 없이 변경될 수 있습니다. 이 문서를 읽는 고객은 그 사용에 따른 위험을 감수합니다.  
+- 이 문서는 오직 정보 제공을 목적으로 합니다. Microsoft 및 AVYAN은 이 문서의 정보에 관해 어떠한 명시적, 묵시적 또는 법적 보증도 하지 않습니다. 이 문서는 "있는 그대로" 제공됩니다. URL 및 기타 인터넷 웹 사이트 참조를 포함하여 본 문서에 명시된 정보 및 보기는 통지 없이 변경될 수 있습니다. 이 문서를 읽는 고객은 그 사용에 따른 위험을 감수합니다.  
 - 이 문서는 Microsoft 제품 또는 Avyan 제품이나 솔루션의 지적 소유권에 대한 법적 권한을 고객에게 제공하지 않습니다.  
 - 고객은 이 문서는 내부 참조용으로만 복사 및 사용할 수 있습니다.  
 

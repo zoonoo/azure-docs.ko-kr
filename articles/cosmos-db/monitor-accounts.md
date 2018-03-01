@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: mimig
-ms.openlocfilehash: f07489172306b4f6d03b5a9b1399ed92e007c3c1
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 0e9a47e6a1a5c7a44c5553742d6c5c81f8ca7286
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="monitor-azure-cosmos-db"></a>Azure Cosmos DB 모니터링
 [Azure Portal](https://portal.azure.com/)에서 Azure Cosmos DB 계정을 모니터링할 수 있습니다. 각 Azure Cosmos DB 계정의 경우 처리량, 저장소, 가용성, 대기 시간 및 일관성을 모니터링하는 데 메트릭의 전체 도구 모음을 사용할 수 있습니다.
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/11/2017
 계정 페이지, 새 메트릭 페이지 또는 Azure Monitor에서 메트릭을 검토할 수 있습니다.
 
 ## <a name="view-performance-metrics-on-the-metrics-page"></a>메트릭 페이지에서 성능 메트릭 보기
-1. [Azure Portal](https://portal.azure.com/)에서 **서비스 더 보기**를 클릭하고, **데이터베이스**로 스크롤한 다음 **Azure Cosmos DB**를 클릭하고 성능 메트릭을 보려는 Azure Cosmos DB 계정의 이름을 클릭합니다.
+1. [Azure Portal](https://portal.azure.com/)에서 **모든 서비스**를 클릭하고, **데이터베이스**로 스크롤한 다음, **Azure Cosmos DB**를 클릭하고 성능 메트릭을 보려는 Azure Cosmos DB 계정의 이름을 클릭합니다.
 2. 새 페이지가 로드되면 리소스 메뉴의 **모니터링**에서 **메트릭**을 클릭합니다.
 3. 메트릭 페이지가 열리면 **컬렉션** 드롭다운에서 검토할 컬렉션을 선택합니다.
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 12/11/2017
 5. **사용 가능한 메트릭** 목록에서 표시할 메트릭을 선택합니다. 다중 선택을 하려면 CTRL 단추를 사용합니다. 
 
 ## <a name="view-performance-metrics-on-the-account-page"></a>계정 페이지에서 성능 메트릭 보기
-1. [Azure Portal](https://portal.azure.com/)에서 **서비스 더 보기**를 클릭하고, **데이터베이스**로 스크롤한 다음 **Azure Cosmos DB**를 클릭하고 성능 메트릭을 보려는 Azure Cosmos DB 계정의 이름을 클릭합니다.
+1. [Azure Portal](https://portal.azure.com/)에서 **모든 서비스**를 클릭하고, **데이터베이스**로 스크롤한 다음, **Azure Cosmos DB**를 클릭하고 성능 메트릭을 보려는 Azure Cosmos DB 계정의 이름을 클릭합니다.
 2. **모니터링** 렌즈에는 기본적으로 다음 타일이 표시됩니다.
    
    * 오늘의 총 요청 수
@@ -53,7 +53,7 @@ ms.lasthandoff: 12/11/2017
 4. **메트릭** 페이지에 총 요청에 대한 세부 정보가 표시됩니다. 
 
 ## <a name="set-up-alerts-in-the-portal"></a>포털에서 경고 설정
-1. [Azure Portal](https://portal.azure.com/)에서 **서비스 더 보기**, **Azure Cosmos DB**를 차례로 클릭하고 성능 메트릭 경고를 설정할 Azure Cosmos DB 계정의 이름을 클릭합니다.
+1. [Azure Portal](https://portal.azure.com/)에서 **모든 서비스** 및 **Azure Cosmos DB**를 차례로 클릭하고 성능 메트릭 경고를 설정할 Azure Cosmos DB 계정의 이름을 클릭합니다.
 2. 리소스 메뉴에서 **경고 규칙**을 클릭하여 경고 규칙 페이지를 엽니다.  
    ![경고 규칙 부분이 선택된 스크린샷](./media/monitor-accounts/madocdb10.5.png)
 3. **경고 규칙** 페이지에서 **경고 추가**를 클릭합니다.  

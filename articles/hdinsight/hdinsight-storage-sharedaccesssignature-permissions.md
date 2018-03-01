@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/25/2018
 ms.author: larryfr
-ms.openlocfilehash: 83a93f433769e880a729cd918198909696071594
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: d3e37ba0f590cf0572b84a53bdd407af63a19d36
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Azure Storage 공유 액세스 서명을 사용하여 HDInsight에서 데이터 액세스 제한
 
@@ -216,7 +216,7 @@ SAS를 사용하는 HDInsight 클러스터를 만드는 예제는 리포지토�
    > [!IMPORTANT]
    > 변경 내용을 적용하기 전에 여러 서비스를 다시 시작해야 합니다.
 
-6. Ambari 웹 UI의 왼쪽 목록에서 **HDFS**를 선택한 다음, 오른쪽의 **Service Actions** 드롭다운 목록에서 **Restart All Affected**을 선택합니다. 메시지가 나타나면, __Conform Restart All__을 선택합니다.
+6. Ambari 웹 UI의 왼쪽 목록에서 **HDFS**를 선택한 다음, 오른쪽의 **Service Actions** 드롭다운 목록에서 **Restart All Affected**을 선택합니다. 메시지가 나타나면 __모두 다시 시작 확인__을 선택합니다.
 
     MapReduce2 및 YARN에 대해 이 프로세스를 반복합니다.
 

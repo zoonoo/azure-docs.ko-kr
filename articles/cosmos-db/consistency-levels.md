@@ -13,14 +13,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 02/12/2018
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 303a36fc966cd92399de92b4d52f75c114b75781
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: c3bd28316e3d2e7596021d6964594002d47d160a
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="tunable-data-consistency-levels-in-azure-cosmos-db"></a>Azure Cosmos DB의 튜닝 가능한 데이터 일관성 수준
 Azure Cosmos DB는 처음부터 모든 데이터 모델에 대한 전역 배포를 염두에 두고 설계되었습니다. 예측 가능한 짧은 대기 시간을 보증하고, 여러 개의 잘 정의된 관대한 일관성 모델을 제공하도록 설계되었습니다. 현재 Azure Cosmos DB는 5가지 일관성 수준(강력, 제한된 부실, 세션, 일관적인 접두사 및 최종)을 제공합니다. 제한된 부실, 세션, 일관된 접두사 및 최종은 가능한 가장 일관성 높은 모델인 강력보다는 일관성이 낮기 때문에 "관대한 일관성 모델"로 간주됩니다. 
@@ -117,6 +117,10 @@ Cosmos DB 아래의 모든 컬렉션(및 데이터베이스)에 적용되는 데
 | 없음 |강력, 제한된 부실, 세션, 일관적인 접두사 또는 최종에서 선택 |해당 없음 |
 
 읽기 요청과 마찬가지로 각 API에서 특정 쿼리 요청의 일관성 수준을 낮출 수 있습니다.
+
+## <a name="consistency-levels-for-the-mongodb-api"></a>MongoDB API의 일관성 수준
+
+Azure Cosmos DB는 현재 강함 및 최종, 두 개의 일관성 설정이 있는 MongoDB 버전 3.4를 구현합니다. Azure Cosmos DB는 다중 API이기 때문에 일관성 설정은 계정 수준에서 적용되며 일관성 적용은 각 API에 의해 제어됩니다.  MongoDB 3.6까지는 세션 일관성에 대한 개념이 없었으므로 MongoDB API 계정에서 세션 일관성을 사용하도록 설정하는 경우, 일관성은 MongoDB API를 사용할 때 최종으로 다운그레이드됩니다. MongoDB API 계정에 대해 읽기-사용자-쓰기 보장이 필요한 경우 계정에 대한 기본 일관성 수준이 강함 또는 제한된 부실로 설정되어야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 장단점 및 일관성 수준에 대한 더 많은 읽기를 수행 하려는 경우 다음 리소스를 좋습니다.

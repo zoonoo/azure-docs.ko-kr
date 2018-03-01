@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 81602766848a91331c8d811ea1c8ec3ffae44b96
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: a59ea7c9e111f8ae5b0d9bd620faa5495c3924b7
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-virtual-network-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 가상 네트워크 만들기
 
@@ -39,9 +39,9 @@ Azure에는 Azure Resource Manager 및 클래식이라는 두 가지 배포 모�
 - [PowerShell(클래식)](virtual-networks-create-vnet-classic-netcfg-ps.md)
 - [CLI(클래식)](virtual-networks-create-vnet-classic-cli.md)
 
-GitHub에서 기존 ARM 템플릿을 다운로드한 후 수정하고 GitHub, PowerShell 및 Azure CLI에서 템플릿을 배포하는 방법에 알아봅니다.
+GitHub에서 기존 Azure Resource Manager 템플릿을 다운로드한 후 수정하고 GitHub, PowerShell 및 Azure CLI에서 템플릿을 배포하는 방법을 알아봅니다.
 
-변경하지 않고 GitHub에서 직접 ARM 템플릿을 배포하는 경우 [github에서 템플릿 배포](#deploy-the-arm-template-by-using-click-to-deploy)로 건너뜁니다.
+변경하지 않고 GitHub에서 바로 Azure Resource Manager 템플릿을 배포하는 경우 [GitHub에서 템플릿 배포](#deploy-the-arm-template-by-using-click-to-deploy)로 건너뜁니다.
 
 [!INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
 
@@ -52,11 +52,11 @@ GitHub에서 VNet 및 두 개의 서브넷을 만들기 위한 기존 템플릿�
 2. **azuredeploy.json**을 클릭하고 **RAW**를 클릭합니다.
 3. 파일을 컴퓨터의 로컬 폴더에 저장합니다.
 4. 템플릿에 익숙한 경우 7단계로 건너뜁니다.
-5. 방금 저장한 파일을 열고 줄 5에 있는 **parameters** 아래의 내용을 확인합니다. ARM 템플릿 매개 변수는 배포하는 동안 채울 수 있는 값에 대한 자리 표시자를 제공합니다.
+5. 저장한 파일을 열고 줄 5에서 **parameters** 아래의 내용을 확인합니다. Azure 리소스 관리자 템플릿 매개 변수는 배포하는 동안 채울 수 있는 값에 대한 자리 표시자를 제공합니다.
    
    | 매개 변수 | 설명 |
    | --- | --- |
-   | **위치** |VNet을 만들 Azure 지역 |
+   | **위치** |VNet을 만들 Azure 지역입니다. |
    | **vnetName** |새 VNet의 이름 |
    | **addressPrefix** |CIDR 형식의 VNet에 대한 주소 공간 |
    | **subnet1Name** |첫 번째 VNet의 이름 |
@@ -71,7 +71,7 @@ GitHub에서 VNet 및 두 개의 서브넷을 만들기 위한 기존 템플릿�
 6. **resources** 아래의 내용을 확인하고 다음을 검토합니다.
    
    * **type**. 템플릿에 의해 생성되는 리소스의 유형입니다. 이 경우 VNet를 나타내는 **Microsoft.Network/virtualNetworks**입니다.
-   * **이름**. 리소스의 이름입니다. **[parameters('vnetName')]**이 사용됩니다. 이것은 해당 이름이 배포 중에 사용자 또는 매개 변수 파일에 의한 입력으로 제공됨을 의미합니다.
+   * **이름**: 리소스의 이름입니다. **[parameters(‘vnetName’)]**이 사용됩니다. 이 경우 배포 중에 사용자 또는 매개 변수 파일에 의한 입력으로 이름이 제공됩니다.
    * **properties**. 리소스의 속성 목록입니다. 이 템플릿은 VNet 생성 동안 주소 공간 및 서브넷 속성을 사용합니다.
 7. [샘플 템플릿 페이지](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets)로 다시 이동합니다.
 8. **azuredeploy-paremeters.json**을 클릭하고 **RAW**를 클릭합니다.
@@ -231,7 +231,7 @@ Microsoft에서 유지 관리하는 GitHub 리포지토리에 대한 미리 정�
    
     ![Preview 포털에서 배포 타일 제출](./media/virtual-networks-create-vnet-arm-template-click-include/figure4.png)
 
-10. 배포가 완료되면 Azure Portal에서 **더 많은 서비스**를 클릭하고, 나타나는 필터 상자에 *가상 네트워크*를 입력한 다음, 가상 네트워크 블레이드를 보려면 가상 네트워크를 클릭합니다. 블레이드에서 *TestVNet*을 클릭합니다. *TestVNet* 블레이드에서 다음 그림과 같이 만들어진 서브넷을 보려면 **서브넷**을 클릭합니다.
+10. 배포가 완료되면 Azure Portal에서 **모든 서비스**를 클릭하고 표시되는 필터 상자에 *가상 네트워크*를 입력한 다음, 가상 네트워크를 클릭하여 가상 네트워크 블레이드를 표시합니다. 블레이드에서 *TestVNet*을 클릭합니다. *TestVNet* 블레이드에서 다음 그림과 같이 만들어진 서브넷을 보려면 **서브넷**을 클릭합니다.
     
      ![Preview 포털에서 VNet 만들기](./media/virtual-networks-create-vnet-arm-template-click-include/figure5.png)
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2017
 ms.author: LADocs; mandia
-ms.openlocfilehash: 716e7b5bab8725dea0fd2b760d0e46e8e892c5b4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f7ec63810fe78b38c574ec39369d5926f80e595e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="what-is-an-integration-account"></a>통합 계정이란?
 
@@ -26,9 +26,9 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="create-an-integration-account"></a>통합 계정 만들기
 
-1.  [Azure Portal](http://portal.azure.com "Azure Portal")에 로그인합니다. 왼쪽 메뉴에서 **추가 서비스**를 클릭합니다.
+1.  [Azure Portal](http://portal.azure.com "Azure Portal")에 로그인합니다. 왼쪽 메뉴에서 **모든 서비스**를 선택합니다.
 
-    !["추가 서비스"를 선택합니다.](./media/logic-apps-enterprise-integration-accounts/account-1.png)
+    ![“모든 서비스” 선택](./media/logic-apps-enterprise-integration-accounts/account-1.png)
 
 2. 검색 상자에서 필터에 "통합"을 입력합니다. 결과 목록에서 **통합 계정**을 선택합니다.
 
@@ -85,9 +85,9 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="delete-your-integration-account"></a>통합 계정 삭제
 
-1. **추가 서비스**를 선택합니다.
+1. **모든 서비스**를 선택합니다.
 
-    !["추가 서비스"를 선택합니다.](./media/logic-apps-enterprise-integration-accounts/account-1.png)
+    ![“모든 서비스” 선택](./media/logic-apps-enterprise-integration-accounts/account-1.png)
 
 2. 검색 상자에서 필터에 "통합"을 입력합니다. 결과 목록에서 **통합 계정**을 선택합니다.
 
@@ -110,9 +110,9 @@ ms.lasthandoff: 10/11/2017
 > [!IMPORTANT]
 > 통합 계정을 이동한 후에 새 리소스 ID를 사용할 수 있도록 모든 스크립트를 업데이트해야 합니다.
 
-1. **추가 서비스**를 선택합니다.
+1. **모든 서비스**를 선택합니다.
 
-    !["추가 서비스"를 선택합니다.](./media/logic-apps-enterprise-integration-accounts/account-1.png)
+    ![“모든 서비스” 선택](./media/logic-apps-enterprise-integration-accounts/account-1.png)
 
 2. 검색 상자에서 필터에 "통합"을 입력합니다. 결과 목록에서 **통합 계정**을 선택합니다.
 

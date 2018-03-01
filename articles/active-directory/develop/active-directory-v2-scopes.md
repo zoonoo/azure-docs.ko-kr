@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: a93cfd710f89efbd4dab01b84ecdb12b4acb0033
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b35e4a7619c23660d93d91219a92be7e93a35139
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="scopes-permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Azure Active Directory v2.0 끝점의 범위, 사용 권한 및 동의
 Azure AD(Azure Active Directory)와 통합된 앱은 사용자가 앱이 데이터에 액세스하는 방법을 제어할 수 있는 권한 부여 모델을 따릅니다. 이 권한 부여 모델의 v2.0 구현이 업데이트되어 앱이 Azure AD와 상호 작용하는 방법이 변경되었습니다. 이 문서에서는 범위, 사용 권한 및 동의를 포함하여 이 권한 부여 모델의 기본 개념에 대해 설명합니다.
@@ -147,7 +147,7 @@ https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49
 
 | 매개 변수 | 조건 | 설명 |
 | --- | --- | --- |
-| tenant |필수 |사용 권한을 요청하려는 디렉터리 테넌트입니다. GUID 또는 친숙한 이름 형식으로 제공할 수 있습니다. |
+| tenant |필수 |사용 권한을 요청하려는 디렉터리 테넌트입니다. GUID에서 제공한 이름이거나, 친근한 이름 형식이거나, 예제에서처럼 "common"으로 일반 참조될 수 있습니다. |
 | client_id |필수 |[응용 프로그램 등록 포털](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)에서 앱에 할당한 응용 프로그램 ID입니다. |
 | redirect_uri |필수 |리디렉션 URI는 처리할 앱에 응답을 전송하려는 위치입니다. 앱 등록 포털에 등록한 리디렉션 URI 중 하나와 정확히 일치해야 합니다. |
 | state |권장 |토큰 응답에도 반환되는 요청에 포함된 값입니다. 원하는 모든 콘텐츠의 문자열일 수 있습니다. 상태를 사용하여 인증 요청이 발생하기 전에 앱에서 사용자 상태에 대한 정보(예: 사용한 페이지 또는 보기)를 인코딩할 수 있습니다. |

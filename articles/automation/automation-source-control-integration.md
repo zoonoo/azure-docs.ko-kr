@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/29/2017
 ms.author: magoedte;sngun
-ms.openlocfilehash: bb1ce4ceaa3d0c9aea014fc810ea269641dec14c
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 15e69105d4171c63b4ccef0b072bccf49a2e9ceb
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Azure Automation에서 원본 제어 통합
 원본 제어 통합을 사용하면 GitHub 원본 제어 리포지토리에 Automation 계정의 Runbook을 연결할 수 있습니다. 원본 제어를 사용하면 팀과 쉽게 공동 작업하고 변경 내용을 추적하며 이전 버전의 Runbook으로 롤백할 수 있습니다. 예를 들어 원본 제어를 사용하면 개발, 테스트 또는 프로덕션 Automation 계정에 원본 제어의 여러 분기를 동기화할 수 있어 개발 환경에서 테스트된 코드를 프로덕션 Automation 계정 수준으로 쉽게 올릴 수 있습니다.
@@ -36,10 +36,9 @@ ms.lasthandoff: 12/14/2017
 이미 GitHub 계정과 Azure Automation에 연결하려는 리포지토리가 있는 경우 기존 계정에 로그인하고 아래의 2단계부터 시작합니다. 그렇지 않은 경우 [GitHub](https://github.com/)로 이동하여 새 계정을 등록하고 [새 리포지토리를 만듭니다](https://help.github.com/articles/create-a-repo/).
 
 ## <a name="step-2--set-up-source-control-in-azure-automation"></a>2단계 - Azure Automation에서 원본 제어 설정
-1. Azure Portal의 Automation 계정 페이지에서 **원본 제어 설정**을 클릭합니다. 
+1. Azure Portal의 Automation 계정 페이지의 **계정 설정** 아래에서 **원본 제어**를 클릭합니다. 
    
-    ![원본 제어 설정](media/automation-source-control-integration/automation_01_SetUpSourceControl.png)
-2. **원본 제어** 페이지가 열리며, 여기서 GitHub 계정 세부 정보를 구성할 수 있습니다. 아래는 구성할 매개 변수의 목록입니다.  
+1. **원본 제어** 페이지가 열리며, 여기서 GitHub 계정 세부 정보를 구성할 수 있습니다. 아래는 구성할 매개 변수의 목록입니다.  
    
    | **매개 변수** | **설명** |
    |:--- |:--- |
@@ -66,7 +65,7 @@ ms.lasthandoff: 12/14/2017
      
      | **매개 변수** | **값** |
      |:--- |:--- |
-     | 이름 |Microsoft.Azure.Automation.SourceControl.Connection |
+     | Name |Microsoft.Azure.Automation.SourceControl.Connection |
      | 형식 |문자열 |
      | 값 |{"Branch":\<*분기 이름*>,"RunbookFolderPath":\<*Runbook 폴더 경로*>,"ProviderType":\<*GitHub에 대한 값 1을 가짐*>,"Repository":\<*리포지토리 이름*>,"Username":\<*GitHub 사용자 이름*>} |
 
@@ -74,11 +73,11 @@ ms.lasthandoff: 12/14/2017
 
     |**매개 변수**            |**값** |
     |:---|:---|
-    | 이름  | Microsoft.Azure.Automation.SourceControl.OAuthToken |
+    | Name  | Microsoft.Azure.Automation.SourceControl.OAuthToken |
     | 형식 | 알수 없음(암호화됨) |
     | 값 | <*암호화된 OAuthToken*> |  
 
-    ![변수](media/automation-source-control-integration/automation_04_Variables.png)  
+    ![variables](media/automation-source-control-integration/automation_04_Variables.png)  
 
     * **Automation 원본 제어**는 GitHub 계정에 권한이 부여된 응용 프로그램으로 추가됩니다. 응용 프로그램을 보려면 GitHub 홈페이지에서 **프로필** > **설정** > **응용 프로그램**으로 이동합니다. 이 응용 프로그램을 사용하면 Azure Automation이 Automation 계정에 GitHub 리포지토리를 동기화할 수 있습니다.  
 

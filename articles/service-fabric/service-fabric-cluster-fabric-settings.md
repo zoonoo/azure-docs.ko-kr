@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/09/2018
 ms.author: chackdan
-ms.openlocfilehash: 2e609b205c32d2ea5ca58586e9f8ba9623ef7580
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 23f063d89c5030d440d50765eee9d121b4d8f5ba
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>서비스 패브릭 클러스터 설정 및 패브릭 업그레이드 정책 사용자 지정
 이 문서에서는 Service Fabric 클러스터에 대한 다양한 패브릭 설정 및 패브릭 업그레이드 정책을 사용자 지정하는 방법을 설명합니다. [Azure portal](https://portal.azure.com)을 통해 또는 Azure Resource Manager 템플릿을 사용하여 사용자 지정할 수 있습니다.
@@ -482,17 +482,32 @@ ms.lasthandoff: 01/11/2018
 ### <a name="section-name-securityclientx509names"></a>섹션 이름: Security/ClientX509Names
 | **매개 변수** | **허용되는 값** | **업그레이드 정책** | **지침 또는 간단한 설명** |
 | --- | --- | --- | --- |
-PropertyGroup|X509NameMap, 기본값: None|동적| |
+|PropertyGroup|X509NameMap, 기본값: None|동적| |
 
 ### <a name="section-name-securityclusterx509names"></a>섹션 이름: Security/ClusterX509Names
 | **매개 변수** | **허용되는 값** | **업그레이드 정책** | **지침 또는 간단한 설명** |
 | --- | --- | --- | --- |
-PropertyGroup|X509NameMap, 기본값: None|동적| |
+|PropertyGroup|X509NameMap, 기본값: None|동적| |
 
 ### <a name="section-name-securityserverx509names"></a>섹션 이름: Security/ServerX509Names
 | **매개 변수** | **허용되는 값** | **업그레이드 정책** | **지침 또는 간단한 설명** |
 | --- | --- | --- | --- |
-PropertyGroup|X509NameMap, 기본값: None|동적| |
+|PropertyGroup|X509NameMap, 기본값: None|동적| |
+
+### <a name="section-name-securityclientcertificateissuerstores"></a>섹션 이름: Security/ClientCertificateIssuerStores
+| **매개 변수** | **허용되는 값** | **업그레이드 정책** | **지침 또는 간단한 설명** |
+| --- | --- | --- | --- |
+|PropertyGroup|IssuerStoreKeyValueMap, 기본값: None |동적|클라이언트 인증서에 대한 X509 발급자 인증서 저장소; 이름 = clientIssuerCN; 값 =저장소의 쉼표로 구분 된 목록 |
+
+### <a name="section-name-securityclustercertificateissuerstores"></a>섹션 이름: Security/ClusterCertificateIssuerStores
+| **매개 변수** | **허용되는 값** | **업그레이드 정책** | **지침 또는 간단한 설명** |
+| --- | --- | --- | --- |
+|PropertyGroup|IssuerStoreKeyValueMap, 기본값: None |동적|클러스터 인증서에 대한 X509 발급자 인증서 저장소; 이름 = clusterIssuerCN; 값 =저장소의 쉼표로 구분 된 목록 |
+
+### <a name="section-name-securityservercertificateissuerstores"></a>섹션 이름: Security/ServerCertificateIssuerStores
+| **매개 변수** | **허용되는 값** | **업그레이드 정책** | **지침 또는 간단한 설명** |
+| --- | --- | --- | --- |
+|PropertyGroup|IssuerStoreKeyValueMap, 기본값: None |동적|서버 인증서에 대한 X509 발급자 인증서 저장소; 이름 = serverIssuerCN; 값 =저장소의 쉼표로 구분 된 목록 |
 
 ### <a name="section-name-securityclientaccess"></a>섹션 이름: Security/ClientAccess
 | **매개 변수** | **허용되는 값** | **업그레이드 정책** | **지침 또는 간단한 설명** |
@@ -721,8 +736,6 @@ PropertyGroup|X509NameMap, 기본값: None|동적| |
 |MaxDataMigrationTimeout |time(초), 기본값: 600 |동적|시간 간격은 초 단위로 지정합니다. 패브릭 업그레이드를 수행한 이후 데이터 마이그레이션 복구 작업에 대한 최대 시간 제한입니다. |
 |MaxOperationRetryDelay |time(초), 기본값: 5|동적| 시간 간격은 초 단위로 지정합니다. 오류가 발생하는 경우 내부 다시 시도에 대한 최대 지연 시간입니다. |
 |ReplicaSetCheckTimeoutRollbackOverride |time(초), 기본값: 1200 |동적| 시간 간격은 초 단위로 지정합니다. ReplicaSetCheckTimeout을 최대 DWORD 값으로 설정하면 롤백을 위해 이 구성의 값으로 재정의됩니다. 롤포워드에 사용되는 값은 절대로 재정의되지 않습니다. |
-|ImageBuilderJobQueueThrottle |int, 기본값: 10 |동적|응용 프로그램 요청의 이미지 작성기 프록시 작업 큐에 대한 스레드 수 제한입니다. |
-|MaxExponentialOperationRetryDelay|TimeSpan, 기본값: Common::TimeSpan::FromSeconds(30)|동적|시간 간격은 초 단위로 지정합니다. 오류가 반복적으로 발생하는 경우 내부 다시 시도에 대한 최대 지수 지연입니다. |
 
 ### <a name="section-name-defragmentationemptynodedistributionpolicy"></a>섹션 이름: DefragmentationEmptyNodeDistributionPolicy
 | **매개 변수** | **허용되는 값** |**업그레이드 정책**| **지침 또는 간단한 설명** |

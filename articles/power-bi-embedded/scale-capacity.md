@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 01/19/2018
 ms.author: asaxton
-ms.openlocfilehash: 7eb64cce37f2655b72ab9b5fadedf7581fe007fb
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 9b7d0bc31946d6022e9bfae463f4a22eb12c2a58
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="scale-your-power-bi-embedded-capacity"></a>Power BI Embedded 용량 크기 조정
 
@@ -33,9 +33,9 @@ ms.lasthandoff: 01/20/2018
 
 1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 
-2. **추가 서비스** > **Power BI Embedded**를 선택하여 용량을 확인합니다.
+2. **모든 서비스** > **Power BI Embedded**를 선택하여 용량을 확인합니다.
 
-    ![Azure Portal 내의 더 많은 서비스](media/scale-capacity/azure-portal-more-services.png)
+    ![Azure Portal 내에 있는 모든 서비스](media/scale-capacity/azure-portal-more-services.png)
 
 3. 크기를 조정할 용량을 선택합니다.
 

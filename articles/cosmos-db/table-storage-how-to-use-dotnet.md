@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: mimig
-ms.openlocfilehash: f95d66950feb8729a7edcad3e02ea9a932123e16
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 317adaac1551cf00e25640f1d99429ad76d598a2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-with-azure-table-storage-using-net"></a>.NET을 사용하여 Azure 테이블 저장소 시작
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -85,7 +85,7 @@ Azure 클라우드 서비스, 웹앱, 바탕화면 및 모바일 응용 프로�
 ### <a name="use-nuget-to-install-the-required-packages"></a>NuGet을 사용하여 필요한 패키지 설치
 이 자습서를 완료하기 위해 프로젝트에서 참조해야 하는 세 개의 패키지가 있습니다.
 
-* [Azure Storage Common Library for .NET(미리 보기)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/). 
+* [Azure Storage Common Library for .NET(8.6.0-미리 보기)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/8.6.0-preview). 
 * [Microsoft Azure CosmosDB Table Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) 이 패키지는 Azure Table Storage 계정 또는 Azure Cosmos DB 테이블 API 계정에서 데이터 리소스에 대한 프로그래밍 방식의 액세스를 제공합니다.
 * [.NET용 Microsoft Azure 구성 관리자 라이브러리](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/): 이 패키지는 응용 프로그램을 실행하는 위치에 관계없이 구성 파일에서 연결 문자열을 구문 분석하기 위한 클래스를 제공합니다.
 

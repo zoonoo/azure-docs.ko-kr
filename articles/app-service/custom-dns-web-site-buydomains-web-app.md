@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
-ms.openlocfilehash: 13a61caf9b4dff8ffc08970d5a4c09efa9c5f117
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 152dbb6d47dfdf3bf5df945b823f64e58e7d91e2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="buy-a-custom-domain-name-for-azure-web-apps"></a>Azure Web Apps에 대한 사용자 지정 도메인 이름 구입
 
@@ -220,7 +220,7 @@ Azure에서 App Service 도메인에 대한 DNS 레코드는 [Azure DNS](https:/
 
 ### <a name="open-app-service-domain"></a>App Service 도메인 열기
 
-Azure Portal의 왼쪽 메뉴에서 **추가 서비스** > **App Service 도메인**을 선택합니다.
+Azure Portal의 왼쪽 메뉴에서 **모든 서비스** > **App Service 도메인**을 선택합니다.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-access.png)
 
@@ -240,7 +240,7 @@ App Service 도메인을 구매한 후 5일 이내에 구매를 취소하고 전
 
 ### <a name="open-app-service-domain"></a>App Service 도메인 열기
 
-Azure Portal의 왼쪽 메뉴에서 **추가 서비스** > **App Service 도메인**을 선택합니다.
+Azure Portal의 왼쪽 메뉴에서 **모든 서비스** > **App Service 도메인**을 선택합니다.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-access.png)
 

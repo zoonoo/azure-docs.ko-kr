@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/10/2017
 ms.author: makohli
-ms.openlocfilehash: dc89cd29e1e8038f0ff317ff6acee332218ebce7
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: d15f91c91281eae28ddaff52af3ee8e617f142c1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-with-azure-advisor"></a>Azure Adviser 시작
 
@@ -26,9 +26,9 @@ Azure Portal을 통해 Advisor에 액세스하고, 권장 사항을 검색하고
 
 ## <a name="get-advisor-recommendations"></a>Advisor 권장 사항 가져오기
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-2. 왼쪽 창에서 **Advisor**를 클릭합니다.  왼쪽 창에 Advisor가 표시되지 않으면 **추가 서비스**를 클릭합니다.  서비스 메뉴 창의 **모니터링 및 관리** 아래에서 **Advisor**를 클릭합니다.
+2. 왼쪽 창에서 **Advisor**를 클릭합니다.  왼쪽 창에 Advisor가 표시되지 않으면 **모든 서비스**를 클릭합니다.  서비스 메뉴 창의 **모니터링 및 관리** 아래에서 **Advisor**를 클릭합니다.
  Advisor 대시보드가 표시됩니다.
 
    ![Azure Portal을 사용하여 Azure Advisor 액세스](./media/advisor-get-started/advisor-portal-menu.png) 
@@ -95,14 +95,14 @@ Advisor 권장 사항을 수신하지 않으려는 리소스 그룹 또는 구�
 
 4. **적용** 단추를 클릭합니다.
 
-## <a name="configure-the-average-cpu-utilization-rule-for-the-low-usage-virtual-machine-recommendation"></a>사용량이 낮은 가상 컴퓨터 권장 사항에 대한 평균 CPU 사용률 규칙 구성
+## <a name="configure-the-average-cpu-utilization-rule-for-the-low-usage-virtual-machine-recommendation"></a>사용량이 낮은 가상 머신 권장 사항에 대한 평균 CPU 사용률 규칙 구성
 
-Advisor는 14일 동안 가상 컴퓨터 사용량을 모니터링하고 사용률이 낮은 가상 컴퓨터를 식별합니다. 4일 이상 평균 CPU 사용률이 5% 이하이고 네트워크 사용량이 7MB 이하인 가상 컴퓨터는 사용률이 낮은 가상 컴퓨터로 간주됩니다.
+Advisor는 14일 동안 가상 머신 사용량을 모니터링하고 사용률이 낮은 가상 머신을 식별합니다. 4일 이상 평균 CPU 사용률이 5% 이하이고 네트워크 사용량이 7MB 이하인 가상 머신은 사용률이 낮은 가상 머신으로 간주됩니다.
 
-사용량이 낮은 가상 컴퓨터를 더 적극적으로 식별하려면 구독당 평균 CPU 사용률 규칙을 조정할 수 있습니다.  평균 CPU 사용률 규칙은 5%, 10%, 15% 또는 20%로 설정할 수 있습니다.
+사용량이 낮은 가상 머신을 더 적극적으로 식별하려면 구독당 평균 CPU 사용률 규칙을 조정할 수 있습니다.  평균 CPU 사용률 규칙은 5%, 10%, 15% 또는 20%로 설정할 수 있습니다.
 
 > [!NOTE]
-> 사용량이 낮은 가상 컴퓨터를 식별하기 위한 평균 CPU 사용률 규칙을 조정하려면 구독 *소유자*여야 합니다.  구독 또는 리소스 그룹에 대해 필요한 사용 권한이 없는 경우 사용자 인터페이스에서 포함 또는 제외 옵션을 사용할 수 없습니다. 
+> 사용량이 낮은 가상 머신을 식별하기 위한 평균 CPU 사용률 규칙을 조정하려면 구독 *소유자*여야 합니다.  구독 또는 리소스 그룹에 대해 필요한 사용 권한이 없는 경우 사용자 인터페이스에서 포함 또는 제외 옵션을 사용할 수 없습니다. 
 
 1. [Azure Portal](https://portal.azure.com)에 로그인하고 [Advisor](https://aka.ms/azureadvisordashboard)를 엽니다.
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2017
 ms.author: v-craic
-ms.openlocfilehash: 2921356f848739d602807236006f9867eaa2a4e4
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 348952626e13b9ac73ca2ec8e101bf02e416dc9b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="add-owners-and-users-in-azure-devtest-labs"></a>Azure DevTest Labs에 소유자 및 사용자 추가
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/How-to-set-security-in-your-DevTest-Lab/player]
@@ -39,10 +39,10 @@ Azure DevTest Labs의 액세스는 [Azure 역할 기반 Access Control(RBAC)](..
 | **이 역할의 사용자가 수행할 수 있는 작업** | **DevTest Lab 사용자** | **소유자** | **참여자** |
 | --- | --- | --- | --- |
 | **랩 작업** | | | |
-| 랩에 사용자 추가 |아니오 |예 |아니오 |
-| 비용 설정 업데이트 |아니오 |예 |예 |
+| 랩에 사용자 추가 |아니요 |예 |아니요 |
+| 비용 설정 업데이트 |아니요 |예 |예 |
 | **VM 기본 작업** | | | |
-| 사용자 지정 이미지 추가 및 제거 |아니요 |예 |예 |
+| 사용자 지정 이미지 추가 및 제거 |아니오 |예 |예 |
 | 수식 추가, 업데이트 및 삭제 |예 |예 |예 |
 | Azure Marketplace 이미지를 허용 목록에 추가 |아니요 |예 |예 |
 | **VM 작업** | | | |
@@ -51,7 +51,7 @@ Azure DevTest Labs의 액세스는 [Azure 역할 기반 Access Control(RBAC)](..
 | VM 정책 업데이트 |아니요 |예 |예 |
 | VM에 데이터 디스크 추가/VM에서 데이터 디스크 제거 |사용자가 만든 VM만 |예 |예 |
 | **아티팩트 작업** | | | |
-| 아티팩트 리포지토리 추가 및 제거 |아니오 |예 |예 |
+| 아티팩트 리포지토리 추가 및 제거 |아니요 |예 |예 |
 | 아티팩트 적용 |예 |예 |예 |
 
 > [!NOTE]
@@ -64,7 +64,7 @@ Azure Portal을 통해 랩 수준에서 소유자 및 사용자를 추가할 수
 다음 단계는 Azure DevTest Labs에서 랩에 소유자 또는 사용자를 추가하는 과정을 안내합니다.
 
 1. [Azure 포털](http://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
-2. **추가 서비스**를 선택한 후 목록에서 **DevTest Labs**을 선택합니다.
+2. **모든 서비스**를 선택한 다음 목록에서 **DevTest Labs**를 선택합니다.
 3. 랩 목록에서 원하는 랩을 탭합니다.
 4. 랩의 블레이드에서 **구성**을 선택합니다. 
 5. **구성** 블레이드에서 **사용자**를 선택합니다.
@@ -118,7 +118,7 @@ Azure 권한은 Azure의 부모 범위에서 자식 범위로 전파됩니다. �
 Azure 구독에 소유자를 추가하려면 다음 단계를 수행합니다.
 
 1. [Azure 포털](http://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
-2. **추가 서비스**를 선택한 다음 목록에서 **구독**을 선택합니다.
+2. **모든 서비스**를 선택한 다음, 목록에서 **구독**을 선택합니다.
 3. 원하는 구독을 선택합니다.
 4. **액세스** 아이콘을 선택합니다. 
    

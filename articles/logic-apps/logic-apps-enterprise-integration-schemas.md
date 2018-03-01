@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/29/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 4f58a587c1f10aea1cee89e46fa9ec340e0d21c6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: db2d9313e443ebc9dd32fcb905b0ae62219e4bbf
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="validate-xml-with-schemas-for-azure-logic-apps-and-the-enterprise-integration-pack"></a>Azure Logic Apps 및 엔터프라이즈 통합 팩용 스키마로 XML 유효성 검사
 
@@ -26,9 +26,9 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="add-a-schema"></a>스키마 추가
 
-1. Azure Portal에서 **더 많은 서비스**를 선택합니다.
+1. Azure Portal에서 **모든 서비스**를 선택합니다.
 
-    ![Azure Portal, "더 많은 서비스"](media/logic-apps-enterprise-integration-schemas/overview-11.png)
+    ![Azure Portal, "모든 서비스"](media/logic-apps-enterprise-integration-schemas/overview-11.png)
 
 2. 필터 검색 상자에 **통합**을 입력하고 결과 목록에서 **통합 계정**을 선택합니다.
 
@@ -70,7 +70,7 @@ Blob 보안 액세스 수준이 **공용**인 경우 다음 단계를 수행합�
 
 1. 스키마를 계정 저장소에 업로드하고 URI를 복사합니다.
 
-    ![URI가 강조 표시된 저장소 계정](media/logic-apps-enterprise-integration-schemas/schema-blob.png)
+    ![URI가 강조 표시된 Storage 계정](media/logic-apps-enterprise-integration-schemas/schema-blob.png)
 
 2. **스키마 추가**에서 **큰 파일**을 선택하고 **콘텐츠 URI** 텍스트 상자에 URI를 제공합니다.
 
@@ -82,11 +82,11 @@ Blob 보안 액세스 수준이 **익명 액세스 없음**인 경우 다음 단
 
 1. 저장소 계정에 스키마를 업로드합니다.
 
-    ![저장소 계정](media/logic-apps-enterprise-integration-schemas/blob-3.png)
+    ![Storage 계정](media/logic-apps-enterprise-integration-schemas/blob-3.png)
 
 2. 스키마에 대한 공유 액세스 서명을 생성합니다.
 
-    ![공유 액세스 서명 탭이 강조 표시된 저장소 계정](media/logic-apps-enterprise-integration-schemas/blob-2.png)
+    ![공유 액세스 서명 탭이 강조 표시된 Storage 계정](media/logic-apps-enterprise-integration-schemas/blob-2.png)
 
 3. **스키마 추가**에서 **큰 파일**을 선택하고 **콘텐츠 URI** 텍스트 상자에 공유 액세스 서명 URI를 제공합니다.
 

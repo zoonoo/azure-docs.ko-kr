@@ -23,20 +23,20 @@
 
 ## <a name="before-you-start"></a>시작하기 전에
 
-장치에 대한 코드를 작성하기 전에, 미리 구성된 원격 모니터링 솔루션을 프로비전하고 이 솔루션에 새로운 사용자 지정 장치를 프로비전해야 합니다.
+장치에 대한 코드를 작성하기 전에, 미리 구성된 원격 모니터링 솔루션을 배포하고 이 솔루션에 새로운 물리적 장치를 추가해야 합니다.
 
-### <a name="provision-your-remote-monitoring-preconfigured-solution"></a>미리 구성된 사용자의 원격 모니터링 솔루션 프로비전
+### <a name="deploy-your-remote-monitoring-preconfigured-solution"></a>미리 구성된 원격 모니터링 솔루션 배포
 
 이 자습서에서 만드는 **냉각기** 장치는 미리 구성된 [원격 모니터링](../articles/iot-suite/iot-suite-remote-monitoring-explore.md) 솔루션의 인스턴스에 데이터를 전송합니다. Azure 계정에서 미리 구성된 원격 모니터링 솔루션을 미리 프로비전하지 않은 경우 [미리 구성된 원격 모니터링 솔루션 배포](../articles/iot-suite/iot-suite-remote-monitoring-deploy.md)를 참조하세요.
 
-원격 모니터링 솔루션의 프로비전 프로세스가 완료되면 **시작** 을 클릭하여 브라우저에서 솔루션 대시보드를 엽니다.
+원격 모니터링 솔루션의 배포 프로세스가 완료되면 **시작** 을 클릭하여 브라우저에서 솔루션 대시보드를 엽니다.
 
 ![솔루션 대시보드](media/iot-suite-selector-connecting/dashboard.png)
 
-### <a name="provision-your-device-in-the-remote-monitoring-solution"></a>원격 모니터링 솔루션에서 장치 프로비전
+### <a name="add-your-device-to-the-remote-monitoring-solution"></a>장치를 원격 모니터링 솔루션에 추가
 
 > [!NOTE]
-> 솔루션에 장치가 이미 프로비전되어 있으면 이 단계를 건너뜁니다. 클라이언트 응용 프로그램을 만들 때 Azure Portal에서 검색할 수 있는 장치 연결 문자열이 필요합니다.
+> 솔루션에 장치가 이미 추가되어 있으면 이 단계를 건너뜁니다. 그러나 다음 단계에서는 장치 연결 문자열이 필요합니다. [Azure Portal](https://portal.azure.com)에서 검색하거나 [az iot](https://docs.microsoft.com/cli/azure/iot?view=azure-cli-latest) CLI 도구를 사용하여 장치 연결 문자열을 검색할 수 있습니다.
 
 미리 구성된 솔루션에 연결하는 장치는 유효한 자격 증명을 사용하여 IoT Hub에 자신을 식별할 수 있어야 합니다. 솔루션에 장치를 추가할 때 자격 증명이 포함된 장치 연결 문자열을 저장할 기회가 있습니다. 이 자습서의 뒷부분에서는 클라이언트 응용 프로그램에 장치 연결 문자열을 포함시킵니다.
 
@@ -44,7 +44,7 @@
 
 1. **+ 새 장치**를 선택한 다음, **장치 유형**으로 **물리적**을 선택합니다.
 
-    ![실제 장치 프로비전](media/iot-suite-selector-connecting/devicesprovision.png)
+    ![물리적 장치 추가](media/iot-suite-selector-connecting/devicesprovision.png)
 
 1. 장치 ID로 **물리적 냉각기**를 입력합니다. **대칭 키** 및 **자동 생성 키** 옵션을 선택합니다.
 
@@ -54,9 +54,7 @@
 
     ![자격 증명 검색](media/iot-suite-selector-connecting/credentials.png)
 
-미리 구성된 솔루션에 연결하는 데 사용해야 하는 자격 증명을 찾으려면 브라우저에서 Azure Portal로 이동합니다. 구독에 로그인합니다.
-
-이제 미리 구성된 원격 모니터링 솔루션에서 물리적 장치를 프로비전했습니다. 다음 섹션에서는 장치 자격 증명을 사용하여 솔루션에 연결하는 클라이언트 응용 프로그램을 구현합니다.
+이제 물리적 장치를 미리 구성된 원격 모니터링 솔루션에 추가했고 장치 연결 문자열을 확인했습니다. 다음 섹션에서는 장치 연결 문자열을 사용하여 솔루션에 연결하는 클라이언트 응용 프로그램을 구현합니다.
 
 클라이언트 응용 프로그램은 기본 제공 **냉각기** 장치 모델을 구현합니다. 미리 구성된 솔루션 장치 모델은 장치에 대해 다음을 지정합니다.
 

@@ -1,6 +1,6 @@
 ---
-title: "FedRAMP Azure Blueprint Automation - 시스템 및 통신 보호"
-description: "FedRAMP용 웹 응용 프로그램 - 시스템 및 통신 보호"
+title: "Azure Security and Compliance Blueprint - FedRAMP 웹 응용 프로그램 자동화 - 시스템 및 통신 보호"
+description: "FedRAMP 웹 응용 프로그램 자동화 - 시스템 및 통신 보호"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 02e2d07eb29d0d5d436afed1cdab4fe710674a8c
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: ce0917cec67612736103932903eab18d7f0f21bb
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="system-and-communications-protection-sc"></a>시스템 및 통신 보호(SC)
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **고객** | 이 Azure Blueprint는 논리 액세스 제어 및 시스템 아키텍처를 적용하여 시스템 관리 기능에서 사용자 기능을 분리합니다. 사용자 기능은 고객이 배포한 웹 응용 프로그램 인터페이스로 제한됩니다. 시스템 관리 기능용 인터페이스는 사용자 인터페이스에서 분리됩니다. 모든 관리 연결은 프로덕션 리소스에 대한 액세스를 적절히 제한하는 네트워크 보안 그룹 규칙을 사용하여 관리 서브넷에 있는 보안 요새 호스트(jumpbox)를 통해 이루어집니다. |
+| **고객** | 이 Blueprint는 논리 액세스 제어 및 시스템 아키텍처를 적용하여 시스템 관리 기능에서 사용자 기능을 분리합니다. 사용자 기능은 고객이 배포한 웹 응용 프로그램 인터페이스로 제한됩니다. 시스템 관리 기능용 인터페이스는 사용자 인터페이스에서 분리됩니다. 모든 관리 연결은 프로덕션 리소스에 대한 액세스를 적절히 제한하는 네트워크 보안 그룹 규칙을 사용하여 관리 서브넷에 있는 보안 요새 호스트(jumpbox)를 통해 이루어집니다. |
 | **공급자(Microsoft Azure)** | 해당 없음 |
 
 
@@ -63,7 +63,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **고객** | 이 Azure Blueprint에서 배포한 가상 머신은 Windows 운영 체제를 실행합니다. Windows는 각 프로세스에 개인 가상 주소 공간을 할당하여 실행 중인 각 프로세스에 대해 별도의 실행 도메인을 유지 관리합니다. 또한 이 솔루션은 필요한 경우 보안 기능을 분리하도록 고안된 아키텍처 및 액세스 제어를 구현합니다. |
+| **고객** | 이 청사진에서 배포한 가상 머신은 Windows 운영 체제를 실행합니다. Windows는 각 프로세스에 개인 가상 주소 공간을 할당하여 실행 중인 각 프로세스에 대해 별도의 실행 도메인을 유지 관리합니다. 또한 이 솔루션은 필요한 경우 보안 기능을 분리하도록 고안된 아키텍처 및 액세스 제어를 구현합니다. |
 | **공급자(Microsoft Azure)** | 해당 없음 |
 
 
@@ -77,7 +77,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **고객** | 이 Azure Blueprint에서 배포한 가상 머신은 Windows 운영 체제를 실행합니다. 운영 체제는 적절한 권한이 있는 사용자 및 역할만 정보에 액세스할 수 있도록 리소스(예: 메모리, 저장소)를 관리합니다. |
+| **고객** | 이 청사진에서 배포한 가상 머신은 Windows 운영 체제를 실행합니다. 운영 체제는 적절한 권한이 있는 사용자 및 역할만 정보에 액세스할 수 있도록 리소스(예: 메모리, 저장소)를 관리합니다. |
 | **공급자(Microsoft Azure)** | 해당 없음 |
 
 
@@ -91,7 +91,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **고객** | 이 Azure Blueprint는 웹 응용 프로그램 방화벽 및 부하 분산 기능을 포함하는 Application Gateway를 배포합니다. 웹 계층, 데이터베이스 계층 및 Active Directory를 지원하는 배포된 가상 머신은 확장 가능한 가용성 집합에 배포됩니다. |
+| **고객** | 이 Blueprint는 웹 응용 프로그램 방화벽 및 부하 분산 기능을 포함하는 Application Gateway를 배포합니다. 웹 계층, 데이터베이스 계층 및 Active Directory를 지원하는 배포된 가상 머신은 확장 가능한 가용성 집합에 배포됩니다. |
 | **공급자(Microsoft Azure)** | 해당 없음 |
 
 
@@ -105,7 +105,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **고객** | 이 Azure Blueprint에서 배포한 가상 머신은 Windows 운영 체제를 실행합니다. 각 Windows 프로세스는 프로그램을 실행하는 데 필요한 리소스를 제공합니다. 리소스 우선 순위는 운영 체제에 의해 관리됩니다. |
+| **고객** | 이 청사진에서 배포한 가상 머신은 Windows 운영 체제를 실행합니다. 각 Windows 프로세스는 프로그램을 실행하는 데 필요한 리소스를 제공합니다. 리소스 우선 순위는 운영 체제에 의해 관리됩니다. |
 | **공급자(Microsoft Azure)** | 해당 없음 |
 
 
@@ -119,7 +119,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **고객** | 이 Azure Blueprint는 Application Gateway, Load Balancer를 배포하고, 네트워크 보안 그룹 규칙을 구성하여 경계 외부 및 내부 서브넷 간 통신을 제어합니다. Application Gateway, Load Balancer 및 네트워크 보안 그룹 이벤트와 진단 로그는 고개 모니터링을 위해 OMS Log Analytics에서 수집됩니다. |
+| **고객** | 이 청사진은 Application Gateway,부하 분산 장치를 배포하고, 네트워크 보안 그룹 규칙을 구성하여 경계 외부 및 내부 서브넷 간 통신을 제어합니다. Application Gateway, Load Balancer 및 네트워크 보안 그룹 이벤트와 진단 로그는 고개 모니터링을 위해 OMS Log Analytics에서 수집됩니다. |
 | **공급자(Microsoft Azure)** | 해당 없음 |
 
 
@@ -133,7 +133,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **고객** | 이 Azure Blueprint는 별도 웹 서브넷, 데이터베이스 서브넷, Active Directory 서브넷 및 서브넷 관리를 포함하는 아키텍처에 리소스를 배포합니다. 서브넷은 서브넷 간 트래픽을 시스템 및 관리 기능에 필요한 경우로만 제한하기 위해 개별 서브넷에 적용되는 네트워크 보안 그룹 규칙에 의해 논리적으로 구분됩니다(예: 외부 트래픽은 데이터베이스, 관리 또는 Active Directory 서브넷에 액세스할 수 없음). |
+| **고객** | 이 청사진은 별도 웹 서브넷, 데이터베이스 서브넷, Active Directory 서브넷 및 서브넷 관리를 포함하는 아키텍처에 리소스를 배포합니다. 서브넷은 서브넷 간 트래픽을 시스템 및 관리 기능에 필요한 경우로만 제한하기 위해 개별 서브넷에 적용되는 네트워크 보안 그룹 규칙에 의해 논리적으로 구분됩니다(예: 외부 트래픽은 데이터베이스, 관리 또는 Active Directory 서브넷에 액세스할 수 없음). |
 | **공급자(Microsoft Azure)** | 해당 없음 |
 
 
@@ -147,7 +147,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **고객** | 이 Azure Blueprint는 Application Gateway를 배포하여 고객이 배포한 웹 응용 프로그램에 대한 외부 연결을 관리합니다. 관리 액세스에 대한 외부 연결은 허가된 IP 주소로만 외부 연결을 제한하기 위해 적용되는 네트워크 보안 규칙을 사용하여 관리 서브넷에 배포된 요새 호스트/jumpbox로 제한됩니다. |
+| **고객** | 이 Blueprint는 Application Gateway를 배포하여 고객이 배포한 웹 응용 프로그램에 대한 외부 연결을 관리합니다. 관리 액세스에 대한 외부 연결은 허가된 IP 주소로만 외부 연결을 제한하기 위해 적용되는 네트워크 보안 규칙을 사용하여 관리 서브넷에 배포된 요새 호스트/jumpbox로 제한됩니다. |
 | **공급자(Microsoft Azure)** | 해당 없음 |
 
 
@@ -161,7 +161,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **고객** | 이 Azure Blueprint는 2개의 공용 IP 주소, 즉 Application Gateway에 연결된 IP 주소와 관리 요새 호스트/jumpbox에 연결된 IP 주소를 배포합니다. |
+| **고객** | 이 Blueprint는 2개의 공용 IP 주소, 즉 Application Gateway에 연결된 IP 주소와 관리 요새 호스트/jumpbox에 연결된 IP 주소를 배포합니다. |
 | **공급자(Microsoft Azure)** | 해당 없음 |
 
 
@@ -175,7 +175,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **고객** | 이 Azure Blueprint는 2개의 공용 IP 주소, 즉 Application Gateway에 연결된 IP 주소와 관리 요새 호스트/jumpbox에 연결된 IP 주소를 배포합니다. 이러한 인터페이스의 관리는 소프트웨어 정의 네트워킹을 통해 사용하도록 설정됩니다. |
+| **고객** | 이 Blueprint는 2개의 공용 IP 주소, 즉 Application Gateway에 연결된 IP 주소와 관리 요새 호스트/jumpbox에 연결된 IP 주소를 배포합니다. 이러한 인터페이스의 관리는 소프트웨어 정의 네트워킹을 통해 사용하도록 설정됩니다. |
 | **공급자(Microsoft Azure)** | 해당 없음 |
 
 
@@ -189,7 +189,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **고객** | 이 Azure Blueprint는 2개의 공용 IP 주소, 즉 Application Gateway에 연결된 IP 주소와 관리 요새 호스트/jumpbox에 연결된 IP 주소를 배포합니다. 이러한 인터페이스의 관리는 소프트웨어 정의 네트워킹을 통해 사용하도록 설정됩니다. |
+| **고객** | 이 Blueprint는 2개의 공용 IP 주소, 즉 Application Gateway에 연결된 IP 주소와 관리 요새 호스트/jumpbox에 연결된 IP 주소를 배포합니다. 이러한 인터페이스의 관리는 소프트웨어 정의 네트워킹을 통해 사용하도록 설정됩니다. |
 | **공급자(Microsoft Azure)** | 해당 없음 |
 
 
@@ -203,7 +203,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **고객** | 이 Azure Blueprint에 의해 배포된 웹 응용 프로그램 게이트웨이는 HTTPS 수신기로 구성되어 통신 세션의 기밀성 및 무결성을 보장합니다. jumpbox에 대한 원격 데스크톱 연결도 암호화되어 기밀성과 무결성을 제공합니다. |
+| **고객** | 이 Blueprint에 의해 배포된 웹 응용 프로그램 게이트웨이는 HTTPS 수신기로 구성되어 통신 세션의 기밀성 및 무결성을 보장합니다. jumpbox에 대한 원격 데스크톱 연결도 암호화되어 기밀성과 무결성을 제공합니다. |
 | **공급자(Microsoft Azure)** | 해당 없음 |
 
 
@@ -245,7 +245,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **고객** | 이 Azure Blueprint에서 배포하는 네트워크 보안 그룹에 적용되는 규칙 집합은 기본적으로 거부 체계를 사용하여 구성됩니다. |
+| **고객** | 이 Blueprint에서 배포하는 네트워크 보안 그룹에 적용되는 규칙 집합은 기본적으로 거부 체계를 사용하여 구성됩니다. |
 | **공급자(Microsoft Azure)** | 해당 없음 |
 
 
@@ -301,7 +301,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **고객** | 이 Azure Blueprint에서 배포된 가상 머신은 호스트 기반 방화벽이 사용되도록 설정된 상태로 구성됩니다. |
+| **고객** | 이 Blueprint에서 배포된 가상 머신은 호스트 기반 방화벽이 사용되도록 설정된 상태로 구성됩니다. |
 | **공급자(Microsoft Azure)** | 해당 없음 |
 
 
@@ -315,7 +315,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **고객** | 이 Azure Blueprint는 정보 보안 도구 및 지원 구성 요소의 고객 배포를 위한 별도 관리 서브넷이 있는 아키텍처에 리소스를 배포합니다. 서브넷은 네트워크 보안 그룹 규칙에 의해 논리적으로 구분됩니다. |
+| **고객** | 이 Blueprint는 정보 보안 도구 및 지원 구성 요소의 고객 배포를 위한 별도 관리 서브넷이 있는 아키텍처에 리소스를 배포합니다. 서브넷은 네트워크 보안 그룹 규칙에 의해 논리적으로 구분됩니다. |
 | **공급자(Microsoft Azure)** | 해당 없음 |
 
 
@@ -357,7 +357,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **고객** | 이 Azure Blueprint는 별도 웹 서브넷, 데이터베이스 서브넷, Active Directory 서브넷 및 서브넷 관리를 포함하는 아키텍처에 리소스를 배포합니다. 서브넷은 서브넷 간 트래픽을 시스템 및 관리 기능에 필요한 경우로만 제한하기 위해 개별 서브넷에 적용되는 네트워크 보안 그룹 규칙에 의해 논리적으로 구분됩니다. |
+| **고객** | 이 청사진은 별도 웹 서브넷, 데이터베이스 서브넷, Active Directory 서브넷 및 서브넷 관리를 포함하는 아키텍처에 리소스를 배포합니다. 서브넷은 서브넷 간 트래픽을 시스템 및 관리 기능에 필요한 경우로만 제한하기 위해 개별 서브넷에 적용되는 네트워크 보안 그룹 규칙에 의해 논리적으로 구분됩니다. |
 | **공급자(Microsoft Azure)** | 해당 없음 |
 
 
@@ -385,7 +385,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **고객** | 이 Azure Blueprint는 보안 프로토콜만 사용하여 통신하도록 리소스를 구성합니다. Application Gateway의 WAF 구성 요소는 HTTPS/TLS를 통한 외부 사용의 통신자를 수락하고 HTTPS/TLS를 통해서만 백 엔드 풀과 통신하도록 구성됩니다. SQL Server는 HTTPS/TLS를 통해서만 통신하도록 구성됩니다. 원격 데스크톱 서비스는 보안 연결을 사용하도록 구성됩니다. |
+| **고객** | 이 청사진은 보안 프로토콜만 사용하여 통신하도록 리소스를 구성합니다. Application Gateway의 WAF 구성 요소는 HTTPS/TLS를 통한 외부 사용의 통신자를 수락하고 HTTPS/TLS를 통해서만 백 엔드 풀과 통신하도록 구성됩니다. SQL Server는 HTTPS/TLS를 통해서만 통신하도록 구성됩니다. 원격 데스크톱 서비스는 보안 연결을 사용하도록 구성됩니다. |
 | **공급자(Microsoft Azure)** | 해당 없음 |
 
 
@@ -413,7 +413,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **고객** | 이 Azure Blueprint는 Azure Key Vault를 배포합니다. Azure Key Vault는 클라우드 응용 프로그램 및 서비스에서 사용되는 암호화 키 및 비밀을 보호하는데 도움이 됩니다. Azure Key Vault는 FIPS 140-2 수준 2 HSM(하드웨어 보안 모듈) 키 생성 기능을 사용하여 키를 생성할 수 있습니다. |
+| **고객** | 이 Blueprint는 Azure Key Vault를 배포합니다. Azure Key Vault는 클라우드 응용 프로그램 및 서비스에서 사용되는 암호화 키 및 비밀을 보호하는데 도움이 됩니다. Azure Key Vault는 FIPS 140-2 수준 2 HSM(하드웨어 보안 모듈) 키 생성 기능을 사용하여 키를 생성할 수 있습니다. |
 | **공급자(Microsoft Azure)** | 해당 없음 |
 
 
@@ -427,7 +427,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **고객** | Azure Key Vault는 이 Azure Blueprint에 사용되는 암호화 키 및 비밀을 저장하는 데 사용됩니다. Key Vault는 데이터를 액세스하고 암호화하는 키에 대한 키 관리 프로세스를 간소화합니다. 인증자인 배포 계정에 대한 Azure 암호, 가상 머신 관리자 암호, SQL Server 서비스 계정 암호가 Key Vault에 저장됩니다. |
+| **고객** | Azure Key Vault는 이 Blueprint에 사용되는 암호화 키 및 비밀을 저장하는 데 사용됩니다. Key Vault는 데이터를 액세스하고 암호화하는 키에 대한 키 관리 프로세스를 간소화합니다. 인증자인 배포 계정에 대한 Azure 암호, 가상 머신 관리자 암호, SQL Server 서비스 계정 암호가 Key Vault에 저장됩니다. |
 | **공급자(Microsoft Azure)** | 해당 없음 |
 
 
@@ -469,7 +469,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **고객** | Windows 인증, 원격 데스크톱 및 BitLocker가 이 Azure Blueprint에서 사용됩니다. 이러한 구성 요소는 FIPS 140에서 검증된 암호화 모듈을 사용하도록 구성할 수 있습니다. |
+| **고객** | Windows 인증, 원격 데스크톱 및 BitLocker가 이 Blueprint에서 사용됩니다. 이러한 구성 요소는 FIPS 140에서 검증된 암호화 모듈을 사용하도록 구성할 수 있습니다. |
 | **공급자(Microsoft Azure)** | 해당 없음 |
 
 
@@ -483,7 +483,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **고객** | 이 Azure Blueprint의 일부로 배포된 공동 컴퓨팅 장치는 없습니다. 참고: Azure에 배포된 시스템의 범위 내에 실제 공동 컴퓨팅 장치가 없습니다. |
+| **고객** | 이 Blueprint의 일부로 배포된 공동 컴퓨팅 장치는 없습니다. 참고: Azure에 배포된 시스템의 범위 내에 실제 공동 컴퓨팅 장치가 없습니다. |
 | **공급자(Microsoft Azure)** | 해당 없음 |
 
 
@@ -497,7 +497,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **고객** | 이 Azure Blueprint의 일부로 배포된 공동 컴퓨팅 장치는 없습니다. 참고: Azure에 배포된 시스템의 범위 내에 실제 공동 컴퓨팅 장치가 없습니다. |
+| **고객** | 이 Blueprint의 일부로 배포된 공동 컴퓨팅 장치는 없습니다. 참고: Azure에 배포된 시스템의 범위 내에 실제 공동 컴퓨팅 장치가 없습니다. |
 | **공급자(Microsoft Azure)** | 해당 없음 |
 
 
@@ -567,7 +567,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **고객** | 이 Azure Blueprint의 일부로 배포되는 Voice Over Internet Protocol 기술은 없습니다. |
+| **고객** | 이 Blueprint의 일부로 배포되는 Voice Over Internet Protocol 기술은 없습니다. |
 | **공급자(Microsoft Azure)** | 해당 없음 |
 
 
@@ -581,7 +581,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **고객** | 이 Azure Blueprint의 일부로 배포되는 Voice Over Internet Protocol 기술은 없습니다. |
+| **고객** | 이 Blueprint의 일부로 배포되는 Voice Over Internet Protocol 기술은 없습니다. |
 | **공급자(Microsoft Azure)** | 해당 없음 |
 
 
@@ -651,7 +651,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **고객** | Azure Portal, 원격 데스크톱 연결 및 웹 응용 프로그램 게이트웨이를 비롯하여 이 Azure Blueprint에서 배포한 리소스에 대한 원격 액세스는 TLS를 사용하여 보호됩니다. TLS는 세션 수준에서 통신에 대한 신뢰성을 제공합니다. |
+| **고객** | Azure Portal, 원격 데스크톱 연결 및 웹 응용 프로그램 게이트웨이를 비롯하여 이 Blueprint에서 배포한 리소스에 대한 원격 액세스는 TLS를 사용하여 보호됩니다. TLS는 세션 수준에서 통신에 대한 신뢰성을 제공합니다. |
 | **공급자(Microsoft Azure)** | 해당 없음 |
 
 
@@ -665,7 +665,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **고객** | Azure Portal, 원격 데스크톱 연결 및 웹 응용 프로그램 게이트웨이를 비롯하여 이 Azure Blueprint에서 배포한 리소스에 대한 원격 액세스는 TLS를 사용하여 보호됩니다. Azure Portal 및 원격 데스크톱 세션은 로그아웃 시 세션 식별자를 무효화합니다. 웹 세션 무효화는 Azure Application Gateway - WAF(웹 응용 프로그램 방화벽) 규칙을 통해 적용됩니다. WAF는 세션당 선호도 쿠키를 적용하고 클라이언트가 30분(구성 가능한 조직별 배포 후 규칙) 동안 비활동 상태를 유지한 후 세션 시간 제한을 적용합니다. |
+| **고객** | Azure Portal, 원격 데스크톱 연결 및 웹 응용 프로그램 게이트웨이를 비롯하여 이 Blueprint에서 배포한 리소스에 대한 원격 액세스는 TLS를 사용하여 보호됩니다. Azure Portal 및 원격 데스크톱 세션은 로그아웃 시 세션 식별자를 무효화합니다. 웹 세션 무효화는 Azure Application Gateway - WAF(웹 응용 프로그램 방화벽) 규칙을 통해 적용됩니다. WAF는 세션당 선호도 쿠키를 적용하고 클라이언트가 30분(구성 가능한 조직별 배포 후 규칙) 동안 비활동 상태를 유지한 후 세션 시간 제한을 적용합니다. |
 | **공급자(Microsoft Azure)** | 해당 없음 |
 
 
@@ -707,7 +707,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **고객** | 이 Azure Blueprint에서 배포한 가상 머신은 디스크 암호화를 구현하여 미사용 정보의 기밀성 및 무결성을 보호합니다. Windows용 Azure 디스크 암호화는 Windows의 BitLocker 기능을 사용하여 구현됩니다. SQL Server는 TDE(투명한 데이터 암호화)를 사용하도록 구성됩니다. 이 기능은 데이터 및 로그 파일의 실시간 암호화 및 암호 해독을 수행하여 미사용 정보를 보호합니다. TDE는 저장된 데이터가 무단으로 액세스되지 못하게 합니다. 고객은 추가적인 응용 프로그램 수준 제어를 구현하여 저장된 정보의 무결성을 보호해야 할 수 있습니다. 이 Azure Blueprint에서 배포한 모든 저장소 BLOB의 기밀성과 무결성은 Azure SSE(Storage 서비스 암호화)를 사용하여 보호됩니다. SSE는 256비트 AES 암호화를 사용하여 Azure Storage 계정 내에서 미사용 데이터를 보호합니다. |
+| **고객** | 이 Blueprint에서 배포한 가상 머신은 디스크 암호화를 구현하여 미사용 정보의 기밀성 및 무결성을 보호합니다. Windows용 Azure 디스크 암호화는 Windows의 BitLocker 기능을 사용하여 구현됩니다. SQL Server는 TDE(투명한 데이터 암호화)를 사용하도록 구성됩니다. 이 기능은 데이터 및 로그 파일의 실시간 암호화 및 암호 해독을 수행하여 미사용 정보를 보호합니다. TDE는 저장된 데이터가 무단으로 액세스되지 못하게 합니다. 고객은 추가적인 응용 프로그램 수준 제어를 구현하여 저장된 정보의 무결성을 보호해야 할 수 있습니다. 이 Blueprint에서 배포한 모든 저장소 BLOB의 기밀성과 무결성은 Azure SSE(Storage 서비스 암호화)를 사용하여 보호됩니다. SSE는 256비트 AES 암호화를 사용하여 Azure 저장소 계정 내에서 미사용 데이터를 보호합니다. |
 | **공급자(Microsoft Azure)** | 해당 없음 |
 
 
@@ -721,5 +721,5 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **고객** | 이 Azure Blueprint에서 배포한 가상 머신은 Windows 운영 체제를 실행합니다. Windows는 각 프로세스에 개인 가상 주소 공간을 할당하여 실행 중인 각 프로세스에 대해 별도의 실행 도메인을 유지 관리합니다. |
+| **고객** | 이 청사진에서 배포한 가상 머신은 Windows 운영 체제를 실행합니다. Windows는 각 프로세스에 개인 가상 주소 공간을 할당하여 실행 중인 각 프로세스에 대해 별도의 실행 도메인을 유지 관리합니다. |
 | **공급자(Microsoft Azure)** | 해당 없음 |

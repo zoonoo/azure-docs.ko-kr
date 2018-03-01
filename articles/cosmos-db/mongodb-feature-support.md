@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: alekseys
-ms.openlocfilehash: 007b530cd7a14f063ae4f86d18daa9742c6655c2
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: e955aa1c3985e540246d964b4dce88d15fb85949
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="mongodb-api-support-for-mongodb-features-and-syntax"></a>MongoDB 기능 및 구문에 대한 MongoDB API 지원
 
@@ -212,7 +212,7 @@ Azure Cosmos DB는 공개 미리 보기에서 집계 파이프라인을 지원�
 }
 ```
 
-연산자 | 예제 |
+연산자 | 예 |
 --- | --- |
 $eq | ``` { "Volcano Name": { $eq: "Rainier" } } ``` |  | -
 $gt | ``` { "Elevation": { $gt: 4000 } } ``` |  | -
@@ -231,16 +231,43 @@ $type | ``` { "Status": { $type: "string" } } ```|  | -
 $mod | ``` { "Elevation": { $mod: [ 4, 0 ] } } ``` |  | -
 $regex | ``` { "Volcano Name": { $regex: "^Rain"} } ```|  | -
 
-### <a name="notes"></a>참고 사항
+### <a name="notes"></a>메모
 
 $regex 쿼리에서 왼쪽에 고정된 식은 인덱스 검색을 허용합니다. 그러나 ‘i’ 한정자(대/소문자 구분 없음) 및 ‘m’ 한정자(여러 줄)를 사용하면 모든 식에서 컬렉션 검사가 수행됩니다.
 ‘$’ 또는 ‘|’을 포함해야 하는 경우 두 개 이상의 정규식 쿼리를 만드는 것이 가장 좋습니다. 예를 들어, 원래 쿼리가 ```find({x:{$regex: /^abc$/})```인 경우 이를 ```find({x:{$regex: /^abc/, x:{$regex:/^abc$/}})```로 수정해야 합니다.
 첫 번째 부분은 인덱스를 사용하여 ^abc로 시작하는 문서로 검색을 제한하며, 두 번째 부분은 정확한 항목의 일치를 확인합니다. 막대 연산자 ‘|’는 “or” 함수 역할을 하고, ```find({x:{$regex: /^abc|^def/})``` 쿼리는 ‘x’ 필드에 “abc” 또는 “def”로 시작하는 값이 있는 문서의 일치를 확인합니다. 인덱스를 사용하려면 쿼리를 $or 연산자 ```find( {$or : [{x: $regex: /^abc/}, {$regex: /^def/}] })```에 의해 조인된 두 개의 서로 다른 쿼리로 나누는 것이 좋습니다.
 
+### <a name="update-operators"></a>업데이트 연산자
+
+#### <a name="field-update-operators"></a>필드 업데이트 연산자
+- $inc
+- $mul
+- $rename
+- $setOnInsert
+- $set
+- $unset
+- $min
+- $max
+- $currentDate
+
+#### <a name="array-update-operators"></a>배열 업데이트 연산자
+- $addToSet
+- $pop
+- $pullAll
+- $pull(참고: $pull에는 조건이 지원되지 않음)
+- $pushAll
+- $push
+- $each
+- $slice
+- $sort
+- $position
+
+#### <a name="bitwise-update-operator"></a>비트 업데이트 연산자
+- $bit
 
 ### <a name="geospatial-operators"></a>지리 공간적 연산자
 
-연산자 | 예제 
+연산자 | 예 
 --- | --- |
 $geoWithin | ```{ "Location.coordinates": { $geoWithin: { $centerSphere: [ [ -121, 46 ], 5 ] } } }``` | 예
 $geoIntersects |  ```{ "Location.coordinates": { $geoIntersects: { $geometry: { type: "Polygon", coordinates: [ [ [ -121.9, 46.7 ], [ -121.5, 46.7 ], [ -121.5, 46.9 ], [ -121.9, 46.9 ], [ -121.9, 46.7 ] ] ] } } } }``` | 예
@@ -256,7 +283,7 @@ $polygon | ```{ "Location.coordinates": { $near: { $geometry: { type: "Polygon",
 
 ## <a name="additional-operators"></a>추가 연산자
 
-연산자 | 예제 | 참고 사항 
+연산자 | 예 | 메모 
 --- | --- | --- |
 $all | ```{ "Location.coordinates": { $all: [-121.758, 46.87] } }``` | 
 $elemMatch | ```{ "Location.coordinates": { $elemMatch: {  $lt: 0 } } }``` |  
@@ -270,7 +297,7 @@ $text |  | 지원되지 않습니다. 대신 $regex 사용
 
 #### <a name="cursor-methods"></a>커서 메서드
 
-메서드 | 예제 | 참고 사항 
+방법 | 예 | 메모 
 --- | --- | --- |
 cursor.sort() | ```cursor.sort({ "Elevation": -1 })``` | 정렬 키가 없는 문서가 반환되지 않음
 

@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: 3d1b5f30898bc0aab5c617ab547aa7db5e7e4375
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 75b568c12fd58d5599b6878dedb6c2266b6cb649
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="work-with-azure-functions-proxies"></a>Azure Functions 프록시 사용
 
@@ -50,13 +50,13 @@ Azure Functions 프록시를 사용해서 백 엔드에서 요청 및 응답을 
 
 기본적으로 백 엔드 요청은 원래 요청의 복사본으로 초기화됩니다. 백 엔드 URL을 설정하는 것 외에도 HTTP 메서드, 헤더 및 쿼리 문자열 매개 변수를 변경할 수 있습니다. 수정된 값은 [응용 프로그램 설정] 및 [원래 클라이언트 요청의 매개 변수]를 참조할 수 있습니다.
 
-현재 백 엔드 요청을 수정하기 위한 포털 환경은 없습니다. *proxies.json*에서 이 기능을 적용하는 방법을 알아보려면 [requestOverrides 개체 정의]를 참조하세요.
+프록시 세부 정보 페이지의 *요청 재정의* 섹션을 확장하여 포털에서 백 엔드 요청을 수정할 수 있습니다. 
 
 ### <a name="modify-response"></a>응답 수정
 
 기본적으로 클라이언트 요청은 원래 응답의 복사본으로 초기화됩니다. 응답의 상태 코드, 이유 구문, 헤더 및 본문을 변경할 수 있습니다. 수정된 값은 [응용 프로그램 설정], [원래 클라이언트 요청의 매개 변수] 및 [백 엔드 응답의 매개 변수]를 참조할 수 있습니다.
 
-현재 응답을 수정하기 위한 포털 환경은 없습니다. *proxies.json*에서 이 기능을 적용하는 방법을 알아보려면 [responseOverrides 개체 정의]를 참조하세요.
+프록시 세부 정보 페이지의 *응답 재정의* 섹션을 확장하여 포털에서 백 엔드 요청을 수정할 수 있습니다. 
 
 ## <a name="using-variables"></a>변수 사용
 
@@ -65,7 +65,11 @@ Azure Functions 프록시를 사용해서 백 엔드에서 요청 및 응답을 
 ### <a name="reference-localhost"></a>로컬 함수 참조
 `localhost`를 사용하면 왕복 프록시 요청없이 동일한 함수 앱 내에 있는 함수를 직접 참조할 수 있습니다.
 
-`"backendurl": "localhost/api/httptriggerC#1"`은 `/api/httptriggerC#1` 경로의 로컬 HTTP 트리거 함수를 참조합니다.
+`"backendurl": "https://localhost/api/httptriggerC#1"`은 `/api/httptriggerC#1` 경로의 로컬 HTTP 트리거 함수를 참조합니다.
+
+ 
+>[!Note]  
+>함수에서 *function, admin 또는 sys* 권한 부여 수준을 사용하는 경우 원본 함수 URL에 따라 코드 및 clientId를 제공해야 합니다. 이 예에서는 참조가 `"backendurl": "https://localhost/api/httptriggerC#1?code=<keyvalue>&clientId=<keyname>"`처럼 보입니다.
 
 ### <a name="request-parameters"></a>요청 매개 변수 참조
 
@@ -114,7 +118,7 @@ Azure Functions 프록시를 사용해서 백 엔드에서 요청 및 응답을 
 
 ## <a name="advanced-configuration"></a>고급 구성
 
-구성하는 프록시는 함수 앱 디렉터리의 루트에 있는 *proxies.json* 파일에 저장됩니다. 이 파일을 수동으로 편집하고 함수가 지원하는 [배포 방법](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment) 중 하나를 사용하여 앱의 일부로 배포할 수 있습니다. 파일이 처리되려면 Azure Functions 프록시 기능이 [사용되도록 설정](#enable)되어야 합니다. 
+구성하는 프록시는 함수 앱 디렉터리의 루트에 있는 *proxies.json* 파일에 저장됩니다. 이 파일을 수동으로 편집하고 함수가 지원하는 [배포 방법](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment) 중 하나를 사용하여 앱의 일부로 배포할 수 있습니다. 
 
 > [!TIP] 
 > 배포 방법 중 하나를 설정하지 않은 경우 포털에서 *proxies.json* 파일로 작업할 수도 있습니다. 함수 앱으로 이동하여 **플랫폼 기능**을 선택한 후 **App Service 편집기**를 선택합니다. 이렇게 하여 함수 앱의 전체 파일 구조를 보고 변경할 수 있습니다.
@@ -229,16 +233,6 @@ requestOverrides 개체는 클라이언트에 다시 전달된 응답에 대한 
 ```
 > [!NOTE] 
 > 이 예제에서 응답 본문은 직접 설정되므로 `backendUri` 속성이 필요하지 않습니다. 다음 예제에서는 모의 API에 Azure Functions 프록시를 어떻게 사용할 수 있는지를 보여 줍니다.
-
-## <a name="enable"></a>Azure Functions 프록시 사용
-
-이제 프록시는 기본적으로 사용하도록 설정됩니다. 이전 버전의 프록시 미리 보기를 사용하고 있으며 프록시를 사용하지 않도록 설정한 경우 프록시 실행을 위해 수동으로 프록시를 한 번 사용하도록 설정해야 합니다.
-
-1. [Azure Portal]을 열고 함수 앱으로 이동합니다.
-2. **함수 앱 설정**을 선택합니다.
-3. **Azure Functions 프록시 사용(미리 보기)**을 **설정**으로 지정합니다.
-
-새 기능을 사용할 수 있게 되면 여기로 돌아와 프록시 런타임을 업데이트할 수도 있습니다.
 
 [Azure Portal]: https://portal.azure.com
 [HTTP 트리거]: https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook#http-trigger

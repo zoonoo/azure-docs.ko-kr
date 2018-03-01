@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/25/2017
 ms.author: obloch
-ms.openlocfilehash: 99a430810b915f4ca06d9c07182319eff1fa299e
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 05a025a02046ff091b4fea75404cb74aad2e07fa
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>C용 Azure IoT 장치 SDK
 
@@ -27,6 +27,10 @@ ms.lasthandoff: 01/18/2018
 C용 Azure IoT 장치 SDK는 이식성을 최대화하기 위해 ANSI C(C99)로 작성됩니다. 이 기능은 다양한 플랫폼과 장치에서 작동하기에 적합한 라이브러리를 만들며, 특히 디스크 및 메모리 사용 공간을 최소화하는 것을 우선적으로 처리합니다.
 
 이 SDK는 광범위한 플랫폼에서 테스트되었습니다(자세한 내용은 [IoT용 Azure Certified 장치 카탈로그](https://catalog.azureiotsuite.com/) 참조). 이 문서에는 Windows 플랫폼에서 실행되는 샘플 코드 연습이 포함되어 있지만, 여기서 설명하는 코드는 지원되는 플랫폼 범위 전반에 걸쳐 정확히 동일합니다.
+
+다음 비디오는 C:에 대한 Azure IoT SDK의 개요를 제공합니다.
+
+>[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-IoT-C-SDK-insights/Player]
 
 이 문서에서는 C용 Azure IoT 장치 SDK의 아키텍처를 소개하며, 장치 라이브러리를 초기화하고 IoT Hub와 데이터를 보내고 메시지를 받는 방법을 보여 줍니다. 이 문서의 정보로 SDK 사용을 시작하기에 충분하지만 라이브러리에 대한 추가 정보에 대한 포인터도 제공합니다.
 

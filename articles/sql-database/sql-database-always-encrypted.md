@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/02/2017
 ms.author: sstein
-ms.openlocfilehash: 47154202d0a8f7704561676fa645b5ccdb5b8c01
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 8e86648195811a666a197b6ee06ad610a1c8d568
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="always-encrypted-protect-sensitive-data-in-sql-database-and-store-your-encryption-keys-in-the-windows-certificate-store"></a>상시 암호화 - SQL Database의 중요한 데이터 보호 및 Windows 인증서 저장소에 암호화 키 저장
 
@@ -48,7 +48,7 @@ ms.lasthandoff: 10/31/2017
 
 ## <a name="create-a-blank-sql-database"></a>빈 SQL 데이터베이스 만들기
 1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
-2. **새로 만들기** > **데이터 + 저장소** > **SQL Database**를 클릭합니다.
+2. **리소스 만들기** > **데이터 + 저장소** > **SQL Database**로 이동합니다.
 3. 새 서버 또는 기존 서버에 **클리닉**이라는 **빈** 데이터베이스를 만듭니다. Azure Portal에서 데이터베이스를 만드는 자세한 지침은 [첫 Azure SQL Database](sql-database-get-started-portal.md)를 참조하세요.
    
     ![빈 데이터베이스 만들기](./media/sql-database-always-encrypted/create-database.png)
@@ -107,7 +107,7 @@ SSMS는 CMK, CEK 및 암호화된 열을 설정하여 상시 암호화를 쉽게
 
 각 환자에 대해 **SSN** 및 **BirthDate** 정보를 암호화합니다. **SSN** 열은 같음 조회, 조인 및 그룹화를 지원하는 결정적 암호화를 사용합니다. **BirthDate** 열은 작업을 지원하지 않는 임의의 암호화를 사용합니다.
 
-**SSN** 열에 대한 **암호화 형식**을 **결정적**으로 설정하고 **BirthDate** 열을 **무작위**로 설정합니다. **다음**을 누릅니다.
+**SSN** 열에 대한 **암호화 형식**을 **결정적**으로 설정하고 **BirthDate** 열을 **무작위**로 설정합니다. **다음**을 클릭합니다.
 
 ![열 암호화](./media/sql-database-always-encrypted/column-selection.png)
 

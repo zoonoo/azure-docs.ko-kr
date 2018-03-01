@@ -1,6 +1,6 @@
 ---
-title: "FedRAMP Azure Blueprint 자동화 - 보안 평가 및 권한 부여"
-description: "FedRAMP용 웹 응용 프로그램 - 보안 평가 및 권한 부여"
+title: "Azure Security and Compliance Blueprint - FedRAMP 웹 응용 프로그램 자동화 - 보안 평가 및 권한 부여"
+description: "FedRAMP 웹 응용 프로그램 자동화 - 보안 평가 및 권한 부여"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 24c3e53d12f1479ba2d6b17bf28ebb7e5912206e
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: d1c9846589adaef0baeeaf16077c8e74bef1cd9f
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="security-assessment-and-authorization-ca"></a>보안 평가 및 권한 부여(CA)
 
@@ -203,7 +203,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **고객** | Azure Application Gateway 및 네트워크 보안 그룹을 배포하여 외부 연결을 이 Azure Blueprint에서 배포한 리소스로 제한합니다. 네트워크 보안 그룹에 적용되는 규칙 집합은 deny-by-default 체계를 사용하여 구성됩니다. |
+| **고객** | Azure Application Gateway 및 네트워크 보안 그룹을 배포하여 외부 연결을 이 Blueprint에서 배포한 리소스로 제한합니다. 네트워크 보안 그룹에 적용되는 규칙 집합은 deny-by-default 체계를 사용하여 구성됩니다. |
 | **공급자(Microsoft Azure)** | 해당 없음 |
 
 

@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: parakhj
-ms.openlocfilehash: 33df6c4255d4ca672e65237c8be45b3f0bc7864e
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: dd84a8da348d0d534ba19a3d61970ec0d8c66cc8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: Azure AD Graph API 사용
 
@@ -45,7 +45,7 @@ B2C 테넌트를 설정한 후에 [Azure Portal](https://portal.azure.com)을 �
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 페이지의 오른쪽 위 모서리에서 계정을 선택하여 Azure AD B2C 테넌트를 선택합니다.
-3. 왼쪽 탐색 창에서 **추가 서비스**를 선택하고 **앱 등록**을 클릭한 다음 **추가**를 클릭합니다.
+3. 왼쪽 탐색 창에서 **모든 서비스**를 선택하고 **앱 등록**을 클릭한 다음, **추가**를 클릭합니다.
 4. 프롬프트에 따라 새 응용 프로그램을 만듭니다. 
     1. 응용 프로그램 형식에 **Web App/API**를 입력합니다.    
     2. 이 예제와 관련이 없지만 **모든 리디렉션 URI**(예: https://B2CGraphAPI )를 제공합니다.  

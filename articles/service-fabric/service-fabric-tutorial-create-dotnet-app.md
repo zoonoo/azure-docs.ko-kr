@@ -1,26 +1,10 @@
+-- title: Service Fabric에 대한 .NET 응용 프로그램 만들기 | Microsoft Docs description: ASP.NET Core 프런트 엔드 및 신뢰할 수 있는 서비스 상태 저장 백 엔드로 응용 프로그램을 만들고 클러스터에 배포하는 방법을 알아봅니다.
+services: service-fabric documentationcenter: .net author: rwike77 manager: timlt editor: ''
+
+ms.assetid: ms.service: service-fabric ms.devlang: dotNet ms.topic: tutorial ms.tgt_pltfrm: NA ms.workload: NA ms.date: 01/29/2018 ms.author: ryanwi ms.custom: mvc
+
 ---
-title: "Service Fabric에 대한 .NET 응용 프로그램 만들기 | Microsoft Docs"
-description: "ASP.NET Core 프런트 엔드 및 신뢰할 수 있는 서비스 상태 저장 백 엔드로 응용 프로그램을 만들고 클러스터에 배포하는 방법에 대해 알아봅니다."
-services: service-fabric
-documentationcenter: .net
-author: rwike77
-manager: timlt
-editor: 
-ms.assetid: 
-ms.service: service-fabric
-ms.devlang: dotNet
-ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 01/29/2018
-ms.author: ryanwi
-ms.custom: mvc
-ms.openlocfilehash: 467abe321fba166f1b862ae9f254c4943ba9e488
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
----
+
 # <a name="create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>ASP.NET Core Web API 프런트 엔드 서비스 및 상태 저장 백 엔드 서비스로 응용 프로그램 만들기 및 배포
 이 자습서는 시리즈의 1부입니다.  ASP.NET Core Web API 프런트 엔드 및 상태 저장 백 엔드 서비스에서 Azure Service Fabric 응용 프로그램을 만들어 데이터를 저장하는 방법을 알아봅니다. 완료하면 투표 결과를 클러스터의 상태 저장 백 엔드 서비스에 저장하는 ASP.NET Core 웹 프런트 엔드가 있는 투표 응용 프로그램이 생깁니다. 수동으로 투표 응용 프로그램을 만들지 않으려면 완성된 응용 프로그램에서 [소스 코드를 다운로드](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/)하고 [투표 샘플 응용 프로그램을 설명](#walkthrough_anchor)하기 위해 바로 건너뛸 수 있습니다.
 
@@ -43,7 +27,7 @@ ms.lasthandoff: 02/01/2018
 ## <a name="prerequisites"></a>필수 조건
 이 자습서를 시작하기 전에:
 - Azure 구독이 없는 경우 [평가판 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
-- **Azure 개발**과 **ASP.NET 및 웹 개발** 워크로드가 포함된 [Visual Studio 2017 버전 15.3 이상을 설치](https://www.visualstudio.com/)합니다.
+- **Azure 개발**과 **ASP.NET 및 웹 개발** 워크로드가 포함된 [Visual Studio 2017 버전 15.5 이상을 설치](https://www.visualstudio.com/)합니다.
 - [Service Fabric SDK를 설치](service-fabric-get-started.md)합니다.
 
 ## <a name="create-an-aspnet-web-api-service-as-a-reliable-service"></a>ASP.NET Web API 서비스를 신뢰할 수 있는 서비스로 만들기

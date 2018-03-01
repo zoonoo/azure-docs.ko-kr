@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro;seohack1
-ms.openlocfilehash: 8799931f6233f0f18b56bea39e3cbcbbf51274e9
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 0cf26846a8f42238de09727a03dc6b50dff746b6
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Azure AD에서 셀프 서비스 암호 재설정 자세히 알아보기
 
@@ -78,7 +78,7 @@ SSPR을 사용하는 경우 인증 방법으로 다음 옵션 중 하나 이상�
 
 사용자는 관리자가 사용하도록 설정하고 요구하는 인증 방법으로 데이터를 표시하는 경우에만 자신의 암호를 재설정할 수 있습니다.
 
-사용자가 자신의 휴대폰 번호를 디렉터리에는 표시하지 않는 대신 암호 재설정에는 사용하도록 하려면 관리자가 디렉터리에 해당 휴대폰 번호를 채우지 않아야 합니다. 그런 다음 사용자가 [암호 재설정 등록 포털](http://aka.ms/ssprsetup)을 통해 **인증 전화** 특성을 채워야 합니다. 관리자는 사용자의 프로필에서 이 정보를 볼 수 있지만 다른 곳에 게시되지는 않습니다.
+사용자가 자신의 휴대폰 번호를 디렉터리에는 표시하지 않는 대신 암호 재설정에는 사용하도록 하려면 관리자가 디렉터리에 해당 휴대폰 번호를 채우지 않아야 합니다. 그런 다음 사용자가 [암호 재설정 등록 포털](https://aka.ms/ssprsetup)을 통해 **인증 전화** 특성을 채워야 합니다. 관리자는 사용자의 프로필에서 이 정보를 볼 수 있지만 다른 곳에 게시되지는 않습니다.
 
 ### <a name="the-number-of-authentication-methods-required"></a>필요한 인증 방법의 수
 
@@ -180,7 +180,7 @@ SSPR을 사용하는 경우 인증 방법으로 다음 옵션 중 하나 이상�
 * 페더레이션된 응용 프로그램
 * Azure AD를 사용하여 응용 프로그램 사용자 지정
 
-등록 요구를 사용하지 않도록 설정되더라도 사용자는 자신의 연락처 정보를 수동으로 등록할 수 있습니다. [액세스 패널]의 **프로필** 탭 아래에서 [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup)을 방문하거나 **암호 재설정에 등록** 링크를 선택할 수 있습니다.
+등록 요구를 사용하지 않도록 설정되더라도 사용자는 자신의 연락처 정보를 수동으로 등록할 수 있습니다. 액세스 패널의 **프로필** 탭 아래에서 [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup)을 방문하거나 **암호 재설정에 등록** 링크를 선택할 수 있습니다.
 
 > [!NOTE]
 > 사용자가 **취소**를 선택하거나 창을 닫으면 암호 재설정 등록 포털을 해제할 수 있습니다. 그러나 이 경우에는 등록을 완료할 때까지 로그인할 때마다 등록하도록 요구하는 메시지가 표시됩니다.

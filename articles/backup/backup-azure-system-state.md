@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: saurse;markgal
-ms.openlocfilehash: 5481e9139f18cb88ce5152776fa18df3f9441c80
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: e7dce94e56a8b51dd1c47e306aeb1d11d0dfb45c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="back-up-windows-system-state-in-resource-manager-deployment"></a>Resource Manager 배포에서 Windows 시스템 상태 백업
 이 문서에서는 Azure에 Windows 서버 시스템 상태를 백업하는 방법을 설명합니다. 기본 사항을 안내하기 위해 마련된 자습서입니다.
@@ -33,7 +33,7 @@ Windows Server 시스템 상태를 백업하려면 데이터를 저장하려는 
 
 ### <a name="to-create-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음을 만들려면
 1. [Azure Portal](https://portal.azure.com/) 에 아직 로그인하지 않은 경우 Azure 구독을 사용하여 로그인합니다.
-2. [허브] 메뉴에서 **추가 서비스**를 클릭하고 리소스 목록에서 **Recovery Services**를 입력한 다음 **Recovery Services 자격 증명 모음**을 클릭합니다.
+2. 허브 메뉴에서 **모든 서비스**를 클릭하고 리소스 목록에서 **Recovery Services**를 입력한 다음, **Recovery Services 자격 증명 모음**을 클릭합니다.
 
     ![Recovery Services 자격 증명 모음 만들기 1단계](./media/backup-azure-system-state/open-rs-vault-list.png) <br/>
 
@@ -62,7 +62,7 @@ Windows Server 시스템 상태를 백업하려면 데이터를 저장하려는 
 
 8. Recovery Services 자격 증명 모음 블레이드의 하단에서 **만들기**를 클릭합니다.
 
-    Recovery Services 자격 증명 모음을 만드는 데 몇 분 정도 걸릴 수 있습니다. 포털의 오른쪽 위 영역에 있는 상태 알림을 모니터링합니다. 자격 증명 모음이 생성되면 Recovery Services 자격 증명 모음 목록에 나타납니다. 몇 분이 지나도 자격 증명 모음이 보이지 않으면 **새로 고침**을 클릭합니다.
+    Recovery Services 자격 증명 모음을 만드는 데 몇 분 정도 걸릴 수 있습니다. 포털의 오른쪽 위 영역에 있는 상태 알림을 모니터링합니다. 자격 증명 모음이 생성되면 Recovery Services 자격 증명 모음 목록에 표시됩니다. 몇 분이 지나도 자격 증명 모음이 보이지 않으면 **새로 고침**을 클릭합니다.
 
     ![새로 고침 단추 클릭](./media/backup-try-azure-backup-in-10-mins/refresh-button.png)</br>
 
@@ -114,7 +114,7 @@ Recovery Services 자격 증명 모음을 만드는 경우 저장소 중복을 �
 
 4. **인프라 준비** 블레이드에서 **Windows Server 또는 Windows Client용 에이전트 다운로드**를 클릭합니다.
 
-    ![Windows Server 또는 Windows 클라이언트의 에이전트 다운로드](./media/backup-try-azure-backup-in-10-mins/choose-agent-for-server-client.png)
+    ![인프라 준비](./media/backup-try-azure-backup-in-10-mins/choose-agent-for-server-client.png)
 
     Windows Server Essential을 사용하는 경우 Windows Server Essential 용 에이전트를 다운로드하도록 선택합니다. MARSAgentInstaller.exe를 실행하거나 저장하라는 팝업 메뉴가 나타납니다.
 
@@ -132,7 +132,7 @@ Recovery Services 자격 증명 모음을 만드는 경우 저장소 중복을 �
 
     ![자격 증명 모음 자격 증명 다운로드](./media/backup-try-azure-backup-in-10-mins/download-vault-credentials.png)
 
-    자격 증명 모음 자격 증명이 [다운로드] 폴더로 다운로드됩니다. 자격 증명 모음 다운로드가 완료되면 자격 증명을 열거나 저장할지 묻는 팝업이 나타납니다. **Save**를 클릭합니다. 실수로 **열기**를 클릭하면 자격 증명 모음 자격 증명을 열려고 하는 대화 상자가 나타나지 않습니다. 자격 증명 모음 자격 증명을 열 수 없습니다. 다음 단계를 진행합니다. 자격 증명 모음은 다운로드 폴더에 있습니다.   
+    자격 증명 모음 자격 증명이 [다운로드] 폴더로 다운로드됩니다. 자격 증명 모음 다운로드가 완료되면 자격 증명을 열거나 저장할지 묻는 팝업이 나타납니다. **저장**을 클릭합니다. 실수로 **열기**를 클릭하면 자격 증명 모음 자격 증명을 열려고 하는 대화 상자가 나타나지 않습니다. 자격 증명 모음 자격 증명을 열 수 없습니다. 다음 단계를 진행합니다. 자격 증명 모음은 다운로드 폴더에 있습니다.   
 
     ![자격 증명 모음 자격 증명 다운로드 완료](./media/backup-try-azure-backup-in-10-mins/vault-credentials-downloaded.png)
 > [!NOTE]
@@ -180,7 +180,7 @@ Recovery Services 자격 증명 모음을 만드는 경우 저장소 중복을 �
 
     ![Azure Recovery Services 에이전트 시작](./media/backup-try-azure-backup-in-10-mins/snap-in-search.png)
 
-2. Recovery Services 에이전트에서 **백업 예약**을 클릭합니다.
+2. Recovery Services 에이전트에서 **Backup 예약**을 클릭합니다.
 
     ![Windows Server 백업 예약](./media/backup-try-azure-backup-in-10-mins/schedule-first-backup.png)
 
@@ -190,7 +190,7 @@ Recovery Services 자격 증명 모음을 만드는 경우 저장소 중복을 �
 
 5. **시스템 상태**를 선택하고 **확인**을 클릭합니다.
 
-6. **다음**을 누릅니다.
+6. **다음**을 클릭합니다.
 
 7. 이후 페이지에서 시스템 상태 백업에 대해 필요한 백업 빈도와 보존 정책을 선택합니다. 
 

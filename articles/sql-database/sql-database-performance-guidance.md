@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: On Demand
-ms.date: 02/09/2017
+ms.date: 02/12/2018
 ms.author: carlrab
-ms.openlocfilehash: 5dc245a29a9106156c207ed7394f8bb289db729e
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 0a7bce49a73d60785f09f270894afc4037661e10
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="tuning-performance-in-azure-sql-database"></a>Azure SQL Database에서 성능 튜닝
 
@@ -34,7 +34,7 @@ Azure SQL Database는 데이터베이스의 성능을 개선하는 데 사용할
 
 ## <a name="increasing-performance-tier-of-your-database"></a>데이터베이스의 성능 계층 늘리기
 
-Azure SQL Database는 사용자가 선택할 수 있는 4가지 [서비스 계층](sql-database-service-tiers.md)(기본, 표준, 프리미엄, 프리미엄 RS)을 제공합니다(성능은 데이터베이스 처리량 단위 또는 [DTU](sql-database-what-is-a-dtu.md)로 측정함). 각 서비스 계층에서는 사용자의 SQL Database가 사용할 수 있는 리소스를 엄격하게 분리하며 해당 서비스 수준의 예측 가능한 성능을 보장합니다. 이 문서에서는 응용 프로그램에 대한 서비스 계층을 선택하는 데 도움이 되는 지침을 제공합니다. 또한 Azure SQL Database를 활용하도록 응용 프로그램을 튜닝할 수 있는 방법도 설명합니다.
+Azure SQL Database는 사용자가 선택할 수 있는 4가지 [서비스 계층](sql-database-service-tiers.md)(기본, 표준 및 프리미엄)을 제공합니다(성능은 데이터베이스 처리량 단위 또는 [DTU](sql-database-what-is-a-dtu.md)로 측정함). 각 서비스 계층에서는 사용자의 SQL Database가 사용할 수 있는 리소스를 엄격하게 분리하며 해당 서비스 수준의 예측 가능한 성능을 보장합니다. 이 문서에서는 응용 프로그램에 대한 서비스 계층을 선택하는 데 도움이 되는 지침을 제공합니다. 또한 Azure SQL Database를 활용하도록 응용 프로그램을 튜닝할 수 있는 방법도 설명합니다.
 
 > [!NOTE]
 > 이 문서는 Azure SQL Database의 단일 데이터베이스에 대한 성능 지침을 중심으로 살펴봅니다. 탄력적 풀과 관련된 성능 지침을 보려면 [탄력적 풀의 가격 및 성능 고려 사항](sql-database-elastic-pool-guidance.md)을 참조하세요. 단, 이 문서의 많은 튜닝 권장 사항을 탄력적 풀의 데이터베이스에 적용하고 유사한 성능 이점을 얻을 수는 있습니다.
@@ -49,7 +49,6 @@ Azure SQL Database는 사용자가 선택할 수 있는 4가지 [서비스 계�
   * **높은 최고 부하**. 작업을 완료하기 위해 CPU, 메모리 또는 입력/출력(I/O)을 많이 요구하는 응용 프로그램에는 높은 수준의 전용 성능이 필요합니다. 예를 들어 데이터베이스 작업이 장시간 많은 CPU 코어를 사용해야 하는 것으로 확인된 경우 Premium 서비스 계층이 적합합니다.
   * **동시 요청이 많은 경우**. 일부 데이터베이스 응용 프로그램은 트래픽 양이 많은 웹 사이트와 같이 많은 동시 요청을 지원합니다. Basic 및 Standard 서비스 계층은 데이터베이스당 동시 요청 수가 제한적입니다. 추가 연결이 필요한 응용 프로그램은 적절한 예약 크기를 선택하여 필요한 요청의 최대 수를 처리해야 합니다.
   * **낮은 대기 시간**. 일부 응용 프로그램은 데이터베이스에서 최소 시간의 응답을 보장해야 합니다. 광범위한 고객 작업의 일부로 특정 저장된 프로시저가 호출될 경우 시간의 99%인 20밀리초 이내에 해당 호출에서 반환해야 하는 요구 사항이 있을 수 있습니다. 이러한 유형의 응용 프로그램은 Premium 서비스 계층을 활용하여 필요한 컴퓨팅 성능의 가용성을 보장할 수 있습니다.
-* **프리미엄 RS**: 프리미엄 RS 계층은 IO 집약적 워크로드를 진행하지만 최고 가용성을 보장할 필요는 없는 경우를 위해 설계되었습니다. 예제에는 데이터베이스가 레코드 시스템이 아닌 고성능 작업 또는 분석 작업 테스트가 포함됩니다.
 
 SQL Database에 필요한 서비스 수준은 각 리소스 규격의 최고 부하 요구 사항에 따라 다릅니다. 일부 응용 프로그램은 단일 리소스를 매우 적게 사용하는 반면 다른 리소스에 대한 요구 사항은 높습니다.
 

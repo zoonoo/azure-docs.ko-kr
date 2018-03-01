@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: e1beb06301807c35a1b070989a0f80f4c8097762
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 439fadeb01ccad58642492eb49ef25f866a9a9dd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-an-external-app-service-environment"></a>외부 App Service Environment 만들기 #
 
@@ -59,7 +59,7 @@ App Service 계획은 앱의 컨테이너입니다. App Service에서 앱을 만
 
 App Service 계획을 만들면서 ASE를 만드는 경우 다음을 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com/)에서 **새로 만들기** > **웹 + 모바일** > **웹앱**을 선택합니다.
+1. [Azure Portal](https://portal.azure.com/)에서 **리소스 만들기** > **웹 + 모바일** > **웹앱**을 선택합니다.
 
     ![웹앱 만들기][1]
 
@@ -97,7 +97,7 @@ App Service 계획을 만들면서 ASE를 만드는 경우 다음을 수행합�
 
 ASE 독립 실행형을 만드는 경우 내부에는 아무것도 없습니다. 빈 ASE도 여전히 인프라에 대한 월별 요금이 청구됩니다. ILB를 사용하여 ASE를 만들거나 고유한 리소스 그룹에서ASE를 만들려면 다음 단계를 수행합니다. ASE를 만든 후에 기본 프로세스를 사용하여 앱을 만들 수 있습니다. 위치로 새 ASE를 선택합니다.
 
-1. Azure Marketplace에서 **App Service Environment**를 검색하거나 **새로 만들기** > **웹 모바일** > **App Service Environment**를 선택합니다. 
+1. Azure Marketplace에서 **App Service Environment**를 검색하거나 **리소스 만들기** > **웹 모바일** > **App Service Environment**를 선택합니다. 
 
 2. ASE의 이름을 입력합니다. 이 이름은 ASE에서 만든 앱에 사용됩니다. 이름이 *mynewdemoase*인 경우 하위 도메인 이름은 *.mynewdemoase.p.azurewebsites.net*입니다. *mytestapp*이라는 앱을 만든 경우 mytestapp.mynewdemoase.p.azurewebsites.net으로 주소를 지정할 수 있습니다. 이름에 공백을 사용할 수 없습니다. 대문자를 사용한 경우 도메인 이름은 해당 이름의 소문자 버전이 됩니다. ILB를 사용하는 경우 ASE 이름이 하위 도메인에서 사용되지 않는 대신 ASE를 만드는 동안에 명시적으로 지정됩니다.
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: jodehavi;stgriffi
-ms.openlocfilehash: 2de788fabcae501d1a388bcea6b7759c9ea269cc
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 793f35bfd2e5e6b22e0804f01a69c0c20990d211
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="set-up-azure-key-vault-with-end-to-end-key-rotation-and-auditing"></a>종단 간 키 회전 및 감사를 사용하여 Azure Key Vault 설정
 ## <a name="introduction"></a>소개
@@ -255,12 +255,12 @@ Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id
 
 1. Service Bus 네임스페이스를 만듭니다(사용할 네임스페이스가 이미 있는 경우 2단계로 건너뜀).
 2. Azure Portal에서 Service Bus를 찾아 안에 큐를 만들 네임스페이스를 선택합니다.
-3. **새로 만들기**를 선택하고 **Service Bus -> 큐**를 선택한 다음 필요한 세부 정보를 입력합니다.
+3. **리소스 만들기**, **엔터프라이즈 통합**, **Service Bus**를 차례로 선택한 다음, 필요한 세부 사항을 입력합니다.
 4. 네임스페이스를 선택하고 **연결 정보**를 클릭하여 Service Bus 연결 정보를 선택합니다. 다음 섹션에서 이 정보가 필요합니다.
 
 다음으로, [Azure 함수를 만들어](../azure-functions/functions-create-first-azure-function.md) 저장소 계정 내에서 Key Vault 로그를 폴링하고 새 이벤트를 선택합니다. 그러면 일정에 따라 트리거되는 함수가 됩니다.
 
-Azure 함수를 만들려면 Azure Portal에서 **새로 만들기 -> 함수 앱**을 선택합니다. 만들기 중에 기존 호스팅 계획을 사용하거나 새 계획을 만들 수 있습니다. 동적 호스팅을 선택할 수도 있습니다. 함수 호스팅 옵션에 대한 자세한 내용은 [Azure Functions 크기 조정 방법](../azure-functions/functions-scale.md)에서 찾을 수 있습니다.
+Azure 함수를 만들려면 **리소스 만들기**를 선택하고 마켓플레이스에서 _함수 앱_을 검색한 다음, **만들기**를 클릭합니다. 만들기 중에 기존 호스팅 계획을 사용하거나 새 계획을 만들 수 있습니다. 동적 호스팅을 선택할 수도 있습니다. 함수 호스팅 옵션에 대한 자세한 내용은 [Azure Functions 크기 조정 방법](../azure-functions/functions-scale.md)에서 찾을 수 있습니다.
 
 Azure 함수를 만들었으면 해당 함수로 이동하여 타이머 함수 및 C\#을 선택합니다. 그런 다음 **이 함수 만들기**를 클릭합니다.
 
