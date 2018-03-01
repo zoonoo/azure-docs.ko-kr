@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 265d58ce4098ea924318dfe2959397d60a0721d6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e5c8562b89b70236d9d65a5f8765ae386d6831b4
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="problem-configuring-password-single-sign-on-for-a-non-gallery-application"></a>비갤러리 응용 프로그램에 대해 암호 Single Sign-On 구성 문제
 
@@ -33,11 +33,11 @@ ms.lasthandoff: 12/11/2017
 
 -   수동 로그인 필드 캡처
 
-**자동 로그인 필드 캡처**는 **사용자 이름 및 암호 입력에 대해 잘 알려진 DIV ID** 필드를 사용하는 경우 대부분의 HTML 기반 로그인 페이지에서 잘 작동합니다. 자동 로그인 필드 캡처는 페이지의 HTML을 스크랩하여 특정 기준과 일치하는 DIV ID를 찾은 다음 나중에 암호를 재생할 수 있도록 이 응용 프로그램에 대한 메타데이터를 저장합니다.
+**자동 로그인 필드 캡처**는 **사용자 이름 및 암호 입력에 대해 잘 알려진 DIV ID** 필드를 사용하는 경우 대부분의 HTML 기반 로그인 페이지에서 잘 작동합니다. 자동 로그인 필드 캡처는 페이지의 HTML을 스크랩하여 특정 기준과 일치하는 DIV ID를 찾은 다음, 나중에 암호를 재생할 수 있도록 이 응용 프로그램에 대한 메타데이터를 저장합니다.
 
 **수동 로그인 필드 캡처**는 응용 프로그램 **공급업체에서 로그인에 대해 사용되는 입력 필드에 레이블을 지정하지 않은** 경우에 사용할 수 있습니다. 또한 수동 로그인 필드 캡처는 **공급업체에서 자동으로 검색할 수 없는 여러 필드를 렌더링하는 경우**에 사용할 수 있습니다. 해당 필드가 있는 페이지 위치를 알려주면 Azure AD에서는 로그인 페이지에 있는 많은 필드에 대해 데이터를 저장할 수 있습니다.
 
-일반적으로 **자동 로그인 필드 캡처가 작동하지 않는 경우 수동 옵션을 사용해 보는 것이 좋습니다.**
+일반적으로 **자동 로그인 필드 캡처가 작동하지 않는 경우 수동 옵션을 사용해 보세요.**
 
 ### <a name="how-to-automatically-capture-sign-in-fields-for-an-application"></a>응용 프로그램에 대한 로그인 필드를 자동으로 캡처하는 방법
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 12/11/2017
 
 1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 또는 **공동 관리자** 권한으로 로그인합니다.
 
-2.  왼쪽 주 탐색 메뉴의 맨 아래에서 **추가 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
+2.  왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
 3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
@@ -61,7 +61,7 @@ ms.lasthandoff: 12/11/2017
 
 8.  **암호 기반 로그온** 모드를 선택합니다.
 
-9.  **로그온 URL**을 입력합니다. 사용자가 로그인하기 위해 사용자 이름과 암호를 입력하는 URL입니다. **제공하는 URL에서 로그인 필드가 표시되는지 확인합니다**.
+9.  사용자가 로그인하려면 사용자 이름과 암호를 입력해야 하는 **로그인 URL**을 입력합니다. **입력하는 URL에서 로그인 필드가 표시되는지 확인합니다**.
 
 10. **저장** 단추를 클릭합니다.
 
@@ -75,7 +75,7 @@ ms.lasthandoff: 12/11/2017
 
 1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 또는 **공동 관리자** 권한으로 로그인합니다.
 
-2.  왼쪽 주 탐색 메뉴의 맨 아래에서 **추가 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
+2.  왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
 3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
@@ -91,7 +91,7 @@ ms.lasthandoff: 12/11/2017
 
 8.  **암호 기반 로그온** 모드를 선택합니다.
 
-9.  **로그온 URL**을 입력합니다. 사용자가 로그인하기 위해 사용자 이름과 암호를 입력하는 URL입니다. **제공하는 URL에서 로그인 필드가 표시되는지 확인합니다**.
+9.  사용자가 로그인하려면 사용자 이름과 암호를 입력해야 하는 **로그인 URL**을 입력합니다. **입력하는 URL에서 로그인 필드가 표시되는지 확인합니다**.
 
 10. **저장** 단추를 클릭합니다.
 
@@ -101,9 +101,9 @@ ms.lasthandoff: 12/11/2017
 
 13. **로그인 필드 수동 검색** 구성 옵션을 선택합니다.
 
-14. **확인**을 클릭합니다.
+14. **Ok**를 클릭합니다.
 
-15. **Save**를 클릭합니다.
+15. **저장**을 클릭합니다.
 
 16. 화면의 지시에 따라 액세스 패널을 사용합니다.
 
@@ -113,7 +113,7 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="i-see-an-unable-to-save-single-sign-on-configuration-error"></a>“Single Sign-On 구성을 저장할 수 없음” 오류가 표시됨
 
-드물지만 Single Sign-On 구성 업데이트에 실패할 수 있습니다. 이 문제를 해결하려면 Single Sign-On 구성을 다시 저장해 보세요.
+드물지만 Single Sign-On 구성 업데이트에 실패할 수 있습니다. 문제를 해결하려면 Single Sign-On 구성을 다시 저장해 보세요.
 
 계속 실패하는 경우 지원 케이스를 열고 [포털 알림의 세부 정보를 확인하는 방법](#i-cannot-manually-detect-sign-in-fields-for-my-application) 및 [지원 엔지니어에게 알림 세부 정보를 전송하여 도움을 얻는 방법](#how-to-get-help-by-sending-notification-details-to-a-support-engineer) 섹션에서 수집한 정보를 제공하세요.
 
@@ -179,7 +179,7 @@ ms.lasthandoff: 12/11/2017
   >
   >
 
-3.  **알림 세부 정보** 블레이드가 열립니다.
+3.  **알림 세부 정보** 창이 열립니다.
 
 4.  이 정보를 사용하여 문제에 대한 자세한 내용을 이해합니다.
 
@@ -189,7 +189,7 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="how-to-get-help-by-sending-notification-details-to-a-support-engineer"></a>지원 엔지니어에게 알림 세부 정보를 전송하여 도움을 얻는 방법
 
-도움이 필요한 경우 지원 엔지니어가 신속하게 도움을 줄 수 있도록 **아래에 나열된 모든 세부 정보**를 공유하는 것은 매우 중요합니다. **스크린샷을 찍거나** **오류 복사** 텍스트 상자 오른쪽에 있는 **오류 복사 아이콘**을 클릭하여 이를 쉽게 수행할 수 있습니다.
+도움이 필요한 경우 지원 엔지니어가 신속하게 도움을 줄 수 있도록 **아래에 나열된 모든 세부 정보**를 공유하는 것은 매우 중요합니다. **스크린샷을 찍거나** **오류 복사** 텍스트 상자 오른쪽에 있는 **오류 복사 아이콘**을 클릭할 수 있습니다.
 
 ## <a name="notification-details-explained"></a>알림 세부 정보 설명
 

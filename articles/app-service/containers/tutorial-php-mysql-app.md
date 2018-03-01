@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 11/28/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 9212e2a0063446cc6f1fd5faeb7ee61888fc0ecf
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 7c3107d7385413d15445a8b3a3cd2476973ab632
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="build-a-php-and-mysql-web-app-in-azure-app-service-on-linux"></a>Linux의 Azure App Service에서 PHP 및 MySQL 웹앱 작성
 
@@ -320,7 +320,7 @@ git commit -m "database.php updates"
 Laravel 응용 프로그램은 _/public_ 디렉터리에서 시작됩니다. App Service용 기본 PHP Docker 이미지는 Apache를 사용하며 Laravel에 맞게 `DocumentRoot`를 사용자 지정하는 것을 허용하지 않습니다. 하지만 `.htaccess`를 사용하여 루트 디렉터리 대신 _/public_을 가리키도록 모든 요청을 다시 쓸 수 있습니다. 리포지토리 루트에는 이 목적을 위해 `.htaccess`가 이미 추가되었습니다. 이를 통해 Laravel 응용 프로그램을 배포할 수 있습니다.
 
 > [!NOTE] 
-> _.htaccess_ 다시 쓰기를 사용하지 않으려면 [사용자 지정 Docker 이미지](quickstart-custom-docker-image.md)를 대신 사용하여 Laravel 응용 프로그램을 배포할 수 있습니다.
+> _.htaccess_ 다시 쓰기를 사용하지 않으려면 [사용자 지정 Docker 이미지](quickstart-docker-go.md)를 대신 사용하여 Laravel 응용 프로그램을 배포할 수 있습니다.
 >
 >
 

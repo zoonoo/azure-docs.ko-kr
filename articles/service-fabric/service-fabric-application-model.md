@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/07/2017
+ms.date: 2/23/2018
 ms.author: ryanwi
-ms.openlocfilehash: d5f6fbb9d9c0bc0d9762f8d6b4b4eb3b02d29adc
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 506daa2dc0612fc49a67c5faf3c7ab51ac90126f
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="model-an-application-in-service-fabric"></a>서비스 패브릭에서 응용 프로그램 모델링
 이 문서에서는 Azure Service Fabric 응용 프로그램 모델의 개요 및 매니페스트 파일을 통해 응용 프로그램과 서비스를 정의하는 방법에 대해 설명합니다.

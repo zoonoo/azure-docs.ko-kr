@@ -8,11 +8,11 @@ ms.service: event-grid
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: babanisa
-ms.openlocfilehash: 2b0039c7b90ef6f003641e096521f84885171c26
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 9d1f0eed28a1c1c6776ddba89480adcedfc599a5
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-event-grid-event-schema"></a>Azure Event Grid 이벤트 스키마
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 02/01/2018
 [
   {
     "topic": string,
-    "subject": string,    
+    "subject": string,
     "id": string,
     "eventType": string,
     "eventTime": string,
@@ -72,27 +72,29 @@ ms.lasthandoff: 02/01/2018
   }
 ]
 ```
- 
+
 ## <a name="event-properties"></a>이벤트 속성
 
 모든 이벤트에는 다음과 같은 동일한 최상위 수준 데이터가 포함됩니다.
 
 | 자산 | 형식 | 설명 |
 | -------- | ---- | ----------- |
-| 토픽 | string | 이벤트 원본에 대한 전체 리소스 경로입니다. 이 필드는 쓸 수 없습니다. Event Grid가 이 값을 제공합니다. |
+| 토픽 | string | 이벤트 원본에 대한 전체 리소스 경로입니다. 이 필드는 쓸 수 없습니다. Event Grid는 이 값을 제공합니다. |
 | subject | string | 게시자가 정의한 이벤트 주체에 대한 경로입니다. |
 | eventType | string | 이 이벤트 원본에 대해 등록된 이벤트 유형 중 하나입니다. |
 | eventTime | string | 공급자의 UTC 시간을 기준으로 이벤트가 생성되는 시간입니다. |
 | id | string | 이벤트에 대한 고유 식별자입니다. |
 | 데이터 | object | 특정 리소스 공급자에 대한 이벤트 데이터입니다. |
 | dataVersion | string | 데이터 개체의 스키마 버전입니다. 게시자가 스키마 버전을 정의합니다. |
-| metadataVersion | string | 이벤트 메타데이터의 스키마 버전입니다. Event Grid는 최상위 속성의 스키마를 정의합니다. Event Grid가 이 값을 제공합니다. |
+| metadataVersion | string | 이벤트 메타데이터의 스키마 버전입니다. Event Grid는 최상위 속성의 스키마를 정의합니다. Event Grid는 이 값을 제공합니다. |
 
 데이터 개체의 속성에 대해 자세히 알아보려면 이벤트 원본을 참조하십시오.
 
 * [Azure 구독(관리 작업)](event-schema-subscriptions.md)
 * [Blob storage](event-schema-blob-storage.md)
 * [Event Hubs](event-schema-event-hubs.md)
+* [Service Bus](event-schema-service-bus.md)
+* [IoT 허브](event-schema-iot-hub.md)
 * [리소스 그룹(관리 작업)](event-schema-resource-groups.md)
 
 사용자 지정 항목의 경우 이벤트 게시자가 데이터 개체를 결정합니다. 최상위 수준 데이터에는 표준 리소스 정의 이벤트와 동일한 필드가 있어야 합니다. 사용자 지정 항목에 이벤트를 게시할 때 라우팅 및 필터링을 지원하도록 이벤트의 주체를 모델링하는 것이 좋습니다.

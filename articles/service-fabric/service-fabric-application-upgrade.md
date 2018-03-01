@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 2/13/2018
+ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: cdad0617c59fd5881c3857388809fac2186b36d8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 765931d8a888432e0cc77ff86d597b6e2a029a2a
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="service-fabric-application-upgrade"></a>서비스 패브릭 응용 프로그램 업그레이드
 Azure 서비스 패브릭 응용 프로그램은 서비스의 컬렉션입니다. 업그레이드가 진행되는 동안 서비스 패브릭은 새로운 [응용 프로그램 매니페스트](service-fabric-application-and-service-manifests.md) 를 이전 버전과 비교하여 응용 프로그램의 어떤 서비스를 업데이트해야 하는지 결정합니다. 서비스 패브릭은 이전 버전의 버전 번호를 가진 서비스 매니페스트의 버전 번호를 비교합니다. 서비스가 변경되지 않으면 해당 서비스가 업그레이드되지 않습니다.

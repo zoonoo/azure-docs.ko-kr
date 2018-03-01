@@ -1,7 +1,7 @@
 ---
-title: "데이터 과학 가상 컴퓨터 개발 도구 - Azure | Microsoft Docs"
-description: "데이터 과학 가상 컴퓨터 개발 도구입니다."
-keywords: "데이터 과학 도구, 데이터 과학 가상 컴퓨터, 데이터 과학용 도구, linux 데이터 과학"
+title: "데이터 과학 Virtual Machine 개발 도구 - Azure | Microsoft Docs"
+description: "데이터 과학 가상 머신 개발 도구입니다."
+keywords: "데이터 과학 도구, 데이터 과학 가상 머신, 데이터 과학용 도구, linux 데이터 과학"
 services: machine-learning
 documentationcenter: 
 author: bradsev
@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.openlocfilehash: b6a333d075e0391adca4f37bbff8918391a22fde
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6aef0fbe44e19b515c2bc10c0e7c38fabac10dae
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/22/2018
 ---
-# <a name="development-tools-on-the-data-science-virtual-machine"></a>데이터 과학 가상 컴퓨터의 개발 도구
+# <a name="development-tools-on-the-data-science-virtual-machine"></a>데이터 과학 Virtual Machine의 개발 도구
 
-DSVM(데이터 과학 가상 컴퓨터)은 많이 사용되는 여러 도구와 IDE를 묶음으로 개발을 위한 생산적인 환경을 제공합니다. DSVM에서 제공되는 몇 가지 도구는 다음과 같습니다. 
+DSVM(데이터 과학 Virtual Machine)은 많이 사용되는 여러 도구와 IDE를 묶음으로 개발을 위한 생산적인 환경을 제공합니다. DSVM에서 제공되는 몇 가지 도구는 다음과 같습니다. 
 
 ## <a name="visual-studio-2017"></a>Visual Studio 2017  
 |    |           |
@@ -47,11 +47,20 @@ DSVM(데이터 과학 가상 컴퓨터)은 많이 사용되는 여러 도구와 
 ## <a name="rstudio--desktop"></a>RStudio Desktop 
 |    |           |
 | ------------- | ------------- |
-| 무엇인가요?   | R 언어용 클라이언트 IDE    |
+| 무엇인가요?   | R용 클라이언트 IDE    |
 | 지원되는 DSVM 버전      | Windows, Linux      |
 | 일반적인 사용 용도      |  R 개발     |
 | 사용/실행 방법      | Windows에서 바탕 화면 바로 가기(`C:\Program Files\RStudio\bin\rstudio.exe`), Linux에서 바탕 화면 바로 가기(`/usr/bin/rstudio`)      |
 | DSVM의 관련 도구      |   Visual Studio 2017, Visual Studio Code, Juno      |
+
+## <a name="rstudio--server"></a>RStudio  Server 
+|    |           |
+| ------------- | ------------- |
+| 무엇인가요?   | R용 웹 기반 IDE    |
+| 지원되는 DSVM 버전      | Linux      |
+| 일반적인 사용 용도      |  R 개발     |
+| 사용/실행 방법      | _systemctl enable rstudio-server_를 사용하여 서비스를 사용하도록 설정한 다음, _systemctl start rstudio-server_로 서비스를 시작합니다. 그런 다음, http://your-vm-ip:8787에서 RStudio Server에 로그인할 수 있습니다.       |
+| DSVM의 관련 도구      |   Visual Studio 2017, Visual Studio Code, RStudio Desktop      |
 
 ## <a name="juno"></a>Juno 
 |    |           |

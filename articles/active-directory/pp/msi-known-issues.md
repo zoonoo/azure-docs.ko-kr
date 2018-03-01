@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 8820691f5b7c6dbd2c15faede75de123f779b167
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: b0b5b991b7d2baaa40ebedbd19247717e91aa027
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="faq-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>Azure Active Directory용 MSI(관리 서비스 ID)의 FAQ 및 알려진 문제
 
@@ -128,5 +128,4 @@ az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
  - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler disable"`
  - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler enable"`
 - Windows의 VMAgent는 현재 사용자 할당 MSI를 지원하지 않습니다. 
-- 현재는 리소스에 액세스하기 위해 MSI에 역할을 할당할 때 특수한 권한이 필요하지 않습니다. 
 - VM에 사용자 할당 MSI는 있는데 시스템 할당 MSI는 없으면 Portal UI에는 MSI가 사용하도록 설정된 것으로 표시됩니다. 시스템 할당 MSI를 사용하도록 설정하려면 Azure Resource Manager 템플릿, Azure CLI 또는 SDK를 사용하세요.

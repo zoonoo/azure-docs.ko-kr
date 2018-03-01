@@ -16,11 +16,11 @@ ms.topic: overview
 ms.date: 02/16/2017
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: c06270c75ae16ba516e71a5dde9db4a7277d7e38
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 465e3d2c0c2b7c5d811441ede20adb9da2dbe847
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Linux의 Azure App Service 소개
 
@@ -90,7 +90,7 @@ Linux의 App Service는 [기본 및 표준](https://azure.microsoft.com/pricing/
 
 Linux에서 App Service를 시작하려면 다음 링크를 참조하세요. [당사 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview)에 질문 및 문제를 게시할 수 있습니다.
 
-* [Web App for Containers에 사용자 지정 Docker 이미지를 사용하는 방법](quickstart-custom-docker-image.md)
+* [Web App for Containers에 사용자 지정 Docker 이미지를 사용하는 방법](quickstart-docker-go.md)
 * [Linux의 Azure App Service에서 .NET Core 사용](quickstart-dotnetcore.md)
 * [Linux의 Azure App Service에서 Ruby 사용](quickstart-ruby.md)
 * [Containers용 Azure App Service Web App 관련 FAQ](app-service-linux-faq.md)

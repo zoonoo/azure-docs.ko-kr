@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/03/2017
+ms.date: 02/22/2018
 ms.author: jgao
-ms.openlocfilehash: 1d3dba645acf51a7dcdd42fa23c82db962244b62
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 08f71340fea7424262fc9c549351bd50bcfcafe2
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="create-hbase-clusters-on-hdinsight-in-azure-virtual-network"></a>Azure Virtual Network의 HDInsight에서 HBase 클러스터 만들기
 [Azure Virtual Network][1]에서 Azure HDInsight HBase 클러스터를 만드는 방법을 알아봅니다.
@@ -34,14 +34,14 @@ ms.lasthandoff: 11/04/2017
 ### <a name="prerequisites"></a>필수 조건
 이 자습서를 시작하기 전에 다음 항목이 있어야 합니다.
 
-* **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
+* **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
 * **Azure PowerShell이 포함된 워크스테이션**. [Azure PowerShell 설치 및 사용](https://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/)을 참조하세요.
 
 ## <a name="create-hbase-cluster-into-virtual-network"></a>가상 네트워크에 HBase 클러스터 만들기
 이 섹션에서는 [Azure Resource Manager 템플릿](../../azure-resource-manager/resource-group-template-deploy.md)을 사용하여 Azure 가상 네트워크에서 종속 Azure Storage 계정으로 Linux 기반 HBase 클러스터를 만듭니다. 기타 클러스터 생성 방법 및 설정에 대한 이해는 [HDInsight 클러스터 만들기](../hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요. 템플릿을 사용하여 HDInsight에서 Hadoop 클러스터를 만드는 방법에 대한 자세한 내용은 [Azure Resource Manager 템플릿을 사용하여 HDInsight에서 Hadoop 클러스터 만들기](../hdinsight-hadoop-create-linux-clusters-arm-templates.md)를 참조하세요.
 
 > [!NOTE]
-> 일부 속성이 템플릿에 하드 코딩되었습니다. 예:
+> 일부 속성이 템플릿에 하드 코딩되었습니다. 예: 
 >
 > * **위치**: 미국 동부 2
 > * **클러스터 버전**: 3.6
@@ -75,7 +75,7 @@ ms.lasthandoff: 11/04/2017
 새 HBase 클러스터 사용을 시작하려는 경우 [HDInsight에서 Hadoop을 통해 HBase 사용 시작](./apache-hbase-tutorial-get-started-linux.md)의 절차를 사용할 수 있습니다.
 
 ## <a name="connect-to-the-hbase-cluster-using-hbase-java-rpc-apis"></a>HBase Java RPC API를 사용하여 HBase 클러스터에 연결
-1. 동일한 Azure 가상 네트워크와 동일한 서브넷에 IaaS(infrastructure as a service) 가상 컴퓨터를 만듭니다. 새 IaaS 가상 컴퓨터를 만드는 지침은 [Windows Server를 실행하는 가상 컴퓨터 만들기](../../virtual-machines/windows/quick-create-portal.md)를 참조하세요. 이 문서의 단계를 수행할 때 다음과 같은 네트워크 구성 값을 사용해야 합니다.
+1. 동일한 Azure 가상 네트워크와 동일한 서브넷에 IaaS(infrastructure as a service) 가상 머신을 만듭니다. 새 IaaS 가상 머신을 만드는 지침은 [Windows Server를 실행하는 Virtual Machine 만들기](../../virtual-machines/windows/quick-create-portal.md)를 참조하세요. 이 문서의 단계를 수행할 때 다음과 같은 네트워크 구성 값을 사용해야 합니다.
 
    * **가상 네트워크**: &lt;클러스터 이름>-vnet
    * **서브넷**: subnet1
@@ -85,7 +85,7 @@ ms.lasthandoff: 11/04/2017
    >
    >
 
-   이러한 값을 사용하면 가상 컴퓨터가 HDInsight 클러스터와 동일한 가상 네트워크와 서브넷에 배치됩니다. 이 구성을 사용하면 서로 직접 통신할 수 있습니다. 빈 에지 노드가 있는 HDInsight 클러스터를 만드는 방법이 있습니다. 에지 노드를 사용하여 클러스터를 관리할 수 있습니다.  자세한 내용은 [HDInsight에서 빈 에지 노드 사용](../hdinsight-apps-use-edge-node.md)을 참조하세요.
+   이러한 값을 사용하면 가상 머신이 HDInsight 클러스터와 동일한 가상 네트워크와 서브넷에 배치됩니다. 이 구성을 사용하면 서로 직접 통신할 수 있습니다. 빈 에지 노드가 있는 HDInsight 클러스터를 만드는 방법이 있습니다. 에지 노드를 사용하여 클러스터를 관리할 수 있습니다.  자세한 내용은 [HDInsight에서 빈 에지 노드 사용](../hdinsight-apps-use-edge-node.md)을 참조하세요.
 
 2. Java 응용 프로그램을 사용하여 HBase에 원격으로 연결할 때는 FQDN(정규화된 도메인 이름)을 사용해야 합니다. FQDN을 확인하려면 HBase 클러스터의 연결별 DNS 접미사를 가져와야 합니다. 이렇게 하려면 다음 방법 중 하나를 사용합니다.
 
@@ -102,7 +102,7 @@ ms.lasthandoff: 11/04/2017
         curl -u <username>:<password> -k https://<clustername>.azurehdinsight.net/ambari/api/v1/clusters/<clustername>.azurehdinsight.net/services/hbase/components/hbrest
     ```
 
-     반환되는 JSON(JavaScript Object Notation) 데이터에서 "host_name" 항목을 찾습니다. 이 항목에는 클러스터의 노드에 대한 FQDN이 포함되어 있습니다. 예:
+     반환되는 JSON(JavaScript Object Notation) 데이터에서 "host_name" 항목을 찾습니다. 이 항목에는 클러스터의 노드에 대한 FQDN이 포함되어 있습니다. 예: 
 
          ...
          "host_name": "wordkernode0.<clustername>.b1.cloudapp.net
@@ -229,9 +229,9 @@ ms.lasthandoff: 11/04/2017
     5. Reboot the virtual machine.
 -->
 
-가상 컴퓨터가 HBase 클러스터와 통신할 수 있는지 확인하려면 가상 컴퓨터에서 `ping headnode0.<dns suffix>` 명령을 사용합니다. 예를 들면 ping headnode0.mycluster.b1.cloudapp.net을 사용합니다.
+가상 머신이 HBase 클러스터와 통신할 수 있는지 확인하려면 가상 머신에서 `ping headnode0.<dns suffix>` 명령을 사용합니다. 예를 들면 ping headnode0.mycluster.b1.cloudapp.net을 사용합니다.
 
-Java 응용 프로그램에서 이 정보를 사용하려는 경우 [Maven을 통해 HDInsight(Hadoop)와 함께 HBase를 사용하는 Java 응용 프로그램 작성](./apache-hbase-build-java-maven-linux.md) 의 단계에 따라 응용 프로그램을 만들 수 있습니다. 응용 프로그램이 원격 HBase 서버에 연결하도록 하려면 이 예제의 **hbase-site.xml** 파일이 ZooKeeper의 FQDN을 사용하도록 수정합니다. 예:
+Java 응용 프로그램에서 이 정보를 사용하려는 경우 [Maven을 통해 HDInsight(Hadoop)와 함께 HBase를 사용하는 Java 응용 프로그램 작성](./apache-hbase-build-java-maven-linux.md) 의 단계에 따라 응용 프로그램을 만들 수 있습니다. 응용 프로그램이 원격 HBase 서버에 연결하도록 하려면 이 예제의 **hbase-site.xml** 파일이 ZooKeeper의 FQDN을 사용하도록 수정합니다. 예: 
 
     <property>
         <name>hbase.zookeeper.quorum</name>

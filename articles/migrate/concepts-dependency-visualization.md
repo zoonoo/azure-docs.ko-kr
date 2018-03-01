@@ -4,13 +4,13 @@ description: "Azure Migrate 서비스의 평가 계산에 대한 개요를 제�
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 12/12/2017
+ms.date: 2/21/2018
 ms.author: raynew
-ms.openlocfilehash: 10bc249aa70852dce71c96e46319925cececdd8b
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 886977764517f1fec89eee77fc3263d30ff9ab31
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="dependency-visualization"></a>종속성 시각화
 
@@ -35,7 +35,7 @@ Azure Migrate는 종속성 시각화에 [Log Analytics](../log-analytics/log-ana
 
 ## <a name="do-i-need-to-pay-for-it"></a>요금이 발생하나요?
 
-예. 기본적으로 Log Analytics 작업 영역이 생성되지만 Azure Migrate에서 종속성 시각화를 사용하지 않는 한 사용되지 않습니다. 종속성 시각화를 사용하면(또는 Azure Migrate 외부에서 작업 영역을 사용하면) 작업 영역 사용 요금이 부과됩니다.  [서비스 맵](https://azure.microsoft.com/pricing/details/insight-analytics/) 솔루션 가격 책정에 대해 자세히 알아보세요. 
+[여기](https://azure.microsoft.com/pricing/details/azure-migrate/)에서 Azure Migrate 가격 책정에 대해 자세히 알아보세요. 
 
 ## <a name="how-do-i-manage-the-workspace"></a>작업 영역은 어떻게 관리하나요?
 

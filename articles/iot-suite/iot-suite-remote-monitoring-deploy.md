@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 12/12/2017
+ms.date: 02/22/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 768c32e30509c74a292b2355a249ec010af2cd1b
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: fa08817c870372488b1e03a2c282add2eaa85478
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="deploy-the-remote-monitoring-preconfigured-solution"></a>미리 구성된 원격 모니터링 솔루션 배포
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 12/13/2017
 
 이 자습서를 완료하려면 활성 Azure 구독이 필요합니다.
 
-계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 평가판](http://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
+계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](http://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
 ## <a name="deploy-the-preconfigured-solution"></a>미리 구성된 솔루션 배포
 

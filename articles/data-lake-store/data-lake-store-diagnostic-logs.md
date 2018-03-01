@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/28/2017
+ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: 5e1c3df24b0fc3e733981ab3f8814a9e6641f5f1
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: b58a4b215b13d2e57a69a94a60e3e37471c926c8
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-store"></a>Azure Data Lake Store에 대한 진단 로그에 액세스
 Data Lake Store 계정에 대한 진단 로깅을 사용하는 방법 및 계정에 대해 수집된 로그를 보는 방법에 대해 알아봅니다.
 
 조직에서는 Azure Data Lake Store 계정에 대한 진단 로깅을 사용하도록 설정하여 데이터에 액세스하는 사용자의 목록, 데이터가 액세스되는 빈도, 계정에 저장된 데이터 양과 같은 정보를 제공하는 데이터 액세스 감사 추적을 수집할 수 있습니다. 활성화되면 요청은 최상의 노력을 기준으로 기록됩니다. 서비스 끝점에 대한 요청이 있는 경우에만 요청 및 진단 로그 항목이 만들어집니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 * **Azure Data Lake Store 계정**. [Azure Portal을 사용하여 Azure Data Lake Store 시작](data-lake-store-get-started-portal.md)에 있는 지침을 따릅니다.
 
@@ -114,7 +114,7 @@ Data Lake Store 계정에 대한 진단 로깅을 사용하는 방법 및 계정
     }
 
 #### <a name="request-log-schema"></a>요청 로그 스키마
-| 이름 | type | 설명 |
+| Name | 형식 | 설명 |
 | --- | --- | --- |
 | 실시간 |문자열 |로그의 타임스탬프(UTC) |
 | ResourceId |문자열 |작업이 수행되는 리소스의 ID |
@@ -127,7 +127,7 @@ Data Lake Store 계정에 대한 진단 로깅을 사용하는 방법 및 계정
 | properties |JSON |자세한 내용은 다음을 참조하세요. |
 
 #### <a name="request-log-properties-schema"></a>요청 로그 속성 스키마
-| 이름 | type | 설명 |
+| Name | 형식 | 설명 |
 | --- | --- | --- |
 | HttpMethod |문자열 |작업에 사용된 HTTP 메서드 예를 들어 GET |
 | path |문자열 |작업이 수행된 경로 |
@@ -160,7 +160,7 @@ Data Lake Store 계정에 대한 진단 로깅을 사용하는 방법 및 계정
     }
 
 #### <a name="audit-log-schema"></a>감사 로그 스키마
-| 이름 | type | 설명 |
+| Name | 형식 | 설명 |
 | --- | --- | --- |
 | 실시간 |문자열 |로그의 타임스탬프(UTC) |
 | ResourceId |문자열 |작업이 수행되는 리소스의 ID |
@@ -172,7 +172,7 @@ Data Lake Store 계정에 대한 진단 로깅을 사용하는 방법 및 계정
 | properties |JSON |자세한 내용은 다음을 참조하세요. |
 
 #### <a name="audit-log-properties-schema"></a>감사 로그 속성 스키마
-| 이름 | type | 설명 |
+| Name | 형식 | 설명 |
 | --- | --- | --- |
 | StreamName |문자열 |작업이 수행된 경로 |
 

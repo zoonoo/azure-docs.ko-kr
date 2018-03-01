@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 02/07/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 409dd26cc1dfcb1c562d175a43e842b213501d03
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 126f5c4db355af19a7151a267115127757b17599
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-to-azure-replication-architecture"></a>Azure 간 복제 아키텍처
 
@@ -38,7 +38,7 @@ ms.lasthandoff: 02/13/2018
 
 ## <a name="replication-process"></a>복제 프로세스
 
-### <a name="step-1"></a>1단계:
+### <a name="step-1"></a>1단계
 
 Azure VM 복제를 사용하도록 설정하면 다음 리소스가 원본 지역 설정에 따라 대상 지역에 자동으로 생성됩니다. 필요에 따라 대상 리소스 설정을 사용자 지정할 수 있습니다.
 
@@ -52,7 +52,7 @@ Azure VM 복제를 사용하도록 설정하면 다음 리소스가 원본 지�
 **대상 저장소 계정**  | 데이터가 복제되는 대상 위치의 Storage 계정입니다.
 **대상 가용성 집합**  | 장애 조치(failover) 후 복제된 VM이 있는 가용성 집합입니다.
 
-### <a name="step-2"></a>2단계:
+### <a name="step-2"></a>2단계
 
 복제를 사용하도록 설정하면 Site Recovery 확장 이동성 서비스가 VM에 자동으로 설치됩니다.
 
@@ -74,7 +74,7 @@ Azure VM 복제를 사용하도록 설정하면 다음 리소스가 원본 지�
 > [!IMPORTANT]
 Linux VM을 복제 그룹에 포함하고 싶다면 특정 Linux 버전의 지침에 따라 20004 포트의 아웃바운드 트래픽을 수동으로 열어야 합니다.
 
-### <a name="step-3"></a>3단계:
+### <a name="step-3"></a>3단계
 
 연속 복제가 진행된 후에는 디스크 쓰기가 캐시 저장소 계정으로 즉시 전송됩니다. Site Recovery는 데이터를 처리하여 대상 저장소 계정으로 보냅니다. 데이터가 처리된 후에는 몇 분마다 대상 저장소 계정에 복구 지점이 생성됩니다.
 

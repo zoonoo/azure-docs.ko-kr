@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/03/2017
+ms.date: 02/22/2018
 ms.author: jgao
-ms.openlocfilehash: 4bd7f5b584030f9c1554b56895493837d2eac357
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 3577b06bfb23457c17099902a7ac9fb8eb6e3087
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="optimize-hive-queries-in-azure-hdinsight"></a>Azure HDInsight에서 Hive 쿼리를 최적화
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 11/04/2017
 
     ![scaleout_1][image-hdi-optimize-hive-scaleout_2]
 
-HDInsight에서 지원하는 다른 가상 컴퓨터에 대한 자세한 내용은 [HDInsight 가격](https://azure.microsoft.com/pricing/details/hdinsight/)을 참조하세요.
+HDInsight에서 지원하는 다른 가상 머신에 대한 자세한 내용은 [HDInsight 가격](https://azure.microsoft.com/pricing/details/hdinsight/)을 참조하세요.
 
 ## <a name="enable-tez"></a>TCP 사용
 
@@ -113,7 +113,7 @@ Hive 분할은 원시 데이터를 자체 디렉터리가 있는 각 파티션�
 자세한 내용은 [분할된 테이블](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-PartitionedTables)을 참조하세요.
 
 ## <a name="use-the-orcfile-format"></a>ORCFile 형식 사용
-Hive는 다양한 파일 형식을 지원합니다. 예:
+Hive는 다양한 파일 형식을 지원합니다. 예: 
 
 * **텍스트**: 기본 파일 형식으로 대부분의 시나리오와 작동합니다.
 * **Avro**: 상호 운용성 시나리오에 대해 제대로 작동합니다.
@@ -137,7 +137,7 @@ ORC 형식을 사용하려면 먼저 *Stored as ORC*절로 테이블을 만듭�
     PARTITIONED BY(L_SHIPDATE STRING)
     STORED AS ORC;
 
-다음으로 스테이징 테이블에서 ORC 테이블로 데이터를 삽입합니다. 예:
+다음으로 스테이징 테이블에서 ORC 테이블로 데이터를 삽입합니다. 예: 
 
     INSERT INTO TABLE lineitem_orc
     SELECT L_ORDERKEY as L_ORDERKEY, 

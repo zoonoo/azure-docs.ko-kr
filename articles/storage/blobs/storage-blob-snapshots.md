@@ -2,23 +2,17 @@
 title: "Azure Storage에서 Blob의 읽기 전용 스냅숏 만들기 | Microsoft Docs"
 description: "지정된 시점에서 Blob 데이터를 백업하는 Blob의 스냅숏을 만드는 방법을 알아봅니다. 용량 요금을 최소화하기 위해 스냅숏의 청구 방법 및 사용 방법을 파악합니다."
 services: storage
-documentationcenter: 
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: 3710705d-e127-4b01-8d0f-29853fb06d0d
+manager: jeconnoc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: tamram
-ms.openlocfilehash: 7e891018ab110e7506601cd5b9b0460bf61711b4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cba28ada79ea806ead4ae9165abba2dc4e04f001
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="create-a-blob-snapshot"></a>Blob 스냅숏 만들기
 
@@ -38,7 +32,7 @@ Blob의 스냅숏을 만들면 blob의 시스템 속성이 같은 값으로 스�
 
 VM 디스크에 대한 현재 정보 및 상태를 저장하는 데 VHD 파일을 사용합니다. VM 내에서 디스크를 분리하거나 VM을 종료하고, 해당 VHD 파일의 스냅숏을 만들 수 있습니다. 해당 스냅숏 파일을 나중에 사용하여 해당 시점에 VHD 파일을 검색하여 VM을 다시 만들 수 있습니다.
 
-Blob이 있는 저장소 계정에 SSE(저장소 서비스 암호화)를 사용할 경우 해당 Blob의 스냅숏은 미사용 시 암호화됩니다.
+Blob이 있는 Storage 계정에 SSE(Storage 서비스 암호화)를 사용할 경우 해당 Blob의 스냅숏은 미사용 시 암호화됩니다.
 
 ## <a name="create-a-snapshot"></a>스냅숏 만들기
 다음 코드 예제에서는 [.NET용 Azure Storage 클라이언트 라이브러리](https://www.nuget.org/packages/WindowsAzure.Storage/)를 사용하여 스냅숏을 만드는 방법을 보여 줍니다. 이 예제에서는 만들 때 스냅숏에 대한 추가 메타데이터를 지정합니다.
@@ -96,8 +90,8 @@ Blob 및 스냅숏 관련 복사 작업에는 다음 규칙이 적용됩니다.
 await blockBlob.DeleteIfExistsAsync(DeleteSnapshotsOption.IncludeSnapshots, null, null, null);
 ```
 
-## <a name="snapshots-with-azure-premium-storage"></a>Azure 프리미엄 저장소를 사용한 스냅숏
-프리미엄 저장소에서 스냅숏을 사용할 때는 다음 규칙이 적용됩니다.
+## <a name="snapshots-with-azure-premium-storage"></a>Azure Premium Storage를 사용한 스냅숏
+Premium Storage에서 스냅숏을 사용할 때는 다음 규칙이 적용됩니다.
 
 * 프리미엄 저장소 계정의 페이지 Blob당 최대 스냅숏 수는 100개입니다. 해당 제한을 초과하면 스냅숏 Blob 작업에서 오류 코드 409(`SnapshotCountExceeded`)가 반환됩니다.
 * 프리미엄 저장소 계정의 페이지 Blob 스냅숏은 10분마다 한 번 생성할 수 있습니다. 해당 속도를 초과하면 스냅숏 Blob 작업에서 오류 코드 409(`SnapshotOperationRateExceeded`)가 반환됩니다.
@@ -135,7 +129,7 @@ Blob의 읽기 전용 복사본인 스냅숏을 만들면 계정에 데이터 �
 * 저장소 계정에서는 고유 블록이나 페이지가 Blob에 있는지 혹은 스냅숏에 있는지에 관계없이 요금이 발생합니다. 스냅숏의 기준이 되는 Blob을 업데이트할 때까지는 해당 Blob와 연결된 스냅숏에 대해 계정에 추가 요금이 부과되지 않습니다. 기본 Blob를 업데이트한 후에 해당 스냅숏과 달라집니다. 이 경우에 Blob 또는 스냅숏 각각에서 고유한 블록이나 페이지에 대한 요금이 청구됩니다.
 * 블록 Blob 내의 블록을 바꾸고 나면 해당 블록은 이후부터 고유 블록으로 요금이 청구됩니다. 블록의 ID와 데이터가 스냅숏에서와 같더라도 마찬가지입니다. 블록을 다시 커밋하면 스냅숏의 해당 항목과 달라지므로 해당 데이터에 대해 요금이 부과됩니다. 같은 데이터로 업데이트하는 페이지 Blob 내 페이지의 경우에도 마찬가지입니다.
 * [UploadFromFile][dotnet_UploadFromFile], [UploadText][dotnet_UploadText], [UploadFromStream][dotnet_UploadFromStream] 또는 [UploadFromByteArray][dotnet_UploadFromByteArray] 메서드를 호출하여 블록 Blob을 바꾸면 해당 Blob의 모든 블록이 바뀝니다. 해당 Blob에 스냅숏이 연결되어 있으면 스냅숏과 기본 Blob의 모든 블록이 달라지므로 두 Blob의 모든 블록에 대해 요금이 부과됩니다. 이는 기본 Blob와 스냅숏의 데이터가 동일하게 유지되더라도 마찬가지입니다.
-* Azure Blob 서비스에서는 두 블록이 같은 데이터를 포함하는지를 확인할 수 없습니다. 업로드/커밋되는 각 블록은 데이터와 블록 ID가 같더라도 고유한 블록으로 처리됩니다. 고유한 블록에 대해서는 비용이 부과되므로 스냅숏이 포함된 Blob을 업데이트하면 고유한 블록이 추가로 생성되어 추가 비용이 발생함을 고려해야 합니다.
+* Azure Blob service에서는 두 블록이 같은 데이터를 포함하는지를 확인할 수 없습니다. 업로드/커밋되는 각 블록은 데이터와 블록 ID가 같더라도 고유한 블록으로 처리됩니다. 고유한 블록에 대해서는 비용이 부과되므로 스냅숏이 포함된 Blob을 업데이트하면 고유한 블록이 추가로 생성되어 추가 비용이 발생함을 고려해야 합니다.
 
 ### <a name="minimize-cost-with-snapshot-management"></a>스냅숏 관리 비용을 최소화
 
@@ -151,29 +145,29 @@ Blob의 읽기 전용 복사본인 스냅숏을 만들면 계정에 데이터 �
 
 시나리오 1에서는 스냅숏을 생성한 후 기본 Blob을 업데이트하지 않았으므로 고유 블록 1, 2, 3에 대해서만 비용이 청구됩니다.
 
-![Azure 저장소 리소스](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-1.png)
+![Azure Storage 리소스](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-1.png)
 
 **시나리오 2**
 
 시나리오 2에서는 기본 Blob은 업데이트되었지만 스냅숏은 업데이트되지 않았습니다. 블록 3이 업데이트되고 동일한 데이터와 동일한 ID를 가지고 있지만 스냅숏의 블록 3과 같지는 않습니다. 따라서 4개 블록에 대한 요금이 계정에 청구됩니다.
 
-![Azure 저장소 리소스](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-2.png)
+![Azure Storage 리소스](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-2.png)
 
 **시나리오 3**
 
 시나리오 3에서는 기본 Blob은 업데이트되었지만 스냅숏은 업데이트되지 않았습니다. 기본 Blob에서 블록 3이 블록 4로 바뀌었지만 스냅숏은 계속 블록 3을 반영합니다. 따라서 4개 블록에 대한 요금이 계정에 청구됩니다.
 
-![Azure 저장소 리소스](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-3.png)
+![Azure Storage 리소스](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-3.png)
 
 **시나리오 4**
 
 시나리오 4에서는 기본 Blob이 완전히 업데이트되었으며 원래 블록을 하나도 포함하지 않습니다. 따라서 8개 고유 블록 모두에 대한 요금이 계정에 청구됩니다. [UploadFromFile][dotnet_UploadFromFile], [UploadText][dotnet_UploadText], [UploadFromStream][dotnet_UploadFromStream] 또는 [UploadFromByteArray][dotnet_UploadFromByteArray] 등의 업데이트 메서드를 사용하는 경우가 이러한 시나리오에 해당합니다. 이러한 메서드는 Blob의 모든 콘텐츠를 바꾸기 때문입니다.
 
-![Azure 저장소 리소스](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-4.png)
+![Azure Storage 리소스](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-4.png)
 
 ## <a name="next-steps"></a>다음 단계
 
-* VM(가상 컴퓨터) 디스크 스냅숏 사용에 대한 자세한 내용은 [증분 스냅숏을 사용하여 Azure 관리되지 않는 VM 디스크 백업](../../virtual-machines/windows/incremental-snapshots.md)에서 확인할 수 있습니다.
+* VM(가상 머신) 디스크 스냅숏 사용에 대한 자세한 내용은 [증분 스냅숏을 사용하여 Azure 관리되지 않는 VM 디스크 백업](../../virtual-machines/windows/incremental-snapshots.md)에서 확인할 수 있습니다.
 
 * Blob Storage를 사용하는 추가 코드 예제는 [Azure 코드 샘플](https://azure.microsoft.com/documentation/samples/?service=storage&term=blob)을 참조하세요. GitHub에서 샘플 응용 프로그램을 다운로드하고 실행하거나 코드를 탐색할 수 있습니다.
 

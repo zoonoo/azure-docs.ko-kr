@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/04/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 233e4eea8439320c1c7446e2c2b2e9d379351a3e
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 53e9b55a82e7750393dfb6c4818681028c5c4d2f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-vm-with-a-static-public-ip-address-using-the-azure-portal"></a>Azure Portal을 사용하여 고정 공용 IP 주소를 사용하는 VM 만들기
 
@@ -42,26 +42,26 @@ ms.lasthandoff: 12/21/2017
 
 Azure Portal에 고정 공용 IP 주소가 있는 VM을 만들려면 다음 단계를 완료합니다.
 
-1. 브라우저에서 [Azure 포털](https://portal.azure.com) 로 이동하고 필요한 경우 Azure 계정으로 로그인합니다.
-2. 포털의 왼쪽 맨 위에서 **새로 만들기**>>**계산**>**Windows Server 2012 R2 Datacenter**를 차례로 클릭합니다.
+1. 브라우저에서 [Azure Portal](https://portal.azure.com)로 이동하고 필요한 경우 Azure 계정으로 로그인합니다.
+2. 포털의 왼쪽 맨 위에서 **리소스 만들기**>>**Compute**>**Windows Server 2012 R2 Datacenter**를 차례로 클릭합니다.
 3. **배포 모델 선택** 목록에서 **리소스 관리자**를 선택하고 **만들기**를 클릭합니다.
-4. **기본 사항** 블레이드에서 아래와 같이 VM 정보를 입력한 다음 **확인**을 클릭합니다.
+4. **기본** 창에 아래와 같이 VM 정보를 입력한 다음, **확인**을 클릭합니다.
    
     ![Azure 포털 - 기본 사항](./media/virtual-network-deploy-static-pip-arm-portal/figure1.png)
-5. **크기 선택** 블레이드에서 아래와 같이 **A1 표준**을 클릭한 다음 **선택**을 클릭합니다.
+5. **크기 선택** 창에서 아래와 같이 **A1 표준**을 클릭한 다음, **선택**을 클릭합니다.
    
     ![Azure 포털 - 크기 선택](./media/virtual-network-deploy-static-pip-arm-portal/figure2.png)
-6. **설정** 블레이드에서 **공용 IP 주소**를 클릭한 다음 **공용 IP 주소 만들기** 블레이드의 **할당**에서 아래와 같이 **고정**을 클릭합니다. 그런 다음 **확인**을 클릭합니다.
+6. **설정** 창에서 **공용 IP 주소**를 클릭한 다음, **공용 IP 주소 만들기** 창의 **할당**에서 아래와 같이 **고정**을 클릭합니다. 그런 다음, **확인**을 클릭합니다.
    
     ![Azure 포털 - 공용 IP 주소 만들기](./media/virtual-network-deploy-static-pip-arm-portal/figure3.png)
-7. **설정** 블레이드에서 **확인**을 클릭합니다.
-8. 아래와 같이 **요약** 블레이드를 검토한 다음 **확인**을 클릭합니다.
+7. **설정** 창에서 **확인**을 클릭합니다.
+8. **요약** 창을 검토한 다음, 아래와 같이 **확인**을 클릭합니다.
    
     ![Azure 포털 - 공용 IP 주소 만들기](./media/virtual-network-deploy-static-pip-arm-portal/figure4.png)
 9. 대시보드에서 새 타일을 확인합니다.
    
     ![Azure 포털 - 공용 IP 주소 만들기](./media/virtual-network-deploy-static-pip-arm-portal/figure5.png)
-10. VM이 만들어지면 아래와 같이 **설정** 블레이드가 표시됩니다.
+10. VM이 만들어지면 **설정** 창이 다음과 같이 표시됩니다.
     
     ![Azure 포털 - 공용 IP 주소 만들기](./media/virtual-network-deploy-static-pip-arm-portal/figure6.png)
 

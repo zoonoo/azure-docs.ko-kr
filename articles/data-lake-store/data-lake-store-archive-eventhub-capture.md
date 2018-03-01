@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/28/2017
+ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: 221ee6990fe0b5bfc9e745fc85543c4e04e41bd3
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.openlocfilehash: ac8000abc35cba89c4bf655a4806636933ab8d08
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="use-azure-data-lake-store-to-capture-data-from-event-hubs"></a>Azure Data Lake Store를 사용하여 Event Hubs에서 데이터 캡처
 
@@ -25,7 +25,7 @@ Azure Data Lake Store를 사용하여 Azure Event Hubs에서 받은 데이터를
 
 ## <a name="prerequisites"></a>필수 조건
 
-* **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
+* **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
 * **Azure 데이터 레이크 저장소 계정**. 만드는 방법에 대한 지침은 [Azure Data Lake Store 시작](data-lake-store-get-started-portal.md)을 참조하세요.
 
@@ -50,13 +50,13 @@ Azure Data Lake Store를 사용하여 Azure Event Hubs에서 받은 데이터를
 
     ![Data Lake Store 루트에 대한 권한 할당](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-permissions-to-root.png "Data Lake Store 루트에 대한 권한 할당")
 
-    b. **액세스** 아래에서 **추가**를 클릭하고 **사용자 또는 그룹 선택**을 클릭한 후 `Microsoft.EventHubs`를 검색합니다. 
+    나. **액세스** 아래에서 **추가**를 클릭하고 **사용자 또는 그룹 선택**을 클릭한 후 `Microsoft.EventHubs`를 검색합니다. 
 
     ![Data Lake Store 루트에 대한 권한 할당](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp.png "Data Lake Store 루트에 대한 권한 할당")
     
     **선택**을 클릭합니다.
 
-    c. **권한 할당**에서 **권한 선택**을 클릭합니다. **권한**을 **실행**으로 설정합니다. **추가 대상**을 **이 폴더 및 모든 하위 폴더**로 설정합니다. **다른 권한으로 추가**를 **액세스 권한 항목 및 기본 권한 항목**으로 설정합니다.
+    다. **권한 할당**에서 **권한 선택**을 클릭합니다. **권한**을 **실행**으로 설정합니다. **추가 대상**을 **이 폴더 및 모든 하위 폴더**로 설정합니다. **다른 권한으로 추가**를 **액세스 권한 항목 및 기본 권한 항목**으로 설정합니다.
 
     ![Data Lake Store 루트에 대한 권한 할당](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp1.png "Data Lake Store 루트에 대한 권한 할당")
 
@@ -68,13 +68,13 @@ Azure Data Lake Store를 사용하여 Azure Event Hubs에서 받은 데이터를
 
     ![Data Lake Store 폴더에 대한 권한 할당](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-permissions-to-folder.png "Data Lake Store 폴더에 대한 권한 할당")
 
-    b. **액세스** 아래에서 **추가**를 클릭하고 **사용자 또는 그룹 선택**을 클릭한 후 `Microsoft.EventHubs`를 검색합니다. 
+    나. **액세스** 아래에서 **추가**를 클릭하고 **사용자 또는 그룹 선택**을 클릭한 후 `Microsoft.EventHubs`를 검색합니다. 
 
     ![Data Lake Store 폴더에 대한 권한 할당](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp.png "Data Lake Store 폴더에 대한 권한 할당")
     
     **선택**을 클릭합니다.
 
-    c. **권한 할당**에서 **권한 선택**을 클릭합니다. **권한**을 **읽기, 쓰기,** 및 **실행**으로 설정합니다. **추가 대상**을 **이 폴더 및 모든 하위 폴더**로 설정합니다. 마지막으로 **다른 권한으로 추가**를 **액세스 권한 항목 및 기본 권한 항목**으로 설정합니다.
+    다. **권한 할당**에서 **권한 선택**을 클릭합니다. **권한**을 **읽기, 쓰기,** 및 **실행**으로 설정합니다. **추가 대상**을 **이 폴더 및 모든 하위 폴더**로 설정합니다. 마지막으로 **다른 권한으로 추가**를 **액세스 권한 항목 및 기본 권한 항목**으로 설정합니다.
 
     ![Data Lake Store 폴더에 대한 권한 할당](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp-folder.png "Data Lake Store 폴더에 대한 권한 할당")
     
@@ -94,9 +94,9 @@ Azure Data Lake Store를 사용하여 Azure Event Hubs에서 받은 데이터를
 
     a. 이벤트 허브의 이름을 제공하세요.
     
-    b. 이 자습서를 위해 **파티션 수** 및 **메시지 보존**을 기본값으로 설정합니다.
+    나. 이 자습서를 위해 **파티션 수** 및 **메시지 보존**을 기본값으로 설정합니다.
     
-    c. **캡처**를 **설정**으로 지정합니다. **시간 창**(캡처 빈도) 및 **크기 창**(캡처할 데이터 크기)을 설정합니다. 
+    다. **캡처**를 **설정**으로 지정합니다. **시간 창**(캡처 빈도) 및 **크기 창**(캡처할 데이터 크기)을 설정합니다. 
     
     d. **캡처 공급자**에 대해 **Azure Data Lake Store**를 선택하고 앞에서 만든 Data Lake Store를 선택합니다. **Data Lake 경로**에 Data Lake Store 계정에서 만든 폴더의 이름을 입력합니다. 폴더에 상대 경로를 제공하기만 하면 됩니다.
 

@@ -9,23 +9,24 @@ editor:
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
+ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/07/2018
+ms.date: 02/22/2018
 ms.author: terrylan
-ms.openlocfilehash: 365afd2199b1b8b2e70d882f6a729384edbdffbc
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 05e4bed0f9b4dfb6d1879408085447ef53db8655
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="quickstart-onboard-linux-computers-to-azure-security-center"></a>빠른 시작: Azure Security Center에 Linux 컴퓨터 온보딩
 Azure 구독을 온보딩한 후 Linux 에이전트를 프로비전하여 Azure 외부(예: 온-프레미스 또는 다른 클라우드)에서 실행되는 Linux 리소스에 Security Center를 사용하도록 설정할 수 있습니다.
 
 이 빠른 시작에서는 Linux 컴퓨터에 Linux 에이전트를 설치하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 Security Center를 시작하려면 Microsoft Azure에 대한 구독이 있어야 합니다. 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/pricing/free-trial/)으로 등록할 수 있습니다.
 
 이 빠른 시작을 시작하기 전에 Security Center의 표준 가격 책정 계층에 있어야 합니다. 업그레이드 지침은 [Security Center 표준에 Azure 구독 온보딩](security-center-get-started.md)을 참조하세요. 처음 60일 동안 추가 비용 없이 Security Center 표준을 사용해 볼 수 있습니다.
