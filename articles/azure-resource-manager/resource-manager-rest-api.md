@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/13/2017
 ms.author: navale;tomfitz;
 ms.openlocfilehash: 2f7ba23775545637de865f9ef63680ae22c62164
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/26/2018
 ---
 # <a name="resource-manager-rest-apis"></a>리소스 관리자 REST API
 > [!div class="op_single_selector"]
@@ -202,7 +202,7 @@ Content-Type: application/json
 }
 ```
 
-Azure에서 리소스 그룹을 성공적으로 만들었습니다. 축하합니다.
+Azure에서 리소스 그룹을 성공적으로 만들었습니다. 축하합니다!
 
 ### <a name="deploy-resources-to-a-resource-group-using-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 리소스 그룹에 리소스 배포
 Resource Manager를 사용하면 템플릿을 사용하여 리소스를 배포할 수 있습니다. 템플릿은 여러 리소스 및 해당 종속성을 정의합니다. 이 섹션에서는 사용자가 Resource Manager 템플릿을 잘 알고 있다고 가정하고 API를 호출하여 배포를 시작하는 방법을 보여 줍니다. 템플릿을 만드는 더 자세한 내용은 [Azure Resource Manager 템플릿 작성하기](resource-group-authoring-templates.md)를 참조하세요.
