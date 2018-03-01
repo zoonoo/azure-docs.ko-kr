@@ -5,6 +5,7 @@
     - name: Azure Search 정보
       href: search-what-is-azure-search.md
 - name: 빠른 시작
+  expanded: true
   items:
     - name: 서비스 만들기
       href: search-create-service-portal.md
@@ -22,7 +23,7 @@
           href: search-create-index-dotnet.md
         - name: 데이터 가져오기
           href: search-import-data-dotnet.md
-        - name: Search
+        - name: 검색
           href: search-query-dotnet.md
     - name: REST (영문)
       items:
@@ -30,7 +31,7 @@
           href: search-create-index-rest-api.md
         - name: 데이터 가져오기
           href: search-import-data-rest-api.md
-        - name: Search
+        - name: 검색
           href: search-query-rest-api.md
         - name: REST 클라이언트로 테스트
           href: search-fiddler.md
@@ -134,7 +135,7 @@
           href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
         - name: 인덱서의 필드 매핑
           href: search-indexer-field-mappings.md
-    - name: Search
+    - name: 검색
       items:
         - name: 기본 쿼리 생성
           href: search-query-overview.md

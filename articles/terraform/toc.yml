@@ -1,3 +1,5 @@
+- name: Azure 문서의 Terraform
+  href: index.yml
 - name: 개요
   items:
     - name: Azure의 Terraform 정보
@@ -29,7 +31,7 @@
   items:
     - name: 구성 템플릿
       href: 'https://github.com/terraform-providers/terraform-provider-azurerm/tree/master/examples'
-- name: 참조
+- name: 참고 자료
   items:
     - name: Azure 모듈 레지스트리
       href: 'https://registry.terraform.io/modules/Azure'

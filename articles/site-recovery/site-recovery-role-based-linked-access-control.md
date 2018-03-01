@@ -12,13 +12,13 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2017
+ms.date: 02/27/2018
 ms.author: manayar
-ms.openlocfilehash: ce579bc2844d321e4fbc70726b57120e17e4788d
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 9c8745162afebe6690776152b29d8619edc26a42
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="use-role-based-access-control-to-manage-azure-site-recovery-deployments"></a>역할 기반 Access Control을 사용하여 Azure Site Recovery 관리
 
@@ -27,27 +27,27 @@ Azure 역할 기반 Access Control(RBAC)을 통해 Azure에 대한 세밀한 액
 Azure Site Recovery는 Site Recovery 관리 작업을 제어하는 3가지 기본 제공 역할을 제공합니다. [Azure RBAC 기본 제공 역할](../active-directory/role-based-access-built-in-roles.md)에 대해 알아보기
 
 * [Site Recovery 참가자](../active-directory/role-based-access-built-in-roles.md#site-recovery-contributor) - 이 역할에는 Recovery Services 자격 증명 모음에서 Azure Site Recovery 작업을 관리하는 데 필요한 모든 사용 권한이 있습니다. 그러나 이 역할의 사용자는 Recovery Services 자격 증명 모음을 만들거나 삭제할 수 없고 액세스 권한을 다른 사용자에게 할당할 수 없습니다. 이 역할은 응용 프로그램이나 전체 조직에 재해 복구를 사용하도록 설정하고 관리할 수 있는 재해 복구 관리자에 대해 가장 적합합니다.
-* [Site Recovery 연산자](../active-directory/role-based-access-built-in-roles.md#site-recovery-operator) - 이 역할에는 장애 조치 및 장애 복구 작업을 실행하고 관리하는 사용 권한이 있습니다. 이 역할의 사용자는 복제를 활성화하거나 비활성화할 수 없고, 자격 증명 모음을 만들거나 삭제할 수 없으며, 새로운 인프라를 등록하거나 다른 사용자에게 액세스 권한을 할당할 수 없습니다. 이 역할은 실제 또는 시뮬레이션된 재해 상황에서 DR 드릴과 같은 응용 프로그램 소유자 및 IT 관리자가 지시하는 경우 가상 컴퓨터 또는 응용 프로그램을 장애 조치할 수 있는 재해 복구 연산자에 가장 적합합니다. 재해를 해결한 후에 게시 DR 연산자는 가상 컴퓨터를 다시 보호하고 장애 복구할 수 있습니다.
+* [Site Recovery 연산자](../active-directory/role-based-access-built-in-roles.md#site-recovery-operator) - 이 역할에는 장애 조치 및 장애 복구 작업을 실행하고 관리하는 사용 권한이 있습니다. 이 역할의 사용자는 복제를 활성화하거나 비활성화할 수 없고, 자격 증명 모음을 만들거나 삭제할 수 없으며, 새로운 인프라를 등록하거나 다른 사용자에게 액세스 권한을 할당할 수 없습니다. 이 역할은 실제 또는 시뮬레이션된 재해 상황에서 DR 드릴과 같은 응용 프로그램 소유자 및 IT 관리자가 지시하는 경우 가상 머신 또는 응용 프로그램을 장애 조치할 수 있는 재해 복구 연산자에 가장 적합합니다. 재해를 해결한 후에 게시 DR 연산자는 가상 머신을 다시 보호하고 장애 복구할 수 있습니다.
 * [Site Recovery 읽기 권한자](../active-directory/role-based-access-built-in-roles.md#site-recovery-reader) - 이 역할은 모든 Site Recovery 관리 작업을 볼 수 있는 권한을 갖습니다. 이 역할은 현재 보호 상태를 모니터링하고 필요한 경우 지원 티켓을 발행할 수 있는 IT 모니터링 경영자에게 가장 적합합니다.
 
 더 많은 제어를 위해 사용자 고유의 역할을 정의하려는 경우 Azure의 [사용자 지정 역할 작성](../active-directory/role-based-access-control-custom-roles.md) 방법을 참조하세요.
 
 ## <a name="permissions-required-to-enable-replication-for-new-virtual-machines"></a>새 Virtual Machines에 대한 복제를 사용하도록 설정하는 데 필요한 사용 권한
-Azure Site Recovery를 사용하여 새 가상 컴퓨터를 Azure에 복제할 때 연결된 사용자의 액세스 수준이 유효한지 확인하여 사용자에게 Site Recovery에 제공되는 Azure 리소스를 사용하는 데 필요한 권한이 있는지 검토됩니다.
+Azure Site Recovery를 사용하여 새 Virtual Machine을 Azure에 복제할 때 연결된 사용자의 액세스 수준이 유효한지 확인하여 사용자에게 Site Recovery에 제공되는 Azure 리소스를 사용하는 데 필요한 권한이 있는지 검토됩니다.
 
-새 가상 컴퓨터에 대한 복제를 사용하도록 설정하려면 사용자에게 다음 권한이 있어야 합니다.
-* 선택한 리소스 그룹에서 가상 컴퓨터를 만들 수 있는 권한
+새 가상 머신에 대한 복제를 사용하도록 설정하려면 사용자에게 다음 권한이 있어야 합니다.
+* 선택한 리소스 그룹에서 가상 머신을 만들 수 있는 권한
 * 선택한 가상 네트워크에서 가상 컴퓨터를 만들 수 있는 권한
 * 선택한 Storage 계정에 대한 쓰기 권한
 
-사용자는 새 가상 컴퓨터의 복제를 완료하려면 다음 권한이 필요합니다.
+사용자는 새 가상 머신의 복제를 완료하려면 다음 권한이 필요합니다.
 
 > [!IMPORTANT]
 >리소스 배포에 사용되는 배포 모델(Resource Manager/클래식)마다 적절한 권한이 추가되는지 확인합니다.
 
 | **리소스 종류** | **배포 모델** | **사용 권한** |
 | --- | --- | --- |
-| Compute | 리소스 관리자 | Microsoft.Compute/availabilitySets/read |
+| 컴퓨팅 | 리소스 관리자 | Microsoft.Compute/availabilitySets/read |
 |  |  | Microsoft.Compute/virtualMachines/read |
 |  |  | Microsoft.Compute/virtualMachines/write |
 |  |  | Microsoft.Compute/virtualMachines/delete |
@@ -66,14 +66,14 @@ Azure Site Recovery를 사용하여 새 가상 컴퓨터를 Azure에 복제할 �
 |  |  | Microsoft.Network/virtualNetworks/subnets/join/action |
 |  | 클래식 | Microsoft.ClassicNetwork/virtualNetworks/read |
 |  |  | Microsoft.ClassicNetwork/virtualNetworks/join/action |
-| 저장소 | 리소스 관리자 | Microsoft.Storage/storageAccounts/read |
+| Storage | 리소스 관리자 | Microsoft.Storage/storageAccounts/read |
 |  |  | Microsoft.Storage/storageAccounts/listkeys/action |
 |  | 클래식 | Microsoft.ClassicStorage/storageAccounts/read |
 |  |  | Microsoft.ClassicStorage/storageAccounts/listKeys/action |
 | 리소스 그룹 | 리소스 관리자 | Microsoft.Resources/deployments/* |
 |  |  | Microsoft.Resources/subscriptions/resourceGroups/read |
 
-Resource Manager 및 클래식 배포 모델에 대해 각각 '가상 컴퓨터 참여자' 및 '클래식 가상 컴퓨터 참여자' [기본 제공 역할](../active-directory/role-based-access-built-in-roles.md)을 사용하는 것이 좋습니다.
+Resource Manager 및 클래식 배포 모델에 대해 각각 'Virtual Machine 참여자' 및 '클래식 Virtual Machine 참여자' [기본 제공 역할](../active-directory/role-based-access-built-in-roles.md)을 사용하는 것이 좋습니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [역할 기반 Access Control](../active-directory/role-based-access-control-configure.md): Azure Portal에서 RBAC를 통해 시작합니다.

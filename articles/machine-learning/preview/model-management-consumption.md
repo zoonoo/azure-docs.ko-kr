@@ -4,17 +4,17 @@ description: "이 문서에서는 Azure Machine Learning 모델 관리를 통해
 services: machine-learning
 author: raymondlaghaeian
 ms.author: raymondl
-manager: neerajkh
-ms.reviewer: garyericson, jasonwhowell, mldocs
+manager: hjerez
+ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/06/2017
-ms.openlocfilehash: 120611f98c97fa4c5bfa2a44aece47f246d9ec57
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 4d388af3175bce5df6108ff0fd836707cca5040a
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="consuming-web-services"></a>웹 서비스 사용
 모델을 실시간 웹 서비스로 배포하면 다양한 플랫폼과 응용 프로그램에서 데이터를 보내고 예측을 가져올 수 있습니다. 실시간 웹 서비스는 예측을 가져오기 위한 REST API를 공개합니다. 여러 예측을 한 번에 가져오기 위해 웹 서비스에 데이터를 단일 또는 다중 행 형식으로 보낼 수 있습니다.
@@ -35,7 +35,7 @@ Azure Machine Learning CLI 및 API는 ```az ml env``` 옵션을 사용하여 서
 웹 서비스가 성공적으로 배포되면 다음 명령을 사용하여 서비스 끝점 호출에 대한 서비스 URL 및 기타 세부 정보를 가져옵니다. 
 
 ```
-az ml service usage realtime -i <service name>
+az ml service usage realtime -i <web service id>
 ```
 
 배포 시 서비스 API 스키마가 제공된 경우 이 명령은 서비스 호출에 대한 서비스 URL, 필요한 요청 헤더, Swagger URL 및 샘플 데이터를 출력합니다.
@@ -43,7 +43,7 @@ az ml service usage realtime -i <service name>
 입력 데이터가 포함된 샘플 CLI 명령을 입력하여 HTTP 요청을 작성하지 않고 CLI에서 서비스를 직접 테스트할 수 있습니다.
 
 ```
-az ml service run realtime -i <service name> -d "Your input data"
+az ml service run realtime -i <web service id> -d "Your input data"
 ```
 
 ## <a name="get-the-service-api-key"></a>서비스 API 키 가져오기

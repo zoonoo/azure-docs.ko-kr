@@ -11,10 +11,10 @@ ms.service: postgresql
 ms.topic: article
 ms.date: 11/03/2017
 ms.openlocfilehash: 9de2d93735942903df9320741baadf2c934bd7ab
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-database-for-postgresql-options-and-performance-understand-whats-available-in-each-pricing-tier"></a>PostgreSQL용 Azure 데이터베이스 옵션 및 성능: 각 가격 책정 계층에서 사용할 수 있는 항목 이해
 PostgreSQL 서버용 Azure 데이터베이스를 만들 때 해당 서버에 할당되는 리소스를 구성하는 세 가지 주요 선택 사항을 결정합니다. 이 선택 사항은 서버의 성능과 규모에 영향을 미칩니다.

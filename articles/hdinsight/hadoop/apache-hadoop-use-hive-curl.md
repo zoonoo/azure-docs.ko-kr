@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/26/2018
 ms.author: larryfr
-ms.openlocfilehash: c830abdf8220f222a06b771b8c9fc905146420b4
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: dfe9efdb57a0ce2506abd251267f39020568d081
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="run-hive-queries-with-hadoop-in-hdinsight-using-rest"></a>REST를 사용하여 HDInsight에서 Hadoop으로 Hive 쿼리 실행
 
@@ -42,7 +42,7 @@ WebHCat REST API를 사용하여 Azure HDInsight 클러스터에서 Hadoop으로
 
 이 문서에서는 Windows PowerShell 및 [Jq](http://stedolan.github.io/jq/)를 사용하여 REST 요청에서 반환된 JSON 데이터를 처리합니다.
 
-## <a id="curl"></a>HIVE 쿼리 실행
+## <a id="curl"></a>Hive 쿼리 실행
 
 > [!NOTE]
 > WebHCat에서 cURL 또는 다른 모든 REST 통신을 사용하는 경우 HDInsight 클러스터 관리자의 사용자 이름 및 암호를 제공하여 요청을 인증해야 합니다.
@@ -77,7 +77,8 @@ WebHCat REST API를 사용하여 Azure HDInsight 클러스터에서 Hadoop으로
     
     ```powershell
     $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/templeton/v1/status" `
-       -Credential $creds
+       -Credential $creds `
+       -UseBasicParsing
     $resp.Content
     ```
 
@@ -100,7 +101,8 @@ WebHCat REST API를 사용하여 Azure HDInsight 클러스터에서 Hadoop으로
 
     ```powershell
     $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/templeton/v1/version/hive" `
-       -Credential $creds
+       -Credential $creds `
+       -UseBasicParsing
     $resp.Content
     ```
 
@@ -122,7 +124,8 @@ WebHCat REST API를 사용하여 Azure HDInsight 클러스터에서 Hadoop으로
     $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/templeton/v1/hive" `
        -Credential $creds `
        -Body $reqParams `
-       -Method POST
+       -Method POST `
+       -UseBasicParsing
     $jobID = (ConvertFrom-Json $resp.Content).id
     $jobID
     ```
@@ -162,7 +165,8 @@ WebHCat REST API를 사용하여 Azure HDInsight 클러스터에서 Hadoop으로
     $reqParams=@{"user.name"="admin"}
     $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/templeton/v1/jobs/$jobID" `
        -Credential $creds `
-       -Body $reqParams
+       -Body $reqParams `
+       -UseBasicParsing
     # ConvertFrom-JSON can't handle duplicate names with different case
     # So change one to prevent the error
     $fixDup=$resp.Content.Replace("jobID","job_ID")

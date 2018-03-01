@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/27/2018
+ms.date: 02/23/2018
 ms.author: brenduns
-ms.openlocfilehash: 59053e4beda48fd8474da675e50e02438c79a98e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 2b39ff3665a4cc3aeddf81b83e0c90c7f770da72
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="considerations-for-virtual-machines-in-azure-stack"></a>Azure 스택의 가상 컴퓨터에 대 한 고려 사항
 
@@ -41,19 +41,25 @@ ms.lasthandoff: 02/01/2018
 |가상 머신 크기 집합|자동 크기 조정 지원|자동 크기 조정 지원 되지 않습니다.<br>더 많은 인스턴스 크기 포털, 리소스 관리자 템플릿 또는 PowerShell을 사용 하 여 집합에 추가 합니다.
 
 ## <a name="virtual-machine-sizes"></a>가상 머신 크기
+Azure는 리소스 제한 (로컬 및 서비스 수준에는 서버) 리소스의 과도 방지 하기 위해 여러 가지 방법으로 적용 됩니다. 리소스의 테 넌 트 사용에 대 한 약간의 제한이 배치 하지 않고 테 넌 트 환경 시끄러운 이웃 overconsumes 리소스 때 떨어질 수 있습니다. 
+- VM에서 네트워킹 송신 위치에 대역폭 caps 사항이 있습니다. Azure 스택에서 caps Azure에서 대문자 일치합니다.  
+- 저장소 리소스에 대 한 Azure 스택 저장소 액세스에 대 한 테 넌 트 리소스의 기본 과도 하지 않으려면 저장소 IOPs 제한을 구현 합니다. 
+- 여러 개의 연결 된 데이터 디스크가 있는 vm의 경우 각 개별 데이터 디스크의 최대 처리량은 HHDs에 대 한 500 IOPS 및 2300 IOPS Ssd에 대 한 합니다.
 
-Azure 스택 다음 크기를 지원합니다.
+다음 표에서 Vm에서 지원 되는 Azure 스택 해당 구성과 함께 보여 줍니다.
 
-| 형식 | 크기 | 지원 되는 크기의 범위 |
-| --- | --- | --- |
-|범용 가상 컴퓨터 |Basic A|A0 - A4|
-|범용 가상 컴퓨터 |표준 A|A0 - A7|
-|범용 가상 컴퓨터 |D 시리즈|D1 - D4|
-|범용 가상 컴퓨터 |Dv2 시리즈|D1_v2 - D5_v2|
-|범용 가상 컴퓨터 |DS 시리즈|DS1 - DS4|
-|범용 가상 컴퓨터 |DSv2 시리즈|DS1_v2 - DS5_v2|
-|메모리에 최적화|DS 시리즈|DS11 - DS14|
-|메모리에 최적화 |DSv2 시리즈|DS11_v2 - DS14_v2|
+| 형식           | 크기          | 지원 되는 크기의 범위 |
+| ---------------| ------------- | ------------------------ |
+|범용 가상 컴퓨터 |Basic A        |[A0 - A4](azure-stack-vm-sizes.md#basic-a)                   |
+|범용 가상 컴퓨터 |표준 A     |[A0 - A7](azure-stack-vm-sizes.md#standard-a)              |
+|범용 가상 컴퓨터 |D 시리즈       |[D1 - D4](azure-stack-vm-sizes.md#d-series)              |
+|범용 가상 컴퓨터 |Dv2 시리즈     |[D1_v2 - D5_v2](azure-stack-vm-sizes.md#ds-series)        |
+|범용 가상 컴퓨터 |DS 시리즈      |[DS1 - DS4](azure-stack-vm-sizes.md#dv2-series)            |
+|범용 가상 컴퓨터 |DSv2 시리즈    |[DS1_v2 - DS5_v2](azure-stack-vm-sizes.md#dsv2-series)      |
+|메모리에 최적화|D 시리즈       |[D11 - D14](azure-stack-vm-sizes.md#mo-d)            |
+|메모리에 최적화|DS 시리즈      |[DS11 - DS14](azure-stack-vm-sizes.md#mo-ds)|
+|메모리에 최적화|Dv2 시리즈     |[D11_v2 - DS14_v2](azure-stack-vm-sizes.md#mo-dv2)     |
+|메모리에 최적화|DSv2 시리즈-  |[DS11_v2 - DS14_v2](azure-stack-vm-sizes.md#mo-dsv2)    |
 
 가상 컴퓨터 크기와 해당 관련된 리소스 수량 Azure 스택와 Azure 간에 일치 됩니다. 예를 들어이 일관성 메모리, 코어 수 및 만들 수 있는 데이터 디스크의 수/크기 걸린 시간이 포함 됩니다. 그러나 Azure 스택에는 동일한 VM 크기의 성능을 특정 Azure 스택 환경의 기본 특성에 따라 달라 집니다.
 

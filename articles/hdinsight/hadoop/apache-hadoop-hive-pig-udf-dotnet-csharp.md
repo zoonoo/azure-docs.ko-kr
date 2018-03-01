@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: 1ad6ba7126b210ddc671026244c4c614d7010000
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 8455a45f1c39c5cb04f742d57a16a81776f850e0
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="use-c-user-defined-functions-with-hive-and-pig-streaming-on-hadoop-in-hdinsight"></a>HDInsight에서 Hive 및 Pig 스트림과 함께 C# UDF(사용자 정의 함수) 사용
 
@@ -49,7 +49,7 @@ Hive 및 Pig 모두 외부 응용 프로그램으로 데이터를 전달해 처�
 
 ## <a name="net-on-hdinsight"></a>HDInsight에서.NET
 
-* [Mono(https://mono-project.com)](https://mono-project.com)를 사용하여 .NET 응용 프로그램을 실행하는 __Linux 기반 HDInsight__ 클러스터. Mono 버전 4.2.1은 HDInsight 버전 3.5에 포함되어 있습니다.
+* [Mono(https://mono-project.com)](https://mono-project.com)를 사용하여 .NET 응용 프로그램을 실행하는 __Linux 기반 HDInsight__ 클러스터. Mono 버전 4.2.1은 HDInsight 버전 3.6에 포함되어 있습니다.
 
     .NET 프레임워크 버전과 Mono의 호환성에 대한 자세한 내용은 [Mono 호환성](http://www.mono-project.com/docs/about-mono/compatibility/)을 참조하세요.
 
@@ -222,7 +222,7 @@ Hive 및 Pig 모두 외부 응용 프로그램으로 데이터를 전달해 처�
 
 1. 다음 중 한 가지 방법을 사용하여 HDInsight 클러스터에 연결합니다.
 
-    * __Linux 기반__ HDInsight 클러스터를 사용하는 경우 SSH를 사용합니다. 예: `ssh sshuser@mycluster-ssh.azurehdinsight.net`. 자세한 내용은 [HDInsight와 함께 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
+    * __Linux 기반__ HDInsight 클러스터를 사용하는 경우 SSH를 사용합니다. 예: `ssh sshuser@mycluster-ssh.azurehdinsight.net` 자세한 내용은 [HDInsight와 함께 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
     
     * __Windows 기반__ HDInsight 클러스터를 사용하는 경우 [원격 데스크톱을 사용하여 클러스터에 연결](../hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp)합니다.
 
@@ -266,6 +266,6 @@ Hive 및 Pig 모두 외부 응용 프로그램으로 데이터를 전달해 처�
 
 Pig 및 Hive를 사용하고 MapReduce 사용에 대해 배우는 다른 방법은 다음 문서를 참조하세요.
 
-* [HDInsight에서 Hive 사용](hdinsight-use-hive.md)
+* [HDInsight에서 하이브 사용](hdinsight-use-hive.md)
 * [HDInsight에서 Pig 사용](hdinsight-use-pig.md)
 * [HDInsight와 함께 MapReduce 사용](hdinsight-use-mapreduce.md)

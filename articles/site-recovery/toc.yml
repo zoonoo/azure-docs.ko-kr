@@ -24,13 +24,13 @@
         - name: Azure 준비
           href: tutorial-prepare-azure.md
         - name: 온-프레미스 VMware 준비
-          href: tutorial-prepare-on-premises-vmware.md
+          href: vmware-azure-tutorial-prepare-on-premises.md
         - name: 재해 복구 설정
-          href: tutorial-vmware-to-azure.md
+          href: vmware-azure-tutorial.md
         - name: 재해 복구 훈련 실행
           href: tutorial-dr-drill-azure.md
         - name: 장애 조치(failover) 및 장애 복구(failback) 실행
-          href: tutorial-vmware-to-azure-failover-failback.md
+          href: vmware-azure-tutorial-failover-failback.md
     - name: Hyper-V VM
       items:
         - name: Azure 준비
@@ -50,9 +50,9 @@
         - name: Azure에서 온-프레미스 복제 준비
           href: tutorial-prepare-azure.md
         - name: Azure로 온-프레미스 컴퓨터 마이그레이션
-          href: tutorial-migrate-on-premises-to-azure.md
+          href: migrate-tutorial-on-premises-azure.md
         - name: Azure로 AWS 인스턴스 마이그레이션
-          href: tutorial-migrate-aws-to-azure.md
+          href: migrate-tutorial-aws-azure.md
         - name: 다른 지역으로 Azure VM 마이그레이션
           href: azure-to-azure-tutorial-migrate.md
 - name: 개념
@@ -62,11 +62,11 @@
         - name: Azure에서 Azure로 아키텍처
           href: azure-to-azure-architecture.md
         - name: VMware에서 Azure로 아키텍처
-          href: concepts-vmware-to-azure-architecture.md
+          href: vmware-azure-architecture.md
         - name: Hyper-V에서 Azure로 아키텍처
           href: hyper-v-azure-architecture.md
         - name: 물리적 서버에서 Azure로 아키텍처
-          href: concepts-physical-to-azure-architecture.md
+          href: physical-azure-architecture.md
         - name: Hyper-V에서 보조 사이트로 아키텍처
           href: hyper-v-vmm-architecture.md
     - name: 지원 요구 사항 행렬
@@ -114,11 +114,11 @@
         - name: Azure로 마이그레이션 이후 Azure VM의 재해 복구
           href: azure-to-azure-replicate-after-migration.md
         - name: Azure에 대한 물리적 서버의 재해 복구
-          href: tutorial-physical-to-azure.md
+          href: physical-azure-disaster-recovery.md
         - name: Hyper-V VM을 보조 사이트로 재해 복구
           href: hyper-v-vmm-disaster-recovery.md
         - name: VMware VM 및 물리적 서버를 보조 사이트로 재해 복구
-          href: tutorial-vmware-to-vmware.md
+          href: vmware-physical-secondary-disaster-recovery.md
         - name: Azure로 재해 복구 훈련 실행
           href: site-recovery-test-failover-to-azure.md
         - name: Hyper-V VM을 보조 사이트로 복구하는 재해 복구 훈련 실행
@@ -236,7 +236,7 @@
         - name: PowerShell을 사용하여 Azure로 Hyper-V 복제 설정(VMM 없음)
           href: hyper-v-azure-powershell-resource-manager.md
         - name: PowerShell을 사용하여 Azure로 Hyper-V 복제 설정(VMM 있음)
-          href: site-recovery-vmm-to-azure-powershell-resource-manager.md
+          href: hyper-v-vmm-powershell-resource-manager.md
         - name: PowerShell을 사용하여 보조 VMM 사이트로 Hyper-V 복제 설정
           href: hyper-v-vmm-powershell-resource-manager.md
     - name: 워크로드
@@ -290,7 +290,7 @@
         - name: Azure 장애 조치(failover) 문제
           href: site-recovery-failover-to-azure-troubleshoot.md
         - name: 다시 보호 및 장애 복구(failback) 문제
-          href: troubleshoot-failback-reprotect.md
+          href: vmware-azure-troubleshoot-failback-reprotect.md
         - name: Azure Site Recovery 모니터링
           href: site-recovery-monitor-and-troubleshoot.md
 - name: 참고 자료

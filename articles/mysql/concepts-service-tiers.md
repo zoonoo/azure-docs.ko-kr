@@ -10,14 +10,14 @@ ms.service: mysql-database
 ms.topic: article
 ms.date: 11/03/2017
 ms.openlocfilehash: ae7e57e9b40f5194c15525a48843060bbccaa956
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-database-for-mysql-options-and-performance-understand-whats-available-in-each-pricing-tier"></a>MySQL용 Azure Database 옵션 및 성능: 각 가격 책정 계층에서 사용할 수 있는 항목 이해
 MySQL 서버용 Azure Database를 만들 때 해당 서버에 할당되는 리소스를 구성하는 세 가지 주요 선택 사항을 결정합니다. 이 선택 사항은 서버의 성능과 규모에 영향을 미칩니다.
-- 가격 책정 계층
+- 가격 책정 계층 
 - Compute 단위
 - 저장소(GB)
 
@@ -79,7 +79,7 @@ Compute 단위는 MySQL 서버용 단일 Azure Database에서 사용할 수 있�
 
 \* 최대 서버 저장소 크기는 서버에 대해 프로비전된 최대 저장소 크기를 나타냅니다.
 
-## <a name="storage"></a>저장소 
+## <a name="storage"></a>Storage 
 저장소 구성은 MySQL 서버용 Azure Database에 사용할 수 있는 저장소 용량을 정의합니다. 서비스에서 사용되는 저장소에는 데이터베이스 파일, 트랜잭션 로그 및 MySQL 서버 로그가 포함됩니다. 저장소 구성 선택 시 성능 요구 사항(IOPS) 및 데이터베이스를 호스트하는 데 필요한 저장소의 크기를 고려합니다.
 
 일부 저장소 용량은 위의 표에서 "포함된 저장소 크기"에 나와 있는 대로 각 가격 책정 계층에서 최소 크기로 포함됩니다. 서버를 만들 때 최대 허용 저장소까지 125GB 단위로 저장소 용량을 추가할 수 있습니다. 추가 저장소 용량은 Compute 단위 구성과는 별도로 구성할 수 있습니다. 선택한 저장소의 크기에 따라 가격이 변경됩니다.

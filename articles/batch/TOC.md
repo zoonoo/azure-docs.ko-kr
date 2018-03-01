@@ -83,9 +83,9 @@
 
 ## [Azure CLI](/cli/azure/batch)
 ## [Azure PowerShell](/powershell/module/azurerm.batch)
-## [.NET](/dotnet/api/microsoft.azure.batch)
-## [Java](/java/api/com.microsoft.azure.batch)
-## [Node.js](/nodejs/api/overview/azure/batch)
+## [.NET](/dotnet/api/overview/azure/batch)
+## [Java](/java/api/overview/azure/batch)
+## [Node.js](/javascript/api/overview/azure/batch)
 ## [Python](/python/api/overview/azure/batch)
 ## REST (영문)
 ### [Batch 서비스](/rest/api/batchservice)
@@ -100,7 +100,6 @@
 ### [작업 완료 이벤트](batch-task-complete-event.md)
 ### [작업 실패 이벤트](batch-task-fail-event.md)
 ## [Batch 계산 노드 환경 변수](batch-compute-node-environment-variables.md)
-### [Resource Manager 템플릿](/templates/microsoft.batch/batchaccounts)
 
 # 리소스
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
@@ -108,8 +107,9 @@
 ## [Batch Shipyard](https://github.com/Azure/batch-shipyard)
 ## [블로그](https://blogs.technet.microsoft.com/windowshpc/)
 ## [Azure의 HPC 솔루션](../virtual-machines/linux/high-performance-computing.md?toc=%2fazure%2fbatch%2ftoc.json)
-## [가격 책정](https://azure.microsoft.com/pricing/details/batch/)
+## [가격](https://azure.microsoft.com/pricing/details/batch/)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
+## [Resource Manager 템플릿](/azure/templates/microsoft.batch/batchaccounts)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-batch)
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=batch)

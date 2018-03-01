@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: a6d3c89f0f99128e2bf754391c79c3d616f0730a
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 5ec0412dc91a7e5c28ee9ee820df9584ffa80cd8
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="navigation-and-dashboards-in-the-application-insights-portal"></a>Application Insights 포털에서 탐색 및 대시보드
 [프로젝트에서 Application Insights를 설정](app-insights-overview.md)하면 앱의 성능 및 사용에 대한 원격 분석 데이터가 [Azure Portal](https://portal.azure.com)에서 프로젝트의 Application Insights 리소스에 나타납니다.
@@ -117,7 +117,6 @@ ms.lasthandoff: 12/08/2017
 
 ### <a name="essentials-tab"></a>Essentials 탭
 * [계측 키](app-insights-create-new-resource.md#copy-the-instrumentation-key) - 이 앱 리소스를 식별합니다.
-* 가격 - 기능을 사용할 수 있게 하고 볼륨 한도를 설정합니다.
 
 ### <a name="app-navigation-bar"></a>앱 탐색 모음
 ![왼쪽 탐색 모음](./media/app-insights-dashboards/app-left-nav-bar.png)

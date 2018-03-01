@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 02/15/2018
 ms.author: chwolf
-ms.openlocfilehash: 8aff62dd32395c1ef292942e977467779f945931
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 2a4d17673340d145de9a3514f920c74f7eebf6b6
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-service-bus-to-azure-event-grid-examples"></a>Azure Service Bus-Azure Event Grid 예제
 
@@ -190,10 +190,10 @@ Logic Apps 디자이너의 초기 보기는 다음 스크린샷처럼 생겼으�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Event Grid](https://docs.microsoft.com/en-us/azure/azure-functions/)에 대해 자세히 알아봅니다.
-* [Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/)에 대해 자세히 알아봅니다.
-* [Azure Logic Apps](https://docs.microsoft.com/en-us/azure/logic-apps/)에 대해 자세히 알아봅니다.
-* [Azure Service Bus](https://docs.microsoft.com/en-us/azure/azure-functions/)에 대해 자세히 알아보세요.
+* [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/)에 대해 자세히 알아봅니다.
+* [Azure Functions](https://docs.microsoft.com/azure/azure-functions/)에 대해 자세히 알아봅니다.
+* [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/)에 대해 자세히 알아봅니다.
+* [Azure Service Bus](https://docs.microsoft.com/azure/service-bus/)에 대해 자세히 알아보세요.
 
 [2]: ./media/service-bus-to-event-grid-integration-example/sbtoeventgrid2.png
 [3]: ./media/service-bus-to-event-grid-integration-example/sbtoeventgrid3.png

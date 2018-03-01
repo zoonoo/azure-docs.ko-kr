@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: support-article
 ms.date: 09/13/2017
 ms.author: tomfitz
-ms.openlocfilehash: 25cea4ae23471d182105ca3f720aaf74f81bf8c4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a6cccfa5097847429d3e402e3d522addc14b8c31
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="resolve-errors-for-sku-not-available"></a>SKU 사용할 수 없음 오류 해결
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="symptom"></a>증상
 
-리소스를 배포할 때(일반적으로 가상 컴퓨터) 다음 오류 코드 및 오류 메시지가 표시됩니다.
+리소스를 배포할 때(일반적으로 가상 머신) 다음 오류 코드 및 오류 메시지가 표시됩니다.
 
 ```
 Code: SkuNotAvailable
@@ -46,7 +46,7 @@ for subscription '<subscriptionID>'. Please try another tier or deploy to a diff
 PowerShell에서 [Get-AzureRmComputeResourceSku](/powershell/module/azurerm.compute/get-azurermcomputeresourcesku) 명령을 사용합니다. 결과를 위치별로 필터링합니다. 이 명령이 작동하려면 최신 버전의 PowerShell이 있어야 합니다.
 
 ```powershell
-Get-AzureRmComputeResourceSku | where {$_.Locations.Contains("southcentralus")}
+Get-AzureRmComputeResourceSku | where {$_.Locations -icontains "southcentralus"}
 ```
 
 결과에는 위치에 대한 SKU 목록과 해당 SKU에 대한 제한 사항이 포함됩니다.
@@ -87,7 +87,7 @@ availabilitySets  centralus           Aligned                 MaximumPlatformFau
 
 ### <a name="solution-4"></a>해결 방법 4
 
-가상 컴퓨터에 대한 REST API를 사용합니다. 다음 요청을 보냅니다.
+가상 머신에 대한 REST API를 사용합니다. 다음 요청을 보냅니다.
 
 ```HTTP 
 GET

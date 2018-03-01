@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/01/2017
+ms.date: 02/23/2018
 ms.author: larryfr
-ms.openlocfilehash: 5e9951132ebb46d1053fbf62528b43e82cc76d2e
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 03214f25858ae340908a1d1b7f3ff7f62d545dc9
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="connect-hdinsight-to-your-on-premise-network"></a>온-프레미스 네트워크에 HDInsight 연결
 
@@ -69,18 +69,18 @@ HDInsight 및 조인된 네트워크의 리소스를 이름별로 통신하도�
 [Bind](https://www.isc.org/downloads/bind/) DNS 소프트웨어를 사용하는 Linux VM을 만들려면 다음 단계를 사용합니다.
 
 > [!NOTE]
-> 다음 단계에서는 [Azure Portal](https://portal.azure.com)을 사용하여 Azure Virtual Machine을 만듭니다. 가상 컴퓨터를 만드는 다른 방법은 다음 문서를 참조하세요.
+> 다음 단계에서는 [Azure Portal](https://portal.azure.com)을 사용하여 Azure Virtual Machine을 만듭니다. 가상 머신을 만드는 다른 방법은 다음 문서를 참조하세요.
 >
 > * [VM 만들기 - Azure CLI](../virtual-machines/linux/quick-create-cli.md)
 > * [VM 만들기 - Azure PowerShell](../virtual-machines/linux/quick-create-portal.md)
 
 1. [Azure Portal](https://portal.azure.com)에서 __+__, __Compute__ 및 __Ubuntu Server 16.04 LTS__를 선택합니다.
 
-    ![Ubuntu 가상 컴퓨터 만들기](./media/connect-on-premises-network/create-ubuntu-vm.png)
+    ![Ubuntu 가상 머신 만들기](./media/connect-on-premises-network/create-ubuntu-vm.png)
 
 2. __기본__ 섹션에서 다음 정보를 입력합니다.
 
-    * __이름__: 이 가상 컴퓨터를 식별하는 친숙한 이름입니다. 예: __DNSProxy__
+    * __이름__: 이 가상 머신을 식별하는 친숙한 이름입니다. 예: __DNSProxy__
     * __사용자 이름__: SSH 계정의 이름입니다.
     * __SSH 공개 키__ 또는 __암호__: SSH 계정에 대한 인증 방법입니다. 보다 안전한 공개 키를 사용하는 것이 좋습니다. 자세한 내용은 [Linux VM에 대한 SSH 키 만들기 및 사용](../virtual-machines/linux/mac-create-ssh-keys.md) 문서를 참조하세요.
     * __리소스 그룹__: __기존 리소스 그룹 사용__을 선택한 다음 앞에서 만든 가상 네트워크를 포함하는 리소스 그룹을 선택합니다.
@@ -106,13 +106,13 @@ HDInsight 및 조인된 네트워크의 리소스를 이름별로 통신하도�
 
 5. __구매__ 섹션에서 __구매__ 단추를 선택하여 가상 컴퓨터를 만듭니다.
 
-6. 가상 컴퓨터를 만들면 해당 __개요__ 섹션이 표시됩니다. 왼쪽에 있는 목록에서 __속성__을 선택합니다. __공용 IP 주소__ 및 __개인 IP 주소__ 값을 저장합니다. 이 값은 다음 섹션에서 사용됩니다.
+6. 가상 머신을 만들면 해당 __개요__ 섹션이 표시됩니다. 왼쪽에 있는 목록에서 __속성__을 선택합니다. __공용 IP 주소__ 및 __개인 IP 주소__ 값을 저장합니다. 이 값은 다음 섹션에서 사용됩니다.
 
     ![공용 및 개인 IP 주소](./media/connect-on-premises-network/vm-ip-addresses.png)
 
 ### <a name="install-and-configure-bind-dns-software"></a>Bind(DNS 소프트웨어) 설치 및 구성
 
-1. SSH를 사용하여 가상 컴퓨터의 __공용 IP 주소__에 연결합니다. 다음 예제에서는 40.68.254.142에서 가상 컴퓨터에 연결합니다.
+1. SSH를 사용하여 가상 머신의 __공용 IP 주소__에 연결합니다. 다음 예제에서는 40.68.254.142에서 가상 머신에 연결합니다.
 
     ```bash
     ssh sshuser@40.68.254.142
