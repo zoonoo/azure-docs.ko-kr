@@ -3,7 +3,7 @@ title: "응용 프로그램 프록시에 대한 Kerberos 제한 위임 구성 �
 description: "응용 프로그램 프록시에 대한 Kerberos 제한 위임 구성 문제 해결"
 services: active-directory
 documentationcenter: 
-author: daveba
+author: MarkusVi
 manager: mtillman
 ms.assetid: 
 ms.service: active-directory
@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: 7b31f53e14e3f9a175e5dda95a18eb89dbca99dc
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.date: 02/09/2018
+ms.author: markvi
+ms.reviewer: harshja
+ms.openlocfilehash: a580b0afbd34623986ea8a3f60147a937c423e5e
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>응용 프로그램 프록시에 대한 Kerberos 제한 위임 구성 문제 해결
 
@@ -33,11 +34,11 @@ KCD를 사용하기 위한 실제 절차는 비교적 간단하며 일반적으�
 
 -   게시된 대상 응용 프로그램은 IIS 및 Microsoft의 Kerberos 구현을 기반으로 합니다.
 
--   서버 및 응용 프로그램 호스트는 단일 Active Directory 도메인에 상주합니다. 크로스 도메인 및 포리스트 시나리오에 대한 자세한 내용은 [KCD 백서](http://aka.ms/KCDPaper)에서 확인할 수 있습니다.
+-   서버 및 응용 프로그램 호스트는 단일 Active Directory 도메인에 상주합니다. 크로스 도메인 및 포리스트 시나리오에 대한 자세한 내용은 [KCD 백서](https://aka.ms/KCDPaper)에서 확인할 수 있습니다.
 
 -   주체 응용 프로그램은 사전 인증을 사용하는 Azure 테넌트에 게시되며 사용자는 양식 기반 인증을 통해 Azure에 인증해야 합니다. 리치 클라이언트 인증 시나리오는 이 문서에서 다루지 않지만 향후 추가될 예정입니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 Azure 응용 프로그램 프록시는 다양한 종류의 인프라 또는 환경에 배포할 수 있으며 아키텍처는 조직마다 다를 수 있습니다. KCD 관련 문제의 가장 일반적인 원인 중 하나는 환경 자체가 아니라 단순한 잘못된 구성 또는 일반적인 감독입니다.
 
@@ -51,7 +52,7 @@ Azure 응용 프로그램 프록시는 다양한 종류의 인프라 또는 환�
 
 -   가능한 경우에는 커넥터 호스트와 DC 사이에 활성 IPS/IDS 장치를 배치해서는 안 됩니다. 이러한 장치가 코어 RPC 트래픽을 방해할 수 있습니다.
 
-가장 간단한 시나리오에서 위임을 테스트하는 것이 좋습니다. 변수가 많을수록 더 많이 고민해야 할 수 있습니다. 예를 들어 테스트를 단일 커넥터로 제한하면 귀중한 시간을 절약할 수 있으며 문제가 해결된 후에 다른 커넥터를 추가할 수 있습니다.
+가장 간단한 시나리오에서 위임을 테스트해야 합니다. 변수가 많을수록 더 많이 고민해야 할 수 있습니다. 예를 들어 테스트를 단일 커넥터로 제한하면 귀중한 시간을 절약할 수 있으며 문제가 해결된 후에 다른 커넥터를 추가할 수 있습니다.
 
 일부 환경 요소가 문제를 일으킬 수도 있습니다. 이러한 환경 요소를 방지할 수 있도록 테스트 중에는 아키텍처를 최소화하는 것이 좋습니다. 예를 들어 내부 방화벽 ACL이 잘못 구성되는 것은 드문 일이 아니므로 가능하면 커넥터의 모든 트래픽이 DC 및 백 엔드 응용 프로그램을 통해 직접 허용될 수 있도록 설정합니다. 
 
@@ -79,7 +80,7 @@ KCD 문제가 되는 요소는 무엇인가요? KCD SSO 문제를 나타내는 �
 
 **클라이언트 사전 인증** - 외부 사용자가 브라우저를 통해 Azure에 대해 인증합니다.
 
-KCD SSO가 작동하려면 Azure에 사전 인증할 수 있어야 합니다. 문제가 있는 경우 먼저 테스트하고 해결해야 합니다. 사전 인증 단계는 KCD 또는 게시된 응용 프로그램과 관련이 없습니다. Azure에 존재하는 주체 계정의 온전성과 비활성/차단되지 않았는지 검사하여 불일치를 수정하는 것은 매우 쉽습니다. 브라우저의 오류 응답은 대개 원인을 이해하기에 충분합니다. 확실하지 않은 경우 다른 문제 해결 문서를 확인할 수도 있습니다.
+KCD SSO가 작동하려면 Azure에 사전 인증할 수 있어야 합니다. 테스트하고, 문제가 발생하면 해결해야 합니다. 사전 인증 단계는 KCD 또는 게시된 응용 프로그램과 관련이 없습니다. Azure에 존재하는 주체 계정의 온전성과 비활성/차단되지 않았는지 검사하여 불일치를 수정하는 것은 매우 쉽습니다. 브라우저의 오류 응답은 대개 원인을 이해하기에 충분합니다. 확실하지 않은 경우 다른 문제 해결 문서를 확인할 수도 있습니다.
 
 **위임 서비스** - Azure 프록시 커넥터는 사용자를 대신하여 KDC(Kerberos Distribution Center)에서 Kerberos 서비스 티켓을 얻습니다.
 
@@ -125,7 +126,7 @@ KCD SSO가 작동하려면 Azure에 사전 인증할 수 있어야 합니다. �
 
 2.  일시적으로 IIS 사이트의 공급자 목록에서 NTLM을 제거하고 커넥터 호스트의 IE에서 직접 앱에 액세스합니다. NTLM이 더 이상 공급자 목록에 없으면 Kerberos만 사용하여 응용 프로그램에 액세스할 수 있어야 합니다. 실패하면 응용 프로그램의 구성에 문제가 있음을 나타내며 Kerberos 인증이 작동하지 않습니다.
 
-Kerberos를 사용할 수 없는 경우 IIS에서 응용 프로그램의 인증 설정을 확인하여 Negotiate가 최상위에 나열되고 NTLM이 바로 아래에 있는지 확인합니다. (협상 안 함: kerberos 또는 협상: PKU2U). Kerberos가 작동하는 경우에만 계속 진행합니다.
+Kerberos를 사용할 수 없는 경우 IIS에서 응용 프로그램의 인증 설정을 확인하여 Negotiate가 최상위에 나열되고 NTLM이 바로 아래에 있는지 확인합니다. (협상 안 함: Kerberos 또는 협상: PKU2U). Kerberos가 작동하는 경우에만 계속 진행합니다.
 
    ![Windows 인증 공급자](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic7.png)
    
@@ -152,6 +153,16 @@ Kerberos를 사용할 수 없는 경우 IIS에서 응용 프로그램의 인증 
 -   IIS로 이동하여 응용 프로그램에 대한 **구성 편집기** 옵션을 선택하고 **system.webServer/security/authentication/windowsAuthentication**으로 이동하여 **UseAppPoolCredentials** 값이 **True**로 설정되어 있는지 확인합니다.
 
    ![IIS 구성 앱 풀 자격 증명 옵션](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic12.png)
+
+이 값을 **True**로 변경한 후 캐시된 모든 Kerberos 티켓을 백엔드 서버에서 제거해야 합니다. 다음 명령을 실행하여 이를 수행할 수 있습니다.
+
+```powershell
+Get-WmiObject Win32_LogonSession | Where-Object {$_.AuthenticationPackage -ne 'NTLM'} | ForEach-Object {klist.exe purge -li ([Convert]::ToString($_.LogonId, 16))}
+``` 
+
+자세한 내용은 [모든 세션에 대해 Kerberos 클라이언트 티켓 캐시 제거](https://gallery.technet.microsoft.com/scriptcenter/Purge-the-Kerberos-client-b56987bf)를 참조하세요.
+
+
 
 커널 모드를 사용하면 Kerberos 작업의 성능을 향상시킬 수 있지만 요청한 서비스의 티켓이 컴퓨터 계정을 사용하여 해독됩니다. 이를 로컬 시스템이라고도 합니다. 따라서 이 설정을 true로 설정하면 팜의 여러 서버에서 응용 프로그램을 호스트할 때 KCD가 손상됩니다.
 

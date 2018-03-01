@@ -1,6 +1,6 @@
 ---
-title: "Operations Management Suite에서 서비스 맵 솔루션 사용 | Microsoft Docs"
-description: "서비스 맵은 Windows 및 Linux 시스템에서 응용 프로그램 구성 요소를 자동으로 검색하여 서비스 간 통신을 매핑하는 Operations Management Suite 솔루션입니다. 이 문서에서는 사용자 환경에 서비스 맵을 배포하고 다양한 시나리오에서 사용하는 것에 대해 자세히 설명합니다."
+title: "Azure에서 서비스 맵 솔루션 사용 | Microsoft Docs"
+description: "서비스 맵은 Windows 및 Linux 시스템의 응용 프로그램 구성 요소를 자동으로 검색하고 서비스 간 통신을 매핑하는 Azure의 솔루션입니다. 이 문서에서는 사용자 환경에 서비스 맵을 배포하고 다양한 시나리오에서 사용하는 것에 대해 자세히 설명합니다."
 services: operations-management-suite
 documentationcenter: 
 author: daveirwin1
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/22/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: 993dff7657a73803ca21677e19b08946fb89bfa2
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 84a43a4f04d7cd89d0d968acb436d196353eb81d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="use-the-service-map-solution-in-operations-management-suite"></a>Operations Management Suite에서 서비스 맵 솔루션 사용
+# <a name="using-service-map-solution-in-azure"></a>Azure에서 서비스 맵 솔루션 사용
 서비스 맵은 Windows 및 Linux 시스템에서 응용 프로그램 구성 요소를 자동으로 검색하고 서비스 간 통신을 매핑합니다. 서비스 맵을 사용하면 생각하는 방식 즉 중요한 서비스를 제공하는 상호 연결된 시스템으로 서버를 볼 수 있습니다. 서비스 맵은 서버, 프로세스 및 에이전트 설치 이외에 구성이 필요 없는 TCP 연결 아키텍처의 포트 간 연결을 보여 줍니다.
 
-이 문서에서는 서비스 맵 사용에 대한 세부 정보를 설명합니다. 서비스 맵 구성 및 에이전트 탑재에 대한 정보는 [Operations Management Suite에서 서비스 맵 솔루션 구성](operations-management-suite-service-map-configure.md)을 참조하세요.
+이 문서에서는 서비스 맵 사용에 대한 세부 정보를 설명합니다. 서비스 맵 구성 및 에이전트 온보딩에 대한 자세한 내용은 [Azure에서 서비스 맵 솔루션 구성](operations-management-suite-service-map-configure.md)을 참조하세요.
 
 
 ## <a name="use-cases-make-your-it-processes-dependency-aware"></a>사용 사례: IT 프로세스 종속성 인식
@@ -32,7 +32,7 @@ ms.lasthandoff: 01/11/2018
 서비스 맵은 서버, 프로세스 및 타사 서비스 간 종속성에 대한 일반적인 참조 맵을 자동으로 작성합니다. 모든 TCP 종속성을 검색 및 매핑하여 예기치 않은 연결, 사용 중인 원격 타사 시스템, Active Directory 등 기존의 어두운 영역에 대한 종속성을 식별합니다. 서비스 맵은 관리되는 시스템에서 시도하는 실패한 네트워크 연결을 검색하여 잠재적인 서버 구성 오류, 서비스 중단 및 네트워크 문제를 파악할 수 있습니다.
 
 ### <a name="incident-management"></a>인시던트 관리
-서비스 맵을 통해 시스템이 어떻게 연결되고 서로 어떻게 영향을 주는지 표시할 수 있으므로 문제 격리의 추측을 없앨 수 있습니다. 실패한 연결을 식별하는 것 외에도, 잘못 구성된 부하 분산 장치, 중요한 서비스에서 예기치 않거나 과도한 로드, 프로덕션 시스템과 통신 중인 개발자 컴퓨터와 같은 불량 클라이언트를 식별하는 데 도움이 됩니다. Operations Management Suite 변경 내용 추적과 통합된 워크플로를 사용하여, 백 엔드 컴퓨터 또는 서비스의 변경 이벤트가 인시던트의 근본 원인을 설명하는지 여부도 확인할 수 있습니다.
+서비스 맵을 통해 시스템이 어떻게 연결되고 서로 어떻게 영향을 주는지 표시할 수 있으므로 문제 격리의 추측을 없앨 수 있습니다. 실패한 연결을 식별하는 것 외에도, 잘못 구성된 부하 분산 장치, 중요한 서비스에서 예기치 않거나 과도한 로드, 프로덕션 시스템과 통신 중인 개발자 컴퓨터와 같은 불량 클라이언트를 식별하는 데 도움이 됩니다. 변경 내용 추적과 통합된 워크플로를 사용하여, 백 엔드 컴퓨터 또는 서비스의 변경 이벤트가 인시던트의 근본 원인을 설명하는지 여부도 확인할 수 있습니다.
 
 ### <a name="migration-assurance"></a>마이그레이션 보증
 서비스 맵을 사용하면, Azure Migration을 효과적으로 계획, 가속화 및 검증할 수 있으므로 아무것도 남기지 않고 임의의 중단이 발생하지 않도록 할 수 있습니다. 함께 마이그레이션해야 하는 모든 상호 종속적인 시스템을 검색하고 시스템 구성 및 용량을 평가하며 실행 중인 시스템이 여전히 사용자에게 서비스 중인지, 마이그레이션 대신 서비스 해제가 적합한지 여부를 식별합니다. 이동이 완료되면 클라이언트 로드 및 ID를 확인하여 테스트 시스템과 고객이 연결 중인지 확인할 수 있습니다. 서브넷 계획 및 방화벽 정의에 문제가 있으면 서비스 맵 맵에서 실패한 연결을 통해 사용자는 연결이 필요한 시스템으로 안내됩니다.
@@ -41,7 +41,7 @@ ms.lasthandoff: 01/11/2018
 Azure Site Recovery를 사용 중이고 응용 프로그램 환경에 대한 복구 시퀀스를 정의하는 데 도움이 필요한 경우 서비스 맵은 시스템이 서로 어떻게 의존하여 복구 계획의 안정성을 보장하는지를 자동으로 보여 줄 수 있습니다. 중요한 서버나 그룹을 선택하고 클라이언트를 보면 서버가 복원되어 사용 가능할 때 복구할 프런트 엔드 시스템을 식별할 수 있습니다. 반대로 중요한 서버의 백 엔드 종속성을 살펴보고 포커스 시스템을 복원하기 전에 복구할 시스템을 식별할 수 있습니다.
 
 ### <a name="patch-management"></a>패치 관리
-서비스 맵은 다른 어떤 팀과 서버가 사용자의 서비스에 종속되어 있는지를 보여 주어 Operations Management Suite 시스템 업데이트 평가 사용을 개선하기 때문에 패치 적용을 위해 시스템이 중단되기 전에 미리 알릴 수 있습니다. 서비스 맵은 또한 패치되고 다시 시작된 후 서비스가 사용 가능하고 올바르게 연결되었는지를 보여줌으로써 Operations Management Suite의 패치 관리를 향상시킵니다.
+서비스 맵은 다른 어떤 팀과 서버가 사용자의 서비스에 종속되어 있는지를 보여 주어 시스템 업데이트 평가 사용을 개선하므로 패치 적용을 위해 시스템이 중단되기 전에 사전에 알릴 수 있습니다. 또한 서비스 맵은 서비스가 사용 가능한지, 패치 적용되어 다시 시작된 후 제대로 연결되었는지를 표시하여 패치 관리를 개선합니다.
 
 
 ## <a name="mapping-overview"></a>매핑 개요
@@ -54,7 +54,7 @@ Azure Site Recovery를 사용 중이고 응용 프로그램 환경에 대한 복
 기본적으로 서비스 맵 맵은 최근 30분 간의 종속성 정보를 표시합니다. 왼쪽 상단의 시간 컨트롤을 사용하여 최대 1시간의 기록 시간 범위에 대한 맵을 쿼리하여 과거의 종속성(예: 인시던트 중 또는 변경되기 전)을 보여줍니다. 서비스 맵 데이터는 유료 작업 영역에서 30일 동안, 무료 작업 영역에서는 7일 동안 저장됩니다.
 
 ## <a name="status-badges-and-border-coloring"></a>상태 배지 및 경계 색 지정
-맵의 각 서버 하단에는 서버에 대한 상태 정보를 전달하는 상태 배지 목록이 있을 수 있습니다. 배지는 Operations Management Suite 솔루션 통합 중 하나에 서버에 대한 몇 가지 관련 정보가 있음을 나타냅니다. 배지를 클릭하면 오른쪽 창의 상태 세부 정보로 직접 이동됩니다. 현재 사용 가능한 상태 배지에는 경고, 서비스 데스크, 변경 내용, 보안 및 업데이트가 포함됩니다.
+맵의 각 서버 하단에는 서버에 대한 상태 정보를 전달하는 상태 배지 목록이 있을 수 있습니다. 이러한 배지가 있으면 솔루션 통합 중 하나에서 제공된 서버 관련 정보가 있는 것입니다. 배지를 클릭하면 오른쪽 창의 상태 세부 정보로 직접 이동됩니다. 현재 사용 가능한 상태 배지에는 경고, 서비스 데스크, 변경 내용, 보안 및 업데이트가 포함됩니다.
 
 상태 배지의 심각도에 따라 컴퓨터 노드 경계는 빨간색(위험), 노란색(경고) 또는 파란색(정보)으로 지정될 수 있습니다. 색은 상태 배지 중 가장 심각한 상태를 나타냅니다. 회색 테두리는 상태 표시기가 없는 노드를 나타냅니다.
 
@@ -168,12 +168,12 @@ Azure Site Recovery를 사용 중이고 응용 프로그램 환경에 대한 복
 **자체 링크 표시**를 클릭하면 서버 내에서 프로세스를 시작 및 종료하는 TCP 연결에 해당하는 자체 링크를 포함하는 서버 노드가 다시 그려집니다. 셀프 링크가 표시되면 셀프 링크를 끌 수 있도록 메뉴 명령이 **자체 링크 숨기기**로 변경됩니다.
 
 ## <a name="computer-summary"></a>컴퓨터 요약
-**컴퓨터 요약** 창에는 서버의 운영 체제 개요, 종속성 수 및 다른 Operations Management Suite 솔루션의 데이터가 포함됩니다. 이러한 데이터에는 성능 메트릭, 서비스 데스크 티켓, 변경 내용 추적, 보안 및 업데이트가 포함됩니다.
+**컴퓨터 요약** 창에는 서버의 운영 체제 개요, 종속성 개수 및 다른 솔루션의 데이터가 포함됩니다. 이러한 데이터에는 성능 메트릭, 서비스 데스크 티켓, 변경 내용 추적, 보안 및 업데이트가 포함됩니다.
 
 ![컴퓨터 요약 창](media/oms-service-map/machine-summary.png)
 
 ## <a name="computer-and-process-properties"></a>컴퓨터 및 프로세스 속성
-서비스 맵을 탐색할 때 컴퓨터 및 프로세스를 선택하면 해당 속성에 대한 추가 컨텍스트를 얻을 수 있습니다. 컴퓨터는 DNS 이름, IPv4 주소, CPU 및 메모리 용량, VM 유형, 운영 체제 및 버전, 마지막 다시 부팅 시간, Operations Management Suite 및 Service Map 에이전트의 ID에 대한 정보를 제공합니다.
+서비스 맵을 탐색할 때 컴퓨터 및 프로세스를 선택하면 해당 속성에 대한 추가 컨텍스트를 얻을 수 있습니다. 컴퓨터는 DNS 이름, IPv4 주소, CPU 및 메모리 용량, VM 유형, 운영 체제 및 버전, 마지막 다시 부팅 시간, 해당 OMS 및 서비스 맵 에이전트의 ID에 대한 정보를 제공합니다.
 
 ![컴퓨터 속성 창](media/oms-service-map/machine-properties.png)
 
@@ -185,8 +185,8 @@ Azure Site Recovery를 사용 중이고 응용 프로그램 환경에 대한 복
 
 ![프로세스 요약 창](media/oms-service-map/process-summary.png)
 
-## <a name="operations-management-suite-alerts-integration"></a>Operations Management Suite 경고 통합
-서비스 맵은 Operations Management Suite 경고와 통합되어 선택한 시간 범위에서 선택한 서버에 대해 발생된 경고를 표시합니다. 현재 경고가 있으면 서버에 아이콘이 표시되고 **컴퓨터 경고** 창에 경고가 나열됩니다.
+## <a name="alerts-integration"></a>경고 통합
+서비스 맵은 Log Analytics의 경고와 통합되어 선택한 시간 범위에서 선택한 서버에 대해 발생된 경고를 표시합니다. 현재 경고가 있으면 서버에 아이콘이 표시되고 **컴퓨터 경고** 창에 경고가 나열됩니다.
 
 ![컴퓨터 경고 창](media/oms-service-map/machine-alerts.png)
 
@@ -197,13 +197,13 @@ Azure Site Recovery를 사용 중이고 응용 프로그램 환경에 대한 복
 ![경고 구성](media/oms-service-map/alert-configuration.png)
 
 
-## <a name="operations-management-suite-log-events-integration"></a>Operations Management Suite 로그 이벤트 통합
+## <a name="log-events-integration"></a>로그 이벤트 통합
 서비스 맵은 로그 검색과 통합되어 선택한 시간 범위 내에서 선택한 서버에 대해 사용할 수 있는 모든 로그 이벤트의 개수를 표시합니다. 이벤트 수 목록의 행을 클릭하면 로그 검색으로 이동하고 개별 로그 이벤트를 볼 수 있습니다.
 
 ![컴퓨터 로그 이벤트 창](media/oms-service-map/log-events.png)
 
-## <a name="operations-management-suite-service-desk-integration"></a>Operations Management Suite 서비스 데스크 통합
-IT 서비스 관리 커넥터와 서비스 맵의 통합은 Operations Management Suite 작업 영역에서 두 솔루션을 모두 사용하도록 설정화하고 구성하면 자동으로 수행됩니다. 서비스 맵의 이러한 통합에는 "서비스 데스크" 레이블이 지정됩니다. 자세한 내용은 [IT Service Management Connector를 사용하여 ITSM 작업 항목을 중앙에서 관리](https://docs.microsoft.com/azure/log-analytics/log-analytics-itsmc-overview)를 참조하세요.
+## <a name="service-desk-integration"></a>서비스 데스크 통합
+IT 서비스 관리 커넥터와 서비스 맵 통합은 두 솔루션이 사용하도록 설정되고 Log Analytics 작업 영역에서 구성된 경우 자동입니다. 서비스 맵의 이러한 통합에는 "서비스 데스크" 레이블이 지정됩니다. 자세한 내용은 [IT Service Management Connector를 사용하여 ITSM 작업 항목을 중앙에서 관리](https://docs.microsoft.com/azure/log-analytics/log-analytics-itsmc-overview)를 참조하세요.
 
 **컴퓨터 서비스 데스크** 창에는 선택한 시간 범위에서 선택한 서버에 대한 모든 IT 서비스 관리 이벤트 목록이 표시됩니다. 현재 항목이 있고 컴퓨터 서비스 데스크 창에 해당 항목이 나열되면 서버에 아이콘이 표시됩니다.
 
@@ -214,8 +214,8 @@ IT 서비스 관리 커넥터와 서비스 맵의 통합은 Operations Managemen
 로그 검색에서 항목의 세부 정보를 보려면 **로그 검색에서 표시**를 클릭합니다.
 
 
-## <a name="operations-management-suite-change-tracking-integration"></a>Operations Management Suite 변경 내용 추적 통합
-변경 내용 추적과 서비스 맵 통합은 Operations Management Suite 작업 영역에서 두 솔루션을 모두 사용하도록 설정화하고 구성하면 자동으로 수행됩니다.
+## <a name="change-tracking-integration"></a>변경 내용 추적 통합
+변경 내용 추적과 서비스 맵 통합은 두 솔루션이 사용하도록 설정되고 Log Analytics 작업 영역에서 구성된 경우 자동입니다.
 
 **컴퓨터 변경 내용 추적** 창에 로그 검색의 추가 정보를 드릴다운 수 있는 링크와 함께 모든 변경 내용이 최근 순으로 표시됩니다.
 
@@ -226,7 +226,7 @@ IT 서비스 관리 커넥터와 서비스 맵의 통합은 Operations Managemen
 ![ConfigurationChange 이벤트](media/oms-service-map/configuration-change-event.png)
 
 
-## <a name="operations-management-suite-performance-integration"></a>Operations Management Suite 성능 통합
+## <a name="performance-integration"></a>성능 통합
 **컴퓨터 성능** 창에는 선택한 서버에 대한 표준 성능 메트릭이 표시됩니다. 메트릭에는 CPU 사용률, 메모리 사용률, 보내고 받은 네트워크 바이트 수 및 보내고 받은 네트워크 바이트 수에 따른 상위 프로세스 목록이 포함됩니다.
 
 ![컴퓨터 성능 창](media/oms-service-map/machine-performance.png)
@@ -245,20 +245,20 @@ Linux:
 - Network Adapter(*)\\Bytes Sent/sec
 - Network Adapter(*)\\Bytes Received/sec
 
-네트워크 성능 데이터를 구하려면 Operations Management Suite에서 Wire Data 2.0 솔루션을 사용하도록 설정해야 합니다.
+네트워크 성능 데이터를 가져오려면 작업 영역에서 Wire Data 2.0 솔루션도 사용하도록 설정해야 합니다.
  
-## <a name="operations-management-suite-security-integration"></a>Operations Management Suite 보안 통합
-보안 및 감사과 서비스 맵 통합은 Operations Management Suite 작업 영역에서 두 솔루션을 모두 사용하도록 설정하고 구성하면 자동으로 수행됩니다.
+## <a name="security-integration"></a>보안 통합
+보안 및 감사와 서비스 맵 통합은 두 솔루션이 사용하도록 설정되고 Log Analytics 작업 영역에서 구성된 경우 자동입니다.
 
-**컴퓨터 보안** 창에는 선택한 서버에 대한 Operations Management Suite 보안 및 감사 솔루션의 데이터가 표시됩니다. 이 창에는 선택한 기간 동안 서버의 보안 문제에 대한 요약이 나열됩니다. 보안 문제를 클릭하면 보안 문제에 대한 세부 내용을 표시하는 로그 검색으로 드릴다운됩니다.
+**컴퓨터 보안** 창에는 선택한 서버에 대한 보안 및 감사 솔루션의 데이터가 표시됩니다. 이 창에는 선택한 기간 동안 서버의 보안 문제에 대한 요약이 나열됩니다. 보안 문제를 클릭하면 보안 문제에 대한 세부 내용을 표시하는 로그 검색으로 드릴다운됩니다.
 
 ![컴퓨터 보안 창](media/oms-service-map/machine-security.png)
 
 
-## <a name="operations-management-suite-updates-integration"></a>Operations Management Suite 업데이트 통합
-업데이트 관리와 서비스 맵 통합은 Operations Management Suite 작업 영역에서 두 솔루션을 모두 사용하도록 설정화하고 구성하면 자동으로 수행됩니다.
+## <a name="updates-integration"></a>업데이트 통합
+업데이트 관리와 서비스 맵 통합은 두 솔루션이 사용하도록 설정되고 Log Analytics 작업 영역에서 구성된 경우 자동입니다.
 
-**컴퓨터 업데이트** 창에는 선택한 서버에 대한 Operations Management Suite 업데이트 관리 솔루션의 데이터가 표시됩니다. 이 창에는 선택한 시간 범위 동안 서버에서 누락된 업데이트에 대한 요약이 나열됩니다.
+**컴퓨터 업데이트** 창에는 선택한 서버에 대한 업데이트 관리 솔루션의 데이터가 표시됩니다. 이 창에는 선택한 시간 범위 동안 서버에서 누락된 업데이트에 대한 요약이 나열됩니다.
 
 ![컴퓨터 변경 내용 추적 창](media/oms-service-map/machine-updates.png)
 
@@ -272,8 +272,8 @@ Linux:
 
 고유한 프로세스 및 컴퓨터를 식별하는 데 사용할 수 있는 내부적으로 생성된 속성이 있습니다.
 
-- 컴퓨터: ResourceId 또는 ResourceName_s를 사용하여 Operations Management Suite 작업 영역 내의 컴퓨터를 고유하게 식별합니다.
-- 프로세스 : ResourceId를 사용하여 Operations Management Suite 작업 영역 내의 프로세스를 고유하게 식별합니다. ResourceName_s는 프로세스가 실행 중인 컴퓨터(MachineResourceName_s)의 컨텍스트 내에서 고유합니다. 
+- 컴퓨터: ResourceId 또는 ResourceName_s를 사용하여 Log Analytics 작업 영역 내에서 컴퓨터를 고유하게 식별합니다.
+- 프로세스: ResourceId를 사용하여 Log Analytics 작업 영역 내에서 프로세스를 고유하게 식별합니다. ResourceName_s는 프로세스가 실행 중인 컴퓨터(MachineResourceName_s)의 컨텍스트 내에서 고유합니다. 
 
 지정된 시간 범위 내에서 지정된 프로세스 및 컴퓨터에 대해 여러 레코드가 존재할 수 있으므로 쿼리는 동일한 컴퓨터 또는 프로세스에 대해 둘 이상의 레코드를 반환할 수 있습니다. 가장 최근 레코드만 포함하려면 쿼리에 "| dedup ResourceId"를 추가합니다.
 
@@ -282,7 +282,7 @@ Linux:
 
 | 자산 | 설명 |
 |:--|:--|
-| type | *ServiceMapComputer_CL* |
+| 형식 | *ServiceMapComputer_CL* |
 | SourceSystem | *OpsManager* |
 | ResourceId | 작업 영역 내 컴퓨터에 대한 고유 식별자 |
 | ResourceName_s | 작업 영역 내 컴퓨터에 대한 고유 식별자 |
@@ -309,7 +309,7 @@ Linux:
 
 | 자산 | 설명 |
 |:--|:--|
-| type | *ServiceMapProcess_CL* |
+| 형식 | *ServiceMapProcess_CL* |
 | SourceSystem | *OpsManager* |
 | ResourceId | 작업 영역 내 프로세스에 대한 고유 식별자 |
 | ResourceName_s | 프로세스를 실행 중인 컴퓨터 내의 프로세스에 대한 고유 식별자|

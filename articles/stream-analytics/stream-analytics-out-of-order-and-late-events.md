@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: 71929b449f2a0fa55327fd3f9741208506859e85
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 6478d577c52ffa23c3149c8213f182eaa1e466bd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-stream-analytics-event-order-considerations"></a>Azure Stream Analytics 이벤트 순서 고려 사항
 
@@ -70,6 +70,9 @@ Azure Stream Analytics 작업은 다음과 같은 경우에 여러 타임라인�
 * **삭제**: 삭제합니다.
 
 Stream Analytics가 “잘못된 순서 허용 시간” 이내에 수신된 이벤트를 다시 정렬할 경우 쿼리의 출력은 잘못된 순서 허용 시간만큼 지연됩니다.
+
+### <a name="early-events"></a>초기 이벤트
+응용 프로그램 시간으로 처리하는 경우 응용 프로그램 시간이 도착 시간보다 5분 넘게 앞서는 이벤트는 선택한 구성 옵션에 따라 삭제되거나 조정됩니다.
 
 ### <a name="example"></a>예
 

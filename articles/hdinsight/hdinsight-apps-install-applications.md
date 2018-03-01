@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/06/2017
+ms.date: 02/16/2018
 ms.author: jgao
-ms.openlocfilehash: 9924a9656f2e2e268356b8ce293d58afc3d535a9
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: cfaad24e7bf1c38f3be1e13c88fc932be0bd502c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="install-third-party-hadoop-applications-on-azure-hdinsight"></a>Azure HDInsight에 타사 Hadoop 응용 프로그램 설치
 
@@ -33,13 +33,12 @@ HDInsight 응용 프로그램은 HDInsight 클러스터에 사용자가 설치�
 * **AtScale 인텔리전스 플랫폼**은 HDInsight 클러스터를 확장 OLAP 서버로 전환합니다. Microsoft Excel, PowerBI, Tableau 소프트웨어에서 QlikView까지 응용 프로그램을 통해 BI 도구를 사용하여 대화형으로 수십억 개의 데이터 행을 쿼리할 수 있습니다.
 * **HDInsight용 Cask CDAP**은 데이터 응용 프로그램 및 Data Lake에 대한 프로덕션 시간을 80%까지 줄일 수 있는 첫 번째 빅 데이터용 통합 플랫폼을 제공합니다. 이 응용 프로그램은 표준 HBase 3.4 클러스터만을 지원합니다.
 * **HDInsight의 DATAIKU DDS**를 사용하면 데이터 전문가가 원시 데이터를 영향력이 강한 비즈니스 예측으로 변환하는 매우 특정한 서비스를 프로토타입, 빌드 및 배포할 수 있습니다.
-* **Datameer**: [Datameer](http://www.datameer.com/documentation/display/DAS50/Home?ls=Partners&lsd=Microsoft&c=Partners&cd=Microsoft) 에서는 분석가에게 빅 데이터의 결과를 검색, 분석 및 시각화하는 대화형 방법을 제공합니다. 새 관계를 검색하고 필요한 답변을 신속하게 가져오도록 쉽게 추가 데이터 원본을 끌어옵니다.
 * **HDInsight용 H2O Artificial Intelligence(베타)** H2O Sparkling Water는 GLM, Naïve Bayes, Distributed Random Forest, Gradient Boosting Machine, Deep Neural Networks, Deep learning, K-means, PCA, Generalized Low Rank Models, Anomaly Detection 및 Autoencoders 등의 분산 알고리즘을 지원합니다.
 * **Kyligence Analytics Platform** KAP(Kyligence Analytics Platform)는 Apache Kylin 및 Apache Hadoop 기반의 엔터프라이즈 지원 데이터 웨어하우스입니다. 대규모 데이터 집합에 대해 1초 미만의 쿼리 대기 시간을 제공하고, 비즈니스 사용자 및 분석가를 위해 데이터 분석을 간소화합니다. 
 * **Paxata 셀프 서비스 데이터 준비**
-* **SnapLogic Hadooplex** HDInsight에서 실행되는 SnapLogic Hadooplex를 사용하여 고객은 거의 모든 원본에서 Microsoft Azure 클라우드 플랫폼으로 셀프 서비스 데이터 수집 및 준비 작업을 구현함으로써 더 빠르게 비즈니스 통찰력을 얻을 수 있습니다.
 * **KNIME Spark Executor용 Spark 작업 서버** KNIME Spark Executor용 Spark 작업 서버는 KNIME Analytics Platform을 HDInsight 클러스터에 연결하는 데 사용됩니다.
 * **HDnsight용 Streamsets Data Collector**는 모든 기능을 갖춘 IDE(통합 개발 환경)로서 이를 통해 사용자 지정 코드를 작성할 필요 없이 스트림을 맞추고 데이터를 일괄 처리하는 수집 파이프라인 간에 디자인, 테스트, 배포 및 관리하고 다양한 스트림 내 변환을 수행할 수 있습니다. 
+* **[Trifacta](http://www.trifacta.com/)**는 획기적인 사용자 경험과 워크플로, 아키텍처를 제공하기 위해 머신 러닝을 활용해 데이터 엔지니어 및 분석가가 현대의 다양한 데이터를 효율적으로 탐색하고 준비할 수 있게 합니다.
 * **WANdisco Fusion HDI 앱**은 위치에 상관없이 변경되는 데이터에 일관되게 계속 연결할 수 있도록 합니다. 이렇게 하면 중지 및 중단 없이 언제 어디서나 데이터에 액세스할 수 있습니다.
 
 이 문서에서 제공하는 지침은 Azure Portal을 사용합니다. 또한 포털에서 Azure Resource Manager 템플릿을 내보내거나 공급 업체에서 Resource Manager 템플릿의 복사본을 가져오고 Azure PowerShell 및 Azure CLI를 사용하여 템플릿을 배포할 수 있습니다.  [Resource Manager 템플릿을 사용하여 HDInsight의 Hadoop 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-arm-templates.md)를 참조하세요.
@@ -58,14 +57,10 @@ HDInsight 응용 프로그램은 HDInsight 클러스터에 사용자가 설치�
 4. **구성** 범주에서 **응용 프로그램**을 클릭합니다. 설치된 응용 프로그램 목록이 표시됩니다. 응용 프로그램을 찾을 수 없다면 이는 이 버전의 HDInsight 클러스터에 대한 응용 프로그램이 없다는 의미입니다.
    
     ![HDInsight 응용 프로그램 포털 메뉴](./media/hdinsight-apps-install-applications/hdinsight-apps-portal-menu.png)
-5. 메뉴에서 **추가**를 클릭합니다. 
-   
-    ![HDInsight 응용 프로그램 설치된 앱](./media/hdinsight-apps-install-applications/hdinsight-apps-installed-apps.png)
-   
-    기존 HDInsight 응용 프로그램 목록이 표시됩니다.
+5. 메뉴에서 **추가**를 클릭합니다. 기존 HDInsight 응용 프로그램 목록이 표시됩니다.
    
     ![HDInsight 응용 프로그램 사용 가능한 응용 프로그램](./media/hdinsight-apps-install-applications/hdinsight-apps-list.png)
-6. 응용 프로그램 중 하나를 클릭하고 약관에 동의한 다음 **선택**을 클릭합니다.
+6. 사용할 수 있는 응용 프로그램 중 하나를 클릭한 다음, 지시에 따라 약관을 수락합니다.
 
 포털 알림에서 설치 상태를 확인할 수 있습니다(포털 맨 위에 있는 종 모양 아이콘 클릭). 응용 프로그램이 설치되면 설치된 앱 목록에 표시됩니다.
 
@@ -80,7 +75,7 @@ HDInsight 응용 프로그램은 HDInsight 클러스터에 사용자가 설치�
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 왼쪽 메뉴에서 **HDInsight 클러스터** 를 클릭합니다. 
 3. HDInsight 클러스터를 클릭합니다.
-4. **설정**에서 **일반** 범주에 있는 **응용 프로그램**을 클릭합니다. 설치된 앱이 오른쪽에 나열됩니다. 
+4. **설정**에서 **구성** 범주에 있는 **응용 프로그램**을 클릭합니다. 설치된 앱이 오른쪽에 나열됩니다. 
    
     ![HDInsight 응용 프로그램 설치된 앱](./media/hdinsight-apps-install-applications/hdinsight-apps-installed-apps-with-apps.png)
 5. 속성을 표시하려면 설치된 응용 프로그램 중 하나를 클릭합니다. 속성 목록:

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/23/2017
 ms.author: echuvyrov
-ms.openlocfilehash: c156776103a466af8923ba7249d96835ff339268
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: dada9c70eef2adb2704e276a5401509581e37538
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="install-and-configure-terraform-to-provision-vms-and-other-infrastructure-into-azure"></a>Azure에 VM 및 기타 인프라를 프로비전하기 위해 Terraform 설치 및 구성
  
@@ -80,12 +80,13 @@ az vm list-sizes --location westus
 
 ## <a name="configure-terraform-environment-variables"></a>Terraform 환경 변수 구성
 
-Azure 리소스를 만들 때 서비스 사용자에서 테넌트 ID, 구독 ID, 클라이언트 ID 및 클라이언트 비밀을 사용하도록 Terraform을 구성합니다. [Azure Terraform 모듈](https://registry.terraform.io/modules/Azure)에서 자동으로 사용되는 다음 환경 변수를 설정합니다.
+Azure 리소스를 만들 때 서비스 사용자에서 테넌트 ID, 구독 ID, 클라이언트 ID 및 클라이언트 비밀을 사용하도록 Terraform을 구성합니다. Azure 공용이 아닌 Azure 클라우드에서 작업하는 경우 환경을 설정할 수도 있습니다. [Azure Terraform 모듈](https://registry.terraform.io/modules/Azure)에서 자동으로 사용되는 다음 환경 변수를 설정합니다.
 
 - ARM_SUBSCRIPTION_ID
 - ARM_CLIENT_ID
 - ARM_CLIENT_SECRET
 - ARM_TENANT_ID
+- ARM_ENVIRONMENT
 
 이 샘플 셸 스크립트를 사용하여 해당 변수를 설정할 수 있습니다.
 
@@ -96,6 +97,9 @@ export ARM_SUBSCRIPTION_ID=your_subscription_id
 export ARM_CLIENT_ID=your_appId
 export ARM_CLIENT_SECRET=your_password
 export ARM_TENANT_ID=your_tenant_id
+
+# Not needed for public, required for usgovernment, german, china
+export ARM_ENVIRONMENT=public
 ```
 
 ## <a name="run-a-sample-script"></a>샘플 스크립트 실행

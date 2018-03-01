@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 10/05/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: f3bc2f14b182e502c651ff44ef49b88cd34e1f50
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 5de67b6f1ce79934a3a6aab623d2e77a56a8ce76
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="understand-how-iot-edge-modules-can-be-used-configured-and-reused---preview"></a>IoT Edge 모듈을 사용, 구성 및 다시 사용하는 방법에 대한 이해 - 미리 보기
 
@@ -28,7 +28,7 @@ Azure IoT Edge를 사용하면 여러 개의 IoT Edge 모듈을 IoT Edge 장치�
 
 Azure IoT Edge 자습서에서는 Azure IoT Edge 포털의 마법사를 통해 배포 매니페스트를 빌드합니다. REST 또는 IoT Hub 서비스 SDK를 사용하여 프로그래밍 방식으로 배포 매니페스트를 적용할 수도 있습니다. IoT Edge 배포에 대한 자세한 내용은 [배포 및 모니터링][lnk-deploy]을 참조하세요.
 
-상위 수준에서 배포 매니페스트는 IoT Edge 장치에 배포된 IoT Edge 모듈의 desired 속성을 구성합니다. 이러한 모듈 중 두 모듈, 즉 Edge 에이전트 및 Edge 허브가 항상 있습니다.
+상위 수준에서 배포 매니페스트는 IoT Edge 장치에 배포된 IoT Edge 모듈에 대해 모듈 쌍의 원하는 속성을 구성합니다. 이러한 모듈 중 두 모듈, 즉 Edge 에이전트 및 Edge 허브가 항상 있습니다.
 
 매니페스트는 다음과 같은 구조를 따릅니다.
 
@@ -113,6 +113,8 @@ desired 속성이 배포 매니페스트에 지정되면 현재 모듈 쌍에 �
 
 배포 매니페스트에서 모듈 쌍의 desired 속성을 지정하지 않으면, IoT Hub는 어떤 방식으로든 모듈 쌍을 수정하지 않고 desired 속성을 프로그래밍 방식으로 설정할 수 있습니다.
 
+장치 쌍을 수정할 수 있게 해주는 동일한 메커니즘이 모듈 쌍을 수정하는 데 사용됩니다. 자세한 내용은 [장치 쌍 개발자 가이드](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-device-twins)를 참조하세요.   
+
 ### <a name="deployment-manifest-example"></a>배포 매니페스트 예제
 
 다음은 배포 매니페스트 JSON 문서의 예제입니다.
@@ -195,24 +197,24 @@ Edge 에이전트에 대한 모듈 쌍은 `$edgeAgent`라고 하며, 장치에�
 
 | 자산 | 설명 | 필수 |
 | -------- | ----------- | -------- |
-| schemaVersion | "1.0"이어야 합니다. | 적용 |
-| runtime.type | "docker"여야 합니다. | 적용 |
-| runtime.settings.minDockerVersion | 이 배포 매니페스트에 필요한 최소 Docker 버전으로 설정합니다. | 적용 |
+| schemaVersion | "1.0"이어야 합니다. | 예 |
+| runtime.type | "docker"여야 합니다. | 예 |
+| runtime.settings.minDockerVersion | 이 배포 매니페스트에 필요한 최소 Docker 버전으로 설정합니다. | 예 |
 | runtime.settings.loggingOptions | Edge 에이전트 컨테이너에 대한 로깅 옵션을 포함하는 문자열 형식 JSON입니다. [Docker 로깅 옵션][lnk-docker-logging-options] | 아니요 |
-| systemModules.edgeAgent.type | "docker"여야 합니다. | 적용 |
-| systemModules.edgeAgent.settings.image | Edge 에이전트의 이미지에 대한 URI입니다. 현재 Edge 에이전트는 자체적으로 업데이트할 수 없습니다. | 적용 |
+| systemModules.edgeAgent.type | "docker"여야 합니다. | 예 |
+| systemModules.edgeAgent.settings.image | Edge 에이전트의 이미지에 대한 URI입니다. 현재 Edge 에이전트는 자체적으로 업데이트할 수 없습니다. | 예 |
 | systemModules.edgeAgent.settings.createOptions | Edge 에이전트 컨테이너에 대한 만들기 옵션을 포함하는 문자열 형식 JSON입니다. [Docker 만들기 옵션][lnk-docker-create-options] | 아니요 |
 | systemModules.edgeAgent.configuration.id | 이 모듈을 배포한 배포의 ID입니다. | 이 매니페스트가 배포를 사용하여 적용될 때 IoT Hub에서 이 속성을 설정합니다. 배포 매니페스트의 일부가 아닙니다. |
-| systemModules.edgeHub.type | "docker"여야 합니다. | 적용 |
-| systemModules.edgeHub.status | "running"이어야 합니다. | 적용 |
-| systemModules.edgeHub.restartPolicy | "always"여야 합니다. | 적용 |
-| systemModules.edgeHub.settings.image | Edge 허브의 이미지에 대한 URI입니다. | 적용 |
+| systemModules.edgeHub.type | "docker"여야 합니다. | 예 |
+| systemModules.edgeHub.status | "running"이어야 합니다. | 예 |
+| systemModules.edgeHub.restartPolicy | "always"여야 합니다. | 예 |
+| systemModules.edgeHub.settings.image | Edge 허브의 이미지에 대한 URI입니다. | 예 |
 | systemModules.edgeHub.settings.createOptions | Edge 허브 컨테이너에 대한 만들기 옵션을 포함하는 문자열 형식 JSON입니다. [Docker 만들기 옵션][lnk-docker-create-options] | 아니요 |
 | systemModules.edgeHub.configuration.id | 이 모듈을 배포한 배포의 ID입니다. | 이 매니페스트가 배포를 사용하여 적용될 때 IoT Hub에서 이 속성을 설정합니다. 배포 매니페스트의 일부가 아닙니다. |
-| modules.{moduleId}.version | 이 모듈의 버전을 나타내는 사용자 정의 문자열입니다. | 적용 |
-| modules.{moduleId}.type | "docker"여야 합니다. | 적용 |
-| modules.{moduleId}.restartPolicy | {"never" \| "on-failed" \| "on-unhealthy" \| "always"} | 적용 |
-| modules.{moduleId}.settings.image | 모듈 이미지에 대한 URI입니다. | 적용 |
+| modules.{moduleId}.version | 이 모듈의 버전을 나타내는 사용자 정의 문자열입니다. | 예 |
+| modules.{moduleId}.type | "docker"여야 합니다. | 예 |
+| modules.{moduleId}.restartPolicy | {“never” \| “on-failed” \| “on-unhealthy” \| “always”} | 예 |
+| modules.{moduleId}.settings.image | 모듈 이미지에 대한 URI입니다. | 예 |
 | modules.{moduleId}.settings.createOptions | 모듈 컨테이너에 대한 만들기 옵션을 포함하는 문자열 형식 JSON입니다. [Docker 만들기 옵션][lnk-docker-create-options] | 아니요 |
 | modules.{moduleId}.configuration.id | 이 모듈을 배포한 배포의 ID입니다. | 이 매니페스트가 배포를 사용하여 적용될 때 IoT Hub에서 이 속성을 설정합니다. 배포 매니페스트의 일부가 아닙니다. |
 
@@ -240,16 +242,16 @@ Edge 에이전트 reported 속성에는 다음 세 가지 주요 정보가 포�
 | configurationHealth.{deploymentId}.health | {deploymentId} 배포에서 설정한 모든 모듈의 런타임 상태가 `running` 또는 `stopped`이면 `healthy`이고, 그렇지 않으면 `unhealthy`입니다. |
 | runtime.platform.OS | 장치에서 실행 중인 OS를 보고합니다. |
 | runtime.platform.architecture | 장치의 CPU 아키텍처를 보고합니다. |
-| systemModules.edgeAgent.runtimeStatus | Edge 에이전트의 reported 상태: {"running" \| "unhealthy"} |
+| systemModules.edgeAgent.runtimeStatus | Edge 에이전트의 보고된 상태: {“running” \| “unhealthy”} |
 | systemModules.edgeAgent.statusDescription | Edge 에이전트의 reported 상태에 대한 텍스트 설명입니다. |
-| systemModules.edgeHub.runtimeStatus | Edge 허브의 현재 상태: { "running" \| "stopped" \| "failed" \| "backoff" \| "unhealthy" } |
+| systemModules.edgeHub.runtimeStatus | Edge 허브의 현재 상태: { “running” \| “stopped” \| “failed” \| “backoff” \| “unhealthy” } |
 | systemModules.edgeHub.statusDescription | 비정상인 경우 Edge 허브의 현재 상태에 대한 텍스트 설명입니다. |
 | systemModules.edgeHub.exitCode | 종료된 경우 Edge 허브 컨테이너에서 보고한 종료 코드입니다. |
 | systemModules.edgeHub.startTimeUtc | Edge 허브가 마지막으로 시작된 시간입니다. |
 | systemModules.edgeHub.lastExitTimeUtc | Edge 허브가 마지막으로 종료된 시간입니다. |
 | systemModules.edgeHub.lastRestartTimeUtc | Edge 허브가 마지막으로 다시 시작된 시간입니다. |
 | systemModules.edgeHub.restartCount | 이 모듈이 다시 시작 정책의 일부로 다시 시작된 횟수입니다. |
-| modules.{moduleId}.runtimeStatus | 모듈의 현재 상태: { "running" \| "stopped" \| "failed" \| "backoff" \| "unhealthy" } |
+| modules.{moduleId}.runtimeStatus | 모듈의 현재 상태: { “running” \| “stopped” \| “failed” \| “backoff” \| “unhealthy” } |
 | modules.{moduleId}.statusDescription | 비정상인 경우 모듈의 현재 상태에 대한 텍스트 설명입니다. |
 | modules.{moduleId}.exitCode | 종료된 경우 모듈 컨테이너에서 보고한 종료 코드입니다. |
 | modules.{moduleId}.startTimeUtc | 모듈이 마지막으로 시작된 시간입니다. |
@@ -266,9 +268,9 @@ Edge 허브에 대한 모듈 쌍은 `$edgeHub`라고 하며, 장치에서 실행
 
 | 자산 | 설명 | 배포 매니페스트에 필요합니다. |
 | -------- | ----------- | -------- |
-| schemaVersion | "1.0"이어야 합니다. | 적용 |
+| schemaVersion | "1.0"이어야 합니다. | 예 |
 | routes.{routeName} | Edge 허브 경로를 나타내는 문자열입니다. | `routes` 요소는 존재하지만 비어 있을 수 있습니다. |
-| storeAndForwardConfiguration.timeToLiveSecs | 연결이 끊긴 라우팅 끝점의 경우(예: IoT Hub 또는 로컬 모듈에서 연결이 끊김) Edge 허브에서 메시지를 유지하는 시간(초)입니다. | 적용 |
+| storeAndForwardConfiguration.timeToLiveSecs | 연결이 끊긴 라우팅 끝점의 경우(예: IoT Hub 또는 로컬 모듈에서 연결이 끊김) Edge 허브에서 메시지를 유지하는 시간(초)입니다. | 예 |
 
 ### <a name="edge-hub-twin-reported-properties"></a>Edge 허브 쌍 reported 속성
 
@@ -277,7 +279,7 @@ Edge 허브에 대한 모듈 쌍은 `$edgeHub`라고 하며, 장치에서 실행
 | lastDesiredVersion | 이 int는 Edge 허브에서 처리하는 desired 속성의 마지막 버전을 나타냅니다. |
 | lastDesiredStatus.code | Edge 허브에서 마지막으로 표시한 desired 속성을 나타내는 상태 코드입니다. 허용되는 값: `200` 성공, `400` 잘못된 구성, `500` 실패 |
 | lastDesiredStatus.description | 상태에 대한 텍스트 설명입니다. |
-| clients.{device or module identity}.status | 이 장치 또는 모듈의 연결 상태입니다. 가능한 값 {"connected" \| "disconnected"}. 모듈 ID만 연결이 끊긴 상태가 될 수 있습니다. 연결된 경우에만 Edge 허브에 연결된 다운스트림 장치가 표시됩니다. |
+| clients.{device or module identity}.status | 이 장치 또는 모듈의 연결 상태입니다. 가능한 값 {“connected” \| “disconnected”}. 모듈 ID만 연결이 끊긴 상태가 될 수 있습니다. 연결된 경우에만 Edge 허브에 연결된 다운스트림 장치가 표시됩니다. |
 | clients.{device or module identity}.lastConnectTime | 장치 또는 모듈이 마지막으로 연결된 시간입니다. |
 | clients.{device or module identity}.lastDisconnectTime | 장치 또는 모듈의 연결이 마지막으로 끊긴 시간입니다. |
 

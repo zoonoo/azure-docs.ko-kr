@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: barclayn
-ms.openlocfilehash: 7ce6297d7d6b61ac95df58db3fa1a2a0a123a64e
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 397161cf2eaea9712fec352a45f5fc49e8da486c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="document-protection-of-personal-data-with-azure-reporting-tools"></a>Azure 보고 도구로 개인 데이터의 문서 보호
 
@@ -144,7 +144,7 @@ Azure 인프라에 표시되는 대로 리소스에 대한 자세한 내용은 �
 
 - Azure Monitor REST API, CLI 명령, [PowerShell](https://docs.microsoft.com/powershell/) cmdlet 또는 .NET SDK를 사용하여 데이터를 쿼리할 수 있습니다.
 
-Azure Monitor를 시작하려면 Azure Portal에서 **추가 서비스**를 선택합니다.
+Azure Monitor를 시작하려면 Azure Portal에서 **모든 서비스**를 선택합니다.
 
 1. **모니터링 및 관리** 섹션에서 **모니터**로 아래로 스크롤합니다.
 
@@ -176,7 +176,7 @@ PowerShell을 사용하여 Windows VM에 대해 진단 확장을 사용하도록
 
    ![](media/protection-personal-data-azure-reporting-tools/image009.png)
 
-*\$diagnosticsconfig_path*는 XML의 진단 구성이 포함된 파일의 경로입니다. VM에 Azure 진단을 사용하도록 설정하는 방법은 [PowerShell을 사용하여 Windows를 실행하는 가상 컴퓨터에서 Azure 진단을 사용하도록 설정](https://docs.microsoft.com/azure/virtual-machines/windows/ps-extensions-diagnostics)을 참조하세요.
+*\$diagnosticsconfig_path*는 XML의 진단 구성이 포함된 파일의 경로입니다. VM에 Azure 진단을 사용하도록 설정하는 방법은 [PowerShell을 사용하여 Windows를 실행하는 가상 머신에서 Azure 진단을 사용하도록 설정](https://docs.microsoft.com/azure/virtual-machines/windows/ps-extensions-diagnostics)을 참조하세요.
 
 Azure 진단 확장은 수집된 데이터를 Azure Storage 계정에 전송하거나 Application Insights와 같은 서비스에 보낼 수 있습니다. 그런 다음 감사를 위해 데이터를 사용할 수 있습니다.
 
@@ -234,7 +234,7 @@ Azure 진단 확장은 수집된 데이터를 Azure Storage 계정에 전송하�
 
 보안 상태 모니터링을 통해 보안 정책 준수를 보장할 수 있습니다. 보안 모니터링은 리소스를 감사하여 조직의 표준 또는 모범 사례를 충족하지 않는 시스템을 식별하는 사전 예방 전략입니다. 다음 리소스의 보안 상태를 모니터링할 수 있습니다.
 
-- Compute(가상 컴퓨터 및 클라우드 서비스)
+- Compute(가상 머신 및 클라우드 서비스)
 
 - 네트워킹(가상 네트워크)
 
@@ -246,17 +246,17 @@ Azure 진단 확장은 수집된 데이터를 Azure Storage 계정에 전송하�
 
 #### <a name="how-do-i-view-the-security-state-of-my-azure-resources"></a>Azure 리소스의 보안 상태를 보려면 어떻게 할까요?
 
-보안 센터에서는 Azure 리소스의 보안 상태를 주기적으로 분석합니다. 대시보드의 **방지** 섹션에서 식별된 잠재적인 보안 취약성을 볼 수 있습니다.
+Security Center에서는 Azure 리소스의 보안 상태를 주기적으로 분석합니다. 대시보드의 **방지** 섹션에서 식별된 잠재적인 보안 취약성을 볼 수 있습니다.
 
    ![](media/protection-personal-data-azure-reporting-tools/image014.png)
 
-1. **방지** 섹션에서 **Compute** 타일을 선택합니다. 여기에는 **개요**와 함께, 모든 VM 및 해당 보안 상태가 포함된 **가상 컴퓨터** 목록, Security Center에서 모니터링된 웹 및 작업자 역할의 **클라우드 서비스** 목록이 표시됩니다.
+1. **방지** 섹션에서 **Compute** 타일을 선택합니다. 여기에는 **개요**와 함께, 모든 VM 및 해당 보안 상태가 포함된 **가상 머신** 목록, Security Center에서 모니터링된 웹 및 작업자 역할의 **클라우드 서비스** 목록이 표시됩니다.
 
 2. **개요** 탭에는 추가 정보를 볼 권장 사항이 제안됩니다.
 
-3. **가상 컴퓨터** 탭에서 VM을 선택하여 추가 세부 정보를 봅니다.
+3. **가상 머신** 탭에서 VM을 선택하여 추가 세부 정보를 봅니다.
 
-Azure Security Center에서 데이터 수집을 사용하도록 설정하면 Microsoft Monitoring Agent가 배포되는 모든 지원되는 새 가상 컴퓨터와 기존 가상 컴퓨터에 자동으로 프로비전됩니다. 이 에이전트에서 수집된 데이터는 구독 또는 새 작업 영역에 연결된 기존 [Log Analytics](https://azure.microsoft.com/services/log-analytics/) 작업 영역 중 하나에 저장됩니다.
+Azure Security Center에서 데이터 수집을 사용하도록 설정하면 Microsoft Monitoring Agent가 배포되는 모든 지원되는 새 가상 머신과 기존 가상 머신에 자동으로 프로비전됩니다. 이 에이전트에서 수집된 데이터는 구독 또는 새 작업 영역에 연결된 기존 [Log Analytics](https://azure.microsoft.com/services/log-analytics/) 작업 영역 중 하나에 저장됩니다.
 
 [위협 인텔리전스 보고서](https://docs.microsoft.com/azure/security-center/security-center-threat-report)는 Security Center에서 제공됩니다. 이 보고서는 공격자의 ID, 목표, 현재 및 과거의 공격 캠페인, 사용된 전술, 도구 및 절차를 식별하는 데 도움이 되는 유용한 정보를 제공합니다. 마이그레이션 및 수정 정보도 포함됩니다.
 

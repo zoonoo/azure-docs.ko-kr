@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: f9872ee033d8c0bed215f8b37d64395e5dcd534c
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 11cc5841d2f804f0d120dddda226bf05a0612607
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="api-management-access-restriction-policies"></a>API Management 액세스 제한 정책
-이 항목에서는 다음 API Management 정책에 대한 참조를 제공합니다. 정책의 추가 및 구성에 대한 자세한 내용은 [API Management 정책](http://go.microsoft.com/fwlink/?LinkID=398186)을 참조하세요.  
+이 문서에서는 다음 API Management 정책에 대한 참조를 제공합니다. 정책의 추가 및 구성에 대한 자세한 내용은 [API Management 정책](http://go.microsoft.com/fwlink/?LinkID=398186)을 참조하세요.  
   
 ##  <a name="AccessRestrictionPolicies"></a> 액세스 제한 정책  
   
@@ -36,7 +36,7 @@ ms.lasthandoff: 12/04/2017
 ##  <a name="CheckHTTPHeader"></a> HTTP 헤더 확인  
  `check-header` 정책을 사용하여 요청에 HTTP 헤더가 지정되도록 합니다. 필요에 따라 헤더에 특정 값이 있는지, 허용되는 범위의 값인지를 확인할 수 있습니다. 확인에 실패하면 정책에서 요청 처리를 종료하고 정책에 지정된 HTTP 상태 코드 및 오류 메시지를 반환합니다.  
   
-### <a name="policy-statement"></a>정책 문:  
+### <a name="policy-statement"></a>정책 문  
   
 ```xml  
 <check-header name="header name" failed-check-httpcode="code" failed-check-error-message="message" ignore-case="True">  
@@ -55,14 +55,14 @@ ms.lasthandoff: 12/04/2017
   
 ### <a name="elements"></a>요소  
   
-|이름|설명|필수|  
+|Name|설명|필수|  
 |----------|-----------------|--------------|  
 |check-header|루트 요소입니다.|예|  
 |값|허용된 HTTP 헤더 값입니다. 여러 값 요소가 지정된 경우 값 중 하나와 일치하면 확인에 성공한 것으로 간주됩니다.|아니요|  
   
 ### <a name="attributes"></a>특성  
   
-|이름|설명|필수|기본값|  
+|Name|설명|필수|기본값|  
 |----------|-----------------|--------------|-------------|  
 |failed-check-error-message|헤더가 없거나 잘못된 값이 있는 경우 HTTP 응답 본문에 반환할 오류 메시지입니다. 이 메시지는 적절히 이스케이프된 특수 문자를 포함해야 합니다.|예|해당 없음|  
 |failed-check-httpcode|헤더가 없거나 잘못된 값이 있는 경우 반환할 HTTP 상태 코드입니다.|예|해당 없음|  
@@ -84,7 +84,7 @@ ms.lasthandoff: 12/04/2017
 >   
 >  [정책 식](api-management-policy-expressions.md)은 이 정책에 대한 정책 특성에 사용할 수 없습니다.  
   
-### <a name="policy-statement"></a>정책 문:  
+### <a name="policy-statement"></a>정책 문  
   
 ```xml  
 <rate-limit calls="number" renewal-period="seconds">  
@@ -110,7 +110,7 @@ ms.lasthandoff: 12/04/2017
   
 ### <a name="elements"></a>요소  
   
-|이름|설명|필수|  
+|Name|설명|필수|  
 |----------|-----------------|--------------|  
 |set-limit|루트 요소입니다.|예|  
 |api|제품 내에서 API에 호출 속도 제한을 적용하려면 이러한 요소 중 하나 이상을 추가합니다. 제품 및 API 호출 속도 제한은 독립적으로 적용됩니다.|아니요|  
@@ -118,9 +118,9 @@ ms.lasthandoff: 12/04/2017
   
 ### <a name="attributes"></a>특성  
   
-|이름|설명|필수|기본값|  
+|Name|설명|필수|기본값|  
 |----------|-----------------|--------------|-------------|  
-|name|속도 제한을 적용할 API의 이름입니다.|예|해당 없음|  
+|이름|속도 제한을 적용할 API의 이름입니다.|예|해당 없음|  
 |calls|`renewal-period`에 지정된 시간 간격 동안 허용된 전체 최대 호출 수입니다.|예|해당 없음|  
 |renewal-period|할당량이 재설정되는 초 단위의 기간입니다.|예|해당 없음|  
   
@@ -139,7 +139,7 @@ ms.lasthandoff: 12/04/2017
 > [!IMPORTANT]
 >  이 정책은 정책 문서당 한 번만 사용할 수 있습니다.  
   
-### <a name="policy-statement"></a>정책 문:  
+### <a name="policy-statement"></a>정책 문  
   
 ```xml  
 <rate-limit-by-key calls="number"  
@@ -169,13 +169,13 @@ ms.lasthandoff: 12/04/2017
   
 ### <a name="elements"></a>요소  
   
-|이름|설명|필수|  
+|Name|설명|필수|  
 |----------|-----------------|--------------|  
 |set-limit|루트 요소입니다.|예|  
   
 ### <a name="attributes"></a>특성  
   
-|이름|설명|필수|기본값|  
+|Name|설명|필수|기본값|  
 |----------|-----------------|--------------|-------------|  
 |calls|`renewal-period`에 지정된 시간 간격 동안 허용된 전체 최대 호출 수입니다.|예|해당 없음|  
 |counter-key|속도 제한 정책에 사용할 키입니다.|예|해당 없음|  
@@ -192,7 +192,7 @@ ms.lasthandoff: 12/04/2017
 ##  <a name="RestrictCallerIPs"></a> 호출자 IP 제한  
  `ip-filter` 정책은 특정 IP 주소 및/또는 주소 범위에서 호출을 필터링(허용/거부)합니다.  
   
-### <a name="policy-statement"></a>정책 문:  
+### <a name="policy-statement"></a>정책 문  
   
 ```xml  
 <ip-filter action="allow | forbid">  
@@ -212,7 +212,7 @@ ms.lasthandoff: 12/04/2017
   
 ### <a name="elements"></a>요소  
   
-|이름|설명|필수|  
+|Name|설명|필수|  
 |----------|-----------------|--------------|  
 |ip-filter|루트 요소입니다.|예|  
 |address|필터링할 단일 IP 주소를 지정합니다.|하나 이상의 `address` 또는 `address-range` 요소가 필요합니다.|  
@@ -220,7 +220,7 @@ ms.lasthandoff: 12/04/2017
   
 ### <a name="attributes"></a>특성  
   
-|이름|설명|필수|기본값|  
+|Name|설명|필수|기본값|  
 |----------|-----------------|--------------|-------------|  
 |address-range from="address" to="address"|액세스를 허용 또는 거부할 IP 주소 범위|`address-range` 요소가 사용될 때 필요합니다.|해당 없음|  
 |ip-filter action="allow &#124; forbid"|지정된 IP 주소 및 범위에 대해 호출을 허용해야 할지 여부를 지정합니다.|예|해당 없음|  
@@ -239,7 +239,7 @@ ms.lasthandoff: 12/04/2017
 >   
 >  [정책 식](api-management-policy-expressions.md)은 이 정책에 대한 정책 특성에 사용할 수 없습니다.  
   
-### <a name="policy-statement"></a>정책 문:  
+### <a name="policy-statement"></a>정책 문  
   
 ```xml  
 <quota calls="number" bandwidth="kilobytes" renewal-period="seconds">  
@@ -265,17 +265,17 @@ ms.lasthandoff: 12/04/2017
   
 ### <a name="elements"></a>요소  
   
-|이름|설명|필수|  
+|Name|설명|필수|  
 |----------|-----------------|--------------|  
 |quota|루트 요소입니다.|예|  
-|api|제품 내에서 API에 대한 할당량을 적용하려면 이러한 요소 중 하나 이상을 추가합니다. 제품 및 API 할당량은 독립적으로 적용됩니다.|아니요|  
+|api|제품 내에서 API에 대한 할당량을 적용하려면 이러한 요소 중 하나 이상을 추가합니다. 제품 및 API 할당량은 독립적으로 적용됩니다.|아니오|  
 |operation|API 내에서 작업에 할당량을 적용하려면 이러한 요소 중 하나 이상을 추가합니다. 제품, API 및 작업 할당량은 독립적으로 적용됩니다.|아니요|  
   
 ### <a name="attributes"></a>특성  
   
-|이름|설명|필수|기본값|  
+|Name|설명|필수|기본값|  
 |----------|-----------------|--------------|-------------|  
-|name|할당량이 적용되는 API 또는 작업의 이름입니다.|예|해당 없음|  
+|이름|할당량이 적용되는 API 또는 작업의 이름입니다.|예|해당 없음|  
 |bandwidth|`renewal-period`에 지정된 시간 간격 동안 허용된 전체 최대 킬로바이트 수입니다.|`calls`, `bandwidth` 또는 둘 다 함께 지정해야 합니다.|해당 없음|  
 |calls|`renewal-period`에 지정된 시간 간격 동안 허용된 전체 최대 호출 수입니다.|`calls`, `bandwidth` 또는 둘 다 함께 지정해야 합니다.|해당 없음|  
 |renewal-period|할당량이 재설정되는 초 단위의 기간입니다.|예|해당 없음|  
@@ -296,7 +296,7 @@ ms.lasthandoff: 12/04/2017
 >   
 >  [정책 식](api-management-policy-expressions.md)은 이 정책에 대한 정책 특성에 사용할 수 없습니다.  
   
-### <a name="policy-statement"></a>정책 문:  
+### <a name="policy-statement"></a>정책 문  
   
 ```xml  
 <quota-by-key calls="number"   
@@ -326,18 +326,18 @@ ms.lasthandoff: 12/04/2017
   
 ### <a name="elements"></a>요소  
   
-|이름|설명|필수|  
+|Name|설명|필수|  
 |----------|-----------------|--------------|  
 |quota|루트 요소입니다.|예|  
   
 ### <a name="attributes"></a>특성  
   
-|이름|설명|필수|기본값|  
+|Name|설명|필수|기본값|  
 |----------|-----------------|--------------|-------------|  
 |bandwidth|`renewal-period`에 지정된 시간 간격 동안 허용된 전체 최대 킬로바이트 수입니다.|`calls`, `bandwidth` 또는 둘 다 함께 지정해야 합니다.|해당 없음|  
 |calls|`renewal-period`에 지정된 시간 간격 동안 허용된 전체 최대 호출 수입니다.|`calls`, `bandwidth` 또는 둘 다 함께 지정해야 합니다.|해당 없음|  
 |counter-key|할당량 정책에 사용할 키입니다.|예|해당 없음|  
-|increment-condition|요청을 할당량에 포함할지를 지정하는 부울 식입니다(`true`).|아니요|해당 없음|  
+|increment-condition|요청을 할당량에 포함할지를 지정하는 부울 식입니다(`true`).|아니오|해당 없음|  
 |renewal-period|할당량이 재설정되는 초 단위의 기간입니다.|예|해당 없음|  
   
 ### <a name="usage"></a>사용 현황  
@@ -350,10 +350,10 @@ ms.lasthandoff: 12/04/2017
  `validate-jwt` 정책은 지정된 HTTP 헤더 또는 지정된 쿼리 매개 변수에서 추출된 JWT의 존재 및 유효성을 적용합니다.  
   
 > [!IMPORTANT]
->  `validate-jwt` 정책에서는 `require-expiration-time` 특정이 지정되지 않았고 `false`로 설정된 경우 `exp` 등록 클레임이 JWT 토큰에 포함되어야 합니다.  
+>  `validate-jwt` 정책에서는 `require-expiration-time` 특정이 지정되지 않고 `false`로 설정된 경우가 아니면 `exp` 등록 클레임이 JWT 토큰에 포함되어야 합니다.  
 > `validate-jwt` 정책은 HS256 및 RS256 서명 알고리즘을 지원합니다. HS256의 경우 키를 base64 인코딩 양식으로 정책 내에 인라인으로 제공해야 합니다. RS256의 경우 Open ID 구성 끝점을 통해 키를 제공해야 합니다.  
   
-### <a name="policy-statement"></a>정책 문:  
+### <a name="policy-statement"></a>정책 문  
   
 ```xml  
 <validate-jwt   
@@ -491,24 +491,24 @@ ms.lasthandoff: 12/04/2017
 |issuers|토큰을 발행한 허용 가능한 보안 주체의 목록입니다. 여러 발급자 값이 있는 경우 각 값은 모든 값이 소진(이 경우 유효성 검사 실패)되거나 한 값이 성공할 때까지 시도됩니다.|아니요|  
 |openid-config|서명 키 및 발급자를 획득할 수 있는 준수 Open ID 구성 끝점을 지정하는 데 사용됩니다.|아니요|  
 |required-claims|유효성을 고려할 토큰에 있을 것으로 예상되는 클레임 목록을 포함합니다. `match` 특성이 `all`로 설정되면 유효성 검사 성공을 위해 정책에 있는 모든 클레임 값이 토큰에 표시되어야 합니다. `match` 특성이 `any`로 설정되면 유효성 검사 성공을 위해 정책에 있는 모든 클레임 값이 토큰에 표시되어야 합니다.|아니요|  
-|zumo-master-key|Azure Mobile Services에서 발급한 토큰에 대한 마스터 키|아니요|  
+|zumo-master-key|Azure Mobile Services에서 발급한 토큰에 대한 마스터 키|아니오|  
   
 ### <a name="attributes"></a>특성  
   
-|이름|설명|필수|기본값|  
+|Name|설명|필수|기본값|  
 |----------|-----------------|--------------|-------------|  
-|clock-skew|Timespan입니다. 토큰의 만료 클레임이 토큰에 없고 현재 날짜/시간을 지난 경우 약간의 시간 여유를 제공합니다.|아니요|0초|  
-|failed-validation-error-message|JWT가 유효성 검사를 통과하지 못한 경우 HTTP 응답 본문에 반환할 오류 메시지입니다. 이 메시지는 적절히 이스케이프된 특수 문자를 포함해야 합니다.|아니요|기본 오류 메시지는 유효성 검사 문제에 따라 달라집니다(예: "JWT not present(JWT 없음)").|  
-|failed-validation-httpcode|JWT가 유효성 검사를 통과하지 못한 경우 반환할 HTTP 상태 코드입니다.|아니요|401|  
-|header-name|토큰을 보유하는 HTTP 헤더의 이름입니다.|`header-name` 또는 `query-paremeter-name`를 지정해야 하며 둘 다 함께 지정할 수 없습니다.|해당 없음|  
+|clock-skew|Timespan입니다. 토큰 발급자와 API Management 인스턴스의 시스템 시계 간 최대 예상 시간 차이를 지정하는 데 사용합니다.|아니오|0초|  
+|failed-validation-error-message|JWT가 유효성 검사를 통과하지 못한 경우 HTTP 응답 본문에 반환할 오류 메시지입니다. 이 메시지는 적절히 이스케이프된 특수 문자를 포함해야 합니다.|아니오|기본 오류 메시지는 유효성 검사 문제에 따라 달라집니다(예: "JWT not present(JWT 없음)").|  
+|failed-validation-httpcode|JWT가 유효성 검사를 통과하지 못한 경우 반환할 HTTP 상태 코드입니다.|아니오|401|  
+|header-name|토큰을 보유하는 HTTP 헤더의 이름입니다.|`header-name` 또는 `query-parameter-name`를 지정해야 하며 둘 다 함께 지정할 수 없습니다.|해당 없음|  
 |id|`key` 요소에 있는 `id` 특성을 통해 토큰(있는 경우)에 있는 `kid` 클레임과 일치시킬 문자열을 지정하여 서명 유효성 검사에 사용할 적절한 키를 확인할 수 있습니다.|아니요|해당 없음|  
 |match|`claim` 요소에 있는 `match` 특성에 따라 유효성 검사 성공을 위해 정책에 있는 모든 클레임 값이 토큰에 표시되어야 하는지가 지정됩니다. 가능한 값은 다음과 같습니다.<br /><br /> -                          `all` - 유효성 검사 성공을 위해 정책에 있는 모든 클레임 값이 토큰에 표시되어야 합니다.<br /><br /> -                          `any` - 유효성 검사 성공을 위해 하나 이상의 클레임 값이 토큰에 표시되어야 합니다.|아니요|모두|  
 |query-paremeter-name|토큰을 보유하는 쿼리 매개 변수의 이름입니다.|`header-name` 또는 `query-paremeter-name`를 지정해야 하며 둘 다 함께 지정할 수 없습니다.|해당 없음|  
-|require-expiration-time|부울 값입니다. 토큰에 만료 클레임이 필요한지를 지정합니다.|아니요|true|
+|require-expiration-time|부울 값입니다. 토큰에 만료 클레임이 필요한지를 지정합니다.|아니오|true|
 |require-scheme|토큰 스키마의 이름입니다(예: "Bearer"). 이 특성이 설치되면 정책은 지정된 스키마가 권한 부여 헤더 값에 있는지를 확인합니다.|아니요|해당 없음|
 |require-signed-tokens|부울 값입니다. 토큰에 서명이 필요한지를 지정합니다.|아니요|true|  
-|구분 기호|문자열입니다. 다중 값 클레임에서 값 집합을 추출하는 데 사용된 구분 기호(예: “,”)를 지정합니다.|아니요|해당 없음| 
-|url|Open ID 구성 메타데이터를 가져올 수 있는 Open ID 구성 끝점 URL입니다. Azure Active Directory의 경우 다음 URL을 사용합니다. `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` 여기서 사용자의 디렉터리 테넌트 이름을 대체합니다(예: `contoso.onmicrosoft.com`).|예|해당 없음|  
+|구분 기호|문자열입니다. 다중 값 클레임에서 값 집합을 추출하는 데 사용된 구분 기호(예: “,”)를 지정합니다.|아니오|해당 없음| 
+|URL|Open ID 구성 메타데이터를 가져올 수 있는 Open ID 구성 끝점 URL입니다. 응답은 URL `https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata`에서 정의된 사양을 따라야 합니다.  Azure Active Directory의 경우 다음 URL을 사용합니다. `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` 여기서 사용자의 디렉터리 테넌트 이름을 대체합니다(예: `contoso.onmicrosoft.com`).|예|해당 없음|  
   
 ### <a name="usage"></a>사용 현황  
  이 정책은 다음과 같은 정책 [섹션](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.  
@@ -522,5 +522,5 @@ ms.lasthandoff: 12/04/2017
 
 + [API Management의 정책](api-management-howto-policies.md)
 + [API 변환](transform-api.md)
-+ 정책 명령문 및 설정의 전체 목록에 대한 [정책 참조](api-management-policy-reference.md)
++ [정책 참조](api-management-policy-reference.md)(정책 문 및 해당 설정에 대한 전체 목록)
 + [정책 샘플](policy-samples.md)   

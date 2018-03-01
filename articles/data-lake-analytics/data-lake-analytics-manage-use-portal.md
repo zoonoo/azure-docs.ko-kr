@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
-ms.openlocfilehash: e49d1a0e0ccc6567d0a6841817667717ff5dba76
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 15b3b44e45a59f44bd9bbd96dce867cc87fa410c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-azure-data-lake-analytics-by-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Data Lake Analytics 관리
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -32,8 +32,8 @@ Azure Portal을 사용하여 Azure Data Lake Analytics 계정, 계정 데이터 
 
 ### <a name="create-an-account"></a>계정 만들기
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
-2. **새로 만들기** > **인텔리전스 + 분석** > **Data Lake Analytics**를 클릭합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+2. **리소스 만들기** > **인텔리전스 + 분석** > **Data Lake Analytics**를 클릭합니다.
 3. 다음 항목에 대한 값을 선택합니다. 
    1. **이름**: Data Lake Analytics 계정의 이름입니다.
    2. **구독**: 계정에 사용되는 Azure 구독입니다.
@@ -59,7 +59,7 @@ Data Lake Analytics 계정을 삭제하기 전에 먼저 해당 기본 Data Lake
 Data Lake Analytics는 다음 데이터 원본을 지원합니다.
 
 * Data Lake Store
-* Azure 저장소
+* Azure Storage
 
 데이터 탐색기를 사용하여 데이터 원본을 찾아 기본 파일 관리 작업을 수행할 수 있습니다. 
 
@@ -96,9 +96,9 @@ Data Lake Analytics를 사용하여 네트워크 수준에서 Data Lake Analytic
 7. 선택한 변경 내용을 모두 검토한 다음 **실행**을 클릭합니다.
 8. 마법사가 완료되면 **완료**를 클릭합니다.
 
-## <a name="manage-role-based-access-control"></a>역할 기반 액세스 제어 관리
+## <a name="manage-role-based-access-control"></a>역할 기반 Access Control 관리
 
-다른 Azure 서비스와 마찬가지로 RBAC(역할 기반 액세스 제어)를 사용하여 사용자가 서비스를 조작하는 방법을 제어할 수 있습니다.
+다른 Azure 서비스와 마찬가지로 RBAC(역할 기반 Access Control)를 사용하여 사용자가 서비스를 조작하는 방법을 제어할 수 있습니다.
 
 표준 RBAC 역할은 다음 기능이 있습니다.
 * **소유자**: 작업을 제출하고, 작업을 모니터링하고, 사용자의 작업을 취소하고, 계정을 구성할 수 있습니다.
@@ -178,7 +178,7 @@ Data Lake Analytics 계정의 AU 수를 변경하려면:
 1. Azure Portal에서 Data Lake Analytics 계정으로 이동합니다.
 2. **속성**을 클릭합니다.
 3. **최대 AU** 아래에서 슬라이더를 움직여 값을 선택하거나 텍스트 상자에 값을 입력합니다. 
-4. **Save**를 클릭합니다.
+4. **저장**을 클릭합니다.
 
 > [!NOTE]
 > 기본(250) AU보다 더 많이 필요한 경우 포털에서 **도움말 + 지원**을 클릭하여 지원 요청을 제출합니다. Data Lake Analytics 계정에서 사용할 수 있는 AU 수를 늘릴 수 있습니다.
@@ -192,7 +192,7 @@ Data Lake Analytics 계정의 AU 수를 변경하려면:
 1. Azure Portal에서 Data Lake Analytics 계정으로 이동합니다.
 2. **속성**을 클릭합니다.
 3. **최대 실행 중인 작업 수** 아래에서 슬라이더를 움직여 값을 선택하거나 텍스트 상자에 값을 입력합니다. 
-4. **Save**를 클릭합니다.
+4. **저장**을 클릭합니다.
 
 > [!NOTE]
 > 기본(20) 작업 수보다 더 많이 실행해야 할 경우 포털에서 **도움말 + 지원**을 클릭하여 지원 요청을 제출합니다. Data Lake Analytics 계정에서 동시에 실행할 수 있는 작업 수를 늘릴 수 있습니다.
@@ -206,7 +206,7 @@ Data Lake Analytics 계정의 AU 수를 변경하려면:
 1. Azure Portal에서 Data Lake Analytics 계정으로 이동합니다.
 2. **속성**을 클릭합니다.
 3. **작업 쿼리를 유지할 일 수** 아래에서 슬라이더를 움직여 값을 선택하거나 텍스트 상자에 값을 입력합니다.  
-4. **Save**를 클릭합니다.
+4. **저장**을 클릭합니다.
 
 ### <a name="job-level-policies"></a>작업 수준 정책
 작업 수준 정책을 사용하여 개별 사용자(또는 특정 보안 그룹의 구성원)가 제출하는 작업에 설정할 수 있는 최대 AU 및 최대 우선 순위를 제어할 수 있습니다. 따라서 사용자가 발생시키는 비용을 제어할 수 있습니다. 또한 예약된 작업이 같은 Data Lake Analytics 계정에서 실행되고 있는 우선 순위가 더 높은 프로덕션 작업에 줄 수 있는 효과를 제어할 수 있습니다.
@@ -227,7 +227,7 @@ Data Lake Analytics에는 작업 수준에서 설정할 수 있는 두 가지 �
 1. Azure Portal에서 Data Lake Analytics 계정으로 이동합니다.
 2. **속성**을 클릭합니다.
 3. **작업 제출 한도** 아래에서 **정책 추가** 단추를 클릭합니다. 그런 후 다음 설정을 선택하거나 입력합니다.
-    1. **계산 정책 이름**: 정책의 목적을 상기시키는 정책 이름을 입력합니다.
+    1. **Compute 정책 이름**: 정책의 목적을 상기시키는 정책 이름을 입력합니다.
     2. **사용자 또는 그룹 선택**: 이 정책이 적용되는 사용자 또는 그룹을 선택합니다.
     3. **Set the Job AU Limit**(작업 AU 한도 설정): 선택한 사용자 또는 그룹에 적용되는 AU 한도를 설정합니다.
     4. **Set the Priority Limit**(우선 순위 한도 설정): 선택한 사용자 또는 그룹에 적용되는 우선 순위 한도를 설정합니다.

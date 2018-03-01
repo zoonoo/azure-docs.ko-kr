@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: a41c09cc5a13c8326e22e315801b81c86d125c0e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: da7050edae282c90c4f92c588ce8fe501ccba50d
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="how-to-configure-user-provisioning-to-an-azure-ad-gallery-application"></a>Azure AD 갤러리 응용 프로그램에 대해 사용자 프로비전을 구성하는 방법
 
@@ -31,7 +31,7 @@ Azure Portal에서 엔터프라이즈 앱에 대한 왼쪽 탐색 창의 **프�
 
 해당 응용 프로그램에 대해 수동 모드만 표시되는 경우 해당 앱에 대해 자동 Azure AD 프로비전 커넥터가 아직 생성되지 않았음을 의미합니다. 또는 앱에서 자동화된 프로비전 커넥터를 빌드하는 필수 구성 요소 사용자 관리 API를 지원하지 않음을 의미합니다.
 
-해당 앱에 대해 자동 프로비전 지원을 요청하려면 <http://aka.ms/aadapprequest>에서 요청 양식을 작성하세요.
+해당 앱에 대해 자동 프로비전 지원을 요청하려면 [Azure Active Directory 응용 프로그램 요청](https://aka.ms/aadapprequest)에서 요청 양식을 작성하세요.
 
 ## <a name="configuring-an-application-for-automatic-provisioning"></a>자동 프로비전에 대한 응용 프로그램 구성
 

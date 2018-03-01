@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/04/2017
 ms.author: xshi
-ms.openlocfilehash: 5419f0fb86f2a7b051ffc7fda17c74cf15178a6b
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: f6b334dbc9903d0080b74052062de7564aa4a993
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="save-iot-hub-messages-that-contain-sensor-data-to-your-azure-blob-storage"></a>Azure BLOB 저장소에 센서 데이터를 포함한 IoT Hub 메시지 저장
 
@@ -45,7 +45,7 @@ Azure 저장소 계정 및 Azure Functions 앱을 만들어 BLOB 저장소에 Io
 
 ## <a name="create-an-azure-storage-account"></a>Azure 저장소 계정 만들기
 
-1. [Azure Portal](https://portal.azure.com/)에서 **새로 만들기** > **저장소** > **저장소 계정** > **만들기**를 차례로 클릭합니다.
+1. [Azure Portal](https://portal.azure.com/)에서 **리소스 만들기** > **Storage** > **Storage 계정** > **만들기**를 클릭합니다.
 
 2. 저장소 계정에 필요한 정보를 입력합니다.
 

@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: c1a9310d0a09d714f1d58f29e5683097c9dc6b90
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 8b85457c5df9fb15c7eebe8b6fe8fb904f9e6009
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Azure Functions를 로컬에서 코딩 및 테스트
 
@@ -231,6 +231,9 @@ C# 함수를 디버그하려면 `--debug vs`를 사용합니다. [Azure Function
 ```
 func host start --debug vscode
 ```
+
+> [!IMPORTANT]
+> 디버깅에서는 Node.js 8.x만 지원됩니다. Node.js 9.x는 지원되지 않습니다. 
 
 그런 다음 Visual Studio Code의 **디버그** 뷰에서 **Azure Functions에 연결**을 선택합니다. 중단점을 연결하고, 변수를 검사하고, 코드를 단계별로 실행할 수 있습니다.
 

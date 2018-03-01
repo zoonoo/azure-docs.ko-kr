@@ -14,17 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/28/2017
 ms.author: asaxton
-ms.openlocfilehash: 1902e5c18cd7083ceeda79e6b9e779e4baaf175a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bf7eb967760338626cd7e0465b16dc570e5f582a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-power-bi-embedded-capacity-in-the-azure-portal"></a>Azure Portal에서 Power BI Embedded 용량 만들기
 
 이 문서에서는 Microsoft Azure에서 Power BI Embedded 용량을 만드는 방법을 안내합니다. Power BI Embedded는 멋진 시각적 개체, 보고서 및 대시보드를 앱에 빠르게 추가할 수 있도록 하여 Power BI 기능을 간소화합니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
 > [!VIDEO https://www.youtube.com/embed/aXrvFfg_iSk]
 
@@ -41,7 +41,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 
-2. **+(새로 만들기)** > **데이터 + 분석**을 선택합니다.
+2. **리소스 만들기** > **데이터 + 분석**을 선택합니다.
 
 3. 검색 상자에서 *Power BI Embedded*를 검색합니다.
 
@@ -62,7 +62,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 6. **만들기**를 선택합니다.
 
-만드는 데 1분 이내, 대개 몇 초가 걸립니다. **대시보드에 고정**을 선택한 경우 대시보드로 이동하여 새 용량을 볼 수 있습니다. 또는 **더 많은 서비스** > **Power BI Embedded**로 이동하여 용량이 준비되었는지 확인합니다.
+만드는 데 1분 이내, 대개 몇 초가 걸립니다. **대시보드에 고정**을 선택한 경우 대시보드로 이동하여 새 용량을 볼 수 있습니다. 또는 **모든 서비스** > **Power BI Embedded**로 이동하여 용량이 준비되었는지 확인합니다.
 
 ![Power BI Embedded 용량을 포함하는 Azure Portal 대시보드](media/create-capacity/azure-portal-dashboard.png)
 

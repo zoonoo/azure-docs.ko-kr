@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 01/30/2018
+ms.date: 02/14/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: b3c7c19543d50ed91129a2040bea1db1c4df1ea7
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 0d33f434dccae7836ae7774afbdf9b80d4685eb4
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="frequently-asked-questions-for-azure-cost-management"></a>Azure Cost Management에 대한 질문과 대답
 
@@ -116,9 +116,9 @@ CSP의 경우:
 
 서로 다른 통화를 사용하는 여러 Azure 계좌가 있을 수 있습니다. 그러나 Cloudyn의 비용 보고서는 보고서당 하나 이상의 통화 형식을 표시하지 않습니다.
 
-다른 통화를 사용하는 구독이 여러 개인 경우 **$** 기호와 함께 부모 엔터티와 자식 엔터티 통화가 표시됩니다. 동일한 엔터티 계층 구조에서 다른 통화를 사용하지 않는 것이 좋습니다. 즉 엔터티 구조로 구성된 모든 구독은 동일한 통화를 사용해야 합니다.
+다른 통화를 사용하는 구독이 여러 개인 경우 부모 엔터티 및 자식 엔터티 통화가 USD **$**로 표시됩니다. 동일한 엔터티 계층 구조에서 다른 통화를 사용하지 않는 것이 좋습니다. 즉 엔터티 구조로 구성된 모든 구독은 동일한 통화를 사용해야 합니다.
 
-Cloudyn에서는 기업 계약 구독 통화를 자동으로 검색하여 보고서에 올바르게 표시합니다.  그러나 CSP 및 웹 직접 Azure 계정에 대해서는 **$** 기호만 표시합니다.
+Cloudyn에서는 기업 계약 구독 통화를 자동으로 검색하여 보고서에 올바르게 표시합니다.  그러나 CSP 및 Web-Direct Azure 계정의 경우 Cloudyn에 USD **$**만 표시됩니다.
 
 ## <a name="what-are-cloudyn-data-refresh-timelines"></a>Cloudyn 데이터 새로 고침 타임라인은 무엇인가요?
 

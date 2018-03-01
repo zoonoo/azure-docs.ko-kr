@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/20/2017
 ms.author: jgao
-ms.openlocfilehash: 642b02b06caaa7f2c5df71227d75281c0778a483
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: 93649c51c6dd6c158e3870a2fa75d92ae4579b7e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="run-hive-queries-using-hdinsight-net-sdk"></a>HDInsight .NET SDK를 사용하여 Hive 쿼리 실행
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
@@ -40,7 +40,7 @@ HDInsight.NET SDK를 사용하여 Hive 쿼리를 제출하는 방법에 대해 �
 
 * **Visual Studio 2013/2015/2017**
 
-## <a name="submit-hive-queries-using-hdinsight-net-sdk"></a>HDInsight .NET SDK를 사용하여 Hive 쿼리 제출
+## <a name="run-a-hive-query"></a>Hive 쿼리 실행
 HDInsight .NET SDK는 .NET에서 HDInsight 클러스터로 더 쉽게 작업하도록 지원하는 .NET 클라이언트 라이브러리를 제공합니다. 
 
 **작업을 제출하려면**

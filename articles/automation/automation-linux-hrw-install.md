@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/07/2017
+ms.date: 02/14/2018
 ms.author: magoedte
-ms.openlocfilehash: 938e4f4fa3326db23ea4c2b499c783de78dcfa76
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 9926ceef9777032d52c7655e4c2d03f63a4a6af7
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-deploy-a-linux-hybrid-runbook-worker"></a>Linux Hybrid Runbook Worker를 배포하는 방법
 
@@ -28,17 +28,17 @@ Azure Automation의 Runbook은 Azure 클라우드에서 실행되므로 다른 �
 
 ![Hybrid Runbook Worker 개요](media/automation-offering-get-started/automation-infradiagram-networkcomms.png)
 
-Hybrid Runbook Worker 역할의 기술적 개요는 [Automation 아키텍처 개요](automation-offering-get-started.md#automation-architecture-overview)를 참조하세요. Hybrid Runbook Worker 배포를 시작하기 전에 [하드웨어 및 소프트웨어 요구 사항](automation-offering-get-started.md#hybrid-runbook-worker) 및 [네트워크 준비를 위한 정보](automation-offering-get-started.md#network-planning)에 대한 다음 정보를 검토합니다.  Runbook Worker를 성공적으로 배포한 후에는 [Hybrid Runbook Worker에서 Runbook 실행](automation-hrw-run-runbooks.md)을 검토하여 온-프레미스 데이터 센터 또는 다른 클라우드 환경의 프로세스를 자동화하도록 Runbook을 구성하는 방법을 알아봅니다.     
+Hybrid Runbook Worker 역할의 기술적 개요는 [Automation 아키텍처 개요](automation-offering-get-started.md#automation-architecture-overview)를 참조하세요. Hybrid Runbook Worker 배포를 시작하기 전에 [하드웨어 및 소프트웨어 요구 사항](automation-offering-get-started.md#hybrid-runbook-worker) 및 [네트워크 준비를 위한 정보](automation-offering-get-started.md#network-planning)에 대한 다음 정보를 검토합니다. Runbook Worker를 성공적으로 배포한 후에는 [Hybrid Runbook Worker에서 Runbook 실행](automation-hrw-run-runbooks.md)을 검토하여 온-프레미스 데이터 센터 또는 다른 클라우드 환경의 프로세스를 자동화하도록 Runbook을 구성하는 방법을 알아봅니다.     
 
 ## <a name="hybrid-runbook-worker-groups"></a>Hybrid Runbook Worker 그룹
-각 Hybrid Runbook Worker는 에이전트를 설치할 때 지정한 Hybrid Runbook Worker 그룹의 구성원입니다.  그룹은 단일 에이전트를 포함할 수 있지만 고가용성을 위해 그룹에 여러 에이전트를 설치할 수 있습니다.
+각 Hybrid Runbook Worker는 에이전트를 설치할 때 지정한 Hybrid Runbook Worker 그룹의 구성원입니다. 그룹은 단일 에이전트를 포함할 수 있지만 고가용성을 위해 그룹에 여러 에이전트를 설치할 수 있습니다.
 
-Hybrid Runbook Worker에서 Runbook을 시작할 경우 이를 실행할 그룹을 지정합니다.  그룹의 구성원에 따라 요청을 처리할 작업자가 결정됩니다.  특정 작업자를 지정할 수 없습니다.
+Hybrid Runbook Worker에서 Runbook을 시작할 경우 이를 실행할 그룹을 지정합니다. 그룹의 구성원에 따라 요청을 처리할 작업자가 결정됩니다. 특정 작업자를 지정할 수 없습니다.
 
 ## <a name="installing-linux-hybrid-runbook-worker"></a>Linux Hybrid Runbook Worker 설치
-Linux 컴퓨터에서 Hybrid Runbook Worker를 설치 및 구성하려는 경우 매우 간단한 프로세스에 따라 역할을 수동으로 설치하고 구성하면 됩니다.   OMS 작업 공간에서 **Automation Hybrid Worker** 솔루션을 활성화한 다음 일련의 명령을 실행하여 컴퓨터를 작업자로 등록하고 새 또는 기존 그룹에 추가해야 합니다. 
+Linux 컴퓨터에서 Hybrid Runbook Worker를 설치 및 구성하려는 경우 간단한 프로세스에 따라 역할을 수동으로 설치하고 구성하면 됩니다. OMS 작업 공간에서 **Automation Hybrid Worker** 솔루션을 활성화한 다음 일련의 명령을 실행하여 컴퓨터를 작업자로 등록하고 새 또는 기존 그룹에 추가해야 합니다. 
 
-계속 진행하기 전에 자동화 계정이 연결되어 있는 Log Analytics 작업 영역을 확인해야 하며 자동화 계정의 기본 키도 확인해야 합니다.  작업 영역과 기본 키는 모두 Portal에서 찾을 수 있습니다. 자동화 계정을 선택하고 **작업 영역**을 선택하면 작업 영역 ID를, **키**를 선택하면 기본 키를 확인할 수 있습니다.  
+계속 진행하기 전에 자동화 계정이 연결되어 있는 Log Analytics 작업 영역을 확인해야 하며 자동화 계정의 기본 키도 확인해야 합니다. 작업 영역과 기본 키는 모두 Portal에서 찾을 수 있습니다. 자동화 계정을 선택하고 **작업 영역**을 선택하면 작업 영역 ID를, **키**를 선택하면 기본 키를 확인할 수 있습니다.  
 
 1.  OMS에서 “Automation Hybrid Worker”를 활성화합니다. 이렇게 하려면 다음 방법 중 하나를 사용합니다.
 
@@ -54,7 +54,7 @@ Linux 컴퓨터에서 Hybrid Runbook Worker를 설치 및 구성하려는 경우
     ```
     sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/onboarding.py --register -w <OMSworkspaceId> -k <AutomationSharedKey> -g <hybridgroupname> -e <automationendpoint>
     ```
-3. 명령이 완료되면 Azure Portal의 Hybrid Worker 그룹 블레이드에 새 그룹 및 멤버 수가 표시되고, 기존 그룹이 있으면 해당 멤버 수가 증가됩니다.  **Hybrid Worker 그룹** 블레이드의 목록에서 그룹을 선택하고 **Hybrid Worker** 타일을 선택합니다.  **Hybrid Worker** 블레이드에서 나열된 그룹의 각 멤버를 확인합니다.  
+3. 명령이 완료되면 Azure Portal의 Hybrid Worker 그룹 블레이드에 새 그룹 및 멤버 수가 표시되고, 기존 그룹이 있으면 해당 멤버 수가 증가됩니다. **Hybrid Worker 그룹** 블레이드의 목록에서 그룹을 선택하고 **Hybrid Worker** 타일을 선택합니다. **Hybrid Worker** 블레이드에서 나열된 그룹의 각 멤버를 확인합니다.  
 
 
 ## <a name="turning-off-signature-validation"></a>서명 유효성 검사 끄기 
@@ -63,7 +63,22 @@ Linux 컴퓨터에서 Hybrid Runbook Worker를 설치 및 구성하려는 경우
     ```
     sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/require_runbook_signature.py --false <OMSworkspaceId>
     ```
-   
+
+## <a name="supported-runbook-types"></a>지원되는 Runbook 유형
+
+Linux Hybrid Runbook Worker는 Azure Automation 내에서 발견되는 Runbook 유형의 전체 집합을 지원 하지 않습니다.
+
+다음의 Runbook 유형은 Linux Hybrid Worker에서 작동합니다.
+
+* Python 2
+* PowerShell
+ 
+다음의 Runbook 유형은 Linux Hybrid Worker에서 작동하지 않습니다.
+
+* PowerShell 워크플로
+* 그래픽
+* 그래픽 PowerShell 워크플로
+
 ## <a name="next-steps"></a>다음 단계
 
 * [Hybrid Runbook Worker에서 Runbook 실행](automation-hrw-run-runbooks.md)을 검토하여 온-프레미스 데이터 센터 또는 다른 클라우드 환경의 프로세스를 자동화하도록 Runbook을 구성하는 방법을 알아봅니다.

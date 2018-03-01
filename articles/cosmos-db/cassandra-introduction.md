@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/20/2017
 ms.author: govindk
-ms.openlocfilehash: fe911b69278021262f1d90f2157bb78ca48db0db
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: 62e56a611d3f720172ace83a4b407a962ec69ea8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="introduction-to-apache-cassandra-api-for-azure-cosmos-db"></a>Azure Cosmos DB용 Apache Cassandra API 소개
 
@@ -64,7 +64,7 @@ Cassandra API를 사용하면 이미 익숙한 Cassandra 쿼리 언어 기반 �
 
 Azure 구독이 이미 있는 경우 [Azure Portal](https://aka.ms/cosmosdb-cassandra-signup)에서 등록하여 Cassandra API(미리 보기) 프로그램에 참여할 수 있습니다.  Azure를 처음 사용하는 경우 12개월 동안 Azure Cosmos DB에 무료로 액세스할 수 있는 [평가판](https://azure.microsoft.com/free)에 등록하세요. 다음 단계를 완료하여 Cassandra API(미리 보기) 프로그램에 대한 액세스를 요청하세요.
 
-1. [Azure Portal](https://portal.azure.com)에서 **새로 만들기** > **데이터베이스** > **Azure Cosmos DB**를 클릭합니다. 
+1. [Azure Portal](https://portal.azure.com)에서 **리소스 만들기** > **데이터베이스** > **Azure Cosmos DB**를 클릭합니다. 
 
 2. 새 계정 페이지의 API 상자에서 **Cassandra**를 선택합니다. 
 

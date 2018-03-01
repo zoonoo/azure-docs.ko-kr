@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: cfdee4450b0ef88d593d401009a7d7f29c24780b
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 855cb5b9cda873a2966465062d0164b2b054b1cd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Azure Data Factory 파이프라인에서 사용자 지정 작업 사용
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -421,7 +421,7 @@ adftutorial\customactivityoutput 폴더에 1개 이상의 줄(입력 폴더에�
 
 ### <a name="step-1-create-the-data-factory"></a>1단계: 데이터 팩터리 만들기
 1. Azure Portal에 로그인한 후에 다음 단계를 수행합니다.
-   1. 왼쪽 메뉴에서 **새로 만들기**를 클릭합니다.
+   1. 왼쪽 창에서 **리소스 만들기**를 클릭합니다.
    2. **새** 블레이드에서 **데이터 + 분석**을 클릭합니다.
    3. **데이터 분석** 블레이드에서 **Data Factory**를 클릭합니다.
    

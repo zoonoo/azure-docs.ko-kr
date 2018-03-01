@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: mahender
-ms.openlocfilehash: 608f5ec2fb4b8fa374778cb4f506f1d25eb7642b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 01f845e0cb987eb4e4e9baa62478d3ff6991fb7e
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Azure Functions HTTP 및 WebHook 바인딩
 
@@ -493,6 +493,9 @@ module.exports = function (context, req) {
 ### <a name="authorization-keys"></a>권한 부여 키
 
 HTTP 트리거를 통해 키를 사용하여 보안을 강화할 수 있습니다. 표준 HTTP 트리거에서 이러한 키는 API 키로 사용될 수 있으므로 요청 시에 필요합니다. Webhooks에서는 공급자가 지원하는 항목에 따라 다양한 방식으로 요청을 인증하는 데 키를 사용할 수 있습니다.
+
+> [!NOTE]
+> 함수를 로컬로 실행할 경우 `function.json`에서 `authLevel`이 어떻게 설정되든 권한 부여가 비활성화됩니다. Azure Functions에 게시하는 즉시 `authLevel`이 적용됩니다.
 
 키는 Azure에 함수 앱의 일부로 저장되며 나머지는 암호화되어 있습니다. 키를 보거나, 새 키를 만들거나, 키를 새 값으로 전환하려면 포털에 있는 함수 중 하나를 탐색하여 "관리"를 선택합니다. 
 

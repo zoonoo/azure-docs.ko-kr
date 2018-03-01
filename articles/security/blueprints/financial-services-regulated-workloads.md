@@ -1,6 +1,6 @@
 ---
-title: "Azure 청사진 자동화 - 규제된 워크로드의 금융 서비스"
-description: "규제된 워크로드의 금융 서비스 청사진"
+title: "Azure Security 및 Compliance Blueprint - FFIEC 금융 서비스 규제 작업"
+description: "Azure Security 및 Compliance Blueprint - FFIEC 금융 서비스 규제 작업"
 services: security
 documentationcenter: na
 author: simorjay
@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/29/2017
+ms.date: 02/09/2018
 ms.author: frasim
-ms.openlocfilehash: 19e26c16866dada8dcff04a520ce4c208d67c365
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: a1167f56f595f905c6338868806351345c06b91a
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/13/2018
 ---
-# <a name="azure-blueprint-automation-financial-services-blueprint-for-regulated-workloads"></a>Azure 청사진 자동화: 규제된 워크로드의 금융 서비스 청사진
+# <a name="azure-security-and-compliance-blueprint---ffiec-financial-services-regulated-workloads"></a>Azure Security 및 Compliance Blueprint - FFIEC 금융 서비스 규제 작업
 
 ## <a name="overview"></a>개요
 
-규제된 워크로드의 금융 서비스 청사진은 클라우드의 중요한 데이터를 처리하도록 디자인된 안전하고 호환되는 PaaS(Platform as a Service) 웹 응용 프로그램을 배포하는 데 도움이 됩니다. 이 청사진은 자동화된 스크립트와 간단한 참조 아키텍처를 표시하는 지침, Microsoft Azure 솔루션을 간편하게 도입하는 데 도움이 되는 디자인으로 구성되어 있습니다. 이 청사진은 클라우드의 배포 부담과 비용을 절감하는 방식을 모색 중인 조직의 요구에 부응하는 종단 간 솔루션을 제시합니다.
+Azure Security and Compliance Blueprint - FFIEC 금융 서비스 규제 작업은 클라우드의 중요한 데이터를 처리하도록 디자인된 안전하고 호환되는 PaaS(Platform as a Service) 웹 응용 프로그램을 배포하는 데 도움이 됩니다. 이 청사진은 자동화된 스크립트와 간단한 참조 아키텍처를 표시하는 지침, Microsoft Azure 솔루션을 간편하게 도입하는 데 도움이 되는 디자인으로 구성되어 있습니다. 이 청사진은 클라우드의 배포 부담과 비용을 절감하는 방식을 모색 중인 조직의 요구에 부응하는 종단 간 솔루션을 제시합니다.
 
 이 청사진은 American Institute of Certified Public Accountants에서 설정한 엄격한 규정 준수 표준(예: SOC 1, SOC 2), 중요한 재무 데이터의 수집, 저장 및 검색에 대한 Payment Card Industry Data Security Standards Council의 DSS 3.2, FFIEC 요건을 충족하도록 디자인되었습니다. 또한 보안, 규격, 다중 계층 환경에서 재무 데이터를 관리하는 솔루션을 배포하여 이러한 데이터의 적절한 처리를 입증합니다. 이 솔루션은 종단 간 Azure 기반 PaaS 솔루션으로 배포됩니다. 
 
@@ -52,7 +52,7 @@ ms.lasthandoff: 12/20/2017
 
 청사진은 아래의 사용 사례를 다룹니다.
 
-> 이 시나리오에서는 가상의 웹 스토어가 중요한 데이터를 PaaS 클라우드 Azure 기반 솔루션으로 이동하는 방법을 보여 줍니다. 이 예제 솔루션에서는 기본 사용자 정보와 선택한 중요 데이터의 처리 및 수집을 보여 줍니다. 이 작업은 결제 카드 처리에 대한 “Azure 청사진 자동화: PCI DSS 규격 환경에 대한 결제 처리”에서 가져온 것입니다. 이 작업을 확장하려는 경우 ["구현에 대한 검토 및 지침"](https://aka.ms/pciblueprintprocessingoverview) 문서에서 PCI DSS 규격 환경을 검토하는 방법을 제공합니다.
+> 이 시나리오에서는 가상의 웹 스토어가 중요한 데이터를 PaaS 클라우드 Azure 기반 솔루션으로 이동하는 방법을 보여 줍니다. 이 예제 솔루션에서는 기본 사용자 정보와 선택한 중요 데이터의 처리 및 수집을 보여 줍니다. 이 작업은 Azure Security 및 Compliance Blueprint - PCI DSS 규격 지불 처리 환경에서 차용합니다. 이 작업을 확장하려는 경우 ["구현에 대한 검토 및 지침"](https://aka.ms/pciblueprintprocessingoverview) 문서에서 PCI DSS 규격 환경을 검토하는 방법을 제공합니다.
 
 ### <a name="use-case"></a>사용 사례
 *Contoso Webstore*라는 소규모 웹 스토어는 고객 결제 정보를 포함하는 재무 데이터를 클라우드로 이동할 준비가 되었습니다. 
@@ -111,7 +111,7 @@ Edna Benson은 리셉셔니스트이자 비즈니스 관리자입니다. 고객 
 - Edna는 재무 정보를 덮어쓸 수 있습니다.
 - Edna 계정은 필터링되지 않은 재무 정보를 볼 수 없습니다.
 
-> Contoso Webstore에서 배포된 환경의 기능을 테스트하기 위해 사용자는 자동으로 **Edna** 사용자가 됩니다.
+
 
 ### <a name="contoso-webstore---estimated-pricing"></a>Contoso Webstore - 예상 가격
 
@@ -172,7 +172,7 @@ Edna Benson은 리셉셔니스트이자 비즈니스 관리자입니다. 고객 
 - 관리 점프 박스에 대한 NSG(요새 호스트)
 - 앱 서비스 환경에 대한 NSG:
 
-각 NSG에는 안전하고 정확한 솔루션 운영을 위해 열린 특정 포트와 프로토콜이 있습니다. 자세한 내용은 [PCI 지침 - 네트워크 보안 그룹](#network-security-groups)을 참조하세요.
+각 NSG에는 안전하고 정확한 솔루션 운영을 위해 열린 특정 포트와 프로토콜이 있습니다. 
 
 또한 각 NSG에 대해 다음과 같은 구성을 사용합니다.
 
@@ -305,7 +305,7 @@ Azure Cloud Services 및 Virtual Machines용 [Microsoft Antimalware](/azure/secu
 
 ## <a name="deploy-the-solution"></a>솔루션 배포
 
-이 솔루션의 배포를 위한 구성 요소는 [결제 처리 청사진 코드 리포지토리][code-repo]에서 제공합니다. 기본 아키텍처의 배포에는 Microsoft PowerShell v5를 통해 실행되는 여러 단계가 필요합니다. 웹 사이트에 연결하려면 사용자 지정 도메인 이름(예: contoso.com)을 제공해야 합니다. 이 이름은 2단계에서 `-customHostName` 스위치로 지정됩니다. 자세한 내용은 [Azure Web Apps에 대한 사용자 지정 도메인 이름 구매](/azure/app-service-web/custom-dns-web-site-buydomains-web-app)를 참조하세요. 사용자 지정 도메인 이름은 솔루션의 성공적인 배포 및 실행을 위해 필수는 아니지만 없으면 데모용 웹 사이트에 연결할 수 없습니다.
+이 솔루션의 배포를 위한 구성 요소는 [Blueprint 코드 리포지토리][code-repo]에서 제공합니다. 기본 아키텍처의 배포에는 Microsoft PowerShell v5를 통해 실행되는 여러 단계가 필요합니다. 웹 사이트에 연결하려면 사용자 지정 도메인 이름(예: contoso.com)을 제공해야 합니다. 이 이름은 2단계에서 `-customHostName` 스위치로 지정됩니다. 자세한 내용은 [Azure Web Apps에 대한 사용자 지정 도메인 이름 구매](/azure/app-service-web/custom-dns-web-site-buydomains-web-app)를 참조하세요. 사용자 지정 도메인 이름은 솔루션의 성공적인 배포 및 실행을 위해 필수는 아니지만 없으면 데모용 웹 사이트에 연결할 수 없습니다.
 
 이 스크립트는 사용자가 지정한 Azure AD 테넌트에 도메인 사용자를 추가합니다. 테스트로 새 Azure AD 테넌트를 만들어 사용하는 것이 좋습니다.
 
@@ -361,7 +361,7 @@ Azure Cloud Services 및 Virtual Machines용 [Microsoft Antimalware](/azure/secu
     
 ## <a name="threat-model"></a>위협 모델
 
-Contoso Webstore [지불 처리 청사진 위협 모델](https://aka.ms/pciblueprintthreatmodel)의 데이터 흐름 다이어그램(DFD) 및 샘플 위협 모델입니다.
+Contoso Webstore [Blueprint 위협 모델](https://aka.ms/pciblueprintthreatmodel)의 데이터 흐름 다이어그램(DFD) 및 샘플 위협 모델입니다.
 
 ![](images/pci-threat-model.png)
 

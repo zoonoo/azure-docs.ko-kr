@@ -1,6 +1,6 @@
 ---
-title: "Azure Cloud Shell에서 Bash와 Terraform을 사용하여 배포 | Microsoft Docs"
-description: "Bash에서 Terraform을 사용하여 Azure 리소스 배포"
+title: "Azure Cloud Shell에서 Bash의 Terraform을 사용하여 배포 | Microsoft Docs"
+description: "Azure Cloud Shell에서 Bash의 Terraform을 사용하여 배포"
 services: Azure
 documentationcenter: 
 author: tomarcher
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: tarcher
-ms.openlocfilehash: c75b5d521dc3eacaf5c5921c35442b1afeb4fa13
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 6df6a3a5242e0a5fc5c03136e1cd20967a93487a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="terraform-and-bash-in-cloud-shell"></a>Cloud Shell에서 Terraform 및 Bash
+# <a name="deploy-with-terraform-from-bash-in-azure-cloud-shell"></a>Azure Cloud Shell에서 Bash의 Terraform을 사용하여 배포
 이 문서에서는 Terraform [AzureRM 공급자](https://www.terraform.io/docs/providers/azurerm/index.html)로 리소스 그룹을 만드는 과정을 안내합니다. 
 
 [Hashicorp Terraform](https://www.terraform.io/)은 API를 선언적 구성 파일로 체계화하는 공개 소스 도구로, 팀 구성원간에 공유하여 편집, 검토 및 버전 관리할 수 있습니다. Microsoft AzureRM 공급자는 AzureRM API를 통해 Azure Resource Manager에서 지원하는 리소스와 상호 작용하는 데 사용됩니다. 
@@ -188,4 +188,4 @@ Terraform을 통해 Azure 리소스를 성공적으로 만들었습니다. Cloud
 
 ## <a name="next-steps"></a>다음 단계
 [Terraform Azure 공급자에 대한 자세한 내용](https://www.terraform.io/docs/providers/azurerm/#)<br>
-[Azure Cloud Shell의 Bash 빠른 시작](quickstart.md)
+[Cloud Shell의 Bash 빠른 시작](quickstart.md)

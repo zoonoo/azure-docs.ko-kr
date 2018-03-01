@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2016
 ms.author: johnkem
-ms.openlocfilehash: 0e3a5b84f57eac96249430fa1c2c4cc076c2926a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0b041cc6a986c6f7a11d213f03294c9716c20d04
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="archive-the-azure-activity-log"></a>Azure 활동 로그 보관
 이 문서에서는 Azure 포털, PowerShell Cmdlet 또는 플랫폼 간 CLI를 사용하여 저장소 계정에서 [**Azure 활동 로그**](monitoring-overview-activity-logs.md)를 보관하는 방법을 보여 줍니다. 이 옵션은 감사, 정적 분석 또는 백업을 위해 활동 로그를 90일 이상(보존 정책에 대해 모든 권한으로) 유지하려는 경우에 유용합니다. 90일 이내로 이벤트를 보관해야 하는 경우 활동 로그는 보관 활성화 없이 Azure 플랫폼에 90일 동안 보관되므로 저장소 계정에 보관을 설정할 필요가 없습니다.
@@ -30,7 +30,7 @@ ms.lasthandoff: 10/11/2017
 다음 방법 중 하나를 사용하여 활동 로그를 보관하려면 구독에 대해 **로그 프로필** 을 설정합니다. 로그 프로필은 저장 또는 스트리밍되는 이벤트 및 출력(저장소 계정 및/또는 이벤트 허브)의 형식을 정의합니다. 또한 저장소 계정에 저장되는 이벤트에 대한 보존 정책(보존할 일 수)을 정의합니다. 보존 정책이 0으로 설정된 경우 이벤트 무기한으로 저장됩니다. 그렇지 않으면 1에서 2147483647 사이의 값으로 설정할 수 있습니다. 보존 정책은 매일 적용되므로 하루의 마지막에(UTC) 보존 정책이 지난 날의 로그가 삭제됩니다. 예를 들어, 하루의 보존 정책이 있는 경우 오늘 날짜가 시작될 때 하루 전의 로그가 삭제됩니다. [여기에서 로그 프로필에 대한 자세한 내용을 확인할 수 있습니다](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile). 
 
 ## <a name="archive-the-activity-log-using-the-portal"></a>포털을 사용하여 활동 로그 보관
-1. 포털의 왼쪽 탐색에서 **활동 로그** 링크를 클릭합니다. 활동 로그에 대한 링크가 보이지 않으면 **더 많은 서비스** 링크를 먼저 클릭합니다.
+1. 포털의 왼쪽 탐색에서 **활동 로그** 링크를 클릭합니다. 활동 로그에 대한 링크가 보이지 않으면 **모든 서비스** 링크를 먼저 클릭합니다.
    
     ![활동 로그 블레이드로 이동](media/monitoring-archive-activity-log/act-log-portal-navigate.png)
 2. 블레이드 맨 위에서 **내보내기**를 클릭합니다.
@@ -40,16 +40,16 @@ ms.lasthandoff: 10/11/2017
    
     ![저장소 계정 설정](media/monitoring-archive-activity-log/act-log-portal-export-blade.png)
 4. 슬라이더 또는 텍스트 상자를 사용하여 저장소 계정에 활동 로그 이벤트를 보관해야 할 일 수를 정의합니다. 데이터를 저장소 계정에 무기한으로 유지하려는 경우 이 숫자를 0으로 설정합니다.
-5. **Save**를 클릭합니다.
+5. **저장**을 클릭합니다.
 
 ## <a name="archive-the-activity-log-via-powershell"></a>PowerShell을 통해 활동 로그 보관
 ```
 Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -Locations global,westus,eastus -RetentionInDays 180 -Categories Write,Delete,Action
 ```
 
-| 속성 | 필수 | 설명 |
+| 자산 | 필수 | 설명 |
 | --- | --- | --- |
-| StorageAccountId |아니요 |활동 로그를 저장할 저장소 계정의 리소스 ID입니다. |
+| StorageAccountId |아니요 |활동 로그를 저장할 Storage 계정의 리소스 ID입니다. |
 | 위치 |예 |활동 로그 이벤트를 수집할 쉼표로 구분된 지역 목록입니다. [이 페이지를 방문](https://azure.microsoft.com/en-us/regions)하거나 [Azure 관리 REST API](https://msdn.microsoft.com/library/azure/gg441293.aspx)를 사용하여 모든 지역의 목록을 볼 수 있습니다. |
 | RetentionInDays |예 |이벤트를 유지해야 하는 일 수는 1에서 2147483647 사이입니다. 0 값은 로그를 무기한(영원히) 저장합니다. |
 | 범주 |예 |수집할 쉼표로 구분된 이벤트 범주 목록입니다. 가능한 값은 쓰기, 삭제 및 작업입니다. |
@@ -59,10 +59,10 @@ Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/r
 azure insights logprofile add --name my_log_profile --storageId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Storage/storageAccounts/my_storage --locations global,westus,eastus,northeurope --retentionInDays 180 –categories Write,Delete,Action
 ```
 
-| 속성 | 필수 | 설명 |
+| 자산 | 필수 | 설명 |
 | --- | --- | --- |
-| name |예 |로그 프로필의 이름입니다. |
-| storageId |아니요 |활동 로그를 저장할 저장소 계정의 리소스 ID입니다. |
+| 이름 |예 |로그 프로필의 이름입니다. |
+| storageId |아니오 |활동 로그를 저장할 Storage 계정의 리소스 ID입니다. |
 | 위치 |예 |활동 로그 이벤트를 수집할 쉼표로 구분된 지역 목록입니다. [이 페이지를 방문](https://azure.microsoft.com/en-us/regions)하거나 [Azure 관리 REST API](https://msdn.microsoft.com/library/azure/gg441293.aspx)를 사용하여 모든 지역의 목록을 볼 수 있습니다. |
 | RetentionInDays |예 |이벤트를 유지해야 하는 일 수는 1에서 2147483647 사이입니다. 0 값은 로그를 무기한(영원히) 저장합니다. |
 | 범주 |예 |수집할 쉼표로 구분된 이벤트 범주 목록입니다. 가능한 값은 쓰기, 삭제 및 작업입니다. |
@@ -144,7 +144,7 @@ PT1H.json 파일 내에서 각 이벤트는 이 형식에 따라 "레코드" 배
 | 요소 이름 | 설명 |
 | --- | --- |
 | 실시간 |이벤트에 해당하는 요청을 처리한 Azure 서비스에 의해 이벤트가 생성된 타임스탬프입니다. |
-| resourceId |영향을 받는 리소스의 리소스 ID입니다. |
+| ResourceId |영향을 받는 리소스의 리소스 ID입니다. |
 | operationName |작업의 이름입니다. |
 | 카테고리 |작업의 범주 (예: 쓰기, 읽기, 작업) |
 | resultType |결과의 형식 (예: 성공, 실패, 시작) |
@@ -165,6 +165,6 @@ PT1H.json 파일 내에서 각 이벤트는 이 형식에 따라 "레코드" 배
 
 ## <a name="next-steps"></a>다음 단계
 * [분석을 위한 Blob 다운로드](../storage/blobs/storage-dotnet-how-to-use-blobs.md#download-blobs)
-* [활동 로그를 이벤트 허브로 스트리밍](monitoring-stream-activity-logs-event-hubs.md)
+* [활동 로그를 Event Hubs로 스트리밍](monitoring-stream-activity-logs-event-hubs.md)
 * [활동 로그에 대한 자세한 내용](monitoring-overview-activity-logs.md)
 

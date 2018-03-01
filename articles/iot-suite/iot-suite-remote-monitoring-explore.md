@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 12/12/2017
+ms.date: 02/15/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: d8943db3ec6ef5875b2b884d42ea25dbb44a30e5
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 5bc01c7e70e6837989c6bebd843ba1f41c8c5aeb
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="explore-the-capabilities-of-the-remote-monitoring-preconfigured-solution"></a>미리 구성된 원격 모니터링 솔루션의 기능 탐색
 
@@ -31,6 +31,7 @@ ms.lasthandoff: 02/01/2018
 > * 경보에 응답
 > * 장치에서 펌웨어 업데이트
 > * 자산 구성
+> * 시뮬레이션된 장치 중지 및 시작
 
 다음 비디오에서는 원격 모니터링 솔루션 연습을 보여 줍니다.
 
@@ -230,6 +231,16 @@ Contoso에는 필드 서비스 활동에 대한 두 개의 다른 팀이 있습�
 
 이제 Contoso 운영자는 장치에서 아무 것도 변경하지 않고도 운영 팀에 기반하여 장치를 쿼리할 수 있습니다.
 
+## <a name="stop-simulated-devices"></a>시뮬레이션된 장치 중지
+
+설정 메뉴를 사용하여 시뮬레이션된 장치를 중지할 수 있습니다. 이렇게 하면 솔루션 테스트 및 탐색 비용을 줄일 수 있습니다. 시뮬레이션된 장치를 시작 또는 중지하려면
+
+1. **설정** 아이콘을 선택합니다.
+
+1. **실행 중**을 켜거나 끕니다.
+
+    ![설정 메뉴](media/iot-suite-remote-monitoring-explore/settings.png)
+
 ## <a name="next-steps"></a>다음 단계
 
 이 자습서에서는 다음에 대해 알아보았습니다.
@@ -239,6 +250,7 @@ Contoso에는 필드 서비스 활동에 대한 두 개의 다른 팀이 있습�
 > * 경보에 응답
 > * 장치에서 펌웨어 업데이트
 > * 자산 구성
+> * 시뮬레이션된 장치 중지 및 시작
 
 이제 원격 모니터링 솔루션을 탐색했으며 제안된 다음 단계는 원격 모니터링 솔루션의 고급 기능에 대해 자세히 알아보는 것입니다.
 

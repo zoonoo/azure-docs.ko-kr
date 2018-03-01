@@ -15,11 +15,11 @@ ms.workload: storage-backup-recovery
 ms.date: 10/13/2017
 ms.author: pajosh;markgal;trinadhk; sogup
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 509e891207d1469ed244eab4512ec66420284fd5
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: 4a1a3c5eb5550967e0a0e045ec508a86cd80ee03
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="back-up-and-restore-encrypted-virtual-machines-with-azure-backup"></a>Azure Backup으로 암호화된 가상 머신을 백업 및 복원 
 이 문서에서는 Azure Backup을 사용하여 VM(가상 머신)을 백업하고 복원하는 단계에 대해 설명합니다. 또한 지원되는 시나리오, 필수 조건 및 오류 사례에 대한 문제 해결 조치에 대한 자세한 정보도 제공합니다.
@@ -48,7 +48,7 @@ ms.lasthandoff: 12/21/2017
 다음 단계를 사용하여 백업 목표를 설정하고, 정책을 정의하며, 항목을 구성하고, 백업을 트리거합니다.
 
 ### <a name="configure-backup"></a>백업 구성
-1. 이미 Recovery Services 자격 증명 모음이 열려 있으면 다음 단계로 진행합니다. Recovery Services 자격 증명 모음이 열려 있지 않지만 Azure Portal에 있는 경우 **허브** 메뉴에서 **찾아보기**를 클릭합니다.
+1. 이미 Recovery Services 자격 증명 모음이 열려 있으면 다음 단계로 진행합니다. Recovery Services 자격 증명 모음이 열려 있지 않지만 Azure Portal에 있는 경우 **모든 서비스**를 선택합니다.
 
    a. 리소스 목록에서 **Recovery Services**를 입력합니다.
 
@@ -98,7 +98,7 @@ Recovery Services 자격 증명 모음에서 VM이 이미 백업되었으며 나
 
 ## <a name="provide-permissions-to-backup"></a>Backup에 사용 권한 제공
 키 자격 증명 모음에 액세스하고 암호화된 VM의 백업을 수행하기 위해 다음 단계를 사용하여 Backup에 관련 사용 권한을 제공합니다.
-1. **추가 서비스**를 선택하고 **Key Vault**를 검색합니다.
+1. **모든 서비스**를 선택하고 **Key Vault**를 검색합니다.
 
     ![Key Vault](./media/backup-azure-vms-encryption/search-key-vault.png)
     

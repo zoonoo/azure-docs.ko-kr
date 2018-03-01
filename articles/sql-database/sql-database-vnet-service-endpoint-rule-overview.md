@@ -4,7 +4,7 @@ description: "서브넷을 Virtual Network 서비스 끝점으로 표시합니�
 services: sql-database
 documentationcenter: 
 author: MightyPen
-manager: jhubbard
+manager: craigg
 editor: 
 tags: 
 ms.assetid: 
@@ -14,13 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: On Demand
-ms.date: 01/31/2018
-ms.author: genemi
-ms.openlocfilehash: d4179c590ef418633158dd5a5dbadbc8c20bcde7
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.date: 02/20/2018
+ms.reviewer: genemi
+ms.author: dmalik
+ms.openlocfilehash: 33ce521903265f60715f66220c4d038cf6d86671
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Azure SQL Database에 대한 Virtual Network 서비스 끝점 및 규칙 사용
 
@@ -127,9 +128,6 @@ Azure에서 [RBAC(역할 기반 액세스 제어)][rbac-what-is-813s]를 사용�
 
 Azure SQL Database의 경우 가상 네트워크 규칙 기능에는 다음과 같은 제한이 있습니다.
 
-- 현재 **서비스 끝점**이 켜져 있는 서브넷에서 Azure 웹앱이 아직 예상대로 작동하지 않습니다. 이 기능을 곧 사용할 수 있도록 개발하는 중입니다.
-    - 이 기능이 완전히 구현될 때까지 웹앱을 SQL용 서비스 끝점이 켜져 있지 않은 다른 서브넷으로 이동하는 것이 좋습니다.
-
 - SQL Database에 대한 방화벽에서 각 가상 네트워크 규칙은 서브넷을 참조합니다. 이렇게 참조된 모든 서브넷은 SQL Database와 동일한 지리적 위치에서 호스팅되어야 합니다.
 
 - 각 Azure SQL Database 서버에는 특정 가상 네트워크에 대해 최대 128개 ACL 항목이 포함될 수 있습니다.
@@ -142,6 +140,12 @@ Azure SQL Database의 경우 가상 네트워크 규칙 기능에는 다음과 �
 - 방화벽에서 IP 주소 범위는 다음 네트워킹 항목에 적용되지만 가상 네트워크 규칙에는 적용되지 않습니다.
     - [S2S(사이트 간) VPN(가상 사설망)][vpn-gateway-indexmd-608y]
     - [ExpressRoute][expressroute-indexmd-744v]를 통한 온-프레미스
+
+#### <a name="considerations-when-using-service-endpoints"></a>서비스 끝점 사용 시 고려할 사항
+Azure SQL Database에 대해 서비스 끝점을 사용하는 경우 다음 고려 사항을 검토합니다.
+
+- **Azure SQL Database 공용 IP에 대한 아웃 바운드가 필요함**: 연결을 허용하려면 Azure SQL Database IP에 대해 NSG(네트워크 보안 그룹)를 열어야 합니다. Azure SQL Database에 대해 NSG [서비스 태그](../virtual-network/security-overview.md#service-tags)를 사용하면 됩니다.
+- **Azure Database for PostgreSQL 및 Azure Database for MySQL이 지원되지 않음**: Azure Database for PostgreSQL 및 Azure Database for MySQL에 대해 서비스 끝점이 지원되지 않습니다. SQL Database에 서비스 끝점을 사용하도록 설정하면 이러한 서비스에 대한 연결이 끊어집니다. 이 문제에 대한 완화 방법이 있습니다. *dmalik@microsoft.com*에 문의하세요.
 
 #### <a name="expressroute"></a>ExpressRoute
 
@@ -170,6 +174,8 @@ Azure SQL Database 쿼리 편집기는 Azure의 VM에 배포됩니다. 이러한
 #### <a name="table-auditing"></a>테이블 감사
 현재 SQL Database에서 감사를 활성화하는 방법에는 두 가지가 있습니다. Azure SQL Server에서 서비스 엔드포인트를 활성화한 후에는 테이블 감사에 실패합니다. 여기서 완화책은 Blob 감사로 이동하는 것입니다.
 
+#### <a name="impact-on-data-sync"></a>데이터 동기화에 대한 영향
+Azure SQLDB에는 Azure IP를 사용하여 데이터베이스에 연결하는 데이터 동기화 기능이 있습니다. 서비스 끝점을 사용하는 경우 논리 서버에 대한 **모든 Azure 서비스 허용** 액세스를 해제할 가능성이 큽니다. 이 경우 데이터 동기화 기능이 중단됩니다.
 
 ## <a name="impact-of-using-vnet-service-endpoints-with-azure-storage"></a>Azure 저장소에서 VNet 서비스 엔드포인트 사용의 영향
 
@@ -177,7 +183,7 @@ Azure Storage는 사용자가 저장소 계정에 대한 연결성을 제한하�
 Azure SQL Server에서 사용 중인 저장소 계정에서 이 기능을 사용하도록 선택한 경우 문제가 발생할 수 있습니다. 다음은 이로 인해 영향을 받는 Azure SQLDB 기능의 목록 및 토론입니다.
 
 #### <a name="azure-sqldw-polybase"></a>Azure SQLDW PolyBase
-PolyBase는 대개 저장소 계정에서 Azure SQLDW로 데이터를 로드하는 데 사용됩니다. 데이터를 로드하는 저장소 계정이 액세스를 VNet 서브넷 집합으로만 제한하는 경우 PolyBase에서 계정으로의 연결은 중단됩니다.
+PolyBase는 대개 저장소 계정에서 Azure SQLDW로 데이터를 로드하는 데 사용됩니다. 데이터를 로드하는 저장소 계정이 액세스를 VNet 서브넷 집합으로만 제한하는 경우 PolyBase에서 계정으로의 연결은 중단됩니다. 이 문제에 대한 완화 방법이 있습니다. 자세한 내용은 *dmalik@microsoft.com*에 문의하세요.
 
 #### <a name="azure-sqldb-blob-auditing"></a>Azure SQLDB Blob 감사
 Blob 감사는 사용자 고유의 저장소 계정에 감사 로그를 푸시합니다. 이 저장소 계정이 VENT 서비스 엔드포인트 기능을 사용하는 경우 Azure SQLDB에서 저장소 계정으로의 연결은 중단됩니다.

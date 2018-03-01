@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: cefc15e7df0dabd9229196d0175dcf6546a6ebce
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: d3ce4d5c6766c41fe32164ebfe623ea8c06b58f9
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="azure-network-security-overview"></a>Azure 네트워크 보안 개요
 Microsoft Azure에는 사용자의 응용 프로그램과 서비스 연결 요구 사항을 지원하기 위한 강력한 네트워킹 인프라가 포함되어 있습니다. 네트워크 연결은 Azure에 위치한 리소스 간, 온-프레미스와 Azure 호스팅 리소스 간, 그리고 인터넷과 Azure 간에 가능합니다.
@@ -37,7 +37,7 @@ Microsoft Azure에는 사용자의 응용 프로그램과 서비스 연결 요�
 
 
 ## <a name="azure-networking"></a>Azure 네트워킹
-가상 컴퓨터는 네트워크 연결이 필요합니다. 이 요구 사항을 지원하기 위해 Azure에서는 가상 컴퓨터를 Azure Virtual Network에 연결해야 합니다. Azure Virtual Network는 물리적 Azure 네트워크 패브릭 위에 구축되는 논리적 구조체입니다. 각 논리적 Azure Virtual Network는 다른 모든 Azure Virtual Network와 격리됩니다. 이 기능을 통해 사용자 배포의 네트워크 트래픽이 다른 Microsoft Azure 고객에게 액세스되지 않게 해줍니다.
+가상 머신은 네트워크 연결이 필요합니다. 이 요구 사항을 지원하기 위해 Azure에서는 가상 머신을 Azure Virtual Network에 연결해야 합니다. Azure Virtual Network는 물리적 Azure 네트워크 패브릭 위에 구축되는 논리적 구조체입니다. 각 논리적 Azure Virtual Network는 다른 모든 Azure Virtual Network와 격리됩니다. 이 기능을 통해 사용자 배포의 네트워크 트래픽이 다른 Microsoft Azure 고객에게 액세스되지 않게 해줍니다.
 
 자세한 정보:
 
@@ -45,7 +45,7 @@ Microsoft Azure에는 사용자의 응용 프로그램과 서비스 연결 요�
 
 
 ## <a name="network-access-control"></a>네트워크 Access Control
-네트워크 액세스 제어는 Azure Virtual Network 내의 특정 장치 또는 서브넷 간 연결을 제한하는 행위입니다. 네트워크 액세스 제어의 목표는 가상 컴퓨터 및 서비스에 대한 액세스를 승인 된 사용자 및 장치로 제한하는 것입니다. 액세스 제어는 가상 컴퓨터 또는 서비스 간 연결에 대한 허용 또는 거부 결정에 기반합니다.
+네트워크 액세스 제어는 Azure Virtual Network 내의 특정 장치 또는 서브넷 간 연결을 제한하는 행위입니다. 네트워크 액세스 제어의 목표는 가상 머신 및 서비스에 대한 액세스를 승인 된 사용자 및 장치로 제한하는 것입니다. 액세스 제어는 가상 컴퓨터 또는 서비스 간 연결에 대한 허용 또는 거부 결정에 기반합니다.
 
 Azure는 다음과 같은 다양한 유형의 네트워크 액세스 제어를 지원합니다.
 
@@ -63,7 +63,7 @@ Azure는 다음과 같은 다양한 유형의 네트워크 액세스 제어를 �
 * [네트워크 보안 그룹](../virtual-network/virtual-networks-nsg.md)
 
 ### <a name="route-control-and-forced-tunneling"></a>경로 제어 및 터널링 적용
-Azure Virtual Network에 라우팅 동작을 제어하는 기능은 중요한 네트워크 보안 및 액세스 제어 기능입니다. 라우팅이 잘못 구성된 경우 가상 컴퓨터에서 호스트하는 응용 프로그램 및 서비스가 잠재적 공격자가 소유 및 작동하는 시스템을 비롯하여 허가되지 않은 장치에 연결될 수 있습니다.
+Azure Virtual Network에 라우팅 동작을 제어하는 기능은 중요한 네트워크 보안 및 액세스 제어 기능입니다. 라우팅이 잘못 구성된 경우 가상 머신에서 호스트하는 응용 프로그램 및 서비스가 잠재적 공격자가 소유 및 작동하는 시스템을 비롯하여 허가되지 않은 장치에 연결될 수 있습니다.
 
 Azure 네트워킹은 Azure Virtual Network의 네트워크 트래픽에 대한 라우팅 동작을 사용자 지정할 수 있는 기능을 지원하여 사용자는 Azure Virtual Network에서 기본 라우팅 테이블 항목을 변경할 수 있습니다. 라우팅 동작을 제어하면 특정 장치 또는 장치 그룹의 모든 트래픽이 특정 위치를 통해 가상 네트워크에 진입하거나 떠납니다.
 
@@ -106,9 +106,9 @@ Azure 네트워킹은 다음 보안 원격 액세스 시나리오를 지원합�
 * Azure Virtual Network 상호 연결
 
 ### <a name="connect-individual-workstations-to-an-azure-virtual-network"></a>Azure Virtual Network에 개별 워크스테이션 연결
-개별 개발자 또는 작업 작업자가 Azure에서 가상 컴퓨터 및 서비스를 관리하길 원하는 상황이 있을 수 있습니다. 예를 들어, Azure Virtual Network의 가상 컴퓨터에 액세스가 필요하지만 사용자의 보안 정책에서는 개별 가상 컴퓨터에 대한 RDP 또는 SSH 원격 액세스를 허용하지 않습니다. 이 경우에는 지점 및 사이트 간 VPN 연결을 사용할 수 있습니다.
+개별 개발자 또는 작업 작업자가 Azure에서 가상 머신 및 서비스를 관리하길 원하는 상황이 있을 수 있습니다. 예를 들어, Azure Virtual Network의 가상 머신에 액세스가 필요하지만 사용자의 보안 정책에서는 개별 가상 머신에 대한 RDP 또는 SSH 원격 액세스를 허용하지 않습니다. 이 경우에는 지점 및 사이트 간 VPN 연결을 사용할 수 있습니다.
 
-지점 및 사이트 간 VPN 연결에서는 [SSTP VPN](https://technet.microsoft.com/library/cc731352.aspx) 프로토콜을 사용하여 사용자와 Azure Virtual Network 간 비공개 및 보안 연결을 설정할 수 있습니다. VPN 연결이 설정되면 사용자는 VPN 링크를 통해 RDP 또는 SSH를 Azure Virtual Network의 가상 컴퓨터에 연결할 수 있게 됩니다(사용자가 인증할 수 있고 권한이 부여되었다고 가장).
+지점 및 사이트 간 VPN 연결에서는 [SSTP VPN](https://technet.microsoft.com/library/cc731352.aspx) 프로토콜을 사용하여 사용자와 Azure Virtual Network 간 비공개 및 보안 연결을 설정할 수 있습니다. VPN 연결이 설정되면 사용자는 VPN 링크를 통해 RDP 또는 SSH를 Azure Virtual Network의 가상 머신에 연결할 수 있게 됩니다(사용자가 인증할 수 있고 권한이 부여되었다고 가장).
 
 자세한 정보:
 
@@ -181,8 +181,8 @@ Azure Load Balancer를 사용하여 Azure에서 네트워크 수준 부하 분�
 
 * IP 주소와 포트 번호에 기반한 네트워크 수준 부하 분산
 * 모든 응용 프로그램 계층 프로토콜에 대한 지원
-* Azure 가상 컴퓨터 및 클라우드 서비스 역할 인스턴스에 대한 부하 분산
-* 인터넷 연결(외부 부하 분산) 및 비-인터넷 연결(내부 부하 분산) 응용 프로그램과 가상 컴퓨터 모두에 사용할 수 있음
+* Azure 가상 머신 및 클라우드 서비스 역할 인스턴스에 대한 부하 분산
+* 인터넷 연결(외부 부하 분산) 및 비-인터넷 연결(내부 부하 분산) 응용 프로그램과 가상 머신 모두에 사용할 수 있음
 * 부하 분산 장치 뒤에서 사용할 수 없게 되는 서비스가 있는지 확인하기 위해 사용하는 끝점 모니터링
 
 자세한 정보:
@@ -236,7 +236,7 @@ Azure는 Azure DNS의 형태로 가용성과 성능이 뛰어난 외부 DNS 솔�
 * [Azure DNS 개요](../dns/dns-overview.md)
 
 ## <a name="dmz-architecture"></a>DMZ 아키텍처
-많은 엔터프라이즈 조식에서 DMZ를 사용하여 네트워크를 분할하여 인터넷과 서비스 사이에 완충 지대를 만들고 있습니다. 네트워크의 DMZ 부분은 낮은 수준의 보안 영역으로 간주되며 이 네트워크 세그먼트에는 고가의 자산이 배치되지 않습니다. 일반적으로, DMZ 세그먼트의 네트워크 인터페이스와 다른 네트워크 인터페이스가 인터넷에서 인바운드 연결을 수락하는 가상 컴퓨터 및 서비스가 있는 네트워크에 연결되어 있는 네트워크 보안 장치를 보게 됩니다.
+많은 엔터프라이즈 조식에서 DMZ를 사용하여 네트워크를 분할하여 인터넷과 서비스 사이에 완충 지대를 만들고 있습니다. 네트워크의 DMZ 부분은 낮은 수준의 보안 영역으로 간주되며 이 네트워크 세그먼트에는 고가의 자산이 배치되지 않습니다. 일반적으로, DMZ 세그먼트의 네트워크 인터페이스와 다른 네트워크 인터페이스가 인터넷에서 인바운드 연결을 수락하는 가상 머신 및 서비스가 있는 네트워크에 연결되어 있는 네트워크 보안 장치를 보게 됩니다.
 
 다양한 형태의 DMZ 디자인이 있으며, DMZ 배포 결정과 하나를 사용하기로 결정한 경우 사용할 DMZ 형식은 사용자의 네트워크 보안 요구 사항에 따라 결정됩니다.
 
@@ -254,7 +254,7 @@ Azure Network Watcher에는 보안 문제 식별에 도움이 되는 새로운 �
 
 [보안 그룹 보기](/network-watcher/network-watcher-security-group-view-overview.md)는 Virtual Machines의 감사 및 보안 준수를 돕고, 조직에서 정의한 기준 정책을 각 사용자 VM을 위한 실질적 규칙과 비교하는 프로그래밍 방식 감사를 수행하는 데 사용될 수 있습니다. 그러면 모든 구성 드리프트를 식별하는 데 도움이 됩니다.
 
-[패킷 캡처](/network-watcher/network-watcher-packet-capture-overview.md)를 사용하면 가상 컴퓨터에서 네트워크 트래픽을 캡처할 수 있습니다. 패킷 캡처는 네트워크 통계를 수집하고 응용 프로그램 문제를 해결할 수 있도록 돕는 것 외에도 네트워크 침입에 대한 조사에도 매우 유용할 수 있습니다. 또한 이 기능을 Azure Functions와 함께 사용하면 특정 Azure 경고에 대한 응답으로 네트워크 캡처를 시작할 수 있습니다.
+[패킷 캡처](/network-watcher/network-watcher-packet-capture-overview.md)를 사용하면 가상 머신에서 네트워크 트래픽을 캡처할 수 있습니다. 패킷 캡처는 네트워크 통계를 수집하고 응용 프로그램 문제를 해결할 수 있도록 돕는 것 외에도 네트워크 침입에 대한 조사에도 매우 유용할 수 있습니다. 또한 이 기능을 Azure Functions와 함께 사용하면 특정 Azure 경고에 대한 응답으로 네트워크 캡처를 시작할 수 있습니다.
 
 Azure Network Watcher 및 사용자 실험실에서 몇 가지 기능 테스트를 시작하는 방법에 대한 자세한 내용은 [Azure Network Watcher 모니터링 개요](/network-watcher/network-watcher-monitoring-overview.md)를 참조하세요.
 

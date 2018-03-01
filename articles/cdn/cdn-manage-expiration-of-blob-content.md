@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 11/10/2017
+ms.date: 02/1/2018
 ms.author: mazha
-ms.openlocfilehash: 6f82ae396a17f903a522c716f73a5f7d2de660e7
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: f5609f98de7ce6967dd1ff502e88d798741384df
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-expiration-of-azure-blob-storage-in-azure-content-delivery-network"></a>Azure CDN(Content Delivery Network)에서 Azure Blob Storage 만료 관리 
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ ms.lasthandoff: 12/21/2017
 
 Azure Storage에서 [Blob Storage 서비스](../storage/common/storage-introduction.md#blob-storage)는 Azure CDN(Content Delivery Network)과 통합된 여러 Azure 기반 원본 중 하나입니다. TTL(time-to-live)이 경과할 때까지 공개적으로 액세스 가능한 모든 Blob 콘텐츠는 Azure CDN에 캐시될 수 있습니다. TTL은 원본 서버의 HTTP 응답에 있는 `Cache-Control` 헤더를 기반으로 결정됩니다. 이 문서에서는 Azure Storage에서 Blob에 `Cache-Control` 헤더를 설정할 수 있는 여러 가지 방법을 보여 줍니다.
 
-[CDN 캐시 규칙](cdn-caching-rules.md)을 설정하여 Azure Portal에서 캐시 설정을 제어할 수도 있습니다. 하나 이상의 캐싱 규칙을 설정하고 캐싱 동작을 **재정의** 또는 **캐시 무시**로 설정하는 경우 이 문서에 설명된 원본 제공 캐싱 설정이 무시됩니다. 일반적인 캐싱 개념에 대한 자세한 내용은 [캐싱 동작 방식](cdn-how-caching-works.md)을 참조하세요.
+[CDN 캐시 규칙](#setting-cache-control-headers-by-using-caching-rules)을 설정하여 Azure Portal에서 캐시 설정을 제어할 수도 있습니다. 캐싱 규칙을 만들고 캐싱 동작을 **재정의** 또는 **캐시 무시**로 설정하는 경우 이 문서에 설명된 원본 제공 캐싱 설정이 무시됩니다. 일반적인 캐싱 개념에 대한 자세한 내용은 [캐싱 동작 방식](cdn-how-caching-works.md)을 참조하세요.
 
 > [!TIP]
 > BLOB에 TTL을 설정하지 않을 수도 있습니다. 이 경우 Azure CDN은 사용자가 Azure Portal에서 캐싱 규칙을 설정하지 않은 한, 7일의 기본 TTL을 자동으로 적용합니다. 이 기본 TTL은 일반 웹 배달 최적화에만 적용됩니다. 대용량 파일 최적화의 경우 기본 TTL은 1일이고 미디어 스트리밍 최적화의 경우 기본 TTL은 1년입니다.
@@ -39,10 +39,56 @@ Azure Storage에서 [Blob Storage 서비스](../storage/common/storage-introduct
 > 자세한 내용은 [Blob Storage 소개](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction)를 참조하세요.
  
 
+## <a name="setting-cache-control-headers-by-using-cdn-caching-rules"></a>CDN 캐싱 규칙을 사용하여 Cache-Control 헤더 설정
+BLOB `Cache-Control` 헤더를 설정하기 위한 기본 방법은 Azure Portal에서 캐싱 규칙을 사용하는 것입니다. CDN 캐싱 규칙에 대한 자세한 내용은 [캐싱 규칙을 사용하여 Azure CDN 캐싱 동작 제어](cdn-caching-rules.md)를 참조하세요.
+
+> [!NOTE] 
+> 캐싱 규칙은 **Verizon 표준의 Azure CDN** 및 **Akamai 표준의 Azure CDN** 프로필에만 사용할 수 있습니다. **Verizon 프리미엄의 Azure CDN** 프로필은 유사한 기능을 위해 **관리** 포털에서 [Azure CDN 규칙 엔진](cdn-rules-engine.md)을 사용해야 합니다.
+
+**CDN 캐싱 규칙 페이지로 이동하려면**:
+
+1. Azure Portal에서 CDN 프로필을 선택한 다음, Blob용 끝점을 선택합니다.
+
+2. 설정 아래의 왼쪽 창에서 **캐싱 규칙**을 선택합니다.
+
+   ![CDN 캐싱 규칙 단추](./media/cdn-manage-expiration-of-blob-content/cdn-caching-rules-btn.png)
+
+   **캐싱 규칙** 페이지가 나타납니다.
+
+   ![CDN 캐싱 페이지](./media/cdn-manage-expiration-of-blob-content/cdn-caching-page.png)
+
+
+**전역 캐싱 규칙을 사용하여 Blob Storage 서비스의 Cache-Control 헤더를 설정하려면:**
+
+1. **전역 캐싱 규칙**에서 **쿼리 문자열 캐시 동작**을 **쿼리 문자열 무시**로 설정하고 **캐싱 동작**을 **재정의**로 설정합니다.
+      
+2. **캐시 만료 기간**은 **초** 상자에 3600초를 입력하거나 **시간** 상자에 1시간을 입력합니다. 
+
+   ![CDN 전역 캐싱 규칙 예](./media/cdn-manage-expiration-of-blob-content/cdn-global-caching-rules-example.png)
+
+   해당 전역 캐싱 규칙은 1시간의 캐시 기간을 설정하고 끝점에 대한 모든 요청에 영향을 줍니다. 끝점에서 지정한 원본 서버가 보낸 `Cache-Control` 또는 `Expires` HTTP 헤더를 재정의합니다.   
+
+3. **저장**을 선택합니다.
+ 
+**사용자 지정 캐싱 규칙을 사용하여 Blob 파일의 Cache-Control 헤더를 설정하려면:**
+
+1. **사용자 지정 캐싱 규칙**에 따라 일치 조건 두 개를 만듭니다.
+
+     a. 첫 번째 일치 조건의 경우 **일치 조건**을 **경로**로 설정하고 **일치 값**으로 `/blobcontainer1/*`을 입력합니다. **캐싱 동작**을 **재정의**로 설정하고 **시간** 상자에 4시간을 입력합니다.
+
+    B. 두 번째 일치 조건의 경우 **일치 조건**을 **경로**로 설정하고 **일치 값**으로 `/blobcontainer1/blob1.txt`를 입력합니다. **캐싱 동작**을 **재정의**로 설정하고 **시간** 상자에 2시간을 입력합니다.
+
+    ![CDN 사용자 지정 캐싱 규칙 예](./media/cdn-manage-expiration-of-blob-content/cdn-custom-caching-rules-example.png)
+
+    첫 번째 사용자 지정 캐싱 규칙은 끝점에서 지정한 원본 서버의 `/blobcontainer1`폴더 내 모든 Blob 파일에 대해 4시간의 캐시 기간을 설정합니다. 두 번째 규칙은 `blob1.txt` Blob 파일을 위한 첫 번째 규칙을 재정의하고 이에 대해 2시간의 캐시 기간을 설정합니다.
+
+2. **저장**을 선택합니다.
+
+
 ## <a name="setting-cache-control-headers-by-using-azure-powershell"></a>Azure PowerShell을 사용하여 Cache-Control 헤더 설정
 [Azure PowerShell](/powershell/azure/overview)은 Azure 서비스를 관리하는 가장 강력하고 빠른 방법 중 하나입니다. `Get-AzureStorageBlob` cmdlet을 사용하여 Blob에 대한 참조를 가져온 다음 `.ICloudBlob.Properties.CacheControl` 속성을 설정합니다. 
 
-예:
+예: 
 
 ```powershell
 # Create a storage context
@@ -64,9 +110,9 @@ $blob.ICloudBlob.SetProperties()
 >
 
 ## <a name="setting-cache-control-headers-by-using-net"></a>.NET을 사용하여 Cache-Control 헤더 설정
-.NET 코드를 사용하여 Blob의 `Cache-Control` 헤더를 설정하려면 [.NET용 Azure Storage 클라이언트 라이브러리](../storage/blobs/storage-dotnet-how-to-use-blobs.md)를 사용하여 [CloudBlob.Properties.CacheControl](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.blobproperties.cachecontrol.aspx) 속성을 설정합니다.
+.NET 코드를 사용하여 Blob의 `Cache-Control` 헤더를 지정하려면 [.NET용 Azure Storage 클라이언트 라이브러리](../storage/blobs/storage-dotnet-how-to-use-blobs.md)를 사용하여 [CloudBlob.Properties.CacheControl](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.blobproperties.cachecontrol.aspx) 속성을 설정합니다.
 
-예:
+예: 
 
 ```csharp
 class Program
@@ -81,10 +127,10 @@ class Program
         CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
         // Create a reference to the container
-        CloudBlobContainer container = blobClient.GetContainerReference("<container name>");
+        CloudBlobContainer <container name> = blobClient.GetContainerReference("<container name>");
 
         // Create a reference to the blob
-        CloudBlob blob = container.GetBlobReference("<blob name>");
+        CloudBlob <blob name> = container.GetBlobReference("<blob name>");
 
         // Set the CacheControl property to expire in 1 hour (3600 seconds)
         blob.Properties.CacheControl = "max-age=3600";
@@ -107,7 +153,7 @@ class Program
 Azure Storage Explorer에서 Blob의 *CacheControl* 속성을 업데이트하려면
    1. Blob를 선택하고 바로 가기 메뉴에서 **속성**을 선택합니다. 
    2. *CacheControl* 속성까지 아래로 스크롤합니다.
-   3. 값을 입력하고 **저장**을 클릭합니다.
+   3. 값을 입력한 다음, **저장**을 선택합니다.
 
 
 ![Azure Storage Explorer 속성](./media/cdn-manage-expiration-of-blob-content/cdn-storage-explorer-properties.png)
@@ -116,7 +162,7 @@ Azure Storage Explorer에서 Blob의 *CacheControl* 속성을 업데이트하려
 [Azure CLI(명령줄 인터페이스)](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest)를 사용하여 명령줄에서 Azure Blob 리소스를 관리할 수 있습니다. Azure CLI를 사용하여 Blob을 업로드할 때 cache-control 헤더를 설정하려면 `-p` 스위치를 사용하여 *cacheControl* 속성을 설정합니다. 다음 예제에서는 TTL을 1시간(3600초)으로 설정하는 방법을 보여 줍니다.
   
 ```azurecli
-azure storage blob upload -c <connectionstring> -p cacheControl="max-age=3600" .\test.txt myContainer test.txt
+azure storage blob upload -c <connectionstring> -p cacheControl="max-age=3600" .\<blob name> <container name> <blob name>
 ```
 
 ### <a name="azure-storage-services-rest-api"></a>Azure Storage 서비스 REST API

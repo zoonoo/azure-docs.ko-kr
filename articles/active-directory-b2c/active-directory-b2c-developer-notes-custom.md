@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 10/13/2017
 ms.author: joroja
-ms.openlocfilehash: 064ccec58406e08ae68320b59fcf2a96952a41ee
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7f65ad324e1bf0887ea293254621466a2f1ddaff
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="release-notes-for-azure-active-directory-b2c-custom-policy-public-preview"></a>Azure Active Directory B2C 사용자 지정 정책 공개 미리 보기에 대한 릴리스 정보
 사용자 지정 정책 기능 집합은 현재 모든 Azure Active Directory B2C(Azure AD B2C) 고객에 대해 공개 미리 보기에서 평가용으로 제공됩니다. 이 기능 집합은 가장 복잡한 ID 솔루션을 구축하는 고급 ID 개발자를 대상으로 합니다.  
@@ -60,13 +60,13 @@ ms.lasthandoff: 12/11/2017
 ## <a name="features-by-stage-and-known-issues"></a>단계 및 알려진 문제별 기능
 사용자 지정 정책/ID 경험 프레임워크 기능은 지속적으로 빠르게 개발되고 있습니다.  다음 표는 기능/구성 요소 가용성 색인입니다.
 
-스택 오버플로, [aka.ms/aadb2cso](http://aka.ms/aadb2cso)에 질문을 게시하세요.
+[https://aka.ms/aadb2cso](https://aka.ms/aadb2cso)에 있는 Stack Overflow에 질문을 게시하세요.
 
 
 ### <a name="identity-providers-tokens-protocols"></a>ID 공급자, 토큰, 프로토콜
 외부 구성 요소 및 응용 프로그램 인터페이스
 
-| 기능 | 개발 | 미리 보기 | GA | 참고 사항 |
+| 기능 | 개발 | 미리 보기 | GA | 메모 |
 |---------------------------------------------|-------------|---------|----|-------|
 | IDP-OpenIDConnect |  | x |  | 예: Google+ |
 | IDP-OAUTH2 |  | x |  | 예: Facebook  |
@@ -83,7 +83,7 @@ ms.lasthandoff: 12/11/2017
 ### <a name="component-support"></a>구성 요소 지원
 
 
-| 기능 | 개발 | 미리 보기 | GA | 참고 사항 |
+| 기능 | 개발 | 미리 보기 | GA | 메모 |
 |-------------------------------------------|-------------|---------|----|-------|
 | Azure Multi Factor Authentication |  | x |  |  |
 | 로컬 디렉터리로서의 Azure Active Directory |  | x |  |  |
@@ -94,7 +94,7 @@ ms.lasthandoff: 12/11/2017
 
 ### <a name="content-definition"></a>콘텐츠 정의
 
-| 기능 | 개발 | 미리 보기 | GA | 참고 사항 |
+| 기능 | 개발 | 미리 보기 | GA | 메모 |
 |-----------------------------------------------------------------------------|-------------|---------|----|-------|
 |   오류 페이지, api.error |  | x |  |  |
 |   IDP 선택 페이지, api.idpselections |  | x |  |  |
@@ -109,7 +109,7 @@ ms.lasthandoff: 12/11/2017
 
 
 ### <a name="app-ief-integration"></a>App-IEF 통합
-| 기능 | 개발 | 미리 보기 | GA | 참고 사항 |
+| 기능 | 개발 | 미리 보기 | GA | 메모 |
 |--------------------------------------------------|-------------|---------|----|-------------------------------------------------|
 | 쿼리 문자열 매개 변수 id_token_hint | x |  |  |  |
 | 쿼리 문자열 매개 변수 domain_hint |  | x |  | 클레임으로 사용 가능, IDP로 전달될 수 있음 |
@@ -120,7 +120,7 @@ ms.lasthandoff: 12/11/2017
 
 ### <a name="session-management"></a>세션 관리
 
-| 기능 | 개발 | 미리 보기 | GA | 참고 사항 |
+| 기능 | 개발 | 미리 보기 | GA | 메모 |
 |---------------------------------|-------------|---------|----|-------|
 | SSO 세션 공급자 |  | x |  |  |
 | 외부 로그인 세션 공급자 |  | x |  |  |
@@ -128,14 +128,14 @@ ms.lasthandoff: 12/11/2017
 
 
 ### <a name="security"></a>보안
-| 기능 | 개발 | 미리 보기 | GA | 참고 사항 |
+| 기능 | 개발 | 미리 보기 | GA | 메모 |
 |---------------------------------------------|-------------|---------|----|-------|
 | 정책 키 - 생성, 수동, 업로드 |  | x |  |  |
 | 정책 키 - RSA/Cert, 비밀 |  | x |  |  |
 
 
 ### <a name="developer-interface"></a>개발자 인터페이스
-| 기능 | 개발 | 미리 보기 | GA | 참고 사항 |
+| 기능 | 개발 | 미리 보기 | GA | 메모 |
 |---------------------------------------------|-------------|---------|----|-------|
 | Azure Portal-IEF UX |  | x |  |  |
 | Application Insights UserJourney 로그  |  | x |  |  |

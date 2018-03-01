@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 099e3c259f0b63e4376847727eb8e185aeb37380
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: f4a1562983ffa68dbd6586a2ae3a569f766387b5
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-virtual-network-classic-with-multiple-subnets"></a>여러 서브넷이 있는 가상 네트워크(클래식) 만들기
 
@@ -39,10 +39,10 @@ ms.lasthandoff: 01/19/2018
 ## <a name="portal"></a>포털
 
 1. 인터넷 브라우저에서 [Azure Portal](https://portal.azure.com)로 이동합니다. [Azure 계정](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account)을 사용하여 로그인합니다. Azure 계정이 없으면 [평가판](https://azure.microsoft.com/offers/ms-azr-0044p)에 등록할 수 있습니다.
-2. 포털에서 **+ 새로 만들기**를 클릭합니다.
-3. 표시되는 **새로 만들기** 블레이드의 맨 위에 있는 **Marketplace 검색** 상자에 *가상 네트워크*를 입력합니다.  **가상 네트워크**가 검색 결과에 표시되면 클릭합니다.
-4. 표시되는 **Virtual Network** 블레이드의 **배포 모델 선택** 상자에서 **클래식**을 선택한 다음 **만들기**를 클릭합니다. 
-5. **가상 네트워크 만들기(클래식)** 블레이드에서 다음 값을 입력한 다음 **만들기**를 클릭합니다.
+2. 포털에서 **리소스 만들기**를 클릭합니다.
+3. 표시되는 **새로 만들기** 창의 맨 위에 있는 **Marketplace 검색** 상자에 *가상 네트워크*를 입력합니다. **가상 네트워크**가 검색 결과에 표시되면 클릭합니다.
+4. 표시되는 **Virtual Network** 창의 **배포 모델 선택** 상자에서 **클래식**을 선택하고 **만들기**를 클릭합니다. 
+5. **가상 네트워크 만들기(클래식)** 창에서 다음 값을 입력하고 **만들기**를 클릭합니다.
 
     |설정|값|
     |---|---|
@@ -55,13 +55,13 @@ ms.lasthandoff: 01/19/2018
 
     Azure를 처음 사용하는 경우 [리소스 그룹](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group), [구독](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) 및 [위치](https://azure.microsoft.com/regions)(*지역*이라고도 함)에 대해 자세히 알아봅니다.
 4. 포털에서 가상 네트워크를 만들 때 서브넷을 하나만 만들 수 있습니다. 이 자습서에서는 가상 네트워크를 만든 후 두 번째 서브넷을 만듭니다. 나중에 인터넷에서 액세스할 수 있는 리소스를 **공용** 서브넷에 만들 수 있습니다. 또한 **개인** 서브넷에는 인터넷에서 액세스할 수 없는 리소스를 만들 수 있습니다. 두 번째 서브넷을 만들려면 페이지 위쪽의 **리소스 검색** 상자에 **myVnet**을 입력합니다. **myVnet**이 검색 결과에 표시되면 클릭합니다.
-5. 표시되는 **가상 네트워크 만들기(클래식)** 블레이드에서 **서브넷**(**설정** 섹션에서)을 클릭합니다.
-6. 표시되는 **myVnet-서브넷** 블레이드에서 **+ 추가**를 클릭합니다.
-7. **서브넷 추가** 블레이드에서 **이름**에 **개인**을 입력합니다. **주소 범위**에 **10.0.1.0/24**를 입력합니다.  **확인**을 클릭합니다.
-8. **myVnet - 서브넷** 블레이드에서 사용자가 만든 **공용** 및 **개인** 서브넷을 확인할 수 있습니다.
+5. 표시되는 **가상 네트워크 만들기(클래식)** 창에서 **서브넷**(**설정** 섹션)을 클릭합니다.
+6. 표시되는 **myVnet - 서브넷** 창에서 **+추가**를 클릭합니다.
+7. **서브넷 추가** 창에서 **이름**에 **개인**을 입력합니다. **주소 범위**에 **10.0.1.0/24**를 입력합니다.  **확인**을 클릭합니다.
+8. **myVnet - 서브넷** 창에서 직접 만든 **공용** 및 **개인** 서브넷을 확인할 수 있습니다.
 9. **선택 사항**: 이 자습서를 마친 후에는 사용 요금이 발생하지 않도록 작성했던 리소스를 삭제할 수 있습니다.
-    - **myVnet** 블레이드에서 **개요**를 클릭합니다.
-    - **myVnet** 블레이드에서 **삭제** 아이콘을 클릭합니다.
+    - **myVnet** 창에서 **개요**를 클릭합니다.
+    - **myVnet** 창에서 **삭제** 아이콘을 클릭합니다.
     - 삭제를 확인하려면 **가상 네트워크 삭제** 상자에서 **예**를 클릭합니다.
 
 ## <a name="azure-cli"></a>Azure CLI

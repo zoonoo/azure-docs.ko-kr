@@ -10,15 +10,15 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/07/2017
-ms.openlocfilehash: ff0159facd693b83230c731eb7e76f0a9495fdf2
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: dd603f07c20811543e07b21683b065bc873786a5
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="data-source-wizard"></a>데이터 원본 마법사 #
 
-데이터 원본 마법사는 코드 없이 데이터 집합을 Azure ML Workbench로 가져오는 쉽고 빠른 방법입니다. 또한 여기서 데이터 집합에 대한 샘플 전략을 선택할 수 있습니다. 
+데이터 원본 마법사는 코드 없이 데이터 집합을 Azure ML Workbench로 가져오는 쉽고 빠른 방법입니다. 또한 여기서 데이터 집합에 대한 샘플 전략 및 각 열에 대한 데이터 형식을 선택할 수 있습니다. 
 
 ## <a name="step-1-trigger-the-data-source-wizard"></a>1 단계: 데이터 원본 마법사를 트리거합니다. ## 
 
@@ -51,6 +51,8 @@ ms.lasthandoff: 12/18/2017
 
 데이터 원본 마법사는 데이터 집합 열의 데이터 형식을 자동으로 감지합니다. 형식이 누락되었거나 데이터 형식을 강제하려면 데이터 형식을 수동으로 변경할 수 있습니다. **샘플 출력 데이터** 열은 데이터가 어떤 모양인지 예를 들어 보여줄 것입니다.
 
+데이터 준비에서 날짜를 포함하도록 유추하는 열의 경우 날짜 형식으로 월 및 일의 순서를 선택하라는 메시지가 표시될 수 있습니다. 예를 들어 1/2/2013은 1월 2일(이 경우 *일-월*) 또는 2월 1일(*월-일* 선택)을 나타낼 수 있습니다.
+
 ![6단계](media/data-source-wizard/step4.png)
 
 ## <a name="step-6-choose-sampling-strategy-for-data"></a>6 단계: 데이터에 대한 샘플링 전략을 선택합니다 ##
@@ -70,8 +72,8 @@ ms.lasthandoff: 12/18/2017
 
 ## <a name="step-7-path-column-handling"></a>7 단계: 경로 열 처리 ##
 
-파일 경로에 중요한 데이터가 포함되는 경우 그것을 데이터 집합에 첫 번째 열로 포함되도록 선택할 수 있습니다. 여러 파일을 가져올 경우 이렇게 하는 것이 유용할 수도 있습니다. 원하지 않을 경우 포함하지 않도록 선택할 수 있습니다.
+파일 경로에 중요한 데이터가 포함되는 경우 그것을 데이터 집합에 첫 번째 열로 포함되도록 선택할 수 있습니다. 여러 파일을 가져올 경우 이 옵션이 유용할 수 있습니다. 원하지 않을 경우 포함하지 않도록 선택할 수 있습니다.
 
 ![7단계](media/data-source-wizard/step6.png)
 
-완료를 클릭하면 새 데이터 원본이 프로젝트에 추가됩니다. 데이터 뷰의 Data Sources 그룹 아래에서 찾거나 **파일 보기**에서 .dsource 파일로 찾을 수 있습니다.
+완료를 클릭하면 새 데이터 원본이 프로젝트에 추가됩니다. 데이터 뷰의 Data Sources 그룹 아래에서 찾거나 **파일 보기**에서 dsource 파일로 찾을 수 있습니다.

@@ -17,13 +17,11 @@ articles/sql-database/sql-database-connect-query.md
 
 1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 
-2. 왼쪽에 있는 목록에서 **찾아보기**를 선택합니다. 
+2. 왼쪽에 있는 목록에서 **모든 서비스**를 선택합니다. 
 
 3. 스크롤하여 **SQL 서버**를 선택합니다. 
    
     ![포털에서 Azure SQL Database 서버를 찾습니다.][b21-FindServerInPortal]
-4. 편의를 위해 **찾아보기** 블레이드를 최소화합니다.
-
 5. 필터 텍스트 상자에 서버 이름을 입력하기 시작합니다. 해당 행이 표시됩니다.
 
 6. 서버에 대한 행을 선택합니다. 서버 블레이드가 표시됩니다.

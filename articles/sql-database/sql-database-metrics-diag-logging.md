@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/16/2017
 ms.author: vvasic
-ms.openlocfilehash: 2e377ef96f6c2b5866ad258a88d6403fd0bb1e41
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 87bbbd1fdcb9afb59de0bda29e99e23e0b9ad104
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database 메트릭 및 진단 로깅 
 Azure SQL Database는 모니터링 편의를 위해 메트릭 및 진단 로그를 내보낼 수 있습니다. 리소스 사용량, 작업자와 세션 및 연결을 이러한 Azure 리소스 중 하나에 저장하도록 SQL Database를 구성할 수 있습니다.
@@ -28,13 +28,13 @@ Azure SQL Database는 모니터링 편의를 위해 메트릭 및 진단 로그�
 * **Azure Event Hub**: 사용자 지정 모니터링 솔루션 또는 핫 파이프라인과 SQL Database 원격 분석을 통합하는 경우 사용됩니다.
 * **Azure Log Analytics**: 보고, 경고 및 완화 기능을 사용하는 기본 제공 모니터링 솔루션의 경우 사용됩니다.
 
-    ![아키텍처](./media/sql-database-metrics-diag-logging/architecture.png)
+    ![건축](./media/sql-database-metrics-diag-logging/architecture.png)
 
 ## <a name="enable-logging"></a>로깅 사용
 
 메트릭 및 진단 로깅은 기본적으로 사용되지 않습니다. 다음 방법 중 하나를 사용하여 메트릭 및 진단 로깅을 사용하도록 설정하고 관리할 수 있습니다.
 
-- Azure 포털
+- Azure portal
 - PowerShell
 - Azure CLI
 - Azure Monitor REST API 
@@ -65,7 +65,7 @@ Event Hubs 또는 저장소 계정을 선택하면 보존 정책을 지정할 �
 * [Microsoft Azure의 메트릭 개요](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
 * [Azure 진단 로그 개요](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) 
 
-### <a name="azure-portal"></a>Azure 포털
+### <a name="azure-portal"></a>Azure portal
 
 1. Azure Portal에서 메트릭 및 진단 로그 수집을 사용하려면 SQL Database 또는 탄력적 풀 페이지로 이동하여 **진단 설정**을 클릭합니다.
 
@@ -181,7 +181,7 @@ Log Analytics를 사용하여 SQL Database 세트를 간편하게 모니터링�
 
 ### <a name="create-a-log-analytics-resource"></a>Log Analytics 리소스 만들기
 
-1. 왼쪽 메뉴에서 **새로 만들기**를 선택합니다.
+1. 왼쪽에 있는 메뉴에서 **리소스 만들기**를 선택합니다.
 
 2. **모니터링 + 관리**를 선택합니다.
 
@@ -272,7 +272,7 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 
 ### <a name="query-store-runtime-statistics"></a>쿼리 저장소 런타임 통계
 
-|속성|설명|
+|자산|설명|
 |---|---|
 |TenantId|테넌트 ID|
 |SourceSystem|항상: Azure|
@@ -323,7 +323,7 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 
 ### <a name="query-store-wait-statistics"></a>쿼리 저장소 대기 통계
 
-|속성|설명|
+|자산|설명|
 |---|---|
 |TenantId|테넌트 ID|
 |SourceSystem|항상: Azure|
@@ -361,7 +361,7 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 
 ### <a name="errors-dataset"></a>오류 데이터 집합
 
-|속성|설명|
+|자산|설명|
 |---|---|
 |TenantId|테넌트 ID|
 |SourceSystem|항상: Azure|
@@ -390,7 +390,7 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 
 ### <a name="database-wait-statistics-dataset"></a>데이터베이스 대기 통계 데이터 집합
 
-|속성|설명|
+|자산|설명|
 |---|---|
 |TenantId|테넌트 ID|
 |SourceSystem|항상: Azure|
@@ -419,7 +419,7 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 
 ### <a name="time-outs-dataset"></a>제한 시간 데이터 집합 
 
-|속성|설명|
+|자산|설명|
 |---|---|
 |TenantId|테넌트 ID|
 |SourceSystem|항상: Azure|
@@ -442,7 +442,7 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 
 ### <a name="blockings-dataset"></a>차단 데이터 집합
 
-|속성|설명|
+|자산|설명|
 |---|---|
 |TenantId|테넌트 ID|
 |SourceSystem|항상: Azure|

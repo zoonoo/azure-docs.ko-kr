@@ -1,30 +1,12 @@
----
-title: "SQL 오류 코드 - 데이터베이스 연결 오류 | Microsoft Docs"
-description: "일반적인 데이터베이스 연결 오류, 데이터베이스 복사 문제 및 일반적인 오류와 같은 SQL Database 클라이언트 응용 프로그램에 대한 SQL 오류 코드에 대해 알아봅니다. "
-keywords: "SQL 오류 코드, 액세스 SQL, 데이터베이스 연결 오류, SQL 오류 코드"
-services: sql-database
-documentationcenter: 
-author: stevestein
-manager: jhubbard
-editor: 
-ms.assetid: 2a23e4ca-ea93-4990-855a-1f9f05548202
-ms.service: sql-database
-ms.custom: develop apps
-ms.workload: Active
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 09/28/2017
-ms.author: sstein
-ms.openlocfilehash: 34e7142b5ca13ad8de5a4dbd380377abdf055c04
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ ---
+제목: SQL 오류 코드 - 데이터베이스 연결 오류 | Microsoft Docs 설명: '일반적인 데이터베이스 연결 오류, 데이터베이스 복사 문제 및 일반적인 오류와 같은 SQL Database 클라이언트 응용 프로그램에 대한 SQL 오류 코드에 대해 알아봅니다. ' 키워드: SQL 오류 코드, 액세스 SQL, 데이터베이스 연결 오류, SQL 오류 코드 서비스: sql-database documentationcenter: ' 작성자: stevestein manager: jhubbard editor: ''
+
+ms.assetid: 2a23e4ca-ea93-4990-855a-1f9f05548202 ms.service: sql-database ms.custom: develop apps ms.workload: "Active" ms.tgt_pltfrm: na ms.devlang: na ms.topic: article ms.date: 09/28/2017 ms.author: sstein
+
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>SQL Database 클라이언트 응용 프로그램의 SQL 오류 코드: 데이터베이스 연결 오류 및 기타 문제
 
-이 문서에서는 데이터베이스 연결 오류, 일시적인 오류(일시적인 폴트라고도 함), 리소스 거버넌스 오류, 데이터베이스 복사 문제, 탄력적 풀 및 기타 오류를 포함하여 SQL Database 클라이언트 응용 프로그램의 SQL 오류 코드를 나열합니다. 대부분의 범주는 Azure SQL Database에 특정되며 Microsoft SQL Server에 적용되지 않습니다.
+이 문서에서는 데이터베이스 연결 오류, 일시적인 오류(일시적인 폴트라고도 함), 리소스 거버넌스 오류, 데이터베이스 복사 문제, 탄력적 풀 및 기타 오류를 포함하여 SQL Database 클라이언트 응용 프로그램의 SQL 오류 코드를 나열합니다. 대부분의 범주는 Azure SQL Database에 특정되며 Microsoft SQL Server에 적용되지 않습니다. [시스템 오류 메시지](https://technet.microsoft.com/en-us/library/cc645603(v=sql.105).aspx)를 참조하세요.
 
 ## <a name="database-connection-errors-transient-errors-and-other-temporary-errors"></a>데이터베이스 연결 오류, 일시적인 오류 및 기타 임시 오류
 다음 표에서는 연결 끊김 오류와 응용 프로그램에서 SQL Database에 액세스하려고 할 때 발생할 수 있는 기타 일시적인 오류에 대한 SQL 오류 코드를 보여줍니다. Azure SQL Database에 연결하는 방법에 대한 시작 자습서를 보려면 [Azure SQL Database에 연결](sql-database-libraries.md)을 참조하세요.
@@ -83,7 +65,7 @@ Azure SQL Database에서 데이터베이스를 복사하는 동안 다음 오류
 | 40571 |16 |내부 오류로 인해 데이터베이스를 복사하지 못했습니다. 대상 데이터베이스를 삭제하고 나중에 다시 시도하십시오. |
 
 ## <a name="resource-governance-errors"></a>리소스 관리 오류
-다음 오류는 Azure SQL Database를 사용하여 작업하는 동안 리소스를 과도하게 사용하여 발생합니다. 예:
+다음 오류는 Azure SQL Database를 사용하여 작업하는 동안 리소스를 과도하게 사용하여 발생합니다. 예: 
 
 * 트랜잭션이 너무 오랫동안 열려 있었습니다.
 * 트랜잭션이 너무 많은 잠금을 보유하고 있습니다.

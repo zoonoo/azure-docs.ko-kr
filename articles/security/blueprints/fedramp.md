@@ -1,6 +1,6 @@
 ---
-title: "Azure Blueprint Automation - FedRAMP에 대한 웹 응용 프로그램"
-description: "Azure Blueprint Automation - FedRAMP에 대한 웹 응용 프로그램"
+title: "Azure Security 및 Compliance Blueprint - FedRAMP 웹 응용 프로그램 자동화"
+description: "Azure Security 및 Compliance Blueprint - FedRAMP 웹 응용 프로그램 자동화"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: d0521d68bab8bd0b7db53a512da6d37033abd85e
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 9b605e500925e8435b15ec8055f8d8f376888aaf
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/11/2018
 ---
-# <a name="azure-blueprint-automation---web-applications-for-fedramp"></a>Azure Blueprint Automation - FedRAMP에 대한 웹 응용 프로그램
+# <a name="azure-security-and-compliance-blueprint---fedramp-web-applications-automation"></a>Azure Security 및 Compliance Blueprint - FedRAMP 웹 응용 프로그램 자동화
 
 ## <a name="overview"></a>개요
 
-[FedRAMP(Federal Risk and Authorization Management Program)](https://www.fedramp.gov)는 미국 정부 차원 프로그램으로 클라우드 제품 및 서비스에 대한 보안 평가, 권한 부여 및 연속 모니터링에 대한 표준화된 접근 방법을 제공합니다. 이 Azure Blueprint Automation - FedRAMP에 대한 웹 응용 프로그램에서는 간단한 인터넷 연결 웹 응용 프로그램에 적합한 FedRAMP 규격 IaaS(Infrastructure as a Service) 환경의 배포를 위한 지침을 제공합니다. 이 솔루션은 공통 참조 아키텍처를 위한 Azure 리소스 배포 및 구성을 자동화하여 고객이 특정 보안 및 규정 준수 요구 사항에 부합할 수 있는 방법을 보여 주며 고객이 Azure에서 자체 솔루션을 구축 및 구성하기 위한 기초 역할을 합니다. 이 솔루션은 NIST SP 800-53을 기준으로 FedRAMP 높음 기준에서 제어의 하위 집합을 구현합니다. FedRAMP 높음 요구 사항 및 이 솔루션에 대한 자세한 내용은 [FedRAMP 높음 요구 사항 - 고급 개요](fedramp-controls-overview.md)를 참조하세요. ***참고: 이 솔루션은 Azure Government에 배포됩니다.***
+[FedRAMP(Federal Risk and Authorization Management Program)](https://www.fedramp.gov)는 미국 정부 차원 프로그램으로 클라우드 제품 및 서비스에 대한 보안 평가, 권한 부여 및 연속 모니터링에 대한 표준화된 접근 방법을 제공합니다. 이 Azure Security 및 Compliance Blueprint Automation에서는 간단한 인터넷 연결 웹 응용 프로그램에 적합한 FedRAMP 규격 IaaS(Infrastructure as a Service) 환경의 배포를 위한 지침을 제공합니다. 이 솔루션은 공통 참조 아키텍처를 위한 Azure 리소스 배포 및 구성을 자동화하여 고객이 특정 보안 및 규정 준수 요구 사항에 부합할 수 있는 방법을 보여 주며 고객이 Azure에서 자체 솔루션을 구축 및 구성하기 위한 기초 역할을 합니다. 이 솔루션은 NIST SP 800-53을 기준으로 FedRAMP 높음 기준에서 제어의 하위 집합을 구현합니다. FedRAMP 높음 요구 사항 및 이 솔루션에 대한 자세한 내용은 [FedRAMP 높음 요구 사항 - 고급 개요](fedramp-controls-overview.md)를 참조하세요. ***참고: 이 솔루션은 Azure Government에 배포됩니다.***
 
 이 아키텍처는 고객이 특정 요구 사항에 맞게 조정할 수 있는 기반 형태로 제공되며 있는 그대로 프로덕션 환경에서 사용해서는 안 됩니다. 응용 프로그램을 수정 없이 이러한 환경에 배포하는 것은 FedRAMP 높음 기준의 요구 사항을 온전히 충족하기에는 부족합니다. 다음 사항에 유의하세요.
 - 이 아키텍처는 고객이 FedRAMP 규격에 맞게 Azure를 사용하기 위한 기준을 제공합니다.
@@ -36,13 +36,13 @@ ms.lasthandoff: 11/16/2017
 
 ## <a name="solution-components"></a>솔루션 구성 요소
 
-이 Azure Blueprint Automation은 미리 구성된 보안 제어가 있는 IaaS 웹 응용 프로그램 참조 아키텍처를 자동으로 배포하여 고객이 FedRAMP 요구 사항을 준수할 수 있게 합니다. 이 솔루션은 리소스 배포 및 구성을 안내하는 Azure Resource Manager 템플릿과 PowerShell 스크립트로 구성되었습니다. NIST SP 800-53 보안 제어에 부합하는 Azure로부터의 보안 제어 상속과 배포된 리소스 및 구성을 나타내는 Azure Blueprint [준수 설명서](#compliance-documentation)가 함께 제공되므로 조직이 규정 준수 의무를 신속히 이행할 수 있습니다.
+이 Azure Security 및 Compliance Blueprint Automation은 미리 구성된 보안 제어가 있는 IaaS 웹 응용 프로그램 참조 아키텍처를 자동으로 배포하여 고객이 FedRAMP 요구 사항을 준수할 수 있게 합니다. 이 솔루션은 리소스 배포 및 구성을 안내하는 Azure Resource Manager 템플릿과 PowerShell 스크립트로 구성되었습니다. NIST SP 800-53 보안 제어에 부합하는 Azure로부터의 보안 제어 상속과 배포된 리소스 및 구성을 나타내는 [준수 설명서](#compliance-documentation)가 함께 제공되므로 조직이 규정 준수 의무를 신속히 이행할 수 있습니다.
 
 ## <a name="architecture-diagram"></a>아키텍처 다이어그램
 
 이 솔루션은 데이터베이스 백엔드가 있는 IaaS 웹 응용 프로그램에 대한 참조 아키텍처를 배포합니다. 이 아키텍처는 웹 계층, 데이터 계층, Active Directory 인프라, 응용 프로그램 게이트웨이 및 부하 분산 장치를 포함합니다. 웹 및 데이터 계층에 배포된 Virtual Machines는 가용성 집합에서 구성되며 SQL Server 인스턴스는 고가용성을 위해 AlwaysOn 가용성 그룹에 구성됩니다. Virtual Machines는 도메인에 조인되며 Active Directory 그룹 정책을 사용하여 운영 체제 수준에서 보안 및 규정 준수 구성을 적용합니다.  관리 점프박스(요새 호스트)는 관리자가 배포된 리소스에 액세스할 수 있게 보안 연결을 제공합니다.
 
-![대체 텍스트](images/fedramp-architectural-diagram.png?raw=true "FedRAMP 규격 환경을 위한 IaaS 웹 응용 프로그램 청사진 자동화")
+![대체 텍스트](images/fedramp-architectural-diagram.png?raw=true "Azure Security 및 Compliance Blueprint - FedRAMP 웹 응용 프로그램 자동화")
 
 이 솔루션에서는 다음과 같은 Azure 서비스를 사용합니다. 배포 아키텍처의 세부 정보는 [배포 아키텍처](#deployment-architecture) 섹션에 있습니다.
 
@@ -182,7 +182,7 @@ Virtual Machine용 [Microsoft Antimalware](https://docs.microsoft.com/azure/secu
 
 ### <a name="patch-management"></a>패치 관리
 
-이 Blueprint Automation에서 배포한 Windows 가상 머신은 기본적으로 Windows 업데이트 서비스에서 자동 업데이트를 받도록 구성됩니다. 이 솔루션은 필요할 때 Windows 서버에 패치를 배포하기 위해 배포 업데이트를 만들 수 있는 OMS Azure Automation 솔루션도 배포합니다.
+이 Azure Security 및 Compliance Blueprint Automation에서 배포한 Windows 가상 머신은 기본적으로 Windows 업데이트 서비스에서 자동 업데이트를 받도록 구성됩니다. 이 솔루션은 필요할 때 Windows 서버에 패치를 배포하기 위해 배포 업데이트를 만들 수 있는 OMS Azure Automation 솔루션도 배포합니다.
 
 ### <a name="operations-management"></a>운영 관리
 
@@ -215,7 +215,7 @@ Virtual Machine용 [Microsoft Antimalware](https://docs.microsoft.com/azure/secu
 
 ## <a name="deploy-the-solution"></a>솔루션 배포
 
-이 Azure Blueprint 솔루션은 Azure Resource Manager의 API 서비스에서 Azure 내에 리소스를 배포하기 위해 처리하는 JSON 구성 파일과 PowerShell 스크립트로 구성됩니다. 자세한 배포 지침은 [여기](https://aka.ms/fedrampblueprintrepo)에 있습니다. ***참고: 이 솔루션은 Azure Government에 배포됩니다.***
+이 Azure Security 및 Compliance Blueprint Automation은 Azure Resource Manager의 API 서비스에서 Azure 내에 리소스를 배포하기 위해 처리하는 JSON 구성 파일과 PowerShell 스크립트로 구성됩니다. 자세한 배포 지침은 [여기](https://aka.ms/fedrampblueprintrepo)에 있습니다. ***참고: 이 솔루션은 Azure Government에 배포됩니다.***
 
 #### <a name="quickstart"></a>빠른 시작
 1. [이](https://aka.ms/fedrampblueprintrepo) GitHub 리포지토리를 로컬 워크스테이션에 복제하거나 다운로드합니다.
@@ -228,9 +228,9 @@ Virtual Machine용 [Microsoft Antimalware](https://docs.microsoft.com/azure/secu
 
 ## <a name="disclaimer"></a>고지 사항
 
-- 이 문서는 오직 정보 제공을 위한 것입니다. Microsoft는 이 문서의 정보에 관해 어떠한 명시적, 묵시적 또는 법적 보증도 하지 않습니다. 이 문서는 "있는 그대로" 제공됩니다. URL 및 기타 인터넷 웹 사이트 참조를 포함하여 본 문서에 명시된 정보 및 보기는 통지 없이 변경될 수 있습니다. 이 문서를 읽는 고객은 그 사용에 따른 위험을 감수합니다.  
+- 이 문서는 오직 정보 제공을 목적으로 합니다. Microsoft는 이 문서의 정보에 관해 어떠한 명시적, 묵시적 또는 법적 보증도 하지 않습니다. 이 문서는 "있는 그대로" 제공됩니다. URL 및 기타 인터넷 웹 사이트 참조를 포함하여 본 문서에 명시된 정보 및 보기는 통지 없이 변경될 수 있습니다. 이 문서를 읽는 고객은 그 사용에 따른 위험을 감수합니다.  
 - 이 문서는 Microsoft 제품 또는 솔루션의 지적 소유권에 대한 법적 권한을 고객에게 제공하지 않습니다.  
 - 고객은 이 문서는 내부 참조용으로만 복사 및 사용할 수 있습니다.  
 - 이 문서의 특정 권장 사항으로 인해 Azure에서 데이터, 네트워크 또는 계산 리소스 사용량이 증가할 수 있으며 이로 인해 고객의 Azure 라이선스 또는 구독 비용이 증가할 수 있습니다.  
-- 이 아키텍처는 고객이 특정 요구 사항에 맞게 조정할 수 있는 기반 형태로 제공되며 있는 그대로 프로덕션 환경에서 사용해서는 안 됩니다.
-- 이 문서를 참조로 개발하고 고객이 특정 규정 준수 요구 사항 및 규정을 충족할 수 있는 모든 수단을 정의하는 데 사용되어서는 안됩니다. 고객은 조직에서 승인된 고객 구현에 대한 법적 지원을 찾아야 합니다.
+- 이 아키텍처는 고객이 특정 요구 사항에 맞게 조정할 수 있는 기반이며 있는 프로덕션 환경에 그대로 사용해서는 안됩니다.
+- 이 문서는 참조용으로 작성되었으며 고객이 특정 규정 준수 요구 사항 및 규정을 충족할 수 있는 모든 수단을 정의하는 데 사용되어서는 안됩니다. 고객은 승인된 고객 구현에 대해 자체 조직에서 법률 지원을 받아야 합니다.

@@ -11,15 +11,18 @@ ms.workload: integration
 ms.topic: article
 ms.date: 12/14/2017
 ms.author: apimpm
-ms.openlocfilehash: 0f1c9e8e8298647721f16962d3f6756c74f8c8ef
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 96e233a26af95d4373323867046ca01fe1304608
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="configure-a-custom-domain-name"></a>사용자 지정 도메인 이름 구성 
 
 APIM(API Management) 인스턴스를 만들 때 Azure에서는 azure-api.net의 하위 도메인에 이를 할당합니다(예: `apim-service-name.azure-api.net`). 그러나 **contoso.com** 등의 고유한 도메인 이름을 사용하여 APIM 끝점을 공개할 수 있습니다. 이 자습서에서는 기존 사용자 지정 DNS 이름을 Azure API Management 인스턴스에 공개된 끝점에 매핑하는 방법을 보여 줍니다.
+
+> [!WARNING]
+> 인증서 고정을 사용하여 응용 프로그램의 보안을 개선하고자 하는 고객은 사용자 지정 도메인 이름 및 관리하는 인증서(기본 인증서 아님)를 사용해야 합니다. 대신 기본 인증서를 고정하는 고객은 자신이 제어하지 않는 인증서의 속성에 대한 강한 종속성을 가지게 되므로 해당 방법은 권장하지 않습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 

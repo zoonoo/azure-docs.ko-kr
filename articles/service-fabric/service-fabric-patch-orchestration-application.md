@@ -12,15 +12,21 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 5/9/2017
+ms.date: 1/16/2018
 ms.author: nachandr
-ms.openlocfilehash: 13c11902e275d1023e474d717800b3a36a6b31f2
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: bb3afdd3afa81664589f738945a63d20013d5291
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Service Fabric 클러스터에서 Windows 운영 체제 패치
+
+> [!div class="op_single_selector"]
+> * [Windows](service-fabric-patch-orchestration-application.md)
+> * [Linux](service-fabric-patch-orchestration-application-linux.md)
+>
+>
 
 패치 오케스트레이션 응용 프로그램은 Service Fabric 클러스터에서 가동 중지 시간 없이 운영 체제 패치를 자동화하는 Azure Service Fabric 응용 프로그램입니다.
 
@@ -60,16 +66,16 @@ ms.lasthandoff: 11/09/2017
 
 실버 내구성 계층의 Azure 클러스터에는 복구 관리자 서비스가 기본적으로 사용하도록 설정되어 있습니다. 골드 내구성 계층의 Azure 클러스터에는 해당 클러스터가 만들어진 시기에 따라 복구 관리자 서비스가 사용하도록 설정되어 있을 수도 있고 그렇지 않을 수도 있습니다. 브론즈 내구성 계층의 Azure 클러스터에는 복구 관리자 서비스가 기본적으로 사용하도록 설정되어 있지 않습니다. 서비스가 이미 사용하도록 설정되어 있는 경우 Service Fabric Explorer의 시스템 서비스 섹션에서 서비스가 실행되고 있는 것을 볼 수 있습니다.
 
-##### <a name="azure-portal"></a>Azure 포털
+##### <a name="azure-portal"></a>Azure portal
 클러스터를 설정할 때 Azure Portal에서 복구 관리자를 설정할 수 있습니다. 클러스터를 구성할 때 **추가 기능**에서 **복구 관리자 포함** 옵션을 선택합니다.
 ![Azure Portal에서 복구 관리자 사용 이미지](media/service-fabric-patch-orchestration-application/EnableRepairManager.png)
 
-##### <a name="azure-resource-manager-template"></a>Azure Resource Manager 템플릿
-또는 [Azure Resource Manager 템플릿](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm)을 사용하여 신규 및 기존 Service Fabric 클러스터에서 복구 관리자 서비스를 사용하도록 설정할 수 있습니다. 배포하려는 클러스터에 대한 템플릿을 가져옵니다. 예제 템플릿을 사용하거나 사용자 지정 Resource Manager 템플릿을 만들 수 있습니다. 
+##### <a name="azure-resource-manager-deployment-model"></a>Azure Resource Manager 배포 모델
+또는 [Azure Resource Manager 배포 모델](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm)을 사용하여 신규 및 기존 Service Fabric 클러스터에서 복구 관리자 서비스를 사용하도록 설정할 수 있습니다. 배포하려는 클러스터에 대한 템플릿을 가져옵니다. 예제 템플릿을 사용하거나 사용자 지정 Azure Resource Manager 배포 모델을 만들 수 있습니다. 
 
-[Azure Resource Manager 템플릿](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm)을 사용하여 복구 관리자 서비스를 사용하도록 설정하려면:
+[Azure Resource Manager 배포 모델 템플릿](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm)을 사용하여 복구 관리자 서비스를 사용하도록 설정하려면:
 
-1. 먼저 다음 코드 조각과 같이 `Microsoft.ServiceFabric/clusters` 리소스에 대해 `apiversion`이 `2017-07-01-preview`로 설정되었는지 확인합니다. 값이 다르면 `apiVersion`을 `2017-07-01-preview` 값으로 업데이트해야 합니다.
+1. 먼저 `Microsoft.ServiceFabric/clusters` 리소스에 대해 `apiversion`이 `2017-07-01-preview`로 설정되었는지 확인합니다. 값이 다르면 `apiVersion`을 `2017-07-01-preview` 값 이상으로 업데이트해야 합니다.
 
     ```json
     {
@@ -142,12 +148,12 @@ ms.lasthandoff: 11/09/2017
 |TaskApprovalPolicy   |열거형 <br> { NodeWise, UpgradeDomainWise }                          |TaskApprovalPolicy는 Service Fabric 클러스터 노드에서 Windows 업데이트를 설치하기 위해 코디네이터 서비스에서 사용하는 정책을 나타냅니다.<br>                         허용되는 값은 다음과 같습니다. <br>                                                           <b>NodeWise</b>. Windows 업데이트가 한 번에 하나의 노드에 설치됩니다. <br>                                                           <b>UpgradeDomainWise</b>. Windows 업데이트가 한 번에 하나의 업그레이드 도메인에 설치됩니다. 최대, 한 업그레이드 도메인에 속하는 모든 노드가 Windows 업데이트에 해당될 수 있습니다.
 |LogsDiskQuotaInMB   |long  <br> (기본값: 1024)               |패치 오케스트레이션 앱 로그의 최대 크기(MB)로, 노드에서 로컬로 유지될 수 있습니다.
 | WUQuery               | string<br>(기본값: "IsInstalled = 0")                | Windows 업데이트를 가져올 쿼리입니다. 자세한 내용은 [WuQuery](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)를 참조하세요.
-| InstallWindowsOSOnlyUpdates | Bool <br> (기본값: True)                 | 이 플래그를 사용하면 Windows 운영 체제 업데이트를 설치할 수 있습니다.            |
+| InstallWindowsOSOnlyUpdates | BOOLEAN <br> (기본값: True)                 | 이 플래그를 사용하면 Windows 운영 체제 업데이트를 설치할 수 있습니다.            |
 | WUOperationTimeOutInMinutes | int <br>(기본값: 90)                   | Windows 업데이트 작업에 대한 시간 제한을 지정합니다(검색, 다운로드 또는 설치). 지정된 시간 제한 내에 작업이 완료되지 않으면 중단됩니다.       |
 | WURescheduleCount     | int <br> (기본값: 5)                  | 작업이 영구적으로 실패하는 경우 서비스에서 Windows 업데이트를 다시 예약하는 최대 횟수입니다.          |
 | WURescheduleTimeInMinutes | int <br>(기본값: 30) | 오류가 계속 발생하는 경우 서비스에서 Windows 업데이트를 다시 예약하는 간격입니다. |
-| WUFrequency           | 쉼표로 구분된 문자열(기본값: "매주, 수요일, 7시")     | Windows Update를 설치하는 빈도입니다. 형식 및 가능한 값은 다음과 같습니다. <br>-   매월, DD,HH:MM:SS(예: 매월, 5,12:22:32) <br> -   매주, DAY,HH:MM:SS(예: 매주, 화요일, 12:22:32)  <br> -   매일, HH:MM:SS(예: 매일, 12:22:32)  <br> -   [없음]은 Windows 업데이트를 수행하지 않음을 나타냅니다.  <br><br> 모든 시간은 UTC 형식입니다.|
-| AcceptWindowsUpdateEula | Bool <br>(기본값: True) | 이 플래그를 설정하면 응용 프로그램이 컴퓨터의 소유자를 대신하여 Windows 업데이트에 대한 최종 사용자 사용권 계약에 동의합니다.              |
+| WUFrequency           | 쉼표로 구분된 문자열(기본값: "매주, 수요일, 7시")     | Windows Update를 설치하는 빈도입니다. 형식 및 가능한 값은 다음과 같습니다. <br>-   매월, DD, HH:MM:SS(예: 매월, 5,12:22:32) <br> -   매주, DAY, HH:MM:SS(예: 매주, 화요일, 12:22:32)  <br> -   매일, HH:MM:SS(예: 매일, 12:22:32)  <br> -   [없음]은 Windows 업데이트를 수행하지 않음을 나타냅니다.  <br><br> 시간은 UTC 형식입니다.|
+| AcceptWindowsUpdateEula | BOOLEAN <br>(기본값: True) | 이 플래그를 설정하면 응용 프로그램이 컴퓨터의 소유자를 대신하여 Windows 업데이트에 대한 최종 사용자 사용권 계약에 동의합니다.              |
 
 > [!TIP]
 > Windows 업데이트가 즉시 처리되도록 하려면 응용 프로그램 배포 시간에 관한 `WUFrequency`를 설정하세요. 예를 들어 5노드 테스트 클러스터가 있고 약 5PM UTC에 앱을 배포할 계획이라고 가정할 수 있습니다. 응용 프로그램 업그레이드 또는 배포에 최대 30분이 소요된다고 가정하는 경우 WUFrequency를 "매일, 17:30:00"으로 설정하세요.
@@ -275,7 +281,7 @@ Service Fabric 런타임 로그의 일부로 패치 오케스트레이션 앱 �
 
 Q. **패치 오케스트레이션 앱이 실행 중인 경우 오류 상태인 클러스터가 표시되는 이유는 무엇인가요?**
 
-A. 패치 오케스트레이션 앱은 설치 과정에서 노드를 사용하지 않도록 설정하거나 다시 시작하므로 클러스터의 상태가 일시적으로 중단될 수 있습니다.
+a. 패치 오케스트레이션 앱은 설치 과정에서 노드를 사용하지 않도록 설정하거나 다시 시작하므로 클러스터의 상태가 일시적으로 중단될 수 있습니다.
 
 응용 프로그램의 정책에 따라 패치 작업 중에 하나의 노드가 중단되거나 *또는* 전체 업그레이드 도메인이 동시에 중단될 수 있습니다.
 
@@ -289,15 +295,15 @@ Windows 업데이트 설치가 끝날 때까지 노드는 다시 시작된 후 �
 
 Q. **패치 오케스트레이션 앱이 경고 상태입니다.**
 
-A. 응용 프로그램에 대해 게시된 상태 보고서가 근본 원인인지 확인합니다. 일반적으로 경고에는 문제에 대한 세부 정보가 포함되어 있습니다. 문제가 일시적인 경우 응용 프로그램은 이 상태에서 자동으로 복구됩니다.
+a. 응용 프로그램에 대해 게시된 상태 보고서가 근본 원인인지 확인합니다. 일반적으로 경고에는 문제에 대한 세부 정보가 포함되어 있습니다. 문제가 일시적인 경우 응용 프로그램은 이 상태에서 자동으로 복구됩니다.
 
 Q. **클러스터가 비정상 상태이나 긴급한 운영 체제 업데이트를 수행해야 하는 경우 어떻게 해야 하나요?**
 
-A. 클러스터 상태가 정상이 아닌 경우 패치 오케스트레이션 앱은 업데이트를 설치하지 않습니다. 패치 오케스트레이션 앱 워크플로의 차단을 해제하기 위해 클러스터를 정상 상태로 전환하려고 합니다.
+a. 클러스터 상태가 정상이 아닌 경우 패치 오케스트레이션 앱은 업데이트를 설치하지 않습니다. 패치 오케스트레이션 앱 워크플로의 차단을 해제하기 위해 클러스터를 정상 상태로 전환하려고 합니다.
 
 Q. **클러스터에 패치를 실행하는 데 시간이 너무 오래 걸리는 이유는 무엇인가요?**
 
-A. 패치 오케스트레이션 앱에 필요한 시간은 대개 다음과 같은 요인에 따라 달라집니다.
+a. 패치 오케스트레이션 앱에 필요한 시간은 대개 다음과 같은 요인에 따라 달라집니다.
 
 - 코디네이터 서비스 정책 
   - 기본 정책인 `NodeWise`에 따라, 한 번에 하나의 노드에만 패치를 적용합니다. 특히 클러스터의 크기가 큰 경우 `UpgradeDomainWise` 정책을 사용하여 클러스터의 패치 적용 속도를 빠르게 하는 것이 좋습니다.
@@ -307,7 +313,7 @@ A. 패치 오케스트레이션 앱에 필요한 시간은 대개 다음과 같�
 
 Q. **REST API를 통해 가져온 Windows Update 결과에 표시된 일부 업데이트가 컴퓨터에서 Windows Update 기록에서 표시되지 않는 이유는 무엇인가요?**
 
-A. 일부 제품 업데이트는 해당하는 업데이트/패치 기록에서 확인해야 합니다. 예를 들어 Windows Defender 업데이트는 Windows Server 2016의 Windows Update 기록에 표시되지 않습니다.
+a. 일부 제품 업데이트는 해당하는 업데이트/패치 기록에서만 나타납니다. 예를 들어 Windows Defender 업데이트는 Windows Server 2016의 Windows Update 기록에 표시되지 않습니다.
 
 ## <a name="disclaimers"></a>고지 사항
 

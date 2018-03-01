@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/29/2017
 ms.author: samacha
-ms.openlocfilehash: 98230a8b61d1776a9ab23fd416af306efc700959
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 96a169343481f1cdf43af82a7768cfe08cbd4886
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Azure Stream Analytics에서 실시간 Twitter 감정 분석
 
@@ -51,7 +51,7 @@ Twitter에서 실시간으로 추세를 분석할 토픽을 식별하기 위해 
 ### <a name="create-an-event-hub-namespace-and-event-hub"></a>이벤트 허브 네임스페이스 및 이벤트 허브 만들기
 이 절차에서는 이벤트 허브 네임스페이스를 먼저 만든 후 이벤트 허브를 해당 네임스페이스에 추가합니다. 이벤트 허브 네임스페이스는 관련된 이벤트 버스 인스턴스를 논리적으로 그룹화하는 데 사용됩니다. 
 
-1. Azure Portal에 로그인하고 **새로 만들기** > **사물 인터넷** > **이벤트 허브**를 클릭합니다. 
+1. Azure Portal에 로그인하고 **리소스 만들기** > **사물 인터넷** > **이벤트 허브**를 클릭합니다. 
 
 2. **네임스페이스 만들기** 블레이드에서 네임스페이스 이름을 입력합니다(예: `<yourname>-socialtwitter-eh-ns`). 네임스페이스에 어떤 이름이든 사용할 수 있지만 이름은 URL에 대해 유효해야 하며 Azure 전체에서 고유해야 합니다. 
     
@@ -76,7 +76,7 @@ Twitter에서 실시간으로 추세를 분석할 토픽을 식별하기 위해 
 
 프로세스에서 이벤트 허브로 데이터를 보낼 수 있으려면 이벤트 허브에 적절한 액세스 권한을 허용하는 정책이 있어야 합니다. 액세스 정책은 권한 부여 정보를 포함하는 연결 문자열을 생성합니다.
 
-1.  이벤트 네임스페이스 블레이드에서 **이벤트 허브**를 클릭하고 새 이벤트 허브의 이름을 클릭합니다.
+1.  이벤트 네임스페이스 블레이드에서 **Event Hubs**를 클릭하고 새 이벤트 허브의 이름을 클릭합니다.
 
 2.  이벤트 허브 블레이드에서 **공유 액세스 정책**을 클릭한 후 **+&nbsp;추가**를 클릭합니다.
 
@@ -196,11 +196,11 @@ Microsoft에서는 특정 항목 집합에 대한 트윗 이벤트를 수집하�
     >오류가 표시되고 창 하단에 트윗 스트림이 표시되지 않으면 키 및 비밀을 두 번 클릭합니다. 또한 연결 문자열을 확인합니다(`EntityPath` 키 및 값이 포함되지 않는지 확인).
 
 
-## <a name="create-a-stream-analytics-job"></a>스트림 분석 작업 만들기
+## <a name="create-a-stream-analytics-job"></a>Stream Analytics 작업 만들기
 
 이제 Twitter에서 실시간으로 트윗 이벤트가 스트리밍되며 이러한 이벤트를 실시간으로 분석하도록 Stream Analytics 작업을 설정할 수 있습니다.
 
-1. Azure Portal에서 **새로 만들기** > **사물 인터넷** > **Stream Analytics 작업**을 차례로 클릭합니다.
+1. Azure Portal에서 **리소스 만들기** > **사물 인터넷** > **Stream Analytics 작업**을 차례로 클릭합니다.
 
 2. 작업 이름을 `socialtwitter-sa-job`으로 지정하고 구독, 리소스 그룹 및 위치를 지정합니다.
 
@@ -274,7 +274,7 @@ Stream Analytics는 변환을 설명하는 간단하고 선언적인 쿼리 모�
 
 5. **테스트**를 클릭합니다. 샘플링된 데이터에 대해 쿼리가 실행됩니다.
     
-6. **Save**를 클릭합니다. 그러면 Streaming Analytics 작업의 일부로 쿼리를 저장합니다. (샘플 데이터를 저장하지 않음)
+6. **저장**을 클릭합니다. 그러면 Streaming Analytics 작업의 일부로 쿼리를 저장합니다. (샘플 데이터를 저장하지 않음)
 
 
 ## <a name="experiment-using-different-fields-from-the-stream"></a>스트림에서 서로 다른 필드를 사용하여 실험 
@@ -305,8 +305,8 @@ Stream Analytics는 변환을 설명하는 간단하고 선언적인 쿼리 모�
     * **출력 별칭**: 이름으로 `TwitterStream-Output`를 사용합니다. 
     * **싱크**: **Blob Storage**를 선택합니다.
     * **가져오기 옵션**: **현재 구독의 Blob Storage 사용**을 선택합니다.
-    * **저장소 계정**. **새 저장소 계정 만들기**를 선택합니다.
-    * **저장소 계정**(두 번째 상자). `YOURNAMEsa`를 입력합니다. 여기서 `YOURNAME`은 사용자 이름 또는 다른 고유 문자열입니다. 이름으로 소문자 및 숫자만 사용할 수 있으며 Azure 전체에서 고유해야 합니다. 
+    * **Storage 계정**. **새 저장소 계정 만들기**를 선택합니다.
+    * **Storage 계정**(두 번째 상자). `YOURNAMEsa`를 입력합니다. 여기서 `YOURNAME`은 사용자 이름 또는 다른 고유 문자열입니다. 이름으로 소문자 및 숫자만 사용할 수 있으며 Azure 전체에서 고유해야 합니다. 
     * **컨테이너**. `socialtwitter`을 입력합니다.
     저장소 계정 이름 및 컨테이너 이름을 다음과 같이 함께 사용하여 Blob Storage에 대한 URI를 제공해야 합니다. 
 
@@ -329,7 +329,7 @@ Stream Analytics는 변환을 설명하는 간단하고 선언적인 쿼리 모�
 
 2. 작업 블레이드에서 **시작**을 클릭합니다.
 
-    ![Stream Analytic 작업 시작](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-sa-job-start-output.png)
+    ![Stream Analytics 작업 시작](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-sa-job-start-output.png)
 
 3. **작업 시작** 블레이드에서 **작업 출력 시작 시간**으로 **지금**을 선택한 후 **시작**을 클릭합니다. 
 
@@ -367,7 +367,7 @@ Twitter 감정을 이해하는 데 사용할 수 있는 다른 쿼리는 [슬라
     HAVING COUNT(*) > 20
     ```
 
-4. **Save**를 클릭합니다.
+4. **저장**을 클릭합니다.
 
 5. TwitterWpfClient 응용 프로그램이 실행되고 있는지 확인합니다. 
 

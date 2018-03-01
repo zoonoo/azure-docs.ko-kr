@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: cephalin
-ms.openlocfilehash: 92cc8d8b0f67dde95ea2e3fc2f0f083bd8ac8aab
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 76897173d9fdfffe7139e7c5648ad0efb1c05b97
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="configure-premiumv2-tier-for-azure-app-service"></a>Azure App Service에 대한 PremiumV2 계층 구성
 
-새 **PremiumV2** 가격 책정 계층은 [Dv2 시리즈 VM](../virtual-machines/windows/sizes-general.md#dv2-series)에 더 빠른 프로세서, SSD 저장소 및 **표준**과 비교하여 두 배의 메모리 대 코어 비율을 제공합니다. 이 문서에서는 **PremiumV2** 계층에서 앱을 만들거나 **PremiumV2** 계층으로 앱을 강화하는 방법에 대해 알아봅니다.
+새 **PremiumV2** 가격 책정 계층은 프로세서, SSD 저장소 속도를 개선하며 기존 가격 책정 계층의 메모리 대 코어 비율을 두 배로 높입니다. 성능상의 이점 덕분에 더 적은 인스턴스에서 앱을 실행하여 비용을 절감할 수 있습니다. 이 문서에서는 **PremiumV2** 계층에서 앱을 만들거나 **PremiumV2** 계층으로 앱을 강화하는 방법에 대해 알아봅니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -56,7 +56,7 @@ App Service 앱의 가격 책정 계층은 해당 앱이 실행되는 [App Servi
 ![](media/app-service-configure-premium-tier/pick-premium-tier.png)
 
 > [!IMPORTANT] 
-> **P1V2**, **P2V2** 및 **P3V2**가 옵션으로 표시되지 않는 경우는 선택한 지역에서 **PremiumV2**를 사용할 수 없거나 **PremiumV2**를 지원하지 않는 Linux App Service 계획을 구성 중인 경우입니다. 
+> **P1V2**, **P2V2** 및 **P3V2**가 옵션으로 표시되지 않는 경우는 선택한 지역에서 **PremiumV2**를 사용할 수 없거나 **PremiumV2**를 지원하지 않는 Linux App Service 계획을 구성 중인 경우입니다.
 
 ## <a name="scale-up-an-existing-app-to-premiumv2-tier"></a>기존 앱을 PremiumV2 계층으로 강화
 
@@ -88,7 +88,7 @@ App Service 앱 페이지를 다시 엽니다. App Service의 왼쪽 탐색에�
 
 ![](media/app-service-configure-premium-tier/change-plan.png)
 
-방금 만든 App Service 계획을 선택합니다.
+본인이 만든 App Service 계획을 선택합니다.
 
 ![](media/app-service-configure-premium-tier/select-plan.png)
 
@@ -105,7 +105,7 @@ App Service 앱 페이지를 다시 엽니다. App Service의 왼쪽 탐색에�
 
     ![](media/app-service-configure-premium-tier/clone-app.png)
 
-    **앱 복제** 페이지에서 원하는 지역에 새 App Service 계획을 만들고 원하는 설정을 지정하여 복제할 수 있습니다.
+    **앱 복제** 페이지에서 원하는 지역에 App Service 계획을 만들고 원하는 설정을 지정하여 복제할 수 있습니다.
 
 ## <a name="automate-with-scripts"></a>스크립트를 사용하여 자동화
 

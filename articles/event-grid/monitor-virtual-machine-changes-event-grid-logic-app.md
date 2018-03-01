@@ -11,11 +11,11 @@ ms.service: logic-apps
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: LADocs; estfan
-ms.openlocfilehash: e31f30e46c3a49ff9eca72cb82c16acb731427bf
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 3d99dabe778b9b9234db9fe130ba503cd8b57834
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="monitor-virtual-machine-changes-with-azure-event-grid-and-logic-apps"></a>Azure Event Grid와 Logic Apps를 사용하여 가상 머신의 변경 사항 모니터링
 
@@ -51,7 +51,7 @@ Azure 리소스 또는 타사 리소스에서 특정 이벤트가 발생하는 �
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 
 
-2. Azure 주 메뉴의 왼쪽 위 모서리에서 **새로 만들기** > **엔터프라이즈 통합** > **논리 앱**을 차례로 선택합니다.
+2. Azure 주 메뉴의 왼쪽 위 모서리에서 **리소스 만들기** > **엔터프라이즈 통합** > **논리 앱**을 차례로 선택합니다.
 
    ![논리 앱 만들기](./media/monitor-virtual-machine-changes-event-grid-logic-app/azure-portal-create-logic-app.png)
 

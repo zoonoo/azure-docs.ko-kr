@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-ms.openlocfilehash: 906450f75557820bb27762707c3328b08b23cccb
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 8ae99c7ce6382626657777d003a1cb82348c4aba
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="introduction-to-azure-advisor"></a>Azure Advisor 소개
 
@@ -32,7 +32,7 @@ Advisor를 사용하면 다음과 같은 작업을 수행할 수 있습니다.
 * 전체 Azure 사용을 줄일 수 있는 기회를 모색하면서 성능, 보안 및 고가용성 개선
 * 온라인으로 작업이 제안되는 권장 사항 가져오기
 
-[Azure Portal](https://aka.ms/azureadvisordashboard)을 통해 Advisor에 액세스할 수 있습니다. [Portal](https://portal.azure.com)에 로그인하고 탐색 메뉴에서 **Advisor**를 찾거나 **추가 서비스** 메뉴에서 검색합니다.
+[Azure Portal](https://aka.ms/azureadvisordashboard)을 통해 Advisor에 액세스할 수 있습니다. [Portal](https://portal.azure.com)에 로그인하고 탐색 메뉴에서 **Advisor**를 찾거나 **모든 서비스** 메뉴에서 검색합니다.
 
 Advisor 대시보드에 모든 구독에 대한 개인화된 권장 사항이 표시됩니다.  필터를 적용하여 특정 구독 및 리소스 유형에 대한 권장 사항을 표시할 수 있습니다.  권장 사항은 다음 네 가지 범주로 나뉩니다. 
 
@@ -57,9 +57,9 @@ Advisor 대시보드에 모든 구독에 대한 개인화된 권장 사항이 �
 ## <a name="frequently-asked-questions"></a>질문과 대답
 
 ### <a name="how-do-i-access-advisor"></a>Advisor에 액세스하려면 어떻게 해야 하나요?
-[Azure Portal](https://aka.ms/azureadvisordashboard)을 통해 Advisor에 액세스할 수 있습니다. [Portal](https://portal.azure.com)에 로그인하고 탐색 메뉴에서 **Advisor**를 찾거나 **추가 서비스** 메뉴에서 검색합니다.
+[Azure Portal](https://aka.ms/azureadvisordashboard)을 통해 Advisor에 액세스할 수 있습니다. [Portal](https://portal.azure.com)에 로그인하고 탐색 메뉴에서 **Advisor**를 찾거나 **모든 서비스** 메뉴에서 검색합니다.
 
-가상 컴퓨터 리소스 인터페이스를 통해 Advisor 권장 사항을 볼 수도 있습니다. 가상 컴퓨터를 선택하고 메뉴에서 Advisor 권장 사항으로 스크롤합니다. 
+가상 머신 리소스 인터페이스를 통해 Advisor 권장 사항을 볼 수도 있습니다. 가상 컴퓨터를 선택하고 메뉴에서 Advisor 권장 사항으로 스크롤합니다. 
 
 ### <a name="what-permissions-do-i-need-to-access-advisor"></a>Advisor에 액세스하려면 어떤 권한이 필요하나요?
 
@@ -67,7 +67,7 @@ Advisor 대시보드에 모든 구독에 대한 개인화된 권장 사항이 �
 
 ### <a name="what-resources-does-advisor-provide-recommendations-for"></a>Advisor는 어떤 리소스에 대해 권장 사항을 제공하나요?
 
-Advisor는 가상 컴퓨터, 가용성 집합, Application Gateway, App Services, SQL Server, SQL Database 및 Redis Cache에 대한 권장 사항을 제공합니다.
+Advisor는 가상 머신, 가용성 집합, Application Gateway, App Services, SQL Server, SQL Database 및 Redis Cache에 대한 권장 사항을 제공합니다.
 
 ### <a name="can-i-snooze-or-dismiss-a-recommendation"></a>권장 사항을 다시 알리거나 해제할 수 있나요?
 

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/07/2018
+ms.date: 02/15/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 3c5e893508126c87f6e4371918d33d3d040a5894
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 30c8911105e95860899385caf40f8a250c1c340e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Azure Active Directory 조건부 액세스
 
@@ -62,7 +62,7 @@ ms.lasthandoff: 02/11/2018
 
 ![제어](./media/active-directory-conditional-access-azure-portal/10.png)
 
-**Then do this**는 정책의 응답을 정의합니다. 조건부 액세스 정책의 목표는 클라우드 앱에 대한 액세스 권한을 부여하지 않는 것입니다. Azure AD에서 클라우드 앱에 대한 액세스 권한 부여는 사용자 할당을 통해 이루어집니다. 조건부 액세스 정책을 사용하면 권한 부여된 사용자(클라우드 앱에 대한 액세스 권한이 부여된 사용자)가 특정 조건에서 클라우드 앱에 액세스할 수 있는 방법을 제어합니다. 응답에서 다단계 인증, 관리 장치 등의 추가 요구 사항을 적용합니다. Azure AD 조건부 액세스의 컨텍스트에서 정책이 적용하는 요구 사항을 액세스 제어라고 합니다. 가장 제한적인 형태에서는 정책을 통해 액세스를 차단할 수 있습니다. 자세한 내용은 [Azure Active Directory 조건부 액세스의 액세스 제어](active-directory-conditional-access-controls.md)를 참조하세요.
+**Then do this**는 정책의 응답을 정의합니다. 조건부 액세스 정책의 목표는 클라우드 앱에 대한 액세스 권한을 부여하지 않는 것입니다. Azure AD에서 클라우드 앱에 대한 액세스 권한 부여는 사용자 할당을 통해 이루어집니다. 조건부 액세스 정책을 사용하면 권한 부여된 사용자(클라우드 앱에 대한 액세스 권한이 부여된 사용자)가 특정 조건에서 클라우드 앱에 액세스할 수 있는 방법을 제어합니다. 응답에서 Multi-Factor Authentication, 관리 장치 등의 추가 요구 사항을 적용합니다. Azure AD 조건부 액세스의 컨텍스트에서 정책이 적용하는 요구 사항을 액세스 제어라고 합니다. 가장 제한적인 형태에서는 정책을 통해 액세스를 차단할 수 있습니다. 자세한 내용은 [Azure Active Directory 조건부 액세스의 액세스 제어](active-directory-conditional-access-controls.md)를 참조하세요.
      
 
 **When this happens**는 정책을 트리거하는 이유를 정의합니다. 이 이유는 충족된 조건 그룹으로 특성화됩니다. Azure AD 조건부 액세스에서는 다음 두 가지 할당 조건이 특수 역할을 수행합니다.
@@ -81,6 +81,34 @@ Azure AD 조건부 액세스를 사용하여 권한 있는 사용자가 클라�
 
 정책 기반 방법을 사용하여 클라우드 앱에 대한 액세스를 보호하는 경우의 한 가지 장점은 기술 구현에 대해 염려하지 않고 이 문서에 요약된 구조를 사용하여 사용자 환경에 대한 정책 요구 사항을 작성할 수 있다는 것입니다. 
 
+## <a name="what-you-need-to-know"></a>알아야 하는 작업
+
+### <a name="general-requirements-for-using-conditional-access"></a>조건부 액세스를 사용하기 위한 일반 요구 사항
+
+Azure AD 조건부 액세스를 사용하여 인증 시도가 다음에서 오는 경우 클라우드 앱을 보호할 수 있습니다.
+
+- 웹 브라우저
+
+- 최신 인증을 사용하는 클라이언트 앱
+
+- Exchange ActiveSync
+
+자세한 내용은 [클라이언트 앱](active-directory-conditional-access-conditions.md#client-apps)을 참조하세요.
+
+일부 [클라우드 앱](active-directory-conditional-access-conditions.md#cloud-apps)도 레거시 인증 프로토콜을 지원합니다. 이는, 예를 들어 SharePoint Online 및 Exchange Online에 적용됩니다. 클라이언트 앱이 레거시 인증 프로토콜을 사용하여 클라우드 앱에 액세스할 수 있는 경우 Azure AD는 이 액세스 시도에서 조건부 액세스 정책을 적용할 수 없습니다. 클라이언트 앱이 정책의 적용을 우회하는 것을 방지하려면 영향을 받는 클라우드 앱에서 최신 인증만을 사용할 수 있는지 확인해야 합니다.
+
+클라이언트 앱 조건부 액세스가 적용되지 않는 예제는 다음과 같습니다.
+
+- Office 2010 이하
+
+- 최신 인증을 사용하지 않는 경우 Office 2013
+
+자세한 내용은 [Azure Active Directory 조건부 액세스를 위해 SharePoint Online 및 Exchange Online 설정](active-directory-conditional-access-no-modern-authentication.md)을 참조하세요.
+
+
+### <a name="license-requirements-for-using-conditional-access"></a>조건부 액세스를 사용하기 위한 라이선스 요구 사항
+
+조건부 액세스를 사용하려면 Azure AD Premium/Enterprise Mobility + Security 라이선스가 필요합니다. 요구 사항에 대한 올바른 라이선스를 찾으려면 [Enterprise Mobility + Security 가격 책정 옵션](https://www.microsoft.com/cloud-platform/enterprise-mobility-security-pricing)을 참조하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

@@ -1,8 +1,8 @@
 ---
 title: "Azure Portal에서 작업 그룹 만들기 및 관리 | Microsoft Docs"
 description: "Azure Portal에서 작업 그룹을 만들고 관리하는 방법에 대해 알아봅니다."
-author: anirudhcavale
-manager: orenr
+author: dkamstra
+manager: chrad
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2017
-ms.author: ancav
-ms.openlocfilehash: 9f7f9dcc473e6925000ebe76a6592779c228a9af
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.date: 02/16/2018
+ms.author: dukek
+ms.openlocfilehash: 772b9c2b9532bd2cc37ad89db92545297eecd903
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Azure Portal에서 작업 그룹 만들기 및 관리
 ## <a name="overview"></a>개요 ##
 이 문서에서는 Azure Portal에서 작업 그룹을 만들고 관리하는 방법을 보여 줍니다.
 
-작업 그룹을 사용하여 작업 목록을 구성할 수 있습니다. 그런 다음 이러한 그룹을 활동 로그 경고를 정의할 때 사용할 수 있습니다. 이러한 그룹은 사용자가 정의한 각 활동 로그 경고에서 다시 사용할 수 있습니다. 이를 통해 활동 로그 경고가 트리거될 때마다 동일한 작업이 수행되도록 합니다.
+작업 그룹을 사용하여 작업 목록을 구성할 수 있습니다. 이러한 그룹은 사용자가 정의한 각 경고에서 다시 사용할 수 있습니다. 이를 통해 경고가 트리거될 때마다 동일한 작업이 수행되도록 합니다.
 
 하나의 작업 그룹에는 각 작업 유형이 최대 10개 포함될 수 있습니다. 각 작업은 다음과 같은 속성으로 구성됩니다.
 
@@ -56,7 +56,7 @@ Azure 리소스 관리자 템플릿을 사용하여 작업 그룹을 구성하�
 
     a. **이름**: 이 작업에 대한 고유 식별자를 입력합니다.
 
-    나. **작업 유형**: SMS, 메일, 웹후크, Azure 앱, ITSM 또는 Automation Runbook을 선택합니다.
+    나. **작업 유형**: 이메일/SMS/Azure 앱, 웹후크, ITSM 또는 Automation Runbook을 선택합니다.
 
     다. **세부 정보**: 작업 유형에 따라 전화 번호, 이메일 주소, 웹후크 URI, Azure 앱, ITSM 연결 또는 Automation Runbook을 입력합니다. ITSM 작업의 경우 **작업 항목** 및 ITSM 도구에 필요한 다른 필드를 추가로 지정합니다.
 

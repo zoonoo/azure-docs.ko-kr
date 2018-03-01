@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/9/2017
+ms.date: 2/13/2018
 ms.author: subramar
-ms.openlocfilehash: 5fed3b5b127a2b398b99ab2b46c762920e9dc249
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: cdad0617c59fd5881c3857388809fac2186b36d8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="service-fabric-application-upgrade"></a>서비스 패브릭 응용 프로그램 업그레이드
 Azure 서비스 패브릭 응용 프로그램은 서비스의 컬렉션입니다. 업그레이드가 진행되는 동안 서비스 패브릭은 새로운 [응용 프로그램 매니페스트](service-fabric-application-and-service-manifests.md) 를 이전 버전과 비교하여 응용 프로그램의 어떤 서비스를 업데이트해야 하는지 결정합니다. 서비스 패브릭은 이전 버전의 버전 번호를 가진 서비스 매니페스트의 버전 번호를 비교합니다. 서비스가 변경되지 않으면 해당 서비스가 업그레이드되지 않습니다.
@@ -47,16 +47,16 @@ Azure 서비스 패브릭 응용 프로그램은 서비스의 컬렉션입니다
 모니터링되지 않는 수동 모드는 업데이트 도메인에서 업그레이드가 수행될 때마다 다음 업데이트 도메인에서 업그레이드가 시작하도록 수동 작업이 필요합니다. 서비스 패브릭 상태 검사가 수행되지 않습니다. 관리자는 다음 업데이트 도메인에서 업그레이드가 시작되기 전에 상태 또는 상태 검사를 수행합니다.
 
 ## <a name="upgrade-default-services"></a>기본 서비스 업그레이드
-응용 프로그램의 업그레이드 프로세스 동안 Service Fabric 응용 프로그램 내의 기본 서비스를 업그레이드할 수 있습니다. 기본 서비스는 [응용 프로그램 매니페스트](service-fabric-application-and-service-manifests.md)에 정의됩니다. 기본 서비스를 업그레이드하는 표준 규칙은 다음과 같습니다.
+[응용 프로그램 매니페스트](service-fabric-application-and-service-manifests.md)에 정의된 일부 기본 서비스 매개 변수는 응용 프로그램 업그레이드의 일부로 업그레이드될 수도 있습니다. [Update-ServiceFabricService](https://docs.microsoft.com/powershell/module/servicefabric/update-servicefabricservice?view=azureservicefabricps)를 통해 변경되는 것을 지원하는 서비스 매개 변수만 업그레이드의 일환으로 변경될 수 있습니다. 응용 프로그램 업그레이드 중 기본 서비스 변경의 동작은 다음과 같습니다.
 
-1. 클러스터에 존재하지 않는 새 [응용 프로그램 매니페스트](service-fabric-application-and-service-manifests.md)의 기본 서비스가 만들어집니다.
+1. 클러스터에 존재하지 않는 새 응용 프로그램 매니페스트의 기본 서비스가 만들어집니다.
+2. 이전 및 새 응용 프로그램 매니페스트 모두에 존재하는 기본 서비스가 업데이트됩니다. 새 응용 프로그램 매니페스트에 있는 기본 서비스의 매개 변수는 기존 서비스의 매개 변수를 덮어씁니다. 기본 서비스 업데이트에 실패하는 경우 응용 프로그램 업그레이드가 자동으로 롤백됩니다.
+3. 새 응용 프로그램 매니페스트에 존재하지 않는 기본 서비스는 클러스터에 존재하는 경우 삭제됩니다. **기본 서비스 삭제로 인해 모든 해당 서비스의 상태가 삭제되며 실행 취소할 수 없습니다.**
+
+응용 프로그램 업그레이드가 롤백되면 기본 서비스 매개 변수는 업그레이드가 시작되기 전에 이전 값으로 되돌려지지만 삭제된 서비스를 이전 상태로 다시 생성할 수 없습니다.
+
 > [!TIP]
-> [EnableDefaultServicesUpgrade](service-fabric-cluster-fabric-settings.md)를 true로 설정하여 다음 규칙을 사용해야 합니다. 이 기능은 v5.5에서 지원됩니다.
-
-2. 이전 [응용 프로그램 매니페스트](service-fabric-application-and-service-manifests.md) 및 새 버전 모두에 있는 기존 서비스가 업데이트됩니다. 클러스터에 있는 설명을 새 버전의 서비스 설명으로 덮어씁니다. 기본 서비스 실패를 업데이트하는 경우 응용 프로그램 업그레이드가 자동으로 롤백됩니다.
-3. 이전 [응용 프로그램 매니페스트](service-fabric-application-and-service-manifests.md)에 있지만 새 버전에 없는 기본 서비스가 삭제됩니다. **기본 서비스를 삭제하는 작업은 되돌릴 수 없습니다.**
-
-응용 프로그램의 경우 업그레이드가 롤백되면 기본 서비스가 업그레이드를 시작하기 전의 상태로 되돌아갑니다. 하지만 삭제된 서비스를 만들 수 없습니다.
+> [EnableDefaultServicesUpgrade](service-fabric-cluster-fabric-settings.md) 클러스터 구성 설정은 위의 규칙 2) 및 3)을 활성화하도록 *true*여야 합니다(기본 서비스 업데이트 및 삭제). 이 기능은 Service Fabric 버전 5.5부터 지원됩니다.
 
 ## <a name="application-upgrade-flowchart"></a>응용 프로그램 업그레이드 순서도
 이 단락 다음에 나오는 순서도는 서비스 패브릭 응용 프로그램의 업그레이드 프로세스를 이해하는 데 도움이 될 수 있습니다. 특히 *HealthCheckStableDuration*, *HealthCheckRetryTimeout* 및 *UpgradeHealthCheckInterval*을 비롯한 시간 제한이 한 업데이트 도메인의 업그레이드를 성공 또는 실패로 간주하는 시간을 어떻게 제어하는지 잘 설명되어 있습니다.

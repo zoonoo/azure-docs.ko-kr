@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: genemi
-ms.openlocfilehash: 2daf05513127c2d1ab8e4b0196b578e18b6e03e7
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: fbc63cebe8c1456f5eb34666d15f4e00fd55fe5b
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Azure SQL Database를 사용하는 독립형 단일 테넌트 응용 프로그램을 배포하고 탐색합니다.
 
@@ -100,9 +100,7 @@ ms.lasthandoff: 02/09/2018
 배포된 리소스 중 일부를 살펴보겠습니다.
 
 1. [Azure Portal](http://portal.azure.com)에서 리소스 그룹 목록으로 이동합니다.
-2. **wingtip-sa-catalog-&lt;user&gt;** 리소스 그룹을 참조하세요.
-    - 이 리소스 그룹에는 **catalog-sa-&lt;user&gt;** 서버가 배포됩니다. 서버에는 **tenantcatalog** 데이터베이스가 포함됩니다.
-    - 또한 세 개의 테넌트 리소스 그룹도 표시됩니다.
+2. 세 개의 테넌트 리소스 그룹이 표시됩니다.
 3. Fabrikam Jazz Club 배포의 리소스를 포함하는 **wingtip-sa-fabrikam-&lt;user&gt;** 리소스 그룹을 엽니다.  **fabrikamjazzclub-&lt;user&gt;** 서버에 **fabrikamjazzclub** 데이터베이스가 포함되어 있습니다.
 
 각 테넌트 데이터베이스는 50개의 DTU *독립형* 데이터베이스입니다.
@@ -131,6 +129,6 @@ ms.lasthandoff: 02/09/2018
 > * 앱을 구성하는 서버 및 데이터베이스 정보.
 > * 샘플 리소스를 삭제하여 관련 결제를 중지하는 방법
 
-다음으로 [프로비전 및 카탈로그](saas-standaloneapp-provision-and-catalog.md) 자습서를 사용해 보세요.
+다음 단계로 [프로비전 및 카탈로그](saas-standaloneapp-provision-and-catalog.md) 자습서를 참고하여 스키마 관리, 테넌트 분석과 같은 다양한 교차 테넌트 시나리오를 지원하는 테넌트 카탈로그의 용도를 살펴보세요.
  
 

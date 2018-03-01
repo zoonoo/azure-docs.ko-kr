@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.openlocfilehash: 203e1f8842c229088102412afa5de8f967837041
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 4505aebc8919a5d7b8f3debe0db9f49b465176bf
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="deploy-a-split-merge-service"></a>분할/병합 서비스 배포
 분할-병합 도구를 사용하면 분할된 데이터베이스 간에 데이터를 이동할 수 있습니다. [확장된 클라우드 데이터베이스 간 데이터 이동](sql-database-elastic-scale-overview-split-and-merge.md)
@@ -39,8 +39,8 @@ ms.lasthandoff: 10/31/2017
 2. Azure SQL DB 서버에서 Azure 서비스의 연결을 허용하는지 확인합니다. 포털의 **방화벽 설정**에서 **Azure 서비스에 대한 액세스 허용** 설정이 **On**으로 설정되었는지 확인합니다. "저장" 아이콘을 클릭합니다.
    
    ![허용된 서비스][1]
-3. 진단 출력에 사용할 Azure Storage 계정을 만듭니다. Azure Portal로 이동합니다. 왼쪽 막대에서 **새로 만들기**, **데이터 + 저장소**, **저장소**를 차례로 클릭합니다.
-4. 분할/병합 서비스를 포함할 Azure 클라우드 서비스를 만듭니다.  Azure Portal로 이동합니다. 왼쪽 막대에서 **새로 만들기**, **Compute**, **클라우드 서비스**, **만들기**를 차례로 클릭합니다. 
+3. 진단 출력에 사용할 Azure Storage 계정을 만듭니다. Azure Portal로 이동합니다. 왼쪽 막대에서 **리소스 만들기**, **데이터 + 저장소**, **Storage**를 차례로 클릭합니다.
+4. 분할/병합 서비스를 포함할 Azure 클라우드 서비스를 만듭니다.  Azure Portal로 이동합니다. 왼쪽 막대에서 **리소스 만들기**, **Compute**, **클라우드 서비스**, **만들기**를 차례로 클릭합니다. 
 
 ## <a name="configure-your-split-merge-service"></a>분할/병합 서비스 구성
 ### <a name="split-merge-service-configuration"></a>분할/병합 서비스 구성

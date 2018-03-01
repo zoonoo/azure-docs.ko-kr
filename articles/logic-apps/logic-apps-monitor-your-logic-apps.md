@@ -15,11 +15,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/21/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 8ad8281744293a05b50f8664a7e5a3fea7aa7b33
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: f0376070a8bec7d97f54e9a198d5d67a9751334c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>상태 모니터링, 진단 로깅 설정, Azure Logic Apps에 대한 경고 설정
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 01/19/2018
 
 ## <a name="view-runs-and-trigger-history-for-your-logic-app"></a>논리 앱에 대한 실행 및 트리거 기록 보기
 
-1. [Azure Portal](https://portal.azure.com)에서 논리 앱을 찾으려면 주요 Azure 메뉴에서 **더 많은 서비스**를 선택합니다. 검색 상자에서 "논리 앱"을 찾고 **논리 앱**을 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에서 논리 앱을 찾으려면 주요 Azure 메뉴에서 **모든 서비스**를 선택합니다. 검색 상자에 "논리 앱"을 입력하고 **논리 앱**을 선택합니다.
 
    ![논리 앱 찾기](./media/logic-apps-monitor-your-logic-apps/find-your-logic-app.png)
 
@@ -109,7 +109,7 @@ ms.lasthandoff: 01/19/2018
 
 논리 앱에서 트리거 이벤트, 실행 이벤트 및 작업 이벤트와 같은 이벤트를 찾고 보려면 다음 단계를 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com)에서 **더 많은 서비스**를 선택합니다. "로그 분석"에 대해 검색한 후 다음과 같이 **Log Analytics**를 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에서 **모든 서비스**를 선택합니다. "로그 분석"에 대해 검색한 후 다음과 같이 **Log Analytics**를 선택합니다.
 
    !["Log Analytics" 선택](media/logic-apps-monitor-your-logic-apps/browseloganalytics.png)
 

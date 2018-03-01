@@ -15,11 +15,11 @@ ms.date: 01/04/2018
 ms.author: billmath
 ms.reviewer: asteen
 ms.custom: it-pro
-ms.openlocfilehash: 00307311ca2bc1432f2de3755575adf1804f9c77
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: dc314d8d2a0e7a099b0eff294d43995ea3809c90
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="hide-an-application-from-users-experience-in-azure-active-directory"></a>Azure Active Directory의 사용자 환경에서 응용 프로그램 숨기기
 
@@ -38,7 +38,7 @@ ms.lasthandoff: 01/11/2018
 사용자 액세스 패널 및 Office 365 앱 시작 관리자에서 응용 프로그램을 숨기려면 다음 단계를 따르세요.
 
 1.  디렉터리에 대한 전역 관리자인 계정으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2.  **더 많은 서비스**를 선택하고 텍스트 상자에서 **Azure Active Directory**를 입력한 다음 **Enter**를 선택합니다.
+2.  **모든 서비스**를 선택하고 텍스트 상자에 **Azure Active Directory**를 입력한 다음, **입력**을 선택합니다.
 3.  **Azure Active Directory - *directoryname*** 화면(즉, 관리 중인 디렉터리에 대한 Azure AD 화면)에서 **Enterprise 응용 프로그램**을 선택합니다.
 ![Enterprise 앱](media/active-directory-coreapps-hide-third-party-app/app1.png)
 4.  **Enterprise 응용 프로그램** 화면에서 **모든 응용 프로그램**을 선택합니다. 관리할 수 있는 앱의 목록이 표시됩니다.
@@ -54,7 +54,7 @@ ms.lasthandoff: 01/11/2018
 액세스 패널에서 모든 Office 365 응용 프로그램을 숨기려면 다음 단계를 따르세요. Office 365 포털에는 해당 앱이 계속 표시됩니다.
 
 1.  디렉터리에 대한 전역 관리자인 계정으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2.  **더 많은 서비스**를 선택하고 텍스트 상자에서 **Azure Active Directory**를 입력한 다음 **Enter**를 선택합니다.
+2.  **모든 서비스**를 선택하고 텍스트 상자에 **Azure Active Directory**를 입력한 다음, **입력**을 선택합니다.
 3.  **Azure Active Directory - *directoryname*** 화면(즉, 관리 중인 디렉터리에 대한 Azure AD 화면)에서 **사용자 설정**을 선택합니다.
 4.  **사용자 설정** 화면의 **엔터프라이즈 응용 프로그램** 아래에서 **사용자가 Office 365 포털에서 Office 365 앱만 볼 수 있음**에 대해 **예**를 선택합니다.
 

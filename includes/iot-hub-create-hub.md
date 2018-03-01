@@ -1,7 +1,7 @@
 1. [Azure Portal][lnk-portal]에 로그인합니다.
-1. **새로 만들기** > **사물 인터넷** > **IoT Hub**를 차례로 선택합니다.
+1. **리소스 만들기** > **사물 인터넷** > **IoT Hub**를 선택합니다.
    
-    ![Azure 포털 표시줄][1]
+    ![IoT Hub를 탐색하는 Azure Portal 스크린 샷][1]
 
 1. **IoT Hub** 창에서 IoT Hub에 다음 정보를 입력합니다.
 
@@ -21,8 +21,8 @@
 
 1. **만들기**를 클릭합니다. IoT Hub를 만드는 데 몇 분 정도 걸릴 수 있습니다. **알림** 창에서 진행 상황을 모니터링할 수 있습니다.
 <!-- Images -->
-[1]: ./media/iot-hub-get-started-create-hub/create-iot-hub1.png
-[2]: ./media/iot-hub-get-started-create-hub/create-iot-hub2.png
+[1]: ./media/iot-hub-create-hub/create-iot-hub1.png
+[2]: ./media/iot-hub-create-hub/create-iot-hub2.png
 <!-- Links -->
 [lnk-portal]: https://portal.azure.com/
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub/

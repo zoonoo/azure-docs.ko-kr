@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 09/28/2017
 ms.author: danlep
-ms.openlocfilehash: 82cd6e04693d0cf38b7608fb380a723291c87ffe
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 8ad9c3a779ca52140a78ae905e4825f3144976aa
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Active Directory를 사용하여 Batch 서비스 솔루션 인증
 
@@ -92,7 +92,7 @@ Azure AD에 응용 프로그램을 등록하는 방법에 대한 자세한 내�
 
 [응용 프로그램을 등록](#register-your-application-with-an-azure-ad-tenant)했으면 Azure Portal에서 다음 단계에 따라 Batch 서비스에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal의 왼쪽 탐색 창에서 **추가 서비스**를 선택하고 **앱 등록**을 클릭합니다.
+1. Azure Portal의 왼쪽 탐색 창에서 **모든 서비스**를 선택합니다. **앱 등록**을 클릭합니다.
 2. 앱 등록의 목록에서 응용 프로그램의 이름을 검색합니다.
 
     ![응용 프로그램 이름 검색](./media/batch-aad-auth/search-app-registration.png)
@@ -124,7 +124,7 @@ Azure AD에 응용 프로그램을 등록하는 방법에 대한 자세한 내�
 
 Azure Portal에서 다음 단계를 따릅니다.
 
-1. Azure Portal의 왼쪽 탐색 창에서 **추가 서비스**를 선택하고 **앱 등록**을 클릭합니다.
+1. Azure Portal의 왼쪽 탐색 창에서 **모든 서비스**를 선택합니다. **앱 등록**을 클릭합니다.
 2. 앱 등록 목록에서 응용 프로그램의 이름을 검색합니다.
 3. **설정** 블레이드를 표시합니다. **API 액세스** 섹션에서 **키**를 선택합니다.
 4. 키를 만들려면 키에 대한 설명을 입력합니다. 그런 다음 키의 기간으로 1년 또는 2년을 선택합니다. 

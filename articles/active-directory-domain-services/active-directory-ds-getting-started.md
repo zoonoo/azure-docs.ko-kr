@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: maheshu
-ms.openlocfilehash: 16b206b97f71eeffbb4fddb9e447649034998672
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 97803d62ee42d777336dc87c34a16eff426d24d0
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Active Directory Domain Services 활성화
 이 문서에서는 Azure Portal을 사용하여 Azure AD DS(Azure Active Directory Domain Services)를 사용하도록 설정하는 방법을 설명합니다.
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/11/2017
 **Azure AD Domain Services** 마법사를 시작하려면 다음 단계를 완료합니다.
 
 1. [Azure 포털](https://portal.azure.com)로 이동합니다.
-2. 왼쪽 창에서 **새로 만들기**를 클릭합니다.
+2. 왼쪽 창에서 **리소스 만들기**를 클릭합니다.
 3. **새로 만들기** 페이지의 검색 창에 **Domain Services**를 입력합니다.
 
     ![Domain Services 검색](./media/getting-started/search-domain-services.png)

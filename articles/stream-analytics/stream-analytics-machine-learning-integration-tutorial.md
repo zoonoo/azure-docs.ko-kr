@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 07/06/2017
 ms.author: samacha
-ms.openlocfilehash: 243ee799d2cddb1baf5b8046eee6eaf182463d2e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d06681c687f5cd3eb10d375499266c7e78be1558
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="performing-sentiment-analysis-by-using-azure-stream-analytics-and-azure-machine-learning"></a>Azure Stream Analytics 및 Azure Machine Learning을 사용한 감정 분석 수행
 이 문서에서는 Azure Machine Learning을 통합하는 간단한 Azure Stream Analytics 작업을 신속하게 설정하는 방법을 설명합니다. Cortana Intelligence 갤러리의 Machine Learning 감정 분석 모델을 사용하여 실시간으로 스트리밍 텍스트 데이터를 분석하고 감정 점수를 확인합니다. Cortana Intelligence Suite를 사용하면 감정 분석 모델 빌드에 대한 걱정없이 이 작업을 수행할 수 있습니다.
@@ -57,7 +57,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="create-a-storage-container-and-upload-the-csv-input-file"></a>저장소 컨테이너 만들기 및 CSV 입력 파일 업로드
 이 단계의 경우 GitHub에서 사용할 수 있는 파일과 같은 모든 CSV 파일을 사용할 수 있습니다.
 
-1. Azure Portal에서 **새로 만들기** &gt; **저장소** &gt; **저장소 계정**을 클릭합니다.
+1. Azure Portal에서 **리소스 만들기** &gt; **저장소** &gt; **저장소 계정**을 클릭합니다.
 
    ![새 저장소 계정 만들기](./media/stream-analytics-machine-learning-integration-tutorial/azure-portal-create-storage-account.png)
 
@@ -128,7 +128,7 @@ ms.lasthandoff: 10/11/2017
 
 1. [Azure 포털](https://portal.azure.com)로 이동합니다.  
 
-2. **새로 만들기** > **사물 인터넷** > **Stream Analytics 작업**을 클릭합니다. 
+2. **리소스 만들기** > **사물 인터넷** > **Stream Analytics 작업**을 클릭합니다. 
 
    ![새 Stream Analytics 작업의 Azure Portal 경로](./media/stream-analytics-machine-learning-integration-tutorial/azure-portal-new-iot-sa-job.png)
    
@@ -154,7 +154,7 @@ ms.lasthandoff: 10/11/2017
     * **원본 형식**: **데이터 스트림**을 선택합니다.
     * **원본**: **Blob Storage**를 선택합니다.
     * **가져오기 옵션**: **현재 구독의 Blob Storage 사용**을 선택합니다. 
-    * **저장소 계정**. 이전에 만든 저장소 계정을 선택합니다.
+    * **Storage 계정**. 이전에 만든 저장소 계정을 선택합니다.
     * **컨테이너**. 앞에서 만든 컨테이너를 선택합니다(`azuresamldemoblob`).
     * **이벤트 직렬화 형식** **CSV**를 선택합니다.
 
@@ -173,7 +173,7 @@ ms.lasthandoff: 10/11/2017
 
 3. **싱크**에서 **Blob Storage**를 선택합니다. 그런 다음 입력을 위한 Blob Storage에 사용한 동일한 값을 사용하여 나머지 출력 설정을 입력합니다.
 
-    * **저장소 계정**. 이전에 만든 저장소 계정을 선택합니다.
+    * **Storage 계정**. 이전에 만든 저장소 계정을 선택합니다.
     * **컨테이너**. 앞에서 만든 컨테이너를 선택합니다(`azuresamldemoblob`).
     * **이벤트 직렬화 형식** **CSV**를 선택합니다.
 
@@ -265,14 +265,15 @@ Stream Analytics는 선언적인 SQL 기반 쿼리를 사용하여 입력을 검
 ### <a name="view-metrics"></a>메트릭 보기
 또한 Azure Machine Learning 함수 관련 메트릭도 확인할 수 있습니다. 다음 함수 관련 메트릭은 작업 블레이드의 **모니터링** 상자에서 표시됩니다.
 
-* **함수 요청** 은 Machine Learning 웹 서비스로 전송되는 요청 수를 나타냅니다.  
+* 
+            **함수 요청** 은 Machine Learning 웹 서비스로 전송되는 요청 수를 나타냅니다.  
 * **함수 이벤트** 는 요청의 이벤트 수를 나타냅니다. 기본적으로 Machine Learning 웹 서비스에 대한 각 요청에는 최대 1,000개의 이벤트가 포함됩니다.  
 
 
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)
-* [Azure 스트림 분석 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure Stream Analytics 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [REST API 및 Machine Learning 통합](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)
 * [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
