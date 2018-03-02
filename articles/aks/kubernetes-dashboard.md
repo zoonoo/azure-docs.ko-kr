@@ -9,11 +9,27 @@ ms.topic: article
 ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
+<<<<<<< HEAD
 ms.openlocfilehash: 47608993320d987822422ea103e4e2043de2d2e8
 ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/27/2018
+=======
+<<<<<<< HEAD
+ms.openlocfilehash: 47608993320d987822422ea103e4e2043de2d2e8
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 02/27/2018
+=======
+ms.openlocfilehash: c830400ca1ccd7273ba3acfbd4f17eb2081add87
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 02/22/2018
+>>>>>>> 7196ad4b591814cf1c0508654853923113e15630
+>>>>>>> 15974768a2bd707a34dd250123b4408c560ed18c
 ---
 # <a name="kubernetes-dashboard-with-azure-container-service-aks"></a>Azure Container Service(AKS)와 Kubernetes 대시보드
 

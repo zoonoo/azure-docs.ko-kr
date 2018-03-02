@@ -14,11 +14,27 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
+<<<<<<< HEAD
 ms.openlocfilehash: d7c32e5ae02e294ee88c19f058e04249c7c9969e
 ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/28/2018
+=======
+<<<<<<< HEAD
+ms.openlocfilehash: d7c32e5ae02e294ee88c19f058e04249c7c9969e
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 02/28/2018
+=======
+ms.openlocfilehash: 7f3cc81327d1d247fb8e19e256eafb009a5bf162
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 02/21/2018
+>>>>>>> 7196ad4b591814cf1c0508654853923113e15630
+>>>>>>> 15974768a2bd707a34dd250123b4408c560ed18c
 ---
 # <a name="using-external-services-from-the-azure-api-management-service"></a>Azure API Management 서비스에서 외부 서비스 사용
 Azure API Management 서비스에서 사용할 수 있는 정책은 순수하게 들어오는 요청, 보내는 응답 및 기본 구성 정보에 기반하여 다양한 범위의 유용한 작업을 수행할 수 있습니다. 그러나 API Management 정책에서 외부 서비스와 상호 작용할 수 있으면 더 많은 기회를 얻게 됩니다.
@@ -282,4 +298,17 @@ API Management에 권한 부여 토큰이 있다면 API Management는 토큰의 
 
 ## <a name="summary"></a>요약
 Azure API Management 서비스는 HTTP 트래픽에 선택적으로 적용할 수 있는 유연한 정책을 제공하고 백 엔드 서비스의 컴퍼지션을 사용할 수 있습니다. 함수, 확인, 유효성 검사 기능의 경고를 통해 API 게이트웨이를 개선하거나 여러 백 엔드 서비스를 기반으로 새 복합 리소스를 만들 경우 `send-request` 및 관련된 정책은 새로운 가능성을 엽니다.
+<<<<<<< HEAD
+=======
 
+<<<<<<< HEAD
+=======
+## <a name="watch-a-video-overview-of-these-policies"></a>이러한 정책에 대한 동영상 개요 시청
+이 문서에서 다루는 [send-one-way-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest), [send-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) 및 [return-response](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse) 정책에 대한 자세한 내용은 다음 동영상을 시청하세요.
+
+> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Send-Request-and-Return-Response-Policies/player]
+> 
+> 
+>>>>>>> 7196ad4b591814cf1c0508654853923113e15630
+
+>>>>>>> 15974768a2bd707a34dd250123b4408c560ed18c

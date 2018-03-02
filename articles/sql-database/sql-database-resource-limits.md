@@ -13,6 +13,10 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Active
+<<<<<<< HEAD
+ms.date: 02/27/2018
+=======
+<<<<<<< HEAD
 ms.date: 02/27/2018
 ms.author: carlrab
 ms.openlocfilehash: 839705b902b8e1343c1e0bda97a2ec1dc6b47042
@@ -20,6 +24,20 @@ ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/28/2018
+=======
+ms.date: 02/12/2018
+>>>>>>> 15974768a2bd707a34dd250123b4408c560ed18c
+ms.author: carlrab
+ms.openlocfilehash: 839705b902b8e1343c1e0bda97a2ec1dc6b47042
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+<<<<<<< HEAD
+ms.lasthandoff: 02/28/2018
+=======
+ms.lasthandoff: 02/21/2018
+>>>>>>> 7196ad4b591814cf1c0508654853923113e15630
+>>>>>>> 15974768a2bd707a34dd250123b4408c560ed18c
 ---
 # <a name="azure-sql-database-resource-limits"></a>Azure SQL Database 리소스 제한
 

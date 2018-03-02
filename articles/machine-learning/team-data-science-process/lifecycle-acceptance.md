@@ -1,4 +1,4 @@
----
+﻿---
 title: "팀 데이터 과학 프로세스 수명 주기의 고객 승인 단계 - Azure | Microsoft Docs"
 description: "데이터 과학 프로젝트의 고객 승인 단계에 대한 목표, 작업 및 결과물입니다."
 services: machine-learning
