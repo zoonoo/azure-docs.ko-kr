@@ -1,4 +1,4 @@
----
+﻿---
 title: "Azure Resource Manager 템플릿 함수 - 문자열 | Microsoft Docs"
 description: "Azure Resource Manager 템플릿에서 문자열 작업을 수행하는 데 사용할 수 있는 함수에 대해 설명합니다."
 services: azure-resource-manager
