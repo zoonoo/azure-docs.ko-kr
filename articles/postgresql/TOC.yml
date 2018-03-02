@@ -58,9 +58,7 @@
     - name: 리소스
       items:
         - name: 가격 책정 계층
-          href: concepts-service-tiers.md
-        - name: Compute 단위
-          href: concepts-compute-unit-and-storage.md
+          href: concepts-pricing-tiers.md
         - name: 제한
           href: concepts-limits.md
     - name: 데이터 액세스 및 보안
@@ -69,6 +67,12 @@
           href: concepts-firewall-rules.md
         - name: SSL 구성
           href: concepts-ssl-connection-security.md
+    - name: 비즈니스 연속성
+      items:
+        - name: 개요
+          href: concepts-business-continuity.md
+        - name: Backup 및 복원
+          href: concepts-backup.md
     - name: 모니터
       href: concepts-monitoring.md
     - name: 개발
@@ -77,7 +81,9 @@
           href: concepts-connection-libraries.md
 - name: 방법 가이드
   items:
-    - name: 방화벽 규칙
+    - name: 사용자 만들기
+      href: howto-create-users.md
+    - name: 방화벽 관리
       items:
         - name: Azure portal
           href: howto-manage-firewall-using-portal.md

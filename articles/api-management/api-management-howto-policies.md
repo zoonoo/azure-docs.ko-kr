@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: apimpm
-ms.openlocfilehash: 8576d590568a24df4c3320ec283edba7a28ab032
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 54fbba197f6609731ffaf3ff15143a28e70a955f
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="policies-in-azure-api-management"></a>Azure API Management의 정책
 
@@ -112,12 +112,6 @@ APIM(Azure API Management)에서 정책은 게시자가 구성을 통해 API 동
     <address>1.2.3.4</address>
 </ip-filter>
 ```
-
-## <a name="video"></a>비디오
-
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Policy-Expressions-in-Azure-API-Management/player]
-> 
-> 
 
 ## <a name="next-steps"></a>다음 단계
 

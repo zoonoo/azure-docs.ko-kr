@@ -1,3 +1,5 @@
+# [VPN Gateway 설명서](index.md)
+
 # 개요
 ## [VPN Gateway 정보](vpn-gateway-about-vpngateways.md)
 ## [VPN Gateway FAQ](vpn-gateway-vpn-faq.md)
@@ -106,7 +108,7 @@
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=networking)
 ## [블로그](https://azure.microsoft.com/blog/topics/networking)
 ## [포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)
-## [가격 책정](https://azure.microsoft.com/pricing/details/vpn-gateway)
+## [가격](https://azure.microsoft.com/pricing/details/vpn-gateway)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [SLA](https://azure.microsoft.com/support/legal/sla)
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=vpn-gateway)

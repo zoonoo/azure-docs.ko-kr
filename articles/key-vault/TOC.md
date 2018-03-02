@@ -1,8 +1,10 @@
+# [Key Vault 설명서](index.md)
+
 # 개요
 ## [Key Vault란?](key-vault-whatis.md)
 ## [서비스 개요](https://azure.microsoft.com/services/key-vault/)
 
-# 시작
+# 시작하기
 ## [Key Vault 시작하기](key-vault-get-started.md)
 ## [키 회전 및 감사 설정](key-vault-key-rotation-log-monitoring.md)
 ## [웹앱에서 Key Vault 사용](key-vault-use-from-web-application.md)
@@ -37,7 +39,7 @@
 ## 자동화
 ### [Azure Automation](automation-manage-key-vault.md)
 
-# 참조
+# 참고 자료
 ## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=key-vault)
 ## [Azure PowerShell](/powershell/module/azurerm.keyvault)
 ## [Azure CLI](/cli/azure/keyvault)
@@ -46,7 +48,7 @@
 ## Node.js
 ### [자격 증명 모음 관리](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
 ### [자격 증명 모음 콘텐츠 관리](http://azure.github.io/azure-sdk-for-node/azure-keyvault/latest)
-## [REST (영문)](/rest/api/keyvault)
+## [REST](/rest/api/keyvault)
 
 # 관련 항목
 ## [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/)
@@ -60,5 +62,5 @@
 ## [블로그](http://blogs.technet.com/b/kv/)
 ## [코드 샘플](https://www.microsoft.com/download/details.aspx?id=45343)
 ## [포럼](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureKeyVault)
-## [가격](https://azure.microsoft.com/pricing/details/key-vault/)
+## [가격 책정](https://azure.microsoft.com/pricing/details/key-vault/)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)

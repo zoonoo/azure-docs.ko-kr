@@ -2,23 +2,17 @@
 title: "컨테이너 및 Azure Blob Storage의 Blob에 대한 공용 읽기 권한을 사용하도록 설정 | Microsoft Docs"
 description: "컨테이너와 Blob에서 익명 액세스를 사용하도록 설정하는 방법 및 프로그래밍 방식으로 액세스하는 방법을 알아봅니다."
 services: storage
-documentationcenter: 
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: a2cffee6-3224-4f2a-8183-66ca23b2d2d7
+manager: jeconnoc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
 ms.author: tamram
-ms.openlocfilehash: f52079c72be298daaa45074e516f911022780392
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 4ddafb095816b5be82a18faa9c60869094e5e4c6
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="manage-anonymous-read-access-to-containers-and-blobs"></a>컨테이너 및 Blob에 대한 익명 읽기 권한 관리
 컨테이너 및 Azure Blob Storage의 해당 Blob에 대한 익명의 공용 읽기 권한을 사용하도록 설정할 수 있습니다. 이렇게 하면 계정 키를 공유하지 않고 공유 액세스 서명(SAS)을 요구하지 않고도 이러한 리소스에 대해 읽기 전용 권한을 부여할 수 있습니다.
@@ -44,7 +38,7 @@ ms.lasthandoff: 10/18/2017
 ### <a name="set-container-permissions-in-the-azure-portal"></a>Azure Portal에서 컨테이너 사용 권한 설정
 [Azure Portal](https://portal.azure.com)에서 컨테이너 권한을 설정하려면 다음 단계를 수행합니다.
 
-1. 포털에서 **저장소 계정** 블레이드를 엽니다. 주 포털 메뉴 블레이드에서 **저장소 계정**을 선택하여 저장소 계정을 찾을 수 있습니다.
+1. 포털에서 **Storage 계정** 블레이드를 엽니다. 주 포털 메뉴 블레이드에서 **Storage 계정**을 선택하여 Storage 계정을 찾을 수 있습니다.
 1. 메뉴 블레이드의 **Blob service**에서 **컨테이너**를 선택합니다.
 1. 컨테이너 행을 마우스 오른쪽 단추로 클릭하거나 줄임표를 선택하여 컨테이너의 **상황에 맞는 메뉴**를 엽니다.
 1. 상황에 맞는 메뉴에서 **액세스 정책**을 선택합니다.
@@ -53,7 +47,7 @@ ms.lasthandoff: 10/18/2017
     ![컨테이너 메타데이터 편집 대화 상자](./media/storage-manage-access-to-resources/storage-manage-access-to-resources-0.png)
 
 ### <a name="set-container-permissions-with-net"></a>.NET으로 컨테이너 사용 권한 설정
-C# 및 .NET용 저장소 클라이언트 라이브러리를 사용하여 컨테이너에 대한 권한을 설정하려면 먼저 **GetPermissions** 메서드를 호출하여 컨테이너의 기존 권한을 검색합니다. 그런 다음 **GetPermissions** 메서드에 의해 반환된 **BlobContainerPermissions** 개체에 대해 **PublicAccess** 속성을 설정합니다. 마지막으로 업데이트된 권한으로 **SetPermissions** 메서드를 호출합니다.
+C# 및 .NET용 Storage 클라이언트 라이브러리를 사용하여 컨테이너에 대한 권한을 설정하려면 먼저 **GetPermissions** 메서드를 호출하여 컨테이너의 기존 권한을 검색합니다. 그런 다음 **GetPermissions** 메서드에 의해 반환된 **BlobContainerPermissions** 개체에 대해 **PublicAccess** 속성을 설정합니다. 마지막으로 업데이트된 권한으로 **SetPermissions** 메서드를 호출합니다.
 
 다음 예제에서는 컨테이너의 권한을 전체 공용 읽기 권한으로 설정합니다. 권한을 Blob에 대해서만 공용 읽기 권한으로 설정하려면 **PublicAccess** 속성을 **BlobContainerPublicAccessType.Blob**으로 설정합니다. 익명 사용자에 대한 모든 권한을 제거하려면 속성을 **BlobContainerPublicAccessType.Off**로 설정합니다.
 
@@ -67,10 +61,10 @@ public static void SetPublicContainerPermissions(CloudBlobContainer container)
 ```
 
 ## <a name="access-containers-and-blobs-anonymously"></a>컨테이너 및 Blob에 익명으로 액세스
-컨테이너 및 Blob에 익명으로 액세스하는 클라이언트는 자격 증명을 필요로 하지 않는 생성자를 사용할 수 있습니다. 다음 예제에서는 Blob 서비스 리소스를 익명으로 참조하는 약간 다른 방법을 보여 줍니다.
+컨테이너 및 Blob에 익명으로 액세스하는 클라이언트는 자격 증명을 필요로 하지 않는 생성자를 사용할 수 있습니다. 다음 예제에서는 Blob service 리소스를 익명으로 참조하는 약간 다른 방법을 보여 줍니다.
 
 ### <a name="create-an-anonymous-client-object"></a>익명 클라이언트 개체 만들기
-계정에 Blob 서비스 끝점을 제공하여 익명 액세스에 대한 새 서비스 클라이언트 개체를 만들 수 있습니다. 그러나 익명 액세스에 사용할 수 있는 해당 계정의 컨테이너 이름도 알아야 합니다.
+계정에 Blob service 끝점을 제공하여 익명 액세스에 대한 새 서비스 클라이언트 개체를 만들 수 있습니다. 그러나 익명 액세스에 사용할 수 있는 해당 계정의 컨테이너 이름도 알아야 합니다.
 
 ```csharp
 public static void CreateAnonymousBlobClient()
@@ -150,6 +144,6 @@ public static void DownloadBlobAnonymously()
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure 저장소 서비스에 대한 인증](https://msdn.microsoft.com/library/azure/dd179428.aspx)
+* [Azure Storage 서비스에 대한 인증](https://msdn.microsoft.com/library/azure/dd179428.aspx)
 * [SAS(공유 액세스 서명) 사용](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 * [공유 액세스 서명을 사용하여 액세스 위임](https://msdn.microsoft.com/library/azure/ee395415.aspx)

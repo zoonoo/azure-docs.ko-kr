@@ -3,7 +3,7 @@ title: "Azure에 SSIS 패키지 배포 | Microsoft Docs"
 description: "이 문서에서는 Azure Data Factory에서 제공하는 Azure-SSIS 통합 런타임에 SSIS 패키지를 배포하는 방법을 설명합니다."
 services: data-factory
 documentationcenter: 
-author: spelluru
+author: douglaslMS
 manager: jhubbard
 editor: spelluru
 ms.service: data-factory
@@ -12,12 +12,12 @@ ms.tgt_pltfrm:
 ms.devlang: powershell
 ms.topic: hero-article
 ms.date: 01/22/2018
-ms.author: spelluru
-ms.openlocfilehash: 2199808533619ed7d9ef8201363f0cef04b0f50f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: douglasl
+ms.openlocfilehash: abdf09900c59081821467229f81141bea2d7c15c
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="deploy-sql-server-integration-services-packages-to-azure"></a>Azure에 SQL Server Integration Services 패키지 배포
 이 자습서에서는 Azure Data Factory에서 Azure-SSIS IR(통합 런타임)을 프로비전하는 단계를 제공합니다. 그런 다음 SSDT(SQL Server Data Tools) 또는 SSMS(SQL Server Management Studio)를 사용하여 Azure에서 이 런타임에 SSIS(SQL Server Integration Services) 패키지를 배포할 수 있습니다. 이 자습서에서 수행하는 단계는 다음과 같습니다.
@@ -26,7 +26,7 @@ ms.lasthandoff: 02/21/2018
 > 이 문서에서는 Azure PowerShell을 사용하여 Azure SSIS IR을 프로비전합니다. Data Factory UI(사용자 인터페이스)를 사용하여 Azure SSIS IR을 프로비전하려면 [자습서: Azure SSIS 통합 런타임 만들기](tutorial-create-azure-ssis-runtime-portal.md)를 참조하세요. 
 
 > [!div class="checklist"]
-> * 데이터 팩터리 만들기
+> * 데이터 팩터리를 만듭니다.
 > * Azure-SSIS 통합 런타임 만들기
 > * Azure-SSIS 통합 런타임 시작
 > * SSIS 패키지 배포
@@ -314,7 +314,7 @@ Azure-SSIS IR 모니터링 및 관리에 대한 자세한 내용은 다음 문�
 이 자습서에서는 다음 방법에 대해 알아보았습니다. 
 
 > [!div class="checklist"]
-> * 데이터 팩터리 만들기
+> * 데이터 팩터리를 만듭니다.
 > * Azure-SSIS 통합 런타임 만들기
 > * Azure-SSIS 통합 런타임 시작
 > * SSIS 패키지 배포

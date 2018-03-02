@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: e16c8b9e8bfb75226d7dec32e545da72cba107e9
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 7aa963e7f7463dbc06ba98e4876ea5d98f6921c8
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>참조 - IoT Hub 할당량 및 제한
 
@@ -31,6 +31,8 @@ ms.lasthandoff: 02/01/2018
 
 ## <a name="operation-throttles"></a>작업 제한
 작업 제한은 분 범위에 적용하고 남용을 방지하고자 하는 속도 제한입니다. IoT Hub는 가능한 경우 오류를 반환 하지 않으려 하지만 제한이 너무 오랫동안 위반된 경우 예외를 반환하기 시작합니다.
+
+지정된 시간에 IoT Hub에 프로비전된 단위 수를 늘려 할당량이나 조정 제한을 증가시킬 수 있습니다.
 
 다음 표에서는 적용된 제한을 보여 줍니다. 값은 개별 허브라고 합니다.
 
@@ -50,15 +52,11 @@ ms.lasthandoff: 02/01/2018
 
 <sup>1</sup>제한 미터 크기는 8KB입니다.
 
-> [!IMPORTANT]
-> *장치 연결* 제한은 IoT Hub에서 새 장치 연결을 설정할 수 있는 속도를 제어합니다. *장치 연결* 제한은 동시에 연결되는 장치의 최대 수를 제어하지 않습니다. 이 제한은 IoT Hub에 대해 프로비전되는 단위의 수에 따라 달라집니다.
+*장치 연결* 제한은 IoT Hub에서 새 장치 연결을 설정할 수 있는 속도를 제어합니다. *장치 연결* 제한은 동시에 연결되는 장치의 최대 수를 제어하지 않습니다. 이 제한은 IoT Hub에 대해 프로비전되는 단위의 수에 따라 달라집니다.
 
 예를 들어 S1 단위 하나를 구매하는 경우 초당 연결 제한은 100개입니다. 따라서 100,000 개의 장치를 연결하려면 최소 1,000초(약 16분)가 걸립니다. 그러나 ID 레지스트리에 등록한 수만큼의 장치를 동시에 연결할 수 있습니다.
 
 IoT Hub 제한 동작에 대한 자세한 설명을 보려면 블로그 게시물 [IoT Hub 제한][lnk-throttle-blog]을 참조하세요.
-
-> [!NOTE]
-> 지정된 시간에 IoT Hub에 프로비전된 단위 수를 늘려 할당량이나 조정 제한을 증가시킬 수 있습니다.
 
 > [!IMPORTANT]
 > ID 레지스트리 작업은 장치 관리 및 프로비전 시나리오에서 런타임에 사용하기 위한 것입니다. 많은 수의 장치 ID 읽기 또는 업데이트는 [가져오기 및 내보내기 작업][lnk-importexport]을 통해 지원됩니다.

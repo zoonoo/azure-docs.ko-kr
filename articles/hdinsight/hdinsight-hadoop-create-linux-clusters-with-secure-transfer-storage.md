@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/06/2017
+ms.date: 02/22/2018
 ms.author: jgao
-ms.openlocfilehash: 9b537595fd8224536f67989d7529f6030347bfab
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: fd27837e4b40b34551092be5d75eb770730d97a4
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="create-hadoop-cluster-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>Azure HDInsight에서 보안 전송 저장소 계정으로 Hadoop 클러스터 만들기
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 11/06/2017
 
 2. 지침에 따라 다음과 같은 사양의 클러스터를 만듭니다. 
 
-    - HDInsight 버전 3.6을 지정합니다.  기본 버전은 3.5입니다. 3.6 이상 버전이 필요합니다.
+    - HDInsight 버전 3.6을 지정합니다.  3.6 이상 버전이 필요합니다.
     - 보안 전송이 활성화된 저장소 계정을 지정합니다.
     - 저장소 계정에 짧은 이름을 사용합니다.
     - 저장소 계정과 blob 컨테이너를 미리 만들어 두어야 합니다. 

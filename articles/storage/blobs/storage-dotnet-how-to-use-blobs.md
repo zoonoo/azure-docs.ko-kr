@@ -2,23 +2,17 @@
 title: ".NET을 사용하여 Azure Blob 저장소(개체 저장소) 시작 | Microsoft Docs"
 description: "Azure Blob 저장소(개체 저장소)를 사용하여 클라우드에 구조화되지 않은 데이터를 저장합니다."
 services: storage
-documentationcenter: .net
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: d18a8fc8-97cb-4d37-a408-a6f8107ea8b3
+manager: jeconnoc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 03/27/2017
 ms.author: tamram
-ms.openlocfilehash: 87594d2688e3cd01f5e7db8f5be8ca513969e774
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3dff18f41cc7264c523e6ae423a5d86661ab9918
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="get-started-with-azure-blob-storage-using-net"></a>.NET을 사용하여 Azure Blob 저장소 시작
 
@@ -26,7 +20,7 @@ ms.lasthandoff: 10/11/2017
 
 [!INCLUDE [storage-check-out-samples-dotnet](../../../includes/storage-check-out-samples-dotnet.md)]
 
-Azure Blob 저장소는 클라우드에 구조화되지 않은 데이터를 개체/Blob로 저장하는 서비스입니다. Blob 저장소는 문서, 미디어 파일 또는 응용 프로그램 설치 프로그램과 같은 모든 종류의 텍스트 또는 이진 데이터를 저장할 수 있습니다. 또한 Blob 저장소를 개체 저장소라고 합니다.
+Azure Blob 저장소는 클라우드에 구조화되지 않은 데이터를 개체/Blob로 저장하는 서비스입니다. Blob 저장소는 문서, 미디어 파일 또는 응용 프로그램 설치 프로그램과 같은 모든 종류의 텍스트 또는 이진 데이터를 저장할 수 있습니다. 또한 Blob storage를 개체 저장소라고 합니다.
 
 ### <a name="about-this-tutorial"></a>이 자습서 정보
 이 자습서에서는 Azure Blob 저장소를 사용하여 몇 가지 일반적인 시나리오에 대한 .NET 코드를 작성하는 방법을 보여 줍니다. Blob 업로드, 나열, 다운로드 및 삭제 시나리오를 다룹니다.
@@ -34,14 +28,14 @@ Azure Blob 저장소는 클라우드에 구조화되지 않은 데이터를 개�
 **필수 조건:**
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/)
-* [.NET용 Azure 저장소 클라이언트 라이브러리](https://www.nuget.org/packages/WindowsAzure.Storage/)
+* [.NET용 Azure Storage 클라이언트 라이브러리](https://www.nuget.org/packages/WindowsAzure.Storage/)
 * [.NET용 Azure 구성 관리자](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
 * [Azure 저장소 계정](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-a-storage-account)
 
 [!INCLUDE [storage-dotnet-client-library-version-include](../../../includes/storage-dotnet-client-library-version-include.md)]
 
 ### <a name="more-samples"></a>추가 샘플
-Blob 저장소를 사용하는 추가 예제는 [.NET에서 Azure Blob 저장소 시작](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/)을 참조하세요. GitHub에서 샘플 응용 프로그램을 다운로드하고 실행하거나 코드를 탐색할 수 있습니다.
+Blob Storage를 사용하는 추가 예제는 [.NET에서 Azure Blob Storage 시작](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/)을 참조하세요. GitHub에서 샘플 응용 프로그램을 다운로드하고 실행하거나 코드를 탐색할 수 있습니다.
 
 [!INCLUDE [storage-blob-concepts-include](../../../includes/storage-blob-concepts-include.md)]
 
@@ -61,7 +55,7 @@ using Microsoft.WindowsAzure.Storage.Blob; // Namespace for Blob storage types
 ### <a name="parse-the-connection-string"></a>연결 문자열 구문 분석
 [!INCLUDE [storage-cloud-configuration-manager-include](../../../includes/storage-cloud-configuration-manager-include.md)]
 
-### <a name="create-the-blob-service-client"></a>Blob 서비스 클라이언트 만들기
+### <a name="create-the-blob-service-client"></a>Blob service 클라이언트 만들기
 **CloudBlobClient** 클래스를 통해 Blob 저장소에 저장된 컨테이너 및 Blob을 검색할 수 있습니다. 서비스 클라이언트를 만드는 한 가지 방법은 다음과 같습니다.
 
 ```csharp
@@ -99,7 +93,7 @@ container.SetPermissions(
 인터넷상의 누구든지 공용 컨테이너의 Blob을 볼 수 있습니다. 하지만 적절한 계정 선택키 또는 공유 액세스 서명이 있는 경우에만 수정하거나 삭제할 수 있습니다.
 
 ## <a name="upload-a-blob-into-a-container"></a>컨테이너에 Blob 업로드
-Azure Blob 저장소는 블록 Blob 및 페이지 Blob을 지원합니다.  대부분의 경우에는 블록 Blob을 사용하는 것이 좋습니다.
+Azure Blob Storage는 블록 Blob 및 페이지 Blob을 지원합니다.  대부분의 경우에는 블록 Blob을 사용하는 것이 좋습니다.
 
 블록 Blob에 파일을 업로드하려면 컨테이너 참조를 가져온 다음 이 참조를 사용하여 블록 Blob 참조를 가져옵니다. Blob 참조가 있는 경우 **UploadFromStream** 메서드를 호출하여 데이터 스트림을 업로드할 수 있습니다. 이 작업은 Blob이 없는 경우 새로 만들고, Blob이 있는 경우 덮어씁니다.
 
@@ -368,7 +362,7 @@ Console.WriteLine(appendBlob.DownloadText());
 세 가지 Blob 유형의 차이점에 대한 자세한 내용은 [블록 Blob, 페이지 Blob 및 추가 Blob 이해](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) 를 참조하세요.
 
 ## <a name="managing-security-for-blobs"></a>Blob 보안 관리
-기본적으로 Azure 저장소는 데이터 액세스를 계정 액세스 키를 보유한 계정 소유자로 제한하여 데이터를 보호합니다. 저장소 계정의 Blob 데이터를 공유해야 할 경우 계정 액세스 키의 보안을 손상시키지 않고 공유하는 것이 중요합니다. 또한 Blob 데이터를 암호화하여 유선 및 Azure 저장소에서 데이터가 안전하게 이동하게 할 수 있습니다.
+기본적으로 Azure Storage는 데이터 액세스를 계정 액세스 키를 보유한 계정 소유자로 제한하여 데이터를 보호합니다. 저장소 계정의 Blob 데이터를 공유해야 할 경우 계정 액세스 키의 보안을 손상시키지 않고 공유하는 것이 중요합니다. 또한 Blob 데이터를 암호화하여 유선 및 Azure Storage에서 데이터가 안전하게 이동하게 할 수 있습니다.
 
 [!INCLUDE [storage-account-key-note-include](../../../includes/storage-account-key-note-include.md)]
 
@@ -379,19 +373,19 @@ Console.WriteLine(appendBlob.DownloadText());
 * **공유 액세스 서명:** 공유 액세스 서명(SAS)을 클라이언트에 제공할 수 있습니다. 여기서는 저장소 계정의 리소스에 대해 사용자가 지정한 권한과 간격으로 위임된 액세스를 제공합니다. 자세한 내용은 [SAS(공유 액세스 서명) 사용](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 을 참조하세요.
 
 ### <a name="encrypting-blob-data"></a>Blob 데이터 암호화 
-Azure 저장소는 클라이언트와 서버 모두에서 Blob 데이터를 암호화합니다.
+Azure Storage는 클라이언트와 서버 모두에서 Blob 데이터를 암호화합니다.
 
-* **클라이언트 쪽 암호화:** NET용 Azure 저장소 클라이언트 라이브러리는 Azure 저장소에 업로드하기 전에 클라이언트 응용 프로그램 내부에서 데이터를 암호화하고 클라이언트로 다운로드하는 동안 데이터 암호를 해독하는 기능을 지원합니다. 라이브러리 또한 저장소 계정 키 관리를 위해 Azure 키 자격 증명 모음과의 통합을 지원합니다. 자세한 내용은 [Microsoft Azure 저장소용 .NET을 사용하는 클라이언트 쪽 암호화](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 를 참조하세요. 또한 [자습서: Microsoft Azure 저장소에서 Azure 주요 자격 증명 모음을 사용하여 Blob 암호화 및 해독](storage-encrypt-decrypt-blobs-key-vault.md)을 참조하세요.
-* **서버 쪽 암호화**: 이제 Azure 저장소에서는 서버 쪽 암호화를 지원합니다. [미사용 데이터에 대한 Azure 저장소 서비스 암호화(미리 보기)](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)를 참조하세요.
+* **클라이언트 쪽 암호화:** NET용 Azure Storage 클라이언트 라이브러리는 Azure Storage에 업로드하기 전에 클라이언트 응용 프로그램 내부에서 데이터를 암호화하고 클라이언트로 다운로드하는 동안 데이터 암호를 해독하는 기능을 지원합니다. 라이브러리 또한 저장소 계정 키 관리를 위해 Azure Key Vault와의 통합을 지원합니다. 자세한 내용은 [Microsoft Azure Storage용 .NET을 사용하는 클라이언트 쪽 암호화](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 를 참조하세요. 또한 [자습서: Microsoft Azure Storage에서 Azure Key Vault를 사용하여 Blob 암호화 및 해독](storage-encrypt-decrypt-blobs-key-vault.md)을 참조하세요.
+* **서버 쪽 암호화**: 이제 Azure Storage에서는 서버 쪽 암호화를 지원합니다. [미사용 데이터에 대한 Azure Storage 서비스 암호화(미리 보기)](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 이제 Blob 저장소의 기본 사항을 배웠으므로 다음 링크를 따라 자세히 알아보세요.
 
-### <a name="microsoft-azure-storage-explorer"></a>Microsoft Azure 저장소 탐색기
+### <a name="microsoft-azure-storage-explorer"></a>Microsoft Azure Storage 탐색기
 * [Microsoft Azure Storage 탐색기(MASE)](../../vs-azure-tools-storage-manage-with-storage-explorer.md)는 Windows, MacOS 및 Linux에서 Azure Storage 데이터로 시각적으로 작업할 수 있도록 해주는 Microsoft의 독립 실행형 무료 앱입니다.
 
 ### <a name="blob-storage-samples"></a>Blob 저장소 샘플
-* [.NET에서 Azure Blob 저장소 시작](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/)
+* [.NET에서 Azure Blob Storage 시작](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/)
 
 ### <a name="blob-storage-reference"></a>Blob 저장소 참조
 * [Storage Client Library for .NET 참조](https://msdn.microsoft.com/library/azure/mt347887.aspx)

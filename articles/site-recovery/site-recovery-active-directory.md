@@ -5,57 +5,54 @@ services: site-recovery
 documentationcenter: 
 author: mayanknayar
 manager: rochakm
-editor: 
-ms.assetid: af1d9b26-1956-46ef-bd05-c545980b72dc
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 12/15/2017
+ms.date: 02/27/2018
 ms.author: manayar
-ms.openlocfilehash: 4ff42d5dc18a80e94ff81d3e4d9ed55533ad0e19
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e07b868883b0154ad38ba2f7f51dd2db663525a0
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="use-azure-site-recovery-to-protect-active-directory-and-dns"></a>Azure Site Recovery로 Active Directory 및 DNS 보호
-SharePoint, Dynamics AX 및 SAP와 같은 엔터프라이즈 응용 프로그램이 올바르게 작동하려면 Active Directory 및 DNS 인프라가 필요합니다. 응용 프로그램에 대한 재해 복구 솔루션을 만들 때 응용 프로그램이 제대로 작동하도록 하려면 다른 응용 프로그램 구성 요소 복구 전에 Active Directory 및 DNS를 복구해야 합니다.
 
-Azure Site Recovery를 사용하여 Active Directory에 대한 완전히 자동화된 재해 복구 계획을 만들 수 있습니다. 중단되는 경우 어디서나 몇 초 만에 장애 조치(failover)를 시작할 수 있습니다. 몇 분 안에 Active Directory를 가동 및 실행할 수 있습니다. 주 사이트에서 SharePoint 및 SAP와 같은 여러 응용 프로그램에 Active Directory를 배포한 경우 전체 사이트를 장애 조치(failover)할 수 있습니다. 먼저 Site Recovery를 사용하여 Active Directory를 장애 조치(failover)합니다. 그런 다음 응용 프로그램별 복구 계획을 사용하여 다른 응용 프로그램을 장애 조치(failover)합니다.
+SharePoint, Dynamics AX 및 SAP와 같은 엔터프라이즈 응용 프로그램이 올바르게 작동하려면 Active Directory 및 DNS 인프라가 필요합니다. 응용 프로그램에 대한 재해 복구 솔루션을 설정할 때 응용 프로그램이 제대로 작동하도록 하려면 다른 응용 프로그램 구성 요소를 복구하기 전에 Active Directory 및 DNS를 복구해야 합니다.
 
-이 문서에서는 Active Directory용 재해 복구 솔루션을 만드는 방법, 원클릭 복구 계획을 사용하여 장애 조치(failover)를 수행하는 방법, 지원되는 구성 및 필수 구성 요소를 자세히 설명합니다. 시작하기 전에 Active Directory와 Azure Site Recovery에 대해 잘 알고 있어야 합니다.
+[Site Recovery](site-recovery-overview.md)를 사용하여 Active Directory에 대한 재해 복구 계획을 만들 수 있습니다. 중단되는 경우 장애 조치(failover)를 시작할 수 있습니다. 몇 분 안에 Active Directory를 가동 및 실행할 수 있습니다. 주 사이트에서 SharePoint 및 SAP와 같은 여러 응용 프로그램에 Active Directory를 배포한 경우 전체 사이트를 장애 조치(failover)할 수 있습니다. 먼저 Site Recovery를 사용하여 Active Directory를 장애 조치(failover)합니다. 그런 다음, 응용 프로그램별 복구 계획을 사용하여 다른 응용 프로그램을 장애 조치(failover)합니다.
+
+이 문서에서는 Active Directory에 대한 재해 복구 솔루션을 만드는 방법을 설명합니다. 필수 구성 요소 및 장애 조치(failover) 지침을 포함합니다. 시작하기 전에 Active Directory와 Site Recovery에 대해 잘 알고 있어야 합니다.
 
 ## <a name="prerequisites"></a>필수 조건
-* Microsoft Azure 구독에서 Azure Recovery Services 자격 증명 모음
-* Azure에 복제하는 경우 Azure 리소스를 [준비](tutorial-prepare-azure.md)합니다. 리소스에는 Azure 구독, Azure Virtual Network의 인스턴스 및 Azure Storage 계정이 포함됩니다.
-* 모든 구성 요소에 대한 지원 요구 사항을 검토합니다.
+
+* Azure에 복제하는 경우 구독, Azure Virtual Network, 저장소 계정 및 Recovery Services 자격 증명 모음을 비롯한 [Azure 리소스를 준비](tutorial-prepare-azure.md)합니다.
+* 모든 구성 요소에 대한 [지원 요구 사항](site-recovery-support-matrix-to-azure.md)을 검토합니다.
 
 ## <a name="replicate-the-domain-controller"></a>도메인 컨트롤러 복제
 
-도메인 컨트롤러 또는 DNS를 호스트하는 하나 이상의 가상 머신에 [Site Recovery 복제](#enable-protection-using-site-recovery)를 설정해야 합니다. 환경에 [여러 도메인 컨트롤러](#environment-with-multiple-domain-controllers)가 있는 경우 대상 사이트에도 [추가 도메인 컨트롤러](#protect-active-directory-with-active-directory-replication)를 설치해야 합니다. 추가 도메인 컨트롤러는 Azure 또는 보조 온-프레미스 데이터 센터에 있을 수 있습니다.
+도메인 컨트롤러 또는 DNS를 호스트하는 하나 이상의 VM에 [Site Recovery 복제](#enable-protection-using-site-recovery)를 설정해야 합니다. 환경에 [여러 도메인 컨트롤러](#environment-with-multiple-domain-controllers)가 있는 경우 대상 사이트에도 [추가 도메인 컨트롤러](#protect-active-directory-with-active-directory-replication)를 설치해야 합니다. 추가 도메인 컨트롤러는 Azure 또는 보조 온-프레미스 데이터 센터에 있을 수 있습니다.
 
-### <a name="single-domain-controller-environments"></a>단일 도메인 컨트롤러 환경
+### <a name="single-domain-controller"></a>단일 도메인 컨트롤러
 약간의 응용 프로그램과 단일 도메인 컨트롤러가 있는 경우 전체 사이트를 함께 장애 조치(failover)할 수 있습니다. 이 경우 Site Recovery를 사용하여 도메인 컨트롤러를 대상 사이트(Azure 또는 보조 온-프레미스 데이터 센터)에 복제하는 것이 좋습니다. [테스트 장애 조치(failover)](#test-failover-considerations)에도 동일한 복제 도메인 컨트롤러 또는 DNS 가상 머신을 사용할 수 있습니다.
 
-### <a name="multiple-domain-controllers-environments"></a>여러 도메인 컨트롤러 환경
+### <a name="multiple-domain-controllers"></a>여러 도메인 컨트롤러
 환경에 많은 응용 프로그램과 둘 이상의 도메인 컨트롤러가 있거나 응용 프로그램 몇 개를 동시에 장애 조치(failover)하려는 경우 Site Recovery로 도메인 컨트롤러 가상 머신을 복제하는 동시에 대상 사이트(Azure 또는 보조 온-프레미스 데이터 센터)에 [추가 도메인 컨트롤러](#protect-active-directory-with-active-directory-replication)를 설정하는 것이 좋습니다. [테스트 장애 조치(failover)](#test-failover-considerations)의 경우 Site Recovery에서 복제한 도메인 컨트롤러를 사용할 수 있습니다. 장애 조치(failover)의 경우 대상 사이트의 추가 도메인 컨트롤러를 사용할 수 있습니다.
 
-## <a name="enable-protection-by-using-site-recovery"></a>Site Recovery를 사용하여 보호 사용
+## <a name="enable-protection-with-site-recovery"></a>Site Recovery를 사용하여 보호 사용
 
 Site Recovery를 사용하여 도메인 컨트롤러 또는 DNS를 호스트하는 가상 머신을 보호할 수 있습니다.
 
-### <a name="protect-the-virtual-machine"></a>가상 머신 보호
+### <a name="protect-the-vm"></a>VM 보호
 Site Recovery를 사용하여 복제된 도메인 컨트롤러는 [테스트 장애 조치(failover)](#test-failover-considerations)에 사용됩니다. 다음 요구 사항을 충족하는지 확인합니다.
 
 1. 도메인 컨트롤러가 글로벌 카탈로그 서버입니다.
 2. 도메인 컨트롤러는 테스트 장애 조치(failover)하는 동안 필요한 역할에 대한 FSMO 역할 소유자여야 합니다. 그렇지 않으면 이러한 역할은 장애 조치(failover) 후 [점유](http://aka.ms/ad_seize_fsmo)되어야 합니다.
 
-### <a name="configure-virtual-machine-network-settings"></a>가상 머신 네트워크 설정 구성
+### <a name="configure-vm-network-settings"></a>VM 네트워크 설정 구성
 도메인 컨트롤러 또는 DNS를 호스트하는 가상 머신의 경우 Site Recovery에서 복제된 가상 머신의 **계산 및 네트워크** 설정 아래에서 네트워크 설정을 구성합니다. 이렇게 하면 장애 조치(failover) 후 가상 머신이 올바른 네트워크에 연결됩니다.
 
-## <a name="protect-active-directory-with-active-directory-replication"></a>Active Directory 복제로 Active Directory 보호
+## <a name="protect-active-directory"></a>Active Directory 보호
+
 ### <a name="site-to-site-protection"></a>사이트-사이트 보호
 보조 사이트에 도메인 컨트롤러를 만듭니다. 서버를 도메인 컨트롤러 역할로 승격할 때 기본 사이트에 사용된 도메인과 동일한 이름을 지정합니다. **Active Directory 사이트 및 서비스** 스냅인을 사용하여 사이트가 추가된 사이트 링크 개체에서 설정을 구성할 수 있습니다. 사이트 링크에서 설정을 구성하면 둘 이상의 사이트에서 복제가 실행되는 시기와 빈도를 관리할 수 있습니다. 자세한 내용은 [사이트 간 복제 일정 예약](https://technet.microsoft.com/library/cc731862.aspx)을 참조하세요.
 
@@ -83,7 +80,7 @@ Site Recovery를 사용하여 복제된 도메인 컨트롤러는 [테스트 장
     ![Azure 테스트 네트워크](./media/site-recovery-active-directory/azure-test-network.png)
 
     > [!TIP]
-    > Site Recovery는 가상 머신의 **계산 및 네트워크** 설정에서 제공한 것과 동일한 IP 주소를 사용하여 동일한 이름의 서브넷에 테스트 가상 머신을 만들려고 시도합니다. 테스트 장애 조치(failover)에 제공된 Azure Virtual Network에서 이름이 동일한 서브넷을 사용할 수 없는 경우 사전순으로 첫 번째 서브넷에 테스트 가상 머신이 만들어집니다. 
+    > Site Recovery는 가상 머신의 **계산 및 네트워크** 설정에서 제공한 것과 동일한 IP 주소를 사용하여 동일한 이름의 서브넷에 테스트 가상 머신을 만들려고 시도합니다. 테스트 장애 조치(failover)에 제공된 Azure Virtual Network에서 이름이 동일한 서브넷을 사용할 수 없는 경우 사전순으로 첫 번째 서브넷에 테스트 가상 머신이 만들어집니다.
     >
     > 대상 IP 주소가 선택한 서브넷에 포함되는 경우 Site Recovery는 대상 IP 주소를 사용하여 테스트 장애 조치(failover) 가상 머신을 만들려고 시도합니다. 대상 IP가 선택한 서브넷에 포함되지 않는 경우 선택한 서브넷에서 다음으로 사용 가능한 IP를 사용하여 테스트 장애 조치(failover) 가상 머신이 만들어집니다.
     >
@@ -91,7 +88,7 @@ Site Recovery를 사용하여 복제된 도메인 컨트롤러는 [테스트 장
 
 ### <a name="test-failover-to-a-secondary-site"></a>보조 사이트에 테스트 장애 조치(failover)
 
-1. 다른 온-프레미스에 복제 중이고 DHCP를 사용하는 경우 지침에 따라 [테스트 장애 조치(failover)의 DNS 및 DHCP를 설정](site-recovery-test-failover-vmm-to-vmm.md#prepare-dhcp)합니다.
+1. 다른 온-프레미스에 복제 중이고 DHCP를 사용하는 경우 [테스트 장애 조치(failover)의 DNS 및 DHCP를 설정](hyper-v-vmm-test-failover.md#prepare-dhcp)합니다.
 2. 격리된 네트워크에서 실행하는 도메인 컨트롤러 가상 머신의 테스트 장애 조치(failover)를 수행합니다. 테스트 장애 조치(failover)를 수행하려면 도메인 컨트롤러 가상 머신에서 사용 가능한 최신 *응용 프로그램 일치* 복구 지점을 사용합니다.
 3. 응용 프로그램이 실행되는 가상 머신을 포함하고 있는 복구 계획에 대한 테스트 장애 조치(failover)를 실행합니다.
 4. 테스트를 완료한 후 도메인 컨트롤러 가상 머신에서 *테스트 장애 조치(failover)를 정리*합니다. 이 단계는 테스트 장애 조치(failover)에 대해 생성된 도메인 컨트롤러를 삭제합니다.
@@ -113,7 +110,7 @@ Windows Server 2012부터 [AD DS(Active Directory Domain Services)에 추가 세
 
 **VM-GenerationID**를 다시 설정할 때 AD DS 데이터베이스의 **InvocationID**도 다시 설정됩니다. 또한 RID 풀이 삭제되고 SYSVOL이 신뢰할 수 없음으로 표시됩니다. 자세한 내용은 [Active Directory Domain Services 가상화 소개](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100) 및 [안전하게 DFSR 가상화](https://blogs.technet.microsoft.com/filecab/2013/04/05/safely-virtualizing-dfsr/)를 참조하세요.
 
-Azure로 장애 조치(failover)를 수행하면 **VM-GenerationID**가 다시 설정될 수 있습니다. **VM-GenerationID**가 다시 설정되면 Azure에서 도메인 컨트롤러 가상 머신이 시작될 때 추가 세이프가드를 트리거합니다. 이로 인해 사용자가 도메인 컨트롤러 가상 머신에 로그인할 수 있게 될 때까지 걸리는 시간이 *심각하게 지연*될 수 있습니다. 
+Azure로 장애 조치(failover)를 수행하면 **VM-GenerationID**가 다시 설정될 수 있습니다. **VM-GenerationID**가 다시 설정되면 Azure에서 도메인 컨트롤러 가상 머신이 시작될 때 추가 세이프가드를 트리거합니다. 이로 인해 사용자가 도메인 컨트롤러 가상 머신에 로그인할 수 있게 될 때까지 걸리는 시간이 *심각하게 지연*될 수 있습니다.
 
 이 도메인 컨트롤러는 테스트 장애 조치(failover)에만 사용되므로 가상화 세이프가드가 필요하지 않습니다. 도메인 컨트롤러 가상 머신의 **VM-GenerationID** 값이 변경되지 않도록 하려면 온-프레미스 도메인 컨트롤러에서 다음 DWORD의 값을 **4**로 변경하면 됩니다.
 
@@ -168,20 +165,20 @@ Azure로 장애 조치(failover)를 수행하면 **VM-GenerationID**가 다시 �
 위의 조건이 충족되면 도메인 컨트롤러가 제대로 작동하는 것으로 볼 수 있습니다. 그렇지 않은 경우 다음 단계를 완료합니다.
 
 1. 도메인 컨트롤러의 정식 복원을 수행합니다. 다음 정보를 숙지하세요.
-    * [FRS 복제](https://blogs.technet.microsoft.com/filecab/2014/06/25/the-end-is-nigh-for-frs/)를 권장하지는 않지만 사용 중이라면 신뢰할 수 있는 복원 단계를 수행합니다. 프로세스는 [BurFlags 레지스트리 키를 사용하여 파일 복제 서비스 다시 초기화](https://support.microsoft.com/kb/290762)에 설명되어 있습니다. 
-    
+    * [FRS 복제](https://blogs.technet.microsoft.com/filecab/2014/06/25/the-end-is-nigh-for-frs/)를 권장하지는 않지만 사용 중이라면 신뢰할 수 있는 복원 단계를 수행합니다. 프로세스는 [BurFlags 레지스트리 키를 사용하여 파일 복제 서비스 다시 초기화](https://support.microsoft.com/kb/290762)에 설명되어 있습니다.
+
         BurFlags에 대한 자세한 내용은 블로그 게시물 [D2 and D4: What is it for?](https://blogs.technet.microsoft.com/janelewis/2006/09/18/d2-and-d4-what-is-it-for/)(D2 및 D4의 용도)를 참조하세요.
-    * DFSR 복제를 사용하는 경우 신뢰할 수 있는 복원 단계를 완료합니다. 프로세스는 [DFSR 복제 SYSVOL(예: FRS용 "D4/D2")의 신뢰할 수 있는 동기화 및 신뢰할 수 없는 동기화 강제 실행](https://support.microsoft.com/kb/2218556)에 설명되어 있습니다. 
-    
+    * DFSR 복제를 사용하는 경우 신뢰할 수 있는 복원 단계를 완료합니다. 프로세스는 [DFSR 복제 SYSVOL(예: FRS용 "D4/D2")의 신뢰할 수 있는 동기화 및 신뢰할 수 없는 동기화 강제 실행](https://support.microsoft.com/kb/2218556)에 설명되어 있습니다.
+
         Powershell 함수를 사용할 수도 있습니다. 자세한 내용은 [DFSR-SYSVOL authoritative/non-authoritative restore PowerShell functions](https://blogs.technet.microsoft.com/thbouche/2013/08/28/dfsr-sysvol-authoritative-non-authoritative-restore-powershell-functions/)(DFSR SYSVOL 신뢰할 수 있는/신뢰할 수 없는 복원 PowerShell 함수)를 참조하세요.
 
-2. 온-프레미스 도메인 컨트롤러에서 다음 레지스트리 키를 **0**으로 설정하여 초기 동기화 요구 사항을 바이패스합니다. DWORD가 없으면 **매개 변수** 노드에서 만들 수 있습니다. 
+2. 온-프레미스 도메인 컨트롤러에서 다음 레지스트리 키를 **0**으로 설정하여 초기 동기화 요구 사항을 바이패스합니다. DWORD가 없으면 **매개 변수** 노드에서 만들 수 있습니다.
 
     `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\NTDS\Parameters\Repl Perform Initial Synchronizations`
 
     자세한 내용은 [DNS 이벤트 ID 4013 문제 해결: DNS 서버가 AD 통합 DNS 영역을 로드할 수 없습니다](https://support.microsoft.com/kb/2001093)를 참조하세요.
 
-3. 글로벌 카탈로그 서버를 사용하여 사용자 로그온을 확인해야 한다는 요구 사항을 해제합니다. 이 작업을 수행하려면 온-프레미스 도메인 컨트롤러에서 다음 레지스트리 키를 **1**로 설정합니다. DWORD가 없으면 **Lsa** 노드에서 만들 수 있습니다. 
+3. 글로벌 카탈로그 서버를 사용하여 사용자 로그온을 확인해야 한다는 요구 사항을 해제합니다. 이 작업을 수행하려면 온-프레미스 도메인 컨트롤러에서 다음 레지스트리 키를 **1**로 설정합니다. DWORD가 없으면 **Lsa** 노드에서 만들 수 있습니다.
 
     `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa\IgnoreGCFailures`
 

@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 11/21/2017
+ms.date: 02/22/2018
 ms.author: sutalasi
-ms.openlocfilehash: a5d0eb5b8cd5ba49a602d7000291270af31fb222
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 0a567f31bf1991d4c2a95468d2abc31c51a878f3
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="manage-replication-policy-for-vmware-to-azure"></a>Azure에 대한 VMware의 복제 정책 관리
 
@@ -66,7 +66,7 @@ ms.lasthandoff: 11/22/2017
 ![복제 정책 설정 편집](./media/site-recovery-setup-replication-settings-vmware/Edit-Policy.png)
 
 3. 필요에 따라 설정을 변경합니다.
-4. **Save**를 클릭합니다. 정책은 해당 복제 정책을 사용하는 VM 개수에 따라 2~5분 내에 저장해야 합니다.
+4. **저장**을 클릭합니다. 정책은 해당 복제 정책을 사용하는 VM 개수에 따라 2~5분 내에 저장해야 합니다.
 
 ![복제 정책 저장](./media/site-recovery-setup-replication-settings-vmware/Save-Policy.png)
 

@@ -1,3 +1,5 @@
+# [ExpressRoute 설명서](index.md)
+
 # 개요
 ## [ExpressRoute란?](expressroute-introduction.md)
 ## [ExpressRoute FAQ](expressroute-faqs.md)
@@ -64,24 +66,24 @@
 ### [ARP 테이블 받기](expressroute-troubleshooting-arp-resource-manager.md)
 ### [ARP 테이블(클래식) 받기](expressroute-troubleshooting-arp-classic.md)
 
-# 참조
+# 참고 자료
 ## [Azure PowerShell](/powershell/module/azurerm.network/?view=azurermps-4.0.0#expressroute)
 ## [Azure CLI](/cli/azure/network/express-route)
-## [REST (영문)](https://msdn.microsoft.com/library/azure/mt586720)
+## [REST](https://msdn.microsoft.com/library/azure/mt586720)
 ## [REST(클래식)](https://msdn.microsoft.com/library/azure/dn606310)
 
 # 관련 항목
 ## [Virtual Network](/azure/virtual-network/)
 ## [VPN Gateway](/azure/vpn-gateway/)
 ## [Virtual Machines](/azure/virtual-machines/)
-## [부하 분산 장치](/azure/load-balancer/)
+## [Load Balancer](/azure/load-balancer/)
 ## [Traffic Manager](/azure/traffic-manager/)
 
 # 리소스
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=networking)
 ## [사례 연구](https://customers.microsoft.com/Pages/advancedsearch.aspx?mrmcproducts=More%20Products)
 ## [네트워킹 블로그](https://azure.microsoft.com/blog/topics/networking/)
-## [가격](https://azure.microsoft.com/pricing/details/expressroute/)
+## [가격 책정](https://azure.microsoft.com/pricing/details/expressroute/)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=expressroute)
 ## [SLA](https://azure.microsoft.com/support/legal/sla/)

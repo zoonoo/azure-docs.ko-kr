@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/17/2017
+ms.date: 2/14/2018
 ms.author: robb
-ms.openlocfilehash: 36836a4528c8ba04eee1c5234fd6d4e0f9545913
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 3479b9c5bc1c8c77d2c6012b40dc9cd8f8e1708b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Azure Monitor PowerShell 빠른 시작 샘플
-이 문서에서는 Azure Monitor 기능에 액세스할 수 있는 샘플 PowerShell 명령을 보여 줍니다. Azure Monitor에서 Cloud Services, Virtual Machines 및 Web Apps의 크기를 자동으로 조정할 수 있습니다. 또한 구성된 원격 분석 데이터 값을 기준으로 경고 알림을 보내거나 웹 URL을 호출할 수 있습니다.
+이 문서에서는 Azure Monitor 기능에 액세스할 수 있는 샘플 PowerShell 명령을 보여 줍니다.
 
 > [!NOTE]
 > Azure Monitor는 2016년 9월 25일까지는 "Azure Insights"로 지칭했던 제품의 새로운 이름입니다. 하지만 네임스페이스와 다음 명령에서는 단어 "insights"를 계속 포함합니다.
@@ -145,9 +145,9 @@ Get-AzureRmAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/
 
 다음은 메트릭을 사용하여 경고를 만드는 데 사용되는 매개 변수 및 값을 설명하는 테이블입니다.
 
-| 매개 변수 | value |
+| 매개 변수 | 값 |
 | --- | --- |
-| 이름 |simpletestdiskwrite |
+| Name |simpletestdiskwrite |
 | 이 경고 규칙의 위치 |미국 동부 |
 | ResourceGroup |montest |
 | TargetResourceId |/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |
@@ -200,8 +200,24 @@ Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property N
 
 `Get-AzureRmMetricDefinition` 에 사용 가능한 옵션 전체 목록은 [Get-MetricDefinitions](https://msdn.microsoft.com/library/mt282458.aspx)에 있습니다.
 
+## <a name="create-and-manage-activity-log-alerts"></a>활동 로그 경고 만들기 및 관리
+`Set-AzureRmActivityLogAlert` cmdlet을 사용하여 활동 로그 경로를 설정할 수 있습니다. 활동 로그 경고는 먼저 조건 사전으로 조건을 정의한 다음, 이러한 조건을 사용하는 경로를 만들어야 합니다.
+
+```PowerShell
+
+$condition1 = New-AzureRmActivityLogAlertCondition -Field 'category' -Equals 'Administrative'
+$condition2 = New-AzureRmActivityLogAlertCondition -Field 'operationName' -Equals 'Microsoft.Compute/virtualMachines/write'
+$additionalWebhookProperties = New-Object "System.Collections.Generic.Dictionary``2[System.String,System.String]"
+$additionalWebhookProperties.Add('customProperty', 'someValue')
+$actionGrp1 = New-AzureRmActionGroup -ActionGroupId 'actiongr1' -WebhookProperties $dict
+Set-AzureRmActivityLogAlert -Location 'Global' -Name 'alert on VM create' -ResourceGroupName 'myResourceGroup' -Scope '/' -Action $actionGrp1 -Condition $condition1, $condition2
+
+```
+
+추가적인 웹후크 속성은 선택 사항입니다. `Get-AzureRmActivityLogAlert`를 사용하여 활동 로그 경고의 콘텐츠를 다시 가져올 수 있습니다.
+
 ## <a name="create-and-manage-autoscale-settings"></a>자동 크기 조정 설정 및 관리
-웹앱, VM, 클라우드 서비스 또는 가상 컴퓨터 확장 집합 같은 리소스는 자동 크기 조정 설정을 하나만 구성할 수 있습니다.
+웹앱, VM, 클라우드 서비스 또는 Virtual Machine Scale Set 같은 리소스는 자동 크기 조정 설정을 하나만 구성할 수 있습니다.
 그러나 각 자동 크기 조정 설정이 여러 개의 프로필을 가질 수 있습니다. 예를 들어 하나는 성능 기반 규모 프로필이고, 다른 하나는 일정 기반 프로필일 수 있습니다. 각 프로필에 여러 규칙을 구성할 수 있습니다. 자동 크기 조정에 대한 자세한 내용은 [응용 프로그램의 크기 자동 조정 방법](../cloud-services/cloud-services-how-to-scale-portal.md)을 참조하세요.
 
 사용할 단계는 다음과 같습니다.
@@ -211,7 +227,7 @@ Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property N
 3. 선택 사항: webhook 및 전자 메일 속성을 구성하여 자동 크기 조정에 대한 알림을 만듭니다.
 4. 이전 단계에서 만든 프로필과 알림을 매핑하여 대상 리소스에 대한 자동 크기 조정 설정과 이름을 만듭니다.
 
-다음은 CPU 사용률 메트릭을 사용하여 Windows 운영 체제 기반 가상 컴퓨터 확장 집합에 대한 자동 크기 조정 설정을 만드는 방법을 보여 주는 예입니다.
+다음은 CPU 사용률 메트릭을 사용하여 Windows 운영 체제 기반 Virtual Machine Scale Set에 대한 자동 크기 조정 설정을 만드는 방법을 보여 주는 예입니다.
 
 먼저, 인스턴스 수가 증가하는 규모 확장 규칙을 만듭니다.
 

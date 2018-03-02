@@ -13,14 +13,14 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/05/2017
+ms.date: 02/27/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 19ab428913517e4f3df156c93782fe23f1cd67ec
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 6abdb15917508152529990c434eb48a9983b9432
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 02/28/2018
 ---
 #<a name="get-started-with-apache-storm-on-hdinsight-using-the-storm-starter-examples"></a>storm-starter 예제를 사용하여 HDInsight의 Apache Storm 시작
 
@@ -35,7 +35,7 @@ Apache Storm은 데이터 스트림 처리용 확장 가능한 분산형 실시�
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
-* **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
+* **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
 
 * **SSH 및 SCP 사용 경험**. 자세한 내용은 [HDInsight와 함께 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
@@ -43,7 +43,7 @@ Apache Storm은 데이터 스트림 처리용 확장 가능한 분산형 실시�
 
 다음 단계를 사용하여 HDInsight 클러스터에 Storm을 만듭니다.
 
-1. [Azure Portal](https://portal.azure.com)에서 **+ 새로 만들기**, **데이터 + 분석**, **HDInsight**를 차례로 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에서 **+ 리소스 만들기**, **데이터 + 분석**, **HDInsight**를 차례로 선택합니다.
 
     ![HDInsight 클러스터 만들기](./media/apache-storm-tutorial-get-started-linux/create-hdinsight.png)
 
@@ -65,8 +65,6 @@ Apache Storm은 데이터 스트림 처리용 확장 가능한 분산형 실시�
     * **운영 체제**: Linux
 
     * **버전**: Storm 1.1.0(HDI 3.6)
-
-    * **클러스터 계층**: 표준
 
    마지막으로 **선택** 단추를 사용하여 이러한 설정을 저장합니다.
 
@@ -95,7 +93,7 @@ Apache Storm은 데이터 스트림 처리용 확장 가능한 분산형 실시�
     > SSH 클라이언트에서 호스트의 신뢰성을 설정할 수 없다고 표시될 수도 있습니다. 그럴 경우 `yes`를 입력하여 계속합니다.
 
     > [!NOTE]
-    > SSH 사용자 계정을 보호하는 암호를 사용한 경우 암호를 묻는 메시지가 나타납니다. 공개 키를 사용하는 경우, `-i` 매개 변수를 사용하여 일치하는 개인 키를 지정해야 할 수 있습니다. 예: `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`.
+    > SSH 사용자 계정을 보호하는 암호를 사용한 경우 암호를 묻는 메시지가 나타납니다. 공개 키를 사용하는 경우, `-i` 매개 변수를 사용하여 일치하는 개인 키를 지정해야 할 수 있습니다. 예: `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`
 
     자세한 내용은 [HDInsight와 함께 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 

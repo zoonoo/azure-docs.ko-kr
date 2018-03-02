@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/27/2018
+ms.date: 02/27/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: bfc55a305fd0099af5cc2bb394420e547d2703bc
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: c82ee87b341de4e85e2eab566f7a3c6fcffdace1
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure 스택 사용할 수 있는 azure 마켓플레이스 항목
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 02/21/2018
 
 
 ## <a name="virtual-machine-extensions"></a>가상 머신 확장
-필요한 VM 확장에 대 한 업데이트가 있을 때마다 다운로드 하는 것이 좋습니다. 제품에서 제공 하는 확장 프로그램 일반 패치 및 업데이트 프로세스;에서 업데이트 되지 않습니다. 하십시오 업데이트에 대 한 자주 확인 합니다. 다른 확장 에게만 마켓플레이스 관리를 통해 제공 됩니다.
+가상 컴퓨터 (VM) 확장 사용에 대 한 업데이트 있을 때마다 해당를 다운로드 합니다. 일반적인 패치 및 업데이트 프로세스;의 제품에서 제공 하는 확장을 업데이트 하지 않으면 따라서 업데이트에 대 한 자주 확인 합니다. 다른 확장 에게만 마켓플레이스 관리를 통해 제공 됩니다.
 
 |  | 항목 이름 | 설명 | 게시자 | OS 종류 |
 | --- | --- | --- | --- | --- |
@@ -42,7 +42,7 @@ ms.lasthandoff: 02/21/2018
 
 ## <a name="microsoft-virtual-machine-images-and-solution-templates"></a>Microsoft 가상 컴퓨터 이미지 및 솔루션 템플릿
 
-Microsoft Azure 스택 솔루션 템플릿과 다음 Azure 마켓플레이스 가상 컴퓨터를 지원합니다. 모든 종속 관계를 명시 된 대로 별도로 다운로드 하십시오. SQL Server 컴퓨터 학습 서버 등 응용 프로그램 무료 또는 평가판으로 표시 하는 경우를 제외 하 고 적절 한 라이선스 필요 합니다.
+Microsoft Azure 스택 솔루션 템플릿과 다음 Azure 마켓플레이스 가상 컴퓨터를 지원합니다. 별도로 언급 했 듯이 종속성을 다운로드 합니다. SQL Server 컴퓨터 학습 서버 등 응용 프로그램 무료 또는 평가판으로 표시 하는 경우를 제외 하 고 적절 한 라이선스 필요 합니다.
 
 |  | 항목 이름 | 설명 | 게시자 |
 | --- | --- | --- | --- |
@@ -71,9 +71,9 @@ Microsoft Azure 스택 솔루션 템플릿과 다음 Azure 마켓플레이스 �
 | ![](media/azure-stack-marketplace-azure-items/sql.png) | [SUSE Linux Enterprise Server 12 (SLES)의 SQL Server 2017 Express s p 2](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeSQLServerLicenseSQLServer2017ExpressonSLES12SP2) | Express 버전을 SQL Server 2016 s p 1의 무료입니다. | Microsoft + SUSE |
 | ![](media/azure-stack-marketplace-azure-items/sql.png) | [SUSE Linux Enterprise Server 12 (SLES)에서 SQL Server 2017 Enterprise SP2](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.Microsoft.SQLServer2017EnterpriseonSLES12SP2) | 지능적이 고 중요 한 응용 프로그램에 대 한 데이터베이스 플랫폼입니다. | Microsoft + SUSE |
 | ![](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2017 웹 SUSE Linux Enterprise Server (SLES)를에 12 SP2](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.Microsoft.SQLServer2017WebonSLES12SP2) | 지능적이 고 중요 한 응용 프로그램에 대 한 데이터베이스 플랫폼입니다. | Microsoft + SUSE |
-| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Windows Server 2016에서 9.2.1 서버 학습 Microsoft 컴퓨터 ](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onWindowsServer2016) | Microsoft 기계 9.2.1 Windows Server 2016에서 서버를 학습 합니다. | Microsoft |
-| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft 기계 16.04 ubuntu Server 9.2.1 학습 ](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onUbuntu1604) | Microsoft 기계 16.04 ubuntu Server 9.2.1를 학습 합니다. | Microsoft + Canonical |
-| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft 기계 CentOS linux 7.2 9.2.1 서버 학습 ](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onCentOSLinux72) | Microsoft 기계 CentOS linux 7.2 9.2.1 서버를 학습 합니다. | Microsoft + Rogue Wave |
+| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Windows Server 2016에서 9.3.0 서버 학습 Microsoft 컴퓨터 ](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer930onWindowsServer2016) | Microsoft 기계 9.3.0 Windows Server 2016에서 서버를 학습 합니다. | Microsoft |
+| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft 기계 16.04 ubuntu Server 9.3.0 학습 ](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer930onUbuntu1604) | Microsoft 기계 16.04 ubuntu Server 9.3.0를 학습 합니다. | Microsoft + Canonical |
+| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft 기계 CentOS linux 7.2 9.3.0 서버 학습 ](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer930onCentOSLinux72) | Microsoft 기계 CentOS linux 7.2 9.3.0 서버를 학습 합니다. | Microsoft + Rogue Wave |
 
 
 ## <a name="linux-distributions"></a>Linux 배포

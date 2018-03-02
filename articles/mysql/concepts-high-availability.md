@@ -1,19 +1,19 @@
 ---
-title: "Azure Database for MySQL의 고가용성 개념 | Microsoft Docs"
+title: "Azure Database for MySQL의 고가용성 개념"
 description: "이 항목에서는 Azure Database for MySQL을 사용하는 경우 고가용성에 대한 정보를 제공합니다."
 services: mysql
 author: jasonwhowell
 ms.author: jasonh
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 10/31/2017
-ms.openlocfilehash: 5b63a1ac666a14354b5b93f22722b624244a7aa2
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.date: 02/28/2018
+ms.openlocfilehash: 58f10f0a0938da5887d44959f65b9016dfa88f2c
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="high-availability-concepts-in-azure-database-for-mysql"></a>Azure Database for MySQL의 고가용성 개념
 Azure Database for MySQL 서비스는 높은 수준의 가용성을 보장합니다. 재정적으로 지원되는 SLA(서비스 수준 계약)는 일반 공급 시 99.99%입니다. 이 서비스를 사용할 때는 응용 프로그램 작동 중단 시간이 거의 없습니다.

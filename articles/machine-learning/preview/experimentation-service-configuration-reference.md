@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: 16c72f8c22307a124fdb670aabca771084c0d1ec
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: aaa9705aed59b5cf78100eda9997bb1ca74845b9
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="azure-machine-learning-experimentation-service-configuration-files"></a>Azure Machine Learning 실험 서비스 구성 파일
 
@@ -135,9 +135,9 @@ _\<compute target name>.compute_ 파일은 계산 대상에 대한 연결 및 �
 
 **baseDockerImage**: Python/PySpark 스크립트를 실행하는 데 사용하는 Docker 이미지입니다. 기본값은 _microsoft/mmlspark:plus-0.7.91_입니다. 또한 다른 이미지 한 개, _microsoft/mmlspark:plus-gpu-0.7.91_도 지원하며, 이는 호스트 컴퓨터에 대한 GPU 액세스 권한을 부여합니다(GPU가 존재하는 경우).
 
-**address**: 가상 컴퓨터 또는 HDInsight 클러스터 헤드-노드의 IP 주소 또는 FQDN(정규화된 도메인 이름)입니다.
+**address**: 가상 머신 또는 HDInsight 클러스터 헤드-노드의 IP 주소 또는 FQDN(정규화된 도메인 이름)입니다.
 
-**username**: 가상 컴퓨터 또는 HDInsight 헤드-노드에 액세스하기 위한 SSH 사용자 이름입니다.
+**username**: 가상 머신 또는 HDInsight 헤드-노드에 액세스하기 위한 SSH 사용자 이름입니다.
 
 **password**: SSH 연결을 위해 암호화된 암호입니다.
 
@@ -166,8 +166,8 @@ _"az ml experiment submit foo.runconfig"_는 234를 매개 변수로 전달하�
 **Environment Variables**: 이 섹션을 통해 사용자는 실행의 일부로 환경 변수를 설정할 수 있습니다. 사용자는 다음과 같은 형식의 이름-값 쌍을 사용하여 환경 변수를 지정할 수 있습니다.
 ```
 EnvironmentVariables:
-"EXAMPLE_ENV_VAR1": "Example Value1"
-"EXAMPLE_ENV_VAR2": "Example Value2"
+  "EXAMPLE_ENV_VAR1": "Example Value1"
+  "EXAMPLE_ENV_VAR2": "Example Value2"
 ```
 
 이러한 환경 변수는 사용자의 코드에서 액세스할 수 있습니다. 예를 들어 이 Phyton 코드는 "EXAMPLE_ENV_VAR"이라는 환경 변수를 인쇄함

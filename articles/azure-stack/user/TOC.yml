@@ -43,6 +43,8 @@
               href: azure-stack-compute-overview.md
             - name: VM 고려 사항
               href: azure-stack-vm-considerations.md
+            - name: VM 크기
+              href: azure-stack-vm-sizes.md
             - name: VM 디스크 관리
               href: azure-stack-manage-vm-disks.md
         - name: Storage

@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 12/19/2017
 ms.author: rajanaki
 ms.openlocfilehash: d487c1fcf7fb6444c2b8489df839a6450715ae0a
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="troubleshoot-errors-reported-during-the-process-of-failback"></a>장애 복구(failback) 프로세스 중에 보고된 오류 문제 해결
 장애 복구(failback)는 기본적으로 두 가지 기본 단계로 이루어집니다. 첫 번째 단계는 Azure에서 온-프레미스로 가상 머신을 다시 보호하는 것이고, 두 번째 단계는 실제로 Azure에서 온-프레미스로 장애 복구(failback)를 수행하는 것입니다.
