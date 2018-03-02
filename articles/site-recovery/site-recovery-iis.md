@@ -21,12 +21,20 @@ ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/24/2018
 =======
+<<<<<<< HEAD
+ms.openlocfilehash: a4a8ea14fecac73b187c9c7d3f9ca318bb2671c5
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 02/24/2018
+=======
 ms.openlocfilehash: 7ed7df2451a44075a79f514cf67efbf479a2ebb1
 ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/21/2018
 >>>>>>> 7196ad4b591814cf1c0508654853923113e15630
+>>>>>>> 15974768a2bd707a34dd250123b4408c560ed18c
 ---
 # <a name="replicate-a-multi-tier-iis-based-web-application-by-using-site-recovery"></a>Site Recovery를 사용하여 다중 계층 IIS 기반 웹 응용 프로그램 복제
 
@@ -50,6 +58,14 @@ ms.lasthandoff: 02/21/2018
 * [Azure로 테스트 장애 조치(failover) 수행](site-recovery-test-failover-to-azure.md)
 * [Azure로 장애 조치(failover) 수행](site-recovery-failover.md)
 =======
+<<<<<<< HEAD
+시작하기 전에 다음 작업을 수행하는 방법을 알고 있어야 합니다.
+
+* [Azure에 가상 머신 복제](site-recovery-vmware-to-azure.md)
+* [복구 네트워크 디자인](site-recovery-network-design.md)
+* [Azure로 테스트 장애 조치(failover) 수행](site-recovery-test-failover-to-azure.md)
+* [Azure로 장애 조치(failover) 수행](site-recovery-failover.md)
+=======
 시작하기 전에 다음 작업을 수행하는 방법을 알고 있는지 확인합니다.
 
 * [Azure에 가상 머신 복제](site-recovery-vmware-to-azure.md)
@@ -57,6 +73,7 @@ ms.lasthandoff: 02/21/2018
 * [Azure로 테스트 장애 조치 수행](site-recovery-test-failover-to-azure.md)
 * [Azure로 장애 조치 수행](site-recovery-failover.md)
 >>>>>>> 7196ad4b591814cf1c0508654853923113e15630
+>>>>>>> 15974768a2bd707a34dd250123b4408c560ed18c
 * [도메인 컨트롤러 복제](site-recovery-active-directory.md)
 * [SQL Server 복제](site-recovery-sql.md)
 
@@ -100,8 +117,12 @@ Azure|해당 없음|예
 <<<<<<< HEAD
 복구 계획은 장애 조치(failover) 시에 다중 계층 응용 프로그램에서 여러 계층의 시퀀싱을 지원합니다. 시퀀싱은 응용 프로그램의 일관성을 유지하는 데 도움이 됩니다. 다중 계층 웹 응용 프로그램에 대한 복구 계획을 만드는 경우 [Site Recovery를 사용하여 복구 계획 만들기](site-recovery-create-recovery-plans.md)에서 설명한 단계를 수행합니다.
 =======
+<<<<<<< HEAD
+복구 계획은 장애 조치(failover) 시에 다중 계층 응용 프로그램에서 여러 계층의 시퀀싱을 지원합니다. 시퀀싱은 응용 프로그램의 일관성을 유지하는 데 도움이 됩니다. 다중 계층 웹 응용 프로그램에 대한 복구 계획을 만드는 경우 [Site Recovery를 사용하여 복구 계획 만들기](site-recovery-create-recovery-plans.md)에서 설명한 단계를 수행합니다.
+=======
 복구 계획은 장애 조치 중에 다중 계층 응용 프로그램에서 다양한 계층의 시퀀싱을 지원합니다. 시퀀싱은 응용 프로그램의 일관성을 유지하는 데 도움이 됩니다. 다중 계층 웹 응용 프로그램에 대한 복구 계획을 만드는 경우 [Site Recovery를 사용하여 복구 계획 만들기](site-recovery-create-recovery-plans.md)에서 설명한 단계를 수행합니다.
 >>>>>>> 7196ad4b591814cf1c0508654853923113e15630
+>>>>>>> 15974768a2bd707a34dd250123b4408c560ed18c
 
 ### <a name="add-virtual-machines-to-failover-groups"></a>장애 조치 그룹에 가상 머신 추가
 일반적인 다중 계층 IIS 웹 응용 프로그램을 구성하는 요소는 다음과 같습니다.
@@ -177,12 +198,20 @@ SSL 인증서가 발급될 수 있는 구성 요소는 다음과 같습니다.
 
 자세한 내용은 [Site Recovery에서 Azure로 테스트 장애 조치(failover)](site-recovery-test-failover-to-azure.md)를 참조하세요.
 =======
+<<<<<<< HEAD
+4. 테스트 장애 조치(failover) 프로세스를 시작하려면 복구 지점과 Azure 가상 네트워크를 선택합니다.
+5. 보조 환경이 가동 중인 경우 유효성 검사를 수행할 수 있습니다.
+6. 유효성 검사가 완료되면 테스트 장애 조치 환경을 정리하기 위해 **유효성 검사 완료**를 선택합니다.
+
+자세한 내용은 [Site Recovery에서 Azure로 테스트 장애 조치(failover)](site-recovery-test-failover-to-azure.md)를 참조하세요.
+=======
 4. 테스트 장애 조치 프로세스를 시작하려면 복구 지점 및 Azure 가상 네트워크를 선택합니다.
 5. 보조 환경이 가동 중인 경우 유효성 검사를 수행할 수 있습니다.
 6. 유효성 검사가 완료되면 테스트 장애 조치 환경을 정리하기 위해 **유효성 검사 완료**를 선택합니다.
 
 자세한 내용은 [Site Recovery에서 Azure에 테스트 장애 조치](site-recovery-test-failover-to-azure.md) 문서를 참조하세요.
 >>>>>>> 7196ad4b591814cf1c0508654853923113e15630
+>>>>>>> 15974768a2bd707a34dd250123b4408c560ed18c
 
 ## <a name="run-a-failover"></a>장애 조치(Failover) 실행
 
@@ -194,10 +223,16 @@ SSL 인증서가 발급될 수 있는 구성 요소는 다음과 같습니다.
 
 자세한 내용은 [Site Recovery에서 장애 조치(failover)](site-recovery-failover.md)를 참조하세요.
 =======
+<<<<<<< HEAD
+1. 복구 지점을 선택하여 장애 조치(failover) 프로세스를 시작합니다.
+
+자세한 내용은 [Site Recovery에서 장애 조치(failover)](site-recovery-failover.md)를 참조하세요.
+=======
 1. 장애 조치 프로세스를 시작하려면 복구 지점을 선택합니다.
 
 자세한 내용은 [Site Recovery에서 장애 조치](site-recovery-failover.md)를 참조하세요.
 >>>>>>> 7196ad4b591814cf1c0508654853923113e15630
+>>>>>>> 15974768a2bd707a34dd250123b4408c560ed18c
 
 ## <a name="next-steps"></a>다음 단계
 * Site Recovery를 사용하여 [다른 응용 프로그램을 복제](site-recovery-workload.md)하는 방법에 대해 자세히 알아봅니다.

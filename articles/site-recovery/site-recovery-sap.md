@@ -21,12 +21,20 @@ ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/28/2018
 =======
+<<<<<<< HEAD
+ms.openlocfilehash: b6ab734186f23d51d60e51bd0946329d5209097b
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 02/28/2018
+=======
 ms.openlocfilehash: 1ee472498bdefc4eeb9863670e5480326b5ba6d8
 ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/22/2018
 >>>>>>> 7196ad4b591814cf1c0508654853923113e15630
+>>>>>>> 15974768a2bd707a34dd250123b4408c560ed18c
 ---
 # <a name="protect-a-multi-tier-sap-netweaver-application-deployment-by-using-site-recovery"></a>Site Recovery를 사용하여 다중 계층 SAP NetWeaver 응용 프로그램 배포 보호
 

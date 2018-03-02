@@ -16,6 +16,14 @@ ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/28/2018
 =======
+<<<<<<< HEAD
+ms.date: 02/28/2018
+ms.openlocfilehash: a1ebbc088b54112ed625412a347b054fd3361782
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 02/28/2018
+=======
 ms.date: 02/12/2018
 ms.openlocfilehash: 5afe3fc2d39c6ab0996b1ee68a4158ccacc7e86a
 ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
@@ -23,6 +31,7 @@ ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/14/2018
 >>>>>>> 7196ad4b591814cf1c0508654853923113e15630
+>>>>>>> 15974768a2bd707a34dd250123b4408c560ed18c
 ---
 # <a name="azure-database-for-mysql-server-firewall-rules"></a>MySQL용 Azure 데이터베이스 서버 방화벽 규칙
 방화벽은 권한이 있는 컴퓨터를 지정할 때까지 데이터베이스 서버에 대한 모든 액세스를 금지합니다. 방화벽은 각 요청이 시작된 IP 주소의 서버에 대한 액세스를 허용합니다.

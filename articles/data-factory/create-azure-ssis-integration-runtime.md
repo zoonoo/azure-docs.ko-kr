@@ -20,6 +20,14 @@ ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/28/2018
 =======
+<<<<<<< HEAD
+ms.author: douglasl
+ms.openlocfilehash: 879489dffbf713b5fadb72a58638e462938aaf26
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 02/28/2018
+=======
 ms.author: spelluru
 ms.openlocfilehash: f3616214dc63716a382b4374ff82bec33e876177
 ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
@@ -27,6 +35,7 @@ ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/21/2018
 >>>>>>> 7196ad4b591814cf1c0508654853923113e15630
+>>>>>>> 15974768a2bd707a34dd250123b4408c560ed18c
 ---
 # <a name="create-an-azure-ssis-integration-runtime-in-azure-data-factory"></a>Azure Data Factory에서 Azure Integration Runtime 만들기 | Microsoft Docs
 이 문서에서는 Azure Data Factory에서 Azure-SSIS 통합 런타임을 프로비전하는 단계를 제공합니다. 그런 다음 SSDT(SQL Server Data Tools) 또는 SSMS(SQL Server Management Studio)를 사용하여 Azure에서 이 런타임에 SSIS(SQL Server Integration Services) 패키지를 배포할 수 있습니다.
@@ -67,8 +76,12 @@ Azure-SSIS IR의 인스턴스를 프로비전하는 경우 Azure Feature Pack fo
 <<<<<<< HEAD
 > - 미국 동부, 미국 동부 2, 미국 중부, 북유럽, 유럽 서부 및 오스트레일리아 동부 등에서 Azure SSIS IR를 만들 수 있습니다.
 =======
+<<<<<<< HEAD
+> - 미국 동부, 미국 동부 2, 미국 중부, 북유럽, 유럽 서부 및 오스트레일리아 동부 등에서 Azure SSIS IR를 만들 수 있습니다.
+=======
 > - 미국 동부, 미국 동부 2, 미국 중부, 유럽 북부, 유럽 서부 및 호주 동부 등에서 Azure SSIS IR를 만들 수 있습니다.
 >>>>>>> 7196ad4b591814cf1c0508654853923113e15630
+>>>>>>> 15974768a2bd707a34dd250123b4408c560ed18c
 
 ## <a name="azure-portal"></a>Azure portal
 이 섹션에서는 Azure Portal, 특히 Data Factory UI를 사용하여 Azure-SSIS IR을 만듭니다. 
