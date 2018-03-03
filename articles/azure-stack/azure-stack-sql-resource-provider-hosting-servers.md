@@ -3,21 +3,21 @@ title: "SQL 호스팅 서버에 Azure 스택 | Microsoft Docs"
 description: "SQL 어댑터 리소스 공급자를 통해 프로 비전에 대 한 SQL 인스턴스를 추가 하는 방법"
 services: azure-stack
 documentationCenter: 
-author: JeffGoldner
-manager: bradleyb
+author: mattbriggs
+manager: femila
 editor: 
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2017
-ms.author: JeffGo
-ms.openlocfilehash: da76eaf92bf27195b4f1780511818a7689300f66
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.date: 02/28/2018
+ms.author: mabrigg
+ms.openlocfilehash: 0a29ef133a045b2828777050f2d7a204c0add4a8
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="add-hosting-servers-for-use-by-the-sql-adapter"></a>SQL 어댑터에서 사용 하기 위해 호스팅 서버 추가
 

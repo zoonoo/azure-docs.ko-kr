@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 2/22/2018
+ms.date: 2/28/2018
 ms.author: brenduns
 ms.reviewer: 
-ms.openlocfilehash: 0f3e28f7726afab02211902b5ba2e478ae8065df
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 7f2ec78da38f3c97fde810fb8fc965cfbb6fda08
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="identity-architecture-for-azure-stack"></a>Azure 스택에 대 한 id 아키텍처
 Azure 스택을 사용 하는 id 공급자를 선택 하기 전에 Azure Active Directory (Azure AD)의 옵션 및 Active Directory Federated Services (AD FS) 중요 한 차이점을 이해 합니다. 
@@ -86,7 +86,7 @@ AD FS 토폴로지는 필요한 다음 조건 중 하나에 해당 합니다.
 
   Graph API의 읽기 전용 권한이 있는 사용자 자격 증명 AD에서 필요 AD와 상호 작용을 하 고 AD 합니다. 
   - 기본 제공 AD FS 서버 2016을 기반으로 합니다. 
-  - AD FS 및 AD Server 2012이 하에 기반 해야 합니다. 
+  - 이상 서버 2012에서 AD FS 및 AD 기반 해야 합니다.  
   
   광고와 기본 제공 AD FS 간의 상호 작용 OpenID Connect로 제한 되지 않습니다 및 상호 지원 되는 프로토콜을 사용할 수 있습니다.  
   - 사용자 계정을 만들고 관리 온-프레미스에서 AD 합니다.

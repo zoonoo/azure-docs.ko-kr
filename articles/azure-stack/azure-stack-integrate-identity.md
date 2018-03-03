@@ -2,18 +2,19 @@
 title: "Azure 스택 데이터 센터 통합-Identity"
 description: "데이터 센터 AD FS와 Azure 스택 AD FS를 통합 하는 방법에 알아봅니다"
 services: azure-stack
-author: mattbriggs
+author: jeffgilb
+manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 02/01/2018
+ms.date: 02/28/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: 
-ms.openlocfilehash: 03dc26ba3fcf10b52f6d6b77445de3f6770c4162
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 9e71707f13a14cb4cd0bc9cc7cd7d13dd7bb38e5
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Azure 스택 데이터 센터 통합-Identity
 Id 공급자와 Azure Active Directory (Azure AD) 또는 Active Directory Federation Services (AD FS)을 사용 하 여 Azure 스택을 배포할 수 있습니다. Azure 스택을 배포 하기 전에 선택을 해야 합니다. AD FS를 사용 하 여 배포를 Azure 스택 연결이 끊어진된 모드에서 배포는 라고도 합니다.

@@ -3,31 +3,32 @@ title: "Azure 데이터 센터 통합 스택-끝점 게시"
 description: "데이터 센터에서 Azure 스택 끝점을 게시 하는 방법을 알아봅니다"
 services: azure-stack
 author: jeffgilb
+manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 02/16/2018
+ms.date: 02/28/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
 keywords: 
-ms.openlocfilehash: 8af533147f3cc12f2334a43e7b672c69d0d25802
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 8dec686b9ccf87009a23cedf6023f15b84a0f155
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure 데이터 센터 통합 스택-끝점 게시
-Azure 스택 여러 개의 가상 IP 주소 (Vip)를 해당 인프라 역할을 설정합니다. 해당이 Vip는 공용 IP 주소 풀에서 할당 됩니다. 각 VIP 소프트웨어 정의 네트워크 계층에서 액세스 제어 목록 (ACL)로 보호 됩니다. Acl은 솔루션을 더욱 강화 하기 위해 각기 물리적 스위치 (될 수 있습니다 앞뒤 및 BMC)도 사용 됩니다. 배포 시에 지정 된 외부 DNS 영역에서 각 끝점에 대 한 DNS 항목이 생성 됩니다.
+Azure 스택 인프라 역할에 대 한 가상 IP 주소 (Vip)를 설정합니다. 해당이 Vip는 공용 IP 주소 풀에서 할당 됩니다. 각 VIP 소프트웨어 정의 네트워크 계층에서 액세스 제어 목록 (ACL)로 보호 됩니다. Acl은 솔루션을 더욱 강화 하기 위해 각기 물리적 스위치 (될 수 있습니다 앞뒤 및 BMC)도 사용 됩니다. 배포 시에 지정 된 외부 DNS 영역에서 각 끝점에 대 한 DNS 항목이 생성 됩니다.
 
 
 다음 아키텍처 다이어그램에는 여러 네트워크 계층 및 Acl 보여 줍니다.
 
-![아키텍처 다이어그램](media/azure-stack-integrate-endpoints/Integrate-Endpoints-01.png)
+![구조적 그림](media/azure-stack-integrate-endpoints/Integrate-Endpoints-01.png)
 
 ## <a name="ports-and-protocols-inbound"></a>포트 및 프로토콜 (인바운드)
 
-외부 네트워크에 Azure 스택 끝점 게시에 필요한 인프라 Vip는 다음과 같습니다. 목록은 각 끝점의 필요한 포트 및 프로토콜입니다. SQL 리소스 공급자 등과 같은 추가 리소스 공급자에 필요한 끝점은 특정 리소스 공급자 배포 설명서에서 다룹니다.
+인프라 집합이 Vip는 외부 네트워크에 Azure 스택 끝점 게시에 필요 합니다. *끝점 (VIP)* 표에서 각 끝점의 필요한 포트 및 프로토콜입니다. SQL 리소스 공급자와 같은 추가 리소스 공급자를 요구 하는 끝점에 대 한 특정 리소스 공급자 배포 설명서를 참조 하십시오.
 
-Azure 스택 게시에 필요 하지 않기 때문에 내부 인프라 Vip 나열 되지 않습니다.
+내부 인프라 Vip는 Azure 스택 게시에 필요 하지 않기 때문에 나열 되지 않습니다.
 
 > [!NOTE]
 > 사용자 Vip는 동적 이며 Azure 스택 연산자가 없는 제어를 사용한 사용자가 정의 합니다.
@@ -70,4 +71,5 @@ Azure 스택 투명 프록시 서버만 지원합니다. 배포에서 여기서 
 
 
 ## <a name="next-steps"></a>다음 단계
+
 [Azure 스택 PKI 요구 사항](azure-stack-pki-certs.md)

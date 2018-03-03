@@ -3,8 +3,8 @@ title: "Azure 스택에서 Windows Azure Pack 가상 컴퓨터를 관리 합니�
 description: "Azure 스택에서 사용자 포털에서 Windows Azure 팩 WAP () Vm을 관리 하는 방법에 알아봅니다."
 services: azure-stack
 documentationcenter: 
-author: walterov
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
 ms.assetid: 213c2792-d404-4b44-8340-235adf3f8f0b
 ms.service: azure-stack
@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
-ms.author: walterov
-ms.openlocfilehash: b07a18055d149e20cd605a892063eccecf3df8a4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/28/2018
+ms.author: mabrigg
+ms.openlocfilehash: a7e4896c84938b392a86f4d9609c4932324c785d
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="manage-windows-azure-pack-virtual-machines-from-azure-stack"></a>Azure 스택에서 Windows Azure Pack 가상 컴퓨터를 관리 합니다.
 
@@ -44,7 +44,7 @@ Azure 스택 개발 키트에서 Windows Azure Pack에서 실행 중인 가상 �
 * 알려진된 문제를 검토 하려면 참조 [Microsoft Azure 스택 문제 해결](azure-stack-troubleshooting.md)합니다.
 
 
-## <a name="architecture"></a>아키텍처
+## <a name="architecture"></a>건축
 다음 다이어그램에서는 Windows Azure 팩 커넥터의 주요 구성 요소를 보여 줍니다.
 
 ![Windows Azure 팩 커넥터 구성 요소](media/azure-stack-manage-wap/image1.png)
@@ -93,11 +93,11 @@ Windows Azure 팩 커넥터를 구성 하기 전에 다중 클라우드 모드 A
 다중 클라우드 모드를 사용 하려면 Azure 스택 배포 후 추가 AzurePackConnector.ps1 스크립트를 실행 해야 합니다. 다음 표에서 스크립트 매개 변수를 설명합니다.
 
 
-|  매개 변수 | 설명 | 예제 |   
+|  매개 변수 | 설명 | 예 |   
 | -------- | ------------- | ------- |  
-| AzurePackClouds | Windows Azure 팩 커넥터의 Uri입니다. 이러한 Uri는 Windows Azure 팩 테 넌 트 포털 일치 해야 합니다. | @{CloudName = "AzurePack1"; CloudEndpoint = "https://waptenantportal1:40005"},@{CloudName = "AzurePack2"; CloudEndpoint = "https://waptenantportal2:40005"을 (를)<br><br>  (기본적으로 포트 값이 40005.) |  
+| AzurePackClouds | Windows Azure 팩 커넥터의 Uri입니다. 이러한 Uri는 Windows Azure 팩 테 넌 트 포털 일치 해야 합니다. | @{CloudName = "AzurePack1"; CloudEndpoint = "https://waptenantportal1:40005"},@{CloudName = "AzurePack2"; CloudEndpoint = "https://waptenantportal2:40005"}<br><br>  (기본적으로 포트 값이 40005.) |  
 | AzureStackCloudName | 로컬 Azure 스택 클라우드 나타내는 레이블을 지정 합니다.| "AzureStack" |
-| DisableMultiCloud | 다중 클라우드 모드를 해제 스위치입니다.| 해당 없음 |
+| DisableMultiCloud | 다중 클라우드 모드를 해제 스위치입니다.| N/A |
 | | |
 
 배포 후 즉시 또는 이후 추가 AzurePackConnector.ps1 스크립트를 실행할 수 있습니다. 배포 후 즉시 스크립트를 실행 하려면 Azure 스택 배포 완료 된 동일한 Windows PowerShell 세션을 사용 합니다. 그렇지 않은 경우 (azurestackadmin 계정으로 로그인)를 관리자로 새 Windows PowerShell 세션을 열 수 있습니다.
@@ -136,9 +136,9 @@ Windows Azure 팩 커넥터를 구성 하기 전에 다중 클라우드 모드 A
 
     a. 브라우저를 열고 Azure 스택 사용자 포털 (https://portal.local.azurestack.external/)에 로그인 합니다.
     
-    b. 테 넌 트와 포털 부하로 로그인 한 후 Azure 팩 클라우드에서 구독 또는 확장을 가져올 수 없게 하는 방법에 대 한 오류가 표시 됩니다. 클릭 **확인** 를 이러한 메시지를 닫습니다. (이러한 오류 메시지는 사라집니다 Windows Azure Pack을 구성한 후.)
+    나. 테 넌 트와 포털 부하로 로그인 한 후 Azure 팩 클라우드에서 구독 또는 확장을 가져올 수 없게 하는 방법에 대 한 오류가 표시 됩니다. 클릭 **확인** 를 이러한 메시지를 닫습니다. (이러한 오류 메시지는 사라집니다 Windows Azure Pack을 구성한 후.)
 
-    c. 공지는 **클라우드** 포털의 왼쪽 위 모서리에 있는 드롭 다운 목록입니다.
+    다. 공지는 **클라우드** 포털의 왼쪽 위 모서리에 있는 드롭 다운 목록입니다.
 
     ![Azure 스택 사용자 인터페이스에서 클라우드 선택기](media/azure-stack-manage-wap/image3.png)
 
@@ -152,9 +152,9 @@ Windows Azure 팩 커넥터를 구성 하기 전에 다중 클라우드 모드 A
 
     a. 파일 탐색기에서 복사는 **WAPConnector** 폴더 (작업 이전에 다운로드 한) 라는 폴더 **c:\temp** 테 넌 트 포털의 가상 컴퓨터에 있습니다.
 
-    b. 테 넌 트 포털의 가상 컴퓨터에 콘솔 또는 RDP 연결을 엽니다.
+    나. 테 넌 트 포털의 가상 컴퓨터에 콘솔 또는 RDP 연결을 엽니다.
 
-    c. 디렉터리 **c:\temp\wapconnector\setup\scripts**, 실행 및는 **설치 Connector.ps1** 세 MSI 파일을 설치 하는 스크립트입니다. 매개 변수가 필요 하며
+    다. 디렉터리 **c:\temp\wapconnector\setup\scripts**, 실행 및는 **설치 Connector.ps1** 세 MSI 파일을 설치 하는 스크립트입니다. 매개 변수가 필요 하며
 
      ```powershell
     cd C:\temp\wapconnector\setup\scripts\
@@ -163,11 +163,11 @@ Windows Azure 팩 커넥터를 구성 하기 전에 다중 클라우드 모드 A
     ```
      d. 디렉터리 **c:\inetpub** 3 개의 새 사이트 설치 되어 있는지 확인 합니다.
 
-       * 경우 커넥터
+       * MgmtSvc-Connector
 
-       * ConnectorExtension 경우
+       * MgmtSvc-ConnectorExtension
 
-       * ConnectorController 경우
+       * MgmtSvc-ConnectorController
 
     e. 동일한 **c:\temp\wapconnector\setup\scripts** 실행 폴더는 **구성 Certificates.ps1** 인증서를 설치 하는 스크립트입니다. 기본적으로 Windows Azure 팩에서 테 넌 트 포털 사이트에 사용할 수 있는 동일한 인증서를 사용 합니다 것입니다. 유효한 인증서 (Azure 스택 AzS WASP01 가상 컴퓨터와 Azure 스택 포털에 액세스 하는 모든 클라이언트 컴퓨터에서 신뢰할 수 있음) 인지 확인 합니다. 그렇지 않은 경우 통신 작동 하지 않습니다. (또는 있습니다 명시적으로 전달할 수 인증서 지문을 매개 변수로 사용 하 여-지문 매개 변수.)
 
@@ -179,7 +179,7 @@ Windows Azure 팩 커넥터를 구성 하기 전에 다중 클라우드 모드 A
 
     f. 이러한 세 가지 서비스의 구성을 완료 하려면 실행는 **구성 WapConnector.ps1** Web.config 파일 매개 변수를 업데이트 하는 스크립트입니다.
 
-    |  매개 변수 | 설명 | 예제 |   
+    |  매개 변수 | 설명 | 예 |   
     | -------- | ------------- | ------- |  
     | TenantPortalFQDN | Windows Azure 팩 테 넌 트 포털 FQDN입니다. | tenant.contoso.com | 
     | TenantAPIFQDN | Windows Azure 팩 테 넌 트 API FQDN입니다. | tenantapi.contoso.com  |
@@ -197,9 +197,9 @@ Windows Azure 팩 커넥터를 구성 하기 전에 다중 클라우드 모드 A
 
     a. 부하 분산 장치를 사용 하는 경우에 가상 컴퓨터를 오프 라인으로 표시 하는 것이 좋습니다.
 
-    b. 파일 탐색기에서 복사 된 **WAPConnector** 폴더 라는 폴더를 **c:\temp** 각 테 넌 트 API 컴퓨터입니다.
+    나. 파일 탐색기에서 복사 된 **WAPConnector** 폴더 라는 폴더를 **c:\temp** 각 테 넌 트 API 컴퓨터입니다.
 
-    c. 이전에 저장 AzurePackConnectorOutput.txt 파일에 복사 하려면 **c:\temp\WAPConnector**합니다.
+    다. 이전에 저장 AzurePackConnectorOutput.txt 파일에 복사 하려면 **c:\temp\WAPConnector**합니다.
 
     d. 파일을 복사 하는 테 넌 트 API VM에 콘솔 또는 RDP 연결을 엽니다.
     
@@ -214,9 +214,9 @@ Windows Azure 팩 커넥터를 구성 하기 전에 다중 클라우드 모드 A
     f.  테 넌 트 API를 실행 중인 다른 가상 컴퓨터에서 2 단계를 반복 합니다.
 3. **하나만** Azure 스택에 테 넌 트 API 및 AD FS 인스턴스 간의 트러스트 관계를 추가 하려면 TrustAzureStack.ps1 구성 스크립트를 실행 하는 테 넌 트 API Vm의 합니다. Microsoft.MgmtSvc.Store 데이터베이스 sysadmin 권한이 있는 계정을 사용 해야 합니다. 이 스크립트에는 다음 매개 변수가 있습니다.
 
-    | 매개 변수 | 설명 | 예제 |
+    | 매개 변수 | 설명 | 예 |
     | --------- | ------------| ------- |
-   | Sql Server | Microsoft.MgmtSvc.Store 데이터베이스를 포함 하는 SQL Server의 이름입니다. 이 매개 변수는 필수입니다. | Sql Server | 
+   | SqlServer | Microsoft.MgmtSvc.Store 데이터베이스를 포함 하는 SQL Server의 이름입니다. 이 매개 변수는 필수입니다. | SQLServer | 
    | 데이터 파일 | 이전 Azure 스택 클라우드 다중 모드 구성 하는 동안 생성 된 출력 파일입니다. 이 매개 변수는 필수입니다. | AzurePack-06-27-15-50.txt | 
    | PromptForSqlCredential | SQL Server 인스턴스에 연결할 때 사용 하는 SQL 인증 자격 증명에 대 한 대화형으로 있습니다 스크립트 라는 해야 나타냅니다. 지정 된 자격 증명은 사용자 로그인을 삭제 및 데이터베이스, 스키마, 제거할 수 있는 충분 한 권한이 있어야 합니다. 아무 것도 제공 하는 경우 스크립트 권한이 현재 사용자 컨텍스트를 가정 합니다. | 값이 없는 필요 합니다. |
    |  |  |
@@ -230,7 +230,7 @@ Windows Azure 팩 커넥터를 구성 하기 전에 다중 클라우드 모드 A
        -DataFile "C:\temp\wapconnector\AzurePackConnectorOutput.txt"
   ```
 
-## <a name="example"></a>예제
+## <a name="example"></a>예
 다음 예제에서는 단일 노드 Azure 스택 구성에서 완전 한 Windows Azure 팩 커넥터 배포 및 두 개의 Windows Azure 팩 Express 설치를 보여 줍니다. (예제 이름으로 단일 컴퓨터에 각 빠른 설치를 *wapcomputer1* 및*wapcomputer2*.)
 
 ```powershell

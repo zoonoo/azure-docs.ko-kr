@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/29/2018
 ms.author: brenduns
 ms.reviewer: anwestg
-ms.openlocfilehash: 310bea356ac611a92d9e3899da5d4fb19c50e94e
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 277ed277b14886d386e097e0ce4bef8add5d4ba1
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="configure-deployment-sources"></a>배포 원본 구성
 *적용 대상: Azure 스택 통합 시스템과 Azure 스택 개발 키트*
@@ -27,7 +27,7 @@ ms.lasthandoff: 02/21/2018
 
 Azure Stack에서 App Service는 여러 소스 제어 공급자로부터 주문형 배포를 지원합니다. 이 기능에는 응용 프로그램 개발자가 해당 소스 제어 저장소에서 직접 배포할 수 있습니다. 사용자가 해당 저장소에 연결 하도록 응용 프로그램 서비스를 구성 하려면 클라우드 운영자는 Azure 스택 앱 서비스와 소스 제어 공급자 간의 통합을 먼저 구성 해야 합니다.  
 
-로컬 Git 외에도 지원되는 소스 제어 공급자는 다음과 같습니다.
+로컬 Git 외에도 다음과 같은 소스 제어 공급자 지원 됩니다.
 
 * GitHub
 * BitBucket
@@ -56,7 +56,7 @@ Azure Stack에서 App Service는 여러 소스 제어 공급자로부터 주문�
 7.  새 브라우저 탭 또는 창에서 서비스 관리자로 Azure 스택 관리 포털 (https://adminportal.local.azurestack.external)에 로그인 합니다.
 8.  **리소스 공급자**로 이동하여 **App Service 리소스 공급자 관리**를 선택합니다.
 9. **소스 제어 구성**을 클릭합니다.
-10. **클라이언트 ID** 및 **클라이언트 비밀**을 GitHub의 해당 입력 상자에 복사 및 붙여넣기합니다.
+10. 복사 및 붙여넣기의 **클라이언트 ID** 및 **클라이언트 암호** GitHub에 대 한 상자에 해당 입력 합니다.
 11. **저장**을 클릭합니다.
 
 ## <a name="configure-bitbucket"></a>BitBucket 구성
@@ -79,7 +79,7 @@ Azure Stack에서 App Service는 여러 소스 제어 공급자로부터 주문�
 9.  새 브라우저 탭 또는 창에서 서비스 관리자로 Azure 스택 관리 포털 (https://adminportal.local.azurestack.external)에 로그인 합니다.
 10.  **리소스 공급자**로 이동하여 **App Service 리소스 공급자 관리**를 선택합니다.
 11. **소스 제어 구성**을 클릭합니다.
-12. **키**를 **클라이언트 ID** 입력 상자에, **비밀**을 BitBucket에 대한 **클라이언트 비밀** 입력 상자에 복사하여 붙여넣습니다.
+12. 복사 및 붙여넣기의 **키** 에 **클라이언트 ID** 입력된 상자 및 **비밀** 에 **클라이언트 암호** BitBucket에 대해 입력된 상자입니다.
 13. **저장**을 클릭합니다.
 
 
@@ -94,7 +94,8 @@ Azure Stack에서 App Service는 여러 소스 제어 공급자로부터 주문�
 2. 아래 **내 응용 프로그램이**, 클릭 **앱 추가**합니다.
 ![OneDrive 응용 프로그램][10]
 3. 새 응용 프로그램 등록을 위한 **이름**을 입력하고 **App Service on Azure Stack**을 입력한 후 **응용 프로그램 만들기**를 클릭합니다.
-4. 다음 화면에서 새 응용 프로그램의 속성이 나열됩니다. 레코드는 **응용 프로그램 Id**합니다. ![OneDrive 응용 프로그램 속성][11]
+4. 다음 화면에서 새 응용 프로그램의 속성이 나열됩니다. 레코드는 **응용 프로그램 ID**합니다.
+![OneDrive 응용 프로그램 속성][11]
 5. 아래 **응용 프로그램 암호**, 클릭 **새 암호를 생성할**합니다. 메모 **생성 된 새 암호가**합니다. 응용 프로그램 암호 이므로 클릭 한 후 가져올 수 없습니다 **확인** 이 단계에서 합니다.
 6. 아래 **플랫폼** 클릭 **추가 플랫폼** 선택 **웹**합니다.
 7. **리디렉션 URI**를 입력합니다.  기본 Azure 스택 배포에서 리디렉션 URI는 양식 https://portal.local.azurestack.external/tokenauthorize에 실행 하는 경우 다른 도메인 대신에서 azurestack.local에 대 한 도메인 ![OneDrive 응용 프로그램-추가 웹 플랫폼][12]
@@ -106,7 +107,7 @@ Azure Stack에서 App Service는 여러 소스 제어 공급자로부터 주문�
 10.  새 브라우저 탭 또는 창에서 서비스 관리자로 Azure 스택 관리 포털 (https://adminportal.local.azurestack.external)에 로그인 합니다.
 11.  **리소스 공급자**로 이동하여 **App Service 리소스 공급자 관리**를 선택합니다.
 12. **소스 제어 구성**을 클릭합니다.
-13. **응용 프로그램 ID**를 **클라이언트 ID** 입력 상자에, **암호**를 OneDrive에 대한 **클라이언트 비밀** 입력 상자에 복사하여 붙여넣습니다.
+13. 복사 및 붙여넣기의 **응용 프로그램 ID** 에 **클라이언트 ID** 입력된 상자 및 **암호** 에 **클라이언트 암호** OneDrive에 대 한 입력된 상자입니다.
 14. **저장**을 클릭합니다.
 
 ## <a name="configure-dropbox"></a>DropBox 구성
@@ -130,7 +131,7 @@ Azure Stack에서 App Service는 여러 소스 제어 공급자로부터 주문�
 9.  새 브라우저 탭 또는 창에서 서비스 관리자로 Azure 스택 관리 포털 (https://adminportal.local.azurestack.external)에 로그인 합니다.
 10.  **리소스 공급자**로 이동하여 **App Service 리소스 공급자 관리**를 선택합니다.
 11. **소스 제어 구성**을 클릭합니다.
-12. **응용 프로그램 키**를 **클라이언트 ID** 입력 상자에, **앱 비밀**을 DropBox에 대한 **클라이언트 비밀** 입력 상자에 복사하여 붙여넣습니다.
+12. 복사 및 붙여넣기의 **응용 프로그램 키** 에 **클라이언트 ID** 입력된 상자 및 **응용 프로그램 암호** 에 **클라이언트 암호** DropBox에 대 한 입력된 상자입니다.
 13. **저장**을 클릭합니다.
 
 

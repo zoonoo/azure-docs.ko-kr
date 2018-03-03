@@ -12,14 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/29/2018
+ms.date: 02/28/2018
 ms.author: brenduns
 ms.reviewer: anwestg
-ms.openlocfilehash: 89571468e7f74f45bc1b679737f634fa0c76fa07
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: c42aaabd27afeb9e7fdd0b9add3de62a2d00eeaf
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>AD FS로 보호 되는 연결이 끊어진된 Azure 스택 환경에 앱 서비스 리소스 공급자 추가
 *적용 대상: Azure 스택 통합 시스템과 Azure 스택 개발 키트*
@@ -83,7 +83,7 @@ ms.lasthandoff: 02/21/2018
 
     ![앱 서비스 설치 관리자](media/azure-stack-app-service-deploy/image03.png)
 
-8. 파일 공유에 대 한 정보를 입력 한 다음 클릭 **다음**합니다. 파일 공유의 주소는 예는 정규화 된 도메인 이름, 파일 서버를 사용 해야 \\\appservicefileserver.local.cloudapp.azurestack.external\websites, 또는 IP 주소 예: \\\10.0.0.1\websites 합니다.
+8. 파일 공유에 대 한 정보를 입력 한 다음 클릭 **다음**합니다. 파일 공유의 주소는 정규화 된 도메인 이름, 파일 서버 또는 IP 주소를 사용 해야 합니다. 예를 들어 \\\appservicefileserver.local.cloudapp.azurestack.external\websites, 또는 \\\10.0.0.1\websites 합니다.
 
     ![앱 서비스 설치 관리자](media/azure-stack-app-service-deploy/image04.png)
 

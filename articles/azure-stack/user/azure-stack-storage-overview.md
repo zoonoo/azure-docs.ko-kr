@@ -3,22 +3,21 @@ title: "Azure 스택 저장소 소개"
 description: "Azure 스택 저장소에 알아보기"
 services: azure-stack
 documentationcenter: 
-author: xiaofmao
-manager: 
-editor: 
+author: mattbriggs
+manager: femila
 ms.assetid: 092aba28-04bc-44c0-90e1-e79d82f4ff42
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 9/25/2017
-ms.author: xiaofmao
-ms.openlocfilehash: 8777aa486a627cf8b2d8ba443e115638354d10da
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/29/2018
+ms.author: mabrigg
+ms.openlocfilehash: dbc2ffb7540feb91b14c3d502e7f4007a0751ebd
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="introduction-to-azure-stack-storage"></a>Azure 스택 저장소 소개
 
@@ -33,8 +32,7 @@ Azure 스택 저장소에서는 다음과 같은 세 가지 서비스를 제공�
 * **Blob Storage** 
 
     Blob 저장소는 구조화 되지 않은 개체 데이터를 저장합니다. Blob은 문서, 미디어 파일 또는 응용 프로그램 설치 프로그램 등 모든 종류의 텍스트 또는 이진 데이터일 수 있습니다.
-* 
-            **Table Storage** 
+* **Table Storage** 
 
     테이블 저장소는 구조화된 데이터 집합을 저장합니다. 테이블 저장소는 신속한 개발과 대량 데이터에 대한 빠른 액세스를 가능하게 하는 NoSQL 키-특성 데이터 저장소입니다.
 * **Queue Storage** 
