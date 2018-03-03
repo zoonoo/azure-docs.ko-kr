@@ -8,15 +8,15 @@ editor:
 ms.assetid: 
 ms.service: azure-stack
 ms.topic: article
-ms.date: 9/25/2017
+ms.date: 02/28/2018
 ms.author: brenduns
 ms.reviewer: anajod
 keywords: 
-ms.openlocfilehash: 6e4c1145b8ff4665024b4532cf9cc9ac6a0a24a1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: cb8ac5435b7a5c6deb9d4571696c79b2ed15c93a
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>가상 컴퓨터 크기 집합에서에서 사용할 수 있도록 Azure 스택
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 02/21/2018
 
 가상 컴퓨터 크기 집합에는 Azure 스택 계산 리소스가 됩니다. 배포 하 고 동일한 가상 컴퓨터의 집합을 관리할 사용할 수 있습니다. 모든 가상 컴퓨터와 동일 하 게 구성, 크기 집합의 가상 컴퓨터 프로 비전 미리 필요 하지 않습니다. 큰 계산, 빅 데이터 및 컨테이너 화 된 작업을 대상으로 하는 대규모 서비스를 빌드하는 것이 쉽습니다.
 
-이 항목에서는 Azure 스택 Marketplace에 크기 집합을 사용할 수 있도록 하는 프로세스를 안내 합니다. 이 절차를 완료 한 후 사용자는 해당 구독에 가상 컴퓨터 크기 집합을 추가할 수 있습니다.
+이 문서에서는 Azure 스택 Marketplace에 크기 집합을 사용할 수 있도록 하는 프로세스를 안내 합니다. 이 절차를 완료 한 후 사용자는 해당 구독에 가상 컴퓨터 크기 집합을 추가할 수 있습니다.
 
 Azure 스택에 가상 컴퓨터 크기 집합은 Azure에서 가상 컴퓨터 크기 집합 같습니다. 자세한 내용은 다음 동영상을 참조 하십시오.
 * [Mark Russinovich의 Azure 확장 집합 설명](https://channel9.msdn.com/Blogs/Regular-IT-Guy/Mark-Russinovich-Talks-Azure-Scale-Sets/)
@@ -81,7 +81,7 @@ Add-AzsVMSSGalleryItem -Location $Location
     Remove-AzsVMSSGalleryItem
 
 > [!NOTE]
-> 갤러리 항목은 즉시 제거할 수 없습니다. 포털을 새로 고치려면 여러 번 시장에서 제거 되기 전에 해야 합니다.
+> 갤러리 항목은 즉시 제거할 수 없습니다. 야를 새로 고쳐야 포털 여러 번 전에 시장에서 제거할 항목을 보여 줍니다.
 
 
 ## <a name="next-steps"></a>다음 단계

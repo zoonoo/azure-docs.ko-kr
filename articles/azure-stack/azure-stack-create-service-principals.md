@@ -3,21 +3,21 @@ title: "Azure 스택에 대 한 서비스 사용자를 만들 | Microsoft Docs"
 description: "Azure 리소스 관리자의 역할 기반 액세스 제어를 사용한 리소스에 대 한 액세스 관리를 사용할 수 있는 새 서비스 사용자를 만드는 방법을 설명 합니다."
 services: azure-resource-manager
 documentationcenter: na
-author: heathl17
-manager: byronr
+author: mattbriggs
+manager: femila
 ms.assetid: 7068617b-ac5e-47b3-a1de-a18c918297b6
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/17/2017
-ms.author: helaw
-ms.openlocfilehash: 96d5cdfc28759fd516eab5fd97c6cf444af08cf6
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.date: 02/25/2018
+ms.author: mabrigg
+ms.openlocfilehash: 64c424ee7045ae20b3fba6433166039580387d76
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>Azure 스택에 응용 프로그램 액세스 권한을 제공합니다
 
@@ -83,7 +83,7 @@ Requirements:
 다음 정보가 필요 합니다 자동화 매개 변수에 대 한 입력으로:
 
 
-|매개 변수|설명|예제|
+|매개 변수|설명|예|
 |---------|---------|---------|
 |이름|SPN 계정에 대 한 이름|MyAPP|
 |ClientCertificates|인증서 개체의 배열|X509 인증서|
@@ -111,7 +111,7 @@ Requirements:
 
 2. 자동화 완료 된 후에 SPN을 사용 하려면 필요한 세부 정보 표시 됩니다. 
 
-   예:
+   예: 
 
    ```
    ApplicationIdentifier : S-1-5-21-1512385356-3796245103-1243299919-1356

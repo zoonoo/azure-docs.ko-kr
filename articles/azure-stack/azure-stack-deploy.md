@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/08/2017
 ms.author: jeffgilb
-ms.openlocfilehash: 0fa0d00112e731a9f2effd453ba74f5561fca358
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 2410b1a3c3c2856cceda87ced7e66f140ea0c323
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-stack-deployment-prerequisites"></a>Azure 스택 배포 필수 구성 요소
 
@@ -58,7 +58,7 @@ ms.lasthandoff: 12/13/2017
 * SAS SSD + SAS HDD
 * NVMe
 
-\*통과 기능 없이 RAID 컨트롤러에는 미디어 유형을 인식할 수 없습니다. 이러한 컨트롤러는 지정되지 않음으로 SSD와 HDD를 표시합니다. 이 경우 SSD는 캐싱 장치 대신 영구적 저장소로 사용됩니다. 따라서 이러한 ssd 개발 키트를 배포할 수 있습니다.
+\* 통과 기능 없이 RAID 컨트롤러에는 미디어 유형을 인식할 수 없습니다. 이러한 컨트롤러는 지정되지 않음으로 SSD와 HDD를 표시합니다. 이 경우 SSD는 캐싱 장치 대신 영구적 저장소로 사용됩니다. 따라서 이러한 ssd 개발 키트를 배포할 수 있습니다.
 
 **예제 HBA**: LSI 9207 8i, LSI-9300-8i 또는 LSI-9265-8i 통과 모드
 
@@ -122,9 +122,9 @@ NIC가 연결하는 네트워크에서 사용 가능한 DHCP 서버가 있는지
 ### <a name="internet-access"></a>인터넷 액세스
 Azure 스택 직접 또는 투명 프록시를 통해 인터넷 액세스를 해야합니다. Azure 스택 인터넷 액세스를 사용 하는 웹 프록시 구성을 지원 하지 않습니다. 호스트 IP 및 DHCP 또는 고정 IP) (여 MA BGPNAT01에 할당 된 새 IP를 인터넷에 액세스할 수 있어야 합니다. 포트 80 및 443 graph.windows.net 및 login.microsoftonline.com 도메인에서 사용 됩니다.
 
+Q:는 ASDK Azure VM에서 실행할 수 있습니까? A: 아니요. 현재 시점에서 공식적으로 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 [Azure 스택 개발 키트 배포 패키지를 다운로드 합니다.](https://azure.microsoft.com/overview/azure-stack/try/?v=try)
 
 [Azure 스택 개발 키트를 배포 합니다.](azure-stack-run-powershell-script.md)
-

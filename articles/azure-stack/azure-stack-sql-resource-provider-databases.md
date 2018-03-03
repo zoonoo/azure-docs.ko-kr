@@ -3,21 +3,21 @@ title: "SQL 어댑터 RP Azure 스택에 제공 하는 데이터베이스를 사
 description: "만들기 및 SQL 어댑터 리소스 공급자를 사용 하 여 사용자를 프로 비전 하는 SQL 데이터베이스를 관리 하는 방법"
 services: azure-stack
 documentationCenter: 
-author: JeffGoldner
-manager: bradleyb
+author: mattbriggs
+manager: femila
 editor: 
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
-ms.author: JeffGo
-ms.openlocfilehash: 0cc08c37e879b00f8cd9a4046a4c81c55dab167c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/28/2018
+ms.author: mabrigg
+ms.openlocfilehash: 39f6cc30191f07a7c891446a9132222a6d264dc4
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="create-sql-databases"></a>SQL 데이터베이스 만들기
 

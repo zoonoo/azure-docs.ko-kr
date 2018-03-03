@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/25/2017
 ms.author: brenduns
 ms.reviewer: 
-ms.openlocfilehash: 7a0fe4e02cf7a5feee90c3a0bf5596b44d5f9038
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 7e2b98391bab5806b59d8a16ec7dc24295a0d224
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="overview-of-offering-services-in-azure-stack"></a>Azure 스택에서 서비스 제공의 개요
 
@@ -44,5 +44,5 @@ ms.lasthandoff: 02/21/2018
 **공급자에 위임**: 다른 사용자를 사용자 환경에서 서비스를 만들 수를 부여할 수 있습니다. 예를 들어 서비스 공급자 인 경우 할 수 있습니다 [위임](azure-stack-delegated-provider.md) 프로그램 대리점에는이 기능입니다. 또는 사용 하는 조직의 다른 사업부/자회사에 위임할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-[제안, 계획, 할당량 및 구독에 대 한 자세한 정보](azure-stack-plan-offer-quota-overview.md)
+[Azure 스택에는 제안을 만듭니다.](azure-stack-create-offer.md)
 
