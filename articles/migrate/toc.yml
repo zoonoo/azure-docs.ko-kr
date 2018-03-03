@@ -10,6 +10,8 @@
       href: tutorial-assessment-vmware.md
 - name: 개념
   items:
+    - name: 수집기 개념
+      href: concepts-collector.md
     - name: 평가 계산
       href: concepts-assessment-calculation.md
     - name: 종속성 시각화

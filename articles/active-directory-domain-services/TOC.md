@@ -1,8 +1,11 @@
+# [Azure AD Domain Services 설명서](index.md)
+
 # 개요
 ## [Azure AD Domain Services란?](active-directory-ds-overview.md)
 ## 사용자에게 적합한가요?
 ### [Windows Server AD와 비교](active-directory-ds-comparison.md)
 ### [Azure AD 조인과 비교](active-directory-ds-compare-with-azure-ad-join.md)
+## [새로운 기능](https://azure.microsoft.com/updates/?product=active-directory-ds)
 ## [기능](active-directory-ds-features.md)
 ## [시나리오](active-directory-ds-scenarios.md)
 ## [동기화 작동 방법](active-directory-ds-synchronization.md)
@@ -16,8 +19,10 @@
 ## [작업 5: 암호 동기화 사용](active-directory-ds-getting-started-password-sync.md)
 
 # 방법
+## [관리되는 도메인의 상태 확인](active-directory-ds-check-health.md)
 ## [Azure CSP 구독에서 Azure AD Domain Services 사용](active-directory-ds-csp.md)
 ## [PowerShell을 사용하여 Azure AD Domain Services 사용](active-directory-ds-enable-using-powershell.md)
+## [도메인의 상태 확인](active-directory-ds-check-health.md)
 ## 관리되는 도메인 가입
 ### [Windows Server VM](active-directory-ds-admin-guide-join-windows-vm-portal.md)
 ### [템플릿의 Windows Server VM](active-directory-ds-join-windows-vm-template.md)
@@ -28,7 +33,6 @@
 ## 관리되는 도메인 관리
 ### [관리되는 도메인 관리](active-directory-ds-admin-guide-administer-domain.md)
 ### [관리되는 도메인에서 DNS 관리](active-directory-ds-admin-guide-administer-dns.md)
-### [도메인의 상태 확인](active-directory-ds-check-health.md)
 ### 관리되는 도메인에 대한 LDAP 구성
 #### [작업 1: 보안 LDAP를 위한 인증서 가져오기](active-directory-ds-admin-guide-configure-secure-ldap.md)
 #### [작업 2: 보안 LDAP 인증서 내보내기](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md)
@@ -64,6 +68,6 @@
 ## [Azure AD 피드백 포럼](https://feedback.azure.com/forums/169401-azure-active-directory)
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [문의처](active-directory-ds-contact-us.md)
-## [가격 책정](https://azure.microsoft.com/pricing/details/active-directory-ds/)
+## [가격](https://azure.microsoft.com/pricing/details/active-directory-ds/)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=active-directory-ds)
