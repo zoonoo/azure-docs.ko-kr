@@ -17,12 +17,12 @@
   items:
     - name: 1 - 사용량 및 비용 검토
       href: tutorial-review-usage.md
-    - name: 2 - 데이터에 대한 액세스 제어
-      href: tutorial-user-access.md
-    - name: 3 - 소비 예측
+    - name: 2 - 소비 예측
       href: tutorial-forecast-spending.md
-    - name: 4 - 비용 관리
+    - name: 3 - 비용 관리
       href: tutorial-manage-costs.md
+    - name: 4 - 데이터에 대한 액세스 제어
+      href: tutorial-user-access.md
 - name: 개념
   items:
     - name: 비용 보고서 이해

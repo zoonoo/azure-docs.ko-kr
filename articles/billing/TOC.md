@@ -1,4 +1,6 @@
-# 시작
+# [Azure Billing 설명서](index.md)
+
+# 시작하기
 ## [예기치 않은 비용 방지](billing-getting-started.md)
 ## [체험 계정에 포함된 서비스 만들기](billing-create-free-services-included-free-account.md)
 ## [체험 계정에 대한 요금 부과 방지](billing-avoid-charges-free-account.md)
@@ -47,7 +49,7 @@
 ### [구독을 찾을 수 없음](billing-no-subscriptions-found.md)
 ### [Enterprise 비용 보기 사용 안 함](billing-enterprise-mgmt-grp-troubleshoot-cost-view.md)
 
-# 참조
+# 참고 자료
 ## [API 개요](billing-usage-rate-card-overview.md)
 ## [Enterprise Reporting API 개요](billing-enterprise-api.md)
 ## [청구서 REST](/rest/api/billing)

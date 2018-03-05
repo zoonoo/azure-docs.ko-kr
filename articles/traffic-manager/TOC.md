@@ -1,5 +1,7 @@
+# [Traffic Manager 설명서](index.md)
+
 # 개요
-## [트래픽 관리자란?](traffic-manager-overview.md)
+## [Traffic Manager란?](traffic-manager-overview.md)
 ## [라우팅 메서드](traffic-manager-routing-methods.md)
 ### [Traffic Manager에서 사용한 국가/지역 계층 구조](traffic-manager-geographic-regions.md)
 ## [중첩 Traffic Manager 프로필](traffic-manager-nested-profiles.md)
@@ -31,19 +33,19 @@
 ## 문제 해결
 ### [Azure Traffic Manager의 성능 저하된 상태 문제 해결](traffic-manager-troubleshooting-degraded.md)
 
-# 참조
+# 참고 자료
 ## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=traffic-manager)
 ## [Azure PowerShell](/powershell/module/azurerm.trafficmanager)
 ## [Azure CLI](/cli/azure/network/traffic-manager)
 ## [Java](/java/api/com.microsoft.azure.management.trafficmanager)
-## [Node.JS](http://azure.github.io/azure-sdk-for-node/azure-arm-trafficmanager/latest/)
+## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-trafficmanager/latest/)
 ## [Ruby](http://www.rubydoc.info/gems/azure_mgmt_traffic_manager)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-trafficmanager.html)
-## [REST (영문)](https://msdn.microsoft.com/library/mt163667.aspx)
+## [REST](https://msdn.microsoft.com/library/mt163667.aspx)
 
 # 관련 항목
 ## [Application Gateway](/azure/application-gateway/)
-## [부하 분산 장치](/azure/load-balancer/)
+## [Load Balancer](/azure/load-balancer/)
 ## [Azure DNS](/azure/dns/)
 
 # 리소스

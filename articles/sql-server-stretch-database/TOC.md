@@ -1,3 +1,5 @@
+# [SQL Server Stretch Database 설명서](index.md)
+
 # 개요
 ## [Stretch Database란?](/sql/sql-server/stretch-database/stretch-database)
 ## [제한 및 차단 문제](/sql/sql-server/stretch-database/limitations-for-stretch-database)
@@ -19,7 +21,7 @@
 ### [Restore](/sql/sql-server/stretch-database/restore-stretch-enabled-databases-stretch-database)
 ### [Stretch Database 사용 안 함](/sql/sql-server/stretch-database/disable-stretch-database-and-bring-back-remote-data)
 
-# 참조
+# 참고 자료
 ## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=sql-server-database)
 
 # 리소스

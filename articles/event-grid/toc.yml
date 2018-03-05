@@ -1,4 +1,4 @@
-- name: Event Grid
+- name: Event Grid 설명서
   href: index.yml
 - name: 개요
   items:
@@ -7,6 +7,7 @@
     - name: 메시징 서비스 비교
       href: compare-messaging-services.md
 - name: 빠른 시작
+  expanded: true
   items:
     - name: Blob 저장소 이벤트 라우팅 - Azure CLI
       href: ../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json
@@ -38,7 +39,7 @@
   items:
     - name: 사용자 지정 항목에 게시
       href: post-to-custom-topic.md
-    - name: HTTP 엔드포인트에 대한 이벤트 수신
+    - name: HTTP 엔드포인트에서 이벤트 수신
       href: receive-events.md
     - name: Event Hubs에서 데이터 웨어하우스로 데이터 스트림
       href: event-grid-event-hubs-integration.md

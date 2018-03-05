@@ -1,3 +1,5 @@
+# [Devtest Labs 설명서](index.md)
+
 # 개요
 ## [Azure DevTest Labs 정보](devtest-lab-overview.md)
 ## [개념](devtest-lab-concepts.md)
@@ -65,7 +67,7 @@
 ## CI/CD와 통합
 ### [VSTS CI/CD 파이프라인에 랩 통합](devtest-lab-integrate-ci-cd-vsts.md)
 
-# 참조
+# 참고 자료
 ## [CLI 2.0](/cli/azure/lab)
 ## [PowerShell](/powershell/module/azurerm.devtestlabs/#devtest_labs)
 ### [랩 자동 만들기 또는 수정](devtest-lab-use-arm-and-powershell-for-lab-resources.md)
@@ -80,7 +82,7 @@
 ## [팀 블로그](https://blogs.msdn.microsoft.com/devtestlab/)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-devtest-labs)
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=devtest-lab)
-## [가격](https://azure.microsoft.com/pricing/details/devtest-lab/)
+## [가격 책정](https://azure.microsoft.com/pricing/details/devtest-lab/)
 
 
 # 리소스

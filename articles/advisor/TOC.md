@@ -1,16 +1,18 @@
+# [Azure Advisor 설명서](index.md)
+
 # 개요
 ## [Azure 백업이란?](advisor-overview.md)
 
-# 추천
+# 권장 사항
 ## [비용 권장 사항](advisor-cost-recommendations.md)
 ## [성능 권장 사항](advisor-performance-recommendations.md)
 ## [높은 가용성 권장 사항](advisor-high-availability-recommendations.md)
 ## [보안 권장 사항](advisor-security-recommendations.md)
 
-# 시작
+# 시작하기
 ## [Advisor 시작](advisor-get-started.md)
 
-# 참조
+# 참고 자료
 ## [REST API](https://docs.microsoft.com/rest/api/advisor)
 ## [CLI](https://docs.microsoft.com/cli/azure/advisor)
 

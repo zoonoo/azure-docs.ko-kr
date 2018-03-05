@@ -1,3 +1,5 @@
+# [Load Balancer 설명서](index.md)
+
 # 개요
 ## [부하 분산 장치란?](load-balancer-overview.md)
 ## [Load Balancer Standard란?](load-balancer-standard-overview.md)
@@ -54,23 +56,23 @@
 #### [공용 부하 분산 장치 구성(클래식 클라우드)](load-balancer-get-started-internet-classic-cloud.md)
 #### [공용 부하 분산 장치 구성(클래식 CLI)](load-balancer-get-started-internet-classic-cli.md)
 
-# 참조
+# 참고 자료
 ## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=load-balancer)
 ## [Azure PowerShell](/powershell/module/azurerm.network)
 ## [Azure Azure CLI](/cli/azure/network/lb)
 ## [.NET](/dotnet/api/microsoft.azure.management.network.models)
 ## [Java](/java/api/com.microsoft.azure.management.network)
-## [Node.JS](http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/LoadBalancers.html)
+## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/LoadBalancers.html)
 ## [Ruby](http://www.rubydoc.info/gems/azure_mgmt_network/Azure/ARM/Network/LoadBalancers)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.operations.html#azure.mgmt.network.operations.LoadBalancersOperations)
-## [REST (영문)](https://msdn.microsoft.com/library/azure/mt163651.aspx)
+## [REST](https://msdn.microsoft.com/library/azure/mt163651.aspx)
 
 # 관련 항목
 ## [Application Gateway](/azure/application-gateway/)
 ## [Express Route](/azure/expressroute/)
 ## [Virtual Network](/azure/virtual-network/)
 ## [VPN Gateway](/azure/vpn-gateway/)
-## [가상 컴퓨터](/azure/virtual-machines/)
+## [Virtual Machine](/azure/virtual-machines/)
 ## [Traffic Manager](/azure/traffic-manager/)
 ## [DNS](/azure/dns/)
 

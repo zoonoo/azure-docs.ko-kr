@@ -7,8 +7,10 @@
 - name: 빠른 시작
   expanded: true
   items:
-    - name: 자동 프로비전 설정
+    - name: 자동 프로비전 설정 - 포털
       href: quick-setup-auto-provision.md
+    - name: 자동 프로비전 설정 - 템플릿
+      href: quick-setup-auto-provision-rm.md
     - name: 시뮬레이션된 장치 만들기
       items:
         - name: TPM
@@ -91,6 +93,8 @@
       href: how-to-revoke-device-access-portal.md
     - name: 장치 프로비전 해제
       href: how-to-unprovision-devices.md
+    - name: X.509 CA 인증서에서 소유 증명 수행
+      href: how-to-verify-certificates.md
     - name: SDK로 HSM 사용
       href: use-hsm-with-sdk.md
     - name: 프로비전 서비스에 대한 액세스 제어
@@ -99,6 +103,8 @@
       href: how-to-manage-dps-with-cli.md
     - name: SDK 도구를 사용하여 개발
       href: how-to-use-sdk-tools.md
+    - name: MXChip IoT DevKit에 연결
+      href: how-to-connect-mxchip-iot-devkit.md
 - name: 참고 자료
   items:
     - name: REST (영문)

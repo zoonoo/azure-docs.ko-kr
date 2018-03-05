@@ -1,3 +1,5 @@
+# [Virtual Network 설명서](index.md)
+
 # 개요
 ## [가상 네트워크](virtual-networks-overview.md)
 ## [라우팅](virtual-networks-udr-overview.md)
@@ -8,7 +10,7 @@
 ## [컨테이너 네트워킹](container-networking.md)
 ## [비즈니스 연속성](virtual-network-disaster-recovery-guidance.md)
 ## [IP 주소 지정](virtual-network-ip-addresses-overview-arm.md)
-## [DDoS 보호](ddos-protection-overview.md)
+## [DDoS Protection](ddos-protection-overview.md)
 ## [FAQ](virtual-networks-faq.md)
 ## 클래식
 ### [IP 주소 지정](virtual-network-ip-addresses-overview-classic.md)
@@ -164,7 +166,7 @@
 ### 가상 머신
 #### [다른 서브넷으로 VM 이동](virtual-networks-move-vm-role-to-subnet.md)
 ### [공용 IP 주소](virtual-network-public-ip-address.md)
-### DDoS 보호
+### DDoS Protection
 #### [Azure 포털](ddos-protection-manage-portal.md)
 #### [Azure PowerShell](ddos-protection-manage-ps.md)
 

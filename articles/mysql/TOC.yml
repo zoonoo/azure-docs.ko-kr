@@ -66,9 +66,7 @@
     - name: 리소스
       items:
         - name: 가격 책정 계층
-          href: concepts-service-tiers.md
-        - name: Compute 단위
-          href: concepts-compute-unit-and-storage.md
+          href: concepts-pricing-tiers.md
         - name: 제한
           href: concepts-limits.md
     - name: 데이터 액세스 및 보안
@@ -77,6 +75,12 @@
           href: concepts-firewall-rules.md
         - name: SSL 구성
           href: concepts-ssl-connection-security.md
+    - name: 비즈니스 연속성
+      items:
+        - name: 개요
+          href: concepts-business-continuity.md
+        - name: Backup 및 복원
+          href: concepts-backup.md
     - name: 모니터
       href: concepts-monitoring.md
     - name: 개발
@@ -137,6 +141,12 @@
       items:
         - name: 메트릭에 대한 경고 만들기
           href: howto-alert-on-metric.md
+    - name: 문제 해결
+      items:
+        - name: 쿼리 성능 문제 해결
+          href: howto-troubleshoot-query-performance.md
+        - name: sys 스키마에서 보기를 사용하는 방법
+          href: howto-troubleshoot-sys-schema.md
 - name: 참고 자료
   items:
     - name: Azure CLI
