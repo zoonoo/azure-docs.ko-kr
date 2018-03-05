@@ -1,3 +1,5 @@
+# [Mobile Engagement 설명서](index.md)
+
 # [개요](mobile-engagement-overview.md)
 ## [관련 서비스와 비교](mobile-engagement-comparison.md)
 ## [기능 개요](mobile-engagement-key-features.md)
@@ -33,7 +35,7 @@
 ##### [고급 보고](mobile-engagement-android-advanced-reporting.md)
 ##### [위치 보고](mobile-engagement-android-location-reporting.md)
 ##### [고급 구성](mobile-engagement-android-advanced-configuration.md)
-#### 알림
+#### 공지
 ##### [통합 도달률](mobile-engagement-android-integrate-engagement-reach.md)
 ##### [Google Cloud Messaging](mobile-engagement-android-gcm-integrate.md)
 ##### [Amazon Device Messaging](mobile-engagement-android-adm-integrate.md)
@@ -114,7 +116,7 @@
 ### [서비스 요청 정보](mobile-engagement-troubleshooting-guide-sr-info.md)
 ### [서비스 한도](../azure-subscription-service-limits.md#mobile-engagement-limits)
 
-# 참조
+# 참고 자료
 ## [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Engagement)
 
 
@@ -129,7 +131,7 @@
 # 리소스
 ## [.NET API 샘플](mobile-engagement-dotnet-sdk-service-api.md)
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
-## [가격](https://azure.microsoft.com/pricing/details/mobile-engagement/)
+## [가격 책정](https://azure.microsoft.com/pricing/details/mobile-engagement/)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [데모 앱 샘플](mobile-engagement-demo-apps.md)
 ## [Service Level Agreement(서비스 수준 약정)](https://azure.microsoft.com/support/legal/sla/mobile-engagement/)

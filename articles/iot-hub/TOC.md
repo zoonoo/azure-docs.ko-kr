@@ -1,3 +1,5 @@
+# [IoT Hub 설명서](index.md)
+
 # 개요
 ## [Azure 및 IoT](iot-hub-what-is-azure-iot.md)
 ## [Azure IoT Hub란?](iot-hub-what-is-iot-hub.md)
@@ -189,7 +191,7 @@
 ## [iothub-explorer 도구](https://github.com/Azure/iothub-explorer)
 ## [학습 경로](https://azure.microsoft.com/documentation/learning-paths/iot-hub/)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureiothub)
-## [가격 책정](https://azure.microsoft.com/pricing/details/iot-hub/)
+## [가격](https://azure.microsoft.com/pricing/details/iot-hub/)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=iot-hub)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-iot-hub)

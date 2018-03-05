@@ -1,3 +1,5 @@
+# [Notification Hubs 설명서](index.md)
+
 # 개요
 ## [Azure Notification Hubs 정의](notification-hubs-push-notification-overview.md)
 # 시작
@@ -28,7 +30,7 @@
 ### [플랫폼 간 알림 보내기](notification-hubs-aspnet-cross-platform-notification.md)
 ### 서버 SDK 작업
 #### [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/notification-hubs?view=azure-dotnet)
-#### [Node.JS](notification-hubs-nodejs-push-notification-tutorial.md)
+#### [Node.js](notification-hubs-nodejs-push-notification-tutorial.md)
 #### [Java](notification-hubs-java-push-notification-tutorial.md)
 #### [PHP](notification-hubs-php-push-notification-tutorial.md)
 #### [Python](notification-hubs-python-push-notification-tutorial.md)
@@ -59,11 +61,11 @@
 ## 문제 해결
 ### [진단 지침](notification-hubs-push-notification-fixer.md)
 
-# 참조
+# 참고 자료
 ## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=notification-hubs)
 ## [Azure PowerShell](/powershell/module/azurerm.notificationhubs)
 ## [.NET](/dotnet/api/microsoft.azure.notificationhubs)
-## [REST (영문)](/rest/api/notificationhubs)
+## [REST](/rest/api/notificationhubs)
 
 # 리소스
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/)

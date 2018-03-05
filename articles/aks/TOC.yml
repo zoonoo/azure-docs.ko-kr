@@ -77,6 +77,10 @@
       items:
         - name: Kubernetes 대시보드 사용
           href: kubernetes-dashboard.md
+    - name: 문제 해결
+      items:
+        - name: SSH 노드 액세스
+          href: aks-ssh.md
 - name: 참고 자료
   items:
     - name: Azure CLI

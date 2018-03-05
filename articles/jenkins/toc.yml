@@ -1,4 +1,4 @@
-- name: Azure의 Jenkins
+- name: Azure 설명서의 Jenkins
   href: index.yml
 - name: 개요
   items:
@@ -65,9 +65,9 @@
           href: 'https://plugins.jenkins.io/azure-function'
         - name: Azure Service Fabric 플러그 인
           href: 'https://plugins.jenkins.io/service-fabric'
-        - name: Azure Storage 플러그 인
+        - name: Azure Storage 플러그인
           href: 'https://plugins.jenkins.io/windows-azure-storage'
-        - name: Azure VM 에이전트 플러그 인
+        - name: Azure VM 에이전트 플러그인
           href: 'https://plugins.jenkins.io/azure-vm-agents'
         - name: Azure VM 확장 집합 플러그 인
           href: 'https://plugins.jenkins.io/azure-vmss'

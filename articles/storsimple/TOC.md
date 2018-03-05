@@ -1,3 +1,5 @@
+# [StorSimple 설명서](index.md)
+
 # StorSimple 가상 배열
 
 ## 개요

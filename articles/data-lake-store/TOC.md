@@ -1,3 +1,5 @@
+# [Data Lake Store 설명서](index.md)
+
 # 개요
 ## [Azure 데이터 레이크 저장소 개요](data-lake-store-overview.md)
 ## [Azure Storage와 Azure Data Lake Store 비교](data-lake-store-comparison-with-blob-storage.md)

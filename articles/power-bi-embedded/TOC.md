@@ -1,3 +1,5 @@
+# [Power BI Embedded 설명서](index.md)
+
 # 개요
 ## [Power BI Embedded 정보](what-is-power-bi-embedded.md)
 

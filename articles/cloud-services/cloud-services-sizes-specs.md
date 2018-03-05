@@ -102,7 +102,7 @@ Azure SKU에서 계산(CPU) 성능을 비교하는 방법을 제공하고 성능
 | A10             |8          | 56           | 1817                 | 2/높음 |
 | A11             |16         | 112          | 1817                 | 4/매우 높음 |
 
-\\* RDMA 지원
+\*RDMA 지원
 
 ## <a name="av2-series"></a>Av2 시리즈
 
@@ -189,7 +189,7 @@ H 시리즈 제품은 뛰어난 CPU 처리 능력 외에도 FDR InfiniBand 및 �
 | Standard_H16r*  | 16        | 112          | 2000                 | 8/매우 높음 |
 | Standard_H16mr* | 16        | 224          | 2000                 | 8/매우 높음 |
 
-\\* RDMA 지원
+\*RDMA 지원
 
 ## <a name="configure-sizes-for-cloud-services"></a>Cloud Services에 적합한 크기 구성
 [서비스 정의 파일](cloud-services-model-and-package.md#csdef)에 설명된 서비스 모델의 일부로서 역할 인스턴스의 Virtual Machine 크기를 지정할 수 있습니다. 역할의 크기에 따라 실행 인스턴스에 할당되는 CPU 코어 수, 메모리 용량 및 로컬 파일 시스템 크기가 결정됩니다. 응용 프로그램의 리소스 요구 사항에 따라 역할 크기를 선택합니다.

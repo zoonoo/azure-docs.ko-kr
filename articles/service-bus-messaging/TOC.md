@@ -1,3 +1,5 @@
+# [Service Bus 메시징 설명서](index.md)
+
 # 개요
 ## [Service Bus 메시징이란?](service-bus-messaging-overview.md)
 ## [Service Bus 기본 사항](service-bus-fundamentals-hybrid-solutions.md)
@@ -97,7 +99,7 @@
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=enterprise-integration)
 ## [블로그](https://blogs.msdn.microsoft.com/servicebus/)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/forums/home?forum=servbus)
-## [가격 책정](https://azure.microsoft.com/pricing/details/service-bus/)
+## [가격](https://azure.microsoft.com/pricing/details/service-bus/)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [가격 정보](service-bus-pricing-billing.md)
 ## [샘플](service-bus-samples.md)

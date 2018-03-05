@@ -1,9 +1,11 @@
+# [Multi-Factor Authentication 설명서](index.md)
+
 # 개요
 ## [Azure Multi-Factor Authentication 정의](multi-factor-authentication.md)
 ## [작동 방법](multi-factor-authentication-how-it-works.md)
 ## [Azure MFA를 가져오는 방법](multi-factor-authentication-versions-plans.md)
 
-# 시작
+# 시작하기
 ## [배포할 위치 선택](multi-factor-authentication-get-started.md)
 ## [클라우드의 MFA](multi-factor-authentication-get-started-cloud.md)
 ## [온-프레미스에서 MFA](multi-factor-authentication-get-started-server.md)

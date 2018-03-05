@@ -1,10 +1,12 @@
+# [Data Lake Analytics 설명서](index.md)
+
 # 개요
 ## [Data Lake Analytics란?](data-lake-analytics-overview.md)
 
 # 시작하기
 ## [Azure 포털](data-lake-analytics-get-started-portal.md)
 ## [Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
-## [Contact.java](data-lake-analytics-data-lake-tools-for-vscode.md)
+## [Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)
 ## [Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 ## [Azure CLI](data-lake-analytics-get-started-cli2.md)
 
@@ -57,7 +59,7 @@
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=intelligence-analytics)
 ## [UserVoice에서 사용자 의견 제공](https://feedback.azure.com/forums/327234-data-lake)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake)
-## [가격 책정](https://azure.microsoft.com/pricing/details/data-lake-analytics/)
+## [가격](https://azure.microsoft.com/pricing/details/data-lake-analytics/)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=data-lake-analytics)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-data-lake)

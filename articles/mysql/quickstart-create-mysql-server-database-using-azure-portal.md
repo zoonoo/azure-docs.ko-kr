@@ -1,27 +1,28 @@
 ---
-title: "빠른 시작: Azure Database for MySQL 서버 만들기 - Azure Portal | Microsoft Docs"
+title: "빠른 시작: Azure Database for MySQL 서버 만들기 - Azure Portal"
 description: "이 문서에서는 Azure Portal을 사용하여 약 5분 안에 Azure Database for MySQL 서버 샘플을 만드는 과정을 안내합니다."
 services: mysql
-author: v-chenyh
-ms.author: v-chenyh
-manager: jhubbard
+author: ajlam
+ms.author: andrela
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 11/01/2017
-ms.openlocfilehash: 88fd06d45d0cd966199ce198578eedd349adc2c8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.date: 02/28/2018
+ms.openlocfilehash: 925ea8f365c4a7e987809cb56dfbfbb638b103fd
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="create-an-azure-database-for-mysql-server-by-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Database for MySQL 서버 만들기
+
 Azure Database for MySQL은 클라우드에서 고가용성 MySQL 데이터베이스를 실행, 관리 및 확장하는 데 사용하는 관리되는 서비스입니다. 이 빠른 시작에서는 Azure Portal을 사용하여 약 5분 안에 Azure Database for MySQL 서버를 만드는 방법을 보여 줍니다.  
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
-## <a name="sign-in-to-azure"></a>Azure에 로그인
+## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인합니다.
 웹 브라우저를 연 다음 [Azure Portal](https://portal.azure.com/)로 이동합니다. 자격 증명을 입력하여 포털에 로그인합니다. 기본 보기는 서비스 대시보드입니다.
 
 ## <a name="create-an-azure-database-for-mysql-server"></a>Azure Database for MySQL 서버 만들기
@@ -33,44 +34,46 @@ Azure Database for MySQL 서버는 정의된 [계산 및 저장소 리소스](./
 
 2. **데이터베이스** > **Azure Database for MySQL**을 차례로 선택합니다. 또한 검색 상자에서 **MySQL**을 입력하여 해당 서비스를 찾을 수도 있습니다.
 
-    ![Azure Database for MySQL 옵션](./media/quickstart-create-mysql-server-database-using-azure-portal/2_navigate-to-mysql.png)
+   ![Azure Database for MySQL 옵션](./media/quickstart-create-mysql-server-database-using-azure-portal/2_navigate-to-mysql.png)
 
-4. 위 이미지와 같이 다음 정보를 사용하여 새 서버 세부 정보 양식을 채웁니다.
+3. 새 서버 세부 정보 양식을 다음 정보로 작성합니다.
+   
+   ![서버 양식 만들기](./media/quickstart-create-mysql-server-database-using-azure-portal/4-create-form.png)
 
     **설정** | **제안 값** | **필드 설명** 
     ---|---|---
-    서버 이름 | 고유 서버 이름 | Azure Database for MySQL 서버를 식별하는 고유한 이름을 선택합니다. 예를 들어, myserver4demo입니다. 사용자가 제공한 서버 이름에 *mysql.database.azure.com* 도메인 이름이 추가됩니다. 서버 이름은 소문자, 숫자 및 하이픈(-) 문자만 포함할 수 있으며, 3-63자여야 합니다.
+    서버 이름 | 고유 서버 이름 | Azure Database for MySQL 서버를 식별하는 고유한 이름을 선택합니다. 예를 들어 mydemoserver가 있습니다. 제공한 서버 이름에 *.mysql.database.azure.com* 도메인 이름이 추가됩니다. 서버 이름은 소문자, 숫자 및 하이픈(-) 문자만 포함할 수 있으며, 3-63자여야 합니다.
     구독 | 사용자의 구독 | 서버에 사용할 Azure 구독을 선택합니다. 구독이 여러 개인 경우, 리소스에 대해 요금이 청구되는 구독을 선택합니다.
-    리소스 그룹 | myresourcegroup | 새 또는 기존 리소스 그룹 이름을 제공합니다.
+    리소스 그룹 | *myresourcegroup* | 새 또는 기존 리소스 그룹 이름을 제공합니다.    리소스 그룹|*myresourcegroup*| 새 리소스 그룹 이름 또는 구독의 기존 이름입니다.
+    원본 선택 | *비어 있음* | 새 서버를 처음부터 만들려면 *비어 있음*을 선택합니다. (기존 Azure Database for MySQL 서버의 지역 백업에서 서버를 만드는 경우 *백업*을 선택합니다).
     서버 관리자 로그인 | myadmin | 서버에 연결할 때 사용할 로그인 계정입니다. 관리자 로그인 이름은 **azure_superuser**, **admin**, **administrator**, **root**, **guest** 또는 **public**일 수 없습니다.
     암호 | *사용자 선택* | 서버 관리자 계정의 새 암호를 제공합니다. 8-128자여야 합니다. 암호는 영어 대문자, 영어 소문자, 숫자(0-9), 특수 문자(!, $, #, % 등) 중 세 가지 범주의 문자를 포함해야 합니다.
     암호 확인 | *사용자 선택*| 관리자 계정 암호를 확인합니다.
     위치 | *사용자와 가장 가까운 지역*| 사용자 또는 다른 Azure 응용 프로그램에 가장 가까운 위치를 선택합니다.
     버전 | *최신 버전*| 최신 버전입니다(다른 버전이 필요한 특정 요구 사항이 없는 경우).
-    가격 책정 계층  | **기본**, **50개 Compute 단위**, **50GB** | 새 데이터베이스에 대한 서비스 계층 및 성능 수준을 선택합니다. 맨 위에 있는 탭에서 **기본 계층**을 선택합니다. **Compute 단위** 슬라이더의 왼쪽 끝을 선택하여 이 빠른 시작에 사용할 수 있는 가장 낮은 금액으로 값을 조정합니다. **확인**을 선택하여 가격 책정 계층 선택을 저장합니다. 자세한 내용은 다음 스크린샷을 참조하세요.
-    대시보드에 고정 | 확인 | 이를 선택하여 Azure Portal의 전면 대시보드 페이지에서 서버를 쉽게 추적할 수 있습니다.
-
+    가격 책정 계층  | **범용**, **4세대**, **2개 vCore**, **5GB**, **7일**, **지역 중복** | 새 서버에 대한 계산, 저장소 및 백업 구성입니다. **가격 책정 계층**을 선택합니다. 그런 다음, **범용** 탭을 선택합니다. *4세대*, *2개 vCore*, *5GB* 및 *7일*은 **세대 계산**, **vCore**, **저장소** 및 **백업 보존 기간**에 대한 기본 값입니다. 해당 슬라이더를 그대로 둘 수 있습니다. 지역 중복 저장소에서 서버 백업을 사용하도록 설정하려면 **백업 중복 옵션**에서 **지역 중복**을 선택합니다. 이 가격 책정 계층 선택을 저장하려면 **확인**을 선택합니다. 다음 스크린샷은 이러한 선택을 캡처한 것입니다.
+  
     > [!IMPORTANT]
     > 여기에 지정하는 서버 관리자 로그인 및 암호는 이 빠른 시작의 뒷부분에서 서버 및 해당 데이터베이스에 로그인하는 데 필요합니다. 나중에 사용하기 위해 이 정보를 기억하거나 기록합니다.
     > 
 
-    ![Azure Portal - 필요한 양식 입력을 제공하여 MySQL 만들기](./media/quickstart-create-mysql-server-database-using-azure-portal/3_create-server.png)
+   ![서버 만들기 - 가격 책정 계층 창](./media/quickstart-create-mysql-server-database-using-azure-portal/3-pricing-tier.png)
 
 4.  **만들기**를 선택하여 서버를 프로비전합니다. 프로비전에는 최대 20분이 걸릴 수 있습니다.
    
 5.  배포 프로세스를 모니터링하려면 도구 모음에서 **알림**(벨 아이콘)을 클릭합니다.
+   
+  기본적으로 서버 아래에 **information_schema**, **mysql**, **performance_schema** 및 **sys** 데이터베이스가 만들어집니다.
 
 ## <a name="configure-a-server-level-firewall-rule"></a>서버 수준 방화벽 규칙 구성
 
 Azure Database for MySQL 서비스는 서버 수준에서 방화벽을 만듭니다. 그러면 외부 응용 프로그램 및 도구에서 서버 또는 서버의 모든 데이터베이스에 대한 연결이 허용되지 않습니다. 단, 특정 IP 주소에 대해 방화벽을 여는 방화벽 규칙을 만든 경우는 예외입니다. 
 
-1.   배포가 완료되면 서버를 찾습니다. 필요한 경우 검색할 수 있습니다. 예를 들어 왼쪽 메뉴에서 **모든 리소스**를 선택합니다. 그런 다음, 서버 이름(예: **myserver4demo**)을 입력하여 새로 만든 서버를 검색합니다. 검색 결과 목록에서 서버 이름을 선택합니다. 서버에 대한 **개요** 페이지가 열리고 추가 구성을 위한 옵션이 제공됩니다.
+1.   배포가 완료되면 서버를 찾습니다. 필요한 경우 검색할 수 있습니다. 예를 들어 왼쪽 메뉴에서 **모든 리소스**를 선택합니다. 그런 다음, 서버 이름(예: **mydemoserver**)을 입력하여 새로 만든 서버를 검색합니다. 검색 결과 목록에서 서버 이름을 선택합니다. 서버에 대한 **개요** 페이지가 열리고 추가 구성을 위한 옵션이 제공됩니다.
 
 2. 서버 페이지에서 **연결 보안**을 선택합니다.
 
 3.  **방화벽 규칙** 제목 아래에서 **규칙 이름** 열의 빈 텍스트 상자를 선택하여 방화벽 규칙을 만들기 시작합니다. 
-
-   ![연결 보안 - 방화벽 규칙](./media/quickstart-create-mysql-server-database-using-azure-portal/5_firewall-settings.png)
 
    이 빠른 시작에서는 각 열의 상자에서 다음 값을 입력하여 모든 IP 주소를 서버에 허용해 보겠습니다.
 
@@ -78,6 +81,8 @@ Azure Database for MySQL 서비스는 서버 수준에서 방화벽을 만듭니
    ---|---|---
    AllowAllIps |  0.0.0.0 | 255.255.255.255
    
+   ![연결 보안 - 방화벽 규칙](./media/quickstart-create-mysql-server-database-using-azure-portal/5_firewall-settings.png)
+
    모든 IP 주소 허용은 안전하지 않습니다. 이 예제는 편의상 제공되지만 실제 시나리오에서는 응용 프로그램 및 사용자에 대해 추가할 정확한 IP 주소 범위를 파악해야 합니다. 
 
 4. **연결 보안** 페이지의 위쪽 도구 모음에서 **저장**을 선택합니다. 계속하기 전에 업데이트가 성공적으로 완료되었다는 알림이 나타날 때까지 기다립니다. 
@@ -89,13 +94,13 @@ Azure Database for MySQL 서비스는 서버 수준에서 방화벽을 만듭니
 ## <a name="get-the-connection-information"></a>연결 정보 가져오기
 데이터베이스 서버에 연결하려면 전체 서버 이름 및 관리자 로그인 자격 증명이 필요합니다. 빠른 시작 문서의 앞부분에서 이러한 값을 기록했을 수도 있습니다. 그렇지 않은 경우 Azure Portal의 서버 **개요** 페이지 또는 **속성** 페이지에서 서버 이름과 로그인 정보를 쉽게 찾을 수 있습니다.
 
-이러한 정보를 찾으려면 다음 단계를 수행합니다. 
+이러한 값을 찾으려면 다음 단계를 수행합니다. 
 
 1. 서버의 **개요** 페이지를 엽니다. **서버 이름** 및 **서버 관리자 로그인 이름**을 기록해 둡니다. 
 
 2. 각 필드 위에 커서를 올려 놓으면 텍스트 오른쪽에 복사 아이콘이 나타납니다. 필요에 따라 복사 아이콘을 선택하여 값을 복사합니다.
 
-이 예에서 서버 이름은 **myserver4demo.mysql.database.azure.com**이고, 서버 관리자 로그인은 **myadmin@myserver4demo**입니다.
+이 예에서 서버 이름은 **mydemoserver.mysql.database.azure.com**이고, 서버 관리자 로그인은 **myadmin@mydemoserver**입니다.
 
 ## <a name="connect-to-mysql-by-using-the-mysql-command-line-tool"></a>mysql 명령줄 도구를 사용하여 MySQL에 연결
 Azure Database for MySQL 서버 연결하기 위해 사용할 수 있는 여러 응용 프로그램이 있습니다. 
@@ -103,28 +108,29 @@ Azure Database for MySQL 서버 연결하기 위해 사용할 수 있는 여러 
 이제 [mysql](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) 명령줄 도구를 사용하여 서버에 연결하는 방법을 자세히 설명해 보겠습니다. 또한 추가 소프트웨어를 설치하지 않고 여기서 설명하는 대로 웹 브라우저 및 Azure Cloud Shell을 사용할 수도 있습니다. mysql 유틸리티를 로컬로 설치한 경우 여기서도 연결할 수 있습니다.
 
 1. Azure Portal의 오른쪽 위에 있는 터미널 아이콘(**>_**)을 통해 Azure Cloud Shell을 시작합니다.
+![Azure Cloud Shell 터미널 기호](./media/quickstart-create-mysql-server-database-using-azure-portal/7-cloud-console.png)
 
 2.  Azure Cloud Shell이 브라우저에서 열리며. 여기서 bash 셸 명령을 입력할 수 있습니다.
 
-    ![명령 프롬프트 - mysql 명령줄 예](./media/quickstart-create-mysql-server-database-using-azure-portal/7_connect-to-server.png)
+   ![명령 프롬프트 - mysql 명령줄 예](./media/quickstart-create-mysql-server-database-using-azure-portal/8-bash.png)
 
 3. Cloud Shell 프롬프트에서 mysql 명령줄을 입력하여 Azure Database for MySQL 서버에 연결합니다.
 
     mysql 유틸리티를 사용하여 Azure Database for MySQL 서버에 연결하려면 다음 형식을 사용합니다.
 
     ```bash
-    mysql --host <fully qualified servername> --user <serveradminlogin@servername> -p
+    mysql --host <fully qualified server name> --user <server admin login name>@<server name> -p
     ```
 
     예를 들어 다음 명령은 예제 서버에 연결합니다.
 
     ```azurecli-interactive
-    mysql --host myserver4demo.mysql.database.azure.com --user myadmin@myserver4demo -p
+    mysql --host mydemoserver.mysql.database.azure.com --user myadmin@mydemoserver -p
     ```
 
     mysql 매개 변수 |제안 값|설명
     ---|---|---
-    --host | *서버 이름* | 이전에 Azure Database for MySQL 서버를 만들 때 사용한 서버 이름 값입니다. 예제 서버는 **myserver4demo.mysql.database.azure.com**입니다. 예제와 같이 정규화된 도메인 이름(**\*.mysql.database.azure.com**)을 사용합니다. 서버 이름을 잊어버린 경우 이전 섹션의 단계에 따라 연결 정보를 가져옵니다. 
+    --host | *서버 이름* | 이전에 Azure Database for MySQL 서버를 만들 때 사용한 서버 이름 값입니다. 예제 서버는 **mydemoserver.mysql.database.azure.com**입니다. 예제와 같이 정규화된 도메인 이름(**\*.mysql.database.azure.com**)을 사용합니다. 서버 이름을 잊어버린 경우 이전 섹션의 단계에 따라 연결 정보를 가져옵니다. 
     --user | *서버 관리자 로그인 이름* |이전에 Azure Database for MySQL 서버를 만들 때 제공한 서버 관리자 로그인 사용자 이름입니다. 사용자 이름을 잊어버린 경우 이전 섹션의 단계에 따라 연결 정보를 가져옵니다. 형식은 *username@servername*입니다.
     -p | *메시지가 표시될 때까지 대기* |메시지가 표시되면 서버를 만들 때 제공한 암호와 동일한 암호를 제공합니다. 입력하는 암호 문자는 입력 시 bash 프롬프트에 표시되지 않습니다. 암호를 입력한 후 **Enter**를 선택합니다.
 
@@ -190,15 +196,15 @@ MySQL Workbench GUI 도구를 사용하여 서버에 연결하려면 다음 단�
 
 3. **새 연결 설정** 대화 상자의 **매개 변수** 탭에 서버 연결 정보를 입력합니다. 자리 표시자 값은 예로 표시됩니다. 호스트 이름, 사용자 이름 및 암호를 원하는 값으로 대체합니다.
 
-    ![새 연결 설정](./media/quickstart-create-mysql-server-database-using-azure-portal/setup-new-connection.png)
+   ![새 연결 설정](./media/quickstart-create-mysql-server-database-using-azure-portal/setup-new-connection.png)
 
     |설정 |제안 값|필드 설명|
     |---|---|---|
      연결 이름 | 데모 연결 | 이 연결에 대한 레이블입니다. |
     연결 방법 | 표준(TCP/IP) | 표준(TCP/IP)이면 충분합니다. |
-    호스트 이름 | *서버 이름* | 이전에 Azure Database for MySQL 서버를 만들 때 사용한 서버 이름 값입니다. 예제 서버는 **myserver4demo.mysql.database.azure.com**입니다. 예제와 같이 정규화된 도메인 이름(**\*.mysql.database.azure.com**)을 사용합니다. 서버 이름을 잊어버린 경우 이전 섹션의 단계에 따라 연결 정보를 가져옵니다.|
+    호스트 이름 | *서버 이름* | 이전에 Azure Database for MySQL 서버를 만들 때 사용한 서버 이름 값입니다. 예제 서버는 **mydemoserver.mysql.database.azure.com**입니다. 예제와 같이 정규화된 도메인 이름(**\*.mysql.database.azure.com**)을 사용합니다. 서버 이름을 잊어버린 경우 이전 섹션의 단계에 따라 연결 정보를 가져옵니다.|
      포트 | 3306 | Azure Database for MySQL 서버에 연결할 때 사용할 포트입니다. |
-    사용자 이름 |  *서버 관리자 로그인 이름* | 이전에 Azure Database for MySQL 서버를 만들 때 제공한 서버 관리자 로그인 정보입니다. 예제 사용자 이름은 **myadmin@myserver4demo**입니다. 사용자 이름을 잊어버린 경우 이전 섹션의 단계에 따라 연결 정보를 가져옵니다. 형식은 *username@servername*입니다.
+    사용자 이름 |  *서버 관리자 로그인 이름* | 이전에 Azure Database for MySQL 서버를 만들 때 제공한 서버 관리자 로그인 정보입니다. 예제 사용자 이름은 **myadmin@mydemoserver**입니다. 사용자 이름을 잊어버린 경우 이전 섹션의 단계에 따라 연결 정보를 가져옵니다. 형식은 *username@servername*입니다.
     암호 | *사용자 암호* | **자격 증명 모음에 저장...** 단추를 선택하여 암호를 저장합니다. |
 
 4. **연결 테스트**를 선택하여 모든 매개 변수가 올바르게 구성되었는지 테스트합니다. 그런 다음 **확인**을 클릭하여 해당 연결을 저장합니다. 
@@ -225,9 +231,9 @@ MySQL Workbench GUI 도구를 사용하여 서버에 연결하려면 다음 단�
 
 2.  **개요** 페이지에서 **삭제**를 선택합니다. 
 
-    ![Azure Database for MySQL - 서버 삭제](./media/quickstart-create-mysql-server-database-using-azure-portal/delete-server.png)
+   ![Azure Database for MySQL - 서버 삭제](./media/quickstart-create-mysql-server-database-using-azure-portal/delete-server.png)
 
-3.  삭제할 서버의 이름을 확인하고 영향을 받는 데이터베이스를 표시합니다. 상자에서 서버 이름(예: **myserver4demo**)을 입력합니다. **삭제**를 선택합니다.
+3.  삭제할 서버의 이름을 확인하고 영향을 받는 데이터베이스를 표시합니다. 상자에서 서버 이름(예: **mydemoserver**)을 입력합니다. **삭제**를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

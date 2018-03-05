@@ -1,3 +1,5 @@
+# [DNS 설명서](index.md)
+
 # 개요
 
 ## [Azure DNS란?](dns-overview.md)
@@ -44,22 +46,22 @@
 ## 문제 해결
 ### [문제 해결 가이드](dns-troubleshoot.md)
 
-# 참조
+# 참고 자료
 ## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=dns)
 ## [Azure PowerShell](/powershell/module/azurerm.dns)
 ## [Azure CLI](/cli/azure/network/dns)
 ## [.NET](/dotnet/api/microsoft.azure.management.dns.models)
 ## [Java](/java/api/com.microsoft.azure.management.dns)
-## [Node.JS](http://azure.github.io/azure-sdk-for-node/azure-arm-dns/latest/)
+## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-dns/latest/)
 ## [Ruby](http://www.rubydoc.info/gems/azure_mgmt_dns/0.8.0)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-dns.html)
-## [REST (영문)](/rest/api/dns/)
+## [REST](/rest/api/dns/)
 
 # 관련 항목
 ## [Application Gateway](/azure/application-gateway/)
 ## [Virtual Network](/azure/virtual-network/)
-## [가상 컴퓨터](/azure/virtual-machines/)
-## [부하 분산 장치](/azure/load-balancer/)
+## [Virtual Machine](/azure/virtual-machines/)
+## [Load Balancer](/azure/load-balancer/)
 ## [Traffic Manager](/azure/traffic-manager/)
 ## [웹앱](/azure/app-service/)
 
@@ -68,6 +70,6 @@
 ## [기능 요청](https://feedback.azure.com/forums/217313-networking/category/77466-domain-name-service-dns-traffic-manager)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [네트워킹 블로그](http://azure.microsoft.com/blog/topics/networking)
-## [가격](https://azure.microsoft.com/pricing/details/dns/)
+## [가격 책정](https://azure.microsoft.com/pricing/details/dns/)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=dns)

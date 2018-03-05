@@ -11,8 +11,12 @@
 ## [Azure AD Connect Health 작업](active-directory-aadconnect-health-operations.md)
 ## [동기화 중 오류](../active-directory-aadconnect-troubleshoot-sync-errors.md)
 
+# 문제 해결
+## [Azure AD Connect Health FAQ](active-directory-aadconnect-health-faq.md)
+## [상태 서비스 데이터가 최신 상태가 아닙니다.](active-directory-aadconnect-health-data-freshness.md)
+
 # 참고 자료
-## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
+## [코드 샘플](https://azure.microsoft.com/resources/samples/?service=active-directory)
 ## [Azure AD Connect Health 버전 내역](active-directory-aadconnect-health-version-history.md)
 ## [GDPR 규정 준수 및 Azure AD Connect Health](active-directory-aadconnect-health-gdpr.md)
 
@@ -23,5 +27,4 @@
 
 # 리소스
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=security-identity)
-##[Azure AD Connect Health FAQ](active-directory-aadconnect-health-faq.md)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)

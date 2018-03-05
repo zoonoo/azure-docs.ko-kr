@@ -1,9 +1,9 @@
-
+# [Scheduler 설명서](index.md)
 
 # 개요
 ## [Scheduler란?](scheduler-intro.md)
 
-# 시작
+# 시작하기
 ## [작업 만들기 및 관리](scheduler-get-started-portal.md)
 ## [개념 및 용어](scheduler-concepts-terms.md)
 
@@ -20,9 +20,9 @@
 ## 보안
 ### [아웃바운드 인증](scheduler-outbound-authentication.md)
 
-# 참조
+# 참고 자료
 ## [Azure PowerShell](/powershell/module/azurerm.scheduler)
-## [REST (영문)](/rest/api/scheduler)
+## [REST](/rest/api/scheduler)
 
 # 리소스
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=monitoring-management)

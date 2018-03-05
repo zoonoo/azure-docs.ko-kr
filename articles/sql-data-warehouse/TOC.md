@@ -1,3 +1,5 @@
+# [SQL Data Warehouse 설명서](index.md)
+
 # 개요
 
 ## [SQL Data Warehouse 정보](sql-data-warehouse-overview-what-is.md)
@@ -135,7 +137,7 @@
 # 리소스
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=databases)
 ## [포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSQLDataWarehouse)
-## [가격 책정](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)
+## [가격](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [기능 요청](https://feedback.azure.com/forums/307516-sql-data-warehouse/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=sql-data-warehouse)
