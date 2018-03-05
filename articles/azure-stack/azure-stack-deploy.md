@@ -12,20 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/08/2017
+ms.date: 03/02/2018
 ms.author: jeffgilb
-ms.openlocfilehash: 2410b1a3c3c2856cceda87ced7e66f140ea0c323
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 03682e7f5867360cc3d854f0dff2bc5d1c1c9619
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="azure-stack-deployment-prerequisites"></a>Azure 스택 배포 필수 구성 요소
 
 *적용 대상: Azure 스택 개발 키트*
 
-배포 하기 전에 [Azure 스택 개발 키트](azure-stack-poc.md), 컴퓨터가 다음 요구 사항을 충족 하는지 확인 하십시오.
+배포 하기 전에 [Azure 스택 개발 키트 (ASDK)](azure-stack-poc.md), 개발 키트 호스트 컴퓨터에이 문서에 설명 된 요구 사항을 충족 하는지 확인 합니다.
 
+> [!NOTE]
+> ASDK 물리적 호스트 컴퓨터에 설치 해야 합니다. ASDK Azure VM에 설치 하는 것은 지원 되지 않습니다.
 
 ## <a name="hardware"></a>하드웨어
 | 구성 요소 | 최소 | 권장 |
@@ -122,7 +124,6 @@ NIC가 연결하는 네트워크에서 사용 가능한 DHCP 서버가 있는지
 ### <a name="internet-access"></a>인터넷 액세스
 Azure 스택 직접 또는 투명 프록시를 통해 인터넷 액세스를 해야합니다. Azure 스택 인터넷 액세스를 사용 하는 웹 프록시 구성을 지원 하지 않습니다. 호스트 IP 및 DHCP 또는 고정 IP) (여 MA BGPNAT01에 할당 된 새 IP를 인터넷에 액세스할 수 있어야 합니다. 포트 80 및 443 graph.windows.net 및 login.microsoftonline.com 도메인에서 사용 됩니다.
 
-Q:는 ASDK Azure VM에서 실행할 수 있습니까? A: 아니요. 현재 시점에서 공식적으로 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 [Azure 스택 개발 키트 배포 패키지를 다운로드 합니다.](https://azure.microsoft.com/overview/azure-stack/try/?v=try)
