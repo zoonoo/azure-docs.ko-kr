@@ -43,7 +43,7 @@
           href: app-service-web-tutorial-java-mysql.md
         - name: PostgreSQL을 사용하는 Python
           href: app-service-web-tutorial-python-postgresql.md
-    - name: 1 - RESTful API 만들기
+    - name: 1 - RESTful API 호스트
       href: app-service-web-tutorial-rest-api.md
     - name: 2 - 사용자 지정 도메인 매핑
       href: app-service-web-tutorial-custom-domain.md
@@ -57,6 +57,8 @@
       href: app-service-cli-samples.md
     - name: Azure PowerShell
       href: app-service-powershell-samples.md
+    - name: 리소스 관리자 템플릿
+      href: app-service-rm-template-samples.md
 - name: 개념
   items:
     - name: App Service 작동 방법
@@ -111,6 +113,8 @@
           href: app-service-deployment-credentials.md
         - name: 스테이징 환경 만들기
           href: web-sites-staged-publishing.md
+        - name: Resource Manager 템플릿 지침
+          href: web-sites-rm-template-guidance.md
     - name: 사용자 지정 도메인 매핑
       items:
         - name: 도메인 구입
@@ -226,7 +230,7 @@
     - name: 쿡북
       items:
         - name: 참조 아키텍처
-          href: ../guidance/guidance-ra-app-service.md
+          href: /azure/architecture/reference-architectures/app-service-web-app/
         - name: 배포 스크립트
           href: 'https://azure.microsoft.com/documentation/scripts/'
     - name: 문제 해결

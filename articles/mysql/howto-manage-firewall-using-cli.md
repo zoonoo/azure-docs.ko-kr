@@ -9,30 +9,12 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: article
-<<<<<<< HEAD
 ms.date: 02/28/2018
 ms.openlocfilehash: b142d08379f8a8fde20178668a4c1343f08aedbc
 ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/28/2018
-=======
-<<<<<<< HEAD
-ms.date: 02/28/2018
-ms.openlocfilehash: b142d08379f8a8fde20178668a4c1343f08aedbc
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
-=======
-ms.date: 02/12/2018
-ms.openlocfilehash: 77254d91bcfa7cbd6070e3baeb98fd7cc5ad44cf
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2018
->>>>>>> 7196ad4b591814cf1c0508654853923113e15630
->>>>>>> 15974768a2bd707a34dd250123b4408c560ed18c
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-cli"></a>Azure CLI를 사용한 MySQL용 Azure Database 방화벽 규칙 만들기 및 관리
 관리자는 서버 수준 방화벽 규칙을 사용하여 특정 IP 주소 또는 IP 주소 범위에서 MySQL용 Azure Database 서버에 대한 액세스를 관리할 수 있습니다. 편리한 Azure CLI 명령을 사용하면 서버를 관리하는 방화벽 규칙을 만들고, 업데이트하고, 삭제하며, 표시할 수 있습니다. MySQL용 Azure Database 방화벽에 대한 개요는 [MySQL용 Azure Database 서버 방화벽 규칙](./concepts-firewall-rules.md)을 참조하세요.
@@ -78,67 +60,27 @@ az login
    나열되는 이름 특성은 작업할 MySQL 서버가 무엇인지 지정하는 데 사용됩니다. 필요한 경우 해당 서버에 대한 세부 정보를 확인하고 이름 특성을 사용하여 올바른지 확인합니다. [az mysql server show](/cli/azure/mysql/server#az_mysql_server_show) 명령을 사용합니다.
 
    ```azurecli-interactive
-<<<<<<< HEAD
    az mysql server show --resource-group myresourcegroup --name mydemoserver
-=======
-<<<<<<< HEAD
-   az mysql server show --resource-group myresourcegroup --name mydemoserver
-=======
-   az mysql server show --resource-group myResourceGroup --name mydemoserver
->>>>>>> 7196ad4b591814cf1c0508654853923113e15630
->>>>>>> 15974768a2bd707a34dd250123b4408c560ed18c
    ```
 
 ## <a name="list-firewall-rules-on-azure-database-for-mysql-server"></a>MySQL용 Azure Database 서버에서 방화벽 규칙 나열 
 서버 이름 및 리소스 그룹 이름을 사용하여 기존 서버 방화벽 규칙을 서버에 나열합니다. [az mysql server firewall list](/cli/azure/mysql/server/firewall-rule#az_mysql_server_firewall_rule_list) 명령을 사용합니다.  서버 이름 특성은 **--name** 스위치가 아닌 **--server** 스위치에서 지정됩니다. 
 ```azurecli-interactive
-<<<<<<< HEAD
 az mysql server firewall-rule list --resource-group myresourcegroup --server-name mydemoserver
 ```
 출력에 기본적으로 JSON 형식으로 규칙(있는 경우)이 나열됩니다. **--output table** 스위치를 사용하여 결과를 좀 더 읽기 쉬운 테이블 형식으로 출력할 수 있습니다.
 ```azurecli-interactive
 az mysql server firewall-rule list --resource-group myresourcegroup --server-name mydemoserver --output table
-=======
-<<<<<<< HEAD
-az mysql server firewall-rule list --resource-group myresourcegroup --server-name mydemoserver
-```
-출력에 기본적으로 JSON 형식으로 규칙(있는 경우)이 나열됩니다. **--output table** 스위치를 사용하여 결과를 좀 더 읽기 쉬운 테이블 형식으로 출력할 수 있습니다.
-```azurecli-interactive
-az mysql server firewall-rule list --resource-group myresourcegroup --server-name mydemoserver --output table
-=======
-az mysql server firewall-rule list --resource-group myResourceGroup --server-name mydemoserver
-```
-출력에 기본적으로 JSON 형식으로 규칙(있는 경우)이 나열됩니다. **--output table** 스위치를 사용하여 결과를 좀 더 읽기 쉬운 테이블 형식으로 출력할 수 있습니다.
-```azurecli-interactive
-az mysql server firewall-rule list --resource-group myResourceGroup --server-name mydemoserver --output table
->>>>>>> 7196ad4b591814cf1c0508654853923113e15630
->>>>>>> 15974768a2bd707a34dd250123b4408c560ed18c
 ```
 ## <a name="create-a-firewall-rule-on-azure-database-for-mysql-server"></a>MySQL용 Azure Database 서버에서 방화벽 규칙 만들기
 Azure MySQL 서버 이름 및 리소스 그룹 이름을 사용하여 서버에 새로운 방화벽 규칙을 만듭니다. [az mysql server firewall create](/cli/azure/mysql/server/firewall-rule#az_mysql_server_firewall_rule_create) 명령을 사용합니다. 규칙에 사용할 이름, 규칙에 대한 시작 IP 및 끝 IP(IP 주소 범위에 액세스 권한 제공)를 제공합니다.
 ```azurecli-interactive
-<<<<<<< HEAD
 az mysql server firewall-rule create --resource-group myresourcegroup --server-name mydemoserver --name FirewallRule1 --start-ip-address 13.83.152.0 --end-ip-address 13.83.152.15
-=======
-<<<<<<< HEAD
-az mysql server firewall-rule create --resource-group myresourcegroup --server-name mydemoserver --name FirewallRule1 --start-ip-address 13.83.152.0 --end-ip-address 13.83.152.15
-=======
-az mysql server firewall-rule create --resource-group myResourceGroup --server-name mydemoserver --name FirewallRule1 --start-ip-address 13.83.152.0 --end-ip-address 13.83.152.15
->>>>>>> 7196ad4b591814cf1c0508654853923113e15630
->>>>>>> 15974768a2bd707a34dd250123b4408c560ed18c
 ```
 
 단일 IP 주소의 액세스를 허용하려면 이 예제에서와 같이 시작 IP 및 끝 IP와 동일한 IP 주소를 제공합니다.
 ```azurecli-interactive
-<<<<<<< HEAD
 az mysql server firewall-rule create --resource-group myresourcegroup --server-name mydemoserver --name FirewallRule1 --start-ip-address 1.1.1.1 --end-ip-address 1.1.1.1
-=======
-<<<<<<< HEAD
-az mysql server firewall-rule create --resource-group myresourcegroup --server-name mydemoserver --name FirewallRule1 --start-ip-address 1.1.1.1 --end-ip-address 1.1.1.1
-=======
-az mysql server firewall-rule create --resource-group myResourceGroup --server-name mydemoserver --name FirewallRule1 --start-ip-address 1.1.1.1 --end-ip-address 1.1.1.1
->>>>>>> 7196ad4b591814cf1c0508654853923113e15630
->>>>>>> 15974768a2bd707a34dd250123b4408c560ed18c
 ```
 
 Azure IP 주소의 응용 프로그램에서 Azure Database for MySQL 서버에 연결할 수 있게 하려면 다음 예제와 같이 0.0.0.0 IP 주소를 시작 IP와 끝 IP로 제공합니다.
@@ -155,15 +97,7 @@ az mysql server firewall-rule create --resource-group myresourcegroup --server m
 ## <a name="update-a-firewall-rule-on-azure-database-for-mysql-server"></a>MySQL용 Azure Database 서버에서 방화벽 규칙 업데이트 
 Azure MySQL 서버 이름 및 리소스 그룹 이름을 사용하여 서버에서 기존 방화벽 규칙을 업데이트합니다. [az mysql server firewall update](/cli/azure/mysql/server/firewall-rule#az_mysql_server_firewall_rule_update) 명령을 사용합니다. 기존 방화벽 규칙의 이름과 업데이트할 시작 IP 및 끝 IP 특성을 입력합니다.
 ```azurecli-interactive
-<<<<<<< HEAD
 az mysql server firewall-rule update --resource-group myresourcegroup --server-name mydemoserver --name FirewallRule1 --start-ip-address 13.83.152.0 --end-ip-address 13.83.152.1
-=======
-<<<<<<< HEAD
-az mysql server firewall-rule update --resource-group myresourcegroup --server-name mydemoserver --name FirewallRule1 --start-ip-address 13.83.152.0 --end-ip-address 13.83.152.1
-=======
-az mysql server firewall-rule update --resource-group myResourceGroup --server-name mydemoserver --name FirewallRule1 --start-ip-address 13.83.152.0 --end-ip-address 13.83.152.1
->>>>>>> 7196ad4b591814cf1c0508654853923113e15630
->>>>>>> 15974768a2bd707a34dd250123b4408c560ed18c
 ```
 성공하면 명령 출력은 업데이트한 방화벽 규칙의 세부 정보를 기본적으로 JSON 형식으로 나열합니다. 오류가 있는 경우 출력은 오류 메시지 텍스트를 대신 표시합니다.
 
@@ -173,30 +107,14 @@ az mysql server firewall-rule update --resource-group myResourceGroup --server-n
 ## <a name="show-firewall-rule-details-on-azure-database-for-mysql-server"></a>MySQL용 Azure Database 서버에서 방화벽 규칙 세부 정보 표시
 Azure MySQL 서버 이름 및 리소스 그룹 이름을 사용하여 서버에서 기존 방화벽 규칙 세부 정보를 표시합니다. [az mysql server firewall show](/cli/azure/mysql/server/firewall-rule#az_mysql_server_firewall_rule_show) 명령을 사용합니다. 기존 방화벽 규칙의 이름을 입력합니다.
 ```azurecli-interactive
-<<<<<<< HEAD
 az mysql server firewall-rule show --resource-group myresourcegroup --server-name mydemoserver --name FirewallRule1
-=======
-<<<<<<< HEAD
-az mysql server firewall-rule show --resource-group myresourcegroup --server-name mydemoserver --name FirewallRule1
-=======
-az mysql server firewall-rule show --resource-group myResourceGroup --server-name mydemoserver --name FirewallRule1
->>>>>>> 7196ad4b591814cf1c0508654853923113e15630
->>>>>>> 15974768a2bd707a34dd250123b4408c560ed18c
 ```
 성공하면 명령 출력은 지정한 방화벽 규칙의 세부 정보를 기본적으로 JSON 형식으로 나열합니다. 오류가 있는 경우 출력은 오류 메시지 텍스트를 대신 표시합니다.
 
 ## <a name="delete-a-firewall-rule-on-azure-database-for-mysql-server"></a>MySQL용 Azure Database 서버에서 방화벽 규칙 삭제
 Azure MySQL 서버 이름 및 리소스 그룹 이름을 사용하여 서버에서 기존 방화벽 규칙을 삭제합니다. [az mysql server firewall delete](/cli/azure/mysql/server/firewall-rule#az_mysql_server_firewall_rule_delete) 명령을 사용합니다. 기존 방화벽 규칙의 이름을 제공합니다.
 ```azurecli-interactive
-<<<<<<< HEAD
 az mysql server firewall-rule delete --resource-group myresourcegroup --server-name mydemoserver --name FirewallRule1
-=======
-<<<<<<< HEAD
-az mysql server firewall-rule delete --resource-group myresourcegroup --server-name mydemoserver --name FirewallRule1
-=======
-az mysql server firewall-rule delete --resource-group myResourceGroup --server-name mydemoserver --name FirewallRule1
->>>>>>> 7196ad4b591814cf1c0508654853923113e15630
->>>>>>> 15974768a2bd707a34dd250123b4408c560ed18c
 ```
 성공하면 출력은 없습니다. 실패하면 오류 메시지 텍스트가 표시됩니다.
 

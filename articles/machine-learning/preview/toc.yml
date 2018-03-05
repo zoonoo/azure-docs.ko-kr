@@ -9,17 +9,17 @@
       href: model-management-overview.md
 - name: 빠른 시작
   items:
-    - name: 설치 및 만들기
+    - name: 설치 및 시작
       href: quickstart-installation.md
 - name: 자습서
   items:
-    - name: 1 - 데이터 준비
+    - name: '1: 데이터 준비'
       href: tutorial-classifying-iris-part-1.md
-    - name: 2 - 모델 작성
+    - name: '2: 모델 빌드'
       href: tutorial-classifying-iris-part-2.md
-    - name: 3 - 모델 배포
+    - name: '3: 모델 배포'
       href: tutorial-classifying-iris-part-3.md
-    - name: 4 - 고급 데이터 준비
+    - name: '4: 고급 데이터 준비'
       href: tutorial-bikeshare-dataprep.md
 - name: 개념
   items:
@@ -194,25 +194,15 @@
   items:
     - name: 질문과 대답
       href: frequently-asked-questions.md
-    - name: 알려진 문제 및 문제 해결
+    - name: 문제 및 문제 해결
       href: known-issues-and-troubleshooting-guide.md
-    - name: TDSP(팀 데이터 과학 프로세스) 설명서
-      href: ../team-data-science-process/overview.md
-    - name: 데이터 과학 VM 설명서
-      href: ../data-science-virtual-machine/overview.md
+    - name: 지원 및 교육
+      href: support-for-aml-services.md
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/'
     - name: 가격
-      href: 'https://azure.microsoft.com/pricing/details/machine-learning-services/'
-    - name: MSDN 포럼
-      href: 'https://social.msdn.microsoft.com/Forums/windowsdesktop/home?forum=MachineLearning'
-    - name: 스택 오버플로
-      href: 'https://stackoverflow.com/questions/tagged/azure-machine-learning'
-    - name: 동영상
-      href: 'https://azure.microsoft.com/resources/videos/index/?services=machine-learning'
-    - name: 피드백 포럼
-      href: 'https://feedback.azure.com/forums/257792-machine-learning'
+      href: aml-services-pricing.md
     - name: 지역 가용성
       href: 'https://azure.microsoft.com/regions/services/'
-    - name: 지원 옵션
-      href: 'https://azure.microsoft.com/support/options/'
+    - name: Team Data Science Process
+      href: ../team-data-science-process/overview.md

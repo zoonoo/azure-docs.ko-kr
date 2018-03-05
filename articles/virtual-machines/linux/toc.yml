@@ -31,7 +31,7 @@
       href: tutorial-load-balancer.md
     - name: 8 - 네트워킹 관리
       href: tutorial-virtual-network.md
-    - name: 9 - 가상 머신 백업
+    - name: 9 - 가상 머신 Backup
       href: tutorial-backup-vms.md
     - name: 10 - VM 제어
       href: tutorial-govern-resources.md
@@ -108,6 +108,8 @@
           href: disk-scalability-targets.md
         - name: 디스크의 복구 및 재해 복구
           href: backup-and-disaster-recovery-for-azure-iaas-disks.md
+        - name: 연결된 VHD 문제 해결
+          href: troubleshoot-vhds.md
     - name: 네트워킹
       href: network-overview.md
     - name: 자동 크기 조정 응용 프로그램
