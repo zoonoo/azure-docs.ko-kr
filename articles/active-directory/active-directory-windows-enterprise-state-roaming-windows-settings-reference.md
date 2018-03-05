@@ -49,7 +49,7 @@ Windows 설정은 동기화가 기본이지만 장치에 설치된 응용 프로
 
 ![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-individual-sync-settings.png)
 
-Edge 브라우저 설정 그룹(즐겨찾기, 읽기 목록) 동기화는 Edge 브라우저 설정 메뉴 옵션을 통해 최종 사용자가 사용하거나 사용하지 않도록 설정할 수 있습니다.
+Microsoft Edge 브라우저 설정 그룹(즐겨찾기, 읽기 목록) 동기화는 Microsoft Edge 브라우저 설정 메뉴 옵션을 통해 최종 사용자가 사용하거나 사용하지 않도록 설정할 수 있습니다.
 
 ![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-sync-content.png)
 
@@ -86,8 +86,8 @@ Edge 브라우저 설정 그룹(즐겨찾기, 읽기 목록) 동기화는 Edge �
 | **바탕 화면 개인 설정**: 작업 표시줄 설정(위치, 자동 숨김 등) |sync |X |테마 |
 | **바탕 화면 개인 설정**: 시작 화면 레이아웃 |X |backup | |
 | **장치**: 연결된 공유 프린터 |X |X |기타 |
-| **Edge 브라우저**: 읽기 목록 |sync |sync |내부 |
-| **Edge 브라우저**: 즐겨찾기 |sync |sync |내부 |
+| **Microsoft Edge 브라우저**: 읽기 목록 |sync |sync |내부 |
+| **Microsoft Edge 브라우저**: 즐겨찾기 |sync |sync |내부 |
 | **Edge 브라우저**: 상위 사이트 <sup>[[1]](#footnote-1)</sup> |sync |sync |내부 |
 | **Edge 브라우저**: 형식이 지정된 URL <sup>[[1]](#footnote-1)</sup> |sync |sync |내부 |
 | **Edge 브라우저**: 즐겨찾기 표시줄 설정 <sup>[[1]](#footnote-1)</sup> |sync |sync |내부 |

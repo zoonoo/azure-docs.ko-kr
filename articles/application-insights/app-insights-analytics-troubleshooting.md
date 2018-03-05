@@ -24,7 +24,7 @@ ms.lasthandoff: 11/01/2017
 
 ## <a name="limits"></a>제한
 * 현재, 쿼리 결과는 지난 주의 데이터로 제한됩니다.
-* 테스트 브라우저: Chrome, Edge 및 Internet Explorer 최신 버전.
+* 테스트 브라우저: Chrome, Microsoft Edge 및 Internet Explorer 최신 버전.
 
 ## <a name="known-incompatible-browser-extensions"></a>알려진 호환되지 않는 브라우저 확장
 * Ghostery

@@ -4,10 +4,9 @@
 ## [Bash - 빠른 시작](quickstart.md)
 ## [PowerShell-빠른 시작](quickstart-powershell.md)
 
-# 개념
+# 기능 및 도구
 ## [Bash - 기능 및 도구](features.md)
 ## [PowerShell - 기능 및 도구](features-powershell.md)
-## [제한 사항](limitations.md)
 
 # 방법
 ## [Bash - 저장소 유지](persisting-shell-storage.md)
@@ -20,7 +19,7 @@
 
 # [Cloud Shell 포함](embed-cloud-shell.md)
 
-# [문제 해결](troubleshooting.md)
+# [문제 해결 및 제한 사항](troubleshooting.md)
 
 # 참고 자료
 ## [Azure CLI](/cli/azure)

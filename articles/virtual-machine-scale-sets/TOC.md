@@ -1,3 +1,5 @@
+# [Virtual Machines Scale Sets 설명서](index.md)
+
 # 개요
 ## [가상 머신 확장 집합이란?](virtual-machine-scale-sets-overview.md)
 
@@ -12,6 +14,7 @@
 # 방법
 ## 계획 및 디자인
 ### [디자인 고려 사항](virtual-machine-scale-sets-design-overview.md)
+### [인스턴스 ID 이해](virtual-machine-scale-sets-instance-ids.md)
 
 ## 템플릿 만들기
 ### [확장 집합 템플릿에 대해 알아보기](virtual-machine-scale-sets-mvss-start.md)

@@ -52,7 +52,15 @@
           href: msi-qs-configure-template-windows-vm.md
         - name: Azure SDK 사용
           href: msi-qs-configure-sdk-windows-vm.md
-    - name: Resource Manager에 대한 VM MSI 액세스 권한 부여
+    - name: Azure VMSS에 대한 MSI 구성
+      items:
+        - name: Azure Portal 사용
+          href: msi-qs-configure-portal-windows-vmss.md
+        - name: Azure CLI 사용
+          href: msi-qs-configure-cli-windows-vmss.md
+        - name: Azure Resource Manager 템플릿 사용
+          href: msi-qs-configure-template-windows-vmss.md
+    - name: Resource Manager에 대한 VM 또는 VMSS MSI 액세스 권한 부여
       items:
         - name: Azure Portal 사용
           href: msi-howto-assign-access-portal.md

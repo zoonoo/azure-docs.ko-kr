@@ -1,3 +1,5 @@
+# [Analysis Services 설명서](index.md)
+
 # 개요
 ## [Analysis Services 정보](analysis-services-overview.md)
 ## [지원되는 데이터 원본](analysis-services-datasource.md)
@@ -14,6 +16,7 @@
 
 # 방법 
 ## [온-프레미스 데이터 게이트웨이 설치 및 구성](analysis-services-gateway-install.md)
+## [Power BI Desktop 파일 가져오기](analysis-services-import-pbix.md)
 ## [Backup 및 복원](analysis-services-backup.md)
 ## [REST API 사용하여 새로 고침](analysis-services-async-refresh.md)
 ## [스케일 아웃 구성](analysis-services-scale-out.md)
@@ -30,25 +33,26 @@
 ### [Power BI와 연결](analysis-services-connect-pbi.md)
 ### [.odc 파일 만들기](analysis-services-odc.md)
 ## 자습서
+### [1 - 샘플 모델 추가](analysis-services-create-sample-model.md)
 ### [데이터 모델링 - Adventure Works 자습서](tutorials/aas-adventure-works-tutorial.md)
-### [1 - 테이블 형식 모델 프로젝트 만들기](tutorials/aas-lesson-1-create-a-new-tabular-model-project.md)
-### [2 - 데이터 가져오기](tutorials/aas-lesson-2-get-data.md)
-### [3 - 날짜 테이블로 표시](tutorials/aas-lesson-3-mark-as-date-table.md) 
-### [4 - 관계 만들기](tutorials/aas-lesson-4-create-relationships.md) 
-### [5 - 계산된 열 만들기](tutorials/aas-lesson-5-create-calculated-columns.md)
-### [6 - 측정값 만들기](tutorials/aas-lesson-6-create-measures.md)  
-### [7 - 핵심 성과 지표 만들기](tutorials/aas-lesson-7-create-key-performance-indicators.md)  
-### [8 - 큐브 뷰 만들기](tutorials/aas-lesson-8-create-perspectives.md) 
-### [9 - 계층 구조 만들기](tutorials/aas-lesson-9-create-hierarchies.md) 
-### [10 - 파티션 만들기](tutorials/aas-lesson-10-create-partitions.md) 
-### [11 - 역할 만들기](tutorials/aas-lesson-11-create-roles.md)
-### [12 - Excel에서 분석](tutorials/aas-lesson-12-analyze-in-excel.md)
-### [13 - 배포](tutorials/aas-lesson-13-deploy.md)
-### [추가 단원 - 세부 정보 행](tutorials/aas-supplemental-lesson-detail-rows.md)
-### [추가 단원 - 동적 보안](tutorials/aas-supplemental-lesson-dynamic-security.md)
-### [추가 단원 - 불규칙한 계층 구조](tutorials/aas-supplemental-lesson-ragged-hierarchies.md)  
+#### [1 - 테이블 형식 모델 프로젝트 만들기](tutorials/aas-lesson-1-create-a-new-tabular-model-project.md)
+#### [2 - 데이터 가져오기](tutorials/aas-lesson-2-get-data.md)
+#### [3 - 날짜 테이블로 표시](tutorials/aas-lesson-3-mark-as-date-table.md) 
+#### [4 - 관계 만들기](tutorials/aas-lesson-4-create-relationships.md) 
+#### [5 - 계산된 열 만들기](tutorials/aas-lesson-5-create-calculated-columns.md)
+#### [6 - 측정값 만들기](tutorials/aas-lesson-6-create-measures.md)  
+#### [7 - 핵심 성과 지표 만들기](tutorials/aas-lesson-7-create-key-performance-indicators.md)  
+#### [8 - 큐브 뷰 만들기](tutorials/aas-lesson-8-create-perspectives.md) 
+#### [9 - 계층 구조 만들기](tutorials/aas-lesson-9-create-hierarchies.md) 
+#### [10 - 파티션 만들기](tutorials/aas-lesson-10-create-partitions.md) 
+#### [11 - 역할 만들기](tutorials/aas-lesson-11-create-roles.md)
+#### [12 - Excel에서 분석](tutorials/aas-lesson-12-analyze-in-excel.md)
+#### [13 - 배포](tutorials/aas-lesson-13-deploy.md)
+#### [추가 단원 - 세부 정보 행](tutorials/aas-supplemental-lesson-detail-rows.md)
+#### [추가 단원 - 동적 보안](tutorials/aas-supplemental-lesson-dynamic-security.md)
+#### [추가 단원 - 불규칙한 계층 구조](tutorials/aas-supplemental-lesson-ragged-hierarchies.md)  
 
-# 참조
+# 참고 자료
 ## [Azure PowerShell](analysis-services-powershell.md)
 ## [REST](/rest/api/analysisservices)
 ## [DAX](https://msdn.microsoft.com/library/gg413422.aspx)
