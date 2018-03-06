@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 01/10/2018
 ms.author: ayolubek
-ms.openlocfilehash: 131a1f77fa9c8d8e7b9ac5b01dee655b1aa1c3df
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: aa4df1854b15198ede1ee143afeff47b24dc567f
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-portal-use-the-sql-query-editor-to-connect-and-query-data"></a>Azure Portal: SQL 쿼리 편집기를 사용하여 데이터 연결 및 쿼리
 
@@ -33,18 +33,19 @@ SQL 쿼리 편집기는 Azure Portal에서 Azure SQL Database 또는 Azure SQL D
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
+> [!NOTE]
+> SQL Server 방화벽 설정에서 "Azure 서비스 방문 허용" 옵션이 "켜기"로 설정되어 있는지 확인합니다. 이 옵션을 사용하면 SQL 쿼리 편집기에서 데이터베이스 및 데이터 웨어하우스에 액세스할 수 있습니다.
+
 ## <a name="log-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 
 ## <a name="connect-using-sql-authentication"></a>SQL 인증을 사용하여 연결
-> [!NOTE]
-> SQL Server 방화벽 설정에서 "Azure 서비스 방문 허용" 옵션이 "켜기"로 설정되어 있는지 확인합니다. 이 옵션을 사용하면 SQL 쿼리 편집기에서 데이터베이스 및 데이터 웨어하우스에 액세스할 수 있습니다.
 
 1. 왼쪽 메뉴에서 **SQL 데이터베이스**를 클릭하고 쿼리할 데이터베이스를 클릭합니다.
 
-2. 데이터베이스의 SQL Database 페이지에서 왼쪽 메뉴에 있는 **데이터 탐색기(미리 보기)**를 찾아 클릭합니다.
+2. 데이터베이스의 SQL Database 페이지에서 왼쪽 메뉴에 있는 **쿼리 편집기(미리 보기)**를 찾아 클릭합니다.
 
     ![쿼리 편집기 찾기](./media/sql-database-connect-query-portal/find-query-editor.PNG)
 

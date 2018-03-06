@@ -1,21 +1,21 @@
 ---
-title: "Azure 빠른 시작 - Java를 사용하여 Azure Blob Storage에서 개체 전송 | Microsoft Docs"
-description: "Java를 사용하여 Azure Blob Storage에서 개체를 전송하는 방법을 간단히 알아봅니다."
+title: "Azure 빠른 시작 - Java를 사용하여 Azure Storage에 BLOB 업로드, 다운로드 및 나열 | Microsoft Docs"
+description: "이 빠른 시작에서는 저장소 계정과 컨테이너를 만듭니다. 그런 다음, Java용 저장소 클라이언트 라이브러리를 사용하여 Azure Storage에 BLOB을 업로드하고, BLOB을 다운로드하고, 컨테이너의 BLOB을 나열합니다."
+services: storage
 author: roygara
 manager: jeconnoc
-services: storage
+ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 11/01/2017
+ms.date: 02/22/2018
 ms.author: rogarana
-ms.custom: mvc
-ms.openlocfilehash: 12e234b483ca7e3b030256bf1cedaed2bcc120d3
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: cde366e75e4111a911be67795a2ad4dfa73778ea
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="transfer-objects-tofrom-azure-blob-storage-using-java"></a>Java를 사용하여 Azure Blob Storage에서 개체 전송
+# <a name="quickstart-upload-download-and-list-blobs-using-java"></a>빠른 시작: Java를 사용하여 BLOB 업로드, 다운로드 및 나열
 
 이 빠른 시작에서 Java를 사용하여 Azure Blob Storage에서 컨테이너에 블록 blob을 업로드, 다운로드 및 나열하는 방법을 알아봅니다.
 

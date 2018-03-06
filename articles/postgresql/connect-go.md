@@ -1,21 +1,21 @@
 ---
-title: "Go 언어를 사용하여 PostgreSQL용 Azure Database에 연결 | Microsoft Docs"
+title: "Go 언어를 사용하여 Azure Database for PostgreSQL에 연결"
 description: "이 빠른 시작에서는 PostgreSQL용 Azure Database의 데이터를 연결하고 쿼리하는 데 사용할 수 있는 Go 프로그래밍 언어 샘플을 제공합니다."
 services: postgresql
-author: jasonwhowell
-ms.author: jasonh
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc
 ms.devlang: go
 ms.topic: quickstart
-ms.date: 11/03/2017
-ms.openlocfilehash: 8b52aeaadf7ba94d6b79ef447600cd7b57e70dfa
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.date: 02/28/2018
+ms.openlocfilehash: 305a9ad066ad504b7564945d8ccce1be19a4135a
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-database-for-postgresql-use-go-language-to-connect-and-query-data"></a>PostgreSQL용 Azure Database: Go 언어를 사용하여 데이터 연결 및 쿼리
 이 빠른 시작에서는 [Go](https://golang.org/) 언어(golang)로 작성된 코드를 사용하여 PostgreSQL용 Azure Database에 연결하는 방법을 보여줍니다. SQL 문을 사용하여 데이터베이스의 데이터를 쿼리, 삽입, 업데이트 및 삭제하는 방법을 보여 줍니다. 이 문서에서는 개발자가 Go를 사용하여 개발하는 것에 익숙하고 PostgreSQL용 Azure Database 작업에 익숙하지 않다고 가정합니다.
@@ -33,7 +33,7 @@ ms.lasthandoff: 11/06/2017
 2. [시작] 메뉴에서 [명령 프롬프트]를 선택합니다.
 3. `mkdir  %USERPROFILE%\go\src\postgresqlgo`와 같이 프로젝트에 폴더를 만듭니다.
 4. 디렉터리를 프로젝트 폴더로 변경합니다(예: `cd %USERPROFILE%\go\src\postgresqlgo`).
-5. 소스 코드 디렉터리를 가리키도록 GOPATH에 대한 환경 변수를 설정합니다. `set GOPATH=%USERPROFILE%\go`.
+5. 소스 코드 디렉터리를 가리키도록 GOPATH에 대한 환경 변수를 설정합니다. `set GOPATH=%USERPROFILE%\go`
 6. `go get github.com/lib/pq` 명령을 실행하여 [Pure Go Postgres 드라이버(pq)](https://github.com/lib/pq)를 설치합니다.
 
    요약하자면, Go 설치 후 명령 프롬프트에서 다음이 명령을 실행합니다.
@@ -81,11 +81,10 @@ ms.lasthandoff: 11/06/2017
 PostgreSQL용 Azure Database에 연결하는 데 필요한 연결 정보를 가져옵니다. 정규화된 서버 이름 및 로그인 자격 증명이 필요합니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. Azure Portal의 왼쪽 메뉴에서 **모든 리소스**를 클릭하고 방금 만든 서버를 검색합니다(예: **mypgserver-20170401**).
-3. **mypgserver-20170401**서버 이름을 클릭합니다.
-4. 서버의 **개요** 페이지를 선택합니다. **서버 이름** 및 **서버 관리자 로그인 이름**을 기록해 둡니다.
- ![PostgreSQL용 Azure Database - 서버 관리자 로그인](./media/connect-go/1-connection-string.png)
-5. 서버 로그인 정보를 잊어버린 경우 **개요** 페이지로 이동하여 서버 관리자 로그인 이름을 확인합니다. 필요한 경우 암호를 다시 설정합니다.
+2. Azure Portal의 왼쪽 메뉴에서 **모든 리소스**를 클릭한 다음, 방금 만든 서버를 검색합니다(예: **mydemoserver**).
+3. 서버 이름을 클릭합니다.
+4. 서버의 **개요** 패널에 있는 **서버 이름**과 **서버 관리자 로그인 이름**을 기록해 둡니다. 암호를 잊어버리면 이 패널에서 암호를 재설정할 수 있습니다.
+ ![Azure Database for PostgreSQL 서버 이름](./media/connect-go/1-connection-string.png)
 
 ## <a name="build-and-run-go-code"></a>Go 코드 작성 및 실행 
 1. Golang 코드를 작성하려면 Microsoft Windows의 메모장, Ubuntu의 [vi](http://manpages.ubuntu.com/manpages/xenial/man1/nvi.1.html#contenttoc5) 또는 [Nano](https://www.nano-editor.org/), macOS의 TextEdit과 같은 일반 텍스트 편집기를 사용할 수 있습니다. 보다 풍부한 IDE(대화형 개발 환경)를 선호하는 경우 Jetbrains의 [Gogland](https://www.jetbrains.com/go/), Microsoft의 [Visual Studio Code](https://code.visualstudio.com/) 또는 [Atom](https://atom.io/)을 사용해 보세요.
@@ -115,9 +114,9 @@ import (
 
 const (
     // Initialize connection constants.
-    HOST     = "mypgserver-20170401.postgres.database.azure.com"
+    HOST     = "mydemoserver.postgres.database.azure.com"
     DATABASE = "mypgsqldb"
-    USER     = "mylogin@mypgserver-20170401"
+    USER     = "mylogin@mydemoserver"
     PASSWORD = "<server_admin_password>"
 )
 
@@ -181,9 +180,9 @@ import (
 
 const (
     // Initialize connection constants.
-    HOST     = "mypgserver-20170401.postgres.database.azure.com"
+    HOST     = "mydemoserver.postgres.database.azure.com"
     DATABASE = "mypgsqldb"
-    USER     = "mylogin@mypgserver-20170401"
+    USER     = "mylogin@mydemoserver"
     PASSWORD = "<server_admin_password>"
 )
 
@@ -247,9 +246,9 @@ import (
 
 const (
     // Initialize connection constants.
-    HOST     = "mypgserver-20170401.postgres.database.azure.com"
+    HOST     = "mydemoserver.postgres.database.azure.com"
     DATABASE = "mypgsqldb"
-    USER     = "mylogin@mypgserver-20170401"
+    USER     = "mylogin@mydemoserver"
     PASSWORD = "<server_admin_password>"
 )
 
@@ -300,9 +299,9 @@ import (
 
 const (
     // Initialize connection constants.
-    HOST     = "mypgserver-20170401.postgres.database.azure.com"
+    HOST     = "mydemoserver.postgres.database.azure.com"
     DATABASE = "mypgsqldb"
-    USER     = "mylogin@mypgserver-20170401"
+    USER     = "mylogin@mydemoserver"
     PASSWORD = "<server_admin_password>"
 )
 

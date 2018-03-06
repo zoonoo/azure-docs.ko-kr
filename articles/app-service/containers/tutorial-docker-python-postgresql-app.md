@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 01/28/2018
 ms.author: beverst;cephalin
 ms.custom: mvc
-ms.openlocfilehash: 070f69cab63525c3209380bc5f7121812be4a899
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: c77b7c965f43dc9c4f76683aabeb6ff9c9d3a1c9
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="build-a-docker-python-and-postgresql-web-app-in-azure"></a>Azure에서 Docker Python 및 PostgreSQL 웹앱 빌드
 
@@ -28,7 +28,7 @@ Web App for Containers는 확장성이 높은 자체 패치 웹 호스팅 서비
 
 > [!div class="checklist"]
 > * Azure에서 PostgreSQL 데이터베이스 만들기
-> * MySQL에 Python 앱 연결
+> * PostgreSQL에 Python 앱 연결
 > * Azure에 앱 배포
 > * 데이터 모델 업데이트 및 앱 다시 배포
 > * Azure Portal에서 앱 관리

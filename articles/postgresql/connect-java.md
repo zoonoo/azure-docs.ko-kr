@@ -1,21 +1,21 @@
 ---
-title: "Java를 사용하여 PostgreSQL용 Azure Database에 연결 | Microsoft Docs"
+title: "Java를 사용하여 Azure Database for PostgreSQL에 연결"
 description: "이 빠른 시작에서는 PostgreSQL용 Azure Database의 데이터를 연결하고 쿼리하는 데 사용할 수 있는 Java 코드 샘플을 제공합니다."
 services: postgresql
-author: jasonwhowell
-ms.author: jasonh
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 11/03/2017
-ms.openlocfilehash: 0d763d30633e9d808501620c7247ed73567d3f62
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.date: 02/28/2018
+ms.openlocfilehash: 5c55adec1471b28880f7a24a736cf25df2c8bd3f
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-database-for-postgresql-use-java-to-connect-and-query-data"></a>PostgreSQL용 Azure Database: Java를 사용하여 데이터 연결 및 쿼리
 이 빠른 시작에서는 Java 응용 프로그램을 사용하여 PostgreSQL용 Azure Database에 연결하는 방법을 보여줍니다. SQL 문을 사용하여 데이터베이스의 데이터를 쿼리, 삽입, 업데이트 및 삭제하는 방법을 보여 줍니다. 이 문서의 단계에서는 개발자가 Java를 사용하여 개발하는 것에 익숙하고 Azure Database for PostgreSQL 작업에 익숙하지 않다고 가정합니다.
@@ -33,11 +33,10 @@ ms.lasthandoff: 11/06/2017
 PostgreSQL용 Azure Database에 연결하는 데 필요한 연결 정보를 가져옵니다. 정규화된 서버 이름 및 로그인 자격 증명이 필요합니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. Azure Portal의 왼쪽 메뉴에서 **모든 리소스**를 클릭하고 방금 만든 서버를 검색합니다(예: **mypgserver-20170401**).
-3. **mypgserver-20170401**서버 이름을 클릭합니다.
-4. 서버의 **개요** 페이지를 선택합니다. **서버 이름** 및 **서버 관리자 로그인 이름**을 기록해 둡니다.
- ![PostgreSQL용 Azure Database - 서버 관리자 로그인](./media/connect-java/1-connection-string.png)
-5. 서버 로그인 정보를 잊어버린 경우 **개요** 페이지로 이동하여 서버 관리자 로그인 이름을 확인하고 필요한 경우 암호를 다시 설정합니다.
+2. Azure Portal의 왼쪽 메뉴에서 **모든 리소스**를 클릭한 다음, 방금 만든 서버를 검색합니다(예: **mydemoserver**).
+3. 서버 이름을 클릭합니다.
+4. 서버의 **개요** 패널에 있는 **서버 이름**과 **서버 관리자 로그인 이름**을 기록해 둡니다. 암호를 잊어버리면 이 패널에서 암호를 재설정할 수 있습니다.
+ ![Azure Database for PostgreSQL 서버 이름](./media/connect-java/1-connection-string.png)
 
 ## <a name="connect-create-table-and-insert-data"></a>테이블 연결, 생성 및 데이터 삽입
 **INSERT** SQL 문이 있는 함수를 사용하여 데이터를 데이터베이스로 연결하고 로드하려면 다음 코드를 사용하세요. [getConnection()](https://www.postgresql.org/docs/7.4/static/jdbc-use.html), [createStatement()](https://jdbc.postgresql.org/documentation/head/query.html), [executeQuery()](https://jdbc.postgresql.org/documentation/head/query.html) 메서드는 테이블을 데이터베이스로 연결하고, 삭제하고, 만드는 데 사용됩니다. [prepareStatement](https://jdbc.postgresql.org/documentation/head/query.html) 개체는 매개 변수 값을 바인딩하는 setString() 및 setInt()를 사용하여 insert 명령을 작성하는 데 사용됩니다. [executeUpdate()](https://jdbc.postgresql.org/documentation/head/update.html) 메서드는 각 매개 변수 집합에 대한 명령을 실행합니다. 
@@ -54,9 +53,9 @@ public class CreateTableInsertRows {
     {
 
         // Initialize connection variables.
-        String host = "mypgserver-20170401.postgres.database.azure.com";
+        String host = "mydemoserver.postgres.database.azure.com";
         String database = "mypgsqldb";
-        String user = "mylogin@mypgserver-20170401";
+        String user = "mylogin@mydemoserver";
         String password = "<server_admin_password>";
 
         // check that the driver is installed
@@ -154,9 +153,9 @@ public class ReadTable {
     {
 
         // Initialize connection variables.
-        String host = "mypgserver-20170401.postgres.database.azure.com";
+        String host = "mydemoserver.postgres.database.azure.com";
         String database = "mypgsqldb";
-        String user = "mylogin@mypgserver-20170401";
+        String user = "mylogin@mydemoserver";
         String password = "<server_admin_password>";
 
         // check that the driver is installed
@@ -240,9 +239,9 @@ public class UpdateTable {
     {
 
         // Initialize connection variables.
-        String host = "mypgserver-20170401.postgres.database.azure.com";
+        String host = "mydemoserver.postgres.database.azure.com";
         String database = "mypgsqldb";
-        String user = "mylogin@mypgserver-20170401";
+        String user = "mylogin@mydemoserver";
         String password = "<server_admin_password>";
 
         // check that the driver is installed
@@ -320,9 +319,9 @@ public class DeleteTable {
     {
 
         // Initialize connection variables.
-        String host = "mypgserver-20170401.postgres.database.azure.com";
+        String host = "mydemoserver.postgres.database.azure.com";
         String database = "mypgsqldb";
-        String user = "mylogin@mypgserver-20170401";
+        String user = "mylogin@mydemoserver";
         String password = "<server_admin_password>";
 
         // check that the driver is installed

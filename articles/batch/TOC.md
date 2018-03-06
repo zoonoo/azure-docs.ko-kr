@@ -42,12 +42,13 @@
 
 ## 풀 만들기 및 관리
 ### [자동 크기 조정 컴퓨터 노드](batch-automatic-scaling.md)
-### [계산 집약적 VM](batch-pool-compute-intensive-sizes.md)
+### [계산 노드에 대한 VM 크기 선택](batch-pool-vm-sizes.md)
 ### [계산 노드에 대한 액세스 구성](pool-endpoint-configuration.md)
 ### [사용자 지정 이미지로 풀 만들기](batch-custom-images.md)
 ### [가상 네트워크에서 풀 만들기](batch-virtual-network.md)
-### [Linux 계산 노드](batch-linux-nodes.md)
-### [우선 순위가 낮은 VM](batch-low-pri-vms.md)
+### [계산 집약적 VM 사용](batch-pool-compute-intensive-sizes.md)
+### [Linux 계산 노드 사용](batch-linux-nodes.md)
+### [우선 순위가 낮은 VM 사용](batch-low-pri-vms.md)
 
 ## 작업 및 태스크 관리
 ### [작업 준비 및 완료 작업](batch-job-prep-release.md)
@@ -107,7 +108,7 @@
 ## [Batch Shipyard](https://github.com/Azure/batch-shipyard)
 ## [블로그](https://blogs.technet.microsoft.com/windowshpc/)
 ## [Azure의 HPC 솔루션](../virtual-machines/linux/high-performance-computing.md?toc=%2fazure%2fbatch%2ftoc.json)
-## [가격](https://azure.microsoft.com/pricing/details/batch/)
+## [가격 책정](https://azure.microsoft.com/pricing/details/batch/)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [Resource Manager 템플릿](/azure/templates/microsoft.batch/batchaccounts)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)

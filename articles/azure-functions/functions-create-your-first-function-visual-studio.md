@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 01/17/2018
 ms.author: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: f908b874a8205c2b8738deeccb3d7dd38b9833fe
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: fa17a021526a728c6fabc9607b1d00f5521cbb21
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="create-your-first-function-using-visual-studio"></a>Visual Studio를 사용하여 첫 번째 함수 만들기
 
@@ -97,7 +97,7 @@ Azure Functions Core Tools를 사용하면 로컬 개발 컴퓨터에서 Azure F
 
 ## <a name="next-steps"></a>다음 단계
 
-Visual Studio를 사용하여 간단하고 HTTP에서 트리거한 함수가 있는 C# 함수 앱을 만들었습니다. 
+Visual Studio를 사용하여 간단하고 HTTP에서 트리거한 함수가 있는 C# 함수 앱을 만들고 게시했습니다. 
 
 + 다른 종류의 트리거 및 바인딩을 지원하도록 프로젝트를 구성하는 방법은 [Visual Studio용 Azure Functions 도구](functions-develop-vs.md#configure-the-project-for-local-development)의 [로컬 개발에 대한 프로젝트 구성](functions-develop-vs.md) 섹션을 참조하세요.
 + Azure Functions Core 도구를 사용하여 로컬에서 테스트하고 디버그하는 방법에 대한 자세한 내용은 [Azure Functions를 로컬로 코딩 및 테스트하는 방법](functions-run-local.md)을 참조하세요. 

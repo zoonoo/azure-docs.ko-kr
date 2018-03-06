@@ -1,10 +1,10 @@
 ---
 title: "VPN Gateway 개요: Azure 가상 네트워크에 대한 크로스-프레미스 VPN 연결 만들기 | Microsoft Docs"
-description: "이 VPN Gateway 개요에서는 VPN 연결을 사용하여 인터넷을 통해 Azure 가상 네트워크에 연결하는 방법에 대해 설명합니다. 기본 연결 구성의 다이어그램이 포함됩니다."
+description: "이 문서에서는 VPN Gateway가 무엇인지 설명하고 VPN 연결을 사용하여 인터넷을 통해 Azure 가상 네트워크에 연결하는 방법을 보여줍니다. 기본 연결 구성의 다이어그램이 포함됩니다."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: 
 tags: azure-resource-manager,azure-service-management
 ms.assetid: 2358dd5a-cd76-42c3-baf3-2f35aadc64c8
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/04/2017
+ms.date: 02/16/2018
 ms.author: cherylmc
-ms.openlocfilehash: ae8de17c6b2ca8e1b9888612221c7f39b629c1b1
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: dadddeaac2a7856f8e249db981b018de070e1f3f
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="about-vpn-gateway"></a>VPN Gateway 정보
 
@@ -27,15 +27,11 @@ VPN Gateway는 공용 연결을 통해 온-프레미스 위치에 암호화된 �
 
 각 가상 네트워크에는 하나의 VPN Gateway만이 있을 수 있지만 동일한 VPN Gateway에 여러 연결을 만들 수 있습니다. 한 가지 예로 다중 사이트 연결 구성이 있습니다. 동일한 VPN Gateway에 대한 여러 연결을 만들면 지점 및 사이트 간 VPN을 비롯한 모든 VPN 터널이 해당 게이트웨이의 사용 가능한 대역폭을 공유합니다.
 
-### <a name="whatis"></a>가상 네트워크 게이트웨이란?
+## <a name="whatis"></a>가상 네트워크 게이트웨이란?
 
-가상 네트워크 게이트웨이는 GatewaySubnet이라는 특정 서브넷에 배포되는 두 개 이상의 가상 컴퓨터로 구성됩니다. GatewaySubnet에 있는 VM은 가상 네트워크 게이트웨이를 만들 때 생성됩니다. VM을 구성한 가상 네트워크 게이트웨이는 라우팅 테이블 및 게이트웨이에 특정한 게이트웨이 서비스를 포함합니다. 가상 네트워크 게이트웨이의 일부인 VM을 직접 구성할 수 없고 GatewaySubnet에 추가 리소스를 배포하지 않아야 합니다.
+가상 네트워크 게이트웨이는 GatewaySubnet이라는 특정 서브넷에 배포되는 두 개 이상의 가상 머신으로 구성됩니다. GatewaySubnet에 있는 VM은 가상 네트워크 게이트웨이를 만들 때 생성됩니다. VM을 구성한 가상 네트워크 게이트웨이는 라우팅 테이블 및 게이트웨이에 특정한 게이트웨이 서비스를 포함합니다. 가상 네트워크 게이트웨이의 일부인 VM을 직접 구성할 수 없고 GatewaySubnet에 추가 리소스를 배포하지 않아야 합니다.
 
 'Vpn' 게이트웨이 형식을 사용하여 가상 네트워크 게이트웨이를 만들 때 트래픽을 암호화하는 특정 종류의 가상 네트워크 게이트웨이인 VPN Gateway를 만듭니다. VPN Gateway를 만드는 데 최대 45분이 걸릴 수 있습니다. 이는 VPN Gateway에 대한 VM을 GatewaySubnet에 배포하고 사용자가 지정한 설정으로 구성하기 때문입니다. 선택한 Gateway SKU가 얼마나 강력한 VM인지 판단합니다.
-
-## <a name="gwsku"></a>게이트웨이 SKU
-
-[!INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
 
 ## <a name="configuring"></a>VPN Gateway 구성
 
@@ -53,6 +49,17 @@ Azure Portal과 같은 하나의 구성 도구를 사용하여 리소스를 시�
 
 VPN Gateway를 구성할 때 수행할 단계는 가상 네트워크를 만드는 데 사용되는 배포 모델에 따라 달라집니다. 예를 들어 클래식 배포 모델을 사용하여 VNet을 만든 경우 클래식 배포 모델에 대한 가이드 및 지침을 사용하여 VPN 게이트웨이 설정을 만들고 구성합니다. 배포 모델에 대한 자세한 내용은 [Resource Manager 배포 및 클래식 배포 모델 이해](../azure-resource-manager/resource-manager-deployment-model.md)를 참조하세요.
 
+### <a name="planningtable"></a>계획 표
+
+다음 테이블은 솔루션에 대한 최상의 연결 옵션을 결정하는 데 도움이 될 수 있습니다.
+
+[!INCLUDE [vpn-gateway-cross-premises](../../includes/vpn-gateway-cross-premises-include.md)]
+
+
+## <a name="gwsku"></a>게이트웨이 SKU
+
+[!INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
+
 ## <a name="diagrams"></a>연결 토폴로지 다이어그램
 
 VPN Gateway 연결에 사용할 수 있는 다양한 구성이 있다는 사실을 꼭 기억하시기 바랍니다. 그 중에서 필요에 맞는 최상의 구성을 결정해야 합니다. 아래 섹션에서는 다음과 같은 VPN Gateway 연결에 대한 정보 및 토폴로지 다이어그램을 볼 수 있습니다. 다음 섹션에는 다음에 나열된 테이블이 포함되어 있습니다.
@@ -67,7 +74,7 @@ VPN Gateway 연결에 사용할 수 있는 다양한 구성이 있다는 사실�
 
 ### <a name="S2S"></a>사이트 간
 
-S2S(사이트 간) VPN Gateway 연결은 IPsec/IKE(IKEv1 또는 IKEv2) VPN 터널을 통한 연결입니다. S2S 연결은 공용 IP 주소가 할당되어 있고 NAT 다음에 위치하지 않는 온-프레미스에 있는 VPN 장치를 필요로 합니다. S2S 연결은 프레미스 간 및 하이브리드 구성에 사용될 수 있습니다.   
+S2S(사이트 간) VPN Gateway 연결은 IPsec/IKE(IKEv1 또는 IKEv2) VPN 터널을 통한 연결입니다. S2S 연결은 프레미스 간 및 하이브리드 구성에 사용될 수 있습니다. S2S 연결은 공용 IP 주소가 할당되어 있고 NAT 다음에 위치하지 않는 온-프레미스에 있는 VPN 장치를 필요로 합니다. VPN 장치 선택에 대한 자세한 내용은 [VPN Gateway FAQ - VPN 장치](/vpn-gateway-vpn-faq.md#s2s)를 참조하세요.
 
 ![Azure VPN Gateway 사이트 간 연결 예제](./media/vpn-gateway-about-vpngateways/vpngateway-site-to-site-connection-diagram.png)
 
@@ -153,4 +160,4 @@ VPN Gateway에 대한 자주 묻는 질문은 [VPN Gateway FAQ](vpn-gateway-vpn-
 - VPN Gateway 구성을 계획합니다. [VPN Gateway 계획 및 설계](vpn-gateway-plan-design.md)를 참조하세요.
 - 자세한 내용은 [VPN Gateway FAQ](vpn-gateway-vpn-faq.md)를 참조하세요.
 - [구독 및 서비스 한도](../azure-subscription-service-limits.md#networking-limits)를 참조하세요.
-- Azure의 다른 주요 [네트워킹 기능](../networking/networking-overview.md)을 알아봅니다.
+- Azure의 몇 가지 다른 주요 [네트워킹 기능](../networking/networking-overview.md)을 알아봅니다.

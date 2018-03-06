@@ -1,22 +1,22 @@
 ---
-title: "Azure 빠른 시작 - Go를 사용하여 Azure Blob Storage에서 개체 전송 | Microsoft Docs"
-description: "Go 언어를 사용하여 Azure Blob Storage에서 개체를 전송하는 방법을 간단히 알아봅니다."
+title: "Azure 빠른 시작 - Go를 사용하여 Azure Storage에 BLOB 업로드, 다운로드 및 나열 | Microsoft Docs"
+description: "이 빠른 시작에서는 저장소 계정과 컨테이너를 만듭니다. 그런 다음, Go용 저장소 클라이언트 라이브러리를 사용하여 Azure Storage에 BLOB을 업로드하고, BLOB을 다운로드하고, 컨테이너의 BLOB을 나열합니다."
 services: storage
 author: seguler
-manager: jahogg
+manager: jeconnoc
+ms.custom: mvc
 ms.service: storage
-ms.tgt_pltfrm: na
-ms.devlang: go
 ms.topic: quickstart
-ms.date: 01/29/2018
+ms.date: 02/22/2018
 ms.author: seguler
-ms.openlocfilehash: 4ba9721dc12bc50b20ad85019b1df51a56b52ebc
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: a30d012ea663b04028a4b0ebb2880532a596500b
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/24/2018
 ---
-#  <a name="transfer-objects-tofrom-azure-blob-storage-using-go"></a>Go를 사용하여 Azure Blob Storage 간에 개체 전송
+# <a name="quickstart-upload-download-and-list-blobs-using-go"></a>빠른 시작: Go를 사용하여 BLOB 업로드, 다운로드 및 나열
+
 이 빠른 시작에서 Go 프로그래밍 언어를 사용하여 Azure Blob Storage의 컨테이너에 블록 Blob을 업로드하고, 다운로드하고, 나열하는 방법을 알아봅니다. 
 
 ## <a name="prerequisites"></a>필수 조건

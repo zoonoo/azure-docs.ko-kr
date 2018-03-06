@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: 5398605f98c9e115255057cfad0c4c2c2e14737c
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 20f9be1a0274b40a684fe12207cf9fe1f33969c8
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Windows에서 첫 번째 Service Fabric 컨테이너 응용 프로그램 만들기
 > [!div class="op_single_selector"]
@@ -134,7 +134,7 @@ docker run -d --name my-web-site helloworldapp
 docker inspect -f "{{ .NetworkSettings.Networks.nat.IPAddress }}" my-web-site
 ```
 
-실행 중인 컨테이너에 연결합니다.  반환된 IP 주소(예: " http://172.31.194.61 ")를 가리키는 웹 브라우저를 엽니다. 제목인 "Hello World!"가 브라우저에 표시됩니다.
+실행 중인 컨테이너에 연결합니다.  반환된 IP 주소(예: "http://172.31.194.61")를 가리키는 웹 브라우저를 엽니다. 제목인 "Hello World!"가 브라우저에 표시됩니다.
 
 컨테이너를 중지하려면 다음을 실행합니다.
 
@@ -367,7 +367,7 @@ ApplicationManifest에서 **ContainerHostPolicies**의 일부로 **HealthConfig*
 
 응용 프로그램이 ```Ready``` 상태이면 사용할 준비가 되었습니다. ![준비][2]
 
-브라우저를 열고 http://containercluster.westus2.cloudapp.azure.com:8081 로 이동합니다. 제목인 "Hello World!"가 브라우저에 표시됩니다.
+브라우저를 열고 http://containercluster.westus2.cloudapp.azure.com:8081로 이동합니다. 제목인 "Hello World!"가 브라우저에 표시됩니다.
 
 ## <a name="clean-up"></a>정리
 클러스터가 실행되는 동안 요금이 계속 청구되므로 [클러스터를 삭제](service-fabric-cluster-delete.md)하는 것이 좋습니다.  [파티 클러스터](https://try.servicefabric.azure.com/)는 몇 시간 후 자동으로 삭제됩니다.
@@ -387,6 +387,7 @@ Windows Server 컨테이너(프로세스 격리 모드)는 새로운 OS 버전�
 ```xml
 <ContainerHostPolicies> 
          <ImageOverrides> 
+           <Image Name="myregistry.azurecr.io/samples/helloworldappDefault" /> 
                <Image Name="myregistry.azurecr.io/samples/helloworldapp1701" Os="14393" /> 
                <Image Name="myregistry.azurecr.io/samples/helloworldapp1709" Os="16299" /> 
          </ImageOverrides> 
@@ -406,6 +407,7 @@ WIndows Server 2016에 대한 빌드 버전은 14393이며 Windows Server 버전
 
 VM에서 기본 OS가 16299(버전 1709)에 빌드되면 Service Fabric은 해당 Windows Server 버전에 해당하는 컨테이너 이미지를 선택합니다.  응용 프로그램 매니페스트에서 태그가 지정되지 않은 컨테이너 이미지가 태그가 지정된 컨테이너 이미지와 함께 제공되는 경우, Service Fabric은 태그가 지정되지 않은 이미지를 버전 간 작동하는 것으로 처리합니다. 컨테이너 이미지에 명시적으로 태그를 지정하는 것이 좋습니다.
 
+태그가 지정되지 않은 컨테이너 이미지는 ServiceManifest에 제공되는 이미지에 대한 재정의로 작동합니다. 따라서 이미지 "myregistry.azurecr.io/samples/helloworldappDefault"는 ServiceManifest의 ImageName "myregistry.azurecr.io/samples/helloworldapp"을 재정의합니다.
 
 ## <a name="complete-example-service-fabric-application-and-service-manifests"></a>Service Fabric 응용 프로그램 및 서비스 매니페스트의 전체 예제
 이 문서에서 사용한 전체 서비스 및 응용 프로그램 매니페스트는 다음과 같습니다.
@@ -430,6 +432,9 @@ VM에서 기본 OS가 16299(버전 1709)에 빌드되면 Service Fabric은 해�
       <!-- Follow this link for more information about deploying Windows containers to Service Fabric: https://aka.ms/sfguestcontainers -->
       <ContainerHost>
         <ImageName>myregistry.azurecr.io/samples/helloworldapp</ImageName>
+        <!-- Pass comma delimited commands to your container: dotnet, myproc.dll, 5" -->
+        <!--Commands> dotnet, myproc.dll, 5 </Commands-->
+        <Commands></Commands>
       </ContainerHost>
     </EntryPoint>
     <!-- Pass environment variables to your container: -->    

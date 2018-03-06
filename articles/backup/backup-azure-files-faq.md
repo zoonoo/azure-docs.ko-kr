@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.service: backup
 ms.workload: storage-backup-recovery
 manager: carmonm
-ms.openlocfilehash: d37e119709bc9d4643fcaa9512b5209d4139515e
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 3d09914c93d0f48b8f6bed405202682aaf925a5f
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Azure Files 백업에 대한 질문
 이 문서에서는 Azure Files 백업에 대한 일반적인 질문에 대답합니다. 대답 중 일부에는 포괄적인 정보를 포함하는 문서에 대한 링크가 있습니다. 또한 [토론 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)에 Azure Backup 서비스에 대한 질문도 게시할 수 있습니다.
@@ -24,38 +24,36 @@ ms.lasthandoff: 02/22/2018
 ## <a name="configuring-the-backup-job-for-azure-files"></a>Azure Files에 대한 백업 작업 구성
 
 ### <a name="why-cant-i-see-some-of-my-storage-accounts-i-want-to-protect-that-contain-valid-file-shares-br"></a>내가 보호하려는 유효한 파일 공유가 포함되어 있는 저장소 계정을 볼 수 없는 이유는 무엇인가요? <br/>
-Azure Files Backup은 현재 미리 보기이며, 지원되는 저장소 계정만 Backup에 대해 구성할 수 있습니다. 살펴보려는 저장소 계정이 지원되는 저장소 계정인지 확인합니다.
+미리 보기 중에는 Azure 파일 공유에 대한 Backup에서 일부 유형의 저장소 계정이 지원되지 않습니다. 지원되는 저장소 계정 목록을 보려면 [여기](troubleshoot-azure-files.md#preview-boundaries) 목록을 참조하세요.
 
 ### <a name="why-cant-i-see-some-of-my-file-shares-in-the-storage-account-when-im-trying-to-configure-backup-br"></a>백업을 구성하려고 할 때 저장소 계정의 일부 파일 공유를 볼 수 없는 이유는 무엇인가요? <br/>
-파일 공유가 이미 동일한 Recovery Services 자격 증명 모음에서 보호되고 있는지 확인합니다. 보호하려는 파일 공유가 최근에 삭제되지는 않았는지 확인합니다.
+파일 공유가 동일한 Recovery Services 자격 증명 모음에 이미 보호되어 있는지 또는 최근에 삭제되었는지 확인합니다.
 
 ### <a name="why-cant-i-protect-file-shares-connected-to-a-sync-group-in-azure-files-sync-br"></a>Azure File Sync에서 동기화 그룹에 연결된 파일 공유를 보호할 수 없는 이유는 무엇인가요? <br/>
 동기화 그룹에 연결된 Azure 파일 공유 보호는 현재 제한된 미리 보기입니다. 요청된 액세스에 대한 구독 ID를 사용하여 [AskAzureBackupTeam@microsoft.com](email:askazurebackupteam@microsoft.com)으로 문의하세요. 
 
 ### <a name="in-which-geos-can-i-back-up-azure-file-shares-br"></a>Azure 파일 공유를 백업할 수 있는 지역은 어디인가요? <br/>
 Azure 파일 공유에 대한 Backup은 현재 미리 보기로 제공되며 다음 지역에서만 사용할 수 있습니다. 
--   캐나다 중부(CNC)
--   캐나다 동부(CE) 
+-   오스트레일리아 동남부(ASE) 
+- 브라질 남부(BRS)
+- 캐나다 중부(CNC)
+-   캐나다 동부(CE)
 -   미국 중부(CUS)
 -   동아시아(EA)
 -   오스트레일리아 동부(AE) 
+-   미국 동부(EUS)
+-   미국 동부 2(EUS2)
 -   인도 중부(INC) 
 -   미국 중북부(NCUS) 
--   영국 남부(UKS) 
--   영국 서부(UKW) 
--   미국 중서부(WCUS)
--   미국 서부 2(WUS 2)
-
-Azure 파일 공유에 대한 Backup은 *2월 23일*부터 다음 지역에 제공될 예정입니다.
--   오스트레일리아 동남부(ASE) 
--   브라질 남부(BRS) 
--   미국 동부(EUS) 
--   미국 동부 2(EUS2) 
 -   북유럽(NE) 
 -   미국 중남부(SCUS) 
 -   동남 아시아(SEA)
+-   영국 남부(UKS) 
+-   영국 서부(UKW) 
 -   유럽 서부(WE) 
--   미국 서부(WUS)  
+-   미국 서부(WUS)
+-   미국 중서부(WCUS)
+-   미국 서부 2(WUS 2)
 
 위에 나열되지 않은 특정 지역에서 사용해야 하는 경우 [AskAzureBackupTeam@microsoft.com](email:askazurebackupteam@microsoft.com)으로 문의하세요.
 
@@ -65,15 +63,15 @@ Azure 파일 공유에 대한 Backup은 *2월 23일*부터 다음 지역에 제�
 ## <a name="backup"></a>Backup
 
 ### <a name="how-many-on-demand-backups-can-i-take-per-file-share-br"></a>파일 공유당 만들 수 있는 주문형 백업은 몇 개입니까? <br/>
-언제든지 Azure Backup에서 정책의 정의에 따라 만든 스냅숏을 포함하여 최대 200개의 스냅숏을 만들 수 있습니다. 이 한도에 도달하여 백업이 실패하기 시작하면 주문형 복원 지점을 적절하게 삭제합니다.
+언제든지 파일 공유에 대해 최대 200개의 스냅숏을 가질 수 있습니다. 이 한도에는 정책에 정의된 대로 Azure Backup에서 생성한 스냅숏이 포함됩니다. 한도에 도달한 후 백업이 실패하기 시작하면 향후 백업에 성공하기 위해 주문형 복원 지점을 삭제합니다.
 
 ### <a name="after-enabling-virtual-networks-on-my-storage-account-the-backup-of-file-shares-in-the-account-started-failing-why"></a>저장소 계정에서 가상 네트워크를 사용하도록 설정한 후부터 계정에서 파일 공유 백업이 실패하기 시작합니다. 그 이유는
-현재 Azure 파일 백업은 가상 네트워크가 활성화된 저장소 계정에서 지원되지 않습니다. 백업하려는 저장소 계정에서 가상 네트워크를 사용하지 않도록 설정하세요. 
+Azure 파일 공유에 대한 Backup은 Virtual Network를 사용하도록 설정된 저장소 계정을 지원하지 않습니다. 백업을 성공적으로 수행하려면 저장소 계정에서 Virtual Network를 사용하지 않도록 설정합니다. 
 
 ## <a name="restore"></a>복원
 
 ### <a name="can-i-recover-from-a-deleted-file-share-br"></a>삭제된 파일 공유에서 복구할 수 있나요? <br/>
-파일 공유를 삭제하려고 시도하면 삭제를 계속 진행할 경우 삭제되는 백업 목록이 표시되고 확인을 요청하는 메시지가 표시됩니다. 삭제된 파일 공유에서는 복원할 수 없습니다.
+파일 공유가 삭제되면 삭제될 백업 목록이 표시되고 확인이 이루어집니다. 삭제된 파일 공유는 복원할 수 없습니다.
 
 ### <a name="can-i-restore-from-backups-if-i-stopped-protection-on-a-file-share-br"></a>파일 공유에 대한 보호를 중지한 경우 백업에서 복원할 수 있나요? <br/>
 예. 보호를 중지할 때 **백업 데이터 보관**을 선택한 경우 모든 기존 복원 지점에서 복원할 수 있습니다.
@@ -81,7 +79,7 @@ Azure 파일 공유에 대한 Backup은 *2월 23일*부터 다음 지역에 제�
 ## <a name="manage-backup"></a>Backup 관리
 
 ### <a name="can-i-access-the-snapshots-taken-by-azure-backups-and-mount-it-br"></a>Azure Backup에서 만든 스냅숏에 액세스하고 탑재할 수 있나요? <br/>
-Azure Backup에서 만든 모든 스냅숏은 포털의 스냅숏 보기, PowerShell 또는 CLI로 액세스할 수 있습니다. 여기 절차에 따라 스냅숏을 탑재할 수 있습니다.
+Azure Backup에서 만든 모든 스냅숏은 포털의 스냅숏 보기, PowerShell 또는 CLI로 액세스할 수 있습니다. [여기](../storage/files/storage-how-to-use-files-snapshots.md#mount-a-file-share) 절차에 따라 스냅숏을 탑재할 수 있습니다.
 
 ### <a name="what-is-the-maximum-retention-i-can-configure-for-backups-br"></a>백업에 대해 구성할 수 있는 최대 보존 기간은 얼마인가요? <br/>
 Azure 파일 공유에 대한 Backup은 일일 백업을 120일까지 보존하는 기능을 제공합니다.

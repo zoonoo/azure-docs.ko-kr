@@ -1,23 +1,23 @@
 ---
-title: "Azure CLI를 사용하여 첫 번째 Azure Database for PostgreSQL 디자인 | Microsoft Docs"
-description: "이 자습서에서는 Azure CLI를 사용하여 첫 번째 Azure Database for PostgreSQL을 디자인하는 방법을 보여 줍니다."
+title: "자습서 - Azure CLI를 사용하여 첫 번째 Azure Database for PostgreSQL 디자인"
+description: "이 자습서에서는 Azure CLI를 사용하여 첫 번째 Azure Database for PostgreSQL 서버를 만들고, 구성하고, 쿼리하는 방법을 보여줍니다."
 services: postgresql
-author: SaloniSonpal
-ms.author: salonis
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc
 ms.devlang: azure-cli
 ms.topic: tutorial
-ms.date: 11/27/2017
-ms.openlocfilehash: 97299ae904115d08c5d03be38be263203552b84b
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.date: 02/28/2018
+ms.openlocfilehash: 7e5e33ee2a7b53f3ffbd27992f6b604358db49bb
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/28/2018
 ---
-# <a name="design-your-first-azure-database-for-postgresql-using-azure-cli"></a>Azure CLI를 사용하여 Azure Database for PostgreSQL을 디자인합니다 
+# <a name="tutorial-design-your-first-azure-database-for-postgresql-using-azure-cli"></a>자습서: Azure CLI를 사용하여 첫 번째 Azure Database for PostgreSQL 디자인 
 이 자습서에서는 Azure CLI(명령줄 인터페이스) 및 기타 유틸리티를 사용하여 다음을 수행하는 방법에 대해 알아봅니다.
 > [!div class="checklist"]
 > * PostgreSQL용 Azure Database 서버 만들기
@@ -45,12 +45,18 @@ az account set --subscription 00000000-0000-0000-0000-000000000000
 az group create --name myresourcegroup --location westus
 ```
 
+## <a name="add-the-extension"></a>확장 추가
+다음 명령을 사용하여 업데이트된 Azure Database for PostgreSQL 관리 확장을 추가합니다.
+```azurecli-interactive
+az extension add --name rdbms
+``` 
+
 ## <a name="create-an-azure-database-for-postgresql-server"></a>PostgreSQL용 Azure Database 서버 만들기
 [az postgres server create](/cli/azure/postgres/server#az_postgres_server_create) 명령을 사용하여 [PostgreSQL용 Azure Database 서버](overview.md)를 만듭니다. 서버는 그룹으로 관리되는 데이터베이스 그룹을 포함합니다. 
 
-다음 예제에서는 `mylogin` 서버 관리자 로그인을 사용하여 `myresourcegroup` 리소스 그룹에 `mypgserver-20170401`이라는 서버를 만듭니다. 서버 이름은 DNS 이름에 매핑되므로 Azure에서 전역적으로 고유해야 합니다. `<server_admin_password>`를 자신의 고유한 값으로 직접 바꿉니다.
+다음 예제에서는 `myadmin` 서버 관리자 로그인을 사용하여 `myresourcegroup` 리소스 그룹에 `mydemoserver`이라는 서버를 만듭니다. 서버 이름은 DNS 이름에 매핑되므로 Azure에서 전역적으로 고유해야 합니다. `<server_admin_password>`를 자신의 고유한 값으로 직접 바꿉니다. 이 서버는 vCore가 2개인 범용 4세대 서버입니다.
 ```azurecli-interactive
-az postgres server create --resource-group myresourcegroup --name mypgserver-20170401 --location westus --admin-user mylogin --admin-password <server_admin_password> --performance-tier Basic --compute-units 50 --version 9.6
+az postgres server create --resource-group myresourcegroup --name mydemoserver --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen4_2 --version 9.6
 ```
 
 > [!IMPORTANT]
@@ -68,7 +74,7 @@ IP 범위를 적용하는 방화벽 규칙을 설정하여 네트워크에서 �
 Azure PostgreSQL 서버에 대한 액세스를 네트워크로만 제한하려면 회사 네트워크 IP 주소 범위만 처리하도록 방화벽 규칙을 설정할 수 있습니다.
 
 ```azurecli-interactive
-az postgres server firewall-rule create --resource-group myresourcegroup --server mypgserver-20170401 --name AllowAllIps --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
+az postgres server firewall-rule create --resource-group myresourcegroup --server mydemoserver --name AllowAllIps --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
 ```
 
 > [!NOTE]
@@ -79,31 +85,37 @@ az postgres server firewall-rule create --resource-group myresourcegroup --serve
 
 서버에 연결하려면 호스트 정보와 액세스 자격 증명을 제공해야 합니다.
 ```azurecli-interactive
-az postgres server show --resource-group myresourcegroup --name mypgserver-20170401
+az postgres server show --resource-group myresourcegroup --name mydemoserver
 ```
 
 결과는 JSON 형식입니다. **administratorLogin** 및 **fullyQualifiedDomainName**을 기록해 둡니다.
 ```json
 {
-  "administratorLogin": "mylogin",
-  "fullyQualifiedDomainName": "mypgserver-20170401.postgres.database.azure.com",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.DBforPostgreSQL/servers/mypgserver-20170401",
+  "administratorLogin": "myadmin",
+  "earliestRestoreDate": null,
+  "fullyQualifiedDomainName": "mydemoserver.postgres.database.azure.com",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.DBforPostgreSQL/servers/mydemoserver",
   "location": "westus",
-  "name": "mypgserver-20170401",
+  "name": "mydemoserver",
   "resourceGroup": "myresourcegroup",
   "sku": {
-    "capacity": 50,
-    "family": null,
-    "name": "PGSQLS2M50",
+    "capacity": 2,
+    "family": "Gen4",
+    "name": "GP_Gen4_2",
     "size": null,
-    "tier": "Basic"
+    "tier": "GeneralPurpose"
   },
-  "sslEnforcement": null,
-  "storageMb": 51200,
+  "sslEnforcement": "Enabled",
+  "storageProfile": {
+    "backupRetentionDays": 7,
+    "geoRedundantBackup": "Disabled",
+    "storageMb": 5120
+  },
   "tags": null,
   "type": "Microsoft.DBforPostgreSQL/servers",
   "userVisibleState": "Ready",
   "version": "9.6"
+
 }
 ```
 
@@ -115,10 +127,10 @@ az postgres server show --resource-group myresourcegroup --name mypgserver-20170
 psql --host=<servername> --port=<port> --username=<user@servername> --dbname=<dbname>
 ```
 
-  예를 들어 다음 명령은 액세스 자격 증명을 사용하여 **mypgserver-20170401.postgres.database.azure.com** PostgreSQL 서버의 **postgres**라는 기본 데이터베이스에 연결합니다. 암호를 묻는 메시지가 표시되면 선택한 `<server_admin_password>`를 입력합니다.
+  예를 들어, 다음 명령은 액세스 자격 증명을 사용하여 **mydemoserver.postgres.database.azure.com** PostgreSQL 서버의 **postgres**라는 기본 데이터베이스에 연결합니다. 암호를 묻는 메시지가 표시되면 선택한 `<server_admin_password>`를 입력합니다.
   
   ```azurecli-interactive
-psql --host=mypgserver-20170401.postgres.database.azure.com --port=5432 --username=mylogin@mypgserver-20170401 ---dbname=postgres
+psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin@mydemoserver ---dbname=postgres
 ```
 
 2.  서버에 연결되면 프롬프트에서 빈 데이터베이스를 만듭니다.
@@ -174,20 +186,20 @@ SELECT * FROM inventory;
 ```
 
 ## <a name="restore-a-database-to-a-previous-point-in-time"></a>이전 시점으로 데이터베이스 복원
-실수로 테이블을 삭제한 경우를 가정해 보겠습니다. 이런 경우는 쉽게 복구할 수 없는 경우입니다. Azure Database for PostgreSQL을 사용하면 특정 시점(기본의 경우 최대 7일, 표준의 경우 최대 35일)으로 되돌아갈 수 있고 이 시점을 새 서버로 복원할 수 있습니다. 이 새 서버를 사용하여 삭제된 데이터를 복구할 수 있습니다. 
+실수로 테이블을 삭제한 경우를 가정해 보겠습니다. 이런 경우는 쉽게 복구할 수 없는 경우입니다. Azure Database for PostgreSQL을 사용하면, 서버에 백업이 있는 특정 시점(구성한 백업 보존 기간에 따라 결정됨)으로 돌아가서 새 서버를 이 시점으로 복원할 수 있습니다. 이 새 서버를 사용하여 삭제된 데이터를 복구할 수 있습니다. 
 
 다음 명령은 샘플 서버를 테이블이 추가되기 전 시점으로 복원합니다.
 ```azurecli-interactive
-az postgres server restore --resource-group myResourceGroup --name mypgserver-restored --restore-point-in-time 2017-04-13T13:59:00Z --source-server mypgserver-20170401
+az postgres server restore --resource-group myresourcegroup --name mydemoserver-restored --restore-point-in-time 2017-04-13T13:59:00Z --source-server mydemoserver
 ```
 
 `az postgres server restore` 명령에는 다음 매개 변수가 필요합니다.
 | 설정 | 제안 값 | 설명  |
 | --- | --- | --- |
-| --resource-group |  myResourceGroup |  원본 서버가 존재하는 리소스 그룹입니다.  |
-| --name | mypgserver-restored | 복원 명령에 의해 만들어진 새 서버의 이름입니다. |
+| resource-group |  myresourcegroup |  원본 서버가 존재하는 리소스 그룹입니다.  |
+| 이름 | mydemoserver-restored | 복원 명령에 의해 만들어진 새 서버의 이름입니다. |
 | restore-point-in-time | 2017-04-13T13:59:00Z | 복원하려는 지정 시간을 선택합니다. 이 날짜 및 시간은 원본 서버의 백업 보존 기간 내에 있어야 합니다. ISO8601 날자 및 시간 형식을 사용합니다. 예를 들어 `2017-04-13T05:59:00-08:00`과 같은 고유한 현지 표준 시간대 또는 UTC Zulu 형식 `2017-04-13T13:59:00Z`를 사용할 수도 있습니다. |
-| --source-server | mypgserver-20170401 | 복원을 수행하려는 원본 서버의 이름 또는 ID입니다. |
+| source-server | mydemoserver | 복원을 수행하려는 원본 서버의 이름 또는 ID입니다. |
 
 서버를 지정 시간으로 복원하면 새 서버가 만들어지고 사용자가 지정한 시점의 원본 서버로 복사됩니다. 복원된 서버에 대한 위치 및 가격 책정 계층 값은 원본 서버와 동일합니다.
 

@@ -1,48 +1,45 @@
 ---
-title: "Azure AD B2C 단일 페이지 응용 프로그램 시험 사용 | Microsoft Docs"
-description: "테스트 Azure AD B2C 환경을 사용하여 로그인, 등록, 프로필 편집 및 암호 재설정 사용자 경험을 시험 사용"
+title: "Azure AD B2C 사용 단일 페이지 앱 시험 사용"
+description: "Azure Active Directory B2C를 사용하여 사용자를 인증하고 등록하는 샘플 단일 페이지 앱을 사용해 보는 빠른 시작입니다."
 services: active-directory-b2c
 documentationcenter: 
-author: saraford
+author: PatAltimore
 manager: mtillman
-editor: PatAltimore
-ms.assetid: 5a8a46af-28bb-4b70-a7f0-01a5240d0255
+ms.reviewer: saraford
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
-ms.topic: article
-ms.date: 10/31/2017
-ms.author: saraford
-ms.openlocfilehash: ba8ee4657309ab2a541f4c7b3fd4879542eee63c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.topic: quickstart
+ms.date: 2/13/2018
+ms.author: patricka
+ms.openlocfilehash: e659fd228c2294313a62b331c8e530b7d34073ac
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/28/2018
 ---
-# <a name="test-drive-a-single-page-application-configured-with-azure-ad-b2c"></a>Azure AD B2C로 구성된 단일 페이지 응용 프로그램 시험 사용
+# <a name="quickstart-test-drive-an-azure-ad-b2c-enabled-single-page-app"></a>빠른 시작: Azure AD B2C 사용 단일 페이지 앱 시험 사용
 
-## <a name="about-this-sample"></a>이 샘플 정보
+Azure AD(Azure Active Directory) B2C는 응용 프로그램, 비즈니스 및 고객을 보호하기 위한 클라우드 ID 관리 기능을 제공합니다. Azure AD B2C를 사용하면 앱에서 개방형 표준 프로토콜을 사용하여 소셜 계정 및 엔터프라이즈 계정을 인증할 수 있습니다.
 
-Azure Active Directory B2C는 응용 프로그램, 비즈니스 및 고객을 보호하기 위한 클라우드 ID 관리 기능을 제공합니다.  이 빠른 시작에서는 샘플 단일 페이지 응용 프로그램을 사용하여 다음 작업을 보여 줍니다.
-
-* **등록 또는 로그인** 정책을 사용하여 전자 메일 주소로 소셜 ID 공급자 또는 로컬 계정을 만들고 이러한 계정으로 로그인합니다. 
-* **API를 호출**하여 Azure AD B2C 보호 리소스에서 표시 이름을 검색합니다.
-
-## <a name="prerequisites"></a>필수 조건
-
-* 다음 워크로드와 함께 [Visual Studio 2017](https://www.visualstudio.com/downloads/)을 설치합니다.
-    - **ASP.NET 및 웹 배포**
-
-* [Node.js](https://nodejs.org/en/download/)
-
-* Facebook, Google, Microsoft 또는 Twitter의 소셜 계정입니다. 소셜 계정이 없는 경우 유효한 전자 메일 주소가 필요합니다.
+이 빠른 시작에서는 Azure AD B2C 사용 샘플 단일 페이지 앱에서 소셜 ID 공급자를 사용하여 로그인하고 Azure AD B2C 보호 웹 API를 호출합니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
+## <a name="prerequisites"></a>필수 조건
+
+* **ASP.NET 및 웹 개발** 워크로드가 있는 [Visual Studio 2017](https://www.visualstudio.com/downloads/)
+* [Node.js](https://nodejs.org/en/download/)
+* Facebook, Google, Microsoft 또는 Twitter의 소셜 계정입니다.
+
 ## <a name="download-the-sample"></a>샘플 다운로드
 
-GitHub에서 [샘플 응용 프로그램을 다운로드 또는 복제](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp)합니다.
+GitHub에서 [Zip 파일을 다운로드](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp/archive/master.zip)하거나 샘플 웹앱을 복제합니다.
+
+```
+git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp.git
+```
 
 ## <a name="run-the-sample-application"></a>샘플 응용 프로그램 실행
 
@@ -54,64 +51,57 @@ npm install && npm update
 node server.js
 ```
 
-콘솔 창에는 컴퓨터에서 실행 중인 웹 응용 프로그램의 포트 번호가 표시됩니다.
+Node.js 앱은 localhost에서 수신 대기 중인 포트 번호를 출력합니다.
 
 ```
 Listening on port 6420...
 ```
 
-웹 브라우저에서 `http://localhost:6420`을 열어 웹 응용 프로그램에 액세스합니다.
-
+웹 브라우저에서 앱의 URL인 `http://localhost:6420`으로 이동합니다.
 
 ![브라우저의 샘플 앱](media/active-directory-b2c-quickstarts-spa/sample-app-spa.png)
 
 ## <a name="create-an-account"></a>계정 만들기
 
-**로그인** 단추를 클릭하여 Azure AD B2C **등록 또는 로그인** 워크플로를 시작합니다. 계정을 만들 때 기존 소셜 ID 공급자 계정 또는 전자 메일 계정을 사용할 수 있습니다.
+**로그인** 단추를 클릭하여 Azure AD B2C 정책을 기반으로 Azure AD B2C **등록 또는 로그인** 워크플로를 시작합니다. 
+
+이 샘플에서는 소셜 ID 공급자를 사용하거나 이메일 주소를 사용하여 로컬 계정을 만드는 등의 여러 가지 등록 옵션을 지원합니다. 이 빠른 시작에서는 Facebook, Google, Microsoft 또는 Twitter의 소셜 ID 공급자 계정을 사용합니다. 
 
 ### <a name="sign-up-using-a-social-identity-provider"></a>소셜 ID 공급자를 사용하여 등록
 
-소셜 ID 공급자를 사용하여 등록하려면 사용할 ID 공급자의 단추를 클릭합니다. 전자 메일 주소를 사용하려는 경우 [전자 메일 주소를 사용하여 등록](#sign-up-using-an-email-address) 섹션으로 이동합니다.
+Azure AD B2C는 샘플 웹앱용으로 Wingtip Toys라는 가상의 브랜드에 대한 사용자 지정 로그인 페이지를 제공합니다. 
 
-![로그인 또는 등록 공급자](media/active-directory-b2c-quickstarts-spa/sign-in-or-sign-up-spa.png)
+1. 소셜 ID 공급자를 사용하여 등록하려면 사용할 ID 공급자의 단추를 클릭합니다.
 
-소셜 계정 자격 증명을 사용하여 인증(로그인)하고 응용 프로그램에 사용자의 소셜 계정에서 정보를 읽도록 권한을 부여해야 합니다. 액세스를 부여하면 응용 프로그램은 이름 및 구/군/시와 같은 소셜 계정의 프로필 정보를 검색할 수 있습니다. 
+    ![로그인 또는 등록 공급자](media/active-directory-b2c-quickstarts-spa/sign-in-or-sign-up-spa.png)
 
-![소셜 계정을 사용하여 인증 및 권한 부여](media/active-directory-b2c-quickstarts-spa/twitter-authenticate-authorize-spa.png)
+    소셜 계정 자격 증명을 사용하여 인증(로그인)하고 응용 프로그램이 사용자의 소셜 계정에서 정보를 읽도록 권한을 부여합니다. 액세스를 부여하면 응용 프로그램은 이름 및 구/군/시와 같은 소셜 계정의 프로필 정보를 검색할 수 있습니다. 
 
-새 계정 프로필 세부 정보는 소셜 계정의 정보로 미리 채워집니다. 
+2. ID 공급자에 대한 로그인 프로세스를 완료합니다. 예를 들어 Twitter를 선택하면 Twitter 자격 증명을 입력하고 **로그인**을 클릭합니다.
 
-![새 계정 등록 프로필 세부 정보](media/active-directory-b2c-quickstarts-spa/new-account-sign-up-profile-details-spa.png)
+    ![소셜 계정을 사용하여 인증 및 권한 부여](media/active-directory-b2c-quickstarts-spa/twitter-authenticate-authorize-spa.png)
 
-표시 이름, 직책 및 구/군/시 필드를 업데이트하고 **계속**을 클릭합니다.  입력하는 값은 Azure AD B2C 사용자 계정 프로필에 사용됩니다.
+    새 계정 프로필 세부 정보는 소셜 계정의 정보로 미리 채워집니다. 
 
-ID 공급자를 사용하는 새 Azure AD B2C 사용자 계정을 성공적으로 만들었습니다. 
+3. 표시 이름, 직책 및 구/군/시 필드를 업데이트하고 **계속**을 클릭합니다.  입력하는 값은 Azure AD B2C 사용자 계정 프로필에 사용됩니다.
 
-다음 단계: [리소스 호출](#call-a-resource) 섹션
+    ID 공급자를 사용하는 새 Azure AD B2C 사용자 계정을 성공적으로 만들었습니다. 
 
-### <a name="sign-up-using-an-email-address"></a>전자 메일 주소를 사용하여 등록
+## <a name="access-a-protected-web-api-resource"></a>보호된 웹 API 리소스 액세스
 
-소셜 계정을 사용하여 인증을 제공하지 않으려는 경우 유효한 전자 메일 주소를 사용하여 Azure AD B2C 사용자 계정을 만들 수 있습니다. Azure AD B2C 로컬 사용자 계정은 ID 공급자로 Azure Active Directory를 사용합니다. 전자 메일 주소를 사용하려면 **계정이 없으세요? 지금 등록하세요.** 링크를 클릭합니다.
-
-![전자 메일을 사용하여 로그인 또는 등록](media/active-directory-b2c-quickstarts-spa/sign-in-or-sign-up-email-spa.png)
-
-유효한 전자 메일 주소를 입력하고 **확인 코드 보내기**를 클릭합니다. 유효한 전자 메일 주소는 Azure AD B2C에서 확인 코드를 받는 데 필요합니다. 
-
-전자 메일에서 수신한 확인 코드를 입력하고 **코드 확인**을 클릭합니다.
-
-프로필 정보를 추가하고 **만들기**를 클릭합니다.
-
-![전자 메일을 사용하여 새 계정 등록](media/active-directory-b2c-quickstarts-spa/sign-up-new-account-profile-email-web.png)
-
-새 Azure AD B2C 로컬 사용자 계정을 성공적으로 만들었습니다.
-
-## <a name="call-a-resource"></a>리소스 호출
-
-로그인한 후 **웹 API 호출** 단추를 클릭하여 웹 API 호출에서 반환된 표시 이름을 JSON 개체로 지정할 수 있습니다. 
+**웹 API 호출** 단추를 클릭하여 웹 API 호출에서 반환된 표시 이름을 JSON 개체로 지정합니다. 
 
 ![웹 API 응답](media/active-directory-b2c-quickstarts-spa/call-api-spa.png)
 
+샘플 단일 페이지 앱에는 JSON 개체를 반환하는 하는 작업을 수행하기 위해 보호된 웹 API 리소스에 대한 요청에 Azure AD 액세스 토큰이 포함됩니다.
+
+## <a name="clean-up-resources"></a>리소스 정리
+
+다른 Azure AD B2C 빠른 시작 또는 자습서를 사용하려는 경우 Azure AD B2C 테넌트를 사용할 수 있습니다. 더 이상 필요하지 않으면 [Azure AD B2C 테넌트를 삭제](active-directory-b2c-faqs.md#how-do-i-delete-my-azure-ad-b2c-tenant)할 수 있습니다.
+
 ## <a name="next-steps"></a>다음 단계
+
+이 빠른 시작에서는 Azure AD B2C 사용 샘플 ASP.NET 앱을 사용하여 사용자 지정 로그인 페이지에 로그인하고, 소셜 ID 공급자에 로그인하고, Azure AD B2C 계정을 만들고, Azure AD B2C로 보호되는 웹 API를 호출했습니다. 
 
 다음 단계는 자체 Azure AD B2C 테넌트를 만들고 해당 테넌트를 사용하여 실행되도록 샘플을 구성하는 것입니다. 
 

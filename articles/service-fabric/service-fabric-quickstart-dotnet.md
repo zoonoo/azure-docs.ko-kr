@@ -1,6 +1,6 @@
 ---
 title: "Azure에서 .NET Service Fabric 응용 프로그램 만들기 | Microsoft Docs"
-description: "Service Fabric 빠른 시작 샘플을 사용하여 Azure에 대한 .NET 응용 프로그램을 만듭니다."
+description: "이 빠른 시작에서는 Service Fabric 안정적인 서비스 응용 프로그램 예제를 사용하여 Azure용 .NET 응용 프로그램을 만듭니다."
 services: service-fabric
 documentationcenter: .net
 author: mikkelhegn
@@ -15,13 +15,13 @@ ms.workload: NA
 ms.date: 01/25/2018
 ms.author: mikhegn
 ms.custom: mvc, devcenter
-ms.openlocfilehash: ff9860ee2313c20b4a30e1b4410327e03e6dfcc6
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: ea0d32674aa770b5f25b0b62eb69007f3fd6bf5c
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="create-a-net-service-fabric-application-in-azure"></a>Azure에서 .NET Service Fabric 응용 프로그램 만들기
+# <a name="quickstart-create-a-net-service-fabric-application-in-azure"></a>빠른 시작: Azure에서 .NET Service Fabric 응용 프로그램 만들기
 Azure Service Fabric은 확장성 있고 안정성이 뛰어난 마이크로 서비스 및 컨테이너를 배포 및 관리하기 위한 분산 시스템 플랫폼입니다. 
 
 이 빠른 시작에서는 Service Fabric에 첫 번째 .NET 응용 프로그램을 배포하는 방법을 보여 줍니다. 완료하면 투표 결과를 클러스터의 상태 저장 백 엔드 서비스에 저장하는 ASP.NET Core 웹 프런트 엔드가 있는 투표 응용 프로그램이 생깁니다.

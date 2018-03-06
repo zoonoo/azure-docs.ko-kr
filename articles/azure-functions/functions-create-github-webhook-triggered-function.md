@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 05/31/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: cdfb5db7b304a18d6945328abc0ca7ebf2f9ec6a
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 98632c3276e7d9cccf29d05b903c2fac62a7d68e
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="create-a-function-triggered-by-a-github-webhook"></a>GitHub webhook를 통해 트리거되는 함수 만들기
 
@@ -80,8 +80,8 @@ GitHub별 페이로드와 함께 HTTP 웹후크 요청에 의해 트리거되는
 | 설정 | 제안 값 | 설명 |
 |---|---|---|
 | **페이로드 URL** | 복사된 값 | **</> 함수 URL 가져오기**에서 반환된 값을 사용합니다. |
-| **비밀**   | 복사된 값 | **</> GitHub 비밀 가져오기**에서 반환된 값을 사용합니다. |
 | **콘텐츠 형식** | application/json | 함수에는 JSON 페이로드가 필요합니다. |
+| **비밀**   | 복사된 값 | **</> GitHub 비밀 가져오기**에서 반환된 값을 사용합니다. |
 | 이벤트 트리거 | 개별 이벤트를 선택하겠습니다. | 문제 주석 이벤트만 트리거하려고 합니다.  |
 | | 문제 주석 |  |
 
@@ -107,7 +107,7 @@ GitHub별 페이로드와 함께 HTTP 웹후크 요청에 의해 트리거되는
 
 ## <a name="next-steps"></a>다음 단계
 
-GitHub 웹후크에서 요청을 수신할 때 실행되는 함수를 만들었습니다.
+GitHub 웹후크에서 요청을 수신할 때 트리거되는 함수를 만들었습니다.
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 

@@ -1,21 +1,21 @@
 ---
-title: "C++에서 MySQL용 Azure Database에 연결 | Microsoft Docs"
+title: "C++에서 Azure Database for MySQL에 연결"
 description: "이 빠른 시작에서는 MySQL용 Azure Database에서 데이터를 연결하고 쿼리하는 데 사용할 수 있는 C++ 코드 샘플을 제공합니다."
 services: mysql
-author: seanli1988
-ms.author: seal
-manager: janders
+author: ajlam
+ms.author: andrela
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.custom: mvc
 ms.devlang: C++
 ms.topic: quickstart
-ms.date: 09/22/2017
-ms.openlocfilehash: b4d84fc29f7ea1c11491738bab3af079cff01346
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.date: 02/28/2018
+ms.openlocfilehash: 41a56e1325c62a71880395c666e67c740742c3f9
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-database-for-mysql-use-connectorc-to-connect-and-query-data"></a>MySQL용 Azure Database: Connector/C++를 사용하여 데이터 연결 및 쿼리
 이 빠른 시작에서는 C++ 응용 프로그램을 사용하여 MySQL용 Azure Database에 연결하는 방법을 보여 줍니다. SQL 문을 사용하여 데이터베이스의 데이터를 쿼리, 삽입, 업데이트 및 삭제하는 방법을 보여 줍니다. 이 항목에서는 C++를 사용하여 개발하는 데 익숙하고 MySQL용 Azure Database를 처음 사용한다고 가정합니다.
@@ -51,11 +51,10 @@ ms.lasthandoff: 02/01/2018
 MySQL용 Azure Database에 연결하는 데 필요한 연결 정보를 가져옵니다. 정규화된 서버 이름 및 로그인 자격 증명이 필요합니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. Azure Portal의 왼쪽 메뉴에서 **모든 리소스**를 클릭하고 방금 만든 서버를 검색합니다(예: **myserver4demo**).
+2. Azure Portal의 왼쪽 메뉴에서 **모든 리소스**를 클릭한 다음, 방금 만든 서버를 검색합니다(예: **mydemoserver**).
 3. 서버 이름을 클릭합니다.
-4. 서버의 **속성** 페이지를 선택한 후 **서버 이름**과 **서버 관리자 로그인 이름**을 기록해 둡니다.
- ![MySQL용 Azure Database 서버 이름](./media/connect-cpp/1_server-properties-name-login.png)
-5. 서버 로그인 정보를 잊어버린 경우 **개요** 페이지로 이동하여 서버 관리자 로그인 이름을 확인하고 필요한 경우 암호를 다시 설정합니다.
+4. 서버의 **개요** 패널에 있는 **서버 이름**과 **서버 관리자 로그인 이름**을 기록해 둡니다. 암호를 잊어버리면 이 패널에서 암호를 재설정할 수 있습니다.
+ ![MySQL용 Azure Database 서버 이름](./media/connect-cpp/1_server-overview-name-login.png)
 
 ## <a name="connect-create-table-and-insert-data"></a>테이블 연결, 생성 및 데이터 삽입
 **CREATE TABLE** 및 **INSERT INTO** SQL 문을 사용하여 데이터를 연결하고 로드하려면 다음 코드를 사용하세요. 이 코드는 connect() 메서드가 포함된 sql::Driver 클래스를 사용하여 MySQL에 대한 연결을 설정합니다. 그리고 createStatement() 메서드와 execute() 메서드를 사용하여 데이터베이스 명령을 실행합니다. 
@@ -84,7 +83,7 @@ int main()
     {
         driver = get_driver_instance();
         //for demonstration only. never save password in the code!
-        con = driver>connect("tcp://myserver4demo.mysql.database.azure.com:3306/quickstartdb", "myadmin@myserver4demo", "server_admin_password");
+        con = driver>connect("tcp://mydemoserver.mysql.database.azure.com:3306/quickstartdb", "myadmin@mydemoserver", "server_admin_password");
     }
     catch (sql::SQLException e)
     {
@@ -152,7 +151,7 @@ int main()
     {
         driver = get_driver_instance();
         //for demonstration only. never save password in the code!
-        con = driver>connect("tcp://myserver4demo.mysql.database.azure.com:3306/quickstartdb", "myadmin@myserver4demo", "server_admin_password");
+        con = driver>connect("tcp://mydemoserver.mysql.database.azure.com:3306/quickstartdb", "myadmin@mydemoserver", "server_admin_password");
     }
     catch (sql::SQLException e)
     {
@@ -202,7 +201,7 @@ int main()
     {
         driver = get_driver_instance();
         //for demonstration only. never save password in the code!
-        con = driver>connect("tcp://myserver4demo.mysql.database.azure.com:3306/quickstartdb", "myadmin@myserver4demo", "server_admin_password");
+        con = driver>connect("tcp://mydemoserver.mysql.database.azure.com:3306/quickstartdb", "myadmin@mydemoserver", "server_admin_password");
     }
     catch (sql::SQLException e)
     {
@@ -254,7 +253,7 @@ int main()
     {
         driver = get_driver_instance();
         //for demonstration only. never save password in the code!
-        con = driver>connect("tcp://myserver4demo.mysql.database.azure.com:3306/quickstartdb", "myadmin@myserver4demo", "server_admin_password");
+        con = driver>connect("tcp://mydemoserver.mysql.database.azure.com:3306/quickstartdb", "myadmin@mydemoserver", "server_admin_password");
     }
     catch (sql::SQLException e)
     {

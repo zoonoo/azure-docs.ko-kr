@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.service: cost-management
 manager: carmonm
-ms.openlocfilehash: 0f157b465a9da266481be8d208fc18307cd3bb16
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 1b552ba5a0c3afd066e2ac62c8b3a90dd7696185
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="register-an-azure-enterprise-agreement-and-view-cost-data"></a>Azure Enterprise Agreement 등록 및 비용 데이터 보기
 
@@ -38,7 +38,7 @@ Azure Enterprise Agreement를 사용하여 Azure Cost Management에 Cloudyn으�
   3. 등록 페이지로 돌아가 API 키에 붙여 넣습니다.
 6. 사용 약관에 동의한 다음 키의 유효성을 검사합니다. **다음**을 클릭하여 Cloudyn이 Azure 리소스 데이터를 수집할 권한을 부여합니다. 수집되는 데이터에는 구독의 사용량, 성능, 청구 및 태그 데이터가 포함됩니다.  
     ![키 유효성 검사](./media/quick-register-ea/ea-key-validated.png)
-7. **기타 관련자 초대**에서 이메일 주소를 입력하여 사용자를 추가할 수 있습니다. 완료되면 **다음**을 클릭합니다. 모든 청구 데이터가 Cloudyn에 추가되려면 2시간 정도 소요됩니다.
+7. **기타 관련자 초대**에서 이메일 주소를 입력하여 사용자를 추가할 수 있습니다. 완료되면 **다음**을 클릭합니다. Azure 등록의 규모에 따라 모든 청구 데이터가 Cloudyn에 추가되는 데 최대 24 시간이 걸릴 수 있습니다.
 8. **Cloudyn으로 이동**을 클릭하여 Cloudyn 포털을 연 다음 **클라우드 계정 관리** 페이지에서 등록된 EA 계정 정보를 확인할 수 있습니다.
 
 기업계약을 등록하는 방법에 대한 자습서 비디오를 시청하려면 [Cloudyn에서 개발한 Azure Cost Management에서 사용할 EA 등록 ID 및 API 키를 찾는 방법](https://youtu.be/u_phLs_udig)을 참조하세요.

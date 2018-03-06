@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/12/2018
+ms.date: 02/27/2018
 ms.author: cherylmc
-ms.openlocfilehash: a8af5fb2279f035d305ffc427ad831b0d5bf0cd4
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 0a45430491e1e06080ae2eca2124088402c17f54
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>네이티브 Azure 인증서 인증을 사용하여 VNet에 지점 및 사이트 간 연결 구성: Azure portal
 
@@ -168,7 +168,7 @@ VPN 클라이언트 구성 파일에는 P2S 연결을 통해 VNet에 연결하�
 
 ### <a name="to-connect-from-a-mac-vpn-client"></a>Mac VPN 클라이언트에서 연결하려면
 
-네트워크 대화 상자에서 사용하려는 클라이언트 프로필을 찾고 **연결**을 클릭합니다.
+네트워크 대화 상자에서 사용하려는 클라이언트 프로필을 찾고, [VpnSettings.xml](point-to-site-vpn-client-configuration-azure-cert.md#installmac)에서 설정을 지정한 다음, **연결**을 클릭합니다.
 
   ![Mac 연결](./media/vpn-gateway-howto-point-to-site-rm-ps/applyconnect.png)
 

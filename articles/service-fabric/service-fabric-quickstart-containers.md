@@ -1,6 +1,6 @@
 ---
 title: "Azure Service Fabric Windows 컨테이너 응용 프로그램 만들기 | Microsoft Docs"
-description: "Azure Service Fabric에서 첫 번째 Windows 컨테이너 응용 프로그램을 만듭니다."
+description: "이 빠른 시작에서는 Azure Service Fabric에서 첫 번째 Windows 컨테이너 응용 프로그램을 만듭니다."
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -12,16 +12,16 @@ ms.devlang: dotNet
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/25/18
+ms.date: 02/27/18
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 4043c600dcc79cc85b66d66051416218507432af
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 7a8d28ef842ba77355628c79c20fa7fd3c693380
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/28/2018
 ---
-# <a name="deploy-a-service-fabric-windows-container-application-on-azure"></a>Azure에서 Service Fabric Windows 컨테이너 응용 프로그램 배포
+# <a name="quickstart-deploy-a-service-fabric-windows-container-application-on-azure"></a>빠른 시작: Azure에서 Service Fabric Windows 컨테이너 응용 프로그램 배포
 Azure Service Fabric은 확장성 있고 안정성이 뛰어난 마이크로 서비스 및 컨테이너를 배포 및 관리하기 위한 분산 시스템 플랫폼입니다. 
 
 Service Fabric 클러스터의 Windows 컨테이너에서 기존 응용 프로그램을 실행하더라도 응용 프로그램을 변경할 필요가 없습니다. 이 빠른 시작에서는 Service Fabric 응용 프로그램에서 미리 작성된 Docker 컨테이너 이미지를 배포하는 방법을 보여줍니다. 완료하면 Windows Server 2016 Nano 서버 및 IIS 컨테이너를 실행하게 됩니다. 이 빠른 시작에서는 Windows 컨테이너 배포에 대해 설명합니다. [이 빠른 시작](service-fabric-quickstart-containers-linux.md)을 참고하여 Linux 컨테이너를 배포합니다.
@@ -48,21 +48,25 @@ Service Fabric SDK 및 도구는 컨테이너를 Service Fabric 클러스터에 
 
 **Service Fabric 응용 프로그램**을 선택하고 "MyFirstContainer"라는 이름을 지정하고 **확인**을 클릭합니다.
 
-**서비스 템플릿** 목록에서 **컨테이너**를 선택합니다.
+**호스트된 컨테이너 및 응용 프로그램** 템플릿에서 **컨테이너**를 선택합니다.
 
 **이미지 이름**에 [Windows Server Nano Server 및 IIS 기본 이미지](https://hub.docker.com/r/microsoft/iis/)인 "microsoft/iis:nanoserver"를 입력합니다. 
 
 "MyContainerService" 서비스 이름을 지정하고 **확인**을 클릭합니다.
 
 ## <a name="configure-communication-and-container-port-to-host-port-mapping"></a>통신 및 컨테이너 포트와 호스트 포트 간 매핑 구성
-서비스에는 통신을 위한 끝점이 필요합니다.  이제 ServiceManifest.xml 파일에서 프로토콜, 포트 및 형식을 `Endpoint`에 추가할 수 있습니다. 이 빠른 시작에서 컨테이너화된 서비스는 포트 80에서 수신 대기합니다. 
+서비스에는 통신을 위한 끝점이 필요합니다.  이 빠른 시작에서 컨테이너화된 서비스는 포트 80에서 수신 대기합니다.  솔루션 탐색기에서 *MyFirstContainer/ApplicationPackageRoot/MyContainerServicePkg/ServiceManifest.xml*을 엽니다.  ServiceManifest.xml 파일에서 기존 `Endpoint`를 업데이트하고 프로토콜, 포트 및 URI 체계를 추가합니다. 
 
 ```xml
-<Endpoint Name="MyContainerServiceTypeEndpoint" UriScheme="http" Port="80" Protocol="http"/>
+<Resources>
+    <Endpoints>
+        <Endpoint Name="MyContainerServiceTypeEndpoint" UriScheme="http" Port="80" Protocol="http"/>
+   </Endpoints>
+</Resources>
 ```
 `UriScheme`을 입력하면 이 컨테이너 끝점이 검색될 수 있도록 Service Fabric Naming 서비스에 자동으로 등록됩니다. 이 문서의 끝에서 전체 ServiceManifest.xml 예제 파일을 제공합니다. 
 
-ApplicationManifest.xml 파일의 `ContainerHostPolicies`에서 `PortBinding` 정책을 지정하여 컨테이너 포트 및 호스트 간 포트 매핑을 구성합니다.  이 빠른 시작의 경우 `ContainerPort`는 80이고 `EndpointRef`는 "MyContainerServiceTypeEndpoint"(서비스 매니페스트에 정의된 끝점)입니다.  포트 80에서 서비스에 들어오는 요청은 컨테이너에 있는 포트 80에 매핑됩니다.  
+포트 80의 서비스로 들어오는 요청이 컨테이너의 포트 80에 매핑되도록 컨테이너 포트와 호스트 포트 간 매핑을 구성합니다.  솔루션 탐색기에서 *MyFirstContainer/ApplicationPackageRoot/ApplicationManifest.xml*을 열고 `ContainerHostPolicies`에 `PortBinding` 정책을 지정합니다.  이 빠른 시작의 경우 `ContainerPort`는 80이고 `EndpointRef`는 "MyContainerServiceTypeEndpoint"(서비스 매니페스트에 정의된 끝점)입니다.    
 
 ```xml
 <ServiceManifestImport>
@@ -79,9 +83,7 @@ ApplicationManifest.xml 파일의 `ContainerHostPolicies`에서 `PortBinding` �
 이 문서의 끝에서 전체 ApplicationManifest.xml 예제 파일을 제공합니다.
 
 ## <a name="create-a-cluster"></a>클러스터 만들기
-응용 프로그램을 Azure의 클러스터에 배포하려면 파티 클러스터를 조인하거나 [Azure에서 고유한 클러스터를 생성](service-fabric-tutorial-create-vnet-and-windows-cluster.md)할 수 있습니다.
-
-Party 클러스터는 평가판으로, Azure에서 호스트되고 Service Fabric 팀이 실행하는 제한 시간 Service Fabric 클러스터입니다. 여기서 누구나 응용 프로그램을 배포하고 플랫폼에 대해 알아볼 수 있습니다. 클러스터는 노드-노드뿐만 아니라 클라이언트-노드 보안에도 단일 자체 서명 인증서를 사용합니다. 
+응용 프로그램을 Azure의 클러스터에 배포하려면 파티 클러스터에 조인합니다. Party 클러스터는 평가판으로, Azure에서 호스트되고 Service Fabric 팀이 실행하는 제한 시간 Service Fabric 클러스터입니다. 여기서 누구나 응용 프로그램을 배포하고 플랫폼에 대해 알아볼 수 있습니다. 클러스터는 노드-노드뿐만 아니라 클라이언트-노드 보안에도 단일 자체 서명 인증서를 사용합니다. 
 
 [Windows 클러스터에 로그인하고 조인](http://aka.ms/tryservicefabric)합니다. **PFX** 링크를 클릭하여 PFX 인증서를 컴퓨터에 다운로드합니다. 인증서 및 **연결 엔드포인트** 값은 다음 단계에서 사용됩니다.
 
@@ -108,7 +110,7 @@ Thumbprint                                Subject
 
 솔루션 탐색기에서 **MyFirstContainer**를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다. [게시] 대화 상자가 나타납니다.
 
-파티 클러스터 페이지의 **연결 끝점**을 **연결 끝점** 필드에 복사합니다. 예: `zwin7fh14scd.westus.cloudapp.azure.com:19000` **고급 연결 매개 변수**를 클릭하고 다음 정보를 채웁니다.  *FindValue* 및 *ServerCertThumbprint* 값은 이전 단계에서 설치한 인증서의 지문과 일치해야 합니다. 
+파티 클러스터 페이지의 **연결 끝점**을 **연결 끝점** 필드에 복사합니다. 예: `zwin7fh14scd.westus.cloudapp.azure.com:19000` **고급 연결 매개 변수**를 클릭하고 연결 매개 변수 정보를 확인합니다.  *FindValue* 및 *ServerCertThumbprint* 값은 이전 단계에서 설치한 인증서의 지문과 일치해야 합니다. 
 
 ![[게시] 대화 상자](./media/service-fabric-quickstart-containers/publish-app.png)
 
@@ -187,7 +189,6 @@ Thumbprint                                Subject
         <PortBinding ContainerPort="80" EndpointRef="MyContainerServiceTypeEndpoint"/>
       </ContainerHostPolicies>
     </Policies>
-
   </ServiceManifestImport>
   <DefaultServices>
     <!-- The section below creates instances of service types, when an instance of this 

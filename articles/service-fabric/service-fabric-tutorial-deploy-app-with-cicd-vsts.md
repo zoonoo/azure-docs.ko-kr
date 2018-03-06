@@ -1,6 +1,6 @@
 ---
 title: "연속 통합으로 Azure Service Fabric 응용 프로그램 배포(Team Services) | Microsoft Docs"
-description: "Visual Studio Team Services를 사용한 Service Fabric 응용 프로그램에 대한 연속 통합 및 배포를 설정하는 방법을 알아봅니다.  Azure에서 Service Fabric 클러스터에 응용 프로그램을 배포합니다."
+description: "이 자습서에서는 Visual Studio Team Services를 사용하여 Service Fabric 응용 프로그램에 대한 지속적인 통합 및 배포를 설정하는 방법을 알아봅니다.  Azure에서 Service Fabric 클러스터에 응용 프로그램을 배포합니다."
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -15,13 +15,13 @@ ms.workload: NA
 ms.date: 12/13/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 2fb7ab906208a58c0b5cd3af8b53188fbab94029
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 3f5ccd40e2b46cc68b4f7aeb67577fb66dbd5355
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>Service Fabric 클러스터에 CI/CD로 응용 프로그램 배포
+# <a name="tutorial-deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>자습서: Service Fabric 클러스터에 CI/CD로 응용 프로그램 배포
 이 자습서는 시리즈의 3부로, Visual Studio Team Services를 사용하여 Azure Service Fabric 응용 프로그램에 대한 연속 통합 및 배포를 설정하는 방법을 설명합니다.  기존 Service Fabric 응용 프로그램이 필요하며 [.NET 응용 프로그램 빌드](service-fabric-tutorial-create-dotnet-app.md)에서 만든 응용 프로그램을 예제로 사용합니다.
 
 시리즈 3부에서는 다음 방법에 대해 알아봅니다.

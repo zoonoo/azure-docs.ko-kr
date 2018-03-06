@@ -10,11 +10,11 @@ ms.date: 2/21/2018
 ms.topic: tutorial
 ms.workload: storage-backup-recovery
 manager: carmonm
-ms.openlocfilehash: ce4e53b3fa839bfc2da6bedecca0b4f730a6adbe
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 3bc259245df86406e23418bac598c8b1e062d512
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="troubleshoot-problems-backing-up-azure-files"></a>Azure Files 백업 문제 해결
 
@@ -25,6 +25,12 @@ Azure Files 백업은 미리 보기입니다. 다음 백업 시나리오는 Azur
 - 저장소 계정에서 [ZRS(영역 중복 저장소)](../storage/common/storage-redundancy.md#zone-redundant-storage) 또는 [RA-GRS(읽기 액세스 지역 중복 저장소)](../storage/common/storage-redundancy.md#read-access-geo-redundant-storage) 복제를 사용하여 파일 공유 보호.
 - Virtual Networks를 사용하도록 설정된 저장소 계정에서 파일 공유 보호.
 - PowerShell 또는 CLI를 사용하여 Azure Files 백업.
+
+### <a name="limitations"></a>제한 사항
+- 하루 최대 예약된 백업은 1입니다.
+- 하루 최대 요청 시 백업은 4입니다.
+- 저장소 계정에서 리소스 잠금을 사용하면 Recovery Services 자격 증명 모음에서 Backup이 실수로 삭제되는 것을 방지할 수 있습니다.
+- Azure Backup으로 생성된 스냅숏은 삭제하지 마십시오. 스냅숏을 삭제하면 복구 지점이 손실되거나 복원이 실패할 수 있습니다.
 
 ## <a name="configuring-backup"></a>백업 구성
 다음은 백업 구성에 대한 표입니다.

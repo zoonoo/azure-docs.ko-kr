@@ -1,20 +1,20 @@
 ---
-title: "MySQL Workbench에서 MySQL용 Azure Database에 연결 | Microsoft Docs"
+title: "MySQL Workbench에서 Azure Database for MySQL에 연결"
 description: "이 빠른 시작에서는 MySQL용 Azure Database에서 데이터를 연결하고 쿼리하는 데 MySQL Workbench를 사용하는 단계를 제공합니다."
 services: mysql
 author: jasonwhowell
 ms.author: jasonh
-manager: jhubbard
+manager: kfile
 editor: seanli1988
 ms.service: mysql-database
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 01/24/2018
-ms.openlocfilehash: 89ccd30abfb6f25563ceb4493514c3d102ea37fe
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.date: 02/28/2018
+ms.openlocfilehash: 7c49f3586036efd5784f63fcd79dacea6fb51546
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-database-for-mysql-use-mysql-workbench-to-connect-and-query-data"></a>MySQL용 Azure Database: MySQL Workbench을 사용하여 데이터 쿼리
 이 빠른 시작에서는 MySQL Workbench 응용 프로그램을 사용하여 MySQL용 Azure Database에 연결하는 방법을 보여 줍니다. 
@@ -32,15 +32,12 @@ MySQL용 Azure Database에 연결하는 데 필요한 연결 정보를 가져옵
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
-2. Azure Portal의 왼쪽 메뉴에서 **모든 리소스**를 클릭하고 방금 만든 서버를 검색합니다(예: **myserver4demo**).
+2. Azure Portal의 왼쪽 메뉴에서 **모든 리소스**를 클릭한 다음, 방금 만든 서버를 검색합니다(예: **mydemoserver**).
 
 3. 서버 이름을 클릭합니다.
 
-4. 서버의 **속성** 페이지를 선택한 후 **서버 이름**과 **서버 관리자 로그인 이름**을 기록해 둡니다.
-
- ![MySQL용 Azure Database 서버 이름](./media/connect-workbench/1-server-properties-name-login.png)
- 
-5. 서버 로그인 정보를 잊어버린 경우 **개요** 페이지로 이동하여 서버 관리자 로그인 이름을 확인하고 필요한 경우 암호를 다시 설정합니다.
+4. 서버의 **개요** 패널에 있는 **서버 이름**과 **서버 관리자 로그인 이름**을 기록해 둡니다. 암호를 잊어버리면 이 패널에서 암호를 재설정할 수 있습니다.
+ ![MySQL용 Azure Database 서버 이름](./media/connect-php/1_server-overview-name-login.png)
 
 ## <a name="connect-to-the-server-by-using-mysql-workbench"></a>MySQL Workbench를 사용하여 서버에 연결 
 GUI 도구 MySQL Workbench를 사용하여 Azure MySQL 서버에 연결하려면
@@ -55,9 +52,9 @@ GUI 도구 MySQL Workbench를 사용하여 Azure MySQL 서버에 연결하려면
     |---|---|---|
     |   연결 이름 | 데모 연결 | 이 연결에 대한 레이블을 지정합니다. |
     | 연결 방법 | 표준(TCP/IP) | 표준(TCP/IP)이면 충분합니다. |
-    | 호스트 이름 | *서버 이름* | 이전에 Azure Database for MySQL을 만들 때 사용된 서버 이름 값을 지정합니다. 표시된 예제 서버는 myserver4demo.mysql.database.azure.com입니다. 예제에서 표시된 것과 같은 정규화된 도메인 이름(\*.mysql.database.azure.com)을 사용합니다. 서버 이름을 기억하지 못하는 경우 이전 섹션으로 이동하여 연결 정보를 가져옵니다.  |
+    | 호스트 이름 | *서버 이름* | 이전에 Azure Database for MySQL을 만들 때 사용된 서버 이름 값을 지정합니다. 표시된 예제 서버는 mydemoserver.mysql.database.azure.com입니다. 예제에서 표시된 것과 같은 정규화된 도메인 이름(\*.mysql.database.azure.com)을 사용합니다. 서버 이름을 기억하지 못하는 경우 이전 섹션으로 이동하여 연결 정보를 가져옵니다.  |
     | 포트 | 3306 | Azure Database for MySQL에 연결 시 항상 포트 3306을 사용합니다. |
-    | 사용자 이름 |  *서버 관리자 로그인 이름* | 이전에 Azure Database for MySQL을 만들 때 제공한 서버 관리자 로그인 사용자 이름을 입력합니다. 이 예제에서는 사용자 이름이 myadmin@myserver4demo입니다. 사용자 이름을 기억하지 못하는 경우 이전 섹션의 단계에 따라 연결 정보를 가져옵니다. 형식은 *username@servername*입니다.
+    | 사용자 이름 |  *서버 관리자 로그인 이름* | 이전에 Azure Database for MySQL을 만들 때 제공한 서버 관리자 로그인 사용자 이름을 입력합니다. 이 예제에서는 사용자 이름이 myadmin@mydemoserver입니다. 사용자 이름을 기억하지 못하는 경우 이전 섹션의 단계에 따라 연결 정보를 가져옵니다. 형식은 *username@servername*입니다.
     | 암호 | 사용자 암호 | **Store in Vault(자격 증명 모음에 저장)...** 단추를 클릭하여 암호를 저장합니다. |
 
 3.   **연결 테스트**를 클릭하여 모든 매개 변수가 올바르게 구성되었는지 테스트합니다. 
@@ -69,8 +66,7 @@ GUI 도구 MySQL Workbench를 사용하여 Azure MySQL 서버에 연결하려면
         새 SQL 탭이 쿼리를 입력할 수 있는 빈 편집기로 열립니다.
     
         > [!NOTE]
-        > 기본적으로 SSL 연결 보안이 필요하며 MySQL 서버용 Azure Database에서 적용됩니다. 일반적으로 SSL 인증서가 있는 추가 구성은 MySQL Workbench에서 서버에 연결하는 데 필요하지 않지만, MySQL Workbench와 SSL CA 인증을 바인딩하는 것이 좋습니다. 인증을 다운로드하고 바인딩하는 방법에 대한 자세한 내용은 [Azure Database for MySQL에 안전하게 연결하기 위한 사용자 응용 프로그램의 SSL 연결 구성](./howto-configure-ssl.md)을 참조하세요.  
-        > SSL을 사용하지 않도록 설정해야 하는 경우 Azure Portal을 방문하고 연결 보안 페이지를 클릭하여 SSL 연결 적용 토글 단추를 사용하지 않도록 설정합니다. MySQL 워크벤치에서 SSL 옵션을 비활성화하려면 홈 대시보드 페이지에서 연결(렌치 아이콘)을 편집하고, 연결의 SSL 탭에서 **SSL 사용**을 **아니요**로 선택합니다. 이 SSL 설정이 잘못 구성되면 "Lost connection to MySQL server at 'reading final connect information', system error: 0('최종 연결 정보를 읽을 때' MySQL 서버에 대한 연결 끊김, 시스템 오류: 0)" 오류 메시지가 나타날 수 있습니다.
+        > 기본적으로 SSL 연결 보안이 필요하며 MySQL 서버용 Azure Database에서 적용됩니다. 일반적으로 SSL 인증서가 있는 추가 구성은 MySQL Workbench에서 서버에 연결하는 데 필요하지 않지만, MySQL Workbench와 SSL CA 인증을 바인딩하는 것이 좋습니다. 인증을 다운로드하고 바인딩하는 방법에 대한 자세한 내용은 [Azure Database for MySQL에 안전하게 연결하기 위한 사용자 응용 프로그램의 SSL 연결 구성](./howto-configure-ssl.md)을 참조하세요.  SSL을 사용하지 않도록 설정해야 하는 경우 Azure Portal을 방문하고 연결 보안 페이지를 클릭하여 SSL 연결 적용 토글 단추를 사용하지 않도록 설정합니다.
 
 ## <a name="create-a-table-insert-data-read-data-update-data-delete-data"></a>테이블 만들기, 데이터 삽입, 데이터 읽기, 데이터 업데이트, 데이터 삭제
 1. 몇 가지 샘플 데이터를 설명하기 위해 샘플 SQL 코드를 빈 SQL 탭에 복사하여 붙여넣습니다.

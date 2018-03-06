@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 02/16/2018
 ms.author: carlrab
-ms.openlocfilehash: 425e2186d4eba5db358ebb3a014c3563c4443eb5
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 56fb52cb2dbca1939aac2eb9dd4971a93bf8c0dc
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="create-an-azure-sql-database-in-the-azure-portal"></a>Azure Portal에서 Azure SQL Database 만들기
 
@@ -157,7 +157,7 @@ Azure SQL Database는 일련의 정의된 [계산 및 저장소 리소스](sql-d
 
    ![쿼리 편집기 결과](./media/sql-database-get-started-portal/query-editor-results.png)
 
-5. **데이터 탐색기** 페이지를 닫고 **확인**을 클릭하여 저장하지 않은 편집 내용을 삭제합니다.
+5. **쿼리 편집기** 페이지를 닫고 **확인**을 클릭하여 저장하지 않은 편집 내용을 삭제합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

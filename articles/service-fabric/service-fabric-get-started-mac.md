@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/17/2017
 ms.author: saysa
-ms.openlocfilehash: 328b2778a68e32d95b666124bf7bba969a5f52a6
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 4ac26c02e1893097c858380c07f520e6570fd3db
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Mac OS X에서 개발 환경 설정
 > [!div class="op_single_selector"]
@@ -35,7 +35,6 @@ Azure Service Fabric은 Mac OS X에서 기본적으로 실행되지 않습니다
 
 * RAM 4GB 이상
 * 최신 버전의 [Docker](https://www.docker.com/)
-* Service Fabric [onebox Docker 컨테이너 이미지](https://hub.docker.com/r/servicefabricoss/service-fabric-onebox/)에 대한 액세스 권한
 
 >[!TIP]
 >
@@ -45,10 +44,10 @@ Azure Service Fabric은 Mac OS X에서 기본적으로 실행되지 않습니다
 ## <a name="create-a-local-container-and-set-up-service-fabric"></a>로컬 컨테이너 만들기 및 Service Fabric 설정
 로컬 Docker 컨테이너를 설정하고 Service Fabric 클러스터가 실행되도록 하려면 다음 단계를 수행합니다.
 
-1. Docker 허브 리포지토리에서 Service Fabric onebox 컨테이너 이미지를 끌어옵니다.
+1. Docker 허브 리포지토리에서 Service Fabric onebox 컨테이너 이미지를 끌어옵니다. 기본적으로 이렇게 하면 최신 버전의 Service Fabric으로 이미지를 가져옵니다. 특정 수정 버전은 [Docker 허브](https://hub.docker.com/r/microsoft/service-fabric-onebox/) 페이지를 참조하세요.
 
     ```bash
-    docker pull servicefabricoss/service-fabric-onebox
+    docker pull microsoft/service-fabric-onebox
     ```
 
 2. 다음 설정을 사용하여 호스트에서 Docker 디먼 구성을 업데이트하고 Docker 디먼을 다시 시작합니다. 
@@ -71,14 +70,14 @@ Azure Service Fabric은 Mac OS X에서 기본적으로 실행되지 않습니다
 3. Service Fabric onebox 컨테이너 인스턴스를 시작하고 첫 번째 단계에서 끌어온 이미지를 사용합니다.
 
     ```bash
-    docker run -itd -p 19080:19080 --name sfonebox servicefabricoss/service-fabric-onebox
+    docker run -itd -p 19080:19080 --name sfonebox microsoft/service-fabric-onebox
     ```
     >[!TIP]
     >읽기 쉬운 방식으로 처리할 수 있도록 컨테이너 인스턴스의 이름을 제공합니다. 
     >
     >응용 프로그램을 특정 포트에서 수신 대기하는 경우 추가 `-p` 태그를 사용하여 포트를 지정해야 합니다. 예를 들어 응용 프로그램이 포트 8080에서 수신 대기하는 경우 다음 `-p` 태그를 추가합니다.
     >
-    >`run docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox servicefabricoss/service-fabric-onebox`
+    >`docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox microsoft/service-fabric-onebox`
     >
 
 4. 대화형 SSH 모드에서 Docker 컨테이너에 로그인합니다.
@@ -157,10 +156,10 @@ Service Fabric 응용 프로그램을 만들고 빌드한 후 [Service Fabric CL
 
 Azure Service Fabric은 Java IDE용 Eclipse Neon의 플러그 인을 제공합니다. 플러그 인은 Java 서비스를 만들고 빌드하고 배포하는 프로세스를 간소화합니다. Eclipse용 Service Fabric 플러그 인을 설치하거나 최신 버전으로 업데이트하려면 [다음 단계](service-fabric-get-started-eclipse.md#install-or-update-the-service-fabric-plug-in-in-eclipse-neon)를 수행합니다. [Eclipse용 Service Fabric 설명서](service-fabric-get-started-eclipse.md)의 다른 단계도 적용할 수 있습니다. 응용 프로그램 빌드, 응용 프로그램에 서비스 추가, 응용 프로그램 제거 등을 수행할 수 있습니다.
 
-마지막 단계는 호스트와 공유되는 경로로 컨테이너를 인스턴스화하는 것입니다. Mac의 Docker 컨테이너로 작업하려면 플러그인에 이러한 유형의 인스턴스화가 필요합니다. 예:
+마지막 단계는 호스트와 공유되는 경로로 컨테이너를 인스턴스화하는 것입니다. Mac의 Docker 컨테이너로 작업하려면 플러그인에 이러한 유형의 인스턴스화가 필요합니다. 예: 
 
 ```bash
-docker run -itd -p 19080:19080 -v /Users/sayantan/work/workspaces/mySFWorkspace:/tmp/mySFWorkspace --name sfonebox servicefabricoss/service-fabric-onebox
+docker run -itd -p 19080:19080 -v /Users/sayantan/work/workspaces/mySFWorkspace:/tmp/mySFWorkspace --name sfonebox microsoft/service-fabric-onebox
 ```
 
 특성은 다음과 같이 정의됩니다.

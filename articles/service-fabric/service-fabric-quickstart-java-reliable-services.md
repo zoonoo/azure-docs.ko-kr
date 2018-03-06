@@ -1,6 +1,6 @@
 ---
 title: "Azure Service Fabric Java 응용 프로그램 만들기 | Microsoft Docs"
-description: "Service Fabric 빠른 시작 샘플을 사용하여 Azure에 대한 Java 응용 프로그램을 만듭니다."
+description: "이 빠른 시작에서는 Service Fabric 안정적인 서비스 응용 프로그램 예제를 사용하여 Azure용 Java 응용 프로그램을 만듭니다."
 services: service-fabric
 documentationcenter: java
 author: suhuruli
@@ -15,13 +15,13 @@ ms.workload: NA
 ms.date: 10/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 8f4d121ba76d63b70fa6976125457942a0e98aa9
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 0b284194abbbdd38524c0ae74ab7e05977d6883f
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="create-a-java-application"></a>Java 응용 프로그램 만들기
+# <a name="quickstart-deploy-a-java-service-fabric-reliable-services-application-to-azure"></a>빠른 시작: Azure에 Java Service Fabric 안정적인 서비스 응용 프로그램 배포
 Azure Service Fabric은 마이크로 서비스 및 컨테이너를 배포 및 관리하기 위한 분산 시스템 플랫폼입니다. 
 
 이 빠른 시작은 Linux 개발자 컴퓨터에서 Eclipse IDE를 사용하여 Microsoft Azure Service Fabric에 첫 번째 Java 응용 프로그램을 배포하는 방법을 보여줍니다. 완료하면 투표 결과를 클러스터의 상태 저장 백 엔드 서비스에 저장하는 Java 웹 프런트 엔드가 있는 투표 응용 프로그램이 생깁니다.

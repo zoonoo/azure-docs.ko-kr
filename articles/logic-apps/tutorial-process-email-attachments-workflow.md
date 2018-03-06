@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
 ms.author: LADocs; estfan
-ms.openlocfilehash: 16db5bc948b1eac0ef996b449d89211fb210a91e
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 8c327599585e67ccc6ebdf849d3e9cf9b95e7398
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="process-emails-and-attachments-with-a-logic-app"></a>논리 앱으로 이메일 및 첨부 파일 처리
 
@@ -52,7 +52,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 <a href="https://azure.
 
 * <a href="http://storageexplorer.com/" target="_blank">체험판 Microsoft Azure Storage 탐색기</a>를 다운로드하여 설치합니다. 이 도구를 사용하여 저장소 컨테이너가 올바르게 설정되었는지 확인할 수 있습니다.
 
-## <a name="sign-in-to-the-azure-portal"></a>Azure 포털에 로그인합니다.
+## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인합니다.
 
 Azure 계정 자격 증명을 사용하여 <a href="https://portal.azure.com" target="_blank">Azure Portal</a>에 로그인합니다.
 
@@ -205,7 +205,7 @@ Azure 계정 자격 증명을 사용하여 <a href="https://portal.azure.com" ta
 
 ## <a name="create-your-logic-app"></a>논리 앱 만들기
 
-1. Azure 주 메뉴에서 **새로 만들기** > **엔터프라이즈 통합** > **논리 앱**을 선택합니다.
+1. Azure 주 메뉴에서 **리소스 만들기** > **엔터프라이즈 통합** > **논리 앱**을 선택합니다.
 
    ![논리 앱 만들기](./media/tutorial-process-email-attachments-workflow/create-logic-app.png)
 

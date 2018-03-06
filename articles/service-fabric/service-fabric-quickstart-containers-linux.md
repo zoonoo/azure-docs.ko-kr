@@ -1,6 +1,6 @@
 ---
 title: "Linux에서 Azure Service Fabric 컨테이너 응용 프로그램 만들기 | Microsoft Docs"
-description: "Azure Service Fabric에서 첫 번째 Linux 컨테이너 응용 프로그램을 만듭니다.  응용 프로그램을 사용하여 Docker 이미지를 빌드하고, 이미지를 컨테이너 레지스트리로 푸시하고, Service Fabric 컨테이너 응용 프로그램을 빌드하고 배포합니다."
+description: "이 빠른 시작에서는 Azure Service Fabric에서 첫 번째 Linux 컨테이너 응용 프로그램을 만듭니다.  응용 프로그램을 사용하여 Docker 이미지를 빌드하고, 이미지를 컨테이너 레지스트리로 푸시하고, Service Fabric 컨테이너 응용 프로그램을 빌드하고 배포합니다."
 services: service-fabric
 documentationcenter: linux
 author: suhuruli
@@ -15,13 +15,13 @@ ms.workload: NA
 ms.date: 09/05/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 6aec2146d83c18a1e1714843cd49890f178e4fb3
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: f568bdf6ce40ff2d437f3566b66f6dd1478a74fa
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="deploy-an-azure-service-fabric-linux-container-application-on-azure"></a>Azure에서 Azure Service Fabric Linux 컨테이너 응용 프로그램 배포
+# <a name="quickstart-deploy-an-azure-service-fabric-linux-container-application-on-azure"></a>빠른 시작: Azure에서 Azure Service Fabric Linux 컨테이너 응용 프로그램 배포
 Azure Service Fabric은 확장성 있고 안정성이 뛰어난 마이크로 서비스 및 컨테이너를 배포 및 관리하기 위한 분산 시스템 플랫폼입니다. 
 
 이 빠른 시작은 Service Fabric 클러스터에 Linux 컨테이너를 배포하는 방법을 보여줍니다. 작업이 완료되면 Python 웹 프런트 엔드 및 Redis 백 엔드로 구성된 선택 응용 프로그램이 Service Fabric 클러스터에서 실행됩니다. 

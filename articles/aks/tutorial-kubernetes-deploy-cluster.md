@@ -6,14 +6,14 @@ author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 11/15/2017
+ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: e0d5bd57a40fca837ead42e691e1fa0c802dc013
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: bb8ad6d9defcbaef255065b20a9a9b542e74d73d
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="deploy-an-azure-container-service-aks-cluster"></a>AKS(Azure Container Service) 클러스터 배포
 
@@ -30,10 +30,11 @@ Kubernetes는 컨테이너화된 응용 프로그램용 분산 플랫폼을 제�
 
 이전 자습서에서는 컨테이너 이미지를 만들어 Azure Container Registry 인스턴스에 업로드했습니다. 이러한 단계를 아직 수행하지 않았으나 수행하려는 경우 [자습서 1 - 컨테이너 이미지 만들기][aks-tutorial-prepare-app]로 돌아갑니다.
 
-## <a name="enabling-aks-preview-for-your-azure-subscription"></a>Azure 구독에 AKS 미리 보기 사용
+## <a name="enable-aks-preview"></a>AKS 미리 보기 사용
+
 AKS가 미리 보기 상태인 경우 새 클러스터를 만들려면 구독에서 기능 플래그가 필요합니다. 사용하려는 구독의 수에 관계 없이 이 기능을 요청할 수 있습니다. `az provider register` 명령을 사용하여 AKS 공급자를 등록합니다.
 
-```azurecli-interactive
+```azurecli
 az provider register -n Microsoft.ContainerService
 ```
 
@@ -48,6 +49,59 @@ az aks create --resource-group myResourceGroup --name myAKSCluster --node-count 
 ```
 
 몇 분 후 배포가 완료되고 json 형식의 AKS 배포 관련 정보가 반환됩니다.
+
+```azurecli
+{
+  "additionalProperties": {},
+  "agentPoolProfiles": [
+    {
+      "additionalProperties": {},
+      "count": 1,
+      "dnsPrefix": null,
+      "fqdn": null,
+      "name": "nodepool1",
+      "osDiskSizeGb": null,
+      "osType": "Linux",
+      "ports": null,
+      "storageProfile": "ManagedDisks",
+      "vmSize": "Standard_DS1_v2",
+      "vnetSubnetId": null
+    }
+    ...
+```
+
+## <a name="getting-information-about-your-cluster"></a>클러스터에 대한 정보 가져오기
+
+클러스터가 배포된 후에는 `az aks show`를 사용하여 클러스터를 쿼리하고 중요한 정보를 검색할 수 있습니다. 이 데이터는 클러스터에서 복잡한 작업을 수행할 때 매개 변수로 사용할 수 있습니다. 예를 들어, 클러스터에서 실행 중인 Linux 프로필에 대한 정보가 필요한 경우, 다음 명령을 실행할 수 있습니다.
+
+```azurecli
+az aks show --name myAKSCluster --resource-group myResourceGroup --query "linuxProfile"
+
+{
+  "additionalProperties": {},
+  "adminUsername": "azureuser",
+  "ssh": {
+    "additionalProperties": {},
+    "publicKeys": [
+      {
+        "additionalProperties": {},
+        "keyData": "ssh-rsa AAAAB3NzaC1yc2EAAAADA...
+      }
+    ]
+  }
+}
+```
+
+그러면 관리 사용자와 SSH 공개 키에 대한 정보가 표시됩니다. 아래와 같이 쿼리 문자열에 JSON 속성을 추가하여 더 자세한 쿼리를 실행할 수도 있습니다.
+
+```azurecli
+az aks show -n myakscluster  -g my-group --query "{name:agentPoolProfiles[0].name, nodeCount:agentPoolProfiles[0].count}"
+{
+  "name": "nodepool1",
+  "nodeCount": 1
+}
+```
+배포된 클러스터에 대한 데이터에 신속하게 액세스하는 데 유용할 수 있습니다. JMESPath 쿼리에 대한 자세한 내용은 [여기](http://jmespath.org/tutorial.html)를 참조하세요.
 
 ## <a name="install-the-kubectl-cli"></a>kubectl CLI 설치
 
@@ -77,10 +131,32 @@ kubectl get nodes
 
 ```
 NAME                          STATUS    AGE       VERSION
-k8s-myAKSCluster-36346190-0   Ready     49m       v1.7.7
+k8s-myAKSCluster-36346190-0   Ready     49m       v1.7.9
 ```
 
 이 자습서를 마치면 AKS 클러스터가 워크로드에 대해 준비됩니다. 이후 자습서에서는 다중 컨테이너 응용 프로그램이 이 클러스터에 배포, 규모 확장, 업데이트 및 모니터링됩니다.
+
+## <a name="configure-acr-authentication"></a>ACR 인증 구성
+
+인증은 AKS 클러스터와 ACR 레지스트리 간에 구성되어야 합니다. 여기에는 ACR 레지스트리에서 이미지를 가져오도록 ACS ID에 적절한 권한 부여하는 작업이 포함됩니다.
+
+먼저 AKS에 구성된 서비스 주체의 ID를 가져옵니다. 리소스 그룹 이름 및 AKS 클러스터 이름을 환경에 맞게 업데이트합니다.
+
+```azurecli
+$CLIENT_ID = $(az aks show --resource-group myResourceGroup --name myAKSCluster --query "servicePrincipalProfile.clientId" --output tsv)
+```
+
+ACR 레지스트리 리소스 ID를 가져옵니다. 레지스트리 이름을 ACR 레지스트리의 이름으로 업데이트하고 리소스 그룹을 ACR 레지스트리가 있는 리소스 그룹으로 업데이트합니다.
+
+```azurecli
+$ACR_ID = $(az acr show --name myACRRegistry --resource-group myResourceGroup --query "id" --output tsv)
+```
+
+적절한 액세스 권한을 부여하는 역할 할당을 만듭니다.
+
+```azurecli
+az role assignment create --assignee $CLIENT_ID --role Contributor --scope $ACR_ID
+```
 
 ## <a name="next-steps"></a>다음 단계
 
