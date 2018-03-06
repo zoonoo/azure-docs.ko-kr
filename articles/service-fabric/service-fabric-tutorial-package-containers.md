@@ -1,6 +1,6 @@
 ---
 title: "Service Fabric 컨테이너 응용 프로그램 패키징 및 배포 | Microsoft Docs"
-description: "Yeoman을 사용하여 Azure Service Fabric 응용 프로그램 정의를 생성하고 응용 프로그램을 패키지하는 방법을 알아봅니다."
+description: "이 자습서에서는 Yeoman을 사용하여 Azure Service Fabric 응용 프로그램 정의를 생성하고 응용 프로그램을 패키지하는 방법을 알아봅니다."
 services: service-fabric
 documentationcenter: 
 author: suhuruli
@@ -16,13 +16,13 @@ ms.workload: na
 ms.date: 09/12/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: eb838903802de5a04084a60924fc52d988180c11
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 6e3200676807bbd9a15c5c7b19312a2e0c18d77a
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="package-and-deploy-containers-as-a-service-fabric-application"></a>Service Fabric 응용 프로그램으로 컨테이너 패키징 및 배포
+# <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application"></a>자습서: Service Fabric 응용 프로그램으로 컨테이너 패키징 및 배포
 
 이 자습서는 시리즈의 2부입니다. 이 자습서에서는 Service Fabric 응용 프로그램 정의를 생성하는 데 템플릿 생성기 도구(Yeoman)를 사용합니다. 그런 다음 이 응용 프로그램을 사용하여 Service Fabric에 컨테이너를 배포할 수 있습니다. 이 자습서에서는 다음 방법에 대해 알아봅니다. 
 

@@ -1,24 +1,24 @@
 ---
-title: "Go를 사용하여 MySQL용 Azure Database에 연결 | Microsoft Docs"
+title: "Go를 사용하여 Azure Database for MySQL에 연결"
 description: "이 빠른 시작에서는 MySQL용 Azure Database에서 데이터를 연결하고 쿼리하는 데 사용할 수 있는 몇 가지 Go 코드 샘플을 제공합니다."
 services: mysql
 author: jasonwhowell
 ms.author: jasonh
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.custom: mvc
 ms.devlang: go
 ms.topic: quickstart
-ms.date: 01/24/2018
-ms.openlocfilehash: 44011c4b1ac5da686954a87bbf17a54b963ff6d8
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.date: 02/28/2018
+ms.openlocfilehash: af4027835ca503c0875d098d0daf7a98bdef44fb
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-database-for-mysql-use-go-language-to-connect-and-query-data"></a>MySQL용 Azure Database: Go 언어를 사용하여 데이터 연결 및 쿼리
-이 빠른 시작에서는 [Go](https://golang.org/) 언어로 작성된 코드를 사용하여 Windows, Ubuntu Linux 및 Apple macOS 플랫폼에서 MySQL용 Azure Database에 연결하는 방법을 보여 줍니다. SQL 문을 사용하여 데이터베이스의 데이터를 쿼리, 삽입, 업데이트 및 삭제하는 방법을 보여 줍니다. 이 문서에서는 Go를 사용하여 개발하는 데 익숙하며 Azure Database for MySQL을 처음 사용한다고 가정합니다.
+이 빠른 시작에서는 [Go](https://golang.org/) 언어로 작성된 코드를 사용하여 Windows, Ubuntu Linux 및 Apple macOS 플랫폼에서 MySQL용 Azure Database에 연결하는 방법을 보여 줍니다. SQL 문을 사용하여 데이터베이스의 데이터를 쿼리, 삽입, 업데이트 및 삭제하는 방법을 보여 줍니다. 이 항목에서는 Go를 사용하여 개발하는 데 익숙하고 MySQL용 Azure Database를 처음 사용한다고 가정합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 이 빠른 시작에서는 다음과 같은 가이드 중 하나에서 만들어진 리소스를 시작 지점으로 사용합니다.
@@ -26,7 +26,7 @@ ms.lasthandoff: 02/01/2018
 - [Azure CLI를 사용한 MySQL용 Azure Database 서버 만들기](./quickstart-create-mysql-server-database-using-azure-cli.md)
 
 ## <a name="install-go-and-mysql-connector"></a>Go 및 MySQL 커넥터 설치
-[Go](https://golang.org/doc/install) 및 [go-sql-driver for MySQL](https://github.com/go-sql-driver/mysql#installation)의 최소 버전 1.3을 자신의 컴퓨터에 설치합니다. 사용하는 플랫폼에 따라 해당 섹션의 다음 단계를 수행합니다.
+[Go](https://golang.org/doc/install) 및 [MySQL용 go-sql-driver](https://github.com/go-sql-driver/mysql#installation)를 자신의 컴퓨터에 설치합니다. 사용하는 플랫폼에 따라 해당 섹션의 다음 단계를 수행합니다.
 
 ### <a name="windows"></a>Windows
 1. [설치 지침](https://golang.org/doc/install)에 따라 Microsoft Windows용 Go를 [다운로드](https://golang.org/dl/)하고 설치합니다.
@@ -34,7 +34,7 @@ ms.lasthandoff: 02/01/2018
 3. 다음과 같이 프로젝트 폴더를 만듭니다. `mkdir  %USERPROFILE%\go\src\mysqlgo`
 4. 디렉터리를 프로젝트 폴더로 변경합니다(예: `cd %USERPROFILE%\go\src\mysqlgo`).
 5. 소스 코드 디렉터리를 가리키도록 GOPATH에 대한 환경 변수를 설정합니다. `set GOPATH=%USERPROFILE%\go`
-6. `go get github.com/go-sql-driver/mysql` 명령을 실행하여 [MySQL용 go-sql-driver(영문)](https://github.com/go-sql-driver/mysql#installation)를 설치합니다. 버전 1.3이 필요한 최소 버전입니다.
+6. `go get github.com/go-sql-driver/mysql` 명령을 실행하여 [MySQL용 go-sql-driver(영문)](https://github.com/go-sql-driver/mysql#installation)를 설치합니다.
 
    요약하자면, Go 설치 후 명령 프롬프트에서 다음이 명령을 실행합니다.
    ```cmd
@@ -50,7 +50,7 @@ ms.lasthandoff: 02/01/2018
 3. 홈 디렉터리에서 프로젝트 폴더를 만듭니다(예: `mkdir -p ~/go/src/mysqlgo/`).
 4. 디렉터리를 폴더로 변경합니다(예: `cd ~/go/src/mysqlgo/`).
 5. 현재 홈 디렉터리의 go 폴더와 같이 유효한 소스 디렉터리를 가리키도록 GOPATH 환경 변수를 설정합니다. Bash 셸에서 `export GOPATH=~/go`를 실행하여 go 디렉터리를 현재 셸 세션에 대한 GOPATH로 추가합니다.
-6. `go get github.com/go-sql-driver/mysql` 명령을 실행하여 [MySQL용 go-sql-driver(영문)](https://github.com/go-sql-driver/mysql#installation)를 설치합니다. 버전 1.3이 필요한 최소 버전입니다.
+6. `go get github.com/go-sql-driver/mysql` 명령을 실행하여 [MySQL용 go-sql-driver(영문)](https://github.com/go-sql-driver/mysql#installation)를 설치합니다.
 
    요약하자면, 다음과 같은 Bash 명령을 실행합니다.
    ```bash
@@ -67,7 +67,7 @@ ms.lasthandoff: 02/01/2018
 3. 홈 디렉터리에서 프로젝트 폴더를 만듭니다(예: `mkdir -p ~/go/src/mysqlgo/`).
 4. 디렉터리를 폴더로 변경합니다(예: `cd ~/go/src/mysqlgo/`).
 5. 현재 홈 디렉터리의 go 폴더와 같이 유효한 소스 디렉터리를 가리키도록 GOPATH 환경 변수를 설정합니다. Bash 셸에서 `export GOPATH=~/go`를 실행하여 go 디렉터리를 현재 셸 세션에 대한 GOPATH로 추가합니다.
-6. `go get github.com/go-sql-driver/mysql` 명령을 실행하여 [MySQL용 go-sql-driver(영문)](https://github.com/go-sql-driver/mysql#installation)를 설치합니다. 버전 1.3이 필요한 최소 버전입니다.
+6. `go get github.com/go-sql-driver/mysql` 명령을 실행하여 [MySQL용 go-sql-driver(영문)](https://github.com/go-sql-driver/mysql#installation)를 설치합니다.
 
    요약하자면, Go 설치 후 다음 bash 명령을 실행합니다.
    ```bash
@@ -81,11 +81,10 @@ ms.lasthandoff: 02/01/2018
 MySQL용 Azure Database에 연결하는 데 필요한 연결 정보를 가져옵니다. 정규화된 서버 이름 및 로그인 자격 증명이 필요합니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. Azure Portal의 왼쪽 메뉴에서 **모든 리소스**를 클릭하고 만든 서버를 검색합니다(예: **myserver4demo**).
-3. **myserver4demo** 서버 이름을 클릭합니다.
-4. 서버의 **속성** 페이지를 선택한 후 **서버 이름**과 **서버 관리자 로그인 이름**을 기록해 둡니다.
- ![MySQL용 Azure Database - 서버 관리자 로그인](./media/connect-go/1_server-properties-name-login.png)
-5. 서버 로그인 정보를 잊어버린 경우 **개요** 페이지로 이동하여 서버 관리자 로그인 이름을 확인하고 필요한 경우 암호를 다시 설정합니다.
+2. Azure Portal의 왼쪽 메뉴에서 **모든 리소스**를 클릭한 다음, 방금 만든 서버를 검색합니다(예: **mydemoserver**).
+3. 서버 이름을 클릭합니다.
+4. 서버의 **개요** 패널에 있는 **서버 이름**과 **서버 관리자 로그인 이름**을 기록해 둡니다. 암호를 잊어버리면 이 패널에서 암호를 재설정할 수 있습니다.
+ ![MySQL용 Azure Database 서버 이름](./media/connect-go/1_server-overview-name-login.png)
    
 
 ## <a name="build-and-run-go-code"></a>Go 코드 작성 및 실행 
@@ -116,9 +115,9 @@ import (
 )
 
 const (
-    host     = "myserver4demo.mysql.database.azure.com"
+    host     = "mydemoserver.mysql.database.azure.com"
     database = "quickstartdb"
-    user     = "myadmin@myserver4demo"
+    user     = "myadmin@mydemoserver"
     password = "yourpassword"
 )
 
@@ -193,9 +192,9 @@ import (
 )
 
 const (
-    host     = "myserver4demo.mysql.database.azure.com"
+    host     = "mydemoserver.mysql.database.azure.com"
     database = "quickstartdb"
-    user     = "myadmin@myserver4demo"
+    user     = "myadmin@mydemoserver"
     password = "yourpassword"
 )
 
@@ -262,9 +261,9 @@ import (
 )
 
 const (
-    host     = "myserver4demo.mysql.database.azure.com"
+    host     = "mydemoserver.mysql.database.azure.com"
     database = "quickstartdb"
-    user     = "myadmin@myserver4demo"
+    user     = "myadmin@mydemoserver"
     password = "yourpassword"
 )
 
@@ -316,9 +315,9 @@ import (
 )
 
 const (
-    host     = "myserver4demo.mysql.database.azure.com"
+    host     = "mydemoserver.mysql.database.azure.com"
     database = "quickstartdb"
-    user     = "myadmin@myserver4demo"
+    user     = "myadmin@mydemoserver"
     password = "yourpassword"
 )
 

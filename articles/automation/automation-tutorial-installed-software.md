@@ -5,16 +5,16 @@ services: automation
 keywords: "인벤토리, 자동화, 변경, 추적"
 author: jennyhunter-msft
 ms.author: jehunte
-ms.date: 12/14/2017
+ms.date: 02/28/2018
 ms.topic: tutorial
 ms.service: automation
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: bdd638d0612a8ddee1a0ddb4fd4579f8da14b887
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 97cd2c91ca2c70b044518c43d49356918202d5ff
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="discover-what-software-is-installed-on-your-azure-and-non-azure-machines"></a>Azure 및 비Azure 컴퓨터에 설치된 소프트웨어 검색
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 01/10/2018
 > * 설치된 소프트웨어 보기
 > * 설치된 소프트웨어에 대한 인벤토리 로그 검색
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -41,35 +41,17 @@ Azure Portal( http://portal.azure.com )에 로그인합니다.
 
 ## <a name="enable-change-tracking-and-inventory"></a>변경 내용 추적 및 인벤토리 사용
 
-먼저 이 자습서에서 사용할 VM에 대한 변경 내용 추적 및 인벤토리를 사용하도록 설정해야 합니다. 이전에 VM에 대해 다른 자동화 솔루션을 사용하도록 설정한 경우에는 이 단계가 필요하지 않습니다.
+먼저 이 자습서에서 사용할 VM에 대한 변경 내용 추적 및 인벤토리를 사용하도록 설정해야 합니다. 이전에 VM에 대해 **변경 내용 추적** 솔루션을 사용하도록 설정한 경우에는 이 단계가 필요하지 않습니다.
 
 1. 왼쪽 메뉴에서 **가상 머신**을 선택하고 목록에서 VM을 선택합니다.
 2. 왼쪽 메뉴의 **작업** 섹션 아래에서 **인벤토리**를 클릭합니다. **변경 내용 추적 및 인벤토리 사용** 페이지가 열립니다.
 
-이 VM에 대해 인벤토리를 사용하도록 설정되어 있는지 확인하기 위해 유효성 검사가 수행됩니다.
-유효성 검사 중에는 Log Analytics 작업 영역 및 연결된 Automation 계정이 확인되고 솔루션이 작업 영역에 있는지 여부가 확인됩니다.
+![인벤토리 등록 구성 배너](./media/automation-tutorial-installed-software/enableinventory.png)
+
+솔루션을 사용하도록 설정하려면, 사용할 위치, Log Analytics 작업 영역 및 Automation 계정을 구성하고 **사용**을 클릭합니다. 필드가 회색으로 표시되면 해당 VM에 대해 다른 자동화 솔루션을 사용하도록 설정하고 동일한 작업 영역과 Automation 계정을 사용해야 함을 의미합니다.
 
 [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json) 작업 영역은 기능 및 서비스(예: 인벤토리)에서 생성된 데이터를 수집하는 데 사용됩니다.
 이 작업 영역은 여러 원본의 데이터를 검토 및 분석하는 단일 위치를 제공합니다.
-
-또한 유효성 검사 프로세스는 VM이 MMA(Microsoft Monitoring Agent) 및 하이브리드 작업자로 프로비전되는지 여부도 확인합니다.
-이 에이전트는 VM과 통신하고 설치된 소프트웨어에 대한 정보를 얻는 데 사용됩니다.
-또한 유효성 검사 프로세스는 VM이 MMA 및 Automation 하이브리드 Runbook 작업자를 통해 프로비전되는지 확인합니다.
-
-이러한 필수 구성 요소가 충족되지 않으면 솔루션을 사용하도록 설정하는 옵션을 제공하는 배너가 표시됩니다.
-
-![인벤토리 등록 구성 배너](./media/automation-tutorial-installed-software/enableinventory.png)
-
-솔루션을 사용하도록 설정하려면 배너를 클릭합니다.
-유효성 검사 후에 다음 필수 구성 요소 중 하나라도 누락된 것으로 확인되면 자동으로 추가됩니다.
-
-* [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json) 작업 영역
-* [Automation](./automation-offering-get-started.md)
-* [Hybrid Runbook Worker](./automation-hybrid-runbook-worker.md)가 VM에서 사용되도록 설정됩니다.
-
-**변경 내용 추적 및 인벤토리** 화면이 열립니다. 사용할 위치, Log Analytics 작업 영역 및 Automation 계정을 구성하고 **사용**을 클릭합니다. 필드가 회색으로 표시되면 해당 VM에 대해 다른 자동화 솔루션을 사용하도록 설정하고 동일한 작업 영역과 Automation 계정을 사용해야 함을 의미합니다.
-
-![변경 내용 추적 솔루션 사용 창](./media/automation-tutorial-installed-software/installed-software-enable.png)
 
 솔루션을 사용하도록 설정하는 데 최대 15분이 걸릴 수 있습니다. 이 시간 동안에는 브라우저 창을 닫으면 안됩니다.
 솔루션을 사용하도록 설정되면 설치된 소프트웨어에 대한 정보 및 VM에 대한 변경 내용이 Log Analytics로 이동합니다.
@@ -137,4 +119,4 @@ ConfigurationData
 자세히 알아보려면 변경 내용 추적 및 인벤토리 솔루션에 대한 개요로 계속 진행하세요.
 
 > [!div class="nextstepaction"]
-> [변경 관리 및 인벤토리 솔루션](../log-analytics/log-analytics-change-tracking.md?toc=%2fazure%2fautomation%2ftoc.json)
+> [변경 관리 및 인벤토리 솔루션](automation-change-tracking.md)

@@ -1,25 +1,21 @@
 ---
-title: "Azure 빠른 시작 - .NET을 사용하여 Azure Blob Storage에서 개체 전송 | Microsoft Docs"
-description: ".NET을 사용하여 Azure Blob Storage에서 개체를 전송하는 방법을 간단히 알아봅니다."
+title: "Azure 빠른 시작 - .NET을 사용하여 Azure Storage에 BLOB 업로드, 다운로드 및 나열 | Microsoft Docs"
+description: "이 빠른 시작에서는 저장소 계정과 컨테이너를 만듭니다. 그런 다음, .NET용 저장소 클라이언트 라이브러리를 사용하여 Azure Storage에 BLOB을 업로드하고, BLOB을 다운로드하고, 컨테이너의 BLOB을 나열합니다."
 services: storage
-documentationcenter: storage
 author: tamram
 manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
-ms.date: 12/04/2017
+ms.date: 02/22/2018
 ms.author: tamram
-ms.openlocfilehash: 5020f070a8eb9215f175fc3ff3a905cff28ce37f
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 265691ff189c628156f234083645a4b2ca4b637b
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="transfer-objects-tofrom-azure-blob-storage-using-net"></a>.NET을 사용하여 Azure Blob Storage에서 개체 전송
+# <a name="quickstart-upload-download-and-list-blobs-using-net"></a>빠른 시작: .NET을 사용하여 BLOB 업로드, 다운로드 및 나열
 
 이 빠른 시작에서 Azure Storage에 대해 .NET 클라이언트 라이브러리를 사용하여 컨테이너에 블록 Blob을 업로드, 다운로드 및 나열하는 방법을 알아봅니다.
 
@@ -29,7 +25,7 @@ ms.lasthandoff: 12/14/2017
 
 * [Linux](/dotnet/core/linux-prerequisites?tabs=netcore2x) 또는 [Windows](/dotnet/core/windows-prerequisites?tabs=netcore2x)용 .NET Core 2.0을 설치합니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 [!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
 

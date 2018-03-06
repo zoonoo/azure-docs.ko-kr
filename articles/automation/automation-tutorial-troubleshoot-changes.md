@@ -5,15 +5,15 @@ services: automation
 keywords: "변경 내용, 추적, 자동화"
 author: jennyhunter-msft
 ms.author: jehunte
-ms.date: 12/14/2017
+ms.date: 02/28/2018
 ms.topic: tutorial
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 0aefa175d676bd7e98841d3a1e9ff5a8c90b7deb
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: f0af493036740b854609cea07e01136aac808579
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>환경 변경 문제 해결
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 01/10/2018
 > * 이벤트 트리거
 > * 변경 내용 보기
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -47,37 +47,19 @@ Azure Portal( http://portal.azure.com )에 로그인합니다.
 먼저 이 자습서에서 사용할 VM에 대한 변경 내용 추적 및 인벤토리를 사용하도록 설정해야 합니다. 이전에 VM에 대해 다른 자동화 솔루션을 사용하도록 설정한 경우에는 이 단계가 필요하지 않습니다.
 
 1. 왼쪽 메뉴에서 **가상 머신**을 선택하고 목록에서 VM을 선택합니다.
-1. 왼쪽 메뉴의 **작업** 섹션 아래에서 **인벤토리**를 클릭합니다. **변경 내용 추적 및 인벤토리 사용** 페이지가 열립니다.
+1. 왼쪽 메뉴의 **작업** 섹션 아래에서 **인벤토리**를 클릭합니다. **변경 내용 추적** 페이지가 열립니다.
 
-이 VM에 대해 변경 내용 추적 및 인벤토리를 사용하도록 설정되어 있는지 확인하기 위해 유효성 검사가 수행됩니다.
-유효성 검사 중에는 Log Analytics 작업 영역 및 연결된 Automation 계정이 확인되고 솔루션이 작업 영역에 있는지 여부가 확인됩니다.
+![변경 설정](./media/automation-tutorial-troubleshoot-changes/enableinventory.png) **변경 내용 추적** 화면이 열립니다. 사용할 위치, Log Analytics 작업 영역 및 Automation 계정을 구성하고 **사용**을 클릭합니다. 필드가 회색으로 표시되면 해당 VM에 대해 다른 자동화 솔루션을 사용하도록 설정하고 동일한 작업 영역과 Automation 계정을 사용해야 함을 의미합니다.
 
 [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json) 작업 영역은 기능 및 서비스(예: 인벤토리)에서 생성된 데이터를 수집하는 데 사용됩니다.
 이 작업 영역은 여러 원본의 데이터를 검토 및 분석하는 단일 위치를 제공합니다.
 
-또한 유효성 검사 프로세스는 VM이 MMA(Microsoft Monitoring Agent) 및 하이브리드 작업자로 프로비전되는지 여부도 확인합니다.
+온보딩 중에 VM에 MMA(Microsoft Monitoring Agent) 및 Hybrid Worker가 프로비전됩니다.
 이 에이전트는 VM과 통신하고 설치된 소프트웨어에 대한 정보를 얻는 데 사용됩니다.
-또한 유효성 검사 프로세스는 VM이 MMA 및 Automation 하이브리드 Runbook 작업자를 통해 프로비전되는지 확인합니다.
-
-이러한 필수 구성 요소가 충족되지 않으면 솔루션을 사용하도록 설정하는 옵션을 제공하는 배너가 표시됩니다.
-
-![변경 내용 추적 및 인벤토리 등록 구성 배너](./media/automation-tutorial-troubleshoot-changes/enableinventory.png)
-
-솔루션을 사용하도록 설정하려면 배너를 클릭합니다.
-유효성 검사 후에 다음 필수 구성 요소 중 하나라도 누락된 것으로 확인되면 자동으로 추가됩니다.
-
-* [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json) 작업 영역
-* [Automation](./automation-offering-get-started.md)
-* [Hybrid Runbook Worker](./automation-hybrid-runbook-worker.md)가 VM에서 사용되도록 설정됩니다.
-
-**변경 내용 추적 및 인벤토리** 화면이 열립니다. 사용할 위치, Log Analytics 작업 영역 및 Automation 계정을 구성하고 **사용**을 클릭합니다. 필드가 회색으로 표시되면 해당 VM에 대해 다른 자동화 솔루션을 사용하도록 설정하고 동일한 작업 영역과 Automation 계정을 사용해야 함을 의미합니다.
-
-![변경 내용 추적 솔루션 사용 창](./media/automation-tutorial-troubleshoot-changes/installed-software-enable.png)
 
 솔루션을 사용하도록 설정하는 데 최대 15분이 걸릴 수 있습니다. 이 시간 동안에는 브라우저 창을 닫으면 안됩니다.
 솔루션을 사용하도록 설정되면 설치된 소프트웨어에 대한 정보 및 VM에 대한 변경 내용이 Log Analytics로 이동합니다.
 이 데이터를 분석에 사용할 수 있게 되는 데 30분에서 6시간까지 걸릴 수 있습니다.
-
 
 ## <a name="using-change-tracking-in-log-analytics"></a>Log Analytics에서 변경 내용 추적 사용
 
@@ -107,40 +89,47 @@ Log Analytics에서 로그 파일을 실행하고 검색하는 방법에 대한 
 1. **Windows 레지스트리** 탭에서 **추가**를 선택합니다.
     **변경 내용 추적에 대한 Windows 레지스트리 추가** 창이 열립니다.
 
-   ![변경 내용 추적 - 레지스트리 추가](./media/automation-vm-change-tracking/change-add-registry.png)
+3. **변경 내용 추적에 대해 Windows 레지스트리 추가**에 추적할 키의 정보를 입력하고 **저장**을 클릭합니다.
 
-2. **사용**에서 **True**를 선택합니다.
-3. **항목 이름** 상자에 친근한 이름을 입력합니다.
-4. (선택 사항) **그룹** 상자에 그룹 이름을 입력합니다.
-5. **Windows 레지스트리 키** 상자에 추적할 레지스트리 키 이름을 입력합니다.
-6. **저장**을 선택합니다.
+|자산  |설명  |
+|---------|---------|
+|사용     | 설정 적용 여부 결정        |
+|Item Name     | 추적할 파일의 이름        |
+|그룹     | 파일을 논리적으로 그룹화하는 그룹 이름        |
+|Windows 레지스트리 키   | 파일을 검사할 경로. 예: "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
 
 ### <a name="add-a-windows-file"></a>Windows 파일 추가
 
 1. **Windows 파일** 탭에서 **추가**를 선택합니다. **변경 내용 추적에 대한 Windows 파일 추가** 창이 열립니다.
 
-   ![변경 내용 추적 - Windows 파일 추가](./media/automation-vm-change-tracking/change-add-win-file.png)
+1. **변경 내용 추적에 대해 Windows 파일 추가**에 추적할 파일이나 디렉터리의 정보를 입력하고 **저장**을 클릭합니다.
 
-2. **사용**에서 **True**를 선택합니다.
-3. **항목 이름** 상자에 친근한 이름을 입력합니다.
-4. (선택 사항) **그룹** 상자에 그룹 이름을 입력합니다.
-5. **경로 입력** 창에 추적할 파일의 전체 경로와 파일 이름을 입력합니다.
-6. **저장**을 선택합니다.
+|자산  |설명  |
+|---------|---------|
+|사용     | 설정 적용 여부 결정        |
+|Item Name     | 추적할 파일의 이름        |
+|그룹     | 파일을 논리적으로 그룹화하는 그룹 이름        |
+|경로 입력     | 파일을 확인할 경로. 예: "c:\temp\myfile.txt"       |
 
 ### <a name="add-a-linux-file"></a>Linux 파일 추가
 
 1. **Linux 파일** 탭에서 **추가**를 선택합니다. **변경 내용 추적에 대한 Linux 파일 추가** 창이 열립니다.
 
-   ![변경 내용 추적 - Linux 파일 추가](./media/automation-vm-change-tracking/change-add-linux-file.png)
+1. **변경 내용 추적에 대해 Linux 파일 추가**에 추적할 파일이나 디렉터리의 정보를 입력하고 **저장**을 클릭합니다.
 
-2. **사용**에서 **True**를 선택합니다.
-3. **항목 이름** 상자에 친근한 이름을 입력합니다.
-4. (선택 사항) **그룹** 상자에 그룹 이름을 입력합니다.
-5. **경로 입력** 창에 추적할 파일의 전체 경로와 파일 이름을 입력합니다.
-6. **경로 형식** 상자에서 **파일** 또는 **디렉터리**를 선택합니다.
-7. **재귀**에서 지정된 경로 및 그 아래의 모든 파일과 경로에 대한 변경 내용을 추적하려면 **On**을 선택합니다. 선택한 경로 또는 파일만 추적하려면 **Off**를 선택합니다.
-8. **Sudo 사용**에서 `sudo` 명령이 액세스해야 하는 파일을 추적하려면 **On**을 선택합니다. 그렇지 않은 경우 **Off**를 선택합니다.
-9. **저장**을 선택합니다.
+|자산  |설명  |
+|---------|---------|
+|사용     | 설정 적용 여부 결정        |
+|Item Name     | 추적할 파일의 이름        |
+|그룹     | 파일을 논리적으로 그룹화하는 그룹 이름        |
+|경로 입력     | 파일을 확인할 경로. 예: "/etc/*.conf"       |
+|경로 유형     | 추적할 항목 유형입니다. 가능한 값은 파일 및 디렉터리입니다.        |
+|재귀     | 추적할 항목을 찾을 때 재귀가 사용되는지 결정합니다.        |
+|Sudo 사용     | 이 설정은 항목을 확인할 때 sudo가 사용되는지 결정합니다.         |
+|링크     | 이 설정은 디렉터리를 트래버스할 때 심볼 링크가 처리되는 방법을 결정합니다.<br> **Ignore** - 심볼 링크를 무시하고 참조된 파일/디렉터리를 포함하지 않음<br>**Follow** - 재귀 중에 심볼 링크를 따르고 참조된 파일/디렉터리도 포함<br>**Manage** - 심볼 링크를 따르고 반환된 콘텐츠의 처리를 변경하도록 허용      |
+
+   > [!NOTE]   
+   > "Manage" 링크 옵션은 권장되지 않습니다. 파일 콘텐츠 검색은 지원되지 않습니다.
 
 ## <a name="enable-activity-log-connection"></a>활동 로그 연결 사용
 
@@ -188,4 +177,4 @@ VM 내에서 **작업** 아래에 있는 **변경 내용 추적**을 선택합�
 자세히 알아보려면 변경 내용 추적 및 인벤토리 솔루션에 대한 개요로 계속 진행하세요.
 
 > [!div class="nextstepaction"]
-> [변경 관리 및 인벤토리 솔루션](../log-analytics/log-analytics-change-tracking.md?toc=%2fazure%2fautomation%2ftoc.json)
+> [변경 관리 및 인벤토리 솔루션](automation-change-tracking.md)

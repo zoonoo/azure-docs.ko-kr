@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/19/2018
 ms.author: mbullwin
-ms.openlocfilehash: 198cd5164ce3840503aca359767638e135f164bc
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 4fea71509b2dec897a3dafef627e243ae25447ad
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>ASP.NET 웹 사이트용 Application Insights 설정
 
@@ -35,6 +35,9 @@ Application Insights를 ASP.NET 웹 사이트에 추가하려면 다음을 수�
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 ## <a name="ide"></a> 1단계: Application Insights SDK 추가
+
+> [!IMPORTANT]
+> Application Insights를 추가하는 프로세스는 ASP.NET 템플릿 유형에 따라 다릅니다. **빈** 템플릿이나 **Azure 모바일 앱** 템플릿을 사용하는 경우에는 **프로젝트** > **Application Insights 원격 분석 추가**를 선택합니다. 다른 모든 ASP.NET 템플릿의 경우 아래 지침을 참조하세요. 
 
 솔루션 탐색기에서 웹앱을 마우스 오른쪽 단추로 클릭하고 **Application Insights 구성**을 선택합니다.
 

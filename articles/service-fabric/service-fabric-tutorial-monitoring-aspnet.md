@@ -1,6 +1,6 @@
 ---
 title: "Azure Service Fabric의 ASP.NET Core 서비스에 대한 모니터링 및 진단 | Microsoft Docs"
-description: "Azure Service Fabric ASP.NET 응용 프로그램에 대한 모니터링 및 진단을 설정하는 방법을 알아봅니다."
+description: "이 자습서에서는 Azure Service Fabric ASP.NET 응용 프로그램에 대한 모니터링 및 진단을 설정하는 방법을 알아봅니다."
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -15,13 +15,13 @@ ms.workload: NA
 ms.date: 09/14/2017
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: bb6aca8d99e32948b8a01a2f893bcf40d160a76c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 26cca3604faa46e7398b24a2e8c25a6ad9650c18
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="monitor-and-diagnose-an-aspnet-core-application-on-service-fabric"></a>Service Fabric에서 ASP.NET Core 응용 프로그램 모니터링 및 진단
+# <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric"></a>자습서: Service Fabric에서 ASP.NET Core 응용 프로그램 모니터링 및 진단
 이 자습서는 시리즈의 4부입니다. Application Insights를 사용하여 Service Fabric 클러스터에서 실행되는 ASP.NET Core 응용 프로그램에 대한 모니터링 및 진단을 설정하는 단계를 안내합니다. 자습서의 1부, [.NET Service Fabric 응용 프로그램 빌드](service-fabric-tutorial-create-dotnet-app.md)에서 개발한 응용 프로그램에서 원격 분석 데이터를 수집합니다. 
 
 자습서 시리즈의 4부에서는 다음 방법을 알아봅니다.

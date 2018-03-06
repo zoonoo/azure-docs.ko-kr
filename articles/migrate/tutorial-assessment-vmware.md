@@ -4,14 +4,14 @@ description: "Azure Migrate 서비스를 사용하여 Azure로의 마이그레�
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 06/02/2018
+ms.date: 02/27/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 0c82eeaeb17fb670b6d277d1b703b44b84343877
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 3c8d345d8846994ac1e286d977b62d9ae2b7d660
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Azure로의 마이그레이션에 대한 온-프레미스 VMware VM 검색 및 평가
 
@@ -20,6 +20,7 @@ ms.lasthandoff: 02/21/2018
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
+> * Azure Migrate에서 온-프레미스 VM을 검색하는 데 사용하는 계정 만들기
 > * Azure Migrate 프로젝트를 만듭니다.
 > * 평가를 위해 온-프레미스 VMware VM을 검색하도록 온-프레미스 수집기 가상 머신(VM)을 설정합니다.
 > * VM을 그룹화하고 평가를 만듭니다.
@@ -39,16 +40,26 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 - **사용 권한**: vCenter Server에서 .OVA 형식으로 파일을 가져와 VM을 만들려면 사용 권한이 필요합니다. 
 - **통계 구성**: vCenter Server에 대한 통계 설정은 배포를 시작하기 전에 수준 3으로 설정되어야 합니다. 수준 3 평가보다 낮게 작동한다면, 저장소 및 네트워크에 대한 성능 데이터는 수집되지 않습니다. 이 경우 권장되는 크기는 CPU 및 메모리의 성능 데이터와 디스크 및 네트워크 어댑터의 구성 데이터를 기반으로 수행됩니다. 
 
+## <a name="create-an-account-for-vm-discovery"></a>VM 검색을 위한 계정 만들기
+
+Azure Migrate에서 평가를 위해 VM을 자동으로 검색하려면 VMware 서버에 대한 액세스가 필요합니다. 다음 속성으로 VMware 계정을 만듭니다. 이 계정은 Azure Migrate를 설치하는 동안 지정합니다.
+
+- 사용자 유형: 읽기 전용 사용자(최소)
+- 권한: 데이터 센터 개체 –> 자식 개체에 전파, role=Read-only
+- 세부 정보: 사용자는 데이터 센터 수준에서 할당되며 데이터 센터의 모든 개체에 대한 액세스 권한이 있습니다.
+- 액세스를 제한하려는 경우 자식에 전파 개체를 사용하여 액세스 권한 없음 역할을 자식 개체(vSphere 호스트, 데이터 저장소, VM 및 네트워크)에 할당합니다.
+
 ## <a name="log-in-to-the-azure-portal"></a>Azure Portal에 로그인
+
 [Azure 포털](https://portal.azure.com) 에 로그인합니다.
 
 ## <a name="create-a-project"></a>프로젝트 만들기
 
 1. Azure Portal에서 **리소스 만들기**를 클릭합니다.
-2. **Azure Migrate**를 검색하고 검색 결과에서 서비스 **Azure Migrate(미리 보기)**를 선택합니다. 그런 다음 **Create**를 클릭합니다.
+2. **Azure Migrate**를 검색하고 검색 결과에서 서비스 **Azure Migrate**을 선택합니다. 그런 다음 **Create**를 클릭합니다.
 3. 프로젝트에 대해 프로젝트 이름과 Azure 구독을 지정합니다.
 4. 새 리소스 그룹을 만듭니다.
-5. 프로젝트를 만들 위치를 지정한 다음 **만들기**를 클릭합니다. 이 미리 보기에 대해 미국 중서부 지역에서는 Azure Migrate 프로젝트만을 만들 수 있습니다. 그러나 대상 Azure 위치에 대한 마이그레이션을 계속 계획할 수 있습니다. 프로젝트에 대해 지정된 위치는 온-프레미스 VM에서 수집된 메타데이터를 저장하는 데 사용됩니다. 
+5. 프로젝트를 만들 위치를 지정한 다음 **만들기**를 클릭합니다. Azure Migrate 프로젝트는 미국 중서부 또는 미국 동부 지역에서만 만들 수 있습니다. 그러나 대상 Azure 위치에 대한 마이그레이션을 계속 계획할 수 있습니다. 프로젝트에 대해 지정된 위치는 온-프레미스 VM에서 수집된 메타데이터를 저장하는 데 사용됩니다. 
 
     ![Azure Migrate](./media/tutorial-assessment-vmware/project-1.png)
     
@@ -73,6 +84,14 @@ Azure Migrate는 수집기 어플라이언스로 알려진 온-프레미스 VM�
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - 사용 예: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 3. 생성된 해시는 이러한 설정에 일치해야 합니다.
+    
+    OVA 버전 1.0.9.2의 경우
+
+    **알고리즘** | **해시 값**
+    --- | ---
+    MD5 | 7326020e3b83f225b794920b7cb421fc
+    SHA1 | a2d8d496fdca4bd36bfa11ddf460602fa90e30be
+    SHA256 | f3d9809dd977c689dda1e482324ecd3da0a6a9a74116c1b22710acc19bea7bb2  
     
     OVA 버전 1.0.8.59의 경우
 
@@ -181,13 +200,13 @@ VM 상태가 Azure 준비 완료 또는 조건부 Azure 준비 완료인 경우 
 
 Azure Migrate가 Azure 준비 상태를 알 수 없는(데이터를 사용할 수 없어서) VM은 준비 상태 알 수 없음으로 표시됩니다.
 
-Azure 준비 상태 및 크기 조정 외에도, Azure Migrate는 VM 마이그레이션에 사용할 수 있는 도구를 추천합니다. 컴퓨터가 신속한 마이그레이션 전환에 적합한 경우 [Azure Site Recovery] 서비스를 사용하는 것이 좋습니다. 데이터베이스 컴퓨터인 경우 Azure Database Migration Service를 사용하는 것이 좋습니다.
+Azure 준비 상태 및 크기 조정 외에도, Azure Migrate는 VM 마이그레이션에 사용할 수 있는 도구를 추천합니다. 여기에는 온-프레미스 환경에서 심층 검색이 필요합니다. 온-프레미스 컴퓨터에 에이전트를 설치하여 심층 검색을 수행하는 방법을 [알아보세요](how-to-get-migration-tool.md). 온-프레미스 컴퓨터에 에이전트가 설치되어 있지 않으면 [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview)를 사용한 리프트 앤 시프트 마이그레이션이 좋습니다. 온-프레미스 컴퓨터에 에이전트가 설치되어 있지 않은 경우 Azure Migrate은 컴퓨터 내부에서 실행 중인 프로세스를 확인하고 컴퓨터가 데이터베이스 컴퓨터인지 여부를 식별합니다. 컴퓨터가 데이터베이스 컴퓨터이면 마이그레이션 도구로 [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview)가 좋으며, 그렇지 않으면 Azure Site Recovery가 좋습니다.
 
   ![평가 준비 상태](./media/tutorial-assessment-vmware/assessment-suitability.png)  
 
 #### <a name="monthly-cost-estimate"></a>월별 예상 비용
 
-이 보기는 각 컴퓨터의 세부 사항과 함께 Azure에서 VM을 실행하는 데 필요한 총 계산 및 저장소 비용을 보여 줍니다. 예상 비용은 컴퓨터 및 해당 디스크에 대한 성능 기반 권장 크기 사항과 평가 속성을 사용하여 계산됩니다. 
+이 보기는 각 컴퓨터의 세부 사항과 함께 Azure에서 VM을 실행하는 데 필요한 총 계산 및 저장소 비용을 보여 줍니다. 예상 비용은 Azure Migrate에서 컴퓨터, 컴퓨터의 디스크 및 평가 속성에 대해 수행한 크기 권장 사항을 고려하여 계산됩니다. 
 
 > [!NOTE]
 > Azure Migrate가 제공하는 비용 예측은 온-프레미스 VM을 Azure IaaS(Infrastructure as a service) VM으로 실행하기 위한 것입니다. Azure Migrate는 PaaS(Platform as a Service) 또는 SaaS(Software as a Service) 비용을 고려하지 않습니다. 
@@ -198,11 +217,11 @@ Azure 준비 상태 및 크기 조정 외에도, Azure Migrate는 VM 마이그�
 
 #### <a name="confidence-rating"></a>신뢰 등급
 
-Azure Migrate의 각 평가는 별 1개~5개 사이의 신뢰 등급에 연결됩니다(별 1개가 가장 낮고 5개가 가장 높음). 신뢰 등급은 평가 계산에 필요한 데이터 요소의 가용성에 따라 평가에 할당됩니다. Azure Migrate에서 제공하는 권장 크기의 신뢰성을 추정하는 데 도움이 됩니다. 
+Azure Migrate의 각 평가는 별 1개~5개 사이의 신뢰 등급에 연결됩니다(별 1개가 가장 낮고 5개가 가장 높음). 신뢰 등급은 평가 계산에 필요한 데이터 요소의 가용성에 따라 평가에 할당됩니다. 평가의 신뢰 등급은 Azure Migrate에서 제공하는 권장 크기의 신뢰성을 추정하는 데 도움이 됩니다. 
 
-신뢰 등급은 *성능 기반 크기 조정*을 사용할 때 유용합니다. 일부 데이터 요소를 사용할 수 없기 때문입니다. *온-프레미스 크기 조정으로*의 경우 신뢰 등급이 항상 별 5개입니다. Azure Migrate가 VM 크기를 조정하는 데 필요한 모든 데이터를 갖고 있기 때문입니다. 
+신뢰 등급은 *성능 기반 크기 조정*을 수행할 때 유용합니다. Azure Migrate에 사용량 기반 크기 조정을 수행할 데이터 요소가 충분하지 않기 때문입니다. *온-프레미스로 크기 조정*의 경우 신뢰 등급이 항상 별 5개입니다. Azure Migrate에 VM 크기를 조정하는 데 필요한 모든 데이터 요소가 있기 때문입니다. 
 
-성능 기반 크기 조정의 경우 Azure Migrate는 CPU 및 메모리 사용률 데이터를 필요로 합니다. VM에 연결된 각 디스크에 대해 성능 기반 크기 조정을 수행하려면 읽기/쓰기 IOPS 및 처리량이 필요합니다. 마찬가지로 VM에 연결된 각 네트워크 어댑터에 대해 Azure Migrate는 성능 기반 크기 조정을 수행하려면 네트워크 입/출력이 필요합니다. 위의 사용률 데이터를 vCenter Server에서 사용할 수 없는 경우 Azure Migrate가 권장하는 크기의 신뢰성이 떨어질 수 있습니다. 사용 가능한 데이터 요소의 백분율에 따라 평가의 신뢰 등급이 제공됩니다.
+VM의 성능 기반 크기 조정의 경우 Azure Migrate에 CPU 및 메모리 사용률 데이터가 필요합니다. 또한, VM에 연결된 각 디스크에 대한 읽기/쓰기 IOPS 및 처리량이 필요합니다. 마찬가지로, VM에 연결된 각 네트워크 어댑터에 대해 성능 기반 크기 조정을 수행하려면 Azure Migrate에 네트워크 입/출력이 필요합니다. 위의 사용률 데이터를 vCenter Server에서 사용할 수 없는 경우 Azure Migrate가 권장하는 크기의 신뢰성이 떨어질 수 있습니다. 사용 가능한 데이터 요소의 백분율에 따라 평가의 신뢰 등급이 제공됩니다.
 
    **데이터 요소 가용성** | **신뢰 등급**
    --- | ---
@@ -213,13 +232,13 @@ Azure Migrate의 각 평가는 별 1개~5개 사이의 신뢰 등급에 연결�
    81%-100% | 별 5개
 
 다음과 같은 이유 중 하나로 인해 평가에 일부 데이터 요소가 없을 수도 있습니다.
-- vCenter Server의 통계 설정이 레벨 3로 설정되지 않았으며 평가에서 크기 조정 기준으로 성능 기반 크기 조정을 사용합니다. vCenter Server의 통계 설정이 레벨 3보다 낮으면 vCenter Server에서 디스크 및 네트워크의 성능 데이터가 수집되지 않습니다. 이 경우 디스크 및 네트워크에 대한 Azure Migrate의 권장 크기는 온-프레미스에 할당된 내용만을 기반으로 결정됩니다. 저장소의 경우 디스크의 IOPS/처리량이 많아서 프리미엄 디스크가 필요한지 식별할 방법이 없기 때문에 Azure Migrate에서 표준 디스크를 권장합니다.
-- vCenter Server의 통계 설정이 검색을 시작하기 전까지 잠깐 동안 레벨 3로 설정되었습니다. 예를 들어 오늘 통계 설정을 레벨 3로 변경하고 내일(24시간 후) 수집기 어플라이언스를 사용하여 검색을 시작하면 하루에 대한 평가를 만들 때 모든 데이터 요소를 갖게 됩니다. 하지만 평가 속성의 성능 기간을 한 달로 변경하면 마지막 한 달의 디스크 및 네트워크 성능 데이터를 사용할 수 없으므로 신뢰 등급이 하락합니다. 마지막 한 달의 성능 데이터를 고려하고 싶으면, 검색을 시작하기 전 한 달 동안은 vCenter Server 설정을 레벨 3로 유지하는 것이 좋습니다. 
+- vCenter Server의 통계 설정이 수준 3으로 설정되지 않았으며 평가에서 크기 조정 기준으로 성능 기반 크기 조정을 사용합니다. vCenter Server의 통계 설정이 수준 3보다 낮으면 vCenter Server에서 디스크 및 네트워크의 성능 데이터가 수집되지 않습니다. 이 경우 디스크 및 네트워크에 대해 Azure Migrate에서 제공하는 권장 사항은 사용률 기반이 아닙니다. 저장소의 경우 Azure Migrate에서 디스크의 IOPS/처리량을 고려하지 않고 표준 디스크를 권장하며, 디스크에 Azure의 프리미엄 디스크가 필요한지는 Azure Migrate에서 확인할 수 없습니다.
+- vCenter Server의 통계 설정이 검색을 시작하기 전까지 짧은 시간 동안 수준 3으로 설정되었습니다. 예를 들어 오늘은 통계 설정 수준을 3으로 변경하고 내일(24시간 후) 수집기 어플라이언스를 사용하여 검색을 시작하는 시나리오를 생각해보겠습니다. 하루에 대한 평가를 생성하는 경우 모든 데이터 요소가 있으며 평가의 신뢰도는 5등급이 됩니다. 하지만 평가 속성의 성능 기간을 1달로 변경하면 마지막 1달의 디스크 및 네트워크 성능 데이터를 사용할 수 없으므로 신뢰 등급이 하락합니다. 마지막 1달의 성능 데이터를 고려하고 싶으면, 검색을 시작하기 전 한 달 동안은 vCenter Server 설정을 수준 3으로 유지하는 것이 좋습니다. 
 - 평가 계산 기간에 일부 VM이 종료되었습니다. 평가 기간 중 일부 VM이 꺼지면 vCenter Server는 해당 기간의 성능 데이터를 얻지 못합니다. 
-- 평가 계산 기간에 일부 VM이 만들어졌습니다. 예를 들어 마지막 한 달의 성능 기록에 대한 평가를 만들려고 하는데, 일부 VM이 불과 일주일 전 환경에서 만들어졌습니다. 이 경우 새 VM의 성능 기록은 전체 기간에 대해 제공되지 않습니다.
+- 평가 계산 기간에 일부 VM이 생성되었습니다. 예를 들어 마지막 1달의 성능 기록에 대한 평가를 만들려고 하는데, 일부 VM이 불과 일주일 전에 환경에서 생성되었습니다. 이 경우 전체 기간에 대한 새 VM의 성능 기록이 제공되지 않습니다.
 
 > [!NOTE]
-> 평가의 신뢰 등급이 별 3개 미만이면 vCenter Server 통계 설정을 레벨 3로 변경하고, 평가에 사용하고 싶은 기간(1일/1주일/1개월) 동안 기다린 후 검색 및 평가를 수행합니다. 위의 단계를 수행할 수 없는 경우 성능 기반 크기 조정의 신뢰성이 떨어질 수 있으므로 평가 속성을 변경하여 *온-프레미스 크기 조정으로*로 전환하는 것이 좋습니다.
+> 평가의 신뢰 등급이 별 4개 미만이면 vCenter Server 통계 설정을 수준 3으로 변경하고, 평가에 사용하고 싶은 기간(1일/1주일/1달) 동안 기다린 후 검색 및 평가를 수행합니다. 위의 단계를 수행할 수 없는 경우 성능 기반 크기 조정의 신뢰성이 떨어질 수 있으므로 평가 속성을 변경하여 *온-프레미스로 크기 조정*으로 전환하는 것이 좋습니다.
  
 ## <a name="next-steps"></a>다음 단계
 

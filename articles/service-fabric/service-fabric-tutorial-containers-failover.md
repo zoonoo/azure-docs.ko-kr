@@ -1,6 +1,6 @@
 ---
 title: "Azure Service Fabric 컨테이너 앱 장애 조치(failover) 및 크기 조정 | Microsoft Docs"
-description: "장애 조치(failover)가 Azure Service Fabric 컨테이너 응용 프로그램에서 처리되는 방법을 알아봅니다.  또한 클러스터에서 실행되는 컨테이너 및 서비스의 크기를 조정하는 방법을 알아봅니다."
+description: "아 자습서에서는 장애 조치(failover)가 Azure Service Fabric 컨테이너 응용 프로그램에서 처리되는 방법을 알아봅니다.  또한 클러스터에서 실행되는 컨테이너 및 서비스의 크기를 조정하는 방법을 알아봅니다."
 services: service-fabric
 documentationcenter: 
 author: suhuruli
@@ -16,13 +16,13 @@ ms.workload: na
 ms.date: 09/12/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 21dd9dfbc90c26236c43e2c334305ca97f63d361
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 27d1918125b8c2f79f6506470ae43354e402f9af
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="demonstrate-fail-over-and-scaling-of-container-services-with-service-fabric"></a>Service Fabric으로 컨테이너 서비스의 장애 조치(failover) 및 크기 조정을 보여 줍니다.
+# <a name="tutorial-demonstrate-fail-over-and-scaling-of-container-services-with-service-fabric"></a>자습서: Service Fabric을 통한 컨테이너 서비스의 장애 조치(failover) 및 크기 조정 시연
 
 이 자습서는 시리즈의 3부입니다. 이 자습서에서는 장애 조치(failover)가 Service Fabric 컨테이너 응용 프로그램에서 처리되는 방법을 알아봅니다. 또한 컨테이너의 크기를 조정하는 방법을 배웁니다. 이 자습서에서는 다음을 수행했습니다.
 
@@ -45,7 +45,7 @@ Service Fabric은 컨테이너 인스턴스가 오류가 발생해야 하는 클
 
 ![noderestart][noderestart]
 
-프런트 엔드 컨테이너가 실행되는 위치를 표시하는 노드 이름이 이제 클러스터의 다른 노드로 변경되는 방식을 확인합니다. 몇 분 후 응용 프로그램으로 다시 이동하고 다른 노드에서 실행 중인 응용 프로그램을 볼 수 있어야 합니다.
+프런트 엔드 컨테이너가 실행되는 위치를 표시하는 노드 이름이 클러스터의 다른 노드로 어떻게 변경되는지 확인합니다. 몇 분 후 응용 프로그램으로 다시 이동하고 다른 노드에서 실행 중인 응용 프로그램을 볼 수 있어야 합니다.
 
 ## <a name="scale-containers-and-services-in-a-cluster"></a>클러스터에서 컨테이너 및 서비스 크기 조정
 Service Fabric 컨테이너는 해당 서비스에 대한 로드를 수용하도록 클러스터 간에 크기를 조정할 수 있습니다. 클러스터에서 실행되는 인스턴스 수를 변경하여 컨테이너 크기를 조정합니다.

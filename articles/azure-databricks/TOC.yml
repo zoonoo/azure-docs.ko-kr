@@ -9,6 +9,12 @@
   items:
     - name: Databricks 작업 영역 만들기
       href: quickstart-create-databricks-workspace-portal.md
+- name: 방법 가이드
+  items:
+    - name: 'Excel, R 및 Python을 사용하여 연결'
+      href: connect-databricks-excel-python-r.md
+    - name: Azure Cloud Shell에서 Databricks CLI 사용
+      href: databricks-cli-from-azure-cloud-shell.md
 - name: 리소스
   items:
     - name: 일반적인 질문

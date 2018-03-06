@@ -12,13 +12,13 @@ documentationcenter:
 manager: timlt
 ms.devlang: python
 ms.custom: mvc
-ms.openlocfilehash: df23b97b736a1d8e471fc8d32d056b9d80ad245a
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: 9a370e12bb948a184149dd3f398ed8d1f5b9ab11
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/23/2018
 ---
-# <a name="create-and-provision-a-simulated-tpm-device-using-java-device-sdk-for-iot-hub-device-provisioning-service"></a>IoT Hub Device Provisioning Service용 Java 장치 SDK를 사용하여 시뮬레이션된 TPM 장치 만들기 및 프로비전
+# <a name="create-and-provision-a-simulated-tpm-device-using-python-device-sdk-for-iot-hub-device-provisioning-service"></a>IoT Hub Device Provisioning 서비스용 Python 장치 SDK를 사용하여 시뮬레이션된 TPM 장치 만들기 및 프로비전
 > [!div class="op_single_selector"]
 > * [C](quick-create-simulated-device.md)
 > * [Java](quick-create-simulated-device-tpm-java.md)
@@ -145,7 +145,7 @@ ms.lasthandoff: 12/22/2017
 
 1. 컴퓨터에서 장치 클라이언트 샘플 출력 창을 닫습니다.
 1. 컴퓨터에서 TPM 시뮬레이터 창을 닫습니다.
-1. Azure Portal의 왼쪽 메뉴에서 **모든 리소스**를 클릭한 다음 사용자의 Device Provisioning Service를 선택합니다. 서비스에 대한 **등록 관리** 블레이드를 연 다음 **개별 등록** 탭을 클릭합니다. 이 빠른 시작에서 등록한 장치의 *등록 ID*를 선택하고, 위쪽의 **삭제** 단추를 클릭합니다. 
+1. Azure Portal의 왼쪽 메뉴에서 **모든 리소스**를 클릭한 다음 사용자의 Device Provisioning Service를 선택합니다. 서비스에 대한 **등록 관리** 블레이드를 연 다음, **개별 등록** 탭을 클릭합니다. 이 빠른 시작에서 등록한 장치의 *등록 ID*를 선택하고, 위쪽의 **삭제** 단추를 클릭합니다. 
 1. Azure Portal의 왼쪽 메뉴에서 **모든 리소스**를 클릭한 다음 사용자의 IoT Hub를 선택합니다. 허브에 대한 **IoT 장치** 블레이드를 열고, 이 빠른 시작에서 등록한 장치의 *장치 ID*를 선택한 다음, 위쪽의 **삭제** 단추를 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계

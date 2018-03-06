@@ -1,6 +1,6 @@
 ---
-title: "Party 클러스터에 Azure Service Fabric 응용 프로그램 배포 | Microsoft Docs"
-description: "Party 클러스터에 응용 프로그램을 배포하는 방법에 대해 알아봅니다."
+title: "클러스터에 Azure Service Fabric 응용 프로그램 배포 | Microsoft Docs"
+description: "이 자습서에서는 Service Fabric 클러스터에 응용 프로그램을 배포하는 방법을 알아봅니다."
 services: service-fabric
 documentationcenter: .net
 author: mikkelhegn
@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 08/09/2017
 ms.author: mikhegn
 ms.custom: mvc
-ms.openlocfilehash: 91d4398589707e8007c4b93639ddb568e39f51a7
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 35ddf77b1e9a9b355ed2cee4731e3c5d87c4a701
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="deploy-an-application-to-a-party-cluster-in-azure"></a>Azure에서 Party 클러스터에 응용 프로그램 배포
-이 자습서는 시리즈의 2부로, Azure에서 Party 클러스터에 Azure Service Fabric 응용 프로그램을 배포하는 방법을 보여 줍니다.
+# <a name="tutorial-deploy-an-application-to-a-service-fabric-cluster-in-azure"></a>자습서: Azure에서 Service Fabric 클러스터에 응용 프로그램 배포
+이 자습서는 시리즈의 2부로, Azure에서 실행하는 클러스터에 Azure Service Fabric 응용 프로그램을 배포하는 방법을 보여 줍니다.
 
 이 자습서 시리즈의 2부에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]

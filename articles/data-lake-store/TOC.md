@@ -5,6 +5,7 @@
 ## [Azure Storage와 Azure Data Lake Store 비교](data-lake-store-comparison-with-blob-storage.md)
 ## [빅 데이터 처리를 위한 Azure Data Lake Store](data-lake-store-data-scenarios.md)
 ## [Azure Data Lake Store에서 작동하는 오픈 소스 응용 프로그램](data-lake-store-compatible-oss-other-applications.md)
+## [Data Lake Store를 사용하는 모범 사례](data-lake-store-best-practices.md)
 
 # 시작하기
 ## [포털 사용](data-lake-store-get-started-portal.md)

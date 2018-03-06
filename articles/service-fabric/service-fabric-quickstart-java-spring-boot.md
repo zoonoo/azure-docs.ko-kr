@@ -1,6 +1,6 @@
 ---
 title: "Azure Service Fabric에 Spring Boot 응용 프로그램 배포 | Microsoft Docs"
-description: "Spring Boot 시작을 사용하여 Azure Service Fabric에 Spring Boot 응용 프로그램을 배포합니다."
+description: "이 자습서에서는 Spring Boot 응용 프로그램 예제를 사용하여 Azure Service Fabric에 Spring Boot 응용 프로그램을 배포합니다."
 services: service-fabric
 documentationcenter: java
 author: suhuruli
@@ -15,13 +15,13 @@ ms.workload: NA
 ms.date: 11/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 8e57ed29560baeea6279a45e8769f4005c123b56
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: ab860b8525bcb77d3ab35d3f649532713c661b61
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="deploy-a-spring-boot-application"></a>Spring Boot 응용 프로그램 배포
+# <a name="quickstart-deploy-a-java-spring-boot-application-to-azure"></a>빠른 시작 Azure에 Java Spring Boot 응용 프로그램 배포
 Azure Service Fabric은 마이크로 서비스 및 컨테이너를 배포 및 관리하기 위한 분산 시스템 플랫폼입니다. 
 
 이 빠른 시작에서는 Service Fabric에 Spring Boot 응용 프로그램을 배포하는 방법을 보여줍니다. 이 빠른 시작에서는 Spring 웹 사이트의 [시작](https://spring.io/guides/gs/spring-boot/) 샘플을 사용합니다. 이 빠른 시작에서는 친숙한 명령줄 도구를 사용하여 Spring Boot 샘플을 Service Fabric 응용 프로그램으로 배포하는 방법을 안내합니다. 작업이 완료되면 Service Fabric에서 Spring Boot 시작 샘플을 사용합니다. 

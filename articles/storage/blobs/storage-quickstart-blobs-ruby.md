@@ -1,22 +1,22 @@
 ---
-title: "Azure 빠른 시작 - Ruby를 사용하여 Azure Blob Storage에서 개체 전송 | Microsoft Docs"
-description: "Ruby를 사용하여 Azure Blob Storage에서 개체를 전송하는 방법을 간단히 알아봅니다."
+title: "Azure 빠른 시작 - Ruby를 사용하여 Azure Storage에 BLOB 업로드, 다운로드 및 나열 | Microsoft Docs"
+description: "이 빠른 시작에서는 저장소 계정과 컨테이너를 만듭니다. 그런 다음, Ruby용 저장소 클라이언트 라이브러리를 사용하여 Azure Storage에 BLOB을 업로드하고, BLOB을 다운로드하고, 컨테이너의 BLOB을 나열합니다."
 services: storage
-author: ruthogunnnaike
+author: tamram
 manager: jeconnoc
+ms.custom: mvc
 ms.service: storage
-ms.tgt_pltfrm: na
-ms.devlang: ruby
 ms.topic: quickstart
-ms.date: 01/18/2018
+ms.date: 02/22/2018
 ms.author: seguler
-ms.openlocfilehash: 649099f045639c8c506fb4a4be65736626044fe6
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: df885849e879317be6379767a09dd30a93687902
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/24/2018
 ---
-#  <a name="transfer-objects-tofrom-azure-blob-storage-using-ruby"></a>Ruby를 사용하여 Azure Blob Storage에서 개체 전송
+# <a name="quickstart-upload-download-and-list-blobs-using-ruby"></a>빠른 시작: Ruby를 사용하여 BLOB 업로드, 다운로드 및 나열
+
 이 빠른 시작에서 Ruby를 사용하여 Azure Blob Storage에서 컨테이너에 블록 blob을 업로드, 다운로드 및 나열하는 방법을 알아봅니다. 
 
 ## <a name="prerequisites"></a>필수 조건

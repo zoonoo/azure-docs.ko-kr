@@ -12,14 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/14/2017
+ms.date: 02/28/2018
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: 615618e0e78f97e3f41dc2c0e1ca9a6e4b1b47bf
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 614b5bd7a2663c3b61f511dcc6b6a49218ac439a
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="manage-windows-updates-with-azure-automation"></a>Azure Automation을 사용하여 Windows 업데이트 관리
 
@@ -65,12 +65,9 @@ Azure Portal( http://portal.azure.com )에 로그인합니다.
 또한 유효성 검사 프로세스는 VM이 MMA 및 Automation 하이브리드 Runbook 작업자를 통해 프로비전되는지 확인합니다.
 이 에이전트는 VM과 통신하고 업데이트 상태에 대한 정보를 얻습니다.
 
-이러한 필수 구성 요소가 충족되지 않으면 솔루션을 사용하도록 설정하는 옵션을 제공하는 배너가 표시됩니다.
+Log Analytics 작업 영역 및 Automation 계정을 선택하고 **사용**을 클릭하여 솔루션을 사용하도록 설정합니다. 솔루션을 사용하도록 설정하는 데 최대 15분이 걸립니다.
 
-![업데이트 관리 온보드 구성 배너](./media/automation-tutorial-update-management/manageupdates-onboard-solution-banner.png)
-
-솔루션을 사용하도록 설정하려면 배너를 클릭합니다.
-유효성 검사 후에 다음 필수 구성 요소 중 하나라도 누락된 것으로 확인되면 자동으로 추가됩니다.
+등록 중에 다음 필수 구성 요소 중 누락된 것이 확인되면 자동으로 추가됩니다.
 
 * [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json) 작업 영역
 * [Automation](./automation-offering-get-started.md)

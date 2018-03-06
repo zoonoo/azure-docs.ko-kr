@@ -6,14 +6,14 @@ author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: quickstart
-ms.date: 03/20/2018
+ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: 63fb091166dcb3773354221e6c6628f6205bb308
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 8e64ab3214633ae2f34234514dca5e7bb7b1896e
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="deploy-an-azure-container-service-aks-cluster"></a>AKS(Azure Container Service) 클러스터 배포
 
@@ -39,6 +39,7 @@ az provider register -n Microsoft.ContainerService
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
 [az group create][az-group-create] 명령을 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포되고 관리되는 논리 그룹입니다.
+리소스 그룹을 만들 때 위치를 지정하라는 메시지가 표시되며 이 곳이 Azure에서 리소스가 유지되는 곳입니다. AKS가 미리 보기로 제공되는 동안은 일부 위치 옵션만 사용할 수 있습니다. 해당 정보는 `eastus, westeurope, centralus, canadacentral, canadaeast`입니다.
 
 다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
 
@@ -88,7 +89,7 @@ Kubernetes 클러스터에 연결하도록 kubectl을 구성하려면 다음 명
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-클러스터에 대한 연결을 확인하려면 [kubectl get][kubectl-get] 명령을 사용하여 클러스터 노드 목록을 반환합니다.
+클러스터에 대한 연결을 확인하려면 [kubectl get][kubectl-get] 명령을 사용하여 클러스터 노드 목록을 반환합니다. 표시되기 까지 몇 분이 걸릴 수 있습니다.
 
 ```azurecli-interactive
 kubectl get nodes
@@ -103,9 +104,9 @@ k8s-myAKSCluster-36346190-0   Ready     agent     2m        v1.7.7
 
 ## <a name="run-the-application"></a>응용 프로그램 실행
 
-Kubernetes 매니페스트 파일은 어떤 컨테이너 이미지가 실행되는지 등과 같은 클러스터에 대해 원하는 상태를 정의합니다. 이 예제에서는 Azure Vote 응용 프로그램을 실행하는 데 필요한 모든 개체를 만드는 데 매니페스트를 사용합니다.
+Kubernetes 매니페스트 파일은 어떤 컨테이너 이미지가 실행되는지 등과 같은 클러스터에 대해 원하는 상태를 정의합니다. 이 예제에서는 Azure Vote 응용 프로그램을 실행하는 데 필요한 모든 개체를 만드는 데 매니페스트를 사용합니다. 제공된 이미지는 응용 프로그램 예제이며 [이미지를 만들고](https://docs.microsoft.com/en-us/azure/aks/tutorial-kubernetes-prepare-app) [Azure Container Registry에 배포](https://docs.microsoft.com/en-us/azure/aks/tutorial-kubernetes-prepare-acr)하여 자신만의 이미지를 사용할 수 있습니다.
 
-`azure-vote.yaml`이라는 파일을 만들고 다음 YAML 코드에 복사합니다. Azure Cloud Shell에서 작업하고 있는 경우 이 파일은 가상 또는 실제 시스템에서 작업하고 있는 것처럼 vi 또는 Nano를 사용하여 만들 수 있습니다.
+`azure-vote.yaml`이라는 파일을 만들고 다음 YAML 코드에 복사합니다. Azure Cloud Shell에서 작업하고 있는 경우 이 파일은 가상 또는 실제 시스템에서 작업하고 있는 것처럼 vi 또는 Nano를 사용하여 만들 수 있습니다. 로컬에서 작업하는 경우 Visual Studio Code를 사용하여 `code azure-vote.yaml`를 실행하여 이 파일을 만들 수 있습니다.
 
 ```yaml
 apiVersion: apps/v1beta1
@@ -231,7 +232,7 @@ az group delete --name myResourceGroup --yes --no-wait
 AKS에 대해 자세히 알아보고 배포 예제에 대한 전체 코드를 연습해 보려면 Kubernetes 클러스터 자습서를 계속 진행합니다.
 
 > [!div class="nextstepaction"]
-> [AKS 클러스터 관리][aks-tutorial]
+> [ASK 자습서][aks-tutorial]:
 
 <!-- LINKS - external -->
 [azure-vote-app]: https://github.com/Azure-Samples/azure-voting-app-redis.git

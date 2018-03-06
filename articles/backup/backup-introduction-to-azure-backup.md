@@ -16,11 +16,11 @@ ms.topic: overview
 ms.date: 1/5/2018
 ms.author: markgal;trinadhk;anuragm
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 59beaac1d8619c3f4afa1c75074546a849dfce6b
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: a16db0f23f93083e9a17d2b12f9215a964e07c9a
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Azure Backup의 기능에 대한 개요
 Azure Backup은 Microsoft 클라우드에서 데이터를 백업(또는 보호)하고 복원하는 데 사용할 수 있는 Azure 기반 서비스이며, 기존의 온-프레미스 또는 오프사이트 백업 솔루션을 신뢰할 수 있고 안전하며 가격 경쟁력이 있는 클라우드 기반 솔루션으로 대체합니다. Azure Backup에서는 컴퓨터, 서버 또는 클라우드에 적절히 다운로드하고 배포하는 여러 구성 요소를 제공합니다. 배포하는 구성 요소 또는 에이전트는 보호하려는 대상에 따라 달라집니다. 온-프레미스 또는 클라우드에서 데이터를 보호하는지 여부에 관계 없이 모든 Azure Backup 구성 요소는 Azure에서 Recovery Services 자격 증명 모음에 데이터를 백업하는 데 사용할 수 있습니다. 특정 데이터, 응용 프로그램 또는 워크로드 보호하는 데 사용할 구성 요소에 대한 내용은 이 문서의 뒷부분에 있는 [Azure Backup 구성 요소 표](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use)를 참조하세요.
@@ -55,8 +55,8 @@ Azure Backup은 Microsoft 클라우드에서 데이터를 백업(또는 보호)�
 | --- | --- | --- | --- | --- |
 | Azure Backup(MARS) 에이전트 |<li>실제 또는 가상 Windows OS에 있는 파일 및 폴더를 백업함(온-프레미스 또는 Azure에 VM 배치 가능)<li>별도의 백업 서버가 필요하지 않음 |<li>매일 3회 Backup <li>응용 프로그램 인식 안 함. 파일, 폴더, 볼륨 수준 복원만 지원 <li>  Linux 지원 안 함 |<li>파일 <li>폴더 <li>시스템 상태 |Recovery Services 자격 증명 모음 |
 | System Center DPM |<li>VSS(응용 프로그램 인식 스냅숏)<li>백업을 가져올 때 충분한 유연성<li>복구 세분성(모두)<li>Recovery Services 자격 증명 모음을 사용할 수 있음<li>Hyper-V 및 VMware VM에 대한 Linux 지원 <li>DPM 2012 R2를 사용하여 VMware VM 백업 및 복원 |Oracle 워크로드는 백업할 수 없음|<li>파일 <li>폴더<li> 볼륨 <li>VM<li> 응용 프로그램<li> 워크로드 |<li>Recovery Services 자격 증명 모음<li> 로컬 연결된 디스크<li>  테이프(온-프레미스 전용) |
-| Azure Backup 서버 |<li>VSS(앱 인식 스냅숏)<li>백업을 가져올 때 충분한 유연성<li>복구 세분성(모두)<li>Recovery Services 자격 증명 모음을 사용할 수 있음<li>Hyper-V 및 VMware VM에 대한 Linux 지원<li>VMware VM 백업 및 복원 <li>System Center 라이선스 필요하지 않음 |<li>Oracle 워크로드는 백업할 수 없음<li>항상 라이브 Azure 구독 필요<li>테이프 백업 지원 안 함 |<li>파일 <li>폴더<li> 볼륨 <li>VM<li> 응용 프로그램<li> 워크로드 |<li>Recovery Services 자격 증명 모음<li> 로컬 연결된 디스크 |
-| Azure IaaS VM Backup |<li>Windows/Linux용 기본 백업<li>특정 에이전트 설치할 필요 없음<li>백업 인프라가 필요 없는 패브릭 수준 백업 |<li>하루 한 번 VM 백업 <li>디스크 수준에서만 VM 복원<li>온-프레미스 백업 불가능 |<li>VM <li>모든 디스크(PowerShell 사용) |<p>Recovery Services 자격 증명 모음</p> |
+| Azure Backup 서버 |<li>VSS(응용 프로그램 인식 스냅숏)<li>백업을 가져올 때 충분한 유연성<li>복구 세분성(모두)<li>Recovery Services 자격 증명 모음을 사용할 수 있음<li>Hyper-V 및 VMware VM에 대한 Linux 지원<li>VMware VM 백업 및 복원 <li>System Center 라이선스 필요하지 않음 |<li>Oracle 워크로드는 백업할 수 없음<li>항상 라이브 Azure 구독 필요<li>테이프 백업 지원 안 함 |<li>파일 <li>폴더<li> 볼륨 <li>VM<li> 응용 프로그램<li> 워크로드 |<li>Recovery Services 자격 증명 모음<li> 로컬 연결된 디스크 |
+| Azure IaaS VM Backup |<li>VSS(응용 프로그램 인식 스냅숏)<li>Windows/Linux용 기본 백업<li>특정 에이전트 설치할 필요 없음<li>백업 인프라가 필요 없는 패브릭 수준 백업 |<li>하루 한 번 VM 백업 <li>디스크 수준에서만 VM 복원<li>온-프레미스 백업 불가능 |<li>VM <li>모든 디스크(PowerShell 사용) |<p>Recovery Services 자격 증명 모음</p> |
 
 ## <a name="what-are-the-deployment-scenarios-for-each-component"></a>각 구성 요소에 대한 배포 시나리오는 무엇입니까?
 | 구성 요소 | Azure에 배포할 수 있나요? | 온-프레미스로 배포할 수 있나요? | 지원되는 대상 저장소 |
@@ -104,7 +104,7 @@ Premium Storage VM을 백업하는 동안, Backup 서비스는 프리미엄 저�
 >
 
 ### <a name="restore-premium-storage-vms"></a>Premium Storage VM 복원
-Premium Storage VM은 Premium Storage 또는 일반 저장소 중 하나로 복원할 수 있습니다. Premium Storage VM 복구 지점을 프리미엄 저장소로 복원하는 것은 복원의 일반적인 프로세스입니다. 하지만, Premium Storage VM 복구 지점을 표준 저장소로 복원하는 것이 비용 효과적일 수 있습니다. 이런 유형의 복원은 VM에서 파일의 하위 집합이 필요한 경우 사용할 수 있습니다.
+Premium Storage VM은 Premium Storage 또는 Standard Storage 중 하나로 복원될 수 있습니다. Premium Storage VM 복구 지점을 Premium Storage로 복원하는 것은 복원의 일반적인 프로세스입니다. 하지만, Premium Storage VM 복구 지점을 Standard Storage로 복원하는 것이 비용 효과적일 수 있습니다. 이런 유형의 복원은 VM에서 파일의 하위 집합이 필요한 경우 사용할 수 있습니다.
 
 ## <a name="using-managed-disk-vms-with-azure-backup"></a>Azure Backup으로 Managed Disks VM 사용
 Azure Backup은 Managed Disks VM을 보호합니다. Managed Disks를 사용하면 가상 머신의 저장소 계정을 관리하지 않아도 되며 VM 프로비전이 매우 간소화됩니다.

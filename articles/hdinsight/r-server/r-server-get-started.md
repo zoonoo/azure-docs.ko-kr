@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 08/14/2017
 ms.author: bradsev
-ms.openlocfilehash: e688068efb41cdccbeb23de3c8ad7a09021e5b3f
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: aa7f2e6f44036738756391ecaa265c57c093c42c
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="get-started-with-r-server-on-hdinsight"></a>HDInsight에서 R Server 시작
 
@@ -61,7 +61,7 @@ Azure Resource Manager 템플릿, SDK 및 PowerShell을 사용하여 HDInsight R
 4. **클러스터 유형**을 선택하여 **클러스터 구성** 창을 엽니다. **클러스터 구성** 창에서 다음 옵션을 선택합니다.
 
     * **클러스터 유형**: **R Server**를 선택합니다.
-    * **버전**: 클러스터에 설치할 R Server의 버전을 선택합니다. 현재 사용 가능한 버전은 **R Server 9.1(HDI 3.6)**입니다. 사용 가능한 R Server 버전에 대한 릴리스 정보는 [MSDN](https://msdn.microsoft.com/microsoft-r/notes/r-server-notes)에서 제공됩니다.
+    * **버전**: 클러스터에 설치할 R Server의 버전을 선택합니다. 현재 사용 가능한 버전은 **R Server 9.1(HDI 3.6)**입니다. 사용 가능한 R Server 버전에 대한 릴리스 정보는 [docs.microsoft.com](https://docs.microsoft.com/machine-learning-server/whats-new-in-r-server#r-server-91)에 제공됩니다.
     * **R Server용 R Studio 커뮤니티 버전**: 기본적으로 에지 노드에 설치되는 브라우저 기반 IDE입니다. 설치하지 않으려면 확인란의 선택을 취소합니다. 이를 설치하도록 선택하면 RStudio Server 로그인에 액세스하기 위한 URL이 만들어진 후 해당 클러스터에 대한 포털 응용 프로그램 창에 표시됩니다.
     * 다른 옵션은 기본값으로 그대로 두고 **선택** 단추를 사용하여 클러스터 유형을 저장합니다.
 
@@ -102,7 +102,7 @@ Azure Resource Manager 템플릿, SDK 및 PowerShell을 사용하여 HDInsight R
 
         ssh –i <private-key-filename> remoteuser@<hostname public ip>
 
-      또는 클라이언트에서 R Server에 대한 Hadoop Spark 계산 컨텍스트 정의의 일부로 개인 키 파일을 사용합니다. 자세한 내용은 [Spark에 대한 계산 컨텍스트 만들기](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started)를 참조하세요.
+      또는 클라이언트에서 R Server에 대한 Hadoop Spark 계산 컨텍스트 정의의 일부로 개인 키 파일을 사용합니다. 자세한 내용은 [Spark에 대한 계산 컨텍스트 만들기](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-spark)를 참조하세요.
 
 8. 빨리 만들기에서는 **저장소** 창으로 전환됩니다. 여기서 클러스터에서 사용하는 HDFS 파일 시스템의 기본 위치로 사용될 저장소 계정 설정을 선택합니다. 새 또는 기존 Azure 저장소 계정을 선택하거나 기존 Azure Data Lake Store 계정을 선택합니다.
 
@@ -379,7 +379,7 @@ ScaleR 함수를 사용하여 작업을 제출할 수 있습니다. 다음은 �
 
 ## <a name="use-r-server-on-hdi-from-a-remote-instance-of-microsoft-r-server-or-microsoft-r-client"></a>Microsoft R Server 또는 Microsoft R Client의 원격 인스턴스에서 HDI의 R Server 사용
 
-데스크톱 또는 랩톱에서 실행되는 Microsoft R Server 또는 Microsoft R Client의 원격 인스턴스에서 HDI Hadoop Spark 계산 컨텍스트에 대한 액세스를 설정할 수 있습니다. 자세한 내용은 [Spark에 대한 계산 컨텍스트 만들기](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started.md)의 "Hadoop 클라이언트로 Microsoft R Server 사용" 섹션을 참조하세요. 이렇게 하려면 랩톱에서 RxSpark 계산 컨텍스트를 정의할 때 hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches 및 sshProfileScript 옵션을 지정합니다. 예를 들면 다음과 같습니다.
+데스크톱 또는 랩톱에서 실행되는 Microsoft R Server 또는 Microsoft R Client의 원격 인스턴스에서 HDI Hadoop Spark 계산 컨텍스트에 대한 액세스를 설정할 수 있습니다. 자세한 내용은 [Spark에 대한 계산 컨텍스트 만들기](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-spark#more-spark-scenarios)의 "Hadoop 클라이언트로 Microsoft R Server 사용" 섹션을 참조하세요. 이렇게 하려면 랩톱에서 RxSpark 계산 컨텍스트를 정의할 때 hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches 및 sshProfileScript 옵션을 지정합니다. 예를 들면 다음과 같습니다.
 
 
     myNameNode <- "default"
@@ -705,7 +705,7 @@ R Server 9.1에서 제공되는 새로운 기능을 사용하면 Spark 계산 �
     rxSparkConnect(reset = TRUE)
 
 
-이 단계에서 운영화 구성이 완료되었습니다. 이제 R Client에서 mrsdeploy 패키지를 사용하여 에지 노드의 운영화에 연결할 수 있습니다. 그런 다음 [원격 실행](https://msdn.microsoft.com/microsoft-r/operationalize/remote-execution) 및 [웹 서비스](https://msdn.microsoft.com/microsoft-r/mrsdeploy/mrsdeploy-websrv-vignette)와 같은 기능을 사용하여 시작할 수 있습니다. 클러스터가 가상 네트워크에 설정되어 있는지 여부에 따라 SSH 로그인을 통해 포트 전달 터널링을 설정해야 할 수도 있습니다.
+이 단계에서 운영화 구성이 완료되었습니다. 이제 R Client에서 mrsdeploy 패키지를 사용하여 에지 노드의 운영화에 연결할 수 있습니다. 그런 다음 [원격 실행](https://docs.microsoft.com/machine-learning-server/r/how-to-execute-code-remotely) 및 [웹 서비스](https://docs.microsoft.com/machine-learning-server/operationalize/concept-what-are-web-services)와 같은 기능을 사용하여 시작할 수 있습니다. 클러스터가 가상 네트워크에 설정되어 있는지 여부에 따라 SSH 로그인을 통해 포트 전달 터널링을 설정해야 할 수도 있습니다.
 
 ### <a name="r-server-cluster-on-a-virtual-network"></a>가상 네트워크의 R Server 클러스터
 

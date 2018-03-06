@@ -6,14 +6,14 @@ author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 11/15/2017
+ms.date: 02/22/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: d82232d590bcc5c578ebe8ed7c85d25aebcfe097
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 16c8892743ac25c21b7004e10796c77c3ac9f900
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="upgrade-kubernetes-in-azure-container-service-aks"></a>AKS(Azure Container Service)에서 Kubernetes 업그레이드
 
@@ -35,25 +35,25 @@ Azure CLI를 사용하여 AKS(Azure Container Service) 클러스터를 업그레
 
 ## <a name="get-cluster-versions"></a>클러스터 버전 가져오기
 
-클러스터를 업그레이드하기 전에 `az aks get-versions` 명령을 사용하여 업그레이드할 수 있는 Kubernetes 릴리스를 확인합니다.
+클러스터를 업그레이드하기 전에 `az aks get-upgrades` 명령을 사용하여 업그레이드할 수 있는 Kubernetes 릴리스를 확인합니다.
 
-```azurecli-interactive
-az aks get-versions --name myAKSCluster --resource-group myResourceGroup --output table
+```azurecli
+az aks get-upgrades --name myAKSCluster --resource-group myResourceGroup --output table
 ```
 
-여기서 현재 노드 버전이 `1.7.7`이고, `1.7.9`, `1.8.1` 및 `1.8.2` 버전을 사용할 수 있다는 것을 알 수 있습니다.
+여기에서 현재 노드 버전이 `1.7.9`이고 업그레이드 열 아래에서 사용 가능한 업그레이드 버전을 볼 수 있습니다.
 
 ```
-Name     ResourceGroup    MasterVersion    MasterUpgrades       NodePoolVersion     NodePoolUpgrades
--------  ---------------  ---------------  -------------------  ------------------  -------------------
-default  myAKSCluster     1.7.7            1.8.2, 1.7.9, 1.8.1  1.7.7               1.8.2, 1.7.9, 1.8.1
+Name     ResourceGroup    MasterVersion    NodePoolVersion    Upgrades
+-------  ---------------  ---------------  -----------------  ----------------------------------
+default  myResourceGroup  1.7.9            1.7.9              1.7.12, 1.8.1, 1.8.2, 1.8.6, 1.8.7
 ```
 
 ## <a name="upgrade-cluster"></a>클러스터 업그레이드
 
 `az aks upgrade` 명령을 사용하여 클러스터 노드를 업그레이드합니다. 다음 예에서는 클러스터를 버전 `1.8.2`로 업데이트합니다.
 
-```azurecli-interactive
+```azurecli
 az aks upgrade --name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.8.2
 ```
 
@@ -117,7 +117,7 @@ az aks upgrade --name myAKSCluster --resource-group myResourceGroup --kubernetes
 
 이제 `az aks show` 명령을 사용하여 업그레이드가 성공적이었는지 확인할 수 있습니다.
 
-```azurecli-interactive
+```azurecli
 az aks show --name myAKSCluster --resource-group myResourceGroup --output table
 ```
 

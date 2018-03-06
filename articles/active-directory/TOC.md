@@ -113,6 +113,7 @@
 #### [명명된 위치 구성](active-directory-named-locations.md)
 #### [활동 보고서 보기](active-directory-reporting-migration.md)
 #### [Azure Active Directory Power BI 콘텐츠 팩 사용](active-directory-reporting-power-bi-content-pack-how-to.md)
+#### [위험 플래그가 지정된 사용자 수정](active-directory-report-security-user-at-risk-remediation.md)
 ### 참고 자료
 #### [보존](active-directory-reporting-retention.md)
 #### [대기 시간](active-directory-reporting-latencies-azure-portal.md)

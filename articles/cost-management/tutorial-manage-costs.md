@@ -1,22 +1,22 @@
 ---
-title: "Azure Cost Management를 사용한 비용 관리 | Microsoft Docs"
-description: "비용 할당 및 쇼백과 차지백 보고서를 사용하여 비용을 관리합니다."
+title: "자습서 - Azure Cost Management로 비용 관리 | Microsoft Docs"
+description: "이 자습서에서는 비용 할당 및 쇼백과 차지백 보고서를 사용하여 비용을 관리하는 방법을 알아봅니다."
 services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 01/30/2018
+ms.date: 02/27/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 804b50d6ba054bbb0eb60b659c98f161ea5272ee
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 7e9f11e702dbbe8864f8a0c307777c922e5f028d
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
-# <a name="manage-costs-by-using-azure-cost-management"></a>Azure Cost Management를 사용한 비용 관리
+# <a name="tutorial-manage-costs-by-using-azure-cost-management"></a>자습서: Azure Cost Management를 사용한 비용 관리
 
 Cloudyn이 제공하는 Azure Cost Management에서 태그를 기준으로 비용을 할당함으로써 비용을 관리하고 쇼백 보고서를 생성합니다. 비용 할당 프로세스는 소비된 클라우드 리소스에 비용을 할당합니다. 비용은 모든 리소스가 태그로 분류되면 완벽하게 할당됩니다. 비용이 할당된 후 쇼백 또는 차지백을 대시보드 및 보고서로 사용자에게 제공할 수 있습니다. 그러나 Cost Management를 사용하기 시작할 때 많은 리소스가 태그되지 않거나 태그하지 못할 수도 있습니다.
 
@@ -27,6 +27,13 @@ Cloudyn이 제공하는 Azure Cost Management에서 태그를 기준으로 비�
 > [!div class="checklist"]
 > * 사용자 지정 태그를 사용하여 비용을 할당합니다.
 > * 쇼백 및 차지백 보고서를 만듭니다.
+
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+
+## <a name="prerequisites"></a>필수 조건
+
+- Azure 계정이 있어야 합니다.
+- Azure Cost Management에 대한 평가판 등록 또는 유료 구독이 있어야 합니다.
 
 ## <a name="use-custom-tags-to-allocate-costs"></a>사용자 지정 태그를 사용한 비용 할당
 
@@ -122,7 +129,7 @@ Cloudyn 엔터티 태그 및 수동으로 만든 태그는 모든 비용 보고�
 
 
 
-Cloudyn 및 해당 기능을 사용한 시작에 관해 자세히 알아보려면 Cloudyn 설명서로 이동하세요.
+데이터에 대한 액세스를 제어하는 방법을 알아 보려면 다음 자습서로 진행하세요.
 
 > [!div class="nextstepaction"]
-> [Cloudyn 설명서](https://support.cloudyn.com/hc/)
+> [데이터에 대한 액세스 제어](tutorial-user-access.md)

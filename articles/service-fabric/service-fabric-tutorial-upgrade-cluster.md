@@ -1,6 +1,6 @@
 ---
 title: "Azure Service Fabric 런타임 업그레이드 | Microsoft Docs"
-description: "PowerShell을 사용하여 Azure 호스팅하는 Service Fabric 클러스터를 업그레이드하는 방법을 알아봅니다."
+description: "이 자습서에서는 PowerShell을 사용하여 Azure 호스팅 Service Fabric 클러스터의 런타임을 업그레이드하는 방법을 알아봅니다."
 services: service-fabric
 documentationcenter: .net
 author: Thraka
@@ -15,13 +15,13 @@ ms.workload: NA
 ms.date: 11/28/2017
 ms.author: adegeo
 ms.custom: mvc
-ms.openlocfilehash: faf134bc0952da913e90a93bc872a53f5f2369ff
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 49211a88e004bbcbcc41b6674a34934db39513c7
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="upgrade-the-runtime-of-a-service-fabric-cluster"></a>Service Fabric 클러스터의 런타임 업그레이드
+# <a name="tutorial-upgrade-the-runtime-of-a-service-fabric-cluster"></a>자습서: Service Fabric 클러스터의 런타임 업그레이드
 
 이 자습서는 시리즈의 3부로, Azure Service Fabric 클러스터에서 Service Fabric 런타임을 업그레이드하는 방법을 보여 줍니다. 이 자습서 편은 Azure에서 실행되는 Service Fabric 클러스터를 대상으로 하며 독립 실행형 Service Fabric 클러스터에는 해당하지 않습니다.
 

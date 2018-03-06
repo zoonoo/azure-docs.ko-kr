@@ -1,6 +1,6 @@
 ---
 title: "ASP.NET 웹앱 자습서에서 Azure Active Directory B2C를 사용하여 사용자 인증"
-description: "Azure Active Directory B2C를 사용하여 ASP.NET 웹앱에서 사용자를 로그인 및 등록하는 방법에 대한 자습서입니다."
+description: "Azure Active Directory B2C를 사용하여 ASP.NET 웹앱에 대한 사용자 로그인을 제공하는 방법에 대한 자습서입니다."
 services: active-directory-b2c
 author: PatAltimore
 ms.author: patricka
@@ -9,11 +9,11 @@ ms.date: 1/23/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory-b2c
-ms.openlocfilehash: ee006476f9e40e9d1a6e7213cb1881ca46ea75c2
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 1d1e0ce51d86ebcdbf0a2a423ff64b3814413d86
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="tutorial-authenticate-users-with-azure-active-directory-b2c-in-an-aspnet-web-app"></a>자습서: ASP.NET 웹앱에서 Azure Active Directory B2C를 사용하여 사용자 인증
 
@@ -67,7 +67,7 @@ Azure AD B2C 테넌트의 전역 관리자로 [Azure Portal](https://portal.azur
 
 ### <a name="create-a-client-password"></a>클라이언트 암호 만들기
 
-Azure AD B2C는 [클라이언트 응용 프로그램](../active-directory/develop/active-directory-dev-glossary.md#client-application)에 OAuth2 인증을 사용합니다. 웹앱은 [기밀 클라이언트](../active-directory/develop/active-directory-dev-glossary.md#web-client)이며 클라이언트 암호가 필요합니다. 웹앱이 Azure Active Directory에서 인증할 때 응용 프로그램 클라이언트 ID와 클라이언트 암호가 사용됩니다. 
+Azure AD B2C는 [클라이언트 응용 프로그램](../active-directory/develop/active-directory-dev-glossary.md#client-application)에 OAuth2 인증을 사용합니다. 웹앱은 [기밀 클라이언트](../active-directory/develop/active-directory-dev-glossary.md#web-client)이며 클라이언트 암호가 필요합니다. 응용 프로그램 클라이언트 ID와 클라이언트 암호는 웹앱이 Azure Active Directory로 인증할 때 사용됩니다. 
 
 1. 등록된 웹앱에 대한 [키] 페이지를 선택하고 **키 생성**을 클릭합니다.
 
@@ -147,9 +147,9 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
 
 샘플 솔루션에는 두 개의 프로젝트가 있습니다.
 
-**웹앱 샘플 앱(TaskWebApp):** 작업 목록을 만들고 편집하는 웹앱입니다. 웹앱에서 **등록 또는 로그인** 정책을 사용하여 이메일 주소로 사용자를 등록하거나 로그인합니다.
+**웹앱 샘플 앱(TaskWebApp):** 작업 목록을 만들고 편집하는 웹앱입니다. 웹앱에서 **등록 또는 로그인** 정책을 사용하여 사용자를 등록하거나 로그인합니다.
 
-**웹 API 샘플 앱(TaskService):** 작업 목록 만들기, 읽기, 업데이트 및 삭제 기능을 지원하는 웹 API입니다. 웹 API는 Azure AD B2C를 통해 보호되고 웹앱에서 호출됩니다.
+**Web API 샘플 앱(TaskService):** 작업 목록 만들기, 읽기, 업데이트 및 삭제 기능을 지원하는 Web API입니다. 웹 API는 Azure AD B2C를 통해 보호되고 웹앱에서 호출됩니다.
 
 테넌트에서 앱 등록을 사용하도록 앱을 변경해야 합니다. 또한 만든 정책도 구성해야 합니다. 샘플 웹앱은 Web.config 파일에서 구성 값을 앱 설정으로 정의합니다. 앱 설정을 변경하려면 다음을 수행합니다.
 
@@ -178,7 +178,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
 
 **F5** 키를 눌러 웹앱을 시작합니다. 기본 브라우저가 로컬 웹 사이트 주소(`https://localhost:44316/`)에서 시작됩니다. 
 
-샘플 앱은 등록, 로그인, 프로필 수정 및 암호 재설정을 지원합니다. 사용자가 이메일 주소로 앱을 사용하기 위해 등록하는 방법은 다음과 같습니다. 다른 시나리오를 직접 시도할 수 있습니다.
+샘플 앱은 등록, 로그인, 프로필 수정 및 암호 재설정을 지원합니다. 이 자습서에서는 사용자가 이메일 주소를 사용하여 앱에 등록하고 사용하는 방법을 중점적으로 설명합니다. 다른 시나리오를 직접 탐색할 수 있습니다.
 
 ### <a name="sign-up-using-an-email-address"></a>전자 메일 주소를 사용하여 등록
 
@@ -205,4 +205,4 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
 이 자습서에서는 Azure AD B2C 테넌트를 만들고, 정책을 만들고, 샘플 웹앱을 업데이트하여 Azure AD B2C 테넌트를 사용하는 방법을 알아보았습니다. Azure AD B2C 테넌트에서 보호되는 ASP.NET 웹 API를 등록, 구성 및 호출하는 방법을 알아보려면 다음 자습서로 계속 진행하세요.
 
 > [!div class="nextstepaction"]
-> [Azure Active Directory B2C를 사용하여 ASP.NET 웹 API 보호](active-directory-b2c-tutorials-web-api.md)
+> [자습서: Azure Active Directory B2C를 사용하여 ASP.NET 웹 API 보호](active-directory-b2c-tutorials-web-api.md)

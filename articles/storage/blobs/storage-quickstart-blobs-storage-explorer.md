@@ -1,21 +1,21 @@
 ---
-title: "Azure 빠른 시작 - Azure Storage 탐색기를 사용하여 Azure Blob Storage에서 개체 전송 | Microsoft Docs"
-description: "Azure Storage 탐색기를 사용하여 Azure Blob Storage에서 개체를 전송하는 방법을 간단히 알아봅니다."
+title: "Azure 빠른 시작 - Azure Storage 탐색기를 사용하여 Azure Storage에 BLOB 업로드, 다운로드 및 나열 | Microsoft Docs"
+description: "이 빠른 시작에서는 Azure Storage 탐색기를 사용하여 저장소 계정과 컨테이너를 만듭니다. 그런 다음, Storage 탐색기를 사용하여 Azure Storage에 BLOB을 업로드하고, BLOB을 다운로드하고, 컨테이너의 BLOB을 나열합니다."
 services: storage
 author: tamram
 manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 02/20/2018
+ms.date: 02/22/2018
 ms.author: tamram
-ms.openlocfilehash: 5a91a39a340f20197e49a8045f0ee65c924469cb
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 72503dd0216d9d987d1222491c6e11d46a4d38a3
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="transfer-objects-tofrom-azure-blob-storage-using-azure-storage-explorer"></a>Azure Storage 탐색기를 사용하여 Azure Blob Storage에서 개체 전송
+# <a name="quickstart-upload-download-and-list-blobs-using-azure-storage-explorer"></a>빠른 시작: Azure Storage 탐색기를 사용하여 BLOB 업로드, 다운로드 및 나열
 
 [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)는 저장소 계정 콘텐츠를 관리하는 데 사용되는 다중 플랫폼 사용자 인터페이스입니다. 이 가이드에서는 Azure Storage 탐색기를 사용하여 로컬 디스크와 Azure Blob Storage 간에 파일을 전송하는 방법을 설명합니다.
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: jdial
-ms.openlocfilehash: ac8a9f28881ff7d249a02976f310bf6a8283aeb6
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: fbf0556cc47bc08a71fcf050b43c2dbbe5d27184
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="network-security"></a>네트워크 보안
 
@@ -149,7 +149,7 @@ ms.lasthandoff: 02/11/2018
 ## <a name="azure-platform-considerations"></a>Azure 플랫폼 고려 사항
 
 - **호스트 노드의 가상 IP:** DHCP, DNS 및 상태 모니터링과 같은 기본 인프라 서비스는 가상화된 호스트 IP 주소 168.63.129.16 및 169.254.169.254를 통해 제공됩니다. 이러한 공용 IP 주소는 Microsoft에 속하며, 이 용도로 모든 지역에서 유일하게 사용되는 가상화된 IP 주소입니다. 해당 주소는 가상 머신을 호스트하는 서버 컴퓨터(호스트 노드)의 실제 IP 주소에 매핑합니다. 호스트 노드는 DHCP 릴레이, DNS 재귀 확인자, 부하 분산 장치 상태 검색 및 컴퓨터 상태 검색에 대한 검색 소스 등의 역할을 합니다. 이러한 IP 주소의 통신은 공격이 아닙니다. 이러한 IP 주소 간에 트래픽을 차단하는 경우 가상 머신이 제대로 작동하지 않을 수 있습니다.
-- **라이선싱(키 관리 서비스):** 가상 머신에서 실행되는 Windows 이미지는 사용이 허가되어 있어야 합니다. 사용 허가를 위해 라이선스 요청이 이러한 쿼리를 처리하는 키 관리 서비스 호스트 서버로 전송됩니다. 요청은 1688 포트를 통해 아웃바운드로 수행됩니다.
+- **라이선싱(키 관리 서비스):** 가상 머신에서 실행되는 Windows 이미지는 사용이 허가되어 있어야 합니다. 사용 허가를 위해 라이선스 요청이 이러한 쿼리를 처리하는 키 관리 서비스 호스트 서버로 전송됩니다. 요청은 1688 포트를 통해 아웃바운드로 수행됩니다. [기본 경로 0.0.0.0/0](virtual-networks-udr-overview.md#default-route) 구성을 사용한 배포에 대해 이 플랫폼 규칙은 사용하지 않도록 설정됩니다.
 - **부하가 분산된 풀의 가상 머신**: 적용되는 원본 포트와 주소 범위는 부하 분산 장치가 아닌 원래 컴퓨터에서 가져옵니다. 대상 포트와 주소 범위는 부하 분산 장치가 아닌 대상 컴퓨터에서 가져옵니다.
 - **Azure 서비스 인스턴스**: HDInsight, 응용 프로그램 서비스 환경 및 Virtual Machine Scale Sets와 같은 몇 가지 Azure 서비스의 인스턴스는 가상 네트워크 서브넷에 배포됩니다. 가상 네트워크에 배포할 수 있는 서비스의 전체 목록은 [Azure 서비스에 대한 가상 네트워크](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network)를 참조하세요. 리소스를 배포한 서브넷에 네트워크 보안 그룹을 적용하기 전에 각 서비스에 대한 포트 요구 사항을 잘 이해하도록 합니다. 서비스에 필요한 포트를 거부하는 경우 서비스가 제대로 작동하지 않습니다.
 - **아웃바운드 전자 메일 보내기**: 인증된 SMTP 릴레이 서비스(일반적으로 587 TCP 포트를 통해 연결되지만 종종 다른 방법도 사용)를 활용하여 Azure Virtual Machines에서 전자 메일을 보내는 것이 좋습니다. SMTP 릴레이 서비스는 타사 전자 메일 공급자에서 메시지를 거부할 가능성을 최소화하기 위해 보낸 사람 신뢰도를 특수화합니다. 이러한 SMTP 릴레이 서비스는 Exchange Online Protection 및 SendGrid를 포함하지만 여기에 제한되지 않습니다. SMTP 릴레이 서비스는 구독 유형에 관계 없이 Azure에서 제한되지 않고 사용할 수 있습니다. 

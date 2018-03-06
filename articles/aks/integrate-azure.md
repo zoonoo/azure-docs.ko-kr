@@ -8,11 +8,11 @@ ms.service: container-service
 ms.topic: overview
 ms.date: 12/05/2017
 ms.author: seozerca
-ms.openlocfilehash: 339e600f18613e8cf4e5529c759ad33076d48654
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 594cb0afbdb0a44e9f092b9afc5af13b21e763a4
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="integrate-with-azure-managed-services-using-open-service-broker-for-azure-osba"></a>OSBA(Open Service Broker for Azure)를 사용하여 Azure에서 관리되는 서비스와 통합
 
@@ -70,51 +70,23 @@ v1beta1.storage.k8s.io               10
 
 다음 단계는 Azure에서 관리하는 서비스에 대한 카탈로그를 포함하는 [Open Service Broker for Azure][open-service-broker-azure]에 설치하는 것입니다. 사용 가능한 Azure 서비스의 예로는 Azure Database for PostgreSQL, Azure Redis Cache, Azure Database for MySQL, Azure Cosmos DB, Azure SQL Database 등이 있습니다.
 
-Open Service Broker for Azure Helm 리포지토리 추가부터 시작하겠습니다.
+Open Service Broker for Azure Helm 리포지토리 추가부터 시작합니다.
 
 ```azurecli-interactive
 helm repo add azure https://kubernetescharts.blob.core.windows.net/azure
 ```
 
-다음 Azure CLI 명령을 사용하여 [서비스 사용자][create-service-principal]를 만듭니다.
+그런 다음, 아래 스크립트를 사용하여 [서비스 사용자][create-service-principal]를 만들고 여러 변수를 채웁니다. 이 변수는 Helm 차트를 실행하여 Service Broker를 설치할 때 사용됩니다.
 
 ```azurecli-interactive
-az ad sp create-for-rbac
+SERVICE_PRINCIPAL=$(az ad sp create-for-rbac)
+AZURE_CLIENT_ID=$(echo $SERVICE_PRINCIPAL | cut -d '"' -f 4)
+AZURE_CLIENT_SECRET=$(echo $SERVICE_PRINCIPAL | cut -d '"' -f 16)
+AZURE_TENANT_ID=$(echo $SERVICE_PRINCIPAL | cut -d '"' -f 20)
+AZURE_SUBSCRIPTION_ID=$(az account show --query id --output tsv)
 ```
 
-출력은 다음과 유사합니다. `appId`, `password`, `tenant` 값을 다음 단계에서 사용하기 위해 적어둡니다.
-
-```JSON
-{
-  "appId": "7248f250-0000-0000-0000-dbdeb8400d85",
-  "displayName": "azure-cli-2017-10-15-02-20-15",
-  "name": "http://azure-cli-2017-10-15-02-20-15",
-  "password": "77851d2c-0000-0000-0000-cb3ebc97975a",
-  "tenant": "72f988bf-0000-0000-0000-2d7cd011db47"
-}
-```
-
-위의 값으로 다음 환경 변수를 설정합니다.
-
-```azurecli-interactive
-AZURE_CLIENT_ID=<appId>
-AZURE_CLIENT_SECRET=<password>
-AZURE_TENANT_ID=<tenant>
-```
-
-이제 Azure 구독 ID를 가져옵니다.
-
-```azurecli-interactive
-az account show --query id --output tsv
-```
-
-다시 위의 값으로 다음 환경 변수를 설정합니다.
-
-```azurecli-interactive
-AZURE_SUBSCRIPTION_ID=[your Azure subscription ID from above]
-```
-
-이러한 환경 변수를 채웠으니 다음 명령을 실행하여 Helm 차트를 사용하여 Open Service Broker for Azure를 설치합니다.
+이러한 환경 변수를 채웠으니 다음 명령을 실행하여 Helm 차트를 사용하여 Service Broker를 설치합니다.
 
 ```azurecli-interactive
 helm install azure/open-service-broker-azure --name osba --namespace osba \

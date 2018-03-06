@@ -1,6 +1,6 @@
 ---
 title: "Azure Service Fabric의 Windows 컨테이너에 대한 모니터링 및 진단 | Microsoft Docs"
-description: "Azure Service Fabric에서 오케스트레이션되는 Windows 컨테이너에 대한 모니터링 및 진단을 설정합니다."
+description: "이 자습서에서는 Azure Service Fabric에서 오케스트레이션되는 Windows 컨테이너에 대한 모니터링 및 진단을 설정합니다."
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -15,13 +15,13 @@ ms.workload: NA
 ms.date: 09/20/2017
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 8fe3266cfcb7141684f9e1b5dfa74d6569c23b24
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: de77d10e4875173c7a067e945e473887d3cc7422
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="monitor-windows-containers-on-service-fabric-using-oms"></a>OMS를 사용하여 Service Fabric에서 Windows 컨테이너 모니터링
+# <a name="tutorial-monitor-windows-containers-on-service-fabric-using-oms"></a>자습서: OMS를 사용하여 Service Fabric에서 Windows 컨테이너 모니터링
 
 자습서의 3부이며, Service Fabric에서 오케스트레이션되는 Windows 컨테이너를 모니터링하도록 OMS를 설정하는 과정을 안내합니다.
 
@@ -80,7 +80,7 @@ ms.lasthandoff: 12/08/2017
     "omsSolution": "ServiceFabric"
     ```
 
-3. OMS Microsoft Monitoring Agent를 가상 컴퓨터 확장으로 추가합니다. 가상 컴퓨터 확장 집합 리소스를 찾습니다. *resources* > *“apiVersion”: “[variables(‘vmssApiVersion’)]”*. *properties* > *virtualMachineProfile* > *extensionProfile* > *extensions*의 *ServiceFabricNode* 확장 아래에 다음과 같은 확장 설명을 추가합니다. 
+3. OMS Microsoft Monitoring Agent를 가상 머신 확장으로 추가합니다. 가상 머신 확장 집합 리소스를 찾습니다. *resources* > *“apiVersion”: “[variables(‘vmssApiVersion’)]”*. *properties* > *virtualMachineProfile* > *extensionProfile* > *extensions*의 *ServiceFabricNode* 확장 아래에 다음과 같은 확장 설명을 추가합니다. 
     
     ```json
     {
@@ -100,7 +100,7 @@ ms.lasthandoff: 12/08/2017
     },
     ```
 
-4. OMS 작업 영역을 개별 리소스로 추가합니다. *resources*에서 가상 컴퓨터 확장 집합 리소스 뒤에 다음을 추가합니다.
+4. OMS 작업 영역을 개별 리소스로 추가합니다. *resources*에서 가상 머신 확장 집합 리소스 뒤에 다음을 추가합니다.
     
     ```json
     {
@@ -180,7 +180,7 @@ ms.lasthandoff: 12/08/2017
     },
     ```
 
-필요에 따라 참조할 수 있는 이러한 모든 변경 내용이 있는 샘플 템플릿(이 자습서의 1부에서 사용됨)은 [여기](https://github.com/ChackDan/Service-Fabric/blob/master/ARM%20Templates/Tutorial/azuredeploy.json)를 참조하세요. 이러한 변경 내용은 리소스 그룹에 OMS Log Analytics 작업 영역을 추가합니다. 작업 영역은 [Windows Azure 진단](service-fabric-diagnostics-event-aggregation-wad.md) 에이전트를 통해 구성된 저장소 테이블에서 Service Fabric 플랫폼 이벤트를 수집하도록 구성됩니다. 또한 OMS 에이전트(Microsoft Monitoring Agent)가 클러스터의 각 노드에 가상 컴퓨터 확장으로 추가되었습니다. 따라서 클러스터 크기를 조정할 때 에이전트가 자동으로 각 컴퓨터에 구성되고 동일한 작업 영역에 연결됩니다.
+필요에 따라 참조할 수 있는 이러한 모든 변경 내용이 있는 샘플 템플릿(이 자습서의 1부에서 사용됨)은 [여기](https://github.com/ChackDan/Service-Fabric/blob/master/ARM%20Templates/Tutorial/azuredeploy.json)를 참조하세요. 이러한 변경 내용은 리소스 그룹에 OMS Log Analytics 작업 영역을 추가합니다. 작업 영역은 [Windows Azure 진단](service-fabric-diagnostics-event-aggregation-wad.md) 에이전트를 통해 구성된 저장소 테이블에서 Service Fabric 플랫폼 이벤트를 수집하도록 구성됩니다. 또한 OMS 에이전트(Microsoft Monitoring Agent)가 클러스터의 각 노드에 가상 머신 확장으로 추가되었습니다. 따라서 클러스터 크기를 조정할 때 에이전트가 자동으로 각 컴퓨터에 구성되고 동일한 작업 영역에 연결됩니다.
 
 새 변경 내용이 포함된 템플릿을 배포하여 현재 클러스터를 업그레이드합니다. 이 작업이 완료되면 리소스 그룹에 OMS 리소스가 표시됩니다. 클러스터가 준비되 컨테이너화된 응용 프로그램을 배포합니다. 다음 단계에서는 컨테이너 모니터링을 설정합니다.
 

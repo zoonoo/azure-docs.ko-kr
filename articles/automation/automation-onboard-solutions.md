@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/11/2017
+ms.date: 02/28/2018
 ms.author: eamono
 ms.custom: mvc
-ms.openlocfilehash: e277aa44dfe625780d72a78010f0638c73a6b182
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 4c97cda2f16c769d0510b6a661bd03b20f488b62
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="onboard-update-and-change-tracking-solutions-to-azure-automation"></a>Azure Automation에 업데이트 및 변경 내용 추적 솔루션 등록
 
@@ -32,9 +32,9 @@ ms.lasthandoff: 01/10/2018
 > * 온보딩 Runbook 가져오기
 > * Runbook을 시작합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
-이 자습서를 완료하려면 다음이 필요합니다.
+이 자습서를 완료하려면 다음 항목이 필요합니다.
 
 * 동작합니다. 구독이 아직 없는 경우 [MSDN 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)하거나 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 등록할 수 있습니다.
 * 컴퓨터를 관리하기 위한 [Automation 계정](automation-offering-get-started.md)
@@ -42,7 +42,7 @@ ms.lasthandoff: 01/10/2018
 
 ## <a name="onboard-an-azure-vm"></a>Azure VM 등록
 
-Azure Virtual Machines를 자동으로 등록하려면 기존 VM이 변경 내용 추적 또는 업데이트 관리 솔루션에서 등록되어야 합니다. 이 단계에서는 가상 머신을 업데이트 관리 및 변경 내용 추적에 등록합니다.
+컴퓨터를 등록하는 방법은 여러 가지입니다. [가상 머신에서](automation-onboard-solutions-from-vm.md), [Automation 계정에서](automation-onboard-solutions-from-automation-account.md) 또는 Runbook으로 솔루션을 등록할 수 있습니다. 이 자습서에서는 Runbook을 통해 업데이트 관리를 사용하도록 설정하는 과정을 안내합니다. Azure Virtual Machines를 규모에 맞게 등록하려면 변경 내용 추적 또는 업데이트 관리 솔루션으로 기존 VM을 등록해야 합니다. 이 단계에서는 가상 머신을 업데이트 관리 및 변경 내용 추적에 등록합니다.
 
 ### <a name="enable-change-tracking-and-inventory"></a>변경 내용 추적 및 인벤토리 사용
 

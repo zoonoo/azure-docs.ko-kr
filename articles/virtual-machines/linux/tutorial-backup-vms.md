@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 2eb0958169b175813b0dca775e9250da1cb364d4
-ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
+ms.openlocfilehash: 1c07fa40964fdcbae6ec1cbbbf77094753956cf1
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="back-up-linux--virtual-machines-in-azure"></a>Azure에서 Linux 가상 머신 백업
 
@@ -172,5 +172,5 @@ Azure Backup 서비스에서 백업을 시작하면 백업 확장을 트리거�
 가상 머신 모니터링에 대해 알아보려면 다음 자습서로 진행합니다.
 
 > [!div class="nextstepaction"]
-> [가상 머신 모니터링](tutorial-monitoring.md)
+> [가성 머신 제어](tutorial-govern-resources.md)
 

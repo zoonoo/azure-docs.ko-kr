@@ -5,13 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 01/07/2018
+ms.date: 02/27/2018
 ms.author: raynew
-ms.openlocfilehash: cb815f7d9c0556efcce58b53d6037e3fc8ed9c78
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.custom: MVC
+ms.openlocfilehash: abae7cbd21a2c7f49dc1fe85711b80dc43a10517
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="migrate-azure-vms-to-another-region"></a>다른 지역으로 Azure VM 마이그레이션
 
@@ -75,7 +76,7 @@ Azure 체험 계정을 방금 만든 경우 자신이 구독에 대한 관리자
 원본 지역을 제외한 모든 지역에 자격 증명 모음을 만듭니다.
 
 1. [Azure Portal](https://portal.azure.com) > **Recovery Services**에 로그인합니다.
-2. **리소스 만들기** > **모니터링 및 관리** > **백업 및 사이트 복구**를 클릭합니다.
+2. **리소스 만들기** > **모니터링 및 관리** > **Backup 및 Site Recovery**를 클릭합니다.
 3. **이름**에서 **ContosoVMVault**라는 이름을 지정합니다. 구독이 두 개 이상인 경우 적절한 구독을 선택합니다.
 4. **ContosoRG** 리소스 그룹을 만듭니다.
 5. Azure 지역을 지정합니다. 지원되는 지역을 확인하려면 [Azure Site Recovery 가격 정보](https://azure.microsoft.com/pricing/details/site-recovery/)에서 지리적 가용성을 참조하세요.
@@ -123,7 +124,8 @@ Site Recovery는 구독 및 리소스 그룹과 연관된 VM 목록을 검색합
 2. **장애 조치(failover)**에서 **최신**을 선택합니다. 암호화 키 설정은 이 시나리오와 관련이 없습니다.
 3. **장애 조치(failover)를 시작하기 전에 컴퓨터를 종료합니다.**를 선택합니다. Site Recovery는 장애 조치(failover)를 트리거하기 전에 원본 VM을 종료하려고 합니다. 종료가 실패하더라도 장애 조치는 계속됩니다. **작업** 페이지에서 장애 조치 진행 상황 확인을 수행할 수 있습니다.
 4. Azure VM이 예상대로 Azure에 표시되는지 확인합니다.
-5. **복제된 항목**에서 VM를 마우스 오른쪽 단추로 클릭하고 **마이그레이션 완료**를 클릭합니다. 그러면 마이그레이션 프로세스가 완료되고 VM에 대한 복제가 중지됩니다.
+5. **복제된 항목**에서 VM을 마우스 오른쪽 단추로 클릭하고 **커밋**을 클릭합니다. 그러면 마이그레이션 프로세스가 완료됩니다.
+6. 커밋이 완료되면 **복제 사용 안 함**을 클릭합니다.  그러면 VM에 대한 복제가 중지됩니다.
 
 
 

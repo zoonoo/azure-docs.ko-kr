@@ -3,57 +3,80 @@ title: "Azure Machine Learning 서비스(미리 보기)에서 아이리스 자�
 description: "이 자습서 전체에서 Azure Machine Learning 서비스(미리 보기)를 사용하는 방법을 보여 줍니다. 1부이며 데이터 준비를 설명합니다."
 services: machine-learning
 author: hning86
-ms.author: haining
+ms.author: haining, j-martens
 manager: mwinkle
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
-ms.custom: mvc, tutorial
+ms.custom: mvc
 ms.topic: tutorial
-ms.date: 09/28/2017
-ms.openlocfilehash: 4e558518a5a1fb7b4cd0a58fe2453fd4c083b46a
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.date: 02/28/2018
+ms.openlocfilehash: 0bef557ee1394e3c786fd2c54e821b5dea28fabf
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/28/2018
 ---
-# <a name="classify-iris-part-1-prepare-the-data"></a>아이리스 분류 1부: 데이터 준비
+# <a name="tutorial-classify-iris-part-1---preparing-the-data"></a>자습서: 아이리스 분류 1부 - 데이터 준비
+
 Azure Machine Learning 서비스(미리 보기)는 데이터를 준비하고, 실험을 개발하고, 클라우드 범위에서 모델을 배포할 수 있는 전문 데이터 과학자를 위한 종단 간 데이터 과학 및 고급 분석 통합 솔루션입니다.
 
 이 자습서는 3부로 구성된 시리즈 중 제1부입니다. 이 자습서에서는 Azure Machine Learning 서비스(미리 보기)의 기본 사항을 살펴봅니다. 다음 방법에 대해 알아봅니다.
+
 > [!div class="checklist"]
 > * Azure Machine Learning Workbench에서 프로젝트 만들기
 > * 데이터 준비 패키지 만들기
 > * 데이터 준비 패키지를 호출하는 Python/PySpark 코드 생성
 
-이 자습서에서는 변함 없는 [아이리스 꽃 데이터 집합](https://en.wikipedia.org/wiki/Iris_flower_data_set)을 사용합니다. 스크린샷은 Windows 전용이지만 Mac OS 환경에서도 거의 동일합니다.
+이 자습서에서는 변함 없는 [아이리스 꽃 데이터 집합](https://en.wikipedia.org/wiki/Iris_flower_data_set)을 사용합니다. 스크린샷은 Windows 전용이지만 macOS 환경에서도 거의 동일합니다.
 
 ## <a name="prerequisites"></a>필수 조건
-- Azure Machine Learning 실험 계정을 만듭니다.
-- Azure Machine Learning Workbench를 설치합니다.
 
-[설치 및 만들기 빠른 시작](quickstart-installation.md) 문서의 지침에 따라 Azure Machine Learning Workbench 응용 프로그램을 설치할 수 있습니다. 이 설치에는 Azure 플랫폼 간 명령줄 도구 또는 Azure CLI도 포함됩니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="create-a-new-project-in-azure-machine-learning-workbench"></a>Azure Machine Learning Workbench에서 새 프로젝트 만들기
-1. Azure Machine Learning Workbench 앱을 열고 필요한 경우 로그인합니다. **프로젝트** 창에서 더하기 기호(**+**)를 선택하여 **새 프로젝트**를 만듭니다.
+이 자습서를 완료하려면 다음 항목이 필요합니다.
+- Azure Machine Learning 실험 계정
+- Azure Machine Learning Workbench 설치
+
+이러한 항목이 없으면 [빠른 시작: 설치 및 시작](quickstart-installation.md) 문서의 단계를 수행하여 해당 계정을 설정하고 Azure Machine Learning Workbench 응용 프로그램을 설치하세요. 
+
+## <a name="create-a-new-project-in-workbench"></a>Workbench에서 새 프로젝트 만들기
+
+[빠른 시작: 설치 및 시작](quickstart-installation.md) 문서의 단계를 수행한 경우에는 프로젝트가 이미 있으므로 다음 섹션으로 건너뛸 수 있습니다.
+
+1. Azure Machine Learning Workbench 앱을 열고 필요한 경우 로그인합니다. 
+   
+   + Windows에서는 **Machine Learning Workbench** 바탕 화면 바로 가기를 사용하여 시작합니다. 
+   + macOS에서는 실행 패드에서 **Azure ML Workbench**를 선택합니다.
+
+1. **프로젝트** 창에서 더하기 기호(+)를 선택하고 **새 프로젝트**를 선택합니다.  
 
    ![새 작업 영역](media/tutorial-classifying-iris/new_ws.png)
 
-2. **새 프로젝트 만들기** 세부 정보를 채웁니다. 
+1. 양식 필드에 정보를 채우고 **만들기** 단추를 선택하여 Workbench에 새 프로젝트를 만듭니다.
+
+   필드|자습서에 제안된 값|설명
+   ---|---|---
+   프로젝트 이름 | myIris |계정을 식별하는 고유한 이름을 입력합니다. 본인의 이름 또는 실험을 가장 잘 식별하는 부서나 프로젝트 이름을 사용할 수 있습니다. 이름은 2~32자여야 합니다. 영숫자 문자 및 대시(-) 문자만 포함되어야 합니다. 
+   프로젝트 디렉터리 | c:\Temp\ | 프로젝트가 만들어지는 디렉터리를 지정합니다.
+   프로젝트 설명 | _비워 둠_ | 프로젝트를 설명하기에 유용한 선택적 필드입니다.
+   Visualstudio.com |_비워 둠_ | 선택적 필드입니다. 소스 제어 및 공동 작업을 위해 필요에 따라 Visual Studio Team Services의 Git 리포지토리와 프로젝트를 연결할 수 있습니다. [설정하는 방법을 알아보세요](https://docs.microsoft.com/en-us/azure/machine-learning/preview/using-git-ml-project#step-3-set-up-a-machine-learning-project-and-git-repo). 
+   작업 영역 | IrisGarden(있는 경우) | Azure Portal에서 실험 계정에 대해 만든 작업 영역을 선택합니다. <br/>빠른 시작을 수행한 경우 IrisGarden이라는 이름의 작업 영역이 있어야 합니다. 그렇지 않으면 실험 계정을 만들 때 생성한 항목을 선택하거나 원하는 다른 항목을 선택합니다.
+   프로젝트 템플릿 | 아이리스 분류 | 템플릿에는 제품을 탐색하는 데 사용할 수 있는 스크립트와 데이터가 포함됩니다. 템플릿에는 이 설명서 사이트의 빠른 시작 및 기타 자습서에 필요한 스크립트와 데이터가 포함됩니다. 
 
    ![새 프로젝트](media/tutorial-classifying-iris/new_project.png)
-
-   - **프로젝트 이름** 상자를 프로젝트 이름으로 채웁니다. 예를 들어 **myIris** 값을 사용합니다.
-   - 프로젝트가 만들어지는 **프로젝트 디렉터리**를 선택합니다. 예를 들어 `C:\Temp\` 값을 사용합니다. 
-   - 선택 사항인 **프로젝트 설명**을 입력합니다. 
-   - **Git 리포지토리** 필드도 선택 사항이며 비워둘 수 있습니다. Visual Studio Team Services에 비어 있는 기존의 Git 리포지토리(마스터 분기가 없는 리포지토리)를 제공할 수 있습니다. 이미 있는 Git 리포지토리를 사용하는 경우 나중에 시나리오 로밍 및 공유를 사용할 수 있습니다. 자세한 내용은 [Git 리포지토리 사용](using-git-ml-project.md)을 참조하세요. 
-   - **작업 영역**을 선택합니다. 예를 들어 이 자습서에서는 **IrisGarden**을 사용합니다. 
-   - 프로젝트 템플릿 목록에서 **Iris 분류** 템플릿을 선택합니다. 
-
-3. **만들기** 단추를 선택합니다. 이제 프로젝트가 만들어지고 열립니다.
+ 
+ 새 프로젝트가 만들어지고 프로젝트 대시보드에서 해당 프로젝트가 열립니다. 이 시점에서 프로젝트 홈페이지, 데이터 소스, 노트북 및 소스 코드 파일을 탐색할 수 있습니다. 
 
 ## <a name="create-a-data-preparation-package"></a>데이터 준비 패키지 만들기
-1. **파일 보기**에서 **iris.csv** 파일을 엽니다. 이 파일은 5열 150행이 있는 테이블입니다. 여기에는 4개의 숫자 기능 열과 문자열 대상 열이 있지만, 열 머리글은 없습니다.
+
+자습서의 이 부분에서는 데이터를 탐색하고 데이터 준비 프로세스를 시작합니다. Azure Machine Learning Workbench에서 데이터를 준비할 때, Workbench에서 수행하는 변환의 JSON 표현이 로컬 데이터 준비 패키지(*.dprep 파일)에 저장됩니다. 이 데이터 준비 패키지는 Workbench의 데이터 준비 작업에 대한 기본 컨테이너입니다.
+
+이 데이터 준비 패키지는 로컬 C#/CoreCLR, Scala/Spark 또는 Scala/HDI와 같은 런타임 실행을 위해 전달될 수 있습니다. 실행에 적절한 런타임에 대해 코드가 생성됩니다. 
+
+1. 폴더 아이콘을 선택하여 파일 보기를 연 다음, **iris.csv**를 선택하여 파일을 엽니다.  
+
+   이 파일은 5열 150행이 있는 테이블입니다. 여기에는 4개의 숫자 기능 열과 문자열 대상 열이 있지만, 열 머리글은 없습니다.
 
    ![iris.csv](media/tutorial-classifying-iris/show_iris_csv.png)
 
@@ -97,19 +120,19 @@ Azure Machine Learning 서비스(미리 보기)는 데이터를 준비하고, �
 
    **iris-1.dprep**라는 새 데이터 준비 패키지가 만들어지고 데이터 준비 편집기에서 열립니다.
 
-9. 이제 기본적인 데이터 준비 작업 몇 가지를 수행해 보겠습니다. 열 이름을 바꿉니다. 각 열 머리글을 선택하여 헤더 텍스트를 편집할 수 있도록 합니다. 
+9. 이제 기본적인 데이터 준비 작업 몇 가지를 수행해 보겠습니다. 머리글 텍스트를 편집할 수 있도록 각 열 머리글을 선택하고 각 열의 이름을 다음과 같이 바꿉니다. 
 
-   5가지 열 각각에 대해 **꽃받침 길이**, **꽃받침 너비**, **꽃잎 길이**, **꽃잎 너비** 및 **종류**를 입력합니다.
+   순서대로, 5개 열 각각에 대해 **꽃받침 길이**, **꽃받침 너비**, **꽃잎 길이**, **꽃잎 너비** 및 **종류**를 순서대로 입력합니다.
 
    ![열 이름 바꾸기](media/tutorial-classifying-iris/rename_column.png)
 
 10. 고유 값을 계산하려면 **종류** 열을 선택한 다음 마우스 오른쪽 단추로 클릭하여 선택합니다. 드롭다운 메뉴에서 **값 계산**을 선택합니다. 
 
+   그러면 데이터 아래 **검사기** 창이 열립니다. 네 개의 막대가 있는 히스토그램이 나타납니다. 대상 열에 **Iris_virginica**, **Iris_versicolor**, **Iris-setosa**의 3가지 고유 값과 **(null)** 값이 있습니다.
+
    ![값 개수 선택](media/tutorial-classifying-iris/value_count.png)
 
-   이 작업으로 **검사기** 창이 열리고 4개 막대에 대한 히스토그램이 표시됩니다. 대상 열에 **Iris_virginica**, **Iris_versicolor**, **Iris-setosa**의 3가지 고유 값과 **(null)** 값이 있습니다.
-
-11. Null 값을 필터링하려면 Null 값을 나타내는 그래프에서 막대를 선택합니다. **(null)** 값이 있는 행 하나가 있습니다. 이 행을 제거하려면 빼기 기호(**-**)를 선택합니다.
+11. Null 값을 필터링하려면 "Null" 레이블을 선택하고 빼기 기호(**-**)를 선택합니다. 그러면 Null 행이 회색으로 바뀌어 필터링된 것이 표시됩니다. 
 
    ![값 개수 히스토그램](media/tutorial-classifying-iris/filter_out.png)
 
@@ -121,11 +144,15 @@ Azure Machine Learning 서비스(미리 보기)는 데이터를 준비하고, �
 
 ## <a name="generate-pythonpyspark-code-to-invoke-a-data-preparation-package"></a>데이터 준비 패키지를 호출하는 Python/PySpark 코드 생성
 
-1. **iris-1.dprep** 파일을 마우스 오른쪽 단추로 클릭하여 상황에 맞는 메뉴를 표시한 다음 **데이터 액세스 코드 파일 생성**을 선택합니다. 
+<!-- The output/results of a Package can be explored in Python or via a Jupyter Notebook. A Package can be executed across multiple runtimes including local Python, Spark (including in Docker), and HDInsight. A Package contains one or more Dataflows that are the steps and transforms applied to the data. A Package may use another Package as a Data Source (referred to as a Reference Data Flow). -->
+
+1. 데이터 준비 탭에서 **iris-1.dprep** 파일을 찾습니다.
+
+1. **iris-1.dprep** 파일을 마우스 오른쪽 단추로 클릭하고 바로 가기 메뉴에서 **데이터 액세스 코드 파일 생성**을 선택합니다. 
 
    ![코드 생성](media/tutorial-classifying-iris/generate_code.png)
 
-2. **iris-1.py**라는 새 파일이 다음 코드 줄로 열립니다.
+   데이터 준비 패키지로 만든 논리를 호출하는 다음 코드가 포함된 **iris-1.py**라는 새 파일이 열립니다.
 
    ```python
    # Use the Azure Machine Learning data preparation package
@@ -144,17 +171,22 @@ Azure Machine Learning 서비스(미리 보기)는 데이터를 준비하고, �
    df.head(10)
    ```
 
-   이 코드 조각에서는 데이터 준비 패키지로 만든 논리를 호출합니다. 이 코드가 실행되는 컨텍스트에 따라 `df`는 다양한 종류의 데이터 프레임을 나타냅니다. Python 런타임에서 실행될 때는 [pandas DataFrame](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html)이 사용되고 Spark 컨텍스트에서 실행될 때는 [Spark DataFrame](https://spark.apache.org/docs/latest/sql-programming-guide.html)이 사용됩니다. 
+   이 코드가 실행되는 컨텍스트에 따라 `df`는 다양한 종류의 데이터 프레임을 나타냅니다. Python 런타임에서 실행될 때는 [pandas DataFrame](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html)이 사용되고 Spark 컨텍스트에서 실행될 때는 [Spark DataFrame](https://spark.apache.org/docs/latest/sql-programming-guide.html)이 사용됩니다. 
+   
+   Azure Machine Learning Workbench에서 데이터를 준비하는 방법을 알아보려면 [데이터 준비 시작](data-prep-getting-started.md) 가이드를 참조하세요.
 
-   Azure Machine Learning Workbench에서 데이터를 준비하는 방법에 대한 자세한 내용은 [데이터 준비 시작](data-prep-getting-started.md) 가이드를 참조하세요.
+## <a name="clean-up-resources"></a>리소스 정리
+
+[!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 
 ## <a name="next-steps"></a>다음 단계
-3부 자습서 시리즈의 제1부에서는 Azure Machine Learning Workbench를 사용하여 다음 작업을 수행했습니다.
+
+이 자습서에서는 Azure Machine Learning Workbench를 사용하여 다음을 수행했습니다.
 > [!div class="checklist"]
-> * 새 프로젝트 만들기 
+> * 새 프로젝트 만들기
 > * 데이터 준비 패키지 만들기
 > * 데이터 준비 패키지를 호출하는 Python/PySpark 코드 생성
 
-Azure Machine Learning 모델을 빌드하는 방법을 배우는 시리즈의 다음 부분으로 이동할 준비가 되었습니다.
+Azure Machine Learning 모델을 빌드하는 방법을 배우는 자습서 시리즈의 다음 부분으로 넘어갈 준비가 되었습니다.
 > [!div class="nextstepaction"]
-> [모델 작성](tutorial-classifying-iris-part-2.md)
+> [자습서 2 - 모델 빌드](tutorial-classifying-iris-part-2.md)

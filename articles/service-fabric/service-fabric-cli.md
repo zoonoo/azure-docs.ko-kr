@@ -2,17 +2,17 @@
 title: "Azure Service Fabric CLI 시작"
 description: "Azure Service Fabric CLI를 사용하는 방법에 대해 알아봅니다. 클러스터에 연결하는 방법과 응용 프로그램을 관리하는 방법을 알아봅니다."
 services: service-fabric
-author: samedder
+author: Christina-Kang
 manager: timlt
 ms.service: service-fabric
 ms.topic: get-started-article
 ms.date: 10/20/2017
-ms.author: edwardsa
-ms.openlocfilehash: 3d7c79e00d2b41669296d08250cb73434000cbb2
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: bikang
+ms.openlocfilehash: 9ad1286ffdf0c45a73b0f4a472bc0de683d20ee5
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="azure-service-fabric-cli"></a>Azure Service Fabric CLI
 
@@ -32,7 +32,8 @@ Service Fabric CLI는 Service Fabric SDK의 최신 런타임 버전을 지원하
 
 | CLI 버전   | 지원되는 런타임 버전 |
 |---------------|---------------------------|
-| 최신(~=3)  | 최신(~=6.0)            |
+| 최신(~=4)  | 최신(~=6.1)            |
+| 3.0.0         | 6.0                       |
 | 1.1.0         | 5.6, 5.7                  |
 
 필요에 따라 `pip install` 명령에 `==<version>`을 접미사로 붙여 설치하기 위해 CLI의 대상 버전을 지정할 수 있습니다. 예를 들어 1.1.0 버전에서 구문은 다음과 같습니다.

@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 08/28/2017
+ms.date: 02/22/2018
 ms.author: nisoneji
-ms.openlocfilehash: 36309eb85244435a853013448c83d125420c001c
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 0a4d8958c0bbbe8b0242bfe8943d01ef66afec74
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="cost-estimation-report-of-azure-site-recovery-deployment-planner"></a>Azure Site Recovery Deployment Planner의 비용 예측 보고서  
 
@@ -154,7 +154,7 @@ eastus, eastus2, westus, centralus, northcentralus, southcentralus, northeurope,
 ## <a name="supported-currencies"></a>지원되는 통화
 Azure Site Recovery Deployment Planner는 다음 통화 중 하나로 비용 보고서를 생성할 수 있습니다.
 
-|통화|이름||통화|이름||통화|이름|
+|통화|Name||통화|Name||통화|Name|
 |---|---|---|---|---|---|---|---|
 |ARS|아르헨티나 페소($)||AUD|호주 달러($)||BRL|브라질 헤알(R$)|
 |CAD|캐나다 달러($)||CHF|스위스 프랑. (chf)||DKK|덴마크 크론(kr)|

@@ -1,23 +1,23 @@
 ---
-title: "Azure Machine Learning 서비스(미리 보기) 모델 작성 | Microsoft Docs"
+title: "Azure Machine Learning 서비스(미리 보기)용 모델 자습서 작성 | Microsoft Docs"
 description: "이 자습서 전체에서 Azure Machine Learning 서비스(미리 보기)를 사용하는 방법을 보여 줍니다. 2부이며 실험을 설명합니다."
 services: machine-learning
 author: hning86
-ms.author: haining
+ms.author: haining, j-martens
 manager: mwinkle
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
-ms.custom: mvc, tutorial
+ms.custom: mvc
 ms.topic: tutorial
-ms.date: 11/06/2017
-ms.openlocfilehash: 3337ba9fa6845deb98813259821f77ff713f9eb1
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.date: 02/28/2018
+ms.openlocfilehash: f52d4268c3983b419a6393bbd651301022688029
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/27/2018
 ---
-# <a name="classify-iris-part-2-build-a-model"></a>아이리스 분류 2부: 모델 작성
+# <a name="tutorial-classify-iris-part-2---build-a-model"></a>자습서: 아이리스 분류 2부 - 모델 작성
 Azure Machine Learning 서비스(미리 보기)는 데이터를 준비하고, 실험을 개발하고, 클라우드 범위에서 모델을 배포할 수 있는 전문 데이터 과학자를 위한 종단 간 데이터 과학 및 고급 분석 통합 솔루션입니다.
 
 이 자습서는 3부로 구성된 시리즈 중 제2부입니다. 이 자습서의 부분에서는 Azure Machine Learning 서비스(미리 보기)를 사용하여 다음을 수행합니다.
@@ -33,6 +33,8 @@ Azure Machine Learning 서비스(미리 보기)는 데이터를 준비하고, �
 > * 클라우드 Azure HDInsight 환경에서 스크립트 실행
 
 이 자습서에서는 변함 없는 [아이리스 꽃 데이터 집합](https://en.wikipedia.org/wiki/Iris_flower_data_set)을 사용합니다. 스크린샷은 Windows 전용이지만 Mac OS 환경에서도 거의 동일합니다.
+
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
 먼저 이 자습서 시리즈의 제1부를 완료합니다. 이 자습서의 단계를 시작하기 전에 [데이터 준비 자습서](tutorial-classifying-iris-part-1.md)에 따라 Azure Machine Learning 리소스를 만들고 Azure Machine Learning Workbench 응용 프로그램을 설치합니다.
@@ -374,6 +376,10 @@ Machine Learning을 사용하면 Docker와 같은 추가 실행 환경을 쉽게
    >원격 HDInsight 클러스터에 대해 실행하는 경우 `admin` 사용자 계정을 사용하여 `https://<cluster_name>.azurehdinsight.net/yarnui`에서 YARN(Yet Another Resource Negotiator) 작업 실행 세부 정보를 볼 수도 있습니다.
 
 
+## <a name="clean-up-resources"></a>리소스 정리
+
+[!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
+
 ## <a name="next-steps"></a>다음 단계
 3부 자습서 시리즈의 제2부에서는 Azure Machine Learning 서비스를 사용하여 다음을 수행하는 방법을 알아보았습니다.
 > [!div class="checklist"]
@@ -389,4 +395,4 @@ Machine Learning을 사용하면 Docker와 같은 추가 실행 환경을 쉽게
 시리즈의 제3부로 이동할 준비가 되었습니다. 이제 로지스틱 회귀 모델을 만들었으므로 실시간 웹 서비스로 배포해 보겠습니다.
 
 > [!div class="nextstepaction"]
-> [모델 배포](tutorial-classifying-iris-part-3.md)
+> [자습서 3 - 아이리스 분류: 배포 모델](tutorial-classifying-iris-part-3.md)
