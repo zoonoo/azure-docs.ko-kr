@@ -1,22 +1,25 @@
 ---
-title: "Azure Cost Management에서 사용량 및 비용 검토 | Microsoft Docs"
-description: "사용량과 비용을 검토하여 추세를 추적하고, 비효율성을 검색하고, 경고를 만듭니다."
+title: "자습서 - Azure Cost Management에서 사용량 및 비용 검토 | Microsoft Docs"
+description: "이 자습서에서는 사용량과 비용을 검토하여 추세를 추적하고, 비효율성을 검색하고, 경고를 만듭니다."
 services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 01/30/2018
+ms.date: 02/27/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 72c5c9ff13577e7b4008c42133742d8de4904ae0
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e8f09a90ae9a4dd54d81335de2494f0dcbe09485
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
-# <a name="review-usage-and-costs"></a>사용량 및 비용 검토
+<!-- Intent: As a cloud-consuming user, I need to view usage and costs for my cloud resources and services.
+-->
+
+# <a name="tutorial-review-usage-and-costs"></a>자습서: 사용량 및 비용 검토
 
 Cloudyn에서 개발한 Azure Cost Management는 사용량과 비용을 보여 주므로 추세를 추적하고, 비효율성을 검색하고, 경고를 만들 수 있습니다. 모든 사용량 및 비용 데이터는 Cloudyn 대시보드 및 보고서에 표시됩니다. 이 자습서의 예제에서는 대시보드 및 보고서를 사용하여 사용량과 비용을 검토합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -25,7 +28,12 @@ Cloudyn에서 개발한 Azure Cost Management는 사용량과 비용을 보여 �
 > * 사용량 비효율성 검색
 > * 비정상적 지출 또는 과다 지출에 대한 경고 만들기
 
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
+## <a name="prerequisites"></a>필수 조건
+
+- Azure 계정이 있어야 합니다.
+- Azure Cost Management에 대한 평가판 등록 또는 유료 구독이 있어야 합니다.
 
 ## <a name="open-the-cloudyn-portal"></a>Cloudyn 포털 열기
 
@@ -98,7 +106,7 @@ Cloudyn 포털에서 모든 사용량 및 비용을 검토합니다. Azure Porta
 > * 비정상적 지출 또는 과다 지출에 대한 경고 만들기
 
 
-데이터에 대한 액세스를 제어하는 방법을 알아 보려면 다음 자습서로 진행하세요.
+이전 데이터를 사용하여 소비를 예측하는 방법에 대해 알아보려면 다음 자습서를 진행합니다.
 
 > [!div class="nextstepaction"]
-> [데이터에 대한 액세스 제어](tutorial-user-access.md)
+> [향후 소비 예측](tutorial-forecast-spending.md)
