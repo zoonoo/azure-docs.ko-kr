@@ -1,19 +1,19 @@
 ---
-title: "Azure Portal에서 Azure Database for MySQL에 대한 메트릭 경고 구성 | Microsoft Docs"
+title: "Azure Portal에서 Azure Database for MySQL에 대한 메트릭 경고 구성"
 description: "이 문서에서는 Azure Portal에서 Azure Database for MySQL의 메트릭 경고를 구성 및 액세스하는 방법을 설명합니다."
 services: mysql
 author: rachel-msft
 ms.author: raagyema
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 10/24/2017
-ms.openlocfilehash: 5b4263e76f89ae27b9c9f317db3038def01e3e6b
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.date: 02/28/2018
+ms.openlocfilehash: 025e7089f797b0accf8ee7d14028e5b5ab23c113
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mysql"></a>Azure Portal을 사용하여 Azure Database for MySQL의 메트릭에 대한 경고를 설정합니다. 
 
@@ -47,16 +47,16 @@ ms.lasthandoff: 10/25/2017
 
    | 설정 | 설명  |
    |---------|---------|
-   | 이름 | 경고 규칙의 이름을 제공합니다. 이 값은 경고 알림 메일로 전송됩니다. |
-   | 설명 | 경고 규칙에 대한 간단한 설명입니다. 이 값은 경고 알림 메일로 전송됩니다. |
-   | Alert on(경고) | 이러한 종류의 경고에 대해서는 **메트릭**을 선택합니다. |
+   | Name | 경고 규칙의 이름을 제공합니다. 이 값은 경고 알림 전자 메일로 전송됩니다. |
+   | 설명 | 경고 규칙에 대한 간단한 설명을 제공합니다. 이 값은 경고 알림 전자 메일로 전송됩니다. |
+   | 경고 대상: | 이러한 종류의 경고에 대한 **메트릭**을 선택합니다. |
    | 구독 | 이 필드는 Azure Database for MySQL을 호스트하는 구독으로 미리 채워져 있습니다. |
    | 리소스 그룹 | 이 필드는 Azure Database for MySQL의 리소스 그룹으로 미리 채워져 있습니다. |
    | 리소스 | 이 필드는 Azure Database for MySQL의 이름으로 미리 채워져 있습니다. |
-   | 메트릭 | 경고를 발행할 메트릭을 선택합니다. 예: **저장소 비율** |
-   | 조건 | 비교할 메트릭의 조건을 선택합니다. 예: **보다 큼** |
+   | 메트릭 | 경고를 발행할 메트릭을 선택합니다. 예: **저장소 비율**. |
+   | 조건 | 비교할 메트릭의 조건을 선택합니다. 예: **보다 큼**. |
    | 임계값 | 메트릭의 임계값입니다. 예: 85(%) |
-   | 기간 | 경고를 트리거하기 전에 메트릭 규칙을 만족해야 하는 기간입니다. 예: **지난 30분 동안** |
+   | 기간 | 경고를 트리거하기 전에 메트릭 규칙을 만족해야 하는 기간입니다. 예: **지난 30분 동안**. |
 
    이 예제를 기반으로 경고는 30분 동안 85%를 초과하는 저장소 비율을 찾습니다. 평균 저장소 비율이 30분 동안 85%를 초과하면 해당 경고가 트리거됩니다. 첫 번째 트리거가 발생한 후 평균 저장소 비율이 30분 넘게 85% 미만을 유지하면 다시 트리거됩니다.
 
@@ -64,7 +64,7 @@ ms.lasthandoff: 10/25/2017
 
    경고가 발생했을 때 구독 관리자 및 공동 관리자에게 메일을 보내려면 **소유자, 참가자 및 구독자에게 메일 보내기** 옵션을 선택합니다.
 
-   경고가 발생했을 때 다른 메일 주소에서 알림을 받으려면 해당 메일을 **추가 관리자 메일** 필드에 추가합니다. 여러 전자 메일은 세미콜론(*email@contoso.com;email2@contoso.com*)으로 구분됩니다.
+   경고가 발생했을 때 다른 메일 주소에서 알림을 받으려면 해당 메일을 **추가 관리자 전자 메일** 필드에 추가합니다. 여러 전자 메일은 세미콜론(*email@contoso.com;email2@contoso.com*)으로 구분됩니다.
 
    필요에 따라 경고가 발생했을 때 호출하려면 **Webhook** 필드에 유효한 URI를 입력합니다.
 
@@ -75,9 +75,9 @@ ms.lasthandoff: 10/25/2017
 ## <a name="manage-your-alerts"></a>경고 관리
 경고를 만든 후 해당 경고를 선택하고 다음 작업을 수행할 수 있습니다.
 
-* 이 경고와 관련된 전날의 메트릭 임계값 및 실제 값을 표시하는 그래프 확인
-* 경고 규칙을 **편집** 또는 **삭제**합니다.
-* 알림 수신을 일시적으로 중지하거나 다시 시작하려면 경로를 **사용 안 함** 또는 **사용**하도록 설정합니다.
+* 이 경고와 관련된 전날의 메트릭 임계값 및 실제 값을 표시하는 그래프 확인.
+* 경고 규칙을 **편집** 또는 **삭제**.
+* 알림 수신을 일시적으로 중지하거나 다시 시작하려면 경로를 **사용 안 함** 또는 **사용**으로 설정.
 
 
 ## <a name="next-steps"></a>다음 단계

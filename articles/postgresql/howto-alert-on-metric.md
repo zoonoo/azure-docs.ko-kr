@@ -1,19 +1,19 @@
 ---
-title: "Azure Portal에서 Azure Database for PostgreSQL에 대한 메트릭 경고 구성 | Microsoft Docs"
+title: "Azure Portal에서 Azure Database for PostgreSQL에 대한 메트릭 경고 구성"
 description: "이 문서에서는 Azure Portal에서 Azure Database for PostgreSQL의 메트릭 경고를 구성 및 액세스하는 방법을 설명합니다."
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 10/24/2017
-ms.openlocfilehash: 3a09be8131b57381eb470027a134109c116467ed
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.date: 02/28/2018
+ms.openlocfilehash: b4b15998276dd6c32e9c15622aa0251c6c066085
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql"></a>Azure Portal을 사용하여 Azure Database for PostgreSQL의 메트릭에 대한 경고 설정 
 
@@ -47,7 +47,7 @@ ms.lasthandoff: 10/25/2017
 
    | 설정 | 설명  |
    |---------|---------|
-   | 이름 | 경고 규칙의 이름을 제공합니다. 이 값은 경고 알림 전자 메일로 전송됩니다. |
+   | Name | 경고 규칙의 이름을 제공합니다. 이 값은 경고 알림 전자 메일로 전송됩니다. |
    | 설명 | 경고 규칙에 대한 간단한 설명을 제공합니다. 이 값은 경고 알림 전자 메일로 전송됩니다. |
    | 경고 대상: | 이러한 종류의 경고에 대한 **메트릭**을 선택합니다. |
    | 구독 | 이 필드는 Azure Database for PostgreSQL을 호스트하는 구독으로 미리 채워져 있습니다. |

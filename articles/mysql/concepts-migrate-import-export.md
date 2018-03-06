@@ -1,19 +1,19 @@
 ---
-title: "Azure Database for MySQL의 가져오기 및 내보내기 | Microsoft Docs"
+title: "Azure Database for MySQL의 가져오기 및 내보내기"
 description: "이 문서에서는 MySQL Workbench와 같은 도구를 사용하여 Azure Database for MySQL에서 데이터베이스를 가져오고 내보내는 일반적인 방법을 설명합니다."
 services: mysql
-author: v-chenyh
-ms.author: v-chenyh
-manager: jhubbard
+author: ajlam
+ms.author: andrela
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 11/02/2017
-ms.openlocfilehash: 36ffa7082ce60093cbd90d0c12187e28f517646d
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.date: 02/28/2018
+ms.openlocfilehash: f15811cd44e405ee33d9ba3d565c2982e71a80c0
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="migrate-your-mysql-database-by-using-import-and-export"></a>가져오기 및 내보내기를 사용하여 MySQL 데이터베이스 마이그레이션
 이 문서에서는 MySQL Workbench를 사용하여 Azure Database for MySQL 서버로 데이터를 가져오고 내보내는 두 가지 일반적인 방법을 설명합니다. 
@@ -85,7 +85,7 @@ MySQL Workbench에는 데이터 내보내기 및 가져오기 방법이 2가지 
 다음 예제에서는 CSV 파일에서 테이블을 가져옵니다.
 1. 가져올 데이터베이스의 테이블을 마우스 오른쪽 단추로 클릭합니다. 
 2. 가져올 CSV 파일을 찾아서 선택한 후 **다음**을 클릭합니다. 
-3. 대상 테이블(신규 또는 기존)을 선택하고 **가져오기 전에 테이블 자르기** 확인란을 선택하거나 선택 취소합니다. **다음**을 누릅니다.
+3. 대상 테이블(신규 또는 기존)을 선택하고 **가져오기 전에 테이블 자르기** 확인란을 선택하거나 선택 취소합니다. **다음**을 클릭합니다.
 4. 가져올 인코딩 및 열을 선택한 후 **다음**을 클릭합니다. 
 5. **데이터 가져오기** 페이지에서 **다음**을 클릭합니다. 마법사는 그에 따라 데이터를 가져옵니다.
 

@@ -1,24 +1,24 @@
 ---
-title: "PostgreSQL용 Azure Database에서 가져오기 및 내보내기를 사용한 데이터베이스 마이그레이션 | Microsoft Docs"
+title: "Azure Database for PostgreSQL에서 가져오기 및 내보내기를 사용하여 데이터베이스 마이그레이션"
 description: "PostgreSQL 데이터베이스를 스크립트 파일로 추출하고 데이터를 해당 파일에서 대상 데이터베이스로 가져오는 방법을 설명합니다."
 services: postgresql
-author: SaloniSonpal
-ms.author: salonis
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 11/03/2017
-ms.openlocfilehash: ddbfd9ef8b2ae4c3c851afc18b010b234b654c81
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.date: 02/28/2018
+ms.openlocfilehash: 8726badde2214a0904336f5bc73310114bcf9e91
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="migrate-your-postgresql-database-using-export-and-import"></a>내보내기 및 가져오기를 사용하여 PostgreSQL 데이터베이스 마이그레이션
 [pg_dump](https://www.postgresql.org/docs/9.3/static/app-pgdump.html)를 사용하여 PostgreSQL 데이터베이스를 스크립트 파일로 추출하고, [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html)을 사용하여 데이터를 해당 파일에서 대상 데이터베이스로 가져올 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 이 방법 가이드를 단계별로 실행하려면 다음이 필요합니다.
 - 액세스를 허용하기 위한 방화벽 규칙을 사용하는 [PostgreSQL용 Azure Database 서버](quickstart-create-server-database-portal.md) 및 이에 속한 데이터베이스
 - [pg_dump](https://www.postgresql.org/docs/9.6/static/app-pgdump.html) 명령줄 유틸리티 설치
@@ -41,9 +41,9 @@ psql 명령줄 및 --dbname 매개 변수(-d)를 사용하여 sqp 파일에서 A
 ```bash
 psql --file=<database>.sql --host=<server name> --port=5432 --username=<user@servername> --dbname=<target database name>
 ```
-이 예제에서는 psql 유틸리티 및 이전 단계의 **testdb.sql**이라는 스크립트 파일을 사용하여 데이터를 대상 서버 **mypgserver-20170401.postgres.database.azure.com**의 데이터베이스 **mypgsqldb**로 가져옵니다.
+이 예제에서는 psql 유틸리티 및 이전 단계의 **testdb.sql**이라는 스크립트 파일을 사용하여 대상 서버 **mydemoserver.postgres.database.azure.com**의 **mypgsqldb** 데이터베이스로 데이터를 가져옵니다.
 ```bash
-psql --file=testdb.sql --host=mypgserver-20170401.database.windows.net --port=5432 --username=mylogin@mypgserver-20170401 --dbname=mypgsqldb
+psql --file=testdb.sql --host=mydemoserver.database.windows.net --port=5432 --username=mylogin@mydemoserver --dbname=mypgsqldb
 ```
 
 ## <a name="next-steps"></a>다음 단계

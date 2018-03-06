@@ -1,19 +1,19 @@
 ---
-title: "Azure Portal에서 Azure Database for MySQL에 대한 서버 로그 구성 및 액세스 | Microsoft Docs"
+title: "Azure Portal에서 Azure Database for MySQL에 대한 서버 로그 구성 및 액세스"
 description: "이 문서에서는 Azure Portal에서 Azure Database for MySQL의 서버 로그를 구성 및 액세스하는 방법을 설명합니다."
 services: mysql
 author: rachel-msft
 ms.author: raagyema
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 10/19/2017
-ms.openlocfilehash: 89674c133b458c16fbdacd771be24830624dde7c
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.date: 02/28/2018
+ms.openlocfilehash: b68d92688b18e69f74c0e0a9b2e572795a288579
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="configure-and-access-server-logs-in-the-azure-portal"></a>Azure Portal에서 서버 로그 구성 및 액세스
 
@@ -26,7 +26,7 @@ Azure Portal에서 [Azure Database for MySQL 서버 로그](concepts-server-logs
 ## <a name="configure-logging"></a>로깅 구성
 MySQL 느린 쿼리 로그에 대한 액세스를 구성합니다. 
 
-1. [Azure 포털](http://portal.azure.com/)에 로그인합니다.
+1. [Azure Portal](http://portal.azure.com/)에 로그인합니다.
 
 2. Azure Database for MySQL 서버를 선택합니다.
 
@@ -35,19 +35,13 @@ MySQL 느린 쿼리 로그에 대한 액세스를 구성합니다.
 
 4. 서버 매개 변수를 보려면 제목 **로그를 사용하도록 설정하고 로그 매개 변수를 구성하려면 여기를 클릭합니다**를 선택합니다.
 
-5. 사용 가능한 매개 변수의 확장 목록을 보려면 **자세히 표시** 확장기를 선택합니다. 
-
-   매개 변수 정의에 대한 자세한 내용은 [로그](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html)에 대한 MySQL 설명서를 참조하세요.
-
-   ![긴 목록을 보려면 자세히 표시를 클릭합니다.](./media/howto-configure-server-logs-in-portal/2-show-more.png)
-
-6. 조정해야 하는 매개 변수를 변경합니다. 이 세션에서 변경할 내용은 모두 자주색으로 강조 표시되어 있습니다. 
+5. 조정해야 하는 매개 변수를 변경합니다. 이 세션에서 변경할 내용은 모두 자주색으로 강조 표시되어 있습니다. 
 
    매개 변수를 변경한 다음 **저장**을 클릭합니다. 또는 변경 사항을 **취소**할 수 있습니다.
 
    ![저장 또는 제거 클릭](./media/howto-configure-server-logs-in-portal/3-save-discard.png)
 
-7. **서버 매개 변수** 페이지에서 **닫기 단추**(X 아이콘)를 클릭하여 로그 목록으로 돌아갑니다.
+6. **서버 매개 변수** 페이지에서 **닫기 단추**(X 아이콘)를 클릭하여 로그 목록으로 돌아갑니다.
 
 ## <a name="view-list-and-download-logs"></a>목록 보기 및 로그 다운로드
 로깅이 시작되면 사용 가능한 로그 목록을 보고 서버 로그 창에서 개별 로그 파일을 다운로드할 수 있습니다. 
