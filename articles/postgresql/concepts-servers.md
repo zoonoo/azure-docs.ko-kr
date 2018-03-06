@@ -1,21 +1,21 @@
 ---
-title: "PostgreSQL용 Azure 데이터베이스의 서버 개념 | Microsoft Docs"
-description: "이 항목에서는 Azure Database for PostgreSQL 서버를 구성하고 관리하는 고려 사항 및 지침을 제공합니다."
+title: "Azure Database for PostgreSQL의 서버 개념"
+description: "이 문서에서는 Azure Database for PostgreSQL 서버 구성 및 관리를 위한 고려 사항 및 지침을 제공합니다."
 services: postgresql
-author: SaloniSonpal
-ms.author: salonis
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 12/02/2017
-ms.openlocfilehash: d7eec2735e48f57500eb2ea822f0949d2ec2e585
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.date: 02/28/2018
+ms.openlocfilehash: 2db18b014606799bdf5707c4c19f363bbc323e5c
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/28/2018
 ---
-# <a name="azure-database-for-postgresql-servers"></a>PostgreSQL용 Azure 데이터베이스 서버
+# <a name="azure-database-for-postgresql-servers"></a>Azure Database for PostgreSQL 서버
 이 문서에서는 Azure Database for PostgreSQL 서버를 사용할 때의 고려 사항 및 지침을 제공합니다.
 
 ## <a name="what-is-an-azure-database-for-postgresql-server"></a>PostgreSQL용 Azure 데이터베이스 서버란?
@@ -33,7 +33,7 @@ PostgreSQL용 Azure 데이터베이스 서버:
 - 여러 버전으로 제공됩니다. 자세한 내용은 [지원되는 PostgreSQL 데이터베이스 버전](concepts-supported-versions.md)을 참조하세요.
 - 사용자가 확장할 수 있습니다. 자세한 내용은 [PostgreSQL 확장](concepts-extensions.md)을 참조하세요.
 
-PostgreSQL 서버용 Azure Database 내에서 하나 이상의 데이터베이스를 만들 수 있습니다. 서버당 단일 데이터베이스를 만들어 모든 리소스를 활용하도록 하거나 여러 데이터베이스를 만들어 리소스를 공유하도록 할 수 있습니다. 가격은 가격 책정 계층, 계산 단위, 저장소(GB)의 구성에 따라 서버별로 구성됩니다. 자세한 내용은 [가격 책정 계층](./concepts-service-tiers.md)을 참조하세요.
+PostgreSQL 서버용 Azure Database 내에서 하나 이상의 데이터베이스를 만들 수 있습니다. 서버당 단일 데이터베이스를 만들어 모든 리소스를 활용하도록 하거나 여러 데이터베이스를 만들어 리소스를 공유하도록 할 수 있습니다. 가격은 가격 책정 계층, vCore, 저장소(GB)의 구성에 따라 서버별로 구성됩니다. 자세한 내용은 [가격 책정 계층](./concepts-pricing-tiers.md)을 참조하세요.
 
 ## <a name="how-do-i-connect-and-authenticate-to-an-azure-database-for-postgresql-server"></a>PostgreSQL용 Azure 데이터베이스 서버에 연결하고 인증을 받으려면 어떻게 해야 하나요?
 다음과 같은 요소를 활용하면 데이터베이스에 안전하게 액세스할 수 있습니다.
@@ -56,6 +56,6 @@ Azure Database for PostgreSQL에서 구성 가능한 매개 변수는 Postgres�
 
 ## <a name="next-steps"></a>다음 단계
 - 서비스 개요를 보려면 [PostgreSQL용 Azure 데이터베이스 개요](overview.md)를 참조하세요.
-- **서비스 계층**에 따른 특정 리소스 할당량 및 제한 사항에 대한 자세한 내용은 [서비스 계층](concepts-service-tiers.md)을 참조하세요.
+- **서비스 계층**에 따른 특정 리소스 할당량 및 제한 사항에 대한 자세한 내용은 [서비스 계층](concepts-pricing-tiers.md)을 참조하세요.
 - 서비스 연결에 대한 자세한 내용은 [PostgreSQL용 Azure 데이터베이스에 대한 연결 라이브러리](concepts-connection-libraries.md)를 참조하세요.
 - [Azure Portal](howto-configure-server-parameters-using-portal.md) 또는 [Azure CLI](howto-configure-server-parameters-using-cli.md)를 통해 서버 매개 변수를 보고 편집합니다.

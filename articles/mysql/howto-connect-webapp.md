@@ -1,25 +1,25 @@
 ---
-title: "기존 Azure App Service를 Azure Database for MySQL에 연결 | Microsoft Docs"
+title: "기존 Azure App Service를 Azure Database for MySQL에 연결"
 description: "기존 Azure App Service를 Azure Database for MySQL에 적절하게 연결하는 방법에 대한 지침"
 services: mysql
-author: v-chenyh
-ms.author: v-chenyh
+author: ajlam
+ms.author: andrela
 editor: jasonwhowell
-manager: jhubbard
+manager: kfile
 ms.service: mysql-database
 ms.topic: article
-ms.date: 09/15/2017
-ms.openlocfilehash: 0028b0c918b573f6884e6f63fa82dbe23079882a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/28/2018
+ms.openlocfilehash: d8b130876e5fa0f2b2322dff82013a409ff7d30e
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="connect-an-existing-azure-app-service-to-azure-database-for-mysql-server"></a>기존 Azure App Service를 Azure Database for MySQL 서버에 연결
 이 항목에서는 기존 Azure App Service를 Azure Database for MySQL 서버에 연결하는 방법을 설명합니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
-[Azure 포털](https://portal.azure.com)에 로그인합니다. Azure Database for MySQL 서버를 만듭니다. 자세한 내용은 [포털에서 Azure Database for MySQL 서버 만들기](quickstart-create-mysql-server-database-using-azure-portal.md) 또는 [CLI를 사용하여 Azure Database for MySQL 서버 만들기](quickstart-create-mysql-server-database-using-azure-cli.md)를 참조하세요.
+[Azure 포털](https://portal.azure.com) 에 로그인합니다. Azure Database for MySQL 서버를 만듭니다. 자세한 내용은 [포털에서 Azure Database for MySQL 서버 만들기](quickstart-create-mysql-server-database-using-azure-portal.md) 또는 [CLI를 사용하여 Azure Database for MySQL 서버 만들기](quickstart-create-mysql-server-database-using-azure-cli.md)를 참조하세요.
 
 현재 Azure App Service에서 Azure Database for MySQL로의 액세스를 가능하게 하는 두 가지 솔루션이 있습니다. 두 솔루션 모두 서버 수준 방화벽 규칙 설정 작업이 포함됩니다.
 

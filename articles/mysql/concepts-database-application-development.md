@@ -1,19 +1,19 @@
 ---
-title: "MySQL용 Azure 데이터베이스에 대한 데이터베이스 응용 프로그램 개발 개요 | Microsoft Docs"
+title: "Azure Database for MySQL에 대한 데이터베이스 응용 프로그램 개발 개요"
 description: "개발자가 MySQL용 Azure 데이터베이스에 연결하기 위한 응용 프로그램 코드를 작성할 때 따라야 하는 디자인 고려 사항을 소개합니다."
 services: mysql
-author: v-chenyh
-ms.author: v-chenyh
-manager: jhubbard
+author: ajlam
+ms.author: andrela
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 09/29/2017
-ms.openlocfilehash: 6a9bd8f88383b5186e470163bc67f9233172fd49
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/28/2018
+ms.openlocfilehash: 1a3f517221c7e22d87dec5d0fc6f11c1bed16505
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="application-development-overview-for-azure-database-for-mysql"></a>MySQL용 Azure 데이터베이스에 대한 응용 프로그램 개발 개요 
 이 문서에서는 개발자가 Azure Database for MySQL에 연결하기 위한 응용 프로그램 코드를 작성할 때 따라야 하는 디자인 고려 사항을 설명합니다. 

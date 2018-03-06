@@ -1,25 +1,25 @@
 ---
-title: "Azure Portal에서 PostgreSQL용 서버 로그 구성 및 액세스 | Microsoft Docs"
+title: "Azure Portal에서 PostgreSQL용 서버 로그 구성 및 액세스"
 description: "이 문서에서는 Azure Portal에서 Azure Database for PostgreSQL의 서버 로그를 구성 및 액세스하는 방법을 설명합니다."
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 10/19/2017
-ms.openlocfilehash: a2f67b21293a1a0456b27cad9043be01fdd5274a
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.date: 02/28/2018
+ms.openlocfilehash: aa9823c65b342f922ca78a51ecd3055dfac62869
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="configure-and-access-server-logs-in-the-azure-portal"></a>Azure Portal에서 서버 로그 구성 및 액세스
 
 Azure Portal에서 [Azure Database for PostgreSQL 서버 로그](concepts-server-logs.md)를 구성, 나열 및 다운로드할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 이 방법 가이드를 단계별로 실행하려면 다음이 필요합니다.
 - [Azure Database for PostgreSQL 서버](quickstart-create-server-database-portal.md)
 
@@ -36,19 +36,13 @@ Azure Portal에서 [Azure Database for PostgreSQL 서버 로그](concepts-server
 
 4. 서버 매개 변수를 보려면 제목 **로그를 사용하도록 설정하고 로그 매개 변수를 구성하려면 여기를 클릭합니다**를 선택합니다.
 
-5. 사용 가능한 매개 변수의 확장 목록을 보려면 **자세히 표시** 확장기를 선택합니다. 
-
-   매개 변수 정의에 대한 자세한 내용은 PostgreSQL 설명서의 [Error Reporting and Logging](https://www.postgresql.org/docs/current/static/runtime-config-logging.html)(오류 보고 및 로깅)을 참조하세요.
-
-   ![로그 매개 변수의 간단한 목록입니다. 긴 목록을 보려면 자세히 표시를 클릭합니다.](./media/howto-configure-server-logs-in-portal/2-show-more.png)
-
-6. 조정해야 하는 매개 변수를 변경합니다. 이 세션에서 변경할 내용은 모두 자주색으로 강조 표시되어 있습니다.
+5. 조정해야 하는 매개 변수를 변경합니다. 이 세션에서 변경할 내용은 모두 자주색으로 강조 표시되어 있습니다.
 
    매개 변수를 변경한 다음 **저장**을 클릭합니다. 또는 변경 사항을 **취소**할 수 있습니다. 
 
    ![저장 또는 취소할 변경 사항이 있는 매개 변수의 긴 목록입니다.](./media/howto-configure-server-logs-in-portal/3-save-discard.png)
 
-7. **서버 매개 변수** 페이지에서 **닫기 단추**(X 아이콘)를 클릭하여 로그 목록으로 돌아갑니다.
+6. **서버 매개 변수** 페이지에서 **닫기 단추**(X 아이콘)를 클릭하여 로그 목록으로 돌아갑니다.
 
 ## <a name="view-list-and-download-logs"></a>목록 보기 및 로그 다운로드
 로깅이 시작되면 사용 가능한 로그 목록을 보고 서버 로그 창에서 개별 로그 파일을 다운로드할 수 있습니다. 
