@@ -16,11 +16,11 @@ ms.topic: hero-article
 ms.date: 01/05/2018
 ms.author: markgal;jimpark
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b91da3e3c99cec3a63d747062d4ae9f62720a872
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: fdaf1349ddf623e2634360e891d959105c504093
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vaults"></a>Recovery Services 자격 증명 모음에 Azure Virtual Machines 백업
 
@@ -239,7 +239,7 @@ Recovery Services 자격 증명 모음을 만들려면:
 
     ![워크로드 선택](./media/backup-azure-arm-vms-prepare/select-vms-to-backup.png)
 
-    선택한 가상 머신의 유효성이 검사됩니다. 원하는 가상 머신이 표시되지 않으면 Recovery Services 자격 증명 모음과 같은 Azure 위치에 해당 가상 머신이 있는지 확인하세요. Recovery Services 자격 증명 모음의 위치는 자격 증명 모음 대시보드에 표시됩니다.
+    선택한 가상 머신의 유효성이 검사됩니다. 원하는 가상 머신이 표시되지 않으면 Recovery Services 자격 증명 모음과 같은 Azure 위치에 해당 가상 머신이 있고 이미 보호되고 있지 않는지 확인합니다. Recovery Services 자격 증명 모음의 위치는 자격 증명 모음 대시보드에 표시됩니다.
 
 6. 이제 자격 증명 모음의 모든 설정을 정의했으므로 Backup 블레이드에서 **Backup 사용**을 클릭하여 자격 증명 모음 및 VM에 정책을 배포합니다. 백업 정책을 배포해도 가상 머신의 초기 복구 지점이 만들어지지는 않습니다.
 

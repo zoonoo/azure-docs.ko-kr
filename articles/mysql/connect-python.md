@@ -1,24 +1,24 @@
 ---
-title: "Python에서 MySQL용 Azure Database에 연결 | Microsoft Docs"
+title: "Python에서 Azure Database for MySQL에 연결"
 description: "이 빠른 시작에서는 MySQL용 Azure Database에서 데이터를 연결하고 쿼리하는 데 사용할 수 있는 몇 가지 Python 코드 샘플을 제공합니다."
 services: mysql
 author: jasonwhowell
 ms.author: jasonh
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.custom: mvc
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 09/22/2017
-ms.openlocfilehash: 057a3bdb9a70c09fdd95cc02cc664db29e6c2f69
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.date: 02/28/2018
+ms.openlocfilehash: 4003c1258fcc0a6d04c4ae8d234eba4d0224b8a0
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-database-for-mysql-use-python-to-connect-and-query-data"></a>MySQL용 Azure Database: Python을 사용하여 데이터 연결 및 쿼리
-이 빠른 시작에서는 [Python](https://python.org)을 사용하여 MySQL용 Azure Database에 연결하는 방법을 보여 줍니다. SQL 문을 사용하여 Mac OS, Ubuntu Linux 및 Windows 플랫폼에서 데이터베이스의 데이터를 쿼리, 삽입, 업데이트 및 삭제합니다. 이 항목에서는 Python을 사용하여 개발하는 데 익숙하고 MySQL용 Azure Database를 처음 사용한다고 가정합니다. SDK 세부 정보에 대한 자세한 내용은 [Python SDK 참조용 Azure MySQL 라이브러리](/python/api/overview/azure/mysql) 설명서 및 [MySQL 커넥터 샘플](https://dev.mysql.com/doc/connector-python/en/connector-python-example-connecting.html)을 참조하세요.
+이 빠른 시작에서는 [Python](https://python.org)을 사용하여 MySQL용 Azure Database에 연결하는 방법을 보여 줍니다. SQL 문을 사용하여 Mac OS, Ubuntu Linux 및 Windows 플랫폼에서 데이터베이스의 데이터를 쿼리, 삽입, 업데이트 및 삭제합니다. 이 항목에서는 Python을 사용하여 개발하는 데 익숙하고 MySQL용 Azure Database를 처음 사용한다고 가정합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 이 빠른 시작에서는 다음과 같은 가이드 중 하나에서 만들어진 리소스를 시작 지점으로 사용합니다.
@@ -61,11 +61,10 @@ ms.lasthandoff: 02/14/2018
 MySQL용 Azure Database에 연결하는 데 필요한 연결 정보를 가져옵니다. 정규화된 서버 이름 및 로그인 자격 증명이 필요합니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. Azure Portal의 왼쪽 메뉴에서 **모든 리소스**를 클릭하고 만든 서버를 검색합니다(예: **myserver4demo**).
-3. **myserver4demo** 서버 이름을 클릭합니다.
-4. 서버의 **속성** 페이지를 선택합니다. **서버 이름** 및 **서버 관리자 로그인 이름**을 기록해 둡니다.
- ![MySQL용 Azure Database - 서버 관리자 로그인](./media/connect-python/1_server-properties-name-login.png)
-5. 서버 로그인 정보를 잊어버린 경우 **개요** 페이지로 이동하여 서버 관리자 로그인 이름을 확인하고 필요한 경우 암호를 다시 설정합니다.
+2. Azure Portal의 왼쪽 메뉴에서 **모든 리소스**를 클릭한 다음, 방금 만든 서버를 검색합니다(예: **mydemoserver**).
+3. 서버 이름을 클릭합니다.
+4. 서버의 **개요** 패널에 있는 **서버 이름**과 **서버 관리자 로그인 이름**을 기록해 둡니다. 암호를 잊어버리면 이 패널에서 암호를 재설정할 수 있습니다.
+ ![MySQL용 Azure Database 서버 이름](./media/connect-python/1_server-overview-name-login.png)
    
 
 ## <a name="run-python-code"></a>Python 코드 실행
@@ -85,8 +84,8 @@ from mysql.connector import errorcode
 
 # Obtain connection string information from the portal
 config = {
-  'host':'myserver4demo.mysql.database.azure.com',
-  'user':'myadmin@myserver4demo',
+  'host':'mydemoserver.mysql.database.azure.com',
+  'user':'myadmin@mydemoserver',
   'password':'yourpassword',
   'database':'quickstartdb'
 }
@@ -141,8 +140,8 @@ from mysql.connector import errorcode
 
 # Obtain connection string information from the portal
 config = {
-  'host':'myserver4demo.mysql.database.azure.com',
-  'user':'myadmin@myserver4demo',
+  'host':'mydemoserver.mysql.database.azure.com',
+  'user':'myadmin@mydemoserver',
   'password':'yourpassword',
   'database':'quickstartdb'
 }
@@ -190,8 +189,8 @@ from mysql.connector import errorcode
 
 # Obtain connection string information from the portal
 config = {
-  'host':'myserver4demo.mysql.database.azure.com',
-  'user':'myadmin@myserver4demo',
+  'host':'mydemoserver.mysql.database.azure.com',
+  'user':'myadmin@mydemoserver',
   'password':'yourpassword',
   'database':'quickstartdb'
 }
@@ -234,8 +233,8 @@ from mysql.connector import errorcode
 
 # Obtain connection string information from the portal
 config = {
-  'host':'myserver4demo.mysql.database.azure.com',
-  'user':'myadmin@myserver4demo',
+  'host':'mydemoserver.mysql.database.azure.com',
+  'user':'myadmin@mydemoserver',
   'password':'yourpassword',
   'database':'quickstartdb'
 }
