@@ -12,16 +12,16 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/22/2017
+ms.date: 02/23/2018
 ms.author: ryanwi
-ms.openlocfilehash: 23adc7fa6ee53d1c5edd10b2772f8825dbcef2a8
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 7c8563539ca8507f05fa99fdeffbf511b1540a6a
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="sfctl"></a>sfctl 
-Service Fabric 클러스터 및 엔터티 관리를 위한 명령. 이 버전은 Service Fabric 6.0 런타임과 호환됩니다. 명령은 명사 - 동사 패턴을 따릅니다. 자세한 내용은 다음 하위 그룹을 참조하세요.
+Service Fabric 클러스터 및 엔터티 관리를 위한 명령. 이 버전은 Service Fabric 6.1 런타임과 호환됩니다. 명령은 명사 - 동사 패턴을 따릅니다. 자세한 내용은 다음 하위 그룹을 참조하세요.
 
 ## <a name="subgroups"></a>하위 그룹
 |하위 그룹|설명|
@@ -32,7 +32,8 @@ Service Fabric 클러스터 및 엔터티 관리를 위한 명령. 이 버전은
 | [compose](service-fabric-sfctl-compose.md) | Docker Compose 응용 프로그램을 생성, 삭제 및 관리합니다.|
 | [is](service-fabric-sfctl-is.md)      | 쿼리하고 인프라 서비스에 명령을 보냅니다.|
 | [node](service-fabric-sfctl-node.md)    | 클러스터를 형성하는 노드를 관리합니다.|
-| [partition](service-fabric-sfctl-partition.md)  | 모든 서비스에 대한 파티션을 쿼리하고 관리합니다.|
+| [partition](service-fabric-sfctl-partition.md)  | 모든 서비스에 대한 파티션을 쿼리 및 관리합니다.|
+| 속성  | Service Fabric 이름 아래에 있는 저장소 및 쿼리 속성입니다.|
 | [rpm](service-fabric-sfctl-rpm.md)        | 복구 관리자 서비스에 쿼리하고 명령을 보냅니다.|
 | [replica](service-fabric-sfctl-replica.md) | 서비스 파티션에 속하는 복제본을 관리합니다.|
 | [service](service-fabric-sfctl-service.md) | 서비스, 서비스 유형 및 서비스 패키지를 생성, 삭제 및 관리합니다.|

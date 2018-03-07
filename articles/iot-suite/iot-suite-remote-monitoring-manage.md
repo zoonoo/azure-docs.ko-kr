@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 12/12/2017
+ms.date: 02/22/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: fab3fd4163141aadc06b385f5759c19eece7fd14
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 66005b78a368c15a463844b3f098eac9fd64f621
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="manage-and-configure-your-devices"></a>장치 관리 및 구성
 
@@ -42,11 +42,11 @@ Contoso는 출력 향상을 위해 해당 시설 중 하나를 확장하는 새�
 
 ## <a name="add-a-simulated-device"></a>시뮬레이트된 장치 추가
 
-솔루션의 **장치** 페이지로 이동한 다음 **새 장치**를 선택합니다. **새 장치** 패널에서 **시뮬레이션**을 선택합니다.
+솔루션의 **장치** 페이지로 이동한 다음, **+새 장치**를 선택합니다. **새 장치** 패널에서 **시뮬레이션**을 선택합니다.
 
 ![시뮬레이트된 장치 프로비전](media/iot-suite-remote-monitoring-manage/devicesprovision.png)
 
-**1**로 설정된 프로비전하는 장치의 수를 그대로 둡니다. **장치 모델**로 **결함이 있는 엔진**을 선택한 후 **적용**을 선택하여 시뮬레이트된 장치를 만듭니다.
+**1**로 설정된 프로비전하는 장치의 수를 그대로 둡니다. **결함이 있는 엔진** 장치 모델을 선택한 다음, **적용**을 선택하여 시뮬레이트된 장치를 만듭니다.
 
 ![시뮬레이트된 엔진 장치 프로비전](media/iot-suite-remote-monitoring-manage/devicesprovisionengine.png)
 

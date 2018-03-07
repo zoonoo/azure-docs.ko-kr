@@ -13,13 +13,13 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 02/07/2018
 ms.author: glenga
-ms.openlocfilehash: 90a192f58f0e4b285f7aece8a3555c08df051f38
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: f43132beb0abae3d4bdf0f538de1b437e6099822
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure Functions 트리거 및 바인딩 개념
 
@@ -43,7 +43,51 @@ Azure Portal을 사용하여 함수를 개발하는 경우 트리거 및 바인�
 
 미리 보기 상태 바인딩 또는 프로덕션 용도로 승인된 바인딩에 대한 자세한 내용은 [지원되는 언어](supported-languages.md)를 참조하세요.
 
-## <a name="example-queue-trigger-and-table-output-binding"></a>예: 큐 트리거 및 테이블 출력 바인딩
+## <a name="register-binding-extensions"></a>바인딩 확장 등록
+
+Azure Functions 런타임의 2.x 버전에서는 함수 앱에서 사용하는 [바인딩 확장](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/README.md)을 명시적으로 등록해야 합니다. 
+
+확장은 패키지 이름이 일반적으로 [microsoft.azure.webjobs.extensions](https://www.nuget.org/packages?q=microsoft.azure.webjobs.extensions)로 시작하는 NuGet 패키지로 제공됩니다.  바인딩 확장을 설치하고 등록하는 방법은 함수를 개발하는 방법에 따라 달라집니다. 
+
++ [Visual Studio 또는 VS Code를 사용하여 C#에서 로컬로](#precompiled-functions-c)
++ [Azure Functions 핵심 도구를 사용하여 로컬로](#local-development-azure-functions-core-tools)
++ [Azure Portal에서](#azure-portal-development) 
+
+2.x 버전에는 확장으로 제공되지 않는 바인딩 확장 핵심 집합이 있습니다. HTTP, 타이머 및 Azure Storage와 같은 트리거 및 바인딩에 대한 확장을 등록할 필요가 없습니다. 
+
+2.x 버전의 Functions 런타임을 사용하도록 함수 앱을 설정하는 방법에 대한 내용은 [Azure Functions 런타임 버전을 대상으로 지정하는 방법](set-runtime-version.md)을 참조하세요. Functions 런타임의 버전 2.x는 현재 미리 보기로 제공됩니다. 
+
+이 섹션에 표시된 패키지 버전은 예제로만 제공됩니다. 함수 앱의 다른 종속성에 필요한 지정된 확장 버전은 [NuGet.org 사이트](https://www.nuget.org/packages?q=microsoft.azure.webjobs.extensions)에서 확인하세요.    
+
+###  <a name="local-c-development-using-visual-studio-or-vs-code"></a>Visual Studio 또는 VS Code를 사용한 로컬 C# 개발 
+
+Visual Studio 또는 Visual Studio Code를 사용하여 C#에서 로컬로 함수를 개발하려면 확장을 위한 NuGet 패키지를 추가하기만 하면 됩니다. 
+
++ **Visual Studio**: NuGet 패키지 관리자 도구를 사용합니다. 다음 [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) 명령은 패키지 관리자 콘솔에서 Azure Cosmos DB 확장 프로그램을 설치합니다.
+
+    ```
+    Install-Package Microsoft.Azure.WebJobs.Extensions.CosmosDB -Version 3.0.0-beta6 
+    ```
++ **Visual Studio Code**: 다음과 같이 .NET CLI에서 [dotnet add package](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) 명령을 사용하여 명령 프롬프트에서 패키지를 설치할 수 있습니다.
+
+    ```
+    dotnet add package Microsoft.Azure.WebJobs.Extensions.CosmosDB --version 3.0.0-beta6 
+    ```
+
+### <a name="local-development-azure-functions-core-tools"></a>Azure Functions 핵심 도구 로컬 개발
+
+[!INCLUDE [Full bindings table](../../includes/functions-core-tools-install-extension.md)]
+
+### <a name="azure-portal-development"></a>Azure Portal 개발
+
+함수를 만들거나 기존 함수에 바인딩을 추가할 때 추가되는 트리거 또는 바인딩에 대한 확장에 등록이 필요한 경우 메시지가 표시됩니다.   
+
+설치되는 특정 확장에 대한 경고가 나타나면 **설치**를 클릭하여 확장을 등록할 수 있습니다. 지정된 함수 앱에 대해 각 확장을 한 번만 등록하면 됩니다. 
+
+>[!Note] 
+>포털 내 설치 프로세스는 소비 계획에 대해 최대 10분이 소요될 수 있습니다.
+
+## <a name="example-trigger-and-binding"></a>예제 트리거 및 바인딩
 
 Azure Queue 저장소에 새 메시지가 나타날 때마다 Azure Table 저장소에 새 행을 쓰려는 경우를 가정하겠습니다. 이 시나리오는 Azure Queue 저장소 트리거 및 Azure Table 저장소 출력 바인딩을 사용하여 구현할 수 있습니다. 
 
@@ -124,7 +168,7 @@ function generateRandomId() {
 }
 ```
 
-클래스 라이브러리에서 동일한 트리거 및 바인딩 정보 &mdash; 큐 및 테이블 이름, 저장소 계정, 입력 및 출력에 대한 함수 매개 변수 &mdash;는 특성에 의해 제공됩니다.
+클래스 라이브러리에서 동일한 트리거 및 바인딩 정보(큐 및 테이블 이름, 저장소 계정, 입력 및 출력에 대한 함수 매개 변수)는 function.json 파일 대신 특성에 의해 제공됩니다. 예를 들면 다음과 같습니다.
 
 ```csharp
  public static class QueueTriggerTableOutput
@@ -162,12 +206,53 @@ function generateRandomId() {
 
 [클래스 라이브러리의 특성](functions-dotnet-class-library.md)을 사용하여 트리거 및 바인딩을 구성하는 경우 방향은 특성 생성자에서 제공되거나 매개 변수 형식에서 유추됩니다.
 
-## <a name="using-the-function-return-type-to-return-a-single-output"></a>함수 반환 유형을 사용하여 단일 출력 반환
+## <a name="using-the-function-return-value"></a>함수 반환 값 사용
 
-위의 예제는 함수 반환 값을 사용하여 바인딩에 출력을 제공하는 방법을 보여 줍니다. 이 경우 `name` 속성에 대한 특수 값 `$return`을 사용하여 *function.json*에서 지정됩니다. (C# 스크립트, JavaScript, F#과 같이 반환 값이 있는 언어에서만 지원됩니다.) 함수에 복수의 출력 바인딩이 있는 경우 출력 바인딩 중 하나에 대해서만 `$return`을 사용합니다. 
+반환 값이 있는 언어에서 출력 바인딩을 반환 값에 바인딩할 수 있습니다.
+
+* C# 클래스 라이브러리에서 출력 바인딩 특성을 메서드 반환 값에 적용합니다.
+* 다른 언어에서 *function.json*의 `name` 속성을 `$return`에 설정합니다.
+
+한 항목 초과를 작성해야 하는 경우 반환 값 대신 [collector 개체](functions-reference-csharp.md#writing-multiple-output-values)를 사용합니다. 여러 개의 출력 바인딩이 있으면 둘 중 하나에 대한 반환 값을 사용합니다.
+
+언어 관련 예제를 참조하세요.
+
+* [C#](#c-example)
+* [C# 스크립트(.csx)](#c-script-example)
+* [F#](#f-example)
+* [JavaScript](#javascript-example)
+
+### <a name="c-example"></a>C# 예제
+
+다음은 출력 바인딩에 대한 반환 값을 사용하는 C# 코드이며, 그 뒤에 비동기 예제가 나와 있습니다.
+
+```cs
+[FunctionName("QueueTrigger")]
+[return: Blob("output-container/{id}")]
+public static string Run([QueueTrigger("inputqueue")]WorkItem input, TraceWriter log)
+{
+    string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
+    log.Info($"C# script processed queue message. Item={json}");
+    return json;
+}
+```
+
+```cs
+[FunctionName("QueueTrigger")]
+[return: Blob("output-container/{id}")]
+public static Task<string> Run([QueueTrigger("inputqueue")]WorkItem input, TraceWriter log)
+{
+    string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
+    log.Info($"C# script processed queue message. Item={json}");
+    return Task.FromResult(json);
+}
+```
+
+### <a name="c-script-example"></a>C# 스크립트 예제
+
+*function.json* 파일의 출력 바인딩은 다음과 같습니다.
 
 ```json
-// excerpt of function.json
 {
     "name": "$return",
     "type": "blob",
@@ -176,10 +261,9 @@ function generateRandomId() {
 }
 ```
 
-아래 예제는 C# 스크립트, JavaScript, F#에서 반환 형식이 출력 바인딩과 함께 사용되는 방식을 보여 줍니다.
+다음은 C# 스크립트 코드로, 그 뒤에 비동기 예제가 나와 있습니다.
 
 ```cs
-// C# example: use method return value for output binding
 public static string Run(WorkItem input, TraceWriter log)
 {
     string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
@@ -189,7 +273,6 @@ public static string Run(WorkItem input, TraceWriter log)
 ```
 
 ```cs
-// C# example: async method, using return value for output binding
 public static Task<string> Run(WorkItem input, TraceWriter log)
 {
     string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
@@ -198,21 +281,49 @@ public static Task<string> Run(WorkItem input, TraceWriter log)
 }
 ```
 
+### <a name="f-example"></a>F# 예제
+
+*function.json* 파일의 출력 바인딩은 다음과 같습니다.
+
+```json
+{
+    "name": "$return",
+    "type": "blob",
+    "direction": "out",
+    "path": "output-container/{id}"
+}
+```
+
+F# 코드는 다음과 같습니다.
+
+```fsharp
+let Run(input: WorkItem, log: TraceWriter) =
+    let json = String.Format("{{ \"id\": \"{0}\" }}", input.Id)   
+    log.Info(sprintf "F# script processed queue message '%s'" json)
+    json
+```
+
+### <a name="javascript-example"></a>JavaScript 예제
+
+*function.json* 파일의 출력 바인딩은 다음과 같습니다.
+
+```json
+{
+    "name": "$return",
+    "type": "blob",
+    "direction": "out",
+    "path": "output-container/{id}"
+}
+```
+
+JavaScript에서 반환 값은 `context.done`에 대한 두 번째 매개 변수로 이어집니다.
+
 ```javascript
-// JavaScript: return a value in the second parameter to context.done
 module.exports = function (context, input) {
     var json = JSON.stringify(input);
     context.log('Node.js script processed queue message', json);
     context.done(null, json);
 }
-```
-
-```fsharp
-// F# example: use return value for output binding
-let Run(input: WorkItem, log: TraceWriter) =
-    let json = String.Format("{{ \"id\": \"{0}\" }}", input.Id)   
-    log.Info(sprintf "F# script processed queue message '%s'" json)
-    json
 ```
 
 ## <a name="binding-datatype-property"></a>dataType 속성 바인딩
@@ -232,13 +343,32 @@ JavaScript와 같은 동적으로 형식화되는 언어의 경우 *function.jso
 
 `dataType`에 대한 다른 옵션은 `stream` 및 `string`입니다.
 
-## <a name="resolving-app-settings"></a>앱 설정 해결
+## <a name="binding-expressions-and-patterns"></a>바인딩 식 및 패턴
 
-비밀과 연결 문자열은 구성 파일이 아닌 앱 설정을 사용하여 관리하는 것이 가장 좋습니다. 그럴 경우 이러한 비밀에 대한 액세스가 제한되고 *function.json*을 공용 원본 제어 리포지토리에 안전하게 저장할 수 있습니다.
+트리거와 바인딩의 가장 강력한 기능 중 하나는 *바인딩 식*입니다. *function.json* 파일에서 그리고 함수 매개 변수 및 코드에서 다양한 원본의 값을 확인하는 식을 사용할 수 있습니다.
+
+대부분의 식은 중괄호로 래핑하여 식별됩니다. 예를 들어 큐 트리거 함수에서 `{queueTrigger}`는 큐 메시지 텍스트를 확인합니다. blob 출력 바인딩에 대한 `path` 속성이 `container/{queueTrigger}`이고 함수가 큐 메시지 `HelloWorld`에 의해 트리거되는 경우 `HelloWorld`라는 blob이 만들어집니다.
+
+바인딩 식의 형식
+
+* [앱 설정](#binding-expressions---app-settings)
+* [트리거 파일 이름](#binding-expressions---trigger-file-name)
+* [트리거 메타데이터](#binding-expressions---trigger-metadata)
+* [JSON 페이로드](#binding-expressions---json-payloads)
+* [새 GUID](#binding-expressions---create-guids)
+* [현재 날짜 및 시간](#binding-expressions---current-time)
+
+### <a name="binding-expressions---app-settings"></a>바인딩 식 - 앱 설정
+
+비밀과 연결 문자열은 구성 파일이 아닌 앱 설정을 사용하여 관리하는 것이 가장 좋습니다. 그럴 경우 이러한 비밀에 대한 액세스가 제한되고 *function.json*과 같은 파일을 공용 원본 제어 리포지토리에 안전하게 저장할 수 있습니다.
 
 환경을 기준으로 구성을 변경하려는 경우에도 앱 설정이 유용합니다. 예를 들어 테스트 환경에서 다른 큐 또는 Blob Storage 컨테이너를 모니터링할 수 있습니다.
 
-앱 설정은 `%MyAppSetting%`과 같이 값이 퍼센트 기호로 둘러싸인 경우에만 확인됩니다. 트리거 및 바인딩의 `connection` 속성은 특수한 경우이며 앱 설정으로 값을 자동 확인합니다. 
+앱 설정 바인딩 식은 다른 바인딩 식과는 다르게 식별됩니다. 중괄호 대신 백분율 기호로 래핑됩니다. 예를 들어 blob 출력 바인딩 경로가 `%Environment%/newblob.txt`이고 `Environment` 앱 설정 값이 `Development`인 경우 blob은 `Development` 컨테이너에 생성됩니다.
+
+함수를 로컬로 실행 중인 경우 앱 설정 값은 *local.settings.json* 파일에서 가져옵니다.
+
+트리거 및 바인딩의 `connection` 속성은 특수한 경우이며, 백분율 기호 없이 앱 설정으로 값을 자동 확인합니다. 
 
 다음 예제는 `%input-queue-name%` 앱 설정을 사용하여 트리거할 큐를 정의하는 Azure Queue Storage 트리거입니다.
 
@@ -268,9 +398,75 @@ public static void Run(
 }
 ```
 
-## <a name="trigger-metadata-properties"></a>트리거 메타데이터 속성
+### <a name="binding-expressions---trigger-file-name"></a>바인딩 식 - 트리거 파일 이름
 
-트리거가 제공한 데이터 페이로드(예: 함수를 트리거한 큐 메시지) 이외에 많은 트리거가 추가 메타데이터 값을 제공합니다. 이러한 값은 C# 및 F#에서 입력 매개 변수로 사용하거나 JavaScript에서 `context.bindings` 개체의 속성으로 사용할 수 있습니다. 
+Blob 트리거에 대한 `path`는 다른 바인딩 및 함수 코드에서 blob 트리거의 이름을 참조할 수 있도록 하는 패턴일 수 있습니다. 또한 패턴은 함수 호출을 트리거할 수 있는 blob을 지정하는 필터링 조건을 포함할 수 있습니다.
+
+예를 들어, 다음 Blob 트리거 바인딩에서 `path` 패턴은 `sample-images/{filename}`으로, `filename`이라는 바인딩 식을 만듭니다.
+
+```json
+{
+  "bindings": [
+    {
+      "name": "image",
+      "type": "blobTrigger",
+      "path": "sample-images/{filename}",
+      "direction": "in",
+      "connection": "MyStorageConnection"
+    },
+    ...
+```
+
+그런 다음, 식 `filename`은 출력 바인딩에서 생성되는 blob의 이름을 지정하는 데 사용될 수 있습니다.
+
+```json
+    ...
+    {
+      "name": "imageSmall",
+      "type": "blob",
+      "path": "sample-images-sm/{filename}",
+      "direction": "out",
+      "connection": "MyStorageConnection"
+    }
+  ],
+}
+```
+
+함수 코드는 매개 변수 이름으로 `filename`을 사용하여 이 동일한 값에 액세스할 수 있습니다.
+
+```csharp
+// C# example of binding to {filename}
+public static void Run(Stream image, string filename, Stream imageSmall, TraceWriter log)  
+{
+    log.Info($"Blob trigger processing: {filename}");
+    // ...
+} 
+```
+
+<!--TODO: add JavaScript example -->
+<!-- Blocked by bug https://github.com/Azure/Azure-Functions/issues/248 -->
+
+바인딩 식 및 패턴을 사용하는 동일한 기능은 클래스 라이브러리의 특성에 적용됩니다. 다음 예제에서 특성 생성자 매개 변수는 앞의 *function.json* 예제와 동일한 `path` 값입니다. 
+
+```csharp
+[FunctionName("ResizeImage")]
+public static void Run(
+    [BlobTrigger("sample-images/{filename}")] Stream image,
+    [Blob("sample-images-sm/{filename}", FileAccess.Write)] Stream imageSmall,
+    string filename,
+    TraceWriter log)
+{
+    log.Info($"Blob trigger processing: {filename}");
+    // ...
+}
+
+```
+
+또한 확장과 같은 파일 이름 부분에 대한 식을 만들 수 있습니다. Blob 경로 문자열에서 식 및 패턴을 사용하는 방법에 대한 자세한 내용은 [저장소 blob 바인딩 참조](functions-bindings-storage-blob.md)를 확인하세요.
+ 
+### <a name="binding-expressions---trigger-metadata"></a>바인딩 식 - 트리거 메타데이터
+
+트리거가 제공한 데이터 페이로드(예: 함수를 트리거한 큐 메시지의 콘텐츠) 이외에 많은 트리거가 추가 메타데이터 값을 제공합니다. 이러한 값은 C# 및 F#에서 입력 매개 변수로 사용하거나 JavaScript에서 `context.bindings` 개체의 속성으로 사용할 수 있습니다. 
 
 예를 들어 Azure Queue 저장소 트리거는 다음 속성을 지원합니다.
 
@@ -304,112 +500,11 @@ public static void Run(
 
 각 트리거의 메타데이터 속성은 해당 참조 문서에서 자세히 설명되어 있습니다. 예를 들어 [큐 트리거 메타데이터](functions-bindings-storage-queue.md#trigger---message-metadata)를 참조하세요. 설명서는 Portal에서 **통합** 탭의 바인딩 구성 영역 아래 **설명서** 섹션에서도 참조할 수 있습니다.  
 
-## <a name="binding-expressions-and-patterns"></a>바인딩 식 및 패턴
+### <a name="binding-expressions---json-payloads"></a>바인딩 식 - JSON 페이로드
 
-트리거와 바인딩의 가장 강력한 기능 중 하나는 *바인딩 식*입니다. 바인딩에 대한 구성에서 패턴 식을 정의한 다음 다른 바인딩 또는 코드에서 이 패턴 식을 사용할 수 있습니다. 위 섹션과 같이 트리거 메타데이터도 바인딩 식에 사용할 수 있습니다.
+트리거 페이로드가 JSON인 경우 같은 함수 및 함수 코드의 다른 바인딩에 대한 구성에서 해당 속성을 참조할 수 있습니다.
 
-예를 들어 Azure Portal의 **새 함수** 페이지에서 **이미지 크기 조정** 템플릿과 같이 특정 Blob 저장소 컨테이너에서 이미지 크기를 조정하려는 경우를 가정하겠습니다(**샘플** 시나리오 참조). 
-
-*function.json* 정의는 다음과 같습니다.
-
-```json
-{
-  "bindings": [
-    {
-      "name": "image",
-      "type": "blobTrigger",
-      "path": "sample-images/{filename}",
-      "direction": "in",
-      "connection": "MyStorageConnection"
-    },
-    {
-      "name": "imageSmall",
-      "type": "blob",
-      "path": "sample-images-sm/{filename}",
-      "direction": "out",
-      "connection": "MyStorageConnection"
-    }
-  ],
-}
-```
-
-Blob 트리거 정의와 Blob 출력 바인딩에 `filename` 매개 변수가 사용됩니다. 이 매개 변수는 함수 코드에서도 사용할 수 있습니다.
-
-```csharp
-// C# example of binding to {filename}
-public static void Run(Stream image, string filename, Stream imageSmall, TraceWriter log)  
-{
-    log.Info($"Blob trigger processing: {filename}");
-    // ...
-} 
-```
-
-<!--TODO: add JavaScript example -->
-<!-- Blocked by bug https://github.com/Azure/Azure-Functions/issues/248 -->
-
-바인딩 식 및 패턴을 사용하는 동일한 기능은 클래스 라이브러리의 특성에 적용됩니다. 예를 들어 다음은 클래스 라이브러리에서 이미지 크기 조정 함수입니다.
-
-```csharp
-[FunctionName("ResizeImage")]
-[StorageAccount("AzureWebJobsStorage")]
-public static void Run(
-    [BlobTrigger("sample-images/{name}")] Stream image, 
-    [Blob("sample-images-sm/{name}", FileAccess.Write)] Stream imageSmall, 
-    [Blob("sample-images-md/{name}", FileAccess.Write)] Stream imageMedium)
-{
-    var imageBuilder = ImageResizer.ImageBuilder.Current;
-    var size = imageDimensionsTable[ImageSize.Small];
-
-    imageBuilder.Build(image, imageSmall,
-        new ResizeSettings(size.Item1, size.Item2, FitMode.Max, null), false);
-
-    image.Position = 0;
-    size = imageDimensionsTable[ImageSize.Medium];
-
-    imageBuilder.Build(image, imageMedium,
-        new ResizeSettings(size.Item1, size.Item2, FitMode.Max, null), false);
-}
-
-public enum ImageSize { ExtraSmall, Small, Medium }
-
-private static Dictionary<ImageSize, (int, int)> imageDimensionsTable = new Dictionary<ImageSize, (int, int)>() {
-    { ImageSize.ExtraSmall, (320, 200) },
-    { ImageSize.Small,      (640, 400) },
-    { ImageSize.Medium,     (800, 600) }
-};
-```
-
-### <a name="create-guids"></a>GUID 만들기
-
-`{rand-guid}` 바인딩 식은 GUID를 만듭니다. 다음 예제는 GUID를 사용하여 고유한 Blob 이름을 생성합니다. 
-
-```json
-{
-  "type": "blob",
-  "name": "blobOutput",
-  "direction": "out",
-  "path": "my-output-container/{rand-guid}"
-}
-```
-
-### <a name="current-time"></a>현재 시간
-
-바인딩 식 `DateTime`은 `DateTime.UtcNow`로 확인됩니다.
-
-```json
-{
-  "type": "blob",
-  "name": "blobOutput",
-  "direction": "out",
-  "path": "my-output-container/{DateTime}"
-}
-```
-
-## <a name="bind-to-custom-input-properties"></a>사용자 지정 입력 속성으로 바인딩
-
-바인딩 식은 트리거 페이로드 자체에 정의된 속성도 참조할 수 있습니다. 예를 들어 webhook에 제공된 파일 이름에서 Blob Storage 파일에 동적으로 바인딩하는 경우가 있습니다.
-
-예를 들어 다음 *function.json*은 트리거 페이로드에서 `BlobName`이라는 속성을 사용합니다.
+다음 예제에 JSON에서 blob 이름을 수신하는 웹후크 함수에 대한 *function.json* 파일이 나와 있습니다(`{"BlobName":"HelloWorld.txt"}`). Blob 입력 바인딩은 blob을 읽고, HTTP 출력 바인딩은 HTTP 응답에서 blob 콘텐츠를 반환합니다. Blob 입력 바인딩은 `BlobName` 속성(`"path": "strings/{BlobName}"`)을 직접 참조하여 blob 이름을 가져옵니다.
 
 ```json
 {
@@ -424,7 +519,7 @@ private static Dictionary<ImageSize, (int, int)> imageDimensionsTable = new Dict
       "name": "blobContents",
       "type": "blob",
       "direction": "in",
-      "path": "strings/{BlobName}",
+      "path": "strings/{BlobName.FileName}.{BlobName.Extension}",
       "connection": "AzureWebJobsStorage"
     },
     {
@@ -436,7 +531,7 @@ private static Dictionary<ImageSize, (int, int)> imageDimensionsTable = new Dict
 }
 ```
 
-C# 및 F#에서 이를 달성하려면 트리거 페이로드에서 deserialize되는 필드를 정의하는 POCO를 정의해야 합니다.
+이렇게 하려면 C# 및 F#에서 다음 예제와 같이 deserialize할 필드를 정의하는 클래스가 필요합니다.
 
 ```csharp
 using System.Net;
@@ -458,7 +553,7 @@ public static HttpResponseMessage Run(HttpRequestMessage req, BlobInfo info, str
 }
 ```
 
-JavaScript에서 JSON deserialization은 자동으로 실행되며 속성을 직접 사용할 수 있습니다.
+JavaScript에서 JSON deserialization은 자동으로 실행됩니다.
 
 ```javascript
 module.exports = function (context, info) {
@@ -476,9 +571,67 @@ module.exports = function (context, info) {
 }
 ```
 
-## <a name="configuring-binding-data-at-runtime"></a>런타임에 바인딩 데이터 구성
+#### <a name="dot-notation"></a>점 표기법
 
-C# 및 기타 .NET 언어에서는 *function.json* 및 특성의 바인딩과 달리 명령적 바인딩 패턴을 사용할 수 있습니다. 명령적 바인딩은 바인딩 매개 변수를 디자인 타임이 아닌 런타임에 계산해야 할 경우 유용합니다. 자세한 내용은 C# 개발자 참조에서 [명령적 바인딩을 통해 런타임 시 바인딩](functions-reference-csharp.md#imperative-bindings)을 참조하세요.
+JSON 페이로드의 속성 중 일부가 속성을 가진 개체인 경우 점 표기법을 사용하여 직접 참조할 수 있습니다. 예를 들어 JSON이 다음과 같다고 가정합니다.
+
+```json
+{"BlobName": {
+  "FileName":"HelloWorld",
+  "Extension":"txt"
+  }
+}
+```
+
+직접 `FileName`을 `BlobName.FileName`으로 참조할 수 있습니다. 이 JSON 형식을 사용할 때 이전 예제에서의 `path` 속성은 다음과 같습니다.
+
+```json
+"path": "strings/{BlobName.FileName}.{BlobName.Extension}",
+```
+
+C#에서 다음과 같은 두 개의 클래스가 필요합니다.
+
+```csharp
+public class BlobInfo
+{
+    public BlobName BlobName { get; set; }
+}
+public class BlobName
+{
+    public string FileName { get; set; }
+    public string Extension { get; set; }
+}
+```
+
+### <a name="binding-expressions---create-guids"></a>바인딩 식 - GUID 만들기
+
+`{rand-guid}` 바인딩 식은 GUID를 만듭니다. `function.json` 파일의 다음 blob 경로는 *50710cb5-84b9-4d87-9d83-a03d6976a682.txt*와 같은 이름의 blob을 만듭니다.
+
+```json
+{
+  "type": "blob",
+  "name": "blobOutput",
+  "direction": "out",
+  "path": "my-output-container/{rand-guid}"
+}
+```
+
+### <a name="binding-expressions---current-time"></a>바인딩 식 - 현재 시간
+
+바인딩 식 `DateTime`은 `DateTime.UtcNow`로 확인됩니다. `function.json` 파일의 다음 blob 경로는 *2018-02-16T17-59-55Z.txt*와 같은 이름의 blob을 만듭니다.
+
+```json
+{
+  "type": "blob",
+  "name": "blobOutput",
+  "direction": "out",
+  "path": "my-output-container/{DateTime}"
+}
+```
+
+## <a name="binding-at-runtime"></a>런타임에 바인딩
+
+C# 및 기타 .NET 언어에서는 *function.json* 및 특성의 바인딩과 달리 명령적 바인딩 패턴을 사용할 수 있습니다. 명령적 바인딩은 바인딩 매개 변수를 디자인 타임이 아닌 런타임에 계산해야 할 경우 유용합니다. 자세한 내용은 [C# 개발자 참조](functions-dotnet-class-library.md#binding-at-runtime) 또는 [C# 스크립트 개발자 참조](functions-reference-csharp.md#binding-at-runtime)를 확인하세요.
 
 ## <a name="functionjson-file-schema"></a>function.json 파일 스키마
 

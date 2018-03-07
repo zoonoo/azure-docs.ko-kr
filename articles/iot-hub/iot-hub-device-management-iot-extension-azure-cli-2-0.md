@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/16/2018
 ms.author: menchi
-ms.openlocfilehash: 760a6a30513308aa59c5e253e3b91e28cf9e3241
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: e83aa590cc41abcd661e6f0fef450833c816dac4
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="use-the-iot-extension-for-azure-cli-20-for-azure-iot-hub-device-management"></a>Azure CLI 2.0용 IoT 확장을 사용하여 Azure IoT Hub 장치 관리
 
@@ -66,7 +66,7 @@ ms.lasthandoff: 01/18/2018
 - IoT 확장을 설치합니다. 가장 간단한 방법은 `az extension add --name azure-cli-iot-ext` 명령을 사용하는 것입니다. [IoT 확장 추가 정보](https://github.com/Azure/azure-iot-cli-extension/blob/master/README.md)에는 확장을 설치하는 여러 가지 방법이 설명되어 있습니다.
 
 
-## <a name="login-to-your-azure-account"></a>Azure 계정에 로그인합니다.
+## <a name="log-in-to-your-azure-account"></a>Azure 계정에 로그인합니다.
 
 다음 명령을 실행하여 Azure 계정에 로그인합니다.
 
@@ -74,13 +74,13 @@ ms.lasthandoff: 01/18/2018
 az login
 ```
 
-## <a name="use-the-iot-extension-for-azure-cli-20-with-direct-methods"></a>직접 방법으로 Azure CLI 2.0용 IoT 확장 사용
+## <a name="direct-methods"></a>직접 메서드
 
 ```bash
 az iot hub invoke-device-method --device-id <your device id> --hub-name <your hub name> --method-name <the method name> --method-payload <the method payload>
 ```
 
-## <a name="use-the-iot-extension-for-azure-cli-20-with-twins-desired-properties"></a>Twin의 desired 속성으로 Azure CLI 2.0용 IoT 확장 사용
+## <a name="device-twin-desired-properties"></a>장치 쌍 desired 속성
 
 다음 명령을 실행하여 desired 속성의 간격(interval = 3000)을 설정합니다.
 
@@ -90,7 +90,7 @@ az iot hub device-twin update -n <your hub name> -d <your device id> --set prope
 
 이 속성은 장치에서 읽을 수 있습니다.
 
-## <a name="use-the-iot-extension-for-azure-cli-20-with-twins-reported-properties"></a>Azure CLI 2.0에 대해 Twin의 reported 속성과 함께 IoT 확장 사용
+## <a name="device-twin-reported-properties"></a>장치 쌍 reported 속성
 
 다음 명령을 실행하여 장치의 reported 속성을 가져옵니다.
 
@@ -100,7 +100,7 @@ az iot hub device-twin update -n <your hub name> -d <your device id> --set prope
 
 속성 중 하나인 $metadata.$lastUpdated는 이 장치에서 메시지를 보내거나 받은 마지막 시간을 보여 줍니다.
 
-## <a name="use-the-iot-extension-for-azure-cli-20-with-twins-tags"></a>Twin의 태그로 Azure CLI 2.0용 IoT 확장 사용
+## <a name="device-twin-tags"></a>장치 쌍 태그
 
 다음 명령을 실행하여 장치의 태그와 속성을 표시합니다.
 
@@ -114,7 +114,7 @@ az iot hub device-twin show --hub-name <your hub name> --device-id <your device 
 az iot hub device-twin update --hub-name <your hub name> --device-id <your device id> --set tags = '{"role":"temperature&humidity"}}'
 ```
 
-## <a name="use-the-iot-extension-for-azure-cli-20-with-device-twins-queries"></a>장치 Twin 쿼리로 Azure CLI 2.0용 IoT 확장 사용
+## <a name="device-twin-queries"></a>장치 쌍 쿼리
 
 다음 명령을 실행하여 role = 'temperature & humidity' 태그가 있는 장치를 쿼리합니다.
 

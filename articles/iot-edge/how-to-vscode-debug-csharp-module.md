@@ -9,11 +9,11 @@ ms.author: xshi
 ms.date: 12/06/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 46d9ca0bf6c9ddf95c147fc2eb62d275c973845e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 5ed517cf8d70cd279a55b79ad448709116cf511b
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="use-visual-studio-code-to-debug-a-c-module-with-azure-iot-edge"></a>Visual Studio Code를 사용하여 Azure IoT Edge에서 C# 모듈 디버그
 이 문서에서는 [Visual Studio Code](https://code.visualstudio.com/)를 주 개발 도구로 사용하여 Azure IoT Edge 모듈을 디버그하기 위한 자세한 지침을 제공합니다.
@@ -47,7 +47,7 @@ ms.lasthandoff: 02/01/2018
 
 2. `launch.json`에서 **Debug IoT Edge 사용자 지정 모듈(.NET Core)** 섹션으로 이동합니다. **pipeArgs**에서 `<container_name>`에 입력합니다. 이 자습서에서는 `filtermodule`이 됩니다.
 
-    ![VS Code 디버그 창 스크린샷](./media/how-to-debug-csharp-module/f5-debug-option.png)
+    ![VS Code launch.json 스크린샷](./media/how-to-debug-csharp-module/add-container-name.png)
 
 3. **Program.cs**로 이동합니다. `method static async Task<MessageResponse> FilterModule(Message message, object userContext)`에 중단점을 추가합니다.
 4. **F5**를 다시 누르고 연결할 프로세스를 선택합니다. 이 자습서에서 프로세스 이름은 `FilterModule.dll`이어야 합니다.

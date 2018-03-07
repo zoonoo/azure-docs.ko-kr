@@ -1,6 +1,6 @@
 ---
-title: "Azure 복구 서비스 자격 증명 모음 및 서버 관리 | Microsoft Docs"
-description: "이 자습서를 사용하여 Azure 복구 서비스 자격 증명 모음 및 서버를 관리하는 방법을 알아봅니다."
+title: "Azure Recovery Services 자격 증명 모음 및 서버 관리 | Microsoft Docs"
+description: "이 문서를 사용하여 Recovery Services 자격 증명 모음 및 서버를 관리합니다."
 services: backup
 documentationcenter: 
 author: markgalioto
@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/10/2017
+ms.date: 02/23/2018
 ms.author: markgal
-ms.openlocfilehash: 925aa88d32f6f5cea252616cf079faf35857eb8a
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 2e5fd9e7e3cae1665519e4f08604fddf7834fd51
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="monitor-and-manage-azure-recovery-services-vaults-and-servers-for-windows-machines"></a>Windows 컴퓨터용 Azure 복구 서비스 자격 증명 모음 및 서버 모니터링 및 관리
 

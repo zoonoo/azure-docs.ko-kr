@@ -9,7 +9,7 @@
   ```
   sudo ./install -d <Install Location> -r MS -v VmWare -q
   ```
-3. 설치가 완료되면 모바일 서비스를 구성 서버에 등록해야 합니다. 다음 명령을 실행하여 모바일 서비스를 구성 서버에 등록합니다.
+3. 설치가 완료되면 Mobility Service를 구성 서버에 등록해야 합니다. 다음 명령을 실행하여 Mobility Service를 구성 서버에 등록합니다.
 
   ```
   /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <CSIP> -P /var/passphrase.txt
@@ -24,9 +24,9 @@ Usage:
 
 |매개 변수|형식|설명|가능한 값|
 |-|-|-|-|
-|-r |필수|MS(모바일 서비스) 설치 여부 또는 MT(마스터 대상) 설치 여부를 지정합니다.|MS </br> MT|
-|일시 중지되고 |옵션|모바일 서비스를 설치하는 위치|/usr/local/ASR|
-|-v|필수|모바일 서비스가 설치되는 플랫폼을 지정합니다. </br> </br>- **VMware: *VMware vSphere ESXi 호스트*, *Hyper-V 호스트 및 *물리적 서버*에서 실행되는 VM에 모바일 서비스를 설치하는 경우 이 값을 사용합니다. </br> - **Azure: Azure IaaS VM에 에이전트를 설치하는 경우 이 값을 사용합니다.| VMware </br> Azure|
+|-r |필수|MS(Mobility Service) 설치 여부 또는 MT(MasterTarget) 설치 여부를 지정합니다.|MS </br> MT|
+|일시 중지되고 |옵션|Mobility Service가 설치되는 위치입니다.|/usr/local/ASR|
+|-v|필수|Mobility Service가 설치되는 플랫폼을 지정합니다. </br> </br>- **VMware**: *VMware vSphere ESXi 호스트*, *Hyper-V 호스트* 및 *물리적 서버*에서 실행되는 VM에 모바일 서비스를 설치하는 경우 이 값을 사용합니다. </br> - **Azure**: Azure IaaS VM에 에이전트를 설치하는 경우 이 값을 사용합니다.| VMware </br> Azure|
 |-q|옵션|설치 관리자를 자동 모드에서 실행하도록 지정합니다.| 해당 없음|
 
 

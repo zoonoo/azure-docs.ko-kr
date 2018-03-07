@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/20/2017
 ms.author: suhuruli
-ms.openlocfilehash: f21561269e90e3643ef5d8d48ee28712ee7f611c
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: db6ad8b83ce34a8b86de822bc074e8a13345a1b4
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="set-up-a-linux-service-fabric-cluster-on-your-windows-developer-machine"></a>Windows 개발자 컴퓨터에서 Linux Service Fabric 클러스터 설정
 
@@ -29,7 +29,6 @@ Linux 기반 Service Fabric 클러스터는 기본적으로 Windows에서 실행
 
 * RAM 4GB 이상
 * 최신 버전의 [Docker](https://store.docker.com/editions/community/docker-ce-desktop-windows)
-* Service Fabric One-box Docker 컨테이너 [이미지](https://hub.docker.com/r/servicefabricoss/service-fabric-onebox/)에 액세스
 
 >[!TIP]
 > * 공식 Docker [설명서](https://store.docker.com/editions/community/docker-ce-desktop-windows/plans/docker-ce-desktop-windows-tier?tab=instructions)에서 언급한 단계를 따라 Windows에 Docker를 설치할 수 있습니다. 
@@ -42,7 +41,7 @@ Linux 기반 Service Fabric 클러스터는 기본적으로 Windows에서 실행
 1. Docker 허브 리포지토리에서 이미지를 끌어옵니다.
 
     ```powershell
-    docker pull servicefabricoss/service-fabric-onebox
+    docker pull microsoft/service-fabric-onebox
     ```
 
 2. 다음을 사용하여 호스트에서 Docker 디먼 구성을 업데이트하고 Docker 디먼을 다시 시작합니다. 
@@ -58,11 +57,11 @@ Linux 기반 Service Fabric 클러스터는 기본적으로 Windows에서 실행
 3. 이미지와 함께 Service Fabric One-box 컨테이너 인스턴스를 시작합니다.
 
     ```powershell
-    docker run -itd -p 19080:19080 --name sfonebox servicefabricoss/service-fabric-onebox
+    docker run -itd -p 19080:19080 --name sfonebox microsoft/service-fabric-onebox
     ```
     >[!TIP]
     > * 컨테이너 인스턴스의 이름을 지정하여 보다 읽기 쉬운 방식으로 처리할 수 있습니다. 
-    > * 응용 프로그램을 특정 포트에서 수신하는 경우 추가 -p 태그를 사용하여 지정해야 합니다. 예를 들어 응용 프로그램이 포트 8080에서 수신하는 경우 docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox servicefabricoss/service-fabric-onebox를 실행합니다.
+    > * 응용 프로그램을 특정 포트에서 수신하는 경우 추가 -p 태그를 사용하여 지정해야 합니다. 예를 들어 응용 프로그램이 포트 8080에서 수신하는 경우 docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox microsoft/service-fabric-onebox를 실행합니다.
 
 4. 대화형 ssh 모드에서 Docker 컨테이너에 로그인합니다.
 

@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 02/23/2018
 ms.author: daveba
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: e4d143b4937a1f6c1c21783ae357dbe617816e73
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: d5d704dac58d65dd7d62bc3eca400f9541714d5d
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Azure AD 응용 프로그램 프록시를 사용하여 게시된 앱에 대해 하드 코드된 링크 리디렉션
 
@@ -27,7 +27,7 @@ Azure AD 응용 프로그램 프록시는 원격 사용자가 자신의 장치�
 
 링크가 회사 네트워크의 내부와 외부에서 동일하게 작동하는지 확인하는 가장 좋은 방법은 앱의 외부 URL을 내부 URL과 동일하도록 구성하는 것입니다. [사용자 지정 도메인](active-directory-application-proxy-custom-domains.md)을 사용하여 외부 URL이 기본 응용 프로그램 프록시 도메인 대신 회사 도메인 이름을 갖도록 구성합니다.
 
-테넌트에서 사용자 지정 도메인을 사용할 수 없는 경우 응용 프로그램 프록시의 링크 변환 기능이 사용자가 어디에 있든지 관계 없이 작동되도록 링크를 유지합니다. 내부 끝점이나 포트를 직접 가리키는 앱을 사용하는 경우 이러한 내부 URL을 게시된 외부 응용 프로그램 프록시 URL에 매핑할 수 있습니다. 링크 변환을 사용하는 경우 응용 프로그램 프록시는 HTML, CSS를 통해 검색하고 게시되는 내부 링크에 대해 JavaScript 태그를 선택합니다. 그런 다음 응용 프로그램 프록시 서비스는 사용자가 중단 없는 환경을 얻을 수 있도록 변환합니다.
+테넌트에서 사용자 지정 도메인을 사용할 수 없는 경우 응용 프로그램 프록시의 링크 변환 기능이 사용자가 어디에 있든지 관계 없이 작동되도록 링크를 유지합니다. 내부 끝점이나 포트를 직접 가리키는 앱을 사용하는 경우 이러한 내부 URL을 게시된 외부 응용 프로그램 프록시 URL에 매핑할 수 있습니다. 링크 변환을 사용하도록 설정하면 응용 프로그램 프록시에서 게시된 내부 링크에 대한 HTML 및 CSS를 검색한 후, 응용 프로그램 프록시 서버에서 변환하므로 사용자가 중단 없이 환경을 이용할 수 있습니다.
 
 >[!NOTE]
 >링크 변환 기능은 어떠한 이유로든 사용자 지정 도메인을 사용하여 앱에 대한 내부 및 외부 URL을 동일하게 지정할 수 없는 테넌트에 사용됩니다. 이 기능을 사용하도록 설정하기 전에 [Azure AD 응용 프로그램 프록시의 사용자 지정 도메인](active-directory-application-proxy-custom-domains.md)이 작동하는지 확인하세요.
@@ -64,7 +64,7 @@ Benefits 앱에 대해 링크 변환을 사용하도록 설정하면 Expenses �
 성능 및 보안 향상을 위해 일부 링크는 변환되지 않습니다.
 
 - 코드 태그 내부에 있지 않은 링크. 
-- HTML, CSS 또는 JavaScript에 있지 않은 링크. 
+- HTML 또는 CSS에 있지 않은 링크 
 - 다른 프로그램에서 연 내부 링크. 메일이나 인스턴트 메시지를 통해 전송되거나 다른 문서에 포함된 링크는 변환되지 않습니다. 사용자는 외부 URL로 이동됨을 알고 있어야 합니다.
 
 이러한 두 시나리오 중 하나를 지원해야 하는 경우 링크 변환 대신 동일한 외부 및 외부 URL을 사용합니다.  
@@ -84,7 +84,7 @@ Benefits 앱에 대해 링크 변환을 사용하도록 설정하면 Expenses �
 
 ## <a name="send-feedback"></a>피드백 보내기
 
-이 기능이 모든 앱에서 작동하도록 하는 데 도움이 되도록 피드백을 보내 주세요. HTML 및 CSS에서 30개가 넘는 태그를 검색하고 지원할 JavaScript 케이스를 검토하고 있습니다. 생성된 링크 중 변환되지 않는 예가 있으면 [응용 프로그램 프록시 피드백](mailto:aadapfeedback@microsoft.com)으로 코드 조각을 보내 주세요. 
+이 기능이 모든 앱에서 작동하도록 하는 데 도움이 되도록 피드백을 보내 주세요. HTML 및 CSS에서 30개가 넘는 태그를 검색합니다. 생성된 링크 중 변환되지 않는 예가 있으면 [응용 프로그램 프록시 피드백](mailto:aadapfeedback@microsoft.com)으로 코드 조각을 보내 주세요. 
 
 ## <a name="next-steps"></a>다음 단계
 동일한 내부 및 외부 URL을 사용하도록 [Azure AD 응용 프로그램 프록시에서 사용자 지정 도메인 사용](active-directory-application-proxy-custom-domains.md)

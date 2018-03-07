@@ -12,13 +12,13 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/22/2017
+ms.date: 02/22/2018
 ms.author: ryanwi
-ms.openlocfilehash: 9d709a0ec2b7de985ac08fe9ee2935848e7a371c
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 01dd1900fe765618e5da20bd289b9c3a021ea9a3
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="sfctl-partition"></a>sfctl partition
 모든 서비스에 대한 파티션을 쿼리 및 관리합니다.
@@ -48,7 +48,7 @@ ms.lasthandoff: 01/18/2018
 지정된 Service Fabric 파티션의 상태를 가져옵니다.
 
 지정된 파티션의 상태 정보를 가져옵니다. 상태에 따라 서비스에 보고된 상태 이벤트의 컬렉션을 필터링하려면 EventsHealthStateFilter를 사용합니다.
-ReplicasHealthStateFilter를 사용하여 파티션에 ReplicaHealthState 개체 컬렉션을 필터링합니다. Health store에 존재하지 않는 파티션을 지정하면 이 cmdlet은 오류를 반환합니다. 에서도 확인할 수 있습니다.
+ReplicasHealthStateFilter를 사용하여 파티션에 ReplicaHealthState 개체 컬렉션을 필터링합니다. Health store에 존재하지 않는 파티션을 지정하면 이 cmdlet은 오류를 반환합니다.
 
 ### <a name="arguments"></a>인수
 
@@ -101,7 +101,7 @@ Service Fabric 서비스의 파티션 목록을 가져옵니다. 파티션 ID, �
 
 |인수|설명|
 | --- | --- |
-| --service-id [필수]| 서비스 id입니다. 일반적으로 'fabric:' URI 스키마가 없는 서비스의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "~" 문자로 구분됩니다. 예를 들어 서비스 이름이 "fabric://myapp/app1/svc1"이면 서비스 id는 6.0+에서 "myapp~app1~svc1"이고 이전 버전에서 "myapp/app1/svc1"입니다.|
+| --service-id [필수]| 서비스 id입니다. 일반적으로 'fabric:' URI 스키마가 없는 서비스의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "~" 문자로 구분됩니다. 예를 들어 서비스 이름이 “fabric:/myapp/app1/svc1”이면 서비스 ID는 6.0 이상에서는 “myapp~app1~svc1”이고 이전 버전에서는 “myapp/app1/svc1”입니다.|
 | --continuation-token| 연속 토큰 매개 변수는 다음 결과 집합을 얻는 데 사용됩니다.         공백 값이 아닌 연속 토큰은 시스템의 결과가 단일 응답에 맞지 않는 경우 API의 응답에 포함됩니다. 이 값이 다음 API 호출에 전달되면 API는 다음 결과 집합을 반환합니다. 결과가 더 이상 없으면 연속 토큰에 값이 포함되지 않습니다. 이 매개 변수의 값은 URL 인코딩이 되지 말아야 합니다.|
 | --timeout -t        | 서버 시간 제한(초).  기본값: 60.|
 
@@ -162,7 +162,7 @@ Service Fabric 서비스의 파티션 목록을 가져옵니다. 파티션 ID, �
 ## <a name="sfctl-partition-restart"></a>sfctl partition restart
 이 API는 지정된 파티션의 일부 또는 모든 복제본 또는 인스턴스를 다시 시작합니다.
 
-이 API는 장애 조치를 테스트하는 데 유용합니다. 상태 비저장 서비스 파티션을 대상으로 사용하는 경우, RestartPartitionMode는 AllReplicasOrInstances이어야 합니다. 진행률을 가져오려면 동일한 OperationId를 사용하여 GetPartitionRestartProgress API를 호출합니다. 에서도 확인할 수 있습니다.
+이 API는 장애 조치를 테스트하는 데 유용합니다. 상태 비저장 서비스 파티션을 대상으로 사용하는 경우, RestartPartitionMode는 AllReplicasOrInstances이어야 합니다. 진행률을 가져오려면 동일한 OperationId를 사용하여 GetPartitionRestartProgress API를 호출합니다.
 
 ### <a name="arguments"></a>인수
 
@@ -170,8 +170,8 @@ Service Fabric 서비스의 파티션 목록을 가져옵니다. 파티션 ID, �
 | --- | --- |
 | --operation-id           [필수]| 이 API의 호출을 식별하는 GUID입니다.  이 값은 해당 GetProgress API에 전달됩니다.|
 | --partition-id           [필수]| 파티션의 id입니다.|
-| --restart-partition-mode [필수]| - Invalid - Reserved.  API에 전달하지 마세요. -                     AllReplicasOrInstances - 파티션의 모든 복제본 또는 인스턴스는 동시에 시작합니다. - OnlyActiveSecondaries -                     보조 복제본만 다시 시작합니다. 에서도 확인할 수 있습니다.|
-| --service-id             [필수]| 서비스 id입니다. 일반적으로 'fabric:' URI 스키마가 없는 서비스의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "~" 문자로 구분됩니다. 예를 들어 서비스 이름이 "fabric://myapp/app1/svc1"이면 서비스 id는 6.0+에서 "myapp~app1~svc1"이고 이전 버전에서 "myapp/app1/svc1"입니다.|
+| --restart-partition-mode [필수]| 다시 시작하는 파티션을 설명합니다.|
+| --service-id             [필수]| 서비스 id입니다. 일반적으로 'fabric:' URI 스키마가 없는 서비스의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "~" 문자로 구분됩니다. 예를 들어 서비스 이름이 “fabric:/myapp/app1/svc1”이면 서비스 ID는 6.0 이상에서는 “myapp~app1~svc1”이고 이전 버전에서는 “myapp/app1/svc1”입니다.|
 | --timeout -t                    | 서버 시간 제한(초).  기본값: 60.|
 
 ### <a name="global-arguments"></a>전역 인수

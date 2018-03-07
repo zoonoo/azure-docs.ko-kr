@@ -15,11 +15,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/26/2016
 ms.author: LADocs; jonfan
-ms.openlocfilehash: 68009b74a410f7e854de675a1d8d0c32e310d2c9
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 4b1ea9966add3cf0d5f75988f11cda57fa4e4cf6
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="exchange-edifact-messages-for-enterprise-integration-with-logic-apps"></a>엔터프라이즈 통합에 대한 EDIFACT 메시지를 Logic Apps과 교환
 
@@ -32,65 +32,63 @@ Azure Logic Apps의 EDIFACT 메시지를 교환하기 전에 EDIFACT 규약을 �
 
 필요한 항목은 다음과 같습니다.
 
-* 이미 정의되고 Azure 구독과 연결된 [통합 계정](../logic-apps/logic-apps-enterprise-integration-accounts.md)  
+* 이미 정의되고 Azure 구독과 연결된 [통합 계정](logic-apps-enterprise-integration-create-integration-account.md)  
 * 통합 계정에 이미 정의된 둘 이상의 [파트너](logic-apps-enterprise-integration-partners.md)
 
 > [!NOTE]
 > 규약을 만들 때 사용자가 파트너와 수신하거나 송신한 메시지의 콘텐츠는 규약 유형이 일치해야 합니다.
 
-[통합 계정을 만들고](../logic-apps/logic-apps-enterprise-integration-accounts.md) [파트너를 추가](logic-apps-enterprise-integration-partners.md)한 후에 다음과 같은 단계에 따라 EDIFACT 규약을 만들 수 있습니다.
+[통합 계정을 만들고](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) [파트너를 추가](logic-apps-enterprise-integration-partners.md)한 후에 다음과 같은 단계에 따라 EDIFACT 규약을 만들 수 있습니다.
 
 ## <a name="create-an-edifact-agreement"></a>EDIFACT 규약 만들기 
 
-1.  [Azure Portal](http://portal.azure.com "Azure Portal")에 로그인합니다. 왼쪽 메뉴에서 **모든 서비스**를 선택합니다.
+1. [Azure Portal](http://portal.azure.com "Azure Portal")에 로그인합니다. 
 
-    > [!TIP]
-    > **모든 서비스**가 표시되지 않으면 먼저 메뉴를 확장해야 합니다. 축소된 메뉴의 맨 위에 있는 **메뉴 표시**를 선택합니다.
+2. Azure의 주 메뉴에서 **모든 서비스**를 선택합니다. 검색 상자에 “통합”을 입력한 다음, **통합 계정**을 선택합니다.
 
-    ![왼쪽 메뉴에서 "모든 서비스" 선택](./media/logic-apps-enterprise-integration-edifact/edifact-0.png)
+   ![통합 계정 찾기](./media/logic-apps-enterprise-integration-edifact/edifact-0.png)
 
-2. 검색 상자에서 필터에 "통합"을 입력합니다. 결과 목록에서 **통합 계정**을 선택합니다.
+   > [!TIP]
+   > **모든 서비스**가 표시되지 않으면 먼저 메뉴를 확장해야 합니다. 축소된 메뉴의 맨 위에서 **텍스트 레이블 표시**를 선택합니다.
 
-    !["통합"에 대해 필터링하고 "통합 계정"을 선택합니다.](./media/logic-apps-enterprise-integration-edifact/edifact-1-3.png)
+3. **통합 계정**에서 규약을 만들려는 통합 계정을 선택합니다.
 
-3. 열린 **통합 계정** 블레이드에서 규약을 만들려는 통합 계정을 선택합니다.
-통합 계정이 표시되지 않으면 [먼저 만듭니다](../logic-apps/logic-apps-enterprise-integration-accounts.md "통합 계정에 대한 모든 정보")를 .  
+   ![규약을 만들 통합 계정 선택](./media/logic-apps-enterprise-integration-edifact/edifact-1-4.png)
 
-    ![규약을 만들 통합 계정 선택](./media/logic-apps-enterprise-integration-edifact/edifact-1-4.png)
+4. **규약**을 선택합니다. 규약 타일이 없는 경우 먼저 타일을 추가합니다.   
 
-4. **규약** 타일을 선택합니다. 규약 타일이 없는 경우 먼저 타일을 추가합니다.   
+   !["규약" 타일 선택](./media/logic-apps-enterprise-integration-edifact/edifact-1-5.png)
 
-    !["규약" 타일 선택](./media/logic-apps-enterprise-integration-edifact/edifact-1-5.png)
+5. 규약 페이지에서 **추가**를 선택합니다.
 
-5. 열린 [규약] 블레이드에서 **추가**를 선택합니다.
-
-    !["추가" 선택](./media/logic-apps-enterprise-integration-edifact/edifact-agreement-2.png)
+   !["추가" 선택](./media/logic-apps-enterprise-integration-edifact/edifact-agreement-2.png)
 
 6. **추가** 아래에서 규약의 **이름**을 입력합니다. **규약 유형**에 **EDIFACT**를 선택합니다. 규약의 **호스트 파트너**, **호스트 ID**, **게스트 파트너** 및 **게스트 ID**를 선택합니다.
 
-    ![규약 세부 정보 제공](./media/logic-apps-enterprise-integration-edifact/edifact-1.png)
+   ![규약 세부 정보 제공](./media/logic-apps-enterprise-integration-edifact/edifact-1.png)
 
-    | 자산 | 설명 |
-    | --- | --- |
-    | Name |규약 이름 |
-    | 규약 유형 | EDIFACT여야 함 |
-    | 호스트 파트너 |규약에는 호스트 및 게스트 파트너가 필요합니다. 호스트 파트너는 규약을 구성하는 조직을 나타냅니다. |
-    | 호스트 ID |호스트 파트너의 식별자입니다. |
-    | 게스트 파트너 |규약에는 호스트 및 게스트 파트너가 필요합니다. 게스트 파트너는 호스트 파트너와 함께 일하는 조직을 나타냅니다. |
-    | 게스트 ID |게스트 파트너의 식별자입니다. |
-    | 수신 설정 |규약에서 받은 모든 메시지에 이러한 속성을 적용합니다. |
-    | 송신 설정 |규약에서 보낸 모든 메시지에 이러한 속성을 적용합니다. |
+   | 자산 | 설명 |
+   | --- | --- |
+   | Name |규약 이름 |
+   | 규약 유형 | EDIFACT여야 함 |
+   | 호스트 파트너 |규약에는 호스트 및 게스트 파트너가 필요합니다. 호스트 파트너는 규약을 구성하는 조직을 나타냅니다. |
+   | 호스트 ID |호스트 파트너의 식별자입니다. |
+   | 게스트 파트너 |규약에는 호스트 및 게스트 파트너가 필요합니다. 게스트 파트너는 호스트 파트너와 함께 일하는 조직을 나타냅니다. |
+   | 게스트 ID |게스트 파트너의 식별자입니다. |
+   | 수신 설정 |규약에서 받은 모든 메시지에 이러한 속성을 적용합니다. |
+   | 송신 설정 |규약에서 보낸 모든 메시지에 이러한 속성을 적용합니다. |
+   ||| 
 
 ## <a name="configure-how-your-agreement-handles-received-messages"></a>규약에서 수신된 메시지를 처리하는 방법 구성
 
 규약 속성을 설정했으므로 규약이 이 계약을 통해 파트너로부터 받은 들어오는 메시지를 식별하고 처리하는 방법을 구성할 수 있습니다.
 
-1.  **추가** 아래에서 **수신 설정**을 선택합니다.
+1. **추가** 아래에서 **수신 설정**을 선택합니다.
 사용자와 메시지를 교환하는 파트너와의 규약에 따라 이러한 속성을 구성합니다. 속성 설명은 이 섹션에 있는 테이블을 참조하세요.
 
-    **수신 설정**은 식별자, 승인, 스키마, 제어 번호, 유효성 검사 및 내부 설정이라는 섹션으로 구성됩니다.
+   **수신 설정**은 식별자, 승인, 스키마, 제어 번호, 유효성 검사 및 내부 설정이라는 섹션으로 구성됩니다.
 
-    !["수신 설정" 구성](./media/logic-apps-enterprise-integration-edifact/edifact-2.png)  
+   !["수신 설정" 구성](./media/logic-apps-enterprise-integration-edifact/edifact-2.png)  
 
 2. 작업을 마친 후에 **확인**을 선택하여 설정을 저장해야 합니다.
 
@@ -211,7 +209,7 @@ Azure Logic Apps의 EDIFACT 메시지를 교환하기 전에 EDIFACT 규약을 �
 | 자산 | 설명 |
 | --- | --- |
 | UNB1.1(시스템 식별자) |나가는 교환에서 적용할 EDIFACT 문자 집합을 선택합니다. |
-| 스키마 |드롭다운 목록에서 스키마를 선택합니다. 각 행을 완료한 후에 새 행이 자동으로 추가됩니다. 선택한 스키마의 경우 다음 구분 기호 설명에 따라 사용하려는 구분 기호 집합을 선택합니다. |
+| 스키마 |드롭다운 목록에서 스키마를 선택합니다. 각 행을 완료한 후에 새 행이 자동으로 추가됩니다. 선택한 스키마의 경우 아래의 구분 기호 설명에 따라 사용하려는 구분 기호 집합을 선택합니다. |
 | 입력 형식 |드롭다운 목록에서 입력 형식을 선택합니다. |
 | Component Separator |복합 데이터 요소를 분리하려면 단일 문자를 입력합니다. |
 | Data Element Separator |복합 데이터 요소 내에서 단순 데이터 요소를 분리하려면 단일 문자를 입력합니다. |
@@ -240,13 +238,13 @@ Azure Logic Apps의 EDIFACT 메시지를 교환하기 전에 EDIFACT 규약을 �
 
 ## <a name="find-your-created-agreement"></a>생성된 규약 찾기
 
-1.  모든 규약 속성 설정을 완료한 후에 **추가** 블레이드에서 **확인**을 선택하여 규약 만들기를 완료하고 사용자 통합 계정 블레이드로 돌아갑니다.
+1.  모든 규약 속성 설정을 완료한 후에 **추가** 페이지에서 **확인**을 선택하여 규약 만들기를 완료하고 사용자 통합 계정으로 돌아갑니다.
 
     이제 새로 추가된 규약이 **규약** 목록에 표시됩니다.
 
-2.  또한 통합 계정 개요에서 규약을 볼 수도 있습니다. 통합 사용자 계정 블레이드에서 **개요**를 선택한 다음 **규약** 타일을 선택합니다. 
+2.  또한 통합 계정 개요에서 규약을 볼 수도 있습니다. 통합 계정 메뉴에서 **개요**를 선택한 다음, **규약** 타일을 선택합니다. 
 
-    ![모든 규약을 보려면 "규약" 타일을 선택합니다](./media/logic-apps-enterprise-integration-edifact/edifact-4.png)   
+    !["규약" 타일 선택](./media/logic-apps-enterprise-integration-edifact/edifact-4.png)   
 
 ## <a name="view-swagger-file"></a>Swagger 파일 보기
 EDIFACT 커넥터에 대 한 Swagger 세부 정보를 보려면 [EDIFACT](/connectors/edifact/)를 참조하세요.

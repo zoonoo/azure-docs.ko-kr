@@ -11,15 +11,15 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 01/30/2018
+ms.date: 02/23/2018
 ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: it-pro
-ms.openlocfilehash: 82fa6d3f04dc528c0e2d95dae82e7a7f8787ea7c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: e49f555b2ae972cd3a0437fc44d2331aaeb5e955
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Azure 역할 기반 액세스 제어의 기본 제공 역할
 Azure 역할 기반 Access Control(RBAC)에는 사용자, 그룹 및 서비스에 할당할 수 있는 다음 기본 제공 역할이 포함되었습니다. 기본 제공 역할의 정의는 수정할 수 없습니다. 그러나 조직의 특정 요구 사항에 맞게 [Azure RBAC에서 사용자 지정 역할](role-based-access-control-custom-roles.md) 을 만들 수 있습니다.
@@ -51,6 +51,7 @@ Azure 역할 기반 Access Control(RBAC)에는 사용자, 그룹 및 서비스�
 | [BizTalk 참여자](#biztalk-contributor) |BizTalk 서비스를 관리할 수 있음 |
 | [ClearDB MySQL DB 참여자](#cleardb-mysql-db-contributor) |ClearDB MySQL 데이터베이스를 관리할 수 있음 |
 | [참여자](#contributor) |액세스를 제외한 모든 것을 관리할 수 있음 |
+| [Cosmos DB 계정 독자 역할](#cosmos-db-account-reader-role) |Azure Cosmos DB 계정 데이터를 읽을 수 있음 |
 | [데이터 팩터리 참여자](#data-factory-contributor) |데이터 팩터리 및 그 안에 포함된 자식 리소스를 만들고 관리할 수 있습니다. |
 | [DevTest Lab 사용자](#devtest-labs-user) |모든 항목을 볼 수 있으며 가상 머신을 연결, 시작, 다시 시작 및 종료할 수 있음 |
 | [DNS 영역 참여자](#dns-zone-contributor) |DNS 영역 및 레코드를 관리할 수 있음 |
@@ -311,6 +312,19 @@ ClearDB MySQL 데이터베이스를 관리할 수 있음
 | --- | --- |
 | Microsoft.Authorization/*/Delete |역할 및 역할 할당을 삭제할 수 없음 |
 | Microsoft.Authorization/*/Write |역할 및 역할 할당을 만들 수 없음 |
+
+### <a name="cosmos-db-account-reader-role"></a>Cosmos DB 계정 독자 역할
+Azure Cosmos DB 계정 데이터를 읽을 수 있음. Azure Cosmos DB 계정 관리는 [DocumentDB 계정 참가자](#documentdb-account-contributor)를 참조하세요.
+
+| **actions** |  |
+| --- | --- |
+|Microsoft.Authorization/*/read|읽기 역할 및 역할 할당은 각 사용자에게 부여된 사용 권한을 읽을 수 있습니다.|
+|Microsoft.DocumentDB/*/read|컬렉션 읽기|
+|Microsoft.DocumentDB/databaseAccounts/readonlykeys/action|읽기 전용 키 읽기 창|
+|Microsoft.Insights/Metrics/read|계정 메트릭 읽기|
+|Microsoft.Insights/MetricDefinitions/read|메트릭 정의 읽기|
+|Microsoft.Resources/subscriptions/resourceGroups/read|리소스 그룹 읽기|
+|Microsoft.Support/*|지원 티켓 만들기 및 관리|
 
 ### <a name="data-factory-contributor"></a>데이터 팩터리 참여자
 데이터 팩터리 및 그 안에 포함된 자식 리소스를 만들고 관리합니다.

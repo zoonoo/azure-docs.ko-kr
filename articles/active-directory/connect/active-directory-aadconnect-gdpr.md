@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2018
 ms.author: billmath
-ms.openlocfilehash: 68b36e1806d3338b07d4c2c400de233aff270132
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: c3956dd379961b119f65bdebe1f5a8038c4fa8f0
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="gdpr-compliance-and-azure-ad-connect"></a>GDPR 규정 준수 및 Azure AD Connect 
 
@@ -33,7 +33,7 @@ Azure AD Connect 설치를 위한 일반 데이터 보호 규정 준수는 두 �
 1.  요청 시 사람에 대한 데이터를 추출하고 그 사람의 데이터를 설치에서 제거합니다.
 2.  데이터는 48시간 이상 데이터가 보존하지 않도록 합니다.
 
-Azure AD Connect 팀이 권장하는 조언은 두 번째 옵션입니다.  그 이유는 구현하고 유지하는 것이 단연코 가장 쉽기 때문입니다.
+Azure AD Connect 팀은 두 번째 옵션이 구현 및 유지 관리가 더 용이하므로 권장합니다.
 
 Azure AD Connect 동기화 서버는 GDPR 준수 범위에 있는 다음 데이터를 저장합니다.
 1.  **Azure AD Connect 데이터베이스**에 있는 사람에 관한 데이터

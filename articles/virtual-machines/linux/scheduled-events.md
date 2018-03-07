@@ -3,7 +3,7 @@ title: "Azure에서 Linux VM에 예정된 이벤트 | Microsoft Docs"
 description: "Linux 가상 머신에서 Azure 메타데이터 서비스를 사용하여 이벤트를 예약합니다."
 services: virtual-machines-windows, virtual-machines-linux, cloud-services
 documentationcenter: 
-author: zivraf
+author: ericrad
 manager: timlt
 editor: 
 tags: 
@@ -13,23 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/14/2017
-ms.author: zivr
-ms.openlocfilehash: ae9955253647f3277729e7905baf7bb07645de42
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.date: 02/22/2018
+ms.author: ericrad
+ms.openlocfilehash: e697a8f1160aff5774dc416c81819220c316707a
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 02/27/2018
 ---
-# <a name="azure-metadata-service-scheduled-events-preview-for-linux-vms"></a>Azure 메타데이터 서비스: Linux VM에 예정된 이벤트(미리 보기)
+# <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Azure Metadata Service: Linux VM에 예정된 이벤트
 
-> [!NOTE] 
-> 사용 약관에 동의하게 되면 미리 보기를 사용할 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 Microsoft Azure 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
->
-
-예약된 이벤트는 응용 프로그램이 VM(가상 머신) 유지 관리를 준비할 시간을 부여하는 Azure 메타데이터 서비스 아래의 하위 서비스입니다. 향후 유지 관리 이벤트(예: 재부팅)에 대한 정보를 제공하여 응용 프로그램이 이에 대비하고 서비스 중단을 제한할 수 있도록 합니다. 이 기능은 Windows와 Linux 모두에서 PaaS 및 IaaS를 포함한 모든 Azure Virtual Machines 유형에 사용할 수 있습니다. 
+예약된 이벤트는 응용 프로그램이 VM(가상 머신) 유지 관리를 준비할 시간을 부여하는 Azure Metadata Service입니다. 향후 유지 관리 이벤트(예: 재부팅)에 대한 정보를 제공하여 응용 프로그램이 이에 대비하고 서비스 중단을 제한할 수 있도록 합니다. 이 기능은 Windows와 Linux 모두에서 PaaS 및 IaaS를 포함한 모든 Azure Virtual Machines 유형에 사용할 수 있습니다. 
 
 Windows에서 예약된 이벤트에 대한 자세한 내용은 [Windows VM에 예약된 이벤트](../windows/scheduled-events.md)를 참조하세요.
+
+> [!Note] 
+> 예약된 이벤트는 모든 Azure 지역에서 일반 공급됩니다. 최신 릴리스 정보는 [버전 및 지역 가용성](#version-and-region-availability)을 참조하세요.
 
 ## <a name="why-use-scheduled-events"></a>예약된 이벤트를 사용하는 이유는?
 
@@ -62,47 +61,39 @@ Windows에서 예약된 이벤트에 대한 자세한 내용은 [Windows VM에 �
 
 따라서 이벤트의 `Resources` 필드를 확인하여 영향을 받는 VM을 식별합니다.
 
-### <a name="discover-the-endpoint"></a>끝점 검색
-가상 네트워크를 사용하는 VM의 경우 예약된 이벤트의 최신 버전에 대한 전체 엔드포인트는 다음과 같습니다. 
+### <a name="endpoint-discovery"></a>엔드포인트 검색
+VNET 사용 VM의 경우 메타데이터 서비스를 정적 경로 조정 불가능 IP `169.254.169.254`에서 사용할 수 있습니다. 예약된 이벤트의 최신 버전에 대한 전체 엔드포인트는 다음과 같습니다. 
 
  > `http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01`
 
-VM이 가상 네트워크 내에 생성된 경우 라우팅할 수 없는 고정 IP(`169.254.169.254`)에서 메타데이터 서비스를 사용할 수 있습니다.
 클라우드 서비스 및 클래식 VM의 기본 사례처럼 VM이 가상 네트워크에 생성되지 않은 경우 사용할 IP 주소를 검색하려면 추가 논리가 필요합니다. [호스트 끝점을 검색](https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm)하는 방법을 알아보려면 이 샘플을 참조하세요.
 
-### <a name="versioning"></a>버전 관리 
+### <a name="version-and-region-availability"></a>버전 및 지역 가용성
 예약된 이벤트 서비스의 버전이 지정됩니다. 버전은 필수이며 현재 버전은 `2017-08-01`입니다.
 
-| 버전 | 릴리스 정보 | 
-| - | - | 
-| 2017-08-01 | <li> Iaas VM의 리소스 이름에서 앞에 붙은 밑줄이 제거됨<br><li>모든 요청에 대해 메타데이터 헤더 요구 사항이 적용됨 | 
-| 2017-03-01 | <li>공개 미리 보기 버전
+| 버전 | 릴리스 종류 | 영역 | 릴리스 정보 | 
+| - | - | - | - | 
+| 2017-08-01 | 일반 공급 | 모두 | <li> Iaas VM의 리소스 이름에서 앞에 붙은 밑줄이 제거됨<br><li>모든 요청에 대해 메타데이터 헤더 요구 사항이 적용됨 | 
+| 2017-03-01 | 미리 보기 | 모두 | <li>최초 릴리스
 
 
 > [!NOTE] 
 > 예약된 이벤트의 이전 미리 보기 릴리스는 api-version으로 {latest}를 지원했습니다. 이 형식은 더 이상 지원되지 않으며 향후 사용되지 않을 예정입니다.
 
-### <a name="use-headers"></a>헤더 사용
-메타데이터 서비스를 쿼리할 때 요청이 실수로 리디렉션되지 않도록 `Metadata:true` 헤더를 제공해야 합니다. `Metadata:true` 헤더는 모든 예약된 이벤트 요청에 필요합니다. 헤더를 요청에 포함하지 않으면 메타데이터 서비스에서 "잘못된 요청" 응답이 발생합니다.
+### <a name="enabling-and-disabling-scheduled-events"></a>예약된 이벤트 사용 및 사용 안 함
+예약된 이벤트는 이벤트에 대한 요청을 처음 수행하는 서비스에 대해 사용할 수 있습니다. 최대 2분인 첫 번째 호출에서 지연된 응답을 예상해야 합니다.
 
-### <a name="enable-scheduled-events"></a>Scheduled Events 사용
-처음으로 예약된 이벤트를 요청하면 Azure는 VM의 기능을 암시적으로 사용하도록 설정합니다. 결과적으로 최대 2분인 첫 번째 호출에서 지연된 응답을 예상합니다.
-
-> [!NOTE]
-> 예약된 이벤트는 서비스가 엔드포인트를 1일간 호출하지 않으면 서비스에 대해 자동으로 비활성화됩니다. 예약된 이벤트가 서비스에 대해 비활성화되면 사용자가 시작한 유지 관리를 위해 이벤트가 생성되지 않습니다.
+24시간 동안 요청을 수행하지 않으면 예약된 이벤트를 서비스에 사용할 수 없습니다.
 
 ### <a name="user-initiated-maintenance"></a>사용자 시작 유지 관리
 Azure Portal, API, CLI 또는 PowerShell을 통한 사용자 시작 VM 유지 관리로 인해 예정된 이벤트가 발생합니다. 그러면 응용 프로그램에서 유지 관리 준비 논리를 테스트할 수 있으며 응용 프로그램에서는 사용자 시작 유지 관리를 준비할 수 있습니다.
 
 VM을 다시 시작하는 경우 `Reboot` 형식인 이벤트가 예약됩니다. VM을 다시 배포하는 경우 `Redeploy` 형식인 이벤트가 예약됩니다.
 
-> [!NOTE] 
-> 현재는 사용자 시작 유지 관리 작업을 최대 100개까지 동시 예약할 수 있습니다.
-
-> [!NOTE] 
-> 현재는 예약된 이벤트를 생성하는 사용자 시작 유지 관리를 구성할 수 없습니다. 구성 기능은 이후 버전에 추가될 계획입니다.
-
 ## <a name="use-the-api"></a>API 사용
+
+### <a name="headers"></a>헤더
+메타데이터 서비스를 쿼리할 때 요청이 실수로 리디렉션되지 않도록 `Metadata:true` 헤더를 제공해야 합니다. `Metadata:true` 헤더는 모든 예약된 이벤트 요청에 필요합니다. 헤더를 요청에 포함하지 않으면 메타데이터 서비스에서 "잘못된 요청" 응답이 발생합니다.
 
 ### <a name="query-for-events"></a>이벤트 쿼리
 다음과 같이 호출하여 예약된 이벤트를 쿼리할 수 있습니다.
@@ -218,6 +209,7 @@ if __name__ == '__main__':
 ```
 
 ## <a name="next-steps"></a>다음 단계 
+- [Azure Friday에서 예약된 이벤트](https://channel9.msdn.com/Shows/Azure-Friday/Using-Azure-Scheduled-Events-to-Prepare-for-VM-Maintenance)를 보고 데모를 확인합니다. 
 - [Azure 인스턴스 메타데이터 예약된 이벤트 Github 리포지토리](https://github.com/Azure-Samples/virtual-machines-scheduled-events-discover-endpoint-for-non-vnet-vm)에서 예약된 이벤트 코드 샘플을 검토합니다.
 - [인스턴스 메타데이터 서비스](instance-metadata-service.md)에서 사용 가능한 API에 대해 자세히 알아봅니다.
 - [Azure에서 Linux 가상 머신에 대한 계획된 유지 관리](planned-maintenance.md)에 대해 알아봅니다.

@@ -1,25 +1,24 @@
 ---
-title: "Site Recovery를 사용하여 VMM 클라우드에서 Hyper-V VM의 복제를 위한 네트워크 매핑 정보 | Microsoft Docs"
+title: "Site Recovery를 사용하여 Azure로의 Hyper-V VM(VMM 사용) 복제를 위한 네트워크 매핑 정보 | Microsoft Docs"
 description: "Azure Site Recovery를 사용하여 VMM 클라우드에서 관리되는 Hyper-V VM의 복제를 위한 네트워크 매핑을 설정하는 방법을 설명합니다."
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/13/2018
+ms.date: 02/22/2018
 ms.author: raynew
-ms.openlocfilehash: 5b8ebf3bd118a7b082949b3f3c6ef60a07641ba1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 524de918bd24d51680110dc2af213bf328e349fd
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="about-network-mapping-for-hyper-v-vm-with-vmm-replication"></a>VMM 복제와 Hyper-V VM에 대한 네트워크 매핑 정보 
+# <a name="prepare-network-mapping-for-hyper-v-vm-replication-to-azure"></a>Azure로 Hyper-V VM을 복제하기 위한 네트워크 매핑 준비
 
 
-이 문서에서는 [Azure Site Recovery 서비스](site-recovery-overview.md)를 사용하여 System Center VMM(Virtual Machine Manager) 클라우드에서 Hyper-V VM의 복제 중 네트워크 매핑을 이해하고 계획하도록 도와줍니다.
+이 문서에서는 [Azure Site Recovery](site-recovery-overview.md) 서비스를 사용하여 System Center VMM(Virtual Machine Manager) 클라우드에서 Azure 또는 보조 사이트로 Hyper-V VM을 복제할 때 네트워크 매핑을 이해하고 준비하도록 도와줍니다.
 
-네트워크 매핑은 VMM 클라우드에서 관리되는 Hyper-V VM을 보조 VMM 클라우드 또는 Azure로 복제할 때 사용됩니다.
 
 ## <a name="prepare-network-mapping-for-replication-to-azure"></a>Azure로의 복제를 위한 네트워크 매핑 준비
 
@@ -58,7 +57,7 @@ Azure로 복제할 때 네트워크 매핑은 원본 VMM 서버의 VM 네트워�
 ---|---|---|---
 뉴욕 | VMM-뉴욕| VMNetwork1-뉴욕 | VMNetwork1-시카고로 매핑
  |  | VMNetwork2-뉴욕 | 매핑되지 않음
-시카고 | VMM-시카고| VMNetwork1-시카고 | VMNetwork1-뉴욕으로 매핑
+시카코 | VMM-시카고| VMNetwork1-시카고 | VMNetwork1-뉴욕으로 매핑
  | | VMNetwork1-시카고 | 매핑되지 않음
 
 이 예제에서:
@@ -82,7 +81,7 @@ SilverCloud2 | <p>해당 없음</p><p></p> | <p>LogicalNetwork1-뉴욕</p><p>Log
 **위치**: | **논리 네트워크** | **연결된 VM 네트워크**
 ---|---|---
 뉴욕 | LogicalNetwork1-뉴욕 | VMNetwork1-뉴욕
-시카고 | LogicalNetwork1-시카고 | VMNetwork1-시카고
+시카코 | LogicalNetwork1-시카고 | VMNetwork1-시카고
  | LogicalNetwork2Chicago | VMNetwork2-시카고
 
 ### <a name="target-network-settings"></a>대상 네트워크 설정
@@ -123,4 +122,5 @@ VMNetwork1-시카고의 네트워크 매핑이 변경됨 | VM-1이 현재 VMNetw
 
 ## <a name="next-steps"></a>다음 단계
 
-보조 VMM 사이트로 장애 조치(failover)한 후 IP 주소 지정에 대해 [자세히 알아봅니다](hyper-v-vmm-networking.md).
+- 보조 VMM 사이트로 장애 조치(failover)한 후 IP 주소 지정에 대해 [자세히 알아봅니다](hyper-v-vmm-networking.md).
+- Azure로의 장애 조치(Failover) 후 IP 주소 지정에 대해 [자세히 알아봅니다](concepts-on-premises-to-azure-networking.md).

@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2017
+ms.date: 02/22/2018
 ms.author: nitinme
-ms.openlocfilehash: 2be4477528c9109151c4737eabc16741cc020ce8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 87e60bcc097157c733c1e08356b7cd9ea48bb868
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="kernels-for-jupyter-notebook-on-spark-clusters-in-azure-hdinsight"></a>Azure HDInsight에서 Spark 클러스터의 Jupyter 노트북에 대한 커널 
 
@@ -135,7 +135,11 @@ Jupyter Notebook을 여는 경우 루트 수준에서 사용할 수 있는 두 �
 
 ## <a name="where-are-the-notebooks-stored"></a>Notebook이 저장되는 위치
 
-Jupyter Notebook은 클러스터와 연결된 저장소 계정의 **/HdiNotebooks** 폴더 아래에 저장됩니다.  Jupyter 내에서 만든 Notebook, 텍스트 파일 및 폴더는 저장소 계정에서 액세스할 수 있습니다.  예를 들어 Jupyter를 사용하여 **myfolder** 폴더와 **myfolder/mynotebook.ipynb** Notebook을 만든 경우 저장소 계정 내, `/HdiNotebooks/myfolder/mynotebook.ipynb`에서 이 Notebook에 액세스할 수 있습니다.  반대의 경우도 마찬가지입니다. 즉, `/HdiNotebooks/mynotebook1.ipynb`에서 저장소 계정에 직접 Notebook을 업로드한 경우 Jupyter에서도 이 Notebook을 볼 수 있습니다.  Notebook은 클러스터를 삭제한 후에도 저장소 계정에 유지됩니다.
+클러스터에 Azure Storage를 기본 저장소 계정으로 사용하는 경우 Jupyter 노트가 **/HdiNotebooks** 폴더 아래의 저장소 계정에 저장됩니다.  Jupyter 내에서 만든 Notebook, 텍스트 파일 및 폴더는 저장소 계정에서 액세스할 수 있습니다.  예를 들어 Jupyter를 사용하여 **myfolder** 폴더와 **myfolder/mynotebook.ipynb** Notebook을 만든 경우 저장소 계정 내, `/HdiNotebooks/myfolder/mynotebook.ipynb`에서 이 Notebook에 액세스할 수 있습니다.  반대의 경우도 마찬가지입니다. 즉, `/HdiNotebooks/mynotebook1.ipynb`에서 저장소 계정에 직접 Notebook을 업로드한 경우 Jupyter에서도 이 Notebook을 볼 수 있습니다.  Notebook은 클러스터를 삭제한 후에도 저장소 계정에 유지됩니다.
+
+> [!NOTE]
+> 기본 저장소로 Azure Data Lake Store를 사용하는 HDInsight 클러스터는 연결된 저장소에 노트를 저장하지 않습니다.
+>
 
 Notebook이 저장소 계정에 저장되는 방식은 HDFS와 호환됩니다. 따라서 클러스터에 SSH 연결을 설정한 경우 다음 코드 조각에 표시된 것처럼 파일 관리 명령을 사용할 수 있습니다.
 
@@ -143,8 +147,7 @@ Notebook이 저장소 계정에 저장되는 방식은 HDFS와 호환됩니다. 
     hdfs dfs –copyToLocal /HdiNotebooks                    # Download the contents of the HdiNotebooks folder
     hdfs dfs –copyFromLocal example.ipynb /HdiNotebooks   # Upload a notebook example.ipynb to the root folder so it’s visible from Jupyter
 
-
-클러스터의 저장소 계정에 액세스하는 데 문제가 있는 경우 헤드 노드 `/var/lib/jupyter`에도 노트북이 저장됩니다.
+클러스터가 기본 저장소 계정으로 Azure Storage를 사용하는지 또는 Azure Data Lake Store를 사용하는지에 관계없이, 노트는 `/var/lib/jupyter`의 클러스터 헤드 노드에도 저장됩니다.
 
 ## <a name="supported-browser"></a>지원되는 브라우저
 

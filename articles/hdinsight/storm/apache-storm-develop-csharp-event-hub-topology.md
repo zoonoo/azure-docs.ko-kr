@@ -8,22 +8,23 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 67f9d08c-eea0-401b-952b-db765655dad0
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: 
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/27/2017
 ms.author: larryfr
-ms.openlocfilehash: 9ad160377a8779ae917e6fd2d605ee01b12c3e2a
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ROBOTS: NOINDEX
+ms.openlocfilehash: fe1cf3eab1f0ca930b516e4ab44f1e2439cb3e07
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="process-events-from-azure-event-hubs-with-storm-on-hdinsight-c"></a>HDInsight의 Storm(C#)으로 Azure Event Hubs에서 이벤트 처리
 
-HDInsight의 Apache Storm에서 Azure Event Hubs를 사용하는 방법에 대해 알아봅니다. 이 문서는 C# Storm 토폴로지를 사용하여 Evbent Hubs에서 데이터를 읽고 씁니다.
+HDInsight의 Apache Storm에서 Azure Event Hubs를 사용하는 방법에 대해 알아봅니다. 이 문서는 C# Storm 토폴로지를 사용하여 Event Hubs에서 데이터를 읽고 씁니다.
 
 > [!NOTE]
 > 이 프로젝트의 Java 버전은 [HDInsight의 Storm(Java)으로 Azure Event Hubs에서 이벤트 처리](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/)를 참조하세요.
@@ -36,9 +37,6 @@ HDInsight의 Apache Storm에서 Azure Event Hubs를 사용하는 방법에 대�
 > 이 문서의 단계에서는 Visual Studio를 사용하는 Windows 개발 환경을 사용하지만 컴파일된 프로젝트는 Linux를 사용하는 HDInsight 클러스터의 Storm에 제출할 수 있습니다. 2016년 10월 28일 이후에 만든 Linux 기반 클러스터만 SCP.NET 토폴로지를 지원합니다.
 
 HDInsight 3.4 이상은 Mono를 사용하여 C# 토폴로지를 실행합니다. 이 문서에 사용된 예제는 HDInsight 3.6에서 작동합니다. HDInsight용 .NET 솔루션을 만들 계획인 경우 [Mono 호환성](http://www.mono-project.com/docs/about-mono/compatibility/) 문서에서 잠재적인 비호환성을 확인하세요.
-
-> [!WARNING]
-> SCP.NET 버전 1.0.0.x를 사용하는 프로젝트를 빌드하는 데 문제가 발생한 경우 Microsoft 지원에 문의하세요.
 
 ### <a name="cluster-versioning"></a>클러스터 버전 관리
 
@@ -142,9 +140,9 @@ Event Hubs Spout 및 Bolt 구성 요소를 [https://github.com/hdinsight/mvn-rep
 
 Event Hubs는 이 예제의 데이터 원본입니다. [Event Hubs 시작](../../event-hubs/event-hubs-create.md)의 "이벤트 허브 만들기" 섹션에 있는 정보를 참조하세요.
 
-1. 이벤트 허브가 생성된 후에는 Azure Portal에서 **EventHub** 블레이드를 보고 **공유 액세스 정책**을 선택합니다. **+ 추가**를 선택하여 다음 정책을 추가합니다.
+1. 이벤트 허브가 생성된 후에는 Azure Portal에서 **EventHub** 설정을 보고 **공유 액세스 정책**을 선택합니다. **+ 추가**를 선택하여 다음 정책을 추가합니다.
 
-   | 이름 | 권한 |
+   | Name | 권한 |
    | --- | --- |
    | 기록기 |보내기 |
    | 판독기 |수신 대기 |

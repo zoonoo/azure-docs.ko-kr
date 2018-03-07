@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2018
 ms.author: vinagara
-ms.openlocfilehash: 5e4068cc694b623f67d998f410f207356efd873f
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: b537bb42d43c4232c100061322e09bf492f2a20f
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="create-view-and-manage-alerts-using-azure-monitor---alerts-preview"></a>Azure Monitor를 사용하여 경고 만들기, 보기 및 관리 - 경고(미리 보기)
 
@@ -28,14 +28,14 @@ ms.lasthandoff: 02/09/2018
 - 조건: 신호에서 표시될 때 작업을 트리거해야 하는 특정 조건 또는 논리
 - 작업: 알림의 받는 사람에게 보내는 특정 호출 - 이메일, SMS, 웹후크 등
 
-경고(미리 보기)는 용어 **로그 경고**를 사용하여 신호가 [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md)를 기반으로 하는 사용자 지정 쿼리인 경고를 설명합니다. 기존 경고 환경에서 [근 실시간 메트릭 경고](monitoring-near-real-time-metric-alerts.md)라고 하는 메트릭 경고 기능은 경고(미리 보기)에서 **메트릭 경고**라고 합니다. *메트릭 경고*에서 일부 리소스 종류는 특정 Azure 리소스에 대한 [다차원 메트릭](monitoring-metric-charts.md)을 제공하므로 이러한 리소스에 대한 경고는 차원에서 추가 필터를 사용하여 보다 구체적으로 만들어질 수 있습니다. 이러한 경고는 **다차원 메트릭 경고**라고 합니다.
+Alerts(미리 보기)는 용어 **로그 경고**를 사용하여 신호가 [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) 또는 [Azure Application Insights](../application-insights/app-insights-analytics.md)를 기준으로 하는 사용자 지정 쿼리인 경고를 설명합니다. 기존 경고 환경에서 [근 실시간 메트릭 경고](monitoring-near-real-time-metric-alerts.md)라고 하는 메트릭 경고 기능은 경고(미리 보기)에서 **메트릭 경고**라고 합니다. *메트릭 경고*에서 일부 리소스 종류는 특정 Azure 리소스에 대한 [다차원 메트릭](monitoring-metric-charts.md)을 제공하므로 이러한 리소스에 대한 경고는 차원에서 추가 필터를 사용하여 보다 구체적으로 만들어질 수 있습니다. 이러한 경고는 **다차원 메트릭 경고**라고 합니다.
 Azure Alerts(미리 보기)는 또한 모든 경고 규칙에 대한 통합된 보기 및 확인되지 않은 경고 보기를 포함하여 단일 위치에서 관리하는 기능을 제공합니다. [Azure Alerts(미리 보기) - 개요](monitoring-overview-unified-alerts.md)에서 기능에 대해 자세히 알아봅니다.
 
 > [!NOTE]
 > 반면 Azure Alerts(미리 보기)는 Azure에서 경고를 만들기 위한 새로운 향상된 환경을 제공합니다. 기존 [Azure Alerts](monitoring-overview-alerts.md) 환경은 계속 사용할 수 있습니다.
 >
 
-다음 자세한 내용은 Azure Alerts(미리 보기)를 사용하는 단계별 가이드입니다.
+Azure Alerts(미리 보기)를 사용하는 방법에 대한 단계별 가이드가 다음에 자세히 설명됩니다.
 
 ## <a name="create-an-alert-rule-with-the-azure-portal"></a>Azure Portal에서 경고 규칙 만들기
 1. [포털](https://portal.azure.com/)에서 **모니터**를 선택하고 모니터 섹션 아래에서 **경고(미리 보기)**를 선택합니다.  
@@ -81,16 +81,13 @@ Azure Alerts(미리 보기)는 또한 모든 경고 규칙에 대한 통합된 �
 
     ![다차원 메트릭에 대한 신호 논리 구성](./media/monitor-alerts-unified/AlertsPreviewCriteriaMultiDim.png)
 
-8. *로그 경고*: **리소스 종류**가 *Log Analytics*/*Application Insights*와 같은 분석 원본인지 확인한 다음, 적절한 **리소스**가 선택되면 *수행*을 클릭합니다. 다음으로 **조건 추가** 단추를 사용하여 리소스 및 *Log Analytics*/*Application Insights*와 같은 선택된 로그 모니터 서비스에 대한 신호 목록 **사용자 지정 로그 검색** 옵션에서 사용할 수 있는 신호 옵션 목록을 봅니다.
+8. *로그 경고*: **리소스 종류**가 *Log Analytics* 또는 *Application Insights*와 같은 분석 원본인지 확인한 다음, 적절한 **리소스**가 선택되면 *수행*을 클릭합니다. 다음으로 **조건 추가** 단추를 사용하여 리소스 및 *Log Analytics* 또는 *Application Insights*와 같은 선택된 로그 모니터 서비스에 대한 신호 목록 **사용자 지정 로그 검색** 옵션에서 사용할 수 있는 신호 옵션 목록을 봅니다.
 
    ![리소스 선택 - 사용자 지정 로그 검색](./media/monitor-alerts-unified/AlertsPreviewResourceSelectionLog.png)
 
    > [!NOTE]
 
-   > **경고 미리 보기**는 선택된 리소스가 Log Analytics인 경우 신호 유형 - 로그(저장된 쿼리)로 저장된 로그 검색을 나열합니다.
-   따라서 Analytics에서 쿼리를 완벽하게 한 다음, 나중에 사용하기 위해 저장할 수 있습니다. 더 자세한 내용은 [로그 분석에서 로그 검색 사용](../log-analytics/log-analytics-log-searches.md)에서 제공됩니다. 그런 다음, 저장된 검색으로 다음 샘플 화면에 표시된 것처럼 이러한 쿼리를 기반으로 하는 경고 규칙을 직접 만들 수 있습니다.
-
-   ![리소스 선택 - 사용자 지정 로그 검색](./media/monitor-alerts-unified/AlertsPreviewResourceSelectionLog-new.png)
+   > Alerts(미리 보기) 목록은 위 그림과 같이 분석 쿼리를 신호 유형 - **로그(저장된 쿼리)**로 가져올 수 있습니다. 따라서 사용자는 Analytics에서 쿼리를 완료한 후 경고에서 나중에 사용할 수 있게 저장합니다. 쿼리 저장 방법에 대한 자세한 내용은 [Log Analytics에서 로그 검색 사용](../log-analytics/log-analytics-log-searches.md) 또는 [Application Insights 분석의 공유 쿼리](../log-analytics/log-analytics-overview.md)를 참조하세요. 
 
 9.  *로그 경고*: 선택한 후에 경고에 대한 쿼리를 **검색 쿼리** 필드에서 정의할 수 있습니다. 쿼리 구문이 올바르지 않을 경우 필드는 빨간색으로 오류를 표시합니다. 쿼리 구문이 올바른 경우 참조를 위해 정의된 쿼리의 기록 데이터가 마지막 6시간에서 지난 주까지 시간 창을 조정하는 옵션과 함께 그래프로 표시됩니다.
 

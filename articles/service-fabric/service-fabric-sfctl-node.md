@@ -12,13 +12,13 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/22/2017
+ms.date: 02/22/2018
 ms.author: ryanwi
-ms.openlocfilehash: b94c5a7d6c3c74e1dd66559dea288238c35d664c
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 50c7fe38d8bf7b14adf437f85c758e465e7d231d
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="sfctl-node"></a>sfctl node
 클러스터를 형성하는 노드를 관리합니다.
@@ -30,7 +30,7 @@ ms.lasthandoff: 01/18/2018
 |    disable       | 지정한 비활성화 의도로 Microsoft Azure Service Fabric 클러스터 노드를 비활성화합니다.|
 |    enable        | 현재 비활성화되어 있는 Microsoft Azure Service Fabric 클러스터 노드를 활성화합니다.|
 |    health        | Microsoft Azure Service 패브릭 노드의 상태를 가져옵니다.|
-|    info          | Microsoft Azure Service Fabric 클러스터에서 노드 목록을 가져옵니다.|
+|    info          | Microsoft Azure Service Fabric 클러스터에서 특정 노드에 관한 정보를 가져옵니다.|
 |    list          | Microsoft Azure Service Fabric 클러스터에서 노드 목록을 가져옵니다.|
 |    load          | Microsoft Azure Service 패브릭 노드의 부하 정보를 가져옵니다.|
 |    remove-state  | 노드의 지속된 상태가 영구적으로 제거되거나 손실되었음을 Microsoft Azure Service Fabric에 알립니다.|
@@ -50,7 +50,7 @@ ms.lasthandoff: 01/18/2018
 |인수|설명|
 | --- | --- |
 | --node-name [필수]| 노드의 이름입니다.|
-| --deactivation-intent | 노드를 비활성화하는 의도나 이유를 설명합니다. 가능한 값은 다음과 같습니다. - Pause - 노드가 일시 중지해야 함을 나타냅니다. 값은 1입니다. - Restart - 노드가 잠시 후에 다시 시작되게 하려는 것이 의도임을 나타냅니다. 값은 2입니다. -        RemoveData - 노드에서 데이터를 제거하는 것이 의도임을 나타냅니다. 값은 3입니다. 에서도 확인할 수 있습니다.|
+| --deactivation-intent | 노드를 비활성화하는 의도나 이유를 설명합니다. |
 | --timeout -t       | 서버 시간 제한(초).  기본값: 60.|
 
 ### <a name="global-arguments"></a>전역 인수
@@ -109,9 +109,9 @@ Microsoft Azure Service 패브릭 노드의 상태를 가져옵니다. 상태에
 | --verbose                | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다.|
 
 ## <a name="sfctl-node-info"></a>sfctl node info
-Microsoft Azure Service Fabric 클러스터에서 노드 목록을 가져옵니다.
+Microsoft Azure Service Fabric 클러스터에서 특정 노드에 관한 정보를 가져옵니다.
 
-Microsoft Azure Service Fabric 클러스터에서 특정 노드에 관한 정보를 가져옵니다. 응답에는 이름, 상태, ID, 상태, 작동 `시간 및 노드에 대한 기타 세부 정보가 포함됩니다.
+Service Fabric 클러스터에서 특정 노드에 관한 정보를 가져옵니다. 응답에는 이름, 상태, ID, 상태, 작동 시간 및 노드에 대한 기타 세부 정보가 포함됩니다.
 
 ### <a name="arguments"></a>인수
 
@@ -133,14 +133,14 @@ Microsoft Azure Service Fabric 클러스터에서 특정 노드에 관한 정보
 ## <a name="sfctl-node-list"></a>sfctl node list
 Microsoft Azure Service Fabric 클러스터에서 노드 목록을 가져옵니다.
 
-노드 끝점은 Microsoft Azure Service Fabric 클러스터에 있는 노드에 관한 정보를 반환합니다. 응답에는 이름, 상태, ID, 상태, 작동 `시간 및 노드에 대한 기타 세부 정보가 포함됩니다.
+Microsoft Azure Service Fabric 클러스터에서 노드 목록을 가져옵니다. 응답에는 이름, 상태, ID, 상태, 작동 시간 및 노드에 대한 기타 세부 정보가 포함됩니다.
 
 ### <a name="arguments"></a>인수
 
 |인수|설명|
 | --- | --- |
 | --continuation-token| 연속 토큰 매개 변수는 다음 결과 집합을 얻는 데 사용됩니다. 공백 값이 아닌 연속 토큰은 시스템의 결과가 단일 응답에 맞지 않는 경우 API의 응답에 포함됩니다.      이 값이 다음 API 호출에 전달되면 API는 다음 결과 집합을 반환합니다. 결과가 더 이상 없으면 연속 토큰에 값이 포함되지 않습니다. 이 매개 변수의 값은 URL 인코딩이 되지 말아야 합니다.|
-| --node-status-filter| NodeStatus에 따라 노드를 필터링할 수 있습니다. 지정한 필터 값과 일치하는 노드만 반환됩니다. 필터 값은 다음 중 하나일 수 있습니다. - default - 이 필터 값은 상태가 Unknown 또는 Removed인 노드를 제외한 모든 노드와 일치합니다. -      all - 이 필터 값은 모든 노드와 일치합니다. - up - 이 필터 값은 작동 중인 노드와 일치합니다. - down - 이 필터 값은 작동되지 않는 노드와 일치합니다. - enabling - 이 필터 값은 Enabling의 상태로 사용할 수 있도록 하는 프로세스에 있는 노드와 일치합니다. - disabling -      이 필터 값은 Disabling의 상태로 사용하지 않도록 하는 프로세스에 있는 노드와 일치합니다. - disabled - 이 필터 값은 Disabled된 노드와 일치합니다. - unknown - 이 필터 값은 상태가 Unknown인 노드와 일치합니다. Microsoft Azure Service Fabric에 해당 노드에 대한 신뢰할 수 있는 정보가 없다면 Unknown 상태입니다. 시스템이 런타임에 노드에 관해 알게 된다면 이런 일이 발생할 수 있습니다. - removed - 이 필터 값은 상태가 Removed인 노드와 일치합니다. 이들 노드는 RemoveNodeState API를 사용하여 클러스터에서 제거되는 노드입니다. 에서도 확인할 수 있습니다.      기본값: default.|
+| --node-status-filter| NodeStatus에 따라 노드를 필터링할 수 있습니다. 지정한 필터 값과 일치하는 노드만 반환됩니다. 필터 값은 다음 중 하나일 수 있습니다. 기본값: default.|
 | --timeout -t     | 서버 시간 제한(초).  기본값: 60.|
 
 ### <a name="global-arguments"></a>전역 인수
@@ -156,7 +156,7 @@ Microsoft Azure Service Fabric 클러스터에서 노드 목록을 가져옵니�
 ## <a name="sfctl-node-load"></a>sfctl node load
 Microsoft Azure Service 패브릭 노드의 부하 정보를 가져옵니다.
 
-Microsoft Azure Service 패브릭 노드의 부하 정보를 가져옵니다.
+정의된 로드 또는 용량이 있는 모든 메트릭에 대한 Service Fabric 노드의 로드 정보를 검색합니다.
 
 ### <a name="arguments"></a>인수
 
@@ -203,7 +203,7 @@ Microsoft Azure Service Fabric 클러스터 노드를 다시 시작합니다.
 클러스터 노드를 시작하거나 중지합니다.
 
 클러스터 노드를 시작하거나 중지합니다.  클러스터 노드는 프로세스이지 OS 인스턴스 그 자체가 아닙니다.
-노드를 시작하려면 NodeTransitionType 매개 변수에 대한 "Start"을 전달합니다. 노드를 중지하려면 NodeTransitionType 매개 변수에 대한 "Stop"을 전달합니다. API가 아직 전환을 마치지 못한 노드를 반환할 때 이 API가 작업을 시작합니다. 작업의 진행률을 가져오려면 동일한 OperationId로 GetNodeTransitionProgress를 호출합니다. 에서도 확인할 수 있습니다.
+노드를 시작하려면 NodeTransitionType 매개 변수에 대한 "Start"을 전달합니다. 노드를 중지하려면 NodeTransitionType 매개 변수에 대한 "Stop"을 전달합니다. API가 아직 전환을 마치지 못한 노드를 반환할 때 이 API가 작업을 시작합니다. 작업의 진행률을 가져오려면 동일한 OperationId로 GetNodeTransitionProgress를 호출합니다. 
 
 ### <a name="arguments"></a>인수
 
@@ -211,7 +211,7 @@ Microsoft Azure Service Fabric 클러스터 노드를 다시 시작합니다.
 | --- | --- |
 | --node-instance-id         [필수]| 대상 노드의 노드 인스턴스 ID입니다. 이것은 GetNodeInfo API를 통해 확인할 수 있습니다.|
 | --node-name                [필수]| 노드의 이름입니다.|
-| --node-transition-type     [필수]| 수행할 전환의 유형을 나타냅니다.                       NodeTransitionType.Start는 중지된 노드를 시작합니다.                       NodeTransitionType.Stop은 작동하는 노드를 중지합니다. -                       Invalid - 예약됨.  API에 전달하지 마세요. - Start -                       중지된 노드를 작동하도록 전환. - Stop -                        작동 중인 노드를 중지하도록 전환. 에서도 확인할 수 있습니다.|
+| --node-transition-type     [필수]| 수행할 전환의 유형을 나타냅니다.                       NodeTransitionType.Start는 중지된 노드를 시작합니다.                       NodeTransitionType. 중지는 위에 있는 노드를 중지합니다. |
 | --operation-id             [필수]| 이 API의 호출을 식별하는 GUID입니다.  이 값은 해당 GetProgress API에 전달됩니다.|
 | --stop-duration-in-seconds [필수]| 노드가 중지된 채로 유지되는 기간(초).  최소값은 600, 최대값은 14400입니다. 이 시간이 만료되면 노드가 자동으로 다시 작동합니다.|
 | --timeout -t                      | 서버 시간 제한(초).  기본값: 60.|

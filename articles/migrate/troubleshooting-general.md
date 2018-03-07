@@ -4,13 +4,13 @@ description: "Azure Migrate 서비스의 알려진 문제에 대한 개요와 �
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: troubleshooting
-ms.date: 12/12/2017
+ms.date: 02/21/2018
 ms.author: raynew
-ms.openlocfilehash: 1fcc9e12e63eda73d53ae2085bc2a64d31ea2067
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 249de45dbd9bedf1b3c2d2a5957acf31d6c0d243
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="troubleshoot-azure-migrate"></a>Azure Migrate 문제 해결
 
@@ -31,14 +31,14 @@ URL 기반 방화벽 프록시를 사용하여 아웃바운드 연결을 제어�
 
 **포털에서 복사한 프로젝트 ID 및 키를 사용하여 수집기로 프로젝트에 연결할 수 없습니다.**
 
-올바른 정보를 복사하여 붙여넣었는지 확인합니다. 문제를 해결하려면 다음과 같이 MMA(Microsoft Monitoring Agent)를 설치합니다.
+올바른 정보를 복사하여 붙여넣었는지 확인합니다. 문제를 해결하려면 다음과 같이 MMA(Microsoft Monitoring Agent)를 설치하고 MMA에서 프로젝트에 연결할 수 있는지 확인합니다.
 
 1. 수집기 VM에서 [MMA](https://go.microsoft.com/fwlink/?LinkId=828603)를 다운로드합니다.
 2. 설치를 시작하려면 다운로드한 파일을 두 번 클릭합니다.
 3. 설치 화면의 **시작** 페이지에서 **다음**을 클릭합니다. **사용 조건** 페이지에서 **동의**를 클릭하여 라이선스를 수락합니다.
 4. **대상 폴더**에서 기본 설치 폴더를 유지하거나 수정하고 **다음**을 클릭합니다.
 5. **에이전트 설치 옵션**에서 **Azure Log Analytics(OMS)** > **다음**을 차례로 선택합니다.
-6. **추가**를 클릭하여 새로운 Log Analytics 작업 영역을 추가합니다. 복사한 프로젝트 ID와 키를 붙여넣습니다. 그런 후 **Next**를 클릭합니다.
+6. **추가**를 클릭하여 새로운 Log Analytics 작업 영역을 추가합니다. 복사한 프로젝트 ID와 키를 붙여넣습니다. 그런 후 **Next** 를 클릭합니다.
 7. 에이전트가 프로젝트에 연결할 수 있는지 확인합니다. 연결할 수 없으면 설정을 확인합니다. 에이전트는 연결할 수는 있지만 수집기는 연결할 수 없는 경우 지원에 문의합니다.
 
 
@@ -69,9 +69,9 @@ vCenter server의 통계 설정 수준이 3 미만으로 설정되면 이 현상
 
 **문제** | **해결**
 --- | ---
-지원되지 않은 부팅 형식 | 마이그레이션을 실행하기 전에 BIOS로 변경합니다.
+지원되지 않는 부팅 유형 | Azure는 공유 EFI 부팅 유형의 VM을 지원하지 않습니다. 마이그레이션을 실행하기 전에 부팅 유형을 BIOS로 변환하는 것이 좋습니다. <br/><br/>[Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/tutorial-migrate-on-premises-to-azure)를 사용하여 마이그레이션하는 동안 VM의 부팅 유형이 BIOS로 변환될 때 이러한 VM의 마이그레이션을 수행할 수 있습니다.
 디스크 수 한도 초과 | 마이그레이션을 시작하기 전에 컴퓨터에서 사용하지 않는 디스크를 제거합니다.
-디스크 크기 한도 초과 | 마이그레이션을 시작하기 전에 디스크를 4TB 미만으로 축소합니다. 
+디스크 크기 한도 초과 | Azure는 4TB 이하의 디스크를 지원합니다. 마이그레이션을 시작하기 전에 디스크를 4TB 미만으로 축소합니다. 
 지정된 위치의 디스크를 사용할 수 없음 | 마이그레이션하기 전에 디스크가 대상 위치에 있는지 확인합니다.
 지정된 이중화에 디스크를 사용할 수 없음 | 디스크가 평가 설정에 정의된 중복 저장소 형식(기본적으로 LRS)을 사용해야 합니다.
 내부 오류로 인해 디스크 적합성을 확인할 수 없음 | 그룹에 대한 새 평가를 만들어 봅니다. 
@@ -83,12 +83,15 @@ vCenter server의 통계 설정 수준이 3 미만으로 설정되면 이 현상
 내부 오류로 인해 하나 이상의 네트워크 어댑터 적합성을 확인할 수 없습니다. | 그룹에 대한 새 평가를 만들어 봅니다.
 필요한 저장소 성능을 제공하는 VM을 찾을 수 없습니다. | 컴퓨터에 필요한 저장소 성능(IOPS/처리량)이 Azure VM 지원을 초과합니다. 마이그레이션을 시작하기 전에 컴퓨터의 저장소 요구 사항을 낮춰봅니다.
 필요한 네트워크 성능을 제공하는 VM을 찾을 수 없습니다. | 컴퓨터에 필요한 네트워크 성능(입력/출력)이 Azure VM 지원을 초과합니다. 컴퓨터의 네트워킹 요구 사항을 낮춰봅니다. 
-지정된 가격 책정 계층에 해당하는 VM을 찾을 수 없습니다. | 가격 책정 계층 설정을 확인합니다. 
+지정된 가격 책정 계층에서 VM을 찾을 수 없습니다. | 가격 책정 계층을 표준으로 설정하는 경우 Azure로 마이그레이션하기 전에 VM을 다운사이징하는 것이 좋습니다. 가격 책정 계층이 기본이면 평가의 가격 책정 계층을 표준으로 변경하는 것이 좋습니다. 
 지정된 위치에서 VM을 찾을 수 없습니다. | 다른 대상 위치를 사용하여 마이그레이션을 실행해 봅니다.
-Linux OS 지원 문제 | 다음과 같은 지원되는 [운영 체제](../virtual-machines/linux/endorsed-distros.md)를 64비트로 실행하고 있는지 확인합니다.
-Windows OS 지원 문제 | 지원되는 운영 체제를 실행하고 있는지 확인합니다. [자세히 알아보기](concepts-assessment-calculation.md#azure-suitability-analysis)
-알 수 없는 운영 체제. | VCenter에 지정된 운영 체제가 올바른지 확인하고 검색 프로세스를 반복합니다.
-Visual Studio 구독이 필요합니다. | Windows 클라이언트 운영 체제는 Visual Studio(MSDN) 구독에서만 지원됩니다.
+알 수 없는 운영 체제 | Azure Migrate가 VM의 Azure 준비 상태를 식별할 수 없으므로 VM의 운영 체제가 vCenter 서버에서 '기타'로 지정되었습니다. 컴퓨터를 마이그레이션하기 전에 컴퓨터 내에서 실행되는 OS가 Azure에서 [지원](https://aka.ms/azureoslist)되는지 확인합니다.
+조건부로 지원되는 Windows OS | OS의 지원 종료 날짜가 경과되어, [Azure에서 지원되기](https://aka.ms/WSosstatement) 위해 CSA(사용자 지정 지원 계약)가 필요한 경우 Azure로 마이그레이션하기 전에 OS를 업그레이드하는 것이 좋습니다.
+지원되지 않는 Windows OS | Azure는 [선택된 Windows OS 버전](https://aka.ms/WSosstatement)만 지원하므로 Azure로 마이그레이션하기 전에 컴퓨터의 OS를 업그레이드하는 것이 좋습니다. 
+조건부로 보증되는 Linux OS | Azure는 [선택된 Linux OS 버전](../virtual-machines/linux/endorsed-distros.md)만 보증하므로 Azure로 마이그레이션하기 전에 컴퓨터의 OS를 업그레이드하는 것이 좋습니다.
+보증되지 않는 Linux OS | 컴퓨터를 Azure에서 부팅할 수 있지만 Azure에서 OS 지원을 제공하지 않습니다. Azure로 마이그레이션하기 전에 OS를 [보증된 Linux 버전](../virtual-machines/linux/endorsed-distros.md)으로 업그레이드하는 것이 좋습니다.
+지원되지 않는 OS 비트 | 32비트 OS가 있는 VM은 Azure에서 부팅될 수 있지만, Azure로 마이그레이션하기 전에 VM의 OS를 32비트에서 64비트로 업그레이드하는 것이 좋습니다.
+Visual Studio 구독이 필요합니다. | 컴퓨터에 Visual Studio 구독에서만 지원되는 Windows 클라이언트 OS가 실행되고 있습니다.
 
 
 ## <a name="collect-logs"></a>로그 수집

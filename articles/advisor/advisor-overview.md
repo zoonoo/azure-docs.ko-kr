@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-ms.openlocfilehash: 8ae99c7ce6382626657777d003a1cb82348c4aba
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a4096b11a828cf6676aa22b11c4dd4d75f3b0286
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="introduction-to-azure-advisor"></a>Azure Advisor 소개
 
@@ -52,7 +52,7 @@ Advisor 대시보드에 모든 구독에 대한 개인화된 권장 사항이 �
 
 권장 사항을 구현하려면 권장 사항에 대해 권장되는 작업을 선택합니다.  간단한 인터페이스를 통해 권장 사항을 구현하거나 구현을 지원하는 설명서를 참조할 수 있습니다.  권장 사항을 구현하면 Advisor가 해당 권장 사항을 인식하는 데 최대 1일이 걸릴 수 있습니다.
 
-권장 사항에 대해 즉각적인 작업을 수행하지 않으려는 경우 지정된 시간 후에 다시 알리거나 닫을 수 있습니다.  특정 구독 또는 리소스 그룹에 대한 권장 사항을 수신하지 않으려면 지정된 구독 및 리소스 그룹에 대한 권장 사항만 생성하도록 Advisor를 구성할 수 있습니다.
+권장 사항에 대해 즉각적인 작업을 수행하지 않으려는 경우 지정된 시간 후에 연기하거나 해제할 수 있습니다.  특정 구독 또는 리소스 그룹에 대한 권장 사항을 수신하지 않으려면 지정된 구독 및 리소스 그룹에 대한 권장 사항만 생성하도록 Advisor를 구성할 수 있습니다.
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
 
@@ -69,9 +69,9 @@ Advisor 대시보드에 모든 구독에 대한 개인화된 권장 사항이 �
 
 Advisor는 가상 머신, 가용성 집합, Application Gateway, App Services, SQL Server, SQL Database 및 Redis Cache에 대한 권장 사항을 제공합니다.
 
-### <a name="can-i-snooze-or-dismiss-a-recommendation"></a>권장 사항을 다시 알리거나 해제할 수 있나요?
+### <a name="can-i-postpone-or-dismiss-a-recommendation"></a>권장 사항을 연기하거나 해제할 수 있나요?
 
-권장 사항을 다시 알리거나 해제하려면 **다시 알림** 링크를 클릭합니다. 다시 알림 기간을 지정하거나, 권장 사항을 해제하려면 **안 함**을 선택합니다.
+권장 사항을 연기하거나 해제하려면 **연기** 링크를 클릭합니다. 연기 기간을 지정하거나, 권장 사항을 해제하려면 **안 함**을 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

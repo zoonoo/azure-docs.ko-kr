@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/19/2017
 ms.author: mbaldwin
 ms.custom: aaddev
-ms.openlocfilehash: ba8356a018605331dc4b9cc9ff401929cd8793bf
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5f47f03594e64281b55161edb1c391ed0be83a73
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-active-directory-code-samples"></a>Azure Active Directory 코드 샘플
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -65,7 +65,7 @@ GitHub에서 샘플에 참가: [Microsoft Azure Active Directory 샘플 및 설�
 | C#/.NET |[NativeClient-Headless-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-native-headless) |비대화형 인증을 수행하고 Azure AD로 보안되는 웹 API를 호출하는 네이티브 응용 프로그램입니다. |
 
 ## <a name="web-application-to-web-api"></a>웹 응용 프로그램-Web API
-다음 코드 샘플에서는 [Azure AD의 OAuth 2.0](https://msdn.microsoft.com/library/azure/dn645545.aspx)을 사용하여 Azure AD로 보안되는 웹 API를 호출하는 웹 응용 프로그램을 빌드하는 방법을 보여 줍니다.
+다음 코드 샘플에서는 [Azure AD의 OAuth 2.0](https://msdn.microsoft.com/library/azure/dn645545.aspx)을 사용하여 Azure AD로 보안되는 웹 API를 호출하는 웹 응용 프로그램을 빌드하는 방법을 보여줍니다.
 
 | 언어/플랫폼 | 샘플 | 설명 |
 | --- | --- | --- |
@@ -83,15 +83,21 @@ GitHub에서 샘플에 참가: [Microsoft Azure Active Directory 샘플 및 설�
 | C#/.NET |[Daemon-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-daemon) |웹 API를 호출하는 콘솔 응용 프로그램입니다. 클라이언트 자격 증명은 암호입니다. |
 | C#/.NET |[Daemon-CertificateCredential-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential) |웹 API를 호출하는 콘솔 응용 프로그램입니다. 클라이언트 자격 증명은 인증서입니다. |
 
-## <a name="calling-azure-ad-graph-api"></a>Azure AD Graph API 호출
-다음 코드 샘플에서는 디렉터리 데이터 읽고 쓰기 위해 Azure AD Graph API를 호출하는 응용 프로그램을 빌드하는 방법을 보여 줍니다.
+## <a name="calling-microsoft-graph-api"></a>Microsoft Graph API 호출
+다음 코드 샘플에서는 디렉터리 데이터 읽고 쓰기 위해 Microsoft Graph API를 호출하는 응용 프로그램을 빌드하는 방법을 보여줍니다.
 
 | 언어/플랫폼 | 샘플 | 설명 |
 | --- | --- | --- |
-| Java |[WebApp-GraphAPI-Java](https://github.com/Azure-Samples/active-directory-java-graphapi-web) |Graph API를 사용하여 Azure AD 디렉터리 데이터에 액세스하는 웹 응용 프로그램입니다. |
+| C#/.NET |[WebApp-MSGraphAPI-DotNet](https://github.com/microsoftgraph/aspnet-snippets-sample) |Microsoft Graph API를 사용하여 Azure AD 디렉터리 데이터에 액세스하는 웹 응용 프로그램입니다. |
+| C#/.NET |[UWPApp-MSGraphAPI-DotNet](https://github.com/microsoftgraph/uwp-csharp-snippets-sample) |유니버설 Windows 플랫폼 앱은 Windows 10 앱에서 Microsoft Graph API에 대한 요청을 만들어서 Microsoft Azure AD(Active Directory) 및 Office 365 API를 포함한 여러 리소스에 액세스하는 방법을 보여줍니다. |
+
+## <a name="calling-azure-ad-graph-api"></a>Azure AD Graph API 호출
+다음 코드 샘플에서는 디렉터리 데이터 읽고 쓰기 위해 Azure AD Graph API를 호출하는 응용 프로그램을 빌드하는 방법을 보여줍니다.
+
+| 언어/플랫폼 | 샘플 | 설명 |
+| --- | --- | --- |
+| 자바 |[WebApp-GraphAPI-Java](https://github.com/Azure-Samples/active-directory-java-graphapi-web) |Graph API를 사용하여 Azure AD 디렉터리 데이터에 액세스하는 웹 응용 프로그램입니다. |
 | PHP |[WebApp-GraphAPI-PHP](https://github.com/Azure-Samples/active-directory-php-graphapi-web) |Graph API를 사용하여 Azure AD 디렉터리 데이터에 액세스하는 웹 응용 프로그램입니다. |
-| C#/.NET |[WebApp-GraphAPI-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-graphapi-web) |Graph API를 사용하여 Azure AD 디렉터리 데이터에 액세스하는 웹 응용 프로그램입니다. |
-| C#/.NET |[ConsoleApp-GraphAPI-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-graphapi-console) |이 콘솔 앱은 Graph API에 대한 일반적인 읽기 및 쓰기 호출을 시연하며 사용자 라이선스 할당을 실행하고 사용자의 축소판 사진 및 링크를 업데이트하는 방법을 보여 줍니다. |
 | C#/.NET |[ConsoleApp-GraphAPI-DiffQuery-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-graphapi-diffquery) |Graph API에서 차등 쿼리를 사용하여 Azure AD 테넌트의 사용자 개체에 대한 주기적인 변경 사항을 가져오는 콘솔 응용 프로그램입니다. |
 | C#/.NET |[WebApp-GraphAPI-DirectoryExtensions-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-graphapi-directoryextensions-web) |Graph API 쿼리를 사용하여 간단한 회사 조직도를 생성하는 MVC 응용 프로그램입니다. |
 | PHP |[WebApp-GraphAPI-DirectoryExtensions-PHP](https://github.com/Azure-Samples/active-directory-php-graphapi-directoryextensions-web) |Graph API를 호출하여 확장을 등록한 다음 이 확장 특성의 값을 읽고 업데이트하고 삭제하는 PHP 응용 프로그램입니다. |

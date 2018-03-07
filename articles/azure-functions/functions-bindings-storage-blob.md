@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: glenga
-ms.openlocfilehash: 9294d19ea78a2b9cf4282d627eddd16e6588d3ee
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: e44261e8ee62ce6a91110da0ec0bc489c426f688
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Functions의 Azure Blob Storage 바인딩
 
@@ -63,6 +63,8 @@ public static void Run([BlobTrigger("samples-workitems/{name}")] Stream myBlob, 
 }
 ```
 
+blob 트리거 경로 `samples-workitems/{name}`의 문자열 `{name}`은 함수 코드에서 사용할 수 있는 [바인딩 식](functions-triggers-bindings.md#binding-expressions-and-patterns)을 만들어 트리거 blob의 파일 이름에 액세스합니다. 자세한 내용은 이 문서의 뒷부분에 나오는 [Blob 이름 패턴](#trigger---blob-name-patterns)을 참조하세요.
+
 `BlobTrigger` 특성에 대한 자세한 내용은 [트리거 - 특성](#trigger---attributes)을 참조하세요.
 
 ### <a name="trigger---c-script-example"></a>트리거 - C# 스크립트 예제
@@ -79,14 +81,16 @@ public static void Run([BlobTrigger("samples-workitems/{name}")] Stream myBlob, 
             "name": "myBlob",
             "type": "blobTrigger",
             "direction": "in",
-            "path": "samples-workitems",
+            "path": "samples-workitems/{name}",
             "connection":"MyStorageAccountAppSetting"
         }
     ]
 }
 ```
 
-[구성](#trigger---configuration) 섹션에서는 이러한 속성을 설명합니다.
+blob 트리거 경로 `samples-workitems/{name}`의 문자열 `{name}`은 함수 코드에서 사용할 수 있는 [바인딩 식](functions-triggers-bindings.md#binding-expressions-and-patterns)을 만들어 트리거 blob의 파일 이름에 액세스합니다. 자세한 내용은 이 문서의 뒷부분에 나오는 [Blob 이름 패턴](#trigger---blob-name-patterns)을 참조하세요.
+
+*function.json* 파일 속성에 대한 자세한 내용은 이러한 속성을 설명하는 [구성](#trigger---configuration) 섹션을 참조하세요.
 
 `Stream`에 바인딩되는 C# 스크립트 코드는 다음과 같습니다.
 
@@ -112,7 +116,7 @@ public static void Run(CloudBlockBlob myBlob, string name, TraceWriter log)
 
 ### <a name="trigger---javascript-example"></a>트리거 - JavaScript 예제
 
-다음 예에서는 바인딩을 사용하는 *function.json* 파일 및 [JavaScript 코드](functions-reference-node.md)에서 Blob 트리거 바인딩을 보여줍니다. 함수는 `samples-workitems` 컨테이너에서 Blob을 추가하거나 업데이트할 때 로그를 씁니다.
+다음 예에서는 바인딩을 사용하는 *function.json* 파일 및 [JavaScript 코드](functions-reference-node.md)의 Blob 트리거 바인딩을 보여줍니다. 함수는 `samples-workitems` 컨테이너에서 Blob을 추가하거나 업데이트할 때 로그를 씁니다.
 
 *function.json* 파일은 다음과 같습니다.
 
@@ -124,14 +128,16 @@ public static void Run(CloudBlockBlob myBlob, string name, TraceWriter log)
             "name": "myBlob",
             "type": "blobTrigger",
             "direction": "in",
-            "path": "samples-workitems",
+            "path": "samples-workitems/{name}",
             "connection":"MyStorageAccountAppSetting"
         }
     ]
 }
 ```
 
-[구성](#trigger---configuration) 섹션에서는 이러한 속성을 설명합니다.
+blob 트리거 경로 `samples-workitems/{name}`의 문자열 `{name}`은 함수 코드에서 사용할 수 있는 [바인딩 식](functions-triggers-bindings.md#binding-expressions-and-patterns)을 만들어 트리거 blob의 파일 이름에 액세스합니다. 자세한 내용은 이 문서의 뒷부분에 나오는 [Blob 이름 패턴](#trigger---blob-name-patterns)을 참조하세요.
+
+*function.json* 파일 속성에 대한 자세한 내용은 이러한 속성을 설명하는 [구성](#trigger---configuration) 섹션을 참조하세요.
 
 JavaScript 코드는 다음과 같습니다.
 
@@ -214,22 +220,23 @@ module.exports = function(context) {
 
 ## <a name="trigger---usage"></a>트리거 - 사용
 
-C# 및 C# 스크립트에서는 `T paramName`과 같은 메서드 매개 변수를 사용하여 Blob 데이터에 액세스합니다. C# 스크립트에서 `paramName`은 *function.json*의 `name` 속성에 지정된 값입니다. 다음 중 원하는 형식으로 바인딩할 수 있습니다.
+C# 및 C# 스크립트에서 트리거 blob에 대한 다음 매개 변수 형식을 사용할 수 있습니다.
 
 * `Stream`
 * `TextReader`
-* `Byte[]`
 * `string`
+* `Byte[]`
+* JSON으로 직렬화 가능한 POCO
 * `ICloudBlob`(*function.json*에서 "inout" 바인딩 방향 필요)
 * `CloudBlockBlob`(*function.json*에서 "inout" 바인딩 방향 필요)
 * `CloudPageBlob`(*function.json*에서 "inout" 바인딩 방향 필요)
 * `CloudAppendBlob`(*function.json*에서 "inout" 바인딩 방향 필요)
 
-언급했듯이 이러한 형식 중 일부에는 *function.json*에서 `inout` 바인딩 방향이 필요합니다. 이 방향은 Azure Portal의 표준 편집기에서 지원되지 않으므로 고급 편집기를 사용해야 합니다.
+언급했 듯이 이러한 형식 중 일부에는 *function.json*에서 `inout` 바인딩 방향이 필요합니다. 이 방향은 Azure Portal의 표준 편집기에서 지원되지 않으므로 고급 편집기를 사용해야 합니다.
 
-텍스트 Blob이 필요한 경우 `string` 형식에 바인딩할 수 있습니다. 전체 Blob 내용이 메모리에 로드되므로 이는 Blob 크기가 작은 경우에만 권장됩니다. 일반적으로 `Stream` 또는 `CloudBlockBlob` 형식을 사용하는 것이 좋습니다. 자세한 내용은 이 문서의 뒷부분에 나오는 [동시성 및 메모리 사용량](#trigger---concurrency-and-memory-usage)을 참조하세요.
+`string`, `Byte[]` 또는 POCO에 바인딩하는 방식은 전체 Blob 내용이 메모리에 로드되므로 Blob 크기가 작은 경우에만 권장됩니다. 일반적으로 `Stream` 또는 `CloudBlockBlob` 형식을 사용하는 것이 좋습니다. 자세한 내용은 이 문서의 뒷부분에 나오는 [동시성 및 메모리 사용량](#trigger---concurrency-and-memory-usage)을 참조하세요.
 
-JavaScript에서는 `context.bindings.<name>`을 사용하여 입력 Blob 데이터에 액세스합니다.
+JavaScript에서는 `context.bindings.<name from function.json>`을 사용하여 입력 Blob 데이터에 액세스합니다.
 
 ## <a name="trigger---blob-name-patterns"></a>트리거 - Blob 이름 패턴
 
@@ -276,13 +283,28 @@ Blob의 이름이 *{20140101}-soundfile.mp3*인 경우 함수 코드에서 `name
 
 Blob 트리거는 몇 가지 메타데이터 속성을 제공합니다. 이러한 속성을 다른 바인딩에서 바인딩 식의 일부로 사용하거나 코드에서 매개 변수로 사용할 수 있습니다. 이러한 값은 [CloudBlob](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob?view=azure-dotnet) 형식과 동일한 의미 체계를 가집니다.
 
-
 |자산  |형식  |설명  |
 |---------|---------|---------|
 |`BlobTrigger`|`string`|Blob을 트리거하는 경로입니다.|
 |`Uri`|`System.Uri`|기본 위치에 대한 Blob의 URI입니다.|
 |`Properties` |[BlobProperties](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.blobproperties)|Blob의 시스템 속성입니다. |
 |`Metadata` |`IDictionary<string,string>`|Blob에 대한 사용자 정의 메타데이터입니다.|
+
+예를 들어, 다음 C# 스크립트 및 JavaScript 예제는 컨테이너를 포함하는 트리거 Blob의 경로를 로깅합니다.
+
+```csharp
+public static void Run(string myBlob, string blobTrigger, TraceWriter log)
+{
+    log.Info($"Full blob path: {blobTrigger}");
+} 
+```
+
+```javascript
+module.exports = function (context, myBlob) {
+    context.log("Full blob path:", context.bindingData.blobTrigger);
+    context.done();
+};
+```
 
 ## <a name="trigger---blob-receipts"></a>트리거 - Blob 수신 확인
 
@@ -316,9 +338,9 @@ Blob 트리거는 큐를 내부적으로 사용하므로 동시 함수 호출의
 
 [소비 계획](functions-scale.md#how-the-consumption-plan-works)은 하나의 VM(가상 머신)에서 함수 앱을 1.5GB의 메모리로 제한합니다. 메모리는 각각 동시에 함수 인스턴스를 실행하여 함수 런타임 자체에서 사용됩니다. Blob 트리거된 함수에서 전체 Blob을 메모리로 로드하는 경우 Blob에 대해 해당 함수에서 사용되는 최대 메모리는 24 * 최대 Blob 크기입니다. 예를 들어 세 개의 Blob 트리거된 함수 및 기본 설정이 있는 함수 앱은 3*24 = 72 함수 호출의 최대 VM당 동시성을 갖습니다.
 
-JavaScript 함수는 전체 Blob을 메모리로 로드하고 C# 함수는 `string`으로 바인딩하는 경우 로드합니다.
+JavaScript 함수는 전체 Blob을 메모리로 로드하고 C# 함수는 `string`, `Byte[]` 또는 POCO로 바인딩하는 경우 로드합니다.
 
-## <a name="trigger---polling-for-large-containers"></a>트리거 - 큰 컨테이너에 대한 폴링
+## <a name="trigger---polling"></a>트리거 - 폴링
 
 모니터링 중인 Blob 컨테이너에 10,000개 이상의 Blob이 포함된 경우 Functions 런타임은 로그 파일을 스캔하여 새롭거나 변경된 Blob을 확인합니다. 이 프로세스는 지연이 발생할 수 있습니다. Blob을 만든 후 몇 분이 경과할 때까지 함수가 트리거되지 않을 수도 있습니다. 또한 [저장소 로그는 "최선을 다해" 생성됩니다](/rest/api/storageservices/About-Storage-Analytics-Logging). 하지만 모든 이벤트가 캡처되는 것은 아닙니다. 경우에 따라 로그가 누락될 수 있습니다. 더 빠르거나 안정적인 Blob 처리가 필요한 경우 Blob을 만들 때 [큐 메시지](../storage/queues/storage-dotnet-how-to-use-queues.md)를 만드는 것이 좋습니다. 그런 다음 Blob 트리거 대신 [큐 트리거](functions-bindings-storage-queue.md)를 사용하여 Blob을 처리합니다. 다른 옵션은 Event Grid를 사용하는 겻입니다. [Event Grid를 사용하여 업로드된 이미지 크기 자동 조정](../event-grid/resize-images-on-storage-blob-upload-event.md) 자습서를 참조하세요.
 
@@ -498,12 +520,12 @@ public static void Run(
 
 ## <a name="input---usage"></a>입력 - 사용
 
-C# 클래스 라이브러리 및 C# 스크립트에서는 `Stream paramName`과 같은 메서드 매개 변수를 사용하여 Blob에 액세스합니다. C# 스크립트에서 `paramName`은 *function.json*의 `name` 속성에 지정된 값입니다. 다음 중 원하는 형식으로 바인딩할 수 있습니다.
+C# 및 C# 스크립트에서 Blob 입력 바인딩에 대해 다음 매개 변수 형식을 사용할 수 있습니다.
 
+* `Stream`
 * `TextReader`
 * `string`
 * `Byte[]`
-* `Stream`
 * `CloudBlobContainer`
 * `CloudBlobDirectory`
 * `ICloudBlob`(*function.json*에서 "inout" 바인딩 방향 필요)
@@ -511,11 +533,11 @@ C# 클래스 라이브러리 및 C# 스크립트에서는 `Stream paramName`과 
 * `CloudPageBlob`(*function.json*에서 "inout" 바인딩 방향 필요)
 * `CloudAppendBlob`(*function.json*에서 "inout" 바인딩 방향 필요)
 
-언급했듯이 이러한 형식 중 일부에는 *function.json*에서 `inout` 바인딩 방향이 필요합니다. 이 방향은 Azure Portal의 표준 편집기에서 지원되지 않으므로 고급 편집기를 사용해야 합니다.
+언급했 듯이 이러한 형식 중 일부에는 *function.json*에서 `inout` 바인딩 방향이 필요합니다. 이 방향은 Azure Portal의 표준 편집기에서 지원되지 않으므로 고급 편집기를 사용해야 합니다.
 
-텍스트 Blob을 읽는 경우 `string` 형식에 바인딩할 수 있습니다. 전체 Blob 내용이 메모리에 로드되므로 이 형식은 Blob 크기가 작은 경우에만 권장됩니다. 일반적으로 `Stream` 또는 `CloudBlockBlob` 형식을 사용하는 것이 좋습니다.
+`string` 또는 `Byte[]`에 바인딩하는 방식은 전체 Blob 내용이 메모리에 로드되므로 Blob 크기가 작은 경우에만 권장됩니다. 일반적으로 `Stream` 또는 `CloudBlockBlob` 형식을 사용하는 것이 좋습니다. 자세한 내용은 이 문서의 앞부분에 나오는 [동시성 및 메모리 사용량](#trigger---concurrency-and-memory-usage)을 참조하세요.
 
-JavaScript에서는 `context.bindings.<name>`을 사용하여 Blob 데이터에 액세스합니다.
+JavaScript에서는 `context.bindings.<name from function.json>`을 사용하여 Blob 데이터에 액세스합니다.
 
 ## <a name="output"></a>출력
 
@@ -709,7 +731,7 @@ public static void Run(
 
 ## <a name="output---usage"></a>출력 - 사용
 
-C# 클래스 라이브러리 및 C# 스크립트에서는 `Stream paramName`과 같은 메서드 매개 변수를 사용하여 Blob에 액세스합니다. C# 스크립트에서 `paramName`은 *function.json*의 `name` 속성에 지정된 값입니다. 다음 중 원하는 형식으로 바인딩할 수 있습니다.
+C# 및 C# 스크립트에서 Blob 출력 바인딩에 대해 다음 매개 변수 형식을 사용할 수 있습니다.
 
 * `TextWriter`
 * `out string`
@@ -723,11 +745,14 @@ C# 클래스 라이브러리 및 C# 스크립트에서는 `Stream paramName`과 
 * `CloudPageBlob`(*function.json*에서 "inout" 바인딩 방향 필요)
 * `CloudAppendBlob`(*function.json*에서 "inout" 바인딩 방향 필요)
 
-언급했듯이 이러한 형식 중 일부에는 *function.json*에서 `inout` 바인딩 방향이 필요합니다. 이 방향은 Azure Portal의 표준 편집기에서 지원되지 않으므로 고급 편집기를 사용해야 합니다.
+언급했 듯이 이러한 형식 중 일부에는 *function.json*에서 `inout` 바인딩 방향이 필요합니다. 이 방향은 Azure Portal의 표준 편집기에서 지원되지 않으므로 고급 편집기를 사용해야 합니다.
 
-텍스트 Blob을 읽는 경우 `string` 형식에 바인딩할 수 있습니다. 전체 Blob 내용이 메모리에 로드되므로 이 형식은 Blob 크기가 작은 경우에만 권장됩니다. 일반적으로 `Stream` 또는 `CloudBlockBlob` 형식을 사용하는 것이 좋습니다.
+비동기 함수에서는 `out` 매개 변수 대신, 반환 값 또는 `IAsyncCollector`를 사용합니다.
 
-JavaScript에서는 `context.bindings.<name>`을 사용하여 Blob 데이터에 액세스합니다.
+`string` 또는 `Byte[]`에 바인딩하는 방식은 전체 Blob 내용이 메모리에 로드되므로 Blob 크기가 작은 경우에만 권장됩니다. 일반적으로 `Stream` 또는 `CloudBlockBlob` 형식을 사용하는 것이 좋습니다. 자세한 내용은 이 문서의 앞부분에 나오는 [동시성 및 메모리 사용량](#trigger---concurrency-and-memory-usage)을 참조하세요.
+
+
+JavaScript에서는 `context.bindings.<name from function.json>`을 사용하여 Blob 데이터에 액세스합니다.
 
 ## <a name="exceptions-and-return-codes"></a>예외 및 반환 코드
 

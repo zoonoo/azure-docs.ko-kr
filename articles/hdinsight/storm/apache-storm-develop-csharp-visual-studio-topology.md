@@ -9,18 +9,19 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 380d804f-a8c5-4b20-9762-593ec4da5a0d
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: 
 ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/27/2017
 ms.author: larryfr
-ms.openlocfilehash: d777d467b3f0d4ef6101dffa551ec5c85feb209c
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ROBOTS: NOINDEX
+ms.openlocfilehash: c89556cf66526f793ab81383e205ff45075385a3
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>Data Lake tools for Visual Studio를 사용하여 Apache Storm의 C# 토폴로지 개발
 
@@ -42,9 +43,6 @@ Linux 기반 클러스터에 C# 토폴로지를 사용하려면 프로젝트에 
 
 > [!IMPORTANT]
 > Linux 기반 클러스터의 C# 토폴로지는 .NET 4.5를 사용해야 하며 Mono를 사용하여 HDInsight 클러스터에서 실행해야 합니다. [Mono 호환성](http://www.mono-project.com/docs/about-mono/compatibility/)에서 잠재적인 비호환성을 확인하세요.
-
-> [!WARNING]
-> SCP.NET 버전 1.0.0.x를 사용하는 프로젝트를 빌드하는 데 문제가 발생한 경우 Microsoft 지원에 문의하세요.
 
 ## <a name="install-visual-studio"></a>Visual Studio 설치
 
@@ -124,7 +122,7 @@ Data Lake Tools for Visual Studio는 다음 템플릿을 제공합니다.
 | Storm 샘플 |기본 단어 카운트 토폴로지 |
 
 > [!WARNING]
-> 일부 템플릿은 Linux 기반 HDInsight에서 작동합니다. 템플릿에서 사용하는 Nuget 패키지는 Mono와 호환되지 않을 수 있습니다. [Mono 호환성](http://www.mono-project.com/docs/about-mono/compatibility/) 문서를 확인하고 [.NET 이식성 분석기](../hdinsight-hadoop-migrate-dotnet-to-linux.md#automated-portability-analysis)를 사용하여 잠재적 문제를 식별합니다.
+> 일부 템플릿은 Linux 기반 HDInsight에서 작동합니다. 템플릿에서 사용하는 NuGet 패키지는 Mono와 호환되지 않을 수 있습니다. [Mono 호환성](http://www.mono-project.com/docs/about-mono/compatibility/) 문서를 확인하고 [.NET 이식성 분석기](../hdinsight-hadoop-migrate-dotnet-to-linux.md#automated-portability-analysis)를 사용하여 잠재적 문제를 식별합니다.
 
 이 문서의 단계에서는 기본 Storm 응용 프로그램 프로젝트 형식을 사용하여 토폴로지를 만들 수 있습니다.
 
@@ -290,7 +288,7 @@ HBase 판독기 및 기록기 템플릿은 HBase Java API가 아니라 HBase RES
     }
     ```
 
-5. **Counter.cs**를 열고 클래스 내용을 다음으로 바꿉니다.
+5. **Counter.cs**를 열고 클래스 내용을 다음 코드로 바꿉니다.
 
     ```csharp
     private Context ctx;
@@ -479,9 +477,9 @@ return topologyBuilder;
 
 다음은 하이브리드 토폴로지를 만들고 제출할 때 고려할 사항입니다.
 
-* Spout 또는 Bolt에 대한 Java 클래스의 인스턴스를 만들려면 **JavaComponentConstructor**를 사용해야 합니다.
+* Spout 또는 Bolt에 대한 Java 클래스의 인스턴스를 만들려면 **JavaComponentConstructor**를 사용합니다.
 
-* Java 개체에서 JSON으로 Java 구성 요소에서 데이터를 직렬화하려면 **microsoft.scp.storm.multilang.CustomizedInteropJSONSerializer**를 사용해야 합니다.
+* Java 개체에서 JSON으로 Java 구성 요소에서 데이터를 직렬화하려면 **microsoft.scp.storm.multilang.CustomizedInteropJSONSerializer**를 사용합니다.
 
 * 서버에 토폴로지를 제출할 때 **Java 파일 경로**를 지정하려면 **추가 구성** 옵션을 사용해야 합니다. 지정된 경로는 Java 클래스를 포함하는 JAR 파일이 들어 있는 디렉터리여야 합니다.
 
@@ -703,7 +701,7 @@ Linux 기반 HDInsight 클러스터의 경우 프로젝트에서 .NET 4.5에 대
 
 ### <a name="log-information"></a>로그 정보
 
-`Context.Logger`를 사용하여 토폴로지 구성 요소에서 정보를 쉽게 로깅할 수 있습니다. 예를 들어 다음은 정보 제공용 로그 항목을 만듭니다.
+`Context.Logger`를 사용하여 토폴로지 구성 요소에서 정보를 쉽게 로깅할 수 있습니다. 예를 들어 다음 명령은 정보 제공용 로그 항목을 만듭니다.
 
 ```csharp
 Context.Logger.Info("Component started");

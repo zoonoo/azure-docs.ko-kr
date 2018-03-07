@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 12/12/2017
+ms.date: 02/22/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: d26275b6b03115b775990c9efb5d4706fcb829d1
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: dd01246075a5c0db0ed49133ed51fb56d8fcf8e5
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="troubleshoot-and-remediate-device-issues"></a>장치 문제 해결 및 수정
 
@@ -58,6 +58,8 @@ Contoso는 필드에서 새로운 **프로토타입** 장치를 테스트하고 
 
 ![경보 승인](media/iot-suite-remote-monitoring-maintain/maintenanceacknowledge.png)
 
+경보를 승인하면 발생 항목 상태가 **승인됨**으로 변경됩니다.
+
 목록에서 온도 경보 발생에 책임이 있는 **프로토타입** 장치를 확인할 수 있습니다.
 
 ![경보를 발생시키는 장치 나열](media/iot-suite-remote-monitoring-maintain/maintenanceresponsibledevice.png)
@@ -84,7 +86,7 @@ Contoso는 필드에서 새로운 **프로토타입** 장치를 테스트하고 
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 방법을 보여 줬습니다.
+이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 <!-- Repeat task list from intro -->
 >[!div class="checklist"]

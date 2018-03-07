@@ -16,21 +16,21 @@ ms.workload: infrastructure
 ms.date: 01/25/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 2cb32ddc67060d9860d172b90cc399622c52b04b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 792b92731f89f3d0bab4f23221223e469ddf9550
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="create-a-virtual-network-using-the-azure-cli"></a>Azure CLI를 사용하여 가상 네트워크 만들기
 
-이 문서에서는 가상 네트워크를 만드는 방법을 설명합니다. 가상 네트워크를 만든 후, 가상 네트워크에 두 개의 가상 머신을 배포하고 서로 개인적으로 통신하도록 합니다.
+이 문서에서는 가상 네트워크를 만드는 방법을 설명합니다. 가상 네트워크를 만든 후, 가상 네트워크에 두 개의 가상 머신을 배포하고 둘 간의 개인 네트워크 통신을 테스트합니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 빠른 시작에서 Azure CLI 버전 2.0.4 이상을 실행해야 합니다. 설치되어 있는 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치](/cli/azure/install-azure-cli)를 참조하세요. 
+CLI를 로컬로 설치하여 사용하도록 선택하는 경우 이 문서에서 Azure CLI 버전 2.0.4 이상을 실행해야 합니다. 설치되어 있는 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치](/cli/azure/install-azure-cli)를 참조하세요. 
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -66,9 +66,11 @@ az network vnet create \
 
 반환되는 정보의 또 다른 부분은 명령에 지정된 *default* 서브넷에 대한 **addressPrefix** *10.0.0.0/24*입니다. 가상 네트워크는 0개 이상의 서브넷을 포함합니다. 이 명령은 *default*라는 단일 서브넷을 만들었지만 이 서브넷에 대해서는 주소 접두사가 지정되지 않았습니다. 가상 네트워크 또는 서브넷에 대해 주소 접두사를 지정하지 않은 경우 Azure는 기본적으로 첫 번째 서브넷에 대한 주소 접두사로 10.0.0.0/24를 정의합니다. 그 결과, 서브넷은 10.0.0.0-10.0.0.254를 포함하지만, Azure가 각 서브넷에서 처음 4개 주소(0-3)와 마지막 주소를 예약하기 때문에 10.0.0.4-10.0.0.254만 사용할 수 있습니다.
 
-## <a name="create-virtual-machines"></a>가상 머신 만들기
+## <a name="test-network-communication"></a>네트워크 통신 테스트
 
-가상 네트워크를 사용하면 여러 유형의 Azure 리소스가 서로 개인적으로 통신할 수 있습니다. 가상 네트워크에 배포할 수 있는 한 가지 유형의 리소스는 가상 머신입니다. 가상 네트워크의 가상 머신 간 통신이 이후 단계에서 작동하는 방식이 유효한지 검사하고 이러한 방식을 이해할 수 있도록 가상 네트워크에 두 개의 가상 머신을 만듭니다.
+가상 네트워크를 사용하면 여러 유형의 Azure 리소스가 서로 개인적으로 통신할 수 있습니다. 가상 네트워크에 배포할 수 있는 한 가지 유형의 리소스는 가상 머신입니다. 가상 네트워크에서 두 가상 머신을 만들어 이후 단계에서 둘 간의 개인 통신 유효성을 검사할 수 있도록 합니다.
+
+### <a name="create-virtual-machines"></a>가상 머신 만들기
 
 [az vm create](/cli/azure/vm#az_vm_create) 명령을 사용하여 가상 머신을 만듭니다. 다음 예제에서는 *myVm1*이라는 가상 머신을 만듭니다. 또한 기본 키 위치에 SSH 키가 없는 경우 해당 명령이 이 키를 만듭니다. 특정 키 집합을 사용하려면 `--ssh-key-value` 옵션을 사용합니다. `--no-wait` 옵션은 백그라운드에서 가상 머신을 만들기 때문에 다음 단계를 계속 진행할 수 있습니다.
 
@@ -110,7 +112,7 @@ az vm create \
 
 이 예제에서는 **privateIpAddress**가 *10.0.0.5*로 표시됩니다. Azure DHCP는 *10.0.0.5*가 *default* 서브넷에서 사용 가능한 다음 주소이므로 이 주소를 가상 머신에 자동으로 할당했습니다. **publicIpAddress**를 기록해 둡니다. 이 주소는 이후 단계에서 인터넷을 통해 가상 컴퓨터에 액세스하는 데 사용됩니다. 공용 IP 주소는 가상 네트워크 또는 서브넷 주소 접두사 내에서 할당되지 않습니다. 공용 IP 주소는 [각 Azure 지역에 할당된 주소 풀](https://www.microsoft.com/download/details.aspx?id=41653)에서 할당됩니다. Azure는 가상 머신에 할당된 공용 IP 주소를 알고 있지만, 가상 머신에서 실행되는 운영 체제는 할당된 공용 IP 주소를 인식하지 못합니다.
 
-## <a name="connect-to-a-virtual-machine"></a>가상 머신에 연결
+### <a name="connect-to-a-virtual-machine"></a>가상 머신에 연결
 
 다음 명령을 사용하여 *myVm2* 가상 머신과의 SSH 세션을 만듭니다. `<publicIpAddress>`를 가상 머신의 공용 IP 주소로 바꿉니다. 위의 예제에서 IP 주소는 *40.68.254.142*입니다.
 
@@ -118,7 +120,7 @@ az vm create \
 ssh <publicIpAddress>
 ```
 
-## <a name="validate-communication"></a>통신 유효성 검사
+### <a name="validate-communication"></a>통신 유효성 검사
 
 *myVm2*에서 *myVm1*과의 통신을 확인하려면 다음 명령을 사용합니다.
 
@@ -136,9 +138,11 @@ ping bing.com -c 4
 
 bing.com에서 4개의 응답을 받게 됩니다. 기본적으로 가상 네트워크의 모든 가상 머신은 인터넷으로 아웃바운드 통신을 할 수 있습니다.
 
+VM에 대한 SSH 세션을 종료합니다.
+
 ## <a name="clean-up-resources"></a>리소스 정리
 
-더 이상 필요하지 않은 경우 [az group delete](/cli/azure/group#az_group_delete) 명령을 사용하여 리소스 그룹 및 포함된 모든 리소스를 제거할 수 있습니다. VM에 대한 SSH 세션을 종료한 후 리소스를 삭제합니다.
+더 이상 필요하지 않은 경우 [az group delete](/cli/azure/group#az_group_delete) 명령을 사용하여 리소스 그룹 및 포함된 모든 리소스를 제거할 수 있습니다.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup --yes
@@ -146,8 +150,7 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 1개의 서브넷과 2개의 가상 머신이 있는 기본 가상 네트워크를 배포했습니다. 다중 서브넷으로 사용자 지정 가상 네트워크를 만들고 기본 관리 작업을 수행하는 방법을 알아보려면 사용자 지정 가상 네트워크를 만들고 관리하기 위한 자습서를 계속 진행합니다.
-
+이 문서에서는 1개의 서브넷이 있는 기본 가상 네트워크를 배포했습니다. 다중 서브넷으로 사용자 지정 가상 네트워크를 만드는 방법을 알아보려면 사용자 지정 가상 네트워크를 만들기 위한 자습서를 계속 진행합니다.
 
 > [!div class="nextstepaction"]
-> [사용자 지정 가상 네트워크 만들기 및 관리](virtual-networks-create-vnet-arm-pportal.md#azure-cli)
+> [사용자 지정 가상 네트워크 만들기](virtual-networks-create-vnet-arm-pportal.md#azure-cli)

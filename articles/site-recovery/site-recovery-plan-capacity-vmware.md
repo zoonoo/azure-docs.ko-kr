@@ -6,13 +6,13 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 02/27/2018
 ms.author: rayne
-ms.openlocfilehash: 02f5a7270b5d8b7657a585fce99946cff8ed8d67
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: dbaf1e29fbf4be8ef9432842b7ea4d6511b21cbb
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-replication-with-azure-site-recovery"></a>Azure Site Recovery를 사용하여 VMware 복제를 위한 용량 및 크기 조정 계획
 
@@ -85,7 +85,7 @@ VMware 복제를 위해 [Azure Site Recovery Deployment Planner](https://aka.ms/
 2. 스냅인에서 **속성 변경**을 클릭합니다.
 
     ![속성을 변경하는 Azure Backup MMC 스냅인의 스크린샷](./media/site-recovery-vmware-to-azure/throttle1.png)
-3. **제한** 탭에서 **백업 작업에 인터넷 대역폭 사용 제한 사용**을 선택합니다. 작업 시간 및 비 작업 시간의 제한을 설정합니다. 유효 범위는 초당 512Kbps~102Mbp입니다.
+3. **제한** 탭에서 **백업 작업에 인터넷 대역폭 사용 제한 사용**을 선택합니다. 작업 시간 및 비 작업 시간의 제한을 설정합니다. 유효 범위는 초당 512Kbps~1,023Mbps입니다.
 
     ![Azure Backup 속성 대화 상자의 스크린샷](./media/site-recovery-vmware-to-azure/throttle2.png)
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: 40b684fe5681123f3c32d3984b2725f97b427f1b
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 9222fcebd51ff13e797f40f3fdb0ddaa955d2611
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="azure-instance-metadata-service"></a>Azure Instance Metadata Service
 
@@ -302,7 +302,7 @@ subnet/address | VM의 서브넷 주소 | 2017-04-02
 subnet/prefix | 서브넷 접두사, 예:24 | 2017-04-02 
 ipv6/ipaddress | VM의 로컬 IPv6 주소 | 2017-04-02 
 macAddress | VM MAC 주소 | 2017-04-02 
-scheduledevents | 현재 공개 미리 보기 [scheduledevents](scheduled-events.md) 참조 | 2017-03-01
+scheduledevents | [scheduledevents](scheduled-events.md) 참조 | 2017-03-01
 
 ## <a name="example-scenarios-for-usage"></a>사용법을 위한 예제 시나리오  
 
@@ -411,4 +411,4 @@ Visual Basic | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.vb
     
 ## <a name="next-steps"></a>다음 단계
 
-- Instance Metadata Service에서 **공개 미리 보기**로 제공되는 [scheduledevents](scheduled-events.md) API에 대해 자세히 알아봅니다.
+- [예약된 이벤트](scheduled-events.md)에 대해 자세히 알아봅니다.

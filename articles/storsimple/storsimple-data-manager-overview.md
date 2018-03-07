@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 01/16/2018
+ms.date: 02/26/2018
 ms.author: vidarmsft
-ms.openlocfilehash: 8b0ff2c100878e568e0a4c67e79864006512bd78
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 4d27bc3660035ace25436a4f756c41e88200649d
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="storsimple-data-manager-solution-overview"></a>StorSimple 데이터 관리자 솔루션 개요
 
@@ -56,9 +56,9 @@ StorSimple 데이터 관리자는 다음 7개 지역에서 사용할 수 있습�
 
 그러나 다음 지역에서는 StorSimple 데이터 관리자를 사용하여 데이터를 변환할 수 있습니다. 
 
-![데이터에 사용 가능한 지역](./media/storsimple-data-manager-overview/data-manager-job-definition-different-regions.png)
+![데이터에 사용 가능한 지역](./media/storsimple-data-manager-overview/data-manager-job-definition-different-regions-m.png)
 
-이 집합은 지위 역의 리소스 배포를 통해 아래 지역의 변환 프로세스를 실행할 수 있으므로 규모가 더 큽니다. 따라서 데이터가 26개 지역 중 하나에 있는 한, 이 서비스를 사용하여 데이터를 변환할 수 있습니다.
+이 집합은 지위 역의 리소스 배포를 통해 아래 지역의 변환 프로세스를 실행할 수 있으므로 규모가 더 큽니다. 따라서 데이터가 19개 지역 중 하나에 있는 한, 이 서비스를 사용하여 데이터를 변환할 수 있습니다.
 
 
 ## <a name="choosing-a-region"></a>지역 선택

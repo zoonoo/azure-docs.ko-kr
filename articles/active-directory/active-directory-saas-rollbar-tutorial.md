@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/04/2017
 ms.author: jeedes
-ms.openlocfilehash: bb8a81327163513ab721d2ad72da19173b59bc1f
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 43dc50d0a5381ace8bcfeb3cae39e249ba743876
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rollbar"></a>자습서: Azure Active Directory와 Rollbar 통합
 
@@ -32,7 +32,7 @@ Rollbar를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 
 Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](active-directory-appssoaccess-whatis.md)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 Rollbar와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
@@ -149,11 +149,14 @@ Rollbar에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
     다. **저장**을 클릭합니다.
 
-11. 저장 단추를 클릭하면 다음과 같은 화면이 표시됩니다. 이 섹션의 다음 단계를 수행합니다.
+11. 저장 단추를 클릭하면 다음과 같은 화면이 표시됩니다.
     
     ![구성](./media/active-directory-saas-rollbar-tutorial/configure3.png)
+    > [!NOTE] 
+    > 다음 단계를 완료하려면 먼저 Azure에서 자신을 Rollbar 앱에 사용자로 추가해야 합니다.
+    a. 모든 사용자가 Azure를 통해 인증하도록 하려면 **id 공급자를 통해 로그인**을 클릭하여 Azure를 통해 다시 인증합니다.  
 
-    a. **SAML ID 공급자를 통한 로그인 필요** 확인란을 선택합니다.
+    나.  화면으로 돌아간 후 **SAML ID 공급자를 통해 로그인해야 합니다.** 확인란을 선택합니다.
 
     나. **저장**을 클릭합니다.
 

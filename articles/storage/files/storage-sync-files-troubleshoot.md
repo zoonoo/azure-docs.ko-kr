@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 378330149aebc1936846472a522631308fe3eb80
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 506781ac83e75d558badbd3a8842533e314a8dfa
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Azure 파일 동기화(미리 보기) 문제 해결
 Azure File Sync(미리 보기)를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화합니다. Azure File Sync는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -145,15 +145,14 @@ Set-AzureRmStorageSyncServerEndpoint -Id serverendpointid -CloudTiering true -Vo
 <a id="replica-not-ready"></a>**"0x80c8300f - 복제본이 해당 작업을 수행할 준비가 되지 않았습니다." 오류로 인해 동기화 실패**   
 클라우드 엔드포인트를 만들고 데이터가 포함된 Azure 파일 공유를 사용하는 경우 이 문제가 발생할 수 있습니다. Azure 파일 공유에서 변경 검색 작업 실행이 완료되면(최대 24시간이 걸릴 수 있음) 동기화가 올바르게 작동되기 시작합니다.
 
-<a id="broken-sync-files"></a>**동기화에 실패한 개별 파일의 문제 해결**  
-개별 파일이 동기화되는 데 실패하는 경우:
-1. 이벤트 뷰어에서 Applications and Services\Microsoft\FileSync\Agent 아래에 있는 운영 및 진단 이벤트 로그를 검토합니다.
-2. 파일에 열린 핸들이 없는지 확인합니다.
 
     > [!NOTE]
-    > Azure File Sync는 VSS 스냅샷을 주기적으로 생성하여 열린 핸들이 있는 파일을 동기화합니다.
+    > Azure File Sync periodically takes VSS snapshots to sync files that have open handles.
 
 현재, 리소스를 다른 구독 또는 다른 Azure AD 테넌트로 이동하는 것은 지원되지 않습니다.  구독이 다른 테넌트를 이동되면, 소유권 변경에 따라, Azure 파일 공유에서 서비스에 액세스할 수 없게 됩니다. 테넌트가 변경되면 서버 끝점 및 클라우드 끝점을 삭제하고(재사용할 Azure 파일 공유를 정리하는 방법에 대한 지침은 동기화 그룹 관리 참조) 동기화 그룹을 다시 만듭니다.
+
+<a id="doesnt-have-enough-free-space"></a>**이 PC에 사용 가능한 공간이 충분하지 않음 오류**  
+포털에 “이 PC에 사용 가능한 공간이 충분하지 않음” 상태가 표시되는 경우 볼륨에 여유 공간이 1GB 미만인 문제가 발생했을 수 있습니다.  예를 들어 1.5GB 볼륨이 있는 경우 동기화는 5GB만 활용할 수 있습니다. 이 문제가 발생할 경우 서버 엔드포인트에 사용 중인 볼륨의 크기를 확장하세요.
 
 ## <a name="cloud-tiering"></a>클라우드 계층화 
 클라우드 계층화에는 다음 두 가지 경로가 있습니다.

@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/05/2017
+ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: 372e9465eec1a373ff2b59209673e65fa1f994b6
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 4449dfa1b189f51292d24af884ba9d2addf1fe24
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Linux에서 HDInsight 사용에 관한 정보
 
@@ -35,7 +35,7 @@ Azure HDInsight 클러스터는 Azure 클라우드에서 실행되는 친숙한 
 
 * [cURL](https://curl.haxx.se/) - 웹 기반 서비스와 통신하는 데 사용됩니다
 * [jq](https://stedolan.github.io/jq/) -JSON 문서를 구문 분석하는 데 사용됩니다
-* [Azure CLI 2.0(미리 보기)](https://docs.microsoft.com/cli/azure/install-az-cli2) - Azure 서비스를 원격으로 관리 하는 데 사용됩니다.
+* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) - Azure 서비스를 원격으로 관리 하는 데 사용됩니다.
 
 ## <a name="users"></a>사용자
 
@@ -278,6 +278,6 @@ HDInsight는 관리 서비스입니다. Azure에서 클러스터와 관련된 �
 ## <a name="next-steps"></a>다음 단계
 
 * [Windows 기반 HDInsight에서 Linux 기반 HDInsight로 마이그레이션](hdinsight-migrate-from-windows-to-linux.md)
-* [HDInsight에서 Hive 사용](hadoop/hdinsight-use-hive.md)
+* [HDInsight에서 하이브 사용](hadoop/hdinsight-use-hive.md)
 * [HDInsight에서 Pig 사용](hadoop/hdinsight-use-pig.md)
 * [HDInsight에서 MapReduce 작업 사용](hadoop/hdinsight-use-mapreduce.md)

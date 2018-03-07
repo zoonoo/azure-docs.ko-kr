@@ -10,11 +10,11 @@ ms.author: dmpechyo
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.date: 09/20/2017
-ms.openlocfilehash: f0c466c433701c295bde00258d9ff7fd267b71f7
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 467111978d43d35788276cf7a464496393e4599b
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="distributed-tuning-of-hyperparameters-using-azure-machine-learning-workbench"></a>Azure Machine Learning Workbench를 사용하여 하이퍼 매개 변수의 분산 튜닝
 
@@ -39,19 +39,14 @@ ms.lasthandoff: 12/20/2017
 * Workbench를 설치하고 계정을 만들기 위해 [빠른 시작 설치 및 만들기](./quickstart-installation.md)에 따라 설치된 [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md)의 복사본
 * 이 시나리오에서는 Docker 엔진이 로컬로 설치된 Windows 10 또는 MacOS에서 Azure ML Workbench를 실행 중이라고 가정합니다. 
 * 원격 Docker 컨테이너를 사용하는 시나리오를 실행하려면 [지침](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-provision-vm)에 따라 Ubuntu DSVM(데이터 과학 Virtual Machine)을 프로비전합니다. 적어도 8개의 코어와 28GB의 메모리가 있는 가상 머신을 사용하는 것이 좋습니다. 가상 머신의 D4 인스턴스에는 이러한 용량이 포함됩니다. 
-* Spark 클러스터에서 이 시나리오를 실행하려면 이러한 [지침](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters)에 따라 Azure HDInsight 클러스터를 프로비전합니다.   
-클러스터에는 최소한 다음 조건 이상을 포함하는 것이 좋습니다.
-    - 6개의 작업자 노드
+* 이 시나리오를 Spark 클러스터에서 실행하려면 이러한 [지침](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters)에 따라 Spark HDInsight 클러스터를 프로비전합니다. 헤더 및 작업자 노드 모두에서 다음 구성을 포함한 클러스터를 사용하는 것이 좋습니다.
+    - 4개의 작업자 노드
     - 8개의 코어
-    - 헤더 및 작업자 노드에서 28GB의 메모리. 가상 머신의 D4 인스턴스에는 이러한 용량이 포함됩니다.       
-    - 클러스터의 성능을 최대화하기 위해 다음 매개 변수를 변경하는 것이 좋습니다.
-        - spark.executor.instances
-        - spark.executor.cores
-        - spark.executor.memory 
+    - 28Gb의 메모리  
+      
+  가상 머신의 D4 인스턴스에는 이러한 용량이 포함됩니다. 
 
-이러한 [지침](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-resource-manager)에 따라 "사용자 지정 Spark 기본값" 섹션의 정의를 편집할 수 있습니다.
-
-     **Troubleshooting**: Your Azure subscription might have a quota on the number of cores that can be used. The Azure portal does not allow the creation of cluster with the total number of cores exceeding the quota. To find you quota, go in the Azure portal to the Subscriptions section, click on the subscription used to deploy a cluster and then click on **Usage+quotas**. Usually quotas are defined per Azure region and you can choose to deploy the Spark cluster in a region where you have enough free cores. 
+     **문제 해결**: Azure 구독에는 사용할 수 있는 코어 수에 할당량이 있을 수 있습니다. Azure Portal에서는 총 코어 수가 할당량을 초과하는 클러스터를 만들 수 없습니다. 할당량을 찾으려면 Azure Portal에서 구독 섹션으로 이동하고 클러스터를 배포하는 데 사용되는 구독을 클릭하고 **사용량+할당량**을 클릭합니다. 일반적으로 할당량은 Azure 지역별로 정의되고 충분한 코어를 사용 가능한 지역에서 Spark 클러스터를 배포하도록 선택할 수 있습니다. 
 
 * 데이터 집합을 저장하는 데 사용되는 Azure Storage 계정을 만듭니다. [지침](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account)에 따라 저장소 계정을 만듭니다.
 
@@ -118,7 +113,7 @@ DSVM의 IP 주소, 사용자 이름 및 암호를 사용하여 실행합니다. 
 
 Spark 환경을 설정하려면 CLI에서
 
-    az ml computetarget attach cluster--name spark --address <cluster name>-ssh.azurehdinsight.net  --username <username> --password <password> 
+    az ml computetarget attach cluster --name spark --address <cluster name>-ssh.azurehdinsight.net  --username <username> --password <password> 
 
 클러스터의 이름, 클러스터의 SSH 사용자 이름 및 암호를 사용하여 실행합니다. 클러스터를 프로비전하는 동안 변경하지 않으면 SSH 사용자 이름의 기본값은 `sshuser`입니다. 클러스터의 이름은 Azure Portal에 있는 클러스터 페이지의 속성 섹션에서 찾을 수 있습니다.
 
@@ -126,14 +121,20 @@ Spark 환경을 설정하려면 CLI에서
 
 spark-sklearn 패키지를 사용하여 하이퍼 매개 변수의 분산 튜닝을 위한 실행 환경으로 Spark를 사용합니다. Spark 실행 환경을 사용하는 경우 이 패키지를 설치하기 위해 spark_dependencies.yml 파일을 수정했습니다.
 
-    configuration: {}
+    configuration: 
+      #"spark.driver.cores": "8"
+      #"spark.driver.memory": "5200m"
+      #"spark.executor.instances": "128"
+      #"spark.executor.memory": "5200m"  
+      #"spark.executor.cores": "2"
+  
     repositories:
       - "https://mmlspark.azureedge.net/maven"
       - "https://spark-packages.org/packages"
     packages:
       - group: "com.microsoft.ml.spark"
         artifact: "mmlspark_2.11"
-        version: "0.7"
+        version: "0.7.91"
       - group: "databricks"
         artifact: "spark-sklearn"
         version: "0.2.0"
@@ -199,9 +200,9 @@ CLI 창에서 실행하여 로컬 환경에서 실행할 수 있습니다.
 로컬 환경이 모든 기능 집합을 계산하기에는 너무 작기 때문에 더 큰 메모리가 있는 원격 DSVM로 전환합니다. DSVM 내의 실행은 AML Workbench에서 관리되는 Docker 컨테이너 내에서 수행됩니다. 이 DSVM을 사용하여 모든 기능을 계산하고 모델을 학습하고 하이퍼 매개 변수를 튜닝할 수 있습니다(다음 섹션 참조). singleVM.py 파일에는 전체 기능 계산 및 모델링 코드가 있습니다. 다음 섹션에서는 원격 DSVM에서 singleVM.py를 실행하는 방법을 보여줍니다. 
 
 ### <a name="tuning-hyperparameters-using-remote-dsvm"></a>원격 DSVM을 사용하여 하이퍼 매개 변수 튜닝
-그라데이션 트리 승격의 [xgboost](https://anaconda.org/conda-forge/xgboost) 구현 [1]을 사용합니다. [scikit-learn](http://scikit-learn.org/) 패키지를 사용하여 xgboost의 하이퍼 매개 변수를 튜닝합니다. Xgboost가 scikit-learn 패키지의 일부가 아니지만 scikit-learn API를 구현하고 따라서 scikit-learn의 기능을 튜닝하는 하이퍼 매개 변수와 함께 사용될 수 있습니다. 
+그라데이션 트리 승격의 [xgboost](https://anaconda.org/conda-forge/xgboost) 구현 [1]을 사용합니다. 또한 [scikit-learn](http://scikit-learn.org/) 패키지를 사용하여 xgboost의 하이퍼 매개 변수도 튜닝합니다. Xgboost가 scikit-learn 패키지의 일부가 아니지만 scikit-learn API를 구현하고 따라서 scikit-learn의 기능을 튜닝하는 하이퍼 매개 변수와 함께 사용될 수 있습니다. 
 
-Xgboost에는 8개의 하이퍼 매개 변수가 있습니다.
+Xgboost에는 [여기서](https://github.com/dmlc/xgboost/blob/master/doc/parameter.md) 설명하는 8개의 하이퍼 매개 변수가 있습니다.
 * n_estimators
 * max_depth
 * reg_alpha
@@ -210,14 +211,13 @@ Xgboost에는 8개의 하이퍼 매개 변수가 있습니다.
 * learning_rate
 * colsample\_by_level
 * subsample
-* objective 이러한 하이퍼 매개 변수에 대한 설명은
-- http://xgboost.readthedocs.io/en/latest/python/python_api.html#module-xgboost.sklearn- https://github.com/dmlc/xgboost/blob/master/doc/parameter.md)에서 찾을 수 있습니다. 
-- 
+* objective  
+ 
 처음에는 원격 DSVM을 사용하고 후보 값의 소규모 그리드에서 하이퍼 매개 변수를 조정합니다.
 
     tuned_parameters = [{'n_estimators': [300,400], 'max_depth': [3,4], 'objective': ['multi:softprob'], 'reg_alpha': [1], 'reg_lambda': [1], 'colsample_bytree': [1],'learning_rate': [0.1], 'colsample_bylevel': [0.1,], 'subsample': [0.5]}]  
 
-이 그리드에는 하이퍼 매개 변수 값의 4가지 조합이 있습니다. 5단계 교차 유효성 검사를 사용하면 xgboost를 4x5=20번 실행하게 됩니다. 모델의 성능을 측정하려면 음의 로그 손실 메트릭을 사용합니다. 다음 코드는 교차 유효성 검사된 음의 로그 손실을 최대화하는 그리드에서 하이퍼 매개 변수의 값을 찾습니다. 또한 코드는 다음 값을 사용하여 전체 학습 집합에 대한 최종 모델을 학습합니다.
+이 그리드에는 하이퍼 매개 변수 값의 4가지 조합이 있습니다. 5중 교차 유효성 검사를 통해 xgboost를 4 x 5 = 20회 실행하게 됩니다. 모델의 성능을 측정하려면 음의 로그 손실 메트릭을 사용합니다. 다음 코드는 교차 유효성 검사된 음의 로그 손실을 최대화하는 그리드에서 하이퍼 매개 변수의 값을 찾습니다. 또한 코드는 다음 값을 사용하여 전체 학습 집합에 대한 최종 모델을 학습합니다.
 
     clf = XGBClassifier(seed=0)
     metric = 'neg_log_loss'
@@ -285,7 +285,7 @@ Spark 클러스터를 사용하여 하이퍼 매개 변수의 튜닝을 확장�
 
 이 그리드에는 하이퍼 매개 변수 값의 16가지 조합이 있습니다. 5단계 교차 유효성 검사를 사용하므로 16x5=80번 xgboost를 실행합니다.
 
-scikit-learn 패키지에는 Spark 클러스터를 사용하여 하이퍼 매개 변수를 튜닝하는 네이티브 지원이 없습니다. 다행히 Databricks의 [spark-sklearn](https://spark-packages.org/package/databricks/spark-sklearn) 패키지는 이 간격을 채웁니다. 이 패키지에서는 scikit-learn의 GridSearchCV 함수와 거의 동일한 API를 포함한 GridSearchCV 함수를 제공합니다. Spark를 사용하여 spark-sklearn을 사용하고 하이퍼 매개 변수를 튜닝하려면 Spark 컨텍스트를 만들도록 연결해야 합니다.
+scikit-learn 패키지에는 Spark 클러스터를 사용하여 하이퍼 매개 변수를 튜닝하는 네이티브 지원이 없습니다. 다행히 Databricks의 [spark-sklearn](https://spark-packages.org/package/databricks/spark-sklearn) 패키지는 이 간격을 채웁니다. 이 패키지에서는 scikit-learn의 GridSearchCV 함수와 거의 동일한 API를 포함한 GridSearchCV 함수를 제공합니다. Spark를 사용하여 spark-sklearn을 사용하고 하이퍼 매개 변수를 튜닝하려면 Spark 컨텍스트를 만들어야 합니다.
 
     from pyspark import SparkContext
     sc = SparkContext.getOrCreate()

@@ -15,30 +15,30 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: 4c839bf0c39bf10855f8a31770b82a04ed1ca457
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 8bc7767d9903761f3338b7825185171aad74de78
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="compute-context-options-for-r-server-on-hdinsight"></a>HDInsight에서 R 서버의 Compute 컨텍스트 옵션
 
 Azure HDInsight의 Microsoft R Server는 계산 컨텍스트를 설정하여 호출을 실행하는 방법을 제어합니다. 이 문서에서는 에지 노드 또는 HDInsight 클러스터의 코어에서 실행 병렬 처리 여부 및 방법을 지정하기 위해 사용할 수 있는 옵션을 간략히 설명합니다.
 
-클러스터의 에지 노드는 클러스터에 연결하고 R 스크립트를 실행하는 데 편리한 위치를 제공합니다. 에지 노드를 사용하는 경우 에지 노드 서버의 코어에서 ScaleR의 병렬화된 분산 함수를 실행하는 옵션이 제공됩니다. 또한 ScaleR의 Hadoop Map Reduce 또는 Spark 계산 컨텍스트를 사용하여 클러스터의 노드에서 함수를 실행할 수도 있습니다.
+클러스터의 에지 노드는 클러스터에 연결하고 R 스크립트를 실행하는 데 편리한 위치를 제공합니다. 에지 노드를 사용하는 경우 에지 노드 서버의 코어에서 RevoScaleR의 병렬화된 분산 함수를 실행하는 옵션이 제공됩니다. 또한 RevoScaleR의 Hadoop Map Reduce 또는 Spark 계산 컨텍스트를 사용하여 클러스터의 노드에서 함수를 실행할 수도 있습니다.
 
 ## <a name="microsoft-r-server-on-azure-hdinsight"></a>Azure HDInsight의 Microsoft R Server
-[Azure HDInsight의 Microsoft R Server](r-server-overview.md)는 R 기반 분석을 위한 최신 기능을 제공합니다. [Azure Blob](../../storage/common/storage-introduction.md "Azure Blob Storage") 저장소 계정, Data Lake Store 또는 로컬 Linux 파일 시스템에 있는 컨테이너에 저장된 HDFS를 사용할 수 있습니다. R Server가 오픈 소스 R을 기반으로 하기 때문에 빌드한 R 기반 응용 프로그램은 8000개 이상의 오픈 소스 R 패키지를 적용할 수 있습니다. R Server와 함께 포함된 Microsoft의 빅 데이터 분석 패키지인 [RevoScaleR](https://msdn.microsoft.com/microsoft-r/scaler/scaler)에서 루틴을 활용할 수도 있습니다.  
+[Azure HDInsight의 Microsoft R Server](r-server-overview.md)는 R 기반 분석을 위한 최신 기능을 제공합니다. [Azure Blob](../../storage/common/storage-introduction.md "Azure Blob Storage") 저장소 계정, Data Lake Store 또는 로컬 Linux 파일 시스템에 있는 컨테이너에 저장된 HDFS를 사용할 수 있습니다. R Server가 오픈 소스 R을 기반으로 하기 때문에 빌드한 R 기반 응용 프로그램은 8000개 이상의 오픈 소스 R 패키지를 적용할 수 있습니다. R Server와 함께 포함된 Microsoft의 빅 데이터 분석 패키지인 [RevoScaleR](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/revoscaler)에서 루틴을 활용할 수도 있습니다.  
 
 ## <a name="compute-contexts-for-an-edge-node"></a>에지 노드에 대한 Compute 컨텍스트
-일반적으로 에지 노드의 R 서버에서 실행되는 R 스크립트는 해당 노드의 R 인터프리터 내에서 실행됩니다. 예외는 ScaleR 함수를 호출하는 단계입니다. ScaleR 호출은 ScaleR 계산 컨텍스트를 설정하는 방법에 따라 결정된 계산 환경에서 실행됩니다.  에지 노드에서 R 스크립트 실행 시 계산 컨텍스트의 가능한 값은 다음과 같습니다.
+일반적으로 에지 노드의 R 서버에서 실행되는 R 스크립트는 해당 노드의 R 인터프리터 내에서 실행됩니다. 예외는 RevoScaleR 함수를 호출하는 단계입니다. RevoScaleR 호출은 RevoScaleR 계산 컨텍스트를 설정하는 방법에 따라 결정된 계산 환경에서 실행됩니다.  에지 노드에서 R 스크립트 실행 시 계산 컨텍스트의 가능한 값은 다음과 같습니다.
 
 - 로컬 순차(*local*)
 - 로컬 병렬(*localpar*)
 - Map Reduce
 - Spark
 
-*local* 및 *localpar* 옵션은 **rxExec** 호출을 실행하는 방법에 따라서만 달라집니다. 이러한 두 옵션은 ScaleR **numCoresToUse** 옵션(예: `rxOptions(numCoresToUse=6)`)을 사용하여 다르게 지정하지 않는 한, 사용 가능한 모든 코어에서 병렬 방식으로 다른 rx-function 호출을 실행합니다. 병렬 실행 옵션은 최적의 성능을 제공합니다.
+*local* 및 *localpar* 옵션은 **rxExec** 호출을 실행하는 방법에 따라서만 달라집니다. 이러한 두 옵션은 RevoScaleR **numCoresToUse** 옵션(예: `rxOptions(numCoresToUse=6)`)을 사용하여 다르게 지정하지 않는 한, 사용 가능한 모든 코어에서 병렬 방식으로 다른 rx-function 호출을 실행합니다. 병렬 실행 옵션은 최적의 성능을 제공합니다.
 
 다음 표에는 호출 실행 방법을 설정하는 다양한 계산 컨텍스트 옵션이 요약되어 있습니다.
 
@@ -72,11 +72,11 @@ Azure HDInsight의 Microsoft R Server는 계산 컨텍스트를 설정하여 호
 * 일반적으로 느려질 수 있기 때문에 Spark 계산 컨텍스트를 사용하여 대처할 수 없는 문제가 발생하는 경우에만 Map Reduce 계산 컨텍스트를 사용합니다.  
 
 ## <a name="inline-help-on-rxsetcomputecontext"></a>rxSetComputeContext의 인라인 도움말
-자세한 내용 및 ScaleR 계산 컨텍스트의 예제는 다음과 같이 rxSetComputeContext 메서드에 대한 R의 인라인 도움말을 참조하세요.
+자세한 내용 및 RevoScaleR 계산 컨텍스트의 예제는 다음과 같이 rxSetComputeContext 메서드에 대한 R의 인라인 도움말을 참조하세요.
 
     > ?rxSetComputeContext
 
-[R Server MSDN](https://msdn.microsoft.com/library/mt674634.aspx) 라이브러리에서 제공되는 [ScaleR 분산 컴퓨팅 가이드](https://msdn.microsoft.com/microsoft-r/scaler-distributed-computing)를 참조할 수도 있습니다.
+[Machine Learning 서버 설명서](https://docs.microsoft.com/machine-learning-server/)에서 [분산 컴퓨팅 개요](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-distributed-computing)를 참조할 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 에지 노드 또는 HDInsight 클러스터의 코어에서 실행 병렬 처리 여부 및 방법을 지정하기 위해 사용할 수 있는 옵션에 대해 알아봤습니다. HDInsight 클러스터에서 R 서버를 사용하는 방법에 대한 자세한 내용은 다음 항목을 참조하세요.

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 02/27/2018
 ms.author: billmath
-ms.openlocfilehash: 9a4f85b88959fb90f156779d09d168e0ddbe3da5
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 8003951fb0c80bda56de4718cbe94526dc118b61
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Azure AD Connect에 대한 토폴로지
 이 문서에서는 주요 통합 솔루션으로 Azure AD Connect Sync를 사용하는 다양한 온-프레미스 및 Azure AD(Azure Active Directory) 토폴로지에 대해 설명합니다. 이 문서에는 지원되는 구성과 지원되지 않는 구성이 포함되어 있습니다.
@@ -144,7 +144,9 @@ Azure AD Connect Sync 서버와 Azure AD 테넌트가 1:1 관계입니다. 각 A
 
 DNS 도메인은 단일 Azure AD 테넌트에만 등록할 수 있습니다. 온-프레미스 Active Directory 인스턴스의 사용자 UPN도 별도의 네임스페이스를 사용해야 합니다. 예를 들어 위 그림에서 별도의 UPN 접미사 세 개가 contoso.com, fabrikam.com 및 wingtiptoys.com의 온-프레미스 Active Directory 인스턴스에 등록됩니다. 각 온-프레미스 Active Directory 도메인의 사용자는 서로 다른 네임스페이스를 사용합니다.
 
-Azure AD 테넌트 인스턴스 사이에는 GALSync가 없습니다. Exchange Online 및 비즈니스용 Skype의 주소록은 동일한 테넌트에 있는 사용자만 보여 줍니다.
+>[!NOTE]
+>GalSync(전체 주소 목록 동기화 차단)는 이 토폴로지에서 자동으로 수행되지 않으며, 각 테넌트가 Exchange Online 및 비즈니스용 Skype Online에서 완전한 GAL(전체 주소 목록)을 갖도록 보장하는 추가 사용자 지정 MIM을 구현해야 합니다.
+
 
 이 토폴로지는 그 외의 지원되는 시나리오에 대해 다음과 같은 제한 사항이 있습니다.
 

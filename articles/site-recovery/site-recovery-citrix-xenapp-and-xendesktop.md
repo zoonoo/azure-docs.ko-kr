@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2017
+ms.date: 02/22/2018
 ms.author: ponatara
-ms.openlocfilehash: 52b123b598226e7b03ea9a31c40dd192fd76b191
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: b117525a4851dee5366aeda77c8aaefd1fdde375
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="replicate-a-multi-tier-citrix-xenapp-and-xendesktop-deployment-using-azure-site-recovery"></a>Azure Site Recovery를 사용하여 다중 계층 Citrix XenApp 및 XenDesktop 배포 복제
 
@@ -36,7 +36,7 @@ Citrix XenDesktop은 어디서든 모든 사용자에게 데스크톱 및 응용
 
 시작하기 전에 다음 항목을 이해해야 합니다.
 
-1. [Azure에 가상 컴퓨터 복제](site-recovery-vmware-to-azure.md)
+1. [Azure에 가상 머신 복제](site-recovery-vmware-to-azure.md)
 1. 방법: [복구 네트워크 디자인](site-recovery-network-design.md)
 1. [Azure로 테스트 장애 조치 수행](site-recovery-test-failover-to-azure.md)
 1. [Azure로 장애 조치 수행](site-recovery-failover.md)
@@ -56,7 +56,7 @@ AD DNS 서버, SQL Database 서버, Citrix Delivery Controller, StoreFront 서�
 
 ## <a name="site-recovery-support"></a>Site Recovery 지원
 
-이 문서의 목적상, vSphere 6.0/System Center VMM 2012 R2에서 관리되는 VMware 가상 컴퓨터의 Citrix 배포를 사용하여 DR을 설정했습니다.
+이 문서의 목적상, vSphere 6.0/System Center VMM 2012 R2에서 관리되는 VMware 가상 머신의 Citrix 배포를 사용하여 DR을 설정했습니다.
 
 ### <a name="source-and-target"></a>원본 및 대상
 
@@ -82,7 +82,7 @@ Azure RM 프로비전을 사용하여 Delivery Controller에서 이러한 클론
 4. NetScaler는 FreeBSD를 기반으로 하며 Azure Site Recovery는 FreeBSD OS 보호를 지원하지 않으므로 Azure Site Recovery를 사용하여 보호할 수 없습니다. Azure로 장애 조치한 후 Azure Marketplace에서 새 NetScaler 어플라이언스를 배포 및 구성해야 합니다.
 
 
-## <a name="replicating-virtual-machines"></a>가상 컴퓨터 복제
+## <a name="replicating-virtual-machines"></a>가상 머신 복제
 
 복제 및 복구를 사용하려면 Citrix XenApp 배포의 다음 구성 요소를 보호해야 합니다.
 
@@ -102,7 +102,7 @@ Azure에서 도메인 컨트롤러를 복제 및 구성하기 위한 지침은 [
 
 SQL Server 보호를 위한 권장 옵션에 대한 자세한 기술 지침은 [SQL Server 재해 복구 및 Azure Site Recovery를 사용하여 SQL Server 보호](site-recovery-sql.md)를 참조하세요.
 
-나머지 구성 요소 가상 컴퓨터를 Azure로 복제하기 시작하려면 [이 지침](site-recovery-vmware-to-azure.md)을 따릅니다.
+나머지 구성 요소 가상 머신을 Azure로 복제하기 시작하려면 [이 지침](site-recovery-vmware-to-azure.md)을 따릅니다.
 
 ![XenApp 구성 요소 보호](./media/site-recovery-citrix-xenapp-and-xendesktop/citrix-enablereplication.png)
 
@@ -114,32 +114,32 @@ Compute 및 네트워크 > Compute 속성에서 Azure VM 이름 및 대상 크�
 
 다음 사항에 유의하세요.
 
-* 대상 IP 주소를 설정할 수 있습니다. 주소를 입력하지 않으면 장애 조치(Failover)된 컴퓨터가 DHCP를 사용합니다. 장애 조치(failover) 시 사용할 수 없는 주소를 설정하면 장애 조치(failover)가 작동하지 않습니다. 주소를 테스트 장애 조치(Failover) 네트워크에서 사용할 수 있는 경우 테스트 장애 조치(Failover)에 동일한 대상 IP 주소를 사용해도 됩니다.
+* 대상 IP 주소를 설정할 수 있습니다. 주소를 입력하지 않으면 장애 조치(failover)된 컴퓨터가 DHCP를 사용합니다. 장애 조치(failover) 시 사용할 수 없는 주소를 설정하면 장애 조치(failover)가 작동하지 않습니다. 주소를 테스트 장애 조치(failover) 네트워크에서 사용할 수 있는 경우 테스트 장애 조치(failover)에 동일한 대상 IP 주소를 사용해도 됩니다.
 
 * AD/DNS 서버의 경우 온-프레미스 주소를 유지하면 Azure 가상 네트워크에 대한 DNS 서버와 동일한 주소를 지정할 수 있습니다.
 
-네트워크 어댑터 수는 다음과 같이 대상 가상 컴퓨터에 대해 지정하는 크기에 따라 결정됩니다.
+네트워크 어댑터 수는 다음과 같이 대상 가상 머신에 대해 지정하는 크기에 따라 결정됩니다.
 
 *   원본 컴퓨터의 네트워크 어댑터 수가 대상 컴퓨터 크기에 허용되는 어댑터 수보다 작거나 같은 경우, 대상의 어댑터 수는 소스와 동일해야 합니다.
 *   원본 가상 컴퓨터의 어댑터의 수가 대상 크기에 허용된 수를 초과하면 대상 크기 최대치가 사용됩니다.
 * 예를 들어 원본 컴퓨터에 두 네트워크 어댑터가 있고 대상 컴퓨터 크기가 4를 지원하는 경우, 대상 컴퓨터에는 2개의 어댑터가 있어야 합니다. 원본 컴퓨터에 두 어댑터가 있지만 지원되는 대상 크기가 하나만 지원하는 경우 대상 컴퓨터에는 1개의 어댑터만 있어야 합니다.
-*   가상 컴퓨터에 네트워크 어댑터가 여러 개 있으면 모두 동일한 네트워크에 연결됩니다.
-*   가상 컴퓨터에 네트워크 어댑터가 여러 개 있으면 목록에서 첫 번째 어댑터가 Azure Virtual Machines에서 기본 네트워크 어댑터가 됩니다.
+*   가상 머신에 네트워크 어댑터가 여러 개 있으면 모두 동일한 네트워크에 연결됩니다.
+*   가상 머신에 네트워크 어댑터가 여러 개 있으면 목록에서 첫 번째 어댑터가 Azure Virtual Machines에서 기본 네트워크 어댑터가 됩니다.
 
 
 ## <a name="creating-a-recovery-plan"></a>복구 계획 만들기
 
 XenApp 구성 요소 VM에 대한 복제를 활성화한 후에는 복구 계획을 만들어야 합니다.
-복구 계획은 장애 조치 및 복구에 대한 요구 사항이 유사한 가상 컴퓨터를 그룹화합니다.  
+복구 계획은 장애 조치 및 복구에 대한 요구 사항이 유사한 가상 머신을 그룹화합니다.  
 
 **복구 계획을 만드는 단계**
 
-1. 복구 계획에서 XenApp 구성 요소 가상 컴퓨터를 추가합니다.
+1. 복구 계획에서 XenApp 구성 요소 가상 머신을 추가합니다.
 2. 복구 계획 -> + 복구 계획을 클릭합니다. 복구 계획에 대한 직관적인 이름을 제공합니다.
-3. VMware 가상 컴퓨터의 경우 원본 및 대상을 각각 VMware 프로세스 서버와 Microsoft Azure로 선택하고 배포 모델을 Resource Manager로 선택한 후 항목 선택을 클릭합니다.
-4. Hyper-V 가상 컴퓨터의 경우 원본 및 대상을 각각 VMM 서버와 Microsoft Azure로 선택하고 배포 모델을 Resource Manager로 선택한 후 항목 선택을 클릭하고 XenApp 배포 VM을 선택합니다.
+3. VMware 가상 머신의 경우 원본 및 대상을 각각 VMware 프로세스 서버와 Microsoft Azure로 선택하고 배포 모델을 Resource Manager로 선택한 후 항목 선택을 클릭합니다.
+4. Hyper-V 가상 머신의 경우 원본 및 대상을 각각 VMM 서버와 Microsoft Azure로 선택하고 배포 모델을 Resource Manager로 선택한 후 항목 선택을 클릭하고 XenApp 배포 VM을 선택합니다.
 
-### <a name="adding-virtual-machines-to-failover-groups"></a>장애 조치 그룹에 가상 컴퓨터 추가
+### <a name="adding-virtual-machines-to-failover-groups"></a>장애 조치 그룹에 가상 머신 추가
 
 복구 계획을 사용자 지정하여 특정 시작 순서, 스크립트 또는 수동 작업에 대한 장애 조치 그룹을 추가할 수 있습니다. 다음 그룹을 복구 계획에 추가해야 합니다.
 

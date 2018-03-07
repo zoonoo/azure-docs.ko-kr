@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/14/2017
 ms.author: genli
-ms.openlocfilehash: 83d96a2706e879f8817540e85369729289be9456
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: bf20a0f15b1bc285a598c64c7e9f2de0082b2904
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>문제 해결: Azure 지점 및 사이트 간 연결 문제
 
@@ -335,7 +335,7 @@ NIC 드라이버가 오래되었습니다.
 NIC 드라이버를 업데이트합니다.
 
 1. **시작**을 클릭하고 **장치 관리자**를 입력한 다음, 결과 목록에서 선택합니다. 관리자 암호를 입력하거나 확인하라는 메시지가 표시되면 암호를 입력하거나 확인을 제공합니다.
-2. **네트워크 어댑터** 범주에서 업데이트할 NIC를 찾습니다.  
+2. **네트워크 어댑터** 범주에서 업데이트하려는 NIC를 찾습니다.  
 3. 장치 이름을 두 번 클릭하고 **드라이버 업데이트**를 선택한 다음, **업데이트된 드라이버 소프트웨어 자동 검색**을 선택합니다.
 4. Windows에서 새 드라이버를 찾지 못하는 경우 장치 제조업체의 웹 사이트에서 드라이버를 찾은 다음 해당 지침을 따를 수 있습니다.
 5. 컴퓨터를 다시 시작하고 연결을 다시 시도합니다.

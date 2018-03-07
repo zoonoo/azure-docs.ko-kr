@@ -15,11 +15,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/21/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: f0376070a8bec7d97f54e9a198d5d67a9751334c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 0dc8bc81ca6125d40d1784ce39fd0facaf9e736a
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>상태 모니터링, 진단 로깅 설정, Azure Logic Apps에 대한 경고 설정
 
@@ -131,7 +131,7 @@ ms.lasthandoff: 02/21/2018
 
 5. 검색 상자에 찾으려는 필드를 지정하고 **Enter** 키를 누릅니다. 입력을 시작할 때 OMS는 사용할 수 있는 가능한 일치 및 작업을 보여 줍니다. 
 
-   예를 들어 발생한 상위 10개의 이벤트를 찾으려면 이 검색 쿼리: **Category=WorkflowRuntime |top 10**을 입력하고 선택합니다.
+   예를 들어 발생한 상위 10개의 이벤트를 찾으려면 이 검색 쿼리: **search Category == "WorkflowRuntime" | limit 10**을 입력하고 선택합니다.
 
    ![검색 문자열 입력](media/logic-apps-monitor-your-logic-apps/oms-start-query.png)
 

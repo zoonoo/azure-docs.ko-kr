@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 10/23/2017
 ms.author: joeyong;barbkess;kavithaj
-ms.openlocfilehash: 122646f73b6e4e7c62eb0e6d4b6672b603d8acb2
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: c76fb73c9beda93c407d1af29e157682c7fe58c0
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="resource-classes-for-workload-management"></a>워크로드 관리를 위한 리소스 클래스
 Azure SQL Data Warehouse의 쿼리에 대한 계산 리소스 및 동시에 실행되는 동시 쿼리 수를 관리하는 리소스 클래스 사용 지침입니다.
@@ -84,6 +84,11 @@ EXEC sp_droprolemember 'largerc', 'loaduser';
 ```
 
 서비스 관리자의 리소스 클래스는 고정되어 있고 변경할 수 없습니다.  서비스 관리자는 프로세스 프로비전 중에 만든 사용자입니다.
+
+> [!NOTE]
+> Active Directory 관리자로 정의된 사용자 또는 그룹은 서비스 관리자이기도 합니다.
+>
+>
 
 ### <a name="default-resource-class"></a>기본 리소스 클래스
 기본적으로 각 사용자는 작은 리소스 클래스인 **smallrc**의 멤버입니다. 

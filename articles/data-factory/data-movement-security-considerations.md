@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 02/26/2018
 ms.author: abnarain
-ms.openlocfilehash: 898e6914a427b2e8864d97a7188eb718811ce263
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: ebe0523849b4709424e2f4bdac00f6bf98bf7cf4
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory - 데이터 이동을 위한 보안 고려 사항
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -150,8 +150,8 @@ Salesforce는 모든 파일, 첨부 파일, 사용자 정의 필드의 암호화
 | `*.servicebus.windows.net`    | 443, 80        | Data Factory의 데이터 이동 서비스에 연결하기 위해 자체 호스팅 통합 런타임에 필요합니다. |
 | `*.core.windows.net`          | 443            | [단계 복사](copy-activity-performance.md#staged-copy) 기능을 사용할 때 자체 호스팅 통합 런타임에서 Azure Storage 계정에 연결하는 데 사용됩니다. |
 | `*.frontend.clouddatahub.net` | 443            | 자체 호스팅 통합 런타임에서 Azure Data Factory 서비스에 연결하는 데 필요합니다. |
-| `*.database.windows.net`      | 1433           | (선택 사항) 목적지가 Azure SQL Database/Azure SQL Data Warehouse 인 경우 필요합니다. 단계적 복사 기능을 사용하여 포트 1433을 열지 않고 Azure SQL Database/Azure SQL Data Warehouse에 데이터를 복사합니다. |
-| `*.azuredatalakestore.net`    | 443            | (선택 사항) 목적지가 Azure Data Lake 매장인 경우 필요 |
+| `*.database.windows.net`      | 1433           | (선택 사항) 복사할 목적지가 Azure SQL Database/Azure SQL Data Warehouse인 경우 필요합니다. 단계적 복사 기능을 사용하여 포트 1433을 열지 않고 Azure SQL Database/Azure SQL Data Warehouse에 데이터를 복사합니다. |
+| `*.azuredatalakestore.net`<br>`login.microsoftonline.com/<tenant>/oauth2/token`    | 443            | (선택 사항) 복사할 목적지가 Azure Data Lake Store인 경우 필요 |
 
 > [!NOTE] 
 > 각 데이터 원본에서 요구하는대로 회사 방화벽 수준에서 포트/허용 도메인을 관리해야 할 수 있습니다. 이 표는 Azure SQL Database, Azure SQL Data Warehouse, Azure Data Lake Store만을 예제로 사용합니다.   

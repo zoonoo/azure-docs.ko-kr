@@ -1,48 +1,24 @@
+- 제목: Azure Active Directory 및 API Management로 Web API 백 엔드 보호 | Microsoft Docs 설명: Azure Active Directory 및 API Management를 사용하여 Web API 백 엔드를 보호하는 방법을 알아봅니다.
+서비스: api-management documentationcenter: '' 작성자: juliako 관리자: cfowler 편집기: ''
+
+ms.service: api-management ms.workload: mobile ms.tgt_pltfrm: na ms.devlang: na ms.topic: article ms.date: 10/30/2017 ms.author: apimpm
 ---
-title: "Azure Active Directory 및 API Management로 Web API 백 엔드 보호 | Microsoft Docs"
-description: "Azure Active Directory 및 API Management로 Web API 백 엔드를 보호하는 방법에 대해 알아봅니다."
-services: api-management
-documentationcenter: 
-author: juliako
-manager: cfowler
-editor: 
-ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 10/30/2017
-ms.author: apimpm
-ms.openlocfilehash: 695db2f5e6ffe794d76d0b9126dc231ed8a87d2c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
----
+
 # <a name="how-to-protect-a-web-api-backend-with-azure-active-directory-and-api-management"></a>Azure Active Directory 및 API Management로 Web API 백 엔드를 보호하는 방법
-다음 비디오에서는 Web API 백 엔드 빌드 및 Azure Active Directory 및 API Management로 OAuth 2.0 프로토콜을 사용하여 보호하는 방법을 보여줍니다.  이 문서에서는 비디오로 해당 단계에 대한 개요 및 추가 정보를 제공합니다. 이 24분 비디오에서는 다음을 수행할 수 있는 방법을 보여줍니다.
 
-* Web API 백 엔드 빌드 및 AAD로 보안 유지 - 1시 30분에 시작
-* API를 API Management로 가져오기 - 7시 10분에 시작
-* API를 호출하도록 개발자 포털 구성 - 9시 9분에 시작
-* API를 호출하도록 데스크톱 응용 프로그램 구성 - 18시 8분에 시작
-* 미리 요청 권한을 부여하도록 JWT 유효성 검사 정책 구성 - 20시 47분에 시작
-
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Protecting-Web-API-Backend-with-Azure-Active-Directory-and-API-Management/player]
-> 
-> 
+이 항목에서는 Web API 백 엔드를 빌드하고 Azure Active Directory 및 API Management를 통해 OAuth 2.0 프로토콜을 사용하여 보호하는 방법을 보여 줍니다.  
 
 ## <a name="create-an-azure-ad-directory"></a>Azure AD 디렉터리 만들기
-Azure Active Directory를 사용하여 Web API 백 엔드를 보호하려면 먼저 AAD 테넌트가 있어야 합니다. 이 비디오에서는 **APIMDemo** 라는 테넌트가 사용됩니다. AAD 테넌트를 만들려면 [Azure 클래식 포털](https://manage.windowsazure.com)에 로그인하고 **새로 만들기**->**App Services**->**Active Directory**->**디렉터리**->**사용자 지정 만들기**를 클릭합니다. 
+Azure Active Directory를 사용하여 Web API 백 엔드를 보호하려면 먼저 AAD 테넌트가 있어야 합니다. AAD 테넌트를 만들려면 [Azure 클래식 포털](https://manage.windowsazure.com)에 로그인하고 **새로 만들기**->**App Services**->**Active Directory**->**디렉터리**->**사용자 지정 만들기**를 클릭합니다. 
 
 ![Azure Active Directory][api-management-create-aad-menu]
 
-이 예에서 **APIMDemo**라는 디렉터리는 **DemoAPIM.onmicrosoft.com**이라는 기본 도메인 이름으로 만들어집니다. 이 디렉터리는 비디오 전체에서 사용됩니다.
+이 예에서 **APIMDemo**라는 디렉터리는 **DemoAPIM.onmicrosoft.com**이라는 기본 도메인 이름으로 만들어집니다. 
 
 ![Azure Active Directory][api-management-create-aad]
 
 ## <a name="create-a-web-api-service-secured-by-azure-active-directory"></a>Azure Active Directory로 보안이 유지된 Web API 서비스 만들기
-이 단계에서는 Web API 백 엔드는 Visual Studio 2013을 사용하여 생성됩니다. 이 단계의 비디오는 1분 30초에 시작됩니다. Visual Studio에서 Web API 백 엔드 프로젝트를 만들려면 **파일**->**새로 만들기**->**프로젝트**를 클릭하고 **웹** 템플릿 목록에서 **ASP.NET 웹 응용 프로그램**을 선택합니다. 이 비디오에서 프로젝트의 이름은 **APIMAADDemo**입니다. **확인**을 클릭하여 프로젝트를 만듭니다. 
+이 단계에서는 Web API 백 엔드는 Visual Studio 2013을 사용하여 생성됩니다. Visual Studio에서 Web API 백 엔드 프로젝트를 만들려면 **파일**->**새로 만들기**->**프로젝트**를 클릭하고 **웹** 템플릿 목록에서 **ASP.NET 웹 응용 프로그램**을 선택합니다. 
 
 ![Visual Studio][api-management-new-web-app]
 
@@ -75,7 +51,6 @@ Azure에 로그인하라는 메시지가 표시될 수 있으며, 다음 웹앱�
 **확인** 을 클릭하여 웹앱을 구성하고 프로젝트를 만듭니다.
 
 ## <a name="add-the-code-to-the-web-api-project"></a>Web API 프로젝트에 코드를 추가합니다.
-비디오의 다음 단계는 Web API 프로젝트에 코드를 추가합니다. 이 단계는 4분 35초에 시작됩니다.
 
 이 예에서 Web API는 모델과 컨트롤러를 사용하여 기본 계산기 서비스를 구현합니다. 서비스에 대한 모델을 추가하려면 **솔루션 탐색기**에서 **모델**을 마우스 오른쪽 단추로 클릭하고 **추가**, **클래스**를 선택합니다. 클래스의 이름을 `CalcInput` 로 지정하고 **추가**를 클릭합니다.
 
@@ -161,14 +136,13 @@ public class CalcController : ApiController
 **F6** 를 눌러 솔루션을 빌드하고 확인합니다.
 
 ## <a name="publish-the-project-to-azure"></a>Azure에 프로젝트 게시
-이 단계에서 Visual Studio 프로젝트는 Azure에 게시됩니다. 이 단계의 비디오는 5분 45초에 시작됩니다.
 
 프로젝트를 Azure에 게시하려면 Visual Studio에서 **APIMAADDemo** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다. **웹 게시** 대화 상자에서 기본 설정을 유지하고 **게시**를 클릭합니다.
 
 ![웹 게시][api-management-web-publish]
 
 ## <a name="grant-permissions-to-the-azure-ad-backend-service-application"></a>Azure AD 백 엔드 서비스 응용 프로그램에 권한을 부여합니다.
-백 엔드 서비스에 대한 새 응용 프로그램은 Web API 프로젝트의 구성 및 게시 프로세스의 일부로 Azure AD 디렉터리에 만들어집니다. 6분 13초에 시작하는 비디오의 이 단계에서는 Web API 백 엔드에 권한이 부여됩니다.
+백 엔드 서비스에 대한 새 응용 프로그램은 Web API 프로젝트의 구성 및 게시 프로세스의 일부로 Azure AD 디렉터리에 만들어집니다.
 
 ![응용 프로그램][api-management-aad-backend-app]
 
@@ -352,7 +326,7 @@ API는 Azure Portal을 통해 액세스할 수 있는 API 게시자 포털에서
 API를 가져오면 API에 대한 요약 페이지가 게시자 포털에 표시됩니다.
 
 ## <a name="call-the-api-unsuccessfully-from-the-developer-portal"></a>개발자 포털에서 API 호출 실패
-이 시점에서 API를 API Management로 가져오지만, 백 엔드 서비스는 Azure AD 인증으로 보호되어야 하기 때문에 개발자 포털에서 호출할 수 없습니다. 다음 단계를 통해 7분 40초부터 시작되는 비디오에서 볼 수 있습니다.
+이 시점에서 API를 API Management로 가져오지만, 백 엔드 서비스는 Azure AD 인증으로 보호되어야 하기 때문에 개발자 포털에서 호출할 수 없습니다. 
 
 게시자 포털의 오른쪽 위에 있는 메뉴에서 **개발자 포털** 을 클릭합니다.
 
@@ -373,9 +347,9 @@ API를 가져오면 API에 대한 요약 페이지가 게시자 포털에 표시
 백 엔드 API는 Azure Active Directory로 보호되기 때문에 요청이 인증되지 않습니다. API를 성공적으로 호출하기 전에 개발자 포털은 OAuth 2.0을 사용하여 개발자에게 권한을 부여하도록 구성되어야 합니다. 이 프로세스는 다음 섹션에 설명되어 있습니다.
 
 ## <a name="register-the-developer-portal-as-an-aad-application"></a>AAD 응용 프로그램으로 개발자 포털 등록
-개발자가 OAuth 2.0을 사용하여 권한을 부여하도록 개발자 포털을 구성하는 첫 번째 단계는 AAD 응용 프로그램으로 개발자 포털을 등록하는 것입니다. 8분 27초에 시작되는 비디오에서 보여줍니다.
+개발자가 OAuth 2.0을 사용하여 권한을 부여하도록 개발자 포털을 구성하는 첫 번째 단계는 AAD 응용 프로그램으로 개발자 포털을 등록하는 것입니다. 
 
-이 비디오의 첫 번째 단계에서 Azure AD 테넌트로 이동하고, 이 예제 **APIMDemo**에서 **응용 프로그램** 탭 으로 이동합니다.
+Azure AD 테넌트로 이동 합니다. 이 예에서는 **APIMDemo**를 선택하고 **응용 프로그램** 탭으로 이동합니다.
 
 ![새 응용 프로그램][api-management-aad-new-application-devportal]
 
@@ -394,7 +368,7 @@ API를 가져오면 API에 대한 요약 페이지가 게시자 포털에 표시
 ![새 응용 프로그램][api-management-aad-new-application-devportal-2]
 
 ## <a name="configure-an-api-management-oauth-20-authorization-server"></a>API Management OAuth 2.0 권한 부여 서버 구성
-다음 단계는 API Management에서의 OAuth 2.0 권한 부여 서버 구성입니다. 이 단계는 9분 43초에 시작되는 비디오에서 보여 줍니다.
+다음 단계는 API Management에서의 OAuth 2.0 권한 부여 서버 구성입니다. 
 
 왼쪽의 API Management 메뉴에서 **보안**을 클릭하고 **OAuth 2.0**을 클릭한 다음 **권한 부여 서버 추가**를 클릭합니다.
 
@@ -466,7 +440,7 @@ API를 가져오면 API에 대한 요약 페이지가 게시자 포털에 표시
 ![권한 추가][api-management-aad-add-delegated-permissions]
 
 ## <a name="enable-oauth-20-user-authorization-for-the-calculator-api"></a>계산기 API에 대해 OAuth 2.0 사용자 권한 부여 사용
-이제 OAuth 2.0 서버가 구성되었으므로 API에 대한 보안 설정을 지정할 수 있습니다. 이 단계는 14분 30초에 시작되는 비디오에서 보여 줍니다.
+이제 OAuth 2.0 서버가 구성되었으므로 API에 대한 보안 설정을 지정할 수 있습니다. 
 
 왼쪽 메뉴에서 **API**를 클릭하고 **계산기**를 클릭하여 해당 설정을 보고 구성합니다.
 
@@ -477,7 +451,7 @@ API를 가져오면 API에 대한 요약 페이지가 게시자 포털에 표시
 ![계산기 API][api-management-enable-aad-calculator]
 
 ## <a name="successfully-call-the-calculator-api-from-the-developer-portal"></a>개발자 포털에서 계산기 API를 성공적으로 호출
-이제 OAuth 2.0 권한 부여가 API에서 구성되었으므로, 개발자 센터에서 해당 작업을 성공적으로 호출할 수 있습니다. 이 단계는 15분에 시작되는 비디오에서 보여 줍니다.
+이제 OAuth 2.0 권한 부여가 API에서 구성되었으므로, 개발자 센터에서 해당 작업을 성공적으로 호출할 수 있습니다. 
 
 개발자 포털에서 계산기 서비스의 **두 개의 정수 추가**로 다시 이동하여 **사용해 보세요**를 클릭합니다. 방금 추가한 권한 부여 서버에 해당하는 **권한 부여** 섹션의 새 항목을 참고합니다.
 
@@ -492,10 +466,12 @@ API를 가져오면 API에 대한 요약 페이지가 게시자 포털에 표시
 ![계산기 API][api-management-devportal-response]
 
 ## <a name="configure-a-desktop-application-to-call-the-api"></a>API를 호출하도록 데스크톱 응용 프로그램 구성
-비디오의 다음 절차는 16분 30초부터 시작하며 API를 호출하는 간단한 데스크톱 응용 프로그램을 구성합니다. Azure AD에서 데스크톱 응용 프로그램을 등록하고 디렉터리와 백 엔드 서비스에 액세스 권한을 부여하는 것이 첫 번째 단계입니다. 18분 25초에 계산기 API에 대한 작업을 호출하는 데스크톱 응용 프로그램의 데모가 시작됩니다.
+
+API를 호출하는 간단한 데스크톱 응용 프로그램을 구성합니다 Azure AD에서 데스크톱 응용 프로그램을 등록하고 디렉터리와 백 엔드 서비스에 액세스 권한을 부여하는 것이 첫 번째 단계입니다. 
 
 ## <a name="configure-a-jwt-validation-policy-to-pre-authorize-requests"></a>미리 요청 권한을 부여하도록 JWT 유효성 검사 정책 구성
-이 비디오에서 최종 절차는 20분 48초에 시작하며 [JWT의 유효성 검사](api-management-access-restriction-policies.md#ValidateJWT) 정책을 사용하여 들어오는 각 요청의 액세스 토큰의 유효성을 검사하는 방법을 보여 줍니다. 요청의 유효성을 JWT 정책으로 검사하지 않은 경우, 요청은 API Management로 차단되며 백 엔드를 따라 전달되지 않습니다.
+
+[JWT 유효성 검사](api-management-access-restriction-policies.md#ValidateJWT) 정책을 사용하여 들어오는 각 요청의 액세스 토큰에 대한 유효성을 검사함으로써 해당 요청을 미리 인증합니다. 요청의 유효성을 JWT 정책으로 검사하지 않은 경우, 요청은 API Management로 차단되며 백 엔드를 따라 전달되지 않습니다.
 
 ```xml
 <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
@@ -508,7 +484,7 @@ API를 가져오면 API에 대한 요약 페이지가 게시자 포털에 표시
 </validate-jwt>
 ```
 
-이 정책 구성 및 사용에 대한 다른 데모는 [클라우드 표지 에피소드 177: 추가 API Management 기능](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) 을 참고하여 13분 50초로 빨리 감기합니다. 15분으로 빨리 감기하여 정책 편집기에 구성된 정책을 본 다음 18분 50초로 빨리 감기하여 필수 권한 부여 토큰 포함 및 제외 모두의 경우로 개발자 포털에서 작업 호출의 데모를 볼 수 있습니다.
+자세한 내용은 [클라우드 표지 에피소드 177: 추가 API Management 기능](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/)을 참조하고, 13분 50초 지점으로 빠르게 진행합니다. 15분으로 빨리 감기하여 정책 편집기에 구성된 정책을 본 다음 18분 50초로 빨리 감기하여 필수 권한 부여 토큰 포함 및 제외 모두의 경우로 개발자 포털에서 작업 호출의 데모를 볼 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 * API Management에 대한 추가 [비디오](https://azure.microsoft.com/documentation/videos/index/?services=api-management) 를 확인합니다.

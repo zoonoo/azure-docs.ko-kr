@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/28/2017
+ms.date: 02/22/2018
 ms.author: larryfr
-ms.openlocfilehash: a972344e2b6205fbcf69d2969c42211ec5b24869
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 18b7b5d56acb4d9d0c2ed007f0521193e37d82e8
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-hdinsight"></a>HDInsight에서 Apache Storm 토폴로지 배포 및 관리
 
@@ -226,7 +226,7 @@ Linux 기반 HDInsight 클러스터에서 REST API의 기본 URI는 **https://HE
 
 * **SSH 세션에서**: SSH 세션에서 클러스터로 `headnode -f` 명령을 사용합니다.
 * **Ambari 웹에서**: 페이지 맨 위에서 **서비스**를 선택한 다음 **Storm**을 선택합니다. **요약** 탭에서 **Storm UI 서버**를 선택합니다. Storm UI 및 REST API가 호스팅하는 노드의 FQDN은 페이지 맨 위에 표시됩니다.
-* **Ambari REST API에서**: `curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` 명령을 사용하여 Storm UI 및 REST API가 실행 중인 노드에 관한 정보를 검색합니다. **PASSWORD**는 클러스터의 관리자 암호로 바꿉니다. **CLUSTERNAME** 을 클러스터 이름으로 바꿉니다. 응답에서 "host_name" 항목에는 노드의 FQDN이 포함됩니다.
+* **Ambari REST API에서**: `curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` 명령을 사용하여 Storm UI 및 REST API가 실행 중인 노드에 관한 정보를 검색합니다. **CLUSTERNAME** 을 클러스터 이름으로 바꿉니다. 메시지가 표시되면 로그인(관리자) 계정에 대한 암호를 입력합니다. 응답에서 "host_name" 항목에는 노드의 FQDN이 포함됩니다.
 
 ### <a name="authentication"></a>인증
 

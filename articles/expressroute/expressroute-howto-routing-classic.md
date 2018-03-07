@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2017
 ms.author: ganesr;cherylmc
-ms.openlocfilehash: 37713db70f3ae837edafc997b78b16b121d0a885
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: d6c675d314e96cd0caab7e5eb5c60e3b1458e4a0
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-classic"></a>ExpressRoute 회로의 피어링 만들기 및 수정(클래식)
 > [!div class="op_single_selector"]
@@ -78,10 +78,10 @@ ExpressRoute 회로에 한 가지, 두 가지 또는 세 가지 피어링을 구
 ### <a name="to-create-azure-private-peering"></a>Azure 개인 피어링을 만들려면
 1. **ExpressRoute에 대한 PowerShell 모듈을 가져옵니다.**
    
-    ExpressRoute cmdlet을 사용하려면 Azure와 ExpressRoute 모듈을 PowerShell 세션으로 가져와야 합니다. 다음 명령을 실행하여 PowerShell 세션으로 Azure 및 ExpressRoute 모듈을 가져옵니다.  
+    ExpressRoute cmdlet을 사용하려면 Azure와 ExpressRoute 모듈을 PowerShell 세션으로 가져와야 합니다. 다음 명령을 실행하여 PowerShell 세션으로 Azure 및 ExpressRoute 모듈을 가져옵니다. 버전은 다를 수 있습니다.    
    
-        Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\Azure.psd1'
-        Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\ExpressRoute\ExpressRoute.psd1'
+        Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\Azure\Azure.psd1'
+        Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRoute\ExpressRoute.psd1'
 2. **ExpressRoute 회로를 만듭니다.**
    
     지침에 따라 [ExpressRoute 회로](expressroute-howto-circuit-classic.md) 를 만들고 연결 공급자를 통해 프로비전합니다. 연결 공급자가 관리된 3계층 서비스를 제공하는 경우 연결 공급자를 요청하여 Azure 개인 피어링을 사용하도록 할 수 있습니다. 이 경우에 다음 섹션에 나열된 지침에 따를 필요가 없습니다. 그러나 회로를 만든 후에 연결 공급자가 라우팅을 관리하지 않는 경우 아래 지침을 수행합니다. 
@@ -168,10 +168,10 @@ ExpressRoute 회로에 한 가지, 두 가지 또는 세 가지 피어링을 구
 ### <a name="to-create-azure-public-peering"></a>Azure 공용 피어링을 만들려면
 1. **ExpressRoute에 대한 PowerShell 모듈을 가져옵니다.**
    
-    ExpressRoute cmdlet을 사용하려면 Azure와 ExpressRoute 모듈을 PowerShell 세션으로 가져와야 합니다. 다음 명령을 실행하여 PowerShell 세션으로 Azure 및 ExpressRoute 모듈을 가져옵니다. 
+    ExpressRoute cmdlet을 사용하려면 Azure와 ExpressRoute 모듈을 PowerShell 세션으로 가져와야 합니다. 다음 명령을 실행하여 PowerShell 세션으로 Azure 및 ExpressRoute 모듈을 가져옵니다. 버전은 다를 수 있습니다.   
    
-        Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\Azure.psd1'
-        Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\ExpressRoute\ExpressRoute.psd1'
+        Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\Azure\Azure.psd1'
+        Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRoute\ExpressRoute.psd1'
 2. **ExpressRoute 회로 만들기**
    
     지침에 따라 [ExpressRoute 회로](expressroute-howto-circuit-classic.md) 를 만들고 연결 공급자를 통해 프로비전합니다. 연결 공급자가 관리된 3계층 서비스를 제공하는 경우 연결 공급자를 요청하여 Azure 공용 피어링을 사용하도록 할 수 있습니다. 이 경우에 다음 섹션에 나열된 지침에 따를 필요가 없습니다. 그러나 회로를 만든 후에 연결 공급자가 라우팅을 관리하지 않는 경우 아래 지침을 수행합니다.
@@ -254,10 +254,10 @@ ExpressRoute 회로에 한 가지, 두 가지 또는 세 가지 피어링을 구
 ### <a name="to-create-microsoft-peering"></a>Microsoft 피어링을 만들려면
 1. **ExpressRoute에 대한 PowerShell 모듈을 가져옵니다.**
    
-    ExpressRoute cmdlet을 사용하려면 Azure와 ExpressRoute 모듈을 PowerShell 세션으로 가져와야 합니다. 다음 명령을 실행하여 PowerShell 세션으로 Azure 및 ExpressRoute 모듈을 가져옵니다.  
+    ExpressRoute cmdlet을 사용하려면 Azure와 ExpressRoute 모듈을 PowerShell 세션으로 가져와야 합니다. 다음 명령을 실행하여 PowerShell 세션으로 Azure 및 ExpressRoute 모듈을 가져옵니다. 버전은 다를 수 있습니다.   
    
-        Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\Azure.psd1'
-        Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\ExpressRoute\ExpressRoute.psd1'
+        Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\Azure\Azure.psd1'
+        Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRoute\ExpressRoute.psd1'
 2. **ExpressRoute 회로 만들기**
    
     지침에 따라 [ExpressRoute 회로](expressroute-howto-circuit-classic.md) 를 만들고 연결 공급자를 통해 프로비전합니다. 연결 공급자가 관리된 3계층 서비스를 제공하는 경우 연결 공급자를 요청하여 Azure 개인 피어링을 사용하도록 할 수 있습니다. 이 경우에 다음 섹션에 나열된 지침에 따를 필요가 없습니다. 그러나 회로를 만든 후에 연결 공급자가 라우팅을 관리하지 않는 경우 아래 지침을 수행합니다.

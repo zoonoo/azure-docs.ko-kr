@@ -2,48 +2,34 @@
 title: "원본 환경 설정(Azure-VMware) | Microsoft Docs"
 description: "이 문서에서는 온-프레미스 환경을 설정하여 VMware 가상 머신을 Azure에 복제하기 시작하는 방법을 설명합니다."
 services: site-recovery
-documentationcenter: 
 author: AnoopVasudavan
 manager: gauravd
-editor: 
-ms.assetid: 
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/23/2017
+ms.date: 02/22/2018
 ms.author: anoopkv
-ms.openlocfilehash: 32a3f7498d3c8891178818436e33221f91ae2f8f
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 2b6b0e5cc95f28b5596e7e898f5f035e3647d9c5
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="set-up-the-source-environment-vmware-to-azure"></a>원본 환경 설정(Azure-VMware)
 > [!div class="op_single_selector"]
 > * [VMware에서 Azure로](./site-recovery-set-up-vmware-to-azure.md)
 > * [물리적 서버에서 Azure로](./site-recovery-set-up-physical-to-azure.md)
 
-이 문서에서는 온-프레미스 환경을 설정하여 VMware에서 실행 중인 가상 머신을 Azure에 복제하기 시작하는 방법을 설명합니다.
+이 문서에서는 원본, 온-프레미스 환경을 설정하여 VMware에서 실행 중인 가상 머신을 Azure에 복제하는 방법을 설명합니다. 여기에는 복제 시나리오 선택, 온-프레미스 컴퓨터를 Site Recovery 구성 서버로 설정, 온-프레미스 VM 자동 검색을 위한 단계가 포함됩니다. 
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 문서에서는 사용자가 다음 항목을 이미 만들었다고 가정합니다.
-- [Azure Portal](http://portal.azure.com "Azure Portal")의 Recovery Services 자격 증명 모음
-- [자동 검색](./site-recovery-vmware-to-azure.md)에 사용할 수 있는 VMware vCenter의 전용 계정
-- 구성 서버를 설치할 가상 머신
+이 문서에서는 사용자가 다음 작업을 이미 수행한 것으로 가정합니다.
+- [Azure Portal](http://portal.azure.com)에서 [리소스 설정](tutorial-prepare-azure.md)
+- 자동 검색용 전용 계정을 포함하는 [온-프레미스 VMware 설정](tutorial-prepare-on-premises-vmware.md)
 
-## <a name="configuration-server-minimum-requirements"></a>구성 서버 최소 요구 사항
-다음 표에는 구성 서버에 대한 최소 하드웨어, 소프트웨어 및 네트워크 요구 사항이 나와 있습니다.
 
-> [!IMPORTANT]
-> VMware 가상 머신을 보호하기 위해 구성 서버를 배포하는 경우 **HA(고가용성)** 가상 머신으로 배포하는 것이 좋습니다.
-
-[!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
-
-> [!NOTE]
-> HTTPS 기반 프록시 서버는 구성 서버에서 지원되지 않습니다.
 
 ## <a name="choose-your-protection-goals"></a>보호 목표 선택
 
@@ -55,39 +41,21 @@ ms.lasthandoff: 12/21/2017
 
     ![목표 선택](./media/site-recovery-set-up-vmware-to-azure/choose-goals2.png)
 
-## <a name="set-up-the-source-environment"></a>원본 환경 설정
-두 가지 주요 작업을 포함한 원본 환경 설정
+## <a name="set-up-the-configuration-server"></a>구성 서버 설정
 
-- Site Recovery를 사용하여 구성 서버를 설치 및 등록합니다.
-- Site Recovery를 온-프레미스 VMware vCenter 또는 vSphere EXSi 호스트에 연결하여 온-프레미스 가상 머신을 검색합니다.
+구성 서버를 온-프레미스 VMware VM으로 설정하고, OVF(Open Virtualization Format) 템플릿을 사용합니다. VMware VM에 설치되는 구성 요소에 대해 [자세히 알아봅니다](concepts-vmware-to-azure-architecture.md). 
 
-### <a name="step-1-install-and-register-a-configuration-server"></a>1단계: 구성 서버 설치 및 등록
+1. 구성 서버 배포에 대한 [필수 구성 요소](how-to-deploy-configuration-server.md#prerequisites)에 대해 알아봅니다. 배포에 대한 [용량 수치를 확인](how-to-deploy-configuration-server.md#capacity-planning)합니다.
+2. 구성 서버를 실행하는 온-프레미스 VMware VM을 설치하기 위한 OVF 템플릿(how-to-deploy-configuration-server.md)을 [다운로드](how-to-deploy-configuration-server.md#download-the-template)하고 [가져옵니다](how-to-deploy-configuration-server.md#import-the-template-in-vmware).
+3. VMware VM을 켜고 Recovery Services 자격 증명 모음에 [등록](how-to-deploy-configuration-server.md#register-the-configuration-server)합니다.
 
-1. **1단계: 인프라 준비** > **원본**을 클릭합니다. **원본 준비**에서 구성 서버가 없는 경우 **+구성 서버**를 클릭하여 하나를 추가합니다.
 
-    ![원본 설정](./media/site-recovery-set-up-vmware-to-azure/set-source1.png)
-2. **서버 추가** 블레이드에서 **구성 서버**가 **서버 형식**에 표시되는지 확인합니다.
-4. Site Recovery 통합 설치 프로그램 설치 파일을 다운로드합니다.
-5. 자격 증명 모음 등록 키를 다운로드합니다. 통합 설치 프로그램을 실행하는 경우 등록 키가 필요합니다. 이 키는 생성된 날로부터 5일간 유효합니다.
-
-    ![원본 설정](./media/site-recovery-set-up-vmware-to-azure/set-source2.png)
-6. 구성 서버로 사용 중인 컴퓨터에서 **Azure Site Recovery 통합 설치 프로그램**을 실행하여 구성 서버, 프로세스 서버 및 마스터 대상 서버를 설치합니다.
-
-#### <a name="run-azure-site-recovery-unified-setup"></a>Azure Site Recovery 통합 설치 프로그램 실행
-
-> [!TIP]
-> 사용자 컴퓨터 시스템 클록의 시간이 현지 시간보다 5분 이상 차이가 날 경우 구성 서버 등록에 실패합니다. 설치를 시작하기 전에 시스템 클록을 [시간 서버](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service)와 동기화합니다.
-
-[!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
-
-> [!NOTE]
-> 명령줄을 통해 구성 서버를 설치할 수 있습니다. 자세한 내용은 [명령줄 도구를 사용하여 구성 서버 설치](http://aka.ms/installconfigsrv)를 참조하세요.
-
-#### <a name="add-the-vmware-account-for-automatic-discovery"></a>자동 검색에 VMware 계정 추가
+## <a name="add-the-vmware-account-for-automatic-discovery"></a>자동 검색에 VMware 계정 추가
 
 [!INCLUDE [site-recovery-add-vcenter-account](../../includes/site-recovery-add-vcenter-account.md)]
 
-### <a name="step-2-add-a-vcenter"></a>2단계: vCenter 추가
+## <a name="connect-to-the-vmware-server"></a>VMware 서버에 연결
+
 Azure Site Recovery가 온-프레미스 환경에서 실행 중인 가상 머신을 검색할 수 있게 하려면 Site Recovery와 VMware vCenter 서버 또는 vSphere ESXi 호스트를 연결해야 합니다.
 
 **+vCenter**를 선택하여 VMware vCenter 서버 또는 VMware vSphere ESXi 호스트를 연결하기 시작합니다.

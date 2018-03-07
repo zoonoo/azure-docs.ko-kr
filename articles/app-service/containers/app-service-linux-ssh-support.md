@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: wesmc
-ms.openlocfilehash: 7e6bb974565810ebb8d8e21d1c274d42d6d39e55
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 905c257ab40057f05081e54e8680bd818023d886
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="ssh-support-for-azure-app-service-on-linux"></a>Linux의 Azure App Service에 대한 SSH 지원
 
@@ -29,7 +29,7 @@ Linux의 App Service는 새 웹앱의 런타임 스택에 사용되는 기본 �
 
 ![런타임 스택](./media/app-service-linux-ssh-support/app-service-linux-runtime-stack.png)
 
-또한 SSH 서버를 이미지의 일부로 포함하고 이 항목에 설명된 대로 구성하여 사용자 지정 Docker 이미지에서 SSH를 사용할 수도 있습니다.
+또한 SSH 서버를 이미지의 일부로 포함하고 이 문서에 설명된 대로 구성하여 사용자 지정 Docker 이미지에서 SSH를 사용할 수도 있습니다.
 
 ## <a name="making-a-client-connection"></a>클라이언트 연결 만들기
 
@@ -82,28 +82,30 @@ https://<your sitename>.scm.azurewebsites.net/webssh/host
     EXPOSE 2222 80
     ```
 
-1. */bin* 디렉터리의 셸 스크립트를 사용하여 [ssh 서비스를 시작](https://github.com/Azure-App-Service/node/blob/master/6.9.3/startup/init_container.sh)해야 합니다.
+1. 셸 스크립트를 사용하여 SSH 서비스를 시작해야 합니다([init_container.sh](https://github.com/Azure-App-Service/node/blob/master/6.9.3/startup/init_container.sh)의 예제 참조).
 
     ```bash
     #!/bin/bash
     service ssh start
     ```
 
-Dockerfile은 [`CMD` 명령](https://docs.docker.com/engine/reference/builder/#cmd)을 사용하여 스크립트를 실행합니다.
+Dockerfile은 [`ENTRYPOINT` 명령](https://docs.docker.com/engine/reference/builder/#entrypoint)을 사용하여 스크립트를 실행합니다.
 
     ```docker
-    COPY init_container.sh /bin/
+    COPY startup /opt/startup
     ...
-    RUN chmod 755 /bin/init_container.sh
+    RUN chmod 755 /opt/startup/init_container.sh
     ...
-    CMD ["/bin/init_container.sh"]
+    ENTRYPOINT ["/opt/startup/init_container.sh"]
     ```
 
 ## <a name="next-steps"></a>다음 단계
 
-Web App for Containers에 대한 자세한 내용은 다음 링크를 참조하세요. [당사 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview)에 질문 및 문제를 게시할 수 있습니다.
+[Azure 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview)에 질문 및 문제를 게시할 수 있습니다.
 
-* [Web App for Containers에 사용자 지정 Docker 이미지를 사용하는 방법](quickstart-custom-docker-image.md)
+컨테이너용 웹앱에 대한 자세한 내용은 다음을 참조하세요.
+
+* [Web App for Containers에 사용자 지정 Docker 이미지를 사용하는 방법](quickstart-docker-go.md)
 * [Linux의 Azure App Service에서 .NET Core 사용](quickstart-dotnetcore.md)
 * [Linux의 Azure App Service에서 Ruby 사용](quickstart-ruby.md)
 * [Containers용 Azure App Service Web App 관련 FAQ](app-service-linux-faq.md)
