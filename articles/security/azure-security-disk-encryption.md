@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: devtiw;ejarvi;mayank88mahajan;vermashi;sudhakarareddyevuri;aravindthoram
-ms.openlocfilehash: d6a19334b369c54ff6bad3404b4cf2ffe3b47c70
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: cc609d7c7b28fc4aef6eb1e25ee46fd77edd4102
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-disk-encryption-for-windows-and-linux-iaas-vms"></a>Windows 및 Linux IaaS VM용 Azure 디스크 암호화
 Microsoft Azure는 데이터 프라이버시, 데이터 독립성을 보장하기 위해 노력하고 있으며 암호화 키를 암호화, 제어 및 관리하고 데이터 액세스를 제어 및 감사하는 광범위한 고급 기술을 통해 Azure 호스팅 데이터를 제어할 수 있도록 합니다. 또한 Azure 고객에게 비즈니스 요구에 가장 잘 맞는 솔루션을 선택할 수 있는 유연성을 제공합니다. 이 문서에는 "Windows 및 Linux IaaS VM용 Azure 디스크 암호화"라는 새로운 기술 솔루션을 소개하여 조직의 보안 및 규정 준수 약정에 따라 데이터를 보호하도록 합니다. 이 문서에서는 지원되는 시나리오와 사용자 환경을 비롯하여 Azure 디스크 암호화 기능을 사용하는 방법에 대한 자세한 지침을 제공합니다.
@@ -141,34 +141,7 @@ OS 드라이브가 암호화되는 경우 Linux에 데이터 디스크 암호화
 > [!NOTE]
 > Windows Server 2008 R2의 경우 Azure에서 암호화를 사용하도록 설정하기 전에 .NET Framework 4.5를 설치해야 합니다. 선택적 업데이트인 Windows Server 2008 R2 x64 기반 시스템용 Microsoft .NET Framework 4.5.2([KB2901983](https://support.microsoft.com/kb/2901983))를 설치하여 Windows 업데이트에서 설치할 수 있습니다.
 
-* Azure Disk Encryption은 다음과 같은 Azure 갤러리 기반 Linux 서버 배포판 및 버전에서 지원됩니다.
-
-| Linux 배포 | 버전 | 암호화에 지원되는 볼륨 유형|
-| --- | --- |--- |
-| Ubuntu | 16.04-DAILY-LTS | OS 및 데이터 디스크 |
-| Ubuntu | 14.04.5-DAILY-LTS | OS 및 데이터 디스크 |
-| Ubuntu | 12.10 | 데이터 디스크  |
-| Ubuntu | 12.04 | 데이터 디스크  |
-| RHEL | 7.4 | OS 및 데이터 디스크 |
-| RHEL | 7.3 | OS 및 데이터 디스크 |
-| RHEL | LVM 7.3 | OS 및 데이터 디스크 |
-| RHEL | 7.2 | OS 및 데이터 디스크 |
-| RHEL | 6.8 | OS 및 데이터 디스크 |
-| RHEL | 6.7 | 데이터 디스크  |
-| CentOS | 7.3 | OS 및 데이터 디스크 |
-| CentOS | 7.2n | OS 및 데이터 디스크 |
-| CentOS | 6.8 | OS 및 데이터 디스크 |
-| CentOS | 7.1 | 데이터 디스크  |
-| CentOS | 7.0 | 데이터 디스크  |
-| CentOS | 6.7 | 데이터 디스크  |
-| CentOS | 6.6 | 데이터 디스크  |
-| CentOS | 6.5 | 데이터 디스크  |
-| openSUSE | 13.2 | 데이터 디스크  |
-| SLES | 12 SP1 | 데이터 디스크  |
-| SLES | 12-SP1(Premium) | 데이터 디스크  |
-| SLES | HPC 12 | 데이터 디스크  |
-| SLES | 11-SP4(Premium) | 데이터 디스크  |
-| SLES | 11 SP4 | 데이터 디스크  |
+* Azure Disk Encryption은 특정 Azure 갤러리 기반 Linux 서버 배포판 및 버전에서 지원됩니다.  현재 지원되는 버전 목록은 [Azure Disk Encryption FAQ](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption-faq)를 참조하세요.
 
 * Azure Disk Encryption은 Key Vault 및 VM이 동일한 Azure 하위 지역 및 구독에 있어야 합니다.
 
@@ -1284,9 +1257,6 @@ OS 디스크를 연결할 때 `$KeyEncryptionKey` 및 `$secretUrl`을 전달합�
             -DiskEncryptionKeyUrl $SecretUrl `
             -KeyEncryptionKeyVaultId $KeyVault.ResourceId `
             -KeyEncryptionKeyURL $KeyEncryptionKey.Id
-
-## <a name="download-this-guide"></a>이 가이드 다운로드
-[TechNet 갤러리](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0)에서 이 가이드를 다운로드할 수 있습니다.
 
 ## <a name="for-more-information"></a>Blob에 대한 자세한 내용은
 [Azure PowerShell를 사용하여 Azure Disk Encryption 탐색 - 1부](http://blogs.msdn.com/b/azuresecurity/archive/2015/11/16/explore-azure-disk-encryption-with-azure-powershell.aspx?wa=wsignin1.0)  
