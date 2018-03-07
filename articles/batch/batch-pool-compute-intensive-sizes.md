@@ -12,13 +12,13 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 02/21/2018
 ms.author: danlep
-ms.openlocfilehash: dc28c3a9d46baa8e8d2136ffccbb4e7ff6675b1e
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 181e9bd7c17e4618edd63dd92d70947a61c68758
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="use-rdma-capable-or-gpu-enabled-instances-in-batch-pools"></a>Batch 풀에서 RDMA 가능 또는 GPU 가능 인스턴스 사용
 
@@ -33,9 +33,11 @@ ms.lasthandoff: 01/29/2018
 
 ## <a name="subscription-and-account-limits"></a>구독 및 계정 제한
 
-* **할당량** - [Batch 계정당 전용 코어 할당량](batch-quota-limit.md#resource-quotas)은 Batch 풀에 추가할 수 있는 노드 수나 종류를 제한할 수 있습니다. RDMA 가능, GPU 가능 또는 기타 멀티 코어 VM 크기를 선택하면 할당량에 도달할 가능성이 더 높아집니다. 기본적으로 이 할당량은 20개의 코어입니다. 코어를 사용하는 경우 [낮은 우선 순위 VM](batch-low-pri-vms.md)에 별도 할당량이 적용됩니다. 
+* **할당량 및 제한** - [Batch 계정당 전용 코어 할당량](batch-quota-limit.md#resource-quotas)은 Batch 풀에 추가할 수 있는 노드 수나 종류를 제한할 수 있습니다. RDMA 가능, GPU 가능 또는 기타 멀티 코어 VM 크기를 선택하면 할당량에 도달할 가능성이 더 높아집니다. 코어를 사용하는 경우 [낮은 우선 순위 VM](batch-low-pri-vms.md)에 별도 할당량이 적용됩니다. 
 
-할당량 증가를 요청해야 할 경우 추가 비용 없이 [온라인 고객 지원 요청](../azure-supportability/how-to-create-azure-support-request.md)을 개설합니다.
+  또한 제한된 용량으로 인해 NCv2 및 ND와 같은 Batch 계정의 특정 VM 제품군의 사용이 제한됩니다. 이러한 제품군은 기본값인 0개 코어에서 할당량 증가를 요청해야만 사용할 수 있습니다.  
+
+  할당량 증가를 요청해야 할 경우 추가 비용 없이 [온라인 고객 지원 요청](../azure-supportability/how-to-create-azure-support-request.md)을 개설합니다.
 
 * **지역 가용성** - 계산 집약적인 VM은 Batch 계정을 만든 지역에서 사용하지 못할 수도 있습니다. 크기를 사용할 수 있는지를 확인하려면 [지역별 사용 가능한 제품](https://azure.microsoft.com/regions/services/)을 참조하세요.
 
@@ -50,10 +52,10 @@ ms.lasthandoff: 01/29/2018
 | 크기 | 기능 | 운영 체제 | 필수 소프트웨어 | 풀 설정 |
 | -------- | -------- | ----- |  -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/linux/sizes-hpc.md#rdma-capable-instances) | RDMA | Ubuntu 16.04 LTS,<br/>SUSE Linux Enterprise Server 12 HPC 또는<br/>CentOS 기반 HPC<br/>(Azure Marketplace) | Intel MPI 5 | 노드 간 통신 사용, 동시 작업 실행 사용 안 함 |
-| [NC, NCv2, ND 시리즈*](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-ncv2-and-nd-vms) | NVIDIA Tesla GPU(시리즈에 따라 다름) | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3 또는<br/>CentOS 기반 7.3<br/>(Azure Marketplace) | NVIDIA CUDA Toolkit 9.1 드라이버 | 해당 없음 | 
-| [NV 시리즈](../virtual-machines/linux/n-series-driver-setup.md#install-grid-drivers-for-nv-vms) | NVIDIA Tesla M60 GPU | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3 또는<br/>CentOS 기반 7.3<br/>(Azure Marketplace) | NVIDIA GRID 4.3 드라이버 | 해당 없음 |
+| [NC, NCv2, ND 시리즈*](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-ncv2-and-nd-vms) | NVIDIA Tesla GPU(시리즈에 따라 다름) | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3, 7.4 또는<br/>CentOS 7.3 또는 7.4<br/>(Azure Marketplace) | NVIDIA CUDA Toolkit 드라이버 | 해당 없음 | 
+| [NV 시리즈](../virtual-machines/linux/n-series-driver-setup.md#install-grid-drivers-for-nv-vms) | NVIDIA Tesla M60 GPU | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3 또는<br/>CentOS 7.3<br/>(Azure Marketplace) | NVIDIA GRID 드라이버 | 해당 없음 |
 
-*NC24r, NC24r_v2 및 ND24r VM의 RDMA 연결은 Intel MPI를 사용하는 Ubuntu 16.04 LTS 또는 CentOS 기반 7.3 HPC(Azure Marketplace)에서 지원됩니다.
+*NC24r, NC24rs_v2 및 ND24r VM의 RDMA 연결은 Intel MPI를 사용하는 Ubuntu 16.04 LTS(Azure Marketplace)에서 지원됩니다.
 
 
 
@@ -61,11 +63,11 @@ ms.lasthandoff: 01/29/2018
 
 | 크기 | 기능 | 운영 체제 | 필수 소프트웨어 | 풀 설정 |
 | -------- | ------ | -------- | -------- | ----- |
-| [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances) | RDMA | Windows Server 2012 R2 또는<br/>Windows Server 2012(Azure Marketplace) | Microsoft MPI 2012 R2 이상 또는<br/> Intel MPI 5<br/><br/>HpcVMDrivers Azure VM 확장 | 노드 간 통신 사용, 동시 작업 실행 사용 안 함 |
-| [NC, NCv2, ND 시리즈*](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla GPU(시리즈에 따라 다름) | Windows Server 2016 또는 <br/>Windows Server 2012 R2(Azure Marketplace) | NVIDIA Tesla 드라이버 또는 CUDA Toolkit 9.1 드라이버| 해당 없음 | 
-| [NV 시리즈](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla M60 GPU | Windows Server 2016 또는<br/>Windows Server 2012 R2(Azure Marketplace) | NVIDIA GRID 4.3 드라이버 | 해당 없음 |
+| [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances) | RDMA | Windows Server 2016, 2012 R2 또는<br/>2012(Azure Marketplace) | Microsoft MPI 2012 R2 이상 또는<br/> Intel MPI 5<br/><br/>HpcVMDrivers Azure VM 확장 | 노드 간 통신 사용, 동시 작업 실행 사용 안 함 |
+| [NC, NCv2, ND 시리즈*](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla GPU(시리즈에 따라 다름) | Windows Server 2016 또는 <br/>2012 R2(Azure Marketplace) | NVIDIA Tesla 드라이버 또는 CUDA Toolkit 드라이버| 해당 없음 | 
+| [NV 시리즈](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla M60 GPU | Windows Server 2016 또는<br/>2012 R2(Azure Marketplace) | NVIDIA GRID 드라이버 | 해당 없음 |
 
-*NC24r, NC24r_v2 및 ND24r VM의 RDMA 연결은 HpcVMDrivers 확장 및 Microsoft MPI 또는 Intel MPI를 사용하는 Windows Server 2012 R2(Azure Marketplace)에서 지원됩니다.
+*NC24r, NC24rs_v2 및 ND24rs VM의 RDMA 연결은 HpcVMDrivers 확장 및 Microsoft MPI 또는 Intel MPI를 사용하는 Windows Server 2016 또는 Windows Server 2012 R2(Azure Marketplace)에서 지원됩니다.
 
 ### <a name="windows-pools---cloud-services-configuration"></a>Windows 풀 - 클라우드 서비스 구성
 
@@ -75,7 +77,7 @@ ms.lasthandoff: 01/29/2018
 
 | 크기 | 기능 | 운영 체제 | 필수 소프트웨어 | 풀 설정 |
 | -------- | ------- | -------- | -------- | ----- |
-| [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances) | RDMA | Windows Server 2012 R2,<br/>Windows Server 2012 또는<br/>Windows Server 2008 R2(게스트 OS 제품군) | Microsoft MPI 2012 R2 이상 또는<br/>Intel MPI 5<br/><br/>HpcVMDrivers Azure VM 확장 | 노드 간 통신 사용<br/> 동시 작업 실행 사용 안 함 |
+| [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances) | RDMA | Windows Server 2016, 2012 R2, 2012 또는<br/>2008 R2(게스트 OS 제품군) | Microsoft MPI 2012 R2 이상 또는<br/>Intel MPI 5<br/><br/>HpcVMDrivers Azure VM 확장 | 노드 간 통신 사용<br/> 동시 작업 실행 사용 안 함 |
 
 
 

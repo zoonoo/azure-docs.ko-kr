@@ -13,13 +13,13 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/31/2018
+ms.date: 02/26/2018
 ms.author: larryfr
-ms.openlocfilehash: 866dd3abbcca12413d0e02651826365166db616f
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: eca3f95b672a7334d77ac027b4774addf4efed2c
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="use-apache-kafka-with-storm-on-hdinsight"></a>HDInsight의 Storm에서 Apache Kafka 사용
 
@@ -36,7 +36,7 @@ Apache Storm을 사용하여 Apache Kafka에서 읽고 쓰는 방법에 대해 �
 
 이 프로젝트를 컴파일하려면 개발 환경에 대한 다음 구성이 필요합니다.
 
-* [Java JDK 1.8](https://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) 이상 - HDInsight 3.5 이상에는 Java 8이 필요합니다.
+* [Java JDK 1.8](http://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html) 이상 - HDInsight 3.5 이상에는 Java 8이 필요합니다.
 
 * [Maven 3.x](https://maven.apache.org/download.cgi)
 
@@ -121,7 +121,7 @@ Azure 가상 네트워크, Kafka 클러스터 및 Storm 클러스터를 수동�
     이 토폴로지는 Storm HdfsBolt를 사용하여 Storm 클러스터의 기본 저장소에 데이터를 씁니다.
 ### <a name="flux"></a>Flux
 
-토폴로지는 [Flux](https://storm.apache.org/releases/1.1.0/flux.html)를 사용하여 정의됩니다. Flux는 Storm 0.10.x에서 소개되었으며, 토폴로지 구성을 코드에서 분리할 수 있습니다. Flux 프레임워크를 사용하는 토폴로지의 경우 토폴로지는 YAML 파일에 정의됩니다. YAML 파일은 토폴로지의 일부로 포함할 수 있습니다. 또는 토폴로지를 전송할 때 독립 실행형 파일로 사용할 수도 있습니다. Flux는 런타임 시 변수 대체도 지원하며, 이 예제에서 사용됩니다.
+토폴로지는 [Flux](https://storm.apache.org/releases/1.1.2/flux.html)를 사용하여 정의됩니다. Flux는 Storm 0.10.x에서 소개되었으며, 토폴로지 구성을 코드에서 분리할 수 있습니다. Flux 프레임워크를 사용하는 토폴로지의 경우 토폴로지는 YAML 파일에 정의됩니다. YAML 파일은 토폴로지의 일부로 포함할 수 있습니다. 또는 토폴로지를 전송할 때 독립 실행형 파일로 사용할 수도 있습니다. Flux는 런타임 시 변수 대체도 지원하며, 이 예제에서 사용됩니다.
 
 이러한 토폴로지에 대해 런타임에 다음 매개 변수가 설정됩니다.
 
@@ -131,7 +131,7 @@ Azure 가상 네트워크, Kafka 클러스터 및 Storm 클러스터를 수동�
 
 * `${kafka.zookeeper.hosts}`: Kafka 클러스터에서 Zookeeper가 실행되는 호스트입니다.
 
-Flux 토폴로지에 대한 자세한 내용은 [https://storm.apache.org/releases/1.1.0/flux.html](https://storm.apache.org/releases/1.1.0/flux.html)을 참조하세요.
+Flux 토폴로지에 대한 자세한 내용은 [https://storm.apache.org/releases/1.1.2/flux.html](https://storm.apache.org/releases/1.1.2/flux.html)을 참조하세요.
 
 ## <a name="download-and-compile-the-project"></a>프로젝트 다운로드 및 컴파일
 
@@ -172,7 +172,7 @@ Flux 토폴로지에 대한 자세한 내용은 [https://storm.apache.org/releas
     ```
 
     > [!IMPORTANT]
-    > Bash 예제에서는 `$CLUSTERNAME`에 HDInsight 클러스터 이름이 포함되어 있다고 가정합니다. [jq](https://stedolan.github.io/jq/)도 설치되어 있다고 가정합니다. 메시지가 표시되면 클러스터 로그인 계정에 대한 암호를 입력합니다.
+    > Bash 예제에서는 `$CLUSTERNAME`에 HDInsight 클러스터 이름이 포함되어 있다고 가정합니다. 또한 [jq](https://stedolan.github.io/jq/) 버전 1.5 이상이 설치되어 있다고 가정합니다. 메시지가 표시되면 클러스터 로그인 계정에 대한 암호를 입력합니다.
 
     반환되는 값은 다음 텍스트와 유사합니다.
 
@@ -218,7 +218,7 @@ Flux 토폴로지에 대한 자세한 내용은 [https://storm.apache.org/releas
 4. `dev.properties` 파일을 저장하고 다음 명령을 사용하여 Storm 클러스터로 업로드합니다.
 
      ```bash
-    scp dev.properties USERNAME@storm-BASENAME-ssh.azurehdinsight.net:KafkaTopology-1.0-SNAPSHOT.jar
+    scp dev.properties USERNAME@storm-BASENAME-ssh.azurehdinsight.net:dev.properties
     ```
 
     **USERNAME**은 클러스터의 SSH 사용자 이름으로 바꿉니다. **BASENAME**은 클러스터를 만들 때 사용한 기본 이름으로 바꿉니다.
@@ -287,6 +287,9 @@ Flux 토폴로지에 대한 자세한 내용은 [https://storm.apache.org/releas
     Ctrl+C를 사용하여 스크립트를 중지합니다.
 
 ## <a name="start-the-reader"></a>판독기 시작
+
+> [!NOTE]
+> Storm UI에서 판독기를 볼 때 __토폴로지 spout 지연 오류__ 섹션이 표시될 수 있습니다. 이 예제에서는 이 오류를 무시할 수 있습니다.
 
 1. Storm 클러스터에 대한 SSH 세션에서 다음 명령을 사용하여 판독기 토폴로지를 시작합니다.
 

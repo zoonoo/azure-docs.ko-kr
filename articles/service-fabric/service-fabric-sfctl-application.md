@@ -12,13 +12,13 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/22/2018
+ms.date: 02/23/2018
 ms.author: ryanwi
-ms.openlocfilehash: 345717e76097931f52354369e822af41133b34f0
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 3a10437d0a2d680e586ada6a87750a69453c1f0c
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="sfctl-application"></a>sfctl application
 응용 프로그램 및 응용 프로그램 종류를 만들고, 삭제하고, 관리합니다.
@@ -37,7 +37,7 @@ ms.lasthandoff: 02/01/2018
 | list         | 매개 변수로 지정된 필터와 일치하는 Microsoft Azure Service Fabric 클러스터에서 만든 응용 프로그램 목록을 가져옵니다.|
 | load | Microsoft Azure Service Fabric 응용 프로그램에 대한 로드 정보를 가져옵니다. |
 | manifest     | 응용 프로그램 유형을 설명하는 매니페스트를 가져옵니다.|
-| provision    | 클러스터와 함께 Microsoft Azure Service Fabric 응용 프로그램 형식을 프로비전 또는 레지스터합니다.|
+| provision    | 외부 저장소의 .sfpkg 패키지를 사용하거나 이미지 저장소의 응용 프로그램 패키지를 사용하는 클러스터를 통해 Service Fabric 응용 프로그램 유형을 프로비전하거나 등록합니다.|
 | report-health| Microsoft Azure Service Fabric 응용 프로그램에 대한 상태 보고서를 보냅니다.|
 | 형식         | 지정된 이름과 정확히 일치하는 Microsoft Azure Service Fabric 클러스터에서 응용 프로그램 종류의 목록을 가져옵니다.|
 | type-list    | Microsoft Azure Service Fabric 클러스터에서 응용 프로그램의 유형 목록을 가져옵니다.|
@@ -83,7 +83,7 @@ ms.lasthandoff: 02/01/2018
 
 |인수|설명|
 | --- | --- |
-| --application-id [필수]| 응용 프로그램의 id입니다. 일반적으로 'fabric:' URI 스키마가 없는 응용 프로그램의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "~" 문자로 구분됩니다. 예를 들어 응용 프로그램 이름이 "fabric://myapp/app1"인 경우 응용 프로그램 ID가 6.0 이상에서는 "myapp~app1"이고 이전 버전에서는 "myapp/app1"입니다.|
+| --application-id [필수]| 응용 프로그램의 id입니다. 일반적으로 'fabric:' URI 스키마가 없는 응용 프로그램의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "~" 문자로 구분됩니다. 예를 들어 응용 프로그램 이름이 ‘fabric://myapp/app1’인 경우 응용 프로그램 ID가 6.0 이상에서는 “myapp~app1”이고 이전 버전에서는 “myapp/app1”입니다.|
 | --force-remove          | 정상적인 종료 시퀀스를 거치지 않고 강제로 Service Fabric 응용 프로그램이나 서비스를 제거합니다. 이 매개 변수는 복제본을 정상적으로 종료하지 못하게 하는 서비스 코드의 문제로 인해 삭제 시간이 초과되는 응용 프로그램이나 서비스를 강제로 삭제하는 데 사용할 수 있습니다.|
 | --timeout -t            | 서버 시간 제한(초).  기본값: 60.|
 
@@ -99,12 +99,14 @@ ms.lasthandoff: 02/01/2018
 
 ## <a name="sfctl-application-deployed"></a>sfctl application deployed
 Microsoft Azure Service Fabric 노드에서 배포된 응용 프로그램에 대한 정보를 가져옵니다.
+
+Microsoft Azure Service Fabric 노드에서 배포된 응용 프로그램에 대한 정보를 가져옵니다.  이 쿼리는 제공되는 응용 프로그램 ID가 시스템 응용 프로그램용인 경우 시스템 응용 프로그램 정보를 반환합니다. 결과는 활성, 활성화 중 및 상태 다운로드 중인 배포된 응용 프로그램을 포함합니다. 이 쿼리에서는 노드 이름이 클러스터의 노드에 해당해야 합니다. 제공된 노드 이름이 클러스터의 활성 Service Fabric 노드를 가리키지 않으면 쿼리가 실패합니다.
      
 ### <a name="arguments"></a>인수
 
 |인수|설명|
 | --- | --- |
-| --application-id [필수]| 응용 프로그램의 id입니다. 일반적으로 'fabric:' URI 스키마가 없는 응용 프로그램의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "~" 문자로 구분됩니다. 예를 들어 응용 프로그램 이름이 "fabric://myapp/app1"인 경우 응용 프로그램 ID가 6.0 이상에서는 "myapp~app1"이고 이전 버전에서는 "myapp/app1"입니다.|
+| --application-id [필수]| 응용 프로그램의 id입니다. 일반적으로 'fabric:' URI 스키마가 없는 응용 프로그램의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "~" 문자로 구분됩니다. 예를 들어 응용 프로그램 이름이 ‘fabric://myapp/app1’인 경우 응용 프로그램 ID가 6.0 이상에서는 “myapp~app1”이고 이전 버전에서는 “myapp/app1”입니다.|
 | --node-name [필수]| 노드의 이름입니다.|
 | --timeout -t            | 서버 시간 제한(초).  기본값: 60.|
 
@@ -127,7 +129,7 @@ Microsoft Azure Service Fabric 응용 프로그램의 상태를 반환합니다.
 
 |인수|설명|
 | --- | --- |
-| --application-id                 [필수]| 응용 프로그램의 id입니다. 일반적으로 'fabric:' URI 스키마가 없는 응용 프로그램의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "~" 문자로 구분됩니다. 예를 들어 응용 프로그램 이름이 "fabric://myapp/app1"인 경우 응용 프로그램 ID가 6.0 이상에서는 "myapp~app1"이고 이전 버전에서는 "myapp/app1"입니다.|
+| --application-id                 [필수]| 응용 프로그램의 id입니다. 일반적으로 'fabric:' URI 스키마가 없는 응용 프로그램의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "~" 문자로 구분됩니다. 예를 들어 응용 프로그램 이름이 ‘fabric:/myapp/app1’인 경우 응용 프로그램 ID가 6.0 이상에서는 “myapp~app1”이고 이전 버전에서는 “myapp/app1”입니다.|
 | --deployed-applications-health-state-filter| 배포된 응용 프로그램 상태 개체의 필터링이 상태를 기반으로 한 응용 프로그램 상태 쿼리의 결과값으로 반환되도록 허용합니다. 이 매개 변수에 사용할 수 있는 값은 다음 상태 중 하나의 정수 값을 포함합니다. 필터와 일치하는 배포된 응용 프로그램만 반환됩니다. 모든 배포된 응용 프로그램은 집계된 상태를 평가하는 데 사용됩니다. 지정하지 않으면 모든 항목이 반환됩니다. 상태 값은 플래그 기반 열거형이므로 값은 비트 OR 연산자를 사용하여 구한 값의 조합일 수 있습니다. 예를 들어 제공된 값이 6이면 HealthState 값이 OK(2) 및 Warning(4)인 배포된 응용 프로그램의 상태가 반환됩니다. - Default - 기본값. 모든 HealthState와 일치합니다. 값은 0입니다. - None - 모든 HealthState 값과 일치하지 않는 필터입니다. 주어진 상태 컬렉션에 대해 결과를 반환하지 않기 위해 사용됩니다. 값은 1입니다. - Ok – HealthState 값이 Ok인 입력과 일치하는 필터입니다. 값은 2입니다. - Warning – HealthState 값이 Warning인 입력과 일치하는 필터입니다. 값은 4입니다. - Error - HealthState 값이 Error인 입력과 일치하는 필터입니다. 값은 8입니다. - All - 모든 HealthState 값의 입력과 일치하는 필터입니다. 값은 65535입니다.|
 | --events-health-state-filter            | 상태에 따라 반환된 HealthEvent 개체의 컬렉션을 필터링할 수 있습니다. 이 매개 변수에 사용할 수 있는 값은 다음 상태 중 하나의 정수 값을 포함합니다. 필터와 일치하는 이벤트만 반환됩니다. 모든 이벤트는 집계된 상태를 평가하는 데 사용됩니다. 지정하지 않으면 모든 항목이 반환됩니다. 상태 값은 플래그 기반 열거형이므로 값은 비트 OR 연산자를 사용하여 구한 값의 조합일 수 있습니다. 예를 들어 제공된 값이 6이면 HealthState 값이 OK(2) 및 Warning(4)인 모든 이벤트가 반환됩니다. - Default - 기본값. 모든 HealthState와 일치합니다. 값은 0입니다. - None - HealthState 값과 일치하지 않는 필터입니다. 주어진 상태 컬렉션에 대해 결과를 반환하지 않기 위해 사용됩니다. 값은 1입니다. - Ok – HealthState 값이 Ok인 입력과 일치하는 필터입니다. 값은 2입니다. - Warning – HealthState 값이 Warning인 입력과 일치하는 필터입니다. 값은 4입니다. - Error - HealthState 값이 Error인 입력과 일치하는 필터입니다. 값은 8입니다. - All - 모든 HealthState 값의 입력과 일치하는 필터입니다. 값은 65535입니다.|
 | --exclude-health-statistics | 상태 통계가 쿼리 결과의 일부로 반환되어야 하는지 여부를 나타냅니다. False(기본값). 통계는 Ok, Warning 및 Error 상태의 자식 엔티티 수를 보여줍니다.|
@@ -141,7 +143,7 @@ Microsoft Azure Service Fabric 응용 프로그램의 상태를 반환합니다.
 | --debug                                 | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다.|
 | --help -h                               | 이 도움말 메시지 및 종료를 표시합니다.|
 | --output -o                             | 출력 형식.  허용되는 값: json, jsonc, 테이블, tsv.  기본값: json.|
-| --query                                 | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http://jmespath.org/를 참조하세요.|
+| --query                                 | JMESPath 쿼리 문자열. 자세한 내용은 http://jmespath.org/를 참조하세요.|
 | --verbose                               | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다.|
 
 ## <a name="sfctl-application-info"></a>sfctl application info
@@ -153,7 +155,7 @@ Microsoft Azure Service Fabric 클러스터에서 만들어졌거나 만들어�
 
 |인수|설명|
 | --- | --- |
-| --application-id      [필수]| 응용 프로그램의 id입니다. 일반적으로 'fabric:' URI 스키마가 없는 응용 프로그램의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "~" 문자로 구분됩니다. 예를 들어 응용 프로그램 이름이 "fabric://myapp/app1"인 경우 응용 프로그램 ID가 6.0 이상에서는 "myapp~app1"이고 이전 버전에서는 "myapp/app1"입니다.|
+| --application-id      [필수]| 응용 프로그램의 id입니다. 일반적으로 'fabric:' URI 스키마가 없는 응용 프로그램의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "~" 문자로 구분됩니다. 예를 들어 응용 프로그램 이름이 “fabric:/myapp/app1”인 경우 응용 프로그램 ID가 6.0 이상에서는 “myapp~app1”이고 이전 버전에서는 “myapp/app1”입니다.|
 | --exclude-application-parameters| 응용 프로그램 매개 변수가 결과에서 제외될지 여부를 지정하는 플래그입니다.|
 | --timeout -t                 | 서버 시간 제한(초).  기본값: 60.|
 
@@ -164,22 +166,23 @@ Microsoft Azure Service Fabric 클러스터에서 만들어졌거나 만들어�
 | --debug                      | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다.|
 | --help -h                    | 이 도움말 메시지 및 종료를 표시합니다.|
 | --output -o                  | 출력 형식.  허용되는 값: json, jsonc, 테이블, tsv.             기본값: json.|
-| --query                      | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http://jmespath.org/를 참조하세요.|
+| --query                      | JMESPath 쿼리 문자열. 자세한 내용은 http://jmespath.org/를 참조하세요.|
 | --verbose                    | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다.|
 
 ## <a name="sfctl-application-list"></a>sfctl application list
 매개 변수로 지정된 필터와 일치하는 Microsoft Azure Service Fabric 클러스터에서 만든 응용 프로그램 목록을 가져옵니다.
 
-Microsoft Azure Service Fabric 클러스터에서 만들어졌거나 만들어지는 과정에 있으며 매개 변수로 지정된 필터와 일치하는 응용 프로그램에 대한 정보를 가져옵니다. 응답에는 이름, 유형, 상태, 매개 변수 및 응용 프로그램에 관한 기타 세부 정보가 포함됩니다. 응용 프로그램이 한 페이지에 맞지 않는 경우, 결과 한 페이지가 연속 토큰으로 반환되어 다음 페이지를 가져오는 데 사용될 수 있습니다.
+Microsoft Azure Service Fabric 클러스터에서 만들어졌거나 만들어지는 과정에 있으며 매개 변수로 지정된 필터와 일치하는 응용 프로그램에 대한 정보를 가져옵니다. 응답에는 이름, 유형, 상태, 매개 변수 및 응용 프로그램에 관한 기타 세부 정보가 포함됩니다. 응용 프로그램이 한 페이지에 맞지 않는 경우, 결과 한 페이지가 연속 토큰으로 반환되어 다음 페이지를 가져오는 데 사용될 수 있습니다. 필터 ApplicationTypeName 및 ApplicationDefinitionKindFilter는 동시에 지정할 수 없습니다.
 
 ### <a name="arguments"></a>인수
 
 |인수|설명|
 | --- | --- |
-|--application-definition-kind-filter| 응용 프로그램 쿼리 작업에서 ApplicationDefinitionKind를 필터링하는 데 사용합니다. - Default - 기본값. 입력과 일치하는 ApplicationDefinitionKind 값을 검색하는 필터입니다. 값은 0입니다. - All - 입력과 일치하는 모든 ApplicationDefinitionKind 값을 검색하는 필터입니다. 값은 65535입니다. - ServiceFabricApplicationDescription - 입력과 일치하는 ApplicationDefinitionKind 값 ServiceFabricApplicationDescription을 검색하는 필터입니다. 값은 1입니다. - Compose - 입력과 일치하는 ApplicationDefinitionKind 값 Compose를 검색하는 필터입니다. 값은 2입니다. 기본값: 65535|
+|--application-definition-kind-filter| Service Fabric 응용 프로그램을 정의하는 데 사용되는 메커니즘인 ApplicationDefinitionKind에서 필터링하는 데 사용합니다. - 기본 - 기본값으로, “All”을 선택할 때와 동일한 함수를 수행합니다. 값은 0입니다. - All - 입력과 일치하는 모든 ApplicationDefinitionKind 값을 검색하는 필터입니다. 값은 65535입니다. - ServiceFabricApplicationDescription - 입력과 일치하는 ApplicationDefinitionKind 값 ServiceFabricApplicationDescription을 검색하는 필터입니다. 값은 1입니다. - Compose - 입력과 일치하는 ApplicationDefinitionKind 값 Compose를 검색하는 필터입니다. 값은 2입니다.|
 | --application-type-name      | 쿼리할 응용 프로그램을 필터링하는 데 사용되는 응용 프로그램 유형 이름입니다. 이 값은 응용 프로그램 유형 버전을 포함할 수 없습니다.|
 | --continuation-token         | 연속 토큰 매개 변수는 다음 결과 집합을 얻는 데 사용됩니다. 공백 값이 아닌 연속 토큰은 시스템의 결과가 단일 응답에 맞지 않는 경우 API의 응답에 포함됩니다. 이 값이 다음 API 호출에 전달되면 API는 다음 결과 집합을 반환합니다. 결과가 더 이상 없으면 연속 토큰에 값이 포함되지 않습니다. 이 매개 변수의 값은 URL 인코딩이 되지 말아야 합니다.|
 | --exclude-application-parameters| 응용 프로그램 매개 변수가 결과에서 제외될지 여부를 지정하는 플래그입니다.|
+| --max-results|페이징된 쿼리의 일부로 반환될 결과의 최대 수입니다. 이 매개 변수는 반환되는 결과 수에 상한값을 정의합니다. 반환되는 결과는 구성에 정의된 최대 메시지 크기 제한에 따라 메시지에 맞지 않는 경우 지정된 최대의 결과보다 작을 수 있습니다. 이 매개 변수가 0이거나 지정되지 않은 경우 페이징된 쿼리는 반환 메시지에 맞는 가능한 많은 결과를 포함합니다.|
 | --timeout -t                 | 서버 시간 제한(초).  기본값: 60.|
 
 ### <a name="global-arguments"></a>전역 인수
@@ -200,7 +203,7 @@ Microsoft Azure Service Fabric 클러스터에서 만들어졌거나 만들어�
 ### <a name="arguments"></a>인수
 |인수|설명|
 | --- | --- |
-|--application-id [필수]| 응용 프로그램의 id입니다. 일반적으로 'fabric:' URI 스키마가 없는 응용 프로그램의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "~" 문자로 구분됩니다. 예를 들어 응용 프로그램 이름이 "fabric://myapp/app1"인 경우 응용 프로그램 ID가 6.0 이상에서는 "myapp~app1"이고 이전 버전에서는 "myapp/app1"입니다. |
+|--application-id [필수]| 응용 프로그램의 id입니다. 일반적으로 'fabric:' URI 스키마가 없는 응용 프로그램의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "~" 문자로 구분됩니다. 예를 들어 응용 프로그램 이름이 ‘fabric://myapp/app1’인 경우 응용 프로그램 ID가 6.0 이상에서는 “myapp~app1”이고 이전 버전에서는 “myapp/app1”입니다. |
 | --timeout -t               | 서버 시간 제한(초).  기본값: 60.|
 
 ### <a name="global-arguments"></a>전역 인수
@@ -209,7 +212,7 @@ Microsoft Azure Service Fabric 클러스터에서 만들어졌거나 만들어�
 |--debug                    | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다.|
     --help -h                  | 이 도움말 메시지 및 종료를 표시합니다.|
     --output -o                | 출력 형식.  허용되는 값: json, jsonc, 테이블, tsv.  기본값: json.|
-    --query                    | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http://jmespath.org/를 참조하세요.|
+    --query                    | JMESPath 쿼리 문자열. 자세한 내용은 http://jmespath.org/를 참조하세요.|
     --verbose                  | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다.|
 
 ## <a name="sfctl-application-manifest"></a>sfctl application manifest
@@ -232,20 +235,29 @@ Microsoft Azure Service Fabric 클러스터에서 만들어졌거나 만들어�
 | --debug                           | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다.|
 | --help -h                         | 이 도움말 메시지 및 종료를 표시합니다.|
 | --output -o                       | 출력 형식.  허용되는 값: json, jsonc, 테이블, tsv.                  기본값: json.|
-| --query                           | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http://jmespath.org/를 참조하세요.|
+| --query                           | JMESPath 쿼리 문자열. 자세한 내용은 http://jmespath.org/를 참조하세요.|
 | --verbose                         | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다.|
 
 ## <a name="sfctl-application-provision"></a>sfctl application provision
-클러스터와 함께 Microsoft Azure Service Fabric 응용 프로그램 형식을 프로비전 또는 레지스터합니다.
+외부 저장소의 .SFPKG 패키지를 사용하거나 이미지 저장소의 응용 프로그램 패키지를 사용하는 클러스터를 통해 Service Fabric 응용 프로그램 유형을 프로비전하거나 등록합니다.
+
+클러스터를 통해 Service Fabric 응용 프로그램 유형을 프로비전합니다. 이것이 있어야 새로운 응용 프로그램을 인스턴스화할 수 있습니다. 프로비전 작업은 relativePathInImageStore 또는 외부 SFPKG의 URI를 사용하여 지정된 응용 프로그램 패키지에서 수행할 수 있습니다. 외부 프로비전이 설정되지 않은 경우 이 명령은 이미지 저장소
+
+프로비전을 수행합니다.
         
-클러스터와 함께 Microsoft Azure Service Fabric 응용 프로그램 형식을 프로비전 또는 레지스터합니다. 이것이 있어야 새로운 응용 프로그램을 인스턴스화할 수 있습니다.
+
 
 ### <a name="arguments"></a>인수
 
 |인수|설명|
 | --- | --- |
-| --application-type-build-path [필수]| 응용 프로그램 패키지에 대한 상대 이미지 저장소 경로입니다.|
-| --timeout -t                         | 서버 시간 제한(초).  기본값: 60.|
+| --application-package-download-uri| HTTP 또는 HTTPS 프로토콜을 사용하여 응용 프로그램 패키지를 다운로드할 수 있는 ‘.sfpkg’ 응용 프로그램 패키지의 경로입니다. 외부 저장소에서 프로비전에만 해당합니다. 응용 프로그램 패키지는 파일을 다운로드하도록 가져오기 작업을 제공하는 외부 저장소에 저장할 수 있습니다. 지원되는 프로토콜은 HTTP 및 HTTPS이며, 경로는 읽기 권한을 허용해야 합니다.|
+| --application-type-build-path       | 프로비전 종류 이미지 저장소에만 해당합니다. 이전 업로드 작업 중 지정된 이미지 저장소에 있는 응용 프로그램 패키지에 대한 상대 경로입니다. |
+| --application-type-name| 외부 저장소에서 프로비전에만 해당합니다. 응용 프로그램 유형 이름은 응용 프로그램 매니페스트에 있는 응용 프로그램 유형의 이름을 나타냅니다.|
+| --application-type-version| 외부 저장소에서 프로비전에만 해당합니다. 응용 프로그램 유형 버전은 응용 프로그램 매니페스트에 있는 응용 프로그램 유형의 버전을 나타냅니다.|
+| --external-provision| 응용 프로그램 패키지를 등록하거나 프로비전할 수 있는 위치입니다. 외부 저장소에 이전에 업로드된 응용 프로그램 패키지를 위한 프로비전임을 나타냅니다. 응용 프로그램 패키지는 확장명이 *.sfpkg로 끝납니다.|
+| --no-wait| 프로비전을 비동기적으로 수행할지 여부를 나타냅니다.  true로 설정한 경우 요청이 시스템에 의해 수락되면 프로비전 작업이 반환되며, 프로비전 작업은 어떠한 시간 제한 없이 계속됩니다. 기본값은 False입니다. 대형 응용 프로그램 패키지의 경우 값을 true로 설정하는 것이 좋습니다.|
+| --timeout -t                      | 서버 시간 제한(초).  기본값: 60.|
 
 ### <a name="global-arguments"></a>전역 인수
 
@@ -254,20 +266,21 @@ Microsoft Azure Service Fabric 클러스터에서 만들어졌거나 만들어�
 | --debug                              | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다.|
 | --help -h                            | 이 도움말 메시지 및 종료를 표시합니다.|
 | --output -o                          | 출력 형식.  허용되는 값: json, jsonc, 테이블,                     tsv.  기본값: json.|
-| --query                              | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http://jmespath.org/를 참조하세요.|
+| --query                              | JMESPath 쿼리 문자열. 자세한 내용은 http://jmespath.org/를 참조하세요.|
 | --verbose                            | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다.|
 
 ## <a name="sfctl-application-type"></a>sfctl application type
 
 지정된 이름과 정확히 일치하는 Microsoft Azure Service Fabric 클러스터에서 응용 프로그램 종류의 목록을 가져옵니다.
 
-Microsoft Azure Service Fabric 클러스터에 프로비전된 또는 프로비전되는 프로세스에 있는 응용 프로그램 유형에 대한 정보를 반환합니다. 이러한 결과는 이름이 매개 변수로 지정된 것과 정확히 일치하며 주어진 쿼리 매개 변수를 준수해야 하는 응용 프로그램 유형에서 나온 값입니다. 하나의 응용 프로그램 형식으로 반환된 각 버전과 함께 응용 프로그램 형식 이름과 일치하는 응용 프로그램 형식의 모든 버전입니다. 응답에는 이름 , 버전, 상태 및 응용 프로그램에 관한 기타 세부 정보가 포함됩니다. 이것은 페이징된 쿼리로 응용 프로그램 유형 모두가 한 페이지에 맞지 않는 경우, 결과 한 페이지가 연속 토큰으로 반환되어 다음 페이지를 가져오는 데 사용될 수 있습니다. 예를 들어 10개의 응용 프로그램 형식이 있지만 페이지는 처음 세 응용 프로그램 형식에만 맞거나, 최대 결과가 3으로 설정된다면, 3이 반환됩니다. 결과의 나머지 부분에 액세스하려면 다음 쿼리에 반환된 연속 토큰을 사용하여 후속 페이지를 검색합니다. 후속 페이지가 없다면 공백인 연속 토큰이 반환됩니다.
+Microsoft Azure Service Fabric 클러스터에 프로비전된 또는 프로비전되는 프로세스에 있는 응용 프로그램 유형에 대한 정보를 반환합니다. 이러한 결과는 이름이 매개 변수로 지정된 것과 정확히 일치하며 주어진 쿼리 매개 변수를 준수해야 하는 응용 프로그램 유형에서 나온 값입니다. 하나의 응용 프로그램 형식으로 반환된 각 버전과 함께 응용 프로그램 형식 이름과 일치하는 응용 프로그램 형식의 모든 버전입니다. 응답에는 이름 , 버전, 상태 및 응용 프로그램에 관한 기타 세부 정보가 포함됩니다. 이것은 페이징된 쿼리로 응용 프로그램 유형 모두가 한 페이지에 맞지 않는 경우, 결과 한 페이지가 연속 토큰으로 반환되어 다음 페이지를 가져오는 데 사용될 수 있습니다. 예를 들어 10개의 응용 프로그램 유형이 있지만 페이지는 처음 세 개의 응용 프로그램 유형에만 맞거나, 최대 결과가 3으로 설정된다면, 3이 반환됩니다. 결과의 나머지 부분에 액세스하려면 다음 쿼리에 반환된 연속 토큰을 사용하여 후속 페이지를 검색합니다. 후속 페이지가 없다면 공백인 연속 토큰이 반환됩니다.
 
 ### <a name="arguments"></a>인수
 
 |인수|설명|
 | --- | --- |
 | --application-type-name [필수]| 응용 프로그램 유형의 이름입니다.|
+| --application-type-version        | 응용 프로그램 유형의 버전입니다.|
 | --continuation-token           | 연속 토큰 매개 변수는 다음 결과 집합을 얻는 데 사용됩니다. 공백 값이 아닌 연속 토큰은 시스템의 결과가 단일 응답에 맞지 않는 경우 API의 응답에 포함됩니다. 이 값이 다음 API 호출에 전달되면 API는 다음 결과 집합을 반환합니다. 결과가 더 이상 없으면 연속 토큰에 값이 포함되지 않습니다. 이 매개 변수의 값은 URL 인코딩이 되지 말아야 합니다.|
 | --exclude-application-parameters  | 응용 프로그램 매개 변수가 결과에서 제외될지 여부를 지정하는 플래그입니다.|
 | --max-results                  | 페이징된 쿼리의 일부로 반환될 결과의 최대 수입니다. 이 매개 변수는 반환되는 결과 수에 상한값을 정의합니다. 반환되는 결과는 구성에 정의된 최대 메시지 크기 제한에 따라 메시지에 맞지 않는 경우 지정된 최대의 결과보다 작을 수 있습니다. 이 매개 변수가 0이거나 지정되지 않은 경우 페이징된 쿼리는 반환 메시지에 맞는 가능한 많은 결과를 포함합니다.|
@@ -293,7 +306,8 @@ Microsoft Azure Service Fabric 클러스터에 프로비전된 또는 프로비�
 |인수|설명|
 | --- | --- |
 | --application-type-name    [필수]| 응용 프로그램 유형의 이름입니다.|
-| --application-type-version [필수]| 응용 프로그램 형식 버전입니다.|
+| --application-type-version [필수]| 응용프로그램 매니페스트에서 정의된 응용 프로그램 유형의 버전입니다.|
+|--async-parameter                    | 프로비전 해제를 비동기적으로 수행할지 여부를 나타내는 플래그입니다. true로 설정한 경우 요청이 시스템에 의해 수락되면 프로비전 해제 작업이 반환되며, 프로비전 해제 작업은 어떠한 시간 제한 없이 계속됩니다. 기본값은 False입니다. 단, 프로비전된 대형 응용 프로그램 패키지의 경우 true로 설정하는 것이 좋습니다.|
 | --timeout -t                      | 서버 시간 제한(초).  기본값: 60.|
 
 ### <a name="global-arguments"></a>전역 인수
@@ -303,19 +317,19 @@ Microsoft Azure Service Fabric 클러스터에 프로비전된 또는 프로비�
 | --debug                           | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다.|
 | --help -h                         | 이 도움말 메시지 및 종료를 표시합니다.|
 | --output -o                       | 출력 형식.  허용되는 값: json, jsonc, 테이블, tsv.                  기본값: json.|
-| --query                           | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http://jmespath.org/를 참조하세요.|
+| --query                           | JMESPath 쿼리 문자열. 자세한 내용은 http://jmespath.org/를 참조하세요.|
 | --verbose                         | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다.|
 
 ## <a name="sfctl-application-upgrade"></a>sfctl application upgrade
 Microsoft Azure Service Fabric 클러스터에서 응용 프로그램 업그레이드를 시작합니다.
 
-제공된 응용 프로그램 업그레이드 매개 변수의 유효성을 검사하고 매개 변수가 유효한 경우 응용 프로그램 업그레이드를 시작합니다. 업그레이드 설명이 기존의 응용 프로그램 설명을 대체합니다 즉, 매개 변수가 지정되지 않은 경우 응용 프로그램의 기존 매개 변수를 빈 매개 변수 목록으로 덮어씁니다. 이 경우 응용 프로그램은 응용 프로그램 매니페스트에서의 매개 변수 기본값을 사용합니다.
+제공된 응용 프로그램 업그레이드 매개 변수의 유효성을 검사하고 매개 변수가 유효한 경우 응용 프로그램 업그레이드를 시작합니다. 업그레이드 설명은 기존의 응용 프로그램 설명을 대신합니다. 즉, 매개 변수가 지정되지 않은 경우 응용 프로그램의 기존 매개 변수를 빈 매개 변수 목록으로 덮어씁니다. 이 경우 응용 프로그램은 응용 프로그램 매니페스트에서의 매개 변수 기본값을 사용합니다.
 
 ### <a name="arguments"></a>인수
 
 |인수|설명|
 | --- | --- |
-| --앱-id             [필수]| 응용 프로그램의 id입니다. 일반적으로 'fabric:' URI 스키마가 없는 응용 프로그램의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 '~' 문자로 구분됩니다. 예를 들어 응용 프로그램 이름이 ‘fabric://myapp/app1’인 경우 응용 프로그램 ID가 6.0 이상에서는 ‘myapp~app1’이고 이전 버전에서는 ‘myapp/app1’입니다.|
+| --앱-id             [필수]| 응용 프로그램의 id입니다. 일반적으로 'fabric:' URI 스키마가 없는 응용 프로그램의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 '~' 문자로 구분됩니다. 예를 들어 응용 프로그램 이름이 ‘fabric:/myapp/app1’인 경우 응용 프로그램 ID가 6.0 이상에서는 ‘myapp~app1’이고 이전 버전에서는 ‘myapp/app1’입니다.|
 | --app-version [필수]| 대상 응용 프로그램 버전입니다.|
 | --app-version [필수]| JSON 인코딩된 응용 프로그램 매개 변수 목록은 응용 프로그램을 업그레이드할 때 적용되기 위해 재정의합니다.|
 | --default-service-health-policy| 기본적으로 서비스 유형의 상태를 평가하는 데 사용되는 JSON 인코딩된 상태 정책 사양입니다.|
@@ -363,7 +377,7 @@ Microsoft Azure Service Fabric 응용 프로그램 패키지를 이미지 저장
 | --debug       | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다.|
 | --help -h     | 이 도움말 메시지 및 종료를 표시합니다.|
 | --output -o   | 출력 형식.  허용되는 값: json, jsonc, 테이블, tsv.  기본값: json.|
-| --query       | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http://jmespath.org/를 참조하세요.|
+| --query       | JMESPath 쿼리 문자열. 자세한 내용은 http://jmespath.org/를 참조하세요.|
 | --verbose     | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다.|
 
 ## <a name="next-steps"></a>다음 단계

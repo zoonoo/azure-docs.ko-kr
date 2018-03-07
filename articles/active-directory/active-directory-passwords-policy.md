@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro;seohack1
-ms.openlocfilehash: ade7f1d3c868c2ce6ccedbbf11aaf7dc54706cff
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 48ec84cd01126f431f22457a4ace451e4d9bce42
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Azure Active Directory에서 암호 정책 및 제한
 
@@ -86,8 +86,8 @@ Azure AD에 로그인해야 하는 모든 사용자 계정에는 해당 계정�
 | 자산 | UserPrincipalName 요구 사항 |
 | --- | --- |
 | 허용되는 문자 |<ul> <li>A-Z</li> <li>a-z</li><li>0-9</li> <li> 에서도 확인할 수 있습니다. - \_ ! \# ^ \~</li></ul> |
-| 허용되지 않는 문자 |<ul> <li>도메인에서 사용자 이름을 구분하지 않는 모든 "@" 문자입니다.</li> <li>"@" 기호 바로 앞에는 “.”(마침표) 문자를 사용할 수 없습니다.</li></ul> |
-| 길이 제약 조건 |<ul> <li>총 길이는 113자를 초과할 수 없습니다.</li><li>"@" 기호 앞에는 최대 64자가 올 수 있습니다.</li><li>"@" 기호 뒤에는 최대 48자가 올 수 있습니다.</li></ul> |
+| 허용되지 않는 문자 |<ul> <li>도메인에서 사용자 이름을 구분하지 않는 모든 "\@\"" 문자입니다.</li> <li>"\@\"" 기호 바로 앞에는 "."(마침표) 문자를 사용할 수 없습니다.</li></ul> |
+| 길이 제약 조건 |<ul> <li>총 길이는 113자를 초과할 수 없습니다.</li><li>"\@\"" 기호 앞에는 최대 64자를 사용할 수 있습니다.</li><li>"\@\"" 기호 뒤에는 최대 48자를 사용할 수 있습니다.</li></ul> |
 
 ## <a name="password-policies-that-only-apply-to-cloud-user-accounts"></a>클라우드 사용자 계정에만 적용되는 암호 정책
 
@@ -96,7 +96,7 @@ Azure AD에 로그인해야 하는 모든 사용자 계정에는 해당 계정�
 | 자산 | 요구 사항 |
 | --- | --- |
 | 허용되는 문자 |<ul><li>A-Z</li><li>a-z</li><li>0-9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / ` ~ “ ( ) ;</li></ul> |
-| 허용되지 않는 문자 |<ul><li>유니코드 문자</li><li>공백</li><li> 강력한 암호만: “@” 기호 바로 앞에 “.”(점) 문자를 사용할 수 없습니다.</li></ul> |
+| 허용되지 않는 문자 |<ul><li>유니코드 문자</li><li>공백</li><li> 강력한 암호만: "\@\"" 기호 바로 앞에 "."(점) 문자를 사용할 수 없습니다.</li></ul> |
 | 암호 제한 |<ul><li>최소 8자, 최대 16자</li><li>강력한 암호만: 다음 4개 중 3개가 필요합니다.<ul><li>소문자</li><li>대문자</li><li>숫자(0-9)</li><li>기호(이전 암호 제한 참조)</li></ul></li></ul> |
 | 암호 만료 기간 |<ul><li>기본값: **90**일</li><li>값은 Windows PowerShell용 Azure Active Directory 모듈에서 `Set-MsolPasswordPolicy` cmdlet을 사용하여 구성할 수 있습니다.</li></ul> |
 | 암호 만료 알림 |<ul><li>기본값: **14**일(암호 만료 이전)</li><li>값은 `Set-MsolPasswordPolicy` cmdlet을 사용하여 구성할 수 있습니다.</li></ul> |

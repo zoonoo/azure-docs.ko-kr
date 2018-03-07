@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/28/2017
 ms.author: tomfitz
-ms.openlocfilehash: 8262162ce73176426057af4654f12614cac85472
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 103e4ca5ffd6c9dfe5043af9d8f75763705eb939
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="use-azure-powershell-to-create-a-service-principal-to-access-resources"></a>Azure PowerShell을 사용하여 리소스에 액세스하는 서비스 주체 만들기
 
@@ -403,7 +403,7 @@ Select-AzureRmProfile -Path c:\Users\exampleuser\profile\exampleSP.json
 > 토큰이 유효한 한 저장된 프로필을 사용해야만 작동하므로 액세스 토큰이 만료됩니다.
 >  
 
-또는 PowerShell에서 REST 작업을 호출하여 로그인할 수 있습니다. 인증 응답에서 다른 작업에 사용할 액세스 토큰을 검색할 수 있습니다. REST 작업을 호출하여 액세스 토큰을 검색하는 예제는 [액세스 토큰 생성하기](resource-manager-rest-api.md#generating-an-access-token)를 참조하세요.
+또는 PowerShell에서 REST 작업을 호출하여 로그인할 수 있습니다. 인증 응답에서 다른 작업에 사용할 액세스 토큰을 검색할 수 있습니다. REST 작업을 호출하여 액세스 토큰을 검색하는 예제는 [요청 만들기](/rest/api/#create-the-request)를 참조하세요.
 
 ## <a name="debug"></a>디버그
 

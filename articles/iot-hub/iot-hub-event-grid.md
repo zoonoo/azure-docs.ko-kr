@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/14/2018
 ms.author: kgremban
-ms.openlocfilehash: 6123039ba5eeb720e0ca590fa69af915da91367c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 7c75a65714898f27ab0008ad5a30a5714d7174f4
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions---preview"></a>작업-미리 보기를 트리거하기 위해 Event Grid를 사용하여 IoT Hub 이벤트에 대응
 
@@ -28,14 +28,7 @@ Azure IoT Hub는 이벤트 알림을 다른 서비스에 보내고 다운스트�
 
 ## <a name="regional-availability"></a>국가별 가용성
 
-Event Grid 통합은 공개 미리 보기에 있으므로 사용할 수 있는 지역이 제한됩니다. 통합은 다음 지역에 위치한 IoT 허브에 대해 작동합니다.
-
-* 미국 중부
-* 미국 동부
-* 미국 동부 2
-* 미국 중서부
-* 미국 서부
-* 미국 서부 2
+Event Grid가지 원되는 지역의 IoT Hub에 대해 Event Grid 통합을 사용할 수 있습니다. 최신 지역 목록을 보려면 [Azure Event Grid 소개][lnk-eg-overview]를 참조하세요. 
 
 ## <a name="event-types"></a>일정 유형
 

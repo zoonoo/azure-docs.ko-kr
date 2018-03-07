@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/15/2018
+ms.date: 02/23/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 30c8911105e95860899385caf40f8a250c1c340e
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 7e4a65d81a7dade9ae63a24657d15a97a3a588b2
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Azure Active Directory 조건부 액세스
 
@@ -108,7 +108,7 @@ Azure AD 조건부 액세스를 사용하여 인증 시도가 다음에서 오�
 
 ### <a name="license-requirements-for-using-conditional-access"></a>조건부 액세스를 사용하기 위한 라이선스 요구 사항
 
-조건부 액세스를 사용하려면 Azure AD Premium/Enterprise Mobility + Security 라이선스가 필요합니다. 요구 사항에 대한 올바른 라이선스를 찾으려면 [Enterprise Mobility + Security 가격 책정 옵션](https://www.microsoft.com/cloud-platform/enterprise-mobility-security-pricing)을 참조하세요.
+조건부 액세스를 사용하려면 Azure AD Premium 라이선스가 필요합니다. 요구 사항에 적합한 라이선스를 찾으려면 [Free, Basic 및 Premium 버전의 일반적으로 사용할 수 있는 기능 비교](https://www.microsoft.com/en-us/cloud-platform/azure-active-directory-features)를 참조하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

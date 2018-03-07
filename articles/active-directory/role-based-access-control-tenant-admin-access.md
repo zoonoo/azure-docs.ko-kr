@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/30/2017
 ms.author: rolyon
-ms.openlocfilehash: 8be842018cadfc36eb74b14a02a8f9bc9ddf098d
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: dff3a26201507f974d52de3fe6dcb23945cd900f
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="elevate-access-as-a-tenant-admin-with-role-based-access-control"></a>역할 기반 액세스 제어를 사용하여 테넌트 관리자로 액세스 권한 상승
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 02/09/2018
 
 2. Azure AD 왼쪽 메뉴에서 **속성**을 선택합니다.
 
-3. **속성** 블레이드에서 **전역 관리자는 Azure 구독을 관리할 수 있습니다**를 찾고 **예**를 선택한 다음 **저장**을 선택합니다.
+3. **전역 관리자는 Azure 구독을 관리할 수 있습니다.**를 찾고 **예**를 선택한 다음 **저장**을 선택합니다.
     > [!IMPORTANT] 
     > **예**를 선택하면 루트 "/"(루트 범위)에서 현재 포털에 로그인한 사용자에 대해 **사용자 액세스 관리자** 역할을 할당합니다. **이렇게 하면 사용자가 다른 모든 Azure 구독을 볼 수 있습니다.**
     
@@ -47,13 +47,13 @@ ms.lasthandoff: 02/09/2018
 ## <a name="view-role-assignments-at-the--scope-using-powershell"></a>PowerShell을 사용하여 "/" 범위에서 역할 할당 보기
 **/** 범위에서 **사용자 액세스 관리자** 할당을 보려면 `Get-AzureRmRoleAssignment` PowerShell cmdlet를 사용합니다.
     
-```
+```powershell
 Get-AzureRmRoleAssignment* | where {$_.RoleDefinitionName -eq "User Access Administrator" -and $_SignInName -eq "<username@somedomain.com>" -and $_.Scope -eq "/"}
 ```
 
 **예제 출력**:
-
-RoleAssignmentId: /providers/Microsoft.Authorization/roleAssignments/098d572e-c1e5-43ee-84ce-8dc459c7e1f0    
+```
+RoleAssignmentId   : /providers/Microsoft.Authorization/roleAssignments/098d572e-c1e5-43ee-84ce-8dc459c7e1f0    
 Scope              : /    
 DisplayName        : username    
 SignInName         : username@somedomain.com    
@@ -61,10 +61,12 @@ RoleDefinitionName : User Access Administrator
 RoleDefinitionId   : 18d7d88d-d35e-4fb5-a5c3-7773c20a72d9    
 ObjectId           : d65fd0e9-c185-472c-8f26-1dafa01f72cc    
 ObjectType         : User    
+```
 
 ## <a name="delete-the-role-assignment-at--scope-using-powershell"></a>PowerShell을 사용하여 "/" 범위에서 역할 할당 삭제:
 다음 PowerShell cmdlet를 사용하여 할당을 삭제할 수 있습니다.
-```
+
+```powershell
 Remove-AzureRmRoleAssignment -SignInName <username@somedomain.com> -RoleDefinitionName "User Access Administrator" -Scope "/" 
 ```
 
@@ -80,15 +82,16 @@ Remove-AzureRmRoleAssignment -SignInName <username@somedomain.com> -RoleDefiniti
 
 2. 모든 범위의 모든 역할을 할당하는 [역할 할당](/rest/api/authorization/roleassignments)을 만듭니다. 다음 예제에서는 "/" 범위에서 읽기 권한자 역할을 할당하는 속성을 보여 줍니다.
 
-    ```
-    { "properties":{
-    "roleDefinitionId": "providers/Microsoft.Authorization/roleDefinitions/acdd72a7338548efbd42f606fba81ae7",
-    "principalId": "cbc5e050-d7cd-4310-813b-4870be8ef5bb",
-    "scope": "/"
-    },
-    "id": "providers/Microsoft.Authorization/roleAssignments/64736CA0-56D7-4A94-A551-973C2FE7888B",
-    "type": "Microsoft.Authorization/roleAssignments",
-    "name": "64736CA0-56D7-4A94-A551-973C2FE7888B"
+    ```json
+    { 
+      "properties": {
+        "roleDefinitionId": "providers/Microsoft.Authorization/roleDefinitions/acdd72a7338548efbd42f606fba81ae7",
+        "principalId": "cbc5e050-d7cd-4310-813b-4870be8ef5bb",
+        "scope": "/"
+      },
+      "id": "providers/Microsoft.Authorization/roleAssignments/64736CA0-56D7-4A94-A551-973C2FE7888B",
+      "type": "Microsoft.Authorization/roleAssignments",
+      "name": "64736CA0-56D7-4A94-A551-973C2FE7888B"
     }
     ```
 
@@ -102,55 +105,90 @@ Remove-AzureRmRoleAssignment -SignInName <username@somedomain.com> -RoleDefiniti
 *elevateAccess*를 호출하는 경우 해당 권한을 취소하려면 할당을 삭제해야 하므로 스스로 역할 할당을 만듭니다.
 
 1.  roleName = 사용자 액세스 관리자인 GET roleDefinitions를 호출하여 사용자 액세스 관리자 역할의 GUID 이름을 확인합니다.
-    1.  GET *https://management.azure.com/providers/Microsoft.Authorization/roleDefinitions?api-version=2015-07-01&$filter=roleName+eq+'User+Access+Administrator*
+    ```
+    GET https://management.azure.com/providers/Microsoft.Authorization/roleDefinitions?api-version=2015-07-01&$filter=roleName+eq+'User+Access+Administrator
+    ```
 
-        ```
-        {"value":[{"properties":{
-        "roleName":"User Access Administrator",
-        "type":"BuiltInRole",
-        "description":"Lets you manage user access to Azure resources.",
-        "assignableScopes":["/"],
-        "permissions":[{"actions":["*/read","Microsoft.Authorization/*","Microsoft.Support/*"],"notActions":[]}],
-        "createdOn":"0001-01-01T08:00:00.0000000Z",
-        "updatedOn":"2016-05-31T23:14:04.6964687Z",
-        "createdBy":null,
-        "updatedBy":null},
-        "id":"/providers/Microsoft.Authorization/roleDefinitions/18d7d88d-d35e-4fb5-a5c3-7773c20a72d9",
-        "type":"Microsoft.Authorization/roleDefinitions",
-        "name":"18d7d88d-d35e-4fb5-a5c3-7773c20a72d9"}],
-        "nextLink":null}
-        ```
+    ```json
+    {
+      "value": [
+        {
+          "properties": {
+        "roleName": "User Access Administrator",
+        "type": "BuiltInRole",
+        "description": "Lets you manage user access to Azure resources.",
+        "assignableScopes": [
+          "/"
+        ],
+        "permissions": [
+          {
+            "actions": [
+              "*/read",
+              "Microsoft.Authorization/*",
+              "Microsoft.Support/*"
+            ],
+            "notActions": []
+          }
+        ],
+        "createdOn": "0001-01-01T08:00:00.0000000Z",
+        "updatedOn": "2016-05-31T23:14:04.6964687Z",
+        "createdBy": null,
+        "updatedBy": null
+          },
+          "id": "/providers/Microsoft.Authorization/roleDefinitions/18d7d88d-d35e-4fb5-a5c3-7773c20a72d9",
+          "type": "Microsoft.Authorization/roleDefinitions",
+          "name": "18d7d88d-d35e-4fb5-a5c3-7773c20a72d9"
+        }
+      ],
+      "nextLink": null
+    }
+    ```
 
-        이 경우에 **18d7d88d-d35e-4fb5-a5c3-7773c20a72d9**인 *name* 매개 변수에서 GUID를 저장합니다.
+    이 경우에 **18d7d88d-d35e-4fb5-a5c3-7773c20a72d9**인 *name* 매개 변수에서 GUID를 저장합니다.
 
-2. 또한 테넌트 범위에서 테넌트 관리자의 역할 할당을 나열해야 합니다. 액세스 권한 상승 호출을 수행한 TenantAdmin의 PrincipalId에 대한 테넌트 범위의 모든 할당을 나열합니다. 그러면 ObjectID에 대한 테넌트의 모든 할당이 나열됩니다. 
-    1. GET *https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=principalId+eq+'{objectid}'*
+2. 또한 테넌트 범위에서 테넌트 관리자의 역할 할당을 나열해야 합니다. 액세스 권한 상승 호출을 수행한 TenantAdmin의 PrincipalId에 대한 테넌트 범위의 모든 할당을 나열합니다. 그러면 ObjectID에 대한 테넌트의 모든 할당이 나열됩니다.
+
+    ```
+    GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=principalId+eq+'{objectid}'
+    ```
     
-        >[!NOTE] 
-        >테넌트 관리자는 할당이 많지 않아야 합니다. 이전 쿼리에서 너무 많은 할당을 반환하는 경우, 테넌트 범위 수준의 모든 할당을 쿼리한 다음 결과를 필터링할 수도 있습니다. GET *https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=atScope()*
+    >[!NOTE] 
+    >테넌트 관리자는 할당이 많지 않아야 합니다. 이전 쿼리에서 너무 많은 할당을 반환하는 경우, 테넌트 범위 수준의 모든 할당을 쿼리한 다음 결과를 필터링할 수도 있습니다. `GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=atScope()`
+    
         
-    2. 이전 호출은 역할 할당 목록을 반환합니다. 범위가 "/"이고 RoleDefinitionId가 1단계에서 찾은 역할 이름 GUID로 끝나고 PrincipalId가 테넌트 관리자의 ObjectId와 일치하는 역할 할당을 찾습니다. 역할 할당은 다음과 같습니다.
+    2. 이전 호출은 역할 할당 목록을 반환합니다. 범위가 "/"이고 RoleDefinitionId가 1단계에서 찾은 역할 이름 GUID로 끝나고 PrincipalId가 테넌트 관리자의 ObjectId와 일치하는 역할 할당을 찾습니다. 
+    
+    샘플 역할 할당:
 
-        ```
-        {"value":[{"properties":{
-        "roleDefinitionId":"/providers/Microsoft.Authorization/roleDefinitions/18d7d88d-d35e-4fb5-a5c3-7773c20a72d9",
-        "principalId":"{objectID}",
-        "scope":"/",
-        "createdOn":"2016-08-17T19:21:16.3422480Z",
-        "updatedOn":"2016-08-17T19:21:16.3422480Z",
-        "createdBy":"93ce6722-3638-4222-b582-78b75c5c6d65",
-        "updatedBy":"93ce6722-3638-4222-b582-78b75c5c6d65"},
-        "id":"/providers/Microsoft.Authorization/roleAssignments/e7dd75bc-06f6-4e71-9014-ee96a929d099",
-        "type":"Microsoft.Authorization/roleAssignments",
-        "name":"e7dd75bc-06f6-4e71-9014-ee96a929d099"}],
-        "nextLink":null}
+        ```json
+        {
+          "value": [
+            {
+              "properties": {
+                "roleDefinitionId": "/providers/Microsoft.Authorization/roleDefinitions/18d7d88d-d35e-4fb5-a5c3-7773c20a72d9",
+                "principalId": "{objectID}",
+                "scope": "/",
+                "createdOn": "2016-08-17T19:21:16.3422480Z",
+                "updatedOn": "2016-08-17T19:21:16.3422480Z",
+                "createdBy": "93ce6722-3638-4222-b582-78b75c5c6d65",
+                "updatedBy": "93ce6722-3638-4222-b582-78b75c5c6d65"
+              },
+              "id": "/providers/Microsoft.Authorization/roleAssignments/e7dd75bc-06f6-4e71-9014-ee96a929d099",
+              "type": "Microsoft.Authorization/roleAssignments",
+              "name": "e7dd75bc-06f6-4e71-9014-ee96a929d099"
+            }
+          ],
+          "nextLink": null
+        }
         ```
         
-        이 경우에 **e7dd75bc-06f6-4e71-9014-ee96a929d099**인 *name* 매개 변수에서 GUID를 다시 저장합니다.
+    이 경우에 **e7dd75bc-06f6-4e71-9014-ee96a929d099**인 *name* 매개 변수에서 GUID를 다시 저장합니다.
 
     3. 마지막으로 강조 표시된 **RoleAssignment ID**를 사용하여 액세스 권한 상승에 의해 추가된 할당을 삭제합니다.
 
-        DELETE https://management.azure.com /providers/Microsoft.Authorization/roleAssignments/e7dd75bc-06f6-4e71-9014-ee96a929d099?api-version=2015-07-01
+    ```
+    DELETE https://management.azure.com/providers/Microsoft.Authorization/roleAssignments/e7dd75bc-06f6-4e71-9014-ee96a929d099?api-version=2015-07-01
+    ```
 
 ## <a name="next-steps"></a>다음 단계
 

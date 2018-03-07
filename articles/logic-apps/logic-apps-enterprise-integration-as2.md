@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: LADocs; mandia
-ms.openlocfilehash: fa61bbecc51c4f3163bd1cc077391bb102662297
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 8c6dbc507cd1b79fe9424071bc3eb8bf24331a16
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="exchange-as2-messages-for-enterprise-integration-with-logic-apps"></a>논리 앱과 엔터프라이즈 통합용 AS2 메시지 교환
 
@@ -40,23 +40,22 @@ Azure Logic Apps의 AS2 메시지를 교환하기 전에 AS2 규약을 만들고
 
 1.  [Azure Portal](http://portal.azure.com "Azure Portal")에 로그인합니다.  
 
-2.  왼쪽 메뉴에서 **모든 서비스**를 선택합니다. 검색 상자에서 필터에 **통합**을 입력합니다. 결과 목록에서 **통합 계정**을 선택합니다.
+2. Azure의 주 메뉴에서 **모든 서비스**를 선택합니다. 검색 상자에 “통합”을 입력한 다음, **통합 계정**을 선택합니다.
 
-    > [!TIP]
-    > **모든 서비스**가 표시되지 않으면 먼저 메뉴를 확장해야 합니다. 축소된 메뉴의 맨 위에 있는 **메뉴 표시**를 선택합니다.
+   ![통합 계정 찾기](./media/logic-apps-enterprise-integration-as2/overview-1.png)
 
-    ![모든 서비스를 "통합"으로 필터링하여 "통합 계정"을 선택합니다.](./media/logic-apps-enterprise-integration-as2/overview-1.png)
+   > [!TIP]
+   > **모든 서비스**가 표시되지 않으면 먼저 메뉴를 확장해야 합니다. 축소된 메뉴의 맨 위에서 **텍스트 레이블 표시**를 선택합니다.
 
-3. 열린 **통합 계정** 블레이드에서 규약을 만들려는 통합 계정을 선택합니다.
-통합 계정이 표시되지 않으면 [먼저 만듭니다](../logic-apps/logic-apps-enterprise-integration-accounts.md "통합 계정에 대한 모든 정보") 를.  
+3. **통합 계정**에서 규약을 만들려는 통합 계정을 선택합니다.
 
-    ![규약을 만들 통합 계정 선택](./media/logic-apps-enterprise-integration-overview/overview-3.png)
+   ![규약을 만들 통합 계정 선택](./media/logic-apps-enterprise-integration-overview/overview-3.png)
 
 4. **규약** 타일을 선택합니다. 규약 타일이 없는 경우 먼저 타일을 추가합니다.
 
     !["규약" 타일 선택](./media/logic-apps-enterprise-integration-as2/agreement-1.png)
 
-5. 열린 [규약] 블레이드에서 **추가**를 선택합니다.
+5. **규약**에서 **추가**를 선택합니다.
 
     !["추가" 선택](./media/logic-apps-enterprise-integration-as2/agreement-2.png)
 
@@ -166,13 +165,13 @@ Azure Logic Apps의 AS2 메시지를 교환하기 전에 AS2 규약을 만들고
 
 ## <a name="find-your-created-agreement"></a>생성된 규약 찾기
 
-1.  모든 규약 속성 설정을 완료한 후에 **추가** 블레이드에서 **확인**을 선택하여 규약 만들기를 완료하고 사용자 통합 계정 블레이드로 돌아갑니다.
+1. 모든 규약 속성 설정을 완료한 후에 **추가** 페이지에서 **확인**을 선택하여 규약 만들기를 완료하고 사용자 통합 계정으로 돌아갑니다.
 
     이제 새로 추가된 규약이 **규약** 목록에 표시됩니다.
 
-2.  또한 통합 계정 개요에서 규약을 볼 수도 있습니다. 통합 사용자 계정 블레이드에서 **개요**를 선택한 다음 **규약** 타일을 선택합니다. 
+2. 또한 통합 계정 개요에서 규약을 볼 수도 있습니다. 통합 계정 메뉴에서 **개요**를 선택한 다음, **규약** 타일을 선택합니다. 
 
-    ![모든 규약을 보려면 "규약" 타일을 선택합니다](./media/logic-apps-enterprise-integration-as2/agreement-6.png)
+   ![모든 규약을 보려면 "규약" 타일을 선택합니다](./media/logic-apps-enterprise-integration-as2/agreement-6.png)
 
 ## <a name="view-the-swagger"></a>swagger 보기
 [swagger 정보](/connectors/as2/)를 참조하세요. 

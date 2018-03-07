@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 77c47809a01e9ff2bb851163f9adf987738f98f6
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 0b34f861b306dc62cbdbf97378a1c370494bbb20
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="manage-windows-based-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Azure Portal을 사용하여 HDInsight의 Windows 기반 Hadoop 클러스터 관리
 
@@ -294,7 +294,7 @@ HDInsight 쿼리 콘솔에는 다음 기능이 포함됩니다.
     ![HDInsight 포털 YARN UI](./media/hdinsight-administer-use-management-portal/hdinsight-yarn-ui.png)
 
 ## <a name="run-hive-queries"></a>Hive 쿼리 실행
-포털에서 Hive 작업을 실행하려면 HDInsight 쿼리 콘솔에서 **Hive 편집기** 를 클릭합니다. [HDInsight 쿼리 콘솔 열기](#open-hdinsight-query-console)를 참조하세요.
+포털에서 Hive 작업을 실행하려면 HDInsight 쿼리 콘솔에서 **Hive 편집기**를 클릭합니다. [HDInsight 쿼리 콘솔 열기](#open-hdinsight-query-console)를 참조하세요.
 
 ## <a name="monitor-jobs"></a>작업 모니터링
 포털에서 작업을 모니터링하려면 HDInsight 쿼리 콘솔에서 **작업 내역** 을 클릭합니다. [HDInsight 쿼리 콘솔 열기](#open-hdinsight-query-console)를 참조하세요.

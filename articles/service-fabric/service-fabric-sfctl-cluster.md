@@ -12,13 +12,13 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/22/2017
+ms.date: 02/22/2018
 ms.author: ryanwi
-ms.openlocfilehash: 5eeff271fea67cd859dff598cae0010cf3b8e13f
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: c83dc3eeb6ca0d66b0c70236354fd7bab80f355f
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="sfctl-cluster"></a>sfctl cluster
 Service Fabric 클러스터를 선택하고, 관리하고, 운영합니다.
@@ -144,7 +144,7 @@ Service Fabric 클러스터 끝점에 연결합니다.
 ## <a name="sfctl-cluster-unprovision"></a>sfctl cluster unprovision
 Service Fabric 클러스터의 코드 또는 구성 패키지를 프로비전 해제합니다.
 
-Service Fabric 클러스터의 코드 또는 구성 패키지를 프로 비전합니다.
+Service Fabric 클러스터의 코드 또는 구성 패키지를 프로 비전합니다. 코드 및 구성을 개별적으로 프로비전 해제하도록 지원합니다.
 
 ### <a name="arguments"></a>인수
 |인수|설명|

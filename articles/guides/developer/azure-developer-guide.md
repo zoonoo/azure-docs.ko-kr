@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: 8eb3cae792a09fc530b84243f2baa01ecc5d13dc
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e740b655cbd22a08aab988e83a057cc770e8dfe3
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Azure 개발자를 위한 시작 가이드
 
@@ -151,7 +151,7 @@ Azure는 응용 프로그램에서 컨테이너를 사용하는 여러 방법을
 
     >**사용 시기**: Linux의 웹앱을 Docker 이미지로 배포할 경우
 
-    >**시작하기**: [Linux에서 App Service에 대한 사용자 지정 Docker 이미지를 사용합니다](../../app-service/containers/quickstart-custom-docker-image.md).
+    >**시작하기**: [Linux에서 App Service에 대한 사용자 지정 Docker 이미지를 사용합니다](../../app-service/containers/quickstart-docker-go.md).
 
 ### <a name="authentication"></a>인증
 
@@ -222,7 +222,7 @@ Azure는 Bash, Terminal, 명령 프롬프트 또는 원하는 명령줄 도구�
 
 ### <a name="azure-portal"></a>Azure portal
 
-Azure Portal은 Azure 리소스 및 서비스를 만들고 관리하고 제거하는 데 사용할 수 있는 웹 기반 응용 프로그램입니다. Azure Portal의 주소는 <https://portal.azure.com>입니다. 사용자 지정 가능한 대시보드, Azure 리소스 관리 도구, 구독 설정 및 대금 청구 정보에 대한 액세스 권한이 포함되어 있습니다. 자세한 내용은 [Azure Portal 개요](../../azure-portal-overview.md)를 참조하세요.
+Azure Portal은 Azure 리소스 및 서비스를 만들고 관리하고 제거하는 데 사용할 수 있는 웹 기반 응용 프로그램입니다. Azure Portal은 <https://portal.azure.com>에 있습니다. 사용자 지정 가능한 대시보드, Azure 리소스 관리 도구, 구독 설정 및 대금 청구 정보에 대한 액세스 권한이 포함되어 있습니다. 자세한 내용은 [Azure Portal 개요](../../azure-portal-overview.md)를 참조하세요.
 
 ### <a name="rest-apis"></a>REST API
 

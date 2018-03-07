@@ -8,13 +8,13 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 12/01/2017
+ms.date: 02/26/2018
 ms.author: danlep
-ms.openlocfilehash: 2fa5f9335a4d00f489f11c0db23322ab971a224f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: a26d786ffcb74bb28fb9bd065e49398d52d2b662
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Azure Batch에서 컨테이너 응용 프로그램 실행
 
@@ -27,7 +27,7 @@ Azure Batch를 사용하면 Azure에서 많은 수의 일괄 처리 계산 작�
 
 ## <a name="prerequisites"></a>필수 조건
 
-* SDK 버전: Batch SDK는 다음 버전의 컨테이너 이미지를 지원합니다.
+* SDK 버전: Batch SDK에서 지원하는 컨테이너 이미지의 버전은 다음과 같습니다.
     * Batch REST API 버전 2017-09-01.6.0
     * Batch .NET SDK 버전 8.0.0
     * Batch Python SDK 버전 4.0
@@ -87,7 +87,7 @@ Azure RDMA 네트워크에 액세스하려면 A8, A9, H16r, H16mr 또는 NC24r �
 
     Azure Portal에서 이 이미지 ID를 가져오려면 **모든 리소스**를 열고 사용자 지정 이미지를 선택한 후 이미지 블레이드의 **개요** 섹션에서 **리소스 ID**에 해당 경로를 복사합니다.
 
-* [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?page=1&subcategories=windows-based) 이미지를 사용하는 경우 [가상 머신 이미지 목록](batch-linux-nodes.md#list-of-virtual-machine-images)에 나열된 것처럼 이미지를 설명하는 이미지의 제품 유형, 게시자, SKU 및 버전으로 구성된 매개 변수 그룹을 제공합니다.
+* [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?page=1&subcategories=windows-based) 이미지를 사용하는 경우 [가상 머신 이미지 목록](batch-linux-nodes.md#list-of-virtual-machine-images)에 나열된 이미지의 게시자, 제품 유형, SKU 및 버전을 설명하는 매개 변수 그룹을 제공합니다.
 
   ```csharp
   // Provide a reference to an Azure Marketplace image for
@@ -239,7 +239,7 @@ CloudTask containerTask = new CloudTask (
 
 ## <a name="next-steps"></a>다음 단계
 
-* Batch에 대한 심층적인 개요는 [Batch를 사용하여 대규모 병렬 계산 솔루션 개발](batch-api-basics.md)을 참조하세요.
+* [Shipyard recipes](https://github.com/Azure/batch-shipyard/tree/master/recipes)를 통해 Azure Batch에 컨테이너 작업을 쉽게 배포할 수 있는 [Batch Shipyard](https://github.com/Azure/batch-shipyard) 도구 키트도 참조하세요.
 
 * Linux에서 Docker CE를 설치 및 사용하는 방법에 대한 자세한 내용은 [Docker](https://docs.docker.com/engine/installation/) 설명서를 참조하세요.
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 36b9379f88ce024c1dcbf9977a873d95076d10df
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4388a1e933a0ebf211b5a7621c74b0622be41a4c
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="log-analytics-for-azure-load-balancer"></a>Azure 부하 분산 장치에 대한 로그 분석
 
@@ -50,9 +50,9 @@ Azure에서 부하 분산 장치를 관리하고 문제를 해결하는 데 다�
     ![포털 - 부하 분산 장치-설정](./media/load-balancer-monitor-log/load-balancer-settings.png)
 
 5. **진단** 창의 **상태** 아래에서 **설정**을 선택합니다.
-6. **저장소 계정**을 클릭합니다.
+6. **Storage 계정**을 클릭합니다.
 7. **로그** 아래에서 기존 저장소 계정을 선택하거나 새 저장소 계정을 만듭니다. 슬라이더를 사용하여 이벤트 로그에 저장된 이벤트 데이터를 유지할 날짜 수를 결정합니다. 
-8. **Save**를 클릭합니다.
+8. **저장**을 클릭합니다.
 
     ![포털 - 진단 로그](./media/load-balancer-monitor-log/load-balancer-diagnostics.png)
 

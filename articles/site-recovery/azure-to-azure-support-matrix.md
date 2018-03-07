@@ -7,13 +7,13 @@ manager: rochakm
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 02/26/2018
 ms.author: sujayt
-ms.openlocfilehash: 73b8a28fa2f2b432f12a230be9326b6696d3908a
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 4383286285f02bad1645344fab43f8b6bdb145cb
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-azure-to-azure"></a>Azure 간에 복제하기 위한 Azure Site Recovery 지원 매트릭스
 
@@ -153,8 +153,8 @@ Site Recovery를 사용하여 마이그레이션된 VM | 지원됨 | Site Recove
 디스크의 데이터 변경률 | 프리미엄 저장소의 경우 디스크당 최대 10MBps, 표준 저장소의 경우 디스크당 최대 2MBps | 디스크의 평균 데이터 변경률이 지속적으로 10MBps(프리미엄) 및 2MBps(표준)를 초과하는 경우 복제가 처리되지 않습니다. 그러나 데이터 버스트가 간헐적으로 발생하고 데이터 변경률이 일정 시간 동안 10MBps(프리미엄) 및 2MBps(표준)를 초과했다가 낮아지는 경우에는 복제가 처리됩니다. 이 경우 복구 지점이 약간 지연될 수 있습니다.
 표준 저장소 계정의 디스크 | 지원됨 |
 Premium Storage 계정의 디스크 | 지원됨 | VM의 디스크가 Premium Storage 계정과 표준 저장소 계정에 분산된 경우 대상 지역의 저장소를 동일하게 구성하기 위해 각 디스크에 대해 서로 다른 대상 저장소 계정을 선택할 수 있습니다.
-표준 Managed Disks | 지원되지 않음 |  
-프리미엄 Managed Disks | 지원되지 않음 |
+표준 Managed Disks | Azure Site Recovery가 지원되는 Azure 지역에서 지원됩니다. Government 클라우드는 현재 지원되지 않습니다.  |  
+프리미엄 Managed Disks | Azure Site Recovery가 지원되는 Azure 지역에서 지원됩니다. Government 클라우드는 현재 지원되지 않습니다. |
 저장소 공간 | 지원됨 |         
 미사용 암호화(SSE) | 지원됨 | 캐시 및 대상 저장소 계정에 대해 SSE 사용 저장소 계정을 선택할 수 있습니다.     
 ADE(Azure Disk Encryption) | 지원되지 않음 |
@@ -166,7 +166,7 @@ RA-GRS | 지원됨 |
 ZRS | 지원되지 않음 |  
 콜드 및 핫 저장소 | 지원되지 않음 | 가상 머신 디스크는 콜드 및 핫 저장소에서 지원되지 않습니다.
 Virtual Network 서비스 끝점(Azure Storage 방화벽 및 Virtual Network)  | 아니요 | 복제된 데이터를 저장하는 데 사용된 캐시 저장소 계정의 특정 Azure Virtual Network에 대한 액세스 허용은 지원되지 않습니다.
-범용 V2 저장소 계정(핫 및 쿨 계층 모두) | 아니요 | 범용 V1 Storage 계정에 비해 상당한 트랜잭션 비용 증가
+범용 V2 저장소 계정(핫 및 쿨 계층 모두) | 아니오 | 범용 V1 Storage 계정에 비해 상당한 트랜잭션 비용 증가
 
 >[!IMPORTANT]
 > [Linux](../virtual-machines/linux/disk-scalability-targets.md) 또는 [Windows](../virtual-machines/windows/disk-scalability-targets.md) 가상 머신에 대한 VM 디스크 확장성 및 성능 목표를 확인하여 성능 문제를 피해야 합니다. 기본 설정을 따르는 경우 Site Recovery가 원본 구성에 따라 필요한 디스크 및 저장소 계정을 만듭니다. 사용자 고유의 설정을 사용자 지정하고 선택하는 경우 소스 VM의 디스크 확장성 및 성능 목표를 준수하는지 확인합니다.

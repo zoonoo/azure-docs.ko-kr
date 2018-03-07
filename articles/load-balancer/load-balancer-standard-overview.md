@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/04/2018
 ms.author: kumud
-ms.openlocfilehash: cf7be370ab0d79be9068534f0c43b88f454bc024
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 8f98fd7773acb960ae79e743663aceb216f217c4
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-load-balancer-standard-overview-preview"></a>Azure Load Balancer 표준 개요(미리 보기)
 
@@ -302,9 +302,11 @@ SKU는 변경할 수 없습니다. 이 섹션의 단계에 따라 리소스 SKU 
 
 1. 새 표준 리소스(Load Balancer 및 필요에 따라 공용 IP)를 만듭니다. 규칙 및 프로브 정의를 다시 작성합니다.
 
-2. 모든 VM 인스턴스에서 기본 SKU 리소스(Load Balancer 및 해당되는 경우 공용 IP)를 제거합니다. 가용성 집합의 모든 VM 인스턴스도 제거해야 합니다.
+2. NIC 또는 서브넷에 새 NSG를 만들거나 기존 NSG를 업데이트하여 허용하려는 다른 트래픽 외에도 부하 분산된 트래픽과 프로브를 허용 목록에 추가합니다.
 
-3. 새 표준 SKU 리소스에 모든 VM 인스턴스를 연결합니다.
+3. 모든 VM 인스턴스에서 기본 SKU 리소스(Load Balancer 및 해당되는 경우 공용 IP)를 제거합니다. 가용성 집합의 모든 VM 인스턴스도 제거해야 합니다.
+
+4. 새 표준 SKU 리소스에 모든 VM 인스턴스를 연결합니다.
 
 ### <a name="migrate-from-standard-to-basic-sku"></a>표준에서 기본 SKU로 마이그레이션
 

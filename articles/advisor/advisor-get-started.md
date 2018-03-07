@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/10/2017
 ms.author: makohli
-ms.openlocfilehash: d15f91c91281eae28ddaff52af3ee8e617f142c1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 5a7864597e50294c8e1227cbab7a3be73dde0a7f
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="get-started-with-azure-advisor"></a>Azure Adviser 시작
 
@@ -66,17 +66,17 @@ Advisor에서 권장 사항을 선택하여 권장 사항 작업 및 영향을 �
 
     ![Advisor 검색 필터 조건](./media/advisor-get-started/advisor-filters.png)
 
-## <a name="snooze-or-dismiss-advisor-recommendations"></a>Advisor 권장 사항 다시 알림 또는 해제
+## <a name="postpone-or-dismiss-advisor-recommendations"></a>Advisor 권장 사항 연기 또는 해제
 
 1. [Azure Portal](https://portal.azure.com)에 로그인하고 [Advisor](https://aka.ms/azureadvisordashboard)를 엽니다.
 
-2. 다시 알리거나 해제할 권장 사항으로 이동합니다.
+2. 연기하거나 해제할 권장 사항으로 이동합니다.
 
 3. 권장 사항을 클릭합니다.
 
-4. **다시 알림**을 클릭합니다. 
+4. **연기**를 클릭합니다. 
 
-5. 다시 알림 기간을 지정하거나, 권장 사항을 해제하려면 **안 함**을 선택합니다.
+5. 연기 기간을 지정하거나, 권장 사항을 해제하려면 **안 함**을 선택합니다.
 
 ## <a name="exclude-subscriptions-or-resource-groups-from-advisor"></a>Advisor에서 구독 또는 리소스 그룹 제외
 

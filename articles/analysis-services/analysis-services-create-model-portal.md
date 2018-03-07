@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: 038cfb72cfc98fdddaca6751b321c11066527e56
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: ff2f1dd89796a30d4e0fee0810ff45ff57f5f8bf
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="create-a-model-in-azure-portal"></a>Azure Portal에서 모델 만들기
 
@@ -27,15 +27,19 @@ Azure Portal의 Azure Analysis Services 웹 디자이너(미리 보기) 기능�
 
 현재 웹 디자이너는 **미리 보기**입니다. 계속해서 새로운 기능이 추가되고 있지만 미리 보기에서는 기능이 제한됩니다. 고급 모델을 개발하고 테스트하려면 Visual Studio(SSDT) 및 SSMS(SQL Server Management Studio)를 사용하는 것이 가장 좋습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="before-you-begin"></a>시작하기 전에
 
 - 표준 또는 개발자 계층의 Azure Analysis Services 서버. 웹 디자이너를 사용하여 만드는 새 모델은 이러한 계층에서만 지원되는 DirectQuery입니다.
 - 데이터 원본으로 Azure SQL Database, Azure SQL Data Warehouse 또는 Power BI Desktop(.pbix) 파일. Power BI Desktop 파일로 만드는 새 모델은 Azure SQL Database, Azure SQL Data Warehouse, Oracle 및 Teradata 데이터 원본을 지원합니다.
 - Azure SQL Database 또는 Azure SQL Data Warehouse 데이터 원본에 연결하기 위한 SQL Server 계정 및 암호.
 
+## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인합니다.
+
+[Azure 포털](https://portal.azure.com/)에 로그인합니다.
+
 ## <a name="to-create-a-new-tabular-model"></a>새 테이블 형식 모델을 만들려면
 
-1. 서버의 **개요** 블레이드 > **웹 디자이너**에서 **열기**를 클릭합니다.
+1. 서버 **개요** > **웹 디자이너**에서 **열기**를 클릭합니다.
 
     ![Azure Portal에서 모델 만들기](./media/analysis-services-create-model-portal/aas-create-portal-overview-wd.png)
 

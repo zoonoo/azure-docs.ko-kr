@@ -12,13 +12,13 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/22/2017
+ms.date: 02/23/2018
 ms.author: ryanwi
-ms.openlocfilehash: 5c1f485812918397b5b52e650611032c9058e3ee
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 5b30d3732ff00e5bb79e2d58a9f0b3e5b29dedf8
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="sfctl-service"></a>sfctl service
 서비스, 서비스 유형 및 서비스 패키지를 생성, 삭제 및 관리합니다.
@@ -34,6 +34,7 @@ ms.lasthandoff: 01/18/2018
 |    deployed-type  | Service Fabric 클러스터의 노드에 배포된 응용 프로그램의 지정된 서비스 유형에 대한 정보를 가져옵니다.|
 |    deployed-type-list| Service Fabric 클러스터의 노드에 배포된 응용 프로그램의 서비스 유형에 대한 정보가 포함된 목록을 가져옵니다.|
 |    description    | 기존 Service Fabric서비스에 대한 설명을 가져옵니다.|
+|get-container-logs| Service Fabric 노드에 배포한 컨테이너에 대한 컨테이너 로그를 가져옵니다.|
 |    health         | 지정된 Service Fabric 서비스의 상태를 가져옵니다.|
 |    info           | Service Fabric 응용 프로그램에 속하는 특정 서비스에 대한 정보를 가져옵니다.|
 |    list           | 응용 프로그램 ID로 지정된 응용 프로그램에 속하는 모든 서비스에 대한 정보를 가져옵니다.|
@@ -56,7 +57,7 @@ ms.lasthandoff: 01/18/2018
 
 |인수|설명|
 | --- | --- |
-| --app-id       [필수]| 부모 응용 프로그램의 ID입니다. 일반적으로 'fabric:' URI 스키마가 없는 응용 프로그램의 전체 ID입니다. 버전 6.0부터 계층 이름은 '~' 문자로 구분됩니다. 예를 들어 응용 프로그램 이름이 'fabric://myapp/app1'인 경우 응용 프로그램 ID가 6.0 이상에서는 'myapp~app1'이고 이전 버전에서는 'myapp/app1'입니다.|
+| --app-id       [필수]| 부모 응용 프로그램의 ID입니다. 일반적으로 'fabric:' URI 스키마가 없는 응용 프로그램의 전체 ID입니다. 버전 6.0에서 시작하며, 계층적 이름이 '~' 문자로 구분됩니다. 예를 들어 응용 프로그램 이름이 ‘fabric:/myapp/app1’인 경우 응용 프로그램 ID가 6.0 이상에서는 ‘myapp~app1’이고 이전 버전에서는 ‘myapp/app1’입니다.|
 | --name         [필수]| 서비스의 이름입니다. 응용 프로그램 ID의 자식이어야 합니다.           `fabric:` URI를 포함한 전체 이름입니다. 예를 들어 서비스 `fabric:/A/B`는 응용 프로그램 `fabric:/A`의 자식입니다.|
 | --service-type [필수]| 서비스 형식 이름입니다.|
 | --activation-mode     | 서비스 패키지의 활성화 모드입니다.|
@@ -104,7 +105,7 @@ ms.lasthandoff: 01/18/2018
 
 |인수|설명|
 | --- | --- |
-| --service-id [필수]| 서비스 id입니다. 일반적으로 'fabric:' URI 스키마가 없는 서비스의 전체 이름입니다. 버전 6.0부터 계층 이름은 "~" 문자로 구분됩니다. 예를 들어 서비스 이름이 fabric://myapp/app1/svc1"인 경우 서비스 ID가 6.0 이상에서는 "myapp~app1~svc1"이고 이전 버전에서는 "myapp/app1/svc1"입니다.|
+| --service-id [필수]| 서비스 id입니다. 일반적으로 'fabric:' URI 스키마가 없는 서비스의 전체 이름입니다. 버전 6.0부터 계층 이름은 "~" 문자로 구분됩니다. 예를 들어 서비스 이름이 “fabric://myapp/app1/svc1”이면 서비스 ID는 6.0 이상에서는 “myapp~app1~svc1”이고 이전 버전에서는 “myapp/app1/svc1”입니다.|
 | --force-remove      | 정상적인 종료 시퀀스를 거치지 않고 강제로 Service Fabric 응용 프로그램이나 서비스를 제거합니다. 이 매개 변수는 복제본을 정상적으로 종료하지 못하게 하는 서비스 코드의 문제로 인해 삭제 시간이 초과되는 응용 프로그램이나 서비스를 강제로 삭제하는 데 사용할 수 있습니다.|
 | --timeout -t        | 서버 시간 제한(초).  기본값: 60.|
 
@@ -127,7 +128,7 @@ ms.lasthandoff: 01/18/2018
 
 |인수|설명|
 | --- | --- |
-| --service-id [필수]| 서비스 id입니다. 일반적으로 'fabric:' URI 스키마가 없는 서비스의 전체 이름입니다. 버전 6.0부터 계층 이름은 "~" 문자로 구분됩니다. 예를 들어 서비스 이름이 "fabric://myapp/app1/svc1"이면 서비스 id는 6.0+에서 "myapp~app1~svc1"이고 이전 버전에서 "myapp/app1/svc1"입니다.|
+| --service-id [필수]| 서비스 id입니다. 일반적으로 'fabric:' URI 스키마가 없는 서비스의 전체 이름입니다. 버전 6.0부터 계층 이름은 "~" 문자로 구분됩니다. 예를 들어 서비스 이름이 “fabric:/myapp/app1/svc1”이면 서비스 ID는 6.0 이상에서는 “myapp~app1~svc1”이고 이전 버전에서는 “myapp/app1/svc1”입니다.|
 | --timeout -t        | 서버 시간 제한(초).  기본값: 60.|
 
 ### <a name="global-arguments"></a>전역 인수
@@ -143,13 +144,13 @@ ms.lasthandoff: 01/18/2018
 ## <a name="sfctl-service-health"></a>sfctl service health
 지정된 Service Fabric 서비스의 상태를 가져옵니다.
 
-지정된 서비스의 상태 정보를 가져옵니다. 상태에 따라 서비스에 보고된 상태 이벤트의 컬렉션을 필터링하려면 EventsHealthStateFilter를 사용합니다. 반환된 파티션 컬렉션을 필터링하려면 PartitionsHealthStateFilter를 사용합니다. Health 스토어에 없는 서비스를 지정하면 이 cmdlet이 오류를 반환합니다. 에서도 확인할 수 있습니다.
+지정된 서비스의 상태 정보를 가져옵니다. 상태에 따라 서비스에 보고된 상태 이벤트의 컬렉션을 필터링하려면 EventsHealthStateFilter를 사용합니다. 반환된 파티션 컬렉션을 필터링하려면 PartitionsHealthStateFilter를 사용합니다. Health 스토어에 없는 서비스를 지정하면 이 cmdlet이 오류를 반환합니다.
 
 ### <a name="arguments"></a>인수
 
 |인수|설명|
 | --- | --- |
-| --service-id          [필수]| 서비스 id입니다. 일반적으로 'fabric:' URI 스키마가 없는 서비스의 전체 이름입니다. 버전 6.0부터 계층 이름은 "~" 문자로 구분됩니다. 예를 들어 서비스 이름이 "fabric://myapp/app1/svc1"인 경우 서비스 ID가 6.0 이상에서는 "myapp~app1~svc1"이 되고 이전 버전에서는 "myapp/app1/svc1"이 됩니다.|
+| --service-id          [필수]| 서비스 id입니다. 일반적으로 'fabric:' URI 스키마가 없는 서비스의 전체 이름입니다. 버전 6.0부터 계층 이름은 "~" 문자로 구분됩니다. 예를 들어 서비스 이름이 “fabric:/myapp/app1/svc1”이면 서비스 ID는 6.0 이상에서는 “myapp~app1~svc1”이고 이전 버전에서는 “myapp/app1/svc1”입니다.|
 | --events-health-state-filter | 상태에 따라 반환된 HealthEvent 개체의 컬렉션을 필터링할 수 있습니다. 이 매개 변수에 사용할 수 있는 값은 다음 상태 중 하나의 정수 값을 포함합니다. 필터와 일치하는 이벤트만 반환됩니다. 모든 이벤트는 집계된 상태를 평가하는 데 사용됩니다. 지정하지 않으면 모든 항목이 반환됩니다. 상태 값은 플래그 기반 열거형이므로 값은 비트 OR 연산자를 사용하여 구한 값의 조합일 수 있습니다. 예를 들어 제공된 값이 6이면 HealthState 값이 OK(2) 및 Warning(4)인 모든 이벤트가 반환됩니다. - Default - 기본값입니다. 모든 HealthState와 일치합니다. 값은 0입니다. - 없음 - HealthState 값과 일치하지 않는 필터입니다. 주어진 상태 컬렉션에 대해 결과를 반환하지 않기 위해 사용됩니다. 값은 1입니다. - Ok – HealthState 값이 Ok인 입력과 일치하는 필터입니다. 값은 2입니다. - Warning – HealthState 값이 Warning인 입력과 일치하는 필터입니다. 값은 4입니다. - Error - HealthState 값이 Error인 입력과 일치하는 필터입니다. 값은 8입니다. - All - 모든 HealthState 값의 입력과 일치하는 필터입니다. 값은 65535입니다.|
 |--exclude-health-statistics     | 쿼리 결과의 일부로 상태 통계를 반환해야 하는지 여부를 나타냅니다. 기본값은 False입니다. 통계에는 상태가 Ok, Warning 및 Error인 자식 엔터티 수가 표시됩니다.|
 | --partitions-health-state-filter| 상태에 따라 서비스 상태 쿼리의 결과로 반환된 파티션 상태 개체를 필터링할 수 있습니다. 이 매개 변수에 사용할 수 있는 값은 다음 상태 중 하나의 정수 값을 포함합니다. 필터와 일치하는 파티션만 반환됩니다. 모든 파티션은 집계된 상태를 평가하는 데 사용됩니다. 지정하지 않으면 모든 항목이 반환됩니다. 상태 값은 플래그 기반 열거형이므로 값은 비트 OR 연산자를 사용하여 구한 값의 조합일 수 있습니다. 예를 들어 제공된 값이 "6"이면 HealthState 값이 OK(2) 및 Warning(4)인 파티션의 상태가 반환됩니다. - Default - 기본값입니다. 모든 HealthState와 일치합니다.                  값은 0입니다. - 없음 - HealthState 값과 일치하지 않는 필터입니다. 주어진 상태 컬렉션에 대해 결과를 반환하지 않기 위해 사용됩니다. 값은 1입니다. - Ok – HealthState 값이 Ok인 입력과 일치하는 필터입니다. 값은 2입니다. - Warning – HealthState 값이 Warning인 입력과 일치하는 필터입니다. 값은 4입니다. - Error - HealthState 값이 Error인 입력과 일치하는 필터입니다. 값은 8입니다. - All - 모든 HealthState 값의 입력과 일치하는 필터입니다. 값은 65535입니다.|
@@ -174,8 +175,8 @@ Service Fabric 응용 프로그램에 속하는 특정 서비스에 대한 정�
 
 |인수|설명|
 | --- | --- |
-| --application-id [필수]| 응용 프로그램 ID입니다. 일반적으로 'fabric:' URI 스키마가 없는 응용 프로그램의 전체 이름입니다. 버전 6.0부터 계층 이름은 "~" 문자로 구분됩니다. 예를 들어 응용 프로그램 이름이 "fabric://myapp/app1"인 경우 응용 프로그램 ID가 6.0 이상에서는 "myapp~app1"이고 이전 버전에서는 "myapp/app1"입니다.|
-| --service-id     [필수]| 서비스 ID입니다. 일반적으로 'fabric:' URI 스키마가 없는 서비스의 전체 이름입니다. 버전 6.0부터 계층 이름은 "~" 문자로 구분됩니다. 예를 들어 서비스 이름이 "fabric://myapp/app1/svc1"인 경우 서비스 ID가 6.0 이상에서는 "myapp~app1~svc1"이 되고 이전 버전에서는 "myapp/app1/svc1"이 됩니다.|
+| --application-id [필수]| 응용 프로그램 ID입니다. 일반적으로 'fabric:' URI 스키마가 없는 응용 프로그램의 전체 이름입니다. 버전 6.0부터 계층 이름은 "~" 문자로 구분됩니다. 예를 들어 응용 프로그램 이름이 “fabric:/myapp/app1”인 경우 응용 프로그램 ID가 6.0 이상에서는 “myapp~app1”이고 이전 버전에서는 “myapp/app1”입니다.|
+| --service-id     [필수]| 서비스 ID입니다. 일반적으로 'fabric:' URI 스키마가 없는 서비스의 전체 이름입니다. 버전 6.0부터 계층 이름은 "~" 문자로 구분됩니다. 예를 들어 서비스 이름이 “fabric:/myapp/app1/svc1”이면 서비스 ID는 6.0 이상에서는 “myapp~app1~svc1”이고 이전 버전에서는 “myapp/app1/svc1”입니다.|
 | --timeout -t            | 서버 시간 제한(초).  기본값: 60.|
 
 ### <a name="global-arguments"></a>전역 인수
@@ -197,7 +198,7 @@ Service Fabric 응용 프로그램에 속하는 특정 서비스에 대한 정�
 
 |인수|설명|
 | --- | --- |
-| --application-id [필수]| 응용 프로그램 ID입니다. 일반적으로 'fabric:' URI 스키마가 없는 응용 프로그램의 전체 이름입니다. 버전 6.0부터 계층 이름은 "~" 문자로 구분됩니다. 예를 들어 응용 프로그램 이름이 "fabric://myapp/app1"인 경우 응용 프로그램 ID가 6.0 이상에서는 "myapp~app1"이고 이전 버전에서는 "myapp/app1"입니다.|
+| --application-id [필수]| 응용 프로그램 ID입니다. 일반적으로 'fabric:' URI 스키마가 없는 응용 프로그램의 전체 이름입니다. 버전 6.0부터 계층 이름은 "~" 문자로 구분됩니다. 예를 들어 응용 프로그램 이름이 “fabric:/myapp/app1”인 경우 응용 프로그램 ID가 6.0 이상에서는 “myapp~app1”이고 이전 버전에서는 “myapp/app1”입니다.|
 | --continuation-token    | 연속 토큰 매개 변수는 다음 결과 집합을 얻는 데 사용됩니다. 공백 값이 아닌 연속 토큰은 시스템의 결과가 단일 응답에 맞지 않는 경우 API의 응답에 포함됩니다. 이 값이 다음 API 호출에 전달되면 API는 다음 결과 집합을 반환합니다. 결과가 더 이상 없으면 연속 토큰에 값이 포함되지 않습니다. 이 매개 변수의 값은 URL 인코딩되지 말아야 합니다.|
 | --service-type-name     | 쿼리할 서비스를 필터링하는 데 사용되는 서비스 유형 이름입니다.|
 | --timeout -t            | 서버 시간 제한(초).  기본값: 60.|
@@ -245,7 +246,7 @@ Service Fabric 응용 프로그램에 속하는 특정 서비스에 대한 정�
 
 |인수|설명|
 | --- | --- |
-| --service-id [필수]| 서비스 id입니다. 일반적으로 'fabric:' URI 스키마가 없는 서비스의 전체 이름입니다. 버전 6.0부터 계층 이름은 "~" 문자로 구분됩니다. 예를 들어 서비스 이름이 "fabric://myapp/app1/svc1"인 경우 서비스 ID가 6.0 이상에서는 "myapp~app1~svc1"이 되고 이전 버전에서는 "myapp/app1/svc1"이 됩니다.|
+| --service-id [필수]| 서비스 id입니다. 일반적으로 'fabric:' URI 스키마가 없는 서비스의 전체 이름입니다. 버전 6.0부터 계층 이름은 "~" 문자로 구분됩니다. 예를 들어 서비스 이름이 “fabric:/myapp/app1/svc1”이면 서비스 ID는 6.0 이상에서는 “myapp~app1~svc1”이고 이전 버전에서는 “myapp/app1/svc1”입니다.|
 | --timeout -t        | 서버 시간 제한(초).  기본값: 60.|
 
 ### <a name="global-arguments"></a>전역 인수
@@ -267,7 +268,7 @@ Service Fabric 서비스 파티션을 확인하여 서비스 복제본의 끝점
 
 |인수|설명|
 | --- | --- |
-| --service-id [필수]| 서비스 id입니다. 일반적으로 'fabric:' URI 스키마가 없는 서비스의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "~" 문자로 구분됩니다. 예를 들어 서비스 이름이 "fabric://myapp/app1/svc1"인 경우 서비스 ID가 6.0 이상에서는 "myapp~app1~svc1"이고 이전 버전에서는 "myapp/app1/svc1"입니다.|
+| --service-id [필수]| 서비스 id입니다. 일반적으로 'fabric:' URI 스키마가 없는 서비스의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "~" 문자로 구분됩니다. 예를 들어 서비스 이름이 “fabric:/myapp/app1/svc1”이면 서비스 ID는 6.0 이상에서는 “myapp~app1~svc1”이고 이전 버전에서는 “myapp/app1/svc1”입니다.|
 | --partition-key-type| 파티션의 키 유형입니다. 서비스의 파티션 구성표가 Int64Range 또는 Named인 경우 이 매개 변수가 필요합니다. 가능한 값은 다음과 같습니다. - None(1) - PartitionKeyValue 매개 변수가 지정되지 않았음을 나타냅니다. 파티션 구성표가 Singleton인 파티션에 유효합니다. 기본값입니다. 값은 1입니다. - Int64Range(2) - PartitionKeyValue 매개 변수가 int64 파티션 키임을 나타냅니다. 파티션 구성표가 Int64Range인 파티션에 유효합니다. 값은 2입니다. - Named(3) -         PartitionKeyValue 매개 변수가 파티션의 이름임을 나타냅니다. 파티션 구성표가 Named인 파티션에 유효합니다. 값은 3입니다.|
 | --partition-key-value  | 파티션 키입니다. 서비스의 파티션 구성표가 Int64Range 또는 Named인 경우 필요합니다.|
 | --previous-rsp-version | 이전에 수신한 응답의 버전 필드 값입니다. 이전에 얻은 결과가 오래되었다는 것을 사용자가 아는 경우에 필요합니다.|
@@ -290,7 +291,7 @@ Service Fabric 서비스 파티션을 확인하여 서비스 복제본의 끝점
 
 |인수|설명|
 | --- | --- |
-| --service-id   [필수]| 업데이트 할 대상 서비스입니다. 일반적으로 'fabric:' URI 스키마가 없는 서비스의 전체 ID입니다. 버전 6.0부터 계층 이름은 "~" 문자로 구분됩니다. 예를 들어 서비스 이름이 'fabric://myapp/app1/svc1'인 경우 서비스 ID가 6.0 이상에서는 'myapp~app1~svc1'이 되고 이전 버전에서는 'myapp/app1/svc1'이 됩니다.|
+| --service-id   [필수]| 업데이트 할 대상 서비스입니다. 일반적으로 'fabric:' URI 스키마가 없는 서비스의 전체 ID입니다. 버전 6.0부터 계층 이름은 "~" 문자로 구분됩니다. 예를 들어 서비스 이름이 ‘fabric:/myapp/app1/svc1’이면 서비스 ID는 6.0 이상에서는 ‘myapp~app1~svc1’이고 이전 버전에서는 ‘myapp/app1/svc1’입니다.|
 | --constraints         | 문자열 형태의 배치 제약 조건입니다. 배치 제약 조건은 노드 속성에 대한 부울 식이며 서비스 요구 사항을 기반으로 특정 노드에 대한 서비스 제한을 허용합니다. 예를 들어, NodeType이 파란색인 노드에 서비스를 배치하려면 "NodeColor == blue"를 지정합니다.|
 | --correlated-service  | 상관 관계를 지정할 대상 서비스의 이름입니다.|
 | --correlation         | 맞춤 선호도를 사용하여 서비스를 기존 서비스와 상호 연결합니다.|

@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/29/2018
+ms.date: 02/26/2018
 ms.author: elioda
-ms.openlocfilehash: 01951afa983e7a578281fda38bb4714df6b41891
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 624f706532645034f19af15d10352dbc6db0b6c1
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="iot-hub-query-language-for-device-twins-jobs-and-message-routing"></a>장치 쌍, 작업 및 메시지 라우팅에 대한 IoT Hub 쿼리 언어
 
@@ -298,27 +298,27 @@ IoT Hub는 메시지 라우팅에 대해 메시지 헤더의 다음 JSON 표현�
 
 ```json
 {
-    "$messageId": "",
-    "$enqueuedTime": "",
-    "$to": "",
-    "$expiryTimeUtc": "",
-    "$correlationId": "",
-    "$userId": "",
-    "$ack": "",
-    "$connectionDeviceId": "",
-    "$connectionDeviceGenerationId": "",
-    "$connectionAuthMethod": "",
-    "$content-type": "",
-    "$content-encoding": "",
-
-    "userProperty1": "",
-    "userProperty2": ""
+  "message": {
+    "systemProperties": {
+      "contentType": "application/json",
+      "contentEncoding": "utf-8",
+      "iothub-message-source": "deviceMessages",
+      "iothub-enqueuedtime": "2017-05-08T18:55:31.8514657Z"
+    },
+    "appProperties": {
+      "processingPath": "<optional>",
+      "verbose": "<optional>",
+      "severity": "<optional>",
+      "testDevice": "<optional>"
+    },
+    "body": "{\"Weather\":{\"Temperature\":50}}"
+  }
 }
 ```
 
 메시지 시스템 속성 앞에 `'$'` 기호를 붙입니다.
-사용자 속성은 항상 이름을 사용하여 액세스됩니다. 사용자 속성 이름이 시스템 속성과 일치하는 것으로 나타나면(예: `$to`) 사용자 속성을 `$to` 식을 사용하여 검색합니다.
-항상 괄호 `{}`를 사용하여 시스템 속성에 액세스할 수 있습니다. 예를 들어 식 `{$to}`를 사용하여 시스템 속성 `to`에 액세스할 수 있습니다. 속성 이름을 대괄호로 묶으면 항상 해당 시스템 속성이 검색됩니다.
+사용자 속성은 항상 이름을 사용하여 액세스됩니다. 사용자 속성 이름이 시스템 속성과 일치하는 것으로 나타나면(예: `$contentType`) 사용자 속성을 `$contentType` 식을 사용하여 검색합니다.
+항상 괄호 `{}`를 사용하여 시스템 속성에 액세스할 수 있습니다. 예를 들어 식 `{$contentType}`를 사용하여 시스템 속성 `contentType`에 액세스할 수 있습니다. 속성 이름을 대괄호로 묶으면 항상 해당 시스템 속성이 검색됩니다.
 
 속성 이름은 대/소문자를 구분하지 않습니다.
 
@@ -350,12 +350,58 @@ messageType = 'alerts' AND as_number(severity) <= 2
 
 메시지 본문이 UTF-8, UTF-16 또는 UTF-32로 적절하게 인코딩된 JSON 형식이어야 IoT Hub가 메시지 본문 콘텐츠를 기반으로 라우팅할 수 있습니다. 메시지 콘텐츠 형식을 `application/json`으로 설정합니다. 콘텐츠 인코딩을 메시지 헤더에서 지원되는 UTF 인코딩 중 하나로 설정합니다. 헤더 중 하나를 지정하지 않으면 IoT Hub는 메시지에 대한 본문과 관련된 쿼리 식을 평가하지 않습니다. 메시지가 JSON 메시지가 아니거나 메시지에서 콘텐츠 유형 및 콘텐츠 인코딩을 지정하지 않더라도 여전히 메시지 라우팅을 사용하여 메시지 헤더를 기반으로 메시지를 라우팅할 수도 있습니다.
 
+다음 예제에서는 올바르게 구성되고 인코딩된 JSON 본문을 사용하여 메시지를 만드는 방법을 보여 줍니다.
+
+```csharp
+string messageBody = @"{ 
+                            ""Weather"":{ 
+                                ""Temperature"":50, 
+                                ""Time"":""2017-03-09T00:00:00.000Z"", 
+                                ""PrevTemperatures"":[ 
+                                    20, 
+                                    30, 
+                                    40 
+                                ], 
+                                ""IsEnabled"":true, 
+                                ""Location"":{ 
+                                    ""Street"":""One Microsoft Way"", 
+                                    ""City"":""Redmond"", 
+                                    ""State"":""WA"" 
+                                }, 
+                                ""HistoricalData"":[ 
+                                    { 
+                                    ""Month"":""Feb"", 
+                                    ""Temperature"":40 
+                                    }, 
+                                    { 
+                                    ""Month"":""Jan"", 
+                                    ""Temperature"":30 
+                                    } 
+                                ] 
+                            } 
+                        }"; 
+ 
+// Encode message body using UTF-8 
+byte[] messageBytes = Encoding.UTF8.GetBytes(messageBody); 
+ 
+using (var message = new Message(messageBytes)) 
+{ 
+    // Set message body type and content encoding. 
+    message.ContentEncoding = "utf-8"; 
+    message.ContentType = "application/json"; 
+ 
+    // Add other custom application properties.  
+    message.Properties["Status"] = "Active";    
+ 
+    await deviceClient.SendEventAsync(message); 
+}
+```
+
 쿼리 식에 `$body`를 사용하여 메시지를 라우팅할 수 있습니다. 쿼리 식에 간단한 본문 참조, 본문 배열 참조 또는 여러 본문 참조를 사용할 수 있습니다. 쿼리 식에서 본문 참조를 메시지 헤더 참조와 결합할 수도 있습니다. 예를 들어 다음은 모든 유효한 쿼리 식입니다.
 
 ```sql
-$body.message.Weather.Location.State = 'WA'
 $body.Weather.HistoricalData[0].Month = 'Feb'
-$body.Weather.Temperature = 50 AND $body.message.Weather.IsEnabled
+$body.Weather.Temperature = 50 AND $body.Weather.IsEnabled
 length($body.Weather.Location.State) = 2
 $body.Weather.Temperature = 50 AND Status = 'Active'
 ```

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: jeedes
-ms.openlocfilehash: 8e54630d97dee2388ffc9c8877faeac269df1609
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 60430f08f54232db619efd054ca3a7d9a44f4cdc
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---admin-ui"></a>자습서: Palo Alto Networks - Admin UI와 Azure Active Directory 통합
 
@@ -106,11 +106,14 @@ Palo Alto Networks - Admin UI에서 Azure AD Single Sign-On을 구성하고 테�
 
 3. **Palo Alto Networks - Admin UI 도메인 및 URL** 섹션에서 다음 단계를 수행합니다.
 
-    ![Palo Alto Networks - Admin UI 도메인 및 URL Single Sign-On 정보](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_url.png)
-
+    ![Palo Alto Networks - Admin UI 도메인 및 URL Single Sign-On 정보](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_general_show_advanced_url.png)
+    
     a. **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://<Customer Firewall FQDN>/php/login.php`
 
-    나. **식별자** 텍스트 상자에서 `https://<Customer Firewall FQDN>/SAML20/SP` 패턴을 사용하여 URL을 입력합니다.
+    나. **식별자** 텍스트 상자에서 `https://<Customer Firewall FQDN>:443/SAML20/SP` 패턴을 사용하여 URL을 입력합니다.
+    
+    다. **회신 URL** 텍스트 상자에서 `https://<Customer Firewall FQDN>:443/SAML20/SP/ACS` 패턴을 사용하여 ACS(Assertion Consumer Service) URL을 입력합니다.
+    
 
     > [!NOTE] 
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 값을 업데이트합니다. 이러한 값을 얻으려면 [Palo Alto Networks - Admin UI 클라이언트 지원 팀](https://support.paloaltonetworks.com/support)에 문의합니다. 
@@ -163,13 +166,71 @@ Palo Alto Networks - Admin UI에서 Azure AD Single Sign-On을 구성하고 테�
 
 11. 가져오기 창에서 다음 작업 수행
 
-    ![Palo Alto Single Sign-On 구성](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_admin3.png)
+    ![Palo Alto Single Sign-On 구성](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_idp.png)
 
-    a. **프로필 이름** 텍스트 상자에 이름(예: Azure AD Admin UI)을 제공합니다.
+    a. **프로필 이름** 텍스트 상자에 이름(예: AzureAD Admin UI)을 제공합니다.
     
     나. **ID 공급자 메타데이터**에서 **찾아보기**를 클릭하고 Azure Portal에서 다운로드한 metadata.xml 파일을 선택합니다.
     
-    다. **확인**
+    다. "**ID 공급자 인증서의 유효성 검사**"를 선택 취소합니다.
+    
+    d. **확인**
+    
+    e. **커밋** 단추를 선택하여 방화벽의 구성을 커밋합니다.
+
+12. 왼쪽 탐색 모음에서 **SAML ID 공급자**를 선택하고 이전 단계에서 만든 SAML ID 공급자 프로필(예: AzureAD 관리 UI)을 클릭합니다. 
+    
+  ![Palo Alto Networks Single Sign-on 구성](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_idp_select.png)
+
+13. **SAML ID 공급자 서버 프로필** 창에서 다음 작업을 수행합니다.
+
+  ![Palo Alto Networks 단일 로그아웃 구성](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_slo.png)
+  
+  a. **ID 공급자 SLO URL** 텍스트 상자에서 이전에 가져온 SLO URL을 제거하고 다음 URL을 추가합니다. `https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0`
+  
+  나. **확인**
+
+
+14. Palo Alto Networks 방화벽 관리 UI에서 **장치**를 클릭하고 **관리자 역할**을 선택합니다.
+
+15. **추가** 단추를 클릭합니다. 관리자 역할 프로필 창에서 관리자 역할의 이름(예: fwadmin)을 제공합니다. 이 관리자 역할 이름은 ID 공급자가 보낸 SAML 관리자 역할 특성 이름과 일치해야 합니다. 5단계에서 관리자 역할 이름 및 값이 만들어졌습니다. 
+
+  ![Palo Alto Networks 관리자 역할 구성](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_adminrole.png)
+  
+16. 방화벽의 관리 UI에서 **장치**를 클릭하고 **인증 프로필**을 선택합니다.
+
+17. **추가** 단추를 클릭합니다. 인증 프로필 창에서 다음 작업을 수행합니다. 
+
+ ![Palo Alto Networks 인증 프로필 구성](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_authentication_profile.png)
+
+   a. **이름** 텍스트 상자에 이름(예: AzureSAML_Admin_AuthProfile)을 제공합니다.
+    
+   나. **형식** 드롭다운에서 **SAML**을 선택합니다. 
+   
+   다. IdP 서버 프로필 드롭다운 목록에서 적절한 SAML ID 공급자 서버 프로필(예: AzureAD Admin UI)을 선택합니다.
+   
+   다. "**단일 로그아웃 사용**" 확인란을 선택합니다.
+    
+   d. 관리자 역할 특성 텍스트 상자에 특성 이름(예: adminrole)을 입력합니다. 
+   
+   e. 고급 탭을 선택하고 허용 목록 창에서 **추가** 단추를 클릭합니다. 모두 선택하거나 이 프로필로 인증될 수 있는 특정 사용자 및 그룹을 선택합니다. 사용자를 인증할 때 방화벽은 연결된 사용자 이름 또는 그룹이 이 목록에 있는 항목과 일치하는지 비교합니다. 항목을 추가하지 않은 경우 사용자가 인증될 수 없습니다.
+   
+   ![Palo Alto Networks 인증 프로필 구성](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_allowlist.png)
+   
+   f. **확인**
+
+18. Azure를 사용하여 관리자가 SAML SSO를 사용하도록 하려면 **장치**를 클릭하고 **설정**을 선택합니다. 설정 창에서 **관리** 탭을 선택하고 **인증 설정** 아래에서 기어 아이콘을 클릭합니다. 
+
+ ![Palo Alto Networks 인증 설정 구성](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_authsetup.png)
+
+19. 17단계에서 만든 SAML 인증 프로필을 선택합니다. (예: AzureSAML_Admin_AuthProfile)
+
+ ![Palo Alto Networks 인증 설정 구성](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_authsettings.png)
+
+20. **확인**
+
+21. **커밋** 단추를 선택하여 구성을 커밋합니다.
+
 
 > [!TIP]
 > 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.

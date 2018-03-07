@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/22/2017
 ms.author: ryanwi
-ms.openlocfilehash: 422c19dfa9a204d98a898f76bc1af92a05c054d0
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: ba67a2a20d3f3e8e9fbccb2674cea500bfbde3fb
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="sfctl-replica"></a>sfctl 복제본
 서비스 파티션에 속한 복제본을 관리합니다.
@@ -64,7 +64,7 @@ Service Fabric 노드에서 배포된 복제본의 세부 정보를 가져옵니
 ## <a name="sfctl-replica-health"></a>sfctl 복제본 상태
 Service Fabric 상태 저장 서비스 복제본 또는 상태 비저장 서비스 인스턴스를 가져옵니다.
 
-Service Fabric 복제본의 상태를 가져옵니다. 상태에 따라 복제본에 보고된 상태 이벤트의 컬렉션을 필터링하려면 EventsHealthStateFilter를 사용합니다. 에서도 확인할 수 있습니다.
+Service Fabric 복제본의 상태를 가져옵니다. 상태에 따라 복제본에 보고된 상태 이벤트의 컬렉션을 필터링하려면 EventsHealthStateFilter를 사용합니다.
 
 ### <a name="arguments"></a>인수
 
@@ -82,7 +82,7 @@ Service Fabric 복제본의 상태를 가져옵니다. 상태에 따라 복제�
 | --debug                  | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다.|
 | --help -h                | 이 도움말 메시지 및 종료를 표시합니다.|
 | --output -o              | 출력 형식.  허용되는 값: json, jsonc, 테이블, tsv.  기본값:              json.|
-| --query                  | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http://jmespath.org/를 참조하세요.|
+| --query                  | JMESPath 쿼리 문자열. 자세한 내용은 http://jmespath.org/를 참조하세요.|
 | --verbose                | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다.|
 
 ## <a name="sfctl-replica-info"></a>sfctl 복제본 정보
@@ -106,7 +106,7 @@ Service Fabric 파티션의 복제본에 대한 정보를 가져옵니다.
 | --debug               | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다.|
 | --help -h             | 이 도움말 메시지 및 종료를 표시합니다.|
 | --output -o           | 출력 형식.  허용되는 값: json, jsonc, 테이블, tsv.  기본값:           json.|
-| --query               | JMESPath 쿼리 문자열. 자세한           내용 및 예제는 http://jmespath.org/를 참조하십시오.|
+| --query               | JMESPath 쿼리 문자열. 자세한 내용은 http://jmespath.org/를 참조하세요.|
 | --verbose             | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다.|
 
 ## <a name="sfctl-replica-list"></a>sfctl 복제본 목록

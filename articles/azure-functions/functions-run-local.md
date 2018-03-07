@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: 8b85457c5df9fb15c7eebe8b6fe8fb904f9e6009
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: f19fa1ac4dd970ca3df2c0fdbf8e0778e171c43d
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Azure Functions를 로컬에서 코딩 및 테스트
 
@@ -105,6 +105,14 @@ Initialized empty Git repository in D:/Code/Playground/MyFunctionProj/.git/
 ```
 
 로컬 Git 리포지토리 없이 프로젝트를 만들려면 `--no-source-control [-n]` 옵션을 사용합니다.
+
+## <a name="register-extensions"></a>확장 등록
+
+Azure Functions 런타임의 2.x 버전에서는 함수 앱에서 사용하는 [바인딩 확장](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/README.md)을 명시적으로 등록해야 합니다. 
+
+[!INCLUDE [Full bindings table](../../includes/functions-core-tools-install-extension.md)]
+
+자세한 내용은 [Azure Functions 트리거 및 바인딩 개념](functions-triggers-bindings.md#register-binding-extensions)을 참조하세요.
 
 ## <a name="local-settings-file"></a>로컬 설정 파일
 
@@ -311,6 +319,10 @@ curl --request POST -H "Content-Type:application/json" --data '{"input":"sample 
 ```
 func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 ```
+
+### <a name="viewing-log-files-locally"></a>로컬로 로그 파일 보기
+
+[!INCLUDE [functions-local-logs-location](../../includes/functions-local-logs-location.md)]
 
 ## <a name="publish"></a>Azure에 게시
 

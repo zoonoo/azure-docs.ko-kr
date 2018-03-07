@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 8de3cc6665fc3861aedcf4f36cdce4a4a776e80d
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 5c4597ede16f01c36e147dc0d70acf4b4f5635e8
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="logic-apps-limits-and-configuration"></a>Logic Apps 제한 및 구성
 
@@ -58,15 +58,22 @@ ms.lasthandoff: 02/09/2018
 
 이러한 제한은 단일 논리 앱 실행에 적용됩니다.
 
-| Name | 제한 | 
-| ---- | ----- | 
-| 실행 기간 | 90일 | 
-| 저장소 보존 | 실행 시작 시간부터 90일 | 
-| 최소 되풀이 간격 | 1초 </br>App Service 계획이 있는 논리 앱: 15초 | 
-| 최대 되풀이 간격 | 500일 | 
-||| 
+| Name | 기본값 | 제한 |
+| ---- | ------- | ----- |
+| 실행 기간   | 90일 | 7-90일 |
+| 저장소 보존 | 실행 시작 시간부터 90일 |  실행 시작 시간부터 7-90일 |
+||||
 
 정상적인 처리 흐름에서 실행 기간 또는 저장소 보존 한도를 초과하게 되면 [제품 팀에 연락](mailto://logicappsemail@microsoft.com)하여 요구 사항에 대한 지원을 받으세요.
+
+
+### <a name="recurrence-interval"></a>되풀이 간격
+
+| Name | 제한 |
+| ---- | ------- |
+| 최소 되풀이 간격 | 1초 </br>App Service 계획이 있는 논리 앱: 15초 |
+| 최대 되풀이 간격 | 500일 |
+|||
 
 ### <a name="looping-and-debatching-limits"></a>반복 및 분리 한도
 

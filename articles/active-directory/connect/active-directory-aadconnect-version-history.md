@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/16/2018
 ms.author: billmath
-ms.openlocfilehash: 843582a980280a14f033c6d27965867c063039e2
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 63ae975426f1057b178171ef89ce98402ff18725
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: 버전 릴리스 내역
 Azure AD(Azure Active Directory) 팀은 새로운 기능과 성능으로 Azure AD Connect를 정기적으로 업데이트합니다. 모든 추가 내용이 모든 대상에 적용되는 것은 아닙니다.
@@ -36,8 +36,7 @@ Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스
 다운로드 | [Azure AD Connect 다운로드](http://go.microsoft.com/fwlink/?LinkId=615771).
 
 ## <a name="117490"></a>1.1.749.0
-상태: 고객을 선택하도록 릴리스됨
-
+상태: 고객을 선택하도록 릴리스되었습니다. 이 릴리스는 현재 자동 업그레이드를 사용하도록 설정한 임의의 작은 AADConnect 테넌트 섹션에 배포됩니다. 모든 자동 업그레이드 고객이 이 릴리스를 받을 때까지 이 그룹의 테넌트가 앞으로 몇 주 내에 확장됩니다. 그런 후에 현재 2018년 3월 중순으로 계획된 일반 다운로드를 위한 빌드를 위의 다운로드 링크에 게시할 예정입니다.
 >[!NOTE]
 >이 새 버전으로 업그레이드가 완료되면 Azure AD 커넥터에 대한 전체 동기화 및 전체 가져오기와 AD 커넥터에 대한 전체 동기화를 자동으로 트리거합니다. Azure AD Connect 환경의 크기에 따라 시간이 걸릴 수 있으므로, 이 기능을 지원하기 위해 필요한 단계를 수행했는지 확인하거나, 수행하기 적합한 시기를 찾을 때까지 업그레이드를 보류해야 합니다.
 
@@ -59,7 +58,7 @@ Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스
 
 #### <a name="new-features-and-improvements"></a>새로운 기능 및 향상 기능
 
-* GDPR(일반 날짜 보호 규정)에 대한 개인 정보 설정을 추가합니다.  GDPR의 경우 Microsoft와 공유하는 고객 데이터(원격 분석, 상태 등)의 종류를 나타내고, 자세한 온라인 설명서에 대한 링크가 있으며, 고객이 해당 기본 설정을 변경할 수 있는 방법을 제공해야 합니다.  이 체크 인은 다음을 추가합니다.
+* GDPR(일반 데이터 보호 규정)에 대한 개인 정보 설정이 추가되었습니다.  GDPR의 경우 Microsoft와 공유하는 고객 데이터(원격 분석, 상태 등)의 종류를 나타내고, 자세한 온라인 설명서에 대한 링크가 있으며, 고객이 해당 기본 설정을 변경할 수 있는 방법을 제공해야 합니다.  이 체크 인은 다음을 추가합니다.
 
 
     - 새로 설치 EULA 페이지에 데이터 공유 및 개인 정보 알림.

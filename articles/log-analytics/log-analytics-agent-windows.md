@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2017
+ms.date: 02/22/2018
 ms.author: magoedte
-ms.openlocfilehash: 87513ef82b5f754669a3a21dd736ecab6fb26fba
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 3bb023cfd94c7b87550d692101d30f922de80bf9
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Azure에서 Log Analytics 서비스에 Windows 컴퓨터 연결
 
@@ -26,28 +26,28 @@ Log Analytics를 사용하여 로컬 데이터 센터 또는 기타 클라우드
 
 모니터링된 Windows 컴퓨터에서 에이전트는 Microsoft Monitoring Agent 서비스로 나열됩니다. Microsoft Monitoring Agent 서비스는 로그 파일과 Windows 이벤트 로그의 이벤트, 성능 데이터 및 기타 원격 분석을 수집합니다. 에이전트가 보고 대상인 Log Analytics 서비스와 통신할 수 없어도 에이전트는 모니터링된 컴퓨터의 디스크에서 수집된 데이터를 계속 실행하고 큐에 넣습니다. 연결이 복원되면 Microsoft Monitoring Agent 서비스는 수집된 데이터를 서비스에 보냅니다.
 
-에이전트는 다음 방법 중 하나를 사용하여 설치할 수 있습니다. 대부분의 설치에서는 이러한 방법의 조합을 사용하여 적절하게 다양한 컴퓨터 집합을 설치합니다.
+에이전트는 다음 방법 중 하나를 사용하여 설치할 수 있습니다. 대부분의 설치에서는 이러한 방법의 조합을 사용하여 적절하게 다양한 컴퓨터 집합을 설치합니다.  각 방법에 대한 자세한 내용은 문서의 뒷부분에 제공됩니다.
 
 * 수동 설치. 설치 프로그램은 설치 마법사를 사용하여 컴퓨터에서 실행하거나, 명령줄에서 실행하거나, 기존 소프트웨어 배포 도구를 사용하여 배포할 수 있습니다.
 * Azure Automation DSC(Desired State Configuration). 환경에 이미 배포된 Windows 컴퓨터용 스크립트를 사용하여 Azure Automation에서 DSC 사용.  
 * PowerShell 스크립트.
 * Azure Stack에서 온-프레미스로 Windows를 실행하는 가상 머신용 Resource Manager 템플릿.  
 
-Windows 에이전트를 배포하기 위한 네트워크 및 시스템 요구 사항을 이해하려면 [Azure Log Analytics를 사용하여 환경에서 데이터 수집](log-analytics-concept-hybrid.md#prerequisites)을 검토하세요.
+Windows 에이전트를 배포하기 위한 네트워크 및 시스템 요구 사항을 이해하려면 [Windows 컴퓨터에 대한 필수 구성 요소](log-analytics-concept-hybrid.md#prerequisites)를 검토하세요.
 
 ## <a name="obtain-workspace-id-and-key"></a>작업 영역 ID 및 키 가져오기
-Windows용 Microsoft Monitoring Agent를 설치하기 전에 Log Analytics 작업 영역에 대한 작업 영역 ID 및 키가 필요합니다.  이 정보는 에이전트를 적절히 구성하고 Log Analytics와 성공적으로 통신할 수 있는지 확인하기 위해 각 설치 방법에서 설치하는 동안 필요합니다.  
+Windows용 Microsoft Monitoring Agent를 설치하기 전에 Log Analytics 작업 영역에 대한 작업 영역 ID 및 키가 필요합니다.  이 정보는 에이전트를 적절히 구성하고 Azure 상용 및 미국 정부 클라우드에서 Log Analytics와 성공적으로 통신할 수 있는지 확인하기 위해 각 설치 방법에서 설치하는 동안 필요합니다.  
 
 1. Azure Portal에서 **모든 서비스**를 클릭합니다. 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Log Analytics**를 선택합니다.
 2. Log Analytics 작업 영역 목록에서 에이전트가 보고할 작업 영역을 선택합니다.
 3. **고급 설정**을 선택합니다.<br><br> ![Log Analytics 고급 설정](media/log-analytics-quick-collect-azurevm/log-analytics-advanced-settings-01.png)<br><br>  
 4. **연결된 원본**을 선택한 다음 **Windows 서버**를 선택합니다.   
-5. **작업 영역 ID** 및 **기본 키**의 오른쪽에 값이 있습니다. 두 항목을 복사하여 선호하는 편집기에 붙여넣습니다.   
+5. **작업 영역 ID** 및 **기본 키**를 복사한 후 즐겨찾는 편집기에 붙여넣습니다.    
    
-## <a name="install-the-agent-using-setup"></a>설치 프로그램을 사용하여 에이전트 설치
-다음 단계는 컴퓨터에서 Microsoft Monitoring Agent용 설치를 사용하여 Azure 및 Azure Government 클라우드에서 Log Analytics용 에이전트를 설치 및 구성합니다.  에이전트용 설치 프로그램은 다운로드된 파일 내에 포함되며 순서대로 추출해야 합니다. 
+## <a name="install-the-agent-using-setup-wizard"></a>설치 마법사를 사용하여 에이전트 설치
+다음 단계는 컴퓨터에서 Microsoft Monitoring Agent용 설치 마법사를 사용하여 Azure 및 Azure Government 클라우드에서 Log Analytics용 에이전트를 설치 및 구성합니다.  
 
-1. **Windows 서버** 페이지에서 적절한 **Windows 에이전트 다운로드** 버전을 선택하여 Windows 운영 체제의 프로세서 아키텍처에 따라 다운로드합니다.
+1. Log Analyics 작업 영역에서 이전에 탐색한 **Windows 서버** 페이지로부터 적절한 **Windows 에이전트 다운로드** 버전을 선택하여 Windows 운영 체제의 프로세서 아키텍처에 따라 다운로드합니다.   
 2. 설치를 실행하여 컴퓨터에 에이전트를 설치합니다.
 2. **Welcome** 페이지에서 **다음**을 클릭합니다.
 3. **사용 조건** 페이지에서 라이선스를 읽고 **동의함**을 클릭합니다.
@@ -63,7 +63,7 @@ Windows용 Microsoft Monitoring Agent를 설치하기 전에 Log Analytics 작�
 완료되면 **제어판**에 **Microsoft Monitoring Agent**가 나타납니다. Log Analytics에 대한 보고를 확인하려면 [Log Analytics에 대한 에이전트 연결 확인](#verify-agent-connectivity-to-log-analytics)을 검토하세요. 
 
 ## <a name="install-the-agent-using-the-command-line"></a>명령줄을 사용하여 에이전트 설치
-다운로드한 에이전트용 파일은 IExpress로 만든 자체 포함 설치 패키지입니다.  에이전트용 설치 프로그램과 지원 파일이 패키지에 포함되어 있으며 다음 예제에 나온 대로 명령줄을 사용하여 제대로 설치하려면 이러한 프로그램과 파일을 추출해야 합니다.  이 방법은 Azure 상용 및 미국 정부 클라우드에 보고하기 위한 에이전트 구성을 지원합니다.  
+다운로드한 에이전트용 파일은 IExpress로 만든 자체 포함 설치 패키지입니다.  에이전트용 설치 프로그램과 지원 파일이 패키지에 포함되어 있으며 다음 예제에 나온 대로 명령줄을 사용하여 제대로 설치하려면 이러한 프로그램과 파일을 추출해야 합니다.    
 
 >[!NOTE]
 >에이전트를 업그레이드하려는 경우 Log Analytics 스크립팅 API를 사용해야 합니다. 자세한 내용은 [Windows 및 Linux용 Log Analytics 에이전트 관리 및 유지 관리](log-analytics-agent-manage.md) 항목을 참조하세요.
@@ -84,13 +84,13 @@ Windows용 Microsoft Monitoring Agent를 설치하기 전에 Log Analytics 작�
 2. 에이전트를 자동으로 설치하고 Azure 상용 클라우드에 보고하도록 구성하려면 설치 프로그램 파일을 추출한 폴더에서 다음을 입력합니다. 
    
      ```dos
-    setup.exe /qn ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=0 OPINSIGHTS_WORKSPACE_ID=<your workspace id> OPINSIGHTS_WORKSPACE_KEY=<your workspace key> AcceptEndUserLicenseAgreement=1
+    setup.exe /qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=0 OPINSIGHTS_WORKSPACE_ID=<your workspace id> OPINSIGHTS_WORKSPACE_KEY=<your workspace key> AcceptEndUserLicenseAgreement=1
     ```
 
    또는 Azure 미국 정부 클라우드에 보고하도록 에이전트를 구성하려면 다음을 입력합니다. 
 
      ```dos
-    setup.exe /qn ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=1 OPINSIGHTS_WORKSPACE_ID=<your workspace id> OPINSIGHTS_WORKSPACE_KEY=<your workspace key> AcceptEndUserLicenseAgreement=1
+    setup.exe /qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=1 OPINSIGHTS_WORKSPACE_ID=<your workspace id> OPINSIGHTS_WORKSPACE_KEY=<your workspace key> AcceptEndUserLicenseAgreement=1
     ```
 
 ## <a name="install-the-agent-using-dsc-in-azure-automation"></a>Azure Automation에서 DSC를 사용하여 에이전트 설치
@@ -122,6 +122,7 @@ Windows용 Microsoft Monitoring Agent를 설치하기 전에 Log Analytics 작�
         $OPSINSIGHTS_WS_KEY = Get-AutomationVariable -Name "OPSINSIGHTS_WS_KEY"
 
         Import-DscResource -ModuleName xPSDesiredStateConfiguration
+        Import-DscResource –ModuleName PSDesiredStateConfiguration
 
         Node OMSnode {
             Service OIService
@@ -141,7 +142,7 @@ Windows용 Microsoft Monitoring Agent를 설치하기 전에 Log Analytics 작�
                 Path  = $OIPackageLocalPath
                 Name = "Microsoft Monitoring Agent"
                 ProductId = "8A7F2C51-4C7D-4BFD-9014-91D11F24AAE2"
-                Arguments = '/C:Deploy"setup.exe /qn ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_ID=' + $OPSINSIGHTS_WS_ID + ' OPINSIGHTS_WORKSPACE_KEY=' + $OPSINSIGHTS_WS_KEY + ' AcceptEndUserLicenseAgreement=1"'
+                Arguments = '/C:"setup.exe /qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_ID=' + $OPSINSIGHTS_WS_ID + ' OPINSIGHTS_WORKSPACE_KEY=' + $OPSINSIGHTS_WS_KEY + ' AcceptEndUserLicenseAgreement=1"'
                 DependsOn = "[xRemoteFile]OIPackage"
             }
         }

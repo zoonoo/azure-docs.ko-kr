@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 02/12/2018
+ms.date: 02/26/2018
 ms.author: carlrab
-ms.openlocfilehash: c0dc3181d3cd5c642dfca1c0f6031b83726478c0
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: b36af32d900f9426424dd08c43946e7dcb5b39b9
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="what-are-azure-sql-database-service-tiers"></a>Azure SQL Database 서비스 계층이란?
 
@@ -35,8 +35,8 @@ ms.lasthandoff: 02/14/2018
 |작동 시간 SLA|99.99%|99.99%|99.99%|미리 보기에 있는 동안 해당 없음|
 |Backup 보존|7 일|35일|35일|
 |CPU|낮음|낮음, 보통, 높음|보통, 높음|
-|IO 처리량|낮음  | 중간 | 표준보다 높음|
-|IO 대기 시간|프리미엄보다 높음|프리미엄보다 높음|기본 및 표준보다 낮음|
+|IO 처리량(근사치) |DTU당 2.5 IOPS  | DTU당 2.5 IOPS | DTU당 48 IOPS|
+|IO 대기 시간(근사치)|5ms(읽기), 10ms(쓰기)|5ms(읽기), 10ms(쓰기)|2ms(읽기/쓰기)|
 |Columnstore 인덱싱 및 메모리 내 OLTP|해당 없음|해당 없음|지원됨|
 |||||
 

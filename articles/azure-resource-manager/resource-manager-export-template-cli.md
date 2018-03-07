@@ -11,13 +11,13 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/01/2017
+ms.date: 02/23/2018
 ms.author: tomfitz
-ms.openlocfilehash: e93fe5af62893d361b6cc4adac42a7d172235978
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 15e7e811c7cb1777e34f1bfb629fa24a60f9e5cb
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="export-azure-resource-manager-templates-with-azure-cli"></a>Azure CLI를 사용하여 Azure Resource Manager 템플릿 내보내기
 
@@ -25,10 +25,10 @@ Resource Manager를 사용하면 구독의 기존 리소스에서 Resource Manag
 
 템플릿을 내보내려면 다음과 같은 두 가지 방법이 있습니다.
 
-* 배포에 사용된 실제 템플릿을 내보낼 수 있습니다. 내보낸 템플릿은 원본 템플릿에 나타난 대로 모든 매개 변수 및 변수를 포함합니다. 이 방법은 템플릿을 검색해야 할 때 유용합니다.
-* 리소스 그룹의 현재 상태를 나타내는 템플릿을 내보낼 수 있습니다. 내보낸 템플릿은 배포에 사용된 템플릿에 기초하지 않습니다. 대신 리소스 그룹의 스냅숏인 템플릿을 만듭니다. 내보낸 템플릿에는 하드 코드된 값이 많으며 일반적으로 정의된 경우와 같이 매개 변수가 많이 포함되지 않습니다. 이 방법은 리소스 그룹을 수정한 경우에 유용합니다. 이제 리소스 그룹을 템플릿으로 캡처해야 합니다.
+* **배포에 사용된 실제 템플릿**을 내보낼 수 있습니다. 내보낸 템플릿은 원본 템플릿에 나타난 대로 모든 매개 변수 및 변수를 포함합니다. 이 방법은 템플릿을 검색해야 할 때 유용합니다.
+* **리소스 그룹의 현재 상태를 나타내는 생성된 템플릿을 내보낼** 수 있습니다. 내보낸 템플릿은 배포에 사용된 템플릿에 기초하지 않습니다. 대신 리소스 그룹의 “스냅숏” 또는 “백업”인 템플릿을 만듭니다. 내보낸 템플릿에는 하드 코드된 값이 많으며 일반적으로 정의된 경우와 같이 매개 변수가 많이 포함되지 않습니다. 동일한 리소스 그룹에 리소스를 다시 배포하려면 이 옵션을 사용합니다. 다른 리소스 그룹에 이 템플릿을 사용하려면 크게 수정해야 할 수 있습니다.
 
-이 항목에서는 두 가지 방법을 모두 보여 줍니다.
+이 문서에서는 두 가지 방식을 모두 설명합니다.
 
 ## <a name="deploy-a-solution"></a>솔루션 배포
 
@@ -55,13 +55,13 @@ az group deployment export --name NewStorage --resource-group ExampleGroup
 
 ## <a name="export-resource-group-as-template"></a>리소스 그룹을 템플릿으로 내보내기
 
-배포 기록에서 템플릿을 검색하지 않고 [az group export](/cli/azure/group#az_group_export) 명령을 사용하여 리소스 그룹의 현재 상태를 나타내는 템플릿을 검색할 수 있습니다. 이 명령은 리소스 그룹을 많이 변경했으며 모든 변경 내용을 나타내는 기존 템플릿이 없는 경우에 사용합니다.
+배포 기록에서 템플릿을 검색하지 않고 [az group export](/cli/azure/group#az_group_export) 명령을 사용하여 리소스 그룹의 현재 상태를 나타내는 템플릿을 검색할 수 있습니다. 이 명령은 리소스 그룹을 많이 변경했으며 모든 변경 내용을 나타내는 기존 템플릿이 없는 경우에 사용합니다. 동일한 리소스 그룹에 다시 배포하는 데 사용할 수 있는 리소스 그룹의 스냅숏으로 사용됩니다. 다른 솔루션에 내보낸 템플릿을 사용하려면 대폭 수정해야 합니다.
 
 ```azurecli
 az group export --name ExampleGroup
 ```
 
-템플릿을 반환합니다. JSON을 복사하고 파일로 저장합니다. GitHub의 템플릿과는 다른지 확인합니다. 매개 변수는 다르고 변수는 없습니다. 저장소 SKU 및 위치는 값으로 하드 코드됩니다. 다음 예제에서는 내보낸 템플릿을 보여 주지만 템플릿은 약간 다른 매개 변수 이름을 갖습니다.
+템플릿을 반환합니다. JSON을 복사하고 파일로 저장합니다. GitHub의 템플릿과 다른지 확인합니다. 템플릿에 매개 변수는 다르고 변수는 없습니다. 저장소 SKU 및 위치는 값으로 하드 코드됩니다. 다음 예제에서는 내보낸 템플릿을 보여 주지만 템플릿은 약간 다른 매개 변수 이름을 갖습니다.
 
 ```json
 {

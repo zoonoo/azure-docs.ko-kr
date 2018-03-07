@@ -14,11 +14,11 @@ ms.devlang: cpp
 ms.topic: article
 ms.date: 12/25/2016
 ms.author: aasthan
-ms.openlocfilehash: da969e3f619c9703ea0c02a148f11a9509d6e988
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: b1dc49a9da42aa3630618c8099a7994950b313b4
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-cosmos-db-c-console-application-tutorial-for-the-sql-api"></a>Azure Cosmos DB: SQL API에 대한 C++ 콘솔 응용 프로그램 자습서
 > [!div class="op_single_selector"]
@@ -52,7 +52,7 @@ C++용 Azure Cosmos DB SQL API 인증 SDK에 대한 C++ 자습서를 시작합�
 이제 시작하겠습니다.
 
 ## <a name="prerequisites-for-the-c-tutorial"></a>C++ 자습서의 필수 구성 요소
-다음 항목이 있는지 확인합니다.
+다음 리소스가 있는지 확인합니다.
 
 * 활성 Azure 계정. Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다. 
 
@@ -74,14 +74,14 @@ Azure Cosmos DB 계정을 만들어 보겠습니다. 계정이 이미 있는 경
 4. 프로젝트를 만들면 **솔루션 탐색기**에서 **hellodocumentdb** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 클릭하여 NuGet 패키지 관리자를 엽니다. 
    
     ![프로젝트 메뉴에서 NuGet 패키지 관리를 보여 주는 스크린샷](media/sql-api-cpp-get-started/nuget.png)
-5. **NuGet: hellodocumentdb** 탭에서 **찾아보기**를 클릭한 다음 *documentdbcpp*를 검색합니다. 결과에서 다음 스크린샷에 표시된 것처럼 DocumentDbCPP를 선택합니다. 이 패키지에서는 DocumentDbCPP에 대한 종속성이 있는 C++ REST SDK에 대한 참조를 설치합니다.  
+5. **NuGet: hellodocumentdb** 탭에서 **찾아보기**를 클릭한 다음 *documentdbcpp*를 검색합니다. 결과에서 다음 스크린샷에 표시된 것처럼 DocumentDbCPP를 선택합니다.   
    
     ![DocumentDbCpp 패키지를 강조 표시하는 스크린샷](media/sql-api-cpp-get-started/cpp.png)
    
-    패키지가 프로젝트에 추가되면 코드 작성을 시작하는 설정이 완료됩니다.   
+    이 패키지에서는 DocumentDbCPP에 대한 종속성이 있는 C++ REST SDK에 대한 참조를 설치합니다. 패키지가 프로젝트에 추가되면 코드 작성을 시작하는 설정이 완료됩니다.   
 
 ## <a id="Config"></a>3단계: Azure Cosmos DB 데이터베이스에 대한 Azure Portal의 연결 세부 정보 복사
-[Azure Portal](https://portal.azure.com)을 불러와서, 만든 Azure Cosmos DB 데이터베이스 계정에 트래버스합니다. 다음 단계에서는 C++ 코드 조각에서 연결을 설정하기 위해 Azure Portal의 URI 및 기본 키가 필요합니다. 
+[Azure Portal](https://portal.azure.com)을 불러와서, 만든 Azure Cosmos DB 계정으로 이동합니다. 다음 단계에서는 C++ 코드 조각에서 연결을 설정하기 위해 Azure Portal의 URI 및 기본 키가 필요합니다. 
 
 ![Azure Portal에서 Azure Cosmos DB URI 및 키](media/sql-api-cpp-get-started/nosql-tutorial-keys.png)
 
@@ -134,7 +134,7 @@ Azure Cosmos DB 계정을 만들어 보겠습니다. 계정이 이미 있는 경
       wcout << ex.message();
     }
 
-요약하자면 이 코드는 Azure Portal의 문서 탐색기에서 쿼리할 수 있는 Azure Cosmos DB 데이터베이스, 컬렉션 및 문서를 만듭니다. 
+요약하자면 이 코드는 Azure Portal의 데이터 탐색기에서 쿼리할 수 있는 Azure Cosmos DB 데이터베이스, 컬렉션 및 문서를 만듭니다. 
 
 ![C++ 자습서 - 계정, 데이터베이스, 컬렉션 및 문서 간의 계층 관계를 보여 주는 다이어그램](media/sql-api-cpp-get-started/docs.png)
 
@@ -271,7 +271,7 @@ deletedocument 함수 뒤에 다음 코드 조각(함수 정리)을 복사하고
 
 이제 Visual Studio에서 F5 키를 누르거나 터미널 창에서 응용 프로그램을 찾고 실행 파일을 실행하여 코드를 빌드하고 실행할 수 있게 됩니다. 
 
-시작한 앱의 출력이 표시됩니다. 축력은 다음 스크린샷과 일치해야 합니다.
+시작한 앱의 출력이 표시됩니다. 출력은 다음 스크린샷과 일치해야 합니다.
 
 ![Azure Cosmos DB C++ 응용 프로그램 출력](media/sql-api-cpp-get-started/console.png)
 
@@ -285,7 +285,7 @@ deletedocument 함수 뒤에 다음 코드 조각(함수 정리)을 복사하고
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure Cosmos DB 계정 모니터링](monitor-accounts.md) 방법에 대해 알아보세요.
-* [쿼리 실습](https://www.documentdb.com/sql/demo)의 샘플 데이터 집합에 대해 쿼리를 실행합니다.
+* [쿼리 실습](https://www.documentdb.com/sql/demo)에서 샘플 데이터 집합에 대해 쿼리를 실행합니다.
 * [Azure Cosmos DB 설명서](https://azure.microsoft.com/documentation/services/cosmos-db/) 페이지의 개발 섹션에서 프로그래밍 모델에 대해 자세히 알아봅니다.
 
 [create-account]: create-sql-api-dotnet.md#create-account

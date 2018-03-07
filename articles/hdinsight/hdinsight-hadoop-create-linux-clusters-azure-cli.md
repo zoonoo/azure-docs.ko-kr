@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/01/2017
+ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: 0ae573922938b775900b839a24a917e4211fbadc
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 983e167d248d711efde9c64a70f59d5a9e81769a
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-cli"></a>Azure CLI를 사용하여 HDInsight 클러스터 만들기
 
@@ -29,19 +29,20 @@ ms.lasthandoff: 12/11/2017
 이 문서의 단계는 Azure CLI 1.0을 사용하여 HDInsight 3.5 클러스터 만들기 과정을 연습합니다.
 
 > [!IMPORTANT]
-> Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
-
+> 이 항목에서는 Azure CLI 1.0을 사용하여 HDInsight 클러스터를 만드는 방법을 설명합니다. 이 버전의 CLI는 더 이상 사용되지 않으며, Azure CLI 2.0에는 HDInsight 클러스터를 만드는 기능 지원이 추가되지 않았습니다.
+>
+> Azure PowerShell을 사용하여 HDInsight 클러스터를 만들 수도 있습니다. 자세한 내용은 [Azure PowerShell을 사용하여 HDInsight 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-azure-powershell.md) 문서를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-* **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
+* **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
 
 * **Azure CLI**. 이 문서의 단계는 Azure CLI 버전 0.10.14에서 마지막으로 테스트되었습니다.
 
     > [!IMPORTANT]
-    > 이 문서의 단계는 Azure CLI 2.0에서 작동하지 않습니다. Azure CLI 2.0은 HDInsight 클러스터 만들기를 지원하지 않습니다.
+    > Azure CLI 1.0은 더 이상 사용되지 않으며, Azure CLI 2.0에는 HDInsight 클러스터를 만드는 기능 지원이 추가되지 않았습니다.
 
 ## <a name="log-in-to-your-azure-subscription"></a>Azure 구독에 로그인합니다.
 
@@ -133,7 +134,7 @@ Azure CLI를 사용하여 HDInsight 클러스터를 정상적으로 만들었으
 
 ### <a name="hadoop-clusters"></a>Hadoop 클러스터
 
-* [HDInsight에서 Hive 사용](hadoop/hdinsight-use-hive.md)
+* [HDInsight에서 하이브 사용](hadoop/hdinsight-use-hive.md)
 * [HDInsight에서 Pig 사용](hadoop/hdinsight-use-pig.md)
 * [HDInsight와 함께 MapReduce 사용](hadoop/hdinsight-use-mapreduce.md)
 

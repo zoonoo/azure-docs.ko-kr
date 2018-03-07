@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: glenga
-ms.openlocfilehash: 8a098d2ecc004b1593310579c47c53778858e799
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 9e9aa8a36d363ce28d61c5ba3cfe758520a626cf
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure Functions C# 개발자 참조
 
@@ -84,6 +84,31 @@ public static class SimpleExampleWithOutput
 }
 ```
 
+### <a name="order-of-parameters"></a>매개 변수의 순서
+
+함수 시그니처에서 매개 변수의 순서는 중요하지 않습니다. 예를 들어, 다른 바인딩 전후에 트리거 매개 변수를 추가하고, 트리거 또는 바인딩 매개 변수 전후에 로거 매개 변수를 추가할 수 있습니다.
+
+### <a name="binding-expressions"></a>바인딩 식
+
+특성 생성자 매개 변수 및 함수 매개 변수에서 바인딩 식을 사용할 수 있습니다. 예를 들어, 다음 코드는 앱 설정에서 모니터링할 큐의 이름을 가져오고, `insertionTime` 매개 변수에서 큐 메시지 작성 시간을 가져옵니다.
+
+```csharp
+public static class BindingExpressionsExample
+{
+    [FunctionName("LogQueueMessage")]
+    public static void Run(
+        [QueueTrigger("%queueappsetting%")] string myQueueItem,
+        DateTimeOffset insertionTime,
+        TraceWriter log)
+    {
+        log.Info($"Message content: {myQueueItem}");
+        log.Info($"Created at: {insertionTime}");
+    }
+}
+```
+
+자세한 내용은 [트리거 및 바인딩](functions-triggers-bindings.md#binding-expressions-and-patterns)에서 **바인딩 식 및 패턴**을 참조하세요.
+
 ### <a name="conversion-to-functionjson"></a>Function.json으로 변환
 
 빌드 프로세스는 build 폴더의 function 폴더에 *function.json* 파일을 만듭니다. 앞에서 설명한 대로 이 파일은 직접 편집할 수 없습니다. 이 파일을 편집하여 바인딩 구성을 변경하거나 함수를 사용하지 않도록 설정할 수 없습니다. 
@@ -119,22 +144,7 @@ public static class SimpleExampleWithOutput
 
 ## <a name="binding-to-method-return-value"></a>메서드 반환 값에 바인딩
 
-다음 예제와 같이 출력 바인딩에 메서드 반환 값을 사용할 수 있습니다.
-
-```csharp
-public static class ReturnValueOutputBinding
-{
-    [FunctionName("CopyQueueMessageUsingReturnValue")]
-    [return: Queue("myqueue-items-destination")]
-    public static string Run(
-        [QueueTrigger("myqueue-items-source-2")] string myQueueItem,
-        TraceWriter log)
-    {
-        log.Info($"C# function processed: {myQueueItem}");
-        return myQueueItem;
-    }
-}
-```
+메서드 반환 값에 특성을 적용하여 출력 바인딩에 대한 메서드 반환 값을 사용할 수 있습니다. 예제를 보려면 [트리거 및 바인딩](functions-triggers-bindings.md#using-the-function-return-value)을 참조하세요.
 
 ## <a name="writing-multiple-output-values"></a>여러 출력 값 쓰기
 
@@ -202,18 +212,28 @@ public static class AsyncExample
 
 ## <a name="cancellation-tokens"></a>취소 토큰
 
-일부 작업에는 정상 종료가 필요합니다. 충돌을 처리할 수 있는 코드를 작성하는 데 가장 좋은 방법이지만 종료 요청을 처리하려는 경우 [CancellationToken](https://msdn.microsoft.com/library/system.threading.cancellationtoken.aspx) 형식의 인수를 정의합니다.  `CancellationToken`은 호스트 종료가 트리거되는 신호에 제공됩니다.
+함수는 함수가 종료될 때 운영 체제가 코드에 알릴 수 있게 해주는 [CancellationToken](https://msdn.microsoft.com/library/system.threading.cancellationtoken.aspx) 매개 변수를 사용할 수 있습니다. 이 알림을 통해 함수가 예기치 않게 종료되어 데이터가 일관되지 않은 상태가 되는 것을 방지할 수 있습니다.
+
+다음 예제에서는 임박한 함수 종료를 확인하는 방법을 보여 줍니다.
 
 ```csharp
 public static class CancellationTokenExample
 {
-    [FunctionName("BlobCopy")]
-    public static async Task RunAsync(
-        [BlobTrigger("sample-images/{blobName}")] Stream blobInput,
-        [Blob("sample-images-copies/{blobName}", FileAccess.Write)] Stream blobOutput,
+    public static void Run(
+        [QueueTrigger("inputqueue")] string inputText,
+        TextWriter logger,
         CancellationToken token)
     {
-        await blobInput.CopyToAsync(blobOutput, 4096, token);
+        for (int i = 0; i < 100; i++)
+        {
+            if (token.IsCancellationRequested)
+            {
+                logger.WriteLine("Function was cancelled at iteration {0}", i);
+                break;
+            }
+            Thread.Sleep(5000);
+            logger.WriteLine("Normal processing for queue message={0}", inputText);
+        }
     }
 }
 ```

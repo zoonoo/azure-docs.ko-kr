@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: a77e214c1138ce936b2ec6c521950704e5beb3ff
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 803d9e9ea7411c6de4dd15670f495fa8e169a989
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="use-draft-with-azure-container-service-aks"></a>Azure Container Service(AKS)에서 Draft 사용
 
@@ -27,28 +27,7 @@ Draft는 Kubernetes 클러스터에서 코드를 패키지화하고 실행하는
 
 ACR(Azure Container Registry)에서 개인 Docker 레지스트리도 필요합니다. ACR 인스턴스를 배포하는 지침은 [Azure Container Registry 빠른 시작][acr-quickstart]을 참조하세요.
 
-## <a name="install-helm"></a>Helm 설치
-
-Helm CLI는 개발 시스템에서 실행되는 클라이언트로, Helm 차트가 있는 응용 프로그램을 시작, 중지 및 관리할 수 있습니다.
-
-Mac에서 Helm CLI를 설치하려면 `brew`를 사용합니다. 추가 설치 옵션은 [Helm 설치][install-helm]를 참조하세요.
-
-```console
-brew install kubernetes-helm
-```
-
-출력
-
-```
-==> Downloading https://homebrew.bintray.com/bottles/kubernetes-helm-2.6.2.sierra.bottle.1.tar.gz
-######################################################################## 100.0%
-==> Pouring kubernetes-helm-2.6.2.sierra.bottle.1.tar.gz
-==> Caveats
-Bash completion has been installed to:
-  /usr/local/etc/bash_completion.d
-==> Summary
-🍺  /usr/local/Cellar/kubernetes-helm/2.6.2: 50 files, 132.4MB
-```
+또한 Helm을 AKS 클러스터에 설치해야 합니다. Helm을 설치하는 방법에 대한 자세한 내용은 [AKS(Azure Container Service)에서 AKS 사용][aks-helm]을 참조하세요.
 
 ## <a name="install-draft"></a>Draft 설치
 
@@ -307,10 +286,10 @@ Draft 사용에 대한 자세한 내용은 Github의 Draft 문서를 참조하�
 <!-- LINKS - external -->
 [draft-documentation]: https://github.com/Azure/draft/tree/master/docs
 [install-draft]: https://github.com/Azure/draft/blob/master/docs/install.md
-[install-helm]: https://github.com/kubernetes/helm/blob/master/docs/install.md
-[kubernetes-ingress]: https://kubernetes.io/docs/concepts/services-networking/ingress/
+[kubernetes-ingress]: ./ingress.md
 [kubernetes-service-loadbalancer]: https://kubernetes.io/docs/concepts/services-networking/service/#type-loadbalancer
 
 <!-- LINKS - internal -->
 [acr-quickstart]: ../container-registry/container-registry-get-started-azure-cli.md
+[aks-helm]: ./kubernetes-helm.md
 [aks-quickstart]: ./kubernetes-walkthrough.md

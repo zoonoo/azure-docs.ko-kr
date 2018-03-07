@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/08/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 5657df412b1f2b7d4d43d7551289620ae4d77de2
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: ecf77a614922ef58cdfb2b2c8174f66e01ea9b46
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>하위 수준 장치에 조인된 하이브리드 Azure Active Directory 문제 해결 
 
@@ -55,7 +55,6 @@ Windows 10 또는 Windows Server 2016의 경우 [Windows 10 및 Windows Server 2
 
 - 운영 체제의 다시 설치나 수동 등록 취소 및 다시 등록이 수행되면 Azure AD에서 새 등록이 생성될 수 있으며 Azure Portal의 사용자 정보 탭에 여러 항목이 생성됩니다. 
 
-
 ## <a name="step-1-retrieve-the-registration-status"></a>1단계: 등록 상태 검색 
 
 **장치 등록 상태를 확인하려면**  
@@ -87,13 +86,14 @@ Windows 10 또는 Windows Server 2016의 경우 [Windows 10 및 Windows Server 2
     
     1. 로그인한 사용자가 도메인 사용자(예: 로컬 사용자)가 아닌 경우 도메인 사용자에 대해 하위 수준 장치의 하이브리드 Azure AD 조인만 지원됩니다.
     
-    2. 어떤 이유로든 Autoworkplace.exe가 Azure AD 또는 AD FS를 사용하여 자동으로 인증할 수 없는 경우 몇 가지 가능한 원인은 Azure AD URL에 대한 아웃바운드 네트워크 연결 문제(필수 구성 요소 확인) 또는 MFA가 사용자에 대해 활성화/구성되었는지 여부일 수 있습니다. 그러나 WIAORMUTLIAUTHN이 페더레이션 서버에서 구성되지 않았습니다(구성 단계 확인). 또 다른 가능성은 HRD(홈 영역 검색) 페이지가 자동으로 가져오는 Autoworkplace.exe를 방지하여 사용자 상호 작용에 대해 대기하고 있기 때문입니다. 
+    2. 어떤 이유로든 Autoworkplace.exe가 Azure AD 또는 AD FS를 사용하여 자동으로 인증할 수 없는 경우 몇 가지 가능한 원인은 Azure AD URL에 대한 아웃바운드 네트워크 연결 문제(필수 구성 요소 확인) 또는 MFA가 사용자에 대해 활성화/구성되었는지 여부일 수 있습니다. 그러나 WIAORMUTLIAUTHN이 페더레이션 서버에서 구성되지 않았습니다(구성 단계 확인). 또 다른 가능성은 HRD(홈 영역 검색) 페이지가 사용자 상호 작용을 기다리고 Autoworkplace.exe가 자동으로 토큰을 가져오지 못하게 하는 경우입니다.
     
     3. 조직에서 Azure AD 원활한 Single Sign-On을 사용하고 있는 경우 다음 URL은 장치의 IE 인트라넷 설정에 없습니다.
-    - https://autologon.microsoftazuread-sso.com
-    - https://aadg.windows.net.nsatc.net
     
-    그리고 "스크립트를 통해 상태 표시줄에 업데이트 허용" 설정은 인트라넷 영역에 대해 활성화되어야 합니다.
+       - https://autologon.microsoftazuread-sso.com
+       - https://aadg.windows.net.nsatc.net
+    
+       그리고 "스크립트를 통해 상태 표시줄에 업데이트 허용" 설정은 인트라넷 영역에 대해 활성화되어야 합니다.
 
 - 할당량에 도달함
 

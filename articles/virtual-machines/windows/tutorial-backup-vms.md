@@ -16,13 +16,13 @@ ms.workload: infrastructure
 ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 20760650b093216a2929de580f5971c45e0534a8
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 9638c7148d4347bb9cbc9e48022037ee6cb983d7
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/23/2018
 ---
-# <a name="back-up-windows-virtual-machines-in-azure"></a>Azure에서 Windows 가상 컴퓨터 백업
+# <a name="back-up-windows-virtual-machines-in-azure"></a>Azure에서 Windows 가상 머신 백업
 
 정기적으로 백업을 수행하여 데이터를 보호할 수 있습니다. Azure Backup은 지역 중복 복구 자격 증명 모음에 저장되는 복구 지점을 만듭니다. 복구 지점에서 복원하는 경우 전체 VM 또는 특정 파일만 복원할 수 있습니다. 이 문서에서는 Windows Server 및 IIS를 실행하는 VM으로 단일 파일을 복원하는 방법에 대해 설명합니다. 사용할 VM이 아직 없는 경우 [Windows 빠른 시작](quick-create-portal.md)을 사용하여 만들 수 있습니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -38,7 +38,7 @@ ms.lasthandoff: 12/13/2017
 
 Azure Backup 서비스에서 백업 작업을 시작하면 백업 확장을 트리거하여 특정 시점 스냅숏을 만듭니다. Azure Backup 서비스는 _VMSnapshot_ 확장을 사용합니다. VM을 실행하는 경우 확장은 첫 번째 VM 백업 중에 설치됩니다. VM이 실행되고 있지 않을 경우 Backup 서비스가 기본 저장소의 스냅숏을 생성합니다(VM이 중지되었을 때는 응용 프로그램 쓰기가 수행되지 않음).
 
-Windows VM의 스냅숏을 생성할 때 Backup 서비스는 가상 컴퓨터의 디스크에 대한 일관된 스냅숏을 가져오도록 VSS(볼륨 섀도 복사본 서비스)와 조정됩니다. Azure Backup 서비스가 스냅숏을 생성하면 데이터가 자격 증명 모음으로 전송됩니다. 효율성을 극대화하기 위해 이 서비스는 이전 백업 이후에 변경된 데이터 블록만 식별하여 전송합니다.
+Windows VM의 스냅숏을 생성할 때 Backup 서비스는 가상 머신의 디스크에 대한 일관된 스냅숏을 가져오도록 VSS(볼륨 섀도 복사본 서비스)와 조정됩니다. Azure Backup 서비스가 스냅숏을 생성하면 데이터가 자격 증명 모음으로 전송됩니다. 효율성을 극대화하기 위해 이 서비스는 이전 백업 이후에 변경된 데이터 블록만 식별하여 전송합니다.
 
 데이터 전송이 완료되면 스냅숏이 제거되고 복구 지점이 생성됩니다.
 
@@ -46,11 +46,11 @@ Windows VM의 스냅숏을 생성할 때 Backup 서비스는 가상 컴퓨터의
 ## <a name="create-a-backup"></a>백업 만들기
 간단한 예약된 매일 백업을 Recovery Services 자격 증명 모음에 만듭니다. 
 
-1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. 왼쪽 메뉴에서 **가상 컴퓨터**를 선택합니다. 
+1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
+2. 왼쪽 메뉴에서 **가상 머신**를 선택합니다. 
 3. 목록에서 백업할 VM을 선택합니다.
 4. VM 블레이드의 **설정** 섹션에서 **Backup**을 클릭합니다. **백업 사용** 블레이드가 열립니다.
-5. **Recovery Services 자격 증명 모음**에서 **새로 만들기**를 클릭하고 새 자격 증명 모음의 이름을 제공합니다. 새 자격 증명 모음이 가상 컴퓨터와 동일한 리소스 그룹과 위치에 만들어집니다.
+5. **Recovery Services 자격 증명 모음**에서 **새로 만들기**를 클릭하고 새 자격 증명 모음의 이름을 제공합니다. 새 자격 증명 모음이 가상 머신과 동일한 리소스 그룹과 위치에 만들어집니다.
 6. **Backup 정책**을 클릭합니다. 이 예제에서는 기본값을 그대로 유지하고 **확인**을 클릭합니다.
 7. **Backup 사용** 블레이드에서 **Backup 사용**을 클릭합니다. 이렇게 하면 기본 일정에 따라 매일 백업이 만들어집니다.
 10. 초기 복구 지점을 만들려면 **Backup** 블레이드에서 **지금 Backup**을 클릭합니다.
@@ -101,10 +101,10 @@ Windows VM의 스냅숏을 생성할 때 Backup 서비스는 가상 컴퓨터의
 > * 매일 백업 예약
 > * 백업에서 파일 복원
 
-가상 컴퓨터 모니터링에 대해 알아보려면 다음 자습서로 진행합니다.
+가상 머신 모니터링에 대해 알아보려면 다음 자습서로 진행합니다.
 
 > [!div class="nextstepaction"]
-> [가상 컴퓨터 모니터링](tutorial-monitoring.md)
+> [가성 머신 제어](tutorial-govern-resources.md)
 
 
 

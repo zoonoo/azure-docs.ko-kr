@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2017
+ms.date: 02/23/2017
 ms.author: billmath
-ms.openlocfilehash: 2d172b22d00f21062237a1af1742bad6a03c864c
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 58ca992f9fcf9a03d917f0dc250a292c4d5f49e5
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory Seamless Single Sign-On: 빠른 시작
 
@@ -99,7 +99,7 @@ Azure AD Connect가 이미 설치되어 있는 경우 Azure AD Connect에서 **�
    - **값 이름**: Kerberos 티켓이 전달되는 Azure AD URL입니다.
    - **값**(데이터): **1**은 인트라넷 영역을 나타냅니다.
 
-   결과는 다음과 유사하게 표시됩니다.
+    결과는 다음과 유사하게 표시됩니다.
 
     값: https://autologon.microsoftazuread-sso.com
   
@@ -129,7 +129,7 @@ Mozilla Firefox는 Kerberos 인증을 자동으로 사용하지 않습니다. �
 1. Firefox를 실행하고 주소 표시줄에 `about:config`를 입력합니다. 표시되는 모든 알림을 해제합니다.
 2. **network.negotiate-auth.trusted-uris** 기본 설정을 검색합니다. 이 기본 설정은 Firefox의 신뢰할 수 있는 Kerberos 인증 사이트를 나열합니다.
 3. 마우스 오른쪽 단추로 클릭하고 **수정**을 선택합니다.
-4. 필드에서 https://autologon.microsoftazuread-sso.com, https://aadg.windows.net.nsatc.net을 입력합니다.
+4. 필드에 https://autologon.microsoftazuread-sso.com을 입력합니다.
 5. **확인**을 선택한 다음, 브라우저를 다시 엽니다.
 
 #### <a name="safari-mac-os"></a>Safari(Mac OS)
@@ -138,7 +138,7 @@ Mac OS를 실행하는 컴퓨터가 Azure AD에 가입되어 있는지 확인합
 
 #### <a name="google-chrome-all-platforms"></a>Google Chrome(모든 플랫폼)
 
-환경에서 [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) 또는 [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) 정책 설정을 재정의한 경우 Azure AD의 URL(https://autologon.microsoftazuread-sso.com 및 https://aadg.windows.net.nsatc.net)도 해당 정책 설정에 추가해야 합니다.
+환경에서 [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) 또는 [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) 정책 설정을 재정의한 경우 Azure AD의 URL(https://autologon.microsoftazuread-sso.com)도 해당 정책 설정에 추가해야 합니다.
 
 #### <a name="google-chrome-mac-os-only"></a>Google Chrome(Mac OS에만 해당)
 

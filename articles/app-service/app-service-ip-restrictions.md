@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/23/2017
 ms.author: byvinyal
-ms.openlocfilehash: 22e05af889b4e792dcc6f6fc438e8a58674b9f0e
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 551f34436dfeac14bb6e8676dd7c9b10d30a3af3
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-app-service-static-ip-restrictions"></a>Azure App Service 고정 IP 제한 #
 
@@ -26,7 +26,7 @@ IP 제한을 사용하여 앱 액세스가 허용되는 IP 주소 목록을 정�
 
 클라이언트에서 앱에 대한 요청이 생성되면 허용 목록에 대해 IP 주소가 평가됩니다. IP 주소가 목록에 없는 경우 앱은 [HTTP 403](https://en.wikipedia.org/wiki/HTTP_403) 상태 코드로 응답합니다.
 
-IP 제한은 앱이 런타임 시 사용하는 web.config에서 정의됩니다. 특정 상황에서 일부 모듈은 HTTP 파이프라인에서 IP 제한 논리 전에 실행될 수 있습니다. 이 경우 요청은 다른 HTTP 오류 코드로 실패합니다.
+IP 제한은 런타임 시 앱이 사용하는 web.config에 정의됩니다.(즉, 제한은 applicationHost.config 파일의 허용된 IP 주소 집합에 삽입됩니다. 또한 web.config 파일에서 허용된 IP 주소 집합을 추가하는 경우 우선 순위가 됩니다.) 특정 상황에서 일부 모듈은 HTTP 파이프라인에서 IP 제한 논리 전에 실행될 수 있습니다. 이 경우 요청은 다른 HTTP 오류 코드로 실패합니다.
 
 IP 제한은 앱에 할당된 것과 동일한 App Service 계획 인스턴스에서 평가됩니다.
 

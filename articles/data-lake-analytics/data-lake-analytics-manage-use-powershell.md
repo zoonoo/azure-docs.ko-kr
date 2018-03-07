@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/23/2017
 ms.author: mahi
-ms.openlocfilehash: 65bf5928428b21e98c893a9de8ca596329329411
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dd81e9d6c91387b3873593b84e952ca4f2546c57
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-powershell"></a>Azure PowerShell을 사용하여 Azure 데이터 레이크 분석 관리
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -99,13 +99,13 @@ New-AdlAnalyticsAccount -ResourceGroupName $rg -Name $adla -Location $location -
 Get-AdlAnalyticsAccount -Name $adla
 ```
 
-특정 Data Lake Analytics 계정의 존재 여부를 확인합니다. 이 cmdlet은 `True` 또는 `False`를 반환합니다.
+특정 Data Lake Analytics 계정의 존재 여부를 확인합니다. 이 cmdlet은 `$true` 또는 `$false`를 반환합니다.
 
 ```powershell
 Test-AdlAnalyticsAccount -Name $adla
 ```
 
-특정 Data Lake Store 계정이 있는지 확인합니다. 이 cmdlet은 `True` 또는 `False`를 반환합니다.
+특정 Data Lake Store 계정이 있는지 확인합니다. 이 cmdlet은 `$true` 또는 `$false`를 반환합니다.
 
 ```powershell
 Test-AdlStoreAccount -Name $adls
@@ -155,8 +155,6 @@ Set-AdlAnalyticsFirewallRule -Account $adla -Name $ruleName -StartIpAddress $sta
 Remove-AdlAnalyticsFirewallRule -Account $adla -Name $ruleName
 ```
 
-
-
 Azure IP 주소를 허용합니다.
 
 ```powershell
@@ -171,10 +169,10 @@ Set-AdlAnalyticsAccount -Name $adla -FirewallState Disabled
 ## <a name="managing-data-sources"></a>데이터 원본 관리
 Azure Data Lake Analytics는 현재 다음 데이터 원본을 지원합니다.
 
-* [Azure 데이터 레이크 저장소](../data-lake-store/data-lake-store-overview.md)
-* [Azure 저장소](../storage/common/storage-introduction.md)
+* [Azure Data Lake Storage](../data-lake-store/data-lake-store-overview.md)
+* [Azure Storage](../storage/common/storage-introduction.md)
 
-Analytics 계정을 만들 때 Data Lake Store 계정이 기본 데이터 원본이 되도록 지정해야 합니다. 기본 데이터 레이크 저장소 계정은 작업 메타데이터 및 작업 감사 로그를 저장하는 데 사용됩니다. Data Lake Analytics 계정을 만든 후 Data Lake Store 계정 및/또는 Azure 저장소 계정을 더 추가할 수 있습니다. 
+Analytics 계정을 만들 때 Data Lake Store 계정이 기본 데이터 원본이 되도록 지정해야 합니다. 기본 데이터 레이크 저장소 계정은 작업 메타데이터 및 작업 감사 로그를 저장하는 데 사용됩니다. Data Lake Analytics 계정을 만든 후 Data Lake Store 계정 및/또는 Azure Storage 계정을 더 추가할 수 있습니다. 
 
 ### <a name="find-the-default-data-lake-store-account"></a>기본 데이터 레이크 저장소 계정 찾기
 
@@ -239,7 +237,6 @@ $script | Out-File $scriptpath
 Submit-AdlJob -AccountName $adla -Script $script -Name "Demo"
 ```
 
-
 ### <a name="submit-a-file-as-a-u-sql-script"></a>파일을 U-SQL 스크립트로 제출
 
 ```powershell
@@ -258,15 +255,13 @@ Submit-AdlJob -AccountName $adla –ScriptPath $scriptpath -Name "Demo"
 Get-AdlJob -Account $adla
 ```
 
+### <a name="list-the-top-n-jobs"></a>상위 N개 작업 나열
 
-### <a name="list-a-specific-number-of-jobs"></a>특정 수의 작업 나열
-
-기본적으로 작업 목록은 제출 시간을 기준으로 정렬됩니다. 따라서 최근에 제출한 작업이 먼저 표시됩니다. 기본적으로 ADLA 계정에서는 180일 동안의 작업을 저장하지만 Ge-AdlJob cmdlet은 기본적으로 처음 500개 작업만 반환합니다. 특정 수의 작업을 나열하려면 -Top 매개 변수를 사용합니다.
+기본적으로 작업 목록은 제출 시간을 기준으로 정렬됩니다. 따라서 최근에 제출한 작업이 먼저 표시됩니다. ADLA 계정은 기본적으로 작업을 180일 동안 기억하지만, Ge-AdlJob cmdlet은 기본적으로 처음 500개 작업만 반환합니다. 특정 수의 작업을 나열하려면 -Top 매개 변수를 사용합니다.
 
 ```powershell
 $jobs = Get-AdlJob -Account $adla -Top 10
 ```
-
 
 ### <a name="list-jobs-based-on-the-value-of-job-property"></a>작업 속성 값을 기준으로 작업 나열
 
@@ -308,7 +303,6 @@ Get-AdlJob -Account $adla -State Ended -Result Succeeded
 Get-AdlJob -Account $adla -State Ended -Result Failed
 ```
 
-
 `-Submitter` 매개 변수를 사용하면 작업을 제출한 사람을 식별할 수 있습니다.
 
 ```powershell
@@ -338,7 +332,6 @@ Azure PowerShell을 사용하여 Data Lake 분석에서 실행된 작업의 기�
 
 ```powershell
 $pipelines = Get-AdlJobPipeline -Account $adla
-
 $pipeline = Get-AdlJobPipeline -Account $adla -PipelineId "<pipeline ID>"
 ```
 

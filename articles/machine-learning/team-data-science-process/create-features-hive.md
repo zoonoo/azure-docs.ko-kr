@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
 ms.author: hangzh;bradsev
-ms.openlocfilehash: 91ea23b732f520b02af7e9a9dd77ee62190a520c
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: d72e10332263fac0b0ca0f937d394d2832d88781
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="create-features-for-data-in-a-hadoop-cluster-using-hive-queries"></a>Hive 쿼리를 사용하여 Hadoop 클러스터의 데이터에 대한 기능 만들기
 이 문서에는 Hive 쿼리를 사용하여 Azure HDInsight Hadoop 클러스터에 저장된 데이터에 대한 기능을 만드는 방법을 보여 줍니다. 이러한 Hive 쿼리는 제공된 스크립트인 포함된 Hive UDF(사용자 정의 함수)를 사용합니다.
@@ -93,14 +93,14 @@ Hive는 날짜/시간 필드를 처리할 수 있는 UDF가 함께 제공됩니�
         select day(<datetime field>), month(<datetime field>)
         from <databasename>.<tablename>;
 
-이 Hive 쿼리에서는 *&#60;datetime field>*가 기본 날짜/시간 형식으로 되어 있다고 가정합니다.
+이 Hive 쿼리에서는 *<datetime field>*가 기본 날짜/시간 형식이라고 가정합니다.
 
 날짜/시간 필드가 기본 형식이 아닌 경우 먼저 날짜/시간 필드를 Unix 타임스탬프로 변환한 후 Unix 타임스탬프를 기본 형식의 날짜/시간 문자열로 변환해야 합니다. 날짜/시간이 기본 형식으로 변환되면 포함된 날짜/시간 UDF를 적용하여 기능을 추출할 수 있습니다.
 
         select from_unixtime(unix_timestamp(<datetime field>,'<pattern of the datetime field>'))
         from <databasename>.<tablename>;
 
-이 쿼리에서 *&#60;datetime field>*의 패턴이 *03/26/2015 12:04:39*와 같다면 *'&#60;pattern of the datetime field>'*는 `'MM/dd/yyyy HH:mm:ss'`입니다. 이를 테스트하려면 다음 명령을 실행합니다.
+이 쿼리에서 *<datetime field>*에 *03/26/2015 12:04:39*와 같은 패턴이 있는 경우 *<pattern of the datetime field>'*는 `'MM/dd/yyyy HH:mm:ss'`여야 합니다. 이를 테스트하려면 다음 명령을 실행합니다.
 
         select from_unixtime(unix_timestamp('05/15/2015 09:32:10','MM/dd/yyyy HH:mm:ss'))
         from hivesampletable limit 1;

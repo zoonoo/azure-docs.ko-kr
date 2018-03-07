@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: agummadi
-ms.openlocfilehash: 4d5bf1550ecd5982e51c0ae8d3917102d2f7c253
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 4f3edb6879ff256b1b50a1437fe349084fe7de41
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>ExpressRoute에 대한 네트워크 성능 모니터 구성
 
@@ -48,6 +48,10 @@ NPM(네트워크 성능 모니터)은 Azure 클라우드 배포 및 온-프레�
 * 미국 동부 
 * 동남아시아 
 * 오스트레일리아 동남부
+
+>[!NOTE]
+>Azure Government 클라우드의 VNet에 연결된 ExpressRoute 회로 모니터링은 2018년 Q2부터 지원될 예정입니다.   
+>
 
 ## <a name="workflow"></a>워크플로
 

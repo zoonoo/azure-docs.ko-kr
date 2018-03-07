@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/14/2017
 ms.author: LADocs; millopis; estfan
-ms.openlocfilehash: 216745f9f540235ee48661eae922a5ae0e716e01
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 5160913b2f08a04f0a985d8ddadd6641a664b258
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="connect-to-data-sources-on-premises-from-logic-apps-with-on-premises-data-gateway"></a>온-프레미스 데이터 게이트웨이를 사용하여 논리 앱에서 온-프레미스 데이터 원본에 연결
 
@@ -107,9 +107,10 @@ ms.lasthandoff: 02/21/2018
 
     ![온-프레미스 데이터 게이트웨이를 만들기 위해 세부 정보 제공](./media/logic-apps-gateway-connection/createblade.png)
 
-    기본 Azure 메뉴에서 언제든지 데이터 게이트웨이를 찾아 보려면 **추가 서비스** > **엔터프라이즈 통합** > **온-프레미스 데이터 게이트웨이**로 이동합니다.
+    언제든지 데이터 게이트웨이를 찾거나 확인하려면 기본 Azure 메뉴에서 **모든 서비스**를 선택합니다. 
+    검색 상자에 “온-프레미스 데이터 게이트웨이”를 입력한 다음, **온-프레미스 데이터 게이트웨이**를 선택합니다.
 
-    !["추가 서비스", "엔터프라이즈 통합", "온-프레미스 데이터 게이트웨이"로 이동](./media/logic-apps-gateway-connection/find-on-premises-data-gateway-enterprise-integration.png)
+    ![“온-프레미스 데이터 게이트웨이” 찾기](./media/logic-apps-gateway-connection/find-on-premises-data-gateway-enterprise-integration.png)
 
 <a name="connect-logic-app-gateway"></a>
 

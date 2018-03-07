@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/16/2017
+ms.date: 02/22/2018
 ms.author: sethm
-ms.openlocfilehash: 31f5a11cda1827a0a50fd2be0b7260daedf26e24
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: d72a4de8591898a55e4225ace154fd5ed53e6f91
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="amqp-10-in-microsoft-azure-service-bus-request-response-based-operations"></a>Microsoft Azure Service Bus에서 AMQP 1.0: Microsoft Azure Service Bus 요청/응답 기반 작업
 
-이 항목에서는 Microsoft Azure Service Bus 요청/응답 기반 작업 목록을 정의합니다. 이 정보는 AMQP Management Version 1.0 초안을 기반으로 합니다.  
+이 문서에서는 Microsoft Azure Service Bus 요청/응답 기반 작업 목록을 정의합니다. 이 정보는 AMQP Management Version 1.0 초안을 기반으로 합니다.  
   
 Service Bus가 OASIS AMQP 기술 사양을 구현하고 빌드하는 방법을 설명하는 자세한 유선 수준 AMQP 1.0 프로토콜 가이드는 [Azure Service Bus 및 Event Hubs 프로토콜 가이드의 AMQP 1.0][AMQP 1.0 프로토콜 가이드]를 참조하세요.  
   
@@ -137,7 +137,7 @@ Service Bus 엔터티 주소는 다음과 같아야 합니다.
 |---------|----------------|--------------|--------------------|  
 |`lock-tokens`|uuid의 배열|예|갱신할 메시지 잠금 토큰입니다.|  
   
-#### <a name="response"></a>응답  
+#### <a name="response"></a>response  
 
 응답 메시지에는 다음과 같은 응용 프로그램 속성이 포함되어야 합니다.  
   
@@ -172,14 +172,14 @@ Service Bus 엔터티 주소는 다음과 같아야 합니다.
 |`from-sequence-number`|long|예|보기를 시작할 시퀀스 번호입니다.|  
 |`message-count`|int|예|보려는 최대 메시지 수입니다.|  
   
-#### <a name="response"></a>응답  
+#### <a name="response"></a>response  
 
 응답 메시지에는 다음과 같은 응용 프로그램 속성이 포함되어야 합니다.  
   
 |키|값 형식|필수|값 내용|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|예|HTTP 응답 코드 [RFC2616]<br /><br /> 200: OK – 더 많은 메시지가 있음<br /><br /> 0xcc: 콘텐츠 없음 – 더 이상 메시지가 없음|  
-|statusDescription|string|아니요|상태에 대한 설명입니다.|  
+|statusDescription|string|아니오|상태에 대한 설명입니다.|  
   
 응답 메시지 본문은 다음 엔터티와 함께 **맵**을 포함하는 **amqp-value** 섹션으로 구성되어야 합니다.  
   
@@ -191,7 +191,7 @@ Service Bus 엔터티 주소는 다음과 같아야 합니다.
   
 |키|값 형식|필수|값 내용|  
 |---------|----------------|--------------|--------------------|  
-|message|바이트 배열|예|AMQP 1.0 실시간 인코딩된 메시지입니다.|  
+|Message|바이트 배열|예|AMQP 1.0 실시간 인코딩된 메시지입니다.|  
   
 ### <a name="schedule-message"></a>메시지 예약  
 
@@ -204,7 +204,7 @@ Service Bus 엔터티 주소는 다음과 같아야 합니다.
 |키|값 형식|필수|값 내용|  
 |---------|----------------|--------------|--------------------|  
 |operation|string|예|`com.microsoft:schedule-message`|  
-|`com.microsoft:server-timeout`|uint|아니요|작업 서버 제한 시간(밀리초)입니다.|  
+|`com.microsoft:server-timeout`|uint|아니오|작업 서버 제한 시간(밀리초)입니다.|  
   
 요청 메시지 본문은 다음 엔터티와 함께 **맵**을 포함하는 **amqp-value** 섹션으로 구성되어야 합니다.  
   
@@ -219,9 +219,9 @@ Service Bus 엔터티 주소는 다음과 같아야 합니다.
 |message-id|string|예|string으로 `amqpMessage.Properties.MessageId`|  
 |session-id|string|예|`amqpMessage.Properties.GroupId as string`|  
 |파티션 키|string|예|`amqpMessage.MessageAnnotations.”x-opt-partition-key"`|  
-|message|바이트 배열|예|AMQP 1.0 실시간 인코딩된 메시지입니다.|  
+|Message|바이트 배열|예|AMQP 1.0 실시간 인코딩된 메시지입니다.|  
   
-#### <a name="response"></a>응답  
+#### <a name="response"></a>response  
 
 응답 메시지에는 다음과 같은 응용 프로그램 속성이 포함되어야 합니다.  
   
@@ -247,7 +247,7 @@ Service Bus 엔터티 주소는 다음과 같아야 합니다.
 |키|값 형식|필수|값 내용|  
 |---------|----------------|--------------|--------------------|  
 |operation|string|예|`com.microsoft:cancel-scheduled-message`|  
-|`com.microsoft:server-timeout`|uint|아니요|작업 서버 제한 시간(밀리초)입니다.|  
+|`com.microsoft:server-timeout`|uint|아니오|작업 서버 제한 시간(밀리초)입니다.|  
   
 요청 메시지 본문은 다음 엔터티와 함께 **맵**을 포함하는 **amqp-value** 섹션으로 구성되어야 합니다.  
   
@@ -255,7 +255,7 @@ Service Bus 엔터티 주소는 다음과 같아야 합니다.
 |---------|----------------|--------------|--------------------|  
 |시퀀스 번호|long 배열|예|취소할 예약된 메시지의 시퀀스 번호입니다.|  
   
-#### <a name="response"></a>응답  
+#### <a name="response"></a>response  
 
 응답 메시지에는 다음과 같은 응용 프로그램 속성이 포함되어야 합니다.  
   
@@ -291,7 +291,7 @@ Service Bus 엔터티 주소는 다음과 같아야 합니다.
 |---------|----------------|--------------|--------------------|  
 |session-id|string|예|세션 ID.|  
   
-#### <a name="response"></a>응답  
+#### <a name="response"></a>response  
 
 응답 메시지에는 다음과 같은 응용 프로그램 속성이 포함되어야 합니다.  
   
@@ -317,7 +317,7 @@ Service Bus 엔터티 주소는 다음과 같아야 합니다.
 |키|값 형식|필수|값 내용|  
 |---------|----------------|--------------|--------------------|  
 |operation|string|예|`com.microsoft:peek-message`|  
-|`com.microsoft:server-timeout`|uint|아니요|작업 서버 제한 시간(밀리초)입니다.|  
+|`com.microsoft:server-timeout`|uint|아니오|작업 서버 제한 시간(밀리초)입니다.|  
   
 요청 메시지 본문은 다음 엔터티와 함께 **맵**을 포함하는 **amqp-value** 섹션으로 구성되어야 합니다.  
   
@@ -327,7 +327,7 @@ Service Bus 엔터티 주소는 다음과 같아야 합니다.
 |message-count|int|예|보려는 최대 메시지 수입니다.|  
 |session-id|string|예|세션 ID.|  
   
-#### <a name="response"></a>응답  
+#### <a name="response"></a>response  
 
 응답 메시지에는 다음과 같은 응용 프로그램 속성이 포함되어야 합니다.  
   
@@ -346,7 +346,7 @@ Service Bus 엔터티 주소는 다음과 같아야 합니다.
   
 |키|값 형식|필수|값 내용|  
 |---------|----------------|--------------|--------------------|  
-|message|바이트 배열|예|AMQP 1.0 실시간 인코딩된 메시지입니다.|  
+|Message|바이트 배열|예|AMQP 1.0 실시간 인코딩된 메시지입니다.|  
   
 ### <a name="set-session-state"></a>세션 상태 설정  
 
@@ -368,7 +368,7 @@ Service Bus 엔터티 주소는 다음과 같아야 합니다.
 |session-id|string|예|세션 ID.|  
 |session-state|바이트 배열|예|불투명한 이진 본문.|  
   
-#### <a name="response"></a>응답  
+#### <a name="response"></a>response  
 
 응답 메시지에는 다음과 같은 응용 프로그램 속성이 포함되어야 합니다.  
   
@@ -396,7 +396,7 @@ Service Bus 엔터티 주소는 다음과 같아야 합니다.
 |---------|----------------|--------------|--------------------|  
 |session-id|string|예|세션 ID.|  
   
-#### <a name="response"></a>응답  
+#### <a name="response"></a>response  
 
 응답 메시지에는 다음과 같은 응용 프로그램 속성이 포함되어야 합니다.  
   
@@ -422,7 +422,7 @@ Service Bus 엔터티 주소는 다음과 같아야 합니다.
 |키|값 형식|필수|값 내용|  
 |---------|----------------|--------------|--------------------|  
 |operation|string|예|`com.microsoft:get-message-sessions`|  
-|`com.microsoft:server-timeout`|uint|아니요|작업 서버 제한 시간(밀리초)입니다.|  
+|`com.microsoft:server-timeout`|uint|아니오|작업 서버 제한 시간(밀리초)입니다.|  
   
 요청 메시지 본문은 다음 엔터티와 함께 **맵**을 포함하는 **amqp-value** 섹션으로 구성되어야 합니다.  
   
@@ -432,7 +432,7 @@ Service Bus 엔터티 주소는 다음과 같아야 합니다.
 |skip|int|예|세션 수를 건너뜁니다.|  
 |top|int|예|최대 세션 수입니다.|  
   
-#### <a name="response"></a>응답  
+#### <a name="response"></a>response  
 
 응답 메시지에는 다음과 같은 응용 프로그램 속성이 포함되어야 합니다.  
   
@@ -491,9 +491,9 @@ sql-filter 맵은 다음 항목을 포함해야 합니다.
 |to|string|아니요||  
 |reply-to|string|아니요||  
 |label|string|아니요||  
-|session-id|string|아니요||  
+|session-id|string|아니오||  
 |reply-to-session-id|string|아니요||  
-|content-type|string|아니요||  
+|content-type|string|아니오||  
 |properties|map|아니요|Service Bus [BrokeredMessage.Properties](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Properties)로 매핑합니다.|  
   
 **sql-rule-action** 맵은 다음 항목을 포함해야 합니다.  
@@ -502,7 +502,7 @@ sql-filter 맵은 다음 항목을 포함해야 합니다.
 |---------|----------------|--------------|--------------------|  
 |식|string|예|Sql 작업 식.|  
   
-#### <a name="response"></a>응답  
+#### <a name="response"></a>response  
 
 응답 메시지에는 다음과 같은 응용 프로그램 속성이 포함되어야 합니다.  
   
@@ -520,7 +520,7 @@ sql-filter 맵은 다음 항목을 포함해야 합니다.
 |키|값 형식|필수|값 내용|  
 |---------|----------------|--------------|--------------------|  
 |operation|string|예|`com.microsoft:remove-rule`|  
-|`com.microsoft:server-timeout`|uint|아니요|작업 서버 제한 시간(밀리초)입니다.|  
+|`com.microsoft:server-timeout`|uint|아니오|작업 서버 제한 시간(밀리초)입니다.|  
   
 요청 메시지 본문은 다음 엔터티와 함께 **맵**을 포함하는 **amqp-value** 섹션으로 구성되어야 합니다.  
   
@@ -528,7 +528,7 @@ sql-filter 맵은 다음 항목을 포함해야 합니다.
 |---------|----------------|--------------|--------------------|  
 |rule-name|string|예|구독 및 토픽 이름을 포함하지 않는 규칙 이름입니다.|  
   
-#### <a name="response"></a>응답  
+#### <a name="response"></a>response  
 
 응답 메시지에는 다음과 같은 응용 프로그램 속성이 포함되어야 합니다.  
   
@@ -550,7 +550,7 @@ sql-filter 맵은 다음 항목을 포함해야 합니다.
 |키|값 형식|필수|값 내용|  
 |---------|----------------|--------------|--------------------|  
 |operation|string|예|`com.microsoft:receive-by-sequence-number`|  
-|`com.microsoft:server-timeout`|uint|아니요|작업 서버 제한 시간(밀리초)입니다.|  
+|`com.microsoft:server-timeout`|uint|아니오|작업 서버 제한 시간(밀리초)입니다.|  
   
 요청 메시지 본문은 다음 엔터티와 함께 **맵**을 포함하는 **amqp-value** 섹션으로 구성되어야 합니다.  
   
@@ -559,14 +559,14 @@ sql-filter 맵은 다음 항목을 포함해야 합니다.
 |시퀀스 번호|long 배열|예|시퀀스 번호.|  
 |receiver-settle-mode|ubyte|예|AMQP 코어 v1.0에 지정된 대로 **수신기 장착** 모드입니다.|  
   
-#### <a name="response"></a>응답  
+#### <a name="response"></a>response  
 
 응답 메시지에는 다음과 같은 응용 프로그램 속성이 포함되어야 합니다.  
   
 |키|값 형식|필수|값 내용|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|예|HTTP 응답 코드 [RFC2616]<br /><br /> 200: OK – 성공, 그렇지 않으면 실패입니다.|  
-|statusDescription|string|아니요|상태에 대한 설명입니다.|  
+|statusDescription|string|아니오|상태에 대한 설명입니다.|  
   
 응답 메시지 본문은 다음 엔터티와 함께 **맵**을 포함하는 **amqp-value** 섹션으로 구성되어야 합니다.  
   
@@ -579,7 +579,7 @@ sql-filter 맵은 다음 항목을 포함해야 합니다.
 |키|값 형식|필수|값 내용|  
 |---------|----------------|--------------|--------------------|  
 |lock-token|uuid|예|`receiver-settle-mode`가 1인 경우 토큰을 잠급니다.|  
-|message|바이트 배열|예|AMQP 1.0 실시간 인코딩된 메시지입니다.|  
+|Message|바이트 배열|예|AMQP 1.0 실시간 인코딩된 메시지입니다.|  
   
 ### <a name="update-disposition-status"></a>처리 상태 업데이트  
 
@@ -601,10 +601,10 @@ sql-filter 맵은 다음 항목을 포함해야 합니다.
 |disposition-status|string|예|완료됨<br /><br /> 중단됨<br /><br /> 일시 중단됨|  
 |lock-tokens|uuid의 배열|예|처리 상태를 업데이트할 메시지 잠금 토큰입니다.|  
 |deadletter-reason|string|아니요|처리 상태가 **일시 중단됨**으로 설정된 경우 설정할 수 있습니다.|  
-|deadletter-description|string|아니요|처리 상태가 **일시 중단됨**으로 설정된 경우 설정할 수 있습니다.|  
-|properties-to-modify|map|아니요|수정할 Service Bus broker 저장 메시지 목록입니다.|  
+|deadletter-description|string|아니오|처리 상태가 **일시 중단됨**으로 설정된 경우 설정할 수 있습니다.|  
+|properties-to-modify|map|아니오|수정할 Service Bus broker 저장 메시지 목록입니다.|  
   
-#### <a name="response"></a>응답  
+#### <a name="response"></a>response  
 
 응답 메시지에는 다음과 같은 응용 프로그램 속성이 포함되어야 합니다.  
   

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/20/2017
+ms.date: 02/27/2018
 ms.author: sethm
-ms.openlocfilehash: 89042badbfefc69582e7979a8379260a7b08d7da
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 07cbdd24368d66104ecdeb263983e3aaf3f219fe
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-relay-faqs"></a>Azure Relay FAQ
 
@@ -76,14 +76,13 @@ Service Bus Relay에 메시지를 보내는 경우 메시지를 수신하는 릴
 **netTCPRelay** WCF 바인딩을 사용하여 열린 릴레이는 개별 메시지가 아니라 시스템을 통과하는 데이터의 스트림으로서 메시지를 처리합니다. 이 바인딩을 사용하는 경우, 발신자와 리스너만이 보내고 받은 개별 메시지의 프레임에 대한 가시성이 있습니다. **netTCPRelay** 바인딩을 사용하는 릴레이의 경우 청구 가능한 메시지를 계산하기 위해 모든 데이터를 스트림으로 처리합니다. 이 경우에 Service Bus는 5분 단위로 개별 릴레이를 통해 보내거나 받은 데이터의 총 크기를 계산합니다. 그런 다음 64KB로 총 데이터 양을 나누어서 해당 기간 동안 해당 릴레이에 대한 청구 가능 메시지 수를 결정합니다.
 
 ## <a name="quotas"></a>할당량
-| 할당량 이름 | 범위 | 유형 | 초과 시 동작 | 값 |
-| --- | --- | --- | --- | --- |
-| 릴레이의 동시 수신기 |엔터티 |공용 |추가 연결에 대한 후속 요청이 거부되며 호출 코드에서 예외를 수신합니다. |25 |
-| 동시 릴레이 수신기 |시스템 수준 |공용 |추가 연결에 대한 후속 요청이 거부되며 호출 코드에서 예외를 수신합니다. |2,000 |
-| 서비스 네임스페이스의 모든 릴레이 끝점당 동시 릴레이 연결 |시스템 수준 |공용 |- |5,000 |
-| 서비스 네임스페이스당 릴레이 끝점 |시스템 수준 |공용 |- |10000 |
-| [NetOnewayRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.netonewayrelaybinding.aspx) and [NetEventRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.neteventrelaybinding.aspx) 릴레이의 메시지 크기 |시스템 수준 |공용 |이러한 할당량을 초과하는 들어오는 메시지가 거부되며 호출 코드에서 예외를 수신합니다. |64KB |
-| [HttpRelayTransportBindingElement](https://msdn.microsoft.com/library/microsoft.servicebus.httprelaytransportbindingelement.aspx) 및 [NetTcpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.nettcprelaybinding.aspx) 릴레이의 메시지 크기 |시스템 수준 |공용 |- |Unlimited |
+| 할당량 이름 | 범위 |  메모 | 값 |
+| --- | --- | --- | --- |
+| 릴레이의 동시 수신기 |엔터티 |추가 연결에 대한 후속 요청이 거부되며 호출 코드에서 예외를 수신합니다. |25 |
+| 서비스 네임스페이스의 모든 릴레이 끝점당 동시 릴레이 연결 |네임스페이스 |- |5,000 |
+| 서비스 네임스페이스당 릴레이 끝점 |네임스페이스 |- |10000 |
+| [NetOnewayRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.netonewayrelaybinding.aspx) and [NetEventRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.neteventrelaybinding.aspx) 릴레이의 메시지 크기 |네임스페이스 |이러한 할당량을 초과하는 들어오는 메시지가 거부되며 호출 코드에서 예외를 수신합니다. |64KB |
+| [HttpRelayTransportBindingElement](https://msdn.microsoft.com/library/microsoft.servicebus.httprelaytransportbindingelement.aspx) 및 [NetTcpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.nettcprelaybinding.aspx) 릴레이의 메시지 크기 |네임스페이스 |메시지 크기에 제한이 없습니다. |Unlimited |
 
 ### <a name="does-relay-have-any-usage-quotas"></a>릴레이에는 사용 할당량이 있습니까?
 기본적으로 모든 클라우드 서비스의 경우 Microsoft는 모든 고객의 구독에 대해 계산되는 월별 사용 할당량을 집계합니다. 이번에는 요구가 이러한 제한을 초과할 수 있다는 점을 이해합니다. 이러한 한도를 적절하게 조정할 수 있도록 고객 서비스에 언제든지 문의해 주세요. Service Bus의 경우 집계 사용 할당량은 다음과 같습니다.

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 7a274ad33b7181d238203290cf63937df5f13bbc
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: c644dd98d468a8c99625c45bad3f06031ff22b4e
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="exchange-x12-messages-for-enterprise-integration-with-logic-apps"></a>엔터프라이즈 통합용 X12 메시지를 논리 앱과 교환
 
@@ -31,37 +31,34 @@ Azure Logic Apps의 X12 메시지를 교환하기 전에 X12 규약을 만들고
 
 필요한 항목은 다음과 같습니다.
 
-* 이미 정의되고 Azure 구독과 연결된 [통합 계정](../logic-apps/logic-apps-enterprise-integration-accounts.md)
+* 이미 정의되고 Azure 구독과 연결된 [통합 계정](logic-apps-enterprise-integration-create-integration-account.md)
 * 통합 계정에 정의되고 **비즈니스 ID** 아래에서 X12 식별자를 사용하여 구성된 둘 이상의 [파트너](../logic-apps/logic-apps-enterprise-integration-partners.md)    
-* [통합 계정](../logic-apps/logic-apps-enterprise-integration-accounts.md)에 업로드하기 위한 필수 [스키마](../logic-apps/logic-apps-enterprise-integration-schemas.md)
+* 통합 계정에 업로드할 수 있는 필수 [스키마](../logic-apps/logic-apps-enterprise-integration-schemas.md)
 
-[통합 계정을 만들고](../logic-apps/logic-apps-enterprise-integration-accounts.md) [파트너를 추가하고](logic-apps-enterprise-integration-partners.md) 사용하려는 [스키마](../logic-apps/logic-apps-enterprise-integration-schemas.md)를 만든 후에 다음과 같은 단계에 따라 X12 규약을 만들 수 있습니다.
+[통합 계정을 만들고](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) [파트너를 추가하고](logic-apps-enterprise-integration-partners.md) 사용하려는 [스키마](../logic-apps/logic-apps-enterprise-integration-schemas.md)를 만든 후에 다음과 같은 단계에 따라 X12 규약을 만들 수 있습니다.
 
 ## <a name="create-an-x12-agreement"></a>X12 규약 만들기
 
-1.  [Azure Portal](http://portal.azure.com "Azure Portal")에 로그인합니다. 왼쪽 메뉴에서 **모든 서비스**를 선택합니다. 
+1. [Azure Portal](http://portal.azure.com "Azure Portal")에 로그인합니다. 
 
-    > [!TIP]
-    > **모든 서비스**가 표시되지 않으면 먼저 메뉴를 확장해야 합니다. 축소된 메뉴의 맨 위에 있는 **메뉴 표시**를 선택합니다.
+2. Azure의 주 메뉴에서 **모든 서비스**를 선택합니다. 검색 상자에 "통합"을 입력한 다음, **통합 계정**을 선택합니다.  
 
-    ![왼쪽 메뉴에서 "모든 서비스" 선택](./media/logic-apps-enterprise-integration-x12/account-1.png)
+   ![통합 계정 찾기](./media/logic-apps-enterprise-integration-x12/account-1.png)
 
-2.  검색 상자에서 필터에 "통합"을 입력합니다. 결과 목록에서 **통합 계정**을 선택합니다.  
+   > [!TIP]
+   > **모든 서비스**가 표시되지 않으면 먼저 메뉴를 확장해야 합니다. 축소된 메뉴의 맨 위에 있는 **메뉴 표시**를 선택합니다.
 
-    !["통합"에 대해 필터링하고 "통합 계정"을 선택합니다.](./media/logic-apps-enterprise-integration-x12/account-2.png)
+3. **통합 계정**에서 규약을 추가하려는 통합 계정을 선택합니다.
 
-3. 열린 **통합 계정** 블레이드에서 규약을 추가하려는 통합 계정을 선택합니다.
-통합 계정이 표시되지 않으면 [먼저 만듭니다](../logic-apps/logic-apps-enterprise-integration-accounts.md "통합 계정에 대한 모든 정보")를.
-
-    ![규약을 만들 통합 계정 선택](./media/logic-apps-enterprise-integration-x12/account-3.png)
+   ![규약을 만들 통합 계정 선택](./media/logic-apps-enterprise-integration-x12/account-3.png)
 
 4. **개요**를 선택한 다음 **규약** 타일을 선택합니다. 규약 타일이 없는 경우 먼저 타일을 추가합니다. 
 
-    !["규약" 타일 선택](./media/logic-apps-enterprise-integration-as2/agreement-1.png)
+   !["규약" 타일 선택](./media/logic-apps-enterprise-integration-as2/agreement-1.png)
 
-5. 열린 [규약] 블레이드에서 **추가**를 선택합니다.
+5. **규약**에서 **추가**를 선택합니다.
 
-    !["추가" 선택](./media/logic-apps-enterprise-integration-as2/agreement-2.png)     
+   !["추가" 선택](./media/logic-apps-enterprise-integration-as2/agreement-2.png)     
 
 6. **추가** 아래에서 규약의 **이름**을 입력합니다. 규약 유형에 **X12**를 선택합니다. 규약의 **호스트 파트너**, **호스트 ID**, **게스트 파트너** 및 **게스트 ID**를 선택합니다. 속성에 대한 자세한 내용은 이 단계에서 테이블을 참조하세요.
 
@@ -263,7 +260,7 @@ Azure Logic Apps의 X12 메시지를 교환하기 전에 X12 규약을 만들고
 | 자산 | 설명 |
 | --- | --- |
 | 사용할 문자 집합 |속성의 유효성을 검사하려면 X12 문자 집합을 선택합니다. 옵션은 기본, 확장 및 UTF8입니다. |
-| 스키마 |드롭다운 목록에서 스키마를 선택합니다. 각 행을 완료한 후에 새 행이 자동으로 추가됩니다. 선택한 스키마의 경우 다음 구분 기호 설명에 따라 사용하려는 구분 기호 집합을 선택합니다. |
+| 스키마 |드롭다운 목록에서 스키마를 선택합니다. 각 행을 완료한 후에 새 행이 자동으로 추가됩니다. 선택한 스키마의 경우 아래의 구분 기호 설명에 따라 사용하려는 구분 기호 집합을 선택합니다. |
 | 입력 형식 |드롭다운 목록에서 입력 형식을 선택합니다. |
 | Component Separator |복합 데이터 요소를 분리하려면 단일 문자를 입력합니다. |
 | Data Element Separator |복합 데이터 요소 내에서 단순 데이터 요소를 분리하려면 단일 문자를 입력합니다. |
@@ -291,13 +288,13 @@ Azure Logic Apps의 X12 메시지를 교환하기 전에 X12 규약을 만들고
 
 ## <a name="find-your-created-agreement"></a>생성된 규약 찾기
 
-1.  모든 규약 속성 설정을 완료한 후에 **추가** 블레이드에서 **확인**을 선택하여 규약 만들기를 완료하고 사용자 통합 계정 블레이드로 돌아갑니다.
+1.  모든 규약 속성 설정을 완료한 후에 **추가** 페이지에서 **확인**을 선택하여 규약 만들기를 완료하고 사용자 통합 계정으로 돌아갑니다.
 
     이제 새로 추가된 규약이 **규약** 목록에 표시됩니다.
 
-2.  또한 통합 계정 개요에서 규약을 볼 수도 있습니다. 통합 사용자 계정 블레이드에서 **개요**를 선택한 다음 **규약** 타일을 선택합니다.
+2.  또한 통합 계정 개요에서 규약을 볼 수도 있습니다. 통합 계정 메뉴에서 **개요**를 선택한 다음, **규약** 타일을 선택합니다.
 
-    ![모든 규약을 보려면 "규약" 타일을 선택합니다](./media/logic-apps-enterprise-integration-x12/x12-1-5.png)   
+    !["규약" 타일 선택](./media/logic-apps-enterprise-integration-x12/x12-1-5.png)   
 
 ## <a name="view-the-swagger"></a>swagger 보기
 [swagger 정보](/connectors/x12/)를 참조하세요. 

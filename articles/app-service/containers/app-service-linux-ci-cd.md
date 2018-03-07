@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
-ms.author: aelnably;wesmc
-ms.openlocfilehash: cccbd4952c66d3d8140e2a03e3b76afaa5ba3fbf
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.author: aelnably;msangapu
+ms.openlocfilehash: e61c767ada31fc32e28bfd9a2a4e843e9ca88053
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="continuous-deployment-with-web-app-for-containers"></a>Web App for Containers를 사용한 연속 배포
 
@@ -34,14 +34,14 @@ ms.lasthandoff: 10/25/2017
 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)를 사용하고 다음 명령을 실행하여 연속 배포 기능을 사용하도록 설정할 수 있습니다.
 
 ```azurecli-interactive
-az webapp deployment container config -n sname -g rgname -e true
+az webapp deployment container config --name name --resource-group myResourceGroup --enable-cd true
 ```
 
 **[Azure Portal](https://portal.azure.com/)**에서 페이지 왼쪽의 **App Service** 옵션을 클릭합니다.
 
 Docker 허브 연속 배포를 구성하려는 앱의 이름을 클릭합니다.
 
-**앱 설정**에서 `true` 값을 갖는 `DOCKER_ENABLE_CI`라는 앱을 추가합니다.
+**Docker 컨테이너**에서 '켜기'를 선택한 다음, [저장]을 눌러 지속적인 배포를 사용하도록 설정합니다.
 
 ![앱 설정 이미지 삽입](./media/app-service-webapp-service-linux-ci-cd/step2.png)
 
@@ -50,7 +50,7 @@ Docker 허브 연속 배포를 구성하려는 앱의 이름을 클릭합니다.
 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)를 사용하고 다음 명령을 실행하여 웹후크 URL을 가져올 수 있습니다.
 
 ```azurecli-interactive
-az webapp deployment container show-cd-url -n sname1 -g rgname
+az webapp deployment container show-cd-url --name sname1 --resource-group rgname
 ```
 
 웹후크 URL에는 끝점 `https://<publishingusername>:<publishingpwd>@<sitename>.scm.azurewebsites.net/docker/hook`가 필요합니다.
@@ -89,6 +89,6 @@ Docker 허브 페이지에서 **웹후크**를 클릭한 후 **웹후크 만들�
 * [Azure Container Registry](https://azure.microsoft.com/services/container-registry/)
 * [Linux의 Azure App Service에서 .NET Core 사용](quickstart-dotnetcore.md)
 * [Linux의 Azure App Service에서 Ruby 사용](quickstart-ruby.md)
-* [Web App for Containers에 사용자 지정 Docker 이미지를 사용하는 방법](quickstart-custom-docker-image.md)
+* [Web App for Containers에 사용자 지정 Docker 이미지를 사용하는 방법](quickstart-docker-go.md)
 * [Containers용 Azure App Service Web App 관련 FAQ](./app-service-linux-faq.md)
 * [Azure CLI 2.0을 사용하여 Web App for Containers 관리](./app-service-linux-cli.md)
