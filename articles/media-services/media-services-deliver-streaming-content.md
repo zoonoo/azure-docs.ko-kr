@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako
-ms.openlocfilehash: 2bcb012eef84faa7c1e13ed22e88e45e4300ed54
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 979c88b72aba6e054bc507e22f48cae1441957cb
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="publish-azure-media-services-content-using-net"></a>.NET을 사용하여 Azure Media Services 콘텐츠 게시
 > [!div class="op_single_selector"]
@@ -52,11 +52,12 @@ ms.lasthandoff: 12/21/2017
 
 
 >[!NOTE]
->다른 AMS 정책(예: 로케이터 정책 또는 ContentKeyAuthorizationPolicy의 경우)은 1,000,000개의 정책으로 제한됩니다. 항상 동일한 날짜/액세스 권한을 사용하는 경우 동일한 정책 ID를 사용합니다. 장기간 위치에 유지하려는 로케이터의 정책(비 업로드 정책)을 예로 들 수 있습니다. 자세한 내용은 [이 항목](media-services-dotnet-manage-entities.md#limit-access-policies) 을 참조하세요.
+>다른 AMS 정책(예: 로케이터 정책 또는 ContentKeyAuthorizationPolicy의 경우)은 1,000,000개의 정책으로 제한됩니다. 항상 동일한 날짜/액세스 권한을 사용하는 경우 동일한 정책 ID를 사용합니다. 장기간 위치에 유지하려는 로케이터의 정책(비 업로드 정책)을 예로 들 수 있습니다. 자세한 내용은 [이 항목](media-services-dotnet-manage-entities.md#limit-access-policies)을 참조하세요.
 
 ### <a name="use-media-services-net-sdk"></a>Media Services .NET SDK 사용
 스트리밍 URL 작성 
 
+```csharp
     private static void BuildStreamingURLs(IAsset asset)
     {
 
@@ -93,6 +94,7 @@ ms.lasthandoff: 12/21/2017
         Console.WriteLine(urlForClientStreaming + "(format=mpd-time-csf)"); 
         Console.WriteLine();
     }
+```
 
 출력:
 
@@ -111,6 +113,7 @@ ms.lasthandoff: 12/21/2017
 
 점진적 다운로드 URL 작성 
 
+```csharp
     private static void BuildProgressiveDownloadURLs(IAsset asset)
     {
         // Create a 30-day readonly access policy. 
@@ -138,7 +141,7 @@ ms.lasthandoff: 12/21/2017
         foreach (var pd in mp4AssetFiles)
             Console.WriteLine(originLocator.Path + pd.Name);
     }
-
+```
 출력:
 
     http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4
@@ -150,7 +153,7 @@ ms.lasthandoff: 12/21/2017
 
 ### <a name="use-media-services-net-sdk-extensions"></a>Media Services .NET SDK Extensions 사용
 다음 코드는 로케이터를 만들고 적응 스트리밍에 대한 부드러운 스트리밍, HLS 및 MPEG-DASH URL을 생성하는 .NET SDK 확장 메서드를 호출합니다.
-
+```csharp
     // Create a loctor.
     _context.Locators.Create(
         LocatorType.OnDemandOrigin,
@@ -166,7 +169,7 @@ ms.lasthandoff: 12/21/2017
     Console.WriteLine(smoothStreamingUri);
     Console.WriteLine(hlsUri);
     Console.WriteLine(mpegDashUri);
-
+```
 
 ## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

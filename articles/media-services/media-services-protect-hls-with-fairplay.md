@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: 2ab743cadf91be05e1d2b2edf3143d8c14ae2bdb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 91f117c3b1b166a069b93c238380140f19e49280
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="protect-your-hls-content-with-apple-fairplay-or-microsoft-playready"></a>Microsoft PlayReady 또는 Apple FairPlay로 HLS 콘텐츠 보호
 Azure Media Services를 사용하면 다음 형식을 사용하여 HLS(HTTP 라이브 스트리밍) 콘텐츠를 동적으로 암호화할 수 있습니다.  
@@ -146,10 +146,12 @@ iOS SDK를 사용하여 플레이어 앱을 개발할 수 있습니다. FairPlay
 1. 개발 환경을 설정하고 [.NET을 사용한 Media Services 환경](media-services-dotnet-how-to-use.md)에 설명된 대로 연결 정보를 사용하여 app.config 파일을 채웁니다. 
 2. 다음 요소를 app.config 파일에 정의된 **appSettings**에 추가합니다.
 
-        <add key="Issuer" value="http://testacs.com"/>
-        <add key="Audience" value="urn:test"/>
+    ```xml
+            <add key="Issuer" value="http://testacs.com"/>
+            <add key="Audience" value="urn:test"/>
+    ```
 
-## <a name="example"></a>예제
+## <a name="example"></a>예
 
 다음 샘플에서는 Media Services를 사용하여 FairPlay로 암호화된 콘텐츠를 배달하는 기능을 보여 줍니다. 이 기능은 .NET 버전 3.6.0용 Azure Media Services SDK에서 도입되었습니다. 
 
@@ -160,7 +162,7 @@ Program.cs 파일에 있는 코드를 이 섹션에 나와 있는 코드로 덮�
 
 입력 파일이 있는 폴더를 가리키도록 변수를 업데이트해야 합니다.
 
-```
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Configuration;

@@ -3,7 +3,7 @@ title: "Azure Active Directory B2B 공동 작업이란? | Microsoft Docs"
 description: "Azure Active Directory B2B 공동 작업은 비즈니스 파트너가 선택적으로 회사 응용 프로그램에 액세스할 수 있게 함으로써 회사 간 관계를 지원합니다."
 services: active-directory
 documentationcenter: 
-author: sasubram
+author: twooley
 manager: mtillman
 editor: 
 tags: 
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 06/27/2017
-ms.author: curtand
+ms.author: twooley
 ms.custom: aaddev
 ms.reviewer: sasubram
-ms.openlocfilehash: d3167b0b4b33eee11f388efd1d2088f6bc5cc639
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: e1fa0a3e32935a8d601eac83c19c6c2b91ded210
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="what-is-azure-ad-b2b-collaboration"></a>Azure AD B2B 공동 작업이란?
 

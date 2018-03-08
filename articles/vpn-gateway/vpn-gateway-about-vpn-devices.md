@@ -56,7 +56,7 @@ VPN 장치를 구성하려면 적절한 장치 제품군에 해당하는 링크�
 | Check Point |Security Gateway |R77.30 |[구성 가이드](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |[구성 가이드](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |
 | 시스코              |ASA       |8.3<br>8.4+(IKEv2*) |[구성 샘플](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASA) |[구성 가이드*](vpn-gateway-3rdparty-device-config-cisco-asa.md) |
 | 시스코 |ASR |정책 기반: IOS 15.1<br>경로 기반: IOS 15.2 |[구성 샘플](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |[구성 샘플](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |
-| 시스코 |ISR |정책 기반: IOS 15.0<br>경로 기반*: IOS 15.1 |[구성 샘플](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |[구성 샘플**](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |
+| 시스코 |ISR |정책 기반: IOS 15.0<br>경로 기반*: IOS 15.1 |[구성 샘플](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |[구성 샘플\*\*](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |
 | 시스코 |Meraki |해당 없음 |호환되지 않음 |호환되지 않음 |
 | Citrix |NetScaler MPX, SDX, VPX |10.1 이상 |[구성 가이드](https://docs.citrix.com/en-us/netscaler/11-1/system/cloudbridge-connector-introduction/cloudbridge-connector-azure.html) |호환되지 않음 |
 | F5 |BIG-IP 시리즈 |12.0 |[구성 가이드](https://devcentral.f5.com/articles/connecting-to-windows-azure-with-the-big-ip) |[구성 가이드](https://devcentral.f5.com/articles/big-ip-to-azure-dynamic-ipsec-tunneling) |
@@ -78,7 +78,7 @@ VPN 장치를 구성하려면 적절한 장치 제품군에 해당하는 링크�
 >
 > (*)Cisco ASA 버전 8.4+ IKEv2 지원은 "UsePolicyBasedTrafficSelectors" 옵션과 함께 사용자 지정 IPsec/IKE 정책을 사용하여 Azure VPN Gateway에 연결할 수 있습니다. 이 [방법 문서](vpn-gateway-connect-multiple-policybased-rm-ps.md)를 참조하세요.
 >
-> (**)ISR 7200 시리즈 라우터는 정책 기반 VPN만을 지원합니다.
+> (\*\*)ISR 7200 시리즈 라우터는 정책 기반 VPN만을 지원합니다.
 
 ## <a name="additionaldevices"></a>확인되지 않은 VPN 장치
 

@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: 4b5b1d7723b57db2614dc889282f98e9673b4bbd
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f333db51fa9453cd14ee0333f5a6942506eba6ae
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="use-azure-queue-storage-to-monitor-media-services-job-notifications-with-net"></a>Azure 큐 저장소를 사용하여 .NET으로 Media Services 작업 알림 모니터링
 인코딩 작업을 실행할 때 작업 진행 상태를 추적하는 방법이 종종 필요합니다. [Azure 큐 저장소](../storage/storage-dotnet-how-to-use-queues.md)에 알림을 배달하도록 Media Services를 구성할 수 있습니다. 큐 저장소에서 알림을 가져와 작업 진행 상태를 모니터링할 수 있습니다. 
@@ -68,7 +68,7 @@ Queue Storage를 사용하는 Media Services 응용 프로그램을 개발할 �
 
 ### <a name="code"></a>코드
 
-```
+```csharp
 using System;
 using System.Linq;
 using System.Configuration;

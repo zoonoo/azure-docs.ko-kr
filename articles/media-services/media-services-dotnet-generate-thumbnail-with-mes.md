@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: f7a8b60e26b42668e505b3d466bfc447d0cfb48b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 02bbeafd9cd8ca93f22cf9e1a2c107e01c082ba3
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>.NET과 함께 미디어 인코더 표준을 사용하여 미리 보기를 생성하는 방법
 
@@ -34,6 +34,7 @@ Media Encoder Standard를 사용하여 입력 동영상에서 하나 이상의 �
 
 ### <a name="json-preset"></a>JSON 사전 설정
 
+```json
     {
       "Version": 1.0,
       "Codecs": [
@@ -58,9 +59,11 @@ Media Encoder Standard를 사용하여 입력 동영상에서 하나 이상의 �
         }
       ]
     }
+```
     
 ### <a name="xml-preset"></a>XML 사전 설정
 
+```xml
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
       <Encoding>
@@ -79,6 +82,7 @@ Media Encoder Standard를 사용하여 입력 동영상에서 하나 이상의 �
         </Output>
       </Outputs>
     </Preset>
+```
 
 ## <a name="example-of-a-series-of-jpeg-images-preset"></a>"일련의 JPEG 이미지" 사전 설정의 예
 
@@ -86,6 +90,7 @@ Media Encoder Standard를 사용하여 입력 동영상에서 하나 이상의 �
 
 ### <a name="json-preset"></a>JSON 사전 설정
 
+```json
     {
       "Version": 1.0,
       "Codecs": [
@@ -113,9 +118,11 @@ Media Encoder Standard를 사용하여 입력 동영상에서 하나 이상의 �
         }
       ]
     }
+```
 
 ### <a name="xml-preset"></a>XML 사전 설정
     
+```xml
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
       <Encoding>
@@ -135,6 +142,7 @@ Media Encoder Standard를 사용하여 입력 동영상에서 하나 이상의 �
         </Output>
       </Outputs>
     </Preset>
+```
 
 ## <a name="example-of-a-one-image-at-a-specific-timestamp-preset"></a>"특정 타임스탬프의 1개 이미지" 사전 설정의 예
 
@@ -142,6 +150,7 @@ Media Encoder Standard를 사용하여 입력 동영상에서 하나 이상의 �
 
 ### <a name="json-preset"></a>JSON 사전 설정
 
+```json
     {
       "Version": 1.0,
       "Codecs": [
@@ -169,9 +178,10 @@ Media Encoder Standard를 사용하여 입력 동영상에서 하나 이상의 �
         }
       ]
     }
-    
+```
+
 ### <a name="xml-preset"></a>XML 사전 설정
-    
+```xml
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
       <Encoding>
@@ -191,7 +201,8 @@ Media Encoder Standard를 사용하여 입력 동영상에서 하나 이상의 �
         </Output>
       </Outputs>
     </Preset>
-    
+```
+
 ## <a name="example-of-a-thumbnails-at-different-resolutions-preset"></a>"다른 해상도의 미리 보기" 사전 설정의 예
 
 다음 사전 설정은 하나의 작업의 다른 해상도에서 미리 보기를 생성하는 데 사용될 수 있습니다. 예제에서는 입력 타임라인의 위치 5%, 15%, …, 95%에서 인코더가 입력 동영상 해상도 100%에서 하나 그리고 50%에서 다른 하나로, 두 개의 이미지를 생성합니다.
@@ -200,6 +211,7 @@ FileName에서 {해상도} 매크로를 사용하는 것은 출력 이미지의 
 
 ### <a name="json-preset"></a>JSON 사전 설정
 
+```json
     {
       "Version": 1.0,
       "Codecs": [
@@ -234,9 +246,10 @@ FileName에서 {해상도} 매크로를 사용하는 것은 출력 이미지의 
         }
       ]
     }
+```
 
 ### <a name="xml-preset"></a>XML 사전 설정
-
+```xml
     <?xml version="1.0" encoding="utf-8"?>
     <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
     <Encoding>
@@ -261,7 +274,8 @@ FileName에서 {해상도} 매크로를 사용하는 것은 출력 이미지의 
       </Output>
     </Outputs>
     </Preset>
-    
+```
+
 ## <a name="example-of-generating-a-thumbnail-while-encoding"></a>인코딩하는 동안 미리 보기 생성의 예
 
 위의 모든 예제는 이미지만을 생성하는 인코딩 작업을 전송하는 방법을 설명했지만 미리 보기 생성으로 동영상/오디오 인코딩을 결합할 수도 있습니다. 다음 JSON 및 XML 사전 설정은 **Media Encoder Standard**에서 인코딩하는 동안 미리 보기를 생성하도록 합니다.
@@ -269,6 +283,7 @@ FileName에서 {해상도} 매크로를 사용하는 것은 출력 이미지의 
 ### <a id="json"></a>JSON 사전 설정
 스키마에 대한 자세한 내용은 [이 문서](https://msdn.microsoft.com/library/mt269962.aspx)를 참조하세요.
 
+```json
     {
       "Version": 1.0,
       "Codecs": [
@@ -328,10 +343,12 @@ FileName에서 {해상도} 매크로를 사용하는 것은 출력 이미지의 
         }
       ]
     }
+```
 
 ### <a id="xml"></a>XML 사전 설정
 스키마에 대한 자세한 내용은 [이 문서](https://msdn.microsoft.com/library/mt269962.aspx)를 참조하세요.
-    
+
+```csharp
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
       <Encoding>
@@ -381,6 +398,7 @@ FileName에서 {해상도} 매크로를 사용하는 것은 출력 이미지의 
         </Output>
       </Outputs>
     </Preset>   
+```
 
 ## <a id="code_sample"></a>.NET을 사용하여 동영상 인코드 및 미리 보기 생성
 
@@ -400,7 +418,7 @@ FileName에서 {해상도} 매크로를 사용하는 것은 출력 이미지의 
 
 개발 환경을 설정하는 방법에 대한 지침은 [.NET을 사용한 Media Services 개발](media-services-dotnet-how-to-use.md) 문서를 참조하세요.
 
-```
+```csharp
 using System;
 using System.Configuration;
 using System.IO;

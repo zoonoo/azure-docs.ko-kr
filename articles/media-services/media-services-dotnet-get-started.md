@@ -14,18 +14,18 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 12/10/2017
 ms.author: juliako
-ms.openlocfilehash: 98517b546fe5a00ad17d8478e94bc78a012c2de8
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: f88a9a732099f2bd63f46d3f45e5ff96f7441f03
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-net-sdk"></a>.NET SDK를 사용한 주문형 콘텐츠 제공 시작
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
 이 자습서에서는 Azure Media Services .NET SDK를 사용하는 AMS(Azure Media Services) 응용 프로그램으로 기본 VoD(주문형 비디오) 콘텐츠 배달 서비스를 구현하는 단계를 안내합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 자습서를 완료하는 데 필요한 조건은 다음과 같습니다.
 
@@ -95,6 +95,7 @@ Media Services를 .NET과 함께 사용하는 경우 Media Services 계정에 �
 > [!NOTE]
 > 이 문서의 뒤에서 정의된 모든 함수에 대한 정의를 추가하기 전까지는 컴파일 오류가 발생합니다.
 
+```csharp
     class Program
     {
         // Read values from the App.config file.
@@ -145,7 +146,7 @@ Media Services를 .NET과 함께 사용하는 경우 Media Services 계정에 �
             Console.ReadLine();
         }
         }
-    
+```
 
 ## <a name="create-a-new-asset-and-upload-a-video-file"></a>새 자산 만들기 및 비디오 파일 업로드
 
@@ -167,6 +168,7 @@ Media Services에서 자산에 디지털 파일을 업로드(수집)합니다. *
 
 Program 클래스에 다음 메서드를 추가합니다.
 
+```csharp
     static public IAsset UploadFile(string fileName, AssetCreationOptions options)
     {
         IAsset inputAsset = _context.Assets.CreateFromFile(
@@ -181,7 +183,7 @@ Program 클래스에 다음 메서드를 추가합니다.
 
         return inputAsset;
     }
-
+```
 
 ## <a name="encode-the-source-file-into-a-set-of-adaptive-bitrate-mp4-files"></a>원본 파일을 적응 비트 전송률 MP4 파일 집합으로 인코딩
 Media Services에 자산을 삽입하고 나면 미디어를 클라이언트에 배달하기 전에 인코딩, 트랜스먹싱, 워터마크 지정 등을 수행할 수 있습니다. 이러한 활동은 높은 성능과 가용성을 보장하기 위해 여러 백그라운드 역할 인스턴스에 대해 예약 및 실행합니다. 이러한 활동을 작업이라고 하며 각 작업은 자산 파일에서 실제 작업을 수행하는 원자성 작업으로 구성됩니다.
@@ -196,6 +198,7 @@ Media Services에 자산을 삽입하고 나면 미디어를 클라이언트에 
 
 Program 클래스에 다음 메서드를 추가합니다.
 
+```csharp
     static public IAsset EncodeToAdaptiveBitrateMP4s(IAsset asset, AssetCreationOptions options)
     {
 
@@ -229,6 +232,7 @@ Program 클래스에 다음 메서드를 추가합니다.
 
         return outputAsset;
     }
+```
 
 ## <a name="publish-the-asset-and-get-urls-for-streaming-and-progressive-download"></a>자산 게시, 스트리밍 및 점진적 다운로드를 위한 URL 가져오기
 
@@ -261,6 +265,7 @@ Media Services .NET SDK Extensions는 게시된 자산에 대한 서식 지정�
 
 Program 클래스에 다음 메서드를 추가합니다.
 
+```csharp
     static public void PublishAssetGetURLs(IAsset asset)
     {
         // Publish the output asset by creating an Origin locator for adaptive streaming,
@@ -325,6 +330,7 @@ Program 클래스에 다음 메서드를 추가합니다.
 
         Console.WriteLine("Output asset files available at '{0}'.", Path.GetFullPath(outputFolder));
     }
+```
 
 ## <a name="test-by-playing-your-content"></a>콘텐츠를 재생하여 테스트합니다.
 

@@ -3,7 +3,7 @@ title: "초대 없이 Azure Active Directory에 B2B 공동 작업 사용자 추�
 description: "게스트 사용자가 Azure Active Directory B2B 공동 작업에서 초대를 사용하지 않고 Azure AD에 다른 게스트 사용자를 추가하도록 할 수 있습니다."
 services: active-directory
 documentationcenter: 
-author: sasubram
+author: twooley
 manager: mtillman
 editor: 
 tags: 
@@ -14,12 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 03/15/2017
-ms.author: sasubram
-ms.openlocfilehash: aa0d8dc9bed0a56d998e782283c84e7d2571b1f1
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: twooley
+ms.reviewer: sasubram
+ms.openlocfilehash: 68d828b8fb23f7074be5fe691a4250d0fa653ab7
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="add-b2b-collaboration-guest-users-without-an-invitation"></a>초대 없이 B2B 공동 작업 게스트 사용자 추가
 

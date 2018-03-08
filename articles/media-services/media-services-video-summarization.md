@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: milanga;juliako;
-ms.openlocfilehash: 92c730addb69bc4d12708ccd789edce0c2336c80
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4f40c9364d02929fe5bb193b4e8eb0a0157d34d2
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="use-azure-media-video-thumbnails-to-create-a-video-summarization"></a>Azure 미디어 비디오 미리 보기를 사용하여 비디오 요약 만들기
 ## <a name="overview"></a>개요
@@ -44,7 +44,11 @@ Azure 미디어 비디오 미리 보기 미디어 프로세서에서 수행할 �
 ## <a name="task-configuration-preset"></a>작업 구성(기본 설정)
 **Azure 미디어 비디오 미리 보기**로 비디오 미리 보기 작업을 만들 때에는 구성 기본 설정을 지정해야 합니다. 위의 미리 보기 샘플은 다음 기본 JSON 구성을 사용하여 만들어졌습니다.
 
-    {"version":"1.0"}
+```json
+    {
+        "version":"1.0"
+    }
+```
 
 현재 다음 매개 변수를 변경할 수 있습니다.
 
@@ -63,6 +67,7 @@ Azure 미디어 비디오 미리 보기 미디어 프로세서에서 수행할 �
 
 다음 JSON은 사용 가능한 매개 변수를 설정합니다.
 
+```json
     {
         "version": "1.0",
         "options": {
@@ -71,6 +76,7 @@ Azure 미디어 비디오 미리 보기 미디어 프로세서에서 수행할 �
             "fadeInFadeOut": "true"
         }
     }
+```
 
 ## <a name="net-sample-code"></a>.NET 샘플 코드
 
@@ -78,23 +84,27 @@ Azure 미디어 비디오 미리 보기 미디어 프로세서에서 수행할 �
 
 1. 자산을 만들고 미디어 파일을 자산에 업로드합니다.
 2. 다음 JSON 기본 설정을 포함하는 구성 파일을 기반으로 동영상 미리 보기 작업을 만듭니다. 
-   
-        {                
-            "version": "1.0",
-            "options": {
-                "outputAudio": "true",
-                "maxMotionThumbnailDurationInSecs": "30",
-                "fadeInFadeOut": "false"
+    
+    ```json
+            {                
+                "version": "1.0",
+                "options": {
+                    "outputAudio": "true",
+                    "maxMotionThumbnailDurationInSecs": "30",
+                    "fadeInFadeOut": "false"
+                }
             }
-        }
+    ```
+
 3. 출력 파일을 다운로드합니다. 
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>Visual Studio 프로젝트 만들기 및 구성
 
 개발 환경을 설정하고 [.NET을 사용한 Media Services 환경](media-services-dotnet-how-to-use.md)에 설명된 대로 연결 정보를 사용하여 app.config 파일을 채웁니다. 
 
-#### <a name="example"></a>예제
+#### <a name="example"></a>예
 
+```csharp
     using System;
     using System.Configuration;
     using System.IO;
@@ -262,6 +272,7 @@ Azure 미디어 비디오 미리 보기 미디어 프로세서에서 수행할 �
 
         }
     }
+```
 
 ### <a name="video-thumbnail-output"></a>비디오 미리 보기 출력
 [비디오 미리 보기 출력](http://ampdemo.azureedge.net/azuremediaplayer.html?url=http%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.windows.net%2Fd06f24dc-bc81-488e-a8d0-348b7dc41b56%2FHololens%2520Demo_VideoThumbnails_MotionThumbnail.mp4)

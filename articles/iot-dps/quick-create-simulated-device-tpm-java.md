@@ -12,18 +12,15 @@ documentationcenter:
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: e0e50cdb987f2632d11753940327d1a88be4f3ab
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: 99cf221b08fc613c000dda4e5cc4855634091f55
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-java-device-sdk-for-azure-iot-hub-device-provisioning-service"></a>Azure IoT Hub Device Provisioning Service용 Java 장치 SDK를 사용하여 시뮬레이션된 TPM 장치 만들기 및 프로비전
-> [!div class="op_single_selector"]
-> * [C](quick-create-simulated-device.md)
-> * [Java](quick-create-simulated-device-tpm-java.md)
-> * [C#](quick-create-simulated-device-tpm-csharp.md)
-> * [Python](quick-create-simulated-device-tpm-python.md)
+
+[!INCLUDE [iot-dps-selector-quick-create-simulated-device-tpm](../../includes/iot-dps-selector-quick-create-simulated-device-tpm.md)]
 
 다음 단계에서는 Windows OS를 실행 중인 개발 컴퓨터에서 시뮬레이션된 장치를 만들고 Windows TPM 시뮬레이터를 장치의 [HSM(하드웨어 보안 모듈)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/)으로 실행하며 코드 샘플을 사용하여 시뮬레이션된 장치를 Device Provisioning Service 및 IoT Hub와 연결하는 방법을 보여 줍니다. 
 
@@ -128,7 +125,7 @@ ms.lasthandoff: 01/03/2018
 
 1. 컴퓨터에서 장치 클라이언트 샘플 출력 창을 닫습니다.
 1. 컴퓨터에서 TPM 시뮬레이터 창을 닫습니다.
-1. Azure Portal의 왼쪽 메뉴에서 **모든 리소스**를 클릭한 다음 사용자의 Device Provisioning Service를 선택합니다. 서비스에 대한 **등록 관리** 블레이드를 연 다음 **개별 등록** 탭을 클릭합니다. 이 빠른 시작에서 등록한 장치의 *등록 ID*를 선택하고, 위쪽의 **삭제** 단추를 클릭합니다. 
+1. Azure Portal의 왼쪽 메뉴에서 **모든 리소스**를 클릭한 다음 사용자의 Device Provisioning Service를 선택합니다. 서비스에 대한 **등록 관리** 블레이드를 연 다음, **개별 등록** 탭을 클릭합니다. 이 빠른 시작에서 등록한 장치의 *등록 ID*를 선택하고, 위쪽의 **삭제** 단추를 클릭합니다. 
 1. Azure Portal의 왼쪽 메뉴에서 **모든 리소스**를 클릭한 다음 사용자의 IoT Hub를 선택합니다. 허브에 대한 **IoT 장치** 블레이드를 열고, 이 빠른 시작에서 등록한 장치의 *장치 ID*를 선택한 다음, 위쪽의 **삭제** 단추를 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계

@@ -3,9 +3,9 @@ title: "Azure Data Factory에서 Spark 프로그램 호출 | Microsoft Docs"
 description: "MapReduce 작업을 사용하여 Azure Data Factory에서 Spark 프로그램을 호출하는 방법을 알아봅니다."
 services: data-factory
 documentationcenter: 
-author: spelluru
-manager: jhubbard
-editor: monicar
+author: sharonlo101
+manager: 
+editor: 
 ms.assetid: fd98931c-cab5-4d66-97cb-4c947861255c
 ms.service: data-factory
 ms.workload: data-services
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
-ms.author: spelluru
+ms.author: shlo
 robots: noindex
-ms.openlocfilehash: f03c3b6e275c0bc97df9e687a20acf45956664d2
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: b39e6012365c426e95a38d5c5a40790f584ba473
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Azure Data Factory 파이프라인에서 Spark 프로그램 호출
 
@@ -330,17 +330,17 @@ getDebugInfo를 **Always**로 설정했으므로 Blob 컨테이너의 pyFiles �
 | 자산 | 설명 | 필수 |
 | -------- | ----------- | -------- |
 | 이름 | 파이프라인의 작업 이름입니다. | 예 |
-| description | 작업에서 수행하는 동작을 설명하는 텍스트입니다. | 아니요 |
+| description | 작업에서 수행하는 동작을 설명하는 텍스트입니다. | 아니오 |
 | 형식 | 이 속성은 HDInsightSpark로 설정해야 합니다. | 예 |
 | linkedServiceName | Spark 프로그램이 실행되는 HDInsight 연결된 서비스의 이름입니다. | 예 |
 | rootPath | Spark 파일이 포함된 Blob 컨테이너 및 폴더입니다. 파일 이름은 대/소문자를 구분합니다. | 예 |
 | entryFilePath | Spark 코드/패키지의 루트 폴더에 대한 상대 경로입니다. | 예 |
 | className | 응용 프로그램의 Java/Spark main 클래스입니다. | 아니오 |
-| arguments | Spark 프로그램에 대한 명령줄 인수 목록입니다. | 아니오 |
+| arguments | Spark 프로그램에 대한 명령줄 인수 목록입니다. | 아니요 |
 | proxyUser | Spark 프로그램을 실행하기 위해 가장하는 사용자 계정입니다. | 아니요 |
 | sparkConfig | [Spark 구성: 응용 프로그램 속성](https://spark.apache.org/docs/latest/configuration.html#available-properties)에 나열된 Spark 구성 속성에 대한 값을 지정합니다. | 아니요 |
 | getDebugInfo | HDInsight 클러스터에서 사용되거나 sparkJobLinkedService에서 지정된 저장소에 Spark 로그 파일을 복사하는 시기를 지정합니다. 허용되는 값은 None, Always 또는 Failure입니다. 기본값은 None입니다. | 아니요 |
-| sparkJobLinkedService | Spark 작업 파일, 종속성 및 로그를 보유하는 Storage 연결된 서비스입니다. 이 속성에 대한 값을 지정하지 않으면 HDInsight 클러스터와 연결된 저장소가 사용됩니다. | 아니오 |
+| sparkJobLinkedService | Spark 작업 파일, 종속성 및 로그를 보유하는 Storage 연결된 서비스입니다. 이 속성에 대한 값을 지정하지 않으면 HDInsight 클러스터와 연결된 저장소가 사용됩니다. | 아니요 |
 
 ## <a name="folder-structure"></a>폴더 구조
 Pig 및 Hive 작업에서 수행하는 것처럼 Spark 작업은 인라인 스크립트를 지원하지 않습니다. Spark 작업은 Pig/Hive 작업보다 확장성이 뛰어납니다. Spark 작업의 경우 jar 패키지(java CLASSPATH에 배치), Python 파일(PYTHONPATH에 배치) 및 기타 파일과 같은 여러 종속성을 제공할 수 있습니다.
@@ -354,8 +354,8 @@ HDInsight 연결된 서비스에서 참조하는 Blob 저장소에 다음 폴더
 | ./jars | 이 폴더 아래의 모든 파일이 업로드되고, 클러스터의 Java classpath에 배치됩니다. | 아니요 | 폴더 |
 | ./pyFiles | 이 폴더 아래의 모든 파일이 업로드되고, 클러스터의 PYTHONPATH에 배치됩니다. | 아니요 | 폴더 |
 | ./files | 이 폴더 아래의 모든 파일이 업로드되고, 실행기 작업 디렉터리에 배치됩니다. | 아니요 | 폴더 |
-| ./archives | 이 폴더 아래의 모든 파일이 압축 해제됩니다. | 아니오 | 폴더 |
-| ./logs | Spark 클러스터의 로그가 저장되는 폴더| 아니오 | 폴더 |
+| ./archives | 이 폴더 아래의 모든 파일이 압축 해제됩니다. | 아니요 | 폴더 |
+| ./logs | Spark 클러스터의 로그가 저장되는 폴더| 아니요 | 폴더 |
 
 HDInsight 연결된 서비스에서 참조하는 Blob 저장소에 있는 두 개의 Spark 작업 파일이 포함된 저장소에 대한 예제는 다음과 같습니다.
 

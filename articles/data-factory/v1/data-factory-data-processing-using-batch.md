@@ -3,7 +3,7 @@ title: "Data Factory 및 Batch를 사용하여 대규모 데이터 집합 처리
 description: "Azure Batch의 병렬 처리 기능을 사용하여 Azure Data Factory 파이프라인에서 대용량 데이터를 처리하는 방법을 설명합니다."
 services: data-factory
 documentationcenter: 
-author: spelluru
+author: sharonlo101
 manager: jhubbard
 editor: monicar
 ms.assetid: 688b964b-51d0-4faa-91a7-26c7e3150868
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
-ms.author: spelluru
+ms.author: shlo
 robots: noindex
-ms.openlocfilehash: af2c12cac5846ae1c4bc693bacaf72ab327fb87f
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 3b886babe07a0bd1fa725286b5471055fc626dc1
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Data Factory 및 Batch를 사용하여 대규모 데이터 집합 처리
 > [!NOTE]

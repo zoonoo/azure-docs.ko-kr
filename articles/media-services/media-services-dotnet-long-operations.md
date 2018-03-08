@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: b4e794d8983470efe3ff4eef4947f4654ce2c523
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f9e79542d6acfcbf27a21e058f382bebacf0c2d4
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="delivering-live-streaming-with-azure-media-services"></a>Azure Media Services를 사용하여 라이브 스트리밍 제공
 
@@ -39,7 +39,7 @@ Media Services .NET SDK는 요청을 보내고 작업이 완료되기를 기다�
 
 개발 환경을 설정하고 [.NET을 사용한 Media Services 환경](media-services-dotnet-how-to-use.md)에 설명된 대로 연결 정보를 사용하여 app.config 파일을 채웁니다.
 
-## <a name="example"></a>예제
+## <a name="example"></a>예
 
 다음 예제에서는 **ChannelOperations**라는 클래스를 정의합니다. 이 클래스 정의는 웹 서비스 클래스 정의 시작 지점이 될 수 있습니다. 간단히 하기 위해 다음 예제에서는 메서드의 비동기 버전을 사용합니다.
 
@@ -47,7 +47,7 @@ Media Services .NET SDK는 요청을 보내고 작업이 완료되기를 기다�
 
 ### <a name="channeloperations-class-definition"></a>ChannelOperations 클래스 정의
 
-```
+```csharp
 using Microsoft.WindowsAzure.MediaServices.Client;
 using System;
 using System.Collections.Generic;
@@ -192,7 +192,7 @@ public class ChannelOperations
 
 ### <a name="the-client-code"></a>The client code
 
-```
+```csharp
 ChannelOperations channelOperations = new ChannelOperations();
 string opId = channelOperations.StartChannelCreation("MyChannel001");
 

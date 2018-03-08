@@ -12,18 +12,15 @@ documentationcenter:
 manager: timlt
 ms.devlang: python
 ms.custom: mvc
-ms.openlocfilehash: 9a370e12bb948a184149dd3f398ed8d1f5b9ab11
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 6803dd31ce5953c2be14f6c4a2e65bdafc48e3e2
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-python-device-sdk-for-iot-hub-device-provisioning-service"></a>IoT Hub Device Provisioning 서비스용 Python 장치 SDK를 사용하여 시뮬레이션된 TPM 장치 만들기 및 프로비전
-> [!div class="op_single_selector"]
-> * [C](quick-create-simulated-device.md)
-> * [Java](quick-create-simulated-device-tpm-java.md)
-> * [C#](quick-create-simulated-device-tpm-csharp.md)
-> * [Python](quick-create-simulated-device-tpm-python.md)
+
+[!INCLUDE [iot-dps-selector-quick-create-simulated-device-tpm](../../includes/iot-dps-selector-quick-create-simulated-device-tpm.md)]
 
 다음 단계에서는 Windows OS를 실행하는 개발 컴퓨터에서 시뮬레이션된 장치를 만들고, Windows TPM 시뮬레이터를 장치의 [HSM(하드웨어 보안 모듈)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/)으로 실행하며, Python 샘플 코드를 사용하여 이 시뮬레이션된 장치를 Device Provisioning Service 및 IoT Hub와 연결하는 방법을 보여 줍니다. 
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2018
 ms.author: juluk
-ms.openlocfilehash: 21a050373a9901220e106534464a8c13565bb3d8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 245e2e1ca52e7d3c5bd22d5f2569e3e8d7ae6671
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="limitations-of-azure-cloud-shell"></a>Azure Cloud Shell의 제한 사항
 
@@ -54,11 +54,11 @@ Cloud Shell은 대화형 사용 사례를 위한 것입니다. 따라서 비대�
 
 ### <a name="user-permissions"></a>사용자 권한
 
-권한은 sudo 액세스 권한이 없는 일반 사용자로 설정됩니다. 사용자의 `$Home` 또는 `clouddrive` 디렉터리 외부에서의 설치는 유지되지 않습니다.
+권한은 sudo 액세스 권한이 없는 일반 사용자로 설정됩니다. 사용자 `$Home` 디렉터리 외부에서의 설치는 유지되지 않습니다.
 
 ### <a name="editing-bashrc"></a>.bashrc 편집
 
-.bashrc를 편집할 때는 Cloud Shell의 Bash로 예기치 않은 오류가 발생할 수 있으니 주의하세요.
+.bashrc를 편집할 때는 Cloud Shell에 예기치 않은 오류가 발생할 수 있으니 주의하세요.
 
 ## <a name="powershell-limitations"></a>PowerShell 제한 사항
 
@@ -68,7 +68,7 @@ Azure Cloud Shell의 PowerShell(미리 보기)은 미리 보기 중에 초기화
 
 ### <a name="no-home-directory-persistence"></a>$Home 디렉터리 지속성 없음
 
-응용 프로그램(예: git, vim 및 기타)이 `$Home`에 기록한 데이터는 PowerShell 세션 간에 지속되지 않습니다. 해결 방법은 [여기를 참조하세요](troubleshooting.md#powershell-resolutions).
+응용 프로그램(예: git, vim 및 기타)이 `$Home`에 기록한 데이터는 PowerShell 세션 간에 지속되지 않습니다. 해결 방법은 [여기를 참조하세요](troubleshooting.md#powershell-troubleshooting).
 
 ### <a name="default-file-location-when-created-from-azure-drive"></a>Azure 드라이브에서 만들 때 기본 파일 위치:
 

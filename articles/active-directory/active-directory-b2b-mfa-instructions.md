@@ -3,7 +3,7 @@ title: "Azure Active Directory B2B 공동 작업 사용자에 대한 조건부 �
 description: "Azure Active Directory B2B 공동 작업 기능은 회사 응용 프로그램에 대한 선택적 액세스를 위해 MFA(Multi-Factor Authentication)를 지원합니다."
 services: active-directory
 documentationcenter: 
-author: sasubram
+author: twooley
 manager: mtillman
 editor: 
 tags: 
@@ -14,19 +14,20 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 09/11/2017
-ms.author: sasubram
-ms.openlocfilehash: 2f2cfc351d372d665aac054d52d6e1520e1ffe48
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: twooley
+ms.reviewer: sasubram
+ms.openlocfilehash: 4c8827bdf18d59fbe6ba92593513e25e493974b5
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="conditional-access-for-b2b-collaboration-users"></a>B2B 공동 작업 사용자에 대한 조건부 액세스
 
 ## <a name="multi-factor-authentication-for-b2b-users"></a>B2B 사용자에 대한 다단계 인증
 Azure AD B2B 공동 작업을 통해 조직에서는 B2B 사용자에 대한 MFA(Multi-Factor Authentication) 정책을 적용할 수 있습니다. 조직의 전일제 직원과 구성원에 대해 이러한 정책을 사용하는 것과 같은 방법으로 이러한 정책을 테넌트, 앱 또는 개별 사용자 수준에서 적용할 수 있습니다. MFA 정책은 리소스 조직에서 적용됩니다.
 
-예제:
+예:
 1. 회사 A의 관리자 또는 정보 근로자가 회사 B의 사용자를 회사 A의 *Foo* 응용 프로그램에 초대합니다.
 2. 회사 A의 응용 프로그램 *Foo*는 액세스 시 MFA를 요구하도록 구성됩니다.
 3. 회사 B의 사용자가 회사 A 테넌트에서 *Foo* 앱에 액세스하려고 하면 MFA 챌린지를 완료하도록 요구됩니다.
@@ -66,7 +67,7 @@ B2B 공동 작업 사용자에 대한 MFA를 설정하는 작업이 얼마나 �
   Get-MsolUser | where { $_.StrongAuthenticationMethods} | select UserPrincipalName, @{n="Methods";e={($_.StrongAuthenticationMethods).MethodType}}
   ```
 
-3. 특정 사용자에 대한 MFA 방법을 다시 설정하여 B2B 공동 작업 사용자가 증명 방법을 다시 설정하도록 합니다. 예제:
+3. 특정 사용자에 대한 MFA 방법을 다시 설정하여 B2B 공동 작업 사용자가 증명 방법을 다시 설정하도록 합니다. 예:
 
   ```
   Reset-MsolStrongAuthenticationMethodByUpn -UserPrincipalName gsamoogle_gmail.com#EXT#@ WoodGroveAzureAD.onmicrosoft.com

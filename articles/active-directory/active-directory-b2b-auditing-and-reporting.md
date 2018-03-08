@@ -3,7 +3,7 @@ title: "Azure Active Directory B2B 공동 작업 사용자 감사 및 보고 | M
 description: "Azure Active Directory B2B 공동 작업에서 구성 가능한 게스트 사용자 속성"
 services: active-directory
 documentationcenter: 
-author: sasubram
+author: twooley
 manager: mtillman
 editor: 
 tags: 
@@ -14,12 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 04/12/2017
-ms.author: sasubram
-ms.openlocfilehash: 315cc3bcab1909b385b98138c971b2c7d405da2b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: twooley
+ms.reviewer: sasubram
+ms.openlocfilehash: 38ae8f5f1a8f4292eaf617c15c6a59a48dd348c5
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="auditing-and-reporting-a-b2b-collaboration-user"></a>B2B 공동 작업 사용자 감사 및 보고
 게스트 사용자를 사용하여 구성원 사용자와 유사한 감사 기능을 얻을 수 있습니다. 다음은 초대한 Sam Oogle의 초대 및 상환 기록에 대한 예제입니다.

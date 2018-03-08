@@ -13,11 +13,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: 5a6e1b5bc377d3fc4ad47fdfb37da4853c3bb827
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7c94f59eaa079677223083339f111cf73b13632e
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="copying-existing-blobs-into-a-media-services-asset"></a>기존 Blob을 Media Services 자산으로 복사
 이 문서에서는 [Azure Media Services .NET SDK Extensions](https://github.com/Azure/azure-sdk-for-media-services-extensions/)를 사용하여 저장소 계정에서 새로운 AMS(Azure Media Services) 자산으로 Blob을 복사하는 방법을 보여줍니다.
@@ -51,7 +51,7 @@ ms.lasthandoff: 12/11/2017
 1. [.NET을 사용한 Media Services 개발](media-services-dotnet-how-to-use.md)에 설명된 대로 개발 환경을 설정합니다. 
 2. appSettings 섹션을 .config 파일에 추가하고 Media Services 계정, 대상 저장소 계정 및 원본 자산 ID에 따라 값을 업데이트합니다.  
 
-```   
+```xml
 <appSettings>
     <add key="AMSSourceAADTenantDomain" value="tenant"/>
     <add key="AMSSourceRESTAPIEndpoint" value="endpoint"/>
@@ -77,7 +77,7 @@ ms.lasthandoff: 12/11/2017
 
 다음 코드에서는 확장 **IAsset.Copy** 메서드를 사용하여 단일 확장을 통해 원본 자산의 모든 파일을 대상 자산으로 복사합니다.
 
-```
+```csharp
 using System;
 using Microsoft.WindowsAzure.MediaServices.Client;
 using System.Linq;
@@ -167,7 +167,7 @@ namespace CopyExistingBlobsIntoAsset
 1. [.NET을 사용한 Media Services 개발](media-services-dotnet-how-to-use.md)에 설명된 대로 개발 환경을 설정합니다. 
 2. appSettings 섹션을 .config 파일에 추가하고 원본 저장소 및 대상 AMS 계정에 기반한 값을 업데이트합니다.
 
-```
+```xml
 <appSettings>
     <add key="SourceStorageAccountName" value="name" />
     <add key="SourceStorageAccountKey" value="key" />
@@ -189,7 +189,7 @@ namespace CopyExistingBlobsIntoAsset
 >[!NOTE]
 >다른 AMS 정책(예: 로케이터 정책 또는 ContentKeyAuthorizationPolicy의 경우)은 1,000,000개의 정책으로 제한됩니다. 항상 같은 날짜/액세스 권한을 사용하는 경우(예: 비 업로드 정책처럼 오랫동안 배치되는 로케이터에 대한 정책) 동일한 정책 ID를 사용해야 합니다. 자세한 내용은 [이](media-services-dotnet-manage-entities.md#limit-access-policies) 문서를 참조하세요.
 
-```
+```csharp
 using System;
 using System.Configuration;
 using System.Linq;
@@ -371,6 +371,7 @@ namespace CopyExistingBlobsIntoAsset
     }
 }
 ```
+
 ## <a name="next-steps"></a>다음 단계
 
 이제 업로드된 자산을 인코딩할 수 있습니다. 자세한 내용은 [자산 인코딩](media-services-portal-encode.md)을 참조하세요.

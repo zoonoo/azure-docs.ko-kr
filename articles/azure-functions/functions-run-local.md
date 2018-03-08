@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: f19fa1ac4dd970ca3df2c0fdbf8e0778e171c43d
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 59a15697641dd8e4bdfdb974436d46a34b47ffb5
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Azure Functions를 로컬에서 코딩 및 테스트
 
@@ -35,14 +35,6 @@ Visual Studio C# 개발자인 경우 Azure Functions은 [Visual Studio 2017과�
 
 >[!NOTE]  
 > 두 버전 중 하나를 설치하기 전에 npm이 포함된 [NodeJS를 설치](https://docs.npmjs.com/getting-started/installing-node)해야 합니다. 버전 2.x 도구의 경우 Node.js 8.5 이상 버전만 지원됩니다. 
-
-### <a name="version-1x-runtime"></a>버전 1.x 런타임
-
-원래 버전의 도구는 Functions 1.x 런타임을 사용합니다. 이 버전은 .NET Framework를 사용하며 Windows 컴퓨터에서만 지원됩니다. 다음 명령을 사용하여 버전 1.x 도구를 설치합니다.
-
-```bash
-npm install -g azure-functions-core-tools
-```
 
 ### <a name="version-2x-runtime"></a>버전 2.x 런타임
 
@@ -69,6 +61,14 @@ macOS 및 Linux에 설치하는 경우 다음과 같이 `unsafe-perm` 플래그�
 
 ```bash
 sudo npm install -g azure-functions-core-tools@core --unsafe-perm true
+```
+
+### <a name="version-1x-runtime"></a>버전 1.x 런타임
+
+원래 버전의 도구는 Functions 1.x 런타임을 사용합니다. 이 버전은 .NET Framework를 사용하며 Windows 컴퓨터에서만 지원됩니다. 다음 명령을 사용하여 버전 1.x 도구를 설치합니다.
+
+```bash
+npm install -g azure-functions-core-tools
 ```
 
 ## <a name="run-azure-functions-core-tools"></a>Azure Functions 핵심 도구 실행

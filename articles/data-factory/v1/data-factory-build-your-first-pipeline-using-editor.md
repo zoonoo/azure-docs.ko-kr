@@ -3,9 +3,9 @@ title: "첫 번째 데이터 팩터리(Azure 포털) 빌드 | Microsoft Docs"
 description: "이 자습서에서는 Azure Portal의 Data Factory Editor를 사용하여 샘플 Azure Data Factory 파이프라인을 만듭니다."
 services: data-factory
 documentationcenter: 
-author: spelluru
-manager: jhubbard
-editor: monicar
+author: sharonlo101
+manager: 
+editor: 
 ms.assetid: d5b14e9e-e358-45be-943c-5297435d402d
 ms.service: data-factory
 ms.workload: data-services
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/22/2018
-ms.author: spelluru
+ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 995abf497e7267434b5e87132d30183e3c293af3
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: c4fe0e01936ebc131b10f011b98e9d0c1782179b
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="tutorial-build-your-first-data-factory-by-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 첫 번째 데이터 팩터리 빌드
 > [!div class="op_single_selector"]
@@ -55,7 +55,7 @@ ms.lasthandoff: 01/23/2018
 
 1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 
-2. **새로 만들기** > **데이터 + 분석** > **Data Factory**를 선택합니다.
+2. **새로 만들기** > **데이터 + 분석** > **Data Factory**를 차례로 선택합니다.
 
    ![블레이드 만들기](./media/data-factory-build-your-first-pipeline-using-editor/create-blade.png)
 
@@ -80,14 +80,14 @@ ms.lasthandoff: 01/23/2018
 8. **만들기**를 선택합니다.
 
    > [!IMPORTANT]
-   > Data Factory 인스턴스를 만들려면 구독/리소스 그룹 수준에서 [Data Factory 참여자](../../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) 역할의 구성원이어야 합니다.
+   > Data Factory 인스턴스를 만들려면 구독/리소스 그룹 수준에서 [Data Factory 참가자](../../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) 역할의 구성원이어야 합니다.
    >
    >
 9. 대시보드에서 **Data Factory 배포 중** 상태의 다음과 같은 타일이 표시됩니다.    
 
    ![Data Factory 배포 중 상태](./media/data-factory-build-your-first-pipeline-using-editor/creating-data-factory-image.png)
 
-10. 데이터 팩터리를 만든 후 **데이터 팩터리** 페이지가 표시되며 여기에 데이터 팩터리의 내용이 표시됩니다.     
+10. 데이터 팩터리가 만들어지면 **데이터 팩터리** 페이지가 표시되며, 여기에 데이터 팩터리의 내용이 표시됩니다.     
 
     ![데이터 팩터리 블레이드](./media/data-factory-build-your-first-pipeline-using-editor/data-factory-blade.png)
 
@@ -103,7 +103,7 @@ ms.lasthandoff: 01/23/2018
 
    ![작성 및 배포 타일](./media/data-factory-build-your-first-pipeline-using-editor/data-factory-author-deploy.png)
 
-2. **새 데이터 저장소**를 선택하고 **Azure Storage**를 선택합니다.
+2. **새 데이터 저장소**, **Azure Storage**를 차례로 선택합니다.
 
    ![새 데이터 저장소 블레이드](./media/data-factory-build-your-first-pipeline-using-editor/new-data-store-azure-storage-menu.png)
 
@@ -117,7 +117,7 @@ ms.lasthandoff: 01/23/2018
 
     ![배포 단추](./media/data-factory-build-your-first-pipeline-using-editor/deploy-button.png)
 
-   연결된 서비스가 성공적으로 배포되면 후 초안-1 창이 사라집니다. 왼쪽의 트리 뷰에 **AzureStorageLinkedService**가 표시됩니다.
+   연결된 서비스가 성공적으로 배포되면 후 초안 1 창이 사라집니다. 왼쪽의 트리 뷰에서 **AzureStorageLinkedService**가 표시됩니다.
 
     ![AzureStorageLinkedService](./media/data-factory-build-your-first-pipeline-using-editor/StorageLinkedServiceInTree.png)    
 
@@ -178,7 +178,7 @@ ms.lasthandoff: 01/23/2018
 이 단계에서는 Hive 처리에 대한 입력 및 출력 데이터를 나타내는 데이터 집합을 만듭니다. 이러한 데이터 집합은 이 자습서의 앞부분에서 만든 AzureStorageLinkedService를 참조합니다. 연결된 서비스는 저장소 계정으로 연결됩니다. 데이터 집합은 입력 및 출력 데이터가 있는 저장소의 컨테이너, 폴더 및 파일 이름을 지정합니다.   
 
 ### <a name="create-the-input-dataset"></a>입력 데이터 집합 만들기
-1. Data Factory Editor에서 **자세히** > **새 데이터 집합** > **Azure Blob Storage**를 선택합니다.
+1. 데이터 팩터리 편집기에서 **자세히** > **새 데이터 집합** > **Azure Blob 저장소**를 차례로 선택합니다.
 
     ![새 데이터 집합](./media/data-factory-build-your-first-pipeline-using-editor/new-data-set.png)
 
@@ -227,7 +227,7 @@ ms.lasthandoff: 01/23/2018
 ### <a name="create-the-output-dataset"></a>출력 데이터 집합 만들기
 이제 Blob Storage에 저장된 출력 데이터를 나타내는 출력 데이터 집합을 만듭니다.
 
-1. Data Factory Editor에서 **자세히** > **새 데이터 집합** > **Azure Blob Storage**를 선택합니다.
+1. 데이터 팩터리 편집기에서 **자세히** > **새 데이터 집합** > **Azure Blob 저장소**를 차례로 선택합니다.
 
 2. 다음 코드 조각을 복사하여 Draft-1 창에 붙여넣습니다. JSON 코드 조각에서 **AzureBlobOutput**이라는 데이터 집합을 만들고 Hive 스크립트에 의해 생성되는 데이터의 구조를 지정합니다. 또한 결과가 **adfgetstarted**라는 Blob 컨테이너와 **partitioneddata**라는 폴더에 저장되도록 지정합니다. **availability** 섹션에서는 출력 데이터 집합을 매일 생성하도록 지정합니다.
 
@@ -260,7 +260,7 @@ ms.lasthandoff: 01/23/2018
     ![연결된 서비스와 트리 뷰](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-data-set.png)
 
 ## <a name="create-a-pipeline"></a>파이프라인을 만듭니다.
-이 단계에서는 HDInsight Hive 작업을 사용하여 첫 번째 파이프라인을 만듭니다. 입력 조각은 매월 사용할 수 있습니다(주파수가 월, 간격은 1). 출력 조각은 매월 생성됩니다. 작업에 대한 스케줄러 속성도 매월로 설정됩니다. 출력 데이터 집합 및 작업 스케줄러에 대한 설정이 일치해야 합니다. 현재 출력 데이터 집합이 일정을 결정하므로 작업이 출력을 생성하지 않는 경우에도 출력 데이터 집합을 만들어야 합니다. 활동이 입력을 가져오지 않으면 입력 데이터 집합 만들기를 건너뛸 수 있습니다. 다음 JSON 코드 조각에서 사용되는 속성은 이 섹션의 마지막에 설명되어 있습니다.
+이 단계에서는 HDInsight Hive 작업을 사용하여 첫 번째 파이프라인을 만듭니다. 입력 조각은 매월 사용할 수 있습니다(주파수가 월, 간격은 1). 출력 조각은 매월 생성됩니다. 작업에 대한 스케줄러 속성도 매월로 설정됩니다. 출력 데이터 집합 및 작업 스케줄러에 대한 설정이 일치해야 합니다. 현재 출력 데이터 집합이 일정을 구동하는 것이므로 작업에서 출력을 생성하지 않더라도 출력 데이터 집합을 만들어야 합니다. 활동이 입력을 가져오지 않으면 입력 데이터 집합 만들기를 건너뛸 수 있습니다. 다음 JSON 코드 조각에서 사용되는 속성은 이 섹션의 마지막에 설명되어 있습니다.
 
 1. Data Factory Editor에서 **자세히** > **새 파이프라인**을 선택합니다.
 

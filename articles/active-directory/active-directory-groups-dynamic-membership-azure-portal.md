@@ -17,10 +17,10 @@ ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017;it-pro
 ms.openlocfilehash: 3ece2326a19e32666f46e8b737d15a48e335de6a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/06/2018
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Azure Active Directory에서 동적 그룹 멤버 자격에 대한 특성 기반 규칙 만들기
 Azure AD(Azure Active Directory)에서 그룹에 대해 복잡한 특성 기반 동적 그룹 멤버 자격을 사용하도록 설정하기 위한 고급 규칙을 만들 수 있습니다. 이 문서는 특성 및 사용자 또는 장치에 대한 동적 멤버 자격 규칙을 만드는 구문에 대해 자세히 설명합니다.
@@ -85,10 +85,10 @@ Azure AD(Azure Active Directory)에서 그룹에 대해 복잡한 특성 기반 
 | 다음으로 시작 안 함 |-notStartsWith |
 | 시작 |-startsWith |
 | 포함하지 않음 |-notContains |
-| 포함 |-contains |
+| contains |-contains |
 | 일치하지 않음 |-notMatch |
 | 일치 |-match |
-| 내용 | -in |
+| 그런 다음 | -in |
 | 속하지 않음 | -notIn |
 
 ## <a name="operator-precedence"></a>연산자 우선 순위
@@ -102,7 +102,7 @@ Azure AD(Azure Active Directory)에서 그룹에 대해 복잡한 특성 기반 
 -eq -ne -startsWith -notStartsWith -contains -notContains -match –notMatch -in -notIn
 ````
 모든 연산자는 하이픈(-) 접두사를 사용하거나 사용하지 않을 수 있습니다. 괄호는 우선 순위가 요구 사항을 충족하지 않을 경우에 필요합니다.
-예:
+예: 
 ```
    user.department –eq "Marketing" –and user.country –eq "US"
 ```
@@ -137,7 +137,7 @@ Azure AD(Azure Active Directory)에서 그룹에 대해 복잡한 특성 기반 
 * -eq
 * -ne
 
-| 속성 | 허용되는 값 | 사용 현황 |
+| properties | 허용되는 값 | 사용 현황 |
 | --- | --- | --- |
 | accountEnabled |true false |user.accountEnabled -eq true |
 | dirSyncEnabled |true false |user.dirSyncEnabled -eq true |
@@ -156,7 +156,7 @@ Azure AD(Azure Active Directory)에서 그룹에 대해 복잡한 특성 기반 
 * -in
 * -notIn
 
-| 속성 | 허용되는 값 | 사용 현황 |
+| properties | 허용되는 값 | 사용 현황 |
 | --- | --- | --- |
 | city |임의의 문자열 값 또는 *null*입니다. |(user.city -eq "value") |
 | country |임의의 문자열 값 또는 *null*입니다. |(user.country -eq "value") |
@@ -191,7 +191,7 @@ Azure AD(Azure Active Directory)에서 그룹에 대해 복잡한 특성 기반 
 * -contains
 * -notContains
 
-| 속성 | 허용되는 값 | 사용 현황 |
+| properties | 허용되는 값 | 사용 현황 |
 | --- | --- | --- |
 | otherMails |임의의 문자열 값입니다. |(user.otherMails -contains "alias@domain") |
 | proxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses -contains "SMTP: alias@domain") |
@@ -202,11 +202,11 @@ Azure AD(Azure Active Directory)에서 그룹에 대해 복잡한 특성 기반 
 * -any(컬렉션에서 적어도 하나의 항목이 조건과 일치하는 경우 충족)
 * -all(컬렉션에서 모든 항목이 조건과 일치하는 경우 충족)
 
-| 속성 | 값 | 사용 현황 |
+| properties | 값 | 사용 현황 |
 | --- | --- | --- |
 | assignedPlans |컬렉션에 있는 각 개체는 다음 문자열 속성을 표시합니다. capabilityStatus, service, servicePlanId |user.assignedPlans -any(assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled") |
 
-다중 값 속성은 동일한 유형인 개체의 컬렉션입니다. -any 및 -all 연산자를 사용하여 각각 컬렉션의 항목 중 하나 또는 모두에 조건을 적용할 수 있습니다. 예:
+다중 값 속성은 동일한 유형인 개체의 컬렉션입니다. -any 및 -all 연산자를 사용하여 각각 컬렉션의 항목 중 하나 또는 모두에 조건을 적용할 수 있습니다. 예: 
 
 assignedPlans는 사용자에게 할당된 모든 서비스 계획을 나열하는 다중 값 속성입니다. 아래 식은 사용 상태인 Exchange Online(계획 2) 서비스 계획을 가진 사용자를 선택합니다.
 
@@ -270,7 +270,7 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber
 ## <a name="using-attributes-to-create-rules-for-device-objects"></a>특성을 사용하여 장치 개체에 대한 규칙 만들기
 또한 그룹의 멤버 자격에 대한 장치 개체를 선택하는 규칙을 만들 수 있습니다. 다음과 같은 장치 특성을 사용할 수 있습니다.
 
- 장치 특성  | 값 | 예제
+ 장치 특성  | 값 | 예
  ----- | ----- | ----------------
  accountEnabled | true false | (device.accountEnabled -eq true)
  displayName | 임의의 문자열 값입니다. |(device.displayName -eq "Rob Iphone”)
