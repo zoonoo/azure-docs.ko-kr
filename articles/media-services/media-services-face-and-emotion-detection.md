@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: milanga;juliako;
-ms.openlocfilehash: 5741a484dcda05e3143b5f896ddee2e8591dabee
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7a16745fc21d03f81ca6140ace54f84468749364
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="detect-face-and-emotion-with-azure-media-analytics"></a>Azure 미디어 분석으로 얼굴 및 감정 검색
 ## <a name="overview"></a>개요
@@ -64,12 +64,14 @@ ms.lasthandoff: 12/11/2017
 ### <a name="task-configuration-preset"></a>작업 구성(기본 설정)
 **Azure 미디어 얼굴 탐지기**로 작업을 만들 때에는 구성 기본 설정을 지정해야 합니다. 다음은 얼굴 검색에 대한 구성 기본 설정입니다.
 
+```json
     {
       "version":"1.0",
       "options":{
           "TrackingMode": "Fast"
       }
     }
+```
 
 #### <a name="attribute-descriptions"></a>특성 설명
 | 특성 이름 | 설명 |
@@ -79,6 +81,7 @@ ms.lasthandoff: 12/11/2017
 ### <a name="json-output"></a>JSON 출력
 다음 JSON 출력 예는 잘린 상태입니다.
 
+```json
     {
     "version": 1,
     "timescale": 30000,
@@ -123,8 +126,8 @@ ms.lasthandoff: 12/11/2017
                 "height": 0.151389
             }
             ],
+```
 
-        . . . 
 
 ## <a name="emotion-detection-input-and-output-example"></a>감정 검색 입력 및 출력 예제
 ### <a name="input-video"></a>입력 동영상
@@ -133,6 +136,7 @@ ms.lasthandoff: 12/11/2017
 ### <a name="task-configuration-preset"></a>작업 구성(기본 설정)
 **Azure 미디어 얼굴 탐지기**로 작업을 만들 때에는 구성 기본 설정을 지정해야 합니다. 다음 구성 기본 설정은 감정 검색을 기반으로 JSON을 만들도록 지정합니다.
 
+```json
     {
       "version": "1.0",
       "options": {
@@ -141,6 +145,7 @@ ms.lasthandoff: 12/11/2017
         "aggregateEmotionIntervalMs": "342"
       }
     }
+```
 
 
 #### <a name="attribute-descriptions"></a>특성 설명
@@ -161,6 +166,7 @@ ms.lasthandoff: 12/11/2017
 ### <a name="json-output"></a>JSON 출력
 감정 집계에 대한 JSON 출력(잘림)입니다.
 
+```json
     {
      "version": 1,
      "timescale": 30000,
@@ -311,6 +317,7 @@ ms.lasthandoff: 12/11/2017
                  "anger": 0,
                  "disgust": 0,
                  "fear": 0,
+```
 
 ## <a name="limitations"></a>제한 사항
 * 지원되는 입력 동영상 형식에는 MP4, MOV 및 WMV가 있습니다.
@@ -324,19 +331,21 @@ ms.lasthandoff: 12/11/2017
 
 1. 자산을 만들고 미디어 파일을 자산에 업로드합니다.
 2. 다음 JSON 기본 설정을 포함하는 구성 파일을 기반으로 얼굴 감지 작업을 만듭니다. 
-   
-        {
-            "version": "1.0"
-        }
+
+    ```json
+            {
+                "version": "1.0"
+            }
+    ```
 3. 출력 JSON 파일을 다운로드합니다. 
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>Visual Studio 프로젝트 만들기 및 구성
 
 개발 환경을 설정하고 [.NET을 사용한 Media Services 환경](media-services-dotnet-how-to-use.md)에 설명된 대로 연결 정보를 사용하여 app.config 파일을 채웁니다. 
 
-#### <a name="example"></a>예제
+#### <a name="example"></a>예
 
-```
+```csharp
 using System;
 using System.Configuration;
 using System.IO;

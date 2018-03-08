@@ -3,7 +3,7 @@ title: "Azure Active Directory의 B2B 공동 작업 사용자 클레임 매핑 |
 description: "Azure Active Directory B2B 공동 작업에 대한 클레임 매핑 참조"
 services: active-directory
 documentationcenter: 
-author: sasubram
+author: twooley
 manager: mtillman
 editor: 
 tags: 
@@ -14,12 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 03/15/2017
-ms.author: sasubram
-ms.openlocfilehash: 439219087d0a5027c729e9d0e0ecb90bd2a9de3c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: twooley
+ms.reviewer: sasubram
+ms.openlocfilehash: 3fe75e96c153a7cbcad638d606d0fbc248bd983a
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="b2b-collaboration-user-claims-mapping-in-azure-active-directory"></a>Azure Active Directory의 B2B 공동 작업 사용자 클레임 매핑
 
@@ -46,7 +47,7 @@ Azure AD B2B 공동 작업에 대한 다른 문서 찾아보기:
 * [B2B 공동 작업 초대 위임](active-directory-b2b-delegate-invitations.md)
 * [동적 그룹 및 B2B 공동 작업](active-directory-b2b-dynamic-groups.md)
 * [B2B 공동 작업 코드 및 PowerShell 샘플](active-directory-b2b-code-samples.md)
-* [B2B 공동 작업용 SaaS 앱 구성](active-directory-b2b-configure-saas-apps.md)
+* [B2B 공동 작업을 위한 SaaS 앱 구성](active-directory-b2b-configure-saas-apps.md)
 * [Office 365 외부 공유](active-directory-b2b-o365-external-user.md)
 * [B2B 공동 작업 사용자 토큰](active-directory-b2b-user-token.md)
 * [B2B 공동 작업 현재 제한](active-directory-b2b-current-limitations.md)

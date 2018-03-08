@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: bd93b3473143f425b47f141efb3af3007614794f
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 312980ded8fad84f2ea4a41078597dd3a6cb8ca7
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Azure AD Connect Health에 대한 질문과 대답
 이 문서에는 Azure AD(Azure Active Directory) Connect Health에 대한 FAQ(질문과 대답)가 포함되어 있습니다. 이 FAQ에서는 청구 모델, 기능, 제한 및 지원을 포함한 서비스 사용 방법에 대해 다룹니다.
@@ -128,12 +128,7 @@ Health Agent는 다음과 같은 원인으로 등록에 실패할 수 있습니�
 
 **Q: "Health Service 데이터가 최신 상태가 아닙니다."라는 경고가 표시됩니다. 이 문제를 어떻게 해결하나요?**
 
-Azure AD Connect Health는 2시간 동안 서버에서 데이터 지점을 수신하지 않으면 이 경고를 생성합니다. 이 경고가 발생하는 여러 이유가 있을 수 있습니다.
-
-* 방화벽이 트래픽을 차단하고 있어서 에이전트가 필수 끝점과 통신할 수 없습니다. 특히 웹 응용 프로그램 프록시 서버에서 자주 발생하는 문제입니다. 필수 끝점 및 포트에 아웃바운드 통신을 허용해야 합니다. 자세한 내용은 [요구 사항 섹션](active-directory-aadconnect-health-agent-install.md#requirements)을 참조하세요.
-* 아웃바운드 통신은 네트워크 계층에서 SSL 검사를 받습니다. 이로 인해 에이전트에서 사용하는 인증서가 검사 서버/엔터티로 교체되고, Azure AD Connect Health 서비스로 데이터를 업로드하는 프로세스가 실패합니다.
-* 에이전트에 기본 제공된 연결 명령을 사용할 수 있습니다. [자세히 알아보기](active-directory-aadconnect-health-agent-install.md#test-connectivity-to-azure-ad-connect-health-service).
-* 또한 에이전트는 인증되지 않은 HTTP 프록시를 통해 아웃바운드 연결을 지원합니다. [자세히 알아보기](active-directory-aadconnect-health-agent-install.md##configure-azure-ad-connect-health-agents-to-use-http-proxy).
+Azure AD Connect Health는 2시간 동안 서버에서 데이터 지점을 수신하지 않으면 이 경고를 생성합니다. [자세히 알아보기](active-directory-aadconnect-health-data-freshness.md).
 
 ## <a name="operations-questions"></a>작업 관련 질문
 **Q: 웹 응용 프로그램 프록시 서버에 대한 감사를 사용하도록 설정해야 하나요?**

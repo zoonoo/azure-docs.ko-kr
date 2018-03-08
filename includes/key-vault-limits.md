@@ -13,6 +13,6 @@
 | 모든 트랜잭션 |2000 |
 |
 
-이러한 제한에 도달하는 경우 제한을 처리하는 방법에 대한 내용은 [Azure Key Vault 제한 지침](../key-vault/key-vault-ovw-throttling.md)을 참조하세요.
+이러한 제한에 도달하는 경우 제한을 처리하는 방법에 대한 내용은 [Azure Key Vault 제한 지침](../articles/key-vault/key-vault-ovw-throttling.md)을 참조하세요.
 
 <sup>1</sup> 모든 트랜잭션 유형에 대한 구독 전체 제한이 있습니다. 즉, Key Vault 제한 수의 5배. 예를 들어 HSM- 구독당 다른 트랜잭션은 구독당 10초 내에 5000개 트랜잭션으로 제한됩니다.

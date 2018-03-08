@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: 54b9c38d1122d898dd584a189b9ea2e3405dc6f5
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 91461af20cdb189ab23671fee0f3dea182ec0bb1
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="use-playready-andor-widevine-dynamic-common-encryption"></a>PlayReady 및/또는 Widevine 동적 일반 암호화 사용
 
@@ -29,8 +29,8 @@ ms.lasthandoff: 01/10/2018
 >
 
 > [!NOTE]
-> 최신 버전의 Java SDK를 가져오고 Java를 사용하여 개발을 시작하려면 [Azure Media Services용 Java 클라이언트 SDK 시작](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use)을 참조하세요. <br/>
-> Media Services용 최신 PHP SDK를 다운로드하려면 [Packagist 리포지토리](https://packagist.org/packages/microsoft/windowsazure#v0.5.7)에서 Microsoft/WindowsAzure 패키지 버전 0.5.7을 찾습니다. 
+> 최신 버전의 Java SDK를 가져와서 Java를 사용하여 개발을 시작하려면 [Media Services용 Java 클라이언트 SDK 시작](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use)을 참조하세요. <br/>
+> Media Services용 최신 PHP SDK를 다운로드하려면 [Packagist 리포지토리](https://packagist.org/packages/microsoft/windowsazure#v0.5.7)에서 Microsoft/WindowAzure 패키지 버전 0.5.7을 찾습니다. 
 
 ## <a name="overview"></a>개요
 
@@ -55,7 +55,7 @@ Media Services는 키를 요청 하는 사용자에 권한을 부여하는 여�
 이 문서는 PlayReady 및 Widevine과 같이 여러 DRM으로 보호된 미디어를 제공하는 응용 프로그램에서 작업하는 개발자에게 유용합니다. 이 문서에서는 권한이 있는 클라이언트만 PlayReady 또는 Widevine 라이선스를 받을 수 있도록 권한 부여 정책을 사용하여 PlayReady 라이선스 배달 서비스를 구성하는 방법을 보여 줍니다. 또한 DASH에 대해 PlayReady 또는 Widevine DRM으로 동적 암호화를 사용하는 방법을 보여줍니다.
 
 >[!NOTE]
->Azure Media Services 계정이 만들어지면, 기본 스트리밍 엔드포인트가 "중지됨" 상태의 계정에 추가됩니다. 콘텐츠 스트리밍을 시작하고 동적 패키징 및 동적 암호화를 활용하려면, 콘텐츠를 스트리밍하려는 스트리밍 엔드포인트가 "실행 중" 상태에 있어야 합니다. 
+>Azure Media Services 계정이 만들어지면, 기본 스트리밍 끝점이 "중지됨" 상태의 계정에 추가됩니다. 콘텐츠 스트리밍을 시작하고 동적 패키징 및 동적 암호화를 활용하려면, 콘텐츠를 스트리밍하려는 스트리밍 끝점이 "실행 중" 상태에 있어야 합니다. 
 
 ## <a name="download-the-sample"></a>샘플 다운로드
 이 문서에서 설명하는 샘플은 [GitHub의 Azure 샘플](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm)에서 다운로드할 수 있습니다.
@@ -68,7 +68,7 @@ Media Services 라이선스 배달 서비스를 사용하거나 동적 암호화
 
 2. 파일이 포함된 자산을 적응 비트 전송률 MP4 집합으로 인코딩합니다.
 
-3. 콘텐츠 키를 만들고 인코딩된 자산과 연결합니다. Media Services에서 콘텐츠 키에는 자산의 암호화 키가 포함됩니다.
+3. 콘텐츠 키를 만들고 인코딩된 자산과 연결합니다. Media Services에서 콘텐츠 키에는 자산의 암호화 키가 들어 있습니다.
 
 4. 콘텐츠 키의 인증 정책을 구성합니다. 콘텐츠 키 인증 정책을 구성해야 합니다. 콘텐츠 키가 클라이언트에 배달되려면 먼저 클라이언트에서 정책을 충족해야 합니다.
 
@@ -82,7 +82,7 @@ Media Services 라이선스 배달 서비스를 사용하거나 동적 암호화
 
 이 문서의 끝부분에서 전체 .NET 예제가 나와 있습니다.
 
-다음 이미지에서는 앞에서 설명한 워크플로를 보여 줍니다. 여기서는 토큰이 인증에 사용됩니다.
+다음 이미지에서는 앞에서 설명한 워크플로를 보여 줍니다. 여기서는 인증에 토큰을 사용합니다.
 
 ![PlayReady로 보호](media/media-services-content-protection-overview/media-services-content-protection-with-drm.png)
 
@@ -135,6 +135,7 @@ Media Services는 키를 요청 하는 사용자를 인증 하는 여러 방법�
 ## <a name="get-a-test-token"></a>테스트 토큰 가져오기
 키 권한 부여 정책에 사용된 토큰 제한에 따라 테스트 토큰을 가져옵니다.
 
+```csharp
     // Deserializes a string containing an XML representation of a TokenRestrictionTemplate
     // back into a TokenRestrictionTemplate class instance.
     TokenRestrictionTemplate tokenTemplate =
@@ -145,18 +146,20 @@ Media Services는 키를 요청 하는 사용자를 인증 하는 여러 방법�
     //so you have to add it in front of the token string.
     string testToken = TokenRestrictionTemplateSerializer.GenerateTestToken(tokenTemplate);
     Console.WriteLine("The authorization token is:\nBearer {0}", testToken);
-
+```
 
 [Azure Media Services 플레이어](http://amsplayer.azurewebsites.net/azuremediaplayer.html)를 사용하여 스트림을 테스트할 수 있습니다.
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Visual Studio 프로젝트 만들기 및 구성
 
-1. [.NET을 사용한 Media Services 개발](media-services-dotnet-how-to-use.md)에서 설명한 대로 개발 환경을 설정하고 연결 정보를 사용하여 app.config 파일을 채웁니다.
+1. 개발 환경을 설정하고 [.NET을 사용한 Media Services 환경](media-services-dotnet-how-to-use.md)에 설명된 대로 연결 정보를 사용하여 app.config 파일을 채웁니다.
 
 2. 다음 요소를 app.config 파일에 정의된 **appSettings**에 추가합니다.
 
+```xml
         <add key="Issuer" value="http://testacs.com"/>
         <add key="Audience" value="urn:test"/>
+```
 
 ## <a name="example"></a>예
 
@@ -171,7 +174,7 @@ Program.cs 파일에 있는 코드를 이 섹션에 나와 있는 코드로 덮�
 
 입력 파일이 있는 폴더를 가리키도록 변수를 업데이트해야 합니다.
 
-```
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Configuration;

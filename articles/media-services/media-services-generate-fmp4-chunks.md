@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: 7273e51342f4e9fc68a8b3d3b145d119b4eab122
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f497954f82e209c1547fca0943169d53f4ab517a
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 #  <a name="create-an-encoding-task-that-generates-fmp4-chunks"></a>fMP4 청크를 생성하는 인코딩 작업 만들기
 
@@ -25,10 +25,11 @@ ms.lasthandoff: 12/11/2017
 
 이 문서에서는 ISO MP4 파일 대신 조각화된 MP4(fMP4) 청크를 생성하는 인코딩 작업을 만드는 방법을 보여 줍니다. fMP4 청크를 생성하려면 다음 코드 조각처럼 **Media Encoder Standard** 또는 **Media Encoder Premium 워크플로** 인코더를 사용하여 인코딩 작업을 만들고 **AssetFormatOption.AdaptiveStreaming**을 지정합니다.  
     
+```csharp
     task.OutputAssets.AddNew(@"Output Asset containing fMP4 chunks", 
             options: AssetCreationOptions.None, 
             formatOption: AssetFormatOption.AdaptiveStreaming);
-
+```
 
 ## <a id="encoding_with_dotnet"></a>Media Services .NET SDK를 사용하여 Encoding
 
@@ -45,9 +46,9 @@ ms.lasthandoff: 12/11/2017
 
 개발 환경을 설정하고 [.NET을 사용한 Media Services 환경](media-services-dotnet-how-to-use.md)에 설명된 대로 연결 정보를 사용하여 app.config 파일을 채웁니다. 
 
-#### <a name="example"></a>예제
+#### <a name="example"></a>예
 
-```
+```csharp
 using System;
 using System.Configuration;
 using System.Linq;

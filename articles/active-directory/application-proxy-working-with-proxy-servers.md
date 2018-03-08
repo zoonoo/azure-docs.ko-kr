@@ -16,10 +16,10 @@ ms.author: daveba
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.openlocfilehash: 85b45a828dbb06325b6a1c9453117849f48a27c8
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/06/2018
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>기존 온-프레미스 프록시 서버 작업
 
@@ -109,7 +109,7 @@ OS 구성 요소는 wpad.domainsuffix에 대한 DNS 조회를 수행하여 프�
 커넥터 서비스 액세스를 위해 다음 끝점에 대한 액세스를 허용합니다.
 
 * * .msappproxy.net
-* * .servicebus.windows.net
+* \*.servicebus.windows.net
 
 초기 등록을 위해 다음 끝점에 대한 액세스를 허용합니다.
 

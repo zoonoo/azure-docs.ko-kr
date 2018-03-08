@@ -14,10 +14,10 @@ ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
 ms.openlocfilehash: 535906e273b6d36045f5bc56d25b2085b2f71b9d
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/07/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-to-access-azure-storage-via-access-key"></a>Windows VM 관리 서비스 ID를 사용하여 액세스 키를 통해 Azure Storage 액세스
 

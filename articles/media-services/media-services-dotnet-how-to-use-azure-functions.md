@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: f99fe340b6cfebaafb04af9dba8abf9cb0f09a2b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 999f2cef7d70c4f1b45076300312664defdeb3f5
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="develop-azure-functions-with-media-services"></a>Media Services에서 Azure Functions 개발
 
@@ -86,7 +86,7 @@ function.json 파일은 함수 바인딩 및 기타 구성 설정을 정의합�
 
 기존 function.json 파일의 내용을 다음 코드로 바꿉니다.
 
-```
+```json
 {
   "bindings": [
     {
@@ -107,7 +107,7 @@ project.json 파일은 종속성을 포함합니다. 다음은 Nuget의 필수 .
 
 project.json에 다음과 같은 정의를 추가합니다. 
 
-```
+```json
 {
   "frameworks": {
     "net46":{
@@ -136,7 +136,7 @@ project.json에 다음과 같은 정의를 추가합니다.
 
 기존 run.csx 파일의 콘텐츠를 다음 코드로 바꿉니다. 함수 정의를 완료하면 **저장 및 실행**을 클릭합니다.
 
-```
+```csharp
 #r "Microsoft.WindowsAzure.Storage"
 #r "Newtonsoft.Json"
 #r "System.Web"

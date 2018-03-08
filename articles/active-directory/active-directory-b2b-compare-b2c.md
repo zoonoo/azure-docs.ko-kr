@@ -3,7 +3,7 @@ title: "Azure Active Directory에서 B2B 공동 작업과 B2C 비교 | Microsoft
 description: "Azure Active Directory B2B 공동 작업과 Azure AD B2C 간의 차이는 무엇인가요?"
 services: active-directory
 documentationcenter: 
-author: sasubram
+author: twooley
 manager: mtillman
 editor: 
 tags: 
@@ -14,12 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 03/15/2017
-ms.author: sasubram
-ms.openlocfilehash: beca92e9259835fffa9178f558e9762637594570
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: twooley
+ms.reviewer: sasubram
+ms.openlocfilehash: ae3ebdceb65c04b98965f81f52997da457bd7845
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="compare-b2b-collaboration-and-b2c-in-azure-active-directory"></a>Azure Active Directory에서 B2B 공동 작업과 B2C 비교
 
@@ -47,7 +48,7 @@ Azure AD B2B 공동 작업에 대한 다른 문서 찾아보기:
 * [역할에 B2B 공동 작업 사용자 추가](active-directory-b2b-add-guest-to-role.md)
 * [B2B 공동 작업 초대 위임](active-directory-b2b-delegate-invitations.md)
 * [동적 그룹 및 B2B 공동 작업](active-directory-b2b-dynamic-groups.md)
-* [B2B 공동 작업용 SaaS 앱 구성](active-directory-b2b-configure-saas-apps.md)
+* [B2B 공동 작업을 위한 SaaS 앱 구성](active-directory-b2b-configure-saas-apps.md)
 * [B2B 공동 작업 사용자 토큰](active-directory-b2b-user-token.md)
 * [B2B 공동 작업 사용자 클레임 매핑](active-directory-b2b-claims-mapping.md)
 * [Office 365 외부 공유](active-directory-b2b-o365-external-user.md)

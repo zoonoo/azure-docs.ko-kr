@@ -3,7 +3,7 @@ title: "Azure Active Directory 관리자가 B2B 공동 작업 사용자를 추�
 description: "관리자는 Azure Active Directory B2B 공동 작업을 사용하여 파트너 조직에서 Azure AD에 게스트 사용자를 추가할 수 있습니다."
 services: active-directory
 documentationcenter: 
-author: sasubram
+author: twooley
 manager: mtillman
 editor: 
 tags: 
@@ -14,12 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 03/15/2017
-ms.author: sasubram
-ms.openlocfilehash: 43bf961e64d94ff57a3aeb395fbe134ef8b45a6a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: twooley
+ms.reviewer: sasubram
+ms.openlocfilehash: 42be57a81f75025686de022a3879f26598b1108d
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="how-do-azure-active-directory-admins-add-b2b-collaboration-users"></a>Azure Active Directory 관리자가 B2B 공동 작업 사용자를 추가하는 방법은 무엇인가요?
 
@@ -51,7 +52,7 @@ B2B 공동 작업 사용자의 프로필 페이지로 이동하여 아직 상환
 > ![참고] 초대를 다시 보내면 원래 초대가 특정 앱 또는 그룹에 전송된 경우에도 로그인한 사용자로부터 개별 사용자로 초대가 전송됩니다.
 
 
-## <a name="related-articles"></a>관련된 문서
+## <a name="related-articles"></a>관련 문서
 
 Azure AD B2B 공동 작업에 대한 다른 문서 찾아보기:
 

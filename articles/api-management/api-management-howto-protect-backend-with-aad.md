@@ -1,9 +1,24 @@
-- 제목: Azure Active Directory 및 API Management로 Web API 백 엔드 보호 | Microsoft Docs 설명: Azure Active Directory 및 API Management를 사용하여 Web API 백 엔드를 보호하는 방법을 알아봅니다.
-서비스: api-management documentationcenter: '' 작성자: juliako 관리자: cfowler 편집기: ''
-
-ms.service: api-management ms.workload: mobile ms.tgt_pltfrm: na ms.devlang: na ms.topic: article ms.date: 10/30/2017 ms.author: apimpm
 ---
-
+title: "Azure Active Directory 및 API Management로 Web API 백 엔드 보호 | Microsoft Docs"
+description: "Azure Active Directory 및 API Management로 Web API 백 엔드를 보호하는 방법에 대해 알아봅니다."
+services: api-management
+documentationcenter: 
+author: juliako
+manager: cfowler
+editor: 
+ms.service: api-management
+ms.workload: mobile
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/30/2017
+ms.author: apimpm
+ms.openlocfilehash: 2a5be24aba8a675290045b282cc64dda4b7c594e
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 03/02/2018
+---
 # <a name="how-to-protect-a-web-api-backend-with-azure-active-directory-and-api-management"></a>Azure Active Directory 및 API Management로 Web API 백 엔드를 보호하는 방법
 
 이 항목에서는 Web API 백 엔드를 빌드하고 Azure Active Directory 및 API Management를 통해 OAuth 2.0 프로토콜을 사용하여 보호하는 방법을 보여 줍니다.  

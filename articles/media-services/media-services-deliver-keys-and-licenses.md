@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/10/2017
 ms.author: juliako
-ms.openlocfilehash: 4032b0f2f72d6c45b9f2233ac0c315bc0db60ed8
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 0f934cc572409462ca1a35ff3cce49be2f82a9bd
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="use-azure-media-services-to-deliver-drm-licenses-or-aes-keys"></a>Azure Media Services를 사용하여 DRM 라이선스 또는 AES 키 제공
 Azure Media Services를 사용하여 수집, 인코드, 콘텐츠 보호 추가 및 콘텐츠 스트림을 수행할 수 있습니다. 자세한 내용은 [PlayReady 및/또는 Widevine 동적 일반 암호화 사용](media-services-protect-with-playready-widevine.md)을 참조하세요. 일부 고객은 라이선스 및/또는 키를 제공하는 데만 Media Services를 사용하고 인코드, 암호화 및 스트림을 수행하는 데는 온-프레미스 서버를 사용하려고 합니다. 이 문서에서는 Media Services를 사용하여 PlayReady 및/또는 Widevine 라이선스를 제공하지만 나머지 작업에는 온-프레미스 서버를 사용하여 수행하는 방법을 설명합니다. 
@@ -48,7 +48,7 @@ Media Services는 라이선스 또는 키를 요청하는 사용자에 권한을
 ## <a name="net-code-example"></a>.NET 코드 예제
 다음 코드 예제에서는 일반적인 콘텐츠 키를 만들고 PlayReady 또는 Widevine 라이선스 취득 URL을 가져오는 방법을 보여 줍니다. 온-프레미스 서버를 구성하려면 콘텐츠 키, 키 ID 및 라이선스 취득 URL이 필요합니다. 온-프레미스 서버를 구성한 후 자체 스트리밍 서버에서 스트림할 수 있습니다. 암호화된 스트림은 Media Services 라이선스 서버를 가리키므로 플레이어는 Media Services에서 라이선스를 요청합니다. 토큰 인증을 선택하면 Media Services 라이선스 서버는 HTTPS를 통해 전송한 토큰의 유효성을 검사합니다. 토큰이 유효한 경우 라이선스 서버는 라이선스를 플레이어에 다시 제공합니다. 다음 코드 예제에서는 일반적인 콘텐츠 키를 만들고 PlayReady 또는 Widevine 라이선스 취득 URL을 가져오는 방법만 보여 줍니다. AES-128 키를 제공하려는 경우에는 봉투 콘텐츠 키를 만들고 키 취득 URL을 가져와야 합니다. 자세한 내용은 [AES-128 동적 암호화 및 키 전달 서비스 사용](media-services-protect-with-aes128.md)을 참조하세요.
 
-```
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Configuration;

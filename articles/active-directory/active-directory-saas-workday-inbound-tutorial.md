@@ -14,10 +14,10 @@ ms.workload: identity
 ms.date: 01/26/2018
 ms.author: asmalser
 ms.openlocfilehash: 2db9e60fe2807b1aa8ed7cab7eed6f7db8059a89
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Workday 구성
 
@@ -229,7 +229,7 @@ Azure AD의 프로비전 커넥터 인스턴스와 앱 인스턴스는 일대일
 
 **Workday에서 Active Directory로의 프로비전을 구성하려면:**
 
-1.  <https://portal.azure.com>으로 이동
+1.  <https://portal.azure.com>으로 이동합니다.
 
 2.  왼쪽 탐색 모음에서 **Azure Active Directory**를 선택합니다.
 
@@ -484,7 +484,7 @@ Azure AD Connect 설정에 대한 자세한 지침은 [Azure AD Connect 설명�
 
 **클라우드 전용 사용자에 대한 Workday-Azure Active Directory 프로비전을 구성하려면:**
 
-1.  <https://portal.azure.com>으로 이동합니다.
+1.  <https://portal.azure.com>로 이동합니다.
 
 2.  왼쪽 탐색 모음에서 **Azure Active Directory**를 선택합니다.
 
@@ -589,7 +589,7 @@ Azure AD Connect 설정에 대한 자세한 지침은 [Azure AD Connect 설명�
 
 **Workday에서 Active Directory로의 프로비전을 구성하려면:**
 
-1.  <https://portal.azure.com>으로 이동
+1.  <https://portal.azure.com>으로 이동합니다.
 
 2.  왼쪽 탐색 모음에서 **Azure Active Directory**를 선택합니다.
 

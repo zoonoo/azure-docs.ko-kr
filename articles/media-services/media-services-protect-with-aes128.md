@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: juliako
-ms.openlocfilehash: 013c14c00096c9958a732d1f0eaacc9248f57da9
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: 2d1a635c1e2bde140df19f8c26f6ae5a6978eff5
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>AES-128 동적 암호화 및 키 전달 서비스 사용
 > [!div class="op_single_selector"]
@@ -126,6 +126,7 @@ Media Services는 키를 요청 하는 사용자를 인증 하는 여러 방법�
 ## <a name="get-a-test-token"></a>테스트 토큰 가져오기
 키 권한 부여 정책에 사용된 토큰 제한에 따라 테스트 토큰을 가져옵니다.
 
+```csharp
     // Deserializes a string containing an Xml representation of a TokenRestrictionTemplate
     // back into a TokenRestrictionTemplate class instance.
     TokenRestrictionTemplate tokenTemplate = 
@@ -136,6 +137,7 @@ Media Services는 키를 요청 하는 사용자를 인증 하는 여러 방법�
     //so you have to add it in front of the token string. 
     string testToken = TokenRestrictionTemplateSerializer.GenerateTestToken(tokenTemplate);
     Console.WriteLine("The authorization token is:\nBearer {0}", testToken);
+```
 
 [Azure Media Services 플레이어](http://amsplayer.azurewebsites.net/azuremediaplayer.html)를 사용하여 스트림을 테스트할 수 있습니다.
 
@@ -145,6 +147,7 @@ Media Services는 키를 요청 하는 사용자를 인증 하는 여러 방법�
 ### <a name="manifest-files"></a>매니페스트 파일
 클라이언트는 매니페스트 파일에서 URL(콘텐츠 키 ID도 포함(kid)) 값을 추출해야 합니다. 그런 다음 키 배달 서비스로부터 암호화 키 가져오기를 시도합니다. 클라이언트도 IV 값을 추출하여 스트림 암호 해독에 사용해야 합니다. 다음 코드 조각에서는 부드러운 스트리밍 매니페스트의 <Protection> 요소를 보여 줍니다.
 
+```xml
     <Protection>
       <ProtectionHeader SystemID="B47B251A-2409-4B42-958E-08DBAE7B4EE9">
         <ContentProtection xmlns:sea="urn:mpeg:dash:schema:sea:2012" schemeIdUri="urn:mpeg:dash:sea:2012">
@@ -156,6 +159,7 @@ Media Services는 키를 요청 하는 사용자를 인증 하는 여러 방법�
         </ContentProtection>
       </ProtectionHeader>
     </Protection>
+```
 
 HLS의 경우 루트 매니페스트는 세그먼트 파일로 나뉩니다. 
 
@@ -191,6 +195,7 @@ HLS의 경우 루트 매니페스트는 세그먼트 파일로 나뉩니다.
 
 다음 코드에서는 키 배달 Uri(매니페스트에서 추출됨) 및 토큰을 사용하여 Media Services 키 배달 서비스로 요청을 보내는 방법을 보여 줍니다. (이 항목에서는 보안 토큰 서비스에서 간단한 웹 토큰을 가져오는 방법에 대해서는 다루지 않음)
 
+```csharp
     private byte[] GetDeliveryKey(Uri keyDeliveryUri, string token)
     {
         HttpWebRequest request = (HttpWebRequest)WebRequest.Create(keyDeliveryUri);
@@ -230,6 +235,7 @@ HLS의 경우 루트 매니페스트는 세그먼트 파일로 나뉩니다.
         Array.Copy(buffer, key, length);
         return key;
     }
+```
 
 ## <a name="protect-your-content-with-aes-128-by-using-net"></a>.NET을 사용하여 AES-128로 콘텐츠 보호
 
@@ -239,8 +245,10 @@ HLS의 경우 루트 매니페스트는 세그먼트 파일로 나뉩니다.
 
 2. 다음 요소를 app.config 파일에 정의된 appSettings에 추가합니다.
 
-        <add key="Issuer" value="http://testacs.com"/>
-        <add key="Audience" value="urn:test"/>
+    ```xml
+            <add key="Issuer" value="http://testacs.com"/>
+            <add key="Audience" value="urn:test"/>
+    ```
 
 ### <a id="example"></a>예제
 
@@ -251,7 +259,9 @@ Program.cs 파일에 있는 코드를 이 섹션에 나와 있는 코드로 덮�
 
 입력 파일이 있는 폴더를 가리키도록 변수를 업데이트해야 합니다.
 
+```csharp
     [!code-csharp[Main](../../samples-mediaservices-encryptionaes/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs)]
+```
 
 ## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
