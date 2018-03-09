@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 02/22/2018
 ms.author: asgang
 ms.openlocfilehash: 9e0c602646009b20c8d4f8a29d55b7f44a089131
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/07/2018
 ---
 # <a name="troubleshoot-on-premises-vmwarephysical-server-replication-issues"></a>온-프레미스 VMware/물리적 서버 복제 문제 해결
 Azure Site Recovery를 사용하여 VMware 가상 머신 또는 물리적 서버를 보호하는 경우 특정 오류 메시지가 나타날 수 있습니다. 이 문서에서는 발생할 수 있는 일반적인 일부 오류 메시지와 이 문제를 해결하기 위한 문제 해결 단계에 대해 자세히 설명합니다.

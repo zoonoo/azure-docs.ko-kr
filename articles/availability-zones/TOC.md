@@ -33,6 +33,9 @@
 #### [PowerShell을 사용하여 가용성 영역에서 공용 IP 주소 만들기](../virtual-network/create-public-ip-availability-zone-powershell.md)
 #### [CLI를 사용하여 가용성 영역에서 공용 IP 주소 만들기](../virtual-network/create-public-ip-availability-zone-cli.md)
 
+### SQL Database
+#### [SQL Database를 사용하는 가용성 영역](../sql-database/sql-database-high-availability.md#availability-zones)
+
 ### Storage
 #### [영역 중복 저장소](../storage/common/storage-redundancy.md#zone-redundant-storage)
 

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/14/2017
 ms.author: dobett
 ms.openlocfilehash: 934f4deb3139c136c871ab0125ba45267e1d1b05
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 03/06/2018
 ---
 # <a name="opc-publisher-for-azure-iot-edge"></a>Azure IoT Edge용 OPC 게시자
 
@@ -382,7 +382,7 @@ docker run -h publisher microsoft/iot-edge-opc-publisher <applicationname> [<IoT
 
 #### <a name="using-bind-mounts-shared-filesystem"></a>바인드 바운트 사용(공유 파일 시스템)
 
-일부 시나리오에서는 컨테이너 파일 시스템 대신 호스트의 위치에서 구성 정보를 읽어오거나 로그 파일을 쓰고자 할 수 있습니다. 이러한 동작을 구성하려면 바인드 마운트 모드의 `docker run`에서 `-v` 옵션을 사용합니다. 예:
+일부 시나리오에서는 컨테이너 파일 시스템 대신 호스트의 위치에서 구성 정보를 읽어오거나 로그 파일을 쓰고자 할 수 있습니다. 이러한 동작을 구성하려면 바인드 마운트 모드의 `docker run`에서 `-v` 옵션을 사용합니다. 예: 
 
 ```cmd/sh
 -v //D/docker:/build/out/Logs

@@ -14,17 +14,17 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: cenkdin;juliako
-ms.openlocfilehash: 49246df64372939288354acce768cdc366a85440
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 5c59300cd5dc8dcb67ba3b2e035bb7a3b9dce216
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-net"></a>.NET을 사용하여 온-프레미스 인코더로 라이브 스트리밍을 수행하는 방법
 > [!div class="op_single_selector"]
 > * [포털](media-services-portal-live-passthrough-get-started.md)
 > * [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
-> * [REST (영문)](https://docs.microsoft.com/rest/api/media/operations/channel)
+> * [REST](https://docs.microsoft.com/rest/api/media/operations/channel)
 > 
 > 
 
@@ -47,7 +47,7 @@ ms.lasthandoff: 12/21/2017
 
 개발 환경을 설정하고 [.NET을 사용한 Media Services 환경](media-services-dotnet-how-to-use.md)에 설명된 대로 연결 정보를 사용하여 app.config 파일을 채웁니다. 
 
-## <a name="example"></a>예제
+## <a name="example"></a>예
 다음 코드 예제는 다음 작업을 수행하는 방법을 보여 줍니다.
 
 * Media Services에 연결
@@ -69,7 +69,7 @@ ms.lasthandoff: 12/21/2017
 
 라이브 인코더 구성 방법에 대한 자세한 내용은 [Azure Media Services RTMP 지원 및 라이브 인코더](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/)를 참조하세요.
 
-```
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Configuration;

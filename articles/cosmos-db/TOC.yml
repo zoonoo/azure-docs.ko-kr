@@ -260,6 +260,8 @@
               href: mongodb-mongoose.md
             - name: 읽기 기본 설정 사용
               href: mongodb-readpreference.md
+            - name: 인덱싱
+              href: mongodb-indexing.md
             - name: MongoDB 기능 지원
               href: mongodb-feature-support.md
             - name: Angular 자습서 시리즈

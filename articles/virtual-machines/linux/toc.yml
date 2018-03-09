@@ -203,8 +203,6 @@
           href: maintenance-notifications.md
         - name: 투기적 실행 완화
           href: mitigate-se.md
-        - name: 가속된 유지 관리 FAQ
-          href: accelerated-maintenance.md
         - name: 예약된 이벤트
           href: scheduled-events.md
         - name: 모니터 메타데이터

@@ -69,6 +69,8 @@
           href: physical-azure-architecture.md
         - name: Hyper-V에서 보조 사이트로 아키텍처
           href: hyper-v-vmm-architecture.md
+        - name: VMware 재해 복구를 위한 다중 테넌트 지원 개요
+          href: vmware-azure-multi-tenant-overview.md
     - name: 지원 요구 사항 행렬
       items:
         - name: Azure에서 Azure로 지원 매트릭스
@@ -84,7 +86,7 @@
         - name: 작업에 대한 재해 복구
           href: site-recovery-workload.md
         - name: Azure로 마이그레이션
-          href: site-recovery-migrate-to-azure.md
+          href: migrate-overview.md
     - name: 역할 기반 액세스 권한
       href: site-recovery-role-based-linked-access-control.md
     - name: Azure Site Recovery를 사용한 Azure Traffic Manager
@@ -101,7 +103,7 @@
           href: azure-to-azure-network-mapping.md
         - name: Azure VM 장애 조치(failover) 후 IP 주소 지정 설정
           href: site-recovery-retain-ip-azure-vm-failover.md
-        - name: Azure 재해 복구를 위해 온-프레미스용 네트워크 인터페이스 관리
+        - name: 온-프레미스와 Azure 간 복제의 네트워크 인터페이스 관리
           href: site-recovery-manage-network-interfaces-on-premises-to-azure.md
         - name: Hyper-V VM 재해 복구에 네트워크 매핑 준비
           href: hyper-v-vmm-network-mapping.md
@@ -123,8 +125,8 @@
           href: site-recovery-test-failover-to-azure.md
         - name: Hyper-V VM을 보조 사이트로 복구하는 재해 복구 훈련 실행
           href: hyper-v-vmm-test-failover.md
-        - name: 다중 테넌트를 지원하는 VMware VM을 Azure로 재해 복구
-          href: site-recovery-multi-tenant-support-vmware-using-csp.md
+        - name: 다중 테넌트 지원 및 cSP를 통해 VMware VM의 재해 복구
+          href: vmware-azure-multi-tenant-csp-disaster-recovery.md
     - name: 장애 조치(Failover) 및 장애 복구
       items:
         - name: 복구 계획 설정
@@ -133,6 +135,8 @@
           href: site-recovery-runbook-automation.md
         - name: VMM 스크립트를 복구 계획에 추가
           href: hyper-v-vmm-recovery-script.md
+        - name: 장애 복구(failback)를 위해 Azure의 프로세스 서버 설정 및 관리
+          href: vmware-azure-set-up-process-server-azure.md
         - name: 장애 조치
           items:
             - name: 장애 조치 정보
@@ -146,19 +150,19 @@
             - name: Azure 보조 지역에서 주 지역으로 다시 보호
               href: azure-to-azure-how-to-reprotect.md
             - name: Azure에서 온-프레미스로 다시 보호
-              href: site-recovery-how-to-reprotect.md
+              href: vmware-azure-reprotect.md
         - name: Azure에서 장애 복구
           items:
             - name: Azure에서 VMware로 장애 복구(failback)
-              href: site-recovery-how-to-failback-azure-to-vmware.md
+              href: vmware-azure-failback.md
             - name: Azure에서 Hyper-V로 장애 복구(failback)
               href: hyper-v-azure-failback.md
         - name: 장애 복구(failback)를 위해 Linux 마스터 대상 서버 설정
-          href: site-recovery-how-to-install-linux-master-target.md
+          href: vmware-azure-install-linux-master-target.md
     - name: 마이그레이션
       items:
         - name: 마이그레이션 정보
-          href: site-recovery-migrate-to-azure.md
+          href: migrate-overview.md
         - name: 다른 지역에 마이그레이션한 이후 Azure VM 복제
           href: azure-to-azure-replicate-after-migration.md
     - name: 용량 및 크기 조정
@@ -177,7 +181,7 @@
             - name: 비용 예측 보고서 분석
               href: site-recovery-vmware-deployment-planner-cost-estimation.md
         - name: VMware 복제를 위한 프로세스 서버 확장
-          href: site-recovery-vmware-to-azure-manage-scaleout-process-server.md
+          href: vmware-azure-set-up-process-server-scale.md
         - name: Azure로 Hyper-V 복제를 위한 Deployment Planner 도구
           href: null
           items:
@@ -196,23 +200,23 @@
         - name: 원본 환경 설정
           items:
             - name: VMware에서 Azure로 원본 환경
-              href: site-recovery-set-up-vmware-to-azure.md
+              href: vmware-azure-set-up-source.md
             - name: VMware 재해 복구용 구성 서버 배포
-              href: how-to-deploy-configuration-server.md
+              href: vmware-azure-deploy-configuration-server.md
             - name: 물리적 서버에서 Azure로 원본 환경
-              href: site-recovery-set-up-physical-to-azure.md
+              href: physical-azure-set-up-source.md
         - name: 대상 환경 설정
           items:
             - name: VMware에서 Azure로 대상 환경
-              href: site-recovery-prepare-target-vmware-to-azure.md
+              href: vmware-azure-set-up-target.md
             - name: 물리적 서버에서 Azure로 대상 환경
-              href: site-recovery-prepare-target-physical-to-azure.md
+              href: physical-azure-set-up-target.md
         - name: 복제 설정 구성
           items:
             - name: Azure에 VMware에 대한 복제 설정 구성
-              href: site-recovery-setup-replication-settings-vmware.md
+              href: vmware-azure-set-up-replication.md
             - name: VMware-Azure의 복제에서 디스크를 제외
-              href: site-recovery-exclude-disk.md
+              href: vmware-azure-exclude-disk.md
             - name: Hyper-V-Azure의 복제에서 디스크를 제외
               href: hyper-v-exclude-disk.md
         - name: 복제 사용
@@ -220,19 +224,19 @@
             - name: Azure 간 복제 활성화
               href: azure-to-azure-how-to-enable-replication.md
             - name: VMware에서 Azure로 복제 활성화
-              href: site-recovery-replicate-vmware-to-azure.md
+              href: vmware-azure-enable-replication.md
         - name: VMware에 모바일 서비스 배포
           items:
             - name: 모바일 서비스 정보
-              href: site-recovery-vmware-to-azure-install-mob-svc.md
+              href: vmware-azure-install-mobility-service.md
             - name: System Center Configuration Manager를 사용하여 모바일 서비스 배포
-              href: site-recovery-install-mobility-service-using-sccm.md
+              href: vmware-azure-mobility-install-configuration-mgr.md
             - name: Azure 자동화 DSC를 사용하여 모바일 서비스 배포
-              href: site-recovery-automate-mobility-service-install.md
+              href: vmware-azure-mobility-deploy-automation-dsc.md
     - name: 자동화
       items:
         - name: PowerShell을 사용하여 Azure에 VMware 가상 머신 복제
-          href: site-recovery-vmware-to-azure-powershell.md
+          href: vmware-azure-disaster-recovery-powershell.md
         - name: PowerShell을 사용하여 Azure로 Hyper-V 복제 설정(VMM 없음)
           href: hyper-v-azure-powershell-resource-manager.md
         - name: PowerShell을 사용하여 Azure로 Hyper-V 복제 설정(VMM 있음)
@@ -265,31 +269,29 @@
           href: 'site-recovery-workload.md#workload-summary'
     - name: 관리
       items:
-        - name: Azure에서 프로세스 서버 관리
-          href: site-recovery-vmware-setup-azure-ps-resource-manager.md
         - name: VMware 재해 복구용 구성 서버 관리
-          href: site-recovery-vmware-to-azure-manage-configuration-server.md
+          href: vmware-azure-manage-configuration-server.md
         - name: 물리적 컴퓨터 재해 복구용 구성 서버 관리
           href: physical-manage-configuration-server.md
         - name: vCenter 서버 관리
-          href: site-recovery-vmware-to-azure-manage-vCenter.md
-        - name: CSP로 다중 테넌트 관리
-          href: site-recovery-manage-multi-tenancy-with-csp.md
+          href: vmware-azure-manage-vcenter.md
+        - name: 프로세스 서버 관리
+          href: vmware-azure-manage-process-server.md
         - name: 서버 제거 및 보호 사용 안 함
           href: site-recovery-manage-registration-and-protection.md
         - name: 자격 증명 모음 삭제
           href: delete-vault.md
     - name: 모니터링 및 문제 해결
       items:
-        - name: Azure 간 복제 문제
+        - name: Azure 간 복제 문제 해결
           href: azure-to-azure-troubleshoot-errors.md
-        - name: 온-프레미스와 Azure 간 복제 문제
-          href: site-recovery-vmware-to-azure-protection-troubleshoot.md
-        - name: 모바일 서비스 문제
-          href: site-recovery-vmware-to-azure-push-install-error-codes.md
-        - name: Azure 장애 조치(failover) 문제
+        - name: VMware에서 Azure로 복제 문제 해결
+          href: vmware-azure-troubleshoot-replication.md
+        - name: VMware 및 물리적 서버 복제의 모바일 서비스 문제 해결
+          href: vmware-azure-troubleshoot-push-install.md
+        - name: Azure에 대한 장애 조치(failover) 문제 해결
           href: site-recovery-failover-to-azure-troubleshoot.md
-        - name: 다시 보호 및 장애 복구(failback) 문제
+        - name: Azure에서 VMware VM의 장애 복구 및 다시 보호 문제 해결
           href: vmware-azure-troubleshoot-failback-reprotect.md
         - name: Azure Site Recovery 모니터링
           href: site-recovery-monitor-and-troubleshoot.md

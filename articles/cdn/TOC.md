@@ -63,6 +63,10 @@
 ### [파일 압축](cdn-troubleshoot-compression.md)
 
 # 참고 자료
+##  [규칙 엔진 참조](cdn-rules-engine-reference.md)
+### [규칙 엔진 조건식](cdn-rules-engine-reference-conditional-expressions.md)
+### [규칙 엔진 일치 조건](cdn-rules-engine-reference-match-conditions.md)
+### [규칙 엔진 기능](cdn-rules-engine-reference-features.md)
 ## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=cdn)
 ## [Azure PowerShell](/powershell/module/azurerm.cdn)
 ## [.NET](/dotnet/api/microsoft.azure.management.cdn)
@@ -70,10 +74,6 @@
 ## [REST](/rest/api/cdn/)
 
 # 리소스
-##  [규칙 엔진 참조](cdn-rules-engine-reference.md)
-### [규칙 엔진 조건식](cdn-rules-engine-reference-conditional-expressions.md)
-### [규칙 엔진 기능](cdn-rules-engine-reference-features.md)
-### [규칙 엔진 일치 조건](cdn-rules-engine-reference-match-conditions.md)
 ## [Azure CDN POP 위치](cdn-pop-locations.md)
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecdn)

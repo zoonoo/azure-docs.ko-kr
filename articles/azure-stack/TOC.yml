@@ -10,6 +10,8 @@
           href: azure-stack-asdk-release-notes.md
         - name: 통합된 시스템 릴리스 정보
           items:
+            - name: 1802 업데이트
+              href: azure-stack-update-1802.md
             - name: 1712 업데이트
               href: azure-stack-update-1712.md
             - name: 1711 업데이트
@@ -133,14 +135,18 @@
           href: azure-stack-monitor-health.md
         - name: 네트워크 리소스 관리
           href: azure-stack-viewing-public-ip-address-consumption.md
-        - name: 저장소 리소스 관리
-          href: azure-stack-manage-storage-accounts.md
-        - name: 저장소 용량 관리
-          href: azure-stack-manage-storage-shares.md
         - name: Windows Azure 팩 VM 관리
           href: azure-stack-manage-windows-azure-pack.md
         - name: 시작 및 중지 Azure 스택
           href: azure-stack-start-and-stop.md
+        - name: 용량 관리
+          items:
+            - name: 저장소 리소스 관리
+              href: azure-stack-manage-storage-accounts.md
+            - name: 저장소 용량 관리
+              href: azure-stack-manage-storage-shares.md
+            - name: Azure 스택에 대 한 실제 저장소 용량 관리
+              href: azure-stack-manage-storage-physical-capacity.md
         - name: 하드웨어 교체
           items:
             - name: 노드 작업
@@ -230,6 +236,10 @@
               href: azure-stack-app-service-deploy.md
             - name: App Service 오프라인 배포
               href: azure-stack-app-service-deploy-offline.md
+            - name: 앱 서비스 리소스 공급자 업데이트
+              href: azure-stack-app-service-update.md
+            - name: 오프 라인으로 앱 서비스 리소스 공급자 업데이트
+              href: azure-stack-app-service-update-offline.md
             - name: 웹 작업자 역할 추가
               href: azure-stack-app-service-add-worker-roles.md
             - name: 배포 원본 구성

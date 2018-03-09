@@ -8,6 +8,8 @@
       href: overview.md
     - name: 심층 학습 VM은 무엇입니까?
       href: deep-learning-dsvm-overview.md
+    - name: Geo AI 데이터 과학 VM은 무엇입니까?
+      href: geo-ai-dsvm-overview.md
 - name: 시작하기
   items:
     - name: Windows 데이터 과학 VM 만들기
@@ -18,6 +20,8 @@
       href: linux-dsvm-intro.md
     - name: 심층 학습 VM 만들기
       href: provision-deep-learning-dsvm.md
+    - name: Geo AI 데이터 과학 VM 만들기
+      href: provision-geo-ai-dsvm.md
 - name: 방법
   items:
     - name: Windows 데이터 과학 VM 사용
@@ -26,6 +30,8 @@
       href: linux-dsvm-walkthrough.md
     - name: 심층 학습 VM 사용
       href: use-deep-learning-dsvm.md
+    - name: Geo AI 데이터 과학 VM 사용
+      href: use-geo-ai-dsvm.md
 - name: 참고 자료
   expanded: true
   items:

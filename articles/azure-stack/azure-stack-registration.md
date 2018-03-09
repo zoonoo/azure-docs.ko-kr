@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/27/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: d5b77bb43c48bd286708ca96699b20be0f761baa
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: cb9575cb7bb3d8d3f3a18a1f5577ff0330bda24c
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="register-azure-stack-with-azure"></a>Azure 스택 Azure 등록
 Azure에서 Azure 마켓플레이스 항목을 다운로드 하 고 상용 데이터를 Microsoft에 다시 보고를 설정 하려면 Azure 스택을 등록할 수 있습니다. Azure 스택 등록 한 후 사용 Azure 상거래에 보고 됩니다. 등록에 사용 되는 구독에서 볼 수 있습니다.
@@ -54,6 +54,7 @@ Azure 스택 도구 GitHub 리포지토리; Azure 스택 기능을 지 원하는
 cd \
 
 # Download the tools archive.
+  [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 
   invoke-webrequest `
   https://github.com/Azure/AzureStack-Tools/archive/master.zip `
   -OutFile master.zip
@@ -167,7 +168,7 @@ Register-AzsEnvironment -RegistrationToken $registrationToken
 
 ## <a name="verify-azure-stack-registration"></a>Azure 스택 등록 확인
 Azure 스택이 Azure에 성공적으로 등록 하 고 있는지 확인 하려면 다음이 단계를 사용 합니다.
-1. Azure 스택에 로그인 [관리자 포털](https://docs.microsoft.com/azure/azure-stack/azure-stack-manage-portals#access-the-administrator-portal): https &#58; / / adminportal. *&lt;지역 > 합니다. &lt;fqdn >*합니다.
+1. Azure 스택에 로그인 [관리자 포털](https://docs.microsoft.com/azure/azure-stack/azure-stack-manage-portals#access-the-administrator-portal): https&#58;/ / adminportal. *&lt;지역 > 합니다. &lt;fqdn >*합니다.
 2. 클릭 **더 많은 서비스** > **마켓플레이스 관리** > **Azure에서 추가**합니다.
 
 (예: WordPress) Azure에서 사용할 수 있는 항목 목록이 표시 되 면 인증 과정에 성공 했습니다.

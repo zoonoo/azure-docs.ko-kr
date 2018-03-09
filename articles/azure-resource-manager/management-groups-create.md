@@ -10,13 +10,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/22/2018
+ms.date: 3/1/2018
 ms.author: rithorn
-ms.openlocfilehash: 7c5aeca5afe8921ab39040e9afc2921b1711c447
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: ae91ad29b867ad4ab00831ee40102bcec2fc890c
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>리소스 조직 및 관리에 대한 관리 그룹 만들기
 관리 그룹은 여러 구독에서 액세스, 정책 및 규정 준수를 관리하는 데 도움이 되는 컨테이너입니다. 이러한 컨테이너를 만들어 [Azure 정책](../azure-policy/azure-policy-introduction.md) 및 [Azure 역할 기반 액세스 제어](../active-directory/role-based-access-control-what-is.md)와 함께 사용할 수 있는 효과적이고 효율적인 계층을 구축합니다. 관리 그룹에 대한 자세한 내용은 [Azure 관리 그룹으로 리소스 구성](management-groups-overview.md)을 참조하세요. 
@@ -47,14 +47,14 @@ ms.lasthandoff: 02/23/2018
 PowerShell 내에서 Add-AzureRmManagementGroups cmdlet을 사용합니다.   
 
 ```azurepowershell-interactive
-C:\> Add-AzureRmManagementGroup -GroupName Contoso 
+C:\> New-AzureRmManagementGroup -GroupName Contoso 
 ```
 **GroupName**은 생성되는 고유 식별자입니다. 이 ID는 다른 명령에서 이 그룹을 참조하는 데 사용되며 나중에 변경할 수 없습니다.
 
 관리 그룹이 Azure Portal 내에서 다른 이름을 표시하도록 하려면 해당 문자열의 **DisplayName** 매개 변수를 추가합니다. 예를 들어, GroupName이 Contoso이고 표시 이름이 "Contoso Group"인 관리 그룹을 만들려면 다음 cmdlet을 사용합니다. 
 
 ```azurepowershell-interactive
-C:\> Add-AzureRmManagementGroup -GroupName Contoso -DisplayName "Contoso Group" -ParentId ContosoTenant
+C:\> New-AzureRmManagementGroup -GroupName Contoso -DisplayName "Contoso Group" -ParentId ContosoTenant
 ``` 
 이 관리 그룹을 다른 관리 아래에 만들려면 **ParentId** 매개 변수를 사용합니다.  
 

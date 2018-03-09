@@ -14,7 +14,11 @@
 ## [단일 인스턴스 SAP HANA 설치](hana-get-started.md)
 ## [S/4 HANA 또는 BW/4 HANA SAP CAL 배포 가이드](cal-s4h.md)
 ## [Azure 운영 가이드의 SAP HANA](hana-vm-operations.md)
-## [Azure VM의 SAP HANA 고가용성](sap-hana-high-availability.md)
+## Azure Virtual Machines의 SAP HANA 가용성
+### [Azure의 SAP HANA 가용성 개요](sap-hana-availability-overview.md)
+### [단일 Azure 지역 내 Azure의 SAP HANA 가용성](sap-hana-availability-one-region.md)
+### [Azure 지역 간 Azure의 SAP HANA 가용성](sap-hana-availability-across-regions.md)
+## [Azure VM에서 SAP HANA 시스템 복제 설정](sap-hana-high-availability.md)
 ## [SAP HANA 백업 개요](sap-hana-backup-guide.md)
 ## [SAP HANA 파일 수준 백업](sap-hana-backup-file-level.md)
 ## [SAP HANA 저장소 스냅숏 백업](sap-hana-backup-storage-snapshots.md)

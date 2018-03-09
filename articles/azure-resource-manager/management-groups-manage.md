@@ -10,13 +10,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/22/2018
+ms.date: 3/1/2018
 ms.author: rithorn
-ms.openlocfilehash: 975f572d9bd0f32825e6a618cd31bbc263885030
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 33797ddcd2a6ff083c5fb4b2fa7ddb8f9d6bd76c
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="manage-your-resources-with-management-groups"></a>관리 그룹으로 리소스 관리 
 관리 그룹은 여러 구독에서 액세스, 정책 및 규정 준수를 관리하는 데 도움이 되는 컨테이너입니다. 이러한 컨테이너를 변경하고 삭제하고 관리하여 [Azure Policy](../azure-policy/azure-policy-introduction.md) 및 [Azure RBAC(역할 기반 액세스 제어)](../active-directory/role-based-access-control-what-is.md)에서 사용할 수 있는 계층 구조를 유지할 수 있습니다. 관리 그룹에 대해 자세히 알아보려면 [Azure 관리 그룹으로 리소스 구성](management-groups-overview.md)을 참조하세요.
@@ -171,7 +171,7 @@ az account management-group show --group-name Contoso
 PowerShell에서 구독을 이동하려면 Add-AzureRmManagementGroupSubscription 명령을 사용합니다.  
 
 ```azurepowershell-interactive
-Add-AzureRmManagementGroupSubscription -GroupName Contoso -SubscriptionId 12345678-1234-1234-1234-123456789012
+New-AzureRmManagementGroupSubscription -GroupName Contoso -SubscriptionId 12345678-1234-1234-1234-123456789012
 ```
 
 구독 및 관리 그룹 간의 링크를 제거하려면 Remove-AzureRmManagementGroupSubscription 명령을 사용합니다.

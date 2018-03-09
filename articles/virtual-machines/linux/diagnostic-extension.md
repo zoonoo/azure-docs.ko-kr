@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 05/09/2017
 ms.author: jasonzio
 ms.openlocfilehash: 1eae6d302827c977b9258174dec68fd8f3009a11
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 03/06/2018
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Linux 진단 확장을 사용하여 메트릭 및 로그 모니터링
 
@@ -50,7 +50,7 @@ Azure Portal은 LAD 3.0을 사용하도록 설정하거나 구성하는 데 사�
 
 다운로드 가능한 구성은 예로 든 것일 뿐입니다. 사용자 요구 사항에 맞게 수정합니다.
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>필수 조건
 
 * **Azure Linux 에이전트 버전 2.2.0 이상**. 대부분의 Azure VM Linux 갤러리 이미지에는 2.2.7 이후 버전이 포함되어 있습니다. VM에 설치된 버전을 확인하려면 `/usr/sbin/waagent -version`을 실행합니다. VM이 게스트 에이전트의 이전 버전을 실행 중인 경우 [이 지침](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent)에 따라 업데이트합니다.
 * **Azure CLI**. 컴퓨터에 [Azure CLI 2.0 환경을 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)합니다.
@@ -127,7 +127,7 @@ az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnost
 }
 ```
 
-이름 | 값
+Name | 값
 ---- | -----
 storageAccountName | 확장에 의해 데이터가 기록될 저장소 계정의 이름입니다.
 storageAccountEndPoint | (선택 사항) 저장소 계정이 있는 클라우드를 식별하는 끝점입니다. 이 설정이 없는 경우 LAD는 Azure 공용 클라우드, `https://core.windows.net`으로 기본 설정됩니다. Azure Germany, Azure Government 또는 Azure China에서 저장소 계정을 사용하려면 이 값을 적절하게 설정합니다.

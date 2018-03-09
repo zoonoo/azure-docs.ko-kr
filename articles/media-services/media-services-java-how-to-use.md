@@ -14,11 +14,11 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.date: 10/26/2017
 ms.author: juliako
-ms.openlocfilehash: bbfe7fedb1d5216b8a159faa9543ade74176181f
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: cba1e58478f4bbdffb61566e53aa0b86138b7fc6
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="get-started-with-the-java-client-sdk-for-azure-media-services"></a>Java 클라이언트 SDK를 사용하여 Azure Media Services 시작
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
@@ -29,7 +29,7 @@ ms.lasthandoff: 12/08/2017
 
 이 자습서를 완료하는 데 필요한 조건은 다음과 같습니다.
 
-* Azure 계정. 자세한 내용은 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
+* Azure 계정. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 * Media Services 계정. Media Services 계정을 만들려면 [Media Services 계정을 만드는 방법](media-services-portal-create-account.md)을 참조하세요.
 * 최신 [Azure Media Services Java SDK](https://mvnrepository.com/artifact/com.microsoft.azure/azure-media/latest)
 
@@ -66,6 +66,7 @@ Azure AD 응용 프로그램을 만들고 Azure Portal에서 위의 구성 값�
 
 또한 이 코드는 로컬에 저장된 비디오 파일을 사용합니다. 업로드할 사용자 고유의 로컬 파일을 제공하도록 코드를 편집해야 합니다.
 
+```java
     import java.io.*;
     import java.net.URI;
     import java.security.NoSuchAlgorithmException;
@@ -298,7 +299,7 @@ Azure AD 응용 프로그램을 만들고 Azure Portal에서 위의 구성 값�
             }
         }
     }
-
+```
 
 ## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
@@ -310,7 +311,7 @@ Azure AD 응용 프로그램을 만들고 Azure Portal에서 위의 구성 값�
 Azure에서 Java 응용 프로그램을 개발하는 방법에 대한 자세한 내용은 [Azure Java 개발자 센터][Azure Java Developer Center] 및 [Java 개발자용 Azure][Azure for Java developers]를 참조하세요.
 
 
-Media Services Javadoc 설명서는 [Java용 Azure 라이브러리 설명서][Java용 Azure 라이브러리 설명서] 를 참조하세요.
+Media Services Javadoc 설명서는 [Java용 Azure 라이브러리 설명서](Java용 Azure 라이브러리 설명서)를 참조하세요.
 
 <!-- URLs. -->
 

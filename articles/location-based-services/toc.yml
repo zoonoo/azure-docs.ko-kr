@@ -19,10 +19,16 @@
       href: tutorial-prioritized-routes.md
 - name: 개념
   items:
+    - name: 확대/축소 수준 및 타일 그리드
+      href: zoom-levels-and-tile-grid.md
     - name: 지오코딩 검사
       href: geocoding-coverage.md
     - name: 트래픽 검사
       href: traffic-coverage.md
+    - name: 렌더링 검사
+      href: render-coverage.md
+    - name: 라우팅 검사
+      href: routing-coverage.md
 - name: 방법 가이드
   items:
     - name: 계정 및 키 관리

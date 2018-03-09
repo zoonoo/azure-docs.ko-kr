@@ -73,6 +73,7 @@
 ### [오픈 소스 도구를 사용하여 네트워크 트래픽 패턴 시각화](network-watcher-using-open-source-tools.md)
 ## NSG 흐름 로그 분석
 ### [NSG 흐름 로그 읽기](network-watcher-read-nsg-flow-logs.md)
+### [트래픽 분석 사용](traffic-analytics.md)
 ### [Power BI 사용](network-watcher-visualize-nsg-flow-logs-power-bi.md)
 ### [탄력적 스택 사용](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
 ### [Grafana 사용](network-watcher-nsg-grafana.md)
@@ -95,7 +96,7 @@
 # 리소스
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
-## [가격 책정](https://azure.microsoft.com/pricing/details/network-watcher/)
+## [가격](https://azure.microsoft.com/pricing/details/network-watcher/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=network-watcher)
 ## [SLA](https://azure.microsoft.com/support/legal/sla/)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/network-watcher)

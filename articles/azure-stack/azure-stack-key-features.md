@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2018
+ms.date: 02/27/2018
 ms.author: jeffgilb
-ms.reviewer: unknown
-ms.openlocfilehash: 6c02ec42874e4e3221c53e6d6e85378bbe2e414a
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.reviewer: 
+ms.openlocfilehash: b773ddc5da12f92960ef3378decac8569dac9ab9
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="key-features-and-concepts-in-azure-stack"></a>Azure Stack의 주요 기능 및 개념
 
@@ -91,6 +91,7 @@ Microsoft Azure 스택 다양 한 서비스 및 가상 컴퓨터, SQL Server 데
 
 관리자에 대 한 기본 공급자 구독을 배포 하는 동안 만들어집니다. 이 구독 Azure 스택 관리, 리소스 공급자를 배포 및 테 넌 트에 대 한 계획 및 제공을 만드는 데 사용할 수 있습니다. 고객 작업 및 응용 프로그램을 실행 하려면 미사용 해야 합니다. 
 
+
 ## <a name="azure-resource-manager"></a>Azure 리소스 관리자
 Azure 리소스 관리자를 사용 하는 템플릿 기반 선언적 모델에서 인프라 리소스와 작업할 수 있습니다.   배포 및 솔루션 구성 요소를 관리 하는 데 사용할 수 있는 단일 인터페이스를 제공 합니다. 전체 정보 및 지침에 대 한 참조는 [Azure 리소스 관리자 개요](../azure-resource-manager/resource-group-overview.md)합니다.
 
@@ -127,6 +128,25 @@ Azure Queue storage는 응용 프로그램 구성 요소 간에 클라우드 메
 
 ### <a name="keyvault"></a>KeyVault
 KeyVault RP 관리 및 감사 암호와 인증서 등의 비밀 정보를 제공 합니다. 예를 들어 테 넌 트 VM 배포 하는 동안 관리자 암호 또는 키를 제공 하기 KeyVault RP를 사용할 수 있습니다.
+
+## <a name="high-availability-for-azure-stack"></a>Azure 스택에 대 한 고가용성
+*적용 대상: Azure 스택 1802 또는 이상 버전*
+
+Azure에서 다중 VM 프로덕션 시스템의 가용성을 높이기 위해, Vm은 여러 장애 도메인과 업데이트 도메인을 확산 되 가용성 집합에 배치 됩니다. 이러한 방식으로 [가용성 집합에 배포 된 Vm](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) 별도 서버 랙에 다음 다이어그램에 나와 있는 것 처럼 오류 복구를 허용 하도록 각 물리적으로 격리 됩니다.
+
+  ![Azure 스택 고가용성](media/azure-stack-key-features/high-availability.png)
+
+### <a name="availablity-sets-in-azure-stack"></a>Azure 스택에 설정 하는 가용성
+Azure 스택 인프라 오류 시 복원할 수 이미 상태인 동안 (장애 조치 클러스터링) 기술의 여전히 발생 가동 중지 시간이 Vm에 대 한 영향을 받는 물리적 서버에서 하드웨어 오류가 발생할 경우. Azure 스택 Azure와 일치 하는 최대 세 개의 오류 도메인을 사용 하 여 설정 가용성 것을 지원 합니다.
+
+- **오류 도메인**합니다. 가용성 집합에 배치 하는 Vm은 여러 오류 도메인 (Azure 스택 노드)를 통해 가능한 균등 하 게 분배으로 물리적으로 서로 격리 됩니다. 하드웨어 오류가 발생할 경우 오류가 발생 한 오류 도메인에서 Vm 다른 오류 도메인에 다시 시작 되지만 것입니다, 가능한 경우 동일한 가용성 집합의 다른 Vm에서 별도 오류 도메인에 보관 합니다. 하드웨어를 다시 온라인 상태가 되 면 Vm 고가용성을 유지 하기 위해 균형 조정 됩니다. 
+ 
+- **업데이트 도메인**합니다. 업데이트 도메인은 가용성 집합의 고가용성을 제공 하는 다른 Azure 개념입니다. 업데이트 도메인은 동시에 유지 관리 될 수 있습니다 하는 기본 하드웨어의 논리적 그룹입니다. 동일한 업데이트 도메인에 있는 Vm 계획 된 유지 관리 하는 동안 함께 다시 시작 됩니다. Azure 플랫폼에서 이러한 Vm를 자동으로 배포를 테 넌 트 가용성 집합 내에서 Vm을 작성 / 업데이트 도메인입니다. Azure 스택 Vm은 실시간의 기본 호스트를 업데이트 하기 전에 클러스터의 다른 온라인 호스트에 걸쳐 마이그레이션입니다. 호스트 업데이트 중에 가동 중지 시간 없이 테 넌 트 이므로 템플릿 Azure와의 호환성에 대 한 Azure 스택에 업데이트 도메인 기능만 존재 합니다. 
+
+### <a name="upgrade-scenarios"></a>업그레이드 시나리오 
+Azure 스택 버전 1802 장애 도메인과 업데이트 도메인의 기본 수를 지정 하기 전에 만든 가용성 집합에 Vm (1과 1 각각). 이러한 기존 가용성 집합에서 Vm에 대 한 고가용성을 달성을 하려면 먼저 기존 Vm을 삭제 한 다음에 설명 된 대로 올바른 장애 도메인과 업데이트 도메인 수로 설정 하는 새 가용성에 다시 배포 해야 [변경은 Windows VM에 대 한 가용성 집합](https://docs.microsoft.com/azure/virtual-machines/windows/change-availability-set)합니다. 
+
+VM 크기 집합에 대 한 가용성 집합은 내부적으로 생성 한 기본 장애 도메인과 업데이트 도메인 수와 (3-5 각각). 모든 VM 확장 집합 전의 1802 업데이트는 기본 장애 도메인과 업데이트 도메인 수과 가용성 집합에 배치 됩니다 (1과 1 각각). 최신 확산을 달성 하기 위해 이러한 VM 크기 조정 설정 인스턴스를 업데이트 하려면 VM 크기 집합이 하 여 확장 1802 업데이트 하기 전에 있던 한 다음 VM 크기 집합의 이전 인스턴스를 삭제 하는 인스턴스의 수입니다. 
 
 ## <a name="role-based-access-control-rbac"></a>역할 기반 Access Control(RBAC)
 구독, 리소스 그룹 또는 개별 리소스 수준에서 역할을 할당하여 시스템 액세스에 권한이 있는 사용자, 그룹 및 서비스를 허용하도록 RBAC를 사용할 수 있습니다. 각 역할은 사용자, 그룹 또는 서비스가 Microsoft Azure Stack 리소스에 가진 액세스 수준을 정의합니다.

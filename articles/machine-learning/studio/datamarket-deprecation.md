@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/31/2017
+ms.date: 03/01/2018
 ms.author: LuisCa
-ms.openlocfilehash: e40b69f97878a6072a64912f017f8e5621ba6e71
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cec301869b08f9f3811c0536c85366619738945a
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="datamarket-is-now-deprecated"></a>DataMarket은 이제 더 이상 사용되지 않습니다.
 
@@ -32,9 +32,3 @@ ms.lasthandoff: 10/11/2017
 Cognitive Services Text Analytics API는 이전 DataMarket 버전에서 수행한 모든 시나리오와 언어 감지 및 토픽 감지와 같은 추가 시나리오를 지원합니다.
 
 
-## <a name="recommendations-api"></a>Recommendations API 
-
-이전 DataMarket Recommendations API 고객은 [Cognitive Services Recommendations API](https://www.microsoft.com/cognitive-services/recommendations-api)를 사용해야 합니다.
-Cognitive Services Recommendations API는 이전 DataMarket 버전에서 수행한 모든 시나리오와 일괄 처리 지원 및 모델 품질을 평가하기 위한 더 나은 오프라인 메트릭과 같은 추가 시나리오를 지원합니다. 
-
-Cognitive Services Recommendations API를 사용하는 방법에 대한 자세한 내용은 [Azure Cognitive Services Recommendations API로 마이그레이션](http://aka.ms/recomigrate)을 참조하세요.

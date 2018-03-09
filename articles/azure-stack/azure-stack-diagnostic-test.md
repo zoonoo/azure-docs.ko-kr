@@ -11,13 +11,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 02/26/2018
 ms.author: mabrigg
-ms.openlocfilehash: 53ef19628b40c4a008143c867c9e7867ac91854d
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 4f86397d4db5a0e67b294befd92087166d6b8109
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="run-a-validation-test-for-azure-stack"></a>Azure 스택에 대 한 유효성 검사 테스트를 실행 합니다.
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 01/12/2018
  
 Azure 스택의 상태를 확인할 수 있습니다. 문제가 있는 경우에 Microsoft 고객 서비스 지원에 문의 합니다. 지원 요청 관리 노드에서 AzureStack 테스트를 실행할 수 있습니다. 유효성 검사 테스트 실패를 파악합니다. 지원 수 다음 자세한 로그를 분석, 오류가 발생 하는 영역에 집중 및 작동 하는 문제를 해결 합니다.
 
-## <a name="run-test-azurestack"></a>AzureStack 테스트 실행
+## <a name="run-test-azurestack"></a>Run Test-AzureStack
 
 문제가 발생 하는 경우 Microsoft 고객 서비스 지원에 문의 한 후 실행 **테스트 AzureStack 실행**합니다.
 
@@ -44,7 +44,7 @@ Azure 스택의 상태를 확인할 수 있습니다. 문제가 있는 경우에
 
 이 섹션에서는 테스트 AzureStack cmdlet 및 유효성 검사 보고서의 요약에 대 한 개요입니다.
 
-### <a name="test-azurestack"></a>테스트 AzureStack
+### <a name="test-azurestack"></a>Test-AzureStack
 
 Azure 스택의 상태를 확인합니다. Azure 스택 하드웨어 및 소프트웨어의 상태를 보고 하는 cmdlet입니다. 지원 담당자 Azure 스택 지원 사례를 해결 하는 시간을 줄이기 위해이 보고서를 사용할 수 있습니다.
 
@@ -64,7 +64,7 @@ Azure 스택의 상태를 확인합니다. Azure 스택 하드웨어 및 소프�
 | ServiceAdminCredentials | PSCredential    | 아니요       | FALSE   |
 | DoNotDeployTenantVm     | SwitchParameter | 아니요       | FALSE   |
 | AdminCredential         | PSCredential    | 아니요       | 해당 없음      |
-| StorageConnectionString | 문자열          | 아니요       | 해당 없음      |
+<!-- | StorageConnectionString | 문자열          | 아니요       | 해당 없음      | 1802에서 지원 되지 않습니다-->
 | 나열                    | SwitchParameter | 아니요       | FALSE   |
 | 무시                  | 문자열          | 아니요       | 해당 없음      |
 | 포함                 | 문자열          | 아니요       | 해당 없음      |
