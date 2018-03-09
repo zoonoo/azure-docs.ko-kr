@@ -62,6 +62,7 @@
 ### [Azure PowerShell](application-gateway-create-probe-ps.md)
 ## [Azure Security Center 통합](application-gateway-integration-security-center.md)
 ## [부하 분산 서비스 조합](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fapplication-gateway%2ftoc.json)
+## [종단 간 SSL 구성](application-gateway-end-to-end-ssl-powershell.md)
 ## 문제 해결
 ### [Application Gateway의 오류 해결](application-gateway-troubleshooting-502.md)
 ### [진단 로깅 및 메트릭](application-gateway-diagnostics.md)

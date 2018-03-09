@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: mabrigg
-ms.openlocfilehash: 10e82c13dc2bb8461fb628435484a3a6e1877aa8
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 0f23216c6aced60dc651a0f10179281bc9a29c2c
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="apply-updates-in-azure-stack"></a>Azure 스택에서 업데이트 적용
 
@@ -67,7 +67,7 @@ Azure 스택에 대 한 Microsoft 업데이트 패키지를 사용할 수 있는
  
     ![각 패키지 파일을 업로드할 수 있는 위치를 보여 줍니다.](media/azure-stack-apply-updates/ApplyUpdates6.png)
 
-8. 단계 6과 7을 반복 하는 *PackageName*.bin 및 Metadata.xml 파일입니다. 
+8. 단계 6과 7을 반복 하는 *PackageName*.bin 및 Metadata.xml 파일입니다. 포함 하는 경우 보조 Notice.txt 파일을 가져오지 않습니다.
 9. 을 완료 한 후에 알림 (종 모양 아이콘 포털의 오른쪽 위 모퉁이)을 검토할 수 있습니다. 알림을은 업로드가 완료 된 것을 나타내야 합니다. 
 10. 대시보드의 타일의 업데이트를 다시 탐색 합니다. 타일은 업데이트를 사용할 수 있음을 나타내야 합니다. 새로 추가 된 업데이트 패키지를 검토 하 여 타일을 클릭 합니다.
 11. 업데이트를 설치 하려면로 표시 된 패키지를 선택 **준비** 패키지를 마우스 오른쪽 단추로 클릭 하 고 선택 **지금 업데이트**, 하거나 클릭 하 고 **지금 업데이트** 상단 근처에 있는 작업 .

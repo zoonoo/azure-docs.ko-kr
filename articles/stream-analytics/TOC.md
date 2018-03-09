@@ -58,13 +58,14 @@
 
 ## 문제 해결
 ### [문제 해결 가이드](stream-analytics-troubleshooting-guide.md)
+### [일반적인 문제 해결 문제](stream-analytics-common-troubleshooting-issues.md)
 ### [리소스 상태 블레이드](stream-analytics-resource-health.md)
 ### [작업 다이어그램 및 메트릭](stream-analytics-job-diagram-with-metrics.md)
 ### [SELECT INTO 디버깅](stream-analytics-select-into.md)
 ### [이벤트 순서 고려 사항](stream-analytics-out-of-order-and-late-events.md)
 ### [이벤트 허브 리더 제한](stream-analytics-event-hub-consumer-groups.md)
 ### [진단 로그](stream-analytics-job-diagnostic-logs.md)
-### [잘못된 형식의 이벤트 가져오기](stream-analytics-malformed-events.md)
+
 
 ## 자동화
 ### [관리 .NET SDK 사용](stream-analytics-dotnet-management-sdk.md)

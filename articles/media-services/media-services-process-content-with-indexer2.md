@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: adsolank;juliako;
-ms.openlocfilehash: 075daadae42340dfc9c7510a8010e337210e6e01
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c78a4d2d3a1b0f84d488e7358c875c9708ac6107
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="indexing-media-files-with-azure-media-indexer-2-preview"></a>Azure Media Indexer 2 미리 보기를 사용하여 미디어 파일 인덱싱
 ## <a name="overview"></a>개요
@@ -56,6 +56,7 @@ ms.lasthandoff: 12/11/2017
 
 다음 JSON은 사용 가능한 매개 변수를 설정합니다.
 
+```json
     {
       "version":"1.0",
       "Features":
@@ -69,6 +70,7 @@ ms.lasthandoff: 12/11/2017
            "Type":"SpReco"
         }]
     }
+```
 
 ## <a name="supported-languages"></a>지원되는 언어
 Azure Media Indexer 2 미리 보기는 다음 언어에 대한 음성-텍스트를 지원합니다(작업 구성에서 언어 이름을 지정할 때 아래와 같이 대괄호 안의 4자로 된 코드를 사용할 경우).
@@ -96,29 +98,32 @@ Azure Media Indexer 2 미리 보기는 다음 언어에 대한 음성-텍스트�
 
 1. 자산을 만들고 미디어 파일을 자산에 업로드합니다.
 2. 다음 JSON 기본 설정을 포함하는 구성 파일을 기반으로 인덱싱 작업을 만듭니다.
-   
-        {
-          "version":"1.0",
-          "Features":
-            [
-               {
-               "Options": {
-                    "Formats":["WebVtt","ttml"],
-                    "Language":"enUs",
-                    "Type":"RecoOptions"
-               },
-               "Type":"SpReco"
-            }]
-        }
+
+    ```json
+            {
+            "version":"1.0",
+            "Features":
+                [
+                {
+                "Options": {
+                        "Formats":["WebVtt","ttml"],
+                        "Language":"enUs",
+                        "Type":"RecoOptions"
+                },
+                "Type":"SpReco"
+                }]
+            }
+    ```
+    
 3. 출력 파일을 다운로드합니다. 
    
 #### <a name="create-and-configure-a-visual-studio-project"></a>Visual Studio 프로젝트 만들기 및 구성
 
 개발 환경을 설정하고 [.NET을 사용한 Media Services 환경](media-services-dotnet-how-to-use.md)에 설명된 대로 연결 정보를 사용하여 app.config 파일을 채웁니다. 
 
-#### <a name="example"></a>예제
+#### <a name="example"></a>예
 
-```
+```csharp
 using System;
 using System.Configuration;
 using System.IO;

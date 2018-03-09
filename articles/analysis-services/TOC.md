@@ -20,6 +20,10 @@
 ## [Backup 및 복원](analysis-services-backup.md)
 ## [REST API 사용하여 새로 고침](analysis-services-async-refresh.md)
 ## [스케일 아웃 구성](analysis-services-scale-out.md)
+## 관리 작업 자동화
+### [서비스 사용자 만들기 - Azure Portal](../azure-resource-manager/resource-group-create-service-principal-portal.md)
+### [서비스 사용자 만들기 - PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md)
+### [서버 관리자 역할에 서비스 사용자 추가](analysis-services-addservprinc-admins.md)
 ## 서버 관리
 ### [서버 이름 별칭 구성](analysis-services-server-alias.md)
 ### [서버 관리](analysis-services-manage.md)
@@ -66,7 +70,7 @@
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=intelligence-analytics)
 ## [Azure 상태](https://azure.microsoft.com/status/)
 ## [사용자 의견](https://feedback.azure.com/forums/556165-azure-analysis-services)
-## [가격 책정](https://azure.microsoft.com/pricing/details/analysis-services/)
+## [가격](https://azure.microsoft.com/pricing/details/analysis-services/)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [Stackoverflow](http://stackoverflow.com/questions/tagged/azure-analysis-services)
 ## [비디오](https://azure.microsoft.com/resources/videos/index/?services=analysis-services&sort=newest)

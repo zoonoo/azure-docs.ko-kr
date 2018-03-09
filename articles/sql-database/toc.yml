@@ -45,12 +45,14 @@
       href: sql-database-design-first-database.md
     - name: 1- .NET을 사용하여 DB 설계
       href: sql-database-design-first-database-csharp.md
-    - name: 2 - SQL Server DB 마이그레이션
+    - name: 2 - SQL Server DB로 마이그레이션
       href: sql-database-migrate-your-sql-server-database.md
     - name: 3 - SQL DB 보안
       href: sql-database-security-tutorial.md
     - name: 4 - 지역 분산 데이터베이스 구현
       href: sql-database-implement-geo-distributed-database.md
+    - name: 5 - 관리되는 인스턴스 만들기
+      href: sql-database-managed-instance-tutorial-portal.md
 - name: 샘플
   items:
     - name: 코드 샘플
@@ -61,26 +63,26 @@
       href: sql-database-powershell-samples.md
 - name: 개념
   items:
-    - name: 데이터베이스 서비스
-      items:
-        - name: 서버 및 데이터베이스
-          href: sql-database-servers-databases.md
-        - name: 서비스 계층
-          href: sql-database-service-tiers.md
-        - name: 리소스 한계
-          href: sql-database-resource-limits.md
-        - name: 단일 데이터베이스
-          href: sql-database-single-database-resources.md
-        - name: 탄력적 풀
-          href: sql-database-elastic-pool.md
-        - name: 연결 아키텍처
-          href: sql-database-connectivity-architecture.md
-        - name: DTU 및 eDTU
-          href: sql-database-what-is-a-dtu.md
-        - name: DTU 벤치마크
-          href: sql-database-benchmark-overview.md
-        - name: SQL Server 일반 기능
-          href: sql-database-features.md
+    - name: 서버 및 데이터베이스
+      href: sql-database-servers-databases.md
+    - name: 관리되는 인스턴스
+      href: sql-database-managed-instance.md
+    - name: 서비스 계층
+      href: sql-database-service-tiers.md
+    - name: 리소스 한계
+      href: sql-database-resource-limits.md
+    - name: 단일 데이터베이스
+      href: sql-database-single-database-resources.md
+    - name: 탄력적 풀
+      href: sql-database-elastic-pool.md
+    - name: 연결 아키텍처
+      href: sql-database-connectivity-architecture.md
+    - name: DTU 및 eDTU
+      href: sql-database-what-is-a-dtu.md
+    - name: DTU 벤치마크
+      href: sql-database-benchmark-overview.md
+    - name: SQL Server 일반 기능
+      href: sql-database-features.md
     - name: 고가용성
       href: sql-database-high-availability.md
     - name: 보안
@@ -101,8 +103,10 @@
           href: sql-database-ssms-mfa-authentication.md
         - name: 감사
           href: sql-database-auditing.md
-        - name: 위협 감지
+        - name: 위협 감지 - SQL Database
           href: sql-database-threat-detection.md
+        - name: 위협 감지 - 관리되는 인스턴스
+          href: sql-database-managed-instance-threat-detection.md
         - name: 테이블 감사 및 TDS
           href: sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md
         - name: 동적 데이터 마스킹
@@ -137,11 +141,15 @@
           href: sql-database-disaster-recovery-drills.md
     - name: SQL Database로 마이그레이션
       items:
-        - name: 개요
+        - name: SQL Database로 마이그레이션
           href: sql-database-cloud-migrate.md
-        - name: T-SQL 변경 사항
+        - name: 관리되는 인스턴스로 마이그레이션
+          href: sql-database-managed-instance-migrate.md
+        - name: SQL Database T-SQL 세부 정보
           href: sql-database-transact-sql-information.md
-        - name: 마이그레이션 후 데이터베이스 관리
+        - name: 관리되는 인스턴스 T-SQL 세부 정보
+          href: sql-database-managed-instance-transact-sql-information.md
+        - name: 마이그레이션 후 SQL Database 관리
           href: sql-database-manage-after-migration.md
     - name: 데이터 로드 및 이동
       items:
@@ -265,6 +273,16 @@
           href: sql-database-elastic-query-horizontal-partitioning.md
         - name: 여러 스키마를 사용하여 테이블에서 쿼리
           href: sql-database-elastic-query-vertical-partitioning.md
+    - name: 관리되는 인스턴스
+      items:
+        - name: VNet 구성
+          href: sql-database-managed-instance-vnet-configuration.md
+        - name: 사용자 지정 DNS
+          href: sql-database-managed-instance-custom-dns.md
+        - name: 응용 프로그램 연결
+          href: sql-database-managed-instance-connect-app.md
+        - name: 네트워크 구성 동기화
+          href: sql-database-managed-instance-sync-network-configuration.md
     - name: 보안
       items:
         - name: Azure AD 인증 구성
@@ -472,4 +490,4 @@
     - name: 아키텍처 센터
       href: /azure/architecture/
     - name: 고객 사례
-      href: 'https://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc'
+      href: 'https://customers.microsoft.com/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc'

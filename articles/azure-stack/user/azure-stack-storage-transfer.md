@@ -3,22 +3,22 @@ title: "Azure 스택 저장소 용 도구"
 description: "Azure 스택 저장소 데이터에 대 한 자세한 내용은 전송 도구"
 services: azure-stack
 documentationcenter: 
-author: xiaofmao
-manager: 
-editor: 
+author: mattbriggs
+manager: femila
 ms.assetid: 
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 9/25/2017
-ms.author: xiaofmao
-ms.openlocfilehash: 9799498a11449a9ed496d0fdb40312603eda064e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/21/2018
+ms.author: mabrigg
+ms.reviewer: xiaofmao
+ms.openlocfilehash: 9318b7af3c3dd545207f1896c9008207f562b735
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="tools-for-azure-stack-storage"></a>Azure 스택 저장소 용 도구
 
@@ -47,10 +47,14 @@ Azure 및 Azure 스택 간에 저장소 서비스 차이 때문에 다음 섹션
 
 
 ## <a name="azcopy"></a>AzCopy
-AzCopy는 Microsoft Azure Blob 및 최적의 성능으로 간단한 명령을 사용 하 여 테이블 저장소에서 데이터를 복사 하도록 명령줄 유틸리티입니다. 저장소 계정 내에서나 저장소 계정 사이에서 개체 간에 데이터 복사할 수 있습니다. 두 버전의는 AzCopy는: Windows 및 Linux에서 AzCopy에 AzCopy 합니다. Azure 스택 Windows 버전을 지원합니다. 
+AzCopy는 Microsoft Azure Blob 및 최적의 성능으로 간단한 명령을 사용 하 여 테이블 저장소에서 데이터를 복사 하도록 명령줄 유틸리티입니다. 저장소 계정 내에서나 저장소 계정 사이에서 개체 간에 데이터 복사할 수 있습니다. 두 가지 버전의는 AzCopy: Windows 및 Linux에서 AzCopy에 AzCopy 합니다. Azure 스택 Windows 버전을 지원합니다. 
  
 ### <a name="download-and-install-azcopy"></a>AzCopy 다운로드 및 설치 
-[다운로드](https://aka.ms/azcopyforazurestack) AzCopy Azure 스택에 대 한 지원 되는 Windows 버전입니다. 설치 하 고 Azure와 같은 방식으로 Azure 스택에 AzCopy를 사용할 수 있습니다. 자세한 내용은 참고 [AzCopy 명령줄 유틸리티를 사용 하 여 데이터를 전송](../../storage/common/storage-use-azcopy.md)합니다. 
+
+[다운로드](https://aka.ms/azcopyforazurestack) Azure 스택 AzCopy 지원 되는 Windows 버전입니다. 설치 하 고 Azure와 같은 방식으로 Azure 스택에 AzCopy를 사용할 수 있습니다. 자세한 내용은 참고 [AzCopy 명령줄 유틸리티를 사용 하 여 데이터를 전송](../../storage/common/storage-use-azcopy.md)합니다. 
+
+ - 1802에 대 한 업데이트 또는 새 버전으로 [AzCopy 7.1.0 다운로드](https://aka.ms/azcopyforazurestack20170417)합니다.
+ - 이전 버전에 대 한 [AzCopy 5.0.0 다운로드](https://aka.ms/azcopyforazurestack20150405)합니다.
 
 ### <a name="azcopy-command-examples-for-data-transfer"></a>데이터 전송에 대 한 AzCopy 명령 예제
 다음 예제에서는 Azure 스택 blob에서 데이터를 복사 하기 위한 몇 가지 일반적인 시나리오를 보여 줍니다. 자세한 내용은 참고 [AzCopy 명령줄 유틸리티를 사용 하 여 데이터를 전송](../../storage/storage-use-azcopy.md)합니다. 
@@ -63,14 +67,14 @@ AzCopy.exe /source:https://myaccount.blob.local.azurestack.external/mycontainer 
 AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.local.azurestack.external/mycontainer/vd /DestKey:key /Pattern:abc.txt
 ```
 #### <a name="move-data-between-azure-and-azure-stack-storage"></a>Azure 스택 저장소 및 Azure 간 데이터 이동 
-Azure 저장소 및 Azure 스택 간에 비동기 데이터 전송을 지원 되지 않습니다. 사용 하 여 전송을 지정 하는 `/SyncCopy` 옵션입니다. 
+Azure 저장소 및 Azure 스택 간에 비동기 데이터 전송을 지원 되지 않습니다. 사용 하 여 전송을 지정 하는 **/SyncCopy** 옵션입니다. 
 ```azcopy 
 Azcopy /Source:https://myaccount.blob.local.azurestack.external/mycontainer /Dest:https://myaccount2.blob.core.windows.net/mycontainer2 /SourceKey:AzSKey /DestKey:Azurekey /S /SyncCopy
 ```
 
 ### <a name="azcopy-known-issues"></a>Azcopy의 알려진 문제
 * 파일 저장소에 대해 AzCopy 연산을 사용할 수 없는 경우 파일 저장소가 아직 사용할 수 없기 때문에 Azure 스택
-* Azure 저장소 및 Azure 스택 간에 비동기 데이터 전송을 지원 되지 않습니다. 사용 하 여 전송을 지정할 수는 `/SyncCopy` 옵션 데이터를 복사 합니다.
+* Azure 저장소 및 Azure 스택 간에 비동기 데이터 전송을 지원 되지 않습니다. 사용 하 여 전송을 지정할 수는 **/SyncCopy** 옵션 데이터를 복사 합니다.
 * Azure 스택 저장소에 대 한 Azcopy의 Linux 버전 지원 되지 않습니다. 
 
 ## <a name="azure-powershell"></a>Azure PowerShell
@@ -80,7 +84,7 @@ Azure PowerShell은 모두 Azure 및 Azure 스택 서비스를 관리 하기 위
 Azure 스택 호환 Azure PowerShell 모듈은 Azure 스택이 작동 해야 합니다. 자세한 내용은 참조 [Azure 스택 위한 PowerShell 설치](azure-stack-powershell-install.md) 및 [Azure 스택 사용자의 PowerShell 환경을 구성](azure-stack-powershell-configure-user.md) 자세한 합니다.
 
 ### <a name="powershell-sample-script-for-azure-stack"></a>Azure 스택에 대 한 PowerShell 예제 스크립트 
-이 샘플 성공적으로 사용 한다고 가정 [Azure 스택 위한 PowerShell 설치](azure-stack-powershell-install.md)합니다. 이 스크립트 conplete 구성을 도움말과 Azure 스택 테 넌 트에 게 로컬 PowerShell environemnt에 사용자 계정을 추가 하려면 자격 증명을 요청 합니다. 그런 다음 스크립트는 기본 Azure 구독을 설정, Azure에서 새 저장소 계정을 만드는,이 새 저장소 계정에서 새 컨테이너 만들기 및 해당 컨테이너에 기존 이미지 파일 (blob)을 업로드 합니다. 스크립트가 해당 컨테이너의 모든 Blob을 나열한 후 로컬 컴퓨터에 새 대상 디렉터리를 만들고 이미지 파일을 다운로드합니다.
+이 샘플 성공적으로 사용 한다고 가정 [Azure 스택 위한 PowerShell 설치](azure-stack-powershell-install.md)합니다. 이 스크립트는 구성을 완료 하 고 Azure 스택 테 넌 트에 게 로컬 PowerShell 환경에 사용자 계정을 추가 하려면 자격 증명을 요청 하는 데 도움이 됩니다. 그런 다음 스크립트는 기본 Azure 구독을 설정, Azure에서 새 저장소 계정을 만드는,이 새 저장소 계정에서 새 컨테이너 만들기 및 해당 컨테이너에 기존 이미지 파일 (blob)을 업로드 합니다. 스크립트가 해당 컨테이너의 모든 Blob을 나열한 후 로컬 컴퓨터에 새 대상 디렉터리를 만들고 이미지 파일을 다운로드합니다.
 
 1. 설치 [Azure 스택 호환 Azure PowerShell 모듈](azure-stack-powershell-install.md)합니다.  
 2. 다운로드는 [Azure 스택을 사용 하는 데 필요한 도구](azure-stack-powershell-download.md)합니다.  
@@ -224,9 +228,8 @@ echo "Done"
 
 Microsoft Azure 저장소 탐색기는 Microsoft에서 독립 실행형 앱입니다. Azure 저장소 및 Azure 스택 저장소 데이터를 모두 사용 하 여 Windows, macOS 및 Linux에서 쉽게 사용할 수 있습니다. 쉽게 Azure 스택 저장소 데이터를 관리 하는 방법을 원하는 다음 Microsoft Azure 저장소 탐색기를 사용 하십시오.
 
-Azure 스택 사용 하려면 Azure 저장소 탐색기를 구성 하는 방법에 대 한 자세한 내용은 참조 [스택 Azure 구독에 저장소 탐색기 연결](azure-stack-storage-connect-se.md)합니다.
-
-Microsoft Azure 저장소 탐색기에 대 한 자세한 내용은 참조 하세요. [저장소 탐색기 (미리 보기) 시작](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
+ - Azure 스택 사용 하려면 Azure 저장소 탐색기를 구성 하는 방법에 대 한 자세한 참조 [스택 Azure 구독에 저장소 탐색기 연결](azure-stack-storage-connect-se.md)합니다.
+ - Microsoft Azure 저장소 탐색기에 대 한 자세한 참조 [저장소 탐색기 (미리 보기) 시작](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
 
 ## <a name="next-steps"></a>다음 단계
 * [저장소 탐색기는 스택 Azure 구독에 연결](azure-stack-storage-connect-se.md)

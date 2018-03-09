@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: juliako
-ms.openlocfilehash: 33fb0a18ea3e5bfec044a216c8e6a78942e3af40
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: de6cbf954f175777407432845ece24ac49198e46
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="using-azure-media-packager-to-accomplish-static-packaging-tasks"></a>Azure Media Packager를 사용하여 정적 패키징 작업 수행
 > [!NOTE]
@@ -58,6 +58,7 @@ Media Services 인코더로 인코드되지 않은 적응 비트 전송률(다�
 
 Media Services Packager를 사용하여 MP4 파일의 유효성을 검사하려면 자신의 매니페스트(.ism) 파일을 만들고 미디어 서비스 계정에 원본 파일과 함께 업로드해야 합니다. 다음은 미디어 인코더 표준에서 생성된 .ism 파일 샘플입니다. 파일 이름은 대/소문자를 구분합니다. 또한 .ism 파일의 텍스트는 UTF-8로 인코딩되어야 합니다.
 
+```xml
     <?xml version="1.0" encoding="utf-8" standalone="yes"?>
     <smil xmlns="http://www.w3.org/2001/SMIL20/Language">
       <head>
@@ -76,11 +77,13 @@ Media Services Packager를 사용하여 MP4 파일의 유효성을 검사하려�
         </switch>
       </body>
     </smil>
+```
 
 적응 비트 전송률 MP4를 설정하면 동적 패키징을 활용할 수 있습니다. 동적 패키징을 사용하면 추가 패키징 없이 지정된 프로토콜의 스트림을 배달할 수 있습니다. 자세한 내용은 [동적 패키징](media-services-dynamic-packaging-overview.md)을 참조하세요.
 
 다음 코드 예제는 Azure Media Services .NET SDK 확장을 사용합니다.  입력된 MP4 파일 및 .ism 파일이 있는 폴더를 가리키도록 코드를 업데이트합니다. 또한 MediaPackager_ValidateTask.xml 파일이 있는 곳도 동일합니다. 이 XML 파일은 [Azure Media Packager용 작업 사전 설정](http://msdn.microsoft.com/library/azure/hh973635.aspx) 문서에서 정의됩니다.
 
+```csharp
     using Microsoft.WindowsAzure.MediaServices.Client;
     using System;
     using System.Collections.Generic;
@@ -244,6 +247,7 @@ Media Services Packager를 사용하여 MP4 파일의 유효성을 검사하려�
             }
         }
     }
+```
 
 ## <a name="using-static-encryption-to-protect-your-smooth-and-mpeg-dash-with-playready"></a>정적 암호화를 사용하여 PlayReady로 부드러운 스트리밍 및 MPEG DASH 보호
 PlayReady를 사용하여 콘텐츠를 보호하려는 경우 [동적 암호화](media-services-protect-with-playready-widevine.md) (권장되는 옵션) 또는 정적 암호화(이 섹션에서 설명) 사용 중에서 선택할 수 있습니다.
@@ -263,6 +267,7 @@ Media Services는 현재 Microsoft PlayReady 라이선스를 배달하는 서비
 
 이 예제에서는 MediaEncryptor_PlayReadyProtection.xml 파일을 동적으로 업데이트하는데 사용할 수 있는 UpdatePlayReadyConfigurationXMLFile 메서드를 정의합니다. 키 시드를 사용할 수 있는 경우 CommonEncryption.GeneratePlayReadyContentKey 메서드를 사용하여 keySeedValue 및 KeyId 값에 따라 콘텐츠 키를 생성할 수 있습니다.
 
+```csharp
     using System;
     using System.Collections.Generic;
     using System.Configuration;
@@ -694,6 +699,7 @@ Media Services는 현재 Microsoft PlayReady 라이선스를 배달하는 서비
             }
         }
     }
+```
 
 ## <a name="using-static-encryption-to-protect-hlsv3-with-aes-128"></a>정적 암호화를 사용하여 AES-128로 HLSv3 보호
 AES-128을 사용하여 HLS를 암호화하려는 경우 동적 암호화(권장되는 옵션) 또는 정적 암호화(이 섹션에서 설명) 사용 중에서 선택할 수 있습니다. 동적 암호화를 사용하도록 결정한 경우 [AES-128 동적 암호화 및 키 전달 서비스 사용](media-services-protect-with-aes128.md)을 참조하세요.
@@ -707,6 +713,7 @@ AES-128을 사용하여 HLS를 암호화하려는 경우 동적 암호화(권장
 
 이 섹션의 예에서는 mezzanine 파일(이 경우 MP4)을 다중 비트 전송률 MP4 파일로 인코딩한 다음 MP4를 부드러운 스트리밍으로 패키징합니다. 그런 다음 부드러운 스트리밍을 고급 암호화 표준(AES) 128비트 스트림 암호화로 암호화된 HTTP 라이브 스트리밍(HLS)으로 패키징합니다. 입력된 MP4 파일이 있는 폴더를 가리키도록 다음 코드를 업데이트합니다. 또한 MediaPackager_MP4ToSmooth.xml 및 MediaPackager_SmoothToHLS.xml 구성 파일이 있는 곳도 동일합니다. 이러한 파일에 대한 정의는 [Azure Media Packager용 작업 사전 설정](http://msdn.microsoft.com/library/azure/hh973635.aspx) 문서에서 찾을 수 있습니다.
 
+```csharp
     using System;
     using System.Collections.Generic;
     using System.Configuration;
@@ -975,6 +982,7 @@ AES-128을 사용하여 HLS를 암호화하려는 경우 동적 암호화(권장
             }
         }
     }
+```
 
 ## <a name="using-static-encryption-to-protect-hlsv3-with-playready"></a>정적 암호화를 사용하여 PlayReady로 HLSv3 보호
 PlayReady를 사용하여 콘텐츠를 보호하려는 경우 [동적 암호화](media-services-protect-with-playready-widevine.md) (권장되는 옵션) 또는 정적 암호화(이 섹션에서 설명) 사용 중에서 선택할 수 있습니다.
@@ -990,6 +998,7 @@ Media Services는 현재 Microsoft PlayReady 라이선스를 배달하는 서비
 
 입력된 MP4 파일이 있는 폴더를 가리키도록 다음 코드를 업데이트합니다. 또한 MediaPackager_MP4ToSmooth.xml, MediaPackager_SmoothToHLS.xml 및 MediaEncryptor_PlayReadyProtection.xml 파일이 있는 곳도 동일합니다. MediaPackager_MP4ToSmooth.xml 및 MediaPackager_SmoothToHLS.xml은 [Azure Media Packager용 작업 사전 설정](http://msdn.microsoft.com/library/azure/hh973635.aspx)에서 정의되고 MediaEncryptor_PlayReadyProtection.xml은 [Azure Media Encryptor용 작업 사전 설정](http://msdn.microsoft.com/library/azure/hh973610.aspx) 문서에서 정의됩니다.
 
+```csharp
     using System;
     using System.Collections.Generic;
     using System.Configuration;
@@ -1452,6 +1461,7 @@ Media Services는 현재 Microsoft PlayReady 라이선스를 배달하는 서비
 
         }
     }
+```
 
 ## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

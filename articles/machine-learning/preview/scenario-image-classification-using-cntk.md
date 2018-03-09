@@ -6,16 +6,16 @@ documentationcenter:
 author: PatrickBue
 ms.author: pabuehle
 manager: mwinkle
-ms.reviewer: mawah, marhamil, mldocs, garyericson, jasonwhowell
+ms.reviewer: marhamil, mldocs, garyericson, jasonwhowell
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 10/17/2017
-ms.openlocfilehash: c3ad1cf8651858a2cb1fdadc2beed4e5c7bef56c
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 03fdd1265464355a2787eff897eb4f70faa095b0
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="image-classification-using-azure-machine-learning-workbench"></a>Azure Machine Learning Workbench를 사용하여 이미지 분류
 
@@ -59,6 +59,7 @@ DNN은 이미지 분류뿐만 아니라 개체 검색 및 이미지 유사성과
     - `pip install -U numpy`
     - `pip install bqplot`
     - `jupyter nbextension enable --py --sys-prefix bqplot`
+    - `jupyter nbextension enable --py widgetsnbextension`
 
 ### <a name="troubleshooting--known-bugs"></a>문제 해결/알려진 버그
 - 2부에는 GPU가 필요합니다. 그렇지 않으면 DNN을 수정하려고 할 때 "CPU에서 정규화 학습 일괄 처리가 아직 구현되지 않았습니다"라는 오류가 발생합니다.

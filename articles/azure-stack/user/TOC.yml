@@ -47,6 +47,8 @@
               href: azure-stack-vm-sizes.md
             - name: VM 디스크 관리
               href: azure-stack-manage-vm-disks.md
+            - name: VM 보호
+              href: azure-stack-manage-vm-backup.md
         - name: Storage
           items:
             - name: 개요

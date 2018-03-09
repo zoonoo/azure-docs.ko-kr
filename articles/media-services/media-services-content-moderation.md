@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/06/2018
 ms.author: sajagtap
-ms.openlocfilehash: 43e22e553b5243d6edc413c7a667089793f95396
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 1b473a6aef87e5f4c75be2becbf814ecaaab6f3a
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="use-azure-media-content-moderator-to-detect-possible-adult-and-racy-content"></a>Azure Media Content Moderator를 사용하여 가능한 성인/외설 콘텐츠 검색
 
@@ -90,6 +90,7 @@ JSON 형식의 조정된 출력에는 자동 검색된 스크린샷 및 키 프�
 전체 소스 코드 및 Visual Studio 프로젝트를 보려면 [Content Moderator 비디오 빠른 시작](../cognitive-services/Content-Moderator/video-moderation-api.md)을 참조하세요.
 
 
+```csharp
     /// <summary>
     /// Run the Content Moderator job on the designated Asset from local file or blob storage
     /// </summary>
@@ -155,14 +156,14 @@ JSON 형식의 조정된 출력에는 자동 검색된 스크린샷 및 키 프�
         DownloadAsset(job.OutputMediaAssets.First(), OUTPUT_FOLDER);
     }
 
-전체 소스 코드 및 Visual Studio 프로젝트를 보려면 [Content Moderator 비디오 빠른 시작](../cognitive-services/Content-Moderator/video-moderation-api.md)을 확인하세요.
+For the full source code and the Visual Studio project, check out the [Content Moderator video quickstart](../cognitive-services/Content-Moderator/video-moderation-api.md).
 
-### <a name="json-output"></a>JSON 출력
+### JSON output
 
-다음 Content Moderator JSON 출력 예는 잘린 상태입니다.
+The following example of a Content Moderator JSON output was truncated.
 
 > [!NOTE]
-> 키 프레임의 위치(초) = 타임스탬프/날짜 표시줄
+> Location of a keyframe in seconds = timestamp/timescale
 
     {
     "version": 2,
@@ -213,7 +214,7 @@ JSON 형식의 조정된 출력에는 자동 검색된 스크린샷 및 키 프�
     }
     ]
     }
-
+```
 
 ## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

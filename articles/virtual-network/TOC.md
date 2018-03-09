@@ -27,7 +27,8 @@
 ### [네트워크 보안 그룹](virtual-networks-nsg.md)
 
 ## 배포
-### [가상 네트워크](virtual-networks-create-vnet-arm-pportal.md)
+### 가상 네트워크
+#### [Azure 포털](virtual-networks-create-vnet-arm-pportal.md)
 #### [Azure PowerShell](virtual-networks-create-vnet-arm-ps.md)
 #### [Azure CLI](virtual-networks-create-vnet-arm-cli.md)
 #### [템플릿](virtual-networks-create-vnet-arm-template-click.md)
@@ -42,17 +43,20 @@
 ##### [Azure PowerShell](virtual-networks-create-nsg-classic-ps.md)
 ##### [Azure CLI 1.0](virtual-networks-create-nsg-classic-cli.md)
 
-### 사용자 정의 경로
-#### [Azure 포털](create-user-defined-route-portal.md)
-#### [Azure PowerShell](virtual-network-create-udr-arm-ps.md)
-#### [Azure CLI](virtual-network-create-udr-arm-cli.md)
+### 경로 테이블
+#### [Azure 포털](tutorial-create-route-table-portal.md)
+#### [Azure PowerShell](tutorial-create-route-table-powershell.md)
+#### [Azure CLI](tutorial-create-route-table-cli.md)
 #### [템플릿](virtual-network-create-udr-arm-template.md)
 #### 클래식
 ##### [Azure PowerShell](virtual-network-create-udr-classic-ps.md)
 ##### [Azure CLI](virtual-network-create-udr-classic-cli.md)
 
 ### 가상 네트워크 피어링
-#### [동일한 배포 모델 - 동일한 구독](virtual-network-create-peering.md)
+#### 동일한 배포 모델 - 동일한 구독
+##### [Azure 포털](tutorial-connect-virtual-networks-portal.md)
+##### [Azure PowerShell](tutorial-connect-virtual-networks-powershell.md)
+##### [Azure CLI](tutorial-connect-virtual-networks-cli.md)
 #### [동일한 배포 모델 - 다른 구독](create-peering-different-subscriptions.md)
 #### [다른 배포 모델 - 동일한 구독](create-peering-different-deployment-models.md)
 #### [다른 배포 모델 - 다른 구독](create-peering-different-deployment-models-subscriptions.md)
