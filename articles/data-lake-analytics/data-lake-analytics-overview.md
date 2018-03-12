@@ -14,37 +14,41 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/23/2017
 ms.author: saveenr
-ms.openlocfilehash: d327a3c28e928550b361c07569df74060cfcac0d
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 316c35fa4b04bdb251c2b9ae14f6b32f4e4bf939
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="overview-of-microsoft-azure-data-lake-analytics"></a>Microsoft Azure Data Lake Analytics 개요
+
 ## <a name="what-is-azure-data-lake-analytics"></a>Azure Data Lake Analytics이란?
 Azure Data Lake Analytics는 빅 데이터를 간소화하는 주문형 분석 작업 서비스입니다. 하드웨어를 배포, 구성 및 조정하는 대신, 데이터를 변형하고 귀중한 통찰력을 얻기 위한 쿼리를 작성합니다. 이 분석 서비스는 필요한 전력 크기만큼 다이얼을 설정하여 어떤 크기의 작업도 즉시 처리할 수 있습니다. 실행할 때 작업 기준으로 비용이 부과되므로 비용 효과적일 수 있습니다. 분석 서비스 지원에는 SQL의 장점을 명령형 코드의 장점과 결합하는 언어인 U-SQL이 포함됩니다. U-SQL을 사용하면 Data Lake Store, Azure의 SQL Server, Azure SQL Database 및 Azure SQL Data Warehouse에서 데이터를 분석할 수 있습니다.
 
-## <a name="key-capabilities"></a>주요 기능
-* **동적 크기 조정**
+## <a name="dynamic-scaling"></a>동적 크기 조정
   
-    Data Lake Analytics은 클라우드 규모 및 성능에 맞게 설계되었습니다.  이 서비스를 통해 리소스를 동적으로 프로비전하고 테라바이트 또는 심지어 엑사바이트 단위의 데이터도 분석할 수 있습니다. 작업이 완료되면 리소스가 자동으로 사용 해제되며, 사용한 처리량에 대해서만 지불하면 됩니다. 저장된 데이터 크기 또는 사용된 계산 리소스의 양을 늘리거나 줄일 때 코드를 다시 작성할 필요가 없습니다. 대용량 데이터 집합을 처리하고 저장하는 방법 대신 비즈니스 논리에만 집중할 수 있습니다.
-* **친숙한 도구를 사용하여 더 빠르게 개발하고 더 스마트하게 디버그 및 최적화 수행**
-  
-    Data Lake Analytics은 Visual Studio에 깊이 통합되므로 친숙한 도구로 코드를 실행, 디버그 및 조정할 수 있습니다. U-SQL 작업의 시각화를 통해 코드가 실행되는 방식을 전체적으로 확인할 수 있으므로 성능 병목 현상을 쉽게 식별하고 비용을 최적화할 수 있습니다.
-* **U-SQL: 간편하고 친숙하면서도 강력하고 확장 가능**
-  
-    Data Lake Analytics은 SQL의 친숙하고 간단한 선언적 특성을 C#의 표현 능력으로 확장한 쿼리 언어인 U-SQL을 포함합니다. U-SQL 언어는 Microsoft 내의 빅 데이터 시스템을 지원하는 동일한 분산 런타임에 구축됩니다. 이제 수백만 명의 SQL 및 .NET 개발자가 이미 보유하고 있는 기술을 사용하여 데이터를 처리하고 분석할 수 있습니다.
-* **기존 IT 투자에 원활하게 통합**
-  
-    Data Lake Analytics은 ID, 관리, 보안 및 데이터 웨어하우징에 대한 기존 IT 투자를 사용할 수 있습니다. 이러한 방법으로 데이터 거버넌스가 간소화되며 현재 데이터 응용 프로그램을 쉽게 확장할 수 있습니다. Data Lake Analytics은 사용자 관리 및 권한에 대해 Active Directory와 통합되고 기본 제공 모니터링 및 감사와 함께 제공됩니다.
+Data Lake Analytics은 클라우드 규모 및 성능에 맞게 설계되었습니다.  이 서비스를 통해 리소스를 동적으로 프로비전하고 테라바이트 또는 심지어 엑사바이트 단위의 데이터도 분석할 수 있습니다. 작업이 완료되면 리소스가 자동으로 사용 해제되며, 사용한 처리량에 대해서만 지불하면 됩니다. 저장된 데이터 크기 또는 사용된 계산 리소스의 양을 늘리거나 줄일 때 코드를 다시 작성할 필요가 없습니다. 대용량 데이터 집합을 처리하고 저장하는 방법 대신 비즈니스 논리에만 집중할 수 있습니다.
 
-* **저렴하고 경제적**
+## <a name="develop-faster-debug-and-optimize-smarter-using-familiar-tools"></a>친숙한 도구를 사용하여 더 빠르게 개발하고, 디버그하고, 더 스마트하게 최적화
   
-    Data Lake Analytics은 빅 데이터 작업을 실행하기 위한 경제적인 솔루션입니다. 데이터가 처리될 때 작업 단위로 비용을 지불합니다. 하드웨어, 라이선스 또는 서비스별 지원 계약이 필요하지 않습니다. 시스템은 작업이 시작되고 완료됨에 따라 자동으로 확장되고 축소되므로 필요 이상으로 비용을 지불하지 않아도 됩니다. [비용 제어 및 절약에 대해 자세히 알아봅니다](https://1drv.ms/f/s!AvdZLquGMt47h213Hg3rhl-Tym1c).
+Data Lake Analytics은 Visual Studio에 깊이 통합되므로 친숙한 도구로 코드를 실행, 디버그 및 조정할 수 있습니다. U-SQL 작업의 시각화를 통해 코드가 실행되는 방식을 전체적으로 확인할 수 있으므로 성능 병목 현상을 쉽게 식별하고 비용을 최적화할 수 있습니다.
+
+
+## <a name="u-sql-simple-and-familiar-powerful-and-extensible"></a>U-SQL: 간편하고, 친숙하고, 강력한 확장성
+  
+Data Lake Analytics은 SQL의 친숙하고 간단한 선언적 특성을 C#의 표현 능력으로 확장한 쿼리 언어인 U-SQL을 포함합니다. U-SQL 언어는 Microsoft 내의 빅 데이터 시스템을 지원하는 동일한 분산 런타임에 구축됩니다. 이제 수백만 명의 SQL 및 .NET 개발자가 이미 보유하고 있는 기술을 사용하여 데이터를 처리하고 분석할 수 있습니다.
+
+## <a name="integrates-seamlessly-with-your-it-investments"></a>IT 투자와 완벽하게 통합
+  
+Data Lake Analytics은 ID, 관리, 보안 및 데이터 웨어하우징에 대한 기존 IT 투자를 사용할 수 있습니다. 이러한 방법으로 데이터 거버넌스가 간소화되며 현재 데이터 응용 프로그램을 쉽게 확장할 수 있습니다. Data Lake Analytics은 사용자 관리 및 권한에 대해 Active Directory와 통합되고 기본 제공 모니터링 및 감사와 함께 제공됩니다.
+
+## <a name="affordable-and-cost-effective"></a>저렴하고 비용 효율적
+
+Data Lake Analytics은 빅 데이터 작업을 실행하기 위한 경제적인 솔루션입니다. 데이터가 처리될 때 작업 단위로 비용을 지불합니다. 하드웨어, 라이선스 또는 서비스별 지원 계약이 필요하지 않습니다. 시스템은 작업이 시작되고 완료됨에 따라 자동으로 확장되고 축소되므로 필요 이상으로 비용을 지불하지 않아도 됩니다. [비용 제어 및 절약에 대해 자세히 알아봅니다](https://1drv.ms/f/s!AvdZLquGMt47h213Hg3rhl-Tym1c).
     
-* **모든 Azure 데이터 작업**
+## <a name="works-with-all-your-azure-data"></a>모든 Azure 데이터를 사용하여 작업
   
-    Data Lake Analytics은 Azure Data Lake에서 작업할 때 최적화되어 빅 데이터 작업에 대한 최상의 성능, 처리량 및 병렬화를 제공합니다.  또한 Data Lake Analytics는 Azure Blob Storage 및 Azure SQL Database에서 작업할 수도 있습니다.
+Data Lake Analytics는 최고의 성능, 처리량 및 병렬 처리를 위해 Azure Data Lake Store와 함께 작동하며 Azure Storage Blob, Azure SQL Database, Azure Warehouse와 함께 작동합니다.
 
 ## <a name="next-steps"></a>다음 단계
  

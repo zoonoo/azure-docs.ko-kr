@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: d966a1ce5f30531668c05e68bfe709057c6dee35
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 7e4ad361df8a37d4a82c1bc50c6fb134a1ad5159
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-java-device-sdk-for-iot-hub-device-provisioning-service"></a>IoT Hub Device Provisioning Service용 Java 장치 SDK를 사용하여 시뮬레이션된 X.509 장치 만들기 및 프로비전
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
@@ -58,24 +58,27 @@ ms.lasthandoff: 02/09/2018
 
     - **개별 등록**:
 
-        1. _일반 이름을 입력하시겠습니까?_에서 **N**을 입력합니다. *-----BEGIN CERTIFICATE-----*에서 시작하여 *-----END CERTIFICATE-----*에서 끝나는 `Client Cert`의 출력을 클립보드에 복사합니다.
+        1. _Do you want to input common name_(일반 이름을 입력하시겠습니까?)에서 **N**을 입력합니다. *-----BEGIN CERTIFICATE-----*에서 시작하여 *-----END CERTIFICATE-----*에서 끝나는 `Client Cert`의 출력을 클립보드에 복사합니다.
 
             ![개별 인증서 생성기](./media/java-quick-create-simulated-device-x509/individual.png)
 
         1. Windows 컴퓨터에 **_X509individual.pem_**이라는 파일을 만들어 원하는 편집기에서 연 다음, 클립보드의 내용을 이 파일에 복사합니다. 파일을 저장합니다.
 
-        1. _확인 코드를 입력하시겠습니까?_에서 **N**을 입력하고, 나중에 빠른 시작에서 참조할 수 있도록 프로그램 출력을 열어 둡니다. _클라이언트 인증서_ 및 _클라이언트 인증서 개인 키_ 값을 참고합니다.
+        1. _Do you want to input Verification Code_(확인 코드를 입력하시겠습니까?)에서 **N**을 입력하고, 나중에 빠른 시작에서 참조할 수 있도록 프로그램 출력을 열어 둡니다. _Client Cert_(클라이언트 인증서) 및 _Client Cert Private Key_(클라이언트 인증서 개인 키) 값을 참고합니다.
     
     - **등록 그룹**:
 
-        1. _일반 이름을 입력하시겠습니까?_에서 **N**을 입력합니다. *-----BEGIN CERTIFICATE-----*에서 시작하여 *-----END CERTIFICATE-----*에서 끝나는 `Root Cert`의 출력을 클립보드에 복사합니다.
+        1. _Do you want to input common name_(일반 이름을 입력하시겠습니까?)에서 **N**을 입력합니다. *-----BEGIN CERTIFICATE-----*에서 시작하여 *-----END CERTIFICATE-----*에서 끝나는 `Root Cert`의 출력을 클립보드에 복사합니다.
 
             ![그룹 인증서 생성기](./media/java-quick-create-simulated-device-x509/group.png)
 
         1. Windows 컴퓨터에 **_X509group.pem_**이라는 파일을 만들어 원하는 편집기에서 연 다음, 클립보드의 내용을 이 파일에 복사합니다. 파일을 저장합니다.
 
-        1. _확인 코드를 입력하시겠습니까?_에서 **Y**를 입력하고 나중에 빠른 시작에서 사용할 수 있도록 프로그램을 열어 둡니다. _클라이언트 인증서_, _클라이언트 인증서 개인 키_, _서명자 인증서_ 및 _루트 인증서_ 값을 참고합니다.
+        1. _Do you want to input Verification Code_(확인 코드를 입력하시겠습니까?)에서 **Y**를 입력하고 나중에 빠른 시작에서 사용할 수 있도록 프로그램을 열어 둡니다. _Client Cert_(클라이언트 인증서), _Client Cert Private Key_(클라이언트 인증서 개인 키), _Signer Cert_(서명자 인증서) 및 _Root Cert_(루트 인증서) 값을 참고합니다.
 
+        > [!NOTE]
+        > 위의 `Root Cert`는 콘솔 출력에서 만든 인증서에만 적용되며, 추가 클라이언트 인증서에 서명하는 데는 사용할 수 없습니다. 더 강력한 테스트 인증서 집합이 필요한 경우 [CA 인증서 샘플 관리](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md)를 참조하세요.
+        >
 
 ## <a name="create-a-device-enrollment-entry"></a>장치 등록 항목 만들기
 
@@ -151,7 +154,7 @@ ms.lasthandoff: 02/09/2018
 
     - **개별 등록**: 
 
-        1. 앞에서 설명한 대로 _ID 범위_ 및 _Provisioning Service Global Endpoint_(프로비전 서비스 전역 엔드포인트)를 포함하도록 `/src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningX509Sample.java`를 편집합니다. 또한 앞에서 설명한 대로 _클라이언트 인증서_ 및 _클라이언트 인증서 개인 키_도 포함합니다.
+        1. 앞에서 설명한 대로 _ID 범위_ 및 _Provisioning Service Global Endpoint_(프로비전 서비스 전역 엔드포인트)를 포함하도록 `/src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningX509Sample.java`를 편집합니다. 또한 앞에서 설명한 대로 _Client Cert_(클라이언트 인증서) 및 _Client Cert Private Key_(클라이언트 인증서 개인 키)도 포함합니다.
 
             ```java
             private static final String idScope = "[Your ID scope here]";
@@ -189,7 +192,7 @@ ms.lasthandoff: 02/09/2018
             String rootPem = "<Your Root Certificate here>";
                 
             signerCertificates.add(intermediatePem);
-            signerCertificates.add(root);
+            signerCertificates.add(rootPem);
             ```
     
             - 다음 형식을 사용하여 인증서를 포함합니다.
@@ -233,7 +236,7 @@ ms.lasthandoff: 02/09/2018
 장치 클라이언트 샘플을 계속해서 작업하고 탐색할 계획인 경우 이 빠른 시작에서 만든 리소스를 정리하지 마세요. 계속하지 않으려는 경우 다음 단계를 사용하여 이 빠른 시작에서 만든 모든 리소스를 삭제합니다.
 
 1. 컴퓨터에서 장치 클라이언트 샘플 출력 창을 닫습니다.
-1. Azure Portal의 왼쪽 메뉴에서 **모든 리소스**를 클릭한 다음 사용자의 Device Provisioning Service를 선택합니다. 서비스에 대한 **등록 관리** 블레이드를 연 다음 **개별 등록** 탭을 클릭합니다. 이 빠른 시작에서 등록한 장치의 *등록 ID*를 선택하고, 위쪽의 **삭제** 단추를 클릭합니다. 
+1. Azure Portal의 왼쪽 메뉴에서 **모든 리소스**를 클릭한 다음 사용자의 Device Provisioning Service를 선택합니다. 서비스에 대한 **등록 관리** 블레이드를 연 다음, **개별 등록** 탭을 클릭합니다. 이 빠른 시작에서 등록한 장치의 *등록 ID*를 선택하고, 위쪽의 **삭제** 단추를 클릭합니다. 
 1. Azure Portal의 왼쪽 메뉴에서 **모든 리소스**를 클릭한 다음 사용자의 IoT Hub를 선택합니다. 허브에 대한 **IoT 장치** 블레이드를 열고, 이 빠른 시작에서 등록한 장치의 *장치 ID*를 선택한 다음, 위쪽의 **삭제** 단추를 클릭합니다.
 
 

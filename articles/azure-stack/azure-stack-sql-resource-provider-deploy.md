@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 03/07/2018
 ms.author: mabrigg
 ms.reviewer: jeffgo
-ms.openlocfilehash: 805e39dfdee3a23d4ddc196085be59788cee912a
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 4d2a00f04e5b07aeb3585fb3ab6c8966e0de7e19
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="use-sql-databases-on-microsoft-azure-stack"></a>SQL 데이터베이스를 사용 하 여 Microsoft Azure 스택
 
@@ -175,14 +175,17 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 
 
 ## <a name="update-the-sql-resource-provider-adapter-multi-node-only-builds-1710-and-later"></a>SQL 리소스 공급자 어댑터 (다중 노드, 빌드만 1710 이상)를 업데이트 합니다.
-Azure 스택 빌드를 업데이트할 때 새 SQL 리소스 공급자 어댑터를 해제할 수 있습니다. 기존 어댑터는 계속 작동 하도록 하는 동안에 최대한 빨리 최신 빌드를 업데이트 하는 것이 좋습니다. 업데이트를 순서 대로 설치 해야: 버전을 건너뛸 수 없습니다 (위의 표 참조).
+Azure 스택 빌드를 업데이트할 때 새 SQL 리소스 공급자 어댑터를 해제 될 수 있습니다. 기존 어댑터를 작동 하는 동안에 최대한 빨리 최신 빌드를 업데이트 하는 것이 좋습니다. 순서로 업데이트를 설치 해야: 버전을 건너뛸 수 없습니다 (참조 테이블의 3 단계에서 [리소스 공급자를 배포](#deploy-the-resource-provider)).
 
-업데이트 프로세스는 앞서 설명 된 설치 프로세스와 비슷합니다. 최신 리소스 공급자 코드와 새 VM을 만듭니다. 또한 서버 정보를 호스팅 및 데이터베이스를 포함 하 여이 새 인스턴스를 설정을 마이그레이션합니다. 필요한 DNS 레코드를 마이그레이션할 수도 있습니다.
+사용 하는 리소스 공급자의 업데이트는 *UpdateSQLProvider.ps1* 스크립트입니다. 프로세스에 설명 된 대로 리소스 공급자를 설치 하는 데 사용 하는 프로세스와 비슷합니다는 [리소스 공급자를 배포](#deploy-the-resource-provider) 이 문서의 섹션. 이 스크립트는 리소스 공급자의 다운로드에 포함 합니다.
 
-UpdateSQLProvider.ps1 스크립트를 사용 하 여 앞에서 설명한 동일한 인수를 사용 합니다. 여기에 인증서도 제공 해야 합니다.
+*UpdateSQLProvider.ps1* 스크립트 최신 리소스 공급자 코드를 사용 하 여 새 VM를 만들고는 이전 VM 설정을 새 VM을 마이그레이션합니다. 마이그레이션되는 설정에는 데이터베이스 및 호스팅 서버 정보를 포함 하 고 필요한 DNS 레코드입니다.
+
+DeploySqlProvider.ps1 스크립트에 대 한 설명 하는 동일한 인수를 사용을 해야 하는 스크립트입니다. 여기에 인증서도 제공 합니다. 
 
 마켓플레이스 관리에서 최신 Windows Server 2016 Core 이미지를 다운로드 하는 것이 좋습니다. 업데이트를 설치 해야 할 경우에 단일을 배치할 수 있습니다. 로컬 종속성 경로에 MSU 패키지입니다. 둘 이상 있습니다. MSU 파일을 찾을 수, 스크립트가 실패 합니다.
 
+다음은의 예는 *UpdateSQLProvider.ps1* PowerShell 프롬프트에서 실행할 수 있는 스크립트입니다. 계정 정보 및 필요에 따라 암호를 변경 해야 합니다. 
 
 > [!NOTE]
 > 업데이트 프로세스는 통합 된 시스템에만 적용 됩니다.

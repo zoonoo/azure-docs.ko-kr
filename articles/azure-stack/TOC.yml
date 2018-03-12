@@ -236,10 +236,6 @@
               href: azure-stack-app-service-deploy.md
             - name: App Service 오프라인 배포
               href: azure-stack-app-service-deploy-offline.md
-            - name: 앱 서비스 리소스 공급자 업데이트
-              href: azure-stack-app-service-update.md
-            - name: 오프 라인으로 앱 서비스 리소스 공급자 업데이트
-              href: azure-stack-app-service-update-offline.md
             - name: 웹 작업자 역할 추가
               href: azure-stack-app-service-add-worker-roles.md
             - name: 배포 원본 구성

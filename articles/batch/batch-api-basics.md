@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 11/16/2017
+ms.date: 02/28/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3c8bbb06fd511321a67e01772caeaa316ddb6e2a
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: c53007530fe80f03cefbf138193cfad4b0e8292a
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Batch를 사용하여 대규모 병렬 계산 솔루션 개발
 
@@ -171,13 +171,9 @@ Batch API를 사용하여 Virtual Machine 구성 풀을 만들 때 Docker 컨테
 
 ### <a name="size-of-the-compute-nodes"></a>계산 노드 크기
 
-**Cloud Services 구성** 계산 노드 크기는 [Cloud Services 크기](../cloud-services/cloud-services-sizes-specs.md)에 나열됩니다. Batch는 `ExtraSmall`, `STANDARD_A1_V2` 및 `STANDARD_A2_V2`를 제외한 모든 Cloud Services 크기를 지원합니다.
+Azure Batch 풀을 만들 때 Azure에서 사용할 수 있는 거의 모든 VM 제품군과 크기 중에서 선택할 수 있습니다. Azure는 다양한 작업에 대해 다양한 VM 크기(특수화된 [HPC](../virtual-machines/linux/sizes-hpc.md) 또는 [GPU 사용 가능](../virtual-machines/linux/sizes-gpu.md) VM 크기 포함)를 제공합니다. 
 
-**Virtual Machine 구성** 계산 노드 크기는 [Azure에서 가상 머신에 대한 크기](../virtual-machines/linux/sizes.md)(Linux) 및 [Azure에서 가상 머신에 대한 크기](../virtual-machines/windows/sizes.md)(Windows)에 나열되어 있습니다. Batch는 `STANDARD_A0`및 프리미엄 저장소(`STANDARD_GS`, `STANDARD_DS` 및 `STANDARD_DSV2` 시리즈) 크기를 제외한 모든 Azure VM 크기를 지원합니다.
-
-계산 노드 크기를 선택할 때는 노드에서 실행할 응용 프로그램의 특징과 요구 사항을 고려합니다. 응용 프로그램이 다중 스레드되었는지 여부 및 응용 프로그램에서 소비하는 메모리 양과 같은 측면은 가장 적절하고 비용 효과적인 노드 크기를 결정하는 데 도움을 줄 수 있습니다. 하나의 태스크가 한 번에 하나의 노드에서 실행되는 것으로 가정하여 노드 크기를 선택하는 것이 일반적입니다. 하지만 작업 실행 중에 계산 노드에 [병렬로 실행되는](batch-parallel-node-tasks.md) 다수의 태스크(따라서 다수의 응용 프로그램 인스턴스)가 있을 수도 있습니다. 이런 경우, 병렬 작업 실행에 대해 증가되는 수요를 충족하기 위해 더 큰 노드 크기를 선택하는 것이 일반적입니다. 자세한 내용은 [태스크 일정 정책](#task-scheduling-policy)을 참조하세요.
-
-풀에 포함된 모든 노드의 크기가 같습니다. 상이한 시스템 요구 사항 및/또는 부하 수준으로 응용 프로그램을 실행하려면 별도의 풀을 사용하는 것이 좋습니다.
+자세한 내용은 [Azure Batch 풀의 계산 노드에 대한 VM 크기 선택](batch-pool-vm-sizes.md)을 참조하세요.
 
 ### <a name="scaling-policy"></a>크기 조정 정책
 

@@ -28,10 +28,7 @@
 #### [PowerShell을 사용하여 영역 중복 부하 분산 장치 표준 만들기](../load-balancer/load-balancer-get-started-internet-az-powershell.md)
 #### [CLI를 사용하여 영역 중복 공용 부하 분산 장치 표준 만들기](../load-balancer/load-balancer-get-started-internet-az-cli.md)
 
-### 공용 IP 주소
-#### [Azure Portal을 사용하여 가용성 영역에서 공용 IP 주소 만들기](../virtual-network/create-public-ip-availability-zone-portal.md)
-#### [PowerShell을 사용하여 가용성 영역에서 공용 IP 주소 만들기](../virtual-network/create-public-ip-availability-zone-powershell.md)
-#### [CLI를 사용하여 가용성 영역에서 공용 IP 주소 만들기](../virtual-network/create-public-ip-availability-zone-cli.md)
+### [공용 IP 주소](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address)
 
 ### SQL Database
 #### [SQL Database를 사용하는 가용성 영역](../sql-database/sql-database-high-availability.md#availability-zones)

@@ -11,16 +11,16 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 02/28/2018
-ms.openlocfilehash: f52d4268c3983b419a6393bbd651301022688029
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 9a1613e2137e178d00a24f9f5b3c802f8a894b15
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="tutorial-classify-iris-part-2---build-a-model"></a>자습서: 아이리스 분류 2부 - 모델 작성
 Azure Machine Learning 서비스(미리 보기)는 데이터를 준비하고, 실험을 개발하고, 클라우드 범위에서 모델을 배포할 수 있는 전문 데이터 과학자를 위한 종단 간 데이터 과학 및 고급 분석 통합 솔루션입니다.
 
-이 자습서는 3부로 구성된 시리즈 중 제2부입니다. 이 자습서의 부분에서는 Azure Machine Learning 서비스(미리 보기)를 사용하여 다음을 수행합니다.
+이 자습서는 **3부로 구성된 시리즈 중 제2부**입니다. 이 자습서의 부분에서는 Azure Machine Learning 서비스(미리 보기)를 사용하여 다음을 수행합니다.
 
 > [!div class="checklist"]
 > * Azure Machine Learning Workbench 사용

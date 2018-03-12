@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 03/07/2018
 ms.author: mabrigg
 ms.reviewer: jeffgo
-ms.openlocfilehash: 067e478548ba840ece14737cdf3e6d5d4da28be0
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 15a1648193555ecc5847170ab65f48dfa4f6417b
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>MySQL 데이터베이스를 사용 하 여 Microsoft Azure 스택
 
@@ -162,7 +162,7 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
  ```
 
 
-### <a name="deploysqlproviderps1-parameters"></a>DeploySqlProvider.ps1 parameters
+### <a name="deploymysqlproviderps1-parameters"></a>DeployMySqlProvider.ps1 parameters
 명령줄에서 이러한 매개 변수를 지정할 수 있습니다. 그렇지 않고 또는 모든 매개 변수 유효성 검사에 실패 하는 경우 필수 매개 변수를 제공 하 라는 메시지가 표시 됩니다.
 
 | 매개 변수 이름 | 설명 | 주석 또는 default 값 |
@@ -266,11 +266,15 @@ Azure 스택 포털에서 MySQL 서버를 추가 하 여 용량을 추가 합니
 ![관리자 암호를 업데이트 합니다.](./media/azure-stack-mysql-rp-deploy/mysql-update-password.png)
 
 ## <a name="update-the-mysql-resource-provider-adapter-multi-node-only-builds-1710-and-later"></a>MySQL 리소스 공급자 어댑터 (다중 노드, 빌드만 1710 이상)를 업데이트 합니다.
-Azure 스택 빌드를 업데이트할 때 새 SQL 리소스 공급자 어댑터를 해제할 수 있습니다. 기존 어댑터를 작동 하는 동안에 최대한 빨리 최신 빌드를 업데이트 하는 것이 좋습니다. 
+Azure 스택 빌드를 업데이트할 때 새 SQL 리소스 공급자 어댑터를 해제 될 수 있습니다. 기존 어댑터를 작동 하는 동안에 최대한 빨리 최신 빌드를 업데이트 하는 것이 좋습니다. 
 
-업데이트 프로세스는 앞에서 설명한 설치 프로세스와 비슷합니다. 최신 리소스 공급자 코드와 새 VM을 만듭니다. 그런 다음 서버 정보를 호스팅 및 데이터베이스를 포함 하 여이 새 인스턴스를 설정을 마이그레이션합니다. 필요한 DNS 레코드를 마이그레이션할 수도 있습니다.
+사용 하는 리소스 공급자의 업데이트는 *UpdateMySQLProvider.ps1* 스크립트입니다. 프로세스에 설명 된 대로 리소스 공급자를 설치 하는 데 사용 하는 프로세스와 비슷합니다는 [리소스 공급자를 배포](#deploy-the-resource-provider) 이 문서의 섹션. 이 스크립트는 리소스 공급자의 다운로드에 포함 합니다.
 
-UpdateMySQLProvider.ps1 스크립트를 사용 하 여 앞에서 설명한 동일한 인수를 사용 합니다. 여기에 인증서도 제공 합니다.
+*UpdateMySQLProvider.ps1* 스크립트 최신 리소스 공급자 코드를 사용 하 여 새 VM를 만들고는 이전 VM 설정을 새 VM을 마이그레이션합니다. 마이그레이션되는 설정에는 데이터베이스 및 호스팅 서버 정보를 포함 하 고 필요한 DNS 레코드입니다.
+
+DeployMySqlProvider.ps1 스크립트에 대 한 설명 하는 동일한 인수를 사용을 해야 하는 스크립트입니다. 여기에 인증서도 제공 합니다. 
+
+다음은의 예는 *UpdateMySQLProvider.ps1* PowerShell 프롬프트에서 실행할 수 있는 스크립트입니다. 계정 정보 및 필요에 따라 암호를 변경 해야 합니다. 
 
 > [!NOTE]
 > 업데이트 프로세스는 통합 된 시스템에만 적용 됩니다.

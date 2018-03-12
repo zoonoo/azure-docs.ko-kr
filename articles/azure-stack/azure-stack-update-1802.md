@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 03/08/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: b5e52e30b99e1d59c2f8bde17b31b0f1cb3d6d70
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 247f13717971d3660b3ec0ee94821bd593c5fed0
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-stack-1802-update"></a>Azure 스택 1802 업데이트
 
@@ -37,10 +37,6 @@ Azure 스택 1802 업데이트 빌드 번호는 **20180302.1**합니다.
 ## <a name="before-you-begin"></a>시작하기 전에    
 > [!IMPORTANT]    
 > 이 업데이트의 설치 하는 동안 가상 컴퓨터를 만들 하려고 하지 마십시오. 업데이트를 관리 하는 방법에 대 한 자세한 내용은 참조 [Azure 스택 개요에서 업데이트를 관리](/azure-stack-updates#plan-for-updates)합니다.
-
-> [!IMPORTANT]    
-> 사용 하는 경우 [SQL](/azure-stack-sql-resource-provider-deploy) 또는 [MySQL](/azure-stack-mysql-resource-provider-deploy) 리소스 공급자 1712 1802 Azure 스택 버전의 설치를 시작 하기 전에 버전을 실행 해야 합니다. 공급자는 1711 또는 이전 버전 Azure 스택 1802 버전을 설치 하는 경우 보다 최근 릴리스로 이러한 리소스 공급자를 더 이상 업데이트할 수 없습니다.
-
 
 
 ### <a name="prerequisites"></a>필수 조건

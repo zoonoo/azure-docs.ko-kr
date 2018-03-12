@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/11/2017
 ms.author: kuhussai
-ms.openlocfilehash: a4dc2ba7a356c26b75f5c9b519940b32f6763fa4
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 2adb301f1d047c7762a35880da6e6094a5afbd75
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-storage-tiers"></a>Azure Blob Storage: 핫, 쿨 및 보관 저장소 계층
 
@@ -83,7 +83,7 @@ Blob이 쿨 계층으로 이동하면(핫->쿨, 핫->보관, 또는 쿨->보관)
 
 계정 계층이 핫에서 쿨로 전환되면 GPv2 계정에서만 집합 계층 없이 모든 Blob의 경우 쓰기 작업(10,000개당)에 대한 요금이 청구됩니다. Blob Storage 계정에서는 무료입니다. 쿨에서 핫으로 Blob Storage 또는 GPv2 계정을 전환하는 경우 읽기 작업(10,000개당) 및 데이터 검색(GB당) 모두에 대한 요금이 청구 됩니다. 쿨 또는 보관 계층에서 이동한 모든 Blob에 대한 초기 삭제 요금도 적용해야 합니다.
 
-### <a name="cool-and-archive-early-deletion-effective-march-1-2018"></a>쿨 및 보관 초기 삭제(2018년 3월 1일부터 유효)
+### <a name="cool-and-archive-early-deletion"></a>쿨 및 보관 초기 삭제
 
 GB당 요금 및 월정액 이외에도 쿨 계층으로 이동된 모든 Blob(GPv2 계정에만 해당)은 30일 동안 쿨 초기 삭제 기간이 적용되며 보관 계층으로 이동된 모든 Blob은 180일 동안 보관 초기 삭제 기간이 적용됩니다. 요금이 비례하여 배분됩니다. 예를 들어 Blob가 보관으로 이동된 다음 45일이 지나서 삭제되거나 핫 계층으로 이동되는 경우 보관 계층에 해당 Blob을 저장한 135일(180-45)에 해당하는 초기 삭제 요금이 청구됩니다.
 
@@ -177,7 +177,7 @@ Blob 수준 계층화를 사용하는 핫 및 쿨 저장소 계층은 모든 지
 
 **쿨 또는 보관 계층에서 Blob을 삭제하거나 이동할 때 경우 초기 삭제 요금이 발생하는지를 확인하려면 어떻게 할까요?**
 
-각각 30일 및 180일이 지나기 전에 쿨(GPv2 계정만) 또는 보관 계층에서 삭제되거나 이동된 모든 Blob은 비례 배분된 초기 삭제 요금이 발생합니다(2018년 3월 1일부터 유효). 마지막 계층 변경의 스탬프를 제공하는 **액세스 계층 변경 시간** Blob 속성을 확인하여 Blob을 쿨 또는 보관 계층에서 유지한 시간을 확인할 수 있습니다. 자세한 내용은 [쿨 및 보관 초기 삭제](#cool-and-archive-early-deletion) 섹션을 참조하세요.
+쿨(GPv2 계정만) 또는 보관 계층에서 각각 30일 및 180일 이전에 삭제되거나 이동되는 모든 Blob은 비례 배분된 초기 삭제 요금이 발생합니다. 마지막 계층 변경의 스탬프를 제공하는 **액세스 계층 변경 시간** Blob 속성을 확인하여 Blob을 쿨 또는 보관 계층에서 유지한 시간을 확인할 수 있습니다. 자세한 내용은 [쿨 및 보관 초기 삭제](#cool-and-archive-early-deletion) 섹션을 참조하세요.
 
 **Blob 수준 계층화 및 보관 저장소를 지원하는 Azure 도구 및 SDK는 무엇인가요?**
 

@@ -26,7 +26,7 @@
 ## [보안(RBAC)](azure-operations-guide.md#security-of-azure-resource)
 ###[역할 할당을 사용하여 리소스 관리](../../active-directory/role-based-access-control-configure.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 
-## [가상 컴퓨터](azure-operations-guide.md#azure-virtual-machines)
+## [가상 머신](azure-operations-guide.md#azure-virtual-machines)
 ### [Windows용 VM 크기](../../virtual-machines/windows/sizes.md?toc=%2fazure%2fguides%2foperations%2ftoc.json) 
 ### [Linux용 VM 크기](../../virtual-machines/linux/sizes.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 
@@ -35,7 +35,7 @@
 #### [Azure CLI 사용](../../virtual-machines/windows/quick-create-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 #### [Azure Portal 사용](../../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 #### [Azure PowerShell 사용](../../virtual-machines/windows/quick-create-powershell.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### Windows용 가상 컴퓨터 자습서
+### Windows용 가상 머신 자습서
 #### [VM 만들기/관리](../../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 #### [디스크 만들기/관리](../../virtual-machines/windows/tutorial-manage-data-disk.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 #### [구성 자동화](../../virtual-machines/windows/tutorial-automate-vm-deployment.md
@@ -44,8 +44,8 @@
 #### [VM Scale Set 만들기](../../virtual-machines/windows/tutorial-create-vmss.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 #### [VM 부하 분산](../../virtual-machines/windows/tutorial-load-balancer.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 #### [네트워킹 관리](../../virtual-machines/windows/tutorial-virtual-network.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-#### [가상 컴퓨터 백업](../../virtual-machines/windows/tutorial-backup-vms.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-#### [가상 컴퓨터 모니터링](../../virtual-machines/windows/tutorial-monitoring.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+#### [가상 머신 Backup](../../virtual-machines/windows/tutorial-backup-vms.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+#### [가상 머신 모니터링](../../virtual-machines/windows/tutorial-monitoring.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 #### [VM 보안 관리](../../virtual-machines/windows/tutorial-azure-security.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 #### [팀 서비스 CI/CD](../../virtual-machines/windows/tutorial-vsts-iis-cicd.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 
@@ -53,7 +53,7 @@
 #### [Azure CLI 사용](../../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 #### [Azure Portal 사용](../../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 #### [Azure PowerShell 사용](../../virtual-machines/linux/quick-create-powershell.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### Linux용 가상 컴퓨터 자습서
+### Linux용 가상 머신 자습서
 #### [VM 만들기/관리](../../virtual-machines/linux/tutorial-manage-vm.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 #### [디스크 만들기/관리](../../virtual-machines/linux/tutorial-manage-disks.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 #### [구성 자동화](../../virtual-machines/linux/tutorial-automate-vm-deployment.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
@@ -62,24 +62,24 @@
 #### [VM Scale Set 만들기](../../virtual-machines/linux/tutorial-create-vmss.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 #### [VM 부하 분산](../../virtual-machines/linux/tutorial-load-balancer.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 #### [네트워킹 관리](../../virtual-machines/linux/tutorial-virtual-network.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-#### [가상 컴퓨터 백업](../../virtual-machines/linux/tutorial-backup-vms.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-#### [가상 컴퓨터 모니터링](../../virtual-machines/linux/tutorial-monitoring.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+#### [가상 머신 Backup](../../virtual-machines/linux/tutorial-backup-vms.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+#### [가상 머신 모니터링](../../virtual-machines/linux/tutorial-monitoring.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 #### [VM 보안 관리](../../virtual-machines/linux/tutorial-azure-security.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 #### [Jenkins CI/CD](../../virtual-machines/linux/tutorial-jenkins-github-docker-cicd.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 
 ### [Azure의 IP 주소](../../virtual-network/virtual-network-ip-addresses-overview-arm.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Azure Portal을 사용하여 Azure에서 VM으로 포트 열기](../../virtual-machines/windows/nsg-quickstart-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 
-## [저장소](azure-operations-guide.md#azure-storage)
+## [Storage](azure-operations-guide.md#azure-storage)
 
 ### [Azure Blob 저장소](../../storage/blobs/storage-blob-storage-tiers.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [.NET을 사용하여 Azure Blob 저장소 시작](../../storage/blobs/storage-dotnet-how-to-use-blobs.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Windows에서 Azure 파일 저장소 시작](../../storage/files/storage-how-to-use-files-windows.md?toc=%2fazure%2fguides%2foperations%2ftoc.json) 
+### [Windows에서 Azure File Storage 시작](../../storage/files/storage-how-to-use-files-windows.md?toc=%2fazure%2fguides%2foperations%2ftoc.json) 
 ### [Linux에서 Azure 파일 저장소 사용 방법](../../storage/files/storage-how-to-use-files-linux.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Azure Table Storage 시작](../../cosmos-db/table-storage-how-to-use-dotnet.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Azure Queue Storage 시작](../../storage/queues/storage-dotnet-how-to-use-queues.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [저장소 계정을 만드는](../../storage/common/storage-create-storage-account.md#create-a-storage-account)
-### [Azure 저장소와 함께 Azure PowerShell 사용](../../storage/common/storage-powershell-guide-full.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Azure Storage와 함께 Azure PowerShell 사용](../../storage/common/storage-powershell-guide-full.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Azure Storage에서 Azure CLI 사용.](../../storage/common/storage-azure-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Azure Storage 클라이언트 도구](../../storage/common/storage-explorers.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Azure Storage 서비스 REST API 참조](/rest/api/storageservices/Azure-Storage-Services-REST-API-Reference)
@@ -88,9 +88,9 @@
 
 
 ## [가상 네트워크](azure-operations-guide.md#azure-virtual-network)
-### [Azure Portal을 사용하여 가상 네트워크 만들기](../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Azure PowerShell을 사용하여 가상 네트워크 만들기](../../virtual-network/virtual-networks-create-vnet-arm-ps.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Azure CLI를 사용하여 가상 네트워크 만들기](../../virtual-network/virtual-networks-create-vnet-arm-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Azure Portal을 사용하여 가상 네트워크 만들기](../../virtual-network/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Azure PowerShell을 사용하여 가상 네트워크 만들기](../../virtual-network/quick-create-powershell.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Azure CLI를 사용하여 가상 네트워크 만들기](../../virtual-network/quick-create-cli.md#create-a-virtual-network?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [네트워크 보안 그룹을 사용하여 네트워크 트래픽 필터링](../../virtual-network/virtual-networks-nsg.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### 가상 네트워킹 자습서
 #### [VM 부하 분산](../../virtual-machines/linux/tutorial-load-balance-nodejs.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)

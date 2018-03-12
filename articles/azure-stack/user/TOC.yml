@@ -48,7 +48,7 @@
             - name: VM 디스크 관리
               href: azure-stack-manage-vm-disks.md
             - name: VM 보호
-              href: azure-stack-manage-vm-backup.md
+              href: azure-stack-manage-vm-protect.md
         - name: Storage
           items:
             - name: 개요
@@ -124,7 +124,7 @@
     - name: Azure Stack PowerShell
       href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.10
     - name: Azure Stack CLI
-      href: /cli/azure/?view=azure-cli-2017-03-09-profile
+      href: /cli/azure/reference-index?view=azure-cli-2017-03-09-profile
 - name: 관련 항목
   items:
     - name: Azure Stack 연산자 설명서

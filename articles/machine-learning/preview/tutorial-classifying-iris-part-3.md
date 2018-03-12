@@ -11,16 +11,16 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 02/28/2018
-ms.openlocfilehash: d7e07104153aed36a3e426e053847551d2b2093c
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 761e7193cc64699e8aa25a1fd625ba45f65eed88
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="tutorial-classify-iris-part-3-deploy-a-model"></a>자습서: 아이리스 분류 3부: 모델 배포
 Azure Machine Learning(미리 보기)는 전문 데이터 과학자를 위한 종단 간 데이터 과학 및 고급 분석 통합 솔루션입니다. 데이터 과학자는 클라우드 규모로 데이터를 준비하고, 실험을 개발하며, 모델을 배포하는 데 사용할 수 있습니다.
 
-이 자습서는 3부로 구성된 시리즈 중 제3부입니다. 자습서의 이 부분에서는 Machine Learning(미리 보기)을 사용하여 다음을 수행합니다.
+이 자습서는 **3부로 구성된 시리즈 중 제3부**입니다. 자습서의 이 부분에서는 Machine Learning(미리 보기)을 사용하여 다음을 수행합니다.
 
 > [!div class="checklist"]
 > * 모델 파일 찾기
