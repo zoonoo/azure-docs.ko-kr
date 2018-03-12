@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 7b7625b3250d7e5b4cdb4090f34072eb58dda07c
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 5b1c443cae8481d98c32a3f4d9e3899621d1dd89
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="make-your-application-data-highly-available-with-azure-storage"></a>Azure Storage를 통해 응용 프로그램 데이터의 고가용성 지원
 
@@ -69,7 +69,7 @@ ms.lasthandoff: 02/22/2018
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Name** | mystorageaccount | 저장소 계정의 고유한 값 |
    | **배포 모델** | 리소스 관리자  | 리소스 관리자에는 최신 기능이 포함되어 있습니다.|
-   | **계정 종류** | 범용 가상 컴퓨터 | 계정 유형에 대한 세부 정보는 [저장소 계정 유형](../common/storage-introduction.md#types-of-storage-accounts)을 참조하세요. |
+   | **계정 종류** | StorageV2 | 계정 유형에 대한 세부 정보는 [저장소 계정 유형](../common/storage-introduction.md#types-of-storage-accounts)을 참조하세요. |
    | **성능** | Standard | Standard는 샘플 시나리오에 충분합니다. |
    | **복제**| RA-GRS(읽기 액세스 지역 중복 저장소) | 샘플 작동에 필요합니다. |
    |**보안 전송 필요** | 사용 안 함| 보안 전송은 이 시나리오에 필요하지 않습니다. |
@@ -77,7 +77,7 @@ ms.lasthandoff: 02/22/2018
    |**ResourceGroup** | myResourceGroup |유효한 리소스 그룹 이름은 [명명 규칙 및 제한 사항](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)을 참조하세요. |
    |**위치**: | 미국 동부 | 위치를 선택합니다. |
 
-![저장소 계정 만들기](media/storage-create-geo-redundant-storage/figure1.png)
+![저장소 계정 만들기](media/storage-create-geo-redundant-storage/createragrsstracct.png)
 
 ## <a name="download-the-sample"></a>샘플 다운로드
 

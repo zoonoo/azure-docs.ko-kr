@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 14e5e7613fd5df650625cf8997d569b754ceb689
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 2f1ae92c05e02dffa22fb2c64c6c076a0adfc176
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-java-device-and-service-sdk-and-group-enrollments-for-iot-hub-device-provisioning-service"></a>IoT Hub Device Provisioning Service용 Java 장치 및 서비스 SDK 및 등록 그룹을 사용하여 시뮬레이션된 X.509 장치 만들기 및 프로비전
 
@@ -39,9 +39,7 @@ ms.lasthandoff: 01/20/2018
     > 이 단계를 수행하려면 원본에서 빌드 및 설치하거나 [이](https://sourceforge.net/projects/openssl/)와 같은 [타사](https://wiki.openssl.org/index.php/Binaries)에서 다운로드 및 설치할 수 있는 [OpenSSL](https://www.openssl.org/)이 필요합니다. 이미 _루트_, _중간_ 및 _장치_ 인증서를 만든 경우 이 단계를 건너뛸 수 있습니다.
     >
 
-1. 등록 그룹 정보 만들기:
-
-    1. **1단계** 및 **2단계**를 통해 실행하여 _루트_ 및 _중간_ 인증서를 만듭니다.
+    1. 처음 두 단계를 실행하여 _루트_ 및 _중간_ 인증서를 만듭니다.
 
     1. Azure Portal에 로그인하고, 왼쪽 메뉴에서 **모든 리소스** 단추를 클릭하고, 프로비전 서비스를 엽니다.
 
@@ -56,16 +54,16 @@ ms.lasthandoff: 01/20/2018
 
         1. 새로 만든 인증서를 선택합니다.
             - **확인 코드 생성**을 클릭합니다. 생성된 코드를 복사합니다.
-            - **3단계**를 통해 실행합니다. _확인 코드_를 입력하거나 마우스 오른쪽 단추로 클릭하여 실행 중인 PowerShell 창에 붙여넣습니다.  **Enter** 키를 누릅니다.
+            - 확인 단계를 실행합니다. _확인 코드_를 입력하거나 마우스 오른쪽 단추로 클릭하여 실행 중인 PowerShell 창에 붙여넣습니다.  **Enter** 키를 누릅니다.
             - Azure Portal에서 새로 만든 **_verifyCert4.pem_** 파일을 선택합니다. **확인**을 클릭합니다.
 
             ![인증서 유효성 검사](./media/tutorial-group-enrollments/validate-certificate.png)
 
-1. 장치 인증서 및 정리 리소스를 만들려면 **4단계** 및 **5단계**를 실행하여 완료합니다.
+    1. 장치 인증서 및 정리 리소스를 만드는 단계를 실행하여 완료합니다.
 
-> [!NOTE]
-> 장치 인증서를 만들 때 장치 이름에 소문자 영숫자와 하이픈만 사용 해야 합니다.
->
+    > [!NOTE]
+    > 장치 인증서를 만들 때 장치 이름에 소문자 영숫자와 하이픈만 사용 해야 합니다.
+    >
 
 
 ## <a name="create-a-device-enrollment-entry"></a>장치 등록 항목 만들기
@@ -211,7 +209,7 @@ ms.lasthandoff: 01/20/2018
 장치 클라이언트 샘플을 계속해서 작업하고 탐색할 계획인 경우 이 빠른 시작에서 만든 리소스를 정리하지 마세요. 계속하지 않으려는 경우 다음 단계를 사용하여 이 빠른 시작에서 만든 모든 리소스를 삭제합니다.
 
 1. 컴퓨터에서 장치 클라이언트 샘플 출력 창을 닫습니다.
-1. Azure Portal의 왼쪽 메뉴에서 **모든 리소스**를 클릭한 다음 사용자의 Device Provisioning Service를 선택합니다. 서비스에 대한 **등록 관리** 블레이드를 연 다음 **개별 등록** 탭을 클릭합니다. 이 빠른 시작에서 등록한 장치의 *등록 ID*를 선택하고, 위쪽의 **삭제** 단추를 클릭합니다. 
+1. Azure Portal의 왼쪽 메뉴에서 **모든 리소스**를 클릭한 다음 사용자의 Device Provisioning Service를 선택합니다. 서비스에 대한 **등록 관리** 블레이드를 연 다음, **개별 등록** 탭을 클릭합니다. 이 빠른 시작에서 등록한 장치의 *등록 ID*를 선택하고, 위쪽의 **삭제** 단추를 클릭합니다. 
 1. Azure Portal의 왼쪽 메뉴에서 **모든 리소스**를 클릭한 다음 사용자의 IoT Hub를 선택합니다. 허브에 대한 **IoT 장치** 블레이드를 열고, 이 빠른 시작에서 등록한 장치의 *장치 ID*를 선택한 다음, 위쪽의 **삭제** 단추를 클릭합니다.
 
 

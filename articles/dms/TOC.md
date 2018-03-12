@@ -13,11 +13,11 @@
 
 # 리소스
 ## [사용자 의견 피드백](https://feedback.azure.com/forums/906100-azure-database-migration-service)
-## [Azure 로드맵](https://azure.microsoft.com/en-us/roadmap/)
+## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
 ## [데이터베이스 마이그레이션 가이드](https://aka.ms/datamigration)
 ## [데이터 Migration Assistant](https://aka.ms/dma)
 ## [가격 책정](https://aka.ms/dms-pricing)
 ## [필수 구성 요소의 개요](pre-reqs.md)
 ## [FAQ](faq.md)
-## [서비스 업데이트](https://azure.microsoft.com/en-us/updates/?product=database-migration)
+## [서비스 업데이트](https://azure.microsoft.com/updates/?product=database-migration)
 ## [Azure SQL DB 관리되는 인스턴스 마이그레이션에 대한 네트워크 토폴로지](resource-network-topologies.md)

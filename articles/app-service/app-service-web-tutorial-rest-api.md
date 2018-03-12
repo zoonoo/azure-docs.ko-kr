@@ -1,305 +1,210 @@
 ---
-title: "Azure App Service의 Node.js API 앱 | Microsoft Docs"
-description: "Node.js RESTful API를 만들어 Azure App Service의 API 앱에 배포하는 방법에 대해 알아보세요."
+title: "Azure App Service에서 CORS를 사용한 RESTful API | Microsoft Docs"
+description: "Azure App Service에서 CORS 지원을 통해 RESTful API를 호스팅하는 방법을 알아봅니다."
 services: app-service\api
-documentationcenter: node
-author: bradygaster
-manager: erikre
+documentationcenter: dotnet
+author: cephalin
+manager: cfowler
 editor: 
 ms.assetid: a820e400-06af-4852-8627-12b3db4a8e70
-ms.service: app-service-api
+ms.service: app-service
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: nodejs
+ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 06/13/2017
-ms.author: rachelap
+ms.date: 02/28/2018
+ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 81d08e047a3689d110195f2325b52c6c0457e644
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 7420e92bc929808f074e9be00dfbcb7d8476654a
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 03/05/2018
 ---
-# <a name="build-a-nodejs-restful-api-and-deploy-it-to-an-api-app-in-azure"></a>Node.js RESTful API를 빌드하여 Azure의 API 앱에 배포
+# <a name="host-a-restful-api-with-cors-in-azure-app-service"></a>Azure App Service에서 CORS를 통해 RESTful API 호스팅
 
-이 빠른 시작에서는 Node.js [Express](http://expressjs.com/)로 작성된 REST API를 만들고 [Swagger](http://swagger.io/) 정의를 사용하여 Azure에 배포하는 방법을 보여 줍니다. 명령줄 도구를 사용하여 앱을 만들고, [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)를 사용하여 리소스를 구성하고, Git를 사용하여 앱을 배포합니다.  완료하면 Azure에서 실행되는 작업 샘플 REST API를 갖습니다.
+[Azure App Service](app-service-web-overview.md)는 확장성 높은 자체 패치 웹 호스팅 서비스를 제공합니다. 또한 App Service에는 RESTful API에 대한 [CORS(Cross-Origin Resource Sharing)](https://wikipedia.org/wiki/Cross-Origin_Resource_Sharing)에 대한 지원이 기본적으로 제공됩니다. 이 자습서에서는 CORS 지원을 사용하여 ASP.NET Core API 앱을 배App Service에 포하는 방법을 보여 줍니다. 명령줄 도구를 사용하여 앱을 구성하고, Git을 사용하여 앱을 배포합니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+이 자습서에서는 다음 방법에 대해 알아봅니다.
 
-* [Git](https://git-scm.com/)
-* [Node.js 및 NPM](https://nodejs.org/)
+> [!div class="checklist"]
+> * Azure CLI를 사용하여 App Service 리소스 만들기
+> * Git을 사용하여 Azure에 RESTful API 배포
+> * App Service CORS 지원을 사용하도록 설정
+
+이 자습서의 단계는 macOS, Linux, Windows에서 수행할 수 있습니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+## <a name="prerequisites"></a>필수 조건
 
-CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 항목에서 Azure CLI 버전 2.0 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
+이 자습서를 완료하려면 다음이 필요합니다.
 
-## <a name="prepare-your-environment"></a>환경 준비
+* [Git를 설치](https://git-scm.com/)합니다.
+* [.NET Core를 설치](https://www.microsoft.com/net/core/)합니다.
 
-1. 터미널 창에서 다음 명령을 실행하여 로컬 컴퓨터에 샘플을 복제합니다.
+## <a name="create-local-aspnet-core-app"></a>로컬 ASP.NET Core 앱 만들기
 
-    ```bash
-    git clone https://github.com/Azure-Samples/app-service-api-node-contact-list
-    ```
+이 단계에서는 로컬 ASP.NET Core 프로젝트를 설정합니다. App Service는 다른 언어로 작성된 API에 대해 동일한 워크플로를 지원합니다.
 
-2. 샘플 코드를 포함하는 디렉터리로 변경합니다.
+### <a name="clone-the-sample-application"></a>샘플 응용 프로그램 복제
 
-    ```bash
-    cd app-service-api-node-contact-list
-    ```
+터미널 창에서 `cd`를 사용하여 작업 디렉터리로 이동합니다.  
 
-3. 로컬 컴퓨터에 [Swaggerize](https://www.npmjs.com/package/swaggerize-express)를 설치합니다. Swaggerize는 Swagger 정의에서 REST API에 대한 Node.js 코드를 생성하는 도구입니다.
-
-    ```bash
-    npm install -g yo
-    npm install -g generator-swaggerize
-    ```
-
-## <a name="generate-nodejs-code"></a>Node.js 코드 생성 
-
-자습서의 이 섹션에서는 Swagger 메타데이터를 먼저 만들고 API에 대한 서버 코드에 스캐폴딩(자동 생성)하는 데 사용할 API 개발 워크플로를 모델링합니다. 
-
-디렉터리를 *시작* 폴더로 변경한 다음 `yo swaggerize`를 실행합니다. Swaggerize는 *api.json*으로 Swagger 정의에서 API에 대한 Node.js 프로젝트를 만듭니다.
+다음 명령을 실행하여 샘플 리포지토리를 복제합니다. 
 
 ```bash
-cd start
-yo swaggerize --apiPath api.json --framework express
+git clone https://github.com/Azure-Samples/dotnet-core-api
 ```
 
-Swaggerize가 프로젝트 이름을 물어보면 *ContactList*를 사용합니다.
-   
-   ```bash
-   Swaggerize Generator
-   Tell us a bit about your application
-   ? What would you like to call this project: ContactList
-   ? Your name: Francis Totten
-   ? Your github user name: fabfrank
-   ? Your email: frank@fabrikam.net
-   ```
-   
-## <a name="customize-the-project-code"></a>프로젝트 코드 사용자 지정
+이 리포지토리에는 [Swagger를 사용한 ASP.NET Core Web API 도움말 페이지](/aspnet/core/tutorials/web-api-help-pages-using-swagger?tabs=visual-studio) 자습서에 따라 만든 응용 프로그램이 포함되어 있습니다. Swagger 생성기를 사용하여 [Swagger UI](https://swagger.io/swagger-ui/)와 Swagger JSON 엔드포인트를 제공합니다.
 
-1. *lib* 폴더를 `yo swaggerize`에서 만든 *ContactList* 폴더로 복사한 다음 디렉터리를 *ContactList*로 변경합니다.
+### <a name="run-the-application"></a>응용 프로그램 실행
 
-    ```bash
-    cp -r lib ContactList/
-    cd ContactList
-    ```
+다음 명령을 실행하여 필요한 패키지를 설치하고 데이터베이스 마이그레이션을 실행하고 응용 프로그램을 시작합니다.
 
-2. `jsonpath` 및 `swaggerize-ui` NPM 모듈을 설치합니다. 
+```bash
+cd dotnet-core-api
+dotnet restore
+dotnet run
+```
 
-    ```bash
-    npm install --save jsonpath swaggerize-ui
-    ```
+브라우저에서 `http://localhost:5000/swagger`로 이동하여 Swagger UI를 통해 재생합니다.
 
-3. *handlers/contacts.js*의 코드를 다음 코드로 바꿉니다. 
-    ```javascript
-    'use strict';
+![로컬로 실행되는 ASP.NET Core API](./media/app-service-web-tutorial-rest-api/local-run.png)
 
-    var repository = require('../lib/contactRepository');
+`http://localhost:5000/api/todo`로 이동하여 ToDo JSON 항목 목록을 확인합니다.
 
-    module.exports = {
-        get: function contacts_get(req, res) {
-            res.json(repository.all())
-        }
-    };
-    ```
-    이 코드는 *lib/contactRepository.js*에서 제공하는 *lib/contacts.json*에 저장된 JSON 데이터를 사용합니다. 새 *contacts.js* 코드는 JSON 페이로드로 리포지토리의 모든 연락처를 반환합니다. 
+`http://localhost:5000`으로 이동하여 브라우저 앱을 통해 재생합니다. 나중에 CORS 기능을 테스트하기 위해 브라우저 앱을 App Service의 원격 API로 지정할 것입니다. 브라우저 앱에 대한 코드는 리포지토리의 _wwwroot_ 디렉터리에 있습니다.
 
-4. **handlers/contacts/{id}.js** 파일의 코드를 다음 코드로 바꿉니다.
+언제든지 ASP.NET Core를 중지하려면 터미널에서 `Ctrl+C`를 누릅니다.
 
-    ```javascript
-    'use strict';
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-    var repository = require('../../lib/contactRepository');
+## <a name="deploy-app-to-azure"></a>Azure에 앱 배포
 
-    module.exports = {
-        get: function contacts_get(req, res) {
-            res.json(repository.get(req.params['id']));
-        }    
-    };
-    ```
+이 단계에서는 SQL Database 연결 .NET Core 응용 프로그램을 App Service에 배포합니다.
 
-    이 코드를 통해 지정된 ID로 연락처만 반환하도록 경로 변수를 사용할 수 있습니다.
+### <a name="configure-local-git-deployment"></a>로컬 Git 배포 구성
 
-5. **server.js**의 코드를 다음 코드로 바꿉니다.
+[!INCLUDE [Configure a deployment user](../../includes/configure-deployment-user-no-h.md)]
 
-    ```javascript
-    'use strict';
+### <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-    var port = process.env.PORT || 8000; 
+[!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group-no-h.md)]
 
-    var http = require('http');
-    var express = require('express');
-    var bodyParser = require('body-parser');
-    var swaggerize = require('swaggerize-express');
-    var swaggerUi = require('swaggerize-ui'); 
-    var path = require('path');
-    var fs = require("fs");
-    
-    fs.existsSync = fs.existsSync || require('path').existsSync;
+### <a name="create-an-app-service-plan"></a>App Service 계획 만들기
 
-    var app = express();
+[!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan-no-h.md)]
 
-    var server = http.createServer(app);
+### <a name="create-a-web-app"></a>웹앱 만들기
 
-    app.use(bodyParser.json());
+[!INCLUDE [Create web app](../../includes/app-service-web-create-web-app-dotnetcore-win-no-h.md)] 
 
-    app.use(swaggerize({
-        api: path.resolve('./config/swagger.json'),
-        handlers: path.resolve('./handlers'),
-        docspath: '/swagger' 
-    }));
+### <a name="push-to-azure-from-git"></a>Git에서 Azure에 푸시
 
-    // change four
-    app.use('/docs', swaggerUi({
-        docs: '/swagger'  
-    }));
+[!INCLUDE [app-service-plan-no-h](../../includes/app-service-web-git-push-to-azure-no-h.md)]
 
-    server.listen(port, function () { 
-    });
-    ```   
+```bash
+Counting objects: 98, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (92/92), done.
+Writing objects: 100% (98/98), 524.98 KiB | 5.58 MiB/s, done.
+Total 98 (delta 8), reused 0 (delta 0)
+remote: Updating branch 'master'.
+remote: .
+remote: Updating submodules.
+remote: Preparing deployment for commit id '0c497633b8'.
+remote: Generating deployment script.
+remote: Project file path: ./DotNetCoreSqlDb.csproj
+remote: Generated deployment script files
+remote: Running deployment command...
+remote: Handling ASP.NET Core Web Application deployment.
+remote: .
+remote: .
+remote: .
+remote: Finished successfully.
+remote: Running post deployment command(s)...
+remote: Deployment successful.
+remote: App container will begin restart within 10 seconds.
+To https://<app_name>.scm.azurewebsites.net/<app_name>.git
+ * [new branch]      master -> master
+```
 
-    이 코드는 Azure App Service와 작동하도록 몇 가지 사소한 변경 사항을 만들고 API에 대한 대화형 웹 인터페이스를 노출합니다.
+### <a name="browse-to-the-azure-web-app"></a>Azure 웹앱 찾아보기
 
-### <a name="test-the-api-locally"></a>로컬로 API 테스트
+브라우저에서 `http://<app_name>.azurewebsites.net/swagger`로 이동하여 Swagger UI를 통해 재생합니다.
 
-1. Node.js 앱 시작
-    ```bash
-    npm start
-    ```
-    
-2. http://localhost:8000/contacts로 이동하여 전체 연락처 목록에 대한 JSON을 봅니다.
-   
-   ```json
-    {
-        "id": 1,
-        "name": "Barney Poland",
-        "email": "barney@contoso.com"
-    },
-    {
-        "id": 2,
-        "name": "Lacy Barrera",
-        "email": "lacy@contoso.com"
-    },
-    {
-        "id": 3,
-        "name": "Lora Riggs",
-        "email": "lora@contoso.com"
-    }
-   ```
+![Azure App Service에서 실행되는 ASP.NET Core API](./media/app-service-web-tutorial-rest-api/azure-run.png)
 
-3. http://localhost:8000/contacts/2로 이동하여 두 개의 `id`로 연락처를 봅니다.
-   
-    ```json
-    { 
-        "id": 2,
-        "name": "Lacy Barrera",
-        "email": "lacy@contoso.com"
-    }
-    ```
+`http://<app_name>.azurewebsites.net/swagger/v1/swagger.json`으로 이동하여 배포된 API에 대한 _swagger.json_을 확인합니다.
 
-4. http://localhost:8000/docs에서 Swagger 웹 인터페이스를 사용하여 API를 테스트합니다.
-   
-    ![Swagger 웹 인터페이스](media/app-service-web-tutorial-rest-api/swagger-ui.png)
+`http://<app_name>.azurewebsites.net/api/todo`로 이동하여 배포된 API가 작동하는지 확인합니다.
 
-## <a id="createapiapp"></a> API App 만들기
+## <a name="add-cors-functionality"></a>CORS 기능 추가
 
-이 섹션에서는 Azure CLI 2.0을 사용하여 Azure App Service에서 API를 호스트하는 리소스를 만듭니다. 
+다음으로, API에 대한 App Service에서 기본 제공되는 CORS 지원을 사용하도록 설정합니다.
 
-1.  [az login](/cli/azure/?view=azure-cli-latest#az_login) 명령으로 Azure 구독에 로그인하고 화면의 지시를 따릅니다.
+### <a name="test-cors-in-sample-app"></a>샘플 앱에서 CORS 테스트
 
-    ```azurecli-interactive
-    az login
-    ```
+로컬 리포지토리에서 _wwwroot/index.html_을 엽니다.
 
-2. 여러 Azure 구독이 있는 경우 기본 구독을 원하는 구독으로 변경합니다.
+51번 줄에서 `apiEndpoint` 변수를 배포된 API의 URL(`http://<app_name>.azurewebsites.net`)로 설정합니다. _\<appname>_을 App Service의 앱 이름으로 바꿉니다.
 
-    ````azurecli-interactive
-    az account set --subscription <name or id>
-    ````
+로컬 터미널 창에서 샘플 앱을 다시 실행합니다.
 
-3. [!INCLUDE [Create resource group](../../includes/app-service-api-create-resource-group.md)] 
+```bash
+dotnet run
+```
 
-4. [!INCLUDE [Create app service plan](../../includes/app-service-api-create-app-service-plan.md)]
+`http://localhost:5000`에 있는 브라우저 앱으로 이동합니다. 브라우저에서 개발자 도구 창(Windows용 Chrome에서 `Ctrl`+`Shift`+`i`)을 열고 **콘솔** 탭을 검사합니다. 이제 `No 'Access-Control-Allow-Origin' header is present on the requested resource` 오류 메시지가 표시됩니다.
 
-5. [!INCLUDE [Create API app](../../includes/app-service-api-create-api-app.md)] 
+![브라우저 클라이언트에서 발생한 CORS 오류](./media/app-service-web-tutorial-rest-api/cors-error.png)
 
+브라우저 앱(`http://localhost:5000`)과 원격 리소스(`http://<app_name>.azurewebsites.net`) 간에 도메인이 일치하지 않고 App Service의 API에서 `Access-Control-Allow-Origin` 헤더를 보내지 않기 때문에 브라우저에서 도메인 간 콘텐츠가 브라우저 앱에 로드되지 않도록 차단했습니다.
 
-## <a name="deploy-the-api-with-git"></a>Git로 API 배포
+프로덕션 환경에서 브라우저 앱에는 localhost URL 대신 공용 URL이 있지만, CORS를 localhost URL로 사용하도록 설정하는 방법은 공용 URL과 동일합니다.
 
-로컬 Git 리포지토리에서 Azure App Service로 커밋을 푸시하여 API 앱에 코드를 배포합니다.
+### <a name="enable-cors"></a>CORS를 사용하도록 설정 
 
-1. [!INCLUDE [Configure your deployment credentials](../../includes/configure-deployment-user-no-h.md)] 
-
-2. *ContactList* 디렉터리에서 새 리포지토리를 초기화합니다. 
-
-    ```bash
-    git init .
-    ```
-
-3. Git에서 자습서의 이전 단계에서 npm으로 만든 *node_modules* 디렉터리를 제외합니다. 현재 디렉터리에 새 `.gitignore` 파일을 만들고 파일의 새 줄에 다음 텍스트를 추가합니다.
-
-    ```
-    node_modules/
-    ```
-    `node_modules` 폴더가 `git status`로 무시되고 있는지 확인합니다.
-    
-4. 다음 줄을 `package.json`에 추가합니다. Swaggerize에서 생성된 코드는 Node.js 엔진의 버전을 지정하지 않습니다. 버전 사양이 없으면, Azure는 생성된 코드와 호환되지 않는 기본 버전 `0.10.18`을 사용합니다.
-
-    ```javascript
-    "engines": {
-        "node": "~0.10.22"
-    },
-    ```
-
-5. 리포지토리에 변경 내용을 커밋합니다.
-    ```bash
-    git add .
-    git commit -m "initial version"
-    ```
-
-6. [!INCLUDE [Push to Azure](../../includes/app-service-api-git-push-to-azure.md)]  
- 
-## <a name="test-the-api--in-azure"></a>Azure에서 API 테스트
-
-1. http://app_name.azurewebsites.net/contacts로 브라우저를 엽니다. 자습서의 앞부분에서 요청을 로컬로 만들었을 때 반환된 동일한 JSON이 표시됩니다.
-
-   ```json
-   {
-       "id": 1,
-       "name": "Barney Poland",
-       "email": "barney@contoso.com"
-   },
-   {
-       "id": 2,
-       "name": "Lacy Barrera",
-       "email": "lacy@contoso.com"
-   },
-   {
-       "id": 3,
-       "name": "Lora Riggs",
-       "email": "lora@contoso.com"
-   }
-   ```
-
-2. 브라우저에서 `http://app_name.azurewebsites.net/docs` 끝점으로 이동하여 Azure에서 실행되는 Swagger UI를 사용해 봅니다.
-
-    ![Swagger Ii](media/app-service-web-tutorial-rest-api/swagger-azure-ui.png)
-
-    이제 Azure Git 리포지토리에 커밋을 푸시하여 간단히 Azure에 샘플 API에 대한 업데이트를 배포할 수 있습니다.
-
-## <a name="clean-up"></a>정리
-
-이 빠른 시작에서 만든 리소스를 정리하려면 다음 Azure CLI 명령을 실행합니다.
+Cloud Shell에서 [`az resource update`](/cli/azure/resource#az_resource_update) 명령을 사용하여 CORS를 클라이언트 URL로 사용하도록 설정합니다. _&lt;appname>_ 자리 표시자를 바꿉니다.
 
 ```azurecli-interactive
-az group delete --name myResourceGroup
+az resource update --name web --resource-group myResourceGroup --namespace Microsoft.Web --resource-type config --parent sites/<app_name> --set properties.cors.allowedOrigins="['http://localhost:5000']" --api-version 2015-06-01
 ```
 
-## <a name="next-step"></a>다음 단계 
+`properties.cors.allowedOrigins`에 둘 이상의 클라이언트 URL(`"['URL1','URL2',...]"`)을 설정할 수 있습니다. `"['*']"`를 사용하여 모든 클라이언트 URL을 사용하도록 설정할 수도 있습니다.
+
+### <a name="test-cors-again"></a>CORS 다시 테스트
+
+`http://localhost:5000`에서 브라우저 앱을 새로 고칩니다. **콘솔** 창의 오류 메시지가 사라지고, 배포된 API의 데이터를 보고 상호 작용할 수 있습니다. 이제 원격 API에서 로컬로 실행 중인 브라우저 앱에 CORS를 지원합니다. 
+
+![브라우저 클라이언트에서 CORS 성공](./media/app-service-web-tutorial-rest-api/cors-success.png)
+
+축하합니다! CORS 지원을 통해 Azure App Service에서 API를 실행하고 있습니다.
+
+## <a name="app-service-cors-vs-your-cors"></a>App Service CORS 및 사용자 고유 CORS
+
+더 많은 유연성을 위해 App Service CORS 대신 자신의 CORS 유틸리티를 사용할 수 있습니다. 예를 들어 여러 경로 또는 메서드에 허용되는 원본을 서로 다르게 지정할 수 있습니다. App Service CORS를 사용하면 모든 API 경로 및 메서드에 대해 허용되는 원본 집합을 하나만 지정할 수 있으므로 사용자 고유의 CORS 코드를 사용하려고 합니다. [원본 간 요청(CORS) 사용](/aspnet/core/security/cors)에서 ASP.NET Core가 작동하는 방식을 참조하세요.
+
+> [!NOTE]
+> App Service CORS와 사용자 고유 CORS 코드는 함께 사용하지 마세요. 함께 사용하는 경우 App Service CORS가 우선적으로 적용되며, 사용자 고유의 CORS 코드는 아무런 영향을 주지 않습니다.
+>
+>
+
+[!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
+
+<a name="next"></a>
+## <a name="next-steps"></a>다음 단계
+
+학습한 내용은 다음과 같습니다.
+
+> [!div class="checklist"]
+> * Azure CLI를 사용하여 App Service 리소스 만들기
+> * Git을 사용하여 Azure에 RESTful API 배포
+> * App Service CORS 지원을 사용하도록 설정
+
+다음 자습서로 이동하여 사용자 지정 DNS 이름을 웹앱에 매핑하는 방법을 알아봅니다.
+
 > [!div class="nextstepaction"]
 > [Azure Web Apps에 기존 사용자 지정 DNS 이름 매핑](app-service-web-tutorial-custom-domain.md)
-

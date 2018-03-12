@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 2/22/2018
-ms.openlocfilehash: 186a7b5632c1680e80e087e8f855eaacf3448207
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 33ced510dc9579248b75fb21520d55bd747a6a5c
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="quickstart-install-and-get-started-with-azure-machine-learning-services"></a>빠른 시작: Azure Machine Learning 서비스 설치 및 시작
 Azure Machine Learning 서비스(미리 보기)는 통합된 종단 간 데이터 과학 및 고급 분석 솔루션입니다. 이를 통해 전문 데이터 과학자들은 클라우드 규모로 데이터를 준비하고, 실험을 개발하며, 모델을 배포할 수 있습니다.
@@ -29,7 +29,9 @@ Azure Machine Learning 서비스(미리 보기)는 통합된 종단 간 데이�
 * CLI(명령줄 인터페이스)에 액세스
 
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Microsoft Azure 포트폴리오의 일부인 Azure Machine Learning 서비스에는 Azure 구독이 필요합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+
+또한 리소스 그룹, Virtual Machines 등의 자산을 만들 수 있는 적절한 권한이 있어야 합니다. 
 
 <a name="prerequisites"></a>Azure Machine Learning Workbench 응용 프로그램은 다음 운영 체제에 설치할 수 있습니다.
 - Windows 10 또는 Windows Server 2016
@@ -63,7 +65,7 @@ Azure Portal을 사용하여 Azure Machine Learning 계정을 프로비전합니
    위치 | _사용자와 가장 가까운 지역_ | 사용자 및 데이터 리소스에 가장 가까운 위치를 선택합니다.
    사용자 수 | 2 | 사용자 수를 입력합니다. [사용자 수가 가격에 미치는 영향](https://azure.microsoft.com/pricing/details/machine-learning/)을 알아 보세요.<br/><br/>이 빠른 시작에서는 두 사용자만 필요합니다. 사용자는 필요에 따라 Azure Portal에서 추가하거나 삭제할 수 있습니다.
    Storage 계정 | _고유한 이름_ | **새로 만들기**를 선택하고 이름을 입력하여 [Azure 저장소 계정](https://docs.microsoft.com/en-us/azure/storage/common/storage-quickstart-create-account?tabs=portal)을 만듭니다. 또는 **기존 항목 사용**을 선택하고 드롭다운 목록에서 기존 저장소 계정을 선택합니다. 저장소 계정은 필수이며 프로젝트 아티팩트를 보유하고 기록 데이터를 실행하는 데 사용됩니다. 
-   실험 계정에 대한 작업 영역 | IrisGarden | 이 계정의 작업 영역에 대한 이름을 입력합니다. 이름은 2~32자여야 합니다. 영숫자 문자 및 대시(-) 문자만 포함되어야 합니다. 이 작업 영역에는 실험을 만들고 관리, 게시하는 데 필요한 도구가 들어 있습니다.
+   실험 계정에 대한 작업 영역 | IrisGarden<br/>(자습서에서 사용되는 이름) | 이 계정의 작업 영역에 대한 이름을 입력합니다. 이름은 2~32자여야 합니다. 영숫자 문자 및 대시(-) 문자만 포함되어야 합니다. 이 작업 영역에는 실험을 만들고 관리, 게시하는 데 필요한 도구가 들어 있습니다.
    작업 영역에 대한 소유자 할당 | _사용자 계정_ | 자신의 계정을 작업 영역 소유자로 선택합니다.
    모델 관리 계정 만들기 | **확인** |실시간 웹 서비스로 모델을 배포하고 관리해야 하는 경우 해당 리소스를 사용할 수 있도록 모델 관리 계정을 만듭니다. <br/><br/>선택 사항이지만, 모델 관리 계정을 실험 계정과 동시에 만드는 것이 좋습니다.
    계정 이름 | _고유한 이름_ | 모델 관리 계정을 식별하는 고유한 이름을 선택합니다. 본인의 이름 또는 실험을 가장 잘 식별하는 부서나 프로젝트 이름을 사용할 수 있습니다. 이름은 2~32자여야 합니다. 영숫자 문자 및 대시(-) 문자만 포함되어야 합니다. 

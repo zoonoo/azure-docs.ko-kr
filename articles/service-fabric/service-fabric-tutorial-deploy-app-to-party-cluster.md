@@ -1,10 +1,10 @@
 ---
-title: "클러스터에 Azure Service Fabric 응용 프로그램 배포 | Microsoft Docs"
-description: "이 자습서에서는 Service Fabric 클러스터에 응용 프로그램을 배포하는 방법을 알아봅니다."
+title: "Visual Studio에서 클러스터에 Azure Service Fabric 응용 프로그램 배포 | Microsoft Docs"
+description: "Visual Studio에서 응용 프로그램을 클러스터에 배포하는 방법을 알아봅니다."
 services: service-fabric
 documentationcenter: .net
-author: mikkelhegn
-manager: msfussell
+-author: mikkelhegn
+-manager: msfussell
 editor: 
 ms.assetid: 
 ms.service: service-fabric
@@ -12,29 +12,31 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/09/2017
-ms.author: mikhegn
+ms.date: 02/21/2018
+ms.author: mikkelhegn
 ms.custom: mvc
-ms.openlocfilehash: 35ddf77b1e9a9b355ed2cee4731e3c5d87c4a701
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 21c991a4e3f9ae19a4ad4a96427fdc1c91c55a1c
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="tutorial-deploy-an-application-to-a-service-fabric-cluster-in-azure"></a>자습서: Azure에서 Service Fabric 클러스터에 응용 프로그램 배포
-이 자습서는 시리즈의 2부로, Azure에서 실행하는 클러스터에 Azure Service Fabric 응용 프로그램을 배포하는 방법을 보여 줍니다.
+이 자습서는 시리즈의 2부이며, Visual Studio에서 Azure Service Fabric 응용 프로그램을 Azure의 새 클러스터에 직접 배포하는 방법을 보여 줍니다.
 
-이 자습서 시리즈의 2부에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 방법에 대해 알아봅니다.
+> [!div class="checklist"]
+> * Visual Studio에서 클러스터 만들기
+> * Visual Studio를 사용하여 원격 클러스터에 응용 프로그램 배포
+
+
+이 자습서 시리즈에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
 > * [.NET Service Fabric 응용 프로그램 빌드](service-fabric-tutorial-create-dotnet-app.md)
 > * 응용 프로그램을 원격 클러스터에 배포
 > * [Visual Studio Team Services를 사용하여 CI/CD 구성](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 > * [응용 프로그램에 대한 모니터링 및 진단 설정](service-fabric-tutorial-monitoring-aspnet.md)
 
-이 자습서 시리즈에서는 다음 방법에 대해 알아봅니다.
-> [!div class="checklist"]
-> * Visual Studio를 사용하여 원격 클러스터에 응용 프로그램 배포
-> * Service Fabric Explorer를 사용하여 클러스터에서 응용 프로그램 제거
 
 ## <a name="prerequisites"></a>필수 조건
 이 자습서를 시작하기 전에:
@@ -42,91 +44,63 @@ ms.lasthandoff: 02/24/2018
 - [Visual Studio 2017을 설치](https://www.visualstudio.com/)하고 **Azure 개발**과 **ASP.NET 및 웹 개발** 워크로드를 설치합니다.
 - [Service Fabric SDK를 설치](service-fabric-get-started.md)합니다.
 
-## <a name="download-the-voting-sample-application"></a>투표 응용 프로그램 예제 다운로드
-[이 자습서 시리즈의 1부](service-fabric-tutorial-create-dotnet-app.md)에서 투표 예제 응용 프로그램을 빌드하지 않은 경우 다운로드할 수 있습니다. 명령 창에서 다음 명령을 실행하여 로컬 컴퓨터에 샘플 앱 리포지토리를 복제합니다.
+## <a name="download-the-voting-sample-application"></a>투표 응용 프로그램 샘플 다운로드
+[이 자습서 시리즈의 1부](service-fabric-tutorial-create-dotnet-app.md)에서 투표 응용 프로그램 샘플을 빌드하지 않은 경우 다운로드할 수 있습니다. 명령 창에서 다음 명령을 실행하여 로컬 컴퓨터에 샘플 앱 리포지토리를 복제합니다.
 
 ```
 git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 ```
 
-## <a name="set-up-a-party-cluster"></a>Party 클러스터 설정
-Party 클러스터는 평가판으로, Azure에서 호스트되고 Service Fabric 팀이 실행하는 제한 시간 Service Fabric 클러스터입니다. 여기서 누구나 응용 프로그램을 배포하고 플랫폼에 대해 알아볼 수 있습니다. 평가판으로 제공됩니다.
+## <a name="deploy-the-sample-application"></a>샘플 응용 프로그램 배포
 
-Party 클러스터에 대한 액세스 권한을 얻으려면 http://aka.ms/tryservicefabric 사이트로 이동하고 지침에 따라 클러스터에 대한 액세스 권한을 얻을 수 있습니다. Party 클러스터에 대한 액세스 권한을 얻으려면 Facebook 또는 GitHub 계정이 필요합니다.
+### <a name="select-a-service-fabric-cluster-to-which-to-publish"></a>게시할 Service Fabric 클러스터 선택
+응용 프로그램이 준비되면 Visual Studio에서 클러스터에 직접 배포할 수 있습니다.
 
-원하는 경우 Party 클러스터 대신 자체 클러스터를 사용할 수 있습니다.  ASP.NET Core 웹 프런트 엔드는 역방향 프록시를 사용하여 상태 저장 서비스 백 엔드와 통신합니다.  Party 클러스터 및 로컬 개발 클러스터에는 기본적으로 설정된 역방향 프록시가 있습니다.  투표 응용 프로그램 예제를 사용자 고유의 클러스터에 배포하는 경우 [클러스터에서 역방향 프록시를 사용하도록 설정](service-fabric-reverseproxy.md#setup-and-configuration)해야 합니다.
+배포 옵션에는 다음 두 가지 옵션이 있습니다.
+- Visual Studio에서 클러스터를 만듭니다. 이 옵션을 사용하면 기본 설 구성으로 Visual Studio에서 직접 보안 클러스터정를 만들 수 있습니다. 이 유형의 클러스터는 클러스터를 만든 다음, Visual Studio 내에서 해당 클러스터에 직접 게시할 수 있는 테스트 시나리오에 적합합니다.
+- 기존 클러스터를 구독에 게시합니다.
 
+이 자습서에서는 Visual Studio에서 클러스터를 만드는 단계를 수행합니다. 다른 옵션의 경우 연결 엔드포인트를 복사하여 붙여넣거나 구독에서 선택할 수 있습니다.
 > [!NOTE]
-> Party 클러스터는 보호되지 않으므로 응용 프로그램과 그 안에 있는 데이터는 다른 사람에게 표시될 수 있습니다. 다른 사람이 보기를 원하지 않는 항목은 배포하지 마세요. 모든 세부 사항은 사용 약관을 읽어 보아야 합니다.
+> 대부분의 서비스에서 역방향 프록시를 사용하여 서로 통신합니다. Visual Studio 및 Party 클러스터에서 만든 클러스터는 기본적으로 역방향 프록시를 사용하도록 설정됩니다.  기존 클러스터를 사용하는 경우 [클러스터에서 역방향 프록시를 사용하도록 설정](service-fabric-reverseproxy.md#setup-and-configuration)해야 합니다.
 
-[Windows 클러스터에 로그인하고 조인](http://aka.ms/tryservicefabric)합니다. **PFX** 링크를 클릭하여 PFX 인증서를 컴퓨터에 다운로드합니다. 인증서 및 **연결 엔드포인트** 값은 다음 단계에서 사용됩니다.
+### <a name="deploy-the-app-to-the-service-fabric-cluster"></a>Service Fabric 클러스터에 앱 배포
 
-![PFX 및 연결 엔드포인트](./media/service-fabric-quickstart-containers/party-cluster-cert.png)
+1. [솔루션 탐색기]에서 응용 프로그램 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
 
-Windows 컴퓨터에서 *CurrentUser\My* 인증서 저장소에 PFX를 설치합니다.
+2. Azure 계정을 사용하여 로그인하면 구독 정보에 액세스할 수 있습니다. Party 클러스터를 사용하는 경우 이 단계는 선택 사항입니다.
 
-```powershell
-PS C:\mycertificates> Import-PfxCertificate -FilePath .\party-cluster-873689604-client-cert.pfx -CertStoreLocation Cert:
-\CurrentUser\My
+3. **연결 엔드포인트**에 대한 드롭다운을 선택하고 "<Create New Cluster...>" 옵션을 선택합니다.
+    
+    ![[게시] 대화 상자](./media/service-fabric-tutorial-deploy-app-to-party-cluster/publish-app.png)
+    
+4. "클러스터 만들기" 대화 상자에서 다음 설정을 수정합니다.
 
+    1. "클러스터 이름" 필드에서 클러스터의 이름뿐만 아니라 사용하려는 구독과 위치도 지정합니다.
+    2. 선택 사항: 노드 수를 수정할 수 있습니다. 기본적으로 Service Fabric 시나리오를 테스트하는 데 필요한 최소 세 개의 노드가 있습니다.
+    3. "인증서" 탭을 선택합니다. 이 탭에서 클러스터의 인증서를 보호하는 데 사용할 암호를 입력합니다. 이 인증서는 클러스터를 안전하게 보호하는 데 도움이 됩니다. 인증서를 저장하려는 위치의 경로를 수정할 수도 있습니다. 또한 응용 프로그램을 클러스터에 게시하는 데 필요한 단계이므로 Visual Studio에서 사용자에 대한 인증서를 가져올 수도 있습니다.
+    4. "VM 세부 정보" 탭을 선택합니다. 클러스터를 구성하는 VM(Virtual Machines)에 사용할 암호를 지정합니다. 사용자 이름과 암호를 사용하여 VM에 원격으로 연결할 수 있습니다. 또한 VM 컴퓨터 크기를 선택해야 하며, 필요한 경우 VM 이미지를 변경할 수도 있습니다.
+    5. 선택 사항: "고급" 탭에서 클러스터와 함께 만들 부하 분산 장치에서 열려는 포트 목록을 수정할 수 있습니다. 또한 응용 프로그램 로그 파일을 라우팅하는 데 사용할 기존 Application Insights 키를 추가할 수도 있습니다.
+    6. 설정 수정을 마쳤으면 "만들기" 단추를 선택합니다. 만들기가 완료되는 데 몇 분이 걸립니다. 클러스터가 완전히 만들어지면 출력 창에 표시됩니다.
+    
+    ![클러스터 만들기 대화 상자](./media/service-fabric-tutorial-deploy-app-to-party-cluster/create-cluster.png)
 
-  PSParentPath: Microsoft.PowerShell.Security\Certificate::CurrentUser\My
+4. 사용하려는 클러스터가 준비되면 응용 프로그램 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
 
-Thumbprint                                Subject
-----------                                -------
-3B138D84C077C292579BA35E4410634E164075CD  CN=zwin7fh14scd.westus.cloudapp.azure.com
-```
+    게시가 완료되면 브라우저를 통해 응용 프로그램에 요청을 보낼 수 있습니다.
 
-
-## <a name="deploy-the-app-to-the-azure"></a>Azure에 앱 배포
-이제 응용 프로그램이 준비되면 Visual Studio에서 Party 클러스터에 직접 배포할 수 있습니다.
-
-1. 솔루션 탐색기에서 **Voting**을 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다. 
-
-    ![[게시] 대화 상자](./media/service-fabric-quickstart-containers/publish-app.png)
-
-2. 파티 클러스터 페이지의 **연결 끝점**을 **연결 끝점** 필드에 복사합니다. 예: `zwin7fh14scd.westus.cloudapp.azure.com:19000` **고급 연결 매개 변수**를 클릭하고 다음 정보를 채웁니다.  *FindValue* 및 *ServerCertThumbprint* 값은 이전 단계에서 설치한 인증서의 지문과 일치해야 합니다. **게시**를 클릭합니다. 
-
-    게시가 완료되면 브라우저를 통해 요청을 응용 프로그램에 보낼 수 있습니다.
-
-3. 기본 설정 브라우저를 열고, 클러스터 주소를 입력합니다(포트 정보가 없는 연결 끝점. 예: win1kw5649s.westus.cloudapp.azure.com).
+5. 기본 설정 브라우저를 열고, 클러스터 주소를 입력합니다(포트 정보가 없는 연결 끝점. 예: win1kw5649s.westus.cloudapp.azure.com).
 
     이제 응용 프로그램을 로컬로 실행할 때와 동일한 결과가 표시됩니다.
 
     ![클러스터에서 API 응답](./media/service-fabric-tutorial-deploy-app-to-party-cluster/response-from-cluster.png)
 
-## <a name="remove-the-application-from-a-cluster-using-service-fabric-explorer"></a>Service Fabric Explorer를 사용하여 클러스터에서 응용 프로그램 제거
-Service Fabric Explorer는 Service Fabric 클러스터에서 응용 프로그램을 탐색하고 관리하는 그래픽 사용자 인터페이스입니다.
-
-Party 클러스터에서 응용 프로그램을 제거하려면:
-
-1. Party 클러스터 등록 페이지에 제공된 링크를 사용하여 Service Fabric Explorer로 이동합니다. 예를 들어 https://win1kw5649s.westus.cloudapp.azure.com:19080/Explorer/index.html입니다.
-
-2. Service Fabric Explorer 왼쪽의 트리 뷰에서 **fabric://Voting** 노드로 이동합니다.
-
-3. 오른쪽 **Essentials** 창에서 **작업** 단추를 클릭하고 **응용 프로그램 삭제**를 선택합니다. 클러스터에서 실행 중인 응용 프로그램의 인스턴스를 제거하는 응용 프로그램 인스턴스 삭제를 확인합니다.
-
-![Service Fabric Explorer에서 응용 프로그램 삭제](./media/service-fabric-tutorial-deploy-app-to-party-cluster/delete-application.png)
-
-## <a name="remove-the-application-type-from-a-cluster-using-service-fabric-explorer"></a>Service Fabric Explorer를 사용하여 클러스터에서 응용 프로그램 형식 제거
-응용 프로그램은 Service Fabric 클러스터에서 응용 프로그램 형식으로 배포되므로 클러스터 내에서 실행되는 응용 프로그램의 여러 인스턴스 및 버전을 포함할 수 있습니다. 실행 중인 응용 프로그램 인스턴스를 제거한 후에는 형식도 제거하여 배포 정리를 완료할 수 있습니다.
-
-Service Fabric에서 응용 프로그램 모델에 대한 자세한 내용은 [Service Fabric에서 응용 프로그램 모델링](service-fabric-application-model.md)을 참조하세요.
-
-1. 트리 뷰에서 **VotingType** 노드로 이동합니다.
-
-2. 오른쪽 **Essentials** 창에서 **작업** 단추를 클릭하고 **프로비전 해제 형식**을 선택합니다. 응용 프로그램 형식의 프로비전 해제를 확인합니다.
-
-![Service Fabric Explorer에서 응용 프로그램 형식 프로비전 해제](./media/service-fabric-tutorial-deploy-app-to-party-cluster/unprovision-type.png)
-
-이제 자습서가 완료되었습니다.
-
 ## <a name="next-steps"></a>다음 단계
 이 자습서에서는 다음 방법에 대해 알아보았습니다.
 
 > [!div class="checklist"]
+> * Visual Studio에서 클러스터 만들기
 > * Visual Studio를 사용하여 원격 클러스터에 응용 프로그램 배포
-> * Service Fabric Explorer를 사용하여 클러스터에서 응용 프로그램 제거
 
 다음 자습서를 진행합니다.
 > [!div class="nextstepaction"]

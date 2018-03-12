@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/08/2017
 ms.author: wgries
-ms.openlocfilehash: 9b6dfec6465482efcbf55d0441e44a0278f44a22
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 5f57edb33770acd7a97287d5cfd650b7fe8366f4
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-file-sync-agent-release-notes"></a>Azure File Sync 에이전트 릴리스 정보
 Azure File Sync(미리 보기)를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 희생하지 않고 Azure 파일에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. 이 작업은 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환하여 수행합니다. Windows Server에서 사용할 수 있는 아무 프로토콜이나 사용하여 데이터를 로컬로(SMB, NFS 및 FTPS 포함) 액세스할 수 있으며 세계 전역에 걸쳐 필요한 만큼 캐시를 보유할 수 있습니다.
@@ -30,11 +30,25 @@ Azure File Sync(미리 보기)를 사용하여 온-프레미스 파일 서버의
 
 | 에이전트 버전 번호 | 릴리스 날짜 | 다음 날짜까지 지원 |
 |----------------------|--------------|------------------|
+| 2.1.0.0 | 2018-02-28 | 현재 버전 |
 | 2.0.11.0 | 2018-02-08 | 현재 버전 |
 | 1.1.0.0 | 2017-09-26 | 2018-07-30 |
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Azure 파일 동기화 에이전트 업데이트 정책
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
+
+## <a name="agent-version-2100"></a>에이전트 버전 2.1.0.0
+다음은 2018년 2월 28일에 출시된 에이전트 버전 2.1.0에 대한 릴리스 정보입니다. 이러한 정보는 아래의 버전 2.0.11.0 릴리스 정보에 추가된 내용입니다.
+
+이 월간 업데이트의 고유한 변경 내용은 다음과 같습니다.
+- 클러스터 장애 조치 처리가 향상되었습니다.
+- 계층화된 파일을 더 안정적으로 처리할 수 있도록 향상되었습니다.
+- 2008R2 도메인 환경에 추가된 도메인 컨트롤러 컴퓨터에 에이전트를 설치할 수 있습니다.
+- 여러 파일이 있는 서버에서 발생하는 과도한 진단 생성 문제를 수정했습니다.
+- 세션 실패에 대한 오류 처리가 향상되었습니다.
+- 파일 전송 문제에 대한 오류 처리가 향상되었습니다.
+- 서버 엔드포인트에서 1시간으로 설정된 경우 기본 간격을 변경하여 클라우드 계층화를 실행할 수 있습니다. 
+- Azure File Sync(Storage Sync Service) 리소스를 새 Azure 구독으로 이동하지 않도록 일시적으로 차단할 수 있습니다.
 
 ## <a name="agent-version-20110"></a>에이전트 버전 2.0.11.0
 다음 릴리스 정보는 2018년 2월 9일에 출시된 에이전트 버전 2.0.11.0에 대한 것입니다. 
