@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: json
 ms.topic: article
-ms.date: 12/06/2017
+ms.date: 03/05/2018
 ms.author: richrund
-ms.openlocfilehash: cea25429dc6e5f9f12f472d17e8743d272135257
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: db9b941e84c018a3a56dd683c118e47ee808259d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿 사용한 Log Analytics 관리
 [Azure Resource Manager 템플릿](../azure-resource-manager/resource-group-authoring-templates.md)을 사용하여 Log Analytics 작업 영역 만들고 구성할 수 있습니다. 템플릿을 사용하여 수행할 수 있는 작업의 예:
@@ -31,7 +31,6 @@ ms.lasthandoff: 01/10/2018
 * Linux 및 Windows 컴퓨터에서 성능 카운터 수집
 * Linux 컴퓨터의 syslog에서 이벤트 수집 
 * Windows 이벤트 로그에서 이벤트 수집
-* 사용자 지정 이벤트 로그 수집
 * Azure 가상 머신에 Log Analytics 에이전트 추가
 * Azure 진단을 사용하여 수집된 데이터를 인덱싱하도록 Log Analytics 구성
 
@@ -43,7 +42,7 @@ ms.lasthandoff: 01/10/2018
 | 리소스 | 리소스 종류 | 레거시 API 버전 | 업그레이드된 API 버전 |
 |:---|:---|:---|:---|
 | 작업 영역   | workspaces    | 2015-11-01-preview | 2017-03-15-preview |
-| Search      | savedSearches | 2015-11-01-preview | 2017-03-15-preview |
+| 검색      | savedSearches | 2015-11-01-preview | 2017-03-15-preview |
 | 데이터 원본 | datasources   | 2015-11-01-preview | 2015-11-01-preview |
 | 해결 방법    | solutions     | 2015-11-01-preview | 2015-11-01-preview |
 
@@ -60,7 +59,6 @@ ms.lasthandoff: 01/10/2018
 7. Linux 컴퓨터에서 syslog 이벤트 수집
 8. Windows 컴퓨터에서 응용 프로그램 이벤트 로그의 오류 및 경고 이벤트 수집
 9. Windows 컴퓨터에서 사용 가능한 메모리(MB) 성능 카운터 수집
-10. 사용자 지정 로그 수집 
 11. Azure 진단을 통해 저장소 계정에 기록한 Windows 이벤트 로그 및 IIS 로그 수집
 
 ```json
@@ -291,61 +289,6 @@ ms.lasthandoff: 01/10/2018
           "kind": "LinuxPerformanceCollection",
           "properties": {
             "state": "Enabled"
-          }
-        },
-        {
-          "apiVersion": "2015-11-01-preview",
-          "type": "datasources",
-          "name": "sampleCustomLog1",
-          "dependsOn": [
-            "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
-          ],
-          "kind": "CustomLog",
-          "properties": {
-            "customLogName": "sampleCustomLog1",
-            "description": "test custom log datasources",
-            "inputs": [
-              {
-                "location": {
-                  "fileSystemLocations": {
-                    "windowsFileTypeLogPaths": [ "e:\\iis5\\*.log" ],
-                    "linuxFileTypeLogPaths": [ "/var/logs" ]
-                  }
-                },
-                "recordDelimiter": {
-                  "regexDelimiter": {
-                    "pattern": "\\n",
-                    "matchIndex": 0,
-                    "matchIndexSpecified": true,
-                    "numberedGroup": null
-                  }
-                }
-              }
-            ],
-            "extractions": [
-              {
-                "extractionName": "TimeGenerated",
-                "extractionType": "DateTime",
-                "extractionProperties": {
-                  "dateTimeExtraction": {
-                    "regex": null,
-                    "joinStringRegex": null
-                  }
-                }
-              }
-            ]
-          }
-        },
-        {
-          "apiVersion": "2015-11-01-preview",
-          "type": "datasources",
-          "name": "sampleCustomLogCollection1",
-          "dependsOn": [
-            "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
-          ],
-          "kind": "CustomLogCollection",
-          "properties": {
-            "state": "LinuxLogsEnabled"
           }
         },
         {
