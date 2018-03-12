@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 834dbbd0be30181de1a71df05d2867be0e1c59b4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4928364ffd732f587e41a788c4d834e91339a7fc
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>Azure AD Connect Health를 사용하여 AD FS 모니터링
 다음 문서는 AZure AD Connect Health와 함께 AD FS 인프라 모니터링에 중점을 둡니다. Azure AD Connect Health와 함께 Azure AD Connect (동기화)를 모니터링하는 방법에 대한 정보는 [동기화를 위해 Azure AD Connect Health 사용](active-directory-aadconnect-health-sync.md)을 참조하세요. 또한 Azure AD Connect Health와 함께 Active Directory Domain Services를 모니터링하는 방법에 대한 정보는 [AD DS와 함께 Azure AD Connect Health 사용](active-directory-aadconnect-health-adds.md)을 참조하세요.
@@ -69,7 +69,7 @@ Azure AD Connect Health 사용 현황 분석에서는 페더레이션 서버의 
 |그룹화 기준 | 그룹화의 의미 및 그룹화가 유용한 이유 |
 | --- | --- |
 |모두 |이 메트릭은 선택한 시간 조각에서 페더레이션 서비스를 사용하는 평균 사용자 수를 제공합니다. 사용자가 그룹화되지 않습니다. <br>평균은 선택한 시간 조각에 따라 달라집니다. |
-| 적용 |대상 응용 프로그램(신뢰 당사자)을 기반으로 평균 사용자 수를 그룹화합니다. 이 그룹화는 특정 응용 프로그램을 사용하는 사용자의 수를 파악하는 데 유용합니다. |
+| 응용 프로그램 |대상 응용 프로그램(신뢰 당사자)을 기반으로 평균 사용자 수를 그룹화합니다. 이 그룹화는 특정 응용 프로그램을 사용하는 사용자의 수를 파악하는 데 유용합니다. |
 
 ## <a name="performance-monitoring-for-ad-fs"></a>AD FS의 모니터링 성능
 Azure AD Connect Health 성능 모니터링은 메트릭에 대한 모니터링 정보를 제공합니다. 모니터링 상자를 선택하면 메트릭에 대한 자세한 정보가 포함된 새 블레이드가 열립니다.
@@ -86,7 +86,7 @@ AD FS 서버에서 인증 요청이 실패하는 일반적인 이유 중 하나�
 
 하지만, 응용 프로그램이 사용자 자격 증명을 캐시했는데 자격 증명이 만료되었거나 일련의 잘 알려진 암호를 사용하여 계정에 로그인을 시도하는 악의적인 사용자와 같은 다른 이유로 인해 AD FS 서버에서 처리되는 예상치 못한 요청 수가 발생할 수 있습니다. 이러한 두 가지 예는 요청의 급증을 유발할 수 있는 유효한 원인입니다.
 
-Azure AD Connect Health for ADFS는 사용자 이름 또는 암호가 잘못되어 로그인 시도가 실패한 상위 사용자 50명에 대한 보고서를 제공합니다. 이 보고서는 팜의 모든 AD FS 서버에서 생성한 감사 이벤트를 처리하여 작성됩니다.
+Azure AD Connect Health for ADFS는 사용자 이름 또는 암호가 잘못되어 로그인 시도가 실패한 상위 사용자 50명에 대한 보고서를 제공합니다. 이 보고서는 팜의 모든 AD FS 서버에서 생성된 감사 이벤트를 처리하여 얻을 수 있습니다.
 
 ![Azure AD Connect Health 포털](./media/active-directory-aadconnect-health-adfs/report1a.png)
 
@@ -95,7 +95,7 @@ Azure AD Connect Health for ADFS는 사용자 이름 또는 암호가 잘못되�
 * 지난 30일 동안 잘못된 사용자 이름/암호를 사용하여 실패한 요청 수
 * 잘못된 사용자 이름/암호로 로그인하여 실패한 일별 평균 사용자 수
 
-이 부분을 클릭하면 추가 세부 정보를 제공하는 주 보고서 블레이드로 이동합니다. 이 블레이드는 잘못된 사용자 이름이나 암호를 사용하는 요청에 대한 기준을 설정하는 데 도움이 되는 추세 정보가 있는 그래프를 포함합니다. 또한, 실패한 시도 횟수와 상위 50명의 사용자 목록을 제공합니다.
+이 부분을 클릭하면 추가 세부 정보를 제공하는 주 보고서 블레이드로 이동합니다. 이 블레이드는 잘못된 사용자 이름이나 암호를 사용하는 요청에 대한 기준을 설정하는 데 도움이 되는 추세 정보가 있는 그래프를 포함합니다. 또한 지난 한 주 동안 실패한 시도 횟수가 포함된 상위 50명의 사용자 목록을 제공합니다.
 
 이 그래프는 다음 정보를 제공합니다.
 
@@ -115,7 +115,7 @@ Azure AD Connect Health for ADFS는 사용자 이름 또는 암호가 잘못되�
 | 마지막 실패 IP |최신 잘못된 요청에서 클라이언트 IP 주소를 표시합니다. |
 
 > [!NOTE]
-> 이 보고서는 해당 시간 내에 수집된 새 정보를 사용하여 2시간 후마다 자동으로 업데이트됩니다. 따라서 마지막 2시간 내에 발생하는 로그인 시도가 보고서에 포함되지 않을 수 있습니다.
+> 이 보고서는 12시간마다 자동으로 업데이트되어 해당 시간 내에 수집된 새 정보가 포함됩니다. 따라서 마지막 2시간 내에 발생하는 로그인 시도가 보고서에 포함되지 않을 수 있습니다.
 >
 >
 
