@@ -12,17 +12,22 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/09/2018
 ms.author: anwestg
-ms.openlocfilehash: 042ebb0acc82a0cecabac7f2bc7c3b68e3ed362f
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 7a44c5d182aa3c66c07c3dad8c82e171429f2ee4
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>AD FS로 보호 되는 연결이 끊어진된 Azure 스택 환경에 앱 서비스 리소스 공급자 추가
 
 *적용 대상: Azure 스택 통합 시스템과 Azure 스택 개발 키트*
+
+> [!IMPORTANT]
+> Azure 스택 통합 시스템 1802 업데이트를 적용 하거나 Azure 앱 서비스를 배포 하기 전에 최신 Azure 스택 개발 키트를 배포 합니다.
+>
+>
 
 이 문서의 지침에 따라 설치할 수 있습니다는 [앱 서비스 리소스 공급자](azure-stack-app-service-overview.md) 되는 Azure 스택 환경을에:
 

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/08/2018
 ms.author: anwestg
 ms.reviewer: brenduns
-ms.openlocfilehash: d6471796863a80e69fdaf740b68fb27d59503453
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 680cb70777574d0ed88c5f83fb0a6fa20263b951
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="app-service-on-azure-stack-add-more-infrastructure-or-worker-roles"></a>Azure 스택 앱 서비스: 더 많은 인프라 또는 작업자 역할 추가
 
@@ -44,6 +44,7 @@ Azure 스택 앱 서비스를 azure 가상 컴퓨터 크기 집합을 사용 하
 ## <a name="add-additional-workers-with-powershell"></a>PowerShell과 함께 추가 작업자 추가
 
 1. [PowerShell에서 Azure 스택 관리자 환경을 설정합니다](azure-stack-powershell-configure-admin.md)
+
 2. 이 예제를 사용 하 여 크기 집합을 확장 하려면:
    ```powershell
    
@@ -59,7 +60,7 @@ Azure 스택 앱 서비스를 azure 가상 컴퓨터 크기 집합을 사용 하
     $ScaleSetName = "SharedWorkerTierScaleSet"
 
     ## TotalCapacity is sum of the instances needed at the end of operation. 
-    ## e.g. if you VMSS has 1 instance(s) currently and you need 1 more the TotalCapacity should be set to 2
+    ## e.g. if your VMSS has 1 instance(s) currently and you need 1 more the TotalCapacity should be set to 2
     $TotalCapacity = 2  
 
     # Get current scale set
@@ -68,51 +69,50 @@ Azure 스택 앱 서비스를 azure 가상 컴퓨터 크기 집합을 사용 하
     # Set and update the capacity
     $vmss.sku.capacity = $TotalCapacity
     Update-AzureRmVmss -ResourceGroupName $AppServiceResourceGroupName -Name $ScaleSetName -VirtualMachineScaleSet $vmss 
-  
-    '''
+   ```    
 
-> [!NOTE]
-> This step can take a number of hours to complete depending on the type of role and the number of instances.
->
->
+   > [!NOTE]
+   > 이 단계는 다양 한 유형의 역할 및 인스턴스 수에 따라 완료 하는 데 시간이 걸릴 수 있습니다.
+   >
+   >
 
-3. Monitor the status of the new role instances in the App Service Administration, to check the status of an individual role instance click the role type in the list.
+3. 앱 서비스 관리에 새 역할 인스턴스 상태를 모니터링, 개별 역할 인스턴스 상태를 확인 하려면 역할 유형 목록에서를 클릭 합니다.
 
-## Add additional workers directly within the App Service Resource Provider Admin.
+## <a name="add-additional-workers-directly-within-the-app-service-resource-provider-admin"></a>앱 서비스 리소스 공급자 관리자 내에서 직접 추가 작업자 추가
 
-1. Log in to the Azure Stack administration portal as the service administrator.
+1. 서비스 관리자로 Azure 스택 관리 포털에 로그인 합니다.
 
-2. Browse to **App Services**.
+2. 찾아 **응용 프로그램 서비스**합니다.
 
     ![](media/azure-stack-app-service-add-worker-roles/image01.png)
 
-3. Click **Roles**. Here you see the breakdown of all App Service roles deployed.
+3. **역할**을 클릭합니다. 여기에 배포 된 모든 앱 서비스 역할의 분석 결과 볼 있습니다.
 
-4. Right click on the row of the type you want to scale and then click **ScaleSet**.
+4. 확장 하 고 클릭 한 다음 원하는 종류의 행을 마우스 오른쪽 단추로 클릭 **ScaleSet**합니다.
 
     ![](media/azure-stack-app-service-add-worker-roles/image02.png)
 
-5. Click **Scaling**, select the number of instances you want to scale to, and then click **Save**.
+5. 클릭 **배율**, 선택, 크기를 조정 하 고 클릭 하려는 인스턴스의 수 **저장**합니다.
 
     ![](media/azure-stack-app-service-add-worker-roles/image03.png)
 
-6. App Service on Azure Stack will now add the additional VMs, configure them, install all the required software, and mark them as ready when this process is complete. This process can take approximately 80 minutes.
+6. Azure 스택 앱 서비스는 이제 추가 Vm 추가, 구성, 모든 필수 소프트웨어를 설치 및이 프로세스가 완료 되 면 준비로 표시 합니다. 이 프로세스는 약 80 분 걸릴 수 있습니다.
 
-7. You can monitor the progress of the readiness of the new roles by viewing the workers in the **Roles** blade.
+7. 근로자에 게 확인 하 여 새 역할의 준비의 진행 상황을 모니터링할 수 있습니다는 **역할** 블레이드입니다.
 
-## Result
+## <a name="result"></a>결과
 
-After they are fully deployed and ready, the workers become available for users to deploy their workload onto them. The following shows an example of the multiple pricing tiers available by default. If there are no available workers for a particular worker tier, the option to choose the corresponding pricing tier is unavailable.
+이들이 완전히 하 게 배포 하 고, 작업 자가 레이어로 프로그램 작업을 배포 하는 사용자에 대해 사용할 수 있습니다. 다음 기본적으로 사용할 수 있는 여러 가격 책정 계층의 예를 보여줍니다. 특정 작업자 계층에 대 한 사용 가능한 자가 있는지, 해당 가격 책정 계층을 선택할 수 있는 옵션 ´ ù입니다.
 
 ![](media/azure-stack-app-service-add-worker-roles/image04.png)
 
 >[!NOTE]
-> To scale out Management, Front End or Publisher roles add you must scale out the corresponding role type. 
+> 프런트 엔드 또는 게시자 역할 관리를 확장 하려면 해당 역할 유형 수평 확장 해야 합니다를 추가 합니다. 
 >
 >
 
-To scale out Management, Front End, or Publisher roles, follow the same steps selecting the appropriate role type. Controllers are not deployed as Scale Sets and therefore two should be deployed at Installation time for all production deployments.
+관리, 프런트 엔드 또는 게시자 역할을 확장 하려면 적절 한 역할 유형을 선택한 후 동일한 단계를 따릅니다. 컨트롤러 크기 집합으로 배포 되지 않습니다 및 따라서 두 으로만 모든 프로덕션 배포에 대 한 설치 시간에 있습니다.
 
-### Next steps
+### <a name="next-steps"></a>다음 단계
 
-[Configure deployment sources](azure-stack-app-service-configure-deployment-sources.md)
+[배포 소스 구성](azure-stack-app-service-configure-deployment-sources.md)

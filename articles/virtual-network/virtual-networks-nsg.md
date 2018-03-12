@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
-ms.openlocfilehash: 726799e5d885f144d6e24ab88aaa022f95f0bdd8
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 5eca18ca2f34097d98ce947c61c635abc6ab27b8
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="filter-network-traffic-with-network-security-groups"></a>네트워크 보안 그룹을 사용하여 네트워크 트래픽 필터링
 
@@ -30,7 +30,7 @@ NSG(네트워크 보안 그룹)에는 VNet(Azure Virtual Network)에 연결된 �
 ## <a name="nsg-resource"></a>NSG 리소스
 NSG에는 다음과 속성이 포함됩니다.
 
-| 속성 | 설명 | 제약 조건 | 고려 사항 |
+| 자산 | 설명 | 제약 조건 | 고려 사항 |
 | --- | --- | --- | --- |
 | Name |NSG 이름 |지역 내에서 고유해야 합니다.<br/>문자, 숫자, 밑줄, 마침표 및 하이픈을 포함할 수 있습니다.<br/>문자 또는 숫자로 시작해야 합니다.<br/>문자, 숫자 또는 밑줄로 끝나야 합니다.<br/>80자를 초과할 수 없습니다. |NSG를 여러 개 만들어야 하는 경우 NSG 기능을 쉽게 식별할 수 있는 명명 규칙을 사용해야 합니다. |
 | 지역 |NSG를 만들 Azure [지역](https://azure.microsoft.com/regions) |NSG는 NSG와 동일한 지역 내의 리소스에만 연결할 수 있습니다. |지역별 NSG 수에 대한 자세한 내용은 [Azure 제한](../azure-subscription-service-limits.md#virtual-networking-limits-classic) 문서를 참조하세요.|
@@ -44,7 +44,7 @@ NSG에는 다음과 속성이 포함됩니다.
 ### <a name="nsg-rules"></a>NSG 규칙
 NSG 규칙은 다음 속성을 포함합니다.
 
-| 속성 | 설명 | 제약 조건 | 고려 사항 |
+| 자산 | 설명 | 제약 조건 | 고려 사항 |
 | --- | --- | --- | --- |
 | **Name** |규칙의 이름 |지역 내에서 고유해야 합니다.<br/>문자, 숫자, 밑줄, 마침표 및 하이픈을 포함할 수 있습니다.<br/>문자 또는 숫자로 시작해야 합니다.<br/>문자, 숫자 또는 밑줄로 끝나야 합니다.<br/>80자를 초과할 수 없습니다. |NSG에는 여러 규칙이 있을 수 있으므로 규칙의 기능을 식별할 수 있는 명명 규칙을 따라야 합니다. |
 | **프로토콜** |규칙과 일치하는 프로토콜 |TCP, UDP, 또는 * |프로토콜로 *(별표)를 사용하면 UDP와 TCP뿐만 아니라 ICMP(동부 및 서부 트래픽만)도 포함되며, 필요한 규칙의 수를 줄일 수 있습니다.<br/>동시에 *를 사용하면 너무 광범위할 수 있으므로 필요한 경우에만 사용하는 것이 좋습니다. |
@@ -66,7 +66,7 @@ NSG에는 두 가지 규칙 집합, 즉 인바운드 및 아웃바운드가 포�
 기본 태그는 IP 주소의 범주를 다루기 위해 시스템에서 제공한 식별자입니다. 모든 규칙의 **원본 주소 접두사** 및 **대상 주소 접두사** 속성에 있는 기본 태그를 사용할 수 있습니다. 다음 3개의 기본 태그를 사용할 수 있습니다.
 
 * **VirtualNetwork**(Resource Manager) (클래식의 경우 **VIRTUAL_NETWORK**): 이 태그에는 가상 네트워크 주소 공간(Azure에 정의된 CIDR 범위), 연결된 모든 온-프레미스 주소 공간 및 연결된 Azure VNet(로컬 네트워크)이 포함됩니다.
-* **AZURE_LOADBALANCER**(Resource Manager) (클래식의 경우 **AzureLoadBalancer**): 이 태그는 Azure의 인프라 부하 분산 장치를 나타내며, Azure의 상태 검색이 시작되는 Azure 데이터 센터 IP로 변환됩니다.
+* **AZURE_LOADBALANCER**(Resource Manager) (클래식의 경우 **AzureLoadBalancer**): 이 태그는 Azure의 인프라 부하 분산 장치를 나타내며, Azure Load Balancer의 상태 프로브가 시작된 Azure 데이터 센터 IP로 변환됩니다.
 * **Internet**(Resource Manager) (클래식의 경우 **INTERNET**): 이 태그는 가상 네트워크 외부에 있고 공용 인터넷에서 연결할 수 있는 IP 주소 공간을 나타냅니다. 범위에는 [Azure에서 소유하는 공용 IP 공간](https://www.microsoft.com/download/details.aspx?id=41653)이 포함됩니다.
 
 ### <a name="default-rules"></a>기본 규칙
@@ -75,7 +75,7 @@ NSG에는 두 가지 규칙 집합, 즉 인바운드 및 아웃바운드가 포�
 기본 규칙은 다음과 같이 트래픽을 허용하거나 허용하지 않습니다.
 - **가상 네트워크:** 가상 네트워크에서 시작하고 끝나는 트래픽은 인바운드와 아웃바운드 방향 둘 다에서 허용됩니다.
 - **인터넷:** 아웃바운드 트래픽은 허용되지만 인바운드 트래픽은 차단됩니다.
-- **부하 분산 장치:** Azure의 부하 분산 장치에서 VM과 역할 인스턴스의 상태를 검색할 수 있도록 허용합니다. 부하 분산된 집합을 사용하지 않는 경우 이 규칙을 무시할 수 있습니다.
+- **부하 분산 장치:** Azure Load Balancer를 사용하여 VM 및 역할 인스턴스의 상태를 검색할 수 있도록 합니다. 이 규칙이 무시되면 Azure Load Balancer 상태 프로브가 실패하여 서비스에 영향을 줄 수 있습니다.
 
 **인바운드 기본 규칙**
 
@@ -123,11 +123,11 @@ NSG에는 두 가지 규칙 집합, 즉 인바운드 및 아웃바운드가 포�
 
 | 배포 도구 | 클래식 | 리소스 관리자 |
 | --- | --- | --- |
-| Azure 포털   | 아니요 | [예](virtual-networks-create-nsg-arm-pportal.md) |
+| Azure portal   | 아니요 | [예](virtual-networks-create-nsg-arm-pportal.md) |
 | PowerShell     | [예](virtual-networks-create-nsg-classic-ps.md) | [예](virtual-networks-create-nsg-arm-ps.md) |
 | Azure CLI **V1**   | [예](virtual-networks-create-nsg-classic-cli.md) | [예](virtual-networks-create-nsg-arm-cli.md) |
 | Azure CLI **V2**   | 아니요 | [예](virtual-networks-create-nsg-arm-cli.md) |
-| Azure Resource Manager 템플릿   | 아니요  | [예](virtual-networks-create-nsg-arm-template.md) |
+| Azure Resource Manager 템플릿   | 아니오  | [예](virtual-networks-create-nsg-arm-template.md) |
 
 ## <a name="planning"></a>계획
 NSG를 구현하기 전에 아래 질문에 답변해야 합니다.
@@ -163,7 +163,8 @@ NSG가 서브넷에 적용될 수 있기 때문에, 서브넷에 따라서 리�
 ### <a name="load-balancers"></a>부하 분산 장치
 * 각 워크로드에서 사용하는 각 부하 분산 장치에 대한 부하 분산 및 NAT(Network Address Translation) 규칙을 사용하는 것이 좋습니다. NAT 규칙은 NIC(Resource Manager) 또는 VM/Cloud Services 역할 인스턴스(클래식)가 포함된 백 엔드 풀에 바인딩됩니다. 각 백 엔드 풀에 대해 NSG를 만들어 부하 분산 장치에 구현된 규칙을 통해 매핑되는 트래픽만 허용하는 것이 좋습니다. 각 백 엔드 풀에 대한 NSG를 만들면 부하 분산 장치를 통하지 않고 직접 백 엔드 풀로 들어오는 트래픽도 필터링됩니다.
 * 클래식 배포의 경우, 부하 분산 장치의 포트를 VM 또는 역할 인스턴스의 포트에 매핑하는 끝점을 만듭니다. 또한 Resource Manager를 통해 사용자 고유의 개별적인 공용 부하 분산 장치를 만들 수도 있습니다. 들어오는 트래픽의 대상 포트는 부하 분산 장치에서 노출하는 포트가 아닌 VM이나 역할 인스턴스의 실제 포트입니다. VM에 연결하기 위한 원본 포트와 주소는 부하 분산 장치에서 노출하는 포트와 주소가 아닌 인터넷 상의 원격 컴퓨터의 포트와 주소입니다.
-* ILB(내부 부하 분산 장치)를 통해 들어오는 트래픽을 필터링하기 위해 NSG를 만들 때 적용되는 원본 포트와 주소 범위는 부하 분산 장치가 아닌 원래 컴퓨터에서 가져온 것입니다. 대상 포트와 주소 범위는 부하 분산 장치가 아닌 대상 컴퓨터의 포트와 주소 범위입니다.
+* NSG를 만들어 Azure Load Balancer를 통해 들어오는 트래픽을 필터링하는 경우, 적용되는 원본 포트와 주소 범위는 부하 분산 장치 프런트 엔드가 아닌 원래 컴퓨터에서 가져옵니다. 대상 포트와 주소 범위는 부하 분산 장치 프런트 엔드가 아닌 대상 컴퓨터의 포트와 주소 범위입니다.
+* AzureLoadBalancer 태그를 차단하면 Azure Load Balancer의 상태 프로브가 실패하고 서비스에 영향을 줄 수 있습니다.
 
 ### <a name="other"></a>기타
 * 끝점 기반 ACL(액세스 제어 목록)과 NSG는 동일한 VM 인스턴스에서 지원되지 않습니다. NSG를 사용하려는데 끝점 ACL이 이미 있는 경우 먼저, 끝점 ACL을 제거합니다. 끝점 ACL을 제거하는 방법에 대한 내용은 [끝점 ACL 관리](virtual-networks-acl-powershell.md) 문서를 참조하세요.
@@ -229,7 +230,7 @@ NSG가 서브넷에 적용될 수 있기 때문에, 서브넷에 따라서 리�
 | Allow-Inbound-HTTP-Internet(인바운드 HTTP 인터넷 허용) | 허용 | 200 | 인터넷 | * | * | 80 | TCP |
 
 > [!NOTE]
-> 이전 규칙의 원본 주소 범위는 부하 분산 장치의 가상 IP 주소가 아니라 **Internet**입니다. 원본 포트는 500001이 아니라 *입니다. 부하 분산 장치의 NAT 규칙은 NSG 보안 규칙과 다릅니다. NSG 보안 규칙은 원본과 대상 사이의 부하 분산 장치가 **아니라** 항상 트랙픽의 원래 원본 및 최종 대상과 관련이 있습니다. 
+> 이전 규칙의 원본 주소 범위는 부하 분산 장치의 가상 IP 주소가 아니라 **Internet**입니다. 원본 포트는 500001이 아니라 *입니다. 부하 분산 장치의 NAT 규칙은 NSG 보안 규칙과 다릅니다. NSG 보안 규칙은 원본과 대상 사이의 부하 분산 장치가 **아니라** 항상 트랙픽의 원래 원본 및 최종 대상과 관련이 있습니다. Azure Load Balancer는 항상 원본 IP 주소와 포트를 유지합니다.
 > 
 > 
 

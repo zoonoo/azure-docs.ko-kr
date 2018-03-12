@@ -119,6 +119,8 @@
               href: azure-stack-deploy-template-powershell.md
             - name: Visual Studio를 사용하여 배포
               href: azure-stack-deploy-template-visual-studio.md
+    - name: 클라우드 서비스 공급자를 사용 하도록 설정
+      href: azure-stack-csp-enable-billing-usage-tracking.md
 - name: 참조
   items:
     - name: Azure Stack PowerShell
