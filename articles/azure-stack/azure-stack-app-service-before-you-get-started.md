@@ -12,17 +12,22 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2018
+ms.date: 03/09/2018
 ms.author: anwestg
-ms.openlocfilehash: f400180bc71efc6766b73b098c1f82542eec86f7
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 3261a312cde9ebdf41f6dadb82c14d108715f8f7
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Azure 스택 앱 서비스를 시작 하기 전에
 
 *적용 대상: Azure 스택 통합 시스템과 Azure 스택 개발 키트*
+
+> [!IMPORTANT]
+> Azure 스택 통합 시스템 1802 업데이트를 적용 하거나 Azure 앱 서비스를 배포 하기 전에 최신 Azure 스택 개발 키트를 배포 합니다.
+>
+>
 
 Azure 스택 Azure 앱 서비스를 배포 하기 전에이 문서의 필수 구성 요소를 완료 해야 합니다.
 
@@ -40,11 +45,11 @@ Azure 스택 Azure 앱 서비스를 배포 하기 전에이 문서의 필수 구
    - 모듈
      - GraphAPI.psm1
 
-## <a name="prepare-for-high-availability"></a>고가용성을 위해 준비 합니다.
+## <a name="high-availability"></a>고가용성
 
-현재 Azure 스택에 azure 앱 서비스는 Azure 스택 워크 로드에 하나의 장애 도메인을 배포 하기 때문에 고가용성을 제공할 수 없습니다.
+오류 도메인에 대 한 지원을 추가 하는 Azure 스택에서 1802 릴리스의 인해 Azure 스택 앱 서비스를 Azure의 새 배포 오류 도메인에 배포 되 고 내결함성을 제공 합니다.  1802이 출시 되기 전에 배포 된 Azure 스택 앱 서비스를 Azure의 기존 배포 업데이트 하십시오 (azure-stack-app-service-fault-domain-update.md) 배포 균형을 다시 조정 하는 방법에 대 한 설명서를 참조 하십시오.
 
-고가용성을 위해 Azure 스택에 Azure 앱 서비스를 준비 하려면 필요한 파일 서버 및 고가용성 구성에서 SQL Server 인스턴스를 배포 합니다. Azure 스택 여러 오류 도메인을 지 원하는 항상 사용 가능한 구성에서 Azure 스택에 Azure 앱 서비스를 사용 하도록 설정 하는 방법에 지침 제공 됩니다.
+또한 고가용성을 위해 Azure 스택에 Azure 앱 서비스에는 필요한 파일 서버 및 고가용성 구성에서 SQL Server 인스턴스에 배포 합니다. 
 
 ## <a name="get-certificates"></a>인증서 가져오기
 
@@ -127,13 +132,17 @@ Id에 대 한 인증서는 다음 형식과 일치 하는 주체를 포함 해�
 
 ## <a name="virtual-network"></a>Virtual Network
 
-Azure 스택 앱 서비스를 azure를 사용 하면 기존 가상 네트워크에 리소스 공급자를 배포할 수 있습니다.  이 파일 서버와 Azure 스택에 Azure 앱 서비스에서 요구 하는 SQL server에 연결 하는 내부 Ip 사용 하도록 설정 합니다.  가상 네트워크 스택 Azure에 Azure 앱 서비스를 설치 하기 전에 다음 주소 범위 및 서브넷으로 구성 해야 합니다.
+Azure 스택 앱 서비스를 azure에 배포할 수 있습니다 리소스 공급자 중 하나에 기존 가상 네트워크 또는 앱 서비스 배포의 일환으로 하나 만듭니다.  기존 가상 네트워크를 사용 하 여 내부 ip 파일 서버와 Azure 스택에 Azure 앱 서비스에서 요구 하는 SQL server에 연결 하는 데 사용할 수 있습니다.  가상 네트워크 스택 Azure에 Azure 앱 서비스를 설치 하기 전에 다음 주소 범위 및 서브넷으로 구성 해야 합니다.
 
 Virtual Network - /16
 
 서브넷
 
-ControllersSubnet/24/24 ManagementServersSubnet FrontEndsSubnet/24/24 PublishersSubnet WorkersSubnet /21
+* ControllersSubnet/24
+* ManagementServersSubnet /24
+* FrontEndsSubnet/24
+* PublishersSubnet /24
+* WorkersSubnet /21
 
 ## <a name="prepare-the-file-server"></a>파일 서버 준비
 

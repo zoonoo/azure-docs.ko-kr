@@ -12,18 +12,22 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/09/2018
 ms.author: anwestg
-ms.openlocfilehash: 7c5c77e57a1cfc6b99c0f7baa91ec8de92be37ec
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 151456bbb7f9331730e640e4bece3872c3c92f8d
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="update-azure-app-service-on-azure-stack"></a>Azure 스택에 Azure 앱 서비스를 업데이트 합니다.
 
 *적용 대상: Azure 스택 통합 시스템과 Azure 스택 개발 키트*
 
+> [!IMPORTANT]
+> Azure 스택 통합 시스템 1802 업데이트를 적용 하거나 Azure 앱 서비스를 배포 하기 전에 최신 Azure 스택 개발 키트를 배포 합니다.
+>
+>
 
 이 문서의 지침을 따르면 업그레이드할 수 있습니다는 [앱 서비스 리소스 공급자](azure-stack-app-service-overview.md) 인터넷에 연결 된 Azure 스택 환경에 배포 합니다.
 
