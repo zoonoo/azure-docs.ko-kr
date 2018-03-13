@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: 7308c8754198ea3e7533b8a9c378cfaac1b5bbd2
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 18792d8dc8b232ad048db2440c5b52428c50f92e
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Azure Data Factory의 통합 런타임
 IR(통합 런타임)은 서로 다른 네트워크 환경 간에 다음과 같은 데이터 통합 기능을 제공하기 위해 Azure Data Factory에서 사용하는 계산 인프라입니다.
@@ -123,7 +123,7 @@ Azure-SSIS 런타임에 대한 자세한 내용은 다음 문서를 참조하세
 ![사용할 IR](media/concepts-integration-runtime/which-integration-runtime-to-use.png)
 
 ## <a name="integration-runtime-location"></a>통합 런타임 위치
-Data Factory 위치는 Data Factory의 메타데이터가 저장되는 곳이며 파이프라인 트리거가 시작되는 곳입니다. 현재 지원되는 Data Factory 위치는 미국 동부, 미국 동부 2 및 유럽 서부입니다. 그러나 데이터 팩터리는 계산 서비스를 사용하여 데이터 저장소 간에 데이터를 이동하고 데이터를 처리하도록 다른 Azure 지역에서 데이터 저장소 및 계산 서비스에 액세스할 수 있습니다. 이 동작은 데이터 준수, 효율성 및 네트워크 송신 비용 감소를 위해 여러 지역에서 전역적으로 사용할 수 있는 IR을 통해 이루어집니다.
+Data Factory 위치는 Data Factory의 메타데이터가 저장되는 곳이며 파이프라인 트리거가 시작되는 곳입니다. 현재 지원되는 Data Factory 위치는 미국 동부, 미국 동부 2, 동남 아시아 및 유럽 서부입니다. 그러나 데이터 팩터리는 계산 서비스를 사용하여 데이터 저장소 간에 데이터를 이동하고 데이터를 처리하도록 다른 Azure 지역에서 데이터 저장소 및 계산 서비스에 액세스할 수 있습니다. 이 동작은 데이터 준수, 효율성 및 네트워크 송신 비용 감소를 위해 여러 지역에서 전역적으로 사용할 수 있는 IR을 통해 이루어집니다.
 
 IR 위치는 해당 백 엔드 계산의 위치, 즉 기본적으로 데이터 이동, 작업 디스패치 및 SSIS 패키지 실행이 수행되는 위치를 정의합니다. IR 위치는 자신이 속한 데이터 팩터의 위치와 다를 수 있습니다. 다음 다이어그램은 Data Factory 및 해당 통합 런타임의 위치를 보여 줍니다.
 
@@ -176,7 +176,7 @@ Data Factory는 데이터를 이동하는 것과 같은 지리적 위치의 싱�
 데이터 이동을 수행하기 위해 사용하는 경우 자체 호스팅 IR은 소스에서 데이터를 추출하고 대상에 씁니다.
 
 ### <a name="azure-ssis-ir"></a>Azure-SSIS IR
-Azure SSIS IR에 적합한 위치 선택은 ETL(추출-변환-로드) 워크플로에서 고성능을 달성하기 위해 필수적입니다.  처음에는 미리 보기를 위해 두 위치(미국 동부 및 북유럽)를 사용할 수 있습니다.
+Azure SSIS IR에 적합한 위치 선택은 ETL(추출-변환-로드) 워크플로에서 고성능을 달성하기 위해 필수적입니다.  6개의 위치는 처음에 미리 보기할 수 있습니다(미국 동부, 미국 동부 2, 미국 중부, 오스트레일리아 동부, 북유럽 및 유럽 서부).
 
 - Azure SSIS IR의 위치가 Data Factory의 위치와 같을 필요는 없지만, SSISDB를 호스팅할 사용자 자신의 Azure SQL Database/관리되는 인스턴스(개인 미리 보기) 서버의 위치와 같아야 합니다. 이러한 방식으로 Azure SSIS 통합 런타임은 서로 다른 위치 간에 과도한 트래픽을 초래하지 않고 SSISDB에 쉽게 액세스할 수 있습니다.
 - SSISDB를 호스팅할 기존 Azure SQL Database/관리되는 인스턴스(개인 미리 보기) 서버는 없지만 온-프레미스 데이터 소스/대상이 있는 경우 온-프레미스 네트워크에 연결된 VNet의 같은 위치에 새 Azure SQL Database/관리되는 인스턴스(개인 미리 보기)를 만들어야 합니다.  이러한 방식으로 새 Azure SQL Database/관리되는 인스턴스(개인 미리 보기) 서버를 사용하여 모두 같은 위치에 있는 VNet이 서로 다른 위치 간에 데이터 이동을 효과적으로 최소화하도록 조인하여 Azure SSIS IR을 만들 수 있습니다.
