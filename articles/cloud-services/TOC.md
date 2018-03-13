@@ -35,6 +35,7 @@
 ### 원격 데스크톱 구성
 #### [포털](cloud-services-role-enable-remote-desktop-new-portal.md)
 #### [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
+#### [Visual Studio](cloud-services-role-enable-remote-desktop-visual-studio.md)
 
 ## 배포
 ### [포털에서 클라우드 서비스 만들기 및 배포](cloud-services-how-to-create-deploy-portal.md)
