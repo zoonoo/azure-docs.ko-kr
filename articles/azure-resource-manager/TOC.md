@@ -44,7 +44,7 @@
 ## 관리
 ### [Azure PowerShell](powershell-azure-resource-manager.md)
 ### [Azure CLI](xplat-cli-azure-resource-manager.md)
-### [Azure 포털](resource-group-portal.md)
+### [Azure Portal](resource-group-portal.md)
 ### [태그를 사용하여 리소스 구성](resource-group-using-tags.md)
 ### [새 그룹 또는 구독으로 리소스 이동](resource-group-move-resources.md)
 ### [관리 그룹 만들기](management-groups-create.md)
@@ -55,7 +55,7 @@
 ### 서비스 주체 만들기
 #### [Azure PowerShell](resource-group-authenticate-service-principal.md)
 #### [Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-#### [Azure 포털](resource-group-create-service-principal-portal.md)
+#### [Azure Portal](resource-group-create-service-principal-portal.md)
 ### [구독에 액세스하는 인증 API](resource-manager-api-authentication.md)
 ### [리소스 잠금](resource-group-lock-resources.md)
 
@@ -64,21 +64,20 @@
 ### [배포 작업 보기](resource-manager-deployment-operations.md)
 
 ## 문제 해결
-### [일반적인 배포 오류](resource-manager-common-deployment-errors.md)
-#### [AccountNameInvalid](resource-manager-storage-account-name-errors.md)
-#### [InvalidTemplate](resource-manager-invalid-template-errors.md)
-#### [Linux 배포 문제](../virtual-machines/linux/troubleshoot-deploy-vm.md)
-#### [NoRegisteredProviderFound](resource-manager-register-provider-errors.md)
-#### [NotFound](resource-manager-not-found-errors.md)
-#### [ParentResourceNotFound](resource-manager-parent-resource-errors.md)
-#### [Linux의 프로비전 및 할당 문제](../virtual-machines/linux/troubleshoot-deployment-new-vm.md)
-#### [Windows의 프로비전 및 할당 문제](../virtual-machines/windows/troubleshoot-deployment-new-vm.md)
-#### [RequestDisallowedByPolicy](resource-manager-policy-requestdisallowedbypolicy-error.md)
-#### [ReservedResourceName](resource-manager-reserved-resource-name.md)
-#### [ResourceQuotaExceeded](resource-manager-quota-errors.md)
-#### [SkuNotAvailable](resource-manager-sku-not-available-errors.md)
-#### [Windows 배포 문제](../virtual-machines/windows/troubleshoot-deploy-vm.md)
-### [배포 오류 이해](resource-manager-troubleshoot-tips.md)
+### [배포 오류 문제 해결](resource-manager-common-deployment-errors.md)
+### [AccountNameInvalid](resource-manager-storage-account-name-errors.md)
+### [InvalidTemplate](resource-manager-invalid-template-errors.md)
+### [Linux 배포 문제](../virtual-machines/linux/troubleshoot-deploy-vm.md)
+### [NoRegisteredProviderFound](resource-manager-register-provider-errors.md)
+### [NotFound](resource-manager-not-found-errors.md)
+### [ParentResourceNotFound](resource-manager-parent-resource-errors.md)
+### [Linux의 프로비전 및 할당 문제](../virtual-machines/linux/troubleshoot-deployment-new-vm.md)
+### [Windows의 프로비전 및 할당 문제](../virtual-machines/windows/troubleshoot-deployment-new-vm.md)
+### [RequestDisallowedByPolicy](resource-manager-policy-requestdisallowedbypolicy-error.md)
+### [ReservedResourceName](resource-manager-reserved-resource-name.md)
+### [ResourceQuotaExceeded](resource-manager-quota-errors.md)
+### [SkuNotAvailable](resource-manager-sku-not-available-errors.md)
+### [Windows 배포 문제](../virtual-machines/windows/troubleshoot-deploy-vm.md)
 
 # 참고 자료
 ## [템플릿 형식](/azure/templates/)

@@ -27,6 +27,7 @@
 ### [인증 및 보안 모델 개요](event-hubs-authentication-and-security-model-overview.md)
 ### [가용성 및 일관성](event-hubs-availability-and-consistency.md)
 ### [처리량 단위 규모를 자동으로 조정](event-hubs-auto-inflate.md)
+### [Apache Spark와 Event Hubs 통합](event-hubs-spark-connector.md)
 ## 개발
 ### [.NET Framework를 사용하여 이벤트 보내기](event-hubs-dotnet-framework-getstarted-send.md)
 ### [.NET Framework를 사용하여 이벤트 받기](event-hubs-dotnet-framework-getstarted-receive-eph.md)

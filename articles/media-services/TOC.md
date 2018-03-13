@@ -17,12 +17,12 @@
 ### [Azure PowerShell을 사용하여 AAD 앱 만들기 및 구성](media-services-powershell-create-and-configure-aad-app.md)
 
 ## 주문형 비디오 제공
-### [Azure 포털](media-services-portal-vod-get-started.md)
+### [Azure Portal](media-services-portal-vod-get-started.md)
 ### [.NET SDK](media-services-dotnet-get-started.md)
 ### [Java](media-services-java-how-to-use.md)
 ### [REST](media-services-rest-get-started.md)
 ## 라이브 스트리밍 수행
-### [Azure 포털](media-services-portal-live-passthrough-get-started.md)
+### [Azure Portal](media-services-portal-live-passthrough-get-started.md)
 ### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
 
 # 방법
@@ -31,7 +31,7 @@
 #### [.NET](media-services-dotnet-manage-entities.md)
 #### [REST (영문)](media-services-rest-manage-entities.md)
 ### [스트리밍 끝점](media-services-streaming-endpoints-overview.md)
-#### [Azure 포털](media-services-portal-manage-streaming-endpoints.md)
+#### [Azure Portal](media-services-portal-manage-streaming-endpoints.md)
 #### [.NET](media-services-dotnet-manage-streaming-endpoints.md)
 ### 저장소
 #### [저장소 액세스 키 롤링 후 Media Services 업데이트](media-services-roll-storage-access-keys.md)
@@ -43,7 +43,7 @@
 ### [환경](postman-environment.md)
 ## 콘텐츠 업로드
 ### 계정에 파일 업로드
-#### [Azure 포털](media-services-portal-upload-files.md)
+#### [Azure Portal](media-services-portal-upload-files.md)
 #### [.NET](media-services-dotnet-upload-files.md)
 #### [REST (영문)](media-services-rest-upload-files.md)
 ### [Aspera를 사용하여 대용량 파일 업로드](media-services-upload-files-with-aspera.md)
@@ -57,7 +57,7 @@
 #### [Media Encoder Standard 형식 및 코덱](media-services-media-encoder-standard-formats.md)
 #### [MES를 사용하여 비트 전송률 사다리 자동 생성](media-services-autogen-bitrate-ladder-with-mes.md)
 #### Media Encoder Standard로 인코딩
-##### [Azure 포털](media-services-portal-encode.md)
+##### [Azure Portal](media-services-portal-encode.md)
 ##### [.NET](media-services-dotnet-encode-with-media-encoder-standard.md)
 ##### [REST (영문)](media-services-rest-encode-asset.md)
 #### [MES로 고급 인코딩](media-services-advanced-encoding-with-mes.md)
@@ -112,10 +112,10 @@
 ## [스트림 라이브](media-services-manage-channels-overview.md)
 ### [온-프레미스 인코더](media-services-live-streaming-with-onprem-encoders.md)
 #### [권장 온-프레미스 인코더](media-services-recommended-encoders.md)
-#### [Azure 포털](media-services-portal-live-passthrough-get-started.md)
+#### [Azure Portal](media-services-portal-live-passthrough-get-started.md)
 #### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
 ### [클라우드 인코더를 사용한 라이브 스트리밍](media-services-manage-live-encoder-enabled-channels.md)
-#### [Azure 포털](media-services-portal-creating-live-encoder-enabled-channel.md)
+#### [Azure Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 #### [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 ### [클라우드 인코더와 함께 사용할 온-프레미스 인코더 구성](media-services-live-encoders-overview.md)
 #### [Elemental Live 인코더](media-services-configure-elemental-live-encoder.md)
@@ -132,7 +132,7 @@
 ### [바로 가기 키 구성](media-services-azure-media-clipper-keyboard-shortcuts.md)
 ### [지역화 구성](media-services-azure-media-clipper-localization.md)
 ### [잘라내기 작업 제출](media-services-azure-media-clipper-submit-job.md)
-### [Azure 포털](media-services-azure-media-clipper-portal.md)
+### [Azure Portal](media-services-azure-media-clipper-portal.md)
 
 ## [콘텐츠 보호](media-services-content-protection-overview.md)
 ### [저장소 암호화](media-services-rest-storage-encryption.md)
@@ -154,7 +154,7 @@
 #### [.NET](media-services-dotnet-configure-asset-delivery-policy.md)
 #### [REST](media-services-rest-configure-asset-delivery-policy.md)
 ### 콘텐츠 키 인증 정책 구성
-#### [Azure 포털](media-services-portal-configure-content-key-auth-policy.md)
+#### [Azure Portal](media-services-portal-configure-content-key-auth-policy.md)
 #### [.NET](media-services-dotnet-configure-content-key-auth-policy.md)
 #### [REST](media-services-rest-configure-content-key-auth-policy.md)
 ### [AMS로 인증 토큰 캐시 전달](media-services-pass-authentication-tokens.md)
@@ -182,10 +182,10 @@
 
 ## 확장
 ### [미디어 처리](media-services-scale-media-processing-overview.md)
-#### [Azure 포털](media-services-portal-scale-media-processing.md)
+#### [Azure Portal](media-services-portal-scale-media-processing.md)
 #### [.NET](media-services-dotnet-encoding-units.md)
 ### 스트리밍 끝점
-#### [Azure 포털](media-services-portal-scale-streaming-endpoints.md)
+#### [Azure Portal](media-services-portal-scale-streaming-endpoints.md)
 
 ## [콘텐츠 배달](media-services-deliver-content-overview.md)
 ### [동적 패키징](media-services-dynamic-packaging-overview.md)
@@ -194,7 +194,7 @@
 #### [REST를 사용하여 필터 만들기](media-services-rest-dynamic-manifest.md)
 ### [Media Services 확장의 CDN 캐싱 정책](../cdn/cdn-caching-policy.md?toc=%2fazure%2fmedia-services%2ftoc.json)
 ### 콘텐츠 게시
-#### [Azure 포털](media-services-portal-publish.md)
+#### [Azure Portal](media-services-portal-publish.md)
 #### [.NET](media-services-deliver-streaming-content.md)
 #### [REST (영문)](media-services-rest-deliver-streaming-content.md)
 ### [다운로드로 배달](media-services-deliver-asset-download.md)
@@ -217,7 +217,7 @@
 ## 모니터
 ### 작업 진행 상태 확인
 #### [REST (영문)](media-services-rest-check-job-progress.md)
-#### [Azure 포털](media-services-portal-check-job-progress.md)
+#### [Azure Portal](media-services-portal-check-job-progress.md)
 #### [.NET](media-services-check-job-progress.md)
 ### [Queue Storage와 함께 작업 알림 모니터링](media-services-dotnet-check-job-progress-with-queues.md)
 ### [웹후크와 함께 작업 알림 모니터링](media-services-dotnet-check-job-progress-with-webhooks.md)
@@ -233,7 +233,10 @@
 ## [Azure PowerShell(Resource Manager)](/powershell/module/azurerm.media)
 ## [Azure PowerShell(서비스 관리)](/powershell/module/azure/?view=azuresmps-3.7.0)
 ## [.NET](/dotnet/api/microsoft.windowsazure.mediaservices.client)
-## [REST](/rest/api/media/mediaservice)  
+## [REST](/rest/api/media/mediaservice)
+## 사양
+### [라이브 수집 - 분할된 MP4 라이브 수집 사양](media-services-fmp4-live-ingest-overview.md)
+### [부드러운 스트리밍 HEVC](media-services-specifications-ms-sstr-ammendment-hevc.md)
 
 # 리소스
 ## [Azure Media Services 커뮤니티](media-services-community.md)

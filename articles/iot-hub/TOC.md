@@ -42,6 +42,7 @@
 
 ## MXChip IoT DevKit 사용
 ### [Azure Cognitive Services로 음성 메시지 변환](iot-hub-arduino-iot-devkit-az3166-translator.md)
+### [Azure Functions를 사용하여 Twitter 메시지 검색](iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message.md)
 
 # 방법 가이드
 ## 계획

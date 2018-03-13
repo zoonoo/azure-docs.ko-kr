@@ -87,6 +87,8 @@
       items:
         - name: SSH 노드 액세스
           href: aks-ssh.md
+        - name: kubelet 로그 가져오기
+          href: kubelet-logs.md
 - name: 참고 자료
   items:
     - name: Azure CLI

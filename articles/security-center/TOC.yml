@@ -114,6 +114,12 @@
       items:
         - name: 연결된 솔루션
           href: security-center-partner-solutions.md
+        - name: 검색된 솔루션
+          href: 'security-center-partner-integration.md#discovered-solutions'
+        - name: 외부 솔루션 연결
+          href: quick-security-solutions.md
+        - name: Application Gateway 연결
+          href: security-center-connect-application-gateway.md
         - name: Microsoft ATA 연결
           href: security-center-ata-integration.md
         - name: Azure AD ID 보호 연결

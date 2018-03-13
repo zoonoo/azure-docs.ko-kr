@@ -76,7 +76,7 @@
 
 ## [그룹 및 구성원 관리](active-directory-manage-groups.md)
 ### 그룹 관리
-#### [Azure 포털](active-directory-groups-create-azure-portal.md)
+#### [Azure Portal](active-directory-groups-create-azure-portal.md)
 #### [Azure PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
 ### [그룹 구성원 관리](active-directory-groups-members-azure-portal.md)
 ### [그룹 소유자 관리](active-directory-accessmanagement-managing-group-owners.md)
@@ -95,10 +95,10 @@
 ### [SaaS 앱에 대한 그룹 액세스 추가](active-directory-accessmanagement-group-saasapps.md)
 ### [삭제된 Office 365 그룹 복원](active-directory-groups-restore-azure-portal.md)
 ### 그룹 설정 관리
-#### [Azure 포털](active-directory-groups-settings-azure-portal.md)
+#### [Azure Portal](active-directory-groups-settings-azure-portal.md)
 #### [Cmdlet](active-directory-accessmanagement-groups-settings-cmdlets.md)
 ### 고급 규칙 만들기
-#### [Azure 포털](active-directory-groups-dynamic-membership-azure-portal.md)
+#### [Azure Portal](active-directory-groups-dynamic-membership-azure-portal.md)
 ### [셀프 서비스 그룹 설정](active-directory-accessmanagement-self-service-group-management.md)
 ### [문제 해결](active-directory-accessmanagement-troubleshooting.md)
 
@@ -146,7 +146,7 @@
 ### [SSPR 데이터 요구 사항](active-directory-passwords-data.md)
 ### [SSPR 보고](active-directory-passwords-reporting.md)
 ### IT 관리자: 암호 재설정
-#### [Azure 포털](active-directory-users-reset-password-azure-portal.md)
+#### [Azure Portal](active-directory-users-reset-password-azure-portal.md)
 ### [라이선스 SSPR](active-directory-passwords-licensing.md)
 ### [비밀번호 쓰기 저장](active-directory-passwords-writeback.md)
 ### [문제 해결](active-directory-passwords-troubleshoot.md)
@@ -290,14 +290,15 @@
 ### [관리자 역할](active-directory-assign-admin-roles-azure-portal.md)
 #### [사용자에게 관리자 역할 할당](active-directory-users-assign-role-azure-portal.md)
 #### [멤버 및 게스트 사용자 권한 비교](users-default-permissions.md)
+### [권한 있는 액세스 보안](admin-roles-best-practices.md) 
+### [긴급 액세스 관리 계정 만들기](active-directory-admin-manage-emergency-access-accounts.md)
 ### [관리 단위](active-directory-administrative-units-management.md)
 ### [토큰 수명](active-directory-configurable-token-lifetimes.md)
-### [긴급 액세스 관리 계정 관리](active-directory-admin-manage-emergency-access-accounts.md)
 
 ## 액세스 검토
 ### [액세스 검토 개요](active-directory-azure-ad-controls-access-reviews-overview.md)
 ### [액세스 검토 완료](active-directory-azure-ad-controls-complete-access-review.md)
-### [액세스 검토 만들](active-directory-azure-ad-controls-create-access-review.md)
+### [액세스 검토 만들기](active-directory-azure-ad-controls-create-access-review.md)
 ### [액세스 검토 수행 방법](active-directory-azure-ad-controls-perform-access-review.md)
 ### [액세스 검토 방법](active-directory-azure-ad-controls-how-to-review-your-access.md)
 ### [액세스 검토로 게스트 액세스](active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md)
@@ -389,7 +390,7 @@
 ## [Azure 피드백 포럼](https://feedback.azure.com/forums/169401-azure-active-directory)
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
-## [가격 책정](https://azure.microsoft.com/pricing/details/active-directory/)
+## [가격](https://azure.microsoft.com/pricing/details/active-directory/)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=active-directory)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-active-directory)
