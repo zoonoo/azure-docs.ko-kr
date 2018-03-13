@@ -77,7 +77,7 @@
 
 ## 기계 학습과 통합
 ### [ML 모델을 사용하여 감정 분석](stream-analytics-machine-learning-integration-tutorial.md)
-### [변칙 검색](stream-analytics-machine-learning-anomaly-detection.md)
+### [이상 감지](stream-analytics-machine-learning-anomaly-detection.md)
 ### [REST API 사용](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)
 
 
