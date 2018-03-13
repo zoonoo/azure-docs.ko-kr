@@ -66,6 +66,7 @@
 ### [시뮬레이션된 새 장치 만들기](iot-suite-remote-monitoring-test.md)
 ### [솔루션 사용자 지정](iot-suite-remote-monitoring-customize.md)
 ### [CLI를 사용하여 배포](iot-suite-remote-monitoring-deploy-cli.md)
+### [로컬로 배포](iot-suite-remote-monitoring-deploy-local.md)
 ### 실제 장치 연결
 #### [Windows에서 C](iot-suite-connecting-devices.md)
 #### [Linux에서 C](iot-suite-connecting-devices-linux.md)

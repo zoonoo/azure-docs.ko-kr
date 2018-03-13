@@ -290,6 +290,8 @@
           href: transform-data-using-stored-procedure.md
         - name: Data Lake U-SQL 작업
           href: transform-data-using-data-lake-analytics.md
+        - name: Databricks Notebook 활동
+          href: transform-data-using-databricks-notebook.md
         - name: 사용자 지정 작업
           href: transform-data-using-dotnet-custom-activity.md
         - name: Compute 연결된 서비스

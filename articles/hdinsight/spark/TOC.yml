@@ -91,8 +91,10 @@
           maintainContext: true
     - name: Spark 스트리밍
       items:
-        - name: 개요
+        - name: 스트리밍 개요
           href: apache-spark-streaming-overview.md
+        - name: 구조화된 스트리밍 개요
+          href: apache-spark-structured-streaming-overview.md
         - name: YARN에서 항상 사용 가능한 Spark 스트리밍 작업 만들기
           href: apache-spark-streaming-high-availability.md
         - name: Event Hubs를 사용하는 구조적 스트리밍
