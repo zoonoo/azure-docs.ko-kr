@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 5eb53d13ed85093616f43b79b58d43ba62ffbd67
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 203e36b198186db63b7e902db296adeaa9ffb4ee
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>하이브리드 Azure Active Directory 가입 장치를 구성하는 방법
 
@@ -33,6 +33,8 @@ Azure AD(Active Directory)의 장치 관리를 사용하면 보안 및 규정 �
 환경에서 하이브리드 Azure AD 가입 장치 구성을 시작하기 전에 지원되는 시나리오와 제약 조건을 숙지해야 합니다.  
 
 [시스템 준비 도구(Sysprep)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-vista/cc721940(v=ws.10))를 사용하는 경우에는 Azure AD에 아직 등록되지 않은 Windows 설치에서 이미지를 만들어야 합니다.
+
+Windows 10 1주년 업데이트 및 Windows Server 2016을 실행하는 모든 도메인에 가입된 장치는 아래에 언급된 구성 단계가 완료되면, 장치를 다시 시작하거나 사용자가 로그인할 때 자동으로 Azure AD에 등록됩니다. 자동 등록 동작을 원하지 않거나 제어된 롤아웃이 필요한 경우에는 다른 구성 단계를 수행하기 전에 아래 배포 및 롤아웃 제어 섹션의 지침에 따라 자동 롤아웃을 선별적으로 사용하거나 사용하지 않도록 설정하십시오.  
 
 설명의 가독성을 높이기 위해 이 토픽에서는 다음 용어를 사용합니다. 
 
@@ -566,7 +568,8 @@ Windows 현재 컴퓨터의 롤아웃을 제어하려면 등록하려는 장치�
    > [!NOTE]
    > 이 그룹 정책 템플릿 이름은 이전 버전의 그룹 정책 관리 콘솔에서 변경되었습니다. 이전 버전의 콘솔을 사용하는 경우 `Computer Configuration > Policies > Administrative Templates > Windows Components > Workplace Join > Automatically workplace join client computers`으로 이동합니다. 
 
-7. **사용**을 선택하고 **적용**을 클릭합니다.
+7. **사용**을 선택하고 **적용**을 클릭합니다. 정책을 통해 이 그룹 정책으로 제어되는 장치를 차단하고 Azure AD에 자동으로 등록되지 않도록 하려면 **사용 안 함**를 선택해야 합니다.
+
 8. **확인**을 클릭합니다.
 9. 그룹 정책 개체를 선택한 위치에 연결합니다. 예를 들어 특정 조직 구성 단위에 연결할 수 있습니다. 또한 Azure AD에 자동으로 가입되는 컴퓨터의 특정 보안 그룹에 연결할 수도 있습니다. 조직의 모든 Windows 10 및 Windows Server 2016 도메인 가입 컴퓨터에 대해 이 정책을 사용하도록 설정하려면 그룹 정책 개체를 해당 도메인에 연결합니다.
 

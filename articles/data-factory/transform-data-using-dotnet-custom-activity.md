@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: shengc
-ms.openlocfilehash: ad829fc771bf67953315f3f42abd66eaa2628c13
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 4b9714bc456ad28d9dd46742ca16f52e68c61399
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Azure Data Factory 파이프라인에서 사용자 지정 작업 사용
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -108,12 +108,12 @@ Azure Batch 서비스가 처음이라면 다음 문서를 참조하세요.
 | 자산              | 설명                              | 필수 |
 | :-------------------- | :--------------------------------------- | :------- |
 | 이름                  | 파이프라인의 작업 이름입니다.     | 예      |
-| description           | 작업이 어떤 일을 수행하는지 설명하는 텍스트입니다.  | 아니요       |
+| description           | 작업이 어떤 일을 수행하는지 설명하는 텍스트입니다.  | 아니오       |
 | 형식                  | 사용자 지정 작업의 경우 작업 유형은 **사용자 지정**입니다. | 예      |
 | linkedServiceName     | Azure Batch에 연결된 서비스입니다. 이 연결된 서비스에 대한 자세한 내용은 [연결된 Compute Services](compute-linked-services.md) 문서를 참조하세요.  | 예      |
 | command               | 실행할 사용자 지정 응용 프로그램의 명령입니다. Azure Batch 풀 노드에 사용할 수 있는 응용 프로그램이 이미 있으면 resourceLinkedService 및 folderPath를 건너뛸 수 있습니다. 예를 들어 명령을 기본적으로 Windows Batch 풀 노드에 의해 지원되는 `cmd /c dir`로 지정할 수 있습니다. | 예      |
 | resourceLinkedService | 사용자 지정 응용 프로그램이 저장된 저장소 계정에 대한 Azure Storage 연결된 서비스입니다. | 아니요       |
-| folderPath            | 사용자 지정 응용 프로그램 및 모든 해당 종속성 폴더에 대한 경로입니다. | 아니요       |
+| folderPath            | 사용자 지정 응용 프로그램 및 모든 해당 종속성 폴더에 대한 경로입니다. | 아니오       |
 | referenceObjects      | 기존 연결된 서비스 및 데이터 집합의 배열입니다. 사용자 지정 코드가 Data Factory의 리소스를 참조할 수 있도록 참조된 연결된 서비스 및 데이터 집합은 JSON 형식으로 사용자 지정 응용 프로그램에 전달됩니다. | 아니오       |
 | extendedProperties    | 사용자 지정 코드가 추가 속성을 참조할 수 있도록 사용자 정의 속성은 JSON 형식으로 사용자 지정 응용 프로그램에 전달될 수 있습니다. | 아니요       |
 
@@ -300,7 +300,7 @@ namespace SampleApp
 
 ## <a name="difference-between-custom-activity-in-azure-data-factory-version-2-and-custom-dotnet-activity-in-azure-data-factory-version-1"></a>Azure Data Factory 버전 2의 사용자 지정 작업과 Azure Data Factory 버전 1의 (사용자 지정) DotNet 작업 간 차이점
 
-  Azure Data Factory 버전 1에서는 IDotNetActivity 인터페이스의 Execute 메서드를 구현하는 클래스를 통해 .Net 클래스 라이브러리 프로젝트를 만들어 (사용자 지정) DotNet 작업 코드를 구현합니다. (사용자 지정) DotNet 작업 JSON 페이로드의 연결된 서비스, 데이터 집합 및 확장된 속성은 강력한 형식의 개체로 실행 메서드에 전달됩니다. 자세한 내용은 [(사용자 지정) 버전 1의 DotNet](v1/data-factory-use-custom-activities.md)을 참조하세요. 이로 인해 사용자 지정 코드를 .Net Framework 4.5.2에서 작성하고 Windows 기반 Azure Batch 풀 노드에서 실행해야 합니다. 
+  Azure Data Factory 버전 1에서는 IDotNetActivity 인터페이스의 Execute 메서드를 구현하는 클래스를 통해 .Net 클래스 라이브러리 프로젝트를 만들어 (사용자 지정) DotNet 작업 코드를 구현합니다. (사용자 지정) DotNet 작업 JSON 페이로드의 연결된 서비스, 데이터 집합 및 확장된 속성은 강력한 형식의 개체로 실행 메서드에 전달됩니다. 자세한 내용은 [(사용자 지정) 버전 1의 DotNet](v1/data-factory-use-custom-activities.md)을 참조하세요. 이 구현으로 인해 사용자 지정 코드를 .Net Framework 4.5.2에서 작성하고 Windows 기반 Azure Batch 풀 노드에서 실행해야 합니다. 
 
   Azure Data Factory V2 사용자 지정 작업에서는 .Net 인터페이스를 구현할 필요가 없습니다. 이제 명령, 스크립트 및 실행 파일로 컴파일된 자체 사용자 지정 코드를 직접 실행할 수 있습니다. 이를 위해서는 folderPath 속성과 함께 Command 속성을 지정합니다. 사용자 지정 작업은 folderpath에서 실행 파일 및 종속성을 업로드하고 명령을 실행합니다. 
 
@@ -317,7 +317,7 @@ namespace SampleApp
 |사용자 지정 논리의 실행 환경      |Windows 또는 Linux      |Windows(.Net Framework 4.5.2)      |
 |스크립트 실행      |실행 중인 스크립트 직접 지원(예: Windows VM의 "cmd/c echo hello world")      |.Net DLL에서 구현 필요      |
 |필요한 데이터 집합      |옵션      |작업을 연결하고 정보를 전달하는 데 필요      |
-|작업에서 사용자 지정 논리에 정보 전달      |ReferenceObjects(LinkedServices 및 데이터 집합) 및 ExtendedProperties(사용자 지정 속성)를 통해 및      |ExtendedProperties(사용자 지정 속성), 입력 및 출력 데이터 집합을 통해      |
+|작업에서 사용자 지정 논리에 정보 전달      |ReferenceObjects(LinkedServices 및 데이터 집합) 및 ExtendedProperties(사용자 지정 속성)를 통해      |ExtendedProperties(사용자 지정 속성), 입력 및 출력 데이터 집합을 통해      |
 |사용자 지정 논리에서 정보 검색      |실행 파일의 동일한 폴더에 저장된 activity.json, linkedServices.json 및 datasets.json 구문 분석      |.Net SDK(.Net 프레임 4.5.2)를 통해      |
 |로깅      |STDOUT에 직접 작성      |.Net DLL에서 로거 구현      |
 

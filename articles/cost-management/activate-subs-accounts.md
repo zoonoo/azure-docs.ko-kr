@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 01/29/2018
+ms.date: 03/01/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: c2728545aeb202bdd216e00fd4a7e464e483b1da
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 66b2ef53e613a9c61eea17746a25357119cf6900
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="activate-azure-subscriptions-and-accounts-with-azure-cost-management"></a>Azure Cost Management로 Azure 구독 및 계정 활성화
 
@@ -39,7 +39,7 @@ Azure 구독에서 CloudynCollector 응용 프로그램을 할당하려면 계�
 2. Azure Portal에서 **Azure Active Directory**를 선택합니다.
 3. Azure Active Directory에서 **사용자 설정**을 선택합니다.
 4. **앱 등록** 옵션을 확인합니다.
-    - **예**로 설정되어 있으면, 관리자가 아닌 사용자가 AD 앱을 등록할 수 있습니다. 이 설정에서는 Microsoft Azure Active Directory 테넌트의 모든 사용자가 앱을 등록할 수 있습니다. 필요한 Azure 구독 권한 확인을 계속 진행할 수 있습니다.  
+    - **예**로 설정되어 있으면, 관리자가 아닌 사용자가 AD 앱을 등록할 수 있습니다. 이 설정에서는 Azure AD 테넌트의 모든 사용자가 앱을 등록할 수 있습니다. 필요한 Azure 구독 권한 확인을 계속 진행할 수 있습니다.  
     ![앱 등록](./media/activate-subs-accounts/app-register.png)
     - **앱 등록** 옵션이 **아니요**로 설정되어 있다면, 테넌트 관리 사용자만이 Azure Active Directory 앱을 등록할 수 있습니다. 테넌트 관리자가 CloudynCollector 응용 프로그램을 등록해야 합니다.
 
@@ -51,17 +51,17 @@ Azure 구독에서 CloudynCollector 응용 프로그램을 할당하려면 계�
 ### <a name="add-a-new-account-subscription"></a>새 계정(구독)을 추가합니다.
 
 1. Azure Cost Management 포털에서 오른쪽 위의 기어 기호를 클릭하고 **클라우드 계정**을 선택합니다.
-2. **새 계정 추가**를 클릭하면 **새 계정 추가** 상자가 나타납니다. 필요한 정보를 입력하십시오.  
+2. **새 계정 추가**를 클릭하면 **새 계정 추가** 상자가 나타납니다. 필요한 정보를 입력합니다.  
     ![새 계정 상자 추가](./media/activate-subs-accounts//add-new-account.png)
 
 ### <a name="update-a-subscription"></a>구독 업데이트
 
-1. 계정 관리에서 Azure Cost Management에 이미 있는 _활성화되지 않은_ 구독을 업데이트하려는 경우 _테넌트 GUID_ 오른쪽에 있는 편집 연필 기호를 클릭합니다.
+1. 계정 관리에서 Azure Cost Management에 이미 있는 _활성화되지 않은_ 구독을 업데이트하려는 경우 부모 _테넌트 GUID_ 오른쪽에 있는 편집 연필 기호를 클릭합니다. 구독은 부모 테넌트 아래 그룹화되기 때문에 구독을 개별적으로 활성화하지 마십시오.
     ![구독 다시 검색](./media/activate-subs-accounts/existing-sub.png)
 2. 필요한 경우 Tenant ID를 입력합니다. Tenant ID를 모를 경우 다음 단계를 사용하여 찾습니다.
     1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
     2. Azure Portal에서 **Azure Active Directory**를 선택합니다.
-    3. 테넌트 ID를 가져오려면 Microsoft Azure Active Directory 테넌트에 대한 **속성**을 선택합니다.
+    3. 테넌트 ID를 가져오려면 Azure AD 테넌트에 대한 **속성**을 선택합니다.
     4. 디렉터리 ID GUID를 복사합니다. 이 값은 테넌트 ID입니다.
     자세한 내용은 [테넌트 ID 가져오기](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-tenant-id)를 참조하세요.
 3. 필요한 경우 요율 ID를 선택합니다. 요율 ID를 모를 경우 다음 단계를 사용하여 찾습니다.

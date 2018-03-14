@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/15/2017
 ms.author: tdykstra
-ms.openlocfilehash: 20b12da7dedb9c5ac76a09785b68fb384789c2d7
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: d2a61f5f51e3c4a1de6baa79493cb2c7380c76b6
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="monitor-azure-functions"></a>Azure Functions 모니터링
 
@@ -371,7 +371,7 @@ namespace functionapp0915
             System.Environment.GetEnvironmentVariable(
                 "APPINSIGHTS_INSTRUMENTATIONKEY", EnvironmentVariableTarget.Process);
 
-        private static TelemetryClient telemetry = 
+        private static TelemetryClient telemetryClient = 
             new TelemetryClient() { InstrumentationKey = key };
 
         [FunctionName("HttpTrigger2")]
@@ -395,13 +395,13 @@ namespace functionapp0915
          
             // Track an Event
             var evt = new EventTelemetry("Function called");
-            UpdateTelemetryContext(evt.Context, context, userName);
-            telemetry.TrackEvent(evt);
+            UpdateTelemetryContext(evt.Context, context, name);
+            telemetryClient.TrackEvent(evt);
             
             // Track a Metric
             var metric = new MetricTelemetry("Test Metric", DateTime.Now.Millisecond);
-            UpdateTelemetryContext(metric.Context, context, userName);
-            telemetry.TrackMetric(metric);
+            UpdateTelemetryContext(metric.Context, context, name);
+            telemetryClient.TrackMetric(metric);
             
             // Track a Dependency
             var dependency = new DependencyTelemetry
@@ -413,8 +413,8 @@ namespace functionapp0915
                     Duration = DateTime.UtcNow - start,
                     Success = true
                 };
-            UpdateTelemetryContext(dependency.Context, context, userName);
-            telemetry.TrackDependency(dependency);
+            UpdateTelemetryContext(dependency.Context, context, name);
+            telemetryClient.TrackDependency(dependency);
             
             return name == null
                 ? req.CreateResponse(HttpStatusCode.BadRequest, 
@@ -436,11 +436,7 @@ namespace functionapp0915
 
 `TrackRequest` 또는 `StartOperation<RequestTelemetry>`를 호출하지 마세요. 함수 호출에 대한 중복 요청이 표시됩니다.  Functions 런타임에서 자동으로 요청을 추적합니다.
 
-함수가 시작될 때마다 `telemetry.Context.Operation.Id`를 호출 ID로 설정합니다. 이렇게 하면 지정된 함수 호출에 대한 모든 원격 분석 항목의 상관 관계를 지정할 수 있습니다.
-
-```cs
-telemetry.Context.Operation.Id = context.InvocationId.ToString();
-```
+`telemetryClient.Context.Operation.Id`를 설정하지 마십시오. 이 설정은 전역 설정이며 많은 함수가 동시에 실행되면 잘못된 상관 관계를 유발합니다. 대신 새로운 원격 분석 인스턴스(`DependencyTelemetry`, `EventTelemetry`)를 만들고 해당하는 `Context` 속성을 수정합니다. 그런 다음, 원격 분석 인스턴스를 `TelemetryClient`의 해당 `Track` 메서드(`TrackDependency()`, `TrackEvent()`)로 전달합니다. 이렇게 하면 원격 분석 데이터가 현재 함수 호출에 대해 정확한 상관 관계 세부 정보를 가질 수 있습니다.
 
 ## <a name="custom-telemetry-in-javascript-functions"></a>JavaScript 함수의 사용자 지정 원격 분석
 

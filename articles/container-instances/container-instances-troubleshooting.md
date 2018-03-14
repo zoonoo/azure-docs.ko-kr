@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 01/02/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 1fd3b2c251860e883519744b11fcfc2b925cd2fa
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 561729e5e495500222ccec5b4b536a3152cb25e3
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="troubleshoot-deployment-issues-with-azure-container-instances"></a>Azure Container Instances로의 배포 문제 해결
 
@@ -91,6 +91,10 @@ az container show --resource-group myResourceGroup --name mycontainer
 ## <a name="common-deployment-issues"></a>일반 배포 문제
 
 배포에서 대부분 오류를 차지하는 몇 가지 일반적인 문제가 있습니다.
+
+## <a name="image-version-not-supported"></a>지원되지 않는 이미지 버전
+
+Azure Container Instances에서 지원할 수 없는 이미지가 지정되면 `ImageVersionNotSupported` 형식의 오류가 반환됩니다. 오류 값에는 `The version of image '{0}' is not supported.`가 표시됩니다. 이 오류는 현재 Windows 1709 이미지에 적용되어 LTS Windows 이미지 사용 문제를 해결합니다. Windows 1709 이미지에 대한 지원은 준비 중입니다.
 
 ## <a name="unable-to-pull-image"></a>이미지를 풀링할 수 없음
 

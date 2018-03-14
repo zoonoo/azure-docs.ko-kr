@@ -14,17 +14,82 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: cawa
-ms.openlocfilehash: d23ddfb881695b2310d379a9112e6ab8305c0cce
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 0e5523e297979a89ffd4b4ed51c8476fb1354419
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="microsoft-azure-storage-explorer-preview-release-notes"></a>Microsoft Azure Storage 탐색기(미리 보기) 릴리스 정보
 
-이 문서에서는 Azure Storage 탐색기 0.9.5(미리 보기) 릴리스의 릴리스 정보와 이전 버전의 릴리스 정보를 제공합니다.
+이 문서에서는 Azure Storage 탐색기 0.9.6(미리 보기) 릴리스의 릴리스 정보와 이전 버전의 릴리스 정보를 제공합니다.
 
 [Microsoft Azure Storage 탐색기(미리 보기)](./vs-azure-tools-storage-manage-with-storage-explorer.md)는 Windows, macOS 및 Linux에서 Azure Storage 데이터를 손쉽게 사용할 수 있는 독립 실행형 앱입니다.
+
+## <a name="version-096"></a>버전 0.9.6
+02/28/2018
+
+### <a name="download-azure-storage-explorer-096-preview"></a>Azure Storage 탐색기 0.9.6(미리 보기) 다운로드
+- [Windows용 Azure Storage 탐색기 0.9.6(미리 보기)](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Mac용 Azure Storage 탐색기 0.9.6(미리 보기)](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Linux용 Azure Storage 탐색기 0.9.6(미리 보기)](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### <a name="fixes"></a>수정 프로그램
+* 문제로 인해 BLOB/파일이 편집기에 나열되지 않았습니다. 이 문제가 해결되었습니다.
+* 문제로 인해 스냅숏 뷰 사이를 전환하면 항목이 잘못 표시되었습니다. 이 문제가 해결되었습니다.
+
+### <a name="known-issues"></a>알려진 문제
+* 저장소 탐색기는 ADFS 계정을 지원하지 않습니다.
+* Azure Stack을 대상으로 지정할 때 특정 파일을 추가 Blob으로 업로드하는 데 실패할 수 있습니다.
+* 작업에서 "취소"를 클릭한 후 해당 작업이 취소될 때까지 시간이 걸릴 수 있습니다. [여기](https://github.com/Azure/azure-storage-node/issues/317) 설명된 취소 필터 해결 방법을 사용하기 때문입니다.
+* 잘못된 PIN/스마트 카드 인증서를 선택하는 경우 해당 선택을 취소하려면 저장소 탐색기를 다시 시작해야 합니다.
+* 계정 설정 패널에 구독을 필터링하기 위해 자격 증명을 다시 입력하라고 표시될 수 있습니다.
+* blob 이름을 바꿀 경우(개별적으로 또는 이름이 바뀐 blob 컨테이너 내에서) 스냅숏을 보존되지 않습니다. Blob, 파일 및 엔터티의 기타 모든 속성과 메타데이터는 이름을 바꾸어도 보존됩니다.
+* Azure Stack은 현재 파일 공유를 지원하지 않지만, 연결된 Azure Stack 저장소 계정에는 파일 공유 노드가 계속 표시됩니다.
+* 저장소 탐색기에서 사용하는 전자 셸에는 GPU(그래픽 처리 장치) 하드웨어 가속과 관련된 문제가 발생합니다. 저장소 탐색기가 빈(비어 있는) 주 창을 표시하는 경우 `--disable-gpu` 스위치를 추가하여 명령줄에서 저장소 탐색기를 시작하고 GPU 가속을 사용하지 않도록 설정할 수 있습니다.
+
+```
+./StorageExplorer.exe --disable-gpu
+```
+
+* Ubuntu 14.04 사용자의 경우 GCC가 최신 상태인지 확인해야 합니다. 이를 위해 다음 명령을 실행한 후 컴퓨터를 다시 시작합니다.
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* Ubuntu 17.04 사용자의 경우에는 GConf를 설치해야 합니다. 이렇게 하려면 다음 명령을 실행한 후 컴퓨터를 다시 시작합니다.
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
+
+## <a name="previous-releases"></a>이전 릴리스
+
+* [버전 0.9.5](#version-095)
+* [버전 0.9.4 및 0.9.3](#version-094-and-093)
+* [버전 0.9.2](#version-092)
+* [버전 0.9.1 및 0.9.0](#version-091-and-090)
+* [버전 0.8.16](#version-0816)
+* [버전 0.8.14](#version-0814)
+* [버전 0.8.13](#version-0813)
+* [버전 0.8.12 및 0.8.11 및 0.8.10](#version-0812-and-0811-and-0810)
+* [버전 0.8.9 및 0.8.8](#version-089-and-088)
+* [버전 0.8.7](#version-087)
+* [버전 0.8.6](#version-086)
+* [버전 0.8.5](#version-085)
+* [버전 0.8.4](#version-084)
+* [버전 0.8.3](#version-083)
+* [버전 0.8.2](#version-082)
+* [버전 0.8.0](#version-080)
+* [버전 0.7.20160509.0](#version-07201605090)
+* [버전 0.7.20160325.0](#version-07201603250)
+* [버전 0.7.20160129.1](#version-07201601291)
+* [버전 0.7.20160105.0](#version-07201601050)
+* [버전 0.7.20151116.0](#version-07201511160)
 
 ## <a name="version-095"></a>버전 0.9.5
 02/06/2018
@@ -80,7 +145,7 @@ ms.lasthandoff: 02/21/2018
     sudo apt-get install libgconf-2-4
     ```
 
-## <a name="version-094--093"></a>버전 0.9.4/0.9.3
+## <a name="version-094-and-093"></a>버전 0.9.4 및 0.9.3
 2018년 1월 21일
 
 ### <a name="download-azure-storage-explorer-094-preview"></a>Azure Storage 탐색기 0.9.4(미리 보기) 다운로드
@@ -129,28 +194,6 @@ ms.lasthandoff: 02/21/2018
     ```
     sudo apt-get install libgconf-2-4
     ```
-
-## <a name="previous-releases"></a>이전 릴리스
-
-* [버전 0.9.2](#version-092)
-* [버전 0.9.1 / 0.9.0](#version-091)
-* [버전 0.8.16](#version-0816)
-* [버전 0.8.14](#version-0814)
-* [버전 0.8.13](#version-0813)
-* [버전 0.8.12/0.8.11/0.8.10](#version-0812--0811--0810)
-* [버전 0.8.9/0.8.8](#version-089--088)
-* [버전 0.8.7](#version-087)
-* [버전 0.8.6](#version-086)
-* [버전 0.8.5](#version-085)
-* [버전 0.8.4](#version-084)
-* [버전 0.8.3](#version-083)
-* [버전 0.8.2](#version-082)
-* [버전 0.8.0](#version-080)
-* [버전 0.7.20160509.0](#version-07201605090)
-* [버전 0.7.20160325.0](#version-07201603250)
-* [버전 0.7.20160129.1](#version-07201601291)
-* [버전 0.7.20160105.0](#version-07201601050)
-* [버전 0.7.20151116.0](#version-07201511160)
 
 ## <a name="version-092"></a>0.9.2 버전
 11/01/2017
@@ -214,7 +257,7 @@ ms.lasthandoff: 02/21/2018
     sudo apt-get install libgconf-2-4
     ```
 
-## <a name="version-091--090-preview"></a>버전 0.9.1/0.9.0(미리 보기)
+## <a name="version-091-and-090"></a>버전 0.9.1 및 0.9.0
 10/20/2017
 ### <a name="new"></a>새로 만들기
 * Azure Cosmos DB에 대한 미리 보기 지원:
@@ -370,7 +413,7 @@ ms.lasthandoff: 02/21/2018
     ```
 
 
-### <a name="version-0812--0811--0810"></a>버전 0.8.12/0.8.11/0.8.10
+### <a name="version-0812-and-0811-and-0810"></a>버전 0.8.12 및 0.8.11 및 0.8.10
 04/07/2017
 
 #### <a name="new"></a>새로 만들기
@@ -413,7 +456,7 @@ ms.lasthandoff: 02/21/2018
     ```
 
 
-### <a name="version-089--088"></a>버전 0.8.9/0.8.8
+### <a name="version-089-and-088"></a>버전 0.8.9 및 0.8.8
 02/23/2017
 
 >[!VIDEO https://www.youtube.com/embed/R6gonK3cYAc?ecver=1]

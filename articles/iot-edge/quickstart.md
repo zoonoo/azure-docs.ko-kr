@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 803b0bbff12c8ce471c0bff5e22e24601b8ce07f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 16d9431ec0a0425c8433557fe384864bb599bf1f
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>빠른 시작: Azure Portal에서 Windows 장치(미리 보기)로 첫 번째 IoT Edge 모듈을 배포합니다.
 
@@ -122,6 +122,12 @@ docker logs -f tempSensor
 
 [IoT Hub 탐색기 도구][lnk-iothub-explorer]를 사용하여 장치에서 보내는 원격 분석을 볼 수도 있습니다. 
 ## <a name="clean-up-resources"></a>리소스 정리
+
+생성한 시뮬레이트된 장치를 각 모듈에 대해 시작된 Docker 컨테이너와 함께 제거하려면, 아래 명령을 사용합니다. 
+
+```cmd
+iotedgectl uninstall
+```
 
 생성한 IoT Hub가 더 이상 필요하지 않은 경우 [az iot hub delete][lnk-delete] 명령을 사용하여 리소스 및 리소스와 연결된 모든 장치를 제거할 수 있습니다.
 

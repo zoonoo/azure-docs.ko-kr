@@ -5,16 +5,16 @@ services: machine-learning
 author: gokhanuluderya-msft
 ms.author: gokhanu
 manager: haining
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: aaa9705aed59b5cf78100eda9997bb1ca74845b9
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 00e98ff07d144db791fcf074699614f1e664634b
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="azure-machine-learning-experimentation-service-configuration-files"></a>Azure Machine Learning 실험 서비스 구성 파일
 
@@ -29,12 +29,12 @@ Azure ML(Machine Learning) Workbench용 스크립트를 제출할 때 실행 동
     - \<run configuration name>.runconfig
 
 >[!NOTE]
->일반적으로 만드는 각 계산 대상에 대한 계산 대상 파일 및 실행 구성 파일이 있습니다. 그러나 이러한 파일을 독립적으로 만들고 여러 실행 구성 파일이 같은 계산 대상을 가리키도록 할 수 있습니다.
+>일반적으로 만드는 각 계산 대상에 대한 계산 대상 파일 및 실행 구성 파일이 있습니다. 하지만 이러한 파일을 독립적으로 만들고 여러 실행 구성 파일이 같은 계산 대상을 가리키도록 할 수 있습니다.
 
 ## <a name="condadependenciesyml"></a>conda_dependencies.yml
-이 파일은 코드가 의존하는 패키지Python 런타임 버전 및 패키지를 지정하는 [conda 환경 파일](https://conda.io/docs/using/envs.html#create-environment-file-by-hand)입니다. Azure ML Workbench는 Docker 컨테이너 또는 HDInsight 클러스터에서 스크립트를 실행할 때 사용자 스크립트가 실행할 [conda 환경](https://conda.io/docs/using/envs.html)을 만듭니다. 
+이 파일은 코드가 의존하는 패키지Python 런타임 버전 및 패키지를 지정하는 [conda 환경 파일](https://conda.io/docs/using/envs.html#create-environment-file-by-hand)입니다. Azure ML Workbench는 Docker 컨테이너 또는 HDInsight 클러스터에서 스크립트를 실행할 때 사용자 스크립트를 실행할 [conda 환경](https://conda.io/docs/using/envs.html)을 만듭니다. 
 
-실행을 위해 스크립트에 필요한 Python 패키지를 이 파일에 지정합니다. Azure ML 실험 서비스는 종속성 목록에 따라 Docker 이미지에 conda 환경을 만듭니다. 여기서 실행 엔진이 패키지 목록에 도달할 수 있어야 합니다. 이러한 이유로, 다음과 같이 패키지를 채널에 나열해야 합니다.
+실행을 위해 스크립트에 필요한 Python 패키지를 이 파일에 지정합니다. Azure ML 실험 서비스는 종속성 목록에 따라 conda 환경을 만듭니다. 여기에 나열된 패키지는 다음과 같은 채널을 통해 실행 엔진이 도달할 수 있어야 합니다.
 
 * [continuum.io](https://anaconda.org/conda-forge/repo)
 * [PyPI](https://pypi.python.org/pypi)
@@ -43,7 +43,7 @@ Azure ML(Machine Learning) Workbench용 스크립트를 제출할 때 실행 동
 * 실행 엔진을 통해 도달할 수 있는 기타 대상
 
 >[!NOTE]
->HDInsight 클러스터에서 실행할 때 Azure ML Workbench는 사용자 실행만을 위한 conda 환경을 만듭니다. 이를 통해 서로 다른 Python 환경에서 실행하는 여러 사용자들이 같은 클러스터에서 실행할 수 있습니다.  
+>HDInsight 클러스터에서 실행할 때 Azure ML Workbench는 특정 실행을 위한 conda 환경을 만듭니다. 이를 통해 서로 다른 Python 환경에서 실행하는 여러 사용자들이 같은 클러스터에서 실행할 수 있습니다.  
 
 다음은 일반적인 **conda_dependencies.yml** 파일의 예입니다.
 ```yaml
@@ -68,7 +68,7 @@ dependencies:
      - C:\temp\my_private_python_pkg.whl
 ```
 
-Azure ML Workbench는 **conda_dependencies.yml**이 그대로 있기만 하다면 다시 빌드하지 않고 같은 conda 환경을 사용합니다. 그러나 이 파일에 변경된 내용이 있는 경우 Docker 이미지를 다시 만듭니다.
+Azure ML Workbench는 **conda_dependencies.yml**이 그대로 유지되는 한 다시 빌드하지 않고 같은 conda 환경을 사용합니다. 종속성이 변경되면 환경을 다시 빌드합니다.
 
 >[!NOTE]
 >실행이 _로컬_ 계산 컨텍스트를 대상으로 하는 경우 **conda_dependencies.yml** 파일이 사용되지 **않습니다**. 로컬 Azure ML Workbench Python 환경에 대한 패키지 종속성은 수동으로 설치해야 합니다.
@@ -103,13 +103,13 @@ packages:
 ```
 
 >[!NOTE]
->작업자 크기 등과 같은 클러스터 튜닝 매개 변수인 코어는 spark_dependecies.yml 파일의 "configuration" 섹션으로 들어가야 함 
+>작업자 크기 및 코어와 같은 클러스터 튜닝 매개 변수는 spark_dependecies.yml 파일의 "configuration" 섹션으로 들어가야 함 
 
 >[!NOTE]
->Python 환경에서 스크립트를 실행하는 경우 *spark_dependencies.yml* 파일은 무시됩니다. 이는 Spark를 대상으로(Docker 또는 HDInsight 클러스터에서) 실행하는 경우에만 효과가 있습니다.
+>Python 환경에서 스크립트를 실행하는 경우 *spark_dependencies.yml* 파일은 무시됩니다. Spark(Docker 또는 HDInsight 클러스터)에서 실행중인 경우에만 사용됩니다.
 
 ## <a name="run-configuration"></a>실행 구성
-특정 실행 구성을 지정하려면 파일 쌍이 필요합니다. 이들은 일반적으로 CLI 명령을 사용하여 생성됩니다. 하지만 기존 명령을 복제하고 이름 변경 및 편집할 수 있습니다.
+특정 실행 구성을 지정하려면 .compute 파일과 .runconfig 파일이 필요합니다. 이들은 일반적으로 CLI 명령을 사용하여 생성됩니다. 기존 명령을 복제하고 이름을 변경하고 편집할 수도 있습니다.
 
 ```azurecli
 # create a compute target pointing to a VM via SSH
@@ -129,6 +129,7 @@ _\<compute target name>.compute_ 파일은 계산 대상에 대한 연결 및 �
 
 **type**: 계산 환경의 유형입니다. 지원되는 값은 다음과 같습니다.
   - local
+  - remote
   - docker
   - remotedocker
   - cluster
@@ -146,6 +147,8 @@ _\<compute target name>.compute_ 파일은 계산 대상에 대한 연결 및 �
 **nvidiaDocker**: 이 플래그는 _True_로 설정하면 Azure ML 실험 서비스에 대해 Docker 이미지를 시작할 때 일반적인 _docker_ 명령을 사용하지 말고 _nvidia-docker_ 명령을 사용하도록 지정합니다. _nvidia-docker_ 엔진을 사용하면 Docker 컨테이너가 GPU 하드웨어에 액세스할 수 있습니다. 이 설정은 Docker 컨테이너에서 GPU 실행을 수행하려는 경우에 필요합니다. Linux 호스트만이 _nvidia-docker_를 지원합니다. 예를 들어 Azure의 Linux 기반 DSVM은 _nvidia-docker_를 제공합니다. 현재 Windows에서는 _nvidia-docker_를 지원하지 않습니다.
 
 **nativeSharedDirectory**: 이 속성은 파일을 같은 계산 대상에서 실행 간에 공유하기 위해 저장할 수 있는 기본 디렉터리(예: _~/.azureml/share/_)를 지정합니다. Docker 컨테이너에서 실행할 때 이 설정을 사용하는 경우 _sharedVolumes_를 True로 설정해야 한다. 그렇지 않으면 실행되지 않습니다.
+
+**userManagedEnvironment**: 이 속성은 계산 대상을 사용자가 직접 관리할지 아니면 실험 서비스를 통해 관리할지 지정합니다.  
 
 ### <a name="run-configuration-namerunconfig"></a>\<run configuration name>.runconfig
 _\<run configuration name>.runconfig_는 Azure ML 실험 실행 동작을 지정합니다. 실행 기록 추적 또는 많은 다른 대상과 함께 사용할 계산 대상 등과 같은 실행 구성 동작을 구성할 수 있습니다. 실행 구성 파일의 이름은 Azure ML Workbench 데스크톱 응용 프로그램에서 실행 컨텍스트 드롭다운을 채우는 데 사용됩니다.
@@ -170,7 +173,7 @@ EnvironmentVariables:
   "EXAMPLE_ENV_VAR2": "Example Value2"
 ```
 
-이러한 환경 변수는 사용자의 코드에서 액세스할 수 있습니다. 예를 들어 이 Phyton 코드는 "EXAMPLE_ENV_VAR"이라는 환경 변수를 인쇄함
+이러한 환경 변수는 사용자의 코드에서 액세스할 수 있습니다. 예를 들어 이 Python 코드는 "EXAMPLE_ENV_VAR"이라는 환경 변수를 인쇄함
 ```
 print(os.environ.get("EXAMPLE_ENV_VAR1"))
 ```

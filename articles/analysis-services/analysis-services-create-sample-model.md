@@ -1,6 +1,6 @@
 ---
-title: "Azure Analysis Services 서버에서 샘플 테이블 형식 모델 만들기 | Microsoft Docs"
-description: "Azure Analysis Services에서 샘플 모델을 만드는 방법을 알아봅니다."
+title: "Azure Analysis Services 서버에서 샘플 테이블 형식 모델 추가 | Microsoft Docs"
+description: "Azure Analysis Services에서 샘플 모델을 추가하는 방법을 알아봅니다."
 services: analysis-services
 documentationcenter: 
 author: minewiskan
@@ -13,17 +13,17 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/27/2018
+ms.date: 02/28/2018
 ms.author: owend
-ms.openlocfilehash: 1cc36ebf4c410d4764eb28ab89d7f2a5e7749ae5
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: df83f5dd86d1edf857378ae69b16a86b57f9a2fe
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="tutorial-create-a-sample-model"></a>자습서: 샘플 모델 만들기
+# <a name="tutorial-add-a-sample-model"></a>자습서: 샘플 모델 추가
 
-이 자습서에서는 샘플 Adventure Works 모델을 만듭니다. 샘플 모델은 Adventure Works 인터넷 판매(1200) 데이터 모델링 자습서의 완성된 버전입니다. 샘플 모델은 모델 관리를 테스트하고, 도구 및 클라이언트 응용 프로그램과 연결하며, 모델 데이터를 쿼리하는 데 유용합니다.
+이 자습서에서는 샘플 Adventure Works 모델을 서버에 추가합니다. 샘플 모델은 Adventure Works 인터넷 판매(1200) 데이터 모델링 자습서의 완성된 버전입니다. 샘플 모델은 모델 관리를 테스트하고, 도구 및 클라이언트 응용 프로그램과 연결하며, 모델 데이터를 쿼리하는 데 유용합니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 

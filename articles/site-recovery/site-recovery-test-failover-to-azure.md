@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: raynew
-ms.openlocfilehash: 442e9df550bec750afe0eab6e94b7e8550015fdd
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: bfc9df3c1190d9b94f5e8d726665acb7f999311f
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="test-failover-to-azure-in-site-recovery"></a>Site Recovery에서 Azure로 테스트 장애 조치(failover)
 
@@ -89,7 +89,7 @@ ms.lasthandoff: 02/28/2018
 
 프로덕션 네트워크와는 별개인 테스트 네트워크를 사용하는 것이 좋지만 프로덕션 네트워크에서 재해 복구 훈련을 테스트하려는 경우에는 다음에 유의하세요. 
 
-- 테스트 장애 조치(Failover)를 실행할 때 기본 VM이 종료되어 있는지 확인합니다. 이렇게 하지 않으면 ID가 같은 두 VM이 동시에 동일한 네트워크에서 실행됩니다. 이로 인해 예기치 않은 결과가 발생할 수 있습니다.
+- 테스트 장애 조치(Failover)를 실행할 때 기본 VM이 종료되어 있는지 확인합니다. 이렇게 하지 않으면 ID가 같은 두 VM이 동시에 존재하며 동일한 네트워크에서 동시에 실행됩니다. 이로 인해 예기치 않은 결과가 발생할 수 있습니다.
 - 테스트 장애 조치(Failover)용으로 만든 VM에서 변경한 내용은 장애 조치(Failover)를 정리하면 손실됩니다. 즉, 이러한 변경 내용이 기본 VM에 다시 복제되지 않습니다.
 - 프로덕션 환경에서 테스트를 수행하면 프로덕션 응용 프로그램이 가동 중지됩니다. 사용자는 테스트 장애 조치(Failover)가 진행 중일 때 VM에서 실행되는 앱을 사용하지 않아야 합니다.  
 

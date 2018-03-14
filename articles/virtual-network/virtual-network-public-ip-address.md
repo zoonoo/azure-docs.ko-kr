@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial
-ms.openlocfilehash: e6eacdb437d28eb733da522280cb2c7d8c24d9ba
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 8efc0bff4764a7265a5f1bcdd995979af0b22234
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="create-change-or-delete-a-public-ip-address"></a>공용 IP 주소 만들기, 변경 또는 삭제
 
@@ -29,21 +29,20 @@ ms.lasthandoff: 02/09/2018
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이 문서에서 설명하는 섹션의 모든 단계를 수행하려면 다음 작업을 완료해야 합니다.
+이 문서에서 설명하는 모든 섹션의 단계를 수행하기 전에 다음 작업을 완료해야 합니다.
 
-- [Azure 한도](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) 문서를 검토하여 공용 IP 주소에 대한 한도 사항을 알아봅니다.
-- Azure 계정으로 Azure [Portal](https://portal.azure.com), Azure CLI(명령줄 인터페이스) 또는 Azure PowerShell에 로그인합니다. 아직 Azure 계정이 없으면 [평가판 계정](https://azure.microsoft.com/free)에 등록합니다.
-- PowerShell 명령을 사용하여 이 문서의 작업을 완료하는 경우 [Azure PowerShell을 설치 및 구성](/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json)합니다. 최신 버전의 Azure PowerShell commandlet을 설치했는지 확인합니다. 예제와 함께 PowerShell 명령에 대한 도움말을 보려면 `get-help <command> -full`을 입력합니다.
-- Azure CLI(명령줄 인터페이스) 명령을 사용하여 이 문서의 작업을 완료하는 경우 [Azure CLI를 설치 및 구성](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json)합니다. 최신 버전의 Azure CLI를 설치했는지 확인합니다. CLI 명령에 대한 도움말을 보려면 `az <command> --help`를 입력합니다. CLI 및 해당 필수 구성 요소를 설치하는 대신 Azure Cloud Shell을 사용할 수 있습니다. Azure Cloud Shell은 Azure Portal에서 직접 실행할 수 있는 평가판 Bash 셸입니다. Azure CLI가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. Cloud Shell을 사용하려면 [Portal](https://portal.azure.com) 위쪽의 Cloud Shell **>_** 단추를 클릭합니다.
+- 아직 Azure 계정이 없으면 [평가판 계정](https://azure.microsoft.com/free)에 등록합니다.
+- 포털을 사용하는 경우 https://portal.azure.com을 열고 Azure 계정으로 로그인합니다.
+- 이 문서의 작업을 완료하기 위해 PowerShell 명령을 사용하는 경우 [Azure Cloud Shell](https://shell.azure.com/powershell)에서 명령을 실행하거나 컴퓨터에서 PowerShell을 실행합니다. Azure Cloud Shell은 이 항목의 단계를 실행하는 데 사용할 수 있는 체험용 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 이 자습서에는 Azure PowerShell 모듈 버전 5.2.0 이상이 필요합니다. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable AzureRM`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Login-AzureRmAccount`를 실행하여 Azure와 연결해야 합니다.
+- 이 문서의 작업을 완료하기 위해 Azure CLI(명령줄 인터페이스)를 사용하는 경우 [Azure Cloud Shell](https://shell.azure.com/bash)에서 명령을 실행하거나 컴퓨터에서 CLI를 실행합니다. 이 자습서에는 Azure CLI 버전 2.0.26 이상이 필요합니다. 설치되어 있는 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치](/cli/azure/install-azure-cli)를 참조하세요. 또한 Azure CLI를 로컬로 실행하는 경우 `az login`를 실행하여 Azure와 연결해야 합니다.
 
 공용 IP 주소에는 명목 요금이 부과됩니다. 가격을 보려면 [IP 주소 가격](https://azure.microsoft.com/pricing/details/ip-addresses) 페이지를 참조하세요. 
 
 ## <a name="create-a-public-ip-address"></a>공용 IP 주소 만들기
 
-1. 구독에 대한 네트워크 참가자 역할에 권한(최소)이 할당된 계정으로 [Azure Portal](https://portal.azure.com)에 로그인합니다. 계정에 역할 및 권한을 할당하는 방법에 대한 자세한 내용은 [Azure 역할 기반 액세스 제어의 기본 제공 역할](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) 문서를 참조하세요.
-2. Azure Portal 위쪽의 *리소스 검색* 텍스트가 있는 상자에서 *공용 IP 주소*를 입력합니다. 검색 결과에 표시된 **공용 IP 주소**를 클릭합니다.
-3. 표시되는 **공용 IP 주소** 블레이드에서 **+ 추가**를 클릭합니다.
-4. 표시되는 **공용 IP 주소 만들기** 블레이드에서 다음 설정 값을 입력하거나 선택한 다음 **만들기**를 클릭합니다.
+1. Azure Portal 위쪽의 *리소스 검색* 텍스트가 있는 상자에서 *공용 IP 주소*를 입력합니다. 검색 결과에 표시된 **공용 IP 주소**를 클릭합니다.
+2. 표시되는 **공용 IP 주소** 블레이드에서 **+ 추가**를 클릭합니다.
+3. 표시되는 **공용 IP 주소 만들기** 블레이드에서 다음 설정 값을 입력하거나 선택한 다음 **만들기**를 클릭합니다.
 
     |설정|Required?|세부 정보|
     |---|---|---|
@@ -59,7 +58,7 @@ ms.lasthandoff: 02/09/2018
     |구독|예|공용 IP 주소를 연결하려는 리소스와 동일한 [구독](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription)에 있어야 합니다.|
     |리소스 그룹|예|공용 IP 주소를 연결하려는 리소스와 동일하거나 다른 [리소스 그룹](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group)에 있을 수 있습니다.|
     |위치|예|공용 IP 주소를 연결하려는 리소스와 동일한 [위치](https://azure.microsoft.com/regions)(하위 지역이라고도 함)에 있어야 합니다.|
-    |가용성 영역| 아니요 | 이 설정은 지원되는 위치를 선택하는 경우에만 나타납니다. 지원되는 위치 목록은 [가용성 영역 개요](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요. 가용성 영역은 현재 미리 보기 릴리스 상태입니다. 영역 또는 영역 중복 옵션을 선택하기 전에 먼저 [가용성 영역 미리 보기 등록](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#get-started-with-the-availability-zones-preview)의 단계를 완료해야 합니다. **기본** SKU를 선택한 경우 *없음*이 자동으로 선택됩니다. 특정 영역을 보장하려는 경우 특정 영역을 선택할 수 있습니다. 두 선택 중 하나는 영역 중복이 아닙니다. **표준** SKU를 선택한 경우: 영역 중복이 자동으로 선택되며, 영역 오류 시 데이터 경로가 복원 가능합니다. 영역 오류 시 복원 불가능한 특정 영역을 보장하려는 경우 특정 영역을 선택할 수 있습니다.
+    |가용성 영역| 아니오 | 이 설정은 지원되는 위치를 선택하는 경우에만 나타납니다. 지원되는 위치 목록은 [가용성 영역 개요](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요. 가용성 영역은 현재 미리 보기 릴리스 상태입니다. 영역 또는 영역 중복 옵션을 선택하기 전에 먼저 [가용성 영역 미리 보기 등록](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#get-started-with-the-availability-zones-preview)의 단계를 완료해야 합니다. **기본** SKU를 선택한 경우 *없음*이 자동으로 선택됩니다. 특정 영역을 보장하려는 경우 특정 영역을 선택할 수 있습니다. 두 선택 중 하나는 영역 중복이 아닙니다. **표준** SKU를 선택한 경우: 영역 중복이 자동으로 선택되며, 영역 오류 시 데이터 경로가 복원 가능합니다. 영역 오류 시 복원 불가능한 특정 영역을 보장하려는 경우 특정 영역을 선택할 수 있습니다.
   
 
 **명령**
@@ -73,10 +72,9 @@ Portal에서는 IPv4와 IPv6용으로 하나씩 두 개의 공용 IP 주소 리�
 
 ## <a name="view-change-settings-for-or-delete-a-public-ip-address"></a>공용 IP 주소 보기, 설정 변경 또는 삭제
 
-1. 구독에 대한 네트워크 참가자 역할에 권한(최소)이 할당된 계정으로 [Azure Portal](https://portal.azure.com)에 로그인합니다. 계정에 역할 및 권한을 할당하는 방법에 대한 자세한 내용은 [Azure 역할 기반 액세스 제어의 기본 제공 역할](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) 문서를 참조하세요.
-2. Azure Portal 위쪽의 *리소스 검색* 텍스트가 있는 상자에서 *공용 IP 주소*를 입력합니다. 검색 결과에 표시된 **공용 IP 주소**를 클릭합니다.
-3. 나타나는 **공용 IP 주소** 블레이드에서 보고 설정을 변경하거나 삭제하려는 공용 IP 주소의 이름을 클릭합니다.
-4. 공용 IP 주소에 대해 표시되는 블레이드에서 공용 IP 주소에 대해 수행하려는 작업(보기/삭제/변경)에 따라 다음 옵션 중 하나를 수행합니다.
+1. Azure Portal 위쪽의 *리소스 검색* 텍스트가 있는 상자에서 *공용 IP 주소*를 입력합니다. 검색 결과에 표시된 **공용 IP 주소**를 클릭합니다.
+2. 나타나는 **공용 IP 주소** 블레이드에서 보고 설정을 변경하거나 삭제하려는 공용 IP 주소의 이름을 클릭합니다.
+3. 공용 IP 주소에 대해 표시되는 블레이드에서 공용 IP 주소에 대해 수행하려는 작업(보기/삭제/변경)에 따라 다음 옵션 중 하나를 수행합니다.
     - **보기**: 블레이드의 **개요** 섹션에는 공용 IP 주소에 대한 주요 설정(예: 공용 IP 주소가 네트워크 인터페이스에 연결된 경우 주소가 연결된 네트워크 인터페이스)이 표시됩니다. Portal에는 주소(IPv4 또는 IPv6)의 버전이 표시되지 않습니다. 버전 정보를 보려면 PowerShell 또는 CLI를 사용하여 공용 IP 주소를 확인합니다. IP 주소 버전이 IPv6이면 할당된 주소가 Portal, PowerShell 또는 CLI 사용 시 표시되지 않습니다. 
     - **삭제**: 공용 IP 주소를 삭제하려면 블레이드의 **개요** 섹션에서 **삭제**를 클릭합니다. 주소가 현재 IP 구성과 연결되어 있으면 삭제할 수 없습니다. 주소가 현재 구성과 연결되어 있으면 **분리**를 클릭하여 IP 구성에서 주소를 분리합니다.
     - **변경**: **구성**을 클릭합니다. 이 문서의 [공용 IP 주소 만들기](#create-a-public-ip-address) 섹션의 4단계 정보를 사용하여 설정을 변경합니다. IPv4 주소 할당 방식을 정적에서 동적으로 변경하려면 먼저 공용 IPv4 주소가 연결된 IP 구성에서 주소를 분리해야 합니다. 그런 다음 할당 방법을 동적으로 변경하고 **연결**을 클릭하여 동일한 IP 구성이나 다른 구성으로 해당 IP 주소를 연결하거나 분리할 수 있습니다. 공용 IP 주소를 분리하려면 **개요** 섹션에서 **분리**를 클릭합니다.
@@ -98,16 +96,12 @@ Portal에서는 IPv4와 IPv6용으로 하나씩 두 개의 공용 IP 주소 리�
 
 표준 SKU 공용 IP 주소를 만들기 전에 먼저 미리 보기에 등록해야 합니다. 미리 보기에 등록하려면 다음 단계를 완료합니다.
 
-1. Azure [PowerShell](/powershell/azure/install-azurerm-ps)을 설치 및 구성합니다.
-2. `Get-Module -ListAvailable AzureRM` 명령을 실행하여 설치한 AzureRM 모듈의 버전을 확인합니다. 버전 4.4.0 이상이 설치되어 있어야 합니다. 설치되어 있지 않으면 [PowerShell 갤러리](https://www.powershellgallery.com/packages/AzureRM)에서 최신 버전을 설치할 수 있습니다.
-3. `login-azurermaccount` 명령을 사용하여 Azure에 로그인합니다.
-4. 미리 보기에 등록하려면 다음 명령을 입력합니다.
+1. 미리 보기에 등록하려면 PowerShell에서 다음 명령을 입력합니다.
    
     ```powershell
     Register-AzureRmProviderFeature -FeatureName AllowLBPreview -ProviderNamespace Microsoft.Network
     ```
-
-5. 다음 명령을 입력하여 미리 보기에 등록되었는지 확인합니다.
+2. 다음 명령을 입력하여 미리 보기에 등록되었는지 확인합니다.
 
     ```powershell
     Get-AzureRmProviderFeature -FeatureName AllowLBPreview -ProviderNamespace Microsoft.Network

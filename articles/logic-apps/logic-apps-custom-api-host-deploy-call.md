@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/26/2017
 ms.author: LADocs; stepsic
-ms.openlocfilehash: 3df59ec172b037daaeed9e3eb69ffb990d70d8a5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c7a240bf5b7ed5e7780b90f438d2e336ee79f0b3
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="deploy-and-call-custom-apis-from-logic-app-workflows"></a>논리 앱 워크플로에서 사용자 지정 API 배포 및 호출
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 10/11/2017
 
    ![Logic App Designer에서 사용자 지정 API로의 요청 허용](./media/logic-apps-custom-api-deploy-call/custom-api-cors.png)
 
-자세한 내용은 [Node.js RESTful API 빌드](../app-service/app-service-web-tutorial-rest-api.md)를 참조하세요.
+자세한 내용은 [Azure App Service에서 CORS를 통해 RESTful API 호스팅](../app-service/app-service-web-tutorial-rest-api.md)을 참조하세요.
 
 ## <a name="call-your-custom-api-from-logic-app-workflows"></a>논리 앱 워크플로에서 사용자 지정 API 호출
 

@@ -3,22 +3,16 @@ title: "Azure Import/Export를 사용하여 Azure Storage 간에 데이터 전�
 description: "Azure Portal에서 가져오기 및 내보내기 작업을 만들어 Azure Storage 간에 데이터를 전송하는 방법에 대해 알아봅니다."
 author: muralikk
 manager: syadav
-editor: tysonn
 services: storage
-documentationcenter: 
-ms.assetid: 668f53f2-f5a4-48b5-9369-88ec5ea05eb5
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2017
+ms.date: 02/28/2018
 ms.author: muralikk
-ms.openlocfilehash: 0c34b7ce028ef0fae77322513f62557fa9f9929c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: e9fce2530bc4e654304b946cea1715ac8e2ce6fa
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>Microsoft Azure Import/Export 서비스를 사용하여 Azure Storage로 데이터 전송
 이 문서에서는 Azure Import/Export 서비스를 사용하여 디스크 드라이브를 Azure 데이터 센터에 발송하여 많은 양의 데이터를 안전하게 Azure Blob Storage로 전송하는 단계별 지침을 제공합니다. 이 서비스를 사용하여 데이터를 Azure 저장소에서 하드 디스크 드라이브로 전송하고 온-프레미스 사이트로 발송할 수도 있습니다. 단일 내부 SATA 디스크 드라이브의 데이터를 Azure Blob Storage나 Azure 파일로 가져올 수 있습니다. 
@@ -31,25 +25,34 @@ ms.lasthandoff: 02/21/2018
 디스크의 데이터를 Azure Storage로 가져와야 할 경우 아래 단계를 따릅니다.
 ### <a name="step-1-prepare-the-drives-using-waimportexport-tool-and-generate-journal-files"></a>1단계: WAImportExport 도구를 사용하여 드라이브를 준비하고 저널 파일을 생성합니다.
 
-1.  Azure Storage로 가져올 데이터를 식별합니다. 이는 로컬 서버에 있는 디렉터리 및 독립 실행형 파일이거나 또는 네트워크 공유일 수 있습니다.
+1.  Azure Storage로 가져올 데이터를 식별합니다. 로컬 서버 또는 네트워크 공유에서 디렉터리 및 독립 실행형 파일을 가져올 수 있습니다.
 2.  전체 데이터 크기에 따라 필요한 2.5" SSD 또는 2.5"/3.5" SATA II/III 하드 디스크 드라이브 수를 확보합니다.
 3.  SATA를 사용하여 하드 드라이브를 직접, 또는 외부 USB 어댑터를 통해 Windows 컴퓨터에 연결합니다.
-4.  각 하드 드라이브에서 단일 NTFS 볼륨을 만들고 볼륨에 드라이브 문자를 할당합니다. 탑재 지점은 없습니다.
-5.  Windows 컴퓨터에서 암호화를 사용하도록 설정하려면 NTFS 볼륨에 비트 보관 암호화를 사용하도록 설정합니다. https://technet.microsoft.com/en-us/library/cc731549(v=ws.10).asp의 지침을 따릅니다.
-6.  복사하여 붙여넣기, 끌어서 놓기 또는 Robocopy나 기타 도구를 사용하여 디스크에서 이러한 암호화된 단일 NTFS 볼륨에 데이터를 완전히 복사합니다.
+1.  각 하드 드라이브에서 단일 NTFS 볼륨을 만들고 볼륨에 드라이브 문자를 할당합니다. 탑재 지점은 없습니다.
+2.  Windows 컴퓨터에서 암호화를 사용하도록 설정하려면 NTFS 볼륨에 비트 보관 암호화를 사용하도록 설정합니다. https://technet.microsoft.com/en-us/library/cc731549(v=ws.10).asp의 지침을 따릅니다.
+3.  복사하여 붙여넣기, 끌어서 놓기 또는 Robocopy나 기타 도구를 사용하여 디스크에서 이러한 암호화된 단일 NTFS 볼륨에 데이터를 완전히 복사합니다.
 7.  https://www.microsoft.com/en-us/download/details.aspx?id=42659에서 WAImportExport V1을 다운로드합니다.
 8.  기본 폴더 waimportexportv1에 압축을 풉니다. 예를 들어 C:\WaImportExportV1입니다.  
 9.  관리자로 실행하고 PowerShell 또는 명령줄을 연 다음 디렉터리를 압축을 푼 폴더로 변경합니다. 예를 들어 cd C:\WaImportExportV1입니다.
-10. 다음 명령줄을 메모장에 복사하고 편집하여 명령줄을 만듭니다.
-  ./WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1 /sk:***== /t:D /bk:*** /srcdir:D:\ /dstdir:ContainerName/ /skipwrite
+10. 다음 명령줄을 텍스트 편집기에 복사하고 편집하여 명령줄을 만듭니다.
+
+    ```
+    ./WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1 /sk:***== /t:D /bk:*** /srcdir:D:\ /dstdir:ContainerName/ 
+    ```
     
-    /j:  확장자가 .jrn인 저널 파일의 파일명. 저널 파일은 드라이브별로 생성되므로 디스크 일련 번호를 저널 파일 이름으로 사용하는 것이 좋습니다.
-    /sk: Azure Storage 계정 키 /t:  배송할 디스크의 드라이브 문자. 예를 들어 D /bk:은 드라이브의 비트 로커 키, /srcdir:은 :\ 다음의 배송될 디스크의 드라이브 문자. 예: D:\
-    /dstdir: 데이터를 가져올 Azure Storage Container의 이름
-    /skipwrite 
-    
-11. 배송할 디스크마다 10단계를 반복합니다.
-12. 명령줄을 실행할 때마다 /j: 매개 변수와 함께 제공된 이름이 있는 저널 파일이 만들어집니다.
+    명령줄 옵션은 다음 표에 설명되어 있습니다.
+
+    |옵션  |설명  |
+    |---------|---------|
+    |/j:     |확장명이 .jrn인 저널 파일의 이름입니다. 저널 파일은 드라이브마다 생성됩니다. 디스크 일련 번호를 저널 파일 이름으로 사용하는 것이 좋습니다.         |
+    |/sk:     |Azure Storage 계정 키입니다.         |
+    |/t:     |배송할 디스크의 드라이브 문자입니다. 예: `D` 드라이브         |
+    |/bk:     |드라이브의 BitLocker 키입니다.         |
+    |/srcdir:     |`:\` 다음에 나오는 배송될 디스크의 드라이브 문자입니다. 예: `D:\`         |
+    |/dstdir:     |Azure Storage의 대상 컨테이너 이름입니다.         |
+
+1. 배송할 디스크마다 10단계를 반복합니다.
+2. 명령줄을 실행할 때마다 /j: 매개 변수와 함께 제공된 이름이 있는 저널 파일이 만들어집니다.
 
 ### <a name="step-2-create-an-import-job-on-azure-portal"></a>2단계: Azure Portal에서 가져오기 작업 만들기
 
@@ -88,6 +91,11 @@ FedEx, UPS 또는 DHL을 통해 패키지를 Azure DC로 보낼 수 있습니다
 
 ### <a name="storage-account"></a>Storage 계정
 Import/Export 서비스를 사용하려면 기존 Azure 구독과 하나 이상의 저장소 계정이 있어야 합니다. Azure 가져오기/내보내기는 클래식, Blob Storage 계정 및 일반 용도 v1 저장소 계정만 지원합니다. 각 작업은 하나의 저장소 계정에서만 데이터 전송에 사용될 수 있습니다. 다시 말해, 하나의 가져오기/내보내기 작업이 여러 저장소 계정에서 사용될 수 없습니다. 새 Storage 계정 만들기에 대한 자세한 내용은 [Storage 계정을 만드는 방법](storage-create-storage-account.md#create-a-storage-account)(영문)을 참조하세요.
+
+> [!IMPORTANT] 
+> Azure 가져오기 내보내기 서비스는 [Virtual Network 서비스 엔드포인트](../../virtual-network/virtual-network-service-endpoints-overview.md) 기능이 활성화된 저장소 계정을 지원하지 않습니다. 
+> 
+> 
 
 ### <a name="data-types"></a>데이터 형식
 Azure Import/Export 서비스를 사용하여 데이터를 **블록** Blob, **페이지** Blob 또는 **파일**로 복사할 수 있습니다. 반대로 이 서비스를 사용하여 Azure 저장소에서 **블록** Blob, **페이지** Blob 또는 **추가** Blob을 내보내기만 할 수도 있습니다. 서비스는 Azure Storage로 Azure 파일 가져오기만 지원합니다. Azure 파일 내보내기는 현재 지원되지 않습니다.

@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 10/31/2016
 ms.author: kevin;barbkess
-ms.openlocfilehash: d7b81c12c31fe7de40acca6baa8972e65c306ee0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: acf521bdc15dfab4c7e43081159bc1385768838e
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="manage-databases-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse의 데이터베이스 관리
 SQL Data Warehouse는 데이터베이스 관리의 여러 측면을 자동화합니다. 예를 들어 성능을 조정하려는 경우 적정 수준의 계산 리소스를 조정하고 해당 비용만 지불하기만 하면 SQL Data Warehouse에서 모든 확장 및 축소 작업을 수행합니다.
@@ -34,12 +34,12 @@ SQL Data Warehouse는 데이터베이스 관리의 여러 측면을 자동화합
 * 성능 모범 사례
 * 쿼리 모니터링
 * 보안
-* Backup 및 복원
+* 백업 및 복원
 
 ## <a name="management-tools"></a>관리 도구
 다양한 도구를 사용하여 SQL Data Warehouse의 데이터베이스를 관리할 수 있습니다. 데이터베이스를 관리하면서 수행해야 하는 각 작업 유형의 도구 기본 설정을 개발해야 합니다.
 
-### <a name="azure-portal"></a>Azure 포털
+### <a name="azure-portal"></a>Azure portal
 [Azure Portal][Azure portal]은 데이터베이스를 생성, 업데이트, 삭제하고 데이터베이스 리소스를 모니터링할 수 있는 웹 기반 포털입니다. Azure를 방금 시작했거나 관리하는 데이터웨어하우스 데이터베이스 수가 적거나 신속하게 작업을 수행해야 하는 경우에 매우 유용한 도구입니다.
 
 Azure Portal을 시작하려면 [SQL Data Warehouse 만들기(Azure Portal)][Create a SQL Data Warehouse (Azure portal)]를 참조하세요.
@@ -47,7 +47,7 @@ Azure Portal을 시작하려면 [SQL Data Warehouse 만들기(Azure Portal)][Cre
 ### <a name="sql-server-data-tools-in-visual-studio"></a>Visual Studio에서 SQL Server 데이터 도구
 [SSDT(SSDT(SQL Server Data Tools))][SQL Server Data Tools]를 사용하여 데이터베이스를 연결, 관리, 개발할 수 있습니다. Visual Studio 또는 다른 IDE(통합 개발 환경)에 익숙한 응용 프로그램 개발자라면 Visual Studio에서 SSDT를 사용해 보세요.
 
-SSDT에는 SQL Data Warehouse 데이터베이스에 대해 스크립트를 시각화, 연결 및 실행할 수 있게 해주는 SQL 서버 탐색기가 포함됩니다. SQL Data Warehouse에 빠르게 연결하려면 Azure Portal에서 데이터베이스 세부 정보를 볼 때 명령 모음에서 **Visual Studio에서 열기** 단추를 클릭하기만 하면 됩니다.  
+SSDT에는 SQL Data Warehouse 데이터베이스에 대해 스크립트를 시각화, 연결 및 실행할 수 있게 해주는 SQL Server 개체 탐색기가 포함됩니다. SQL Data Warehouse에 빠르게 연결하려면 Azure Portal에서 데이터베이스 세부 정보를 볼 때 명령 모음에서 **Visual Studio에서 열기** 단추를 클릭하기만 하면 됩니다.  
 
 Visual Studio에서 SSDT를 시작하려면 [Visual Studio로 Azure SQL Data Warehouse 쿼리][Query Azure SQL Data Warehouse with Visual Studio]를 참조하세요.
 
@@ -84,7 +84,7 @@ DWU 확장에 대한 자세한 내용은 [성능 조정]을 참조하세요.
 
 보안 관리에 대한 자세한 내용은 [보안 개요][Security overview]를 참조하세요.
 
-## <a name="backup-and-restore"></a>Backup 및 복원
+## <a name="back-up-and-restore"></a>백업 및 복원
 데이터의 신뢰할 수 있는 백업을 만드는 것은 프로덕션 데이터베이스의 필수적인 부분입니다. SQL Data Warehouse는 정기적으로 활성 데이터베이스를 자동으로 백업하여 데이터를 안전하게 보관합니다. 이러한 백업을 사용하여 데이터를 손상했거나 데이터 또는 데이터베이스를 실수로 삭제한 시나리오에서 복구할 수 있습니다.  데이터 백업 일정, 보존 정책 및 데이터베이스를 복원하는 방법은 [스냅숏에서 복원][Restore from snapshot]을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
@@ -100,10 +100,10 @@ DWU 확장에 대한 자세한 내용은 [성능 조정]을 참조하세요.
 [Connect and query with sqlcmd]: sql-data-warehouse-get-started-connect-sqlcmd.md
 [Development overview]: sql-data-warehouse-overview-develop.md
 [Monitor your workload using DMVs]: sql-data-warehouse-manage-monitor.md
-[Pause compute]: sql-data-warehouse-manage-compute-overview.md#pause-compute-bk
+[Pause compute]: pause-and-resume-compute-portal.md#pause-compute
 [Restore from snapshot]: sql-data-warehouse-restore-database-overview.md
-[Resume compute]: sql-data-warehouse-manage-compute-overview.md#resume-compute-bk
-[성능 조정]: sql-data-warehouse-manage-compute-overview.md#scale-compute
+[Resume compute]: pause-and-resume-compute-portal.md#resume-compute
+[성능 조정]: quickstart-scale-compute-portal.md#scale-compute
 [Security overview]: sql-data-warehouse-overview-manage-security.md
 [SQL Data Warehouse Best Practices]: sql-data-warehouse-best-practices.md
 [SQL Data Warehouse system views]: sql-data-warehouse-reference-tsql-system-views.md

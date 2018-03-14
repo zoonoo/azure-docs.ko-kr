@@ -14,13 +14,16 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 05099e868e62f612be0a3354eb8b339507ac7e4a
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 46cdd8523117e1100e7ce2a29ade9eb2dc0afe75
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="stateful-singletons-in-durable-functions---counter-sample"></a>지속성 함수의 상태 저장 단일 항목 - Counter 샘플
+
+> [!NOTE]
+> 이 샘플을 다시 작성하고 있습니다. 코드 조각이 제거되었으며 새 샘플에 대한 새 문서로 대체될 예정입니다.
 
 상태 저장 단일 항목은 상태를 저장하고 다른 함수로 호출되고 쿼리될 수 있는 장기 실행(잠재적으로 영구) 오케스트레이터 함수입니다. 상태 저장 단일 항목은 분산 컴퓨팅의 [행위자 모델](https://en.wikipedia.org/wiki/Actor_model)과 비슷합니다.
 
@@ -55,11 +58,11 @@ ms.lasthandoff: 12/05/2017
 
 function.json 파일:
 
-[!code-json[Main](~/samples-durable-functions/samples/csx/E3_Counter/function.json)]
+<!-- [!code-json[Main](~/samples-durable-functions/samples/csx/E3_Counter/function.json)] -->
 
 run.csx 파일:
 
-[!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_Counter/run.csx)]
+<!-- [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_Counter/run.csx)] -->
 
 ### <a name="precompiled-c"></a>미리 컴파일된 C# 
 
@@ -67,7 +70,7 @@ run.csx 파일:
 
 다음은 오케스트레이터 함수를 구현하는 코드입니다.
 
-[!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Counter.cs)]
+<!-- [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Counter.cs)] -->
 
 ### <a name="explanation-of-the-code"></a>코드 설명
 

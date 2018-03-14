@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/09/2018
 ms.author: chackdan
-ms.openlocfilehash: 23f063d89c5030d440d50765eee9d121b4d8f5ba
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: e55dbe4bd8fde8293c7fcd681bb18967dc4edad6
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>서비스 패브릭 클러스터 설정 및 패브릭 업그레이드 정책 사용자 지정
 이 문서에서는 Service Fabric 클러스터에 대한 다양한 패브릭 설정 및 패브릭 업그레이드 정책을 사용자 지정하는 방법을 설명합니다. [Azure portal](https://portal.azure.com)을 통해 또는 Azure Resource Manager 템플릿을 사용하여 사용자 지정할 수 있습니다.
@@ -31,7 +31,7 @@ ms.lasthandoff: 02/11/2018
 아래 단계에서는 새로운 *MaxDiskQuotaInMB* 설정을 *Diagnostics* 섹션에 추가하는 방법을 보여 줍니다.
 
 1. https://resources.azure.com으로 이동합니다.
-2. **구독** -> **리소스 그룹** -> **Microsoft.ServiceFabric** -> **\<클러스터 이름**으로 차례로 확장하여 해당 구독으로 이동합니다.
+2. **구독** -> **\<사용자의 구독>** -> **resourceGroups** -> **\<사용자의 리소스 그룹>** -> **공급자** -> **Microsoft.ServiceFabric** -> **클러스터** -> **\<클러스터 이름>**을 펼쳐서 구독으로 이동합니다.
 3. 오른쪽 위 모서리에서 **읽기/쓰기**를 선택합니다.
 4. **편집**을 선택하고 `fabricSettings` JSON 요소를 업데이트하고 새 요소를 추가합니다.
 
@@ -385,6 +385,7 @@ ms.lasthandoff: 02/11/2018
 |CommonName2Ntlmx509StoreLocation|string, 기본값: L"LocalMachine"| 공용|NTLM 인증을 사용할 때 CommonName2NtlmPasswordSecret에서 HMAC를 생성하는 데 사용되는 X509 인증서의 저장소 위치 |
 |CommonName2Ntlmx509StoreName|string, 기본값: L"MY"|공용| NTLM 인증을 사용할 때 CommonName2NtlmPasswordSecret에서 HMAC를 생성하는 데 사용되는 X509 인증서의 저장소 이름 |
 |CommonName2Ntlmx509CommonName|string, 기본값: L""|공용|NTLM 인증을 사용할 때 CommonName2NtlmPasswordSecret에서 HMAC를 생성하는 데 사용되는 X509 인증서의 일반 이름 |
+|GenerateV1CommonNameAccount| bool, 기본값: TRUE|공용|사용자 이름 V1 생성 알고리즘을 사용하여 계정을 생성할지 여부를 지정합니다. Service Fabric 버전 6.1부터 v2 생성으로 계정이 항상 생성됩니다. V1 계정은 V2 생성을 지원하지 않는 버전(6.1 이전)에서 업그레이드하거나 이 버전으로 업그레이드할 때 필요합니다.|
 
 ### <a name="section-name-imagestoreservice"></a>섹션 이름: ImageStoreService
 | **매개 변수** | **허용되는 값** | **업그레이드 정책** | **지침 또는 간단한 설명** |
