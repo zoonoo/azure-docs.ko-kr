@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 02/27/2018
 ms.author: owend
-ms.openlocfilehash: e2f7e356b260c0e5af67d28811bd88a63a601312
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 9f2a4acdd0a2b29bc1485f62c0049f0065cbf711
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Azure Analysis Services에서 지원되는 데이터 원본
 
@@ -32,13 +32,13 @@ Visual Studio에서 데이터 가져오기 또는 마법사 가져오기에 표�
 |Azure SQL Database     |   예      |    예      |
 |Azure SQL Data Warehouse     |   예      |   예       |
 |Azure Blob Storage*     |   예       |    아니요      |
-|Azure Table Storage*    |   예       |    아니요      |
+|Azure Table Storage*    |   예       |    아니오      |
 |Azure Cosmos DB(베타)*     |  예        |  아니오        |
-|Azure Data Lake Store*     |   예       |    아니오      |
+|Azure Data Lake Store*     |   예       |    아니요      |
 |Azure HDInsight HDFS*     |     예     |   아니요       |
 |Azure HDInsight Spark(베타)*     |   예       |   아니요       |
-|Azure Database for MySQL(미리 보기)*     |   예       |   아니오      |
-|Azure Database for PostgreSQL(미리 보기)*     | 예         |  아니요       |
+|Azure Database for MySQL(미리 보기)*     |   예       |   아니요      |
+|Azure Database for PostgreSQL(미리 보기)*     | 예         |  아니오       |
 ||||
 
 \* 테이블 형식 1400 모델에만 해당합니다.
@@ -48,7 +48,7 @@ Azure 데이터 원본에 연결된 메모리 내 모델 및 DirectQuery 모델�
 
 ## <a name="on-premises-data-sources"></a>온-프레미스 데이터 원본
 
-온-프레미스 데이터 원본에 연결하려면 온-프레미스 게이트웨이가 필요합니다. 게이트웨이를 사용할 때 64비트 공급자가 설치되었는지 확인합니다.
+온-프레미스 데이터 원본 및 Azure AS 서버에 연결하려면 온-프레미스 게이트웨이가 필요합니다. 게이트웨이를 사용하는 경우 64비트 공급자는 필수입니다.
 
 ### <a name="in-memory-and-directquery"></a>메모리 내 및 DirectQuery
 
@@ -60,31 +60,26 @@ Azure 데이터 원본에 연결된 메모리 내 모델 및 DirectQuery 모델�
 | Teradata |Teradata용 OLE DB Provider, .NET용 Teradata Data Provider |.NET용 Teradata Data Provider | |
 | | | |
 
-\* 테이블 형식 1400 모델에만 해당합니다.
-
 ### <a name="in-memory-only"></a>메모리 내 전용
-
-> [!IMPORTANT]
-> 다음 데이터 원본의 공급자 테스트가 진행 중입니다. 
 
 |데이터 원본  |  
 |---------|---------|
 |Access 데이터베이스     |  
 |Active Directory*     |  
-|Analysis Services     | 
+|Analysis Services     |  
 |분석 플랫폼 시스템     |  
 |Dynamics CRM*     |  
-|Excel 통합 문서     | 
+|Excel 통합 문서     |  
 |Exchange*     |  
 |폴더*     | 
 |JSON 문서*     |  
 |이진의 줄*     | 
 |MySQL 데이터베이스     | 
-|OData 피드*     | 
+|OData 피드*     |  
 |ODBC 쿼리     | 
-|OLE DB     |  
+|OLE DB     |   
 |Postgre SQL Database*    | 
-|SAP HANA*    |   
+|SAP HANA*    |  
 |SAP Business Warehouse*    |  
 |SharePoint*     |   
 |Sybase 데이터베이스     |  

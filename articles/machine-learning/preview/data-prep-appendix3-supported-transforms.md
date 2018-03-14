@@ -5,18 +5,18 @@ services: machine-learning
 author: euangMS
 ms.author: euang
 manager: lanceo
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: d91985849bd2483e8a28a01d63d253960190829d
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 9cd6e6cdf8d8dc2b1872d6f7b76821122fd427fa
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="use-data-transforms-for-data-preparation-in-azure-machine-learning"></a>Azure Machine Learning에서 데이터 준비를 위해 데이터 변환 사용
 
@@ -48,7 +48,7 @@ Azure Machine Learning의 *변환*은 지정된 형식의 데이터를 사용하
 **예제별 열 파생** 변환에 대한 자세한 설명 및 추가 샘플을 보려면 [예제별 열 파생 참조](data-prep-derive-column-by-example.md)를 참조하세요.  
 
 ## <a name="split-column-by-example"></a>예제별 열 분할
-이 변환은 기존 열을 가져와서 "예제별" 엔진을 사용하면 해당 열을 *n*개의 다른 열로 분할하려고 합니다. 이후에 생성된 열에 대해 자동 분할을 실행할 수 있습니다.
+이 변환은 기존 열을 가져오고, "예제별" 엔진을 사용하여 해당 열을 *n*개의 다른 열로 분할하려고 합니다. 이후에 생성된 열에 대해 자동 분할을 실행할 수 있습니다.
 
 **예제별 열 분할** 변환에 대한 자세한 설명 및 추가 샘플을 보려면 [예제별 열 분할 참조](data-prep-split-column-by-example.md)를 참조하세요.
 

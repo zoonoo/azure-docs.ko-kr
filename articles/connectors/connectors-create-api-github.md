@@ -1,8 +1,8 @@
 ---
-title: "Azure Logic Apps의 GitHub 커넥터 | Microsoft Docs"
-description: "Azure 앱 서비스로 논리 앱을 만듭니다. GitHub은 서비스를 호스팅하는 웹 기반 Git 리포지토리입니다. 고유한 기능을 추가할 뿐 아니라 Git의 분산된 수정 버전 제어 및 SCM(소스 코드 관리) 기능을 모두 제공합니다."
+title: "Azure Logic Apps를 사용하여 GitHub에 연결 | Microsoft Docs"
+description: "Azure Logic Apps를 사용하여 GitHub에 대한 워크플로를 자동화합니다."
 services: logic-apps
-documentationcenter: .net,nodejs,java
+documentationcenter: 
 author: MandiOhlinger
 manager: anneta
 editor: 
@@ -13,34 +13,37 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
-ms.date: 08/18/2016
+ms.date: 03/02/2018
 ms.author: mandia; ladocs
-ms.openlocfilehash: c9120babaa5f6da4f33bd60ba27434e24cb2f45e
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: cd7cd3babbfb7efc5917d3a7ec5b9d10112ba791
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/05/2018
 ---
-# <a name="get-started-with-the-github-connector"></a>GitHub 커넥터 시작
-GitHub은 서비스를 호스팅하는 웹 기반 Git 리포지토리입니다. 고유한 기능을 추가할 뿐 아니라 Git의 분산된 수정 버전 제어 및 SCM(소스 코드 관리) 기능을 모두 제공합니다.
+# <a name="connect-to-github"></a>GitHub에 연결
 
-이제 논리 앱을 만들어 시작할 수 있습니다. [논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)를 참조하세요.
+GitHub는 Git의 배포된 버전 관리와 SCM(소스 코드 관리) 기능 및 다른 기능을 제공하는 웹 기반 리포지토리 호스팅 서비스입니다.
+
+GitHub 커넥터를 시작하려면 [먼저 논리 앱을 만듭니다](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-a-connection-to-github"></a>GitHub에 대한 연결 만들기
-GitHub로 논리 앱을 만들려면 먼저 **연결**을 만든 후에 다음 속성에 대한 세부 정보를 제공해야 합니다. 
 
-| 자산 | 필수 | 설명 |
-| --- | --- | --- |
-| 신뢰 |예 |GitHub 자격 증명 제공 |
+논리 앱에서 GitHub 커넥터를 사용하려면 먼저 *연결*을 만들고, 다음 속성에 대한 세부 정보를 제공해야 합니다. 
 
-연결을 만든 후에 사용하여 작업을 실행하고 이 문서에 설명된 트리거에 대한 수신을 대기할 수 있습니다. 
+| 자산 | 필수 | 설명 | 
+| -------- | -------- | ----------- | 
+| 신뢰 | 예 | GitHub 자격 증명을 제공합니다. |
+
+연결을 만든 후에 이 작업을 실행하고 이 문서에서 설명하는 트리거를 수신 대기할 수 있습니다.
 
 > [!INCLUDE [Steps to create a connection to GitHub](../../includes/connectors-create-api-github.md)]
 > 
 
 ## <a name="connector-specific-details"></a>커넥터 관련 세부 정보
 
-[커넥터 세부 정보](/connectors/github/)에서 swagger에 정의된 모든 트리거 및 작업과 제한 사항도 확인할 수 있습니다.
+Swagger 및 제한에 정의된 트리거 및 작업은 [커넥터 정보](/connectors/github/)를 검토하세요.
 
-## <a name="more-connectors"></a>추가 커넥터
-[API 목록](apis-list.md)으로 돌아갑니다.
+## <a name="find-more-connectors"></a>더 많은 커넥터 찾기
+
+* [커넥터 목록](apis-list.md)을 검토하세요.

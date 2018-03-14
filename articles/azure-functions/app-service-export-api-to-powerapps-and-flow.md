@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: mahender; mblythe
-ms.openlocfilehash: 7482ca27c2edcb281180fb8fbbfb1884a515d379
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 2d7ef0d4b2669b774b1d218d244052083e883517
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="exporting-an-azure-hosted-api-to-powerapps-and-microsoft-flow"></a>Azure에서 호스트되는 API를 PowerApps 및 Microsoft Flow로 내보내기
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 12/18/2017
 마찬가지로 조직 내에서 자신의 API를 보다 광범위하게 노출하려는 개발자는 앱 및 흐름 빌더에 자신의 API를 제공하려 합니다. 이 토픽에서는 [Azure Functions](../azure-functions/functions-overview.md) 또는 [Azure App Service](../app-service/app-service-web-overview.md)를 통해 작성한 API를 노출하는 방법을 보여 줍니다. 내보낸 API는 *사용자 지정 커넥터*가 되며, 이 커넥터는 마치 기본 커넥터처럼 PowerApps 및 Microsoft Flow에 사용됩니다.
 
 ## <a name="create-and-export-an-api-definition"></a>API 정의를 만들고 내보내기
-API를 내보내기 전에 먼저 OpenAPI 정의(이전에는 [Swagger](http://swagger.io/) 파일)를 사용하여 API를 설명해야 합니다. 이 정의에는 API에서 사용할 수 있는 작업 및 API에 대한 요청 및 응답 데이터가 구성되는 방식에 대한 정보가 포함됩니다. PowerApps 및 Microsoft Flow는 모든 OpenAPI 2.0 정의를 위한 사용자 지정 커넥터를 만들 수 있습니다. Azure Functions 및 Azure App Service는 OpenAPI 정의를 만들고 호스트하고 관리할 수 있는 기본 지원을 제공합니다. 자세한 내용은 [Azure Web Apps에서 RESTful API 만들기](../app-service/app-service-web-tutorial-rest-api.md)를 참조하세요.
+API를 내보내기 전에 먼저 OpenAPI 정의(이전에는 [Swagger](http://swagger.io/) 파일)를 사용하여 API를 설명해야 합니다. 이 정의에는 API에서 사용할 수 있는 작업 및 API에 대한 요청 및 응답 데이터가 구성되는 방식에 대한 정보가 포함됩니다. PowerApps 및 Microsoft Flow는 모든 OpenAPI 2.0 정의를 위한 사용자 지정 커넥터를 만들 수 있습니다. Azure Functions 및 Azure App Service는 OpenAPI 정의를 만들고 호스트하고 관리할 수 있는 기본 지원을 제공합니다. 자세한 내용은 [Azure App Service에서 CORS를 통해 RESTful API 호스팅](../app-service/app-service-web-tutorial-rest-api.md)을 참조하세요.
 
 > [!NOTE]
 > OpenAPI 정의를 사용하지 않고 PowerApps 및 Microsoft Flow UI에서 사용자 지정 커넥터를 빌드할 수도 있습니다. 자세한 내용은 [사용자 지정 커넥터 등록 및 사용(PowerApps)](https://powerapps.microsoft.com/tutorials/register-custom-api/) 및 [사용자 지정 커넥터 등록 및 사용(Microsoft Flow)](https://flow.microsoft.com/documentation/register-custom-api/)을 참조하세요.

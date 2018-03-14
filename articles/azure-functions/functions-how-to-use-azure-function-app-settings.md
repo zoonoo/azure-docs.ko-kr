@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/23/2017
 ms.author: glenga
-ms.openlocfilehash: f174766d4ab909fea0feea517a17b9d648722c2a
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 2aa35cf814f8de2af89c6f7e0eda1f919301d6a3
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>Azure Portal에서 함수 앱을 관리하는 방법 
 
@@ -49,7 +49,7 @@ Functions는 소비 호스팅 및 App Service 호스팅 계획을 모두 지원�
 
 + [App Service 편집기](#editor)
 + [응용 프로그램 설정](#settings) 
-+ [콘솔](#console)
++ [Console](#console)
 + [고급 도구(Kudu)](#kudu)
 + [배포 옵션](#deployment)
 + [CORS](#cors)
@@ -119,7 +119,7 @@ App Service 설정을 사용하는 방법에 대한 자세한 내용은 [Azure A
 
 | | |
 |-|-|
-| ![Azure Portal의 함수 앱 API swagger 정의](./media/functions-how-to-use-azure-function-app-settings/function-app-api-definition.png) | Functions는 클라이언트가 HTTP에서 트리거한 함수를 더 쉽게 사용할 수 있도록 하는 Swagger를 지원합니다. Swagger를 사용하는 API 정의 만들기에 대한 자세한 내용은 [Azure에서 API Apps 및 Swagger 시작](../app-service/app-service-web-tutorial-rest-api.md)을 방문하세요. 또한 Functions 프록시를 사용하여 여러 함수에 대해 단일 API 화면을 정의할 수도 있습니다. 자세한 내용은 [Azure Functions 프록시 사용](functions-proxies.md)을 참조하세요. |
+| ![Azure Portal의 함수 앱 API swagger 정의](./media/functions-how-to-use-azure-function-app-settings/function-app-api-definition.png) | Functions는 클라이언트가 HTTP에서 트리거한 함수를 더 쉽게 사용할 수 있도록 하는 Swagger를 지원합니다. Swagger를 사용하여 API 정의를 만드는 방법에 대한 자세한 내용은 [Azure App Service에서 CORS를 통해 RESTful API 호스팅](../app-service/app-service-web-tutorial-rest-api.md)을 방문하세요. 또한 Functions 프록시를 사용하여 여러 함수에 대해 단일 API 화면을 정의할 수도 있습니다. 자세한 내용은 [Azure Functions 프록시 사용](functions-proxies.md)을 참조하세요. |
 
 ![함수 앱 API 구성](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-apidef.png)
 

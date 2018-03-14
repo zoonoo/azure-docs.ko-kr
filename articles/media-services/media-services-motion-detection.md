@@ -13,17 +13,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: milanga;juliako;
-ms.openlocfilehash: dd422308ed728ed4e8bc35daee3bd50f0f02aaac
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9c391101c82868eb3c9cc92dc55c920fdbd5f4e8
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="detect-motions-with-azure-media-analytics"></a>Azure 미디어 검색으로 동작 검색
 ## <a name="overview"></a>개요
 **Azure 미디어 동작 탐지기** 의 MP(미디어 프로세서)를 사용하여 길고 특별하지 않은 동영상 중에서 원하는 섹션을 효율적으로 식별합니다. 동작 검색은 고정된 카메라 장면에서 동작이 발생한 동영상 섹션을 식별하는 데 사용할 수 있습니다. 이벤트가 발생한 경계 영역 및 타임스탬프가 있는 메타데이터를 포함하는 JSON 파일을 생성합니다.
 
-보안 동영상 피드를 대상으로 하는 이 기술은 동작을 관련 이벤트와 그림자 및 조명 변화와 같은 가양성으로 분류할 수 있습니다. 이를 통해 수많은 관련 없는 이벤트로 인해 스팸 처리되지 않고 카메라 피드로부터 보안 경고를 생성할 수 있으며, 아주 긴 감시 동영상으로부터 필요한 순간을 추출할 수 있습니다.
+보안 동영상 피드를 대상으로 하는 이 기술은 동작을 관련 이벤트와 그림자 및 조명 변화와 같은 가양성으로 분류할 수 있습니다. 이를 통해 수많은 관련 없는 이벤트로 인해 스팸 처리되지 않고 카메라 피드로부터 보안 경고를 생성할 수 있으며, 긴 감시 동영상으로부터 필요한 순간을 추출할 수 있습니다.
 
 **Azure 미디어 동작 탐지기** MP는 현재 미리 보기 상태입니다.
 
@@ -38,15 +38,17 @@ ms.lasthandoff: 12/11/2017
 ### <a name="parameters"></a>매개 변수
 다음 매개 변수를 사용할 수 있습니다.
 
-| 이름 | 옵션 | 설명 | 기본값 |
+| Name | 옵션 | 설명 | 기본값 |
 | --- | --- | --- | --- |
 | sensitivityLevel |문자열:'low', 'medium', 'high' |동작이 보고되는 민감도 수준을 설정합니다. 가양성 수를 조정하려면 이 값을 조정합니다. |'medium' |
-| frameSamplingValue |양의 정수 |알고리즘이 실행되는 빈도를 설정합니다. 1은 프레임마다, 2는 두 번째 프레임마다 등을 의미합니다. |1 |
+| frameSamplingValue |양의 정수 |알고리즘이 실행되는 빈도를 설정합니다. 1은 프레임마다, 2는 두 개의 프레임마다 등을 의미합니다. |1 |
 | detectLightChange |부울:'true', 'false' |결과에 간단한 변경 내용이 보고되는지 여부를 설정합니다. |'False' |
-| mergeTimeThreshold |Xs-time: Hh:mm:ss<br/>예: 00:00:03 |두 개의 이벤트가 결합되어 1로 보고되는 동작 이벤트 간의 기간을 지정합니다. |00:00:00 |
+| mergeTimeThreshold |Xs-time: Hh:mm:ss<br/>예: 00:00:03 |2개의 이벤트가 결합되어 1로 보고되는 동작 이벤트 간의 기간을 지정합니다. |00:00:00 |
 | detectionZones |검색 영역 배열:<br/>- 검색 영역은 3개 이상의 지점 배열<br/>- 지점은 0부터 1까지의 x 및 y 좌표입니다. |사용할 다각형의 검색 영역 목록을 설명합니다.<br/>결과는 영역과 함께 ID로 보고되며 첫 번째 항목은 ‘id’:0입니다. |전체 프레임에 걸쳐 있는 단일 영역입니다. |
 
 ### <a name="json-example"></a>JSON 예제
+
+```json
     {
       "version": "1.0",
       "options": {
@@ -74,7 +76,7 @@ ms.lasthandoff: 12/11/2017
         ]
       }
     }
-
+```
 
 ## <a name="motion-detector-output-files"></a>동작 검색기 출력 파일
 동작 검색 작업은 동작 경고 및 동영상 내에서의 해당 범주를 설명하는 출력 자산으로 JSON 파일을 반환합니다. 파일에는 동영상에서 검색된 동작 시간 및 기간에 대한 정보가 포함됩니다.
@@ -107,8 +109,9 @@ ms.lasthandoff: 12/11/2017
 | 대괄호 [] |각 대괄호는 이벤트에서 하나의 간격을 나타냅니다. 해당 간격에 대한 빈 대괄호는 검색된 동작이 없음을 의미합니다. |
 | 위치 |이벤트 아래의 이 새 항목은 동작이 발생한 위치를 나열합니다. 검색 영역보다 더 구체적입니다. |
 
-다음은 JSON 출력 예입니다.
+다음 JSON 예제에서는 결과를 보여줍니다.
 
+```json
     {
       "version": 2,
       "timescale": 23976,
@@ -150,8 +153,8 @@ ms.lasthandoff: 12/11/2017
                 "regionId": 0
               }
             ],
+```
 
-    …
 ## <a name="limitations"></a>제한 사항
 * 지원되는 입력 동영상 형식에는 MP4, MOV 및 WMV가 있습니다.
 * 동작 검색은 고정 배경 동영상에 최적화되어 있습니다. 알고리즘은 조명 변화, 그림자와 같은 거짓 경보를 줄이는 데 중점을 둡니다.
@@ -164,42 +167,45 @@ ms.lasthandoff: 12/11/2017
 1. 자산을 만들고 미디어 파일을 자산에 업로드합니다.
 2. 다음 JSON 기본 설정을 포함하는 구성 파일을 기반으로 동영상 동작 검색 작업을 만듭니다. 
    
-        {
-          "Version": "1.0",
-          "Options": {
-            "SensitivityLevel": "medium",
-            "FrameSamplingValue": 1,
-            "DetectLightChange": "False",
-            "MergeTimeThreshold":
-            "00:00:02",
-            "DetectionZones": [
-              [
-                {"x": 0, "y": 0},
-                {"x": 0.5, "y": 0},
-                {"x": 0, "y": 1}
-               ],
-              [
-                {"x": 0.3, "y": 0.3},
-                {"x": 0.55, "y": 0.3},
-                {"x": 0.8, "y": 0.3},
-                {"x": 0.8, "y": 0.55},
-                {"x": 0.8, "y": 0.8},
-                {"x": 0.55, "y": 0.8},
-                {"x": 0.3, "y": 0.8},
-                {"x": 0.3, "y": 0.55}
-              ]
-            ]
-          }
-        }
+    ```json
+            {
+            "Version": "1.0",
+            "Options": {
+                "SensitivityLevel": "medium",
+                "FrameSamplingValue": 1,
+                "DetectLightChange": "False",
+                "MergeTimeThreshold":
+                "00:00:02",
+                "DetectionZones": [
+                [
+                    {"x": 0, "y": 0},
+                    {"x": 0.5, "y": 0},
+                    {"x": 0, "y": 1}
+                ],
+                [
+                    {"x": 0.3, "y": 0.3},
+                    {"x": 0.55, "y": 0.3},
+                    {"x": 0.8, "y": 0.3},
+                    {"x": 0.8, "y": 0.55},
+                    {"x": 0.8, "y": 0.8},
+                    {"x": 0.55, "y": 0.8},
+                    {"x": 0.3, "y": 0.8},
+                    {"x": 0.3, "y": 0.55}
+                ]
+                ]
+            }
+            }
+    ```
+
 3. 출력 JSON 파일을 다운로드합니다. 
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>Visual Studio 프로젝트 만들기 및 구성
 
 개발 환경을 설정하고 [.NET을 사용한 Media Services 환경](media-services-dotnet-how-to-use.md)에 설명된 대로 연결 정보를 사용하여 app.config 파일을 채웁니다. 
 
-#### <a name="example"></a>예제
+#### <a name="example"></a>예
 
-```
+```csharp
 
 using System;
 using System.Configuration;

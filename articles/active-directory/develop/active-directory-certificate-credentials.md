@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 06/02/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 9267a7d2b27930fbcd0aa70ec9e2ddc62b6b0b2a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d05456912324c06a0895cd4cf049b60c9d126904
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="certificate-credentials-for-application-authentication"></a>응용 프로그램 인증을 위한 인증서 자격 증명
 
-Azure Active Directory를 사용하면 응용 프로그램에서(예: OAuth 2.0 클라이언트 자격 증명 부여 흐름 및 On-Behalf-Of 흐름에서) 인증을 위해 자체의 자격 증명을 사용할 수 있습니다.
+Azure Active Directory를 사용하면 응용 프로그램에서(예: OAuth 2.0 클라이언트 자격 증명 부여 흐름([v1](active-directory-protocols-oauth-service-to-service.md) [v2](active-directory-v2-protocols-oauth-client-creds.md)) 및 On-Behalf-Of 흐름([v1](active-directory-protocols-oauth-on-behalf-of.md) [v2](active-directory-v2-protocols-oauth-on-behalf-of.md))에서) 인증을 위해 자체의 자격 증명을 사용할 수 있습니다.
 사용할 수 있는 자격 증명의 한 가지 형태는 응용 프로그램에서 소유한 인증서로 서명된 JWT(JSON Web Token) 어설션입니다.
 
 ## <a name="format-of-the-assertion"></a>어설션 형식
@@ -41,7 +41,7 @@ Azure Active Directory를 사용하면 응용 프로그램에서(예: OAuth 2.0 
 
 | 매개 변수 |  설명 |
 | --- | --- | --- |
-| `aud` | 대상: **https://login.microsoftonline.com/*tenant_Id*/oauth2/token**이어야 함 |
+| `aud` | 대상: **https://login.microsoftonline.com/*tenant_Id*/oauth2/token**이어야 합니다. |
 | `exp` | 만료 날짜: 토큰이 만료되는 날짜입니다. 시간은 1970년 1월 1일(1970-01-01T0:0:0Z) UTC부터 토큰의 유효 기간이 만료될 때까지의 시간(초)으로 표시됩니다.|
 | `iss` | 발급자: client_id(클라이언트 서비스의 응용 프로그램 ID)여야 함 |
 | `jti` | GUID: JWT ID |

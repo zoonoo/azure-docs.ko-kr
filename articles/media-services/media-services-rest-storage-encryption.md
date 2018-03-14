@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: juliako
-ms.openlocfilehash: 3c752573be7c07f800b0dce3d12d4dabd7328922
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 2fd4c91a8151067c0e9cc9000c158e48cb2cd8a5
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="encrypting-your-content-with-storage-encryption"></a>저장소 암호화로 콘텐츠 암호화
 
@@ -29,7 +29,7 @@ AES-256비트 암호화를 사용하여 암호화되지 않은 콘텐츠를 로�
 * 콘텐츠 키를 만듭니다.
 * 자산을 만듭니다. 자산을 만들 때 AssetCreationOption을 StorageEncryption으로 설정합니다.
   
-     암호화된 자산을 콘텐츠 키와 연결해야 합니다.
+     암호화된 자산을 콘텐츠 키와 연결합니다.
 * 콘텐츠 키를 자산에 연결합니다.  
 * AssetFile 엔터티에서 암호화 관련 매개 변수를 설정합니다.
 
@@ -44,60 +44,62 @@ Media Services에서 엔터티에 액세스할 때는 HTTP 요청에서 구체�
 AMS API에 연결하는 방법에 대한 자세한 내용은 [Azure AD 인증을 사용하여 Azure Media Services API 액세스](media-services-use-aad-auth-to-access-ams-api.md)를 참조하세요. 
 
 ## <a name="storage-encryption-overview"></a>저장소 암호화 개요
-AMS 저장소 암호화는 **AES-CTR** 모드 암호화를 전체 파일에 적용합니다.  AES CTR 모드는 임의 길이 데이터를 여백 없이 암호화할 수 있는 블록 암호화입니다. AES 알고리즘으로 카운터 블록을 암호화한 다음 암호화 또는 해독할 데이터에 대해 AES의 출력을 XOR 연산하는 방식으로 작동합니다.  사용되는 카운터 블록은 카운터 값의 0~7바이트에 InitializationVector 값을 복사하여 구조화되며 카운터 값의 8~15바이트는 0으로 설정됩니다. 16바이트 카운터 블록에서 8~15바이트(즉, 최하위 바이트)는 부호 없는 64비트 단순 정수로 사용되며, 처리되는 후속 데이터 블록마다 1씩 증가하고 네트워크 바이트 순서로 유지됩니다. 이 정수가 최대값(0xFFFFFFFFFFFFFFFF)에 도달했을 때 이 값이 증가하면 카운터의 다른 64비트(즉, 0~7바이트)에 미치는 영향 없이 블록 카운트가 0(8~15바이트)으로 재설정됩니다.   AES-CTR 모드 암호화의 보안 유지를 위해 각 콘텐츠 키의 지정된 키 식별자에 대한 InitializationVector 값은 파일마다 고유해야 하며 파일 길이는 2^64블록 미만이어야 합니다.  이것은 카운터 값이 특정 키에서 재사용되지 않게 하기 위한 것입니다. CTR 모드에 대한 자세한 내용은 [이 wiki 페이지](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#CTR) 를 참조하세요(wiki 문서에서는 "InitializationVector" 대신 "Nonce"라는 용어를 사용함).
+AMS 저장소 암호화는 **AES-CTR** 모드 암호화를 전체 파일에 적용합니다.  AES CTR 모드는 임의 길이 데이터를 여백 없이 암호화할 수 있는 블록 암호화입니다. AES 알고리즘으로 카운터 블록을 암호화한 다음 암호화 또는 해독할 데이터에 대해 AES의 출력을 XOR 연산하는 방식으로 작동합니다.  사용되는 카운터 블록은 카운터 값의 0~7바이트에 InitializationVector 값을 복사하여 구조화되며 카운터 값의 8~15바이트는 0으로 설정됩니다. 16바이트 카운터 블록에서 8~15바이트(즉, 최하위 바이트)는 부호 없는 64비트 단순 정수로 사용되며, 처리되는 후속 데이터 블록마다 1씩 증가하고 네트워크 바이트 순서로 유지됩니다. 이 정수가 최대값(0xFFFFFFFFFFFFFFFF)에 도달했을 때 이 값이 증가하면 카운터의 다른 64비트(즉, 0~7바이트)에 미치는 영향 없이 블록 카운트가 0(8~15바이트)으로 재설정됩니다.   AES-CTR 모드 암호화의 보안 유지를 위해 각 콘텐츠 키의 지정된 키 식별자에 대한 InitializationVector 값은 파일마다 고유해야 하며 파일 길이는 2^64블록 미만이어야 합니다.  이 고유값은 카운터 값이 특정 키에서 재사용되지 않도록 합니다. CTR 모드에 대한 자세한 내용은 [이 wiki 페이지](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#CTR) 를 참조하세요(wiki 문서에서는 "InitializationVector" 대신 "Nonce"라는 용어를 사용함).
 
 AES 256비트 암호화를 사용하여 암호화되지 않은 콘텐츠를 로컬에서 암호화한 다음에 암호화되어 저장된 Azure Storage에 업로드하려면 **저장소 암호화**를 사용합니다. 저장소 암호화로 보호된 자산은 자동으로 암호 해제되어 인코딩되기 전에 암호화된 파일 시스템에 배치됩니다. 그리고 필요에 따라 새 출력 자산으로 다시 업로드되기 전에 다시 암호화됩니다. 저장소 암호화를 사용하는 기본적인 사례는 디스크에 저장된 상태일 때 강력한 암호화로 고품질의 입력 미디어 파일을 보호하려는 경우입니다.
 
 저장소에서 암호화된 자산을 배달하려면 Media Services에서 콘텐츠 배달 방법을 알 수 있도록 자산의 배달 정책을 구성해야 합니다. 자산을 스트리밍하기 전에 스트리밍 서버에서 저장소 암호화를 제거하고 지정된 배달 정책(예: AES, 일반 암호화 또는 암호화 없음)을 사용하여 콘텐츠를 스트리밍합니다.
 
 ## <a name="create-contentkeys-used-for-encryption"></a>암호화에 사용되는 ContentKey 만들기
-암호화된 자산을 저장소 암호화 키에 연결해야 합니다. 자산 파일을 만들기 전에 암호화에 사용할 콘텐츠 키를 만들어야 합니다. 이 섹션에서는 콘텐츠 키를 만드는 방법을 설명합니다.
+암호화된 자산을 저장소 암호화 키에 연결합니다. 자산 파일을 만들기 전에 암호화에 사용할 콘텐츠 키를 만듭니다. 이 섹션에서는 콘텐츠 키를 만드는 방법을 설명합니다.
 
 다음은 암호화하려는 자산과 연결할 콘텐츠 키를 생성하기 위한 일반적인 단계입니다. 
 
 1. 저장소 암호화를 위해 32바이트 AES 키를 임의로 생성합니다. 
    
-    이는 자산에 대한 콘텐츠 키입니다. 즉, 암호화하는 동안 해당 자산과 연결된 모든 파일이 동일한 콘텐츠 키를 사용해야 합니다. 
+    32바이트 AES 키는 자산에 대한 콘텐츠 키입니다. 즉, 암호화하는 동안 해당 자산과 연결된 모든 파일이 동일한 콘텐츠 키를 사용해야 합니다. 
 2. [GetProtectionKeyId](https://docs.microsoft.com/rest/api/media/operations/rest-api-functions#getprotectionkeyid) 및 [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) 메서드를 호출하여 콘텐츠 키를 암호화하는 데 사용해야 하는 올바른 X.509 인증서를 가져옵니다.
 3. X.509 인증서의 공개 키로 콘텐츠 키를 암호화합니다. 
    
    Media Services.NET SDK는 암호화 시 OAEP가 포함된 RSA를 사용합니다.  [EncryptSymmetricKeyData 함수](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs)에서 .NET 예제를 확인할 수 있습니다.
 4. 키 식별자 및 콘텐츠 키를 사용하여 계산된 체크섬 값을 만듭니다. 다음.NET 예제에서는 키 식별자와 암호화되지 않은 콘텐츠 키의 GUID 부분을 사용하여 체크섬을 계산합니다.
 
-        public static string CalculateChecksum(byte[] contentKey, Guid keyId)
-        {
-            const int ChecksumLength = 8;
-            const int KeyIdLength = 16;
-
-            byte[] encryptedKeyId = null;
-
-            // Checksum is computed by AES-ECB encrypting the KID
-            // with the content key.
-            using (AesCryptoServiceProvider rijndael = new AesCryptoServiceProvider())
+    ```csharp
+            public static string CalculateChecksum(byte[] contentKey, Guid keyId)
             {
-                rijndael.Mode = CipherMode.ECB;
-                rijndael.Key = contentKey;
-                rijndael.Padding = PaddingMode.None;
+                const int ChecksumLength = 8;
+                const int KeyIdLength = 16;
 
-                ICryptoTransform encryptor = rijndael.CreateEncryptor();
-                encryptedKeyId = new byte[KeyIdLength];
-                encryptor.TransformBlock(keyId.ToByteArray(), 0, KeyIdLength, encryptedKeyId, 0);
+                byte[] encryptedKeyId = null;
+
+                // Checksum is computed by AES-ECB encrypting the KID
+                // with the content key.
+                using (AesCryptoServiceProvider rijndael = new AesCryptoServiceProvider())
+                {
+                    rijndael.Mode = CipherMode.ECB;
+                    rijndael.Key = contentKey;
+                    rijndael.Padding = PaddingMode.None;
+
+                    ICryptoTransform encryptor = rijndael.CreateEncryptor();
+                    encryptedKeyId = new byte[KeyIdLength];
+                    encryptor.TransformBlock(keyId.ToByteArray(), 0, KeyIdLength, encryptedKeyId, 0);
+                }
+
+                byte[] retVal = new byte[ChecksumLength];
+                Array.Copy(encryptedKeyId, retVal, ChecksumLength);
+
+                return Convert.ToBase64String(retVal);
             }
+    ```
 
-            byte[] retVal = new byte[ChecksumLength];
-            Array.Copy(encryptedKeyId, retVal, ChecksumLength);
-
-            return Convert.ToBase64String(retVal);
-        }
-
-1. 이전 단계에서 받은**EncryptedContentKey**(base64 인코딩된 문자열로 변환), **ProtectionKeyId**, **ProtectionKeyType**, **ContentKeyType** 및 **Checksum** 값을 사용하여 콘텐츠 키를 만듭니다.
+5. 이전 단계에서 받은**EncryptedContentKey**(base64 인코딩된 문자열로 변환), **ProtectionKeyId**, **ProtectionKeyType**, **ContentKeyType** 및 **Checksum** 값을 사용하여 콘텐츠 키를 만듭니다.
 
     저장소 암호화를 위해 다음 속성을 요청 본문에 포함해야 합니다.
 
     요청 본문 속성    | 설명
     ---|---
-    Id | “nb:kid:UUID:<NEW GUID>” 형식을 사용하여 직접 생성하는 ContentKey Id입니다.
-    ContentKeyType | 이 콘텐츠 키에 대한 정수인 콘텐츠 키 형식입니다. 저장소 암호화에 1값을 전달합니다.
+    Id | ContentKey ID는 "nb:kid:UUID:<NEW GUID>" 형식을 사용하여 생성됩니다.
+    ContentKeyType | 콘텐츠 키 형식은 키를 정의하는 정수입니다. 저장소 암호화 형식에서 값은 1입니다.
     EncryptedContentKey | 256비트(32바이트) 값인 새 콘텐츠 키 값을 만듭니다. GetProtectionKeyId 및 GetProtectionKey 메서드에 대한 HTTP GET 요청을 실행하여 Microsoft Azure Media Services에서 검색하는 저장소 암호화 X.509 인증서를 사용하여 키를 암호화합니다. .NET 코드에 대한 예제로, **여기** 에 정의된 [EncryptSymmetricKeyData](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs)메서드를 참조하세요.
     ProtectionKeyId | 콘텐츠 키를 암호화하는 데 사용한 저장소 암호화 X.509 인증서에 대한 보호 키 ID입니다.
     ProtectionKeyType | 콘텐츠 키를 암호화하는 데 사용한 보호 키에 대한 암호화 형식입니다. 이 값은 예제에서 StorageEncryption(1)입니다.
@@ -172,7 +174,7 @@ AES 256비트 암호화를 사용하여 암호화되지 않은 콘텐츠를 로�
 ### <a name="create-the-content-key"></a>콘텐츠 키 만들기
 X.509 인증서를 검색한 다음 이 인증서의 공개 키를 사용하여 콘텐츠 키를 암호화한 후 **ContentKey** 엔터티를 만들고 해당 속성 값을 적절하게 설정합니다.
 
-콘텐츠 키를 만들 때 설정해야 하는 값 중 하나가 이 유형입니다. 저장소 암호화의 경우 값은 '1'입니다. 
+콘텐츠 키를 만들 때 설정해야 하는 값 중 하나가 이 유형입니다. 저장소 암호화를 사용할 때 값은 '1'로 설정해야 합니다. 
 
 다음 예제에서는 저장소 암호화("1")에 대해 설정된 **ContentKeyType**과 "0"으로 설정된 **ProtectionKeyType**으로 **ContentKey**를 만들어서 보호 키 Id가 X.509 인증서 지문임을 나타내는 방법을 보여 줍니다.  
 
@@ -242,7 +244,7 @@ X.509 인증서를 검색한 다음 이 인증서의 공개 키를 사용하여 
 
 **HTTP 응답**
 
-성공하면 다음이 반환됩니다.
+성공하면 다음 응답이 반환됩니다.
 
     HTP/1.1 201 Created
     Cache-Control: no-cache
@@ -294,7 +296,7 @@ ContentKey를 만든 후 다음 예제와 같이 $links 작업을 사용하여 �
 ## <a name="create-an-assetfile"></a>AssetFile 만들기
 [AssetFile](https://docs.microsoft.com/rest/api/media/operations/assetfile) 엔터티는 blob 컨테이너에 저장된 비디오 또는 오디오 파일을 나타냅니다. 자산 파일은 항상 자산에 연결되며 자산에는 하나 이상의 자산 파일이 포함될 수 있습니다. 자산 파일 개체가 blob 컨테이너의 디지털 파일과 연결되지 않은 경우 Media Services 인코더 작업을 하지 못합니다.
 
-**AssetFile** 인스턴스와 실제 미디어 파일은 뚜렷이 다른 두 개체입니다. AssetFile 인스턴스는 미디어 파일에 대한 메타데이터를 포함하는 반면 미디어 파일은 실제 미디어 콘텐츠를 포함합니다.
+**AssetFile** 인스턴스 및 실제 미디어 파일은 별개의 두 개체입니다. AssetFile 인스턴스는 미디어 파일에 대한 메타데이터를 포함하는 반면 미디어 파일은 실제 미디어 콘텐츠를 포함합니다.
 
 Blob 컨테이너에 디지털 미디어 파일을 업로드하면 **MERGE** HTTP 요청을 사용하여 미디어 파일에 대한 정보로 AssetFile을 업데이트하게 됩니다(이 문서에 나와 있지 않음). 
 

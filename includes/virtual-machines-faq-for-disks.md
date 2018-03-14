@@ -141,11 +141,11 @@ Azure Managed Disks에서는 현재 로컬 중복 저장소 Managed Disks만 지
 
 **마이그레이션을 수행할 경우 Azure 간 복제를 통해 ASR(Azure Site Recovery)에 의해 보호되는 Azure VM에 영향을 미치나요?**
 
-예. Managed Disks가 있는 VM에 대해서는 ASR Azure 간 보호가 지원되지 않습니다. Q1 CY2018 말에는 지원될 예정입니다. 
+예. 현재 Managed Disks가 있는 VM에 대한 ASR Azure 간 보호는 공개 미리 보기 서비스로만 제공됩니다.
 
 **Managed Disks에 이전에 암호화된 저장소 계정에 있는 관리되지 않는 디스크가 있는 VM을 마이그레이션할 수 있나요?**
 
-적용
+예
 
 ## <a name="managed-disks-and-storage-service-encryption"></a>Managed Disks 및 Storage 서비스 암호화 
 
@@ -182,7 +182,7 @@ Azure Portal, Azure CLI 및 PowerShell에서 Managed Disk를 만든 시간을 �
 
 **Managed Disks에 이전에 암호화된 저장소 계정에 있는 관리되지 않는 디스크가 있는 VM을 변환할 수 있나요?**
 
-적용
+예
 
 **Managed Disk 또는 스냅숏에서 내보낸 VHD도 암호화되나요?**
 

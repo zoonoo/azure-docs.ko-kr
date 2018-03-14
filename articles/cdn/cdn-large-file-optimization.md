@@ -1,5 +1,5 @@
 ---
-title: "Azure Content Delivery Network를 통한 대용량 파일 다운로드 최적화"
+title: "Azure CDN을 통해 대용량 파일 다운로드 최적화"
 description: "대용량 파일 다운로드 최적화에 대해 자세히 설명합니다."
 services: cdn
 documentationcenter: 
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: v-semcev
-ms.openlocfilehash: 7a5d5d1d0de24ebb0a5115ede1e572f38454bd78
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6e6266fdaaac6a1a1a5d3a5595c10f79fd9f01a7
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="large-file-download-optimization-via-the-azure-content-delivery-network"></a>Azure Content Delivery Network를 통한 대용량 파일 다운로드 최적화
+# <a name="large-file-download-optimization-via-azure-cdn"></a>Azure CDN을 통해 대용량 파일 다운로드 최적화
 
 인터넷을 통해 배달되는 콘텐츠의 파일 크기는 향상된 기능, 향상된 그래픽, 풍부한 미디어 콘텐츠 등으로 인해 계속 커지고 있습니다. 이러한 확장은 광대역 보급, 더 크고 저렴한 저장 장치, 고화질 비디오 확산, 인터넷 연결 장치(IoT) 등 여러 가지 요인으로 추진되고 있습니다. 원활하고 즐거운 소비자 환경을 보장하려면 대용량 파일에 대한 빠르고 효율적인 배달 메커니즘이 중요합니다.
 

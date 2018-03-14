@@ -1,7 +1,22 @@
+---
+title: "포함 파일"
+description: "포함 파일"
+services: virtual-machines-windows
+author: dlepow
+ms.service: virtual-machines-windows
+ms.topic: include
+ms.date: 03/01/2018
+ms.author: danlep
+ms.custom: include file
+ms.openlocfilehash: 506c2a4cf675a347dc4c45c9ccf8bce95de2f6fc
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 03/05/2018
+---
 ## <a name="supported-operating-systems-and-drivers"></a>지원되는 운영 체제 및 드라이버
 
-
-### <a name="nc-ncv2-and-nd-instances---nvidia-tesla-drivers"></a>NC, NCv2 및 ND 인스턴스 - NVIDIA Tesla 드라이버
+### <a name="nc-ncv2-ncv3-and-nd-series---nvidia-tesla-drivers"></a>NC, NCv2, NCv3 및 ND 시리즈 - NVIDIA Tesla 드라이버
 
 | OS | 드라이버 |
 | -------- |------------- |
@@ -12,7 +27,7 @@
 > Tesla 드라이버 다운로드 링크는 발표 시점에 제공된 링크입니다. 최신 드라이버에 대해서는 [NVIDIA](http://www.nvidia.com/) 웹 사이트를 참조하세요.
 >
 
-### <a name="nv-instances---nvidia-grid-drivers"></a>NV 인스턴스 - NVIDIA GRID 드라이버
+### <a name="nv-series---nvidia-grid-drivers"></a>NV 시리즈 - NVIDIA GRID 드라이버
 
 | OS | 드라이버 |
 | -------- |------------- |
