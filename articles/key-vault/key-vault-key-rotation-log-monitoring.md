@@ -12,17 +12,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 03/01/2018
 ms.author: jodehavi;stgriffi
-ms.openlocfilehash: 793f35bfd2e5e6b22e0804f01a69c0c20990d211
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: edc9a870257536235c2bef139dc4d1ead7dd7a8f
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="set-up-azure-key-vault-with-end-to-end-key-rotation-and-auditing"></a>종단 간 키 회전 및 감사를 사용하여 Azure Key Vault 설정
 ## <a name="introduction"></a>소개
 Key Vault를 만든 후에는 키와 비밀을 저장하는 데 Key Vault를 사용할 수 있게 됩니다. 사용자 응용 프로그램에서는 키 또는 암호 정보를 더 이상 유지할 필요가 없으며 대신, 필요에 따라 주요 자격 증명 모음에서 요청합니다. 이렇게 하면 응용 프로그램의 동작에 영향을 주지 않고 키 및 비밀을 업데이트할 수 있으며 키 및 비밀 관리 동작에 대한 다양한 가능성이 열립니다.
+
+>[!IMPORTANT]
+> 이 문서의 예제는 설명 용도로만 제공됩니다. 프로덕션 용도로는 사용하지 말아야 합니다. 
 
 이 문서에서는 Azure Key Vault를 사용하여 비밀(이 예에서는 응용 프로그램에서 액세스하는 Azure Storage 계정 키)을 저장하는 예제를 안내합니다. 또한 해당 저장소 계정 키의 예약된 회전 구현에 대해서도 살펴봅니다. 마지막으로, 예기치 않은 요청이 있을 때 Key Vault 감사 로그를 모니터하고 경고를 생성하는 방법도 살펴봅니다.
 

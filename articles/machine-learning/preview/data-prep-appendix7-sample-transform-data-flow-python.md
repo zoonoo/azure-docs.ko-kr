@@ -5,18 +5,18 @@ services: machine-learning
 author: euangMS
 ms.author: euang
 manager: lanceo
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: 8146c2a41a2b8fc241131a42ec74227795867609
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: aa213a3b1a8949f0fca5e4bbb7ec5a6a775ae6ec
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="sample-of-custom-data-flow-transforms-python"></a>사용자 지정 데이터 흐름 변환 예제(Python) 
 메뉴의 변환 이름은 **Transform Dataflow(스크립트)**입니다. 이 부록을 읽기 전에 [Python 확장성 개요](data-prep-python-extensibility-overview.md)를 참조하세요.
@@ -42,8 +42,8 @@ score 열에 대해 계산된 첫 번째 및 마지막 집계가 있는 새 프�
 
 ## <a name="transform-data-flow"></a>데이터 흐름 변환
 ### <a name="fill-down"></a>자동 채우기 
-자동 채우기를 하려면 두 변환이 필요합니다. 다음과 같은 데이터를 가정합니다.
 
+자동 채우기를 하려면 두 변환이 필요합니다. 다음 테이블과 같은 데이터를 가정합니다.
 
 |시스템 상태         |City       |
 |--------------|-----------|
@@ -58,16 +58,17 @@ score 열에 대해 계산된 첫 번째 및 마지막 집계가 있는 새 프�
 |              |샌안토니오|
 |              |휴스턴    |
 
-먼저 다음 코드가 포함된 Add Column(스크립트) 변환을 만듭니다.
+1. 다음 코드를 사용하여 "Add Column(스크립트)" 변환을 만듭니다.
 ```python
     row['State'] if len(row['State']) > 0 else None
 ```
-이제 코드가 포함된 Transform Data Flow(스크립트) 변환을 만듭니다.
+
+2. 다음 코드가 포함된 "Transform Data Flow(스크립트)" 변환을 만듭니다.
 ```python
     df = df.fillna( method='pad')
 ```
 
-이제 데이터는 다음과 같습니다.
+이제 데이터는 다음 테이블과 같습니다.
 
 |시스템 상태         |newState         |City       |
 |--------------|--------------|-----------|

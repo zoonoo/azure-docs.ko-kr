@@ -14,11 +14,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: cenkd;juliako
-ms.openlocfilehash: d7c33dc0a3c1f01cc53a91e05feb33272cb21f47
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 1266c7b6c1539f84eafea1007999fb4360184857
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="live-streaming-with-on-premises-encoders-that-create-multi-bitrate-streams"></a>다중 비트 전송률 스트림을 만드는 온-프레미스 인코더를 사용한 라이브 스트리밍
 ## <a name="overview"></a>개요
@@ -189,7 +189,7 @@ KeyFrameInterval 및 FragmentsPerSegment를 둘 다 명시적으로 설정하는
 ## <a id="cc_and_ads"></a>선택 자막 및 광고 삽입
 다음 테이블에서는 선택 자막 및 광고 삽입의 지원되는 표준을 설명합니다.
 
-| 표준 | 참고 사항 |
+| Standard | 메모 |
 | --- | --- |
 | CEA-708 및 EIA-608(708/608) |CEA-708 및 EIA-608은 미국 및 캐나다의 선택 자막 표준입니다.<p><p>현재 인코딩된 입력 스트림에 수반되는 경우에만 자막이 지원됩니다. Media Services에 전송되는 인코딩된 스트림으로 608 또는 708 자막을 삽입할 수 있는 라이브 미디어 인코더를 사용해야 합니다. Media Services는 뷰어에 삽입된 선택 자막이 있는 콘텐츠를 제공합니다. |
 | TTML inside ismt(부드러운 스트리밍 텍스트 트랙) |Media Services 동적 패키징을 사용하면 클라이언트가 DASH, HLS 또는 부드러운 스트리밍 형식 중 하나로 콘텐츠를 스트림할 수 있습니다. 하지만 자막 inside .ismt(부드러운 스트리밍 텍스트 트랙)가 포함된 조각화된 MP4(부드러운 스트리밍)를 수집하는 경우 부드러운 스트리밍 클라이언트로만 스트림을 제공할 수 있습니다. |
@@ -209,6 +209,10 @@ KeyFrameInterval 및 FragmentsPerSegment를 둘 다 명시적으로 설정하는
 채널 사용 및 관련 구성 요소와 관련되는 다른 고려 사항은 다음과 같습니다.
 
 * 라이브 인코더를 다시 구성할 때마다 채널에 대해 **Reset** 메서드를 호출합니다. 채널을 다시 설정하기 전에 프로그램을 중단해야 합니다. 채널을 다시 설정한 후 프로그램을 다시 시작합니다.
+
+  > [!NOTE]
+  > 프로그램을 다시 시작할 때 프로그램을 새 자산과 연결하고 새 로케이터를 만들어야 합니다. 
+  
 * 채널이 **실행 중** 상태일 때만 중지될 수 있으며 채널의 모든 프로그램이 중지됩니다.
 * 기본적으로 Media Services 계정에 5개의 채널만을 추가할 수 있습니다. 자세한 내용은 [할당량 및 제한 사항](media-services-quotas-and-limitations.md)을 참조하세요.
 * 채널이 **실행 중** 상태일 때만 비용이 청구됩니다. 자세한 내용은 [채널 상태 및 청구](media-services-live-streaming-with-onprem-encoders.md#states) 섹션을 참조하세요.

@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 01/11/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 440b70f4d04728973d77e54e7f6303e1ad7fcd89
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 827fe91c14a44cbaf8a9bb5921e5c9962d984414
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-or-mac-device---preview"></a>빠른 시작: Linux 또는 Mac 장치에 첫 번째 IoT Edge 모듈 배포 - 미리 보기
 
@@ -21,7 +21,7 @@ Azure IoT Edge는 클라우드의 강력한 기능을 사물 인터넷 장치로
 
 활성 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정][lnk-account]을 만드세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 이 빠른 시작에서는 IoT(사물 인터넷) 장치와 같은 컴퓨터 또는 가상 머신을 사용합니다. 컴퓨터를 IoT Edge 장치로 전환하려면 다음 서비스가 필요합니다.
 
@@ -70,22 +70,22 @@ IoT Hub와 통신할 수 있도록, 시뮬레이트된 장치의 장치 ID를 �
 IoT Edge 런타임은 모든 IoT Edge 장치에 배포되며, 두 개의 모듈로 구성됩니다. 첫째, IoT Edge 에이전트는 IoT Edge 장치에서 모듈의 배포 및 모니터링을 지원합니다. 둘째, IoT Edge 허브는 IoT Edge 장치의 모듈 간 통신과 장치와 IoT Hub 간의 통신을 관리합니다. 
 
 IoT Edge 장치를 실행할 컴퓨터에서 IoT Edge 컨트롤 스크립트를 다운로드합니다.
-```cmd
+```bash
 sudo pip install -U azure-iot-edge-runtime-ctl
 ```
 
 이전 섹션의 IoT Edge 장치 연결 문자열로 런타임을 구성합니다.
-```cmd
+```bash
 sudo iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
 ```
 
 런타임을 시작합니다.
-```cmd
+```bash
 sudo iotedgectl start
 ```
 
 Docker를 확인하여 IoT Edge 에이전트가 모듈로 실행되고 있는지 알아봅니다.
-```cmd
+```bash
 sudo docker ps
 ```
 
@@ -101,7 +101,7 @@ sudo docker ps
 
 시뮬레이션된 장치를 실행 중인 컴퓨터에서 명령 프롬프트를 다시 엽니다. 클라우드에서 배포된 모듈을 IoT Edge 장치에서 실행 중인지 확인합니다.
 
-```cmd
+```bash
 sudo docker ps
 ```
 
@@ -109,7 +109,7 @@ sudo docker ps
 
 tempSensor 모듈에서 클라우드로 전송되는 메시지를 봅니다.
 
-```cmd
+```bash
 sudo docker logs -f tempSensor
 ```
 
@@ -118,6 +118,12 @@ sudo docker logs -f tempSensor
 [IoT Hub 탐색기 도구][lnk-iothub-explorer]를 사용하여 장치에서 보내는 원격 분석을 볼 수도 있습니다. 
 
 ## <a name="clean-up-resources"></a>리소스 정리
+
+생성한 시뮬레이트된 장치를 각 모듈에 대해 시작된 Docker 컨테이너와 함께 제거하려면, 아래 명령을 사용합니다. 
+
+```bash
+sudo iotedgectl uninstall
+```
 
 생성한 IoT Hub가 더 이상 필요하지 않은 경우 [az iot hub delete][lnk-delete] 명령을 사용하여 리소스 및 리소스와 연결된 모든 장치를 제거할 수 있습니다.
 

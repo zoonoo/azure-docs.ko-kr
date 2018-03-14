@@ -6,11 +6,11 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 01/08/2018
 ms.author: raynew
-ms.openlocfilehash: d1063d1f2777095c880896b49249f6de4cda6f3a
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 9d9ebef66be269c63a62d393eda76254946b13e7
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>대규모 VMware 환경 검색 및 평가
 
@@ -30,22 +30,24 @@ ms.lasthandoff: 02/27/2018
 | **엔터티** | **컴퓨터 제한** |
 | ---------- | ----------------- |
 | Project    | 1,500              | 
-| 검색  | 1,000              |
-| 평가 | 400               |
+| 검색  | 1,500              |
+| 평가 | 1,500               |
 
-- 검색 및 평가할 컴퓨터가 400대 미만인 경우 단일 프로젝트 및 단일 검색이 필요합니다. 요구 사항에 따라 단일 평가의 모든 컴퓨터를 평가하거나 여러 평가로 컴퓨터를 분할할 수 있습니다. 
-- 검색할 컴퓨터가 400~1000대인 경우 단일 검색을 사용하는 단일 프로젝트가 필요합니다. 하지만 단일 평가가 최대 400대의 컴퓨터를 저장할 수 있기 때문에 이러한 컴퓨터를 평가하기 위해 여러 평가가 필요합니다.
-- 컴퓨터가 1,001~1,500대인 경우 두 번 검색을 사용하는 단일 프로젝트가 필요합니다.
-- 컴퓨터가 1,500대 이상인 경우 필요한 요구 사항에 따라 여러 프로젝트를 만들고 여러 검색을 수행해야 합니다. 예: 
-    - 컴퓨터가 3000대인 경우 두 개의 검색을 사용한 두 개의 프로젝트 또는 단일 검색을 사용한 세 개의 프로젝트를 설정할 수 있습니다.
-    - 컴퓨터가 5,000대인 경우 세 개(1,500대 컴퓨터의 검색에 두 개 및 500대 컴퓨터의 검색에 한 개)의 프로젝트를 설정할 수 있습니다. 또는 각각 단일 검색을 사용한 프로젝트 5개를 설정할 수도 있습니다. 
+<!-- 
+- If you have fewer than 400 machines to discover and assess, you need a single project and a single discovery. Depending on your requirements, you can either assess all the machines in a single assessment or split the machines into multiple assessments. 
+- If you have 400 to 1,000 machines to discover, you need a single project with a single discovery. But you will need multiple assessments to assess these machines, because a single assessment can hold up to 400 machines.
+- If you have 1,001 to 1,500 machines, you need a single project with two discoveries in it.
+- If you have more than 1,500 machines, you need to create multiple projects, and perform multiple discoveries, according to your requirements. For example:
+    - If you have 3,000 machines, you can set up two projects with two discoveries, or three projects with a single discovery.
+    - If you have 5,000 machines, you can set up four projects: three with a discovery of 1,500 machines, and one with a discovery of 500 machines. Alternatively, you can set up five projects with a single discovery in each one. 
+-->
 
 ## <a name="plan-multiple-discoveries"></a>여러 검색 계획
 
 하나 이상의 프로젝트에 여러 검색 작업을 수행하기 위해 동일한 Azure Migrate Collector를 사용할 수 있습니다. 이러한 계획 고려 사항을 고려하세요.
  
 - Azure Migrate Collector를 사용하여 검색할 때 vCenter Server 폴더, 데이터 센터, 클러스터 또는 호스트로 검색 범위를 설정할 수 있습니다.
-- 둘 이상의 검색을 수행하려면 vCenter Server에서 검색할 VM이 1,000대 컴퓨터 제한을 지원하는 폴더, 데이터 센터, 클러스터 또는 호스트에 위치하는지 확인합니다.
+- 둘 이상의 검색을 수행하려면 vCenter Server에서 검색할 VM이 1,500대 컴퓨터 제한을 지원하는 폴더, 데이터 센터, 클러스터 또는 호스트에 위치하는지 확인합니다.
 - 평가 목적을 위해 동일한 프로젝트 및 평가 내에서 컴퓨터 간 상호 종속성을 유지하는 것이 좋습니다. vCenter Server에서 종속 컴퓨터가 평가를 위해 동일한 폴더, 데이터 센터 또는 클러스터에 있는지 확인합니다.
 
 
@@ -83,6 +85,14 @@ Azure Migrate는 수집기 어플라이언스라고 하는 온-프레미스 VM�
 
    사용 예: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 3. 생성된 해시가 다음 설정과 일치하는지 확인합니다.
+
+    OVA 버전 1.0.9.5의 경우
+
+    **알고리즘** | **해시 값**
+    --- | ---
+    MD5 | fb11ca234ed1f779a61fbb8439d82969
+    SHA1 | 5bee071a6334b6a46226ec417f0d2c494709a42e
+    SHA256 | b92ad637e7f522c1d7385b009e7d20904b7b9c28d6f1592e8a14d88fbdd3241c  
 
     OVA 버전 1.0.9.2의 경우
 

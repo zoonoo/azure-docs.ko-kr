@@ -2,7 +2,7 @@
 title: "제한 및 구성 - Azure Logic Apps | Microsoft Docs"
 description: "Azure Logic Apps에 대한 서비스 제한 및 구성 값"
 services: logic-apps
-documentationcenter: .net,nodejs,java
+documentationcenter: 
 author: jeffhollan
 manager: anneta
 editor: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 5c4597ede16f01c36e147dc0d70acf4b4f5635e8
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 54a35607e107a09188373cc5f71bb3068b4c6bab
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="logic-apps-limits-and-configuration"></a>Logic Apps 제한 및 구성
 
@@ -28,13 +28,13 @@ ms.lasthandoff: 02/28/2018
 
 ### <a name="http-request-limits"></a>HTTP 요청 한도
 
-이러한 제한은 단일 HTTP 요청 또는 커넥터 호출에 적용됩니다.
+다음은 단일 HTTP 요청 또는 커넥터 호출에 대한 제한 사항입니다.
 
 #### <a name="timeout"></a>시간 제한
 
 | Name | 제한 | 메모 | 
 | ---- | ----- | ----- | 
-| 요청 시간 초과 | 120초 | 필요에 따라 [비동기 패턴](../logic-apps/logic-apps-create-api-app.md) 또는 [until 루프](logic-apps-loops-and-scopes.md)를 보완할 수 있음 |
+| 요청 시간 초과 | 120초 | 필요에 따라 [비동기 패턴](../logic-apps/logic-apps-create-api-app.md) 또는 [until 루프](logic-apps-control-flow-loops.md)를 보완할 수 있음 | 
 |||| 
 
 #### <a name="message-size"></a>메시지 크기
@@ -56,28 +56,21 @@ ms.lasthandoff: 02/28/2018
 
 ### <a name="run-duration-and-retention"></a>실행 기간 및 보존
 
-이러한 제한은 단일 논리 앱 실행에 적용됩니다.
+다음은 단일 논리 앱 실행에 대한 제한 사항입니다.
 
-| Name | 기본값 | 제한 |
-| ---- | ------- | ----- |
-| 실행 기간   | 90일 | 7-90일 |
-| 저장소 보존 | 실행 시작 시간부터 90일 |  실행 시작 시간부터 7-90일 |
-||||
+| Name | 제한 | 
+| ---- | ----- | 
+| 실행 기간 | 90일 | 
+| 저장소 보존 | 실행 시작 시간부터 90일 | 
+| 최소 되풀이 간격 | 1초 </br>App Service 계획이 있는 논리 앱: 15초 | 
+| 최대 되풀이 간격 | 500일 | 
+||| 
 
-정상적인 처리 흐름에서 실행 기간 또는 저장소 보존 한도를 초과하게 되면 [제품 팀에 연락](mailto://logicappsemail@microsoft.com)하여 요구 사항에 대한 지원을 받으세요.
-
-
-### <a name="recurrence-interval"></a>되풀이 간격
-
-| Name | 제한 |
-| ---- | ------- |
-| 최소 되풀이 간격 | 1초 </br>App Service 계획이 있는 논리 앱: 15초 |
-| 최대 되풀이 간격 | 500일 |
-|||
+정상적인 처리 흐름에서 실행 기간 또는 저장소 보존 한도를 초과하려면 [Logic Apps 팀에 문의](mailto://logicappsemail@microsoft.com)하여 요구 사항을 확인하세요.
 
 ### <a name="looping-and-debatching-limits"></a>반복 및 분리 한도
 
-이러한 제한은 단일 논리 앱 실행에 적용됩니다.
+다음은 단일 논리 앱 실행에 대한 제한 사항입니다.
 
 | Name | 제한 | 메모 | 
 | ---- | ----- | ----- | 
@@ -89,22 +82,22 @@ ms.lasthandoff: 02/28/2018
 
 ### <a name="throughput-limits"></a>처리량 한도
 
-이러한 제한은 단일 논리 앱 리소스에 적용됩니다.
+다음은 단일 논리 앱 인스턴스에 대한 제한 사항입니다.
 
 | Name | 제한 | 메모 | 
 | ----- | ----- | ----- | 
-| 5분당 작업 실행 | 100,000 |<p>`High Througput` 모드에서 논리 앱을 실행하면 이 제한이 300,000으로 늘어날 수 있습니다. 워크플로 리소스에서 `runtimeConfiguration` 아래의 `operationOptions` 속성을 `OptimizedForHighThroughput`으로 설정하면 높은 처리량 모드를 구성할 수 있습니다. <p>높은 처리량 모드는 미리 보기로 제공됩니다. 또한 필요에 따라 워크로드가 여러 앱에 분산될 수 있습니다. | 
+| 5분당 작업 실행 | 100,000 | 한도를 300,000까지 높이려면 `High Througput` 모드에서 논리 앱을 실행합니다. 높은 처리량 모드를 구성하려면 워크플로 리소스의 `runtimeConfiguration` 아래에서 `operationOptions` 속성을 `OptimizedForHighThroughput`으로 설정합니다. <p>**참고**: 높은 처리량 모드는 미리 보기로 제공됩니다. 필요에 따라 여러 앱에 워크로드를 배포할 수도 있습니다. | 
 | 작업 나가는 동시 호출 | ~2,500 | 필요에 따라 동시 요청 수를 줄이거나 기간을 단축합니다. | 
 | 런타임 끝점: 들어오는 동시 호출 |~1,000 | 필요에 따라 동시 요청 수를 줄이거나 기간을 단축합니다. | 
 | 런타임 끝점: 5분마다 호출을 읽습니다.  | 60,000 | 필요에 따라 여러 앱에 워크로드를 배포할 수 있습니다. | 
 | 런타임 끝점: 5분마다 호출을 수행합니다.| 45,000 |필요에 따라 여러 앱에 워크로드를 배포할 수 있습니다. | 
 |||| 
 
-일반적인 처리에서 이러한 제한을 초과하거나 이러한 제한을 초과할 수 있는 부하 테스트를 실행하려면 [제품 팀에 연락](mailto://logicappsemail@microsoft.com)하여 요구 사항을 확인하세요.
+일반적인 처리에서 이러한 제한을 초과하거나 이러한 제한을 초과할 수 있는 부하 테스트를 실행하려면 [Logic Apps 팀에 문의](mailto://logicappsemail@microsoft.com)하여 요구 사항을 확인하세요.
 
 ### <a name="logic-app-definition-limits"></a>논리 앱 정의 제한
 
-이러한 제한은 단일 논리 앱 정의에 적용됩니다.
+다음은 단일 논리 앱 정의에 대한 제한 사항입니다.
 
 | Name | 제한 | 메모 | 
 | ---- | ----- | ----- | 
@@ -136,7 +129,7 @@ ms.lasthandoff: 02/28/2018
 
 ### <a name="integration-account-limits"></a>통합 계정 제한
 
-이러한 제한은 통합 계정에 추가할 수 있는 아티팩트에 적용됩니다.
+다음은 통합 계정에 추가할 수 있는 아티팩트에 대한 제한 사항입니다.
 
 | Name | 제한 | 메모 | 
 | ---- | ----- | ----- | 
@@ -155,7 +148,7 @@ ms.lasthandoff: 02/28/2018
 | Name | 제한 | 메모 | 
 | ---- | ----- | ----- | 
 | 규약 | 10 | | 
-| 기타 아티팩트 형식 | 25 |아티팩트 형식에는 파트너, 스키마, 인증서 및 맵이 포함됩니다. 각 형식은 최대 수의 아티팩트를 포함할 수 있습니다. | 
+| 기타 아티팩트 형식 | 25 | 아티팩트 형식에는 파트너, 스키마, 인증서 및 맵이 포함됩니다. 각 형식은 최대 수의 아티팩트를 포함할 수 있습니다. | 
 |||| 
 
 #### <a name="standard-pricing-tier"></a>표준 가격 책정 계층
@@ -167,7 +160,7 @@ ms.lasthandoff: 02/28/2018
 
 ### <a name="b2b-protocols-as2-x12-edifact-message-size"></a>B2B 프로토콜(AS2, X12, EDIFACT) 메시지 크기
 
-이러한 제한은 B2B 프로토콜에 적용됩니다.
+다음은 B2B 프로토콜에 적용되는 제한 사항입니다.
 
 | Name | 제한 | 메모 | 
 | ---- | ----- | ----- | 

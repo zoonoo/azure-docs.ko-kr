@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: negat
-ms.openlocfilehash: 836d56012afa9e5d5bdec35d85c37dd4b0b788ce
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: cdd1015f63e80b7ec51565c18f3440ce1828fb03
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>가상 머신 확장 집합 수정
 이 문서에서는 기존 확장 집합을 수정하는 방법을 설명합니다. 여기에는 확장 집합의 구성을 변경하는 방법, 확장 집합에서 실행되는 응용 프로그램의 구성을 변경하는 방법, 가용성을 관리하는 방법이 포함됩니다.
@@ -255,7 +255,7 @@ CLI: `az vmss update-instances -g {resourceGroupName} -n {vmScaleSetName} --inst
 > Service Fabric 클러스터는 자동 모드만 사용할 수 있지만 업데이트는 다르게 처리됩니다. Service Fabric 업데이트에 대한 자세한 내용은 [Service Fabric 설명서](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade)를 참조하세요.
 
 >[!NOTE]
-> 업그레이드 정책을 따르지 않는 전역 확장 집합 속성에 대한 한 가지 유형의 수정 작업이 있습니다. 확장 집합 OS 프로필(예: 관리자 사용자 이름 및 암호) 변경입니다. 이러한 변경은 확장 집합 모델이 변경된 후에 만들어지는 VM에만 적용됩니다. 기존 VM을 최신 상태로 유지하려면 각 VM을 “이미지로 다시 설치”해야 합니다. 다음을 통해 VM을 이미지로 다시 설치할 수 있습니다.
+> 업그레이드 정책을 따르지 않는 전역 확장 집합 속성에 대한 한 가지 유형의 수정 작업이 있습니다. 확장 집합 OS 프로필(예: 관리자 사용자 이름 및 암호) 변경입니다. 이러한 속성은 2017-12-01 이상의 API 버전에서만 변경할 수 있습니다. 이러한 변경은 확장 집합 모델이 변경된 후에 만들어지는 VM에만 적용됩니다. 기존 VM을 최신 상태로 유지하려면 각 VM을 “이미지로 다시 설치”해야 합니다. 다음을 통해 VM을 이미지로 다시 설치할 수 있습니다.
 
 REST API: `POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/reimage?api-version={apiVersion}`(자세한 내용은 [REST API 설명서](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/reimage) 참조)
 

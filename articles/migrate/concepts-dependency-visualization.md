@@ -6,11 +6,11 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 2/21/2018
 ms.author: raynew
-ms.openlocfilehash: 886977764517f1fec89eee77fc3263d30ff9ab31
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: bcbb2ace6686e4052149a5dde1ed837a16c36bad
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="dependency-visualization"></a>종속성 시각화
 
@@ -34,6 +34,19 @@ Azure Migrate는 종속성 시각화에 [Log Analytics](../log-analytics/log-ana
 종속성 시각화를 사용하려면 분석할 각 온-프레미스 컴퓨터에 에이전트를 다운로드하여 설치해야 합니다.  
 
 ## <a name="do-i-need-to-pay-for-it"></a>요금이 발생하나요?
+
+Azure Migrate는 추가 요금 없이 사용할 수 있습니다. Azure Migrate의 종속성 시각화 기능을 사용하려면 서비스 맵이 필요합니다. Azure Migrate 프로젝트를 만들 때 Azure Migrate에서 새로운 Log Analytics 작업 영역이 자동으로 만들어집니다.
+
+> [!NOTE]
+> 종속성 시각화 기능은 Log Analytics 작업 영역을 통해 서비스 맵을 사용합니다. 2018년 2월 28일 이후로 Azure Migrate의 일반 공급이 발표되면서 이 기능을 추가 비용 없이 사용할 수 있습니다. 무료 사용량 작업 영역을 사용하려면 새 프로젝트를 만들어야 합니다. 일반 공급 이전의 기존 작업 영역은 여전히 청구가 가능하기 때문에 새 프로젝트로 이동하는 것이 좋습니다.
+
+1. 이 Log Analytics 작업 영역 내에서 서비스 맵 이외의 다른 솔루션을 사용하면 표준 Log Analytics 요금이 발생합니다. 
+2. 마이그레이션 시나리오를 추가 비용 없이 지원하기 위해서, Azure Migrate 프로젝트를 만든 후 180일 동안 서비스 맵 솔루션에 요금이 부과되지 않으며 그 후에는 표준 요금이 적용됩니다.
+3. 프로젝트 생성의 일환으로 만든 작업 영역만 무료로 사용이 가능합니다.
+
+작업 영역에 에이전트를 등록하는 경우에는 에이전트 설치 단계 페이지에서 프로젝트에 제공된 ID와 키를 사용합니다. 기존 작업 영역을 사용하면 Azure Migrate 프로젝트와 연결할 수 없습니다.
+
+Azure Migrate 프로젝트가 삭제될 때 작업 영역은 함께 삭제되지 않습니다. 프로젝트 삭제 후에는 서비스 맵 사용이 무료가 아니며, Log Analytics 작업 영역의 유료 계층에 따라 노드마다 요금이 부과됩니다.
 
 [여기](https://azure.microsoft.com/pricing/details/azure-migrate/)에서 Azure Migrate 가격 책정에 대해 자세히 알아보세요. 
 

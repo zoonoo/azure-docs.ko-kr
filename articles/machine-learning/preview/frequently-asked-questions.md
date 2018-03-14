@@ -5,16 +5,16 @@ services: machine-learning
 author: serinakaye
 ms.author: serinak
 manager: mwinkle
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/30/2017
-ms.openlocfilehash: 94c6576f92b5a004e0fd509c1dc6e091c294658a
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 46d026802668fd77ae184b374439ca78cf51393d
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="azure-machine-learning-frequently-asked-questions"></a>Azure Machine Learning 질문과 대답
 
@@ -24,14 +24,6 @@ ms.lasthandoff: 12/18/2017
             **Azure Machine Learning이란 무엇인가요?**
 
 Azure Machine Learning은 기계 학습 및 AI 모델을 만들고 테스트, 관리 및 배포할 수 있는 완전히 관리되는 Azure 서비스입니다. 이 새로운 서비스 및 다운로드 가능 응용 프로그램은 클라우드, 온-프레미스 및 Edge를 이용하여 처리 능력, 속도 및 유연성을 가진 학습, 배포, 관리 및 모니터링을 제공하는 코드 우선 방식을 제공합니다. 또는 Azure Machine Learning Studio는 코딩이 필요하지 않은 브라우저 기반의 시각적 끌어서 놓기 저작 환경을 제공합니다. 
-
-**미리 보기를 시작하는 방법**
-
-시작하는 가장 쉬운 방법은 Azure의 실험 서비스에 가입하는 것입니다. 포털에서 무료 워크벤치 응용 프로그램을 다운로드하거나 모델 관리 계정에 가입할 수도 있습니다. 또한 방법 문서, 비디오, 데모 코드 등에 대한 당사의 설명서 사이트를 방문할 수 있습니다. 
-
-**Azure 구독이 없습니다. 여전히 새 서비스를 시도할 수 있나요?**
-
-Microsoft Azure 포트폴리오의 일환으로, 새 서비스는 Azure 구독이 필요합니다. 또한 리소스 그룹, Virtual Machines 등의 자산을 만들 수 있는 권한이 있어야 합니다. 
 
 **새 서비스를 사용할 수 있는 지역은 어디인가요?**
 
@@ -53,7 +45,7 @@ SQL Server 2017의 Machine Learning 서비스는 기계 학습 작업을 데이�
 
 **Azure Machine Learning은 Spark용 Microsoft Machine Learning과 어떤 관계가 있습니까?**
 
-A: MMLSpark는 생산성, 간편한 실험 및 최신 알고리즘을 강조한 Apache Spark용 심층 학습 및 데이터 과학 도구를 제공합니다. MMLSpark는 Spark Machine Learning 파이프라인과 Microsoft Cognitive Toolkit 및 OpenCV의 통합을 제공합니다. 이미지 및 텍스트 데이터에 대해 강력하고 확장성이 뛰어난 예측 및 분석 모델을 만들 수 있습니다. MMLSpark는 오픈 소스 라이선스에 따라 사용할 수 있으며 AML Workbench에 사용 가능 모델 및 알고리즘 집합으로 포함되어 있습니다. MMLSpark에 대한 자세한 내용은 제품 설명서를 참조하세요. 
+MMLSpark는 생산성, 간편한 실험 및 최신 알고리즘을 강조한 Apache Spark용 심층 학습 및 데이터 과학 도구를 제공합니다. MMLSpark는 Spark Machine Learning 파이프라인과 Microsoft Cognitive Toolkit 및 OpenCV의 통합을 제공합니다. 이미지 및 텍스트 데이터에 대해 강력하고 확장성이 뛰어난 예측 및 분석 모델을 만들 수 있습니다. MMLSpark는 오픈 소스 라이선스에 따라 사용할 수 있으며 AML Workbench에 사용 가능 모델 및 알고리즘 집합으로 포함되어 있습니다. MMLSpark에 대한 자세한 내용은 제품 설명서를 참조하세요. 
 
 **새로운 도구와 서비스에서 지원 되는 Spark의 버전은 무엇입니까? 맨 위 섹션**
 
@@ -136,7 +128,7 @@ Azure Machine Learning Workbench는 전문 데이터 과학자를 위해 만든 
 
 **명령줄 기능을 지원하나요?**
 
-A: 예, Azure Machine Learning은 완전한 CLI 인터페이스를 제공합니다. Machine Learning CLI는 기본적으로 Azure Machine Learning Workbench와 함께 설치됩니다. 또한 Azure용 Linux Data Science 가상 머신의 일부로도 제공되며 [Azure CLI](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest)에 통합됩니다.
+예, Azure Machine Learning은 완전한 CLI 인터페이스를 제공합니다. Machine Learning CLI는 기본적으로 Azure Machine Learning Workbench와 함께 설치됩니다. 또한 Azure용 Linux Data Science 가상 머신의 일부로도 제공되며 [Azure CLI](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest)에 통합됩니다.
 
 
 **내 Jupyter 노트북을 Workbench에서 사용할 수 있나요?**
@@ -145,7 +137,7 @@ A: 예, Azure Machine Learning은 완전한 CLI 인터페이스를 제공합니�
 
 **어떤 Jupyter 노트북 커널이 지원되나요?**
 
-A: Workbench에 포함된 Jupyter의 현재 버전은 Python 3 커널 및 aml_config 폴더의 각 "runconfig" 파일에 대한 추가 커널을 시작합니다. 지원되는 구성은 다음을 포함합니다.
+Workbench에 포함된 Jupyter의 현재 버전은 Python 3 커널 및 aml_config 폴더의 각 "runconfig" 파일에 대한 추가 커널을 시작합니다. 지원되는 구성은 다음을 포함합니다.
 - 로컬 Python
 - 로컬 또는 원격 Docker의 Python
 
@@ -177,7 +169,7 @@ Workbench의 데이터 준비 도구는 현재 다음 형식에서의 수집을 
 
 **Azure Machine Learning Workbench, 실험 또는 모델 관리가 적용하는 데이터 크기 한계가 있나요?**
 
-A: 아니요. 새 서비스는 데이터 제한을 적용하지 않습니다. 단, 데이터 준비, 모델 학습, 실험 또는 배포를 수행하는 환경에서 도입되는 제한이 있습니다. 예를 들어 로컬 환경을 학습의 대상으로 하는 경우 하드 드라이브의 사용 가능한 공간에 의해 제한을 받습니다. 또는 HDInsight 대상으로 하는 경우 모든 관련된 크기 또는 계산 제약에 의해 제한을 받습니다. 
+아니요. 새 서비스는 데이터 제한을 적용하지 않습니다. 단, 데이터 준비, 모델 학습, 실험 또는 배포를 수행하는 환경에서 도입되는 제한이 있습니다. 예를 들어 로컬 환경을 학습의 대상으로 하는 경우 하드 드라이브의 사용 가능한 공간에 의해 제한을 받습니다. 또는 HDInsight 대상으로 하는 경우 모든 관련된 크기 또는 계산 제약에 의해 제한을 받습니다. 
 
 ## <a name="algorithms-and-libraries"></a>알고리즘 및 라이브러리
 
@@ -188,47 +180,3 @@ A: 아니요. 새 서비스는 데이터 제한을 적용하지 않습니다. �
 **Azure Machine Learning은 Microsoft Cognitive Toolkit와 어떤 관계가 있나요?**
 
 [Microsoft Cognitive Toolkit](https://www.microsoft.com/cognitive-toolkit/)는 새 도구 및 서비스에서 지원하는 많은 프레임워크 중 하나입니다. Cognitive Toolkit은 Feed-Forward Deep Neural Networks, Convolutional Nets, Sequence-to-Sequence 및 Recurrent Networks 등 인기 있는 기계 학습 모델을 사용하고 조합할 수 있는 통합된 심층 학습 도구 키트입니다. Microsoft Cognitive Toolkit에 대한 자세한 내용을 확인하려면 당사 [제품 설명서](https://docs.microsoft.com/cognitive-toolkit/)를 참조하세요. 
-
-## <a name="pricing-and-billing"></a>가격 책정 및 대금 청구
-
-**미리 보기 동안 Azure Machine Learning에 대한 수수료를 부과하나요?** 
-
-A: Azure Machine Learning Workbench 응용 프로그램은 Azure 구독자가 무료로 사용할 수 있습니다. 실험 서비스 및 모델 관리는 공개 미리 보기 중에 할인 요금으로 사용할 수 있는 유료 계층 외에 무료 계층도 제공합니다.
-
-**실행하는 실험 수에 따라 비용이 청구되나요?**
-
-아니요. 실험 서비스에서는 원하는 수만큼 많은 실험을 수행할 수 있으며, 비용은 사용자 수에 따라서만 청구됩니다. 실험 계산 리소스의 비용은 개별적으로 청구됩니다.  솔루션에 가장 적합한 모델을 찾을 수 있도록 여러 실험을 수행하는 것이 좋습니다. 
-
-**내 웹 서비스 호출 빈도에 따라 비용이 청구되나요?**
-
-번호 웹 서비스는 모델 관리 비용에 영향을 미치지 않고 필요한 대로 자주 호출할 수 있습니다. 응용 프로그램의 요구 사항을 충족시키기 위해 배포 범위를 완벽하게 제어할 수 있어야 합니다.
-
-**Azure Machine Learning Model Management에서 구매한 단위 수를 어떻게 조정할 수 있나요?**
-
-Azure Portal 또는 CLI를 사용하여 단위 수를 높거나 낮게 변경할 수 있습니다. 
-
-**청구서는 어떻게 구성되나요?**
-
-청구서는 매일 생성됩니다. 청구 목적상 하루는 UTC 기준 자정에 시작됩니다. 청구서는 매달 생성됩니다. Azure Machine Learning과 함께 사용하는 Azure 서비스에 대해서는 별도의 수수료가 발생합니다. 수수료는 다음을 포함하지만 이에 국한되지 않습니다. 
-- 계산 요금
-- HDInsight
-- Azure Container Service
-- Azure Container Registry 
-- Azure Blob Storage
-- Application Insights
-- Azure Key Vault
-- Visual Studio Team Services
-- Azure Event Hub
-- Azure Stream Analytics 자세한 내용을 확인하려면 또는 샘플 청구서를 보려면 당사 가격 책정 페이지를 방문하세요. 
-
-## <a name="support-and-training"></a>지원 및 교육
-
-
-            **Azure Machine Learning에 대한 교육은 어디에서 받을 수 있나요?**
-
-[Azure Machine Learning 설명서 센터](./overview-what-is-azure-ml.md)에서 비디오 자습서와 방법 가이드를 호스트합니다. 이 단계별 가이드는 서비스를 소개하며 데이터 과학 수명 주기를 설명합니다. Microsoft는 Machine Learning Center에 새로운 자료를 추가하고 있습니다. 사용자 피드백 포럼에서 추가 학습 자료에 대한 요청을 제출할 수 있습니다.
-
-
-            **Azure Machine Learning에 대한 지원을 받으려면 어떻게 해야 하나요?**
-
-기술 지원을 받으려면 Azure Support로 이동한 다음 Machine Learning을 선택하세요. Azure Machine Learning은 팀이 모니터링하는 "Azure-Machine-Learning"라는 태그가 지정된 [StackOverflow](https://stackoverflow.com/questions/tagged/azure-machine-learning)에 관한 커뮤니티도 현재 운영하고 있습니다.  제안 사항 및 기능 요청은 [Azure Machine Learning Feedback](https://feedback.azure.com/forums/257792-machine-learning) 사이트에서 제출할 수 있습니다. 

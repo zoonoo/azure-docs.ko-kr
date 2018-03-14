@@ -1,24 +1,8 @@
----
-title: "Azure Service Fabric 클러스터에서 인증서 관리 | Microsoft Docs"
-description: "Service Fabric 클러스터에서 새 인증서를 추가, 교체 및 제거하는 방법을 설명합니다."
-services: service-fabric
-documentationcenter: .net
-author: ChackDan
-manager: timlt
-editor: 
-ms.assetid: 91adc3d3-a4ca-46cf-ac5f-368fb6458d74
-ms.service: service-fabric
-ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 03/09/2017
-ms.author: chackdan
-ms.openlocfilehash: c433e8683755e454f9561f094269c3daccf78a62
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+-- 제목: Azure Service Fabric 클러스터에서 인증서 관리 | Microsoft Docs 설명: Service Fabric 클러스터에서 새 인증서를 추가, 교체 및 제거하는 방법을 설명합니다.
+서비스: service-fabric documentationcenter: .net author: ChackDan manager: timlt editor: ''
+
+ms.assetid: 91adc3d3-a4ca-46cf-ac5f-368fb6458d74 ms.service: service-fabric ms.devlang: dotnet ms.topic: article ms.tgt_pltfrm: na ms.workload: na ms.date: 02/23/2018 ms.author: chackdan
+
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Azure에서 서비스 패브릭 클러스터에 대한 인증서 추가 또는 제거
 Service Fabric이 X.509 인증서를 사용하는 방법을 숙지하고 [클러스터 보안 시나리오](service-fabric-cluster-security.md)를 읽어보는 것이 좋습니다. 다음 과정으로 진행하기 전에 클러스터 인증서가 무엇이며 어떤 용도로 사용되는지를 이해해야 합니다.
@@ -49,6 +33,8 @@ Azure Portal로는 보조 클러스터 인증서를 추가할 수 없습니다. 
 기본으로 표시된 인증서를 제거하려는 경우 먼저 보조 인증서와 교환한 다음 업그레이드 완료 후 보조 인증서를 삭제해야 합니다.
 
 ## <a name="add-a-secondary-certificate-using-resource-manager-powershell"></a>Resource Manager Powershell을 사용하여 보조 인증서 추가
+> [!업데이트] 이제 [Add-AzureRmServiceFabricClusterCertificate](https://docs.microsoft.com/powershell/module/azurerm.servicefabric/add-azurermservicefabricclustercertificate?view=azurermps-5.3.0)를 사용하여 보조 인증서를 추가하는 더 쉽고 편리한 방법이 있습니다. Add-AzureRmServiceFabricClusterCertificate를 사용하는 경우에는 이 섹션의 나머지 단계를 수행할 필요가 없습니다.
+
 
 이러한 단계에서는 Resource Manager의 작동 원리에 익숙하며, Resource Manager 템플릿을 사용하여 하나 이상의 Service Fabric 클러스터를 배포했고, 클러스터를 설정하는 데 사용한 템플릿이 있다고 가정합니다. 또한 JSON을 잘 사용하여 작업할 수 있다고 간주합니다.
 

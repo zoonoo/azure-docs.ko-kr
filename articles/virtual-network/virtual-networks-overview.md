@@ -13,21 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/12/2017
+ms.date: 3/1/2018
 ms.author: jdial
-ms.openlocfilehash: 892aa03bd058b50fc4868a225dfe602624ff19ef
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: fadc1994cd930df36387a5bfb302c00d66f74fad
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="azure-virtual-network"></a>Azure Virtual Network
+# <a name="what-is-azure-virtual-network"></a>Azure Virtual Network란?
 
-Microsoft Azure Virtual Network 서비스를 사용하면 Azure 리소스가 가상 네트워크에서 서로 안전하게 통신할 수 있습니다. 가상 네트워크는 구독 전용 Azure 클라우드를 논리적으로 격리한 것입니다. 가상 네트워크를 다른 가상 네트워크 또는 온-프레미스 네트워크에 연결할 수 있습니다. 다음 그림은 Azure Virtual Network 서비스 기능의 일부를 보여 줍니다.
+Azure Virtual Network에서는 Azure 리소스가 서로 통신하고 인터넷과 통신할 수 있습니다. 가상 네트워크는 Azure 클라우드의 리소스를 다른 리소스와 격리시킵니다. 가상 네트워크를 다른 가상 네트워크 또는 온-프레미스 네트워크에 연결할 수 있습니다. 
 
-![네트워크 다이어그램](./media/virtual-networks-overview/virtual-network-overview.png)
-
-다음 Azure Virtual Network 기능에 대한 자세한 내용을 보려면 원하는 기능을 클릭합니다.
+Azure Virtual Network는 다음과 같은 광범위한 기능을 제공합니다.
 - **[격리:](#isolation)** 가상 네트워크는 서로 격리되어 있습니다. 동일한 CIDR(예: 10.0.0.0/0) 주소 블록을 사용하는 개별 가상 네트워크를 만들어 개발, 테스트, 프로덕션 용도에 이용할 수 있습니다. 반대로, 여러 CIDR 주소 블록을 사용하는 가상 네트워크를 만들어 네트워크를 서로 연결할 수도 있습니다. 가상 네트워크를 여러 서브넷으로 분할할 수 있습니다. Azure는 가상 네트워크에 배포된 리소스에 대한 내부 이름 확인을 제공합니다. 필요에 따라 Azure 내부 이름 확인을 사용하는 대신 고유한 DNS 서버를 사용하도록 가상 네트워크를 구성할 수 있습니다.
 - **[인터넷 통신:](#internet)** 가상 네트워크에 배포된 가상 머신과 같은 리소스는 기본적으로 인터넷에 액세스할 수 있습니다. 또한 필요에 따라 특정 리소스에 대한 인바운드 액세스를 사용하도록 설정할 수 있습니다.
 - **[Azure 리소스 통신](#within-vnet)**: 가상 네트워크에 배포된 Azure 리소스는 서로 다른 서브넷에 배포된 경우에도 개인 IP 주소를 사용하여 서로 통신할 수 있습니다. Azure는 서브넷, 연결된 가상 네트워크 및 온-프레미스 네트워크 간에 기본 라우팅을 제공하므로 수동으로 경로를 구성하고 관리할 필요가 없습니다. 하지만 원한다면 Azure의 라우팅을 사용자 지정할 수 있습니다.
@@ -41,12 +39,12 @@ Microsoft Azure Virtual Network 서비스를 사용하면 Azure 리소스가 가
 각 Azure [구독](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) 및 Azure [지역](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#region) 내에서 여러 가상 네트워크를 구현할 수 있습니다. 각 가상 네트워크는 다른 가상 네트워크와 분리됩니다. 각 가상 네트워크에 대해 다음을 수행할 수 있습니다.
 - 공용 및 사설(RFC 1918) 주소를 사용하여 사용자 지정 사설 IP 주소 공간을 지정합니다. Azure는 가상 네트워크의 리소스에 사용자가 할당한 주소 공간의 개인 IP 주소를 할당합니다.
 - 가상 네트워크를 하나 이상의 서브넷으로 분할하고 가상 네트워크 주소 공간의 일부를 각 서브넷에 할당합니다.
-- Azure에서 제공하는 이름 확인을 사용하거나 가상 네트워크의 리소스가 사용할 자체 DNS 서버를 지정합니다. 가상 네트워크의 이름 확인에 대한 자세한 내용은 [가상 네트워크의 리소스에 대한 이름 확인](virtual-networks-name-resolution-for-vms-and-role-instances.md) 문서를 참조하세요.
+- Azure에서 제공하는 이름 확인을 사용하거나 가상 네트워크의 리소스가 사용할 자체 DNS 서버를 지정합니다. 가상 네트워크의 이름 확인에 대한 자세한 내용은 [가상 네트워크의 리소스에 대한 이름 확인](virtual-networks-name-resolution-for-vms-and-role-instances.md)을 참조하세요.
 
 ## <a name = "internet"></a>인터넷 통신
-가상 네트워크의 모든 리소스는 인터넷으로 아웃바운드 통신을 할 수 있습니다. 기본적으로 리소스의 개인 IP 주소는 Azure 인프라에서 선택한 공용 IP 주소로 SNAT(원본 네트워크 주소 변환)가 이루어집니다. 아웃바운드 인터넷 연결에 대한 자세한 내용은 [Azure에서 아웃바운드 연결 이해](..\load-balancer\load-balancer-outbound-connections.md) 문서를 참조하세요. 아웃바운드 인터넷 연결을 차단하려면 사용자 지정 경로 또는 트래픽 필터링을 구현하면 됩니다.
+가상 네트워크의 모든 리소스는 인터넷으로 아웃바운드 통신을 할 수 있습니다. 기본적으로 리소스의 개인 IP 주소는 Azure 인프라에서 선택한 공용 IP 주소로 SNAT(원본 네트워크 주소 변환)가 이루어집니다. 아웃바운드 인터넷 연결에 대한 자세한 내용은 [Azure에서 아웃바운드 연결 이해](..\load-balancer\load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요. 아웃바운드 인터넷 연결을 차단하려면 사용자 지정 경로 또는 트래픽 필터링을 구현하면 됩니다.
 
-인터넷에서 Azure 리소스에 인바운드로 통신하거나 SNAT 없이 인터넷에 아웃바운드로 통신하려면 리소스에 공용 IP 주소가 할당되어야 합니다. 공용 IP 주소에 대해 자세히 알아보려면 [공용 IP 주소](virtual-network-public-ip-address.md) 문서를 참조하세요.
+인터넷에서 Azure 리소스에 인바운드로 통신하거나 SNAT 없이 인터넷에 아웃바운드로 통신하려면 리소스에 공용 IP 주소가 할당되어야 합니다. 공용 IP 주소에 대해 자세히 알아보려면 [공용 IP 주소](virtual-network-public-ip-address.md)를 참조하세요.
 
 ## <a name="within-vnet"></a>Azure 리소스 간 보안 통신
 
@@ -58,7 +56,7 @@ Microsoft Azure Virtual Network 서비스를 사용하면 Azure 리소스가 가
 
 ## <a name="connect-vnets"></a>가상 네트워크 연결
 
-가상 네트워크를 서로 연결하면 각 가상 네트워크의 리소스가 가상 네트워크 피어링을 사용하여 서로 통신할 수 있습니다. 서로 다른 가상 네트워크에 있는 리소스 간에 이루어지는 통신의 대역폭 및 대기 시간은 리소스가 같은 가상 네트워크에 있을 때와 동일합니다. 피어링에 대한 자세한 내용은 [가상 네트워크 피어링](virtual-network-peering-overview.md) 문서를 참조하세요.
+가상 네트워크를 서로 연결하면 각 가상 네트워크의 리소스가 가상 네트워크 피어링을 사용하여 서로 통신할 수 있습니다. 서로 다른 가상 네트워크에 있는 리소스 간에 이루어지는 통신의 대역폭 및 대기 시간은 리소스가 같은 가상 네트워크에 있을 때와 동일합니다. 피어링에 대한 자세히 내용은 [가상 네트워크 피어링](virtual-network-peering-overview.md)을 참조하세요.
 
 ## <a name="connect-on-premises"></a>온-프레미스 네트워크에 연결
 
@@ -77,19 +75,12 @@ Microsoft Azure Virtual Network 서비스를 사용하면 Azure 리소스가 가
 ## <a name="routing"></a>네트워크 트래픽 라우팅
 
 Azure는 가상 네트워크의 모든 서브넷에 연결된 리소스가 서로 통신하고 인터넷에 연결할 수 있게 해주는 경로 테이블을 기본적으로 생성합니다. 다음 옵션 중 하나 또는 둘 다를 구현하여 Azure에서 생성되는 기본 경로를 재정의할 수 있습니다.
-- **사용자 정의 경로:** 각 서브넷에 대해 트래픽이 라우팅되는 위치를 제어하는 경로를 포함한 사용자 지정 경로 테이블을 만들 수 있습니다. 사용자 정의 경로에 대한 자세한 내용은 [사용자 정의 경로](virtual-networks-udr-overview.md#user-defined)를 참조하세요.
+- **경로 테이블:** 각 서브넷에 대해 트래픽이 라우팅되는 위치를 제어하는 경로로 사용자 지정 경로 테이블을 만들 수 있습니다. 사용자 지정 라우팅에 대해 자세히 알아보려면 [사용자 지정 라우팅](virtual-networks-udr-overview.md#user-defined)을 참조하세요.
 - **BGP 경로:** Azure VPN Gateway 또는 ExpressRoute 연결을 사용하여 온-프레미스 네트워크에 가상 네트워크를 연결하는 경우 가상 네트워크로 BGP 경로를 전파할 수 있습니다.
-
-## <a name="pricing"></a>가격
-
-가상 네트워크, 서브넷, 경로 테이블 또는 네트워크 보안 그룹은 무료입니다. 아웃바운드 인터넷 대역폭 사용량, 공용 IP 주소, 가상 네트워크의 피어링, VPN Gateway 및 ExpressRoute 각각에는 자체적인 가격 책정 체계가 설정되어 있습니다. 자세한 내용은 [가상 네트워크](https://azure.microsoft.com/pricing/details/virtual-network), [VPN Gateway](https://azure.microsoft.com/pricing/details/vpn-gateway) 및 [ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute) 가격 책정 페이지를 참조하세요.
-
-## <a name="faq"></a>FAQ
-
-Azure Virtual Network에 대한 질문과 대답을 확인하려면 [가상 네트워크 FAQ](virtual-networks-faq.md) 문서를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [첫 번째 가상 네트워크 만들기](quick-create-portal.md) 문서의 단계를 완료하여 첫 번째 가상 네트워크를 만들고 가상 머신을 몇 대 배포해 봅니다.
-- [지점 및 사이트 간 연결 구성](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 문서의 단계를 완료하여 가상 네트워크에 대한 지점 및 사이트 간 연결을 만듭니다.
-- Azure의 다른 주요 [네트워크 기능](../networking/networking-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 알아봅니다.
+Azure Virtual Network에 대한 개요를 살펴봤습니다. 가상 네트워크를 만들어서 Azure Virtual Machines를 배포하여 Azure Virtual Network의 일부 기능을 활용하는 방법을 알아봅니다.
+
+> [!div class="nextstepaction"]
+> [가상 네트워크 만들기](quick-create-portal.md)

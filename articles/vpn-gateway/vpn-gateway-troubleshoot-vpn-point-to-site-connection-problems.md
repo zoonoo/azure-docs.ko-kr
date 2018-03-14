@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/14/2017
+ms.date: 02/23/2018
 ms.author: genli
-ms.openlocfilehash: bf20a0f15b1bc285a598c64c7e9f2de0082b2904
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 3884eec0e65f856be87505d45c25cad7d3742bab
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>문제 해결: Azure 지점 및 사이트 간 연결 문제
 
@@ -40,7 +40,9 @@ VPN 클라이언트를 사용하여 Azure 가상 네트워크에 연결하려고
 
 이 문제를 해결하려면 다음 단계를 수행합니다.
 
-1. 다음 인증서가 올바른 위치에 있는지 확인합니다.
+1. 인증서 관리자에서: **시작**을 클릭하고 **컴퓨터 인증서 관리**를 입력한 다음, 검색 결과에서 **컴퓨터 인증서 관리**를 선택합니다.
+
+2. 다음 인증서가 올바른 위치에 있는지 확인합니다.
 
     | 인증서 | 위치 |
     | ------------- | ------------- |
@@ -48,7 +50,7 @@ VPN 클라이언트를 사용하여 Azure 가상 네트워크에 연결하려고
     | Azuregateway-*GUID*.cloudapp.net  | Current User\Trusted Root Certification Authorities|
     | AzureGateway-*GUID*.cloudapp.net, AzureRoot.cer    | Local Computer\Trusted Root Certification Authorities|
 
-2. Users\<UserName>\AppData\Roaming\Microsoft\Network\Connections\Cm\<GUID>로 이동하고 인증서(*.cer file)를 사용자 및 컴퓨터의 스토어에 수동으로 설치합니다.
+3. Users\<UserName>\AppData\Roaming\Microsoft\Network\Connections\Cm\<GUID>로 이동하고 인증서(*.cer file)를 사용자 및 컴퓨터의 스토어에 수동으로 설치합니다.
 
 클라이언트 인증서를 설치하는 방법에 대한 자세한 내용은 [지점 및 사이트 간 연결에 대한 인증서를 생성 및 내보내기](vpn-gateway-certificates-point-to-site.md)를 참조하세요.
 

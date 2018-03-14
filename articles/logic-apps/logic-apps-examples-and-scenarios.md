@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: logic-apps
-ms.date: 09/13/2017
+ms.date: 01/31/18
 ms.author: LADocs; jehollan
-ms.openlocfilehash: b88d0c1ccb7a729c95299bcdc3cba5fd73fcdeac
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: b979096731caa7513c02a9fb398c14da4d4819ae
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Azure Logic Apps의 일반적인 시나리오, 예제, 자습서 및 연습
 
@@ -63,14 +63,15 @@ ms.lasthandoff: 01/19/2018
 * [웹후크로 외부 이벤트 및 작업에 응답](../logic-apps/logic-apps-create-api-app.md)
 * [HTTP 요청에 대한 동기 응답을 포함하는 호출, 트리거 또는 중첩 워크플로](../logic-apps/logic-apps-http-endpoint.md)
 * [자습서: Logic Apps 및 Power BI로 몇 분 안에 AI 기반 소셜 대시보드 빌드](http://aka.ms/logicappsdemo)
-* [자습서: Twilio SMS 웹후크에 응답 및 텍스트 응답 보내기](https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Logic-Apps-Walkthrough-Webhook-Functions-and-an-SMS-Bot)
+* [비디오: Twilio SMS 웹후크에 응답 및 텍스트 응답 보내기](https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Logic-Apps-Walkthrough-Webhook-Functions-and-an-SMS-Bot)
 
 ## <a name="control-flow-error-handling-and-logging-capabilities"></a>제어 흐름, 오류 처리 및 로깅 기능
 
 논리 앱에는 조건, 스위치, 루프 및 범위와 같은 고급 제어 흐름에 대한 다양한 기능을 포함합니다. 복원력 있는 솔루션을 보장하기 위해 워크플로에서 오류 및 예외 처리를 구현할 수도 있습니다. 워크플로 실행 상태에 대한 알림 및 진단 로그를 위해 Azure Logic Apps에서는 모니터링 및 경고도 제공합니다.
 
-* [논리 앱에서 루프 및 일괄 처리로 배열 및 컬렉션의 항목 처리](../logic-apps/logic-apps-loops-and-scopes.md)
-* [Switch 문으로 다양한 작업 수행](../logic-apps/logic-apps-switch-case.md)
+* [조건 문](../logic-apps/logic-apps-control-flow-conditional-statement.md)과 [Switch 문](../logic-apps/logic-apps-control-flow-switch-statement.md)을 기반으로 다양한 작업 수행
+* [루프를 사용하여 배열 및 컬렉션의 항목을 처리하거나 단계를 반복](../logic-apps/logic-apps-control-flow-loops.md)
+* [범위와 함께 작업 그룹화](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)
 * [워크플로에서 작성자 오류 및 예외 처리](../logic-apps/logic-apps-exception-handling.md)
 * [사용 사례: 의료 회사에서 HL7 FHIR 워크플로에 대해 논리 앱 예외 처리를 사용하는 방법](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
 * [기존 논리 앱에 대한 모니터링, 로깅 및 경고 켜기](../logic-apps/logic-apps-monitor-your-logic-apps.md)
@@ -98,15 +99,22 @@ Azure Logic Apps [워크플로 정의 언어](http://aka.ms/logicappsdocs)의 �
 
 * [Azure 서버를 사용하지 않고 실시간 소셜 대시보드 만들기](../logic-apps/logic-apps-scenario-social-serverless.md)
 * [논리 앱에서 Azure Functions 호출](../logic-apps/logic-apps-azure-functions.md)
-* [시나리오: Azure Functions로 논리 앱 트리거](../logic-apps/logic-apps-scenario-function-sb-trigger.md)
+* [자습서: Azure Functions로 논리 앱 트리거](../logic-apps/logic-apps-scenario-function-sb-trigger.md)
+* [자습서: Azure Event Grid 및 Logic Apps를 사용하여 가상 머신 변경 모니터링](../event-grid/monitor-virtual-machine-changes-event-grid-logic-app.md)
+* [자습서: Azure Logic Apps 및 Microsoft Cognitive Services와 통합하여 Twitter 게시물 감정을 분석하는 함수 만들기](../azure-functions/functions-twitter-email.md)
+* [자습서: Azure Logic Apps로 IoT Hub와 사서함을 연결하여 IoT 원격 모니터링 및 알림](../iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps.md)
 * [블로그: 논리 앱에서 SOAP 끝점 호출](https://blogs.msdn.microsoft.com/logicapps/2016/04/07/using-soap-services-with-logic-apps/)
 
 ## <a name="end-to-end-scenarios"></a>종단 간 시나리오
 
-* [백서: Logic Apps와 같은 Azure 서비스를 사용한 엔터프라이즈 통합 종단 간 사례 관리](https://aka.ms/enterprise-integration-e2e-case-management-utilities-logic-apps)
+* [백서: Azure 서비스(예: Logic Apps)와 종단 간 사례 관리 통합](https://aka.ms/enterprise-integration-e2e-case-management-utilities-logic-apps)
+
+## <a name="customer-stories"></a>고객 사례
+
+Azure Logic Apps가 다른 Azure 서비스 및 Microsoft 제품과 함께 복잡한 프로세스를 간소화하고 구성하고 자동화하고 오케스트레이션하여 [기업](https://aka.ms/logic-apps-customer-stories)의 민첩성을 향상시키고 핵심 비즈니스에 집중하도록 도울 수 있는 방법을 알아봅니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [워크플로 정의 언어로 워크플로 정의 작성](../logic-apps/logic-apps-author-definitions.md)
+* [JSON으로 논리 앱 정의에 따라 빌드](../logic-apps/logic-apps-author-definitions.md)
 * [논리 앱에서 오류 및 예외 처리](../logic-apps/logic-apps-exception-handling.md)
-* [Azure Logic Apps를 개선할 수 있는 방법에 대한 의견, 질문, 피드백 또는 제안 사항 제출](https://feedback.azure.com/forums/287593-logic-apps)
+* [Azure Logic Apps를 개선을 위한 의견, 질문, 피드백 또는 제안 사항 제출](https://feedback.azure.com/forums/287593-logic-apps)

@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2018
+ms.date: 02/28/2018
 ms.author: mimig
-ms.openlocfilehash: b63c778f02b88bea4d68206f441aef7b32172c24
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: d263c4f5ad14f6692a7c8f6e66429b439a52a84a
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Azure Cosmos DB의 요청 단위
 지금 사용 가능: Azure Cosmos DB [요청 단위 계산기](https://www.documentdb.com/capacityplanner). 자세한 내용을 보려면 [처리량 요구 예측](request-units.md#estimating-throughput-needs)을 참조하세요.
@@ -92,6 +92,10 @@ await client.ReplaceOfferAsync(offer);
 ```
 
 처리량을 변경할 때 컨테이너의 가용성에는 영향을 주지 않습니다. 일반적으로 새로 예약된 처리량은 새 처리량의 응용 프로그램에서 몇 초 이내에 유효합니다.
+
+## <a name="throughput-isolation-in-globally-distributed-databases"></a>전역적으로 분산된 데이터베이스의 처리량 격리
+
+둘 이상의 지역에 데이터베이스를 복제하는 경우, Azure Cosmos DB는 한 지역의 RU 사용량이 다른 지역의 RU 사용량에 영향을 미치지 않도록 처리량 격리를 제공합니다. 예를 들어 한 지역에 데이터를 쓰고 다른 지역에서 이 데이터를 읽는 경우, A 지역에서 쓰기 작업을 수행하는 데 사용되는 RU는 B 지역에서 읽기 작업을 수행하는 데 사용되는 RU에 영향을 미치지 않습니다. RU는 배포한 지역에서 분할되지 않습니다. 데이터베이스가 복제되어 있는 각 지역에는 프로비전된 전체 RU가 있습니다. 전역 복제에 대한 자세한 내용은 [Azure Cosmos DB로 데이터를 전역적으로 배포하는 방법](distribute-data-globally.md)을 참조하세요.
 
 ## <a name="request-unit-considerations"></a>요청 단위 고려 사항
 Azure Cosmos DB 컨테이너에 대해 예약할 요청 단위 수를 추정하는 경우 다음 변수를 고려해야 합니다.
@@ -235,7 +239,7 @@ MongoDB API는 지정된 작업에 대한 요청 비용을 검색하는 데 사�
 > 
 > 
 
-## <a name="use-api-for-mongodbs-portal-metrics"></a>MongoDB API 포털 메트릭 사용
+## <a name="use-mongodb-api-portal-metrics"></a>MongoDB API 포털 메트릭 사용
 MongoDB API 데이터베이스에 대한 요청 단위 요금을 적절히 추정하는 가장 간단한 방법은 [Azure Portal](https://portal.azure.com) 메트릭을 사용하는 것입니다. *요청 수* 및 *요청 요금* 차트에서 각 작업에서 사용하는 요청 단위 수와 서로 상대적으로 사용하는 요청 단위 수를 추정할 수 있습니다.
 
 ![MongoDB API 포털 메트릭][6]
@@ -344,7 +348,7 @@ MongoDB API 데이터베이스에 대한 요청 단위 요금을 적절히 추�
 여러 클라이언트가 누적적으로 요청 속도를 초과하여 작동하는 경우에는 기본 재시도 동작으로 충분하지 않을 수 있으며, 클라이언트가 응용 프로그램에 상태 코드 429와 함께 DocumentClientException을 throw합니다. 이 경우 응용 프로그램의 오류 처리 루틴에서 재시도 동작 및 논리를 처리하는 방법 또는 컨테이너에 대해 예약된 처리량을 늘리는 방법을 고려해 볼 수 있습니다.
 
 ## <a id="RequestRateTooLargeAPIforMongoDB"></a> MongoDB API에서 예약된 처리량 제한 초과
-컬렉션에서 프로비전된 요청 단위를 초과하는 응용 프로그램의 경우 비율이 예약된 수준 이하로 떨어질 때까지 제한됩니다. 제한이 발생하면 백 엔드는 *16500* 오류 코드 - *너무 많은 요청*으로 요청을 먼저 종료합니다. 기본적으로 MongoDB API는 *너무 많은 요청* 오류 코드를 반환되기까지 최대 10번 자동으로 재시도합니다. *너무 많은 요청* 오류 코드가 자주 발생하면 응용 프로그램의 오류 처리 루틴에서 재시도 동작을 추가하거나 [컬렉션에 대해 예약된 처리량을 늘리는 방법](set-throughput.md)을 고려해 볼 수 있습니다.
+컬렉션에서 프로비전된 요청 단위를 초과하는 응용 프로그램의 경우 비율이 예약된 수준 이하로 떨어질 때까지 제한됩니다. 제한이 발생하면 백 엔드는 *16500* 오류 코드 - *너무 많은 요청*으로 요청을 먼저 종료합니다. 기본적으로 MongoDB API는 *너무 많은 요청* 오류 코드를 반환하기 전에 재시도를 최대 10번까지 자동으로 수행합니다. *너무 많은 요청* 오류 코드가 자주 발생하면 응용 프로그램의 오류 처리 루틴에서 재시도 동작을 추가하거나 [컬렉션에 대해 예약된 처리량을 늘리는 방법](set-throughput.md)을 고려해 볼 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 Azure Cosmos DB 데이터베이스의 예약된 처리량에 대한 자세한 내용은 다음 리소스를 참조하세요.

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/04/2018
 ms.author: kumud
-ms.openlocfilehash: 8f98fd7773acb960ae79e743663aceb216f217c4
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: ddbfb415f062396f022f0f58cb975f6e3a5f1807
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-load-balancer-standard-overview-preview"></a>Azure Load Balancer 표준 개요(미리 보기)
 
@@ -466,6 +466,7 @@ Load Balancer 표준 SKU 요금은 구성한 규칙과 처리된 데이터를 �
 - 가용성 영역의 컨텍스트에서 영역 공용 IP 주소는 한 영역에서 다른 영역으로 이동할 수 없습니다.
 - 현재 [Azure Monitor 경고](../monitoring-and-diagnostics/monitoring-overview-alerts.md)는 지원되지 않습니다.
 - 포털에서 아직 확장된 미리 보기 지역을 지원하지 않습니다.  템플릿, Azure CLI 2.0 또는 PowerShell 등의 클라이언트 도구를 임시 해결책으로 사용하세요.
+- 구독 이동 작업은 지원되지 않습니다.
 
 
 ## <a name="next-steps"></a>다음 단계
