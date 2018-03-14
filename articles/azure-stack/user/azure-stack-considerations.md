@@ -15,10 +15,10 @@ ms.topic: overview
 ms.date: 09/25/2017
 ms.author: mabrigg
 ms.openlocfilehash: 695824ef2537a97ea0530f2c33ad24d5cd9e20f8
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="key-considerations-using-services-or-building-apps-for-azure-stack"></a>주요 고려 사항: Azure 스택에 대 한 앱을 빌드 또는 서비스를 사용 하 여
 
@@ -48,8 +48,8 @@ Azure 기술적 내용 Azure 스택 대신 Azure 서비스에 대 한 응용 프
 | 가 작동 하기? | Microsoft | 조직 또는 서비스 공급자입니다.|
 | 에 지원 문의 | Microsoft | 통합된 된 시스템에 대 한 지원에 대 한 조직 또는 서비스 공급자) (에서 귀하가 Azure 스택 운영자에 게 문의 합니다.<br><br>Azure 스택 개발 키트 지원에 대 한 참조는 [Microsoft 포럼](https://social.msdn.microsoft.com/Forums/home?forum=azurestack)합니다. 개발 키트 평가 환경 이기 때문에 지원은 없습니다 공식를 통해 Microsoft 지원 CSS (고객 서비스)를 제공 합니다.
 | 사용 가능한 서비스 | 목록을 보려면 [Azure 제품](https://azure.microsoft.com/services/?b=17.04b)합니다. 사용 가능한 서비스는 Azure 지역에 따라 다릅니다. | Azure 스택 Azure 서비스의 하위 집합을 지원 합니다. 실제 서비스는 조직 또는 서비스 공급자가 제공 하도록 선택에 따라 달라 집니다.
-| Azure 리소스 관리자 끝점 * | https://management.azure.com | Azure 스택 통합 하는 시스템에 대 한 Azure 스택 연산자를 제공 하는 끝점을 사용 합니다.<br><br>개발 키트에 대 한 사용: https://management.local.azurestack.external
-| 포털 URL * | [https://portal.azure.com/](https://portal.azure.com) | Azure 스택 통합 하는 시스템에 대 한 Azure 스택 연산자를 제공 하는 URL로 이동 합니다.<br><br>개발 키트에 대 한 사용: https://portal.local.azurestack.external
+| Azure 리소스 관리자 끝점 * | https://management.azure.com | Azure 스택 통합 하는 시스템에 대 한 Azure 스택 연산자를 제공 하는 끝점을 사용 합니다.<br><br>개발 키트를 사용 합니다. https://management.local.azurestack.external
+| 포털 URL * | [https://portal.azure.com](https://portal.azure.com) | Azure 스택 통합 하는 시스템에 대 한 Azure 스택 연산자를 제공 하는 URL로 이동 합니다.<br><br>개발 키트를 사용 합니다. https://portal.local.azurestack.external
 | 지역 | 배포할 지역을 선택할 수 있습니다. | Azure 스택 통합 하는 시스템에 대 한 시스템에서 사용할 수 있는 영역을 사용 합니다.<br><br>개발 키트에 대 한 지역은 항상 **로컬**합니다.
 | 리소스 그룹 | 리소스 그룹 영역을 확장할 수 있습니다. | 통합된 시스템와 개발 키트에 대 한 하나의 영역 집합이 있습니다.
 |지원 되는 네임 스페이스, 리소스 종류 및 API 버전 | 최신 (또는 아직 사용 되지 않는 이전 버전). | Azure 스택 특정 버전을 지원합니다. 이 문서의 "버전 요구 사항" 섹션을 참조 하십시오.
