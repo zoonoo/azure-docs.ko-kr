@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 02/20/2018
+ms.date: 02/28/2018
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
-ms.openlocfilehash: dce848d75e2ce89e8e6003108f1cd5371cbb0f31
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: cc3ea7f81a924f3f4baa6fd2866c4e552b7c160e
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="enforce-a-naming-policy-for-office-365-groups-in-azure-active-directory-preview"></a>Azure Active Directory에서 Office 365 그룹에 대한 명명 정책 적용(미리 보기)
 
@@ -100,7 +100,9 @@ PowerShell 명령을 실행하기 전에 Windows PowerShell용 그래프 모듈�
   Import-Module AzureADPreview
   Connect-AzureAD
   ````
-**계정에 로그인** 화면이 열리면 관리자 계정 및 암호를 입력하여 서비스에 연결하고 **로그인**을 선택합니다.
+  **계정에 로그인** 화면이 열리면 관리자 계정 및 암호를 입력하여 서비스에 연결하고 **로그인**을 선택합니다.
+
+3. [그룹 설정을 구성하는 Azure Active Directory cmdlet](active-directory-accessmanagement-groups-settings-cmdlets.md)의 단계에 따라 이 테넌트에 대한 그룹 설정을 만듭니다.
 
 ### <a name="view-the-current-settings"></a>현재 설정 보기
 

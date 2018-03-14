@@ -9,21 +9,21 @@ ms.workload: identity
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 02/28/2018
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
-ms.openlocfilehash: 5ebc44d0ef6200baeacf4f1f8c4371e2d1eed9db
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: cdfb5458b020e9d3a3f33cecbeb0ee7b9a48909d
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="linkedin-integration-for-office-applications"></a>Office 응용 프로그램용 LinkedIn 통합
 이 문서에서는 Azure AD(Azure Active Directory)에서 LinkedIn 통합이 제공되는 사용자를 제한하는 방법을 설명합니다. LinkedIn 통합은 테넌트에 추가될 때 기본적으로 활성화되며, 사용자가 일부 Microsoft 앱 내에서 공용 LinkedIn 데이터에 액세스할 수 있게 해줍니다. 각 사용자가 독립적으로 회사 또는 학교 계정을 LinkedIn 계정에 연결할 수 있습니다.
 
 > [!IMPORTANT]
-> LinkedIn 통합은 모든 Azure AD 테넌트에 동시에 배포되지 않습니다. Azure 테넌트에 롤아웃된 후 LinkedIn 통합이 기본적으로 사용됩니다. LinkedIn 통합은 지역, 독립 및 정부 테넌트에 사용할 수 없습니다. 
+> LinkedIn 통합은 모든 Azure AD 테넌트에 동시에 배포되지 않습니다. Azure 테넌트에 롤아웃된 후 LinkedIn 통합이 기본적으로 사용됩니다. LinkedIn 통합은 지역, 독립 및 정부 테넌트에 사용할 수 없습니다. 롤아웃 정보의 최신 상태 보기는 [Office 365 로드맵](https://products.office.com/business/office-365-roadmap?filters=%26freeformsearch=linkedin#abc) 페이지를 참조하세요.
 
 ## <a name="linkedin-integration-from-the-user-perspective"></a>사용자 관점에서 보는 LinkedIn 통합
 조직 내 사용자가 자신의 LinkedIn 계정을 회사 또는 학교 계정에 연결하면 [LinkedIn은 조직에서 제공하는 Microsoft 앱 및 서비스에 사용할 데이터를 제공할 수 있습니다](https://www.linkedin.com/help/linkedin/answer/84077). [사용자가 계정 연결을 끊을 수 있으며](https://www.linkedin.com/help/linkedin/answer/85097), 연결을 끊으면 LinkedIn이 Microsoft와 데이터를 공유하는 권한이 제거됩니다. LinkedIn 통합은 공개적으로 사용할 수 있는 LinkedIn 프로필 정보를 사용합니다. LinkedIn 개인 정보 설정을 사용하여 Microsoft 앱에서 프로필을 볼 수 있는지 여부를 포함하여 [LinkedIn 프로필을 보는 방법을 제어할 수 있습니다](https://www.linkedin.com/help/linkedin/answer/83).
@@ -37,8 +37,8 @@ Azure AD에서 엔터프라이즈에 대한 LinkedIn 통합은 기본적으로 �
 ### <a name="enable-or-disable-linkedin-integration-for-your-organization-in-the-azure-portal"></a>Azure Portal에서 조직의 LinkedIn 사용 설정 또는 해제
 
 1. Azure AD 테넌트의 전역 관리자인 계정으로 [Azure Active Directory 관리 센터](https://aad.portal.azure.com/)에 로그인합니다.
-2. **사용자 및 그룹**을 선택합니다.
-3. **사용자 및 그룹** 블레이드에서 **사용자 설정**을 선택합니다.
+2. **사용자**를 선택합니다.
+3. **사용자** 블레이드에서 **사용자 설정**을 선택합니다.
 4. **LinkedIn 통합**에서 **예** 또는 **아니요**를 선택하여 LinkedIn 통합을 사용 또는 사용하지 않도록 설정합니다.
    ![LinkedIn 통합 사용](./media/linkedin-integration/LinkedIn-integration.PNG)
 

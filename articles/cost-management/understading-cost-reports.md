@@ -1,24 +1,24 @@
 ---
-title: "Azure Cost Management의 비용 보고서 이해 | Microsoft Docs"
-description: "이 문서는 Cloudyn 보고서의 기본 구조와 기능에 대한 이해를 도와줍니다."
+title: "Azure Cost Management에서 비용 관리 보고서 이해 | Microsoft Docs"
+description: "이 문서는 Cloudyn 비용 관리 보고서의 기본 구조와 기능에 대한 이해를 도와줍니다."
 services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 01/30/2018
+ms.date: 03/01/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: 38c1313f42a58403e158cad9c2930b6541da5adc
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 4effd63fbd9cb972a0d130826a7347dd34561792
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="understanding-cost-reports"></a>비용 보고서 이해
+# <a name="understanding-cost-management-reports"></a>비용 관리 보고서 이해
 
-이 문서는 Cloudyn 보고서의 기본 구조와 기능에 대한 이해를 도와줍니다. 대부분의 Cloudyn 보고서는 직관적이며 모양과 느낌이 일관적입니다. 이 문서를 읽으면 모든 보고서를 사용할 수 있습니다. 다양한 보고서에서 제공하는 여러 가지 표준 기능을 사용하여 보고서를 간편하게 탐색할 수 있습니다. 보고서를 사용자 지정할 수 있으며, 결과를 계산하고 표시하는 여러 옵션 중에 선택할 수 있습니다.
+이 문서는 Cloudyn 비용 관리 보고서의 기본 구조와 기능에 대한 이해를 도와줍니다. 대부분의 Cloudyn 보고서는 직관적이며 모양과 느낌이 일관됩니다. 이 아티클을 읽으면 모든 배용 관리 보고서를 사용할 수 있습니다. 다양한 보고서에서 제공하는 여러 가지 표준 기능을 사용하여 보고서를 간편하게 탐색할 수 있습니다. 보고서를 사용자 지정할 수 있으며, 결과를 계산하고 표시하는 여러 옵션 중에 선택할 수 있습니다.
 
 ## <a name="report-fields-and-options"></a>보고서 필드 및 옵션
 
@@ -131,6 +131,27 @@ ms.lasthandoff: 02/01/2018
 14. **actions**
 
     보고서를 저장하거나 내보내거나 예약하려면 [작업]을 사용합니다.
+
+## <a name="save-and-schedule-reports"></a>보고서 저장 및 예약
+
+보고서를 만들면 나중에 사용하도록 저장할 수 있습니다. 저장된 보고서는 **내 도구** > **내 보고서**에서 사용할 수 있습니다. 기존 보고서를 변경하고 저장하는 경우 보고서는 새 버전으로 저장됩니다. 또는 새 보고서로 저장할 수 있습니다.
+
+### <a name="save-a-report-to-the-cloudyn-portal"></a>Cloudyn 포털에 보고서 저장
+
+보고서를 보면서 **작업**을 클릭한 다음, **내 보고서에 저장**을 선택합니다. 보고서 이름을 지정한 다음, 고유한 URL을 추가하거나 자동으로 생성된 URL을 사용합니다. 필요에 따라 조직에서 다른 사용자와 공개적으로 보고서를 **공유**하거나 엔터티에 대해 공유할 수 있습니다. 보고서를 공유하지 않는 경우 개인 보고서로써 사용자만이 볼 수 있습니다. 보고서를 저장합니다.
+
+
+### <a name="save-a-report-to-cloud-provider-storage"></a>클라우드 공급자 저장소에 보고서 저장
+
+클라우드 서비스 공급자에 보고서를 저장하기 위해 저장소 계정을 미리 구성해야 합니다. 보고서를 보면서 **작업**을 클릭한 다음, **보고서 예약**을 선택합니다. 보고서 이름을 지정한 다음, 고유한 URL을 추가하거나 자동으로 생성된 URL을 사용합니다. **저장소에 저장**을 선택한 다음, 저장소 계정을 선택하거나 새 계정을 추가합니다. 보고서 파일 이름에 추가할 접두사를 입력합니다. CSV 또는 JSON 파일 형식을 선택한 다음, 보고서를 저장합니다.
+
+### <a name="schedule-a-report"></a>보고서 예약
+
+예약된 간격으로 보고서를 실행할 수 있습니다. 또한 받는 사람 목록 또는 클라우드 서비스 공급자 저장소 계정으로 보낼 수 있습니다. 보고서를 보면서 **작업**을 클릭한 다음, **보고서 예약**을 선택합니다. 이메일을 통해 보고서를 보내고 저장소 계정에 저장할 수 있습니다. **일정** 아래에서 간격(매일, 매주 또는 매월)을 선택합니다. 매주 및 매월에서 전달할 요일 또는 날짜를 선택하고 시간을 선택합니다. 예약된 보고서를 저장합니다. Excel 보고서 형식을 선택하면 보고서는 첨부 파일로 전송됩니다. 이메일 콘텐츠 형식을 선택하면 차트 형식으로 표시된 보고서 결과를 그래프로 배달합니다.
+
+### <a name="export-a-report-as-a-csv-file"></a>CSV 파일로 보고서 내보내기
+
+보고서를 보면서 **작업**을 클릭한 다음, **모든 보고서 데이터 내보내기**를 선택합니다. 팝업 창이 표시되고 CSV 파일이 다운로드됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

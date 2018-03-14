@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/21/2017
 ms.author: markgal;arunak;trinadhk;sogup;
-ms.openlocfilehash: da589905babd20b46ea7bc0baba753415b3b5d5b
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 2e829ae90aa0366964f96b3c43f88503c7f3e894
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Azure Backup 서비스에 대한 질문
 이 문서에서는 Azure Backup 구성 요소에 대한 일반적인 질문과 대답을 제공합니다. 대답 중 일부에는 포괄적인 정보를 포함하는 문서에 대한 링크가 있습니다. **의견**(오른쪽)을 클릭하여 Azure Backup에 대한 질문을 할 수 있습니다. 의견은 이 문서의 하단에 나타납니다. Livefyre 계정은 메모가 필수입니다. 또한 [토론 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)에 Azure Backup 서비스에 대한 질문도 게시할 수 있습니다.
@@ -30,7 +30,7 @@ ms.lasthandoff: 02/09/2018
 ## <a name="recovery-services-vault"></a>Recovery Services 자격 증명 모음
 
 ### <a name="is-there-any-limit-on-the-number-of-vaults-that-can-be-created-in-each-azure-subscription-br"></a>각 Azure 구독에 만들 수 있는 자격 증명 모음의 개수에 제한이 있나요? <br/>
-예. 2016년 9월을 기준으로 구독당 25개 Recovery Services 자격 증명 모음을 만들 수 있습니다. 구독당 Azure Backup의 지원되는 지역당 최대 25개의 Recovery Services 자격 증명 모음을 만들 수 있습니다. 추가 자격 증명 모음이 필요한 경우 추가 구독을 만드세요.
+예. 2018년 1월부터 구독별로 지원되는 Azure Backup 지역당 최대 25개의 Recovery Services 자격 증명 모음을 만들 수 있습니다. 추가 자격 증명 모음이 필요한 경우 추가 구독을 만드세요.
 
 ### <a name="are-there-limits-on-the-number-of-serversmachines-that-can-be-registered-against-each-vault-br"></a>각 자격 증명 모음에 대해 등록할 수 있는 서버/컴퓨터 수에 제한이 있나요? <br/>
 자격 증명 모음당 최대 200대의 Azure Virtual Machines를 등록할 수 있습니다. MAB Agent를 사용하면 자격 증명 모음당 최대 50대의 MAB Agent를 등록할 수 있습니다. 또한 자격 증명 모음에 50대의 MAB 서버/DPM 서버를 등록할 수 있습니다.

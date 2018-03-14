@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/26/2018
 ms.author: tdykstra
-ms.openlocfilehash: e1d623c831a912598db72ccd0242cf827c88ee6c
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 2a6fe85c2c3d6d4f44dc197db6c28ebbc2b1d431
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Azure Functions의 Event Grid 트리거
 
@@ -318,7 +318,7 @@ Event Grid 함수를 로컬로 실행합니다.
 http://localhost:7071/admin/extensions/EventGridExtensionConfig?functionName={methodname}
 ``` 
 
-`functionName` 매개 변수는 `FunctionName` 특성에 지정된 이름이 아닌 메서드 이름이어야 합니다. 이러한 이유로 프로젝트에서 함수가 여러 개 있는 경우, Event Grid 트리거의 로컬 테스트를 위해 고유한 메서드 이름(`Run` 제외)이 있어야 합니다.
+`functionName` 매개 변수는 `FunctionName` 특성에 지정된 이름이어야 합니다.
 
 다음 스크린샷에서는 Postman의 헤더 및 요청 본문을 보여 줍니다.
 
@@ -379,7 +379,7 @@ ngrok URL은 Event Grid에서 특수하게 처리되지 않으므로, 구독이 
 https://{subdomain}.ngrok.io/admin/extensions/EventGridExtensionConfig?functionName={methodname}
 ``` 
 
-`functionName` 매개 변수는 `FunctionName` 특성에 지정된 이름이 아닌 메서드 이름이어야 합니다. 이러한 이유로 프로젝트에서 함수가 여러 개 있는 경우, Event Grid 트리거의 로컬 테스트를 위해 고유한 메서드 이름(`Run` 제외)이 있어야 합니다.
+`functionName` 매개 변수는 `FunctionName` 특성에 지정된 이름이어야 합니다.
 
 다음은 Azure CLI 사용 예입니다.
 

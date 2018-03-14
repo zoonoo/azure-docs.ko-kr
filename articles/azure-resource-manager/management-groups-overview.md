@@ -10,17 +10,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/22/2018
+ms.date: 2/28/2018
 ms.author: rithorn
-ms.openlocfilehash: d1974ff9716d6b84a5f4b4f1795a84483d277a05
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 1264bf77b6d922f5beb22177d1ac63efa9386ef2
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Azure 관리 그룹으로 리소스 구성 
 
-여러 구독이 있는 경우 "관리 그룹"이라는 컨테이너로 구성하여 구독 전반에서 액세스, 정책 및 규정 준수를 보다 편리하게 관리할 수 있습니다. 이러한 컨테이너는 어떤 유형의 구독을 사용하든 관계 없이 대규모 엔터프라이즈급 관리를 제공합니다.  
+여러 구독이 있는 경우 "관리 그룹"이라는 컨테이너로 구성하여 구독 전반에서 액세스, 정책 및 규정 준수를 보다 편리하게 관리할 수 있습니다. 관리 그룹은 어떤 형식의 구독을 사용하든 관계 없이 대규모의 엔터프라이즈급 관리를 제공합니다.  
 
 관리 그룹 기능은 공개 미리 보기에서 사용할 수 있습니다. 관리 그룹을 사용하려면 [Azure Portal](https://portal.azure.com)에 로그인하고 **모든 서비스** 섹션에서 **관리 그룹**을 검색합니다. 
 

@@ -1,6 +1,6 @@
 ---
-title: "자습서: ADP Federated SSO와 Azure Active Directory 통합 | Microsoft Docs"
-description: "Azure Active Directory와 ADP Federated SSO 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
+title: "자습서: ADP와 Azure Active Directory 통합 | Microsoft Docs"
+description: "Azure Active Directory와 ADP 간에 Single Sign-On을 구성하는 방법을 알아봅니다."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,32 +12,32 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2018
+ms.date: 02/27/2018
 ms.author: jeedes
-ms.openlocfilehash: ad12dfd525afe1bde7026535dceb25556abf0a96
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 1e0a35fd76f9eb6335685f05b8936b0b5105f6b2
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="tutorial-azure-active-directory-integration-with-adp-federated-sso"></a>자습서: ADP Federated SSO와 Azure Active Directory 통합
+# <a name="tutorial-azure-active-directory-integration-with-adp"></a>자습서: ADP와 Azure Active Directory 통합
 
-이 자습서에서는 Azure AD(Azure Active Directory)와 ADP Federated SSO를 통합하는 방법에 대해 알아봅니다.
+이 자습서에서는 Azure AD(Azure Active Directory)와 ADP를 통합하는 방법에 대해 알아봅니다.
 
-ADP Federated SSO를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
+ADP를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 
-- ADP Federated SSO에 대한 액세스 권한이 있는 사용자를 Azure AD에서 제어할 수 있습니다.
-- 사용자가 해당 Azure AD 계정으로 ADP Federated SSO에 자동으로 로그온(Single Sign-on)되도록 설정할 수 있습니다.
+- ADP에 대한 액세스 권한이 있는 사용자를 Azure AD에서 제어할 수 있습니다.
+- 사용자가 해당 Azure AD 계정으로 ADP에 자동으로 로그온(Single Sign-On)되도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
 Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](active-directory-appssoaccess-whatis.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
-ADP Federated SSO와의 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
+ADP와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
 - Azure AD 구독
-- ADP Federated SSO가 설정된 구독
+- ADP가 설정된 구독
 
 > [!NOTE]
 > 이 자습서의 단계를 테스트하기 위해 프로덕션 환경을 사용하는 것은 바람직하지 않습니다.
@@ -50,13 +50,13 @@ ADP Federated SSO와의 Azure AD 통합을 구성하려면 다음 항목이 필�
 ## <a name="scenario-description"></a>시나리오 설명
 이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
-1. 갤러리에서 ADP Federated SSO 추가
+1. 갤러리에서 ADP 추가
 2. Azure AD Single Sign-on 구성 및 테스트
 
-## <a name="adding-adp-federated-sso-from-the-gallery"></a>갤러리에서 ADP Federated SSO 추가
-ADP Federated SSO가 Azure AD로 통합되도록 구성하려면 ADP Federated SSO를 갤러리에서 관리되는 SaaS 앱 목록에 추가해야 합니다.
+## <a name="adding-adp-from-the-gallery"></a>갤러리에서 ADP 추가
+ADP의 Azure AD 통합을 구성하려면 갤러리의 ADP를 관리되는 SaaS 앱 목록에 추가해야 합니다.
 
-**갤러리에서 ADP Federated SSO를 추가하려면 다음 단계를 수행합니다.**
+**갤러리에서 ADP를 추가하려면 다음 단계를 수행합니다.**
 
 1.  관리자 권한으로 Microsoft Azure ID 공급자 환경에 로그온합니다.
 
@@ -72,35 +72,35 @@ ADP Federated SSO가 Azure AD로 통합되도록 구성하려면 ADP Federated S
 
     ![새 응용 프로그램 단추][3]
 
-5. 검색 상자에 **ADP Federated SSO**를 입력하고 결과 패널에서 **ADP Federated SSO**를 선택한 후 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+5. 검색 상자에 **ADP**를 입력하고 결과 패널에서 **ADP**를 선택한 후 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
 
-    ![결과 목록의 ADP Federated SSO](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_addfromgallery.png)
+    ![결과 목록의 ADP](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adp_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성 및 테스트
 
-이 섹션에서는 "Britta Simon"이라는 테스트 사용자를 기반으로 ADP Federated SSO에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
+이 섹션에서는 "Britta Simon"이라는 테스트 사용자를 기반으로 ADP에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
 
-Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하는 ADP Federated SSO 사용자가 누구인지 알고 있어야 합니다. 즉, Azure AD 사용자와 ADP Federated SSO의 관련 사용자 간에 연결 관계가 형성되어야 합니다.
+Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하는 ADP 사용자가 누군지 알고 있어야 합니다. 즉, Azure AD 사용자와 ADP의 관련 사용자 간에 연결 관계가 형성되어야 합니다.
 
-ADP Federated SSO에서 Azure AD의 **사용자 이름** 값을 **Username** 값으로 할당하여 연결 관계를 설정합니다.
+ADP에서 Azure AD의 **사용자 이름** 값을 **Username** 값으로 할당하여 링크 관계를 설정합니다.
 
-ADP Federated SSO에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
+ADP에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
 
 1. **[Azure AD Single Sign-On 구성](#configure-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
 2. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
-3. **[ADP Federated SSO 테스트 사용자 만들기](#create-an-adp-federated-sso-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 ADP Federated SSO에 만듭니다.
+3. **[ADP 테스트 사용자 만들기](#create-an-adp-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 ADP에 만듭니다.
 4. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
 5. **[Single Sign-On 테스트](#test-single-sign-on)** - 구성이 작동하는지 여부를 확인합니다.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 ADP Federated SSO 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 ADP 응용 프로그램에서 Single Sign-On을 구성합니다.
 
-**ADP Federated SSO에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행합니다.**
+**ADP에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal의 **ADP Federated SSO** 응용 프로그램 통합 페이지에서 **속성 탭**을 클릭하고 다음 단계를 수행합니다. 
+1. Azure Portal의 **ADP** 응용 프로그램 통합 페이지에서 **속성 탭**을 클릭하고 다음 단계를 수행합니다. 
 
-    ![Single Sign-On 속성](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_prop.png)
+    ![Single Sign-On 속성](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adp_prop.png)
 
     a. **사용자가 로그인할 수 있습니까** 필드 값을 **예**로 설정합니다.
 
@@ -110,25 +110,25 @@ ADP Federated SSO에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 
     d. **사용자가 볼 수 있습니까** 필드 값을 **아니요**로 설정합니다.
 
-2. **ADP Federated SSO** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 클릭합니다.
+2. **ADP** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 클릭합니다.
 
     ![Single Sign-On 구성 링크][4]
 
 3. **Single Sign-On** 대화 상자에서 **모드**를 **SAML 기반 로그온**으로 선택하여 Single Sign-On을 사용하도록 설정합니다.
  
-    ![Single Sign-On 대화 상자](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_samlbase.png)
+    ![Single Sign-On 대화 상자](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adp_samlbase.png)
 
-4. **ADP Federated SSO 도메인 및 URL** 섹션에서 다음 단계를 수행합니다.
+4. **ADP 도메인 및 URL** 섹션에서 다음 단계를 수행합니다.
 
-    ![ADP Federated SSO 도메인 및 URL Single Sign-On 정보](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_url.png)
+    ![ADP 도메인 및 URL Single Sign-On 정보](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adp_url.png)
 
     **식별자** 텍스트 상자에 URL `https://fed.adp.com/`를 입력합니다. 
     
-5. ADP Federated SSO 응용 프로그램은 특정 서식에서 SAML 어설션을 예상하며 이는 SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가합니다. 다음 스크린샷은 이에 대한 예제를 보여 줍니다. 클레임 이름은 항상 **"PersonImmutableID"** 및 **employeeid**에 매핑한 값입니다. 
+5. ADP 응용 프로그램은 특정 서식에서 SAML 어설션을 예상하며, SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 다음 스크린샷은 이에 대한 예제를 보여 줍니다. 클레임 이름은 항상 **"PersonImmutableID"** 및 **employeeid**에 매핑한 값입니다. 
 
-    여기에서는 Azure AD에서 ADP Federated SSO로 매핑되는 사용자가 **employeeid**에서 수행되지만 응용 프로그램 설정에 따라 다른 값에 이를 매핑할 수 있습니다. 따라서 사용자의 올바른 식별자를 사용하고 해당 값을 **"PersonImmutableID"** 클레임으로 매핑하려면 [ADP 지원팀](https://www.adp.com/contact-us/overview.aspx)과 먼저 작업해 보세요.
+    여기에서는 Azure AD에서 ADP로 매핑되는 사용자가 **employeeid**에서 수행되지만 응용 프로그램 설정에 따라 다른 값에 이를 매핑할 수 있습니다. 따라서 사용자의 올바른 식별자를 사용하고 해당 값을 **"PersonImmutableID"** 클레임으로 매핑하려면 [ADP 지원팀](https://www.adp.com/contact-us/overview.aspx)과 먼저 작업해 보세요.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_attribute.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adp_attribute.png)
 
 6. **Single Sign-On** 대화 상자의 **사용자 특성** 섹션에서 이미지에 표시된 것과 같이 SAML 토큰 특성을 구성하고 다음 단계를 수행합니다.
     
@@ -153,9 +153,9 @@ ADP Federated SSO에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 
 7. **SAML 서명 인증서** 섹션에서 **메타데이터 XML**을 클릭한 후 컴퓨터에 메타데이터 파일을 저장합니다.
 
-    ![인증서 다운로드 링크](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_certificate.png) 
+    ![인증서 다운로드 링크](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adp_certificate.png) 
 
-8. **ADP Federated SSO** 측에서 Single Sign-On을 구성하려면 [ADP Federated SSO 웹 사이트](https://adpfedsso.adp.com/public/login/index.fcc)에서 다운로드된 **메타데이터 XML**을 업로드해야 합니다.
+8. **ADP** 측에서 Single Sign-On을 구성하려면 [ADP 웹 사이트](https://adpfedsso.adp.com/public/login/index.fcc)에서 다운로드된 **메타데이터 XML**을 업로드해야 합니다.
 
 > [!NOTE]  
 > 이 프로세스는 며칠이 걸릴 수 있습니다. 
@@ -178,13 +178,13 @@ ADP 담당자로부터 확인을 받는 즉시 ADP 서비스를 구성하고 특
 
     ![새 응용 프로그램 단추][3]
 
-4. 검색 상자에 **ADP Federated SSO**를 입력하고 결과 패널에서 **ADP Federated SSO**를 선택한 후 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+4. 검색 상자에 **ADP**를 입력하고 결과 패널에서 **ADP**를 선택한 후 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
 
-    ![결과 목록의 ADP Federated SSO](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_addservicegallery.png)
+    ![결과 목록의 ADP](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adp_addservicegallery.png)
 
-5. Azure Portal의 **ADP Federated SSO** 응용 프로그램 통합 페이지에서 **속성 탭**을 클릭하고 다음 단계를 수행합니다.  
+5. Azure Portal의 **ADP** 응용 프로그램 통합 페이지에서 **속성 탭**을 클릭하고 다음 단계를 수행합니다.  
 
-    ![Single Sign-On 연결된 속성](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_linkedproperties.png)
+    ![Single Sign-On 연결된 속성](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adp_linkedproperties.png)
 
     a.  **사용자가 로그인할 수 있습니까** 필드 값을 **예**로 설정합니다.
 
@@ -192,19 +192,19 @@ ADP 담당자로부터 확인을 받는 즉시 ADP 서비스를 구성하고 특
 
     다.  **사용자가 볼 수 있습니까** 필드 값을 **예**로 설정합니다.
 
-6. **ADP Federated SSO** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 클릭합니다.
+6. **ADP** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 클릭합니다.
 
     ![Single Sign-On 구성 링크][4]
 
-7. **Single Sign-On** 대화 상자에서 **모드**를 **연결된 로그온**으로 선택하여 **ADP Federated SSO**에 응용 프로그램을 연결합니다.
+7. **Single Sign-On** 대화 상자에서 **모드**로 **연결된 로그온**을 선택합니다. 응용 프로그램을 **ADP**에 연결하려면
 
-    ![연결된 Single Sign-On](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_linked.png)
+    ![연결된 Single Sign-On](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adp_linked.png)
 
 8. **로그온 URL 구성** 섹션으로 이동하고 다음 단계를 수행합니다.
 
-    ![Single Sign-On 속성](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_linkedsignon.png)
+    ![Single Sign-On 속성](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adp_linkedsignon.png)
                                                               
-    a. 위의 **속성 탭**(기본 ADP Federated SSO 앱에서)에서 복사한 **사용자 액세스 URL**을 붙여넣습니다.
+    a. 위의 **속성 탭**(기본 ADP 앱)에서 복사한 **사용자 액세스 URL**을 붙여넣습니다.
                                                              
     나. 다음은 다른 **릴레이 상태 URL**을 지원하는 다섯 개의 앱입니다. 특정 응용 프로그램에 대한 적절한 **릴레이 상태 URL** 값을 **사용자 액세스 URL**에 수동으로 추가해야 합니다.
     
@@ -274,25 +274,25 @@ ADP 담당자로부터 확인을 받는 즉시 ADP 서비스를 구성하고 특
 
     d. **만들기**를 클릭합니다.
  
-### <a name="create-an-adp-federated-sso-test-user"></a>ADP Federated SSO 테스트 사용자 만들기
+### <a name="create-an-adp-test-user"></a>ADP 테스트 사용자 만들기
 
-이 섹션은 ADP Federated SSO에서 Britta Simon이라는 사용자를 만들기 위한 것입니다. ADP Federated SSO 계정에 사용자를 추가하려면 [ADP 지원팀](https://www.adp.com/contact-us/overview.aspx)에 문의하세요.
+이 섹션은 ADP에서 Britta Simon이라는 사용자를 만들기 위한 것입니다. ADP 계정에 사용자를 추가하려면 [ADP 지원팀](https://www.adp.com/contact-us/overview.aspx)에 문의하세요.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
-이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 ADP Federated SSO에 대한 액세스 권한을 부여합니다.
+이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 ADP에 대한 액세스 권한을 부여합니다.
 
 ![사용자 역할 할당][200] 
 
-**Britta Simon을 ADP Federated SSO에 할당하려면 다음 단계를 수행합니다.**
+**Britta Simon을 ADP에 할당하려면 다음 단계를 수행합니다.**
 
 1. Azure Portal에서 응용 프로그램 보기를 연 다음 디렉터리 보기로 이동하고 **엔터프라이즈 응용 프로그램**으로 이동한 후 **모든 응용 프로그램**을 클릭합니다.
 
     ![사용자 할당][201] 
 
-2. 응용 프로그램 목록에서 **ADP Federated SSO**를 선택합니다.
+2. 응용 프로그램 목록에서 **ADP**를 선택합니다.
 
-    ![응용 프로그램 목록의 ADP Federated SSO 링크](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_app.png)  
+    ![응용 프로그램 목록의 ADP 링크](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adp_app.png)  
 
 3. 왼쪽 메뉴에서 **사용자 및 그룹**을 클릭합니다.
 
@@ -312,15 +312,13 @@ ADP 담당자로부터 확인을 받는 즉시 ADP 서비스를 구성하고 특
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 ADP Federated SSO 타일을 클릭하면 ADP Federated SSO 응용 프로그램에 자동으로 로그온됩니다.
+액세스 패널에서 ADP 타일을 클릭하면 ADP 응용 프로그램에 자동으로 로그온됩니다.
 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하세요. 
 
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
 * [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](active-directory-appssoaccess-whatis.md)
-
-
 
 <!--Image references-->
 

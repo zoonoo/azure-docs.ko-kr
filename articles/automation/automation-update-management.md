@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: gwallace
-ms.openlocfilehash: bb20137cc3ac8daf82ee21300be6981e09ce3fe0
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 9280925cdd5cccf8d1d2f2b33a7de8523a07cd14
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="update-management-solution-in-azure"></a>Azure의 업데이트 관리 솔루션
 
@@ -56,8 +56,8 @@ Automation 계정에서 가상 머신에 업데이트 관리를 사용하는 방
 
 |운영 체제  |메모  |
 |---------|---------|
-|Windows Server 2008 이상     | 업데이트 평가만 지원합니다.         |
-|Windows Server 2008 R2 SP1 이상     |Windows Server 2008 R2 SP1에는 .NET Framework 4.5 및 WMF 5.0 이상이 필요합니다.<br>Nano 서버는 지원되지 않습니다.         |
+|Windows Server 2008, Windows Server 2008 R2 RTM    | 업데이트 평가만 지원합니다.         |
+|Windows Server 2008 R2 SP1 이상     |Windows Server 2008 R2 SP1에는 .NET Framework 4.5 및 WMF 5.0 이상이 필요합니다.        |
 |CentOS 6(x86/x64) 및 7(x64)      | Linux 에이전트에는 업데이트 리포지토리에 대한 액세스 권한이 있어야 합니다.        |
 |Red Hat Enterprise 6(x86/x64) 및 7(x64)     | Linux 에이전트에는 업데이트 리포지토리에 대한 액세스 권한이 있어야 합니다.        |
 |SUSE Linux Enterprise Server 11(x86/x64) 및 12(x64)     | Linux 에이전트에는 업데이트 리포지토리에 대한 액세스 권한이 있어야 합니다.        |
@@ -70,7 +70,7 @@ Automation 계정에서 가상 머신에 업데이트 관리를 사용하는 방
 |운영 체제  |메모  |
 |---------|---------|
 |Windows 클라이언트     | 클라이언트 운영 체제(Windows 7, Windows 10 등)는 지원되지 않습니다.        |
-|Nano 서버     | Nano 서버는 Windows 2016의 일부입니다.        |
+|Windows Server 2016 Nano Server     | 지원되지 않음       |
 
 ### <a name="client-requirements"></a>클라이언트 요구 사항
 
