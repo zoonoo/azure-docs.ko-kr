@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/27/2018
 ms.author: simorjay
-ms.openlocfilehash: 41b36a25eab9c1564dc59a40acd7daefde888b7f
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 2bca630bb98b3d9c2be566fbd23ae3313c6a5a47
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Azure 보안 및 규정 준수 청사진 - HIPAA/HITRUST 의료 데이터 및 AI
 
@@ -40,21 +40,15 @@ Azure 보안 및 규정 준수 청사진 - HIPAA/HITRUST 의료 데이터 및 AI
 
 -   고객은 이 기본 아키텍처를 사용하여 빌드된 솔루션에 대해 적절한 보안 및 규정 준수 검토를 수행해야 합니다.
 
-이 솔루션의 작동 방식을 간략히 살펴보려면 배포에 대해 설명하고 보여 주는 이 [비디오](https://aka.ms/healthblueprintvideo)를 확인하세요.
-
 ## <a name="deploying-the-automation"></a>자동화 배포
 
 - 솔루션을 배포하려면 배포 가이드에서 제공하는 지침을 따릅니다. 
 
 [![](./images/deploy.png)](https://aka.ms/healthblueprintdeploy)
 
+이 솔루션의 작동 방식을 간략히 살펴보려면 배포에 대해 설명하고 보여 주는 이 [비디오](https://aka.ms/healthblueprintvideo)를 확인하세요.
+
 - 자주 묻는 질문은 [FAQ](https://aka.ms/healthblueprintfaq) 가이드에서 찾을 수 있습니다.
-
-
-## <a name="solution-components"></a>솔루션 구성 요소
-
-
-기본 아키텍처는 다음과 같은 구성 요소로 이루어집니다.
 
 -   **아키텍처 다이어그램**. 청사진 및 사용 사례 예제 시나리오에 사용되는 참조 아키텍처를 보여 줍니다.
 
@@ -66,12 +60,16 @@ Azure 보안 및 규정 준수 청사진 - HIPAA/HITRUST 의료 데이터 및 AI
 -   모듈 설치 및 [전역 관리자](/azure/active-directory/active-directory-assign-admin-roles-azure-portal) 설치 스크립트는 필요한 PowerShell 모듈을 설치하고 전역 관리자 역할이 올바르게 구성되어 있는지 확인하는 데 사용됩니다. 
 -   설치 PowerShell 스크립트는 솔루션을 배포하는 데 사용되며, 미리 빌드된 데모 함수가 포함된 .zip 파일을 통해 제공됩니다.
 
+## <a name="solution-components"></a>솔루션 구성 요소
+
+
+기본 아키텍처는 다음과 같은 구성 요소로 이루어집니다.
 
 -   **[위협 모델](https://aka.ms/healththreatmodel)** 포괄적인 위협 모델은 [Microsoft Threat Modeling Tool](https://www.microsoft.com/en-us/download/details.aspx?id=49168)에서 사용할 수 있는 tm7 형식으로 제공되어 솔루션의 구성 요소, 이들 간의 데이터 흐름 및 트러스트 경계를 보여 줍니다. 이 모델은 기계 학습 구성 요소 또는 다른 수정 사항을 개발할 때 고객이 시스템 인프라에서 발생할 수 있는 잠재적 위험 요소를 이해하는 데 도움이 됩니다.
 
--   **[고객 책임 매트릭스](https://aka.ms/healthcrmblueprint)** Microsoft Excel 통합 문서에는 관련 HITRUST 요구 사항이 나와 있으며, Microsoft와 고객이 각각의 HITRUST 요구 사항을 충족시키는 방법에 대해 설명합니다.
+-   **[고객 구현 매트릭스](https://aka.ms/healthcrmblueprint)** Microsoft Excel 통합 문서에는 관련 HITRUST 요구 사항이 나와 있으며, Microsoft와 고객이 각각의 HITRUST 요구 사항을 충족시키는 방법에 대해 설명합니다.
 
--   **[상태 검토. 솔루션은 Coalfire systems, Inc.에서 검토되었습니다. 구현에 대한 의료 규정 준수(HIPAA 및 HITRUST) \'검토 및 지침에서 감사자의 솔루션에 대한 검토 및 청사진을 프로덕션 준비 배포로 변환하기 위한 고려 사항을 제공합니다.
+-   **[상태 검토.](https://aka.ms/healthreviewpaper)** 솔루션은 Coalfire systems, Inc.에서 검토되었습니다. 구현에 대한 의료 규정 준수(HIPAA 및 HITRUST) \'검토 및 지침에서 감사자의 솔루션에 대한 검토 및 청사진을 프로덕션 준비 배포로 변환하기 위한 고려 사항을 제공합니다.
 
 # <a name="architectural-diagram"></a>아키텍처 다이어그램
 
@@ -216,7 +214,7 @@ Han은 ISO, SOC 및 HiTrust에 대한 감사 경험이 있는 공인 감사자�
 
 **인증:**
 
--   [Azure AD(Azure Active Directory)](https://azure.microsoft.com/services/active-directory/)는 Microsoft의 다중 테넌트 클라우드 기반 디렉터리 및 ID 관리 서비스입니다. SQL Database에 액세스하는 사용자를 포함하여 모든 솔루션 사용자가 Azure Active Directory에서 만들어졌습니다.
+-   [Azure AD(Azure Active Directory)](https://azure.microsoft.com/services/active-directory/)는 Microsoft\'의 다중 테넌트 클라우드 기반 디렉터리 및 ID 관리 서비스입니다. SQL Database에 액세스하는 사용자를 포함하여 모든 솔루션 사용자가 Azure Active Directory에서 만들어졌습니다.
 
 
 
@@ -263,7 +261,7 @@ Han은 ISO, SOC 및 HiTrust에 대한 감사 경험이 있는 공인 감사자�
 
 **1. 고객 데이터 phi 데이터 대량 가져오기**
 
-**데모 배포 및 실행**에서 설명한 대로  **BulkPatientAdmission** 스위치가 있는 ..\\HealthcareDemo.ps1 데모 스크립트를 사용하는 경우 다음 처리 파이프라인을 실행합니다.
+데모 스크립트. .\\HealthcareDemo.ps1을 **BulkPatientAdmission** 스위치와 함께 사용하는 경우 **데모 배포 및 실행**의 설명에 따라 다음 처리 파이프라인을 실행합니다.
 1. **Azure Blob Storage** - 환자 데이터 .csv 파일 샘플이 저장소에 업로드됩니다.
 2. **Event Grid** - 이벤트에서 Azure Function(대량 가져오기 - Blob 이벤트)에 데이터를 게시합니다.
 3. **Azure Function** - 처리를 수행하고 보안 함수 - 이벤트(유형, Blob URL)를 사용하여 데이터를 SQL 저장소에 저장합니다.
@@ -279,7 +277,7 @@ Han은 ISO, SOC 및 HiTrust에 대한 감사 경험이 있는 공인 감사자�
 
 **2. 새 환자 입원**
 
-**데모 배포 및 실행**에서 설명한 대로  **BulkPatientadmission** 스위치가 있는 ..\\HealthcareDemo.ps1 데모 스크립트를 사용하는 경우 다음 처리 파이프라인을 실행합니다. ![](images/securetransact.png)
+데모 스크립트. .\\HealthcareDemo.ps1을 **BulkPatientadmission** 스위치와 함께 사용하는 경우 **데모 배포 및 실행**의 설명에 따라 다음 처리 파이프라인을 실행합니다.![](images/securetransact.png)
 **1. Azure Function**이 트리거되고 함수에서 Azure Active 디렉터리의 [전달자 토큰](/rest/api/)을 요청합니다.
 
 **2. Key Vault**에 요청한 토큰과 연결된 비밀을 요청합니다.
