@@ -15,10 +15,10 @@ ms.workload: identity
 ms.date: 12/08/2017
 ms.author: andret
 ms.openlocfilehash: b23afd26f7ac1828381a0410d2455206c8f43c88
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/14/2018
 ---
 <!--start-intro-->
 # <a name="add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>ASP.NET 웹앱에 Microsoft에 로그인 추가
@@ -143,7 +143,7 @@ Visual Studio에서 로그인 단추를 추가하고 인증 후 사용자 정보
 
 <!--start-collapse-->
 > [!NOTE]
-> 이 페이지는 SVG 형식으로 검은색 배경의 로그인 단추를 추가합니다.<br/>![Microsoft에 로그인](media/active-directory-aspnetwebapp-v1/aspnetsigninbuttonsample.png)<br/> 추가 로그인 단추는 [이 페이지](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines "브랜딩 지침")를 참조하세요.
+> 이 페이지는 SVG 형식으로 검은색 배경의 로그인 단추를 추가합니다.<br/>![Microsoft로 로그인](media/active-directory-aspnetwebapp-v1/aspnetsigninbuttonsample.png)<br/> 추가 로그인 단추는 [이 페이지](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines "브랜딩 지침")를 참조하세요.
 <!--end-collapse-->
 
 ## <a name="display-users-claims-by-adding-a-controller"></a>컨트롤러를 추가하여 사용자 클레임 표시
