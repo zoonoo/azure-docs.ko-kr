@@ -6,13 +6,13 @@ author: bsiva
 manager: abhiag
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/14/2018
+ms.date: 03/08/2018
 ms.author: bsiva
-ms.openlocfilehash: 5269fa528b6c32576b9cf1fb945ebf85b41ce819
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 4304cad9dc6aab7eb95885815a3ceb636ca6ff52
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>PowerShell과 Azure Resource Manager를 사용하여 Hyper-V VM용 Azure에 대한 재해 복구 설정
 
@@ -41,7 +41,7 @@ Azure PowerShell은 Windows PowerShell을 사용하여 Azure를 관리하기 위
 또한 이 문서에 설명된 특정 예제에는 다음과 같은 필수 조건이 있습니다.
 
 * 하나 이상의 VM이 포함된 Windows Server 2012 R2 또는 Microsoft Hyper-V Server 2012 R2를 실행하는 Hyper-V 호스트. Hyper-V 서버가 직접 또는 프록시를 통해 인터넷에 연결되어야 합니다.
-* 복제하려는 VM은 [이러한 필수 조건](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements)에 부합해야 합니다.
+* 복제하려는 VM은 [이러한 필수 조건](hyper-v-azure-support-matrix.md#replicated-vms)에 부합해야 합니다.
 
 ## <a name="step-1-sign-in-to-your-azure-account"></a>1단계: Azure 계정에 로그인
 

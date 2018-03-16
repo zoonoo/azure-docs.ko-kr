@@ -13,13 +13,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-phone
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 12/22/2017
+ms.date: 03/06/2018
 ms.author: jawh
-ms.openlocfilehash: 7d44d0a0f8683ad6ad55136ad17879e98e26498b
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 38d60001293a3bae6eb9f90179abb8af7815fbe7
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="get-started-with-azure-notification-hubs-for-windows-phone-apps"></a>Windows Phone 앱에 대한 Azure Notification Hubs 시작
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -67,7 +67,7 @@ ms.lasthandoff: 01/02/2018
 ## <a name="connecting-your-app-to-the-notification-hub"></a>알림 허브에 앱 연결
 1. Visual Studio에서 새 Windows Phone 8 응용 프로그램을 만듭니다.
    
-       ![Visual Studio - New Project - Windows Phone App][13]
+    ![Visual Studio - 새 프로젝트 - Windows Phone 앱][13]
    
     Visual Studio 2013 업데이트 2 이상에서는 대신 Windows Phone Silverlight 응용 프로그램을 만듭니다.
    
@@ -75,11 +75,11 @@ ms.lasthandoff: 01/02/2018
 2. Visual Studio에서 솔루션을 마우스 오른쪽 단추로 클릭한 후 **NuGet 패키지 관리**를 클릭합니다.
    
     그러면 **NuGet 패키지 관리** 대화 상자가 표시됩니다.
-3. `WindowsAzure.Messaging.Managed` 를 검색하고 **설치**를 클릭한 후 사용 약관에 동의합니다.
+3. `WindowsAzure.Messaging.Managed`를 검색하고 **설치**를 클릭한 후 사용 약관에 동의합니다.
    
     ![Visual Studio - NuGet 패키지 관리자][20]
    
-    그러면 <a href="http://nuget.org/packages/WindowsAzure.Messaging.Managed/">WindowsAzure.Messaging.Managed NuGet 패키지</a>를 사용하여 Windows용 Azure Messaging 라이브러리에 대한 참조가 다운로드, 설치 및 추가됩니다.
+    그러면 <a href="http://nuget.org/packages/WindowsAzure.Messaging.Managed/">WindowsAzure.Messaging.Managed NuGet 패키지</a>를 사용하여 Windows용 Azure 메시징 라이브러리에 대한 참조가 다운로드, 설치 및 추가됩니다.
 4. App.xaml.cs 파일을 열고 다음 `using` 문을 추가합니다.
    
         using Microsoft.Phone.Notification;
@@ -119,9 +119,9 @@ ms.lasthandoff: 01/02/2018
    > 
 6. 솔루션 탐색기에서 **속성**을 확장하고 `WMAppManifest.xml` 파일을 연 후 **기능** 탭을 클릭하고 **ID_CAP_PUSH_NOTIFICATION** 기능이 선택되었는지 확인합니다.
    
-       ![Visual Studio - Windows Phone App Capabilities][14]
+    ![Visual Studio - Windows Phone 앱 기능][14]
    
-       This ensures that your app can receive push notifications. Without it, any attempt to send a push notification to the app will fail.
+    이제 앱이 푸시 알림을 받을 수 있습니다. 매개 변수가 없으면 앱에 푸시 알림을 보내려는 시도가 실패합니다.
 7. `F5` 키를 눌러 앱을 실행합니다.
    
     앱에 등록 메시지가 표시됩니다.

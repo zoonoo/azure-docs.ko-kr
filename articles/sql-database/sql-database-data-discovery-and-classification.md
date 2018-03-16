@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: giladm
-ms.openlocfilehash: 1ff7f3509ccdaa6911cee0487d5a6d90b11eb79f
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: da4f72e61607dcad7314a2fe65324da4635752c5
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-sql-database-data-discovery-and-classification"></a>Azure SQL Database 데이터 검색 및 분류
 데이터 검색 및 분류(현재 미리 보기)는 데이터베이스에 있는 중요한 데이터의 **검색**, **분류**, **레이블 지정** & **보호**를 위해 Azure SQL Database에 내장된 고급 기능을 제공합니다.
@@ -95,12 +95,12 @@ ms.lasthandoff: 02/11/2018
 
 정보 보호 패러다임의 중요한 측면은 중요한 데이터에 대한 액세스를 모니터링하는 기능입니다.
 
-[Azure SQL Database 감사](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-auditing)는 *data_sensitivity_information*이라는 감사 로그에 새 필드를 포함하도록 개선되어, 쿼리에서 반환된 실제 데이터의 민감도 분류(레이블)를 기록합니다.
+[Azure SQL Database 감사](https://docs.microsoft.com/azure/sql-database/sql-database-auditing)는 *data_sensitivity_information*이라는 감사 로그에 새 필드를 포함하도록 개선되어, 쿼리에서 반환된 실제 데이터의 민감도 분류(레이블)를 기록합니다.
 
 ![탐색 창][11]
 
 ## <a id="subheading-4"></a>다음 단계
-분류된 중요한 데이터에 대한 액세스를 모니터링 및 감사하기 위해 [Azure SQL Database 감사](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-auditing)를 구성하는 것이 좋습니다.
+분류된 중요한 데이터에 대한 액세스를 모니터링 및 감사하기 위해 [Azure SQL Database 감사](https://docs.microsoft.com/azure/sql-database/sql-database-auditing)를 구성하는 것이 좋습니다.
 
 <!--Anchors-->
 [SQL Data Discovery & Classification overview]: #subheading-1

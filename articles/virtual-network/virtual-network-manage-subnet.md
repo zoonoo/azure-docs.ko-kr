@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: f8b60a27e760ae74c7f068844fad1ae0d4324366
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 902c0eee88f0de8a20b9c8bf9c0dae6e3c3a7d79
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>가상 네트워크 서브넷 추가, 변경 또는 삭제
 
-가상 네트워크 서브넷을 추가, 변경 또는 삭제하는 방법을 알아봅니다. 가상 네트워크에 대해 잘 모르는 경우 서브넷을 추가, 변경 또는 삭제하기 전에 [Azure Virtual Network 개요](virtual-networks-overview.md) 및 [가상 네트워크 만들기, 변경 또는 삭제](virtual-network-manage-network.md)를 확인하는 것이 좋습니다. 가상 네트워크에 배포된 모든 Azure 리소스는 가상 네트워크 내의 서브넷에 배포됩니다.
+가상 네트워크 서브넷을 추가, 변경 또는 삭제하는 방법을 알아봅니다. 가상 네트워크에 대해 잘 모르는 경우 서브넷을 추가, 변경 또는 삭제하기 전에 [Azure Virtual Network 개요](virtual-networks-overview.md) 및 [가상 네트워크 만들기, 변경 또는 삭제](manage-virtual-network.md)를 확인하는 것이 좋습니다. 가상 네트워크에 배포된 모든 Azure 리소스는 가상 네트워크 내의 서브넷에 배포됩니다.
  
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -44,7 +44,7 @@ ms.lasthandoff: 02/11/2018
     - **이름:** 가상 네트워크 내에서 고유해야 합니다.
     - **주소 범위:** 범위는 가상 네트워크의 주소 공간 내에서 고유해야 합니다. 범위는 가상 네트워크 내에서 다른 서브넷 주소 범위와 겹칠 수 없습니다. CIDR(Classless Inter-Domain Routing) 표기법을 사용하여 주소 공간을 지정해야 합니다. 예를 들어 주소 공간이 10.0.0.0/16인 가상 네트워크에서 서브넷 주소 공간을 10.0.0.0/24로 정의할 수 있습니다. 지정할 수 있는 최소 범위는 /29이며, 서브넷에 대해 8개의 IP 주소를 제공합니다. Azure는 프로토콜 준수를 위해 각 서브넷의 첫 번째 및 마지막 주소를 예약합니다. 세 개의 추가 주소가 Azure 서비스를 사용하기 위해 예약되어 있습니다. 결과적으로 주소 범위가 /29인 서브넷을 정의하면 서브넷에 사용할 수 있는 3개의 IP 주소가 만들어집니다. 가상 네트워크를 VPN Gateway에 연결하려면 게이트웨이 서브넷을 만들어야 합니다. [게이트웨이 서브넷에 대한 특정 주소 범위 고려 사항](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub)에서 대해 자세히 알아보세요. 특정 조건에서는 서브넷을 추가한 후에 주소 범위를 변경할 수 있습니다. 서브넷 주소 범위를 변경하는 방법에 대한 자세한 내용은 [서브넷 설정 변경](#change-subnet-settings)을 참조하세요.
     - **네트워크 보안 그룹**: 0개 또는 1개의 기존 네트워크 보안 그룹을 서브넷에 연결하여 서브넷에 대한 인바운드 및 아웃바운드 네트워크 트래픽을 필터링할 수 있습니다. 네트워크 보안 그룹은 가상 네트워크와 동일한 구독 및 위치에 있어야 합니다. [네트워크 보안 그룹](security-overview.md) 및 [네트워크 보안 그룹을 만드는 방법](virtual-networks-create-nsg-arm-pportal.md)에 대해 알아봅니다.
-    - **경로 테이블**: 0개 또는 1개의 기존 경로 테이블을 서브넷에 연결하여 다른 네트워크에 대한 네트워크 트래픽 라우팅을 제어할 수 있습니다. 경로 테이블은 가상 네트워크와 동일한 구독 및 위치에 있어야 합니다. [Azure 라우팅](virtual-networks-udr-overview.md) 및 [경로 테이블을 만드는 방법](create-user-defined-route-portal.md)에 대해 알아봅니다.
+    - **경로 테이블**: 0개 또는 1개의 기존 경로 테이블을 서브넷에 연결하여 다른 네트워크에 대한 네트워크 트래픽 라우팅을 제어할 수 있습니다. 경로 테이블은 가상 네트워크와 동일한 구독 및 위치에 있어야 합니다. [Azure 라우팅](virtual-networks-udr-overview.md) 및 [경로 테이블을 만드는 방법](tutorial-create-route-table-portal.md)에 대해 알아봅니다.
     - **서비스 끝점:** 서브넷은 0개 또는 여러 개의 서비스 끝점을 서비스에 대해 설정할 수 있습니다. 서비스에 대해 서비스 끝점을 사용하려면 **서비스** 목록에서 서비스 끝점을 사용할 서비스를 선택합니다. 서비스 끝점을 제거하려면 서비스 끝점을 제거할 서비스를 선택 취소합니다. 서비스 끝점에 대한 자세한 내용은 [가상 네트워크 서비스 끝점 개요](virtual-network-service-endpoints-overview.md)를 참조하세요. 서비스에 대한 서비스 끝점을 사용하도록 설정하면 서비스를 사용하여 만든 리소스의 서브넷에 대해서도 네트워크 액세스를 사용하도록 설정해야 합니다. 예를 들어 *Microsoft.Storage*에 대해 서비스 끝점을 사용하도록 설정하면 네트워크 액세스 권한을 부여할 모든 Azure Storage 계정에 대해서도 네트워크 액세스를 사용하도록 설정해야 합니다. 서비스 끝점을 사용하도록 설정한 서브넷에 대해 네트워크 액세스를 사용하는 방법에 대한 자세한 내용은 서비스 끝점을 사용하도록 설정한 개별 서비스에 대한 설명서를 참조하세요.
 6. 선택한 가상 네트워크에 서브넷을 추가하려면 **확인**을 선택합니다.
 

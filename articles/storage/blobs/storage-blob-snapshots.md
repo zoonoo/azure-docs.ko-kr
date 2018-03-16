@@ -6,13 +6,13 @@ author: tamram
 manager: jeconnoc
 ms.service: storage
 ms.topic: article
-ms.date: 04/11/2017
+ms.date: 03/06/2018
 ms.author: tamram
-ms.openlocfilehash: cba28ada79ea806ead4ae9165abba2dc4e04f001
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 1a27dfd61850d9dfa1f232eacf7f09d66202cafe
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-a-blob-snapshot"></a>Blob 스냅숏 만들기
 
@@ -31,8 +31,6 @@ Blob의 스냅숏을 만들면 blob의 시스템 속성이 같은 값으로 스�
 기본 blob와 연결된 모든 임대는 스냅숏에 영향을 주지 않습니다. 스냅숏에 대해 임대를 가져올 수 없습니다.
 
 VM 디스크에 대한 현재 정보 및 상태를 저장하는 데 VHD 파일을 사용합니다. VM 내에서 디스크를 분리하거나 VM을 종료하고, 해당 VHD 파일의 스냅숏을 만들 수 있습니다. 해당 스냅숏 파일을 나중에 사용하여 해당 시점에 VHD 파일을 검색하여 VM을 다시 만들 수 있습니다.
-
-Blob이 있는 Storage 계정에 SSE(Storage 서비스 암호화)를 사용할 경우 해당 Blob의 스냅숏은 미사용 시 암호화됩니다.
 
 ## <a name="create-a-snapshot"></a>스냅숏 만들기
 다음 코드 예제에서는 [.NET용 Azure Storage 클라이언트 라이브러리](https://www.nuget.org/packages/WindowsAzure.Storage/)를 사용하여 스냅숏을 만드는 방법을 보여 줍니다. 이 예제에서는 만들 때 스냅숏에 대한 추가 메타데이터를 지정합니다.

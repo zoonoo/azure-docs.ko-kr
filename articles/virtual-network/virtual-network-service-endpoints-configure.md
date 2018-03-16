@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 01/31/2018
 ms.author: anithaa
 ms.custom: 
-ms.openlocfilehash: 1e52b89cf8ac1a8ddeaa7e08ebd3734d1affe98e
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: ee01b83101d4ab4ee8665c32aca22a793b41ac0d
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="configure-virtual-network-service-endpoints"></a>가상 네트워크 서비스 끝점 구성
 
@@ -230,7 +230,7 @@ Get-AzureRmVirtualNetwork -ResourceGroupName "myRG" -Name "myVNet" | Set-AzureRm
 ## <a name="azure-cli"></a>Azure CLI
 
 필수 구성 요소 설정:
-- [az login](/cli/azure/#az_login) 명령으로 Azure 구독에 로그인하고 화면의 지시를 따릅니다. 로그인에 대한 자세한 내용은 [Azure CLI 2.0 시작](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest)을 참조하세요.
+- [az login](/cli/azure/reference-index#az_login) 명령으로 Azure 구독에 로그인하고 화면의 지시를 따릅니다. 로그인에 대한 자세한 내용은 [Azure CLI 2.0 시작](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest)을 참조하세요.
  - 계정에는 가상 네트워크 및 서비스 끝점을 만드는 데 필요한 [사용 권한](#provisioning)이 있어야 합니다.
 
  가상 네트워크에 대한 명령의 전체 목록은 [Azure CLI 가상 네트워크 명령](https://docs.microsoft.com/cli/azure/network/vnet?view=azure-cli-latest)을 참조하세요.

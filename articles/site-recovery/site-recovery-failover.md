@@ -2,23 +2,17 @@
 title: "사이트 복구에서 장애 조치(failover) | Microsoft Docs"
 description: "Azure Site Recovery는 가상 머신 및 실제 서버의 복제, 장애 조치 및 복구를 조정합니다. Azure로 또는 보조 데이터 센터로 장애 조치에 대해 알아봅니다."
 services: site-recovery
-documentationcenter: 
-author: prateek9us
-manager: gauravd
-editor: 
-ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
+author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 09/25/2017
-ms.author: pratshar
-ms.openlocfilehash: afdab6e5ee5ae3bb8bc553afd93ff8f1ee18147f
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.date: 03/09/2018
+ms.author: ponatara
+ms.openlocfilehash: f7a60cd82508629ad3cf46882564aa68995ba3e6
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="failover-in-site-recovery"></a>사이트 복구에서 장애 조치
 이 문서에서는 Site Recovery에서 보호하는 가상 머신 및 물리적 서버를 장애 조치하는 방법에 대해 설명합니다.
@@ -96,18 +90,18 @@ Site Recovery를 사용하여 보호되는 가상 머신/물리적 서버는 **�
 경우에 따라 가상 머신의 장애 조치(failover)에는 추가적인 중간 단계가 필요하며 일반적으로 완료하는 데 8 ~ 10분 정도가 소요됩니다. 다음과 같은 경우에 장애 조치에 걸리는 시간은 평소보다 길어집니다.
 
 * 9.8 이전 버전의 모바일 서비스를 사용하는 VMware 가상 머신
-* 물리적 서버 
+* 물리적 서버
 * VMware Linux 가상 머신
 * 물리적 서버로 보호되는 Hyper-V 가상 머신
-* 다음 드라이버가 부팅 드라이버로 제공되지 않는 VMware 가상 머신 
-    * storvsc 
-    * vmbus 
-    * storflt 
-    * intelide 
+* 다음 드라이버가 부팅 드라이버로 제공되지 않는 VMware 가상 머신
+    * storvsc
+    * vmbus
+    * storflt
+    * intelide
     * atapi
 * DHCP 또는 고정 IP 주소 사용 여부와 관계없이 DHCP 서비스를 사용할 수 없는 VMware 가상 머신
 
-다른 모든 경우에는 이러한 중간 단계가 필요하지 않으며 장애 조치(failover)에 소요되는 시간이 짧아집니다. 
+다른 모든 경우에는 이러한 중간 단계가 필요하지 않으며 장애 조치(failover)에 소요되는 시간이 짧아집니다.
 
 
 
@@ -118,7 +112,7 @@ Site Recovery를 사용하여 보호되는 가상 머신/물리적 서버는 **�
 
 ## <a name="post-failover-considerations"></a>장애 조치 후 고려 사항
 장애 조치 후 다음 권장 사항을 고려하는 것이 좋습니다.
-### <a name="retaining-drive-letter-after-failover"></a>장애 조치 후 드라이브 문자 유지 
+### <a name="retaining-drive-letter-after-failover"></a>장애 조치 후 드라이브 문자 유지
 장애 조치 후 가상 머신에서 드라이브 문자를 유지하려면 가상 머신에 대한 **SAN 정책**을 **OnlineAll**로 설정하면 됩니다. [자세히 알아보기](https://support.microsoft.com/en-us/help/3031135/how-to-preserve-the-drive-letter-for-protected-virtual-machines-that-are-failed-over-or-migrated-to-azure).
 
 
@@ -126,8 +120,8 @@ Site Recovery를 사용하여 보호되는 가상 머신/물리적 서버는 **�
 ## <a name="next-steps"></a>다음 단계
 
 > [!WARNING]
-> 가상 머신을 장애 조치하고 온-프레미스 데이터 센터를 사용할 수 있게 되면 VMware 가상 머신을 온-프레미스 데이터 센터로 [**다시 보호**](site-recovery-how-to-reprotect.md)해야 합니다.
+> 가상 머신을 장애 조치하고 온-프레미스 데이터 센터를 사용할 수 있게 되면 VMware 가상 머신을 온-프레미스 데이터 센터로 [**다시 보호**](vmware-azure-reprotect.md)해야 합니다.
 
-**Failback**에 대한 [**계획된 장애 조치**](site-recovery-failback-from-azure-to-hyper-v.md) 옵션을 사용하여 Hyper-v 가상 머신을 Azure의 온-프레미스로 되돌립니다.
+**Failback**에 대한 [**계획된 장애 조치**](hyper-v-azure-failback.md) 옵션을 사용하여 Hyper-v 가상 머신을 Azure의 온-프레미스로 되돌립니다.
 
 Hyper-V 가상 머신을 VMM 서버에서 관리하는 다른 온-프레미스 데이터 센터로 장애 조치하고 기본 데이터 센터를 사용할 수 있는 경우 **역방향 복제** 옵션을 사용하여 기본 데이터 센터로 복제를 다시 시작합니다.

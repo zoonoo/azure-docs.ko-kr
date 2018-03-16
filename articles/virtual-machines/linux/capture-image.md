@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: cynthn
-ms.openlocfilehash: 3cbc25099b99499a6186e57c155d195e75bd61bf
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 15ad240ea9b635cd7995bfae403a93e0b392850a
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>가상 머신 또는 VHD의 이미지를 만드는 방법
 
@@ -37,7 +37,7 @@ Azure에서 사용할 가상 머신(VM)의 복사본을 여러 개 만들려면 
 
 * 관리 디스크를 사용하여 Resource Manager 배포 모델에서 만든 Azure VM이 있어야 합니다. Linux VM을 만들지 않은 경우 [포털](quick-create-portal.md), [Azure CLI](quick-create-cli.md) 또는 [Resource Manager 템플릿](create-ssh-secured-vm-from-template.md)을 사용할 수 있습니다. 필요에 따라 VM을 구성합니다. 예를 들어 [데이터 디스크를 추가하고](add-disk.md), 업데이트를 적용하고, 응용 프로그램을 설치합니다. 
 
-* 또한 최신 [Azure CLI 2.0](/cli/azure/install-az-cli2)이 설치되어 있어 [az login](/cli/azure/#az_login)으로 Azure 계정에 로그인해야 합니다.
+* 또한 최신 [Azure CLI 2.0](/cli/azure/install-az-cli2)이 설치되어 있어 [az login](/cli/azure/reference-index#az_login)으로 Azure 계정에 로그인해야 합니다.
 
 ## <a name="quick-commands"></a>빠른 명령
 
@@ -143,4 +143,4 @@ az vm show \
 - 단계에 따라 이미지를 다시 프로비전 해제, 할당 취소, 일반화하고 만듭니다.
 - 향후 배포에서 이 새로운 이미지를 사용합니다. 원하는 경우에 원본 이미지를 삭제합니다.
 
-CLI를 사용하여 VM을 관리하는 방법에 대한 자세한 내용은 [Azure CLI 2.0](/cli/azure/overview)을 참조하세요.
+CLI를 사용하여 VM을 관리하는 방법에 대한 자세한 내용은 [Azure CLI 2.0](/cli/azure)을 참조하세요.

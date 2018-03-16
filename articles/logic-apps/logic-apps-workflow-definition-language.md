@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/21/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: cee0619df4e2ed2e31becc764dd64dafef6e97d5
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 994b8946078ed9b4c8aa965a3bc0e117ba3185c0
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="workflow-definition-language-schema-for-azure-logic-apps"></a>Azure Logic Apps에 대한 워크플로 정의 언어 스키마
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 02/01/2018
 |매개 변수|아니요|정의에 데이터를 입력하는 데 사용되는 매개 변수를 지정합니다. 최대 50개의 매개 변수를 정의할 수 있습니다.|  
 |트리거|아니요|워크플로를 시작하는 트리거에 대한 정보를 지정합니다. 최대 10개의 트리거를 정의할 수 있습니다.|  
 |actions|아니오|흐름이 실행될 때 수행할 작업을 지정합니다. 최대 250개의 작업을 정의할 수 있습니다.|  
-|outputs|아니오|배포된 리소스에 대한 정보를 지정합니다. 최대 10개의 출력을 정의할 수 있습니다.|  
+|outputs|아니요|배포된 리소스에 대한 정보를 지정합니다. 최대 10개의 출력을 정의할 수 있습니다.|  
   
 ## <a name="parameters"></a>매개 변수
 
@@ -72,7 +72,7 @@ ms.lasthandoff: 02/01/2018
 |------------------|--------------|-----------------|  
 |형식|예|**형식**: string <p> **선언**: `"parameters": {"parameter1": {"type": "string"}` <p> **사양**: `"parameters": {"parameter1": {"value": "myparamvalue1"}}` <p> **형식**: securestring <p> **선언**: `"parameters": {"parameter1": {"type": "securestring"}}` <p> **사양**: `"parameters": {"parameter1": {"value": "myparamvalue1"}}` <p> **형식**: int <p> **선언**: `"parameters": {"parameter1": {"type": "int"}}` <p> **사양**: `"parameters": {"parameter1": {"value" : 5}}` <p> **형식**: bool <p> **선언**: `"parameters": {"parameter1": {"type": "bool"}}` <p> **사양**: `"parameters": {"parameter1": { "value": true }}` <p> **형식**: array <p> **선언**: `"parameters": {"parameter1": {"type": "array"}}` <p> **사양**: `"parameters": {"parameter1": { "value": [ array-of-values ]}}` <p> **형식**: object <p> **선언**: `"parameters": {"parameter1": {"type": "object"}}` <p> **사양**: `"parameters": {"parameter1": { "value": { JSON-object } }}` <p> **형식**: secureobject <p> **선언**: `"parameters": {"parameter1": {"type": "object"}}` <p> **사양**: `"parameters": {"parameter1": { "value": { JSON-object } }}` <p> **참고:** `securestring` 및 `secureobject` 형식은 `GET` 작업에서 반환되지 않습니다. 모든 암호, 키 및 비밀은 이 형식을 사용해야 합니다.|  
 |defaultValue|아니요|리소스를 만들 때 값이 지정되지 않으면 매개 변수에 대한 기본값을 지정합니다.|  
-|allowedValues|아니오|매개 변수에 대해 허용된 값 배열을 지정합니다.|  
+|allowedValues|아니요|매개 변수에 대해 허용된 값 배열을 지정합니다.|  
 |metadata|아니오|Visual Studio 또는 다른 도구에서 사용하는 읽을 수 있는 설명이나 디자인 시간 데이터와 같은 매개 변수에 대한 추가 정보를 지정합니다.|  
   
 이 예제에서는 작업의 본문 섹션에 매개 변수를 사용하는 방법을 보여 줍니다.  
@@ -273,11 +273,11 @@ ms.lasthandoff: 02/01/2018
 |dataUri|값의 데이터 URI를 반환합니다. 예를 들어 이 함수는 데이터 URI `text/plain;charset=utf8;base64,c29tZSBzdHJpbmc=`를 반환합니다. <p>`dataUri('some string')` <p> **매개 변수 번호**: 1<p> **이름**: Value<p> **설명**: 필수. 데이터 URI로 변환할 값입니다.|  
 |decodeBase64|입력 based64 문자열의 문자열 표현을 반환합니다. 예를 들어 이 함수는 `some string`을 반환합니다. <p>`decodeBase64('c29tZSBzdHJpbmc=')` <p> **매개 변수 번호**: 1 <p> **이름**: String <p> **설명**: 입력 based64 문자열의 문자열 표현을 반환합니다.|  
 |encodeUriComponent|전달된 문자열을 URL-이스케이프합니다. 예를 들어 이 함수는 `You+Are%3ACool%2FAwesome`을 반환합니다. <p>`encodeUriComponent('You Are:Cool/Awesome')` <p> **매개 변수 번호**: 1 <p> **이름**: String <p> **설명**: 필수. URL 안전하지 않은 문자 양식을 이스케이프할 문자열입니다.|  
-|decodeUriComponent|전달된 문자열을 URL-이스케이프하지 않습니다. 예를 들어 이 함수는 `You Are:Cool/Awesome`을 반환합니다. <p>`encodeUriComponent('You+Are%3ACool%2FAwesome')` <p> **매개 변수 번호**: 1 <p> **이름**: String <p> **설명**: 필수. URL 안전하지 않은 문자를 디코딩할 문자열입니다.|  
+|decodeUriComponent|전달된 문자열을 URL-이스케이프하지 않습니다. 예를 들어 이 함수는 `You Are:Cool/Awesome`을 반환합니다. <p>`decodeUriComponent('You+Are%3ACool%2FAwesome')` <p> **매개 변수 번호**: 1 <p> **이름**: String <p> **설명**: 필수. URL 안전하지 않은 문자를 디코딩할 문자열입니다.|  
 |decodeDataUri|입력 데이터 URI 문자열의 이진 표현을 반환합니다. 예를 들어 이 함수는 `some string`의 이진 표현을 반환합니다. <p>`decodeDataUri('data:;base64,c29tZSBzdHJpbmc=')` <p> **매개 변수 번호**: 1 <p> **이름**: String <p> **설명**: 필수. 이진 표현으로 디코딩할 데이터 URI입니다.|  
 |uriComponent|값의 URI 인코딩 표현을 반환합니다. 예를 들어 이 함수는 `You+Are%3ACool%2FAwesome`을 반환합니다. <p>`uriComponent('You Are:Cool/Awesome')` <p> **매개 변수 번호**: 1<p> **이름**: String <p> **설명**: 필수. URI 인코딩할 문자열입니다.|  
 |uriComponentToBinary|URI 인코딩 문자열의 이진 표현을 반환합니다. 예를 들어 이 함수는 `You Are:Cool/Awesome`의 이진 표현을 반환합니다. <p>`uriComponentToBinary('You+Are%3ACool%2FAwesome')` <p> **매개 변수 번호**: 1 <p> **이름**: String<p> **설명**: 필수. URI 인코딩된 문자열입니다.|  
-|uriComponentToString|URI 인코딩 문자열의 문자열 표현을 반환합니다. 예를 들어 이 함수는 `You Are:Cool/Awesome`을 반환합니다. <p>`uriComponentToBinary('You+Are%3ACool%2FAwesome')` <p> **매개 변수 번호**: 1<p> **이름**: String<p> **설명**: 필수. URI 인코딩된 문자열입니다.|  
+|uriComponentToString|URI 인코딩 문자열의 문자열 표현을 반환합니다. 예를 들어 이 함수는 `You Are:Cool/Awesome`을 반환합니다. <p>`uriComponentToString('You+Are%3ACool%2FAwesome')` <p> **매개 변수 번호**: 1<p> **이름**: String<p> **설명**: 필수. URI 인코딩된 문자열입니다.|  
 |xml|값의 XML 표현을 반환합니다. 예를 들어 이 함수는 `'\<name>Alan\</name>'`으로 표시된 XML 콘텐츠를 반환합니다. <p>`xml('\<name>Alan\</name>')` <p>`xml()` 함수는 JSON 개체 입력도 지원합니다. 예를 들어 `{ "abc": "xyz" }` 매개 변수는 XML 콘텐츠로 변환됩니다. `\<abc>xyz\</abc>` <p> **매개 변수 번호**: 1<p> **이름**: Value<p> **설명**: 필수. XML로 변환할 값입니다.|  
 |array|매개 변수를 배열로 변환합니다. 예를 들어 이 함수는 `["abc"]`을 반환합니다. <p>`array('abc')` <p> **매개 변수 번호**: 1 <p> **이름**: Value <p> **설명**: 필수. 배열로 변환할 값입니다.|
 |createArray|매개 변수에서 배열을 만듭니다. 예를 들어 이 함수는 `["a", "c"]`을 반환합니다. <p>`createArray('a', 'c')` <p> **매개 변수 번호**: 1 ... *n* <p> **이름**: Any *n* <p> **설명**: 필수. 배열로 결합할 값입니다.|
@@ -324,8 +324,8 @@ ms.lasthandoff: 02/01/2018
 |addseconds|전달된 문자열 타임스탬프에 시간(초)에 대한 정수를 더합니다. 시간(초) 수는 양수 또는 음수일 수 있습니다. 기본적으로 결과는 형식 지정자를 제공하지 않은 경우 ISO 8601 형식("o")의 문자열입니다. 예: `2015-03-15T13:27:00Z`: <p>`addseconds('2015-03-15T13:27:36Z', -36)` <p> **매개 변수 번호**: 1 <p> **이름**: Timestamp <p> **설명**: 필수. 시간을 포함하는 문자열입니다. <p> **매개 변수 번호**: 2 <p> **이름**: Seconds <p> **설명**: 필수. 추가할 시간(초) 수입니다. 시간(초)을 빼기 위한 음수일 수 있습니다. <p> **매개 변수 번호**: 3 <p> **이름**: Format <p> **설명**: 선택 사항. 이 타임스탬프 값의 형식을 지정하는 방법을 나타내는 [단일 형식 지정자 문자](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx) 또는 [사용자 지정 형식 패턴](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx)입니다. 형식이 제공되지 않으면 ISO 8601 형식("o")이 사용됩니다.|  
 |addminutes|전달된 문자열 타임스탬프에 시간(분)에 대한 정수를 더합니다. 시간(분) 수는 양수 또는 음수일 수 있습니다. 기본적으로 결과는 형식 지정자를 제공하지 않은 경우 ISO 8601 형식("o")의 문자열입니다. 예: `2015-03-15T14:00:36Z`: <p>`addminutes('2015-03-15T13:27:36Z', 33)` <p> **매개 변수 번호**: 1 <p> **이름**: Timestamp <p> **설명**: 필수. 시간을 포함하는 문자열입니다. <p> **매개 변수 번호**: 2 <p> **이름**: Minutes <p> **설명**: 필수. 더할 시간(분) 수입니다. 시간(분)을 빼기 위한 음수일 수 있습니다. <p> **매개 변수 번호**: 3 <p> **이름**: Format <p> **설명**: 선택 사항. 이 타임스탬프 값의 형식을 지정하는 방법을 나타내는 [단일 형식 지정자 문자](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx) 또는 [사용자 지정 형식 패턴](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx)입니다. 형식이 제공되지 않으면 ISO 8601 형식("o")이 사용됩니다.|  
 |addhours|전달된 문자열 타임스탬프에 시간(시)에 대한 정수를 더합니다. 시간(시) 수는 양수 또는 음수일 수 있습니다. 기본적으로 결과는 형식 지정자를 제공하지 않은 경우 ISO 8601 형식("o")의 문자열입니다. 예: `2015-03-16T01:27:36Z`: <p>`addhours('2015-03-15T13:27:36Z', 12)` <p> **매개 변수 번호**: 1 <p> **이름**: Timestamp <p> **설명**: 필수. 시간을 포함하는 문자열입니다. <p> **매개 변수 번호**: 2 <p> **이름**: Hours <p> **설명**: 필수. 더할 시간 수입니다. 시간(시)을 빼기 위한 음수일 수 있습니다. <p> **매개 변수 번호**: 3 <p> **이름**: Format <p> **설명**: 선택 사항. 이 타임스탬프 값의 형식을 지정하는 방법을 나타내는 [단일 형식 지정자 문자](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx) 또는 [사용자 지정 형식 패턴](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx)입니다. 형식이 제공되지 않으면 ISO 8601 형식("o")이 사용됩니다.|  
-|adddays|전달된 문자열 타임스탬프에 날 수에 대한 정수를 더합니다. 날 수는 양수 또는 음수일 수 있습니다. 기본적으로 결과는 형식 지정자를 제공하지 않은 경우 ISO 8601 형식("o")의 문자열입니다. 예: `2015-02-23T13:27:36Z`: <p>`adddays('2015-03-15T13:27:36Z', -2)` <p> **매개 변수 번호**: 1 <p> **이름**: Timestamp <p> **설명**: 필수. 시간을 포함하는 문자열입니다. <p> **매개 변수 번호**: 2 <p> **이름**: Days <p> **설명**: 필수. 더할 날 수입니다. 날 수를 빼기 위한 음수일 수 있습니다. <p> **매개 변수 번호**: 3 <p> **이름**: Format <p> **설명**: 선택 사항. 이 타임스탬프 값의 형식을 지정하는 방법을 나타내는 [단일 형식 지정자 문자](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx) 또는 [사용자 지정 형식 패턴](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx)입니다. 형식이 제공되지 않으면 ISO 8601 형식("o")이 사용됩니다.|  
-|formatDateTime|날짜 형식으로 문자열을 반환합니다. 기본적으로 결과는 형식 지정자를 제공하지 않은 경우 ISO 8601 형식("o")의 문자열입니다. 예: `2015-02-23T13:27:36Z`: <p>`formatDateTime('2015-03-15T13:27:36Z', 'o')` <p> **매개 변수 번호**: 1 <p> **이름**: Date <p> **설명**: 필수. 날짜를 포함하는 문자열입니다. <p> **매개 변수 번호**: 2 <p> **이름**: Format <p> **설명**: 선택 사항. 이 타임스탬프 값의 형식을 지정하는 방법을 나타내는 [단일 형식 지정자 문자](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx) 또는 [사용자 지정 형식 패턴](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx)입니다. 형식이 제공되지 않으면 ISO 8601 형식("o")이 사용됩니다.|  
+|adddays|전달된 문자열 타임스탬프에 날 수에 대한 정수를 더합니다. 날 수는 양수 또는 음수일 수 있습니다. 기본적으로 결과는 형식 지정자를 제공하지 않은 경우 ISO 8601 형식("o")의 문자열입니다. 예: `2015-03-13T13:27:36Z`: <p>`adddays('2015-03-15T13:27:36Z', -2)` <p> **매개 변수 번호**: 1 <p> **이름**: Timestamp <p> **설명**: 필수. 시간을 포함하는 문자열입니다. <p> **매개 변수 번호**: 2 <p> **이름**: Days <p> **설명**: 필수. 더할 날 수입니다. 날 수를 빼기 위한 음수일 수 있습니다. <p> **매개 변수 번호**: 3 <p> **이름**: Format <p> **설명**: 선택 사항. 이 타임스탬프 값의 형식을 지정하는 방법을 나타내는 [단일 형식 지정자 문자](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx) 또는 [사용자 지정 형식 패턴](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx)입니다. 형식이 제공되지 않으면 ISO 8601 형식("o")이 사용됩니다.|  
+|formatDateTime|날짜 형식으로 문자열을 반환합니다. 기본적으로 결과는 형식 지정자를 제공하지 않은 경우 ISO 8601 형식("o")의 문자열입니다. 예: `2015-03-15T13:27:36Z`: <p>`formatDateTime('2015-03-15T13:27:36Z', 'o')` <p> **매개 변수 번호**: 1 <p> **이름**: Date <p> **설명**: 필수. 날짜를 포함하는 문자열입니다. <p> **매개 변수 번호**: 2 <p> **이름**: Format <p> **설명**: 선택 사항. 이 타임스탬프 값의 형식을 지정하는 방법을 나타내는 [단일 형식 지정자 문자](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx) 또는 [사용자 지정 형식 패턴](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx)입니다. 형식이 제공되지 않으면 ISO 8601 형식("o")이 사용됩니다.|  
 |startOfHour|전달된 문자열 타임스탬프에 그 시간의 시작 시간을 반환합니다. 예 `2017-03-15T13:00:00Z`:<br /><br /> `startOfHour('2017-03-15T13:27:36Z')`<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: Timestamp<br /><br /> **설명**: 필수. 시간을 포함하는 문자열입니다.<br /><br />**매개 변수 번호**: 2<br /><br /> **이름**: Format<br /><br /> **설명**: 선택 사항. 이 타임스탬프 값의 형식을 지정하는 방법을 나타내는 [단일 형식 지정자 문자](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx) 또는 [사용자 지정 형식 패턴](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx)입니다. 형식이 제공되지 않으면 ISO 8601 형식("o")이 사용됩니다.|  
 |startOfDay|전달된 문자열 타임스탬프에 그 날의 시작 시간을 반환합니다. 예 `2017-03-15T00:00:00Z`:<br /><br /> `startOfDay('2017-03-15T13:27:36Z')`<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: Timestamp<br /><br /> **설명**: 필수. 시간을 포함하는 문자열입니다.<br /><br />**매개 변수 번호**: 2<br /><br /> **이름**: Format<br /><br /> **설명**: 선택 사항. 이 타임스탬프 값의 형식을 지정하는 방법을 나타내는 [단일 형식 지정자 문자](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx) 또는 [사용자 지정 형식 패턴](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx)입니다. 형식이 제공되지 않으면 ISO 8601 형식("o")이 사용됩니다.| 
 |startOfMonth|전달된 문자열 타임스탬프에 그 달의 시작 시간을 반환합니다. 예 `2017-03-01T00:00:00Z`:<br /><br /> `startOfMonth('2017-03-15T13:27:36Z')`<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: Timestamp<br /><br /> **설명**: 필수. 시간을 포함하는 문자열입니다.<br /><br />**매개 변수 번호**: 2<br /><br /> **이름**: Format<br /><br /> **설명**: 선택 사항. 이 타임스탬프 값의 형식을 지정하는 방법을 나타내는 [단일 형식 지정자 문자](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx) 또는 [사용자 지정 형식 패턴](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx)입니다. 형식이 제공되지 않으면 ISO 8601 형식("o")이 사용됩니다.| 

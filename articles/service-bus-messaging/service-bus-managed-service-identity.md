@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2017
 ms.author: sethm
-ms.openlocfilehash: 6965e80cf10b732d4d0a8fb78447f188c133979d
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 7b9901ee3478cb193c808b65d2dbbcf8b596a3c1
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="managed-service-identity-preview"></a>관리 서비스 ID(미리 보기)
 
@@ -62,17 +62,17 @@ Azure 플랫폼은 MSI를 통해 이 런타임 ID를 관리합니다. ID 자체 
 
 ### <a name="run-the-app"></a>앱 실행
 
-이제 만든 ASP.NET 응용 프로그램의 기본 페이지를 수정합니다. [이 GitHub 리포지토리](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/ManagedServiceIdentity)에서 웹 응용 프로그램 코드를 사용할 수도 있습니다. 
+이제 만든 ASP.NET 응용 프로그램의 기본 페이지를 수정합니다. [이 GitHub 리포지토리](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/ManagedServiceIdentity)에서 웹 응용 프로그램 코드를 사용할 수도 있습니다.
 
 Default.aspx 페이지가 방문 페이지입니다. 코드는 Default.aspx.cs 파일에서 찾을 수 있습니다. 그 결과 몇 가지 입력 필드와 메시지를 보내거나 받기 위해 Service Bus에 연결되는 **전송** 및 **수신** 단추가 있는 최소 웹 응용 프로그램이 생성됩니다.
 
-[MessagingFactory](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) 개체가 어떻게 초기화되는지에 유의합니다. 이 코드는 SAS(공유 액세스 토큰) 토큰 공급자를 사용하는 대신, `TokenProvider.CreateManagedServiceIdentityTokenProvider(ServiceAudience.EventHubAudience)` 호출을 사용하여 관리 서비스 ID에 대한 토큰 공급자를 만듭니다. 이와 같이 유지하고 사용하는 데 특별한 비결은 없습니다. Service Bus 및 권한 부여 핸드셰이크에 대한 관리 서비스 ID 컨텍스트의 흐름은 토큰 공급자가 자동으로 처리합니다. 이것은 SAS를 사용하는 것보다 좀 더 간단한 모델입니다.
+[MessagingFactory](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) 개체가 어떻게 초기화되는지에 유의합니다. 이 코드는 SAS(공유 액세스 토큰) 토큰 공급자를 사용하는 대신, `TokenProvider.CreateManagedServiceIdentityTokenProvider(ServiceAudience.ServiceBusAudience)` 호출을 사용하여 관리 서비스 ID에 대한 토큰 공급자를 만듭니다. 이와 같이 유지하고 사용하는 데 특별한 비결은 없습니다. Service Bus 및 권한 부여 핸드셰이크에 대한 관리 서비스 ID 컨텍스트의 흐름은 토큰 공급자가 자동으로 처리합니다. 이것은 SAS를 사용하는 것보다 좀 더 간단한 모델입니다.
 
 이와 같이 변경한 후에는 응용 프로그램을 게시하고 실행합니다. 올바른 게시 데이터를 가져오는 쉬운 방법은 Visual Studio에서 게시 프로필을 다운로드한 다음 가져오는 것입니다.
 
 ![](./media/service-bus-managed-service-identity/msi3.png)
  
-메시지를 보내거나 받으려면 만든 엔터티의 이름과 네임스페이스의 이름을 입력한 후 **전송** 또는 **수신**을 클릭합니다. 
+메시지를 보내거나 받으려면 만든 엔터티의 이름과 네임스페이스의 이름을 입력한 후 **전송** 또는 **수신**을 클릭합니다.
  
 관리 서비스 ID는 Azure 환경 및 구성한 App Service 배포에서만 작동합니다. 또한 관리 서비스 ID는 현재 App Service 배포 슬롯에서 작동하지 않습니다.
 

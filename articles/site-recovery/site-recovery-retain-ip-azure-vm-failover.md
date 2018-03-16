@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/27/2018
 ms.author: manayar
-ms.openlocfilehash: 28d772df384e620c7e82812adfa2bfa148401132
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 15f87ba87d90cee765f52d3188796bc1ff7b8a35
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="ip-address-retention-for-azure-virtual-machine-failover"></a>Azure 가상 머신 장애 조치(failover)를 위한 IP 주소 보존
 
@@ -88,7 +88,7 @@ VPN 게이트웨이는 공용 IP 주소와 게이트웨이 홉을 사용하여 �
 
 이 기능은 현재 공개 미리 보기 상태이며 공용 인터넷을 사용하거나 추가 홉 없이 VM 간 직접 연결이 가능하도록 지원 지역을 확대하고 있습니다.
 
-자세한 내용은 [피어링 설명서](../virtual-network/virtual-network-create-peering.md#register)와 [가격 책정](https://azure.microsoft.com/en-us/pricing/details/virtual-network/)을 참조하세요.
+자세한 내용은 [피어링 설명서](../virtual-network/tutorial-connect-virtual-networks-portal.md#register)와 [가격 책정](https://azure.microsoft.com/pricing/details/virtual-network/)을 참조하세요.
 
 ## <a name="on-premises-to-azure-connectivity"></a>온-프레미스에서 Azure 연결
 

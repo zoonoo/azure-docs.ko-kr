@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/02/2018
 ms.author: nitinme
-ms.openlocfilehash: 212789e8189abf362bb8eaf12e4c551b113b7adb
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 8e4213813ff23586ac683556d4a3c0c587edea58
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="use-databricks-cli-from-azure-cloud-shell"></a>Azure Cloud Shell에서 Databricks CLI 사용
 
@@ -84,7 +84,7 @@ Azure Cloud Shell에서 Databricks CLI를 사용하여 Databricks에서 작업�
 ## <a name="next-steps"></a>다음 단계
 
 * Azure CLI에 대한 자세한 내용은 [Azure CLI 개요](../cloud-shell/overview.md)를 참조하세요.
-* Azure CLI에 대한 명령 목록을 보려면 [Azure CLI 참조](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)를 참조하세요.
+* Azure CLI에 대한 명령 목록을 보려면 [Azure CLI 참조](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest)를 참조하세요.
 * Databricks CLI에 대한 명령 목록을 보려면 [Databricks CLI](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html)를 참조하세요.
 
 

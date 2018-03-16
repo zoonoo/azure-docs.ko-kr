@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/31/2017
 ms.author: magoedte
-ms.openlocfilehash: 0319a7b9248dec9d7cdabba9c18a25463d94284b
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 47cca0c3b6b7010323dd816cdb863c652516bfe5
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-log-analytics-oms"></a>Automation에서 Log Analytics로 작업 상태 및 작업 스트림 전달(OMS)
 Automation에서 Microsoft Operations Management Suite(OMS) Log Analytics 작업 영역으로 runbook 작업 상태 및 작업 스트림을 보낼 수 있습니다. 개별 작업에 대해 Azure Portal에서 또는 PowerShell을 사용하여 작업 로그 및 작업 스트림을 볼 수 있으며 이를 통해 보다 간단한 조사가 가능합니다. 이제 Log Anaytics를 사용하여 다음을 수행할 수 있습니다.
@@ -69,7 +69,7 @@ Automation 계정의 *Name*을 찾으려면 Azure Portal의 **Automation 계정*
 
 이 스크립트를 실행한 후 작성 중인 새 JobLogs 또는 JobStreams의 10분 이내에 Log Analytics에 레코드가 표시됩니다.
 
-로그를 보려면 Log Analytics 로그 검색에서 다음 쿼리를 실행합니다. `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION""`
+로그를 보려면 Log Analytics 로그 검색에서 다음 쿼리를 실행합니다. `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
 
 ### <a name="verify-configuration"></a>구성 확인
 Automation 계정이 Log Analytics 작업 영역으로 로그를 보내는지 확인하려면 다음 PowerShell을 사용하여 Automation 계정에서 진단이 올바르게 구성되었는지 확인합니다.

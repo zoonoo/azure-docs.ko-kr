@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 9f51c35be09af6f3a8dde7061dcf57a9c4cc9fdb
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 563a5a1c177b1f18be18d9b3cc9f3f9a7ee8ae4a
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-a-new-simulated-device"></a>시뮬레이션된 새 장치 만들기
 
@@ -104,7 +104,7 @@ ms.lasthandoff: 02/09/2018
 
 [www.azureiotsuite.com](https://www.azureiotsuite.com)에서 원격 모니터링 솔루션을 만들 때 솔루션 이름을 선택합니다. 솔루션 이름은 솔루션을 사용하는 다양한 배포된 리소스를 포함하는 Azure 리소스 그룹의 이름이 됩니다. 다음 명령은 **Contoso-01**이라는 리소스 그룹을 사용하므로, **Contoso-01**을 사용자의 리소스 그룹 이름으로 대체해야 합니다.
 
-다음 명령은 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest)의 `az` 명령을 사용합니다. 개발 컴퓨터에 Azure CLI 2.0을 설치하거나 [Azure Portal](http://portal.azure.com)에서 [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)을 사용할 수 있습니다. Azure CLI 2.0은 Cloud Shell에 사전 설치됩니다.
+다음 명령은 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure?view=azure-cli-latest)의 `az` 명령을 사용합니다. 개발 컴퓨터에 Azure CLI 2.0을 설치하거나 [Azure Portal](http://portal.azure.com)에서 [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)을 사용할 수 있습니다. Azure CLI 2.0은 Cloud Shell에 사전 설치됩니다.
 
 1. 원격 모니터링 리소스를 포함하는 리소스 그룹의 이름이 유효한지 확인하려면 다음 명령을 실행합니다.
 

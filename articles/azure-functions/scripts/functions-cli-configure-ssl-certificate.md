@@ -16,11 +16,11 @@ ms.topic: sample
 ms.date: 04/10/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: f8e8570d9c3093b5f49b000916644888304eed4e
-ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.openlocfilehash: fd4c69036960364e12aeea5d9e5f65e7b36eff0d
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="bind-a-custom-ssl-certificate-to-a-function-app"></a>함수 앱에 사용자 지정 SSL 인증서 바인딩
 
@@ -58,6 +58,6 @@ CLI를 로컬로 설치하고 사용하려는 경우 Azure CLI 버전 2.0 이상
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](https://docs.microsoft.com/cli/azure/overview)를 참조하세요.
+Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](https://docs.microsoft.com/cli/azure)를 참조하세요.
 
 추가 App Service CLI 스크립트 샘플은 [Azure App Service 설명서]()에서 확인할 수 있습니다.

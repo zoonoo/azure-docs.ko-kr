@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/09/2017
 ms.author: glenga;david.ebbo;suwatch;pbatum;naren.soni
 ms.openlocfilehash: 91839d8f547340d55f6badb3350a393a48a13c7d
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Azure App Service에서 WebJobs로 백그라운드 작업 실행
 
@@ -170,7 +170,7 @@ when making changes in one don't forget the other two.
 
 ## <a name="cron-expressions"></a>CRON 식
 
-[CRON 식](https://en.wikipedia.org/wiki/Cron)은 6개의 필드로 구성되어 있습니다. `{second} {minute} {hour} {day} {month} {day of the week}`  다음은 몇 가지 예입니다.
+[CRON 식](https://en.wikipedia.org/wiki/Cron)은 6개의 필드로 구성되어 있습니다. `{second} {minute} {hour} {day} {month} {day of the week}`  예를 들어 다음과 같은 노래를 선택할 수 있다.
 
 * 15분 간격: `0 */15 * * * *`
 * 1시간 간격(즉, 분을 나타내는 숫자가 0일 때마다): `0 0 * * * *` 

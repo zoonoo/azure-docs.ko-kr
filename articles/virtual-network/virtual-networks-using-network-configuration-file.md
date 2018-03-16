@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 06/23/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: f1e3ae26b6525f2235a6b0d53546b334dc027b94
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1bb75b8bd1d525f3104fb517cb4a09b2e33caaca
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="configure-a-virtual-network-classic-using-a-network-configuration-file"></a>네트워크 구성 파일을 사용하여 가상 네트워크(클래식) 구성
 > [!IMPORTANT]
@@ -56,7 +56,7 @@ PowerShell 또는 Azure CLI를 사용하여 네트워크 구성 파일을 내보
 
 ## <a name="create-or-modify-a-network-configuration-file"></a>네트워크 구성 파일 만들기 또는 수정
 
-네트워크 구성 파일은 XML 파일(PowerShell 사용) 또는 json 파일(Azure CLI 사용)입니다. 모든 텍스트 또는 XML/json 편집기에서 파일을 편집할 수 있습니다. [네트워크 구성 파일 스키마 설정](https://msdn.microsoft.com/library/azure/jj157100.aspx) 문서에는 모든 설정에 대한 세부 정보가 포함됩니다. 설정에 대한 추가 설명은 [가상 네트워크 및 설정 보기](virtual-network-manage-network.md#view-vnet)를 참조하세요. 파일에 대한 변경 내용:
+네트워크 구성 파일은 XML 파일(PowerShell 사용) 또는 json 파일(Azure CLI 사용)입니다. 모든 텍스트 또는 XML/json 편집기에서 파일을 편집할 수 있습니다. [네트워크 구성 파일 스키마 설정](https://msdn.microsoft.com/library/azure/jj157100.aspx) 문서에는 모든 설정에 대한 세부 정보가 포함됩니다. 설정에 대한 추가 설명은 [가상 네트워크 및 설정 보기](manage-virtual-network.md#view-virtual-networks-and-settings)를 참조하세요. 파일에 대한 변경 내용:
 
 - 스키마를 준수해야 하며 그렇지 않은 경우 네트워크 구성 파일 가져오기가 실패합니다.
 - 구독에 대한 모든 기존 네트워크 설정을 덮어쓰므로 수정할 때는 특히 주의하세요. 예를 들어, 다음에 나오는 네트워크 구성 파일 예를 참조하세요. 원본 파일에 두 **VirtualNetworkSite** 인스턴스가 포함되어 있고 예제와 같이 변경했다고 가정하겠습니다. 파일을 가져올 때 Azure는 파일에서 제거한 **VirtualNetworkSite** 인스턴스에 대한 가상 네트워크를 삭제합니다. 이 단순한 시나리오에서는 가상 네트워크에 리소스가 없다고 가정하고 가상 네트워크를 삭제할 수 없는 것처럼 가져오기가 실패합니다.

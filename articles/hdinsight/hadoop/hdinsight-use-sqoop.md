@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: e2f4601daf9aa3537f9170c3516d62ab1bd602e5
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: e96003de4a0dd4a5d8b060bb5883e51291827316
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="use-sqoop-with-hadoop-in-hdinsight"></a>HDInsight에서 Hadoop과 Sqoop 사용
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -47,14 +47,14 @@ HDInsight 클러스터는 일부 샘플 데이터와 함께 제공됩니다. 다
   
   | 필드 | 데이터 형식 |
   | --- | --- |
-  | clientid |문자열 |
-  | querytime |문자열 |
-  | market |문자열 |
-  | deviceplatform |문자열 |
-  | devicemake |문자열 |
-  | devicemodel |문자열 |
-  | state |문자열 |
-  | country |문자열 |
+  | clientid |string |
+  | querytime |string |
+  | market |string |
+  | deviceplatform |string |
+  | devicemake |string |
+  | devicemodel |string |
+  | state |string |
+  | country |string |
   | querydwelltime |double |
   | sessionid |bigint |
   | sessionpagevieworder |bigint |
@@ -118,7 +118,7 @@ Azure PowerShell을 사용하여 클러스터 및 SQL Database를 만들려면 [
   > 
   > 
   
-  * 가상 네트워크를 만들고 구성하려면 [Azure Portal을 사용하여 가상 네트워크 만들기](../../virtual-network/virtual-networks-create-vnet-arm-pportal.md)를 참조하세요
+  * 가상 네트워크를 만들고 구성하려면 [Azure Portal을 사용하여 가상 네트워크 만들기](../../virtual-network/quick-create-portal.md)를 참조하세요
     
     * 데이터 센터에서 SQL Server를 사용할 때는 가상 네트워크를 *사이트 간* 또는 *지점 및 사이트 간*으로 구성해야 합니다.
       

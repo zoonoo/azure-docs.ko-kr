@@ -8,11 +8,11 @@ ms.service: batch
 ms.topic: get-started-article
 ms.date: 02/26/2018
 ms.author: danlep
-ms.openlocfilehash: 177601110dd7ec799dc4a350d1a8b88b9f6af4f1
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 0d3720d33de2237b0d8cce2ae56bcc7ccf6acc43
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="overview-of-batch-apis-and-tools"></a>Batch API 및 도구 개요
 
@@ -60,7 +60,7 @@ Batch용 Azure Resource Manager API는 Batch 계정에 대한 프로그래밍 �
 이러한 명령줄 도구는 Batch 서비스 및 Batch 관리 API와 동일한 기능을 제공합니다. 
 
 * [Batch PowerShell cmdlets][batch_ps]: [Azure PowerShell](/powershell/azure/overview) 모듈의 Azure Batch cmdlet을 사용하여 PowerShell로 Batch 리소스를 관리할 수 있습니다.
-* [Azure CLI 2.0](/cli/azure/overview): Azure CLI(Azure 명령줄 인터페이스)는 Batch 서비스 및 Batch 관리 서비스를 포함하여 여러 Azure 서비스와 상호 작용하기 위한 셸 명령을 제공하는 크로스 플랫폼 도구 집합입니다. Batch에서 Azure CLI를 사용하는 방법에 대한 자세한 내용은 [Azure CLI를 사용하여 Batch 리소스 관리](batch-cli-get-started.md)를 참조하세요.
+* [Azure CLI 2.0](/cli/azure): Azure CLI(Azure 명령줄 인터페이스)는 Batch 서비스 및 Batch 관리 서비스를 포함하여 여러 Azure 서비스와 상호 작용하기 위한 셸 명령을 제공하는 크로스 플랫폼 도구 집합입니다. Batch에서 Azure CLI를 사용하는 방법에 대한 자세한 내용은 [Azure CLI를 사용하여 Batch 리소스 관리](batch-cli-get-started.md)를 참조하세요.
 
 ## <a name="other-tools-for-application-development"></a>응용 프로그램 개발을 위한 기타 도구
 

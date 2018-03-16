@@ -5,16 +5,16 @@ services: machine-learning
 author: hning86
 ms.author: haining
 manager: mwinkle
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/26/2017
-ms.openlocfilehash: 2560ca144f8ce4041aa592554f9945ed546cc49b
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 15cdee0fb3994874c88b16bebec35f5eae9f8de2
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-dsvm-and-hdi-spark-cluster-as-compute-targets"></a>계산 대상으로 DSVM 및 HDI Spark 클러스터 만들기
 
@@ -28,9 +28,9 @@ Ubuntu 기반 DSVM(Data Science Virtual Machine) 및 Azure HDInsight 클러스�
 Azure Portal에서 DSVM을 만들 수 있습니다. 
 
 1. https://portal.azure.com에서 Azure Portal에 로그온합니다.
-2. **+새로 만들기** 링크를 클릭하고 "Linux용 데이터 과학 가상 컴퓨터"를 검색합니다.
+2. **+새로 만들기** 링크를 클릭하고 "Linux용 데이터 과학 가상 머신"를 검색합니다.
     ![Ubuntu](media/how-to-create-dsvm-hdi/ubuntu_dsvm.png)
-4. 목록에서 **Linux(Ubuntu)용 데이터 과학 가상 컴퓨터**를 선택하고 화면의 지침에 따라 DSVM을 만듭니다.
+4. 목록에서 **Linux(Ubuntu)용 데이터 과학 Virtual Machine**을 선택하고 화면의 지침에 따라 DSVM을 만듭니다.
 
 >[!IMPORTANT]
 >_인증 유형_으로 **암호**를 선택해야 합니다.
@@ -80,7 +80,7 @@ _vmSize_ 필드의 경우 [Ubuntu DSVM Azure 리소스 관리 템플릿](https:/
   - Standard_NC24 
  
 
-[Azure에서 Linux 가상 컴퓨터의 크기](../../virtual-machines/linux/sizes.md) 및 [가격 책정 정보](https://azure.microsoft.com/pricing/details/virtual-machines/linux/)에 대해 자세히 알아보세요.
+[Azure에서 Linux 가상 머신의 크기](../../virtual-machines/linux/sizes.md) 및 [가격 책정 정보](https://azure.microsoft.com/pricing/details/virtual-machines/linux/)에 대해 자세히 알아보세요.
 
 **파일** --> **명령 프롬프트 열기** 또는 **PowerShell 열기** 메뉴 항목을 클릭하여 Azure ML Workbench 앱에서 CLI 창을 시작합니다. 
 
@@ -188,4 +188,4 @@ $ az ml experiment prepare -c <compute target name>
 - [Azure Machine Learning 실험 서비스 개요](experimentation-service-configuration.md)
 - [Azure Machine Learning Workbench 실험 서비스 구성 파일](experimentation-service-configuration-reference.md)
 - [Azure HDInsight용 Apache Spark 클러스터](https://azure.microsoft.com/services/hdinsight/apache-spark/)
-- [데이터 과학 가상 컴퓨터](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/)
+- [데이터 과학 Virtual Machine](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/)

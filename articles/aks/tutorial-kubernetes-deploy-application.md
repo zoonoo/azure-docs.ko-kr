@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 02/22/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 0639a2b7e71878103542d3e037040f8a7444976f
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 095bfe328f3e3ed220de71b3410e34b9be86cff1
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="run-applications-in-azure-container-service-aks"></a>AKS(Azure Container Service)에서 응용 프로그램 실행
 
@@ -46,16 +46,10 @@ ms.lasthandoff: 03/02/2018
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-매니페스트 파일은 로그인 서버 이름 `microsoft`를 사용하여 미리 작성되었습니다. 원하는 텍스트 편집기에서 파일을 엽니다. 이 예제에서는 `vi`를 사용하여 파일을 엽니다.
+매니페스트 파일은 로그인 서버 이름 `microsoft`를 사용하여 미리 작성되었습니다. 원하는 텍스트 편집기에서 파일을 엽니다. 이 예제에서는 `nano`를 사용하여 파일을 엽니다.
 
 ```console
-vi azure-vote-all-in-one-redis.yaml
-```
-
-또는 Windows에서 작업하는 경우 Visual Studio Code를 사용할 수 있습니다.
-
-```console
-code azure-vote-all-in-one-redis.yaml
+nano azure-vote-all-in-one-redis.yaml
 ```
 
 `microsoft`는 ACR 로그인 서버 이름으로 바꿉니다. 이 값은 매니페스트 파일의 줄 **47**에 있습니다.

@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: aa77b1db03dc03f2b4fa1006a0fae823bb113615
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 873bd0f8c98cfa67c77841df8aa53eb2b895cd54
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="find-out-what-the-next-hop-type-is-using-the-next-hop-capability-in-azure-network-watcher-using-azure-cli-20"></a>Azure CLI 2.0을 사용하는 Azure Network Watcher에서 Next Hop 기능을 사용하는 다음 홉이 무엇인지 확인합니다.
 
 > [!div class="op_single_selector"]
-> - [Azure 포털](network-watcher-check-next-hop-portal.md)
+> - [Azure Portal](network-watcher-check-next-hop-portal.md)
 > - [PowerShell](network-watcher-check-next-hop-powershell.md)
 > - [CLI 1.0](network-watcher-check-next-hop-cli-nodejs.md)
 > - [CLI 2.0](network-watcher-check-next-hop-cli.md)
@@ -50,7 +50,7 @@ Next Hop은 Network Watcher의 기능으로 지정된 가상 컴퓨터를 기반
 
 다음 홉을 가져오려면 `az network watcher show-next-hop` cmdlet을 호출합니다. cmdlet을 Network Watcher 리소스 그룹, NetworkWatcher, 가상 머신 ID, 원본 IP 주소 및 대상 IP 주소에 전달합니다. 이 예제에서 대상 IP 주소는 다른 가상 네트워크의 VM입니다. 두 개의 가상 네트워크 간에 가상 네트워크 게이트웨이가 있습니다.
 
-아직 설치하지 않은 경우 최신 [Azure CLI 2.0](/cli/azure/install-az-cli2)을 설치 및 구성하고 [az login](/cli/azure/#az_login)을 사용하여 Azure 계정에 로그인합니다. 그런 후 다음 명령을 실행합니다.
+아직 설치하지 않은 경우 최신 [Azure CLI 2.0](/cli/azure/install-az-cli2)을 설치 및 구성하고 [az login](/cli/azure/reference-index#az_login)을 사용하여 Azure 계정에 로그인합니다. 그런 후 다음 명령을 실행합니다.
 
 ```azurecli
 az network watcher show-next-hop --resource-group <resourcegroupName> --vm <vmNameorID> --source-ip <source-ip> --dest-ip <destination-ip>

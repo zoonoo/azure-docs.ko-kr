@@ -5,13 +5,13 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/14/2018
+ms.date: 03/8/2018
 ms.author: raynew
-ms.openlocfilehash: 7d2d99c2429a461307cbb9a276eb3b62d13718d2
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 7863feb29fbb04f643aa3b7e1984209f44cdbe9a
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-azure"></a>복제된 Hyper-V VM을 Azure로 장애 조치(failover) 및 장애 복구(failback)
 
@@ -44,7 +44,7 @@ VM에서 스냅숏이 없으며 다시 보호하는 동안 온-프레미스 VM�
 
 ## <a name="verify-vm-properties"></a>VM 속성 확인
 
-VM 속성을 확인하고 VM이 [Azure 요구 사항](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements)을 준수하는지 확인합니다.
+VM 속성을 확인하고 VM이 [Azure 요구 사항](hyper-v-azure-support-matrix.md#replicated-vms)을 준수하는지 확인합니다.
 
 1. **보호 항목**에서 **복제된 항목** > <VM-name>을 클릭합니다.
 

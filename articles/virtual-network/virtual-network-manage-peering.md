@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: 0dc19abcf010f5c0bc50534941e7b80a9665869e
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 8fa7496c3489a0a3e5ee6d829bbeef0f0ccdf315
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>가상 네트워크 피어링 만들기, 변경 또는 삭제
 
-가상 네트워크 피어링을 만들고 변경하거나 삭제하는 방법을 알아봅니다. 가상 네트워크 피어링은 Azure 백본 네트워크를 통해 가상 네트워크를 연결할 수 있습니다. 피어링된 후 가상 네트워크는 여전히 별도의 리소스로 관리됩니다. 가상 네트워크 피어링에 익숙하지 않은 경우 이 문서의 작업을 완료하기 전에 먼저 [가상 네트워크 피어링 개요](virtual-network-peering-overview.md)를 확인하고 [가상 네트워크 피어링 만들기 자습서](virtual-network-create-peering.md)를 완료하는 것이 좋습니다.
+가상 네트워크 피어링을 만들고 변경하거나 삭제하는 방법을 알아봅니다. 가상 네트워크 피어링은 Azure 백본 네트워크를 통해 가상 네트워크를 연결할 수 있습니다. 피어링된 후 가상 네트워크는 여전히 별도의 리소스로 관리됩니다. 가상 네트워크 피어링에 익숙하지 않은 경우 이 문서의 작업을 완료하기 전에 먼저 [가상 네트워크 피어링 개요](virtual-network-peering-overview.md)를 확인하고 [가상 네트워크 피어링 만들기 자습서](tutorial-connect-virtual-networks-portal.md)를 완료하는 것이 좋습니다.
 
-동일한 지역의 가상 네트워크 피어링은 일반 공급됩니다. 서로 다른 지역에서 가상 네트워크를 피어링하는 기능은 현재 미리 보기 상태입니다. 사용 가능한 지역에 대해서는 [가상 네트워크 업데이트](https://azure.microsoft.com/en-us/updates/?product=virtual-network)를 참조하세요. [미리 보기에 구독을 등록](virtual-network-create-peering.md)해야 합니다.
+동일한 지역의 가상 네트워크 피어링은 일반 공급됩니다. 서로 다른 지역에서 가상 네트워크를 피어링하는 기능은 현재 미리 보기 상태입니다. 사용 가능한 지역에 대해서는 [가상 네트워크 업데이트](https://azure.microsoft.com/updates/?product=virtual-network)를 참조하세요. [미리 보기에 구독을 등록](tutorial-connect-virtual-networks-powershell.md#register)해야 합니다.
 
 > [!WARNING]
 > 이 시나리오에서 만든 가상 네트워크 피어링은 일반 공급 릴리스의 시나리오와 동일한 수준의 가용성과 신뢰성을 가질 수 없습니다. 가상 네트워크 피어링은 기능상의 제약이 있거나, 일부 Azure 지역에서 사용하지 못할 수 있습니다. 이 기능의 가용성 및 상태에 대한 최신 알림을 보려면 [Azure Virtual Network 업데이트](https://azure.microsoft.com/updates/?product=virtual-network) 페이지를 참조하세요.
@@ -54,9 +54,9 @@ ms.lasthandoff: 02/11/2018
 6. <a name="add-peering"></a>다음 설정에 대한 값을 입력하거나 선택합니다.
     - **이름:** 피어링의 이름은 가상 네트워크 내에서 고유해야 합니다.
     - **가상 네트워크 배포 모델:** 피어링하려는 가상 네트워크를 배포한 배포 모델을 선택합니다.
-    - **리소스 ID를 알고 있음:** 피어링하려는 가상 네트워크에 대한 읽기 권한이 있는 경우 이 확인란을 선택 취소된 상태로 둡니다. 피어링하려는 가상 네트워크 또는 구독에 대한 읽기 권한이 없는 경우 이 확인란을 선택합니다. 확인란을 선택할 때 나타난 **리소스 ID** 상자에 피어링하려는 가상 네트워크의 전체 리소스 ID를 입력합니다. 입력하는 리소스 ID는 이 가상 네트워크와 동일한 Azure [지역](https://azure.microsoft.com/regions)에 있는 가상 네트워크의 리소스 ID여야 합니다. 다른 지역에서 가상 네트워크를 선택하려면 [미리 보기 구독을 등록](virtual-network-create-peering.md)합니다. 전체 리소스 ID는 /subscriptions/<Id>/resourceGroups/<리소스 그룹 이름>/providers/Microsoft.Network/virtualNetworks/<가상 네트워크 이름>과 유사합니다. 가상 네트워크의 속성을 확인하여 가상 네트워크의 리소스 ID를 알 수 있습니다. 가상 네트워크의 속성을 확인하는 방법을 알아보려면 [가상 네트워크 관리](virtual-network-manage-network.md#view-vnet)를 참조하세요.
+    - **리소스 ID를 알고 있음:** 피어링하려는 가상 네트워크에 대한 읽기 권한이 있는 경우 이 확인란을 선택 취소된 상태로 둡니다. 피어링하려는 가상 네트워크 또는 구독에 대한 읽기 권한이 없는 경우 이 확인란을 선택합니다. 확인란을 선택할 때 나타난 **리소스 ID** 상자에 피어링하려는 가상 네트워크의 전체 리소스 ID를 입력합니다. 입력하는 리소스 ID는 이 가상 네트워크와 동일한 Azure [지역](https://azure.microsoft.com/regions)에 있는 가상 네트워크의 리소스 ID여야 합니다. 다른 지역에서 가상 네트워크를 선택하려면 [미리 보기 구독을 등록](tutorial-connect-virtual-networks-portal.md)합니다. 전체 리소스 ID는 /subscriptions/<Id>/resourceGroups/<리소스 그룹 이름>/providers/Microsoft.Network/virtualNetworks/<가상 네트워크 이름>과 유사합니다. 가상 네트워크의 속성을 확인하여 가상 네트워크의 리소스 ID를 알 수 있습니다. 가상 네트워크의 속성을 확인하는 방법을 알아보려면 [가상 네트워크 관리](manage-virtual-network.md#view-virtual-networks-and-settings)를 참조하세요.
     - **구독:** 피어링하려는 가상 네트워크의 [구독](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription)을 선택합니다. 계정이 읽기 권한이 있는 구독 수에 따라 하나 이상의 구독이 나열됩니다. **리소스 ID** 확인란을 선택한 경우 이 설정을 사용할 수 없습니다.
-    - **가상 네트워크:** 피어링하려는 가상 네트워크를 선택합니다. 두 Azure 배포 모델 중 하나를 통해 만든 가상 네트워크를 선택할 수 있습니다. 다른 지역에서 가상 네트워크를 선택하려면 [미리 보기 구독을 등록](virtual-network-create-peering.md)합니다. 목록에 가상 네트워크가 표시되게 하려면 가상 네트워크에 대한 읽기 권한이 있어야 합니다. 가상 네트워크가 나열되지만, 회색으로 표시된 경우 가상 네트워크의 주소 공간이 이 가상 네트워크의 주소 공간과 겹치기 때문일 수 있습니다. 가상 네트워크 주소 공간이 겹치면 피어링할 수 없습니다. **리소스 ID** 확인란을 선택한 경우 이 설정을 사용할 수 없습니다.
+    - **가상 네트워크:** 피어링하려는 가상 네트워크를 선택합니다. 두 Azure 배포 모델 중 하나를 통해 만든 가상 네트워크를 선택할 수 있습니다. 다른 지역에서 가상 네트워크를 선택하려면 [미리 보기 구독을 등록](tutorial-connect-virtual-networks-portal.md)합니다. 목록에 가상 네트워크가 표시되게 하려면 가상 네트워크에 대한 읽기 권한이 있어야 합니다. 가상 네트워크가 나열되지만, 회색으로 표시된 경우 가상 네트워크의 주소 공간이 이 가상 네트워크의 주소 공간과 겹치기 때문일 수 있습니다. 가상 네트워크 주소 공간이 겹치면 피어링할 수 없습니다. **리소스 ID** 확인란을 선택한 경우 이 설정을 사용할 수 없습니다.
     - **가상 네트워크 액세스 허용:** 두 가상 네트워크 간 통신을 사용하도록 설정하려면 **사용**(기본값)을 선택합니다. 가상 네트워크 간 통신을 사용하도록 설정하면 어느 쪽 가상 네트워크에든 연결된 리소스가 같은 가상 네트워크에 연결된 것처럼 같은 대역폭 및 대기 시간으로 서로 통신할 수 있습니다. 두 가상 네트워크의 리소스 간 모든 통신은 Azure 개인 네트워크를 통해 이루어집니다. 네트워크 보안 그룹에 대한 **VirtualNetwork** 기본 태그는 가상 네트워크와 피어링된 가상 네트워크를 포함합니다. 네트워크 보안 그룹 기본 태그에 대해 자세히 알아보려면 [네트워크 보안 그룹 개요](virtual-networks-nsg.md#default-tags) 문서를 읽어보세요.  트래픽이 피어링된 가상 네트워크로 흐르지 않게 하려면 **사용 안 함**을 선택합니다. 가상 네트워크를 다른 가상 네트워크와 피어링했지만, 종종 두 가상 네트워크 간 트래픽 흐름을 비활성화하려는 경우에도 **사용 안 함**을 선택할 수 있습니다. 피어링을 삭제하고 다시 만드는 것보다 사용/사용 안 함을 설정하는 것이 더 편리함을 알 수 있습니다. 이 설정을 사용하지 않도록 설정하면 피어링된 가상 네트워크 간에 트래픽이 흐르지 않습니다.
     - **전달된 트래픽 허용:** 가상 네트워크의 네트워크 가상 어플라이언스에서 *전달된* 트래픽이(가상 네트워크에서 발생하지 않은) 피어링을 통한 이 가상 네트워크로 흐를 수 있도록 허용하려면 이 확인란을 선택합니다. 예를 들어 Spoke1, Spoke2 및 Hub라는 3개의 가상 네트워크를 가정합니다. 피어링은 각 스포크 가상 네트워크와 허브 가상 네트워크 간에 존재하지만 피어링은 스포크 가상 네트워크 간에 존재하지 않습니다. 네트워크 가상 어플라이언스는 허브 가상 네트워크에 배포되고 사용자 정의 경로는 네트워크 가상 어플라이언스를 통해 서브넷 간에 트래픽을 라우팅하는 각 스포크 가상 네트워크에 적용됩니다. 각 스포크 가상 네트워크와 허브 가상 네트워크 간의 피어링에 대해 이 확인란을 선택하지 않으면 허브는 가상 네트워크 간에 트래픽을 전달하기 때문에 트래픽은 스포크 가상 네트워크 간에 흐르지 않습니다. 이 기능을 사용하도록 설정하여 피어링을 통해 전달된 트래픽을 허용하는 동안에는 사용자 정의 경로나 네트워크 가상 어플라이언스가 만들어지지 않습니다. 사용자 정의 경로와 네트워크 가상 어플라이언스는 개별적으로 만들어집니다. [사용자 정의 경로](virtual-networks-udr-overview.md#user-defined)에 대해 자세히 알아보세요. Azure VPN Gateway를 통해 가상 네트워크 간에 트래픽이 전달될 경우 이 설정을 선택할 필요가 없습니다.
     - **게이트웨이 전송 허용:** 가상 네트워크 게이트웨이를 이 가상 네트워크에 연결했고 피어링된 가상 네트워크의 트래픽이 게이트웨이를 통해 흐르도록 하려면 이 상자를 선택합니다. 예를 들어 가상 네트워크 게이트웨이를 통해 이 가상 네트워크를 온-프레미스 네트워크에 연결할 수 있습니다. 게이트웨이는 ExpressRoute 또는 VPN 게이트웨이가 될 수 있습니다. 이 상자를 선택하면 피어링된 가상 네트워크에서 이 가상 네트워크에 연결된 게이트웨이를 통해 온-프레미스 네트워크로 트래픽이 흐를 수 있습니다. 이 상자를 선택하면 피어링된 가상 네트워크에 대한 게이트웨이를 구성할 수 없습니다. 다른 가상 네트워크에서 이 가상 네트워크로의 피어링을 설정할 때 피어링된 가상 네트워크에 대해 **원격 게이트웨이 사용** 확인란을 선택해야 합니다. 이 상자를 선택 취소된 상태로 두면(기본값), 피어링된 가상 네트워크에서 이 가상 네트워크로 여전히 트래픽이 흐르지만 이 가상 네트워크에 연결된 가상 네트워크 게이트웨이를 통해서는 흐를 수 없습니다. 
@@ -83,7 +83,7 @@ ms.lasthandoff: 02/11/2018
  
 |Azure 배포 모델  | 구독  |
 |---------|---------|
-|둘 다 Resource Manager |[동일](virtual-network-create-peering.md)|
+|둘 다 Resource Manager |[동일](tutorial-connect-virtual-networks-portal.md)|
 | |[다름](create-peering-different-subscriptions.md)|
 |하나는 Resource Manager, 다른 하나는 클래식     |[동일](create-peering-different-deployment-models.md)|
 | |[다름](create-peering-different-deployment-models-subscriptions.md)|
@@ -129,7 +129,7 @@ Azure CLI: [az network vnet peering list](/cli/azure/network/vnet/peering#az_net
 ## <a name="requirements-and-constraints"></a>요구 사항 및 제약 조건 
 
 - 피어링하는 가상 네트워크에 겹치지 않는 IP 주소 공간이 있어야 합니다.
-- 가상 네트워크가 다른 가상 네트워크와 피어링되면 가상 네트워크에 주소 범위를 추가하거나 가상 네트워크에서 주소 범위를 삭제할 수 없습니다. 주소 범위를 추가하거나 제거하려면 피어링을 삭제하고 주소 범위를 추가하거나 제거한 다음 피어링을 다시 만듭니다. 가상 네트워크에 주소 범위를 추가하거나 가상 네트워크에서 주소 범위를 제거하려면 [가상 네트워크 관리](virtual-network-manage-network.md)를 참조하세요.
+- 가상 네트워크가 다른 가상 네트워크와 피어링되면 가상 네트워크에 주소 범위를 추가하거나 가상 네트워크에서 주소 범위를 삭제할 수 없습니다. 주소 범위를 추가하거나 제거하려면 피어링을 삭제하고 주소 범위를 추가하거나 제거한 다음 피어링을 다시 만듭니다. 가상 네트워크에 주소 범위를 추가하거나 가상 네트워크에서 주소 범위를 제거하려면 [가상 네트워크 관리](manage-virtual-network.md)를 참조하세요.
 - Resource Manager를 통해 배포된 두 가상 네트워크 또는 Resource Manager를 통해 배포된 가상 네트워크와 클래식 배포 모델을 통해 배포된 가상 네트워크를 피어링할 수 있습니다. 클래식 배포 모델을 통해 만든 두 가상 네트워크를 피어링할 수는 없습니다. Azure 배포 모델에 익숙하지 않은 경우 [Azure 배포 모델 이해](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 문서를 읽어보세요. [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V)를 사용하여 클래식 배포 모델을 통해 만든 두 가상 네트워크는 연결할 수 없습니다.
 - Resource Manager를 통해 만든 두 가상 네트워크를 피어링할 때는 피어링의 각 가상 네트워크에 대해 피어링을 구성해야 합니다. 
     - *시작됨:* 첫 번째 가상 네트워크에서 두 번째 가상 네트워크로의 피어링을 만들면 피어링 상태가 *시작됨*입니다. 

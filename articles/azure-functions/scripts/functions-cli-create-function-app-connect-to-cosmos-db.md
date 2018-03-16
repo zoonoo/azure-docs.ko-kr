@@ -16,11 +16,11 @@ ms.workload:
 ms.date: 01/22/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 2049de0adfd4be164cda69ca85782c528aeaf55c
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 092e0681b0491fc1c54c19e234aafdac6d428fd1
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-an-azure-function-that-connects-to-an-azure-cosmos-db"></a>Azure Cosmos DB에 연결하는 Azure Function 만들기
 
@@ -46,7 +46,7 @@ ms.lasthandoff: 02/09/2018
 
 | 명령 | 메모 |
 |---|---|
-| [az login](https://docs.microsoft.com/cli/azure/#az_login) | Azure에 로그인합니다. |
+| [az login](https://docs.microsoft.com/cli/azure/reference-index#az_login) | Azure에 로그인합니다. |
 | [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | 위치와 함께 리소스 그룹 만들기 |
 | [az storage accounts create](https://docs.microsoft.com/cli/azure/storage/account) | 저장소 계정 만들기 |
 | [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#az_functionapp_create) | 새로운 함수 앱 만들기 |
@@ -55,7 +55,7 @@ ms.lasthandoff: 02/09/2018
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](https://docs.microsoft.com/cli/azure/overview)를 참조하세요.
+Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](https://docs.microsoft.com/cli/azure)를 참조하세요.
 
 추가 Azure Functions CLI 스크립트 샘플은 [Azure Functions 설명서](../functions-cli-samples.md)에서 확인할 수 있습니다.
 

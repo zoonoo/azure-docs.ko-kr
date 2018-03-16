@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: Inactive
 ms.date: 09/25/2017
 ms.author: v-daljep
-ms.openlocfilehash: cce112929ff2f4fb48c2c6e2ddc2d4eee743b790
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 0efb8b80bc98931f33991dc67f8f4aa1953bb491
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Intelligent Insights를 사용하여 Azure SQL Database 성능 문제 해결
 
@@ -129,7 +129,7 @@ SQL 엔진에서 실행한 트랜잭션이 사용할 수 없도록 잠긴 리소
 
 이 문제를 완화하는 가장 간단하고 안전한 방법은 트랜잭션을 짧게 유지하고 비용이 가장 많이 드는 쿼리의 잠금 범위를 좁히는 것입니다. 큰 작업 배치를 작은 작업으로 분할할 수 있습니다. 쿼리를 최대한 효율적으로 만들어 쿼리 잠금 범위를 좁히는 것이 좋습니다. 교착 상태가 발생할 가능성이 높아지고 전체 데이터베이스 성능에 부정적인 영향을 줄 수 있으므로 대량 스캔을 줄이십시오. 잠금을 유발하는 쿼리가 식별된 경우 새 인덱스를 만들거나 기존 인덱스에 열을 추가하여 테이블 스캔을 방지할 수 있습니다. 
 
-자세한 제안 사항은 [SQL Server 잠금 에스컬레이션으로 인해 발생하는 차단 문제를 해결하는 방법](https://support.microsoft.com/en-us/help/323630/how-to-resolve-blocking-problems-that-are-caused-by-lock-escalation-in)을 참조하세요.
+자세한 제안 사항은 [SQL Server 잠금 에스컬레이션으로 인해 발생하는 차단 문제를 해결하는 방법](https://support.microsoft.com/help/323630/how-to-resolve-blocking-problems-that-are-caused-by-lock-escalation-in)을 참조하세요.
 
 ## <a name="increased-maxdop"></a>MAXDOP 증가
 
@@ -289,7 +289,7 @@ SQL 데이터베이스는 쿼리 실행 비용을 최소화하는 쿼리 실행 
 
 진단 로그는 지난 7일간의 워크로드 동작과 비교하여 성능 저하를 초래한 데이터베이스 범위 구성 변경 내용을 출력합니다. 구성 변경 사항을 이전 값으로 되돌릴 수 있습니다. 또한 원하는 성능 레벨에 도달할 때까지 각 값을 조정할 수 있습니다. 만족할 만한 성능과 유사한 데이터베이스의 데이터베이스 범위 구성 값을 복사할 수 있습니다. 성능 문제를 해결할 수 없는 경우 기본 SQL Database 기본값으로 되돌리고 이 기준에서 정밀 조정을 시도하십시오.
 
-구성 변경에 대한 데이터베이스 범위 구성 및 T-SQL 구문을 최적화하는 방법에 대한 자세한 내용은 [데이터베이스 범위 구성 변경(Transact-SQL)](https://msdn.microsoft.com/en-us/library/mt629158.aspx)을 참조하세요.
+구성 변경에 대한 데이터베이스 범위 구성 및 T-SQL 구문을 최적화하는 방법에 대한 자세한 내용은 [데이터베이스 범위 구성 변경(Transact-SQL)](https://msdn.microsoft.com/library/mt629158.aspx)을 참조하세요.
 
 ## <a name="slow-client"></a>느린 클라이언트
 

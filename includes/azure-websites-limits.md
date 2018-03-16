@@ -1,4 +1,4 @@
-| 리소스 | 무료 | 공유(미리 보기) | Basic | Standard | Premium(미리 보기)</th> |
+| 리소스 | 무료 | 공유(미리 보기) | Basic | Standard | Premium </th> |
 | --- | --- | --- | --- | --- | --- |
 | [App Service 계획](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)당 [웹, 모바일 또는 API 앱](https://azure.microsoft.com/services/app-service/)<sup>1</sup> |10 |100 |무제한<sup>2</sup> |무제한<sup>2</sup> |무제한<sup>2</sup> |
 | [App Service 계획](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)당 [논리 앱](https://azure.microsoft.com/services/app-service/logic/)</a><sup>1</sup> |10 |10 |10 |코어 당 20 |코어 당 20 |

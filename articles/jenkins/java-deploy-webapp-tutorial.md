@@ -11,11 +11,11 @@ ms.workload: web
 ms.date: 08/02/2017
 ms.author: routlaw
 ms.custom: Jenkins, devcenter
-ms.openlocfilehash: 40d7e822b586e6f6b4addcd7d4e107eda9f4ab11
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: b2606acba341d4cfbc16314048e134fa30ff8606
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="set-up-continuous-integration-and-deployment-to-azure-app-service-with-jenkins"></a>Jenkins를 사용하여 Azure App Service로 지속적인 통합 및 배포 설정
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 11/03/2017
 
 * JDK 및 Maven 도구가 구성되어 있는 [Jenkins](https://jenkins.io/). Jenkins 시스템에 없는 경우 [Jenkins 솔루션 템플릿](/azure/jenkins/install-jenkins-solution-template)에서 Azure에 새로 하나 만듭니다.
 * [GitHub](https://github.com) 계정.
-* 로컬 명령줄 또는 [Azure Cloud Shell](/azure/cloud-shell/overview)에 있는 [Azure CLI 2.0](/cli/azure/overview)
+* 로컬 명령줄 또는 [Azure Cloud Shell](/azure/cloud-shell/overview)에 있는 [Azure CLI 2.0](/cli/azure)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

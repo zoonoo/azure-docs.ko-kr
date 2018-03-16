@@ -3,15 +3,16 @@ title: "Azure의 Hyper-V 복제용 지원 행렬 | Microsoft Docs"
 description: "Azure Site Recovery를 통한 Azure로의 Hyper-V 복제에 지원되는 구성 요소 및 요구 사항의 요약 정보를 제공합니다."
 services: site-recovery
 author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/14/2018
+ms.date: 03/06/2018
 ms.author: raynew
-ms.openlocfilehash: 58d54c1e0e6aa88878b45400b9211396f5d1b9d5
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 81983b9287a6b8073724f0cd973929f4b4677d4a
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="support-matrix-for-hyper-v-replication-to-azure"></a>Azure로의 Hyper-V 복제용 지원 행렬
 
@@ -77,7 +78,7 @@ Traffic Manager | 예 | 예
 예약된 IP | 예 | 예
 IPv4 | 예 | 예
 원본 IP 주소 유지 | 예 | 예
-VNET 서비스 끝점<br/><br/> (Azure Storage 방화벽 및 가상 네트워크) | 아니요 | 아니요
+VNET 서비스 끝점<br/><br/> (Azure Storage 방화벽 및 가상 네트워크) | 아니요 | 아니오
 
 
 ## <a name="hyper-v-host-storage"></a>Hyper-V 호스트 저장소
@@ -97,17 +98,17 @@ VMDK | 해당 없음 | 해당 없음
 VHD/VHDX | 예 | 예
 2세대 VM | 예 | 예
 EFI/UEFI| 예 | 예
-공유 클러스터 디스크 | 아니오 | 아니오
-암호화된 디스크 | 아니요 | 아니오
+공유 클러스터 디스크 | 아니요 | 아니요
+암호화된 디스크 | 아니요 | 아니요
 NFS | 해당 없음 | 해당 없음
-SMB 3.0 | 아니오 | 아니요
+SMB 3.0 | 아니요 | 아니오
 RDM | 해당 없음 | 해당 없음
 디스크 > 1TB | 예(최대 4095GB) | 예(최대 4095GB)
 디스크: 4K 논리/실제 섹터 | 미지원: 1세대/2세대 | 미지원: 1세대/2세대
 디스크: 4K 논리/512바이트 물리 섹터 | 예 |  예
 스트라이프 디스크 포함 볼륨 > 1TB<br/><br/> LVM 논리 볼륨 관리 | 예 | 예
 저장소 공간 | 예 | 예
-디스크 핫 추가/제거 | 아니요 | 아니요
+디스크 핫 추가/제거 | 아니오 | 아니오
 디스크 제외 | 예 | 예
 다중 경로(MPIO) | 예 | 예
 
@@ -118,13 +119,13 @@ RDM | 해당 없음 | 해당 없음
 LRS | 예 | 예
 GRS | 예 | 예
 RA-GRS | 예 | 예
-쿨 저장소 | 아니오 | 아니요
-핫 저장소| 아니오 | 아니오
+쿨 저장소 | 아니요 | 아니요
+핫 저장소| 아니요 | 아니요
 블록 Blob | 아니요 | 아니요
 휴지 상태의 암호화(SSE)| 예 | 예
 Premium Storage | 예 | 예
 Import/Export 서비스 | 아니요 | 아니요
-대상에서 복제 데이터에 사용되는 저장소 계정을 캐시하기 위한 VNET 서비스 끝점(Azure Storage 방화벽 및 VNET) | 아니요 | 아니오
+대상에서 복제 데이터에 사용되는 저장소 계정을 캐시하기 위한 VNET 서비스 끝점(Azure Storage 방화벽 및 VNET) | 아니오 | 아니요
 
 
 ## <a name="azure-compute-features"></a>Azure 계산 기능
@@ -160,7 +161,7 @@ Azure로 복제하는 온-프레미스 VM은 이 표에 요약되어 있는 Azur
 **작업** |  **Hyper-V(VMM 포함)** | **VMM을 사용하지 않는 Hyper-V**
 --- | --- | --- 
 리소스 그룹 간 자격 증명 모음 이동<br/><br/> 구독 내 및 구독 간 | 아니오 | 아니요 
-저장소 그룹 간 저장소, 네트워크, Azure VM 이동<br/><br/> 구독 내 및 구독 간 | 아니요 | 아니요 
+저장소 그룹 간 저장소, 네트워크, Azure VM 이동<br/><br/> 구독 내 및 구독 간 | 아니오 | 아니요 
 
 
 ## <a name="provider-and-agent"></a>공급자 및 에이전트

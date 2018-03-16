@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/08/2017
 ms.author: maheshu
 ms.openlocfilehash: 771ca39b37e6fb2d75a86df3ac785bc293b4cd5f
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2018
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Azure AD Domain Services 관리되는 도메인에 대해 보안 LDAP(LDAPS) 구성
 이 문서에서는 Azure AD 도메인 서비스 관리되는 도메인에 대해 LDAPS(Secure Lightweight Directory Access Protocol)를 사용하도록 설정하는 방법을 보여 줍니다. 보안 LDAP는 'SSL(Secure Sockets Layer)/TLS(Transport Layer Security)를 통한 LDAP(Lightweight Directory Access Protocol)'라고도 합니다.

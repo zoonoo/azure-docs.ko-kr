@@ -8,13 +8,13 @@ ms.service: site-recovery
 ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 03/08/2018
 ms.author: raynew
-ms.openlocfilehash: c83f6142e70103ff4d99d9d2871c4ab747af8d99
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 7d172b89a0846c8ccf19896400e127a3bec0b55e
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>보조 사이트에 온-프레미스 VMware 가상 머신 또는 물리적 서버의 재해 복구 설정
 
@@ -25,8 +25,8 @@ ms.lasthandoff: 02/28/2018
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-- 모든 구성 요소에 대한 지원 요구 사항을 [검토합니다](site-recovery-support-matrix-to-sec-site.md).
-- 복제하려는 컴퓨터에서 [복제된 컴퓨터 지원](site-recovery-support-matrix-to-sec-site.md#support-for-replicated-machine-os-versions)을 준수하는지 확인합니다.
+- 모든 구성 요소에 대한 지원 요구 사항을 [검토합니다](vmware-physical-secondary-support-matrix.md).
+- 복제하려는 컴퓨터에서 [복제된 컴퓨터 지원](vmware-physical-secondary-support-matrix.md#replicated-vm-support)을 준수하는지 확인합니다.
 
 
 ## <a name="create-a-vault"></a>자격 증명 모음 만들기

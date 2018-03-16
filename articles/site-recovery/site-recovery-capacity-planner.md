@@ -12,17 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/28/2017
+ms.date: 03/09/2018
 ms.author: nisoneji
-ms.openlocfilehash: bfeefde53aa2b3645934f068d580c0714714dd69
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: d9c2645be73c4b6e34d194d6b2444a700e3900d2
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="plan-capacity-for-protecting-hyper-v-vms-with-site-recovery"></a>Site Recovery를 사용하여 Hyper-V VM을 보호하기 위한 용량 계획
 
-이제 [Hyper-V에서 Azure 배포로 Azure Site Recovery Deployment Planner](site-recovery-hyper-v-deployment-planner.md)의 향상된 새 버전을 사용할 수 있습니다. 새 버전은 이전 도구를 대체합니다. 배포 계획에 새 도구를 사용합니다. 이 도구는 다음과 같은 지침을 제공합니다.
+이제 [Hyper-V에서 Azure 배포로 Azure Site Recovery Deployment Planner](site-recovery-hyper-v-deployment-planner.md)의 향상된 새 버전을 사용할 수 있습니다. 새 버전은 이전 도구를 대체합니다. 배포 계획에 새 도구를 사용합니다.
+이 도구는 다음과 같은 지침을 제공합니다.
 
 * VM 적합성 평가(디스크 수, 디스크 크기, IOPS, 변동률 및 몇 가지 VM 특성 기준)
 * 네트워크 대역폭 요구 사항 및 RPO 평가
@@ -45,7 +46,7 @@ Site Recovery Capacity Planner를 사용하여 원본 환경 및 워크로드를
 
 * VM, VM당 디스크, 디스크당 저장소를 포함하여 사용자 환경에 대한 정보를 수집합니다.
 * 복제된 데이터에 대한 일일 변경(이탈)률을 식별합니다. [Hyper-V 용량 계획 도구](https://www.microsoft.com/download/details.aspx?id=39057)를 다운로드하여 변경률을 얻습니다. [자세히 알아보세요](site-recovery-capacity-planning-for-hyper-v-replication.md) . 평균을 캡처하기 위해 일주일 이상 이 도구를 실행하는 것이 좋습니다.
-   
+
 
 ## <a name="run-the-quick-planner"></a>Quick Planner 실행
 1. [Site Recovery Capacity Planner](http://aka.ms/asr-capacity-planner-excel)를 다운로드하고 엽니다. 매크로를 실행해야 합니다. 메시지가 표시되면 편집 및 콘텐츠를 사용하도록 설정할지 선택합니다.
@@ -58,7 +59,7 @@ Site Recovery Capacity Planner를 사용하여 원본 환경 및 워크로드를
 
    a. **시나리오 선택**에서 **Hyper-V에서 Azure로** 또는 **VMware/물리적 컴퓨터에서 Azure로**를 선택합니다.
 
-   나. **평균 일일 데이터 변경률(%)**에서 [Hyper-V 용량 계획 도구](site-recovery-capacity-planning-for-hyper-v-replication.md) 또는 [Azure Site Recovery Deployment Planner](./site-recovery-deployment-planner.md)를 사용하여 수집한 정보를 입력합니다. 
+   나. **평균 일일 데이터 변경률(%)**에서 [Hyper-V 용량 계획 도구](site-recovery-capacity-planning-for-hyper-v-replication.md) 또는 [Azure Site Recovery Deployment Planner](./site-recovery-deployment-planner.md)를 사용하여 수집한 정보를 입력합니다.
 
    다. **압축** 설정은 Hyper-V VM을 Azure에 복제하는 경우에 사용되지 않습니다. 압축의 경우 Riverbed와 같은 타사 어플라이언스를 사용합니다.
 
@@ -147,7 +148,7 @@ Site Recovery Capacity Planner를 사용하여 원본 환경 및 워크로드를
 ### <a name="submit-data-in-capacity-planner"></a>Capacity Planner에서 데이터 제출
 1. **Capacity Planner** 워크시트를 열면 지정한 설정에 따라 워크시트가 채워집니다. **인프라 입력 원본** 셀에 'Workload'라는 단어가 나타나 입력이 **Workload Qualification** 워크시트임을 나타냅니다.
 
-2. 변경하려면 **Workload Qualification** 워크시트를 수정해야 합니다. 그런 다음 **플래너 도구에 데이터 전송**을 다시 클릭합니다. 
+2. 변경하려면 **Workload Qualification** 워크시트를 수정해야 합니다. 그런 다음 **플래너 도구에 데이터 전송**을 다시 클릭합니다.
 
    ![Capacity Planner](./media/site-recovery-capacity-planner/capacity-planner.png)
 

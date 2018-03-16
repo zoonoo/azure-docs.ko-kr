@@ -8,11 +8,11 @@ manager: routlaw
 ms.author: tarcher
 ms.date: 02/01/2018
 ms.topic: article
-ms.openlocfilehash: 0cd0390a381e85c8f047960ce06c581a433d4a2c
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 92ca2950199d638c5f76c0c7aadbae4fda7e9d1e
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="run-ansible-with-bash-in-azure-cloud-shell"></a>Azure Cloud Shell에서 Bash를 사용하여 Ansible 실행
 
@@ -98,8 +98,8 @@ Ansible은 Azure Resource Manager에 API를 요청하여 Azure 리소스의 동�
     tasks:
     - name: Create a resource group
       azure_rm_resourcegroup:
-          name: demoresourcegroup
-          location: eastus
+        name: demoresourcegroup
+        location: eastus
   ```
 
 1. 파일을 저장하고 `:wq`를 입력하고 &lt;Enter>를 눌러서 VI 편집기를 종료합니다.
@@ -146,8 +146,8 @@ Ansible은 Azure Resource Manager에 API를 요청하여 Azure 리소스의 동�
     tasks:
     - name: Delete a resource group
       azure_rm_resourcegroup:
-          name: demoresourcegroup
-          state: absent
+        name: demoresourcegroup
+        state: absent
   ```
 
 1. 파일을 저장하고 `:wq`를 입력하고 &lt;Enter>를 눌러서 VI 편집기를 종료합니다.

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/16/2018
 ms.author: menchi
-ms.openlocfilehash: e83aa590cc41abcd661e6f0fef450833c816dac4
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 07b9f14048b6618863efd5bd8eb8bcc8f52ec735
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="use-the-iot-extension-for-azure-cli-20-for-azure-iot-hub-device-management"></a>Azure CLI 2.0용 IoT 확장을 사용하여 Azure IoT Hub 장치 관리
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 02/23/2018
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
-[Azure CLI 2.0용 IoT 확장](https://github.com/Azure/azure-iot-cli-extension)은 [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/overview?view=azure-cli-latest)의 기능에 추가되는 새로운 오픈 소스 IoT 확장으로, Azure Resource Manager 및 관리 끝점과 상호 작용하기 위한 명령을 포함합니다. Azure CLI 2.0에는 Azure Resource Manager 및 관리 끝점과 상호 작용하기 위한 명령이 포함되어 있습니다. 예를 들어 Azure CLI 2.0을 사용하여 Azure VM 또는 IoT Hub를 만들 수 있습니다. CLI 확장을 사용하면 Azure 서비스는 Azure CLI를 확대하여, 사용자에게 추가적인 서비스별 기능에 대한 액세스 권한을 부여할 수 있습니다. IoT 확장은 IoT 개발자가 명령줄을 통해 모든 IoT Hub, IoT Edge, IoT Hub 장치 프로비전 서비스 기능에 액세스할 수 있도록 합니다.
+[Azure CLI 2.0용 IoT 확장](https://github.com/Azure/azure-iot-cli-extension)은 [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure?view=azure-cli-latest)의 기능에 추가되는 새로운 오픈 소스 IoT 확장으로, Azure Resource Manager 및 관리 끝점과 상호 작용하기 위한 명령을 포함합니다. Azure CLI 2.0에는 Azure Resource Manager 및 관리 끝점과 상호 작용하기 위한 명령이 포함되어 있습니다. 예를 들어 Azure CLI 2.0을 사용하여 Azure VM 또는 IoT Hub를 만들 수 있습니다. CLI 확장을 사용하면 Azure 서비스는 Azure CLI를 확대하여, 사용자에게 추가적인 서비스별 기능에 대한 액세스 권한을 부여할 수 있습니다. IoT 확장은 IoT 개발자가 명령줄을 통해 모든 IoT Hub, IoT Edge, IoT Hub 장치 프로비전 서비스 기능에 액세스할 수 있도록 합니다.
 
 | 관리 옵션          | Task                                                                                                                            |
 |----------------------------|---------------------------------------------------------------------------------------------------------------------------------|

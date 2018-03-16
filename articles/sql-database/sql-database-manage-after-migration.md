@@ -18,11 +18,11 @@ ms.author: Joe.Sack
 ms.suite: sql
 ms.prod_service: sql-database
 ms.component: migration
-ms.openlocfilehash: b65236fb2d11473d626ee2602237ed4a49380702
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: ee1d847e04e1f1fa0472d8702c7022d622b9fe0f
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>클라우드의 새 DBA - Azure SQL Database의 데이터베이스 관리
 
@@ -133,7 +133,7 @@ SQL Database에서 기본적으로 저장소 하위 시스템에 있는 데이�
 |**특성**|**Always Encrypted**|**투명한 데이터 암호화**|
 |---|---|---|
 |**암호화 범위**|종단간|미사용 데이터|
-|**데이터베이스 서버는 중요 데이터에 액세스 가능**|아니요|예, 암호화는 미사용 데이터를 위한 것이므로|
+|**데이터베이스 서버는 중요 데이터에 액세스 가능**|아니오|예, 암호화는 미사용 데이터를 위한 것이므로|
 |**허용되는 T-SQL 작업**|같음 비교|모든 T-SQL 노출 영역을 사용할 수 있음|
 |**기능을 사용하려면 앱 변경이 필요함**|최소|아주 미미함|
 |**암호화 세분성**|열 수준|데이터베이스 수준|
@@ -213,7 +213,7 @@ SQL Database에서는 플랫폼의 지능적인 정보를 활용하여 성능을
 - **동적 관리 뷰**: 지난 1시간 동안의 리소스 소비 통계 기록을 반환하려면 [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) 동적 관리 뷰를, 그리고 지난 14일에 대한 기록을 반환하려면 [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) 시스템 카탈로그 뷰를 쿼리할 수 있습니다.
 - **Query Performance Insight**: [Query Performance Insight](sql-database-query-performance.md)를 사용하면 상위 리소스 소비량 쿼리 및 특정 데이터베이스에 대한 장기 실행 쿼리 기록을 볼 수 있습니다. 리소스 사용률, 기간 및 실행 빈도별로 최상위 쿼리를 신속하게 식별할 수 있습니다. 쿼리를 추적하고 재발을 검색할 수 있습니다. 이 기능을 사용하려면 [쿼리 저장소](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store)가 데이터베이스에 대해 사용할 수 있도록 설정되고 활성화되어야 합니다.
 
-   ![Query Performance Insight](./media/sql-database-manage-after-migration/query-performance-insight.png)
+   ![쿼리](./media/sql-database-manage-after-migration/query-performance-insight.png)
 
 - **Log Analytics에서 Azure SQL 분석(미리 보기)**: [Azure Log Analytics](../log-analytics/log-analytics-azure-sql.md)를 사용하면 작업 영역당 최대 150,000 SQL Database 및 5,000 SQL 탄력적 풀까지 지원하는 주요 Azure SQL Azure 성능 메트릭을 수집하고 시각화할 수 있습니다. 그것을 사용하여 알림을 모니터링하고 받을 수 있습니다. 여러 Azure 구독 및 탄력적 풀에서 SQL Database 및 탄력적 풀 메트릭을 모니터링할 수 있으며 응용 프로그램 스택의 각 레이어에서 문제를 식별하는 데 사용할 수 있습니다.
 
@@ -260,7 +260,7 @@ SQL Database는 특정 부류의 데이터 손상을 자동으로 데이터 손�
 ### <a name="how-do-i-synchronize-data-between-sql-database-and-sql-server"></a>SQL Database와 SQL Server 사이에 데이터를 동기화하려면 어떻게 합니까?
 이 목적을 달성하는 여러 가지 방법이 있습니다. 
 - **[Data Sync](sql-database-sync-data.md)** – 이 기능은 여러 온-프레미스 SQL Server 데이터베이스와 SQL Database 사이에 양방향으로 데이터를 동기화하도록 도와 줍니다. 온-프레미스 SQL Server 데이터베이스와 동기화하려면 로컬 컴퓨터에 동기화 에이전트를 설치 및 구성하고 아웃바운드 TCP 포트 1433을 열어야 합니다.
-- **[트랜잭션 복제](https://azure.microsoft.com/en-us/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)** – 트랜잭션 복제를 사용하여 온-프레미스에서 Azure SQL DB까지의 데이터를 게시자인 온-프레미스 및 구독자인 Azure SQL DB와 동기화할 수 있습니다. 현재 이 설정만 지원됩니다. 가동 중지 시간을 최소화하면서 온-프레미스 데이터를 Azure SQL로 마이그레이션하는 방법은 [트랜잭션 복제 사용](sql-database-cloud-migrate.md#method-2-use-transactional-replication) 참조
+- **[트랜잭션 복제](https://azure.microsoft.com/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)** – 트랜잭션 복제를 사용하여 온-프레미스에서 Azure SQL DB까지의 데이터를 게시자인 온-프레미스 및 구독자인 Azure SQL DB와 동기화할 수 있습니다. 현재 이 설정만 지원됩니다. 가동 중지 시간을 최소화하면서 온-프레미스 데이터를 Azure SQL로 마이그레이션하는 방법은 [트랜잭션 복제 사용](sql-database-cloud-migrate.md#method-2-use-transactional-replication) 참조
 
 ## <a name="next-steps"></a>다음 단계
 [SQL Database](sql-database-technical-overview.md)에 대해 알아봅니다.

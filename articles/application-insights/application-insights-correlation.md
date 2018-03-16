@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: mbullwin
-ms.openlocfilehash: e821a640d3d75e712c022bd681eb07b83da91911
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: 5d4abbf8194d633305877275e3dd273352906ad3
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Application Insights의 원격 분석 상관 관계
 
@@ -39,7 +39,7 @@ Application Insights는 분산 원격 분석 상관 관계에 대한 [데이터 
 Application Insights 데이터 모델에서는 이 문제를 해결하기 위해 두 가지 필드, 즉 `request.source` 및 `dependency.target` 필드를 정의합니다. 첫 번째 필드는 종속성 요청을 시작한 구성 요소를 식별하고, 두 번째 필드는 종속성 호출의 응답을 반환한 구성 요소를 식별합니다.
 
 
-## <a name="example"></a>예제
+## <a name="example"></a>예
 
 STOCKS API라는 외부 API를 사용하여 주식의 현재 시가를 보여 주는 응용 프로그램 STOCK PRICES의 예제를 살펴보겠습니다. STOCK PRICES 응용 프로그램에는 `GET /Home/Stock`를 사용하여 클라이언트 웹 브라우저에서 연 `Stock page` 페이지가 있습니다. 응용 프로그램에서 `GET /api/stock/value` HTTP 호출을 사용하여 STOCK API를 조회합니다.
 
@@ -53,7 +53,7 @@ STOCKS API라는 외부 API를 사용하여 주식의 현재 시가를 보여 �
 
 결과 보기에서 모든 원격 분석 항목은 루트 `operation_Id`를 공유합니다. Ajax 호출이 페이지에서 실행된 경우 새로운 고유 ID `qJSXU`가 종속성 원격 분석에 할당되고 pageView의 ID가 `operation_ParentId`로 사용됩니다. 따라서 서버 요청은 Ajax의 ID를 `operation_ParentId`로 사용합니다.
 
-| itemType   | name                      | id           | operation_ParentId | operation_Id |
+| itemType   | 이름                      | id           | operation_ParentId | operation_Id |
 |------------|---------------------------|--------------|--------------------|--------------|
 | pageView   | Stock page                |              | STYz               | STYz         |
 | dependency | GET /Home/Stock           | qJSXU        | STYz               | STYz         |
@@ -98,7 +98,7 @@ Diagnostics Source의 [guide to Activities](https://github.com/dotnet/corefx/blo
 
 ASP.NET Core 2.0에서는 HTTP 헤더 추출 및 새 활동 시작을 지원합니다. 
 
-`System.Net.HttpClient` 시작 버전 `<fill in>`에서는 상관 관계 Http 헤더의 자동 삽입 및 http 호출을 활동으로 추적하는 기능을 지원합니다.
+`System.Net.HttpClient` 시작 버전 `4.1.0`에서는 상관 관계 Http 헤더의 자동 삽입 및 http 호출을 활동으로 추적하는 기능을 지원합니다.
 
 ASP.NET 클래식에 대한 새로운 HTTP 모듈 [Microsoft.AspNet.TelemetryCorrelation](https://www.nuget.org/packages/Microsoft.AspNet.TelemetryCorrelation/)이 있습니다. 이 모듈은 DiagnosticsSource를 사용하여 원격 분석 상관 관계를 구현합니다. 들어오는 요청 헤더를 기반으로 활동을 시작합니다. 또한 서로 다른 요청 처리 단계의 원격 분석을 상호 연결합니다. IIS 처리의 모든 단계가 서로 다른 관리 스레드에서 실행되는 경우에도 마찬가지입니다.
 

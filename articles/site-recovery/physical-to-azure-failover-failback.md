@@ -5,13 +5,13 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/22/2018
+ms.date: 03/09/2018
 ms.author: raynew
-ms.openlocfilehash: bbad2a0ea1a58834eaf32e0d3286f6e8a794d364
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: d58dfd482b66d90748f0ca661e56fa281c14598a
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="fail-over-and-fail-back-physical-servers-replicated-to-azure"></a>복제된 물리적 서버를 Azure로 장애 조치(Failover) 및 장애 복구(Failback)
 
@@ -30,7 +30,7 @@ Site Recovery를 사용하여 Azure로 복제된 물리적 서버는 VMware VM�
 
 ## <a name="verify-server-properties"></a>서버 속성 확인
 
-서버 속성을 확인하고 서버가 Azure VM에 대한 [Azure 요구 사항](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements)을 준수하는지 확인합니다.
+서버 속성을 확인하고 서버가 Azure VM에 대한 [Azure 요구 사항](vmware-physical-azure-support-matrix.md#replicated-machines)을 준수하는지 확인합니다.
 
 1. **보호된 항목**에서 **복제된 항목**을 클릭하고 컴퓨터를 선택합니다.
 
@@ -62,7 +62,7 @@ Site Recovery를 사용하여 Azure로 복제된 물리적 서버는 VMware VM�
 
 - 테스트를 수행하려는 경우, Azure ExpressRoute 연결이 있으면 구성 서버에 자동으로 설치되는 온-프레미스 프로세스 서버를 사용할 수 있습니다.
 - VPN 연결이 있거나 프로덕션 환경에서 장애 복구(Failback)를 실행하는 경우 Azure VM을 장애 복구(Failback)에 대한 Azure 기반 프로세스 서버로 설정해야 합니다.
-- Azure에서 프로세스 서버를 설정하려면 [이 문서](site-recovery-vmware-setup-azure-ps-resource-manager.md)의 지침을 따릅니다.
+- Azure에서 프로세스 서버를 설정하려면 [이 문서](vmware-azure-set-up-process-server-azure.md)의 지침을 따릅니다.
 
 ## <a name="configure-the-master-target-server"></a>마스터 대상 서버 구성
 

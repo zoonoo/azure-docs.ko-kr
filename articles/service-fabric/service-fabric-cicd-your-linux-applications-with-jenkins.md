@@ -12,13 +12,13 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/27/2017
+ms.date: 3/9/2018
 ms.author: saysa
-ms.openlocfilehash: 80c52cfeab007030203b6af4bb220f1a847e9426
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 00a6d04e7ec1da48ea17af4f17d3aba3cf4407d6
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="use-jenkins-to-build-and-deploy-your-linux-applications"></a>Jenkins를 사용하여 Linux 응용 프로그램 빌드 및 배포
 Jenkins는 앱의 연속 통합 및 배포를 위한 인기 있는 도구입니다. Jenkins를 사용하여 Azure Service Fabric 응용 프로그램을 빌드하고 배포하는 방법은 다음과 같습니다.
@@ -44,8 +44,8 @@ Service Fabric 클러스터 내부 또는 외부에서 Jenkins를 설정할 수 
 
 2. 다음 단계를 사용하여 응용 프로그램을 복제합니다.
   ```sh
-  git clone https://github.com/Azure-Samples/service-fabric-java-getting-started.git
-  cd service-fabric-java-getting-started/Services/JenkinsDocker/
+  git clone https://github.com/suhuruli/jenkins-container-application.git
+  cd jenkins-container-application
   ```
 
 3. 다음과 같이 파일 공유에서 Jenkins 컨테이너의 상태를 유지합니다.

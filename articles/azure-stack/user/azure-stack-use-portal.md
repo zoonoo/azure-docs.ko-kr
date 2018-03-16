@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/25/2017
 ms.author: mabrigg
 ms.openlocfilehash: 7c34d7a225be63da95f664525b0366ff89b28838
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="using-the-azure-stack-portal"></a>Azure 스택 포털을 사용 하 여
 
@@ -31,7 +31,7 @@ Azure 스택 서비스의 사용자를 Azure 스택 포털을 사용 하 여 공
 Azure 스택 연산자 (서비스 공급자 또는 조직에서 관리자 권한)을 포털에 액세스 하는 올바른 URL를 알 수 있습니다. 
 
 - 통합된 된 시스템에 대 한 URL 운영자의 지역 및 외부 도메인 이름에 따라 달라 집니다 하 고 형식 https://portal에 포함 됩니다. &lt; *지역*&gt;.&lt; *FQDN*&gt;합니다.
-- Azure 스택 개발 키트를 사용 하는 포털 주소 https://portal.local.azurestack.external는입니다.
+- Azure 스택 개발 키트를 사용 하는 경우 포털 주소는 https://portal.local.azurestack.external합니다.
 
 ![Azure 스택 사용자 포털의 스크린샷](media/azure-stack-use-portal/UserPortal.png)
 

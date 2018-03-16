@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: billgib; sstein
-ms.openlocfilehash: 90510520e5f6bbfa8aea4026d7437a4a4881984f
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 7747092d5613a40fa0aff09cfbdfb9b786b37954
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="set-up-and-use-log-analytics-oms-with-a-multi-tenant-azure-sql-database-saas-app"></a>멀티 테넌트 Azure SQL Database SaaS 앱을 사용하여 Log Analytics(OMS) 설정 및 사용
 
@@ -132,7 +132,7 @@ OMS Portal에서 작업 영역의 로그와 메트릭 데이터를 자세히 살
 
 Log Analytics와 OMS의 모니터링 및 경고는 Azure Portal의 경우 각 리소스에 대해 경고가 정의되는 것과 달리 작업 영역에 있는 데이터에 대한 쿼리를 바탕으로 합니다. 쿼리가 경고를 바탕으로 하기 때문에 데이터베이스마다 일일이 경고를 설정하는 대신 모든 데이터베이스를 대상으로 하는 하나의 경고를 정의할 수 있습니다. 쿼리는 작업 영역에서 사용 가능한 데이터를 통해서만 제한됩니다.
 
-OMS를 사용하여 쿼리를 실행하고 경고를 설정하는 자세한 방법은 [Log Analytics에서 경고 규칙 작업](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-alerts-creating)을 참조하세요.
+OMS를 사용하여 쿼리를 실행하고 경고를 설정하는 자세한 방법은 [Log Analytics에서 경고 규칙 작업](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts-creating)을 참조하세요.
 
 SQL Database용 Log Analytics는 작업 영역의 데이터 크기에 따라 과금됩니다. 이 자습서에서는 일일 500MB로 제한되는 무료 작업 영역을 만들었습니다. 이 한도에 도달하면 작업 영역에 더 이상 데이터가 추가되지 않습니다.
 

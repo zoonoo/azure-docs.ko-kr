@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2017
 ms.author: gokuma;bradsev
-ms.openlocfilehash: 3cedc16e3a420fd846b7860b69f4b19591ad1777
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: b50e98fa7bfff75efe8c9b926838ea847f640651
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="introduction-to-azure-data-science-virtual-machine-for-linux-and-windows"></a>Linux/Windows용 Azure 데이터 과학 Virtual Machine에 대한 소개
 
@@ -89,7 +89,7 @@ GPU(그래픽 처리 장치) 기반 하드웨어에서 심층 학습 알고리�
 | Azure 및 Cortana Intelligence Suite 서비스 액세스를 위한 SDK | Y | Y |
 | **데이터 이동 및 관리 도구** | | |
 | &nbsp;&nbsp;&nbsp;&nbsp;* Azure Storage Explorer | Y | Y |
-| &nbsp;&nbsp;&nbsp;&nbsp;* [Azure CLI](https://docs.microsoft.com/cli/azure/overview) | Y | Y |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Azure CLI](https://docs.microsoft.com/cli/azure) | Y | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* Azure Powershell | Y | N |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Azcopy](https://docs.microsoft.com/azure/storage/storage-use-azcopy) | Y | N |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Blob FUSE 드라이버](https://github.com/Azure/azure-storage-fuse) | N | Y |

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2018
 ms.author: juluk
-ms.openlocfilehash: da415f4fb276f3d86d3ff1634a08fa11eabe6e7f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 72338a4c168b4d3b7c918fbb16758724f73fefc2
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Azure Cloud Shell 개요
 Azure Cloud Shell은 Azure 리소스를 관리하기 위한 브라우저에서 액세스할 수 있는 대화형 셸입니다.
@@ -54,7 +54,7 @@ Cloud Shell은 Microsoft에서 관리되므로 널리 사용되는 명령줄 도
 Cloud Shell은 다음에서 사용할 수 있는 유연한 도구입니다.
 * [portal.azure.com](https://portal.azure.com)
 * [shell.azure.com](https://shell.azure.com)
-* [Azure CLI 2.0 "실행" 문서](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest)
+* [Azure CLI 2.0 "실행" 문서](https://docs.microsoft.com/cli/azure?view=azure-cli-latest)
 * [Azure 모바일 앱](https://azure.microsoft.com/features/azure-portal/mobile-app/)
 * [VS Code Azure 계정 확장](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
 

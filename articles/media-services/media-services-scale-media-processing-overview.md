@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/04/2017
 ms.author: juliako
-ms.openlocfilehash: a82481c4995bfb078e88d7096dff37b52312a296
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: c80bddfe1896b0b99319ef007c25718b5a754005
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="scaling-media-processing-overview"></a>미디어 처리 크기 조정 개요
 이 페이지에서는 미디어 처리의 크기를 조정하는 방법과 이유에 대해 간략하게 설명합니다. 
@@ -44,8 +44,6 @@ Media Services 계정은 미디어 처리 작업을 처리하는 속도를 결�
 
 * 예약된 단위는 Azure Media Indexer를 사용하는 인덱싱 작업을 비롯하여 모든 미디어 처리 병렬화에 대해 작동합니다.  그러나 인코딩과 달리 인덱싱 작업은 예약 단위가 더 빠르게 실행되어도 더 빨리 처리되지 않습니다.
 * 공유 풀을 사용 중이어서 예약 단위가 없는 경우에는 인코딩 작업의 성능이 S1 RU와 동일해집니다. 그러나 작업이 대기된 상태로 유지될 수 있는 시간의 상한은 없으며 언제든지 작업은 최대 하나만 실행됩니다.
-* 브라질 남부와 인도 서부 데이터 센터는 **S2** 예약 단위 형식을 제공하지 않습니다.
-* 인도 서부 데이터 센터는 **S3** 예약 단위 형식을 제공하지 않습니다.
 
 ## <a name="billing"></a>결제
 
@@ -60,7 +58,7 @@ Media Services 계정은 미디어 처리 작업을 처리하는 속도를 결�
 > [!div class="op_single_selector"]
 > * [.NET](media-services-dotnet-encoding-units.md)
 > * [포털](media-services-portal-scale-media-processing.md)
-> * [REST (영문)](https://docs.microsoft.com/rest/api/media/operations/encodingreservedunittype)
+> * [REST](https://docs.microsoft.com/rest/api/media/operations/encodingreservedunittype)
 > * [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
 > * [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
 > 

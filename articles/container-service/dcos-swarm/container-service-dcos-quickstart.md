@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 02/26/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: a9948cf2ee9251a61e85614c4fa1639561e87d59
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 2a0c702f1b1997a35be49c8d94db9ff69e95653f
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="deploy-a-dcos-cluster"></a>DC/OS 클러스터 배포
 
@@ -25,7 +25,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인 
 
-[az login](/cli/azure/#az_login) 명령으로 Azure 구독에 로그인하고 화면의 지시를 따릅니다.
+[az login](/cli/azure/reference-index#az_login) 명령으로 Azure 구독에 로그인하고 화면의 지시를 따릅니다.
 
 ```azurecli
 az login

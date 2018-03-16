@@ -13,10 +13,10 @@ ms.devlang:
 ms.topic: article
 ms.date: 02/01/2018
 ms.openlocfilehash: 02670fa4506237ac391e467e5c7a1187b1131ece
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="sample-of-custom-column-transforms-python"></a>사용자 지정 열 변환 샘플(Python) 
 메뉴에서 이 변환의 이름은 **Add Column(스크립트)**입니다.

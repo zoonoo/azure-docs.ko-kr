@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/15/2018
 ms.author: terrylan
 ms.openlocfilehash: 3b57cacec729bd2f2dd4acdbb9c15e69ab9f5c85
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="supported-platforms-in-azure-security-center"></a>Azure Security Center에서 지원되는 플랫폼
 클래식 및 리소스 관리자 배포 모델을 둘 다 사용하여 생성된 VM(가상 머신) 및 컴퓨터에 대해 보안 상태 모니터링과 권장 사항이 제공됩니다.

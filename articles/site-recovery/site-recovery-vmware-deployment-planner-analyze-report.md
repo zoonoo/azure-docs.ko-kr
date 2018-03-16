@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 12/04/2017
+ms.date: 03/09/2018
 ms.author: nisoneji
-ms.openlocfilehash: d8c4f5431d8e2d406cd5b203b468c447d4dd6e17
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: dce374d85ef32fe1fbfc88502780fa2ad7a5eae4
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="azure-site-recovery-deployment-planner-report"></a>Azure Site Recovery Deployment Planner 보고서
 생성된 Microsoft Excel 보고서에는 다음과 같은 시트가 포함되어 있습니다.
@@ -132,16 +132,16 @@ VMware에서 Azure로 보고서의 권장 사항 시트에는 선택된 원하�
 ![비용 예측 요약](media/site-recovery-vmware-deployment-planner-analyze-report/cost-estimation-summary-v2a.png)
 
 이 요약은 Azure Site Recovery를 사용하여 호환 가능한 모든 VM을 Azure로 보호하는 경우에 저장소, 계산, 네트워크 및 라이선스에 대해 지불해야 하는 비용을 이해하는 데 도움이 됩니다. 비용은 프로파일링된 모든 VM이 아닌 호환 가능한 VM에 대해 계산됩니다.  
- 
+
 월별 또는 연도별 비용을 볼 수 있습니다. [지원되는 대상 지역](./site-recovery-vmware-deployment-planner-cost-estimation.md#supported-target-regions) 및 [지원되는 통화](./site-recovery-vmware-deployment-planner-cost-estimation.md#supported-currencies)에 대해 자세히 알아보세요.
 
 **구성 요소별 비용** 총 DR 비용은 계산, 저장소, 네트워크 및 Azure Site Recovery 라이선스 비용이라는 4가지 구성 요소로 나뉩니다. 비용은 복제 중에 발생하는 사용량 및 DR 드릴 시간에 계산, 저장소(프리미엄 및 표준), 온-프레미스 사이트와 Azure 사이에 구성된 ExpressRoute/VPN 및 Azure Site Recovery 라이선스에 대해 발생하는 사용량을 기반으로 계산됩니다.
 
-**상태별 비용**: 총 DR(재해 복구) 비용은 복제 및 DR 드릴이라는 두 가지 다른 상태를 기반으로 분류됩니다. 
+**상태별 비용**: 총 DR(재해 복구) 비용은 복제 및 DR 드릴이라는 두 가지 다른 상태를 기반으로 분류됩니다.
 
-**복제 비용**: 복제 중에 발생하는 비용입니다. 저장소, 네트워크 및 Azure Site Recovery 라이선스 비용이 포함됩니다. 
+**복제 비용**: 복제 중에 발생하는 비용입니다. 저장소, 네트워크 및 Azure Site Recovery 라이선스 비용이 포함됩니다.
 
-**DR 드릴 비용**: 테스트 장애 조치(failover) 중에 발생하는 비용입니다. Azure Site Recovery는 테스트 장애 조치(failover) 중에 VM을 작동합니다. DR 드릴 비용은 VM의 계산 및 저장소를 실행하는 비용을 포함합니다. 
+**DR 드릴 비용**: 테스트 장애 조치(failover) 중에 발생하는 비용입니다. Azure Site Recovery는 테스트 장애 조치(failover) 중에 VM을 작동합니다. DR 드릴 비용은 VM의 계산 및 저장소를 실행하는 비용을 포함합니다.
 
 **월간/연간 Azure 저장소 비용**: 복제 및 DR 드릴을 위해 프리미엄 및 표준 저장소에 대해 발생할 총 저장소 비용을 보여줍니다.
 VM당 자세한 비용 분석은 [비용 예측](site-recovery-vmware-deployment-planner-cost-estimation.md) 시트에서 볼 수 있습니다.
@@ -266,7 +266,7 @@ Site Recovery 복제를 위해 x Mbps 이상의 대역폭을 설정할 수 없�
 
 **부팅 유형**: VM의 부팅 유형입니다. BIOS 또는 EFI일 수 있습니다.  현재 Azure Site Recovery는 부팅 디스크의 파티션 수가 4개 미만이고 부팅 섹터 크기가 512바이트인 경우 Windows Server EFI VM(Windows Server 2012, 2012 R2 및 2016)을 지원합니다. EFI VM을 보호하려면 Azure Site Recovery 모바일 서비스 버전이 9.13 이상이어야 합니다. EFI VM에서는 장애 조치만 지원되고, 장애 복구는 지원되지 않습니다.
 
-**OS 종류**: VM의 OS 종류입니다. Windows, Linux 또는 VM을 만드는 동안 VMware vSphere에서 선택된 템플릿을 기반으로 하는 다른 OS일 수도 있습니다. 
+**OS 종류**: VM의 OS 종류입니다. Windows, Linux 또는 VM을 만드는 동안 VMware vSphere에서 선택된 템플릿을 기반으로 하는 다른 OS일 수도 있습니다.
 
 ## <a name="azure-site-recovery-limits"></a>Azure Site Recovery 제한
 다음 테이블에는 Azure Site Recovery 제한이 제공됩니다. 이러한 한도는 테스트를 기반으로 하지만 모든 가능한 응용 프로그램 I/O 조합을 다룰 수는 없습니다. 실제 결과는 응용 프로그램 I/O 조합에 따라 달라질 수 있습니다. 최상의 결과를 얻으려면 배포를 계획한 후에도 항상 테스트 장애 조치를 통해 광범위한 응용 프로그램 테스트를 수행하여 응용 프로그램의 진정한 성능 상황을 이해하는 것이 좋습니다.
@@ -282,15 +282,15 @@ Standard Storage | 8KB | 2MB/초 | 디스크당 168GB
 
 **원본 데이터 변동률** | **최대 한도**
 ---|---
-VM당 평균 데이터 변동률| 25MB/초 
+VM당 평균 데이터 변동률| 25MB/초
 VM의 모든 디스크에 대한 최고 데이터 변동률 | 54MB/초
-프로세스 서버에서 지원하는 1일 최대 데이터 변동률 | 2TB 
+프로세스 서버에서 지원하는 1일 최대 데이터 변동률 | 2TB
 
 여기서는 I/O가 30% 겹치고 있다고 가정하는 평균 숫자입니다. Site Recovery는 중첩 비율, 더 큰 쓰기 크기 및 실제 워크로드 I/O 동작에 따라 더 높은 처리량을 다룰 수 있습니다. 앞의 숫자는 약 5분의 일반적인 백로그가 있다고 가정합니다. 즉, 데이터를 업로드한 후에 처리되며 5분 내에 복구 지점이 생성됩니다.
 
 
 ## <a name="cost-estimation"></a>비용 예측
-[비용 예측](site-recovery-vmware-deployment-planner-cost-estimation.md)에 대해 자세히 알아봅니다. 
+[비용 예측](site-recovery-vmware-deployment-planner-cost-estimation.md)에 대해 자세히 알아봅니다.
 
 
 ## <a name="next-steps"></a>다음 단계

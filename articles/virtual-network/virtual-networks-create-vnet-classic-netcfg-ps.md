@@ -4,7 +4,7 @@ description: "Azure 포털에서 네트워크 구성 파일을 사용하여 가�
 services: virtual-network
 documentationcenter: 
 author: jimdial
-manager: carmonm
+manager: jeconnoc
 editor: 
 tags: azure-service-management
 ms.assetid: 95eadae3-cffd-45d1-89bc-b74d030f3d57
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
-ms.openlocfilehash: a67c3f73d9e56ab0081836ba5db62f5a01c7b6bc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a4995040e59ce7c9b2ff4558815b76e82f0c87ea
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-a-virtual-network-classic-using-a-network-configuration-file-with-powershell"></a>PowerShell에서 네트워크 구성 파일을 사용하여 가상 네트워크 만들기(클래식)
 [!INCLUDE [virtual-networks-create-vnet-selectors-classic-include](../../includes/virtual-networks-create-vnet-selectors-classic-include.md)]
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 
-이 문서에서는 클래식 배포 모델을 사용하여 VNet을 만드는 방법을 설명합니다. [리소스 관리자 배포 모델에서 가상 네트워크를 만들](virtual-networks-create-vnet-arm-ps.md)수도 있습니다.
+이 문서에서는 클래식 배포 모델을 사용하여 VNet을 만드는 방법을 설명합니다. [리소스 관리자 배포 모델에서 가상 네트워크를 만들](quick-create-powershell.md)수도 있습니다.
 
 [!INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
 

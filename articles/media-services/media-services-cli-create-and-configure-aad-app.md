@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/17/2017
 ms.author: juliako
-ms.openlocfilehash: 01a2bb6d99776feec936315bc882c3097ce832d4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 205e554fa42b1c28ed78add3e84c046855875872
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="use-cli-20-to-create-an-aad-app-and-configure-it-to-access-azure-media-services-api"></a>CLI 2.0을 사용하여 AAD 앱 만들기 및 Azure Media Services API 액세스 구성
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="prerequisites"></a>필수 조건
 
 - Azure 계정. 자세한 내용은 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요. 
-- 미디어 서비스 계정. 자세한 내용은 [Azure Portal을 사용하여 Azure Media Services 계정 만들기](media-services-portal-create-account.md)를 참조하세요.
+- Media Services 계정. 자세한 내용은 [Azure Portal을 사용하여 Azure Media Services 계정 만들기](media-services-portal-create-account.md)를 참조하세요.
 
 ## <a name="use-the-azure-cloud-shell"></a>Azure Cloud Shell 사용
 
@@ -42,10 +42,10 @@ ms.lasthandoff: 10/11/2017
 ```azurecli
 az login
 az ad sp create-for-rbac --name <appName> --password <strong password>
-az role assignment create -- assignee < user/app id> --role Contributor --scope <subscription/subscription id>
+az role assignment create --assignee < user/app id> --role Contributor --scope <subscription/subscription id>
 ```
 
-예:
+예: 
 
 ```azurecli
 az role assignment create --assignee a3e068fa-f739-44e5-ba4d-ad57866e25a1 --role Contributor --scope /subscriptions/0b65e280-7917-4874-9fed-1307f2615ea2/resourceGroups/Default-AzureBatch-SouthCentralUS/providers/microsoft.media/mediaservices/sbbash
@@ -61,7 +61,7 @@ az role assignment create --assignee a3e068fa-f739-44e5-ba4d-ad57866e25a1 --role
 
 자세한 내용은 [Azure CLI 2.0을 사용하여 Azure 서비스 주체 만들기](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli)를 참조하세요.
 
-또한 [Azure 명령줄 인터페이스를 사용하여 역할 기반 액세스 제어 관리](../active-directory/role-based-access-control-manage-access-azure-cli.md)도 참조하세요. 
+또한 [Azure 명령줄 인터페이스를 사용하여 역할 기반 Access Control 관리](../active-directory/role-based-access-control-manage-access-azure-cli.md)도 참조하세요. 
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: cbc4b8cdb0ff9255d0be02b998e67686921921ea
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: fd20405c284161a1a66493056f21c147efa632cb
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Microsoft Azure 용어집: Azure 플랫폼의 클라우드 용어 사전
 
@@ -39,14 +39,14 @@ Azure 구독에 액세스하고 구독을 관리하는 데 사용되는 계정�
 [Azure App Service](app-service/app-service-web-overview.md)에서 웹 사이트 또는 웹 응용 프로그램, 웹 API 또는 [모바일 앱 백 엔드](app-service-mobile/app-service-mobile-value-prop.md)를 호스팅하기 위해 제공하는 계산 리소스입니다. App Service 앱은 *App Services*, *웹앱*, *API 앱* 및 *모바일 앱*이라고도 합니다.
 
 ## <a name="availability-set"></a>가용성 집합
-응용 프로그램 중복성 및 안정성을 제공하기 위해 함께 관리되는 가상 컴퓨터의 컬렉션입니다. 가용성 집합을 사용하면 계획되거나 계획되지 않은 유지 관리 이벤트 중에 하나 이상의 가상 컴퓨터를 사용할 수 있도록 합니다.  
-[Windows 가상 컴퓨터의 가용성 관리](virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 및 [Linux 가상 컴퓨터의 가용성 관리](virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
+응용 프로그램 중복성 및 안정성을 제공하기 위해 함께 관리되는 가상 머신의 컬렉션입니다. 가용성 집합을 사용하면 계획되거나 계획되지 않은 유지 관리 이벤트 중에 하나 이상의 가상 머신을 사용할 수 있도록 합니다.  
+[Windows 가상 머신의 가용성 관리](virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 및 [Linux 가상 머신의 가용성 관리](virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
 
 ## <a name="classic-model"></a>Azure 클래식 배포 모델
 Azure의 리소스를 배포하는 데 사용하는 두 [배포 모델](resource-manager-deployment-model.md) 중 하나입니다(새 모델은 Azure Resource Manager임). 일부 Azure 서비스는 Resource Manager 배포 모델만 지원하고 일부는 클래식 배포 모델만 지원하며 일부는 둘 모두를 지원합니다. 각 Azure 서비스에 대한 설명서에는 지원되는 모델이 지정되어 있습니다.
 
 ## <a name="cli"></a>Azure CLI(명령줄 인터페이스)
-Windows, macOS 및 Linux에서 Azure 서비스를 관리하는 데 사용할 수 있는 명령줄 인터페이스입니다.  일부 서비스 또는 서비스 기능은 PowerShell 또는 CLI를 통해서만 관리할 수 있습니다. [Azure CLI 2.0](/cli/azure/overview)을 참조하세요.
+Windows, macOS 및 Linux에서 Azure 서비스를 관리하는 데 사용할 수 있는 명령줄 인터페이스입니다.  일부 서비스 또는 서비스 기능은 PowerShell 또는 CLI를 통해서만 관리할 수 있습니다. [Azure CLI 2.0](/cli/azure)을 참조하세요.
 
 ## <a name="powershell"></a>Azure PowerShell
 Windows PC에서 명령줄을 통해 Azure 서비스를 관리하는 명령줄 인터페이스입니다. 일부 서비스 또는 서비스 기능은 PowerShell 또는 CLI를 통해서만 관리할 수 있습니다.
@@ -56,8 +56,8 @@ Windows PC에서 명령줄을 통해 Azure 서비스를 관리하는 명령줄 �
 Microsoft Azure의 리소스를 배포하는 데 사용하는 두 [배포 모델](resource-manager-deployment-model.md) 중 하나입니다(다른 모델은 클래식 배포 모델임). 일부 Azure 서비스는 Resource Manager 배포 모델만 지원하고 일부는 클래식 배포 모델만 지원하며 일부는 둘 모두를 지원합니다. 각 Azure 서비스에 대한 설명서에는 지원되는 모델이 지정되어 있습니다.
 
 ## <a name="fault-domain"></a>장애 도메인
-동시에 실패할 가능성이 있는 가용성 집합의 가상 컴퓨터 컬렉션입니다. 예를 들어 랙에서 공통된 전원 및 네트워크 스위치를 공유하는 컴퓨터 그룹입니다. Azure에서 가용성 집합의 가상 컴퓨터는 여러 장애 도메인에서 자동으로 분리됩니다.  
-[Windows 가상 컴퓨터의 가용성 관리](virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 또는 [Linux 가상 컴퓨터의 가용성 관리](virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.  
+동시에 실패할 가능성이 있는 가용성 집합의 가상 머신 컬렉션입니다. 예를 들어 랙에서 공통된 전원 및 네트워크 스위치를 공유하는 컴퓨터 그룹입니다. Azure에서 가용성 집합의 가상 머신은 여러 장애 도메인에서 자동으로 분리됩니다.  
+[Windows 가상 머신의 가용성 관리](virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 또는 [Linux 가상 머신의 가용성 관리](virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.  
 
 ## <a name="geo"></a>지역
 일반적으로 두 개 이상의 영역을 포함하는 데이터 상주에 대해 정의된 경계입니다. 경계는 국경 내에 있거나 초과될 수 있으며 세금 규정의 영향을 받습니다. 모든 지역에는 하나 이상의 하위 지역이 있습니다. 지역의 예로 아시아 태평양 및 일본이 있습니다. *지리*라고도 합니다.  
@@ -69,15 +69,15 @@ Microsoft Azure의 리소스를 배포하는 데 사용하는 두 [배포 모델
 <!-- The meaning of "geo" in this term seems to be different than the meaning provided in the "geo" entry -->
 
 ## <a name="image"></a>이미지
-개수에 관계없이 여러 가상 컴퓨터를 만드는 데 사용할 수 있는 운영 체제 및 응용 프로그램 구성을 포함하는 파일입니다. Azure에는 두 가지 유형의 이미지, 즉 VM 이미지와 OS 이미지가 있습니다. VM 이미지에는 운영 체제 및 이미지를 만들 때 가상 컴퓨터에 연결된 모든 디스크가 포함됩니다. OS 이미지에는 데이터 디스크 구성 없이 일반화된 운영 체제만 포함되어 있습니다.  
-[PowerShell 또는 CLI로 Azure의 Windows 가상 컴퓨터 이미지 이동 및 선택](virtual-machines/windows/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요.
+개수에 관계없이 여러 가상 머신을 만드는 데 사용할 수 있는 운영 체제 및 응용 프로그램 구성을 포함하는 파일입니다. Azure에는 두 가지 유형의 이미지, 즉 VM 이미지와 OS 이미지가 있습니다. VM 이미지에는 운영 체제 및 이미지를 만들 때 가상 머신에 연결된 모든 디스크가 포함됩니다. OS 이미지에는 데이터 디스크 구성 없이 일반화된 운영 체제만 포함되어 있습니다.  
+[PowerShell 또는 CLI로 Azure의 Windows 가상 머신 이미지 이동 및 선택](virtual-machines/windows/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요.
 
 ## <a name="limits"></a>제한
 만들 수 있는 리소스 수 또는 도달할 수 있는 성능 벤치마크입니다. 제한은 일반적으로 구독, 서비스 및 제공 사항에 연결됩니다.  
 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](azure-subscription-service-limits.md)을 참조하세요.
 
 ## <a name="load-balancer"></a>부하 분산 장치
-들어오는 트래픽을 네트워크의 컴퓨터 간에 분산시키는 리소스입니다. Azure에서 부하 분산 장치는 부하 분산 장치 집합에 정의된 가상 컴퓨터에 트래픽을 분산시킵니다. [부하 분산 장치](load-balancer/load-balancer-overview.md) 는 인터넷에 연결되거나 내부에 있을 수 있습니다.  
+들어오는 트래픽을 네트워크의 컴퓨터 간에 분산시키는 리소스입니다. Azure에서 부하 분산 장치는 부하 분산 장치 집합에 정의된 가상 머신에 트래픽을 분산시킵니다. [부하 분산 장치](load-balancer/load-balancer-overview.md) 는 인터넷에 연결되거나 내부에 있을 수 있습니다.  
 
 ## <a name="mobile-app"></a>모바일 앱
 [App Service 앱](#app-service-app)의 다른 이름입니다.
@@ -94,7 +94,7 @@ Azure 서비스를 배포하고 관리하는 데 사용하는 보안 웹 포털�
 [Azure 지역](best-practices-availability-paired-regions.md)을 참조하세요.
 
 ## <a name="resource"></a>resource
-Azure 솔루션에 속한 항목입니다. 각 Azure 서비스를 사용하면 데이터베이스 또는 가상 컴퓨터와 같은 다양한 유형의 리소스를 배포할 수 있습니다.   
+Azure 솔루션에 속한 항목입니다. 각 Azure 서비스를 사용하면 데이터베이스 또는 가상 머신과 같은 다양한 유형의 리소스를 배포할 수 있습니다.   
 [Azure Resource Manager 개요](azure-resource-manager/resource-group-overview.md)를 참조하세요.
 
 ## <a name="resource-group"></a>리소스 그룹
@@ -133,17 +133,17 @@ Azure 서비스를 받을 수 있도록 하는, 고객과 Microsoft와의 계약
 [태그를 사용하여 Azure 리소스 구성](resource-group-using-tags.md)을 참조하세요.
 
 ## <a name="update-domain"></a>업데이트 도메인
-동시에 업데이트되는 가용성 집합에 있는 가상 컴퓨터의 컬렉션입니다. 동일한 업데이트 도메인의 가상 컴퓨터는 계획된 유지 관리 동안 함께 다시 시작됩니다. Azure는 한 번에 둘 이상의 업데이트 도메인을 다시 시작하지 않습니다. 또한 업그레이드 도메인이라고도 합니다.  
-[Windows 가상 컴퓨터의 가용성 관리](virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 및 [Linux 가상 컴퓨터의 가용성 관리](virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
+동시에 업데이트되는 가용성 집합에 있는 가상 머신의 컬렉션입니다. 동일한 업데이트 도메인의 가상 머신은 계획된 유지 관리 동안 함께 다시 시작됩니다. Azure는 한 번에 둘 이상의 업데이트 도메인을 다시 시작하지 않습니다. 또한 업그레이드 도메인이라고도 합니다.  
+[Windows 가상 머신의 가용성 관리](virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 및 [Linux 가상 머신의 가용성 관리](virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
 
 ## <a name="vm"></a>가상 컴퓨터
-운영 체제를 실행하는 물리적 컴퓨터의 소프트웨어 구현입니다. 같은 하드웨어에서 복수의 가상 컴퓨터가 동시에 실행될 수 있습니다. Azure에서 가상 컴퓨터는 다양한 크기로 사용할 수 있습니다.  
+운영 체제를 실행하는 물리적 컴퓨터의 소프트웨어 구현입니다. 같은 하드웨어에서 복수의 가상 머신이 동시에 실행될 수 있습니다. Azure에서 가상 머신은 다양한 크기로 사용할 수 있습니다.  
 [Virtual Machines 설명서](https://azure.microsoft.com/documentation/services/virtual-machines/)를 참조하세요.
 
 ## <a name="vm-extension"></a>가상 컴퓨터 확장
-다른 프로그램의 작동을 돕거나 실행 중인 컴퓨터를 조작할 수 있는 기능을 제공하는 동작 또는 기능을 구현하는 리소스입니다. 예를 들어 Azure 가상 컴퓨터에서 VM 액세스 확장을 사용하여 원격 액세스 값을 다시 설정하거나 수정할 수 있습니다.
+다른 프로그램의 작동을 돕거나 실행 중인 컴퓨터를 조작할 수 있는 기능을 제공하는 동작 또는 기능을 구현하는 리소스입니다. 예를 들어 Azure 가상 머신에서 VM 액세스 확장을 사용하여 원격 액세스 값을 다시 설정하거나 수정할 수 있습니다.
 <!-- This definition seems obscure to me; maybe a list of examples would work better than a conceptual definition? -->
-[가상 컴퓨터 확장 및 기능 정보(Windows)](virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 또는 [가상 컴퓨터 확장 및 기능 정보(Linux)](virtual-machines/linux/extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
+[가상 머신 확장 및 기능 정보(Windows)](virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 또는 [가상 머신 확장 및 기능 정보(Linux)](virtual-machines/linux/extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
 
 ## <a name="vnet"></a>가상 네트워크
 다른 모든 Azure 테넌트에서 격리된 Azure 리소스 간의 연결을 제공하는 네트워크입니다. [Azure VPN Gateway](vpn-gateway/vpn-gateway-about-vpngateways.md)를 통해 가상 네트워크 간 연결과 [가상 네트워크 및 온-프레미스 네트워크 간](vpn-gateway/vpn-gateway-plan-design.md) 연결을 설정할 수 있습니다. 사용자는 가상 네트워크 내부의 IP 주소 블록, DNS 설정, 보안 정책 및 경로 테이블을 완벽하게 제어할 수 있습니다.  

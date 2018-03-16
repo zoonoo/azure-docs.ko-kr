@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 2/23/2018
+ms.date: 3/9/2018
 ms.author: masnider;
-ms.openlocfilehash: 3c583d99a63c13a0a2ab351f82a4f5ff6840788a
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: cf647c078728c9fbe357fea5bef4aa6dfb86c975
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="reliable-services-overview"></a>신뢰할 수 있는 서비스 개요
 Azure 서비스 패브릭은 상태 비저장 및 상태 저장 신뢰할 수 있는 서비스의 작성과 관리를 단순화합니다. 이 항목은 다음에 대해 설명합니다.
@@ -87,10 +87,6 @@ Reliable Services의 개요는 다음 Microsoft Virtual Academy 비디오를 시
 상태 저장 서비스는 상태의 일부분이 일관적으로 유지되고 순서대로 있어야 서비스가 작동할 수 있습니다. 수신하는 업데이트에 따라 일부 값의 이동 평균을 지속적으로 계산하는 서비스를 고려할 수 있습니다. 이 서비스를 수행하려면 처리해야 하는 수신 요청의 현재 집합과 현재 평균이 있어야 합니다. 정보를 검색, 처리하고 외부 저장소(예: Azure Blob 또는 현재 테이블 저장소)에 저장하는 모든 서비스는 상태 저장입니다. 외부 상태 저장소에 상태를 보관합니다.
 
 오늘날 대부분의 서비스는 외부에 상태를 저장합니다. 외부 저장소는 해당 상태에 대한 안정성, 가용성, 확장성 및 일관성을 제공하기 때문입니다. Service Fabric에서 서비스는 해당 상태를 외부적으로 저장할 필요가 없습니다. Service Fabric은 서비스 코드와 서비스 상태 모두에 대한 이러한 요구 사항을 처리합니다.
-
-> [!NOTE]
-> 아직 Linux에서는 상태 저장 Reliable Services가 지원되지 않습니다(C# 또는 Java의 경우).
->
 
 이미지를 처리하는 서비스를 작성하려는 경우를 가정하겠습니다. 이를 위해 서비스는 이미지 및 일련의 변환을 사용하여 해당 이미지에서 수행합니다. 이 서비스는 `ConvertImage(Image i, IList<Conversion> conversions)`와 같은 API를 노출하는 통신 수신기(WebAPI라고 가정함)를 반환합니다. 요청을 받으면 서비스는 `IReliableQueue`에 저장하고 요청을 추적할 수 있도록 클라이언트에 일부 ID를 반환합니다.
 
