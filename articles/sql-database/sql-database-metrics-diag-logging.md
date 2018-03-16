@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/16/2017
 ms.author: vvasic
-ms.openlocfilehash: 87bbbd1fdcb9afb59de0bda29e99e23e0b9ad104
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 2d0a2d5966c8c99e7d71d97d4819d58a1474c2fe
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database 메트릭 및 진단 로깅 
 Azure SQL Database는 모니터링 편의를 위해 메트릭 및 진단 로그를 내보낼 수 있습니다. 리소스 사용량, 작업자와 세션 및 연결을 이러한 Azure 리소스 중 하나에 저장하도록 SQL Database를 구성할 수 있습니다.
@@ -386,7 +386,7 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 |query_hash_s|실패한 쿼리의 쿼리 해시(있는 경우)|
 |query_plan_hash_s|실패한 쿼리의 쿼리 계획 해시(있는 경우).|
 
-[SQL Server 오류 메시지에 대해 자세히 알아봅니다](https://msdn.microsoft.com/en-us/library/cc645603.aspx).
+[SQL Server 오류 메시지에 대해 자세히 알아봅니다](https://msdn.microsoft.com/library/cc645603.aspx).
 
 ### <a name="database-wait-statistics-dataset"></a>데이터베이스 대기 통계 데이터 집합
 

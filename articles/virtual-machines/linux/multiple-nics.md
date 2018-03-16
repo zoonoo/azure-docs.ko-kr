@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/26/2017
 ms.author: iainfou
-ms.openlocfilehash: e377459d205426b34c52336d9104400cf9d8030b
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 635d1373a51f2f2e4d4f7ab5053e520f5b9363a6
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>여러 네트워크 인터페이스 카드를 사용하여 Azure에서 Linux 가상 머신을 만드는 방법
 Azure에서 여러 가상 NIC(네트워크 인터페이스)가 연결된 VM(가상 머신)을 만들 수 있습니다. 일반적인 시나리오는 프런트 엔드 및 백 엔드 연결에 다른 서브넷을 사용하거나 모니터링 또는 백업 솔루션 전용 네트워크를 두는 것입니다. 이 문서에서는 여러 NIC가 연결되어 있는 VM을 만드는 방법과 기존 VM에서 NIC를 추가 또는 제거하는 방법을 자세히 설명합니다. [VM 크기](sizes.md) 가 다르면 다양한 NIC가 지원되므로 그에 따라 VM 크기를 지정하도록 합니다.
@@ -27,7 +27,7 @@ Azure에서 여러 가상 NIC(네트워크 인터페이스)가 연결된 VM(가�
 
 
 ## <a name="create-supporting-resources"></a>지원 리소스 만들기
-최신 [Azure CLI 2.0](/cli/azure/install-az-cli2)을 설치하고 [az login](/cli/azure/#az_login)을 사용하여 Azure 계정에 로그인합니다.
+최신 [Azure CLI 2.0](/cli/azure/install-az-cli2)을 설치하고 [az login](/cli/azure/reference-index#az_login)을 사용하여 Azure 계정에 로그인합니다.
 
 다음 예제에서 매개 변수 이름을 고유한 값으로 바꿉니다. 예제 매개 변수 이름에는 *myResourceGroup*, *mystorageaccount* 및 *myVM*이 포함됩니다.
 

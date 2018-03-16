@@ -1,10 +1,10 @@
 ---
 title: "다른 실험에서 얻은 데이터를 Machine Learning 스튜디오로 가져오기 | Microsoft Docs"
-description: "Azure 기계 학습 스튜디오에서 학습 데이터를 저장하고 다른 실험에 사용하는 방법."
+description: "Azure Machine Learning Studio에서 학습 데이터를 저장하고 다른 실험에 사용하는 방법."
 keywords: "데이터 가져오기, 데이터, 데이터 원본, 학습 데이터"
 services: machine-learning
 documentationcenter: 
-author: garyericson
+author: bradsev
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 7da9dcec-5693-4bb6-8166-15904e7f75c3
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.author: garye;bradsev
-ms.openlocfilehash: cac35aa26fcdb7f2fb0db3b895d3c99d77f3b4ba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: bradsev
+ms.openlocfilehash: 411cf5960381873d5b348bd35f51b8190900d842
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/08/2018
 ---
-# <a name="import-your-data-into-azure-machine-learning-studio-from-another-experiment"></a>다른 실험에서 얻은 사용자의 데이터를 Azure 기계 학습 스튜디오로 가져오기
+# <a name="import-your-data-into-azure-machine-learning-studio-from-another-experiment"></a>다른 실험에서 얻은 사용자의 데이터를 Azure Machine Learning Studio로 가져오기
 [!INCLUDE [import-data-into-aml-studio-selector](../../../includes/machine-learning-import-data-into-aml-studio.md)]
 
 한 실험의 중간 결과를 다른 실험의 일부로 사용하려는 경우가 있습니다. 이렇게 하려면 모듈을 데이터 집합으로 저장합니다.

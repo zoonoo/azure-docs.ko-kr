@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/22/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 5bea41999f59fe8be7ae0a0bd5b726527beeddd5
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 8cdfd80f436a9ef39426da9d3f2f76ae59677847
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="assign-a-user-assigned-managed-service-identity-msi-access-to-a-resource-using-azure-cli"></a>Azure CLI를 사용하여 사용자 할당 MSI(관리 서비스 ID)에 리소스 액세스 권한 할당
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 02/03/2018
 이 자습서의 CLI 스크립트 예제는 두 가지 옵션을 통해 실행할 수 있습니다.
 
 - Azure Portal에서 또는 각 코드 블록의 오른쪽 상단 모서리에 있는 "사용해 보세요" 단추를 통해 [Azure Cloud Shell](~/articles/cloud-shell/overview.md)을 사용합니다.
-- 로컬 CLI 콘솔을 사용하려는 경우 [CLI 2.0의 최신 버전(2.0.23 이상)을 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)합니다. 그런 다음 [az login](/cli/azure/#az_login)을 사용하여 Azure에 로그인합니다. 사용자 할당 MSI 및 VM을 배포하려는 Azure 구독과 연결된 계정을 사용하세요.
+- 로컬 CLI 콘솔을 사용하려는 경우 [CLI 2.0의 최신 버전(2.0.23 이상)을 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)합니다. 그런 다음 [az login](/cli/azure/reference-index#az_login)을 사용하여 Azure에 로그인합니다. 사용자 할당 MSI 및 VM을 배포하려는 Azure 구독과 연결된 계정을 사용하세요.
 
    ```azurecli
    az login

@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2017
+ms.date: 03/09/2018
 ms.author: asgang
-ms.openlocfilehash: 8ffc4a5a573b1c5951fab98fb766aed36f626fe4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b390f6c62a6ddf8c800f79b42a36dac2c4f4c908
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="replicate-a-multitier-dynamics-ax-application-by-using-azure-site-recovery"></a>Azure Site Recovery를 사용하여 다중 계층 Dynamics AX 응용 프로그램 복제
 
@@ -41,11 +41,11 @@ Site Recovery를 사용하여 Dynamics AX 응용 프로그램의 재해 복구�
 
 • Azure 구독에 Site Recovery 자격 증명 모음을 만듭니다.
 
-• Azure가 복구 사이트인 경우 VM에서 Azure Virtual Machine Readiness Assessment 도구를 실행합니다. VM은 Azure Virtual Machines와 Site Recovery 서비스와 호환되어야 합니다.
+• Azure가 복구 사이트인 경우 VM에서 Azure Virtual Machine Readiness Assessment 도구를 실행합니다. Azure Virtual Machines와 Site Recovery 서비스 간에 호환되어야 합니다.
 
 ## <a name="site-recovery-support"></a>Site Recovery 지원
 
-이 문서를 작성하기 위해 Windows Server 2012 R2 Enterprise에서 Dynamics AX 2012 R3가 있는 VMware 가상 컴퓨터가 사용되었습니다. Site Recovery 복제는 응용 프로그램에 상관없이 실행되므로 여기서 제시하는 권장 사항은 다음 시나리오에서도 적용될 것입니다.
+이 문서를 작성하기 위해 Windows Server 2012 R2 Enterprise에서 Dynamics AX 2012 R3가 있는 VMware 가상 머신이 사용되었습니다. Site Recovery 복제는 응용 프로그램에 상관없이 실행되므로 여기서 제시하는 권장 사항은 다음 시나리오에서도 적용될 것입니다.
 
 ### <a name="source-and-target"></a>원본 및 대상
 
@@ -57,7 +57,7 @@ Site Recovery를 사용하여 Dynamics AX 응용 프로그램의 재해 복구�
 
 ## <a name="enable-disaster-recovery-of-the-dynamics-ax-application-by-using-site-recovery"></a>Site Recovery를 사용하여 Dynamics AX 응용 프로그램의 재해 복구를 활성화
 ### <a name="protect-your-dynamics-ax-application"></a>Dynamics AX 응용 프로그램 보호
-완전한 응용 프로그램 복제 및 복구가 가능하려면 Dynamics AX의 각 구성 요소를 보호해야 합니다. 
+완전한 응용 프로그램 복제 및 복구가 가능하려면 Dynamics AX의 각 구성 요소를 보호해야 합니다.
 
 ### <a name="1-set-up-active-directory-and-dns-replication"></a>1. Active Directory 및 DNS 복제 설정 
 
@@ -98,7 +98,7 @@ Dynamics AX 클라이언트 및 Application Object Server VM의 경우 Site Reco
 
 * 고정 IP를 사용하는 경우 **대상 IP** 텍스트 상자에 VM이 사용할 IP를 지정합니다.
 
-    ![네트워크 설정 ](./media/site-recovery-dynamics-ax/vmpropertiesaos1.png).
+    ![네트워크 설정 ](./media/site-recovery-dynamics-ax/vmpropertiesaos1.png)에서도 확인할 수 있습니다.
 
 
 ### <a name="5-create-a-recovery-plan"></a>5. 복구 계획 만들기
@@ -137,7 +137,7 @@ Application Object Server VM 그룹이 나온 뒤 스크립트를 추가(Azure A
 
 ### <a name="perform-a-test-failover"></a>테스트 장애 조치(failover) 수행
 
-테스트 장애 조치 중인 Active Directory와 관련한 자세한 내용은 "Active Directory 재해 복구 솔루션" 도우미 가이드를 참조하세요. 
+테스트 장애 조치 중인 Active Directory와 관련한 자세한 내용은 "Active Directory 재해 복구 솔루션" 도우미 가이드를 참조하세요.
 
 테스트 장애 조치 중인 SQL Server와 관련한 자세한 내용은 [SQL Server 및 Azure Site Recovery를 통한 응용 프로그램 복제](site-recovery-sql.md)를 참조하세요.
 

@@ -17,10 +17,10 @@ ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017;it-pro
 ms.openlocfilehash: 3ece2326a19e32666f46e8b737d15a48e335de6a
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2018
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Azure Active Directory에서 동적 그룹 멤버 자격에 대한 특성 기반 규칙 만들기
 Azure AD(Azure Active Directory)에서 그룹에 대해 복잡한 특성 기반 동적 그룹 멤버 자격을 사용하도록 설정하기 위한 고급 규칙을 만들 수 있습니다. 이 문서는 특성 및 사용자 또는 장치에 대한 동적 멤버 자격 규칙을 만드는 구문에 대해 자세히 설명합니다.

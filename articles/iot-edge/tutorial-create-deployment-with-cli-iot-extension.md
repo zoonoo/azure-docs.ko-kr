@@ -11,15 +11,15 @@ ms.topic: article
 ms.service: iot-edge
 ms.custom: mvc
 ms.reviewer: kgremban
-ms.openlocfilehash: 1986c9881c09ffa480103e009dc42d18aad4e2aa
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 25f1becff11138e59595c211802acbf791094e53
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="deploy-modules-to-an-iot-edge-device-using-iot-extension-for-azure-cli-20"></a>Azure CLI 2.0용 IoT 확장을 사용하여 IoT Edge 장치 배포
 
-[Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/overview?view=azure-cli-latest)은 IoT Edge 같은 Azure 리소스를 관리하기 위한 오픈 소스 교차 플랫폼 명령줄 도구입니다. Azure CLI 2.0은 Windows, Linux 및 MacOS에서 사용할 수 있습니다.
+[Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure?view=azure-cli-latest)은 IoT Edge 같은 Azure 리소스를 관리하기 위한 오픈 소스 교차 플랫폼 명령줄 도구입니다. Azure CLI 2.0은 Windows, Linux 및 MacOS에서 사용할 수 있습니다.
 
 Azure CLI 2.0을 사용하면 Azure IoT Hub 리소스, 장치 프로비전 서비스 인스턴스 및 연결된 허브를 즉시 관리할 수 있습니다. 새로운 IoT 확장은 장치 관리 및 전체 IoT Edge 같은 기능으로 Azure CLI 2.0을 강화합니다.
 

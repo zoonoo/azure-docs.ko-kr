@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/10/2017
 ms.author: kumud
-ms.openlocfilehash: 0b0d474752615e60747ffe7681c2d04cd2685bba
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 3f67d4f537a832d1d3e13ff2a67645ae17ed8669
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="get-started-with-azure-dns-using-powershell"></a>PowerShell을 사용하여 Azure DNS 시작
 
 > [!div class="op_single_selector"]
-> * [Azure 포털](dns-getstarted-portal.md)
+> * [Azure Portal](dns-getstarted-portal.md)
 > * [PowerShell](dns-getstarted-powershell.md)
 > * [Azure CLI 1.0](dns-getstarted-cli-nodejs.md)
 > * [Azure CLI 2.0](dns-getstarted-cli.md)
@@ -78,7 +78,7 @@ DNS 영역 및 레코드가 적절히 설정되었다면 Azure DNS 이름 서버
 영역에 대한 이름 서버는 `Get-AzureRmDnsZone` cmdlet으로 지정됩니다.
 
 ```powershell
-Get-AzureRmDnsZone -ZoneName contoso.com -ResourceGroupName MyResourceGroup
+Get-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyResourceGroup
 
 Name                  : contoso.com
 ResourceGroupName     : myresourcegroup

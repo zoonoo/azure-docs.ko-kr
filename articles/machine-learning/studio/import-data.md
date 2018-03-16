@@ -1,6 +1,6 @@
 ---
 title: "Machine Learning 스튜디오로 데이터 가져오기 | Microsoft Docs"
-description: "다양한 데이터 원본에서 Azure 기계 학습 스튜디오로 데이터를 가져오는 방법 지원되는 데이터 형식에 대해 알아봅니다."
+description: "다양한 데이터 원본에서 Azure Machine Learning Studio로 데이터를 가져오는 방법. 지원되는 데이터 형식에 대해 알아봅니다."
 keywords: "데이터 가져오기, 데이터 형식, 데이터 유형, 데이터 원본, 학습 데이터"
 services: machine-learning
 documentationcenter: 
@@ -16,42 +16,42 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: garye;bradsev
 ms.openlocfilehash: eb22f516f298df9396ca809acaa9c8cb62589c2a
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/14/2018
 ---
-# <a name="import-your-training-data-into-azure-machine-learning-studio-from-various-data-sources"></a>다양한 데이터 원본에서 Azure 기계 학습 스튜디오로 학습 데이터를 가져오기
-다음을 수행하면 기계 학습 스튜디오에 사용자 고유의 데이터를 사용하여 예측 분석 솔루션을 개발 및 학습할 수 있습니다. 
+# <a name="import-your-training-data-into-azure-machine-learning-studio-from-various-data-sources"></a>다양한 데이터 원본에서 Azure Machine Learning Studio로 학습 데이터를 가져오기
+다음을 수행하면 Machine Learning Studio에 사용자 고유의 데이터를 사용하여 예측 분석 솔루션을 개발 및 학습할 수 있습니다. 
 
 * 미리 하드 드라이브의 **로컬 파일** 에서 데이터를 업로드하여 사용자의 작업 영역에 데이터 집합 모듈을 만듭니다.
 * [데이터 가져오기][import-data] 모듈을 사용하여 실험을 실행하는 동안 여러 **온라인 데이터 원본** 중 하나에서 데이터에 액세스합니다. 
 * **데이터 집합**으로 저장된 또 다른 Azure 기계 학습 실험에서 나온 데이터를 사용합니다.
 * 온-프레미스 **SQL Server 데이터베이스**에서 데이터 사용합니다.
 
-이러한 각 옵션을 아래 메뉴의 항목 중 하나에서 설명합니다. 이 항목에서는 기계 학습 스튜디오에서 사용하기 위해 이러한 여러 데이터 원본에서 데이터를 가져오는 방법을 보여 줍니다. 
+이러한 각 옵션을 아래 메뉴의 항목 중 하나에서 설명합니다. 이 항목에서는 Machine Learning Studio에서 사용하기 위해 이러한 여러 데이터 원본에서 데이터를 가져오는 방법을 보여 줍니다. 
 
 [!INCLUDE [import-data-into-aml-studio-selector](../../../includes/machine-learning-import-data-into-aml-studio.md)]
 
 > [!NOTE]
-> 기계 학습 스튜디오에는 학습 데이터로 사용할 수 있는 샘플 데이터 집합이 많이 있습니다. 이에 대한 자세한 내용은 ( [Azure 기계 학습 스튜디오의 샘플 데이터 집합 사용](use-sample-datasets.md)을 참조하세요.
+> Machine Learning Studio에는 학습 데이터로 사용할 수 있는 샘플 데이터 집합이 많이 있습니다. 이에 대한 자세한 내용은 [Azure Machine Learning Studio의 샘플 데이터 집합 사용](use-sample-datasets.md)을 참조하세요.
 > 
 > 
 
-또한 이 소개 항목에서는 기계 학습 스튜디오에 사용할 준비가 완료된 데이터를 가져오는 방법을 보여 주고 지원되는 데이터 형식과 데이터 유형을 다룹니다. 
+또한 이 소개 항목에서는 Machine Learning Studio에 사용할 준비가 완료된 데이터를 가져오는 방법을 보여 주고 지원되는 데이터 형식과 데이터 유형을 다룹니다. 
 
 > [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 > 
 > 
 
-## <a name="get-data-ready-for-use-in-azure-machine-learning-studio"></a>Azure 기계 학습 스튜디오에서 사용할 준비가 완료된 데이터 가져오기
-기계 학습 스튜디오는 데이터베이스에서 구분되었거나 구조화된 데이터인 텍스트 데이터 등의 직사각형 또는 테이블 형식 데이터에 대해 작업하도록 설계되어 있습니다. 단, 경우에 따라 직사각형이 아닌 데이터도 사용할 수 있습니다.
+## <a name="get-data-ready-for-use-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio에서 사용할 준비가 완료된 데이터 가져오기
+Machine Learning Studio는 데이터베이스에서 구분되었거나 구조화된 데이터인 텍스트 데이터 등의 직사각형 또는 테이블 형식 데이터에 대해 작업하도록 설계되어 있습니다. 단, 경우에 따라 직사각형이 아닌 데이터도 사용할 수 있습니다.
 
 데이터가 비교적 정리되어 있는 것이 좋습니다. 즉, 실험에 데이터를 업로드하기 전에 따옴표가 없는 문자열 등의 문제를 처리합니다.
 
-그러나 기계 학습 스튜디오에는 실험에서 데이터를 조작할 수 있는 모듈도 있습니다. 사용할 기계 학습 알고리즘에 따라 누락된 값 및 스파스 데이터와 같은 데이터 구조 문제 해결 방법을 결정해야 하며, 이때 도움을 줄 수 있는 모듈이 있습니다. 모듈 팔레트의 **데이터 변환** 섹션에서 이러한 함수를 수행하는 모듈을 찾습니다.
+그러나 Machine Learning Studio에는 실험에서 데이터를 조작할 수 있는 모듈도 있습니다. 사용할 기계 학습 알고리즘에 따라 누락된 값 및 스파스 데이터와 같은 데이터 구조 문제 해결 방법을 결정해야 하며, 이때 도움을 줄 수 있는 모듈이 있습니다. 모듈 팔레트의 **데이터 변환** 섹션에서 이러한 함수를 수행하는 모듈을 찾습니다.
 
-실험을 수행하는 동안 언제든지 출력 포트를 클릭하여 모듈에서 생성한 데이터를 보거나 다운로드할 수 있습니다. 모듈에 따라 서로 다른 다운로드 옵션을 사용할 수 있습니다. 또는 기계 학습 스튜디오의 웹 브라우저에서 데이터를 시각화할 수도 있습니다.
+실험을 수행하는 동안 언제든지 출력 포트를 클릭하여 모듈에서 생성한 데이터를 보거나 다운로드할 수 있습니다. 모듈에 따라 서로 다른 다운로드 옵션을 사용할 수 있습니다. 또는 Machine Learning Studio의 웹 브라우저에서 데이터를 시각화할 수도 있습니다.
 
 ## <a name="data-formats-and-data-types-supported"></a>지원되는 데이터 형식 및 데이터 유형
 데이터를 가져오는 데 사용하는 메커니즘과 데이터의 출처에 따라 실험에 여러 데이터 형식을 가져올 수 있습니다.
@@ -69,20 +69,20 @@ ms.lasthandoff: 12/01/2017
 * Zip 파일(.zip)
 * R 개체 또는 작업 영역 파일(. RData)
 
-메타 데이터를 포함하는 ARFF와 같은 형식으로 데이터를 가져오는 경우, 기계 학습 스튜디오에서는 이 메타 데이터를 사용하여 각 열의 머리글과 데이터 형식을 정의합니다.
+메타 데이터를 포함하는 ARFF와 같은 형식으로 데이터를 가져오는 경우, Machine Learning Studio에서는 이 메타 데이터를 사용하여 각 열의 머리글과 데이터 형식을 정의합니다.
 
-이 메타 데이터를 포함하지 않는 TSV 또는 CSV 형식과 같은 데이터를 가져오는 경우, 기계 학습에서는 데이터를 샘플링하여 각 열의 데이터 형식을 유추합니다. 데이터에 열 머리글이 없는 경우 기계 학습 스튜디오에서 기본 이름을 제공합니다.
+이 메타 데이터를 포함하지 않는 TSV 또는 CSV 형식과 같은 데이터를 가져오는 경우, Machine Learning Studio에서는 데이터를 샘플링하여 각 열의 데이터 형식을 유추합니다. 데이터에 열 머리글이 없는 경우 Machine Learning Studio에서 기본 이름을 제공합니다.
 
 [메타데이터 편집][edit-metadata]을 사용하여 열의 머리글과 데이터 유형을 명시적으로 지정하거나 변경할 수 있습니다.
 
-기계 학습 스튜디오에서 인식하는 **데이터 유형** 은 다음과 같습니다.
+Machine Learning Studio에서 인식하는 **데이터 유형**은 다음과 같습니다.
 
-* String
-* Integer
+* 문자열
+* 정수 
 * double
-* Boolean
-* DateTime
-* TimeSpan
+* BOOLEAN
+* Datetime
+* timespan
 
 Machine Learning 스튜디오에서는 ***데이터 테이블***이라는 내부 데이터 형식을 사용하여 모듈 간에 데이터를 전달합니다. [데이터 집합으로 변환][convert-to-dataset] 모듈을 사용하여 명시적으로 데이터를 데이터 테이블 형식으로 변환할 수 있습니다.
 

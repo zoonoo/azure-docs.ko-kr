@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
 ms.author: robinsh
-ms.openlocfilehash: f94febfa1610795cd46b4315bbbbe56aa2bca861
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 7bd8d17d5a2c918f2bef770c224398e7332785f9
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>Azure Storage와 함께 Azure PowerShell 사용
 
@@ -136,8 +136,6 @@ SKU 이름은 LRS(로컬 중복 저장소)처럼 저장소 계정에 대한 복�
 * **SKU**는 LRS(로컬 중복 저장소)처럼 저장소 계정에 대한 복제 설정을 나타냅니다. 예를 들어 Standard\_LRS를 Standard\_GRS 또는 Standard\_RAGRS로 변경할 수 있습니다. Standard \_ZRS 또는 Premium\_ LRS를 다른 SKU로 변경하거나 다른 SKU를 해당 항목으로 변경할 수 없습니다.
 
 * Blob Storage 계정에 대한 **액세스 계층**. 액세스 계층의 값은 **hot** 또는 **cool**로 설정되며 저장소 계정을 사용하는 방법에 맞게 액세스 계층을 선택하여 비용을 최소화할 수 있습니다. 자세한 내용은 [핫, 쿨, 보관 저장소 계층](../blobs/storage-blob-storage-tiers.md)을 참조하세요.
-
-* Blob Storage 및/또는 파일 저장소에 대한 저장소 서비스 암호화. SSE에 대한 자세한 내용은 [저장소 서비스 암호화](storage-service-encryption.md)를 참조하세요.
 
 * HTTPS 트래픽만 허용됩니다. 
 

@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 12/04/2017
+ms.date: 03/09/2018
 ms.author: nisoneji
-ms.openlocfilehash: 7e3e0cebbb1ae0c7c63de586f458814f5dc6f202
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 77e76e5f9960f8a7c54ebcb82321784be5c1aa99
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>VMware에서 Azure로 Azure Site Recovery Deployment Planner
 이 문서는 VMware에서 Azure로의 프로덕션 배포를 위한 Azure Site Recovery의 Deployment Planner 사용자 가이드입니다.
@@ -36,7 +36,7 @@ Azure Site Recovery를 사용하여 VMware VM(가상 머신) 보호를 시작하
 **호환성 평가**
 
 * 디스크 수, 디스크 크기, IOPS, 변동 및 부팅 유형(EFI/BIOS) 및 OS 버전에 기반한 VM 적합성 평가
- 
+
 **네트워크 대역폭 요구 사항 및 RPO 평가**
 
 * 델타 복제에 필요한 예상 네트워크 대역폭
@@ -71,7 +71,7 @@ Azure Site Recovery를 사용하여 VMware VM(가상 머신) 보호를 시작하
 
 | | **VMware에서 Azure로** |**Hyper-V에서 Azure로**|**Azure 간**|**Hyper-V에서 보조 사이트로**|**VMware에서 보조 사이트로**
 --|--|--|--|--|--
-지원되는 시나리오 |예|예|아니요|예*|아니오
+지원되는 시나리오 |예|예|아니오|예*|아니요
 지원되는 버전 | vCenter 6.5, 6.0 또는 5.5| Windows Server 2016, Windows Server 2012 R2 | 해당 없음 |Windows Server 2016, Windows Server 2012 R2|해당 없음
 지원되는 구성|vCenter, ESXi| Hyper-V 클러스터, Hyper-V 호스트|해당 없음|Hyper-V 클러스터, Hyper-V 호스트|해당 없음|
 Site Recovery Deployment Planner의 실행 인스턴스당 프로파일링할 수 있는 서버 수 |한 개(하나의 vCenter Server 또는 하나의 ESXi 서버에 속하는 VM을 한 번에 프로파일링할 수 있습니다.)|여러 개(여러 호스트 또는 호스트 클러스터 간에 VM을 한 번에 프로파일링할 수 있음)| 해당 없음 |여러 개(여러 호스트 또는 호스트 클러스터 간에 VM을 한 번에 프로파일링할 수 있음)| 해당 없음
@@ -93,13 +93,16 @@ Site Recovery Deployment Planner의 실행 인스턴스당 프로파일링할 �
 >
 
 ## <a name="download-and-extract-the-deployment-planner-tool"></a>Deployment Planner 도구 다운로드 및 추출
-1. 최신 버전의 [Site Recovery Deployment Planner](https://aka.ms/asr-deployment-planner)를 다운로드합니다. 이 도구는 .zip 폴더에 패키지되어 있습니다. 현재 버전의 도구는 Azure 시나리오를 위해 VMware만 지원합니다.
+1. 최신 버전의 [Site Recovery Deployment Planner](https://aka.ms/asr-deployment-planner)를 다운로드합니다.
+이 도구는 .zip 폴더에 패키지되어 있습니다. 현재 버전의 도구는 Azure 시나리오를 위해 VMware만 지원합니다.
 
-2. 도구를 실행하려는 Windows Server에 zip 폴더를 복사합니다. 서버가 프로파일링할 VM을 보유하는 vCenter 서버/vSphere ESXi 호스트에 연결할 네트워크 액세스 권한을 가지고 있는 경우 Windows Server 2012 R2에서 도구를 실행할 수 있습니다. 그러나 하드웨어 구성이 [구성 서버 크기 조정 지침](https://aka.ms/asr-v2a-on-prem-components)을 충족하는 서버에서 도구를 실행하는 것이 좋습니다. 이미 Site Recovery 구성 요소를 온-프레미스에 배포한 경우 구성 서버에서 도구를 실행합니다.
+2. 도구를 실행하려는 Windows Server에 zip 폴더를 복사합니다.
+서버가 프로파일링할 VM을 보유하는 vCenter 서버/vSphere ESXi 호스트에 연결할 네트워크 액세스 권한을 가지고 있는 경우 Windows Server 2012 R2에서 도구를 실행할 수 있습니다. 그러나 하드웨어 구성이 [구성 서버 크기 조정 지침](https://aka.ms/asr-v2a-on-prem-components)을 충족하는 서버에서 도구를 실행하는 것이 좋습니다. 이미 Site Recovery 구성 요소를 온-프레미스에 배포한 경우 구성 서버에서 도구를 실행합니다.
 
     도구를 실행하는 서버에 구성 서버(기본 제공 프로세스 서버가 있는)와 같은 하드웨어 구성이 있는 것이 좋습니다. 그러한 구성이 있으면 도구가 보고하는 달성된 처리량이 Site Recovery에서 복제 중에 달성할 수 있는 실제 처리량과 확실히 일치합니다. 처리량 계산은 서버에서 사용 가능한 네트워크 대역폭 및 서버의 하드웨어 구성(예: CPU 및 저장소)에 따라 달라집니다. 다른 서버에서 도구를 실행하는 경우 해당 서버에서 Azure로의 처리량이 계산됩니다. 또한 서버의 하드웨어 구성은 구성 서버와 다를 수 있으므로 도구가 보고하는 달성된 처리량이 정확하지 않을 수 있습니다.
 
-3. .zip 폴더의 압축을 풉니다. 폴더에 여러 개의 파일과 하위 폴더가 있습니다. 실행 파일은 부모 폴더에 있는 ASRDeploymentPlanner.exe입니다.
+3. .zip 폴더의 압축을 풉니다.
+폴더에 여러 개의 파일과 하위 폴더가 있습니다. 실행 파일은 부모 폴더에 있는 ASRDeploymentPlanner.exe입니다.
 
     예: .zip 파일을 E:\ 드라이브에 복사하고 압축을 풉니다.
     E:\ASR Deployment Planner_v2.1zip

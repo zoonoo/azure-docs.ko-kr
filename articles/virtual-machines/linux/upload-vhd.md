@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/06/2017
 ms.author: cynthn
-ms.openlocfilehash: 2d72094fb34c73e511b1003be25594a1dedddb1e
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 49e6f4a1222d11d096577265e3e7c7a30169bf81
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-a-linux-vm-from-custom-disk-with-the-azure-cli-20"></a>Azure CLI 2.0을 사용하여 사용자 지정 디스크에서 Linux VM 만들기
 
@@ -56,7 +56,7 @@ az vm create --resource-group myResourceGroup --location eastus --name myVM \
 > 
 
 
-* 최신 [Azure CLI 2.0](/cli/azure/install-az-cli2)을 설치했고 [az login](/cli/azure/#az_login)을 사용하여 Azure 계정에 로그인했는지 확인합니다.
+* 최신 [Azure CLI 2.0](/cli/azure/install-az-cli2)을 설치했고 [az login](/cli/azure/reference-index#az_login)을 사용하여 Azure 계정에 로그인했는지 확인합니다.
 
 다음 예제에서 매개 변수 이름을 고유한 값으로 바꿉니다. 예제 매개 변수 이름에는 *myResourceGroup*, *mystorageaccount* 및 *mydisks*가 포함됩니다.
 

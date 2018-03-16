@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2017
 ms.author: szark
-ms.openlocfilehash: ae266b0fc78083250c5d14ff2978cd59d394b202
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 631557e0ad712827bb3375c4f152c0e2185fda18
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="information-for-non-endorsed-distributions"></a>보증되지 않는 배포에 대한 정보
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -150,8 +150,6 @@ Azure에서 Linux 가상 머신을 올바르게 프로비전하려면 [Azure Lin
 * 다음 매개 변수를 포함하려면 GRUB 또는 GRUB2의 커널 부팅 줄을 수정합니다. 이렇게 하면 모든 콘솔 메시지가 첫 번째 직렬 포트로 전송되므로 Azure 지원에서 문제를 디버깅하는 데에도 도움이 될 수 있습니다.
   
         console=ttyS0,115200n8 earlyprintk=ttyS0,115200 rootdelay=300
-  
-    이렇게 하면 모든 콘솔 메시지가 첫 번째 직렬 포트로 전송되므로 Azure 지원에서 문제를 디버깅하는 데에도 도움이 될 수 있습니다.
   
     위의 작업을 수행하는 동시에 다음 매개 변수도 있는 경우 *제거* 하는 것이 좋습니다.
   

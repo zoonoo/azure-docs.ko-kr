@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 12/14/2017
 ms.author: bwren
 ms.openlocfilehash: 401fbb39194a24721274f55f0fc2a4cdc235a32b
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="custom-logs-in-log-analytics"></a>Log Analytics의 사용자 지정 로그
 Log Analytics의 사용자 지정 로그 데이터 원본을 통해 Windows 및 Linux 컴퓨터의 텍스트 파일에서 이벤트를 수집할 수 있습니다. 많은 응용 프로그램이 Windows 이벤트 로그 또는 Syslog 같은 표준 로깅 서비스 대신 텍스트 파일에 정보를 기록합니다.  수집된 후에는, Log Analytics의 [사용자 지정 필드](log-analytics-custom-fields.md) 기능을 사용하여 로그의 각 레코드를 별도의 필드로 구문 분석할 수 있습니다.

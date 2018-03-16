@@ -1,8 +1,23 @@
- ;--- 제목: 웹 사이트의 가용성 및 응답성 모니터링 | Microsoft Docs 설명: Application Insights에서 웹 테스트를 설정합니다. 웹 사이트가 사용할 수 없게 되거나 느리게 응답하는 경우 알림이 제공됩니다.
-services: application-insights documentationcenter: '' author: SoubhagyaDash manager: carmonm
-
-ms.assetid: 46dc13b4-eb2e-4142-a21c-94a156f760ee ms.service: application-insights ms.workload: tbd ms.tgt_pltfrm: ibiza ms.devlang: na ms.topic: get-started-article ms.date: 02/09/2018 ms.author: sdash ; mbullwin
-
+---
+title: "웹 사이트의 가용성 및 응답성 모니터링 | Microsoft Docs"
+description: "Application Insights에서 웹 테스트를 설정합니다. 웹 사이트가 사용할 수 없게 되거나 느리게 응답하는 경우 알림이 제공됩니다."
+services: application-insights
+documentationcenter: 
+author: SoubhagyaDash
+manager: carmonm
+ms.assetid: 46dc13b4-eb2e-4142-a21c-94a156f760ee
+ms.service: application-insights
+ms.workload: tbd
+ms.tgt_pltfrm: ibiza
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 02/09/2018
+ms.author: sdash ; mbullwin
+ms.openlocfilehash: d8d6c6a242f63ad891a8134657273ff73dfcde18
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>웹 사이트의 가용성 및 응답성 모니터링
 웹앱 또는 웹 사이트를 서버에 배포한 후에 가용성 및 응답성을 모니터링하도록 테스트를 설정할 수 있습니다. [Azure Application Insights](app-insights-overview.md)는 전세계 지점에서 정기적인 간격으로 응용 프로그램에 웹 요청을 보냅니다. 응용 프로그램이 응답하지 않거나 느리게 응답하는 경우 사용자에게 경고할 수 있습니다.

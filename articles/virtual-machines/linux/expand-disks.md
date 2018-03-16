@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: ded90be3da52770a88dd1746fae2bd3584ba9280
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: f717aca4f68811b5973fcee8791ac7db3a66e74a
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="how-to-expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>Azure CLI를 사용하여 Linux VM에서 가상 하드 디스크를 확장하는 방법
 Azure에서 Linux VM(가상 머신)에서 OS(운영 체제)에 대한 기본 가상 하드 디스크 크기는 일반적으로 30GB입니다. [데이터 디스크를 추가](add-disk.md)하여 추가 저장소 공간을 제공할 수 있으나, 기존 데이터 디스크를 확장할 수도 있습니다. 이 문서에서는 Azure CLI 2.0을 사용하여 Linux VM에서 Managed Disks를 확장하는 방법을 설명합니다. [Azure CLI 1.0](expand-disks-nodejs.md)을 사용하여 관리되지 않는 OS 디스크를 확장할 수도 있습니다.
@@ -27,7 +27,7 @@ Azure에서 Linux VM(가상 머신)에서 OS(운영 체제)에 대한 기본 가
 > 항상 디스크 크기 조정 작업을 수행하기 전에 데이터를 백업해야 합니다. 자세한 내용은 [Azure에서 Linux VM 백업](tutorial-backup-vms.md)을 참조하세요.
 
 ## <a name="expand-azure-managed-disk"></a>Azure Managed Disks 확장
-최신 [Azure CLI 2.0](/cli/azure/install-az-cli2)을 설치했고 [az login](/cli/azure/#az_login)을 사용하여 Azure 계정에 로그인했는지 확인합니다.
+최신 [Azure CLI 2.0](/cli/azure/install-az-cli2)을 설치했고 [az login](/cli/azure/reference-index#az_login)을 사용하여 Azure 계정에 로그인했는지 확인합니다.
 
 이 문서는 Azure에 데이터 디스크가 하나 이상 연결되고 준비된 기존 VM이 필요합니다. 사용할 수 있는 VM이 아직 없는 경우 [데이터 디스크가 있는 VM 만들기 및 준비](tutorial-manage-disks.md#create-and-attach-disks)를 참조하세요.
 

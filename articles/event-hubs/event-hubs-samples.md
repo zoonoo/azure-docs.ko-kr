@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/19/2017
+ms.date: 03/05/2018
 ms.author: sethm
-ms.openlocfilehash: e037d0e291384849739825ae7ad59064a135db95
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: a581b7039a3631b7f1dc35816175242f892bd7dd
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="event-hubs-samples"></a>Event Hubs 샘플 
 
@@ -61,10 +61,6 @@ Azure Event Hubs 샘플 집합은 [Azure Event Hubs](/azure/event-hubs/)의 주�
 
 [이벤트 처리 확장](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3) 샘플은 [이벤트 프로세서 호스트](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/)를 사용하여 Event Hubs 스트림 사용 워크로드를 분산하는 방법을 보여 줍니다. 또한 이벤트 스트림을 관리하도록 **EventProcessor** 및 **EventProcessorFactory** 개체를 구현하는 방법도 보여 줍니다. 
 
-### <a name="pull-web-data-into-an-event-hub"></a>웹 데이터를 이벤트 허브로 끌어오기 
-
-[웹에서 데이터 가져오기](https://github.com/Azure-Samples/event-hubs-dotnet-importfromweb) 샘플은 공용 피드의 데이터(예: 교통 부서의 트래픽 정보 피드)를 끌어와 이벤트 허브로 푸시하는 방법을 보여 줍니다.
-
 ## <a name="next-steps"></a>다음 단계
 
 다음 링크에서 .NET Framework 버전에 대해 자세히 알아보세요.
@@ -75,5 +71,5 @@ Azure Event Hubs 샘플 집합은 [Azure Event Hubs](/azure/event-hubs/)의 주�
 Event Hubs에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 - [Event Hubs 개요](event-hubs-what-is-event-hubs.md)
-- [이벤트 허브 만들기](event-hubs-create.md)
+- [Event Hubs 기능](event-hubs-features.md)
 - [Event Hubs FAQ](event-hubs-faq.md)

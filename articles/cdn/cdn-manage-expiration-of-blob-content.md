@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 02/1/2018
 ms.author: mazha
-ms.openlocfilehash: f5609f98de7ce6967dd1ff502e88d798741384df
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: bafb04a1a19c4436d8f6c1c21700e9463334b3de
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="manage-expiration-of-azure-blob-storage-in-azure-content-delivery-network"></a>Azure CDN(Content Delivery Network)에서 Azure Blob Storage 만료 관리 
 > [!div class="op_single_selector"]
@@ -159,7 +159,7 @@ Azure Storage Explorer에서 Blob의 *CacheControl* 속성을 업데이트하려
 ![Azure Storage Explorer 속성](./media/cdn-manage-expiration-of-blob-content/cdn-storage-explorer-properties.png)
 
 ### <a name="azure-command-line-interface"></a>Azure 명령줄 인터페이스
-[Azure CLI(명령줄 인터페이스)](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest)를 사용하여 명령줄에서 Azure Blob 리소스를 관리할 수 있습니다. Azure CLI를 사용하여 Blob을 업로드할 때 cache-control 헤더를 설정하려면 `-p` 스위치를 사용하여 *cacheControl* 속성을 설정합니다. 다음 예제에서는 TTL을 1시간(3600초)으로 설정하는 방법을 보여 줍니다.
+[Azure CLI(명령줄 인터페이스)](https://docs.microsoft.com/cli/azure?view=azure-cli-latest)를 사용하여 명령줄에서 Azure Blob 리소스를 관리할 수 있습니다. Azure CLI를 사용하여 Blob을 업로드할 때 cache-control 헤더를 설정하려면 `-p` 스위치를 사용하여 *cacheControl* 속성을 설정합니다. 다음 예제에서는 TTL을 1시간(3600초)으로 설정하는 방법을 보여 줍니다.
   
 ```azurecli
 azure storage blob upload -c <connectionstring> -p cacheControl="max-age=3600" .\<blob name> <container name> <blob name>

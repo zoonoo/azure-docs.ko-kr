@@ -15,17 +15,17 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/14/2017
 ms.author: nepeters
-ms.openlocfilehash: 11d30931bd549f7e877264b4a33f8e06c6b1c802
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: e54ea62b7b7a7adb4874866a540ed9a6a097fc42
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="using-the-azure-cli-on-windows"></a>Windows에서 Azure CLI 사용
 
 Azure CLI(명령줄 인터페이스)는 Azure 리소스를 만들고 관리하는 명령줄 및 스크립팅 환경을 제공합니다. Azure CLI는 macOS, Linux 및 Windows 운영 체제에서 사용할 수 있습니다. 하지만 이러한 운영 체제에서 CLI 명령은 동일하지만 운영 체제 특정 스크립팅 구문은 다를 수 있습니다.
 
-이 문서에서는 Windows에서 Azure CLI를 설치하고 실행할 수 있는 방법 및 각각에 대한 구문 관련 고려 사항을 자세히 설명합니다. Azure CLI 설명서에 대한 자세한 내용은 [Azure CLI 설명서]( https://docs.microsoft.com/cli/azure/overview)를 참조하세요.
+이 문서에서는 Windows에서 Azure CLI를 설치하고 실행할 수 있는 방법 및 각각에 대한 구문 관련 고려 사항을 자세히 설명합니다. Azure CLI 설명서에 대한 자세한 내용은 [Azure CLI 설명서]( https://docs.microsoft.com/cli/azure)를 참조하세요.
 
 ## <a name="windows-subsystem-for-linux"></a>Linux용 Windows 하위 시스템
 
@@ -33,7 +33,7 @@ Linux용 Windows 하위 시스템(WSL)는 Windows 10 Anniversary 및 이후 버�
 
 WSL에서 Azure CLI를 사용하려면 다음을 완료합니다.
 
-|작업 | 지침 |
+|Task | 지침 |
 |---|---|
 | WSL 사용 | [WSL 설명서 설치](https://msdn.microsoft.com/en-us/commandline/wsl/install_guide) |
 | Azure CLI 설치 |[WSL/Ubuntu 14.04에서 CLI 설치](https://docs.microsoft.com/cli/azure/install-az-cli2#ubuntu)|

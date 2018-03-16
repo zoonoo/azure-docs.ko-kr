@@ -16,11 +16,11 @@ ms.workload: web
 ms.date: 10/04/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: f3e4ce63a8b418b68494262df8a771ac553ad22d
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e868f07a8c24948655d81c7db1859d819b01c062
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-a-function-app-for-serverless-code-execution"></a>무서버 코드 실행을 위한 함수 앱 만들기
 
@@ -54,6 +54,6 @@ CLI를 로컬로 설치하여 사용하도록 선택하는 경우 이 문서에�
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](/cli/azure/overview)를 참조하세요.
+Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](/cli/azure)를 참조하세요.
 
 추가 Azure Functions CLI 스크립트 샘플은 [Azure Functions 설명서](../functions-cli-samples.md)에서 확인할 수 있습니다.

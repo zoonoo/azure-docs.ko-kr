@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 2/2/2018
 ms.author: vinagara
-ms.openlocfilehash: ee7bdf03c96e078d0d64eeaaffc38ff61596d837
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 5852eb099f6620656aa69e5085447c2a8b4e0c01
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>로그 경고 규칙에 대한 웹후크 작업
 [Azure(미리 보기)에서 경고를 만들](monitor-alerts-unified-usage.md) 때 하나 이상의 작업을 수행하도록 [작업 그룹 사용을 구성](monitoring-action-groups.md)할 수 있습니다.  이 문서에서는 사용 가능한 다양한 웹후크 작업 및 사용자 지정 JSON 기반 웹후크 구성에 대해 설명합니다.
@@ -170,7 +170,7 @@ ms.lasthandoff: 02/24/2018
     
 
     {
-    "AlertRuleName":"AcmeRule","IncludeSearchResults":true,
+    "alertname":"AcmeRule","IncludeSearchResults":true,
     "SearchResult":
         {
         "tables":[

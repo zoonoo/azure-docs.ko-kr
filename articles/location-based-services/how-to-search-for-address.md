@@ -3,16 +3,16 @@ title: "Azure Location Based Services(미리 보기) 검색 서비스 | Microsof
 description: "Azure Location Based Services(미리 보기) 검색 서비스를 사용하여 주소를 검색하는 방법 알아보기"
 services: location-based-services
 keywords: "SEO champ를 조회하지 않고 키워드를 추가하거나 편집하지 마십시오."
-author: philmea
-ms.author: philmea
+author: kgremban
+ms.author: kgremban
 ms.date: 11/29/2017
 ms.topic: article
 ms.service: location-based-services
-ms.openlocfilehash: cacaaab869d3a7752b5a750f01bbfbdaf79814f7
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: dd8026c55d71f6e421b976d8e7ae12f1cfd679a1
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="how-to-find-an-address-using-the-azure-location-based-services-preview-search-service"></a>Azure Location Based Services(미리 보기) 검색 서비스를 사용하여 주소를 검색하는 방법
 검색 서비스는 개발자가 주소, 위치, 관심 지점, 비즈니스 목록 및 기타 지리 정보를 검색할 수 있는 API의 RESTful 세트입니다. 검색 서비스는 특정 주소, 교차로, 지리적 특징 또는 관심 지점(POI)에 위도/경고를 할당합니다. 검색 서비스 API에서 반환된 위도 및 경도를 Route 및 Traffic Flow API 등의 다른 Azure Location Based Services에 매개 변수로 사용할 수 있습니다.

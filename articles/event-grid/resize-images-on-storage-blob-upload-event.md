@@ -1,7 +1,7 @@
 ---
 title: "Azure Event Grid로 업로드 이미지 크기 자동 조정 | Microsoft Docs"
 description: "Azure Event Grid는 Azure Storage에 BLOB 업로드를 트리거할 수 있습니다. 이 기능을 활용하여 Azure Storage에 업로드된 이미지 파일을 Azure Functions 등의 타 서비스로 보내 크기를 조절하거나 다른 향상을 수행할 수 있습니다."
-services: event-grid
+services: event-grid, functions
 author: ggailey777
 manager: cfowler
 editor: 
@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 10/20/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: b0fccd058620537f6dcfaf37ee14c1ff0cb8857a
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 68343c3ffd87496ed4ae89b478ee5c8119ed67f5
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="automate-resizing-uploaded-images-using-event-grid"></a>Event Grid를 사용하여 업로드된 이미지 크기 자동 조정
 

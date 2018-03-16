@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 02/07/2018
+ms.date: 03/08/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: b45d1287444d200727550a81ce72a19a417fe510
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: dc7ead9e7d55d1b22118774e98c741991e8af2d9
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="fail-over-and-fail-back-azure-vms-between-azure-regions-preview"></a>Azure 지역 간에 Azure VM 장애 조치(Failover) 및 장애 복구(미리 보기)
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 02/09/2018
 ## <a name="prerequisites"></a>필수 조건
 
 - [재해 복구 드릴](azure-to-azure-tutorial-dr-drill.md)을 완료하여 모든 항목이 예상대로 작동하는지 확인합니다.
-- 테스트 장애 조치(failover)를 실행하기 전에 VM 속성을 확인합니다. VM은 [Azure 요구 사항](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements)을 준수해야 합니다.
+- 테스트 장애 조치(failover)를 실행하기 전에 VM 속성을 확인합니다. VM은 [Azure 요구 사항](azure-to-azure-support-matrix.md#support-for-replicated-machine-os-versions)을 준수해야 합니다.
 
 ## <a name="run-a-failover-to-the-secondary-region"></a>보조 지역으로 장애 조치(failover) 실행
 

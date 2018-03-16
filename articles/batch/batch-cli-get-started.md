@@ -15,17 +15,17 @@ ms.workload: big-compute
 ms.date: 09/28/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 11fad18c7b51625a29c58058aebd412cbf8cffdd
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e27d7f75dd3d0391f45805f4424248c8eac483c7
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Azure CLI를 사용하여 Batch 리소스 관리
 
 Azure CLI 2.0은 Azure 리소스를 관리하기 위한 Azure의 새로운 명령줄 환경입니다. macOS, Linux 및 Windows에서 사용할 수 있습니다. Azure CLI 2.0은 명령줄에서 Azure 리소스를 관리하고 관리하는 데 최적화되어 있습니다. Azure CLI를 사용하여 Azure Batch 계정을 관리하고 풀, 작업 및 태스크와 같은 리소스를 관리할 수 있습니다. Azure CLI를 사용하면 Batch API, Azure Portal, Batch PowerShell cmdlet으로 수행하는 여러 동일한 작업을 스크립팅할 수 있습니다.
 
-이 문서에서는 Batch와 함께 [Azure CLI 버전 2.0](https://docs.microsoft.com/cli/azure/overview)을 사용하는 방법에 대해 간략히 설명합니다. Azure에서 CLI를 사용하는 방법에 대한 개요는 [Azure CLI 2.0 시작](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)을 참조하세요.
+이 문서에서는 Batch와 함께 [Azure CLI 버전 2.0](https://docs.microsoft.com/cli/azure)을 사용하는 방법에 대해 간략히 설명합니다. Azure에서 CLI를 사용하는 방법에 대한 개요는 [Azure CLI 2.0 시작](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)을 참조하세요.
 
 최신 버전의 Azure CLI 버전 2.0을 사용하는 것이 좋습니다. 버전 2.0에 대한 자세한 내용은 [현재 일반적으로 사용할 수 있는 Azure CLI 2.0](https://azure.microsoft.com/blog/announcing-general-availability-of-vm-storage-and-network-azure-cli-2-0/)을 참조하세요.
 
@@ -69,7 +69,7 @@ Azure에 로그인할 수 있는 몇 가지 방법이 있으며, [Azure CLI 2.0�
 1. [대화형으로 로그인합니다](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#az_authenticate_azure_cli_interactive_log_in). 명령줄에서 Azure CLI 명령을 직접 실행하면 대화형으로 로그인합니다.
 2. [서비스 주체를 사용하여 로그인합니다](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#az_authenticate_azure_cli_logging_in_with_a_service_principal). 스크립트 또는 응용 프로그램에서 Azure CLI 명령을 실행할 때 서비스 주체를 사용하여 로그인합니다.
 
-이 문서에서는 Azure에 대화형으로 로그인하는 방법을 보여 줍니다. 명령줄에서 [az login](https://docs.microsoft.com/cli/azure/#az_login)을 입력합니다.
+이 문서에서는 Azure에 대화형으로 로그인하는 방법을 보여 줍니다. 명령줄에서 [az login](https://docs.microsoft.com/cli/azure/reference-index#az_login)을 입력합니다.
 
 ```azurecli
 # Log in to Azure and authenticate interactively.
@@ -178,7 +178,7 @@ Azure CLI 문제를 해결할 때 도움이 될 수 있는 팁은 다음과 같�
 
 ## <a name="next-steps"></a>다음 단계
 
-* Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](https://docs.microsoft.com/cli/azure/overview)를 참조하세요.
+* Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](https://docs.microsoft.com/cli/azure)를 참조하세요.
 * Batch 리소스에 대한 자세한 내용은 [개발자를 위한 Azure Batch 개요](batch-api-basics.md)를 참조하세요.
 * 코드를 작성하지 않고 Batch 템플릿을 사용하여 풀, 작업 및 태스크를 만드는 방법은 [Azure Batch CLI 템플릿 및 파일 전송 사용(미리 보기)](batch-cli-templates.md)을 참조하세요.
 

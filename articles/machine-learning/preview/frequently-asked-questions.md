@@ -10,18 +10,17 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/30/2017
-ms.openlocfilehash: 46d026802668fd77ae184b374439ca78cf51393d
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 86ef8acf46cef2b057596d8224c6c29f3a0f534d
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-machine-learning-frequently-asked-questions"></a>Azure Machine Learning 질문과 대답
 
 ## <a name="general-product-questions"></a>일반적인 제품 질문
 
-
-            **Azure Machine Learning이란 무엇인가요?**
+**Azure Machine Learning이란 무엇인가요?**
 
 Azure Machine Learning은 기계 학습 및 AI 모델을 만들고 테스트, 관리 및 배포할 수 있는 완전히 관리되는 Azure 서비스입니다. 이 새로운 서비스 및 다운로드 가능 응용 프로그램은 클라우드, 온-프레미스 및 Edge를 이용하여 처리 능력, 속도 및 유연성을 가진 학습, 배포, 관리 및 모니터링을 제공하는 코드 우선 방식을 제공합니다. 또는 Azure Machine Learning Studio는 코딩이 필요하지 않은 브라우저 기반의 시각적 끌어서 놓기 저작 환경을 제공합니다. 
 
@@ -128,7 +127,7 @@ Azure Machine Learning Workbench는 전문 데이터 과학자를 위해 만든 
 
 **명령줄 기능을 지원하나요?**
 
-예, Azure Machine Learning은 완전한 CLI 인터페이스를 제공합니다. Machine Learning CLI는 기본적으로 Azure Machine Learning Workbench와 함께 설치됩니다. 또한 Azure용 Linux Data Science 가상 머신의 일부로도 제공되며 [Azure CLI](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest)에 통합됩니다.
+예, Azure Machine Learning은 완전한 CLI 인터페이스를 제공합니다. Machine Learning CLI는 기본적으로 Azure Machine Learning Workbench와 함께 설치됩니다. 또한 Azure용 Linux Data Science 가상 머신의 일부로도 제공되며 [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest)에 통합됩니다.
 
 
 **내 Jupyter 노트북을 Workbench에서 사용할 수 있나요?**

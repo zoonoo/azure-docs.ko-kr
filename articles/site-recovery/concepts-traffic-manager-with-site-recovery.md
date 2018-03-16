@@ -5,20 +5,15 @@ services: site-recovery
 documentationcenter: 
 author: mayanknayar
 manager: rochakm
-editor: 
-ms.assetid: 
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 03/05/2018
 ms.author: manayar
-ms.openlocfilehash: 3192c67938fe118e79aa68ee6194e76f21d65d98
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 8305a354588875926cab52a55d99d3a29bcfb509
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-traffic-manager-with-azure-site-recovery"></a>Azure Site Recovery를 사용한 Azure Traffic Manager
 
@@ -49,11 +44,11 @@ Traffic Manager는 DNS(Domain Name System)를 사용하여 클라이언트 요�
 
 비즈니스 요구 사항에 따라 **A사**는 더 높은 또는 더 낮은 [검색 빈도](../traffic-manager/traffic-manager-monitoring.md)를 선택하여 재해 발생 시 온-프레미스와 Azure 간에 전환함으로써 가동 중지 시간을 최소화할 수 있습니다.
 
-재해가 억제되면 **A사**는 Azure Site Recovery를 사용하여 Azure에서 온-프레미스 환경([VMware](site-recovery-how-to-failback-azure-to-vmware.md) 또는 [Hyper-V](site-recovery-failback-from-azure-to-hyper-v.md))으로 장애 복구(failback)할 수 있습니다. Traffic Manager는 **기본** 엔드포인트가 다시 정상으로 돌아온 것을 확인하면 자동으로 DNS 응답에서 **기본** 엔드포인트를 활용합니다.
+재해가 억제되면 **A사**는 Azure Site Recovery를 사용하여 Azure에서 온-프레미스 환경([VMware](vmware-azure-failback.md) 또는 [Hyper-V](hyper-v-azure-failback.md))으로 장애 복구(failback)할 수 있습니다. Traffic Manager는 **기본** 엔드포인트가 다시 정상으로 돌아온 것을 확인하면 자동으로 DNS 응답에서 **기본** 엔드포인트를 활용합니다.
 
 ## <a name="on-premises-to-azure-migration"></a>온-프레미스에서 Azure로 마이그레이션
 
-재해 복구 외에도, Azure Site Recovery는 [Azure로 마이그레이션](site-recovery-migrate-to-azure.md)을 지원합니다. Azure Site Recovery의 강력한 테스트 장애 조치(failover) 기능을 사용하면 고객은 온-프레미스 환경에 영향을 주지 않고 Azure에서 응용 프로그램 성능을 평가할 수 있습니다. 고객은 마이그레이션 준비가 완료되면 전체 워크로드를 한꺼번에 마이그레이션할 수도 있고 점진적으로 조금씩 마이그레이션하여 확장할 수도 있습니다.
+재해 복구 외에도, Azure Site Recovery는 [Azure로 마이그레이션](migrate-overview.md)을 지원합니다. Azure Site Recovery의 강력한 테스트 장애 조치(failover) 기능을 사용하면 고객은 온-프레미스 환경에 영향을 주지 않고 Azure에서 응용 프로그램 성능을 평가할 수 있습니다. 고객은 마이그레이션 준비가 완료되면 전체 워크로드를 한꺼번에 마이그레이션할 수도 있고 점진적으로 조금씩 마이그레이션하여 확장할 수도 있습니다.
 
 Azure Traffic Manager의 [가중치](../traffic-manager/traffic-manager-configure-weighted-routing-method.md) 라우팅 메서드를 사용하여 트래픽의 대부분은 온-프레미스 환경으로 전송하고 들어오는 트래픽의 일부는 Azure로 전송할 수 있습니다. 이 방식은 워크로드를 조금씩 Azure로 마이그레이션하면서 Azure에 할당된 가중치를 계속 높여갈 수 있으므로 성능을 평가하는 데 도움이 됩니다.
 

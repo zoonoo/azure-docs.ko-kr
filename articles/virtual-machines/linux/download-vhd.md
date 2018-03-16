@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2017
 ms.author: davidmu
-ms.openlocfilehash: 03a29faeed71334253f9aa5bc88653fd689cc55b
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 20af28dd4caa6ee5487b9a2ed83715b9b16fad48
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="download-a-linux-vhd-from-azure"></a>Azure에서 Linux VHD 다운로드
 
@@ -43,7 +43,7 @@ VHD를 다른 VM을 만들기 위한 이미지로 사용하려면 다음 단계�
     exit 
     ```
 
-2. [az login](https://docs.microsoft.com/cli/azure/#az_login)을 사용하여 Azure 계정에 로그인합니다.
+2. [az login](https://docs.microsoft.com/cli/azure/reference-index#az_login)을 사용하여 Azure 계정에 로그인합니다.
 3. VM을 중지 및 할당 취소합니다.
 
     ```azurecli

@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: billgib
-ms.openlocfilehash: a13eeb79320360da078ee19a61cc32a2e1f35354
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: dd43ede94d6f219f3b551091fc6e4b59f56386d1
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="provision-and-catalog-new-tenants-using-the--application-per-tenant-saas-pattern"></a>테넌트별 응용 프로그램 SaaS 패턴을 사용하여 새 테넌트 프로비전/카탈로그 작업
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 02/22/2018
     * 이 자습서에서는 독립 실행형 테넌트별 앱 패턴에 맞게 조정된 Wingtip Tickets 샘플 SaaS 응용 프로그램을 사용합니다.
 
 ## <a name="standalone-application-per-tenant-pattern"></a>테넌트별 독립 실행형 응용 프로그램 패턴
-독립 실행형 테넌트별 앱 패턴은 다중 테넌트 SaaS 응용 프로그램의 몇 가지 패턴 중 하나입니다.  이 패턴에서는 각 테넌트마다 독립 실행형 앱이 프로비전됩니다. 응용 프로그램은 응용 프로그램 수준 구성 요소와 SQL 데이터베이스로 구성됩니다.  각 테넌트 앱은 공급업체의 구독에 배포할 수 있습니다.  대안으로, Azure에는 앱을 테넌트의 구독에 배포하고 테넌트 대신 공급업체가 관리하는 [관리되는 응용 프로그램 프로그램](https://docs.microsoft.com/en-us/azure/managed-applications/overview)이 제공됩니다. 
+독립 실행형 테넌트별 앱 패턴은 다중 테넌트 SaaS 응용 프로그램의 몇 가지 패턴 중 하나입니다.  이 패턴에서는 각 테넌트마다 독립 실행형 앱이 프로비전됩니다. 응용 프로그램은 응용 프로그램 수준 구성 요소와 SQL 데이터베이스로 구성됩니다.  각 테넌트 앱은 공급업체의 구독에 배포할 수 있습니다.  대안으로, Azure에는 앱을 테넌트의 구독에 배포하고 테넌트 대신 공급업체가 관리하는 [관리되는 응용 프로그램 프로그램](https://docs.microsoft.com/azure/managed-applications/overview)이 제공됩니다. 
 
    ![app-per-tenant 패턴](media/saas-standaloneapp-provision-and-catalog/standalone-app-pattern.png)
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 02/22/2018
 테넌트 카탈로그에는 테넌트 식별자와 테넌트 데이터베이스 간의 매핑이 유지되기 때문에 식별자를 서버 및 데이터베이스 이름으로 확인할 수 있습니다.  Wingtip SaaS 앱에서 테넌트 식별자는 테넌트 이름의 해시로 계산되지만 다른 스키마가 사용될 수도 있습니다.  독립 실행형 응용 프로그램에는 연결을 관리할 카탈로그가 필요하지 않지만 카탈로그를 사용하여 테넌트 데이터베이스 집합에 다른 작업 범위를 적용할 수 있습니다. 예를 들어, 탄력적 쿼리는 카탈로그를 사용하여 교차 테넌트 보고를 위해 쿼리가 배포되는 데이터베이스 집합을 결정할 수 있습니다.
 
 ## <a name="elastic-database-client-library"></a>Elastic Database 클라이언트 라이브러리
-Wingtip 응용 프로그램 예제에서 카탈로그는 EDCL([Elastic Database 클라이언트 라이브러리](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-elastic-database-client-library))의 분할 관리 기능을 사용하여 구현됩니다.  라이브러리를 사용하면 응용 프로그램에서 데이터베이스에 저장된 Shard Map을 생성, 관리 및 사용할 수 있습니다. Wingtip Tickets 샘플에서 카탈로그는 *테넌트 카탈로그* 데이터베이스에 저장됩니다.  Shard는 테넌트의 데이터가 저장된 Shard(데이터베이스)에 테넌트 키를 매핑합니다.  EDCL 함수는 각 Shard에 저장된 *로컬 Shard Map* 및 *테넌트 카탈로그* 데이터베이스의 테이블에 저장된 *전역 Shard Map*을 관리합니다.
+Wingtip 응용 프로그램 예제에서 카탈로그는 EDCL([Elastic Database 클라이언트 라이브러리](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-database-client-library))의 분할 관리 기능을 사용하여 구현됩니다.  라이브러리를 사용하면 응용 프로그램에서 데이터베이스에 저장된 Shard Map을 생성, 관리 및 사용할 수 있습니다. Wingtip Tickets 샘플에서 카탈로그는 *테넌트 카탈로그* 데이터베이스에 저장됩니다.  Shard는 테넌트의 데이터가 저장된 Shard(데이터베이스)에 테넌트 키를 매핑합니다.  EDCL 함수는 각 Shard에 저장된 *로컬 Shard Map* 및 *테넌트 카탈로그* 데이터베이스의 테이블에 저장된 *전역 Shard Map*을 관리합니다.
 
 EDCL 함수는 응용 프로그램이나 PowerShell 스크립트로 호출하여 Shard Map에 항목을 생성하고 관리할 수 있습니다. 다른 EDCL 함수를 사용하여 Shard 집합을 검색하거나 지정된 테넌트 키의 올바른 데이터베이스에 연결할 수 있습니다. 
     
@@ -69,7 +69,7 @@ Azure Resource Manager 템플릿은 응용 프로그램을 배포 및 구성하�
 ## <a name="prerequisites"></a>필수 조건
 이 자습서를 수행하려면 다음 필수 조건이 완료되었는지 확인합니다. 
 * Azure PowerShell이 설치되었습니다. 자세한 내용은 [Azure PowerShell 시작](https://docs.microsoft.com/powershell/azure/get-started-azureps)을 참조하세요.
-* 세 가지 샘플 테넌트 앱이 배포되어 있습니다. 앱을 5분 내에 배포하려면 [Wingtip Tickets SaaS 독립 실행형 응용 프로그램 배포 및 탐색](https://docs.microsoft.com/en-us/azure/sql-database/saas-standaloneapp-get-started-deploy)을 참조하세요.
+* 세 가지 샘플 테넌트 앱이 배포되어 있습니다. 앱을 5분 내에 배포하려면 [Wingtip Tickets SaaS 독립 실행형 응용 프로그램 배포 및 탐색](https://docs.microsoft.com/azure/sql-database/saas-standaloneapp-get-started-deploy)을 참조하세요.
 
 ## <a name="provision-the-catalog"></a>카탈로그 프로비전
 이 작업에서는 모든 테넌트 데이터베이스를 등록하는 데 사용되는 카탈로그를 프로비전하는 방법을 알아봅니다. 다음을 수행합니다. 
@@ -149,4 +149,4 @@ Azure Resource Manager 템플릿은 응용 프로그램을 배포 및 구성하�
 > * 앱을 구성하는 서버 및 데이터베이스 정보.
 > * 샘플 리소스를 삭제하여 관련 결제를 중지하는 방법
 
-[Wingtip Tickets SaaS 응용 프로그램](https://docs.microsoft.com/en-us/azure/sql-database/saas-dbpertenant-wingtip-app-overview)의 테넌트별 데이터베이스 버전을 사용하여 다양한 교차 테넌트 시나리오를 지원하는 데 카탈로그가 어떻게 사용되는지 살펴볼 수 있습니다.  
+[Wingtip Tickets SaaS 응용 프로그램](https://docs.microsoft.com/azure/sql-database/saas-dbpertenant-wingtip-app-overview)의 테넌트별 데이터베이스 버전을 사용하여 다양한 교차 테넌트 시나리오를 지원하는 데 카탈로그가 어떻게 사용되는지 살펴볼 수 있습니다.  

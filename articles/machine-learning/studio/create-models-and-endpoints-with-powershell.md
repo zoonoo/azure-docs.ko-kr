@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
-ms.author: garye;haining
-ms.openlocfilehash: 44551908c31151e7d8945a3c7c03303b17d8f059
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.author: haining
+ms.openlocfilehash: 4a4c1c417dabf32aa3a23fef22078ada0d01d9fa
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-many-machine-learning-models-and-web-service-endpoints-from-one-experiment-using-powershell"></a>PowerShell을 사용하여 한 실험에서 여러 Machine Learning 모델 및 웹 서비스 끝점 만들기
 일반적인 기계 학습 문제는 동일한 학습 워크플로를 포함하고 동일한 알고리즘을 사용하지만 서로 다른 학습 데이터 집합을 입력으로 사용하려는 것입니다. 이 문서에서는 단일 실험을 사용하여 Azure Machine Learning Studio에서 대규모로 이 작업을 수행하는 방법을 보여 줍니다.
@@ -37,8 +37,7 @@ ms.lasthandoff: 01/08/2018
 > 
 
 ## <a name="set-up-the-training-experiment"></a>학습 실험 설정
-[Cortana Intelligence 갤러리](http://gallery.cortanaintelligence.com)에 있는 예제 [학습 실험](https://gallery.cortanaintelligence.com/Experiment/Bike-Rental-Training-Experiment-1)을 사용합니다. 
-            [Azure Machine Learning Studio](https://studio.azureml.net) 작업 영역에서 이 실험을 엽니다.
+[Cortana Intelligence 갤러리](http://gallery.cortanaintelligence.com)에 있는 예제 [학습 실험](https://gallery.cortanaintelligence.com/Experiment/Bike-Rental-Training-Experiment-1)을 사용합니다. [Azure Machine Learning Studio](https://studio.azureml.net) 작업 영역에서 이 실험을 엽니다.
 
 > [!NOTE]
 > 이 예제를 함께 수행하려면 무료 작업 영역보다는 표준 작업 영역을 사용하는 것이 좋습니다. 고객당 끝점 하나(총 10개 끝점)를 만들고 체험 작업 영역은 3개 끝점으로 제한되므로 이 경우 표준 작업 영역이 필요합니다. 체험 작업 영역만 있는 경우 3개의 위치만 허용하도록 스크립트를 변경합니다.

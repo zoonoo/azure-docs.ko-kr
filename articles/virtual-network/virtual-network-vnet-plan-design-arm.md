@@ -4,7 +4,7 @@ description: "격리, 연결 및 위치 요구 사항을 기반으로 Azure에�
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: jeconnoc
 editor: tysonn
 ms.assetid: 3a4a9aea-7608-4d2e-bb3c-40de2e537200
 ms.service: virtual-network
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/08/2016
 ms.author: jdial
-ms.openlocfilehash: 9a0126235c9ff3fec05d7709bdee95ab4832a33b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ecdc3a847821fd83718f9cfc42308667460feabc
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/09/2018
 ---
-# <a name="plan-and-design-azure-virtual-networks"></a>Azure 가상 네트워크 계획 및 디자인
-실험할 VNet을 만드는 것이 매우 쉽지만 조직의 프로덕션 요구를 지원하도록 시간이 지남에 따라 여러 VNet을 배포할 가능성이 높습니다. 몇 가지 계획 및 디자인을 통해 VNet을 배포하고 필요한 리소스를 보다 효과적으로 배포할 수 있습니다. VNet에 대해 잘 모르는 경우 진행하기 전에 [VNet에 대한 정보](virtual-networks-overview.md) 및 [배포 방법](virtual-networks-create-vnet-arm-pportal.md)을 알아보는 것이 좋습니다.
+# <a name="plan-and-design-azure-virtual-networks"></a>Azure Virtual Network 계획 및 디자인
+실험할 VNet을 만드는 것이 매우 쉽지만 조직의 프로덕션 요구를 지원하도록 시간이 지남에 따라 여러 VNet을 배포할 가능성이 높습니다. 몇 가지 계획 및 디자인을 통해 VNet을 배포하고 필요한 리소스를 보다 효과적으로 배포할 수 있습니다. VNet에 대해 잘 모르는 경우 진행하기 전에 [VNet에 대한 정보](virtual-networks-overview.md) 및 [배포 방법](quick-create-portal.md)을 알아보는 것이 좋습니다.
 
 ## <a name="plan"></a>계획
 성공을 위해서는 Azure 구독, 하위 지역 및 네트워크 리소스를 충분히 이해하는 것이 중요합니다. 아래 고려 사항 목록을 시작 지점으로 사용할 수 있습니다. 이러한 고려 사항을 이해했으면 네트워크 디자인에 대한 요구 사항을 정의할 수 있습니다.
@@ -58,7 +58,7 @@ VNet과 서브넷 리소스를 사용하여 Azure에서 실행 중인 워크로�
 
 VNet에는 다음 속성이 포함될 수 있습니다.
 
-| 속성 | 설명 | 제약 조건 |
+| 자산 | 설명 | 제약 조건 |
 | --- | --- | --- |
 | **name** |VNet 이름 |최대 80자의 문자열입니다. 문자, 숫자, 밑줄, 마침표 또는 하이픈을 포함할 수 있습니다. 문자 또는 숫자로 시작해야 합니다. 문자, 숫자 또는 밑줄로 끝나야 합니다. 대문자 또는 소문자를 포함할 수 있습니다. |
 | **위치** |Azure 위치(하위 지역이라고도 함). |올바른 Azure 위치 중 하나여야 합니다. |
@@ -71,7 +71,7 @@ VNet에는 다음 속성이 포함될 수 있습니다.
 
 서브넷에는 다음 속성이 포함될 수 있습니다.
 
-| 속성 | 설명 | 제약 조건 |
+| 자산 | 설명 | 제약 조건 |
 | --- | --- | --- |
 | **name** |서브넷 이름 |최대 80자의 문자열입니다. 문자, 숫자, 밑줄, 마침표 또는 하이픈을 포함할 수 있습니다. 문자 또는 숫자로 시작해야 합니다. 문자, 숫자 또는 밑줄로 끝나야 합니다. 대문자 또는 소문자를 포함할 수 있습니다. |
 | **위치** |Azure 위치(하위 지역이라고도 함). |올바른 Azure 위치 중 하나여야 합니다. |
@@ -86,7 +86,7 @@ VNet에는 다음 속성이 포함될 수 있습니다.
 ### <a name="limits"></a>제한
 [Azure 제한](../azure-subscription-service-limits.md#networking-limits) 문서에서 네트워킹 제한을 검토하여 디자인이 제한과 충돌하지 않는지 확인합니다. 일부 제한은 지원 티켓을 열어 늘릴 수 있습니다.
 
-### <a name="role-based-access-control-rbac"></a>역할 기반 액세스 제어(RBAC)
+### <a name="role-based-access-control-rbac"></a>역할 기반 Access Control(RBAC)
 [Azure RBAC](../active-directory/role-based-access-built-in-roles.md) 를 사용하여 Azure의 다른 리소스에 대해 다양한 사용자가 보유할 수 있는 액세스 수준을 제어할 수 있습니다. 그러면 사용자 요구에 따라 팀에서 수행한 작업을 분리할 수 있습니다.
 
 가상 네트워크 관점에서 **네트워크 참여자** 역할의 사용자는 Azure 리소스 관리자 가상 네트워크 리소스에 대한 모든 권한을 가집니다. 마찬가지로, **클래식 네트워크 참여자** 역할의 사용자는 클래식 가상 네트워크 리소스에 대해 모든 권한을 가집니다.
@@ -105,7 +105,7 @@ VNet에는 다음 속성이 포함될 수 있습니다.
 * **서로 다른 Azure 위치에 배치되어야 하는 VM**. Azure에서 VNet은 지역적입니다. 여러 위치에 걸쳐 있지 않습니다. 따라서 안에서 VM을 호스트할 각 Azure 위치에 대해 하나 이상의 VNet이 필요합니다.
 * **서로 완전히 격리해야 하는 워크로드**. 동일한 IP 주소 공간을 사용하더라도 서로 다른 워크로드를 격리하기 위해 별도의 VNet을 만들 수 있습니다.
 
-위에 나와 있는 제한은 하나의 하위 지역, 1개 구독을 기준으로 한다는 점에 유의합니다. 즉, 여러 구독을 사용하여 Azure에서 유지 관리할 수 있는 리소스의 제한을 늘릴 수 있습니다. 사이트 간 VPN 또는 Express 경로 회로를 사용하여 다양한 구독에서 VNet에 연결할 수 있습니다.
+위에 나와 있는 제한은 하나의 하위 지역, 1개 구독을 기준으로 한다는 점에 유의합니다. 즉, 여러 구독을 사용하여 Azure에서 유지 관리할 수 있는 리소스의 제한을 늘릴 수 있습니다. 사이트 간 VPN 또는 ExpressRoute 회로를 사용하여 다양한 구독에서 VNet에 연결할 수 있습니다.
 
 ### <a name="subscription-and-vnet-design-patterns"></a>구독 및 VNet 디자인 패턴
 아래 표에서는 구독 및 VNet을 사용하기 위한 몇 가지 일반적인 디자인 패턴을 보여 줍니다.
@@ -122,7 +122,7 @@ VNet에는 다음 속성이 포함될 수 있습니다.
 
 * **서브넷에 있는 모든 NIC에 대해 개인 IP 주소가 부족**. 서브넷 주소 공간에 서브넷의 NIC 수에 맞는 충분한 IP 주소가 없는 경우 여러 서브넷을 만들어야 합니다. Azure에서는 각 서브넷에서 사용할 수 없는 5개의 개인 IP 주소를 예약해 둡니다. 주소 공간의 처음 및 마지막 주소(서브넷 주소 및 멀티캐스트)와 내부적으로 사용되는 3개 주소(DHCP 및 DNS 용도)입니다.
 * **보안**. 서브넷을 사용하여 다중 계층 구조의 워크로드에 대해 VM 그룹을 서로 구분하고 해당 서브넷에 대해 서로 다른 [NSG(네트워크 보안 그룹)](virtual-networks-nsg.md#subnets) 를 적용할 수 있습니다.
-* **하이브리드 연결**. VPN 게이트웨이 및 ExpressRoute 회로를 사용하여 VNet을 서로 [연결](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti) 하고 온-프레미스 데이터 센터에 연결할 수 있습니다. VPN 게이트웨이 및 Express 경로 회로에는 만들려는 자체의 서브넷이 필요합니다.
+* **하이브리드 연결**. VPN 게이트웨이 및 ExpressRoute 회로를 사용하여 VNet을 서로 [연결](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti) 하고 온-프레미스 데이터 센터에 연결할 수 있습니다. VPN 게이트웨이 및 ExpressRoute 회로에는 만들려는 자체의 서브넷이 필요합니다.
 * **가상 어플라이언스**. Azure VNet에서 방화벽, WAN 가속기 또는 VPN 게이트웨이 같은 가상 어플라이언스를 사용할 수 있습니다. 이렇게 하려면 해당 어플라이언스로 [트래픽을 라우팅](virtual-networks-udr-overview.md) 하고 자체의 서브넷에서 이를 격리해야 합니다.
 
 ### <a name="subnet-and-nsg-design-patterns"></a>서브넷 및 NSG 디자인 패턴
@@ -183,7 +183,7 @@ VNet에는 다음 속성이 포함될 수 있습니다.
     예. 각 응용 프로그램은 서로 완전히 격리되어야 하고 각 응용 프로그램 계층도 격리되어야 합니다.
 6. 가상 어플라이언스를 사용하여 트래픽 흐름을 제어해야 합니까?
 
-    아니요. 보다 자세한 데이터 평면 로깅을 비롯하여 트래픽 흐름에 대한 세밀한 제어를 제공하기 위해 가상 어플라이언스를 사용할 수 있습니다.
+    번호 보다 자세한 데이터 평면 로깅을 비롯하여 트래픽 흐름에 대한 세밀한 제어를 제공하기 위해 가상 어플라이언스를 사용할 수 있습니다.
 7. 사용자에게 Azure 리소스마다 다른 권한 집합이 필요합니까?
 
     예. 네트워킹 팀은 가상 네트워킹 설정에 대한 모든 권한이 필요한 반면 개발자는 VM을 기존의 서브넷에 배포할 수만 있어야 합니다.
@@ -238,7 +238,7 @@ VNet에는 다음 속성이 포함될 수 있습니다.
 
 ![샘플 VNet](./media/virtual-network-vnet-plan-design-arm/figure10.png)
 
-**액세스 제어**
+**Access Control**
 
 다음 요구 사항은 액세스 제어에 대한 것입니다.
 

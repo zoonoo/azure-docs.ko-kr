@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 
 ms.author: haroldw
-ms.openlocfilehash: 467428462260596f21ba59f49e3c48b5fc2526b6
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 178f4d6dab5c87c9c53ab87c4a3b1edcfa61c221
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="common-prerequisites-for-deploying-openshift-in-azure"></a>Azure에서 OpenShift를 배포하기 위한 일반적인 필수 조건
 
@@ -52,7 +52,7 @@ VM(가상 머신)은 Azure Resource Manager 템플릿을 통해 배포되기 때
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인 
-[az login](/cli/azure/#az_login) 명령으로 Azure 구독에 로그인하고 화면의 지시를 따르거나 **시도**를 클릭하여 Cloud Shell을 사용합니다.
+[az login](/cli/azure/reference-index#az_login) 명령으로 Azure 구독에 로그인하고 화면의 지시를 따르거나 **시도**를 클릭하여 Cloud Shell을 사용합니다.
 
 ```azurecli 
 az login

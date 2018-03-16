@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/16/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7e2f988fd62753e1ebed702728dee7ede65c72c4
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 96206482195cdcbd06ee2dafdc551f7b1f81d319
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="manage-resources-with-azure-powershell"></a>Azure PowerShell을 사용하여 리소스 관리
 
-[!include[Resource Manager governance introduction](../../includes/resource-manager-governance-intro.md)]
+[!INCLUDE [Resource Manager governance introduction](../../includes/resource-manager-governance-intro.md)]
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
@@ -30,7 +30,7 @@ PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우 [Azure 
 
 ## <a name="understand-scope"></a>범위 이해
 
-[!include[Resource Manager governance scope](../../includes/resource-manager-governance-scope.md)]
+[!INCLUDE [Resource Manager governance scope](../../includes/resource-manager-governance-scope.md)]
 
 이 문서에서는 이러한 설정이 완료된 후 쉽게 제거할 수 있도록 모든 관리 설정을 리소스 그룹에 적용 합니다.
 
@@ -45,7 +45,7 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 
 ## <a name="role-based-access-control"></a>역할 기반 액세스 제어
 
-[!include[Resource Manager governance policy](../../includes/resource-manager-governance-rbac.md)]
+[!INCLUDE [Resource Manager governance policy](../../includes/resource-manager-governance-rbac.md)]
 
 ### <a name="assign-a-role"></a>역할 할당
 
@@ -73,7 +73,7 @@ New-AzureRmRoleAssignment -ObjectId $adgroup.ObjectId `
 
 ## <a name="azure-policies"></a>Azure 정책
 
-[!include[Resource Manager governance policy](../../includes/resource-manager-governance-policy.md)]
+[!INCLUDE [Resource Manager governance policy](../../includes/resource-manager-governance-policy.md)]
 
 ### <a name="apply-policies"></a>정책 적용
 
@@ -131,7 +131,7 @@ New-AzureRmVm -ResourceGroupName "myResourceGroup" `
 
 ## <a name="lock-resources"></a>리소스 잠금
 
-[!include[Resource Manager governance locks](../../includes/resource-manager-governance-locks.md)]
+[!INCLUDE [Resource Manager governance locks](../../includes/resource-manager-governance-locks.md)]
 
 ### <a name="lock-a-resource"></a>리소스 잠금
 
@@ -154,11 +154,11 @@ New-AzureRmResourceLock -LockLevel CanNotDelete `
 
 ## <a name="tag-resources"></a>리소스 태그 지정
 
-[!include[Resource Manager governance tags](../../includes/resource-manager-governance-tags.md)]
+[!INCLUDE [Resource Manager governance tags](../../includes/resource-manager-governance-tags.md)]
 
 ### <a name="tag-resources"></a>리소스 태그 지정
 
-[!include[Resource Manager governance tags Powershell](../../includes/resource-manager-governance-tags-powershell.md)]
+[!INCLUDE [Resource Manager governance tags Powershell](../../includes/resource-manager-governance-tags-powershell.md)]
 
 가상 머신에 태그를 적용하려면 다음을 사용합니다.
 

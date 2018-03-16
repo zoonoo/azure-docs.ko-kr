@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: 901bacd450561ee5eb4811320626d6ecbcc8c916
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: a65e49c465e83d2e76f33019984eec16331ed6ea
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>가상 네트워크 피어링 만들기 - 서로 다른 배포 모델 및 구독
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 02/11/2018
 
 |Azure 배포 모델  | Azure 구독  |
 |--------- |---------|
-|[둘 다 리소스 관리자](virtual-network-create-peering.md) |동일|
+|[둘 다 리소스 관리자](tutorial-connect-virtual-networks-portal.md) |동일|
 |[둘 다 리소스 관리자](create-peering-different-subscriptions.md) |다름|
 |[하나는 리소스 관리자, 다른 하나는 클래식](create-peering-different-deployment-models.md) |동일|
 

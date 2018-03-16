@@ -14,11 +14,11 @@ ms.topic: sample
 ms.date: 12/07/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: bec915f3e321cf2422f7cc2cad3ce1dfb6b3317a
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: c1b2a008a0b474630cba1d8eca479197cdeb9497
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="restore-a-web-app-from-a-backup"></a>백업으로 웹앱 복원
 
@@ -40,13 +40,13 @@ CLI를 로컬로 설치하여 사용하도록 선택하는 경우 Azure CLI 버�
 
 이 스크립트는 다음 명령을 사용합니다. 테이블에 있는 각 명령은 명령에 해당하는 문서에 연결됩니다.
 
-| 명령 | 참고 사항 |
+| 명령 | 메모 |
 |---|---|
 | [`az webapp config backup list`](/cli/azure/webapp/config/backup?view=azure-cli-latest#az_webapp_config_backup_list) | 웹앱의 백업 목록을 가져옵니다. |
 | [`az webapp config backup restore`](/cli/azure/webapp/config/backup?view=azure-cli-latest#az_webapp_config_backup_restore) | 백업에서 웹앱을 복원합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](https://docs.microsoft.com/cli/azure/overview)를 참조하세요.
+Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](https://docs.microsoft.com/cli/azure)를 참조하세요.
 
 추가 App Service CLI 스크립트 샘플은 [Azure App Service 설명서](../app-service-cli-samples.md)에서 확인할 수 있습니다.

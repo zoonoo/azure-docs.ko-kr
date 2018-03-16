@@ -6,13 +6,13 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 03/08/2018
 ms.author: raynew
-ms.openlocfilehash: d4c8dc8083fbffc46e94673230241075b763b444
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: d460da197c6e9f0bface402d83d4788f8164cc9c
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Azure에 온-프레미스 물리적 서버에 대한 재해 복구 설정
 
@@ -32,8 +32,8 @@ ms.lasthandoff: 02/28/2018
 이 자습서를 완료하려면 다음이 필요합니다.
 
 - [시나리오 아키텍처 및 구성 요소](physical-azure-architecture.md)를 이해해야 합니다.
-- 모든 구성 요소에 대한 [지원 요구 사항](site-recovery-support-matrix-to-azure.md)을 검토합니다.
-- 복제할 서버가 [Azure VM 요구 사항](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements)을 준수해야 합니다.
+- 모든 구성 요소에 대한 [지원 요구 사항](vmware-physical-secondary-support-matrix.md)을 검토합니다.
+- 복제할 서버가 [Azure VM 요구 사항](vmware-physical-secondary-support-matrix.md#replicated-vm-support)을 준수해야 합니다.
 - Azure를 준비합니다. Azure 구독, Azure Virtual Network 및 저장소 계정이 필요합니다.
 - 복제하려는 각 서버에서 모바일 서비스를 자동으로 설치하기 위해 계정을 준비합니다.
 

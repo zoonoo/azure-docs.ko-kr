@@ -12,13 +12,13 @@ ms.devlang: powershell
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.workload: storage-backup-recovery
-ms.date: 11/28/2017
+ms.date: 03/09/2018
 ms.author: ruturajd@microsoft.com
-ms.openlocfilehash: 986c3b62426949f1e4c2009aabbfec2f1130f821
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 4802215f903eb196afbf05637ad5e38dbbbc09a3
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>복구 계획에 Azure Automation Runbook 추가
 이 문서에서는 Azure Site Recovery를 Azure Automation에 통합하여 복구 계획을 확장하는 방법을 설명합니다. 복구 계획으로 Site Recovery로 보호되는 VM의 복구를 오케스트레이션할 수 있습니다. 복구 계획은 보조 클라우드로 복제 및 Azure로의 복제 모두에서 작동합니다. 복구 계획을 통해 복구를 **일관적으로 정확**하고, **반복 가능**하며, **자동화**되도록 할 수도 있습니다. VM을 Azure로 장애 조치(failover)하는 경우 Azure Automation과 통합하면 복구 계획이 확장됩니다. 이를 통해 강력한 자동화 작업을 제공하는 Runbook을 실행할 수 있습니다.
@@ -193,7 +193,7 @@ workflow AddPublicIPAndNSG {
 
 ### <a name="use-a-complex-variable-to-store-more-information"></a>복합 변수를 사용하여 자세한 정보 저장
 
-단일 스크립트에서 특정 VM의 공용 IP를 설정하는 시나리오를 고려해 보세요. 다른 시나리오에서는 서로 다른 VM(모든 VM 아님)에는 다른 NSG를 적용하려고 합니다. 모든 복구 계획에 다시 사용할 수 있는 스크립트를 만들 수 있습니다. 각 복구 계획에는 다양한 수의 VM이 포함될 수 있습니다. 예를 들어 SharePoint 복구에는 두 개의 프런트 엔드가 있습니다. 기본 LOB(기간 업무) 응용 프로그램에는 하나의 프런트 엔드만 있습니다. 각 복구 계획에 별도의 변수를 만들 수 없습니다. 
+단일 스크립트에서 특정 VM의 공용 IP를 설정하는 시나리오를 고려해 보세요. 다른 시나리오에서는 서로 다른 VM(모든 VM 아님)에는 다른 NSG를 적용하려고 합니다. 모든 복구 계획에 다시 사용할 수 있는 스크립트를 만들 수 있습니다. 각 복구 계획에는 다양한 수의 VM이 포함될 수 있습니다. 예를 들어 SharePoint 복구에는 두 개의 프런트 엔드가 있습니다. 기본 LOB(기간 업무) 응용 프로그램에는 하나의 프런트 엔드만 있습니다. 각 복구 계획에 별도의 변수를 만들 수 없습니다.
 
 다음 예제에서는 Azure Automation 계정 자산에서 새 기술을 사용하고 [복합 변수](https://msdn.microsoft.com/library/dn913767.aspx?f=255&MSPPError=-2147217396)를 만듭니다. 여러 값을 지정하여 이 작업을 수행합니다. 다음 단계를 완료하려면 Azure PowerShell을 사용해야 합니다.
 

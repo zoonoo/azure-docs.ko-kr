@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: d3ce4d5c6766c41fe32164ebfe623ea8c06b58f9
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: e477ce9a5f9f35d88a6faeb68ee4e0403f64c030
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-network-security-overview"></a>Azure 네트워크 보안 개요
 Microsoft Azure에는 사용자의 응용 프로그램과 서비스 연결 요구 사항을 지원하기 위한 강력한 네트워킹 인프라가 포함되어 있습니다. 네트워크 연결은 Azure에 위치한 리소스 간, 온-프레미스와 Azure 호스팅 리소스 간, 그리고 인터넷과 Azure 간에 가능합니다.
@@ -218,7 +218,7 @@ Azure Load Balancer를 사용하여 Azure에서 네트워크 수준 부하 분�
 자세한 정보:
 
 * [Virtual Network 개요](../virtual-network/virtual-networks-overview.md)
-* [VNet(Virtual Network)에서 사용하는 DNS 서버 관리](../virtual-network/virtual-network-manage-network.md#dns-servers)
+* [VNet(Virtual Network)에서 사용하는 DNS 서버 관리](../virtual-network/manage-virtual-network.md#change-dns-servers)
 
 외부 DNS 확인에는 두 가지 옵션이 있습니다.
 

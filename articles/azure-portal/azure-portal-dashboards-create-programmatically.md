@@ -13,11 +13,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
 ms.author: adamab
-ms.openlocfilehash: d2131a9fbb8fcb77a00045924169420773893f91
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 0e84ff61346f2788cf475cee2783ba2056a091ad
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Azure 대시보드를 프로그래밍 방식으로 만들기
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 02/27/2018
 
 ## <a name="overview"></a>개요
 
-Azure에서 공유 대시보드는 가상 머신 및 저장소 계정과 같은 [리소스](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)입니다.  따라서 [Azure Resource Manager REST API](/rest/api/), [Azure CLI](https://docs.microsoft.com/cli/azure/overview), [Azure PowerShell 명령](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azurermps-4.2.0) 및 이러한 API를 기반으로 하는 수많은 [Azure Portal](https://portal.azure.com) 기능을 통해 프로그래밍 방식으로 관리하고 리소스를 보다 쉽게 관리할 수 있습니다.  
+Azure에서 공유 대시보드는 가상 머신 및 저장소 계정과 같은 [리소스](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)입니다.  따라서 [Azure Resource Manager REST API](/rest/api/), [Azure CLI](https://docs.microsoft.com/cli/azure), [Azure PowerShell 명령](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azurermps-4.2.0) 및 이러한 API를 기반으로 하는 수많은 [Azure Portal](https://portal.azure.com) 기능을 통해 프로그래밍 방식으로 관리하고 리소스를 보다 쉽게 관리할 수 있습니다.  
 
 이러한 각 API 및 도구는 리소스를 만들고 나열하며 검색, 수정 및 삭제하는 방법을 제공합니다.  대시보드는 리소스이므로 사용할 선호하는 API / 도구를 선택할 수 있습니다.
 

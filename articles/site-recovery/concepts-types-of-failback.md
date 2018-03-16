@@ -2,25 +2,20 @@
 title: "Azure Site Recovery의 장애 복구(failback) | Microsoft Docs"
 description: "이 문서에서는 Azure Site Recovery 서비스를 사용하여 온-프레미스로 장애 복구(failback)하는 동안 고려해야 할 주의 사항과 다양한 장애 복구(failback) 유형에 대해 간략하게 설명합니다."
 services: site-recovery
-documentationcenter: 
 author: rajani-janaki-ram
 manager: guaravd
-editor: 
-ms.assetid: 
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 12/18/2017
+ms.date: 03/05/2018
 ms.author: rajanki
-ms.openlocfilehash: 07dc05c0bd89e69b6bfcff7577919494647efed0
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 372a7867b47960338d7a1bf7e646fb9fffbe72e1
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="overview-of-failback"></a>장애 복구 개요
+
 Azure로 장애 조치(failover)한 후 온-프레미스 사이트로 장애 복구(failback)할 수 있습니다. Azure Site Recovery에서 가능한 두 가지 유형의 장애 복구(failback)가 있습니다. 
 
 - 원래 위치로 장애 복구(failback) 
@@ -55,5 +50,5 @@ VMware 가상 머신을 장애 조치했는데 원본 온-프레미스 가상 �
 
 ## <a name="next-steps"></a>다음 단계
 
-[장애 복구(failback) 작업](site-recovery-how-to-failback-azure-to-vmware.md)을 수행하는 단계를 따르세요.
+[장애 복구(failback) 작업](vmware-azure-failback.md)을 수행하는 단계를 따르세요.
 

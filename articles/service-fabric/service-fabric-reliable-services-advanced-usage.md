@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/02/2017
+ms.date: 3/9/2018
 ms.author: vturecek
-ms.openlocfilehash: 694d75807d978ece6296b945bf348f08688d3b5d
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 48504f258b13a7ff5f4c91db2d9de09269e92424
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="advanced-usage-of-the-reliable-services-programming-model"></a>신뢰할 수 있는 서비스 프로그래밍 모델 고급 사용법
 Azure 서비스 패브릭은 신뢰할 수 있는 상태 비저장 및 상태 저장 서비스의 작성과 관리를 단순화합니다. 이 가이드는 서비스에 대한 더 많은 제어와 유연성을 확보할 수 있는 Reliable Services의 고급 사용법에 대해 설명합니다. 이 가이드를 읽기 전에 [신뢰할 수 있는 서비스 프로그래밍 모델](service-fabric-reliable-services-introduction.md)에 대해 숙지하세요.
@@ -40,11 +40,6 @@ Azure 서비스 패브릭은 신뢰할 수 있는 상태 비저장 및 상태 �
 * `void OnAbort() - C# / void onAbort() - Java` 상태 비저장 서비스 인스턴스가 정상적으로 종료되려고 할 때 OnAbort가 호출됩니다. 이는 일반적으로 노드에서 영구 오류가 감지되거나, 내부 오류로 인해 서비스 패브릭에서 서비스 인스턴스 수명 주기를 안정적으로 관리할 수 없을 때 호출됩니다.
 
 ## <a name="stateful-service-replica-lifecycle"></a>상태 저장 서비스 복제본 수명 주기
-
-> [!NOTE]
-> 상태 저장 Reliable Services는 Java에서 아직 지원되지 않습니다.
->
->
 
 상태 저장 서비스 복제본의 수명 주기는 상태 비저장 서비스 인스턴스보다 훨씬 더 복잡합니다. 열기, 닫기 및 중단 이벤트 외에 상태 저장 서비스 복제본은 수명 동안 역할이 변경됩니다. 상태 저장 서비스 복제본의 역할이 변경된 경우 `OnChangeRoleAsync` 이벤트가 트리거됩니다.
 

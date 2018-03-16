@@ -18,10 +18,10 @@ ms.author: billmath
 ms.reviewer: jesakowi
 ms.custom: oldportal;it-pro;
 ms.openlocfilehash: d3e14c18d5e4cd77f4c68d8a5d9d0b915e896695
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="apps-permissions-and-consent-in-azure-active-directory"></a>Azure Active Directory에서 앱, 사용 권한 및 동의
 Azure Active Directory 내에서 디렉터리에 응용 프로그램을 추가할 수 있습니다.  응용 프로그램은 응용 프로그램 유형에 따라 다를 수 있습니다.  포털에서 응용 프로그램을 보려면 디렉터리와 응용 프로그램을 선택합니다.

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/14/2017
 ms.author: iainfou
-ms.openlocfilehash: 4a10df360249b4b0b28ecbe4762bbb165ef9bb8d
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: b87d187eadff98ba84aa6478c2d233f2ec1c203c
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="how-to-encrypt-virtual-disks-on-a-linux-vm"></a>Linux VM에서 가상 디스크를 암호화하는 방법
 VM(가상 머신)의 보안과 규정 준수 상태를 향상시키기 위해 가상 디스크 및 VM 자체를 암호화할 수 있습니다. VM은 Azure Key Vault에 안전하게 보관되는 암호화 키를 사용하여 암호화됩니다. 이러한 암호화 키를 제어하고 용도를 감사할 수 있습니다. 이 문서에서는 Azure CLI 2.0을 사용하여 Linux VM에서 가상 디스크를 암호화하는 방법을 자세히 설명합니다. [Azure CLI 1.0](encrypt-disks-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에서 이러한 단계를 수행할 수도 있습니다.
@@ -27,7 +27,7 @@ VM(가상 머신)의 보안과 규정 준수 상태를 향상시키기 위해 �
 ## <a name="quick-commands"></a>빠른 명령
 작업을 빠르게 완료해야 하는 경우 다음 섹션에서 VM에서 가상 디스크를 암호화하는 기본 명령에 대해 자세히 알아보세요. 각 단계에 대한 보다 자세한 내용 및 상황 설명은 [여기서부터](#overview-of-disk-encryption) 문서 끝까지 참조하세요.
 
-최신 [Azure CLI 2.0](/cli/azure/install-az-cli2)을 설치하고 [az login](/cli/azure/#az_login)을 사용하여 Azure 계정에 로그인해야 합니다. 다음 예제에서 매개 변수 이름을 고유한 값으로 바꿉니다. 예제 매개 변수 이름에는 *myResourceGroup*, *myKey*, *myVM*이 포함됩니다.
+최신 [Azure CLI 2.0](/cli/azure/install-az-cli2)을 설치하고 [az login](/cli/azure/reference-index#az_login)을 사용하여 Azure 계정에 로그인해야 합니다. 다음 예제에서 매개 변수 이름을 고유한 값으로 바꿉니다. 예제 매개 변수 이름에는 *myResourceGroup*, *myKey*, *myVM*이 포함됩니다.
 
 먼저 Azure 구독 내에서 [az provider register](/cli/azure/provider#az_provider_register)를 사용하여 Azure Key Vault 공급자를 사용하도록 설정하고 [az group create](/cli/azure/group#az_group_create)을 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
 
@@ -158,7 +158,7 @@ VM을 암호화하는 프로세스는 다음과 같습니다.
 
 
 ## <a name="create-azure-key-vault-and-keys"></a>Azure Key Vault 및 키 만들기
-최신 [Azure CLI 2.0](/cli/azure/install-az-cli2)을 설치하고 [az login](/cli/azure/#az_login)을 사용하여 Azure 계정에 로그인해야 합니다. 다음 예제에서 매개 변수 이름을 고유한 값으로 바꿉니다. 예제 매개 변수 이름에는 *myResourceGroup*, *myKey*, *myVM*이 포함됩니다.
+최신 [Azure CLI 2.0](/cli/azure/install-az-cli2)을 설치하고 [az login](/cli/azure/reference-index#az_login)을 사용하여 Azure 계정에 로그인해야 합니다. 다음 예제에서 매개 변수 이름을 고유한 값으로 바꿉니다. 예제 매개 변수 이름에는 *myResourceGroup*, *myKey*, *myVM*이 포함됩니다.
 
 첫 번째 단계는 암호화 키를 저장할 Azure Key Vault를 만드는 것입니다. Azure Key Vault는 응용 프로그램 및 서비스에 안전하게 구현할 수 있는 키와 암호를 저장할 수 있습니다. 가상 디스크 암호화의 경우 Key Vault를 사용하여 가상 디스크 암호화 또는 암호 해독에 사용되는 암호화 키를 저장합니다.
 

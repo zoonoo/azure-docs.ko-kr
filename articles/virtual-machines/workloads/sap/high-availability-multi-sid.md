@@ -1,6 +1,6 @@
 ---
 title: "Azure에서 SAP 다중 SID 구성 만들기 | Microsoft Docs"
-description: "Windows 가상 컴퓨터의 고가용성 SAP NetWeaver 다중 SID 구성 가이드"
+description: "Windows 가상 머신의 고가용성 SAP NetWeaver 다중 SID 구성 가이드"
 services: virtual-machines-windows, virtual-network, storage
 documentationcenter: saponazure
 author: goraco
@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 12/09/2016
 ms.author: goraco
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1b28870938667076280d6e4b08ee84870296d133
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: a8c49f06719b68c2b3ca6aee4dfb0b90bdbf0afc
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-an-sap-netweaver-multi-sid-configuration"></a>SAP NetWeaver 다중 SID 구성 만들기
 
@@ -425,7 +425,7 @@ ms.lasthandoff: 11/02/2017
 [virtual-network-deploy-multinic-arm-ps]:../windows/multiple-nics.md
 [virtual-network-deploy-multinic-arm-template]:../../../virtual-network/virtual-network-deploy-multinic-arm-template.md
 [virtual-networks-configure-vnet-to-vnet-connection]:../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md
-[virtual-networks-create-vnet-arm-pportal]:../../../virtual-network/virtual-networks-create-vnet-arm-pportal.md
+[virtual-networks-create-vnet-arm-pportal]:../../../virtual-network/manage-virtual-network.md#create-a-virtual-network
 [virtual-networks-manage-dns-in-vnet]:../../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md
 [virtual-networks-multiple-nics]:../../../virtual-network/virtual-network-deploy-multinic-classic-ps.md
 [virtual-networks-nsg]:../../../virtual-network/virtual-networks-nsg.md
@@ -502,7 +502,7 @@ SAP 배포가 있는 경우 [Windows VM에서 고가용성 SAP NetWeaver 가이�
 
 두 개의 노드를 포함한 기존 WSFC 클러스터에서 추가 SAP ASCS/SCS 인스턴스를 설치할 수 있습니다.
 
-| 가상 컴퓨터 역할 | 가상 컴퓨터 호스트 이름 | 고정 IP 주소 |
+| 가상 머신 역할 | 가상 머신 호스트 이름 | 고정 IP 주소 |
 | --- | --- | --- |
 | ASCS/SCS 인스턴스의 첫 번째 클러스터 노드 |pr1-ascs-0 |10.0.0.10 |
 | ASCS/SCS 인스턴스의 두 번째 클러스터 노드 |pr1-ascs-1 |10.0.0.9 |

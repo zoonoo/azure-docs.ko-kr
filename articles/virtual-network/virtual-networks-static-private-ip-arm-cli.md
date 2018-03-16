@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/16/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c936518c3cc431bb74dcdfe7f967687d3dc71e42
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: a9fe7020719079e11150c62068650aa6ca17b056
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-cli"></a>Azure CLI를 사용하여 가상 머신에 대한 개인 IP 주소 구성
 
@@ -35,13 +35,13 @@ ms.lasthandoff: 02/09/2018
 [!INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 
 > [!NOTE]
-> 다음 샘플 Azure CLI 명령에는 기존 단순 환경이 필요합니다. 이 문서에 표시된 대로 명령을 실행하려는 경우 먼저 [vnet 만들기](virtual-networks-create-vnet-arm-cli.md)에 설명된 테스트 환경을 구축합니다.
+> 다음 샘플 Azure CLI 명령에는 기존 단순 환경이 필요합니다. 이 문서에 표시된 대로 명령을 실행하려는 경우 먼저 [vnet 만들기](quick-create-cli.md)에 설명된 테스트 환경을 구축합니다.
 
 ## <a name="specify-a-static-private-ip-address-when-creating-a-vm"></a>VM을 만들 때 정적 개인 IP 주소 지정
 
 *192.168.1.101*의 정적 개인 IP 주소를 사용하여 *TestVNet*이라는 VNet의 *FrontEnd* 서브넷에 *DNS01*이라는 VM을 만들려면 다음 단계를 완료하세요.
 
-1. 아직 설치하지 않은 경우 최신 [Azure CLI 2.0](/cli/azure/install-az-cli2)을 설치 및 구성하고 [az login](/cli/azure/#az_login)을 사용하여 Azure 계정에 로그인합니다. 
+1. 아직 설치하지 않은 경우 최신 [Azure CLI 2.0](/cli/azure/install-az-cli2)을 설치 및 구성하고 [az login](/cli/azure/reference-index#az_login)을 사용하여 Azure 계정에 로그인합니다. 
 
 2. [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) 명령을 사용하여 VM의 공용 IP를 만듭니다. 출력 다음에 표시되는 목록은 사용되는 매개 변수를 설명합니다.
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/01/2016
 ms.author: cephalin
 ms.openlocfilehash: 6b5939341ad05fb8f80415c5335c24d216fc2555
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Azure App Service의 운영 체제 기능
 이 문서에서는 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)에서 실행되는 모든 앱에서 사용할 수 있는 일반적인 기준 운영 체제 기능을 설명합니다. 이 기능에는 파일, 네트워크, 레지스트리 액세스, 진단 로그 및 이벤트가 포함됩니다. 

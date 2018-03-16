@@ -1,8 +1,24 @@
--- 제목: Azure Service Fabric 클러스터에서 인증서 관리 | Microsoft Docs 설명: Service Fabric 클러스터에서 새 인증서를 추가, 교체 및 제거하는 방법을 설명합니다.
-서비스: service-fabric documentationcenter: .net author: ChackDan manager: timlt editor: ''
-
-ms.assetid: 91adc3d3-a4ca-46cf-ac5f-368fb6458d74 ms.service: service-fabric ms.devlang: dotnet ms.topic: article ms.tgt_pltfrm: na ms.workload: na ms.date: 02/23/2018 ms.author: chackdan
-
+---
+title: "Azure Service Fabric 클러스터에서 인증서 관리 | Microsoft Docs"
+description: "Service Fabric 클러스터에서 새 인증서를 추가, 교체 및 제거하는 방법을 설명합니다."
+services: service-fabric
+documentationcenter: .net
+author: ChackDan
+manager: timlt
+editor: 
+ms.assetid: 91adc3d3-a4ca-46cf-ac5f-368fb6458d74
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 02/23/2018
+ms.author: chackdan
+ms.openlocfilehash: 68654bd9b14857661b627bf6d6b1dfe2483019a4
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Azure에서 서비스 패브릭 클러스터에 대한 인증서 추가 또는 제거
 Service Fabric이 X.509 인증서를 사용하는 방법을 숙지하고 [클러스터 보안 시나리오](service-fabric-cluster-security.md)를 읽어보는 것이 좋습니다. 다음 과정으로 진행하기 전에 클러스터 인증서가 무엇이며 어떤 용도로 사용되는지를 이해해야 합니다.

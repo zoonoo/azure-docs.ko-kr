@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/20/2017
 ms.author: kumud
-ms.openlocfilehash: 9987fe1273dc05a2ad10c65325ad1d487d38247e
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: abe970eb72be5ea6944acc253c2c3d9008b20c56
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 03/09/2018
 ---
 #  <a name="create-a-public-load-balancer-standard-with-zone-redundant-public-ip-address-frontend-using-powershell"></a>PowerShell을 사용하여 영역 중복 공용 IP 주소 프런트 엔드로 공용 부하 분산 장치 표준 만들기
 
 이 문서에서는 공용 IP 표준 주소를 사용하는 영역 중복 프런트 엔드로 공용 [부하 분산 장치 표준](https://aka.ms/azureloadbalancerstandard)을 만드는 단계를 안내합니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="register-for-availability-zones-load-balancer-standard-and-public-ip-standard-preview"></a>가용성 영역 등록, 부하 분산 장치 표준 및 공용 IP 표준 미리 보기
 
@@ -105,7 +105,7 @@ $lb = New-AzureRmLoadBalancer -ResourceGroupName myResourceGroup -Name 'MyLoadBa
 ```
 
 ## <a name="next-steps"></a>다음 단계
-- [가용성 영역에 공용 IP 만드는](../virtual-network/create-public-ip-availability-zone-portal.md) 방법 알아보기
+- [가용성 영역에 공용 IP 만드는](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address) 방법 알아보기
 
 
 

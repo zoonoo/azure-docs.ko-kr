@@ -6,7 +6,7 @@ ms.assetid: 2a23e4ca-ea93-4990-855a-1f9f05548202 ms.service: sql-database ms.cus
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>SQL Database 클라이언트 응용 프로그램의 SQL 오류 코드: 데이터베이스 연결 오류 및 기타 문제
 
-이 문서에서는 데이터베이스 연결 오류, 일시적인 오류(일시적인 폴트라고도 함), 리소스 거버넌스 오류, 데이터베이스 복사 문제, 탄력적 풀 및 기타 오류를 포함하여 SQL Database 클라이언트 응용 프로그램의 SQL 오류 코드를 나열합니다. 대부분의 범주는 Azure SQL Database에 특정되며 Microsoft SQL Server에 적용되지 않습니다. [시스템 오류 메시지](https://technet.microsoft.com/en-us/library/cc645603(v=sql.105).aspx)를 참조하세요.
+이 문서에서는 데이터베이스 연결 오류, 일시적인 오류(일시적인 폴트라고도 함), 리소스 거버넌스 오류, 데이터베이스 복사 문제, 탄력적 풀 및 기타 오류를 포함하여 SQL Database 클라이언트 응용 프로그램의 SQL 오류 코드를 나열합니다. 대부분의 범주는 Azure SQL Database에 특정되며 Microsoft SQL Server에 적용되지 않습니다. [시스템 오류 메시지](https://technet.microsoft.com/library/cc645603(v=sql.105).aspx)를 참조하세요.
 
 ## <a name="database-connection-errors-transient-errors-and-other-temporary-errors"></a>데이터베이스 연결 오류, 일시적인 오류 및 기타 임시 오류
 다음 표에서는 연결 끊김 오류와 응용 프로그램에서 SQL Database에 액세스하려고 할 때 발생할 수 있는 기타 일시적인 오류에 대한 SQL 오류 코드를 보여줍니다. Azure SQL Database에 연결하는 방법에 대한 시작 자습서를 보려면 [Azure SQL Database에 연결](sql-database-libraries.md)을 참조하세요.

@@ -1,5 +1,5 @@
 ---
-title: "Azure CDN 규칙 엔진에 대한 일치 조건 | Microsoft Docs"
+title: "Azure CDN 규칙 엔진 일치 조건 | Microsoft Docs"
 description: "Azure Content Delivery Network 규칙 엔진 일치 조건에 대한 참조 설명서"
 services: cdn
 documentationcenter: 
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2017
 ms.author: rli
-ms.openlocfilehash: 08845355be0bfb7e7dde52d19949fee4a68ed54b
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: e4b7113f27e5e15d69dfdd1efd13e255ef4a8ab7
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/08/2018
 ---
-# <a name="match-conditions-for-the-azure-cdn-rules-engine"></a>Azure CDN 규칙 엔진에 대한 일치 조건
+# <a name="azure-cdn-rules-engine-match-conditions"></a>Azure CDN 규칙 엔진 일치 조건 
 이 문서에서는 Azure CDN(Content Delivery Network) [규칙 엔진](cdn-rules-engine.md)에 대해 제공되는 일치 조건에 대해 자세히 설명합니다.
 
 규칙의 두 번째 부분이 일치 조건입니다. 일치 조건은 기능 집합에 대해 수행할 특정 요청 유형을 식별합니다.

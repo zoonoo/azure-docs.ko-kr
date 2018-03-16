@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: 9f8c9a32be9b889ced4fdc7065acd09e6700afd5
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 387f3095e8eebce3fa6c2f47ffc87995e65bfe2b
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="get-started-with-docker-and-compose-to-define-and-run-a-multi-container-application-in-azure"></a>Azure에서 다중 컨테이너 응용 프로그램 정의 및 실행을 위해 Docker 및 Compose 시작
 [Compose](http://github.com/docker/compose)를 사용하면 간단한 텍스트 파일을 사용하여 여러 Docker 컨테이너로 구성된 응용 프로그램을 정의할 수 있습니다. 그런 다음 정의된 환경을 배포하도록 모든 작업을 수행하는 단일 명령으로 응용 프로그램을 스핀업합니다. 그 예로, 이 문서에서는 Ubuntu VM의 백 엔드 MariaDB SQL Database로 WordPress 블로그를 신속하게 설정하는 방법을 보여주지만 Compose를 사용하여 좀더 복잡한 응용 프로그램을 설정할 수도 있습니다.
@@ -32,7 +32,7 @@ Docker VM 확장을 사용하면 VM이 자동으로 Docker 호스트로 설정�
 
 
 ### <a name="create-docker-host-with-azure-cli-20"></a>Azure CLI 2.0을 사용하여 Docker 호스트 만들기
-최신 [Azure CLI 2.0](/cli/azure/install-az-cli2)을 설치하고 [az login](/cli/azure/#az_login)을 사용하여 Azure 계정에 로그인합니다.
+최신 [Azure CLI 2.0](/cli/azure/install-az-cli2)을 설치하고 [az login](/cli/azure/reference-index#az_login)을 사용하여 Azure 계정에 로그인합니다.
 
 먼저 [az group create](/cli/azure/group#az_group_create)를 사용하여 Docker 환경에 대한 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
 

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 12/26/2017
 ms.author: willzhan;juliako;johndeu
 ms.openlocfilehash: ed78d6c6d4c695b841dbfbf917cd1681adc44ee7
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="use-azure-ad-authentication-to-access-the-azure-media-services-api-with-rest"></a>Azure AD 인증을 사용하여 REST로 Azure Media Services API 액세스
 
@@ -59,7 +59,7 @@ Media Services API에 액세스하려면 다음 데이터 요소를 수집해야
 
 |설정|예|설명|
 |---|-------|-----|
-|Azure Active Directory 테넌트 도메인|microsoft.onmicrosoft.com|Azure AD as a Secure Token Service(STS) 끝점은 https://login.microsoftonline.com/{your-aad-tenant-name.onmicrosoft.com}/oauth2/token 형식으로 작성됩니다. Azure AD는 리소스(액세스 토큰)에 액세스하기 위해 JWT를 발급합니다.|
+|Azure Active Directory 테넌트 도메인|microsoft.onmicrosoft.com|STS(보안 토큰 서비스) 끝점처럼 Azure AD는 https://login.microsoftonline.com/{your-aad-tenant-name.onmicrosoft.com}/oauth2/token 형식을 사용하여 만들어집니다. Azure AD는 리소스(액세스 토큰)에 액세스하기 위해 JWT를 발급합니다.|
 |REST API 끝점|https://amshelloworld.restv2.westus.media.azure.net/api/|응용 프로그램에서 모든 Media Services REST API 호출이 수행되는 끝점입니다.|
 |클라이언트 ID(응용 프로그램 ID)|f7fbbb29-a02d-4d91-bbc6-59a2579259d2|Azure AD 응용 프로그램(클라이언트) ID입니다. 액세스 토큰을 가져오려면 클라이언트 ID가 필요합니다. |
 |클라이언트 암호|+mUERiNzVMoJGggD6aV1etzFGa1n6KeSlLjIq+Dbim0=|Azure AD 응용 프로그램 키(클라이언트 암호)입니다. 액세스 토큰을 가져오려면 클라이언트 암호가 필요합니다.|
@@ -159,7 +159,7 @@ Media Services API에 액세스하려면 다음 데이터 요소를 수집해야
 
 1. **Postman**을 엽니다.
 2. **GET**을 선택합니다.
-3. REST API 끝점(예: https://amshelloworld.restv2.westus.media.azure.net/api/Assets)를 붙여 넣습니다.
+3. REST API 끝점 붙여넣기(예: https://amshelloworld.restv2.westus.media.azure.net/api/Assets))
 4. **Authorization** 탭을 선택합니다. 
 5. **Bearer Token**을 선택합니다.
 6. 이전 섹션에서 만든 토큰을 붙여 넣습니다.

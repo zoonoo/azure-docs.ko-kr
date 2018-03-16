@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 12/11/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: ca18b8b67d9af0c1f80d9726c1e20af0ad7e9c19
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: ef2fdfc8f248f9ec5dd9fce9753548dfe802982a
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-a-windows-virtual-machine-with-the-azure-portal"></a>Azure Portal을 사용하여 Windows 가상 머신 만들기
 
@@ -30,7 +30,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
 
-Azure Portal( http://portal.azure.com )에 로그인합니다.
+https://portal.azure.com에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-virtual-machine"></a>가상 컴퓨터 만들기
 

@@ -11,11 +11,11 @@ ms.devlang: azure-cli
 ms.custom: mvc
 ms.topic: sample
 ms.date: 02/28/2018
-ms.openlocfilehash: 21021485a7fe5f9bf32da76b507360290b8cfe66
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 10ce026b4cef4ef06d379a35a4109544ce8573e5
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="monitor-and-scale-a-single-postgresql-server-using-azure-cli"></a>Azure CLI를 사용하여 단일 PostgreSQL 서버 모니터링 및 확장
 이 샘플 CLI 스크립트는 메트릭을 쿼리한 후에 PostgreSQL 서버용 단일 Azure Database를 다양한 성능 수준으로 확장합니다. 
@@ -43,6 +43,6 @@ CLI를 로컬로 실행하도록 선택한 경우 이 문서에 Azure CLI 버전
 | [az group delete](/cli/azure/group#az_group_delete) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
 
 ## <a name="next-steps"></a>다음 단계
-- Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](/cli/azure/overview)를 참조하세요.
+- Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](/cli/azure)를 참조하세요.
 - 추가 스크립트 시도: [PostgreSQL용 Azure 데이터베이스 대한 Azure CLI 샘플](../sample-scripts-azure-cli.md)
 - 크기 조정에 대한 자세한 내용은 [서비스 계층](../concepts-service-tiers.md) 및 [Compute 단위 및 Storage 단위](../concepts-compute-unit-and-storage.md)를 참조하세요.

@@ -16,10 +16,10 @@ ms.date: 02/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 ms.openlocfilehash: 3435ada40afb9f1c6e57be64d1b9086d0cdaefd9
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>Azure 스택와 외부 모니터링 솔루션을 통합
 
@@ -145,7 +145,7 @@ Operations Manager, Nagios, 또는 Nagios 기반 솔루션을 사용 하지 않�
 
 |인수  |설명  |
 |---------|---------|
-|armendpoint     |  Azure 스택 환경의 형식 https://adminmanagement에서 Azure 리소스 관리자 끝점입니다. {RegionName}입니다. {외부 FQDN}입니다. 예를 들어 외부 FQDN *azurestack.external* 지역 이름은 *로컬*, 리소스 관리자 끝점은 https://adminmanagement.local.azurestack.external 합니다.       |
+|armendpoint     |  Azure 스택 환경의 형식 https://adminmanagement에서 Azure 리소스 관리자 끝점입니다. {RegionName}입니다. {외부 FQDN}입니다. 예를 들어 외부 FQDN *azurestack.external* 지역 이름은 *로컬*, 리소스 관리자 끝점은 https://adminmanagement.local.azurestack.external합니다.       |
 |subid     |   호출 하는 사용자의 구독 ID입니다. 이 API는 쿼리를 기본 공급자 구독 수 있는 권한을 가진 사용자와만 사용할 수 있습니다.      |
 |RegionName     |    Azure 스택 배포의 지역 이름입니다.     |
 |api-version     |  이 요청에 사용 되는 프로토콜의 버전입니다. 2016-05-01을 사용 해야 합니다.      |
@@ -248,7 +248,7 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 
 |인수  |설명  |
 |---------|---------|
-|*armendpoint*     |   Azure 스택 환경의 형식 https://adminmanagement에서 리소스 관리자 끝점입니다. {RegionName}입니다. {외부 FQDN}입니다. 예를 들어 외부 FQDN *azurestack.external* 지역 이름은 *로컬*, 리소스 관리자 끝점은 https://adminmanagement.local.azurestack.external 합니다.      |
+|*armendpoint*     |   Azure 스택 환경의 형식 https://adminmanagement에서 리소스 관리자 끝점입니다. {RegionName}입니다. {외부 FQDN}입니다. 예를 들어 외부 FQDN *azurestack.external* 지역 이름은 *로컬*, 리소스 관리자 끝점은 https://adminmanagement.local.azurestack.external합니다.      |
 |*subid*     |    호출 하는 사용자의 구독 ID입니다. 이 API는 쿼리를 기본 공급자 구독 수 있는 권한을 가진 사용자와만 사용할 수 있습니다.     |
 |*RegionName*     |   Azure 스택 배포의 지역 이름입니다.      |
 |*api-version*     |    이 요청에 사용 되는 프로토콜의 버전입니다. 2016-05-01을 사용 해야 합니다.     |
@@ -393,7 +393,7 @@ PUT https://adminmanagement.local.azurestack.external//subscriptions/<Subscripti
 
 |인수  |설명  |
 |---------|---------|
-|*armendpoint*     |    Azure 스택 환경의 형식 https://adminmanagement에서 리소스 관리자 끝점입니다. {RegionName}입니다. {외부 FQDN}입니다. 예를 들어 외부 FQDN은 azurestack.external 지역 이름 로컬인 경우 리소스 관리자 끝점은 https://adminmanagement.local.azurestack.external 합니다.     |
+|*armendpoint*     |    Azure 스택 환경의 형식 https://adminmanagement에서 리소스 관리자 끝점입니다. {RegionName}입니다. {외부 FQDN}입니다. 예를 들어 경우 외부 FQDN은 azurestack.external와 지역 이름 로컬 리소스 관리자 끝점 이면 https://adminmanagement.local.azurestack.external합니다.     |
 |*subid*     |     호출 하는 사용자의 구독 ID입니다. 이 API는 쿼리를 기본 공급자 구독 수 있는 권한을 가진 사용자와만 사용할 수 있습니다.    |
 |*RegionName*     |     Azure 스택 배포의 지역 이름입니다.    |
 |*api-version*     |   이 요청에 사용 되는 프로토콜의 버전입니다. 2016-05-01을 사용 해야 합니다.      |
@@ -462,7 +462,7 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 
 |인수  |설명  |
 |---------|---------|
-|*armendpoint*     |    Azure 스택 환경의 형식 https://adminmanagement에서 리소스 관리자 끝점입니다. {RegionName}입니다. {외부 FQDN}입니다. 예를 들어 외부 FQDN은 azurestack.external 지역 이름 로컬인 경우 리소스 관리자 끝점은 https://adminmanagement.local.azurestack.external 합니다.     |
+|*armendpoint*     |    Azure 스택 환경의 형식 https://adminmanagement에서 리소스 관리자 끝점입니다. {RegionName}입니다. {외부 FQDN}입니다. 예를 들어 경우 외부 FQDN은 azurestack.external와 지역 이름 로컬 리소스 관리자 끝점 이면 https://adminmanagement.local.azurestack.external합니다.     |
 |*subid*     |호출 하는 사용자의 구독 ID입니다. 이 API는 쿼리를 기본 공급자 구독 수 있는 권한을 가진 사용자와만 사용할 수 있습니다.         |
 |*RegionName*     |  Azure 스택 배포의 지역 이름입니다.       |
 |*api-version*     |  이 요청에 사용 되는 프로토콜의 버전입니다. 2016-05-01을 사용 해야 합니다.       |

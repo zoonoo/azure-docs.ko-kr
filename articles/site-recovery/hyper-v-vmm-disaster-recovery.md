@@ -6,13 +6,13 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 03/08/2018
 ms.author: raynew
-ms.openlocfilehash: bf6d7c8b831e670db9fff28218c8f36391a73c9b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 13dcc0794c1d89bd27c79cbe6636397da4f008f9
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="set-up-disaster-recovery-for-hyper-v-vms-to-a-secondary-on-premises-site"></a>보조 온-프레미스 사이트에 Hyper-V VM 재해 복구 설정
 
@@ -33,9 +33,8 @@ ms.lasthandoff: 02/21/2018
 이 시나리오를 완료하려면:
 
 - [시나리오 아키텍처 및 구성 요소](hyper-v-vmm-architecture.md)를 검토합니다.
-- 모든 구성 요소에 대한 [지원 요구 사항](site-recovery-support-matrix-to-sec-site.md)을 검토합니다.
-- VMM 서버 및 Hyper-V 호스트에서 [지원 요구 사항](site-recovery-support-matrix-to-sec-site.md)을 준수하는지 확인합니다.
-- 복제하려는 VM에서 [복제된 컴퓨터 지원](site-recovery-support-matrix-to-sec-site.md#support-for-replicated-machine-os-versions)을 준수하는지 확인합니다.
+- VMM 서버 및 Hyper-V 호스트에서 [지원 요구 사항](hyper-v-vmm-secondary-support-matrix.md)을 준수하는지 확인합니다.
+- 복제하려는 VM에서 [복제된 컴퓨터 지원](hyper-v-vmm-secondary-support-matrix.md#replicated-vm-support)을 준수하는지 확인합니다.
 - 네트워크 매핑용 VMM 서버를 준비합니다.
 
 ### <a name="prepare-for-network-mapping"></a>네트워크 매핑을 준비

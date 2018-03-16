@@ -9,17 +9,17 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 01/19/2018
 ms.author: tamram
-ms.openlocfilehash: 2043f635e30de208a29a3da2fcde6bf2a1223fc8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 600689dfe2d572a83382522f6bea1ec5bf0f3883
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-a-storage-account"></a>저장소 계정 만들기
 
 Azure Storage 계정은 Azure Storage 데이터 개체의 저장 및 액세스를 위해 클라우드에서 고유한 네임스페이스를 제공합니다. 저장소 계정은 해당 계정에서 만든 모든 BLOB, 파일, 큐, 테이블 및 디스크를 포함합니다. 
 
-Azure Storage를 시작하기 위해 먼저 새 저장소 계정을 만들어야 합니다. [Azure Portal](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) 또는 [Azure CLI](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest)를 사용하여 Azure Storage 계정을 만들 수 있습니다. 이 빠른 시작에서는 각각의 옵션을 사용하여 새 저장소 계정을 만드는 방법을 살펴봅니다. 
+Azure Storage를 시작하기 위해 먼저 새 저장소 계정을 만들어야 합니다. [Azure Portal](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) 또는 [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest)를 사용하여 Azure Storage 계정을 만들 수 있습니다. 이 빠른 시작에서는 각각의 옵션을 사용하여 새 저장소 계정을 만드는 방법을 살펴봅니다. 
 
 
 ## <a name="prerequisites"></a>필수 조건

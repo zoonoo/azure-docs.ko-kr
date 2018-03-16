@@ -17,11 +17,11 @@ ms.workload: database
 ms.date: 07/31/2017
 ms.author: jognanay
 ms.reviewer: douglasl
-ms.openlocfilehash: fe52538c95619cd5bf69ff706ec266195194ace9
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 23446e4156daca3903f15e538e2c47e63fcbf673
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="use-powershell-to-sync-between-multiple-sql-databases"></a>PowerShell을 사용하여 여러 SQL Databases 간 동기화
  
@@ -262,7 +262,7 @@ Update-AzureRmSqlSyncGroup  -ResourceGroupName $ResourceGroupName `
                             -Name $SyncGroupName `
                             -Schema $TempFile
 
-$SyncStartTime = Get-Date
+$SyncLogStartTime = Get-Date
 
 # Trigger sync manually
 Write-Host "Trigger sync manually"
@@ -345,7 +345,7 @@ Remove-AzureRmResourceGroup -ResourceGroupName $SyncDatabaseResourceGroupName
 
 이 스크립트는 다음 명령을 사용합니다. 표에 있는 각 명령은 명령에 해당하는 문서에 연결됩니다.
 
-| 명령 | 참고 사항 |
+| 명령 | 메모 |
 |---|---|
 | [New-AzureRmSqlSyncAgent](/powershell/module/azurerm.sql/New-AzureRmSqlSyncAgent) |  새 동기화 에이전트를 만듭니다. |
 | [New-AzureRmSqlSyncAgentKey](/powershell/module/azurerm.sql/New-AzureRmSqlSyncAgentKey) |  동기화 에이전트와 연결된 에이전트 키를 생성합니다. |

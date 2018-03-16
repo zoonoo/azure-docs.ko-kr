@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/07/2017
 ms.author: juliako
 ms.openlocfilehash: 3f3972232a4342bfb7d8579d747d0cc4250963bc
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="dynamic-encryption-configure-a-content-key-authorization-policy"></a>동적 암호화: 콘텐츠 키 인증 정책 구성
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
@@ -41,7 +41,7 @@ Media Services는 STS를 제공하지 않습니다. 사용자 지정 STS를 만�
 ### <a name="some-considerations-apply"></a>다음과 같은 몇 가지 고려 사항이 적용됩니다.
 * 동적 패키징 및 동적 암호화를 사용하려면 콘텐츠를 스트리밍하려는 스트리밍 끝점이 “실행” 상태인지 확인합니다.
 * 사용자의 자산은 적응 비트 전송률 MP4 또는 적응 비트 전송률 부드러운 스트리밍 파일 집합을 포함해야 합니다. 자세한 내용은 [자산 인코딩](media-services-encode-asset.md)을 참조하세요.
-* AssetCreationOptions.StorageEncrypted 옵션을 사용하여 자산을 업로드하고 인코드합니다.
+* AssetCreationOptions.StorageEncrypted 옵션을 사용하여 자산을 업로드하고 인코딩합니다.
 * 동일한 정책 구성이 필요한 여러 콘텐츠 키를 사용하려는 경우 단일 권한 부여 정책을 만들고 여러 콘텐츠 키와 함께 다시 사용하는 것이 좋습니다.
 * 키 배달 서비스는 ContentKeyAuthorizationPolicy 및 관련 개체(정책 옵션 및 제한 사항)를 15분 동안 캐시합니다. ContentKeyAuthorizationPolicy를 만들고 토큰 제한을 사용하도록 지정하고, 테스트한 다음, 정책을 개방형 제한으로 업데이트할 수 있습니다. 이 프로세스를 수행할 경우 대략 15분 후에 정책이 개방형 버전의 정책으로 전환됩니다.
 * 자산 배달 정책을 추가하거나 업데이트하는 경우, 기존 로케이터를 삭제하고 새 로케이터를 만들어야 합니다.

@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/20/2017
+ms.date: 3/9/2018
 ms.author: vturecek
-ms.openlocfilehash: 43b3f758fe7017c0ec949ba6e28b76438cf1bc13
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ee248cb656eeb54e259ff1adf45080a207b5a866
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="how-reliable-actors-use-the-service-fabric-platform"></a>신뢰할 수 있는 행위자가 서비스 패브릭 플랫폼을 사용하는 방법
 이 문서에서는 Azure Service Fabric 플랫폼에서 Reliable Actors가 작동하는 방법을 설명합니다. Reliable Actors는 *행위자 서비스*라는 상태 저장 신뢰할 수 있는 서비스의 구현에서 호스트되는 프레임워크에서 실행됩니다. 행위자 서비스는 행위자에게 발송되는 수명 주기 및 메시지를 관리하는 데 필요한 모든 구성 요소를 포함합니다.
@@ -41,9 +41,6 @@ Reliable Services에서 서비스는 `StatefulService` 클래스를 상속합니
 * 서비스 백업 및 복원
 * 모든 행위자에 대한 공유 기능(예: 회로 차단기)
 * 행위자 서비스 자체 및 각 개별 행위자에서의 원격 프로시저 호출
-
-> [!NOTE]
-> 상태 저장 서비스는 현재 Java/Linux에서 지원되지 않습니다.
 
 ### <a name="using-the-actor-service"></a>행위자 서비스 사용
 행위자 인스턴스는 실행 중인 행위자 서비스에 대한 액세스 권한이 있습니다. 행위자 인스턴스는 행위자 서비스를 통해 프로그래밍 방식으로 서비스 컨텍스트를 얻을 수 있습니다. 서비스 컨텍스트에는 파티션 ID, 서비스 이름, 응용 프로그램 이름 및 기타 Service Fabric 플랫폼 관련 정보가 있습니다.

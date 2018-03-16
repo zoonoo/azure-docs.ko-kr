@@ -5,17 +5,17 @@ services: machine-learning
 author: raymondl
 ms.author: raymondl
 manager: mwinkle
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 11/16/2017
-ms.openlocfilehash: 8eafb16abeb939a16b1ddb024853300c453bcd9a
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 4cf372f17c3ded5c25a6ebde70b17b2c095a7169
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="troubleshooting-service-deployment-and-environment-setup"></a>문제 해결 서비스 배포 및 환경 설정
 다음 정보는 모델 관리 환경을 설정할 때 오류의 원인을 확인하는 데 도움이 될 수 있습니다.

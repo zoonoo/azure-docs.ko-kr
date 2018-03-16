@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: d05492425381649a7893b872c4b1c49e9f241b50
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 4f4c4e9749eb5f0f6ba1950521f459f140cb5221
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="virtual-network-traffic-routing"></a>가상 네트워크 트래픽 라우팅
 
@@ -45,7 +45,7 @@ Azure는 시스템 경로를 자동으로 만들고 가상 네트워크의 각 �
 
 이전 표에서 나열된 다음 홉 유형은 Azure에서 나열된 주소 접두사로 향하는 트래픽을 라우팅하는 방법을 나타냅니다. 다음 홉 유형에 대한 설명은 다음과 같습니다.
 
-- **가상 네트워크**: 가상 네트워크의 [주소 공간](virtual-network-manage-network.md#add-address-spaces)에 속한 주소 범위 간에 트래픽을 라우팅합니다. Azure는 가상 네트워크의 주소 공간 내에 정의된 각 주소 범위에 해당하는 주소 접두사가 포함된 경로를 만듭니다. 정의된 여러 개의 주소 범위가 가상 네트워크 주소 공간에 있는 경우 Azure는 각 주소 범위에 대한 개별 경로를 만듭니다. Azure는 각 주소 범위에 대해 만들어진 경로를 사용하여 서브넷 간에 트래픽을 자동으로 라우팅합니다. Azure에서 서브넷 간에 트래픽을 라우팅하기 위해 게이트웨이를 정의할 필요가 없습니다. 가상 네트워크에는 서브넷이 있고 각 서브넷에는 정의된 주소 범위가 있지만, 각 서브넷 주소 범위가 가상 네트워크 주소 공간의 주소 범위에 있기 때문에 Azure에서 서브넷 주소 범위에 대한 기본 경로를 만들지 *않습니다*.
+- **가상 네트워크**: 가상 네트워크의 [주소 공간](manage-virtual-network.md#add-or-remove-an-address-range)에 속한 주소 범위 간에 트래픽을 라우팅합니다. Azure는 가상 네트워크의 주소 공간 내에 정의된 각 주소 범위에 해당하는 주소 접두사가 포함된 경로를 만듭니다. 정의된 여러 개의 주소 범위가 가상 네트워크 주소 공간에 있는 경우 Azure는 각 주소 범위에 대한 개별 경로를 만듭니다. Azure는 각 주소 범위에 대해 만들어진 경로를 사용하여 서브넷 간에 트래픽을 자동으로 라우팅합니다. Azure에서 서브넷 간에 트래픽을 라우팅하기 위해 게이트웨이를 정의할 필요가 없습니다. 가상 네트워크에는 서브넷이 있고 각 서브넷에는 정의된 주소 범위가 있지만, 각 서브넷 주소 범위가 가상 네트워크 주소 공간의 주소 범위에 있기 때문에 Azure에서 서브넷 주소 범위에 대한 기본 경로를 만들지 *않습니다*.
 
 - **인터넷**: 주소 접두사로 지정된 트래픽을 인터넷으로 라우팅합니다. 시스템 기본 경로에는 0.0.0.0/0 주소 접두사가 지정됩니다. Azure의 기본 경로를 재정의하지 않는 경우 Azure는 한 가지 예외를 제외하고 가상 네트워크의 주소 범위에 지정되지 않은 주소에 대한 트래픽을 인터넷으로 라우팅합니다. 대상 주소가 Azure 서비스 중 하나에 대한 주소인 경우 Azure는 트래픽을 인터넷으로 라우팅하지 않고 Azure의 백본 네트워크를 통해 트래픽을 해당 서비스로 직접 라우팅합니다. Azure 서비스 간 트래픽은 가상 네트워크가 있는 Azure 지역 또는 Azure 서비스 인스턴스가 배포된 Azure 지역과 관계없이 인터넷을 거치지 않습니다. 0.0.0.0/0 주소 접두사에 대한 Azure의 기본 시스템 경로는 [사용자 지정 경로](#custom-routes)로 재정의할 수 있습니다.
 
@@ -250,7 +250,7 @@ BGP를 사용하여 Azure와 경로를 교환하면 보급된 각 접두사에 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- [경로 및 네트워크 가상 어플라이언스로 사용자 정의 경로 테이블 만들기](create-user-defined-route-portal.md)
+- [경로 및 네트워크 가상 어플라이언스로 사용자 정의 경로 테이블 만들기](tutorial-create-route-table-portal.md)
 - [Azure VPN Gateway에서 BGP 구성](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [ExpressRoute에서 BGP 사용](../expressroute/expressroute-routing.md?toc=%2fazure%2fvirtual-network%2ftoc.json#route-aggregation-and-prefix-limits)
 - [서브넷에 대한 모든 경로 보기](virtual-network-routes-troubleshoot-portal.md) - 사용자 정의 경로 테이블에서는 서브넷에 대한 기본 경로 및 BGP 경로가 아닌 사용자 정의 경로만 보여 줍니다. 모든 경로 보기에서 네트워크 인터페이스가 있는 서브넷에 대한 기본, BGP 및 사용자 정의 경로가 표시됩니다.

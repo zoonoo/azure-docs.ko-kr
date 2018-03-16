@@ -4,7 +4,7 @@ description: "Azure Active Directory와 Fuse 간에 Single Sign-On을 구성하�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.reviewer: joflore
 ms.assetid: 5ef34f58-863a-4b37-875c-e8efa3e18bb3
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/27/2017
+ms.date: 03/06/2017
 ms.author: jeedes
-ms.openlocfilehash: 10798152d5ab31b845499f69be61ac2916cde640
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d228ebff245cf5e94bb17c8fb3a506824ff7f4c0
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fuse"></a>자습서: Fuse와 Azure Active Directory 통합
 
@@ -108,7 +108,7 @@ Fuse에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구
 
     ![Fuse 도메인 및 URL Single Sign-On 정보](./media/active-directory-saas-fuse-tutorial/tutorial_fuse_url.png)
     
-    **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://<tenant name>.fusion-universal.com/`
+    **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://<tenant name>.fusionuniversal.com/`
 
     > [!NOTE] 
     > 이 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트합니다. 이 값을 얻으려면 [Fuse 클라이언트 지원 팀](mailto:support@fusion-universal.com)에 문의하세요. 
@@ -162,9 +162,9 @@ Fuse에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구
 
     a. **이름** 상자에 **BrittaSimon**을 입력합니다.
 
-    b. **사용자 이름** 상자에 사용자인 Britta Simon의 전자 메일 주소를 입력합니다.
+    나. **사용자 이름** 상자에 사용자인 Britta Simon의 전자 메일 주소를 입력합니다.
 
-    c. **암호 표시** 확인란을 선택한 다음 **암호** 상자에 표시된 값을 적어둡니다.
+    다. **암호 표시** 확인란을 선택한 다음 **암호** 상자에 표시된 값을 적어둡니다.
 
     d. **만들기**를 클릭합니다.
  
@@ -213,7 +213,7 @@ Fuse에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)
+* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](active-directory-appssoaccess-whatis.md)
 
 
 

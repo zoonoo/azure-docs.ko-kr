@@ -8,11 +8,11 @@ ms.service: event-grid
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: babanisa
-ms.openlocfilehash: 1025fd10b00bc07872e23cb10da2682fa8cca394
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 9d2b32df6e4b931539eac34d09135ea33069b936
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="event-grid-security-and-authentication"></a>Event Grid 보안 및 인증 
 
@@ -63,7 +63,7 @@ SubscriptionValidationEvent 예가 다음 예제에 나와 있습니다.
 
 이벤트 구독을 만들 때 Webhook URL에 쿼리 매개 변수를 추가하여 Webhook 끝점을 보호할 수 있습니다. 해당 쿼리 매개 변수 중 하나를 [액세스 토큰](https://en.wikipedia.org/wiki/Access_token) 같은 비밀로 설정하여 Webhook는 이를 사용하여 해당 이벤트가 유효한 권한을 지닌 Event Grid에서 제공되는지 인식할 수 있습니다. Event Grid는 Webhook에 모든 이벤트 전달에서 해당 쿼리 매개 변수를 포함합니다.
 
-이벤트 구독을 편집할 때 [--include-full-endpoint-url](https://docs.microsoft.com/en-us/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_show) 매개 변수가 Azure [CLI](https://docs.microsoft.com/en-us/cli/azure/overview?view=azure-cli-latest)에 사용되지 않는 한 쿼리 매개 변수는 표시되거나 반환되지 않습니다.
+이벤트 구독을 편집할 때 [--include-full-endpoint-url](https://docs.microsoft.com/en-us/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_show) 매개 변수가 Azure [CLI](https://docs.microsoft.com/en-us/cli/azure?view=azure-cli-latest)에 사용되지 않는 한 쿼리 매개 변수는 표시되거나 반환되지 않습니다.
 
 마지막으로 Azure Event Grid가 HTTPS Webhook 끝점을 지원한다는 점에 유의합니다.
 

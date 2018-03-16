@@ -5,16 +5,16 @@ services: machine-learning
 author: hning86
 ms.author: haining
 manager: mwinkle
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/10/2017
-ms.openlocfilehash: f5c75b95d9019c15bb402313ce7407fa9abb81d4
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 099ff69b396c35730471d684b59115f03ccf67d9
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="persisting-changes-and-working-with-large-files"></a>변경 내용을 유지하고 큰 파일 사용
 Azure Machine Learning 실험 서비스를 사용하여 다양한 실행 대상을 구성할 수 있습니다. 로컬 컴퓨터 또는 로컬 컴퓨터의 Docker 컨테이너처럼 로컬인 대상도 있고, 원격 컴퓨터 또는 HDInsight 클러스터의 Docker 컨테이너처럼 원격인 대상도 있습니다. 자세한 내용은 [Azure Machine Learning 실험 실행 서비스 개요](experimentation-service-configuration.md)를 참조하세요. 
@@ -75,7 +75,7 @@ Azure Machine Learning Workbench에서 특정 실행의 실행 세부 정보 페
 
 공유 폴더 기능을 사용하면 환경 변수 `AZUREML_NATIVE_SHARE_DIRECTORY`에서 식별하는 특수 폴더에서 읽거나 쓸 수 있습니다. 
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 다음은 이 공유 폴더를 사용하여 텍스트 파일을 읽고 쓰는 샘플 Python 코드입니다.
 ```python
 import os

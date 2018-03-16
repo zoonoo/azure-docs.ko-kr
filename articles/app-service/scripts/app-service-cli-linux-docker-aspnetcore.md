@@ -16,11 +16,11 @@ ms.workload: web
 ms.date: 12/11/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 1f873cec2dab4badb38618bf47b9064df7f4255d
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 78d62d01c8006e4693a040d67def9a029df0c09e
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-an-aspnet-core-web-app-in-a-docker-container"></a>Docker 컨테이너에서 ASP.NET Core 웹앱 만들기
 
@@ -42,7 +42,7 @@ CLI를 로컬로 설치하여 사용하도록 선택하는 경우 Azure CLI 버�
 
 이 스크립트는 다음 명령을 사용하여 리소스 그룹, 웹앱 및 모든 관련된 리소스를 만듭니다. 테이블에 있는 각 명령은 명령에 해당하는 문서에 연결됩니다.
 
-| 명령 | 참고 사항 |
+| 명령 | 메모 |
 |---|---|
 | [`az group create`](/cli/azure/group?view=azure-cli-latest#az_group_create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
 | [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) | App Service 계획을 만듭니다. |
@@ -51,6 +51,6 @@ CLI를 로컬로 설치하여 사용하도록 선택하는 경우 Azure CLI 버�
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](https://docs.microsoft.com/cli/azure/overview)를 참조하세요.
+Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](https://docs.microsoft.com/cli/azure)를 참조하세요.
 
 추가 App Service CLI 스크립트 샘플은 [Azure App Service 설명서](../app-service-cli-samples.md)에서 확인할 수 있습니다.

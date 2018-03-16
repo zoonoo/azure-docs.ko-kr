@@ -7,13 +7,13 @@ author: mayanknayar
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 03/05/2018
 ms.author: manayar
-ms.openlocfilehash: e07b868883b0154ad38ba2f7f51dd2db663525a0
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: df5f40a49aa7359c082b0feb9e047818a642a871
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="use-azure-site-recovery-to-protect-active-directory-and-dns"></a>Azure Site Recovery로 Active Directory 및 DNS 보호
 
@@ -73,7 +73,7 @@ Site Recovery를 사용하여 복제된 도메인 컨트롤러는 [테스트 장
 
 대부분의 응용 프로그램에는 도메인 컨트롤러 또는 DNS 서버가 필요합니다. 따라서 응용 프로그램을 장애 조치(failover)하기 전에 테스트 장애 조치(failover)에 사용할 격리된 네트워크에서 도메인 컨트롤러를 만들어야 합니다. 이 작업을 수행하는 가장 쉬운 방법은 Site Recovery를 사용하여 도메인 컨트롤러 또는 DNS를 호스트하는 가상 머신을 복제하는 것입니다. 그런 다음 도메인 컨트롤러 가상 머신의 테스트 장애 조치(failover)를 실행한 후 응용 프로그램에 대한 복구 계획의 테스트 장애 조치(failover)를 실행합니다. 그 방법은 다음과 같습니다.
 
-1. Site Recovery를 사용하여 도메인 컨트롤러 또는 DNS를 호스트하는 가상 머신을 [복제](site-recovery-replicate-vmware-to-azure.md)합니다.
+1. Site Recovery를 사용하여 도메인 컨트롤러 또는 DNS를 호스트하는 가상 머신을 [복제](vmware-azure-tutorial.md)합니다.
 2. 격리된 네트워크를 만듭니다. Azure에서 만드는 모든 가상 네트워크는 기본적으로 다른 네트워크에서 격리됩니다. 이 네트워크의 IP 주소 범위를 프로덕션 네트워크에서 사용하는 IP 주소 범위와 동일하게 사용하는 것이 좋습니다. 이 네트워크에서 사이트-사이트 연결을 사용하지 마십시오.
 3. 격리된 네트워크의 DNS IP 주소를 제공합니다. DNS 가상 머신을 가져올 것으로 예상되는 IP 주소를 사용합니다. Azure로 복제하는 경우 장애 조치(failover)에 사용되는 가상 머신의 IP 주소를 제공합니다. IP 주소를 입력하려면 복제된 가상 머신의 **계산 및 네트워크** 설정에서 **대상 IP** 설정을 선택합니다.
 

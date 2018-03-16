@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: danlep
-ms.openlocfilehash: e8e8e475c1fe32346dde39e187a007ec7f62a2f3
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: ced93032203c33dc4cda362d30192ee8eb37d944
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="cli-example-create-a-batch-account-in-batch-service-mode"></a>CLI 예제: Batch 서비스 모드에서 Batch 계정 만들기
 
@@ -57,4 +57,4 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](/cli/azure/overview)를 참조하세요.
+Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](/cli/azure)를 참조하세요.

@@ -11,13 +11,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: support-article
-ms.date: 09/13/2017
+ms.date: 03/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: dc045827fbd38054a334ff22eb30e0db6a31bac8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c266e1073722733ec8b7353c6fdddc3ae341ab20
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="resolve-errors-for-storage-account-names"></a>저장소 계정 이름 오류 해결
 
@@ -44,11 +44,9 @@ Message=The storage account named mystorage is already taken.
 
 ## <a name="cause"></a>원인
 
-저장소 계정 이름은 3자에서 24자 사이여야 하고 숫자 및 소문자만 사용해야 합니다. 고유한 이름이어야 합니다.
+Storage 계정 이름은 3자에서 24자 사이여야 하고 숫자 및 소문자만 사용해야 합니다. 고유한 이름이어야 합니다.
 
 ## <a name="solution"></a>해결 방법
-
-### <a name="solution-1"></a>해결 방법 1
 
 저장소 계정 이름이 고유한지 확인합니다. 명명 규칙과 [uniqueString](resource-group-template-functions-string.md#uniquestring) 함수 결과를 연결하여 고유한 이름을 만들 수 있습니다.
 
@@ -56,8 +54,6 @@ Message=The storage account named mystorage is already taken.
 "name": "[concat('storage', uniqueString(resourceGroup().id))]",
 "type": "Microsoft.Storage/storageAccounts",
 ```
-
-### <a name="solution-2"></a>해결 방법 2
 
 저장소 계정 이름이 24자를 초과하지 않는지 확인합니다. [uniqueString](resource-group-template-functions-string.md#uniquestring) 함수는 13자를 반환합니다. **uniqueString** 결과에 접두사 또는 접미사를 연결하는 경우 11자 이하의 값을 제공합니다.
 
@@ -73,7 +69,5 @@ Message=The storage account named mystorage is already taken.
     }
 }
 ```
-
-### <a name="solution-3"></a>해결 방법 3
 
 저장소 계정 이름에 대문자 또는 특수 문자가 포함되지 않았는지 확인합니다.

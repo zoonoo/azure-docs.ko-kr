@@ -11,11 +11,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 09/13/2017
 ms.author: mahender
-ms.openlocfilehash: 45fcbc3af02dd8afbd9581e8bc38ad10369a2747
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 736a82d282e5769fb403c66ffd5d44107c6d3218
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="how-to-use-azure-managed-service-identity-public-preview-in-app-service-and-azure-functions"></a>App Service 및 Azure Functions에서 Azure Managed Service Identity(공개 미리 보기)를 사용하는 방법
 
@@ -56,7 +56,7 @@ Azure CLI를 사용하여 관리되는 서비스 ID를 설정하려면 기존 �
 
 다음 단계는 웹앱을 만들고 CLI를 사용하여 ID를 할당하는 과정을 안내합니다.
 
-1. Azure CLI를 로컬 콘솔에서 사용하는 경우 [az login](/cli/azure/#az_login)을 사용하여 먼저 Azure에 로그인합니다. 응용 프로그램을 배포하려는 Azure 구독과 연결된 계정을 사용합니다.
+1. Azure CLI를 로컬 콘솔에서 사용하는 경우 [az login](/cli/azure/reference-index#az_login)을 사용하여 먼저 Azure에 로그인합니다. 응용 프로그램을 배포하려는 Azure 구독과 연결된 계정을 사용합니다.
 
     ```azurecli-interactive
     az login
@@ -126,13 +126,13 @@ Azure Resource Manager 템플릿을 사용하여 Azure 리소스 배포를 자�
 앱은 자체 ID를 사용하여 Azure Key Vault 같은 AAD로 보호되는 다른 리소스의 토큰을 가져올 수 있습니다. 이러한 토큰은 응용 프로그램의 특정 사용자가 아닌 리소스에 액세스하는 응용 프로그램을 나타냅니다. 
 
 > [!IMPORTANT]
-> 응용 프로그램의 액세스를 허용하도록 대상 리소스를 구성해야 할 수도 있습니다. 예를 들어 Key Vault 토큰을 요청할 때에는 응용 프로그램의 ID를 포함하는 액세스 정책을 추가했는지 확인해야 합니다. 그렇지 않으면 토큰이 포함되어 있더라도 Key Vault 호출이 거부됩니다. 어떤 리소스가 Managed Service Identity 토큰을 지원하는지 자세히 알아보려면 [Azure AD 인증을 지원하는 Azure 서비스](../active-directory/msi-overview.md#which-azure-services-support-managed-service-identity)를 참조하세요.
+> 응용 프로그램의 액세스를 허용하도록 대상 리소스를 구성해야 할 수도 있습니다. 예를 들어 Key Vault 토큰을 요청할 때에는 응용 프로그램의 ID를 포함하는 액세스 정책을 추가했는지 확인해야 합니다. 그렇지 않으면 토큰이 포함되어 있더라도 Key Vault 호출이 거부됩니다. 어떤 리소스가 Managed Service Identity 토큰을 지원하는지 자세히 알아보려면 [Azure AD 인증을 지원하는 Azure 서비스](../active-directory/pp/msi-overview.md#which-azure-services-support-managed-service-identity)를 참조하세요.
 
 App Service 및 Azure Functions에서 토큰을 가져오는 간단한 REST 프로토콜이 있습니다. .NET 응용 프로그램의 경우 Microsoft.Azure.Services.AppAuthentication 라이브러리에서 이 프로토콜에 대한 추상화를 제공하고 로컬 개발 환경을 지원합니다.
 
 ### <a name="asal"></a>.NET용 Microsoft.Azure.Services.AppAuthentication 라이브러리 사용
 
-.NET 응용 프로그램 및 함수의 경우 관리되는 서비스 ID를 사용하는 가장 간단한 방법은 Microsoft.Azure.Services.AppAuthentication 패키지입니다. 이 라이브러리 역시 개발 컴퓨터에서 Visual Studio, [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest) 또는 Active Directory 통합 인증의 사용자 계정을 사용하여 로컬로 코드를 테스트할 수 있습니다. 이 라이브러를 통한 로컬 개발 옵션에 대한 자세한 내용은[Microsoft.Azure.Services.AppAuthentication 참조]를 참조하세요. 이 섹션에서는 코드에서 이 라이브러리를 시작하는 방법을 보여 줍니다.
+.NET 응용 프로그램 및 함수의 경우 관리되는 서비스 ID를 사용하는 가장 간단한 방법은 Microsoft.Azure.Services.AppAuthentication 패키지입니다. 이 라이브러리 역시 개발 컴퓨터에서 Visual Studio, [Azure CLI 2.0](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) 또는 Active Directory 통합 인증의 사용자 계정을 사용하여 로컬로 코드를 테스트할 수 있습니다. 이 라이브러를 통한 로컬 개발 옵션에 대한 자세한 내용은[Microsoft.Azure.Services.AppAuthentication 참조]를 참조하세요. 이 섹션에서는 코드에서 이 라이브러리를 시작하는 방법을 보여 줍니다.
 
 1. 응용 프로그램에 [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) 및 [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) NuGet 패키지의 참조를 추가합니다.
 

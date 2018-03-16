@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/16/2017
 ms.author: danis
-ms.openlocfilehash: 9a8eae62d2dcb4c422b707909a27c84c7bf1aab3
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 454bfde69248538a92d2fc447c54509afb08129a
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="custom-script-extension-for-windows"></a>Windows용 사용자 지정 스크립트 확장
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 01/04/2018
 
 이 문서에서는 Azure PowerShell 모듈, Azure Resource Manager 템플릿을 사용하는 사용자 지정 스크립트 확장을 사용하는 방법과 Windows 시스템에서 문제 해결 단계를 자세히 설명하고 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 > [!NOTE]  
 > 해당 매개 변수와 동일한 VM을 사용하여 Update-AzureRmVM을 실행하려는 경우에는 사용자 지정 스크립트 확장을 사용하지 마세요. 대기 시간이 길어집니다.  
@@ -84,7 +84,7 @@ Windows용 사용자 지정 스크립트 확장은 대상 가상 머신이 인�
 
 ### <a name="property-values"></a>속성 값
 
-| 이름 | 값/예제 |
+| Name | 값/예제 |
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
 | publisher | Microsoft.Compute |
@@ -138,7 +138,7 @@ C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.*\Downloads\<n>
 
 시간이 지남에 따라 절대 다운로드 경로가 달라질 수 있으므로 가능한 경우 `commandToExecute` 문자열에서 상대 스크립트/파일 경로를 옵트인하는 것이 좋습니다. 예: 
 ```json
-    "commandToExecute": "powershell.exe . . . -File './scripts/myscript.ps1'"
+    "commandToExecute": "powershell.exe . . . -File \"./scripts/myscript.ps1\""
 ```
 
 첫 번째 URI 세그먼트 뒤의 경로 정보는 `fileUris` 속성 목록을 통해 다운로드된 파일에 유지됩니다.  아래 테이블에 표시된 대로 다운로드된 파일은 다운로드 하위 디렉터리에 매핑되어 `fileUris` 값의 구조를 반영합니다.  

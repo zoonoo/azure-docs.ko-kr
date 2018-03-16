@@ -15,11 +15,11 @@ ms.date: 03/02/2018
 ms.author: carlrab
 ms.workload: Active
 ms.topic: article
-ms.openlocfilehash: 917b5cdd82b44c1993eebd16634257d5a6518c96
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: e89d348c4b21a249401254c64e3887ec36283022
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>탄력적 풀이 여러 Azure SQL Database를 관리하고 크기를 조정하는 데 도움을 주는 방식
 
@@ -314,7 +314,7 @@ Azure PowerShell을 사용하여 SQL Database 탄력적 풀을 만들고 관리�
 
 ## <a name="manage-elastic-pools-and-databases-using-the-azure-cli"></a>Azure CLI를 사용하여 탄력적 풀 및 데이터베이스 관리
 
-[Azure CLI](/cli/azure/overview)를 사용하여 SQL Database 탄력적 풀을 만들고 관리하려면 다음 [Azure CLI SQL Database](/cli/azure/sql/db) 명령을 사용합니다. [Cloud Shell](/azure/cloud-shell/overview)을 사용하여 CLI 브라우저에서 실행하거나 macOS, Linux 또는 Windows에서 [설치](/cli/azure/install-azure-cli)합니다. 
+[Azure CLI](/cli/azure)를 사용하여 SQL Database 탄력적 풀을 만들고 관리하려면 다음 [Azure CLI SQL Database](/cli/azure/sql/db) 명령을 사용합니다. [Cloud Shell](/azure/cloud-shell/overview)을 사용하여 CLI 브라우저에서 실행하거나 macOS, Linux 또는 Windows에서 [설치](/cli/azure/install-azure-cli)합니다. 
 
 > [!TIP]
 > Azure CLI 예제 스크립트의 경우 [CLI를 사용하여 SQL 탄력적 풀에서 Azure SQL Database 이동](scripts/sql-database-move-database-between-pools-cli.md) 및 [Azure CLI를 사용하여 Azure SQL Database에서 SQL 탄력적 풀 크기 조정](scripts/sql-database-scale-pool-cli.md)을 참조하세요.

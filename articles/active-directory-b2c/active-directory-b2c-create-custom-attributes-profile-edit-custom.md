@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 08/04/2017
 ms.author: joroja
-ms.openlocfilehash: 0d4ee064c15c914eea7353900c6bb5a77b3e3b3b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 33c9e4322444895a3affc16e11af5443f2db6b6d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-active-directory-b2c-creating-and-using-custom-attributes-in-a-custom-profile-edit-policy"></a>Azure Active Directory B2C: 사용자 지정 프로필 편집 정책에서 사용자 지정 특성을 만들고 사용
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 12/11/2017
 [사용자 지정 정책을 사용하여 시작](active-directory-b2c-get-started-custom.md) 문서의 단계를 완료합니다.
 
 ## <a name="use-custom-attributes-to-collect-information-about-your-customers-in-azure-active-directory-b2c-using-custom-policies"></a>사용자 지정 특성을 사용하여 사용자 지정 정책을 사용하는 Azure Active Directory B2C에서 고객에 대한 정보를 수집합니다.
-Azure Active Directory(Azure AD) B2C 디렉터리에는 지정된 이름, 성, 도시, 우편 번호, userPrincipalName의 특성 집합이 함께 제공됩니다.  주로 고유한 특성을 만들어야 합니다.  예:
+Azure Active Directory(Azure AD) B2C 디렉터리에는 지정된 이름, 성, 도시, 우편 번호, userPrincipalName의 특성 집합이 함께 제공됩니다.  주로 고유한 특성을 만들어야 합니다.  예: 
 * 고객 대면 응용 프로그램은 "LoyaltyNumber"와 같은 특성을 유지해야 합니다.
 * ID 공급자는 "uniqueUserGUID"처럼 저장해야 하는 고유한 사용자 ID를 포함합니다.
 * 사용자 지정 사용자 경험에서는 "migrationStatus"와 같은 사용자 상태를 유지해야 합니다.
@@ -65,8 +65,8 @@ Azure AD B2C를 사용하면 각 사용자 계정에 저장된 특성 집합을 
 1. **디렉터리 데이터 읽기 및 쓰기** 응용 프로그램 권한을 확인 표시하고 **저장**을 선택합니다.
 1. **사용 권한 부여**를 선택하고 **예**를 확인합니다.
 1. 클립보드에 복사하고 WebApp-GraphAPI-DirectoryExtensions>Settings>Properties>에서 다음 ID를 저장합니다.
-*  **응용 프로그램 ID** - 예: `103ee0e6-f92d-4183-b576-8c3739027780`
-* **개체 ID** - 예: `80d8296a-da0a-49ee-b6ab-fd232aa45201`
+*  **응용 프로그램 ID** - 예제: `103ee0e6-f92d-4183-b576-8c3739027780`
+* **개체 ID** - 예제: `80d8296a-da0a-49ee-b6ab-fd232aa45201`
 
 
 
@@ -152,7 +152,7 @@ Azure AD B2C를 사용하면 각 사용자 계정에 저장된 특성 집합을 
             <InputClaim ClaimTypeReferenceId="userPrincipalName" />
 
             <!-- Optional claims. These claims are collected from the user and can be modified. Any claim added here should be updated in the
-                 ValidationTechnicalProfile referenced below so it can be written to directory after being updateed by the user, i.e. AAD-UserWriteProfileUsingObjectId. -->
+                 ValidationTechnicalProfile referenced below so it can be written to directory after being updated by the user, i.e. AAD-UserWriteProfileUsingObjectId. -->
             <InputClaim ClaimTypeReferenceId="givenName" />
             <InputClaim ClaimTypeReferenceId="surname" />
             <InputClaim ClaimTypeReferenceId="extension_loyaltyId"/>
@@ -162,7 +162,7 @@ Azure AD B2C를 사용하면 각 사용자 계정에 저장된 특성 집합을 
             <OutputClaim ClaimTypeReferenceId="executed-SelfAsserted-Input" DefaultValue="true" />
 
             <!-- Optional claims. These claims are collected from the user and can be modified. Any claim added here should be updated in the
-                 ValidationTechnicalProfile referenced below so it can be written to directory after being updateed by the user, i.e. AAD-UserWriteProfileUsingObjectId. -->
+                 ValidationTechnicalProfile referenced below so it can be written to directory after being updated by the user, i.e. AAD-UserWriteProfileUsingObjectId. -->
             <OutputClaim ClaimTypeReferenceId="givenName" />
             <OutputClaim ClaimTypeReferenceId="surname" />
             <OutputClaim ClaimTypeReferenceId="extension_loyaltyId"/>
@@ -289,7 +289,7 @@ extension_<app-guid>_ActivationStatus via the Graph API.
 ```
 
 
-## <a name="reference"></a>참조
+## <a name="reference"></a>참고 자료
 
 * **TP(기술 프로필)**은 끝점의 이름, 해당 메타데이터, 해당 프로토콜을 정의하고 Identity Experience Framework가 수행해야 하는 클레임의 교환에 대해 자세히 설명하는 *함수*로 간주할 수 있는 요소 유형입니다.  오케스트레이션 단계 또는 다른 TechnicalProfile에서 이 *함수*를 호출하면 InputClaims 및 OutputClaims가 호출자의 매개 변수로 제공됩니다.
 

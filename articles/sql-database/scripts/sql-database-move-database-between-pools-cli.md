@@ -16,11 +16,11 @@ ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 07/05/2017
 ms.author: janeng
-ms.openlocfilehash: 6da859530cd692d80f82270cb599483041612db7
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 162617caae751d027deac0a2e2710d425b5a7101
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="use-cli-to-move-an-azure-sql-database-in-a-sql-elastic-pool"></a>CLI를 사용하여 SQL 탄력적 풀에서 Azure SQL Database 이동
 
@@ -48,7 +48,7 @@ az group delete --name myResourceGroup
 
 이 스크립트는 다음 명령을 사용합니다. 테이블에 있는 각 명령은 명령에 해당하는 문서에 연결됩니다.
 
-| 명령 | 참고 사항 |
+| 명령 | 메모 |
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
 | [az sql server create](https://docs.microsoft.com/cli/azure/sql/server#az_sql_server_create) | 데이터베이스 또는 탄력적 풀을 호스트하는 논리 서버를 만듭니다. |
@@ -59,7 +59,7 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](https://docs.microsoft.com/cli/azure/overview)를 참조하세요.
+Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](https://docs.microsoft.com/cli/azure)를 참조하세요.
 
 추가 SQL Database CLI 스크립트 샘플은 [Azure SQL Database 설명서](../sql-database-cli-samples.md)에서 찾을 수 있습니다.
 

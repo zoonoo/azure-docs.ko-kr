@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 02/27/2018
+ms.date: 03/05/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: dec4beef44e4086e1b41e3c20bea6585db385c9c
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 618e2bb7ef124883af2d73264e01922ad2329d12
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="fail-over-and-fail-back-vmware-vms-and-physical-servers-replicated-to-azure"></a>복제된 VMware VM 및 물리적 서버를 Azure로 장애 조치(Failover) 및 장애 복구(Failback)
 
@@ -48,7 +48,7 @@ VM에 스냅숏이 없는지 확인합니다. 온-프레미스 VM이 다시 보�
 
 ## <a name="verify-vm-properties"></a>VM 속성 확인
 
-VM 속성을 확인하고 VM이 [Azure 요구 사항](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements)을 준수하는지 확인합니다.
+VM 속성을 확인하고 VM이 [Azure 요구 사항](vmware-physical-azure-support-matrix.md#replicated-machines)을 준수하는지 확인합니다.
 
 1. **보호된 항목**에서 **복제된 항목** > VM을 클릭합니다.
 
@@ -88,7 +88,7 @@ VM 속성을 확인하고 VM이 [Azure 요구 사항](site-recovery-support-matr
 
 - 테스트를 수행하려는 경우, Azure ExpressRoute 연결이 있으면 구성 서버에 자동으로 설치되는 온-프레미스 프로세스 서버를 사용할 수 있습니다.
 - VPN 연결이 있거나 프로덕션 환경에서 장애 복구(Failback)를 실행하는 경우 Azure VM을 장애 복구(Failback)에 대한 Azure 기반 프로세스 서버로 설정해야 합니다.
-- Azure에서 프로세스 서버를 설정하려면 [이 문서](site-recovery-vmware-setup-azure-ps-resource-manager.md)의 지침을 따릅니다.
+- Azure에서 프로세스 서버를 설정하려면 [이 문서](vmware-azure-set-up-process-server-azure.md)의 지침을 따릅니다.
 
 ## <a name="configure-the-master-target-server"></a>마스터 대상 서버 구성
 

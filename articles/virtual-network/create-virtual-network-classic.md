@@ -16,20 +16,20 @@ ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: f4a1562983ffa68dbd6586a2ae3a569f766387b5
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 1ec6d8d5327ec6d5ebb92e125cb4c52a7a929c0e
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-a-virtual-network-classic-with-multiple-subnets"></a>여러 서브넷이 있는 가상 네트워크(클래식) 만들기
 
 > [!IMPORTANT]
-> Azure에는 리소스를 만들고 작업하는 [Resource Manager와 클래식](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. [Resource Manager](virtual-networks-create-vnet-arm-pportal.md) 배포 모델을 통해 최신 가상 네트워크를 만드는 것이 좋습니다.
+> Azure에는 리소스를 만들고 작업하는 [Resource Manager와 클래식](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. [Resource Manager](quick-create-portal.md) 배포 모델을 통해 최신 가상 네트워크를 만드는 것이 좋습니다.
 
 이 자습서에서는 별도의 공용 및 개인 서브넷이 있는 기본 Azure Virtual Network(클래식)를 만드는 방법에 대해 알아봅니다. Virtual Machines 및 서브넷에 있는 Cloud Services와 같은 Azure 리소스를 만들 수 있습니다. 가상 네트워크(클래식)에서 생성된 리소스는 서로 간에 통신할 수 있으며 가상 네트워크에 연결된 다른 네트워크의 리소스와도 통신할 수 있습니다.
 
-모든 [가상 네트워크](virtual-network-manage-network.md) 및 [서브넷](virtual-network-manage-subnet.md) 설정에 대해 자세히 확인하세요.
+모든 [가상 네트워크](manage-virtual-network.md) 및 [서브넷](virtual-network-manage-subnet.md) 설정에 대해 자세히 확인하세요.
 
 > [!WARNING]
 > [구독이 비활성화되는](../billing/billing-subscription-become-disable.md?toc=%2fazure%2fvirtual-network%2ftoc.json#you-reached-your-spending-limit) 경우 Azure에서 가상 네트워크(클래식)가 즉시 삭제됩니다. 가상 네트워크(클래식)는 리소스가 가상 네트워크에 존재하는지 여부에 관계 없이 삭제됩니다. 구독을 나중에 다시 사용하는 경우 가상 네트워크에 존재하는 리소스를 다시 만들어야 합니다.
@@ -161,7 +161,7 @@ ms.lasthandoff: 02/21/2018
 
 ## <a name="next-steps"></a>다음 단계
 
-- 모든 가상 네트워크 및 서브넷 설정에 대해 알아보려면 [가상 네트워크 관리](virtual-network-manage-network.md) 및 [가상 네트워크 서브넷 관리](virtual-network-manage-subnet.md)를 참조하세요. 프로덕션 환경에서 가상 네트워크 및 서브넷을 사용할 때 다양한 요구 사항을 충족하기 위한 여러 옵션이 있습니다.
+- 모든 가상 네트워크 및 서브넷 설정에 대해 알아보려면 [가상 네트워크 관리](manage-virtual-network.md) 및 [가상 네트워크 서브넷 관리](virtual-network-manage-subnet.md)를 참조하세요. 프로덕션 환경에서 가상 네트워크 및 서브넷을 사용할 때 다양한 요구 사항을 충족하기 위한 여러 옵션이 있습니다.
 - 인바운드 및 아웃바운드 서브넷 트래픽을 필터링하려면 [네트워크 보안 그룹](virtual-networks-nsg.md)을 만들고 서브넷에 적용합니다.
 - [Windows](../virtual-machines/windows/classic/createportal-classic.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [Linux](../virtual-machines/linux/classic/createportal-classic.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 가상 머신을 만든 다음, 기존 가상 네트워크에 연결합니다.
 - 같은 Azure 위치의 두 가상 네트워크를 연결하려면 가상 네트워크 간에 [가상 네트워크 피어링](create-peering-different-deployment-models.md)을 만듭니다. 가상 네트워크(Resource Manager)를 가상 네트워크(클래식)에 피어링할 수 있지만 두 가상 네트워크(클래식) 간 피어링은 만들 수 없습니다.

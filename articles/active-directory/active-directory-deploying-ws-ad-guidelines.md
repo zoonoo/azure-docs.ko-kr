@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/26/2017
 ms.author: femila
-ms.openlocfilehash: 61f84233b90cb3c82ed928d59ad2a090f7eb50b7
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 7a56876dfa545d273807444b105de3645dd79d34
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="guidelines-for-deploying-windows-server-active-directory-on-azure-virtual-machines"></a>Azure 가상 머신에 Windows Server Active Directory를 배포하기 위한 지침
 이 문서에서는 Windows Server AD DS(Active Directory Domain Services) 및 AD FS(Active Directory Federation Services) 온-프레미스 배포와 Microsoft Azure 가상 머신에 배포 간의 중요한 차이점을 설명합니다.
@@ -51,7 +51,7 @@ AD 배포에 익숙하지 않은 사용자는 [AD DS 배포 가이드](https://t
 
 먼저 다음 항목을 설명하는 자습서, 가이드 및 비디오를 검토하는 것이 좋습니다.
 
-* [Azure Portal에서 클라우드 전용 Virtual Network 구성](../virtual-network/virtual-networks-create-vnet-arm-pportal.md)
+* [Azure Portal에서 클라우드 전용 Virtual Network 구성](../virtual-network/quick-create-portal.md)
 * [Azure Portal에서 사이트 간 VPN 구성](../vpn-gateway/vpn-gateway-site-to-site-create.md)
 * [Azure 가상 네트워크에 새 Active Directory 포리스트 설치](active-directory-new-forest-virtual-machine.md)
 * [Azure에서 복제 Active Directory 도메인 컨트롤러 설치](active-directory-install-replica-active-directory-domain-controller.md)

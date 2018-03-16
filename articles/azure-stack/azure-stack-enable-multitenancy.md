@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 02/28/2018
 ms.author: mabrigg
 ms.openlocfilehash: 66689d80cbee0be36b3e8c9951a43d0d43fa01be
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="enable-multi-tenancy-in-azure-stack"></a>Azure 스택에서 다중 테 넌 트를 사용 하도록 설정
 
@@ -89,9 +89,9 @@ Register-AzSWithMyDirectoryTenant `
  -Verbose 
 ````
 ## <a name="direct-users-to-sign-in"></a>사용자가 로그인 하려면
-과 메리 온보드 Mary의 디렉터리에 단계를 완료 했으므로 Mary는 Fabrikam의 사용자가 로그인 할를 보낼 수 있습니다.  Fabrikam 사용자 (즉, fabrikam.onmicrosoft.com 접미사와 함께 사용자)는 https://portal.local.azurestack.external를 방문 하 여 로그인 합니다.  
+과 메리 온보드 Mary의 디렉터리에 단계를 완료 했으므로 Mary는 Fabrikam의 사용자가 로그인 할를 보낼 수 있습니다.  Fabrikam 사용자 (즉, fabrikam.onmicrosoft.com 접미사와 함께 사용자)에 방문 하 여 로그인 https://portal.local.azurestack.external합니다.  
 
-Mary는 초보자 모든 [외래 주체](../active-directory/active-directory-understanding-resource-access.md) Fabrikam 디렉터리 (즉, fabrikam.onmicrosoft.com 접미사 없이 Fabrikam 디렉터리의 사용자)에 https://portal.local.azurestack.external/fabrikam.onmicrosoft.com를 사용 하 여 로그인 합니다.  이 URL을 사용 하지 않으면 해당 기본 디렉터리 (Fabrikam)에 전송 되 고 관리자가 동의 하지 한다는 오류가 표시 있습니다.
+Mary는이 모든 초보자 [외래 주체](../active-directory/active-directory-understanding-resource-access.md) Fabrikam 디렉터리 (즉, fabrikam.onmicrosoft.com 접미사 없이 Fabrikam 디렉터리의 사용자)에 사용 하 여 로그인을 https://portal.local.azurestack.external/fabrikam.onmicrosoft.com합니다.  이 URL을 사용 하지 않으면 해당 기본 디렉터리 (Fabrikam)에 전송 되 고 관리자가 동의 하지 한다는 오류가 표시 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

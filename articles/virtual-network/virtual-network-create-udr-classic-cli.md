@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
-ms.openlocfilehash: 8fcb98723e7e872c932908e3456dc8680deb0901
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 6bfdfcdde39d64d662bb6d2ea55fadca24d49091
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="control-routing-and-use-virtual-appliances-classic-using-the-azure-cli"></a>Azure CLI를 사용하여 라우팅 제어 및 가상 어플라이언스(클래식) 사용
 
 > [!div class="op_single_selector"]
-> * [PowerShell](virtual-network-create-udr-arm-ps.md)
-> * [Azure CLI](virtual-network-create-udr-arm-cli.md)
+> * [PowerShell](tutorial-create-route-table-powershell.md)
+> * [Azure CLI](tutorial-create-route-table-cli.md)
 > * [템플릿](virtual-network-create-udr-arm-template.md)
 > * [PowerShell(클래식)](virtual-network-create-udr-classic-ps.md)
 > * [CLI(클래식)](virtual-network-create-udr-classic-cli.md)
@@ -34,7 +34,7 @@ ms.lasthandoff: 12/21/2017
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 
-이 문서에서는 클래식 배포 모델에 대해 설명합니다. [리소스 관리자 배포 모델에서 라우팅을 제어하고 가상 어플라이언스를 사용](virtual-network-create-udr-arm-cli.md)할 수도 있습니다.
+이 문서에서는 클래식 배포 모델에 대해 설명합니다. [리소스 관리자 배포 모델에서 라우팅을 제어하고 가상 어플라이언스를 사용](tutorial-create-route-table-cli.md)할 수도 있습니다.
 
 [!INCLUDE [virtual-network-create-udr-scenario-include.md](../../includes/virtual-network-create-udr-scenario-include.md)]
 
@@ -72,8 +72,8 @@ ms.lasthandoff: 12/21/2017
    
     매개 변수
    
-   * **-l(또는 --location)**. 새 NSG를 만들 Azure 지역입니다. 이 시나리오에서는 *westus*입니다.
-   * **-n(또는 --name)**. 새 NSG의 이름입니다. 이 시나리오에서는 *NSG-FrontEnd*입니다.
+   * **-l (or --location)**. 새 NSG를 만들 Azure 지역입니다. 이 시나리오에서는 *westus*입니다.
+   * **-n (or --name)**. 새 NSG의 이름입니다. 이 시나리오에서는 *NSG-FrontEnd*입니다.
 3. 다음 명령을 실행하여 경로 테이블에 경로를 만들고 백 엔드 서브넷(192.168.2.0/24)으로 보내진 모든 트래픽을 **FW1** VM(192.168.0.4)으로 보냅니다.
 
     ```azurecli

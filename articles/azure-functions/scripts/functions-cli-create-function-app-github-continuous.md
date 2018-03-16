@@ -10,11 +10,11 @@ ms.author: cfowler
 ms.date: 01/09/2018
 ms.topic: sample
 ms.custom: mvc
-ms.openlocfilehash: 9ad38a7ff00e5cea2cf958b4cb69679a27f84d4a
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 720ead07aa35540f61f1dc8e15b79ac9d58669be
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-a-function-app-in-azure-that-is-deployed-from-github"></a>Azure에서 GitHub로부터 배포되는 함수 앱 만들기
 
@@ -54,6 +54,6 @@ Azure CLI를 로컬로 사용하는 경우 버전 2.0 이상을 설치해서 사
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](https://docs.microsoft.com/cli/azure/overview)를 참조하세요.
+Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](https://docs.microsoft.com/cli/azure)를 참조하세요.
 
 추가 Azure Functions CLI 스크립트 샘플은 [Azure Functions 설명서](../functions-cli-samples.md)에서 확인할 수 있습니다.

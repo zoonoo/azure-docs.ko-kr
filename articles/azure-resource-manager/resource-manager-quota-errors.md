@@ -11,13 +11,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: support-article
-ms.date: 11/27/2017
+ms.date: 03/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: 3ed3da2d9730d8c30d8170ddf40fe4895dfa5dec
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: d2cc760bf516e8ee96629886120a1bb092932a82
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="resolve-errors-for-resource-quotas"></a>리소스 할당량 오류 해결
 
@@ -44,14 +44,14 @@ please delete some resources of this type before creating a new one.
 
 ## <a name="cause"></a>원인
 
-할당량은 리소스 그룹, 구독, 계정 및 기타 범위에 따라 적용됩니다. 예를 들어 지역에 대한 코어 수를 제한하도록 구독을 구성할 수 있습니다. 허용량보다 많은 코어가 있는 가상 컴퓨터를 배포하려는 경우 할당량을 초과했다는 오류 메시지가 표시됩니다.
+할당량은 리소스 그룹, 구독, 계정 및 기타 범위에 따라 적용됩니다. 예를 들어 지역에 대한 코어 수를 제한하도록 구독을 구성할 수 있습니다. 허용량보다 많은 코어가 있는 가상 머신을 배포하려는 경우 할당량을 초과했다는 오류 메시지가 표시됩니다.
 전체 할당량 정보는 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-subscription-service-limits.md)을 참조하세요.
 
-## <a name="solution"></a>해결 방법
+## <a name="troubleshooting"></a>문제 해결
 
-### <a name="solution-1"></a>해결 방법 1
+### <a name="azure-cli"></a>Azure CLI
 
-Azure CLI의 경우 `az vm list-usage` 명령을 사용하여 가상 컴퓨터 할당량을 찾습니다.
+Azure CLI의 경우 `az vm list-usage` 명령을 사용하여 가상 머신 할당량을 찾습니다.
 
 ```azurecli
 az vm list-usage --location "South Central US"
@@ -73,9 +73,9 @@ az vm list-usage --location "South Central US"
 ]
 ```
 
-### <a name="solution-2"></a>해결 방법 2
+### <a name="powershell"></a>PowerShell
 
-PowerShell의 경우 **Get AzureRmVMUsage** 명령을 사용하여 가상 컴퓨터 할당량을 찾습니다.
+PowerShell의 경우 **Get AzureRmVMUsage** 명령을 사용하여 가상 머신 할당량을 찾습니다.
 
 ```powershell
 Get-AzureRmVMUsage -Location "South Central US"
@@ -91,7 +91,7 @@ Total Regional Cores                         0   100 Count
 Virtual Machines                             0 10000 Count
 ```
 
-### <a name="solution-3"></a>해결 방법 3
+## <a name="solution"></a>해결 방법
 
 할당량 증가를 요청하려면 포털로 이동한 후 지원 문제를 제출합니다. 지원 문제에서는 배포하려는 지역에 대한 할당량 증가를 요청합니다.
 
