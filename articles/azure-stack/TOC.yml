@@ -18,7 +18,7 @@
               href: azure-stack-update-1711.md
             - name: 1710 업데이트
               href: azure-stack-update-1710.md
-- name: 빠른 시작
+- name: 퀵 스타트
   expanded: true
   items:
     - name: Azure 스택 평가
@@ -91,7 +91,7 @@
           href: azure-stack-telemetry.md
         - name: 배포
           href: azure-stack-run-powershell-script.md
-        - name: 'PowerShell 설치 '
+        - name: PowerShell 설치
           href: azure-stack-powershell-install.md
         - name: 등록
           href: azure-stack-register.md
@@ -194,7 +194,7 @@
               href: azure-stack-enable-multitenancy.md
         - name: 암호를 회전
           href: azure-stack-rotate-secrets.md
-    - name: 서비스 제공
+    - name: 제안 서비스
       items:
         - name: 서비스 제공 개요
           href: azure-stack-offer-services-overview.md
@@ -232,14 +232,22 @@
               href: azure-stack-app-service-capacity-planning.md
             - name: 시작하기 전에
               href: azure-stack-app-service-before-you-get-started.md
+            - name: 오류 도메인 간에 Azure 스택에 Azure 앱 서비스를 재배포 하는 방법
+              href: azure-stack-app-service-fault-domain-update.md
             - name: App Service 리소스 공급자 배포
               href: azure-stack-app-service-deploy.md
             - name: App Service 오프라인 배포
               href: azure-stack-app-service-deploy-offline.md
+            - name: 앱 서비스를 업데이트 합니다.
+              href: azure-stack-app-service-update.md
+            - name: 앱 서비스를 오프 라인으로 업데이트
+              href: azure-stack-app-service-update-offline.md
             - name: 웹 작업자 역할 추가
               href: azure-stack-app-service-add-worker-roles.md
             - name: 배포 원본 구성
               href: azure-stack-app-service-configure-deployment-sources.md
+            - name: 앱 서비스 업데이트 1 릴리스 정보
+              href: azure-stack-app-service-release-notes-update-one.md
         - name: 마켓플레이스 채우기
           items:
             - name: Marketplace 개요
@@ -306,7 +314,7 @@
   items:
     - name: Azure Stack PowerShell
       href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.9
-- name: 관련 항목
+- name: 관련
   items:
     - name: Azure Stack 사용자 설명서
       href: /azure/azure-stack/user/
@@ -320,7 +328,7 @@
       href: 'https://feedback.azure.com/forums/344565-azure-stack?category_id=160275'
     - name: 가격 정보
       href: 'https://azure.microsoft.com/overview/azure-stack/how-to-buy/'
-    - name: 스택 오버플로
+    - name: Stack Overflow
       href: 'http://stackoverflow.com/questions/tagged/azure-stack'
     - name: 교육 및 인증
       href: 'https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert'

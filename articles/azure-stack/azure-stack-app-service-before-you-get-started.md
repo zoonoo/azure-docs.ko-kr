@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/09/2018
 ms.author: anwestg
-ms.openlocfilehash: 3261a312cde9ebdf41f6dadb82c14d108715f8f7
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 5323fe505adfd9b3495dd85ce41d6f141125184b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Azure 스택 앱 서비스를 시작 하기 전에
 
@@ -47,7 +47,7 @@ Azure 스택 Azure 앱 서비스를 배포 하기 전에이 문서의 필수 구
 
 ## <a name="high-availability"></a>고가용성
 
-오류 도메인에 대 한 지원을 추가 하는 Azure 스택에서 1802 릴리스의 인해 Azure 스택 앱 서비스를 Azure의 새 배포 오류 도메인에 배포 되 고 내결함성을 제공 합니다.  1802이 출시 되기 전에 배포 된 Azure 스택 앱 서비스를 Azure의 기존 배포 업데이트 하십시오 (azure-stack-app-service-fault-domain-update.md) 배포 균형을 다시 조정 하는 방법에 대 한 설명서를 참조 하십시오.
+오류 도메인에 대 한 지원을 추가 하는 Azure 스택에서 1802 릴리스의 인해 Azure 스택 앱 서비스를 Azure의 새 배포 오류 도메인에 배포 되 고 내결함성을 제공 합니다.  1802이 출시 되기 전에 배포 된 Azure 스택 앱 서비스를 Azure의 기존 배포에 대 한 업데이트, 참조 하십시오는 [설명서](azure-stack-app-service-fault-domain-update.md) 배포 균형을 다시 조정 하는 방법에 대 한 합니다.
 
 또한 고가용성을 위해 Azure 스택에 Azure 앱 서비스에는 필요한 파일 서버 및 고가용성 구성에서 SQL Server 인스턴스에 배포 합니다. 
 
@@ -292,7 +292,7 @@ Azure 스택 앱 서비스를 Azure에 대 한 SQL Server 인스턴스는 모든
 - 응용 프로그램 서비스 (Kudu) 내에서 고급 개발자 도구를 사용 하도록 설정 합니다.
 - Azure 함수 포털 환경에서 사용 하도록 설정 합니다.
 
-다음 단계를 수행하세요.
+다음 단계를 수행하십시오.
 
 1. Azurestack\AzureStackAdmin로 PowerShell 인스턴스를 엽니다.
 2. 스크립트를 다운로드 하 고에서 추출의 위치로 이동 된 [필수 구성 요소 단계](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started#download-the-azure-app-service-on-azure-stack-installer-and-helper-scripts)합니다.
@@ -331,7 +331,7 @@ AD FS로 보호 되는 Azure 스택 환경에서는 다음을 지원 하려면 A
 - 응용 프로그램 서비스 (Kudu) 내에서 고급 개발자 도구를 사용 하도록 설정 합니다.
 - Azure 함수 포털 환경에서 사용 하도록 설정 합니다.
 
-다음 단계를 수행하세요.
+다음 단계를 수행하십시오.
 
 1. Azurestack\AzureStackAdmin로 PowerShell 인스턴스를 엽니다.
 2. 스크립트를 다운로드 하 고에서 추출의 위치로 이동 된 [필수 구성 요소 단계](https://docs.microsoft.com/en-gb/azure/azure-stack/azure-stack-app-service-before-you-get-started#download-the-azure-app-service-on-azure-stack-installer-and-helper-scripts)합니다.

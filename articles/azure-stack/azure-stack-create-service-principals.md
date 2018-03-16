@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/25/2018
+ms.date: 03/15/2018
 ms.author: mabrigg
-ms.openlocfilehash: 64c424ee7045ae20b3fba6433166039580387d76
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 7b7028a92b93f29af10c5e4bc9ab4f671ca23961
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>Azure 스택에 응용 프로그램 액세스 권한을 제공합니다
 
@@ -41,7 +41,7 @@ Azure 스택, 배포 방법에 따라 사용자는 서비스를 만들어 시작
 
 Azure AD id 저장소로 사용 하 여 Azure 스택을 배포한 경우에 Azure에 대해 수행 하는 것 처럼 서비스 사용자를 만들 수 있습니다.  이 여기서 포털을 통해 단계를 수행 하는 방법을 보여 줍니다.  확인 해야 하는 [필요한 Azure AD 권한](../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions) 시작 하기 전에.
 
-### <a name="create-service-principal"></a>서비스 주체 만들기
+### <a name="create-service-principal"></a>서비스 사용자 만들기
 이 섹션에서는 Azure ad 응용 프로그램을 나타내는 응용 프로그램 (서비스 주체)을 만듭니다.
 
 1. [Azure Portal](https://portal.azure.com)을 통해 Azure 계정에 로그인합니다.
@@ -51,14 +51,14 @@ Azure AD id 저장소로 사용 하 여 Azure 스택을 배포한 경우에 Azur
 응용 프로그램에 대 한 서비스 사용자를 만들었습니다.
 
 ### <a name="get-credentials"></a>자격 증명 가져오기
-프로그래밍 방식으로 로그인 할 때에 응용 프로그램 및 인증 키에 대 한 ID를 사용 합니다. 이러한 값을 가져오려면 다음 단계를 사용합니다.
+응용 프로그램 및 웹 응용 프로그램의 ID를 사용 하 프로그래밍 방식으로 로그인 할 때 / API에는 인증 키입니다. 이러한 값을 가져오려면 다음 단계를 사용합니다.
 
 1. Active Directory의 **앱 등록**에서 응용 프로그램을 선택합니다.
 
 2. **응용 프로그램 ID**를 복사하고 응용 프로그램 코드에 저장합니다. [샘플 응용 프로그램](#sample-applications) 섹션의 응용 프로그램은 이 값을 클라이언트 ID로 참조합니다.
 
      ![클라이언트 ID](./media/azure-stack-create-service-principal/image12.png)
-3. 인증 키를 생성하려면 **키**를 선택합니다.
+3. 웹 앱에 대 한 인증 키를 생성할 / API 선택 **설정** > **키**합니다. 
 
 4. 키에 대한 설명 및 키의 기간을 제공합니다. 완료되면 **저장**을 선택합니다.
 
@@ -111,7 +111,7 @@ Requirements:
 
 2. 자동화 완료 된 후에 SPN을 사용 하려면 필요한 세부 정보 표시 됩니다. 
 
-   예: 
+   예:
 
    ```
    ApplicationIdentifier : S-1-5-21-1512385356-3796245103-1243299919-1356

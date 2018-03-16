@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 03/12/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: a198ff5fe7135e17301025d6a712236b76be0ede
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 04cfe3c4ac6011b9c3d31b7d4ac3c018c350d67b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="network-connectivity"></a>네트워크 연결
 이 문서에서는 가장 Azure 스택을 기존 네트워킹 환경에 통합 하는 방법을 결정할 수 있도록 Azure 스택 네트워크 인프라 정보를 제공 합니다. 
@@ -43,7 +43,7 @@ Azure 스택 솔루션에는 해당 작업 및 서비스를 지원 하기 위해
 | 공용 VIP | 소규모의 나머지 테 넌 트 가상 컴퓨터에서 사용 하는 Azure 스택을 서비스에 대 한 공용 IP 주소입니다. Azure 스택 인프라는이 네트워크에서 32 주소를 사용합니다. 앱 서비스 및 SQL 리소스 공급자를 사용 하려는 경우에 7 더 많은 주소 사용 됩니다. | / 26 (62 호스트) / 22 (1022 호스트)<br><br>권장 = / 24 (254 호스트) | 
 | 스위치 인프라 | 전용된 라우팅 목적에 대 한 지점 간 IP 주소 관리 인터페이스 및 스위치에 할당 된 루프백 주소를 전환 합니다. | /26 | 
 | 인프라 | Azure 스택 내부 구성 요소에 대 한 통신 하는 데 사용 합니다. | /24 |
-| 개인 | 저장소 네트워크 및 개인 Vip에 사용 합니다. | /24 | 
+| 사설 | 저장소 네트워크 및 개인 Vip에 사용 합니다. | /24 | 
 | BMC | 실제 호스트에서 Bmc와 통신 하는 데 사용 합니다. | /27 | 
 | | | |
 
@@ -53,7 +53,9 @@ Azure 스택에 대 한 네트워크 인프라는 스위치에 구성 된 여러
 ![논리 네트워크 다이어그램 및 스위치 연결](media/azure-stack-network/NetworkDiagram.png)
 
 ### <a name="bmc-network"></a>BMC 네트워크
-이 네트워크 모든 베이스 보드 관리 컨트롤러 (라고도 서비스 프로세서, 예를 들어 iDRAC, iLO, iBMC 등)를 연결 하는 전용 관리 네트워크입니다. 있는 경우 (HLH) 하드웨어 수명 주기 호스트가이 네트워크에 있는 하드웨어 유지 관리 및/또는 모니터링에 대 한 OEM 특정 소프트웨어를 제공할 수 있습니다. 
+이 네트워크 모든 베이스 보드 관리 컨트롤러 (라고도 서비스 프로세서, 예를 들어 iDRAC, iLO, iBMC 등)를 연결 하는 전용 관리 네트워크입니다. 있는 경우에 하드웨어 수명 주기 호스트 (HLH)이이 네트워크에 있는 및 하드웨어 유지 관리 또는 모니터링에 대 한 OEM 특정 소프트웨어를 제공할 수 있습니다. 
+
+또한는 HLH 배포 VM (DVM)를 호스트합니다. DVM Azure 스택 배포 하는 동안 사용 되 고 배포가 완료 되 면 제거 됩니다. DVM 테스트, 유효성 검사 및 여러 구성 요소에 액세스 하는 연결 된 배포 시나리오에서 인터넷 액세스가 필요 합니다. 내부와 회사 네트워크 외부에서 이러한 구성 요소 수 있습니다. 예를 들어 NTP, DNS 및 Azure입니다. 연결 요구 사항에 대 한 자세한 내용은 참조는 [NAT 섹션에서 Azure 스택 방화벽 통합](azure-stack-firewall.md#network-address-translation)합니다. 
 
 ### <a name="private-network"></a>개인 네트워크
 (254 호스트 IP의) 네트워크는 Azure 스택 영역 (Azure 스택 영역의 테두리 스위치 장치 보다 더 확장지 않습니다)에 전용 포트 이며 두 서브넷으로 구분 이/24:
