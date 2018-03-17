@@ -380,7 +380,6 @@
             - name: 테넌트 프로비전
               href: saas-standaloneapp-provision-and-catalog.md
         - name: 테넌트당 데이터베이스
-          href: saas-dbpertenant-wingtip-app-overview.md
           items:
             - name: 자습서 소개
               href: saas-dbpertenant-wingtip-app-overview.md
