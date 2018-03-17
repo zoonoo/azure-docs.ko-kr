@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2018
 ms.author: brenduns
-ms.openlocfilehash: 2b39ff3665a4cc3aeddf81b83e0c90c7f770da72
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 50c0f293ac669ade4e45a5f45b0adf9a7c4b6c36
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="considerations-for-virtual-machines-in-azure-stack"></a>Azure 스택의 가상 컴퓨터에 대 한 고려 사항
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 02/27/2018
 | 가상 컴퓨터 네트워크 | 테 넌 트 가상 컴퓨터에 할당 된 공용 IP 주소는 인터넷을 통해 액세스할 수 있습니다.<br><br><br>Azure 가상 컴퓨터의 고정된 DNS 이름 | 테 넌 트 가상 컴퓨터에 할당 된 공용 IP 주소는만 스택 개발 키트 Azure 환경 내에서 액세스할 수 있습니다. 사용자를 통해 Azure 스택 개발 키트를 액세스할 수 있어야 합니다. [RDP](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop) 또는 [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) Azure 스택에 만들어지는 가상 컴퓨터에 연결 합니다.<br><br>특정 Azure 스택 인스턴스 내에서 만든 가상 컴퓨터 클라우드 관리자가 구성 된 값에 따라 DNS 이름이 있습니다. |
 | 가상 컴퓨터 저장소 | 지원 [디스크를 관리 합니다.](../../virtual-machines/windows/managed-disks-overview.md) | 관리 되는 디스크는 Azure 스택의 아직 지원 되지 않습니다. |
 | API 버전 | Azure는 항상 모든 가상 컴퓨터 기능에 대 한 최신 API 버전을 갖습니다. | Azure 스택 이러한 서비스에 대 한 특정 Azure 서비스 및 특정 API 버전을 지원합니다. 지원 되는 API 버전 목록을 보려면를 참조는 [API 버전](#api-versions) 이 문서의 섹션. |
-|가상 컴퓨터 가용성 집합|여러 오류 도메인 (2 또는 3 / 지역당)<br>여러 업데이트 도메인<br>관리 디스크 지원|단일 장애 도메인<br>단일 업데이트 도메인<br>관리 되는 디스크 지원 되지 않습니다|
+|가상 컴퓨터 가용성 집합|여러 오류 도메인 (2 또는 3 / 지역당)<br>여러 업데이트 도메인<br>관리 디스크 지원|여러 오류 도메인 (2 또는 3 / 지역당)<br>여러 업데이트 도메인 (최대 20)<br>관리 되는 디스크 지원 되지 않습니다|
 |가상 머신 크기 집합|자동 크기 조정 지원|자동 크기 조정 지원 되지 않습니다.<br>더 많은 인스턴스 크기 포털, 리소스 관리자 템플릿 또는 PowerShell을 사용 하 여 집합에 추가 합니다.
 
 ## <a name="virtual-machine-sizes"></a>가상 머신 크기
