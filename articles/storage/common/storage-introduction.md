@@ -2,23 +2,17 @@
 title: "Azure Storage 소개 | Microsoft Docs"
 description: "클라우드의 Microsoft 데이터 저장소인 Azure Storage 개요입니다."
 services: storage
-documentationcenter: 
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: a4a1bc58-ea14-4bf5-b040-f85114edc1f1
+manager: jeconnoc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/21/2018
+ms.date: 03/06/2018
 ms.author: tamram
-ms.openlocfilehash: 088a58bf5bfe3736a158d2384c69cb5928b53556
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 799636d0a702407be06bbe8cebae552b34d860db
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="introduction-to-microsoft-azure-storage"></a>Microsoft Azure Storage 소개
 
@@ -137,7 +131,7 @@ Storage 서비스에 사용할 수 있는 기본적인 종류의 두 가지 암�
 
 미사용 Azure SSE(저장소 서비스 암호화)를 사용하면 조직의 보안 및 규정 준수 약정에 맞게 데이터를 보호할 수 있습니다. 이 기능을 통해 Azure Storage는 저장소를 유지하기 전에 데이터를 자동으로 암호화하고 검색하기 전에 암호를 해독합니다. 암호화, 암호 해독 및 키 관리는 사용자에게 완전히 투명하게 처리됩니다.
 
-Blob 저장소 또는 Azure Files(미리 보기)에 대해 SSE(저장소 서비스 암호화)를 사용하도록 설정할 수 있습니다. 활성화되면 특정 서비스에 작성된 모든 데이터를 작성하기 전에 암호화합니다. 데이터를 읽을 때 반환되기 전에 암호를 해독합니다.
+SSE는 모든 성능 계층(표준 및 프리미엄), 모든 배포 모델(Azure Resource Manager 및 클래식) 및 모든 Azure Storage 서비스(Blob, 큐, 테이블 및 파일)의 데이터를 자동으로 암호화합니다. SSE는 Azure Storage 성능에 영향을 주지 않습니다.
 
 미사용 SSE 암호화에 대한 자세한 내용은 [미사용 데이터에 대한 Azure 저장소 서비스 암호화](storage-service-encryption.md)를 참조하세요.
 

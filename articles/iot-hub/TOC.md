@@ -26,9 +26,9 @@
 #### [Node.js를 사용하는 Intel Edison](iot-hub-intel-edison-kit-node-get-started.md)
 #### [C를 사용하는 Intel Edison](iot-hub-intel-edison-kit-c-get-started.md)
 
-#### [Arduino IDE를 사용하는 Adafruit Feather HUZZAH ESP8266](iot-hub-arduino-huzzah-esp8266-get-started.md)
-#### [Arduino IDE를 사용하는 Sparkfun ESP8266 Thing Dev](iot-hub-sparkfun-esp8266-thing-dev-get-started.md)
-#### [Arduino IDE를 사용하는 Adafruit Feather M0](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
+#### [Arduino를 사용하는 Adafruit Feather HUZZAH ESP8266](iot-hub-arduino-huzzah-esp8266-get-started.md)
+#### [Arduino를 사용하는 Sparkfun ESP8266 Thing Dev](iot-hub-sparkfun-esp8266-thing-dev-get-started.md)
+#### [Arduino를 사용하는 Adafruit Feather M0](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
 
 ## 확장된 IoT 시나리오
 ### [iothub-explorer를 사용하여 클라우드 장치 메시지 관리](iot-hub-explorer-cloud-device-messaging.md)
@@ -195,7 +195,7 @@
 ## [iothub-explorer 도구](https://github.com/Azure/iothub-explorer)
 ## [학습 경로](https://azure.microsoft.com/documentation/learning-paths/iot-hub/)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureiothub)
-## [가격 책정](https://azure.microsoft.com/pricing/details/iot-hub/)
+## [가격](https://azure.microsoft.com/pricing/details/iot-hub/)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=iot-hub)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-iot-hub)

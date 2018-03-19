@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: b91d1c1eb452ade005fceb095f8d9e62b28a14ac
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 35dc83dea7dc1310852437cd7eede32cfa890e8f
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="introducing-apache-kafka-on-hdinsight"></a>HDInsight의 Apache Kafka 소개
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 02/28/2018
 
 HDInsight의 Kafka는 다음과 같은 기능을 제공합니다.
 
-* __Kafka 작동 시간에 99% Service Level Agreement(서비스 수준 약정)__: 자세한 내용은 [HDInsight에 대한 SLA 정보](https://azure.microsoft.com/support/legal/sla/hdinsight/v1_0/) 문서를 참조하세요.
+* __Kafka 작동 시간에 99.9% Service Level Agreement(서비스 수준 약정)__: 자세한 내용은 [HDInsight에 대한 SLA 정보](https://azure.microsoft.com/support/legal/sla/hdinsight/v1_0/) 문서를 참조하세요.
 
 * __내결함성 및 랙 인식__: Kafka는 일부 환경에서 잘 작동하는 랙의 1차원 뷰로 설계되었습니다. 하지만 Azure와 같은 환경에서는 랙이 업데이트 도메인(UD)과 장애 도메인(FD)의 두 차원으로 분리됩니다. Microsoft에서는 UD와 FD의 Kafka 파티션 및 복제본 균형을 재조정하는 도구를 제공합니다. 
 

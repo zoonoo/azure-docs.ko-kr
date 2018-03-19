@@ -10,15 +10,15 @@ ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 35142cb40560db848c71da266bbaa1881f12e15d
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 20046d8bb475ddce8962915e5bd8215117261ac6
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="tutorial-forecast-future-spending"></a>자습서: 향후 소비 예측
 
-Cloudyn에서 개발한 Azure Cost Management는 기존 사용량 및 소비 데이터를 사용하여 향후 소비를 예측하는 데 도움이 됩니다. Cloudyn 보고서를 사용하여 모든 비용 예상 데이터를 볼 수 있습니다. 이 자습서의 예제는 보고서를 사용하여 비용 예상의 검토 과정을 안내합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
+Azure Cost Management는 기존 사용량 및 소비 데이터를 사용하여 향후 소비를 예측하는 데 도움이 됩니다. Cloudyn 보고서를 사용하여 모든 비용 예상 데이터를 볼 수 있습니다. 이 자습서의 예제는 보고서를 사용하여 비용 예상의 검토 과정을 안내합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * 향후 소비 예측

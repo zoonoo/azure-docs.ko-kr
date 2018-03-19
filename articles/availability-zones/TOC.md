@@ -22,8 +22,9 @@
 ### 가상 머신 크기 집합
 #### [가용성 영역에서 확장 집합 만들기](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
 
-### 부하 분산 장치
+### Load Balancer
 #### [부하 분산 장치란?](../load-balancer/load-balancer-standard-overview.md)
+#### [부하 분산 장치 표준 및 가용성 영역](../load-balancer/load-balancer-standard-availability-zones.md)
 #### [Azure Portal을 사용하여 영역 중복 공용 부하 분산 장치 표준 만들기](../load-balancer/load-balancer-get-started-internet-az-portal.md)
 #### [PowerShell을 사용하여 영역 중복 부하 분산 장치 표준 만들기](../load-balancer/load-balancer-get-started-internet-az-powershell.md)
 #### [CLI를 사용하여 영역 중복 공용 부하 분산 장치 표준 만들기](../load-balancer/load-balancer-get-started-internet-az-cli.md)

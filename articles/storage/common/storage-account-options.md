@@ -9,11 +9,11 @@ ms.workload: storage
 ms.topic: get-started-article
 ms.date: 01/17/2018
 ms.author: jirwin
-ms.openlocfilehash: aa8704b9991dde639b50a5b6c9a27ad5cd08ad02
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 2c69519b865169b477950bc8fa659d5ad9081bbf
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="azure-storage-account-options"></a>Azure Storage 계정 옵션
 
@@ -298,8 +298,8 @@ Azure 클라이언트 라이브러리 또는 Azure 저장소 서비스 REST API 
 
 자세한 내용은 [Azure Blob 저장소 시작](../blobs/storage-dotnet-how-to-use-blobs.md)을 참조하세요.
 
-> [!NOTE]
-> 클라이언트 쪽 암호화를 사용하여 암호화된 BLOB은 BLOB과 함께 저장되는 암호화 관련 메타데이터를 저장합니다. 이것은 모든 복사 메커니즘이 Blob 메타데이터 특히, 암호화 관련 메타데이터가 보존되는지 확인해야 하기 때문에 중요합니다. Blob을 이러한 메타데이터 없이 복사하면 Blob 콘텐츠를 다시 검색할 수 없습니다. 암호화 관련 메타데이터에 대한 자세한 내용은 [Azure Storage 클라이언트 쪽 암호화](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)를 참조하세요.
+> [!IMPORTANT]
+> 클라이언트 쪽 암호화를 사용하여 암호화된 Blob은 Blob에 암호화 관련 메타데이터를 저장합니다. 클라이언트 쪽 암호화를 사용하여 암호화된 Blob을 복사하는 경우 복사 작업에서 Blob 메타데이터, 특히 암호화 관련 메타데이터를 유지해야 합니다. 암호화 메타데이터 없이 Blob을 복사하면 Blob 콘텐츠를 다시 검색할 수 없습니다. 암호화 관련 메타데이터에 대한 자세한 내용은 [Azure Storage 클라이언트 쪽 암호화](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)를 참조하세요.
 
 ## <a name="faq"></a>FAQ
 

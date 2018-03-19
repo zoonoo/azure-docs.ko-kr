@@ -1,18 +1,18 @@
 ---
-title: "Azure Site Recovery란? | Microsoft Docs"
+title: "Azure Site Recovery 정보 | Microsoft Docs"
 description: "Azure Site Recovery 서비스의 개요를 제공하고 배포 시나리오를 요약합니다."
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: overview
-ms.date: 01/07/2018
+ms.date: 03/08/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 4cc5d849630114577709f8373d08f0ce659e7e65
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 57b191a5dbdea487a0105c6af2866cdc037864e2
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="about-site-recovery"></a>Site Recovery란?
 
@@ -57,8 +57,8 @@ Site Recovery는 다음을 위해 복제를 관리할 수 있습니다.
 --- | ---
 **복제 시나리오** | 한 Azure 지역의 Azure VM을 다른 곳에 복제할 수 있습니다.<br/><br/>  온-프레미스 VMware VM, Hyper-V VM, 물리적 서버(Windows 및 Linux)를 Azure에 복제합니다.<br/><br/> 온-프레미스 VMware VM, Center VMM에서 관리하는 Hyper-V VM 및 물리적 서버를 보조 사이트에 복제합니다.
 **지역** | Site Recovery가 [지원되는 지역](https://azure.microsoft.com/regions/services/)을 검토합니다. |
-**복제된 컴퓨터** | [Azure VM](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions), [온-프레미스 VM](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions) 및 [물리적 서버](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions)에 대한 복제 요구 사항을 검토합니다.
-**VMware 서버/호스트** | 복제하려는 VMware VM은 [지원되는 vSphere 호스트/vCenter 서버](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers)에 있을 수 있습니다.
+**복제된 컴퓨터** | [Azure VM](azure-to-azure-support-matrix.md#support-for-replicated-machine-os-versions) 복제, [온-프레미스 VMware VM 및 물리적 서버](vmware-physical-azure-support-matrix.md#replicated-machines) 및 [온-프레미스 Hyper-V VM](hyper-v-azure-support-matrix.md#replicated-vms)에 대한 복제 요구 사항을 검토합니다.
+**VMware 서버/호스트** | 복제하려는 VMware VM은 [지원되는 호스트 및 가상화 서버](vmware-physical-azure-support-matrix.md)에 있을 수 있습니다.
 **워크로드** | 복제가 지원되는 컴퓨터에서 실행되는 모든 워크로드를 복제할 수 있습니다. 또한 Site Recovery 팀이 [몇 가지 앱](site-recovery-workload.md#workload-summary)에 대해 앱별 테스팅을 수행하였습니다.
 
 

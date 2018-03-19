@@ -12,13 +12,13 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 03/08/2018
 ms.author: yurid
-ms.openlocfilehash: 42cbc442d03cdca04d380d05d9e904355476099e
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 48648c2e84d2a2e4de01f04495fb08df603c6017
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Azure Security Center에서 보안 솔루션 통합
 이 문서를 통해 이미 Azure Security Center에 연결된 보안 솔루션을 관리하고 새로 추가할 수 있습니다.
@@ -26,7 +26,7 @@ ms.lasthandoff: 11/22/2017
 ## <a name="integrated-azure-security-solutions"></a>통합된 Azure 보안 솔루션
 Security Center를 사용하면 Azure에서 통합된 보안 솔루션을 쉽게 사용할 수 있습니다. 이점은 다음과 같습니다.
 
-- **배포 간소화**: Security Center에서는 통합된 파트너 솔루션의 간결한 프로비전을 제공합니다. 맬웨어 방지 및 취약성 평가와 같은 솔루션의 경우 Security Center는 가상 컴퓨터에 필요한 에이전트를 프로비전할 수 있습니다. 또한 방화벽 어플라이언스의 경우 Security Center는 필요한 네트워크 구성을 충분히 고려할 수 있습니다.
+- **배포 간소화**: Security Center에서는 통합된 파트너 솔루션의 간결한 프로비전을 제공합니다. 맬웨어 방지 및 취약성 평가와 같은 솔루션의 경우 Security Center는 가상 머신에 필요한 에이전트를 프로비전할 수 있습니다. 또한 방화벽 어플라이언스의 경우 Security Center는 필요한 네트워크 구성을 충분히 고려할 수 있습니다.
 - **통합된 감지**: 파트너 솔루션의 보안 이벤트는 자동으로 수집, 집계되며 Security Center 알림 및 사고의 일부로 표시됩니다. 또한 이러한 이벤트는 다른 원본의 감지를 결합하여 고급 위협 감지 기능을 제공합니다.
 - **통합된 상태 모니터링 및 관리**: 고객은 통합된 상태 이벤트를 사용하여 한 눈에 모든 파트너 솔루션을 모니터링할 수 있습니다. 기본 관리는 파트너 솔루션을 사용하여 고급 설정에 쉽게 액세스하여 사용할 수 있습니다.
 
@@ -44,9 +44,9 @@ Security Center를 사용하면 Azure에서 통합된 보안 솔루션을 쉽게
 | Windows Defender(Microsoft 맬웨어 방지 프로그램)                  | Windows Server 2016                   | 아니오, OS에 기본 제공           | 예                       |
 | System Center Endpoint Protection(Microsoft 맬웨어 방지 프로그램) | Windows Server 2012 R2, 2012, 2008 R2 | 확장을 통해                | 예                       |
 | Trend Micro - 모든 버전         | Windows Server 제품군                 | 확장을 통해                | 예                       |
-| Symantec v12.1.1100+                     | Windows Server 제품군                 | 아니요                           | 예                        |
-| MacAfee                           | Windows Server 제품군                 | 아니요                           | 아니요                        |
-| Kaspersky                         | Windows Server 제품군                 | 아니요                           | 아니요                        |
+| Symantec v12.1.1100+                     | Windows Server 제품군                 | 아니오                           | 예                        |
+| MacAfee                           | Windows Server 제품군                 | 아니요                           | 아니오                        |
+| Kaspersky                         | Windows Server 제품군                 | 아니요                           | 아니오                        |
 | Sophos                            | Windows Server 제품군                 | 아니요                           | 아니요                        |
 
 
@@ -63,7 +63,15 @@ Security Center에서 배포된 Azure 보안 솔루션은 자동으로 연결됩
 
 ## <a name="manage-integrated-azure-security-solutions-and-other-data-sources"></a>통합된 Azure 보안 솔루션 및 다른 데이터 원본 관리
 
-배포 후에 통합된 Azure 보안 솔루션의 상태에 대한 정보를 보고 기본 관리 작업을 수행할 수 있습니다. 또한 CEF(공통 이벤트 형식)에서 Azure Active Directory Identity Protection 알림 및 방화벽 로그와 같은 다른 형식의 보안 데이터 원본을 연결할 수 있습니다. Security Center 대시보드에서 보안 솔루션을 선택합니다.
+1. [Azure Portal](https://azure.microsoft.com/features/azure-portal/)에 로그인합니다.
+
+2. **Microsoft Azure 메뉴**에서 **Security Center**를 선택합니다. **Security Center - 개요**가 열립니다.
+
+  ![Security Center 개요](./media/security-center-partner-integration/overview.png)
+
+3. **개요**에서 **보안 솔루션**을 선택합니다.
+
+**보안 솔루션**에서 통합된 Azure 보안 솔루션의 상태에 대한 정보를 보고 기본 관리 작업을 수행할 수 있습니다. 또한 CEF(공통 이벤트 형식)에서 Azure Active Directory Identity Protection 알림 및 방화벽 로그와 같은 다른 형식의 보안 데이터 원본을 연결할 수 있습니다.
 
 ### <a name="connected-solutions"></a>연결된 솔루션
 
@@ -71,13 +79,22 @@ Security Center에서 배포된 Azure 보안 솔루션은 자동으로 연결됩
 
 ![연결된 솔루션](./media/security-center-partner-integration/security-center-partner-integration-fig4.png)
 
+자세히 알아보려면 [연결된 파트너 솔루션 관리](security-center-partner-solutions.md)를 참조하세요.
+
 ### <a name="discovered-solutions"></a>검색된 솔루션
 
-**검색된 솔루션** 섹션에서는 Azure를 통해 추가된 모든 솔루션을 보여줍니다. 또한 Security Center가 제안하는 모든 솔루션이 연결되어야 함을 보여줍니다.
+Security Center는 Azure에서 실행되는 보안 솔루션을 자동으로 검색하지만 Security Center에 연결되지 않고 **검색된 솔루션** 섹션에 솔루션을 표시합니다. 여기에는 [Azure AD ID 보호](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)와 같은 Azure 솔루션뿐만 아니라 파트너 솔루션도 포함됩니다.
+
+> [!NOTE]
+> 검색된 솔루션 기능은 Security Center의 표준 계층에서 사용할 수 있습니다. Security Center의 가격 책정 계층에 대해 자세히 알아보려면 [가격 책정](security-center-pricing.md)을 참조하세요.
+>
+>
+
+솔루션 아래의 **연결**을 선택하여 Security Center와 통합하고 보안 경고에서 알림을 받습니다.
 
 ![검색된 솔루션](./media/security-center-partner-integration/security-center-partner-integration-fig5.png)
 
-Security Center는 Azure에서 실행 중인 다른 보안 솔루션을 자동으로 검색합니다. 여기에는 [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)과 같은 Azure 솔루션뿐만 아니라 Azure에서 실행 중인 파트너 솔루션도 포함됩니다. Security Center와 이러한 솔루션을 통합하려면 **연결**을 선택합니다.
+Security Center는 CEF(일반 이벤트 형식) 로그를 전달할 수 있는 구독에 배포되는 솔루션도 검색합니다. CEF 로그를 사용하여 Security Center에 [보안 솔루션을 연결](quick-security-solutions.md)하는 방법을 알아봅니다.
 
 ### <a name="add-data-sources"></a>데이터 원본 추가
 
@@ -90,7 +107,6 @@ Security Center는 Azure에서 실행 중인 다른 보안 솔루션을 자동�
 
 이 문서에서는 Security Center에서 파트너 솔루션을 통합하는 방법을 살펴보았습니다. Security Center에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-* [Security Center 계획 및 작업 가이드](security-center-planning-and-operations-guide.md)
 * [Azure Security Center에 Microsoft Advanced Threat Analytics 연결](security-center-ata-integration.md)
 * [Azure Security Center에 Azure Active Directory Identity Protection 연결](security-center-aadip-integration.md)
 * [Security Center에서 보안 상태 모니터링](security-center-monitoring.md) Azure 리소스의 상태를 모니터링하는 방법을 알아봅니다.

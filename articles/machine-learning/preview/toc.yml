@@ -27,6 +27,8 @@
       href: overview-general-concepts.md
 - name: 방법 가이드
   items:
+    - name: 상위 CLI 작업
+      href: cli-for-azure-machine-learning.md
     - name: 워크벤치 사용
       items:
         - name: Python IDE 사용

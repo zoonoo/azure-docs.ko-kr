@@ -15,11 +15,11 @@ ms.workload: big-compute
 ms.date: 02/28/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c53007530fe80f03cefbf138193cfad4b0e8292a
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: b0a18f975530d2a291e529308ee53d6d48a68e42
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Batch를 사용하여 대규모 병렬 계산 솔루션 개발
 
@@ -28,7 +28,7 @@ Azure Batch 서비스의 핵심 구성 요소 개요에서는 Batch 개발자가
 분산된 컴퓨팅 응용 프로그램 또는 [REST API][batch_rest_api] 호출을 직접 실행하는 서비스를 개발하거나 [Batch SDK](batch-apis-tools.md#azure-accounts-for-batch-development) 중 하나를 사용하는 경우 이 문서에서 설명할 다양한 리소스 및 기능을 사용하게 됩니다.
 
 > [!TIP]
-> Batch 서비스에 대한 고급 소개는 [Azure Batch의 기본 사항](batch-technical-overview.md)을 참조하세요.
+> Batch 서비스에 대한 고급 소개는 [Azure Batch의 기본 사항](batch-technical-overview.md)을 참조하세요. 또한 최신 [Batch 서비스 업데이트](https://azure.microsoft.com/updates/?product=batch)를 참조하세요.
 >
 >
 

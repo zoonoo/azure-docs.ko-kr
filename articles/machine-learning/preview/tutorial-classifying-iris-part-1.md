@@ -5,17 +5,17 @@ services: machine-learning
 author: hning86
 ms.author: haining, j-martens
 manager: mwinkle
-ms.reviewer: jmartens, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs, gcampanella
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 02/28/2018
-ms.openlocfilehash: 12cba3d4acf0e6018cea6e76df9208bcf380d976
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.date: 3/7/2018
+ms.openlocfilehash: caddfff329d0e8f4c4007386b377ea56a51249a5
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="tutorial-classify-iris-part-1---preparing-the-data"></a>자습서: 아이리스 분류 1부 - 데이터 준비
 
@@ -60,8 +60,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
    프로젝트 이름 | myIris |계정을 식별하는 고유한 이름을 입력합니다. 본인의 이름 또는 실험을 가장 잘 식별하는 부서나 프로젝트 이름을 사용할 수 있습니다. 이름은 2~32자여야 합니다. 영숫자 문자 및 대시(-) 문자만 포함되어야 합니다. 
    프로젝트 디렉터리 | c:\Temp\ | 프로젝트가 만들어지는 디렉터리를 지정합니다.
    프로젝트 설명 | _비워 둠_ | 프로젝트를 설명하기에 유용한 선택적 필드입니다.
-   Visualstudio.com |_비워 둠_ | 선택적 필드입니다. 원본 제어 및 공동 작업을 위해 Visual Studio Team Services에서 Git 리포지토리와 프로젝트를 연결할 수 있습니다. [설정하는 방법 알아기](https://docs.microsoft.com/en-us/azure/machine-learning/preview/using-git-ml-project#step-3-set-up-a-machine-learning-project-and-git-repo) 
-   작업 영역 | IrisGarden(있는 경우) | Azure Portal에서 실험 계정에 대해 만든 작업 영역을 선택합니다. <br/>빠른 시작을 수행한 경우 IrisGarden이라는 이름의 작업 영역이 있어야 합니다. 그렇지 않으면 실험 계정을 만들 때 생성한 항목을 선택하거나 원하는 다른 항목을 선택합니다.
+   Visualstudio.com GIT 리포지토리 URL |_비워 둠_ | 선택적 필드입니다. 원본 제어 및 공동 작업을 위해 Visual Studio Team Services에서 Git 리포지토리와 프로젝트를 연결할 수 있습니다. [설정하는 방법 알아기](https://docs.microsoft.com/en-us/azure/machine-learning/preview/using-git-ml-project#step-3-set-up-a-machine-learning-project-and-git-repo) 
+   선택한 작업 영역 | IrisGarden(있는 경우) | Azure Portal에서 실험 계정에 대해 만든 작업 영역을 선택합니다. <br/>빠른 시작을 수행한 경우 IrisGarden이라는 이름의 작업 영역이 있어야 합니다. 그렇지 않으면 실험 계정을 만들 때 생성한 항목을 선택하거나 원하는 다른 항목을 선택합니다.
    프로젝트 템플릿 | 아이리스 분류 | 템플릿에는 제품을 탐색하는 데 사용할 수 있는 스크립트와 데이터가 포함됩니다. 템플릿에는 이 설명서 사이트의 빠른 시작 및 기타 자습서에 필요한 스크립트와 데이터가 포함됩니다. 
 
    ![새 프로젝트](media/tutorial-classifying-iris/new_project.png)
@@ -73,11 +73,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="create-a-data-preparation-package"></a>데이터 준비 패키지 만들기
 
-다음으로, Azure Machine Learning Workbench에서 데이터를 탐색하고 데이터 준비를 시작할 수 있습니다. Workbench에서 수행하는 각 변환은 JSON 형식으로 로컬 데이터 준비 패키지(*.dprep 파일)에 저장됩니다. 이 데이터 준비 패키지는 Workbench의 데이터 준비 작업에 대한 기본 컨테이너입니다.
+다음으로, Azure Machine Learning Workbench에서 데이터를 탐색하고 준비할 수 있습니다. Workbench에서 수행하는 각 변환은 JSON 형식으로 로컬 데이터 준비 패키지(*.dprep 파일)에 저장됩니다. 이 데이터 준비 패키지는 Workbench의 데이터 준비 작업에 대한 기본 컨테이너입니다.
 
 이 데이터 준비 패키지는 나중의 런타임(예: 로컬 C#/CoreCLR, Scala/Spark 또는 Scala/HDI)에 전달될 수 있습니다. 
 
-1. 폴더 아이콘을 선택하여 파일 보기를 연 다음, **iris.csv**를 선택하여 파일을 엽니다.  
+1. 폴더 아이콘을 선택하여 [파일] 보기를 연 다음, **iris.csv**를 선택하여 이 파일을 엽니다.
 
    이 파일에는 5개 열, 50개 행이 있는 테이블이 포함되어 있습니다. 네 개의 열은 숫자 기능 열입니다. 다섯 번째 열은 문자열 대상 열입니다. 열에는 헤더 이름이 없습니다.
 
@@ -90,28 +90,25 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
    ![Azure Machine Learning Workbench의 데이터 뷰](media/tutorial-classifying-iris/data_view.png)
 
-3. **텍스트 파일(*.csv, .json, .txt.,...)**을 선택하고 **다음**을 클릭합니다.
+3. **텍스트 파일(\*.csv, \*.json, \*.txt., ...)**을 선택하고 **다음**을 클릭합니다.
    ![Azure Machine Learning Workbench의 데이터 원본](media/tutorial-classifying-iris/data-source.png)
-   
 
-4. **iris.csv** 파일을 찾아 **다음**을 클릭합니다.  
+4. **iris.csv** 파일을 찾아 **마침**을 클릭합니다. 이렇게 하면 구분 기호 및 데이터 형식과 같은 매개 변수에 대한 기본값이 사용됩니다.
 
    >[!IMPORTANT]
    >이 연습에서는 현재 프로젝트 디렉터리에 있는 **iris.csv** 파일을 선택해야 합니다. 그렇지 않으면 이후 단계가 실패할 수 있습니다.
  
    ![아이리스 선택](media/tutorial-classifying-iris/select_iris_csv.png)
    
-5. 기본값을 유지하고 **마침**을 클릭합니다.
-
-6. **iris-1.dsource**라는 새 파일이 만들어집니다. 샘플 프로젝트에는 번호가 지정되지 않은 **iris.dsource** 파일이 이미 있으므로 파일 이름이 “-1”로 지정되었습니다.  
+5. **iris-1.dsource**라는 새 파일이 만들어집니다. 샘플 프로젝트에는 번호가 지정되지 않은 **iris.dsource** 파일이 이미 있으므로 파일 이름이 “-1”로 지정되었습니다.  
 
    파일이 열리고 데이터가 표시됩니다. 일련의 열 머리글(**Column1**에서 **Column5**까지)이 이 데이터 집합에 자동으로 추가됩니다. 아래로 스크롤하여 데이터 집합의 마지막 행이 비어 있음을 확인합니다. 행은 추가 줄 바꿈이 CSV 파일에 있기 때문에 비어 있습니다.
 
    ![아이리스 데이터 뷰](media/tutorial-classifying-iris/iris_data_view.png)
 
-1. **메트릭** 단추를 선택합니다. 히스토그램이 생성되어 화면에 표시됩니다.
+1. **메트릭** 단추를 선택합니다. 히스토그램이 생성되어 표시됩니다.
 
-   **데이터** 단추를 선택하여 데이터 뷰로 다시 전환합니다. 
+   **데이터** 단추를 선택하여 데이터 뷰로 다시 전환할 수 있습니다.
    
    ![아이리스 데이터 뷰](media/tutorial-classifying-iris/iris_data_view_metrics.png)
 
@@ -121,7 +118,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 8. **준비** 단추를 선택하여 데이터 준비 패키지를 만들기 시작합니다. **준비** 대화 상자가 열립니다. 
 
-   샘플 프로젝트에는 기본적으로 **iris.dprep** 데이터 준비 파일이 포함되어 있습니다. 
+   샘플 프로젝트에는 기본적으로 선택되는**iris.dprep** 데이터 준비 파일이 포함되어 있습니다. 
 
    ![아이리스 데이터 뷰](media/tutorial-classifying-iris/prepare.png)
 
@@ -129,7 +126,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
    ![아이리스 데이터 뷰](media/tutorial-classifying-iris/prepare_new.png)
 
-1. 패키지 이름에 대한 새 값을 입력하고, **iris-1**을 사용하고, **확인**을 선택합니다.
+1. 패키지 이름에 대한 새 값(**iris-1** 사용)을 입력한 다음, **확인**을 선택합니다.
 
    **iris-1.dprep**라는 새 데이터 준비 패키지가 만들어지고 데이터 준비 편집기에서 열립니다.
 
@@ -148,7 +145,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
    1. 마우스 오른쪽 단추를 클릭하여 선택합니다. 
    1. 드롭다운 메뉴에서 **값 계산**을 선택합니다. 
 
-   데이터 아래에 **검사기** 창이 열립니다. 네 개의 막대가 있는 히스토그램이 나타납니다. 대상 열에 **Iris_virginica**, **Iris_versicolor**, **Iris-setosa**의 3가지 고유 값과 **(null)** 값이 있습니다.
+   데이터 아래에 **검사기** 창이 열립니다. 네 개의 막대가 있는 히스토그램이 나타납니다. 대상 열에는 4개의 고유 값, 즉 **Iris_virginica**, **Iris_versicolor**, **Iris-setosa** 및 **(null)** 값이 있습니다.
 
    ![값 개수 선택](media/tutorial-classifying-iris/value_count.png)
 
@@ -160,11 +157,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
    ![null 필터링](media/tutorial-classifying-iris/filter_out2.png)
 
-1. 개별 데이터 준비 단계는 **단계** 창에서 자세히 설명합니다. 열 이름을 변경하고 Null 값 행을 필터링했으므로 각 작업은 데이터 준비 단계로 기록되지 않았습니다. 개별 단계를 편집하여 설정을 조정하고, 단계 순서를 조정하고, 단계를 제거할 수 있습니다.
+1. 개별 데이터 준비 단계는 **단계** 창에서 자세히 설명합니다. 열 이름을 바꾸고 null 값 행을 필터링할 때 각 작업은 데이터 준비 단계로 기록되었습니다. 개별 단계를 편집하여 해당 설정을 조정하고, 단계의 순서를 바꾸고, 단계를 제거할 수 있습니다.
 
    ![단계](media/tutorial-classifying-iris/steps.png)
 
-1. 데이터 준비 편집기를 닫습니다. 그래프 아이콘이 있는 **iris-1** 탭의 x 아이콘을 선택하여 탭을 닫습니다. 작업은 **데이터 준비** 제목 아래 표시된 **iris-1.dprep** 파일에 자동으로 저장됩니다.
+1. 데이터 준비 편집기를 닫습니다. 그래프 아이콘이 있는 **iris-1** 탭의 **x** 아이콘을 선택하여 탭을 닫습니다. 작업은 **데이터 준비** 제목 아래 표시된 **iris-1.dprep** 파일에 자동으로 저장됩니다.
 
    ![닫습니다](media/tutorial-classifying-iris/close.png)
 
@@ -197,8 +194,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
    df.head(10)
    ```
 
-   이 코드가 실행되는 컨텍스트에 따라 `df`는 한 종류의 데이터 프레임을 나타냅니다. 
-   + Python 런타임에서 실행되면 [pandas 데이터 프레임](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html)이 사용됩니다.
+   이 코드가 실행되는 컨텍스트에 따라 `df`는 다른 종류의 데이터 프레임을 나타냅니다.
+   + Python 런타임에서 실행되는 경우 [pandas 데이터 프레임](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html)이 사용됩니다.
    + Spark 컨텍스트에서 실행되면 [Spark 데이터 프레임](https://spark.apache.org/docs/latest/sql-programming-guide.html)이 사용됩니다. 
    
    Azure Machine Learning Workbench에서 데이터를 준비하는 방법을 자세히 알아보려면 [데이터 준비 시작](data-prep-getting-started.md) 가이드를 참조하세요.

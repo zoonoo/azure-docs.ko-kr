@@ -6,11 +6,11 @@ description: "Microsoft Azure 클라우드 서비스를 사용하여 강력한 �
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: 1d4ea845bf2b62e982db560580e63a3d54845d00
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 6d188cc25d858cc2d07fc49450d6b2d4a4a04c09
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -199,7 +199,7 @@ ms.lasthandoff: 03/09/2018
                                                 </ul>
                                                 <h4>AI 및 Cognitive Services</h4>
                                                 <ul class="noBullet">
-                                                    <li><a class="barLink" href="/azure/machine-learning/preview">Machine Learning 서비스</a></li>
+                                                    <li><a class="barLink" href="/azure/machine-learning/">Machine Learning </a></li>
                                                     <li><a class="barLink" href="/azure/cognitive-services/computer-vision/">Computer Vision API</a></li>
                                                     <li><a class="barLink" href="/azure/cognitive-services/face/">Face API</a></li>
                                                 </ul>
@@ -600,9 +600,9 @@ ms.lasthandoff: 03/09/2018
                                     <h3>AI + Machine Learning</h3>
                                     <ul>
                                         <li>
-                                            <a href="/azure/machine-learning/preview">
+                                            <a href="/azure/machine-learning/">
                                                 <img src="media/index/MachineLearning.svg" alt="" />
-                                                <p>Machine Learning 서비스</p>
+                                                <p>Machine Learning</p>
                                             </a>
                                         </li>
                                         <li>
@@ -2550,7 +2550,7 @@ ms.lasthandoff: 03/09/2018
                                 <h2>인공 지능</h2>
                             </li>
                             <li>
-                                <a href="/azure/machine-learning/preview">
+                                <a href="/azure/machine-learning/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2560,7 +2560,7 @@ ms.lasthandoff: 03/09/2018
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Machine Learning 서비스</h3>
+                                                    <h3>Machine Learning</h3>
                                                     <p>실험 및 모델 관리를 갖춘 종단 간 확장 가능하고 신뢰할 수 있는 플랫폼 사용자에게 AI 적용</p>
                                                 </div>
                                             </div>
@@ -2738,10 +2738,10 @@ ms.lasthandoff: 03/09/2018
                                                                 <a class="barLink" href="/azure/cognitive-services/Bing-Autosuggest"><img src="media/index/API_Bing_AutoSuggest.svg" alt="" />Bing Autosuggest</a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/bing-custom-search"><img src="media/index/API_Bing_Custom_Search.svg" alt="" /><span>Bing Custom Search</a>
+                                                                <a class="barLink" href="/azure/cognitive-services/bing-custom-search"><img src="media/index/API_Bing_Custom_Search.svg" alt="" />Bing Custom Search</a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/bing-entities-search/"><img src="media/index/API_Bing_Entity_Search.svg" alt="" /><span>Bing 엔터티 검색&nbsp;<sup style="font-size:70%">미리 보기</sup></span></a>
+                                                                <a class="barLink" href="/azure/cognitive-services/bing-entities-search/"><img src="media/index/API_Bing_Entity_Search.svg" alt="" />Bing Entity Search</a>
                                                             </li>
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/bing-image-search"><img src="media/index/API_Bing_Image_Search.svg" alt="" />Bing Image Search</a>

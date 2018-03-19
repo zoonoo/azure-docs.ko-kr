@@ -6,18 +6,18 @@ author: mmacy
 manager: timlt
 ms.service: container-registry
 ms.topic: quickstart
-ms.date: 12/06/2017
+ms.date: 03/03/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 1a4c5b365b93b30987ff6541aba762cbf8a4b7a5
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: db112f7f8f486093509a86f9781c30133925c25f
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-a-container-registry-using-the-azure-portal"></a>Azure Portal을 사용하여 컨테이너 레지스트리 만들기
 
-Azure Container Registry는 개인 Docker 컨테이너 이미지를 저장하고 관리할 수 있는 Azure의 개인 Docker 레지스트리입니다. 이 빠른 시작에서는 Azure Portal을 사용하여 Container Registry를 만듭니다.
+Azure Container Registry는 개인 Docker 컨테이너 이미지를 저장하고 관리할 수 있는 Azure의 개인 Docker 레지스트리입니다. 이 빠른 시작에서는 Azure Portal을 사용하여 컨테이너 레지스트리를 만들고, 컨테이너 이미지를 레지스트리로 푸시하고, 마지막으로 레지스트리의 컨테이너를 ACI(Azure Container Instances)로 배포합니다.
 
 이 빠른 시작을 완료하려면 Docker를 로컬로 설치해야 합니다. Docker는 모든 [Mac][docker-mac], [Windows][docker-windows] 또는 [Linux][docker-linux] 시스템에서 쉽게 Docker를 구성하는 패키지를 제공합니다.
 
@@ -73,13 +73,13 @@ docker pull microsoft/aci-helloworld
 
 레지스트리에 이미지를 푸시하려면 먼저 ACR 로그인 서버 이름으로 이미지에 태그를 지정해야 합니다. [docker tag][docker-tag] 명령을 사용하여 이미지에 태그를 지정합니다. *login server*를 이전에 기록해 둔 로그인 서버 이름으로 바꿉니다.
 
-```
+```bash
 docker tag microsoft/aci-helloworld <login server>/aci-helloworld:v1
 ```
 
 마지막으로 [docker push][docker-push]를 사용하여 ACR 인스턴스로 이미지를 푸시합니다. *login server*를 ACR 인스턴스의 로그인 서버 이름으로 바꿉니다.
 
-```
+```bash
 docker push <login server>/aci-helloworld:v1
 ```
 
@@ -104,15 +104,43 @@ ACR 인스턴스의 이미지를 나열하려면 포털에서 레지스트리로
 
 ![Azure Portal에서 컨테이너 레지스트리 만들기][qs-portal-09]
 
+## <a name="deploy-image-to-aci"></a>ACI에 이미지 배포
+
+레지스트리의 인스턴스로 배포하기 위해 리포지토리(aci-helloworld)로 이동한 다음, v1 옆의 줄임표를 클릭해야 합니다.
+
+![포털에서 Azure 컨테이너 인스턴스 시작][qs-portal-10]
+
+바로 가기 메뉴가 표시되면 **인스턴스 실행**을 선택합니다.
+
+![ACI 바로 가기 메뉴 시작][qs-portal-11]
+
+**컨테이너 이름**을 입력하고, 올바른 구독이 선택되었는지 확인하고, 기존 **리소스 그룹**: "myResourceGroup"을 선택한 다음, **확인**을 클릭하여 Azure 컨테이너 인스턴스를 시작합니다.
+
+![ACI 배포 옵션 시작][qs-portal-12]
+
+배포가 시작되면 포털 대시보드에 배포 진행 상황을 나타내는 타일이 배치됩니다. 배포가 완료되면 이 타일이 업데이트되어 새 **mycontainer** 컨테이너 그룹을 표시합니다.
+
+![ACI 배포 상태][qs-portal-13]
+
+mycontainer 컨테이너 그룹을 선택하여 컨테이너 그룹 속성을 표시합니다. 컨테이너 그룹의 **IP 주소**와 컨테이너의 **상태**를 기록해 둡니다.
+
+![ACI 컨테이너 세부 정보][qs-portal-14]
+
+## <a name="view-the-application"></a>응용 프로그램 보기
+
+컨테이너가 **실행** 상태가 되면 선호하는 브라우저를 사용하여 이전 단계에서 기록해 둔 IP 주소로 이동하여 응용 프로그램을 표시합니다.
+
+![브라우저의 Hello World 앱][qs-portal-15]
+
 ## <a name="clean-up-resources"></a>리소스 정리
 
-더 이상 필요 없는 경우 **myResourceGroup** 리소스 그룹을 삭제합니다. 이렇게 하면 리소스 그룹, ACR 인스턴스 및 모든 컨테이너 이미지가 삭제됩니다.
+리소스를 정리하려면 포털에서 **myResourceGroup** 리소스 그룹으로 이동합니다. 리소스 그룹이 로드되면 **리소스 그룹 삭제**를 클릭하여 리소스 그룹, Azure Container Registry 및 모든 Azure Container Instances를 제거합니다.
 
 ![Azure Portal에서 컨테이너 레지스트리 만들기][qs-portal-08]
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 Azure Portal을 사용하여 Azure Container Registry를 만들었습니다. Azure Container Instances와 함께 Azure Container Registry를 사용하려는 경우 Azure Container Instances 자습서를 계속합니다.
+이 빠른 시작에서는 Azure CLI를 사용하여 Azure Container Registry를 만들고, Azure Container Instances를 통해 해당 인스턴스를 시작했습니다. ACI에 대해 자세히 알아보기 위해 Azure Container Instances 자습서를 계속합니다.
 
 > [!div class="nextstepaction"]
 > [Azure Container Instances 자습서][container-instances-tutorial-prepare-app]
@@ -127,6 +155,12 @@ ACR 인스턴스의 이미지를 나열하려면 포털에서 레지스트리로
 [qs-portal-07]: ./media/container-registry-get-started-portal/qs-portal-07.png
 [qs-portal-08]: ./media/container-registry-get-started-portal/qs-portal-08.png
 [qs-portal-09]: ./media/container-registry-get-started-portal/qs-portal-09.png
+[qs-portal-10]: ./media/container-registry-get-started-portal/qs-portal-10.png
+[qs-portal-11]: ./media/container-registry-get-started-portal/qs-portal-11.png
+[qs-portal-12]: ./media/container-registry-get-started-portal/qs-portal-12.png
+[qs-portal-13]: ./media/container-registry-get-started-portal/qs-portal-13.png
+[qs-portal-14]: ./media/container-registry-get-started-portal/qs-portal-14.png
+[qs-portal-15]: ./media/container-registry-get-started-portal/qs-portal-15.png
 
 <!-- LINKS - external -->
 [docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms

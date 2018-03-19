@@ -10,18 +10,18 @@ ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: e8f09a90ae9a4dd54d81335de2494f0dcbe09485
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 558dcd65051c0134a87205dcd8bbf432d7763fd2
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
 <!-- Intent: As a cloud-consuming user, I need to view usage and costs for my cloud resources and services.
 -->
 
 # <a name="tutorial-review-usage-and-costs"></a>자습서: 사용량 및 비용 검토
 
-Cloudyn에서 개발한 Azure Cost Management는 사용량과 비용을 보여 주므로 추세를 추적하고, 비효율성을 검색하고, 경고를 만들 수 있습니다. 모든 사용량 및 비용 데이터는 Cloudyn 대시보드 및 보고서에 표시됩니다. 이 자습서의 예제에서는 대시보드 및 보고서를 사용하여 사용량과 비용을 검토합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
+Azure Cost Management는 사용량과 비용을 보여 주므로 추세를 추적하고, 비효율성을 검색하고, 경고를 만들 수 있습니다. 모든 사용량 및 비용 데이터는 Cloudyn 대시보드 및 보고서에 표시됩니다. 이 자습서의 예제에서는 대시보드 및 보고서를 사용하여 사용량과 비용을 검토합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * 사용량 및 비용 추세 추적
@@ -57,7 +57,7 @@ Cloudyn 포털에서 모든 사용량 및 비용을 검토합니다. Azure Porta
 
 이 예에서 Azure Storage 비용은 2017년 8월 31일부터 떨어졌지만 Azure 서비스는 다른 수준으로 유지되었습니다. 그래서, 무엇이 그 지출 감소를 초래했습니까? 이 예에서 일부 직원은 휴가 중이었고 저장소 서비스를 사용하지 않았습니다.
 
-사용량 및 비용 추세를 추적하는 방법에 대한 자습서 비디오를 시청하려면 [Cloudyn에서 개발한 Azure Cost Management를 사용하여 클라우드 청구 데이터 대 시간 분석](https://youtu.be/7LsVPHglM0g)을 참조하세요.
+사용량 및 비용 추세를 추적하는 방법에 대한 자습서 비디오를 시청하려면 [Azure Cost Management를 사용하여 클라우드 청구 데이터 대 시간 분석](https://youtu.be/7LsVPHglM0g)을 참조하세요.
 
 ## <a name="detect-usage-inefficiencies"></a>사용량 비효율성 검색
 
@@ -81,7 +81,7 @@ Cloudyn 포털에서 모든 사용량 및 비용을 검토합니다. Azure Porta
 
 ![후보 목록](./media/tutorial-review-usage/sizing03.png)
 
-사용 비효율성을 검색하는 방법에 대한 자습서 비디오를 시청하려면 [Cloudyn에서 개발한 Azure Cost Management에서 VM 크기 최적화](https://youtu.be/1xaZBNmV704)를 참조하세요.
+사용 비효율성을 검색하는 방법에 대한 자습서 비디오를 시청하려면 [Azure Cost Management에서 VM 크기 최적화](https://youtu.be/1xaZBNmV704)를 참조하세요.
 
 ## <a name="create-alerts-for-unusual-spending"></a>비정상적 지출에 대한 경고 만들기
 

@@ -15,6 +15,8 @@
       maintainContext: true
 - name: 자습서
   items:
+    - name: MSI가 활성화된 Terraform VM 만들기
+      href: terraform-vm-msi.md
     - name: Terraform 모듈을 사용하여 VM 클러스터 만들기
       href: terraform-create-vm-cluster-module.md
     - name: Terraform 및 HCL을 사용하여 VM 클러스터 만들기

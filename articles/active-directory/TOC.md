@@ -190,11 +190,10 @@
 #### [자동 사용자 프로비전에 대한 보고](active-directory-saas-provisioning-reporting.md)
 #### [사용자 프로비전 문제 해결](active-directory-application-provisioning-content-map.md)
 
-
-
 ### [앱 프록시를 사용하여 원격으로 앱에 액세스](active-directory-application-proxy-get-started.md)
 #### 시작하기
 ##### [앱 프록시 사용](active-directory-application-proxy-enable.md)
+##### [GDPR 지원](active-directory-application-proxy-gdpr.md)
 ##### [앱 게시](application-proxy-publish-azure-portal.md)
 ##### [사용자 지정 도메인](active-directory-application-proxy-custom-domains.md)
 #### [Single Sign-On](application-proxy-sso-overview.md)
@@ -390,7 +389,7 @@
 ## [Azure 피드백 포럼](https://feedback.azure.com/forums/169401-azure-active-directory)
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
-## [가격](https://azure.microsoft.com/pricing/details/active-directory/)
+## [가격 책정](https://azure.microsoft.com/pricing/details/active-directory/)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=active-directory)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-active-directory)

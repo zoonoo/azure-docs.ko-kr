@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 02/15/2018
 ms.author: chwolf
-ms.openlocfilehash: 2a4d17673340d145de9a3514f920c74f7eebf6b6
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 3819a274696762861fbe76a9684b8495f1724f6a
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="azure-service-bus-to-azure-event-grid-examples"></a>Azure Service Bus-Azure Event Grid 예제
 
@@ -118,7 +118,7 @@ public class GridEvent
 
 ## <a name="connect-function-and-namespace-via-event-grid"></a>Event Grid를 통해 함수와 네임스페이스 연결
 
-그 다음 단계는 함수와 Service Bus 네임스페이스를 연결하는 것입니다. 이 예에서는 Azure Portal을 사용합니다. PowerShell 또는 Azure CLI를 사용하여 똑같은 작업을 수행하는 방법을 알아보려면 [개념](service-bus-to-event-grid-integration-concept.md 페이지를 참조하세요.
+그 다음 단계는 함수와 Service Bus 네임스페이스를 연결하는 것입니다. 이 예에서는 Azure Portal을 사용합니다. PowerShell 또는 Azure CLI를 사용하여 이 단계를 동일하게 수행하는 방법을 알아보려면 [개념](service-bus-to-event-grid-integration-concept.md) 페이지를 참조하세요.
 
 새 Azure Event Grid 구독을 만들려면 Azure Portal에서 네임스페이스로 이동하여 Event Grid 블레이드를 선택합니다. “+ 이벤트 구독”을 클릭합니다.
 

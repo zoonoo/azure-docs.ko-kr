@@ -13,19 +13,19 @@ ms.custom: overview
 ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
-ms.date: 02/12/2018
+ms.date: 03/07/2018
 ms.workload: Active
 ms.author: carlrab
 ms.reviewer: carlrab
-ms.openlocfilehash: 1671cbe47b2aee53e4ec6d2bc731cbe4496ce586
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a1c4426acec8e9e006c2349b886297f45cc8ecb2
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>Azure SQL Database 서비스란? 
 
-SQL Database는 관계형 데이터, 공간, JSON 및 XML과 같은 구조를 지원하는 Microsoft Azure의 범용 관계형 데이터베이스 서비스입니다. [동적으로 확장 가능한 성능](sql-database-service-tiers.md)을 제공하고 고도의 분석 및 보고를 위한 [columnstore 인덱스](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) 및 고도의 트랜잭션 처리를 위한 [메모리 내 OLTP](sql-database-in-memory.md)와 같은 옵션을 제공합니다. Microsoft에서는 SQL 코드 베이스를 모두 원활하게 패치하고 업데이트하며 기본 인프라의 모든 관리를 추상화합니다. 
+SQL Database는 관계형 데이터, 공간, JSON 및 XML과 같은 구조를 지원하는 Microsoft Azure의 범용 관계형 데이터베이스 관리 서비스입니다. SQL Database는 [탄력적 풀](sql-database-elastic-pool.md)에서 관리되는 [단일 SQL 데이터베이스](sql-database-servers-databases.md), 관리되는 SQL 데이터베이스 및 [SQL Database 관리되는 인스턴스](sql-database-managed-instance.md)(공개 미리 보기)라는 관리되는 SQL 인스턴스를 제공합니다. [동적으로 확장 가능한 성능](sql-database-service-tiers.md)을 제공하고 고도의 분석 및 보고를 위한 [columnstore 인덱스](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) 및 고도의 트랜잭션 처리를 위한 [메모리 내 OLTP](sql-database-in-memory.md)와 같은 옵션을 제공합니다. Microsoft에서는 SQL 코드 베이스를 모두 원활하게 패치하고 업데이트하며 기본 인프라의 모든 관리를 추상화합니다. 
 
 SQL Database는 해당 코드 베이스를 [Microsoft SQL Server 데이터베이스 엔진](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation)과 공유합니다. Microsoft의 클라우드 우선 전략을 사용하여 SQL Server의 최신 기능을 SQL Database에 먼저 릴리스한 다음 SQL Server 자체에 릴리스합니다. 이 방법은 패치 기능 또는 업그레이드에 대한 오버헤드 없이 수백만 개의 데이터베이스에 대해 테스트된 이러한 새로운 기능을 사용하여 최신 SQL Server 기능을 제공합니다. 별도로 공지된 새로운 기능에 대한 내용은 다음을 참조하세요.
 
@@ -37,19 +37,22 @@ SQL Database는 해당 코드 베이스를 [Microsoft SQL Server 데이터베이
 
 SQL Database는 가동 중지 시간 없이 기본 제공 지능형 최적화, 전역 확장성과 가용성 및 고급 보안 옵션을 포함하여 동적 확장성을 제공하는 여러 서비스 수준에서 별도로 관리하지 않고도 예측 가능한 성능을 제공합니다. 이러한 기능을 사용하면 가상 머신과 인프라를 관리하는 데 귀중한 시간과 리소스를 할당하는 대신 빠른 앱 개발에 집중하고 시장 출시 시간을 단축할 수 있습니다. SQL Database는 현재 전 세계에서 38개의 데이터 센터에 제공되며, 주변의 데이터 센터에서 데이터베이스를 실행할 수 있도록 정기적으로 더 많은 데이터 센터가 온라인될 예정입니다.
 
-> [!NOTE]
-> Azure의 플랫폼 보안에 대한 자세한 내용을 보려면 [Azure 보안 센터](https://azure.microsoft.com/support/trust-center/security/)를 참조하세요.
+> [!중요] SQL Database 관리되는 인스턴스는 현재 미리 보기 상태이며 단일 서비스 수준에서만 사용할 수 있습니다. 자세한 내용은 [SQL Database 관리되는 인스턴스](sql-database-managed-instance.md)를 참조하세요.
 >
 
 ## <a name="scalable-performance-and-pools"></a>확장 가능한 성능 및 풀
 
 SQL Database에서 각 데이터베이스는 보장된 성능 수준에서 고유한 [서비스 계층](sql-database-service-tiers.md)으로 서로 격리되고 이식 가능합니다. SQL Database는 다른 요구 사항에 대해 다른 성능 수준을 제공하며 데이터베이스가 리소스 사용을 최대화하고 비용을 절감하도록 풀링할 수 있습니다.
 
+SQL Database 관리되는 인스턴스를 통해 각 인스턴스는 보장된 리소스로 다른 인스턴스로부터 격리됩니다. 자세한 내용은 [SQL Database 관리되는 인스턴스](sql-database-managed-instance.md)를 참조하세요. 
+
 ### <a name="adjust-performance-and-scale-without-downtime"></a>가동 중지 시간 없이 성능 및 규모 조정
 
 SQL Database는 경량부터 중량까지의 데이터베이스 워크로드를 지원하기 위해 3개의 서비스 계층(Basic, Standard 및 Premium)을 제공합니다. 매달 적은 비용으로 작은 단일 데이터베이스에 첫 번째 앱을 빌드한 다음 언제든지 수동 또는 프로그래밍 방식으로 서비스 계층을 변경하여 솔루션의 요구 사항을 충족시킬 수 있습니다. 앱이나 고객에게 가동 중지 시간 없이 성능을 조정할 수 있습니다. 동적 확장성을 통해 데이터베이스는 급변하는 리소스 요구 사항에 투명하게 대응할 수 있으며, 필요할 때 필요한 리소스에 대해서만 비용을 지불할 수 있습니다.
 
    ![scaling](./media/sql-database-what-is-a-dtu/single_db_dtus.png)
+
+SQL Database 관리되는 인스턴스는 미리 보기 상태이며 단일 서비스 계층을 제공합니다. 자세한 내용은 [SQL Database 관리되는 인스턴스](sql-database-managed-instance.md)를 참조하세요.
 
 ### <a name="elastic-pools-to-maximize-resource-utilization"></a>리소스 사용률 극대화를 위한 탄력적 풀
 
@@ -58,6 +61,9 @@ SQL Database는 경량부터 중량까지의 데이터베이스 워크로드를 
    ![탄력적 풀](./media/sql-database-what-is-a-dtu/sqldb_elastic_pools.png)
 
 탄력적 풀을 사용하면 리소스에 대한 요구가 변동함에 따라 데이터베이스 성능을 높이거나 낮추는 데 집중할 필요가 없습니다. 풀링된 데이터베이스는 필요에 따라 탄력적 풀의 성능 리소스를 사용합니다. 풀링된 데이터베이스는 풀의 한도를 사용하지만 초과하지 않으므로 개별 데이터베이스 사용량을 예측할 수 없는 경우에도 비용을 계속 예측할 수 있습니다. 뿐만 아니라 [풀에 데이터베이스를 추가 및 제거](sql-database-elastic-pool-manage-portal.md)하여 소수의 데이터베이스에서 수천 개의 데이터베이스까지 자신이 관리하는 예산 범위 내에서 앱의 규모를 조정할 수 있습니다. 풀의 데이터베이스에서 사용할 수 있는 최소 및 최대 리소스를 제어하여 풀의 어떤 데이터베이스도 풀 리소스 전체를 사용하지 못하도록 하고 풀링된 모든 데이터베이스에 최소한의 리소스를 보장할 수 있습니다. 탄력적 풀을 사용한 SaaS 응용 프로그램의 디자인 패턴에 대해 자세히 알아보려면 [SQL Database를 사용한 다중 테넌트 SaaS 응용 프로그램 디자인 패턴](sql-database-design-patterns-multi-tenancy-saas-applications.md)을 참조하세요.
+
+> [!IMPORTANT]
+> SQL Database 관리되는 인스턴스 탄력적 풀을 지원하지 않습니다.
 
 ### <a name="blend-single-databases-with-pooled-databases"></a>단일 데이터베이스와 풀링된 데이터베이스의 혼합
 
@@ -83,6 +89,7 @@ Azure의 업계 선도적인 99.99% 가용성 [SLA](http://azure.microsoft.com/s
 - **[지정 시간 복구](sql-database-recovery-using-backups.md)**: SQL Database는 자동 백업 보존 기간 내에 모든 시점으로 복구하도록 지원합니다.
 - **[활성 지역 복제](sql-database-geo-replication-overview.md)**: SQL Database를 사용하면 세계적으로 분산된 Azure 데이터 센터 중 하나에서 최대 4개의 읽기 가능한 보조 데이터베이스를 구성할 수 있습니다.  예를 들어 읽기 전용 동시 트랜잭션 양이 많은 카탈로그 데이터베이스와 SaaS 응용 프로그램이 있는 경우 활성 지역 복제를 사용하여 세계적인 읽기 규모를 사용하도록 설정하고 읽기 워크로드로 인한 주 서버의 병목 상태를 제거합니다. 
 - **[장애 조치 그룹](sql-database-geo-replication-overview.md)**: SQL Database를 사용하면 큰 집합의 데이터베이스와 탄력적 풀에 대해 투명한 지역에서 복제 및 장애 조치를 포함하여 세계적인 규모로 고가용성 및 부하 분산을 사용할 수 있습니다. 장애 조치 그룹 및 활성 지역 복제를 사용하면 SQL Database에 대한 복잡한 모니터링, 라우팅 및 장애 조치 오케스트레이션 없이 최소한의 관리 오버헤드를 포함하여 전 세계적으로 분산된 SaaS 응용 프로그램을 만들 수 있습니다.
+- **[영역 중복 데이터베이스](sql-database-high-availability.md)**: SQL Database를 사용하면 여러 가용성 영역에서 프리미엄 데이터베이스 또는 프리미엄 탄력적 풀을 프로비전할 수 있습니다. Premium 데이터베이스와 Premium 탄력적 풀에는 고가용성을 위한 여러 중복 복제본이 있기 때문에 이러한 복제본을 여러 가용성 영역에 배치하면 데이터 손실 없이 데이터 센터 크기 조정 실패에서 자동으로 복구하는 기능을 포함하여 더 높은 복원력을 제공합니다. 이 기능은 현재 미리 보기로 제공됩니다. 
 
 ## <a name="built-in-intelligence"></a>기본 제공 인텔리전스
 
@@ -137,7 +144,7 @@ SQL Database는 [Always Encrypted](https://docs.microsoft.com/sql/relational-dat
 
 ### <a name="azure-active-directory-integration-and-multi-factor-authentication"></a>Azure Active Directory 통합 및 Multi-Factor Authentication
 
-SQL Database를 사용하면 [Azure Active Directory 통합](sql-database-aad-authentication.md)에서 데이터베이스 사용자 및 다른 Microsoft 서비스의 ID를 중앙 집중식으로 관리할 수 있습니다. 이 기능은 사용 권한 관리를 간소화하고 보안을 향상시킵니다. Azure Active Directory는 MFA([Multi-Factor Authentication](sql-database-ssms-mfa-authentication.md))을 제공하여 SSO(Single Sign-On) 프로세스를 지원하는 동시에 데이터 및 응용 프로그램 보안을 향상시킵니다.
+SQL Database를 사용하면 [Azure Active Directory 통합](sql-database-aad-authentication.md)에서 데이터베이스 사용자 및 다른 Microsoft 서비스의 ID를 중앙 집중식으로 관리할 수 있습니다. 이 기능은 사용 권한 관리를 간소화하고 보안을 향상시킵니다. Azure Active Directory는 MFA([Multi-Factor Authentication](sql-database-ssms-mfa-authentication.md))를 제공하여 단일 로그인 프로세스를 지원하는 동시에 데이터 및 응용 프로그램 보안을 향상시킵니다.
 
 ### <a name="compliance-certification"></a>규정 준수 인증
 
@@ -158,7 +165,7 @@ SQL Database는 MacOS, Linux 및 Windows에서 Python, Java, Node.js, PHP, Ruby 
 
 - [DBA 스택 교환(영문)](https://dba.stackexchange.com/questions/tagged/sql-server): 데이터베이스 관리 관련 질문
 - [Stack Overflow(영문)](http://stackoverflow.com/questions/tagged/sql-server): 개발 관련 질문
-- [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?category=sqlserver): 기술 관련 질문
+- [MSDN 포럼](https://social.msdn.microsoft.com/Forums/home?category=sqlserver): 기술 관련 질문
 - [피드백](http://aka.ms/sqlfeedback): 버그 및 요청 기능 보고
 - [Reddit](https://www.reddit.com/r/SQLServer/): SQL Server 관련 토론
 

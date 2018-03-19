@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/19/2017
 ms.author: charwen,cherylmc
-ms.openlocfilehash: d1dd5a71d922d688ee7b64cef8887e903f78c802
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: bec984aa04efbe123b71fa9088fbd37ae53cc2f2
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections"></a>ExpressRoute 및 사이트 간 공존 연결 구성
 > [!div class="op_single_selector"]
@@ -88,7 +88,7 @@ ExpressRoute에 대한 백업으로 사이트 간 VPN 연결을 구성할 수 �
   $resgrp = New-AzureRmResourceGroup -Name "ErVpnCoex" -Location $location
   $VNetASN = 65010
   ```
-3. 게이트웨이 서브넷을 포함하여 가상 네트워크를 만듭니다. 가상 네트워크 구성에 대한 자세한 내용은 [Azure Virtual Network 구성](../virtual-network/virtual-networks-create-vnet-arm-ps.md)을 참조하세요.
+3. 게이트웨이 서브넷을 포함하여 가상 네트워크를 만듭니다. 가상 네트워크 만들기에 대한 자세한 내용은 [가상 네트워크 만들기](../virtual-network/manage-virtual-network.md#create-a-virtual-network)를 참조하세요. 서브넷 만들기에 대한 자세한 내용은 [서브넷 만들기](../virtual-network/virtual-network-manage-subnet.md#add-a-subnet)를 참조하세요.
    
    > [!IMPORTANT]
    > 게이트웨이 서브넷은 /27 또는 더 짧은 접두사(예: /26 또는 /25)여야 합니다.

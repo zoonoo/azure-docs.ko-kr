@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 975069dbe9283c98482d7d0d5741a595ef323b35
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: d02229739e3f358e4a6510dfbb0585939e947f9c
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="deploy-an-azure-container-service-aks-cluster"></a>AKS(Azure Container Service) 클러스터 배포
 
@@ -85,7 +85,7 @@ k8s-myAKSCluster-36346190-0   Ready     49m       v1.7.9
 
 ## <a name="configure-acr-authentication"></a>ACR 인증 구성
 
-인증은 AKS 클러스터와 ACR 레지스트리 간에 구성되어야 합니다. 여기에는 ACR 레지스트리에서 이미지를 가져오도록 ACS ID에 적절한 권한 부여하는 작업이 포함됩니다.
+인증은 AKS 클러스터와 ACR 레지스트리 간에 구성되어야 합니다. 여기에는 ACR 레지스트리에서 이미지를 가져오도록 AKS ID에 적절한 권한을 부여하는 작업이 포함됩니다.
 
 먼저 AKS에 구성된 서비스 주체의 ID를 가져옵니다. 리소스 그룹 이름 및 AKS 클러스터 이름을 환경에 맞게 업데이트합니다.
 

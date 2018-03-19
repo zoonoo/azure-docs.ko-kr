@@ -62,6 +62,8 @@
           href: module-development.md
         - name: 컴퍼지션
           href: module-composition.md
+        - name: 에지 에이전트 및 허브 속성
+          href: module-edgeagent-edgehub.md
     - name: IoT Edge 런타임
       href: iot-edge-runtime.md
     - name: 배포

@@ -107,6 +107,8 @@
               href: backup-azure-vms-encryption.md
             - name: VM을 만드는 동안 VM 백업 사용
               href: backup-during-vm-creation.md
+            - name: VM 백업 스택 V2로 업그레이드
+              href: backup-upgrade-to-vm-backup-stack-v2.md
         - name: VM 관리 및 모니터링
           items:
             - name: Azure Portal에서 Azure VM 백업 관리

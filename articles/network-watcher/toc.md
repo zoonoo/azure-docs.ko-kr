@@ -1,4 +1,4 @@
-# [Azure Network Watchers 설명서](index.md)
+# [Azure Network Watcher 설명서](index.md)
 
 # 개요
 ## [Network Watcher란?](network-watcher-monitoring-overview.md)
@@ -98,7 +98,7 @@
 # 리소스
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
-## [가격](https://azure.microsoft.com/pricing/details/network-watcher/)
+## [가격 책정](https://azure.microsoft.com/pricing/details/network-watcher/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=network-watcher)
 ## [SLA](https://azure.microsoft.com/support/legal/sla/)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/network-watcher)

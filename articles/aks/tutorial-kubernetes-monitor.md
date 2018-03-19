@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 02/22/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 2fedd615733e3bf51469d3b69d5fe51e3e99087e
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 227601858dbe07e6cb774a2d24878ddca05aaf56
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="monitor-azure-container-service-aks"></a>AKS(Azure Container Service) 모니터링
 
@@ -56,11 +56,19 @@ Log Analytics 작업 영역 ID 및 키는 Kubernetes 노드에서 솔루션 에�
 
 이러한 값을 검색하려면 컨테이너 솔루션 왼쪽 메뉴에서 **OMS 작업 영역**을 선택합니다. **고급 설정**을 선택하고 **작업 영역 ID** 및 **기본 키**를 적어둡니다.
 
+## <a name="create-kubernetes-secret"></a>Kubernetes 비밀 만들기
+
+[kubectl create secret][kubectl-create-secret] 명령을 사용하여 `omsagent-secret`이라는 Kubernetes 암호에 OMS 작업 영역 설정을 저장합니다. OMS 작업 영역 ID를 사용하여 `WORKSPACE_ID` 및 작업 영역 키를 사용하여 `WORKSPACE_KEY`를 업데이트합니다.
+
+```console
+kubectl create secret generic omsagent-secret --from-literal=WSID=WORKSPACE_ID --from-literal=KEY=WORKSPACE_KEY
+```
+
 ## <a name="configure-monitoring-agents"></a>모니터링 에이전트 구성
 
 다음 Kubernetes 매니페스트 파일을 사용하여 Kubernetes 클러스터에서 컨테이너 모니터링 에이전트를 구성할 수 있습니다. 그러면 각 클러스터 노드에서 단일 Pod를 실행하는 Kubernetes [DaemonSet][kubernetes-daemonset]이 만들어집니다.
 
-다음 텍스트를 `oms-daemonset.yaml`이라는 파일에 저장하고, `WSID` 및 `KEY`의 자리 표시자 값을 해당 Log Analytics 작업 영역 ID 및 키로 바꿉니다.
+`oms-daemonset.yaml`이라는 파일에 다음 텍스트를 저장합니다.
 
 ```YAML
 apiVersion: extensions/v1beta1
@@ -72,34 +80,30 @@ spec:
   metadata:
    labels:
     app: omsagent
-    agentVersion: 1.4.0-12
-    dockerProviderVersion: 10.0.0-25
+    agentVersion: 1.4.3-174
+    dockerProviderVersion: 1.0.0-30
   spec:
    containers:
-     - name: omsagent
+     - name: omsagent 
        image: "microsoft/oms"
        imagePullPolicy: Always
-       env:
-       - name: WSID
-         value: <WSID>
-       - name: KEY
-         value: <KEY>
        securityContext:
          privileged: true
        ports:
        - containerPort: 25225
-         protocol: TCP
+         protocol: TCP 
        - containerPort: 25224
          protocol: UDP
        volumeMounts:
         - mountPath: /var/run/docker.sock
           name: docker-sock
-        - mountPath: /var/opt/microsoft/omsagent/state/containerhostname
-          name: container-hostname
-        - mountPath: /var/log
+        - mountPath: /var/log 
           name: host-log
-        - mountPath: /var/lib/docker/containers/
-          name: container-log
+        - mountPath: /etc/omsagent-secret
+          name: omsagent-secret
+          readOnly: true
+        - mountPath: /var/lib/docker/containers 
+          name: containerlog-path  
        livenessProbe:
         exec:
          command:
@@ -109,26 +113,26 @@ spec:
         initialDelaySeconds: 60
         periodSeconds: 60
    nodeSelector:
-    beta.kubernetes.io/os: linux
+    beta.kubernetes.io/os: linux    
    # Tolerate a NoSchedule taint on master that ACS Engine sets.
    tolerations:
     - key: "node-role.kubernetes.io/master"
       operator: "Equal"
       value: "true"
-      effect: "NoSchedule"
+      effect: "NoSchedule"     
    volumes:
-    - name: docker-sock
+    - name: docker-sock 
       hostPath:
        path: /var/run/docker.sock
-    - name: container-hostname
-      hostPath:
-       path: /etc/hostname
     - name: host-log
       hostPath:
-       path: /var/log
-    - name: container-log
+       path: /var/log 
+    - name: omsagent-secret
+      secret:
+       secretName: omsagent-secret
+    - name: containerlog-path
       hostPath:
-       path: /var/lib/docker/containers/
+       path: /var/lib/docker/containers    
 ```
 
 다음 명령을 사용하여 DaemonSet를 만듭니다.
@@ -175,6 +179,7 @@ Azure Portal에서 포털 대시보드에 고정된 Log Analytics 작업 영역�
 > [Kubernetes 업그레이드][aks-tutorial-upgrade]
 
 <!-- LINKS - external -->
+[kubectl-create-secret]: https://kubernetes.io/docs/concepts/configuration/secret/
 [kubernetes-daemonset]: https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/
 
 <!-- LINKS - internal -->

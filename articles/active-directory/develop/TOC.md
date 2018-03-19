@@ -57,14 +57,16 @@
 ## [Azure AD 앱 갤러리](active-directory-app-gallery-listing.md)
 ## [Office 365 판매자 대시보드](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard)
 ## Visual Studio 사용
-### [Visual Studio 연결 서비스 시작](vs-active-directory-dotnet-getting-started.md)
+### [Active Directory 연결 서비스 사용](vs-active-directory-add-connected-service.md)
+### [.NET MVC 프로젝트 시작](vs-active-directory-dotnet-getting-started.md)
+### [내 .NET MVC 프로젝트가 어떻게 되었습니까?](vs-active-directory-dotnet-what-happened.md)
+### [WebAPI 프로젝트 시작](vs-active-directory-webapi-getting-started.md)
+### [내 WebAPI 프로젝트가 어떻게 되었습니까?](vs-active-directory-webapi-what-happened.md)
 ### [인증 검색 중 오류 발생](vs-active-directory-error.md)
-### [WebApi 시작](vs-active-directory-webapi-getting-started.md)
-### [내 Web API 프로젝트의 변경된 내용](vs-active-directory-webapi-what-happened.md)
 ## [Windows Server ADFS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers)
 ## [ACS 마이그레이션](active-directory-acs-migration.md)
 ## [ADAL에 대한 모범 사례 오류 처리](active-directory-devhowto-adal-error-handling.md)
-# 참조
+# 참고 자료
 ## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 ## [인증 라이브러리(ADAL)](active-directory-authentication-libraries.md)
 ## [코드 샘플 문서](active-directory-code-samples.md)
@@ -99,7 +101,7 @@
 #### [NodeJS 웹앱](active-directory-v2-devquickstarts-node-web.md)
 ## 가이드
 ### [앱 등록](active-directory-v2-app-registration.md)
-## 참조
+## 참고 자료
 ### [인증 라이브러리](active-directory-v2-libraries.md)
 ### [v2.0 인증 프로토콜](active-directory-v2-protocols.md)
 #### [OpenID Connect](active-directory-v2-protocols-oidc.md)

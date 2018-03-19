@@ -13,7 +13,7 @@
 | **데이터베이스** |[Amazon Redshift](../articles/data-factory/connector-amazon-redshift.md) |✓ | |✓ |✓  |
 | &nbsp; |[DB2](../articles/data-factory/connector-db2.md) |✓ | |✓ |✓  |
 | &nbsp; |[드릴(베타)](../articles/data-factory/connector-drill.md) |✓ | |✓ |✓  |
-| &nbsp; |[Google BigQuery(베타)](../articles/data-factory/connector-google-bigquery.md) |✓ | |✓ |✓  |
+| &nbsp; |[Google BigQuery](../articles/data-factory/connector-google-bigquery.md) |✓ | |✓ |✓  |
 | &nbsp; |[Greenplum(베타)](../articles/data-factory/connector-greenplum.md) |✓ | |✓ |✓  |
 | &nbsp; |[HBase](../articles/data-factory/connector-hbase.md) |✓ | |✓ |✓  |
 | &nbsp; |[Hive](../articles/data-factory/connector-hive.md) |✓ | |✓ |✓  |
@@ -61,7 +61,7 @@
 | &nbsp; |[Salesforce 서비스 클라우드](../articles/data-factory/connector-salesforce.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[SAP Cloud for Customer(C4C)](../articles/data-factory/connector-sap-cloud-for-customer.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[SAP ECC](../articles/data-factory/connector-sap-ecc.md) |✓ | |✓ |✓ |
-| &nbsp; |[ServiceNow(베타)](../articles/data-factory/connector-servicenow.md) |✓ | |✓ |✓  |
+| &nbsp; |[ServiceNow](../articles/data-factory/connector-servicenow.md) |✓ | |✓ |✓  |
 | &nbsp; |[Shopify(베타)](../articles/data-factory/connector-shopify.md) |✓ | |✓ |✓  |
 | &nbsp; |[Square(베타)](../articles/data-factory/connector-square.md) |✓ | |✓ |✓  |
 | &nbsp; |[웹 테이블(HTML 테이블)](../articles/data-factory/connector-web-table.md) |✓ | | |✓  |

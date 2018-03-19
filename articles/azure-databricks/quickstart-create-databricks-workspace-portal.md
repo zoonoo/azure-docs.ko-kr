@@ -11,14 +11,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/01/2018
+ms.date: 03/09/2018
 ms.author: nitinme
 ms.custom: mvc
-ms.openlocfilehash: 0112e5bf53f24150708b9c03440cd6183601f069
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 6a0e69e1ab2c52586b447d8a249b52b09bbff705
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure Databricks에서 Spark 작업 실행
 
@@ -48,12 +48,17 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     * **구독**의 경우, 드롭다운에서 Azure 구독을 선택합니다.
     * **리소스 그룹**에서 새 리소스 그룹을 만들지 아니면 기존 집합을 사용할지 여부를 지정합니다. 리소스 그룹은 Azure 솔루션에 관련된 리소스를 보유하는 컨테이너입니다. 자세한 내용은 [Azure Resource Manager 개요](../azure-resource-manager/resource-group-overview.md)를 참조하세요.
     * **위치**에서는 **미국 동부 2**를 선택합니다. 사용 가능한 다른 영역은 [지역별 사용 가능한 Azure 서비스](https://azure.microsoft.com/regions/services/)를 참조하세요.
+    * **가격 책정 계층**에 대해 **표준** 또는 **프리미엄** 중에서 선택합니다. 이러한 계층에 대한 자세한 내용은 [Databricks 가격 페이지](https://azure.microsoft.com/pricing/details/databricks/)를 참조하세요.
 
-4. **만들기**를 클릭합니다.
+    **만들기**를 클릭합니다.
+
+4. 계정 생성에는 몇 분 정도가 소요됩니다. 계정을 만드는 동안 포털의 오른쪽에 **Azure Databricks에 대한 배포 제출**이 표시됩니다. 타일을 보려면 대시보드에서 오른쪽으로 스크롤해야 할 수도 있습니다. 화면 위쪽에 진행률 표시줄이 표시되기도 합니다. 두 영역에서 진행 상태를 볼 수 있습니다.
+
+    ![Databricks 배포 타일](./media/quickstart-create-databricks-workspace-portal/databricks-deployment-tile.png "Databricks 배포 타일")
 
 ## <a name="create-a-spark-cluster-in-databricks"></a>Databricks에서 Spark 클러스터 만들기
 
-1. Azure Portal에서 사용자가 만든 Databricks 작업 영역으로 이동한 다음 **작업 영역 초기화**를 클릭합니다.
+1. Azure Portal에서 사용자가 만든 Databricks 작업 영역으로 이동한 다음, **작업 영역 시작**을 클릭합니다.
 
 2. Azure Databricks 포털로 리디렉션됩니다. 포털에서 **클러스터**를 클릭합니다.
 
@@ -64,7 +69,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     ![Azure에서 Databricks Spark 클러스터 만들기](./media/quickstart-create-databricks-workspace-portal/create-databricks-spark-cluster.png "Azure에서 Databricks Spark 클러스터 만들기")
 
     * 클러스터의 이름을 입력합니다.
-    * 이 문서에서는 **4.0(베타)** 런타임을 사용하여 클러스터를 만듭니다. 
+    * 이 문서에서는 **4.0** 런타임을 사용하여 클러스터를 만듭니다. 
     * **Terminate after ____ minutes of inactivity**(비활성 ____분 후 종료) 확인란을 선택했는지 확인합니다. 클러스터를 사용하지 않는 경우 클러스터를 종료하는 기간(분)을 제공합니다.
     * 다른 모든 기본값을 적용합니다. 
     * **클러스터 만들기**를 클릭합니다. 클러스터가 실행되면 노트북을 클러스터에 첨부하고 Spark 작업을 실행할 수 있습니다.
@@ -96,7 +101,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     > [!IMPORTANT]
     >이 문서에서는 **DBFS를 사용하여 저장소를 탑재하는 방법**을 사용합니다. 이 방법을 사용하면 탑재된 저장소가 클러스터 파일 시스템 자체와 연결됩니다. 따라서 클러스터에 액세스하는 모든 응용 프로그램에서도 연결된 저장소를 사용할 수 있습니다. 직접 액세스 방식은 액세스를 구성한 응용 프로그램으로 제한됩니다.
     >
-    > 탑재 방법을 사용하려면 이 문서에서 선택한 것과 같이 **4.0(베타)** Databricks 런타임 버전을 사용하여 Spark 클러스터를 만들어야 합니다.
+    > 탑재 방법을 사용하려면 이 문서에서 선택한 Databricks 런타임 버전 **4.0**을 사용하여 Spark 클러스터를 만들어야 합니다.
 
     다음 코드 조각에서 `{YOUR CONTAINER NAME}`, `{YOUR STORAGE ACCOUNT NAME}` 및 `{YOUR STORAGE ACCOUNT ACCESS KEY}`를 Azure Storage 계정에 적절한 값으로 바꿉니다. 노트북의 빈 셀에 코드 조각을 붙여넣은 다음 SHIFT + ENTER를 눌러 코드 셀을 실행합니다.
 

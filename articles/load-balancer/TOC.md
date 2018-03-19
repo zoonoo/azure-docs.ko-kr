@@ -11,6 +11,7 @@
 ## [IPv6 지원](load-balancer-ipv6-overview.md)
 ## [여러 VIP](load-balancer-multivip-overview.md)
 ## [아웃바운드 연결 이해](load-balancer-outbound-connections.md)
+## [표준 부하 분산 장치 및 가용성 영역](load-balancer-standard-availability-zones.md)
 
 # 시작
 
@@ -49,6 +50,7 @@
 ### [Azure Load Balancer 문제 해결](load-balancer-troubleshoot.md)
 
 ## 클래식 배포 모델 문서
+### [아웃바운드 연결(클래식)](load-balancer-outbound-connections-classic.md)
 ### [Cloud Services에 대한 내부 부하 분산 장치 구성](load-balancer-get-started-ilb-classic-cloud.md)
 #### [Cloud Services에 대한 내부 부하 분산 장치 구성(PowerShell)](load-balancer-get-started-ilb-classic-ps.md)
 #### [Cloud Services에 대한 내부 부하 분산 장치 구성(CLI)](load-balancer-get-started-ilb-classic-cli.md)

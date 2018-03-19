@@ -15,11 +15,11 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 12/15/2017
 ms.author: mimig
-ms.openlocfilehash: 9541fa7331a5a6a5a5405244dd79eb8a92d96386
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: b5ab66371b47bdd0f3bd7a4c9e86e419efebe902
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-cosmos-db-build-a-sql-api-web-app-with-net-and-the-azure-portal"></a>Azure Cosmos DB: .NET 및 Azure Portal을 사용하여 SQL API 웹앱 빌드
 
@@ -81,7 +81,7 @@ Visual Studio 2017이 아직 설치되지 않은 경우 **체험판** [Visual St
 
 ## <a name="clone-the-sample-application"></a>샘플 응용 프로그램 복제
 
-이제 코드 사용으로 전환해 보겠습니다. GitHub에서 SQL API 앱을 복제하고 연결 문자열을 설정한 다음 실행해 보겠습니다. 프로그래밍 방식으로 데이터를 사용하여 얼마나 쉽게 작업할 수 있는지 알게 될 것입니다. 
+이제 코드 사용으로 전환해 보겠습니다. GitHub에서 SQL API 앱을 복제하고 연결 문자열을 설정한 다음 실행해보겠습니다. 프로그래밍 방식으로 데이터를 사용하여 얼마나 쉽게 작업할 수 있는지 알게 될 것입니다. 
 
 1. git bash와 같은 git 터미널 창을 열고 `CD`를 수행하여 작업 디렉터리로 이동합니다.  
 
@@ -97,19 +97,19 @@ Visual Studio 2017이 아직 설치되지 않은 경우 **체험판** [Visual St
 
 앱에서 어떤 상황이 발생하고 있는지 빠르게 살펴보겠습니다. DocumentDBRepository.cs 파일을 열어 보면 이들 코드 줄이 Azure Cosmos DB 리소스를 만드는 것을 알 수 있습니다. 
 
-* 78번 줄에서 DocumentClient가 초기화됩니다.
+* 76번 줄에서 DocumentClient가 초기화됩니다.
 
     ```csharp
     client = new DocumentClient(new Uri(ConfigurationManager.AppSettings["endpoint"]), ConfigurationManager.AppSettings["authKey"]);
     ```
 
-* 93번 줄에서 새 데이터베이스가 만들어집니다.
+* 91번 줄에서 새 데이터베이스가 만들어집니다.
 
     ```csharp
     await client.CreateDatabaseAsync(new Database { Id = DatabaseId });
     ```
 
-* 112번 줄에서 새 컬렉션이 만들어집니다.
+* 110번 줄에서 새 컬렉션이 만들어집니다.
 
     ```csharp
     await client.CreateDocumentCollectionAsync(
@@ -117,10 +117,9 @@ Visual Studio 2017이 아직 설치되지 않은 경우 **체험판** [Visual St
         new DocumentCollection { Id = CollectionId },
         new DocumentCollection
             {
-               Id = CollectionId,
-               PartitionKey = new PartitionKeyDefinition() { Paths = new Collection<string>() { "/category" } }
+               Id = CollectionId
             },
-        new RequestOptions { OfferThroughput = 1000 });
+        new RequestOptions { OfferThroughput = 400 });
     ```
 
 ## <a name="update-your-connection-string"></a>연결 문자열 업데이트

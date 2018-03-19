@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 09/14/2017
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 26cca3604faa46e7398b24a2e8c25a6ad9650c18
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 0f51b52d9f4d5c8979ba636311e63089c11cd114
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric"></a>자습서: Service Fabric에서 ASP.NET Core 응용 프로그램 모니터링 및 진단
 이 자습서는 시리즈의 4부입니다. Application Insights를 사용하여 Service Fabric 클러스터에서 실행되는 ASP.NET Core 응용 프로그램에 대한 모니터링 및 진단을 설정하는 단계를 안내합니다. 자습서의 1부, [.NET Service Fabric 응용 프로그램 빌드](service-fabric-tutorial-create-dotnet-app.md)에서 개발한 응용 프로그램에서 원격 분석 데이터를 수집합니다. 
@@ -104,15 +104,16 @@ NuGet을 설정하는 단계는 다음과 같습니다.
     *서비스 컨텍스트*가 원격 분석에 추가되어 Application Insights에서 원격 분석의 원본을 더 자세히 이해할 수 있습니다. *VotingWeb.cs*의 중첩된 *return* 문은 다음과 같아야 합니다.
     
     ```csharp
-    return new WebHostBuilder().UseWebListener()
+    return new WebHostBuilder()
+        .UseKestrel()
         .ConfigureServices(
             services => services
+                .AddSingleton<HttpClient>(new HttpClient())
+                .AddSingleton<FabricClient>(new FabricClient())
                 .AddSingleton<StatelessServiceContext>(serviceContext)
-                .AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext))
-                .AddSingleton<HttpClient>())
+                .AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext)))
         .UseContentRoot(Directory.GetCurrentDirectory())
         .UseStartup<Startup>()
-        .UseApplicationInsights()
         .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.None)
         .UseUrls(url)
         .Build();
@@ -126,8 +127,8 @@ NuGet을 설정하는 단계는 다음과 같습니다.
         .ConfigureServices(
             services => services
                 .AddSingleton<StatefulServiceContext>(serviceContext)
-                .AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext))
-                .AddSingleton<IReliableStateManager>(this.StateManager))
+                .AddSingleton<IReliableStateManager>(this.StateManager)
+                .AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext)))
         .UseContentRoot(Directory.GetCurrentDirectory())
         .UseStartup<Startup>()
         .UseApplicationInsights()
@@ -233,6 +234,6 @@ public async Task<IActionResult> Delete(string name)
 > * Application Insights API를 사용하여 사용자 지정 이벤트 추가
 
 이제 ASP.NET 응용 프로그램에 대한 모니터링 및 진단 설정을 완료했으므로 다음을 시도합니다.
-- [Service Fabric에서 모니터링 및 진단 탐색](service-fabric-diagnostics-overview.md)
+- [Service Fabric에서 모니터링 및 진단 추가 탐색](service-fabric-diagnostics-overview.md)
 - [Application Insights를 사용한 Service Fabric 이벤트 분석](service-fabric-diagnostics-event-analysis-appinsights.md)
 - Application Insights에 대한 자세한 내용은 [Application Insights 설명서](https://docs.microsoft.com/azure/application-insights/)를 참조하세요.

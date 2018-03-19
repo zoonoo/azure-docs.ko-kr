@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 02/27/2018
+ms.date: 03/08/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 6b5c16e5b4136acc06c4ace4b16e8eb0e3522d24
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 07f62775c9286250d33635febe01dbad4362df12
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>Azure에 재해 복구하기 위해 온-프레미스 VMware 서버 준비
 
@@ -86,7 +86,7 @@ VM에서 다음 표에 요약된 Azure 요구 사항을 준수하는지 확인�
 **VM 이름** | 1 자에서 63자 사이입니다.<br/><br/> 문자, 숫자 및 하이픈으로 제한됩니다. VM 이름은 문자 또는 숫자로 시작하고 끝나야 합니다.
 **VM 유형** | 1세대 - Linux 또는 Windows<br/><br/>2세대 - Windows 전용
 
-또한 VM에서 지원되는 운영 체제도 실행하고 있어야 합니다. 지원되는 버전의 전체 목록은 [Site Recovery 지원 매트릭스](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions)를 참조하세요.
+또한 VM에서 지원되는 운영 체제도 실행하고 있어야 합니다. 지원되는 버전의 전체 목록은 [VMware 및 물리적 서버 지원 매트릭스](vmware-physical-azure-support-matrix.md#replicated-machines)를 참조하세요.
 
 ## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>장애 조치(Failover) 후 Azure VM에 연결할 준비
 

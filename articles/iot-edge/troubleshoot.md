@@ -10,11 +10,11 @@ ms.date: 12/15/2017
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 5de069eb35e88c1dce6dcfa5a1661e8ab87302b1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 7b9f9f8295aac0920ae4726289c535aae12c4482
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Azure IoT Edge에 대한 일반적인 문제 및 해결 방법
 
@@ -30,10 +30,10 @@ ms.lasthandoff: 02/21/2018
    docker logs <container name>
    ```
 
-* Edge Hub에 표시되는 메시지를 확인하여, 런타임 컨테이너에서 제공되는 자세한 로그를 통해 장치 속성 업데이트에 대한 정보를 수집합니다.
+* Edge Hub에 표시되는 메시지를 확인하여, 런타임 컨테이너에서 제공되는 자세한 로그를 통해 장치 속성 업데이트에 대한 정보를 수집합니다. 빠른 시작 문서를 따르는 경우 "--auto-cert-gen-force-no-passwords" 옵션을 추가할 수 있습니다.
 
    ```cmd
-   iotedgectl setup --runtime-log-level DEBUG
+   iotedgectl setup --connection-string "{device connection string}" --runtime-log-level debug
    ```
 
 * 연결 문제가 발생하는 경우, 장치 연결 문자열과 같은 Edge 장치 환경 변수를 검사합니다.
@@ -96,6 +96,23 @@ Edge Agent가 모듈의 이미지에 액세스할 수 있는 권한이 없습니
 
 ### <a name="resolution"></a>해결 방법
 `iotedgectl login` 명령을 다시 실행합니다.
+
+## <a name="iotedgectl-cant-find-docker"></a>iotedgectl에서 Docker를 찾을 수 없습니다.
+iotedgectl에서 설치 또는 시작 명령 실행에 실패하고 다음 메시지를 로그로 인쇄합니다.
+```output
+File "/usr/local/lib/python2.7/dist-packages/edgectl/host/dockerclient.py", line 98, in get_os_type
+  info = self._client.info()
+File "/usr/local/lib/python2.7/dist-packages/docker/client.py", line 174, in info
+  return self.api.info(*args, **kwargs)
+File "/usr/local/lib/python2.7/dist-packages/docker/api/daemon.py", line 88, in info
+  return self._result(self._get(self._url("/info")), True)
+```
+
+### <a name="root-cause"></a>근본 원인
+iotedgectl에서 필수 구성 요소인 Docker를 찾을 수 없습니다.
+
+### <a name="resolution"></a>해결 방법
+Docker를 설치하고 실행 중이며 다시 시도하는지 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 IoT Edge 플랫폼에서 버그를 찾았나요? 지속적인 제품 개선을 위해 [문제를 제출](https://github.com/Azure/iot-edge/issues)하세요. 

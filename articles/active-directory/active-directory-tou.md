@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/14/2017
+ms.date: 03/06/2018
 ms.author: billmath
-ms.openlocfilehash: c01ea7c6a05c77244ab29fe6eec00ed1e49b6f7e
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: e29e842a54d286e19d23c1c91c08d55933a0eada
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-active-directory-terms-of-use-feature-preview"></a>Azure Active Directory 사용 약관 기능(미리 보기)
 Azure AD 사용 약관은 조직이 최종 사용자에게 정보를 제공하는 데 사용할 수 있는 간단한 방법을 제공합니다.  이렇게 하면 사용자가 법률 또는 규정 준수 요구 사항에 대한 관련 고지 사항을 볼 수 있습니다.
@@ -127,8 +127,8 @@ A: 사용 약관에 동의한 사용자는 감사 로그에 기록됩니다. Azu
 **Q: 사용 약관 조건을 변경한 경우 사용자가 다시 동의해야 하나요?**</br>
 A: 예, 관리자는 사용 약관 조건을 변경할 수 있으며 새 조건에 대해 재동의를 요구할 수 있습니다.
 
-**Q: 사용 약관에서 다국어를 지원할 수 있나요?**</br>
-A: 아니요, 현재는 단일 사용 약관에 대해 다국어 서비스가 불가능합니다.  그러나 그룹으로 범위를 지정할 수 있습니다(예를 들어, 프랑스 사용 약관은 영국의 사용 약관과 다름). 
+**Q: 사용 약관에서 다중 언어를 지원할 수 있나요?**</br>
+A: 예.  현재 관리자가 단일 사용 약관에 대해 구성할 수는 18개의 다른 언어가 있습니다. 
 
 **Q: 사용 약관은 언제 트리거되나요?**</br>
 A: 사용 약관은 로그인 환경 중에 트리거됩니다.
