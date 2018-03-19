@@ -37,6 +37,8 @@
       href: container-instances-using-azure-container-registry.md
     - name: 컨테이너화된 작업 실행
       href: container-instances-restart-policy.md
+    - name: 환경 변수 설정
+      href: container-instances-environment-variables.md
     - name: 배포 문제 해결
       href: container-instances-troubleshooting.md
     - name: 데이터 볼륨 구성

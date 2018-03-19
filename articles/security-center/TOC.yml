@@ -151,10 +151,6 @@
           href: security-center-events-dashboard.md
         - name: 검색
           href: security-center-search.md
-    - name: Azure 로그 통합
-      href: security-center-integrating-alerts-with-log-integration.md
-    - name: SIEM에 데이터 내보내기
-      href: security-center-export-data-to-siem.md
     - name: 시나리오
       items:
         - name: 사고 대응

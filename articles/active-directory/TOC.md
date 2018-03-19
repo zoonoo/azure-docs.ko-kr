@@ -221,7 +221,7 @@
 ##### [원격 데스크톱](application-proxy-publish-remote-desktop.md)
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
 ##### [Microsoft 팀](application-proxy-teams.md)
-#### [PowerShell](https://docs.microsoft.com/powershell/module/azuread)
+#### [PowerShell](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview)
 #### [문제 해결](active-directory-application-proxy-troubleshoot.md)
 
 
@@ -298,7 +298,7 @@
 ## 액세스 검토
 ### [액세스 검토 개요](active-directory-azure-ad-controls-access-reviews-overview.md)
 ### [액세스 검토 완료](active-directory-azure-ad-controls-complete-access-review.md)
-### [액세스 검토 만들기](active-directory-azure-ad-controls-create-access-review.md)
+### [액세스 검토 만들](active-directory-azure-ad-controls-create-access-review.md)
 ### [액세스 검토 수행 방법](active-directory-azure-ad-controls-perform-access-review.md)
 ### [액세스 검토 방법](active-directory-azure-ad-controls-how-to-review-your-access.md)
 ### [액세스 검토로 게스트 액세스](active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md)

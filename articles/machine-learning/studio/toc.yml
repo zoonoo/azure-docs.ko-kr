@@ -235,5 +235,3 @@
       href: 'http://stackoverflow.com/questions/tagged/azure-machine-learning'
     - name: 동영상
       href: 'https://azure.microsoft.com/resources/videos/index/?services=machine-learning'
-    - name: 실시간 채팅에서 도움 받기
-      href: live-chat.md
