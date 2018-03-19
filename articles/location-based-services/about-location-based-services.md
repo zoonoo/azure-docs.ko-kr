@@ -3,23 +3,27 @@ title: "Azure Location Based Services 개요 | Microsoft Docs"
 description: "Azure Location Based Services(미리 보기) 소개"
 services: location-based-services
 keywords: 
-author: dsk-2015
-ms.author: dkshir
-ms.date: 02/05/2017
+author: kgremban
+ms.author: kgremban
+ms.date: 02/05/2018
 ms.topic: overview
 ms.service: location-based-services
 documentationcenter: 
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 9e6236f7d69556d7636962c98886d9f9508445ac
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 91df49aa3f522ea765698a1d64ed2686606f71f3
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="an-introduction-to-azure-location-based-services-preview"></a>Azure Location Based Services(미리 보기) 소개
 Azure Location Based Services는 맵, 검색, 경로, 트래픽 및 표준 시간대를 포함하는 지리 공간 서비스 포트폴리오입니다. Azure OneAPI 규격 서비스를 사용하면 익숙한 개발자 도구를 사용하여 위치 정보를 Azure 솔루션에 통합하는 솔루션을 신속하게 개발하고 크기를 조정할 수 있습니다. Azure Location Based Services는 모든 산업의 개발자에게 지리적 컨텍스트를 웹 및 모바일 응용 프로그램에 제공하는 데 필수적인 최신 매핑 데이터를 탑재한 강력한 지리 공간 기능을 제공합니다. Azure Location Based Services는 여러 미디어를 통한 개발을 매우 쉽고 유연하며 이식 가능하도록 웹 기반 JavaScript 제어와 함께 제공되는 REST API의 Azure One API 규격 집합입니다. 
+
+다음 비디오는 Azure Location Based Services를 소개합니다.
+
+<iframe src="https://channel9.msdn.com/Shows/Azure-Friday/Azure-Location-Based-Services/player" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
 
 Azure Location Based Services는 지리적 컨텍스트가 필요한 Azure 응용 프로그램을 강화하는 5개 기본 서비스로 구성됩니다. 각 서비스는 아래에 자세히 설명되어 있습니다.
 
@@ -64,6 +68,16 @@ Azure Location Based Services는 지리적 컨텍스트가 필요한 Azure 응�
 Azure Location Based Services는 모바일을 위해 개발되었으며 프로그래밍 모델에 구애받지 않고 REST API를 통해 JSON 출력을 지원하므로 플랫폼 간 응용 프로그램을 만들 수 있습니다. 또한 Azure LBS는 웹 및 모바일 응용 프로그램을 쉽고 빠르게 개발할 수 있는 간단한 프로그래밍 모델이 포함된 편리한 JavaScript 맵 컨트롤을 제공합니다. 
 
 Azure Location Based Services는 키 기반 인증 체계를 사용하므로 서비스에 액세스하려면 [Azure Portal](http://portal.azure.com)로 이동하여 Azure Location Based Services 계정을 만들어야 합니다. 계정에는 미리 생성된 두 개의 키가 함께 제공됩니다. 두 키 중 하나를 Azure Location Based Services 요청에 사용하여 이러한 위치 기능을 응용 프로그램에 직접 통합하세요.
+
+## <a name="unsupported-regions"></a>지원되지 않는 지역
+현재 해당 API는 아래 국가에서 사용할 수 없습니다. 현재 IP 주소를 확인하고 IP 주소 위치가 지원되지 않는 아래 국가 중 하나에 있지 않은지 확인하세요.
+
+* 아르헨티나
+* 중국
+* 인도
+* 모로코
+* 파키스탄
+* 대한민국
 
 ## <a name="relationship-with-bing-maps"></a>Bing 지도와 관계
 이 문서에서 설명하는 Azure Location Based Services는 Bing 지도에서 제공하는 서비스와 다릅니다.  많은 기능이 공통되지만 두 서비스에는 서로 다르며 무관합니다.  Azure에서 이 새 서비스의 가용성은 별개로 관리되는 Bing Maps 제품 제공이나 로드맵에는 영향이 없습니다. 

@@ -18,7 +18,7 @@
 
 
 # 자습서
-## [1 - blob에서 데이터 로드](load-data-from-azure-blob-storage-using-polybase.md)
+## [1 - WideWorldImporters 로드](load-data-wideworldimportersdw.md)
 
 # 개념
 ## 서비스 기능
@@ -101,6 +101,7 @@
 
 
 ## 데이터 로드 및 이동
+### [뉴욕 택시 cab 데이터](load-data-from-azure-blob-storage-using-polybase.md)
 ### [Contoso 공용 데이터](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
 ### [Azure Data Lake Storage](sql-data-warehouse-load-from-azure-data-lake-store.md)
 ### [BCP](sql-data-warehouse-load-with-bcp.md)
@@ -137,7 +138,7 @@
 # 리소스
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=databases)
 ## [포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSQLDataWarehouse)
-## [가격](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)
+## [가격 책정](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [기능 요청](https://feedback.azure.com/forums/307516-sql-data-warehouse/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=sql-data-warehouse)

@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 0e2edc946c5d6ada1049fbd6a960ec138f7088f2
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 6434eb9780eefdcd492273f11f8675668d8d6479
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="tutorial-assign-access-to-cost-management-data"></a>자습서: Cost Management 데이터에 대한 액세스 할당
 
@@ -54,7 +54,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ![사용자 액세스 권한 이 있는 새 사용자 추가](.\media\tutorial-user-access\new-user-access.png)
 
-사용자를 추가하는 방법에 대한 자습서 비디오를 시청하려면 [Cloudyn에서 개발한 Azure Cost Management에 사용자 추가](https://youtu.be/Nzn7GLahx30)를 참조하세요.
+사용자를 추가하는 방법에 대한 자습서 비디오를 시청하려면 [Azure Cost Management에 사용자 추가](https://youtu.be/Nzn7GLahx30)를 참조하세요.
 
 ## <a name="create-entities"></a>엔터티 만들기
 
@@ -75,9 +75,9 @@ Cloudyn 포털의 오른쪽 위에서 **설정**을 클릭하고 **클라우드 
 완료되면 엔터티를 **저장**합니다.
 
 
-비용 엔터티 계층 구조를 만드는 방법에 대한 자습서 비디오를 시청하려면 [Cloudyn에서 개발한 Azure Cost Management에서 비용 엔터티 계층 구조 만들기](https://youtu.be/dAd9G7u0FmU)를 참조하세요.
+비용 엔터티 계층 구조를 만드는 방법에 대한 자습서 비디오를 시청하려면 [Azure Cost Management에서 비용 엔터티 계층 구조 만들기](https://youtu.be/dAd9G7u0FmU)를 참조하세요.
 
-Azure 기업계약 사용자인 경우 계정 및 구독을 연결하는 방법에 대한 자습서 비디오를 시청하려면 [Cloudyn에서 개발한 Azure Cost Management를 사용하여 Azure Resource Manager에 연결](https://youtu.be/oCIwvfBB6kk)을 참조하세요.
+Azure 기업계약 사용자인 경우 계정 및 구독을 연결하는 방법에 대한 자습서 비디오를 시청하려면 [Azure Cost Management를 사용하여 Azure Resource Manager에 연결](https://youtu.be/oCIwvfBB6kk)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,4 +1,4 @@
-- name: Azure 설명서의 Jenkins
+- name: Azure의 Jenkins
   href: index.yml
 - name: 개요
   items:
@@ -46,7 +46,7 @@
 - name: 샘플
   items:
     - name: 샘플 작업 및 스크립트
-      href: 'https://github.com/Azure/azure-devops-utils/tree/master/jenkins'
+      href: 'https://github.com/azure/jenkins'
 - name: 리소스
   items:
     - name: 플러그 인
@@ -75,3 +75,6 @@
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Jenkins 홈
       href: 'https://jenkins.io/'
+    - name: Jenkins 아키텍처
+      href: /azure/architecture/reference-architectures/jenkins/
+      maintainContext: true

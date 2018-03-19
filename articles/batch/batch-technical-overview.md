@@ -15,11 +15,11 @@ ms.topic: overview
 ms.date: 01/19/2018
 ms.author: mscurrell
 ms.custom: mvc
-ms.openlocfilehash: 93eabc0bdf4889d89f8dc3fc30f99dafa1b3a47a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: d6a0355874e9fc98e551a2a05c776109c916d90a
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="what-is-azure-batch"></a>Azure Batch란?
 
@@ -85,7 +85,7 @@ Batch의 일반적인 시나리오에는 본질적으로 계산 노드 풀에서
 
 이 방법은 Batch를 사용하는 한 가지 방법일 뿐이며 이 시나리오에서는 일부 기능만 설명합니다. 예를 들어 각 계산 노드에서 [여러 태스크를 병렬로](batch-parallel-node-tasks.md) 실행할 수 있습니다. 또한 [작업 준비 및 완료 태스크](batch-job-prep-release.md)를 사용하여 작업용 노드를 준비한 후 정리할 수 있습니다. 
 
-Batch 응용 프로그램을 빌드하는 동안 사용할 수 있는 풀, 노드, 작업 및 태스크 및 여러 API 기능에 대한 자세한 내용은 [개발자를 위한 Batch 기능 개요](batch-api-basics.md)를 참조하세요. 
+Batch 응용 프로그램을 빌드하는 동안 사용할 수 있는 풀, 노드, 작업 및 태스크 및 여러 API 기능에 대한 자세한 내용은 [개발자를 위한 Batch 기능 개요](batch-api-basics.md)를 참조하세요. 또한 최신 [Batch 서비스 업데이트](https://azure.microsoft.com/updates/?product=batch)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

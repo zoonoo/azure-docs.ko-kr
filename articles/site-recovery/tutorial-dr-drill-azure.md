@@ -5,13 +5,13 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 12/31/2017
+ms.date: 03/08/2018
 ms.author: raynew
-ms.openlocfilehash: f7dc5e2df95a64685a8b70d25e839c371d4fc2de
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 2ac15e4da411efa6f018a3e3fb620023bc8964cc
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Azure로 재해 복구 훈련 실행
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 01/02/2018
 
 ## <a name="verify-vm-properties"></a>VM 속성 확인
 
-테스트 장애 조치(failover)를 실행하기 전에 먼저 VM 속성을 확인하고 VM이 [Azure 요구 사항](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements)을 준수하는지 확인합니다.
+테스트 장애 조치(failover)를 실행하기 전에 VM 속성을 확인하고 Hyper-V VM[hyper-v-azure-support-matrix.md#replicated-vms], [VMware VM 또는 물리적 서버](vmware-physical-azure-support-matrix.md#replicated-machines)가 Azure 요구 사항을 준수하는지 확인합니다.
 
 1. **보호된 항목**에서 **복제된 항목** > VM을 클릭합니다.
 2. **복제된 항목** 창에 VM 정보, 상태 및 최신 사용 가능한 복구 지점의 요약이 제공됩니다. 자세한 내용을 보려면 **속성**을 클릭합니다.
@@ -66,4 +66,4 @@ ms.lasthandoff: 01/02/2018
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [온-프레미스 VMware VM 간 장애 조치(failover) 및 장애 복구(failback) 실행](tutorial-vmware-to-azure-failover-failback.md)
+> [온-프레미스 VMware VM 간 장애 조치(failover) 및 장애 복구(failback) 실행](vmware-azure-tutorial-failover-failback.md)

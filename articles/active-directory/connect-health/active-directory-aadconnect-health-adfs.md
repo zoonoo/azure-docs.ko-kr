@@ -15,14 +15,14 @@ ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4928364ffd732f587e41a788c4d834e91339a7fc
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: f363119ae75a1adb5a01d584de70fba0f3852dfc
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>Azure AD Connect Health를 사용하여 AD FS 모니터링
-다음 문서는 AZure AD Connect Health와 함께 AD FS 인프라 모니터링에 중점을 둡니다. Azure AD Connect Health와 함께 Azure AD Connect (동기화)를 모니터링하는 방법에 대한 정보는 [동기화를 위해 Azure AD Connect Health 사용](active-directory-aadconnect-health-sync.md)을 참조하세요. 또한 Azure AD Connect Health와 함께 Active Directory Domain Services를 모니터링하는 방법에 대한 정보는 [AD DS와 함께 Azure AD Connect Health 사용](active-directory-aadconnect-health-adds.md)을 참조하세요.
+다음 문서는 Azure AD Connect Health와 함께 AD FS 인프라 모니터링에 중점을 둡니다. Azure AD Connect Health와 함께 Azure AD Connect (동기화)를 모니터링하는 방법에 대한 정보는 [동기화를 위해 Azure AD Connect Health 사용](active-directory-aadconnect-health-sync.md)을 참조하세요. 또한 Azure AD Connect Health와 함께 Active Directory Domain Services를 모니터링하는 방법에 대한 정보는 [AD DS와 함께 Azure AD Connect Health 사용](active-directory-aadconnect-health-adds.md)을 참조하세요.
 
 ## <a name="alerts-for-ad-fs"></a>AD FS의 경고
 Azure AD Connect Health 경고 섹션은 활성 경고 목록을 제공합니다. 각 경고에는 관련 정보, 해결 단계 및 관련된 설명서 링크가 포함됩니다.
@@ -51,7 +51,7 @@ Azure AD Connect Health 사용 현황 분석에서는 페더레이션 서버의 
 | 응용 프로그램 | 대상 신뢰 당사자를 기반으로 전체 요청을 그룹화합니다. 이 그룹화는 전체 트래픽 중 응용 프로그램이 수신하는 트래픽의 비율을 이해하는 데 유용합니다. |
 |  서버 |요청을 처리한 서버를 기반으로 전체 요청을 그룹화합니다. 이 그룹화는 전체 트래픽의 부하 분포를 이해하는 데 유용합니다.
 | 작업 공간 연결 |작업 공간이 연결된(알려진) 장치의 요청인지 여부를 기반으로 전체 요청을 그룹화합니다. 이 그룹화는 ID 인프라에 알려지지 않은 장치를 사용하여 리소스에 액세스하는 경우를 이해하는 데 유용합니다. |
-|  인증 방법 | 인증에 사용된 인증 방법을 기반으로 전체 요청을 그룹화합니다. 이 그룹화는 인증에 사용되는 일반적인 인증 방법을 이해하는 데 유용합니다. 다음은 가능한 인증 방법입니다. <ol> <li>Windows 통합 인증(Windows)</li> <li>폼 기반 인증(양식)</li> <li>SSO(Single Sign On)</li> <li>X509 인증서 인증(인증서)</li> <br>페더레이션 서버가 SSO 쿠키를 사용하 여 요청을 수신하는 경우 해당 요청은 SSO(Single Sign On)로 계산됩니다. 이 경우 쿠키가 유효하면 사용자는 자격 증명을 입력할 필요 없이 효율적으로 응용 프로그램에 액세스할 수 있습니다. 페더레이션 서버에서 여러 신뢰 당사자를 보호하는 경우 일반적으로 사용되는 동작입니다. |
+|  인증 방법 | 인증에 사용된 인증 방법을 기반으로 전체 요청을 그룹화합니다. 이 그룹화는 인증에 사용되는 일반적인 인증 방법을 이해하는 데 유용합니다. 다음은 가능한 인증 방법입니다. <ol> <li>Windows 통합 인증(Windows)</li> <li>폼 기반 인증(양식)</li> <li>SSO(Single Sign On)</li> <li>X509 인증서 인증(인증서)</li> <br>페더레이션 서버가 SSO 쿠키를 사용하여 요청을 수신하는 경우 해당 요청은 SSO(Single Sign On)로 계산됩니다. 이 경우 쿠키가 유효하면 사용자는 자격 증명을 입력할 필요 없이 효율적으로 응용 프로그램에 액세스할 수 있습니다. 페더레이션 서버에서 여러 신뢰 당사자를 보호하는 경우 일반적으로 사용되는 동작입니다. |
 | 네트워크 위치 | 사용자의 네트워크 위치를 기반으로 전체 요청을 그룹화합니다. 네트워크 위치는 인트라넷 또는 엑스트라넷이 될 수 있습니다. 이 그룹화는 인트라넷 트래픽과 엑스트라넷 트래픽의 비율을 파악하는 데 유용합니다. |
 
 
@@ -115,9 +115,12 @@ Azure AD Connect Health for ADFS는 사용자 이름 또는 암호가 잘못되�
 | 마지막 실패 IP |최신 잘못된 요청에서 클라이언트 IP 주소를 표시합니다. |
 
 > [!NOTE]
-> 이 보고서는 12시간마다 자동으로 업데이트되어 해당 시간 내에 수집된 새 정보가 포함됩니다. 따라서 마지막 2시간 내에 발생하는 로그인 시도가 보고서에 포함되지 않을 수 있습니다.
+> 이 보고서는 12시간마다 자동으로 업데이트되어 해당 시간 내에 수집된 새 정보가 포함됩니다. 따라서 마지막 12시간 내에 발생하는 로그인 시도가 보고서에 포함되지 않을 수 있습니다.
 >
 >
+
+### <a name="risky-ip-report"></a>위험 IP 보고서 
+곧 미리 보실 수 있습니다.
 
 ## <a name="related-links"></a>관련 링크
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)

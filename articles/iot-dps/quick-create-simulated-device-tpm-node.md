@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 3cc667286e9c643f31d9c704a8a2dfac18312bb3
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 5ade9eca4b16e4864ec4e9d7bc6977c1e8322daa
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-nodejs-device-sdk-for-iot-hub-device-provisioning-service"></a>IoT Hub Device Provisioning Service용 Node.js 장치 SDK를 사용하여 시뮬레이션된 TPM 장치 만들기 및 프로비전
 
@@ -81,7 +81,7 @@ ms.lasthandoff: 03/05/2018
     > 아래 샘플에서는 `azure-iot-provisioning-device-http` 및 `azure-iot-device-mqtt` 전송을 사용합니다.
     > 
 
-    **registereddevice** 폴더의 명령 프롬프트에서 다음 명령을 실행하여 이러한 항목을 한 번에 모두 설치할 수 있습니다.
+    **registerdevice** 폴더의 명령 프롬프트에서 다음 명령을 실행하여 이러한 패키지를 한 번에 모두 설치할 수 있습니다.
 
         ```cmd/sh
         npm install --save azure-iot-device azure-iot-device-mqtt azure-iot-security-tpm azure-iot-provisioning-device-http azure-iot-provisioning-device

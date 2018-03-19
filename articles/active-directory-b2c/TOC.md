@@ -61,6 +61,7 @@
 ## [언어 사용자 지정](active-directory-b2c-reference-language-customization.md)
 ## [보고 API 사용](active-directory-b2c-reference-usage-reporting-api.md)
 ## [사용자 마이그레이션](active-directory-b2c-user-migration.md)
+## [소셜 ID 마이그레이션](active-directory-b2c-social-migration.md)
 
 # ID 경험 프레임워크
 ## [사용자 지정 정책](active-directory-b2c-overview-custom.md)
@@ -118,7 +119,7 @@
 ## [Azure AD B2C 피드백 포럼](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c)
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [질문과 대답](active-directory-b2c-faqs.md)
-## [가격 책정](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
+## [가격](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=active-directory-b2c)
 ## [스택 오버플로](https://stackoverflow.com/questions/tagged/azure-ad-b2c)

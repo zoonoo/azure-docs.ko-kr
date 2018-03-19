@@ -67,6 +67,8 @@
       items:
         - name: Azure로 복제
           items:
+            - name: VMware에서 Azure로 복제에 대한 일반적인 질문
+              href: vmware-azure-common-questions.md
             - name: VMware/물리적 서버에서 Azure로 지원 매트릭스
               href: vmware-physical-azure-support-matrix.md
             - name: VMware에서 Azure로 아키텍처
@@ -77,6 +79,8 @@
               href: vmware-azure-multi-tenant-overview.md
             - name: 모바일 서비스 정보
               href: vmware-azure-install-mobility-service.md
+            - name: 장애 복구(failback) 위치 옵션
+              href: concepts-types-of-failback.md
         - name: 보조 사이트로 복제
           items:
             - name: VMware/물리적 서버에서 보조 사이트로 지원 매트릭스
@@ -117,7 +121,7 @@
               href: azure-to-azure-about-networking.md
             - name: Azure VM 재해 복구에 네트워크 매핑 준비
               href: azure-to-azure-network-mapping.md
-            - name: Azure VM 장애 조치(failover) 후 IP 주소 지정 설정
+            - name: 장애 조치(failover)를 위한 IP 주소 설정
               href: site-recovery-retain-ip-azure-vm-failover.md
         - name: 재해 복구
           items:
@@ -139,7 +143,7 @@
           items:
             - name: 온-프레미스와 Azure 간 복제의 네트워크 인터페이스 관리
               href: site-recovery-manage-network-interfaces-on-premises-to-azure.md
-            - name: Azure에 장애 조치(failover)한 후 IP 주소 지정 설정
+            - name: 장애 조치(failover)를 위한 IP 주소 설정
               href: concepts-on-premises-to-azure-networking.md
         - name: 용량 계획
           items:
@@ -241,7 +245,7 @@
           items:
             - name: 온-프레미스와 Azure 간 복제의 네트워크 인터페이스 관리
               href: site-recovery-manage-network-interfaces-on-premises-to-azure.md
-            - name: Azure에 장애 조치(failover)한 후 IP 주소 지정 설정
+            - name: 장애 조치(failover)를 위한 IP 주소 설정
               href: concepts-on-premises-to-azure-networking.md
         - name: 용량 계획
           items:
@@ -255,8 +259,6 @@
                   href: hyper-v-deployment-planner-analyze-report.md
                 - name: 비용 예측 보고서 분석
                   href: hyper-v-deployment-planner-cost-estimation.md
-            - name: 보조 사이트로 Hyper-V 복제를 위한 성능 크기 조정 테스트
-              href: hyper-v-vmm-performance-results.md
         - name: 재해 복구
           items:
             - name: PowerShell을 사용하여 Azure로 Hyper-V 복제 설정(VMM 없음)
@@ -295,12 +297,14 @@
           href: hyper-v-vmm-powershell-resource-manager.md
         - name: Hyper-V VM을 보조 사이트로 복구하는 재해 복구 훈련 실행
           href: hyper-v-vmm-test-failover.md
-        - name: 보조 사이트로 장애 조치(Failover)한 후 IP 주소 지정 설정
+        - name: 장애 조치(failover)를 위한 IP 주소 설정
           href: hyper-v-vmm-networking.md
         - name: VMM 스크립트를 복구 계획에 추가
           href: hyper-v-vmm-recovery-script.md
         - name: 온-프레미스 사이트 간 장애 조치(failover) 및 장애 복구(failback) 실행
           href: hyper-v-vmm-failover-failback.md
+        - name: 보조 사이트로 Hyper-V 복제를 위한 성능 크기 조정 테스트
+          href: hyper-v-vmm-performance-results.md
     - name: 앱 복제
       items:
         - name: Active Directory 및 DNS

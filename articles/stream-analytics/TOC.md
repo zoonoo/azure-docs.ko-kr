@@ -64,6 +64,7 @@
 ## Visual Studio 도구
 ### [도구 설치](stream-analytics-tools-for-visual-studio-install.md)
 ### [클라우드 작업 개발](stream-analytics-tools-for-visual-studio.md)
+### [에지 작업 개발](stream-analytics-tools-for-visual-studio-edge-jobs.md)
 ### [CI/CD 파이프라인 설정](stream-analytics-tools-for-visual-studio-cicd.md)
 
 ## 문제 해결

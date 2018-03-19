@@ -9,13 +9,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/29/2018
+ms.date: 03/02/2018
 ms.author: billmath
-ms.openlocfilehash: ec0731534da2543d48bedc575bf882b790fa136b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: f1256e2fefe1ad3d37403f37804888ab9dcf6e99
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="migrate-ad-fs-on-premises-apps-to-azure"></a>AD FS 온-프레미스 앱을 Azure로 마이그레이션 
 
@@ -166,7 +166,7 @@ Azure AD에서 구성하기 위해 추가 단계가 필요한 일부 구성과 �
 - 토큰 기능의 클레임
     - 온-프레미스 그룹 이름을 클레임으로 발급
     - Azure AD 이외의 저장소에서 클레임
-    - 복잡한 클레임 발급 변환 규칙(지원되는 클레임 매핑에 대한 내용은 이 문서 및 이 문서 참조)
+    - 복잡한 클레임 발급 변환 규칙(지원되는 클레임 매핑에 대한 내용은 이 [문서](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping) 및 이 [문서](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization) 참조)
     - 디렉터리 확장을 클레임으로 발급
     - NameID 형식의 사양 사용자 지정
     - 다중 값 특성의 발급
@@ -187,7 +187,7 @@ Azure AD에서 앱의 요구에 따라 다음과 같이 앱의 Single Sign-On �
 ![](media/migrate-adfs-apps-to-azure/migrate5.png)
 
 #### <a name="assign-users-to-the-app"></a>앱에 사용자 할당
-Azure AD내의 사용자가 지정된 SaaS 앱에 로그인하려면 Azure AD에서 액세스 권한을 부여받아야 합니다.
+Azure AD내의 사용자가 지정된 SaaS 앱에 로그인하려면 Azure AD에서 액세스 권한을 부여 받아야 합니다.
 
 Azure AD 포털에서 사용자를 할당하려면 포털에서 SaaS 앱의 화면으로 이동하고 세로 막대에서 "사용자 및 그룹"을 클릭합니다. 사용자 또는 그룹을 추가하려면 화면 위쪽의 "사용자 추가"를 클릭합니다. 
 

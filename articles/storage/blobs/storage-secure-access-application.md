@@ -5,17 +5,15 @@ services: storage
 author: tamram
 manager: jeconnoc
 ms.service: storage
-ms.workload: web
-ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 02/20/2018
+ms.date: 03/06/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 7b7a45073d8d518700f866d9701c3ba64e665dc2
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 66a5f7e6872a76c91f1f5f1a4b0b1973cb890b0f
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="secure-access-to-an-applications-data-in-the-cloud"></a>클라우드의 응용 프로그램 데이터에 대한 액세스 보호
 
@@ -147,47 +145,7 @@ public static async Task<List<string>> GetThumbNailUrls(AzureStorageConfig _stor
 
 [Azure SSE(Storage 서비스 암호화)](../common/storage-service-encryption.md)는 데이터를 보호하고 안전하게 유지하는 데 도움이 됩니다. SSE는 미사용 데이터를 암호화하고 암호화, 암호 해독 및 키 관리를 처리합니다. 모든 데이터는 가장 강력한 블록 암호화 중 하나인 256비트 [AES 암호화](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)를 사용하여 암호화됩니다.
 
-다음 샘플에서는 blob에 대한 암호화를 사용하도록 설정합니다. 암호화를 사용하도록 설정하기 전에 만든 기존 blob는 암호화되지 않습니다. blob에 대한 요청의 `x-ms-server-encrypted` 헤더는 blob의 암호화 상태를 보여 줍니다.
-
-```azurecli-interactive
-az storage account update --encryption-services blob --name <storage-account-name> --resource-group myResourceGroup
-```
-
-암호화를 사용하도록 설정했으므로 웹 응용 프로그램에 새 이미지를 업로드합니다.
-
-`-I` 스위치와 함께 `curl`을 사용하면 헤더만 검색되고, 자체 값이 `<storage-account-name>`, `<container>` 및 `<blob-name>`으로 대체됩니다.  
-
-```azurecli-interactive
-sasToken=$(az storage blob generate-sas \
-    --account-name <storage-account-name> \
-    --account-key <storage-account-key> \
-    --container-name <container> \
-    --name <blob-name> \
-    --permissions r \
-    --expiry `date --date="next day" +%Y-%m-%d` \
-    --output tsv)
-
-curl https://<storage-account-name>.blob.core.windows.net/<container>/<blob-name>?$sasToken -I
-```
-
-응답에서 `x-ms-server-encrypted` 헤더는 `true`를 표시합니다. 이 헤더는 이제 데이터가 SSE로 암호화되었음을 식별합니다.
-
-```
-HTTP/1.1 200 OK
-Content-Length: 209489
-Content-Type: image/png
-Last-Modified: Mon, 11 Sep 2017 19:27:42 GMT
-Accept-Ranges: bytes
-ETag: "0x8D4F94B2BE76D45"
-Server: Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0
-x-ms-request-id: 57047db3-001e-0050-3e34-2ba769000000
-x-ms-version: 2017-04-17
-x-ms-lease-status: unlocked
-x-ms-lease-state: available
-x-ms-blob-type: BlockBlob
-x-ms-server-encrypted: true
-Date: Mon, 11 Sep 2017 19:27:46 GMT
-```
+SSE는 모든 성능 계층(표준 및 프리미엄), 모든 배포 모델(Azure Resource Manager 및 클래식) 및 모든 Azure Storage 서비스(Blob, 큐, 테이블 및 파일)의 데이터를 자동으로 암호화합니다. 
 
 ## <a name="enable-https-only"></a>HTTPS만 사용
 

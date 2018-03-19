@@ -38,6 +38,7 @@
 #### [Azure CLI 2.0 사용](virtual-machine-scale-sets-encrypt-disks-cli.md)
 ### [큰 확장 집합으로 작업](virtual-machine-scale-sets-placement-groups.md)
 ### [확장 집합 템플릿을 변환하여 관리 디스크 사용](virtual-machine-scale-sets-convert-template-to-md.md)
+### [낮은 우선 순위 사용](virtual-machine-scale-sets-use-low-priority.md)
 
 ## 관리
 ### 일반적인 관리 작업

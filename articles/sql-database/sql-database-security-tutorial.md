@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 06/28/2017
 ms.author: daredis
-ms.openlocfilehash: 90c03f1538197e1cd1c90165417a4ec74c9c5961
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 678f3ae09a57cbbbb486d256f81f0f58563b482c
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="secure-your-azure-sql-database"></a>Azure SQL Database 보안
 
@@ -47,9 +47,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 - Microsoft Excel
 - Azure SQL Server 및 Database - [Azure Portal에서 Azure SQL Database 만들기](sql-database-get-started-portal.md), [Azure CLI를 사용하여 단일 Azure SQL Database 만들기](sql-database-get-started-cli.md) 및 [PowerShell을 사용하여 단일 Azure SQL Database 만들기](sql-database-get-started-powershell.md)를 참조하세요. 
 
-## <a name="log-in-to-the-azure-portal"></a>Azure 포털에 로그인
+## <a name="log-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
-[Azure 포털](https://portal.azure.com/)에 로그인합니다.
+[Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 ## <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>Azure Portal에서 서버 수준 방화벽 규칙 만들기
 
@@ -184,10 +184,10 @@ Azure SQL Database 감사는 데이터베이스 이벤트를 추적하고 Azure 
    > 감사 보고서 템플릿을 활용하려면 감사되는 모든 데이터베이스에 대해 동일한 저장소 계정을 사용합니다.
    > 
 
-5. **Save**를 클릭합니다.
+5. **저장**을 클릭합니다.
 
 > [!IMPORTANT]
-> 감사 이벤트를 사용자 지정하려면 PowerShell 또는 REST API를 통해 이 작업을 수행할 수 있습니다. 자세한 내용은 [SQL Database 감사](sql-database-auditing.md)를 참조하세요.
+> 감사 이벤트를 사용자 지정하려면 PowerShell 또는 REST API를 통해 이 작업을 수행할 수 있습니다. 자세한 내용은 [SQL 데이터베이스 감사](sql-database-auditing.md)를 참조하세요.
 >
 
 ## <a name="enable-sql-database-threat-detection"></a>SQL Database 위협 감지 사용

@@ -10,15 +10,15 @@ ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 7e9f11e702dbbe8864f8a0c307777c922e5f028d
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 238964540bffaf8d05148c587462256ce20d87f4
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="tutorial-manage-costs-by-using-azure-cost-management"></a>자습서: Azure Cost Management를 사용한 비용 관리
 
-Cloudyn이 제공하는 Azure Cost Management에서 태그를 기준으로 비용을 할당함으로써 비용을 관리하고 쇼백 보고서를 생성합니다. 비용 할당 프로세스는 소비된 클라우드 리소스에 비용을 할당합니다. 비용은 모든 리소스가 태그로 분류되면 완벽하게 할당됩니다. 비용이 할당된 후 쇼백 또는 차지백을 대시보드 및 보고서로 사용자에게 제공할 수 있습니다. 그러나 Cost Management를 사용하기 시작할 때 많은 리소스가 태그되지 않거나 태그하지 못할 수도 있습니다.
+Azure Cost Management에서 태그를 기준으로 비용을 할당함으로써 비용을 관리하고 쇼백 보고서를 생성합니다. 비용 할당 프로세스는 소비된 클라우드 리소스에 비용을 할당합니다. 비용은 모든 리소스가 태그로 분류되면 완벽하게 할당됩니다. 비용이 할당된 후 쇼백 또는 차지백을 대시보드 및 보고서로 사용자에게 제공할 수 있습니다. 그러나 Cost Management를 사용하기 시작할 때 많은 리소스가 태그되지 않거나 태그하지 못할 수도 있습니다.
 
 예를 들어 엔지니어링 비용에 대한 배상을 얻고자 할 수 있습니다. 리소스 비용을 기반으로 하여 특정 금액이 필요함을 엔지니어링 팀에게 보여줄 수 있어야 합니다. 엔지니어링 팀에게 *엔지니어링*으로 태그가 지정된 모든 소비된 리소스에 대한 보고서를 보여줄 수 있습니다.
 
