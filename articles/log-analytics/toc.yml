@@ -50,7 +50,7 @@
     - name: 로그 검색
       items:
         - name: 로그 검색 개요
-          href: log-analytics-log-search-new.md
+          href: log-analytics-log-search.md
         - name: 로그 검색 포털
           href: log-analytics-log-search-portals.md
 - name: 방법 가이드
@@ -107,7 +107,7 @@
           href: 'https://docs.loganalytics.io'
         - name: 레거시 언어에서 전환
           href: log-analytics-log-search-transition.md
-        - name: 작업 영역 간 검색
+        - name: 교차 리소스 검색
           href: log-analytics-cross-workspace-search.md
         - name: 검색 결과에서 작업 수행
           href: log-analytics-log-search-takeaction.md
@@ -117,20 +117,6 @@
           href: log-analytics-flow-tutorial.md
         - name: 로그 검색 API
           href: 'https://dev.loganalytics.io/'
-    - name: 레거시 로그 검색
-      items:
-        - name: 로그 검색 개요
-          href: log-analytics-log-searches.md
-        - name: Search 참조
-          href: log-analytics-search-reference.md
-          items:
-            - name: 정규식
-              href: log-analytics-log-searches-regex.md
-        - name: 로그 검색 API
-          href: log-analytics-log-search-api.md
-          items:
-            - name: 파이썬
-              href: log-analytics-log-search-api-python.md
     - name: 데이터 분석
       items:
         - name: 대시보드

@@ -22,7 +22,6 @@
 ## [관리되는 도메인의 상태 확인](active-directory-ds-check-health.md)
 ## [Azure CSP 구독에서 Azure AD Domain Services 사용](active-directory-ds-csp.md)
 ## [PowerShell을 사용하여 Azure AD Domain Services 사용](active-directory-ds-enable-using-powershell.md)
-## [도메인의 상태 확인](active-directory-ds-check-health.md)
 ## 관리되는 도메인 가입
 ### [Windows Server VM](active-directory-ds-admin-guide-join-windows-vm-portal.md)
 ### [템플릿의 Windows Server VM](active-directory-ds-join-windows-vm-template.md)
@@ -68,6 +67,6 @@
 ## [Azure AD 피드백 포럼](https://feedback.azure.com/forums/169401-azure-active-directory)
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [문의처](active-directory-ds-contact-us.md)
-## [가격](https://azure.microsoft.com/pricing/details/active-directory-ds/)
+## [가격 책정](https://azure.microsoft.com/pricing/details/active-directory-ds/)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=active-directory-ds)

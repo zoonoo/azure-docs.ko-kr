@@ -168,28 +168,12 @@
       items:
         - name: REST (영문)
           href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: .NET
-          href: storage-dotnet-how-to-use-blobs.md
-        - name: 자바
-          href: storage-java-how-to-use-blob-storage.md
-        - name: Node.js
-          href: storage-nodejs-how-to-use-blob-storage.md
         - name: C++
           href: storage-c-plus-plus-how-to-use-blobs.md
-        - name: PHP
-          href: storage-php-how-to-use-blobs.md
-        - name: 파이썬
-          href: storage-python-how-to-use-blob-storage.md
-        - name: Ruby
-          href: storage-ruby-how-to-use-blob-storage.md
         - name: iOS
           href: storage-ios-how-to-use-blob-storage.md
         - name: Xamarin
           href: storage-xamarin-blob-storage.md
-        - name: PowerShell
-          href: storage-how-to-use-blobs-powershell.md
-        - name: Azure CLI 2.0
-          href: storage-how-to-use-blobs-cli.md
     - name: 관리
       items:
         - name: Azure Storage용 PowerShell
@@ -334,9 +318,9 @@
     - name: 자바
       items:
         - name: 'Blob, 큐, 테이블 및 파일'
-          href: 'https://docs.microsoft.com/java/api/overview/azure/storage/clientlibrary'
+          href: 'https://docs.microsoft.com/java/api/overview/azure/storage/client'
         - name: 리소스 관리자
-          href: 'https://docs.microsoft.com/java/api/overview/azure/storage/managementapi'
+          href: 'https://docs.microsoft.com/java/api/overview/azure/storage/management'
     - name: Node.js
       href: 'http://azure.github.io/azure-storage-node'
     - name: Ruby
