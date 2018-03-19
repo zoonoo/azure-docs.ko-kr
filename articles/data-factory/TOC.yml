@@ -76,10 +76,16 @@
               href: tutorial-incremental-copy-change-tracking-feature-powershell.md
     - name: 6 - 클라우드에서 데이터 변환
       items:
-        - name: 사용자 인터페이스(UI)
-          href: tutorial-transform-data-spark-portal.md
-        - name: Azure PowerShell
-          href: tutorial-transform-data-spark-powershell.md
+        - name: HDInsight Spark
+          items:
+            - name: 사용자 인터페이스(UI)
+              href: tutorial-transform-data-spark-portal.md
+            - name: Azure PowerShell
+              href: tutorial-transform-data-spark-powershell.md
+        - name: Databricks Notebook
+          items:
+            - name: 사용자 인터페이스(UI)
+              href: transform-data-using-databricks-notebook.md
     - name: 7 - 가상 네트워크에서 데이터 변환
       items:
         - name: 사용자 인터페이스(UI)
@@ -92,8 +98,6 @@
           href: tutorial-control-flow-portal.md
         - name: .NET
           href: tutorial-control-flow.md
-    - name: 9 - Azure Databricks를 사용하여 데이터 변환
-      href: transform-data-using-databricks-notebook.md
 - name: 샘플
   items:
     - name: 코드 샘플
@@ -292,6 +296,8 @@
           href: transform-data-using-stored-procedure.md
         - name: Data Lake U-SQL 작업
           href: transform-data-using-data-lake-analytics.md
+        - name: Databricks Notebook 활동
+          href: transform-data-databricks-notebook.md
         - name: 사용자 지정 작업
           href: transform-data-using-dotnet-custom-activity.md
         - name: Compute 연결된 서비스

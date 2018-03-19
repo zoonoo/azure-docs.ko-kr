@@ -13,11 +13,11 @@ metadata:
   ms.topic: landing-page
   ms.date: 11/15/2017
   ms.author: nitinme
-  ms.openlocfilehash: c94a3e7ecaf89612238b80ed83474af792c3efc4
-  ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+  ms.openlocfilehash: 8bbb8bb020c8c64e11d072729b59074a406a03ca
+  ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 03/16/2018
+  ms.lasthandoff: 03/17/2018
 abstract:
   description: "빠른 시작 및 여기에서 제공된 다른 링크를 사용하여 Azure Databricks를 사용하는 방법에 대해 알아봅니다. Azure Databricks는 Microsoft Azure Cloud Services 플랫폼에 대해 최적화된 Apache Spark 기반 분석 플랫폼입니다. Apache Spark의 기반으로 설계된 Databricks는 Azure와 통합되어 원클릭 설정, 간소화된 워크플로 및 데이터 과학자, 데이터 엔지니어, 비즈니스 분석가가 공동 작업할 수 있도록 하는 대화형 작업 영역을 제공합니다."
   aside:
@@ -49,6 +49,7 @@ sections:
     style: ordered
     items:
     - html: "<a href=\"/azure/azure-databricks/databricks-stream-from-eventhubs\">Azure Databricks를 사용하여 Event Hubs에서 데이터 스트리밍</a>"
+    - html: "<a href=\"/azure/azure-databricks/databricks-sentiment-analysis-cognitive-services\">Azure Databricks 및 Cognitive Services를 사용한 감정 분석</a>"
     - html: "<a href=\"https://go.microsoft.com/fwlink/?linkid=864083\" target=\"_blank\">Azure Storage에서 데이터 가져오기</a>"
     - hmtl: <a href="https://go.microsoft.com/fwlink/?linkid=864084" target="_blank">Import data from Azure Data Lake Store</a>
     - html: "<a href=\"https://docs.azuredatabricks.net/user-guide/notebooks/index.html\" target=\"_blank\">Notebooks 작업</a>"

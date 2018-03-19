@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/08/2018
+ms.date: 03/07/2018
 ms.author: pareshmu
-ms.openlocfilehash: fd549ff0e6753c854ce9d43cab8e3a672f6502f3
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 8eb67fa41ca8ac12187ed5024bc42d4567b2626e
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 파트너 및 피어링 위치
 
@@ -105,7 +105,7 @@ ExpressRoute는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 맵
 | **[Neutrona Networks](http://www.neutrona.com/index.php/azure-expressroute/)** |지원됨 |지원됨 |마이애미, 상파울루 |
 | **[Next Generation Data](http://www.nextgenerationdata.co.uk/ngd-cloud-gateway/)** |지원됨 |지원됨 |뉴포트(웨일스) |
 | **NEXTDC** |지원됨 |지원됨 |멜버른, 시드니 |
-| **[NTT Communications](http://www.ntt.com/en/services/network/virtual-private-network.html)** |지원됨 |지원됨 |런던, 로스앤젤레스, 오사카, 싱가포르, 도쿄, 워싱턴 DC |
+| **[NTT Communications](http://www.ntt.com/en/services/network/virtual-private-network.html)** |지원됨 |지원됨 |암스테르담, 홍콩, 런던, 로스앤젤레스, 오사카, 싱가포르, 시드니, 도쿄, 워싱턴 DC |
 | **[NTT SmartConnect](http://cloud.nttsmc.com/cxc/azure.html)** |지원됨 |지원됨 |오사카 |
 | **[Orange](http://www.orange-business.com/en/products/business-vpn-galerie)** |지원됨 |지원됨 |암스테르담, 홍콩, 런던, 파리, 실리콘밸리, 싱가포르, 시드니, 워싱턴 DC |
 | **[PacketFabric](https://www.packetfabric.com/packetcor/microsoft-azure/)** |지원됨 |지원됨 |시카고, 실리콘밸리 |
@@ -114,6 +114,7 @@ ExpressRoute는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 맵
 | **[SIFY](http://telecom.sify.com/azure-expressroute.html)** |지원됨 |지원됨 |첸나이, 뭄바이 |
 | **[SingTel](http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** |지원됨 |지원됨 |싱가포르, 싱가포르 2 |
 | **[Softbank](http://www.softbank.jp/biz/cloud/cloud_access/direct_access_for_az/)** |지원됨 |지원됨 |오사카, 도쿄 |
+| **[Sprint](https://business.sprint.com/solutions/cloud-networking/)** |지원됨 |지원됨 |워싱턴 DC |
 | **[Tata Communications](http://www.tatacommunications.com/lp/izo/azure/azure_index.html)** |지원됨 |지원됨 |암스테르담, 첸나이, 홍콩 특별행정구, 런던, 뭄바이, 실리콘밸리, 싱가포르, 워싱턴 DC |
 | **[TeleCity Group](http://www.telecitygroup.com/investor-centre/news_details.htm?locid=03100500400b00d&xml)** |지원됨 |지원됨 |암스테르담, 더블린, 런던 |
 | **[Telefonica](https://www.business-solutions.telefonica.com/es/enterprise/solutions/efficient-infrastructure/managed-voice-data-connectivity/)** |지원됨 |지원됨 |암스테르담, 상파울루 |
