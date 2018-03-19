@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
-ms.openlocfilehash: 5eca18ca2f34097d98ce947c61c635abc6ab27b8
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: bd15b7786552d21c8791eeb307aa8c87066b2bcd
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="filter-network-traffic-with-network-security-groups"></a>네트워크 보안 그룹을 사용하여 네트워크 트래픽 필터링
 
 NSG(네트워크 보안 그룹)에는 VNet(Azure Virtual Network)에 연결된 리소스에 대한 네트워크 트래픽을 허용하거나 거부하는 보안 규칙 목록이 포함되어 있습니다. NSG는 서브넷, 개별 VM(클래식) 또는 VM(Resource Manager)에 연결된 개별 NIC(네트워크 인터페이스)와 연결될 수 있습니다. NSG를 서브넷에 연결하면 규칙이 서브넷에 연결된 모든 리소스에 적용됩니다. 또한 NSG를 VM 또는 NIC에 연결하여 트래픽을 더욱 제한할 수 있습니다.
-
+ 
 > [!NOTE]
 > Azure에는 리소스를 만들고 작업하는 [Resource Manager와 클래식](../resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 두 모델을 모두 사용하여 설명하지만 대부분의 새로운 배포에는 리소스 관리자 모델을 사용하는 것이 좋습니다.
 
@@ -98,7 +98,7 @@ NSG에는 두 가지 규칙 집합, 즉 인바운드 및 아웃바운드가 포�
 
 * **VM(클래식만):** 보안 규칙이 VM과의 모든 트래픽에 적용됩니다. 
 * **NIC(Resource Manager만):** 보안 규칙이 NSG가 연결된 NIC와의 모든 트래픽에 적용됩니다. 다중 NIC VM에서 각각의 NIC에 서로 다르거나 동일한 NSG를 개별적으로 적용할 수 있습니다. 
-* **서브넷(Resource Manager 및 클래식):** 보안 규칙이 VNet에 연결된 모든 리소스에 대한 모든 트래픽에 적용됩니다.
+* **서브넷(Resource Manager 및 클래식):** 보안 규칙이 서브넷에 연결된 모든 리소스에 대한 모든 트래픽에 적용됩니다.
 
 다른 NSG를 VM(또는 배포 모델에 따라 NIC)에 연결할 수 있고, NIC 또는 VM이 바인딩된 서브넷에 연결될 수 있습니다. 보안 규칙은 우선 순위에 따라 각 NSG에서 다음과 같은 순서로 트래픽에 적용됩니다.
 
@@ -127,7 +127,7 @@ NSG에는 두 가지 규칙 집합, 즉 인바운드 및 아웃바운드가 포�
 | PowerShell     | [예](virtual-networks-create-nsg-classic-ps.md) | [예](virtual-networks-create-nsg-arm-ps.md) |
 | Azure CLI **V1**   | [예](virtual-networks-create-nsg-classic-cli.md) | [예](virtual-networks-create-nsg-arm-cli.md) |
 | Azure CLI **V2**   | 아니요 | [예](virtual-networks-create-nsg-arm-cli.md) |
-| Azure Resource Manager 템플릿   | 아니오  | [예](virtual-networks-create-nsg-arm-template.md) |
+| Azure Resource Manager 템플릿   | 아니요  | [예](virtual-networks-create-nsg-arm-template.md) |
 
 ## <a name="planning"></a>계획
 NSG를 구현하기 전에 아래 질문에 답변해야 합니다.

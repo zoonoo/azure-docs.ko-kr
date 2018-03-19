@@ -52,11 +52,12 @@
 ### [SQL Database 탄력적 쿼리](how-to-use-elastic-query-with-sql-data-warehouse.md)
 
 
-## 모니터링 및 튜닝
-### [워크로드 관리](resource-classes-for-workload-management.md)
+## 쿼리 성능
+### [리소스 클래스](resource-classes-for-workload-management.md)
 ### [Columnstore 압축](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)
-### [모니터](sql-data-warehouse-manage-monitor.md)
-### [문제 해결](sql-data-warehouse-troubleshoot.md)
+
+## [모니터](sql-data-warehouse-manage-monitor.md)
+
 
 ## 데이터 웨어하우스 개발
 ### [개요](sql-data-warehouse-overview-develop.md)
@@ -87,6 +88,8 @@
 #### [사용자 정의 스키마](sql-data-warehouse-develop-user-defined-schemas.md)
 #### [변수 할당](sql-data-warehouse-develop-variable-assignment.md)
 #### [뷰](sql-data-warehouse-develop-views.md)
+
+## [문제 해결](sql-data-warehouse-troubleshoot.md)
 
 # 방법 가이드
 ## 서비스 기능
