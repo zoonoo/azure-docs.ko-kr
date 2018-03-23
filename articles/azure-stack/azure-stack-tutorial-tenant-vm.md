@@ -1,31 +1,28 @@
 ---
-title: "Azure 스택 사용자에 게 가상 컴퓨터를 사용할 수 있도록 | Microsoft Docs"
-description: "Azure 스택에서 가상 컴퓨터를 사용할 수 있도록 하기 위해 자습서"
+title: Azure 스택 사용자에 게 가상 컴퓨터를 사용할 수 있도록 | Microsoft Docs
+description: Azure 스택에서 가상 컴퓨터를 사용할 수 있도록 하기 위해 자습서
 services: azure-stack
-documentationcenter: 
-author: brenduns
+documentationcenter: ''
+author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/23/2017
-ms.author: brenduns
-ms.reviewer: 
+ms.date: 03/22/2018
+ms.author: jeffgilb
+ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: d169a18df8916cfb8dd30b00248099a3d374aacc
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: af97f32736959f8ebf8f3c4fbca400d6b0c41f3e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="make-virtual-machines-available-to-your-azure-stack-users"></a>Azure 스택 사용자에 게 가상 컴퓨터를 사용할 수 있도록
-
-*적용 대상: Azure 스택 통합 시스템과 Azure 스택 개발 키트*
-
 Azure 스택 클라우드 관리자 (테 넌 트 라고도 함) 사용자가 구독할 수 있는 서비스를 만들 수 있습니다. 구독을 사용 하 여 사용자가 Azure 스택 서비스를 사용할 수 있습니다.
 
 이 문서는 제안을 만듭니다. 한 다음 테스트 하는 방법을 보여 줍니다. 테스트를 위해 사용자로 포털에 로그인 하 제품을 구독 한 후 구독을 사용 하 여 가상 컴퓨터를 만들 됩니다.
@@ -117,7 +114,7 @@ Azure 스택 서비스 구독, 이벤트, 및 계획을 사용 하 여 사용자
 
    a. 사용자 및 클릭으로 사용자 포털에 로그인 **구독**합니다.
    - 통합된 된 시스템에 대 한 URL 운영자의 지역 및 외부 도메인 이름에 따라 달라 집니다 하 고 형식 https://portal에 포함 됩니다. &lt; *지역*&gt;.&lt; *FQDN*&gt;합니다.
-   - Azure 스택 개발 키트를 사용 하는 포털 주소 https://portal.local.azurestack.external는입니다.
+   - Azure 스택 개발 키트를 사용 하는 경우 포털 주소는 https://portal.local.azurestack.external합니다.
 
    ![구독 가져오기](media/azure-stack-subscribe-plan-provision-vm/image01.png)
 
@@ -135,7 +132,7 @@ Azure 스택 서비스 구독, 이벤트, 및 계획을 사용 하 여 사용자
 
    a. 사용자 포털에 사용자로 로그인 합니다.
       - 통합된 된 시스템에 대 한 URL 운영자의 지역 및 외부 도메인 이름에 따라 달라 집니다 하 고 형식 https://portal에 포함 됩니다. &lt; *지역*&gt;.&lt; *FQDN*&gt;합니다.
-   - Azure 스택 개발 키트를 사용 하는 포털 주소 https://portal.local.azurestack.external는입니다.
+   - Azure 스택 개발 키트를 사용 하는 경우 포털 주소는 https://portal.local.azurestack.external합니다.
 
    나.  대시보드 클릭 **새로** > **계산** > **Windows Server 2016 데이터 센터 Eval**, 클릭 하 고 **만들기**.
 

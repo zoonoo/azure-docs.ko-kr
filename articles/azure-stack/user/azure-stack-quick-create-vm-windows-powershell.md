@@ -1,11 +1,11 @@
 ---
-title: "Azure 스택에서 PowerShell을 사용 하 여 Windows 가상 컴퓨터 만들기 | Microsoft Docs"
-description: "Azure 스택에서 PowerShell과 함께 Windows 가상 컴퓨터를 만듭니다."
+title: Azure 스택에서 PowerShell을 사용 하 여 Windows 가상 컴퓨터 만들기 | Microsoft Docs
+description: Azure 스택에서 PowerShell과 함께 Windows 가상 컴퓨터를 만듭니다.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 7CA6C0AC-23B7-4007-BA32-7A950FD1F3B8
 ms.service: azure-stack
 ms.workload: na
@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 09/25/2017
 ms.author: mabrigg
 ms.custom: mvc
-ms.openlocfilehash: 688ab6c55867d72d55e27c21c883c14ef90078d2
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: f73f6599f24c0748862ba3a2f1384246841e7e8e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-a-windows-virtual-machine-by-using-powershell-in-azure-stack"></a>Azure 스택에서 PowerShell을 사용 하 여 Windows 가상 컴퓨터 만들기
 
@@ -138,9 +138,9 @@ $nsg = New-AzureRmNetworkSecurityGroup `
   -SecurityRules $nsgRuleRDP,$nsgRuleWeb 
 ```
  
-### <a name="create-a-network-card-for-the-virtual-machine"></a>가상 컴퓨터에 대한 네트워크 카드 만들기
+### <a name="create-a-network-card-for-the-virtual-machine"></a>가상 머신에 대한 네트워크 카드 만들기
 
-네트워크 카드는 서브넷, 네트워크 보안 그룹 및 공용 IP 주소에 가상 컴퓨터를 연결합니다.
+네트워크 카드는 서브넷, 네트워크 보안 그룹 및 공용 IP 주소에 가상 머신을 연결합니다.
 
 ```powershell
 # Create a virtual network card and associate it with public IP address and NSG
@@ -153,9 +153,9 @@ $nic = New-AzureRmNetworkInterface `
   -NetworkSecurityGroupId $nsg.Id 
 ```
 
-## <a name="create-a-virtual-machine"></a>가상 컴퓨터 만들기
+## <a name="create-a-virtual-machine"></a>가상 머신 만들기
 
-가상 컴퓨터 구성을 만듭니다. 구성에 가상 컴퓨터 이미지, 크기, 자격 증명 등 가상 컴퓨터를 배포할 때 사용 되는 설정을 포함 합니다.
+가상 머신 구성을 만듭니다. 구성에 가상 컴퓨터 이미지, 크기, 자격 증명 등 가상 컴퓨터를 배포할 때 사용 되는 설정을 포함 합니다.
 
 ```powershell
 # Define a credential object to store the username and password for the virtual machine
@@ -197,14 +197,14 @@ $VirtualMachine = Set-AzureRmVMOSDisk `
   -CreateOption FromImage | `
   Add-AzureRmVMNetworkInterface -Id $nic.Id 
 
-#Create the virtual machine.
+# Create the virtual machine.
 New-AzureRmVM `
   -ResourceGroupName $ResourceGroupName `
   -Location $location `
   -VM $VirtualMachine
 ```
 
-## <a name="connect-to-the-virtual-machine"></a>가상 컴퓨터에 연결
+## <a name="connect-to-the-virtual-machine"></a>가상 머신에 연결
 
 이전 단계에서 만든 가상 컴퓨터에 원격으로 하려면 해당 공용 IP 주소가 필요 합니다. 가상 컴퓨터의 공용 IP 주소를 얻기 위해 다음 명령을 실행 합니다. 
 
@@ -213,7 +213,7 @@ Get-AzureRmPublicIpAddress `
   -ResourceGroupName $ResourceGroupName | Select IpAddress
 ```
  
-다음 명령을 사용 하 여 가상 컴퓨터와 원격 데스크톱 세션을 만듭니다. IP 주소를 가상 컴퓨터의 publicIPAddress 바꿉니다. 대화 상자가 나타나면 사용자 이름 및 가상 컴퓨터를 만들 때 사용한 암호를 입력 합니다.
+다음 명령을 사용 하 여 가상 컴퓨터와 원격 데스크톱 세션을 만듭니다. 해당 IP 주소를 가상 머신의 publicIPAddress로 바꿉니다. 대화 상자가 나타나면 사용자 이름 및 가상 컴퓨터를 만들 때 사용한 암호를 입력 합니다.
 
 ```powershell
 mstsc /v <publicIpAddress>
@@ -234,7 +234,7 @@ IIS를 설치하고 현재 포트 80이 인터넷에서 VM에 열려 있으면 �
 ![IIS 기본 사이트](./media/azure-stack-quick-create-vm-windows-powershell/default-iis-website.png) 
 
 
-## <a name="delete-the-virtual-machine"></a>가상 컴퓨터 삭제
+## <a name="delete-the-virtual-machine"></a>가상 머신 삭제
 
 더 이상 필요 없는, 가상 컴퓨터와 해당 관련된 리소스를 포함 하는 리소스 그룹을 제거 하려면 다음 명령을 사용 합니다.
 

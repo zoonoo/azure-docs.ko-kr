@@ -1,25 +1,25 @@
 ---
-title: "Azure 스택 Development kit (ASDK) | Microsoft Docs"
-description: "Azure 스택 개발 키트 (ASDK)를 설치 하는 방법에 설명 합니다."
+title: Azure 스택 Development kit (ASDK) | Microsoft Docs
+description: Azure 스택 개발 키트 (ASDK)를 설치 하는 방법에 설명 합니다.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 03/22/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: e1f4cfb74d83cb23631e5a16a6e6f2dba98027ef
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 7b8fe61731a9412c61152bc58e55deebb611d011
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="install-the-azure-stack-development-kit-asdk"></a>Azure 스택 개발 키트 (ASDK) 설치
 후 [ASDK 호스트 컴퓨터를 준비 하 고](asdk-prepare-host.md),이 문서의 다음 단계를 사용 하 여 CloudBuilder.vhdx 이미지에는 ASDK를 배포할 수 있습니다.
@@ -55,8 +55,10 @@ ms.lasthandoff: 03/17/2018
     - **DHCP** (기본값): 가상 컴퓨터는 DHCP 서버에서 IP 네트워크 구성을 가져옵니다.
     - **정적**: DHCP는 인터넷에 액세스할 수 있는 Azure 스택에 대 한 유효한 IP 주소를 할당할 수 없습니다 하는 경우에이 옵션을 사용 합니다. **고정 IP 주소 (예를 들어 10.0.0.5/24) CIDR 형식의 서브넷 마스크 길이 함께 지정 해야**합니다.
     - 유효한 입력 **서버 IP를 시간** 주소입니다. 이 필드는 개발 키트에서 사용할 시간 서버를 설정 해야 합니다. 이 매개 변수는 유효한 시간 서버 IP 주소로 제공 되어야 합니다. 서버 이름은 지원 되지 않습니다.
+
       > [!TIP]
       > 시간 서버 IP 주소를 확인 하려면 다음을 방문 [pool.ntp.org](http:\\pool.ntp.org) 또는 time.windows.com ping 합니다. 
+
     - **필요에 따라**, 다음 값을 설정 합니다.
         - **VLAN ID**: VLAN ID를 설정 합니다 호스트와 AzS BGPNAT01 VLAN ID 및 액세스 하는 실제 네트워크 (인터넷)를 구성 해야 하는 경우에이 옵션을 사용 합니다. 
         - **DNS 전달자**: DNS 서버가 Azure 스택 배포의 일부로 생성 됩니다. 스탬프 외부 이름을 확인 하기 위해 솔루션 내에 있는 컴퓨터를 허용 하려면 기존 DNS 서버 인프라를 제공 합니다. 스탬프에 DNS 서버는이 서버에 알 수 없는 이름 확인 요청을 전달합니다.
@@ -88,10 +90,10 @@ ms.lasthandoff: 03/17/2018
 
 배포가 실패 하는 몇 가지 이유로 하는 경우 다음을 할 수 있습니다 [재배포](asdk-redeploy.md) 처음부터 새로 만들거나 사용에서 다음 PowerShell 명령을, 동일한 관리자 권한 PowerShell 창에서 성공 하는 마지막 단계에서 배포를 다시 시작 하려면:
 
-    ```powershell
-    cd C:\CloudDeployment\Setup
-    .\InstallAzureStackPOC.ps1 -Rerun
-    ```
+  ```powershell
+  cd C:\CloudDeployment\Setup
+  .\InstallAzureStackPOC.ps1 -Rerun
+  ```
 
 ## <a name="next-steps"></a>다음 단계
 [사후 배포 구성](asdk-post-deploy.md)

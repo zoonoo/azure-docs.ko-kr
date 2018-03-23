@@ -131,6 +131,8 @@
   items:
     - name: Azure Stack 연산자 설명서
       href: /azure/azure-stack/
+    - name: ASDK 설명서
+      href: /azure/azure-stack/asdk/
 - name: 리소스
   items:
     - name: Azure 스택 로드맵

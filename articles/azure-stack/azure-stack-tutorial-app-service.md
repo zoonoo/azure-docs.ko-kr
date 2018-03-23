@@ -1,29 +1,28 @@
 ---
-title: "사용자에 게 웹 및 API 앱 사용할 수 있는 Azure 스택 | Microsoft Docs"
-description: "앱 서비스 리소스 공급자를 설치 하 고 만드는 자습서에서는 Azure 스택 사용자를 제공 하는 웹 및 API 앱을 만들 수를 제공 합니다."
+title: 사용자에 게 웹 및 API 앱 사용할 수 있는 Azure 스택 | Microsoft Docs
+description: 앱 서비스 리소스 공급자를 설치 하 고 만드는 자습서에서는 Azure 스택 사용자를 제공 하는 웹 및 API 앱을 만들 수를 제공 합니다.
 services: azure-stack
-documentationcenter: 
-author: brenduns
+documentationcenter: ''
+author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 7/03/2017
-ms.author: brenduns
-ms.reviewer: 
+ms.date: 03/22/2018
+ms.author: jeffgilb
+ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: 5978706f2cab69c83a49bfd0e15ae904a38c7bab
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: e2f15ca3a46af51ab6228e772298c51ad33fd49c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="make-web-and-api-apps-available-to-your-azure-stack-users"></a>사용자에 게 웹 및 API 앱 사용할 수 있는 Azure 스택
-
 Azure 스택 클라우드 관리자로 서 사용자가 제공을 만들 수 있습니다 (테 넌 트) Azure 함수 및 웹 및 API 응용 프로그램을 만듭니다. 사용자에 게 이러한 주문형, 클라우드 기반 앱에 대 한 액세스를 제공 함으로써 시간과 리소스가 저장할 수 있습니다. 이 설정 하려면 다음을 수행 합니다.
 
 > [!div class="checklist"]
@@ -58,12 +57,12 @@ Azure 스택 클라우드 관리자로 서 사용자가 제공을 만들 수 있
 앱 서비스 리소스 공급자를 배포 하 고 제공 하는 서비스를 만들면 한 했으므로 사용자로 로그인 하 고, 제품을 구독 하 고, 응용 프로그램을 만들 수 있습니다. 이 예에서는 DNN 플랫폼 콘텐츠 관리 시스템을 만들겠습니다. SQL 데이터베이스 및 DNN 웹 응용 프로그램 먼저 만들어야 합니다.
 
 ### <a name="subscribe-to-the-offer"></a>제품 구독
-1. 테 넌 트로 (https://portal.local.azurestack.external) 스택 Azure 포털에 로그인 합니다.
+1. Azure 스택 포털에 로그인 (https://portal.local.azurestack.external) 테 넌 트로 합니다.
 2. 클릭 **구독** > 형식 **TestAppServiceSubscription** 아래 **표시 이름** > **제안을 선택**  >  **TestAppServiceOffer** > **만들**합니다.
 
 ### <a name="create-a-sql-database"></a>SQL 데이터베이스 만들기
 
-1. 클릭  **+**   >  **데이터 + 저장소** > **SQL 데이터베이스**합니다.
+1. 클릭 **+**  >  **데이터 + 저장소** > **SQL 데이터베이스**합니다.
 2. 다음과 같이 제외 하 고는 필드의 기본값을 유지 합니다.
     - **데이터베이스 이름**: DNNdb
     - **최대 크기 (MB)**: 100
@@ -75,7 +74,7 @@ Azure 스택 클라우드 관리자로 서 사용자가 제공을 만들 수 있
 
 ### <a name="create-a-dnn-app"></a>DNN 응용 프로그램 만들기    
 
-1. 클릭  **+**   >  **스크롤하게** > **DNN 플랫폼 미리 보기** > **만들기**합니다.
+1. 클릭 **+**  >  **스크롤하게** > **DNN 플랫폼 미리 보기** > **만들기**합니다.
 2. 형식 *DNNapp* 아래 **응용 프로그램 이름** 선택 **TestAppServiceOffer** 아래 **구독**합니다.
 3. 클릭 **필요한 설정 구성** > **새로 만들기** > 종류는 **앱 서비스 계획** 이름입니다.
 4. 클릭 **가격 책정 계층** > **F1 무료** > **선택** > **확인**합니다.

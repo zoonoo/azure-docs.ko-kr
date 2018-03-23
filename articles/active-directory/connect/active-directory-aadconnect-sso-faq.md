@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: billmath
-ms.openlocfilehash: 15155ecaf17ae309a218bb1f51a4757e5338f64c
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 8a91960f150e9298515cd52fe192ec1abdd89f9c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory Seamless Single Sign-On: FAQ(질문과 대답)
 
@@ -75,7 +75,7 @@ Azure AD Connect를 실행 중인 온-프레미스 서버에서 다음 단계를
 ### <a name="step-1-get-list-of-ad-forests-where-seamless-sso-has-been-enabled"></a>1단계. Seamless SSO가 사용하도록 설정된 AD 포리스트 목록을 가져옵니다.
 
 1. 먼저 [Microsoft Online Services 로그인 도우미](http://go.microsoft.com/fwlink/?LinkID=286152)를 다운로드하여 설치합니다.
-2. 그런 다음 [Windows PowerShell 용 64비트 Azure Active Directory 모듈](http://go.microsoft.com/fwlink/p/?linkid=236297)을 다운로드하고 설치합니다.
+2. 그런 다음 [Windows PowerShell 용 64비트 Azure Active Directory 모듈](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0)을 다운로드하고 설치합니다.
 3. `%programfiles%\Microsoft Azure Active Directory Connect` 폴더로 이동합니다.
 4. 다음 명령을 사용하여 Seamless SSO PowerShell 모듈을 가져옵니다. `Import-Module .\AzureADSSO.psd1`
 5. 관리자 권한으로 PowerShell을 실행합니다. PowerShell에서 `New-AzureADSSOAuthenticationContext`를 호출합니다. 이 명령으로 테넌트의 전역 관리자 자격 증명을 입력하라는 팝업 메시지가 표시됩니다.

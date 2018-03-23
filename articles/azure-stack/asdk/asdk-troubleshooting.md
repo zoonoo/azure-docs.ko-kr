@@ -1,25 +1,25 @@
 ---
-title: "Microsoft Azure 스택 문제 해결 | Microsoft Docs"
-description: "Azure 스택 개발 키트 (ASDK) 문제 해결 정보입니다."
+title: Microsoft Azure 스택 문제 해결 | Microsoft Docs
+description: Azure 스택 개발 키트 (ASDK) 문제 해결 정보입니다.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 03/22/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 6ed3fb7c7c4de9edbf31fb2c47290e2e39ceadcd
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 6c715f07f75c9196b7cf2cc8659c6e541e1260da
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="microsoft-azure-stack-development-kit-asdk-troubleshooting"></a>Microsoft Azure 스택 개발 키트 (ASDK) 문제 해결
 이 문서는 ASDK에 대 한 일반적인 문제 해결 정보를 제공합니다. 문서화 되지 않은 문제가 발생 하는 경우을 선택 했는지 확인는 [Azure 스택 MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) 정보 및 추가 지원이 필요 합니다.  
@@ -31,7 +31,12 @@ ms.lasthandoff: 03/17/2018
 
 ## <a name="deployment"></a>배포
 ### <a name="deployment-failure"></a>배포 실패
-설치 중에 오류가 발생 하면 다시 시작할 수 있습니다 실패 한 단계에서 배포를 사용 하 여 배포 스크립트의 다시 실행된-옵션입니다.  
+설치 중에 오류가 발생 하면 다시 시작할 수 있습니다 실패 한 단계에서 배포를 사용 하 여 다음 예제와 같이 배포 스크립트의 다시 실행된-옵션:
+
+  ```powershell
+  cd C:\CloudDeployment\Setup
+  .\InstallAzureStackPOC.ps1 -Rerun
+  ```
 
 ### <a name="at-the-end-of-the-deployment-the-powershell-session-is-still-open-and-doesnt-show-any-output"></a>배포 후에 PowerShell 세션 계속 열려 및 모든 출력은 표시 되지 않습니다.
 이 문제를 선택한 경우에 PowerShell 명령 창의 기본 동작 결과 때문일 수 있습니다. 개발 키트 배포 성공에 있지만 스크립트 창을 선택할 때 일시 중지 되었습니다. 명령 창의 제목 표시줄에 "select" 이라는 단어를 검색 하 여 설치를 완료 하는 것을 확인할 수 있습니다. 선택 취소 하려면 ESC 키를 누릅니다 하 고 그 뒤 완료 메시지를 표시 합니다.

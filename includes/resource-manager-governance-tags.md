@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: include
-ms.date: 02/16/2018
+ms.date: 03/13/2018
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: 13aa40331849c775898913129f8048a06a1f8456
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 69c67f437d2f0b7bd6c1f5311eb5ba1d962d889a
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 Azure 리소스에 태그를 적용하여 범주별로 논리적으로 구성합니다. 각 태그는 이름과 값으로 이루어져 있습니다. 예를 들어 프로덕션의 모든 리소스에 "환경" 이름과 "프로덕션" 값을 적용할 수 있습니다.
 
@@ -24,4 +24,4 @@ Azure 리소스에 태그를 적용하여 범주별로 논리적으로 구성합
 * 태그 이름은 512자로 제한되며 태그 값은 256자로 제한됩니다. 저장소 계정에서 태그 이름은 128자로 제한되며 태그 값은 256자로 제한됩니다.
 * 태그는 해당 리소스 그룹의 리소스에 의해 상속되지 않은 리소스 그룹에 적용됩니다.
 * Cloud Services와 같은 클래식 리소스에는 태그를 적용할 수 없습니다.
-* `<`, `>`, `%`, `&`, `\\`, `?`, `/` 문자는 지원되지 않습니다.
+* 태그 이름에는 다음 문자를 포함할 수 없습니다: `<`, `>`, `%`, `&`, `\`, `?`, `/`

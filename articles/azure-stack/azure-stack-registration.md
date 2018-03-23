@@ -1,87 +1,83 @@
 ---
-title: "Azure 스택에 대 한 azure 등록 통합 시스템 | Microsoft Docs"
-description: "다중 노드 배포 Azure 스택 Azure에 연결 된 Azure 등록 프로세스를 설명합니다."
+title: Azure 스택에 대 한 azure 등록 통합 시스템 | Microsoft Docs
+description: 다중 노드 배포 Azure 스택 Azure에 연결 된 Azure 등록 프로세스를 설명합니다.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 03/21/2018
 ms.author: jeffgilb
-ms.reviewer: wfayed
-ms.openlocfilehash: 27bd44f936e19890526c0834e14084647dcec086
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.reviewer: avishwan
+ms.openlocfilehash: e51a15b197e875c35997cfe2ac96d673c01a80f9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="register-azure-stack-with-azure"></a>Azure 스택 Azure 등록
-Azure에서 Azure 마켓플레이스 항목을 다운로드 하 고 상용 데이터를 Microsoft에 다시 보고를 설정 하려면 Azure 스택을 등록할 수 있습니다. Azure 스택 등록 한 후 사용 Azure 상거래에 보고 됩니다. 등록에 사용 되는 구독에서 볼 수 있습니다.
+등록 [Azure 스택](azure-stack-poc.md) Azure 사용 하면 Azure에서 마켓플레이스 항목을 다운로드 하 고 상용 데이터를 Microsoft에 다시 보고를 설정 합니다. Azure 스택 등록 한 후에 사용 현황 Azure commerce에 보고 되 고 해당 등록에 사용 되는 구독에서 볼 수 있습니다. 
 
 > [!IMPORTANT]
 > 등록은 지불으로-있습니다-사용 요금 청구 모델을 선택 하는 경우에 필수입니다. 그렇지 않으면 있습니다 Azure 스택 배포의 라이선싱 조건 위반 하는 됩니다 사용 그렇지 않은 경우 보고 되지 것입니다.
 
-## <a name="before-you-register-azure-stack-with-azure"></a>Azure와 함께 Azure 스택을 등록 하기 전에
+## <a name="prerequisites"></a>필수 조건
 Azure 스택 Azure를 등록 하기 전에 다음이 필요 합니다.
 
 - Azure 구독에 대 한 구독 ID입니다. ID를 가져오려면 Azure에 로그인을 클릭 **더 많은 서비스** > **구독**를 사용 하려는 구독을 클릭 하 고 아래에서 **Essentials** 찾을 수 있습니다는 구독 id입니다. 
 
   > [!NOTE]
-  > 중국, 독일에과 미국 정부 클라우드 구독 현재 지원 되지 않습니다. 
+  > 중국, 독일에 및 미국 정부 클라우드 구독 현재 지원 되지 않습니다. 
 
 - 사용자 이름 및 구독에 대 한 소유자가 있는 계정에 대 한 암호 (MSA/2FA 계정이 지원 됩니다.)
-- *Azure 스택 1712 업데이트 버전 (180106.1)로 시작 하는 데 필요한 not*: Azure 구독에 대 한 Azure AD. Azure 포털의 오른쪽 위 모서리에서 아바타 위로 이동 하 여 Azure에서이 디렉터리를 찾을 수 있습니다. 
-- Azure 스택 리소스 공급자 등록 (자세한 내용은 아래의 Azure 스택 리소스 공급자 등록 섹션 참조)
+- Azure 스택 리소스 공급자 등록 (자세한 내용은 아래의 Azure 스택 리소스 공급자 등록 섹션 참조).
 
 이러한 요구 사항을 충족 하는 Azure 구독에 없으면 다음을 할 수 있습니다 [여기 무료 Azure 계정을 만들](https://azure.microsoft.com/free/?b=17.06)합니다. Azure 스택 등록 무료로 Azure 구독에서 발생 합니다.
 
 ### <a name="bkmk_powershell"></a>Azure 스택에 대 한 PowerShell을 설치 합니다.
-Azure 스택에 대 한 최신 PowerShell을 사용 하 여 azure 시스템을 등록 해야 합니다.
+Azure 스택에 대 한 최신 PowerShell을 사용 하 여 Azure에 등록 해야 합니다.
 
 아직 설치 하지, [Azure 스택에 대 한 PowerShell을 설치](https://docs.microsoft.com/azure/azure-stack/azure-stack-powershell-install)합니다. 
 
 ### <a name="bkmk_tools"></a>Azure 스택 도구 다운로드
 Azure 스택 도구 GitHub 리포지토리; Azure 스택 기능을 지 원하는 PowerShell 모듈이 포함 되어 있습니다. 등록 기능을 포함 합니다. 등록 하는 동안 가져오고 RegisterWithAzure.psm1 PowerShell 모듈을 사용 해야 합니다 중에 Azure를 사용한 Azure 스택 인스턴스를 등록 하려면 Azure 스택 도구 리포지토리에 발견 되었습니다. 
 
-```powershell
-# Change directory to the root directory. 
-cd \
-
-# Download the tools archive.
-  [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 
-  invoke-webrequest `
-  https://github.com/Azure/AzureStack-Tools/archive/master.zip `
-  -OutFile master.zip
-
-# Expand the downloaded files.
-  expand-archive master.zip `
-  -DestinationPath . `
-  -Force
-
-# Change to the tools directory.
-  cd AzureStack-Tools-master
-```
+최신 버전을 사용 하려면 Azure 스택 도구의 기존 버전을 삭제 해야 하 고 [GitHub에서 최신 버전을 다운로드](azure-stack-powershell-download.md) Azure를 등록 하기 전에.
 
 ## <a name="register-azure-stack-in-connected-environments"></a>Azure 스택 연결 되는 환경에 등록
 인터넷 및 Azure에 연결된 하는 환경 액세스할 수 있습니다. 이러한 환경에서는 Azure와 함께 Azure 스택 리소스 공급자를 등록 하 고 다음 청구 모델을 구성 해야 합니다.
+
+> [!NOTE]
+> 이러한 모든 단계는 권한 있는 끝점에 액세스할 수 있는 컴퓨터에서 실행 되어야 합니다. 
 
 ### <a name="register-the-azure-stack-resource-provider"></a>Azure 스택 리소스 공급자 등록
 Azure 스택 리소스 공급자를 Azure에 등록 하려면 관리자 권한으로 Powershell ISE를 시작 하 고 다음 PowerShell 명령을 사용 합니다. 이러한 명령을 수행합니다.
 - 사용 하 고 설정 하기 위해 Azure 구독의 소유자로 로그인 하 라는 메시지가 표시 된 `EnvironmentName` 매개 변수를 **azure 클라우드**합니다.
 - Azure 리소스 공급자 등록 **Microsoft.AzureStack**합니다.
 
-PowerShell을 실행 하려면:
+1. 사용 하면 Azure 스택 등록할 Azure 계정을 추가 합니다. 실행 계정을 추가 하는 **추가 AzureRmAccount** cmdlet. Azure 전역 관리자 계정 자격 증명을 입력 하는 메시지가 및 계정의 구성에 따라 2 단계 인증을 사용 하 여 할 수 있습니다.
 
-```powershell
-Login-AzureRmAccount -EnvironmentName "AzureCloud"
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack 
-```
+   ```Powershell
+      Add-AzureRmAccount -EnvironmentName AzureCloud
+   ```
+
+2. 여러 구독이 있는 경우 사용 하려는 목록을 선택 하려면 다음 명령을 실행 합니다.  
+
+   ```powershell
+      Get-AzureRmSubscription -SubscriptionID '<Your Azure Subscription GUID>' | Select-AzureRmSubscription
+   ```
+
+3. Azure 구독에서 Azure 스택 리소스 공급자를 등록 하려면 다음 명령을 실행 합니다.
+
+   ```Powershell
+   Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
+   ```
 
 ### <a name="register-azure-stack-with-azure-using-the-pay-as-you-use-billing-model"></a>Azure 스택은 사용량 기준 과금으로-있습니다-사용 가능한 요금 청구 모델을 사용 하 여 azure에 등록
 Azure 스택은 사용량 기준 과금으로-있습니다-사용 가능한 요금 청구 모델을 사용 하 여 azure에 등록 하는 이러한 단계를 사용 합니다.
@@ -197,22 +193,6 @@ Set-AzsRegistration -CloudAdminCredential $YourCloudAdminCredential -PrivilegedE
 ```powershell
 Set-AzsRegistration -CloudAdminCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel PayAsYouUse
 ```
-
-## <a name="remove-a-registered-resource"></a>등록 된 리소스를 제거 합니다.
-등록을 제거 하려면 다음을 사용 해야 **등록 취소 AzsEnvironment** 에 사용 되는 cmdlet 및 등록 또는 등록 리소스 이름에서 통과 토큰 **레지스터-AzsEnvironment**.
-
-제거 하려면 리소스 이름을 사용 하 여 등록:
-
-```Powershell    
-UnRegister-AzsEnvironment -RegistrationName "*Name of the registration resource*"
-```
-제거 하려면 등록 토큰을 사용 하 여 등록:
-
-```Powershell
-$registrationToken = "*Your copied registration token*"
-UnRegister-AzsEnvironment -RegistrationToken $registrationToken
-```
-
 ## <a name="next-steps"></a>다음 단계
 
-[외부 모니터링 통합](azure-stack-integrate-monitor.md)
+[Azure에서 마켓플레이스 항목을 다운로드](azure-stack-download-azure-marketplace-item.md)

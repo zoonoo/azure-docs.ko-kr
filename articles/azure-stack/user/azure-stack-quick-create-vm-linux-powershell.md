@@ -1,11 +1,11 @@
 ---
-title: "Azure 스택에서 PowerShell을 사용 하 여 Linux 가상 컴퓨터 만들기 | Microsoft Docs"
-description: "Azure 스택에서 PowerShell과 함께 Linux 가상 컴퓨터를 만듭니다."
+title: Azure 스택에서 PowerShell을 사용 하 여 Linux 가상 컴퓨터 만들기 | Microsoft Docs
+description: Azure 스택에서 PowerShell과 함께 Linux 가상 컴퓨터를 만듭니다.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 03EE5929-4F05-47D7-B246-EA93D6FC47CD
 ms.service: azure-stack
 ms.workload: na
@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 09/25/2017
 ms.author: mabrigg
 ms.custom: mvc
-ms.openlocfilehash: 97847c0c2fcc4ab7d5fe8e4e5badd5809b7e2363
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 5446f00b698fbe1fe1bae9c52bf3e73fe0d1c506
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-a-linux-virtual-machine-by-using-powershell-in-azure-stack"></a>Azure 스택에서 PowerShell을 사용 하 여 Linux 가상 컴퓨터 만들기 
 
@@ -124,8 +124,8 @@ $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName myResourceGroup -Locat
 -Name myNetworkSecurityGroup -SecurityRules $nsgRuleSSH,$nsgRuleWeb
 ```
 
-### <a name="create-a-network-card-for-the-virtual-machine"></a>가상 컴퓨터에 대한 네트워크 카드 만들기
-네트워크 카드는 서브넷, 네트워크 보안 그룹 및 공용 IP 주소에 가상 컴퓨터를 연결합니다.
+### <a name="create-a-network-card-for-the-virtual-machine"></a>가상 머신에 대한 네트워크 카드 만들기
+네트워크 카드는 서브넷, 네트워크 보안 그룹 및 공용 IP 주소에 가상 머신을 연결합니다.
 
 ```powershell
 # Create a virtual network card and associate it with public IP address and NSG
@@ -138,8 +138,8 @@ $nic = New-AzureRmNetworkInterface `
   -NetworkSecurityGroupId $nsg.Id 
 ```
 
-## <a name="create-a-virtual-machine"></a>가상 컴퓨터 만들기
-가상 컴퓨터 구성을 만듭니다. 이 구성은 가상 컴퓨터 이미지, 크기 및 인증 구성 등 가상 컴퓨터를 배포할 때 사용되는 설정을 포함합니다.
+## <a name="create-a-virtual-machine"></a>가상 머신 만들기
+가상 머신 구성을 만듭니다. 이 구성은 가상 머신 이미지, 크기 및 인증 구성 등 가상 머신을 배포할 때 사용되는 설정을 포함합니다.
 
 ```powershell
 # Define a credential object.
@@ -189,16 +189,16 @@ Add-AzureRmVMSshPublicKey -VM $VirtualMachine `
  -KeyData $sshPublicKey `
  -Path "/home/azureuser/.ssh/authorized_keys"
 
-#Create the virtual machine.
+# Create the virtual machine.
 New-AzureRmVM `
   -ResourceGroupName $ResourceGroupName `
  -Location $location `
   -VM $VirtualMachine 
 ```
 
-## <a name="connect-to-the-virtual-machine"></a>가상 컴퓨터에 연결
+## <a name="connect-to-the-virtual-machine"></a>가상 머신에 연결
 
-배포가 완료된 후 가상 컴퓨터에 대한 SSH 연결을 만듭니다. [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress?view=azurermps-4.3.1) 명령을 사용하여 가상 컴퓨터의 공용 IP 주소를 반환합니다.
+배포가 완료된 후 가상 머신에 대한 SSH 연결을 만듭니다. [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress?view=azurermps-4.3.1) 명령을 사용하여 가상 머신의 공용 IP 주소를 반환합니다.
 
 ```powershell
 Get-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress

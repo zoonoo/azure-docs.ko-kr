@@ -1,25 +1,25 @@
 ---
-title: "Azure 스택 개발 키트 (ASDK) 배포 필수 구성 요소 | Microsoft Docs"
-description: "Azure 스택 개발 키트 (ASDK)에 대 한 환경 및 하드웨어 요구를 검토 합니다."
+title: Azure 스택 개발 키트 (ASDK) 배포 필수 구성 요소 | Microsoft Docs
+description: Azure 스택 개발 키트 (ASDK)에 대 한 환경 및 하드웨어 요구를 검토 합니다.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 03/21/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 24a766ada1cdd1cb854b6869d571acd73e376327
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: f4b55bb3287f67792b3257c3f62256437f5625ca
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-stack-deployment-planning-considerations"></a>Azure 스택 배포 계획 고려 사항
 Azure 스택 개발 키트 (ASDK)를 배포 하기 전에 개발 키트 호스트 컴퓨터에이 문서에 설명 된 요구 사항을 충족 하는지 확인 합니다.
@@ -34,7 +34,7 @@ Azure 스택 개발 키트 (ASDK)를 배포 하기 전에 개발 키트 호스�
 | Compute: 메모리 |96GB RAM |128GB RAM (PaaS 리소스 공급자를 지원 하기 위해 최소입니다.)|
 | Compute: BIOS |Hyper-V 사용(SLAT 지원) |Hyper-V 사용(SLAT 지원) |
 | 네트워크: NIC |NIC에 필요한 Windows Server 2012 R2 인증; 특수 기능 필요 없음 |NIC에 필요한 Windows Server 2012 R2 인증; 특수 기능 필요 없음 |
-| HW 로고 인증 |[Windows Server 2012 R2에 대한 인증](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |[Windows Server 2012 R2에 대한 인증](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |
+| HW 로고 인증 |[Windows Server 2012 R2에 대한 인증](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |[Windows Server 2016에 대 한 인증](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |
 
 <sup>*</sup> 다양 한를 추가 하려는 경우이 권장 용량 보다 더 많은 필요는 [마켓플레이스 항목](asdk-marketplace-item.md) Azure에서.
 

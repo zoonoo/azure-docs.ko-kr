@@ -1,25 +1,25 @@
 ---
-title: "네트워크와 통합 하는 Azure 스택 시스템에 대 한 통합 고려 사항 | Microsoft Docs"
-description: "다중 노드 Azure 스택와 데이터 센터 네트워크 통합에 대 한 계획을 수행할 수 있는 작업에 대해 알아봅니다."
+title: 네트워크와 통합 하는 Azure 스택 시스템에 대 한 통합 고려 사항 | Microsoft Docs
+description: 다중 노드 Azure 스택와 데이터 센터 네트워크 통합에 대 한 계획을 수행할 수 있는 작업에 대해 알아봅니다.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 03/21/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: 04cfe3c4ac6011b9c3d31b7d4ac3c018c350d67b
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 5ade2a09d0729f48c075a5bcaa20bee079ead47d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="network-connectivity"></a>네트워크 연결
 이 문서에서는 가장 Azure 스택을 기존 네트워킹 환경에 통합 하는 방법을 결정할 수 있도록 Azure 스택 네트워크 인프라 정보를 제공 합니다. 
@@ -43,7 +43,7 @@ Azure 스택 솔루션에는 해당 작업 및 서비스를 지원 하기 위해
 | 공용 VIP | 소규모의 나머지 테 넌 트 가상 컴퓨터에서 사용 하는 Azure 스택을 서비스에 대 한 공용 IP 주소입니다. Azure 스택 인프라는이 네트워크에서 32 주소를 사용합니다. 앱 서비스 및 SQL 리소스 공급자를 사용 하려는 경우에 7 더 많은 주소 사용 됩니다. | / 26 (62 호스트) / 22 (1022 호스트)<br><br>권장 = / 24 (254 호스트) | 
 | 스위치 인프라 | 전용된 라우팅 목적에 대 한 지점 간 IP 주소 관리 인터페이스 및 스위치에 할당 된 루프백 주소를 전환 합니다. | /26 | 
 | 인프라 | Azure 스택 내부 구성 요소에 대 한 통신 하는 데 사용 합니다. | /24 |
-| 사설 | 저장소 네트워크 및 개인 Vip에 사용 합니다. | /24 | 
+| 개인 | 저장소 네트워크 및 개인 Vip에 사용 합니다. | /24 | 
 | BMC | 실제 호스트에서 Bmc와 통신 하는 데 사용 합니다. | /27 | 
 | | | |
 
@@ -67,7 +67,7 @@ Azure 스택에 대 한 네트워크 인프라는 스위치에 구성 된 여러
 이 통신 하 고 자체 데이터를 교환할 수 있도록 24 네트워크 내부 Azure 스택 구성 요소에 전용/입니다. 라우팅 가능한 IP 주소가 이어야 하는데는 비공개로 유지 솔루션에 대 한 액세스 제어 목록 (Acl)를 사용 하 여이 서브넷입니다. 테두리 스위치와 동일한 크기는 / 27 작은 범위를 제외 하 고 다음 라우팅 것으로 예상 되지 네트워크 외부 리소스 및/또는 인터넷에 대 한 액세스를 필요로 할 때 이러한 서비스 중에서 사용 합니다. 
 
 ### <a name="public-infrastructure-network"></a>공용 인프라 네트워크
-이/27 네트워크는 앞에서 언급 한 Azure 스택 인프라 서브넷에서 작은 범위의 공용 IP 주소 필요 하지 않습니다 하지만 NAT 또는 투명 프록시를 통한 인터넷 액세스 필요지 않습니다. 이 네트워크 Emergency 복구 콘솔 시스템 (ERCS)에 대 한 할당 될, ERCS VM Azure에 등록 하는 동안 인터넷 액세스 해야 하 고 문제 해결을 위해 관리 네트워크에 라우팅 가능 해야 합니다.
+이/27 네트워크는 앞에서 언급 한 Azure 스택 인프라 서브넷에서 작은 범위의 공용 IP 주소 필요 하지 않습니다 하지만 NAT 또는 투명 프록시를 통한 인터넷 액세스 필요지 않습니다. 이 네트워크 Emergency 복구 콘솔 시스템 (ERCS)에 대 한 할당 될, Azure에 등록 하는 동안 및 인프라 백업 중 ERCS VM에는 인터넷 액세스가 필요 합니다. ERCS VM 문제 해결을 위해 관리 네트워크에 라우팅할 수 있어야 합니다.
 
 ### <a name="public-vip-network"></a>공용 VIP 네트워크
 공용 VIP 네트워크 스택에서 Azure 네트워크 컨트롤러에 할당 됩니다. 스위치는 논리 네트워크는 없습니다. SLB 주소 풀을 사용 하 고 할당/32 테 넌 트 작업에 대 한 네트워크. 스위치 라우팅 테이블에서 이러한 32 Ip는 BGP 통해 사용할 수 있는 경로를 보급 합니다. 이 네트워크 외부에서 액세스할 수 있는 또는 공용 IP 주소를 포함합니다. Azure 스택 인프라는 나머지 테 넌 트 Vm에서 사용 하는 동안이 공용 VIP 네트워크에서 최소한 8 주소를 사용 합니다. 이 서브넷의 네트워크 크기의 /26 (64 호스트)의 최소/22 (1022 호스트)의 최대 범위, / 24를 계획 하는 것이 좋습니다 네트워크입니다.

@@ -1,11 +1,11 @@
 ---
-title: "Azure 스택 서비스 정책 | Microsoft Docs"
-description: "Azure 스택 서비스 정책 및 지원 되는 상태가 통합된 시스템을 유지 하는 방법에 알아봅니다."
+title: Azure 스택 서비스 정책 | Microsoft Docs
+description: Azure 스택 서비스 정책 및 지원 되는 상태가 통합된 시스템을 유지 하는 방법에 알아봅니다.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: caac3d2f-11cc-4ff2-82d6-52b58fee4c39
 ms.service: azure-stack
 ms.workload: na
@@ -14,16 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: mabrigg
-ms.openlocfilehash: 13155349775e71e777e868b6cd311d2e8683706d
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: f495ca12e7cdb1bf61f09bd2d4a8a21654745d8a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-stack-servicing-policy"></a>정책 서비스는 azure 스택
-
-*적용 대상: Azure 스택 시스템 통합*
-
 이 문서에서는 Azure 스택 통합 시스템 및 지원 되는 상태 시스템을 유지 하기 위해 수행 해야 하는 것에 대 한 서비스 정책을 설명 합니다. 
 
 ## <a name="update-package-types"></a>업데이트 패키지 형식

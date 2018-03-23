@@ -3,18 +3,18 @@ title: Azure SQL Database 관리되는 인스턴스 VNet 구성 | Microsoft Docs
 description: 이 항목에서는 Azure SQL Database 관리되는 인스턴스를 사용하는 VNet(가상 네트워크)의 구성 옵션에 대해 설명합니다.
 services: sql-database
 author: srdjan-bozovic
-manager: cguyer
+manager: craigg
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/21/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: 1a839a9bb2355da9451816828f6f9f0e99f43f5e
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: e724a660f8ba2373cefdabe8595908b7bb42f4d6
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="configure-a-vnet-for-azure-sql-database-managed-instance"></a>Azure SQL Database 관리되는 인스턴스에 대한 VNet 구성
 
@@ -33,7 +33,7 @@ Azure [VNet(가상 네트워크)](../virtual-network/virtual-networks-overview.m
 
    기존 가상 네트워크를 사용하려는 경우 관리되는 인스턴스를 수용하도록 해당 네트워크 구성을 수정해야 합니다. 자세한 내용은 [관리되는 인스턴스의 기존 가상 네트워크 수정](#modify-an-existing-virtual-network-for-managed-instances)을 참조하세요. 
 
-   새 가상 네트워크를 만들려는 경우 [관리되는 인스턴스의 새 가상 네트워크 만들기](#create-new-virtual-network-for-managed-instances)를 참조하세요.
+   새 가상 네트워크를 만들려는 경우 [관리되는 인스턴스의 새 가상 네트워크 만들기](#create-a-new-virtual-network-for-managed-instances)를 참조하세요.
 
 ## <a name="requirements"></a>요구 사항
 

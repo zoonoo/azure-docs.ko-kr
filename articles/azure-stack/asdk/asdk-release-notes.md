@@ -1,24 +1,24 @@
 ---
-title: "Microsoft Azure 스택 개발 키트 릴리스 정보 | Microsoft Docs"
-description: "향상 된 기능, 수정 및 Azure 스택 개발 키트에 대 한 알려진된 문제입니다."
+title: Microsoft Azure 스택 개발 키트 릴리스 정보 | Microsoft Docs
+description: 향상 된 기능, 수정 및 Azure 스택 개발 키트에 대 한 알려진된 문제입니다.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 03/22/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 176b850120958a5ca5fdaece4831e2ed27ac0a04
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 6b08c1793857fd6c6a6a04c0d450e76a36357597
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Azure 스택 개발 키트 릴리스 정보
 이러한 릴리스 정보에서는 향상 된 기능, 수정 및 Azure 스택 개발 키트의 알려진된 문제에 대 한 정보를 제공 합니다. 실행 중인 버전을 잘 모르는 경우 다음을 할 수 있습니다 [포털을 사용 하 여](.\.\azure-stack-updates.md#determine-the-current-version)합니다.
@@ -56,6 +56,11 @@ ms.lasthandoff: 03/17/2018
     - *오류-FaultType ResourceProviderTimeout에 대 한 템플릿이 누락 되었습니다.*
 
     이 경고는 무시 해도 됩니다. 
+
+- 관리 포털 및 사용자 포털 모두에서 개요 블레이드에 이전 API 버전을 사용 하 여 만든 저장소 계정에 대 한 개요 블레이드를 선택 하면 로드에 실패 (예: 2015-06-15). 
+
+  이 문제를 해결 PowerShell 실행을 사용 하는 **시작 ResourceSynchronization.ps1** 저장소 계정 세부 정보에 대 한 액세스를 복원 하는 스크립트입니다. [이 스크립트는 GitHub에서 사용할 수 있는]( https://github.com/Azure/AzureStack-Tools/tree/master/Support/scripts)는 ASDK를 사용 하는 경우 개발 키트 호스트에서 서비스 관리자 자격 증명으로 실행 해야 합니다.  
+
 
 #### <a name="health-and-monitoring"></a>상태 및 모니터링
 Azure 스택 관리자 포털에서 이름으로 중요 한 알림이 표시 될 수 있습니다 **외부 인증서 만료 보류 중인**합니다.  이 경고는 무시 해도 됩니다 및 Azure 스택 개발 키트의 작업에 영향을 줍니다. 
@@ -273,9 +278,11 @@ Azure 스택 관리자 포털에서 이름으로 중요 한 알림이 표시 될
     > 에 나열 된 항목 중 일부는 **새 기능 및 수정** 섹션 통합 Azure 스택 시스템에만 적용 됩니다.
 
 ### <a name="known-issues"></a>알려진 문제
+
  
 #### <a name="deployment"></a>배포
 - IP 주소를 통해 시간 서버를 배포 하는 동안 지정 해야 합니다.
+- 1711, 버전부터 **CloudAdmin** 은 예약 된 계정 이름 및 지정 하지 마십시오. 수동으로 개발 키트를 배포 하는 경우. 
 
 #### <a name="infrastructure-management"></a>인프라 관리
 - 인프라 백업에 사용 하지 마십시오는 **인프라 백업** 블레이드입니다.
