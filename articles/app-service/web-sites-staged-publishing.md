@@ -1,8 +1,8 @@
 ---
-title: "Azure App Service에서 웹앱에 대한 스테이징 환경 설정| Microsoft Docs"
-description: "Azure App Service에서 웹앱에 대한 준비된 개시를 사용하는 방법에 대해 알아봅니다."
+title: Azure App Service에서 웹앱에 대한 스테이징 환경 설정| Microsoft Docs
+description: Azure App Service에서 웹앱에 대한 준비된 개시를 사용하는 방법에 대해 알아봅니다.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 writer: cephalin
 manager: erikre
@@ -15,31 +15,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
-ms.openlocfilehash: 55c023e8f6b41c17e85ba441f862a7682b2f2599
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 18f6ef3997ba60f588040f641ebe9e9aca8d091a
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Azure App Service에서 스테이징 환경 설정
 <a name="Overview"></a>
 
-웹앱, Linux의 웹앱, 모바일 백 엔드 및 API 앱을 [App Service](http://go.microsoft.com/fwlink/?LinkId=529714)에 배포할 때 **표준** 또는 **프리미엄** App Service 계획 모드에서 실행하면 기본 프로덕션 슬롯 대신 별도의 배포 슬롯에 배포할 수 있습니다. 배포 슬롯은 실제로 고유한 호스트 이름이 있는 라이브 앱입니다. 앱 콘텐츠 및 구성 요소는 프로덕션 슬롯을 포함하여 두 배포 슬롯 간에 교환될 수 있습니다. 응용 프로그램을 배포 슬롯에 배포하면 다음과 같은 이점이 있습니다.
+웹앱, Linux의 웹앱, 모바일 백 엔드 및 API 앱을 [App Service](http://go.microsoft.com/fwlink/?LinkId=529714)에 배포할 때 **표준** 또는 **프리미엄** App Service 계획 계층에서 실행하면 기본 프로덕션 슬롯 대신 별도의 배포 슬롯에 배포할 수 있습니다. 배포 슬롯은 실제로 고유한 호스트 이름이 있는 라이브 앱입니다. 앱 콘텐츠 및 구성 요소는 프로덕션 슬롯을 포함하여 두 배포 슬롯 간에 교환될 수 있습니다. 응용 프로그램을 배포 슬롯에 배포하면 다음과 같은 이점이 있습니다.
 
 * 프로덕션 슬롯과 교환하기 전에 준비 배포 슬롯에서 앱 변경 사항의 유효성을 검사할 수 있습니다.
 * 먼저 슬롯으로 앱을 배포하고 프로덕션으로 교환하기 때문에 프로덕션으로 교환되기 전에 슬롯에 있는 모든 인스턴스가 준비되어 있는 상태입니다. 따라서 앱을 배포할 때 가동 중지가 발생하지 않습니다. 트래픽 리디렉션은 중단 없이 원활하게 수행되며 교환 작업으로 인해 삭제되는 요청은 없습니다. 사전 교환 유효성 검사가 필요하지 않은 경우 [자동 교환](#Auto-Swap) 을 구성하여 이 전체 워크플로를 자동화할 수 있습니다.
 * 교환 후에는 이전의 준비된 앱이 들어 있던 슬롯 안에 이전의 프로덕션 앱이 들어갑니다. 프로덕션 슬롯과 교환한 변경 내용이 예상과 다른 경우 같은 교환 작업을 즉시 수행하여 "마지막 양호 상태"로 돌아갈 수 있습니다.
 
-각 App Service 계획 모드는 다양한 수의 배포 슬롯을 지원합니다. 앱 모드가 지원하는 슬롯의 수를 알아보려면 [App Service 가격 책정](https://azure.microsoft.com/pricing/details/app-service/)을 참조하세요.
+각 App Service 계획 계층은 다양한 수의 배포 슬롯을 지원합니다. 앱 계층이 지원하는 슬롯의 수를 알아보려면 [App Service 가격 책정](https://azure.microsoft.com/pricing/details/app-service/)을 참조하세요.
 
-* 앱에 여러 슬롯이 있을 때에는 모드를 변경할 수 없습니다.
+* 앱에 여러 슬롯이 있을 때에는 계층을 변경할 수 없습니다.
 * 프로덕션이 아닌 슬롯에 대해 크기 조정을 사용할 수 없습니다.
-* 연결된 리소스 관리는 프로덕션이 아닌 슬롯에 대해 지원되지 않습니다. 특별히 [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715) 에서는 프로덕션이 아닌 슬롯을 다른 App Service 계획으로 일시적으로 전환함으로써 프로덕션 슬롯에 미칠 수 있는 영향을 방지할 수 있습니다. 프로덕션 슬롯이 아닌 경우에는 두 슬롯을 교환하려면 프로덕션 슬롯과 같은 모드로 다시 한 번 공유해야 합니다.
+* 연결된 리소스 관리는 프로덕션이 아닌 슬롯에 대해 지원되지 않습니다. 특별히 [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715) 에서는 프로덕션이 아닌 슬롯을 다른 App Service 계획 계층으로 일시적으로 전환함으로써 프로덕션 슬롯에 미칠 수 있는 영향을 방지할 수 있습니다. 프로덕션 슬롯이 아닌 경우에는 두 슬롯을 교환하려면 프로덕션 슬롯과 같은 계층을 다시 한 번 공유해야 합니다.
 
 <a name="Add"></a>
 
 ## <a name="add-a-deployment-slot"></a>배포 슬롯 추가
-여러 배포 슬롯을 사용하려면 앱이 **표준** 또는 **프리미엄** 모드에서 실행 중이어야 합니다.
+여러 배포 슬롯을 사용하려면 앱이 **표준** 또는 **프리미엄** 계층에서 실행 중이어야 합니다.
 
 1. [Azure Portal](https://portal.azure.com/)에서 앱의 [리소스 블레이드](../azure-resource-manager/resource-group-portal.md#manage-resources)를 엽니다.
 2. **배포 슬롯** 옵션을 선택한 후 **슬롯 추가**를 클릭합니다.
@@ -47,7 +47,7 @@ ms.lasthandoff: 01/29/2018
     ![새 배포 슬롯 추가][QGAddNewDeploymentSlot]
    
    > [!NOTE]
-   > 앱이 **표준** 또는 **프리미엄** 모드가 아닌 경우 준비된 게시를 사용하려면 지원 모델을 나타내는 메시지를 받게 됩니다. 이때 **업그레이드**를 선택할 수 있는 옵션이 제공되고 계속하기 전에 앱의 **크기 조정** 탭으로 이동합니다.
+   > 앱이 **표준** 또는 **프리미엄** 계층이 아닌 경우 준비된 게시를 사용하려면 지원 계층을 나타내는 메시지를 받게 됩니다. 이때 **업그레이드**를 선택할 수 있는 옵션이 제공되고 계속하기 전에 앱의 **크기 조정** 탭으로 이동합니다.
    > 
    > 
 3. **슬롯 추가** 블레이드에서 슬롯에 이름을 지정하고, 다른 기존 배포 슬롯으로부터 앱 구성을 복제할 것인지 여부를 선택합니다. 확인 표시를 클릭하여 계속합니다.

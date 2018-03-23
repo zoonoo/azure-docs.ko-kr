@@ -1,12 +1,12 @@
 ---
-title: "Azure Backup 에이전트를 사용하여 파일 및 폴더 백업 | Microsoft Docs"
-description: "Microsoft Azure Backup 에이전트를 사용하여 Windows 파일과 폴더를 Azure에 백업합니다. Recovery Services 자격 증명 모음을 만들고, Backup 에이전트를 설치하고, 백업 정책을 정의하고, 파일 및 폴더에 초기 백업을 실행합니다."
+title: Azure Backup 에이전트를 사용하여 파일 및 폴더 백업 | Microsoft Docs
+description: Microsoft Azure Backup 에이전트를 사용하여 Windows 파일과 폴더를 Azure에 백업합니다. Recovery Services 자격 증명 모음을 만들고, Backup 에이전트를 설치하고, 백업 정책을 정의하고, 파일 및 폴더에 초기 백업을 실행합니다.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: 
-keywords: "백업 자격 증명 모음, Windows 서버 백업, Windows 백업"
+editor: ''
+keywords: 백업 자격 증명 모음, Windows 서버 백업, Windows 백업
 ms.assetid: 7f5b1943-b3c1-4ddb-8fb7-3560533c68d5
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/5/2018
 ms.author: markgal;trinadhk;
-ms.openlocfilehash: 0adb2565299a2cd613068539736d4272d59a2397
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 88a588322d88f817937cf06e25b5b25a147f03d0
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="back-up-a-windows-server-or-client-to-azure-using-the-resource-manager-deployment-model"></a>Resource Manager 배포 모델을 사용하여 Azure로 Windows Server 또는 클라이언트 백업
 이 문서는 Resource Manager 배포 모델을 사용하여 Azure Backup이 포함된 Azure에 Windows 서버(또는 Windows 클라이언트) 파일 및 폴더를 백업하는 방법을 설명합니다.
@@ -143,6 +143,9 @@ Recovery Services 자격 증명 모음은 시간이 경과되면서 만든 모�
   자격 증명 모음 자격 증명이 [다운로드] 폴더로 다운로드됩니다. 자격 증명 모음 다운로드가 완료되면 자격 증명을 열거나 저장할지 묻는 팝업이 나타납니다. **저장**을 클릭합니다. 실수로 **열기**를 클릭하면 자격 증명 모음 자격 증명을 열려고 하는 대화 상자가 나타나지 않습니다. 자격 증명 모음 자격 증명을 열 수 없습니다. 다음 단계를 진행합니다. 자격 증명 모음은 다운로드 폴더에 있습니다.   
 
   ![자격 증명 모음 자격 증명 다운로드 완료](./media/backup-try-azure-backup-in-10-mins/vault-credentials-downloaded.png)
+
+
+[!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 
 ## <a name="install-and-register-the-agent"></a>에이전트 설치 및 등록
 

@@ -1,12 +1,12 @@
 ---
-title: "Azure Active Directory B2C: 참조: 사용자 지정 정책으로 사용자 경험의 UI 사용자 지정 | Microsoft Docs"
-description: "Azure Active Directory B2C 사용자 지정 정책에 대한 항목"
+title: 'Azure Active Directory B2C: 참조: 사용자 지정 정책으로 사용자 경험의 UI 사용자 지정 | Microsoft Docs'
+description: Azure Active Directory B2C 사용자 지정 정책에 대한 항목
 services: active-directory-b2c
-documentationcenter: 
+documentationcenter: ''
 author: rojasja
 manager: mtillman
 editor: rojasja
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,10 +15,10 @@ ms.devlang: na
 ms.date: 04/25/2017
 ms.author: joroja
 ms.openlocfilehash: 40245c25a7f80db27a25a0d34eb20f1057fc5e02
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>사용자 지정 정책으로 사용자 경험의 UI 사용자 지정
 
@@ -72,7 +72,7 @@ HTML5/CSS 파일을 적절하게 선별하여 원하는 만큼 콘텐츠 페이�
 - 모든 링크 및 CSS 콘텐츠에 대해 절대 URL(예: https://yourdomain/content) 사용
 
 > [!TIP]
-> 콘텐츠를 호스팅하는 사이트에 CORS가 활성화되어 있고 CORS 요청을 테스트했는지 확인하려면 http://test-cors.org/ 사이트를 사용할 수 있습니다. 이 사이트 덕분에 CORS 요청을 원격 서버로 보내거나(CORS가 지원되는지 테스트) CORS 요청을 테스트 서버로 보낼 수 있습니다(CORS의 특정 기능 탐색).
+> 콘텐츠를 호스트하는 사이트에 CORS가 활성화되어 있고 CORS 요청을 테스트했는지 확인하려면 http://test-cors.org/ 사이트를 사용할 수 있습니다. 이 사이트 덕분에 CORS 요청을 원격 서버로 보내거나(CORS가 지원되는지 테스트) CORS 요청을 테스트 서버로 보낼 수 있습니다(CORS의 특정 기능 탐색).
 
 > [!TIP]
 > http://enable-cors.org/ 사이트는 또한 CORS에 대한 유용한 리소스를 구성합니다.
@@ -122,7 +122,7 @@ HTML5/CSS 파일을 적절하게 선별하여 원하는 만큼 콘텐츠 페이�
 
 콘텐츠를 호스팅하는 저장소에 CORS를 사용할 수 있는지 확인하려면 다음 단계를 진행합니다.
 
-1. 브라우저 세션을 열고 저장소 계정 `https://<storageAccountName>.blob.core.windows.net/<containerName>/unified.html`에서 해당 위치의 전체 URL을 사용하여 *unified.html* 페이지로 이동합니다. 예를 들면, https://contoso369b2c.blob.core.windows.net/b2c/unified.html입니다.
+1. 브라우저 세션을 열고 저장소 계정 `https://<storageAccountName>.blob.core.windows.net/<containerName>/unified.html`에서 해당 위치의 전체 URL을 사용하여 *unified.html* 페이지로 이동합니다. 예: https://contoso369b2c.blob.core.windows.net/b2c/unified.html
 2. http://test-cors.org로 이동합니다. 이 사이트를 통해 사용 중인 페이지에 CORS가 사용하도록 설정되었는지 확인할 수 있습니다.  
 <!--
 ![test-cors.org](../../media/active-directory-b2c-customize-ui-of-a-user-journey/test-cors.png)

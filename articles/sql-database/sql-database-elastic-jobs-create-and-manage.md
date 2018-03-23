@@ -1,25 +1,19 @@
 ---
-title: "Azure SQL Database의 그룹 관리 | Microsoft Docs"
-description: "탄력적 작업 만들기 및 관리 과정을 단계별로 안내합니다."
+title: Azure SQL Database의 그룹 관리 | Microsoft Docs
+description: 탄력적 작업 만들기 및 관리 과정을 단계별로 안내합니다.
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: ddove
-editor: 
-ms.assetid: f858344d-085b-4022-935e-1b5fa20adbac
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
-ms.author: ddove
-ms.openlocfilehash: 9ccd7d78169fa5324808e91724e8e193b56b0290
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.author: sstein
+ms.openlocfilehash: 77204e167d298ad77b2786b5d0a3dab1b557ccfc
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-and-manage-scaled-out-azure-sql-databases-using-elastic-jobs-preview"></a>탄력적 작업을 사용하여 규모가 확장된 Azure SQL Database 만들기 및 관리(미리 보기)
 

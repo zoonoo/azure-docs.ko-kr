@@ -1,11 +1,11 @@
 ---
-title: "Azure Resource Manager VNet에 클래식 가상 네트워크를 연결하는 방법: 포털 | Microsoft Docs"
-description: "VPN Gateway 및 포털을 사용하여 클래식 VNet 및 Resource Manager VNet 간에 VPN 연결 만들기"
+title: 'Azure Resource Manager VNet에 클래식 가상 네트워크를 연결하는 방법: 포털 | Microsoft Docs'
+description: VPN Gateway 및 포털을 사용하여 클래식 VNet 및 Resource Manager VNet 간에 VPN 연결 만들기
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: jpconnock
-editor: 
+editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: 5a90498c-4520-4bd3-a833-ad85924ecaf9
 ms.service: vpn-gateway
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/13/2018
 ms.author: cherylmc
-ms.openlocfilehash: 40a380a04088e948a7e81625963a5915980764c3
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 90a3c51fa9acbcd9701d4c2b135688ef5148bbf8
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>포털을 사용하여 다양한 배포 모델에서 가상 네트워크 연결
 
@@ -149,7 +149,7 @@ VPN 게이트웨이가 있는 VNet이 이미 있는 경우 해다 게이트웨�
 * 주소 범위 = 192.168.1.0/24 <br>
 
 
-Resource Manager VNet이 없는 상태에서 이 단계를 연습으로 실행하는 경우에는 [이 문서](../virtual-network/virtual-networks-create-vnet-arm-pportal.md)와 예제 값을 사용하여 VNet을 만들 수 있습니다.
+Resource Manager VNet이 없는 상태에서 이러한 단계를 연습으로 실행하는 경우에는 예제 값을 사용하여 [가상 네트워크 만들기](../virtual-network/quick-create-portal.md)의 단계에 따라 가상 네트워크를 만듭니다.
 
 ### <a name="2-create-a-gateway-subnet"></a>2. 게이트웨이 서브넷 만들기
 

@@ -1,24 +1,20 @@
 ---
-title: "확장된 클라우드 데이터베이스에서 보고 | Microsoft Docs"
-description: "행 분할에서 탄력적 쿼리를 설정하는 방법"
+title: 확장된 클라우드 데이터베이스에서 보고 | Microsoft Docs
+description: 행 분할에서 탄력적 쿼리를 설정하는 방법
 services: sql-database
-documentationcenter: 
-manager: jhubbard
+documentationcenter: ''
+manager: craigg
 author: MladjoA
-ms.assetid: f86eccb8-6323-4ba7-8559-8a7c039049f3
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2016
 ms.author: mlandzic
-ms.openlocfilehash: 41accea2e94fc763d0dcbba709829ec07453da78
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: ec47a10fcfcb3ef52810ba2b3da9599b65db375a
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="reporting-across-scaled-out-cloud-databases-preview"></a>확장된 클라우드 데이터베이스에서 보고(미리 보기)
 ![분할된 데이터베이스에 대한 쿼리][1]
@@ -68,7 +64,7 @@ ms.lasthandoff: 10/31/2017
             SHARD_MAP_NAME = ‘<shardmapname>’ 
                    ) [;] 
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
     CREATE EXTERNAL DATA SOURCE MyExtSrc 
     WITH 
     ( 
@@ -176,7 +172,7 @@ DISTRIBUTION 절은 이 테이블에 사용되는 데이터 배포를 지정합�
 
 sp\_execute\_remote는 호출 매개 변수에 제공된 외부 데이터 원본을 사용하여 원격 데이터베이스에서 지정된 T-SQL 문을 실행합니다. 또한 외부 데이터 원본의 자격 증명을 사용하여 분할 맵 관리자 데이터베이스 및 원격 데이터베이스에 연결합니다.  
 
-예제: 
+예: 
 
     EXEC sp_execute_remote
         N'MyExtSrc',

@@ -1,13 +1,13 @@
 ---
-title: "Azure 경로 테이블 만들기, 변경 또는 삭제 | Microsoft Docs"
-description: "경로 테이블을 만들거나 변경하거나 삭제하는 방법을 알아봅니다."
+title: Azure 경로 테이블 만들기, 변경 또는 삭제 | Microsoft Docs
+description: 경로 테이블을 만들거나 변경하거나 삭제하는 방법을 알아봅니다.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 7edc73f337a72c24fd24d94468ee590b75dfa7df
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 7630fd82cf62f1fcb0df80cec5b5e0030da81a85
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-change-or-delete-a-route-table"></a>경로 테이블 만들기, 변경 또는 삭제
 
-Azure는 Azure 서브넷, 가상 네트워크 및 온-프레미스 네트워크 간에 트래픽을 자동으로 라우트합니다. Azure의 기본 라우팅 중 하나를 변경하려면 경로 테이블을 만듭니다. Azure 라우팅에 익숙하지 않은 경우 이 문서의 작업을 완료하기 전에 [라우팅 개요](virtual-networks-udr-overview.md)를 참고하여 [경로 테이블을 사용하여 네트워크 트래픽 라우트](create-user-defined-route-portal.md) 자습서를 완료합니다.
+Azure는 Azure 서브넷, 가상 네트워크 및 온-프레미스 네트워크 간에 트래픽을 자동으로 라우트합니다. Azure의 기본 라우팅 중 하나를 변경하려면 경로 테이블을 만듭니다. Azure 라우팅에 익숙하지 않은 경우 이 문서의 작업을 완료하기 전에 [라우팅 개요](virtual-networks-udr-overview.md)를 참고하여 [경로 테이블을 사용하여 네트워크 트래픽 라우트](tutorial-create-route-table-portal.md) 자습서를 완료합니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -38,7 +38,7 @@ Azure는 Azure 서브넷, 가상 네트워크 및 온-프레미스 네트워크 
 
 Azure 위치와 구독별로 만들 수 있는 경로 테이블 수에 제한이 있습니다. 자세한 내용은 [Azure 제한](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)을 참조하세요.
 
-1. 포털의 왼쪽 상단 모서리에서 **+ 새로 만들기**를 선택합니다.
+1. 포털의 왼쪽 상단 모서리에서 **+ 리소스 만들기**를 선택합니다.
 2. **네트워킹**을 선택한 후 **경로 테이블**을 선택합니다.
 3. 경로 테이블의 **이름**을 입력하고 **구독**을 선택하고 새 **리소스 그룹**을 만들거나 기존 리소스 그룹을 선택하고 **위치**를 선택한 후 **만들기**를 선택합니다. **Disable BGP route propagation**(BGP 경로 전파 사용 안 함) 옵션은 온-프레미스 경로가 BGP를 통해 Azure 가상 네트워크에 전파되는 것을 방지합니다. 가상 네트워크가 Azure 네트워크 게이트웨이(VPN 또는 ExpressRoute)에 연결되지 않은 경우 옵션을 *사용 안 함*으로 설정합니다. 
 

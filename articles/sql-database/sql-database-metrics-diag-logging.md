@@ -1,25 +1,20 @@
 ---
-title: "Azure SQL Database 메트릭 및 진단 로깅 | Microsoft Docs"
-description: "리소스 사용, 연결 및 쿼리 실행 통계를 저장하도록 Azure SQL Database를 구성하는 방법을 알아봅니다."
+title: Azure SQL Database 메트릭 및 진단 로깅 | Microsoft Docs
+description: 리소스 사용, 연결 및 쿼리 실행 통계를 저장하도록 Azure SQL Database를 구성하는 방법을 알아봅니다.
 services: sql-database
-documentationcenter: 
+documentationcenter: ''
 author: veljko-msft
-manager: jhubbard
-editor: 
-ms.assetid: 89c2a155-c2fb-4b67-bc19-9b4e03c6d3bc
+manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 09/16/2017
+ms.date: 03/16/2018
 ms.author: vvasic
-ms.openlocfilehash: 2d0a2d5966c8c99e7d71d97d4819d58a1474c2fe
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 11ffb1a6260fca52ccb173cb842c1a2d5adbf139
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database 메트릭 및 진단 로깅 
 Azure SQL Database는 모니터링 편의를 위해 메트릭 및 진단 로그를 내보낼 수 있습니다. 리소스 사용량, 작업자와 세션 및 연결을 이러한 Azure 리소스 중 하나에 저장하도록 SQL Database를 구성할 수 있습니다.
@@ -44,7 +39,6 @@ Azure SQL Database는 모니터링 편의를 위해 메트릭 및 진단 로그�
 
 - Log Analytics
 - Event Hubs
-
 - Storage 
 
 새 Azure 리소스를 프로비전하거나 기존 리소스를 선택할 수 있습니다. 저장소 리소스를 선택한 후에는 수집할 데이터를 지정해야 합니다. 사용 가능한 옵션은 다음과 같습니다.
@@ -53,8 +47,8 @@ Azure SQL Database는 모니터링 편의를 위해 메트릭 및 진단 로그�
 - [QueryStoreRuntimeStatistics](sql-database-metrics-diag-logging.md#query-store-runtime-statistics): CPU 사용량, 쿼리 기간 등 쿼리 런타임 통계에 대한 정보를 포함합니다.
 - [QueryStoreWaitStatistics](sql-database-metrics-diag-logging.md#query-store-wait-statistics): CPU, LOG, LOCKING 등 쿼리가 대기된 항목을 알리는 쿼리 대기 통계에 대한 정보를 포함합니다.
 - [Errors](sql-database-metrics-diag-logging.md#errors-dataset): 이 데이터베이스에서 발생한 SQL 오류에 대한 정보를 포함합니다.
-- [DatabaseWaitStatistics](sql-database-metrics-diag-logging.md#database-waits-dataset): 대기 형식에 따라 데이터베이스가 대기하는 데 사용된 시간에 대한 정보를 포함합니다.
-- [Time-outs](sql-database-metrics-diag-logging.md#timeouts-dataset): 이 데이터베이스에서 발생한 SQL 오류에 대한 정보를 포함합니다.
+- [DatabaseWaitStatistics](sql-database-metrics-diag-logging.md#database-wait-statistics-dataset): 대기 형식에 따라 데이터베이스가 대기하는 데 사용된 시간에 대한 정보를 포함합니다.
+- [Time-outs](sql-database-metrics-diag-logging.md#time-outs-dataset): 이 데이터베이스에서 발생한 SQL 오류에 대한 정보를 포함합니다.
 - [Blockings](sql-database-metrics-diag-logging.md#blockings-dataset): 데이터베이스에서 발생한 차단 이벤트에 대한 정보를 포함합니다.
 - [SQLInsights](sql-database-metrics-diag-logging.md#intelligent-insights-dataset): Intelligent Insights를 포함합니다. [Intelligent Insights에 대해 자세히 알아보세요.](sql-database-intelligent-insights.md)
 
@@ -258,7 +252,7 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 
 ### <a name="download-metrics-and-logs-from-storage"></a>Storage에서 메트릭 및 로그 다운로드
 
-[Storage에서 메트릭 및 진단 로그 다운로드](../storage/blobs/storage-dotnet-how-to-use-blobs.md#download-blobs)를 참조하세요.
+[Storage에서 메트릭 및 진단 로그 다운로드](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-the-sample-application)를 참조하세요.
 
 ## <a name="metrics-and-logs-available"></a>사용 가능한 메트릭 및 로그
 
@@ -479,4 +473,4 @@ Event Hubs에 대해 알아보려면 다음을 확인합니다.
 * [Azure Event Hubs 정의](../event-hubs/event-hubs-what-is-event-hubs.md)
 * [Event Hubs 시작](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 
-Storage에 대해 자세히 알아보려면 [Storage에서 메트릭 및 진단 로그 다운로드하는 방법](../storage/blobs/storage-dotnet-how-to-use-blobs.md#download-blobs)을 참조하세요.
+Storage에 대해 자세히 알아보려면 [Storage에서 메트릭 및 진단 로그 다운로드하는 방법](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-the-sample-application)을 참조하세요.

@@ -1,13 +1,13 @@
 ---
-title: "Azure ExpressRoute 회로의 네트워크 성능 모니터 구성 | Microsoft Docs"
-description: "Azure ExpressRoute 회로에 대해 클라우드 기반 네트워크 모니터링을 구성합니다."
+title: Azure ExpressRoute 회로의 네트워크 성능 모니터 구성 | Microsoft Docs
+description: Azure ExpressRoute 회로에 대해 클라우드 기반 네트워크 모니터링을 구성합니다.
 documentationcenter: na
 services: expressroute
 author: ajaycode
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: agummadi
-ms.openlocfilehash: 4f3edb6879ff256b1b50a1437fe349084fe7de41
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 36cd2f106c39f1a6bdcb6ee33b96209974a06336
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>ExpressRoute에 대한 네트워크 성능 모니터 구성
 
@@ -102,10 +102,7 @@ ExpressRoute 회로에 대한 VNets 링크가 있는 구독에 작업 영역을 
 
 1. 리소스에 대한 **네트워크 성능 모니터 구성** 페이지의 **일반 설정** 탭으로 이동합니다. **OMS 에이전트 설치** 섹션에서 서버 프로세서에 해당하는 에이전트를 클릭하고 설치 파일을 다운로드합니다.
 
-  >[!NOTE]
-  >Windows Server(2008 SP1 이상)에 에이전트를 설치해야 합니다. Windows Desktop OS 및 Linux OS를 사용한 ExpressRoute 회로 모니터링은 지원되지 않습니다. 
-  >
-  >
+ 
 2. 이제 **작업 영역 ID** 및 **기본 키**를 메모장에 복사합니다.
 3. **TCP 프로토콜을 사용하여 모니터링할 OMS 에이전트 구성** 섹션에서 Powershell 스크립트를 다운로드합니다. PowerShell 스크립트는 TCP 트랜잭션에 대한 관련 방화벽 포트를 여는 데 도움이 됩니다.
 
@@ -114,6 +111,16 @@ ExpressRoute 회로에 대한 VNets 링크가 있는 구독에 작업 영역을 
 ### <a name="installagent"></a>2.2: 각 모니터링 서버에 모니터링 에이전트 설치(모니터링하려는 각 VNET)
 
 중복성을 위해 ExpressRoute 연결의 각 끝(즉, 온-프레미스, Azure VNET)에 두 개 이상의 에이전트를 설치하는 것이 좋습니다. 다음 단계를 사용하여 에이전트를 설치합니다.
+  
+  >[!NOTE]
+  >Windows Server(2008 SP1 이상)에 에이전트를 설치해야 합니다. Windows Desktop OS 및 Linux OS를 사용한 ExpressRoute 회로 모니터링은 지원되지 않습니다. 
+  >
+  >
+  
+  >[!NOTE]
+  >SCOM 에이전트는 Azure에서 호스트되는 경우 일관되게 검색하지 못할 수 있습니다.  ExpressRoute를 모니터링할 때는 Azure VNET에서 SCOM 에이전트를 사용하지 않는 것이 좋습니다.
+  >
+  >
 
 1. **설치**를 실행하여 ExpressRoute 모니터링에 사용하려는 각 서버에 에이전트를 설치합니다. 모니터링에 사용하는 서버는 VM 또는 온-프레미스일 수 있으며 인터넷에 액세스할 수 있어야 합니다. 온-프레미스에 하나 이상의 에이전트를 설치하고, Azure에서 모니터링하려는 각 네트워크 세그먼트에 하나의 에이전트를 설치해야 합니다.
 2. **Welcome** 페이지에서 **다음**을 클릭합니다.

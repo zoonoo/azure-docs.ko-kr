@@ -1,11 +1,11 @@
 ---
-title: "B2B(기업 간) 메시지에 대해 파트너 만들기 - Azure Logic Apps | Microsoft Docs"
-description: "엔터프라이즈 통합 팩 및 Logic Apps와 통합 계정에 파트너를 추가하는 방법 알아보기"
+title: B2B(기업 간) 메시지에 대해 파트너 만들기 - Azure Logic Apps | Microsoft Docs
+description: 엔터프라이즈 통합 팩 및 Logic Apps와 통합 계정에 파트너를 추가하는 방법 알아보기
 services: logic-apps
 documentationcenter: .net,nodejs,java
-author: MandiOhlinger
+author: divyaswarnkar
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: b179325c-a511-4c1b-9796-f7484b4f6873
 ms.service: logic-apps
 ms.workload: integration
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/08/2016
 ms.author: LADocs; padmavc
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 89066ba062c2b243136a03a52144fd99ae87eddc
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 17f15c49e0f8137d5f11c57fa600588cda791c28
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="add-or-update-partners-in-business-to-business-agreements-in-your-workflow"></a>워크플로에서 기업 간 규약에 파트너 추가 또는 업데이트
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 02/27/2018
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-2. Azure의 주 메뉴에서 **모든 서비스**를 선택합니다. 검색 상자에 “통합”을 입력한 다음, **통합 계정**을 선택합니다.
+2. Azure 주 메뉴에서 **모든 서비스**를 선택합니다. 검색 상자에 “통합”을 입력한 다음, **통합 계정**을 선택합니다.
 
    ![통합 계정 찾기](./media/logic-apps-enterprise-integration-partners/account-1.png)
 

@@ -1,11 +1,11 @@
 ---
-title: "Azure Machine Learning 클래식 웹 서비스의 재학습 문제 해결 | Microsoft Docs"
-description: "Azure Machine Learning 웹 서비스에 대한 모델을 재학습하는 경우에 발생하는 일반적인 문제를 파악하고 바로 잡습니다."
+title: Azure Machine Learning 클래식 웹 서비스의 재학습 문제 해결 | Microsoft Docs
+description: Azure Machine Learning 웹 서비스에 대한 모델을 재학습하는 경우에 발생하는 일반적인 문제를 파악하고 바로 잡습니다.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: garyericson
-manager: raymondl
-editor: 
+manager: hjerez
+editor: ''
 ms.assetid: 75cac53c-185c-437d-863a-5d66d871921e
 ms.service: machine-learning
 ms.workload: data-services
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 011/01/2017
 ms.author: garye
-ms.openlocfilehash: 1e5327ad135d9bc8881354679dc3f1b8a472cad3
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 486f66e3d864a172ba301d017c12406ebafc4824
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="troubleshooting-the-retraining-of-an-azure-machine-learning-classic-web-service"></a>Azure Machine Learning 기존 웹 서비스의 재학습 문제 해결
 ## <a name="retraining-overview"></a>재학습 개요
@@ -41,7 +41,7 @@ ms.lasthandoff: 12/01/2017
 1. 학습 웹 서비스 호출: RRS(요청 응답 서비스)가 아닌 BES(Batch 실행 서비스)를 호출합니다. API 도움말 페이지에 나오는 샘플 C# 코드를 사용하여 호출할 수 있습니다. 
 2. *BaseLocation*, *RelativeLocation* 및 *SasBlobToken*에 대한 값 찾기: 학습 웹 서비스에 대한 호출에서 이러한 값을 출력에 반환합니다. 
    ![재학습 샘플의 출력 및 BaseLocation, RelativeLocation 및 SasBlobToken 값을 표시합니다.][image6]
-3. 새 학습된 모델을 사용하여 점수 매기기 웹 서비스에서 추가된 끝점 업데이트하기: 프로그래밍 방식으로 기계 학습 모델 재학습에서 제공된 샘플 코드를 사용하여 학습 웹 서비스에서 새로 학습된 모델로 점수 매기기 모델에 추가한 새 끝점을 업데이트합니다.
+3. 새 학습된 모델을 사용하여 점수 매기기 웹 서비스에서 추가된 끝점 업데이트하기: 프로그래밍 방식으로 Machine Learning 모델 재학습에서 제공된 샘플 코드를 사용하여 학습 웹 서비스에서 새로 학습된 모델로 점수 매기기 모델에 추가한 새 끝점을 업데이트합니다.
 
 ## <a name="common-obstacles"></a>일반적인 장애물
 ### <a name="check-to-see-if-you-have-the-correct-patch-url"></a>PATCH URL이 정확한지 확인합니다.

@@ -1,11 +1,11 @@
 ---
-title: "Azure Active Directory에서 구성 가능한 토큰 수명 | Microsoft Docs"
-description: "Azure AD에서 발급한 토큰의 수명을 설정하는 방법을 알아봅니다."
+title: Azure Active Directory에서 구성 가능한 토큰 수명 | Microsoft Docs
+description: Azure AD에서 발급한 토큰의 수명을 설정하는 방법을 알아봅니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 06f5b317-053e-44c3-aaaa-cf07d8692735
 ms.service: active-directory
 ms.workload: identity
@@ -16,11 +16,11 @@ ms.date: 07/20/2017
 ms.author: billmath
 ms.custom: aaddev
 ms.reviewer: anchitn
-ms.openlocfilehash: eaf9e7088c8c88140ea690c13ff7e0c7026b8f86
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 568bf5f0a4cf3eb77b528af2550d9729dcc59878
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-public-preview"></a>Azure Active Directory에서 구성 가능한 토큰 수명(공개 미리 보기)
 Azure AD(Azure Active Directory)에서 발급한 토큰의 수명을 지정할 수 있습니다. 조직의 모든 앱, 다중 테넌트(다중 조직) 응용 프로그램 또는 조직의 특정 서비스 주체에 대해 토큰 수명을 구성할 수 있습니다.
@@ -34,6 +34,11 @@ Azure AD에서 정책 개체는 개별 응용 프로그램 또는 조직의 모�
 
 조직의 기본 정책이 될 정책을 지정할 수 있습니다. 해당 정책은 더 높은 우선 순위의 정책으로 재정의되지 않는 한 조직 내의 모든 응용 프로그램에 적용됩니다. 특정 응용 프로그램에 정책을 할당할 수도 있습니다. 우선 순위는 정책 유형에 따라 다릅니다.
 
+> [!NOTE]
+> 구성 가능한 토큰 수명 정책은 SharePoint Online에서 지원되지 않습니다.  PowerShell을 통해 이 정책을 만들 수 있지만, SharePoint Online에서는 이 정책을 승인하지 않습니다. 유휴 세션 제한 시간을 구성하는 방법에 대한 자세한 내용은 [SharePoint Online 블로그](https://techcommunity.microsoft.com/t5/SharePoint-Blog/Introducing-Idle-Session-Timeout-in-SharePoint-and-OneDrive/ba-p/119208)를 참조하세요.
+>* SharePoint Online 액세스 토큰의 기본 수명은 1시간입니다. 
+>* SharePoint Online 새로 고침 토큰의 기본 최대 비활성 시간은 90일입니다.
+>
 
 ## <a name="token-types"></a>토큰 형식
 

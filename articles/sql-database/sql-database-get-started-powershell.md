@@ -1,26 +1,21 @@
 ---
-title: "Azure PowerShell: SQL Database 만들기 | Microsoft Docs"
-description: "Azure Portal에서 SQL Database 논리 서버, 서버 수준 방화벽 규칙 및 데이터베이스를 만드는 방법을 알아봅니다."
-keywords: "SQL 데이터베이스 자습서, SQL 데이터베이스 만들기"
+title: 'Azure PowerShell: SQL Database 만들기 | Microsoft Docs'
+description: Azure Portal에서 SQL Database 논리 서버, 서버 수준 방화벽 규칙 및 데이터베이스를 만드는 방법을 알아봅니다.
+keywords: SQL 데이터베이스 자습서, SQL 데이터베이스 만들기
 services: sql-database
-documentationcenter: 
 author: CarlRabeler
-manager: jhubbard
-editor: 
-ms.assetid: 
+manager: craigg
 ms.service: sql-database
 ms.custom: mvc,DBs & servers
-ms.workload: On Demand
-ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: quickstart
 ms.date: 04/17/2017
 ms.author: carlrab
-ms.openlocfilehash: 68f7ea0f5255602629a0b0960726c30dd508a655
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 6946ab259b6b3f7f911e047731d51f026742fa52
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-a-single-azure-sql-database-using-powershell"></a>PowerShell을 사용하여 단일 Azure SQL Database 만들기
 
@@ -120,10 +115,10 @@ Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
 이제 데이터베이스가 생겼으니 자주 사용하는 도구를 사용하여 데이터베이스에 연결하고 쿼리할 수 있습니다. 아래에서 도구를 선택하여 자세한 내용을 알아보세요.
 
 - [SQL Server Management Studio](sql-database-connect-query-ssms.md)
-- [Contact.java](sql-database-connect-query-vscode.md)
+- [Visual Studio Code](sql-database-connect-query-vscode.md)
 - [.NET](sql-database-connect-query-dotnet.md)
 - [PHP](sql-database-connect-query-php.md)
-- [Node.JS](sql-database-connect-query-nodejs.md)
+- [Node.js](sql-database-connect-query-nodejs.md)
 - [Java](sql-database-connect-query-java.md)
 - [Python](sql-database-connect-query-python.md)
 - [Ruby](sql-database-connect-query-ruby.md)

@@ -1,6 +1,6 @@
 ---
-title: "Azure Machine Learning 실험 서비스 구성 파일"
-description: "이 문서에서는 Azure ML 실험 서비스를 위한 구성 설정을 자세히 설명합니다."
+title: Azure Machine Learning 실험 서비스 구성 파일
+description: 이 문서에서는 Azure ML 실험 서비스를 위한 구성 설정을 자세히 설명합니다.
 services: machine-learning
 author: gokhanuluderya-msft
 ms.author: gokhanu
@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: 00e98ff07d144db791fcf074699614f1e664634b
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 75b55b45c355f585fd73bdc1d97bc6adbbc4e9a0
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-machine-learning-experimentation-service-configuration-files"></a>Azure Machine Learning 실험 서비스 구성 파일
 
@@ -206,7 +206,7 @@ DataSourceSettings:
  
 ```
 DataSourceSubstitutions:
-    myocal.dsource: myremote.dsource
+    mylocal.dsource: myremote.dsource
 ```
 
 위의 대체에 따라, 다음 코드 샘플은 이제 사용자가 코드를 변경할 필요 없이 "mylocal.dsource" 대신에 "myremote.dsource"에서 읽습니다.

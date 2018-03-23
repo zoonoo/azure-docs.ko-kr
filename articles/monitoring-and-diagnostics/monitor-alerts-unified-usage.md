@@ -1,9 +1,9 @@
 ---
-title: "Azure Monitor를 사용하여 경고 만들기, 보기 및 관리 - 경고(미리 보기) | Microsoft Docs"
-description: "통합된 새로운 Azure 경고 환경을 사용하여 한 곳에서 메트릭 및 로그 경고 규칙을 작성하고, 보고, 관리합니다."
+title: Azure Monitor를 사용하여 경고 만들기, 보기 및 관리 - 경고(미리 보기) | Microsoft Docs
+description: 통합된 새로운 Azure 경고 환경을 사용하여 한 곳에서 메트릭 및 로그 경고 규칙을 작성하고, 보고, 관리합니다.
 author: msvijayn
 manager: kmadnani1
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: 36729da3-e002-4a64-86b2-2513ca2cbb58
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2018
 ms.author: vinagara
-ms.openlocfilehash: b537bb42d43c4232c100061322e09bf492f2a20f
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: b6b6bfee5b9e9036a6d7ff17ff1a8d4de542bbd3
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="create-view-and-manage-alerts-using-azure-monitor---alerts-preview"></a>Azure Monitor를 사용하여 경고 만들기, 보기 및 관리 - 경고(미리 보기)
 
@@ -65,13 +65,13 @@ Azure Alerts(미리 보기)를 사용하는 방법에 대한 단계별 가이드
 
     > 통합된 경고(미리 보기)는 또한 활동 로그 경고를 지원합니다. [자세히 알아보기](monitoring-activity-log-alerts-new-experience.md).
 
-5. *메트릭 경고*: **리소스 종류**가 플랫폼이나 모니터 서비스(*Log Analytics* 이외)로 선택되었는지 확인한 다음 적절한 **리소스**가 선택되면 *수행* 단추를 클릭하여 경고 만들기로 돌아갑니다. 다음으로 **조건 추가** 단추를 사용하여 신호 옵션 목록, 해당 모니터링 서비스 및 나열된 형식에서 특정 신호를 선택합니다. 이전에 선택한 리소스에 사용할 수 있습니다.
+5. *메트릭 경고*: **리소스 종류**가 **메트릭**과 같은 신호 유형으로 선택되었는지 확인한 다음, 적절한 **리소스**가 선택되면 *완료* 단추를 눌러 [경고 만들기]로 돌아갑니다. 다음으로 **조건 추가** 단추를 사용하여 신호 옵션 목록, 해당 모니터링 서비스 및 나열된 형식에서 특정 신호를 선택합니다. 이전에 선택한 리소스에 사용할 수 있습니다.
 
     ![리소스 선택](./media/monitor-alerts-unified/AlertsPreviewResourceSelection.png)
 
     > [!NOTE]
 
-    > 빠른 경고에 도입된 새로운 메트릭 기능은 플랫폼 서비스에서 메트릭으로 신호 유형에만 포함됩니다.
+    >  모든 [거의 실시간 경고](monitoring-near-real-time-metric-alerts.md)에 사용 가능 리소스는 모니터 서비스 **플랫폼** 및 신호 유형과 함께 **메트릭**으로 나열됩니다.
 
 6. *메트릭 경고*: 신호를 선택하면 경고에 대한 논리를 정의할 수 있습니다. 참조용으로 신호의 기록 데이터는 마지막 6시간에서 지난 주까지 다양한 **기록 표시**를 사용하여 시간 창을 조정하는 옵션과 함께 표시됩니다. 준비된 시각화를 사용하여 조건, 집계 및 마지막으로 임계값의 표시된 옵션에서 **경고 논리**를 선택할 수 있습니다. 제공된 논리의 미리 보기로 조건은 경고가 트리거된 경우를 나타내는 신호 기록과 함께 시각화에 표시됩니다. 마지막으로 **기간** 옵션에서 선택하여 경고가 지정된 조건을 찾아야 하는 기간과 **빈도**를 선택하여 경고가 실행되어야 하는 빈도를 지정합니다.
 
@@ -81,7 +81,7 @@ Azure Alerts(미리 보기)를 사용하는 방법에 대한 단계별 가이드
 
     ![다차원 메트릭에 대한 신호 논리 구성](./media/monitor-alerts-unified/AlertsPreviewCriteriaMultiDim.png)
 
-8. *로그 경고*: **리소스 종류**가 *Log Analytics* 또는 *Application Insights*와 같은 분석 원본인지 확인한 다음, 적절한 **리소스**가 선택되면 *수행*을 클릭합니다. 다음으로 **조건 추가** 단추를 사용하여 리소스 및 *Log Analytics* 또는 *Application Insights*와 같은 선택된 로그 모니터 서비스에 대한 신호 목록 **사용자 지정 로그 검색** 옵션에서 사용할 수 있는 신호 옵션 목록을 봅니다.
+8. *로그 경고*: **리소스 종류**가 *Log Analytics* 또는 *Application Insights*와 같은 분석 원본이고 신호 유형이 **로그**인지 확인한 다음, 적절한 **리소스가** 선택되면 *완료*를 클릭합니다. 다음으로 **조건 추가** 단추를 사용하여 리소스 및 *Log Analytics* 또는 *Application Insights*와 같은 선택된 로그 모니터 서비스에 대한 신호 목록 **사용자 지정 로그 검색** 옵션에서 사용할 수 있는 신호 옵션 목록을 봅니다.
 
    ![리소스 선택 - 사용자 지정 로그 검색](./media/monitor-alerts-unified/AlertsPreviewResourceSelectionLog.png)
 
@@ -121,8 +121,8 @@ Azure Alerts(미리 보기)를 사용하는 방법에 대한 단계별 가이드
 
     **로그 경고**의 경우 기본 작업을 재정의하는 데 몇 가지 추가 기능을 사용할 수 있습니다.
 
-    - **이메일 알림**: 작업 그룹을 통해 보낸 이메일의 제목을 재정의합니다. 메일의 본문을 수정할 수 없습니다.
-    - **사용자 지정 Json 페이로드 포함**: 작업 그룹에서 사용하는 웹후크 Json을 재정의하고 대신 기본 페이로드를 사용자 지정 페이로드로 바꿉니다. 웹후크 형식에 대한 자세한 내용은 [로그 경고에 대한 웹후크 작업](monitor-alerts-unified-log-webhook.md)을 참조하세요.
+    - **이메일 알림**: 언급된 작업 그룹에 하나 이상의 이메일 작업이 있는 경우 작업 그룹을 통해 전송된 이메일의 *이메일 제목*을 재정의합니다. 메일 본문은 수정할 수 없으며, 이 필드는 이메일 주소에 대한 필드가 **아닙니다**.
+    - **사용자 지정 Json 페이로드 포함**: 언급된 작업 그룹에 하나 이상의 웹후크 작업이 있는 경우 작업 그룹에서 사용하는 웹후크 JSON을 재정의합니다. 사용자는 관련된 작업 그룹에 구성된 모든 웹후크에 사용할 JSON 형식을 지정할 수 있습니다. 웹후크 형식에 대한 자세한 내용은 [로그 경고에 대한 웹후크 작업](monitor-alerts-unified-log-webhook.md)을 참조하세요. 웹후크 테스트 옵션은 샘플 JSON을 사용하여 대상별로 형식 및 처리를 확인하고, 레이블이 지정된 이 옵션은 **테스트** 용도로만 의미가 있습니다.
 
         ![경고 로그에 대한 작업 재정의](./media/monitor-alerts-unified/AlertsPreviewOverrideLog.png)
 

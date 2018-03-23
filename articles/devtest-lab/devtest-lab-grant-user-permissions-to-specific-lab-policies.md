@@ -1,11 +1,11 @@
 ---
-title: "특정 랩 정책에 사용자 권한 부여| Microsoft 문서"
-description: "각 사용자의 요구에 따라 DevTest Lab에서 특정 랩 정책에 사용자 권한을 부여하는 방법 알아보기"
+title: 특정 랩 정책에 사용자 권한 부여| Microsoft 문서
+description: 각 사용자의 요구에 따라 DevTest Lab에서 특정 랩 정책에 사용자 권한을 부여하는 방법 알아보기
 services: devtest-lab,virtual-machines,visual-studio-online
 documentationcenter: na
 author: craigcaseyMSFT
 manager: douge
-editor: 
+editor: ''
 ms.assetid: 5ca829f0-eb69-40a1-ae26-03a629db1d7e
 ms.service: devtest-lab
 ms.workload: na
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/25/2016
 ms.author: v-craic
 ms.openlocfilehash: f92ad5e991bdb066bb9680b4865501076d43f450
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="grant-user-permissions-to-specific-lab-policies"></a>특정 랩 정책에 사용자 권한 부여
 ## <a name="overview"></a>개요
@@ -34,7 +34,7 @@ DevTest Lab에서 정책은 RBAC 작업 **Microsoft.DevTestLab/labs/policySets/p
 RBAC의 사용자 지정 역할에 대한 자세한 내용은 [사용자 지정 역할 액세스 제어](../active-directory/role-based-access-control-custom-roles.md)를 참조하세요.
 
 ## <a name="creating-a-lab-custom-role-using-powershell"></a>PowerShell을 사용하여 랩 사용자 지정 역할 만들기
-작업을 시작하려면 Azure PowerShell cmdlet을 설치하고 구성하는 방법을 설명하는 [https://azure.microsoft.com/blog/azps-1-0-pre](https://azure.microsoft.com/blog/azps-1-0-pre)문서의 내용을 확인해야 합니다.
+작업을 시작하려면 Azure PowerShell cmdlet을 설치하고 구성하는 방법을 설명하는 [https://azure.microsoft.com/blog/azps-1-0-pre](https://azure.microsoft.com/blog/azps-1-0-pre) 문서의 내용을 확인해야 합니다.
 
 Azure PowerShell cmdlet을 설정한 후 다음 작업을 수행할 수 있습니다.
 

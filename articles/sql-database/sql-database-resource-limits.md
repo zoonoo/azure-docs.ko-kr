@@ -1,11 +1,11 @@
 ---
-title: "Azure SQL Database 리소스 제한 | Microsoft Docs"
-description: "이 페이지에서는 Azure SQL Database에 대한 몇 가지 일반적인 리소스 제한을 설명합니다."
+title: Azure SQL Database 리소스 제한 | Microsoft Docs
+description: 이 페이지에서는 Azure SQL Database에 대한 몇 가지 일반적인 리소스 제한을 설명합니다.
 services: sql-database
 documentationcenter: na
 author: CarlRabeler
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: 884e519f-23bb-4b73-a718-00658629646a
 ms.service: sql-database
 ms.custom: DBs & servers
@@ -13,15 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 02/27/2018
+ms.date: 02/28/2018
 ms.author: carlrab
-ms.openlocfilehash: 839705b902b8e1343c1e0bda97a2ec1dc6b47042
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: eea4362e33ff2587758601758db463ffa82382b3
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-sql-database-resource-limits"></a>Azure SQL Database 리소스 제한
+
+> [!IMPORTANT]
+> Azure SQL Database 관리되는 인스턴스의 리소스 제한에 대해서는 [SQL Database 관리되는 인스턴스](sql-database-managed-instance.md#managed-instance-service-tier)를 참조하세요.
 
 ## <a name="single-database-storage-sizes-and-performance-levels"></a>단일 데이터베이스: 저장소 크기 및 성능 수준
 
@@ -79,7 +82,6 @@ P11 및 P15 데이터베이스에 대해 1TB보다 더 큰 최대 크기는 미�
 
 > [!NOTE]
 > 탄력적 풀의 개별 데이터베이스에 대한 리소스 제한은 일반적으로 DTU 및 서비스 계층을 기반으로 하는 풀 외부의 단일 데이터베이스의 경우와 동일합니다. 예를 들어 S2 데이터베이스의 최대 동시 작업자 수는 120명입니다. 따라서 풀의 데이터베이스당 최대 DTU가 50DTU(S2와 동일)인 경우 표준 풀의 데이터베이스에 대한 최대 동시 작업자 수도 120명입니다.
->
 
 [!INCLUDE [SQL DB service tiers table for elastic pools](../../includes/sql-database-service-tiers-table-elastic-pools.md)]
 

@@ -1,12 +1,12 @@
 ---
-title: "Azure Backup: 가상 머신 백업 준비 | Microsoft Docs"
-description: "환경이 Azure의 가상 머신을 백업할 준비가 되었는지 확인합니다."
+title: 'Azure Backup: 가상 머신 백업 준비 | Microsoft Docs'
+description: 환경이 Azure의 가상 머신을 백업할 준비가 되었는지 확인합니다.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: 
-keywords: "백업; 백업;"
+editor: ''
+keywords: 백업; 백업;
 ms.assetid: e87e8db2-b4d9-40e1-a481-1aa560c03395
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/1/2018
 ms.author: markgal;trinadhk;sogup;
-ms.openlocfilehash: 62e047d706bdc42abbe44340c87267e59eb84369
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: cd8274ab6b50eee83bc3e41ea543930aa309e790
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Resource Manager 배포 가상 머신을 백업하기 위한 환경 준비
 
@@ -49,12 +49,6 @@ Resource Manager 배포 가상 머신을 보호하거나 백업하기 전에 다
 환경을 준비하기 전에 다음과 같은 제한 사항을 이해해야 합니다.
 
 * 16개 이상의 데이터 디스크가 있는 가상 머신의 백업은 지원되지 않습니다.
-* 데이터 디스크 크기가 1,023GB보다 큰 가상 머신을 백업하는 것은 지원되지 않습니다.
-
-  > [!NOTE]
-  > 1TB보다 큰 디스크가 있는 VM에 대한 백업을 지원하는 비공개 미리 보기가 있습니다. 세부 정보는 [대형 디스크 VM 백업 지원에 대한 비공개 미리 보기](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)를 참조하세요.
-  >
-
 * 예약된 IP 주소가 있고 정의된 끝점이 없는 가상 머신의 백업은 지원되지 않습니다.
 * LUKS(Linux 통합 키 설치) 암호화를 통해 암호화된 Linux VM을 백업하도록 지원하지 않습니다.
 * CSV(클러스터 공유 볼륨) 또는 스케일 아웃 파일 서버 구성을 포함하는 VM을 백업하지 않는 것이 좋습니다. 스냅숏 작업 중에 클러스터 구성에 포함된 모든 VM이 포함되어야 합니다. Azure Backup은 다중 VM 일관성을 지원하지 않습니다. 

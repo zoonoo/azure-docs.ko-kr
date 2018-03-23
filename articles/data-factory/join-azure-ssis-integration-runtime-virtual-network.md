@@ -1,8 +1,8 @@
 ---
-title: "Azure-SSIS 통합 런타임을 Azure 가상 네트워크에 조인 | Microsoft Docs"
-description: "Azure-SSIS 통합 런타임을 Azure 가상 네트워크에 조인하는 방법을 알아봅니다."
+title: Azure-SSIS 통합 런타임을 Azure 가상 네트워크에 조인 | Microsoft Docs
+description: Azure-SSIS 통합 런타임을 Azure 가상 네트워크에 조인하는 방법을 알아봅니다.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: douglaslMS
 manager: jhubbard
 editor: monicar
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: douglasl
-ms.openlocfilehash: 3a5b68729d587e1365c42125108e610705965c86
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 4f1100b7e4fa2250baf282b53ef83c5f1aaa1c0e
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Azure-SSIS 통합 런타임을 Azure 가상 네트워크에 조인
 다음 시나리오에서 Azure-SSIS IR(통합 런타임)을 Azure 가상 네트워크에 조인합니다. 
@@ -176,7 +176,9 @@ Azure-SSIS 통합 런타임에서 조인한 가상 네트워크에 NSG(네트워
 # Register to the Azure Batch resource provider
 if(![string]::IsNullOrEmpty($VnetId) -and ![string]::IsNullOrEmpty($SubnetName))
 {
-    $BatchObjectId = (Get-AzureRmADServicePrincipal -ServicePrincipalName "MicrosoftAzureBatch").Id
+    $BatchApplicationId = "ddbf3205-c6bd-46ae-8127-60eb93363864"
+    $BatchObjectId = (Get-AzureRmADServicePrincipal -ServicePrincipalName $BatchApplicationId).Id
+
     Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
     while(!(Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.Batch").RegistrationState.Contains("Registered"))
     {
@@ -211,6 +213,11 @@ $AzureSSISName = "<Specify Azure-SSIS IR name>"
 $VnetId = "<Name of your Azure virtual network>"
 $SubnetName = "<Name of the subnet in the virtual network>"
 ```
+
+#### <a name="guidelines-for-selecting-a-subnet"></a>서브넷 선택 지침
+-   GatewaySubnet은 가상 네트워크 게이트웨이 전용이므로 Azure SSIS Integration Runtime을 배포할 때는 선택하지 마세요.
+-   선택한 서브넷에 Azure-SSIS IR에 사용할 수 있는 충분한 주소 공간이 있는지 확인합니다. 사용 가능한 IP 주소를 IR 노드 수의 2배 이상으로 유지합니다. Azure는 각 서브넷 내의 일부 IP 주소를 예약하며, 이러한 주소는 사용할 수 없습니다. 서브넷의 첫 번째 및 마지막 IP 주소는 Azure 서비스에 사용되는 3개 이상의 주소와 함께 프로토콜 적합성을 위해 예약됩니다. 자세한 내용은 [이러한 서브넷 내에서 IP 주소를 사용하는데 제한 사항이 있습니까?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)를 참조하세요.
+
 
 ### <a name="stop-the-azure-ssis-ir"></a>Azure-SSIS IR 중지
 가상 네트워크에 조인하려면 먼저 Azure-SSIS 통합 런타임을 중지합니다. 이 명령은 모든 노드를 해제하고 청구를 중지합니다.
@@ -264,6 +271,22 @@ Start-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupNa
 
 ```
 이 명령을 완료하는 데 20~30분이 걸립니다.
+
+## <a name="use-azure-expressroute-with-the-azure-ssis-ir"></a>Azure-SSIS IR에서 Azure ExpressRoute 사용
+
+[Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) 회로를 가상 네트워크 인프라로 연결하여 온-프레미스 네트워크를 Azure로 확장할 수 있습니다. 
+
+일반적인 구성은 조사 및 로깅을 위해 아웃바운드 인터넷 트래픽을 강제로 VNet 흐름에서 온-프레미스 네트워크 어플라이언스로 변경하는 강제 터널링(BGP 경로, 0.0.0.0/0을 VNet에 보급)을 사용하는 것입니다. 이 트래픽 흐름은 VNet의 Azure-SSIS IR과 Azure Data Factory 서비스 간의 연결을 끊습니다. 해결책은 하나의(또는 그 이상) [UDR(사용자 정의 경로)](../virtual-network/virtual-networks-udr-overview.md)을 Azure-SSIS IR을 포함하는 서브넷에 정의하는 것입니다. UDR이 정의한 특정 서브넷 경로는 BGP 경로 대신 적용됩니다.
+
+가능한 경우 다음 구성을 사용합니다.
+-   ExpressRoute 구성은 0.0.0.0/0을 보급하고 기본적으로 모든 아웃바운드 트래픽 온-프레미스를 강제로 터널링합니다.
+-   Azure-SSIS IR을 포함하는 서브넷에 적용된 UDR은 다음 홉 형식을 갖는 0.0.0.0/0 경로를 ‘Internet’으로 정의합니다.
+- 
+이러한 단계의 결합된 효과는 서브넷 수준 UDR이 강제된 터널링에 ExpressRoute를 담당하고 Azure-SSIS IR에서 아웃바운드 인터넷 액세스를 보장합니다.
+
+해당 서브넷에서의 아웃바운드 인터넷 트래픽을 조사하는 기능을 그대로 유지하려는 경우, 아웃바운드 대상을 [Azure 데이터 센터 IP 주소](https://www.microsoft.com/download/details.aspx?id=41653)로 제한하는 NSG 규칙을 서브넷에 추가할 수도 있습니다.
+
+예제를 보려면 [이 PowerShell 스크립트](https://gallery.technet.microsoft.com/scriptcenter/Adds-Azure-Datacenter-IP-dbeebe0c)를 참조하세요. 이 스크립트를 매주 실행하여 Azure 데이터 센터 IP 주소 목록을 최신 상태로 유지해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 Azure-SSIS 런타임에 대한 자세한 내용은 다음 항목을 참조하세요. 

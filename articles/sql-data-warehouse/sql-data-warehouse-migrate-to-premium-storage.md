@@ -1,11 +1,11 @@
 ---
-title: "기존 Azure 데이터 웨어하우스를 Premium Storage로 마이그레이션 | Microsoft Docs"
-description: "기존 데이터 웨어하우스를 Premium Storage로 마이그레이션하기 위한 지침"
+title: 기존 Azure 데이터 웨어하우스를 Premium Storage로 마이그레이션 | Microsoft Docs
+description: 기존 데이터 웨어하우스를 Premium Storage로 마이그레이션하기 위한 지침
 services: sql-data-warehouse
 documentationcenter: NA
 author: hirokib
 manager: barbkess
-editor: 
+editor: ''
 ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: migrate
 ms.date: 11/29/2016
 ms.author: elbutter;barbkess
-ms.openlocfilehash: 751f553c277cec579327771beb2f3256664452b1
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 1e216da55a4c425fe112215464cdedb59c8db585
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="migrate-your-data-warehouse-to-premium-storage"></a>데이터 웨어하우스를 Premium Storage로 마이그레이션
 Azure SQL Data Warehouse는 최근에 도입된 [큰 성능 예측 가능성을 위한 Premium Storage][premium storage for greater performance predictability]입니다. 이제 표준 저장소에 있는 기존 데이터 웨어하우스를 Premium Storage로 마이그레이션할 수 있습니다. 자동 마이그레이션을 활용하거나, 마이그레이션할 시기를 제어하려면(가동 중지 시간 포함) 직접 마이그레이션할 수도 있습니다.
@@ -31,13 +31,13 @@ Azure SQL Data Warehouse는 최근에 도입된 [큰 성능 예측 가능성을 
 
 | **지역** | **이 날짜 이전에 만든 데이터 웨어하우스** |
 |:--- |:--- |
-| 오스트레일리아 동부 |Premium Storage를 아직 사용할 수 없음 |
+| 오스트레일리아 동부 |2018년 1월 1일 |
 | 중국 동부 |2016년 11월 1일 |
 | 중국 북부 |2016년 11월 1일 |
 | 독일 중부 |2016년 11월 1일 |
 | 독일 북동부 |2016년 11월 1일 |
-| 인도 서부 |Premium Storage를 아직 사용할 수 없음 |
-| 일본 서부 |Premium Storage를 아직 사용할 수 없음 |
+| 인도 서부 |2018년 2월 1일 |
+| 일본 서부 |2018년 2월 1일 |
 | 미국 중북부 |2016년 11월 10일 |
 
 ## <a name="automatic-migration-details"></a>자동 마이그레이션 세부 정보
@@ -69,14 +69,14 @@ Microsoft는 다음 단계에 따라 마이그레이션을 완료하며 사용�
 
 | **지역** | **예상된 시작 날짜** | **예상된 종료 날짜** |
 |:--- |:--- |:--- |
-| 오스트레일리아 동부 |아직 결정되지 않음 |아직 결정되지 않음 |
-| 중국 동부 |2017년 1월 9일 |2017년 1월 13일 |
-| 중국 북부 |2017년 1월 9일 |2017년 1월 13일 |
-| 독일 중부 |2017년 1월 9일 |2017년 1월 13일 |
-| 독일 북동부 |2017년 1월 9일 |2017년 1월 13일 |
-| 인도 서부 |아직 결정되지 않음 |아직 결정되지 않음 |
-| 일본 서부 |아직 결정되지 않음 |아직 결정되지 않음 |
-| 미국 중북부 |2017년 1월 9일 |2017년 1월 13일 |
+| 오스트레일리아 동부 |2018년 3월 19일 |2018년 3월 20일 |
+| 중국 동부 |이미 마이그레이션됨 |이미 마이그레이션됨 |
+| 중국 북부 |이미 마이그레이션됨 |이미 마이그레이션됨 |
+| 독일 중부 |이미 마이그레이션됨 |이미 마이그레이션됨 |
+| 독일 북동부 |이미 마이그레이션됨 |이미 마이그레이션됨 |
+| 인도 서부 |2018년 3월 19일 |2018년 3월 20일 |
+| 일본 서부 |2018년 3월 19일 |2018년 3월 20일 |
+| 미국 중북부 |이미 마이그레이션됨 |이미 마이그레이션됨 |
 
 ## <a name="self-migration-to-premium-storage"></a>Premium Storage로 자체 마이그레이션
 가동 중지가 발생하는 시간을 제어하려는 경우 아래 단계를 사용하여 표준 저장소의 기존 데이터 웨어하우스를 Premium Storage로 마이그레이션할 수 있습니다. 이 옵션을 선택하면 해당 하위 지역에서 자동 마이그레이션을 시작하기 전에 자체 마이그레이션을 완료해야 합니다. 이렇게 하면 자동 마이그레이션이 충돌할 위험을 피할 수 있습니다([자동 마이그레이션 일정][automatic migration schedule] 참조).
@@ -84,11 +84,14 @@ Microsoft는 다음 단계에 따라 마이그레이션을 완료하며 사용�
 ### <a name="self-migration-instructions"></a>자체 마이그레이션 지침
 데이터 웨어하우스를 직접 마이그레이션하려면 백업 및 복원 기능을 사용하세요. 마이그레이션의 복원 부분은 데이터 웨어하우스당 1TB 저장소마다 약 1시간 정도가 소요될 예정입니다. 마이그레이션이 완료된 후 동일한 이름을 유지하려는 경우 [마이그레이션 중에 이름을 바꾸기 위한 단계][steps to rename during migration]를 따르세요.
 
-1. 데이터 웨어하우스를 [일시 중지][Pause]합니다. 자동 백업이 사용됩니다.
+1. 데이터 웨어하우스를 [일시 중지][Pause]합니다. 
 2. 가장 최근의 스냅숏에서 [복원][Restore]합니다.
 3. 표준 저장소의 기존 데이터 웨어하우스를 삭제합니다. **이 단계의 수행에 실패하면 두 데이터 웨어하우스에 대해 비용이 청구됩니다.**
 
 > [!NOTE]
+>
+> 데이터 웨어하우스를 복원할 때 데이터 웨어하우스 일시 중지 후에 사용 가능한 가장 최근 복원 지점이 표시되는지 확인합니다.
+>
 > 이러한 설정은 마이그레이션의 일부로 수행되지는 않습니다.
 >
 > * 데이터베이스 수준에서 감사를 다시 사용하도록 설정해야 합니다.
@@ -105,60 +108,13 @@ Microsoft는 다음 단계에 따라 마이그레이션을 완료하며 사용�
    ```
    ALTER DATABASE CurrentDatabasename MODIFY NAME = NewDatabaseName;
    ```
-2. "MyDW_BeforeMigration"을 [일시 중지][Pause]합니다. 자동 백업이 사용됩니다.
+2. "MyDW_BeforeMigration"을 [일시 중지][Pause]합니다. 
 3. 가장 최근의 스냅숏에서 이전 이름(예: "MyDW")을 갖는 새 데이터베이스로 [복원][Restore]합니다.
 4. "MyDW_BeforeMigration"을 삭제합니다. **이 단계의 수행에 실패하면 두 데이터 웨어하우스에 대해 비용이 청구됩니다.**
 
 
 ## <a name="next-steps"></a>다음 단계
 Premium Storage로 변경하여 데이터 웨어하우스의 기반 아키텍처에서 데이터베이스 blob 파일 수도 증가시켰습니다. 이 변경을 통해 성능을 최대한 개선하려면 다음 스크립트를 사용하여 클러스터형 columnstore 인덱스를 다시 작성하세요. 이 스크립트는 일부 기존 데이터를 추가 Blob에 강제로 적용하여 작동합니다. 아무 작업도 하지 않으면 자연스럽게 시간이 지나면서 테이블에 더 많은 데이터를 로드함에 따라 데이터가 재배포됩니다.
-
-**필수 조건:**
-
-- 데이터 웨어하우스를 1,000개 이상의 데이터 웨어하우스 단위로 실행해야 합니다([계산 능력 크기 조정][scale compute power] 참조).
-- 스크립트를 실행하는 사용자가 [mediumrc 역할][mediumrc role] 이상이어야 합니다. 이 역할에 사용자를 추가하려면 다음을 실행합니다. ````EXEC sp_addrolemember 'xlargerc', 'MyUser'````
-
-````sql
--------------------------------------------------------------------------------
--- Step 1: Create table to control index rebuild
--- Run as user in mediumrc or higher
---------------------------------------------------------------------------------
-create table sql_statements
-WITH (distribution = round_robin)
-as select
-    'alter index all on ' + s.name + '.' + t.NAME + ' rebuild;' as statement,
-    row_number() over (order by s.name, t.name) as sequence
-from
-    sys.schemas s
-    inner join sys.tables t
-        on s.schema_id = t.schema_id
-where
-    is_external = 0
-;
-go
-
---------------------------------------------------------------------------------
--- Step 2: Execute index rebuilds. If script fails, the below can be re-run to restart where last left off.
--- Run as user in mediumrc or higher
---------------------------------------------------------------------------------
-
-declare @nbr_statements int = (select count(*) from sql_statements)
-declare @i int = 1
-while(@i <= @nbr_statements)
-begin
-      declare @statement nvarchar(1000)= (select statement from sql_statements where sequence = @i)
-      print cast(getdate() as nvarchar(1000)) + ' Executing... ' + @statement
-      exec (@statement)
-      delete from sql_statements where sequence = @i
-      set @i += 1
-end;
-go
--------------------------------------------------------------------------------
--- Step 3: Clean up table created in Step 1
---------------------------------------------------------------------------------
-drop table sql_statements;
-go
-````
 
 데이터 웨어하우스에 문제가 발생하는 경우 [지원 티켓을 만들고][create a support ticket] 가능한 원인으로 "Premium Storage로 마이그레이션"을 참조하세요.
 

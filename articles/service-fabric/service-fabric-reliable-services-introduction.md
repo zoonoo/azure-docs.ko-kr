@@ -1,6 +1,6 @@
 ---
-title: "Service Fabric의 신뢰할 수 있는 서비스 프로그래밍 모델 개요 | Microsoft Docs"
-description: "서비스 패브릭의 신뢰할 수 있는 서비스 프로그래밍 모델에 대해 알아보고 사용자 고유의 서비스 작성을 시작합니다."
+title: Service Fabric의 신뢰할 수 있는 서비스 프로그래밍 모델 개요 | Microsoft Docs
+description: 서비스 패브릭의 신뢰할 수 있는 서비스 프로그래밍 모델에 대해 알아보고 사용자 고유의 서비스 작성을 시작합니다.
 services: Service-Fabric
 documentationcenter: .net
 author: masnider
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 3/9/2018
 ms.author: masnider;
-ms.openlocfilehash: cf647c078728c9fbe357fea5bef4aa6dfb86c975
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 1cbc116a8d595cfea0e87cd17b556e005f276774
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="reliable-services-overview"></a>신뢰할 수 있는 서비스 개요
 Azure 서비스 패브릭은 상태 비저장 및 상태 저장 신뢰할 수 있는 서비스의 작성과 관리를 단순화합니다. 이 항목은 다음에 대해 설명합니다.
@@ -34,7 +34,7 @@ Azure 서비스 패브릭은 상태 비저장 및 상태 저장 신뢰할 수 �
 ## <a name="what-are-reliable-services"></a>신뢰할 수 있는 서비스는 무엇입니까?
 Reliable Services는 단순하고 강력한 최고 수준의 프로그래밍 모델을 제공하여 응용 프로그램에 중요한 내용을 나타낼 수 있도록 합니다. 신뢰할 수 있는 서비스 프로그래밍 모델은 다음을 제공합니다.
 
-* Service Fabric 프로그래밍 API의 나머지 부분에 액세스합니다. [게스트 실행 파일](service-fabric-deploy-existing-app.md)로 모델링된 Service Fabric 서비스와는 달리 Reliable Services는 Service Fabric API의 나머지 부분을 직접 사용하게 됩니다. 그러면 서비스에서 다음을 수행할 수 있습니다.
+* Service Fabric 프로그래밍 API의 나머지 부분에 액세스합니다. [게스트 실행 파일](service-fabric-guest-executables-introduction.md)로 모델링된 Service Fabric 서비스와는 달리 Reliable Services는 Service Fabric API의 나머지 부분을 직접 사용하게 됩니다. 그러면 서비스에서 다음을 수행할 수 있습니다.
   * 시스템 쿼리
   * 클러스터의 엔터티에 대한 상태 보고
   * 구성 및 코드 변경 내용에 대한 알림 수신

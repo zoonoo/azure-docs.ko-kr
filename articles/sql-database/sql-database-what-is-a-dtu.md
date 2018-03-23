@@ -1,26 +1,20 @@
 ---
-title: "SQL Database: DTU란? | Microsoft Docs"
-description: "Azure SQL Database 트랜잭션 단위가 무엇인지 이해합니다."
-keywords: "데이터베이스 옵션, 데이터베이스 성능"
+title: 'SQL Database: DTU란? | Microsoft Docs'
+description: Azure SQL Database 트랜잭션 단위가 무엇인지 이해합니다.
+keywords: 데이터베이스 옵션, 데이터베이스 성능
 services: sql-database
-documentationcenter: 
 author: CarlRabeler
-manager: jhubbard
-editor: CarlRabeler
-ms.assetid: 89e3e9ce-2eeb-4949-b40f-6fc3bf520538
+manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: Active
 ms.date: 04/14/2017
 ms.author: carlrab
-ms.openlocfilehash: 4ab447cd2ad71a787e4d6bb6052299cec52d73d0
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 9d13541444f487ad6afb9f59c6c6ac646091d42c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="database-transaction-units-dtus-and-elastic-database-transaction-units-edtus"></a>DTU(데이터베이스 트랜잭션 단위) 및 eDTU(탄력적 데이터베이스 트랜잭션 단위)
 이 문서에서는 DTU(데이터베이스 트랜잭션 단위) 및 eDTU(탄력적 데이터베이스 트랜잭션 단위)와 최대 DTU 또는 eDTU를 적중하는 경우 발생하는 상황에 대해 설명합니다.  
@@ -52,7 +46,7 @@ DTU는 다른 성능 수준 및 서비스 계층에서 Azure SQL Database 간의
 추가 eDTU는 데이터베이스 가동 중지 시간 없이 풀의 데이터베이스에 영향을 주지 않은 채 기존 풀에 추가할 수 있습니다. 마찬가지로 더 이상 필요하지 않은 추가 eDTU는 언제든지 기존 풀에서 제거할 수 있습니다. 풀에서 데이터베이스를 추가하거나 제거하거나 다른 데이터베이스의 eDTU를 확보할 수 있도록 높은 부하에서 데이터베이스가 사용할 수 있는 eDTU 양을 제한할 수 있습니다. 데이터베이스에서 예측 가능한 방식으로 리소스를 사용하는 경우 풀에서 이동할 수 있으며 예측 가능한 양의 리소스가 필요한 단일 데이터베이스로 구성할 수 있습니다.
 
 ## <a name="how-can-i-determine-the-number-of-dtus-needed-by-my-workload"></a>내 워크로드에 필요한 DTU의 수를 결정하려면 어떻게 해야 하나요?
-기존 온-프레미스 또는 SQL Server 가상 컴퓨터 워크로드를 Azure SQL Database에 마이그레이션하려는 경우 [DTU 계산기](http://dtucalculator.azurewebsites.net/) 를 사용하여 필요한 DTU의 수를 대략적으로 계산할 수 있습니다. 기존 Azure SQL Database 워크로드의 경우 워크로드를 최적화하는 방법에 대해 깊이 이해하기 위해 [SQL Database Query Performance Insight](sql-database-query-performance.md) 를 사용하여 데이터베이스 리소스 사용(DTU)을 이해할 수 있습니다. [sys.dm_db_ resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) DMV를 사용하여 지난 1시간 동안 리소스 소비 정보를 얻을 수 있습니다. 또는 카탈로그 뷰 [sys.resource_stats](http://msdn.microsoft.com/library/dn269979.aspx)는 충실도가 평균 5분으로 더 낮지만 지난 14일 동안 동일한 데이터를 가져오도록 쿼리할 수 있습니다.
+기존 온-프레미스 또는 SQL Server 가상 머신 워크로드를 Azure SQL Database에 마이그레이션하려는 경우 [DTU 계산기](http://dtucalculator.azurewebsites.net/) 를 사용하여 필요한 DTU의 수를 대략적으로 계산할 수 있습니다. 기존 Azure SQL Database 워크로드의 경우 워크로드를 최적화하는 방법에 대해 깊이 이해하기 위해 [SQL Database Query Performance Insight](sql-database-query-performance.md) 를 사용하여 데이터베이스 리소스 사용(DTU)을 이해할 수 있습니다. [sys.dm_db_ resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) DMV를 사용하여 지난 1시간 동안 리소스 소비 정보를 얻을 수 있습니다. 또는 카탈로그 뷰 [sys.resource_stats](http://msdn.microsoft.com/library/dn269979.aspx)는 충실도가 평균 5분으로 더 낮지만 지난 14일 동안 동일한 데이터를 가져오도록 쿼리할 수 있습니다.
 
 ## <a name="how-do-i-know-if-i-could-benefit-from-an-elastic-pool-of-resources"></a>리소스의 탄력적 풀의 이점이 있다면 어떻게 알 수 있나요?
 풀은 특정 사용 패턴을 가진 많은 데이터베이스에 적합합니다. 주어진 데이터 베이스에 대해, 이 패턴은 상대적으로 사용률 급증이 드물고 평균 사용률이 낮음으로 규정됩니다. SQL Database는 기존 SQL Database 서버에서 데이터베이스의 기록 리소스 사용률을 자동으로 평가하고 Azure Portal의 적절한 풀 구성을 권장합니다. 자세한 내용은 [탄력적 풀을 사용해야 하는 경우](sql-database-elastic-pool.md)를 참조하세요.

@@ -1,11 +1,11 @@
 ---
-title: "VM에서 SQL Server로 SQL Server 데이터베이스 마이그레이션 | Microsoft Docs"
-description: "온-프레미스 사용자 데이터베이스를 Azure 가상 머신에서 SQL Server로 마이그레이션하는 방법에 대해 알아봅니다."
+title: VM에서 SQL Server로 SQL Server 데이터베이스 마이그레이션 | Microsoft Docs
+description: 온-프레미스 사용자 데이터베이스를 Azure 가상 머신에서 SQL Server로 마이그레이션하는 방법에 대해 알아봅니다.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: rothja
 manager: craigg
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 00fd08c6-98fa-4d62-a3b8-ca20aa5246b1
 ms.service: virtual-machines-sql
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: jroth
-ms.openlocfilehash: 23538e933c8d1c2165cec1bdf1e9db28e0065801
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 64245a968eca94518d2e4238b4bc5c93c952563a
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="migrate-a-sql-server-database-to-sql-server-in-an-azure-vm"></a>Azure VM에서 SQL Server로 SQL Server 데이터베이스 마이그레이션
 
@@ -96,6 +96,9 @@ Azure VM에서 온-프레미스 SQL Server 사용자 데이터베이스를 SQL S
 
 ## <a name="next-steps"></a>다음 단계
 Azure Virtual Machines의 SQL Server 실행에 대한 자세한 내용은 [Azure Virtual Machines의 SQL Server 개요](virtual-machines-windows-sql-server-iaas-overview.md)를 참조하세요.
+
+> [!TIP]
+> SQL Server 가상 머신에 대한 질문이 있으면 [질문과 대답](virtual-machines-windows-sql-server-iaas-faq.md)을 참조하세요.
 
 Azure SQL Server Virtual Machine을 만드는 방법에 대한 지침은 CSS SQL Server 엔지니어 블로그에서 [캡처한 이미지에서 Azure SQL 가상 머신을 '복제'하는 팁과 트릭](https://blogs.msdn.microsoft.com/psssql/2016/07/06/tips-tricks-on-cloning-azure-sql-virtual-machines-from-captured-images/)을 참조하세요.
 

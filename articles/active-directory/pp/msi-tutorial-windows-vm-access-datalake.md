@@ -1,11 +1,11 @@
 ---
-title: "Windows VM MSI(관리 서비스 ID)를 사용하여 Azure Data Lake Store에 액세스하는 방법"
-description: "Windows VM MSI(관리 서비스 ID)를 사용하여 Azure Data Lake Store에 액세스하는 방법을 보여주는 자습서입니다."
+title: Windows VM MSI(관리 서비스 ID)를 사용하여 Azure Data Lake Store에 액세스하는 방법
+description: Windows VM MSI(관리 서비스 ID)를 사용하여 Azure Data Lake Store에 액세스하는 방법을 보여주는 자습서입니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -15,10 +15,10 @@ ms.date: 12/15/2017
 ms.author: skwan
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 742b76e17b7ad00a70b0d18895c0b59ebe044d47
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-data-lake-store"></a>Windows VM MSI(관리 서비스 ID)를 사용하여 Azure Data Lake Store에 액세스
 

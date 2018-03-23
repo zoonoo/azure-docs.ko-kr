@@ -1,32 +1,27 @@
 ---
-title: "Azure CLI: SQL Database 만들기 | Microsoft Docs"
-description: "Azure CLI를 사용하여 SQL Database 논리 서버, 서버 수준 방화벽 규칙 및 데이터베이스를 만드는 방법에 대해 알아봅니다."
-keywords: "SQL 데이터베이스 자습서, SQL 데이터베이스 만들기"
+title: 'Azure CLI: SQL Database 만들기 | Microsoft Docs'
+description: Azure CLI를 사용하여 SQL Database 논리 서버, 서버 수준 방화벽 규칙 및 데이터베이스를 만드는 방법에 대해 알아봅니다.
+keywords: SQL 데이터베이스 자습서, SQL 데이터베이스 만들기
 services: sql-database
-documentationcenter: 
 author: CarlRabeler
-manager: jhubbard
-editor: 
-ms.assetid: 
+manager: craigg
 ms.service: sql-database
 ms.custom: mvc,DBs & servers
-ms.workload: On Demand
-ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 10/11/2017
 ms.author: carlrab
-ms.openlocfilehash: 5076a9fcbfb0c46a0aebf858d5ec1dcbee839946
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 73639d59d047fbf1e07b242e21605a83e3c4b837
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-a-single-azure-sql-database-using-the-azure-cli"></a>Azure CLI를 사용하여 단일 Azure SQL Database 만들기
 
 명령줄 또는 스크립트에서 Azure 리소스를 만들고 관리하는 데 Azure CLI가 사용됩니다. 이 가이드에서는 Azure CLI를 사용하여 [Azure SQL Database 논리 서버](sql-database-features.md)의 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md)에서 Azure SQL Database를 배포하는 방법에 대해 자세히 설명합니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -107,10 +102,10 @@ az group delete --name $resourcegroupname
 이제 데이터베이스가 생겼으니 자주 사용하는 도구를 사용하여 데이터베이스에 연결하고 쿼리할 수 있습니다. 아래에서 도구를 선택하여 자세한 내용을 알아보세요.
 
 - [SQL Server Management Studio](sql-database-connect-query-ssms.md)
-- [Contact.java](sql-database-connect-query-vscode.md)
+- [Visual Studio Code](sql-database-connect-query-vscode.md)
 - [.NET](sql-database-connect-query-dotnet.md)
 - [PHP](sql-database-connect-query-php.md)
-- [Node.JS](sql-database-connect-query-nodejs.md)
+- [Node.js](sql-database-connect-query-nodejs.md)
 - [Java](sql-database-connect-query-java.md)
 - [Python](sql-database-connect-query-python.md)
 - [Ruby](sql-database-connect-query-ruby.md)

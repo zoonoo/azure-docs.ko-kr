@@ -1,8 +1,8 @@
 ---
-title: "Azure AD Connect Health 버전 내역"
-description: "이 문서는 Azure AD Connect Health에 대한 릴리스 및 해당 릴리스에서 포함된 항목을 설명합니다."
+title: Azure AD Connect Health 버전 내역
+description: 이 문서는 Azure AD Connect Health에 대한 릴리스 및 해당 릴리스에서 포함된 항목을 설명합니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: karavar
 manager: mtillman
 editor: curtand
@@ -14,14 +14,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: b43eb5e78b70f38226e3e8cb53d1530d348c7c20
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: edc1771153581e73398e8df25e70660f9f85ceba
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health: 버전 릴리스 내역
 Azure Active Directory 팀은 새로운 기능과 성능으로 Azure AD Connect Health를 정기적으로 업데이트합니다. 이 문서는 출시된 버전 및 기능을 나열합니다.
+
+## <a name="march-2018"></a>2018년 3월
+**에이전트 업데이트:**
+
+*   AD DS에 대한 Azure AD Connect Health Agent(버전 3.0.176.0)
+  1. 에이전트 가용성 개선 사항 
+  2. 버그 수정 및 일반 개선 사항
+*   AD FS에 대한 Azure AD Connect Health Agent(버전 3.0.176.0)
+  1. 에이전트 가용성 개선 사항 
+  2. 버그 수정 및 일반 개선 사항
+* 동기화에 대한 Azure AD Connect Health Agent(버전 3.0.176.0)
+  1. 에이전트 가용성 개선 사항 
+  2. 버그 수정 및 일반 개선 사항
 
 ## <a name="december-2017"></a>2017년 12월
 **에이전트 업데이트:**

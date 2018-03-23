@@ -1,11 +1,11 @@
 ---
-title: "Azure Logic Apps에서 통합 계정 만들기, 연결, 삭제 또는 이동 | Microsoft Docs"
-description: "통합 계정을 만들고 논리 앱에 연결하는 방법"
+title: Azure Logic Apps에서 통합 계정 만들기, 연결, 삭제 또는 이동 | Microsoft Docs
+description: 통합 계정을 만들고 논리 앱에 연결하는 방법
 services: logic-apps
 documentationcenter: .net,nodejs,java
-author: MandiOhlinger
+author: divyaswarnkar
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: d3ad9e99-a9ee-477b-81bf-0881e11e632f
 ms.service: logic-apps
 ms.workload: integration
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2017
-ms.author: LADocs; mandia
-ms.openlocfilehash: b238ef8cf9d1328913334a92c042584334d81e3c
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.author: LADocs; divswa
+ms.openlocfilehash: fb1d0ceb26c5ed792f22051e2af10a7572200bdc
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="what-is-an-integration-account"></a>통합 계정이란?
 
@@ -72,7 +72,7 @@ ms.lasthandoff: 02/27/2018
 
 ## <a name="delete-your-integration-account"></a>통합 계정 삭제
 
-1. Azure의 주 메뉴에서 **모든 서비스**를 선택합니다. 검색 상자에 “통합”을 입력한 다음, **통합 계정**을 선택합니다.
+1. Azure의 주 메뉴에서 **모든 서비스**를 선택합니다. 검색 상자에 "통합"을 입력한 다음, **통합 계정**을 선택합니다.
 
    ![통합 계정 찾기](./media/logic-apps-enterprise-integration-accounts/account-1.png)
 
@@ -90,7 +90,7 @@ ms.lasthandoff: 02/27/2018
 
 다른 Azure 구독 또는 리소스 그룹으로 통합 계정을 이동하려면 다음과 같은 단계를 수행합니다. 통합 계정을 이동한 후에 새 리소스 ID를 사용할 수 있도록 모든 스크립트를 업데이트해야 합니다.
 
-1. Azure의 주 메뉴에서 **모든 서비스**를 선택합니다. 검색 상자에 “통합”을 입력한 다음, **통합 계정**을 선택합니다.
+1. Azure의 주 메뉴에서 **모든 서비스**를 선택합니다. 검색 상자에 "통합"을 입력한 다음, **통합 계정**을 선택합니다.
 
    ![통합 계정 찾기](./media/logic-apps-enterprise-integration-accounts/account-1.png)
 

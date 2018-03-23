@@ -1,9 +1,9 @@
 ---
-title: "Azure AD Connect: 통과 인증 - 현재 제한 사항 | Microsoft Docs"
-description: "이 문서에서는 Azure AD(Azure Active Directory) 통과 인증 문제의 현재 제한 사항에 대해 설명합니다."
+title: 'Azure AD Connect: 통과 인증 - 현재 제한 사항 | Microsoft Docs'
+description: 이 문서에서는 Azure AD(Azure Active Directory) 통과 인증 문제의 현재 제한 사항에 대해 설명합니다.
 services: active-directory
-keywords: "Azure AD Connect 통과 인증, Active Directory 설치, Azure AD에 대한 필수 구성 요소, SSO, Single Sign-on"
-documentationcenter: 
+keywords: Azure AD Connect 통과 인증, Active Directory 설치, Azure AD에 대한 필수 구성 요소, SSO, Single Sign-on
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2018
+ms.date: 03/07/2018
 ms.author: billmath
-ms.openlocfilehash: aee90f278476a899e0d47fc572c4f375bf926de2
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: ac085bf972885819f7c79996b0f6638fc01fc00d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Azure Active Directory 통과 인증: 현재 제한 사항
 
@@ -31,18 +31,18 @@ ms.lasthandoff: 01/11/2018
 
 - 사용자가 모든 웹 브라우저 기반 응용 프로그램에 로그인
 - 사용자가 [최신 인증](https://aka.ms/modernauthga)을 지원하는 Office 응용 프로그램(최신 인증을 _사용하는_ Office 2013 및 Office 2016)에 로그인
+- 사용자는 로그인 Exchange ActiveSync, SMTP, POP 및 IMAP 등의 레거시 프로토콜을 사용하여 Outlook 클라이언트에 로그인합니다.
 - 사용자가 온라인 및 하이브리드 토폴로지를 포함하여 최신 인증을 지원하는 비즈니스용 Skype로 로그인. 지원되는 토폴로지는 [여기](https://technet.microsoft.com/library/mt803262.aspx)를 참조하세요.
 - Windows 10 장치에 대한 Azure AD 도메인 가입
-- Exchange ActiveSync 지원
+- Multi-Factor Authentication에 사용할 앱 암호.
 
 ## <a name="unsupported-scenarios"></a>지원되지 않는 시나리오
 
 다음 시나리오는 지원되지 _않습니다_.
 
-- 사용자가 최신 인증 _없이_ 레거시 Office 클라이언트 응용 프로그램(Office 2010 및 Office 2013)에 로그인. 가능할 경우 조직은 최신 인증으로 전환하는 것이 좋습니다. 최신 인증은 통과 인증 지원을 허용합니다. Azure Multi-Factor Authentication 같은 [조건부 액세스](../active-directory-conditional-access-azure-portal.md) 기능을 사용하여 사용자 계정을 보호하는 데에도 도움이 됩니다.
+- 사용자가 최신 인증 _없이_ Outlook을 제외한 레거시 Office 클라이언트 응용 프로그램(Office 2010 및 Office 2013)에 로그인합니다. 가능할 경우 조직은 최신 인증으로 전환하는 것이 좋습니다. 최신 인증은 통과 인증 지원을 허용합니다. Azure Multi-Factor Authentication 같은 [조건부 액세스](../active-directory-conditional-access-azure-portal.md) 기능을 사용하여 사용자 계정을 보호하는 데에도 도움이 됩니다.
 - 사용자가 최신 인증이 _없는_ 비즈니스용 Skype 클라이언트 응용 프로그램에 로그인
 - 사용자가 PowerShell 버전 1.0에 로그인. PowerShell 버전 2.0을 사용하는 것이 좋습니다.
-- Multi-Factor Authentication에 사용할 앱 암호.
 - [자격 증명이 손실된](../active-directory-reporting-risk-events.md#leaked-credentials) 사용자 검색
 - Azure AD Domain Services를 사용하려면 테넌트에서 암호 해시 동기화를 사용하도록 설정해야 합니다. 따라서 통과 인증_만_ 사용하는 테넌트는 Azure AD Domain Services가 필요한 시나리오에서 사용할 수 없습니다.
 - 통과 인증은 [Azure AD Connect Health](../connect-health/active-directory-aadconnect-health.md)와 통합되지 않습니다.
@@ -63,4 +63,3 @@ ms.lasthandoff: 01/11/2018
 - [보안 심층 분석](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md) - 통과 인증 기능에 대한 자세한 기술 정보를 가져옵니다.
 - [Azure AD Seamless SSO](active-directory-aadconnect-sso.md): 보완적인 Azure AD Seamless SSO 기능을 알아봅니다.
 - [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): Azure Active Directory 포럼을 사용하여 새 기능 요청을 제출합니다.
-

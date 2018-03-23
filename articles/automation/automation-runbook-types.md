@@ -1,24 +1,18 @@
 ---
-title: "Azure Automation Runbook 형식 | Microsoft Docs"
-description: "Azure Automation에서 사용할 수 있는 다양한 형식의 Runbook을 설명하고 사용할 형식을 결정할 때 고려해야 하는 사항을 설명합니다. "
+title: Azure Automation Runbook 형식
+description: 'Azure Automation에서 사용할 수 있는 다양한 형식의 Runbook을 설명하고 사용할 형식을 결정할 때 고려해야 하는 사항을 설명합니다. '
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: jwhit
-editor: tysonn
-ms.assetid: 9265c975-4281-4819-a84f-d86641277f36
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 06/01/2017
-ms.author: bwren
-ms.openlocfilehash: e4a8ab0e68d6614fea1b44f0115a1c633f145277
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+manager: carmonm
+ms.openlocfilehash: f3a6b15891a4a1564073d149a198f6789b407342
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-automation-runbook-types"></a>Azure Automation Runbook 형식
 Azure Automation는 여러 가지 유형의 Runbook을 지원합니다. 아래 테이블에서는 각 유형에 대해 간략하게 설명합니다.  아래 섹션은 각각을 사용할 경우에 대한 고려 사항을 포함하여 각 형식에 대해 자세한 정보를 제공합니다.

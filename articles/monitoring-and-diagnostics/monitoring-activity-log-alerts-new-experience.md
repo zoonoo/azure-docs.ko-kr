@@ -1,9 +1,9 @@
 ---
-title: "Azure Monitor에서 새 경고(미리 보기) 환경을 사용하여 활동 로그 만들기 및 관리 | Microsoft Docs"
-description: "이 문서에서는 Azure Monitor 아래의 경고(미리 보기) 탭에서 활동 로그 경고를 만드는 방법에 대한 정보를 제공합니다. 이 문서에서는 이 기능에 대한 새 사용자 환경을 자세히 설명합니다."
+title: Azure Monitor에서 새 경고(미리 보기) 환경을 사용하여 활동 로그 만들기 및 관리 | Microsoft Docs
+description: 이 문서에서는 Azure Monitor 아래의 경고(미리 보기) 탭에서 활동 로그 경고를 만드는 방법에 대한 정보를 제공합니다. 이 문서에서는 이 기능에 대한 새 사용자 환경을 자세히 설명합니다.
 author: JYOTHIRMAISURI
 manager: vvithal
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: aabc0e57-78cd-44dd-a8d1-af5e1e567360
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2018
 ms.author: v-jysur
-ms.custom: 
-ms.openlocfilehash: afdd82617c47f0dee22c229feba87bdf79b90a69
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.custom: ''
+ms.openlocfilehash: a7553e4155df0d4ee49b798f44ca636dc7ecdcd2
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="create-activity-log-alerts-using-the-new-alerts-preview-experience"></a>새 경고(미리 보기) 환경을 사용하여 활동 로그 경고를 만듭니다.
 
@@ -89,7 +89,7 @@ ms.lasthandoff: 02/09/2018
 
      ![대상 선택](./media/monitoring-activity-log-alerts-new-experience/select-target.png)
 
-    - **대상 조건에서 **조건 추가**를 클릭하고 신호 유형을 **활동 로그**로 선택합니다.
+    - **대상 조건** 아래에서 **조건 추가**를 클릭하고, 신호 유형을 **활동 로그**로 선택합니다.
 
     - 표시되는 목록에서 신호를 선택합니다.
 
@@ -111,7 +111,7 @@ ms.lasthandoff: 02/09/2018
 
         ![ criteria selected](./media/monitoring-activity-log-alerts-new-experience/criteria-selected.png)
 
-4. **경고 규칙 정의**에서 다음 세부 정보를 제공합니다.
+4. **경고 규칙 세부 정보 정의**에서 다음 세부 정보를 제공합니다.
 
     - **경고 규칙 이름** - 새 경고 규칙의 이름
     - **설명** - 새 경고 규칙에 대한 설명

@@ -1,20 +1,20 @@
 ---
-title: "Azure Cost Management에서 비용 관리 보고서 사용 | Microsoft Docs"
-description: "이 문서에서는 Cloudyn 포털에서 다양한 비용 관리 보고서를 사용하는 방법을 설명합니다."
+title: Azure Cost Management에서 비용 관리 보고서 사용 | Microsoft Docs
+description: 이 문서에서는 Cloudyn 포털에서 다양한 비용 관리 보고서를 사용하는 방법을 설명합니다.
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 01/30/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
-ms.custom: 
-ms.openlocfilehash: 0a4f6a5940ccffe897a5609b837ddaeea98d87aa
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.custom: ''
+ms.openlocfilehash: 8078591b1e2ad120190a23dd29800bd0f1ae33ea
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="use-cost-management-reports"></a>비용 관리 보고서 사용
 
@@ -152,7 +152,7 @@ Cloudyn은 계정 선호도를 적용하여 할당이 각 연결된 계정의 �
 3. 그룹을 추가합니다.
 4. 이전에 만든 비용 모델을 선택합니다.
 5. 실제 비용 또는 사용한 비용을 선택합니다.
-6. 할당 규칙을 적용하여 원시 청구 데이터 보기를 보는지 아니면 Cloudyn 보기에 의해 다시 계산된 비용을 보는지 선택합니다.
+6. 할당 규칙을 적용하여 원시 청구 데이터 보기를 보는지 아니면 다시 계산된 비용 보기를 보는지 선택합니다.
 
 다음은 보고서의 예입니다.
 

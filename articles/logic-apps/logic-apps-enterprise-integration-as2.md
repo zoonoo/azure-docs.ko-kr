@@ -1,11 +1,11 @@
 ---
-title: "B2B 엔터프라이즈 통합용 AS2 메시지 - Azure Logic Apps | Microsoft Docs"
-description: "Azure Logic Apps과 B2B 엔터프라이즈 통합용 AS2 메시지 교환"
+title: B2B 엔터프라이즈 통합용 AS2 메시지 - Azure Logic Apps | Microsoft Docs
+description: Azure Logic Apps과 B2B 엔터프라이즈 통합용 AS2 메시지 교환
 services: logic-apps
 documentationcenter: .net,nodejs,java
-author: MandiOhlinger
+author: divyaswarnkar
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: c9b7e1a9-4791-474c-855f-988bd7bf4b7f
 ms.service: logic-apps
 ms.workload: integration
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
-ms.author: LADocs; mandia
-ms.openlocfilehash: 8c6dbc507cd1b79fe9424071bc3eb8bf24331a16
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.author: LADocs; divswa
+ms.openlocfilehash: acc66f2cc88734b5c15fb9f4ace8339908418463
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="exchange-as2-messages-for-enterprise-integration-with-logic-apps"></a>논리 앱과 엔터프라이즈 통합용 AS2 메시지 교환
 
@@ -40,7 +40,7 @@ Azure Logic Apps의 AS2 메시지를 교환하기 전에 AS2 규약을 만들고
 
 1.  [Azure Portal](http://portal.azure.com "Azure Portal")에 로그인합니다.  
 
-2. Azure의 주 메뉴에서 **모든 서비스**를 선택합니다. 검색 상자에 “통합”을 입력한 다음, **통합 계정**을 선택합니다.
+2. Azure 주 메뉴에서 **모든 서비스**를 선택합니다. 검색 상자에 "통합"을 입력한 다음, **통합 계정**을 선택합니다.
 
    ![통합 계정 찾기](./media/logic-apps-enterprise-integration-as2/overview-1.png)
 

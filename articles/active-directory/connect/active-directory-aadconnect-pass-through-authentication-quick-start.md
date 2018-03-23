@@ -1,9 +1,9 @@
 ---
-title: "Azure AD 통과 인증 - 빠른 시작 | Microsoft Docs"
-description: "이 문서에서는 Azure AD(Azure Active Directory) 통과 인증을 시작하는 방법을 설명합니다."
+title: Azure AD 통과 인증 - 빠른 시작 | Microsoft Docs
+description: 이 문서에서는 Azure AD(Azure Active Directory) 통과 인증을 시작하는 방법을 설명합니다.
 services: active-directory
-keywords: "Azure AD Connect 통과 인증, Active Directory 설치, Azure AD에 대한 필수 구성 요소, SSO, Single Sign-on"
-documentationcenter: 
+keywords: Azure AD Connect 통과 인증, Active Directory 설치, Azure AD에 대한 필수 구성 요소, SSO, Single Sign-on
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 03/07/2018
 ms.author: billmath
-ms.openlocfilehash: 1da7c064030501b5c6547b65c091b1a50da93899
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b592eb8ca43e5bf3eebe2b0c47d8f17dbec7b238
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Azure Active Directory 통과 인증: 빠른 시작
 
@@ -116,20 +116,38 @@ Azure AD Connect를 처음 설치하는 경우 [사용자 지정 설치 경로](
 
 ## <a name="step-5-ensure-high-availability"></a>5단계: 고가용성 보장
 
-프로덕션 환경에 통과 인증을 배포하려는 경우 독립 실행형 인증 에이전트를 설치해야 합니다. 이 두 번째 인증 에이전트는 Azure AD Connect 및 첫 번째 인증 에이전트를 실행하는 서버가 아닌 _다른_ 서버에 설치합니다. 이렇게 설치하면 로그인 요청에 대한 고가용성이 제공됩니다. 다음 지침에 따라 독립 실행형 인증 에이전트를 배포합니다.
+프로덕션 환경에 통과 인증을 배포하려는 경우 하나 이상의 독립 실행형 인증 에이전트를 설치해야 합니다. 이러한 인증 에이전트를 Azure AD Connect를 실행하는 서버 _이외의_ 서버에 설치합니다. 이렇게 설치하면 사용자 로그인 요청에 대해 고가용성이 제공됩니다.
 
-1. 인증 에이전트 최신 버전을 다운로드합니다(버전 1.5.193.0 이상). 테넌트의 전역 관리자 자격 증명을 사용하여 [Azure Active Directory 관리 센터](https://aad.portal.azure.com)에 로그인합니다.
+다음 지침에 따라 인증 에이전트 소프트웨어를 다운로드합니다.
+
+1. 인증 에이전트의 최신 버전(버전 1.5.193.0 이상)을 다운로드하려면 테넌트의 전역 관리자 자격 증명을 사용하여 [Azure Active Directory 관리 센터](https://aad.portal.azure.com)에 로그인합니다.
 2. 왼쪽 창에서 **Azure Active Directory**를 선택합니다.
 3. **Azure AD Connect**, **통과 인증**, **에이전트 다운로드**를 차례로 선택합니다.
 4. **약관 동의 및 다운로드** 단추를 선택합니다.
-5. 이전 단계에서 다운로드한 실행 파일을 실행하여 인증 에이전트 최신 버전을 설치합니다. 메시지가 표시되면 테넌트의 전역 관리자 자격 증명을 입력합니다.
 
 ![Azure Active Directory 관리 센터 - 인증 에이전트 다운로드 버튼](./media/active-directory-aadconnect-pass-through-authentication/pta9.png)
 
 ![Azure Active Directory 관리 센터 - 에이전트 다운로드 창](./media/active-directory-aadconnect-pass-through-authentication/pta10.png)
 
 >[!NOTE]
->[Azure Active Directory 인증 에이전트](https://aka.ms/getauthagent)도 다운로드할 수 있습니다. 설치하기 _전에_ 인증 에이전트의 [서비스 약관](https://aka.ms/authagenteula)을 검토하고 동의해야 합니다.
+>[여기](https://aka.ms/getauthagent)에서 인증 에이전트 소프트웨어를 직접 다운로드할 수도 있습니다. 설치하기 _전에_ 인증 에이전트의 [서비스 약관](https://aka.ms/authagenteula)을 검토하고 동의합니다.
+
+독립 실행형 인증 에이전트를 배포하는 방법에는 다음 두 가지가 있습니다.
+
+첫째, 다운로드한 인증 에이전트 실행 파일을 실행하고, 메시지가 표시되면 테넌트의 전역 관리자 자격 증명을 제공하여 대화형으로 수행할 수 있습니다.
+
+둘째, 무인 배포 스크립트를 만든 후 실행할 수 있습니다. 한 번에 여러 인증 에이전트를 배포하거나 사용자 인터페이스가 사용되도록 설정되지 않았거나 원격 데스크톱에 액세스할 수 없는 Windows 서버에 인증 에이전트를 설치하려는 경우에 유용합니다. 다음은 이 방식을 사용하는 방법에 대한 지침입니다.
+
+1. 다음 명령을 실행하여 인증 에이전트를 설치합니다. `AADConnectAuthAgentSetup.exe REGISTERCONNECTOR="false" /q`
+2. Windows PowerShell을 사용하여 서비스에 인증 에이전트를 등록할 수 있습니다. 테넌트에 대한 전역 관리자 사용자 이름 및 암호를 포함하는 PowerShell 자격 증명 개체 `$cred`를 만듭니다. 다음 명령에서 *\<username\>* 및 *\<암호\>*를 바꿔서 실행합니다.
+   
+        $User = "<username>"
+        $PlainPassword = '<password>'
+        $SecurePassword = $PlainPassword | ConvertTo-SecureString -AsPlainText -Force
+        $cred = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $User, $SecurePassword
+3. **C:\Program Files\Microsoft Azure AD Connect Authentication Agent**로 이동하여 사용자가 만든 `$cred` 개체를 사용하여 다음 스크립트를 실행합니다.
+   
+        RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft Azure AD Connect Authentication Agent\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Credentials -Usercredentials $cred -Feature PassthroughAuthentication
 
 ## <a name="next-steps"></a>다음 단계
 - [스마트 잠금](active-directory-aadconnect-pass-through-authentication-smart-lockout.md): 테넌트에서 스마트 잠금 기능을 구성하여 사용자 계정을 보호하는 방법을 알아봅니다.
@@ -138,6 +156,6 @@ Azure AD Connect를 처음 설치하는 경우 [사용자 지정 설치 경로](
 - [질문과 대답](active-directory-aadconnect-pass-through-authentication-faq.md): 자주 하는 질문과 대답을 살펴봅니다.
 - [문제 해결](active-directory-aadconnect-troubleshoot-pass-through-authentication.md): 통과 인증 기능의 일반적인 문제를 해결하는 방법을 알아봅니다.
 - [보안 심층 분석](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md): 통과 인증 기능에 대한 기술 정보를 가져옵니다.
-- [Azure AD Seamless SSO](active-directory-aadconnect-sso.md): 보완적인 Azure AD Seamless SSO 기능에 대해 알아봅니다.
+- [Azure AD Seamless SSO](active-directory-aadconnect-sso.md): 보완적인 Azure AD Seamless SSO 기능을 알아봅니다.
 - [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): Azure Active Directory 포럼을 사용하여 새 기능 요청을 제출합니다.
 

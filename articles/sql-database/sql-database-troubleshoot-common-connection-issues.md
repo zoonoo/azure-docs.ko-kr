@@ -1,25 +1,19 @@
 ---
-title: "Azure SQL Database에 대한 일반적인 연결 문제 해결"
-description: "Azure SQL Database에 대한 일반적인 연결 오류를 확인 및 해결하는 단계"
+title: Azure SQL Database에 대한 일반적인 연결 문제 해결
+description: Azure SQL Database에 대한 일반적인 연결 오류를 확인 및 해결하는 단계
 services: sql-database
-documentationcenter: 
 author: dalechen
-manager: cshepard
-editor: 
-ms.assetid: ac463d1c-aec8-443d-b66e-fa5eadcccfa8
+manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: troubleshooting
+ms.topic: article
 ms.date: 11/03/2017
 ms.author: daleche
-ms.openlocfilehash: 1d756aa023ae143608acc988ddd0ae8acee1a113
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 56ebe6876d621e190b4e808804113ff80cb3f50c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="troubleshoot-connection-issues-to-azure-sql-database"></a>Azure SQL Database에 대한 연결 문제 해결
 Azure SQL Database에 대한 연결이 실패하면 [오류 메시지](sql-database-develop-error-messages.md)가 표시됩니다. 이 문서는 Azure SQL Database 연결 문제를 해결하는 데 도움이 되는 중앙 집중식 항목입니다. 여기서는 연결 문제의 [일반적인 원인](#cause)을 소개하고, 문제 식별에 도움이 되는 [문제 해결 도구](#try-the-troubleshooter-for-azure-sql-database-connectivity-issues)를 추천하며, [일시적인 오류](#troubleshoot-transient-errors) 및 [영구적이거나 일시적이지 않은 오류](#troubleshoot-persistent-errors)를 해결하는 문제 해결 단계를 제공합니다. 

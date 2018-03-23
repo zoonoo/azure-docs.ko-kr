@@ -1,9 +1,9 @@
 ---
-title: "Azure AD Connect: Seamless Single Sign-On - 빠른 시작 | Microsoft Docs"
-description: "이 문서에서는 Azure Active Directory Seamless Single Sign-On을 시작하는 방법을 설명합니다."
+title: 'Azure AD Connect: Seamless Single Sign-On - 빠른 시작 | Microsoft Docs'
+description: 이 문서에서는 Azure Active Directory Seamless Single Sign-On을 시작하는 방법을 설명합니다.
 services: active-directory
-keywords: "Azure AD Connect의 정의, Active Directory 설치, Azure AD에 대한 필수 구성 요소, SSO, Single Sign-on"
-documentationcenter: 
+keywords: Azure AD Connect의 정의, Active Directory 설치, Azure AD에 대한 필수 구성 요소, SSO, Single Sign-on
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/23/2017
 ms.author: billmath
 ms.openlocfilehash: 58ca992f9fcf9a03d917f0dc250a292c4d5f49e5
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory Seamless Single Sign-On: 빠른 시작
 
@@ -138,7 +138,7 @@ Mac OS를 실행하는 컴퓨터가 Azure AD에 가입되어 있는지 확인합
 
 #### <a name="google-chrome-all-platforms"></a>Google Chrome(모든 플랫폼)
 
-환경에서 [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) 또는 [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) 정책 설정을 재정의한 경우 Azure AD의 URL(https://autologon.microsoftazuread-sso.com)도 해당 정책 설정에 추가해야 합니다.
+환경에서 [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) 또는 [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) 정책 설정을 재정의한 경우 Azure AD의 URL(https://autologon.microsoftazuread-sso.com))도 해당 정책 설정에 추가해야 합니다.
 
 #### <a name="google-chrome-mac-os-only"></a>Google Chrome(Mac OS에만 해당)
 

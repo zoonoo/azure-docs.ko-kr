@@ -1,13 +1,13 @@
 ---
 layout: HubPage
-hide_bc: True
-title: "Microsoft Azure 설명서"
-description: "Microsoft Azure 클라우드 서비스를 사용하여 강력한 응용 프로그램을 관리하는 방법을 알아봅니다. 설명서, 샘플 코드, 자습서 등을 가져옵니다."
-ms.openlocfilehash: 85745cf147296e053824a879108c1ea607343f57
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+hide_bc: ''
+title: Microsoft Azure 설명서
+description: Microsoft Azure 클라우드 서비스를 사용하여 강력한 응용 프로그램을 관리하는 방법을 알아봅니다. 설명서, 샘플 코드, 자습서 등을 가져옵니다.
+ms.openlocfilehash: 5084e6f9ab8d73e2c8ffefc95a376bc85222320c
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/09/2018
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -134,6 +134,11 @@ ms.lasthandoff: 12/11/2017
                                                         <span>Python</span>
                                                     </a>
                                                 </div>
+                                                <div class="ico48Link">
+                                                    <a href="/go/azure/">
+                                                        <span>Go</span>
+                                                    </a>
+                                                </div>
                                                 <div>
                                                     <h4>앱 모델</h4>
                                                     <ul class="noBullet">
@@ -179,7 +184,7 @@ ms.lasthandoff: 12/11/2017
                                             <div class="cardText">
                                                 <h3>명령줄 도구</h3>
                                                 <div class="ico48Link">
-                                                    <a href="/cli/azure/overview">
+                                                    <a href="/cli/azure">
                                                         <img src="media/index/azure_dev-7.svg" alt="">
                                                         <span>Azure<br />CLI</span>
                                                     </a>
@@ -252,7 +257,7 @@ ms.lasthandoff: 12/11/2017
                                         <li>
                                             <a href="/azure/azure-functions/">
                                                 <img src="media/index/AzureFunctions.svg" alt="" />
-                                                <p>함수</p>
+                                                <p>Functions</p>
                                             </a>
                                         </li>
                                         <li>
@@ -671,7 +676,7 @@ ms.lasthandoff: 12/11/2017
                             </li>
                             <li>
                                 <div class="group">
-                                    <h3>저장소</h3>
+                                    <h3>Storage</h3>
                                     <ul>
                                         <li>
                                             <a href="/azure/storage/">
@@ -733,7 +738,8 @@ ms.lasthandoff: 12/11/2017
                                         <li>
                                             <a href="/azure/data-lake-analytics/">
                                                 <img src="media/index/DataLakeStore.svg" alt="" />
-                                                <p>Data Lake Analytics</p>
+                                                <p>Data Lake Analytics
+</p>
                                             </a>
                                         </li>
                                         <li>
@@ -823,7 +829,8 @@ ms.lasthandoff: 12/11/2017
                                         <li>
                                             <a href="/azure/event-hubs/">
                                                 <img src="media/index/EventHubs.svg" alt="" />
-                                                <p>Event Hubs</p>
+                                                <p>Event Hubs
+</p>
                                             </a>
                                         </li>
                                         <li>
@@ -841,7 +848,7 @@ ms.lasthandoff: 12/11/2017
                                         <li>
                                             <a href="/azure/machine-learning/">
                                                 <img src="media/index/MachineLearning.svg" alt="" />
-                                                <p>기계 학습</p>
+                                                <p>Machine Learning</p>
                                             </a>
                                         </li>
                                         <li>
@@ -894,7 +901,7 @@ ms.lasthandoff: 12/11/2017
                                         <li>
                                             <a href="/azure/search/">
                                                 <img src="media/index/Search.svg" alt="" />
-                                                <p>Search</p>
+                                                <p>검색</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1029,7 +1036,7 @@ ms.lasthandoff: 12/11/2017
                         </ul>
                     </li>
                     <li>
-                        <a data-default="true" href="#Compute">Compute</a>
+                        <a data-default="true" href="#Compute">컴퓨팅</a>
                         <ul id="Compute" class="cardsA">
                             <li>
                                 <a href="/azure/virtual-machines/linux/">
@@ -1176,7 +1183,8 @@ ms.lasthandoff: 12/11/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Service Fabric</h3>
-                                                    <p>Windows 또는 Linux에서 마이크로 서비스를 개발하고 컨테이너를 오케스트레이션</p>
+                                                    <p>Windows 또는 Linux에서 마이크로 서비스를 개발하고 컨테이너를 오케스트레이션
+</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1626,7 +1634,7 @@ ms.lasthandoff: 12/11/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Search</h3>
+                                                    <h3>검색</h3>
                                                     <p>완전히 관리되는 SaaS(Search-as-a-Service)</p>
                                                 </div>
                                             </div>
@@ -2003,7 +2011,7 @@ ms.lasthandoff: 12/11/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>사용자 지정 음성 서비스</h3>
+                                                    <h3>Custom Speech Service</h3>
                                                     <p>음성 인식 장벽 극복</p>
                                                 </div>
                                             </div>
@@ -2179,7 +2187,8 @@ ms.lasthandoff: 12/11/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Data Lake Analytics</h3>
+                                                    <h3>Data Lake Analytics
+</h3>
                                                     <p>빅 데이터 사용을 용이하게 하는 분산 분석 서비스</p>
                                                 </div>
                                             </div>
@@ -2355,7 +2364,8 @@ ms.lasthandoff: 12/11/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Event Hubs</h3>
+                                                    <h3>Event Hubs
+</h3>
                                                     <p>수백만 개의 장치에서 원격 분석 수신</p>
                                                 </div>
                                             </div>
@@ -2670,7 +2680,7 @@ ms.lasthandoff: 12/11/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Active Directory Domain Services</h3>
-                                                    <p>도메인 컨트롤러를 사용하지 않고 도메인에 Azure 가상 머신 연결</p>
+                                                    <p>도메인 컨트롤러가 없는 도메인에 Azure 가상 머신 연결</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3250,6 +3260,29 @@ ms.lasthandoff: 12/11/2017
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
+                                                </div>
+                                            </div>
+                                            <div class="cardText">
+                                                <h3>
+                                                    <a href="/go/azure/">Go SDK 가져오기</a>
+                                                </h3>
+                                                <p>
+                                                    <a href="/go/azure/azure-sdk-go-qs-vm">시작</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://godoc.org/github.com/Azure/azure-sdk-for-go">참조</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="cardSize">
+                                    <div class="cardPadding">
+                                        <div class="card">
+                                            <div class="cardImageOuter">
+                                                <div class="cardImage">
                                                     <img src="media/index/azure_dev-6.svg" alt="" />
                                                 </div>
                                             </div>
@@ -3285,7 +3318,7 @@ ms.lasthandoff: 12/11/2017
                                             <div class="cardText">
                                                 <h3>Azure CLI 2.0 </h3>
                                                 <p>
-                                                    <a href="/cli/azure/overview">시작</a>
+                                                    <a href="/cli/azure">시작</a>
                                                 </p>
                                                 <p>
                                                     <a href="/cli/azure/install-azure-cli">Azure CLI 2.0 다운로드</a>

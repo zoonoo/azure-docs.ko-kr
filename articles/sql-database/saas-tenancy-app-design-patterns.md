@@ -1,26 +1,20 @@
 ---
-title: "다중 테넌트 SaaS 패턴 - Azure SQL Database | Microsoft Docs"
-description: "Azure 클라우드 환경에서 실행되는 다중 테넌트 SaaS(Software-as-a-Service) 데이터베이스 응용 프로그램의 요구 사항 및 일반적인 데이터 아키텍처 패턴에 대해 알아봅니다."
-keywords: "SQL Database 자습서"
+title: 다중 테넌트 SaaS 패턴 - Azure SQL Database | Microsoft Docs
+description: Azure 클라우드 환경에서 실행되는 다중 테넌트 SaaS(Software-as-a-Service) 데이터베이스 응용 프로그램의 요구 사항 및 일반적인 데이터 아키텍처 패턴에 대해 알아봅니다.
+keywords: SQL Database 자습서
 services: sql-database
-documentationcenter: 
 author: billgib
 manager: craigg
-editor: MightyPen,srinia
-ms.assetid: 1dd20c6b-ddbb-40ef-ad34-609d398d008a
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Active
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/12/2017
 ms.author: billgib
-ms.openlocfilehash: c4c5b79342aaa3c9b09e922956b095e8191cafd9
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: ac4eceb2265850b18682b38141f24b18ca0f9b4b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>다중 테넌트 SaaS 데이터베이스 테넌시 패턴
 

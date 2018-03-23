@@ -1,26 +1,20 @@
 ---
-title: "온-프레미스에서 Azure로 시나리오에서 Azure Site Recovery의 네트워크 인터페이스 관리 | Microsoft Docs"
-description: "Azure Site Recovery를 사용하여 온-프레미스에서 Azure로 시나리오의 네트워크 인터페이스를 관리하는 방법을 설명합니다."
+title: 온-프레미스에서 Azure로 복제에서 Azure Site Recovery의 네트워크 인터페이스 관리 | Microsoft Docs
+description: Azure Site Recovery를 사용하여 온-프레미스에서 Azure로 복제에서 네트워크 인터페이스를 관리하는 방법을 설명합니다.
 services: site-recovery
-documentationcenter: 
 author: mayanknayar
 manager: rochakm
-editor: 
-ms.assetid: 
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 03/05/2018
 ms.author: manayar
-ms.openlocfilehash: ab8582d9c32cf13bd7b21a59031af8fde58effbf
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: a0d42608dc689e5f084f4ec91858531feeac8033
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
-# <a name="manage-virtual-machine-network-interfaces-for-on-premises-to-azure-scenarios"></a>온-프레미스에서 Azure로 시나리오의 가상 머신 네트워크 인터페이스 관리
+# <a name="manage-virtual-machine-network-interfaces-for-on-premises-to-azure-replication"></a>온-프레미스에서 Azure로 복제에서 가상 머신 네트워크 인터페이스 관리
 
 Azure의 VM(가상 머신)에는 하나 이상의 네트워크 인터페이스가 연결되어 있어야 합니다. 네트워크 인터페이스 수는 VM 크기에서 지원되는 수만큼 연결할 수 있습니다.
 

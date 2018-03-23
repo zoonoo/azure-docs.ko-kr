@@ -1,8 +1,8 @@
 ---
-title: "새 구독 또는 리소스 그룹으로 Azure 리소스 이동 | Microsoft Docs"
-description: "Azure Resource Manager를 사용하여 리소스를 새 리소스 그룹 또는 구독으로 이동합니다."
+title: 새 구독 또는 리소스 그룹으로 Azure 리소스 이동 | Microsoft Docs
+description: Azure Resource Manager를 사용하여 리소스를 새 리소스 그룹 또는 구독으로 이동합니다.
 services: azure-resource-manager
-documentationcenter: 
+documentationcenter: ''
 author: tfitzmac
 manager: timlt
 editor: tysonn
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6a1d56a270ae0c44db18f26091cc3c550a37e420
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: c4bf3871b4636ce769dd8d84a637b88d4a00db97
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>새 리소스 그룹 또는 구독으로 리소스 이동
 
@@ -99,7 +99,7 @@ ms.lasthandoff: 03/05/2018
 * 새 Azure 계정(및 Azure Active Directory 테넌트)로 리소스를 이동하며 앞의 섹션의 지침을 수행하는 데 지원이 필요합니다.
 * 클래식 리소스를 이동하지만 제한 사항으로 문제가 발생합니다.
 
-## <a name="services-that-enable-move"></a>이동을 사용하는 서비스
+## <a name="services-that-can-be-moved"></a>이동할 수 있는 서비스
 
 새 리소스 그룹 및 구독으로 이동할 수 있게 하는 서비스는 다음과 같습니다.
 
@@ -151,7 +151,7 @@ ms.lasthandoff: 03/05/2018
 * Virtual Networks - [Virtual Networks 제한 사항](#virtual-networks-limitations) 참조
 * VPN Gateway
 
-## <a name="services-that-do-not-enable-move"></a>이동을 사용하지 않는 서비스
+## <a name="services-that-cannot-be-moved"></a>이동할 수 없는 서비스
 
 현재 리소스 이동을 사용하지 않는 서비스는 다음과 같습니다.
 

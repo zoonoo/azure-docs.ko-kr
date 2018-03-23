@@ -1,6 +1,6 @@
 ---
-title: "자전거 공유 자습서 - Azure Machine Learning Workbench에서 고급 데이터 준비"
-description: "이 자습서에서는 Azure Machine Learning Workbench를 사용하여 종단 간 데이터 준비 작업을 수행합니다."
+title: 자전거 공유 자습서 - Azure Machine Learning Workbench에서 고급 데이터 준비
+description: 이 자습서에서는 Azure Machine Learning Workbench를 사용하여 종단 간 데이터 준비 작업을 수행합니다.
 services: machine-learning
 author: ranvijaykumar
 ms.author: ranku
@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 09/21/2017
-ms.openlocfilehash: ca7239fd3e31c7a6cfc6fb64e04afb376e01c190
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: f1d4b58d0fe0628aa00b8229a1383d3ada414f62
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="tutorial-use-azure-machine-learning-workbench-for-advanced-data-preparation-bike-share-data"></a>자습서: 고급 데이터 준비를 위해 Azure Machine Learning Workbench 사용(자전거 공유 데이터)
 Azure Machine Learning(미리 보기)은 데이터를 준비하고, 실험을 개발하고, 클라우드 범위에서 모델을 배포할 수 있는 전문 데이터 과학자를 위한 종단 간 데이터 과학 및 고급 분석 통합 솔루션입니다.
@@ -736,7 +736,7 @@ df.head(10)
 3. HDInsight 실행 구성을 만듭니다. 클러스터 이름과 `sshuser` 암호가 필요합니다.
 
     ```azurecli
-    az ml computetarget attach --name hdinsight --address <yourclustername>.azurehdinsight.net --username sshuser --password <your password> --type cluster
+    az ml computetarget attach cluster --name hdinsight --address <yourclustername>.azurehdinsight.net --username sshuser --password <your password>
     az ml experiment prepare -c hdinsight
     ```
 > [!NOTE]

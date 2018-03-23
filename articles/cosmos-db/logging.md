@@ -1,24 +1,24 @@
 ---
-title: "Azure Cosmos DB 진단 로깅 | Microsoft Docs"
-description: "이 자습서를 사용하여 Azure Cosmos DB 로깅을 시작할 수 있습니다."
+title: Azure Cosmos DB 진단 로깅 | Microsoft Docs
+description: 이 자습서를 사용하여 Azure Cosmos DB 로깅을 시작할 수 있습니다.
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: mimig1
 manager: jhubbard
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/20/2018
+ms.date: 03/07/2018
 ms.author: mimig
-ms.openlocfilehash: 0d76e3bea8b3d24c4232c699354320f6b873722e
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: f647387b4e80c36339a456b8e9a2cfade7ac8102
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Azure DB Cosmos DB 진단 로깅
 
@@ -31,6 +31,13 @@ Azure Cosmos DB 계정 모니터링 시작에 앞서 로깅과 모니터링에 �
 다음 이미지는 사용할 수 있는 여러 Azure 로그 종류를 나타냅니다.
 
 ![다양한 종류의 Azure 로그](./media/logging/azurelogging.png)
+
+위 이미지에서 **계산 리소스**는 게스트 OS에 액세스할 수 있는 Azure 리소스를 나타냅니다. 예를 들어, Azure Virtual Machines, 가상 머신 확장 집합, Azure Container Service는 계산 리소스로 간주됩니다. 계산 리소스는 활동 로그, 진단 로그 및 응용 프로그램 로그를 생성합니다. 자세한 내용은 [Azure 모니터링 - 계산 리소스](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md#azure-monitor-sources---compute-subset) 문서를 참조하세요.
+
+**비계산 리소스**는 기본 OS에 액세스할 수 없고 리소스를 바로 사용하는 경우의 리소스입니다. 예: 네트워크 보안 그룹, Logic Apps 등 **Cosmos DB**는 비계산 리소스입니다. 활동 로그에서 또는 포털에서 진단 로그 옵션을 사용하도록 설정하여 비계산 리소스에 대한 로그를 볼 수 있습니다. 자세한 내용은 [Azure 모니터링 - 비계산 리소스](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md#azure-monitor-sources---everything-else) 문서를 참조하세요.
+
+활동 로그는 Cosmos DB에 대한 구독 수준의 작업, Listkey, Write DatabaseAccounts와 같은 작업이 로깅됨을 기록합니다. 진단 로그는 보다 세부적인 로깅을 제공하고 DataPlaneRequests(만들기, 읽기, 쿼리.. ) 및 MongoRequests를 로깅할 수 있도록 합니다.
+
 
 여기서는 Azure Activity, Azure Diagnotic 및 Metrics에 초점을 맞추겠습니다. 이 세 로그의 차이는 무엇인가요? 
 

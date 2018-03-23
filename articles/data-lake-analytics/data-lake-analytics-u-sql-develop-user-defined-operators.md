@@ -1,10 +1,10 @@
 ---
-title: "U-SQL UDO(사용자 정의 연산자) 개발 | Microsoft Docs"
-description: "Data Lake Analytics 작업에 사용 및 재사용되는 사용자 정의 연산자를 개발하는 방법에 대해 알아봅니다. "
+title: U-SQL UDO(사용자 정의 연산자) 개발 | Microsoft Docs
+description: 'Data Lake Analytics 작업에 사용 및 재사용되는 사용자 정의 연산자를 개발하는 방법에 대해 알아봅니다. '
 services: data-lake-analytics
-documentationcenter: 
-author: edmacauley
-manager: jhubbard
+documentationcenter: ''
+author: saveenr
+manager: kfile
 editor: cgronlun
 ms.assetid: e5189e4e-9438-46d1-8686-ed4836bf3356
 ms.service: data-lake-analytics
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
-ms.author: edmaca
-ms.openlocfilehash: 5e534f96b908d2aa1f4d7c48655509ece8dcf43e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: saveenr
+ms.openlocfilehash: 7c0b9c193f8f1c3a3043824186e337f942ebfd56
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="develop-u-sql-user-defined-operators-udos"></a>U-SQL UDO(사용자 정의 연산자) 개발
 U-SQL 작업에서 데이터를 처리하기 위한 사용자 정의 연산자를 개발하는 방법에 대해 알아봅니다.
@@ -121,7 +121,7 @@ U-SQL에 대한 일반적인 용도의 어셈블리 개발에 대한 지침은 [
 8. **솔루션 탐색기**에서 **Script.usql**을 마우스 오른쪽 클릭하고 **빌드 스크립트**를 클릭합니다.
 9. **솔루션 탐색기**에서 **Script.usql**을 마우스 오른쪽 클릭하고 **스크립트 제출**을 클릭합니다.
 10. Azure 구독에 연결하지 않았다면 Azure 계정 자격 증명을 입력하라는 메시지가 표시됩니다.
-11. **Submit**를 클릭합니다. 제출이 완료되면 결과 창에서 제출 결과 및 작업 링크를 사용할 수 있습니다.
+11. **제출**을 클릭합니다. 제출이 완료되면 결과 창에서 제출 결과 및 작업 링크를 사용할 수 있습니다.
 12. 최근 작업 상태를 보고 화면을 새로 고치려면 **새로 고침** 단추를 클릭하세요.
 
 **출력을 보려면**

@@ -1,29 +1,29 @@
 ---
-title: "Microsoft Azure에서 개인 데이터 검색, 식별 및 분류 | Microsoft Docs"
-description: "데이터를 검색, 분류, 검색, 식별하는 방법에 대해 자세히 알아보기"
+title: Microsoft Azure에서 개인 데이터 검색, 식별 및 분류 | Microsoft Docs
+description: Azure에서 데이터를 검색, 분류 및 식별하면 GDPR(일반 데이터 보호 규정)을 준수하는 데 도움이 될 수 있습니다.
 services: security
 documentationcenter: na
 author: barclayn
 manager: MBaldwin
 editor: TShinder
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 03/06/2018
 ms.author: barclayn
-ms.custom: 
-ms.openlocfilehash: 011fe26c297ff991af1282c1ff3914031a99f1e4
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.custom: ''
+ms.openlocfilehash: 21308faf5d3efd3908eccab4f37acb0cfccdcb8e
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="discover-identify-and-classify-personal-data-in-microsoft-azure"></a>Microsoft Azure에서 개인 데이터 검색, 식별 및 분류
 
-이 문서에서는 Azure Data Catalog, Azure Active Directory, SQL Database, Azure HDInsight의 Hadoop 클러스터에 대한 파워 쿼리, Azure Information Protection, Azure Search 및 Azure Cosmos DB용 SQL 쿼리를 비롯한 여러 Azure 도구와 서비스에서 개인 데이터를 검색, 식별 및 분류하는 방법에 대한 지침을 제공합니다.
+이 문서에서는 Azure Data Catalog, Azure Active Directory, SQL Database, Azure HDInsight의 Hadoop 클러스터에 대한 파워 쿼리, Azure Information Protection, Azure Search 및 Azure Cosmos DB용 SQL 쿼리를 비롯한 여러 Azure 도구와 서비스에서 개인 데이터를 검색, 식별 및 분류하는 방법에 대한 지침을 제공합니다. 이러한 도구 및 프로세스를 GDPR(일반 데이터 보호 규정)을 준수하기 위해 사용할 수도 있습니다.
 
 ## <a name="scenario-problem-statement-and-goal"></a>시나리오, 문제 설명 및 목표
 
@@ -114,7 +114,7 @@ New-AzureRmSQLDatabase -ResourceGroupName $resourcegroupname `
 >[!Note]
 Windows 관리자는 PowerShell을 사용하는 경향이 있지만 일부는 Azure CLI를 사용합니다.
 
-### <a name="how-do-i-search-for-personal-data-in-sql-database-in-the-azure-portal"></a>Azure Portal의 SQL Database에서 개인 데이터를 검색하려면 어떻게 할까요?**
+### <a name="how-do-i-search-for-personal-data-in-sql-database-in-the-azure-portal"></a>Azure Portal의 SQL Database에서 개인 데이터를 검색하려면 어떻게 할까요?
 
 개인 데이터를 검색하기 위해 Azure Portal 내에서 기본 제공 쿼리 편집기 도구를 사용할 수 있습니다. SQL Server 관리자 로그인 및 암호를 사용하여 도구에 로그인하고 쿼리를 입력합니다.
 

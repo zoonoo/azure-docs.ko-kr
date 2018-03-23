@@ -1,24 +1,20 @@
 ---
-title: "Azure Automation에서 Runbook 만들기 또는 가져오기"
-description: "이 문서에서는 Azure Automation에서 새 Runbook을 만들거나 파일에서 가져오는 방법을 설명합니다."
+title: Azure Automation에서 Runbook 만들기 또는 가져오기
+description: 이 문서에서는 Azure Automation에서 새 Runbook을 만들거나 파일에서 가져오는 방법을 설명합니다.
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: jwhit
-editor: tysonn
-ms.assetid: 24414362-b690-4474-8ca7-df18e30fc31d
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/15/2018
 ms.topic: article
+manager: carmonm
+ms.devlang: na
 ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/29/2017
-ms.author: magoedte;bwren
-ms.openlocfilehash: 0484b1f230a8544e3de2388df2cbdab3b54f9d3d
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 61fd58e21c8afce141f17f39da9ff6f77070c7a8
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="creating-or-importing-a-runbook-in-azure-automation"></a>Azure Automation에서 Runbook 만들기 또는 가져오기
 [새로 만들거나](#creating-a-new-runbook)[파일 또는Runbook 갤러리에서 기존 Runbook](automation-runbook-gallery.md)을 가져와서 Azure Automation에 Runbook을 추가할 수 있습니다. 이 문서에서는 파일로부터 Runbook을 만들고 가져오는 것과 관련한 정보를 제공합니다.  [Azure Automation에 대한 Runbook 및 모듈 갤러리](automation-runbook-gallery.md)에서 커뮤니티 Runbook과 모듈 액세스에 대한 모든 상세 정보를 확인할 수 있습니다.

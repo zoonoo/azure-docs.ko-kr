@@ -1,12 +1,12 @@
 ---
-title: "Azure Active Directory B2C: 사용자 지정 정책을 사용하여 OAuth2 ID 공급자로 LinkedIn 추가"
-description: "OAuth2 프로토콜과 사용자 지정 정책을 사용하여 LinkedIn 응용 프로그램 설정에 대한 방법 문서"
+title: 'Azure Active Directory B2C: 사용자 지정 정책을 사용하여 OAuth2 ID 공급자로 LinkedIn 추가'
+description: OAuth2 프로토콜과 사용자 지정 정책을 사용하여 LinkedIn 응용 프로그램 설정에 대한 방법 문서
 services: active-directory-b2c
-documentationcenter: 
+documentationcenter: ''
 author: yoelhor
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,10 +15,10 @@ ms.devlang: na
 ms.date: 10/23/2017
 ms.author: yoelh
 ms.openlocfilehash: 77e2b9b283e4051370ffb905681135c27512834e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="azure-active-directory-b2c-add-linkedin-as-an-identity-provider-by-using-custom-policies"></a>Azure Active Directory B2C: 사용자 지정 정책을 사용하여 ID 공급자로 LinkedIn 추가
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
@@ -39,9 +39,9 @@ Azure AD B2C(Azure Active Directory B2C)에서 LinkedIn을 ID 공급자로 사�
 
     a. **회사 이름**, 회사에 대한 설명이 포함된 **이름** 및 새 앱의 **설명**을 입력합니다.
 
-    b. **응용 프로그램 로고**를 업로드합니다.
+    나. **응용 프로그램 로고**를 업로드합니다.
 
-    c. **응용 프로그램 사용**을 선택합니다.
+    다. **응용 프로그램 사용**을 선택합니다.
 
     d. **웹 사이트 URL** 상자에 **https://login.microsoftonline.com**을 붙여넣습니다.
 

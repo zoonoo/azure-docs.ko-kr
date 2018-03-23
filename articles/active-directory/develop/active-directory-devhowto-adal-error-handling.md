@@ -1,8 +1,8 @@
 ---
-title: "ADAL(Azure Active Directory 인증 라이브러리) 클라이언트에 대한 오류 처리 모범 사례"
-description: "ADAL 클라이언트 응용 프로그램에 대한 오류 처리 지침 및 모범 사례를 제공합니다."
+title: ADAL(Azure Active Directory 인증 라이브러리) 클라이언트에 대한 오류 처리 모범 사례
+description: ADAL 클라이언트 응용 프로그램에 대한 오류 처리 지침 및 모범 사례를 제공합니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: danieldobalian
 manager: mtillman
 ms.author: bryanla
@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/11/2017
-ms.custom: 
-ms.openlocfilehash: 275ab65569a1861f046c8ee77914e0859d41d5f7
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.date: 02/27/2017
+ms.custom: ''
+ms.openlocfilehash: 2b4c945f5707c158c76c8edbd233d1a8b034111f
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>ADAL(Azure Active Directory 인증 라이브러리) 클라이언트에 대한 오류 처리 모범 사례
 
@@ -479,6 +479,9 @@ catch (AdalException e) {
 
 ## <a name="error-and-logging-reference"></a>오류 및 로깅 참조
 
+### <a name="logging-personal-identifiable-information-pii--organizational-identifiable-information-oii"></a>PII(개인 식별이 가능한 정보) 및 OII(조직 식별이 가능한 정보) 로깅
+기본적으로 ADAL 로깅은 PII 또는 OII를 캡처하거나 로그하지 않습니다. 라이브러리는 앱 개발자가 로거 클래스의 setter를 통해 이를 켜도록 허용합니다. PII 또는 OII를 켜면 앱은 매우 중요한 데이터를 안전하게 처리하고 모든 규정 준수에 대한 책임을 지게 됩니다.
+
 ### <a name="net"></a>.NET
 
 #### <a name="adal-library-errors"></a>ADAL 라이브러리 오류
@@ -487,7 +490,7 @@ catch (AdalException e) {
 
 #### <a name="guidance-for-error-logging-code"></a>오류 로깅 코드에 대한 지침
 
-ADAL .NET 로깅은 작업 중인 플랫폼에 따라 다릅니다. 로깅 사용 방법에 대한 코드는 [로깅 설명서](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet#diagnostics)를 참조하세요.
+ADAL .NET 로깅은 작업 중인 플랫폼에 따라 다릅니다. 로깅을 사용하도록 설정하는 방법에 대한 코드는 [로깅 위키](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Logging-in-ADAL.Net)를 참조하세요.
 
 ### <a name="android"></a>Android
 
@@ -497,14 +500,9 @@ ADAL .NET 로깅은 작업 중인 플랫폼에 따라 다릅니다. 로깅 사�
 
 #### <a name="operating-system-errors"></a>운영 체제 오류
 
-Android OS 오류는 ADAL의 AuthenticationException을 통해 공개되며, “SERVER_INVALID_REQUEST”로 식별할 수 있고, 오류 설명을 통해 더 세분화할 수 있습니다. 앱에서 UI 표시를 위해 선택할 수 있는 두 가지 주요 메시지는 다음과 같습니다.
+Android OS 오류는 ADAL의 AuthenticationException을 통해 공개되며, “SERVER_INVALID_REQUEST”로 식별할 수 있고, 오류 설명을 통해 더 세분화할 수 있습니다. 
 
-- SSL 오류 
-  - [최종 사용자가 Chrome 53을 사용하는 중입니다.](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki/SSL-Certificate-Validation-Issue)
-  - [인증서 체인에 추가 다운로드로 표시된 인증서가 있습니다(사용자가 IT 관리자에게 문의해야 함).](https://vkbexternal.partners.extranet.microsoft.com/VKBWebService/ViewContent.aspx?scid=KB;EN-US;3203929)
-  - 장치에서 루트 CA를 신뢰하지 않습니다. IT 관리자에게 문의하세요. 
-- 네트워크 관련 오류 
-  - [SSL 인증서 유효성 검사와 관련이 있을 수 있는 네트워크 문제](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki/SSL-Certificate-Validation-Issue)이며, 단일 다시 시도를 할 수 있습니다.
+일반적인 오류 및 앱이나 최종 사용자가 오류를 발견할 경우 수행할 단계의 전체 목록은 [ADAL Android 위키](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki)를 참조하세요. 
 
 #### <a name="guidance-for-error-logging-code"></a>오류 로깅 코드에 대한 지침
 
@@ -521,6 +519,15 @@ Logger.getInstance().setExternalLogger(new ILogger() {
 
 // 2. Set the log level
 Logger.getInstance().setLogLevel(Logger.LogLevel.Verbose);
+
+// By default, the `Logger` does not capture any PII or OII
+
+// PII or OII will be logged
+Logger.getInstance().setEnablePII(true);
+
+// To STOP logging PII or OII, use the following setter
+Logger.getInstance().setEnablePII(false);
+
 
 // 3. Send logs to logcat.
 adb logcat > "C:\logmsg\logfile.txt";

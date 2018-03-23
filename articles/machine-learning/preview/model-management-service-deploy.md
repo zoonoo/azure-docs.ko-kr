@@ -1,20 +1,20 @@
 ---
-title: "Azure Machine Learning 모델 관리 웹 서비스 배포 | Microsoft Docs"
-description: "이 문서에서는 Azure Machine Learning 모델 관리를 사용하여 기계 학습 모델을 배포하는 단계에 대해 설명합니다."
+title: Azure Machine Learning 모델 관리 웹 서비스 배포 | Microsoft Docs
+description: 이 문서에서는 Azure Machine Learning 모델 관리를 사용하여 기계 학습 모델을 배포하는 단계에 대해 설명합니다.
 services: machine-learning
-author: raymondl
-ms.author: raymondl, aashishb
+author: aashishb
+ms.author: aashishb
 manager: hjerez
 ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/03/2018
-ms.openlocfilehash: 9fbdb190e7c745000b358451c1a6e3058cb861fd
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 7b481fb3287b8ee2c22e5f25f8cf1935eed05428
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="deploying-a-machine-learning-model-as-a-web-service"></a>웹 서비스로 Machine Learning 웹 학습 모델 배포
 
@@ -64,20 +64,20 @@ from azureml.api.realtime.services import generate_schema
 
 ```python
 inputs = {"input_array": SampleDefinition(DataTypes.NUMPY, yourinputarray)}
-generate_schema(run_func=run, inputs=inputs, filepath='service_schema.json')
+generate_schema(run_func=run, inputs=inputs, filepath='./outputs/service_schema.json')
 ```
 다음 예제에서는 Spark 데이터 프레임을 사용합니다.
 
 ```python
 inputs = {"input_df": SampleDefinition(DataTypes.SPARK, yourinputdataframe)}
-generate_schema(run_func=run, inputs=inputs, filepath='service_schema.json')
+generate_schema(run_func=run, inputs=inputs, filepath='./outputs/service_schema.json')
 ```
 
 다음 예제에서는 PANDAS 데이터 프레임을 사용합니다.
 
 ```python
 inputs = {"input_df": SampleDefinition(DataTypes.PANDAS, yourinputdataframe)}
-generate_schema(run_func=run, inputs=inputs, filepath='service_schema.json')
+generate_schema(run_func=run, inputs=inputs, filepath='./outputs/service_schema.json')
 ```
 
 ### <a name="3-create-a-scorepy-file"></a>3. score.py 파일 만들기
@@ -136,7 +136,7 @@ az ml model register --model [path to model file] --name [model name]
 다음 명령은 모델의 매니페스트를 만드는 데 도움이 됩니다.
 
 ```
-az ml manifest create --manifest-name [your new manifest name] -f [path to code file] -r [runtime for the image, e.g. spark-py]
+az ml manifest create --manifest-name [your new manifest name] -f [path to score file] -r [runtime for the image, e.g. spark-py]
 ```
 위에 표시된 명령에서 `--model-id` 또는 `-i` 인수를 사용하여 매니페스트에 이전에 등록한 모델을 추가할 수 있습니다. -i 인수를 추가하여 여러 모델을 지정할 수 있습니다.
 

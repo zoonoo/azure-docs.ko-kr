@@ -1,11 +1,11 @@
 ---
-title: "시작에 실패한 역할의 문제 해결 | Microsoft Docs"
-description: "클라우드 서비스 역할이 시작에 실패한 이유에 대한 몇 가지 일반적인 원인은 다음과 같습니다. 또한 이러한 문제에 대한 솔루션이 제공됩니다."
+title: 시작에 실패한 역할의 문제 해결 | Microsoft Docs
+description: 클라우드 서비스 역할이 시작에 실패한 이유에 대한 몇 가지 일반적인 원인은 다음과 같습니다. 또한 이러한 문제에 대한 솔루션이 제공됩니다.
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: simonxjx
 manager: felixwu
-editor: 
+editor: ''
 tags: top-support-issue
 ms.assetid: 674b2faf-26d7-4f54-99ea-a9e02ef0eb2f
 ms.service: cloud-services
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/03/2017
 ms.author: v-six
-ms.openlocfilehash: d24a55fd3b93760035f852a24537c1cec9e4bab2
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 36966151b616a14e429807feb63df93503e7b249
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="troubleshoot-cloud-service-roles-that-fail-to-start"></a>시작에 실패한 클라우드 서비스 역할의 문제 해결
 시작에 실패한 Azure Cloud Services 역할에 관련된 일반적인 문제 및 솔루션은 다음과 같습니다.
@@ -62,9 +62,9 @@ ms.lasthandoff: 12/07/2017
 원격 데스크톱을 사용하여 역할에 액세스하고 원격으로 오류 정보를 더 자세하게 볼 수 있습니다. 원격 데스크톱을 사용하여 오류를 보려면 다음 단계를 수행합니다.
 
 1. Azure SDK 1.3 이상이 설치되어야 합니다.
-2. Visual Studio를 사용하여 솔루션을 배포하는 동안 "원격 데스크톱 연결 구성"을 선택합니다. 원격 데스크톱 연결 구성에 대한 자세한 내용은 [Azure 역할과 함께 원격 데스크톱 사용](../vs-azure-tools-remote-desktop-roles.md)을 참조하세요.
+2. Visual Studio를 사용하여 솔루션을 배포하는 동안 원격 데스크톱을 사용하도록 설정합니다. 자세한 내용은 [Visual Studio를 사용하여 Azure Cloud Services에서 역할에 대한 원격 데스크톱 연결 사용](cloud-services-role-enable-remote-desktop-visual-studio.md)을 참조하세요.
 3. Microsoft Azure Portal에서 인스턴스 상태가 **준비**로 표시되면 해당 인스턴스에 원격 연결합니다. Cloud Services에서 원격 데스크톱 사용에 대한 자세한 내용은 [역할 인스턴스에 원격 연결](cloud-services-role-enable-remote-desktop-new-portal.md#remote-into-role-instances)을 참조하세요.
-5. 원격 데스크톱을 구성하는 동안 지정한 자격 증명을 사용하여 가상 컴퓨터에 로그인합니다.
+5. 원격 데스크톱을 구성하는 동안 지정한 자격 증명을 사용하여 가상 머신에 로그인합니다.
 6. 명령 창을 엽니다.
 7. `IPconfig`를 입력합니다.
 8. IPV4 주소 값을 적습니다.
@@ -77,14 +77,14 @@ ms.lasthandoff: 12/07/2017
 * 설명: 현재 웹 요청을 실행하는 동안 처리되지 않은 예외가 발생했습니다. 오류에 대한 자세한 내용 및 코드에서 어디에 기반하는지는 스택 추적을 검토합니다.
 * 예외 세부 정보: System.IO.FIleNotFoundException: 파일이나 어셈블리를 로드할 수 없습니다 'Microsoft.WindowsAzure.StorageClient, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf856ad364e35’ 또는 해당 종속성 중 하나입니다. 시스템은 지정된 파일을 찾을 수 없습니다.
 
-예:
+예: 
 
 !['/' 응용 프로그램의 명시적 서버 오류](./media/cloud-services-troubleshoot-roles-that-fail-start/ic503389.png)
 
 ## <a name="diagnose-issues-by-using-the-compute-emulator"></a>계산 에뮬레이터를 사용하여 문제 진단
 Microsoft Azure 계산 에뮬레이터를 사용하여 누락된 종속성 및 web.config 오류 문제를 진단하고 해결할 수 있습니다.
 
-이 진단 방법을 사용하여 최상의 결과가 발생한 경우 Windows 새로 설치한 컴퓨터 또는 가상 컴퓨터를 사용해야 합니다. Azure 환경을 가장 잘 시뮬레이션하려면 Windows Server 2008 R2 x64를 사용해야 합니다.
+이 진단 방법을 사용하여 최상의 결과가 발생한 경우 Windows 새로 설치한 컴퓨터 또는 가상 머신을 사용해야 합니다. Azure 환경을 가장 잘 시뮬레이션하려면 Windows Server 2008 R2 x64를 사용해야 합니다.
 
 1. [Azure SDK](https://azure.microsoft.com/downloads/)의 독립 실행형 버전을 설치합니다.
 2. 개발 컴퓨터에서 클라우드 서비스 프로젝트를 빌드합니다.

@@ -1,11 +1,11 @@
 ---
-title: "OMS 게이트웨이를 사용하여 컴퓨터 연결 | Microsoft Docs"
-description: "Azure Automation 및 Log Analytics 서비스가 인터넷에 연결되어 있지 않을 때 Azure Automation 및 Log Analytics 서비스에 데이터를 보내기 위해 장치 및 Operations Manager 모니터링 컴퓨터를 OMS 게이트웨이와 연결합니다."
+title: OMS 게이트웨이를 사용하여 컴퓨터 연결 | Microsoft Docs
+description: Azure Automation 및 Log Analytics 서비스가 인터넷에 연결되어 있지 않을 때 Azure Automation 및 Log Analytics 서비스에 데이터를 보내기 위해 장치 및 Operations Manager 모니터링 컴퓨터를 OMS 게이트웨이와 연결합니다.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: ae9a1623-d2ba-41d3-bd97-36e65d3ca119
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: magoedte
-ms.openlocfilehash: daf3cc236ef04ae27731e023d35cfe2aa82fc70a
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 10422af5a57fc4da77958f15af5b2db61c023e40
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="connect-computers-without-internet-access-using-the-oms-gateway"></a>OMS 게이트웨이를 사용하여 인터넷 액세스 없이 컴퓨터 연결
 이 문서에서는 직접 연결되거나 Operations Manager 모니터링 컴퓨터가 인터넷에 액세스할 수 없는 경우, OMS 게이트웨이를 사용하여 Azure Automation 및 Log Analytics와의 통신을 구성하는 방법을 설명합니다.  HTTP CONNECT 명령을 사용하여 HTTP 터널링을 지원하는 HTTP 전달 프록시인 OMS 게이트웨이에서 데이터를 수집하고 대신하여 Azure Automation 및 Log Analytics로 보낼 수 있습니다.  

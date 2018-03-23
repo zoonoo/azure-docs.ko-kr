@@ -1,11 +1,11 @@
 ---
-title: "워크플로 정의 언어 스키마 - Azure Logic Apps | Microsoft Docs"
-description: "Azure Logic Apps에 대한 워크플로 정의 스키마에 따라 워크플로 정의"
+title: 워크플로 정의 언어 스키마 - Azure Logic Apps | Microsoft Docs
+description: Azure Logic Apps에 대한 워크플로 정의 스키마에 따라 워크플로 정의
 services: logic-apps
 author: jeffhollan
 manager: anneta
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 ms.assetid: 26c94308-aa0d-4730-97b6-de848bffff91
 ms.service: logic-apps
 ms.workload: integration
@@ -126,14 +126,14 @@ ms.lasthandoff: 03/08/2018
 > [!NOTE]
 > 일부 식은 실행 시작 시 존재하지 않을 수도 있는 런타임 작업에서 해당 값을 가져옵니다. **함수**를 사용하여 이러한 값 일부를 검색할 수 있습니다.  
   
-식은 JSON 문자열 값에서 어느 위치에나 나타날 수 있으며 그 결과 항상 다른 JSON 값이 발생합니다. JSON 값이 식으로 판별되면 at 기호(@)를 제거하여 식의 본문을 추출합니다. @로 시작하는 리터럴 문자열이 필요한 경우 해당 문자열은 @@를 사용하여 이스케이프해야 합니다. 다음 예제는 식의 작동 방식을 보여 줍니다.  
+식은 JSON 문자열 값에서 어느 위치에나 나타날 수 있으며 그 결과 항상 다른 JSON 값이 발생합니다. JSON 값이 식으로 판별되면 at 기호\(\@)를 제거하여 식의 본문을 추출합니다. \@로 시작하는 리터럴 문자열이 필요한 경우 해당 문자열은 \@@를 사용하여 이스케이프해야 합니다. 다음 예제는 식의 작동 방식을 보여 줍니다.  
   
 |JSON 값|결과|  
 |----------------|------------|  
 |"parameters"|'parameters' 문자가 반환됩니다.|  
 |"parameters[1]"|'parameters[1]' 문자가 반환됩니다.|  
-|"@@"|'@'를 포함하는 1개 문자열이 반환됩니다.|  
-|" @"|' @'를 포함하는 2개 문자열이 반환됩니다.|  
+|\"\@\@\"|\'\@\'를 포함하는 1개 문자열이 반환됩니다.|  
+|\" \@\"|\' \@\'를 포함하는 2개 문자열이 반환됩니다.|  
   
 *문자열 보간*을 사용하면 식이 `@{ ... }`로 묶인 문자열 내부에 나타날 수도 있습니다. 예:  <p>`"name" : "First Name: @{parameters('firstName')} Last Name: @{parameters('lastName')}"`
 
@@ -142,12 +142,12 @@ ms.lasthandoff: 03/08/2018
 |JSON 값|결과|  
 |----------------|------------|  
 |"@parameters('myString')"|`sampleString`을 문자열로 반환합니다.|  
-|"@{parameters('myString')}"|`sampleString`을 문자열로 반환합니다.|  
+|\"\@{parameters('myString')}"|`sampleString`을 문자열로 반환합니다.|  
 |"@parameters('myNumber')"|`42`를 *숫자*로 반환합니다.|  
-|"@{parameters('myNumber')}"|`42`를 *문자열*로 반환합니다.|  
-|"Answer is: @{parameters('myNumber')}"|`Answer is: 42` 문자열을 반환합니다.|  
+|\"\@{parameters('myNumber')}"|`42`를 *문자열*로 반환합니다.|  
+|"Answer is: \@{parameters('myNumber')}"|`Answer is: 42` 문자열을 반환합니다.|  
 |"@concat('Answer is: ', string(parameters('myNumber')))"|`Answer is: 42` 문자열을 반환합니다.|  
-|"Answer is: @@{parameters('myNumber')}"|`Answer is: @{parameters('myNumber')}` 문자열을 반환합니다.|  
+|"Answer is: \@\@{parameters('myNumber')}"|`Answer is: @{parameters('myNumber')}` 문자열을 반환합니다.|  
   
 ## <a name="operators"></a>연산자  
 

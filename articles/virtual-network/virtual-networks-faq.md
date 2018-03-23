@@ -1,6 +1,6 @@
 ---
 title: Azure Virtual Network FAQ | Microsoft Docs
-description: "Microsoft Azure Virtual Network에 대해 자주 묻는 질문에 답변합니다."
+description: Microsoft Azure Virtual Network에 대해 자주 묻는 질문에 답변합니다.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/01/2018
 ms.author: jdial
-ms.openlocfilehash: 8800dc59306c349daba8f4d9703e0c713eed06ec
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: a5b4bac9e0d8bc10defaff251557129a70d8a022
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Azure Virtual Network FAQ(질문과 대답)
 
@@ -57,7 +57,7 @@ VNet을 다음에 사용합니다.
 [RFC 1918](http://tools.ietf.org/html/rfc1918)에 정의되어 있는 모든 IP 주소 범위를 사용할 수 있습니다. 예를 들어 10.0.0.0/16을 사용할 수 있습니다.
 
 ### <a name="can-i-have-public-ip-addresses-in-my-vnets"></a>VNet 내에서 공용 IP 주소를 가질 수 있습니까?
-예. 공용 IP 주소 범위에 대한 자세한 내용은 [가상 네트워크 만들기](virtual-network-manage-network.md#create-a-virtual-network)를 참조하세요. 공용 IP 주소는 인터넷에서 직접 액세스할 수 없습니다.
+예. 공용 IP 주소 범위에 대한 자세한 내용은 [가상 네트워크 만들기](manage-virtual-network.md#create-a-virtual-network)를 참조하세요. 공용 IP 주소는 인터넷에서 직접 액세스할 수 없습니다.
 
 ### <a name="is-there-a-limit-to-the-number-of-subnets-in-my-vnet"></a>VNet 내에서 서브넷 수에 제한이 있습니까?
 예. 자세한 내용은 [Azure 제한](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits)을 참조하세요. 서브넷 주소 공간은 서로 겹칠 수 없습니다.
@@ -151,7 +151,7 @@ Azure에서 제공하는 DNS를 사용한 테넌트 간 이름 확인에 대한 
 번호 개인 IP 주소를 예약할 수 없습니다. 개인 IP 주소가 사용 가능한 경우 DHCP 서버에서 VM 또는 역할 인스턴스에 할당됩니다. VM은 개인 IP 주소를 할당하려는 VM일 수도 있고 그렇지 않을 수도 있습니다. 그러나 이미 만든 VM의 개인 IP 주소를 사용 가능한 모든 개인 IP 주소로 변경할 수 있습니다.
 
 ### <a name="do-private-ip-addresses-change-for-vms-in-a-vnet"></a>VNet에서 VM에 대한 개인 IP 주소가 변경됩니까?
-경우에 따라 다릅니다. 리소스 관리자를 통해 VM이 배포된 경우 IP 주소가 정적 할당 메서드로 할당되었는지 또는 동적 할당 메서드로 할당되었는지에 관계없이 변경되지 않습니다. 클래식 배포 모델을 통해 VM을 배포한 경우 동적 IP 주소는 VM이 중지된(할당 취소됨) 상태에서 시작될 때 변경될 수 있습니다. 이 주소는 VM을 삭제할 때 두 배포 모델 중 하나를 통해 배포된 VM에서 해제됩니다
+경우에 따라 다릅니다. Resource Manager를 통해 VM이 배포된 경우 IP 주소가 정적 할당 메서드로 할당되었는지 또는 동적 할당 메서드로 할당되었는지에 관계없이 변경되지 않습니다. 클래식 배포 모델을 통해 VM을 배포한 경우 동적 IP 주소는 VM이 중지된(할당 취소됨) 상태에서 시작될 때 변경될 수 있습니다. 이 주소는 VM을 삭제할 때 두 배포 모델 중 하나를 통해 배포된 VM에서 해제됩니다
 
 ### <a name="can-i-manually-assign-ip-addresses-to-nics-within-the-vm-operating-system"></a>VM 운영 체제 내에서 IP 주소를 NIC에 수동으로 할당할 수 있습니까?
 예. 하지만 가상 머신에 여러 IP 주소를 할당하는 경우와 같이 필요한 경우가 아니면 권장하지 않습니다. 자세한 내용은 [가상 머신에 여러 IP 주소 추가](virtual-network-multiple-ip-addresses-portal.md#os-config)를 참조하세요. VM에 연결된 Azure NIC에 할당된 IP 주소가 변경되고 VM 운영 체제 내의 IP 주소가 다르면, VM에 대한 연결이 끊어집니다.
@@ -218,6 +218,6 @@ VNet은 서로 격리되고 Azure 인프라에서 호스팅되는 다른 서비�
 
 ### <a name="is-there-tooling-support-for-vnets"></a>VNet에 대한 도구 지원이 있습니까?
 예. 사용에 대한 자세한 정보:
-- [Azure Resource Manager](virtual-networks-create-vnet-arm-pportal.md) 및 [클래식](virtual-networks-create-vnet-classic-pportal.md) 배포 모델을 통해 VNet을 배포하는 Azure Portal.
+- [Azure Resource Manager](manage-virtual-network.md#create-a-virtual-network) 및 [클래식](virtual-networks-create-vnet-classic-pportal.md) 배포 모델을 통해 VNet을 배포하는 Azure Portal.
 - [리소스 관리자](/powershell/module/azurerm.network) 및 [클래식](/powershell/module/azure/?view=azuresmps-3.7.0) 배포 모델을 통해 배포된 VNet을 관리하는 PowerShell.
 - [Resource Manager](/cli/azure/network/vnet) 및 [클래식](../virtual-machines/azure-cli-arm-commands.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-commands-to-manage-network-resources) 배포 모델을 통해 배포된 VNet을 배포하고 관리하는 Azure CLI(명령줄 인터페이스).  

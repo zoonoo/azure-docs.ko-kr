@@ -1,8 +1,8 @@
 ---
-title: "Azure Data Factory를 사용하여 MongoDB에서 데이터 복사 | Microsoft Docs"
-description: "Azure Data Factory 파이프라인의 복사 작업을 사용하여 Mongo DB에서 지원되는 싱크 저장소로 데이터를 복사하는 방법에 대해 알아봅니다."
+title: Azure Data Factory를 사용하여 MongoDB에서 데이터 복사 | Microsoft Docs
+description: Azure Data Factory 파이프라인의 복사 작업을 사용하여 Mongo DB에서 지원되는 싱크 저장소로 데이터를 복사하는 방법에 대해 알아봅니다.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
 manager: jhubbard
 editor: spelluru
@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/07/2018
 ms.author: jingwang
-ms.openlocfilehash: c924640feffea4cbe0372cabc937656d2ec41c7d
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: b12477b855dad28976989e694888667fd0cb6b20
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Azure Data Factory를 사용하여 MongoDB에서 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -41,7 +41,7 @@ MongoDB 데이터베이스에서 지원되는 모든 싱크 데이터 저장소�
 
 ## <a name="prerequisites"></a>필수 조건
 
-공개적으로 액세스할 수 없는 MongoDB 데이터베이스에서 데이터를 복사하려면 자체 호스팅 통합 런타임을 설정해야 합니다. 자세한 내용은 [자체 호스팅 통합 런타임](create-self-hosted-integration-runtime.md) 문서를 참조하세요. 통합 런타임은 기본 제공 MongoDB 드라이버를 제공하므로 MongoDB 간에 데이터를 복사할 때 수동으로 드라이버를 설치할 필요가 없습니다.
+공개적으로 액세스할 수 없는 MongoDB 데이터베이스에서 데이터를 복사하려면 자체 호스팅 통합 런타임을 설정해야 합니다. 자세한 내용은 [자체 호스팅 통합 런타임](create-self-hosted-integration-runtime.md) 문서를 참조하세요. 통합 런타임은 기본 제공 MongoDB 드라이버를 제공하므로 MongoDB에서 데이터를 복사할 때 수동으로 드라이버를 설치할 필요가 없습니다.
 
 ## <a name="getting-started"></a>시작
 
@@ -63,7 +63,7 @@ MongoDB 연결된 서비스에 다음 속성이 지원됩니다.
 | 사용자 이름 |MongoDB에 액세스하는 사용자 계정입니다. |예(기본 인증을 사용하는 경우) |
 | 암호 |사용자에 대한 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. |예(기본 인증을 사용하는 경우) |
 | authSource |인증에 대한 자격 증명을 확인하는 데 사용하려는 MongoDB 데이터베이스의 이름입니다. |번호 기본 인증의 경우 기본값은 관리자 계정 및 databaseName 속성을 사용하여 지정된 데이터베이스를 사용하는 것입니다. |
-| connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. 자체 호스팅 Integration Runtime 또는 Azure Integration Runtime을 사용할 수 있습니다(데이터 저장소를 공개적으로 액세스할 수 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아니요 |
+| connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. 자체 호스팅 Integration Runtime 또는 Azure Integration Runtime을 사용할 수 있습니다(데이터 저장소를 공개적으로 액세스할 수 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아니오 |
 
 **예제:**
 

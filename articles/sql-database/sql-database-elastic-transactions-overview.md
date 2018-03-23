@@ -1,25 +1,20 @@
 ---
-title: "클라우드 데이터베이스의 분산 트랜잭션"
-description: "Azure SQL Database와 Elastic Database 트랜잭션 개요"
+title: 클라우드 데이터베이스의 분산 트랜잭션
+description: Azure SQL Database와 Elastic Database 트랜잭션 개요
 services: sql-database
-documentationcenter: 
-author: torsteng
-manager: jhubbard
-editor: torsteng
-ms.assetid: e14df7a3-7788-4cfb-bcd1-7ad6433ef1f9
+author: stevestein
+manager: craigg
 ms.service: sql-database
-ms.custom: scale out apps
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
+ms.custom: scale out apps
 ms.workload: On Demand
 ms.date: 05/27/2016
-ms.author: torsteng
-ms.openlocfilehash: 012fc38075285b898599517f3e6ed5a3c9eb854d
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.author: sstein
+ms.openlocfilehash: 65657a4813467edd45a6eee4fa98964b4a781663
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="distributed-transactions-across-cloud-databases"></a>클라우드 데이터베이스의 분산 트랜잭션
 Azure SQL Database(SQL DB)용 Elastic Database를 사용하면 SQL DB의 여러 데이터베이스에 걸쳐 트랜잭션을 실행할 수 있습니다. SQL DB용 탄력적 데이터베이스 트랜잭션은 ADO .NET을 사용하여 .NET 응용 프로그램에서 사용할 수 있고 [System.Transaction](https://msdn.microsoft.com/library/system.transactions.aspx) 클래스를 사용하여 친숙한 프로그래밍 환경과 통합될 수 있습니다. 라이브러리를 가져오려면 [.NET Framework 4.6.1(웹 설치 관리자)](https://www.microsoft.com/download/details.aspx?id=49981)을 참조하세요.
@@ -133,9 +128,9 @@ SQL DB의 동적 관리 뷰(DMV)를 사용하여 진행 중인 탄력적 데이�
 
 다음 DMV는 특히 유용합니다.
 
-* **sys.dm\_tran\_active\_transactions**: 현재 활성 트랜잭션과 그 상태를 나열합니다. UOW(작업 단위) 열은 동일한 분산 트랜잭션에 속하는 다른 자식 트랜잭션을 식별할 수 있습니다. 동일한 분산 트랜잭션 내의 모든 트랜잭션은 동일한 UOW 값을 갖습니다. 자세한 내용은 [DMV 설명서](https://msdn.microsoft.com/library/ms174302.aspx) 를 참조하세요.
-* **sys.dm\_tran\_database\_transactions**: 로그에 트랜잭션 배치 같은 트랜잭션에 대한 추가적인 정보를 제공합니다. 자세한 내용은 [DMV 설명서](https://msdn.microsoft.com/library/ms186957.aspx) 를 참조하세요.
-* **sys.dm\_tran\_locks**: 진행 중인 트랜잭션에 의해 현재 유지되는 잠금에 대한 정보를 제공합니다. 자세한 내용은 [DMV 설명서](https://msdn.microsoft.com/library/ms190345.aspx) 를 참조하세요.
+* **sys.dm\_tran\_active\_transactions**: 현재 활성 트랜잭션과 그 상태를 나열합니다. UOW(작업 단위) 열은 동일한 분산 트랜잭션에 속하는 다른 자식 트랜잭션을 식별할 수 있습니다. 동일한 분산 트랜잭션 내의 모든 트랜잭션은 동일한 UOW 값을 갖습니다. 자세한 내용은 [DMV 설명서](https://msdn.microsoft.com/library/ms174302.aspx)를 참조하세요.
+* **sys.dm\_tran\_database\_transactions**: 로그에 트랜잭션 배치 같은 트랜잭션에 대한 추가적인 정보를 제공합니다. 자세한 내용은 [DMV 설명서](https://msdn.microsoft.com/library/ms186957.aspx)를 참조하세요.
+* **sys.dm\_tran\_locks**: 진행 중인 트랜잭션에 의해 현재 유지되는 잠금에 대한 정보를 제공합니다. 자세한 내용은 [DMV 설명서](https://msdn.microsoft.com/library/ms190345.aspx)를 참조하세요.
 
 ## <a name="limitations"></a>제한 사항
 다음 제한 사항은 SQL DB의 탄력적 데이터베이스 트랜잭션에 현재 적용됩니다.

@@ -1,23 +1,23 @@
 ---
-title: "Azure VM(Virtual Machines)의 SAP HANA 고가용성 | Microsoft Docs"
-description: "Azure VM(Virtual Machines)에서 SAP HANA 고가용성을 설정합니다."
+title: Azure VM(Virtual Machines)에서 SAP HANA 시스템 복제 설정 | Microsoft Docs
+description: Azure VM(Virtual Machines)에서 SAP HANA 고가용성을 설정합니다.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: MSSedusch
 manager: timlt
-editor: 
+editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/25/2017
+ms.date: 12/12/2017
 ms.author: sedusch
-ms.openlocfilehash: 5f6ef18e93b8f77162b3524f31cb632e1db38f80
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 2bf9ed176f37c315aa4496894315f2318370ce7f
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="high-availability-of-sap-hana-on-azure-virtual-machines-vms"></a>Azure VM(Virtual Machines)의 SAP HANA 고가용성
 
@@ -44,9 +44,9 @@ ms.lasthandoff: 12/08/2017
 [template-converged]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-converged%2Fazuredeploy.json
 
 온-프레미스에서 HANA 시스템 복제를 사용하거나 공유 저장소를 사용하여 SAP HANA의 고가용성을 설정할 수 있습니다.
-현재로서는 Azure에서 HANA 시스템 복제 설정만 지원합니다. SAP HANA 복제는 하나의 마스터 노드와 하나 이상의 슬레이브 노드로 구성됩니다. 마스터 노드의 데이터를 변경하면 슬레이브 노드에 동기적 또는 비동기적으로 복제됩니다.
+Azure VM에서 Azure의 HANA 시스템 복제는 지금까지 지원되는 유일한 고가용성 함수입니다. SAP HANA 복제는 하나의 기본 노드와 하나 이상의 보조 노드로 구성됩니다. 기본 노드의 데이터를 변경하면 보조 노드에 동기적 또는 비동기적으로 복제됩니다.
 
-이 문서에서는 가상 컴퓨터를 배포하고, 가상 컴퓨터를 구성하며, 클러스터 프레임워크를 설치하고, SAP HANA 시스템 복제를 구성하는 방법을 설명합니다.
+이 문서에서는 가상 머신을 배포하고, 가상 머신을 구성하며, 클러스터 프레임워크를 설치하고, SAP HANA 시스템 복제를 구성하는 방법을 설명합니다.
 예제 구성에서 설치 명령, 인스턴스 번호 03 및 HANA 시스템 ID HDB를 사용합니다.
 
 먼저 다음 SAP 참고와 문서 읽기
@@ -73,7 +73,7 @@ ms.lasthandoff: 12/08/2017
 ## <a name="deploying-linux"></a>Linux 배포
 
 SAP HANA의 리소스 에이전트는 SAP 응용 프로그램의 SUSE Linux Enterprise Server에 포함되어 있습니다.
-Azure Marketplace에는 새 가상 컴퓨터를 배포하는 데 사용할 수 있는 BYOS(Bring Your Own Subscription)와 함께 SAP 응용 프로그램 12용 SUSE Linux Enterprise Server의 이미지가 포함되어 있습니다.
+Azure Marketplace에는 새 가상 머신을 배포하는 데 사용할 수 있는 BYOS(Bring Your Own Subscription)와 함께 SAP 응용 프로그램 12용 SUSE Linux Enterprise Server의 이미지가 포함되어 있습니다.
 
 ### <a name="manual-deployment"></a>수동 배포
 
@@ -83,16 +83,16 @@ Azure Marketplace에는 새 가상 컴퓨터를 배포하는 데 사용할 수 �
 1. 가용성 집합 만들기  
    최대 업데이트 도메인 설정
 1. 부하 분산 장치(내부) 만들기  
-   위의 VNET 단계 선택
-1. 가상 컴퓨터 1 만들기  
+   두 번째 단계에서 만든 VNET 선택
+1. Virtual Machine 1 만들기   
    최소한 SLES4SAP 12 SP1을 사용합니다. 이 예제에서는 SLES4SAP 12 SP1 BYOS 이미지를 사용합니다(https://portal.azure.com/#create/suse-byos.sles-for-sap-byos12-sp1).  
-   SAP 응용 프로그램 12 SP1용 SLES(BYOS)  
-   Storage 계정 1 선택  
+   SAP 응용 프로그램 12 SP1용 SLES(BYOS)가 사용됩니다.  
+   Storage 계정 1 선택   
    가용성 집합 선택  
-1. 가상 컴퓨터 2 만들기  
+1. Virtual Machine 2 만들기   
    최소한 SLES4SAP 12 SP1을 사용합니다. 이 예제에서는 SLES4SAP 12 SP1 BYOS 이미지를 사용합니다(https://portal.azure.com/#create/suse-byos.sles-for-sap-byos12-sp1).  
-   SAP 응용 프로그램 12 SP1용 SLES(BYOS)  
-   Storage 계정 2 선택   
+   SAP 응용 프로그램 12 SP1용 SLES(BYOS)가 사용됩니다.  
+   Storage 계정 2 선택    
    가용성 집합 선택  
 1. 데이터 디스크 추가
 1. 부하 분산 장치 구성
@@ -104,9 +104,9 @@ Azure Marketplace에는 새 가상 컴퓨터를 배포하는 데 사용할 수 �
     1. 백 엔드 풀 만들기
         1. 부하 분산 장치를 열고 백 엔드 풀을 선택한 다음 추가 클릭
         1. 새 백 엔드 풀의 이름 입력(예: hana-backend)
-        1. 가상 컴퓨터 추가 클릭
+        1. 가상 머신 추가 클릭
         1. 이전에 만든 가용성 집합 선택
-        1. SAP HANA 클러스터의 가상 컴퓨터 선택
+        1. SAP HANA 클러스터의 가상 머신 선택
         1. 확인 클릭
     1. 상태 프로브 만들기
         1. 부하 분산 장치를 열고 상태 프로브를 선택한 다음 추가 클릭
@@ -124,20 +124,21 @@ Azure Marketplace에는 새 가상 컴퓨터를 배포하는 데 사용할 수 �
         1. 포트 3**03**17에 대해 다음 단계 반복
 
 ### <a name="deploy-with-template"></a>템플릿을 사용하여 배포
-Github에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든 리소스를 배포할 수 있습니다. 템플릿에서 가상 컴퓨터, 부하 분산 장치, 가용성 집합 등을 배포합니다. 다음 단계를 따라 템플릿을 배포합니다.
+Github에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든 리소스를 배포할 수 있습니다. 템플릿에서 가상 머신, 부하 분산 장치, 가용성 집합 등을 배포합니다. 템플릿을 배포하려면 다음 단계를 따릅니다.
 
-1. Azure Portal에서 [데이터베이스 템플릿][template-multisid-db] 또는 [수렴형 템플릿][template-converged]을 엽니다. 데이터베이스 템플릿은 데이터베이스의 부하 분산 규칙만 만드는 반면 수렴형 템플릿은 ASCS/SCS 및 ERS(Linux만 해당) 인스턴스의 부하 분산 규칙도 만듭니다. SAP NetWeaver 기반 시스템을 설치하려 하고 동일한 컴퓨터에 ASCS/SCS 인스턴스도 설치하려면 [수렴형 템플릿][template-converged]을 사용합니다.
+1. Azure Portal에서 [데이터베이스 템플릿][template-multisid-db] 또는 [수렴 템플릿][template-converged]을 엽니다. 
+   데이터베이스 템플릿은 데이터베이스의 부하 분산 규칙만 만드는 반면 수렴형 템플릿은 ASCS/SCS 및 ERS(Linux만 해당) 인스턴스의 부하 분산 규칙도 만듭니다. SAP NetWeaver 기반 시스템을 설치하려 하고 동일한 컴퓨터에 ASCS/SCS 인스턴스도 설치하려면 [수렴 템플릿][template-converged]을 사용합니다.
 1. 다음 매개 변수를 입력합니다.
     1. SAP 시스템 ID  
        설치하려는 SAP 시스템의 SAP 시스템 ID를 입력합니다. 이 ID는 배포되는 리소스의 접두사로 사용됩니다.
-    1. 스택 유형(수렴형 템플릿을 사용하는 경우에만 해당)  
+    1. 스택 유형(수렴 템플릿을 사용하는 경우에만 해당)   
        SAP NetWeaver 스택 유형 선택
     1. OS 종류 -  
        Linux 배포판 중 하나를 선택합니다. 이 예에서는 SLES 12 BYOS 선택
     1. Db 형식  
        HANA 선택
     1. SAP 시스템 크기 -  
-       새 시스템에서 제공하는 SAP의 양입니다. 시스템에 필요한 SAP의 양을 모를 경우 SAP 기술 파트너 또는 시스템 통합자에 문의하세요.
+       새 시스템에서 제공하는 SAP의 양입니다. 시스템에 필요한 SAP의 수를 모를 경우 SAP 기술 파트너 또는 시스템 통합자에 문의하세요.
     1. 시스템 가용성 -  
        HA를 선택합니다.
     1. 관리자 사용자 이름 및 관리자 암호 -  
@@ -145,7 +146,7 @@ Github에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
     1. 기존 또는 새 서브넷 -  
        새 가상 네트워크와 서브넷을 만들어야 하는지 또는 기존 서브넷을 사용해야 하는지 결정합니다. 온-프레미스 네트워크에 연결되어 있는 가상 네트워크가 이미 있는 경우 기존 항목을 선택합니다.
     1. 서브넷 ID  
-    가상 컴퓨터를 연결해야 하는 서브넷의 ID입니다. 온-프레미스 네트워크에 가상 컴퓨터를 연결할 Express 경로 가상 네트워크의 서브넷 또는 VPN을 선택합니다. ID는 일반적으로 /subscriptions/`<subscription ID`>/resourceGroups/`<resource group name`>/providers/Microsoft.Network/virtualNetworks/`<virtual network name`>/subnets/`<subnet name`> 형태입니다.
+    가상 머신을 연결해야 하는 서브넷의 ID입니다. 온-프레미스 네트워크에 가상 머신을 연결하려면 VPN 또는 Express Route 가상 네트워크의 서브넷을 선택합니다. ID는 일반적으로 /subscriptions/`<subscription ID`>/resourceGroups/`<resource group name`>/providers/Microsoft.Network/virtualNetworks/`<virtual network name`>/subnets/`<subnet name`> 형태입니다.
 
 ## <a name="setting-up-linux-ha"></a>Linux HA 설정
 
@@ -201,7 +202,7 @@ Github에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
 
 1. [A] 설치 디스크 레이아웃
     1. LVM  
-    일반적으로는 데이터와 로그 파일을 저장하는 볼륨의 LVM을 사용하는 것이 좋습니다. 아래 예에서는 가상 컴퓨터에 두 개의 볼륨을 만드는 데 사용해야 하는 4개의 데이터 디스크가 연결되어 있다고 가정합니다.
+    일반적으로는 데이터와 로그 파일을 저장하는 볼륨의 LVM을 사용하는 것이 좋습니다. 다음 예에서는 가상 머신에 두 개의 볼륨을 만드는 데 사용해야 하는 4개의 데이터 디스크가 연결되어 있다고 가정합니다.
         * 사용하려는 모든 디스크의 물리적 볼륨을 만듭니다.
     <pre><code>
     sudo pvcreate /dev/sdc
@@ -310,7 +311,7 @@ Github에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
     
     ```
 
-1. [A] 다른 전송을 사용하고 nodelist를 추가하도록 corosync를 구성합니다. 그렇지 않으면 클러스터가 작동하지 않습니다.
+1. [A] 다른 전송을 사용하고 nodelist를 추가하도록 corosync를 구성합니다. 그렇지 않으면 클러스터가 작동하지 않습니다. 
     ```bash
     sudo vi /etc/corosync/corosync.conf    
     
@@ -352,7 +353,7 @@ Github에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
 
 ## <a name="installing-sap-hana"></a>SAP HANA 설치
 
-[SAP HANA SR 성능 최적화 시나리오 가이드][suse-hana-ha-guide]의 4장을 따라 SAP HANA 시스템 복제를 설치합니다.
+SAP HANA 시스템 복제를 설치하려면 [SAP HANA SR 성능 최적화 시나리오 가이드][suse-hana-ha-guide]의 4장을 따라 작업합니다.
 
 1. [A] HANA DVD에서 hdblcm 실행
     * 설치 선택 -> 1
@@ -362,7 +363,7 @@ Github에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
     * 시스템에 호스트를 추가할까요? (y/n) [n]: -> ENTER
     * SAP HANA 시스템 ID 입력: <SID of HANA e.g. HDB>
     * 인스턴스 번호 [00] 입력:   
-  HANA 인스턴스 번호입니다. Azure 템플릿을 사용하거나 위의 예를 따른 경우 03 사용
+  HANA 인스턴스 번호입니다. Azure 템플릿을 사용하거나 수동 배포를 따른 경우 03 사용
     * 데이터베이스 모드 선택 / 인덱스 [1] 입력: -> ENTER
     * 시스템 사용량 선택 / 인덱스 [4] 입력:  
   시스템 사용량 선택
@@ -381,7 +382,7 @@ Github에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
     * 데이터베이스 사용자(SYSTEM) 암호 입력:
     * 데이터베이스 사용자(SYSTEM) 암호 확인:
     * 컴퓨터를 다시 부팅한 다음 시스템 다시 시작? [n]: -> ENTER
-    * 계속할까요? (y/n):  
+    * 계속할까요? (y/n):   
   요약의 유효성을 검사하고 계속하려면 y를 입력합니다.
 1. [A] SAP 호스트 에이전트 업그레이드  
   [SAP Softwarecenter][sap-swcenter]에서 최신 SAP 호스트 에이전트 아카이브를 다운로드하고 다음 명령을 실행하여 에이전트를 업그레이드합니다. 다운로드한 파일을 가리키도록 아카이브의 경로를 바꿉니다.
@@ -446,9 +447,9 @@ sudo crm configure load update crm-defaults.txt
 
 ### <a name="create-stonith-device"></a>STONITH 장치 만들기
 
-STONITH 장치에서는 서비스 주체를 사용하여 Microsoft Azure에 대해 권한을 부여합니다. 다음 단계를 따라 서비스 주체를 만듭니다.
+STONITH 장치에서는 서비스 주체를 사용하여 Microsoft Azure에 대해 권한을 부여합니다. 서비스 주체를 만들려면 다음 단계에 따릅니다.
 
-1. <https://portal.azure.com>으로 이동
+1. <https://portal.azure.com>으로 이동합니다.
 1. Azure Active Directory 블레이드 열기  
    속성으로 이동하여 Directory ID 기록 이 ID는 **테넌트 ID**입니다.
 1. 앱 등록 클릭
@@ -460,18 +461,18 @@ STONITH 장치에서는 서비스 주체를 사용하여 Microsoft Azure에 대�
 1. 값을 기록해 둡니다. 서비스 주체의 **암호**로 사용됨
 1. 응용 프로그램 ID를 적어둡니다. 서비스 주체의 사용자 이름(아래 단계의 **로그인 ID**)으로 사용됨
 
-서비스 주체에는 기본적으로 Azure 리소스에 액세스할 권한이 없습니다. 서비스 주체에 클러스터의 모든 가상 컴퓨터를 시작 및 중지(할당 취소)하기 위한 권한을 제공해야 합니다.
+서비스 주체에는 기본적으로 Azure 리소스에 액세스할 권한이 없습니다. 서비스 주체에 클러스터의 모든 가상 머신을 시작 및 중지(할당 취소)하기 위한 권한을 제공해야 합니다.
 
 1. https://portal.azure.com으로 이동
 1. 모든 리소스 블레이드 열기
-1. 가상 컴퓨터 선택
+1. 가상 머신 선택
 1. 액세스 제어(IAM) 클릭
 1. 추가를 클릭합니다.
 1. 소유자 역할 선택
-1. 위에서 만든 응용 프로그램의 이름 입력
+1. 이전 단계에서 만든 응용 프로그램의 이름 입력
 1. 확인 클릭
 
-가상 컴퓨터의 권한을 편집하고 나면 클러스터의 STONITH 장치를 구성할 수 있습니다.
+가상 머신의 권한을 편집하고 나면 클러스터의 STONITH 장치를 구성할 수 있습니다.
 
 <pre>
 sudo vi crm-fencing.txt
@@ -553,7 +554,7 @@ sudo crm configure load update crm-saphana.txt
 </pre>
 
 ### <a name="test-cluster-setup"></a>클러스터 설정 테스트
-다음 장에서는 설정 테스트 방법을 설명합니다. 모든 테스트에서는 사용자가 루트이고 SAP HANA 마스터가 가상 컴퓨터 saphanavm1에서 실행 중이라고 가정합니다.
+이 장에서는 설정 테스트 방법을 설명합니다. 모든 테스트에서는 사용자가 루트이고 SAP HANA 마스터가 가상 머신 saphanavm1에서 실행 중이라고 가정합니다.
 
 #### <a name="fencing-test"></a>펜싱 테스트
 
@@ -563,10 +564,10 @@ saphanavm1 노드에서 네트워크 인터페이스를 사용하지 않게 설�
 sudo ifdown eth0
 </code></pre>
 
-클러스터 구성에 따라 이제 가상 컴퓨터를 다시 시작하거나 중지해야 합니다.
-stonith-action을 off로 설정하면 가상 컴퓨터가 중지되고 리소스가 실행 중인 가상 컴퓨터로 마이그레이션됩니다.
+클러스터 구성에 따라 이제 가상 머신을 다시 시작하거나 중지해야 합니다.
+stonith-action을 off로 설정하면 가상 머신이 중지되고 리소스가 실행 중인 가상 머신으로 마이그레이션됩니다.
 
-가상 컴퓨터를 다시 시작되면 SAP HANA 리소스에서는 시작되지 않고 보조 AUTOMATED_REGISTER를 설정하는 경우 = "false"입니다. 이 경우 다음 명령을 실행하여 HANA 인스턴스를 보조로 구성해야 합니다.
+가상 머신을 다시 시작되면 SAP HANA 리소스에서는 시작되지 않고 보조 AUTOMATED_REGISTER를 설정하는 경우 = "false"입니다. 이 경우 다음 명령을 실행하여 HANA 인스턴스를 보조로 구성합니다.
 
 <pre><code>
 su - <b>hdb</b>adm
@@ -587,7 +588,7 @@ saphanavm1 노드에서 pacemaker 서비스를 중지하여 수동 장애 조치
 service pacemaker stop
 </code></pre>
 
-장애 조치 후에 서비스를 다시 시작할 수 있습니다. AUTOMATED_REGISTER="false"를 설정하면 saphanavm1에서 SAP HANA 리소스를 보조로 시작하는 데 실패합니다. 이 경우 다음 명령을 실행하여 HANA 인스턴스를 보조로 구성해야 합니다.
+장애 조치 후에 서비스를 다시 시작할 수 있습니다. AUTOMATED_REGISTER="false"를 설정하면 saphanavm1에서 SAP HANA 리소스를 보조로 시작하는 데 실패합니다. 이 경우 다음 명령을 실행하여 HANA 인스턴스를 보조로 구성합니다.
 
 <pre><code>
 service pacemaker start
@@ -598,7 +599,7 @@ sapcontrol -nr <b>03</b> -function StopWait 600 10
 hdbnsutil -sr_register --remoteHost=<b>saphanavm2</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE1</b> 
 
 
-# switch back to root and cleanup the failed state
+# Switch back to root and cleanup the failed state
 exit
 crm resource cleanup msl_SAPHana_<b>HDB</b>_HDB<b>03</b> <b>saphanavm1</b>
 </code></pre>
@@ -611,8 +612,8 @@ crm resource migrate msl_SAPHana_<b>HDB</b>_HDB<b>03</b> <b>saphanavm2</b>
 crm resource migrate g_ip_<b>HDB</b>_HDB<b>03</b> <b>saphanavm2</b>
 </code></pre>
 
-그러면 SAP HANA 마스터 노드와 가상 IP 주소를 포함하는 그룹을 saphanavm2로 마이그레이션해야 합니다.
-AUTOMATED_REGISTER="false"를 설정하면 saphanavm1에서 SAP HANA 리소스를 보조로 시작하는 데 실패합니다. 이 경우 다음 명령을 실행하여 HANA 인스턴스를 보조로 구성해야 합니다.
+AUTOMATED_REGISTER="false"를 설정하면 이 명령 시퀀스가 SAP HANA 마스터 노드와 가상 IP 주소를 포함하는 그룹을 saphanavm2로 마이그레이션합니다.
+saphanavm1에서 SAP HANA 리소스를 보조로 시작하는 데 실패합니다. 이 경우 다음 명령을 실행하여 HANA 인스턴스를 보조로 구성합니다.
 
 <pre><code>
 su - <b>hdb</b>adm
@@ -627,14 +628,14 @@ hdbnsutil -sr_register --remoteHost=<b>saphanavm2</b> --remoteInstance=<b>03</b>
 <pre><code>
 crm configure edited
 
-# delete location constraints that are named like the following contraint. You should have two constraints, one for the SAP HANA resource and one for the IP address group.
+# Delete location constraints that are named like the following contraint. You should have two constraints, one for the SAP HANA resource and one for the IP address group.
 location cli-prefer-g_ip_<b>HDB</b>_HDB<b>03</b> g_ip_<b>HDB</b>_HDB<b>03</b> role=Started inf: <b>saphanavm2</b>
 </code></pre>
 
 보조 노드 리소스의 상태도 정리해야 합니다.
 
 <pre><code>
-# switch back to root and cleanup the failed state
+# Switch back to root and cleanup the failed state
 exit
 crm resource cleanup msl_SAPHana_<b>HDB</b>_HDB<b>03</b> <b>saphanavm1</b>
 </code></pre>

@@ -1,8 +1,8 @@
 ---
-title: "SQL Database 재해 복구 | Microsoft Docs"
-description: "Azure SQL Database 활성 지역 복제 및 지역 복원 기능을 사용하여 하위 지역 데이터 센터 중단 또는 오류로부터 데이터베이스를 복구하는 방법에 대해 알아봅니다."
+title: SQL Database 재해 복구 | Microsoft Docs
+description: Azure SQL Database 활성 지역 복제 및 지역 복원 기능을 사용하여 하위 지역 데이터 센터 중단 또는 오류로부터 데이터베이스를 복구하는 방법에 대해 알아봅니다.
 services: sql-database
-documentationcenter: 
+documentationcenter: ''
 author: anosov1960
 manager: jhubbard
 editor: monicar
@@ -13,20 +13,21 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: On Demand
-ms.date: 12/13/2017
+ms.date: 03/05/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 224c0b9f12595ec6cdc65e3d397fb62dba504d06
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: cc4f8e1566ede1d730b40c2e5ce6364786c102d4
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>Azure SQL Database 복원 또는 보조 데이터베이스에 대한 장애 조치
 Azure SQL Database는 중단에서의 복구를 위해 다음 기능을 제공합니다.
 
 * [활성 지역 복제 및 장애 조치(Failover) 그룹](sql-database-geo-replication-overview.md)
 * [지역 복원](sql-database-recovery-using-backups.md#point-in-time-restore)
+* [영역 중복 데이터베이스](sql-database-high-availability.md)
 
 비즈니스 연속성 시나리오와 이러한 시나리오를 지원하는 기능에 대해 알아보려면 [비즈니스 연속성](sql-database-business-continuity.md)을 참조하세요.
 
@@ -61,7 +62,7 @@ Azure SQL Database는 중단에서의 복구를 위해 다음 기능을 제공�
 Azure 팀은 가능한 한 신속하게 서비스 가용성을 복원하기 위해 열심히 작업하지만 루트에 따라 몇 시간 또는 며칠씩 걸릴 수 있습니다.  응용 프로그램이 가동 중지 시간을 상당히 허용할 수 있는 경우 복구가 완료되기를 기다릴 수밖에 없습니다. 이 경우에 사용자의 조치가 필요하지 않습니다. 서비스의 현재 상태를 [Azure 서비스 상태 대시보드](https://azure.microsoft.com/status/)에서 확인할 수 있습니다. 지역 복구 후에 응용 프로그램의 가용성이 복원됩니다.
 
 ## <a name="fail-over-to-geo-replicated-secondary-server-in-the-failover-group"></a>장애 조치(failover) 그룹에 있는 지역에서 복제된 보조 서버로 장애 조치합니다.
-응용 프로그램의 가동 중지 시간으로 인해 비즈니스 책임이 발생할 경우 장애 조치(failover) 그룹을 사용해야 합니다. 가동 중지 시에도 응용 프로그램이 다른 지역의 가용성을 신속하게 복원할 수 있습니다. [장애 조치(failover) 그룹을 구성](sql-database-geo-replication-portal.md)하는 방법에 대해 알아봅니다.
+응용 프로그램의 가동 중지 시간으로 인해 비즈니스 책임이 발생할 경우 장애 조치(Failover) 그룹을 사용해야 합니다. 가동 중지 시에도 응용 프로그램이 다른 지역의 가용성을 신속하게 복원할 수 있습니다. [장애 조치(failover) 그룹을 구성](sql-database-geo-replication-portal.md)하는 방법에 대해 알아봅니다.
 
 데이터베이스의 가용성을 복원하려면 지원되는 방법 중 하나를 사용하여 보조 서버에 대한 장애 조치(failover)를 시작해야 합니다.
 

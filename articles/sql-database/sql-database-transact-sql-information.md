@@ -1,26 +1,19 @@
 ---
-title: "T-SQL 차이점 해결-마이그레이션-Azure SQL Database | Microsoft Docs"
-description: "Azure SQL Database에서 완전히 지원되지 않는 TRANSACT-SQL 문"
+title: T-SQL 차이점 해결-마이그레이션-Azure SQL Database | Microsoft Docs
+description: Azure SQL Database에서 완전히 지원되지 않는 TRANSACT-SQL 문
 services: sql-database
-documentationcenter: 
 author: CarlRabeler
-manager: jhubbard
-editor: 
-tags: 
-ms.assetid: c05abd9e-28a7-4c97-9bdf-bc60d08fc92e
+manager: craigg
 ms.service: sql-database
 ms.custom: migrate
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: On Demand
 ms.date: 10/23/2017
 ms.author: carlrab
-ms.openlocfilehash: f311c0d139d5ec35cbd85a34bd5a5e991bccba3a
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: acc2c2556763650e0a0aff93fd247d882cb37852
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>SQL Database로의 마이그레이션 중 Transact-SQL 차이점 해결   
 SQL Server에서 Azure SQL Server로 [데이터베이스를 마이그레이션](sql-database-cloud-migrate.md)하는 경우 SQL Server를 마이그레이션하려면 먼저 데이터베이스를 다시 엔지니어링해야 할 수 있습니다. 이 문서에서는 엔지니어링을 다시 수행하는 데 도움이 되며 다시 엔지니어링해야 하는 근본적인 이유를 이해하는 데에도 도움이 되는 지침을 제공합니다. 비호환성을 검색하려면 [DMA(Data Migration Assistant)](https://www.microsoft.com/download/details.aspx?id=53595)를 사용합니다.

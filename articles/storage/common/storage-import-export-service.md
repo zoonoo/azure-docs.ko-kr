@@ -1,6 +1,6 @@
 ---
-title: "Azure Import/Export를 사용하여 Azure Storage 간에 데이터 전송 | Microsoft Docs"
-description: "Azure Portal에서 가져오기 및 내보내기 작업을 만들어 Azure Storage 간에 데이터를 전송하는 방법에 대해 알아봅니다."
+title: Azure Import/Export를 사용하여 Azure Storage 간에 데이터 전송 | Microsoft Docs
+description: Azure Portal에서 가져오기 및 내보내기 작업을 만들어 Azure Storage 간에 데이터를 전송하는 방법에 대해 알아봅니다.
 author: muralikk
 manager: syadav
 services: storage
@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: muralikk
-ms.openlocfilehash: e9fce2530bc4e654304b946cea1715ac8e2ce6fa
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 7eaf4c3c9b390e87dd8494cd6bfb2ea155451608
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>Microsoft Azure Import/Export 서비스를 사용하여 Azure Storage로 데이터 전송
 이 문서에서는 Azure Import/Export 서비스를 사용하여 디스크 드라이브를 Azure 데이터 센터에 발송하여 많은 양의 데이터를 안전하게 Azure Blob Storage로 전송하는 단계별 지침을 제공합니다. 이 서비스를 사용하여 데이터를 Azure 저장소에서 하드 디스크 드라이브로 전송하고 온-프레미스 사이트로 발송할 수도 있습니다. 단일 내부 SATA 디스크 드라이브의 데이터를 Azure Blob Storage나 Azure 파일로 가져올 수 있습니다. 
@@ -294,7 +294,7 @@ Azure Portal의 이 이미지는 예제 작업의 드라이브 상태를 나타�
 | 해당 없음 | 작업에 포함되지 않은 드라이브가 다른 작업의 일부로 데이터 센터에 도착했습니다. | 드라이브가 추가 드라이브로 표시되며 원래 패키지와 관련된 작업이 완료되면 고객에게 반송됩니다. |
 
 ### <a name="time-to-process-job"></a>작업 처리 시간
-가져오기/내보내기 작업을 처리하는 데 소요되는 총 시간은 발송 시간, 작업 유형, 복사되는 데이터 유형 및 크기, 제공된 디스크 크기와 같은 다양한 요소에 따라 다릅니다. Import/Export 서비스에는 SLA가 없지만 이 서비스는 디스크가 수신되고 7~10일 내에 복사를 완료하려고 합니다. REST API를 사용하여 작업 진행 상태를 좀 더 자세히 추적할 수 있습니다. 작업 나열 작업에는 복사 진행 상태를 나타내는 완료율 매개 변수가 있습니다. 시간이 매우 중요한 가져오기/내보내기 작업을 완료하는 예상 시간이 필요한 경우 문의하세요.
+가져오기/내보내기 작업을 처리하는 데 소요되는 시간은 발송 시간, 데이터 센터의 부하, 복사되는 데이터의 작업 유형 및 크기, 작업의 디스크 수와 같은 다양한 요소에 따라 다릅니다. Import/Export 서비스에는 SLA가 없지만 이 서비스는 디스크가 수신되고 7~10일 내에 복사를 완료하려고 합니다. Azure Portal에 게시된 상태 뿐만 아니라, REST API를 사용하여 작업 진행 상황을 추적할 수 있습니다. 작업 나열 작업의 API 호출에 포함된 완료율 매개 변수는 복사 진행률을 제공합니다.
 
 ### <a name="pricing"></a>가격
 **드라이브 취급 수수료**

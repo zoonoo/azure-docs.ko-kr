@@ -1,8 +1,8 @@
 ---
-title: "Windows에서 AzCopy 사용하여 Azure Storage로 데이터 복사 또는 이동 | Microsoft Docs"
-description: "Windows에서 AzCopy 유틸리티를 사용하여 Blob, 테이블 및 파일 콘텐츠에서 데이터를 이동하거나 복사합니다. 로컬 파일에서 Azure Storage로 데이터를 복사하거나, Storage 계정 내에서 데이터를 복사하거나, Storage 계정 간에 데이터를 복사합니다. 데이터를 Azure Storage로 손쉽게 마이그레이션할 수 있습니다."
+title: Windows에서 AzCopy 사용하여 Azure Storage로 데이터 복사 또는 이동 | Microsoft Docs
+description: Windows에서 AzCopy 유틸리티를 사용하여 Blob, 테이블 및 파일 콘텐츠에서 데이터를 이동하거나 복사합니다. 로컬 파일에서 Azure Storage로 데이터를 복사하거나, Storage 계정 내에서 데이터를 복사하거나, Storage 계정 간에 데이터를 복사합니다. 데이터를 Azure Storage로 손쉽게 마이그레이션할 수 있습니다.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: seguler
 manager: jahogg
 editor: tysonn
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: seguler
-ms.openlocfilehash: 7d875a1e43908f49424f4e40fe923639cfa02385
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 13e09a3081c9dfa2d88625489a82c687d6722f20
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="transfer-data-with-the-azcopy-on-windows"></a>Windows에서 AzCopy를 사용하여 데이터 전송
 AzCopy는 최적의 성능을 내는 간단한 명령을 사용하여 데이터를 Microsoft Azure Blob, File 및 Table Storage에 복사하거나 이들 저장소에서 복사하기 위한 명령줄 유틸리티입니다. 파일 시스템과 저장소 계정 간 또는 저장소 계정 간에 데이터를 복사할 수 있습니다.  
@@ -56,7 +56,7 @@ AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfo
 ### <a name="download-a-single-blob-from-the-secondary-region"></a>보조 지역에서 단일 Blob 다운로드
 
 ```azcopy
-AzCopy /Source:https://myaccount-secondary.blob.core.windows.net/mynewcontainer /Dest:C:\myfolder /SourceKey:key /Pattern:abc.txt
+AzCopy /Source:https://myaccount-secondary.blob.core.windows.net/mynewcontainer /Dest:C:\myfolder /SourceKey:key /Pattern:"abc.txt"
 ```
 
 보조 지역에 액세스하려면 지역 중복 저장소가 사용된 읽기 액세스가 있어야 합니다.
@@ -106,7 +106,7 @@ AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfo
     C:\myfolder\abc1.txt
     C:\myfolder\abc2.txt
 
-접두사는 Blob 이름의 처음 부분을 구성하는 가상 디렉터리에 적용됩니다. 위에 표시된 예에서는 가상 디렉터리가 지정된 접두사와 일치하지 않으므로 다운로드가 진행되지 않습니다. 또한 옵션 `\S`가 지정되지 않으면 AzCopy는 어떤 Blob도 다운로드하지 않습니다.
+접두사는 Blob 이름의 처음 부분을 구성하는 가상 디렉터리에 적용됩니다. 위에 표시된 예에서는 가상 디렉터리가 지정된 접두사와 일치하지 않으므로 다운로드가 진행되지 않습니다. 또한 옵션 `/S`가 지정되지 않으면 AzCopy는 어떤 Blob도 다운로드하지 않습니다.
 
 ### <a name="set-the-last-modified-time-of-exported-files-to-be-same-as-the-source-blobs"></a>내보낸 파일의 마지막으로 수정한 시간을 소스 Blob과 동일하게 설정
 
@@ -616,7 +616,7 @@ AzCopy의 매개 변수는 아래에 설명되어 있습니다. 명령줄에서 
 
 * AzCopy에 대한 자세한 명령줄 도움말: `AzCopy /?`
 * AzCopy 매개 변수와 관련된 자세한 도움말: `AzCopy /?:SourceKey`
-* 명령줄 예제: `AzCopy /?:Samples`
+* 명령줄 예제: `AzCopy /?:Sample`
 
 ### <a name="sourcesource"></a>/Source:"source"
 

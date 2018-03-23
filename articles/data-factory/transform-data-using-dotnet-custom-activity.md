@@ -1,8 +1,8 @@
 ---
-title: "Azure Data Factory 파이프라인에서 사용자 지정 작업 사용"
-description: "사용자 지정 작업을 만들고 Azure Data Factory 파이프라인에서 사용하는 방법에 대해 알아봅니다."
+title: Azure Data Factory 파이프라인에서 사용자 지정 작업 사용
+description: 사용자 지정 작업을 만들고 Azure Data Factory 파이프라인에서 사용하는 방법에 대해 알아봅니다.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: shengcmsft
 manager: jhubbard
 editor: spelluru
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: shengc
-ms.openlocfilehash: 4b9714bc456ad28d9dd46742ca16f52e68c61399
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 6aaeaaacdc9ee67ebbed3ea3090455dde2357c3d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Azure Data Factory 파이프라인에서 사용자 지정 작업 사용
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -108,11 +108,11 @@ Azure Batch 서비스가 처음이라면 다음 문서를 참조하세요.
 | 자산              | 설명                              | 필수 |
 | :-------------------- | :--------------------------------------- | :------- |
 | 이름                  | 파이프라인의 작업 이름입니다.     | 예      |
-| description           | 작업이 어떤 일을 수행하는지 설명하는 텍스트입니다.  | 아니오       |
+| description           | 작업이 어떤 일을 수행하는지 설명하는 텍스트입니다.  | 아니요       |
 | 형식                  | 사용자 지정 작업의 경우 작업 유형은 **사용자 지정**입니다. | 예      |
 | linkedServiceName     | Azure Batch에 연결된 서비스입니다. 이 연결된 서비스에 대한 자세한 내용은 [연결된 Compute Services](compute-linked-services.md) 문서를 참조하세요.  | 예      |
 | command               | 실행할 사용자 지정 응용 프로그램의 명령입니다. Azure Batch 풀 노드에 사용할 수 있는 응용 프로그램이 이미 있으면 resourceLinkedService 및 folderPath를 건너뛸 수 있습니다. 예를 들어 명령을 기본적으로 Windows Batch 풀 노드에 의해 지원되는 `cmd /c dir`로 지정할 수 있습니다. | 예      |
-| resourceLinkedService | 사용자 지정 응용 프로그램이 저장된 저장소 계정에 대한 Azure Storage 연결된 서비스입니다. | 아니요       |
+| resourceLinkedService | 사용자 지정 응용 프로그램이 저장된 저장소 계정에 대한 Azure Storage 연결된 서비스입니다. | 아니오       |
 | folderPath            | 사용자 지정 응용 프로그램 및 모든 해당 종속성 폴더에 대한 경로입니다. | 아니오       |
 | referenceObjects      | 기존 연결된 서비스 및 데이터 집합의 배열입니다. 사용자 지정 코드가 Data Factory의 리소스를 참조할 수 있도록 참조된 연결된 서비스 및 데이터 집합은 JSON 형식으로 사용자 지정 응용 프로그램에 전달됩니다. | 아니오       |
 | extendedProperties    | 사용자 지정 코드가 추가 속성을 참조할 수 있도록 사용자 정의 속성은 JSON 형식으로 사용자 지정 응용 프로그램에 전달될 수 있습니다. | 아니요       |
@@ -298,22 +298,22 @@ namespace SampleApp
   > - activity.json, linkedServices.json 및 datasets.json은 Batch 작업의 런타임 폴더에 저장됩니다. 예를 들어 activity.json, linkedServices.json 및 datasets.json은 "https://adfv2storage.blob.core.windows.net/adfjobs/<GUID>/runtime/" 경로에 저장됩니다. 필요한 경우 개별적으로 정리해야 합니다. 
   > - 연결된 서비스가 자체 호스팅 통합 런타임을 사용하는 경우 키 또는 암호와 같은 중요한 정보를 자체 호스팅 통합 런타임으로 암호화하여 사용자 정의 개인 네트워크 환경에 자격 증명을 유지하도록 합니다. 이러한 방식으로 사용자 지정 응용 프로그램 코드에서 참조하는 경우 일부 중요한 필드가 누락될 수 있습니다. 필요한 경우 연결된 서비스 참조를 사용하는 대신 extendedProperties에서 SecureString을 사용합니다. 
 
-## <a name="difference-between-custom-activity-in-azure-data-factory-version-2-and-custom-dotnet-activity-in-azure-data-factory-version-1"></a>Azure Data Factory 버전 2의 사용자 지정 작업과 Azure Data Factory 버전 1의 (사용자 지정) DotNet 작업 간 차이점
+## <a name="compare-v2-custom-activity-and-version-1-custom-dotnet-activity"></a>v2 사용자 지정 활동 및 버전 1(사용자 지정) DotNet 작업 비교
 
-  Azure Data Factory 버전 1에서는 IDotNetActivity 인터페이스의 Execute 메서드를 구현하는 클래스를 통해 .Net 클래스 라이브러리 프로젝트를 만들어 (사용자 지정) DotNet 작업 코드를 구현합니다. (사용자 지정) DotNet 작업 JSON 페이로드의 연결된 서비스, 데이터 집합 및 확장된 속성은 강력한 형식의 개체로 실행 메서드에 전달됩니다. 자세한 내용은 [(사용자 지정) 버전 1의 DotNet](v1/data-factory-use-custom-activities.md)을 참조하세요. 이 구현으로 인해 사용자 지정 코드를 .Net Framework 4.5.2에서 작성하고 Windows 기반 Azure Batch 풀 노드에서 실행해야 합니다. 
+  Azure Data Factory 버전 1에서는 `IDotNetActivity` 인터페이스의 `Execute` 메서드를 구현하는 클래스를 통해 .Net 클래스 라이브러리 프로젝트를 만들어 (사용자 지정) DotNet 작업을 구현합니다. (사용자 지정) DotNet 작업의 JSON 페이로드에 있는 연결된 서비스, 데이터 집합 및 확장된 속성은 강력한 형식의 개체로 실행 메서드에 전달됩니다. 버전 1 동작에 대한 자세한 내용은 [버전 1(사용자 지정) DotNet](v1/data-factory-use-custom-activities.md)을 참조하세요. 이 구현 때문에, 버전 1 DotNet 활동 코드의 대상이 .Net Framework 4.5.2여야 합니다. 버전 1 DotNet 활동은 Windows 기반 Azure Batch 풀 노드에서도 실행되어야 합니다. 
 
-  Azure Data Factory V2 사용자 지정 작업에서는 .Net 인터페이스를 구현할 필요가 없습니다. 이제 명령, 스크립트 및 실행 파일로 컴파일된 자체 사용자 지정 코드를 직접 실행할 수 있습니다. 이를 위해서는 folderPath 속성과 함께 Command 속성을 지정합니다. 사용자 지정 작업은 folderpath에서 실행 파일 및 종속성을 업로드하고 명령을 실행합니다. 
+  Azure Data Factory V2 사용자 지정 작업에서는 .Net 인터페이스를 구현할 필요가 없습니다. 이제 명령, 스크립트 및 실행 파일로 컴파일된 자체 사용자 지정 코드를 직접 실행할 수 있습니다. 이 구현을 구성하려면 `Command` 속성과 `folderPath` 속성을 함께 지정합니다. 사용자 지정 작업은 `folderpath`에서 실행 파일 및 종속성을 업로드하고 명령을 실행합니다. 
 
-  사용자 지정 작업의 JSON 페이로드에 정의된 연결된 서비스, 데이터 집합(referenceObjects에 정의됨) 및 확장된 속성은 실행 파일에서 JSON 파일로서 액세스할 수 있습니다. 위의 SampleApp.exe 코드 샘플에 나와 있는 것처럼 JSON 직렬 변환기를 사용하여 필요한 속성에 액세스할 수 있습니다. 
+  Data Factory v2 사용자 지정 작업의 JSON 페이로드에 정의된 연결된 서비스, 데이터 집합(referenceObjects에 정의됨) 및 확장된 속성은 실행 파일에서 JSON 파일로서 액세스할 수 있습니다. 위의 SampleApp.exe 코드 샘플에 나와 있는 것처럼 JSON 직렬 변환기를 사용하여 필요한 속성에 액세스할 수 있습니다. 
 
-  Azure Data Factory V2 사용자 지정 작업이 변경되면서 이제 기본 설정 언어로 사용자 지정 코드 논리를 자유롭게 쓰고, Azure Batch에서 지원하는 Windows 및 Linux 운영 체제에서 해당 코드를 실행할 수 있습니다. 
+  Data Factory V2 사용자 지정 작업이 변경되면서 이제 기본 설정 언어로 사용자 지정 코드 논리를 쓰고, Azure Batch에서 지원하는 Windows 및 Linux 운영 체제에서 해당 코드를 실행할 수 있습니다. 
 
   다음 표에서는 Data Factory V2 사용자 지정 작업과 Data Factory 버전 1 (사용자 지정) DotNet 작업 간의 차이점을 설명합니다. 
 
 
 |차이점      |버전 2 사용자 지정 작업      | 버전 1 (사용자 지정) DotNet 작업      |
 | ---- | ---- | ---- |
-|사용자 지정 논리를 정의하는 방법      |실행 파일을 실행하여(고유한 실행 파일을 존재 또는 구현)      |.Net DLL을 구현하여      |
+|사용자 지정 논리를 정의하는 방법      |실행 파일을 제공하여      |.Net DLL을 구현하여      |
 |사용자 지정 논리의 실행 환경      |Windows 또는 Linux      |Windows(.Net Framework 4.5.2)      |
 |스크립트 실행      |실행 중인 스크립트 직접 지원(예: Windows VM의 "cmd/c echo hello world")      |.Net DLL에서 구현 필요      |
 |필요한 데이터 집합      |옵션      |작업을 연결하고 정보를 전달하는 데 필요      |
@@ -322,16 +322,16 @@ namespace SampleApp
 |로깅      |STDOUT에 직접 작성      |.Net DLL에서 로거 구현      |
 
 
-  버전 1(사용자 지정) DotNet 작업용으로 작성된 기존 .Net 코드가 있는 경우 다음과 같은 개괄적인 지침에 따라 버전 2 사용자 지정 작업을 사용하도록 코드를 수정해야 합니다.  
+  버전 1 (사용자 지정) DotNet 작업용으로 작성된 기존 .Net 코드가 있는 경우 버전 2 사용자 지정 작업을 사용하도록 코드를 수정해야 합니다. 다음의 같은 개괄적인 지침에 따라 코드를 업데이트합니다.  
 
    - .NET 클래스 라이브러리의 프로젝트를 콘솔 앱으로 변경합니다. 
-   - Main 메서드로 응용 프로그램을 시작합니다. 그러면 IDotNetActivity 인터페이스의 Execute 메서드가 더 이상 필요하지 않습니다. 
-   - 강력한 형식의 개체로서가 아니라 JSON 직렬 변환기로 연결된 서비스, 데이터 집합 및 작업을 읽고 구문 분석한 후 필요한 속성 값을 기본 사용자 지정 코드 논리에 제공합니다. 앞에 나온 SampleApp.exe 코드를 참조하세요. 
-   - 로거 개체는 더 이상 지원되지 않고 실행 파일 출력을 콘솔에 출력할 수 있습니다. 이 파일은 stdout.txt에 저장됩니다. 
+   - `Main` 메서드를 사용하여 응용 프로그램을 시작합니다. `IDotNetActivity` 인터페이스의 `Execute` 메서드는 더 이상 필요하지 않습니다. 
+   - 연결된 서비스, 데이터 집합 및 작업을 읽고 JSON 직렬 변환기를 사용하여 강력한 형식의 개체가 아닌 다른 방식으로 구문 분석합니다. 주 사용자 지정 코드 논리에 필수 속성의 값을 전달합니다. 앞에 나온 SampleApp.exe 코드 예제를 참조하세요. 
+   - 로거 개체는 더 이상 지원되지 않습니다. 실행 파일의 출력은 콘솔에 출력될 수 있으며 stdout.txt에 저장됩니다. 
    - Microsoft.Azure.Management.DataFactories NuGet 패키지는 더 이상 필요하지 않습니다. 
-   - 코드를 컴파일하고 실행 파일 및 종속성을 Azure Storage에 업로드한 후 folderPath 속성에 경로를 정의합니다. 
+   - 코드를 컴파일하고 실행 파일 및 종속성을 Azure Storage에 업로드한 후 `folderPath` 속성에 경로를 정의합니다. 
 
-Data Factory 버전 1 문서에서 설명된 종단 간 DLL 및 파이프라인 샘플의 전체 샘플의 경우 [Azure Data Factory 파이프라인에서 사용자 지정 작업 사용](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities)은 Data Factory 버전 2 사용자 지정 작업 스타일에 다시 작성될 수 있습니다. [Data Factory 버전 2 사용자 지정 작업 샘플](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFv2CustomActivitySample)을 참조하세요. 
+Data Factory 버전 1 문서에서 설명된 종단 간 DLL 및 파이프라인 샘플의 전체 샘플의 경우 [Azure Data Factory 파이프라인에서 사용자 지정 작업 사용](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities)은 Data Factory v2 사용자 지정 작업으로 다시 작성될 수 있습니다. [Data Factory 버전 2 사용자 지정 작업 샘플](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFv2CustomActivitySample)을 참조하세요. 
 
 ## <a name="auto-scaling-of-azure-batch"></a>Azure Batch의 자동 확장
 **자동 크기 조정** 기능으로 Azure Batch 풀을 만들 수 있습니다. 예를 들어 보류 중인 작업의 수에 따라 전용 VM 0개 및 자동 크기 조정 수식을 사용하여 Azure 배치 풀을 만들 수 있습니다. 

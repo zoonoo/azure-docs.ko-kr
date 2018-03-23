@@ -1,8 +1,8 @@
 ---
-title: "Azure Cloud Services 리소스에서 호스트되는 응용 프로그램에 Application Insight Profiler 사용 | Microsoft Docs"
-description: "Azure Cloud Services에서 실행 중인 응용 프로그램에서 Application Insights Profiler를 설정하는 방법을 알아봅니다."
+title: Azure Cloud Services 리소스에서 호스트되는 응용 프로그램에 Application Insight Profiler 사용 | Microsoft Docs
+description: Azure Cloud Services에서 실행 중인 응용 프로그램에서 Application Insights Profiler를 설정하는 방법을 알아봅니다.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: ramach-msft
 manager: carmonm
 ms.service: application-insights
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: ramach
-ms.openlocfilehash: 278d8241ddd67b6df64b7280d4a17c6d3152f223
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: a24695f7bbb5fb0546e27c934319a60a3418b9e1
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="enable-application-insights-profiler-for-azure-vms-service-fabric-and-azure-cloud-services"></a>Azure VM, Service Fabric 및 Azure Cloud Services에서 Application Insights Profiler 사용
 
@@ -46,8 +46,7 @@ Profiler를 완전히 활성화하려면 세 위치에서 구성을 변경해야
 
    ![계측 키의 위치](./media/enable-profiler-compute/CopyAIKey.png)
 
-3. Profiler에 대한 Application Insights 인스턴스 설정을 마치려면 [프로파일러 사용](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-profiler)에 설명된 단계를 완료합니다.  
-    이 단계는 앱 서비스 리소스에만 해당되므로 웹앱을 연결할 필요가 없습니다. **Profiler 구성** 창에 Profiler가 활성화되어 있는지 확인합니다.
+3. Profiler에 대한 Application Insights 인스턴스 설정을 마치려면 Profiler 사용에 설명된 단계를 완료합니다. 이 단계는 앱 서비스 리소스에만 해당되므로 웹앱을 연결할 필요가 없습니다. **Profiler 구성** 창에 Profiler가 활성화되어 있는지 확인합니다.
 
 
 ## <a name="set-up-the-application-source-code"></a>응용 프로그램 소스 코드 설정
@@ -157,6 +156,8 @@ Profiler 및 응용 프로그램을 실행하는 환경은 가상 머신, 가상
 
       배포 템플릿에 진단 확장을 추가하는 방법에 대한 정보는 [Windows VM 및 Azure Resource Manager 템플릿을 사용하여 모니터링 및 진단 사용](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-diagnostics-template?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요.
 
+> [!TIP]
+> Virtual Machines의 경우 위의 json 기반 단계 대신, Azure Portal에서 **Virtual Machines** > **진단 설정** > **싱크**로 이동한 후 Application Insights로 진단 데이터를 보냅니다.를 **사용**으로 설정하고 Application Insights 계정 또는 특정 ikey를 선택합니다.
 
 ### <a name="azure-cloud-services"></a>Azure Cloud Services
 
@@ -196,7 +197,7 @@ Profiler 및 응용 프로그램을 실행하는 환경은 가상 머신, 가상
 
 1. 수정된 환경 배포 정의를 배포합니다.  
 
-   수정 사항을 적용하려면 일반적으로 PowerShell cmdlet 또는 Visual Studio를 통한 전체 템플릿 배포 또는 클라우드 서비스 게시가 필요합니다.  
+   수정 사항을 적용하려면 일반적으로 PowerShell cmdlet 또는 Visual Studio를 통한 전체 템플릿 배포 또는 클라우드 서비스 기반 게시가 필요합니다.  
 
    Azure 진단 확장명만 수정하는 기존 가상 머신에 대한 대안은 다음과 같습니다.  
 

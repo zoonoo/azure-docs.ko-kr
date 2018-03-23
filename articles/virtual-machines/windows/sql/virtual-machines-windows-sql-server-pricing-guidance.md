@@ -1,29 +1,36 @@
 ---
-title: "Azure Virtual Machines의 SQL Server에 대한 효과적인 비용 관리 | Microsoft 문서"
-description: "적합한 SQL Server 가상 머신 가격 책정 모델을 선택하기 위한 모범 사례를 제공합니다."
+title: Azure Virtual Machines의 SQL Server에 대한 효과적인 비용 관리 | Microsoft 문서
+description: 적합한 SQL Server 가상 머신 가격 책정 모델을 선택하기 위한 모범 사례를 제공합니다.
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
 manager: craigg
-editor: 
+editor: ''
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 10/17/2017
+ms.date: 02/20/2018
 ms.author: jroth
-ms.openlocfilehash: fe04aa382a3e829b201dbe92442f841fb29fff15
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 3103ca2c659e40fd945b597ed4671fe96daf1905
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>SQL Server Azure VM에 대한 가격 책정 지침
 
-이 문서에서는 Azure의 SQL Server 가상 머신에 대한 가격 책정 지침을 제공합니다. 비용에 영향을 미치는 다양한 옵션이 있고 비용과 비즈니스 요구 사항 간에 균형을 이루는 적합한 이미지를 선택해야 합니다.
+이 문서에서는 Azure의 [SQL Server 가상 머신](virtual-machines-windows-sql-server-iaas-overview.md)에 대한 가격 책정 지침을 제공합니다. 비용에 영향을 미치는 다양한 옵션이 있고 비용과 비즈니스 요구 사항 간에 균형을 이루는 적합한 이미지를 선택해야 합니다.
+
+> [!TIP]
+> 특정한 SQL Server 버전 및 가상 머신 크기 조합에 대한 예상 비용만 확인하려는 경우 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/virtual-machines/windows)를 참조하세요. **OS/소프트웨어** 목록에서 운영 체제와 SQL Server 버전을 선택합니다.
+>
+> ![VM 가격 책정 페이지의 UI](./media/virtual-machines-windows-sql-server-pricing-guidance/virtual-machines-pricing-ui.png)
+>
+> 또는 [가격 계산기](https://azure.microsoft.com/pricing/#explore-cost)를 사용하여 가상 머신을 추가하고 구성합니다. 
 
 ## <a name="free-licensed-sql-server-editions"></a>무료 라이선스 SQL Server 버전
 
@@ -56,7 +63,7 @@ ms.lasthandoff: 02/21/2018
 
 ### <a name="pay-per-usage"></a>사용당 지급
 
-**사용당 SQL Server 라이선스 지급**은 Azure VM의 분당 비용에 SQL Server 라이선스 비용이 포함됨을 의미합니다. [Azure VM 가격 페이지](https://azure.microsoft.com/pricing/details/virtual-machines/sql-server-standard)에서 다른 SQL Server 버전(Web, Standard, Enterprise)에 대한 가격을 확인할 수 있습니다. SQL Server의 모든 버전(2012 SP3 ~ 2017)에 대한 비용은 동일합니다. 일반적으로 SQL Server 라이선스처럼 분당 라이선스 비용은 VM 코어 수에 따라 결정됩니다.
+**사용당 SQL Server 라이선스 지급**은 Azure VM의 분당 비용에 SQL Server 라이선스 비용이 포함됨을 의미합니다. [Azure VM 가격 페이지](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)에서 다른 SQL Server 버전(Web, Standard, Enterprise)에 대한 가격을 확인할 수 있습니다. SQL Server의 모든 버전(2012 SP3 ~ 2017)에 대한 비용은 동일합니다. 일반적으로 SQL Server 라이선스처럼 분당 라이선스 비용은 VM 코어 수에 따라 결정됩니다.
 
 사용당 SQL Server 라이선스 지급이 권장되는 경우는 다음과 같습니다.
 
@@ -147,6 +154,6 @@ SQL Server 라이선싱 비용은 코어 수와 직접적인 관련이 있습니
 
 Azure 가격 책정 지침에 대해서는 [Azure 청구 및 비용 관리를 사용하여 예상치 못한 비용 방지](../../../billing/billing-getting-started.md)를 참조하세요.
 
-SQL Server를 포함하여 최신 Virtual Machines 가격 책정에 대해서는 [Azure VM 가격 페이지](https://azure.microsoft.com/pricing/details/virtual-machines/sql-server-standard)를 참조하세요.
+SQL Server를 포함하여 최신 Virtual Machines 가격 책정에 대해서는 [Azure VM 가격 페이지](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)를 참조하세요.
 
 [SQL Server Windows VM](virtual-machines-windows-sql-server-iaas-overview.md) 및 [SQL Server Linux VM](../../linux/sql/sql-server-linux-virtual-machines-overview.md) 모두에 대한 SQL Server 가상 머신에 대해 자세히 알아보세요.

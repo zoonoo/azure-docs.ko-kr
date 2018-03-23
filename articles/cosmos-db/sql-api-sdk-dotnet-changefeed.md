@@ -1,6 +1,6 @@
 ---
-title: "Azure Cosmos DB: .NET 변경 피드 프로세서 API, SDK 및 리소스 | Microsoft Docs"
-description: "릴리스 날짜, 사용 중지 날짜 및 .NET 변경 피드 프로세서 SDK의 각 버전 간 변경 내용을 포함하여 변경 피드 프로세서 API 및 SDK에 대한 모든 것을 알아봅니다."
+title: 'Azure Cosmos DB: .NET 변경 피드 프로세서 API, SDK 및 리소스 | Microsoft Docs'
+description: 릴리스 날짜, 사용 중지 날짜 및 .NET 변경 피드 프로세서 SDK의 각 버전 간 변경 내용을 포함하여 변경 피드 프로세서 API 및 SDK에 대한 모든 것을 알아봅니다.
 services: cosmos-db
 documentationcenter: .net
 author: ealsur
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 03/07/2018
 ms.author: maquaran
-ms.openlocfilehash: 962ad3aca82e34fa22da925a274a1e82e2086e03
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 7e53cf67bc6e03a5f45de5ad4e23ff91624874f4
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET 변경 피드 프로세서 SDK: 다운로드 및 릴리스 정보
 > [!div class="op_single_selector"]
@@ -43,6 +43,11 @@ ms.lasthandoff: 03/02/2018
 |**현재 지원되는 프레임워크**| [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</br> [Microsoft .NET Core](https://www.microsoft.com/net/download/core) |
 
 ## <a name="release-notes"></a>릴리스 정보
+
+### <a name="a-name130130"></a><a name="1.3.0"/>1.3.0
+* 안정성 향상
+* 수동 검사점 설정 지원
+* [SQL .NET SDK](sql-api-sdk-dotnet.md) 버전 1.21 이상과 호환
 
 ### <a name="a-name120120"></a><a name="1.2.0"/>1.2.0
 * .NET Standard 2.0에 대한 지원을 추가합니다. 이제 패키지는 `netstandard2.0` 및 `net451` 프레임워크 모니커를 지원합니다.
@@ -72,6 +77,7 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 
 | 버전 | 릴리스 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
+| [1.3.0](#1.3.0) |2018년 3월 7일 |--- |
 | [1.2.0](#1.2.0) |2017년 10월 31일 |--- |
 | [1.1.1](#1.1.1) |2017년 8월 29일 |--- |
 | [1.1.0](#1.1.0) |2017년 8월 13일 |--- |

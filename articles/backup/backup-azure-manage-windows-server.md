@@ -1,8 +1,8 @@
 ---
-title: "Azure Recovery Services 자격 증명 모음 및 서버 관리 | Microsoft Docs"
-description: "이 문서를 사용하여 Recovery Services 자격 증명 모음 및 서버를 관리합니다."
+title: Azure Recovery Services 자격 증명 모음 및 서버 관리 | Microsoft Docs
+description: 이 문서를 사용하여 Recovery Services 자격 증명 모음 및 서버를 관리합니다.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
 editor: tysonn
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2018
 ms.author: markgal
-ms.openlocfilehash: 2e5fd9e7e3cae1665519e4f08604fddf7834fd51
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 18ab960c3d86f4154f7cbbaa3dd4909b9b16b697
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="monitor-and-manage-azure-recovery-services-vaults-and-servers-for-windows-machines"></a>Windows 컴퓨터용 Azure 복구 서비스 자격 증명 모음 및 서버 모니터링 및 관리
 
@@ -196,6 +196,8 @@ Backup 항목 타일에서 **파일-폴더** 타일을 클릭합니다.
 > **데이터를 복구**하려면 [Windows 서버 또는 Windows 클라이언트 컴퓨터로 파일 복원](backup-azure-restore-windows-server.md)을 참조하세요.
 >
 >
+
+[!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 
 ## <a name="modify-the-backup-schedule"></a>백업 일정 수정
 1. Microsoft Azure Backup 에이전트에서 **Backup 예약**을 클릭합니다.

@@ -1,13 +1,13 @@
 ---
-title: "데이터 과학 Virtual Machine 데이터 수집 도구-Azure | Microsoft Docs"
-description: "데이터 과학 Virtual Machine 데이터 수집 도구"
-keywords: "데이터 과학 도구, 데이터 과학 가상 머신, 데이터 과학용 도구, linux 데이터 과학"
+title: 데이터 과학 Virtual Machine 데이터 수집 도구-Azure | Microsoft Docs
+description: 데이터 과학 Virtual Machine 데이터 수집 도구
+keywords: 데이터 과학 도구, 데이터 과학 가상 머신, 데이터 과학용 도구, linux 데이터 과학
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.openlocfilehash: a2422d8a79d102accb72476f6934bae38603973a
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 8526e949aee2935824a03a0972d9e45c71d6601b
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="data-science-virtual-machine-data-ingestion-tools"></a>데이터 과학 Virtual Machine 데이터 수집 도구
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 02/22/2018
 | 지원되는 DSVM 버전      | Windows      |
 | 일반적인 사용 용도      | Azure Storage에서 Azure Data Lake Store로 여러 BLOB 가져오기.      |
 |  사용/실행 방법    |   명령 프롬프트를 연 다음 `adlcopy`을 입력하여 도움말을 봅니다.    |
-| 샘플에 대한 링크      | [AdlCopy 사용]https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob)      |
+| 샘플에 대한 링크      | [AdlCopy 사용](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob)      |
 | DSVM의 관련 도구      | AzCopy, Azure 명령줄     |
 
 ## <a name="azure-command-line"></a>Azure 명령줄
@@ -46,7 +46,7 @@ ms.lasthandoff: 02/22/2018
 | 지원되는 DSVM 버전      | Windows, Linux     |
 | 일반적인 사용 용도      | Azure Storage, Azure Data Lake Store 간 데이터 가져오기, 내보내기      |
 |  사용/실행 방법    |   명령 프롬프트를 연 다음 `az`을 입력하여 도움말을 봅니다.    |
-| 샘플에 대한 링크      | [Azure CLI 사용](https://docs.microsoft.com/cli/azure/?viee-cli-latest)     |
+| 샘플에 대한 링크      | [Azure CLI 사용](https://docs.microsoft.com/cli/azure)     |
 | DSVM의 관련 도구      | AzCopy, AdlCopy      |
 
 
@@ -93,7 +93,7 @@ ms.lasthandoff: 02/22/2018
 | 지원되는 DSVM 버전      | Linux      |
 | 일반적인 사용 용도      | 컨테이너에서 Blob에 대한 읽기 및 쓰기      |
 |  사용/실행 방법    |   터미널에서 _blobfuse_를 실행합니다.    |
-| 샘플에 대한 링크      | [blobfuse on GitHub)[https://github.com/Azure/azure-storage-fuse]      |
+| 샘플에 대한 링크      | [GitHub의 blobfuse](https://github.com/Azure/azure-storage-fuse)      |
 | DSVM의 관련 도구      | Azure 명령줄      |
 
 

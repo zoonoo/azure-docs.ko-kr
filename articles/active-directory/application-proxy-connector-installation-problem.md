@@ -1,11 +1,11 @@
 ---
-title: "응용 프로그램 프록시 에이전트 커넥터를 설치할 때 문제 발생 | Microsoft 문서"
-description: "응용 프로그램 프록시 에이전트 커넥터를 설치할 때 발생하는 문제를 해결하는 방법"
+title: 응용 프로그램 프록시 에이전트 커넥터를 설치할 때 문제 발생 | Microsoft 문서
+description: 응용 프로그램 프록시 에이전트 커넥터를 설치할 때 발생하는 문제를 해결하는 방법
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.openlocfilehash: 8fbd707b6708661ab0d655afadff2b18694a981e
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>응용 프로그램 프록시 에이전트 커넥터를 설치할 때 문제 발생
 
@@ -54,7 +54,7 @@ Microsoft AAD 응용 프로그램 프록시 커넥터는 아웃바운드 연결�
 
 **이 문제를 해결하려면:**
 
-1.  컴퓨터가 TLS1.2를 지원하는지 확인합니다. 2012 R2 이후의 모든 Windows 버전은 TLS1.2를 지원합니다. 커넥터 컴퓨터가 2012 R2 또는 이전 버전인 경우 컴퓨터에 <https://support.microsoft.com/help/2973337/sha512-is-disabled-in-windows-when-you-use-tls-1.2> KB가 설치되어 있는지 확인합니다.
+1.  컴퓨터가 TLS1.2를 지원하는지 확인합니다. 2012 R2 이후의 모든 Windows 버전은 TLS1.2를 지원합니다. 커넥터 컴퓨터가 2012 R2 또는 이전 버전인 경우 컴퓨터에 <https://support.microsoft.com/help/2973337/sha512-is-disabled-in-windows-when-you-use-tls-1.2> 기술 자료 문서가 설치되어 있는지 확인합니다.
 
 2.  네트워크 관리자에게 문의하여 백 엔드 프록시와 방화벽이 나가는 트래픽에 대해 SHA512를 차단하지 않는지 확인합니다.
 
@@ -64,7 +64,7 @@ Microsoft AAD 응용 프로그램 프록시 커넥터는 아웃바운드 연결�
 
 **자격 증명이 올바른지 확인하려면:**
 
-<https://login.microsoftonline.com>에 연결하여 동일한 자격 증명을 사용합니다. 로그인이 성공하는지 확인합니다. **Azure Active Directory** -&gt; **사용자 및 그룹** -&gt; **모든 사용자**로 이동하여 사용자 역할을 확인할 수 있습니다. 
+<https://login.microsoftonline.com>에 연결하고 동일한 자격 증명을 사용합니다. 로그인이 성공하는지 확인합니다. **Azure Active Directory** -&gt; **사용자 및 그룹** -&gt; **모든 사용자**로 이동하여 사용자 역할을 확인할 수 있습니다. 
 
 사용자 계정을 선택한 다음 결과 메뉴에서 "디렉터리 역할"을 선택합니다. 선택한 역할이 "전역 관리자"인지 확인합니다. 이 단계에서 페이지에 액세스할 수 없으면 전역 관리자가 아닙니다.
 

@@ -1,11 +1,11 @@
 ---
-title: "Azure Active Directory 및 API Management로 Web API 백 엔드 보호 | Microsoft Docs"
-description: "Azure Active Directory 및 API Management로 Web API 백 엔드를 보호하는 방법에 대해 알아봅니다."
+title: Azure Active Directory 및 API Management로 Web API 백 엔드 보호 | Microsoft Docs
+description: Azure Active Directory 및 API Management로 Web API 백 엔드를 보호하는 방법에 대해 알아봅니다.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 2a5be24aba8a675290045b282cc64dda4b7c594e
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: b7fc48412799aea0c4bba971102b4912dbb18e05
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="how-to-protect-a-web-api-backend-with-azure-active-directory-and-api-management"></a>Azure Active Directory 및 API Management로 Web API 백 엔드를 보호하는 방법
 
@@ -179,7 +179,7 @@ API는 Azure Portal을 통해 액세스할 수 있는 API 게시자 포털에서
 
 ![게시자 포털][api-management-management-console]
 
-작업을 [수동으로 API에 추가](api-management-howto-add-operations.md)하거나 가져올 수 있습니다. 이 비디오에서는 작업을 6분 40초부터 Swagger 형식으로 가져옵니다.
+작업을 [수동으로 API에 추가](api-management-howto-add-operations.md)하거나 가져올 수 있습니다.
 
 다음 내용을 포함한 `calcapi.json` 이라는 파일을 만들고 컴퓨터에 저장합니다. `host` 특성이 Web API 백 엔드를 가리키는지 확인합니다. 이 예에서는 `"host": "apimaaddemo.azurewebsites.net"` 가 사용됩니다.
 

@@ -1,8 +1,8 @@
 ---
-title: "Microsoft Authenticator 앱 도움말 및 지원 | Microsoft Docs"
-description: "Microsoft Authentication 앱 및 Azure Multi-Factor Authentication과 관련된 질문과 대답 목록을 제공합니다."
+title: Microsoft Authenticator 앱 도움말 및 지원 | Microsoft Docs
+description: Microsoft Authentication 앱 및 Azure Multi-Factor Authentication과 관련된 질문과 대답 목록을 제공합니다.
 services: multi-factor-authentication
-documentationcenter: 
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
 ms.assetid: f04d5bce-e99e-4f75-82d1-ef6369be3402
@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/17/2017
-ms.author: barlan
+ms.date: 03/08/2018
+ms.author: lizross
 ms.reviewer: librown
 ms.custom: end-user
-ms.openlocfilehash: 2c109a53866f9fff8c61a157cf1194fe4dd6e1ac
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: aa3c6bb9196a17ae41c05458533f73f3ec315bd8
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="microsoft-authenticator-app-faq"></a>Microsoft Authenticator 앱 FAQ
 
@@ -28,6 +28,14 @@ ms.lasthandoff: 01/29/2018
 Microsoft Authenticator 앱은 Azure Authenticator 앱을 대신하며, Azure Multi-factor Authentication을 사용하는 경우 권장됩니다. Microsoft Authenticator 앱은 [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594) 및 [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071)에서 사용할 수 있습니다.
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
+
+### <a name="what-data-does-the-authenticator-store-on-my-behalf-and-how-can-i-delete-it"></a>Authenticator는 내 대신 어떤 데이터를 저장하며, 이러한 데이터는 어떻게 삭제할 수 있나요?
+
+Microsoft Authenticator는 계정을 추가할 때 만든 계정 정보를 저장합니다. Authenticator를 사용할 때 디버깅 목적으로 진단 로그가 생성되고, Microsoft에서 예기치 못한 문제를 진단하는 데 도움이 되는 유용한 데이터가 저장됩니다. **도움말** > **로그 보내기** > **로그 보기**를 열어 로그 데이터에 액세스할 수 있습니다.
+
+계정 타일을 삭제하여 데이터를 삭제할 수 있습니다. 이렇게 하면 로그를 포함하는 응용 프로그램에서 사용되는 모든 계정 정보가 삭제됩니다. 
+
+Microsoft에서 데이터를 사용하는 방법에 대한 자세한 내용은 https://servicetrust.microsoft.com/ViewPage/PrivacyGettingStarted를 참조하세요.
 
 ### <a name="what-are-the-codes-in-the-app-for-why-does-the-number-keep-counting-down"></a>앱에서 코드란 무엇인가요? 숫자가 계속 카운트다운되는 이유는 무엇인가요?
 

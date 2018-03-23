@@ -1,12 +1,12 @@
 ---
-title: "Azure Service Fabric 클러스터에 기존 앱을 신속하게 배포"
-description: "Azure Service Fabric 클러스터를 사용하여 Visual Studio에서 기존 Node.js 응용 프로그램을 호스트합니다."
+title: Azure Service Fabric 클러스터에 기존 앱을 신속하게 배포
+description: Azure Service Fabric 클러스터를 사용하여 Visual Studio에서 기존 Node.js 응용 프로그램을 호스트합니다.
 services: service-fabric
 documentationcenter: nodejs
 author: thraka
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: adegeo
-ms.openlocfilehash: 1130ce3231b9e96a03d3e8dc5f75721dd0415928
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 65185a2d594a4a251cf87ece6f758ab3db223d7d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="host-a-nodejs-application-on-azure-service-fabric"></a>Azure Service Fabric에서 Node.js 응용 프로그램 호스트
 
@@ -136,7 +136,7 @@ Service Fabric 클러스터를 만들 때 **사용자 지정 끝점** 설정을 
 해당 리소스에 대한 요금이 청구되므로 이 빠른 시작에서 만든 리소스를 모두 삭제해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
-[게스트 실행 파일](service-fabric-deploy-existing-app.md)에 대해 자세히 알아보세요.
+[게스트 실행 파일](service-fabric-guest-executables-introduction.md)에 대해 자세히 알아보세요.
 
 <!-- Image References -->
 

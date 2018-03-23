@@ -1,32 +1,31 @@
 ---
-title: "암호화를 사용하는 Azure Protect 미사용 개인 데이터 | Microsoft Docs"
-description: "이 문서는 개인 데이터를 보호하는 데 Azure를 사용하도록 하는 시리즈의 일부입니다."
+title: 암호화를 사용하는 Azure Protect 미사용 개인 데이터 | Microsoft Docs
+description: 이 문서는 GDPR(일반 데이터 보호 규정)과 같은 업계 및 정부 요구 사항을 준수하기 위해 사용될 수 있습니다.
 services: security
 documentationcenter: na
 author: Barclayn
 manager: MBaldwin
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/31/2017
+ms.date: 03/06/2018
 ms.author: barclayn
-ms.custom: 
-ms.openlocfilehash: 31e41f9befd9319115e5d147b473756486100c6e
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.custom: ''
+ms.openlocfilehash: 37da3d91df4be871d6647b6290768ea4999a5010
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-encryption-technologies-protect-personal-data-at-rest-with-encryption"></a>Azure 암호화 기술: 암호화로 미사용 개인 데이터 보호
 
 이 문서는 Azure 암호화 기술을 이해하고 사용하여 미사용 데이터를 보호하는 데 도움이 됩니다.
 
-중요하거나 개인적인 데이터를 보호하고 규정 준수 및 데이터 개인 정보 보호 요구 사항을 충족하려면 미사용 데이터를 암호화하여 보관하는 것이 가장 좋습니다.
-미사용 데이터 암호화는 디스크에 있을 때 데이터를 암호화하여 공격자가 암호화되지 않은 데이터에 액세스하지 못하도록 설계되었습니다.
+중요하거나 개인적인 데이터를 보호하고 규정 준수 및 데이터 개인 정보 보호 요구 사항을 충족하려면 미사용 데이터를 암호화하여 보관하는 것이 가장 좋습니다. 미사용 데이터 암호화는 디스크에 있을 때 데이터를 암호화하여 공격자가 암호화되지 않은 데이터에 액세스하지 못하도록 설계되었습니다. 이 문서에 포함된 정보는 GDPR(일반 데이터 보호 규정)을 준수하기 위해 사용할 수 있습니다.
 
 ## <a name="scenario"></a>시나리오 
 
@@ -85,7 +84,7 @@ Azure Key Vault와 함께 사용되는 PowerShell cmdlet 목록은 [AzureRM.KeyV
 
 ### <a name="azure-disk-encryption-for-windows"></a>Windows용 Azure Disk Encryption
 
-[Windows 및 Linux IaaS VM용 Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption)은 Azure 가상 컴퓨터에서 미사용 개인 데이터를 보호하고 Azure Key Vault와 통합합니다. Azure Disk Encryption은 Windows에서 [BitLocker](https://technet.microsoft.com/library/cc732774.aspx)를, Linux에서 [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt)를 사용하여 OS 및 데이터 드라이브를 모두 암호화합니다. Azure Disk Encryption은 Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016, Windows 8 및 Windows 10 클라이언트에서 지원됩니다.
+[Windows 및 Linux IaaS VM용 Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption)은 Azure 가상 머신에서 미사용 개인 데이터를 보호하고 Azure Key Vault와 통합합니다. Azure Disk Encryption은 Windows에서 [BitLocker](https://technet.microsoft.com/library/cc732774.aspx)를, Linux에서 [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt)를 사용하여 OS 및 데이터 드라이브를 모두 암호화합니다. Azure Disk Encryption은 Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016, Windows 8 및 Windows 10 클라이언트에서 지원됩니다.
 
 #### <a name="how-do-i-use-azure-disk-encryption-to-protect-personal-data"></a>Azure Disk Encryption을 사용하여 개인 데이터를 보호하려면 어떻게 할까요?
 
@@ -99,7 +98,7 @@ Azure Disk Encryption을 사용하려면 Azure 계정에 대한 구독이 필요
 
 Azure에서 VM과 키 자격 증명 모음 구성을 업데이트하고 암호화된 VM을 설정합니다.
 
-Azure Disk Encryption를 지원하도록 키 자격 증명 모음을 설정하면, 보안을 강화하고 암호화된 가상 컴퓨터의 백업을 지원하기 위해 KEK(키 암호화 키)를 추가할 수 있습니다.
+Azure Disk Encryption를 지원하도록 키 자격 증명 모음을 설정하면, 보안을 강화하고 암호화된 가상 머신의 백업을 지원하기 위해 KEK(키 암호화 키)를 추가할 수 있습니다.
 
 ![](media/protect-personal-data-at-rest/create-key.png)
 
@@ -171,7 +170,7 @@ Azure에서 데이터를 암호화하는 데 사용되는 키를 보호하기 �
 
 - [Azure Disk Encryption 문제 해결 가이드](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-tsg)
 
-- [Azure 가상 컴퓨터 암호화](https://docs.microsoft.com/azure/security-center/security-center-disk-encryption?toc=%2fazure%2fsecurity%2ftoc.json)
+- [Azure Virtual Machine 암호화](https://docs.microsoft.com/azure/security-center/security-center-disk-encryption?toc=%2fazure%2fsecurity%2ftoc.json)
 
 - [Azure Data Lake Store의 데이터 암호화](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-encryption)
 

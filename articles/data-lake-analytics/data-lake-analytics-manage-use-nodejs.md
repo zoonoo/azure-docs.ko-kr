@@ -1,10 +1,10 @@
 ---
-title: "Node.js용 Azure SDK를 사용하여 Azure Data Lake Analytics 관리 | Microsoft Docs"
-description: "Node.js용 Azure SDK를 사용하여 데이터 레이크 분석 계정, 데이터 원본, 작업 및 사용자를 관리하는 방법을 알아봅니다."
+title: Node.js용 Azure SDK를 사용하여 Azure Data Lake Analytics 관리 | Microsoft Docs
+description: Node.js용 Azure SDK를 사용하여 데이터 레이크 분석 계정, 데이터 원본, 작업 및 사용자를 관리하는 방법을 알아봅니다.
 services: data-lake-analytics
-documentationcenter: 
-author: edmacauley
-manager: jhubbard
+documentationcenter: ''
+author: saveenr
+manager: kfile
 editor: cgronlun
 ms.assetid: 9de1bcf4-b15b-4d0b-9284-8889ecf0c438
 ms.service: data-lake-analytics
@@ -13,12 +13,12 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
-ms.author: edmaca
-ms.openlocfilehash: 769cf9b09eecd204c8b5b944065dad57a6d73231
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: saveenr
+ms.openlocfilehash: f11695df74e30f7ba9b1459f443a720208e542c4
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-sdk-for-nodejs"></a>Node.js용 Azure SDK를 사용하여 Azure 데이터 레이크 분석 관리
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]

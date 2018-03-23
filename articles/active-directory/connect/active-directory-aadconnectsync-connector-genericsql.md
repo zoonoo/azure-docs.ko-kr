@@ -1,11 +1,11 @@
 ---
-title: "일반 SQL 커넥터 | Microsoft Docs"
-description: "이 문서에서는 Microsoft의 일반 SQL 커넥터를 구성하는 방법을 설명합니다."
+title: 일반 SQL 커넥터 | Microsoft Docs
+description: 이 문서에서는 Microsoft의 일반 SQL 커넥터를 구성하는 방법을 설명합니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: bhu
-editor: 
+editor: ''
 ms.assetid: fd8ccef3-6605-47ba-9219-e0c74ffc0ec9
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2017
 ms.author: billmath
-ms.openlocfilehash: 66e3559c244a76101be7b7d944a48cd6dd99bd4c
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 5ac8aff7e302a255efb86606416131ecf8088137
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2018
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="generic-sql-connector-technical-reference"></a>일반 SQL 커넥터 기술 참조
 이 문서에서는 일반 SQL 커넥터를 설명합니다. 이 문서는 다음 제품에 적용됩니다.
@@ -152,7 +152,7 @@ ODBC 드라이버가 작동하는 데 필요한 포트는 데이터베이스 공
 ![globalparameters3](./media/active-directory-aadconnectsync-connector-genericsql/any-option.png)
 
 >[!IMPORTANT]
- 2017년 5월을 기준으로 "*", 즉 **옵션**이 흐름 내보내기 및 가져오기를 지원하도록 변경되었습니다. 이 옵션을 사용하려는 경우 다중 값 테이블/뷰에 개체 형식을 포함하는 특성이 있어야 합니다.
+ 2017년 5월을 기준으로 “\*”, 즉 **옵션**이 흐름 내보내기 및 가져오기를 지원하도록 변경되었습니다. 이 옵션을 사용하려는 경우 다중 값 테이블/뷰에 개체 형식을 포함하는 특성이 있어야 합니다.
 
 ![](./media/active-directory-aadconnectsync-connector-genericsql/any-02.png)
 

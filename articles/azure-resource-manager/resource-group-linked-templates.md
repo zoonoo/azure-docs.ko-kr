@@ -1,6 +1,6 @@
 ---
-title: "Azure 배포용 템플릿 연결 | Microsoft Docs"
-description: "Azure Resource Manager 템플릿에서 연결된 템플릿을 사용하여 모듈식 템플릿 솔루션을 만드는 방법을 설명합니다. 매개 변수 값을 전달하고 매개 변수 파일 및 동적으로 생성된 URL을 지정하는 방법을 보여 줍니다."
+title: Azure 배포용 템플릿 연결 | Microsoft Docs
+description: Azure Resource Manager 템플릿에서 연결된 템플릿을 사용하여 모듈식 템플릿 솔루션을 만드는 방법을 설명합니다. 매개 변수 값을 전달하고 매개 변수 파일 및 동적으로 생성된 URL을 지정하는 방법을 보여 줍니다.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/17/2018
 ms.author: tomfitz
-ms.openlocfilehash: 38d4281dfadaefdf331e493745363e8b4152209d
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: c9a7fc0025e6f4f2b793f0616b4bc41c22c2a498
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Azure 리소스를 배포할 때 연결 및 중첩된 템플릿 사용
 
@@ -27,8 +27,6 @@ ms.lasthandoff: 01/23/2018
 중소기업에게는 단일 템플릿이 더 간편하게 이해하고 유지 관리할 수 있습니다. 모든 리소스 및 값을 단일 파일에서 볼 수 있습니다. 고급 시나리오의 경우 연결된 템플릿을 통해 솔루션을 대상 구상 요소로 분리하고 템플릿을 재사용할 수 있습니다.
 
 연결된 템플릿을 사용할 때는 배포 중에 매개 변수 값을 받는 기본 템플릿을 만듭니다. 기본 템플릿은 연결된 모든 템플릿을 포함하여 필요에 따라 해당 템플릿에 값을 전달합니다.
-
-![연결된 템플릿](./media/resource-group-linked-templates/nestedTemplateDesign.png)
 
 ## <a name="link-or-nest-a-template"></a>템플릿 연결 또는 중첩
 

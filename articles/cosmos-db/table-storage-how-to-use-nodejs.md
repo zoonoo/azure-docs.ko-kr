@@ -1,6 +1,6 @@
 ---
-title: "Node.js에서 Azure Table Storage를 사용하는 방법 | Microsoft Docs"
-description: "Azure 테이블 저장소, NoSQL 데이터 저장소를 사용하여 클라우드에 구조화된 데이터를 저장합니다."
+title: Node.js에서 Azure Table Storage 또는 Azure Cosmos DB를 사용하는 방법 | Microsoft Docs
+description: Azure Table Storage 또는 Azure Cosmos DB를 사용하여 클라우드에 구조화된 데이터를 저장합니다.
 services: cosmos-db
 documentationcenter: nodejs
 author: mimig1
@@ -12,25 +12,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 03/06/2018
 ms.author: mimig
-ms.openlocfilehash: 0b412be8b93e1f871c09b7a4452141ac334d53ae
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: dcd729da0b9e913046da1ad5619594f5ce485bdb
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="how-to-use-azure-table-storage-from-nodejs"></a>Node.js에서 Azure 테이블 저장소를 사용하는 방법
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
 ## <a name="overview"></a>개요
-이 항목에서는 Node.js 응용 프로그램의 Azure Table service를 사용하여 일반 시나리오를 수행하는 방법을 설명합니다.
-
-이 항목의 코드 예제에서는 Node.js 응용 프로그램이 이미 있다고 가정합니다. Azure에서 Node.js 응용 프로그램을 만드는 방법에 대한 자세한 내용은 다음 항목을 참조하세요.
-
-* [Azure App Service에서 Node.js 웹앱 만들기](../app-service/app-service-web-get-started-nodejs.md)
-* [Node.js 응용 프로그램 빌드 및 Azure 클라우드 서비스에 배포](../cloud-services/cloud-services-nodejs-develop-deploy-app.md) (Windows PowerShell 사용)
+이 문서에서는 Node.js 응용 프로그램의 Azure Table service 또는 Azure Cosmos DB를 사용하는 일반 시나리오를 수행하는 방법을 설명합니다.
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
@@ -53,7 +48,7 @@ Azure Storage를 사용하려면 저장소 REST 서비스와 통신하는 편리
        +-- readable-stream@1.0.33 (string_decoder@0.10.31, isarray@0.0.1, inherits@2.0.1, core-util-is@1.0.1)
        +-- xml2js@0.2.7 (sax@0.5.2)
        +-- request@2.57.0 (caseless@0.10.0, aws-sign2@0.5.0, forever-agent@0.6.1, stringstream@0.0.4, oauth-sign@0.8.0, tunnel-agent@0.4.1, isstream@0.1.2, json-stringify-safe@5.0.1, bl@0.9.4, combined-stream@1.0.5, qs@3.1.0, mime-types@2.0.14, form-data@0.2.0, http-signature@0.11.0, tough-cookie@2.0.0, hawk@2.3.1, har-validator@1.8.0)
-3. **ls** 명령을 수동으로 실행하여 **node\_modules** 폴더가 만들어졌는지 확인할 수 있습니다. 이 폴더에서 저장소에 액세스하는 데 필요한 라이브러리가 들어 있는 **azure-storage** 패키지를 찾습니다.
+3. **ls** 명령을 수동으로 실행하여 **node_modules** 폴더가 만들어졌는지 확인할 수 있습니다. 이 폴더에서 저장소에 액세스하는 데 필요한 라이브러리가 들어 있는 **azure-storage** 패키지를 찾습니다.
 
 ### <a name="import-the-package"></a>패키지 가져오기
 응용 프로그램에서 아래 코드를 **server.js** 파일의 맨 위에 추가합니다.
@@ -62,17 +57,28 @@ Azure Storage를 사용하려면 저장소 REST 서비스와 통신하는 편리
 var azure = require('azure-storage');
 ```
 
-## <a name="set-up-an-azure-storage-connection"></a>Azure Storage 연결 설정
-Azure 모듈은 AZURE\_STORAGE\_ACCOUNT 및 AZURE\_STORAGE\_ACCESS\_KEY 또는 AZURE\_STORAGE\_CONNECTION\_STRING 환경 변수를 읽고 Azure Storage 계정에 연결하는 데 필요한 정보를 확인합니다. 이러한 환경 변수가 설정되어 있지 않은 경우 **TableService**를 호출할 때 계정 정보를 지정해야 합니다.
+## <a name="add-an-azure-storage-connection"></a>Azure Storage 연결 추가
+Azure 모듈은 AZURE_STORAGE_ACCOUNT 및 AZURE_STORAGE_ACCESS_KEY 또는 AZURE_STORAGE_CONNECTION_STRING 환경 변수를 읽고 Azure Storage 계정에 연결하는 데 필요한 정보를 확인합니다. 이러한 환경 변수가 설정되어 있지 않은 경우 **TableService**를 호출할 때 계정 정보를 지정해야 합니다. 예를 들어, 다음 코드는 **TableService** 개체를 만듭니다.
+
+```nodejs
+var tableSvc = azure.createTableService('myaccount', 'myaccesskey');
+```
+
+## <a name="add-an-azure-comsos-db-connection"></a>Azure Cosmos DB 연결 추가
+Azure Cosmos DB 연결을 추가하려면 **TableService** 개체를 만들고 계정 이름, 기본 키 및 끝점을 지정합니다. Cosmos DB 계정에 대한 Azure Portal의 **설정** > **연결 문자열**에서 이러한 값을 복사할 수 있습니다. 예: 
+
+```nodejs
+var tableSvc = azure.createTableService('myaccount', 'myprimarykey', 'myendpoint');
+```  
 
 ## <a name="create-a-table"></a>테이블 만들기
-다음 코드는 **TableService** 개체를 만든 다음 이 개체를 사용하여 새 테이블을 만듭니다. **server.js**의 위쪽에 다음을 추가합니다.
+다음 코드는 **TableService** 개체를 만든 다음 이 개체를 사용하여 새 테이블을 만듭니다. 
 
 ```nodejs
 var tableSvc = azure.createTableService();
 ```
 
-**createTableIfNotExists** 를 호출하면 지정된 이름을 사용하는 테이블이 없는 경우 새 테이블을 만듭니다. 다음 예제에서는 'mytable'이라는 새 테이블(없는 경우)을 만듭니다.
+**createTableIfNotExists**를 호출하면 지정된 이름을 사용하는 테이블이 없는 경우 새 테이블을 만듭니다. 다음 예제에서는 'mytable'이라는 새 테이블(없는 경우)을 만듭니다.
 
 ```nodejs
 tableSvc.createTableIfNotExists('mytable', function(error, result, response){
@@ -82,22 +88,22 @@ tableSvc.createTableIfNotExists('mytable', function(error, result, response){
 });
 ```
 
-새 테이블이 만들어지면 `result.created`는 `true`가 되고, 테이블이 이미 있으면 `false`가 됩니다. `response` 에는 요청에 대한 정보가 포함됩니다.
+새 테이블이 만들어지면 `result.created`는 `true`가 되고, 테이블이 이미 있으면 `false`가 됩니다. `response`에는 요청에 대한 정보가 포함됩니다.
 
 ### <a name="filters"></a>필터
-**TableService**를 사용하여 수행되는 작업에 선택적 필터링 작업을 적용할 수 있습니다. 필터링 작업은 로깅, 자동 재시도 등을 포함할 수 있습니다. 필터는 시그니쳐가 있는 메서드를 구현하는 개체입니다.
+**TableService**를 사용하여 수행되는 작업에 선택적 필터링을 적용할 수 있습니다. 필터링 작업은 로깅, 자동 재시도 등을 포함할 수 있습니다. 필터는 시그니쳐가 있는 메서드를 구현하는 개체입니다.
 
 ```nodejs
 function handle (requestOptions, next)
 ```
 
-요청 옵션에 대한 전처리를 수행한 후 메서드는 다음 서명을 사용하여 콜백을 전달하는 "next"를 호출해야 합니다.
+요청 옵션에 대한 전처리를 수행한 후 메서드는 다음 서명을 사용하여 콜백을 전달하는 **next**를 호출해야 합니다.
 
 ```nodejs
 function (returnObject, finalCallback, next)
 ```
 
-이 콜백에서 returnObject(서버에 요청 응답 반환)를 처리한 후 콜백은 next(있는 경우)를 호출하여 다른 필터를 계속 처리하거나 finalCallback을 호출하여 서비스 호출을 종료해야 합니다.
+이 콜백에서 **returnObject**(서버에 요청 응답 반환)를 처리한 후 콜백은 **next**(있는 경우)를 호출하여 다른 필터를 계속 처리하거나 **finalCallback**을 호출하여 서비스 호출을 종료해야 합니다.
 
 Node.js용 Azure SDK에는 재시도 논리를 구현하는 두 필터 **ExponentialRetryPolicyFilter** 및 **LinearRetryPolicyFilter**가 포함되어 있습니다. 다음은 **ExponentialRetryPolicyFilter**를 사용하는 **TableService** 개체를 만듭니다.
 
@@ -192,11 +198,11 @@ tableSvc.replaceEntity('mytable', updatedTask, function(error, result, response)
 > 2. 엔터티에서 업데이트 작업을 수행할 때 이전에 검색한 ETag 정보를 새 엔터티에 추가합니다. 예: 
 >
 >       entity2['.metadata'].etag = currentEtag;
-> 3. 업데이트 작업을 수행합니다. ETag 값을 검색한 후에 응용 프로그램의 다른 인스턴스 등에서 엔터티가 수정된 경우에는 요청에 지정된 업데이트 조건이 충족되지 않았다는 내용의 `error` 가 반환됩니다.
+> 3. 업데이트 작업을 수행합니다. ETag 값을 검색한 후에 응용 프로그램의 다른 인스턴스 등에서 엔터티가 수정된 경우에는 요청에 지정된 업데이트 조건이 충족되지 않았다는 내용의 `error`가 반환됩니다.
 >
 >
 
-**replaceEntity** 및 **mergeEntity**를 사용할 때 업데이트 중인 엔터티가 없는 경우 업데이트 작업이 실패합니다. 따라서 엔터티의 존재 여부에 상관없이 엔터티를 저장하려면 **insertOrReplaceEntity** 또는 **insertOrMergeEntity**를 사용합니다.
+**replaceEntity** 및 **mergeEntity**를 사용할 경우 업데이트할 엔터티가 존재하지 않으면 업데이트 작업이 실패하므로 존재 여부에 관계없이 엔터티를 저장하려는 경우 **insertOrReplaceEntity** 또는 **insertOrMergeEntity**를 사용합니다.
 
 업데이트 작업이 성공할 경우 `result` 값에는 업데이트된 엔터티의 **Etag** 가 포함됩니다.
 
@@ -234,11 +240,11 @@ tableSvc.executeBatch('mytable', batch, function (error, result, response) {
 일괄 처리 작업에 성공할 경우 `result` 값에는 일괄 처리의 각 작업에 대한 정보가 포함됩니다.
 
 ### <a name="work-with-batched-operations"></a>일괄 처리 작업
-배치에 추가된 작업은 `operations` 속성을 보고 검사할 수 있습니다. 작업에 다음 메서드를 사용할 수도 있습니다.
+`operations` 속성을 확인하여 일괄 처리에 추가된 작업을 검사할 수 있습니다. 작업에 다음 메서드를 사용할 수도 있습니다.
 
-* **clear** - 배치에서 모든 작업을 지웁니다.
-* **getOperations** - 배치에서 작업을 가져옵니다.
-* **hasOperations** - 배치에 작업이 포함되어 있으면 true를 반환합니다.
+* **clear** - 일괄 처리에서 모든 작업을 지웁니다.
+* **getOperations** - 일괄 처리에서 작업을 가져옵니다.
+* **hasOperations** - 일괄 처리에 작업이 포함되어 있으면 true를 반환합니다.
 * **removeOperations** - 작업을 제거합니다.
 * **size** - 배치에 있는 작업의 수를 반환합니다.
 
@@ -253,7 +259,7 @@ tableSvc.retrieveEntity('mytable', 'hometasks', '1', function(error, result, res
 });
 ```
 
-이 작업이 완료되면 `result` 에 엔터티가 포함됩니다.
+이 작업이 완료되면 `result`에 엔터티가 포함됩니다.
 
 ## <a name="query-a-set-of-entities"></a>엔터티 집합 쿼리
 테이블을 쿼리하려면 **TableQuery** 개체와 다음 절을 사용하여 쿼리 식을 구성합니다.
@@ -273,7 +279,7 @@ var query = new azure.TableQuery()
   .where('PartitionKey eq ?', 'hometasks');
 ```
 
-**select** 가 사용되지 않았기 때문에 모든 필드가 반환됩니다. 테이블에 대해 쿼리를 수행하려면 **queryEntities**를 사용합니다. 다음 예에서는 이 쿼리를 사용하여 'mytable'에서 엔터티를 반환합니다.
+**select**가 사용되지 않기 때문에 모든 필드가 반환됩니다. 테이블에 대해 쿼리를 수행하려면 **queryEntities**를 사용합니다. 다음 예에서는 이 쿼리를 사용하여 'mytable'에서 엔터티를 반환합니다.
 
 ```nodejs
 tableSvc.queryEntities('mytable',query, null, function(error, result, response) {
@@ -283,11 +289,11 @@ tableSvc.queryEntities('mytable',query, null, function(error, result, response) 
 });
 ```
 
-성공할 경우에는 `result.entries` 값에는 쿼리와 일치하는 엔터티의 배열이 포함됩니다. 쿼리에서 엔터티를 모두 반환할 수 없는 경우 `result.continuationToken` 이*null* 이 아닌 값이 되므로 **queryEntities** 의 세 번째 매개 변수로 사용하여 더 많은 결과를 검색할 수 있습니다. 초기 쿼리의 경우 세 번째 매개 변수에 *null* 을 사용합니다.
+성공할 경우에는 `result.entries` 값에는 쿼리와 일치하는 엔터티의 배열이 포함됩니다. 쿼리에서 엔터티를 모두 반환할 수 없는 경우 `result.continuationToken`이*null*이 아닌 값이 되므로 **queryEntities**의 세 번째 매개 변수로 사용하여 더 많은 결과를 검색할 수 있습니다. 초기 쿼리의 경우 세 번째 매개 변수에 *null* 을 사용합니다.
 
 ### <a name="query-a-subset-of-entity-properties"></a>엔터티 속성 하위 집합 쿼리
 테이블 쿼리에서는 엔터티에서 일부 필드만 검색할 수 있습니다.
-따라서 대역폭이 줄어들며 특히 큰 엔터티의 경우 쿼리 성능이 향상될 수 있습니다. **select** 절을 사용하여 반환할 필드의 이름을 전달합니다. 예를 들어 다음 쿼리에서는 **description** 및 **dueDate** 필드만 반환합니다.
+따라서 대역폭이 줄어들며 특히 큰 엔터티의 경우 쿼리 성능이 향상될 수 있습니다. **select** 절을 사용하여 반환할 필드의 이름을 전달합니다. 예를 들어, 다음 쿼리에서는 **description** 및 **dueDate** 필드만 반환합니다.
 
 ```nodejs
 var query = new azure.TableQuery()
@@ -333,9 +339,9 @@ tableSvc.deleteTable('mytable', function(error, response){
 ## <a name="use-continuation-tokens"></a>연속토큰 사용
 많은 양의 결과를 얻기 위해 테이블을 쿼리하는 경우 연속 토큰을 찾습니다. 당신이 인식하지 못한 쿼리에 대한 사용 가능한 많은 양의 데이터가 있을 경우 연속토큰의 유무를 인식하지 못하도록 작성하지마세요.
 
-연속 토큰이 있을 경우 `continuationToken` 속성을 설정하는 엔터티를 쿼리하는 동안 결과 개체가 반환됩니다. 그 다음 파티션 및 테이블 엔터티 간에 이동을 계속하기 위해 쿼리를 수행 할 경우 이것을 사용할 수 있습니다.
+연속 토큰이 있을 경우 `continuationToken` 속성을 설정하는 엔터티를 쿼리하는 동안 **결과** 개체가 반환됩니다. 그 다음 파티션 및 테이블 엔터티 간에 이동을 계속하기 위해 쿼리를 수행 할 경우 이것을 사용할 수 있습니다.
 
-쿼리할 때, 쿼리개체 인스턴스와 콜백 기능간에 연속토큰 매개 변수가 제공될 수 있습니다.
+쿼리할 때, 쿼리개체 인스턴스와 콜백 함수 간에 `continuationToken` 매개 변수를 제공할 수 있습니다.
 
 ```nodejs
 var nextContinuationToken = null;
@@ -356,7 +362,7 @@ dc.table.queryEntities(tableName,
 
 `continuationToken` 개체를 조사하면, 모든 결과를 반복하는 데 사용할 수 있는 `nextPartitionKey`, `nextRowKey` 및 `targetLocation`과 같은 속성을 찾을 수 있습니다.
 
-또한 GitHub의 Azure Storage Node.js 리포지토리 내에 연속된 샘플이 있습니다. `examples/samples/continuationsample.js`를 찾아보세요.
+또한 GitHub의 [azure-storage-node repository](https://github.com/Azure/azure-storage-node/tree/master/examples/samples)에는 연속 샘플(continuationsample.js)이 있습니다. 
 
 ## <a name="work-with-shared-access-signatures"></a>공유 액세스 서명 작업
 SAS(공유 액세스 서명)는 저장소 계정 이름이나 키를 제공하지 않으면서 테이블에 세분화된 액세스 권한을 안전하게 제공하는 방법입니다. SAS는 모바일 앱에서 레코드를 쿼리하는 경우와 같이 데이터에 대해 제한된 액세스를 제공하는 경우에 자주 사용합니다.
@@ -437,7 +443,7 @@ if(!error){
 });
 ```
 
-ACL이 설정되고 나면 정책의 ID를 기반으로 SAS를 만들 수 있습니다. 다음 예에서는 'user2'에 대해 새 SAS를 만듭니다.
+ACL이 설정된 후에 정책의 ID를 기반으로 SAS를 만들 수 있습니다. 다음 예에서는 'user2'에 대해 새 SAS를 만듭니다.
 
 ```nodejs
 tableSAS = tableSvc.generateSharedAccessSignature('hometasks', { Id: 'user2' });
@@ -447,6 +453,7 @@ tableSAS = tableSvc.generateSharedAccessSignature('hometasks', { Id: 'user2' });
 자세한 내용은 다음 리소스를 참조하세요.
 
 * [Microsoft Azure Storage 탐색기](../vs-azure-tools-storage-manage-with-storage-explorer.md)는 Windows, MacOS 및 Linux에서 Azure Storage 데이터로 시각적으로 작업할 수 있도록 해주는 Microsoft의 독립 실행형 무료 앱입니다.
-* [Azure Storage SDK for Node](https://github.com/Azure/azure-storage-node) 리포지토리
-* [Node.js 개발자 센터](/develop/nodejs/)
-* [Node.js 응용 프로그램을 만들어 Azure 웹 사이트에 배포](../app-service/app-service-web-get-started-nodejs.md)
+* GitHub의 [Azure Storage SDK for Node](https://github.com/Azure/azure-storage-node) 리포지토리
+* [Node.js 개발자용 Azure](https://docs.microsoft.com/javascript/azure/?view=azure-node-latest)
+* [Azure에서 Node.js 웹앱 만들기](../app-service/app-service-web-get-started-nodejs.md)
+* [Node.js 응용 프로그램 빌드 및 Azure 클라우드 서비스에 배포](../cloud-services/cloud-services-nodejs-develop-deploy-app.md) (Windows PowerShell 사용)

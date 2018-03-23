@@ -1,18 +1,18 @@
 ---
-title: "Ansible을 사용하여 Azure 동적 인벤토리 관리"
-description: "Ansible을 사용하여 Azure 동적 인벤토리를 관리하는 방법을 알아봅니다."
+title: Ansible을 사용하여 Azure 동적 인벤토리 관리
+description: Ansible을 사용하여 Azure 동적 인벤토리를 관리하는 방법을 알아봅니다.
 ms.service: ansible
-keywords: "Ansible, Azure, DevOps, Bash, Cloud Shell, 동적 인벤토리"
+keywords: Ansible, Azure, DevOps, Bash, Cloud Shell, 동적 인벤토리
 author: tomarcher
 manager: routlaw
 ms.author: tarcher
 ms.date: 01/14/2018
 ms.topic: article
-ms.openlocfilehash: 8753d039582abdf22f105bf7f139a35c224e7c59
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 799be6d2bb521de38af952376bf8ee14a18846de
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="use-ansible-to-manage-your-azure-dynamic-inventories"></a>Ansible을 사용하여 Azure 동적 인벤토리 관리
 Ansible은 다양한 원본(Azure와 같은 클라우드 원본 포함)에서 *동적 인벤토리*로 인벤토리 정보를 가져오는 데 사용할 수 있습니다. 이 문서에서는 [Azure Cloud Shell](./ansible-run-playbook-in-cloudshell.md)을 사용하여 두 개의 가상 머신을 만들고, 해당 가상 머신 각각에 태그를 지정하고, 태그가 지정된 가상 머신에 Nginx를 설치하는 Ansible Azure 동적 인벤토리를 구성합니다.
@@ -59,13 +59,13 @@ Ansible은 다양한 원본(Azure와 같은 클라우드 원본 포함)에서 *�
 다음 [az resource tag](/cli/azure/resource?view=azure-cli-latest.md#az_resource_tag) 명령을 입력하여 `ansible-inventory-test-vm1` 가상 머신에 `nginx` 키를 사용한 태그를 지정합니다.
 
 ```azurecli-interactive
-az resource tag --tags nginx --id /subscriptions/&lt;YourAzureSubscriptionID>/resourceGroups/ansible-inventory-test-rg/providers/Microsoft.Compute/virtualMachines/ansible-inventory-test-vm1
+az resource tag --tags nginx --id /subscriptions/<YourAzureSubscriptionID>/resourceGroups/ansible-inventory-test-rg/providers/Microsoft.Compute/virtualMachines/ansible-inventory-test-vm1
 ```
 
 ## <a name="generate-a-dynamic-inventory"></a>동적 인벤토리 생성
-가상 머신이 정의되고 태그가 지정되면 동적 인벤토리를 생성해야 합니다. Ansible은 Azure Resource Manager에 API를 요청하여 Azure 리소스의 동적 인벤토리를 생성하는 [azure_rm.py](https://github.com/ansible/ansible/blob/devel/contrib/inventory/azure_rm.py)라는 Python 스크립트를 제공합니다. 다음 단계에서는 `azure_rm.py` 스크립트를 사용하여 두 개의 테스트 Azure 가상 머신에 연결하는 과정을 안내합니다.
+가상 머신이 정의되고 태그가 지정되면 동적 인벤토리를 생성해야 합니다. Ansible은 Azure Resource Manager에 API를 요청하여 Azure 리소스의 동적 인벤토리를 생성하는 [azure_rm.py](https://github.com/ansible/ansible/blob/devel/contrib/inventory/azure_rm.py)라는 Python 스크립트를 제공합니다. 다음 단계에서는 `azure_rm.py` 스크립트를 사용하여 두 개의 테스트 Azure Virtual Machines에 연결하는 과정을 안내합니다.
 
-1. `wget` GNU 명령을 사용하여 `azure_rm.py` 스크립트를 검색합니다.
+1. GNU `wget` 명령을 사용하여 `azure_rm.py` 스크립트를 검색합니다.
 
     ```azurecli-interactive
     wget https://raw.githubusercontent.com/ansible/ansible/devel/contrib/inventory/azure_rm.py

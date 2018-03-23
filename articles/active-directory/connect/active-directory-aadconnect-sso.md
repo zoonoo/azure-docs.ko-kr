@@ -1,9 +1,9 @@
 ---
 title: 'Azure AD Connect: Seamless Single Sign-On | Microsoft Docs'
-description: "이 항목에서는 Azure AD(Azure Active Directory) Seamless Single Sign-On 및 이를 사용하여 회사 네트워크 내의 회사 데스크톱 사용자에게 진정한 Single Sign-On을 제공하는 방법을 설명합니다."
+description: 이 항목에서는 Azure AD(Azure Active Directory) Seamless Single Sign-On 및 이를 사용하여 회사 네트워크 내의 회사 데스크톱 사용자에게 진정한 Single Sign-On을 제공하는 방법을 설명합니다.
 services: active-directory
-keywords: "Azure AD Connect의 정의, Active Directory 설치, Azure AD에 대한 필수 구성 요소, SSO, Single Sign-on"
-documentationcenter: 
+keywords: Azure AD Connect의 정의, Active Directory 설치, Azure AD에 대한 필수 구성 요소, SSO, Single Sign-on
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 03/07/2018
 ms.author: billmath
-ms.openlocfilehash: b71a2f19fee370ab1d732becd1c3b644505e2233
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 14018db3cbe34c9eca9048ceaf376ff3a06a4353
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory Seamless Single Sign-On
 
@@ -51,16 +51,18 @@ Seamless SSO는 [암호 해시 동기화](active-directory-aadconnectsync-implem
 - 로그인 사용자 이름은 온-프레미스 기본 사용자 이름(`userPrincipalName`) 또는 Azure AD Connect에 구성된 다른 특성(`Alternate ID`) 중 하나일 수 있습니다. Seamless SSO는 Kerberos 티켓에서 `securityIdentifier` 클레임을 사용하여 Azure AD에서 해당하는 사용자 개체를 조회하기 때문에 두 사용 사례가 작동합니다.
 - Seamless SSO는 편의적인 기능입니다. 어떤 이유로든 실패하면 사용자 로그인 환경은 일반 동작으로 돌아갑니다. 즉 사용자가 로그인 페이지에 자신의 암호를 입력해야 합니다.
 - 응용 프로그램이 Azure AD 로그인 요청에서 테넌트를 식별하는 `domain_hint`(OpenID Connect) 또는 `whr`(SAML) 매개 변수 또는 사용자를 식별하는 `login_hint` 매개 변수를 전달하면, 사용자는 사용자 이름이나 암호를 입력하지 않고 자동으로 로그인됩니다.
+- 로그아웃이 지원됩니다. 따라서 사용자는 Seamless SSO를 사용하여 자동으로 로그인되는 대신, 로그인하는 데 사용할 다른 Azure AD 계정을 선택할 수 있습니다.
+- Office 365 클라이언트(16.0.8730.xxxx 이상)는 비대화형 흐름을 사용하여 지원됩니다.
 - Azure AD Connect를 통해 사용하도록 설정할 수 있습니다.
 - 무료 기능이며 이 기능을 사용하는 데는 Azure AD 유료 버전이 필요하지 않습니다.
 - Kerberos 인증이 가능한 플랫폼 및 브라우저에서 [최신 인증](https://aka.ms/modernauthga)을 지원하는 웹 브라우저 기반 클라이언트 및 Office 클라이언트에서 지원됩니다.
 
 | OS\Browser |Internet Explorer|Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
-|윈도우 10|적용|아니요|적용|예\*|해당 없음
-|Windows 8.1|적용|해당 없음|적용|예\*|해당 없음
-|Windows 8|적용|해당 없음|적용|예\*|해당 없음
-|Windows 7|적용|해당 없음|적용|예\*|해당 없음
+|윈도우 10|예|아니요|예|예\*|해당 없음
+|Windows 8.1|예|해당 없음|예|예\*|해당 없음
+|Windows 8|예|해당 없음|예|예\*|해당 없음
+|Windows 7|예|해당 없음|예|예\*|해당 없음
 |Mac OS X|해당 없음|해당 없음|예\*|예\*|예\*
 
 \*[추가 구성](active-directory-aadconnect-sso-quick-start.md#browser-considerations)이 필요합니다.

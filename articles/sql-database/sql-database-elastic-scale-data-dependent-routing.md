@@ -1,25 +1,19 @@
 ---
-title: "Azure SQL Database를 사용한 데이터 종속 라우팅 | Microsoft Docs"
-description: "Azure SQL Database의 분할된 데이터베이스 기능인 데이터 종속 라우팅을 위해 .NET 앱에서 ShardMapManager 클래스를 사용하는 방법"
+title: Azure SQL Database를 사용한 데이터 종속 라우팅 | Microsoft Docs
+description: Azure SQL Database의 분할된 데이터베이스 기능인 데이터 종속 라우팅을 위해 .NET 앱에서 ShardMapManager 클래스를 사용하는 방법
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: torsteng
-editor: 
-ms.assetid: cad09e15-5561-4448-aa18-b38f54cda004
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
-ms.author: ddove
-ms.openlocfilehash: 2add03568f1d111010cdfb49d850d33cdab8e21b
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.author: sstein
+ms.openlocfilehash: 5685c1e1c502b5f3700fb1c4487778d38ff19d1e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="data-dependent-routing"></a>데이터 종속 라우팅
 **데이터 종속 라우팅** 은 쿼리에서 데이터를 사용하여 적절한 데이터베이스로 요청을 라우트하는 기능입니다. 이러한 방식은 분할된 데이터베이스에서 작업할 때의 기본 패턴입니다. 요청 컨텍스트는 특히 분할 키가 쿼리의 일부가 아닌 경우 요청을 라우트하는 데 사용될 수도 있습니다. 데이터 종속 라우팅을 사용하는 응용 프로그램의 구체적인 각 쿼리 또는 트랜잭션은 요청당 단일 데이터베이스에 대한 액세스로 제한됩니다. Azure SQL Database 탄력적 도구의 경우 이 라우팅은 **ShardMapManager**([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx)) 클래스를 통해 수행됩니다.

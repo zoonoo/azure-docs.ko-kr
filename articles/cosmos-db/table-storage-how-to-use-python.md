@@ -1,6 +1,6 @@
 ---
-title: "Python을 사용하여 Azure Table Storage 시작 | Microsoft Docs"
-description: "Azure 테이블 저장소, NoSQL 데이터 저장소를 사용하여 클라우드에 구조화된 데이터를 저장합니다."
+title: Python을 사용하여 Azure Table Storage 시작 | Microsoft Docs
+description: Azure 테이블 저장소, NoSQL 데이터 저장소를 사용하여 클라우드에 구조화된 데이터를 저장합니다.
 services: cosmos-db
 documentationcenter: python
 author: mimig1
@@ -14,11 +14,11 @@ ms.devlang: python
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: mimig
-ms.openlocfilehash: 2c8c7dc6d3bdb6ba34818d7e36739297cffbe2d2
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 455479c9eb77093dd5611263fe5bdcf699b9d026
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="get-started-with-azure-table-storage-using-python"></a>Python을 사용하여 Azure Table Storage 시작
 
@@ -42,7 +42,7 @@ Table Storage를 사용하여 웹 응용 프로그램의 사용자 데이터, �
 이 자습서를 성공적으로 완료하려면 다음이 필요합니다.
 
 - [Python](https://www.python.org/downloads/) 2.7, 3.3, 3.4, 3.5 또는 3.6
-- [Azure Cosmos DB Table SDK 1.01 for Python](https://pypi.python.org/pypi/azure-cosmosdb-table/). 이 SDK는 Azure Table Storage 및 Azure Cosmos DB Table API 모두와 연결됩니다.
+- [Python용 Azure Cosmos DB 테이블 SDK](https://pypi.python.org/pypi/azure-cosmosdb-table/) 이 SDK는 Azure Table Storage 및 Azure Cosmos DB Table API 모두와 연결됩니다.
 - [Azure Storage 계정](https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account#create-a-storage-account) 또는 [Azure Cosmos DB 계정](https://azure.microsoft.com/en-us/try/cosmosdb/)
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]

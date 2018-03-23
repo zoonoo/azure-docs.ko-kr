@@ -1,30 +1,26 @@
 ---
-title: "Azure SQL Database 서비스 | Microsoft Docs"
-description: "성능 수준 및 저장소 크기를 제공하기 위한 단일 및 풀 데이터베이스에 대한 서비스 계층에 대해 알아보세요."
-keywords: 
+title: Azure SQL Database 서비스 | Microsoft Docs
+description: 성능 수준 및 저장소 크기를 제공하기 위한 단일 및 풀 데이터베이스에 대한 서비스 계층에 대해 알아보세요.
 services: sql-database
-documentationcenter: 
 author: CarlRabeler
-manager: jhubbard
-editor: 
-ms.assetid: f5c5c596-cd1e-451f-92a7-b70d4916e974
+manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: Active
-ms.date: 02/26/2018
+ms.date: 03/15/2018
 ms.author: carlrab
-ms.openlocfilehash: b36af32d900f9426424dd08c43946e7dcb5b39b9
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 6153616de763eee1b20fff40d38816eca8b455de
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="what-are-azure-sql-database-service-tiers"></a>Azure SQL Database 서비스 계층이란?
 
-[Azure SQL Database](sql-database-technical-overview.md)는 [단일 데이터베이스](sql-database-single-database-resources.md) 및 [탄력적 풀](sql-database-elastic-pool.md) 둘 다에 대해 **기본**, **표준** 및 **프리미엄** 서비스 계층을 제공합니다. 서비스 계층은 주로 다양한 성능 수준 및 저장소 크기 선택 항목, 가격으로 식별됩니다.  모든 서비스 계층에서는 성능 수준 및 저장소 크기를 유연하게 변경할 수 있습니다.  단일 데이터베이스 및 탄력적 풀은 서비스 계층, 성능 수준 및 저장소 크기에 따라 시간 단위로 청구됩니다.   
+[Azure SQL Database](sql-database-technical-overview.md)는 [단일 데이터베이스](sql-database-single-database-resources.md) 및 [탄력적 풀](sql-database-elastic-pool.md) 둘 다에 대해 **기본**, **표준** 및 **프리미엄** 서비스 계층을 제공합니다. SQL Database는 [Azure SQL Database 관리되는 인스턴스](sql-database-managed-instance.md#managed-instance-service-tier)에 대해 범용 서비스 계층을 제공합니다. 서비스 계층은 주로 다양한 성능 수준 및 저장소 크기 선택 항목, 가격으로 식별됩니다.  모든 서비스 계층에서는 성능 수준 및 저장소 크기를 유연하게 변경할 수 있습니다.  단일 데이터베이스 및 탄력적 풀은 서비스 계층, 성능 수준 및 저장소 크기에 따라 시간 단위로 청구됩니다.   
+
+> [!IMPORTANT]
+> 현재 공개 미리 보기로 제공되는 SQL Database 관리되는 인스턴스는 단일 범용 서비스 계층을 제공합니다. 자세한 내용은 [Azure SQL Database 관리되는 인스턴스](sql-database-managed-instance.md)를 참조하세요. 이 문서의 나머지 부분은 관리되는 인스턴스에 적용되지 않습니다.
 
 ## <a name="choosing-a-service-tier"></a>서비스 계층 선택
 

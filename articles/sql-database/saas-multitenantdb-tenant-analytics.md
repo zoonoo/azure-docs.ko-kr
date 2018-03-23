@@ -1,25 +1,20 @@
 ---
-title: "Azure SQL Database에 대해 분석 쿼리 실행 | Microsoft Docs"
-description: "여러 Azure SQL Database 데이터베이스에서 추출된 데이터를 사용하는 교차 테넌트 분석 쿼리입니다."
-keywords: "SQL 자습서"
+title: Azure SQL Database에 대해 분석 쿼리 실행 | Microsoft Docs
+description: 여러 Azure SQL Database 데이터베이스에서 추출된 데이터를 사용하는 교차 테넌트 분석 쿼리입니다.
+keywords: SQL 자습서
 services: sql-database
-documentationcenter: 
 author: stevestein
 manager: jhubbard
-editor: MightyPen
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: article
 ms.date: 11/08/2017
 ms.author: anjangsh; billgib; genemi
-ms.openlocfilehash: c6c83f4ac93dd105b2f311250061b8880f5d2a5b
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 7f04ca4bf324586e0cb34effa324b1703d92d065
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="cross-tenant-analytics-using-extracted-data"></a>추출된 데이터를 사용한 교차 테넌트 분석
 

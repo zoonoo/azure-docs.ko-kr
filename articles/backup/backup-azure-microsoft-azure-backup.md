@@ -1,25 +1,25 @@
 ---
-title: "Azure Backup Server를 사용하여 Azure에 워크로드 백업 | Microsoft Docs"
-description: "Azure Backup Server를 사용하여 Azure Portal에 작업 부하를 백업하거나 보호합니다."
+title: Azure Backup Server를 사용하여 Azure에 워크로드 백업 | Microsoft Docs
+description: Azure Backup Server를 사용하여 Azure Portal에 작업 부하를 백업하거나 보호합니다.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: PVRK
 manager: shivamg
-editor: 
-keywords: "Azure Backup Server; 워크로드 보호; 워크로드 백업"
+editor: ''
+keywords: Azure Backup Server; 워크로드 보호; 워크로드 백업
 ms.assetid: e7fb1907-9dc1-4ca1-8c61-50423d86540c
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/20/2017
+ms.date: 3/5/2018
 ms.author: masaran;trinadhk;pullabhk;markgal;adigan
-ms.openlocfilehash: addb4312ce1eb57ce86afae449eb3d31d0037418
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: c33cea62dac1c06dd1cb4031897af8c822e61661
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="preparing-to-back-up-workloads-using-azure-backup-server"></a>Azure Backup 서버를 사용하여 워크로드 백업 준비
 > [!div class="op_single_selector"]
@@ -44,11 +44,11 @@ Azure의 VM과 같은 IaaS(Infrastructure as a Service) 작업을 보호할 수�
 
 Azure Backup 서버는 DPM(Data Protection Manager)에서 대부분의 워크로드 백업 기능을 상속합니다. 이 문서는 공유 기능 중 일부를 설명하기 위해 DPM 설명서를 링크합니다. 그러나 Azure Backup 서버는 DPM으로 동일한 기능 대부분을 공유합니다. Azure Backup 서버는 테이프에 백업 및 System Center와 통합하지 않습니다.
 
-## <a name="1-choose-an-installation-platform"></a>1. 설치 플랫폼 선택
+## <a name="choose-an-installation-platform"></a>설치 플랫폼 선택
 Azure Backup 서버를 작동하고 실행하는 첫 번째 단계는 Windows Server를 설정하는 것입니다. 서버는 Azure 또는 온-프레미스에 있을 수 있습니다.
 
 ### <a name="using-a-server-in-azure"></a>Azure에서 서버 사용
-Azure Backup 서버를 실행하기 위한 서버를 선택할 때 Windows Server 2012 R2 Datacenter의 갤러리 이미지로 시작하는 것이 좋습니다. [Azure 포털에서 첫 번째 Windows 가상 머신 만들기](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)문서는 Azure를 사용한 경험이 없는 경우 Azure에서 권장된 가상 머신 시작에 대한 자습서를 제공합니다. 서버 VM(가상 컴퓨터)에 대한 권장 최소 요구 사항은 2코어 및 3.5GB RAM의 A2 Standard입니다.
+Azure Backup 서버를 실행하기 위한 서버를 선택할 때 Windows Server 2012 R2 Datacenter 또는 Windows Server 2016 Datacenter의 갤러리 이미지로 시작하는 것이 좋습니다. [Azure 포털에서 첫 번째 Windows 가상 머신 만들기](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)문서는 Azure를 사용한 경험이 없는 경우 Azure에서 권장된 가상 머신 시작에 대한 자습서를 제공합니다. 서버 VM(가상 컴퓨터)에 대한 권장 최소 요구 사항은 2코어 및 3.5GB RAM의 A2 Standard입니다.
 
 Azure Backup 서버를 사용하여 워크로드를 보호하는 데는 미묘한 많은 차이가 있습니다. [Azure 가상 머신으로 DPM 설치](https://technet.microsoft.com/library/jj852163.aspx)문서는 이러한 미묘한 차이를 설명하는 데 도움이 됩니다. 컴퓨터를 배포하기 전에 이 문서를 완전히 읽어보세요.
 
@@ -75,7 +75,7 @@ Windows Server 중복 제거를 사용하여 DPM 저장소를 중복 제거할 �
 
 항상 Azure Backup Server를 도메인에 가입시킵니다. 서버를 다른 도메인으로 옮기려는 경우 Azure Backup Server를 설치하기 전에 서버를 새 도메인에 가입시키는 것이 좋습니다. 배포 후 기존 Azure Backup 서버 컴퓨터를 새 도메인으로 이동하는 것은 *지원되지 않습니다*.
 
-## <a name="2-recovery-services-vault"></a>2. Recovery Services 자격 증명 모음
+## <a name="recovery-services-vault"></a>Recovery Services 자격 증명 모음
 Azure에 백업 데이터를 전송하거나 로컬로 유지하거나 관계없이 소프트웨어는 Azure에 연결되어야 합니다. 더 구체적으로 설명하자면 Azure Backup 서버 컴퓨터를 복구 서비스 자격 증명 모음에 등록해야 합니다.
 
 복구 서비스 자격 증명 모음을 만들려면:
@@ -112,7 +112,7 @@ Azure에 백업 데이터를 전송하거나 로컬로 유지하거나 관계없
 
     자격 증명 모음에 대한 저장소 옵션을 선택하면 자격 증명 모음이 있는 VM에 연결할 준비가 됩니다. 연결을 시작하려면 Azure 가상 머신을 검색하고 등록해야 합니다.
 
-## <a name="3-software-package"></a>3. 소프트웨어 패키지
+## <a name="software-package"></a>소프트웨어 패키지
 ### <a name="downloading-the-software-package"></a>소프트웨어 패키지 다운로드
 1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 2. Recovery Services 자격 증명 모음이 이미 열려 있으면 3단계를 진행합니다. Recovery Services 자격 증명 모음이 열려 있지 않지만 Azure Portal에 있는 경우 허브 메뉴에서 **찾아보기**를 클릭합니다.
@@ -231,7 +231,7 @@ Azure에 백업 데이터를 전송하거나 로컬로 유지하거나 관계없
 >
 >
 
-## <a name="4-network-connectivity"></a>4. 네트워크 연결
+## <a name="network-connectivity"></a>네트워크 연결
 Azure Backup 서버가 Azure Backup 서비스에 연결되어야 제품이 제대로 작동합니다. 컴퓨터가 Azure에 연결되어 있는지 여부를 확인하려면 Azure Backup 서버 PowerShell 콘솔에서 ```Get-DPMCloudConnection``` cmdlet을 사용합니다. cmdlet의 출력이 TRUE인 경우 연결되어 있고 그렇지 않으면 연결되지 않은 것입니다.
 
 이와 동시에 Azure 구독은 정상 상태여야 합니다. 구독 상태를 확인하고 관리하려면 [구독 포털](https://account.windowsazure.com/Subscriptions)에 로그인합니다.

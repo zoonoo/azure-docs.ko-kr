@@ -1,25 +1,20 @@
 ---
-title: "Intelligent Insights를 사용하여 데이터베이스 사용량 모니터링 - Azure SQL Database | Microsoft Docs"
-description: "Azure SQL Database Intelligent Insights는 기본 제공 인텔리전스를 사용하여 지속적으로 인공 지능을 통해 데이터베이스 사용량을 모니터링하고 성능 저하의 원인이 되는 중단 이벤트를 검색합니다."
+title: Intelligent Insights를 사용하여 데이터베이스 사용량 모니터링 - Azure SQL Database | Microsoft Docs
+description: Azure SQL Database Intelligent Insights는 기본 제공 인텔리전스를 사용하여 지속적으로 인공 지능을 통해 데이터베이스 사용량을 모니터링하고 성능 저하의 원인이 되는 중단 이벤트를 검색합니다.
 services: sql-database
-documentationcenter: 
 author: danimir
-manager: drasumic
-editor: carlrab
-ms.assetid: 
+manager: craigg
+ms.reviewer: carlrab
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: Inactive
 ms.date: 09/25/2017
 ms.author: v-daljep
-ms.openlocfilehash: 823855d88396a14ff7e5428a12d71384cdfe95a1
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 8654c35bb9c6e46a47f52dee6ab7969f996b42f4
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="intelligent-insights"></a>인텔리전스 Insights
 
@@ -51,7 +46,7 @@ Intelligent Insights는 마지막 1시간의 데이터베이스 워크로드와 
 
 확인된 SQL Database 성능 저하는 다음 속성으로 구성된 지능형 항목과 함께 진단 로그에 기록됩니다.
 
-| 속성             | 세부 정보              |
+| 자산             | 세부 정보              |
 | :------------------- | ------------------- |
 | 데이터베이스 정보 | 리소스 URI와 같이 정보가 검색된 데이터베이스에 대한 메타데이터 |
 | 관찰된 시간 범위 | 검색된 정보 기간에 대한 시작 및 종료 시간 |

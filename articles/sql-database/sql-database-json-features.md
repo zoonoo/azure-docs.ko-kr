@@ -1,25 +1,19 @@
 ---
-title: "Azure SQL Database JSON 기능 | Microsoft Docs"
-description: "Azure SQL Database에서는 JSON(JavaScript Object Notation) 표기법으로 데이터 구문 분석, 쿼리 및 서식 지정을 수행할 수 있습니다."
+title: Azure SQL Database JSON 기능 | Microsoft Docs
+description: Azure SQL Database에서는 JSON(JavaScript Object Notation) 표기법으로 데이터 구문 분석, 쿼리 및 서식 지정을 수행할 수 있습니다.
 services: sql-database
-documentationcenter: 
 author: jovanpop-msft
-manager: jhubbard
-editor: 
-ms.assetid: 55860105-2f5f-4b10-87a0-99faa32b5653
+manager: craigg
 ms.service: sql-database
 ms.custom: develop databases
-ms.devlang: NA
 ms.date: 11/15/2016
 ms.author: jovanpop
-ms.workload: On Demand
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.openlocfilehash: 8877b0bb779501df003ce11d66d9625c2f99e9ce
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 353a1cc99f122c773f0a005a20f04391236ad913
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="getting-started-with-json-features-in-azure-sql-database"></a>Azure SQL Database의 JSON 기능 시작
 Azure SQL Database를 사용하면 [JSON](http://www.json.org/) (JavaScript Object Notation) 형식으로 표현된 데이터를 구문 분석 및 쿼리하고 관계형 데이터를 JSON 텍스트로 내보낼 수 있습니다.

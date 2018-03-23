@@ -1,28 +1,22 @@
 ---
-title: "마이그레이션 후 관리 - Azure SQL Database | Microsoft Docs"
-description: "Azure SQL Database로 마이그레이션 후 데이터베이스를 관리하는 방법에 대해 알아봅니다."
+title: 마이그레이션 후 관리 - Azure SQL Database | Microsoft Docs
+description: Azure SQL Database로 마이그레이션 후 데이터베이스를 관리하는 방법에 대해 알아봅니다.
 services: sql-database
-documentationcenter: 
 author: joesackmsft
-manager: jhubbard
-editor: 
-ms.assetid: 
+manager: craigg
 ms.service: sql-database
 ms.custom: migrate
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: Inactive
-ms.date: 12/06/2016
-ms.author: Joe.Sack
+ms.date: 03/16/2018
+ms.author: josack
 ms.suite: sql
 ms.prod_service: sql-database
 ms.component: migration
-ms.openlocfilehash: ee1d847e04e1f1fa0472d8702c7022d622b9fe0f
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 4e50a1be3437ab1b027c1ca0f160402239e13e92
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>클라우드의 새 DBA - Azure SQL Database의 데이터베이스 관리
 
@@ -133,7 +127,7 @@ SQL Database에서 기본적으로 저장소 하위 시스템에 있는 데이�
 |**특성**|**Always Encrypted**|**투명한 데이터 암호화**|
 |---|---|---|
 |**암호화 범위**|종단간|미사용 데이터|
-|**데이터베이스 서버는 중요 데이터에 액세스 가능**|아니오|예, 암호화는 미사용 데이터를 위한 것이므로|
+|**데이터베이스 서버는 중요 데이터에 액세스 가능**|아니요|예, 암호화는 미사용 데이터를 위한 것이므로|
 |**허용되는 T-SQL 작업**|같음 비교|모든 T-SQL 노출 영역을 사용할 수 있음|
 |**기능을 사용하려면 앱 변경이 필요함**|최소|아주 미미함|
 |**암호화 세분성**|열 수준|데이터베이스 수준|

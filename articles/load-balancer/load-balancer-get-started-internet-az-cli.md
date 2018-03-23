@@ -1,13 +1,13 @@
 ---
-title: "Azure CLI를 사용하여 영역 중복 공용 IP 주소 프런트 엔드로 공용 부하 분산 장치 표준 만들기 | Microsoft Docs"
-description: "Azure CLI를 사용하여 영역 중복 공용 IP 주소 프런트 엔드로 공용 부하 분산 장치 표준을 만드는 방법 알아보기"
+title: Azure CLI를 사용하여 영역 중복 공용 IP 주소 프런트 엔드로 공용 부하 분산 장치 표준 만들기 | Microsoft Docs
+description: Azure CLI를 사용하여 영역 중복 공용 IP 주소 프런트 엔드로 공용 부하 분산 장치 표준을 만드는 방법 알아보기
 services: load-balancer
 documentationcenter: na
 author: KumudD
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/20/2017
 ms.author: kumud
-ms.openlocfilehash: 180cf891611f148a1b9acd112fbcddab8eb54de3
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 725e1717110ebfe52e2b45ab0c45edc36055704f
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 #  <a name="create-a-public-load-balancer-standard-with-zone-redundant-frontend-using-azure-cli"></a>Azure CLI를 사용하여 영역 중복 프런트 엔드로 공용 부하 분산 장치 표준 만들기
 
@@ -41,7 +41,7 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에�
 
 부하 분산 장치의 프런트 엔드 공용 IP 주소에 대해 영역 또는 영역 중복 옵션을 선택하기 전에 먼저 [가용성 영역 미리 보기 등록](https://docs.microsoft.com/azure/availability-zones/az-overview)의 단계를 완료해야 합니다.
 
-최신 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)을 설치했고 [az login](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest#az_login)을 사용하여 Azure 계정에 로그인했는지 확인합니다.
+최신 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)을 설치했고 [az login](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az_login)을 사용하여 Azure 계정에 로그인했는지 확인합니다.
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -87,7 +87,7 @@ az network lb rule create --resource-group myResourceGroup --lb-name myLoadBalan
 ```
 
 ## <a name="next-steps"></a>다음 단계
-- [가용성 영역에 공용 IP 만드는](../virtual-network/create-public-ip-availability-zone-cli.md) 방법 알아보기
+- [가용성 영역에 공용 IP 만드는](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address) 방법 알아보기
 
 
 

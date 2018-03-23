@@ -1,12 +1,12 @@
 ---
-title: "지속성 함수의 영구 오케스트레이션 - Azure"
-description: "Azure Functions의 지속성 함수 확장을 사용하여 영구 오케스트레이션을 구현하는 방법을 알아봅니다."
+title: 지속성 함수의 영구 오케스트레이션 - Azure
+description: Azure Functions의 지속성 함수 확장을 사용하여 영구 오케스트레이션을 구현하는 방법을 알아봅니다.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 8560921734e5037182955d8fe9605cc9831bf1b4
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: cb4115b98091f55a0324ea795ffcc83cb29223a4
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="eternal-orchestrations-in-durable-functions-azure-functions"></a>지속성 함수의 영구 오케스트레이션(Azure Functions)
 
@@ -94,6 +94,3 @@ public static async Task Run(
 
 > [!div class="nextstepaction"]
 > [단일 항목 오케스트레이션 구현](durable-functions-singletons.md)
-
-> [!div class="nextstepaction"]
-> [샘플 영구 오케스트레이션 실행](durable-functions-counter.md)

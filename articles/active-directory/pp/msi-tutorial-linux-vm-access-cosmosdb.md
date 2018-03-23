@@ -1,11 +1,11 @@
 ---
-title: "Linux VM에서 사용자 할당 MSI(관리 서비스 ID)를 사용하여 Azure Cosmos DB에 액세스"
-description: "Linux VM에서 사용자 할당 MSI(관리 서비스 ID)를 사용하여 Azure Cosmos DB에 액세스하는 프로세스를 안내하는 자습서입니다."
+title: Linux VM에서 사용자 할당 MSI(관리 서비스 ID)를 사용하여 Azure Cosmos DB에 액세스
+description: Linux VM에서 사용자 할당 MSI(관리 서비스 ID)를 사용하여 Azure Cosmos DB에 액세스하는 프로세스를 안내하는 자습서입니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 02/14/2018
 ms.author: skwan
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 2c0c3597999e80af86f079385653d94ddfcab245
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: dbb5e9e8f9accd618599010ab2bbb4a8760e534f
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="use-a-user-assigned-managed-service-identity-msi-on-a-linux-vm-to-access-azure-cosmos-db"></a>Linux VM에서 사용자 할당 MSI(관리 서비스 ID)를 사용하여 Azure Cosmos DB에 액세스 
 
@@ -158,10 +158,10 @@ az role assignment create --assignee <MSI PRINCIPALID> --role '<ROLE NAME>' --sc
 3. 그리고 나면 **Linux VM**을 만들 때 추가했던 **암호**를 입력하라는 메시지가 표시됩니다. 이제 정상적으로 로그인되어야 합니다.  
 4. CURL을 사용하여 Azure Resource Manager에 대한 액세스 토큰을 가져옵니다.  
 
-    액세스 토큰에 대한 CURL 요청 및 응답은 다음과 같습니다.  <CLIENT ID>를 사용자 할당 MSI의 clientId 값으로 바꿉니다.
+    액세스 토큰에 대한 CURL 요청 및 응답은 다음과 같습니다.  <CLIENT ID>를 사용자 할당 MSI의 clientId 값으로 바꿉니다. 
     
     ```bash
-    curl 'http://localhost:50342/oauth2/token?resource=https://management.azure.com/&client_id=<CLIENT ID>' -H "Metadata:true"
+    curl -H Metadata:true "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com/&client_id=<MSI CLIENT ID>" 
     ```
     
     > [!NOTE]

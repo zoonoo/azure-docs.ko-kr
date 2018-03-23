@@ -1,8 +1,8 @@
 ---
-title: "성능 권장 사항 적용 - Azure SQL Database | Microsoft Docs"
-description: "Azure Portal을 사용하여 Azure SQL Database의 성능을 최적화할 수 있는 성능 권장 사항을 찾을 수 있습니다."
+title: 성능 권장 사항 적용 - Azure SQL Database | Microsoft Docs
+description: Azure Portal을 사용하여 Azure SQL Database의 성능을 최적화할 수 있는 성능 권장 사항을 찾을 수 있습니다.
 services: sql-database
-documentationcenter: 
+documentationcenter: ''
 author: stevestein
 manager: jhubbard
 editor: monicar
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 07/05/2017
 ms.author: sstein
-ms.openlocfilehash: fe76be59d6ee09049ed8c1343d1a91e42646c262
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 32071522bbe069e68bdaed181f64b814eb70b84c
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="find-and-apply-performance-recommendations"></a>성능 권장 사항 찾기 및 적용
 

@@ -1,11 +1,11 @@
 ---
-title: "Service Fabric 및 컨테이너 개요 | Microsoft Docs"
-description: "Service Fabric 및 마이크로 서비스 응용 프로그램 배포를 위한 컨테이너 사용에 대한 개요. 이 문서는 컨테이너를 사용하는 방법과 Service Fabric에서 사용할 수 있는 기능에 대한 개요를 제공합니다."
+title: Service Fabric 및 컨테이너 개요 | Microsoft Docs
+description: Service Fabric 및 마이크로 서비스 응용 프로그램 배포를 위한 컨테이너 사용에 대한 개요. 이 문서는 컨테이너를 사용하는 방법과 Service Fabric에서 사용할 수 있는 기능에 대한 개요를 제공합니다.
 services: service-fabric
 documentationcenter: .net
 author: msfussell
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: c98b3fcb-c992-4dd9-b67d-2598a9bf8aab
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/20/2017
 ms.author: msfussell
-ms.openlocfilehash: 412107db2dc446eb5a6a433bfb7fc3bc5e760c27
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: f12dc08953372b2dfae773df11cf1f47b42a1b89
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="service-fabric-and-containers"></a>Service Fabric 및 컨테이너
 > [!NOTE]
@@ -30,7 +30,7 @@ ms.lasthandoff: 01/13/2018
 > 
 
 ## <a name="introduction"></a>소개
-Azure Service Fabric은 컴퓨터 클러스터에서 사용되는 여러 서비스의 [Orchestrator](service-fabric-cluster-resource-manager-introduction.md)로, Microsoft의 방대한 서비스에서 수년 동안 사용되면서 최적화 과정을 거친 기능입니다. 서비스는 [Service Fabric 프로그래밍 모델](service-fabric-choose-framework.md) 사용부터 [게스트 실행 파일](service-fabric-deploy-existing-app.md) 배포에 이르는 다양한 방식으로 개발될 수 있습니다. 기본적으로 Service Fabric은 이러한 서비스를 프로세스로 배포하고 활성화합니다. 프로세스는 클러스터 내에서 리소스의 최고밀도 사용과 가장 신속한 활성화를 제공합니다. Service Fabric도 컨테이너 이미지에 서비스를 배포할 수 있습니다. 중요한 점은 프로세스의 서비스와 동일한 응용 프로그램의 컨테이너의 서비스를 혼합할 수 있습니다.   
+Azure Service Fabric은 컴퓨터 클러스터에서 사용되는 여러 서비스의 [Orchestrator](service-fabric-cluster-resource-manager-introduction.md)로, Microsoft의 방대한 서비스에서 수년 동안 사용되면서 최적화 과정을 거친 기능입니다. 서비스는 [Service Fabric 프로그래밍 모델](service-fabric-choose-framework.md) 사용부터 [게스트 실행 파일](service-fabric-guest-executables-introduction.md) 배포에 이르는 다양한 방식으로 개발될 수 있습니다. 기본적으로 Service Fabric은 이러한 서비스를 프로세스로 배포하고 활성화합니다. 프로세스는 클러스터 내에서 리소스의 최고밀도 사용과 가장 신속한 활성화를 제공합니다. Service Fabric도 컨테이너 이미지에 서비스를 배포할 수 있습니다. 중요한 점은 프로세스의 서비스와 동일한 응용 프로그램의 컨테이너의 서비스를 혼합할 수 있습니다.   
 
 ## <a name="what-are-containers"></a>컨테이너란?
 컨테이너는 캡슐화되어 개별적으로 배포가 가능한 구성 요소로, 운영 체제가 제공하는 가상화를 활용하기 위해 동일한 커널에서 격리된 인스턴스로 실행됩니다. 따라서 각 응용 프로그램, 해당 런타임, 종속성, 시스템 라이브러리는 운영 체제 구성물의 컨테이너의 자체적으로 격리된 뷰에 대해 전체, 개인 액세스 권한이 있는 컨테이너 내에서 실행됩니다. 이식성과 더불어 이러한 수준의 보안 및 리소스 격리는 서비스를 프로세스에서 실행하지 않고 Service Fabric에서 컨테이너를 사용하는 주요 장점입니다.
@@ -72,7 +72,7 @@ Hyper 지원을 사용하는 Windows 컨테이너는 각 컨테이너가 다른 
 ## <a name="service-fabric-support-for-containers"></a>컨테이너에 대한 Service Fabric 지원
 Service Fabric은 Linux에서 Docker 컨테이너의 배포를 지원하고 Hyper-V 격리 모드에 대한 지원과 함께 Windows Server 2016에서 Windows Server 컨테이너의 배포를 지원합니다. 
 
-Service Fabric [응용 프로그램 모델](service-fabric-application-model.md)에서 컨테이너는 다수의 서비스 복제본이 배치되는 응용 프로그램 호스트를 나타냅니다. Service Fabric은 모든 컨테이너를 실행할 수 있으며 시나리오는 컨테이너 내에서 기존 응용 프로그램을 패키지하는 [게스트 실행 가능한 시나리오](service-fabric-deploy-existing-app.md)와 비슷합니다. 이 시나리오는 컨테이너에 대한 일반적인 사용 사례이며 예제는 기본 제공 Service Fabric 프로그래밍 모델을 사용하지 않고 모든 언어 또는 프레임워크를 사용하여 작성된 응용 프로그램 실행을 포함합니다.
+Service Fabric [응용 프로그램 모델](service-fabric-application-model.md)에서 컨테이너는 다수의 서비스 복제본이 배치되는 응용 프로그램 호스트를 나타냅니다. Service Fabric은 모든 컨테이너를 실행할 수 있으며 시나리오는 컨테이너 내에서 기존 응용 프로그램을 패키지하는 [게스트 실행 가능한 시나리오](service-fabric-guest-executables-introduction.md)와 비슷합니다. 이 시나리오는 컨테이너에 대한 일반적인 사용 사례이며 예제는 기본 제공 Service Fabric 프로그래밍 모델을 사용하지 않고 모든 언어 또는 프레임워크를 사용하여 작성된 응용 프로그램 실행을 포함합니다.
 
 또한 [컨테이너 내에서 Service Fabric 서비스](service-fabric-services-inside-containers.md)를 실행할 수도 있습니다. 컨테이너 내에서 Service Fabric 서비스 실행에 대한 지원은 현재 제한되며 향후 릴리스에서 개선됩니다.
 

@@ -1,8 +1,8 @@
 ---
-title: "위협 감지 - Azure SQL Database | Microsoft Docs"
-description: "위협 감지는 데이터베이스에 대한 잠재적인 보안 위협을 나타내는 비정상적인 데이터베이스 활동을 감지합니다."
+title: 위협 감지 - Azure SQL Database | Microsoft Docs
+description: 위협 감지는 데이터베이스에 대한 잠재적인 보안 위협을 나타내는 비정상적인 데이터베이스 활동을 감지합니다.
 services: sql-database
-documentationcenter: 
+documentationcenter: ''
 author: rmatchoro
 manager: shaik
 editor: v-romcal
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: On Demand
 ms.date: 06/19/2017
 ms.author: ronmat
-ms.openlocfilehash: 889f65a796aee20d7902964b8c47af46dd9149cb
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: a01721b10305ac45082943fbe4fb7fb199a0e49f
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="sql-database-threat-detection"></a>SQL Database 위협 감지
 
@@ -30,7 +30,7 @@ SQL 위협 감지는 비정상적인 활동에 대한 보안 경고를 제공하
 
 예를 들어 SQL 삽입은 데이터 기반 응용 프로그램 공격에 사용되는 인터넷 상의 일반적인 웹 응용 프로그램 보안 문제 중 하나입니다. 공격자는 응용 프로그램의 취약성을 이용하여 악의적인 SQL 문을 응용 프로그램 항목 필드에 삽입하고 데이터베이스의 데이터를 침범하거나 수정합니다.
 
-SQL 위협 감지의 경고는 [Azure Security Center](https://azure.microsoft.com/en-us/services/security-center/) 와 통합됩니다. 보호되는 각 SQL Database 서버에 대한 비용은 Azure Security Center 표준 계층과 동일한 가격($15/노드/월, 여기서 보호되는 각 SQL Database 서버를 하나의 노드로 계산)으로 청구됩니다.  
+SQL 위협 감지의 경고는 [Azure Security Center](https://azure.microsoft.com/services/security-center/) 와 통합됩니다. 보호되는 각 SQL Database 서버에 대한 비용은 Azure Security Center 표준 계층과 동일한 가격($15/노드/월, 여기서 보호되는 각 SQL Database 서버를 하나의 노드로 계산)으로 청구됩니다.  
 
 ## <a name="set-up-threat-detection-for-your-database-in-the-azure-portal"></a>Azure Portal에서 데이터베이스에 대한 위협 검색 설정
 1. [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal을 시작합니다.
@@ -60,7 +60,7 @@ SQL 위협 감지의 경고는 [Azure Security Center](https://azure.microsoft.c
 
 ## <a name="explore-threat-detection-alerts-for-your-database-in-the-azure-portal"></a>Azure Portal에서 데이터베이스에 대한 위협 감지 경고 탐색
 
-SQL Database 위협 감지는 경고를 [Azure Security Center](https://azure.microsoft.com/en-us/services/security-center/)와 통합합니다. Azure Portal의 데이터베이스 페이지 내 실제 SQL 보안 타일은 활성 위협의 상태를 추적합니다. 
+SQL Database 위협 감지는 경고를 [Azure Security Center](https://azure.microsoft.com/services/security-center/)와 통합합니다. Azure Portal의 데이터베이스 페이지 내 실제 SQL 보안 타일은 활성 위협의 상태를 추적합니다. 
 
    ![탐색 창][6]
    
@@ -75,10 +75,10 @@ SQL Database 위협 감지는 경고를 [Azure Security Center](https://azure.mi
 
 ## <a name="next-steps"></a>다음 단계
 
-* 위협 감지에 대해 자세히 알아보려면 [Azure 블로그](https://azure.microsoft.com/en-us/blog/azure-sql-database-threat-detection-general-availability-in-spring-2017/)를 참조하세요. 
+* 위협 감지에 대해 자세히 알아보려면 [Azure 블로그](https://azure.microsoft.com/blog/azure-sql-database-threat-detection-general-availability-in-spring-2017/)를 참조하세요. 
 * [Azure SQL Database 감사](sql-database-auditing.md)에 대한 자세한 정보
 * [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)에 대한 자세한 정보
-* 가격 책정에 대한 자세한 내용은 [SQL Database 가격 책정 페이지](https://azure.microsoft.com/en-us/pricing/details/sql-database/)를 참조하세요.  
+* 가격 책정에 대한 자세한 내용은 [SQL Database 가격 책정 페이지](https://azure.microsoft.com/pricing/details/sql-database/)를 참조하세요.  
 * PowerShell 스크립트 예제는 [PowerShell을 사용하여 감사 및 위협 감지 구성](scripts/sql-database-auditing-and-threat-detection-powershell.md)을 참조하세요.
 
 

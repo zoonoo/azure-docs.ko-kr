@@ -1,6 +1,6 @@
 ---
-title: "자습서: Tableau Server와 Azure Active Directory 통합 | Microsoft Docs"
-description: "Azure Active Directory와 Tableau Server 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
+title: '자습서: Tableau Server와 Azure Active Directory 통합 | Microsoft Docs'
+description: Azure Active Directory와 Tableau Server 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/18/2017
 ms.author: jeedes
-ms.openlocfilehash: 9ba94f4f90f49fb7850f4cad2bb49ab4faa3fa92
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 3b0390c8b95a46b2c134252532bef118ea4df52d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tableau-server"></a>자습서: Tableau Server와 Azure Active Directory 통합
 
@@ -86,11 +86,11 @@ Tableau Server에서 Azure AD의 **사용자 이름** 값을 **Username** 값으
 
 Tableau Server에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
 
-1. **[Azure AD Single Sign-On 구성](#configuring-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
-2. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
+2. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On 테스트하는 데 사용합니다.
 3. **[Tableau Server 테스트 사용자 만들기](#creating-a-tableau-server-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Tableau Server에 만듭니다.
 4. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** - 구성이 작동하는지 확인합니다.
+5. **[Single Sign-On 테스트](#testing-single-sign-on)** - 구성이 작동하는지 확인합니다.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
@@ -100,51 +100,51 @@ Tableau Server에서 Azure AD Single Sign-On을 구성하고 테스트하려면 
 
 1. Azure Portal의 **Tableau Server** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 클릭합니다.
 
-    ![Single Sign-on 구성][4]
+    ![Configure Single Sign-On][4]
 
 2. **Single Sign-On** 대화 상자에서 **모드**를 **SAML 기반 로그온**으로 선택하여 Single Sign-On을 사용하도록 설정합니다.
  
-    ![Single Sign-on 구성](./media/active-directory-saas-tableauserver-tutorial/tutorial_tableauserver_samlbase.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-tableauserver-tutorial/tutorial_tableauserver_samlbase.png)
 
 3. **Tableau Server 도메인 및 URL** 섹션에서 다음 단계를 수행합니다.
 
-    ![Single Sign-on 구성](./media/active-directory-saas-tableauserver-tutorial/tutorial_tableauserver_url.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-tableauserver-tutorial/tutorial_tableauserver_url.png)
 
     a. **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://azure.<domain name>.link`
     
-    b. **식별자** 텍스트 상자에서 `https://azure.<domain name>.link` 패턴을 사용하여 URL을 입력합니다.
+    나. **식별자** 텍스트 상자에서 `https://azure.<domain name>.link` 패턴을 사용하여 URL을 입력합니다.
 
-    c. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://azure.<domain name>.link/wg/saml/SSO/index.html`
+    다. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://azure.<domain name>.link/wg/saml/SSO/index.html`
      
     > [!NOTE] 
     > 위의 값은 실제 값이 아닙니다. 나중에 이 값을 Tableau Server 구성 페이지의 실제 URL과 식별자로 업데이트합니다. 
 
 4. Tableau Server 응용 프로그램은 특정 형식의 SAML 어설션이 필요합니다. 이 응용 프로그램에 대해 다음 클레임을 구성합니다. 응용 프로그램 통합 페이지의 **"사용자 특성"** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. 다음 스크린샷은 동일 상황에 대한 예를 보여 줍니다.
     
-    ![Single Sign-on 구성](./media/active-directory-saas-tableauserver-tutorial/3.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-tableauserver-tutorial/3.png)
     
 5. **Single sign-on** 대화 상자의 **사용자 특성** 섹션에서 위의 이미지에 표시된 것과 같이 SAML 토큰 특성을 구성하고 다음 단계를 수행합니다.
     
     | 특성 이름 | 특성 값 |
     | ---------------| --------------- |    
-    | username | *user.displayname* |
+    | 사용자 이름 | *user.mailnickname* |
 
     a. **특성 추가**를 클릭하여 **특성 추가** 대화 상자를 엽니다.
 
-    ![Single Sign-On 구성](./media/active-directory-saas-tableauserver-tutorial/tutorial_officespace_04.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-tableauserver-tutorial/tutorial_officespace_04.png)
 
-    ![Single Sign-on 구성](./media/active-directory-saas-tableauserver-tutorial/tutorial_officespace_05.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-tableauserver-tutorial/tutorial_officespace_05.png)
     
-    b. **이름** 텍스트 상자에서 해당 행에 표시된 특성 이름을 입력합니다.
+    나. **이름** 텍스트 상자에서 해당 행에 표시된 특성 이름을 입력합니다.
     
-    c. **값** 목록에서 해당 행에 대해 표시된 특성을 입력합니다.
+    다. **값** 목록에서 해당 행에 대해 표시된 특성을 입력합니다.
     
     d. **확인**을 클릭합니다.
 
 
 6. **SAML 서명 인증서** 섹션에서 **메타데이터 XML**을 클릭한 후 컴퓨터에 메타데이터 파일을 저장합니다.
 
-    ![Single Sign-on 구성](./media/active-directory-saas-tableauserver-tutorial/tutorial_tableauserver_certificate.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-tableauserver-tutorial/tutorial_tableauserver_certificate.png) 
 
 7. **저장** 단추를 클릭합니다.
 
@@ -154,11 +154,11 @@ Tableau Server에서 Azure AD Single Sign-On을 구성하고 테스트하려면 
    
    a. Tableau Server 구성에서 **SAML** 탭을 클릭합니다.
   
-    ![Single Sign-On 구성](./media/active-directory-saas-tableauserver-tutorial/tutorial_tableauserver_001.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-tableauserver-tutorial/tutorial_tableauserver_001.png) 
   
-   b. **Single Sign-On에 SAML 사용**확인란을 선택합니다.
+   나. **Single Sign-On에 SAML 사용**확인란을 선택합니다.
    
-   c. Tableau Server 반환 URL - Tableau Server 사용자가 액세스하는 URL예: http://tableau_server 입니다. http://localhost 를 사용하지 않는 것이 좋습니다. 후행 슬래시가 있는 URL(예: http://tableau_server/)은 지원되지 않습니다. **Tableau Server 반환 URL**을 복사하여 **Tableau Server 도메인 및 URL** 섹션의 Azure AD **로그온 URL** 텍스트 상자에 붙여넣습니다.
+   다. Tableau Server 반환 URL - Tableau Server 사용자가 액세스하는 URL예: http://tableau_server 입니다. http://localhost 를 사용하지 않는 것이 좋습니다. 후행 슬래시가 있는 URL(예: http://tableau_server/)은 지원되지 않습니다. **Tableau Server 반환 URL**을 복사하여 **Tableau Server 도메인 및 URL** 섹션의 Azure AD **로그온 URL** 텍스트 상자에 붙여넣습니다.
    
    d. SAML 엔터티 ID - 엔터티 ID는 IdP에 대한 Tableau Server 설치를 고유하게 식별합니다. 원하는 경우 여기에 Tableau Server URL을 다시 입력할 수 있지만 반드시 Tableau Server URL을 입력해야 하는 것은 아닙니다. **SAML 엔터티 ID**를 복사하여 **Tableau Server 도메인 및 URL** 섹션의 Azure AD **식별자** 텍스트 상자에 붙여넣습니다.
      
@@ -203,9 +203,9 @@ Tableau Server에서 Azure AD Single Sign-On을 구성하고 테스트하려면 
 
     a. **이름** 텍스트 상자에 **BrittaSimon**을 입력합니다.
 
-    b. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
+    나. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
 
-    c. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
+    다. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
 
     d. **만들기**를 클릭합니다.
  
@@ -234,7 +234,7 @@ Tableau Server에서 Azure AD Single Sign-On을 구성하고 테스트하려면 
 
 2. 응용 프로그램 목록에서 **Tableau Server**를 선택합니다.
 
-    ![Single Sign-on 구성](./media/active-directory-saas-tableauserver-tutorial/tutorial_tableauserver_app.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-tableauserver-tutorial/tutorial_tableauserver_app.png) 
 
 3. 왼쪽 메뉴에서 **사용자 및 그룹**을 클릭합니다.
 
@@ -260,7 +260,7 @@ Tableau Server에서 Azure AD Single Sign-On을 구성하고 테스트하려면 
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)
+* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](active-directory-appssoaccess-whatis.md)
 
 
 

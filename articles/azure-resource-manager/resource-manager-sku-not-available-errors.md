@@ -1,23 +1,23 @@
 ---
-title: "Azure SKU 사용할 수 없음 오류 | Microsoft Docs"
-description: "배포 시 발생하는 SKU를 사용할 수 없음 오류를 해결하는 방법을 설명합니다."
+title: Azure SKU 사용할 수 없음 오류 | Microsoft Docs
+description: 배포 시 발생하는 SKU를 사용할 수 없음 오류를 해결하는 방법을 설명합니다.
 services: azure-resource-manager,azure-portal
-documentationcenter: 
+documentationcenter: ''
 author: tfitzmac
 manager: timlt
-editor: 
+editor: ''
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: support-article
-ms.date: 09/13/2017
+ms.date: 03/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: a6cccfa5097847429d3e402e3d522addc14b8c31
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: b0cbd3c232e5df831031cc8e436f8dbb24b0e72c
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="resolve-errors-for-sku-not-available"></a>SKU 사용할 수 없음 오류 해결
 
@@ -37,13 +37,9 @@ for subscription '<subscriptionID>'. Please try another tier or deploy to a diff
 
 선택한 리소스 SKU(예: VM 크기)를 선택한 위치에 사용할 수 없는 경우 이 오류가 나타납니다.
 
-## <a name="solution"></a>해결 방법
+## <a name="solution-1---powershell"></a>해결 방법 1 - PowerShell
 
-이 문제를 해결하려면 지역에서 사용할 수 있는 SKU가 무엇인지 알아내야 합니다. PowerShell, 포털 또는 REST 작업을 사용하여 사용 가능한 SKU를 찾을 수 있습니다.
-
-### <a name="solution-1"></a>해결 방법 1
-
-PowerShell에서 [Get-AzureRmComputeResourceSku](/powershell/module/azurerm.compute/get-azurermcomputeresourcesku) 명령을 사용합니다. 결과를 위치별로 필터링합니다. 이 명령이 작동하려면 최신 버전의 PowerShell이 있어야 합니다.
+지역에서 사용할 수 있는 SKU를 확인하려면 [Get-AzureRmComputeResourceSku](/powershell/module/azurerm.compute/get-azurermcomputeresourcesku) 명령을 사용합니다. 결과를 위치별로 필터링합니다. 이 명령이 작동하려면 최신 버전의 PowerShell이 있어야 합니다.
 
 ```powershell
 Get-AzureRmComputeResourceSku | where {$_.Locations -icontains "southcentralus"}
@@ -61,9 +57,9 @@ virtualMachines      Standard_A1 southcentralus
 virtualMachines      Standard_A2 southcentralus
 ```
 
-### <a name="solution-2"></a>해결 방법 2
+## <a name="solution-2---azure-cli"></a>해결 방법 2 - Azure CLI
 
-Azure CLI에서 `az vm list-skus` 명령을 사용합니다. 그런 다음 `grep` 또는 유사한 유틸리티를 사용하여 출력을 필터링할 수 있습니다.
+지역에서 사용할 수 있는 SKU를 확인하려면 `az vm list-skus` 명령을 사용합니다. 그런 다음 `grep` 또는 유사한 유틸리티를 사용하여 출력을 필터링할 수 있습니다.
 
 ```bash
 $ az vm list-skus --output table
@@ -79,15 +75,15 @@ availabilitySets  centralus           Classic                 MaximumPlatformFau
 availabilitySets  centralus           Aligned                 MaximumPlatformFaultDomainCount=3
 ```
 
-### <a name="solution-3"></a>해결 방법 3
+## <a name="solution-3---azure-portal"></a>해결 방법 3 - Azure Portal
 
-[포털](https://portal.azure.com)을 사용합니다. 포털에 로그인하고 인터페이스를 통해 리소스를 추가합니다. 값을 설정하면 해당 리소스에 사용 가능한 SKU가 표시됩니다. 배포를 완료할 필요는 없습니다.
+지역에서 사용할 수 있는 SKU를 확인하려면 [포털](https://portal.azure.com)을 사용합니다. 포털에 로그인하고 인터페이스를 통해 리소스를 추가합니다. 값을 설정하면 해당 리소스에 사용 가능한 SKU가 표시됩니다. 배포를 완료할 필요는 없습니다.
 
 ![사용 가능한 SKU](./media/resource-manager-sku-not-available-errors/view-sku.png)
 
-### <a name="solution-4"></a>해결 방법 4
+## <a name="solution-4---rest"></a>해결 방법 4 - REST
 
-가상 머신에 대한 REST API를 사용합니다. 다음 요청을 보냅니다.
+지역에서 사용할 수 있는 SKU를 확인하려면 가상 머신에 대한 REST API를 사용합니다. 다음 요청을 보냅니다.
 
 ```HTTP 
 GET

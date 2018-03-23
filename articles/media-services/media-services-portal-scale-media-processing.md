@@ -1,11 +1,11 @@
 ---
-title: "Azure Portal을 사용하여 미디어 처리 크기 조정 | Microsoft Docs"
-description: "이 자습서에서는 Azure Portal을 사용하여 미디어 처리의 크기를 조정하는 단계를 안내합니다."
+title: Azure Portal을 사용하여 미디어 처리 크기 조정 | Microsoft Docs
+description: 이 자습서에서는 Azure Portal을 사용하여 미디어 처리의 크기를 조정하는 단계를 안내합니다.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: e500f733-68aa-450c-b212-cf717c0d15da
 ms.service: media-services
 ms.workload: media
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/04/2017
 ms.author: juliako
-ms.openlocfilehash: d2312803a4471e207d3696ca8350a86e3c4761e6
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: f65ba489d70a3844169780c4680fcc43b3064b54
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="change-the-reserved-unit-type"></a>예약 단위 유형 변경
 > [!div class="op_single_selector"]
 > * [.NET](media-services-dotnet-encoding-units.md)
 > * [포털](media-services-portal-scale-media-processing.md)
-> * [REST (영문)](https://docs.microsoft.com/rest/api/media/operations/encodingreservedunittype)
+> * [REST](https://docs.microsoft.com/rest/api/media/operations/encodingreservedunittype)
 > * [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
 > * [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
 > 
@@ -54,11 +54,10 @@ Media Services 계정은 미디어 처리 작업을 처리하는 속도를 결�
 1. [Azure Portal](https://portal.azure.com/)에서 Azure Media Services 계정을 선택합니다.
 2. **설정** 창에서 **미디어 예약 단위**를 선택합니다.
    
-    선택한 예약 단위 유형의 예약 단위 수를 변경하려면 **미디어 예약 단위** 슬라이더를 사용합니다.
+    선택한 예약 단위 유형의 예약 단위 수를 변경하려면 화면 위쪽에서 **미디어 예약 단위** 슬라이더를 사용합니다.
    
-    **예약 단위 형식**을 변경하려면 S1, S2 또는 S3을 누릅니다.
+    **예약된 단위 유형**을 변경하려면 **예약된 처리 단위의 속도** 표시줄을 클릭합니다. 그런 후, S1, S2 또는 S3 중에서 필요한 가격 책정 계층을 선택합니다.
    
-    ![프로세서 페이지](./media/media-services-portal-scale-media-processing/media-services-scale-media-processing.png)
 3. 저장 단추를 눌러 변경 내용을 저장합니다.
    
     저장을 누르면 새 예약 단위가 할당됩니다.

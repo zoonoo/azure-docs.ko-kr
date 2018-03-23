@@ -1,25 +1,19 @@
 ---
-title: "XTP 메모리 내 저장소 모니터링 | Microsoft Docs"
-description: "XTP 메모리 내 저장소 사용, 용량을 예측 및 모니터링합니다. 41823 용량 오류를 해결합니다."
+title: XTP 메모리 내 저장소 모니터링 | Microsoft Docs
+description: XTP 메모리 내 저장소 사용, 용량을 예측 및 모니터링합니다. 41823 용량 오류를 해결합니다.
 services: sql-database
-documentationcenter: 
 author: jodebrui
-manager: jhubbard
-editor: 
-ms.assetid: b617308e-692c-4938-8fa2-070034a3ecef
+manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: jodebrui
-ms.openlocfilehash: 1e7088e80cc86e3c7cf8ae8ea180d797de613e71
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: c1adc6e98f7d101a6e5f3227f44b0035d9b9d157
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="monitor-in-memory-oltp-storage"></a>메모리 내 OLTP 저장소 모니터링
 [메모리 내 OLTP](sql-database-in-memory.md)를 사용하는 경우 메모리 최적화 테이블 및 테이블 변수에 있는 데이터는 메모리 내 OLTP 저장소에 상주합니다. 각 프리미엄 서비스 계층은 최대 메모리 내 OLTP 저장소 크기가 있으며 이는 [단일 데이터베이스 리소스 제한](sql-database-resource-limits.md#single-database-storage-sizes-and-performance-levels) 및 [탄력적 풀 리소스 제한](sql-database-resource-limits.md#elastic-pool-change-storage-size)에서 설명합니다. 이 제한이 초과되면 삽입 및 업데이트 작업이 실패할 수 있습니다(독립 실행형 데이터베이스의 경우 오류 41823, 탄력적 풀의 경우 오류 41840). 해당 시점에서 데이터를 삭제하여 메모리를 회수하거나 데이터베이스의 성능 계층을 업그레이드해야 합니다.

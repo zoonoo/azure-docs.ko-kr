@@ -1,11 +1,11 @@
 ---
-title: "테스트 용이성: 서비스 통신 | Microsoft Docs"
-description: "서비스 간 통신은 서비스 패브릭 응용 프로그램의 중요 한 통합점입니다. 이 문서에서는 설계 고려 사항 및 테스트 기술에 대해 설명합니다."
+title: '테스트 용이성: 서비스 통신 | Microsoft Docs'
+description: 서비스 간 통신은 서비스 패브릭 응용 프로그램의 중요 한 통합점입니다. 이 문서에서는 설계 고려 사항 및 테스트 기술에 대해 설명합니다.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 017557df-fb59-4e4a-a65d-2732f29255b8
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 4c6b53673dd4c79ce435c1593e7d08c7dd4a1cb0
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: c87b5d82b6eef2b1d28a3280cc2fa07c28084f90
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="service-fabric-testability-scenarios-service-communication"></a>서비스 패브릭 테스트 용이성 시나리오: 서비스 통신
 Azure 서비스 패브릭에서 마이크로 서비스 및 서비스 지향 아키텍처 스타일이 자연스럽게 드러납니다. 이러한 유형의 분산 아키텍처에서 구성 요소화된 마이크로 서비스 응용 프로그램은 서로 통신이 필요한 여러 서비스로 구성됩니다. 가장 간단한 경우에도 일반적으로 상태 비저장 웹 서비스 그리고 통신이 필요한 상태 저장 데이터 저장소 서비스가 있습니다.
@@ -67,7 +67,7 @@ Azure 서비스 패브릭에서 마이크로 서비스 및 서비스 지향 아�
    
     ```powershell
    
-    PS > Restart-ServiceFabricNode -NodeName Node_1
+    PS > Stop-ServiceFabricNode -NodeName Node_1
    
     ```
 

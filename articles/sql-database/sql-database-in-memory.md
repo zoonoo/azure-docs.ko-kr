@@ -1,25 +1,19 @@
 ---
-title: "Azure SQL Database 메모리 내 기술 | Microsoft Docs"
-description: "Azure SQL Database 메모리 내 기술은 트랜잭션 및 분석 작업의 성능을 크게 향상시킵니다."
+title: Azure SQL Database 메모리 내 기술 | Microsoft Docs
+description: Azure SQL Database 메모리 내 기술은 트랜잭션 및 분석 작업의 성능을 크게 향상시킵니다.
 services: sql-database
-documentationCenter: 
 author: jodebrui
-manager: jhubbard
-editor: 
-ms.assetid: 250ef341-90e5-492f-b075-b4750d237c05
+manager: craigg
 ms.service: sql-database
 ms.custom: develop databases
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: jodebrui
-ms.openlocfilehash: 23b313a473b93ba0eab7fc4cf97a5d26bfa31505
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 107df78f0ec6ce924785f5027958ee66f2a86c7c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>SQL Database에서 메모리 내 기술을 사용하여 성능 최적화
 
@@ -75,14 +69,14 @@ columnstore 인덱스 및 메모리 내 OLTP는 각각 SQL Server 제품 2012 �
 
 ### <a name="data-size-and-storage-cap-for-in-memory-oltp"></a>메모리 내 OLTP의 데이터 크기 및 저장 제한
 
-메모리 내 OLTP는 사용자 데이터를 저장하는 데 사용되는 메모리에 최적화된 테이블을 포함합니다. 이러한 테이블은 메모리에 적합해야 합니다. SQL Database 서비스에 직접 메모리를 관리하기 때문에 사용자 데이터에 대한 할당량의 개념이 있습니다. 이 개념은 *메모리 내 OLTP 저장소*라고 합니다.
+메모리 내 OLTP는 사용자 데이터를 저장하는 데 사용되는 메모리 최적화 테이블을 포함합니다. 이러한 테이블은 메모리에 적합해야 합니다. SQL Database 서비스에 직접 메모리를 관리하기 때문에 사용자 데이터에 대한 할당량의 개념이 있습니다. 이 개념은 *메모리 내 OLTP 저장소*라고 합니다.
 
 지원되는 독립 실행형 데이터베이스 가격 책정 계층 및 탄력적 풀 가격 책정 계층은 각각 일정량의 메모리 내 OLTP 저장소를 포함합니다. 작성할 때 모든 125개의 DTU(데이터베이스 트랜잭션 단위) 또는 eDTU(Elastic Database 트랜잭션 단위)에 대해 기가바이트 단위의 저장소를 가져옵니다. 자세한 내용은 [리소스 제한](sql-database-resource-limits.md)을 참조하세요.
 
 메모리 내 OLTP 저장소 제한 계산 시 포함되는 항목은 다음과 같습니다.
 
-- 메모리 최적화된 테이블 및 테이블 변수의 활성 사용자 데이터 행입니다. 예전 행 버전은 제한에 고려되지 않습니다.
-- 메모리 최적화된 테이블에 대한 인덱스입니다.
+- 메모리 최적화 테이블 및 테이블 변수의 활성 사용자 데이터 행입니다. 예전 행 버전은 제한에 고려되지 않습니다.
+- 메모리 최적화 테이블에 대한 인덱스입니다.
 - ALTER TABLE 작업의 작업 오버헤드입니다.
 
 제한에 도달한 경우 할당량 초과 오류가 표시되고 더 이상 데이터를 삽입하거나 업데이트할 수 없습니다. 이 오류를 완화하려면 데이터를 삭제하거나 데이터베이스 또는 풀의 가격 책정 계층을 증가시킵니다.
@@ -124,7 +118,7 @@ SELECT DatabasePropertyEx(DB_NAME(), 'IsXTPSupported');
 
 쿼리가 **1**을 반환하는 경우 메모리 내 OLTP는 이 데이터베이스에서 지원됩니다.
 
-데이터베이스를 표준/기본으로 다운그레이드하기 전에 모든 메모리 최적화된 테이블 및 테이블 형식뿐만 아니라 고유하게 컴파일된 모든 T-SQL 모듈을 제거합니다. 다음 쿼리는 데이터베이스를 표준/기본으로 다운그레이드하기 전에 제거해야 하는 모든 개체를 식별합니다.
+데이터베이스를 표준/기본으로 다운그레이드하기 전에 모든 메모리 최적화 테이블 및 테이블 형식뿐만 아니라 고유하게 컴파일된 모든 T-SQL 모듈을 제거합니다. 다음 쿼리는 데이터베이스를 표준/기본으로 다운그레이드하기 전에 제거해야 하는 모든 개체를 식별합니다.
 
 ```
 SELECT * FROM sys.tables WHERE is_memory_optimized=1
@@ -132,7 +126,7 @@ SELECT * FROM sys.table_types WHERE is_memory_optimized=1
 SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
 ```
 
-*하위 프리미엄 계층으로 다운그레이드*: 메모리 최적화된 테이블의 데이터는 데이터베이스의 가격 책정 계층과 연결되거나 탄력적 풀에서 사용할 수 있는 메모리 내 OLTP 저장소 내에 담겨야 합니다. 가격 책정 계층을 줄이려고 하거나 충분히 사용 가능한 메모리 내 OLTP 저장소가 없는 풀로 데이터베이스를 이동하려는 경우 작업은 실패합니다.
+*하위 프리미엄 계층으로 다운그레이드*: 메모리 최적화 테이블의 데이터는 데이터베이스의 가격 책정 계층과 연결되거나 탄력적 풀에서 사용할 수 있는 메모리 내 OLTP 저장소 내에 담겨야 합니다. 가격 책정 계층을 줄이려고 하거나 충분히 사용 가능한 메모리 내 OLTP 저장소가 없는 풀로 데이터베이스를 이동하려는 경우 작업은 실패합니다.
 
 ### <a name="columnstore-indexes"></a>Columnstore 인덱스
 
@@ -164,7 +158,7 @@ SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
 
 3. [메모리 내 OLTP Transact-SQL 스크립트](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/sql_in-memory_oltp_sample.sql) 를 클립보드에 복사합니다. T-SQL 스크립트는 1단계에서 만든 AdventureWorksLT 샘플 데이터베이스에서 필요한 메모리 내 개체를 만듭니다.
 
-4. SSMS에 T-SQL 스크립트를 붙여 넣고 스크립트를 실행합니다. `MEMORY_OPTIMIZED = ON` 절 CREATE TABLE 문이 중요합니다. 예:
+4. SSMS에 T-SQL 스크립트를 붙여 넣고 스크립트를 실행합니다. `MEMORY_OPTIMIZED = ON` 절 CREATE TABLE 문이 중요합니다. 예: 
 
 
 ```
@@ -191,7 +185,7 @@ SELECT DatabasePropertyEx(DB_Name(), 'IsXTPSupported');
 
 #### <a name="about-the-created-memory-optimized-items"></a>생성된 메모리 최적화된 항목에 대한 정보
 
-**테이블**: 샘플은 다음과 같은 메모리 액세스에 최적화된 테이블을 포함합니다.
+**테이블**: 샘플은 다음과 같은 메모리 최적화 테이블을 포함합니다.
 
 - SalesLT.Product_inmem
 - SalesLT.SalesOrderHeader_inmem
@@ -200,7 +194,7 @@ SELECT DatabasePropertyEx(DB_Name(), 'IsXTPSupported');
 - Demo.DemoSalesOrderDetailSeed
 
 
-SSMS의 **개체 탐색기** 를 통해 메모리 액세스에 최적화된 테이블을 검사할 수 있습니다. **테이블** > **필터** > **필터 설정** > **메모리 액세스에 최적화됨**을 마우스 오른쪽 단추로 클릭합니다. 값은 1과 같습니다.
+SSMS의 **개체 탐색기**를 통해 메모리 최적화 테이블을 검사할 수 있습니다. **테이블** > **필터** > **필터 설정** > **메모리 액세스에 최적화됨**을 마우스 오른쪽 단추로 클릭합니다. 값은 1과 같습니다.
 
 
 또는 다음과 같은 카탈로그 뷰를 쿼리할 수 있습니다.
@@ -227,7 +221,7 @@ SELECT uses_native_compilation, OBJECT_NAME(object_id), definition
 
 ### <a name="run-the-sample-oltp-workload"></a>샘플 OLTP 워크로드 실행
 
-다음 두 *저장 프로시저* 간의 유일한 차이점은 첫 번째 절차는 메모리 액세스에 최적화된 테이블 버전을 사용하는 반면 두 번째 절차에서는 일반 디스크상의 테이블을 사용한다는 점입니다.
+다음 두 *저장 프로시저* 간의 유일한 차이점은 첫 번째 절차는 메모리 최적화 테이블 버전을 사용하는 반면 두 번째 절차에서는 일반 디스크상의 테이블을 사용한다는 점입니다.
 
 - SalesLT**.**usp_InsertSalesOrder**_inmem**
 - SalesLT**.**usp_InsertSalesOrder**_ondisk**
@@ -251,7 +245,7 @@ ostress.exe를 실행하는 경우 다음 모두에 대해 설계된 매개 변�
 이 섹션에서는 ostress.exe 명령줄에 포함된 T-SQL 스크립트를 표시합니다. 스크립트는 이전에 설치한 T-SQL 스크립트에 의해 생성된 항목을 사용합니다.
 
 
-다음 스크립트는 다음과 같은 메모리 액세스에 최적화된 *테이블*에 다섯 줄 항목의 샘플 판매 주문을 삽입합니다.
+다음 스크립트는 다음과 같은 메모리 최적화 *테이블*에 다섯 줄 항목의 샘플 판매 주문을 삽입합니다.
 
 - SalesLT.SalesOrderHeader_inmem
 - SalesLT.SalesOrderDetail_inmem
@@ -287,7 +281,7 @@ ostress.exe용 이전 T-SQL 스크립트의 *_ondisk* 버전을 만들려면 *_i
 ### <a name="install-rml-utilities-and-ostress"></a>RML 유틸리티 및 ostress 설치
 
 
-이상적으로 Azure VM(가상 컴퓨터)에 ostress.exe를 실행합니다. AdventureWorksLT 데이터베이스가 있는 곳과 동일한 Azure 지리적 지역에 [Azure VM](https://azure.microsoft.com/documentation/services/virtual-machines/)을 만듭니다. 하지만 대신 노트북에서 ostress.exe를 실행할 수 있습니다.
+이상적으로 Azure VM(가상 머신)에 ostress.exe를 실행합니다. AdventureWorksLT 데이터베이스가 있는 곳과 동일한 Azure 지리적 지역에 [Azure VM](https://azure.microsoft.com/documentation/services/virtual-machines/)을 만듭니다. 하지만 대신 노트북에서 ostress.exe를 실행할 수 있습니다.
 
 
 VM 또는 선택한 호스트에서 RML(Replay Markup Language) 유틸리티를 설치합니다. 유틸리티는 ostress.exe를 포함합니다.

@@ -1,27 +1,27 @@
 ---
-title: "데이터 탐색 및 시각화 도구 - Azure | Microsoft Docs"
-description: "데이터 과학 가상 컴퓨터용 데이터 탐색 및 시각화 도구"
-keywords: "데이터 과학 도구, 데이터 과학 가상 컴퓨터, 데이터 과학용 도구, linux 데이터 과학"
+title: 데이터 탐색 및 시각화 도구 - Azure | Microsoft Docs
+description: 데이터 과학 Virtual Machine용 데이터 탐색 및 시각화 도구
+keywords: 데이터 과학 도구, 데이터 과학 가상 머신, 데이터 과학용 도구, linux 데이터 과학
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/11/2017
+ms.date: 03/16/2018
 ms.author: gokuma;bradsev
-ms.openlocfilehash: d8f0616f17dbaa02082492cc1c68f1d989ea5aae
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 96f8d1bcf5a7e51823ed55a1b924d1397eba9da5
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/17/2018
 ---
-# <a name="data-exploration-and-visualization-tools-on-the-data-science-virtual-machine"></a>데이터 과학 가상 컴퓨터용 데이터 탐색 및 시각화 도구
+# <a name="data-exploration-and-visualization-tools-on-the-data-science-virtual-machine"></a>데이터 과학 Virtual Machine용 데이터 탐색 및 시각화 도구
 
 데이터 과학에서 핵심적인 단계는 데이터를 이해하는 것입니다. 시각화 및 데이터 탐색 도구는 데이터 이해를 가속화합니다. 다음은 이 핵심 단계를 용이하게 진행하도록 하기 위해 DSVM에 제공된 몇 가지 도구입니다. 
 

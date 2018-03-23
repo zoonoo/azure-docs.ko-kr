@@ -1,6 +1,6 @@
 ---
-title: "VM에 대한 개인 IP 주소 구성 - Azure PowerShell | Microsoft Docs"
-description: "PowerShell을 사용하여 가상 컴퓨터에 대한 개인 IP 주소를 구성하는 방법을 알아봅니다."
+title: VM에 대한 개인 IP 주소 구성 - Azure PowerShell | Microsoft Docs
+description: PowerShell을 사용하여 가상 머신에 대한 개인 IP 주소를 구성하는 방법을 알아봅니다.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -16,13 +16,13 @@ ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2810190897c44c944912ef3325b1f40479aa3078
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8727318c9dff79b795b473caf7b778272134726c
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/09/2018
 ---
-# <a name="configure-private-ip-addresses-for-a-virtual-machine-using-powershell"></a>PowerShell을 사용하여 가상 컴퓨터에 대한 개인 IP 주소 구성
+# <a name="configure-private-ip-addresses-for-a-virtual-machine-using-powershell"></a>PowerShell을 사용하여 가상 머신에 대한 개인 IP 주소 구성
 
 [!INCLUDE [virtual-networks-static-private-ip-selectors-arm-include](../../includes/virtual-networks-static-private-ip-selectors-arm-include.md)]
 
@@ -32,7 +32,7 @@ Azure에는 Azure Resource Manager 및 클래식이라는 두 가지 배포 모�
 
 [!INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 
-아래 샘플 PowerShell 명령에는 위의 시나리오를 기반으로 이미 만들어져 있는 단순한 환경이 필요합니다. 이 문서에 표시된 대로 명령을 실행하려는 경우 먼저 [vnet 만들기](virtual-networks-create-vnet-arm-ps.md)에 설명된 테스트 환경을 구축합니다.
+아래 샘플 PowerShell 명령에는 위의 시나리오를 기반으로 이미 만들어져 있는 단순한 환경이 필요합니다. 이 문서에 표시된 대로 명령을 실행하려는 경우 먼저 [가상 네트워크 만들기](quick-create-powershell.md)에 설명된 테스트 환경을 구축합니다.
 
 ## <a name="create-a-vm-with-a-static-private-ip-address"></a>고정 개인 IP 주소를 사용하는 VM 만들기
 *192.168.1.101*의 정적 개인 IP 주소를 사용하여 *TestVNet*이라는 VNet의 *FrontEnd* 서브넷에 *DNS01*이라는 VM을 만들려면 다음 단계를 따르세요.

@@ -1,26 +1,20 @@
 ---
-title: "Azure Site Recovery를 사용하여 다중 계층 IIS 기반 웹 응용 프로그램 복제 | Microsoft Docs"
-description: "Azure Site Recovery를 사용하여 IIS 웹 팜 가상 머신을 복제하는 방법을 알아봅니다."
+title: Azure Site Recovery를 사용하여 다중 계층 IIS 기반 웹 응용 프로그램 복제 | Microsoft Docs
+description: Azure Site Recovery를 사용하여 IIS 웹 팜 가상 머신을 복제하는 방법을 알아봅니다.
 services: site-recovery
-documentationcenter: 
 author: nsoneji
 manager: gauravd
-editor: 
-ms.assetid: 
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2018
+ms.date: 03/05/2018
 ms.author: nisoneji
-ms.openlocfilehash: a4a8ea14fecac73b187c9c7d3f9ca318bb2671c5
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 1ed0184ac76b5fb3e607458559327da5e8fe90c5
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/08/2018
 ---
-# <a name="replicate-a-multi-tier-iis-based-web-application-by-using-site-recovery"></a>Site Recovery를 사용하여 다중 계층 IIS 기반 웹 응용 프로그램 복제
+# <a name="replicate-a-multi-tier-iis-based-web-application"></a>다중 계층 IIS 기반 웹 응용 프로그램 복제
 
 응용 프로그램 소프트웨어는 조직에서 비즈니스 생산성의 엔진입니다. 다양한 웹 응용 프로그램은 조직 내 여러 용도로 사용될 수 있습니다. 급여 처리, 재무 및 고객 지향 웹 사이트에 사용되는 응용 프로그램과 같은 일부 응용 프로그램은 조직에 중요할 수 있습니다. 생산성 저하를 방지하려면 조직에서 이러한 응용 프로그램을 지속적으로 작동하고 실행해야 합니다. 더 중요한 것은 이러한 응용 프로그램을 일관되게 사용할 수 있게 되면 조직의 브랜드 또는 이미지가 손상되지 않도록 하는 데 도움이 될 수 있습니다.
 
@@ -36,7 +30,7 @@ ms.lasthandoff: 02/24/2018
 
 시작하기 전에 다음 작업을 수행하는 방법을 알고 있어야 합니다.
 
-* [Azure에 가상 머신 복제](site-recovery-vmware-to-azure.md)
+* [Azure에 가상 머신 복제](vmware-azure-tutorial.md)
 * [복구 네트워크 디자인](site-recovery-network-design.md)
 * [Azure로 테스트 장애 조치(failover) 수행](site-recovery-test-failover-to-azure.md)
 * [Azure로 장애 조치(failover) 수행](site-recovery-failover.md)
@@ -75,7 +69,7 @@ Azure|해당 없음|예
 
 모든 IIS 웹 팜 가상 머신을 Azure로 복제하려면 [Site Recovery에서 Azure로 장애 조치 테스트](site-recovery-test-failover-to-azure.md)의 지침을 따릅니다.
 
-고정 IP 주소를 사용하는 경우 가상 머신에서 사용할 IP 주소를 지정할 수 있습니다. IP 주소를 설정하려면 **계산 및 네트워크 설정** > [**대상 IP**](./site-recovery-replicate-vmware-to-azure.md#view-and-manage-vm-properties)로 차례로 이동합니다.
+고정 IP 주소를 사용하는 경우 가상 머신에서 사용할 IP 주소를 지정할 수 있습니다. IP 주소를 설정하려면 **계산 및 네트워크 설정** > **대상 IP**로 차례로 이동합니다.
 
 ![Site Recovery 계산 및 네트워크 창에서 대상 IP를 설정하는 방법을 보여 주는 스크린샷](./media/site-recovery-active-directory/dns-target-ip.png)
 

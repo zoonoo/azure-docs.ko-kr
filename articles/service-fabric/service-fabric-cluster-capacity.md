@@ -1,11 +1,11 @@
 ---
-title: "Service Fabric 클러스터 용량 계획 | Microsoft Docs"
-description: "서비스 패브릭 클러스터 용량 계획 고려 사항입니다. 노드 유형, 작업, 내구성 및 안정성 계층"
+title: Service Fabric 클러스터 용량 계획 | Microsoft Docs
+description: 서비스 패브릭 클러스터 용량 계획 고려 사항입니다. 노드 유형, 작업, 내구성 및 안정성 계층
 services: service-fabric
 documentationcenter: .net
 author: ChackDan
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 4c584f4a-cb1f-400c-b61f-1f797f11c982
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2018
 ms.author: chackdan
-ms.openlocfilehash: 8e2fceaf7e8a0d6c177d3122bd07de5b8c11f295
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: ad5f396cd71eb0136fe683bbccb9360291be2d59
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>서비스 패브릭 클러스터 용량 계획 고려 사항
 프로덕션 배포의 경우 용량 계획은 중요한 단계입니다. 다음은 해당 프로세스의 일부로 고려해야 하는 항목 중 일부입니다.
@@ -88,10 +88,11 @@ ms.lasthandoff: 01/05/2018
  
 1. Virtual Machine Scale Set 및 기타 관련 Azure 리소스에 대한 배포가 지연되거나, 시간이 초과되거나, 클러스터 또는 인프라 수준에서 발생한 문제로 인해 완전히 차단될 수 있습니다. 
 2. Azure 인프라 작업 중에 자동으로 수행되는 노드 비활성화로 인해 [복제본 수명 주기 이벤트](service-fabric-reliable-services-advanced-usage.md#stateful-service-replica-lifecycle )(예: 기본 스왑) 수가 증가합니다.
+3. Azure 플랫폼 소프트웨어 업데이트 또는 하드웨어 유지 관리 작업이 발생하는 기간 동안 노드를 서비스 불가능 상태로 유지합니다. 이러한 작업 중에는 노드 상태가 비활성화 중/사용 안 함으로 표시될 수 있습니다. 이로 인해 클러스터 용량이 일시적으로 감소하지만 클러스터 또는 응용 프로그램의 가용성에는 영향을 주지 않아야 합니다.
 
 ### <a name="recommendations-on-when-to-use-silver-or-gold-durability-levels"></a>실버 또는 골드 내구성 수준을 사용해야 하는 경우에 대한 권장 사항
 
-규모 감축(VM 인스턴스 수 축소)이 자주 수행될 것으로 예상되는 상태 비저장 서비스를 호스트하는 모든 노드 유형에는 실버 또는 골드 재구성을 사용하고, 이러한 규모 감축 작업의 간소화를 위해 배포 작업이 지연되도록 하는 것이 좋습니다. 규모 확장 시나리오(VM 인스턴스 추가)는 내구성 계층 선택에 영향을 주지 않으며, 규모 감축만 영향을 줍니다.
+규모 감축(VM 인스턴스 수 축소)이 자주 수행될 것으로 예상되는 상태 비저장 서비스를 호스트하는 모든 노드 유형에는 실버 또는 골드 재구성을 사용하고, 이러한 규모 감축 작업의 간소화를 위해 배포 작업이 지연되도록 하고 용량이 감소되도록 하는 것이 좋습니다. 규모 확장 시나리오(VM 인스턴스 추가)는 내구성 계층 선택에 영향을 주지 않으며, 규모 감축만 영향을 줍니다.
 
 ### <a name="changing-durability-levels"></a>내구성 수준 변경
 - 내구성 수준이 Silver 또는 Gold인 노드 유형은 Bronze로 다운그레이드할 수 없습니다.

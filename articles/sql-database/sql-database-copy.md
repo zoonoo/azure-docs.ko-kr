@@ -1,25 +1,19 @@
 ---
-title: "Azure SQL Database 복사 | Microsoft Docs"
-description: "같은 서버 또는 다른 서버에 기존 Azure SQL 데이터베이스의 트랜잭션 방식으로 일관된 사본을 만듭니다."
+title: Azure SQL Database 복사 | Microsoft Docs
+description: 같은 서버 또는 다른 서버에 기존 Azure SQL 데이터베이스의 트랜잭션 방식으로 일관된 사본을 만듭니다.
 services: sql-database
-documentationcenter: 
 author: CarlRabeler
-manager: jhubbard
-editor: 
-ms.assetid: 5aaf6bcd-3839-49b5-8c77-cbdf786e359b
+manager: craigg
 ms.service: sql-database
 ms.custom: load & move data
-ms.devlang: NA
 ms.date: 06/15/2017
 ms.author: carlrab
-ms.workload: On Demand
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.openlocfilehash: 7999c52a81165a9f8efb2f1302d04c9cb851faca
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: c4a3836cfd0bbbb8d26a42af2980deab5f9d7681
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="copy-an-azure-sql-database"></a>Azure SQL 데이터베이스 복사
 

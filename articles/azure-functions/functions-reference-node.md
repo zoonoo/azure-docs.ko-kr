@@ -1,26 +1,26 @@
 ---
-title: "Azure Functions에 대한 JavaScript 개발자 참조 | Microsoft Docs"
-description: "JavaScript를 사용하여 함수를 개발하는 방법을 알아봅니다."
+title: Azure Functions에 대한 JavaScript 개발자 참조 | Microsoft Docs
+description: JavaScript를 사용하여 함수를 개발하는 방법을 알아봅니다.
 services: functions
 documentationcenter: na
 author: tdykstra
 manager: cfowler
-editor: 
-tags: 
-keywords: "Azure Functions, 함수, 이벤트 처리, webhook, 동적 계산, 서버가 없는 아키텍처"
+editor: ''
+tags: ''
+keywords: Azure Functions, 함수, 이벤트 처리, webhook, 동적 계산, 서버가 없는 아키텍처
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.service: functions
 ms.devlang: nodejs
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/25/2017
+ms.date: 03/04/2018
 ms.author: tdykstra
-ms.openlocfilehash: f613e480f6699b323c18402f01873e565768f10f
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 0a436a929696f759cdbe9807faa2a15902b7ce6d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript 개발자 가이드
 [!INCLUDE [functions-selector-languages](../../includes/functions-selector-languages.md)]
@@ -116,7 +116,7 @@ context.log(message)
 기본 추적 수준에서 스트리밍 콘솔 로그에 기록할 수 있습니다. `context.log`에서 다른 추적 수준에서 콘솔 로그에 쓸 수 있는 추가 로깅 메서드가 제공됩니다.
 
 
-| 메서드                 | 설명                                |
+| 방법                 | 설명                                |
 | ---------------------- | ------------------------------------------ |
 | **error(_message_)**   | 오류 수준 로깅 또는 더 낮은 수준의 로깅에 씁니다.   |
 | **warn(_message_)**    | 경고 수준 로깅 또는 더 낮은 수준의 로깅에 씁니다. |
@@ -206,7 +206,7 @@ HTTP, 웹후크 트리거 및 HTTP 출력 바인딩은 요청 및 응답 개체�
 
 `request` 개체의 속성은 다음과 같습니다.
 
-| 속성      | 설명                                                    |
+| 자산      | 설명                                                    |
 | ------------- | -------------------------------------------------------------- |
 | _body_        | 요청의 본문을 포함하는 개체입니다.               |
 | _headers_     | 요청 헤더를 포함하는 개체입니다.                   |
@@ -221,7 +221,7 @@ HTTP, 웹후크 트리거 및 HTTP 출력 바인딩은 요청 및 응답 개체�
 
 `response` 개체의 속성은 다음과 같습니다.
 
-| 속성  | 설명                                               |
+| 자산  | 설명                                               |
 | --------- | --------------------------------------------------------- |
 | _body_    | 응답의 본문을 포함하는 개체입니다.         |
 | _headers_ | 응답 헤더를 포함하는 개체입니다.             |
@@ -265,7 +265,15 @@ HTTP 트리거로 작업할 때 세 가지 방법으로 HTTP 요청 및 응답 �
     ```  
 
 ## <a name="node-version-and-package-management"></a>노드 버전 및 패키지 관리
-노드 버전이 현재 `6.5.0`에서 잠겨 있습니다. 더 많은 버전에 대한 지원을 추가하고 구성할 수 있도록 연구 중입니다.
+
+다음 표에서는 주 버전의 Functions 런타임 각각에서 사용되는 Node.js 버전을 보여 줍니다.
+
+| Functions 버전 | Node.js 버전 | 
+|---|---|
+| 1.x | 6.11.2(런타임에 의해 잠김) |
+| 2.x  |8.4.0 이상(현재 LTS 8.9.4가 권장됨). WEBSITE_DEFAULT_NODE_VERSION [앱 설정](functions-how-to-use-azure-function-app-settings.md#settings)을 사용하여 버전을 설정합니다.|
+
+함수에서 `process.version`을 인쇄하여 해당 런타임이 사용하는 현재 버전을 볼 수 있습니다.
 
 다음 단계를 사용하면 함수 앱에 패키지를 포함할 수 있습니다. 
 
@@ -295,7 +303,7 @@ module.exports = function(context) {
 함수 앱의 루트에 `package.json` 파일을 정의해야 합니다. 파일을 정의하면 앱의 모든 함수에서 동일한 캐시된 패키지를 공유할 수 있으므로 최상의 성능을 제공합니다. 버전 충돌이 발생하는 경우 특정 함수의 폴더에 `package.json` 파일을 추가하여 이 충돌을 해결할 수 있습니다.  
 
 ## <a name="environment-variables"></a>환경 변수
-환경 변수 또는 앱 설정 값을 가져오려면 다음 코드 예제와 같이 `process.env`를 사용합니다.
+환경 변수 또는 앱 설정 값을 가져오려면 다음 코드 예제와 같이 `process.env`을 사용합니다.
 
 ```javascript
 module.exports = function (context, myTimer) {

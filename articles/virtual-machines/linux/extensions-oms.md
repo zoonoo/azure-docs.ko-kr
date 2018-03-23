@@ -1,11 +1,11 @@
 ---
-title: "Linux용 OMS Azure 가상 머신 확장 | Microsoft Docs"
-description: "가상 머신 확장을 사용하여 Linux 가상 머신에 OMS 에이전트를 배포합니다."
+title: Linux용 OMS Azure 가상 머신 확장 | Microsoft Docs
+description: 가상 머신 확장을 사용하여 Linux 가상 머신에 OMS 에이전트를 배포합니다.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: danielsollondon
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: c7bbf210-7d71-4a37-ba47-9c74567a9ea6
 ms.service: virtual-machines-linux
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 02/15/2018
+ms.date: 03/06/2018
 ms.author: danis
-ms.openlocfilehash: fea3e992c70d286695691d837c746522f6a5ebb3
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 5497c0151117c26e66e9669ed8da1ab7f9506b5a
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="oms-virtual-machine-extension-for-linux"></a>Linux용 OMS 가상 머신 확장
 
@@ -42,6 +42,7 @@ OM 에이전트 확장은 다음 Linux 배포판에 대해 실행할 수 있습�
 | Ubuntu | 12.04 LTS, 14.04 LTS, 15.04, 15.10, 16.04 LTS |
 | SUSE Linux Enterprise Server | 11 및 12 |
 
+### <a name="agent-and-vm-extension-version"></a>에이전트 및 VM 확장 버전
 다음 표에서는 각 릴리스에서 OMS VM 확장의 각 버전과 OMS Agent 번들에 대한 매핑을 제공합니다. OMS 에이전트 번들 버전에 대한 릴리스 노트 링크가 포함되어 있습니다.  
 
 | OMS Linux VM 확장 버전 | OMS Agent 번들 버전 | 
@@ -51,6 +52,10 @@ OM 에이전트 확장은 다음 Linux 배포판에 대해 실행할 수 있습�
 | 1.4.56.5 | [1.4.2-124](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.2-124)|
 | 1.4.55.4 | [1.4.1-123](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.1-123)|
 | 1.4.45.3 | [1.4.1-45](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.1-45)|
+| 1.4.45.2 | [1.4.0-45](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.0-45)|
+| 1.3.127.5 | [1.3.5-127](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent-201705-v1.3.5-127)| 
+| 1.3.127.7 | [1.3.5-127](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent-201705-v1.3.5-127)|
+| 1.3.18.7 | [1.3.4-15](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent-201704-v1.3.4-15)|  
 
 ### <a name="azure-security-center"></a>Azure Security Center
 

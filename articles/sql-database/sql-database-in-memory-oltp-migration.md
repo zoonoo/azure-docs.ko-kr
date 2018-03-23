@@ -1,25 +1,20 @@
 ---
-title: "메모리 내 OLTP이 SQL txn 성능 개선 | Microsoft Docs"
-description: "메모리 내 OLTP를 채택하여 기존 SQL 데이터베이스의 트랜잭션 성능을 향상합니다."
+title: 메모리 내 OLTP이 SQL txn 성능 개선 | Microsoft Docs
+description: 메모리 내 OLTP를 채택하여 기존 SQL 데이터베이스의 트랜잭션 성능을 향상합니다.
 services: sql-database
-documentationcenter: 
 author: jodebrui
-manager: jhubbard
-editor: MightyPen
-ms.assetid: c2bf14a0-905b-47b4-afb6-efe9a61147d5
+manager: craigg
+ms.reviewer: MightyPen
 ms.service: sql-database
 ms.custom: develop databases
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/22/2016
 ms.author: jodebrui
-ms.openlocfilehash: 71dd7d36eee210b80ed6a791b52f977a416b6bb7
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 77e73ec1004babb5fce1e293acfade9264cd6945
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="use-in-memory-oltp-to-improve-your-application-performance-in-sql-database"></a>메모리 내 OLTP를 사용하여 SQL Database에서 응용 프로그램의 성능 향상
 [메모리 내 OLTP](sql-database-in-memory.md)를 사용하면 가격대를 높이지 않고도 [Premium](sql-database-service-tiers.md) Azure SQL Database에서 트랜잭션 처리, 데이터 수집 및 일시적인 데이터 시나리오의 성능을 개선할 수 있습니다. 
@@ -52,7 +47,7 @@ SSMS에서 보고서를 생성합니다.
 자세한 내용은 [테이블 또는 저장 프로시저가 메모리 내 OLTP로 이식되어야 하는지 결정](http://msdn.microsoft.com/library/dn205133.aspx)을 참조하세요.
 
 ## <a name="step-3-create-a-comparable-test-database"></a>3단계: 비교할 수 있는 테스트 데이터베이스 만들기
-보고서는 데이터베이스에 메모리에 최적화된 테이블로 변환하여 이점을 얻을 수 있는 테이블이 있음을 나타낸다고 가정합니다. 이를 확인하기 위해 먼저 테스트하는 것이 좋습니다.
+보고서는 데이터베이스에 메모리 최적화 테이블로 변환하여 이점을 얻을 수 있는 테이블이 있음을 나타낸다고 가정합니다. 이를 확인하기 위해 먼저 테스트하는 것이 좋습니다.
 
 프로덕션 데이터베이스의 테스트 복사본이 필요합니다. 테스트 데이터베이스는 프로덕션 데이터베이스와 동일한 서비스 계층 수준에 있어야 합니다.
 
@@ -68,7 +63,7 @@ SSMS에서 보고서를 생성합니다.
    ```
 
 ## <a name="step-4-migrate-tables"></a>4단계: 테이블 마이그레이션
-테스트하려는 테이블의 메모리에 최적화된 복사본을 만들고 채워야 합니다. 다음 중 하나를 사용하여 만들 수 있습니다.
+테스트하려는 테이블의 메모리 최적화 복사본을 만들고 채워야 합니다. 다음 중 하나를 사용하여 만들 수 있습니다.
 
 * SSMS의 편리한 메모리 최적화 마법사.
 * 수동 T-SQL.
@@ -80,7 +75,7 @@ SSMS에서 보고서를 생성합니다.
 2. **개체 탐색기**에서 테이블을 마우스 오른쪽 단추로 클릭한 다음 **메모리 최적화 관리자**를 클릭합니다.
    
    * **테이블 메모리 최적화 관리자** 마법사가 표시됩니다.
-3. 마법사에서 **마이그레이션 유효성 검사**(또는 **다음** 단추)을 클릭하여 메모리에 최적화된 테이블에서 지원하지 않는 지원되지 않는 기능이 테이블에 있는지 확인합니다. 자세한 내용은 다음을 참조하세요.
+3. 마법사에서 **마이그레이션 유효성 검사**(또는 **다음** 단추)를 클릭하여 메모리 최적화 테이블에서 지원하지 않는 지원되지 않는 기능이 테이블에 있는지 확인합니다. 자세한 내용은 다음을 참조하세요.
    
    * *메모리 최적화 관리자* 의 [메모리 최적화 검사 목록](http://msdn.microsoft.com/library/dn284308.aspx).
    * [메모리 내 OLTP에서 지원되지 않는 TRANSACT-SQL 항목](http://msdn.microsoft.com/library/dn246937.aspx).
@@ -98,8 +93,8 @@ SSMS에서 보고서를 생성합니다.
 3. 스크립트 창에서 테이블 만들기 문에 WITH (MEMORY_OPTIMIZED = ON)을 추가합니다.
 4. 클러스터형 인덱스가 있을 경우 비클러스터형으로 변경합니다.
 5. SP_RENAME을 사용하여 기존 테이블의 이름을 바꿉니다.
-6. 편집된 만들기 테이블 스크립트를 실행하여 테이블의 새 메모리에 최적화된 복사본을 만듭니다.
-7. 삽입을 사용하여 메모리에 최적화된 테이블에 데이터를 복사합니다... *를 다음에 선택합니다.
+6. 편집된 만들기 테이블 스크립트를 실행하여 테이블의 새 메모리 최적화 복사본을 만듭니다.
+7. 삽입을 사용하여 메모리 최적화 테이블에 데이터를 복사합니다... *를 다음에 선택합니다.
 
 ```
 INSERT INTO <new_memory_optimized_table>

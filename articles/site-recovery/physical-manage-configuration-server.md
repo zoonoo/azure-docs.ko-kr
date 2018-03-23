@@ -1,17 +1,17 @@
 ---
 title: " Azure Site Recovery를 사용하여 물리적 서버 재해 복구를 위한 구성 서버 관리 | Microsoft Docs"
-description: "이 문서에서는 Azure Site Recovery 서비스를 사용하여 Azure에 대한 물리적 서버 재해 복구를 위해 기존 구성 서버를 관리하는 방법을 설명합니다."
+description: 이 문서에서는 Azure Site Recovery 서비스를 사용하여 Azure에 대한 물리적 서버 재해 복구를 위해 기존 구성 서버를 관리하는 방법을 설명합니다.
 services: site-recovery
 author: AnoopVasudavan
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/18/2018
+ms.date: 03/05/2018
 ms.author: anoopkv
-ms.openlocfilehash: 7fe68f072ef438e21f3e6d3d52aee9e86e537687
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 2fdccade577788d3fc5bc076604547b2ab6690d9
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>물리적 서버 재해 복구용 구성 서버 관리
 
@@ -36,7 +36,7 @@ Azure에 대한 물리적 서버 재해 복구를 위해 [Azure Site Recovery](s
 | IIS | - 기존의 기본 웹 사이트 없음 <br> - [익명 인증](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) 사용 <br> - [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) 설정 사용  <br> - 포트 443에서 수신 대기하는 기존의 웹 사이트/응용 프로그램 없음<br>|
 | NIC 유형 | VMXNET3(VMware VM으로 배포될 경우) |
 | IP 주소 유형 | 공용 |
-| 인터넷 액세스 | 서버에서 다음 URL에 액세스해야 합니다. <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - https://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi(확장 프로세스 서버에는 필요하지 않음) <br> - time.nist.gov <br> - time.windows.com |
+| 인터넷 액세스 | 서버에서 다음 URL에 액세스해야 합니다. <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - dc.services.visualstudio.com <br> - https://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi(확장 프로세스 서버에는 필요하지 않음) <br> - time.nist.gov <br> - time.windows.com |
 | 포트 | 443(컨트롤 채널 오케스트레이션)<br>9443(데이터 전송)|
 
 ## <a name="download-the-latest-installation-file"></a>최신 설치 파일 다운로드
@@ -164,7 +164,7 @@ ProxyPassword="Password"
   ```
 
   >[!WARNING]
-  이 구성 서버에 추가 프로세스 서버가 연결된 경우 배포의 [모든 확장 프로세스 서버에서 프록시 설정을 수정](site-recovery-vmware-to-azure-manage-scaleout-process-server.md#modifying-proxy-settings-for-scale-out-process-server)해야 합니다.
+  이 구성 서버에 추가 프로세스 서버가 연결된 경우 배포의 [모든 확장 프로세스 서버에서 프록시 설정을 수정](vmware-azure-manage-process-server.md#modify-proxy-settings-for-an-on-premises-process-server)해야 합니다.
 
 ## <a name="reregister-a-configuration-server-with-the-same-vault"></a>동일한 자격 증명 모음에 구성 서버 다시 등록
   1. 구성 서버에 로그인 합니다.
@@ -184,7 +184,7 @@ ProxyPassword="Password"
       ```
 
   >[!WARNING]
-  여러 프로세스 서버가 있는 경우 [다시 등록](site-recovery-vmware-to-azure-manage-scaleout-process-server.md#re-registering-a-scale-out-process-server)해야 합니다.
+  여러 프로세스 서버가 있는 경우 [다시 등록](vmware-azure-manage-process-server.md#reregister-a-process-server)해야 합니다.
 
 ## <a name="register-a-configuration-server-with-a-different-vault"></a>다른 자격 증명 모음에 구성 서버 등록
 
@@ -233,8 +233,8 @@ ProxyPassword="Password"
 > [!WARNING]
 > 구성 서버의 서비스 해제를 시작하기 전에 다음 사항을 확인하세요.
 > 1. 이 구성 서버 아래의 모든 가상 머신에 대한 [보호를 사용하지 않도록 설정](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure)합니다.
-> 2. 구성 서버에서 모든 복제 정책을 [연결 해제](site-recovery-setup-replication-settings-vmware.md#dissociate-a-configuration-server-from-a-replication-policy) 및 [삭제](site-recovery-setup-replication-settings-vmware.md#delete-a-replication-policy)합니다.
-> 3. 구성 서버에 연결된 모든 vCenter 서버/vSphere 호스트를 [삭제](site-recovery-vmware-to-azure-manage-vCenter.md#delete-a-vcenter-in-azure-site-recovery)합니다.
+> 2. 구성 서버에서 모든 복제 정책을 [연결 해제](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) 및 [삭제](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy)합니다.
+> 3. 구성 서버에 연결된 모든 vCenter 서버/vSphere 호스트를 [삭제](vmware-azure-manage-vcenter.md#delete-a-vcenter-server)합니다.
 
 
 ### <a name="delete-the-configuration-server-from-azure-portal"></a>Azure Portal에서 구성 서버 삭제

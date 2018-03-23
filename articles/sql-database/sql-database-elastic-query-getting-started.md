@@ -1,24 +1,19 @@
 ---
-title: "확장된 클라우드 데이터베이스에서 보고(수평 분할) | Microsoft Docs"
-description: "복수 데이터베이스에 대해 보고하려면 교차 데이터베이스 쿼리를 사용합니다."
+title: 확장된 클라우드 데이터베이스에서 보고(수평 분할) | Microsoft Docs
+description: 복수 데이터베이스에 대해 보고하려면 교차 데이터베이스 쿼리를 사용합니다.
 services: sql-database
-documentationcenter: 
 manager: jhubbard
 author: MladjoA
-ms.assetid: c81ef5e3-41e9-4fd2-8631-868f2e168147
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2016
 ms.author: mlandzic
-ms.openlocfilehash: 996ad1d47ece592dcf03a6eb8ed1c1916ceba374
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 29f1291f5c5d6023ca7bcd47fc2c0d9b69fd39fa
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="report-across-scaled-out-cloud-databases-preview"></a>확장된 클라우드 데이터베이스에서 보고(미리 보기)
 [탄력적 쿼리](sql-database-elastic-query-overview.md)를 사용하여 단일 연결 지점의 여러 Azure SQL 데이터베이스에서 보고서를 만들 수 있습니다. 데이터베이스를 가로로 분할해야 합니다("분할됨"이라고도 함).
@@ -114,7 +109,7 @@ ElasticDBQuery 데이터베이스에서 다음쿼리를 실행 합니다.
 3. **기타 원본에서**을 클릭하고 **SQL Server에서**를 클릭합니다.
 
    ![다른 원본에서 Excel 가져오기][5]
-4. **데이터 연결 마법사** 에서 서버 이름 및 로그인 자격 증명을 입력합니다. 그런 후 **Next**를 클릭합니다.
+4. **데이터 연결 마법사** 에서 서버 이름 및 로그인 자격 증명을 입력합니다. 그런 후 **Next** 를 클릭합니다.
 5. 대화 상자에서 **원하는 데이터를 포함하는 데이터베이스를 선택**하고 **ElasticDBQuery** 데이터베이스를 선택합니다.
 6. 목록 보기에서 **사용자**테이블을 선택하고 **다음**을 클릭합니다. **마침**을 클릭합니다.
 7. **데이터 가져오기** 양식에서, **통합 문서에서 원하는 데이터를 보는 방법을 선택**하고 **테이블**을 선택하고 **확인**을 클릭합니다.

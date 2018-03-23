@@ -1,4 +1,19 @@
-
+---
+title: 포함 파일
+description: 포함 파일
+services: virtual-machines
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 03/09/2018
+ms.author: cynthn
+ms.custom: include file
+ms.openlocfilehash: 3dfc72ff0347a93c6c6dce0e7ec763dd8241c55b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 03/16/2018
+---
 ## <a name="azure-backup"></a>Azure Backup
 
 프로덕션 작업을 실행하는 Azure VM을 백업하려면 Azure Backup을 사용합니다. Azure Backup은 Windows와 Linux VM 모두에 대해 응용 프로그램 일치 백업을 지원합니다. Azure Backup은 지역 중복 복구 자격 증명 모음에 저장되는 복구 지점을 만듭니다. 복구 지점에서 복원하는 경우 전체 VM 또는 특정 파일만 복원할 수 있습니다. 

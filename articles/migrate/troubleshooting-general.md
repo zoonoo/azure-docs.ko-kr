@@ -1,16 +1,16 @@
 ---
-title: "Azure Migrate 문제 해결 | Microsoft Docs"
-description: "Azure Migrate 서비스의 알려진 문제에 대한 개요와 일반적인 오류 해결 방법을 설명합니다."
+title: Azure Migrate 문제 해결 | Microsoft Docs
+description: Azure Migrate 서비스의 알려진 문제에 대한 개요와 일반적인 오류 해결 방법을 설명합니다.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: troubleshooting
 ms.date: 02/21/2018
 ms.author: raynew
-ms.openlocfilehash: 249de45dbd9bedf1b3c2d2a5957acf31d6c0d243
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: e1e7a1a57f780ef477379dfb1ceaead0c8654970
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="troubleshoot-azure-migrate"></a>Azure Migrate 문제 해결
 
@@ -126,5 +126,23 @@ Windows용 이벤트 추적을 수집하려면 다음 단계를 수행합니다.
 7. 개발자 도구를 닫습니다.
  
 
+## <a name="vcenter-errors"></a>vCenter 오류
 
+### <a name="error-unhandledexception-internal-error-occured-systemiofilenotfoundexception"></a>오류 UnhandledException 내부 오류가 발생했습니다. System.IO.FileNotFoundException
+
+1.0.9.5 미만인 수집기 버전에서 표시되는 오류입니다. 수집기 버전 1.0.9.2 또는 1.0.8.59와 같은 이전 GA 버전을 사용하는 경우 이 문제가 발생합니다. [자세한 응답은 포럼에 지정된 링크](https://social.msdn.microsoft.com/Forums/azure/en-US/c1f59456-7ba1-45e7-9d96-bae18112fb52/azure-migrate-connect-to-vcenter-server-error?forum=AzureMigrate)를 따릅니다.
+
+[문제를 해결하기 위해 수집기 업그레이드](https://aka.ms/migrate/col/checkforupdates)
+
+### <a name="error-unabletoconnecttoserver"></a>오류 UnableToConnectToServer
+
+오류로 인해 vCenter Server "Servername.com:9443"에 연결할 수 없습니다: 메시지를 수락할 수 있는 https://Servername.com:9443/sdk에서 수신 대기 중인 끝점이 없습니다.
+
+수집기 컴퓨터가 지정된 vCenter Server 이름을 확인할 수 없거나 지정된 포트가 잘못된 경우에 발생합니다. 기본적으로 포트가 지정되지 않은 경우 수집기는 포트 번호 443에 연결하려고 합니다.
+
+1. 수집기 컴퓨터에서 Servername.com를 ping해 봅니다.
+2. 1단계가 실패하는 경우 IP 주소를 통해 vCenter Server에 연결해보세요.
+3. vCenter에 연결할 정확한 포트 번호를 식별합니다.
+4. 마지막으로 vCenter Server가 실행 중인지 확인합니다.
+ 
 

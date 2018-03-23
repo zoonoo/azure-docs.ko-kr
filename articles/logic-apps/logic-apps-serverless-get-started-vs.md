@@ -1,12 +1,12 @@
 ---
-title: "Visual Studio에서 서버를 사용하지 않는 앱 빌드 | Microsoft Docs"
-description: "Visual Studio에서 앱 만들기, 배포 및 관리에 대한 이 가이드를 사용하여 첫 번째 서버를 사용하지 않는 앱을 시작합니다."
-keywords: 
+title: Visual Studio에서 서버를 사용하지 않는 앱 빌드 | Microsoft Docs
+description: Visual Studio에서 앱 만들기, 배포 및 관리에 대한 이 가이드를 사용하여 첫 번째 서버를 사용하지 않는 앱을 시작합니다.
+keywords: ''
 services: logic-apps
 author: jeffhollan
 manager: anneta
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.service: logic-apps
 ms.workload: integration
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 3672beda8a502e5fe2c8182076a8edef7ee9ebf6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d3cd509a0073e45bf910e9a74a279d678ff03b63
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="build-a-serverless-app-in-visual-studio-with-logic-apps-and-functions"></a>Logic Apps 및 함수를 사용하여 Visual Studio에서 서버를 사용하지 않는 앱 빌드
 
@@ -66,7 +66,7 @@ Visual Studio에서 논리 앱 비주얼 디자이너를 열려면 미리 배포
 
 솔루션을 모든 리소스 그룹에 배포한 후 비주얼 디자이너를 사용하여 논리 앱을 편집하고 변경할 수 있습니다.
 
-1. 솔루션 탐색기에서 `azuredeploy.json` 파일을 마우스 오른쪽 단추로 클릭하고 **논리 앱 디자이너로 열기**를 선택합니다.
+1. 솔루션 탐색기에서 `azuredeploy.json` 파일을 마우스 오른쪽 단추로 클릭하고 **Logic Apps 디자이너로 열기**를 선택합니다.
 1. 솔루션이 배포된 **리소스 그룹** 및 **위치**를 선택하고 **확인**을 선택합니다.
 
 이제 논리 앱 비주얼 디자이너가 Visual Studio와 함께 표시됩니다.  단계 추가, 워크플로 수정 및 변경 내용 저장을 계속할 수 있습니다.  또한 Visual Studio에서 논리 앱을 만들 수도 있습니다.  템플릿 탐색기에서 **리소스**를 마우스 오른쪽 단추로 클릭하면 **논리 앱**을 프로젝트에 추가하도록 선택할 수 있습니다.  빈 논리 앱이 리소스 그룹으로 미리 배포 없이 비주얼 디자이너에 로드됩니다.
@@ -86,7 +86,7 @@ JavaScript, Python, F #, Bash, Batch 또는 PowerShell을 사용하는 경우 [�
 ## <a name="next-steps"></a>다음 단계
 
 * [서버를 사용하지 않는 소셜 대시보드를 빌드하는 방법 알아보기](logic-apps-scenario-social-serverless.md)
-* [Visual Studio 클라우드 탐색기에서 논리 앱 관리](logic-apps-manage-from-vs.md)
+* [Visual Studio 클라우드 탐색기에서 논리 앱 관리](manage-logic-apps-with-visual-studio.md)
 * [논리 앱 워크플로 정의 언어](logic-apps-workflow-definition-language.md)
 
 <!-- Image references -->

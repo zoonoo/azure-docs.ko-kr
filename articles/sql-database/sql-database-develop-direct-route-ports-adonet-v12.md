@@ -1,25 +1,19 @@
 ---
-title: "SQL Database에 대한 1433 이외의 포트 | Microsoft Docs"
-description: "ADO.NET에서 Azure SQL Database로 클라이언트 연결이 프록시를 무시하고, 1433 이외의 포트를 사용하여 데이터베이스와 직접 상호 작용하는 경우가 있습니다."
+title: SQL Database에 대한 1433 이외의 포트 | Microsoft Docs
+description: ADO.NET에서 Azure SQL Database로 클라이언트 연결이 프록시를 무시하고, 1433 이외의 포트를 사용하여 데이터베이스와 직접 상호 작용하는 경우가 있습니다.
 services: sql-database
-documentationcenter: 
 author: MightyPen
 manager: jhubbard
-editor: 
-ms.assetid: 3f17106a-92fd-4aa4-b6a9-1daa29421f64
 ms.service: sql-database
 ms.custom: develop apps
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2016
 ms.author: sstein
-ms.openlocfilehash: 3004edee0096d2e1594679371fb162b392e67f9a
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 2f80e95b6d3828bf8c63e2346b6ba4d14bde70bb
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="ports-beyond-1433-for-adonet-45"></a>ADO.NET 4.5에 대한 1433 이외 포트
 이 문서에서는 ADO.NET 4.5 이상 버전을 사용하는 클라이언트의 Azure SQL Database 연결 동작에 대해 설명합니다. 

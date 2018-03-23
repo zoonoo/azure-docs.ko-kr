@@ -1,24 +1,24 @@
 ---
-title: "Azure AD Connect: 필수 조건 및 하드웨어 | Microsoft Docs"
-description: "이 항목에서는 Azure AD Connect에 대한 필수 조건 및 하드웨어 요구 사항에 대해 설명합니다."
+title: 'Azure AD Connect: 필수 조건 및 하드웨어 | Microsoft Docs'
+description: 이 항목에서는 Azure AD Connect에 대한 필수 조건 및 하드웨어 요구 사항에 대해 설명합니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 91b88fda-bca6-49a8-898f-8d906a661f07
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 03/09/2018
 ms.author: billmath
-ms.openlocfilehash: d82a91aa51b6684e6bf88de142d00705a0ceddba
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: d6d6eadf0ae8996b019a0564715f843913101944
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Azure AD Connect에 대한 필수 조건
 이 항목에서는 Azure AD Connect에 대한 필수 조건 및 하드웨어 요구 사항을 설명합니다.
@@ -31,6 +31,7 @@ Azure AD Connect를 설치하기 전에 필요한 몇 가지 사항이 있습니
   * [Azure Portal](https://portal.azure.com)을 사용할 수도 있습니다. 이 포털에는 Azure AD 라이선스가 필요하지 않습니다.
 * [도메인을 추가하고 확인합니다](../active-directory-domains-add-azure-portal.md) . 예를 들어, 사용자가 contoso.com을 사용하려는 경우 해당 도메인을 확인하고 contoso.onmicrosoft.com 기본 도메인을 사용하지 않도록 합니다.
 * Azure AD 테넌트는 기본적으로 5만 개의 개체를 허용합니다. 도메인을 확인하는 경우, 제한은 30만 개의 개체로 늘어납니다. Azure AD에서 더 많은 개체가 필요한 경우 제한을 더 증가시키려면 지원 사례를 열어야 합니다. 개체가 50만 개 이상 필요한 경우 Office 365, Azure AD Basic, Azure AD Premium 또는 Enterprise Mobility 및 Security와 같은 라이선스가 필요합니다.
+* ADSyncPrep은 Azure AD Connect에 대한 Active Directory 환경을 준비하는 데 사용되는 기능을 제공하는 PowerShell 스크립트 모듈입니다.  ADSyncPrep에는 [Azure AD Microsoft Online v1.1 PowerShell 모듈](https://docs.microsoft.com/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0)이 필요합니다.  버전 2는 작동하지 않습니다.  `Install-Module` cmdlet을 사용하여 모듈을 설치할 수 있습니다.  자세한 내용은 제공된 링크를 참조하세요.
 
 ### <a name="prepare-your-on-premises-data"></a>온-프레미스 데이터 준비
 * Azure AD 및 Office 365로 동기화하기 전에 [IdFix](https://support.office.com/article/Install-and-run-the-Office-365-IdFix-tool-f4bd2439-3e41-4169-99f6-3fabdfa326ac)를 사용하여 디렉터리의 중복 및 서식 문제 등의 오류가 있는지 식별합니다.

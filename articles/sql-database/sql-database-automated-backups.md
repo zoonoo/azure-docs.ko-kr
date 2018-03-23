@@ -1,25 +1,20 @@
 ---
-title: "Azure SQL Database 자동, 지역 중복 백업 | Microsoft Docs"
-description: "SQL Database는 몇 분마다 로컬 데이터베이스 백업을 자동으로 만들고 Azure 읽기 액세스 지역 중복 저장소를 사용하여 지리적 중복을 제공합니다."
+title: Azure SQL Database 자동, 지역 중복 백업 | Microsoft Docs
+description: SQL Database는 몇 분마다 로컬 데이터베이스 백업을 자동으로 만들고 Azure 읽기 액세스 지역 중복 저장소를 사용하여 지리적 중복을 제공합니다.
 services: sql-database
-documentationcenter: 
 author: CarlRabeler
 manager: jhubbard
-editor: 
-ms.assetid: 3ee3d49d-16fa-47cf-a3ab-7b22aa491a8d
 ms.service: sql-database
 ms.custom: business continuity
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
 ms.workload: Active
 ms.date: 07/05/2017
 ms.author: carlrab
-ms.openlocfilehash: 57132367faaa4c4869f2415f32897562c8056fb1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 053dd680af020aa05bc071c49f0f47ebe6a8f0da
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="learn-about-automatic-sql-database-backups"></a>자동 SQL Database 백업에 대한 자세한 정보
 

@@ -1,17 +1,23 @@
 
 
 
-**최근 문서 업데이트**: 1월 22일 오후 3시 PST
+**마지막 문서 업데이트**: 3월 6일 오전 10시 PST
 
 투기적 실행 사이드 채널 공격으로 알려진 최근 공개된 [새로운 종류의 CPU 취약성](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002)으로 인해 고객은 명확하게 이해하기 위해 질문하게 되었습니다.  
 
 Azure를 실행하고 고객 워크로드를 서로 격리하는 인프라가 보호됩니다.  즉, Azure에서 실행하는 다른 고객은 이러한 취약성을 사용하여 응용 프로그램을 공격할 수 없습니다.
 
 > [!NOTE] 
-> 2018년 1월 3일에 발표된 Azure 완화는 Intel의 최신 [업데이트된 지침](https://newsroom.intel.com/news/root-cause-of-reboot-issue-identified-updated-guidance-for-customers-and-partners/)에 영향을 받지 않습니다. 이러한 새 정보의 결과로 고객 VM에 대한 추가 유지 관리 작업이 없습니다.
+> 2018년 2월말에 Intel Corporation에서는 안정성을 개선하고 [Google Project Zero](https://googleprojectzero.blogspot.com/2018/01/reading-privileged-memory-with-side.html)에 의해 밝혀진 최근 취약점을 완화하는 마이크로코드 릴리스의 상태에 대해 업데이트된 [마이크로코드 수정 지침](https://newsroom.intel.com/wp-content/uploads/sites/11/2018/03/microcode-update-guidance.pdf)을 게시했습니다. [2018년 1월 3일](https://azure.microsoft.com/en-us/blog/securing-azure-customers-from-cpu-vulnerability/)에 Azure에서 결정된 완화 요소는 Intel의 마이크로코드 업데이트의 영향을 받지 않습니다. Microsoft는 이미 다른 Azure 테넌트의 Azure 고객을 보호하기 위해 강력한 완화 요소를 배치하였습니다.  
 >
-> 하드웨어 공급 업체로부터 마이크로코드 업데이트를 수신하는 대로 이러한 모범 사례를 계속해서 업데이트할 예정입니다. 업데이트된 지침을 다시 확인하세요.
+> Intel의 마이크로코드는 공격을 방지하기 위해 주소 변형 2 스펙터([CVE-2017-5715](https://www.cve.mitre.org/cgi-bin/cvename.cgi?name=2017-5715))를 다루며, 이는 Azure의 VM 내에서 공유 또는 신뢰할 수 없는 워크로드를 실행하는 곳에만 적용될 수 있습니다. 엔지니어들은 Azure 고객에게 제공하기 전에 마이크로코드의 성능 영향을 최소화하기 위해 안정성 테스트를 진행하고 있습니다.  VM 내에서 신뢰할 수 없는 워크로드를 실행하는 고객은 거의 없으므로 대부분의 고객은 일단 출시되면 이 기능을 사용하도록 설정하지 않아도 됩니다. 
 >
+> 이 페이지는 자세한 정보가 제공되면 업데이트될 예정입니다.  
+
+
+
+
+
 
 ## <a name="keeping-your-operating-systems-up-to-date"></a>운영 체제를 최신 상태로 유지
 
@@ -43,7 +49,7 @@ OS 업데이트가 Azure에서 실행되는 기타 고객으로부터 Azure에�
 
 
 ### <a name="windows"></a>Windows 
-또한 Windows를 사용하고 신뢰할 수 없는 코드를 호스트하는 경우 추론 실행 사이드 채널 취약성에 대해 추가적인 보호를 제공하는 KVA(커널 가상 주소) 섀도잉이라는 Windows 기능을 사용해야 합니다. 이 기능은 기본적으로 해제되어 있으며 사용하는 경우 성능에 영향을 줄 수 있습니다. 서버에서 보호를 사용하도록 설정하는 방법은 [Windows Server KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) 지침에 따릅니다. Azure Cloud Services를 실행하는 경우 WA-GUEST-OS-5.15_201801-01 또는 WA-GUEST-OS-4.50_201801-01(1월 10일부터 사용 가능)을 실행하고 있는지 확인하고 시작 작업을 통해 레지스트리 키를 사용하도록 설정합니다.
+또한 Windows를 사용하고 신뢰할 수 없는 코드를 호스트하는 경우 추론 실행 사이드 채널 취약성에 대해 추가적인 보호를 제공하는 KVA(커널 가상 주소) 섀도잉이라는 Windows 기능을 사용해야 합니다. 이 기능은 기본적으로 해제되어 있으며 사용하는 경우 성능에 영향을 줄 수 있습니다. 서버에서 보호를 사용하도록 설정하는 방법은 [Windows Server KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) 지침에 따릅니다. Azure Cloud Services를 실행하는 경우 WA-GUEST-OS-5.15_201801-01 또는 WA-GUEST-OS-4.50_201801-01(2018년 1월 10일부터 사용 가능)을 실행하고 있는지 확인하고 시작 작업을 통해 레지스트리 키를 사용하도록 설정합니다.
 
 
 ### <a name="linux"></a>Linux

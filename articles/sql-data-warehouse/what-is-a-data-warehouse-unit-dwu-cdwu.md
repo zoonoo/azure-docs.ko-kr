@@ -1,25 +1,24 @@
 ---
-title: "Azure SQL Data Warehouse에서 데이터 웨어하우스 단위(DWU, cDWU)란? | Microsoft Docs"
-description: "Azure SQL Data Warehouse의 성능 확장 기능입니다. DWU, cDWU를 조정하여 규모를 확장하거나 계산 리소스를 일지 중지한 다음 다시 시작하여 비용을 절감합니다."
+title: Azure SQL Data Warehouse에서 데이터 웨어하우스 단위(DWU, cDWU)란? | Microsoft Docs
+description: Azure SQL Data Warehouse의 성능 확장 기능입니다. DWU, cDWU를 조정하여 규모를 확장하거나 계산 리소스를 일지 중지한 다음 다시 시작하여 비용을 절감합니다.
 services: sql-data-warehouse
 documentationcenter: NA
 author: barbkess
 manager: jhubbard
-editor: 
-ms.assetid: e13a82b0-abfe-429f-ac3c-f2b6789a70c6
+editor: ''
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
-ms.date: 11/10/2017
+ms.date: 03/15/2018
 ms.author: jrj;barbkess
-ms.openlocfilehash: 02998c48dcab5d3ed191b168665c9e47bbfbd232
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: f634bdde2c71f7563df11f686d7ce217311df81d
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>DWU(데이터 웨어하우스 단위) 및 cDWU(계산 데이터 웨어하우스 단위)
 Azure SQL Data Warehouse의 DWU(데이터 웨어하우스 단위) 및 cDWU(계산 데이터 웨어하우스 단위)에 대해 설명합니다. 이상적인 데이터 웨어하우스 단위 수를 선택하기 위한 권장 사항 및 데이터 웨어하우스 단위 수를 변경하는 방법도 설명합니다. 
@@ -94,14 +93,14 @@ JOIN    sys.databases                     AS db ON ds.database_id = db.database_
 
 ## <a name="change-data-warehouse-units"></a>데이터 웨어하우스 단위 변경
 
-### <a name="azure-portal"></a>Azure 포털
+### <a name="azure-portal"></a>Azure portal
 DWU 또는 cDWU를 변경하려면
 
 1. [Azure Portal](https://portal.azure.com)을 열고 데이터베이스를 연 다음 **크기 조정**을 클릭합니다.
 
 2. **크기 조정**에서 슬라이더를 왼쪽 또는 오른쪽으로 이동해 DWU 설정을 변경합니다.
 
-3. **Save**를 클릭합니다. 확인 메시지가 표시됩니다. **예**를 클릭하여 확인하거나 **아니요**를 클릭하여 취소합니다.
+3. **저장**을 클릭합니다. 확인 메시지가 표시됩니다. **예**를 클릭하여 확인하거나 **아니요**를 클릭하여 취소합니다.
 
 ### <a name="powershell"></a>PowerShell
 DWU 또는 cDWU를 변경하려면 [Set-AzureRmSqlDatabase][Set-AzureRmSqlDatabase] PowerShell cmdlet을 사용합니다. 다음 예제에서는 MyServer에서 호스트되는 MySQLDW 데이터베이스에 대한 서비스 수준 목표를 DW1000으로 설정합니다.
@@ -201,7 +200,7 @@ AND       major_resource_id = 'MySQLDW'
 [Check database state with PowerShell]: ./sql-data-warehouse-manage-compute-powershell.md#check-database-state
 [Check database state with REST APIs]: ./sql-data-warehouse-manage-compute-rest-api.md#check-database-state
 
-[Workload and concurrency management]: ./sql-data-warehouse-develop-concurrency.md
+[Workload and concurrency management]: ./resource-classes-for-workload-management.md
 [Table design overview]: ./sql-data-warehouse-tables-overview.md
 [Table distribution]: ./sql-data-warehouse-tables-distribute.md
 [Table indexing]: ./sql-data-warehouse-tables-index.md

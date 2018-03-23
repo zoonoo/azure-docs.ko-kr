@@ -1,24 +1,20 @@
 ---
-title: "OMS Log Analytics에 Azure Automation 작업 데이터 전달 | Microsoft Docs"
-description: "이 문서에서는 작업 상태 및 runbook 작업 스트림을 Microsoft Operations Management Suite Log Analytics로 보내 통찰력 및 관리를 강화하는 방법을 알아봅니다."
+title: OMS Log Analytics에 Azure Automation 작업 데이터 전달
+description: 이 문서에서는 작업 상태 및 runbook 작업 스트림을 Microsoft Operations Management Suite Log Analytics로 보내 통찰력 및 관리를 강화하는 방법을 알아봅니다.
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: carmonm
-editor: tysonn
-ms.assetid: c12724c6-01a9-4b55-80ae-d8b7b99bd436
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
+manager: carmonm
+ms.devlang: na
 ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 08/31/2017
-ms.author: magoedte
-ms.openlocfilehash: 47cca0c3b6b7010323dd816cdb863c652516bfe5
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: c73a523f1239fb7d549b573ea6105168f4a63144
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-log-analytics-oms"></a>Automation에서 Log Analytics로 작업 상태 및 작업 스트림 전달(OMS)
 Automation에서 Microsoft Operations Management Suite(OMS) Log Analytics 작업 영역으로 runbook 작업 상태 및 작업 스트림을 보낼 수 있습니다. 개별 작업에 대해 Azure Portal에서 또는 PowerShell을 사용하여 작업 로그 및 작업 스트림을 볼 수 있으며 이를 통해 보다 간단한 조사가 가능합니다. 이제 Log Anaytics를 사용하여 다음을 수행할 수 있습니다.

@@ -1,9 +1,9 @@
 ---
-title: "Event Hubs로 Azure 모니터링 데이터 스트리밍 | Microsoft Docs"
-description: "모든 Azure 모니터링 데이터를 이벤트 허브에 스트리밍하여 파트너 SIEM 또는 분석 도구로 데이터를 가져오는 방법을 알아봅니다."
+title: Event Hubs로 Azure 모니터링 데이터 스트리밍 | Microsoft Docs
+description: 모든 Azure 모니터링 데이터를 이벤트 허브에 스트리밍하여 파트너 SIEM 또는 분석 도구로 데이터를 가져오는 방법을 알아봅니다.
 author: johnkemnetz
 manager: robb
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.service: monitoring-and-diagnostics
@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/13/2018
+ms.date: 3/05/2018
 ms.author: johnkem
-ms.openlocfilehash: d449be98cd59756e2bafc584e0501b8c83c594eb
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 1b1c50f106be8848fb1f32deefa6cb9acb7a298a
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>이벤트 허브로 Azure 모니터링 데이터를 스트리밍하여 외부 도구에서 사용
 
@@ -36,7 +36,18 @@ Azure 환경에서 모니터링 데이터에는 여러 '계층'이 있으며, �
 
 모든 계층의 데이터는 이벤트 허브로 보낼 수 있으며, 그런 다음 이 이벤트 허브에서 파트너 도구로 끌어올 수 있습니다. 다음 섹션에서는 각 계층의 데이터를 이벤트 허브로 스트리밍하도록 구성하는 방법에 대해 설명합니다. 이러한 단계에서는 모니터링할 자산이 해당 계층에 이미 있다고 가정합니다.
 
-시작하기 전에 먼저 [Event Hubs 네임스페이스 및 이벤트 허브](../event-hubs/event-hubs-create.md)를 만들어야 합니다. 이 네임스페이스 및 이벤트 허브는 모든 모니터링 데이터에 대한 대상입니다.
+## <a name="set-up-an-event-hubs-namespace"></a>Event Hubs 네임스페이스 설정
+
+시작하기 전에 먼저 [Event Hubs 네임스페이스 및 이벤트 허브](../event-hubs/event-hubs-create.md)를 만들어야 합니다. 이 네임스페이스 및 이벤트 허브는 모든 모니터링 데이터에 대한 대상입니다. Event Hubs 네임스페이스는 같은 액세스 정책을 공유하는 Event Hubs의 논리적 그룹으로, 저장소 계정은 해당 저장소 계정 내에서 개별 Blob을 갖기 쉽습니다. Event Hubs 네임스페이스 및 만드는 Event Hubs에 대한 몇 가지 세부 사항을 적어두세요.
+* 표준 Event Hubs 네임스페이스를 사용하는 것이 좋습니다.
+* 일반적으로 하나의 처리량 단위만 필요합니다. 로그 사용량이 증가함에 따라 강화해야 할 경우, 항상 나중에 네임스페이스에 대한 처리량 단위 수를 수동으로 늘리거나 자동 인플레이션을 사용하도록 설정할 수 있습니다.
+* 처리량 단위 수를 사용하여 이벤트 허브에 대한 처리량 비율을 높일 수 있습니다. 파티션 수를 사용하면 많은 소비자 간에 소비량의 균형을 이룰 수 있습니다. 단일 파티션으로 최대 20MBps, 초당 약 20,000개의 메시지까지 처리할 수 있습니다. 데이터를 소비하는 도구에 따라, 여러 파티션을 통한 소비를 지원할 수도있 고 지원하지 않을 수도 있습니다. 설정할 파티션 수를 잘 모를 경우 4개의 파티션부터 시작하는 것이 좋습니다.
+* 이벤트 허브의 메시지 보존 기간을 7일로 설정하는 것이 좋습니다. 소비 도구가 하루 넘게 다운될 경우 이러한 기능을 통해 도구가 중단된 지점을 선택하도록 할 수 있습니다(최대 7일이 경과된 이벤트).
+* 이벤트 허브에 대한 기본 소비자 그룹을 사용하는 것이 좋습니다. 2개의 다른 도구에서 동일한 이벤트 허브의 동일한 데이터를 소비하려는 경우가 아니면, 다른 소비자 그룹을 만들거나 별도의 소비자 그룹을 사용할 필요가 없습니다.
+* Azure 활동 로그의 경우 Event Hubs 네임스페이스를 선택하면, Azure Monitor는 해당 네임스페이스 내에 ‘insights-logs-operationallogs’라는 이벤트 허브를 만듭니다. 다른 로그 형식의 경우, 기존 이벤트 허브에서 선택하거나(동일한 insights-logs-operationallogs 이벤트 허브를 재사용할 수 있음) Azure Monitor에서 로그 범주별로 이벤트 허브를 만들도록 할 수 있습니다.
+* 일반적으로 이벤트 허브의 데이터를 사용하는 컴퓨터에서 포트 5671 및 5672를 열어야 합니다.
+
+[Azure Event Hubs FAQ](../event-hubs/event-hubs-faq.md)도 참조하세요.
 
 ## <a name="how-do-i-set-up-azure-platform-monitoring-data-to-be-streamed-to-an-event-hub"></a>Azure 플랫폼 모니터링 데이터를 이벤트 허브로 스트리밍하도록 설정하려면 어떻게 해야 할까요?
 

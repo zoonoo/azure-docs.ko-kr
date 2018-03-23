@@ -1,12 +1,12 @@
 ---
-title: "Azure에 Windows 시스템 상태 백업 | Microsoft Docs"
-description: "Windows Server 및/또는 Windows 컴퓨터의 시스템 상태를 Azure에 백업하는 방법을 알아봅니다."
+title: Azure에 Windows 시스템 상태 백업 | Microsoft Docs
+description: Windows Server 및/또는 Windows 컴퓨터의 시스템 상태를 Azure에 백업하는 방법을 알아봅니다.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: saurabhsensharma
 manager: carmonm
-editor: 
-keywords: "백업 방법; 백업 방법; 파일 및 폴더 백업"
+editor: ''
+keywords: 백업 방법; 백업 방법; 파일 및 폴더 백업
 ms.assetid: 5b15ebf1-2214-4722-b937-96e2be8872bb
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: saurse;markgal
-ms.openlocfilehash: e7dce94e56a8b51dd1c47e306aeb1d11d0dfb45c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: df2565be7c543be061c3297f4d87aeae5eae4b8e
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="back-up-windows-system-state-in-resource-manager-deployment"></a>Resource Manager 배포에서 Windows 시스템 상태 백업
 이 문서에서는 Azure에 Windows 서버 시스템 상태를 백업하는 방법을 설명합니다. 기본 사항을 안내하기 위해 마련된 자습서입니다.
@@ -138,6 +138,8 @@ Recovery Services 자격 증명 모음을 만드는 경우 저장소 중복을 �
 > [!NOTE]
 > 자격 증명 모음 자격 증명은 에이전트를 사용하려는 Windows Server의 로컬 위치에만 저장해야 합니다. 
 >
+
+[!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 
 ## <a name="install-and-register-the-agent"></a>에이전트 설치 및 등록
 

@@ -1,8 +1,8 @@
 ---
-title: "Azure Active Directory 응용 프로그램 프록시의 와일드카드 응용 프로그램 | Microsoft Docs"
-description: "Azure Active Directory 응용 프로그램 프록시에서 와일드카드 응용 프로그램을 사용하는 방법을 알아봅니다."
+title: Azure Active Directory 응용 프로그램 프록시의 와일드카드 응용 프로그램 | Microsoft Docs
+description: Azure Active Directory 응용 프로그램 프록시에서 와일드카드 응용 프로그램을 사용하는 방법을 알아봅니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: d5450da1-9e06-4d08-8146-011c84922ab5
@@ -15,11 +15,11 @@ ms.date: 02/06/2018
 ms.author: markvi
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 28e43d48b4fa27202d58ee081a60e2fb5bfe9d99
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: f97b2541bb755a9b7ab8e3602dfad90f50ada740
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Azure Active Directory 응용 프로그램 프록시의 와일드카드 응용 프로그램 
 
@@ -70,7 +70,7 @@ Azure AD(Azure Active Directory)에서 다수의 온-프레미스 응용 프로�
 
 > `<yourAADTenantId>.tenant.runtime.msappproxy.net`
 
-CNAME을 제대로 구성했는지 확인하려면 대상 끝점 중 하나(예: `expenses.adventure-works.com`)에 대해 [nslookup](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/nslookup)을 사용할 수 있습니다.  응답에 이미 언급된 별칭(`<Id.tenant>.runtime.msappproxy.net`)이 포함되어야 합니다.
+CNAME을 제대로 구성했는지 확인하려면 대상 끝점 중 하나(예: `expenses.adventure-works.com`)에 대해 [nslookup](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/nslookup)을 사용할 수 있습니다.  응답에 이미 언급된 별칭(`<yourAADTenantId>.tenant.runtime.msappproxy.net`)이 포함되어야 합니다.
 
 
 ## <a name="considerations"></a>고려 사항

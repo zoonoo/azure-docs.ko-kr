@@ -1,25 +1,25 @@
 ---
-title: "C로 Windows 장치를 원격 모니터링에 프로비전 - Azure | Microsoft Docs"
-description: "Windows에서 실행되는 C로 작성된 응용 프로그램을 사용하여 미리 구성된 Azure IoT Suite 원격 모니터링 솔루션에 장치를 연결하는 방법을 설명합니다."
-services: 
+title: C로 Windows 장치를 원격 모니터링에 프로비전 - Azure | Microsoft Docs
+description: Windows에서 실행되는 C로 작성된 응용 프로그램을 사용하여 미리 구성된 Azure IoT Suite 원격 모니터링 솔루션에 장치를 연결하는 방법을 설명합니다.
+services: ''
 suite: iot-suite
 documentationcenter: na
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 34e39a58-2434-482c-b3fa-29438a0c05e8
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2017
+ms.date: 03/14/2018
 ms.author: dobett
-ms.openlocfilehash: a6453c8d84b7025f1f510db5e675cde8685c23ed
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 83d0427a3ba8c634699608c38ab22efb1f275e52
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="connect-your-device-to-the-remote-monitoring-preconfigured-solution-windows"></a>미리 구성된 원격 모니터링 솔루션에 장치 연결(Windows)
 
@@ -95,7 +95,7 @@ Parson JSON 라이브러리를 **RMDevice** 프로젝트에 추가하고 필수 
     #include "schemaserializer.h"
     #include "azure_c_shared_utility/threadapi.h"
     #include "azure_c_shared_utility/platform.h"
-    #include "parson.h"
+    #include <string.h>
     ```
 
     > [!NOTE]
@@ -117,7 +117,7 @@ Parson JSON 라이브러리를 **RMDevice** 프로젝트에 추가하고 필수 
     }
     ```
 
-1. **빌드** 다음 **솔루션 빌드**를 선택하여 장치 응용 프로그램을 빌드합니다. **gmtime** 함수에 대한 경고는 무시합니다.
+1. **빌드** 다음 **솔루션 빌드**를 선택하여 장치 응용 프로그램을 빌드합니다.
 
 1. **솔루션 탐색기**에서 **RMDevice** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **디버그**를 선택한 다음 **새 인스턴스 시작**을 선택하여 샘플을 실행합니다. 다음과 같은 경우 콘솔에 메시지가 표시됩니다.
 

@@ -1,26 +1,20 @@
 ---
-title: "Azure SQL 데이터 동기화(미리 보기) | Microsoft Docs"
-description: "이 개요에서는 Azure SQL 데이터 동기화(미리 보기)를 소개합니다."
+title: Azure SQL 데이터 동기화(미리 보기) | Microsoft Docs
+description: 이 개요에서는 Azure SQL 데이터 동기화(미리 보기)를 소개합니다.
 services: sql-database
-documentationcenter: 
 author: douglaslms
 manager: craigg
-editor: 
-ms.assetid: 
 ms.service: sql-database
-ms.custom: load & move data
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.custom: data-sync
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: 5cf74140969fb354e426c41552d4d73a06c76890
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 5abe3e5a56dfca263f109b86f473ac490da3eac7
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync-preview"></a>SQL 데이터 동기화(미리 보기)를 사용하여 여러 클라우드와 온-프레미스 데이터베이스의 데이터 동기화
 
@@ -40,7 +34,7 @@ SQL 데이터 동기화는 여러 SQL Database 및 SQL Server 인스턴스 간�
 
 데이터 동기화는 허브 및 스포크 토폴로지를 사용하여 데이터를 동기화합니다. 그룹의 데이터베이스 중 하나를 허브 데이터베이스로 정의합니다. 데이터베이스의 나머지 부분은 구성원 데이터베이스입니다. 동기화는 허브 및 개별 구성원 사이에서만 발생합니다.
 -   **허브 데이터베이스**는 Azure SQL Database여야 합니다.
--   **구성원 데이터베이스**는 SQL Database, 온-프레미스 SQL Server 데이터베이스 또는 Azure 가상 컴퓨터의 SQL Server 인스턴스일 수 있습니다.
+-   **구성원 데이터베이스**는 SQL Database, 온-프레미스 SQL Server 데이터베이스 또는 Azure 가상 머신의 SQL Server 인스턴스일 수 있습니다.
 -   **동기화 데이터베이스**는 데이터 동기화에 대한 메타데이터 및 로그를 포함합니다. 동기화 데이터베이스는 허브 데이터베이스와 동일한 지역에 있는 Azure SQL Database여야 합니다. 동기화 데이터베이스는 생성된 고객 및 소유한 고객입니다.
 
 > [!NOTE]

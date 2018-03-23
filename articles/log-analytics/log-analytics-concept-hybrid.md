@@ -1,24 +1,24 @@
 ---
-title: "Azure Log Analytics를 사용하여 환경에서 데이터 수집 | Microsoft Docs"
-description: "이 항목에서는 Log Analytics를 사용하여 데이터를 수집하고 온-프레미스 또는 다른 클라우드 환경에 호스트된 컴퓨터를 모니터링하는 방법을 이해할 수 있습니다."
+title: Azure Log Analytics를 사용하여 환경에서 데이터 수집 | Microsoft Docs
+description: 이 항목에서는 Log Analytics를 사용하여 데이터를 수집하고 온-프레미스 또는 다른 클라우드 환경에 호스트된 컴퓨터를 모니터링하는 방법을 이해할 수 있습니다.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2018
+ms.date: 03/14/2018
 ms.author: magoedte
-ms.openlocfilehash: 85fde471f0d99b976e319d552c6a031d63854cf4
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 9346e9a9ad310a21c6d6ce388b76ce491041289c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="collect-data-from-computers-in-your-environment-with-log-analytics"></a>Log Analytics를 사용하여 환경의 컴퓨터에서 데이터 수집
 
@@ -77,14 +77,14 @@ Windows 에이전트에 대해 다음 버전의 Windows 운영 체제가 공식�
 * SUSE Linux Enterprise Server 11 및 12(x86/x64)
 
 #### <a name="network-configuration"></a>네트워크 구성
-아래 정보는 Linux 에이전트가 Log Analytics와 통신하는 데 필요한 프록시 및 방화벽 구성 정보를 나열합니다. 트래픽은 네트워크에서 Log Analytics 서비스로 아웃바운드됩니다. 
+아래 정보는 Linux 에이전트가 Log Analytics와 통신하는 데 필요한 프록시 및 방화벽 구성 정보를 나열합니다.  
 
-|에이전트 리소스| 포트 |  
-|------|---------|  
-|*.ods.opinsights.azure.com | 포트 443|   
-|*.oms.opinsights.azure.com | 포트 443|   
-|\*.blob.core.windows.net | 포트 443|   
-|* .azure-automation.net | 포트 443|  
+|에이전트 리소스| 포트 | 방향 |  
+|------|---------|--------|  
+|*.ods.opinsights.azure.com | 포트 443 | 인바운드 및 아웃바운드|  
+|*.oms.opinsights.azure.com | 포트 443 | 인바운드 및 아웃바운드|  
+|\*.blob.core.windows.net | 포트 443 | 인바운드 및 아웃바운드|  
+|* .azure-automation.net | 포트 443 | 인바운드 및 아웃바운드|  
 
 Linux 에이전트는 HTTPS 프로토콜을 사용하여 프록시 서버 또는 OMS 게이트웨이를 통해 Log Analytics 서비스와 통신하도록 지원합니다.  익명 및 기본 인증(사용자 이름/암호)이 둘 다 지원됩니다.  설치 중에 또는 설치 후에 proxy.conf 구성 파일을 수정하여 프록시 서버를 지정할 수 있습니다.  
 

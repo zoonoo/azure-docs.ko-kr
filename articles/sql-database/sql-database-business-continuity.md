@@ -1,26 +1,23 @@
 ---
-title: "클라우드 무중단 업무 방식 - 데이터베이스 복구 - SQL Database | Microsoft Docs"
-description: "Azure SQL Database에서 클라우드 무중단 업무 방식 및 데이터베이스 복구를 지원하고 중요 업무용 클라우드 응용 프로그램을 계속해서 실행할 수 있도록 하는 방법을 알아봅니다."
-keywords: "무중단 업무 방식, 클라우드 무중단 업무 방식, 데이터베이스 재해 복구, 데이터베이스 복구"
+title: 클라우드 무중단 업무 방식 - 데이터베이스 복구 - SQL Database | Microsoft Docs
+description: Azure SQL Database에서 클라우드 무중단 업무 방식 및 데이터베이스 복구를 지원하고 중요 업무용 클라우드 응용 프로그램을 계속해서 실행할 수 있도록 하는 방법을 알아봅니다.
+keywords: 무중단 업무 방식, 클라우드 무중단 업무 방식, 데이터베이스 재해 복구, 데이터베이스 복구
 services: sql-database
-documentationcenter: 
 author: anosov1960
-manager: jhubbard
-editor: 
-ms.assetid: 18e5d3f1-bfe5-4089-b6fd-76988ab29822
+manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
-ms.devlang: NA
+ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: On Demand
 ms.date: 08/25/2017
 ms.author: sashan
-ms.openlocfilehash: c2c5f18b736c83c281d56e0bdda977a9f8c48101
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 160e65130efc78bc1a98a0feceb1c824cf226156
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Azure SQL Database의 비즈니스 연속성 개요
 

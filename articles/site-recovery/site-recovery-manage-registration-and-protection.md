@@ -1,18 +1,18 @@
 ---
-title: "서버 제거 및 보호 사용 안 함 | Microsoft Docs"
-description: "이 문서에서는 사이트 복구 자격 증명 모음에서 서버 등록을 취소하고 가상 머신 및 물리적 서버의 보호를 사용하지 않도록 설정하는 방법을 설명합니다."
+title: 서버 제거 및 보호 사용 안 함 | Microsoft Docs
+description: 이 문서에서는 사이트 복구 자격 증명 모음에서 서버 등록을 취소하고 가상 머신 및 물리적 서버의 보호를 사용하지 않도록 설정하는 방법을 설명합니다.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 03/05/2018
 ms.author: raynew
-ms.openlocfilehash: b26766ec26cc5afd82ec86c21e52d2737512fe8a
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 16a5eaac1138d328f81cfa7d50f8705da867e352
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="remove-servers-and-disable-protection"></a>서버 제거 및 보호 사용 안 함
 
@@ -24,8 +24,8 @@ ms.lasthandoff: 02/09/2018
 VMware VM 또는 Windows/Linux 물리적 서버를 Azure에 복제하는 경우 다음과 같이 자격 증명 모음에서 연결되지 않은 구성 서버를 등록 취소할 수 있습니다.
 
 1. [가상 머신의 보호를 사용하지 않도록 설정합니다](#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure).
-2. 모든 복제본 정책 [분리](site-recovery-setup-replication-settings-vmware.md#dissociate-a-configuration-server-from-a-replication-policy) 및 [삭제](site-recovery-setup-replication-settings-vmware.md#delete-a-replication-policy) 
-3. [구성 서버 삭제](site-recovery-vmware-to-azure-manage-configuration-server.md#delete-or-unregister-a-configuration-server)
+2. 복제본 정책을 [분리 또는 삭제합니다](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy).
+3. [구성 서버 삭제](vmware-azure-manage-configuration-server.md#delete-or-unregister-a-configuration-server)
 
 ## <a name="unregister-a-vmm-server"></a>VMM 서버 등록 취소
 

@@ -1,24 +1,24 @@
 ---
-title: "Azure 로그 통합에 Azure Security Center 알림 통합 | Microsoft Docs"
-description: "이 문서는 Azure 로그 통합에 보안 센터 알림을 통합하는 데 도움을 줍니다."
+title: Azure 로그 통합에 Azure Security Center 알림 통합 | Microsoft Docs
+description: 이 문서는 Azure 로그 통합에 보안 센터 알림을 통합하는 데 도움을 줍니다.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: d2d088d3-d38d-47ff-a062-c78e0fd59226
 ms.service: security-center
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/23/2017
-ms.author: terrylan
-ms.openlocfilehash: d13e5b87c446e587091551b22d80fe568d5d8093
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 03/13/2018
+ms.author: barclayn
+ms.openlocfilehash: 229f83d4d74837e506c30a0fd8c704da2b7dc12a
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="integrating-azure-security-center-alerts-with-azure-log-integration"></a>Azure 로그 통합에 Azure Security Center 알림 통합
 많은 보안 작업 및 사고 대응 팀은 보안 경고를 조사하고 심사하기 위한 시작점으로 SIEM(보안 정보 및 이벤트 관리) 솔루션을 활용합니다. Azure 로그 통합을 사용하여 Azure Security Center 알림을 SIEM 솔루션에 통합할 수 있습니다.
@@ -29,13 +29,13 @@ Azure 로그 통합은 현재 HP ArcSight, Splunk 및 IBM QRadar를 지원합니
 Azure에서는 모든 서비스에 대해 광범위한 로깅을 생성합니다. 이러한 로그는 다음과 같이 분류됩니다.
 
 * **컨트롤/관리 로그**- Azure Resource Manager CREATE, UPDATE 및 DELETE 작업에 대한 가시성을 제공합니다. 이러한 제어 평면 이벤트는 Azure 활동 로그에 표시됩니다.
-* **데이터 평면 로그** - Azure 리소스를 사용할 때 발생하는 이벤트에 대한 가시성을 제공합니다. 이벤트 뷰어의 보안 채널에서 보안 이벤트 정보를 얻을 수 있는 Windows 이벤트 로그를 예로 들 수 있습니다. 데이터 평면 이벤트(가상 컴퓨터 또는 Azure 서비스에서 생성)는 Azure 진단 로그에 표시됩니다.
+* **데이터 평면 로그** - Azure 리소스를 사용할 때 발생하는 이벤트에 대한 가시성을 제공합니다. 이벤트 뷰어의 보안 채널에서 보안 이벤트 정보를 얻을 수 있는 Windows 이벤트 로그를 예로 들 수 있습니다. 데이터 평면 이벤트(가상 머신 또는 Azure 서비스에서 생성)는 Azure 진단 로그에 표시됩니다.
 
 현재 Azure 로그 통합에서는 다음에 대한 통합을 지원합니다.
 
 * Azure VM 로그
 * Azure 감사 로그
-* Azure 보안 센터 경고
+* Azure Security Center 경고
 
 ## <a name="install-azure-log-integration"></a>Azure 로그 통합 설치
 [Azure 로그 통합](https://www.microsoft.com/download/details.aspx?id=53324)을 다운로드합니다.
@@ -86,6 +86,6 @@ Azure 활동 로그 및 속성 정의에 대해 자세히 알아보려면 다음
 
 보안 센터에 대한 자세한 내용은 다음을 참조하세요.
 
-* [Azure 보안 센터에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md) - 보안 경고를 관리하고 대응하는 방법을 알아봅니다.
-* [Azure 보안 센터 FAQ](security-center-faq.md) - 서비스 사용에 관한 질문과 대답을 찾습니다.
+* [Azure Security Center에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md) - 보안 경고를 관리하고 대응하는 방법을 알아봅니다.
+* [Azure Security Center FAQ](security-center-faq.md) - 서비스 사용에 관한 질문과 대답을 찾습니다.
 * [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/) - 최신 Azure 보안 뉴스 및 정보를 가져옵니다.

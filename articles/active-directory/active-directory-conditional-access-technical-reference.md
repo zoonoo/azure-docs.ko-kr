@@ -1,8 +1,8 @@
 ---
-title: "Azure Active Directory 조건부 액세스 설정 참조 | Microsoft Docs"
-description: "Azure Active Directory 조건부 액세스 정책에서 지원되는 설정에 대한 개요를 확인합니다."
+title: Azure Active Directory 조건부 액세스 설정 참조 | Microsoft Docs
+description: Azure Active Directory 조건부 액세스 정책에서 지원되는 설정에 대한 개요를 확인합니다.
 services: active-directory.
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: 56a5bade-7dcc-4dcf-8092-a7d4bf5df3c1
@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/08/2018
+ms.date: 03/07/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: fd82d77e79f05a67f8e818095753b8dc22ccf314
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: ba93e1b597bb6bdb752563f2873b8e0c5f7a8181
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Azure Active Directory 조건부 액세스 설정 참조
 
@@ -136,9 +136,19 @@ Microsoft 클라우드 앱 외에도 다음과 같은 형식의 클라우드 앱
 | macOS                  | Chrome, Safari                      | ![확인][1] |
 
 
-> [!NOTE]
-> 크롬 지원의 경우 Windows 10 크리에이터스 업데이트(버전 1703) 이상을 사용해야 합니다.<br>
-> [이 확장](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji)을 설치할 수 있습니다.
+
+#### <a name="chrome-support"></a>Chrome 지원
+
+**Windows 10 크리에이터 업데이트(버전 1703)** 이상에서 Chrome을 지원하려면 [이 확장](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji)을 설치합니다.
+
+**Windows 8.1 및 7**에서 Chrome을 지원하려면 다음 레지스트리 키를 만듭니다.
+
+|    |    |
+|--- | ---|
+|path | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
+|Name | 1 |
+|형식 | REG_SZ (String) |
+|Data | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}}|
 
 이러한 브라우저는 장치 인증을 지원하므로 정책에 대해 장치 유효성을 검사하고 식별하는 것이 가능합니다. 브라우저가 개인 모드로 실행 중이면 장치 검사가 실패합니다. 
 
@@ -183,6 +193,10 @@ Microsoft 클라우드 앱 외에도 다음과 같은 형식의 클라우드 앱
 이 설정은 다음 클라이언트 앱에 적용됩니다.
 
 
+- Microsoft Intune Managed Browser
+- Microsoft PowerBI
+- Microsoft Invoicing
+- Microsoft Launcher
 - Microsoft Azure Information Protection
 - Microsoft Excel
 - Microsoft Kaizala 

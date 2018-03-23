@@ -1,26 +1,19 @@
 ---
-title: "Azure SQL Database에 액세스 권한 부여 | Microsoft Docs"
-description: "Microsoft Azure SQL Database에 대한 액세스 권한을 부여하는 방법에 대해 알아봅니다."
+title: Azure SQL Database에 액세스 권한 부여 | Microsoft Docs
+description: Microsoft Azure SQL Database에 대한 액세스 권한을 부여하는 방법에 대해 알아봅니다.
 services: sql-database
-documentationcenter: 
 author: CarlRabeler
-manager: jhubbard
-editor: 
-tags: 
-ms.assetid: 8e71b04c-bc38-4153-8f83-f2b14faa31d9
+manager: craigg
 ms.service: sql-database
 ms.custom: security
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: On Demand
 ms.date: 02/06/2017
 ms.author: carlrab
-ms.openlocfilehash: 28c1ec79752f822939fefe6ce3686ace8ad1b6b0
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 85d3e7819ef06fd943c207e1410c95168f574a7d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-sql-database-access-control"></a>Azure SQL Database 액세스 제어
 SQL Database는 보안을 제공하기 위해 IP 주소로 연결을 제한하는 방화벽 규칙, 사용자가 해당 ID를 증명하도록 하는 인증 메커니즘 및 특정 작업 및 데이터에 대한 사용자를 제한하는 권한 부여 메커니즘을 사용하여 액세스를 제어합니다. 

@@ -1,6 +1,6 @@
 ---
 title: Compiling configurations in Azure Automation DSC | Microsoft Docs
-description: "이 문서에서는 Azure Automation에 대한 DSC(필요한 상태 구성) 구성을 컴파일하는 방법을 설명합니다."
+description: 이 문서에서는 Azure Automation에 대한 DSC(필요한 상태 구성) 구성을 컴파일하는 방법을 설명합니다.
 services: automation
 documentationcenter: na
 author: georgewallace
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: powershell
 ms.workload: na
 ms.date: 03/02/2018
 ms.author: magoedte; gwallace
-ms.openlocfilehash: b267f64a836851e1142475568556eebf74adf2dd
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 3ba9200023b71e6f1e69ee4c54d5c90efe1bc954
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="compiling-configurations-in-azure-automation-dsc"></a>Azure Automation DSC에서 구성을 컴파일
 
@@ -249,6 +249,7 @@ PowerShell DSC가 [**ConfigurationData**](#configurationdata)을 클릭합니다
 ```powershell
 Configuration CredentialSample
 {
+    Import-DscResource -ModuleName PSDesiredStateConfiguration
     $Cred = Get-AutomationPSCredential "SomeCredentialAsset"
 
     Node $AllNodes.NodeName
@@ -283,6 +284,9 @@ $ConfigData = @{
 
 Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -AutomationAccountName "MyAutomationAccount" -ConfigurationName "CredentialSample" -ConfigurationData $ConfigData
 ```
+
+> [!NOTE]
+> 컴파일이 완료되면 오류 메시지 **'Microsoft.PowerShell.Management' 스냅인을 이미 가져왔으므로 'Microsoft.PowerShell.Management' 모듈을 가져오지 못했습니다.**가 표시될 수 있습니다. 이 경고는 무시해도 됩니다.
 
 ## <a name="importing-node-configurations"></a>노드 구성 가져오기
 

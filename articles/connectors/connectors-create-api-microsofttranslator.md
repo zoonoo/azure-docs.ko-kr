@@ -1,12 +1,12 @@
 ---
-title: "논리 앱에 Microsoft Translator 추가 | Microsoft Docs"
-description: "REST API 매개 변수를 사용하는 Microsoft Translator 커넥터 개요"
-services: 
-suite: 
-documentationcenter: 
-author: MandiOhlinger
+title: 논리 앱에 Microsoft Translator 추가 | Microsoft Docs
+description: REST API 매개 변수를 사용하는 Microsoft Translator 커넥터 개요
+services: ''
+suite: ''
+documentationcenter: ''
+author: ecfan
 manager: anneta
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: da782baf-8bf8-4973-8238-e469865f5328
 ms.service: multiple
@@ -15,12 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/07/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: 257f03f8ac71e2c88856864a6b1ff055ab08c347
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: 83d6324dce93fd9943cbd596c808abce23e5d432
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-microsoft-translator-connector"></a>Microsoft Translator 커넥터 시작
 Microsoft Translator에 연결하여 텍스트 번역, 언어 검색 등의 작업을 수행합니다. Microsoft Translator를 사용하여 다음을 수행할 수 있습니다. 

@@ -1,13 +1,13 @@
 ---
-title: "가용성 영역 개요 | Microsoft Docs"
-description: "이 문서는 Azure의 가용성 영역 개요를 제공합니다."
-services: 
-documentationcenter: 
+title: 가용성 영역 개요 | Microsoft Docs
+description: 이 문서는 Azure의 가용성 영역 개요를 제공합니다.
+services: ''
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: azure
 ms.devlang: na
 ms.topic: article
@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 03/05/2018
 ms.author: markgal
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications).
-ms.openlocfilehash: db4801d105a6ca7382756224aa84c9e7b305194f
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 9274cb1fc490ab61e962e8a7918a9c44976dc755
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="overview-of-availability-zones-in-azure-preview"></a>Azure(미리 보기)의 가용성 영역 개요
 
@@ -45,6 +45,7 @@ ms.lasthandoff: 03/08/2018
 - Managed Disks
 - Load Balancer
 - 공용 IP 주소
+- 영역 중복 저장소
 - SQL Database
 
 ## <a name="get-started-with-the-availability-zones-preview"></a>가용성 영역 미리 보기 시작

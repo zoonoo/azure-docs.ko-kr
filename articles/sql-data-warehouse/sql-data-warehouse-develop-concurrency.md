@@ -1,11 +1,11 @@
 ---
-title: "SQL Data Warehouse의 동시성 및 워크로드 관리 | Microsoft Docs"
-description: "솔루션 개발을 위한 Azure SQL 데이터 웨어하우스의 동시성 및 워크로드 관리를 이해합니다."
+title: SQL Data Warehouse의 동시성 및 워크로드 관리 | Microsoft Docs
+description: 솔루션 개발을 위한 Azure SQL Data Warehouse의 동시성 및 워크로드 관리를 이해합니다.
 services: sql-data-warehouse
 documentationcenter: NA
 author: sqlmojo
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: ef170f39-ae24-4b04-af76-53bb4c4d16d3
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -16,20 +16,20 @@ ms.custom: performance
 ms.date: 08/23/2017
 ms.author: joeyong;barbkess;kavithaj
 ms.openlocfilehash: eaf2d43286dbaa52ada1430fbb7ce1e37f41c0d4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="concurrency-and-workload-management-in-sql-data-warehouse"></a>SQL 데이터 웨어하우스의 동시성 및 워크로드 관리
-예측 가능한 성능을 광범위하게 제공하려는 경우 Microsoft Azure SQL Data Warehouse를 사용하면 동시성 수준 및 리소스 할당(예: 메모리, CPU 우선 순위 지정)을 제어할 수 있습니다. 이 문서에서는 동시성 및 워크로드 관리 개념을 소개하며, 두 기능 모두 구현된 방법 및 데이터 웨어하우스에서 이들을 제어할 수 있는 방법을 설명합니다. SQL 데이터 웨어하우스 워크로드 관리는 다중 사용자 환경을 지원합니다. 다중 테넌트 워크로드용은 아닙니다.
+# <a name="concurrency-and-workload-management-in-sql-data-warehouse"></a>SQL Data Warehouse의 동시성 및 워크로드 관리
+예측 가능한 성능을 광범위하게 제공하려는 경우 Microsoft Azure SQL Data Warehouse를 사용하면 동시성 수준 및 리소스 할당(예: 메모리, CPU 우선 순위 지정)을 제어할 수 있습니다. 이 문서에서는 동시성 및 워크로드 관리 개념을 소개하며, 두 기능 모두 구현된 방법 및 데이터 웨어하우스에서 이들을 제어할 수 있는 방법을 설명합니다. SQL Data Warehouse 워크로드 관리는 다중 사용자 환경을 지원합니다. 다중 테넌트 워크로드용은 아닙니다.
 
 ## <a name="concurrency-limits"></a>동시성 한도
-SQL 데이터 웨어하우스를 사용하여 최대 1,024개의 동시 연결을 할 수 있습니다. 1,024개의 모든 연결을 통해 동시에 쿼리를 제출할 수 있습니다. 그러나 SQL Data Warehouse는 처리량을 최적화하기 위해 각 쿼리가 최소한의 메모리를 부여받도록 일부 쿼리를 대기시킬 수 있습니다. 쿼리 실행 시 큐에 대기하기가 발생합니다. SQL 데이터 웨어하우스는 동시성 한도에 이른 경우 쿼리를 큐에 대기하도록 하여 활성 쿼리가 긴급하게 필요한 메모리 리소스에 액세스할 수 있게 하여 총 처리량을 늘릴 수 있습니다.  
+SQL Data Warehouse를 사용하여 최대 1,024개의 동시 연결을 할 수 있습니다. 1,024개의 모든 연결을 통해 동시에 쿼리를 제출할 수 있습니다. 그러나 SQL Data Warehouse는 처리량을 최적화하기 위해 각 쿼리가 최소한의 메모리를 부여받도록 일부 쿼리를 대기시킬 수 있습니다. 쿼리 실행 시 큐에 대기하기가 발생합니다. SQL Data Warehouse는 동시성 한도에 이른 경우 쿼리를 큐에 대기하도록 하여 활성 쿼리가 긴급하게 필요한 메모리 리소스에 액세스할 수 있게 하여 총 처리량을 늘릴 수 있습니다.  
 
 동시성 한도는 *동시 쿼리 수* 및 *동시성 슬롯 수*라는 두 개념에 의해 제어됩니다. 쿼리가 실행하려면 쿼리 동시성 한도 및 동시성 슬롯 할당 내에서 실행해야 합니다.
 
-* 동시 쿼리 수란 동시에 실행하는 쿼리 수입니다. SQL 데이터 웨어하우스는 더 큰 DWU 크기에서 최대 32개의 동시 쿼리를 지원합니다.
+* 동시 쿼리 수란 동시에 실행하는 쿼리 수입니다. SQL Data Warehouse는 더 큰 DWU 크기에서 최대 32개의 동시 쿼리를 지원합니다.
 * 동시성 슬롯은 DWU를 기준으로 할당됩니다. 100개의 DWU마다 4개의 동시성 슬롯을 제공합니다. 예를 들어 DW100은 4개의 동시성 슬롯을 할당하고, DW1000은 40개를 할당합니다. 각 쿼리는 쿼리의 [리소스 클래스](#resource-classes) 에 따라 하나 이상의 동시성 슬롯을 사용합니다. smallrc 리소스 클래스에서 실행되는 쿼리는 하나의 동시성 슬롯을 사용합니다. 상위 리소스 클래스에서 실행되는 쿼리는 더 많은 동시성 슬롯을 사용합니다.
 
 다음 테이블에는 다양한 DWU 크기의 동시 쿼리와 동시성 슬롯의 한도가 나와 있습니다.
@@ -149,7 +149,7 @@ EXEC sp_addrolemember 'largerc', 'loaduser'
 동일한 계산이 정적 리소스 클래스에도 적용됩니다.
  
 ## <a name="concurrency-slot-consumption"></a>동시성 슬롯 사용량  
-SQL 데이터 웨어하우스는 더 많은 리소스 클래스에서 실행되는 쿼리에 더 많은 메모리를 부여합니다. 메모리는 고정된 리소스입니다.  따라서 쿼리당 할당되는 메모리가 많을수록 동시에 실행할 수 있는 쿼리의 수가 줄어듭니다. 다음 테이블에서는 앞에서 설명한 모든 개념을 단일 보기로 다시 제공합니다. 이 보기에는 DWU에서 사용 가능한 동시성 슬롯의 수와 각 리소스 클래스가 사용하는 슬롯 수가 나와 있습니다.  
+SQL Data Warehouse는 더 많은 리소스 클래스에서 실행되는 쿼리에 더 많은 메모리를 부여합니다. 메모리는 고정된 리소스입니다.  따라서 쿼리당 할당되는 메모리가 많을수록 동시에 실행할 수 있는 쿼리의 수가 줄어듭니다. 다음 테이블에서는 앞에서 설명한 모든 개념을 단일 보기로 다시 제공합니다. 이 보기에는 DWU에서 사용 가능한 동시성 슬롯의 수와 각 리소스 클래스가 사용하는 슬롯 수가 나와 있습니다.  
 
 ### <a name="allocation-and-consumption-of-concurrency-slots-for-dynamic-resource-classes"></a>동적 리소스 클래스에 대한 동시성 슬롯의 할당 및 사용량  
 | DWU | 최대 동시 쿼리 수 | 할당된 동시성 슬롯 수 | smallrc에서 사용되는 슬롯 | mediumrc에서 사용되는 슬롯 | largerc에서 사용되는 슬롯 | xlargerc에서 사용되는 슬롯 |
@@ -554,7 +554,7 @@ GO
 ```
 
 ## <a name="query-importance"></a>쿼리 중요도
-SQL 데이터 웨어하우스는 워크로드 그룹을 사용하여 리소스 클래스를 구현합니다. 다양한 DWU 크기의 리소스 클래스 동작을 제어하는 총 8개의 워크로드 그룹이 있습니다. DWU의 경우 SQL 데이터 웨어하우스는 8개의 워크로드 그룹 중 4개만 사용합니다. 각 워크로드 그룹은 4가지 리소스 클래스 smallrc, mediumrc, largerc 또는 xlargerc 중 하나에 할당되기 때문에 이렇게 하는 것이 합리적입니다. 이들 워크로드 그룹의 일부가 더 높은 *중요도*로 설정된다는 점 때문에 워크로드 그룹을 이해하는 것이 중요합니다. 중요도가 CPU 예약에 사용됩니다. 높은 중요도를 갖고 실행되는 쿼리는 중간 중요도의 쿼리보다 3배 더 많은 CPU 사이클을 받게 될 것입니다. 따라서 동시성 슬롯 매핑은 또한 CPU 우선 순위를 결정합니다. 쿼리가 16개 이상의 슬롯을 사용할 경우 중요도 높음으로 실행됩니다.
+SQL Data Warehouse는 워크로드 그룹을 사용하여 리소스 클래스를 구현합니다. 다양한 DWU 크기의 리소스 클래스 동작을 제어하는 총 8개의 워크로드 그룹이 있습니다. DWU의 경우 SQL Data Warehouse는 8개의 워크로드 그룹 중 4개만 사용합니다. 각 워크로드 그룹은 4가지 리소스 클래스 smallrc, mediumrc, largerc 또는 xlargerc 중 하나에 할당되기 때문에 이렇게 하는 것이 합리적입니다. 이들 워크로드 그룹의 일부가 더 높은 *중요도*로 설정된다는 점 때문에 워크로드 그룹을 이해하는 것이 중요합니다. 중요도가 CPU 예약에 사용됩니다. 높은 중요도를 갖고 실행되는 쿼리는 중간 중요도의 쿼리보다 3배 더 많은 CPU 사이클을 받게 될 것입니다. 따라서 동시성 슬롯 매핑은 또한 CPU 우선 순위를 결정합니다. 쿼리가 16개 이상의 슬롯을 사용할 경우 중요도 높음으로 실행됩니다.
 
 다음 테이블에서는 각 워크로드 그룹에 대한 중요도 매핑을 보여 줍니다.
 
@@ -753,7 +753,7 @@ JOIN    sys.database_principals AS m            ON rm.member_principal_id    = m
 WHERE    r.name IN ('mediumrc','largerc', 'xlargerc');
 ```
 
-SQL 데이터 웨어하우스에 다음과 같은 대기 형식이 있습니다.
+SQL Data Warehouse에 다음과 같은 대기 형식이 있습니다.
 
 * **LocalQueriesConcurrencyResourceType**: 동시성 슬롯 프레임워크 외부에 존재하는 쿼리. `SELECT @@VERSION` 과 같은 DMV 쿼리 및 시스템 함수는 로컬 쿼리의 예입니다.
 * **UserConcurrencyResourceType**: 동시성 슬롯 프레임워크 내에 존재하는 쿼리. 최종 사용자 테이블에 대한 쿼리는 이 리소스 형식을 사용하는 예를 나타냅니다.

@@ -1,8 +1,8 @@
 ---
 title: FAQ - Azure Active Directory Domain Services | Microsoft Docs
-description: "Azure Active Directory Domain Services에 대해 자주 묻는 질문과 대답입니다."
+description: Azure Active Directory Domain Services에 대해 자주 묻는 질문과 대답입니다.
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 03/08/2018
 ms.author: maheshu
-ms.openlocfilehash: 1963931f30808e861445c9555a04f933514239c3
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 1cfd0570315d5a1c6587ade164edf0a837453406
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-active-directory-domain-services-frequently-asked-questions-faqs"></a>Azure Active Directory Domain Services: 자주 묻는 질문과 대답(FAQ)
 이 페이지는 Azure Active Directory Domain Services에 대한 자주 묻는 질문을 응답합니다. 업데이트를 계속 확인합니다.
@@ -39,7 +39,7 @@ Azure AD Domain Services를 구성 또는 관리할 때 나타날 수 있는 일
 ### <a name="can-i-enable-azure-ad-domain-services-in-an-azure-csp-cloud-solution-provider-subscription"></a>Azure CSP(클라우드 솔루션 공급자) 구독에서 Azure AD Domain Services를 사용할 수 있나요?
 예. [Azure CSP 구독에서 Azure AD Domain Services](active-directory-ds-csp.md)를 활성화할 수 있는 방법을 참조합니다.
 
-### <a name="can-i-enable-azure-ad-domain-services-in-a-federated-azure-ad-directory-i-use-adfs-to-authenticate-users-for-access-to-office-365-and-do-not-synchronize-password-hashes-to-azure-ad-can-i-enable-azure-ad-domain-services-for-this-directory"></a>페더레이션된 Azure AD 디렉터리에서 Azure AD Domain Services를 사용할 수 있습니까? ADFS를 사용하여 사용자를 Office 365에 대한 액세스에 인증하고 Azure AD에 암호 해시를 동기화하지 않습니다. 이 디렉터리에 Azure AD Domain Services를 사용할 수 있습니까?
+### <a name="can-i-enable-azure-ad-domain-services-in-a-federated-azure-ad-directory-i-do-not-synchronize-password-hashes-to-azure-ad-can-i-enable-azure-ad-domain-services-for-this-directory"></a>페더레이션된 Azure AD 디렉터리에서 Azure AD Domain Services를 사용할 수 있습니까? 암호 해시를 Azure AD와 동기화하지 않았습니다. 이 디렉터리에 Azure AD Domain Services를 사용할 수 있습니까?
 번호 Azure AD Domain Services에서는 NTLM 또는 Kerberos를 통해 사용자를 인증하기 위해 사용자 계정의 암호 해시에 액세스해야 합니다. 페더레이션된 디렉터리에서는 Azure AD 디렉터리에 암호 해시가 저장되지 않습니다. 따라서 Azure AD Domain Services는 이러한 Azure AD 디렉터리와 함께 작동하지 않습니다.
 
 ### <a name="can-i-make-azure-ad-domain-services-available-in-multiple-virtual-networks-within-my-subscription"></a>Azure AD Domain Services를 내 구독 내의 여러 가상 네트워크에서 사용할 수 있나요?
@@ -53,6 +53,9 @@ Azure AD Domain Services를 구성 또는 관리할 때 나타날 수 있는 일
 
 ### <a name="can-i-add-domain-controllers-to-an-azure-ad-domain-services-managed-domain"></a>Azure AD 도메인 서비스 관리되는 도메인에 도메인 컨트롤러를 추가할 수 있나요?
 번호 Azure AD 도메인 서비스에서 제공하는 도메인은 관리되는 도메인입니다. 이 도메인에 대해 도메인 컨트롤러를 프로비전, 구성 또는 다른 방식으로 관리하지 않아도 됩니다. 이러한 관리 작업은 Microsoft에서 서비스로 제공합니다. 따라서 관리되는 도메인에 대해 추가 도메인 컨트롤러(읽기-쓰기 또는 읽기 전용)를 추가할 수 없습니다.
+
+### <a name="can-guest-users-invited-to-my-directory-use-azure-ad-domain-services"></a>내 디렉터리에 초대된 게스트 사용자가 Azure AD Domain Services를 사용할 수 있나요?
+번호 [Azure AD B2B](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md) 초대 프로세스를 사용하여 Azure AD 디렉터리에 초대된 게스트 사용자는 Azure AD Domain Services 관리되는 도메인과 동기화됩니다. 그러나 이러한 사용자에 대한 암호는 Azure AD 디렉터리에 저장되지 않습니다. 따라서 Azure AD Domain Services는 이러한 사용자를 위한 NTLM 및 Kerberos 해시를 관리되는 도메인과 동기화할 방법이 없습니다. 결과적으로, 이러한 사용자는 관리되는 도메인에 로그인하거나 관리되는 도메인에 컴퓨터를 가입할 수 없습니다.
 
 ## <a name="administration-and-operations"></a>관리 및 운영
 ### <a name="can-i-connect-to-the-domain-controller-for-my-managed-domain-using-remote-desktop"></a>원격 데스크톱을 사용하여 관리되는 도메인의 도메인 컨트롤러에 연결할 수 있습니까?
@@ -75,6 +78,9 @@ Azure AD UI 또는 PowerShell을 사용하여 Azure AD 디렉터리에 적용된
 
 ### <a name="can-i-modify-or-add-dns-records-in-my-managed-domain"></a>관리되는 도메인에서 DNS 레코드를 수정하거나 추가할 수 있습니까?
 예. 관리되는 도메인에서 DNS 레코드를 수정하기 위해 'AAD DC Administrators' 그룹의 멤버에게 'DNS 관리자' 권한이 부여됩니다. 이러한 멤버는 DNS를 관리하기 위해 관리되는 도메인에 가입한 Windows Server를 실행하는 컴퓨터에서 DNS 관리자 콘솔을 사용할 수 있습니다. DNS 관리자 콘솔을 사용하려면 서버의 '원격 서버 관리 도구' 선택적 기능의 일부인 'DNS 서버 도구'를 설치합니다. [DNS를 관리하고, 모니터링하고 문제를 해결하는 유틸리티](https://technet.microsoft.com/library/cc753579.aspx) 에 대한 자세한 정보는 TechNet를 참조하세요.
+
+### <a name="what-is-the-password-lifetime-policy-on-a-managed-domain"></a>관리되는 도메인에 대한 암호 수명 정책은 무엇인가요?
+Azure AD Domain Services 관리되는 도메인의 기본 암호 수명은 90일입니다. 이 암호 수명은 Azure AD에 구성된 암호 수명과 동기화되지 않습니다. 따라서 사용자의 암호가 관리되는 도메인에는 만료되지만 Azure AD에서는 여전히 유효한 상황이 발생할 수 있습니다. 이러한 시나리오에서 사용자는 Azure AD에서 자신의 암호를 변경해야 하며, 새 암호는 관리되는 도메인과 동기화됩니다. 또한 사용자 계정에 대한 'password-does-not-expire' 및 'user-must-change-password-at-next-logon' 특성은 관리되는 도메인과 동기화되지 않습니다.
 
 ## <a name="billing-and-availability"></a>요금 청구 및 가용성
 ### <a name="is-azure-ad-domain-services-a-paid-service"></a>Azure AD Domain Services는 유료 서비스인가요?

@@ -1,24 +1,20 @@
 ---
-title: "Azure Automation의 자식 runbook | Microsoft Docs"
-description: "다른 Runbook에서 Azure Automation의 Runbook을 시작하고 서로 정보를 공유하는 다양한 방법을 설명합니다."
+title: Azure Automation의 자식 runbook
+description: 다른 Runbook에서 Azure Automation의 Runbook을 시작하고 서로 정보를 공유하는 다양한 방법을 설명합니다.
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: jwhit
-editor: tysonn
-ms.assetid: 919887b9-43e2-4c16-883c-f81807fe37db
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/15/2018
 ms.topic: article
+manager: carmonm
+ms.devlang: na
 ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 02/02/2017
-ms.author: magoedte;bwren
-ms.openlocfilehash: 5c18444b5a2767ccdd9a61a3bc9218fa4c0aac04
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: e8fe3b0023d2cdb9061b5a2c15c3b2c7095c128e
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="child-runbooks-in-azure-automation"></a>Azure Automation의 자식 runbook
 다른 runbook에서 사용할 수 있는 불연속 함수를 사용하여 다시 사용할 수 있는 모듈식 runbook을 작성하는 Azure Automation의 모범 사례입니다. 부모 runbook은 하나 이상의 자식 runbook를 자주 호출하여 필요한 기능을 수행합니다. 두 가지 방법으로 자식 runbook을 호출하고 각각 서로 다른 차이점을 이해하여 다양한 시나리오에 가장 적합하게 결정하도록 합니다.

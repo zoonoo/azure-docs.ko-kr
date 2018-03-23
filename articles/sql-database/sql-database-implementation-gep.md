@@ -1,25 +1,19 @@
 ---
-title: "Azure SQL Database Azure 사례 연구 - GEP | Microsoft Docs"
-description: "GEP이 SQL Database를 사용하여 더 많은 글로벌 고객에게 도달하고 보다 높은 효율성을 달성하는 방법을 알아봅니다."
+title: Azure SQL Database Azure 사례 연구 - GEP | Microsoft Docs
+description: GEP이 SQL Database를 사용하여 더 많은 글로벌 고객에게 도달하고 보다 높은 효율성을 달성하는 방법을 알아봅니다.
 services: sql-database
-documentationcenter: 
 author: CarlRabeler
-manager: jhubbard
-editor: 
-ms.assetid: ae8bcb10-c251-4bac-b666-10a253918583
+manager: craigg
 ms.service: sql-database
 ms.custom: reference
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: Inactive
 ms.date: 01/10/2017
 ms.author: carlrab
-ms.openlocfilehash: bced4e04f541dde58410e25fe0c3aa5493a5e5fd
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 093f891ea9dd36a2766d0a797c4f0a67b11aa8a4
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-gives-gep-global-reach-and-greater-efficiency"></a>Azure를 통한 GEP의 글로벌 고객 접근 및 효율성 개선
 ![GEP 로고](./media/sql-database-implementation-gep/geplogo.png)
@@ -30,7 +24,7 @@ GEP는 전 세계의 조달 책임자가 비즈니스 작업, 전략 및 재무 
 SMART by GEP 고객은 이 플랫폼의 기능과 사용 편의성을 좋아합니다. 고객은 언제 어디서나 어떤 장치에서든(노트북, 태블릿 또는 휴대폰) 프로세스를 관리할 수 있습니다. Microsoft Azure를 전환하여 GEP는 새로운 시장으로 확장할 수 있는 빠른 성장 및 잠재력을 갖출 수 있게 되었습니다. GEP의 기술 담당 부사장인 Dhananjay Nagalkar에 따르면 "Microsoft Azure는 우리가 민첩하게 서비스를 확장하고, 전 세계 고객의 규정 요구를 충족하는 데 도움이 되는 지역 데이터 센터를 제공함으로써 GEP의 성공에 중요한 역할을 했습니다."
 
 ## <a name="the-limitations-of-a-do-it-yourself-datacenter"></a>자체 데이터 센터의 제한 사항
-2013년에 GEP 책임자들은 고객 기반이 증가할 때 확장성 및 성능을 보장하는 방법이 필요하다고 인식했습니다. "기존 데이터 센터를 사용하여 해당 요청을 충족하기 위해서는 우리의 인프라 및 IT 리소스를 획기적으로 확장해야 했을 것입니다. 해당 투자금 및 기간도 엄청났을 것입니다."라고 Nagalkar는 설명했습니다. 온-프레미스 실제 및 가상 컴퓨터에서는 GEP에서 감당할 수 없는 비용으로 포괄적인 구성, 관리, 크기 조정, 백업 및 패치를 수행해야 합니다. 한편, 클라우드 서비스는 GEP가 증가하는 대규모 IT 작업을 관리하는 대신, 개발에 더 집중하도록 하는 간편성과 편리성을 제공합니다. Nagalkar는 GEP가 클라우드로 마이그레이션하여 인프라 구입, 구성 및 관리 오버헤드를 줄일 수 있을 것이라는 사실을 알았습니다.
+2013년에 GEP 책임자들은 고객 기반이 증가할 때 확장성 및 성능을 보장하는 방법이 필요하다고 인식했습니다. "기존 데이터 센터를 사용하여 해당 요청을 충족하기 위해서는 우리의 인프라 및 IT 리소스를 획기적으로 확장해야 했을 것입니다. 해당 투자금 및 기간도 엄청났을 것입니다."라고 Nagalkar는 설명했습니다. 온-프레미스 실제 및 가상 머신에서는 GEP에서 감당할 수 없는 비용으로 포괄적인 구성, 관리, 크기 조정, 백업 및 패치를 수행해야 합니다. 한편, 클라우드 서비스는 GEP가 증가하는 대규모 IT 작업을 관리하는 대신, 개발에 더 집중하도록 하는 간편성과 편리성을 제공합니다. Nagalkar는 GEP가 클라우드로 마이그레이션하여 인프라 구입, 구성 및 관리 오버헤드를 줄일 수 있을 것이라는 사실을 알았습니다.
 
 또한 GEP는 일부 글로벌 시장 진입을 막는 규제 장벽을 극복하는 방안도 필요했습니다. GEP의 많은 잠재적인 유럽 고객의 경우, 규정 준수를 위해 로컬 지리적 위치에 데이터를 저장해야 했습니다. 하지만 GEP가 여러 데이터 센터를 구축하는 것은 실용적이지 않았을 것입니다. "광범위한 인프라 투자와 IT 인력 비용이 매출에 상당한 영향을 미치고 있습니다.”라고 Nagalkar는 말했습니다. "결과적으로 우리는 로컬에 저장된 데이터를 원하는 잠재 고객에게 눈을 돌려야 했습니다.”
 

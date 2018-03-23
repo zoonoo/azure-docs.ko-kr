@@ -1,8 +1,8 @@
 ---
-title: "Azure에서 Linux 데이터 과학 가상 컴퓨터를 사용하여 데이터 과학 | Microsoft Docs"
-description: "Linux 데이터 과학 VM을 사용하여 몇 가지 일반적인 데이터 과학 작업을 수행하는 방법입니다."
+title: Azure에서 Linux 데이터 과학 Virtual Machine을 사용하여 데이터 과학 | Microsoft Docs
+description: Linux 데이터 과학 VM을 사용하여 몇 가지 일반적인 데이터 과학 작업을 수행하는 방법입니다.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -12,35 +12,35 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2017
+ms.date: 03/16/2018
 ms.author: bradsev;paulsh
-ms.openlocfilehash: 650b11d66f3ca32266b9842af77c909e125b4e4d
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: 9b8a9b9bba242fd7c86dc285a77317a5821948df
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 03/17/2018
 ---
-# <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Azure에서 Linux 데이터 과학 가상 컴퓨터를 사용하여 데이터 과학
-이 연습에서는 Linux 데이터 과학 VM을 사용하여 몇 가지 일반 데이터 과학 작업을 수행하는 방법을 보여 줍니다. Linux DSVM(데이터 과학 가상 컴퓨터)은 데이터 분석 및 기계 학습에 흔히 사용되는 도구 모음과 함께 미리 설치된, Azure에서 사용 가능한 가상 컴퓨터 이미지입니다. 주요 소프트웨어 구성 요소는 [Linux 데이터 과학 가상 컴퓨터 프로비전](linux-dsvm-intro.md) 항목에 항목별로 나와 있습니다. VM 이미지를 사용하면 각 도구를 개별적으로 설치하고 구성할 필요 없이 몇 분 내에 데이터 과학 작업을 쉽게 시작할 수 있습니다. 필요한 경우 VM을 쉽게 확장하고 사용하지 않을 때 중지할 수 있습니다. 따라서 이 리소스는 탄력적이고 비용 효율적입니다.
+# <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Azure에서 Linux 데이터 과학 Virtual Machine을 사용하여 데이터 과학
+이 연습에서는 Linux 데이터 과학 VM을 사용하여 몇 가지 일반 데이터 과학 작업을 수행하는 방법을 보여 줍니다. Linux DSVM(데이터 과학 Virtual Machine)은 데이터 분석 및 기계 학습에 흔히 사용되는 도구 모음과 함께 미리 설치된, Azure에서 사용 가능한 가상 머신 이미지입니다. 주요 소프트웨어 구성 요소는 [Linux 데이터 과학 Virtual Machine 프로비전](linux-dsvm-intro.md) 항목에 항목별로 나와 있습니다. VM 이미지를 사용하면 각 도구를 개별적으로 설치하고 구성할 필요 없이 몇 분 내에 데이터 과학 작업을 쉽게 시작할 수 있습니다. 필요한 경우 VM을 쉽게 확장하고 사용하지 않을 때 중지할 수 있습니다. 따라서 이 리소스는 탄력적이고 비용 효율적입니다.
 
 이 연습에 설명된 데이터 과학 작업은 [팀 데이터 과학 프로세스](https://azure.microsoft.com/documentation/learning-paths/data-science-process/)에 설명된 단계를 따릅니다. 이 프로세스는 데이터 과학자 팀이 지능적인 응용 프로그램을 빌드하는 전체 수명 주기를 효율적으로 공동 작업할 수 있도록 데이터 과학에 대한 체계적인 접근 방법을 제공합니다. 또한 데이터 과학 프로세스는 개별 사용자가 수행할 수 있는 데이터 과학을 위한 반복되는 프레임워크를 제공합니다.
 
 이 연습에서는 [spambase](https://archive.ics.uci.edu/ml/datasets/spambase) 데이터 집합을 분석합니다. 이는 스팸 또는 햄(스팸이 아니라는 의미)으로 표시되는 메일 집합이며 메일의 내용에 대한 일부 통계도 포함합니다. 포함되어 있는 통계는 다음 한 섹션에만 설명되어 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
-Linux 데이터 과학 가상 컴퓨터를 사용하려면 먼저 다음이 있어야 합니다.
+Linux 데이터 과학 Virtual Machine을 사용하려면 먼저 다음이 있어야 합니다.
 
 * **Azure 구독**. 아직 없을 경우 [지금 무료 Azure 계정 만들기](https://azure.microsoft.com/free/)를 참조하세요.
-* [**Linux 데이터 과학 VM**](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm). 이 VM 프로비전에 대한 자세한 내용은 [Linux 데이터 과학 가상 컴퓨터 프로비전](linux-dsvm-intro.md)을 참조하세요.
+* [**Linux 데이터 과학 VM**](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm). 이 VM 프로비전에 대한 자세한 내용은 [Linux 데이터 과학 Virtual Machine 프로비전](linux-dsvm-intro.md)을 참조하세요.
 * [X2Go](http://wiki.x2go.org/doku.php) . **X2Go 클라이언트**설치 및 구성에 대한 자세한 내용은 [X2Go 클라이언트 설치 및 구성](linux-dsvm-intro.md#installing-and-configuring-x2go-client)을 참조하세요.
-* 더 부드러운 스크롤 경험을 원할 경우 VMS FireFox 브라우저의 about:config에서 gfx.xrender.enabled 플래그를 전환합니다. [여기에서 자세한 내용을 알아보세요.](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/). *mousewheel.enable_pixel_scrolling*을 False로 전환해 보세요. [여기의 지침을 참조하세요.](https://support.mozilla.org/en-US/questions/981140)
+* 더 부드러운 스크롤 경험을 원할 경우 VMS FireFox 브라우저의 about:config에서 gfx.xrender.enabled 플래그를 전환합니다. [여기에서 자세한 내용을 알아보세요](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/). *mousewheel.enable_pixel_scrolling*을 False로 전환해 보세요. [여기의 지침을 참조하세요.](https://support.mozilla.org/en-US/questions/981140)
 * **AzureML 계정**. 아직 없을 경우 [AzureML 홈 페이지](https://studio.azureml.net/)에서 새 계정을 등록합니다. 시작할 수 있도록 무료 사용 계층을 제공합니다.
 
 ## <a name="download-the-spambase-dataset"></a>spambase 데이터 집합 다운로드
 [spambase](https://archive.ics.uci.edu/ml/datasets/spambase) 데이터 집합은 4601개의 예제만 포함하는 비교적 작은 데이터 집합입니다. 이 데이터 집합은 리소스 요구 사항을 적절하게 유지하도록 하므로 데이터 과학 VM의 몇 가지 주요 기능을 보여 줄 때 사용하기 적합한 크기입니다.
 
 > [!NOTE]
-> 이 연습은 D2 v2 크기의 Linux 데이터 과학 가상 컴퓨터에서 만들었습니다. 이 크기의 DSVM은 이 연습의 절차를 처리할 수 있습니다.
+> 이 연습은 D2 v2 크기의 Linux 데이터 과학 Virtual Machine에서 만들었습니다. 이 크기의 DSVM은 이 연습의 절차를 처리할 수 있습니다.
 >
 >
 
@@ -234,7 +234,7 @@ R을 사용하여 데이터를 검사하고 몇 가지 기본 Machine Learning�
 나머지 섹션에서는 Linux 데이터 과학 VM에 설치된 일부 도구의 사용 방법을 보여 줍니다. 설명할 도구 목록은 다음과 같습니다.
 
 * XGBoost
-* Python
+* 파이썬
 * Jupyterhub
 * Rattle
 * PostgreSQL 및 Squirrel SQL
@@ -259,7 +259,7 @@ R을 사용하여 데이터를 검사하고 몇 가지 기본 Machine Learning�
 
 XGBoost는 python 또는 명령줄에서 호출할 수도 있습니다.
 
-## <a name="python"></a>Python
+## <a name="python"></a>파이썬
 Python을 사용하여 개발하는 경우를 위해 Anaconda Python 배포 2.7 및 3.5가 DSVM에 설치되었습니다.
 
 > [!NOTE]
@@ -389,7 +389,7 @@ Rattle은 클러스터 분석을 수행할 수도 있습니다. 출력을 더 �
 
 **클러스터** 탭으로 돌아가서 **KMeans**를 선택하고 *클러스터 수*를 4로 설정합니다. 그런 다음 **실행**을 클릭합니다. 결과가 출력 창에 표시됩니다. 한 클러스터가 "george" 및 "hp"의 빈도가 높고 아마도 합법적인 비즈니스 메일입니다.
 
-간단한 의사 결정 트리 기계 학습 모델을 빌드하려면
+간단한 의사 결정 트리 기계 학습 모델을 빌드하려면, 
 
 * **모델** 탭을 선택합니다.
 * **트리**를 **형식**으로 선택합니다.
@@ -500,7 +500,7 @@ PostgreSQL용 대화형 터미널인 psql을 기본 제공 postgres 사용자로
 PostgreSQL 데이터베이스에 저장된 데이터를 사용하여 기계 학습을 수행하려는 경우 [MADlib](http://madlib.incubator.apache.org/)를 사용하는 것이 좋습니다.
 
 ## <a name="sql-server-data-warehouse"></a>SQL Server 데이터 웨어하우스
-Azure SQL 데이터 웨어하우스는 거대한 양의 관계형 및 비관계형 데이터를 처리할 수 있는 클라우드 기반 규모 확장 데이터베이스입니다. 자세한 내용은 [Azure SQL Data Warehouse란?](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
+Azure SQL Data Warehouse는 거대한 양의 관계형 및 비관계형 데이터를 처리할 수 있는 클라우드 기반 규모 확장 데이터베이스입니다. 자세한 내용은 [Azure SQL Data Warehouse란?](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
 
 데이터 웨어하우스에 연결하고 테이블을 만들려면 명령 프롬프트에서 다음 명령을 실행합니다.
 

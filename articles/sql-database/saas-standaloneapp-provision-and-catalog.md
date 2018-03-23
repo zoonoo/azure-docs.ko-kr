@@ -1,26 +1,20 @@
 ---
-title: "다중 테넌트 SaaS 자습서 - Azure SQL Database | Microsoft Docs"
-description: "독립 실행형 응용 프로그램 패턴을 사용하여 새 테넌트 프로비전 및 카탈로그 작업"
-keywords: "SQL Database 자습서"
+title: 다중 테넌트 SaaS 자습서 - Azure SQL Database | Microsoft Docs
+description: 독립 실행형 응용 프로그램 패턴을 사용하여 새 테넌트 프로비전 및 카탈로그 작업
+keywords: SQL Database 자습서
 services: sql-database
-documentationcenter: 
 author: stevestein
 manager: craigg
-editor: 
-ms.assetid: 
 ms.service: sql-database
 ms.custom: SaaS
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: billgib
-ms.openlocfilehash: dd43ede94d6f219f3b551091fc6e4b59f56386d1
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 148a50d07d4cea7adda493b283766d22d26b81e2
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="provision-and-catalog-new-tenants-using-the--application-per-tenant-saas-pattern"></a>테넌트별 응용 프로그램 SaaS 패턴을 사용하여 새 테넌트 프로비전/카탈로그 작업
 

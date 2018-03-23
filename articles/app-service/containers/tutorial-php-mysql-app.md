@@ -1,8 +1,8 @@
 ---
-title: "Linux의 Azure App Service에서 PHP 및 MySQL 웹앱 작성 | Microsoft Docs"
-description: "MySQL 데이터베이스에 연결하여 Azure에서 PHP 앱이 작동하도록 하는 방법에 대해 알아봅니다."
+title: Linux의 Azure App Service에서 PHP 및 MySQL 웹앱 작성 | Microsoft Docs
+description: MySQL 데이터베이스에 연결하여 Azure에서 PHP 앱이 작동하도록 하는 방법에 대해 알아봅니다.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
 ms.service: app-service-web
@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 11/28/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 7c3107d7385413d15445a8b3a3cd2476973ab632
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 5d1e1e448ce4cf6f1b6f617a68eb4d89333c180d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="build-a-php-and-mysql-web-app-in-azure-app-service-on-linux"></a>Linux의 Azure App Service에서 PHP 및 MySQL 웹앱 작성
 
@@ -155,7 +155,7 @@ PHP를 중지하려면 터미널에서 `Ctrl + C`를 입력합니다.
 
 ### <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-no-h.md)] 
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux-no-h.md)] 
 
 ### <a name="create-a-mysql-server"></a>MySQL 서버 만들기
 
@@ -334,7 +334,7 @@ Laravel 응용 프로그램은 _/public_ 디렉터리에서 시작됩니다. App
 
 ### <a name="create-a-web-app"></a>웹앱 만들기
 
-[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-php-no-h.md)] 
+[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-php-linux-no-h.md)] 
 
 ### <a name="configure-database-settings"></a>데이터베이스 설정 구성
 

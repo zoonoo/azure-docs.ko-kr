@@ -1,11 +1,11 @@
 ---
-title: "Azure CDN 규칙 엔진 일치 조건 | Microsoft Docs"
-description: "Azure Content Delivery Network 규칙 엔진 일치 조건에 대한 참조 설명서"
+title: Azure CDN 규칙 엔진 일치 조건 | Microsoft Docs
+description: Azure Content Delivery Network 규칙 엔진 일치 조건에 대한 참조 설명서
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: Lichard
 manager: akucer
-editor: 
+editor: ''
 ms.assetid: 669ef140-a6dd-4b62-9b9d-3f375a14215e
 ms.service: cdn
 ms.workload: media
@@ -737,7 +737,7 @@ IOS 여부 | %{wurfl_vcap_is_ios} | 장치에서 iOS를 사용하는지 여부�
     
 - 각 항목을 하나의 공백으로 구분하여 여러 URL 경로를 지정합니다.
 
-   예: /marketing/asset.* /sales/*.htm
+   예: /marketing/asset.\* /sales/\*.htm
 
 - URL의 쿼리 문자열은 무시됩니다.
     
@@ -753,11 +753,11 @@ IOS 여부 | %{wurfl_vcap_is_ios} | 장치에서 iOS를 사용하는지 여부�
 
 값                   | 기준    | 결과 
 ------------------------|----------------|-------
-*/test.html */test.php  | 루트 또는 원본 | 이 패턴은 모든 폴더의 "test.html" 또는 "test.php"라는 자산에 대한 요청과 일치합니다.
+\*/test.html \*/test.php  | 루트 또는 원본 | 이 패턴은 모든 폴더의 "test.html" 또는 "test.php"라는 자산에 대한 요청과 일치합니다.
 /80ABCD/origin/text/*   | 루트           | 이 패턴은 요청된 자산이 다음 조건을 충족하는 경우에 일치합니다. <br />- "원본"이라는 고객 원본에 있어야 합니다. <br />- 상대 경로가 "text"라는 폴더로 시작해야 합니다. 즉, 요청된 자산이 "text" 폴더 또는 해당 하위 폴더 중 하나에 있어야 합니다.
 */css/* */js/*          | 루트 또는 원본 | 이 패턴은 css 또는 js 폴더가 포함된 모든 CDN 또는 에지 CNAME URL과 일치합니다.
 *.jpg *.gif *.png       | 루트 또는 원본 | 이 패턴은 .jpg, .gif 또는 .png로 끝나는 모든 CDN 또는 에지 CNAME URL과 일치합니다. 이 패턴을 지정하는 다른 방법은 [URL 경로 확장 일치 조건](#url-path-extension)을 사용하는 것입니다.
-/images/* /media/*      | 원본         | 이 패턴은 상대 경로가 "images" 또는 "media" 폴더로 시작하는 CDN 또는 에지 CNAME URL과 일치합니다. <br />- CDN URL: http:\//wpc.0001.&lt;Domain&gt;/800001/myorigin/images/sales/event1.png<br />- 샘플 에지 CNAME URL: http:\//cdn.mydomain.com/images/sales/event1.png
+/images/\* /media/\*      | 원본         | 이 패턴은 상대 경로가 "images" 또는 "media" 폴더로 시작하는 CDN 또는 에지 CNAME URL과 일치합니다. <br />- CDN URL: http:\//wpc.0001.&lt;Domain&gt;/800001/myorigin/images/sales/event1.png<br />- 샘플 에지 CNAME URL: http:\//cdn.mydomain.com/images/sales/event1.png
 
 [맨 위로 이동](#match-conditions-for-the-azure-cdn-rules-engine)
 

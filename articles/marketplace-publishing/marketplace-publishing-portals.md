@@ -1,11 +1,11 @@
 ---
-title: "마켓플레이스용 제품을 만드는 데 필요한 다양한 포털의 개요 | Microsoft Docs"
-description: "마켓플레이스용 제품을 만드는 데 필요한 다양한 포털의 개요"
+title: Marketplace용 제품을 만드는 데 필요한 다양한 포털의 개요 | Microsoft Docs
+description: Marketplace용 제품을 만드는 데 필요한 다양한 포털의 개요
 services: marketplace-publishing
-documentationcenter: 
-author: HannibalSII
-manager: hascipio
-editor: 
+documentationcenter: ''
+author: msmbaldwin
+manager: mbaldwin
+editor: ''
 ms.assetid: 89ce82b3-c28a-4b0d-b37a-db3112160a4e
 ms.service: marketplace
 ms.devlang: na
@@ -13,15 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/27/2016
-ms.author: hascipio
-ms.openlocfilehash: 093d3ee3ecce89c86a12e7e216072ece57f82f9d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mbaldwin
+ms.openlocfilehash: 663d9a01b80b0c41e37037b0cbec10c93511d24c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="portals-you-will-need"></a>필요한 포털
-제품 게시 프로세스를 시작하기 전에 필요한 다양한 포털을 소개하겠습니다. 아래에 포털에 대한 간략한 요약이 있습니다. 이용하는 순서대로 개발자 센터, Azure 게시 포털 및 Azure 포털이 나와 있습니다.                                                                            
+제품 게시 프로세스를 시작하기 전에 필요한 다양한 포털을 소개하겠습니다. 아래에 포털에 대한 간략한 요약이 있습니다. 이용하는 순서대로 개발자 센터, Azure 게시 포털 및 Azure Portal이 나와 있습니다.                                                                            
 
 ## <a name="developer-center"></a>개발자 센터
 [http://dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure)
@@ -51,15 +51,15 @@ Microsoft 개발자 센터 계정 만들기는 일회성 작업입니다. 계정
 ### <a name="identityaccount-used"></a>사용되는 ID/계정
 게시 포털에 처음 로그인할 때 위 메일 그룹 또는 보안 그룹을 사용해야 합니다. 이후에 다른 사용자를 공동 관리자로 추가할 수 있습니다. 이는 개발자 센터 등록 데이터에 매핑되는 방식입니다.
 
-## <a name="azure-portal"></a>Azure 포털
-[https://portal.azure.com/](https://portal.azure.com)
+## <a name="azure-portal"></a>Azure Portal
+[https://portal.azure.com](https://portal.azure.com)
 
 ### <a name="description"></a>설명
-Azure 마켓플레이스에서 스테이징 및 게시된 제품을 볼 수 있는 포털입니다(VM, 솔루션 템플릿 및 Azure 리소스 관리자 기반 개발자 서비스에 해당).
+Azure Marketplace에서 스테이징 및 게시된 제품을 볼 수 있는 포털입니다(VM, 솔루션 템플릿 및 Azure Resource Manager 기반 개발자 서비스에 해당).
 
 ### <a name="identityaccount-used"></a>사용되는 ID/계정
 게시 포털에서 제품을 스테이징하는 동안 구독 ID가 허용 목록에 포함되어야 합니다. 이 포털에 로그인하여 스테이징된 제품을 테스트할 때 동일한 구독(연결된 사용자 이름 및 암호가 있음)을 사용해야 합니다.
 
 ## <a name="see-also"></a>참고 항목
-* [시작: Azure 마켓플레이스에 제품을 게시하는 방법](marketplace-publishing-getting-started.md)
+* [시작: Azure Marketplace에 제품을 게시하는 방법](marketplace-publishing-getting-started.md)
 

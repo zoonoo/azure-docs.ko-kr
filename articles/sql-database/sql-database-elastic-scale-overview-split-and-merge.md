@@ -1,24 +1,19 @@
 ---
-title: "확장된 클라우드 데이터베이스 간 데이터 이동 | Microsoft Docs"
-description: "탄력적 데이터베이스 API를 사용하여 자체 호스팅되는 서비스를 통해 분할된 데이터베이스를 조작하고 데이터를 이동하는 방법에 대해 설명합니다."
+title: 확장된 클라우드 데이터베이스 간 데이터 이동 | Microsoft Docs
+description: 탄력적 데이터베이스 API를 사용하여 자체 호스팅되는 서비스를 통해 분할된 데이터베이스를 조작하고 데이터를 이동하는 방법에 대해 설명합니다.
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: ddove
-ms.assetid: 204fd902-0397-4185-985a-dea3ed7c7d9f
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
-ms.author: ddove
-ms.openlocfilehash: 328989c4fc1f9a404d4c048eb148a95e9105bdf5
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.author: sstein
+ms.openlocfilehash: 9e2b231ad2e9fc5ab07532daef44da9870cef4ae
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>확장된 클라우드 데이터베이스 간 데이터 이동
 갑자기 앱 수요가 엄청나게 증가한 상황에 처한 SaaS(Software as a Service) 개발자는 이러한 급증을 처리해야 합니다. 따라서 더 많은 데이터베이스(분할 된 데이터베이스)를 추가합니다. 데이터 무결성을 해치지 않고 어떻게 새 데이터베이스에 데이터를 재배포할 수 있을까요? **분할-병합 도구** 를 사용하여 제약 조건이 지정된 데이터베이스의 데이터를 새 데이터베이스로 이동합니다.  
@@ -30,7 +25,7 @@ ms.lasthandoff: 10/31/2017
 ## <a name="download"></a>다운로드
 [Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge/)
 
-## <a name="documentation"></a>설명서
+## <a name="documentation"></a>문서화
 1. [탄력적 데이터베이스 분할/병합 도구 자습서](sql-database-elastic-scale-configure-deploy-split-and-merge.md)
 2. [분할-병합 보안 구성](sql-database-elastic-scale-split-merge-security-configuration.md)
 3. [분할-병합 보안 고려 사항](sql-database-elastic-scale-split-merge-security-configuration.md)
