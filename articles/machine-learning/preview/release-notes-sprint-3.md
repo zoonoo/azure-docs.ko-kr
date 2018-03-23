@@ -1,20 +1,20 @@
 ---
-title: "2018년 1월, 스프린트 3에 대한 Azure ML Workbench 릴리스 정보"
-description: "이 문서에서는 Azure ML의 스프린트 3 릴리스에 대한 업데이트를 자세히 설명합니다."
+title: 2018년 1월, 스프린트 3에 대한 Azure ML Workbench 릴리스 정보
+description: 이 문서에서는 Azure ML의 스프린트 3 릴리스에 대한 업데이트를 자세히 설명합니다.
 services: machine-learning
-author: raymondlaghaeian
-ms.author: raymondl
+author: hning86
+ms.author: haining
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/22/2018
-ms.openlocfilehash: 266a56d5e247fd4926031e563c8be302599838eb
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: fa209ba2259ae82796556fc1229cd6944c7a2ae1
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="sprint-3---january-2018"></a>스프린트 3 - 2018년 1월 
 

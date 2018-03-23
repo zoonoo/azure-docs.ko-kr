@@ -1,12 +1,12 @@
 ---
-title: "Azure Load Balancer 표준 개요 | Microsoft Docs"
-description: "Azure Load Balancer 표준 기능 개요"
+title: Azure Load Balancer 표준 개요 | Microsoft Docs
+description: Azure Load Balancer 표준 기능 개요
 services: load-balancer
 documentationcenter: na
 author: KumudD
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/04/2018
 ms.author: kumud
-ms.openlocfilehash: ddbfb415f062396f022f0f58cb975f6e3a5f1807
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 7e4fa38145ac21aaca8efa37250cc32ef1b1655c
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-load-balancer-standard-overview-preview"></a>Azure Load Balancer 표준 개요(미리 보기)
 
@@ -327,7 +327,7 @@ SKU는 변경할 수 없습니다. 이 섹션의 단계에 따라 리소스 SKU 
 
 ## <a name="region-availability"></a>지역 가용성
 
-Load Balancer 표준은 현재 모든 공용 클라우드 지역에서 사용할 수 있습니다.
+Load Balancer 표준은 현재, 미국 서부를 제외한 모든 공용 클라우드 지역에서 사용할 수 있습니다.
 
 >[!IMPORTANT]
 > 짧은 기간 동안 초기 실행 지역(미국 동부 2, 미국 중부, 북유럽, 미국 중서부, 유럽 서부, 동남 아시아) 이외의 지역에 액세스하려면 추가 구독 기능(AllowLBPreviewWave2 및 AllowLBPreviewWave3)에 등록해야 합니다.  [다음 단계를 따르세요](#additionalpreviewregions). 이전에 AllowLBPreview에 이미 등록한 경우에도 모든 단계를 실행하시기 바랍니다.
@@ -467,6 +467,7 @@ Load Balancer 표준 SKU 요금은 구성한 규칙과 처리된 데이터를 �
 - 현재 [Azure Monitor 경고](../monitoring-and-diagnostics/monitoring-overview-alerts.md)는 지원되지 않습니다.
 - 포털에서 아직 확장된 미리 보기 지역을 지원하지 않습니다.  템플릿, Azure CLI 2.0 또는 PowerShell 등의 클라이언트 도구를 임시 해결책으로 사용하세요.
 - 구독 이동 작업은 지원되지 않습니다.
+- 미국 서부에서는 사용할 수 없습니다.
 
 
 ## <a name="next-steps"></a>다음 단계

@@ -1,11 +1,11 @@
 ---
-title: "Azure Active Directory Domain Services: 보안 LDAP 구성 문제 해결 | Microsoft Docs"
-description: "Azure AD Domain Services에 대한 보안 LDAP 문제 해결"
+title: 'Azure Active Directory Domain Services: 보안 LDAP 구성 문제 해결 | Microsoft Docs'
+description: Azure AD Domain Services에 대한 보안 LDAP 문제 해결
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: eringreenlee
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: 81208c0b-8d41-4f65-be15-42119b1b5957
 ms.service: active-directory-ds
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: ergreenl
-ms.openlocfilehash: f80de47f8e9ba326fc224a8bc09f8029b5afd1ca
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 38885caacfb98f76627854a782aa56d8a609aad9
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-ad-domain-services---troubleshooting-secure-ldap-configuration"></a>Azure AD Domain Services - 보안 LDAP 구성 문제 해결
 
@@ -58,7 +58,7 @@ ms.lasthandoff: 03/02/2018
 
 *관리되는 도메인에 대한 보안 LDAP 인증서는 XX에 만료됩니다.*
 
-**재구성:**
+**해결 방법:**
 
 [보안 LDAP 구성](active-directory-ds-admin-guide-configure-secure-ldap.md) 아티클에 설명된 단계를 수행하여 새 보안 LDAP 인증서를 만듭니다.
 

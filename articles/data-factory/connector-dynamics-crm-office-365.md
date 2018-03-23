@@ -1,8 +1,8 @@
 ---
-title: "Azure Data Factory를 사용하여 Dynamics CRM 또는 Dynamics 365 간에 데이터 복사 | Microsoft Docs"
-description: "Azure Data Factory 파이프라인의 복사 작업을 사용하여 Dynamics CRM 또는 Dynamics 365에서 지원되는 싱크 데이터 저장소로, 또는 지원되는 원본 데이터 저장소에서 Dynamics CRM 또는 Dynamics 365로 데이터를 복사하는 방법에 대해 알아봅니다."
+title: Azure Data Factory를 사용하여 Dynamics CRM 또는 Dynamics 365 간에 데이터 복사 | Microsoft Docs
+description: Azure Data Factory 파이프라인의 복사 작업을 사용하여 Dynamics CRM 또는 Dynamics 365에서 지원되는 싱크 데이터 저장소로, 또는 지원되는 원본 데이터 저장소에서 Dynamics CRM 또는 Dynamics 365로 데이터를 복사하는 방법에 대해 알아봅니다.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
 manager: jhubbard
 editor: spelluru
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: b00c594f87a3126bd3f1548cd904adffcb214031
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: dc0b01e23ebb2695fd0365f054b3cacd2573f3c6
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="copy-data-from-and-to-dynamics-365-or-dynamics-crm-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Dynamics 365 또는 Dynamics CRM 간에 데이터 복사 
 
@@ -185,7 +185,7 @@ Dynamics 간에 데이터를 복사하려면 데이터 집합의 type 속성을 
                 "type": "Datetime"
             }
         ],
-        "typePoperties": {
+        "typeProperties": {
             "entityName": "account"
         },
         "linkedServiceName": {

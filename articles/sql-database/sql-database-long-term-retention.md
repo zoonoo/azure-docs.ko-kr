@@ -1,26 +1,19 @@
 ---
-title: "최대 10년 동안 Azure SQL Database 백업 저장 | Microsoft Docs"
-description: "Azure SQL Database에서 최대 10년 동안 백업을 저장하도록 지원하는 방법에 대해 알아봅니다."
-keywords: 
+title: 최대 10년 동안 Azure SQL Database 백업 저장 | Microsoft Docs
+description: Azure SQL Database에서 최대 10년 동안 백업을 저장하도록 지원하는 방법에 대해 알아봅니다.
 services: sql-database
-documentationcenter: 
 author: anosov1960
-manager: jhubbard
-editor: 
-ms.assetid: 66fdb8b8-5903-4d3a-802e-af08d204566e
+manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: On Demand
 ms.date: 12/22/2016
 ms.author: sashan
-ms.openlocfilehash: e44c92c3f37b3f1e3397d1c8cdb8c8f6d0f9942e
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 2f31e89fce2746e57d6a670aef949d0d534af4c1
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>최대 10년 동안 Azure SQL Database 백업 저장
 여러 응용 프로그램에서는 규정, 규정 준수 또는 기타 비즈니스를 목적으로 Azure SQL Database의 [자동 백업](sql-database-automated-backups.md)에서 제공하는 데이터베이스 백업을 7-35일 넘게 보존하도록 요구합니다. 장기 백업 보존 기능을 사용하면 Azure Recovery Services 자격 증명 모음에 SQL 데이터베이스 백업을 최대 10년 동안 저장할 수 있습니다. 자격 증명 모음당 최대 1,000개의 데이터베이스를 저장할 수 있습니다. 그런 후 자격 증명 모음에서 백업을 선택하여 새 데이터베이스로 복원할 수 있습니다.
@@ -156,7 +149,7 @@ Set-AzureRmSqlDatabaseBackupLongTermRetentionPolicy -ResourceGroupName 'RG1' -Se
 
 **SQL 보존 정책 내에서 여러 일정(매일, 매주, 매월, 매년)이 있을 수 있나요?**
 
-아니요, 현재는 가상 컴퓨터 백업에만 여러 일정을 사용할 수 있습니다.
+아니요, 현재는 가상 머신 백업에만 여러 일정을 사용할 수 있습니다.
 
 **활성 지역 복제 보조 데이터베이스에 장기 백업 보존을 설정하면 어떻게 되나요?**
 

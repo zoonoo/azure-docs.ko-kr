@@ -1,9 +1,9 @@
 ---
-title: "Azure AD Connect: Seamless Single Sign-On Single Sign-On - FAQ(질문과 대답) | Microsoft Docs"
-description: "Azure Active Directory Seamless Single Sign-On에 대한 질문과 대답입니다."
+title: 'Azure AD Connect: Seamless Single Sign-On Single Sign-On - FAQ(질문과 대답) | Microsoft Docs'
+description: Azure Active Directory Seamless Single Sign-On에 대한 질문과 대답입니다.
 services: active-directory
-keywords: "Azure AD Connect의 정의, Active Directory 설치, Azure AD에 대한 필수 구성 요소, SSO, Single Sign-on"
-documentationcenter: 
+keywords: Azure AD Connect의 정의, Active Directory 설치, Azure AD에 대한 필수 구성 요소, SSO, Single Sign-on
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2018
+ms.date: 03/07/2018
 ms.author: billmath
-ms.openlocfilehash: bbaed9ee5db895810fac476ea5bf560800b0bdec
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: 15155ecaf17ae309a218bb1f51a4757e5338f64c
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory Seamless Single Sign-On: FAQ(질문과 대답)
 
@@ -38,7 +38,16 @@ Seamless SSO는 [암호 해시 동기화](active-directory-aadconnectsync-implem
 
 ## <a name="what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso"></a>Seamless SSO의 `domain_hint` 또는 `login_hint` 매개 변수 기능을 활용하는 응용 프로그램은 무엇인가요?
 
-이러한 매개 변수를 보내는 응용 프로그램 목록과 그렇지 않은 응용 프로그램 목록을 작성하는 중입니다. 관심 있는 응용 프로그램이 있으시면 의견 섹션에 알려주세요.
+다음은 이러한 매개 변수를 Azure AD에 전송하는 응용 프로그램의 부분 목록으로, Seamless SSO를 사용하여 자동 로그온 환경을 제공합니다.
+
+| 응용 프로그램 이름 | 사용할 응용 프로그램 URL |
+| -- | -- |
+| 액세스 패널 | myapps.microsoft.com/contoso.com |
+| 웹용 Outlook | outlook.office365.com/contoso.com |
+
+위 표에 나오는 "contoso.com"을 도메인 이름으로 바꾸어 테넌트에 적절한 응용 프로그램 URL로 이동합니다.
+
+관심 있는 다른 응용 프로그램이 있으시면 의견 섹션에 알려주세요.
 
 ## <a name="does-seamless-sso-support-alternate-id-as-the-username-instead-of-userprincipalname"></a>Seamless SSO에서는 사용자 이름으로 `userPrincipalName` 대신 `Alternate ID`를 지원하는가요?
 

@@ -1,11 +1,11 @@
 ---
-title: "Azure Log Analytics의 로그 검색 | Microsoft Docs"
-description: "로그 검색을 통해 Log Analytics의 모든 데이터를 검색해야 합니다.  이 문서는 Log Analytics에서 새 로그 검색이 어떻게 사용되는지를 설명하고 새로 만들기 전에 이해해야 하는 개념을 제공합니다."
+title: Azure Log Analytics의 로그 검색 | Microsoft Docs
+description: 로그 검색을 통해 Log Analytics의 모든 데이터를 검색해야 합니다.  이 문서는 Log Analytics에서 새 로그 검색이 어떻게 사용되는지를 설명하고 새로 만들기 전에 이해해야 하는 개념을 제공합니다.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: 
+editor: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 09/29/2017
 ms.author: bwren
 ms.openlocfilehash: 5f040d1480433ccf4c0b2b22c0cf1e25a7151d74
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="understanding-log-searches-in-log-analytics"></a>Log Analytics의 로그 검색 이해
 

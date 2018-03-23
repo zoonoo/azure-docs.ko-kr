@@ -1,11 +1,11 @@
 ---
-title: "Azure에서 Linux VM용 SSH 키 쌍 만들기 및 사용 | Microsoft Docs"
-description: "Azure에서 인증 프로세스의 보안을 개선하기 위해 Linux VM용 SSH 공용 및 개인 키를 만들고 사용하는 방법입니다."
+title: Azure에서 Linux VM용 SSH 키 쌍 만들기 및 사용 | Microsoft Docs
+description: Azure에서 인증 프로세스의 보안을 개선하기 위해 Linux VM용 SSH 공용 및 개인 키를 만들고 사용하는 방법입니다.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 34ae9482-da3e-4b2d-9d0d-9d672aa42498
 ms.service: virtual-machines-linux
@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: a37bfa01343527a60193d893c7913e4e9c50d210
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: ecd3a01ee5591cb09140edb1b1290ff2d4510200
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="how-to-create-and-use-an-ssh-public-and-private-key-pair-for-linux-vms-in-azure"></a>Azure에서 Linux VM용 SSH 공개 및 개인 키 쌍을 만들고 사용하는 방법
 SSH(보안 셸) 키 쌍을 사용하면 인증을 위해 SSH 키를 사용하는 VM(가상 머신)을 Azure에서 만들 수 있으며 로그인하기 위해 암호가 필요하지 않게 됩니다. 이 문서에서는 Linux VM용 SSH 프로토콜 버전 2 RSA 공개 및 개인 키 파일 쌍을 신속하게 생성하고 사용하는 방법을 보여줍니다. Linux에서 Azure Cloud Shell, macOS 또는 Linux 호스트 또는 Windows 하위 시스템을 사용하여 이러한 단계를 완료할 수 있습니다. 자세한 단계 및 추가 예제는 [SSH 키 쌍 및 인증서를 만드는 자세한 단계](create-ssh-keys-detailed.md)를 참조하세요.
 
 ## <a name="create-an-ssh-key-pair"></a>SSH 키 쌍 만들기
-`ssh-keygen` 명령을 사용하여 기본적으로 `~/.ssh` 디렉터리에 생성되는 SSH 공개 및 개인 키 파일을 만들지만 메시지가 표시되면 다른 위치 및 추가 암호(개인 키 파일에 액세스하는 암호)를 지정할 수 있습니다. Bash 셸에서 다음 명령을 실행하여 사용자 고유의 정보로 프롬프트에 응답합니다.
+`ssh-keygen` 명령을 사용하여 `~/.ssh` 디렉터리에 기본적으로 생성되는 SSH 공용 및 개인 키 파일을 만듭니다. 요청될 경우 다른 위치 및 추가 암호(개인 키 파일에 액세스하기 위한 암호)를 지정할 수 있습니다. SSH 키 쌍이 현재 위치에 있으면 덮어쓰여집니다.
 
 ```bash
 ssh-keygen -t rsa -b 2048

@@ -1,13 +1,13 @@
 ---
-title: "Azure Functions C# 개발자 참조"
-description: "C#을 사용하여 Azure Functions를 개발하는 방법을 알아봅니다."
+title: Azure Functions C# 개발자 참조
+description: C#을 사용하여 Azure Functions를 개발하는 방법을 알아봅니다.
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
-keywords: "Azure Functions, 함수, 이벤트 처리, webhook, 동적 계산, 서버가 없는 아키텍처"
+editor: ''
+tags: ''
+keywords: Azure Functions, 함수, 이벤트 처리, webhook, 동적 계산, 서버가 없는 아키텍처
 ms.service: functions
 ms.devlang: dotnet
 ms.topic: reference
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: glenga
-ms.openlocfilehash: 9e9aa8a36d363ce28d61c5ba3cfe758520a626cf
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 70c4d6276970a781517fe49ec47e9b2ddb884c78
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure Functions C# 개발자 참조
 
@@ -134,7 +134,50 @@ public static class BindingExpressionsExample
 }
 ```
 
-*function.json* 파일 생성은 [Microsoft\.NET\.Sdk\.Functions](http://www.nuget.org/packages/Microsoft.NET.Sdk.Functions) NuGet 패키지에서 수행됩니다. 소스 코드는 [azure\-functions\-vs\-build\-sdk](https://github.com/Azure/azure-functions-vs-build-sdk) GitHub 리포지토리에서 사용할 수 있습니다.
+### <a name="microsoftnetsdkfunctions-nuget-package"></a>Microsoft.NET.Sdk.Functions NuGet 패키지
+
+*function.json* 파일 생성은 [Microsoft\.NET\.Sdk\.Functions](http://www.nuget.org/packages/Microsoft.NET.Sdk.Functions) NuGet 패키지에서 수행됩니다. 
+
+버전 1.x 및 2.x의 Functions 런타임 둘 다에 동일한 패키지가 사용됩니다. 대상 프레임워크가 1.x 프로젝트와 2.x 프로젝트에서 구분되는 측면입니다. 다음은 *.csproj* 파일의 관련 부분으로, 다른 대상 프레임워크와 동일한 `Sdk` 패키지를 보여 줍니다.
+
+**Functions 1.x**
+
+```xml
+<PropertyGroup>
+  <TargetFramework>net461</TargetFramework>
+</PropertyGroup>
+<ItemGroup>
+  <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="1.0.8" />
+</ItemGroup>
+```
+
+**Functions 2.x**
+
+```xml
+<PropertyGroup>
+  <TargetFramework>netstandard2.0</TargetFramework>
+  <AzureFunctionsVersion>v2</AzureFunctionsVersion>
+</PropertyGroup>
+<ItemGroup>
+  <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="1.0.8" />
+</ItemGroup>
+```
+
+`Sdk` 패키지 종속성에는 트리거 및 바인딩이 있습니다. .NET Framework를 대상으로 하므로 1.x 프로젝트는 1.x 트리거 및 바인딩을 참조하지만, 2.x 트리거 및 바인딩을 .NET Core를 대상으로 합니다.
+
+`Sdk` 패키지는 [Newtonsoft.Json](http://www.nuget.org/packages/Newtonsoft.Json)에도 종속되며, [WindowsAzure.Storage](http://www.nuget.org/packages/WindowsAzure.Storage)에는 간접적으로 종속됩니다. 이러한 종속성 때문에 프로젝트는 대상이 되는 Functions 런타임 버전에서 작동하는 패키지 버전을 사용하게 됩니다. 예를 들어, `Newtonsoft.Json`에는 .NET Framework 4.6.1용 버전 11이 있지만, .NET Framework 4.6.1을 대상으로 하는 Functions 런타임은 `Newtonsoft.Json` 9.0.1과만 호환됩니다. 따라서 해당 프로젝트의 함수 코드도 `Newtonsoft.Json` 9.0.1을 사용해야 합니다.
+
+`Microsoft.NET.Sdk.Functions`의 소스 코드는 [azure\-functions\-vs\-build\-sdk](https://github.com/Azure/azure-functions-vs-build-sdk) GitHub 리포지토리에서 사용할 수 있습니다.
+
+### <a name="runtime-version"></a>런타임 버전
+
+Visual Studio는 [Azure Functions 핵심 도구](functions-run-local.md#install-the-azure-functions-core-tools)를 사용하여 Functions 프로젝트를 실행합니다. 핵심 도구는 Function 런타임에 대한 명령줄 인터페이스입니다.
+
+npm을 사용하여 핵심 도구를 설치하는 경우 Visual Studio에서 사용되는 핵심 도구 버전에 영향을 주지 않습니다. Functions 런타임 버전 1.x의 경우, Visual Studio는 *%USERPROFILE%\AppData\Local\Azure.Functions.Cli*에 핵심 도구 버전을 저장하고 해당 위치에 저장된 최신 버전을 사용합니다. Functions 2.x의 경우, 핵심 도구는 **Azure Functions 및 Web Jobs Tools** 확장에 포함되어 있습니다. 1.x 및 2.x 둘 다, Functions 프로젝트를 실행할 때 콘솔 출력에 사용되는 버전을 확인할 수 있습니다.
+
+```terminal
+[3/1/2018 9:59:53 AM] Starting Host (HostId=contoso2-1518597420, Version=2.0.11353.0, ProcessId=22020, Debug=False, Attempt=0, FunctionsExtensionVersion=)
+```
 
 ## <a name="supported-types-for-bindings"></a>바인딩에 대해 지원되는 형식
 

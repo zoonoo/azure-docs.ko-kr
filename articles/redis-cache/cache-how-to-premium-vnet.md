@@ -1,11 +1,11 @@
 ---
-title: "프리미엄 Azure Redis Cache에 Virtual Network 구성 | Microsoft Docs"
-description: "프리미엄 계층 Azure Redis Cache 인스턴스에 대한 Virtual Network 지원을 만들고 관리하는 방법에 대해 알아봅니다."
+title: 프리미엄 Azure Redis Cache에 Virtual Network 구성 | Microsoft Docs
+description: 프리미엄 계층 Azure Redis Cache 인스턴스에 대한 Virtual Network 지원을 만들고 관리하는 방법에 대해 알아봅니다.
 services: redis-cache
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 8b1e43a0-a70e-41e6-8994-0ac246d8bf7f
 ms.service: cache
 ms.workload: tbd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: wesmc
-ms.openlocfilehash: 5ed5af627fa8ec8007f095face2cbf115ead4b27
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: ba3a7ccc059dd5036753f471b762e27f22a179af
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-redis-cache"></a>프리미엄 Azure Redis Cache에 Virtual Network 지원을 구성하는 방법 
 Azure Redis Cache에는 클러스터링, 지속성, 가상 네트워크 지원 등의 프리미엄 계층 기능을 포함하여 캐시 크기 및 기능을 유연하게 선택할 수 있는 다양한 캐시 제품이 있습니다. VNet은 클라우드의 개인 네트워크입니다. Azure Redis Cache 인스턴스를 VNet으로 구성한 경우 클라이언트에서만 공개적으로 주소를 지정할 수 없으며, VNet 내의 가상 머신 및 응용 프로그램에서만 액세스할 수 있습니다. 이 문서에서는 프리미엄 Azure Redis Cache에 가상 네트워크 지원을 구성하는 방법을 설명합니다.
@@ -38,7 +38,7 @@ VNet(Virtual Network) 지원은 캐시를 만드는 중에 **새 Redis 캐시** 
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-premium-create.md)]
 
-프리미엄 가격 책정 계층을 선택한 경우 캐시와 동일한 구독 및 위치에 있는 VNet을 선택하여 Redis VNet 통합을 구성할 수 있습니다. 새 VNet을 사용하려면 먼저 [Azure Portal을 사용하여 가상 네트워크(클래식) 만들기](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) 또는 [Azure Portal을 사용하여 가상 네트워크(클래식) 만들기](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)의 단계에 따라 VNet을 만든 다음 **새 Redis Cache** 블레이드로 돌아가 프리미엄 캐시를 만들고 구성합니다.
+프리미엄 가격 책정 계층을 선택한 경우 캐시와 동일한 구독 및 위치에 있는 VNet을 선택하여 Redis VNet 통합을 구성할 수 있습니다. 새 VNet을 사용하려면 먼저 [Azure Portal을 사용하여 가상 네트워크(클래식) 만들기](../virtual-network/manage-virtual-network.md#create-a-virtual-network) 또는 [Azure Portal을 사용하여 가상 네트워크(클래식) 만들기](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)의 단계에 따라 VNet을 만든 다음 **새 Redis Cache** 블레이드로 돌아가 프리미엄 캐시를 만들고 구성합니다.
 
 새 캐시에 대해 VNet을 구성하려면 **새 Redis Cache** 블레이드에서 **Virtual Network**를 클릭하고 드롭다운 목록에서 원하는 VNet을 선택합니다.
 

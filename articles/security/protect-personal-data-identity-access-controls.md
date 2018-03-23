@@ -1,29 +1,29 @@
 ---
-title: "Azure ID 및 액세스 제어를 사용하여 개인 데이터 보호 | Microsoft Docs"
-description: "Azure ID 및 액세스 제어를 사용하여 개인 데이터 보호를 보호합니다."
+title: Azure ID 및 액세스 제어를 사용하여 개인 데이터 보호 | Microsoft Docs
+description: Azure ID 및 액세스 제어는 개인 데이터를 보호하는 데 도움이 되며, GDPR(일반 데이터 보호 규정)을 준수하는 데 유용할 수 있습니다.
 services: security
 documentationcenter: na
 author: Barclayn
 manager: MBaldwin
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/13/2017
+ms.date: 03/06/2018
 ms.author: barclayn
-ms.custom: 
-ms.openlocfilehash: e6de9526a1a72cfc81caca51207e000f8b3673cc
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.custom: ''
+ms.openlocfilehash: fd3beb57cda4993f922fb935263b0e962b38da6a
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-active-directory-and-multi-factor-authentication-protect-personal-data-with-identity-and-access-controls"></a>Azure Active Directory 및 Multi-Factor Authentication: ID 및 액세스 제어를 사용하여 개인 데이터 보호
 
-이 문서에서는 Azure Active Directory 및 Multi-Factor Authentication 보안 기능 및 서비스를 사용하여 개인 데이터를 보호하는 데 사용할 수 있는 정보와 절차를 제공합니다.
+이 문서에서는 Azure Active Directory 및 Multi-Factor Authentication 보안 기능 및 서비스를 사용하여 개인 데이터를 보호하는 데 사용할 수 있는 정보와 절차를 제공합니다. 이 문서에 포함된 정보는 GDPR(일반 데이터 보호 규정)을 준수하기 위해 사용할 수 있습니다.
 
 ## <a name="scenario"></a>시나리오
 

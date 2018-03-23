@@ -1,25 +1,25 @@
 ---
-title: "C로 Linux 장치를 원격 모니터링에 프로비전 - Azure | Microsoft Docs"
-description: "Linux에서 실행되는 C로 작성된 응용 프로그램을 사용하여 미리 구성된 Azure IoT Suite 원격 모니터링 솔루션에 장치를 연결하는 방법을 설명합니다."
-services: 
+title: C로 Linux 장치를 원격 모니터링에 프로비전 - Azure | Microsoft Docs
+description: Linux에서 실행되는 C로 작성된 응용 프로그램을 사용하여 미리 구성된 Azure IoT Suite 원격 모니터링 솔루션에 장치를 연결하는 방법을 설명합니다.
+services: ''
 suite: iot-suite
 documentationcenter: na
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 0c7c8039-0bbf-4bb5-9e79-ed8cff433629
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2017
+ms.date: 03/14/2018
 ms.author: dobett
-ms.openlocfilehash: e4ed662c4dbe6da05582426f56e087020c05c6b8
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 2c6b245e938b44891314c3e752c064ff152f2c9a
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="connect-your-device-to-the-remote-monitoring-preconfigured-solution-linux"></a>미리 구성된 원격 모니터링 솔루션에 장치 연결(Linux)
 
@@ -81,7 +81,7 @@ Parson 리포지토리의 로컬 복사본에서 `parson.c` 및 `parson.h` 파�
 #include "schemaserializer.h"
 #include "azure_c_shared_utility/threadapi.h"
 #include "azure_c_shared_utility/platform.h"
-#include "parson.h"
+#include <string.h>
 ```
 
 [!INCLUDE [iot-suite-connecting-code](../../includes/iot-suite-connecting-code.md)]

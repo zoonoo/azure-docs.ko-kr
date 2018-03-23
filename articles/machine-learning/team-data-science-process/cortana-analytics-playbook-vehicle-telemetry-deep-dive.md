@@ -1,8 +1,8 @@
 ---
-title: "차량 상태 및 주행 습관을 예측하는 방법 심층 분석 - Azure | Microsoft Docs"
-description: "Cortana Intelligence의 기능을 사용하여 차량 상태 및 주행 습관에 대한 예측 가능한 통찰력 및 실시간 정보를 얻습니다."
+title: 차량 상태 및 주행 습관을 예측하는 방법 심층 분석 - Azure | Microsoft Docs
+description: Cortana Intelligence의 기능을 사용하여 차량 상태 및 주행 습관에 대한 예측 가능한 통찰력 및 실시간 정보를 얻습니다.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/24/2017
+ms.date: 03/14/2018
 ms.author: bradsev
-ms.openlocfilehash: a21316ef6ab05918f07a09243b5ce04950ecd9dc
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 370ab807ef85240238c51d1693796c26981edb15
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="vehicle-telemetry-analytics-solution-playbook-deep-dive-into-the-solution"></a>차량 원격 분석 솔루션 플레이 북: 솔루션에 대한 심층 분석
 이 메뉴는 다음 플레이 북의 섹션에 연결됩니다. 
@@ -58,7 +58,7 @@ ms.lasthandoff: 12/01/2017
 | Ignition_status |차량이 운행 중인지 정지 상태인지를 나타냅니다. |True 또는 False |
 | Windshield_wiper_status |방풍 와이퍼의 설정 여부를 나타냅니다. |True 또는 False |
 | ABS |ABS의 작동 여부를 나타냅니다. |True 또는 False |
-| Timestamp |데이터 요소가 생성된 타임스탬프 |Date |
+| 타임 스탬프 |데이터 요소가 생성된 타임스탬프 |Date |
 | City |차량의 위치 |이 솔루션의 경우 4개 도시: 벨뷰, 레드몬드, 사마미시, 시애틀 |
 
 차량 모델 참조 데이터 집합은 모델에 VIN을 매핑합니다. 

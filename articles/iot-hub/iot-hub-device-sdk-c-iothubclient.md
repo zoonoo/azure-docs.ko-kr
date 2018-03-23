@@ -1,11 +1,11 @@
 ---
-title: "C용 Azure IoT 장치 SDK – IoTHubClient | Microsoft Docs"
-description: "C용 Azure IoT 장치 SDK에서 IoTHubClient 라이브러리를 사용하여 IoT Hub와 통신하는 장치 앱을 만드는 방법입니다."
+title: C용 Azure IoT 장치 SDK – IoTHubClient | Microsoft Docs
+description: C용 Azure IoT 장치 SDK에서 IoTHubClient 라이브러리를 사용하여 IoT Hub와 통신하는 장치 앱을 만드는 방법입니다.
 services: iot-hub
-documentationcenter: 
-author: olivierbloch
+documentationcenter: ''
+author: yzhong94
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 828cf2bf-999d-4b8a-8a28-c7c901629600
 ms.service: iot-hub
 ms.devlang: cpp
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2017
-ms.author: obloch
-ms.openlocfilehash: 8428857bcd444f99ba2c0f6b31ff662d5596b591
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.author: yizhon
+ms.openlocfilehash: 6efd2980ce4dde99d934b3fe174d341fb68fac03
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-iothubclient"></a>C용 Azure IoT 장치 SDK – IoTHubClient에 대한 자세한 정보
 이 시리즈의 [첫 번째 문서](iot-hub-device-sdk-c-intro.md)에서는 **C용 Azure IoT 장치 SDK**에 대해 소개했습니다. 첫 번째 문서에서 SDK에 두 아키텍처 계층이 있다는 것을 설명했습니다. 맨 하단은 IoT Hub와의 통신을 직접 관리하는 **IoTHubClient** 라이브러리입니다. 직렬화 서비스를 제공하기 위해 위쪽에 구축되는 **serializer** 라이브러리도 있습니다. 이 문서에서는 **IoTHubClient** 라이브러리에 대한 추가 세부 정보를 제공합니다.

@@ -1,19 +1,19 @@
 ---
-title: "AKS에서 Azure File 사용"
-description: "AKS에서 Azure 디스크 사용"
+title: AKS에서 Azure File 사용
+description: AKS에서 Azure 디스크 사용
 services: container-service
 author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: article
-ms.date: 1/04/2018
+ms.date: 03/06/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: ce37cfdd70f95822a912f6ea71b9e4a3f9a30a14
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: a5126bc4c5e7c9cd9832f33fc908e6c8b9e02b91
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="persistent-volumes-with-azure-files"></a>Azure Files가 포함된 영구적 볼륨
 
@@ -21,7 +21,7 @@ ms.lasthandoff: 02/13/2018
 
 Kubernetes 영구적 볼륨에 대한 자세한 내용은 [Kubernetes 영구적 볼륨][kubernetes-volumes]을 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="create-storage-account"></a>저장소 계정 만들기
 
 Azure 파일 공유를 Kubernetes 볼륨으로 동적으로 프로비전하는 경우 AKS 클러스터와 동일한 리소스 그룹에 포함된 모든 저장소 계정을 사용할 수 있습니다. 필요한 경우 AKS 클러스터와 동일한 리소스 그룹에 저장소 계정을 만듭니다. 
 
@@ -31,7 +31,7 @@ Azure 파일 공유를 Kubernetes 볼륨으로 동적으로 프로비전하는 �
 az group list --output table
 ```
 
-다음 예제 출력은 둘 다 AKS 클러스터와 연관된 리소스 그룹을 보여 줍니다. *MC_myAKSCluster_myAKSCluster_eastus* 등의 이름을 사용하는 리소스 그룹에는 AKS 클러스터 리소스가 포함되며, 여기서 저장소 계정을 만들어야 합니다. 
+`MC_clustername_clustername_locaton`과 비슷한 이름의 리소스 그룹을 찾습니다. 여기서 clustername은 AKS 클러스터의 이름이고, location은 클러스터가 배포된 Azure 지역입니다.
 
 ```
 Name                                 Location    Status
@@ -40,17 +40,21 @@ MC_myAKSCluster_myAKSCluster_eastus  eastus      Succeeded
 myAKSCluster                         eastus      Succeeded
 ```
 
-리소스 그룹이 식별되면 [az storage account create][az-storage-account-create] 명령을 사용하여 저장소 계정을 만듭니다.
+[az storage account create][az-storage-account-create] 명령을 사용하여 저장소 계정을 만듭니다. 
+
+이 예제를 사용하고 `--resource-group`을 리소스 그룹의 이름으로, `--name`을 사용자가 선택한 이름으로 업데이트합니다.
 
 ```azurecli-interactive
-az storage account create --resource-group  MC_myAKSCluster_myAKSCluster_eastus --name mystorageaccount --location eastus --sku Standard_LRS
+az storage account create --resource-group MC_myAKSCluster_myAKSCluster_eastus --name mystorageaccount --location eastus --sku Standard_LRS
 ```
 
 ## <a name="create-storage-class"></a>저장소 클래스 만들기
 
-저장소 클래스는 동적으로 생성되는 영구적 볼륨의 구성 방법을 정의하는 데 사용됩니다. Azure 저장소 계정 이름, SKU, 지역 등의 항목은 저장소 클래스 개체에 정의됩니다. Kubernetes 저장소 클래스에 대한 자세한 내용은 [Kubernetes 저장소 클래스][kubernetes-storage-classes]를 참조하세요.
+저장소 클래스는 Azure 파일 공유를 만드는 방법을 정의하는 데 사용됩니다. 클래스에 특정 저장소 계정을 지정할 수 있습니다. 저장소 계정을 지정하지 않으면 `skuName` 및 `location`을 지정해야 하고, 연결된 리소스 그룹의 모든 저장소 계정이 일치하는지 평가됩니다.
 
-다음 예제에서는 저장소를 요청할 때 `eastus` 지역에 있는 SKU 유형 `Standard_LRS`의 모든 저장소 계정을 사용할 수 있도록 지정합니다. 
+Azure 파일의 Kubernetes 저장소 클래스에 대한 자세한 내용은 [Kubernetes 저장소 클래스][kubernetes-storage-classes]를 참조하세요.
+
+파일 `azure-file-sc.yaml`을 만들고 다음 매니페스트에 복사합니다. `storageAccount`를 대상 저장소 계정의 이름으로 업데이트합니다.
 
 ```yaml
 kind: StorageClass
@@ -59,29 +63,22 @@ metadata:
   name: azurefile
 provisioner: kubernetes.io/azure-file
 parameters:
-  skuName: Standard_LRS
+  storageAccount: mystorageaccount
 ```
 
-특정 저장소 계정을 사용하려면 `storageAccount` 매개 변수를 사용할 수 있습니다.
+[kubectl create][kubectl-create] 명령을 사용하여 저장소 클래스를 만듭니다.
 
-```yaml
-kind: StorageClass
-apiVersion: storage.k8s.io/v1
-metadata:
-  name: azurefile
-provisioner: kubernetes.io/azure-file
-parameters:
-  storageAccount: azure_storage_account_name
+```azurecli-interactive
+kubectl create -f azure-file-sc.yaml
 ```
 
 ## <a name="create-persistent-volume-claim"></a>영구적 볼륨 클레임 만들기
 
-영구적 볼륨 클레임은 저장소 클래스 개체를 사용하여 저장소 부분을 동적으로 프로비전합니다. Azure Files를 사용하는 경우 저장소 클래스 개체에서 선택 또는 지정된 저장소 계정에 Azure 파일 공유가 생성됩니다.
+PVC(영구적 볼륨 클레임)는 저장소 클래스 개체를 사용하여 Azure 파일 공유를 동적으로 프로비전합니다. 
 
->  [!NOTE]
->   AKS 클러스터 리소스와 동일한 리소스 그룹에 적합한 저장소 계정이 미리 생성되어 있어야 합니다. 이 리소스 그룹에는 *MC_myAKSCluster_myAKSCluster_eastus* 같은 이름이 지정됩니다. 저장소 계정을 사용할 수 없는 경우 영구적 볼륨 클레임을 통한 Azure 파일 공유 프로비전에 실패합니다. 
+다음 매니페스트를 사용하여 `ReadWriteOnce` 액세스 권한으로 크기가 `5GB`인 영구적 볼륨 클레임을 만들 수 있습니다.
 
-다음 매니페스트를 사용하여 `ReadWriteOnce` 액세스 권한으로 크기가 `5GB`인 영구적 볼륨 클레임을 만들 수 있습니다. PVC 액세스 모드에 대한 자세한 내용은 [액세스 모드][access-modes]를 참조하세요.
+파일 `azure-file-pvc.yaml`을 만들고 다음 매니페스트에 복사합니다. `storageClassName`이 마지막 단계에서 만든 저장소 클래스와 일치하는지 확인합니다.
 
 ```yaml
 apiVersion: v1
@@ -97,9 +94,19 @@ spec:
       storage: 5Gi
 ```
 
+[kubectl create][kubectl-create] 명령을 사용하여 영구 볼륨 클레임을 만듭니다.
+
+```azurecli-interactive
+kubectl create -f azure-file-pvc.yaml
+```
+
+완료되면 파일 공유가 생성됩니다. 연결 정보 및 자격 증명을 포함하는 Kubernetes 암호도 생성됩니다.
+
 ## <a name="using-the-persistent-volume"></a>영구적 볼륨 사용
 
-영구적 볼륨 클레임이 생성되고 저장소가 성공적으로 프로비전되면 볼륨에 액세스하여 Pod를 만들 수 있습니다. 다음 매니페스트는 영구적 볼륨 클레임 `azurefile`을 사용하여 `/var/www/html` 경로에 Azure 파일 공유를 탑재하는 Pod를 만듭니다. 
+다음 매니페스트는 영구적 볼륨 클레임 `azurefile`을 사용하여 `/mnt/azure` 경로에 Azure 파일 공유를 탑재하는 Pod를 만듭니다.
+
+파일 `azure-pvc-files.yaml`을 만들고 다음 매니페스트에 복사합니다. `claimName`이 마지막 단계에서 만든 PVC와 일치하는지 확인합니다.
 
 ```yaml
 kind: Pod
@@ -111,7 +118,7 @@ spec:
     - name: myfrontend
       image: nginx
       volumeMounts:
-      - mountPath: "/var/www/html"
+      - mountPath: "/mnt/azure"
         name: volume
   volumes:
     - name: volume
@@ -119,36 +126,13 @@ spec:
         claimName: azurefile
 ```
 
-## <a name="mount-options"></a>탑재 옵션
+[kubectl create][kubectl-create] 명령을 사용하여 Pod를 만듭니다.
 
-다음 표에 설명된 대로 Kubernetes 버전마다 기본 fileMode 및 dirMode 값이 다릅니다. 
-
-| 버전 | 값 |
-| ---- | ---- |
-| v1.6.x, v1.7.x | 0777 |
-| v1.8.0-v1.8.5 | 0700 |
-| v1.8.6 이상 | 0755 |
-| v1.9.0 | 0700 |
-| v1.9.1 이상 | 0755 |
-
-버전 1.8.5 이상의 클러스터를 사용하는 경우 저장소 클래스 개체에 탑재 옵션을 지정할 수 있습니다. 다음 예제에서는 `0777`을 설정합니다. 
-
-```yaml
-kind: StorageClass
-apiVersion: storage.k8s.io/v1
-metadata:
-  name: azurefile
-provisioner: kubernetes.io/azure-file
-mountOptions:
-  - dir_mode=0777
-  - file_mode=0777
-  - uid=1000
-  - gid=1000
-parameters:
-  skuName: Standard_LRS
+```azurecli-interactive
+kubectl create -f azure-pvc-files.yaml
 ```
 
-버전 1.8.0 - 1.8.4의 클러스터를 사용하는 경우 `runAsUser` 값을 `0`으로 설정하여 보안 컨텍스트를 지정할 수 있습니다. Pod 보안 컨텍스트에 대한 자세한 내용은 [보안 컨텍스트 구성][kubernetes-security-context]을 참조하세요.
+이제 Azure 디스크가 `/mnt/azure` 디렉터리에 탑재된 Pod가 실행되고 있습니다. `kubectl describe pod mypod`를 통해 Pod를 검사하여 볼륨 탑재를 확인할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -164,7 +148,7 @@ Azure Files를 사용하는 Kubernetes 영구적 볼륨에 대해 자세히 알�
 [kubernetes-files]: https://github.com/kubernetes/examples/blob/master/staging/volumes/azure_file/README.md
 [kubernetes-secret]: https://kubernetes.io/docs/concepts/configuration/secret/
 [kubernetes-security-context]: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
-[kubernetes-storage-classes]: https://kubernetes.io/docs/concepts/storage/storage-classes/
+[kubernetes-storage-classes]: https://kubernetes.io/docs/concepts/storage/storage-classes/#azure-file
 [kubernetes-volumes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/
 
 <!-- LINKS - internal -->

@@ -1,11 +1,11 @@
 ---
-title: "Azure Backup 에이전트 문제 해결 | Microsoft Docs"
-description: "Azure Backup 에이전트의 설치 및 등록 문제 해결"
+title: Azure Backup 에이전트 문제 해결 | Microsoft Docs
+description: Azure Backup 에이전트의 설치 및 등록 문제 해결
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: saurabhsensharma
 manager: shreeshd
-editor: 
+editor: ''
 ms.assetid: 778c6ccf-3e57-4103-a022-367cc60c411a
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -14,15 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/4/2017
 ms.author: saurse;markgal;
-ms.openlocfilehash: 52a32d61dd69110ace560fd1e52389140f322678
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: f7f4ac328c4e35f52bcc9708faf96d06189dd9ac
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="troubleshoot-azure-backup-agent-configuration-and-registration-issues"></a>Azure Backup 에이전트 구성 및 등록 문제 해결
 ## <a name="recommended-steps"></a>권장되는 단계
 Azure Backup 에이전트의 구성 또는 등록 중 발생할 수 있는 오류를 해결하려면 다음 표에서 권장 작업을 참조하세요.
+
+[!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 
 ## <a name="invalid-vault-credentials-provided-the-file-is-either-corrupted-or-does-not-have-the-latest-credentials-associated-with-recovery-service"></a>잘못된 자격 증명 모음이 제공되었습니다. 파일이 손상되었거나 복구 서비스와 연결된 최신 자격 증명이 없습니다.
 | 오류 세부 정보 | 가능한 원인 | 권장 작업 |

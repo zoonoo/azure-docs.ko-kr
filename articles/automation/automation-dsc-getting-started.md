@@ -1,24 +1,20 @@
 ---
-title: "Azure Automation DSC 시작하기 | Microsoft Docs"
-description: "Azure Automation DSC(필요한 상태 구성)에서 가장 일반적인 작업의 설명 및 예제"
+title: Azure Automation DSC 시작하기
+description: Azure Automation DSC(필요한 상태 구성)에서 가장 일반적인 작업의 설명 및 예제
 services: automation
-documentationcenter: na
-author: georgewallace
-manager: carmonm
-editor: tysonn
-ms.assetid: a3816593-70a3-403b-9a43-d5555fd2cee2
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: powershell
-ms.workload: na
-ms.date: 11/21/2016
-ms.author: magoedte;gwallace
-ms.openlocfilehash: ff23b4f5022597763728ccf301966c34c5423b34
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+manager: carmonm
+ms.devlang: na
+ms.tgt_pltfrm: na
+ms.openlocfilehash: e6e4df6fce783e7b4cc33d7f3c26136680ceb44f
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="getting-started-with-azure-automation-dsc"></a>Azure Automation DSC 시작하기
 이 문서에서는 Azure Automation DSC(필요한 상태 구성)로 만들기, 가져오기 및 구성 컴파일링, 관리할 컴퓨터 온보드 및 보고서 보기 등과 같은 가장 일반적인 작업을 수행하는 방법을 설명합니다. Azure Automation DSC가 무엇인지의 개요는 [Azure Automation DSC 개요](automation-dsc-overview.md)를 참조하세요. DSC 설명서는 [Windows PowerShell 필요한 상태 구성 개요](https://msdn.microsoft.com/PowerShell/dsc/overview)를 참조하세요.

@@ -1,11 +1,11 @@
 ---
-title: "Azure App Service IP 제한 | Microsoft Docs"
-description: "Azure App Service에 IP 제한을 사용하는 방법"
+title: Azure App Service IP 제한 | Microsoft Docs
+description: Azure App Service에 IP 제한을 사용하는 방법
 author: btardif
 manager: stefsch
-editor: 
+editor: ''
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 3be1f4bd-8a81-4565-8a56-528c037b24bd
 ms.service: app-service-web
 ms.workload: web
@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/23/2017
 ms.author: byvinyal
-ms.openlocfilehash: 551f34436dfeac14bb6e8676dd7c9b10d30a3af3
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 72416cfcd05767b223cc92ac28bd0e736516ddf6
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-app-service-static-ip-restrictions"></a>Azure App Service 고정 IP 제한 #
 
@@ -32,7 +32,7 @@ IP 제한은 앱에 할당된 것과 동일한 App Service 계획 인스턴스�
 
 앱에 IP 제한 규칙을 추가하려면 메뉴를 사용하여 **네트워크**>**IP 제한**을 열고 **IP 제한 구성**을 클릭합니다.
 
-![IP restrictions] (media/app-service-ip-restrictions/ip-restrictions.png)
+![IP 제한](media/app-service-ip-restrictions/ip-restrictions.png)  
 
 여기서 앱에 대해 정의된 IP 제한 규칙 목록을 검토할 수 있습니다.
 

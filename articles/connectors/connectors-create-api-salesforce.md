@@ -1,11 +1,11 @@
 ---
-title: "논리 앱에서 Salesforce 커넥터 사용 방법 알아보기 | Microsoft Docs"
-description: "Azure 앱 서비스로 논리 앱을 만듭니다. Salesforce 커넥터는 Salesforce 개체와 함께 작동하는 API를 제공합니다."
+title: 논리 앱에서 Salesforce 커넥터 사용 방법 알아보기 | Microsoft Docs
+description: Azure 앱 서비스로 논리 앱을 만듭니다. Salesforce 커넥터는 Salesforce 개체와 함께 작동하는 API를 제공합니다.
 services: logic-apps
 documentationcenter: .net,nodejs,java
-author: MandiOhlinger
+author: ecfan
 manager: anneta
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: 54fe5af8-7d2a-4da8-94e7-15d029e029bf
 ms.service: logic-apps
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/05/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: 2bb865924191418c12b9fea37edfbfb282f334eb
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: 6ab7c6cf9a0ef86956e3b3d58c5da96c38deaa49
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-salesforce-connector"></a>Salesforce 커넥터 시작
 Salesforce 커넥터는 Salesforce 개체와 함께 작동하는 API를 제공합니다.

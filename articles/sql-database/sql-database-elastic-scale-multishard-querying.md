@@ -1,25 +1,19 @@
 ---
-title: "분할된 Azure SQL Database 쿼리 | Microsoft Docs"
-description: "분할된 데이터베이스간의 쿼리를 실행할 때는 탄력적 데이터베이스 클라이언트 라이브러리를 사용합니다."
+title: 분할된 Azure SQL Database 쿼리 | Microsoft Docs
+description: 분할된 데이터베이스간의 쿼리를 실행할 때는 탄력적 데이터베이스 클라이언트 라이브러리를 사용합니다.
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: torsteng
-editor: 
-ms.assetid: a4379c15-f213-4026-ab6f-a450ee9d5758
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
-ms.author: torsteng
-ms.openlocfilehash: 33128357bd5b2bd744c5c1c3032f658ebe865d49
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.author: sstein
+ms.openlocfilehash: 2712968f2929c48318e781fa846a8de525a0ef0c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="multi-shard-querying"></a>다중 분할된 데이터베이스 쿼리
 ## <a name="overview"></a>개요
@@ -32,7 +26,7 @@ ms.lasthandoff: 12/01/2017
 5. **ExecuteQueryAsync 또는 ExecuteReader**([Java](), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardcommand.executereader.aspx)) 메서드를 호출하여 이 명령을 실행합니다.
 6. **MultiShardResultSet 또는 MultiShardDataReader**([Java](/java/api/com.microsoft.azure.elasticdb.query.multishard._multi_shard_result_set), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multisharddatareader.aspx)) 클래스를 사용하여 결과를 확인합니다. 
 
-## <a name="example"></a>예제
+## <a name="example"></a>예
 다음 코드는 **myShardMap** 이라는 *ShardMap*을 사용하는 다중 분할된 데이터베이스 쿼리를 보여 줍니다. 
 
 ```csharp

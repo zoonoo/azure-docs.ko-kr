@@ -1,9 +1,9 @@
 ---
-title: "Azure Active Directory Connect: Seamless Single Sign-On 문제 해결 | Microsoft Docs"
-description: "이 항목에서는 Azure Active Directory Seamless Single Sign-On 문제를 해결하는 방법을 설명합니다."
+title: 'Azure Active Directory Connect: Seamless Single Sign-On 문제 해결 | Microsoft Docs'
+description: 이 항목에서는 Azure Active Directory Seamless Single Sign-On 문제를 해결하는 방법을 설명합니다.
 services: active-directory
-keywords: "Azure AD Connect의 정의, Active Directory 설치, Azure AD에 대한 필수 구성 요소, SSO, Single Sign-on"
-documentationcenter: 
+keywords: Azure AD Connect의 정의, Active Directory 설치, Azure AD에 대한 필수 구성 요소, SSO, Single Sign-on
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
@@ -12,36 +12,41 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 03/07/2018
 ms.author: billmath
-ms.openlocfilehash: aa28431c5926656ae97ded3f23b83f2a91c60487
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: 6e81ea9f98733b1b7e0c9bf7466ac844a37b6046
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory Seamless Single Sign-On 문제 해결
 
 이 문서에서는 Azure AD(Azure Active Directory) Seamless SSO(Seamless Single Sign-On)와 관련된 일반적인 문제에 대한 문제 해결 정보를 찾을 수 있습니다.
 
-## <a name="known-problems"></a>알려진 문제
+## <a name="known-issues"></a>알려진 문제
 
 - 경우에 따라 Seamless SSO를 활성화하는 데 최대 30분이 소요될 수 있습니다.
 - 테넌트에서 Seamless SSO를 사용하지 않도록 설정했다가 다시 사용하도록 설정하면, 일반적으로 10시간 동안 유효한 캐시된 Kerberos 티켓이 만료될 때까지 Single Sign-On 환경을 사용할 수 없게 됩니다.
 - Edge 브라우저는 지원되지 않습니다.
-- 특히 공유 컴퓨터 시나리오에서 Office 클라이언트를 시작하면 사용자에 대한 추가 로그인 프롬프트가 표시됩니다. 사용자는 자신의 사용자 이름을 자주 입력해야 하지만, 암호는 입력할 필요가 없습니다.
 - Seamless SSO가 성공하면 사용자에게 **로그인 유지**를 선택하는 기회가 제공되지 않습니다. 이 동작으로 인해 SharePoint 및 OneDrive 매핑 시나리오가 작동하지 않습니다.
+- 16.0.8730.xxxx 이전 버전의 Office 클라이언트는 Seamless SSO와의 비대화형 로그인을 지원하지 않습니다. 해당 클라이언트에서 사용자는 로그인하기 위해 사용자 이름을 입력해야 하지만 암호는 입력하지 않아도 됩니다.
 - Firefox의 개인 검색 모드에서는 Seamless SSO가 작동하지 않습니다.
 - [향상된 보호] 모드가 설정되어 있는 경우 Internet Explorer에서 Seamless SSO가 작동하지 않습니다.
 - iOS 및 Android의 모바일 브라우저에서는 Seamless SSO가 작동하지 않습니다.
 - 30개 이상의 Active Directory 포리스트를 동기화하는 경우 Azure AD Connect를 통해 Seamless SSO를 활성화할 수 없습니다. 이 경우 테넌트에서 이 기능을 [수동으로 활성화](#manual-reset-of-azure-ad-seamless-sso)하여 해결할 수 있습니다.
-- 로컬 인트라넷 영역 대신 신뢰할 수 있는 사이트 영역에 Azure AD 서비스 URL(https://autologon.microsoftazuread-sso.com 및 https://aadg.windows.net.nsatc.net)을 추가하면 *사용자가 로그인하지 못하도록 차단됩니다*.
+- 로컬 인트라넷 영역 대신 신뢰할 수 있는 사이트 영역에 Azure AD 서비스 URL(https://autologon.microsoftazuread-sso.com)을 추가하면 *사용자가 로그인하지 못하도록 차단됩니다*.
+- Active Directory 설정에서 Kerberos에 대해 **RC4_HMAC_MD5** 암호화 유형의 사용을 해제하면 Seamless SSO가 차단됩니다. 그룹 정책 관리 편집기 도구에서 **컴퓨터 구성 > Windows 설정 > 보안 설정 > 로컬 정책 > 보안 옵션 > “네트워크 보안: Kerberos에 허용된 암호화 유형 구성”**에서 **RC4_HMAC_MD5**에 대한 정책 값이 “Enabled”인지 확인합니다.
 
-## <a name="check-the-status-of-the-feature"></a>기능 상태 확인
+## <a name="check-status-of-feature"></a>기능의 상태 확인
 
 테넌트에서 Seamless SSO 기능이 여전히 **활성화**되어 있는지 확인합니다. [Azure Active Directory 관리 센터](https://aad.portal.azure.com/)의 **Azure AD Connect** 창으로 이동하여 상태를 확인할 수 있습니다.
 
 ![Azure Active Directory 관리 센터: Azure AD Connect 창](./media/active-directory-aadconnect-sso/sso10.png)
+
+클릭하면서 Seamless SSO에 대해 설정된 모든 AD 포리스트를 확인합니다.
+
+![Azure Active Directory 관리 센터: Seamless SSO 창](./media/active-directory-aadconnect-sso/sso13.png)
 
 ## <a name="sign-in-failure-reasons-in-the-azure-active-directory-admin-center-needs-a-premium-license"></a>Azure Active Directory 관리 센터에서 로그인이 실패한 이유(프리미엄 라이선스 필요)
 
@@ -70,7 +75,7 @@ ms.lasthandoff: 01/05/2018
 
 - Azure AD Connect에서 Seamless SSO 기능을 사용할 수 있는지 확인합니다. 차단된 포트 등과 같은 이유로 기능을 사용할 수 없으면 모든 [필수 구성 요소](active-directory-aadconnect-sso-quick-start.md#step-1-check-the-prerequisites)가 제대로 갖추어져 있는지 확인합니다.
 - 테넌트에서 [Azure AD Join](../active-directory-azureadjoin-overview.md) 및 Seamless SSO를 둘 다 사용하도록 설정한 경우에는 Azure AD Join의 문제는 아닌지 확인합니다. 장치가 Azure AD에 등록되고 도메인에 가입된 경우 Azure AD Join의 SSO가 Seamless SSO보다 우선합니다. Azure AD Join의 SSO를 사용하면 "Windows에 연결됨"이라는 로그인 타일이 표시됩니다.
-- 이러한 Azure AD URL(https://autologon.microsoftazuread-sso.com 및 https://aadg.windows.net.nsatc.net )이 모두 사용자의 인트라넷 영역 설정의 일부인지 확인합니다.
+- Azure AD URL(https://autologon.microsoftazuread-sso.com)이 사용자의 인트라넷 영역 설정에 속하는지 확인합니다.
 - 회사 장치가 Active Directory 도메인에 조인되어 있는지 확인합니다.
 - 사용자가 Active Directory 도메인 계정을 통해 장치에 로그온되어 있는지 확인합니다.
 - Seamless SSO가 설정된 Active Directory 포리스트에 사용자의 계정이 있는지 확인합니다.

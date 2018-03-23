@@ -1,25 +1,19 @@
 ---
-title: "Azure SQL Database 응용 프로그램 성능을 개선하기 위해 일괄 처리를 사용하는 방법"
-description: "이 문서는 데이터베이스 작업을 일괄 처리하면 Azure SQL Database 응용 프로그램의 속도와 확장성이 매우 향상된다는 증거를 제공합니다. 이러한 일괄 처리 기법은 SQL Server 데이터베이스에 적용되지만 이 문서는 Azure에 중점을 두었습니다."
+title: Azure SQL Database 응용 프로그램 성능을 개선하기 위해 일괄 처리를 사용하는 방법
+description: 이 문서는 데이터베이스 작업을 일괄 처리하면 Azure SQL Database 응용 프로그램의 속도와 확장성이 매우 향상된다는 증거를 제공합니다. 이러한 일괄 처리 기법은 SQL Server 데이터베이스에 적용되지만 이 문서는 Azure에 중점을 두었습니다.
 services: sql-database
-documentationcenter: na
 author: stevestein
-manager: jhubbard
-editor: 
-ms.assetid: 563862ca-c65a-46f6-975d-10df7ff6aa9c
+manager: craigg
 ms.service: sql-database
 ms.custom: develop apps
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: On Demand
 ms.date: 07/12/2016
 ms.author: sstein
-ms.openlocfilehash: 8622bddc809c9d95f7acf359ff708d5ab31cf620
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 5c7846fdd8d6a7584cab2b4f3811151332171ba4
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>SQL Database 응용 프로그램 성능을 개선하기 위해 일괄 처리를 사용하는 방법
 Azure SQL Database에 대한 일괄 처리 작업은 응용 프로그램의 성능 및 확장성을 상당히 향상시킵니다. 장점을 이해할 수 있도록, 이 문서의 첫 번째 부분에서는 SQL Database에 대한 순차적인 요청과 일괄 처리된 요청을 비교하는 샘플 테스트 결과를 설명합니다. 문서의 나머지 부분은 Azure 응용 프로그램에서 일괄 처리를 성공적으로 사용하는데 도움이 되는 기법, 시나리오, 고려 사항을 보여줍니다.

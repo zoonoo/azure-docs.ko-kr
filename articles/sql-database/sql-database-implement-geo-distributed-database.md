@@ -1,26 +1,19 @@
 ---
-title: "지리적으로 분산된 Azure SQL Database 솔루션 구현 | Microsoft Docs"
-description: "Azure SQL Database와 응용 프로그램을 복제된 데이터베이스로 장애 조치하도록 구성하고 장애 조치를 테스트합니다."
+title: 지리적으로 분산된 Azure SQL Database 솔루션 구현 | Microsoft Docs
+description: Azure SQL Database와 응용 프로그램을 복제된 데이터베이스로 장애 조치하도록 구성하고 장애 조치를 테스트합니다.
 services: sql-database
-documentationcenter: 
 author: CarlRabeler
-manager: jhubbard
-editor: 
-tags: 
-ms.assetid: 
+manager: craigg
 ms.service: sql-database
 ms.custom: mvc,business continuity
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: On Demand
 ms.date: 05/26/2017
 ms.author: carlrab
-ms.openlocfilehash: 910be8ff5f9a882c7bb8ae875b8bf5fc74d1fb9a
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: ea94a311d409d8c5d6142746dc1009ff67ef3a82
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="implement-a-geo-distributed-database"></a>지리적으로 분산된 데이터베이스 구현
 

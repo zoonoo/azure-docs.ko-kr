@@ -1,25 +1,20 @@
 ---
-title: "분할-병합 보안 구성 | Microsoft Docs"
-description: "탄력적 크기 조정을 위해 분할/병합 서비스를 통해 암호화에 대해 409 인증서를 설정합니다."
+title: 분할-병합 보안 구성 | Microsoft Docs
+description: 탄력적 크기 조정을 위해 분할/병합 서비스를 통해 암호화에 대해 409 인증서를 설정합니다.
 metakeywords: Elastic Database certificates security
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: torsteng
-ms.assetid: f9e89c57-61a0-484f-b787-82dae2349cb6
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2016
-ms.author: torsteng
-ms.openlocfilehash: 98f046a943c1fe33b421b3ab6830d78e6c4304a0
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.author: sstein
+ms.openlocfilehash: c07ba1e74daace546bae4f4209842312136914a3
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="split-merge-security-configuration"></a>분할-병합 보안 구성
 분할/병합 서비스를 사용하려면 보안을 올바르게 구성해야 합니다. 서비스는 Microsoft Azure SQL Database의 탄력적인 확장 기능에 속합니다. 자세한 내용은 [탄력적인 확장 분할 및 병합 서비스 자습서](sql-database-elastic-scale-configure-deploy-split-and-merge.md)를 참조하세요.
@@ -390,7 +385,7 @@ CA 공개 키가 포함된 기존 또는 생성된 .CER 파일과 함께 인증�
 3. **인증서**를 선택합니다.
 4. **추가**를 클릭합니다.
 5. 인증서 저장소 위치를 선택합니다.
-6. **마침**을 클릭합니다.
+6. **Finish**를 클릭합니다.
 7. **확인**을 클릭합니다.
 8. **인증서**를 확장합니다.
 9. 인증서 저장소 노드를 확장합니다.
@@ -400,17 +395,17 @@ CA 공개 키가 포함된 기존 또는 생성된 .CER 파일과 함께 인증�
 ## <a name="export-certificate"></a>인증서 내보내기
 **인증서 내보내기 마법사**에서 다음을 수행합니다.
 
-1. **다음**을 누릅니다.
+1. **다음**을 클릭합니다.
 2. **예**, **개인 키 내보내기**를 선택합니다.
-3. **다음**을 누릅니다.
+3. **다음**을 클릭합니다.
 4. 원하는 출력 파일 형식을 선택합니다.
 5. 원하는 옵션을 선택합니다.
 6. **암호**를 확인합니다.
 7. 강력한 암호를 입력하고 이를 확인합니다.
-8. **다음**을 누릅니다.
+8. **다음**을 클릭합니다.
 9. 인증서를 저장할 파일 이름을 입력하거나 찾습니다(.PFX 확장명을 사용하여).
 10. **다음**을 누릅니다.
-11. **마침**을 클릭합니다.
+11. **Finish**를 클릭합니다.
 12. **확인**을 클릭합니다.
 
 ## <a name="import-certificate"></a>인증서 가져오기
@@ -420,7 +415,7 @@ CA 공개 키가 포함된 기존 또는 생성된 .CER 파일과 함께 인증�
    
    * 현재 사용자 계정으로 실행되는 프로세스만 서비스에 액세스하는 경우 **현재 사용자** 를 선택합니다.
    * 컴퓨터의 다른 프로세스에서 서비스에 액세스하는 경우 **로컬 컴퓨터** 를 선택합니다.
-2. **다음**을 누릅니다.
+2. **다음**을 클릭합니다.
 3. 파일에서 가져오는 경우 파일 경로를 확인합니다.
 4. .PFX 파일을 가져오는 경우:
    1. 개인 키를 보호하는 암호를 입력합니다.

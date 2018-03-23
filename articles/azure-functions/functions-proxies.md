@@ -1,12 +1,12 @@
 ---
-title: "Azure Functions에서 프록시 사용 | Microsoft Docs"
-description: "Azure Functions 프록시를 사용하는 방법의 개요"
+title: Azure Functions에서 프록시 사용 | Microsoft Docs
+description: Azure Functions 프록시를 사용하는 방법의 개요
 services: functions
-documentationcenter: 
+documentationcenter: ''
 author: alexkarcher-msft
 manager: cfowler
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: functions
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: 75b568c12fd58d5599b6878dedb6c2266b6cb649
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 0e7fe474c3b247baa6550770c661af62e83b3737
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="work-with-azure-functions-proxies"></a>Azure Functions 프록시 사용
 
@@ -106,7 +106,7 @@ Azure Functions 프록시를 사용해서 백 엔드에서 요청 및 응답을 
 
 ## <a name="debugProxies"></a>프록시 문제 해결
 
-`"debug":true` 플래그를 `proxy.json`의 프록시에 추가하면 디버그 로깅을 사용하도록 설정됩니다. 로그는 `D:\home\LogFiles\Application\Proxies\DetailedTrace`에 저장되며 고급 도구(kudu)를 통해 액세스할 수 있습니다. 모든 HTTP 응답에는 로그 파일에 액세스할 수 있는 URL이 포함된 `Proxy-Trace-Location` 헤더도 포함됩니다.
+`"debug":true` 플래그를 `proxies.json`의 프록시에 추가하면 디버그 로깅을 사용하도록 설정됩니다. 로그는 `D:\home\LogFiles\Application\Proxies\DetailedTrace`에 저장되며 고급 도구(kudu)를 통해 액세스할 수 있습니다. 모든 HTTP 응답에는 로그 파일에 액세스할 수 있는 URL이 포함된 `Proxy-Trace-Location` 헤더도 포함됩니다.
 
 `true`로 설정된 `Proxy-Trace-Enabled` 헤더를 추가하면 클라이언트 쪽에서 프록시를 디버그할 수 있습니다. 또한 파일 시스템에 추적을 기록하며 추적 URL을 응답의 헤더로 반환합니다.
 
@@ -114,7 +114,7 @@ Azure Functions 프록시를 사용해서 백 엔드에서 요청 및 응답을 
 
 보안상의 이유로 서비스 호출자가 추적을 생성하도록 허용하지 않을 수 있습니다. 로그인 자격 증명이 없으면 추적 내용에 액세스할 수 없지만 추적을 생성하면 리소스가 소비되고 Function 프록시가 사용되는 것이 노출됩니다.
 
-`proxy.json`의 특정 프록시에 `"debug":false`를 추가하면 추적을 완전히 사용하지 않도록 설정됩니다.
+`proxies.json`의 특정 프록시에 `"debug":false`를 추가하면 추적을 완전히 사용하지 않도록 설정됩니다.
 
 ## <a name="advanced-configuration"></a>고급 구성
 

@@ -1,33 +1,33 @@
 ---
-title: "Microsoft Azure에서 개인 데이터 보호 | Microsoft Docs"
-description: "Azure를 사용하여 개인 데이터를 보호하는 데 도움이 되는 문서 시리즈의 첫 번째 문서입니다."
+title: Microsoft Azure에서 개인 데이터 보호 | Microsoft Docs
+description: 이 문서는 Azure를 사용하여 개인 데이터를 보호하고 GDPR(일반 데이터 보호 규정)을 준수하는 데 도움을 줍니다.
 services: security
 documentationcenter: na
 author: Barclayn
 manager: MBaldwin
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2017
+ms.date: 03/06/2018
 ms.author: barclayn
-ms.custom: 
-ms.openlocfilehash: 4dbdb2dc11bdc515fb3856dd45203868122c7726
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: ''
+ms.openlocfilehash: 741fb17be315faacef6483cbaaa565136622cb45
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="protect-personal-data-in-microsoft-azure"></a>Microsoft Azure에서 개인 데이터 보호
 
-이 문서에서는 Azure 보안 기술 및 서비스를 사용하여 개인 데이터를 보호하는 데 도움이 되는 일련의 문서를 소개합니다. 이는 많은 기업 및 업계의 규정 준수 및 거버넌스 이니셔티브의 핵심 요구 사항입니다. 여기에는 시나리오, 문제 설명 및 회사 목표가 포함됩니다.
+이 문서에서는 Azure 보안 기술 및 서비스를 사용하여 개인 데이터를 보호하는 데 도움이 되는 일련의 문서를 소개합니다. 이는 많은 기업 및 업계의 규정 준수 및 거버넌스 이니셔티브의 핵심 요구 사항입니다. 예를 들어, 이 문서 시리즈에 제공된 정보를 사용하여 GDPR(일반 데이터 보호 규정)을 준수할 수 있습니다. 여기에는 시나리오, 문제 설명 및 회사 목표가 포함됩니다.
 
 ## <a name="scenario-and-problem-statement"></a>시나리오 및 문제 설명
 
-미국에 본사를 둔 대형 크루즈 회사는 영국 제도뿐만 아니라 지중해, 아드리아해 및 발트해 연안의 여정도 제공하도록 사업을 확장하고 있습니다. 이러한 노력을 지원하기 위해 이탈리아, 독일, 덴마크 및 영국에 기반을 둔 몇 개의 소형 크루즈 라인을 인수했습니다.
+미국에 본사를 둔 대형 크루즈 회사는 영국 제도뿐만 아니라 지중해, 아드리아해 및 발트해의 여정을 제공하기 위해 운영을 확대하고 있습니다. 이러한 노력을 지원하기 위해 이탈리아, 독일, 덴마크 및 영국에 기반을 둔 몇 개의 소형 크루즈 라인을 인수했습니다.
 
 회사에서 Microsoft Azure를 사용하여 클라우드에 회사 데이터를 저장합니다. 여기에는 다음과 같은 고객 및/또는 직원 정보가 포함될 수 있습니다.
 

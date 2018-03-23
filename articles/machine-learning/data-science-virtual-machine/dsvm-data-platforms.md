@@ -1,29 +1,29 @@
 ---
-title: "데이터 과학 가상 컴퓨터에 대한 데이터 플랫폼 - Azure | Microsoft Docs"
-description: "데이터 과학 가상 컴퓨터에 대한 데이터 플랫폼."
-keywords: "데이터 과학 도구, 데이터 과학 가상 컴퓨터, 데이터 과학용 도구, linux 데이터 과학"
+title: 데이터 과학 Virtual Machine에 대한 데이터 플랫폼 - Azure | Microsoft Docs
+description: 데이터 과학 Virtual Machine에 대한 데이터 플랫폼.
+keywords: 데이터 과학 도구, 데이터 과학 가상 머신, 데이터 과학용 도구, linux 데이터 과학
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/11/2017
-ms.author: gokuma;bradsev
-ms.openlocfilehash: 9b8beb51c555c6125fa3b0abbad892d627a180b9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 03/16/2018
+ms.author: gokuma;
+ms.openlocfilehash: 921ccf67e5e0320e742066186b7929643536424f
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="data-platforms"></a>데이터 플랫폼
 
-데이터 과학 가상 컴퓨터 (DSVM)를 사용하여 광범위한 데이터 플랫폼에 대한 분석을 빌드할 수 있습니다. 원격 데이터 플랫폼에 대 한 인터페이스를 외에도 DSVM 신속 하 게 개발 및 프로토타입 생성에 대 한 로컬 인스턴스를 제공합니다. 
+데이터 과학 Virtual Machine(DSVM)을 사용하여 광범위한 데이터 플랫폼에 대한 분석을 빌드할 수 있습니다. 원격 데이터 플랫폼에 대 한 인터페이스를 외에도 DSVM 신속 하 게 개발 및 프로토타입 생성에 대 한 로컬 인스턴스를 제공합니다. 
 
 다음은 DSVM에서 지원되는 데이터 플랫폼 도구입니다. 
 
@@ -57,7 +57,7 @@ SQL Server Management Studio를 실행하려면 프로그램 목록에서 "SQL S
 
 또한 DSVM은 Python, R을 포함하여 여러 언어로 작성된 응용 프로그램에서 Microsoft SQL Server 및 Azure SQL databases, Microsoft Azure SQL Data Warehouse와 통신하는 ODBC 드라이버와 JDBC 드라이버가 함께 제공됩니다. 
 
-### <a name="how-is-it-configured--installed-on-the-dsvm"></a>그것은 DSVM에 어떻게 구성/설치됩니까? 
+### <a name="how-is-it-configured--installed-on-the-dsvm"></a>DSVM에 구성/설치 방법 
 
 Microsoft SQL Server는 표준 방식으로 설치됩니다. 그것은 `C:\Program Files\Microsoft SQL Server`에서 찾을 수 있습니다. In‑database R은 `C:\Program Files\Microsoft SQL Server\MSSQL13.MSSQLSERVER\R_SERVICES`에 있습니다. DSVM에는 또한 `C:\Program Files\Microsoft\R Server\R_SERVER`에 별도 설치된 독립 실행형 Microsoft R Server 인스턴스가 있습니다. 이들 두 R 인스턴스는 라이브러리를 공유하지 않습니다.
 
@@ -68,9 +68,9 @@ Microsoft SQL Server는 표준 방식으로 설치됩니다. 그것은 `C:\Progr
 | ------------- | ------------- |
 | 무엇인가요?   | 빠른 대규모 데이터 처리 및 기계 학습을 위한 시스템인, 많이 사용되는 Apache Spark 플랫폼의 독립 실행형(단일 노드 In Process) 인스턴스     |
 | 지원되는 DSVM 버전      | Linux <br /> Windows (실험적)      |
-| 일반적인 사용      | * 더 작은 데이터 집합을 사용하여 로컬에서 빠르게 Spark/PySpark 응용 프로그램을 개발하고 나중에 Azure HDInsight와 같은 큰 Spark 클러스터에 배포합니다<br/> * Microsoft R Server Spark 컨텍스트를 테스트합니다. <br />* SparkML 또는 Microsoft의 오픈 소스인 [MMLSpark](https://github.com/Azure/mmlspark) 라이브러리를 사용하여 ML 응용 프로그램을 빌드합니다  |
+| 일반적인 사용 용도      | * 더 작은 데이터 집합을 사용하여 로컬에서 빠르게 Spark/PySpark 응용 프로그램을 개발하고 나중에 Azure HDInsight와 같은 큰 Spark 클러스터에 배포합니다<br/> * Microsoft R Server Spark 컨텍스트를 테스트합니다. <br />* SparkML 또는 Microsoft의 오픈 소스인 [MMLSpark](https://github.com/Azure/mmlspark) 라이브러리를 사용하여 ML 응용 프로그램을 빌드합니다  |
 | 샘플에 대한 링크      |    Jupyter 샘플: <br />&nbsp;&nbsp;* ~/notebooks/SparkML/pySpark <br /> &nbsp;&nbsp;* ~/notebooks/MMLSpark <br /> Microsoft R Server(Spark 컨텍스트): /dsvm/samples/MRS/MRSSparkContextSample.R |
-| DSVM에 관련된 도구       | PySpark, Scala<br/>Jupyter (Spark/PySpark 커널)<br/>Microsoft R Server, SparkR, Sparklyr <br />Apache Drill      |
+| DSVM의 관련 도구       | PySpark, Scala<br/>Jupyter (Spark/PySpark 커널)<br/>Microsoft R Server, SparkR, Sparklyr <br />Apache Drill      |
 
 ### <a name="how-to-use-it"></a>사용 방법
 명령줄에서 `spark-submit` 또는 `pyspark` 명령으로 Spark 작업을 제출하여 Spark를 실행할 수 있습니다. 또한 Spark 커널로 새 노트북을 만듦으로써 Jupyter 노트북을 만들 수 있습니다. 

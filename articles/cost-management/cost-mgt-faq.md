@@ -1,24 +1,24 @@
 ---
-title: "Azure Cost Management에 대한 질문과 대답 | Microsoft Docs"
-description: "Azure Cost Management에 대한 일반적인 질문에 대한 답변을 제공합니다."
+title: Azure Cost Management에 대한 질문과 대답 | Microsoft Docs
+description: Azure Cost Management에 대한 일반적인 질문에 대한 답변을 제공합니다.
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 02/14/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
-ms.custom: 
-ms.openlocfilehash: 0d33f434dccae7836ae7774afbdf9b80d4685eb4
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.custom: ''
+ms.openlocfilehash: 8920ff082fa1b442aa147068080085c40760e290
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="frequently-asked-questions-for-azure-cost-management"></a>Azure Cost Management에 대한 질문과 대답
 
-이 문서에서는 Azure Cost Management(Cloudyn이라고도 함)에 대한 몇 가지 일반적인 질문을 다룹니다. Cost Management에 대한 질문이 있는 경우 [FAQs for Azure Cost Management by Cloudyn](https://social.msdn.microsoft.com/Forums/en-US/231bf072-2c71-4121-8339-ac9d868137b9/faqs-for-azure-cost-management-by-cloudyn?forum=Cloudyn)(Cloudyn의 Azure Cost Management에 대한 질문과 대답)에서 질문할 수 있습니다.
+이 문서에서는 Azure Cost Management(Cloudyn이라고도 함)에 대한 몇 가지 일반적인 질문을 다룹니다. Cost Management에 대한 질문이 있는 경우 [FAQs for Azure Cost Management](https://social.msdn.microsoft.com/Forums/en-US/231bf072-2c71-4121-8339-ac9d868137b9/faqs-for-azure-cost-management-by-cloudyn?forum=Cloudyn)(Azure Cost Management에 대한 질문과 대답)에서 질문할 수 있습니다.
 
 ## <a name="how-can-i-resolve-common-indirect-enterprise-setup-problems"></a>간접 기업의 일반적인 설정 문제를 해결하는 방법은 무엇일까요?
 

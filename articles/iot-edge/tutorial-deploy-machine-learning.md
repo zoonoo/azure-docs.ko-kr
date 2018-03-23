@@ -1,19 +1,19 @@
 ---
-title: "Azure IoT Edge를 사용하여 Azure Machine Learning 배포 | Microsoft Docs"
-description: "Azure Machine Learning을 Edge 장치에 모듈로 배포"
+title: Azure IoT Edge를 사용하여 Azure Machine Learning 배포 | Microsoft Docs
+description: Azure Machine Learning을 Edge 장치에 모듈로 배포
 services: iot-edge
-keywords: 
+keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 12/13/2017
+ms.date: 03/06/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: a0131fdbbf926d59eae06089cde109649a1433b8
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: e2314f589456f604c8c008e10fb8084e0524575d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="deploy-azure-machine-learning-as-an-iot-edge-module---preview"></a>Azure Machine Learning을 IoT Edge 모듈로 배포 - 미리 보기
 
@@ -27,14 +27,13 @@ ms.lasthandoff: 01/12/2018
 > * Azure Machine Learning 모듈을 IoT Edge 장치에 배포
 > * 생성된 데이터 보기
 
-이 자습서에서 만든 Azure Machine Learning 모듈은 장치에서 생성된 온도 데이터를 판독하고 오류를 예측할 경우에만 Azure IoT Hub로 메시지 업스트림을 보냅니다. 
+이 자습서에서 만드는 Azure Machine Learning 모듈은 장치에서 생성된 환경 데이터를 읽고, 메시지에 비정상 레이블을 지정하기도 합니다. 
 
-
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 * 빠른 시작 또는 첫 번째 자습서에서 만든 Azure IoT Edge 장치
 * IoT Edge 장치를 연결할 IoT Hub용 IoT Hub 연결 문자열
-* Azure Machine Learning 계정입니다. 계정을 만들려면 [Azure Machine Learning 미리 보기 계정 만들기 및 Azure Machine Learning Workbench 설치](../machine-learning/preview/quickstart-installation.md#create-azure-machine-learning-accounts)의 지침을 따릅니다. 이 자습서에 사용하기 위해 워크벤치 응용 프로그램을 설치할 필요는 없습니다. 
+* Azure Machine Learning 계정입니다. 계정을 만들려면 [Azure Machine Learning 미리 보기 계정 만들기 및 Azure Machine Learning Workbench 설치](../machine-learning/preview/quickstart-installation.md#create-azure-machine-learning-services-accounts)의 지침을 따릅니다. 이 자습서에 사용하기 위해 워크벤치 응용 프로그램을 설치할 필요는 없습니다. 
 * 컴퓨터에 있는 Azure ML용 모듈 관리입니다. 환경을 설정하고 계정을 만들려면 [모델 관리 설정](https://docs.microsoft.com/azure/machine-learning/preview/deployment-setup-configuration)의 지침을 따릅니다.
 
 ## <a name="create-the-azure-ml-container"></a>Azure ML 컨테이너 만들기
@@ -108,7 +107,7 @@ Windows:
 
 ## <a name="view-generated-data"></a>생성된 데이터 보기
 
-Visual Studio Code에 대해 Azure IoT Toolkit 확장을 사용하여 IoT Edge 장치에서 보내는 장치-클라우드 메시지를 볼 수 있습니다. 
+Visual Studio Code에 대해 [IoT Hub 탐색기](https://github.com/azure/iothub-explorer) 또는 Azure IoT Toolkit 확장을 사용하여 IoT Edge 장치에서 보내는 장치-클라우드 메시지를 볼 수 있습니다. 
 
 1. Visual Studio Code에서 **IoT Hub 장치**를 선택합니다. 
 2. **...**를 선택하고 나서 메뉴에서 **IoT Hub 연결 문자열 설정**을 선택합니다. 
@@ -117,7 +116,7 @@ Visual Studio Code에 대해 Azure IoT Toolkit 확장을 사용하여 IoT Edge �
 
 3. 페이지의 맨 위에 열리는 텍스트 상자에 IoT Hub의 iothubowner 연결 문자열을 입력합니다. IoT Edge 장치가 IoT Hub 장치 목록에 표시됩니다.
 4. **...**를 다시 선택한 후 **D2C 메시지 모니터링 시작**을 선택합니다.
-5. 5초마다 tempSensor에서 받은 메시지를 관찰합니다. 이 메시지에는 machinelearningmodule이 장치 상태 평가와 함께 추가됩니다. 
+5. 5초마다 tempSensor에서 보낸 메시지를 관찰합니다. 메시지 본문에 machinelearningmodule이 true 또는 false 값을 제공하는 **anomaly**라는 속성이 포함되어 있습니다. **AzureMLResponse** 속성에는 모델이 성공적으로 실행된 경우 값 "OK"가 포함됩니다. 
 
    ![메시지 본문의 Azure ML 응답](./media/tutorial-deploy-machine-learning/ml-output.png)
 

@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect 동기화: 기본 구성 이해 | Microsoft Docs"
-description: "이 문서에서는 Azure AD Connect 동기화의 기본 구성을 설명합니다."
+title: 'Azure AD Connect 동기화: 기본 구성 이해 | Microsoft Docs'
+description: 이 문서에서는 Azure AD Connect 동기화의 기본 구성을 설명합니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: ed876f22-6892-4b9d-acbe-6a2d112f1cd1
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 87f513ffd2e8854085d9dfcd399148082de37698
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: dba7a6fcf936e9610a5f1f04e367d32e9aae6643
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Azure AD Connect 동기화: 기본 구성 이해
 이 문서는 기본 구성 규칙을 설명합니다. 규칙 및 해당 규칙이 구성에 어떤 영향을 주는지를 문서화합니다. 또한 Azure AD Connect 동기화의 기본 구성을 안내합니다. 목표는 판독기로 선언적 프로비전이라고 명명된 구성 모델이 실제 예제에서 작동하는 방식을 이해하는 것입니다. 이 문서에서는 설치 마법사를 사용하여 Azure AD Connect 동기화를 설치한 뒤 구성하는 상황을 가정합니다.
@@ -50,7 +50,7 @@ ms.lasthandoff: 01/18/2018
 * Exchange Online에서 작동하지 않는 개체를 동기화하지 않습니다.
   `CBool(IIF(IsPresent([msExchRecipientTypeDetails]),BitAnd([msExchRecipientTypeDetails],&H21C07000) > 0,NULL))`  
   이 비트 마스크(&amp;H21C07000)는 다음 개체도 필터링합니다.
-  * 메일 사용 공용 폴더
+  * 메일 사용이 가능한 공용 폴더(미리 보기 버전 1.1.524.0부터)
   * 시스템 도우미 사서함
   * 사서함 데이터베이스 사서함(시스템 사서함)
   * 유니버설 보안 그룹(사용자에 대해 적용하지 않지만 레거시를 지원하기 위해 존재합니다)

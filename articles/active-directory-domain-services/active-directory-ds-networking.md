@@ -1,8 +1,8 @@
 ---
-title: "Azure AD 도메인 서비스: 네트워킹 지침 | Microsoft Docs"
-description: "Azure Active Directory Domain Services의 네트워킹 고려 사항"
+title: 'Azure AD 도메인 서비스: 네트워킹 지침 | Microsoft Docs'
+description: Azure Active Directory Domain Services의 네트워킹 고려 사항
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2017
+ms.date: 03/08/2018
 ms.author: maheshu
-ms.openlocfilehash: a6f0089f13de10ba8bc1f9a656a2d21f9c559047
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: eee7905db4faedef3217118e8d491e2cb019fa30
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="networking-considerations-for-azure-ad-domain-services"></a>Azure AD 도메인 서비스의 네트워킹 고려 사항
 ## <a name="how-to-select-an-azure-virtual-network"></a>Azure 가상 네트워크를 선택하는 방법
@@ -53,6 +53,7 @@ ms.lasthandoff: 01/18/2018
 * 관리되는 도메인 전용 서브넷에는 NSG를 적용하지 않습니다. 전용 서브넷에 NSG를 적용해야 하는 경우 **도메인을 서비스하고 관리하는 데 필요한 포트를 차단하지 마십시오**.
 * 관리되는 도메인의 전용 서브넷에서 사용할 수 있는 IP 주소의 수를 지나치게 제한하지 않습니다. 이 제한으로 인해 서비스에서 두 도메인 컨트롤러를 관리되는 도메인에 사용할 수 없게 됩니다.
 * 가상 네트워크의 **게이트웨이 서브넷에서 Azure AD Domain Services를 사용하지 않습니다**.
+* 관리되는 도메인이 사용되도록 설정되는 서브넷에서의 아웃바운드 액세스를 차단하지 않도록 합니다.
 
 > [!WARNING]
 > NSG를 Azure AD 도메인 서비스가 활성화된 서브넷에 연결하는 경우 Microsoft의 도메인 서비스 및 관리 기능에 방해가 될 수 있습니다. 또한 Azure AD 테넌트와 관리되는 도메인 간의 동기화가 중단됩니다. **SLA는 Azure AD Domain Services에서 도메인을 업데이트하고 관리하지 못하도록 차단하는 NSG를 적용한 배포에는 적용되지 않습니다.**
@@ -89,6 +90,8 @@ ms.lasthandoff: 01/18/2018
 * 이 포트는 인터넷을 통한 관리되는 도메인에 대한 보안 LDAP 액세스를 사용하거나 사용하지 않도록 설정하는 데 사용됩니다.
 * NSG를 통해 이 포트를 여는 것은 선택 사항입니다. 인터넷을 통한 보안 LDAP 액세스를 사용하도록 설정한 경우에만 이 포트를 엽니다.
 * 이 포트에 대한 인바운드 액세스를 보안 LDAP를 통해 연결하려는 원본 IP 주소로 제한할 수 있습니다.
+
+**아웃바운드 액세스** AAD Domain Services는 관리되는 도메인을 관리, 백업 및 모니터링하기 위해 여러 다양한 Azure 서비스에 아웃바운드로 액세스해야 합니다. 관리되는 도메인이 사용되도록 설정되는 전용 서브넷에서의 아웃바운드 액세스를 차단하지 않도록 합니다.
 
 
 ## <a name="network-security-groups"></a>네트워크 보안 그룹

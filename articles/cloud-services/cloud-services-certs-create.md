@@ -1,11 +1,11 @@
 ---
-title: "Cloud Services 및 관리 인증서 | Microsoft Docs"
-description: "Microsoft Azure에서 인증서를 만들고 사용하는 방법 알아보기"
+title: Cloud Services 및 관리 인증서 | Microsoft Docs
+description: Microsoft Azure에서 인증서를 만들고 사용하는 방법 알아보기
 services: cloud-services
 documentationcenter: .net
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: fc70d00d-899b-4771-855f-44574dc4bfc6
 ms.service: cloud-services
 ms.workload: tbd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: adegeo
-ms.openlocfilehash: 4032a429901c675436cb5e7fb04aa5645925fa30
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 6a1e4f5316cc0321c1409f9e48daeae6ee483bf6
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Azure Cloud Services 인증서 개요
 인증서는 Azure에서 클라우드 서비스([서비스 인증서](#what-are-service-certificates))와 관리 API([관리 인증서](#what-are-management-certificates))를 통한 인증에 사용됩니다. 이 항목에서는 두 가지 인증서 형식에 대한 일반적인 개요와 인증서를 [만들고](#create) Azure에 [배포하는](#deploy) 방법을 살펴봅니다.
@@ -28,7 +28,7 @@ Azure에서 사용되는 인증서는 x.509 v3 인증서이며 다른 신뢰할 
 Azure에서 사용하는 인증서에는 개인 또는 공개 키가 포함될 수 있습니다. 인증서에는 지문이 포함되어 있어 모호하지 않은 방식의 식별 수단을 제공합니다. 이 지문은 Azure [구성 파일](cloud-services-configure-ssl-certificate-portal.md) 에서 클라우드 서비스가 사용할 인증서를 식별하는 데 사용됩니다. 
 
 ## <a name="what-are-service-certificates"></a>서비스 인증서란 무엇인가요?
-서비스 인증서는 클라우드 서비스에 첨부되며 서비스와 보안 통신을 사용할 수 있도록 해줍니다. 예를 들어 웹 역할을 배포한 경우 노출된 HTTPS 끝점을 인증할 수 있는 인증서를 제공하려고 할 것입니다. 서비스 정의에 있는 서비스 인증서는 자동으로 해당 역할 인스턴스를 실행하는 가상 컴퓨터에 배포됩니다. 
+서비스 인증서는 클라우드 서비스에 첨부되며 서비스와 보안 통신을 사용할 수 있도록 해줍니다. 예를 들어 웹 역할을 배포한 경우 노출된 HTTPS 끝점을 인증할 수 있는 인증서를 제공하려고 할 것입니다. 서비스 정의에 있는 서비스 인증서는 자동으로 해당 역할 인스턴스를 실행하는 가상 머신에 배포됩니다. 
 
 Azure Portal을 사용하거나 클래식 배포 모델을 사용하여 서비스 인증서를 Azure Portal에 업로드할 수 있습니다. 서비스 인증서는 특정 클라우드 서비스와 연관됩니다. 서비스 정의 파일에서 배포에 할당됩니다.
 
@@ -47,8 +47,6 @@ Azure Portal을 사용하거나 클래식 배포 모델을 사용하여 서비�
 
 ### <a name="limitations"></a>제한 사항
 관리 인증서는 구독당 100개로 제한됩니다. 특정 서비스 관리자의 사용자 ID에서 모든 구독에 대한 관리 인증서가 100개로 제한되기도 합니다. 계정 관리자의 사용자 ID가 이미 관리 인증서 100개를 추가하는 데 사용되었으나 인증서가 더 필요한 경우 공동 관리자를 추가하여 인증서를 더 추가할 수 있습니다. 
-
-100개가 넘는 인증서를 추가하기 전에 기존 인증서를 다시 사용할 수 있는지 확인해보세요. 공동 관리자를 사용하면 인증서 관리 프로세스에 불필요한 복잡성이 가중될 수 있습니다.
 
 <a name="create"></a>
 ## <a name="create-a-new-self-signed-certificate"></a>자체 서명된 새로운 인증서 만들기

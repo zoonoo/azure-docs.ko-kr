@@ -1,8 +1,8 @@
 ---
-title: "Azure에서 Windows 데이터 과학 Virtual Machine 프로비전 | Microsoft Docs"
-description: "분석 및 기계 학습을 수행하기 위해 Azure에서 데이터 과학 Virtual Machine 구성 및 만들기"
+title: Azure에서 Windows 데이터 과학 Virtual Machine 프로비전 | Microsoft Docs
+description: 분석 및 기계 학습을 수행하기 위해 Azure에서 데이터 과학 Virtual Machine 구성 및 만들기
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: bradsev
-ms.openlocfilehash: 6f933c75d4829e3b2c5198aeee324f15490d8a93
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 9f01ba69f6511a3f9a7f99e379522be3c00554f5
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="provision-the-windows-data-science-virtual-machine-on-azure"></a>Azure에서 Windows 데이터 과학 Virtual Machine 프로비전
 Microsoft 데이터 과학 Virtual Machine은 데이터 분석 및 기계 학습에 흔히 사용되는 몇 가지 인기 있는 도구로 사전 설치 및 구성된 Microsoft Azure VM(가상 머신) 이미지입니다. 포함된 도구는 다음과 같습니다.
@@ -33,15 +33,13 @@ Microsoft 데이터 과학 Virtual Machine은 데이터 분석 및 기계 학습
 * [JuliaPro](https://juliacomputing.com/products/juliapro.html)
 * 기계 학습 및 데이터 분석 도구
   * 심화 학습 프레임워크: [Microsoft Cognitive 도구 키트](https://www.microsoft.com/en-us/cognitive-toolkit/), [TensorFlow](https://www.tensorflow.org/), [Chainer](https://chainer.org/), mxNet, Keras를 비롯한 다양한 AI 프레임 워크가 VM에 포함되어 있습니다.
-  * 
-            [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): 온라인, 해시, allreduce, 축소, learning2search, 활성 및 대화형 학습 등의 기술을 지원하는 속성 기계 학습 시스템.
+  * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): 온라인, 해시, allreduce, 축소, learning2search, 활성 및 대화형 학습 등의 기술을 지원하는 속성 기계 학습 시스템.
   * [XGBoost](https://xgboost.readthedocs.org/en/latest/): 기능이 향상된 빠르고 정확한 트리 구현을 제공하는 도구
   * [Rattle](http://rattle.togaware.com/)(R Analytical Tool To Learn Easily): R에서 데이터 분석 및 기계 학습을 쉽게 시작할 수 있도록 하는 도구입니다. GUI 기반 데이터 탐색 및 자동 R 코드 생성을 통한 모델링을 지원합니다.
   * [Weka](http://www.cs.waikato.ac.nz/ml/weka/): Java 형식의 시각적인 데이터 마이닝 및 기계 학습 소프트웨어.
   * [Apache Drill](https://drill.apache.org/): Hadoop, NoSQL 및 클라우드 저장소용의 스키마가 없는 SQL 쿼리 엔진.  NoSQL 및 PowerBI, Excel, Tableau와 같은 표준 BI 도구의 파일에 쿼리가 가능하도록 ODBC 및 JDBC 인터페이스를 지원합니다.
 * Azure Machine Learning 및 기타 Azure 서비스에서 사용하기 위한 R 및 Python의 라이브러리
-* GitHub, Visual Studio Team Services를 포함하는 소스 코드 리포지토리에 작동하는 Git Bash를 포함하는 Git
-* 명령 프롬프트를 통해 액세스할 수 있는 몇 가지 인기 있는 Linux 명령줄 유틸리티(awk, sed, perl, grep, find, wget, curl 등 포함)의 Windows 포트 
+* Git은 GitHub, Visual Studio Team Services를 비롯한 소스 코드 리포지토리를 사용하기 위한 Git Bash를 포함하며, git-bash 및 명령 프롬프트 둘 다에서 액세스할 수 있는 인기 있는 여러 Linux 명령줄 유틸리티(awk, sed, perl, grep, find, wget, curl 등 포함)를 제공합니다. 
 
 데이터 과학을 수행하려면 일련의 작업에 대해 다음 작업을 반복합니다.
 
@@ -74,7 +72,7 @@ Microsoft 데이터 과학 Virtual Machine의 인스턴스를 만들려면 다�
    1. **기본 사항**
       
       1. **이름**: 만들려는 데이터 과학 서버 이름
-      2. **VM 디스크 유형**: SSD 또는 HDD 중 선택합니다. GPU(NC 시리즈)의 경우 **HDD**를 디스크 유형으로 선택합니다. 
+      2. **VM 디스크 유형**: SSD 또는 HDD 중 선택합니다. NC_v1 GPU 인스턴스(NVidia Tesla K80 기반)의 경우 디스크 유형으로 **HDD**를 선택합니다. 
       3. **사용자 이름**: 관리자 계정 로그인 ID
       4. **암호**: 관리자 계정 암호
       5. **구독**: 둘 이상의 구독을 보유한 경우, 컴퓨터를 만들고 요금을 청구할 구독 하나를 선택합니다.
@@ -100,35 +98,28 @@ VM이 만들어지고 프로비전되면 여기에 설치 및 구성되는 도�
 
 ## <a name="tools-installed-on-the-microsoft-data-science-virtual-machine"></a>Microsoft 데이터 과학 Virtual Machine에 설치된 도구
 
-### <a name="azure-machine-learning-workbench"></a>Azure Machine Learning Workbench
 
-Azure Machine Learning Workbench는 데스크톱 응용 프로그램 및 명령줄 인터페이스입니다. 워크벤치에는 사용자가 데이터 준비를 수행할 때 해당 단계를 학습한 데이터 준비가 기본 제공됩니다. 생산성을 높이도록 프로젝트 관리, 실행 기록 및 노트북 통합도 제공됩니다. TensorFlow, Cognitive 도구 키트, Spark ML 및 모델 개발을 위한 scikit-learn을 비롯한 최고의 오픈 소스 프레임워크를 활용할 수 있습니다. DSVM에 Azure Machine Learning Workbench를 각 사용자의 %LOCALAPPDATA% 디렉터리에 로컬로 추출하기 위한 바탕 화면 아이콘(InstallAMLFromLocal)이 제공됩니다. Workbench를 사용해야 하는 각 사용자는 각자의 Workbench 인스턴스를 설치하기 위해 InstallAMLFromLocal 바탕 화면 아이콘을 두 번 클릭하는 일회성 작업을 수행해야 합니다. 또한 Azure Machine Learning은 %LOCALAPPDATA%\amlworkbench\python에 추출되는 사용자별 Python 환경을 만들고 사용합니다.
 
 ### <a name="microsoft-ml-server-developer-edition"></a>Microsoft ML Server 디벨로퍼 버전
 분석을 위해 확장성 있는 R 또는 Python용 Microsoft 엔터프라이즈 라이브러리를 사용하려는 경우 VM에 Microsoft ML Server 디벨로퍼 버전(이전에는 Microsoft R Server로 알려져 있음)이 설치되어 있습니다. Microsoft ML Server는 R 및 Python 모두에 사용할 수 있고 광범위하게 배치할 수 있는 엔터프라이즈급 분석 플랫폼이며 확장성 있고 상업적으로 지원되며 안전합니다. ML Server는 다양한 빅 데이터 통계, 예측 모델링 및 기계 학습 기능을 지원하며 탐색, 분석, 시각화 및 모델링의 전 범위 분석을 지원합니다. Microsoft ML Server는 오픈 소스 R 및 Python을 사용하고 확장하여 R/Python 스크립트, 함수 및 CRAN/pip/Conda 패키지와 완벽하게 호환되기 때문에 엔터프라이즈 규모로 데이터를 분석할 수 있습니다. 또한 데이터의 병렬 및 청크된 처리를 추가하여 오픈 소스 R의 메모리 내 한계를 해결합니다. 이렇게 하면 사용자가 주 메모리에 맞는 것보다 훨씬 큰 데이터에서 분석을 실행할 수 있습니다.  VM에 포함된 Visual Studio Community Edition에는 R 또는 Python 작업을 위한 전체 IDE를 제공하는 Visual Studio용 R 도구 및 Visual Studio용 Python 도구 확장이 포함되어 있습니다. 또한 VM에 [RStudio](http://www.rstudio.com) 및 [PyCharm Community 버전](https://www.jetbrains.com/pycharm/)과 같은 다른 IDE도 제공됩니다. 
 
 ### <a name="python"></a>파이썬
-Python을 사용하여 개발하는 경우를 위해, Anaconda Python 배포 2.7 및 3.5가 설치되었습니다. 이 배포 버전에는 약 300개의 가장 인기 있는 수학, 엔지니어링 및 데이터 분석 패키지와 함께 기본 Python이 포함되어 있습니다. Visual Studio 2015 Community 버전 또는 IDLE이나 Spyder 등의 Anaconda와 함께 제공되는 IDE 중 하나에 설치된 PTVS(Python Tools for Visual Studio)를 사용할 수 있습니다. 검색 표시줄에서 검색(**Win** + **S** 키)하여 다음 중 하나를 시작할 수 있습니다.
+Python을 사용하여 개발하는 경우를 위해, Anaconda Python 배포 2.7 및 3.6이 설치되었습니다. 이 배포 버전에는 약 300개의 가장 인기 있는 수학, 엔지니어링 및 데이터 분석 패키지와 함께 기본 Python이 포함되어 있습니다. Visual Studio 2017 Community 버전 또는 IDLE이나 Spyder 등의 Anaconda와 함께 제공되는 IDE 중 하나에 설치된 PTVS(Python Tools for Visual Studio)를 사용할 수 있습니다. 검색 표시줄에서 검색(**Win** + **S** 키)하여 다음 중 하나를 시작할 수 있습니다.
 
 > [!NOTE]
-> Anaconda Python 2.7 및 3.5의 Python Tools for Visual Studio를 가리키려면 각 버전에 대한 사용자 지정 환경을 만들어야 합니다. Visual Studio 2015 Community Edition에서 이러한 환경 경로를 설정하려면 **도구** -> **Python 도구** -> **Python 환경**으로 이동한 다음 **+ 사용자 지정**을 클릭합니다. 
+> Anaconda Python 2.7의 Python Tools for Visual Studio를 가리키려면 각 버전에 대한 사용자 지정 환경을 만들어야 합니다. Visual Studio 2017 Community Edition에서 이러한 환경 경로를 설정하려면 **도구** -> **Python 도구** -> **Python 환경**으로 이동한 다음 **+ 사용자 지정**을 클릭합니다. 
 > 
 > 
 
-Anaconda Python 2.7은 C:\Anaconda 아래에 설치되어 있으며 Anaconda Python 3.5는 c:\Anaconda\envs\py35 아래에 설치되어 있습니다. 자세한 단계는 [PTVS 설명서](/visualstudio/python/python-environments.md#selecting-and-installing-python-interpreters) 를 참조하세요. 
+Anaconda Python 3.6은 C:\Anaconda 아래에 설치되어 있으며 Anaconda Python 2.7은 c:\Anaconda\envs\python2 아래에 설치되어 있습니다. 자세한 단계는 [PTVS 설명서](/visualstudio/python/python-environments.md#selecting-and-installing-python-interpreters) 를 참조하세요. 
 
 ### <a name="jupyter-notebook"></a>Jupyter 노트북
-Anaconda 배포는 코드 및 분석을 공유하는 환경인 Jupyter 노트북도 제공됩니다. Jupyter 노트북 서버는 Python 2.7, Python 3.5, PySpark, Julia 및 R 커널로 미리 구성되었습니다. Jupyter 서버를 시작하고 브라우저를 실행하여 노트북 서버에 액세스하는 "Jupyter Notebook"이라는 바탕 화면 아이콘이 있습니다. 
-
-> [!NOTE]
-> 인증서 경고가 나타나는 경우 계속 진행하세요. 
-> 
-> 
+Anaconda 배포는 코드 및 분석을 공유하는 환경인 Jupyter 노트북도 제공됩니다. Jupyter 노트북 서버는 Python 2.7, Python 3.x, PySpark, Julia 및 R 커널로 미리 구성되었습니다. Jupyter 서버를 시작하고 브라우저를 실행하여 노트북 서버에 액세스하는 "Jupyter Notebook"이라는 바탕 화면 아이콘이 있습니다. 
 
 Python 및 R에 몇 가지 샘플 노트북이 패키지되어 있습니다. Jupyter 노트북은 Jupyter에 액세스한 후 Microsoft ML Server, SQL Server ML Services(데이터베이스 내 분석), Python, Microsoft Cognitive 도구 키트, Tensorflow 및 기타 Azure 기술을 사용하는 방법을 보여줍니다. 이전 단계에서 만든 암호를 사용하여 Jupyter 노트북에 인증한 후에 노트북 홈 페이지에서 샘플에 대한 링크를 볼 수 있습니다. 
 
 ### <a name="visual-studio-2017-community-edition"></a>Visual Studio 2017 Community edition
-VM에 설치된 Visual Studio Community edition 평가 목적이나 작은 팀에 사용할 수 있는 Microsoft의 인기 있는 IDE의 무료 버전입니다. 사용 조건은 [여기](https://www.visualstudio.com/support/legal/mt171547)에서 확인할 수 있습니다.  바탕 화면 아이콘이나 **시작** 메뉴를 두 번 클릭하여 Visual Studio를 엽니다. 또한 **Win** + **S**를 누른 후 "Visual Studio"를 입력하여 프로그램을 검색할 수도 있습니다. 여기서 C#, Python, R, node.js와 같은 언어로 된 프로젝트를 만들 수 있습니다. 또한 Azure Data Catalog, Azure HDInsight(Hadoop, Spark) 및 Azure Data Lake와 같은 Azure 서비스로 작동하기 편하게 하는 플러그 인이 설치되어 있습니다. 
+VM에 설치된 Visual Studio Community edition 평가 목적이나 작은 팀에 사용할 수 있는 Microsoft의 인기 있는 IDE의 무료 버전입니다. 사용 조건은 [여기](https://www.visualstudio.com/support/legal/mt171547)에서 확인할 수 있습니다.  바탕 화면 아이콘이나 **시작** 메뉴를 두 번 클릭하여 Visual Studio를 엽니다. 또한 **Win** + **S**를 누른 후 "Visual Studio"를 입력하여 프로그램을 검색할 수도 있습니다. 여기서 C#, Python, R, node.js와 같은 언어로 된 프로젝트를 만들 수 있습니다. 또한 Azure Data Catalog, Azure HDInsight(Hadoop, Spark) 및 Azure Data Lake와 같은 Azure 서비스로 작동하기 편하게 하는 플러그 인이 설치되어 있습니다. 이제 Azure Machine Learning에 매끄럽게 통합되고 AI 응용 프로그램을 빠르게 빌드하도록 지원하는 ```Visual Studio Tools for AI```라는 플러그 인도 있습니다. 
 
 > [!NOTE]
 > 평가 기간이 만료되었다는 메시지가 나타날 수 있습니다. Visual Studio Community Edition에 액세스하는 데 필요한 Microsoft 계정 자격 증명을 입력하거나 무료 계정을 새로 만듭니다. 
@@ -171,6 +162,10 @@ SQL ML Services를 사용하여 데이터베이스 내 분석을 사용하도록
 > 
 > 
 
+### <a name="azure-machine-learning-workbench"></a>Azure Machine Learning Workbench
+
+Azure Machine Learning Workbench는 데스크톱 응용 프로그램 및 명령줄 인터페이스입니다. 워크벤치에는 사용자가 데이터 준비를 수행할 때 해당 단계를 학습한 데이터 준비가 기본 제공됩니다. 생산성을 높이도록 프로젝트 관리, 실행 기록 및 노트북 통합도 제공됩니다. TensorFlow, Cognitive 도구 키트, Spark ML 및 모델 개발을 위한 scikit-learn을 비롯한 최고의 오픈 소스 프레임워크를 활용할 수 있습니다. DSVM에 Azure Machine Learning Workbench를 각 사용자의 %LOCALAPPDATA% 디렉터리에 설치하기 위한 바탕 화면 아이콘이 제공됩니다. Workbench를 사용해야 하는 각 사용자는 각자의 Workbench 인스턴스를 설치하기 위해 ```AzureML Workbench Setup``` 바탕 화면 아이콘을 두 번 클릭하는 일회성 작업을 수행해야 합니다. 또한 Azure Machine Learning은 %LOCALAPPDATA%\amlworkbench\python에 추출되는 사용자별 Python 환경을 만들고 사용합니다.
+
 ## <a name="additional-microsoft-development-tools"></a>추가 Microsoft 개발 도구
 [**Microsoft 웹 플랫폼 설치 관리자**](https://www.microsoft.com/web/downloads/platform.aspx)는 다른 Microsoft 개발 도구를 검색하고 다운로드하는 데 사용할 수 있습니다. 또한 Microsoft 데이터 과학 Virtual Machine 데스크톱에서 제공되는 도구에 대한 바로 가기도 있습니다.  
 
@@ -178,10 +173,10 @@ SQL ML Services를 사용하여 데이터베이스 내 분석을 사용하도록
 | 항목 | 디렉터리 |
 | --- | --- |
 | Jupyter Notebook 서버 구성 |C:\ProgramData\jupyter |
-| Jupyter Notebook 예제 홈 디렉터리 |c:\dsvm\notebooks |
+| Jupyter Notebook 예제 홈 디렉터리 |c:\dsvm\notebooks 및 c:\users\<username>\notebooks|
 | 다른 샘플 |c:\dsvm\samples |
-| Anaconda(기본값: Python 2.7) |c:\Anaconda |
-| Anaconda Python 3.5 환경 |c:\Anaconda\envs\py35 |
+| Anaconda(기본값: Python 3.6) |c:\Anaconda |
+| Anaconda Python 2.7 환경 |c:\Anaconda\envs\python2 |
 | Microsoft ML Server 독립 실행형 Python  | C:\Program Files\Microsoft\ML Server\PYTHON_SERVER |
 | 기본 R 인스턴스(ML Server 독립 실행형) |C:\Program Files\Microsoft\ML Server\R_SERVER |
 | SQL ML Services 데이터베이스 내 인스턴스 디렉터리 |C:\Program Files\Microsoft SQL Server\MSSQL14.MSSQLSERVER |
@@ -189,7 +184,7 @@ SQL ML Services를 사용하여 데이터베이스 내 분석을 사용하도록
 | 기타 도구 |c:\dsvm\tools |
 
 > [!NOTE]
-> 1.5.0(2016년 9월 3일 이전) 이전에 만든 Microsoft 데이터 과학 Virtual Machine 인스턴스는 이전 표에 지정된 디렉터리 구조와는 약간 다른 디렉터리 구조를 사용합니다. 
+> Windows Server 2012 버전의 DSVM 및 2018년 3월 이전에 릴리스된 Windows Server 2016 버전에서 기본 Anaconda 환경은 Python 2.7입니다. 보조 환경은 c:\Anaconda\envs\py35에 있는 Python 3.5입니다. 
 > 
 > 
 

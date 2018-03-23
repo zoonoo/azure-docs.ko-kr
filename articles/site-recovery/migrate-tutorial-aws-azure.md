@@ -1,6 +1,6 @@
 ---
-title: "Azure Site Recovery를 사용하여 AWS에서 Azure로 VM 마이그레이션 | Microsoft Docs"
-description: "이 문서에서는 Azure Site Recovery를 사용하여 AWS(Amazon Web Services)에서 실행되는 Windows VM을 Azure로 마이그레이션하는 방법을 설명합니다."
+title: Azure Site Recovery를 사용하여 AWS에서 Azure로 VM 마이그레이션 | Microsoft Docs
+description: 이 문서에서는 Azure Site Recovery를 사용하여 AWS(Amazon Web Services)에서 실행되는 Windows VM을 Azure로 마이그레이션하는 방법을 설명합니다.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -133,7 +133,7 @@ Site Recovery 구성 서버로 사용할 수 있는 별도의 EC2 인스턴스�
 
 6. VM에서 **cspsconfigtool.exe**를 실행하여 구성 서버에 대한 하나 이상의 관리 계정을 만듭니다. 관리 계정에 마이그레이션할 EC2 인스턴스에 대한 관리자 권한이 있는지 확인합니다.
 
-구성 서버 설정을 마치면 포털로 돌아가서 **구성 서버**에 대해 방금 만든 서버를 선택하고 *확인**을 클릭하여 3단계인 대상 준비를 진행합니다.
+구성 서버 설정을 마치면 포털로 돌아가서 **구성 서버** 에 대해 방금 만든 서버를 선택하고 *확인** 을 클릭하여 3단계인 대상 준비를 진행합니다.
 
 ### <a name="3-target-prepare"></a>3 대상 준비
 

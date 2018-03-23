@@ -1,8 +1,8 @@
 ---
-title: "Azure 파일 동기화(미리 보기) 문제 해결 | Microsoft Docs"
-description: "Azure File Sync와 관련된 일반적인 문제를 해결합니다."
+title: Azure 파일 동기화(미리 보기) 문제 해결 | Microsoft Docs
+description: Azure File Sync와 관련된 일반적인 문제를 해결합니다.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: wmgries
 manager: klaasl
 editor: jgerend
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 5558a69756075dd83f890d5e9e00c9944d841591
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 4f022bf227c8d460d014ea9bbc5dc426f0ada511
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Azure 파일 동기화(미리 보기) 문제 해결
 Azure File Sync(미리 보기)를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화합니다. Azure File Sync는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -51,7 +51,7 @@ installer.log를 검토하여 설치 실패의 원인을 확인합니다.
 이 문제를 해결하려면 PDC 역할을 Windows Server 2012R2 이상을 실행 중인 다른 도메인 컨트롤러로 전송한 다음, 동기화를 설치합니다.
 
 <a id="agent-installation-websitename-failure"></a>**“Storage 동기화 에이전트 마법사 중단” 오류로 인해 에이전트를 설치하는 데 실패했습니다.**  
-이 문제는 IIS 웹 사이트 기본 이름이 변경된 경우에 발생할 수 있습니다. 이 문제를 해결하려면 IIS 기본 웹 사이트의 이름을 “기본 웹 사이트”로 변경하고 설치를 다시 시도합니다. 이 문제는 에이전트의 향후 업데이트에서 수정될 예정입니다. 
+이 문제는 버전 1.x 에이전트에서 IIS 웹 사이트 기본 이름이 변경된 경우에 발생할 수 있습니다. 이 문제를 해결하려면 2.0.11+ 에이전트를 사용합니다.
 
 <a id="server-registration-missing"></a>**Azure Portal의 등록된 서버 아래에서 서버가 나열되지 않습니다.**  
 저장소 동기화 서비스에 대한 **등록된 서버** 아래에서 서버가 나열되지 않으면 다음을 수행합니다.

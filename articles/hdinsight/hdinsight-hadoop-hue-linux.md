@@ -1,9 +1,9 @@
 ---
-title: "HDInsight Linux 기반 클러스터에서 Hadoop으로 Hue - Azure | Microsoft Docs"
-description: "HDInsight 클러스터에서 Hue를 설치하고 터널링을 사용하여 Hue로 요청을 라우팅하는 방법을 알아봅니다. Hue를 사용하여 저장소를 찾은 후 Hive 또는 Pig를 실행합니다."
+title: HDInsight Linux 기반 클러스터에서 Hadoop으로 Hue - Azure | Microsoft Docs
+description: HDInsight 클러스터에서 Hue를 설치하고 터널링을 사용하여 Hue로 요청을 라우팅하는 방법을 알아봅니다. Hue를 사용하여 저장소를 찾은 후 Hive 또는 Pig를 실행합니다.
 keywords: hue hadoop
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 12/11/2017
 ms.author: nitinme
 ms.openlocfilehash: 5cef5e72af8a8b7c007b688b029f875e89d163ae
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="install-and-use-hue-on-hdinsight-hadoop-clusters"></a>HDInsight Hadoop 클러스터에 Hue 설치 및 사용
 
@@ -48,7 +48,7 @@ Hue는 Hadoop 클러스터와 상호 작용하는 데 사용되는 웹 응용 �
 
 ## <a name="install-hue-using-script-actions"></a>스크립트 동작을 사용하여 Hue 설치
 
-Linux 기반 HDInsight 클러스터에 Hue를 설치하는 스크립트는 https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh에 있습니다. 이 스크립트를 사용하여 Azure Storage Blobs(WASB) 또는 Azure Data Lake Store를 기본 스토리지로 클러스터에 Hue를 설치할 수 있습니다.
+Linux 기반 HDInsight 클러스터에서 Hue를 설치하는 스크립트는 https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh에서 사용할 수 있습니다. 이 스크립트를 사용하여 Azure Storage Blobs(WASB) 또는 Azure Data Lake Store를 기본 스토리지로 클러스터에 Hue를 설치할 수 있습니다.
 
 이 섹션에서는 Azure Portal을 사용하여 클러스터를 프로비전할 때 스크립트를 사용하는 방법에 대한 지침을 제공합니다.
 

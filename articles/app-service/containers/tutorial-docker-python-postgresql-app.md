@@ -1,6 +1,6 @@
 ---
-title: "Azure에서 Docker Python 및 PostgreSQL 웹앱 빌드 | Microsoft Docs"
-description: "PostgreSQL 데이터베이스에 연결하여 Azure에서 Docker Python 앱이 작동하도록 하는 방법에 대해 알아봅니다."
+title: Azure에서 Docker Python 및 PostgreSQL 웹앱 빌드 | Microsoft Docs
+description: PostgreSQL 데이터베이스에 연결하여 Azure에서 Docker Python 앱이 작동하도록 하는 방법에 대해 알아봅니다.
 services: app-service\web
 documentationcenter: python
 author: berndverst
@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 01/28/2018
 ms.author: beverst;cephalin
 ms.custom: mvc
-ms.openlocfilehash: c77b7c965f43dc9c4f76683aabeb6ff9c9d3a1c9
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 70cdbaa10d5e4ba39d4f378e05ae606a577ade99
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="build-a-docker-python-and-postgresql-web-app-in-azure"></a>Azure에서 Docker Python 및 PostgreSQL 웹앱 빌드
 
@@ -130,7 +130,7 @@ Flask 샘플 응용 프로그램은 데이터베이스에 사용자 데이터를
 
 ### <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-no-h.md)] 
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux-no-h.md)] 
 
 ### <a name="create-an-azure-database-for-postgresql-server"></a>PostgreSQL용 Azure Database 서버 만들기
 

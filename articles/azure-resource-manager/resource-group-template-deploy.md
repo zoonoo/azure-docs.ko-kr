@@ -1,6 +1,6 @@
 ---
-title: "PowerShell 및 템플릿으로 리소스 배포 | Microsoft Docs"
-description: "Azure Resource Manager와 Azure PowerShell을 사용하여 Azure에 리소스를 배포합니다. 리소스는 Resource Manager 템플릿에 정의됩니다."
+title: PowerShell 및 템플릿으로 리소스 배포 | Microsoft Docs
+description: Azure Resource Manager와 Azure PowerShell을 사용하여 Azure에 리소스를 배포합니다. 리소스는 Resource Manager 템플릿에 정의됩니다.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2017
 ms.author: tomfitz
-ms.openlocfilehash: 464308da13be6a33ce80871f8753f999e34d8c83
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 3378c13934a5a0743aa40ebb19940f1afa71fc71
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>리소스 관리자 템플릿과 Azure PowerShell로 리소스 배포
 
@@ -84,6 +84,8 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleResourceGroup -Temp
 ## <a name="deploy-to-more-than-one-resource-group-or-subscription"></a>둘 이상의 리소스 그룹 또는 구독에 배포
 
 일반적으로 단일 리소스 그룹에 템플릿의 모든 리소스를 배포합니다. 그러나 일단의 리소스를 함께 배포하고 다른 리소스 그룹 또는 구독에 배치하려는 시나리오가 있습니다. 단일 배포의 5개 리소스 그룹에만 배포할 수 있습니다. 자세한 내용은 [둘 이상의 구독 또는 리소스 그룹에 Azure 리소스 배포](resource-manager-cross-resource-group-deployment.md)를 참조하세요.
+
+<a id="parameter-file" />
 
 ## <a name="parameter-files"></a>매개 변수 파일
 

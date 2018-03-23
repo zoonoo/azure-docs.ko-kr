@@ -1,26 +1,19 @@
 ---
-title: "앱 인증에 대한 값 가져오기 - Azure SQL Database | Microsoft Docs"
-description: "코드에서 SQL Database에 액세스하기 위한 서비스 사용자를 만듭니다."
+title: 앱 인증에 대한 값 가져오기 - Azure SQL Database | Microsoft Docs
+description: 코드에서 SQL Database에 액세스하기 위한 서비스 사용자를 만듭니다.
 services: sql-database
-documentationcenter: 
 author: stevestein
 manager: jhubbard
-editor: 
-tags: 
-ms.assetid: b43e43bb-6660-49e6-b069-abde97eb5770
 ms.service: sql-database
 ms.custom: develop apps
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: Inactive
 ms.date: 09/30/2016
 ms.author: sstein
-ms.openlocfilehash: e76144bcb65da992c6d723d7333b4db8aa1ca488
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: e907edc98228ecab645e63f5e38094e3a04812de
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-the-required-values-for-authenticating-an-application-to-access-sql-database-from-code"></a>코드에서 SQL Database에 액세스하는 응용 프로그램을 인증하기 위한 필수 값 가져오기
 코드에서 SQL Database를 만들고 관리하여 Azure 리소스가 생성된 구독의 Azure Active Directory(AAD) 도메인에 앱을 등록해야 합니다.

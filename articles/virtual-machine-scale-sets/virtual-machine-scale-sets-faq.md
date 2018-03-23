@@ -1,11 +1,11 @@
 ---
-title: "Azure 가상 머신 확장 집합에 대한 FAQ | Microsoft Docs"
-description: "가상 머신 확장 집합에 대한 FAQ(질문과 대답)에 대해 알아봅니다."
+title: Azure 가상 머신 확장 집합에 대한 FAQ | Microsoft Docs
+description: 가상 머신 확장 집합에 대한 FAQ(질문과 대답)에 대해 알아봅니다.
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: gatneil
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
 ms.service: virtual-machine-scale-sets
@@ -17,10 +17,10 @@ ms.date: 12/12/2017
 ms.author: negat
 ms.custom: na
 ms.openlocfilehash: 52be84b73e70a02c43ef71917dc272060d82b42d
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Azure 가상 머신 확장 집합에 대한 FAQ
 
@@ -216,7 +216,7 @@ Linux VM을 만들 때 일반 텍스트로 SSH 공개 키를 제공할 수 있�
     }
 ```
  
-linuxConfiguration 요소 이름 | 필수 | type | 설명
+linuxConfiguration 요소 이름 | 필수 | 형식 | 설명
 --- | --- | --- | --- |  ---
 ssh | 아니오 | 컬렉션 | Linux OS용 SSH 키 구성을 지정합니다.
 경로 | 예 | 문자열 | SSH 키 또는 인증서를 배치해야 하는 Linux 파일 경로를 지정합니다.

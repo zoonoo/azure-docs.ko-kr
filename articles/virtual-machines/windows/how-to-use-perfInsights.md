@@ -1,12 +1,12 @@
 ---
-title: "Microsoft Azure에서 PerfInsights를 사용하는 방법 | Microsoft Docs"
-description: "PerfInsights를 사용하여 Windows VM 성능 문제를 해결하는 방법을 설명합니다."
+title: Microsoft Azure에서 PerfInsights를 사용하는 방법 | Microsoft Docs
+description: PerfInsights를 사용하여 Windows VM 성능 문제를 해결하는 방법을 설명합니다.
 services: virtual-machines-windows'
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: cshepard
 editor: na
-tags: 
+tags: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: f15875610e2035c6f4c10c36e19c02f3e045b3ea
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: ee8334cbe9256b7a5ecd5e96afa2f15d6389afa8
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="how-to-use-perfinsights"></a>PerfInsights를 사용하는 방법 
 
-[PerfInsights](http://aka.ms/perfinsightsdownload)는 유용한 진단 정보를 수집하는 자동화된 스크립트입니다. 또한 I/O 스트레스 로드를 실행하고 Azure의 Windows 가상 머신 문제 해결에 도움이 되는 분석 보고서를 제공합니다. 이 스크립트는 [Azure Performance Diagnostics VM 확장](performance-diagnostics-vm-extension.md)을 설치하여 포털에서 직접 또는 독립 실행형 스크립트로 가상 머신에서 실행될 수 있습니다.
+[PerfInsights](http://aka.ms/perfinsightsdownload)는 진단 데이터를 수집 및 분석하고, Azure에서 Windows 가상 머신 성능 문제를 해결하는 데 도움이 되는 보고서를 제공하는 자체 진단 도구입니다. PerfInsights는 [Azure Performance Diagnostics VM 확장](performance-diagnostics-vm-extension.md)을 설치하여 포털에서 직접 또는 독립 실행형 스크립트로 가상 머신에서 실행될 수 있는 도구입니다.
 
-가상 머신 성능 문제가 있는 경우 기술 지원에 문의하기 전에 이 스크립트를 실행합니다.
+가상 머신 성능 문제가 있는 경우 기술 지원에 문의하기 전에 이 도구를 실행합니다.
 
 ## <a name="supported-troubleshooting-scenarios"></a>지원되는 문제 해결 시나리오
 
@@ -41,8 +41,6 @@ PerfInsights는 여러 종류의 정보를 수집하고 분석할 수 있습니�
 -   네트워크 및 방화벽 구성 설정
 
 -   현재 시스템에서 실행 중인 모든 응용 프로그램의 작업 목록
-
--   가상 머신에 대해 msinfo32에서 만든 정보 파일
 
 -   Microsoft SQL Server 데이터베이스 구성 설정(VM이 SQL Server를 실행하는 서버로 식별된 경우)
 
@@ -67,15 +65,7 @@ PerfInsights는 여러 종류의 정보를 수집하고 분석할 수 있습니�
 
 ### <a name="slow-vm-analysis"></a>느린 VM 분석 
 
-이 시나리오에서는 Generalcounters.txt 파일에 지정된 카운터를 사용하여 [성능 카운터](https://msdn.microsoft.com/library/windows/desktop/aa373083(v=vs.85).aspx) 추적을 실행합니다. VM이 SQL Server를 실행하는 서버로 식별되면 성능 카운터 추적을 실행합니다. 이를 위해 Sqlcounters.txt 파일에 있는 카운터를 사용하며 성능 진단 데이터도 포함합니다.
-
-### <a name="slow-vm-analysis-and-benchmarking"></a>VM 저속 분석 및 벤치마킹
-
-이 시나리오에서는 [성능 카운터](https://msdn.microsoft.com/library/windows/desktop/aa373083(v=vs.85).aspx) 추적을 실행한 다음 [Diskspd](https://github.com/Microsoft/diskspd) 벤치마크 테스트를 수행합니다. 
-
-> [!Note]
-> 이 시나리오는 시스템에 영향을 줄 수 있으므로 라이브 프로덕션 시스템에서 실행하면 안됩니다. 필요한 경우 문제가 발생하지 않도록 전용 유지 관리 창에서 이 시나리오를 실행합니다. 추적 또는 벤치마크 테스트로 인해 워크로드가 증가하면 VM 성능이 저하될 수 있습니다.
->
+이 시나리오에서는 RuleEngineConfig.json 파일에 지정된 카운터를 사용하여 [성능 카운터](https://msdn.microsoft.com/library/windows/desktop/aa373083(v=vs.85).aspx) 추적을 실행합니다. VM이 SQL Server를 실행하는 서버로 식별되면 성능 카운터 추적을 실행합니다. RuleEngineConfig.json 파일에 있는 카운터를 사용하여 이 작업을 수행합니다. 이 시나리오에는 성능 진단 데이터도 포함됩니다.
 
 ### <a name="azure-files-analysis"></a>Azure Files 분석 
 
@@ -101,40 +91,40 @@ PerfInsights는 여러 종류의 정보를 수집하고 분석할 수 있습니�
 
 ### <a name="custom-slow-vm-analysis"></a>사용자 지정 느린 VM 분석 
 
-사용자 지정 느린 VM 분석을 실행할 때는 병렬 실행되도록 추적을 선택합니다. 원한다면 전체(성능 카운터, Xperf, 네트워크 및 StorPort)를 실행할 수 있습니다. 추적이 완료되면 도구에서 Diskspd 벤치마크(선택한 경우)를 실행합니다. 
+사용자 지정 느린 VM 분석을 실행할 때는 병렬 실행되도록 추적을 선택합니다. 원한다면 전체(성능 카운터, Xperf, 네트워크 및 StorPort)를 실행할 수 있습니다.  
 
 > [!Note]
 > 이 시나리오는 시스템에 영향을 줄 수 있으므로 라이브 프로덕션 시스템에서 실행하면 안됩니다. 필요한 경우 문제가 발생하지 않도록 전용 유지 관리 창에서 이 시나리오를 실행합니다. 추적 또는 벤치마크 테스트로 인해 워크로드가 증가하면 VM 성능이 저하될 수 있습니다.
 >
 
-## <a name="what-kind-of-information-is-collected-by-the-script"></a>스크립트에서 수집하는 정보 유형
+## <a name="what-kind-of-information-is-collected-by-perfinsights"></a>PerfInsights에서 수집하는 정보 유형
 
 Windows VM, 디스크 또는 저장소 풀 구성, 성능 카운터, 로그 및 다양한 추적과 관련된 정보가 수집됩니다. 사용하는 성능 시나리오에 따라 다릅니다. 다음 표에서 자세한 내용을 제공합니다.
 
 |수집되는 데이터                              |  |  | 성능 시나리오 |  |  | |
 |----------------------------------|----------------------------|------------------------------------|--------------------------|--------------------------------|----------------------|----------------------|
-|                              | 기본 구성 수집 | 벤치마킹 | 느린 VM 분석 | VM 저속 분석 및 벤치마킹 | Azure Files 분석 | 사용자 지정 느린 VM 분석 |
-| 이벤트 로그의 정보      | 예                        | 예                                | 예                      | 예                            | 예                  | 예                  |
-| 시스템 정보               | 예                        | 예                                | 예                      | 예                            | 예                  | 예                  |
-| 볼륨 매핑                       | 예                        | 예                                | 예                      | 예                            | 예                  | 예                  |
-| 디스크 매핑                         | 예                        | 예                                | 예                      | 예                            | 예                  | 예                  |
-| 실행 중인 작업                    | 예                        | 예                                | 예                      | 예                            | 예                  | 예                  |
-| 저장소 안정성 카운터     | 예                        | 예                                | 예                      | 예                            | 예                  | 예                  |
-| 저장소 정보              | 예                        | 예                                | 예                      | 예                            | 예                  | 예                  |
-| Fsutil 출력                    | 예                        | 예                                | 예                      | 예                            | 예                  | 예                  |
-| 필터 드라이버 정보               | 예                        | 예                                | 예                      | 예                            | 예                  | 예                  |
-| Netstat 출력                   | 예                        | 예                                | 예                      | 예                            | 예                  | 예                  |
-| 네트워크 구성            | 예                        | 예                                | 예                      | 예                            | 예                  | 예                  |
-| 방화벽 구성           | 예                        | 예                                | 예                      | 예                            | 예                  | 예                  |
-| SQL Server 구성         | 예                        | 예                                | 예                      | 예                            | 예                  | 예                  |
-| 성능 진단 추적 * | 예                        | 예                                | 예                      |                                | 예                  | 예                  |
-| 성능 카운터 추적 **     |                            |                                    |                          |                                |                      | 예                  |
-| SMB 카운터 추적 **             |                            |                                    |                          |                                | 예                  |                      |
-| SQL Server 카운터 추적 **      |                            |                                    |                          |                                |                      | 예                  |
-| XPerf 추적                      |                            |                                    |                          |                                |                      | 예                  |
-| StorPort 추적                   |                            |                                    |                          |                                |                      | 예                  |
-| 네트워크 추적                    |                            |                                    |                          |                                | 예                  | 예                  |
-| Diskspd 벤치마크 추적 ***      |                            | 예                                |                          | 예                            |                      |                      |
+|                               | 기본 구성 수집 | 벤치마킹 | 느린 VM 분석 | Azure Files 분석 | 사용자 지정 느린 VM 분석 |
+| 이벤트 로그의 정보       | 예                        | 예                                | 예                      | 예                  | 예                  |
+| 시스템 정보                | 예                        | 예                                | 예                      | 예                  | 예                  |
+| 볼륨 매핑                        | 예                        | 예                                | 예                      | 예                  | 예                  |
+| 디스크 매핑                          | 예                        | 예                                | 예                      | 예                  | 예                  |
+| 실행 중인 작업                     | 예                        | 예                                | 예                      | 예                  | 예                  |
+| 저장소 안정성 카운터      | 예                        | 예                                | 예                      | 예                  | 예                  |
+| 저장소 정보               | 예                        | 예                                | 예                      | 예                  | 예                  |
+| Fsutil 출력                     | 예                        | 예                                | 예                      | 예                  | 예                  |
+| 필터 드라이버 정보                | 예                        | 예                                | 예                      | 예                  | 예                  |
+| Netstat 출력                    | 예                        | 예                                | 예                      | 예                  | 예                  |
+| 네트워크 구성             | 예                        | 예                                | 예                      | 예                  | 예                  |
+| 방화벽 구성            | 예                        | 예                                | 예                      | 예                  | 예                  |
+| SQL Server 구성          | 예                        | 예                                | 예                      | 예                  | 예                  |
+| 성능 진단 추적 *  | 예                        | 예                                | 예                      | 예                  | 예                  |
+| 성능 카운터 추적 **      |                            |                                    | 예                      |                      | 예                  |
+| SMB 카운터 추적 **              |                            |                                    |                          | 예                  |                      |
+| SQL Server 카운터 추적 **       |                            |                                    | 예                      |                      | 예                  |
+| XPerf 추적                       |                            |                                    |                          |                      | 예                  |
+| StorPort 추적                    |                            |                                    |                          |                      | 예                  |
+| 네트워크 추적                     |                            |                                    |                          | 예                  | 예                  |
+| Diskspd 벤치마크 추적 ***       |                            | 예                                |                          |                      |                      |
 |       |                            |                         |                                                   |                      |                      |
 
 ### <a name="performance-diagnostics-trace-"></a>성능 진단 추적 (*)
@@ -168,116 +158,87 @@ Windows VM, 디스크 또는 저장소 풀 구성, 성능 카운터, 로그 및 
 ### <a name="diskspd-benchmark-trace-"></a>Diskspd 벤치마크 추적 (***)
 Diskspd IO 워크로드 테스트(OS 디스크[쓰기] 및 풀 드라이브[읽기/쓰기])
 
-## <a name="run-the-perfinsights-script-on-your-vm"></a>VM에서 PerfInsights 스크립트 실행
+## <a name="run-the-perfinsights-tool-on-your-vm"></a>VM에서 PerfInsights 도구 실행
 
-### <a name="what-do-i-have-to-know-before-i-run-the-script"></a>스크립트를 실행하기 전에 알고 있어야 하는 사항 
+### <a name="what-do-i-have-to-know-before-i-run-the-tool"></a>도구를 실행하기 전에 알고 있어야 하는 사항 
 
-#### <a name="script-requirements"></a>스크립트 요구 사항
+#### <a name="tool-requirements"></a>도구 요구 사항
 
--  이 스크립트는 성능 문제가 있는 VM에서 실행해야 합니다. 
+-  이 도구는 성능 문제가 있는 VM에서 실행해야 합니다. 
 
 -  지원되는 운영 체제는 Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 및 Windows Server 2016, Windows 8.1과 Windows 10입니다.
 
-#### <a name="possible-problems-when-you-run-the-script-on-production-vms"></a>프로덕션 VM에서 스크립트 실행 시 발생할 수 있는 문제
+#### <a name="possible-problems-when-you-run-the-tool-on-production-vms"></a>프로덕션 VM에서 도구 실행 시 발생할 수 있는 문제
 
--  Xperf 또는 Diskspd를 사용하도록 구성된 벤치마킹 시나리오 또는 "사용자 지정 느린 VM 분석" 시나리오를 사용하는 경우 스크립트로 인해 VM의 성능이 저하될 수 있습니다. 프로덕션 환경에서 이러한 시나리오를 실행해서는 안 됩니다.
+-  Xperf 또는 Diskspd를 사용하도록 구성된 벤치마킹 시나리오 또는 "사용자 지정 느린 VM 분석" 시나리오를 사용하는 경우 이 도구로 인해 VM의 성능이 저하될 수 있습니다. 이러한 시나리오는 프로덕션 환경에서 실행해서는 안 됩니다.
 
 -  DiskSpd를 사용하도록 구성된 벤치마킹 시나리오 또는 "사용자 지정 느린 VM 분석" 시나리오의 경우, 다른 백그라운드 작업이 I/O 워크로드를 방해하지 않는지 확인합니다.
 
--  기본적으로 스크립트는 임시 저장소 드라이브를 사용하여 데이터를 수집합니다. 추적을 더 오랫동안 사용하도록 유지하면 수집되는 데이터의 양이 적절할 수 있습니다. 이렇게 하면 임시 디스크의 공간 가용성을 낮출 수 있으므로 이 드라이브를 사용하는 모든 응용 프로그램에 영향을 미칠 수 있습니다.
+-  기본적으로 이 도구는 임시 저장소 드라이브를 사용하여 데이터를 수집합니다. 추적을 더 오랫동안 사용하도록 유지하면 수집되는 데이터의 양이 적절할 수 있습니다. 이렇게 하면 임시 디스크의 공간 가용성을 낮출 수 있으므로 이 드라이브를 사용하는 모든 응용 프로그램에 영향을 미칠 수 있습니다.
 
 ### <a name="how-do-i-run-perfinsights"></a>PerfInsights를 실행하는 방법 
 
-PerfInsights는 [Azure Performance Diagnostics VM 확장](performance-diagnostics-vm-extension.md)을 설치하여 가상 머신에서 실행할 수 있습니다. 독립 실행형 스크립트로도 실행할 수 있습니다. 
+PerfInsights는 [Azure Performance Diagnostics VM 확장](performance-diagnostics-vm-extension.md)을 설치하여 가상 머신에서 실행할 수 있습니다. 독립 실행형 도구로도 실행할 수 있습니다. 
 
 **Azure Portal에서 PerfInsights 설치 및 실행**
 
 이 옵션에 대한 자세한 내용은 [Azure Performance Diagnostics VM 확장 설치](performance-diagnostics-vm-extension.md#install-the-extension)를 참조하세요.  
 
-**독립 실행형 모드에서 PerfInsights 스크립트 실행**
+**독립 실행형 모드에서 PerfInsights 실행**
 
-PerfInsights 스크립트를 실행하려면 다음 단계를 수행합니다.
+PerfInsights 도구를 실행하려면 다음 단계를 수행합니다.
 
 
 1. [PerfInsights.zip](http://aka.ms/perfinsightsdownload)을 다운로드합니다.
 
-2. PerfInsights.zip 파일의 차단을 해제합니다. 이렇게 하려면 PerfInsights.zip 파일을 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다. **일반** 탭에서 **차단 해제**를 선택한 다음 **확인**을 선택합니다. 이렇게 하면 추가 보안을 요구하는 메시지가 표시되지 않고 스크립트가 실행됩니다.  
+2. PerfInsights.zip 파일의 차단을 해제합니다. 이렇게 하려면 PerfInsights.zip 파일을 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다. **일반** 탭에서 **차단 해제**를 선택한 다음 **확인**을 선택합니다. 이렇게 하면 추가 보안을 요구하는 메시지가 표시되지 않고 이 도구가 실행됩니다.  
 
     ![차단 해제가 강조 표시된 PerfInsights 스크린샷](media/how-to-use-perfInsights/unlock-file.png)
 
-3.  압축된 PerfInsights.zip 파일을 임시 드라이브(보통은 기본적으로 D 드라이브)로 확장합니다. 압축된 파일에는 다음 파일과 폴더가 있어야 합니다.
+3.  압축된 PerfInsights.zip 파일을 임시 드라이브(보통은 기본적으로 D 드라이브)로 확장합니다. 
 
-    ![zip 폴더의 파일 스크린샷](media/how-to-use-perfInsights/file-folder.png)
-
-4.  Windows PowerShell을 관리자로 연 다음 PerfInsights.ps1 스크립트를 실행합니다.
+4.  관리자 권한으로 Windows 명령 프롬프트를 연 다음, PerfInsights.exe를 실행하여 사용 가능한 명령줄 매개 변수를 표시합니다.
 
     ```
-    cd <the path of PerfInsights folder >
-    Powershell.exe -ExecutionPolicy UnRestricted -NoProfile -File .\\PerfInsights.ps1
+    cd <the path of PerfInsights folder>
+    PerfInsights
     ```
-
-    실행 정책 변경을 확인하기 위해 "y"를 입력해야 할 수도 있습니다.
-
-    **공지 및 동의** 대화 상자에서는 Microsoft 지원 서비스와 진단 정보를 공유하는 옵션이 제공됩니다. 계속하려면 사용권 계약에도 동의해야 합니다. 선택한 다음 **스크립트 실행**을 선택합니다.
-
-    ![공지 및 동의 대화 상자 스크린샷 ](media/how-to-use-perfInsights/disclaimer.png)
-
-5.  스크립트를 실행할 때 가능하다면 사례 번호를 제출합니다. 그런 다음 **확인**을 선택합니다.
+    ![PerfInsights 명령줄 출력 스크린샷](media/how-to-use-perfInsights/PerfInsightsCommandline.png)
     
-    ![지원 ID 대화 상자 스크린샷](media/how-to-use-perfInsights/enter-support-number.png)
+    PerfInsights 시나리오를 실행하기 위한 기본 구문은 다음과 같습니다.
+    
+    ```
+    PerfInsights /run <ScenarioName> [AdditionalOptions]
+    ```
 
-6.  임시 저장소 드라이브를 선택합니다. 스크립트는 드라이브의 드라이브 문자를 자동으로 검색할 수 있습니다. 이 단계에서 문제가 발생하면 드라이브를 선택하라는 메시지가 표시될 수 있습니다(기본 드라이브: D). 생성된 로그는 log\_collection 폴더에 저장됩니다. 드라이브 문자를 입력하거나 그대로 둔 다음 **확인**을 선택합니다.
+    아래 예제를 사용하여 VM 시나리오를 5분 동안 느리게 실행합니다.
+    
+    ```
+    PerfInsights /run vmslow /d 300 /AcceptDisclaimerAndShareDiagnostics
+    ```
 
-    ![임시 드라이브 대화 상자 스크린샷](media/how-to-use-perfInsights/enter-drive.png)
+    다음 예제를 사용하여 5분 동안 Xperf 및 성능 카운터 추적을 사용해서 사용자 지정 시나리오를 실행할 수 있습니다.
+    
+    ```
+    PerfInsights /run custom xp /d 300 /AcceptDisclaimerAndShareDiagnostics
+    ```
 
-7.  제공된 목록에서 문제 해결 시나리오를 선택합니다.
+    **/list** 명령을 사용하여 사용 가능한 모든 시나리오와 옵션을 조회할 수 있습니다.
+    
+    ```
+    PerfInsights /list
+    ```
 
-       ![문제 해결 시나리오 목록 스크린샷](media/how-to-use-perfInsights/select-scenarios.png)
+    >[!Note]
+    >시나리오를 실행하기 전에 PerfInsights는 사용자가 진단 정보 공유 및 EULA에 동의할 것을 요청합니다. 이러한 프롬프트를 건너뛰려면 **/AcceptDisclaimerAndShareDiagnostics** 옵션을 사용합니다. 
+    >
+    >Microsoft에 대한 활성 지원 티켓이 있고, 함께 작업 중인 지원 엔지니어의 요청에 따라 실행 중인 PerfInsights가 있으면 **/sr** 옵션을 사용하여 지원 티켓 번호를 제공해야 합니다.
+    >
+    >기본적으로 PerfInsights는 사용 가능한 최신 버전으로 자체적으로 업데이트를 시도합니다. 자동 업데이트를 건너뛰려면 **/SkipAutoUpdate** 또는 **/sau** 매개 변수를 사용합니다.  
+    >
+    >기간 스위치 **/d**를 지정하지 않으면 PerfInsights는 vmslow, azurefiles 및 사용자 지정 시나리오를 실행하면서 해당 문제를 재현하도록 요구합니다. 
 
-UI 없이 PerfInsights를 실행할 수도 있습니다. 다음 명령에서는 UI 없이 "느린 VM 분석" 문제 해결 시나리오를 실행합니다. 4단계에서 언급한 동일한 고지 사항 및 EULA에 동의하도록 요구하는 메시지가 표시됩니다.
-
-        powershell.exe -ExecutionPolicy UnRestricted -NoProfile -Command ".\\PerfInsights.ps1 -NoGui -Scenario vmslow -TracingDuration 30"
-
-PerfInsights를 자동 모드로 실행하려면 **-AcceptDisclaimerAndShareDiagnostics** 매개 변수를 사용합니다. 예를 들어 다음 명령을 사용합니다.
-
-        powershell.exe -ExecutionPolicy UnRestricted -NoProfile -Command ".\\PerfInsights.ps1 -NoGui -Scenario vmslow -TracingDuration 30 -AcceptDisclaimerAndShareDiagnostics"
-
-### <a name="how-do-i-troubleshoot-issues-while-running-the-script"></a>스크립트를 실행하는 동안 문제를 해결하는 방법
-
-스크립트가 비정상적으로 종료되면 다음과 같이 정리 스위치와 함께 스크립트를 실행하여 일관된 상태로 돌아갈 수 있습니다.
-
-    powershell.exe -ExecutionPolicy UnRestricted -NoProfile -Command ".\\PerfInsights.ps1 -Cleanup"
-
-임시 드라이브를 자동 검색하는 중에 문제가 발생하면 드라이브를 선택하라는 메시지가 표시될 수 있습니다(기본 드라이브: D).
-
-![임시 드라이브 대화 상자 스크린샷](media/how-to-use-perfInsights/enter-drive.png)
-
-스크립트에서 유틸리티 도구를 제거하고 임시 폴더를 제거합니다.
-
-### <a name="troubleshoot-other-script-issues"></a>기타 스크립트 문제 해결 
-
-스크립트를 실행할 때 문제가 발생하면 Ctrl+C를 눌러 스크립트를 중단합니다. 여러 번 시도한 후에도 스크립트 오류가 계속 발생하면 시작할 때 "-Debug" 매개 변수 옵션을 사용하여 "디버그 모드"에서 스크립트를 실행합니다.
-
-오류가 발생한 후에는 PowerShell 콘솔의 전체 출력을 복사하여 문제를 해결하기 위해 도움을 주는 Microsoft 지원 담당자에게 보내주세요.
-
-### <a name="how-do-i-run-the-script-in-custom-slow-vm-analysis-mode"></a>스크립트를 “사용자 지정 느린 VM 분석” 모드로 실행하는 방법
-
-**사용자 지정 느린 VM 분석**을 선택하여 여러 추적을 동시에 사용할 수 있습니다(여러 추적을 선택하려면 Shift 키 사용).
-
-![시나리오 목록 스크린샷](media/how-to-use-perfInsights/select-scenario.png)
-
-성능 카운터 추적, Xperf 추적, 네트워크 추적 또는 Storport 추적 시나리오를 선택하는 경우 나타나는 대화 상자의 지침에 따릅니다. 추적을 시작한 후 성능이 느려지는 문제를 재현해 봅니다.
-
-다음 대화 상자에서 추적을 시작할 수 있습니다.
-
-![성능 카운터 추적 시작 대화 상자 스크린샷](media/how-to-use-perfInsights/start-trace-message.png)
-
-추적을 중지하려면 두 번째 대화 상자에서 명령을 확인해야 합니다.
-
-![성능 카운터 추적 중지 대화 상자 스크린샷](media/how-to-use-perfInsights/stop-trace-message.png)
-![모든 추적 중지 대화 상자 스크린샷](media/how-to-use-perfInsights/ok-trace-message.png)
-
-추적 또는 작업이 완료되면 새 파일이 D:\\log\_collection(또는 임시 드라이브)에 표시됩니다. 이 파일의 이름은 **CollectedData\_yyyy-MM-dd\_hh\_mm\_ss.zip**입니다. 이 파일은 분석을 위해 지원 담당자에게 보낼 수 있습니다.
+추적 또는 작업이 완료되면 새 파일이 D:\\log\_collection(또는 임시 드라이브)에 표시됩니다. 이 파일의 이름은 **CollectedData\_yyyy-MM-dd\_hh\_mm\_ss.zip**입니다. 분석을 위해 지원 담당자에게 이 파일을 전송하거나 zip 파일 내의 보고서를 열어 결과 및 권장 사항을 검토할 수 있습니다.
 
 ## <a name="review-the-diagnostics-report"></a>진단 보고서 검토
 

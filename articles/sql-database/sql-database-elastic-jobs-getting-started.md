@@ -1,24 +1,19 @@
 ---
-title: "Elastic Database 작업 시작 | Microsoft Docs"
-description: "여러 데이터베이스에 걸친 T-SQL 스크립트를 실행하려면 탄력적 데이터베이스 작업을 사용합니다."
+title: Elastic Database 작업 시작 | Microsoft Docs
+description: 여러 데이터베이스에 걸친 T-SQL 스크립트를 실행하려면 탄력적 데이터베이스 작업을 사용합니다.
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: ddove
-ms.assetid: 2540de0e-2235-4cdd-9b6a-b841adba00e5
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
-ms.author: ddove
-ms.openlocfilehash: c5fe5256d4a8b8479f5e4aff95ec03fc1ba1018a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.author: sstein
+ms.openlocfilehash: 5d55ae225ca1b550bbf70314e2f48fc0161ad107
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="getting-started-with-elastic-database-jobs"></a>Elastic Database 작업 시작
 Azure SQL Database에 대한 Elastic Database job(미리 보기)을 사용하면 자동으로 다시 시도하여 최종 완료를 보장하는 동시에 여러 데이터베이스에 걸친 T-SQL 스크립트를 안정적으로 실행할 수 있습니다. Elastic Database 작업 기능에 대한 자세한 내용은 [탄력적 작업](sql-database-elastic-jobs-overview.md)을 참조하세요.

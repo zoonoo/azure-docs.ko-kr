@@ -1,26 +1,20 @@
 ---
-title: "Azure SQL Database를 사용하는 다중 테넌트 앱에서 새 테넌트 프로비전 | Microsoft Docs"
-description: "Azure SQL Database 다중 테넌트 SaaS 앱에서 새 테넌트를 프로비전하고 카탈로그로 만드는 방법 알아보기"
-keywords: "SQL Database 자습서"
+title: Azure SQL Database를 사용하는 다중 테넌트 앱에서 새 테넌트 프로비전 | Microsoft Docs
+description: Azure SQL Database 다중 테넌트 SaaS 앱에서 새 테넌트를 프로비전하고 카탈로그로 만드는 방법 알아보기
+keywords: SQL Database 자습서
 services: sql-database
-documentationcenter: 
 author: stevestein
 manager: craigg
-editor: 
-ms.assetid: 
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
 ms.author: sstein
-ms.openlocfilehash: 79b3743054f73914c6755a3c9b102b613b1944f2
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 21f0bca3a16164ead4e0990842a968fd9b95c33f
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>새 테넌트를 프로비전하고 카탈로그에 등록하는 방법 알아보기
 
@@ -99,8 +93,8 @@ Wingtip Tickets 응용 프로그램에서 새 테넌트 프로비전을 구현�
 
 다음은 명시적으로 팔로우하는 단계는 아니지만 스크립트를 디버깅하는 동안 단계별로 실행하는 워크플로의 설명입니다.
 
-1. Azure에 로그인하여 작업 중인 Azure 구독을 선택하는 함수를 포함하고 있는 **SubscriptionManagement.psm1 모듈을 가져옵니다**.
 1. [Shard Management](sql-database-elastic-scale-shard-map-management.md) 함수에 대한 카탈로그 및 테넌트 수준 추상화를 제공하는 **CatalogAndDatabaseManagement.psm1 모듈을 가져옵니다**. 이 모듈은 카탈로그 패턴의 많은 부분을 캡슐화합니다. 따라서 자세히 살펴보아야 합니다.
+1. Azure에 로그인하여 작업 중인 Azure 구독을 선택하는 함수를 포함하고 있는 **SubscriptionManagement.psm1 모듈을 가져옵니다**.
 1. **구성 세부 정보를 가져옵니다**. 구성 가져오기(F11을 사용하여)까지 단계별로 실행하고 앱 구성이 어떻게 지정되었는지 확인합니다. 리소스 이름 및 기타 앱별 값이 여기서 정의되지만 스크립트를 숙지할 때까지 이러한 값을 변경하지 마세요.
 1. **카탈로그 개체를 가져옵니다**. 더 높은 수준의 스크립트에 사용되는 카탈로그 개체를 작성하고 반환하는 카탈로그 가져오기까지 한 단계씩 코드를 실행합니다.  이 함수는 **AzureShardManagement.psm1**에서 가져온 분할 관리 기능을 사용합니다. 카탈로그 개체는 다음과 같은 요소로 구성됩니다.
    * $catalogServerFullyQualifiedName은 표준 stem과 사용자 이름을 사용하여 생성됩니다. _catalog-\<user\>.database.windows.net_.

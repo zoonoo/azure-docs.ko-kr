@@ -1,20 +1,20 @@
 ---
-title: "Azure Cost Management에 Google Cloud Platform 계정 연결 | Microsoft Docs"
-description: "Google Cloud Platform 계정을 연결하여 Cost Management 보고서에서 비용 및 사용량 데이터를 볼 수 있습니다."
+title: Azure Cost Management에 Google Cloud Platform 계정 연결 | Microsoft Docs
+description: Google Cloud Platform 계정을 연결하여 Cost Management 보고서에서 비용 및 사용량 데이터를 볼 수 있습니다.
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 02/05/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
-ms.custom: 
-ms.openlocfilehash: 81a38f471ee1f2f8064a956eca121fd0e6feb235
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.custom: ''
+ms.openlocfilehash: 8f8c157be0a369817099afa211015ba7587017e3
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="connect-a-google-cloud-platform-account"></a>Google Cloud Platform 계정 연결
 
@@ -73,4 +73,4 @@ Google 계정이 계정 목록에 나타나며 **인증됨**으로 표시되어�
 
 ## <a name="next-steps"></a>다음 단계
 
-- Cloudyn의 Azure Cost Management에 대한 자세한 내용은 Cost Management에 대한 [사용량 및 비용 검토](./tutorial-review-usage.md) 자습서를 참조하세요.
+- Azure Cost Management에 대한 자세한 내용은 Cost Management에 대한 [사용량 및 비용 검토](./tutorial-review-usage.md) 자습서를 참조하세요.

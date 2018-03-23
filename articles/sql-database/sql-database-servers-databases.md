@@ -1,55 +1,44 @@
 ---
-title: "Azure SQL Server 및 데이터베이스 만들기 및 관리 | Microsoft Docs"
-description: "SQL Database 서버 및 데이터베이스 개념, 서버 및 데이터베이스 생성 및 관리에 대해 알아봅니다."
+title: Azure SQL Server 및 데이터베이스 만들기 및 관리 | Microsoft Docs
+description: SQL Database 서버 및 데이터베이스 개념, 서버 및 데이터베이스 생성 및 관리에 대해 알아봅니다.
 services: sql-database
 documentationcenter: na
 author: CarlRabeler
 manager: jhubbard
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: On Demand
-ms.date: 10/11/2017
+ms.date: 02/28/2018
 ms.author: carlrab
-ms.openlocfilehash: 469db4f3faf12cbd778f18b7bc74ec6b86b412c7
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 0e2dabc5cc0b816f2623fce5f8fb09a7004039c7
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-and-manage-azure-sql-database-servers-and-databases"></a>Azure SQL Database 서버 및 데이터베이스 만들기 및 관리
 
-Azure SQL Database는 [다양한 워크로드에 대한 계산 및 저장소 리소스](sql-database-service-tiers.md)를 정의한 집합을 사용하여 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md) 내에서 만든 Microsoft Azure의 관리되는 데이터베이스입니다. Azure SQL Database는 Azure SQL Database 논리 서버와 연결되어 있으며 특정 Azure 지역에서 만들어집니다. 
+SQL Database는 다음 세 가지 유형의 데이터베이스를 제공합니다.
 
-## <a name="an-azure-sql-database-can-be-a-single-pooled-or-partitioned-database"></a>Azure SQL Database는 풀되거나 분할된 단일 데이터베이스일 수 있습니다.
+- Azure SQL Database는 [다양한 워크로드에 대해 정의된 계산 및 저장소 리소스](sql-database-service-tiers.md) 집합을 사용하여 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md) 내에서 만들어진 단일 데이터베이스. Azure SQL Database는 Azure SQL Database 논리 서버와 연결되어 있으며 특정 Azure 지역에서 만들어집니다.
+- 풀의 모든 데이터베이스 간에 공유되는 [다양한 워크로드에 대해 정의된 계산 및 저장소 리소스](sql-database-service-tiers.md) 집합을 사용하여 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md) 내에서 [데이터베이스 풀](sql-database-elastic-pool.md)의 일부로 만들어진 데이터베이스. Azure SQL Database는 Azure SQL Database 논리 서버와 연결되어 있으며 특정 Azure 지역에서 만들어집니다.
+- 해당 서버 인스턴스의 모든 데이터베이스에 대해 정의된 계산 및 저장소 리소스 집합을 사용하여 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md) 내에서 만들어진 [SQL Server 인스턴스](sql-database-managed-instance.md). 관리되는 인스턴스는 시스템 및 사용자 데이터베이스를 둘 다 포함합니다. 관리되는 인스턴스는 응용 프로그램을 다시 설계하지 않고도 완전히 관리되는 PaaS로 데이터베이스로 리프트 앤 시프트 방식으로 이동할 수 있도록 설계되었습니다. 관리되는 인스턴스는 온-프레미스 SQL Server 프로그래밍 모델과의 호환성이 뛰어나고, 대부분의 SQL Server 기능과 함께 제공되는 도구 및 서비스에 대한 지원을 제공합니다.  
 
-Azure SQL Database는 다음과 같을 수 있습니다.
+Microsoft Azure SQL Database는 TDS(Tabular Data Stream) 프로토콜 클라이언트 버전 7.3 이상을 지원하며 암호화된 TCP/IP 연결만 허용합니다.
 
-- 고유한 리소스 집합이 있는 [단일 데이터베이스](sql-database-single-database-resources.md)
-- 리소스 집합을 공유하는 [탄력적 풀](sql-database-elastic-pool.md)의 일부
-- 일부 [분할 데이터베이스의 확장된 집합](sql-database-elastic-scale-introduction.md#horizontal-and-vertical-scaling)은 단일 또는 풀링된 데이터베이스
-- [다중 테넌트 SaaS 디자인 패턴](sql-database-design-patterns-multi-tenancy-saas-applications.md)에 속한 데이터베이스 집합의 일부 및 해당 데이터베이스는 단일 또는 풀링된 데이터베이스 또는 둘 다일 수 있습니다. 
-
-> [!TIP]
-> 유효한 데이터베이스 이름은 [데이터베이스 식별자](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers)를 참조하세요. 
->
- 
-- Microsoft Azure SQL Database에서 사용하는 기본 데이터베이스 데이터 정렬은 **SQL_LATIN1_GENERAL_CP1_CI_AS**이며 여기서 **LATIN1_GENERAL**은 영어(미국), **CP1**은 코드 페이지 1252, **CI**는 대/소문자 구분, **AS**는 악센트를 구분합니다. 데이터 정렬을 설정하는 방법에 대한 자세한 내용은 [COLLATE(Transact-SQL)](https://msdn.microsoft.com/library/ms184391.aspx)를 참조하세요.
-- Microsoft Azure SQL Database는 TDS(Tabular Data Stream) 프로토콜 클라이언트 버전 7.3 이상을 지원합니다.
-- TCP/IP 연결만 허용됩니다.
+> [!IMPORTANT]
+> 현재 공개 미리 보기로 제공되는 SQL Database 관리되는 인스턴스는 단일 범용 서비스 계층을 제공합니다. 자세한 내용은 [SQL Database 관리되는 인스턴스](sql-database-managed-instance.md)를 참조하세요. 이 문서의 나머지 부분은 관리되는 인스턴스에 적용되지 않습니다.
 
 ## <a name="what-is-an-azure-sql-logical-server"></a>Azure SQL 논리 서버란?
 
-논리 서버는 [탄력적 풀](sql-database-elastic-pool.md) [로그인](sql-database-manage-logins.md), [방화벽 규칙](sql-database-firewall-configure.md), [감사 규칙](sql-database-auditing.md), [위협 검색 정책](sql-database-threat-detection.md) 및 [장애 조치 그룹](sql-database-geo-replication-overview.md)을 포함하여 여러 데이터베이스에 대한 중앙 관리 지점의 역할을 담당합니다. 논리 서버는 리소스 그룹과 다른 지역에 위치할 수 있습니다. Azure SQL Database를 만들기 전에 논리 서버가 있어야 합니다. 서버에 있는 모든 데이터베이스는 논리 서버와 동일한 지역 내에서 생성됩니다. 
+논리 서버는 단일 또는 여러 [풀링된](sql-database-elastic-pool.md) 데이터베이스, [로그인](sql-database-manage-logins.md), [방화벽 규칙](sql-database-firewall-configure.md), [감사 규칙](sql-database-auditing.md), [위협 검색 정책](sql-database-threat-detection.md) 및 [장애 조치(Failover) 그룹](sql-database-geo-replication-overview.md)에 대한 중앙 관리 지점의 역할을 담당합니다. 논리 서버는 리소스 그룹과 다른 지역에 위치할 수 있습니다. Azure SQL Database를 만들기 전에 논리 서버가 있어야 합니다. 서버에 있는 모든 데이터베이스는 논리 서버와 동일한 지역 내에서 생성됩니다.
 
-
-> [!IMPORTANT]
-> SQL Database에서 서버는 온-프레미스 환경에서 친숙한 SQL Server 인스턴스와 구별되는 논리적 구문입니다. 특히, SQL Database 서비스는 해당 논리 서버와 관련하여 데이터베이스의 위치르 보증하지는 않으며 인스턴스 수준의 액세스 또는 기능을 노출하지 않습니다.
-> 
+논리 서버는 온-프레미스 환경에서 친숙한 SQL Server 인스턴스와 구별되는 논리적 구문입니다. 특히, SQL Database 서비스는 해당 논리 서버와 관련하여 데이터베이스의 위치르 보증하지는 않으며 인스턴스 수준의 액세스 또는 기능을 노출하지 않습니다. 반대로, SQL Database 관리되는 인스턴스의 서버는 온-프레미스 환경에서 친숙할 수 있는 SQL Server 인스턴스와 비슷합니다.
 
 논리 서버를 만들 때 해당 서버의 마스터 데이터베이스 및 해당 서버에서 생성된 모든 데이터베이스에 대한 관리 권한이 있는 서버 로그인 계정 및 암호를 제공합니다. 이 초기 계정이 SQL 로그인 계정입니다. Azure SQL Database는 인증을 위해 SQL 인증 및 Azure Active Directory 인증을 지원합니다. 로그인 및 인증에 대한 내용은 [Azure SQL Database에서 데이터베이스 및 로그인 관리](sql-database-manage-logins.md)를 참조하세요. Windows 인증은 지원되지 않습니다. 
 
@@ -74,6 +63,7 @@ Azure 데이터베이스 논리 서버는 다음과 같습니다.
 - 포함된 리소스에서 사용하도록 설정된 기능에 대한 버전 관리 범위입니다. 
 - 서버 수준 주체 로그인은 서버에 있는 모든 데이터베이스를 관리할 수 있습니다.
 - 서버에서 하나 이상의 데이터베이스에 대한 액세스를 부여하는 SQL Server 온-프레미스 인스턴스에서 해당 항목과 비슷한 로그인을 포함하고 제한된 관리 권한이 부여될 수 있습니다. 자세한 내용은 [로그인](sql-database-manage-logins.md)을 참조하세요.
+- 논리 서버에서 생성되는 모든 사용자 데이터베이스에 대한 기본 데이터 정렬은 `SQL_LATIN1_GENERAL_CP1_CI_AS`입니다. 여기서 `LATIN1_GENERAL`은 영어(미국)이고, `CP1`은 코드 페이지 1252이며, `CI`는 대/소문자 비구분이고, `AS`는 악센트 구분입니다.
 
 ## <a name="azure-sql-databases-protected-by-sql-database-firewall"></a>Azure SQL Database는 SQL Database 방화벽으로 보호됩니다.
 
@@ -96,6 +86,8 @@ Azure SQL Database의 리소스 그룹을 미리 만들거나 서버 자체를 �
 > [!IMPORTANT]
 > 데이터베이스의 가격 책정 계층을 선택하는 방법에 대한 자세한 내용은 [서비스 계층](sql-database-service-tiers.md)을 참조하세요.
 >
+
+관리되는 인스턴스를 만들려면 [관리되는 인스턴스 만들기](sql-database-managed-instance-tutorial-portal.md)를 참조하세요.
 
 ### <a name="manage-an-existing-sql-server"></a>기존 SQL Server 관리
 
@@ -140,7 +132,7 @@ Azure PowerShell을 사용하여 Azure SQL Server, 데이터베이스 및 방화
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure SQL Server, 데이터베이스 및 방화벽 관리
 
-[Azure CLI](/cli/azure/overview)를 사용하여 Azure SQL Server, 데이터베이스 및 방화벽을 만들고 관리하려면 다음 [Azure CLI SQL Database](/cli/azure/sql/db) 명령을 사용합니다. [Cloud Shell](/azure/cloud-shell/overview)을 사용하여 CLI 브라우저에서 실행하거나 macOS, Linux 또는 Windows에서 [설치](/cli/azure/install-azure-cli)합니다. 탄력적 풀 만들기 및 관리에 대해서는 [탄력적 풀](sql-database-elastic-pool.md)을 참조하세요.
+[Azure CLI](/cli/azure)를 사용하여 Azure SQL Server, 데이터베이스 및 방화벽을 만들고 관리하려면 다음 [Azure CLI SQL Database](/cli/azure/sql/db) 명령을 사용합니다. [Cloud Shell](/azure/cloud-shell/overview)을 사용하여 CLI 브라우저에서 실행하거나 macOS, Linux 또는 Windows에서 [설치](/cli/azure/install-azure-cli)합니다. 탄력적 풀 만들기 및 관리에 대해서는 [탄력적 풀](sql-database-elastic-pool.md)을 참조하세요.
 
 | Cmdlet | 설명 |
 | --- | --- |
@@ -211,7 +203,7 @@ Azure SQL Server, 데이터베이스 및 방화벽을 만들고 관리하려면 
 |[Servers - List By Resource Group](/rest/api/sql/servers/listbyresourcegroup)|리소스 그룹의 서버 목록을 반환합니다.|
 |[Servers - Update](/rest/api/sql/servers/update)|기존 서버를 업데이트합니다.|
 |[Servers - Sql](/rest/api/sql/servers%20-%20sql)|지정된 이름의 리소스를 만들 수 있는지 여부를 결정합니다.|
-|[Databases - Create 또는 Update](/rest/api/sql/databases/createorupdate)|새 데이터베이스를 만들거나 기존 데이터베이스를 업데이트합니다.|
+|[데이터베이스 - Create 또는 Update](/rest/api/sql/databases/createorupdate)|새 데이터베이스를 만들거나 기존 데이터베이스를 업데이트합니다.|
 |[데이터베이스 - Get](/rest/api/sql/databases/get)|데이터베이스를 가져옵니다.|
 |[데이터베이스 - Get By Elastic Pool](/rest/api/sql/databases/getbyelasticpool)|탄력적 풀 내부의 데이터베이스를 가져옵니다.|
 |[데이터베이스 - Get By Recommended Elastic Pool](/rest/api/sql/databases/getbyrecommendedelasticpool)|권장되는 탄력적 풀 내부의 데이터베이스를 가져옵니다.|
@@ -226,7 +218,5 @@ Azure SQL Server, 데이터베이스 및 방화벽을 만들고 관리하려면 
 
 ## <a name="next-steps"></a>다음 단계
 
-- 탄력적 풀을 사용하여 데이터베이스를 풀하는 방법에 대한 자세한 내용은 [탄력적 풀](sql-database-elastic-pool.md)을 참조하세요.
-- Azure SQL Database 서비스에 대한 정보는 [SQL Database 정의](sql-database-technical-overview.md)를 참조하세요.
 - SQL Server 데이터베이스를 Azure로 마이그레이션하는 방법에 대한 자세한 내용은 [Azure SQL Database로 마이그레이션](sql-database-cloud-migrate.md)을 참조하세요.
 - 지원되는 기능에 대한 자세한 내용은 [기능](sql-database-features.md)을 참조하세요.

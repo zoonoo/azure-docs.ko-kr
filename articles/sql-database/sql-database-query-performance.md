@@ -1,25 +1,19 @@
 ---
-title: "Azure SQL Database에 대한 쿼리 성능 Insight | Microsoft Docs"
-description: "쿼리 성능 모니터링은 Azure SQL Database에 대한 대부분의 CPU 사용 쿼리를 식별합니다."
+title: Azure SQL Database에 대한 쿼리 성능 Insight | Microsoft Docs
+description: 쿼리 성능 모니터링은 Azure SQL Database에 대한 대부분의 CPU 사용 쿼리를 식별합니다.
 services: sql-database
-documentationcenter: 
 author: stevestein
-manager: jhubbard
-editor: monicar
-ms.assetid: c2f580b2-3835-453f-89f5-140e02dd2ea7
+manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: On Demand
 ms.date: 07/05/2017
 ms.author: sstein
-ms.openlocfilehash: 015f3255d0ff9691168899df1e983e70f35215b1
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 18d03ffcd586a809b37cbc1ca9a7843c25c7758d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-sql-database-query-performance-insight"></a>Azure SQL Database Query Performance Insight
 관련 데이터베이스의 성능을 관리하고 튜닝하는 것은 많은 전문 지식과 시간 투자를 필요로 하는 어려운 일입니다. Query Performance Insight를 통해 다음을 제공하여 데이터베이스 성능 문제 해결 시간을 줄일 수 있습니다.
@@ -62,7 +56,7 @@ Query Performance Insight는 쉽게 사용할 수 있습니다.
 
 1. SQL 데이터베이스로 이동한 후 **모든 설정** > **지원 + 문제 해결** > **Query Performance Insight**를 클릭합니다. 
    
-    ![Query Performance Insight][1]
+    ![쿼리][1]
    
     최상위 쿼리 뷰가 열리고 최상위 CPU 사용 쿼리가 나열됩니다.
 2. 자세한 내용은 차트 주위를 클릭합니다.<br>위쪽 줄에는 데이터베이스에 대한 전체 DTU%가 표시되고 막대에는 선택한 기간 중에 선택한 쿼리에서 사용된 CPU%가 표시됩니다. 예를 들어 **지난주**를 선택하면 각 막대는 1일을 나타냅니다.

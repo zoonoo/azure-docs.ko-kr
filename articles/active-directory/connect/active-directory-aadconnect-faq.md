@@ -1,8 +1,8 @@
 ---
 title: 'Azure Active Directory Connect: FAQ - | Microsoft Docs'
-description: "이 페이지에는 Azure AD Connect에 대해 자주 묻는 질문과 대답이 있습니다."
+description: 이 페이지에는 Azure AD Connect에 대해 자주 묻는 질문과 대답이 있습니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
 ms.assetid: 4e47a087-ebcd-4b63-9574-0c31907a39a3
@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/12/2017
+ms.date: 03/09/2017
 ms.author: billmath
-ms.openlocfilehash: 13f12f39fb72bd7d4e32056753a012c38034f807
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 07b0209ef94f91c00b98b8801323a58cd9d14494
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="frequently-asked-questions-for-azure-active-directory-connect"></a>Azure Active Directory Connect에 대한 질문과 대답
 
@@ -66,7 +66,7 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="environment"></a>Environment
 **Q: Azure AD Connect를 설치한 후에 서버 이름을 변경하는 것이 지원되나요?**  
-아니요. 서버 이름을 변경하면 동기화 엔진이 SQL 데이터베이스에 연결할 수 없게 되고 서비스를 시작할 수 없게 됩니다.
+번호 서버 이름을 변경하면 동기화 엔진이 SQL 데이터베이스에 연결할 수 없게 되고 서비스를 시작할 수 없게 됩니다.
 
 ## <a name="identity-data"></a>ID 데이터
 **Q: Azure AD의 UPN(userPrincipalName) 특성이 온-프레미스 UPN가 일치하지 않습니다. 왜 그런가요?**  
@@ -78,7 +78,7 @@ ms.lasthandoff: 12/11/2017
 [Azure AD Connect 동기화 서비스 기능](active-directory-aadconnectsyncservice-features.md)에 설명된 대로 동기화 엔진이 userPrincipalName을 업그레이드할 수 있도록 Azure AD를 구성할 수도 있습니다.
 
 **Q:기존 Azure AD Group/Contact 개체와 온-프레미스 AD Group/Contact 개체의 소프트 매칭이 지원되나요?**  
-아니요. 현재는 지원되지 않습니다.
+예. proxyAddress에 따라 다릅니다.  소프트 매칭은 메일 사용이 가능하지 않은 그룹에서 지원되지 않습니다.
 
 **Q: 기존 Azure AD Group/Contact 개체의 ImmutableId 특성을 온-프레미스 AD Group/Contact 개체에 하드 매칭하도록 수동 설정하는 것이 지원되나요?**  
 아니요. 현재는 지원되지 않습니다.
@@ -88,7 +88,7 @@ ms.lasthandoff: 12/11/2017
 이 사이트에 설명되어 있는 cmdlet을 제외하고, Azure AD Connect에 나오는 다른 PowerShell cmdlet은 고객 사용이 지원되지 않습니다.
 
 **Q: *Synchronization Service Manager*의 "서버 내보내기/서버 가져오기"를 사용하여 서버 간에 구성을 이동할 수 있나요?**  
-아니요. 이 옵션은 모든 구성 설정을 가져오는 것이 아니므로 사용하지 말아야 합니다. 그 대신 마법사를 사용하여 두 번째 서버에 기본 구성을 만들고 동기화 규칙 편집기를 사용하여 PowerShell 스크립트를 생성하여 서버 간에 사용자 지정 규칙을 이동할 수 있습니다. [스윙 마이그레이션](active-directory-aadconnect-upgrade-previous-version.md#swing-migration)을 참조하세요.
+번호 이 옵션은 모든 구성 설정을 가져오는 것이 아니므로 사용하지 말아야 합니다. 그 대신 마법사를 사용하여 두 번째 서버에 기본 구성을 만들고 동기화 규칙 편집기를 사용하여 PowerShell 스크립트를 생성하여 서버 간에 사용자 지정 규칙을 이동할 수 있습니다. [스윙 마이그레이션](active-directory-aadconnect-upgrade-previous-version.md#swing-migration)을 참조하세요.
 
 **Q: autocomplete 특성이 "false"인 암호 입력 요소를 포함하고 있으니 Azure 로그인 페이지에 대한 암호를 캐시하면 이 문제를 방지할 수 있나요?**</br>
 현재는 autocomplete 태그를 포함하여 암호 입력 필드의 HTML 특성을 수정하는 기능이 지원되지 않습니다. 현재 암호 필드에 특성을 추가할 수 있도록 사용자 지정 Javascript를 허용하는 기능을 개발하는 중입니다. 이 기능은 2017년 하반기에 제공될 예정입니다.
@@ -97,7 +97,7 @@ ms.lasthandoff: 12/11/2017
 현재는 로그인 페이지의 HTML 특성을 수정하는 기능이 지원되지 않습니다. 현재 암호 필드에 특성을 추가할 수 있도록 사용자 지정 Javascript를 허용하는 기능을 개발하는 중입니다. 이 기능은 2017년 하반기에 제공될 예정입니다.
 
 **Q: 동시 세션을 방지하는 방법이 있나요?**</br>
-아니요.
+번호
 
 ## <a name="troubleshooting"></a>문제 해결
 **Q: Azure AD Connect에 대한 도움을 받으려면 어떻게 합니까?**

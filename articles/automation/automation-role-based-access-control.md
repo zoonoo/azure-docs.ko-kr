@@ -1,25 +1,19 @@
 ---
-title: "Azure Automation에서 역할 기반 액세스 제어 | Microsoft Docs"
-description: "RBAC(역할 기반 액세스 제어)를 통해 Azure 리소스에 대한 액세스 관리가 가능합니다. 이 문서에서는 Azure Automation에서 RBAC를 설정하는 방법을 설명합니다."
+title: Azure Automation의 역할 기반 Access Control
+description: RBAC(역할 기반 액세스 제어)를 통해 Azure 리소스에 대한 액세스 관리가 가능합니다. 이 문서에서는 Azure Automation에서 RBAC를 설정하는 방법을 설명합니다.
+keywords: 자동화 rbac, 역할 기반 액세스 제어, azure rbac
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: jwhit
-editor: tysonn
-keywords: "자동화 rbac, 역할 기반 액세스 제어, azure rbac"
-ms.assetid: 04b5625e-0ee8-4b5b-85cd-7734c1b3d4a3
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 02/05/2018
-ms.author: magoedte;sngun
-ms.openlocfilehash: 753c06ec4a20650f779b68e11e1d6d6fd27a0141
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+manager: carmonm
+ms.openlocfilehash: 9fb77f3b435491b5ac5b16327d6ce74f90664a79
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Azure Automation의 역할 기반 Access Control
 

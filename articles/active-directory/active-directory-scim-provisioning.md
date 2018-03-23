@@ -1,11 +1,11 @@
 ---
-title: "Azure Active Directory에서 SCIM을 사용하여 앱 프로비전 자동화 | Microsoft Docs"
-description: "Azure Active Directory는 SCIM 프로토콜 사양에 정의된 인터페이스를 가진 웹 서비스가 향하는 응용 프로그램 또는 ID 저장소에 사용자 및 그룹을 자동으로 프로비전할 수 있습니다."
+title: Azure Active Directory에서 SCIM을 사용하여 앱 프로비전 자동화 | Microsoft Docs
+description: Azure Active Directory는 SCIM 프로토콜 사양에 정의된 인터페이스를 가진 웹 서비스가 향하는 응용 프로그램 또는 ID 저장소에 사용자 및 그룹을 자동으로 프로비전할 수 있습니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: asmalser-msft
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 4d86f3dc-e2d3-4bde-81a3-4a0e092551c0
 ms.service: active-directory
 ms.workload: identity
@@ -16,11 +16,11 @@ ms.date: 12/12/2017
 ms.author: asmalser
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
-ms.openlocfilehash: 17732ae616339020f11bc8973dc57b6d0fff4884
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 3b7f2f104046313e7d60cea4ef296f265d204aec
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="using-system-for-cross-domain-identity-management-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>도메인 간 ID 관리용 시스템을 사용하여 사용자 및 그룹을 Azure Active Directory에서 응용 프로그램으로 자동 프로비전
 
@@ -685,7 +685,7 @@ Azure Active Directory는 두 형식의 리소스를 SCIM 웹 서비스에 프�
 ## <a name="group-provisioning-and-de-provisioning"></a>그룹 프로비전 및 프로비전 해제
 다음 일러스트레이션은 다른 ID 저장소에 그룹의 수명 주기를 관리하도록 Azure AD가 SCIM 서비스를 보낸다는 메시지를 보여줍니다.  이러한 메시지는 세 가지 부분에서 사용자에 관련된 메시지가 다릅니다. 
 
-* 그룹 리소스의 스키마는 http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group으로 식별됩니다.  
+* 그룹 리소스의 스키마는 `http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group`으로 식별됩니다.  
 * 그룹을 검색하는 요청은 멤버 특성이 요청에 대한 응답에서 제공된 리소스로부터 제외된다고 규정합니다.  
 * 참조 특성에 특정 값이 있는지를 확인하는 요청은 멤버 특성에 대한 요청입니다.  
 

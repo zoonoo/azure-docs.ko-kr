@@ -1,25 +1,19 @@
 ---
-title: "Azure SQL Database의 임시 테이블 시작| Microsoft Docs"
-description: "Azure SQL Database에서 임시 테이블을 사용하여 시작하는 방법을 알아봅니다."
+title: Azure SQL Database의 임시 테이블 시작| Microsoft Docs
+description: Azure SQL Database에서 임시 테이블을 사용하여 시작하는 방법을 알아봅니다.
 services: sql-database
-documentationcenter: 
 author: bonova
-manager: jhubbard
-editor: 
-ms.assetid: c8c0f232-0751-4a7f-a36e-67a0b29fa1b8
+manager: craigg
 ms.service: sql-database
 ms.custom: develop databases
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: On Demand
 ms.date: 01/10/2017
 ms.author: bonova
-ms.openlocfilehash: 58f97c142ba0b9282d8988fc1bc037b9c0c69986
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 8e76d78e402d2cdc58ca26767c55c413f83226d9
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="getting-started-with-temporal-tables-in-azure-sql-database"></a>Azure SQL Database의 임시 테이블 시작
 임시 테이블은 사용자 지정 코딩을 필요로 하지 않고 데이터의 전체 변경 기록을 추적하고 분석할 수 있는 Azure SQL Database의 새로운 프로그래밍 기능입니다. 임시 테이블은 특정 기간 내에서만 유효하기 때문에 저장된 팩트를 해석할 수 있도록 데이터를 시간 컨텍스트와 밀접하게 연결해둡니다. 임시 테이블의 이 속성을 사용하면 효율적인 시간 기반 분석 및 데이터의 진화에서 정보를 얻을 수 있습니다.

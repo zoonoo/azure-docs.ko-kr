@@ -1,7 +1,7 @@
 ---
-title: "온-프레미스 네트워크에 HDInsight 연결 - Azure HDInsight | Microsoft Docs"
-description: "Azure Virtual Network에서 HDInsight 클러스터를 만들고 온-프레미스 네트워크에 연결하는 방법을 알아봅니다. 사용자 지정 DNS 서버를 사용하여 HDInsight와 온-프레미스 네트워크 간에 이름 확인을 구성하는 방법을 알아봅니다."
-documentationcenter: 
+title: 온-프레미스 네트워크에 HDInsight 연결 - Azure HDInsight | Microsoft Docs
+description: Azure Virtual Network에서 HDInsight 클러스터를 만들고 온-프레미스 네트워크에 연결하는 방법을 알아봅니다. 사용자 지정 DNS 서버를 사용하여 HDInsight와 온-프레미스 네트워크 간에 이름 확인을 구성하는 방법을 알아봅니다.
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/23/2018
 ms.author: larryfr
-ms.openlocfilehash: 03214f25858ae340908a1d1b7f3ff7f62d545dc9
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 9470e052b4f57e52fa140b53fa7c32d199c58e1e
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="connect-hdinsight-to-your-on-premise-network"></a>온-프레미스 네트워크에 HDInsight 연결
 
@@ -273,13 +273,13 @@ NSG(네트워크 보안 그룹) 또는 UDR(사용자 정의 경로)를 사용하
 
 > [!WARNING]
 > HDInsight에는 Azure 클라우드에서 특정 IP 주소의 인바운드 액세스 및 제한없는 아웃바운드 액세스가 필요합니다. NSG 또는 UDR을 사용하여 트래픽을 제어하는 경우 다음 단계를 수행해야 합니다.
->
-> 1. 가상 네트워크를 포함하는 위치에 대한 IP 주소를 찾습니다. 위치별로 필요한 IP 목록은 [필요한 IP 주소](./hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip)를 참조하세요.
->
-> 2. IP 주소의 인바운드 트래픽을 허용합니다.
->
->    * __NSG__: __인터넷__에서 __443__ 포트에 대한 __인바운드__ 트래픽을 허용합니다.
->    * __UDR__: 경로의 __다음 홉__ 유형을 __인터넷__으로 설정합니다.
+
+1. 가상 네트워크를 포함하는 위치에 대한 IP 주소를 찾습니다. 위치별로 필요한 IP 목록은 [필요한 IP 주소](./hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip)를 참조하세요.
+
+2. 1단계에서 확인된 IP 주소의 경우, 해당 IP에서의 인바운드 트래픽을 허용합니다.
+
+   * __NSG__를 사용하는 경우: IP 주소에 대해 포트 __443__의 __인바운드__ 트래픽을 허용합니다.
+   * __UDR__을 사용하는 경우: __다음 홉__ 유형의 경로를 IP 주소에 대해 __인터넷__으로 설정합니다.
 
 Azure PowerShell 또는 Azure CLI를 사용하여 NSG를 만드는 예제는 [Azure Virtual Network에서 HDInsight 확장](./hdinsight-extend-hadoop-virtual-network.md#hdinsight-nsg) 문서를 참조하세요.
 

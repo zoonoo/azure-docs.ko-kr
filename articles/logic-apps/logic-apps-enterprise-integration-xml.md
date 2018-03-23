@@ -1,11 +1,11 @@
 ---
-title: "워크플로에서 XML 메시지 작업 - Azure Logic Apps | Microsoft Docs"
-description: "엔터프라이즈 통합 팩을 사용하여 논리 앱 및 기업 간 시나리오에서 XML 메시지 처리, 유효성 검사, 변환 및 보강"
+title: 워크플로에서 XML 메시지 작업 - Azure Logic Apps | Microsoft Docs
+description: 엔터프라이즈 통합 팩을 사용하여 논리 앱 및 기업 간 시나리오에서 XML 메시지 처리, 유효성 검사, 변환 및 보강
 services: logic-apps
 documentationcenter: .net,nodejs,java
-author: MandiOhlinger
+author: divyaswarnkar
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: 47672dc4-1caa-44e5-b8cb-68ec3a76b7dc
 ms.service: logic-apps
 ms.workload: integration
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 02/27/2017
-ms.author: LADocs; mandia
-ms.openlocfilehash: 3fec4935f5317be4bf8c9e05f1c24a7c05381b1e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: LADocs; divswa
+ms.openlocfilehash: 495cb44219ee9d8ca20ea17c373545668839f4c5
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="validate-and-transform-xml-encode-and-decode-flat-files-and-enrich-messages-features-in-logic-apps"></a>논리 앱에서 XML 유효성을 검사 및 변환하고, 플랫 파일을 인코딩 및 디코딩하며, 메시지 기능 보강
 

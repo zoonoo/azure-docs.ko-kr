@@ -1,8 +1,8 @@
 ---
-title: "Azure에서 심층 학습 데이터 과학 가상 컴퓨터 프로비전 | Microsoft Docs"
-description: "분석 및 기계 학습을 수행하기 위해 Azure에서 심층 학습 데이터 과학 가상 컴퓨터를 구성하고 만듭니다."
+title: Azure에서 심층 학습 데이터 과학 Virtual Machine 프로비전 | Microsoft Docs
+description: 분석 및 기계 학습을 수행하기 위해 Azure에서 심층 학습 데이터 과학 Virtual Machine을 구성하고 만듭니다.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -11,25 +11,25 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2017
-ms.author: gokuma;bradsev
-ms.openlocfilehash: db1360fa54d82c50adc04194697d994925338296
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 03/16/2018
+ms.author: gokuma
+ms.openlocfilehash: 75baef65b8a826009cdbaac3a260d021559504da
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/17/2018
 ---
-# <a name="provision-a-deep-learning-virtual-machine-on-azure"></a>Azure에서 심층 학습 가상 컴퓨터 프로비전 
+# <a name="provision-a-deep-learning-virtual-machine-on-azure"></a>Azure에서 심층 학습 Virtual Machine 프로비전 
 
-DLVM(심층 학습 가상 컴퓨터)은 심층 학습 모델을 빠르게 학습하기 위해 GPU 기반 VM 인스턴스를 더 쉽게 사용할 수 있도록 특별히 구성된 [DSVM(데이터 과학 가상 컴퓨터)](http://aka.ms/dsvm) 변형입니다. Windows 2016 또는 Ubuntu DSVM을 기반으로 하여 지원됩니다. DLVM은 동일한 코어 VM 이미지를 공유하므로 DSVM에서 사용할 수 있는 풍부한 도구 집합을 모두 공유합니다. 
+DLVM(딥 러닝 Virtual Machine)은 심층 학습 모델을 빠르게 학습하기 위해 GPU 기반 VM 인스턴스를 더 쉽게 사용할 수 있도록 특별히 구성된 [DSVM(데이터 과학 Virtual Machine)](http://aka.ms/dsvm) 변형입니다. Windows 2016 또는 Ubuntu DSVM을 기반으로 하여 지원됩니다. DLVM은 동일한 코어 VM 이미지를 공유하므로 DSVM에서 사용할 수 있는 풍부한 도구 집합을 모두 공유합니다. 
 
 DLVM에는 몇 가지 AI용 도구가 포함되어 있습니다. 즉 인기 있는 심층 학습 프레임워크의 GPU 버전(예: Microsoft Cognitive Toolkit, TensorFlow, Keras, Caffe2, Chainer), 이미지와 텍스트 데이터를 획득하고 전처리하는 도구, 데이터 과학 모델링 및 개발 작업용 도구(예: Microsoft R Server Developer Edition, Anaconda Python, Python 및 R용 Jupyter 노트북, Python 및 R용 IDE, SQL 데이터베이스 및 기타 여러 데이터 과학) 및 ML 도구 등입니다. 
 
-## <a name="create-your-deep-learning-virtual-machine"></a>심층 학습 가상 컴퓨터 만들기
-심층 학습 가상 컴퓨터의 인스턴스를 만드는 단계는 다음과 같습니다. 
+## <a name="create-your-deep-learning-virtual-machine"></a>심층 학습 Virtual Machine 만들기
+심층 학습 Virtual Machine의 인스턴스를 만드는 단계는 다음과 같습니다. 
 
 1. [Azure 포털](https://portal.azure.com/#create/microsoft-ads.dsvm-deep-learningtoolkit
-)에서 가상 컴퓨터 목록으로 이동합니다.
+)에서 가상 머신 목록으로 이동합니다.
 2. 아래쪽에 있는 **만들기** 단추를 선택하여 ![create-dlvm](./media/dlvm-provision-wizard.PNG) 마법사로 이동합니다.
 3. DLVM을 만드는 데 사용되는 마법사에서 이 그림의 오른쪽에 열거된 **네 단계** 각각에 대한 **입력**이 필요합니다. 다음은 이러한 각 단계를 구성하는 데 필요한 입력입니다.
    
@@ -46,7 +46,7 @@ DLVM에는 몇 가지 AI용 도구가 포함되어 있습니다. 즉 인기 있�
 > [!NOTE]
 > DLVM은 Azure NC 시리즈 GPU VM 인스턴스에서 프로비전되므로 Azure에서 GPU가 있는 위치 중 하나를 선택해야 합니다. 현재 GPU VM이 있는 위치는 **미국 동부, 미국 중북부, 미국 중남부, 미국 서부 2, 북유럽, 유럽 서부**입니다. 최신 목록은 [지역별 Azure 제품 페이지](https://azure.microsoft.com/en-us/regions/services/)를 확인하고 **Compute** 아래에서 **NC 시리즈**를 찾으세요. 
 
-   2. **설정**: 기능 요구 사항 및 비용 제약 조건이 충족되는 NC 시리즈 GPU 가상 컴퓨터 크기 중 하나를 선택합니다. VM에 대한 저장소 계정을 만듭니다.  ![dlvm-settings](./media/dlvm-provision-step-2.PNG)
+   2. **설정**: 기능 요구 사항 및 비용 제약 조건이 충족되는 NC 시리즈 GPU 가상 머신 크기 중 하나를 선택합니다. VM에 대한 저장소 계정을 만듭니다.  ![dlvm-settings](./media/dlvm-provision-step-2.PNG)
    
    3. **요약**: 입력한 모든 정보가 올바른지 확인합니다.
    5. **구입**: **구입**을 클릭하여 프로비전을 시작합니다. 트랜잭션의 조건에는 링크가 제공됩니다. VM은 **크기** 단계에서 선택한 서버 크기에 대한 계산 이외에 추가 요금이 발생하지 않습니다. 
@@ -56,7 +56,7 @@ DLVM에는 몇 가지 AI용 도구가 포함되어 있습니다. 즉 인기 있�
 > 
 
 
-## <a name="how-to-access-the-deep-learning-virtual-machine"></a>심층 학습 가상 컴퓨터에 액세스하는 방법
+## <a name="how-to-access-the-deep-learning-virtual-machine"></a>심층 학습 Virtual Machine에 액세스하는 방법
 
 ### <a name="windows-edition"></a>Windows 버전
 VM이 만들어지면 이전의 **기본 사항** 섹션에서 구성한 관리자 계정 자격 증명을 사용하여 원격 데스크톱으로 액세스할 수 있습니다. 

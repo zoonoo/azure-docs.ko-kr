@@ -1,25 +1,21 @@
 ---
-title: "Azure SQL Database를 사용하는 분할된 다중 테넌트 데이터베이스 SaaS 앱 배포 | Microsoft Docs"
-description: "Azure SQL Database를 사용하여 SaaS 패턴을 보여 주는 분할된 Wingtip Tickets SaaS 다중 테넌트 데이터베이스 응용 프로그램을 배포하고 탐색합니다."
-keywords: "SQL Database 자습서"
+title: Azure SQL Database를 사용하는 분할된 다중 테넌트 데이터베이스 SaaS 앱 배포 | Microsoft Docs
+description: Azure SQL Database를 사용하여 SaaS 패턴을 보여 주는 분할된 Wingtip Tickets SaaS 다중 테넌트 데이터베이스 응용 프로그램을 배포하고 탐색합니다.
+keywords: SQL Database 자습서
 services: sql-database
-documentationcenter: 
 author: MightyPen
 manager: craigg
-editor: billgib;anjangsh
 ms.service: sql-database
 ms.custom: scale out apps
 ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: genemi
-ms.openlocfilehash: 3bbfdccd020f5efc7510d9688ea38f5e1af4ebde
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 82983c8926bdf3c7256c529448e5b4f3b2c2381c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application-that-uses-azure-sql-database"></a>Azure SQL Database를 사용하는 분할된 다중 테넌트 응용 프로그램 배포 및 탐색
 

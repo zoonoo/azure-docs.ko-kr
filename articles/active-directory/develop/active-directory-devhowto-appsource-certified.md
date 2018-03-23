@@ -1,11 +1,11 @@
 ---
-title: "Azure Active Directory에 대해 인증된 AppSource 가져오는 방법 | Microsoft Docs"
-description: "Azure Active Directory에 대해 인증된 응용 프로그램 AppSource 가져오는 방법에 대한 세부 정보."
+title: Azure Active Directory에 대해 인증된 AppSource 가져오는 방법 | Microsoft Docs
+description: Azure Active Directory에 대해 인증된 응용 프로그램 AppSource 가져오는 방법에 대한 세부 정보.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: andretms
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 21206407-49f8-4c0b-84d1-c25e17cd4183
 ms.service: active-directory
 ms.devlang: na
@@ -16,10 +16,10 @@ ms.date: 08/03/2017
 ms.author: andret
 ms.custom: aaddev
 ms.openlocfilehash: 5601ad80e271364fec519cf34bcdc2f650f3bb92
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Azure Active Directory에 대해 인증된 AppSource 가져오는 방법
 [Microsoft AppSource](https://appsource.microsoft.com/)는 기간 업무 SaaS 응용 프로그램을 검색, 시도 및 관리하는 비즈니스 사용자에 대한 대상입니다(기존 Microsoft SaaS 제품에 대한 독립 실행형 SaaS 및 추가 기능).
@@ -35,7 +35,7 @@ Open ID를 사용하여 응용 프로그램을 Azure Active Directory와 통합�
 
 응용 프로그램에서 다중 테넌트를 활성화하기 위해:
 - [Azure Portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps)의 응용 프로그램 등록 정보에서 `Multi-Tenanted` 속성을 `Yes`로 설정합니다(기본적으로 Azure Portal에서 만든 응용 프로그램은 *단일 테넌트*로 구성됨).
-- '`common`' 끝점에 요청을 보내도록 코드를 업데이트합니다(*https://login.microsoftonline.com/{yourtenant}*에서 *https://login.microsoftonline.com/common*으로 끝점 업데이트).
+- 코드를 업데이트하여 요청을 '`common`' 끝점으로 전송합니다(*https://login.microsoftonline.com/{yourtenant}*에서 *https://login.microsoftonline.com/common*으로 끝점 업데이트).
 - ASP.NET과 같은 일부 플랫폼의 경우 여러 발급자를 허용하도록 코드를 업데이트해야 합니다.
 
 다중 테넌트에 대한 정보는 [다중 테넌트 응용 프로그램 패턴을 사용하여 모든 Azure AD(Active Directory) 사용자를 로그인하는 방법](./active-directory-devhowto-multi-tenant-overview.md)을 참조하세요.
@@ -65,7 +65,7 @@ Open ID를 사용하여 응용 프로그램을 Azure Active Directory와 통합�
 </table>
 
 ### <a name="contact-me-partner-led-trial-experience"></a>연락처(파트너 주도 평가판 체험)
-*파트너 평가판 체험*은 사용자/회사를 프로비전하기 위해 수동 또는 장기 작업을 발생해야 하는 경우에 사용될 수 있습니다. 예를 들어 응용 프로그램은 가상 컴퓨터, 데이터베이스 인스턴스 또는 완료하는 데 시간이 많이 걸리는 작업을 프로비전해야 합니다. 이 경우 사용자가 *'평가판 요청'* 단추를 선택하고 양식을 채운 후 AppSource는 사용자의 연락처 정보를 보냅니다. 이 정보를 받으면 환경을 프로비전하고 평가판 체험에 액세스하는 방법에 대한 지침을 사용자에게 보냅니다.<br/><br/>
+*파트너 평가판 체험*은 사용자/회사를 프로비전하기 위해 수동 또는 장기 작업을 발생해야 하는 경우에 사용될 수 있습니다. 예를 들어 응용 프로그램은 가상 머신, 데이터베이스 인스턴스 또는 완료하는 데 시간이 많이 걸리는 작업을 프로비전해야 합니다. 이 경우 사용자가 *'평가판 요청'* 단추를 선택하고 양식을 채운 후 AppSource는 사용자의 연락처 정보를 보냅니다. 이 정보를 받으면 환경을 프로비전하고 평가판 체험에 액세스하는 방법에 대한 지침을 사용자에게 보냅니다.<br/><br/>
 
 <table valign="top">
 <tr>

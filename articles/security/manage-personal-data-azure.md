@@ -1,28 +1,28 @@
 ---
-title: "Microsoft Azure에서 개인 데이터 관리 | Microsoft Docs"
-description: "Azure Active Directory 및 Azure SQL Database에서 개인 데이터를 수정, 업데이트, 삭제 및 내보내는 방법에 관한 지침"
+title: Microsoft Azure에서 개인 데이터 관리 | Microsoft Docs
+description: Azure Active Directory 및 Azure SQL Database에서 GDPR(일반 데이터 보호 규정)을 준수하는 데 도움이 되도록 개인 데이터를 수정, 업데이트, 삭제 및 내보내는 방법
 services: security
 documentationcenter: na
 author: barclayn
 manager: MBaldwin
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 03/06/2018
 ms.author: barclayn
-ms.openlocfilehash: 51dca8955745b40a9126b142ea15e707fe58bc72
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 41c0cc4eb3697aa79abeabddc98a84598ce4ea50
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="manage-personal-data-in-microsoft-azure"></a>Microsoft Azure에서 개인 데이터 관리
 
-이 문서는 Azure Active Directory 및 Azure SQL Database에서 개인 데이터를 수정, 업데이트, 삭제 및 내보내는 방법에 관한 지침을 제공합니다.
+이 문서에서는 Azure Active Directory 및 Azure SQL Database에서 GDPR(일반 데이터 보호 규정)을 준수하기 위해 개인 데이터를 수정, 업데이트, 삭제 및 내보내는 방법에 대한 지침을 제공합니다.
 
 ## <a name="scenario"></a>시나리오
 
@@ -59,7 +59,7 @@ ms.lasthandoff: 02/21/2018
 
 1. 디렉터리에 대한 전역 관리자인 계정으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-2. **모든 서비스**를 선택하고 텍스트 상자에 **사용자 및 그룹**을 입력한 다음, **Enter**를 선택합니다.
+2. **모든 서비스**를 선택하고 텍스트 상자에 **사용자 및 그룹**을 입력한 다음, **입력**을 선택합니다.
 
     ![media/image1.png](media/manage-personal-data-azure/image001.png)
 
@@ -83,7 +83,7 @@ ms.lasthandoff: 02/21/2018
 
 1. 디렉터리에 대한 전역 관리자인 계정으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-2. **모든 서비스**를 선택하고 텍스트 상자에 **사용자 및 그룹**을 입력한 다음, **Enter**를 선택합니다.
+2. **모든 서비스**를 선택하고 텍스트 상자에 **사용자 및 그룹**을 입력한 다음, **입력**을 선택합니다.
 
     ![](media/manage-personal-data-azure/image001.png)
 

@@ -1,6 +1,6 @@
 ---
-title: "Azure Redis 캐시를 구성하는 방법 | Microsoft Docs"
-description: "Azure Redis 캐시에 대한 기본 Redis 구성을 이해하고 Azure Redis 캐시 인스턴스를 구성하는 방법을 알아봅니다."
+title: Azure Redis 캐시를 구성하는 방법 | Microsoft Docs
+description: Azure Redis 캐시에 대한 기본 Redis 구성을 이해하고 Azure Redis 캐시 인스턴스를 구성하는 방법을 알아봅니다.
 services: redis-cache
 documentationcenter: na
 author: wesmc7777
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 08/22/2017
 ms.author: wesmc
-ms.openlocfilehash: a65832a30a570944ff30d02c2f173df345bde32c
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: fa78c42ce93729379d3c532f94bc67bb8c069d53
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="how-to-configure-azure-redis-cache"></a>Azure Redis 캐시 구성 방법
-이 항목에서는 Azure Redis Cache 인스턴스에 대한 구성을 검토하고 업데이트하는 방법과 Azure Redis Cache 인스턴스에 대한 기본 Redis 서버 구성을 살펴봅니다.
+이 항목에서는 Azure Redis Cache 인스턴스에 대해 사용할 수 있는 구성을 설명합니다. 또한 Azure Redis Cache 인스턴스에 대한 기본 Redis 서버 구성에 대해서도 설명합니다.
 
 > [!NOTE]
 > 프리미엄 캐시 기능을 구성하고 사용하는 방법에 대한 자세한 내용은 [지속성을 구성하는 방법](cache-how-to-premium-persistence.md), [클러스터링을 구성하는 방법](cache-how-to-premium-clustering.md) 및 [Virtual Network 지원을 구성하는 방법](cache-how-to-premium-vnet.md)을 참조하세요.
@@ -79,7 +79,7 @@ Azure Redis Cache 설정은 **리소스 메뉴**를 사용하여 **Redis Cache**
 
 ### <a name="access-control-iam"></a>액세스 제어(IAM)
 
-조직이 액세스 관리에 필요한 요구 사항을 간단하면서도 정밀하게 충족할 수 있도록 Azure Portal의 **액세스 제어(IAM)** 섹션에서 RBAC(역할 기반 액세스 제어)를 지원합니다. 자세한 내용은 [Azure 포털의 역할 기반 액세스 제어](../active-directory/role-based-access-control-configure.md)를 참조하세요.
+**액세스 제어(IAM)** 섹션에서는 Azure Portal의 RBAC(역할 기반 액세스 제어)에 대한 지원을 제공합니다. 이 구성은 조직이 액세스 관리 요구 사항을 간편하고 정확하게 충족하도록 도와줍니다. 자세한 내용은 [Azure 포털의 역할 기반 액세스 제어](../active-directory/role-based-access-control-configure.md)를 참조하세요.
 
 ### <a name="tags"></a>태그들
 
@@ -136,7 +136,7 @@ Azure Redis Cache 설정은 **리소스 메뉴**를 사용하여 **Redis Cache**
 
 **Maxmemory 정책**은 캐시에 대한 제거 정책을 구성하고, 다음 제거 정책 중에서 선택할 수 있도록 합니다.
 
-* `volatile-lru` - 이것이 기본값입니다.
+* `volatile-lru` - 기본 제거 정책입니다.
 * `allkeys-lru`
 * `volatile-random`
 * `allkeys-random`
@@ -145,7 +145,7 @@ Azure Redis Cache 설정은 **리소스 메뉴**를 사용하여 **Redis Cache**
 
 `maxmemory` 정책에 대한 자세한 내용은 [제거 정책](http://redis.io/topics/lru-cache#eviction-policies)을 참조하세요.
 
-**maxmemory-reserved** 설정은 장애 조치(failover) 중 복제와 같은 비캐시 작업을 위해 예약되는 메모리의 양을 MB 단위로 구성합니다. 이 값을 설정하면 부하가 달라져도 Redis 서버 환경이 더 일관되도록 할 수 있습니다. 이 값은 쓰기 작업이 많은 워크로드에서 더 높게 설정되어야 합니다. 이러한 작업을 위해 메모리가 예약된 경우 캐시된 데이터의 저장에는 사용할 수 없습니다.
+**maxmemory-reserved** 설정은 장애 조치(Failover) 중 복제와 같은 비캐시 작업을 위해 예약되는 메모리의 양을 MB 단위로 구성합니다. 이 값을 설정하면 부하가 달라져도 Redis 서버 환경이 더 일관되도록 할 수 있습니다. 이 값은 쓰기 작업이 많은 워크로드에서 더 높게 설정되어야 합니다. 이러한 작업을 위해 메모리가 예약된 경우 캐시된 데이터의 저장에는 사용할 수 없습니다.
 
 **maxfragmentationmemory-reserved** 설정은 메모리 조각화를 고려하여 예약된 메모리 양을 MB 단위로 구성합니다. 이 값을 설정하면 캐시가 가득 찼거나 거의 가득 찼고 조각화 비율이 높을 때 더욱 일관된 Redis 서버 환경을 갖출 수 있습니다. 이러한 작업을 위해 메모리가 예약된 경우 캐시된 데이터의 저장에는 사용할 수 없습니다.
 
@@ -269,7 +269,9 @@ Redis keyspace 알림은 **고급 설정** 블레이드에서 구성됩니다. K
 
 ### <a name="firewall"></a>방화벽
 
-**방화벽**을 클릭하여 프리미엄 Azure Redis Cache에 대한 방화벽 규칙을 보고 구성합니다.
+모든 Azure Redis Cache 계층에 대해 방화벽 규칙 구성을 사용할 수 있습니다.
+
+**방화벽**을 클릭하여 Cache에 대한 방화벽 규칙을 보고 구성합니다.
 
 ![방화벽](./media/cache-configure/redis-firewall-rules.png)
 
@@ -383,10 +385,10 @@ Import/Export는 Azure Redis Cache 데이터 관리 작업으로 프리미엄 �
 
 
 ## <a name="default-redis-server-configuration"></a>기본 Redis 서버 구성
-새 Azure Redis 캐시 인스턴스는 다음과 같은 기본 Redis 구성 값으로 구성됩니다.
+새 Azure Redis Cache 인스턴스는 다음과 같은 기본 Redis 구성 값으로 구성됩니다.
 
 > [!NOTE]
-> 이 섹션의 설정은 `StackExchange.Redis.IServer.ConfigSet` 메서드를 사용하여 변경할 수 없습니다. 이 메서드를 이 섹션의 명령 중 하나와 함께 호출하면 다음과 유사한 예외가 발생됩니다.  
+> 이 섹션의 설정은 `StackExchange.Redis.IServer.ConfigSet` 메서드를 사용하여 변경할 수 없습니다. 이 메서드를 이 섹션의 명령 중 하나와 함께 호출하면 다음 예제와 유사한 예외가 발생됩니다.  
 > 
 > `StackExchange.Redis.RedisServerException: ERR unknown command 'CONFIG'`
 > 

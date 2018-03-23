@@ -1,25 +1,19 @@
 ---
-title: "장비 백업 보존 구성 - Azure SQL Database | Microsoft Docs"
-description: "이 자습서에서는 Azure Recovery Services 자격 증명 모음에 자동화된 백업을 저장하고 Azure Recovery Services 자격 증명 모음에서 복원하는 방법을 설명합니다."
+title: 장비 백업 보존 구성 - Azure SQL Database | Microsoft Docs
+description: 이 자습서에서는 Azure Recovery Services 자격 증명 모음에 자동화된 백업을 저장하고 Azure Recovery Services 자격 증명 모음에서 복원하는 방법을 설명합니다.
 services: sql-database
-documentationcenter: 
 author: CarlRabeler
-manager: jhubbard
-editor: 
-ms.assetid: aeb8c4c3-6ae2-45f7-b2c3-fa13e3752eed
+manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2017
 ms.author: carlrab
-ms.openlocfilehash: e75facfd77fc1cb3c23aa4e1f6f7f799620fef39
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: f6d32976cc4b9d669e629005be4d7aacebd62f9e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="configure-and-restore-from-azure-sql-database-long-term-backup-retention"></a>Azure SQL Database 장기 백업 보존에서 구성 및 복원
 

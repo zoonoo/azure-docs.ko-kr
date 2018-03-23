@@ -1,26 +1,19 @@
 ---
-title: "Azure SQL Database에서 쿼리 저장소 운영"
-description: "Azure SQL Database에서 쿼리 저장소를 운영하는 방법 알아보기"
-keywords: 
+title: Azure SQL Database에서 쿼리 저장소 운영
+description: Azure SQL Database에서 쿼리 저장소를 운영하는 방법 알아보기
 services: sql-database
-documentationcenter: 
 author: bonova
-manager: jhubbard
-editor: 
-ms.assetid: 0cccf6bd-1327-44f7-a6f9-8eff0c210463
+manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: sqldb-performance
-ms.workload: Inactive
 ms.date: 11/08/2016
 ms.author: bonova
-ms.openlocfilehash: e57f1c51ef5c551f3b2e5d0f0a51a1f462b6c1af
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: f0c3780f6efe87437742af7c1b8f6a3e6d0ee243
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="operating-the-query-store-in-azure-sql-database"></a>Azure SQL Database에서 쿼리 저장소 운영
 Azure의 쿼리 저장소는 모든 쿼리에 대한 자세한 기록 정보를 지속적으로 수집하고 제공하는, 완전히 관리되는 데이터베이스 기능입니다. 쿼리 저장소는 비행기의 블랙박스와 비슷하게 생각할 수 있으며, 클라우드와 온-프레미스 고객의 쿼리 성능 문제 해결을 상당히 간소화합니다. 이 문서는 Azure의 쿼리 저장소 운영에 대한 구체적인 측면을 설명합니다. 미리 수집된 쿼리 데이터를 사용하면, 성능 문제를 신속하게 진단하고 해결할 수 있기 때문에 업무에 더 많은 시간을 집중할 수 있습니다. 

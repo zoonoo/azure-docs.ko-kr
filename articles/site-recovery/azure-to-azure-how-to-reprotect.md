@@ -1,18 +1,18 @@
 ---
-title: "Azure Site Recovery를 사용하여 주 Azure 지역으로 장애 조치(failover)된 Azure VM 다시 보호 | Microsoft Docs"
-description: "Azure Site Recovery를 사용하여 주 지역에서 장애 조치(failover) 후 보조 지역에서 Azure VM을 다시 보호하는 방법에 대해 설명합니다."
+title: Azure Site Recovery를 사용하여 주 Azure 지역으로 장애 조치(failover)된 Azure VM 다시 보호 | Microsoft Docs
+description: Azure Site Recovery를 사용하여 주 지역에서 장애 조치(failover) 후 보조 지역에서 Azure VM을 다시 보호하는 방법에 대해 설명합니다.
 services: site-recovery
 author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 03/05/2018
 ms.author: rajanaki
-ms.openlocfilehash: d24376c57c468a562fc6d6dd52b4e9b01b53c3da
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 47056c85c6cb66a7fa28d623a4472b827d970dab
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>주 지역으로 장애 조치(failover)된 Azure VM 다시 보호
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 02/13/2018
 - 다시 보호를 완료하고 VM이 복제되면 보조 지역에서 주 지역으로 VM을 장애 조치(failover)할 수 있습니다.
 
 > [!WARNING]
-> 주 지역에서 보조 지역으로 컴퓨터를 [마이그레이션](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration)하고 다른 리소스 그룹으로 VM을 이동하거나 Azure VM을 삭제한 경우에는 VM을 다시 보호하거나 장애 복구(failback)할 수 없습니다.
+> 주 지역에서 보조 지역으로 컴퓨터를 [마이그레이션](migrate-overview.md#what-do-we-mean-by-migration)하고 다른 리소스 그룹으로 VM을 이동하거나 Azure VM을 삭제한 경우에는 VM을 다시 보호하거나 장애 복구(failback)할 수 없습니다.
 
 
 ## <a name="prerequisites"></a>필수 조건

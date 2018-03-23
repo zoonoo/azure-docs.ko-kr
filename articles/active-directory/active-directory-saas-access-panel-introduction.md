@@ -1,8 +1,8 @@
 ---
-title: "Azure Active Directory에서 액세스 패널이란? | Microsoft Docs"
-description: "다양한 액세스 패널(웹 브라우저, Android 앱, iPhone 및 iPad 앱)을 사용하여 SaaS 앱에 액세스하는 방법을 알아봅니다."
+title: Azure Active Directory에서 액세스 패널이란? | Microsoft Docs
+description: 다양한 액세스 패널(웹 브라우저, Android 앱, iPhone 및 iPad 앱)을 사용하여 SaaS 앱에 액세스하는 방법을 알아봅니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: c0252d01-7e6e-4f79-a70e-600479577dfd
@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 03/06/2018
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c9069cb0b46ddc1155c64bd63a7fcd8a685abbad
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: c9b647e8f731995537a8797ab28248a1c42b6460
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="what-is-the-access-panel"></a>액세스 패널이란?
 
@@ -68,11 +68,14 @@ Azure 또는 Office 365에 대한 구독이 있고 Azure Portal 또는 Office 36
 
 액세스 패널에는 최소한 JavaScript를 지원하고 CSS를 사용하도록 설정된 브라우저가 필요합니다. 암호 기반 SSO(Single Sign-On)를 통해 응용 프로그램에 로그인하려면 브라우저에 액세스 패널 확장이 설치되어 있어야 합니다. 암호 기반 SSO에 구성된 응용 프로그램을 선택할 때 확장이 자동으로 다운로드됩니다.
 
+설치 관리자는 아키텍처마다 다릅니다. 다운로드 링크를 클릭하면 현재 실행 중인 OS 아키텍처에 대한 설치 관리자만 가져옵니다. 응용 프로그램 배포 관리자인 경우 64비트 및 32비트 장치에서 다운로드 링크를 방문하여 두 설치 관리자를 모두 가져와야 합니다.
+
+
 액세스 패널 확장은 현재 다음과 같은 경우 사용할 수 있습니다.
 - **Edge**: Windows 10 Anniversary Edition 이상 
 - **Chrome**: Windows 7 이상 및 MacOS X 이상
 - **Firefox 26.0 이상**: Windows XP SP2 이상 및 Mac OS X 10.6 이상
-- **Internet Explorer 8, 9, 10, 11**: Windows 7 이상(제한적으로 지원함)
+- **Internet Explorer 8, 9, 10, 11**: Windows 7 이상(제한적 지원)
 
 ## <a name="my-apps-secure-sign-in-extension"></a>내 앱 보안 로그인 확장
 암호 기반 Single Sign-On에 로그인하려면 확장을 반드시 사용해야 합니다. 확장이 설치된 후에는 확장에 로그인하고 **시작하려면 로그인하세요**를 선택하여 추가 기능을 사용하도록 설정할 수 있습니다. 
@@ -85,9 +88,9 @@ Azure 또는 Office 365에 대한 구독이 있고 Azure Portal 또는 Office 36
 > 추가 기능은 Edge, Chrome 및 Firefox에서만 사용할 수 있습니다.
 >
 
-`https://myapps.microsoft.com`이 아닌 내 앱 URL을 사용하는 경우 다음을 수행하여 기본 URL을 구성합니다.
+`https://myapps.microsoft.com` 이외의 My Apps URL을 사용하는 경우 다음을 수행하여 기본 URL을 구성합니다.
 1. 확장에 로그인되지 *않은* 상태에서 확장 아이콘을 마우스 오른쪽 단추로 클릭합니다.
-2. 메뉴에서 **내 앱 URL**을 선택합니다.
+2. 메뉴에서 **My Apps URL**을 선택합니다.
 3. 기본 URL을 선택합니다.
 4. 확장 아이콘을 선택합니다.
 5. **시작하려면 로그인하세요**를 선택합니다.

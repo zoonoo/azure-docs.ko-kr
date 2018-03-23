@@ -1,32 +1,32 @@
 ---
-title: "ExpressRoute 회로에 가상 네트워크 연결: CLI: Azure | Microsoft Docs"
-description: "이 문서는 Resource Manager 배포 모델 및 CLI를 사용하여 VNet(가상 네트워크)을 ExpressRoute 회로에 연결하는 방법에 대한 개요를 제공합니다."
+title: 'ExpressRoute 회로에 가상 네트워크 연결: CLI: Azure | Microsoft Docs'
+description: 이 문서는 Resource Manager 배포 모델 및 CLI를 사용하여 VNet(가상 네트워크)을 ExpressRoute 회로에 연결하는 방법에 대한 개요를 제공합니다.
 services: expressroute
 documentationcenter: na
 author: cherylmc
 manager: timlit
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/25/2017
+ms.date: 03/08/2018
 ms.author: anzaman,cherylmc
-ms.openlocfilehash: fa55cbad9fca799faff4e4cef87f9eedb8d2023f
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 5e8d1739aa3d7f5be6c6450edcad43bc83db71fb
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-cli"></a>CLI를 사용하여 가상 네트워크를 ExpressRoute 회로에 연결
 
 이 문서는 CLI를 사용하여 VNet(가상 네트워크)을 Azure ExpressRoute 회로에 연결하는 데 도움이 됩니다. Azure CLI를 사용하여 연결하려면 Resource Manager 배포 모델을 사용하여 가상 네트워크를 만들어야 합니다. 해당 항목은 같은 구독에 있을 수도 있고 다른 구독의 일부일 수도 있습니다. VNet을 ExpressRoute 회로에 연결하는 다른 방법을 사용하려는 경우 다음 목록에서 문서를 선택할 수 있습니다.
 
 > [!div class="op_single_selector"]
-> * [Azure 포털](expressroute-howto-linkvnet-portal-resource-manager.md)
+> * [Azure Portal](expressroute-howto-linkvnet-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-linkvnet-arm.md)
 > * [Azure CLI](howto-linkvnet-cli.md)
 > * [비디오 - Azure Portal](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
@@ -36,7 +36,9 @@ ms.lasthandoff: 12/21/2017
 ## <a name="configuration-prerequisites"></a>필수 구성 요소
 
 * 최신 버전의 CLI(명령줄 인터페이스)가 필요합니다. 자세한 내용은 [Azure CLI 2.0 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)를 참조하세요.
+
 * 구성을 시작하기 전에 [필수 조건](expressroute-prerequisites.md), [라우팅 요구 사항](expressroute-routing.md) 및 [워크플로](expressroute-workflows.md)를 검토해야 합니다.
+
 * 활성화된 ExpressRoute 회로가 있어야 합니다. 
   * 지침을 수행하여 [ExpressRoute 회로를 만들고](howto-circuit-cli.md) 연결 공급자를 통해 회로를 사용하도록 설정합니다. 
   * 회로에 구성된 Azure 개인 피어링이 있는지 확인합니다. 라우팅 지침에 대한 문서는 [라우팅 구성](howto-routing-cli.md) 을 참조하세요. 
@@ -44,6 +46,8 @@ ms.lasthandoff: 12/21/2017
   * 가상 네트워크 및 가상 네트워크 게이트웨이를 만들어서 완전히 프로비전해야 합니다. 지침에 따라 [ExpressRoute에 대한 가상 네트워크 게이트웨이를 구성합니다](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli). `--gateway-type ExpressRoute`를 사용해야 합니다.
 
 * 최대 10개의 가상 네트워크를 표준 ExpressRoute 회로에 연결할 수 있습니다. 표준 ExpressRoute 회로를 사용하는 경우 모든 가상 네트워크는 동일한 지역에 있어야 합니다. 
+
+* 단일 VNet을 최대 4개의 ExpressRoute 회로에 연결할 수 있습니다. 아래 프로세스를 사용하여 각 ExpressRoute 회로에 대한 새 연결 개체를 만듭니다. ExpressRoute 회로는 동일한 구독, 서로 다른 구독 또는 두 가지가 혼합된 상태로 존재할 수 있습니다.
 
 * ExpressRoute 프리미엄 추가 기능을 사용하도록 설정하면 ExpressRoute 회로의 지역 외부에서 가상 네트워크를 연결하거나 ExpressRoute 회로에 많은 수의 가상 네트워크를 연결할 수 있습니다. Premium 추가 기능에 대한 자세한 내용은 [FAQ](expressroute-faqs.md)를 참조하세요.
 

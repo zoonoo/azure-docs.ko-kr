@@ -1,6 +1,6 @@
 ---
-title: "URL 경로 기반 라우팅 규칙을 사용하여 응용 프로그램 게이트웨이 만들기 - Azure Portal | Microsoft Docs"
-description: "Azure Portal을 사용하여 응용 프로그램 게이트웨이 및 가상 머신 확장 집합에 URL 경로 기반 라우팅 규칙을 만드는 방법을 알아봅니다."
+title: URL 경로 기반 라우팅 규칙을 사용하여 응용 프로그램 게이트웨이 만들기 - Azure Portal | Microsoft Docs
+description: Azure Portal을 사용하여 응용 프로그램 게이트웨이 및 가상 머신 확장 집합에 URL 경로 기반 라우팅 규칙을 만드는 방법을 알아봅니다.
 services: application-gateway
 author: davidmu1
 manager: timlt
@@ -141,8 +141,8 @@ Azure Portal([http://portal.azure.com](http://portal.azure.com))에 로그인합
 
 1. **규칙**을 클릭한 다음, **경로 기반**을 클릭합니다.
 2. 이름에 *rule2*를 입력합니다.
-3. 첫 번째 경로의 이름에 *Images*를 입력합니다. 경로에 */images/**를 입력합니다. 백 엔드 풀에 **imagesBackendPool**을 선택합니다.
-4. 두 번째 경로의 이름에 *Video*를 입력합니다. 경로에 */video/**를 입력합니다. 백 엔드 풀에 **videoBackendPool**을 선택합니다.
+3. 첫 번째 경로의 이름에 *Images*를 입력합니다. 경로에 */images/*\*를 입력합니다. 백 엔드 풀에 **imagesBackendPool**을 선택합니다.
+4. 두 번째 경로의 이름에 *Video*를 입력합니다. 경로에 */video/*\*를 입력합니다. 백 엔드 풀에 **videoBackendPool**을 선택합니다.
 
     ![경로 기반 규칙 만들기](./media/application-gateway-create-url-route-portal/application-gateway-route-rule.png)
 

@@ -1,8 +1,8 @@
 ---
-title: "Azure Data Factory에서 자체 호스팅 통합 런타임 만들기 | Microsoft Docs"
-description: "데이터 팩터리가 개인 네트워크의 데이터 저장소에 액세스할 수 있게, Azure Data Factory에서 자체 호스팅 통합 런타임을 만드는 방법을 설명합니다."
+title: Azure Data Factory에서 자체 호스팅 통합 런타임 만들기 | Microsoft Docs
+description: 데이터 팩터리가 개인 네트워크의 데이터 저장소에 액세스할 수 있게, Azure Data Factory에서 자체 호스팅 통합 런타임을 만드는 방법을 설명합니다.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: nabhishek
 manager: jhubbard
 editor: monicar
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 92f773d3bbabe763d342366f0d56a77621829487
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 3f1b55f2752821de447e6c03bcbf79f01d9f8264
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>자체 호스팅 통합 런타임을 만들고 구성하는 방법
 IR(Integration Runtime)은 서로 다른 네트워크 환경에서 데이터 통합 기능을 제공하기 위해 Azure Data Factory에서 사용하는 계산 인프라입니다. IR에 대한 세부 정보는 [Integration Runtime 개요](concepts-integration-runtime.md)를 참조하세요.
@@ -65,6 +65,7 @@ IR(Integration Runtime)은 서로 다른 네트워크 환경에서 데이터 통
 - 자체 호스팅 통합 런타임은 Azure Virtual Network 내에서 데이터 통합을 지원하는 데 사용되어야 합니다.
 - **ExpressRoute**를 사용하더라도 데이터 소스는 방화벽으로 보호되는 온-프레미스 데이터 소스로 취급해야 합니다. 자체 호스팅 통합 런타임을 사용하여 서비스와 데이터 원본 간의 연결을 설정합니다.
 - 클라우드의 데이터 저장소가 **Azure IaaS 가상 머신**에 있더라도 자체 호스팅 통합 런타임을 사용해야 합니다.
+- FIPS 호환 암호화가 설정된 Windows 서버에 설치된 자체 호스팅 통합 런타임에서는 태스크가 실패할 수 있습니다. 이 문제를 해결하려면 서버에서 FIPS 호환 암호화를 사용하지 않도록 설정합니다. FIPS 호환 암호화를 사용하지 않도록 설정하려면 다음 레지스트리 값을 1(사용)에서 0(사용 안 함)으로 변경합니다. `HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\Enabled`
 
 ## <a name="prerequisites"></a>필수 조건
 

@@ -1,11 +1,11 @@
 ---
-title: "Azure API Management에서 Azure Event Hubs에 이벤트를 기록하는 방법 | Microsoft Docs"
-description: "Azure API Management에서 Azure Event Hubs에 이벤트를 기록하는 방법 배우기"
+title: Azure API Management에서 Azure Event Hubs에 이벤트를 기록하는 방법 | Microsoft Docs
+description: Azure API Management에서 Azure Event Hubs에 이벤트를 기록하는 방법 배우기
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 88f6507d-7460-4eb2-bffd-76025b73f8c4
 ms.service: api-management
 ms.workload: mobile
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: apimpm
-ms.openlocfilehash: 77c3e41dd4b1fdf7e518de67b353f69fcb758c60
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 3f4da70d94d28496f5b08035ead0ef7acf1ca3bc
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="how-to-log-events-to-azure-event-hubs-in-azure-api-management"></a>Azure API Management에서 Azure Event Hubs에 이벤트를 기록하는 방법
 Azure Event Hubs는 초당 수백만 개의 이벤트를 수집할 수 있는 확장성이 뛰어난 데이터 수집 서비스이므로 연결된 장치와 응용 프로그램이 생성하는 대량의 데이터를 처리하고 분석할 수 있습니다. Event Hubs는 이벤트 파이프라인에 대한 "현관"의 역할을 하고 데이터가 이벤트 허브에 수집되면 실시간 분석 공급자 또는 일괄 처리/저장소 어댑터를 사용하여 변환 및 저장될 수 있습니다. Event Hubs는 이러한 이벤트를 소비하는 데에서 이벤트 스트림의 프로덕션을 분리하므로 이벤트 소비자가 자신의 개인 일정에 이벤트를 액세스할 수 있습니다.
@@ -36,7 +36,7 @@ API Management 로거는 [API Management REST API](http://aka.ms/smapi)를 사�
 
 로거를 만들려면 다음 URL 템플릿을 사용하여 HTTP PUT 요청을 만듭니다.
 
-`https://{your service}.management.azure-api.net/loggers/{new logger name}?api-version=2014-02-14-preview`
+`https://{your service}.management.azure-api.net/loggers/{new logger name}?api-version=2017-03-01`
 
 * `{your service}` 를 API Management 서비스 인스턴스의 이름으로 바꿉니다.
 * `{new logger name}` 을 새 로거에 대하여 원하는 이름으로 바꿉니다. [log-to-eventhub](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub) 정책을 구성할 때 이 이름을 참조하게 됩니다.
@@ -51,7 +51,7 @@ API Management 로거는 [API Management REST API](http://aka.ms/smapi)를 사�
 
 ```json
 {
-  "loggertype" : "AzureEventHub",
+  "loggerType" : "AzureEventHub",
   "description" : "Sample logger description",
   "credentials" : {
     "name" : "Name of the Event Hub from the Azure Classic Portal",
@@ -60,7 +60,7 @@ API Management 로거는 [API Management REST API](http://aka.ms/smapi)를 사�
 }
 ```
 
-* `loggertype`은 `AzureEventHub`로 설정해야 합니다.
+* `loggerType`은 `AzureEventHub`로 설정해야 합니다.
 * `description`는 로거에 대한 선택적 설명을 제공하고 원하는 경우 길이가 0인 문자열이 될 수 있습니다.
 * `credentials`는 Azure 이벤트 허브의 `name` 및 `connectionString`을 포함합니다.
 

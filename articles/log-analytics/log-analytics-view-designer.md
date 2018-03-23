@@ -1,11 +1,11 @@
 ---
-title: "Azure Log Analytics에서 데이터를 분석하는 보기 만들기 | Microsoft Docs"
-description: "Log Analytics에서 뷰 디자이너를 사용하면 Azure Portal에 표시되고 Log Analytics 작업 영역에 다양한 데이터 시각화를 포함하는 사용자 지정 보기를 만들 수 있습니다. 이 문서에는 뷰 디자이너 개요 및 사용자 지정 보기를 만들고 편집하는 절차가 포함되어 있습니다."
+title: Azure Log Analytics에서 데이터를 분석하는 보기 만들기 | Microsoft Docs
+description: Log Analytics에서 뷰 디자이너를 사용하면 Azure Portal에 표시되고 Log Analytics 작업 영역에 다양한 데이터 시각화를 포함하는 사용자 지정 보기를 만들 수 있습니다. 이 문서에는 뷰 디자이너 개요 및 사용자 지정 보기를 만들고 편집하는 절차가 포함되어 있습니다.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
-editor: 
+editor: ''
 ms.assetid: ce41dc30-e568-43c1-97fa-81e5997c946a
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: bwren
-ms.openlocfilehash: 08d0e557f03f771901c9ac92fb080e74e5966452
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: d63d47c39054230307416e24ed1c8295fbf68d93
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-custom-views-by-using-view-designer-in-log-analytics"></a>Log Analytics에서 뷰 디자이너를 사용하여 사용자 지정 보기 만들기
 [Azure Log Analytics](log-analytics-overview.md)에서 뷰 디자이너를 사용하면 Azure Portal에서 Log Analytics 작업 영역의 데이터를 시각화하는 데 도움이 되는 다양한 사용자 지정 보기를 만들 수 있습니다. 이 문서에는 뷰 디자이너 개요 및 사용자 지정 보기를 만들고 편집하는 절차가 제공됩니다.
@@ -28,8 +28,6 @@ ms.lasthandoff: 02/21/2018
 * [타일 참조](log-analytics-view-designer-tiles.md): 사용자 지정 보기에서 사용 가능한 각 타일의 설정에 대한 참조 가이드를 제공합니다.
 * [시각화 요소 참조](log-analytics-view-designer-parts.md): 사용자 지정 보기에서 사용 가능한 시각화 요소의 설정에 대한 참조 가이드를 제공합니다.
 
->[!NOTE]
-> 작업 영역을 [새 Log Analytics 쿼리 언어](log-analytics-log-search-upgrade.md)로 업그레이드한 경우 모든 보기의 쿼리를 [새 쿼리 언어](https://go.microsoft.com/fwlink/?linkid=856078)로 써야 합니다. 작업 영역을 업그레이드하기 전에 생성된 모든 보기는 자동으로 변환됩니다.
 
 ## <a name="concepts"></a>개념
 보기는 Azure Portal에서 Log Analytics 작업 영역의 **개요** 페이지에 표시됩니다. 각 사용자 지정 보기의 타일은 사전 순으로 표시되며 솔루션에 대한 타일은 동일한 작업 영역에 설치됩니다.

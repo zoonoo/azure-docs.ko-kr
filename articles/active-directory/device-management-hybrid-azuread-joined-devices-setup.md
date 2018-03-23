@@ -1,11 +1,11 @@
 ---
-title: "하이브리드 Azure Active Directory 가입 장치 구성 방법 | Microsoft Docs"
-description: "하이브리드 Azure Active Directory 가입 장치를 구성하는 방법에 대해 알아봅니다."
+title: 하이브리드 Azure Active Directory 가입 장치 구성 방법 | Microsoft Docs
+description: 하이브리드 Azure Active Directory 가입 장치를 구성하는 방법에 대해 알아봅니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 203e36b198186db63b7e902db296adeaa9ffb4ee
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 188f02aa69d7b39bc5bc4873b437825107a7ae4e
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>하이브리드 Azure Active Directory 가입 장치를 구성하는 방법
 
@@ -34,7 +34,7 @@ Azure AD(Active Directory)의 장치 관리를 사용하면 보안 및 규정 �
 
 [시스템 준비 도구(Sysprep)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-vista/cc721940(v=ws.10))를 사용하는 경우에는 Azure AD에 아직 등록되지 않은 Windows 설치에서 이미지를 만들어야 합니다.
 
-Windows 10 1주년 업데이트 및 Windows Server 2016을 실행하는 모든 도메인에 가입된 장치는 아래에 언급된 구성 단계가 완료되면, 장치를 다시 시작하거나 사용자가 로그인할 때 자동으로 Azure AD에 등록됩니다. 자동 등록 동작을 원하지 않거나 제어된 롤아웃이 필요한 경우에는 다른 구성 단계를 수행하기 전에 아래 배포 및 롤아웃 제어 섹션의 지침에 따라 자동 롤아웃을 선별적으로 사용하거나 사용하지 않도록 설정하십시오.  
+Windows 10 1주년 업데이트 및 Windows Server 2016을 실행하는 모든 도메인에 가입된 장치는 아래에 언급된 구성 단계가 완료되면, 장치를 다시 시작하거나 사용자가 로그인할 때 자동으로 Azure AD에 등록됩니다. **자동 등록 동작을 원하지 않거나 제어된 롤아웃이 필요한 경우에는** 다른 구성 단계를 수행하기 전에 아래 “4단계: 배포 및 롤아웃 제어” 섹션의 지침에 따라 자동 롤아웃을 선별적으로 사용하거나 사용하지 않도록 설정하세요.  
 
 설명의 가독성을 높이기 위해 이 토픽에서는 다음 용어를 사용합니다. 
 
@@ -542,7 +542,7 @@ AD FS에서 인증 메서드를 통과하는 발급 변환 규칙을 추가해�
 
 ### <a name="remarks"></a>설명
 
-- 그룹 정책 개체를 사용하면 Windows 10 및 Windows Server 2016 도메인 가입 컴퓨터의 자동 등록 롤아웃을 제어할 수 있습니다.
+- 그룹 정책 개체를 사용하면 Windows 10 및 Windows Server 2016 도메인 가입 컴퓨터의 자동 등록 롤아웃을 제어할 수 있습니다. **이러한 장치를 Azure AD에 자동으로 등록하지 않거나, 등록을 제어하려는 경우**, 구성 단계를 시작하기 전에 이러한 모든 장치에 대한 자동 등록을 해제하는 그룹 정책을 롤아웃해야 합니다. 구성이 끝나고 테스트할 준비가 되면, 테스트 장치, 그리고 선택한 다른 모든 장치에 대해서만 자동 등록을 허용하는 그룹 정책을 롤아웃해야 합니다.
 
 - Windows 10 2015년 11월 업데이트는 롤아웃 그룹 정책 개체가 설정된 **경우에만** Azure AD에 자동으로 가입됩니다.
 

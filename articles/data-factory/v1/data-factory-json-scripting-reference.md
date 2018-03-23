@@ -1,11 +1,11 @@
 ---
-title: "Azure Data Factory - JSON 스크립팅 참조 | Microsoft Docs"
-description: "Data Factory 엔터티에 JSON 스키마를 제공합니다."
+title: Azure Data Factory - JSON 스크립팅 참조 | Microsoft Docs
+description: Data Factory 엔터티에 JSON 스키마를 제공합니다.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
 manager: jhubbard
-editor: 
+editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -3325,8 +3325,8 @@ Amazon S3에서 데이터를 복사하는 경우 복사 활동의 **source type*
 #### <a name="sample-folder-path-definitions"></a>샘플 폴더 경로 정의 
 | 시나리오 | 연결된 서비스 정의의 호스트 | 데이터 집합 정의의 folderPath |
 | --- | --- | --- |
-| 데이터 관리 게이트웨이 컴퓨터의 로컬 폴더:  <br/><br/>예: D:\\\* 또는 D:\folder\subfolder\\* |D:\\\\(데이터 관리 게이트웨이 버전 2.0 이상) <br/><br/> localhost(데이터 관리 게이트웨이 버전 2.0 미만) |.\\\\ 또는 folder\\\\subfolder(데이터 관리 게이트웨이 버전 2.0 이상) <br/><br/>D:\\\\ 또는 D:\\\\folder\\\\subfolder(게이트웨이 버전 2.0 미만) |
-| 원격 공유 폴더:  <br/><br/>예: \\\\myserver\\share\\\* 또는 \\\\myserver\\share\\folder\\subfolder\\* |\\\\\\\\myserver\\\\share |.\\\\ 또는 folder\\\\subfolder |
+| 데이터 관리 게이트웨이 컴퓨터의 로컬 폴더:  <br/><br/>예: D:\\\* 또는 D:\folder\subfolder\\\* |D:\\\\(데이터 관리 게이트웨이 버전 2.0 이상) <br/><br/> localhost(데이터 관리 게이트웨이 버전 2.0 미만) |.\\\\ 또는 folder\\\\subfolder(데이터 관리 게이트웨이 버전 2.0 이상) <br/><br/>D:\\\\ 또는 D:\\\\folder\\\\subfolder(게이트웨이 버전 2.0 미만) |
+| 원격 공유 폴더:  <br/><br/>예: \\\\myserver\\share\\\* 또는 \\\\myserver\\share\\folder\\subfolder\\\* |\\\\\\\\myserver\\\\share |.\\\\ 또는 folder\\\\subfolder |
 
 
 #### <a name="example-using-username-and-password-in-plain-text"></a>예제: 일반 텍스트에 사용자 이름 및 암호 사용

@@ -1,11 +1,11 @@
 ---
-title: "Azure Portal을 사용하여 장치 관리 | Microsoft Docs"
-description: "Azure Portal을 사용하여 장치를 관리하는 방법을 알아봅니다."
+title: Azure Portal을 사용하여 장치 관리 | Microsoft Docs
+description: Azure Portal을 사용하여 장치를 관리하는 방법을 알아봅니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 1e0d40b996e181a606d16d26633f890b9169ecbb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 85447809cbc803c13ad731b5328e94a1b03abba8
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="managing-devices-using-the-azure-portal"></a>Azure Portal을 사용하여 장치 관리
 
@@ -112,6 +112,7 @@ Azure Portal을 사용하여 장치를 관리하려면 해당 장치가 Azure AD
 
 ![모든 장치](./media/device-management-azure-portal/51.png)
 
+일부 iOS 장치의 경우 아포스트로피를 포함하는 장치 이름이 아포스트로피처럼 보이는 다른 문자를 사용할 수 있습니다. 이러한 장치를 검색하는 것은 약간 까다로울 수 있습니다. 따라서 검색 결과가 올바르게 표시되지 않으면 검색 문자열에 일치하는 아포스트로피 문자가 포함되어 있는지 확인하세요.
 
 ## <a name="device-management-tasks"></a>장치 관리 작업
 

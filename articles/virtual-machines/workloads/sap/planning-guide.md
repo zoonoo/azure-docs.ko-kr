@@ -1,13 +1,13 @@
 ---
-title: "SAP NetWeaver에 대한 Azure Virtual Machines 계획 및 구현 | Microsoft 문서"
-description: "SAP NetWeaver에 대한 Azure Virtual Machines 계획 및 구현"
+title: SAP NetWeaver에 대한 Azure Virtual Machines 계획 및 구현 | Microsoft 문서
+description: SAP NetWeaver에 대한 Azure Virtual Machines 계획 및 구현
 services: virtual-machines-linux,virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: MSSedusch
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-keywords: 
+keywords: ''
 ms.assetid: d7c59cc1-b2d0-4d90-9126-628f9c7a5538
 ms.service: virtual-machines-linux
 ms.devlang: NA
@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bf9f676b48f25ae2d8949dbdba8b4792b05c67f0
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 9cd12808f7e3bbb8a4edfe0d8de1e5b0a007770a
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>SAP NetWeaver에 대한 Azure Virtual Machines 계획 및 구현
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -294,7 +294,7 @@ ms.lasthandoff: 02/01/2018
 [virtual-network-deploy-multinic-arm-ps]:../../windows/multiple-nics.md
 [virtual-network-deploy-multinic-arm-template]:../../../virtual-network/virtual-network-deploy-multinic-arm-template.md
 [virtual-networks-configure-vnet-to-vnet-connection]:../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md
-[virtual-networks-create-vnet-arm-pportal]:../../../virtual-network/virtual-networks-create-vnet-arm-pportal.md
+[virtual-networks-create-vnet-arm-pportal]:../../../virtual-network/manage-virtual-network.md#create-a-virtual-network
 [virtual-networks-manage-dns-in-vnet]:../../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md
 [virtual-networks-multiple-nics-windows]:../../windows/multiple-nics.md
 [virtual-networks-multiple-nics-linux]:../../linux/multiple-nics.md
@@ -631,9 +631,9 @@ Premium Storage의 경우 이러한 디스크에 저장된 실제 데이터 볼�
 
 [이 문서(Linux)][virtual-machines-sizes-linux]와 [이 문서(Windows)][virtual-machines-sizes-windows]에서 DS 시리즈 VM 부분을 확인하면 VM 수준의 세분성에 따라 Premium Storage 디스크에 대한 데이터 볼륨 제한이 있음을 알 수 있습니다. 다른 DS 시리즈 또는 GS 시리즈 VM에도 탑재할 수 있는 데이터 디스크 수와 관련해서 다른 제한 사항이 있습니다. 이러한 제한도 위에 언급된 문서에 설명되어 있습니다. 하지만 기본적으로 P30 디스크 32개를 단일 DS14 VM에 탑재한다고 해도 P30 디스크 최대 처리량의 32배를 얻을 수는 없습니다. 대신 이 문서에 설명된 것처럼 VM 수준의 최대 처리량에 따라 데이터 처리량이 제한됩니다.
 
-Premium Storage에 대한 자세한 내용은 <http://azure.microsoft.com/blog/2015/04/16/azure-premium-storage-now-generally-available-2>에서 찾을 수 있습니다.
+Premium Storage에 관한 자세한 내용은 다음 항목에서 찾을 수 있습니다. <http://azure.microsoft.com/blog/2015/04/16/azure-premium-storage-now-generally-available-2>
 
-#### <a name="c55b2c6e-3ca1-4476-be16-16c81927550f"></a>관리 디스크
+#### <a name="c55b2c6e-3ca1-4476-be16-16c81927550f"></a>Managed Disks
 Managed Disks는 Azure Storage 계정에 저장된 VHD 대신 사용할 수 있는 Azure Resource Manager의 새로운 리소스 종류입니다. Managed Disks는 연결되어 있는 가상 머신의 가용성 집합에 맞게 자동으로 조정되므로, 가상 머신에서 실행되는 서비스와 가상 머신의 가용성을 높여 줍니다. 자세한 내용은 [개요 문서](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview)를 참조하세요.
 
 관리 디스크를 사용하면 가상 머신을 간편하고 배포 및 관리할 수 있으므로 사용하는 것이 좋습니다.
@@ -661,7 +661,7 @@ Microsoft Azure는 구현하려는 모든 시나리오의 SAP 소프트웨어 �
 * 고객의 온-프레미스 네트워크와 Azure 네트워크 간의 크로스-프레미스 연결
 * Azure 지역 간 연결 또는 Azure 사이트 간 데이터 센터 연결
 
-자세한 내용은 <https://azure.microsoft.com/documentation/services/virtual-network/>에서 찾을 수 있습니다.
+자세한 내용은 <https://azure.microsoft.com/documentation/services/virtual-network/>를 참조하세요.
 
 Azure에서 다양한 방식으로 이름 및 IP 확인을 구성할 수 있습니다. 이 문서에서 클라우드 전용 시나리오는 Azure DNS를 사용하는 기본 방식에 의존합니다(자체 DNS 서비스를 정의하는 방식 아님). 사용자 고유의 DNS 서버를 설정하는 대신 사용할 수 있는 새 Azure DNS 서비스도 있습니다. 자세한 내용은 [이 문서][virtual-networks-manage-dns-in-vnet] 및 [이 페이지](https://azure.microsoft.com/services/dns/)에 있습니다.
 
@@ -727,7 +727,7 @@ Azure Virtual Machine에 대해 여러 개의 vNIC(가상 네트워크 인터페
 [comment]: <> (MShermannd TODO - ARM 문서 링크가 없습니다.)
 
 #### <a name="vnet-to-vnet-connection"></a>VNet 간 연결
-다중 사이트 VPN을 사용할 경우 각 지역에 별도의 Azure Virtual Network를 구성해야 합니다. 그러나 다른 지역의 소프트웨어 구성 요소가 서로 통신해야 하는 경우가 상당히 많습니다. 이상적으로 이러한 통신은 한 Azure 지역에서 온-프레미스로 라우팅되었다가 다시 여기서 다른 Azure 지역으로 라우팅되면 안 됩니다. 간단히 말해서 Azure는 한 지역의 Azure Virtual Network에서 다른 지역의 다른 Azure Virtual Network로의 연결을 구성할 수 있도록 합니다. 이 기능을 VNet 간 연결이라고 합니다. 이 기능에 대한 자세한 내용은 <https://azure.microsoft.com/documentation/articles/vpn-gateway-vnet-vnet-rm-ps/>에서 찾을 수 있습니다.
+다중 사이트 VPN을 사용할 경우 각 지역에 별도의 Azure Virtual Network를 구성해야 합니다. 그러나 다른 지역의 소프트웨어 구성 요소가 서로 통신해야 하는 경우가 상당히 많습니다. 이상적으로 이러한 통신은 한 Azure 지역에서 온-프레미스로 라우팅되었다가 다시 여기서 다른 Azure 지역으로 라우팅되면 안 됩니다. 간단히 말해서 Azure는 한 지역의 Azure Virtual Network에서 다른 지역의 다른 Azure Virtual Network로의 연결을 구성할 수 있도록 합니다. 이 기능을 VNet 간 연결이라고 합니다. 이 기능에 대한 자세한 내용은 <https://azure.microsoft.com/documentation/articles/vpn-gateway-vnet-vnet-rm-ps/>를 참조하세요.
 
 #### <a name="private-connection-to-azure-expressroute"></a>Azure ExpressRoute에 대한 비공개 연결
 Microsoft Azure ExpressRoute를 사용하여 Azure 데이터 센터와 고객의 온-프레미스 인프라 또는 공동 배치 환경 간에 개인 연결을 만들 수 있습니다. 다양한 MPLS(패킷 전환) VPN 공급자 또는 기타 네트워크 서비스 공급자에서 ExpressRoute를 제공합니다. ExpressRoute 연결은 공용 인터넷을 통해 이동하지 않습니다. ExpressRoute 연결은 인터넷을 통한 일반 연결보다 더 높은 보안을 제공하고 여러 병렬 회로를 통해 안정성을 높이며 더 빠른 속도와 짧은 대기 시간을 제공합니다.
@@ -746,7 +746,7 @@ ExpressRoute는 여기에 설명된 것처럼 단일 ExpressRoute 회로를 통�
 #### <a name="forced-tunneling-in-case-of-cross-premises"></a>크로스 프레미스 강제 터널링
 사이트 간, 지점 및 사이트 간 또는 ExpressRoute를 통해 온-프레미스 도메인에 가입된 VM의 경우 모든 사용자를 위해 인터넷 프록시 설정이 배포되는지 확인해야 합니다. 기본적으로 해당 VM에서 실행되는 소프트웨어나 브라우저를 사용하여 인터넷에 액세스하는 사용자는 회사 프록시를 거치지 않으며 Azure를 통해 인터넷에 바로 연결됩니다. 하지만 프록시를 확인하는 것은 소프트웨어 및 서비스의 책임이므로 프록시 설정만으로 트래픽이 회사 프록시를 통과해서 전송되도록 할 수 있는 것은 아닙니다. VM에서 실행되는 소프트웨어가 이러한 작업을 수행하지 않으며 관리자가 설정을 조작하므로 인터넷에 대한 트래픽은 다시 Azure에서 인터넷으로 직접 우회될 수 있습니다.
 
-이 문제를 방지하기 위해 온-프레미스와 Azure 사이에 사이트 간 연결이 사용되는 강제 터널링을 구성할 수 있습니다. 강제 터널링 기능에 대한 자세한 설명은 <https://azure.microsoft.com/documentation/articles/vpn-gateway-forced-tunneling-rm/>에 게시되어 있습니다.
+이 문제를 방지하기 위해 온-프레미스와 Azure 사이에 사이트 간 연결이 사용되는 강제 터널링을 구성할 수 있습니다. 강제 터널링 기능에 대한 자세한 설명은 <https://azure.microsoft.com/documentation/articles/vpn-gateway-forced-tunneling-rm/>에 게시된 내용을 참조하세요.
 
 ExpressRoute를 사용한 강제 터널링은 ExpressRoute BGP 피어링 세션을 통해 기본 경로를 보급한 고객으로 활성화됩니다.
 
@@ -774,9 +774,9 @@ SAP 시스템이 Azure Virtual Machine 서비스 및 해당 기능에 적합한�
 
 ![Azure에서 SAP를 배포하는 기능을 결정하는 의사 결정 트리][planning-guide-figure-700]
 
-**1단계**: 시작하기 위한 가장 중요한 정보는 지정된 SAP 시스템의 SAPS 요구 사항입니다. SAP 시스템이 이미 2계층 구성으로 온-프레미스에 배포되더라도 SAPS 요구 사항을 DBMS 부분과 SAP 응용 프로그램 부분으로 구분해야 합니다. 기존 시스템의 경우 사용 중인 하드웨어 관련된 SAPS를 기존 SAP 벤치마크를 기준으로 결정하거나 예측할 수 있습니다. <http://global.sap.com/campaigns/benchmark/index.epx>결과를 볼 수 있습니다.
+**1단계**: 시작하기 위한 가장 중요한 정보는 지정된 SAP 시스템의 SAPS 요구 사항입니다. SAP 시스템이 이미 2계층 구성으로 온-프레미스에 배포되더라도 SAPS 요구 사항을 DBMS 부분과 SAP 응용 프로그램 부분으로 구분해야 합니다. 기존 시스템의 경우 사용 중인 하드웨어 관련된 SAPS를 기존 SAP 벤치마크를 기준으로 결정하거나 예측할 수 있습니다. 결과는 <http://global.sap.com/campaigns/benchmark/index.epx>에서 확인할 수 있습니다.
 새로 배포된 SAP 시스템의 경우 시스템의 SAPS 요구 사항을 결정해야 하는 크기 조정 연습 과정을 거쳐야 합니다.
-Azure의 SAP 크기 조정에 대해서는 블로그 <http://blogs.msdn.com/b/saponsqlserver/archive/2015/12/01/new-white-paper-on-sizing-sap-solutions-on-azure-public-cloud.aspx> 및 첨부된 문서를 참조하세요.
+Azure의 SAP 크기 조정에 대한 내용은 이 블로그와 첨부 문서를 참조하세요. <http://blogs.msdn.com/b/saponsqlserver/archive/2015/12/01/new-white-paper-on-sizing-sap-solutions-on-azure-public-cloud.aspx>
 
 **2단계**: 기존 시스템의 경우 DBMS 서버의 I/O 볼륨 및 초당 I/O 작업 수를 측정해야 합니다. 새로 예정된 시스템의 경우는 새 시스템에 대한 크기 조정 연습 과정을 진행하면서 DBMS에 대한 I/O 요구 사항을 대략적으로 알 수 있습니다. 확실하지 않은 경우 결국 개념 증명을 수행해야 합니다.
 
@@ -823,14 +823,14 @@ Azure PowerShell cmdlet을 설치, 업데이트 및 구성하는 방법에 대�
 
 지금까지 고객이 경험한 바에 따르면 PS(PowerShell)는 분명히 VM을 배포하고 VM의 배포에서 사용자 지정 단계를 만들 수 있는 더 강력한 도구입니다. Azure에서 SAP 인스턴스를 실행하는 모든 고객은 PS cmdlet을 사용하여 Azure Portal에서 수행하는 관리 작업을 보완하거나 PS cmdlet만 사용해서 Azure의 배포를 관리하고 있습니다. Azure 관련 cmdlet은 2,000개가 넘는 Windows 관련 cmdlet과 동일한 명명 규칙을 공유하기 때문에 Windows 관리자가 이러한 cmdlet을 활용하는 것은 쉽습니다.
 
-<http://blogs.technet.com/b/keithmayer/archive/2015/07/07/18-steps-for-end-to-end-iaas-provisioning-in-the-cloud-with-azure-resource-manager-arm-powershell-and-desired-state-configuration-dsc.aspx>에서 예제를 참조하세요.
+예제는 <http://blogs.technet.com/b/keithmayer/archive/2015/07/07/18-steps-for-end-to-end-iaas-provisioning-in-the-cloud-with-azure-resource-manager-arm-powershell-and-desired-state-configuration-dsc.aspx>에서 참조하세요.
 
 [comment]: <> (MShermannd TODO - 테스트할 때 새 CLI 명령을 설명합니다.)
 SAP용 Azure 모니터링 확장(이 문서의 [SAP용 Azure 모니터링 솔루션][planning-guide-9.1] 장 참조)의 배포는 PowerShell 또는 CLI를 통해서만 가능합니다. 따라서 Azure에서 SAP NetWeaver 시스템을 배포 또는 관리하는 경우 PowerShell 또는 CLI를 반드시 설치하고 구성해야 합니다.  
 
 Azure에서는 더 많은 기능을 제공하므로 cmdlet 업데이트를 요구하는 새로운 PS cmdlet이 추가될 예정입니다. 따라서 매월 한 번 이상 Azure 다운로드 사이트 <https://azure.microsoft.com/downloads/>를 확인하여 새 버전의 cmdlet이 있는지 확인하는 것이 좋습니다. 새 버전은 이전 버전이 그대로 유지된 상태로 설치됩니다.
 
-Azure 관련 PowerShell 명령의 일반 목록은 <https://docs.microsoft.com/powershell/azure/overview>를 확인하세요.
+Azure 관련 PowerShell 명령의 일반 목록은 <https://docs.microsoft.com/powershell/azure/overview>에서 확인하세요.
 
 ### <a name="management-via-microsoft-azure-cli-commands"></a>Microsoft Azure CLI 명령을 통한 관리
 Linux를 사용하고 Azure 리소스를 관리하려는 고객의 경우에는 Powershell을 사용하지 못할 수 있습니다. Microsoft는 대안으로 Azure CLI를 제공합니다.
@@ -859,7 +859,7 @@ OS 또는 DBMS 버전의 특정 패치 요구 사항으로 인해 Azure Marketpl
 - - -
 > ![Windows][Logo_Windows] Windows
 >
-> 자세한 내용은 <https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed>를 참조하세요. Windows SID, 호스트 이름 등의 Windows 설정은 sysprep 명령을 통해 온-프레미스 VM에서 추상화/일반화해야 합니다.
+> 자세한 내용은 <https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed>를 참조하세요. sysprep 명령을 통해 Windows 설정(예: Windows SID 및 호스트 이름)을 온-프레미스 VM에서 추상화/일반화해야 합니다.
 >
 >
 > ![Linux][Logo_Linux] Linux
@@ -954,7 +954,7 @@ VM이 범용으로 준비되고, 결과적으로 대상 Azure 배포 시나리�
 ### <a name="transferring-vms-and-vhds-between-on-premises-to-azure"></a>온-프레미스와 Azure 간에 VM 및 VHD 전송
 Azure Portal을 통해서는 Azure에 VM 이미지와 디스크를 업로드할 수 없으므로 Azure PowerShell cmdlet 또는 CLI를 사용해야 합니다. 'AzCopy' 도구를 사용할 수도 있습니다. 이 도구는 온-프레미스와 Azure 간에 VHD를 복사할 수 있습니다(양방향으로). 또한 Azure 지역 간에 VHD를 복사할 수도 있습니다. AzCopy의 다운로드 및 사용에 대해서는 [이 설명서][storage-use-azcopy]를 참조하세요.
 
-세 번째 방법은 다양한 타사 GUI 기반 도구를 사용하는 것입니다. 그러나 이러한 도구가 Azure 페이지 Blob을 지원하는지 확인하세요. 여기서는 Azure 페이지 Blob 저장소를 사용합니다. 차이점은 <https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>에 설명되어 있습니다. 또한 Azure에서 제공하는 도구는 업로드해야 하는 VM 및 VHD를 압축하는 데 매우 효율적입니다. 이러한 압축 효율성은 업로드 시간(온-프레미스 시설과 대상 Azure 배포 지역에서 인터넷으로의 업로드 링크에 따라 다름)을 단축하므로 중요합니다. 따라서 유럽 위치에서 미국의 Azure 데이터 센터로 VM 또는 VHD를 업로드하는 것은 같은 VM/VHD를 유럽의 Azure 데이터 센터로 업로드하는 것보다 더 오래 걸린다고 가정할 수 있습니다.
+세 번째 방법은 다양한 타사 GUI 기반 도구를 사용하는 것입니다. 그러나 이러한 도구가 Azure 페이지 Blob을 지원하는지 확인하세요. 여기서는 Azure 페이지 Blob 저장소를 사용해야 합니다(차이점은 <https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs> 참조). 또한 Azure에서 제공하는 도구는 업로드해야 하는 VM 및 VHD를 압축하는 데 매우 효율적입니다. 이러한 압축 효율성은 업로드 시간(온-프레미스 시설과 대상 Azure 배포 지역에서 인터넷으로의 업로드 링크에 따라 다름)을 단축하므로 중요합니다. 따라서 유럽 위치에서 미국의 Azure 데이터 센터로 VM 또는 VHD를 업로드하는 것은 같은 VM/VHD를 유럽의 Azure 데이터 센터로 업로드하는 것보다 더 오래 걸린다고 가정할 수 있습니다.
 
 #### <a name="a43e40e6-1acc-4633-9816-8f095d5a7b6a"></a>온-프레미스에서 Azure로 VHD 업로드
 온-프레미스 네트워크에서 기존 VM 또는 VHD를 업로드하려면 이러한 VM 또는 VHD가 이 문서의 [일반화되지 않은 디스크를 사용하여 온-프레미스에서 Azure로 VM 이동 준비][planning-guide-5.2.1] 장에서 나열한 요구 사항을 충족해야 합니다.
@@ -967,9 +967,9 @@ Azure Portal을 통해서는 Azure에 VM 이미지와 디스크를 업로드할 
 **PowerShell**
 
 * *Login-AzureRmAccount*를 사용하여 구독에 로그인
-* *Set-AzureRmContext* 및 SubscriptionId 또는 SubscriptionName 매개 변수를 사용하여 컨텍스트의 구독 설정 - <https://docs.microsoft.com/powershell/module/azurerm.profile/set-azurermcontext> 참조
-* *Add-AzureRmVhd*를 사용하여 Azure Storage 계정에 VHD 업로드 - <https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvhd>
-* (선택 사항) *New-AzureRmDisk*를 사용하여 VHD에서 관리 디스크 만들기 - <https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermdisk> 참조
+* *Set-AzureRmContext* 및 매개 변수 SubscriptionId 또는 SubscriptionName을 사용하여 컨텍스트의 구독 설정 - <https://docs.microsoft.com/powershell/module/azurerm.profile/set-azurermcontext> 참조
+* *Add-AzureRmVhd*를 사용하여 Azure Storage 계정에 VHD 업로드 - <https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvhd> 참조
+* (선택 사항) *New-AzureRMDisk*를 사용하여 VHD에서 관리 디스크 만들기 - <https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermdisk> 참조
 * *Set-AzureRmVMOSDisk*를 사용하여 새 VM 구성의 OS 디스크를 VHD 또는 관리 디스크로 설정 - <https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmosdisk> 참조
 * *New-AzureRmVM*을 사용하여 VM 구성에서 새 VM 만들기 - <https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm> 참조
 * *Add-AzureRmVMDataDisk*를 사용하여 새 VM에 데이터 디스크 추가 - <https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvmdatadisk> 참조
@@ -994,12 +994,12 @@ Azure VM 이미지로 사용하기 위해 온-프레미스 네트워크에서 �
 
 * Windows의 *sysprep* 또는 Linux의 *waagent -deprovision*을 사용하여 VM 일반화 - [Sysprep 기술 참조](https://technet.microsoft.com/library/cc766049.aspx)(Windows) 또는 [Linux 가상 머신을 캡처하여 Resource Manager 템플릿으로 사용하는 방법][capture-image-linux-step-2-create-vm-image] 참조
 * *Login-AzureRmAccount*를 사용하여 구독에 로그인
-* *Set-AzureRmContext* 및 SubscriptionId 또는 SubscriptionName 매개 변수를 사용하여 컨텍스트의 구독 설정 - <https://docs.microsoft.com/powershell/module/azurerm.profile/set-azurermcontext> 참조
-* *Add-AzureRmVhd*를 사용하여 Azure Storage 계정에 VHD 업로드 - <https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvhd>
+* *Set-AzureRmContext* 및 매개 변수 SubscriptionId 또는 SubscriptionName을 사용하여 컨텍스트의 구독 설정 - <https://docs.microsoft.com/powershell/module/azurerm.profile/set-azurermcontext> 참조
+* *Add-AzureRmVhd*를 사용하여 Azure Storage 계정에 VHD 업로드 - <https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvhd> 참조
 * (선택 사항) *New-AzureRmImage*를 사용하여 VHD에서 관리 디스크 이미지 만들기 - <https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermimage> 참조
 * 새 VM 구성의 OS 디스크를
   * VHD로 설정(*Set-AzureRmVMOSDisk -SourceImageUri -CreateOption fromImage* 사용) - <https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmosdisk> 참조
-  * 관리 디스크 이미지 *Set-AzureRmVMSourceImage* - <https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmsourceimage> 참조
+  * 관리 디스크 이미지로 설정(*Set-AzureRmVMSourceImage* 사용) - <https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmsourceimage> 참조
 * *New-AzureRmVM*을 사용하여 VM 구성에서 새 VM 만들기 - <https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm> 참조
 
 **Azure CLI 2.0**
@@ -1331,7 +1331,7 @@ Azure Resource Manager를 사용할 경우 더 이상 이전의 클래식 모델
 [이 문서][virtual-machines-azure-resource-manager-architecture]에서 설명하는 클래식 모델과 ARM의 아키텍처 차이를 참조하세요.
 
 #### <a name="configuration-of-the-sap-system-and-sap-gui-connectivity-for-cloud-only-scenario"></a>클라우드 전용 시나리오에 대한 SAP 시스템 및 SAP GUI 연결 구성
-이 항목을 자세히 설명하는 이 문서를 참조하세요. <http://blogs.msdn.com/b/saponsqlserver/archive/2014/06/24/sap-gui-connection-closed-when-connecting-to-sap-system-in-azure.aspx>
+이 항목에 대한 세부 정보를 <http://blogs.msdn.com/b/saponsqlserver/archive/2014/06/24/sap-gui-connection-closed-when-connecting-to-sap-system-in-azure.aspx> 문서를 참조하세요.
 
 #### <a name="changing-firewall-settings-within-vm"></a>VM 내의 방화벽 설정 변경
 SAP 시스템으로의 인바운드 트래픽을 허용하도록 가상 머신에서 방화벽을 구성해야 할 수도 있습니다.
@@ -1706,7 +1706,7 @@ Azure에서는 원격 세션에서 사용자가 로컬 프린터 장치에 액�
 - - -
 > ![Windows][Logo_Windows] Windows
 >
-> Windows 인쇄에 대한 자세한 내용은 여기 <http://technet.microsoft.com/library/jj590748.aspx>에서 찾을 수 있습니다.
+> Windows를 통한 인쇄에 대한 자세한 내용은 <http://technet.microsoft.com/library/jj590748.aspx>를 참조하세요.
 >
 >
 
@@ -1744,7 +1744,7 @@ SAP Change and Transport System(TMS)은 지형 내에서 시스템 간에 전송
 
 사이트 간에 연결된 크로스-프레미스 시나리오에서 온-프레미스와 Azure 간의 대기 시간이 여전히 길 수 있습니다. 개발 및 테스트 시스템에서 프로덕션으로 개체를 전송하는 순서를 따르거나 전송 또는 지원 패키지를 다른 시스템에 적용하려는 경우 중앙 전송 디렉터리의 위치에 따라, 일부 시스템에서 중앙 전송 디렉터리에서 데이터를 읽거나 쓸 때 긴 대기 시간이 발생합니다. 이러한 상황은 데이터 센터 간에 멀리 떨어져 있는 서로 다른 데이터 센터에 여러 다른 시스템이 분산되어 있는 SAP 지형 구성과 유사합니다.
 
-이러한 대기 시간 문제를 해결하고 시스템이 더 빠르게 전송 디렉터리에서 읽거나 전송 디렉터리로 쓸 수 있도록 하려면 두 개의 STMS 전송 도메인(온-프레미스용 1개와 Azure의 시스템을 포함하는 1개)을 설정하고 전송 도메인을 연결할 수 있습니다. SAP TMS에서 이 개념의 기반이 되는 원리를 설명하는 설명서 <http://help.sap.com/saphelp_me60/helpdata/en/c4/6045377b52253de10000009b38f889/content.htm?frameset=/en/57/38dd924eb711d182bf0000e829fbfe/frameset.htm>을 참조하세요.
+이러한 대기 시간 문제를 해결하고 시스템이 더 빠르게 전송 디렉터리에서 읽거나 전송 디렉터리로 쓸 수 있도록 하려면 두 개의 STMS 전송 도메인(온-프레미스용 1개와 Azure의 시스템을 포함하는 1개)을 설정하고 전송 도메인을 연결할 수 있습니다. SAP TMS에서 이 개념의 기본 원칙을 설명하는 <http://help.sap.com/saphelp_me60/helpdata/en/c4/6045377b52253de10000009b38f889/content.htm?frameset=/en/57/38dd924eb711d182bf0000e829fbfe/frameset.htm> 설명서를 참조하세요.
 
 방법:
 
@@ -1833,7 +1833,7 @@ Azure의 SAP 고가용성에 대한 논의는 다음 두 부분으로 구분할 
 Azure의 SAP 고가용성은 온-프레미스 물리적 또는 가상 환경의 SAP 고가용성에 비해 몇 가지 차이점이 있습니다. SAP의 다음 백서에서는 가상화된 Windows 환경의 표준 SAP 고가용성 구성에 대해 설명합니다. <http://scn.sap.com/docs/DOC-44415> Windows의 경우와 마찬가지로 Linux용 sapinst 통합 SAP-HA 구성은 없습니다. Linux용 온-프레미스 SAP HA에 대한 자세한 내용은 <http://scn.sap.com/docs/DOC-8541>에서 확인할 수 있습니다.
 
 ### <a name="azure-infrastructure-high-availability"></a>Azure 인프라 고가용성
-현재 단일 VM SLA는 99.9%입니다. 단일 VM의 가용성을 어떻게 나타낼 수 있는지 이해하기 위해 사용 가능한 여러 Azure SLA 제품을 간단히 빌드할 수 있습니다. <https://azure.microsoft.com/support/legal/sla/>
+현재 단일 VM SLA는 99.9%입니다. 다양한 Azure SLA의 제품을 빌드해 보면 단일 VM의 가용성이 어떻게 나타나는지 이해하는 데 도움이 됩니다. <https://azure.microsoft.com/support/legal/sla/>
 
 이 계산은 한 달이 30일 또는 43200분이라는 기준에서 출발합니다. 따라서 가동 중지 시간 0.05%는 21.6분에 해당합니다. 일반적으로 다양한 서비스의 가용성은 다음과 같이 배가됩니다.
 
@@ -1849,14 +1849,14 @@ Azure의 SAP 고가용성은 온-프레미스 물리적 또는 가상 환경의 
 * 계획된 유지 관리 이벤트는 가상 머신이 실행 중인 플랫폼 인프라의 전체적인 안정성, 성능 및 보안을 향상시키기 위해 Microsoft가 기본 Azure 플랫폼에 적용하는 주기적인 업데이트입니다.
 * 계획되지 않은 유지 관리 이벤트는 가상 컴퓨터의 기반이 되는 하드웨어 또는 물리적 인프라에 어떠한 식으로든지 오류가 있을 때 발생합니다. 여기에는 로컬 네트워크 오류, 로컬 디스크 오류 또는 기타 랙 수준의 오류가 포함될 수도 있습니다. 이러한 오류가 감지될 때 Azure 플랫폼은 가상 머신을 호스트 중인 비정상 물리적 서버에서 정상 물리적 서버로 가상 머신을 자동으로 마이그레이션합니다. 이러한 이벤트는 흔치 않지만 가상 머신이 재부팅되도록 할 수도 있습니다.
 
-이 설명서에서 자세한 내용을 찾을 수 있습니다. <http://azure.microsoft.com/documentation/articles/virtual-machines-manage-availability>
+자세한 내용은 <http://azure.microsoft.com/documentation/articles/virtual-machines-manage-availability> 설명서를 참조하세요.
 
 #### <a name="azure-storage-redundancy"></a>Azure Storage 중복성
 Microsoft Azure Storage 계정의 데이터는 항상 내구성 및 고가용성을 보증하도록 복제되며 일시적인 하드웨어 오류가 발생하는 경우에도 Azure Storage SLA를 충족합니다.
 
 Azure Storage는 기본적으로 데이터 이미지 3개를 유지하므로 여러 Azure 디스크에 있는 RAID5 또는 RAID1은 필요하지 않습니다.
 
-이 문서에서 자세한 내용을 찾을 수 있습니다. <http://azure.microsoft.com/documentation/articles/storage-redundancy/>
+자세한 내용은 <http://azure.microsoft.com/documentation/articles/storage-redundancy/> 문서를 참조하세요.
 
 #### <a name="utilizing-azure-infrastructure-vm-restart-to-achieve-higher-availability-of-sap-applications"></a>Azure 인프라 VM 다시 시작을 활용하여 SAP 응용 프로그램의 "고가용성" 확보
 WSFC(Windows 서버 장애 조치(failover) 클러스터링) 또는 Linux의 Peacemaker(현재 SLES 12 이상에서만 지원됨) 등의 기능을 사용하지 않기로 결정하는 경우 Azure VM 다시 시작 기능을 활용하여 Azure 물리적 서버 인프라 및 전반적인 기본 Azure 플랫폼의 예정되었거나 갑작스러운 가동 중지 시간으로부터 SAP 시스템을 보호합니다.
@@ -1912,7 +1912,7 @@ Azure 배율 단위 내에서 Azure 가용성 집합이 사용할 수 있는 장
 
 ![Azure에 있는 SAP 응용 프로그램 서버의 HA][planning-guide-figure-3000]
 
-이 설명서에서 자세한 내용을 찾을 수 있습니다. <http://azure.microsoft.com/documentation/articles/virtual-machines-manage-availability>
+자세한 내용은 <http://azure.microsoft.com/documentation/articles/virtual-machines-manage-availability> 설명서를 참조하세요.
 
 #### <a name="high-availability-for-the-sap-ascs-instance-on-windows"></a>Windows에서 SAP (A)SCS 인스턴스의 고가용성
 WSFC(Windows Server 장애 조치 클러스터)는 SAP (A)SCS 인스턴스를 보호하기 위해 자주 사용되는 솔루션입니다. 이 솔루션은 "HA 설치"의 형태로 sapinst에도 통합되어 있습니다. 현재 Azure 인프라는 온-프레미스의 경우와 동일한 방식으로 필수 Windows Server 장애 조치 클러스터를 설정하는 기능을 제공할 수 없습니다.
@@ -1941,7 +1941,7 @@ SIOS Datakeeper 및 SAP를 사용하여 Windows 장애 조치 클러스터를 �
 #### <a name="end-to-end-high-availability-for-the-complete-sap-system"></a>전체 SAP 시스템의 종단 간 고가용성
 Azure의 전체 SAP NetWeaver HA 아키텍처의 두 가지 예는 Windows용과 Linux용입니다.
 
-비관리 디스크에만 해당하는 내용: 아래에 설명된 개념은 많은 SAP 시스템을 배포하고 배포된 VM 수가 구독당 Storage 계정의 최대 제한을 초과할 경우 약간의 조정이 필요할 수 있습니다. 이러한 경우 VM의 VHD를 단일 Storage 계정 내에 결합해야 합니다. 일반적으로는 이를 위해 여러 다른 SAP 시스템에 있는 SAP 응용 프로그램 계층 VM의 VHD를 결합할 수 있습니다.  여기서는 서로 다른 SAP 시스템에 있는 여러 DBMS VM의 다른 VHD를 단일 Azure Storage 계정에 결합했습니다. 이를 통해 Azure Storage 계정의 IOPS 제한이 적용되도록 했습니다(<https://azure.microsoft.com/documentation/articles/storage-scalability-targets>).
+비관리 디스크에만 해당하는 내용: 아래에 설명된 개념은 많은 SAP 시스템을 배포하고 배포된 VM 수가 구독당 Storage 계정의 최대 제한을 초과할 경우 약간의 조정이 필요할 수 있습니다. 이러한 경우 VM의 VHD를 단일 Storage 계정 내에 결합해야 합니다. 일반적으로는 이를 위해 여러 다른 SAP 시스템에 있는 SAP 응용 프로그램 계층 VM의 VHD를 결합할 수 있습니다.  여기서는 서로 다른 SAP 시스템에 있는 여러 DBMS VM의 다른 VHD를 단일 Azure Storage 계정에 결합했습니다. Azure Storage 계정의 IOPS 제한에 유의합니다(<https://azure.microsoft.com/documentation/articles/storage-scalability-targets>).
 
 
 ##### <a name="windowslogowindows-ha-on-windows"></a>![Windows][Logo_Windows] Windows의 HA
@@ -1997,7 +1997,7 @@ SAP 인스턴스의 자동 시작과 관련된 자세한 내용은 다음 항목
 선택한 SAP 구성(2계층 또는 3계층)에 따라, 백업이 필요할 수도 있습니다. 데이터베이스의 백업 외에 VM 자체의 내용도 있습니다. DBMS 관련 백업은 데이터베이스 메서드로 수행됩니다. 다른 데이터베이스에 대한 자세한 설명은 [DBMS 가이드][dbms-guide]에 있습니다. SAP 데이터는 이 섹션에 설명되는 오프라인 방식으로(데이터베이스 콘텐츠도 포함) 또는 다음 섹션에 설명되는 온라인 방식으로 백업될 수 있습니다.
 
 오프라인 백업에서는 기본적으로 Azure Portal을 통해 VM을 종료해야 하며, VM에 연결된 모든 디스크 외의 기본 VM 디스크 복사본이 있어야 합니다. 이 경우 VM 및 관련 디스크의 지정 시간 이미지가 보존됩니다. '백업'을 다른 Azure Storage 계정으로 복사하는 것이 좋습니다. 따라서 이 문서의 [Azure Storage 계정 간 디스크 복사][planning-guide-5.4.2] 장에서 설명한 절차가 적용됩니다.
-Azure Portal을 사용하여 종료하는 방법 외에, <https://azure.microsoft.com/documentation/articles/virtual-machines-deploy-rmtemplates-powershell/>에 설명된 것처럼 PowerShell 또는 CLI를 통해 종료할 수도 있습니다.
+Azure Portal 사용을 종료하는 것 외에도, <https://azure.microsoft.com/documentation/articles/virtual-machines-deploy-rmtemplates-powershell/>에 설명된 대로 Powershell 또는 CLI를 사용하여 이 작업을 수행할 수 있습니다.
 
 해당 상태가 복원될 때는 기본 VM뿐 아니라 기본 VM의 원본 디스크와 장착된 디스크도 삭제되고, 저장된 디스크가 관리 디스크의 리소스 그룹 또는 원래 Storage 계정으로 다시 복사된 후에 시스템이 다시 배포됩니다.
 이 프로세스를 PowerShell에서 스크립트로 실행하는 방법의 예제는 <http://www.westerndevs.com/azure-snapshots/> 문서에 나와 있습니다.
@@ -2014,23 +2014,23 @@ SAP 시스템 내의 다른 VM은 Azure Virtual Machine Backup 기능을 사용�
 >
 > ![Windows][Logo_Windows] Windows
 >
-> 이론적으로 DBMS 시스템에서 Windows VSS(볼륨 섀도 복사본 서비스 - <https://msdn.microsoft.com/library/windows/desktop/bb968832(v=vs.85).aspx>)를 지원하는 경우 데이터베이스를 실행하는 VM을 SQL Server 등에서와 같이 일관성 있는 방식으로 백업할 수 있습니다.
+> 이론적으로 DBMS 시스템에서 Windows VSS(볼륨 섀도 복사본 서비스 <https://msdn.microsoft.com/library/windows/desktop/bb968832(v=vs.85).aspx>)를 지원하는 경우 데이터베이스를 실행하는 VM을 SQL Server 등 일관성 있는 방법으로 백업할 수 있습니다.
 > 그러나 데이터베이스의 Azure VM 백업 기반의 특정 시간 복원은 가능하지 않습니다. 따라서 Azure VM Backup을 사용하지 않고 DBMS 기능을 사용하여 데이터베이스 백업을 수행하는 것이 좋습니다.
 >
-> Azure Virtual Machine Backup에 대해 숙지하려면 <https://docs.microsoft.com/azure/backup/backup-azure-vms>를 먼저 확인하세요.
+> Azure Virtual Machine 백업에 익숙해지려면 <https://docs.microsoft.com/azure/backup/backup-azure-vms>에서 시작하세요.
 >
-> Azure VM에 설치된 Microsoft Data Protection Manager와 Azure Backup을 함께 사용하여 데이터베이스 백업/복원할 수도 있습니다. 자세한 내용은 <https://docs.microsoft.com/azure/backup/backup-azure-dpm-introduction>에서 찾을 수 있습니다.  
+> Azure VM에 설치된 Microsoft Data Protection Manager와 Azure Backup을 함께 사용하여 데이터베이스 백업/복원할 수도 있습니다. 자세한 내용은 <https://docs.microsoft.com/azure/backup/backup-azure-dpm-introduction>을 참조하세요.  
 >
 > ![Linux][Logo_Linux] Linux
 >
-> Linux에는 Windows VSS와 동일한 기능이 없습니다. 따라서 파일 일치 백업만 가능하고 응용 프로그램 일치 백업은 가능하지 않습니다. SAP DBMS 백업은 DBMS 기능을 사용해서 수행해야 합니다. SAP 관련 데이터가 포함된 파일 시스템은 <http://help.sap.com/saphelp_nw70ehp2/helpdata/en/d3/c0da3ccbb04d35b186041ba6ac301f/content.htm>에 설명된 것과 같이 tar 등의 기능을 사용하여 저장할 수 있습니다.
+> Linux에는 Windows VSS와 동일한 기능이 없습니다. 따라서 파일 일치 백업만 가능하고 응용 프로그램 일치 백업은 가능하지 않습니다. SAP DBMS 백업은 DBMS 기능을 사용해서 수행해야 합니다. SAP 관련 데이터를 포함하는 파일 시스템은 <http://help.sap.com/saphelp_nw70ehp2/helpdata/en/d3/c0da3ccbb04d35b186041ba6ac301f/content.htm>에 설명된 대로 tar 등을 사용해서 저장할 수 있습니다.
 >
 >
 
 ### <a name="azure-as-dr-site-for-production-sap-landscapes"></a>프로덕션 SAP 지형에 대한 DR 사이트로 사용되는 Azure
 2014년 중반부터 Hyper-V, System Center 및 Azure와 관련한 다양한 구성 요소가 확장되면서 Azure를 Hyper-V를 기준으로 온-프레미스에서 실행되는 VM에 대한 DR 사이트로 사용할 수 있게 되었습니다.
 
-이 솔루션을 배포하는 자세한 방법은 <http://blogs.msdn.com/b/saponsqlserver/archive/2014/11/19/protecting-sap-solutions-with-azure-site-recovery.aspx> 블로그에 나와 있습니다.
+이 솔루션을 배포하는 방법을 자세히 설명하는 블로그는 <http://blogs.msdn.com/b/saponsqlserver/archive/2014/11/19/protecting-sap-solutions-with-azure-site-recovery.aspx>에 설명되어 있습니다.
 
 ## <a name="summary"></a>요약
 Azure의 SAP 시스템 고가용성의 핵심 사항은 다음과 같습니다.

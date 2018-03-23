@@ -1,6 +1,6 @@
 ---
-title: "OMS Log Analytics를 사용하여 Azure SQL 데이터 동기화 모니터링 | Microsoft Docs"
-description: "OMS Log Analytics를 사용하여 Azure SQL 데이터 동기화를 모니터링하는 방법을 알아봅니다."
+title: OMS Log Analytics를 사용하여 Azure SQL 데이터 동기화 모니터링 | Microsoft Docs
+description: OMS Log Analytics를 사용하여 Azure SQL 데이터 동기화를 모니터링하는 방법을 알아봅니다.
 services: sql-database
 ms.date: 11/07/2017
 ms.topic: article
@@ -8,11 +8,12 @@ ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.openlocfilehash: 8683b3aec569f210529c1188cbbf514f7956b340
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.custom: data-sync
+ms.openlocfilehash: 423614227b16ad6cfa6dadfab1c5f2b93c5bbe62
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="monitor-sql-data-sync-preview-with-oms-log-analytics"></a>OMS Log Analytics를 사용하여 SQL 데이터 동기화(미리 보기) 모니터링 
 
@@ -92,7 +93,7 @@ Runbook을 만드는 방법에 대한 자세한 내용은 [내 첫 번째 PowerS
 
     2.  동기화 그룹 정보
 
-    3.  OMS 정보 - 이 정보는 OMS 포털 | 설정 | 연결된 원본에서 찾습니다. Log Analytics에 데이터를 보내는 방법에 대한 자세한 내용은 [HTTP 데이터 수집기 API로 Log Analytics에 데이터 전송(공개 미리 보기)](../log-analytics/log-analytics-data-collector-api.md)을 참조하세요.
+    3.  OMS 정보 - 이 정보는 OMS 포털 | 설정 | 연결된 원본에서 찾습니다. Log Analytics에 데이터를 보내는 방법에 대한 자세한 내용은 [HTTP 데이터 수집기 API로 Log Analytics에 데이터 전송(미리 보기)](../log-analytics/log-analytics-data-collector-api.md)을 참조하세요.
 
 11. [테스트] 창에서 Runbook을 실행합니다. 성공적으로 실행되었는지 확인합니다.
 

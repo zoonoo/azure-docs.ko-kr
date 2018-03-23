@@ -1,19 +1,19 @@
 ---
-title: "Azure IoT Edge SQL 모듈 | Microsoft Docs"
-description: "Microsoft SQL 모듈로 에지에 데이터를 저장하고 Azure Functions를 사용하여 데이터 형식을 지정합니다."
+title: Azure IoT Edge SQL 모듈 | Microsoft Docs
+description: Microsoft SQL 모듈로 에지에 데이터를 저장하고 Azure Functions를 사용하여 데이터 형식을 지정합니다.
 services: iot-edge
-keywords: 
+keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban, ebertrams
 ms.date: 02/21/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 4b66a699e4c58662cadd799cf6aec83b9d34b7e6
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: ce3c3abd00dba23887b5f811af6cab8d2c83323d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="store-data-at-the-edge-with-sql-server-databases"></a>SQL Server 데이터베이스로 에지에 데이터 저장
 
@@ -48,7 +48,7 @@ x64 프로세서 아키텍처의 Windows 및 Linux 컨테이너는 모두 이 �
 
 ## <a name="deploy-a-sql-server-container"></a>SQL Server 컨테이너 배포
 
-이 섹션에서는 시뮬레이션된 IoT Edge 장치에 MS-SQL 데이터베이스를 추가합니다. [Windows](https://hub.docker.com/r/microsoft/mssql-server-windows-developer/) 및 [Linux](https://hub.docker.com/r/microsoft/mssql-server-linux/)에서 사용할 수 있는 SQL Server 2017 Docker 컨테이너 이미지를 사용합니다. 
+이 섹션에서는 시뮬레이션된 IoT Edge 장치에 MS-SQL 데이터베이스를 추가합니다. SQL Server 2017 Docker 컨테이너 이미지를 사용하여 [Windows](https://hub.docker.com/r/microsoft/mssql-server-windows-developer/) 컨테이너와 [Linux](https://hub.docker.com/r/microsoft/mssql-server-linux/) 컨테이너로 제공합니다. 
 
 ### <a name="deploy-sql-server-2017"></a>SQL Server 2017 배포
 
@@ -100,14 +100,14 @@ x64 프로세서 아키텍처의 Windows 및 Linux 컨테이너는 모두 이 �
 
       ```json
       "image": "microsoft/mssql-server-windows-developer",
-      "createOptions": "{\r\n\t"Env": [\r\n\t\t"ACCEPT_EULA=Y",\r\n\t\t"sa_password=Strong!Passw0rd"\r\n\t],\r\n\t"HostConfig": {\r\n\t\t"Mounts": [{\r\n\t\t\t"Target": "C:\\\\mssql",\r\n\t\t\t"Source": "sqlVolume",\r\n\t\t\t"Type": "volume"\r\n\t\t}],\r\n\t\t"PortBindings": {\r\n\t\t\t"1433/tcp": [{\r\n\t\t\t\t"HostPort": "1401"\r\n\t\t\t}]\r\n\t\t}\r\n\t}\r\n}"
+      "createOptions": "{\"Env\": [\"ACCEPT_EULA=Y\",\"MSSQL_SA_PASSWORD=Strong!Passw0rd\"],\"HostConfig\": {\"Mounts\": [{\"Target\": \"C:\\\\mssql\",\"Source\": \"sqlVolume\",\"Type\": \"volume\"}],\"PortBindings\": {\"1433/tcp\": [{\"HostPort\": \"1401\"}]}}"
       ```
 
    * Linux:
 
       ```json
       "image": "microsoft/mssql-server-linux:2017-latest",
-      "createOptions": "{\r\n\t"Env": [\r\n\t\t"ACCEPT_EULA=Y",\r\n\t\t"MSSQL_SA_PASSWORD=Strong!Passw0rd"\r\n\t],\r\n\t"HostConfig": {\r\n\t\t"Mounts": [{\r\n\t\t\t"Target": "/var/opt/mssql",\r\n\t\t\t"Source": "sqlVolume",\r\n\t\t\t"Type": "volume"\r\n\t\t}],\r\n\t\t"PortBindings": {\r\n\t\t\t"1433/tcp": [{\r\n\t\t\t\t"HostPort": "1401"\r\n\t\t\t}]\r\n\t\t}\r\n\t}\r\n}"
+      "createOptions": "{\"Env\": [\"ACCEPT_EULA=Y\",\"MSSQL_SA_PASSWORD=Strong!Passw0rd\"],\"HostConfig\": {\"Mounts\": [{\"Target\": \"/var/opt/mssql\",\"Source\": \"sqlVolume\",\"Type\": \"volume\"}],\"PortBindings\": {\"1433/tcp\": [{\"HostPort\": \"1401\"}]}}}"
       ```
 
 4. 파일을 저장합니다. 
@@ -125,31 +125,31 @@ x64 프로세서 아키텍처의 Windows 및 Linux 컨테이너는 모두 이 �
 
 명령줄 도구에서 데이터베이스에 연결합니다. 
 
-* Windows
+* Windows 컨테이너
    ```cmd
-   Docker exec -it sql cmd
+   docker exec -it sql cmd
    ```
 
-* Linux    
+* Linux 컨테이너
    ```bash
-   Docker exec -it sql 'bash'
+   docker exec -it sql bash
    ```
 
 SQL 명령 도구를 엽니다. 
 
-* Windows
+* Windows 컨테이너
    ```cmd
    sqlcmd -S localhost -U SA -P 'Strong!Passw0rd'
    ```
 
-* Linux
+* Linux 컨테이너
    ```bash
    /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'Strong!Passw0rd'
    ```
 
 데이터베이스를 만듭니다. 
 
-* Windows
+* Windows 컨테이너
    ```sql
    CREATE DATABASE MeasurementsDB
    ON
@@ -157,7 +157,7 @@ SQL 명령 도구를 엽니다.
    GO
    ```
 
-* Linux
+* Linux 컨테이너
    ```sql
    CREATE DATABASE MeasurementsDB
    ON
@@ -302,24 +302,24 @@ IoT Edge는 시작할 때 브리지(Linux) 또는 NAT(Windows) 네트워크를 �
 
 명령줄 도구에서 데이터베이스에 연결합니다. 
 
-* Windows
+* Windows 컨테이너
    ```cmd
-   Docker exec -it sql cmd
+   docker exec -it sql cmd
    ```
 
-* Linux    
+* Linux 컨테이너
    ```bash
-   Docker exec -it sql 'bash'
+   docker exec -it sql bash
    ```
 
 SQL 명령 도구를 엽니다. 
 
-* Windows
+* Windows 컨테이너
    ```cmd
    sqlcmd -S localhost -U SA -P 'Strong!Passw0rd'
    ```
 
-* Linux
+* Linux 컨테이너
    ```bash
    /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'Strong!Passw0rd'
    ```
@@ -327,7 +327,7 @@ SQL 명령 도구를 엽니다.
 데이터 보기: 
 
    ```sql
-   Select * FROM MeasurementsDB.dbo.TemperatureMeasurements
+   SELECT * FROM MeasurementsDB.dbo.TemperatureMeasurements
    GO
    ```
 

@@ -1,9 +1,9 @@
 ---
-title: "이벤트 허브로 Azure 진단 로그 스트림 | Microsoft Docs"
-description: "이벤트 허브로 Azure 진단 로그를 스트리밍하는 방법을 알아봅니다."
+title: 이벤트 허브로 Azure 진단 로그 스트림 | Microsoft Docs
+description: 이벤트 허브로 Azure 진단 로그를 스트리밍하는 방법을 알아봅니다.
 author: johnkemnetz
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: 42bc4845-c564-4568-b72d-0614591ebd80
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/22/2017
+ms.date: 03/06/2018
 ms.author: johnkem
-ms.openlocfilehash: bcb9fcb2371217e7082d96ddbba4a095e6d9a00f
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: 72876e38f77aa7a13c0dd9a8cdf9479e058f4a0d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>이벤트 허브로 Azure 진단 로그 스트림
 Portal에서 기본 제공되는 "Event Hubs로 내보내기" 옵션을 사용하거나 Azure PowerShell cmdlet 또는 Azure CLI를 통해 진단 설정에서 이벤트 허브 권한 부여 규칙 ID를 사용하도록 설정하여 **[Azure 진단 로그](monitoring-overview-of-diagnostic-logs.md)**를 거의 실시간으로 응용 프로그램에 스트리밍할 수 있습니다.
@@ -83,10 +83,10 @@ Portal에서 기본 제공되는 "Event Hubs로 내보내기" 옵션을 사용�
 [Azure PowerShell Cmdlet](insights-powershell-samples.md)을 통해 스트리밍을 사용하도록 설정하려면 다음 매개 변수와 함께 `Set-AzureRmDiagnosticSetting` cmdlet을 사용하면 됩니다.
 
 ```powershell
-Set-AzureRmDiagnosticSetting -ResourceId [your resource ID] -ServiceBusRuleId [your Service Bus rule ID] -Enabled $true
+Set-AzureRmDiagnosticSetting -ResourceId [your resource ID] -EventHubAuthorizationRuleId [your Event Hub namespace auth rule ID] -Enabled $true
 ```
 
-Service Bus 규칙 ID는 `{Service Bus resource ID}/authorizationrules/{key name}` 형식의 문자열입니다. 예를 들면 `/subscriptions/{subscription ID}/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.ServiceBus/namespaces/{Service Bus namespace}/authorizationrules/RootManageSharedAccessKey`입니다. 현재는 PowerShell을 사용하여 특정 이벤트 허브 이름을 선택할 수 없습니다.
+이벤트 허브 권한 부여 규칙 ID는 `{Event Hub namespace resource ID}/authorizationrules/{key name}` 형식의 문자열입니다. 예를 들면 `/subscriptions/{subscription ID}/resourceGroups/{resource group}/providers/Microsoft.EventHub/namespaces/{Event Hub namespace}/authorizationrules/RootManageSharedAccessKey`입니다. 현재는 PowerShell을 사용하여 특정 이벤트 허브 이름을 선택할 수 없습니다.
 
 ### <a name="via-azure-cli"></a>Azure CLI를 통해
 [Azure CLI](insights-cli-samples.md)를 통해 스트리밍을 사용하도록 설정하려면 다음과 같이 `insights diagnostic set` 명령을 사용하면 됩니다.
@@ -95,7 +95,7 @@ Service Bus 규칙 ID는 `{Service Bus resource ID}/authorizationrules/{key name
 azure insights diagnostic set --resourceId <resourceID> --serviceBusRuleId <serviceBusRuleID> --enabled true
 ```
 
-PowerShell Cmdlet에 대해 설명한 것처럼 Service Bus 규칙 ID와 동일한 형식을 사용합니다. 현재는 Azure CLI를 사용하여 특정 이벤트 허브 이름을 선택할 수 없습니다.
+PowerShell Cmdlet에 대해 설명한 것처럼 이벤트 허브 권한 부여 규칙 ID와 동일한 형식을 사용합니다. 현재는 Azure CLI를 사용하여 특정 이벤트 허브 이름을 선택할 수 없습니다.
 
 ## <a name="how-do-i-consume-the-log-data-from-event-hubs"></a>Event Hubs에서 로그 데이터를 사용하려면 어떻게 하나요?
 다음은 Event Hubs의 샘플 출력 데이터입니다.

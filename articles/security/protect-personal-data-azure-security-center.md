@@ -1,29 +1,29 @@
 ---
-title: "Azure Security Center를 사용하여 개인 데이터 보호 | Microsoft Docs"
-description: "Azure Security Center를 사용하여 개인 데이터를 보호합니다."
+title: Azure Security Center를 사용하여 개인 데이터 보호 | Microsoft Docs
+description: Security Center를 사용하여 개인 데이터를 보호합니다. 이 기능을 GDPR(일반 데이터 보호 규정)을 준수하기 위해 사용할 수도 있습니다.
 services: security
 documentationcenter: na
 author: Barclayn
 manager: MBaldwin
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/24/2017
+ms.date: 03/06/2018
 ms.author: barclayn
-ms.custom: 
-ms.openlocfilehash: 3a941389713a4d3dbffbbfe8a717409927d85c6d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: ''
+ms.openlocfilehash: 118752a030a1c300306aa3e05571bb9b624a2c20
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="protect-personal-data-from-breaches-and-attacks-azure-security-center"></a>위반 및 공격으로부터 개인 데이터 보호: Azure Security Center
 
-이 문서는 Azure Security Center를 사용하여 위반 및 공격으로부터 개인 데이터를 보호하는 방법을 이해하는 데 도움이 됩니다.
+이 문서는 Azure Security Center를 사용하여 위반 및 공격으로부터 개인 데이터를 보호하는 방법을 이해하는 데 도움이 됩니다. 여기에 포함된 정보는 GDPR(일반 데이터 보호 규정)을 준수하는 데 도움이 될 수 있습니다.
 
 ## <a name="scenario"></a>시나리오 
 
@@ -66,7 +66,7 @@ ASC를 사용하면 보안 정책을 설정하고, JIT(Just-In-Time) 액세스�
 
 2. 정책을 사용하도록 설정하려는 구독을 선택합니다.
 
-3. **방지 정책**을 선택하여 구독당 정책을 구성합니다. **가상 컴퓨터에서 데이터 수집**은 **설정**으로 설정되어야 합니다.
+3. **방지 정책**을 선택하여 구독당 정책을 구성합니다. **가상 머신에서 데이터 수집**은 **설정**으로 설정되어야 합니다.
 
 4. **방지 정책**  옵션에서 **설정**을 선택하여 구독과 관련된 보안 권장 사항을 사용하도록 설정합니다.
 
@@ -90,7 +90,7 @@ JIT를 사용하도록 설정되면 Security Center에서 NSG 규칙을 만들�
 
 ![](media/protect-personal-data-azure-security-center/jit-vm.png)
 
-이를 수행하는 방법에 대한 지침 및 Just-In-Time 액세스에 대한 자세한 내용은 [Just-In-Time을 사용하여 가상 컴퓨터 액세스 관리](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)를 참조하세요.
+이를 수행하는 방법에 대한 지침 및 Just-In-Time 액세스에 대한 자세한 내용은 [Just-In-Time을 사용하여 가상 머신 액세스 관리](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)를 참조하세요.
 
 #### <a name="how-do-i-implement-asc-security-recommendations"></a>ASC 보안 권장 사항을 구현하려면 어떻게 할까요?
 
@@ -175,7 +175,7 @@ ASC 위협 인텔리전스 보고서에 대한 자세한 내용은 [Azure Securi
 
 ### <a name="assessment"></a>평가
 
-ASC는 보안 상태에 대한 테스트, 판단 및 평가를 지원하기 위해 가상 컴퓨터 권장 구성 요소의 일부로 Qualys 클라우드 에이전트와 통합된 취약성 평가를 제공합니다.
+ASC는 보안 상태에 대한 테스트, 판단 및 평가를 지원하기 위해 가상 머신 권장 구성 요소의 일부로 Qualys 클라우드 에이전트와 통합된 취약성 평가를 제공합니다.
 
 Qualys 에이전트는 Qualys 관리 플랫폼에 취약성 데이터를 보고한 다음, 취약성 및 상태 모니터링 데이터를 ASC로 다시 보냅니다. 취약성 평가 솔루션을 추가하도록 제안되는 권장 사항은 ASC 대시보드의 **권장 사항** 블레이드에 표시됩니다.
 

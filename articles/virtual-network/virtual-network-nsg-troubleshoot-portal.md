@@ -1,11 +1,11 @@
 ---
-title: "네트워크 보안 그룹 문제 해결 - 포털 | Microsoft Docs"
-description: "Azure Portal을 사용하여 Azure Resource Manager 배포 모델에서 네트워크 보안 그룹 문제를 해결하는 방법에 알아봅니다."
+title: 네트워크 보안 그룹 문제 해결 - 포털 | Microsoft Docs
+description: Azure Portal을 사용하여 Azure Resource Manager 배포 모델에서 네트워크 보안 그룹 문제를 해결하는 방법에 알아봅니다.
 services: virtual-network
 documentationcenter: na
 author: AnithaAdusumilli
 manager: narayan
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: a54feccf-0123-4e49-a743-eb8d0bdd1ebc
 ms.service: virtual-network
@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
 ms.openlocfilehash: 5998aa0e0b281ead859c24d792c3e175e3cca899
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="troubleshoot-network-security-groups-using-the-azure-portal"></a>Azure Portal을 사용하여 네트워크 보안 그룹 문제 해결
 > [!div class="op_single_selector"]
@@ -95,7 +95,7 @@ VM 자체에서 NIC에 대한 유효 보안 규칙의 전체 목록을 볼 수 �
 ### <a name="nic"></a>네트워크 인터페이스에 대한 유효 보안 규칙 보기
 VM 트래픽 흐름이 특정 NIC에 대해 영향을 받으면 다음 단계를 완료하여 네트워크 인터페이스 컨텍스트에서 NIC에 대한 유효 규칙의 전체 목록을 볼 수 있습니다.
 
-1. https://portal.azure.com에서 Azure Portal에 로그인합니다.
+1. Azure Portal(https://portal.azure.com)에 로그인합니다.
 2. **모든 서비스**를 클릭한 다음, 표시되는 목록에서 **네트워크 인터페이스**를 클릭합니다.
 3. 네트워크 인터페이스를 선택합니다. 다음 그림에서는 *VM1-NIC1* 이라는 NIC가 선택됩니다.
    
@@ -112,7 +112,7 @@ VM 트래픽 흐름이 특정 NIC에 대해 영향을 받으면 다음 단계를
 ## <a name="nsg"></a>NSG(네트워크 보안 그룹)에 대한 유효 보안 규칙 보기
 NSG 규칙을 수정할 경우 추가되는 규칙이 특정 VM에 미치는 영향을 검토하려고 할 수 있습니다. 지정된 NSG 블레이드에서 컨텍스트를 전환하지 않고도, 지정된 NSG가 적용되는 모든 NIC에 대한 유효 보안 규칙의 전체 목록을 볼 수 있습니다. NSG 내의 유효 규칙 문제를 해결하려면 다음 단계를 완료합니다.
 
-1. https://portal.azure.com에서 Azure Portal에 로그인합니다.
+1. Azure Portal(https://portal.azure.com)에 로그인합니다.
 2. **모든 서비스**를 클릭한 다음, 표시되는 목록에서 **네트워크 보안 그룹**을 클릭합니다.
 3. NSG를 선택합니다. 다음 그림에서는 VM1-nsg라는 NSG가 선택되었습니다.
    

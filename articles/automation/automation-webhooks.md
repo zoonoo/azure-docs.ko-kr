@@ -1,24 +1,18 @@
 ---
-title: "웹후크를 사용하여 Azure Automation Runbook 시작 | Microsoft Docs"
-description: "클라이언트가 Azure Automation에서 HTTP 호출을 통해 runbook을 시작하는 데 사용되는 webhook입니다.  이 문서는 webhook를 만드는 방법 및 webhook를 호출하여 runbook을 시작하는 방법에 대해 설명합니다."
+title: 웹후크를 사용하여 Azure Automation Runbook 시작
+description: 클라이언트가 Azure Automation에서 HTTP 호출을 통해 runbook을 시작하는 데 사용되는 webhook입니다.  이 문서는 webhook를 만드는 방법 및 webhook를 호출하여 runbook을 시작하는 방법에 대해 설명합니다.
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: jwhit
-editor: tysonn
-ms.assetid: 9b20237c-a593-4299-bbdc-35c47ee9e55d
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 02/22/2017
-ms.author: magoedte;bwren;sngun
-ms.openlocfilehash: 03d1617eb64c48b6a90925ae76e1ab3ce0312ff1
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+manager: carmonm
+ms.openlocfilehash: b3e8e489ef4b79a89facb2395543743c427b0310
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>웹후크를 사용하여 Azure Automation Runbook 시작
 *Webhook*를 사용하면 단일 HTTP 요청을 통해 Azure Automation에서 특정 runbook을 시작할 수 있습니다. 이는 Azure Automation API를 사용하여 전체 솔루션을 구현하지 않아도 Visual Studio Team Services, GitHub, Microsoft Operations Management Suite Log Analytics 또는 사용자 지정 응용 프로그램과 같은 외부 서비스가 Runbook을 시작할 수 있게 해줍니다.  

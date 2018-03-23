@@ -1,12 +1,12 @@
 ---
-title: "데이터베이스 보안 - Azure Cosmos DB | Microsoft Docs"
-description: "Azure Cosmos DB에서 데이터에 대해 데이터베이스 보호 및 데이터 보안을 제공하는 방법을 알아봅니다."
-keywords: "nosql 데이터베이스 보안, 정보 보안, 데이터 보안, 데이터베이스 암호화, 데이터베이스 보호, 보안 정책, 보안 테스트"
+title: 데이터베이스 보안 - Azure Cosmos DB | Microsoft Docs
+description: Azure Cosmos DB에서 데이터에 대해 데이터베이스 보호 및 데이터 보안을 제공하는 방법을 알아봅니다.
+keywords: nosql 데이터베이스 보안, 정보 보안, 데이터 보안, 데이터베이스 암호화, 데이터베이스 보호, 보안 정책, 보안 테스트
 services: cosmos-db
 author: mimig1
 manager: jhubbard
 editor: mimig
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: a02a6a82-3baf-405c-9355-7a00aaa1a816
 ms.service: cosmos-db
 ms.workload: data-services
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: 2f0f6578b14b2fdd3807303eb94df077df92ba77
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: f6e05d410a8018f0a88a378e767f7a7e6fde6f0c
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-cosmos-db-database-security"></a>Azure Cosmos DB 데이터베이스 보안
 

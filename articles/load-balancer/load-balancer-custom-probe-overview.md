@@ -1,11 +1,11 @@
 ---
-title: "Load Balancer 사용자 지정 프로브를 사용하여 상태 모니터링 | Microsoft Docs"
-description: "Azure 부하 분산 장치에 사용자 지정 프로브를 사용하여 부하 분산 장치 뒤의 인스턴스를 모니터링하는 방법을 알아봅니다."
+title: Load Balancer 사용자 지정 프로브를 사용하여 상태 모니터링 | Microsoft Docs
+description: Azure 부하 분산 장치에 사용자 지정 프로브를 사용하여 부하 분산 장치 뒤의 인스턴스를 모니터링하는 방법을 알아봅니다.
 services: load-balancer
 documentationcenter: na
 author: KumudD
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 46b152c5-6a27-4bfc-bea3-05de9ce06a57
 ms.service: load-balancer
@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 03/8/2018
 ms.author: kumud
-ms.openlocfilehash: 266132d8cbb6f9922ce7b49759981132c2c17f47
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: be0359889f48f2fe16104f2bee5d1c85ab883b34
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="understand-load-balancer-probes"></a>Load Balancer 프로브 이해
 
 [!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
-Azure 부하 분산 장치는 프로브를 사용하여 서버 인스턴스의 상태를 모니터링하는 기능을 제공합니다. 프로브가 응답하지 않으면 부하 분산 장치에서 비정상 인스턴스에 대한 새 연결 전송을 중지합니다. 기존 연결은 영향을 받지 않으며, 새 연결은 정상 인스턴스로 전송됩니다.
+Azure Load Balancer는 상태 프로브를 사용하여 새 흐름 받아야 하는 백 엔드 풀 인스턴스를 결정합니다. 상태 프로브가 실패하면 Load Balancer는 해당 비정상 인스턴스로 새 흐름을 전송하는 것을 중지하며, 해당 인스턴스의 기존 흐름은 영향을 받지 않습니다.  모든 백 엔드 풀 인스턴스 프로브가 다운되면 백 엔드 풀의 모든 인스턴스에서 모든 기존 흐름이 시간 초과됩니다.
 
-클라우드 서비스 역할(작업자 역할 및 웹 역할)은 프로브 모니터링에 게스트 에이전트를 사용합니다. Load Balancer 뒤의 VM을 사용하는 경우 TCP 또는 HTTP 사용자 지정 프로브를 구성해야 합니다.
+클라우드 서비스 역할(작업자 역할 및 웹 역할)은 프로브 모니터링에 게스트 에이전트를 사용합니다. Load Balancer 뒤의 VM을 사용하는 경우 TCP 또는 HTTP 사용자 지정 상태 프로브를 구성해야 합니다.
 
 ## <a name="understand-probe-count-and-timeout"></a>프로브 수 및 시간 제한 이해
 

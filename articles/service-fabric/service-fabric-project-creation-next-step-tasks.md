@@ -1,11 +1,11 @@
 ---
-title: "Service Fabric 프로젝트 만들기 다음 단계 | Microsoft Docs"
-description: "Visual Studio에서 방금 만든 응용 프로그램 프로젝트에 대해 알아봅니다.  자습서를 사용하여 서비스를 빌드하는 방법을 알아보고 Service Fabric용 서비스 개발에 대해 자세히 알아봅니다."
+title: Service Fabric 프로젝트 만들기 다음 단계 | Microsoft Docs
+description: Visual Studio에서 방금 만든 응용 프로그램 프로젝트에 대해 알아봅니다.  자습서를 사용하여 서비스를 빌드하는 방법을 알아보고 Service Fabric용 서비스 개발에 대해 자세히 알아봅니다.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 299d1f97-1ca9-440d-9f81-d1d0dd2bf4df
 ms.service: service-fabric
 ms.devlang: dotNet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/07/2017
 ms.author: rwike77
-ms.openlocfilehash: 17eb1e7c2184fe9cae19685a47ea80716292b754
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: 1e5b8523422aae00655b003bf15103d5467b4177
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="your-service-fabric-application-and-next-steps"></a>서비스 패브릭 응용 프로그램 및 다음 단계
 Azure 서비스 패브릭 응용 프로그램이 만들어졌습니다. 이 문서에서는 사용해 볼 만한 자습서, 프로젝트의 구성, 관심을 둘 만한 추가 정보 및 수행할 수 있는 다음 단계에 대해 설명합니다.
@@ -55,7 +55,7 @@ Azure 서비스 패브릭 응용 프로그램이 만들어졌습니다. 이 문�
 
 
 ## <a name="learn-more-about-the-programming-models"></a>프로그래밍 모델에 대해 자세히 알아보기
-서비스 패브릭은 서비스의 작성 및 관리를 위한 여러 방법을 제공합니다.  다음은 [상태 비저장 및 상태 저장 Reliable Services](service-fabric-reliable-services-introduction.md), [Reliable Actors](service-fabric-reliable-actors-introduction.md), [컨테이너](service-fabric-containers-overview.md), [게스트 실행 파일](service-fabric-deploy-existing-app.md) 및 [상태 비저장 및 상태 저장 ASP.NET Core 서비스](service-fabric-reliable-services-communication-aspnetcore.md)에 대한 개요 및 개념 정보입니다.
+서비스 패브릭은 서비스의 작성 및 관리를 위한 여러 방법을 제공합니다.  다음은 [상태 비저장 및 상태 저장 Reliable Services](service-fabric-reliable-services-introduction.md), [Reliable Actors](service-fabric-reliable-actors-introduction.md), [컨테이너](service-fabric-containers-overview.md), [게스트 실행 파일](service-fabric-guest-executables-introduction.md) 및 [상태 비저장 및 상태 저장 ASP.NET Core 서비스](service-fabric-reliable-services-communication-aspnetcore.md)에 대한 개요 및 개념 정보입니다.
 
 ## <a name="learn-about-service-communication"></a>서비스 통신에 대해 알아보기
 Service Fabric 응용 프로그램은 여러 가지 서비스로 구성되며, 각 서비스는 전문적인 작업을 수행합니다. 이러한 서비스는 서로 통신할 수 있으며 서비스에 연결하고 서비스와 통신하는 클러스터 외부의 클라이언트 응용 프로그램이 있을 수 있습니다. Service Fabric에서 [서비스와 통신 및 서비스 간 통신을 설정](service-fabric-connect-and-communicate-with-services.md)하는 방법을 알아봅니다. 

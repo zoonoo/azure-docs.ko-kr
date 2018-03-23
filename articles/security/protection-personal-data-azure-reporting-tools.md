@@ -1,29 +1,28 @@
 ---
-title: "Azure 보고 도구로 개인 데이터의 문서 보호 | Microsoft Docs"
-description: "Azure 보고 도구 서비스 및 기술을 사용하여 개인 데이터의 프라이버시를 보호하는 방법입니다."
+title: Azure 보고 도구로 개인 데이터의 문서 보호 | Microsoft Docs
+description: Azure 보고 서비스를 사용하여 이니셔티브에서 개인 데이터의 개인 정보를 보호함으로써 GDPR(일반 데이터 보호 규정)을 준수합니다.
 services: security
 documentationcenter: na
 author: barclayn
 manager: MBaldwin
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/24/2017
+ms.date: 03/06/2018
 ms.author: barclayn
-ms.openlocfilehash: 397161cf2eaea9712fec352a45f5fc49e8da486c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 2c677a1dea001c6a414304fbaa683c3787b355b1
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="document-protection-of-personal-data-with-azure-reporting-tools"></a>Azure 보고 도구로 개인 데이터의 문서 보호
 
-이 문서에서는 Azure 보고 도구 서비스 및 기술을 사용하여 개인 데이터의 프라이버시를 보호하는 방법을 설명합니다.
-
+이 문서에서는 Azure 보고 도구 서비스 및 기술을 사용하여 개인 데이터의 프라이버시를 보호하는 방법을 설명합니다. 이 정보는 GDPR(일반 데이터 보호 규정)과 같은 업계 및 정부 요구 사항을 준수하기 위해 사용될 수 있습니다.
 ## <a name="scenario"></a>시나리오
 
 미국에 본사를 둔 대형 크루즈 회사는 영국 제도뿐만 아니라 지중해, 아드리아해 및 발트해의 여정을 제공하기 위해 운영을 확대하고 있습니다. 이러한 노력의 일환으로 이탈리아, 독일, 덴마크 및 영국에 기반을 둔 여러 개의 소형 크루즈 라인을 인수했습니다.

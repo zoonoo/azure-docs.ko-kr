@@ -1,6 +1,6 @@
 ---
-title: "Azure App Service에 대한 SSL 인증서 구입 및 구성 | Microsoft Docs"
-description: "App Service Certificate를 구입하고 App Service 앱에 바인딩하는 방법을 알아봅니다"
+title: Azure App Service에 대한 SSL 인증서 구입 및 구성 | Microsoft Docs
+description: App Service Certificate를 구입하고 App Service 앱에 바인딩하는 방법을 알아봅니다
 services: app-service
 documentationcenter: .net
 author: cephalin
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/01/2017
 ms.author: apurvajo;cephalin
 ms.openlocfilehash: 6c0125bf0bd22912a21372b5a7da6846e924e6cd
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-your-azure-app-service"></a>Azure App Service에 대한 SSL 인증서 구입 및 구성
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/08/2017
 
 ## <a name="step-1---log-in-to-azure"></a>1단계 - Azure에 로그인
 
-Azure Portal http://portal.azure.com 에 로그인합니다.
+http://portal.azure.com에서 Azure Portal에 로그인
 
 ## <a name="step-2---place-an-ssl-certificate-order"></a>2단계 - SSL 인증서 주문하기
 

@@ -1,8 +1,8 @@
 ---
-title: "Visual Studio용 Azure Stream Analytics 도구 사용 | Microsoft Docs"
-description: "Visual Studio용 Azure Stream Analytics 도구 시작 자습서"
+title: Visual Studio용 Azure Stream Analytics 도구 사용 | Microsoft Docs
+description: Visual Studio용 Azure Stream Analytics 도구 시작 자습서
 keywords: Visual Studio
-documentationcenter: 
+documentationcenter: ''
 services: stream-analytics
 author: su-jie
 manager: jhubbard
@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 03/28/2017
+ms.date: 03/05/2018
 ms.author: sujie
-ms.openlocfilehash: b06eae6b85f2ca41390955cde2499af2531e2e12
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 71e7247226f9432b3f9590ca87ac33883ea576ce
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="use-azure-stream-analytics-tools-for-visual-studio"></a>Visual Studio용 Azure Stream Analytics 도구 사용
 Visual Studio용 Azure Stream Analytics 도구는 현재 일반 공급 상태입니다. Stream Analytics 사용자는 이러한 도구를 통해 풍부한 경험을 얻고 문제를 해결할 수 있을 뿐만 아니라 복잡한 쿼리를 작성하고 로컬에서도 쿼리를 작성할 수 있습니다. 또한 Stream Analytics 작업을 Visual Studio 프로젝트로 내보낼 수 있습니다.
 
 ## <a name="introduction"></a>소개
-이 자습서에서는 Visual Studio용 Stream Analytics 도구를 사용하여 Stream Analytics 작업을 만들고, 작성하며, 로컬에서 테스트하고, 관리 및 디버그하는 방법에 대해 알아봅니다. 
+이 자습서에서는 Visual Studio용 Stream Analytics 도구를 사용하여 Stream Analytics 작업을 만들고, 작성하며, 로컬에서 테스트하고, 관리 및 디버그하는 방법에 대해 알아봅니다. 작업을 만든 후 CI/CD Nuget 패키지를 사용하여 Azure에 대해 연속 통합 및 배포 프로세스를 설정할 수 있습니다. 자세한 내용은 [CI/CD 파이프라인을 설정하기 위한 Stream Analytics VS 도구](stream-analytics-tools-for-visual-studio-cicd.md) 문서를 참조하세요.
 
 이 자습서를 완료하고 나면 다음을 수행할 수 있습니다.
 

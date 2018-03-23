@@ -1,11 +1,11 @@
 ---
-title: "Azure Logic Apps에 Yammer 커넥터 추가 | Microsoft Docs"
-description: "REST API 매개 변수를 사용하는 Yammer 커넥터 개요"
+title: Azure Logic Apps에 Yammer 커넥터 추가 | Microsoft Docs
+description: REST API 매개 변수를 사용하는 Yammer 커넥터 개요
 services: logic-apps
-documentationcenter: 
-author: MandiOhlinger
+documentationcenter: ''
+author: ecfan
 manager: anneta
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: b5ae0827-fbb3-45ec-8f45-ad1cc2e7eccc
 ms.service: logic-apps
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/18/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: 37f72d829fc50a0f967f08e068c553f5026f35eb
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: 7f1758e9b95f534b23188f427ae0edaddbb29a48
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-yammer-connector"></a>Yammer 커넥터 시작
 Yammer에 연결하여 엔터프라이즈 네트워크의 대화에 액세스합니다. Yammer를 사용하면 다음과 같은 작업을 수행할 수 있습니다.

@@ -1,13 +1,13 @@
 ---
-title: "가속화된 네트워킹을 사용하는 Azure 가상 머신 만들기 | Microsoft Docs"
-description: "가속 네트워킹을 사용하는 Linux 가상 머신을 만드는 방법에 대해 알아봅니다."
+title: 가속화된 네트워킹을 사용하는 Azure 가상 머신 만들기 | Microsoft Docs
+description: 가속 네트워킹을 사용하는 Linux 가상 머신을 만드는 방법에 대해 알아봅니다.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/02/2018
 ms.author: jdial
-ms.custom: 
-ms.openlocfilehash: 82a0a336e8315d7fe9862e22e47a6847f94bfcb1
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.custom: ''
+ms.openlocfilehash: 5c09ffe6867972e772334ae7ae1dd655cdac431f
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>가속 네트워킹을 사용하는 Linux 가상 머신 만들기
 
 > [!IMPORTANT] 
-> 가속 네트워킹을 사용하여 가상 머신을 만들어야 합니다. 기존 가상 머신에서는 이 기능을 사용할 수 없습니다. 다음 단계를 따라 가속 네트워킹을 사용하도록 설정할 수 있습니다.
+> 가속 네트워킹을 사용하여 가상 머신을 만들어야 합니다. 기존 가상 머신에서는 이 기능을 사용할 수 없습니다. 가속 네트워킹을 사용하려면 다음 단계를 완료합니다.
 >   1. 가상 머신을 삭제합니다.
 >   2. 가속 네트워킹을 사용하는 가상 머신을 다시 만듭니다.
 >
@@ -66,9 +66,11 @@ VM 인스턴스에 대한 자세한 내용은 [Linux VM 크기](../virtual-machi
 * **VM 만들기:** VM을 만들 때 가속화된 네트워킹을 사용하도록 설정된 NIC만 VM에 연결할 수 있습니다. 기존 VM에는 이 NIC를 연결할 수 없습니다. VM을 기존 가용성 집합에 추가하는 경우 가용성 집합의 모든 VM에서도 가속화된 네트워킹을 사용할 수 있어야 합니다.
 * **Azure Resource Manager를 통해서만 배포:** 가속 네트워킹을 사용하여 가상 머신(클래식)을 배포할 수 없습니다.
 
+이 문서에서는 Azure CLI를 통해 가속 네트워킹을 사용하는 가상 머신을 만드는 단계를 안내하지만, [Azure Portal을 통해 가속 네트워킹을 사용하는 가상 머신 만들기](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)도 가능합니다. 포털에서 지원되는 운영 체제와 VM 크기로 가상 머신을 만드는 경우 **설정**의 **가속 네트워킹** 아래에서 **사용**을 선택합니다. 가상 머신이 만들어진 후에는 [가속 네트워킹을 사용할 수 있는지 확인](#confirm-that-accelerated-networking-is-enabled)의 지침을 완료해야 합니다.
+
 ## <a name="create-a-virtual-network"></a>가상 네트워크 만들기
 
-최신 [Azure CLI 2.0](/cli/azure/install-az-cli2)을 설치하고 [az login](/cli/azure/#az_login)을 사용하여 Azure 계정에 로그인합니다. 다음 예제에서 매개 변수 이름을 고유한 값으로 바꿉니다. 예제 매개 변수 이름에는 *myResourceGroup*, *myNic*, *myVm*이 포함됩니다.
+최신 [Azure CLI 2.0](/cli/azure/install-az-cli2)을 설치하고 [az login](/cli/azure/reference-index#az_login)을 사용하여 Azure 계정에 로그인합니다. 다음 예제에서 매개 변수 이름을 고유한 값으로 바꿉니다. 예제 매개 변수 이름에는 *myResourceGroup*, *myNic*, *myVm*이 포함됩니다.
 
 [az group create](/cli/azure/group#az_group_create)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *centralus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
 

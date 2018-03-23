@@ -1,18 +1,18 @@
 ---
-title: "포함 파일"
-description: "포함 파일"
+title: 포함 파일
+description: 포함 파일
 services: virtual-machines-windows, virtual-machines-linux
 author: dlepow
 ms.service: multiple
 ms.topic: include
-ms.date: 03/01/2018
-ms.author: danlep
+ms.date: 03/05/2018
+ms.author: danlep;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: 34b38ff02d401e87be10f1f72cb2025b66317c9e
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 96826b2f8acd579cbfe30f2e524d94ce4867df30
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/16/2018
 ---
 GPU 최적화 VM 크기는 단일 또는 여러 NVIDIA GPU에서 사용 가능한 특수한 가상 머신입니다. 이러한 크기는 계산 집약적이며 그래픽 집약적인 시각화 워크로드용으로 설계되었습니다. 이 문서에서는 이 그룹화에서 각 크기에 대한 저장소 처리량 및 네트워크 대역폭뿐만 아니라 GPU, vCPU, 데이터 디스크 및 NIC의 수 및 형식에 대한 정보를 제공합니다. 
 
@@ -95,14 +95,16 @@ ND 시리즈 가상 머신은 AI 및 심층 학습 워크로드용으로 설계�
 
 ## <a name="nv-series"></a>NV 시리즈
 
-NV 시리즈는 고객이 해당 데이터 또는 시뮬레이션을 시각화할 수 있는 데스크톱 가속화 응용 프로그램 및 가상 데스크톱용 [NVIDIA Tesla M60](http://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) GPU 및 NVIDIA GRID 기술로 구동됩니다. 사용자는 NV 인스턴스에서 그래픽 집약적인 워크플로를 시각화하여 뛰어난 그래픽 기능을 가져오고 인코딩 및 렌더링 등의 단정밀도 작업을 추가적으로 실행할 수 있습니다. 
+NV 시리즈 가상 머신은 고객이 해당 데이터 또는 시뮬레이션을 시각화할 수 있는 데스크톱 가속화 응용 프로그램 및 가상 데스크톱용 [NVIDIA Tesla M60](http://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) GPU 및 NVIDIA GRID 기술로 구동됩니다. 사용자는 NV 인스턴스에서 그래픽 집약적인 워크플로를 시각화하여 뛰어난 그래픽 기능을 가져오고 인코딩 및 렌더링 등의 단정밀도 작업을 추가적으로 실행할 수 있습니다. 
 
-| 크기 | vCPU | 메모리: GiB | 임시 저장소(SSD) GiB | GPU | 최대 데이터 디스크 수 | 최대 NIC 수 |
-| --- | --- | --- | --- | --- | --- | --- |
-| Standard_NV6 |6 |56 |380 | 1 | 24 | 1 |
-| Standard_NV12 |12 |112 |680 | 2 | 48 | 2 |
-| Standard_NV24 |24 |224 |1,440 | 4 | 64 | 4 |
+NV 인스턴스의 각 GPU에는 GRID 라이선스가 함께 제공됩니다. 이 라이선스가 있으면 NV 인스턴스를 단일 사용자를 위한 가상 워크스테이션으로 유연하게 사용하거나, 25명의 동시 사용자가 가상 응용 프로그램 시나리오를 위해 VM에 연결할 수 있습니다.
+
+| 크기 | vCPU | 메모리: GiB | 임시 저장소(SSD) GiB | GPU | 최대 데이터 디스크 수 | 최대 NIC 수 | 가상 워크스테이션 | 가상 응용 프로그램 | 
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Standard_NV6 |6 |56 |380 | 1 | 24 | 1 | 1 | 25 |
+| Standard_NV12 |12 |112 |680 | 2 | 48 | 2 | 2 | 50 |
+| Standard_NV24 |24 |224 |1,440 | 4 | 64 | 4 | 4 | 100 |
 
 1 GPU = M60 카드 절반.
 
-
+ 

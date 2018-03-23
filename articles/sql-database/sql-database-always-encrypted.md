@@ -1,26 +1,20 @@
 ---
-title: "상시 암호화: Azure SQL Database - Windows 인증서 저장소 | Microsoft Docs"
-description: "이 문서에서는 SSMS(SQL Server Management Studio)의 상시 암호화 마법사를 사용하여 데이터베이스 암호화로 SQL Database의 중요한 데이터를 보호하는 방법을 보여 줍니다. 그뿐 아니라 Windows 인증서 저장소에 암호화 키를 저장하는 방법을 보여 줍니다."
-keywords: "데이터 암호화, sql 암호화, 데이터베이스 암호화, 중요한 데이터 암호화, 상시 암호화"
+title: '상시 암호화: Azure SQL Database - Windows 인증서 저장소 | Microsoft Docs'
+description: 이 문서에서는 SSMS(SQL Server Management Studio)의 상시 암호화 마법사를 사용하여 데이터베이스 암호화로 SQL Database의 중요한 데이터를 보호하는 방법을 보여 줍니다. 그뿐 아니라 Windows 인증서 저장소에 암호화 키를 저장하는 방법을 보여 줍니다.
+keywords: 데이터 암호화, sql 암호화, 데이터베이스 암호화, 중요한 데이터 암호화, 상시 암호화
 services: sql-database
-documentationcenter: 
 author: stevestein
 manager: jhubbard
-editor: cgronlun
-ms.assetid: ce7e052e-8bf6-4d7c-9204-4c6f4afeba4b
 ms.service: sql-database
 ms.custom: security
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/02/2017
 ms.author: sstein
-ms.openlocfilehash: 8e86648195811a666a197b6ee06ad610a1c8d568
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 1bb3f6bd3b4bfc1546e992734a85921248eff8fd
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="always-encrypted-protect-sensitive-data-in-sql-database-and-store-your-encryption-keys-in-the-windows-certificate-store"></a>상시 암호화 - SQL Database의 중요한 데이터 보호 및 Windows 인증서 저장소에 암호화 키 저장
 

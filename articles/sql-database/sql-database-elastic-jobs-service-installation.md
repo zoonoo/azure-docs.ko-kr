@@ -1,25 +1,19 @@
 ---
-title: "탄력적 데이터베이스 작업 설치 | Microsoft Docs"
-description: "탄력적 작업 기능의 설치에 대한 단계별 안내"
+title: 탄력적 데이터베이스 작업 설치 | Microsoft Docs
+description: 탄력적 작업 기능의 설치에 대한 단계별 안내
 services: sql-database
-documentationcenter: 
-manager: jhubbard
+manager: craigg
 author: ddove
-editor: 
-ms.assetid: cbe0aa2b-17e3-4b6f-a16f-6ebc1f5a66af
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
-ms.author: ddove
-ms.openlocfilehash: ef5a8931eeda0f7ddc485632acaf2d76b71dccde
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.author: sstein
+ms.openlocfilehash: 7e5258e0ccb88c8e2f3fe3277f69444ae5424cd0
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="installing-elastic-database-jobs-overview"></a>Elastic Database 작업 설치 개요
 [**Elastic Database 작업**](sql-database-elastic-jobs-overview.md)은 PowerShell이나 Azure Portal을 통해 설치할 수 있습니다. PowerShell 패키지를 설치한 경우에만 PowerShell API를 사용하여 작업을 만들고 관리할 수 있습니다. 또한 PowerShell API는 현재 포털보다 훨씬 더 많은 기능을 제공합니다.

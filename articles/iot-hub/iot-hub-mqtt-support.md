@@ -1,25 +1,25 @@
 ---
-title: "Azure IoT Hub MQTT 지원 이해 | Microsoft Docs"
-description: "개발자 가이드 - MQTT 프로토콜을 사용하여 IoT Hub 장치 지향 끝점에 연결하는 장치를 지원합니다. Azure IoT 장치 SDK의 기본 제공 MQTT 지원에 대한 정보를 포함합니다."
+title: Azure IoT Hub MQTT 지원 이해 | Microsoft Docs
+description: 개발자 가이드 - MQTT 프로토콜을 사용하여 IoT Hub 장치 지향 끝점에 연결하는 장치를 지원합니다. Azure IoT 장치 SDK의 기본 제공 MQTT 지원에 대한 정보를 포함합니다.
 services: iot-hub
 documentationcenter: .net
 author: fsautomata
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 1d71c27c-b466-4a40-b95b-d6550cf85144
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/19/2018
+ms.date: 03/05/2018
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a22c20a26ee4750c79c23fbba69de72a0084dfe7
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 9acda980583319414cc9e8668424907947a257db
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>MQTT 프로토콜을 사용하여 IoT 허브와 통신
 
@@ -100,6 +100,8 @@ MQTT 프로토콜을 지원하는 [장치 SDK][lnk-device-sdks]는 Java, Node.js
 
 MQTT 연결 및 분리 패킷의 경우, IoT Hub는 **작업 모니터링** 채널의 이벤트를 발행합니다. 이 이벤트에에는 연결 문제 해결에 도움이 되는 추가 정보가 있습니다.
 
+장치 앱은 **CONNECT** 패킷에 **Will** 메시지를 지정할 수 있습니다. 장치 앱은 `devices/{device_id}/messages/events/{property_bag}` 또는 `devices/{device_id}/messages/events/{property_bag}`를 **Will** 항목 이름으로 사용하여 원격 분석 메시지로서 전달할 **Will** 메시지를 정의할 수 있습니다. 이 경우 네트워크 연결이 닫혀 있지만 **DISCONNECT** 패킷이 이전에 장치에서 수신되지 않은 경우 IoT Hub는 **CONNECT** 패킷에 제공된 **Will** 메시지를 원격 분석 채널로 전송합니다. 원격 분석 채널은 기본 **이벤트** 끝점 또는 IoT Hub 라우팅으로 정의되는 사용자 지정 끝점일 수 있습니다. 메시지에는 **Will** 값이 할당된 **iothub MessageType** 속성이 지정됩니다.
+
 ### <a name="tlsssl-configuration"></a>TLS/SSL 구성
 
 MQTT 프로토콜을 직접 사용하려면 클라이언트가 *반드시* TLS/SSL를 통해 연결되어야 합니다. 이 단계를 건너뛰려고 하면 연결 오류가 발생하여 실패합니다.
@@ -165,7 +167,7 @@ RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-en
 > [!NOTE]
 > 이 `{property_bag}` 요소는 HTTPS 프로토콜의 쿼리 문자열과 동일한 인코딩을 사용합니다.
 
-또한 장치 앱은 `devices/{device_id}/messages/events/{property_bag}`을 **Will 항목 이름**으로 사용하여 원격 분석 메시지로서 전달할 *Will 메시지*를 정의할 수 있습니다.
+다음은 IoT Hub 구현 관련 동작의 목록입니다.
 
 * IoT Hub에서는 QoS 2 메시지를 지원하지 않습니다. 장치 앱이 **QoS 2**의 메시지를 게시하는 경우, IoT Hub는 네트워크 연결을 닫습니다.
 * IoT Hub에서는 보관 메시지가 지속되지 않습니다. 장치가 **RETAIN** 플래그가 1로 설정된 메시지를 게시하는 경우, IoT Hub는 **x-opt-retain** 응용 프로그램 속성을 메시지에 추가합니다. 이 경우에 IoT Hub는 보관 메시지를 유지하지 않고 백 엔드 앱에 전달합니다.

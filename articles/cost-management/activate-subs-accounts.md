@@ -1,20 +1,20 @@
 ---
-title: "Azure 구독 및 계정 활성화 | Microsoft Docs"
-description: "Azure Resource Manager API를 사용하여 신규 및 기존 계정에 대한 액세스를 사용하도록 설정하고 일반적인 계정 문제를 해결합니다."
+title: Azure 구독 및 계정 활성화 | Microsoft Docs
+description: Azure Resource Manager API를 사용하여 신규 및 기존 계정에 대한 액세스를 사용하도록 설정하고 일반적인 계정 문제를 해결합니다.
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 03/01/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
-ms.custom: 
-ms.openlocfilehash: 66b2ef53e613a9c61eea17746a25357119cf6900
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.custom: ''
+ms.openlocfilehash: a0dc2ee201c1729b10cd363553cdf5d61ec87748
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="activate-azure-subscriptions-and-accounts-with-azure-cost-management"></a>Azure Cost Management로 Azure 구독 및 계정 활성화
 
@@ -76,7 +76,7 @@ Azure 구독에서 CloudynCollector 응용 프로그램을 할당하려면 계�
 
     하나 이상의 구독에 대해 녹색 확인 표시가 나타나지 않는다면 해당 구독에 대해 판독기 앱(CloudynCollector)을 만들 권한이 없는 것입니다. 구독에 대해 더 높은 권한이 있는 사용자가 이 프로세스를 반복해야 합니다.
 
-프로세스를 안내하는 [Cloudyn에서 개발한 Azure Cost Management를 사용하여 Azure Resource Manager에 연결](https://youtu.be/oCIwvfBB6kk) 비디오를 시청합니다.
+프로세스를 안내하는 [Azure Cost Management를 사용하여 Azure Resource Manager에 연결](https://youtu.be/oCIwvfBB6kk) 비디오를 시청합니다.
 
 >[!VIDEO https://www.youtube.com/embed/oCIwvfBB6kk?ecver=1]
 

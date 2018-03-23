@@ -1,25 +1,19 @@
 ---
-title: "Azure SQL Database 단일 데이터베이스 | Microsoft Docs"
-description: "단일 Azure SQL 데이터베이스의 서비스 계층, 성능 수준 및 저장 용량을 관리합니다."
+title: Azure SQL Database 단일 데이터베이스 | Microsoft Docs
+description: 단일 Azure SQL 데이터베이스의 서비스 계층, 성능 수준 및 저장 용량을 관리합니다.
 services: sql-database
-documentationcenter: na
 author: CarlRabeler
-manager: jhubbard
-editor: 
-ms.assetid: 
+manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: On Demand
 ms.date: 02/12/2018
 ms.author: carlrab
-ms.openlocfilehash: 2c179c3b0704a6e88d718ba9f102e71c0ee1d6ef
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 167a72ae55052b8ac1dfe8f032f136a9bf8bcedf
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="manage-resources-for-a-single-database-in-azure-sql-database"></a>Azure SQL Database에서 단일 데이터베이스에 대한 리소스를 관리합니다.
 

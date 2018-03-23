@@ -1,6 +1,6 @@
 ---
-title: "VM에 대한 개인 IP 주소 구성 - Azure Portal | Microsoft Docs"
-description: "Azure Portal을 사용하여 가상 머신에 대한 개인 IP 주소를 구성하는 방법을 알아봅니다."
+title: VM에 대한 개인 IP 주소 구성 - Azure Portal | Microsoft Docs
+description: Azure Portal을 사용하여 가상 머신에 대한 개인 IP 주소를 구성하는 방법을 알아봅니다.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -16,16 +16,16 @@ ms.workload: infrastructure-services
 ms.date: 02/04/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c2679c7cb75c438402f3ab64c3e14c964cb8a85d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: d551758277373995a6f92e1a25a59d170464fe5e
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal"></a>Azure Portal을 사용하여 가상 컴퓨터에 대한 개인 IP 주소 구성
 
 > [!div class="op_single_selector"]
-> * [Azure 포털](virtual-networks-static-private-ip-arm-pportal.md)
+> * [Azure Portal](virtual-networks-static-private-ip-arm-pportal.md)
 > * [PowerShell](virtual-networks-static-private-ip-arm-ps.md)
 > * [Azure CLI](virtual-networks-static-private-ip-arm-cli.md)
 > * [Azure Portal(클래식)](virtual-networks-static-private-ip-classic-pportal.md)
@@ -41,7 +41,7 @@ ms.lasthandoff: 02/21/2018
 
 [!INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 
-다음 샘플 단계를 수행하려면 단순한 환경이 이미 만들어져 있어야 합니다. 이 문서에 표시된 대로 단계를 실행하려는 경우 먼저 [vnet 만들기](virtual-networks-create-vnet-arm-pportal.md)에 설명된 테스트 환경을 구축합니다.
+다음 샘플 단계를 수행하려면 단순한 환경이 이미 만들어져 있어야 합니다. 이 문서에 표시된 대로 단계를 실행하려는 경우 먼저 [가상 네트워크 만들기](quick-create-portal.md)에 설명된 테스트 환경을 구축합니다.
 
 ## <a name="how-to-create-a-vm-for-testing-static-private-ip-addresses"></a>정적 개인 IP 주소 테스트용 VM을 만드는 방법
 Azure 포털을 사용하여 리소스 관리자 배포 모드에서 VM을 만드는 동안에는 정적 개인 IP 주소를 설정할 수 없습니다. 먼저 VM를 만든 다음 개인 IP를 고정으로 설정합니다.

@@ -1,11 +1,11 @@
 ---
-title: "요청 단위 및 예상 처리량 - Azure Cosmos DB | Microsoft Docs"
-description: "Azure Cosmos DB의 요청 단위 요구 사항을 이해, 지정 및 예측하는 방법을 알아봅니다."
+title: 요청 단위 및 예상 처리량 - Azure Cosmos DB | Microsoft Docs
+description: Azure Cosmos DB의 요청 단위 요구 사항을 이해, 지정 및 예측하는 방법을 알아봅니다.
 services: cosmos-db
 author: mimig1
 manager: jhubbard
 editor: mimig
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: d0a3c310-eb63-4e45-8122-b7724095c32f
 ms.service: cosmos-db
 ms.workload: data-services
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: mimig
-ms.openlocfilehash: d263c4f5ad14f6692a7c8f6e66429b439a52a84a
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 3679aa76d4a6b9fd6335371e1639f1f246867fa5
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Azure Cosmos DB의 요청 단위
 지금 사용 가능: Azure Cosmos DB [요청 단위 계산기](https://www.documentdb.com/capacityplanner). 자세한 내용을 보려면 [처리량 요구 예측](request-units.md#estimating-throughput-needs)을 참조하세요.
@@ -35,9 +35,9 @@ Azure Cosmos DB는 단순한 읽기 및 쓰기부터 복잡한 그래프 쿼리�
 이 문서를 읽은 다음에는 다음과 같은 질문에 답할 수 있습니다.  
 
 * 요청 단위 및 요청 요금이 무엇인가요?
-* 컬렉션에 대해 요청 단위 용량을 지정하려면 어떻게 해야 하나요?
+* 컨테이너에 대해 요청 단위 용량을 지정하려면 어떻게 해야 하나요?
 * 내 응용 프로그램에 필요한 요청 단위를 어떻게 추정할 수 있나요?
-* 컬렉션의 요청 단위 용량을 초과하면 어떻게 되나요?
+* 컨테이너의 요청 단위 용량을 초과하면 어떻게 되나요?
 
 Azure Cosmos DB는 다중 모델 데이터베이스이므로 이 문서에서는 문서 API의 경우 컬렉션/문서를, Graph API의 경우 그래프/노드를, 테이블 API의 경우 테이블/엔터티를 가합니다. 이 문서에서는 컨테이너로서의 컬렉션, 그래프 또는 테이블 개념과 항목으로서의 문서, 노드 또는 엔터티의 개념에 대해 설명합니다.
 
@@ -53,14 +53,14 @@ Azure Cosmos DB에서는 예약된 처리량이 초당 처리되는 요청 단�
 > 
 
 ## <a name="specifying-request-unit-capacity-in-azure-cosmos-db"></a>Azure Cosmos DB에서 요청 단위 용량 지정
-새 컬렉션, 테이블 또는 그래프를 시작할 때 예약하려는 초당 요청 단위 수(초당 RU)를 지정합니다. 프로비전된 처리량에 따라 Azure Cosmos DB는 컬렉션을 호스트하는 실제 파티션을 할당하고 확장됨에 따라 파티션에서 데이터를 분할/균형 조정합니다.
+새 컨테이너를 시작할 때 예약하려는 초당 요청 단위 수(초당 RU)를 지정합니다. 프로비전된 처리량에 따라 Azure Cosmos DB는 컨테이너를 호스트하는 실제 파티션을 할당하고 확장됨에 따라 파티션에서 데이터를 분할/균형 조정합니다.
 
-Azure Cosmos DB 컨테이너를 고정 또는 무제한으로 만들 수 있습니다. 고정 크기 컨테이너는 최대 제한 10GB 및 10,000RU/s 처리량을 설정할 수 있습니다. 무제한 컨테이너를 만들려면 최소 1,000RU/s 처리량과 [파티션 키](partition-data.md)를 지정해야 합니다. 데이터는 여러 파티션에 분할되어야 하므로 카디널리티가 높은(백~수백만 개의 고유 값) 파티션 키를 선택해야 합니다. 고유 값이 많은 파티션 키를 선택하면 컬렉션/테이블/그래프 및 요청이 Azure Cosmos DB에서 균일하게 확장될 수 있습니다. 
+Azure Cosmos DB 컨테이너를 고정 또는 무제한으로 만들 수 있습니다. 고정 크기 컨테이너는 최대 제한 10GB 및 10,000RU/s 처리량을 설정할 수 있습니다. 무제한 컨테이너를 만들려면 최소 1,000RU/s 처리량과 [파티션 키](partition-data.md)를 지정해야 합니다. 데이터는 여러 파티션에 분할되어야 하므로 카디널리티가 높은(백~수백만 개의 고유 값) 파티션 키를 선택해야 합니다. 고유 값이 많은 파티션 키를 선택하면 컨테이너/테이블/그래프 및 요청이 Azure Cosmos DB에서 균일하게 확장될 수 있습니다. 
 
 > [!NOTE]
 > 파티션 키는 논리적 경계이며 실제 경계가 아닙니다. 따라서 특정 파티션 키 값의 수를 제한할 필요가 없습니다. 사실 Azure Cosmos DB에 더 많은 부하 분산 옵션이 있으므로 고유 파티션 키 값이 적은 것보다 많은 것이 더 좋습니다.
 
-.NET SDK를 사용하여 초당 3,000 요청 단위로 컬렉션을 만들기 위한 코드 조각은 다음과 같습니다.
+.NET SDK를 사용하여 초당 3,000 요청 단위로 컨테이너를 만들기 위한 코드 조각은 다음과 같습니다.
 
 ```csharp
 DocumentCollection myCollection = new DocumentCollection();
@@ -75,7 +75,7 @@ await client.CreateDocumentCollectionAsync(
 
 Azure Cosmos DB는 처리량의 예약 모델에서 작동합니다. 즉, 활발하게 *사용된* 처리량에 관계없이 *예약된* 처리량에 따라 요금이 청구됩니다. 응용 프로그램의 부하, 데이터 및 사용 패턴이 변하면 그에 따라 SDK를 통해 또는 [Azure Portal](https://portal.azure.com)을 사용하여 예약된 RU 양을 간단하게 늘리거나 줄일 수 있습니다.
 
-각 컬렉션/테이블/그래프는 프로비전된 처리량에 대한 메타데이터가 있는 Azure Cosmos DB의 `Offer` 리소스에 매핑됩니다. 컨테이너에 해당하는 제품 리소스를 조회한 다음 새 처리량 값으로 업데이트하여 할당된 처리량을 변경할 수 있습니다. 다음 코드 조각에서는 .NET SDK를 사용하여 컬렉션 처리량을 5,000RU/s로 변경합니다.
+각 컨테이너는 프로비전된 처리량에 대한 메타데이터가 있는 Azure Cosmos DB의 `Offer` 리소스에 매핑됩니다. 컨테이너에 해당하는 제품 리소스를 조회한 다음 새 처리량 값으로 업데이트하여 할당된 처리량을 변경할 수 있습니다. 다음 코드 조각에서는 .NET SDK를 사용하여 컨테이너 처리량을 5,000RU/s로 변경합니다.
 
 ```csharp
 // Fetch the resource to be updated
@@ -334,10 +334,10 @@ MongoDB API 데이터베이스에 대한 요청 단위 요금을 적절히 추�
 | 음식 그룹으로 선택 |10 |700 |
 | 상위 10개 선택 |15 |총 150 |
 
-이 예에서는 필요한 평균 처리량이 1,275 RU/s로 예상됩니다.  가장 가까운 100자리 숫자로 반올림하면 이 응용 프로그램의 컬렉션에 1,300 RU/s를 프로비전하면 됩니다.
+이 예에서는 필요한 평균 처리량이 1,275 RU/s로 예상됩니다.  가장 가까운 100자리 숫자로 반올림하면 이 응용 프로그램의 컨테이너에 1,300 RU/s를 프로비전하면 됩니다.
 
 ## <a id="RequestRateTooLarge"></a> Azure Cosmos DB에서 예약된 처리량 제한 초과
-요청 단위 소비는 예산이 비어 있는 경우 초당 비율로 평가된다는 점을 기억하세요. 컨테이너에서 프로비전된 요청 단위 속도를 초과하는 응용 프로그램의 경우 비율이 예약된 수준 이하로 떨어질 때까지 해당 컬렉션에 대한 요청이 제한됩니다. 제한이 발생하면 서버에서 RequestRateTooLargeException(HTTP 상태 코드 429)를 사용하여 선제적으로 요청을 종료하고, 사용자가 요청을 다시 시도할 수 있을 때까지 기다려야 하는 시간을 밀리초 단위로 표시하는 x-ms-retry-after-ms 헤더를 반환합니다.
+요청 단위 소비는 예산이 비어 있는 경우 초당 비율로 평가된다는 점을 기억하세요. 컨테이너에서 프로비전된 요청 단위 속도를 초과하는 응용 프로그램의 경우 비율이 예약된 수준 이하로 떨어질 때까지 해당 컨테이너에 대한 요청이 제한됩니다. 제한이 발생하면 서버에서 RequestRateTooLargeException(HTTP 상태 코드 429)를 사용하여 선제적으로 요청을 종료하고, 사용자가 요청을 다시 시도할 수 있을 때까지 기다려야 하는 시간을 밀리초 단위로 표시하는 x-ms-retry-after-ms 헤더를 반환합니다.
 
     HTTP Status 429
     Status Line: RequestRateTooLarge
@@ -348,7 +348,7 @@ MongoDB API 데이터베이스에 대한 요청 단위 요금을 적절히 추�
 여러 클라이언트가 누적적으로 요청 속도를 초과하여 작동하는 경우에는 기본 재시도 동작으로 충분하지 않을 수 있으며, 클라이언트가 응용 프로그램에 상태 코드 429와 함께 DocumentClientException을 throw합니다. 이 경우 응용 프로그램의 오류 처리 루틴에서 재시도 동작 및 논리를 처리하는 방법 또는 컨테이너에 대해 예약된 처리량을 늘리는 방법을 고려해 볼 수 있습니다.
 
 ## <a id="RequestRateTooLargeAPIforMongoDB"></a> MongoDB API에서 예약된 처리량 제한 초과
-컬렉션에서 프로비전된 요청 단위를 초과하는 응용 프로그램의 경우 비율이 예약된 수준 이하로 떨어질 때까지 제한됩니다. 제한이 발생하면 백 엔드는 *16500* 오류 코드 - *너무 많은 요청*으로 요청을 먼저 종료합니다. 기본적으로 MongoDB API는 *너무 많은 요청* 오류 코드를 반환하기 전에 재시도를 최대 10번까지 자동으로 수행합니다. *너무 많은 요청* 오류 코드가 자주 발생하면 응용 프로그램의 오류 처리 루틴에서 재시도 동작을 추가하거나 [컬렉션에 대해 예약된 처리량을 늘리는 방법](set-throughput.md)을 고려해 볼 수 있습니다.
+컨테이너에서 프로비전된 요청 단위를 초과하는 응용 프로그램의 경우 비율이 예약된 수준 이하로 떨어질 때까지 제한됩니다. 제한이 발생하면 백 엔드는 *16500* 오류 코드 - *너무 많은 요청*으로 요청을 먼저 종료합니다. 기본적으로 MongoDB API는 *너무 많은 요청* 오류 코드를 반환하기 전에 재시도를 최대 10번까지 자동으로 수행합니다. *너무 많은 요청* 오류 코드가 자주 발생하면 응용 프로그램의 오류 처리 루틴에서 재시도 동작을 추가하거나 [컨테이너에 대해 예약된 처리량을 늘리는 방법](set-throughput.md)을 고려해 볼 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 Azure Cosmos DB 데이터베이스의 예약된 처리량에 대한 자세한 내용은 다음 리소스를 참조하세요.

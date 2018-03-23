@@ -1,24 +1,24 @@
 ---
-title: "Azure Site Recovery로 어떤 워크로드를 보호할 수 있습니까? | Microsoft Docs"
-description: "Azure Site Recovery 서비스에서 재해 복구를 사용하여 보호할 수 있는 워크로드를 설명합니다."
+title: Azure Site Recovery로 어떤 워크로드를 보호할 수 있습니까? | Microsoft Docs
+description: Azure Site Recovery 서비스에서 재해 복구를 사용하여 보호할 수 있는 워크로드를 설명합니다.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: rayne-wiselman
 manager: cfreeman
-editor: 
+editor: ''
 ms.assetid: 4953948f-26c0-4699-8fe7-59d3bfc1d3da
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 12/15/2017
+ms.date: 3/16/2018
 ms.author: raynew
-ms.openlocfilehash: 03d311f84a4b9bc5f3a4c3c488ee7c84b1ef49ad
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 3b138546ffb1cb6d5bec0aaf2bb11510ab399933
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Azure Site Recovery로 어떤 워크로드를 보호할 수 있습니까?
 
@@ -110,9 +110,9 @@ Azure Site Recovery를 사용하면 다음과 같이 Dynamics AX ERP 솔루션�
 
 | **RDS** |**Azure VM을 Azure에 복제** | **Hyper-V VM을 보조 사이트로 복제** | **Hyper-V VM을 Azure에 복제** | **VMware VM을 보조 사이트에 복제** | **VMware VM을 Azure에 복제** | **물리적 서버를 보조 사이트에 복제** | **물리적 서버를 Azure에 복제** |
 |---| --- | --- | --- | --- | --- | --- | --- |
-| **풀링된 가상 데스크톱(관리되지 않음)** |아니요|적용 |아니요 |적용 |아니요 |적용 |아니요 |
-| **풀링된 가상 데스크톱(관리됨/UPD 없음)** |아니요|적용 |아니요 |적용 |아니요 |적용 |아니요 |
-| **원격 응용 프로그램 및 데스크톱 세션(UPD 없음)** |적용|적용 |적용 |적용 |적용 |적용 |적용 |
+| **풀링된 가상 데스크톱(관리되지 않음)** |아니요|예 |아니오 |예 |아니요 |예 |아니오 |
+| **풀링된 가상 데스크톱(관리됨/UPD 없음)** |아니요|예 |아니요 |예 |아니오 |예 |아니요 |
+| **원격 응용 프로그램 및 데스크톱 세션(UPD 없음)** |예|예 |예 |예 |예 |예 |예 |
 
 [Azure Site Recovery를 사용하여 RDS에 대한 재해 복구를 설정합니다](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-disaster-recovery-with-azure).
 

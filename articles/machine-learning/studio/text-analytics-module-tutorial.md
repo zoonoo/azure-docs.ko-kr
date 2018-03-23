@@ -1,24 +1,24 @@
 ---
-title: "Azure Machine Learning 스튜디오에서 텍스트 분석 모델 만들기 | Microsoft Docs"
-description: "텍스트 전처리, N-Gram 또는 특성 해시를 위한 모듈을 사용하여 Azure Machine Learning Studio에서 텍스트 분석 모델을 만드는 방법"
+title: Azure Machine Learning 스튜디오에서 텍스트 분석 모델 만들기 | Microsoft Docs
+description: 텍스트 전처리, N-Gram 또는 특성 해시를 위한 모듈을 사용하여 Azure Machine Learning Studio에서 텍스트 분석 모델을 만드는 방법
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: rastala
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: 08cd6723-3ae6-4e99-a924-e650942e461b
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2016
+ms.date: 03/14/2018
 ms.author: roastala
-ms.openlocfilehash: a43dc7162be4b2f3cfd122c6a87921caf2e3e418
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: 0c2dc3bad6973b7b00f0ed44231e78298f4422fb
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-text-analytics-models-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio에서 텍스트 분석 모델 만들기
 Azure Machine Learning을 사용하여 텍스트 분석 모델을 빌드하고 작동할 수 있습니다. 예를 들어 이러한 모델은 문서 분류 또는 정서 분석 문제를 해결하는 데 유용할 수 있습니다.

@@ -1,11 +1,11 @@
 ---
-title: "Linux의 Azure App Service에서 Node.js 및 MongoDB 웹앱 작성 | Microsoft Docs"
-description: "Linux의 Azure App Service에서 작동하며 MongoDB 연결 문자열로 Cosmos DB 데이터베이스에 연결되는 Node.js 응용 프로그램을 만드는 방법을 알아봅니다."
+title: Linux의 Azure App Service에서 Node.js 및 MongoDB 웹앱 작성 | Microsoft Docs
+description: Linux의 Azure App Service에서 작동하며 MongoDB 연결 문자열로 Cosmos DB 데이터베이스에 연결되는 Node.js 응용 프로그램을 만드는 방법을 알아봅니다.
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
 manager: syntaxc4
-editor: 
+editor: ''
 ms.assetid: 0b4d7d0e-e984-49a1-a57a-3c0caa955f0e
 ms.service: app-service-web
 ms.workload: web
@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 10/10/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: f497e9427885ab1d2e827e9fa1dd3c468aa39239
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: ee7f37f83d6b3503df1af61509f6f85ca19bc13e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="build-a-nodejs-and-mongodb-web-app-in-azure-app-service-on-linux"></a>Linux의 Azure App Service에서 Node.js 및 MongoDB 웹앱 작성
 
@@ -126,7 +126,7 @@ MongoDB의 경우 이 자습서에서는 [Azure Cosmos DB](/azure/documentdb/)�
 
 ### <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-no-h.md)]
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux-no-h.md)]
 
 ### <a name="create-a-cosmos-db-account"></a>Cosmos DB 계정 만들기
 
@@ -252,7 +252,7 @@ MEAN.JS version: 0.5.0
 
 ### <a name="create-a-web-app"></a>웹앱 만들기
 
-[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-nodejs-no-h.md)] 
+[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-nodejs-linux-no-h.md)] 
 
 ### <a name="configure-an-environment-variable"></a>환경 변수 구성
 

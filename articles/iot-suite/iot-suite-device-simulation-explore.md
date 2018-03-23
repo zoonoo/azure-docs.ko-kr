@@ -1,6 +1,6 @@
 ---
-title: "장치 시뮬레이션 솔루션 시작 - Azure | Microsoft Docs"
-description: "IoT Suite 시뮬레이션 솔루션은 IoT 솔루션의 개발 및 테스트를 지원하기 위해 사용할 수 있는 도구입니다. 시뮬레이션 서비스는 미리 구성된 다른 솔루션과 함께 사용하거나 사용자 고유의 사용자 지정 솔루션에서 사용할 수 있는 독립 실행형 서비스입니다."
+title: 장치 시뮬레이션 솔루션 시작 - Azure | Microsoft Docs
+description: IoT Suite 시뮬레이션 솔루션은 IoT 솔루션의 개발 및 테스트를 지원하기 위해 사용할 수 있는 도구입니다. 시뮬레이션 서비스는 미리 구성된 다른 솔루션과 함께 사용하거나 사용자 고유의 사용자 지정 솔루션에서 사용할 수 있는 독립 실행형 서비스입니다.
 services: iot device simulation
 suite: iot-suite
 author: troyhopwood
@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 25b9d1c7debe0d98a87b7d0b47dea6ab6f36c8af
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 2a9a6f3387b7f9fb4e3896fc55a06ac4a902ad24
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="device-simulation-walkthrough"></a>장치 시뮬레이션 연습
 
@@ -35,7 +35,7 @@ Azure IoT 장치 시뮬레이션은 IoT 솔루션의 개발 및 테스트를 지
 
 이 자습서를 완료하려면 Azure 구독에서 Azure IoT 장치 시뮬레이션의 배포된 인스턴스가 필요합니다.
 
-장치 시뮬레이션을 아직 배포하지 않은 경우 [Azure IoT 장치 시뮬레이션](iot-suite-device-simulation-explore.md) 자습서를 완료해야 합니다.
+장치 시뮬레이션을 아직 배포하지 않은 경우 [Azure IoT 장치 시뮬레이션](iot-suite-device-simulation-deploy.md) 자습서를 완료해야 합니다.
 
 ## <a name="configuring-device-simulation"></a>장치 시뮬레이션 구성
 

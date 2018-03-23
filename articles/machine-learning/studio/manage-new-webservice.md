@@ -1,10 +1,11 @@
 ---
-title: "Azure Machine Learning 웹 서비스 포털 사용 | Microsoft Docs"
-description: "Azure Machine Learning 작업 영역에 대한 액세스를 관리하고, ML API 웹 서비스를 배포 및 관리합니다."
+title: Azure Machine Learning 웹 서비스 포털 사용 | Microsoft Docs
+description: Azure Machine Learning 작업 영역에 대한 액세스를 관리하고, ML API 웹 서비스를 배포 및 관리합니다.
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: aashishb
+ms.author: aashishb
+manager: hjerez
 editor: cgronlun
 ms.assetid: b62cf2ca-dd2a-4a83-bb54-469f948fb026
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2017
-ms.author: raymondl
-ms.openlocfilehash: 88eba56424d9289a35b7de4dcf5f50191411a09a
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 37aedfb06d62b948a5231e881d19a06b621522e9
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="manage-a-web-service-using-the-azure-machine-learning-web-services-portal"></a>Azure Machine Learning 웹 서비스 포털에서 웹 서비스 관리
 Microsoft Azure Machine Learning 웹 서비스 포털을 사용하여 Machine Learning 새 웹 서비스 및 기존 웹 서비스를 관리할 수 있습니다. 기존 웹 서비스와 새 웹 서비스는 서로 다른 기본 기술에 기반하고 있으므로 서비스 각각에는 약간씩 다른 관리 기능이 있습니다.

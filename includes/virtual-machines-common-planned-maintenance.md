@@ -1,18 +1,34 @@
-Azure에서는 가상 컴퓨터에 대한 호스트 인프라의 안정성, 성능 및 보안을 향상시키기 위해 주기적으로 업데이트를 수행합니다. 이러한 업데이트는 호스팅 환경의 소프트웨어 구성 요소(운영 체제, 하이퍼바이저 및 호스트에 배포되는 다양한 에이전트) 패치, 네트워킹 구성 요소 업그레이드, 하드웨어 서비스 해제와 같은 범위를 포함합니다. 이러한 업데이트 중 대다수는 호스트된 가상 컴퓨터에 영향을 미치지 않고 수행됩니다. 그러나 업데이트가 다음 항목에 영향을 미치는 경우가 있습니다.
+---
+title: 포함 파일
+description: 포함 파일
+services: virtual-machines
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 03/09/2018
+ms.author: cynthn
+ms.custom: include file
+ms.openlocfilehash: 193003cef0aed464596e913c0df86e6123292b9f
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 03/16/2018
+---
+Azure에서는 가상 머신에 대한 호스트 인프라의 안정성, 성능 및 보안을 향상시키기 위해 주기적으로 업데이트를 수행합니다. 이러한 업데이트는 호스팅 환경의 소프트웨어 구성 요소(운영 체제, 하이퍼바이저 및 호스트에 배포되는 다양한 에이전트) 패치, 네트워킹 구성 요소 업그레이드, 하드웨어 서비스 해제와 같은 범위를 포함합니다. 이러한 업데이트 중 대다수는 호스트된 가상 머신에 영향을 미치지 않고 수행됩니다. 그러나 업데이트가 다음 항목에 영향을 미치는 경우가 있습니다.
 
 - 유지 관리를 다시 부팅하지 않아도 되는 경우 Azure에서는 호스트를 업데이트하는 동안 바로 마이그레이션을 사용하여 VM을 일시 중지합니다.
 
 - 유지 관리를 다시 부팅해야 하는 경우 유지 관리가 계획된 시기에 대해 알림을 받을 수 있습니다. 이러한 경우에 사용자가 원하는 시점에 스스로 유지 관리를 시작할 수 있는 기간도 지정됩니다.
 
-이 페이지에서는 Microsoft Azure에서 모든 종류의 유지 관리를 수행하는 방법을 설명합니다. 계획되지 않은 이벤트(중단)에 대한 자세한 내용은 [Windows](... / articles/virtual-machines/windows/manage-availability.md) 또는 [Linux](../articles/virtual-machines/linux/manage-availability.md)에서 가상 컴퓨터의 가용성 관리를 참조하세요.
+이 페이지에서는 Microsoft Azure에서 모든 종류의 유지 관리를 수행하는 방법을 설명합니다. 계획되지 않은 이벤트(중단)에 대한 자세한 내용은 [Windows](... / articles/virtual-machines/windows/manage-availability.md) 또는 [Linux](../articles/virtual-machines/linux/manage-availability.md)에서 가상 머신의 가용성 관리를 참조하세요.
 
-가상 컴퓨터에서 실행 중인 응용 프로그램은 [Windows](../articles/virtual-machines/windows/instance-metadata-service.md) 또는 [Linux](... / articles/virtual-machines/linux/instance-metadata-service.md)에서 Azure 메타데이터 서비스를 사용하여 예정된 업데이트에 대한 정보를 수집할 수 있습니다.
+가상 머신에서 실행 중인 응용 프로그램은 [Windows](../articles/virtual-machines/windows/instance-metadata-service.md) 또는 [Linux](... / articles/virtual-machines/linux/instance-metadata-service.md)에서 Azure 메타데이터 서비스를 사용하여 예정된 업데이트에 대한 정보를 수집할 수 있습니다.
 
 계획된 유지 보수의 관리에 대한 “방법” 정보는 [Linux](../articles/virtual-machines/linux/maintenance-notifications.md) 또는 [Windows](../articles/virtual-machines/windows/maintenance-notifications.md)에 대해 “계획된 유지 관리 알림 처리”를 참조하세요.
 
 ## <a name="in-place-vm-migration"></a>바로 VM 마이그레이션
 
-업데이트에 전체 다시 부팅이 필요하지 않는 경우 바로 실시간 마이그레이션을 사용합니다. 업데이트하는 동안 가상 컴퓨터는 30초 정도 일시 중지되며 호스팅 환경에서 필요한 업데이트 및 패치를 적용하는 동안 RAM에서 메모리를 유지합니다. 그러면 가상 컴퓨터가 다시 시작되고 가상 컴퓨터의 시계가 자동으로 동기화됩니다.
+업데이트에 전체 다시 부팅이 필요하지 않는 경우 바로 실시간 마이그레이션을 사용합니다. 업데이트하는 동안 가상 머신은 30초 정도 일시 중지되며 호스팅 환경에서 필요한 업데이트 및 패치를 적용하는 동안 RAM에서 메모리를 유지합니다. 그러면 가상 머신이 다시 시작되고 가상 머신의 시계가 자동으로 동기화됩니다.
 
 가용성 집합에서 VM의 경우 업데이트 도메인은 한 번에 하나씩 업데이트됩니다. 계획된 유지 관리가 다음 UD로 이동하기 전에 하나의 UD(업데이트 도메인)에 있는 모든 VM이 일시 중지되고 업데이트된 다음 다시 시작됩니다.
 
@@ -41,10 +57,10 @@ Azure에서는 가상 컴퓨터에 대한 호스트 인프라의 안정성, 성�
 
 ### <a name="availability-sets-and-scale-sets"></a>가용성 집합 및 확장 집합
 
-Azure VM에서 워크로드를 배포할 때 응용 프로그램에 고가용성을 제공하기 위해 가용성 집합 내에 VM을 만들 수 있습니다. 이를 통해 가동 중단 또는 유지 관리 이벤트 중에도 하나 이상의 가상 컴퓨터를 사용할 수 있습니다.
+Azure VM에서 워크로드를 배포할 때 응용 프로그램에 고가용성을 제공하기 위해 가용성 집합 내에 VM을 만들 수 있습니다. 이를 통해 가동 중단 또는 유지 관리 이벤트 중에도 하나 이상의 가상 머신을 사용할 수 있습니다.
 
 가용성 집합 내에서 개별 VM은 최대 20개의 UD(업데이트 도메인)에 걸쳐 분산됩니다. 계획된 유지 관리 동안에는 단일 업데이트 도메인만 지정된 시간에 영향을 받습니다. 영향을 받는 업데이트 도메인의 순서가 반드시 순차적으로 나열되지는 않습니다. 
 
-가상 컴퓨터 확장 집합은 동일한 VM 집합을 단일 리소스로 배포하고 관리할 수 있게 하는 Azure 계산 리소스입니다. 확장 집합은 가용성 집합의 VM과 같은 업데이트 도메인에 걸쳐 자동으로 배포됩니다. 지정된 시점에서는 가용성 집합과 마찬가지로 확장 집합에서 단일 업데이트 도메인만 영향을 받습니다.
+가상 머신 확장 집합은 동일한 VM 집합을 단일 리소스로 배포하고 관리할 수 있게 하는 Azure 계산 리소스입니다. 확장 집합은 가용성 집합의 VM과 같은 업데이트 도메인에 걸쳐 자동으로 배포됩니다. 지정된 시점에서는 가용성 집합과 마찬가지로 확장 집합에서 단일 업데이트 도메인만 영향을 받습니다.
 
 고가용성을 위해 가상 컴퓨터를 구성하는 방법에 대한 자세한 내용은 [Windows](../articles/virtual-machines/windows/manage-availability.md) 또는 [Linux](../articles/virtual-machines/linux/manage-availability.md) 가상 머신의 가용성 관리를 참조하세요.

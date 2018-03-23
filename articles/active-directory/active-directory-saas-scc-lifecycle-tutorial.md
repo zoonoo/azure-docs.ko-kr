@@ -1,6 +1,6 @@
 ---
-title: "자습서: SCC LifeCycle과 Azure Active Directory 통합 | Microsoft Docs"
-description: "Azure Active Directory에서 SCC LifeCycle를 사용하여 Single Sign-On, 자동화된 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다."
+title: '자습서: SCC LifeCycle과 Azure Active Directory 통합 | Microsoft Docs'
+description: Azure Active Directory에서 SCC LifeCycle를 사용하여 Single Sign-On, 자동화된 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다.
 services: active-directory
 author: jeevansd
 documentationcenter: na
@@ -14,10 +14,10 @@ ms.workload: identity
 ms.date: 01/03/2018
 ms.author: jeedes
 ms.openlocfilehash: 943698311d10b479879fd92d2482d827650e2b0c
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-scc-lifecycle"></a>자습서: SCC LifeCycle과 Azure Active Directory 통합
 이 자습서는 Azure와 SCC LifeCycle의 통합을 보여주기 위한 것입니다.  

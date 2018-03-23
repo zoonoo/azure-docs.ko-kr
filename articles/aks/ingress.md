@@ -1,19 +1,19 @@
 ---
-title: "AKS(Azure Container Service) 클러스터로 수신 구성"
-description: "AKS(Azure Container Service) 클러스터에 NGINX 수신 컨트롤러를 설치하고 구성합니다."
+title: AKS(Azure Container Service) 클러스터로 수신 구성
+description: AKS(Azure Container Service) 클러스터에 NGINX 수신 컨트롤러를 설치하고 구성합니다.
 services: container-service
 author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: article
-ms.date: 2/21/2018
+ms.date: 03/03/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: c25a0171bd412050a7c94e9b077436cd1ebe893b
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 908910b44a9de28f184906dd4e904e651fe034ce
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="https-ingress-on-azure-container-service-aks"></a>AKS(Azure Container Service)에서 HTTPS 수신
 
@@ -24,6 +24,14 @@ ms.lasthandoff: 03/02/2018
 ## <a name="install-an-ingress-controller"></a>수신 컨트롤러 설치
 
 Helm을 사용하여 NGINX 수신 컨트롤러를 설치합니다. 자세한 배포 정보는 NGINX 수신 컨트롤러 [설명서][nginx-ingress]를 참조하세요. 
+
+차트 리포지토리를 업데이트합니다.
+
+```console
+helm repo update
+```
+
+NGINX 수신 컨트롤러를 설치합니다.
 
 ```
 helm install stable/nginx-ingress
@@ -128,7 +136,7 @@ metadata:
   name: hello-world-ingress
   annotations:
     kubernetes.io/tls-acme: "true"
-    ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   tls:
   - hosts:

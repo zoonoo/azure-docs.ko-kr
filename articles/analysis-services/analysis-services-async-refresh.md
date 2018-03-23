@@ -1,25 +1,25 @@
 ---
-title: "Azure Analysis Services 모델에 대한 비동기 새로 고침 | Microsoft Docs"
-description: "REST API를 사용하여 비동기 새로 고침을 코딩하는 방법을 알아봅니다."
+title: Azure Analysis Services 모델에 대한 비동기 새로 고침 | Microsoft Docs
+description: REST API를 사용하여 비동기 새로 고침을 코딩하는 방법을 알아봅니다.
 services: analysis-services
-documentationcenter: 
+documentationcenter: ''
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: analysis-services
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/14/2018
+ms.date: 03/05/2018
 ms.author: owend
-ms.openlocfilehash: 1f31c05554db16d604a9825ef9b1317a0f281456
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 4c317736af30b4181fa975713258a41b42ed0da3
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>REST API를 사용한 비동기 새로 고침
 REST 호출을 지원하는 프로그래밍 언어를 사용하여 Azure Analysis Services 테이블 형식 모델에서 비동기 데이터 새로 고침 작업을 수행할 수 있습니다. 여기에는 쿼리 스케일 아웃을 위한 읽기 전용 복제본의 동기화가 포함됩니다. 
@@ -67,8 +67,11 @@ https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refres
 모든 호출은 권한 부여 헤더에서 유효한 Azure Active Directory(OAuth 2) 토큰으로 인증되어야 하며 다음과 같은 요구 사항을 충족해야 합니다.
 
 - 토큰은 사용자 토큰 또는 응용 프로그램 서비스 사용자여야 합니다.
-- 사용자 또는 응용 프로그램은 서버 또는 모델에서 요청된 호출을 수행하기 위한 충분한 권한이 있어야 합니다. 사용 권한 수준은 서버의 모델 또는 관리 그룹 내 역할에 의해 결정됩니다.
 - 토큰에는 올바른 대상이 `https://*.asazure.windows.net`으로 설정되어 있어야 합니다.
+- 사용자 또는 응용 프로그램은 서버 또는 모델에서 요청된 호출을 수행하기 위한 충분한 권한이 있어야 합니다. 사용 권한 수준은 서버의 모델 또는 관리 그룹 내 역할에 의해 결정됩니다.
+
+    > [!IMPORTANT]
+    > 현재, **서버 관리자** 역할 권한이 필요합니다.
 
 ## <a name="post-refreshes"></a>POST /refreshes
 

@@ -1,6 +1,6 @@
 ---
-title: "가상 네트워크에서 Azure Batch 풀 프로비전 | Microsoft Docs"
-description: "계산 노드가 파일 서버 등, 네트워크의 다른 VM과 안전하게 통신할 수 있게 가상 네트워크에 Batch 풀을 만들 수 있습니다."
+title: 가상 네트워크에서 Azure Batch 풀 프로비전 | Microsoft Docs
+description: 계산 노드가 파일 서버 등, 네트워크의 다른 VM과 안전하게 통신할 수 있게 가상 네트워크에 Batch 풀을 만들 수 있습니다.
 services: batch
 author: dlepow
 manager: jeconnoc
@@ -8,11 +8,11 @@ ms.service: batch
 ms.topic: article
 ms.date: 02/05/2018
 ms.author: danlep
-ms.openlocfilehash: 626319a458575d255af4c4f8de93fca542b48890
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 5a06ad5086a42bb00147e085227f3c71c357544e
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>가상 네트워크에서 Azure Batch 만들기
 
@@ -32,7 +32,7 @@ Azure Batch 풀에는 다중 인스턴스 작업 처리 등, 계산 노드가 �
 
 * **인증**. Azure VNet을 사용하려면 Batch 클라이언트 API가 Azure AD(Active Directory) 인증을 사용해야 합니다. Azure AD에 대한 Azure Batch 지원은 [Active Directory를 사용하여 Batch 서비스 솔루션 인증](batch-aad-auth.md)에 설명되어 있습니다. 
 
-* **Azure VNet**. 하나 이상의 서브넷으로 VNet을 미리 준비하기 위해 Azure Portal, Azure PowerShell, Azure CLI(명령줄 인터페이스) 또는 기타 방법을 사용할 수 있습니다. Azure Resource Manager VNet을 만들려면 [여러 서브넷이 있는 가상 네트워크 만들기](../virtual-network/virtual-networks-create-vnet-arm-pportal.md)를 참조하세요. 클래식 VNet을 만들려면 [여러 서브넷이 있는 가상 네트워크(클래식) 만들기](../virtual-network/create-virtual-network-classic.md)를 참조하세요.
+* **Azure VNet**. 하나 이상의 서브넷으로 VNet을 미리 준비하기 위해 Azure Portal, Azure PowerShell, Azure CLI(명령줄 인터페이스) 또는 기타 방법을 사용할 수 있습니다. Azure Resource Manager VNet을 만들려면 [가상 네트워크 만들기](../virtual-network/manage-virtual-network.md#create-a-virtual-network)를 참조하세요. 클래식 VNet을 만들려면 [여러 서브넷이 있는 가상 네트워크(클래식) 만들기](../virtual-network/create-virtual-network-classic.md)를 참조하세요.
 
 ### <a name="vnet-requirements"></a>VNet 요구 사항
 [!INCLUDE [batch-virtual-network-ports](../../includes/batch-virtual-network-ports.md)]
@@ -70,4 +70,4 @@ VNet을 만들고 서브넷을 할당한 후에는 해당 VNet으로 Batch 풀�
 ## <a name="next-steps"></a>다음 단계
 
 - Batch에 대한 심층적인 개요는 [Batch를 사용하여 대규모 병렬 계산 솔루션 개발](batch-api-basics.md)을 참조하세요.
-- 사용자 정의 경로 만들기에 대한 자세한 내용은 [사용자 정의 경로 만들기 - Azure Portal](../virtual-network/create-user-defined-route-portal.md)을 참조하세요.
+- 사용자 정의 경로 만들기에 대한 자세한 내용은 [사용자 정의 경로 만들기 - Azure Portal](../virtual-network/tutorial-create-route-table-portal.md)을 참조하세요.

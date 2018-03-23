@@ -1,6 +1,6 @@
 ---
-title: "Azure SQL Data Sync(미리 보기) 문제 해결 | Microsoft Docs"
-description: "Azure SQL 데이터 동기화(미리 보기)와 관련된 일반적인 문제를 해결하는 방법을 알아봅니다."
+title: Azure SQL Data Sync(미리 보기) 문제 해결 | Microsoft Docs
+description: Azure SQL 데이터 동기화(미리 보기)와 관련된 일반적인 문제를 해결하는 방법을 알아봅니다.
 services: sql-database
 ms.date: 11/13/2017
 ms.topic: article
@@ -8,11 +8,11 @@ ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.openlocfilehash: 50cabbaa584671e52c1ea7efbd2ad990b8438272
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: c174f5120ba2e5bf8018cce0f0e34c1fc3f8eb3f
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync-preview"></a>SQL 데이터 동기화(미리 보기) 문제 해결
 
@@ -215,8 +215,8 @@ SQL 데이터 동기화(미리 보기) 설치에 대한 알려진 문제입니�
 
 1. SQL 데이터 동기화(미리 보기) 클라이언트 에이전트 미리 보기 서비스를 찾습니다.  
     a. **시작**을 선택합니다.  
-    b. 검색 상자에 **services.msc**를 입력합니다.  
-    c. 검색 결과에서 **서비스**선택합니다.  
+    나. 검색 상자에 **services.msc**를 입력합니다.  
+    다. 검색 결과에서 **서비스**선택합니다.  
     d. **서비스** 창에서 **SQL 데이터 동기화(미리 보기) 에이전트 미리 보기**에 대한 항목으로 스크롤합니다.  
 2. 마우스 오른쪽 단추로 **SQL 데이터 동기화(미리 보기) 에이전트 미리 보기**를 클릭한 후 **중지**를 선택합니다.
 3. 마우스 오른쪽 단추로 **SQL 데이터 동기화(미리 보기) 에이전트 미리 보기**를 클릭한 후 **속성**을 선택합니다.
@@ -293,7 +293,7 @@ SQL 데이터 동기화(미리 보기) 클라이언트 에이전트에 등록된
 1. 앱을 종료합니다.  
 2. 구성 요소 서비스 패널을 엽니다.  
     a. 작업 표시줄에서 검색 상자에 **services.msc**를 입력합니다.  
-    b. 검색 결과에서 **서비스**를 두 번 클릭합니다.  
+    나. 검색 결과에서 **서비스**를 두 번 클릭합니다.  
 3. **SQL 데이터 동기화(미리 보기) 미리 보기** 서비스를 중지합니다.
 4. **SQL 데이터 동기화(미리 보기) 미리 보기** 서비스를 다시 시작합니다.  
 5. 앱을 다시 엽니다.
@@ -335,11 +335,11 @@ SQL 데이터 동기화(미리 보기) 클라이언트 에이전트에 등록된
 -   클라이언트 에이전트가 온라인 상태인지 확인한 다음 다시 시도합니다.
 -   클라이언트 에이전트가 설치되지 않았거나 누락된 경우:  
     a. SQL 데이터 동기화(미리 보기) 설치 폴더에서 에이전트 XML 파일(있는 경우)을 제거합니다.  
-    b. 온-프레미스 컴퓨터(같거나 다른 컴퓨터일 수 있음)에 에이전트를 설치합니다. 그런 다음 오프라인으로 표시된 에이전트에 대해 포털에서 생성된 에이전트 키를 제출합니다.
+    나. 온-프레미스 컴퓨터(같거나 다른 컴퓨터일 수 있음)에 에이전트를 설치합니다. 그런 다음 오프라인으로 표시된 에이전트에 대해 포털에서 생성된 에이전트 키를 제출합니다.
 -   SQL 데이터 동기화(미리 보기) 서비스가 실행 중인지 확인합니다.  
     a. **시작** 메뉴에서 **서비스**를 검색합니다.  
-    b. 검색 결과에서 **서비스**선택합니다.  
-    c. **SQL 데이터 동기화(미리 보기) 미리 보기** 서비스를 찾습니다.  
+    나. 검색 결과에서 **서비스**선택합니다.  
+    다. **SQL 데이터 동기화(미리 보기) 미리 보기** 서비스를 찾습니다.  
     d. 서비스 상태가 **중지됨**인 경우 서비스 이름을 마우스 오른쪽 단추로 클릭하고 **시작**을 선택합니다.
 -   SQL Database 및 SQL Server 데이터베이스가 모두 온라인 상태인지 확인합니다.
 -   프로비전 또는 동기화 프로세스가 완료될 때까지 기다린 후 동기화 그룹 삭제를 다시 시도합니다.
@@ -358,8 +358,8 @@ SQL 데이터 동기화(미리 보기) 클라이언트 에이전트에 등록된
 
 1. 클라이언트 에이전트 호스트 서비스를 중지한 다음 다시 시작합니다.  
     a. **시작** 메뉴를 선택합니다.  
-    b. 검색 상자에 **services.msc**를 입력합니다.  
-    c. 검색 결과 창의 **프로그램** 섹션에서 **서비스**를 두 번 클릭합니다.  
+    나. 검색 상자에 **services.msc**를 입력합니다.  
+    다. 검색 결과 창의 **프로그램** 섹션에서 **서비스**를 두 번 클릭합니다.  
     d. **SQL 데이터 동기화(미리 보기)** 서비스를 마우스 오른쪽 단추로 클릭합니다.  
     e. 서비스가 실행 중인 경우 중지합니다.  
     f. 서비스를 마우스 오른쪽 단추로 클릭한 다음 **시작**을 선택합니다.  
@@ -428,26 +428,26 @@ SQL 데이터 동기화(미리 보기)는 45일 이상(데이터베이스가 오
 2. 에이전트가 오프라인이지만 설치된 경우 온-프레미스 컴퓨터에서 온라인 상태로 전환합니다. 에이전트의 상태가 SQL 데이터 동기화(미리 보기) 포털에서 **온라인**으로 표시되기를 기다립니다. 그런 다음 동기화 그룹을 제거합니다.
 3. 에이전트가 제거되어서 오프라인 상태인 경우  
     a.  SQL 데이터 동기화(미리 보기) 설치 폴더에서 에이전트 XML 파일(있는 경우)을 제거합니다.  
-    b.  온-프레미스 컴퓨터(같거나 다른 컴퓨터일 수 있음)에 에이전트를 설치합니다. 그런 다음 오프라인으로 표시된 에이전트에 대해 포털에서 생성된 에이전트 키를 제출합니다.  
-    c. 동기화 그룹을 삭제합니다.
+    나.  온-프레미스 컴퓨터(같거나 다른 컴퓨터일 수 있음)에 에이전트를 설치합니다. 그런 다음 오프라인으로 표시된 에이전트에 대해 포털에서 생성된 에이전트 키를 제출합니다.  
+    다. 동기화 그룹을 삭제합니다.
 
 ### <a name="what-happens-when-i-restore-a-lost-or-corrupted-database"></a>손실되거나 손상된 데이터베이스를 복원할 경우 어떻게 되나요?
 
 손실되거나 손상된 데이터베이스를 백업에서 복원하면 데이터베이스가 속한 동기화 그룹에서 데이터의 일치성이 유지되지 않을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-SQL 데이터 동기화(미리 보기)에 대한 자세한 내용은 다음을 참조하세요.
+SQL 데이터 동기화(미리 보기)에 대한 자세한 내용은 다음 항목을 참조하세요.
 
 -   [Azure SQL 데이터 동기화(미리 보기)를 사용하여 여러 클라우드 및 온-프레미스 데이터베이스에서 데이터 동기화](sql-database-sync-data.md)  
 -   [Azure SQL 데이터 동기화(미리 보기) 설정](sql-database-get-started-sql-data-sync.md)  
 -   [Azure SQL 데이터 동기화(미리 보기)에 대한 모범 사례](sql-database-best-practices-data-sync.md)  
 -   [OMS Log Analytics를 사용하여 Azure SQL 데이터 동기화(미리 보기) 모니터링](sql-database-sync-monitor-oms.md)  
--   SQL Data Sync(미리 보기) 구성 방법을 보여주는 전체 PowerShell 예제:  
+-   SQL 데이터 동기화(미리 보기) 구성 방법을 보여주는 전체 PowerShell 예제:  
     -   [PowerShell을 사용하여 여러 Azure SQL Database 간 동기화](scripts/sql-database-sync-data-between-sql-databases.md)  
     -   [PowerShell을 사용하여 Azure SQL Database와 SQL Server 온-프레미스 데이터베이스 간 동기화](scripts/sql-database-sync-data-between-azure-onprem.md)  
 -   [SQL 데이터 동기화(미리 보기) REST API 설명서 다운로드](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
 
-SQL Database에 대한 자세한 내용은 다음을 참조하세요.
+SQL Database에 대한 자세한 내용은 다음 항목을 참조하세요.
 
 -   [SQL Database 개요](sql-database-technical-overview.md)
 -   [데이터베이스 수명 주기 관리](https://msdn.microsoft.com/library/jj907294.aspx)

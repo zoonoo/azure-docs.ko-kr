@@ -1,18 +1,18 @@
 ---
-title: "Azure Site Recovery: 질문과 대답(FAQ) | Microsoft Docs"
-description: "이 문서에서는 Azure Site Recovery에 대한 일반적인 질문에 대답합니다."
+title: 'Azure Site Recovery: 질문과 대답(FAQ) | Microsoft Docs'
+description: 이 문서에서는 Azure Site Recovery에 대한 일반적인 질문에 대답합니다.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/18/2018
+ms.date: 03/08/2018
 ms.author: raynew
-ms.openlocfilehash: 1a7d57c1f1f84e7ce3b931c2911ae7394b066f8d
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 5d1010a65a112b97124a8d7d46caceb3d61e2cac
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery: FAQ(질문과 대답)
 이 문서는 Azure Site Recovery에 대한 질문과 대답을 제공합니다. 이 문서를 읽은 후 질문이 있다면 [Azure Recovery Services 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr)에 게시해 주세요.
@@ -55,14 +55,14 @@ Site Recovery를 사용하여 지원되는 VM 또는 물리적 서버에서 실�
 예. VMM 클라우드의 Hyper-V 서버에서 VM을 Azure로 복제하거나 같은 서버의 VMM 클라우드 간에 복제할 수 있습니다. 온-프레미스 간 복제는 기본 사이트와 보조 사이트에 VMM 서버가 있는 경우에 사용하는 것이 좋습니다.  
 
 ### <a name="what-physical-servers-can-i-protect"></a>어떤 물리적 서버를 보호할 수 있습니까?
-Windows 및 Linux를 실행하는 물리적 서버를 Azure 또는 보조 사이트로 복제할 수 있습니다. [알아봅니다](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements) .  물리적 서버에서 Azure로 복사하든 아니면 보조 사이트로 복사하든 관계없이 동일한 요구 사항이 적용됩니다.
+Windows 및 Linux를 실행하는 물리적 서버를 Azure 또는 보조 사이트로 복제할 수 있습니다. [Azure로 복제](vmware-physical-azure-support-matrix.md#replicated-machines) 및 [보조 사이트로 복제](vmware-physical-secondary-support-matrix.md#replicated-vm-support)에 대한 요구 사항을 알아봅니다.
 
 
 온-프레미스 서버가 중지되면 물리적 서버가 Azure에서 VM으로 실행됩니다. 온-프레미스 물리적 서버로의 장애 복구(failback)는 현재 지원되지 않습니다. 물리적으로 보호되는 컴퓨터의 경우 VMware 가상 머신으로만 장애 복구(failback)할 수 있습니다.
 
 ### <a name="what-vmware-vms-can-i-protect"></a>어떤 VMware VM을 보호할 수 있습니까?
 
-VMware VM을 보호하려면 vSphere 하이퍼바이저 및 VMware 도구를 실행 중인 가상 머신이 필요합니다. 하이퍼바이저를 관리하는 VMware vCenter 서버가 있는 것이 좋습니다. VMware 서버 및 VM을 Azure 또는 보조 사이트로 복제하기 위한 정확한 요구 사항에 대해 [자세히 알아보세요](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
+VMware VM을 보호하려면 vSphere 하이퍼바이저 및 VMware 도구를 실행 중인 가상 머신이 필요합니다. 하이퍼바이저를 관리하는 VMware vCenter 서버가 있는 것이 좋습니다. [Azure로 복제](vmware-physical-azure-support-matrix.md#replicated-machines) 또는 [보조 사이트로 복제](vmware-physical-secondary-support-matrix.md#replicated-vm-support)에 대한 요구 사항을 알아봅니다.
 
 
 ### <a name="can-i-manage-disaster-recovery-for-my-branch-offices-with-site-recovery"></a>Site Recovery로 지사의 재해 복구를 관리할 수 있습니까?
@@ -93,7 +93,7 @@ Azure Site Recovery는 공용 끝점을 통해 Azure 저장소 계정에 데이�
 예, ExpressRoute를 사용하여 가상 머신을 Azure로 복제할 수 있습니다. Azure Site Recovery는 공용 끝점을 통해 Azure Storage 계정에 데이터를 복제합니다. Site Recovery 복제에 ExpressRoute를 사용하려면 [공용 피어링](../expressroute/expressroute-circuit-peerings.md#azure-public-peering)을 설정해야 합니다. 가상 머신이 Azure Virtual Network에 장애 조치 된 후 Azure Virtual Network로 [개인 피어링](../expressroute/expressroute-circuit-peerings.md#azure-private-peering) 설정을 사용하여 액세스할 수 있습니다.
 
 ### <a name="are-there-any-prerequisites-for-replicating-virtual-machines-to-azure"></a>Azure에 가상 머신을 복제하기 위한 필수 조건은 무엇입니까?
-Azure로 복제하려는 가상 머신이 [Azure 요구 사항](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements)을 충족해야 합니다.
+Azure로 복제하려는 [VMware VM](vmware-physical-azure-support-matrix.md#replicated-machines) 및 [Hyper-V VM](hyper-v-azure-support-matrix.md#replicated-vms)이 Azure 요구 사항을 충족해야 합니다.
 
 Azure 사용자 계정에 특정 [사용 권한](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines)이 있어야 Azure에 새 가상 머신을 복제할 수 있습니다.
 
@@ -106,8 +106,9 @@ Azure 사용자 계정에 특정 [사용 권한](site-recovery-role-based-linked
 ### <a name="can-i-automate-site-recovery-scenarios-with-an-sdk"></a>SDK와 함께 Site Recovery 시나리오를 자동화할 수 있습니까?
 예. Rest API, PowerShell 또는 Azure SDK를 사용하여 Site Recovery 워크플로를 자동화할 수 있습니다. 현재 PowerShell을 사용하여 Site Recovery를 배포하기 위한 지원되는 시나리오:
 
-* [VMM 클라우드의 Hyper-V VM을 Azure PowerShell Resource Manager로 복제](site-recovery-vmm-to-azure-powershell-resource-manager.md)
-* [Hyper-V VM을 VMM 없이 Azure PowerShell Resource Manager로 복제](site-recovery-deploy-with-powershell-resource-manager.md)
+* [VMM 클라우드의 Hyper-V VM을 Azure PowerShell Resource Manager로 복제](hyper-v-vmm-powershell-resource-manager.md)
+* [Hyper-V VM을 VMM 없이 Azure PowerShell Resource Manager로 복제](hyper-v-azure-powershell-resource-manager.md)
+* [PowerShell 리소스 관리자를 사용하여 VMware에서 Azure로 복제](vmware-azure-disaster-recovery-powershell.md)
 
 ### <a name="if-i-replicate-to-azure-what-kind-of-storage-account-do-i-need"></a>Azure로 복제할 때 어떤 유형의 저장소 계정이 필요합니까?
 LRS 또는 GRS 저장소 계정이 필요합니다. 지역 정전이 발생하거나 주 지역을 복구할 수 없는 경우에 데이터를 복원할 수 있도록 GRS를 사용하는 것이 좋습니다. 계정은 Recovery Services 자격 증명 모음과 동일한 지역에 있어야 합니다. 프리미엄 저장소는 Azure Portal에서 Site Recovery를 배포할 때 VMware VM, Hyper-V VM 및 물리적 서버 복제에 지원됩니다.
@@ -123,7 +124,7 @@ LRS 또는 GRS 저장소 계정이 필요합니다. 지역 정전이 발생하�
 지원되지 않습니다. [사용자 의견 포럼](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from)을 통해 이 기능에 대한 의견을 보내 주세요.
 
 ### <a name="can-i-exclude-specific-disks-from-replication"></a>특정 디스크를 복제에서 제외할 수 있습니까?
-이는 Azure Portal을 사용하여 Azure에 [VMware VM 및 Hyper-V VM을 복제](site-recovery-exclude-disk.md)하는 경우에만 지원됩니다.
+이는 Azure Portal을 사용하여 Azure에 VMware VM 및 Hyper-V VM을 복제하는 경우에만 지원됩니다.
 
 ### <a name="can-i-replicate-virtual-machines-with-dynamic-disks"></a>동적 디스크를 사용하여 가상 머신을 복제할 수 있습니까?
 동적 디스크는 Hyper-V 가상 머신을 복제할 때 지원됩니다. 또한 VMware VM 및 물리적 컴퓨터를 Azure에 복제할 때도 지원됩니다. 운영 체제 디스크는 기본 디스크여야 합니다.

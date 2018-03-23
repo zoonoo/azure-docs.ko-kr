@@ -1,26 +1,21 @@
 ---
-title: "여러 Azure SQL Database에 대해 보고 쿼리 실행 | Microsoft Docs"
-description: "분산 쿼리를 사용한 교차 테넌트 보고"
-keywords: "SQL Database 자습서"
+title: 여러 Azure SQL Database에 대해 보고 쿼리 실행 | Microsoft Docs
+description: 분산 쿼리를 사용한 교차 테넌트 보고
+keywords: SQL Database 자습서
 services: sql-database
-documentationcenter: 
 author: stevestein
 manager: craigg
-editor: 
-ms.assetid: 
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: articles
 ms.date: 11/13/2017
-ms.author: billgib; sstein; AyoOlubeko
-ms.openlocfilehash: 531d284798e455622faa1bfe7b0c8f178b3642fd
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.author: billgib
+ms.reviewer: sstein; AyoOlubeko
+ms.openlocfilehash: b470a9cf4e3c08e582bda3f0b02378e68de7c8cf
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="cross-tenant-reporting-using-distributed-queries"></a>분산 쿼리를 사용한 교차 테넌트 보고
 

@@ -1,9 +1,9 @@
 ---
-title: "Azure AD Connect: 통과 인증 - 스마트 잠금 | Microsoft Docs"
-description: "이 문서에서는 Azure AD(Active Directory) 통과 인증이 클라우드에서의 무차별 암호 대입 공격으로부터 온-프레미스 계정을 보호하는 방법에 대해 설명합니다."
+title: 'Azure AD Connect: 통과 인증 - 스마트 잠금 | Microsoft Docs'
+description: 이 문서에서는 Azure AD(Active Directory) 통과 인증이 클라우드에서의 무차별 암호 대입 공격으로부터 온-프레미스 계정을 보호하는 방법에 대해 설명합니다.
 services: active-directory
-keywords: "Azure AD Connect 통과 인증, Active Directory 설치, Azure AD에 대한 필수 구성 요소, SSO, Single Sign-on"
-documentationcenter: 
+keywords: Azure AD Connect 통과 인증, Active Directory 설치, Azure AD에 대한 필수 구성 요소, SSO, Single Sign-on
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
@@ -12,19 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2018
+ms.date: 03/07/2018
 ms.author: billmath
-ms.openlocfilehash: fc46fe1d68538757ba5a8c5aa1acb4b51f8a171b
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 9477d47824213d7ea15bcf6c6b615a220bae2e48
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-smart-lockout"></a>Azure Active Directory 통과 인증: 스마트 잠금
 
 ## <a name="overview"></a>개요
 
-Azure Active Directory (Azure AD)는 무차별 암호 대입 공격으로부터 보호하고 실제 사용자가 Office 365 및 SaaS 응용 프로그램에서 잠기지 않게 차단합니다. 이 기능을 *스마트 잠금*이라고 하며 로그인 방법으로 통과 인증을 사용할 때 지원됩니다. 스마트 잠금은 기본적으로 모든 테넌트에 대해 사용하도록 설정되어 있습니다. 스마트 잠금을 사용하면 사용자 계속을 지속적으로 보호할 수 있습니다.
+Azure Active Directory (Azure AD)는 무차별 암호 대입 공격으로부터 보호하고 실제 사용자가 Office 365 및 SaaS 응용 프로그램에서 잠기지 않게 차단합니다. 이 기능을 *스마트 잠금*이라고 하며 로그인 방법으로 통과 인증을 사용할 때 지원됩니다. 스마트 잠금은 통과 일증을 사용하는 테넌트만이 아니라 기본적으로 모든 테넌트에 대해 사용하도록 설정되어 있습니다. 스마트 잠금을 사용하면 사용자 계속을 지속적으로 보호할 수 있습니다.
 
 스마트 잠금은 실패한 로그인 시도 기록을 보존합니다. 특정 *잠금 임계값*에 도달하면 *잠금 기간*이 시작됩니다. 잠금 기간 동안에는 공격자의 로그인 시도가 모두 거부됩니다. 공격이 지속될 경우, 잠금 기간이 종료된 뒤에 실패한 로그인 시도가 발생하면 잠금 기간이 더 길어집니다.
 

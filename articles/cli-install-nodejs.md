@@ -1,9 +1,9 @@
 ---
-title: "Azure CLI 1.0 설치 | Microsoft Docs"
-description: "Mac, Linux 및 Windows용 Azure CLI 1.0을 설치하여 Azure 서비스 사용 시작"
-editor: 
+title: Azure CLI 1.0 설치 | Microsoft Docs
+description: Mac, Linux 및 Windows용 Azure CLI 1.0을 설치하여 Azure 서비스 사용 시작
+editor: ''
 manager: timlt
-documentationcenter: 
+documentationcenter: ''
 author: squillace
 services: virtual-machines-linux,virtual-network,storage,azure-resource-manager
 tags: azure-resource-manager,azure-service-management
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
 ms.author: rasquill
-ms.openlocfilehash: 67aa5bb122b277e998119506bb2a574d6b4fde5e
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: a1ca71a81f4fa6dd36b9ed3a2b16fcca0e29601c
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="install-the-azure-cli-10"></a>Azure CLI 1.0 설치
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ ms.lasthandoff: 12/21/2017
 
 > [!IMPORTANT]
 > 이 항목에서는 Azure CLI 1.0을 설치하는 방법을 설명합니다. 이 CLI는 사용되지 않으므로 "클래식" 리소스를 포함한 ASM(Azure 서비스 관리) 모델의 지원에서만 사용해야 합니다.
-> ARM(Azure Resource Manager) 배포의 경우 [Azure CLI 2.0](/cli/azure/overview)을 사용합니다.
+> Azure Resource Manager 배포의 경우 [Azure CLI 2.0](/cli/azure)을 사용합니다.
 
 신속하게 Azure CLI 1.0(Azure 명령줄 인터페이스)을 설치하여 Microsoft Azure에서 리소스를 만들고 관리하기 위한 오픈 소스 셸 기반 명령 집합을 사용합니다. 컴퓨터에 크로스 플랫폼 도구를 설치하는 몇 가지 옵션이 있습니다.
 

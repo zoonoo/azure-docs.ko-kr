@@ -1,11 +1,11 @@
 ---
-title: "Azure Backup: Azure VM 백업에서 파일 및 폴더 복구 | Microsoft Docs"
-description: "Azure 가상 머신 복구 지점에서 파일 복구"
+title: 'Azure Backup: Azure VM 백업에서 파일 및 폴더 복구 | Microsoft Docs'
+description: Azure 가상 머신 복구 지점에서 파일 복구
 services: backup
 documentationcenter: dev-center-name
 author: pvrk
 manager: shivamg
-keywords: "항목 수준 복구, Azure 백업에서 파일 복구, Azure VM에서 파일 복원"
+keywords: 항목 수준 복구, Azure 백업에서 파일 복구, Azure VM에서 파일 복원
 ms.assetid: f1c067a2-4826-4da4-b97a-c5fd6c189a77
 ms.service: backup
 ms.devlang: na
@@ -14,17 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 12/20/2017
 ms.author: pullabhk;markgal
-ms.openlocfilehash: d1ebda145b7e355bd9763025dece742d2a23239b
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 0fce38db010a77ac61145ef63f616e0e466c95e2
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Azure Virtual Machine 백업에서 파일 복구
 
 Azure Backup에서는 Azure VM Backup에서 [Azure 가상 머신(VM) 및 디스크](./backup-azure-arm-restore-vms.md)를 복원하는 기능을 제공합니다. 이 문서에서는 Azure VM Backup에서 파일 및 폴더를 어떻게 복구할 수 있는지 설명합니다. 파일 및 폴더 복원은 Resource Manager 모델을 사용하여 배포된 Azure VM에서만 사용 가능하며 Recovery Services 자격 증명 모음에 대해 보호됩니다.
 
 > [!Note]
+> 이 기능은 Resource Manager 모델을 사용하여 배포된 Azure VM에서 사용 가능하며 Recovery Services 자격 증명 모음에 대해 보호됩니다.
 > 암호화된 VM 백업으로부터 파일 복구는 지원되지 않습니다.
 >
 

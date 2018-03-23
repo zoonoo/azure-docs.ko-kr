@@ -1,20 +1,20 @@
 ---
-title: "Azure Cost Management에 Amazon Web Services 계정 연결 | Microsoft Docs"
-description: "Cost Management 보고서에서 비용 및 사용 현황 데이터를 보려면 Amazon Web Services 계정을 연결합니다."
+title: Azure Cost Management에 Amazon Web Services 계정 연결 | Microsoft Docs
+description: Cost Management 보고서에서 비용 및 사용 현황 데이터를 보려면 Amazon Web Services 계정을 연결합니다.
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 02/08/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
-ms.custom: 
-ms.openlocfilehash: a82d803b51859f809ca5a39ce177697a1f66a008
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.custom: ''
+ms.openlocfilehash: 4a0280420132aad9f1e0b17d5998ec225bb0eaa1
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="connect-an-amazon-web-services-account"></a>Amazon Web Services 계정 연결
 
@@ -100,4 +100,4 @@ Cost Management에서 데이터를 수집하고 보고서를 채우기 시작합
 
 ## <a name="next-steps"></a>다음 단계
 
-- Cloudyn의 Azure Cost Management에 대해 자세히 알아보려면 Cost Management에 대한 [사용량 및 비용 검토](tutorial-review-usage.md)를 참조하세요.
+- Azure Cost Management에 대한 자세한 내용은 Cost Management에 대한 [사용량 및 비용 검토](tutorial-review-usage.md) 자습서를 참조하세요.

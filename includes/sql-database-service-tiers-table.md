@@ -52,6 +52,7 @@ sql-database-single-database-resources.md
 | 최대 동시 세션 | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
 |||||||
 
+
 > [!IMPORTANT]
 > \* 포함된 저장소보다 큰 저장소 크기는 미리 보기로 있으며 추가 비용이 적용됩니다. 자세한 내용은 [SQL Database 가격](https://azure.microsoft.com/pricing/details/sql-database/)을 참조하세요. 
 >
@@ -59,3 +60,4 @@ sql-database-single-database-resources.md
 > 
 >\*\* 표준에서 200DTU 이상으로 시작하는 데이터베이스당 최대 DTU는 미리 보기 상태입니다.
 >
+

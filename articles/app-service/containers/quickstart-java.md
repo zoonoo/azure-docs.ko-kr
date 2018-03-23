@@ -1,11 +1,11 @@
 ---
-title: "Linux의 Azure App Service에서 Java 웹앱 만들기"
-description: "몇 분 안에 Linux의 Azure App Service에서 첫 번째 Java Hello World를 배포합니다."
+title: Linux의 Azure App Service에서 Java 웹앱 만들기
+description: 몇 분 안에 Linux의 Azure App Service에서 첫 번째 Java Hello World를 배포합니다.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: msangapu
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.service: app-service-web
 ms.workload: web
@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 03/07/2018
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: 46c97ae5bd6f53857f0b7df12462102a03e8e857
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 2c37151c09c7b180993056532c07ff081f576b83
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="preview-create-a-java-web-app-in-app-service-on-linux"></a>미리 보기: Linux의 App Service에서 Java 웹앱 만들기
 
@@ -50,19 +50,7 @@ Linux의 App Service는 현재 Java 웹앱을 지원하기 위한 미리 보기 
 
 [!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user.md)]
 
-
-## <a name="create-a-resource-group"></a>리소스 그룹 만들기
-
-Cloud Shell에서 [`az group create`](/cli/azure/group?view=azure-cli-latest#az_group_create) 명령을 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *유럽 서부* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다. App Service에 지원되는 모든 위치를 확인하려면 [`az appservice list-locations`](/cli/azure/appservice?view=azure-cli-latest#az_appservice_list_locations) 명령을 실행합니다.
-
-```azurecli-interactive
-az group create --name myResourceGroup --location "West US"
-```
-
-일반적으로 사용자와 가까운 지역에서 리소스 그룹 및 리소스를 만듭니다. 
-
-명령이 완료되면 JSON 출력이 리소스 그룹 속성을 보여줍니다.
-
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux.md)]
 
 [!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
 

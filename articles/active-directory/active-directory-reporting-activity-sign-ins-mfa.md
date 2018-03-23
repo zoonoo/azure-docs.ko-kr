@@ -1,25 +1,25 @@
 ---
-title: "Azure Portal의 다단계 인증 보고에 대한 참조 | Microsoft Docs"
-description: "Azure Portal의 다단계 인증 보고에 대한 참조 정보"
+title: Azure Portal의 다단계 인증 보고에 대한 참조 | Microsoft Docs
+description: Azure Portal의 다단계 인증 보고에 대한 참조 정보
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/15/2018
+ms.date: 03/16/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: cb4ef0e361cb3495a03e5a7ed49d9a84a54dbdc3
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: e92d1383f3179f03194b460e0467314c137fd9e2
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="reference-for-multi-factor-authentication-reporting-in-the-azure-portal"></a>Azure Portal의 다단계 인증 보고에 대한 참조
 
@@ -95,17 +95,9 @@ MFA의 로그인 활동 보고서를 통해 다음 정보에 액세스 할 수 �
 
     - 토큰 클레임으로 충족 
 
-    - 토큰 클레임으로 충족 
-
-    - 토큰 클레임으로 충족 
-
-    - 토큰 클레임으로 충족 
-
     - 외부 공급자가 제공한 클레임으로 충족 
 
     - 강력한 인증으로 충족 
-
-    - 실행된 흐름이 Windows 브로커 로그온 흐름이어서 건너뜀 
 
     - 실행된 흐름이 Windows 브로커 로그온 흐름이어서 건너뜀 
 

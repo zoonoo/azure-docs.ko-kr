@@ -1,8 +1,8 @@
 ---
-title: "재해 복구 솔루션 설계 - Azure SQL Database | Microsoft Docs"
-description: "올바른 장애 조치 패턴을 선택하여 재해 복구를 위한 클라우드 솔루션을 설계하는 방법에 대해 알아봅니다."
+title: 재해 복구 솔루션 설계 - Azure SQL Database | Microsoft Docs
+description: 올바른 장애 조치 패턴을 선택하여 재해 복구를 위한 클라우드 솔루션을 설계하는 방법에 대해 알아봅니다.
 services: sql-database
-documentationcenter: 
+documentationcenter: ''
 author: anosov1960
 manager: jhubbard
 editor: monicar
@@ -12,15 +12,15 @@ ms.custom: business continuity
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.date: 12/13/2017
+ms.workload: Inactive
+ms.date: 03/05/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.workload: Inactive
-ms.openlocfilehash: 9d12fb8a7dbd3bb763e42fd0981d7ef18b57248b
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: b2a8f897130c2bf21321366a727ce2e2ae9d1d99
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="disaster-recovery-strategies-for-applications-using-sql-database-elastic-pools"></a>SQL Database 탄력적 풀을 사용하는 응용 프로그램에 대한 재해 복구 전략
 수년에 걸쳐 클라우드 서비스가 간단하지 않으며 치명적인 문제가 발생한다는 점을 발견했습니다. SQL Database는 이러한 문제가 발생할 때 응용 프로그램의 비즈니스 연속성을 위해 제공할 몇 가지 기능을 제공합니다. [탄력적 풀](sql-database-elastic-pool.md) 및 단일 데이터베이스는 동일한 종류의 재해 복구 기능을 지원합니다. 이 문서에서는 이러한 SQL Database 비즈니스 연속성 기능을 활용하는 탄력적 풀에 대한 몇 가지 DR 전략을 설명합니다.
@@ -30,6 +30,9 @@ ms.lasthandoff: 12/14/2017
 <i>최신 클라우드 기반 웹 응용 프로그램은 각 최종 사용자에 대해 하나의 SQL Database를 프로비전합니다. ISV에는 많은 고객이 있으므로 테넌트 데이터베이스라고 하는 많은 데이터베이스를 사용합니다. 일반적으로 테넌트 데이터베이스에는 예측할 수 없는 활동 패턴이 있으므로 ISV는 데이터베이스 비용을 확장된 기간 동안 잘 예측할 수 있도록 탄력적 풀을 사용합니다. 또한 탄력적 풀은 사용자 활동이 급증하는 경우 성능 관리를 단순화합니다. 테넌트 데이터베이스 외에도 응용 프로그램은 사용자 프로필, 보안을 관리하고 사용 패턴 등을 수집하는 데 여러 데이터베이스도 사용합니다. 개별 테넌트의 가용성은 응용 프로그램의 전체 가용성에 영향을 주지 않습니다. 하지만, 관리 데이터베이스의 성능과 가용성은 응용 프로그램의 기능에 중요하며 관리 데이터베이스가 오프라인 상태이면 전체 응용 프로그램도 오프라인 상태입니다.</i>  
 
 이 문서에서는 비용에 민감한 시작 응용 프로그램에서 엄격한 가용성 요구 사항이 포함된 응용 프로그램에 걸친 시나리오를 다루는 DR 전략을 설명합니다.
+
+> [!NOTE]
+> Premium 데이터베이스 및 풀을 사용하는 경우 영역 중복 배포 구성(현재 미리 보기로 제공됨)으로 변환하여 지역별 중단 시 복원력을 높일 수 있습니다. [영역 중복 데이터베이스](sql-database-high-availability.md)를 참조하세요.
 
 ## <a name="scenario-1-cost-sensitive-startup"></a>시나리오 1. 비용에 민감한 시작
 <i>신규 사업체이며 비용에 매우 민감합니다.  응용 프로그램의 배포 및 관리를 단순화하려면 개별 고객을 위해 제한된 SLA를 보유할 수 있습니다. 하지만 응용 프로그램 전체가 오프라인이 되는 것은 절대 원하지 않습니다.</i>

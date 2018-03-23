@@ -1,17 +1,17 @@
 ---
-title: "Azure Migrate의 Collector 어플라이언스 | Microsoft Docs"
-description: "Collector 어플라이언스에 대한 개요 및 구성 방법을 제공합니다."
+title: Azure Migrate의 Collector 어플라이언스 | Microsoft Docs
+description: Collector 어플라이언스에 대한 개요 및 구성 방법을 제공합니다.
 author: ruturaj
 ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 01/23/2017
 ms.author: ruturajd
 services: azure-migrate
-ms.openlocfilehash: fcf6d2bf13af785eae26ff60035a4754f6ec702e
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 49f3d5ba55a9c1abfcd6dcb50058ed7a001a2eec
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="collector-appliance"></a>Collector 어플라이언스
 
@@ -26,6 +26,20 @@ Azure Migrate Collector는 온-프레미스 vCenter 환경을 검색하는 데 �
 Collector 어플라이언스는 Azure Migrate 프로젝트에서 다운로드할 수 있는 OVF입니다. 4코어, 8GB RAM 및 80GB 디스크가 한 개 있는 VMware 가상 머신을 인스턴스화합니다. 어플라이언스의 운영 체제는 Windows Server 2012 R2(64 비트)입니다.
 
 Collector는 다음 단계에 따라 만들 수 있습니다. - [Collector VM을 만드는 방법](tutorial-assessment-vmware.md#create-the-collector-vm)
+
+## <a name="collector-communication-diagram"></a>수집기 통신 다이어그램
+
+![수집기 통신 다이어그램](./media/tutorial-assessment-vmware/portdiagram.PNG)
+
+
+| 구성 요소      | 통신 대상   | 필요한 포트                            | 이유                                   |
+| -------------- | --------------------- | ---------------------------------------- | ---------------------------------------- |
+| 데이터 수집기      | Azure Migrate 서비스 | TCP 443                                  | 수집기는 SSL 포트 443을 통해 서비스와 통신할 수 있어야 합니다. |
+| 데이터 수집기      | vCenter Server        | 기본값 443                             | 수집기는 vCenter Server와 통신할 수 있어야 합니다. 기본적으로 443에서 vCenter에 연결합니다. vCenter가 다른 포트에서 수신 대기하는 경우 해당 포트는 수집기에서 송신 포트로 제공되어야 합니다. |
+| 데이터 수집기      | RDP|   | TCP 3389 | 수집기 컴퓨터로 RDP할 수 있는 사용자의 경우 |
+
+
+
 
 
 ## <a name="collector-pre-requisites"></a>Collector 필수 조건
@@ -158,6 +172,32 @@ vCenter에 연결되면 검색할 범위를 선택할 수 있습니다. 범위�
 Collector는 컴퓨터 데이터를 검색하여 프로젝트로 보내기만 합니다. 검색된 데이터가 포털에 표시되고 평가 생성이 시작되기까지 프로젝트에 시간이 더 걸릴 수 있습니다.
 
 정적 메타데이터를 프로젝트에 보내는 데 최대 15분이(선택한 범위에 있는 가상 머신의 수를 기반으로) 소요됩니다. 정적 메타데이터를 포털에서 사용할 수 있게 되면, 포털에 컴퓨터 목록이 표시되고 그룹 만들기를 시작할 수 있습니다. 컬렉션 작업이 완료되고 프로젝트가 데이터를 처리할 때까지 평가를 생성할 수 없습니다. Collector에서 컬렉션 작업이 완료된 후, 포털에서 성능 데이터를 사용할 수 있게 되기까지는 선택한 범위에 있는 가상 머신의 수에 따라 최대 1시간이 걸릴 수 있습니다.
+
+## <a name="how-to-upgrade-collector"></a>수집기를 업그레이드하는 방법
+
+다시 한 번의 OVA를 다운로드하지 않고 수집기를 최신 버전으로 업그레이드할 수 있습니다.
+
+1. 최신 [업그레이드 패키지](https://aka.ms/migrate/col/latestupgrade)를 다운로드합니다.
+2. 다운로드한 핫픽스가 안전한지 확인하려면 관리자 권한 명령 창을 열고 다음 명령을 실행하여 Zip 파일에 대한 해시를 생성합니다. 생성된 해시는 특정 버전에 대해 언급된 해시와 일치해야 합니다.
+
+    ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
+    
+    (예제 사용량 C:\>CertUtil -HashFile C:\AzureMigrate\CollectorUpdate_release_1.0.9.5.zip SHA256)
+3. Zip 파일을 Azure Migrate 수집기 가상 머신(수집기 어플라이언스)에 복사합니다.
+4. Zip 파일을 마우스 오른쪽 단추로 클릭하고 모두 압축 풀기를 선택합니다.
+5. Setup.ps1 단추를 마우스 오른쪽 단추로 클릭하고 PowerShell과 함께 실행을 선택하고 화면의 지시를 따라 업데이트를 설치합니다.
+
+### <a name="list-of-updates"></a>업데이트 목록
+
+#### <a name="upgrade-to-version-1095"></a>버전 1.0.9.5로 업그레이드
+
+버전 1.0.9.5 다운로드 [패키지](https://aka.ms/migrate/col/upgrade_9_5)로 업그레이드하는 경우
+
+**알고리즘** | **해시 값**
+--- | ---
+MD5 | d969ebf3bdacc3952df0310d8891ffdf
+SHA1 | f96cc428eaa49d597eb77e51721dec600af19d53
+SHA256 | 07c03abaac686faca1e82aef8b80e8ad8eca39067f1f80b4038967be1dc86fa1
 
 ## <a name="next-steps"></a>다음 단계
 

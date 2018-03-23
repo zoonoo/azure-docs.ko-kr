@@ -1,11 +1,11 @@
 ---
-title: "페더레이션된 Single Sign-On에 대해 구성된 비갤러리 응용 프로그램에 로그인하는 문제 | Microsoft Docs"
-description: "Azure AD에서 SAML 기반 페더레이션된 Single Sign-On에 대해 구성된 응용 프로그램에 로그인할 때 직면할 수 있는 특정 문제에 대한 지침"
+title: 페더레이션된 Single Sign-On에 대해 구성된 비갤러리 응용 프로그램에 로그인하는 문제 | Microsoft Docs
+description: Azure AD에서 SAML 기반 페더레이션된 Single Sign-On에 대해 구성된 응용 프로그램에 로그인할 때 직면할 수 있는 특정 문제에 대한 지침
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.openlocfilehash: cfd4e478850783983caa3042cbbb2b096a576292
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="problems-signing-in-to-a-non-gallery-application-configured-for-federated-single-sign-on"></a>페더레이션된 Single Sign-On에 대해 구성된 비갤러리 응용 프로그램에 로그인하는 문제
 
@@ -63,7 +63,7 @@ Azure AD에서 식별자 값을 업데이트하고 SAML 요청에서 응용 프�
 
 ## <a name="the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application"></a>회신 주소가 응용 프로그램에 대해 구성된 회신 주소와 일치하지 않습니다. 
 
-*오류 AADSTS50011: 회신 주소 'https://contoso.com' 은 응용 프로그램에 대해 구성된 회신 주소와 일치하지 않습니다.* 
+*오류 AADSTS50011: 회신 주소 ‘https://contoso.com’이 응용 프로그램에 대해 구성된 회신 주소와 일치하지 않습니다.* 
 
 **가능한 원인** 
 

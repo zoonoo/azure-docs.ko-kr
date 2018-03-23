@@ -1,6 +1,6 @@
 ---
-title: "Azure Active Directory의 클레임 매핑(공개 미리 보기) | Microsoft Docs"
-description: "이 페이지에서는 Azure Active Directory 클레임 매핑을 설명합니다."
+title: Azure Active Directory의 클레임 매핑(공개 미리 보기) | Microsoft Docs
+description: 이 페이지에서는 Azure Active Directory 클레임 매핑을 설명합니다.
 services: active-directory
 author: billmath
 manager: mtillman
@@ -11,11 +11,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: billmath
-ms.openlocfilehash: 1bc669dfa5a41e38b35751af62560ff650575a08
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: b0dae074734b13046fb0d90e178e05f81399b5c6
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="claims-mapping-in-azure-active-directory-public-preview"></a>Azure Active Directory의 클레임 매핑(공개 미리 보기)
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 01/11/2018
 - 특정 클레임에 내보내지는 데이터 원본을 선택하거나 변경합니다.
 
 >[!NOTE]
->이 기능은 현재 공개 미리 보기로 제공되고 있습니다. 변경 내용을 되돌리거나 제거할 준비를 해야 합니다. 이 기능은 공개 미리 보기 동안 모든 Azure AD(Azure Active Directory) 구독에서 사용할 수 있습니다. 그러나 기능이 일반 공급되면 일부 기능에는 Azure Active Directory Premium 구독이 필요할 수도 있습니다.
+>이 기능은 현재 공개 미리 보기로 제공되고 있습니다. 변경 내용을 되돌리거나 제거할 준비를 해야 합니다. 이 기능은 공개 미리 보기 동안 모든 Azure AD(Azure Active Directory) 구독에서 사용할 수 있습니다. 그러나 기능이 일반 공급되면 일부 기능에는 Azure Active Directory Premium 구독이 필요할 수도 있습니다. 이 기능은 WS-Fed, SAML, OAuth 및 OpenID Connect 프로토콜에 대한 클레임 매핑 정책 구성을 지원합니다.
 
 ## <a name="claims-mapping-policy-type"></a>클레임 매핑 정책 유형
 Azure AD에서 **정책** 개체는 조직에 있는 개별 응용 프로그램 또는 모든 응용 프로그램에 적용되는 규칙 집합을 나타냅니다. 각 유형의 정책에는 할당된 개체에 적용되는 속성 집합이 포함된 고유한 구조가 있습니다.
@@ -419,7 +419,7 @@ ID 요소는 클레임의 값을 제공할 원본의 속성을 식별합니다. 
 
 Azure AD에서 특정 서비스 주체에 대해 토큰에 내보내지는 클레임을 사용자 지정할 수 있는 경우 많은 시나리오가 가능합니다. 이 섹션에서는 클레임 매핑 정책 형식을 사용하는 방법을 이해하는 데 도움이 되는 몇 가지 일반적인 시나리오를 설명합니다.
 
-#### <a name="prerequisites"></a>필수 구성 요소
+#### <a name="prerequisites"></a>필수 조건
 다음 예제에서는 서비스 주체에 대한 정책을 만들고, 업데이트, 연결 및 삭제합니다. Azure AD을 처음 접하는 분들은 Azure AD 테넌트를 가져오는 방법을 살펴본 후 예제를 진행하는 것이 좋습니다. 
 
 시작하려면 다음 단계 중 하나를 수행합니다.

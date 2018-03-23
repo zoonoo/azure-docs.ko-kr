@@ -1,24 +1,19 @@
 ---
-title: "데이터베이스 간 쿼리 시작(수직 분할) | Microsoft Docs"
-description: "수직 분할 데이터베이스에서 탄력적 데이터베이스 쿼리를 사용하는 방법"
+title: 데이터베이스 간 쿼리 시작(수직 분할) | Microsoft Docs
+description: 수직 분할 데이터베이스에서 탄력적 데이터베이스 쿼리를 사용하는 방법
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: torsteng
-ms.assetid: e5b44b10-c432-4f96-b20e-08615ff4d5dd
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2016
-ms.author: torsteng
-ms.openlocfilehash: ca715c0ef41ccb4aed2924898d7729bed659b0ca
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.author: sstein
+ms.openlocfilehash: 0731ddfea83d287c88118cf4b48e86427d8f520f
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-cross-database-queries-vertical-partitioning-preview"></a>데이터베이스 간 쿼리 시작(수직 분할)(미리 보기)
 Azure SQL Database에 Elastic Database 쿼리 (미리 보기)를 사용 하면 단일 연결 지점을 사용하여 여러 데이터베이스에 걸쳐 있는 T-SQL 쿼리를 실행할 수 있습니다. 이 항목은 [데이터베이스 수직 분할](sql-database-elastic-query-vertical-partitioning.md)에 적용됩니다.  

@@ -1,10 +1,11 @@
 ---
-title: "Azure Machine Learning 웹 서비스 매개 변수 사용 | Microsoft Docs"
-description: "Azure 기계 학습 웹 서비스 매개 변수를 사용하여 웹 서비스에 액세스할 때 모델의 동작을 수정하는 방법입니다."
+title: Azure Machine Learning 웹 서비스 매개 변수 사용 | Microsoft Docs
+description: Azure Machine Learning 웹 서비스 매개 변수를 사용하여 웹 서비스에 액세스할 때 모델의 동작을 수정하는 방법입니다.
 services: machine-learning
-documentationcenter: 
-author: raymondlaghaeian
-manager: jhubbard
+documentationcenter: ''
+author: aashishb
+ms.author: aashishb
+manager: hjerez
 editor: cgronlun
 ms.assetid: c49187db-b976-4731-89d6-11a0bf653db1
 ms.service: machine-learning
@@ -13,15 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/12/2017
-ms.author: raymondl;garye
-ms.openlocfilehash: 715ea008b84c1a503661394da14e8af167327941
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 41b35b8160c777c8598a30e2d775d997e06438f0
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/17/2018
 ---
-# <a name="use-azure-machine-learning-web-service-parameters"></a>Azure 기계 학습 웹 서비스 매개 변수 사용
-Azure 기계 학습 웹 서비스는 구성 가능한 매개 변수로 모듈이 포함된 실험을 게시하여 만듭니다. 경우에 따라 웹 서비스가 실행되는 동안 모듈 동작을 변경할 수도 있습니다. *웹 서비스 매개 변수*를 통해 이 태스크를 수행할 수 있습니다. 
+# <a name="use-azure-machine-learning-web-service-parameters"></a>Azure Machine Learning 웹 서비스 매개 변수 사용
+Azure Machine Learning 웹 서비스는 구성 가능한 매개 변수로 모듈이 포함된 실험을 게시하여 만듭니다. 경우에 따라 웹 서비스가 실행되는 동안 모듈 동작을 변경할 수도 있습니다. *웹 서비스 매개 변수*를 통해 이 태스크를 수행할 수 있습니다. 
 
 일반적인 예는 게시된 웹 서비스의 사용자가 웹 서비스에 액세스할 때 다른 데이터 원본을 지정할 수 있도록 [데이터 가져오기][reader] 모듈을 설정하는 것입니다. 또는 다른 대상을 지정할 수 있도록 [데이터 내보내기][writer] 모듈을 구성하는 것입니다. 다른 예로는 [기능 해싱][feature-hashing] 모듈에 대한 비트 수 변경 또는 [필터 기반 기능 선택][filter-based-feature-selection] 모듈에 대한 원하는 기능 수가 있습니다. 
 
@@ -49,7 +49,7 @@ Azure 기계 학습 웹 서비스는 구성 가능한 매개 변수로 모듈이
 1. Machine Learning 스튜디오에서 [데이터 내보내기][writer] 모듈을 클릭하여 선택합니다. 실험 캔버스 오른쪽에 있는 속성 창에 해당 속성이 표시됩니다.
 2. 저장소 형식을 지정합니다.
    
-   * **데이터 대상 지정**에서 "Azure Blob 저장소"를 선택합니다.
+   * **데이터 대상 지정**에서 "Azure Blob Storage"를 선택합니다.
    * **인증 유형 지정**에서 "계정"을 선택합니다.
    * Azure Blob 저장소에 대한 계정 정보를 입력합니다. 
      <p />

@@ -1,11 +1,11 @@
 ---
-title: "인코딩 단위를 추가하여 미디어 처리 크기 조정 - Azure | Microsoft Docs"
-description: ".NET을 사용하여 인코딩 단위를 추가하는 방법 알아보기"
+title: 인코딩 단위를 추가하여 미디어 처리 크기 조정 - Azure | Microsoft Docs
+description: .NET을 사용하여 인코딩 단위를 추가하는 방법 알아보기
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 33f7625a-966a-4f06-bc09-bccd6e2a42b5
 ms.service: media-services
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2017
 ms.author: juliako;milangada;
-ms.openlocfilehash: 9274e2807beeb0fd517ba1e848cfc26db1c57655
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 89203a9499b3624faf41b63f4ea6e7bd29f3f0c9
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="how-to-scale-encoding-with-net-sdk"></a>.NET SDK를 사용하여 인코딩 크기를 조정하는 방법
 > [!div class="op_single_selector"]
@@ -53,7 +53,8 @@ ms.lasthandoff: 01/13/2018
     Console.WriteLine("Number of reserved units: {0}", encodingS1ReservedUnit.CurrentReservedUnits);
 
 ## <a name="opening-a-support-ticket"></a>지원 티켓 열기
-기본적으로 모든 Media Services 계정은 Encoding 예약 단위 최대 25개, 주문형 스트리밍 예약 단위 최대 5개까지 확장할 수 있습니다. 지원 티켓을 열어 더 높은 한도를 요청할 수 있습니다.
+
+기본적으로 모든 Media Services 계정은 S2 또는 S3 MRU(미디어 예약 단위) 10개 또는 S1 MRU 25개, 주문형 스트리밍 예약 단위 최대 5개까지 확장할 수 있습니다. 지원 티켓을 열어 더 높은 한도를 요청할 수 있습니다.
 
 ## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

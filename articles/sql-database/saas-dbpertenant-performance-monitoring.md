@@ -1,26 +1,20 @@
 ---
-title: "다중 테넌트 SaaS 앱에서 다수의 Azure SQL 데이터베이스 성능 모니터링 | Microsoft Docs"
-description: "멀티 테넌트 SaaS 앱에서 Azure SQL Database 및 풀의 성능 모니터링 및 관리"
-keywords: "SQL Database 자습서"
+title: 다중 테넌트 SaaS 앱에서 다수의 Azure SQL 데이터베이스 성능 모니터링 | Microsoft Docs
+description: 멀티 테넌트 SaaS 앱에서 Azure SQL Database 및 풀의 성능 모니터링 및 관리
+keywords: SQL Database 자습서
 services: sql-database
-documentationcenter: 
 author: stevestein
 manager: craigg
-editor: 
-ms.assetid: 
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2017
 ms.author: sstein
-ms.openlocfilehash: 289f1f99b1661e499fa7132887e2f65e086ad689
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 352b0d48ab223a236b96c633526f792b6f8a703d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>멀티 테넌트 SaaS 앱에서 Azure SQL Database 및 풀의 성능 모니터링 및 관리
 
@@ -64,7 +58,7 @@ Wingtip Tickets SaaS 테넌트당 데이터베이스 앱은 단일 테넌트 데
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Wingtip Tickets SaaS Database Per Tenant 응용 프로그램 스크립트 가져오기
 
-Wingtip Tickets SaaS 다중 테넌트 데이터베이스 스크립트 및 응용 프로그램 소스 코드는 [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) GitHub 리포지토리에서 확인할 수 있습니다. [일반 지침](saas-tenancy-wingtip-app-guidance-tips.md)에서 Wingtip Tickets SaaS 스크립트를 다운로드하고 차단을 해제하는 단계를 확인하세요.
+Wingtip Tickets SaaS 다중 테넌트 데이터베이스 스크립트 및 응용 프로그램 소스 코드는 [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) GitHub 리포지토리에서 확인할 수 있습니다. Wingtip Tickets SaaS 스크립트를 다운로드하고 차단을 해제하는 단계는 [일반 지침](saas-tenancy-wingtip-app-guidance-tips.md)을 확인하세요.
 
 ## <a name="provision-additional-tenants"></a>추가 테넌트 프로비전
 
@@ -133,9 +127,9 @@ Wingtip Tickets SaaS 테넌트당 데이터베이스는 SaaS 앱이며 SaaS 앱�
 1. **높은 DTU** 등과 같은 이름을 제공
 1. 다음 값을 설정합니다.
    * **메트릭 = eDTU 백분율**
-   * **조건 = 보다 큼**.
+   * **조건 = 보다 큼**
    * **임계값 = 75**.
-   * **기간 = 지난 30분 동안**.
+   * **기간 = 지난 30분 동안**
 1. *추가 관리자 전자 메일* 상자에 메일 주소를 추가하고 **확인**을 클릭합니다.
 
    ![경고 설정](media/saas-dbpertenant-performance-monitoring/alert-rule.png)

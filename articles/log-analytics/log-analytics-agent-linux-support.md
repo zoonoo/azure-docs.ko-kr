@@ -1,24 +1,24 @@
 ---
-title: "Azure Log Analytics Linux 에이전트 문제 해결 | Microsoft Docs"
-description: "Log Analytics Linux 에이전트에서 발생하는 가장 일반적인 문제에 대한 증상, 원인 및 해결 방법에 대해 설명합니다."
+title: Azure Log Analytics Linux 에이전트 문제 해결 | Microsoft Docs
+description: Log Analytics Linux 에이전트에서 발생하는 가장 일반적인 문제에 대한 증상, 원인 및 해결 방법에 대해 설명합니다.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2018
+ms.date: 03/14/2018
 ms.author: magoedte
-ms.openlocfilehash: 895a77a66f50b4c5217ec7d672f6441b85bf1856
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 80d7e39b284554ebfa8cac4488e1663b3e3648e8
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="how-to-troubleshoot-issues-with-the-linux-agent-for-log-analytics"></a>Log Analytics용 Linux 에이전트의 문제를 해결하는 방법
 
@@ -37,12 +37,12 @@ ms.lasthandoff: 02/01/2018
 2. [프록시 설정 업데이트](log-analytics-agent-manage.md#update-proxy-settings) 섹션을 검토하여 프록시 서버를 통해 통신하도록 에이전트를 제대로 구성했는지 확인합니다.    
 * 다음 Log Analytics 서비스 끝점이 허용 목록에 있는지 한 번 더 확인합니다.
 
-    |에이전트 리소스| 포트 |  
-    |------|---------|  
-    |*.ods.opinsights.azure.com | 포트 443|   
-    |*.oms.opinsights.azure.com | 포트 443|   
-    |ods.systemcenteradvisor.com | 포트 443|   
-    |*.blob.core.windows.net/ | 포트 443|   
+    |에이전트 리소스| 포트 | 방향 |
+    |------|---------|----------|  
+    |*.ods.opinsights.azure.com | 포트 443| 인바운드 및 아웃바운드 |  
+    |*.oms.opinsights.azure.com | 포트 443| 인바운드 및 아웃바운드 |  
+    |\*.blob.core.windows.net | 포트 443| 인바운드 및 아웃바운드 |  
+    |* .azure-automation.net | 포트 443| 인바운드 및 아웃바운드 | 
 
 ## <a name="issue-you-receive-a-403-error-when-trying-to-onboard"></a>문제: 등록하는 동안 403 오류 발생
 

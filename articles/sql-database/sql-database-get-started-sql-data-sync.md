@@ -1,26 +1,20 @@
 ---
-title: "Azure SQL Data Sync(미리 보기) 설정 | Microsoft Docs"
-description: "이 자습서에서는 Azure SQL Data Sync(미리 보기) 설정 방법을 보여 줍니다."
+title: Azure SQL Data Sync(미리 보기) 설정 | Microsoft Docs
+description: 이 자습서에서는 Azure SQL Data Sync(미리 보기) 설정 방법을 보여 줍니다.
 services: sql-database
-documentationcenter: 
 author: douglaslms
 manager: craigg
-editor: 
-ms.assetid: a295a768-7ff2-4a86-a253-0090281c8efa
 ms.service: sql-database
 ms.custom: load & move data
-ms.workload: Active
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: b356bc9db9e883c2514953b516d6dd51c1807610
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 237a34c955f8ef36e25c30a6b13787f6a9296612
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="set-up-sql-data-sync-preview"></a>SQL 데이터 동기화(미리 보기) 설정
 이 자습서에서는 Azure SQL Database와 SQL Server 인스턴스를 모두 포함하는 하이브리드 동기화 그룹을 만들어 Azure SQL 데이터 동기화를 설정하는 방법에 대해 설명합니다. 새 동기화 그룹을 완벽하게 구성하고 설정한 일정에 동기화합니다.

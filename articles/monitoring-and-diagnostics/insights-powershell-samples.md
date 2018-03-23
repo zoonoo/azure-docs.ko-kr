@@ -1,9 +1,9 @@
 ---
-title: "Azure Monitor PowerShell 빠른 시작 샘플. | Microsoft Docs"
-description: "PowerShell을 사용하여 자동 크기 조정, 경고, webhook 및 활동 로그 검색 등의 Azure Monitor 기능에 액세스합니다."
+title: Azure Monitor PowerShell 빠른 시작 샘플. | Microsoft Docs
+description: PowerShell을 사용하여 자동 크기 조정, 경고, webhook 및 활동 로그 검색 등의 Azure Monitor 기능에 액세스합니다.
 author: rboucher
 manager: carmonm
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: c0761814-7148-4ab5-8c27-a2c9fa4cfef5
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 2/14/2018
 ms.author: robb
-ms.openlocfilehash: 3479b9c5bc1c8c77d2c6012b40dc9cd8f8e1708b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 5a08fd7d20dc78512315ab5d154ba95bd8e8494b
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Azure Monitor PowerShell 빠른 시작 샘플
 이 문서에서는 Azure Monitor 기능에 액세스할 수 있는 샘플 PowerShell 명령을 보여 줍니다.

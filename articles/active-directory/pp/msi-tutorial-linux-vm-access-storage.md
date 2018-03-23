@@ -1,8 +1,8 @@
 ---
-title: "Linux VM에서 사용자 할당 MSI를 사용하여 Azure Storage에 액세스"
-description: "Linux VM에서 사용자 할당 MSI(관리 서비스 ID)를 사용하여 Azure Storage에 액세스하는 프로세스를 안내하는 자습서입니다."
+title: Linux VM에서 사용자 할당 MSI를 사용하여 Azure Storage에 액세스
+description: Linux VM에서 사용자 할당 MSI(관리 서비스 ID)를 사용하여 Azure Storage에 액세스하는 프로세스를 안내하는 자습서입니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
 editor: arluca
@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 1d8641fef3a60ffcde6d0a4ac7e30d4e6cd3b169
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 5ae0e4e8149772d79190ee196cdd1c1bef344681
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="use-a-user-assigned-managed-service-identity-msi-on-a-linux-vm-to-access-azure-storage"></a>Linux VM에서 사용자 할당 MSI(관리 서비스 ID)를 사용하여 Azure Storage에 액세스
 
@@ -167,9 +167,9 @@ az role assignment create --assignee <MSI PRINCIPALID> --role 'Reader' --scope "
 3. 터미널 창에서 CURL을 사용하여 로컬 MSI 엔드포인트에 대한 요청을 만들어서 Azure Storage에 대한 액세스 토큰을 가져옵니다.
 
    다음 예제에는 액세스 토큰을 획득하는 CURL 요청이 나와 있습니다. `<CLIENT ID>`를 [사용자 할당 MSI 만들기](#create-a-user-assigned-msi)의 `az identity create` 명령에서 반환한 `clientId` 속성으로 바꿉니다.
-
+   
    ```bash
-   curl -H Metadata:true "http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fstorage.azure.com/&client_id=<CLIENT ID>"
+   curl -H Metadata:true "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fstorage.azure.com/&client_id=<MSI CLIENT ID>" 
    ```
 
    > [!NOTE]

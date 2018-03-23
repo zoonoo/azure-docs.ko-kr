@@ -1,11 +1,11 @@
 ---
-title: "Azure Application Insights 앱 데이터 보기 | Microsoft Docs"
-description: "Application Insights 커넥터 솔루션을 사용하여 성능 문제를 진단하고 Application Insights를 통해 모니터링하는 경우 사용자가 해당 앱으로 수행하는 작업을 파악할 수 있습니다."
+title: Azure Application Insights 앱 데이터 보기 | Microsoft Docs
+description: Application Insights 커넥터 솔루션을 사용하여 성능 문제를 진단하고 Application Insights를 통해 모니터링하는 경우 사용자가 해당 앱으로 수행하는 작업을 파악할 수 있습니다.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 49280cad-3526-43e1-a365-c6a3bf66db52
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: magoedte
-ms.openlocfilehash: bf3259909a84e1e1f5325ff4e39d5c10f1abc831
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 1556e91710990351d6723325789201afa99b1943
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="application-insights-connector-management-solution-preview"></a>Application Insights 커넥터관 리 솔루션(미리 보기)
 
@@ -39,10 +39,10 @@ Application Insights 커넥터 솔루션은 성능 문제를 진단하고 [Appli
 
 | 연결된 소스 | 지원됨 | 설명 |
 | --- | --- | --- |
-| [Windows 에이전트](log-analytics-windows-agent.md) | 아니오 | 솔루션이 Windows 에이전트에서 정보를 수집하지 않습니다. |
-| [Linux 에이전트](log-analytics-linux-agents.md) | 아니오 | 솔루션이 Linux 에이전트에서 정보를 수집하지 않습니다. |
+| [Windows 에이전트](log-analytics-windows-agent.md) | 아니요 | 솔루션이 Windows 에이전트에서 정보를 수집하지 않습니다. |
+| [Linux 에이전트](log-analytics-linux-agents.md) | 아니요 | 솔루션이 Linux 에이전트에서 정보를 수집하지 않습니다. |
 | [SCOM 관리 그룹](log-analytics-om-agents.md) | 아니오 | 솔루션이 연결된 SCOM 관리 그룹의 에이전트에서 정보를 수집하지 않습니다. |
-| [Azure 저장소 계정](log-analytics-azure-storage.md) | 아니요 | 솔루션이 Azure Storage에서 정보를 수집하지 않습니다. |
+| [Azure 저장소 계정](log-analytics-azure-storage.md) | 아니오 | 솔루션이 Azure Storage에서 정보를 수집하지 않습니다. |
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -64,7 +64,7 @@ Application Insights 커넥터 솔루션은 성능 문제를 진단하고 [Appli
 기타 주의할 사항은 다음과 같습니다.
 
 - 하나의 Log Analytics 작업 영역에만 Application Insights 앱을 연결할 수 있습니다.
-- [표준 또는 프리미엄 Application Insights 리소스](https://azure.microsoft.com/pricing/details/application-insights)만 Log Analytics에 연결할 수 있습니다. 그러나 Log Analytics의 무료 계층을 사용할 수 있습니다.
+- [기본 또는 엔터프라이즈 Application Insights 리소스](https://azure.microsoft.com/pricing/details/application-insights)만 Log Analytics에 연결할 수 있습니다. 그러나 Log Analytics의 무료 계층을 사용할 수 있습니다.
 
 ## <a name="management-packs"></a>관리 팩
 

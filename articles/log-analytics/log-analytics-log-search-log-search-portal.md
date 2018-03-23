@@ -1,11 +1,11 @@
 ---
-title: "Azure Log Analytics에서 로그 검색 포털 사용 | Microsoft 문서"
-description: "이 문서에는 로그 검색 포털을 사용하여 Log Analytics 작업 영역에 저장된 데이터를 분석하고 로그 검색을 만드는 방법을 설명하는 자습서가 포함되어 있습니다.  이 자습서에는 몇 가지 간단한 쿼리를 실행하여 여러 형식의 데이터를 반환하고 결과를 분석하는 방법이 나와 있습니다."
+title: Azure Log Analytics에서 로그 검색 포털 사용 | Microsoft 문서
+description: 이 문서에는 로그 검색 포털을 사용하여 Log Analytics 작업 영역에 저장된 데이터를 분석하고 로그 검색을 만드는 방법을 설명하는 자습서가 포함되어 있습니다.  이 자습서에는 몇 가지 간단한 쿼리를 실행하여 여러 형식의 데이터를 반환하고 결과를 분석하는 방법이 나와 있습니다.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: 
+editor: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: 3a2e8803d51d81ab0eda3dc814d01822e17bc14e
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 37213012e817f0fae21a47a4334a519bbbca206b
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-log-searches-in-azure-log-analytics-using-the-log-search-portal"></a>로그 검색 포털을 사용하여 Azure Log Analytics에서 로그 검색 만들기
 
@@ -98,7 +98,7 @@ Syslog | where (SeverityLevel == "err")
 
 ![필터 메뉴](media/log-analytics-log-search-log-search-portal/log-search-portal-01a.png)
 
-레코드 메뉴의 **필터링 기준** 옵션을 선택하면 단일 속성에 대한 결과를 그룹화할 수 있습니다.  이렇게 하면 차트에 결과를 표시하는 [summarize](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator) 연산자가 쿼리에 추가됩니다.  둘 이상의 속성을 그룹화할 수는 있지만 이렇게 하려면 쿼리를 직접 편집해야 합니다.  **Computer** 속성 옆의 레코드 메뉴를 선택하고 **묶는 방법 'Computer'**를 선택합니다.  
+레코드 메뉴의 **필터링 기준** 옵션을 선택하면 단일 속성에 대한 결과를 그룹화할 수 있습니다.  이렇게 하면 차트에 결과를 표시하는 [summarize](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator) 연산자가 쿼리에 추가됩니다.  둘 이상의 속성을 그룹화할 수는 있지만 이렇게 하려면 쿼리를 직접 편집해야 합니다.  **Computer** 속성 옆의 레코드 메뉴를 선택하고 **’컴퓨터’별로 그룹화**를 선택합니다.  
 
 ![컴퓨터를 기준으로 그룹화](media/log-analytics-log-search-log-search-portal/log-search-portal-10.png)
 

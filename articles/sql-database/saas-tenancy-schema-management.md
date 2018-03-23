@@ -1,26 +1,21 @@
 ---
-title: "다중 테넌트 앱에서 Azure SQL Database 스키마 관리 | Microsoft Docs"
-description: "Azure SQL Database를 사용하는 다중 테넌트 응용 프로그램에서 여러 테넌트에 대한 스키마 관리"
-keywords: "SQL Database 자습서"
+title: 다중 테넌트 앱에서 Azure SQL Database 스키마 관리 | Microsoft Docs
+description: Azure SQL Database를 사용하는 다중 테넌트 응용 프로그램에서 여러 테넌트에 대한 스키마 관리
+keywords: SQL Database 자습서
 services: sql-database
-documentationcenter: 
 author: stevestein
 manager: craigg
-editor: 
-ms.assetid: 
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/28/2017
-ms.author: billgib; sstein
-ms.openlocfilehash: ac60888d1464d3245bb35e2e3505b16ef4128d36
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.author: sstein
+ms.reviewer: billgib
+ms.openlocfilehash: a473e87934ba573cc22b2c248ea0398bc5a4c29b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="manage-schema-in-a-saas-application-using-the-database-per-tenant-pattern-with-azure-sql-database"></a>Azure SQL Database를 사용하여 SaaS 응용 프로그램에서 테넌트별 데이터베이스 패턴으로 스키마 관리
 

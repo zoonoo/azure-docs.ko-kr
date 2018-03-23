@@ -1,23 +1,23 @@
 ---
-title: "Azure 리소스 공급자 등록 오류 | Microsoft Docs"
-description: "Azure 리소스 공급자 등록 오류를 해결하는 방법을 설명합니다."
+title: Azure 리소스 공급자 등록 오류 | Microsoft Docs
+description: Azure 리소스 공급자 등록 오류를 해결하는 방법을 설명합니다.
 services: azure-resource-manager,azure-portal
-documentationcenter: 
+documentationcenter: ''
 author: tfitzmac
 manager: timlt
-editor: 
+editor: ''
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: support-article
-ms.date: 09/13/2017
+ms.date: 03/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: d6a99917e732a3439a31cafa5608348694014054
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 303b3ae0ee7b4baeda974d2b3c62fefa0a68796f
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="resolve-errors-for-resource-provider-registration"></a>리소스 공급자 등록 오류 해결
 
@@ -40,6 +40,8 @@ Code: MissingSubscriptionRegistration
 Message: The subscription is not registered to use namespace {resource-provider-namespace}
 ```
 
+오류 메시지는 지원되는 위치 및 API 버전에 대해 제안을 제공해야 합니다. 템플릿을 제안된 값 중 하나로 변경할 수 있습니다. 대부분의 공급자는 Azure 포털이나 사용 중인 명령줄 인터페이스에 의해 자동으로 등록되지만, 그렇지 않은 경우도 있습니다. 특정 리소스 공급자를 전에 사용하지 않은 경우 해당 공급자를 등록해야 합니다.
+
 ## <a name="cause"></a>원인
 
 세 가지 이유 중 하나로 이러한 오류가 나타납니다.
@@ -48,11 +50,7 @@ Message: The subscription is not registered to use namespace {resource-provider-
 1. 해당 리소스 종류에 대해 API 버전이 지원되지 않습니다.
 1. 해당 리소스 종류에 대해 위치가 지원되지 않습니다.
 
-## <a name="solution"></a>해결 방법
-
-오류 메시지는 지원되는 위치 및 API 버전에 대해 제안을 제공해야 합니다. 템플릿을 제안된 값 중 하나로 변경할 수 있습니다. 대부분의 공급자는 Azure 포털이나 사용 중인 명령줄 인터페이스에 의해 자동으로 등록되지만, 그렇지 않은 경우도 있습니다. 특정 리소스 공급자를 전에 사용하지 않은 경우 해당 공급자를 등록해야 합니다. PowerShell 또는 Azure CLI를 통해 리소스 공급자에 대해 자세히 확인할 수 있습니다.
-
-### <a name="solution-1"></a>해결 방법 1
+## <a name="solution-1---powershell"></a>해결 방법 1 - PowerShell
 
 PowerShell의 경우 **Get-AzureRmResourceProvider**를 사용하여 등록 상태를 확인합니다.
 
@@ -78,9 +76,7 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Cdn
 ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
 ```
 
-### <a name="solution-2"></a>해결 방법 2
-
-**Azure CLI**
+## <a name="solution-2---azure-cli"></a>해결 방법 2 - Azure CLI
 
 공급자가 등록되어 있는지 확인하려면 `az provider list` 명령을 사용합니다.
 
@@ -100,7 +96,7 @@ az provider register --namespace Microsoft.Cdn
 az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites'].locations"
 ```
 
-### <a name="solution-3"></a>해결 방법 3
+## <a name="solution-3---azure-portal"></a>해결 방법 3 - Azure Portal
 
 등록 상태를 볼 수 있으며 포털을 통해 리소스 공급자 네임스페이스를 등록할 수 있습니다.
 

@@ -1,8 +1,8 @@
 ---
-title: "Azure에서 Linux(Ubuntu) 데이터 과학 가상 컴퓨터 프로비전 | Microsoft Docs"
-description: "분석 및 기계 학습을 수행하기 위해 Azure에서 Linux(Ubuntu)용 데이터 과학 가상 컴퓨터를 구성하고 만듭니다."
+title: Azure에서 Linux(Ubuntu) 데이터 과학 Virtual Machine 프로비전 | Microsoft Docs
+description: 분석 및 기계 학습을 수행하기 위해 Azure에서 Linux(Ubuntu)용 데이터 과학 Virtual Machine을 구성하고 만듭니다.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -12,17 +12,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/04/2017
+ms.date: 03/16/2018
 ms.author: bradsev
-ms.openlocfilehash: 557eab702175b1741cdcde62045947f2c031fbcc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 721b18845a3b839d59c7eb0a04646635fa8d9fe7
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/17/2018
 ---
-# <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>Azure에서 Linux(Ubuntu)용 데이터 과학 가상 컴퓨터 프로비전
+# <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>Azure에서 Linux(Ubuntu)용 데이터 과학 Virtual Machine 프로비전
 
-Linux용 데이터 과학 가상 컴퓨터는 Azure에서 편리하게 심층 학습을 시작할 수 있도록 하는 Ubuntu 기반 가상 컴퓨터 이미지입니다. 심층 학습 도구에는 다음이 포함됩니다.
+Linux용 데이터 과학 Virtual Machine은 Azure에서 편리하게 심층 학습을 시작할 수 있도록 하는 Ubuntu 기반 가상 머신 이미지입니다. 심층 학습 도구에는 다음이 포함됩니다.
 
   * [Caffe](http://caffe.berkeleyvision.org/): 속도, 표현도 및 모듈화를 위해 구축된 심층 학습 프레임워크
   * [Caffe2](https://github.com/caffe2/caffe2): Caffe의 플랫폼 간 버전
@@ -39,7 +39,7 @@ Linux용 데이터 과학 가상 컴퓨터는 Azure에서 편리하게 심층 �
 
 모든 라이브러리는 GPU 버전이지만 CPU에서도 실행됩니다.
 
-Linux용 데이터 과학 가상 컴퓨터에는 다음을 포함하여 데이터 과학 및 개발 활동을 위한 인기 있는 도구도 포함되어 있습니다.
+Linux용 데이터 과학 Virtual Machine에는 다음을 포함하여 데이터 과학 및 개발 활동을 위한 인기 있는 도구도 포함되어 있습니다.
 
 * Microsoft R Open을 포함하는 Microsoft R Server Developer Edition
 * 널리 사용되는 데이터 분석 라이브러리를 포함한 Anaconda Python 배포(버전 2.7 및 3.5)
@@ -54,7 +54,7 @@ Linux용 데이터 과학 가상 컴퓨터에는 다음을 포함하여 데이�
   * [Rattle](http://rattle.togaware.com/): R에서 데이터 분석 및 기계 학습을 쉽게 시작할 수 있도록 하는 그래픽 도구
   * [LightGBM](https://github.com/Microsoft/LightGBM): 빠른 분산형 고성능 그라데이션 향상 프레임워크
 * Java, Python, node.js, Ruby, PHP의 Azure SDK
-* Azure 기계 학습 및 기타 Azure 서비스에서 사용하기 위한 R 및 Python의 라이브러리
+* Azure Machine Learning 및 기타 Azure 서비스에서 사용하기 위한 R 및 Python의 라이브러리
 * 개발 도구 및 편집자(RStudio, PyCharm, IntelliJ, Emacs, vim)
 
 
@@ -66,22 +66,22 @@ Linux용 데이터 과학 가상 컴퓨터에는 다음을 포함하여 데이�
 
 데이터 과학자는 다양한 도구를 사용하여 이러한 태스크를 완료합니다. 소프트웨어의 적합한 버전을 찾은 다음 다운로드하여 컴파일하고 설치하는 데 시간이 상당히 걸릴 수 있습니다.
 
-Linux용 데이터 과학 가상 컴퓨터를 사용하면 이러한 부담을 상당히 줄일 수 있습니다. Linux 데이터 과학 가상 컴퓨터를 사용하여 분석 프로젝트를 바로 시작합니다. R, Python, SQL, Java 및 C++ 등의 다양한 언어로 작업을 수행할 수 있습니다. VM에 포함된 Azure SDK를 통해 Linux의 다양한 서비스를 사용하여 Microsoft 클라우드 플랫폼용으로 응용 프로그램을 빌드할 수 있습니다. 또한 Ruby, Perl, PHP 및 node.js와 같이 미리 설치된 다른 언어에 액세스해야 합니다.
+Linux용 데이터 과학 Virtual Machine을 사용하면 이러한 부담을 상당히 줄일 수 있습니다. Linux 데이터 과학 가상 컴퓨터를 사용하여 분석 프로젝트를 바로 시작합니다. R, Python, SQL, Java 및 C++ 등의 다양한 언어로 작업을 수행할 수 있습니다. VM에 포함된 Azure SDK를 통해 Linux의 다양한 서비스를 사용하여 Microsoft 클라우드 플랫폼용으로 응용 프로그램을 빌드할 수 있습니다. 또한 Ruby, Perl, PHP 및 node.js와 같이 미리 설치된 다른 언어에 액세스해야 합니다.
 
-이 데이터 과학 VM 이미지에 대한 소프트웨어 요금은 부과되지 않습니다. 프로비전하는 가상 컴퓨터의 크기를 기반으로 평가되는 Azure 하드웨어 사용 요금만 지불합니다. 계산 요금에 대한 자세한 내용은 [Azure Marketplace의 VM 목록 페이지](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm/)를 참조하세요.
+이 데이터 과학 VM 이미지에 대한 소프트웨어 요금은 부과되지 않습니다. 프로비전하는 가상 머신의 크기를 기반으로 평가되는 Azure 하드웨어 사용 요금만 지불합니다. 계산 요금에 대한 자세한 내용은 [Azure Marketplace의 VM 목록 페이지](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm/)를 참조하세요.
 
-## <a name="other-versions-of-the-data-science-virtual-machine"></a>다른 버전의 데이터 과학 가상 컴퓨터
+## <a name="other-versions-of-the-data-science-virtual-machine"></a>다른 버전의 데이터 과학 Virtual Machine
 [CentOS](linux-dsvm-intro.md) 이미지도 Ubuntu 이미지와 같은 많은 도구와 함께 사용할 수 있습니다. [Windows](provision-vm.md) 이미지도 사용할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
-Linux용 데이터 과학 가상 컴퓨터를 만들려면 먼저 Azure 구독이 있어야 합니다. 다운로드하려면 [Azure 평가판 받기](https://azure.microsoft.com/free/)를 참조하세요.
+Linux용 데이터 과학 Virtual Machine을 만들려면 먼저 Azure 구독이 있어야 합니다. 다운로드하려면 [Azure 평가판 받기](https://azure.microsoft.com/free/)를 참조하세요.
 
-## <a name="create-your-data-science-virtual-machine-for-linux"></a>Linux용 데이터 과학 가상 컴퓨터 만들기
-Linux용 데이터 과학 가상 컴퓨터의 인스턴스를 만드는 단계는 다음과 같습니다.
+## <a name="create-your-data-science-virtual-machine-for-linux"></a>Linux용 데이터 과학 Virtual Machine 만들기
+Linux용 데이터 과학 Virtual Machine의 인스턴스를 만드는 단계는 다음과 같습니다.
 
-1. [Azure 포털](https://portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu)에서 가상 컴퓨터 목록으로 이동합니다.
+1. [Azure 포털](https://portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu)에서 가상 머신 목록으로 이동합니다.
 2. 아래의 **만들기**를 클릭하여 마법사를 실행합니다.![configure-data-science-vm](./media/dsvm-ubuntu-intro/configure-data-science-virtual-machine.png)
-3. 다음 섹션에서는 Microsoft 데이터 과학 가상 컴퓨터를 만드는 데 사용되는 마법사의 각 단계(위 그림의 오른쪽에 열거되어 있음)에 필요한 내용을 입력합니다. 다음은 이러한 각 단계를 구성하는 데 필요한 입력입니다.
+3. 다음 섹션에서는 Microsoft 데이터 과학 Virtual Machine을 만드는 데 사용되는 마법사의 각 단계(위 그림의 오른쪽에 열거되어 있음)에 필요한 내용을 입력합니다. 다음은 이러한 각 단계를 구성하는 데 필요한 입력입니다.
    
    a. **기본 사항**:
    
@@ -92,11 +92,11 @@ Linux용 데이터 과학 가상 컴퓨터의 인스턴스를 만드는 단계�
    * **리소스 그룹**: 새 그룹을 만들거나 기존 그룹을 사용할 수 있습니다.
    * **위치**: 가장 적합한 데이터 센터를 선택합니다. 이 위치는 대개 대부분의 데이터가 저장되어 있는 위치이거나 사용자의 실제 위치에 가장 가까운 위치(이 경우 네트워크에 가장 빠르게 액세스할 수 있음)입니다.
    
-   b. **크기**:
+   나. **크기**:
    
    * 기능 요구 사항과 비용 제약 조건에 부합하는 서버 유형 중 하나를 선택합니다. **모두 보기** 를 선택하면 더 많은 VM 크기 선택 항목을 확인할 수 있습니다. GPU 학습을 위한 NC 클래스 VM을 선택합니다.
    
-   c. **설정**:
+   다. **설정**:
    
    * **디스크 유형**: SSD(반도체 드라이브)를 선호하는 경우 **프리미엄**을 선택합니다. 그렇지 않은 경우에는 **표준**을 선택합니다. GPU VM에는 표준 디스크가 필요합니다.
    * **저장소 계정**: 구독에서 새 Azure Storage 계정을 만들거나, 마법사의 **기본 사항** 단계에서 선택했던 동일 위치의 기존 계정을 사용할 수 있습니다.
@@ -112,7 +112,7 @@ Linux용 데이터 과학 가상 컴퓨터의 인스턴스를 만드는 단계�
 
 프로비전에는 5-10분 정도 소요됩니다. 프로비전의 상태는 Azure 포털에 표시됩니다.
 
-## <a name="how-to-access-the-data-science-virtual-machine-for-linux"></a>Linux용 데이터 과학 가상 컴퓨터에 액세스하는 방법
+## <a name="how-to-access-the-data-science-virtual-machine-for-linux"></a>Linux용 데이터 과학 Virtual Machine에 액세스하는 방법
 VM을 만든 후 SSH를 사용하여 해당 VM에 로그인할 수 있습니다. 3단계의 **기본 사항** 섹션에서 만든 계정 자격 증명을 텍스트 셸 인터페이스용으로 사용합니다. Windows에서는 [Putty](http://www.putty.org)와 같은 SSH 클라이언트 도구를 다운로드할 수 있습니다. 그래픽 데스크톱(X Windows 시스템)을 사용하려는 경우 Putty에서 X11 전달을 사용하거나 X2Go 클라이언트를 설치할 수 있습니다.
 
 > [!NOTE]
@@ -135,7 +135,7 @@ Linux VM은 이미 X2Go 서버에 프로비전되어 있어 클라이언트 연�
 
 X2Go 클라이언트를 통해 XFCE 그래픽 데스크톱 또는 SSH 클라이언트를 사용하여 VM에 로그인하고 나면 VM에 설치 및 구성된 도구를 사용할 수 있습니다. XFCE에는 다양한 도구에 대한 응용 프로그램 메뉴 바로 가기와 바탕 화면 아이콘이 표시됩니다.
 
-## <a name="tools-installed-on-the-data-science-virtual-machine-for-linux"></a>Linux용 데이터 과학 가상 컴퓨터에 설치된 도구
+## <a name="tools-installed-on-the-data-science-virtual-machine-for-linux"></a>Linux용 데이터 과학 Virtual Machine에 설치된 도구
 ### <a name="deep-learning-libraries"></a>심층 학습 라이브러리
 
 #### <a name="cntk"></a>CNTK
@@ -192,7 +192,7 @@ R 콘솔을 시작하려면 셸에서 **R**만 입력하면 됩니다. 이렇게
 
 또한 원하는 경우 [상위 20개 R 패키지](http://www.kdnuggets.com/2015/06/top-20-r-packages.html) 를 설치하기 위해 R 스크립트를 사용할 수도 있습니다. 앞에서 설명한 것처럼 R 대화형 인터페이스를 표시한 다음 셸에 **R** 을 입력하여 이 스크립트를 실행할 수 있습니다.  
 
-### <a name="python"></a>Python
+### <a name="python"></a>파이썬
 Python을 사용하여 개발하는 경우를 위해, Anaconda Python 배포 2.7 및 3.5가 설치되었습니다. 이 배포 버전에는 약 300개의 가장 인기 있는 수학, 엔지니어링 및 데이터 분석 패키지와 함께 기본 Python이 포함되어 있습니다. 기본 텍스트 편집기를 사용할 수 있습니다. 또한 Anaconda Python 배포에 번들로 포함된 Python IDE인 Spyder를 사용할 수도 있습니다. Spyder를 사용하려면 그래픽 데스크톱 또는 X11 전달이 필요합니다. 그래픽 데스크톱에 Spyder에 대한 바로 가기가 제공됩니다.
 
 Python은 2.7 및 3.5 버전이 있으므로 현재 세션에서 작업하려는 Python 버전(conda 환경)을 활성화해야 합니다. 활성화 프로세스는 PATH 변수를 원하는 Python 버전으로 설정합니다.
@@ -212,10 +212,10 @@ Python 3.5는 */anaconda/envs/py35/bin*에 설치됩니다.
 
 Python 대화형 세션을 호출하려는 경우 셸에 **python** 만 입력하면 됩니다. 그래픽 인터페이스를 사용 중이거나 X11 전달이 설정된 경우 **pycharm**을 입력하면 PyCharm Python IDE를 시작할 수 있습니다.
 
-추가 Python 라이브러리를 설치하려면 sudo에서 ```conda``` 또는 ````pip```` 명령을 실행하고 Python 패키지 관리자(conda 또는 pip)의 전체 경로를 제공하여 올바른 Python 환경을 설치해야 합니다. 예:
+추가 Python 라이브러리를 설치하려면 sudo에서 ```conda``` 또는 ````pip```` 명령을 실행하고 Python 패키지 관리자(conda 또는 pip)의 전체 경로를 제공하여 올바른 Python 환경을 설치해야 합니다. 예: 
 
-    sudo /anaconda/bin/pip install <package> #for Python 2.7 environment
-    sudo /anaconda/envs/py35/bin/pip install <package> # for Python 3.5 environment
+    sudo /anaconda/bin/pip install -n <package> #for Python 2.7 environment
+    sudo /anaconda/envs/py35/bin/pip install -n <package> # for Python 3.5 environment
 
 
 ### <a name="jupyter-notebook"></a>Jupyter Notebook
@@ -302,7 +302,7 @@ R 및 Python에는 데이터베이스에 액세스하는 데 사용할 수 있�
 다음 Azure 도구가 VM에 설치됩니다.
 
 * **Azure 명령줄 인터페이스**: Azure CLI를 사용하여 셸 명령을 통해 Azure 리소스를 만들고 관리할 수 있습니다. Azure 도구를 호출하려는 경우 **azure help**만 입력하면 됩니다. 자세한 내용은 [Azure CLI 설명서 페이지](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)를 참조하세요.
-* **Microsoft Azure 저장소 탐색기**: Microsoft Azure 저장소 탐색기는 Azure 저장소 계정에 저장한 개체를 찾아보고 Azure Blob에서 데이터를 업로드 및 다운로드하는 데 사용되는 그래픽 도구입니다. 바탕 화면 바로 가기 아이콘을 사용하여 Storage Explorer에 액세스할 수 있습니다. **StorageExplorer**를 입력하면 셸 프롬프트에서 Storage Explorer를 호출할 수 있습니다. 이렇게 하려면 X2Go 클라이언트에서 로그인하거나 X11 전달을 설정해야 합니다.
+* **Microsoft Azure Storage 탐색기**: Microsoft Azure Storage 탐색기는 Azure Storage 계정에 저장한 개체를 찾아보고 Azure Blob에서 데이터를 업로드 및 다운로드하는 데 사용되는 그래픽 도구입니다. 바탕 화면 바로 가기 아이콘을 사용하여 Storage Explorer에 액세스할 수 있습니다. **StorageExplorer**를 입력하면 셸 프롬프트에서 Storage Explorer를 호출할 수 있습니다. 이렇게 하려면 X2Go 클라이언트에서 로그인하거나 X11 전달을 설정해야 합니다.
 * **Azure 라이브러리**: 아래에는 미리 설치된 라이브러리 중 몇 가지가 나와 있습니다.
   
   * **Python**: Python으로 작성된 Azure 관련 라이브러리 **azure**, **azureml**, **pydocumentdb** 및 **pyodbc**가 설치되어 있습니다. 처음 세 개의 라이브러리를 사용하면 Azure Storage 서비스, Azure Machine Learning 및 Azure Cosmos DB(Azure의 NoSQL 데이터베이스)에 액세스할 수 있습니다. 네 번째 라이브러리인 pyodbc를 SQL Serve용 Microsoft ODBC 드라이버와 함께 사용하면 ODBC 인터페이스를 사용하여 Python에서 SQL Server, Azure SQL Database 및 Azure SQL Data Warehouse에 액세스할 수 있습니다. **pip list** 를 입력하면 나열된 라이브러리를 모두 확인할 수 있습니다. Python 2.7 및 3.5 환경 모두에서 이 명령을 실행해야 합니다.
@@ -311,14 +311,14 @@ R 및 Python에는 데이터베이스에 액세스하는 데 사용할 수 있�
 
 미리 설치된 Firefox 브라우저에서 [Azure 포털](https://portal.azure.com) 에 액세스할 수 있습니다. Azure 포털에서 Azure 리소스를 작성, 관리 및 모니터링할 수 있습니다.
 
-### <a name="azure-machine-learning"></a>Azure 기계 학습
-Azure Machine Learning은 예측 분석 솔루션을 빌드, 배포 및 공유할 수 있는 완전 관리형 클라우드 서비스입니다. Azure Machine Learning Studio에서 실험 및 모델을 빌드합니다. 데이터 과학 가상 컴퓨터의 웹 브라우저에서 [Microsoft Azure 기계 학습](https://studio.azureml.net)을 방문하여 액세스할 수도 있습니다.
+### <a name="azure-machine-learning"></a>Azure Machine Learning
+Azure Machine Learning은 예측 분석 솔루션을 빌드, 배포 및 공유할 수 있는 완전 관리형 클라우드 서비스입니다. Azure Machine Learning Studio에서 실험 및 모델을 빌드합니다. 데이터 과학 Virtual Machine의 웹 브라우저에서 [Microsoft Azure Machine Learning](https://studio.azureml.net)을 방문하여 액세스할 수도 있습니다.
 
 Azure Machine Learning Studio에 로그인하고 나면 Machine Learning 알고리즘용 논리적 흐름을 빌드할 수 있는 실험 캔버스에 액세스할 수 있습니다. 또한 Azure Machine Learning에서 호스트되는 Jupyter Notebook에도 액세스할 수 있으며, Machine Learning Studio의 실험을 원활하게 진행할 수 있습니다. 빌드한 기계 학습 모델은 웹 서비스 인터페이스에 래핑하여 운용 가능하도록 설정합니다. 이렇게 하면 모든 언어로 작성된 클라이언트가 기계 학습 모델에서 예측을 호출할 수 있습니다. 자세한 내용은 [Machine Learning 설명서](https://azure.microsoft.com/documentation/services/machine-learning/)를 참조하세요.
 
 VM에서 R 또는 Python으로 모델을 빌드한 다음 Azure Machine Learning에서 프로덕션 환경으로 배포할 수도 있습니다. R 및 Python에는 이 기능을 사용하는 데 필요한 라이브러리(각각 **AzureML**과 **azureml**)가 설치되어 있습니다.
 
-R 및 Python으로 작성된 모델을 Azure Machine Learning에 배포하는 방법에 대한 자세한 내용은 [데이터 과학 가상 컴퓨터에서 수행할 수 있는 10가지 작업](vm-do-ten-things.md) , 특히 "R 또는 Python을 사용하여 모델을 빌드하고 Azure Machine Learning을 사용하여 운용 가능하도록 설정" 섹션을 참조하세요.
+R 및 Python으로 작성된 모델을 Azure Machine Learning에 배포하는 방법에 대한 자세한 내용은 [데이터 과학 Virtual Machine에서 수행할 수 있는 10가지 작업](vm-do-ten-things.md) , 특히 "R 또는 Python을 사용하여 모델을 빌드하고 Azure Machine Learning을 사용하여 운용 가능하도록 설정" 섹션을 참조하세요.
 
 > [!NOTE]
 > 이러한 지침은 데이터 과학 VM의 Windows 버전에 대해 작성되었습니다. 하지만 Azure Machine Learning에 모델을 배포하는 방법에 대해 제공되는 정보는 Linux VM에도 적용할 수 있습니다.
@@ -412,8 +412,8 @@ Rattle을 실행하려면 그래픽 데스크톱 로그인 세션을 사용 중�
 ## <a name="next-steps"></a>다음 단계
 학습과 탐색을 계속하는 방법은 다음과 같습니다.
 
-* [Linux용 데이터 과학 가상 컴퓨터의 데이터 과학](linux-dsvm-walkthrough.md) 연습은 여기에 프로비전된 Linux 데이터 과학을 사용하여 여러 가지 일반적인 데이터 과학 작업을 수행하는 방법을 보여 줍니다. 
-* 이 문서에 설명된 도구를 사용하여 데이터 과학 VM에서 다양한 데이터 과학 도구를 살펴봅니다. 가상 컴퓨터 내의 셸에서 *dsvm-more-info* 를 실행하여 VM에 설치된 도구에 대한 기본 소개 및 자세한 내용을 참조할 수도 있습니다.  
+* [Linux용 데이터 과학 Virtual Machine의 데이터 과학](linux-dsvm-walkthrough.md) 연습은 여기에 프로비전된 Linux 데이터 과학을 사용하여 여러 가지 일반적인 데이터 과학 작업을 수행하는 방법을 보여 줍니다. 
+* 이 문서에 설명된 도구를 사용하여 데이터 과학 VM에서 다양한 데이터 과학 도구를 살펴봅니다. 가상 머신 내의 셸에서 *dsvm-more-info* 를 실행하여 VM에 설치된 도구에 대한 기본 소개 및 자세한 내용을 참조할 수도 있습니다.  
 * [팀 데이터 과학 프로세스](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)를 사용하여 종단 간 분석 솔루션을 체계적으로 구축하는 방법을 알아봅니다.
 * [Cortana 분석 갤러리](http://gallery.cortanaanalytics.com) 를 방문하여 Cortana 분석 Suite을 사용하는 기계 학습 및 데이터 분석 샘플을 확인합니다.
 

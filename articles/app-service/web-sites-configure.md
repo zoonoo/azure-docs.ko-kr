@@ -1,11 +1,11 @@
 ---
-title: "Azure App Service에서 웹앱 구성"
-description: "Azure App Services에서 웹앱을 구성 하는 방법"
+title: Azure App Service에서 웹앱 구성
+description: Azure App Services에서 웹앱을 구성 하는 방법
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.service: app-service
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
-ms.openlocfilehash: 3f735b8742f22110b4de264bfb5661651a899afb
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 58c27c0872978c3a6a4c47be37e6fa6078309286
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>Azure App Service에서 웹앱 구성
 
@@ -129,12 +129,12 @@ PHP, Python, Java 및 Node 응용 프로그램에서는 런타임에 이러한 �
 
 ## <a name="other-configuration-tasks"></a>기타 구성 작업
 ### <a name="ssl"></a>SSL
-기본 또는 표준 모드에서는 사용자 지정 도메인에 대해 SSL 인증서를 업로드할 수 있습니다. 자세한 내용은 [웹 앱에 대한 HTTPS 사용]을 참조하세요. 
+기본 또는 표준 모드에서는 사용자 지정 도메인에 대해 SSL 인증서를 업로드할 수 있습니다. 자세한 내용은 [웹앱에 대해 HTTPS 사용](app-service-web-tutorial-custom-ssl.md)을 참조하세요. 
 
 업로드된 인증서를 보려면 **모든 설정** > **사용자 지정 도메인 및 SSL**을 사용하여 웹앱을 구성하는 방법을 설명합니다.
 
 ### <a name="domain-names"></a>도메인 이름
-웹 앱에 대한 사용자 지정 도메인 이름을 추가합니다. 자세한 내용은 [Azure App Service에서 웹앱에 대한 사용자 지정 도메인 이름 구성]을 참조하세요.
+웹 앱에 대한 사용자 지정 도메인 이름을 추가합니다. 자세한 내용은 [Azure App Service에서 웹앱에 대한 사용자 지정 도메인 이름 구성](app-service-web-tutorial-custom-domain.md)을 참조하세요.
 
 도메인 이름을 보려면 **모든 설정** > **사용자 지정 도메인 및 SSL**을 사용하여 웹앱을 구성하는 방법을 설명합니다.
 

@@ -1,12 +1,12 @@
 ---
-title: "Windows용 Azure Performance Diagnostics VM 확장 | Microsoft Docs"
-description: "Windows용 Azure Performance Diagnostics VM 확장을 소개합니다."
+title: Windows용 Azure Performance Diagnostics VM 확장 | Microsoft Docs
+description: Windows용 Azure Performance Diagnostics VM 확장을 소개합니다.
 services: virtual-machines-windows'
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: cshepard
 editor: na
-tags: 
+tags: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/29/2017
 ms.author: genli
-ms.openlocfilehash: 5a7dc313f1d6453562e4d5a11ceca03e4459b043
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 8f6f3fc8325fb2587dc09b982efa52fbe663e2a9
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Windows용 Azure Performance Diagnostics VM 확장
 
@@ -29,7 +29,7 @@ Azure 성능 진단 VM 확장을 통해 Windows VM의 성능 진단 데이터를
 이 확장은 Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 및 Windows Server 2016에 설치될 수 있습니다. Windows 8.1 및 Windows 10에 설치할 수도 있습니다.
 
 ## <a name="extension-schema"></a>확장 스키마
-다음 JSON은 Azure 성능 진단 VM 확장에 대한 스키마를 나타냅니다. 이 확장에는 진단 출력과 보고서를 저장하기 위해 저장소 계정의 이름과 키가 필요합니다. 이 값은 중요하며 보호되는 설정 구성 안에 저장되어야 합니다. Azure VM 확장으로 보호되는 설정 데이터는 암호화되어 대상 가상 머신에서만 해독됩니다. **storageAccountName** 및 **storageAccountKey**는 대소문자를 구분합니다. 다른 필수 매개 변수는 다음 섹션에 나열됩니다.
+다음 JSON은 Azure 성능 진단 VM 확장에 대한 스키마를 나타냅니다. 이 확장에는 진단 출력과 보고서를 저장하기 위해 저장소 계정의 이름과 키가 필요합니다. 이러한 값은 중요합니다. 저장소 계정 키는 보호되는 설정 구성 안에 저장되어야 합니다. Azure VM 확장으로 보호되는 설정 데이터는 암호화되어 대상 가상 머신에서만 해독됩니다. **storageAccountName** 및 **storageAccountKey**는 대소문자를 구분합니다. 다른 필수 매개 변수는 다음 섹션에 나열됩니다.
 
 ```JSON
     {
@@ -43,19 +43,19 @@ Azure 성능 진단 VM 확장을 통해 Windows VM의 성능 진단 데이터를
         "typeHandlerVersion": "1.0",
         "autoUpgradeMinorVersion": true,
         "settings": {
+            "storageAccountName": "[parameters('storageAccountName')]",
             "performanceScenario": "[parameters('performanceScenario')]",
-                  "traceDurationInSeconds": "[parameters('traceDurationInSeconds')]",
-                  "perfCounterTrace": "[parameters('perfCounterTrace')]",
-                  "networkTrace": "[parameters('networkTrace')]",
-                  "xperfTrace": "[parameters('xperfTrace')]",
-                  "storPortTrace": "[parameters('storPortTrace')]",
+            "traceDurationInSeconds": "[parameters('traceDurationInSeconds')]",
+            "perfCounterTrace": "[parameters('perfCounterTrace')]",
+            "networkTrace": "[parameters('networkTrace')]",
+            "xperfTrace": "[parameters('xperfTrace')]",
+            "storPortTrace": "[parameters('storPortTrace')]",
             "srNumber": "[parameters('srNumber')]",
             "requestTimeUtc":  "[parameters('requestTimeUtc')]"
         },
-          "protectedSettings": {
-            "storageAccountName": "[parameters('storageAccountName')]",
+        "protectedSettings": {
             "storageAccountKey": "[parameters('storageAccountKey')]"        
-            }
+        }
       }
     }
 ```
@@ -75,12 +75,13 @@ Azure 성능 진단 VM 확장을 통해 Windows VM의 성능 진단 데이터를
 |xperfTrace|x|XPerf 추적을 사용하는 옵션. 유효한 값은 **x** 또는 빈 값입니다. 이 추적을 캡처하지 않을 경우 빈 값으로 둡니다.
 |storPortTrace|s|StorPort 추적을 사용하는 옵션. 유효한 값은 **s** 또는 빈 값입니다. 이 추적을 캡처하지 않을 경우 빈 값으로 둡니다.
 |srNumber|123452016365929|사용 가능한 경우 지원 티켓 번호입니다. 값이 없으면 비워 둡니다.
+|requestTimeUtc|2017-09-28T22:08:53.736Z|현재 날짜 시간(UTC). 포털을 사용하여 이 확장을 설치하는 경우 이 값을 제공하지 않아도 됩니다.
 |storageAccountName|mystorageaccount|진단 로그 및 결과를 저장할 저장소 계정의 이름입니다.
 |storageAccountKey|lDuVvxuZB28NNP…hAiRF3voADxLBTcc==|저장소 계정의 키입니다.
 
 ## <a name="install-the-extension"></a>확장 설치
 
-Windows 가상 머신에서 확장을 설치하려면 다음 단계를 따릅니다.
+Windows 가상 머신에서 확장을 설치하려면 다음 지침을 따릅니다.
 
 1. [Azure 포털](http://portal.azure.com)에 로그인합니다.
 2. 이 확장을 설치하려는 가상 컴퓨터를 선택합니다.
@@ -182,19 +183,19 @@ Azure Resource Manager 템플릿을 사용하여 Azure 가상 머신 확장을 �
         "typeHandlerVersion": "1.0",
         "autoUpgradeMinorVersion": true,
         "settings": {
+            "storageAccountName": "[parameters('storageAccountName')]",
             "performanceScenario": "[parameters('performanceScenario')]",
-                  "traceDurationInSeconds": "[parameters('traceDurationInSeconds')]",
-                  "perfCounterTrace": "[parameters('perfCounterTrace')]",
-                  "networkTrace": "[parameters('networkTrace')]",
-                  "xperfTrace": "[parameters('xperfTrace')]",
-                  "storPortTrace": "[parameters('storPortTrace')]",
+            "traceDurationInSeconds": "[parameters('traceDurationInSeconds')]",
+            "perfCounterTrace": "[parameters('perfCounterTrace')]",
+            "networkTrace": "[parameters('networkTrace')]",
+            "xperfTrace": "[parameters('xperfTrace')]",
+            "storPortTrace": "[parameters('storPortTrace')]",
             "srNumber": "[parameters('srNumber')]",
             "requestTimeUtc":  "[parameters('requestTimeUtc')]"
         },
-          "protectedSettings": {
-            "storageAccountName": "[parameters('storageAccountName')]",
+        "protectedSettings": {            
             "storageAccountKey": "[parameters('storageAccountKey')]"        
-            }
+        }
       }
     }
   ]
@@ -202,13 +203,13 @@ Azure Resource Manager 템플릿을 사용하여 Azure 가상 머신 확장을 �
 ````
 
 ## <a name="powershell-deployment"></a>PowerShell 배포
-`Set-AzureRmVMExtension` 명령을 사용하여 Azure 성능 진단 VM 확장을 기존 가상 머신에 배포할 수 있습니다. 명령을 실행하기 전에 PowerShell 해시 테이블에 공용 및 개인 구성을 저장합니다.
+`Set-AzureRmVMExtension` 명령을 사용하여 Azure 성능 진단 VM 확장을 기존 가상 머신에 배포할 수 있습니다.
 
 PowerShell
 
 ````
-$PublicSettings = @{ "performanceScenario":"basic","traceDurationInSeconds":300,"perfCounterTrace":"p","networkTrace":"","xperfTrace":"","storPortTrace":"","srNumber":"","requestTimeUtc":"2017-09-28T22:08:53.736Z" }
-$ProtectedSettings = @{"storageAccountName":"mystorageaccount","storageAccountKey":"mystoragekey"}
+$PublicSettings = @{ "storageAccountName"="mystorageaccount";"performanceScenario"="basic";"traceDurationInSeconds"=300;"perfCounterTrace"="p";"networkTrace"="";"xperfTrace"="";"storPortTrace"="";"srNumber"="";"requestTimeUtc"="2017-09-28T22:08:53.736Z" }
+$ProtectedSettings = @{"storageAccountKey"="mystoragekey" }
 
 Set-AzureRmVMExtension -ExtensionName "AzurePerformanceDiagnostics" `
     -ResourceGroupName "myResourceGroup" `
@@ -218,7 +219,7 @@ Set-AzureRmVMExtension -ExtensionName "AzurePerformanceDiagnostics" `
     -TypeHandlerVersion 1.0 `
     -Settings $PublicSettings `
     -ProtectedSettings $ProtectedSettings `
-    -Location WestUS `
+    -Location WestUS
 ````
 
 ## <a name="information-on-the-data-captured"></a>수집된 데이터에 대한 정보

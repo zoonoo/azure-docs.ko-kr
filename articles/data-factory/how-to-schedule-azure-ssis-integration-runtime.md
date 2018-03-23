@@ -1,23 +1,23 @@
 ---
-title: "Azure SSIS 통합 런타임을 예약하는 방법 | Microsoft Docs"
-description: "이 문서에서는 Azure Automation 및 Data Factory를 사용하여 Azure SSIS 통합 런타임의 시작 및 중지를 예약하는 방법을 설명합니다."
+title: Azure SSIS 통합 런타임을 예약하는 방법 | Microsoft Docs
+description: 이 문서에서는 Azure Automation 및 Data Factory를 사용하여 Azure SSIS 통합 런타임의 시작 및 중지를 예약하는 방법을 설명합니다.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: douglaslMS
 manager: jhubbard
-editor: 
+editor: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: article
 ms.date: 01/25/2018
 ms.author: douglasl
-ms.openlocfilehash: 522e9b6831c31a90337126380ccc9f2cb6d8713b
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 5a9d1ba4d72bc6d4b297695c478438079d34c6e7
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="how-to-schedule-starting-and-stopping-of-an-azure-ssis-integration-runtime"></a>Azure SSIS 통합 런타임의 시작 및 중지를 예약하는 방법 
 Azure SSIS(SQL Server Integration Services) IR(통합 런타임)을 실행할 때는 비용이 발생합니다. 따라서 Azure에서 SSIS 패키지를 실행해야 할 때만 IR을 실행하고 필요하지 않을 때는 중지할 수 있습니다. Data Factory UI 또는 Azure PowerShell을 사용하여 [Azure SSIS IR을 수동으로 시작 또는 중지 ](manage-azure-ssis-integration-runtime.md)할 수 있습니다. 이 문서에서는 Azure Automation 및 Azure Data Factory를 사용하여 Azure SSIS IR(통합 런타임)의 시작 및 중지를 예약하는 방법을 설명합니다. 이 문서에서 설명하는 개략적인 단계는 다음과 같습니다.
@@ -25,7 +25,7 @@ Azure SSIS(SQL Server Integration Services) IR(통합 런타임)을 실행할 �
 1. **Azure Automation Runbook 만들기 및 테스트.** 이 단계에서는 Azure SSIS IR을 시작하거나 중지하는 스크립트를 사용하여 PowerShell Runbook을 만듭니다. 그런 다음 START 및 STOP 시나리오에서 Runbook을 테스트하고 IR이 시작 또는 중지되는지 확인합니다. 
 2. **Runbook에 대한 2가지 일정 만들기.** 첫 번째 일정에서는 작업으로 START를 사용해서 Runbook을 구성합니다. 두 번째 일정에서는 작업으로 STOP을 사용해서 Runbook을 구성합니다. 두 일정에 대해 Runbook이 실행되는 케이던스를 지정합니다. 예를 들어, 첫 번째 Runbook은 매일 오전 8시에 실행되고, 두 번째 Runbook은 매일 오후 11시에 실행되도록 예약할 수 있습니다. 첫 번째 Runbook이 실행될 때 Azure SSIS IR이 시작됩니다. 두 번째 Runbook이 실행될 때 Azure SSIS IR이 중지됩니다. 
 3. START 작업 및 STOP 작업에 대해 하나씩 **Runbook에 대한 2개의 웹후크 만들기**. Data Factory 파이프라인에서 웹 작업을 구성할 때 이러한 웹후크의 URL을 사용합니다. 
-4. **Data Factory 파이프라인 만들기**. 만드는 파이프라인은 4가지 작업으로 구성됩니다. 첫 번째 **웹** 작업은 Azure SSIS IR을 시작하는 첫 번째 웹후크를 호출합니다. **대기** 작업은 Azure SSIS IR이 시작될 때까지 30분(1,800초) 동안 대기합니다. **저장 프로시저** 작업은 SSIS 패키지를 실행하는 SQL 스크립트를 실행합니다. 두 번째 **웹** 작업은 Azure SSIS IR을 중지합니다. 저장 프로시저 작업을 사용하여 Data Factory 파이프라인에서 SSIS 패키지를 호출하는 방법에 대한 자세한 내용은 [SSIS 패키지 호출](how-to-invoke-ssis-package-stored-procedure-activity.md)을 참조하세요. 그런 다음 지정한 케이던스에 파이프라인이 실행되도록 예약하는 일정 트리거를 만듭니다.
+4. **Data Factory 파이프라인 만들기**. 만드는 파이프라인은 세 가지 활동으로 구성됩니다. 첫 번째 **웹** 작업은 Azure SSIS IR을 시작하는 첫 번째 웹후크를 호출합니다. **저장 프로시저** 작업은 SSIS 패키지를 실행하는 SQL 스크립트를 실행합니다. 두 번째 **웹** 작업은 Azure SSIS IR을 중지합니다. 저장 프로시저 작업을 사용하여 Data Factory 파이프라인에서 SSIS 패키지를 호출하는 방법에 대한 자세한 내용은 [SSIS 패키지 호출](how-to-invoke-ssis-package-stored-procedure-activity.md)을 참조하세요. 그런 다음 지정한 케이던스에 파이프라인이 실행되도록 예약하는 일정 트리거를 만듭니다.
 
 > [!NOTE]
 > 이 문서는 현재 미리 보기 상태인 Data Factory 버전 2에 적용됩니다. GA(일반 공급) 상태인 Data Factory 버전 1 서비스를 사용 중인 경우 [버전 1에서 저장 프로시저 작업을 사용하여 SSIS 패키지 호출](v1/how-to-invoke-ssis-package-stored-procedure-activity.md)을 참조하세요.
@@ -223,12 +223,11 @@ Azure Automation 계정이 없는 경우 이 단계의 지침에 따라 하나 �
 ## <a name="create-and-schedule-a-data-factory-pipeline-that-startsstops-the-ir"></a>IR을 시작/중지하는 Data Factory 파이프라인 만들기 및 예약
 이 섹션에서는 웹 작업을 사용하여 이전 섹션에서 만든 웹후크를 호출하는 방법을 보여 줍니다.
 
-만드는 파이프라인은 4가지 작업으로 구성됩니다. 
+만드는 파이프라인은 세 가지 활동으로 구성됩니다. 
 
 1. 첫 번째 **웹** 작업은 Azure SSIS IR을 시작하는 첫 번째 웹후크를 호출합니다. 
-2. **대기** 작업은 Azure SSIS IR이 시작될 때까지 30분(1,800초) 동안 대기합니다. 
-3. **저장 프로시저** 작업은 SSIS 패키지를 실행하는 SQL 스크립트를 실행합니다. 두 번째 **웹** 작업은 Azure SSIS IR을 중지합니다. 저장 프로시저 작업을 사용하여 Data Factory 파이프라인에서 SSIS 패키지를 호출하는 방법에 대한 자세한 내용은 [SSIS 패키지 호출](how-to-invoke-ssis-package-stored-procedure-activity.md)을 참조하세요. 
-4. 두 번째 **웹** 작업은 Azure SSIS IR을 중지하는 웹후크를 호출합니다. 
+2. **저장 프로시저** 작업은 SSIS 패키지를 실행하는 SQL 스크립트를 실행합니다. 두 번째 **웹** 작업은 Azure SSIS IR을 중지합니다. 저장 프로시저 작업을 사용하여 Data Factory 파이프라인에서 SSIS 패키지를 호출하는 방법에 대한 자세한 내용은 [SSIS 패키지 호출](how-to-invoke-ssis-package-stored-procedure-activity.md)을 참조하세요. 
+3. 두 번째 **웹** 작업은 Azure SSIS IR을 중지하는 웹후크를 호출합니다. 
 
 이 파이프라인을 만들고 테스트한 후에는 일정 트리거를 만들고 파이프라인과 연결합니다. 일정 트리거는 파이프라인에 대한 일정을 정의합니다. 매일 오후 11시에 실행되도록 예약된 트리거를 만든다고 가정해보겠습니다. 이 트리거는 매일 오후 11시에 파이프라인을 실행합니다. 이 파이프라인은 Azure SSIS IR을 시작하고, SSIS 패키지를 실행한 후 Azure SSIS IR을 중지합니다. 
 
@@ -279,11 +278,6 @@ Azure Automation 계정이 없는 경우 이 단계의 지침에 따라 하나 �
     3. **본문**에 `{"message":"hello world"}`를 입력합니다. 
    
         ![첫 번째 웹 작업 - 설정 탭](./media/how-to-schedule-azure-ssis-integration-runtime/first-web-activity-settnigs-tab.png)
-4. **작업** 도구 상자에서 **반복 및 조건**을 펼치고, **대기** 작업을 파이프라인 디자이너 화면으로 끌어서 놓습니다. **일반** 탭에서 해당 작업의 이름을 **WaitFor30Minutes**로 변경합니다. 
-5. **속성** 창의 **설정** 탭으로 전환합니다. **대기 시간(초)**에 **1800**을 입력합니다. 
-6. **웹** 작업 및 **대기** 작업을 연결합니다. 이러한 작업을 연결하려면 웹 작업에 연결된 녹색 사각형 상자를 대기 작업으로 끌어옵니다. 
-
-    ![웹 및 대기 연결](./media/how-to-schedule-azure-ssis-integration-runtime/connect-web-wait.png)
 5. **작업** 도구 모음의 **일반** 섹션에서 저장 프로시저 작업을 끌어서 놓습니다. 작업 이름을 **RunSSISPackage**로 설정합니다. 
 6. **속성** 창의 **SQL 계정** 탭으로 전환합니다. 
 7. **연결된 서비스**에 대해 **+ 새로 만들기**를 클릭합니다.
@@ -296,7 +290,7 @@ Azure Automation 계정이 없는 경우 이 단계의 지침에 따라 하나 �
     5. **암호**에 대해 사용자의 암호를 입력합니다. 
     6. **연결 테스트** 단추를 클릭하여 데이터베이스에 대한 연결을 테스트합니다.
     7. **저장** 단추를 클릭하여 연결된 서비스를 저장합니다.
-1. **속성** 창의 **SQL 계정** 탭에서**저장 프로시저** 탭으로 전환한 후 다음 단계를 수행합니다. 
+9. **속성** 창의 **SQL 계정** 탭에서**저장 프로시저** 탭으로 전환한 후 다음 단계를 수행합니다. 
 
     1. **저장 프로시저 이름**에 대해 **편집** 옵션을 선택하고 **sp_executesql**을 입력합니다. 
     2. **저장 프로시저 매개 변수** 섹션에서 **+ 새로 만들기**를 선택합니다. 
@@ -307,12 +301,37 @@ Azure Automation 계정이 없는 경우 이 단계의 지침에 따라 하나 �
         SQL 쿼리에서 **folder_name**, **project_name** 및 **package_name** 매개 변수의 올바른 값을 지정합니다. 
 
         ```sql
-        DECLARE @return_value INT, @exe_id BIGINT, @err_msg NVARCHAR(150)    EXEC @return_value=[SSISDB].[catalog].[create_execution] @folder_name=N'<FOLDER name in SSIS Catalog>', @project_name=N'<PROJECT name in SSIS Catalog>', @package_name=N'<PACKAGE name>.dtsx', @use32bitruntime=0, @runinscaleout=1, @useanyworker=1, @execution_id=@exe_id OUTPUT    EXEC [SSISDB].[catalog].[set_execution_parameter_value] @exe_id, @object_type=50, @parameter_name=N'SYNCHRONIZED', @parameter_value=1    EXEC [SSISDB].[catalog].[start_execution] @execution_id=@exe_id, @retry_count=0    IF(SELECT [status] FROM [SSISDB].[catalog].[executions] WHERE execution_id=@exe_id)<>7 BEGIN SET @err_msg=N'Your package execution did not succeed for execution ID: ' + CAST(@exe_id AS NVARCHAR(20)) RAISERROR(@err_msg,15,1) END   
-        ```
-10. **대기** 작업을 **저장 프로시저** 작업에 연결합니다. 
+        DECLARE       @return_value int, @exe_id bigint, @err_msg nvarchar(150)
 
-    ![대기 및 저장 프로시저 작업 연결](./media/how-to-schedule-azure-ssis-integration-runtime/connect-wait-sproc.png)
-11. **웹** 작업을 **저장 프로시저** 작업 오른쪽으로 끌어서 놓습니다. 작업 이름을 **StopIR**로 설정합니다. 
+        -- Wait until Azure-SSIS IR is started
+        WHILE NOT EXISTS (SELECT * FROM [SSISDB].[catalog].[worker_agents] WHERE IsEnabled = 1 AND LastOnlineTime > DATEADD(MINUTE, -10, SYSDATETIMEOFFSET()))
+        BEGIN
+            WAITFOR DELAY '00:00:01';
+        END
+
+        EXEC @return_value = [SSISDB].[catalog].[create_execution] @folder_name=N'YourFolder',
+            @project_name=N'YourProject', @package_name=N'YourPackage',
+            @use32bitruntime=0, @runincluster=1, @useanyworker=1,
+            @execution_id=@exe_id OUTPUT 
+
+        EXEC [SSISDB].[catalog].[set_execution_parameter_value] @exe_id, @object_type=50, @parameter_name=N'SYNCHRONIZED', @parameter_value=1
+
+        EXEC [SSISDB].[catalog].[start_execution] @execution_id = @exe_id, @retry_count = 0
+
+        -- Raise an error for unsuccessful package execution, check package execution status = created (1)/running (2)/canceled (3)/failed (4)/
+        -- pending (5)/ended unexpectedly (6)/succeeded (7)/stopping (8)/completed (9) 
+        IF (SELECT [status] FROM [SSISDB].[catalog].[executions] WHERE execution_id = @exe_id) <> 7 
+        BEGIN
+            SET @err_msg=N'Your package execution did not succeed for execution ID: '+ CAST(@execution_id as nvarchar(20))
+            RAISERROR(@err_msg, 15, 1)
+        END
+
+        ```
+10. **웹** 활동을 **저장 프로시저** 활동에 연결합니다. 
+
+    ![웹 및 저장 프로시저 활동 연결](./media/how-to-schedule-azure-ssis-integration-runtime/connect-web-sproc.png)
+
+11. 다른 **웹** 활동을 **저장 프로시저** 활동의 오른쪽으로 끌어서 놓습니다. 작업 이름을 **StopIR**로 설정합니다. 
 12. **속성** 창에서 **설정** 탭으로 전환하고 다음 작업을 수행합니다. 
 
     1. **URL**에 Azure SSIS IR을 중지하는 웹후크의 URL을 붙여 넣습니다. 
@@ -372,7 +391,7 @@ Azure Automation 계정이 없는 경우 이 단계의 지침에 따라 하나 �
 6. 트리거 실행 및 파이프라인 실행을 모니터링하려면 왼쪽의 **모니터링** 탭을 사용합니다. 자세한 내용은 [파이프라인 모니터링](quickstart-create-data-factory-portal.md#monitor-the-pipeline)을 참조하세요.
 
     ![파이프라인 실행](./media/how-to-schedule-azure-ssis-integration-runtime/pipeline-runs.png)
-7. 파이프라인 실행과 연결된 작업 실행을 보려면 **작업** 열에서 첫 번째 링크(**작업 실행 보기**)를 선택합니다. 파이프라인의 각 작업와 관련된 4가지 작업 실행(첫 번째 웹 작업, 대기 작업, 저장 프로시저 작업 및 두 번째 웹 작업)이 표시됩니다. 되돌아가서 파이프라인 실행을 보려면 위쪽의 **파이프라인** 링크를 선택합니다.
+7. 파이프라인 실행과 연결된 작업 실행을 보려면 **작업** 열에서 첫 번째 링크(**작업 실행 보기**)를 선택합니다. 파이프라인의 각 활동과 관련된 세 가지 활동 실행(첫 번째 웹 활동, 저장 프로시저 활동 및 두 번째 웹 활동)이 표시됩니다. 되돌아가서 파이프라인 실행을 보려면 위쪽의 **파이프라인** 링크를 선택합니다.
 
     ![작업 실행](./media/how-to-schedule-azure-ssis-integration-runtime/activity-runs.png)
 8. 위쪽의 **파이프라인 실행** 옆에 있는 드롭다운 목록에서 **트리거 실행**을 선택하여 트리거 실행을 볼 수도 있습니다. 

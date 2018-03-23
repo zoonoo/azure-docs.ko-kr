@@ -1,11 +1,11 @@
 ---
 title: Azure Instance Metadata Service | Microsoft Docs
-description: "Windows VM의 계산, 네트워크 및 예정된 유지 관리 이벤트에 대한 정보를 가져오는 RESTful 인터페이스입니다."
+description: Windows VM의 계산, 네트워크 및 예정된 유지 관리 이벤트에 대한 정보를 가져오는 RESTful 인터페이스입니다.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: harijayms
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-windows
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: f0a706a5a7724788d62479d1570fffac07ce6d54
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 8b9e79a2be26cf279abe0d29db1738b695622e9f
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-instance-metadata-service"></a>Azure Instance Metadata Service
 
@@ -32,14 +32,14 @@ Azure의 Instance Metadata Service는 [Azure Resource Manager](https://docs.micr
 > 이 서비스는 모든 Azure 지역에서 **일반 공급**됩니다.  정기적으로 업데이트를 받아 가상 컴퓨터 인스턴스에 대한 새 정보를 노출합니다. 이 페이지에는 사용 가능한 최신 [데이터 범주](#instance-metadata-data-categories)가 반영되어 있습니다.
 
 ## <a name="service-availability"></a>서비스 가용성
-이 서비스는 일반 공급되는 모든 Azure 지역에서 사용할 수 있습니다. 모든 API 버전을 모든 Azure 지역에서 사용할 수 있는 것은 아닙니다.
+이 서비스는 일반 공급되는 Azure 지역에서 사용할 수 있습니다. 모든 API 버전을 모든 Azure 지역에서 사용할 수 있는 것은 아닙니다.
 
 영역                                        | 가용성                                 | 지원되는 버전
 -----------------------------------------------|-----------------------------------------------|-----------------
-[일반 공급되는 모든 글로벌 Azure 지역](https://azure.microsoft.com/regions/)     | 일반 공급   | 2017-04-02, 2017-08-01
-[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | 일반 공급 | 2017-04-02
-[Azure 중국](https://www.azure.cn/)                                                           | 일반 공급 | 2017-04-02
-[Azure 독일](https://azure.microsoft.com/overview/clouds/germany/)                    | 일반 공급 | 2017-04-02
+[일반 공급되는 모든 글로벌 Azure 지역](https://azure.microsoft.com/regions/)     | 일반 공급   | 2017-04-02, 2017-08-01, 2017-12-01(이 버전은 영국 지역에서 사용할 수 없음)
+[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | 일반 공급 | 2017-04-02,2017-08-01
+[Azure 중국](https://www.azure.cn/)                                                           | 일반 공급 | 2017-04-02,2017-08-01
+[Azure 독일](https://azure.microsoft.com/overview/clouds/germany/)                    | 일반 공급 | 2017-04-02,2017-08-01
 
 이 표는 서비스 업데이트가 있거나 지원되는 새 버전을 사용할 수 있을 때 업데이트됩니다.
 
@@ -48,7 +48,7 @@ Instance Metadata Service를 평가하려면 위 지역의 [Azure Resource Manag
 ## <a name="usage"></a>사용
 
 ### <a name="versioning"></a>버전 관리
-인스턴스 메타데이터 서비스에는 버전이 있습니다. 버전은 필수이며 글로벌 Azure에서 최신 버전은 `2017-08-01`입니다. 현재 지원되는 버전은 (2017-04-02, 2017-08-01)입니다.
+인스턴스 메타데이터 서비스에는 버전이 있습니다. 버전은 필수이며 글로벌 Azure에서 최신 버전은 `2017-12-01`입니다. 현재 지원되는 버전은 (2017-04-02, 2017-08-01,2017-12-01)입니다.
 
 > [!NOTE] 
 > 예약된 이벤트의 이전 미리 보기 릴리스는 api-version으로 {최신 버전}을 지원했습니다. 이 형식은 더 이상 지원되지 않으며 향후 사용되지 않을 예정입니다.
@@ -78,7 +78,7 @@ API | 기본 데이터 형식 | 다른 형식
 /instance | json : | 텍스트
 /scheduledevents | json : | 없음
 
-기본이 아닌 응답 형식에 액세스하려면 요청된 형식을 요청의 querystring 매개 변수로 지정합니다. 예를 들어 다음과 같습니다.
+기본이 아닌 응답 형식에 액세스하려면 요청된 형식을 요청의 querystring 매개 변수로 지정합니다. 예:
 
 ```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text"
@@ -157,7 +157,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/network/interfac
 **요청**
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01"
+curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-12-01"
 ```
 
 **응답**
@@ -182,7 +182,9 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
     "tags": "",
     "version": "16.04.201708030",
     "vmId": "13f56399-bd52-4150-9748-7190aae1ff21",
-    "vmSize": "Standard_D1"
+    "vmScaleSetName": "",
+    "vmSize": "Standard_D1",
+    "zone": "1"
   },
   "network": {
     "interface": [
@@ -296,13 +298,15 @@ subscriptionId | Virtual Machine에 대한 Azure 구독 | 2017-08-01
 tags | Virtual Machine에 대한 [태그](../../azure-resource-manager/resource-group-using-tags.md)  | 2017-08-01
 resourceGroupName | Virtual Machine에 대한 [리소스 그룹](../../azure-resource-manager/resource-group-overview.md) | 2017-08-01
 placementGroupId | 가상 머신 확장 집합의 [배치 그룹](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) | 2017-08-01
+vmScaleSetName | 가상 머신 확장 집합의 [가상 머신 확장 집합 이름](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) | 2017-12-01
+영역 | 가상 머신의 [가용성 영역](../../availability-zones/az-overview.md) | 2017-12-01 
 ipv4/privateIpAddress | VM의 로컬 IPv4 주소 | 2017-04-02
 ipv4/publicIpAddress | VM의 공용 IPv4 주소 | 2017-04-02
 subnet/address | VM의 서브넷 주소 | 2017-04-02 
 subnet/prefix | 서브넷 접두사, 예:24 | 2017-04-02 
 ipv6/ipaddress | VM의 로컬 IPv6 주소 | 2017-04-02 
 macAddress | VM MAC 주소 | 2017-04-02 
-scheduledevents | [예정된 이벤트](scheduled-events.md) 참조 | 2017-03-01
+scheduledevents | [예정된 이벤트](scheduled-events.md) 참조 | 2017-08-01
 
 ## <a name="example-scenarios-for-usage"></a>사용법을 위한 예제 시나리오  
 
@@ -325,6 +329,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/vmId?api
 ### <a name="placement-of-containers-data-partitions-based-faultupdate-domain"></a>장애/업데이트 도메인 기반 컨테이너, 데이터 파티션 배치 
 
 특정 시나리오의 경우 다양한 데이터 복제본 배치가 매우 중요합니다. 예를 들어 [HDFS 복제본 배치](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html#Replica_Placement:_The_First_Baby_Steps) 또는 [orchestrator](https://kubernetes.io/docs/user-guide/node-selection/)를 통한 컨테이너 배치를 위해서는 VM을 실행 중인 `platformFaultDomain` 및 `platformUpdateDomain`을 알아야 합니다.
+인스턴스에 대해 [가용성 영역](../../availability-zones/az-overview.md)을 활용하여 이러한 결정을 내릴 수도 있습니다.
 Instance Metadata Service를 통해 이 데이터를 직접 쿼리할 수 있습니다.
 
 **요청**

@@ -1,24 +1,18 @@
 ---
-title: "여러 Azure 가상 머신에 대한 업데이트 관리 | Microsoft Docs"
-description: "이 항목에서는 Azure 가상 머신에 대한 업데이트를 관리하는 방법을 설명합니다."
+title: 여러 Azure 가상 머신에 대한 업데이트 관리
+description: 이 항목에서는 Azure 가상 머신에 대한 업데이트를 관리하는 방법을 설명합니다.
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: carmonm
-editor: 
-ms.assetid: 
 ms.service: automation
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.date: 11/30/2017
-ms.author: magoedte;gwallace
-ms.openlocfilehash: 1763077aa733fc93dd59147405db9942c6c98960
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+manager: carmonm
+ms.openlocfilehash: 29ab87b6afe31b7bbb40ef7d743e209f86811c9d
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="manage-updates-for-multiple-machines"></a>여러 컴퓨터의 업데이트 관리
 
@@ -29,7 +23,7 @@ ms.lasthandoff: 01/10/2018
 - 필수 업데이트의 설치를 예약합니다.
 - 배포 결과를 검토하여 업데이트 관리를 사용하는 모든 가상 머신에 업데이트가 성공적으로 적용되었는지 확인합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 업데이트 관리를 사용하려면 다음이 필요합니다.
 
@@ -112,9 +106,9 @@ Linux 에이전트에는 업데이트 리포지토리에 대한 액세스 권한
 
 | 연결된 원본 | 지원됨 | 설명 |
 | --- | --- | --- |
-| Windows 에이전트 |적용 |업데이트 관리에서 Windows 에이전트로부터 시스템 업데이트에 대한 정보를 수집하고 필요한 업데이트를 설치하기 시작합니다. |
-| Linux 에이전트 |적용 |업데이트 관리에서 Linux 에이전트로부터 시스템 업데이트에 대한 정보를 수집하고 지원되는 배포판에서 필요한 업데이트를 설치하기 시작합니다. |
-| Operations Manager 관리 그룹 |적용 |업데이트 관리에서 연결된 관리 그룹의 에이전트로부터 시스템 업데이트에 대한 정보를 수집합니다. |
+| Windows 에이전트 |예 |업데이트 관리에서 Windows 에이전트로부터 시스템 업데이트에 대한 정보를 수집하고 필요한 업데이트를 설치하기 시작합니다. |
+| Linux 에이전트 |예 |업데이트 관리에서 Linux 에이전트로부터 시스템 업데이트에 대한 정보를 수집하고 지원되는 배포판에서 필요한 업데이트를 설치하기 시작합니다. |
+| Operations Manager 관리 그룹 |예 |업데이트 관리에서 연결된 관리 그룹의 에이전트로부터 시스템 업데이트에 대한 정보를 수집합니다. |
 | Azure Storage 계정 |아니요 |Azure Storage는 시스템 업데이트에 대한 정보를 포함하지 않습니다. |
 
 ### <a name="collection-frequency"></a>수집 빈도

@@ -1,11 +1,11 @@
 ---
-title: "Microsoft Authenticator 휴대폰 로그인 - Azure 및 Microsoft 계정 | Microsoft Docs"
-description: "암호를 입력하는 대신 휴대폰을 사용하여 Microsoft 계정에 로그인합니다. 이 문서에서는 이 기능에 대한 FAQ를 제공합니다."
+title: Microsoft Authenticator 휴대폰 로그인 - Azure 및 Microsoft 계정 | Microsoft Docs
+description: 암호를 입력하는 대신 휴대폰을 사용하여 Microsoft 계정에 로그인합니다. 이 문서에서는 이 기능에 대한 FAQ를 제공합니다.
 services: multi-factor-authentication
-documentationcenter: 
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -16,10 +16,10 @@ ms.author: barlan
 ms.reviewer: librown
 ms.custom: end-user
 ms.openlocfilehash: 86cf6ba2f2ec86a609b4ec60cc143b07d9e542b3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="sign-in-with-your-phone-not-your-password"></a>암호가 아닌 휴대폰을 사용하여 로그인
 

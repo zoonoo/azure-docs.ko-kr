@@ -1,25 +1,20 @@
 ---
-title: ".NET Core를 사용하여 Azure SQL Database 쿼리 | Microsoft Docs"
-description: "이 항목에서는 .NET Core를 사용하여 Azure SQL Database에 연결하고 Transact-SQL 문을 사용하여 쿼리하는 프로그램을 만드는 방법을 보여 줍니다."
+title: .NET Core를 사용하여 Azure SQL Database 쿼리 | Microsoft Docs
+description: 이 항목에서는 .NET Core를 사용하여 Azure SQL Database에 연결하고 Transact-SQL 문을 사용하여 쿼리하는 프로그램을 만드는 방법을 보여 줍니다.
 services: sql-database
-documentationcenter: 
 author: CarlRabeler
-manager: jhubbard
-editor: 
-ms.assetid: 
+manager: craigg
 ms.service: sql-database
 ms.custom: mvc,develop apps
-ms.workload: On Demand
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 07/07/2017
 ms.author: carlrab
-ms.openlocfilehash: 1d2a22500c322a63b134e29e5f7509df271eafb9
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 4d858606b0c645069602fba80cdba3d13582170d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="use-net-core-c-to-query-an-azure-sql-database"></a>.NET Core(C#)를 사용하여 Azure SQL 데이터베이스 쿼리
 

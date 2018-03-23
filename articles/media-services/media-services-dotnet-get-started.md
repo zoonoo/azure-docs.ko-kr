@@ -1,11 +1,11 @@
 ---
-title: ".NET을 사용한 주문형 콘텐츠 제공 시작 | Microsoft Docs"
-description: "이 자습서에서는 .NET을 사용한 Azure Media Services로 주문형 콘텐츠 배달 응용 프로그램을 구현하는 단계를 안내합니다."
+title: .NET을 사용한 주문형 콘텐츠 제공 시작 | Microsoft Docs
+description: 이 자습서에서는 .NET을 사용한 Azure Media Services로 주문형 콘텐츠 배달 응용 프로그램을 구현하는 단계를 안내합니다.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 388b8928-9aa9-46b1-b60a-a918da75bd7b
 ms.service: media-services
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 12/10/2017
 ms.author: juliako
-ms.openlocfilehash: f88a9a732099f2bd63f46d3f45e5ff96f7441f03
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 48824929ee3fc01952fb6525c514a2cdbb265c9d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-net-sdk"></a>.NET SDK를 사용한 주문형 콘텐츠 제공 시작
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
@@ -236,7 +236,7 @@ Program 클래스에 다음 메서드를 추가합니다.
 
 ## <a name="publish-the-asset-and-get-urls-for-streaming-and-progressive-download"></a>자산 게시, 스트리밍 및 점진적 다운로드를 위한 URL 가져오기
 
-자산을 스트리밍하거나 다운로드하려면 먼저 로케이터를 만들어 자산을 "게시"해야 합니다. 로케이터는 자산에 포함된 파일에 대한 액세스를 제공합니다. Media Services는 두 가지 유형의 로케이터를 지원합니다. 하나는 OnDemandOrigin 로케이터로서 미디어를 스트리밍하는 데 사용되고(예: MPEG DASH, HLS 또는 부드러운 스트리밍) 다른 하나는 SAS(공유 액세스 서명) 로케이터로서 미디어 파일을 다운로드하는 데 사용됩니다(SAS 로케이터와 관련한 자세한 내용은 [이](http://southworks.com/blog/2015/05/27/reusing-azure-media-services-locators-to-avoid-facing-the-5-shared-access-policy-limitation/) 블로그 참조).
+자산을 스트리밍하거나 다운로드하려면 먼저 로케이터를 만들어 자산을 "게시"해야 합니다. 로케이터는 자산에 포함된 파일에 대한 액세스를 제공합니다. Media Services는 두 가지 유형의 로케이터를 지원합니다.하나는 OnDemandOrigin 로케이터로서 미디어를 스트리밍하는 데 사용되고(예: MPEG DASH, HLS 또는 부드러운 스트리밍) 다른 하나는 SAS(공유 액세스 서명) 로케이터로서 미디어 파일을 다운로드하는 데 사용됩니다.
 
 ### <a name="some-details-about-url-formats"></a>URL 형식에 대한 일부 세부 정보
 

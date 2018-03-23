@@ -1,8 +1,8 @@
 ---
-title: "Data Lake Analytics Java SDK를 사용하여 응용 프로그램 개발 | Microsoft Docs"
-description: "Azure Data Lake 분석 Java SDK를 사용하여 응용 프로그램 개발"
+title: Data Lake Analytics Java SDK를 사용하여 응용 프로그램 개발 | Microsoft Docs
+description: Azure Data Lake 분석 Java SDK를 사용하여 응용 프로그램 개발
 services: data-lake-analytics
-documentationcenter: 
+documentationcenter: ''
 author: saveenr
 manager: saveenr
 editor: cgronlun
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
-ms.author: edmaca
-ms.openlocfilehash: 795d9ec0b0cac5d74673404f1d0d851393336df0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: saveenr
+ms.openlocfilehash: 5b283e91daf25d4fad3e92c69f8ddde9ddb097b4
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-java-sdk"></a>Java SDK를 사용하여 Azure Data Lake Analytics 시작
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -30,7 +30,7 @@ Azure Data Lake 분석 Java SDK를 사용하여 Azure Data Lake 계정을 만들
 ## <a name="prerequisites"></a>필수 조건
 * JDK(Java Development Kit) 8 (Java 버전 1.8 사용).
 * IntelliJ 또는 다른 적절한 Java 개발 환경. 선택 사항이지만 권장합니다. 아래 지침에서는 IntelliJ를 사용합니다.
-* **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
+* **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 * AAD(Azure Active Directory) 응용 프로그램을 만들고 **클라이언트 ID**, **테넌트 ID** 및 **키**를 검색합니다. AAD 응용 프로그램에 대한 자세한 내용 및 클라이언트 ID를 가져오는 방법에 대한 지침은 [포털을 사용하여 Active Directory 응용 프로그램 및 서비스 주체 만들기](../azure-resource-manager/resource-group-create-service-principal-portal.md)를 참조하세요. 응용 프로그램을 만들고 키를 생성했다면 회신 URI 및 키도 포털에서 사용할 수 있습니다.
 
 ## <a name="how-do-i-authenticate-using-azure-active-directory"></a>Azure Active Directory를 사용하여 인증하려면 어떻게 해야 하나요?
@@ -101,7 +101,7 @@ Azure Data Lake 분석 Java SDK를 사용하여 Azure Data Lake 계정을 만들
     이 코드는 Data Lake 저장소와 Data Lake 분석 계정을 만들고, 저장소에 파일을 만들고, 작업을 실행하고, 작업 상태를 가져오고, 작업 출력을 다운로드하고, 계정을 삭제하는 프로세스를 진행합니다.
 
    > [!NOTE]
-   > 현재 Azure Data Lake 서비스와 관련된 알려진 문제가 있습니다.  샘플 앱이 중단되거나 오류가 발생할 경우, 스크립트가 생성하는 Data Lake 저장소 및 Data Lake 분석 계정을 수동으로 삭제해야 할 수 있습니다.  포털에 친숙하지 않다면 [Azure 포털을 사용한 Azure Data Lake 분석 관리](data-lake-analytics-manage-use-portal.md) 가이드로 시작해 보세요.
+   > 현재 Azure Data Lake 서비스와 관련된 알려진 문제가 있습니다.  샘플 앱이 중단되거나 오류가 발생할 경우, 스크립트가 생성하는 Data Lake 저장소 및 Data Lake 분석 계정을 수동으로 삭제해야 할 수 있습니다.  포털에 친숙하지 않다면 [Azure Portal을 사용한 Azure Data Lake 분석 관리](data-lake-analytics-manage-use-portal.md) 가이드로 시작해 보세요.
    >
    >
 
@@ -347,5 +347,5 @@ Azure Data Lake 분석 Java SDK를 사용하여 Azure Data Lake 계정을 만들
 * 더 복잡한 쿼리를 보려면 [Azure 데이터 레이크 분석을 사용하여 웹 사이트 로그 분석](data-lake-analytics-analyze-weblogs.md)을 참조하세요.
 * U-SQL 응용 프로그램 개발을 시작하려면 [Visual Studio용 Data Lake 도구를 사용하여 U-SQL 스크립트 개발](data-lake-analytics-data-lake-tools-get-started.md)을 참조하세요.
 * U-SQL에 대해 알아보려면 [Azure Data Lake Analytics U-SQL 언어 시작](data-lake-analytics-u-sql-get-started.md) 및 [U-SQL 언어 참조](http://go.microsoft.com/fwlink/?LinkId=691348)를 참조하세요.
-* 관리 작업을 보려면 [Azure 포털을 사용하여 Azure Data Lake Analytics 관리](data-lake-analytics-manage-use-portal.md)를 참조하세요.
+* 관리 작업을 보려면 [Azure Portal을 사용하여 Azure 데이터 레이크 분석 관리](data-lake-analytics-manage-use-portal.md)를 참조하세요.
 * 데이터 레이크 분석에 대한 개요를 보려면 [Azure 데이터 레이크 분석 개요](data-lake-analytics-overview.md)를 참조하세요.

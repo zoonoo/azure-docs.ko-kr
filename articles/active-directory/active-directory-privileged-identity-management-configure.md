@@ -1,32 +1,40 @@
 ---
-title: "Azure AD Privileged Identity Management 구성 | Microsoft Docs"
-description: "Azure AD Privileged Identity Management가 무엇이고 클라우드 보안을 개선하기 위한 PIM 사용 방법을 설명하는 항목입니다."
+title: Azure AD Privileged Identity Management 구성 | Microsoft Docs
+description: Azure AD Privileged Identity Management가 무엇이고 클라우드 보안을 개선하기 위한 PIM 사용 방법을 설명하는 항목입니다.
 services: active-directory
-documentationcenter: 
-author: barclayn
+documentationcenter: ''
+author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: c548ed2e-06e3-4eaf-a63d-0f02ee72da25
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
-ms.author: barclayn
+ms.date: 03/07/2018
+ms.author: billmath
 ms.custom: pim
-ms.openlocfilehash: 94855cf102764532fa0a6718541beffe93230fd1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 827e3521be8918f4de00113fd9eaf4e01679cac5
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management란?
 
 Azure Active Directory(AD) Privileged Identity Management를 사용하여 조직 내에서 액세스를 관리, 제어 및 모니터링할 수 있습니다. 여기에는 Azure AD, Azure Resources(미리 보기) 및 기타 Microsoft Online Services(예: Office 365 또는 Microsoft Intune)의 리소스에 대한 액세스가 포함됩니다.
 
 > [!NOTE]
-> Privileged Identity Management는 Premium P2 버전의 Azure Active Directory로 관리자에게 사용을 허가할 때 전체 조직에서 사용할 수 있습니다. 자세한 내용은 [Azure Active Directory 버전](active-directory-editions.md)을 참조하세요.
+> 테넌트에 대해 Privileged Identity Management를 사용하도록 설정하면, 서비스와 상호 작용하거나 서비스에서 혜택을 얻는 각 사용자에게 유효한 Azure AD Premium P2 또는 Enterprise Mobility + Security E5 유료 또는 평가판 라이선스가 필요합니다. 다음에 해당하는 그룹의 사용자를 예로 들 수 있습니다.
+>
+>- 권한 있는 역할 관리자 역할에 할당된 경우 
+>- PIM을 통해 관리할 수 있는 다른 디렉터리 역할에 적격으로 지정된 경우 
+>- PIM에서 요청을 승인/거부할 수 있는 경우 
+>- JIT(Just-in-time) 또는 직접(시간 기반) 할당을 통해 Azure 리소스 역할에 할당된 경우  
+>- 액세스 검토에 할당된 경우
+>
+>자세한 내용은 [Azure Active Directory 버전](active-directory-editions.md)을 참조하세요.
 
 악의적인 사용자가 해당 액세스 권한을 얻거나 권한이 있는 사용자가 실수로 중요한 리소스에 영향을 줄 수 있으므로 조직에서는 보호되는 정보 또는 리소스에 액세스할 수 있는 사용자의 수를 최소화하려고 합니다.  그러나 사용자는 여전히 Azure AD, Azure, Office 365 또는 SaaS 응용 프로그램에서 권한 있는 작업을 수행해야 합니다. 조직은 사용자에게 구독 및 Azure AD와 같은 Azure 리소스에 대한 권한 있는 액세스를 제공할 수 있습니다. 이러한 사용자가 해당 관리자 권한으로 수행하는 작업에 대한 감시 요구 사항이 있습니다. Azure AD Privileged Identity Management는 과도하거나 필요하지 않거나 잘못 사용되는 액세스 권한의 위험을 완화하는 데 도움이 됩니다.
 

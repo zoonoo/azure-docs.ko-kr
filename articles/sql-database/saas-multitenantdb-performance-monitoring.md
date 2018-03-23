@@ -1,26 +1,20 @@
 ---
-title: "다중 테넌트 SaaS 앱에서 분할된 다중 테넌트 Azure SQL 데이터베이스의 성능 모니터링 | Microsoft Docs"
-description: "다중 테넌트 SaaS 앱에서 분할된 다중 테넌트 Azure SQL 데이터베이스의 성능 모니터링 및 관리"
-keywords: "SQL Database 자습서"
+title: 다중 테넌트 SaaS 앱에서 분할된 다중 테넌트 Azure SQL 데이터베이스의 성능 모니터링 | Microsoft Docs
+description: 다중 테넌트 SaaS 앱에서 분할된 다중 테넌트 Azure SQL 데이터베이스의 성능 모니터링 및 관리
+keywords: SQL Database 자습서
 services: sql-database
-documentationcenter: 
 author: stevestein
 manager: craigg
-editor: 
-ms.assetid: 
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: sstein
-ms.openlocfilehash: 3e97f0635a856256dd08c29d33d8058be9c8d8b4
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 53d8c099d68fd7eb3f00fb4d1be7ec54404521ff
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>다중 테넌트 SaaS 앱에서 분할된 다중 테넌트 Azure SQL 데이터베이스의 성능 모니터링 및 관리
 
@@ -151,7 +145,7 @@ Wingtip Tickets SaaS 다중 테넌트 데이터베이스는 SaaS 앱이며 SaaS 
 
 데이터베이스는 프로세스 전체에 걸쳐 온라인이고 완전하게 사용할 수 있도록 남아 있습니다. 응용 프로그램 코드는 언제나 끊어진 연결을 재시도하도록 작성해야 합니다. 따라서 데이터베이스 연결이 다시 수행됩니다.
 
-## <a name="provision-a-new-tenant-in-its-own-database"></a>새로운 테넌트를 자체 데이터베이스에서 프로비전하기 
+## <a name="provision-a-new-tenant-in-its-own-database"></a>새로운 테넌트를 자체 데이터베이스에서 프로비전 
 
 분할된 다중 테넌트 모델을 사용하면 다중 테넌트 데이터베이스에서 다른 테넌트와 함께 새 테넌트를 프로비전할지 아니면 자체 데이터베이스에서 테넌트를 프로비전할지 선택할 수 있습니다. 자체 데이터베이스에서 테넌트를 프로비전하면 별도의 데이터베이스의 격리된 특성 덕분에 다른 테넌트와 독립적으로 테넌트의 성능을 관리하고 테넌트를 개별적으로 복원할 수 있습니다. 예를 들어 다중 테넌트 데이터베이스에 평가판 고객 또는 정규 고객을 배치하고 개별 데이터베이스에 프리미엄 고객을 배치할 수 있습니다.  격리된 단일 테넌트 데이터베이스를 만든 경우에도 탄력적 풀에서 함께 관리하여 리소스 비용을 최적화할 수 있습니다.
 

@@ -1,6 +1,6 @@
 ---
-title: "자습서: Azure Active Directory로 자동 사용자 프로비전을 위한 Workday 구성 | Microsoft Docs"
-description: "Active Directory 및 Azure Active Directory의 ID 데이터의 원본으로 Workday를 사용하는 방법에 대해 알아봅니다."
+title: '자습서: Azure Active Directory로 자동 사용자 프로비전을 위한 Workday 구성 | Microsoft Docs'
+description: Active Directory 및 Azure Active Directory의 ID 데이터의 원본으로 Workday를 사용하는 방법에 대해 알아봅니다.
 services: active-directory
 author: asmalser-msft
 documentationcenter: na
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/26/2018
 ms.author: asmalser
-ms.openlocfilehash: 2db9e60fe2807b1aa8ed7cab7eed6f7db8059a89
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 825bf3f6a3ea07cb229f00c81ad699d792ac53f9
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Workday 구성
 
@@ -654,7 +654,7 @@ Azure AD 프로비저닝 서비스는 인사 API의[Get_Workers](https://communi
 
 1. [Workday Studio](https://community.workday.com/studio-download)를 다운로드하고 설치합니다. 설치 관리자에 액세스하려면 Workday 커뮤니티 계정이 필요합니다.
 
-2. URL https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Human_Resources.wsdl에서 Workday Human_Resources WDSL 파일을 다운로드합니다.
+2. 이 URL에서 Workday Human_Resources WDSL 파일을 다운로드합니다. https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Human_Resources.wsdl
 
 3. Workday Studio를 시작합니다.
 
@@ -768,12 +768,27 @@ Azure AD 프로비저닝 서비스는 인사 API의[Get_Workers](https://communi
 
 * 유럽 연합에 있는 Azure AD 테넌트에 표시되지 않는 감사 로그와 관련된 이전 문제는 해결되었습니다. 그러나 EU의 Azure AD 테넌트에 추가 에이전트가 구성이 필요합니다. 자세한 내용은 [3부: 온-프레미스 동기화 에이전트 구성](#Part 3: Configure the on-premises synchronization agent)을 참조하세요.
 
+## <a name="gdpr-compliance"></a>GDPR 규정 준수
 
-## <a name="additional-resources"></a>추가 리소스
-* [자습서: Workday와 Azure Active Directory 간 Single Sign-On 구성](active-directory-saas-workday-tutorial.md)
-* [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](active-directory-appssoaccess-whatis.md)
+[GDPR(일반 데이터 보호 규정)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm)은 EU(유럽 연합)의 데이터 보호 및 프라이버시 법률입니다. GDPR은 회사, 정부 기관, 비영리 단체 및 기타 조직에 대해 상품 및 서비스를 제공하거나 EU 거주자와 연결된 데이터를 수집하고 분석하는 규칙을 수립합니다. 
+
+Azure AD 프로비전닝 서비스는 Microsoft의 서비스 및 기능의 나머지 부분과 함께 GDPR을 준수합니다. Microsoft의 GDPR 스토리에 대한 자세한 내용은 [서비스 약관](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31)을 참조하세요.
+
+그러나 Active Directory에 대한 Workday 프로비저닝 솔루션에서는 동기화 에이전트가 도메인 가입 서버에 설치되어야 하므로 GDPR 규정 준수 상태를 유지하기 위해 모니터링해야 하는 일부 이벤트가 있습니다.
+ 
+에이전트는 개인 식별 정보를 포함할 수 있는 로그를 **Windows 이벤트 로그**에 만듭니다.
+
+다음 두 가지 방법으로 GDPR 규격 상태를 유지할 수 있습니다.
+
+1. 요청 시 사용자에 대한 데이터를 추출하고 해당 사용자의 데이터를 Windows 이벤트 로그에서 제거합니다. 
+2. AADSyncAgent 프로세스에서 소싱된 Windows 이벤트 로그를 48시간 동안 보존합니다.
+
+Windows 이벤트 로그에 대한 데이터 보존을 구성하는 방법에 대한 내용은 [이벤트 로그에 대한 설정](https://technet.microsoft.com/en-us/library/cc952132.aspx)을 참조하세요. Windows 이벤트 로그에 대한 일반적인 정보는 [이 문서](https://msdn.microsoft.com/en-us/library/windows/desktop/aa385772.aspx)를 참조하세요.
+
 
 ## <a name="next-steps"></a>다음 단계
 
 * [프로비전 활동에 대한 로그를 검토하고 보고서를 받아 보는 방법을 살펴봅니다](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting).
+* [Workday와 Azure Active Directory 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.](active-directory-saas-workday-tutorial.md)
+* [Azure Active Directory와 다른 SaaS 응용 프로그램을 통합하는 방법을 알아봅니다.](active-directory-saas-tutorial-list.md)
+

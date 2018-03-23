@@ -1,25 +1,25 @@
 ---
-title: "개발자용 Azure Active Directory | Microsoft Docs"
-description: "Azure Active Directory 개발자 가이드에 있는 가이드 및 참조 문서의 모든 목록입니다."
+title: 개발자용 Azure Active Directory | Microsoft Docs
+description: Azure Active Directory 개발자 가이드에 있는 가이드 및 참조 문서의 모든 목록입니다.
 services: active-directory
 documentationcenter: dev-center-name
 author: bryanla
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 5c872c89-ef04-4f4c-98de-bc0c7460c7c2
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/19/2017
+ms.date: 03/08/2018
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: b6190f64633034bb5fc28a1caf7ffa6c09215ef1
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ccad1f12e4f99074763f116596b4467e822d9f35
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="articles-in-the-azure-ad-developer-guide"></a>Azure AD 개발자 가이드의 문서
 Azure Active Directory 개발자 가이드에서 다루는 모든 항목의 목록은 다음과 같습니다.
@@ -43,8 +43,9 @@ Azure Active Directory 개발자 가이드에서 다루는 모든 항목의 목�
 | [Office 365 판매자 대시보드](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard)               | O365 판매자 대시보드에서 응용 프로그램을 게시하는 방법 |
 | [Visual Studio 연결 서비스](vs-active-directory-dotnet-getting-started.md)                                               | Visual Studio에서 MVC 프로젝트와 Azure AD 통합을 사용하는 방법 |
 | [Windows Server ADFS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers) | ADFS를 사용하여 온-프레미스 Active Directory와 통합하는 방법 |
+| [ADAL에 대한 모범 사례 오류 처리](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devhowto-adal-error-handling) | 복원력 있는 오류 처리를 구축하고 로깅을 사용하도록 설정하는 방법 |
 
-## <a name="reference"></a>참조
+## <a name="reference"></a>참고 자료
 이러한 문서는 REST 및 인증 라이브러리 API, 프로토콜, 오류, 코드 샘플 및 끝점에 대한 기초를 제공합니다.
 
 |                                                                                     | |

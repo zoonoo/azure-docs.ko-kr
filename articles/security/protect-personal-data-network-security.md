@@ -1,29 +1,29 @@
 ---
-title: "Azure 네트워크 보안 기능을 사용하여 개인 데이터 보호 | Microsoft Docs"
-description: "Azure 네트워크 보안 기능을 사용하여 개인 데이터를 보호합니다."
+title: Azure 네트워크 보안 기능을 사용하여 개인 데이터 보호 | Microsoft Docs
+description: Azure 네트워크 보안 기능을 사용하여 개인 데이터를 보호합니다. 이 기능을 GDPR(일반 데이터 보호 규정)을 준수하기 위해 사용할 수도 있습니다.
 services: security
 documentationcenter: na
 author: Barclayn
 manager: MBaldwin
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2017
+ms.date: 03/06/2018
 ms.author: barclayn
-ms.custom: 
-ms.openlocfilehash: 2510a4aed34b6a156cc9a9da6215de5956aac023
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.custom: ''
+ms.openlocfilehash: 54aeb22a501e248105931df341d23e524448155a
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="protect-personal-data-with-network-security-features-azure-application-gateway-and-network-security-groups"></a>네트워크 보안 기능을 사용하여 개인 데이터 보호: Azure Application Gateway 및 네트워크 보안 그룹
 
-이 문서는 Azure Application Gateway와 네트워크 보안 그룹을 사용하여 개인 데이터를 보호하는 데 도움이 되는 정보와 절차를 제공합니다.
+이 문서는 Azure Application Gateway와 네트워크 보안 그룹을 사용하여 개인 데이터를 보호하는 데 도움이 되는 정보와 절차를 제공합니다. 이 정보는 GDPR(일반 데이터 보호 규정)을 준수하는 데 도움이 될 수 있습니다.
 
 개인 데이터의 개인 정보를 보호하기 위한 다계층 보안 전략의 중요한 요소는 SQL 삽입 또는 교차 사이트 스크립팅과 같은 일반적인 취약성 악용에 대한 방어입니다. Azure 가상 네트워크에서 원하지 않는 네트워크 트래픽을 차단하면 중요한 데이터가 손상되지 않도록 보호할 수 있으며, Microsoft Azure는 공격자로부터 데이터를 보호할 수 있는 도구를 제공합니다.
 

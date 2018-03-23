@@ -1,24 +1,24 @@
 ---
-title: "Azure Service Fabric 패치 오케스트레이션 응용 프로그램 | Microsoft Docs"
-description: "Service Fabric 클러스터에 운영 체제 패치를 자동화하는 응용 프로그램입니다."
+title: Azure Service Fabric 패치 오케스트레이션 응용 프로그램 | Microsoft Docs
+description: Service Fabric 클러스터에 운영 체제 패치를 자동화하는 응용 프로그램입니다.
 services: service-fabric
 documentationcenter: .net
 author: novino
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: de7dacf5-4038-434a-a265-5d0de80a9b1d
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/16/2018
+ms.date: 3/07/2018
 ms.author: nachandr
-ms.openlocfilehash: bb3afdd3afa81664589f738945a63d20013d5291
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 43a0675b1613e7bcf338537c1203de7df9a02fc4
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Service Fabric 클러스터에서 Windows 운영 체제 패치
 
@@ -136,7 +136,9 @@ ms.lasthandoff: 02/21/2018
 
 ## <a name="download-the-app-package"></a>앱 패키지 다운로드
 
-[다운로드 링크](https://go.microsoft.com/fwlink/P/?linkid=849590)에서 응용 프로그램을 다운로드합니다.
+설치 스크립트와 함께 응용 프로그램을 [보관 링크](https://go.microsoft.com/fwlink/?linkid=869566)에서 다운로드할 수 있습니다.
+
+sfpkg 형식의 응용 프로그램은 [sfpkg 링크](https://go.microsoft.com/fwlink/?linkid=869567)에서 다운로드할 수 있습니다. 이 링크를 통해 [Azure Resource Manager 기반 응용 프로그램을 쉽게 배포](service-fabric-application-arm-resource.md)할 수 있습니다.
 
 ## <a name="configure-the-app"></a>앱 구성
 
@@ -361,8 +363,12 @@ a. 일부 제품 업데이트는 해당하는 업데이트/패치 기록에서�
 ### <a name="version-111"></a>버전 1.1.1
 - NodeAgentNTService의 설치를 방지하는 NodeAgentService의 SetupEntryPoint에서 버그 수정
 
-### <a name="version-120-latest"></a>버전 1.2.0(최신)
+### <a name="version-120"></a>버전 1.2.0
 
 - 시스템 다시 시작 워크플로 관련 버그 수정
 - 복구 중 상태 확인이 예상 대로 작동하지 않는 문제로 인해 RM 작업 생성의 버그 수정
 - Windows 서비스 POANodeSvc 시작 모드를 자동에서 지연 자동으로 변경
+
+### <a name="version-121-latest"></a>버전 1.2.1(최신)
+
+- 클러스터 축소 워크플로의 버그 수정입니다. 존재하지 않는 노드에 속하는 POA 복구 태스크에 대해 가비지 수집 논리가 도입되었습니다.

@@ -1,11 +1,11 @@
 ---
-title: "PowerShell을 사용하여 X.509 인증서를 만드는 방법 | Microsoft Docs"
-description: "PowerShell을 사용하여 로컬에 X.509 인증서를 만들고 시뮬레이션된 환경의 Azure IoT Hub에서 X.509 기반 보안을 사용하는 방법을 설명합니다."
+title: PowerShell을 사용하여 X.509 인증서를 만드는 방법 | Microsoft Docs
+description: PowerShell을 사용하여 로컬에 X.509 인증서를 만들고 시뮬레이션된 환경의 Azure IoT Hub에서 X.509 기반 보안을 사용하는 방법을 설명합니다.
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: dsk-2015
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-hub
 ms.devlang: na
 ms.topic: article
@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 12/10/2017
 ms.author: dkshir
 ms.openlocfilehash: b2f78e8debd367f86ee9bb06bf7de50590c61ad7
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="powershell-scripts-to-manage-ca-signed-x509-certificates"></a>CA 서명 X.509 인증서를 관리하는 PowerShell 스크립트
 
@@ -279,7 +279,7 @@ Azure IoT Hub에서 X.509 인증서 기반 보안을 사용하려면 루트 인�
 
 ## <a name="clean-up-certificates"></a>인증서 정리
 
-시작 표시줄 또는 **설정** 앱에서 **컴퓨터 인증서 관리**를 검색하고 선택합니다. **Azure IoT CA TestOnly**\*에서 발급한 인증서를 제거합니다. 이러한 인증서는 다음 세 위치에 있어야 합니다. 
+시작 표시줄 또는 **설정** 앱에서 **컴퓨터 인증서 관리**를 검색하고 선택합니다. **Azure IoT CA TestOnly***에서 발급한 인증서를 제거합니다. 이러한 인증서는 다음 세 위치에 있어야 합니다. 
 
 * 인증서 - 로컬 컴퓨터 > 개인 > 인증서
 * 인증서 - 로컬 컴퓨터 > 신뢰할 수 있는 루트 인증 기관 > 인증서

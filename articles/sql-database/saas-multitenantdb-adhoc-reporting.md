@@ -1,26 +1,23 @@
 ---
-title: "여러 Azure SQL Database에 대해 임시 보고 쿼리 실행 | Microsoft Docs"
-description: "다중 테넌트 앱 예에서 여러 SQL Database에 대해 임시 보고 쿼리를 실행합니다."
-keywords: "SQL Database 자습서"
+title: 여러 Azure SQL Database에 대해 임시 보고 쿼리 실행 | Microsoft Docs
+description: 다중 테넌트 앱 예에서 여러 SQL Database에 대해 임시 보고 쿼리를 실행합니다.
+keywords: SQL Database 자습서
 services: sql-database
-documentationcenter: 
 author: stevestein
 manager: craigg
-editor: 
-ms.assetid: 
 ms.service: sql-database
 ms.custom: scale out apps
 ms.workload: Inactive
 ms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: ''
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: AyoOlubeko
-ms.openlocfilehash: c0ed3eb344ea8ec7e2d3e86125d60c8cc28f723d
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: d33b95cf4dc05f4eb9f79509cda56e8ab51b7701
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="run-ad-hoc-analytics-queries-across-multiple-azure-sql-databases"></a>여러 Azure SQL Database에 대해 임시 분석 쿼리 실행
 
@@ -56,7 +53,7 @@ SaaS 응용 프로그램은 클라우드에 중앙 집중식으로 저장되는 
 
 ## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>Wingtip Tickets SaaS 다중 테넌트 데이터베이스 응용 프로그램 소스 코드 및 스크립트 가져오기
 
-Wingtip Tickets SaaS 다중 테넌트 데이터베이스 스크립트 및 응용 프로그램 소스 코드는 [WingtipTicketsSaaS-MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) GitHub 리포지토리에서 확인할 수 있습니다. [일반 지침](saas-tenancy-wingtip-app-guidance-tips.md)에서 Wingtip Tickets SaaS 스크립트를 다운로드하고 차단을 해제하는 단계를 확인하세요.
+Wingtip Tickets SaaS 다중 테넌트 데이터베이스 스크립트 및 응용 프로그램 소스 코드는 [WingtipTicketsSaaS-MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) GitHub 리포지토리에서 확인할 수 있습니다. Wingtip Tickets SaaS 스크립트를 다운로드하고 차단을 해제하는 단계는 [일반 지침](saas-tenancy-wingtip-app-guidance-tips.md)을 확인하세요.
 
 ## <a name="create-ticket-sales-data"></a>티켓 판매 데이터 만들기
 
@@ -147,7 +144,7 @@ Wingtip Tickets SaaS 다중 테넌트 데이터베이스 응용 프로그램에�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서 학습한 방법은 다음과 같습니다.
+이 자습서에서는 다음 방법에 대해 알아보았습니다.
 
 > [!div class="checklist"]
 

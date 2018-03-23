@@ -1,25 +1,20 @@
 ---
-title: "Node.js를 사용하여 Azure SQL Database 쿼리 | Microsoft Docs"
-description: "이 항목에서는 Node.js를 사용하여 Azure SQL Database에 연결하고 Transact-SQL 문을 사용하여 쿼리하는 프로그램을 만드는 방법을 보여 줍니다."
+title: Node.js를 사용하여 Azure SQL Database 쿼리 | Microsoft Docs
+description: 이 항목에서는 Node.js를 사용하여 Azure SQL Database에 연결하고 Transact-SQL 문을 사용하여 쿼리하는 프로그램을 만드는 방법을 보여 줍니다.
 services: sql-database
-documentationcenter: 
 author: CarlRabeler
-manager: jhubbard
-editor: 
-ms.assetid: 53f70e37-5eb4-400d-972e-dd7ea0caacd4
+manager: craigg
 ms.service: sql-database
 ms.custom: mvc,develop apps
-ms.workload: On Demand
-ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 07/06/2017
 ms.author: carlrab
-ms.openlocfilehash: fc7bc80e332afeb284f9e71609d1d02b8193b6f7
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 3f28f360eda52087c8fca841bbd0a6804185813f
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="use-nodejs-to-query-an-azure-sql-database"></a>Node.js를 사용하여 Azure SQL Database 쿼리
 
