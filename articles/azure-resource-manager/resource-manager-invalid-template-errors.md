@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: support-article
 ms.date: 03/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: 1c6712eaf17cf55c1422baca355ce99ed319df28
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 9626b3caaa7188a4e9a37f83d1fbf091951714f4
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="resolve-errors-for-invalid-template"></a>잘못된 템플릿 오류 해결
 
@@ -38,6 +38,8 @@ Message=<varies>
 
 이 오류로 인해 별도의 몇 가지 유형의 오류가 발생할 수 있습니다. 일반적으로 템플릿에는 구문 또는 구조 오류가 있습니다.
 
+<a id="syntax-error" />
+
 ## <a name="solution-1---syntax-error"></a>해결 방법 1 - 구문 오류
 
 템플릿 유효성 검사 실패를 나타내는 오류 메시지가 표시되면 템플릿 구문에 문제가 있습니다.
@@ -56,6 +58,8 @@ Message=Deployment template validation failed
 일치하는 구문을 제공하지 않으면 템플릿에서 의도와는 다른 값을 생성합니다.
 
 이러한 오류 유형을 수신하면 식 구문을 주의 깊게 검토합니다. [Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) 또는 [Visual Studio Code](resource-manager-vs-code.md)와 같이 구문 오류에 대해 경고할 수 있는 JSON 편집기를 사용하는 것을 고려해 보세요.
+
+<a id="incorrect-segment-lengths" />
 
 ## <a name="solution-2---incorrect-segment-lengths"></a>해결 방법 2 - 잘못된 세그먼트 길이
 
@@ -116,6 +120,8 @@ for type {resource-type} has incorrect segment lengths.
 }
 ```
 
+<a id="parameter-not-valid" />
+
 ## <a name="solution-3---parameter-is-not-valid"></a>해결 방법 3 - 잘못된 매개 변수
 
 허용되지 않는 매개 변수 값을 제공하면 다음과 비슷한 오류 메시지가 표시됩니다.
@@ -129,9 +135,13 @@ part of the allowed values
 
 템플릿에 허용되는 값을 다시 한 번 확인하고 배포 시 값 하나를 제공합니다. 허용되는 매개 변수 값에 대한 자세한 내용은 [Azure Resource Manager 템플릿의 매개 변수 섹션](resource-manager-templates-parameters.md)을 참조하세요.
 
+<a id="too-many-resource-groups" />
+
 ## <a name="solution-4---too-many-target-resource-groups"></a>해결 방법 4 - 너무 많은 대상 리소스 그룹
 
 단일 배포에 6개 이상의 대상 리소스 그룹을 지정하면 이 오류가 표시됩니다. 배포에서 리소스 그룹 수를 통합하거나 일부 템플릿을 별도의 배포로 배포하는 방법을 고려하세요. 자세한 내용은 [둘 이상의 구독 또는 리소스 그룹에 Azure 리소스 배포](resource-manager-cross-resource-group-deployment.md)를 참조하세요.
+
+<a id="circular-dependency" />
 
 ## <a name="solution-5---circular-dependency-detected"></a>해결 방법 5 - 순환 종속성이 발견됨
 

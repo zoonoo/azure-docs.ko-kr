@@ -1,29 +1,28 @@
 ---
-title: "Azure 스택 사용자에 게 SQL 데이터베이스를 사용할 수 있게 | Microsoft Docs"
-description: "SQL Server 리소스 공급자를 설치 하 고 만드는 자습서에서는 Azure 스택 사용자가 SQL 데이터베이스를 만들 수 있는 제공 합니다."
+title: Azure 스택 사용자에 게 SQL 데이터베이스를 사용할 수 있게 | Microsoft Docs
+description: SQL Server 리소스 공급자를 설치 하 고 만드는 자습서에서는 Azure 스택 사용자가 SQL 데이터베이스를 만들 수 있는 제공 합니다.
 services: azure-stack
-documentationcenter: 
-author: brenduns
+documentationcenter: ''
+author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 7/03/2017
-ms.author: brenduns
-ms.reviewer: 
+ms.date: 03/22/2017
+ms.author: jeffgilb
+ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: e9fd74fa44bb9482ee2285f4305085ee6ff2fb73
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: f8d2dd65d9d427872fe78508ed0bcc61e644fdb0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="make-sql-databases-available-to-your-azure-stack-users"></a>Azure 스택 사용자에 게 SQL 데이터베이스를 사용할 수 있게
-
 Azure 스택 클라우드 관리자로 서 사용자가 제공을 만들 수 있습니다 (테 넌 트) 클라우드-네이티브 앱, 웹 사이트 및 작업 함께 사용할 수 있는 SQL 데이터베이스를 만듭니다. 이러한 사용자 지정, 주문형, 클라우드 기반 데이터베이스를 사용자에 게 제공 하 여 시간 및 리소스가 저장할 수 있습니다. 이 설정 하려면 다음을 수행 합니다.
 
 > [!div class="checklist"]
@@ -56,7 +55,7 @@ Azure 스택 클라우드 관리자로 서 사용자가 제공을 만들 수 있
 SQL Server 리소스 공급자를 배포 하 고 제공 하는 서비스를 만들면 한 했으므로 사용자로 로그인 하 고, 제품을 구독 하 고, 데이터베이스를 만들 수 있습니다.
 
 ### <a name="subscribe-to-the-offer"></a>제품 구독
-1. 테 넌 트로 (https://portal.local.azurestack.external) 스택 Azure 포털에 로그인 합니다.
+1. Azure 스택 포털에 로그인 (https://portal.local.azurestack.external) 테 넌 트로 합니다.
 2. 클릭 **구독** 한 다음 입력 **TestSQLServerSubscription** 아래 **표시 이름**합니다.
 3. 클릭 **제안을 선택** > **TestSQLServerOffer** > **만들기**합니다.
 4. 클릭 **더 많은 서비스** > **구독** > **TestSQLServerSubscription** > **리소스 공급자**합니다.
@@ -64,7 +63,7 @@ SQL Server 리소스 공급자를 배포 하 고 제공 하는 서비스를 만�
 
 ### <a name="create-a-sql-database"></a>SQL 데이터베이스 만들기
 
-1. 클릭  **+**   >  **데이터 + 저장소** > **SQL 데이터베이스**합니다.
+1. 클릭 **+**  >  **데이터 + 저장소** > **SQL 데이터베이스**합니다.
 2. 필드에 대 한 기본값을 그대로 둡니다 또는 이러한 예제를 사용할 수 있습니다.
     - **데이터베이스 이름**: SQLdb
     - **최대 크기 (MB)**: 100

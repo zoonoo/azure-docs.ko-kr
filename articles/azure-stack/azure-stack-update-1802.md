@@ -1,25 +1,25 @@
 ---
-title: "Azure 스택 1802 업데이트 | Microsoft Docs"
-description: "Azure 스택 1802 업데이트에 포함 된 내용에 대 한 자세한 내용은 시스템, 알려진된 문제 및 업데이트를 다운로드 위치에 통합 합니다."
+title: Azure 스택 1802 업데이트 | Microsoft Docs
+description: Azure 스택 1802 업데이트에 포함 된 내용에 대 한 자세한 내용은 시스템, 알려진된 문제 및 업데이트를 다운로드 위치에 통합 합니다.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 03/20/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 247f13717971d3660b3ec0ee94821bd593c5fed0
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 71862463a62f11a4f2cea7dfcc60961331ded377
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-stack-1802-update"></a>Azure 스택 1802 업데이트
 
@@ -103,7 +103,7 @@ Azure 스택 1802 업데이트 빌드 번호는 **20180302.1**합니다.
 
 #### <a name="portal"></a>포털
 - 기능 [새 지원 요청을 드롭다운 목록에서 열려는](azure-stack-manage-portals.md#quick-access-to-help-and-support) 에서 관리자 내에서 포털 사용할 수 없습니다. 대신, 다음 링크를 사용 합니다.     
-    - Azure 스택 통합형된 시스템 https://aka.ms/newsupportrequest을 사용 합니다.
+    - Azure 스택 통합된 시스템을 사용 하 여 https://aka.ms/newsupportrequest합니다.
 
 - <!-- 2050709 --> In the admin portal, it is not possible to edit storage metrics for Blob service, Table service, or Queue service. When you go to Storage, and then select the blob, table, or queue service tile, a new blade opens that displays a metrics chart for that service. If you then select Edit from the top of the metrics chart tile, the Edit Chart blade opens but does not display options to edit metrics.
 
@@ -123,6 +123,13 @@ Azure 스택 1802 업데이트 빌드 번호는 **20180302.1**합니다.
     - *오류-FaultType ResourceProviderTimeout에 대 한 템플릿이 누락 되었습니다.*
 
     이 경고는 무시 해도 됩니다. 
+
+- <!-- 2253274 --> In the admin and user portals, the Settings blade for vNet Subnets fails to load. As a workaround, use PowerShell and the [Get-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetworksubnetconfig?view=azurermps-5.5.0) cmdlet to view and  manage this information.
+
+- 관리 포털 및 사용자 포털 모두에서 개요 블레이드에 이전 API 버전을 사용 하 여 만든 저장소 계정에 대 한 개요 블레이드를 선택 하면 로드에 실패 (예: 2015-06-15). 와 같은 시스템 저장소 계정이 여기에 **updateadminaccount** 패치 및 업데이트 하는 동안 사용 되는 합니다. 
+
+  이 문제를 해결 PowerShell 실행을 사용 하는 **시작 ResourceSynchronization.ps1** 저장소 계정 세부 정보에 대 한 액세스를 복원 하는 스크립트입니다. [이 스크립트는 GitHub에서 사용할 수 있는]( https://github.com/Azure/AzureStack-Tools/tree/master/Support/scripts), 권한 있는 끝점에 서비스 관리자 자격 증명으로 실행 해야 하 고 있습니다. 
+
 
 #### <a name="health-and-monitoring"></a>상태 및 모니터링
 1802로 업데이트 한 후 알려진된 문제가 없는지 합니다.

@@ -1,11 +1,11 @@
 ---
-title: "주요 기능 및 Azure 스택에 대 한 개념 | Microsoft Docs"
-description: "Azure Stack의 주요 기능 및 개념에 대해 알아봅니다."
+title: 주요 기능 및 Azure 스택에 대 한 개념 | Microsoft Docs
+description: Azure Stack의 주요 기능 및 개념에 대해 알아봅니다.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 09ca32b7-0e81-4a27-a6cc-0ba90441d097
 ms.service: azure-stack
 ms.workload: na
@@ -14,17 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/27/2018
 ms.author: jeffgilb
-ms.reviewer: 
-ms.openlocfilehash: b773ddc5da12f92960ef3378decac8569dac9ab9
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.reviewer: ''
+ms.openlocfilehash: 958b1757dd773f8c46185b13c84f766ce4f827ee
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="key-features-and-concepts-in-azure-stack"></a>Azure Stack의 주요 기능 및 개념
-
-*적용 대상: Azure 스택 통합 시스템과 Azure 스택 개발 키트*
-
 Microsoft Azure Stack을 처음 접하는 경우 이러한 용어와 기능 설명은 도움이 될 수 있습니다.
 
 ## <a name="personas"></a>가상 사용자
@@ -165,5 +162,5 @@ Microsoft Azure 스택 모든 리소스 공급자 사용 현황 데이터를 집
 - 기타 개선 기능
 
 ## <a name="next-steps"></a>다음 단계
-[Azure 스택 배포 필수 구성 요소](azure-stack-deploy.md)
+[Azure 스택 개발 키트를 평가 합니다.](azure-stack-deploy-overview.md)
 

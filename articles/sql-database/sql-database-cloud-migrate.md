@@ -4,17 +4,17 @@ description: 클라우드에서 Azure SQL Database로 SQL Server 데이터베이
 keywords: 데이터베이스 마이그레이션, SQL Server 데이터베이스 마이그레이션, 데이터베이스 마이그레이션 도구, 데이터베이스 마이그레이션, SQL 데이터베이스 마이그레이션
 services: sql-database
 author: CarlRabeler
-manager: Craig.Guyer
+manager: craigg
 ms.service: sql-database
 ms.custom: migrate
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/16/2018
 ms.author: carlrab
-ms.openlocfilehash: 32377b4a80fcafd1d997daa11a90699b581093a6
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 59ee56e225623295dd63bf5ae303bfe1aa8e95cf
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="sql-server-database-migration-to-azure-sql-database"></a>Azure SQL Database로 SQL Server 데이터베이스 마이그레이션
 
@@ -33,7 +33,7 @@ Azure SQL Server 2005 이상 데이터베이스를 Azure SQL Database의 단일 
 
  약간의 가동 중지 시간이 허용되거나 나중에 마이그레이션할 수 있도록 프로덕션 데이터베이스의 테스트 마이그레이션을 수행하려면 이 방법을 사용하여 단일 또는 풀링된 데이터베이스로 마이그레이션하세요. 자습서를 보려면 [SQL Server 데이터베이스 마이그레이션](sql-database-migrate-your-sql-server-database.md)을 참조하세요.
 
-다음 목록에는 이 방법을 사용한 단일 또는 풀링된 데이터베이스의 SQL Server 데이터베이스 마이그레이션에 대한 일반적인 워크플로가 포함되어 있습니다. 관리되는 인스턴스으로의 마이그레이션에 대한 내용은 [관리되는 인스턴스로 마이그레이션](sql-database-cloud-migrate.md#migration-to-azure-sql-database-managed-instance)을 참조하세요.
+다음 목록에는 이 방법을 사용한 단일 또는 풀링된 데이터베이스의 SQL Server 데이터베이스 마이그레이션에 대한 일반적인 워크플로가 포함되어 있습니다. 관리되는 인스턴스으로의 마이그레이션에 대한 내용은 [관리되는 인스턴스로 마이그레이션](sql-database-managed-instance-migrate.md)을 참조하세요.
 
   ![VSSSDT 마이그레이션 다이어그램](./media/sql-database-cloud-migrate/azure-sql-migration-sql-db.png)
 

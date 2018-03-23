@@ -1,24 +1,25 @@
 ---
-title: "Azure 스택 1711 업데이트 | Microsoft Docs"
-description: "Azure 스택 1711 업데이트에 포함 된 내용에 대 한 자세한 내용은 시스템, 알려진된 문제 및 업데이트를 다운로드 위치에 통합 합니다."
+title: Azure 스택 1711 업데이트 | Microsoft Docs
+description: Azure 스택 1711 업데이트에 포함 된 내용에 대 한 자세한 내용은 시스템, 알려진된 문제 및 업데이트를 다운로드 위치에 통합 합니다.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 2b66fe05-3655-4f1a-9b30-81bd64ba0013
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 03/22/2018
 ms.author: brenduns
-ms.openlocfilehash: 3b3f6d66d8d5a095ff839195ccf718a9fa085527
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.reviewer: justini
+ms.openlocfilehash: fd57699a329fbccdbefc73dae7d473070cd831ea
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-stack-1711-update"></a>Azure 스택 1711 업데이트
 
@@ -37,7 +38,13 @@ Azure 스택 1711 업데이트 빌드 번호는 **171201.3**합니다.
 
 ### <a name="prerequisites"></a>필수 조건
 
-Azure 스택을 먼저 설치 해야 [1710 업데이트](https://docs.microsoft.com/azure/azure-stack/azure-stack-update-1710) 이 업데이트를 적용 하기 전에 합니다.
+- Azure 스택을 먼저 설치 해야 [1710 업데이트](https://docs.microsoft.com/azure/azure-stack/azure-stack-update-1710) 이 업데이트를 적용 하기 전에 합니다.
+
+- 사용을 검토 **CloudAdmin** 1711 업데이트를 설치 하기 전에 계정 이름을으로 합니다. 1711, 버전부터 *CloudAdmin* 은 예약 된 계정 이름 및 수동으로 지정 하지 않아야 합니다. 1711 버전을 업데이트 하면 업데이트 배포 계정 (일반적으로 AzureStackAdmin 이라고 함)의 기존 인스턴스를 제거 합니다. 배포 계정 이름을 지정 하는 경우 *CloudAdmin*, 1711에 업데이트를 삭제 합니다. 
+
+  *CloudAdmin* 는 기본 제공 계정에 연결 하는 [ *권한 있는 끝점* ](azure-stack-privileged-endpoint.md) (PEP). PEP의 잠금 CloudAdmin 그룹의 구성원 인 다른 사용자 계정을 이미 있으면이 계정을 삭제 될 수 있습니다. 
+
+  CloudAdmin 배포 계정의 이름으로 사용 하는 경우에 Azure 스택 잠긴 것을 방지 하기 위해 1711에 대 한 업데이트를 시작 하기 전에 새 CloudAdmin 사용자 프로그램 PEP를 추가 합니다. 새 CloudAdmin 사용자를 추가 하려면 cmdlet을 실행 **새로 CloudAdminUser** 는 PEP에 있습니다.
 
 ### <a name="new-features-and-fixes"></a>새 기능 및 수정
 
@@ -61,7 +68,7 @@ Azure 스택을 먼저 설치 해야 [1710 업데이트](https://docs.microsoft.
 
 #### <a name="windows-server-2016-new-features-and-fixes"></a>Windows Server 2016의 새로운 기능 및 수정
 
-- [2017 년 11 월 14-KB4048953 (OS 빌드 14393.1884)](https://support.microsoft.com/help/4048953)
+- [2017 년 11 월 14-KB4048953 (OS 빌드 14393.1884) ](https://support.microsoft.com/help/4048953)
 
 ### <a name="known-issues-with-the-update-process"></a>업데이트 프로세스의 알려진된 문제
 
@@ -76,11 +83,11 @@ Azure 스택을 먼저 설치 해야 [1710 업데이트](https://docs.microsoft.
     1. **원인:** 이 문제는 이전 포털에서 업데이트를 다시 시작 권한 있는 끝점 (PEP)를 사용 하 여 다시 시작할 때 발생 합니다.
     2. **해결 방법:** 연락처 Microsoft 고객 서비스 및 지원에 대 한 지원 (CSS).
 <br><br>
-3. **증상:**Azure 스택 연산자는 업데이트 과정에서 다음과 같은 오류가 표시 될 수:*"'VirtualMachines' 역할의 'CheckHealth' 형식 발생에 대 한 예외: \n\nVirtual 컴퓨터 상태 검사 <machineName>-ACS01 생성 되는 다음 오류. \nThere 호스트에서 VM 정보를 가져오는 동안 오류가 발생 했습니다. 예외 세부 정보: \nGet-VM: 'Node03' 하지 못했습니다 컴퓨터에서 작업에: WS-관리 서비스 요청을 처리할 수 없습니다. WMI \nservice 또는 WMI 공급자에 알 수 없는 오류가 반환 되었습니다: HRESULT 0x8004106c "입니다.*
+3. **증상:** Azure 스택 연산자는 업데이트 과정에서 다음과 같은 오류가 표시 될 수:*"'VirtualMachines' 역할의 'CheckHealth' 형식 발생에 대 한 예외: \n\nVirtual 컴퓨터 상태 검사 <machineName>-ACS01 생성 되는 다음 오류. \nThere 호스트에서 VM 정보를 가져오는 동안 오류가 발생 했습니다. 예외 세부 정보: \nGet-VM: 'Node03' 하지 못했습니다 컴퓨터에서 작업에: WS-관리 서비스 요청을 처리할 수 없습니다. WMI \nservice 또는 WMI 공급자에 알 수 없는 오류가 반환 되었습니다: HRESULT 0x8004106c "입니다.*
     1. **원인:** 이 문제는 후속 창 서버 업데이트에서 해결 하려고 하는 Windows Server 문제로 인해 발생 합니다.
     2. **해결 방법:** 연락처 Microsoft 고객 서비스 및 지원에 대 한 지원 (CSS).
 <br><br>
-4. **증상:**Azure 스택 연산자는 업데이트 과정에서 다음과 같은 오류가 표시 될 수:*"역할 'URP' 유형의 'DefenderUpdate'에서 예외가 발생 했습니다:에서 버전을 가져오는 실패 한 \\SU1FileServer\SU1_Public\ DefenderUpdates\x64\{파일명을 (를) 복사 AzSDefenderFiles, C:\Program Files\WindowsPowerShell\Modules\Microsoft.AzureStack.Defender\Microsoft.AzureStack.Defender.psm1 60 시도 후.exe: 262"줄*
+4. **증상:** Azure 스택 연산자는 업데이트 과정에서 다음과 같은 오류가 표시 될 수:*"역할 'URP' 유형의 'DefenderUpdate'에서 예외가 발생 했습니다:에서 버전을 가져오는 실패 한 \\SU1FileServer\SU1_Public\ DefenderUpdates\x64\{파일명을 (를) 복사 AzSDefenderFiles, C:\Program Files\WindowsPowerShell\Modules\Microsoft.AzureStack.Defender\Microsoft.AzureStack.Defender.psm1 60 시도 후.exe: 262"줄*
     1. **원인:** Windows Defender 정의 업데이트를 다운로드 하 여 실패 한 또는 불완전 한 배경 인해이 문제가 발생 합니다.
     2. **해결 방법:** 하십시오 최대 8 시간 후 업데이트를 다시 시작 하려고 시도 하는 첫 번째 업데이트 이후 경과한 합니다.
 

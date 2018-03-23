@@ -1,11 +1,11 @@
 ---
-title: "다양 한 Azure 스택 개발 키트 환경에서 두 가상 네트워크 간의 사이트 간 VPN 연결 | Microsoft Docs"
-description: "클라우드 관리자를 사용 하 여 두 개의 단일 노드 Azure 스택 개발 키트 환경 간에 사이트 간 VPN 연결을 만드는 단계별 절차입니다."
+title: 다양 한 Azure 스택 개발 키트 환경에서 두 가상 네트워크 간의 사이트 간 VPN 연결 | Microsoft Docs
+description: 클라우드 관리자를 사용 하 여 두 개의 단일 노드 Azure 스택 개발 키트 환경 간에 사이트 간 VPN 연결을 만드는 단계별 절차입니다.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 3f1b4e02-dbab-46a3-8e11-a777722120ec
 ms.service: azure-stack
 ms.workload: na
@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 7/10/2017
 ms.author: brenduns
 ms.reviewer: scottnap
-ms.openlocfilehash: 886d56169c5500c9175b7ddc43edfc29c5142fbb
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 8bb10be63ef31ebe6241c15a79dafe71923a4cf7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-azure-stack-development-kit-environments"></a>다양 한 Azure 스택 개발 키트 환경에서 두 가상 네트워크 간의 사이트 간 VPN 연결 만들기
 ## <a name="overview"></a>개요
@@ -33,7 +33,7 @@ ms.lasthandoff: 02/21/2018
 ### <a name="before-you-begin"></a>시작하기 전에
 연결 구성을 완료 하려면를 시작 하기 전에 다음 항목이 있는지 확인 합니다.
 
-* 로 정의 되는 Azure 스택 개발 키트 하드웨어 요구 사항을 충족 하는 두 서버는 [Azure 스택 배포 필수 구성 요소](azure-stack-deploy.md)합니다. 에 나타나는 다른 필수 조건 확인의 [문서](azure-stack-deploy.md) 너무 충족 됩니다.
+* 두 대의 서버 및 기타 필수 구성 요소에 설명 된 대로 Azure 스택 개발 키트 하드웨어 요구 사항을 충족 하는 [빠른 시작: Azure 스택 개발 키트 평가](azure-stack-deploy-overview.md)합니다. 
 * [Azure 스택 개발 키트](https://azure.microsoft.com/en-us/overview/azure-stack/try/) 배포 패키지 합니다.
 
 ## <a name="deploy-the-azure-stack-development-kit-environments"></a>Azure 스택 개발 키트 환경 배포

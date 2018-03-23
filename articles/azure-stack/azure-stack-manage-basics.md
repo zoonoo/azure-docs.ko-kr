@@ -1,11 +1,11 @@
 ---
-title: "Azure 스택 관리 기본 사항 | Microsoft Docs"
-description: "Azure 스택을 관리 하기 위해 알아야 필요한에 대해 알아봅니다."
+title: Azure 스택 관리 기본 사항 | Microsoft Docs
+description: Azure 스택을 관리 하기 위해 알아야 필요한에 대해 알아봅니다.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 856738a7-1510-442a-88a8-d316c67c757c
 ms.service: azure-stack
 ms.workload: na
@@ -14,16 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: mabrigg
-ms.openlocfilehash: fa77faac195de3be7bf7b2785eb589b030a6e6ce
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 799651caf937ca2bafc79dc76f99ae43e700673a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-stack-administration-basics"></a>Azure 스택 관리 기본 사항
-
-*적용 대상: Azure 스택 통합 시스템과 Azure 스택 개발 키트*
-
 처음 사용 Azure 스택 관리 하는 경우 알아야 할 몇 가지 있습니다. 이 지침은 Azure 스택 운영자 사용자 역할에 대 한 개요 및 생산성을 높이려는 신속 하 게 해당 항목에 대 한 사용자에 게 알릴 사항 제공 합니다.
 
 ## <a name="understand-the-builds"></a>빌드 이해

@@ -1,20 +1,20 @@
 ---
-title: "Azure 데이터 센터 통합 스택-끝점 게시"
-description: "데이터 센터에서 Azure 스택 끝점을 게시 하는 방법을 알아봅니다"
+title: Azure 데이터 센터 통합 스택-끝점 게시
+description: 데이터 센터에서 Azure 스택 끝점을 게시 하는 방법을 알아봅니다
 services: azure-stack
 author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/21/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-keywords: 
-ms.openlocfilehash: 8dec686b9ccf87009a23cedf6023f15b84a0f155
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+keywords: ''
+ms.openlocfilehash: 694b8604949406c1c3064fd91bf1fe38f83ee946
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure 데이터 센터 통합 스택-끝점 게시
 Azure 스택 인프라 역할에 대 한 가상 IP 주소 (Vip)를 설정합니다. 해당이 Vip는 공용 IP 주소 풀에서 할당 됩니다. 각 VIP 소프트웨어 정의 네트워크 계층에서 액세스 제어 목록 (ACL)로 보호 됩니다. Acl은 솔루션을 더욱 강화 하기 위해 각기 물리적 스위치 (될 수 있습니다 앞뒤 및 BMC)도 사용 됩니다. 배포 시에 지정 된 외부 DNS 영역에서 각 끝점에 대 한 DNS 항목이 생성 됩니다.

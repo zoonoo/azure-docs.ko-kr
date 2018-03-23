@@ -1,24 +1,24 @@
 ---
-title: "권한 있는 끝점을 사용 하 여 Azure 스택의 | Microsoft Docs"
-description: "Azure 스택에서 (Azure 스택 연산자)에 대 한 권한 있는 끝점 (PEP)를 사용 하는 방법을 보여 줍니다."
+title: 권한 있는 끝점을 사용 하 여 Azure 스택의 | Microsoft Docs
+description: Azure 스택에서 (Azure 스택 연산자)에 대 한 권한 있는 끝점 (PEP)를 사용 하는 방법을 보여 줍니다.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: e94775d5-d473-4c03-9f4e-ae2eada67c6c
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2018
+ms.date: 03/22/2018
 ms.author: mabrigg
-ms.openlocfilehash: 29ac4517ec691f94f24ced81ca227cd4d1e7214e
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: fb4dea9832e781b2ec9f4cfa573b5a4f630188db
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>권한 있는 끝점을 사용 하 여 Azure 스택
 
@@ -74,7 +74,7 @@ PEP를 호스팅하는 가상 컴퓨터에서 원격 PowerShell 세션을 통해
       ```` 
    대화 상자가 나타나면 다음 자격 증명을 사용 합니다.
 
-      - **사용자 이름**: CloudAdmin 계정 형식 지정  **&lt; *Azure 스택 도메인*&gt;\cloudadmin**합니다. (ASDK에 대 한 사용자 이름이 **azurestack\cloudadmin**.)
+      - **사용자 이름**: CloudAdmin 계정 형식 지정  **&lt; *Azure 스택 도메인*&gt;\accountname**합니다. (ASDK에 대 한 사용자 이름이 **azurestack\accountname**.) 
       - **암호**: AzureStackAdmin 도메인 관리자 계정에 대 한 설치 중에 제공 된 동일한 암호를 입력 합니다.
     
 3.  연결 된 후의 프롬프트로 바뀝니다 **[*이름 지정 IP 주소 또는 ERCS VM*]: PS >** 또는 **[azs ercs01]: PS >**환경에 따라 합니다. 여기에서는 실행 `Get-Command` 사용 가능한 cmdlet의 목록을 볼 수 있습니다.
@@ -143,7 +143,7 @@ PEP은 위에서 설명한 대로 [PowerShell JEA](https://docs.microsoft.com/en
       ```` 
    대화 상자가 나타나면 다음 자격 증명을 사용 합니다.
 
-      - **사용자 이름**: CloudAdmin 계정 형식 지정  **&lt; *Azure 스택 도메인*&gt;\cloudadmin**합니다. (ASDK에 대 한 사용자 이름이 **azurestack\cloudadmin**.)
+      - **사용자 이름**: CloudAdmin 계정 형식 지정  **&lt; *Azure 스택 도메인*&gt;\accountname**합니다. (ASDK에 대 한 사용자 이름이 **azurestack\accountname**.) 
       - **암호**: AzureStackAdmin 도메인 관리자 계정에 대 한 설치 중에 제공 된 동일한 암호를 입력 합니다.
 
 3. 로컬 컴퓨터에 PEP 세션 가져오기
@@ -161,7 +161,7 @@ PEP은 위에서 설명한 대로 [PowerShell JEA](https://docs.microsoft.com/en
 
 1. PEP에서 액세스할 수 있는 외부 파일 공유를 만듭니다. 개발 키트 환경에서는 개발 키트 호스트에만 파일 공유를 만들 수 있습니다.
 2. 실행 된 `Close-PrivilegedEndpoint` cmdlet. 
-3. 기록 로그 파일을 저장 하는 경로 대해 묻는 메시지가 나타납니다. 형식 &#92; # 92에서 앞에서 만든 파일 공유를 지정 합니다. *servername*&#92; *sharename*합니다. 경로 지정 하지 않으면 cmdlet이 실패 하면 및 세션이 열린 상태로 유지 됩니다. 
+3. 기록 로그 파일을 저장 하는 경로 대해 묻는 메시지가 나타납니다. 형식에서 앞에서 만든 파일 공유를 지정 &#92; &#92; *servername*&#92;*sharename*합니다. 경로 지정 하지 않으면 cmdlet이 실패 하면 및 세션이 열린 상태로 유지 됩니다. 
 
     ![대 본 대상 경로 지정 하는 위치를 보여 주는 닫기 PrivilegedEndpoint cmdlet 출력](media/azure-stack-privileged-endpoint/closeendpoint.png)
 

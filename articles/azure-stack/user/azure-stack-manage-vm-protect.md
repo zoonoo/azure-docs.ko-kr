@@ -1,11 +1,11 @@
 ---
-title: "Azure 스택에 배포 된 Vm을 보호 | Microsoft Docs"
-description: "Azure 스택에 배포 된 가상 컴퓨터를 보호 하는 방법에 대 한 지침입니다."
+title: Azure 스택에 배포 된 Vm을 보호 | Microsoft Docs
+description: Azure 스택에 배포 된 가상 컴퓨터를 보호 하는 방법에 대 한 지침입니다.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 4e5833cf-4790-4146-82d6-737975fb06ba
 ms.service: azure-stack
 ms.workload: na
@@ -15,11 +15,11 @@ ms.topic: 02get-started-article
 ms.date: 02/27/2018
 ms.author: mabrigg
 ms.reviewer: hector.linares
-ms.openlocfilehash: e7c437e3310fbf5c921920a3f08ecb8fe1f0d931
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 0e74c6af36130d206456634548f452a1f1a2d4af
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="protect-virtual-machines-deployed-on-azure-stack"></a>Azure 스택에 배포 된 가상 컴퓨터 보호
 
@@ -68,8 +68,8 @@ VM 기반 응용 프로그램에 대 한 가장 일반적인 보호 체계 백�
  
 응용 프로그램 복구 또는 새 클라우드 동일한 클라우드로 하나 이상의 가상 컴퓨터를 복원 해야 합니다. 데이터 센터 또는 공용 클라우드는 클라우드를 지정할 수 있습니다. 대상 클라우드가 컨트롤 내에 완전히을 데이터 개인 정보 및 sovereignty 요구 사항에 따라 수행 됩니다. 
  
- - RTO: 가동 중지 시간 (초) 
- - RPO: 최소한의 데이터 손실
+ - 시간 단위로 측정 된 RTO: 가동 중지 시간 
+ - RPO: 변수 데이터 손실 (백업 빈도)에 따라 다름
  - 배포 토폴로지: 액티브/패시브 
 
 #### <a name="planning-your-backup-strategy"></a>백업 전략 계획
@@ -96,7 +96,7 @@ VM 기반 응용 프로그램에 대 한 가장 일반적인 보호 체계 백�
 ![복제-수동 장애 조치](media\azure-stack-manage-vm-backup\vm_backupdataflow_02.png)
 
  - RTO: 가동 중지 시간 (분) 
- - RPO: 변수 데이터 손실
+ - 복제 빈도) (따라 RPO: 변수 데이터 손실
  - 배포 토폴로지: 액티브/패시브 독립 여
  
 ### <a name="high-availabilityautomatic-failover"></a>높은 가용성/자동 장애 조치

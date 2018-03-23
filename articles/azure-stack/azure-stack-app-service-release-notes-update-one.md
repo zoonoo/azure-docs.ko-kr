@@ -1,27 +1,27 @@
 ---
-title: "Azure 스택 업데이트 1에서 응용 프로그램 서비스 | Microsoft Docs"
-description: "Azure 스택 앱 서비스에 대 한 업데이트 하나에 포함 된 내용에 대 한 자세한 내용은 알려진된 문제 및 업데이트를 다운로드 하는 위치입니다."
+title: 앱 서비스에서 Azure 스택 업데이트 1 릴리스 정보 | Microsoft Docs
+description: Azure 스택 앱 서비스에 대 한 업데이트 하나에 포함 된 내용에 대 한 자세한 내용은 알려진된 문제 및 업데이트를 다운로드 하는 위치입니다.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: apwestgarth
 manager: stefsch
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 03/20/2018
 ms.author: anwestg
 ms.reviewer: brenduns
-ms.openlocfilehash: 0c33c8fdefbb27ba8414e58bed1b42ee7aaba88a
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 538d31f5b50ee22c06ba22c78e1aa92281a3b212
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="app-service-on-azure-stack-update-one-release-notes"></a>Azure 스택 앱 서비스 업데이트 1 릴리스 정보
+# <a name="app-service-on-azure-stack-update-1-release-notes"></a>Azure 스택 업데이트 1 릴리스 정보에 대 한 앱 서비스
 
 *적용 대상: Azure 스택 통합 시스템과 Azure 스택 개발 키트*
 
@@ -39,7 +39,7 @@ Azure 스택 업데이트 1 빌드 번호에 앱 서비스는 **69.0.13698.9**
 ### <a name="prerequisites"></a>필수 조건
 
 > [!IMPORTANT]
-> Azure 스택 앱 서비스를 azure에서 이제 필요는 [3 주체 와일드 카드 인증서](azure-stack-app-service-before-you-get-started.md#get-certificates) 처리 하는 방식에는 SSO에 대 한 Kudu 이제 Azure 앱 서비스에서의 향상으로 인해 합니다.  새 주제는 * * *. sso.appservice.<region>합니다. <domainname>.<extension>**
+> Azure 스택 앱 서비스를 Azure의 새 배포 이제 요구는 [3 주체 와일드 카드 인증서](azure-stack-app-service-before-you-get-started.md#get-certificates) 처리 하는 방식에는 SSO에 대 한 Kudu 이제 Azure 앱 서비스에서의 향상으로 인해 합니다.  새 주제는 * * *. sso.appservice.<region>합니다. <domainname>.<extension>**
 >
 >
 
@@ -51,7 +51,7 @@ Azure 스택 업데이트 1에서 azure 앱 서비스는 다음과 같은 향상
 
 - **높은 가용성의 Azure 앱 서비스** -The Azure 스택 1802 사용 하도록 설정 하는 업데이트 작업에 배포할 오류 도메인입니다.  따라서 응용 프로그램 서비스 인프라는 오류 도메인 배포 될 내결함성이 있는 될 수 있습니다.  하지만 기본적으로 Azure 스택 1802 하기 전에 완료 하는 배포에 적용 되 고 업데이트를 참조 Azure 앱 서비스의 모든 새 배포가이 기능이 적용 됩니다는 [응용 프로그램 서비스 오류 도메인 설명서](azure-stack-app-service-fault-domain-update.md)
 
-- **기존 가상 네트워크에 배포** -고객은 기존 가상 네트워크 내에서 이제 Azure 스택 앱 서비스를 배포할 수 있습니다.  기존 가상 네트워크에 배포 고객을 SQL Server 및 개인 포트를 통해 Azure 앱 서비스에 필요한 파일 서버에 연결할 수 있습니다.  그러나 기존 가상 네트워크를 배포 하려면 배포 중 고객이 선택할 수 [앱 서비스에서 사용 하기 위해 서브넷 만들어야](azure-stack-app-service-before-you-get-started.md#virtual-network) 배포 하기 전에.
+- **기존 가상 네트워크에 배포** -고객은 기존 가상 네트워크 내에서 이제 Azure 스택 앱 서비스를 배포할 수 있습니다.  기존 가상 네트워크에 배포 고객을 SQL Server 및 개인 포트를 통해 Azure 앱 서비스에 필요한 파일 서버에 연결할 수 있습니다.  그러나 기존 가상 네트워크에 배포 하도록 선택할 수 고객 배포 하는 동안 [앱 서비스에서 사용 하기 위해 서브넷 만들어야](azure-stack-app-service-before-you-get-started.md#virtual-network) 배포 하기 전에.
 
 - 업데이트를 **응용 프로그램 서비스 테 넌 트, 관리자, 함수 포털 및 Kudu 도구**합니다.  Azure 스택 포털 SDK 버전와 일치 합니다.
 
@@ -103,7 +103,13 @@ Azure 스택 업데이트 1에서 azure 앱 서비스는 다음과 같은 향상
 
 ### <a name="known-issues-with-the-deployment-process"></a>배포 프로세스의 알려진된 문제
 
-- Azure 스택 업데이트 1에서 Azure 앱 서비스의 배포에 대 한 알려진된 문제가 없는지 합니다.
+- 인증서 유효성 검사 오류
+
+일부 고객 설치 관리자에서 지나치게 제한적인 유효성 검사로 인해 통합된 된 시스템에 배포 하는 경우 앱 서비스 설치 관리자에 인증서를 제공 하는 경우 문제가 발생 했습니다.  앱 서비스 설치 관리자를 다시 릴리스 되었습니다, 고객 해야 [업데이트 된 설치 관리자 다운로드](https://aka.ms/appsvconmasinstaller)합니다.  계속 업데이트 된 설치 관리자를 사용 하 여 인증서 유효성 검사 문제를 발생 하는 경우에 지원에 문의 합니다.
+
+- 통합된 시스템에서 Azure 스택 루트 인증서를 검색 하는 문제입니다.
+
+Get AzureStackRootCert.ps1의 오류로 인해 고객 루트 인증서가 설치 되지 않은 컴퓨터에서 스크립트를 실행할 때 Azure 스택 루트 인증서를 검색 하지 않아야 합니다.  스크립트를 다시 릴리스 요청 고객 및이 문제를 해결 되었습니다 이제 [업데이트 된 도우미 스크립트를 다운로드](https://aka.ms/appsvconmashelpers)합니다.  루트 인증서 업데이트 된 스크립트를 검색 하는 문제가 발생 해도 지원에 문의 합니다.
 
 ### <a name="known-issues-with-the-update-process"></a>업데이트 프로세스의 알려진된 문제
 
@@ -111,13 +117,91 @@ Azure 스택 업데이트 1에서 azure 앱 서비스는 다음과 같은 향상
 
 ### <a name="known-issues-post-installation"></a>알려진된 문제 (설치 후)
 
-- Azure 스택 업데이트 1에서 Azure 앱 서비스의 설치에 대 한 알려진된 문제가 없는지 합니다.
+- 슬롯 전환 작동 하지 않습니다.
+
+이 릴리스에서 사이트 슬롯 전환을 구분 합니다.  기능을 복원 하려면 다음이 단계를 완료 합니다.
+
+1. ControllersNSG 네트워크 보안 그룹을 수정 **허용** 앱 서비스 컨트롤러 인스턴스에 원격 데스크톱 연결 합니다.  AppService.local에서 응용 프로그램 서비스를 배포 하는 리소스 그룹의 이름으로 대체 합니다.
+
+    ```powershell
+      Login-AzureRMAccount -EnvironmentName AzureStackAdmin
+
+      $nsg = Get-AzureRmNetworkSecurityGroup -Name "ControllersNsg" -ResourceGroupName "AppService.local"
+
+      $RuleConfig_Inbound_Rdp_3389 =  $nsg | Get-AzureRmNetworkSecurityRuleConfig -Name "Inbound_Rdp_3389"
+
+      Set-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg `
+        -Name $RuleConfig_Inbound_Rdp_3389.Name `
+        -Description "Inbound_Rdp_3389" `
+        -Access Allow `
+        -Protocol $RuleConfig_Inbound_Rdp_3389.Protocol `
+        -Direction $RuleConfig_Inbound_Rdp_3389.Direction `
+        -Priority $RuleConfig_Inbound_Rdp_3389.Priority `
+        -SourceAddressPrefix $RuleConfig_Inbound_Rdp_3389.SourceAddressPrefix `
+        -SourcePortRange $RuleConfig_Inbound_Rdp_3389.SourcePortRange `
+        -DestinationAddressPrefix $RuleConfig_Inbound_Rdp_3389.DestinationAddressPrefix `
+        -DestinationPortRange $RuleConfig_Inbound_Rdp_3389.DestinationPortRange
+
+      # Commit the changes back to NSG
+      Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
+      ```
+
+2. 로 이동는 **CN0 VM** Azure 스택 관리자 포털에서 가상 컴퓨터에서 및 **연결 클릭 하 여** 컨트롤러 인스턴스 여 원격 데스크톱 세션을 엽니다.  앱 서비스 배포 중 지정 된 자격 증명을 사용 합니다.
+3. 시작 **관리자 권한으로 PowerShell** 다음 스크립트를 실행 하 고
+
+    ```powershell
+        Import-Module appservice
+
+        $sm = new-object Microsoft.Web.Hosting.SiteManager
+
+        if($sm.HostingConfiguration.SlotsPollWorkerForChangeNotificationStatus=$true)
+        {
+          $sm.HostingConfiguration.SlotsPollWorkerForChangeNotificationStatus=$false
+        #  'Slot swap mode reverted'
+        }
+        
+        # Confirm new setting is false
+        $sm.HostingConfiguration.SlotsPollWorkerForChangeNotificationStatus
+        
+        # Commit Changes
+        $sm.CommitChanges()
+
+        Get-AppServiceServer -ServerType ManagementServer | ForEach-Object Repair-AppServiceServer
+        
+    ```
+
+4. 원격 데스크톱 세션을 닫습니다.
+5. ControllersNSG 네트워크 보안 그룹을 되돌리기 **Deny** 앱 서비스 컨트롤러 인스턴스에 원격 데스크톱 연결 합니다.  AppService.local에서 응용 프로그램 서비스를 배포 하는 리소스 그룹의 이름으로 대체 합니다.
+
+    ```powershell
+
+        Login-AzureRMAccount -EnvironmentName AzureStackAdmin
+
+        $nsg = Get-AzureRmNetworkSecurityGroup -Name "ControllersNsg" -ResourceGroupName "AppService.local"
+
+        $RuleConfig_Inbound_Rdp_3389 =  $nsg | Get-AzureRmNetworkSecurityRuleConfig -Name "Inbound_Rdp_3389"
+
+        Set-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg `
+          -Name $RuleConfig_Inbound_Rdp_3389.Name `
+          -Description "Inbound_Rdp_3389" `
+          -Access Deny `
+          -Protocol $RuleConfig_Inbound_Rdp_3389.Protocol `
+          -Direction $RuleConfig_Inbound_Rdp_3389.Direction `
+          -Priority $RuleConfig_Inbound_Rdp_3389.Priority `
+          -SourceAddressPrefix $RuleConfig_Inbound_Rdp_3389.SourceAddressPrefix `
+          -SourcePortRange $RuleConfig_Inbound_Rdp_3389.SourcePortRange `
+          -DestinationAddressPrefix $RuleConfig_Inbound_Rdp_3389.DestinationAddressPrefix `
+          -DestinationPortRange $RuleConfig_Inbound_Rdp_3389.DestinationPortRange
+
+        # Commit the changes back to NSG
+        Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
+    ```
 
 ### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Azure 스택 앱 서비스를 Azure 운영 클라우드 관리자에 대 한 알려진된 문제
 
 설명서에서 참조는 [Azure 스택 1802 릴리스 정보](azure-stack-update-1802.md)
 
-## <a name="see-also"></a>참고 항목
+## <a name="next-steps"></a>다음 단계
 
 - Azure 앱 서비스의 개요를 참조 하십시오. [Azure 앱 서비스에 대 한 Azure 스택 개요](azure-stack-app-service-overview.md)합니다.
 - Azure 스택 앱 서비스 배포를 준비 하는 방법에 대 한 자세한 내용은 참조 [Azure 스택 앱 서비스를 시작 하기 전에](azure-stack-app-service-before-you-get-started.md)합니다.

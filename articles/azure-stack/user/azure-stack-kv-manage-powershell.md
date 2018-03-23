@@ -1,11 +1,11 @@
 ---
-title: "PowerShell을 사용 하 여 Azure 스택의 주요 자격 증명 모음 관리 | Microsoft Docs"
-description: "PowerShell을 사용 하 여 Azure 스택의 주요 자격 증명 모음을 관리 하는 방법에 알아봅니다"
+title: PowerShell을 사용 하 여 Azure 스택의 주요 자격 증명 모음 관리 | Microsoft Docs
+description: PowerShell을 사용 하 여 Azure 스택의 주요 자격 증명 모음을 관리 하는 방법에 알아봅니다
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 22B62A3B-B5A9-4B8C-81C9-DA461838FAE5
 ms.service: azure-stack
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: mabrigg
-ms.openlocfilehash: 6ee2ceff10d16456a6e8c6283f40fa594b3311bc
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 9dac59d74347e21bebaf7cb65d199711f45b29a9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="manage-key-vault-in-azure-stack-by-using-powershell"></a>PowerShell을 사용 하 여 Azure 스택의 주요 자격 증명 모음 관리
 
@@ -81,7 +81,7 @@ New-AzureRmKeyVault -VaultName “Vault01” -ResourceGroupName “VaultRG” -L
 
 ![새로운 Key Vault](media/azure-stack-kv-manage-powershell/image4.png)
 
-이 명령의 출력에는 만든 키 자격 증명 모음의 속성이 표시 됩니다. 사용 하 여 응용 프로그램에서이 자격 증명이 모음에 액세스할 때는 **자격 증명 모음 URI** 출력에 표시 된 속성입니다. 예를 들어, 자격 증명 모음 식별자 URI (Uniform Resource)에이 경우 "https://vault01.vault.local.azurestack.external"입니다. 이 키 자격 증명 모음 REST API를 통해 상호 작용 하는 응용 프로그램이 URI를 사용 해야 합니다.
+이 명령의 출력에는 만든 키 자격 증명 모음의 속성이 표시 됩니다. 사용 하 여 응용 프로그램에서이 자격 증명이 모음에 액세스할 때는 **자격 증명 모음 URI** 출력에 표시 된 속성입니다. 예를 들어 자격 증명 모음 식별자 URI (Uniform Resource)이 경우에 "https://vault01.vault.local.azurestack.external"입니다. 이 키 자격 증명 모음 REST API를 통해 상호 작용 하는 응용 프로그램이 URI를 사용 해야 합니다.
 
 Active Directory Federation services (AD FS)-PowerShell을 사용 하 여 자격 증명 모음 키를 만들 때 기반된 배포, "액세스 정책을 설정 되지 않았습니다 없다는 경고가 나타날 수 있습니다. 사용자나 응용 프로그램에 액세스 권한이이 자격 증명이 모음을 사용 하도록 합니다. " 이 문제를 해결 하려면 자격 증명 모음에 대 한 액세스 정책을 사용 하 여 설정 된 [Set-azurermkeyvaultaccesspolicy](azure-stack-kv-manage-powershell.md#authorize-an-application-to-use-a-key-or-secret) 명령:
 
@@ -90,7 +90,7 @@ Active Directory Federation services (AD FS)-PowerShell을 사용 하 여 자격
 $adUser = Get-ADUser -Filter "Name -eq '{Active directory user name}'"
 $objectSID = $adUser.SID.Value 
 
-#Set the key vault access policy
+# Set the key vault access policy
 Set-AzureRmKeyVaultAccessPolicy -VaultName "{key vault name}" -ResourceGroupName "{resource group name}" -ObjectId "{object SID}" -PermissionsToKeys {permissionsToKeys} -PermissionsToSecrets {permissionsToSecrets} -BypassObjectIdValidation 
 ```
 
@@ -111,10 +111,10 @@ Add-AzureKeyVaultKey -VaultName “Vault01” -Name “Key01” -verbose -Destin
 
 ![새 키](media/azure-stack-kv-manage-powershell/image5.png)
 
-이제 해당 URI를 사용 하 여 만든된 키를 참조할 수 있습니다. 을 만들거나 기존 키와 동일한 이름을 가진 키를 가져올 경우 원래 키 새 키에 지정 된 값으로 업데이트 됩니다. 키의 버전 별로 URI를 사용 하 여 이전 버전에 액세스할 수 있습니다. 예: 
+이제 해당 URI를 사용 하 여 만든된 키를 참조할 수 있습니다. 을 만들거나 기존 키와 동일한 이름을 가진 키를 가져올 경우 원래 키 새 키에 지정 된 값으로 업데이트 됩니다. 키의 버전 별로 URI를 사용 하 여 이전 버전에 액세스할 수 있습니다. 예:  
 
-* "Https://vault10.vault.local.azurestack.external:443/키/key01"를 사용 하 여 항상 최신 버전을 가져옵니다. 
-* "Https://vault010.vault.local.azurestack.external:443/키/key01/d0b36ee2e3d14e9f967b8b6b1d38938a"를 사용 하 여이 특정 버전 가져오기.
+* 사용 하 여 "https://vault10.vault.local.azurestack.external:443/keys/key01" 항상 현재 버전을 가져올 수 있습니다. 
+* 사용 하 여 "https://vault010.vault.local.azurestack.external:443/keys/key01/d0b36ee2e3d14e9f967b8b6b1d38938a"이 특정 버전을 가져올 수 있습니다.
 
 ### <a name="get-a-key"></a>키 가져오기
 

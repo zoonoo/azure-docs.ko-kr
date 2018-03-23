@@ -1,25 +1,25 @@
 ---
-title: "Azure 스택 통합 시스템 배포에 대 한 Azure 스택 공개 키 인프라 인증서 준비 | Microsoft Docs"
-description: "Azure 스택 통합 시스템에 대 한 Azure 스택 PKI 인증서를 준비 하는 방법에 설명 합니다."
+title: Azure 스택 통합 시스템 배포에 대 한 Azure 스택 공개 키 인프라 인증서 준비 | Microsoft Docs
+description: Azure 스택 통합 시스템에 대 한 Azure 스택 PKI 인증서를 준비 하는 방법에 설명 합니다.
 services: azure-stack
-documentationcenter: 
-author: jeffgilb
+documentationcenter: ''
+author: mattbriggs
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2018
-ms.author: jeffgilb
+ms.date: 03/22/2018
+ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: b2f1e9bf62773dd7124678552f23dd9262530031
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: dadb443f8b7739e3a18c0d3beb558d8c42e9d19c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="prepare-azure-stack-pki-certificates-for-deployment"></a>Azure 스택 PKI 인증서 배포 준비
 인증서 파일 [선택한 해당 CA에서 가져온](azure-stack-get-pki-certs.md) 가져오고 Azure 스택 인증서 요구 사항 일치 하는 속성을 사용 하 여 내보낸 해야 합니다.
