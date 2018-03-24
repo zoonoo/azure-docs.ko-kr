@@ -1,25 +1,25 @@
 ---
-title: "Azure 스택 통합 시스템 배포에 대 한 Azure 스택 공개 키 인프라 인증서를 생성 | Microsoft Docs"
-description: "Azure 스택 PKI 인증서 배포에 대해 통합 Azure 스택 시스템에 설명합니다."
+title: Azure 스택 통합 시스템 배포에 대 한 Azure 스택 공개 키 인프라 인증서를 생성 | Microsoft Docs
+description: Azure 스택 PKI 인증서 배포에 대해 통합 Azure 스택 시스템에 설명합니다.
 services: azure-stack
-documentationcenter: 
-author: jeffgilb
+documentationcenter: ''
+author: mattbriggs
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2018
-ms.author: jeffgilb
+ms.date: 03/22/2018
+ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 991a94e4ca41bad438a3c8d06e4e1f691cff91bc
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 4a7432260167b8740567ad4308e102417abad82c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="generate-pki-certificates-for-azure-stack-deployment"></a>Azure 스택 배포를 위한 PKI 인증서를 생성 합니다.
 배웠으므로 [PKI 인증서 요구 사항](azure-stack-pki-certs.md) Azure 스택 배포에 대 한에서 CA (인증 기관) 사용자가 선택한 해당 인증서를 확보 해야 합니다. 
@@ -30,7 +30,7 @@ ms.lasthandoff: 02/24/2018
 ### <a name="sample-inf-file"></a>샘플 INF 파일 
 예제에서는 인증서 요청 INF 파일 (내부 또는 공용) CA에 제출에 대 한 오프 라인 인증서 요청 파일을 만드는 데 사용할 수 있습니다. INF 단일 와일드 카드 인증서에 모든 필수 끝점 (선택적 PaaS 서비스 포함)를 설명 합니다. 
 
-해당 지역의 같으면 샘플 INF 파일 가정 **바다** 외부 FQDN 값은 **바다 &#46; contoso &#46; com**합니다. 이러한 값을 생성 하기 전에 사용자 환경에 맞게 변경는 합니다. 배포에 대 한 INF 파일입니다. 
+해당 지역의 같으면 샘플 INF 파일 가정 **바다** 외부 FQDN 값은 **바다&#46;contoso&#46;com**합니다. 이러한 값을 생성 하기 전에 사용자 환경에 맞게 변경는 합니다. 배포에 대 한 INF 파일입니다. 
 
     
     [Version] 
