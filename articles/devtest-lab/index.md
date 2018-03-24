@@ -1,24 +1,24 @@
 ---
-title: "Azure Devtest Labs 설명서 - 자습서 | Microsoft Docs"
-description: "다시 사용할 수 있는 아티팩트를 사용하여 신속하게 응용 프로그램 테스트 환경을 만드는 방법에 대해 알아봅니다. 자습서, 비디오 등에서는 실습을 생성하고 관리하며 보호하는 방법을 보여 줍니다."
+title: Azure Devtest Labs 설명서 - 자습서 | Microsoft Docs
+description: 다시 사용할 수 있는 아티팩트를 사용하여 신속하게 응용 프로그램 테스트 환경을 만드는 방법에 대해 알아봅니다. 자습서, 비디오 등에서는 실습을 생성하고 관리하며 보호하는 방법을 보여 줍니다.
 services: devtest-lab
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: devtest-lab
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 92aab190dfba196d48feacbfcc81a0097102b810
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 41b7ae5ecf87f4ca544e03c3e62b6c850cf799d0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
-#<a name="devtest-labs-documentation"></a>DevTest Labs 설명서
+# <a name="devtest-labs-documentation"></a>DevTest Labs 설명서
 
 다시 사용할 수 있는 아티팩트를 사용하여 신속하게 응용 프로그램 테스트 환경을 만드는 데 DevTest Labs을 사용하는 방법에 대해 알아봅니다. 자습서, 비디오 및 기타 설명서에서는 실습을 생성, 관리 및 보호하고 아티팩트를 추가 및 관리하는 방법을 보여 줍니다.
 
@@ -117,7 +117,7 @@ ms.lasthandoff: 10/11/2017
 
 ---
 
-<h2>참조</h2>
+<h2>참고 자료</h2>
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">

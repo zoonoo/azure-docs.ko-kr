@@ -28,7 +28,7 @@
 - name: 개념
   items:
     - name: 비용 보고서 이해
-      href: understading-cost-reports.md
+      href: understanding-cost-reports.md
 - name: 방법 가이드
   items:
     - name: Azure 구독 및 계정 활성화

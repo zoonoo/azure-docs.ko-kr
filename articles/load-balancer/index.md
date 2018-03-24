@@ -1,26 +1,26 @@
 ---
-title: "Azure Load Balancer 설명서 - 자습서, API 참조 | Microsoft Docs"
-description: "앱의 네트워크 성능에 부하 분산 장치를 사용하는 방법에 대해 알아봅니다. 크로스-프레미스 가상 네트워크에서 가상 컴퓨터 및 클라우드 리소스의 트래픽을 관리합니다."
+title: Azure Load Balancer 설명서 - 자습서, API 참조 | Microsoft Docs
+description: 앱의 네트워크 성능에 부하 분산 장치를 사용하는 방법에 대해 알아봅니다. 크로스-프레미스 가상 네트워크에서 가상 머신 및 클라우드 리소스의 트래픽을 관리합니다.
 services: load-balancer
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: load-balancer
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 169ca89ccd80e5a70f3e9ab07b3c34358c154be7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4642b0108343b417dc09bbc5978b6a18a58d39a9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
-#<a name="load-balancer-documentation"></a>부하 분산 장치 설명서
+# <a name="load-balancer-documentation"></a>부하 분산 장치 설명서
 
-부하 분산 장치를 사용하여 응용 프로그램에 고가용성 및 네트워크 성능을 제공하는 방법에 대해 알아봅니다. 설명서에서는 가상 컴퓨터 및 클라우드 리소스 간 및 크로스-프레미스 가상 네트워크에서 트래픽의 부하를 분산하는 방법을 보여 줍니다.
+부하 분산 장치를 사용하여 응용 프로그램에 고가용성 및 네트워크 성능을 제공하는 방법에 대해 알아봅니다. 설명서에서는 가상 머신 및 클라우드 리소스 간 및 크로스-프레미스 가상 네트워크에서 트래픽의 부하를 분산하는 방법을 보여 줍니다.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -99,7 +99,7 @@ ms.lasthandoff: 10/11/2017
 
 ---
 
-<h2>참조</h2>
+<h2>참고 자료</h2>
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">
@@ -122,7 +122,7 @@ ms.lasthandoff: 10/11/2017
                         <h3>언어</h3>
                         <p><a href="/dotnet/api/microsoft.azure.management.network.models">.NET</a></p>
                         <p><a href="/java/api/com.microsoft.azure.management.network">Java</a></p>
-                        <p><a href="http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/LoadBalancers.html">Node.JS</a></p>
+                        <p><a href="http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/LoadBalancers.html">Node.js</a></p>
                         <p><a href="http://www.rubydoc.info/gems/azure_mgmt_network/Azure/ARM/Network/LoadBalancers">Ruby</a></p>
                         <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.operations.html#azure.mgmt.network.operations.LoadBalancersOperations#azure.mgmt.network.operations.LoadBalancersOperations">Python</a></p>
                    </div>

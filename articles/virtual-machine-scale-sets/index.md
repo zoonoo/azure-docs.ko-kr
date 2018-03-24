@@ -1,26 +1,26 @@
 ---
-title: "Azure Virtual Machine Scale Sets 설명서 - 자습서, API 참조 | Microsoft Docs"
-description: "가상 컴퓨터 확장 집합을 사용하여 큰 계산, 빅 데이터 및 컨테이너화된 솔루션용 자동 크기 조정 Windows 또는 Linux VM을 만드는 방법에 대해 알아봅니다."
+title: Azure Virtual Machine Scale Sets 설명서 - 자습서, API 참조 | Microsoft Docs
+description: Virtual Machine Scale Sets를 사용하여 큰 계산, 빅 데이터 및 컨테이너화된 솔루션용 자동 크기 조정 Windows 또는 Linux VM을 만드는 방법에 대해 알아봅니다.
 services: virtual-machine-scale-sets
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machine-scale-sets
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: f6c51a605a3fe28fb906e8c35a68a885a46136ed
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 53a6db483ff760c143d98a209e622e1214762ce3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
-#<a name="virtual-machine-scale-sets-documentation"></a>Virtual Machine Scale Sets 설명서
+# <a name="virtual-machine-scale-sets-documentation"></a>Virtual Machine Scale Sets 설명서
 
-가상 컴퓨터 확장 집합을 사용하여 동일한 일련의 자동 크기 조정 Windows 또는 Linux VM을 배포하고 관리하는 방법에 대해 알아봅니다. 설명서에서는 확장 집합을 사용하여 큰 계산, 빅 데이터 및 컨테이너화된 솔루션을 대상으로 하는 서비스를 지원하는 방법을 보여 줍니다.
+Virtual Machine Scale Sets를 사용하여 동일한 일련의 자동 크기 조정 Windows 또는 Linux VM을 배포하고 관리하는 방법에 대해 알아봅니다. 설명서에서는 확장 집합을 사용하여 큰 계산, 빅 데이터 및 컨테이너화된 솔루션을 대상으로 하는 서비스를 지원하는 방법을 보여 줍니다.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -70,7 +70,7 @@ ms.lasthandoff: 10/11/2017
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>가상 컴퓨터 확장 집합 시작</h3>
+                        <h3>Virtual Machine Scale Sets 시작</h3>
                     </div>
                 </div>
             </div>
@@ -82,7 +82,7 @@ ms.lasthandoff: 10/11/2017
 
 ---
 
-<h2>참조</h2>
+<h2>참고 자료</h2>
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">
@@ -118,7 +118,7 @@ ms.lasthandoff: 10/11/2017
                 <div class="card">
                     <div class="cardText">
                         <h3>REST (영문)</h3>
-                        <p><a href="/rest/api/virtualmachinescalesets/">가상 컴퓨터 확장 집합 API 참조</a></p>
+                        <p><a href="/rest/api/virtualmachinescalesets/">Virtual Machine Scale Sets API 참조</a></p>
                     </div>
                 </div>
             </div>

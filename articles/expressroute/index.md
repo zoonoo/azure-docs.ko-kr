@@ -1,24 +1,24 @@
 ---
-title: "Azure ExpressRoute 설명서 - 자습서, API 참조 | Microsoft Docs"
-description: "온-프레미스 인프라 또는 공동 시설의 Microsoft 클라우드 서비스에 개인 ExpressRoute 연결을 구성하고 관리하는 방법에 대해 알아봅니다."
+title: Azure ExpressRoute 설명서 - 자습서, API 참조 | Microsoft Docs
+description: 온-프레미스 인프라 또는 공동 시설의 Microsoft 클라우드 서비스에 개인 ExpressRoute 연결을 구성하고 관리하는 방법에 대해 알아봅니다.
 services: expressroute
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: expressroute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 8c12fd74d131538e736d6357da586c5debb9929c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9255a4166809568258d733c2894e5788d27cd612
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
-#<a name="expressroute-documentation"></a>ExpressRoute 설명서
+# <a name="expressroute-documentation"></a>ExpressRoute 설명서
 
 ExpressRoute를 사용하여 온-프레미스 인프라 또는 공동 시설의 Microsoft 클라우드 서비스에 빠른 개인 연결을 설정하는 방법에 대해 알아봅니다. 자습서, REST API 및 기타 설명서를 통해 ExpressRoute 회로를 구성하고 관리할 수 있습니다.
 
@@ -81,7 +81,7 @@ ExpressRoute를 사용하여 온-프레미스 인프라 또는 공동 시설의 
 
 ---
 
-<h2>참조</h2>
+<h2>참고 자료</h2>
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">
