@@ -1,24 +1,24 @@
 ---
-title: "Azure HDInsight 설명서 - 자습서, API 참조 | Microsoft Docs"
-description: "HDInsight의 Hadoop을 알아보세요. 설명서에서는 Hadoop, Spark, HBase, R-Server를 사용하여 빅 데이터를 처리하고 분석하며 정보를 얻는 방법을 보여 줍니다."
+title: Azure HDInsight 설명서 - 자습서, API 참조 | Microsoft Docs
+description: HDInsight의 Hadoop을 알아보세요. 설명서에서는 Hadoop, Spark, HBase, R-Server를 사용하여 빅 데이터를 처리하고 분석하며 정보를 얻는 방법을 보여 줍니다.
 services: hdinsight
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 12/05/2017
 ms.author: carolz
-ms.openlocfilehash: 12fbfada95f9356b1d32c0edd3346a57c6ffa26f
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 6d00f3194f7cf02d9c0218ed768f3c3350efdd16
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/23/2018
 ---
-#<a name="azure-hdinsight-documentation"></a>Azure HDInsight 설명서
+# <a name="azure-hdinsight-documentation"></a>Azure HDInsight 설명서
 
 Azure HDInsight를 사용하여 스트리밍 또는 기록 데이터를 분석하는 방법에 대해 알아봅니다. 자습서 및 기타 설명서에서는 Hadoop, Spark, Hive, LLAP, Kafka, Storm, R 등과 같은 가장 인기 있는 오픈 소스 프레임워크를 사용하여 클러스터를 만들고 빅 데이터를 처리 및 분석하며 솔루션을 개발하는 방법을 보여줍니다. 
 
@@ -233,7 +233,7 @@ Azure HDInsight는 엔터프라이즈의 경우 완전히 관리되는 전체 �
 
 ---
  
-<h2>참조</h2>
+<h2>참고 자료</h2>
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">

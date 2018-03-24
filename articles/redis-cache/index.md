@@ -1,24 +1,24 @@
 ---
-title: "Azure Redis Cache 설명서 - 자습서, API 참조 | Microsoft Docs"
-description: "응용 프로그램이 데이터에 빠르게 액세스할 수 있도록 하는 보안 데이터 캐시 및 메시징 broker인 Azure Redis Cache를 사용하는 방법에 대해 알아봅니다. 자습서, API 참조 등입니다."
+title: Azure Redis Cache 설명서 - 자습서, API 참조 | Microsoft Docs
+description: 응용 프로그램이 데이터에 빠르게 액세스할 수 있도록 하는 보안 데이터 캐시 및 메시징 broker인 Azure Redis Cache를 사용하는 방법에 대해 알아봅니다. 자습서, API 참조 등입니다.
 services: redis-cache
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: redis-cache
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 6528d900ba3641189f8000db8d2535c9b215d148
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8b772df55f8862330da9e557b9bf2ed11b9e2347
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
-#<a name="redis-cache-documentation"></a>Redis Cache 설명서
+# <a name="redis-cache-documentation"></a>Redis Cache 설명서
 
 응용 프로그램의 데이터에 대한 많은 처리량을 짧은 대기 시간 동안 처리할 수 있도록 하는 보안 데이터 캐시 및 메시징 broker인 Azure Redis Cache를 사용하는 방법에 대해 알아봅니다. 자습서, API 참조 및 기타 설명서에서는 Azure에 있는 응용 프로그램의 Redis Cache를 사용하는 방법을 보여 줍니다.
 
@@ -152,7 +152,7 @@ ms.lasthandoff: 10/11/2017
 
 ---
 
-<h2>참조</h2>
+<h2>참고 자료</h2>
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">

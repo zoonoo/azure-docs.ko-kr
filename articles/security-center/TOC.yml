@@ -124,6 +124,8 @@
           href: security-center-ata-integration.md
         - name: Azure AD ID 보호 연결
           href: security-center-aadip-integration.md
+        - name: SIEM에 데이터 내보내기
+          href: security-center-export-data-to-siem.md
     - name: 위협 조사
       href: security-center-detection-capabilities.md
       items:

@@ -1,24 +1,24 @@
 ---
-title: "Azure Traffic Manager 설명서 - 자습서, API 참조 | Microsoft Docs"
-description: "응용 프로그램 성능을 최적화하기 위해 들어오는 트래픽을 관리하는 방법에 대해 알아봅니다. 설명서에서는 Azure 또는 외부 서비스 끝점에 트래픽을 분산하는 방법을 보여 줍니다."
+title: Azure Traffic Manager 설명서 - 자습서, API 참조 | Microsoft Docs
+description: 응용 프로그램 성능을 최적화하기 위해 들어오는 트래픽을 관리하는 방법에 대해 알아봅니다. 설명서에서는 Azure 또는 외부 서비스 끝점에 트래픽을 분산하는 방법을 보여 줍니다.
 services: traffic-manager
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: traffic-manager
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 10e7e7c95dc0dd614c7c01581cb746f1e854a9e1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ce3699f4838c30eaaa0ab2938190c05de1feb781
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
-#<a name="traffic-manager-documentation"></a>Traffic Manager 설명서
+# <a name="traffic-manager-documentation"></a>Traffic Manager 설명서
 
 응용 프로그램 성능 및 안정성을 최적화하기 위해 Traffic Manager를 사용하여 들어오는 트래픽을 라우팅하는 방법에 대해 알아봅니다. 자습서, API 참조 및 기타 설명서에서는 Azure 또는 외부 서비스 끝점에 대한 트래픽을 관리하는 방법을 보여 줍니다.
 
@@ -99,7 +99,7 @@ ms.lasthandoff: 10/11/2017
 
 ---
 
-## <a name="reference"></a>참조
+## <a name="reference"></a>참고 자료
 
 <ul class="panelContent cardsW">
     <li>
@@ -111,7 +111,7 @@ ms.lasthandoff: 10/11/2017
                         <p><a href="/powershell/resourcemanager/azurerm.trafficmanager/v2.5.0/azurerm.trafficmanager">PowerShell</a></p>
                         <p><a href="/cli/azure/network/traffic-manager">Azure CLI</a></p>
                         <p><a href="/java/api/com.microsoft.azure.management.trafficmanager">Java</a></p>
-                        <p><a href="http://azure.github.io/azure-sdk-for-node/azure-arm-trafficmanager/latest/">Node.JS</a></p>
+                        <p><a href="http://azure.github.io/azure-sdk-for-node/azure-arm-trafficmanager/latest/">Node.js</a></p>
                         <p><a href="http://www.rubydoc.info/gems/azure_mgmt_traffic_manager">Ruby</a></p>
                         <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-trafficmanager.html">Python</a></p>
                     </div>
