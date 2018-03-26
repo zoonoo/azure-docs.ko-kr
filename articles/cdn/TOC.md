@@ -74,10 +74,12 @@
 ## [REST](/rest/api/cdn/)
 
 # 리소스
-## [Azure CDN POP 위치](cdn-pop-locations.md)
+## Azure CDN POP 위치
+### [지역별 POP 위치](cdn-pop-locations.md)
+### [약어별 POP 위치](cdn-pop-abbreviations.md)
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecdn)
-## [가격 책정](https://azure.microsoft.com/pricing/details/cdn/)
+## [가격](https://azure.microsoft.com/pricing/details/cdn/)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=cdn)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-cdn)

@@ -41,6 +41,7 @@
 ### [Twitter 감정 분석](stream-analytics-twitter-sentiment-analysis-trends.md)
 ### [실시간 사기 감지](stream-analytics-real-time-fraud-detection.md)
 ### [IoT 에지에서 작업 실행](stream-analytics-edge.md) 
+### [요금 창구 센서 데이터 분석](stream-analytics-build-an-iot-solution-using-stream-analytics.md)
 ### [Javascript UDA 실행](stream-analytics-javascript-user-defined-aggregates.md)
 ### [자주 발생하는 거래](stream-analytics-high-frequency-trading.md)
 ### [Azure Functions 실행](stream-analytics-with-azure-functions.md)

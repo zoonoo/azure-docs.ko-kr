@@ -1,16 +1,16 @@
 ---
 layout: HubPage
-hide_bc: 
-title: "Microsoft Azure 설명서"
-description: "Microsoft Azure 클라우드 서비스를 사용하여 강력한 응용 프로그램을 관리하는 방법을 알아봅니다. 설명서, 샘플 코드, 자습서 등을 가져옵니다."
+hide_bc: ''
+title: Microsoft Azure 설명서
+description: Microsoft Azure 클라우드 서비스를 사용하여 강력한 응용 프로그램을 관리하는 방법을 알아봅니다. 설명서, 샘플 코드, 자습서 등을 가져옵니다.
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: 6d188cc25d858cc2d07fc49450d6b2d4a4a04c09
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f344bf3062add621dc7d0a4cb6f7ed37e6d28d57
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -142,23 +142,28 @@ ms.lasthandoff: 03/16/2018
                                                 <ul class="noBullet">
                                                     <li>
                                                         <a class="barLink" href="/dotnet/azure/?view=azure-dotnet">
-                                                            <img src="media/index/logo_NET.svg" alt=""> .NET</a>
+                                                            <img src="media/index/logo_NET.svg" alt="">
+.NET</a>
                                                     </li>
                                                     <li>
                                                         <a class="barLink" href="/python/azure/">
-                                                            <img src="media/index/logo_python.svg" alt=""> Python</a>
+                                                            <img src="media/index/logo_python.svg" alt="">
+Python</a>
                                                     </li>
                                                     <li>
                                                         <a class="barLink" href="/java/azure/">
-                                                            <img src="media/index/logo_java.svg" alt=""> Java</a>
+                                                            <img src="media/index/logo_java.svg" alt="">
+Java</a>
                                                     </li></ul></td><td style="border-top-color:transparent!important;padding-left:0;"><ul class="noBullet">
                                                     <li>
                                                         <a class="barLink" href="/azure/app-service-web/app-service-web-get-started-php">
-                                                            <img src="media/index/logo_PHP.svg" alt=""> PHP</a>
+                                                            <img src="media/index/logo_PHP.svg" alt="">
+PHP</a>
                                                     </li>
                                                     <li>
                                                         <a class="barLink" href="/javascript/azure/">
-                                                            <img src="media/index/logo_nodejs.svg" alt=""> Node.js</a>
+                                                            <img src="media/index/logo_nodejs.svg" alt="">
+Node.js</a>
                                                     </li>
                                                     <li>
                                                         <a class="barLink" href="/go/azure/"> Go</a>
@@ -202,6 +207,8 @@ ms.lasthandoff: 03/16/2018
                                                     <li><a class="barLink" href="/azure/machine-learning/">Machine Learning </a></li>
                                                     <li><a class="barLink" href="/azure/cognitive-services/computer-vision/">Computer Vision API</a></li>
                                                     <li><a class="barLink" href="/azure/cognitive-services/face/">Face API</a></li>
+                                                    <li><a class="barLink" href="/bot-framework/">Azure Bot Service</a></li>
+                                                    <li><a class="barLink" href="/azure/cognitive-services/luis/">LUIS</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -217,11 +224,13 @@ ms.lasthandoff: 03/16/2018
                                                 <ul class="noBullet">
                                                     <li>
                                                         <a class="barLink" href="/cli/azure">
-                                                            <img src="media/index/azure_dev-7.svg" alt=""> Azure CLI </a>
+                                                            <img src="media/index/azure_dev-7.svg" alt="">
+Azure CLI </a>
                                                     </li>
                                                     <li>
                                                         <a class="barLink" href="/powershell/azure/overview">
-                                                            <img src="media/index/azure_dev-8.svg" alt=""> Azure PowerShell </a>
+                                                            <img src="media/index/azure_dev-8.svg" alt="">
+Azure PowerShell </a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -238,15 +247,18 @@ ms.lasthandoff: 03/16/2018
                                                 <ul class="noBullet">
                                                     <li>
                                                         <a class="barLink" href="https://docs.microsoft.com/vsts/deploy-azure/">
-                                                            <img src="https://docs.microsoft.com/media/logos/logo_vs-team-services.svg" alt=""> Azure에 배포 </a>
+                                                            <img src="https://docs.microsoft.com/media/logos/logo_vs-team-services.svg" alt="">
+Azure에 배포 </a>
                                                     </li>
                                                     <li>
                                                         <a class="barLink" href="/azure/jenkins">
-                                                            <img src="https://docs.microsoft.com/media/logos/logo_jenkins.svg" alt=""> Jenkins </a>
+                                                            <img src="https://docs.microsoft.com/media/logos/logo_jenkins.svg" alt="">
+Jenkins </a>
                                                     </li>
                                                     <li>
                                                         <a class="barLink" href="/azure/terraform">
-                                                            <img src="https://docs.microsoft.com/media/logos/logo_terraform.svg" alt=""> Terraform </a>
+                                                            <img src="https://docs.microsoft.com/media/logos/logo_terraform.svg" alt="">
+Terraform </a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -883,8 +895,7 @@ ms.lasthandoff: 03/16/2018
                                         <li>
                                             <a href="/azure/event-hubs/">
                                                 <img src="media/index/eventhubs.svg" alt="" />
-                                                <p>Event Hubs
-</p>
+                                                <p>Event Hubs</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1004,8 +1015,7 @@ ms.lasthandoff: 03/16/2018
                                         <li>
                                             <a href="/azure/event-hubs/">
                                                 <img src="media/index/eventhubs.svg" alt="" />
-                                                <p>Event Hubs
-</p>
+                                                <p>Event Hubs</p>
                                             </a>
                                         </li>
                                         <li>
@@ -2418,8 +2428,7 @@ ms.lasthandoff: 03/16/2018
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Event Hubs
-</h3>
+                                                    <h3>Event Hubs</h3>
                                                     <p>수백만 개의 장치에서 원격 분석 수신</p>
                                                 </div>
                                             </div>
@@ -2682,7 +2691,7 @@ ms.lasthandoff: 03/16/2018
                                                                 <a class="barLink" href="/azure/cognitive-services/linguisticanalysisapi/home"><img src="media/index/API_LinguisticAnalysis.svg" alt="" /><span>Linguistic Analysis&nbsp;<sup style="font-size:70%">미리 보기</sup></span></a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/text-analytics/"><img src="media/index/API_TextAnalytics.svg" alt="" />Text Analytics</a>
+                                                                <a class="barLink" href="/azure/cognitive-services/text-analytics/"><img src="media/index/API_TextAnalytics.svg" alt="" />텍스트 분석</a>
                                                             </li>
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/translator/translator-info-overview"><img src="media/index/API_TranslatorText.svg" alt="" />Translator Text</a>
@@ -2710,7 +2719,7 @@ ms.lasthandoff: 03/16/2018
                                                                 <a class="barLink" href="/azure/cognitive-services/qnamaker/home"><img src="media/index/API_QnAMaker.svg" alt="" /><span>QnAMaker&nbsp;<sup style="font-size:70%">미리 보기</sup></span></a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/recommendations/overview"><img src="media/index/API_Recommendations.svg" alt="" /><span>Recommendations&nbsp;<sup style="font-size:70%">미리 보기</sup></span></a>
+                                                                <a class="barLink" href="/azure/cognitive-services/recommendations/overview"><img src="media/index/API_Recommendations.svg" alt="" /><span>권장 사항&nbsp;<sup style="font-size:70%">미리 보기</sup></span></a>
                                                             </li>
                                                         </ul>
                                                     </div>
@@ -2726,7 +2735,7 @@ ms.lasthandoff: 03/16/2018
                                                         <h3>검색</h3>
                                                         <ul class="noBullet">
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/bing-news-search/search-the-web"><img src="media/index/API_Bing_News_Search.svg" alt="" />Bing 뉴스 검색</a>
+                                                                <a class="barLink" href="/azure/cognitive-services/bing-news-search/search-the-web"><img src="media/index/API_Bing_News_Search.svg" alt="" />Bing News Search</a>
                                                             </li>
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/Bing-Video-Search/"><img src="media/index/API_Bing_Video_Search.svg" alt="" />Bing Video Search</a>
@@ -2884,8 +2893,7 @@ ms.lasthandoff: 03/16/2018
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Event Hubs
-</h3>
+                                                    <h3>Event Hubs</h3>
                                                     <p>수백만 개의 장치에서 원격 분석 수신</p>
                                                 </div>
                                             </div>

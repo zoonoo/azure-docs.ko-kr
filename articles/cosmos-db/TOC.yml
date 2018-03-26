@@ -237,8 +237,6 @@
                   href: sql-api-python-samples.md
             - name: 리소스
               items:
-                - name: SQL 문법 치트 시트
-                  href: sql-api-sql-query-cheat-sheet.md
                 - name: 동영상
                   href: 'https://azure.microsoft.com/documentation/videos/index/?services=cosmos-db'
                 - name: 서비스 업데이트
@@ -435,6 +433,8 @@
           href: graph-sdk-dotnet.md
 - name: 리소스
   items:
+    - name: 쿼리 참고 자료
+      href: query-cheat-sheet.md
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/'
     - name: 무료로 Azure Cosmos DB 사용해 보기

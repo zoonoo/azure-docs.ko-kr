@@ -18,6 +18,7 @@
 # 참고 자료
 ## [코드 샘플](https://azure.microsoft.com/resources/samples/?service=active-directory)
 ## [Azure AD Connect Health 버전 내역](active-directory-aadconnect-health-version-history.md)
+## [Azure AD Connect Health 경고 카탈로그](active-directory-aadconnect-health-alert-catalog.md)
 ## [GDPR 규정 준수 및 Azure AD Connect Health](active-directory-aadconnect-health-gdpr.md)
 
 # 관련 항목
