@@ -2,7 +2,7 @@
   href: index.md
 - name: 아키텍처 및 디자인
   href: azure-security.md
-  expanded: true
+  expanded: false
   items:
     - name: 고급 위협 검색
       href: azure-threat-detection.md
@@ -67,6 +67,8 @@
       items:
         - name: 모범 사례
           href: azure-security-identity-management-best-practices.md
+        - name: 구독 관리자에서 MFA 적용
+          href: azure-security-global-admin.md
     - name: 네트워크 보안
       href: security-network-overview.md
       items:

@@ -131,6 +131,8 @@
           items:
             - name: 건축
               href: service-fabric-reliable-actors-platform.md
+            - name: 서비스 수준 기능 구현
+              href: service-fabric-reliable-actors-using.md
             - name: 수명 주기 및 가비지 수집
               href: service-fabric-reliable-actors-lifecycle.md
             - name: 상태 관리
@@ -389,7 +391,15 @@
               href: service-fabric-reliable-services-backup-restore.md
         - name: Reliable Actors 서비스 빌드
           items:
-            - name: 알림 보내기
+            - name: '작업자 상태 액세스, 저장 및 제거'
+              href: service-fabric-reliable-actors-access-save-remove-state.md
+            - name: 작업자 열거
+              href: service-fabric-reliable-actors-enumerate.md
+            - name: 작업자 및 해당 상태 삭제
+              href: service-fabric-reliable-actors-delete-actors.md
+            - name: 작업자 Backup 및 복원
+              href: service-fabric-reliable-actors-backup-and-restore.md
+            - name: 작업자 알림 보내기
               href: service-fabric-reliable-actors-events.md
             - name: 타이머 및 미리 알림 설정
               href: service-fabric-reliable-actors-timers-reminders.md

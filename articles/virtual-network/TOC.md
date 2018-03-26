@@ -56,7 +56,10 @@
 #### [다른 배포 모델 - 동일한 구독](create-peering-different-deployment-models.md)
 #### [다른 배포 모델 - 다른 구독](create-peering-different-deployment-models-subscriptions.md)
 
-### [가상 네트워크 서비스 끝점](virtual-network-service-endpoints-configure.md)
+### 가상 네트워크 서비스 엔드포인트
+#### [Azure Portal](tutorial-restrict-network-access-to-resources.md)
+#### [Azure PowerShell](tutorial-restrict-network-access-to-resources-powershell.md)
+#### [Azure CLI](tutorial-restrict-network-access-to-resources-cli.md)
 
 ### 가상 머신
 #### [가상 머신 네트워크 처리량](virtual-machine-network-throughput.md)
@@ -176,8 +179,12 @@
 ### [VM 간 연결 문제](virtual-network-troubleshoot-connectivity-problem-between-vms.md)
 ### [SMTP 배너 검사를 위한 PTR 구성](create-ptr-for-smtp-service.md)
 
+## 샘플 스크립트
+### [Azure CLI](cli-samples.md)
+### [Azure PowerShell](powershell-samples.md)
+
 # 참고 자료
-## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=virtual-network)
+## [코드 샘플](https://azure.microsoft.com/resources/samples/?service=virtual-network)
 ## [Azure PowerShell(Resource Manager)](/powershell/module/azurerm.network)
 ## [Azure PowerShell(클래식)](/powershell/module/azure/)
 ## [Azure CLI](/cli/azure/network)
@@ -199,7 +206,7 @@
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=networking)
 ## [네트워킹 블로그](http://azure.microsoft.com/blog/topics/networking)
 ## [네트워킹 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)
-## [가격](https://azure.microsoft.com/pricing/details/virtual-network)
+## [가격 책정](https://azure.microsoft.com/pricing/details/virtual-network)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-virtual-network)
 ## [네트워크 리소스 공급자](resource-groups-networking.md)

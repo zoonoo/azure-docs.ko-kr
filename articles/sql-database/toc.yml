@@ -19,6 +19,8 @@
       items:
         - name: SSMS
           href: sql-database-connect-query-ssms.md
+        - name: SQL Operations Studio
+          href: 'https://docs.microsoft.com/sql/sql-operations-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json'
         - name: Azure portal
           href: sql-database-connect-query-portal.md
         - name: VS 코드
@@ -101,8 +103,10 @@
           href: sql-database-manage-logins.md
         - name: Multi-Factor Auth
           href: sql-database-ssms-mfa-authentication.md
-        - name: 감사
+        - name: 감사 - SQL Database
           href: sql-database-auditing.md
+        - name: 감사 - 관리되는 인스턴스
+          href: sql-database-managed-instance-auditing.md
         - name: 위협 감지 - SQL Database
           href: sql-database-threat-detection.md
         - name: 위협 감지 - 관리되는 인스턴스

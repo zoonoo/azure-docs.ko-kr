@@ -103,6 +103,8 @@
               href: hyper-v-vmm-architecture.md
     - name: 앱에 대한 재해 복구
       href: site-recovery-workload.md
+    - name: 복구 계획 정보
+      href: recovery-plan-overview.md
     - name: 마이그레이션 정보
       href: migrate-overview.md
     - name: Site Recovery를 사용하는 역할 기반 액세스 제어 정보
@@ -273,6 +275,12 @@
           items:
             - name: Azure로 재해 복구 훈련 실행
               href: site-recovery-test-failover-to-azure.md
+            - name: 복구 계획 설정
+              href: site-recovery-create-recovery-plans.md
+            - name: VMM 스크립트를 복구 계획에 추가
+              href: hyper-v-vmm-recovery-script.md
+            - name: Azure Runbook을 복구 계획에 추가
+              href: site-recovery-runbook-automation.md
             - name: Azure에 대한 장애 조치(Failover) 실행
               href: site-recovery-failover.md
             - name: Azure에서 Hyper-V로 장애 복구(failback)

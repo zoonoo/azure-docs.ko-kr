@@ -40,6 +40,7 @@
 #### [(A)SCS 인스턴스에 공유 디스크를 사용하는 Windows](sap-high-availability-infrastructure-wsfc-shared-disk.md)
 #### [(A)SCS 인스턴스에 SOFS 파일 공유를 사용하는 Windows](sap-high-availability-infrastructure-wsfc-file-share.md)
 #### [(A)SCS 인스턴스에 NFS를 사용하는 SUSE Linux](high-availability-guide-suse.md)
+#### [SLES의 Pacemaker](high-availability-guide-suse-pacemaker.md)
 ### SAP 설치
 #### [(A)SCS 인스턴스에 공유 디스크를 사용하는 Windows](sap-high-availability-installation-wsfc-shared-disk.md)
 #### [(A)SCS 인스턴스에 SOFS 파일 공유를 사용하는 Windows](sap-high-availability-installation-wsfc-file-share.md)

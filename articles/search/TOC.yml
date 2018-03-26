@@ -77,11 +77,15 @@
           href: search-performance-optimization.md
     - name: 보안
       items:
-        - name: 데이터 및 운영 보안
+        - name: 보안 개요
           href: search-security-overview.md
-        - name: ID 필터를 사용한 보안
+        - name: 서비스 키 관리
+          href: search-security-api-keys.md
+        - name: 역할 기반 관리자 액세스
+          href: search-security-rbac.md
+        - name: 보안 필터
           href: search-security-trimming-for-azure-search.md
-        - name: Active Directory를 사용한 보안
+        - name: AAD ID에 대한 필터링
           href: search-security-trimming-for-azure-search-with-aad.md
     - name: 개발
       items:

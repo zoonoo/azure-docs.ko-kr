@@ -91,7 +91,8 @@
 #### [암호 복잡성](active-directory-b2c-reference-password-complexity-custom.md)
 #### [암호 변경](active-directory-b2c-reference-password-change-custom.md)
 #### [로그인 유지 사용](active-directory-b2c-reference-kmsi-custom.md)
-### 문제 해결
+### 문제 해결 및 이벤트 로그
+#### [Application Insights를 사용하여 사용자 지정 이벤트 만들기](active-directory-b2c-custom-guide-eventlogger-appins.md)
 #### [Application Insights를 사용하여 로그 수집](active-directory-b2c-troubleshoot-custom.md)
 ## 참고 자료
 ### [릴리스 정보](active-directory-b2c-developer-notes-custom.md)
@@ -119,7 +120,7 @@
 ## [Azure AD B2C 피드백 포럼](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c)
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [질문과 대답](active-directory-b2c-faqs.md)
-## [가격](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
+## [가격 책정](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=active-directory-b2c)
 ## [스택 오버플로](https://stackoverflow.com/questions/tagged/azure-ad-b2c)

@@ -77,7 +77,8 @@
 ## [그룹 및 구성원 관리](active-directory-manage-groups.md)
 ### 그룹 관리
 #### [Azure Portal](active-directory-groups-create-azure-portal.md)
-#### [Azure PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
+#### [Azure PowerShell Azure Resource Manager 모델](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
+#### [Azure PowerShell 클래식 배포 모델](active-directory-accessmanagement-groups-settings-cmdlets.md)
 ### [그룹 구성원 관리](active-directory-groups-members-azure-portal.md)
 ### [그룹 소유자 관리](active-directory-accessmanagement-managing-group-owners.md)
 ### [그룹 멤버 자격 관리](active-directory-groups-membership-azure-portal.md)
@@ -94,9 +95,8 @@
 ### [모든 그룹 보기](active-directory-groups-view-azure-portal.md)
 ### [SaaS 앱에 대한 그룹 액세스 추가](active-directory-accessmanagement-group-saasapps.md)
 ### [삭제된 Office 365 그룹 복원](active-directory-groups-restore-azure-portal.md)
-### 그룹 설정 관리
-#### [Azure Portal](active-directory-groups-settings-azure-portal.md)
-#### [Cmdlet](active-directory-accessmanagement-groups-settings-cmdlets.md)
+### [그룹 설정 관리](active-directory-groups-settings-azure-portal.md)
+
 ### 고급 규칙 만들기
 #### [Azure Portal](active-directory-groups-dynamic-membership-azure-portal.md)
 ### [셀프 서비스 그룹 설정](active-directory-accessmanagement-self-service-group-management.md)
@@ -215,12 +215,12 @@
 ##### [사용자 지정 홈 페이지](application-proxy-office365-app-launcher.md)
 ##### [인라인 링크 변환](application-proxy-link-translation.md)
 ##### [와일드카드 응용 프로그램](active-directory-application-proxy-wildcard.md)
-
+##### [Azure AD 응용 프로그램 프록시 및 Qlik Sense](active-directory-application-proxy-qlik.md) 
 #### 게시 연습
 ##### [원격 데스크톱](application-proxy-publish-remote-desktop.md)
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
 ##### [Microsoft 팀](application-proxy-teams.md)
-#### [PowerShell](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview)
+#### [PowerShell](https://docs.microsoft.com/en-us/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management)
 #### [문제 해결](active-directory-application-proxy-troubleshoot.md)
 
 

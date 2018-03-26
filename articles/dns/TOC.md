@@ -7,28 +7,31 @@
 ## [Azure DNS로 DNS 위임](dns-domain-delegation.md)
 ## [DNS FAQ](dns-faq.md)
 ## [개인 DNS 영역 사용](private-dns-overview.md)
+## [개인 DNS 시나리오](private-dns-scenarios.md)
+
 
 # 시작
 
 ## DNS 영역 및 레코드 만들기
-### [Azure 포털](dns-getstarted-portal.md)
+### [Azure Portal](dns-getstarted-portal.md)
 ### [Azure PowerShell](dns-getstarted-powershell.md)
 ### [Azure CLI](dns-getstarted-cli.md)
 
 ## 개인 DNS 영역 및 레코드 만들기
 ### [PowerShell](private-dns-getstarted-powershell.md)
+### [Azure CLI](private-dns-getstarted-cli.md)
 ## [Azure DNS에 도메인 위임](dns-delegate-domain-azure-dns.md)
 ## [웹앱에 대한 사용자 지정 DNS 레코드 만들기](dns-web-sites-custom-domain.md)
 
 # 방법
 
 ## DNS 영역 관리
-### [Azure 포털](dns-operations-dnszones-portal.md)
+### [Azure Portal](dns-operations-dnszones-portal.md)
 ### [Azure PowerShell](dns-operations-dnszones.md)
 ### [Azure CLI](dns-operations-dnszones-cli.md)
 
 ## DNS 레코드 관리
-### [Azure 포털](dns-operations-recordsets-portal.md)
+### [Azure Portal](dns-operations-recordsets-portal.md)
 ### [Azure PowerShell](dns-operations-recordsets.md)
 ### [Azure CLI](dns-operations-recordsets-cli.md)
 
@@ -70,6 +73,6 @@
 ## [기능 요청](https://feedback.azure.com/forums/217313-networking/category/77466-domain-name-service-dns-traffic-manager)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [네트워킹 블로그](http://azure.microsoft.com/blog/topics/networking)
-## [가격 책정](https://azure.microsoft.com/pricing/details/dns/)
+## [가격](https://azure.microsoft.com/pricing/details/dns/)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=dns)

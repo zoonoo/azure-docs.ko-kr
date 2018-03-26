@@ -236,6 +236,7 @@
 ## [REST](/rest/api/media/mediaservice)
 ## 사양
 ### [라이브 수집 - 분할된 MP4 라이브 수집 사양](media-services-fmp4-live-ingest-overview.md)
+### [라이브 수집 - 라이브 스트리밍에서 신호 타이밍 메타데이터](media-services-specifications-live-timed-metadata.md)
 ### [부드러운 스트리밍 HEVC](media-services-specifications-ms-sstr-ammendment-hevc.md)
 
 # 리소스
