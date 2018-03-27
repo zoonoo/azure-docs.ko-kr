@@ -1,25 +1,25 @@
 ---
-title: "Apache Kafka 시작 - Azure HDInsight | Microsoft 문서 도구"
-description: "Azure HDInsight의 Apache Kafka 클러스터를 만드는 방법에 대해 알아봅니다. 토픽, 구독자 및 소비자를 만드는 방법에 대해 알아봅니다."
+title: Apache Kafka 시작 - Azure HDInsight | Microsoft 문서 도구
+description: Azure HDInsight의 Apache Kafka 클러스터를 만드는 방법에 대해 알아봅니다. 토픽, 구독자 및 소비자를 만드는 방법에 대해 알아봅니다.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 43585abf-bec1-4322-adde-6db21de98d7f
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: 
+ms.devlang: ''
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/20/2018
 ms.author: larryfr
-ms.openlocfilehash: e00ab06a26d60dd5beca11362df58f35812491d9
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 27e6472480dac104de799ebf0e7579a7987f6c4c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="start-with-apache-kafka-on-hdinsight"></a>HDInsight에서 Apache Kafka 시작
 
@@ -39,6 +39,15 @@ HDInsight 클러스터에 Kafka를 만들려면 다음 단계를 수행합니다
 
     * **클러스터 이름**: HDInsight 클러스터의 이름입니다. 이 이름은 고유해야 합니다.
     * **구독**: 사용할 구독을 선택합니다.
+    * **클러스터 유형**: 이 항목을 선택한 다음, **클러스터 구성**에서 다음 값을 설정합니다.
+
+        * **클러스터 유형**: Kafka
+        * **버전**: Kafka 0.10.0(HDI 3.6)
+
+        **선택** 단추를 사용하여 클러스터 유형 설정을 저장합니다.
+
+        ![클러스터 유형 선택](./media/apache-kafka-get-started/set-hdinsight-cluster-type.png)
+
     * **클러스터 로그인 사용자 이름** 및 **클러스터 로그인 암호**: HTTPS를 통해 클러스터에 액세스할 때 로그인입니다. 이러한 자격 증명을 사용하여 Ambari Web UI 또는 REST API와 같은 서비스에 액세스합니다.
     * **SSH(보안 셸) 사용자 이름**: SSH를 통해 클러스터에 액세스할 때 사용되는 로그인입니다. 기본적으로 암호는 클러스터 로그인 암호와 동일합니다.
     * **리소스 그룹**: 클러스터를 만들어 놓은 리소스 그룹입니다.
@@ -49,24 +58,15 @@ HDInsight 클러스터에 Kafka를 만들려면 다음 단계를 수행합니다
    
  ![구독 선택](./media/apache-kafka-get-started/hdinsight-basic-configuration.png)
 
-3. **클러스터 유형**을 선택한 다음 **클러스터 구성**에서 다음 값을 설정합니다.
-   
-    * **클러스터 유형**: Kafka
-    * **버전**: Kafka 0.10.0(HDI 3.6)
+3. __다음__ 단추를 사용하여 기본 구성을 완료합니다.
 
-    마지막으로 **선택** 단추를 사용하여 이러한 설정을 저장합니다.
-     
- ![클러스터 유형 선택](./media/apache-kafka-get-started/set-hdinsight-cluster-type.png)
-
-4. 클러스터 유형을 선택한 후 __선택__ 단추를 사용하여 클러스터 유형을 설정합니다. 그 다음, __다음__ 단추를 사용하여 기본 구성을 완료합니다.
-
-5. **Storage**에서 Storage 계정을 선택하거나 만듭니다. 이 문서의 단계에서는 다른 필드를 기본값으로 둡니다. __다음__ 단추를 사용하여 저장소 구성을 저장합니다.
+4. **Storage**에서 Storage 계정을 선택하거나 만듭니다. 이 문서의 단계에서는 다른 필드를 기본값으로 둡니다. __다음__ 단추를 사용하여 저장소 구성을 저장합니다.
 
     ![HDInsight에 대한 저장소 계정 설정 지정](./media/apache-kafka-get-started/set-hdinsight-storage-account.png)
 
-6. __응용 프로그램(선택 사항)__에서 __다음__을 선택하여 계속합니다. 이 예제에는 응용 프로그램이 필요하지 않습니다.
+5. __응용 프로그램(선택 사항)__에서 __다음__을 선택하여 계속합니다. 이 예제에는 응용 프로그램이 필요하지 않습니다.
 
-7. __클러스터 크기__에서 __다음__을 선택하여 계속합니다.
+6. __클러스터 크기__에서 __다음__을 선택하여 계속합니다.
 
     > [!WARNING]
     > HDInsight에서 Kafka의 사용 가능성을 보장하려면 클러스터에 작업자 노드가 3개 이상 포함되어야 합니다. 자세한 내용은 [데이터 고가용성](#data-high-availability) 섹션을 참조하세요.
@@ -76,9 +76,9 @@ HDInsight 클러스터에 Kafka를 만들려면 다음 단계를 수행합니다
     > [!IMPORTANT]
     > **작업자 노드 항목당 디스크**에 따라 HDInsight에서 Kafka의 확장성이 구성됩니다. HDInsight의 Kafka는 클러스터에서 가상 머신의 로컬 디스크를 사용합니다. Kafka는 입출력이 많으므로 높은 처리량을 제공하고 노드당 더 많은 저장소를 제공하기 위해 [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md)를 사용합니다. 관리 디스크 유형은 __표준__(HDD) 또는 __프리미엄__(SSD)일 수 있습니다. 프리미엄 디스크는 DS 및 GS 시리즈 VM에 사용됩니다. 다른 모든 VM 유형은 표준을 사용합니다.
 
-8. __고급 설정__에서 __다음__을 선택하여 계속합니다.
+7. __고급 설정__에서 __다음__을 선택하여 계속합니다.
 
-9. **요약**에서 클러스터에 대한 구성을 검토합니다. __편집__ 링크를 사용하여 올바르지 않은 설정을 변경합니다. 마지막으로 __만들기__ 단추를 사용하여 클러스터를 만듭니다.
+8. **요약**에서 클러스터에 대한 구성을 검토합니다. __편집__ 링크를 사용하여 올바르지 않은 설정을 변경합니다. 마지막으로 __만들기__ 단추를 사용하여 클러스터를 만듭니다.
    
     ![클러스터 구성 요약](./media/apache-kafka-get-started/hdinsight-configuration-summary.png)
    

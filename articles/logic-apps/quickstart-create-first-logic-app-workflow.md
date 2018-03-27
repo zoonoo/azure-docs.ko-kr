@@ -1,12 +1,12 @@
 ---
-title: "첫 번째 자동화 워크플로 만들기 - Azure Logic Apps | Microsoft Docs"
-description: "이 빠른 시작에서는 시스템과 클라우드 서비스를 통합하는 시스템 통합 및 EAI(엔터프라이즈 응용 프로그램 통합) 시나리오를 위한 Azure Logic Apps를 사용하여 첫 번째 워크플로를 자동화하는 방법을 보여줍니다."
+title: 첫 번째 자동화 워크플로 만들기 - Azure Logic Apps | Microsoft Docs
+description: 이 빠른 시작에서는 시스템과 클라우드 서비스를 통합하는 시스템 통합 및 EAI(엔터프라이즈 응용 프로그램 통합) 시나리오를 위한 Azure Logic Apps를 사용하여 첫 번째 워크플로를 자동화하는 방법을 보여줍니다.
 author: ecfan
 manager: anneta
-editor: 
+editor: ''
 services: logic-apps
-keywords: "워크플로, 클라우드 서비스, 시스템 통합, 엔터프라이즈 응용 프로그램 통합, EAI"
-documentationcenter: 
+keywords: 워크플로, 클라우드 서비스, 시스템 통합, 엔터프라이즈 응용 프로그램 통합, EAI
+documentationcenter: ''
 ms.assetid: ce3582b5-9c58-4637-9379-75ff99878dcd
 ms.service: logic-apps
 ms.workload: na
@@ -16,11 +16,11 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 1/12/2018
 ms.author: LADocs; estfan
-ms.openlocfilehash: d382144c202b2b7f5623f2cca2a82c384387e8ca
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: ccd00fbb3c5dc0f78a31adcaed31bbe6e4a6e785
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="quickstart-build-your-first-logic-app-workflow---azure-portal"></a>빠른 시작: 첫 번째 논리 앱 워크플로 빌드 - Azure Portal
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 02/21/2018
 
 또한 Azure 구독이 없는 경우 <a href="https://azure.microsoft.com/free/" target="_blank">Azure 체험 계정에 등록</a>합니다.
 
-## <a name="sign-in-to-the-azure-portal"></a>Azure 포털에 로그인합니다.
+## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인합니다.
 
 Azure 계정 자격 증명을 사용하여 <a href="https://portal.azure.com" target="_blank">Azure Portal</a>에 로그인합니다.
 
@@ -60,6 +60,8 @@ Azure 계정 자격 증명을 사용하여 <a href="https://portal.azure.com" ta
    ![빈 논리 앱 템플릿을 선택합니다.](./media/quickstart-create-first-logic-app-workflow/choose-logic-app-template.png)
 
 다음으로, 새 RSS 피드 항목이 나타나면 실행되는 [트리거](../logic-apps/logic-apps-overview.md#logic-app-concepts)를 추가합니다. 모든 논리 앱은 특정 이벤트가 발생하거나 특정 조건이 충족할 때 실행되는 트리거를 통해 시작되어야 합니다. 트리거가 발생될 때마다 Logic Apps 엔진은 워크플로를 시작하고 실행하는 논리 앱 인스턴스를 만듭니다.
+
+<a name="add-rss-trigger"></a>
 
 ## <a name="check-rss-feed-with-a-trigger"></a>트리거로 RSS 피드 확인
 
@@ -144,7 +146,7 @@ Azure 계정 자격 증명을 사용하여 <a href="https://portal.azure.com" ta
       ![전자 메일 본문에 콘텐츠 추가](./media/quickstart-create-first-logic-app-workflow/add-action-send-email-body.png)
 
       | 설정 | 설명 | 
-      | ----- | ----------- | 
+      | ------- | ----------- | 
       | **피드 제목** | 항목의 제목 | 
       | **다음에 게시된 피드** | 항목의 게시 날짜 및 시간 | 
       | **주 피드 링크** | 항목의 URL | 
@@ -156,15 +158,16 @@ Azure 계정 자격 증명을 사용하여 <a href="https://portal.azure.com" ta
 
 ## <a name="run-your-logic-app"></a>논리 앱 실행
 
-수동으로 논리 앱을 실행하려면 디자이너 도구 모음에서 **실행**을 선택합니다. 또는 논리 앱이 지정된 일정에 따라(1분마다) 실행될 때까지 기다립니다. RSS 피드에 새 항목이 있는 경우 논리 앱은 새 항목 각각에 전자 메일을 보냅니다. 하지만 피드에 새 항목이 없는 경우 논리 앱은 트리거 실행을 건너뛰고 다음 간격이 될 때까지 기다렸다가 다시 검사를 수행합니다. 
+수동으로 논리 앱을 실행하려면 디자이너 도구 모음에서 **실행**을 선택합니다. 또는 논리 앱이 지정된 일정에 따라(1분마다) RSS 피드를 확인할 때까지 기다립니다. RSS 피드에 새 항목이 있는 경우 논리 앱은 새 항목 각각에 전자 메일을 보냅니다. 그렇지 않으면, 논리 앱이 다시 확인하기 전에 다음 간격 때까지 대기합니다. 
 
-예를 들어 이 논리 앱이 보내는 샘플 이메일은 다음과 같습니다.
+예를 들어 이 논리 앱이 보내는 샘플 이메일은 다음과 같습니다. 전자 메일을 받지 못한 경우 정크 메일 폴더를 확인합니다.
 
 ![새로운 RSS 피드 항목에 대해 전송된 전자 메일](./media/quickstart-create-first-logic-app-workflow/monitor-rss-feed-email.png)
 
-이메일을 받지 못한 경우 이메일의 정크 폴더를 확인합니다. 이메일 정크 필터가 이러한 종류의 메일을 리디렉션할 수 있습니다. 
+기술적으로 트리거가 RSS 피드를 확인하고 새 항목을 찾는 경우 해당 트리거가 실행되고 Logic Apps 엔진이 워크플로에서 동작을 실행하는 논리 앱 워크플로 인스턴스를 만듭니다.
+트리거가 새 항목을 찾지 못하면 해당 트리거는 실행되지 않고 워크플로 인스턴스화도 "건너뜁니다".
 
-축하드립니다. 첫 번째 논리 앱을 빌드하고 실행하셨습니다.
+축하합니다. Azure Portal을 사용하여 첫 번째 논리 앱을 성공적으로 빌드하고 실행했습니다!
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

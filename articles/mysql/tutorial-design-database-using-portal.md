@@ -1,6 +1,6 @@
 ---
-title: "첫 번째 Azure Database for MySQL 데이터베이스 디자인 - Azure Portal"
-description: "이 자습서에서는 Azure Portal을 사용하여 Azure Database for MySQL 서버 및 데이터베이스를 만들고 관리하는 방법에 대해 설명합니다."
+title: '자습서: Azure CLI를 사용하여 Azure Database for MySQL 디자인'
+description: 이 자습서에서는 Azure Portal을 사용하여 Azure Database for MySQL 서버 및 데이터베이스를 만들고 관리하는 방법에 대해 설명합니다.
 services: mysql
 author: ajlam
 ms.author: andrela
@@ -10,13 +10,13 @@ ms.service: mysql-database
 ms.topic: tutorial
 ms.date: 02/28/2018
 ms.custom: mvc
-ms.openlocfilehash: 272c1ba67fb1a907d739d23ce1d965f57c3a1074
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 67f1a1ced8e36adf5d391415aae9b16df43950bb
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="design-your-first-azure-database-for-mysql-database"></a>첫 번째 Azure Database for MySQL 데이터베이스 디자인
+# <a name="tutorial-design-an-azure-database-for-mysql-database-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 Azure Database for MySQL 데이터베이스 디자인
 Azure Database for MySQL은 클라우드에서 항상 사용 가능한 MySQL 데이터베이스를 실행, 관리 및 크기 조정할 수 있게 하는 관리 서비스입니다. Azure Portal을 사용하면 쉽게 서버를 관리하고 데이터베이스를 디자인할 수 있습니다.
 
 이 자습서에서는 Azure Portal을 사용하여 다음을 수행하는 방법에 대해 알아봅니다.

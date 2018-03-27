@@ -1,19 +1,19 @@
 ---
-title: "빠른 시작 - Linux용 Azure Kubernetes 클러스터"
-description: "AKS에서 Azure CLI를 사용하여 Linux 컨테이너용 Kubernetes 클러스터를 빠르게 만드는 방법에 대해 알아봅니다."
+title: 빠른 시작 - Linux용 Azure Kubernetes 클러스터
+description: AKS에서 Azure CLI를 사용하여 Linux 컨테이너용 Kubernetes 클러스터를 빠르게 만드는 방법에 대해 알아봅니다.
 services: container-service
 author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: quickstart
-ms.date: 02/26/2018
+ms.date: 03/14/2018
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: 817b204cde8708ff06507c30e1725c0e46185877
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 3005023e45bc6516732f077f152aed93564be38b
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="deploy-an-azure-container-service-aks-cluster"></a>AKS(Azure Container Service) 클러스터 배포
 
@@ -27,10 +27,14 @@ ms.lasthandoff: 03/08/2018
 
 CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 빠른 시작에서 Azure CLI 버전 2.0.27 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하세요.
 
-## <a name="enabling-aks-preview-for-your-azure-subscription"></a>Azure 구독에 AKS 미리 보기 사용
-AKS가 미리 보기 상태인 경우 새 클러스터를 만들려면 구독에서 기능 플래그가 필요합니다. 사용하려는 구독의 수에 관계 없이 이 기능을 요청할 수 있습니다. `az provider register` 명령을 사용하여 AKS 공급자를 등록합니다.
+## <a name="enabling-aks-preview"></a>AKS 미리 보기 사용
+
+`az provider register` 명령을 사용하여 필요한 Azure 서비스 공급자를 사용하도록 설정되어 있는지 확인합니다. 
 
 ```azurecli-interactive
+az provider register -n Microsoft.Network
+az provider register -n Microsoft.Storage
+az provider register -n Microsoft.Compute
 az provider register -n Microsoft.ContainerService
 ```
 
@@ -64,7 +68,7 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-aks-cluster"></a>AKS 클러스터 만들기
 
-다음 예제에서는 하나의 노드가 있는 *myAKSCluster*라는 클러스터를 만듭니다.
+[az aks create][az-aks-create] 명령을 사용하여 AKS 클러스터를 만듭니다. 다음 예제에서는 하나의 노드가 있는 *myAKSCluster*라는 클러스터를 만듭니다.
 
 ```azurecli-interactive
 az aks create --resource-group myResourceGroup --name myAKSCluster --node-count 1 --generate-ssh-keys
@@ -76,14 +80,14 @@ az aks create --resource-group myResourceGroup --name myAKSCluster --node-count 
 
 Kubernetes 클러스터를 관리하려면 [kubectl][kubectl] Kubernetes 명령줄 클라이언트를 사용합니다.
 
-Azure Cloud Shell을 사용하는 경우 kubectl이 이미 설치되어 있습니다. 로컬로 설치하려면 다음 명령을 실행합니다.
+Azure Cloud Shell을 사용하는 경우 kubectl이 이미 설치되어 있습니다. kubectl을 로컬로 설치하려면 [az aks install-cli][az-aks-install-cli] 명령을 사용합니다.
 
 
 ```azurecli
 az aks install-cli
 ```
 
-Kubernetes 클러스터에 연결하도록 kubectl을 구성하려면 다음 명령을 실행합니다. 이 단계에서는 자격 증명을 다운로드하고 Kubernetes CLI가 자격 증명을 사용하도록 구성합니다.
+Kubernetes 클러스터에 연결하도록 kubectl을 구성하려면 [az aks get-credentials][az-aks-get-credentials] 명령을 사용합니다. 이 단계에서는 자격 증명을 다운로드하고 Kubernetes CLI가 자격 증명을 사용하도록 구성합니다.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
@@ -244,7 +248,9 @@ AKS에 대해 자세히 알아보고 배포 예제에 대한 전체 코드를 �
 
 <!-- LINKS - internal -->
 [az-aks-browse]: /cli/azure/aks?view=azure-cli-latest#az_aks_browse
+[az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az_aks_create
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az_aks_get_credentials
+[az aks install-cli]: /cli/azure/aks?view=azure-cli-latest#az_aks_install_cli
 [az-group-create]: /cli/azure/group#az_group_create
 [az-group-delete]: /cli/azure/group#az_group_delete
 [azure-cli-install]: /cli/azure/install-azure-cli

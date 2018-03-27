@@ -1,6 +1,6 @@
 ---
-title: "Azure Machine Learning 서비스(미리 보기)에서 아이리스 자습서 분류를 위한 데이터 준비 | Microsoft Docs"
-description: "이 자습서 전체에서 Azure Machine Learning 서비스(미리 보기)를 사용하는 방법을 보여 줍니다. 1부이며 데이터 준비를 설명합니다."
+title: Azure Machine Learning 서비스(미리 보기)에서 아이리스 자습서 분류를 위한 데이터 준비 | Microsoft Docs
+description: 이 자습서 전체에서 Azure Machine Learning 서비스(미리 보기)를 사용하는 방법을 보여 줍니다. 1부이며 데이터 준비를 설명합니다.
 services: machine-learning
 author: hning86
 ms.author: haining, j-martens
@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 3/7/2018
-ms.openlocfilehash: caddfff329d0e8f4c4007386b377ea56a51249a5
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 16aa3e88217094c259a0dccbe3c52431682ea2e7
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="tutorial-classify-iris-part-1---preparing-the-data"></a>자습서: 아이리스 분류 1부 - 데이터 준비
+# <a name="tutorial-1-classify-iris---preparing-the-data"></a>자습서 1: 아이리스 분류 - 데이터 준비
 
 Azure Machine Learning 서비스(미리 보기)는 전문 데이터 과학자를 위한 종단 간 데이터 과학 및 고급 분석 통합 솔루션으로, 데이터를 준비하고, 실험을 개발하고, 클라우드 규모에서 모델을 배포할 수 있습니다.
 

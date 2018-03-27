@@ -1,21 +1,22 @@
 ---
-title: "빠른 시작 - 첫 번째 Azure Container Instances 컨테이너 만들기"
-description: "Azure Container Instances 배포 및 시작"
+title: 빠른 시작 - 첫 번째 Azure Container Instances 컨테이너 만들기
+description: 이 빠른 시작에서는 Azure CLI를 사용하여 Azure Container Instances에 컨테이너를 배포합니다
 services: container-instances
-author: seanmck
+author: mmacy
 manager: timlt
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 02/22/2018
-ms.author: seanmck
+ms.date: 03/19/2018
+ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: f8fe53f834e4fcf7f16174222cb51d89e40305ec
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: b85c38bb561e4f1dc9a0545595590719ce1883e4
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/17/2018
 ---
-# <a name="create-your-first-container-in-azure-container-instances"></a>Azure Container Instances에서 첫 번째 컨테이너 만들기
+# <a name="quickstart-create-your-first-container-in-azure-container-instances"></a>빠른 시작: Azure Container Instances에서 첫 번째 컨테이너 만들기
+
 Azure Container Instances를 사용하면 가상 머신을 프로비전하거나 상위 수준 서비스를 도입하지 않고도 Azure에서 Docker 컨테이너를 쉽게 만들고 관리할 수 있습니다. 이 빠른 시작에서는 Azure에서 컨테이너를 만들어서 FQDN(정규화된 도메인 이름)으로 인터넷에 노출합니다. 이 작업은 단일 명령으로 완료됩니다. 몇 초 내에 브라우저에 다음과 같은 화면이 표시됩니다.
 
 ![Azure Container Instances를 사용하여 배포된 앱이 브라우저에 표시됨][aci-app-browser]
@@ -28,7 +29,7 @@ Azure Cloud Shell 또는 Azure CLI의 로컬 설치를 사용하여 이 빠른 �
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-Azure Container Instances는 Azure 리소스이며 Azure 리소스 그룹, Azure 리소스가 배포 및 관리되는 논리적 컬렉션에 배치되어야 합니다.
+모든 Azure 리소스와 마찬가지로 Azure Container Instances는 Azure 리소스를 배포하고 관리하는 논리적 컬렉션인 리소스 그룹에 배치되어야 합니다.
 
 [az group create][az-group-create] 명령을 사용하여 리소스 그룹을 만듭니다.
 
@@ -75,12 +76,41 @@ aci-demo.eastus.azurecontainer.io  Succeeded
 az container logs --resource-group myResourceGroup --name mycontainer
 ```
 
-출력
+다음과 비슷한 출력이 표시됩니다.
 
-```bash
+```console
+$ az container logs --resource-group myResourceGroup -n mycontainer
 listening on port 80
-::ffff:10.240.255.107 - - [29/Nov/2017:20:48:50 +0000] "GET / HTTP/1.1" 200 1663 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36"
-::ffff:10.240.255.107 - - [29/Nov/2017:20:48:50 +0000] "GET /favicon.ico HTTP/1.1" 404 150 "http://52.224.178.107/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36"
+::ffff:10.240.255.105 - - [15/Mar/2018:21:18:26 +0000] "GET / HTTP/1.1" 200 1663 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.146 Safari/537.36"
+::ffff:10.240.255.105 - - [15/Mar/2018:21:18:26 +0000] "GET /favicon.ico HTTP/1.1" 404 150 "http://aci-demo.eastus.azurecontainer.io/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.146 Safari/537.36"
+```
+
+## <a name="attach-output-streams"></a>출력 스트림 연결
+
+로그를 따라가는 것 외에도 로컬 표준 출력과 표준 오류 스트림을 컨테이너의 해당 표준 출력 스트림에 연결할 수 있습니다.
+
+먼저 [az container attach][az-container-attach] 명령을 실행하여 로컬 콘솔을 컨테이너의 출력 스트림에 연결합니다.
+
+```azurecli-interactive
+az container attach --resource-group myResourceGroup -n mycontainer
+```
+
+연결되면 브라우저를 몇 번 새로 고쳐 추가 출력을 생성합니다. 마지막으로 `Control+C`를 사용하여 콘솔을 분리합니다. 다음과 비슷한 결과가 나타나야 합니다.
+
+```console
+$ az container attach --resource-group myResourceGroup -n mycontainer
+Container 'mycontainer' is in state 'Running'...
+(count: 1) (last timestamp: 2018-03-15 21:17:59+00:00) pulling image "microsoft/aci-helloworld"
+(count: 1) (last timestamp: 2018-03-15 21:18:05+00:00) Successfully pulled image "microsoft/aci-helloworld"
+(count: 1) (last timestamp: 2018-03-15 21:18:05+00:00) Created container with id 3534a1e2ee392d6f47b2c158ce8c1808d1686fc54f17de3a953d356cf5f26a45
+(count: 1) (last timestamp: 2018-03-15 21:18:06+00:00) Started container with id 3534a1e2ee392d6f47b2c158ce8c1808d1686fc54f17de3a953d356cf5f26a45
+
+Start streaming logs:
+listening on port 80
+::ffff:10.240.255.105 - - [15/Mar/2018:21:18:26 +0000] "GET / HTTP/1.1" 200 1663 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.146 Safari/537.36"
+::ffff:10.240.255.105 - - [15/Mar/2018:21:18:26 +0000] "GET /favicon.ico HTTP/1.1" 404 150 "http://aci-demo.eastus.azurecontainer.io/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.146 Safari/537.36"
+::ffff:10.240.255.107 - - [15/Mar/2018:21:18:44 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.146 Safari/537.36"
+::ffff:10.240.255.107 - - [15/Mar/2018:21:18:47 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.146 Safari/537.36"
 ```
 
 ## <a name="delete-the-container"></a>컨테이너 삭제
@@ -117,12 +147,13 @@ Azure에서 오케스트레이션 시스템의 컨테이너 실행 옵션을 사
 [node-js]: http://nodejs.org
 
 <!-- LINKS - Internal -->
-[az-group-create]: /cli/azure/group?view=azure-cli-latest#az_group_create
-[az-container-create]: /cli/azure/container?view=azure-cli-latest#az_container_create
-[az-container-delete]: /cli/azure/container?view=azure-cli-latest#az_container_delete
-[az-container-list]: /cli/azure/container?view=azure-cli-latest#az_container_list
-[az-container-logs]: /cli/azure/container?view=azure-cli-latest#az_container_logs
-[az-container-show]: /cli/azure/container?view=azure-cli-latest#az_container_show
+[az-container-attach]: /cli/azure/container#az_container_attach
+[az-container-create]: /cli/azure/container#az_container_create
+[az-container-delete]: /cli/azure/container#az_container_delete
+[az-container-list]: /cli/azure/container#az_container_list
+[az-container-logs]: /cli/azure/container#az_container_logs
+[az-container-show]: /cli/azure/container#az_container_show
+[az-group-create]: /cli/azure/group#az_group_create
 [azure-cli-install]: /cli/azure/install-azure-cli
 [container-service]: ../aks/kubernetes-walkthrough.md
 [service-fabric]: ../service-fabric/service-fabric-quickstart-containers.md

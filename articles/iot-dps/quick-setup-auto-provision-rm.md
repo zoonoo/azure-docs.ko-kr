@@ -1,22 +1,22 @@
 ---
-title: "Azure Resource Manager 템플릿을 사용하여 Device Provisioning 설정 | Microsoft Docs"
-description: "Azure 빠른 시작 - 템플릿을 사용하여 Azure IoT Hub Device Provisioning 서비스 설정"
+title: Azure Resource Manager 템플릿을 사용하여 Device Provisioning 설정 | Microsoft Docs
+description: Azure 빠른 시작 - 템플릿을 사용하여 Azure IoT Hub Device Provisioning 서비스 설정
 services: iot-dps
-keywords: 
+keywords: ''
 author: JimacoMS2
 ms.author: v-jamebr
 ms.date: 02/26/2018
 ms.topic: hero-article
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 827be2be6915b0f0c9892e73b8f0a293a9659b6e
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 389691bddf1a7d6cab0845ca0a0cf1bde1152507
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿으로 IoT Hub Device Provisioning 서비스 설정
 
@@ -340,7 +340,7 @@ az iot hub delete --name {your iot hub name} --resource-group {your resource gro
 az group delete --name {your resource group name}
 ```
 
-Azure Portal, PowerShell, REST API 또는 Azure Resource Manager나 IoT Hub 및 Device Provisioning 서비스에 게시된 지원되는 플랫폼 SDK를 사용하여 리소스 그룹 및 개별 리소스를 삭제할 수도 있습니다.
+Azure Portal, PowerShell, REST API 또는 Azure Resource Manager나 IoT Hub Device Provisioning 서비스에 게시된 지원되는 플랫폼 SDK를 사용하여 리소스 그룹 및 개별 리소스를 삭제할 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

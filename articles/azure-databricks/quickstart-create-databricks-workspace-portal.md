@@ -1,8 +1,8 @@
 ---
-title: "빠른 시작: Azure Portal을 사용하여 Azure Databricks에서 Spark 작업 실행 | Microsoft Docs"
-description: "빠른 시작은 Azure Portal을 사용하여 Azure Databricks 작업 영역, Apache Spark 클러스터를 만들고 Spark 작업을 실행하는 방법을 보여줍니다."
+title: '빠른 시작: Azure Portal을 사용하여 Azure Databricks에서 Spark 작업 실행 | Microsoft Docs'
+description: 빠른 시작은 Azure Portal을 사용하여 Azure Databricks 작업 영역, Apache Spark 클러스터를 만들고 Spark 작업을 실행하는 방법을 보여줍니다.
 services: azure-databricks
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: cgronlun
 editor: cgronlun
@@ -14,11 +14,11 @@ ms.topic: quickstart
 ms.date: 03/09/2018
 ms.author: nitinme
 ms.custom: mvc
-ms.openlocfilehash: 6a0e69e1ab2c52586b447d8a249b52b09bbff705
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 9eff06934eefa44db94de3d01be470ca69a2d88c
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure Databricks에서 Spark 작업 실행
 
@@ -40,17 +40,21 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 2. **Azure Databricks(미리 보기)** 아래에 있는 **만들기**를 클릭합니다.
 
-3. **Azure Databricks 서비스**아래에 다음 값을 제공합니다.
+3. **Azure Databricks 서비스** 아래에서 Databricks 작업 영역을 만들기 위한 값을 제공합니다.
 
     ![Azure Databricks 작업 영역 만들기](./media/quickstart-create-databricks-workspace-portal/create-databricks-workspace.png "Azure Databricks 작업 영역 만들기")
 
-    * **작업 영역 이름**에는 Databricks 작업 영역의 이름을 제공합니다.
-    * **구독**의 경우, 드롭다운에서 Azure 구독을 선택합니다.
-    * **리소스 그룹**에서 새 리소스 그룹을 만들지 아니면 기존 집합을 사용할지 여부를 지정합니다. 리소스 그룹은 Azure 솔루션에 관련된 리소스를 보유하는 컨테이너입니다. 자세한 내용은 [Azure Resource Manager 개요](../azure-resource-manager/resource-group-overview.md)를 참조하세요.
-    * **위치**에서는 **미국 동부 2**를 선택합니다. 사용 가능한 다른 영역은 [지역별 사용 가능한 Azure 서비스](https://azure.microsoft.com/regions/services/)를 참조하세요.
-    * **가격 책정 계층**에 대해 **표준** 또는 **프리미엄** 중에서 선택합니다. 이러한 계층에 대한 자세한 내용은 [Databricks 가격 페이지](https://azure.microsoft.com/pricing/details/databricks/)를 참조하세요.
+    다음 값을 제공합니다. 
+     
+    |자산  |설명  |
+    |---------|---------|
+    |**작업 영역 이름**     | Databricks 작업 영역의 이름을 제공합니다.        |
+    |**구독**     | 드롭다운에서 Azure 구독을 선택합니다.        |
+    |**리소스 그룹**     | 새 리소스 그룹을 만들지, 아니면 기존 그룹을 사용할지 여부를 지정합니다. 리소스 그룹은 Azure 솔루션에 관련된 리소스를 보유하는 컨테이너입니다. 자세한 내용은 [Azure Resource Manager 개요](../azure-resource-manager/resource-group-overview.md)를 참조하세요. |
+    |**위치**:     | **미국 동부 2**를 선택합니다. 사용 가능한 다른 영역은 [지역별 사용 가능한 Azure 서비스](https://azure.microsoft.com/regions/services/)를 참조하세요.        |
+    |**가격 책정 계층**     |  **표준** 또는 **프리미엄** 중에서 선택합니다. 이러한 계층에 대한 자세한 내용은 [Databricks 가격 페이지](https://azure.microsoft.com/pricing/details/databricks/)를 참조하세요.       |
 
-    **만들기**를 클릭합니다.
+    **대시보드에 고정**을 선택한 다음, **만들기**를 클릭합니다.
 
 4. 계정 생성에는 몇 분 정도가 소요됩니다. 계정을 만드는 동안 포털의 오른쪽에 **Azure Databricks에 대한 배포 제출**이 표시됩니다. 타일을 보려면 대시보드에서 오른쪽으로 스크롤해야 할 수도 있습니다. 화면 위쪽에 진행률 표시줄이 표시되기도 합니다. 두 영역에서 진행 상태를 볼 수 있습니다.
 
@@ -84,7 +88,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 * [Github에서](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json) 샘플 JSON 파일을 다운로드합니다. 
 * 사용자가 만든 Azure 저장소 계정에 샘플 JSON 파일을 업로드합니다. [Microsoft Azure Storage 탐색기](../vs-azure-tools-storage-manage-with-storage-explorer.md)를 사용하여 파일을 업로드할 수 있습니다.
 
-다음 단계를 수행하여 Databricks에서 노트북을 만들고, Azure Blob Storage 계정에서 데이터를 읽는 노트북을 구성한 다음 데이터에 대해 Spark SQL 작업을 실행합니다.
+다음 작업을 수행하여 Databricks에서 노트북을 만들고, Azure Blob 저장소 계정에서 데이터를 읽는 노트북을 구성한 다음, 이 데이터에 대해 Spark SQL 작업을 실행합니다.
 
 1. 왼쪽 창에서 **작업 영역**을 클릭합니다. **작업 영역** 드롭 다운에서 **만들기**를 클릭한 다음, **Notebook**을 클릭합니다.
 
@@ -96,7 +100,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
     **만들기**를 클릭합니다.
 
-3. 이 단계에서 Azure Storage 계정을 Databricks Spark 클러스터와 연결합니다. Azure Storage 계정을 DBFS(Databricks 파일 시스템)에 탑재하거나 만든 응용 프로그램에서 Azure Storage 계정에 직접 액세스하는 두 가지 방법이 있습니다.  
+3. 이 단계에서 Azure Storage 계정을 Databricks Spark 클러스터와 연결합니다. 이 연결을 수행하는 데는 두 가지 방법이 있습니다. Azure Storage 계정을 DBFS(Databricks 파일 시스템)에 탑재하거나 만든 응용 프로그램에서 Azure Storage 계정에 직접 액세스할 수 있습니다.  
 
     > [!IMPORTANT]
     >이 문서에서는 **DBFS를 사용하여 저장소를 탑재하는 방법**을 사용합니다. 이 방법을 사용하면 탑재된 저장소가 클러스터 파일 시스템 자체와 연결됩니다. 따라서 클러스터에 액세스하는 모든 응용 프로그램에서도 연결된 저장소를 사용할 수 있습니다. 직접 액세스 방식은 액세스를 구성한 응용 프로그램으로 제한됩니다.
@@ -171,15 +175,15 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-Spark 클러스터를 생성하는 동안  **__분 후 작업 종료 확인란**을 선택한 경우 클러스터가 지정된 시간 동안 비활성 상태인 경우 클러스터가 자동으로 종료됩니다.
+이 문서가 완료되면 클러스터를 종료할 수 있습니다. 이렇게 하려면 왼쪽 창의 Azure Databricks 작업 영역에서 **클러스터**를 선택합니다. 종료하려는 클러스터에서 **작업** 열 아래의 줄임표 위로 커서를 이동한 다음, **종료** 아이콘을 선택합니다.
 
-이 확인란을 선택하지 않으면 수동으로 클러스터를 종료해야 합니다. 이렇게 하려면 왼쪽 창의 Azure Databricks 작업 영역에서 **클러스터**를 클릭합니다. 종료하려는 클러스터에서 커서를 **작업** 열의 줄임표 위로 이동한 다음 **종료** 아이콘을 클릭합니다.
+![Databricks 클러스터 중지](./media/quickstart-create-databricks-workspace-portal/terminate-databricks-cluster.png "Databricks 클러스터 중지")
 
-![Databricks 클러스터 종료](./media/quickstart-create-databricks-workspace-portal/terminate-databricks-cluster.png "Databricks 클러스터 종료")
+클러스터를 수동으로 종료하지 않은 경우 클러스터를 만드는 중에 **Terminate after __ minutes of inactivity**(비활성 __분 후 종료) 확인란을 선택하면 자동으로 중지됩니다. 이 경우 지정한 시간 동안 클러스터가 비활성 상태이면 클러스터가 자동으로 중지됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 Azure Databricks에서 Spark 클러스터를 만들고 Azure 저장소의 데이터를 사용하여 Spark 작업을 실행했습니다. 또한 [Spark 데이터 소스](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html)를 보고 다른 데이터 소스의 데이터를 Azure Databricks로 가져오는 방법을 배울 수 있습니다. Azure Data Lake Store를 Azure Databricks와 함께 사용하는 방법을 배우려면 다음 문서로 넘어가세요.
+이 문서에서는 Azure Databricks에서 Spark 클러스터를 만들고 Azure 저장소의 데이터를 사용하여 Spark 작업을 실행했습니다. 또한 [Spark 데이터 소스](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html)를 보고 다른 데이터 소스의 데이터를 Azure Databricks로 가져오는 방법을 배울 수 있습니다. Event Hubs를 사용하여 Azure Databricks로 데이터를 스트리밍하는 방법을 알아보려면 다음 문서로 계속 진행하세요.
 
 > [!div class="nextstepaction"]
->[Azure Databricks에 Data Lake Store 사용](https://go.microsoft.com/fwlink/?linkid=864084)
+>[Event Hubs를 사용하여 Azure Databricks로 데이터 스트리밍](databricks-stream-from-eventhubs.md)

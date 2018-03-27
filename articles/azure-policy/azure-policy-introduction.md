@@ -1,20 +1,20 @@
 ---
-title: "Azure Policy 개요 | Microsoft Docs"
-description: "Azure Policy는 Azure 환경에서 정책 정의를 만들고, 할당하고, 관리하는 데 사용하는 Azure의 서비스입니다."
+title: Azure Policy 개요 | Microsoft Docs
+description: Azure Policy는 Azure 환경에서 정책 정의를 만들고, 할당하고, 관리하는 데 사용하는 Azure의 서비스입니다.
 services: azure-policy
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders; nini
-ms.date: 01/17/2018
+ms.date: 03/14/2018
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: bb6f08e8e6252233c51c47c63ca0aec4636247dd
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 72b3e46e4755d50589eeefeeb0478ab9af49e97b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="what-is-azure-policy"></a>Azure Policy이란?
 
@@ -30,6 +30,9 @@ Azure Policy는 정책 정의를 만들고, 할당하고, 관리하는 데 사�
 
 - 정책을 정의할 수 있는 `Microsoft.Authorization/policydefinitions/write` 사용 권한
 - 정책을 할당할 수 있는 `Microsoft.Authorization/policyassignments/write` 사용 권한
+- 이니셔티브를 정의할 수 있는 `Microsoft.Authorization/policySetDefinitions/write` 사용 권한.
+- 이니셔티브를 할당할 수 있는 `Microsoft.Authorization/policyassignments/write` 사용 권한.
+
 
 이러한 사용 권한은 **참가자** 역할에 포함되지 않습니다.
 

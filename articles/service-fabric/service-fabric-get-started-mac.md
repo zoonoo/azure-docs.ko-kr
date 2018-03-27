@@ -1,11 +1,11 @@
 ---
-title: "Azure Service Fabric에서 작업하도록 Mac OS X에서 개발 환경 설정 | Microsoft Docs"
-description: "런타임, SDK 및 도구를 설치하고 로컬 개발 클러스터를 만듭니다. 이 설정을 완료하면 Mac OS X에서 응용 프로그램을 빌드할 수 있습니다."
+title: Azure Service Fabric에서 작업하도록 Mac OS X에서 개발 환경 설정 | Microsoft Docs
+description: 런타임, SDK 및 도구를 설치하고 로컬 개발 클러스터를 만듭니다. 이 설정을 완료하면 Mac OS X에서 응용 프로그램을 빌드할 수 있습니다.
 services: service-fabric
 documentationcenter: java
 author: sayantancs
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
 ms.service: service-fabric
 ms.devlang: java
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/17/2017
 ms.author: saysa
-ms.openlocfilehash: 4ac26c02e1893097c858380c07f520e6570fd3db
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: bf0a03ace2f6b6e6b1c845785a452d0b75f35de8
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Mac OS X에서 개발 환경 설정
 > [!div class="op_single_selector"]
@@ -99,6 +99,12 @@ Azure Service Fabric은 Mac OS X에서 기본적으로 실행되지 않습니다
 
 [Service Fabric CLI](service-fabric-cli.md#cli-mac)의 지침에 따라 Mac에 Service Fabric CLI(`sfctl`)를 설치합니다.
 CLI 명령은 클러스터, 응용 프로그램 및 서비스를 비롯한 Service Fabric 엔터티와의 상호 작용을 지원합니다.
+
+1. 응용 프로그램을 배포하기 전에 클러스터에 연결하려면 아래 명령을 실행합니다. 
+
+```bash
+sfctl cluster select --endpoint http://localhost:19080
+```
 
 ## <a name="create-your-application-on-your-mac-by-using-yeoman"></a>Yeoman을 사용하여 Mac에서 응용 프로그램 만들기
 

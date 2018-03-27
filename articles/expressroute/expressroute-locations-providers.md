@@ -1,24 +1,24 @@
 ---
-title: "위치 및 연결 공급자: Azure ExpressRoute | Microsoft Docs"
-description: "이 문서에서는 서비스가 제공되는 위치 및 Azure 지역에 연결하는 방법의 자세한 개요를 제공합니다. 위치에 따라 정렬됩니다."
+title: '위치 및 연결 공급자: Azure ExpressRoute | Microsoft Docs'
+description: 이 문서에서는 서비스가 제공되는 위치 및 Azure 지역에 연결하는 방법의 자세한 개요를 제공합니다. 위치에 따라 정렬됩니다.
 services: expressroute
 documentationcenter: na
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: feb67da3-5abc-4acb-bad4-f78e3c541ded
 ms.service: expressroute
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/07/2018
+ms.date: 03/09/2018
 ms.author: pareshmu
-ms.openlocfilehash: b626ebae8032902bae168460eeede00dfdc7dfc2
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 277bde74283f847c915cc5e91e92bad50d401021
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 파트너 및 피어링 위치
 
@@ -82,7 +82,7 @@ ExpressRoute는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 맵
 | **런던** |AT&T NetBond, British Telecom, Colt, Equinix, InterCloud, Internet Solutions - Cloud Connect, Interxion, Jisc, Level 3 Communications, Megaport, MTN, NTT Communications, Orange, Tata Communications, Telecity Group, Telehouse - KDDI, Telenor, Verizon, Vodafone, Zayo |
 | **로스앤젤레스** |CoreSite, Equinix, Megaport, NTT, Zayo |
 | **멜버른** |AARNet, Equinix, Megaport, NEXTDC, Telstra Corporation |
-| **마이애미** |C3ntro+, Megaport, Neutrona Networks |
+| **마이애미** |C3ntro+, Equinix, Megaport, Neutrona Networks |
 | **Montreal** |Bell Canada, Cologix, Telus, Zayo |
 | **뭄바이** |Airtel+, Global CloudXchange (GCX), Sify, Tata Communications |
 | **뉴욕** |Coresite, Equinix, Level 3 Communications, Megaport, Zayo |

@@ -1,24 +1,21 @@
 ---
-title: "Azure Portal: SQL Database 관리되는 인스턴스 만들기 | Microsoft Azure"
-description: "VNet에서 Azure SQL Database 관리되는 인스턴스를 만들고, SSMS를 사용하여 Wide World Importers 데이터베이스 백업을 복원합니다."
-keywords: "SQL Database 자습서, SQL Database 관리되는 인스턴스 만들기"
+title: 'Azure Portal: SQL Database 관리되는 인스턴스 만들기 | Microsoft Azure'
+description: VNet에서 Azure SQL Database 관리되는 인스턴스를 만들고, SSMS를 사용하여 Wide World Importers 데이터베이스 백업을 복원합니다.
+keywords: SQL Database 자습서, SQL Database 관리되는 인스턴스 만들기
 services: sql-database
 author: bonova
 ms.reviewer: carlrab, srbozovi
 ms.service: sql-database
 ms.custom: managed instance
-ms.workload: Active
-ms.tgt_pltfrm: portal
-ms.devlang: 
 ms.topic: tutorial
-ms.date: 03/07/2018
+ms.date: 03/14/2018
 ms.author: bonova
-manager: cguyer
-ms.openlocfilehash: 0d6261392dfdab0d48cb0c524d1fcf416c85d72c
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+manager: craigg
+ms.openlocfilehash: 774a761465cfd886b85378a35dd43ac656a7ee48
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-an-azure-sql-database-managed-instance-in-the-azure-portal"></a>Azure Portal에서 Azure SQL Database 관리되는 인스턴스 만들기
 
@@ -26,6 +23,9 @@ ms.lasthandoff: 03/12/2018
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
+> [!IMPORTANT]
+> 현재 관리되는 인스턴스를 사용할 수 있는 지역 목록은 [Azure SQL Database 관리되는 인스턴스를 사용해 완벽히 관리되는 서비스로 데이터베이스 마이그레이션](https://azure.microsoft.com/blog/migrate-your-databases-to-a-fully-managed-service-with-azure-sql-database-managed-instance/)을 참조합니다.
+ 
 ## <a name="log-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
 [Azure 포털](https://portal.azure.com/#create/Microsoft.SQLManagedInstance) 에 로그인합니다.
@@ -231,7 +231,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
    |**구독**|사용자의 구독|구독에 대한 자세한 내용은 [구독](https://account.windowsazure.com/Subscriptions)을 참조하세요.|
    |**리소스 그룹**|이전에 만든 리소스 그룹||
    |**위치**:|이전에 선택한 위치||
-   |**이미 Windows 라이선스가 있나요?**|아니요|활성 SA(Software Assurance)가 포함된 Windows 라이선스를 소유하고 있는 경우 Azure 하이브리드 혜택을 사용하여 계산 비용을 절감합니다.|
+   |**이미 Windows 라이선스가 있나요?**|아니오|활성 SA(Software Assurance)가 포함된 Windows 라이선스를 소유하고 있는 경우 Azure 하이브리드 혜택을 사용하여 계산 비용을 절감합니다.|
    ||||
 
    ![가상 머신 만들기 양식](./media/sql-database-managed-instance-tutorial/virtual-machine-create-form.png)
@@ -284,7 +284,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     ![Internet Explorer 보안 강화 구성](./media/sql-database-managed-instance-tutorial/internet-explorer-security-configuration.png)  
 4. 작업 표시줄에서 **Internet Explorer**를 엽니다.
 5. **권장 보안 및 호환성 설정 사용**을 선택한 다음, **확인**을 클릭하여 Internet Explorer 11의 설정을 완료합니다.
-6. URL 주소 상자에서 https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms를 입력하고 **Enter**를 클릭합니다. 
+6. URL 주소 상자에 https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms을 입력하고 **Enter**를 클릭합니다. 
 7. 최신 버전의 SQL Server Management Studio를 다운로드하고, 메시지가 표시되면 **실행**을 클릭합니다.
 8. 메시지가 표시되면 **설치**를 클릭하여 시작합니다.
 9. 설치가 완료되면 **닫기**를 클릭합니다.
@@ -299,7 +299,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 다음 단계를 사용하여 Wide World Importers - Standard 백업 파일을 다운로드합니다.
 
-Internet Explorer를 사용하여 URL 주소 상자에서 https://github.com/Microsoft/sql-server-samples/releases/download/wide-world-importers-v1.0/WideWorldImporters-Standard.bak를 입력한 다음, 메시지가 표시되면 **저장**을 클릭하여 **다운로드**폴더에 이 파일을 저장합니다.
+Internet Explorer를 사용하여 URL에 주소 상자에 https://github.com/Microsoft/sql-server-samples/releases/download/wide-world-importers-v1.0/WideWorldImporters-Standard.bak을 입력한 다음, 대화 상자가 나타나면 **저장**을 클릭해 **다운로드** 폴더에 이 파일을 저장합니다.
 
 ## <a name="create-azure-storage-account-and-upload-backup-file"></a>Azure 저장소 계정 만들기 및 백업 파일 업로드
 

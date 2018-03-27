@@ -1,8 +1,8 @@
 ---
-title: "Azure Application Insights를 사용하여 성능 문제 진단 | Microsoft Docs"
-description: "Azure Application Insights를 사용하여 응용 프로그램에서 성능 문제를 찾고 진단하는 자습서입니다."
+title: Azure Application Insights를 사용하여 성능 문제 진단 | Microsoft Docs
+description: Azure Application Insights를 사용하여 응용 프로그램에서 성능 문제를 찾고 진단하는 자습서입니다.
 services: application-insights
-keywords: 
+keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/18/2017
@@ -10,11 +10,11 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 26f5acf369dd80d7877ab760806e0e08a49cfe6d
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 8489992303425cc00c15994b55ade958d77549e4
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>Azure Application Insights를 사용하여 성능 문제 찾기 및 진단
 
@@ -38,10 +38,10 @@ Azure Application Insights는 응용 프로그램에서 원격 분석을 수집�
 - 응용 프로그램에 대한 [Application Insights 프로파일러를 활성화합니다](app-insights-profiler.md#installation).
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
-[https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
+Azure Portal([https://portal.azure.com](https://portal.azure.com))에 로그인합니다.
 
 ## <a name="identify-slow-server-operations"></a>느린 서버 작업 식별
-Application Insights는 응용 프로그램에서 다른 작업에 대한 성능 정보를 수집합니다.  가장 긴 기간으로 이러한 작업을 식별하여 잠재적인 문제를 진단하거나 진행 중인 개발을 대상으로 하여 응용 프로그램의 전반적인 성능을 개선할 수 있습니다.
+Application Insights는 응용 프로그램에서 다른 작업에 대한 성능 정보를 수집합니다. 가장 긴 기간으로 이러한 작업을 식별하여 잠재적인 문제를 진단하거나 진행 중인 개발을 대상으로 하여 응용 프로그램의 전반적인 성능을 개선할 수 있습니다.
 
 1. **Application Insights**를 선택한 다음 구독을 선택합니다.  
 1. **성능** 패널을 열려면 **조사** 메뉴 아래의 **성능**을 선택하거나 **서버 응답 시간** 그래프를 클릭합니다.

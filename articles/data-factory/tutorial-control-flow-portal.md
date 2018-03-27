@@ -1,8 +1,8 @@
 ---
-title: "Azure Data Factory 파이프라인 분기 | Microsoft Docs"
-description: "분기 및 연결 작업을 통해 Azure Data Factory에서 데이터 흐름을 제어하는 방법을 알아봅니다."
+title: Azure Data Factory 파이프라인 분기 | Microsoft Docs
+description: 분기 및 연결 작업을 통해 Azure Data Factory에서 데이터 흐름을 제어하는 방법을 알아봅니다.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
 manager: jhubbard
 editor: spelluru
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: 2b1e3fa7fa57d92dbc3a33af20ed258d674e1625
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 00b377b8ed7454c64d146a2de1867eca8ab1fb67
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Data Factory 파이프라인 분기 및 연결 작업
 이 자습서에서는 몇 가지 컨트롤 흐름 기능을 보여 주는 Data Factory 파이프라인을 만듭니다. 이 파이프라인은 Azure Blob Storage의 컨테이너에서 동일한 저장소 계정의 다른 컨테이너로 간단한 복사를 수행합니다. 복사 활동이 성공하면 파이프라인에서 성공적인 복사 작업에 대한 세부 정보(예: 기록된 데이터 양)를 성공 전자 메일에 보냅니다. 복사 활동이 실패하면 파이프라인에서 실패한 복사 작업에 대한 세부 정보(예: 오류 메시지)를 실패 전자 메일에 보냅니다. 자습서 전체에서 매개 변수를 전달하는 방법을 확인할 수 있습니다.
@@ -30,7 +30,7 @@ ms.lasthandoff: 02/14/2018
 이 자습서에서 수행하는 단계는 다음과 같습니다.
 
 > [!div class="checklist"]
-> * 데이터 팩터리 만들기
+> * 데이터 팩터리를 만듭니다.
 > * Azure Storage 연결된 서비스 만들기
 > * Azure Blob 데이터 집합 만들기
 > * 복사 활동 및 웹 활동이 포함된 파이프라인 만들기
@@ -160,7 +160,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 10. **작성 및 모니터링** 타일을 클릭하여 별도의 탭에서 Azure Data Factory UI(사용자 인터페이스)를 시작합니다.
 
 
-## <a name="create-a-pipeline"></a>파이프라인 만들기
+## <a name="create-a-pipeline"></a>파이프라인을 만듭니다.
 이 단계에서는 하나의 복사 활동과 두 개의 웹 활동이 있는 파이프라인을 만듭니다. 다음 기능을 사용하여 파이프라인을 만듭니다.
 
 - 데이터 집합에서 액세스하는 파이프라인에 대한 매개 변수 
@@ -221,7 +221,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 17. 위쪽의 **파이프라인** 탭으로 전환합니다. **활동** 도구 상자에서 **일반**을 펼치고, **웹** 활동을 파이프라인 디자이너 화면으로 끌어서 놓습니다. 활동 이름을 **SendSuccessEmailActivity**로 설정합니다. 웹 작업은 모든 REST 끝점에 대한 호출을 허용합니다. 작업에 대한 자세한 내용은 [웹 작업](control-flow-web-activity.md)을 참조하세요. 이 파이프라인은 웹 작업을 사용하여 Logic Apps 전자 메일 워크플로를 호출합니다. 
 
    ![첫 번째 웹 활동 끌어서 놓기](./media/tutorial-control-flow-portal/success-web-activity-general.png)
-18. **일반** 탭에서  **설정**  탭으로 전환하고 다음 단계를 수행합니다. 
+18. **일반** 탭에서 **설정** 탭으로 전환하고 다음 단계를 수행합니다. 
     1. **URL**에 대해 성공 전자 메일을 보내는 Logic Apps 워크플로에 대한 URL을 지정합니다.  
     2. **메서드**에 대해 **POST**를 선택합니다. 
     3. **헤더** 섹션에서 **+ 헤더 추가** 링크를 클릭합니다. 
@@ -309,7 +309,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 3. **파이프라인 실행** 창에서 다음 단계를 수행 합니다. 
 
     1. **sourceBlobContainer** 매개 변수에 대해 **adftutorial/dummy/input**을 입력합니다. 더미 폴더가 adftutorial 컨테이너에 존재하지 않는지 확인합니다. 
-    2. **sinkBlobContainer** 매개 변수에 대해 **adftutorial/dummy/inputt**를 입력합니다. 
+    2. **sinkBlobContainer** 매개 변수에 대해 **adftutorial/dummy/output**을 입력합니다. 
     3. **받는 사람**의 **이메일 주소**를 입력합니다. 
     4. **Finish**를 클릭합니다.
 
@@ -332,7 +332,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 이 자습서에서 다음 단계를 수행했습니다. 
 
 > [!div class="checklist"]
-> * 데이터 팩터리 만들기
+> * 데이터 팩터리를 만듭니다.
 > * Azure Storage 연결된 서비스 만들기
 > * Azure Blob 데이터 집합 만들기
 > * 복사 작업 및 웹 작업이 포함된 파이프라인 만들기

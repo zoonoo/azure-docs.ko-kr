@@ -1,6 +1,6 @@
 ---
-title: "첫 번째 Azure Database for MySQL 데이터베이스 디자인 - Azure CLI"
-description: "이 자습서에서는 명령줄에서 Azure CLI 2.0을 사용하여 MySQL용 Azure Database 서버 및 데이터베이스를 만들고 관리하는 방법을 설명합니다."
+title: '자습서: Azure CLI를 사용하여 Azure Database for MySQL 디자인'
+description: 이 자습서에서는 명령줄에서 Azure CLI 2.0을 사용하여 MySQL용 Azure Database 서버 및 데이터베이스를 만들고 관리하는 방법을 설명합니다.
 services: mysql
 author: ajlam
 ms.author: andrela
@@ -11,13 +11,13 @@ ms.devlang: azure-cli
 ms.topic: tutorial
 ms.date: 02/28/2018
 ms.custom: mvc
-ms.openlocfilehash: a609bbdf70599d0cceaf988a9a0bef51bc28716d
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 6f77b24092a80708ba82c6d42b947c00d6a69b6d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="design-your-first-azure-database-for-mysql-database"></a>첫 번째 Azure Database for MySQL 데이터베이스 디자인
+# <a name="tutorial-design-an-azure-database-for-mysql-using-azure-cli"></a>자습서: Azure CLI를 사용하여 Azure Database for MySQL 디자인
 
 Azure Database for MySQL은 MySQL Community Edition 데이터베이스 엔진을 기반으로 한 Microsoft 클라우드의 관계형 데이터베이스 서비스입니다 이 자습서에서는 Azure CLI(명령줄 인터페이스) 및 기타 유틸리티를 사용하여 다음을 수행하는 방법에 대해 알아봅니다.
 

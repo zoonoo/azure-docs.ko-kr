@@ -1,6 +1,6 @@
 ---
-title: "C#에서 Azure Service Fabric Reliable Service 만들기"
-description: "Visual Studio를 사용하여 Azure Service Fabric을 기반으로 하는 Reliable Services 응용 프로그램을 만들고, 배포하고, 디버그합니다."
+title: C#에서 Azure Service Fabric Reliable Service 만들기
+description: Visual Studio를 사용하여 Azure Service Fabric을 기반으로 하는 Reliable Services 응용 프로그램을 만들고, 배포하고, 디버그합니다.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/19/2018
+ms.date: 03/14/2018
 ms.author: ryanwi
-ms.openlocfilehash: 43f77a1a2e1bbe28bb646aa23c28c253c20e8dda
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 858e322fd7e516f756aa209be92745efa6cf75f7
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-your-first-c-service-fabric-stateful-reliable-services-application"></a>첫 번째 C# Service Fabric 상태 저장 Reliable Services 응용 프로그램 만들기
 
@@ -40,7 +40,7 @@ Windows에서 첫 번째 .NET용 Azure Service Fabric 응용 프로그램을 몇
 
    ![Visual Studio의 새 프로젝트 대화 상자][1]
 
-5. 다음 대화 상자에서 모든 유형의 Service Fabric 응용 프로그램을 만들 수 있습니다. 이 빠른 시작에서는 **상태 저장 서비스**를 선택합니다.
+5. 다음 대화 상자에서 모든 유형의 Service Fabric 응용 프로그램을 만들 수 있습니다. 이 빠른 시작에서는 **.Net Core 2.0** > **상태 저장 서비스**를 선택합니다.
 
 6. 서비스의 이름을 **MyStatefulService**로 지정합니다. 그런 다음 **확인**을 선택합니다.
 

@@ -1,6 +1,6 @@
 ---
-title: "자습서 - Azure Portal을 사용하여 첫 번째 Azure Database for PostgreSQL 디자인"
-description: "이 자습서에서는 Azure Portal을 사용하여 첫 번째 Azure Database for PostgreSQL을 디자인하는 방법을 보여 줍니다."
+title: '자습서: Azure Portal을 사용하여 Azure Database for PostgreSQL 디자인'
+description: 이 자습서에서는 Azure Portal을 사용하여 첫 번째 Azure Database for PostgreSQL을 디자인하는 방법을 보여 줍니다.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -10,13 +10,13 @@ ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
 ms.date: 02/28/2018
-ms.openlocfilehash: df8f308b17879d7fd22d033fb535b59bd8a85086
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 9f4d886bbbf2b9111d736e291e420b822de9766a
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="tutorial-design-your-first-azure-database-for-postgresql-using-the-azure-portal"></a>자습서 - Azure Portal을 사용하여 첫 번째 Azure Database for PostgreSQL 디자인
+# <a name="tutorial-design-an-azure-database-for-postgresql-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 Azure Database for PostgreSQL 디자인
 
 PostgreSQL용 Azure Database는 클라우드에서 항상 사용 가능한 PostgreSQL 데이터베이스를 실행, 관리 및 크기 조정할 수 있게 하는 관리 서비스입니다. Azure Portal을 사용하면 쉽게 서버를 관리하고 데이터베이스를 디자인할 수 있습니다.
 

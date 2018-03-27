@@ -1,26 +1,19 @@
 ---
-title: "SQL Server DB를 Azure SQL Database로 마이그레이션 | Microsoft Docs"
-description: "SQL Server 데이터베이스를 Azure SQL Database로 마이그레이션하는 방법을 알아봅니다."
+title: SQL Server DB를 Azure SQL Database로 마이그레이션 | Microsoft Docs
+description: SQL Server 데이터베이스를 Azure SQL Database로 마이그레이션하는 방법을 알아봅니다.
 services: sql-database
-documentationcenter: 
 author: CarlRabeler
-manager: jhubbard
-editor: 
-tags: 
-ms.assetid: 
+manager: craigg
 ms.service: sql-database
 ms.custom: mvc,migrate
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: Active
-ms.date: 01/29/2018
+ms.date: 03/15/2018
 ms.author: carlrab
-ms.openlocfilehash: acba1aff0af8d54fca44af62ab46e1fd1a9d607e
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: c333fd4f87f30d9aa1ace755c7414423ab348e03
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="migrate-your-sql-server-database-to-azure-sql-database"></a>SQL Server 데이터베이스를 Azure SQL Database로 마이그레이션
 
@@ -91,7 +84,7 @@ Azure SQL Database는 일련의 정의된 [계산 및 저장소 리소스](sql-d
    > [!IMPORTANT]
    > \* 포함된 저장소보다 큰 저장소 크기는 미리 보기로 있으며 추가 비용이 적용됩니다. 자세한 내용은 [SQL Database 가격](https://azure.microsoft.com/pricing/details/sql-database/)을 참조하세요. 
    >
-   >\* 프리미엄 계층의 경우 현재 오스트레일리아 동부, 오스트레일리아 남동부, 브라질 남부, 캐나다 중부, 캐나다 동부, 미국 중부, 프랑스 중부, 독일 중부, 일본 동부, 일본 서부, 한국 중부, 미국 중북부, 유럽 북부, 미국 중남부, 동남 아시아, 영국 남부, 영국 서부, 미국 동부 2, 미국 서부, 미국 버지니아 주 정부 및 유럽 서부에서 1TB 이상의 저장소를 사용할 수 있습니다. [P11-P15 현재 제한 사항](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb)을 참조하세요.  
+   >\* 프리미엄 계층의 경우 현재 브라질 남부, 캐나다 중부, 캐나다 동부, 미국 중부, 프랑스 중부, 독일 중부, 일본 동부, 일본 서부, 한국 중부, 미국 중북부, 유럽 북부, 미국 중남부, 동남 아시아, 영국 남부, 영국 서부, 미국 동부 2, 미국 서부, 미국 버지니아 주 정부 및 유럽 서부에서 1TB 이상의 저장소를 사용할 수 있습니다. [P11-P15 현재 제한 사항](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb)을 참조하세요.  
    > 
 
 9. 서버 계층, DTU 수 및 저장소 크기를 선택한 후에 **적용**을 클릭합니다.  

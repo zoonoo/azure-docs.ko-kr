@@ -1,8 +1,8 @@
 ---
-title: "Azure Blob Storage에서 SQL Database로 데이터 복사 | Microsoft Docs"
-description: "이 자습서에서는 Azure Blob Storage에서 Azure SQL Database로 데이터를 복사하는 단계별 지침을 제공합니다."
+title: Azure Blob Storage에서 SQL Database로 데이터 복사 | Microsoft Docs
+description: 이 자습서에서는 Azure Blob Storage에서 Azure SQL Database로 데이터를 복사하는 단계별 지침을 제공합니다.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
 manager: jhubbard
 editor: spelluru
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 0747ba79529bc2f12f1c5d74cbfcb7b62a62baa8
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 86ceb395a6605b77b1f8594dbf153ac800b501b9
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Blob에서 Azure SQL Database로 데이터 복사
 이 자습서에서는 Azure Blob Storage에서 Azure SQL Database로 데이터를 복사하는 Data Factory 파이프라인을 만듭니다. 이 자습서의 구성 패턴은 파일 기반 데이터 저장소에서 관계형 데이터 저장소로 복사하는 데 적용됩니다. 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 표를 참조하세요.
@@ -120,8 +120,9 @@ Visual Studio 2015/2017을 사용하여 C# .NET 콘솔 응용 프로그램을 �
     using Microsoft.Azure.Management.DataFactory;
     using Microsoft.Azure.Management.DataFactory.Models;
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
-
-2. Add the following code to the **Main** method that sets variables. Replace place-holders with your own values. Currently, Data Factory V2 allows you to create data factories only in the East US, East US2, and West Europe regions. The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions.
+    ```
+    
+2. 변수를 설정하는 **Main** 메서드에 다음 코드를 추가합니다. 자리 표시자를 사용자의 고유 값으로 바꿉니다. 현재 미국 동부, 미국 동부 2 및 유럽 서부 지역에서만 Data Factory V2를 사용하여 데이터 팩터리를 만들 수 있습니다. 데이터 팩터리에서 사용되는 데이터 저장소(Azure Storage, Azure SQL Database 등) 및 계산(HDInsight 등)은 다른 지역에 있을 수 있습니다.
 
     ```csharp
     // Set variables

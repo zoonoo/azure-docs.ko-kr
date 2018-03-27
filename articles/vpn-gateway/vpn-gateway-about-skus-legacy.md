@@ -1,25 +1,25 @@
 ---
-title: "레거시 Azure Virtual Network 게이트웨이 SKU | Microsoft Docs"
-description: "이전 가상 네트워크 게이트웨이 SKU입니다."
+title: 레거시 Azure Virtual Network VPN 게이트웨이 SKU | Microsoft Docs
+description: 이전 버전의 가상 네트워크 게이트웨이 SKU인 Basic, Standard 및 HighPerformance를 사용하는 방법입니다.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
-editor: 
+manager: jpconnock
+editor: ''
 tags: azure-resource-manager,azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/31/2017
+ms.date: 03/20/2018
 ms.author: cherylmc
-ms.openlocfilehash: d5127c7fa512bad49817fa4c8edf3a16ca2f7d60
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: 4feecb9c1e91e1bc6c66a610c092e7bf894886e5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="working-with-virtual-network-gateway-skus-legacy-skus"></a>가상 네트워크 게이트웨이 SKU(레거시 SKU) 사용
 
@@ -37,33 +37,27 @@ ms.lasthandoff: 11/01/2017
 
 [!INCLUDE [Table requirements for old SKUs](../../includes/vpn-gateway-table-requirements-legacy-sku-include.md)]
 
-## <a name="resize"></a>게이트웨이 크기 조정(게이트웨이 SKU 변경)
+## <a name="resize"></a>게이트웨이 크기 조정
 
-동일한 SKU 제품군 내에서 게이트웨이 SKU 크기를 조정할 수 있습니다. 예를 들어 Standard SKU는 HighPerformance SKU로 크기를 조정할 수 있습니다. 이전 SKU와 새 SKU 제품군 간에 VPN Gateway의 크기를 조정할 수는 없습니다. 예를 들어 Standard SKU에서 VpnGw2 SKU로 크기를 조정할 수는 없습니다.
+동일한 SKU 제품군 내에서 게이트웨이의 크기를 게이트웨이 SKU로 조정할 수 있습니다. 예를 들어 Standard SKU는 HighPerformance SKU로 크기를 조정할 수 있습니다. 하지만 이전 SKU와 새 SKU 제품군 간에 VPN Gateway의 크기를 조정할 수는 없습니다. 예를 들어 Standard SKU에서 VpnGw2 SKU로, 또는 Basic SKU에서 VpnGw1로 크기를 조정할 수는 없습니다.
 
->[!IMPORTANT]
->게이트웨이의 크기를 조정할 때 크기가 조정되는 동안 해당 게이트웨이가 20~30분 동안 가동 중지됩니다.
->
->
-
-클래식 배포 모델의 게이트웨이 SKU 크기를 조정하려면 다음 명령을 사용합니다.
+클래식 배포 모델의 게이트웨이 크기를 조정하려면 다음 명령을 사용합니다.
 
 ```powershell
 Resize-AzureVirtualNetworkGateway -GatewayId <Gateway ID> -GatewaySKU HighPerformance
 ```
 
-Resource Manager 배포 모델의 게이트웨이 SKU 크기를 조정하려면 다음 명령을 사용합니다.
+PowerShell을 사용하여 Resource Manager 배포 모델의 게이트웨이 크기를 조정하려면 다음 명령을 사용합니다.
 
 ```powershell
 $gw = Get-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 Resize-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku HighPerformance
 ```
+또한 Azure Portal에서 게이트웨이 크기를 조정할 수도 있습니다.
 
-## <a name="migrate"></a>새 게이트웨이 SKU로 마이그레이션
+## <a name="change"></a>새 게이트웨이 SKU로 변경
 
-Resource Manager 배포 모델을 사용하는 경우 새 게이트웨이 SKU로 마이그레이션할 수 있습니다. 클래식 배포 모델을 사용하는 경우에는 새 SKU로 마이그레이션할 수 없으며 대신 레거시 SKU를 계속 사용해야 합니다.
-
-[!INCLUDE [Migrate SKU](../../includes/vpn-gateway-migrate-legacy-sku-include.md)]
+[!INCLUDE [Change to the new SKUs](../../includes/vpn-gateway-gwsku-change-legacy-sku-include.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,8 +1,8 @@
 ---
-title: "Azure IoT Edge 문제 해결 | Microsoft Docs"
-description: "일반적인 문제를 해결하고, Azure IoT Edge에 대한 문제 해결 기술을 배웁니다."
+title: Azure IoT Edge 문제 해결 | Microsoft Docs
+description: 일반적인 문제를 해결하고, Azure IoT Edge에 대한 문제 해결 기술을 배웁니다.
 services: iot-edge
-keywords: 
+keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
@@ -10,11 +10,11 @@ ms.date: 12/15/2017
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 7b9f9f8295aac0920ae4726289c535aae12c4482
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 4d6dd0d46d909acfbfc04a23be74a571953ce660
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Azure IoT Edge에 대한 일반적인 문제 및 해결 방법
 
@@ -30,10 +30,16 @@ ms.lasthandoff: 03/08/2018
    docker logs <container name>
    ```
 
-* Edge Hub에 표시되는 메시지를 확인하여, 런타임 컨테이너에서 제공되는 자세한 로그를 통해 장치 속성 업데이트에 대한 정보를 수집합니다. 빠른 시작 문서를 따르는 경우 "--auto-cert-gen-force-no-passwords" 옵션을 추가할 수 있습니다.
+* Edge Hub에 표시되는 메시지를 확인하여, 런타임 컨테이너에서 제공되는 자세한 로그를 통해 장치 속성 업데이트에 대한 정보를 수집합니다.
 
    ```cmd
    iotedgectl setup --connection-string "{device connection string}" --runtime-log-level debug
+   ```
+   
+* iotedgectl 명령에서 자세한 정보 표시 로그를 봅니다.
+
+   ```cmd
+   iotedgectl --verbose DEBUG <command>
    ```
 
 * 연결 문제가 발생하는 경우, 장치 연결 문자열과 같은 Edge 장치 환경 변수를 검사합니다.

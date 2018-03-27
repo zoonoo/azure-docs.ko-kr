@@ -1,24 +1,24 @@
 ---
-title: "ExpressRoute 개요: 개인 연결을 통해 온-프레미스 네트워크를 Azure로 확장 | Microsoft Docs"
-description: "이 ExpressRoute 기술 개요에서는 개인 연결을 통해 온-프레미스 네트워크를 Azure로 확장하기 위해 ExpressRoute 연결이 작동하는 방식에 대해 설명합니다."
+title: 'ExpressRoute 개요: 개인 연결을 통해 온-프레미스 네트워크를 Azure로 확장 | Microsoft Docs'
+description: 이 ExpressRoute 기술 개요에서는 개인 연결을 통해 온-프레미스 네트워크를 Azure로 확장하기 위해 ExpressRoute 연결이 작동하는 방식에 대해 설명합니다.
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: fd95dcd5-df1d-41d6-85dd-e91d0091af05
 ms.service: expressroute
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/30/2017
+ms.date: 03/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: e5584eee07121fa4644e09e23e3ba6b59fdd5a6e
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 75d69669945d31fbc9876d0c1e709b37f96aee6d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="expressroute-overview"></a>ExpressRoute 개요
 Microsoft Azure ExpressRoute를 사용하면 연결 공급자에서 쉽게 처리된 개인 연결을 통해 온-프레미스 네트워크를 Microsoft 클라우드로 확장할 수 있습니다. ExpressRoute를 사용하면 Microsoft Azure, Office 365 및 Dynamics 365와 같은 Microsoft 클라우드 서비스에 대한 연결을 설정할 수 있습니다.
@@ -48,7 +48,6 @@ Microsoft에서는 업계 표준 동적 라우팅 프로토콜(BGP)을 사용하
 각 ExpressRoute 회로는 연결 공급자/네트워크 Edge에서 두 가지 Microsoft Enterprise Edge 라우터(MSEE)에 두 개의 연결로 구성됩니다. Microsoft는 MSEE 각각에 하나의 연결 공급자/사용자 쪽에서 이중 BGP 연결을 요구합니다. 종단에 중복 장치/이더넷 회로를 배포하지 않도록 선택할 수도 있습니다. 그러나 연결 공급자는 중복 장치를 사용하여 연결이 중복 방식으로 Microsoft에 넘겨지도록 합니다. 중복 3계층 연결 구성은 [SLA](https://azure.microsoft.com/support/legal/sla/) 가 유효한 경우 요구됩니다.
 
 ### <a name="connectivity-to-microsoft-cloud-services"></a>Microsoft 클라우드 서비스에 연결
-[!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
 ExpressRoute 연결을 사용하면 다음 서비스에 액세스할 수 있습니다.
 
@@ -56,7 +55,11 @@ ExpressRoute 연결을 사용하면 다음 서비스에 액세스할 수 있습�
 * Microsoft Office 365 서비스
 * Microsoft Dynamics 365
 
-ExpressRoute를 통해 지원되는 서비스에 대한 자세한 목록은 [ExpressRoute FAQ](expressroute-faqs.md) 페이지를 방문할 수 있습니다.
+> [!NOTE]
+> [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
+> 
+
+ExpressRoute를 통해 지원되는 서비스에 대한 자세한 목록은 [ExpressRoute FAQ](expressroute-faqs.md) 페이지 참조 
 
 ### <a name="connectivity-to-all-regions-within-a-geopolitical-region"></a>모든 지정학적 지역에 연결
 [피어링 위치](expressroute-locations.md) 중 하나의 Microsoft에 연결할 수 있고 모든 지정학적 지역에 액세스합니다. 
@@ -67,7 +70,7 @@ ExpressRoute를 통해 지원되는 서비스에 대한 자세한 목록은 [Exp
 ExpressRoute 프리미엄 부가 기능을 사용하여 지정학적 경계를 넘어 연결을 확장할 수 있습니다. 예를 들어 ExpressRoute를 통해 암스테르담의 Microsoft로 연결하는 경우 전세계 모든 지역에서 호스팅되는 모든 Microsoft 클라우드 서비스에 액세스합니다.(국가별 클라우드는 제외됨) 북유럽 및 서유럽 지역에 액세스하는 것과 동일한 방법으로 남아메리카 또는 오스트레일리아에서 배포된 서비스에 액세스할 수 있습니다.
 
 ### <a name="rich-connectivity-partner-ecosystem"></a>다양한 연결 파트너 에코시스템
-ExpressRoute에서는 연결 공급자 및 SI 파트너의 에코시스템이 지속적으로 성장합니다. 최신 정보는 [ExpressRoute 공급자 및 위치](expressroute-locations.md) 문서를 참조할 수 있습니다.
+ExpressRoute에서는 연결 공급자 및 SI 파트너의 에코시스템이 지속적으로 성장합니다. 최신 정보는 [ExpressRoute 공급자 및 위치](expressroute-locations.md) 문서를 참조하세요.
 
 ### <a name="connectivity-to-national-clouds"></a>국가별 클라우드에 연결
 Microsoft는 특별한 지리학적 지역 및 고객 세그먼트에 격리된 클라우드 환경을 작동합니다. 국가별 클라우드 및 공급자의 목록은 [ExpressRoute 공급자 및 위치](expressroute-locations.md) 페이지를 참조합니다.

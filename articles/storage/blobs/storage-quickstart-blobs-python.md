@@ -1,19 +1,19 @@
 ---
-title: "Azure 빠른 시작 - Python을 사용하여 Azure Storage에 BLOB 업로드, 다운로드 및 나열 | Microsoft Docs"
-description: "이 빠른 시작에서는 저장소 계정과 컨테이너를 만듭니다. 그런 다음, Python용 저장소 클라이언트 라이브러리를 사용하여 Azure Storage에 BLOB을 업로드하고, BLOB을 다운로드하고, 컨테이너의 BLOB을 나열합니다."
+title: Azure 빠른 시작 - Python을 사용하여 Azure Storage에 BLOB 업로드, 다운로드 및 나열 | Microsoft Docs
+description: 이 빠른 시작에서는 저장소 계정과 컨테이너를 만듭니다. 그런 다음, Python용 저장소 클라이언트 라이브러리를 사용하여 Azure Storage에 BLOB을 업로드하고, BLOB을 다운로드하고, 컨테이너의 BLOB을 나열합니다.
 services: storage
 author: tamram
 manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 02/22/2018
+ms.date: 03/15/2018
 ms.author: tamram
-ms.openlocfilehash: a82ec92449730a784e7cd36d7f364a9a4516c15f
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: d4c489bc41a9c04b15e2ee28b944edc1f15ef81c
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-python"></a>빠른 시작: Python을 사용하여 BLOB 업로드, 다운로드 및 나열
 
@@ -23,7 +23,7 @@ ms.lasthandoff: 02/24/2018
 
 이 빠른 시작을 완료하려면 다음이 필요합니다. 
 * [Python 설치](https://www.python.org/downloads/)
-* [Azure Storage SDK for Python](storage-python-how-to-use-blob-storage.md#download-and-install-azure-storage-sdk-for-python) 다운로드 및 설치 
+* [Azure Storage SDK for Python](storage-python-how-to-use-blob-storage.md) 다운로드 및 설치 
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -160,6 +160,18 @@ block_blob_service.delete_container(container_name)
 os.remove(full_path_to_file)
 os.remove(full_path_to_file2)
 ```
+## <a name="resources-for-developing-python-applications-with-blobs"></a>Blob을 사용하여 Python 응용 프로그램을 개발하기 위한 리소스
+
+Blob 저장소를 사용하여 Python 응용 프로그램을 개발하기 위한 추가 리소스는 다음과 같습니다.
+
+### <a name="binaries-and-source-code"></a>이진 파일 및 소스 코드
+
+- GitHub에서 Azure Storage용 [Python 클라이언트 라이브러리 소스 코드](https://github.com/Azure/azure-storage-python)를 검색, 다운로드 및 설치하세요.
+
+### <a name="client-library-reference-and-samples"></a>클라이언트 라이브러리 참조 및 샘플
+
+- Python 클라이언트 라이브러리에 대한 자세한 내용은 [Python API 참조](https://docs.microsoft.com/python/api/overview/azure/storage)를 참조하세요.
+- Python 클라이언트 라이브러리를 사용하여 작성된 [Blob 저장소 샘플](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=python&term=blob)을 탐색하세요.
 
 ## <a name="next-steps"></a>다음 단계
  
@@ -168,5 +180,4 @@ os.remove(full_path_to_file2)
 > [!div class="nextstepaction"]
 > [Blob Storage 작업 방법](./storage-python-how-to-use-blob-storage.md)
  
-
 Storage 탐색기 및 Blob에 대한 자세한 내용은 [Storage 탐색기를 사용하여 Azure Blob Storage 리소스 관리](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)를 참조하세요.

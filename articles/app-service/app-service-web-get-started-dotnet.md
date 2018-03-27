@@ -1,35 +1,35 @@
 ---
-title: "Azure에서 ASP.NET Core 웹앱 만들기 | Microsoft Docs"
-description: "기본 ASP.NET Core 웹앱을 배포하여 Azure App Service에서 웹앱을 실행하는 방법을 알아봅니다."
+title: Azure에서 ASP.NET Core 웹앱 만들기 | Microsoft Docs
+description: 기본 ASP.NET Core 웹앱을 배포하여 Azure App Service에서 웹앱을 실행하는 방법을 알아봅니다.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: b1e6bd58-48d1-4007-9d6c-53fd6db061e3
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 02/05/2018
+ms.date: 03/18/2018
 ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: a7f098b6c66109cb5cafbcb19e463daa15a65b59
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 4b7dbf7609b6ca7fb11391e01a1ac0ce2bc2e897
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-an-aspnet-core-web-app-in-azure"></a>Azure에서 ASP.NET Core 웹앱 만들기
 
 > [!NOTE]
-> 이 문서에서는 Windows의 App Service에 앱을 배포합니다. _Linux_의 App Service에 배포하려면 [Linux의 App Service에서 .NET Core 웹앱 만들기](./containers/quickstart-dotnetcore.md)를 참조하세요.
+> 이 문서에서는 Windows의 App Service에 앱을 배포합니다. _Linux_의 App Service에 배포하려면 [Linux의 App Service에서 .NET Core 웹앱 만들기](./containers/quickstart-dotnetcore.md)를 참조하세요. 
 >
 > ASP.NET Framework 앱에 대한 단계를 찾으려면 [Azure에서 ASP.NET Framework 웹앱 만들기](app-service-web-get-started-dotnet-framework.md)를 참조하세요. 
 >
 
-[Azure Web Apps](app-service-web-overview.md)는 확장성 있는 자체 패치 웹 호스팅 서비스를 제공합니다.  이 빠른 시작은 첫 번째 ASP.NET Core 웹앱을 Azure Web Apps에 배포하는 방법을 보여 줍니다. 완료되면 배포된 웹 응용 프로그램으로 App Service 계획 및 Azure 웹앱으로 구성된 리소스 그룹을 갖습니다.
+[Azure Web Apps](app-service-web-overview.md)는 확장성 있는 자체 패치 웹 호스팅 서비스를 제공합니다.  이 빠른 시작은 첫 번째 ASP.NET Core 웹앱을 Azure Web Apps에 배포하는 방법을 보여 줍니다. 완료되면 배포된 웹 응용 프로그램으로 App Service 계획 및 Azure 웹앱으로 구성된 리소스 그룹을 갖습니다. Visual Studio 2017 내에서 이러한 단계를 전적으로 수행하는 방법을 보여주는 [비디오를 시청](#video)할 수 있습니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -186,6 +186,10 @@ git push Azure master
 왼쪽 메뉴는 앱 구성을 위한 서로 다른 페이지를 제공합니다. 
 
 [!INCLUDE [Clean-up section](../../includes/clean-up-section-portal.md)]
+
+## <a name="video"></a>비디오
+
+> [!VIDEO https://www.youtube-nocookie.com/embed/AEfG9PWPAxg]
 
 ## <a name="next-steps"></a>다음 단계
 

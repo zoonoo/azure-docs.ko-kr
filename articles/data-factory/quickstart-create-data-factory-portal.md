@@ -1,8 +1,8 @@
 ---
-title: "Azure Data Factory UI를 사용하여 Azure 데이터 팩터리 만들기 | Microsoft Docs"
-description: "이 자습서에서는 Azure Blob Storage의 한 폴더에서 다른 폴더로 데이터를 복사하는 파이프라인이 있는 데이터 팩터리를 만드는 방법을 보여 줍니다."
+title: Azure Data Factory UI를 사용하여 Azure 데이터 팩터리 만들기 | Microsoft Docs
+description: Azure Blob 저장소의 한 위치에서 다른 위치로 데이터를 복사하는 파이프라인이 있는 데이터 팩터리를 만듭니다.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
 manager: jhubbard
 editor: spelluru
@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.topic: hero-article
 ms.date: 02/01/2018
 ms.author: jingwang
-ms.openlocfilehash: 7065b0b6e0576238e3b32fdbf7ac43b7fc2ae9e6
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 79b19121b25b03181eeda1bedd800f45a2adf57e
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Azure Data Factory UI를 사용하여 데이터 팩터리 만들기
 > [!div class="op_single_selector" title1="Select the version of Data Factory service that you are using:"]
@@ -142,7 +142,7 @@ ms.lasthandoff: 02/09/2018
 
    ![출력 데이터 집합 설정](./media/quickstart-create-data-factory-portal/output-dataset-settings.png)
 
-## <a name="create-a-pipeline"></a>파이프라인 만들기 
+## <a name="create-a-pipeline"></a>파이프라인을 만듭니다. 
 이 절차에서는 입력 및 출력 데이터 집합을 사용하는 복사 활동이 있는 파이프라인을 만들고 유효성을 검사합니다. 복사 작업은 입력 데이터 집합 설정에 지정된 파일의 데이터를 출력 데이터 집합 설정에 지정된 파일로 복사합니다. 입력 데이터 집합에서 폴더(파일 이름 제외)만 지정하면 복사 활동에서 원본 폴더의 모든 파일을 대상에 복사합니다. 
 
 1. **+**(더하기) 단추를 선택한 다음 **파이프라인**을 선택합니다. 

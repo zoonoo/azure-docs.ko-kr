@@ -1,28 +1,28 @@
 ---
-title: "Azure Cosmos DB에서 그래프 데이터를 쿼리하는 방법 | Microsoft Docs"
-description: "Azure Cosmos DB에서 그래프 데이터를 쿼리하는 방법을 알아봅니다."
+title: Azure Cosmos DB에서 그래프 데이터를 쿼리하는 방법 | Microsoft Docs
+description: Azure Cosmos DB에서 그래프 데이터를 쿼리하는 방법을 알아봅니다.
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: luisbosquez
 manager: jhubbard
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: 8bde5c80-581c-4f70-acb4-9578873c92fa
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.workload: 
+ms.workload: ''
 ms.date: 01/02/2018
 ms.author: lbosq
 ms.custom: mvc
-ms.openlocfilehash: 5a635abfa9fa10cd8c8498e3c95a17af997cea3e
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: eb1da11c8b27a429ffcf9ea8fb50b6c7cee26ec0
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="azure-cosmos-db-how-to-query-with-the-graph-api"></a>Azure Cosmos DB: Graph API를 사용하여 쿼리하는 방법
+# <a name="tutorial-query-azure-cosmos-db-graph-api-by-using-gremlin"></a>자습서: Gremlin을 사용하여 Azure Cosmos DB Graph API 쿼리
 
 Azure Cosmos DB [Graph API](graph-introduction.md)는 [Gremlin](https://github.com/tinkerpop/gremlin/wiki) 쿼리를 지원합니다. 이 문서에서는 샘플 문서와 쿼리를 제공하여 시작합니다. Gremlin에 대해서는 [Gremlin 지원](gremlin-support.md) 문서에서 자세히 참조할 수 있습니다.
 

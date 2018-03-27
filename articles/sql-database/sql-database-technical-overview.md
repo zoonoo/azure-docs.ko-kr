@@ -1,27 +1,19 @@
 ---
-title: "Azure SQL Database 서비스란? | Microsoft Docs"
-description: "SQL Database에 대한 소개: 클라우드 환경에서 Microsoft의 관계형 데이터베이스 관리 시스템(RDBMS)의 기능과 기술 세부 정보를 살펴봅니다."
-keywords: "sql 소개, sql 소개, sql 데이터베이스란"
+title: Azure SQL Database 서비스란? | Microsoft Docs
+description: 'SQL Database에 대한 소개: 클라우드 환경에서 Microsoft의 관계형 데이터베이스 관리 시스템(RDBMS)의 기능과 기술 세부 정보를 살펴봅니다.'
+keywords: sql 소개, sql 소개, sql 데이터베이스란
 services: sql-database
-documentationcenter: 
 author: CarlRabeler
-manager: jhubbard
-editor: 
-ms.assetid: c561f600-a292-4e3b-b1d4-8ab89b81db48
+manager: craigg
 ms.service: sql-database
-ms.custom: overview
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
 ms.date: 03/07/2018
-ms.workload: Active
 ms.author: carlrab
-ms.reviewer: carlrab
-ms.openlocfilehash: a1c4426acec8e9e006c2349b886297f45cc8ecb2
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 7a06ed8433ebcf728c7b090f5e984d4e3ebeb846
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>Azure SQL Database 서비스란? 
 
@@ -37,7 +29,8 @@ SQL Database는 해당 코드 베이스를 [Microsoft SQL Server 데이터베이
 
 SQL Database는 가동 중지 시간 없이 기본 제공 지능형 최적화, 전역 확장성과 가용성 및 고급 보안 옵션을 포함하여 동적 확장성을 제공하는 여러 서비스 수준에서 별도로 관리하지 않고도 예측 가능한 성능을 제공합니다. 이러한 기능을 사용하면 가상 머신과 인프라를 관리하는 데 귀중한 시간과 리소스를 할당하는 대신 빠른 앱 개발에 집중하고 시장 출시 시간을 단축할 수 있습니다. SQL Database는 현재 전 세계에서 38개의 데이터 센터에 제공되며, 주변의 데이터 센터에서 데이터베이스를 실행할 수 있도록 정기적으로 더 많은 데이터 센터가 온라인될 예정입니다.
 
-> [!중요] SQL Database 관리되는 인스턴스는 현재 미리 보기 상태이며 단일 서비스 수준에서만 사용할 수 있습니다. 자세한 내용은 [SQL Database 관리되는 인스턴스](sql-database-managed-instance.md)를 참조하세요.
+> [!IMPORTANT]
+> SQL Database 관리되는 인스턴스는 현재 미리 보기 상태이며 단일 서비스 수준에서만 사용할 수 있습니다. 자세한 내용은 [SQL Database 관리되는 인스턴스](sql-database-managed-instance.md)를 참조하세요.
 >
 
 ## <a name="scalable-performance-and-pools"></a>확장 가능한 성능 및 풀
