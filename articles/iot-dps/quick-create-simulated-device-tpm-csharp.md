@@ -1,22 +1,22 @@
 ---
-title: "C#을 사용하여 Azure IoT Hub에 시뮬레이션된 TPM 장치 프로비전 | Microsoft Docs"
-description: "Azure 빠른 시작 - Azure IoT Hub Device Provisioning Service용 C# 장치 SDK를 사용하여 시뮬레이션된 TPM 장치 만들기 및 프로비전"
+title: C#을 사용하여 Azure IoT Hub에 시뮬레이션된 TPM 장치 프로비전 | Microsoft Docs
+description: Azure 빠른 시작 - Azure IoT Hub Device Provisioning Service용 C# 장치 SDK를 사용하여 시뮬레이션된 TPM 장치 만들기 및 프로비전
 services: iot-dps
-keywords: 
+keywords: ''
 author: JimacoMS2
 ms.author: v-jamebr
 ms.date: 12/21/2017
 ms.topic: hero-article
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 6b13f95f00883a12ff0e922567829fa6fac06642
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 7dd8d90ca3201fce0680b88b5530712126997efe
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>IoT Hub Device Provisioning Service용 C# 장치 SDK를 사용하여 시뮬레이션된 TPM 장치 만들기 및 프로비전
 
@@ -80,7 +80,7 @@ ms.lasthandoff: 03/05/2018
 
    등록에 성공하면 장치의 *등록 ID*가 *개별 등록* 탭 아래 목록에 나타납니다. 
 
-6. Enter 키를 클릭하여 시뮬레이션된 장치를 등록합니다. 장치를 부팅하고 IoT Hub 정보를 얻기 위해 Device Provisioning Service에 연결하는 과정을 시뮬레이션하는 메시지를 확인합니다. 
+6. 시뮬레이션된 장치를 등록하려면 (**_인증 키_**, **_등록 ID_** 및 제안된 **_장치 ID_**를 표시한) 명령 창에서 Enter를 누릅니다. 장치를 부팅하고 IoT Hub 정보를 얻기 위해 Device Provisioning Service에 연결하는 과정을 시뮬레이션하는 메시지를 확인합니다. 
 
 1. 장치가 프로비전되었는지 확인합니다. 프로비전 서비스와 연결된 IoT Hub에 시뮬레이션된 장치를 성공적으로 프로비전하면 장치 ID가 허브의 **IoT 장치** 블레이드에 표시됩니다. 
 

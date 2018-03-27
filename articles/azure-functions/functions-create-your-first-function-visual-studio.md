@@ -1,27 +1,27 @@
 ---
-title: "Visual Studio를 사용하여 Azure에서 첫 번째 함수 만들기 | Microsoft Docs"
-description: "Azure Functions Tools for Visual Studio를 사용하여 간단하고 HTTP에서 트리거한 함수를 Azure에 만들고 게시합니다."
+title: Visual Studio를 사용하여 Azure에서 첫 번째 함수 만들기 | Microsoft Docs
+description: Azure Functions Tools for Visual Studio를 사용하여 간단하고 HTTP에서 트리거한 함수를 Azure에 만들고 게시합니다.
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
-keywords: "Azure 함수, 함수, 이벤트 처리, 계산, 서버를 사용하지 않는 아키텍처"
+editor: ''
+tags: ''
+keywords: Azure 함수, 함수, 이벤트 처리, 계산, 서버를 사용하지 않는 아키텍처
 ms.assetid: 82db1177-2295-4e39-bd42-763f6082e796
 ms.service: functions
 ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 01/17/2018
+ms.date: 03/13/2018
 ms.author: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: fa17a021526a728c6fabc9607b1d00f5521cbb21
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 9b43ec7106c70b7d9b326208043d2fe874fb7e20
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-your-first-function-using-visual-studio"></a>Visual Studio를 사용하여 첫 번째 함수 만들기
 
@@ -37,11 +37,13 @@ Azure Functions를 사용하면 먼저 VM을 만들거나 웹 응용 프로그�
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-* **Azure 개발** 워크로드를 포함하여 [Visual Studio 2017 버전 15.4](https://www.visualstudio.com/vs/) 이상을 설치합니다.
+* **Azure 개발** 워크로드를 포함하여 [Visual Studio 2017 버전 15.5](https://www.visualstudio.com/vs/) 이상을 설치합니다.
 
     ![Azure 개발 워크로드를 통한 Visual Studio 2017 설치](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
 
-* Azure Functions 및 WebJobs Tools 최신 버전으로 업데이트해야 합니다. 업데이트는 **확장 및 업데이트**의 **업데이트** > **Visual Studio Marketplace**에서 수행합니다.
+    Visual Studio를 이미 설치한 경우 모든 보류 중인 업데이트를 설치했는지 확인합니다. 
+
+* Visual Studio 2017 버전 15.4 이하를 사용해 Azure 개발 워크로드를 설치한 경우 [Azure Functions 도구 업데이트](functions-develop-vs.md#check-your-tools-version)가 필요할 수도 있습니다. 
     
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 

@@ -1,25 +1,18 @@
 ---
-title: "Azure Windows VM에 대한 업데이트 및 패치 관리 | Microsoft Docs"
-description: "이 문서에서는 Azure Automation - 업데이트 관리를 사용하여 Azure Windows VM에 대한 업데이트 및 패치를 관리하는 방법에 대한 개요를 제공합니다."
+title: Azure Windows VM에 대한 업데이트 및 패치 관리
+description: 이 문서에서는 Azure Automation - 업데이트 관리를 사용하여 Azure Windows VM에 대한 업데이트 및 패치를 관리하는 방법에 대한 개요를 제공합니다.
 services: automation
-documentationcenter: 
 author: zjalexander
-manager: jwhit
-editor: 
-ms.assetid: 
 ms.service: automation
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/28/2018
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: 614b5bd7a2663c3b61f511dcc6b6a49218ac439a
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: bded1621dc56a6e621408e567ce39a3107bec7c9
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="manage-windows-updates-with-azure-automation"></a>Azure Automation을 사용하여 Windows 업데이트 관리
 
@@ -46,7 +39,7 @@ ms.lasthandoff: 02/28/2018
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
 
-Azure Portal( http://portal.azure.com )에 로그인합니다.
+Azure Portal(http://portal.azure.com)에 로그인합니다.
 
 ## <a name="enable-update-management"></a>업데이트 관리 사용
 
@@ -65,9 +58,9 @@ Azure Portal( http://portal.azure.com )에 로그인합니다.
 또한 유효성 검사 프로세스는 VM이 MMA 및 Automation 하이브리드 Runbook 작업자를 통해 프로비전되는지 확인합니다.
 이 에이전트는 VM과 통신하고 업데이트 상태에 대한 정보를 얻습니다.
 
-Log Analytics 작업 영역 및 Automation 계정을 선택하고 **사용**을 클릭하여 솔루션을 사용하도록 설정합니다. 솔루션을 사용하도록 설정하는 데 최대 15분이 걸립니다.
+Log Analytics 작업 영역 및 Automation 계정을 선택하고, **사용**을 클릭하여 솔루션을 사용하도록 설정합니다. 솔루션을 사용하도록 설정하는 데 최대 15분이 걸립니다.
 
-등록 중에 다음 필수 구성 요소 중 누락된 것이 확인되면 자동으로 추가됩니다.
+등록 중에 다음 필수 구성 요소 중 하나가 누락된 것으로 확인되면 자동으로 추가됩니다.
 
 * [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json) 작업 영역
 * [Automation](./automation-offering-get-started.md)

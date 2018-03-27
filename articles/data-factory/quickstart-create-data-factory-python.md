@@ -1,23 +1,23 @@
 ---
-title: "Python을 사용하여 Azure Data Factory 만들기 | Microsoft Docs"
-description: "Azure Data Factory를 만들어서 Azure Blob Storage의 한 위치에서 동일한 Blob Storage의 다른 위치로 데이터를 복사합니다."
+title: Python을 사용하여 Azure Data Factory 만들기 | Microsoft Docs
+description: Azure Blob 저장소의 한 위치에서 다른 위치로 데이터를 복사하는 Azure 데이터 팩터리를 만듭니다.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
 manager: jhubbard
 editor: spelluru
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: ''
 ms.devlang: python
 ms.topic: hero-article
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: 5b673f92265a1a6e36c65e109feb28dfdfab56f0
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 19e464074bbe5a5453f391c3f50af191580e2fdc
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="create-a-data-factory-and-pipeline-using-python"></a>Python을 사용하여 데이터 팩터리 및 파이프라인 만들기
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]

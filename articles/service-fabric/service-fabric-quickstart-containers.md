@@ -1,12 +1,12 @@
 ---
-title: "Azure Service Fabric Windows 컨테이너 응용 프로그램 만들기 | Microsoft Docs"
-description: "이 빠른 시작에서는 Azure Service Fabric에서 첫 번째 Windows 컨테이너 응용 프로그램을 만듭니다."
+title: Azure Service Fabric Windows 컨테이너 응용 프로그램 만들기 | Microsoft Docs
+description: 이 빠른 시작에서는 Azure Service Fabric에서 첫 번째 Windows 컨테이너 응용 프로그램을 만듭니다.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
 editor: vturecek
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: quickstart
@@ -15,18 +15,18 @@ ms.workload: NA
 ms.date: 02/27/18
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 7a8d28ef842ba77355628c79c20fa7fd3c693380
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: d4fe2d410152fc4d65f2d22bc26e5e72b91bc282
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="quickstart-deploy-a-service-fabric-windows-container-application-on-azure"></a>빠른 시작: Azure에서 Service Fabric Windows 컨테이너 응용 프로그램 배포
 Azure Service Fabric은 확장성 있고 안정성이 뛰어난 마이크로 서비스 및 컨테이너를 배포 및 관리하기 위한 분산 시스템 플랫폼입니다. 
 
 Service Fabric 클러스터의 Windows 컨테이너에서 기존 응용 프로그램을 실행하더라도 응용 프로그램을 변경할 필요가 없습니다. 이 빠른 시작에서는 Service Fabric 응용 프로그램에서 미리 작성된 Docker 컨테이너 이미지를 배포하는 방법을 보여줍니다. 완료하면 Windows Server 2016 Nano 서버 및 IIS 컨테이너를 실행하게 됩니다. 이 빠른 시작에서는 Windows 컨테이너 배포에 대해 설명합니다. [이 빠른 시작](service-fabric-quickstart-containers-linux.md)을 참고하여 Linux 컨테이너를 배포합니다.
 
-![IIS default web page][iis-default]
+![IIS 기본 웹 페이지][iis-default]
 
 이 빠른 시작을 사용하여 다음을 수행하는 방법을 알아봅니다.
 > [!div class="checklist"]
@@ -83,7 +83,7 @@ Service Fabric SDK 및 도구는 컨테이너를 Service Fabric 클러스터에 
 이 문서의 끝에서 전체 ApplicationManifest.xml 예제 파일을 제공합니다.
 
 ## <a name="create-a-cluster"></a>클러스터 만들기
-응용 프로그램을 Azure의 클러스터에 배포하려면 파티 클러스터에 조인합니다. Party 클러스터는 평가판으로, Azure에서 호스트되고 Service Fabric 팀이 실행하는 제한 시간 Service Fabric 클러스터입니다. 여기서 누구나 응용 프로그램을 배포하고 플랫폼에 대해 알아볼 수 있습니다. 클러스터는 노드-노드뿐만 아니라 클라이언트-노드 보안에도 단일 자체 서명 인증서를 사용합니다. 
+응용 프로그램을 Azure의 클러스터에 배포하려면 파티 클러스터에 조인합니다. Party 클러스터는 평가판으로, Azure에서 호스트되고 Service Fabric 팀이 실행하는 제한 시간 Service Fabric 클러스터입니다. 여기서 누구나 응용 프로그램을 배포하고 플랫폼에 대해 알아볼 수 있습니다.  클러스터는 노드-노드뿐만 아니라 클라이언트-노드 보안에도 단일 자체 서명 인증서를 사용합니다. 파티 클러스터가 컨테이너를 지원합니다. 그러나 자체 클러스터를 설정하는 경우 해당 클러스터가 컨테이너를 실행하기 위해 컨테이너를 사용하여 Windows Server 2016에서 실행돼야 합니다.
 
 [Windows 클러스터에 로그인하고 조인](http://aka.ms/tryservicefabric)합니다. **PFX** 링크를 클릭하여 PFX 인증서를 컴퓨터에 다운로드합니다. 인증서 및 **연결 엔드포인트** 값은 다음 단계에서 사용됩니다.
 
@@ -118,7 +118,7 @@ Thumbprint                                Subject
 
 클러스터의 각 응용 프로그램에는 고유한 이름이 있어야 합니다.  Party 클러스터가 공용 공유 환경이지만 기존 응용 프로그램과 충돌이 발생할 수 있습니다.  이름이 충돌하는 경우 Visual Studio 프로젝트의 이름을 바꾸고 다시 배포합니다.
 
-브라우저를 열고 http://zwin7fh14scd.westus.cloudapp.azure.com:80으로 이동합니다. IIS 기본 웹 페이지가 표시됩니다. ![IIS 기본 웹 페이지][iis-default]
+브라우저를 열고 http://zwin7fh14scd.westus.cloudapp.azure.com:80로 이동합니다. IIS 기본 웹 페이지가 표시됩니다. ![IIS 기본 웹 페이지][iis-default]
 
 ## <a name="complete-example-service-fabric-application-and-service-manifests"></a>Service Fabric 응용 프로그램 및 서비스 매니페스트의 전체 예제
 이 빠른 시작에서 사용되는 전체 서비스 및 응용 프로그램 매니페스트는 다음과 같습니다.

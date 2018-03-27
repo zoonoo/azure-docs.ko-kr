@@ -1,19 +1,19 @@
 ---
-title: "Azure 빠른 시작 - .NET을 사용하여 Azure Storage에 BLOB 업로드, 다운로드 및 나열 | Microsoft Docs"
-description: "이 빠른 시작에서는 저장소 계정과 컨테이너를 만듭니다. 그런 다음, .NET용 저장소 클라이언트 라이브러리를 사용하여 Azure Storage에 BLOB을 업로드하고, BLOB을 다운로드하고, 컨테이너의 BLOB을 나열합니다."
+title: Azure 빠른 시작 - .NET을 사용하여 Azure Storage에 BLOB 업로드, 다운로드 및 나열 | Microsoft Docs
+description: 이 빠른 시작에서는 저장소 계정과 컨테이너를 만듭니다. 그런 다음, .NET용 저장소 클라이언트 라이브러리를 사용하여 Azure Storage에 BLOB을 업로드하고, BLOB을 다운로드하고, 컨테이너의 BLOB을 나열합니다.
 services: storage
 author: tamram
 manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 03/01/2018
+ms.date: 03/15/2018
 ms.author: tamram
-ms.openlocfilehash: 8d1f09a39e865500aa8e4d093473d4989f134c3d
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 716e61840f4bfb5a68a995683e67dae0b43d3854
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-net"></a>빠른 시작: .NET을 사용하여 BLOB 업로드, 다운로드 및 나열
 
@@ -253,13 +253,13 @@ Blob 저장소를 사용하는 .NET 개발에 대한 이러한 추가 리소스�
 
 ### <a name="binaries-and-source-code"></a>이진 파일 및 소스 코드
 
-- 최신 버전의 [저장소 .NET 클라이언트 라이브러리](https://www.nuget.org/packages/WindowsAzure.Storage/)에 대한 NuGet 패키지를 다운로드합니다. 
-- GitHub에서 [저장소 .NET 클라이언트 라이브러리 소스 코드](https://github.com/Azure/azure-storage-net)를 봅니다.
+- 최신 버전의 Azure Storage용 [.NET 클라이언트 라이브러리](https://www.nuget.org/packages/WindowsAzure.Storage/)에 대한 NuGet 패키지를 다운로드하세요. 
+- GitHub에서 [.NET 클라이언트 라이브러리 소스 코드](https://github.com/Azure/azure-storage-net)를 찾아보세요.
 
 ### <a name="client-library-reference-and-samples"></a>클라이언트 라이브러리 참조 및 샘플
 
-- 클라이언트 라이브러리에 대한 자세한 내용은 [저장소 .NET API 참조](https://docs.microsoft.com/dotnet/api/overview/azure/storage)를 참조하세요.
-- 저장소 .NET 클라이언트 라이브러리를 사용하여 작성된 [Blob 저장소 샘플](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=blob)을 탐색합니다.
+- .NET 클라이언트 라이브러리에 대한 자세한 내용은 [.NET API 참조](https://docs.microsoft.com/dotnet/api/overview/azure/storage)를 참조하세요.
+- .NET 클라이언트 라이브러리를 사용하여 작성된 [Blob 저장소 샘플](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=blob)을 탐색하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

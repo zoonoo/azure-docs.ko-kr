@@ -1,6 +1,6 @@
 ---
-title: "Azure App Service Environment에서 내부 부하 분산 장치 만들기 및 사용"
-description: "인터넷에 연결되지 않은 Azure App Service Environment를 만들고 사용하는 방법에 대한 세부 정보"
+title: Azure App Service Environment에서 내부 부하 분산 장치 만들기 및 사용
+description: 인터넷에 연결되지 않은 Azure App Service Environment를 만들고 사용하는 방법에 대한 세부 정보
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -14,11 +14,11 @@ ms.topic: quickstart
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 7480c1f71a64e31b65cc76f28734df6f424a6b3f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 0d08d140ab338d8c742277835fdfb4316862f07b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>App Service Environment에서 내부 부하 분산 장치 만들기 및 사용 #
 
@@ -139,7 +139,7 @@ SSL 인증서를 .pfx 파일로 변환/저장합니다. .pfx 파일에는 모든
 
 자체 서명된 인증서를 만들려는 경우 여기에서 PowerShell 명령을 사용할 수 있습니다. *internal.contoso.com* 대신 ILB ASE 도메인 이름을 사용해야 합니다. 
 
-    $certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "\*.internal-contoso.com","\*.scm.internal-contoso.com"
+    $certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "*.internal-contoso.com","*.scm.internal-contoso.com"
     
     $certThumbprint = "cert:\localMachine\my\" +$certificate.Thumbprint
     $password = ConvertTo-SecureString -String "CHANGETHISPASSWORD" -Force -AsPlainText
@@ -174,9 +174,9 @@ SSL 인증서를 .pfx 파일로 변환/저장합니다. .pfx 파일에는 모든
 
     나. 웹 배포 게시를 테스트하거나 고급 콘솔에 액세스하려면 _mytestapp.scm.ilbase.com_의 레코드를 만듭니다.
 
-7. 해당 VM에서 브라우저를 사용하고 http://mytestapp.ilbase.com으로 이동합니다. (또는 도메인에서 웹앱 이름으로 이동합니다.)
+7. 해당 VM에서 브라우저를 사용하여 http://mytestapp.ilbase.com로 이동합니다. (또는 도메인에서 웹앱 이름으로 이동합니다.)
 
-8. 해당 VM에서 브라우저를 사용하고 https://mytestapp.ilbase.com으로 이동합니다. 자체 서명된 인증서를 사용하는 경우 보안 부족에 동의합니다.
+8. 해당 VM에서 브라우저를 사용하여 https://mytestapp.ilbase.com로 이동합니다. 자체 서명된 인증서를 사용하는 경우 보안 부족에 동의합니다.
 
     ILB의 IP 주소가 **IP 주소**에 나열됩니다. 이 목록에는 외부 VIP 및 인바운드 관리 트래픽에 사용하는 IP 주소도 있습니다.
 

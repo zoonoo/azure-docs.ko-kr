@@ -1,6 +1,6 @@
 ---
-title: "Azure Container Instances 할당량 및 지역 가용성"
-description: "Azure Container Instances service의 기본 할당량 및 지역 가용성입니다."
+title: Azure Container Instances 할당량 및 지역 가용성
+description: Azure Container Instances service의 기본 할당량 및 지역 가용성입니다.
 services: container-instances
 author: mmacy
 manager: timlt
@@ -8,11 +8,11 @@ ms.service: container-instances
 ms.topic: overview
 ms.date: 02/27/2018
 ms.author: marsma
-ms.openlocfilehash: 008b07402cb0b937174488982cac64811baa5d5d
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 28177e17a15c5e3b92b9af52e05fa2f8e95db95f
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="quotas-and-region-availability-for-azure-container-instances"></a>Azure Container Instances에 대한 할당량 및 지역 가용성
 
@@ -29,9 +29,9 @@ Azure Container Instances를 지정된 CPU 및 메모리 제한을 사용하여 
 | 위치 | OS | CPU | 메모리(GB) |
 | -------- | -- | :---: | :-----------: |
 | 유럽 서부, 미국 서부, 미국 동부 | Linux | 4 | 14 |
-| 동남아시아  | Linux | 1 | 1.5 |
+| 미국 서부 2, 동남 아시아 | Linux | 2 | 7 |
 | 유럽 서부, 미국 서부, 미국 동부 | Windows | 4 | 14 |
-| 동남아시아  | Windows | 2 | 3.5 |
+| 미국 서부 2, 동남 아시아 | Windows | 2 | 3.5 |
 
 이러한 리소스 제한 내에서 만든 컨테이너 인스턴스는 배포 지역 내의 사용 가능 여부의 적용을 받습니다. 영역이 과부하 상태에 있는 경우 인스턴스를 배포할 때 오류가 발생할 수 있습니다. 이러한 배포 오류를 완화하려면 낮은 CPU 및 메모리 설정을 사용하여 인스턴스를 배포하거나 나중에 배포를 시도합니다.
 

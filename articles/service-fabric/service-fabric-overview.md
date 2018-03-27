@@ -1,6 +1,6 @@
 ---
-title: "Azure의 Service Fabric 개요 | Microsoft Docs"
-description: "응용 프로그램이 여러 마이크로 서비스로 구성되어 확장성과 복원력을 제공하는 서비스 패브릭의 개요입니다. Service Fabric은 확장 가능하고 안정적이며 관리하기 쉬운 클라우드 응용 프로그램을 빌드하는 데 사용되는 분산 시스템 플랫폼입니다."
+title: Azure의 Service Fabric 개요 | Microsoft Docs
+description: 응용 프로그램이 여러 마이크로 서비스로 구성되어 확장성과 복원력을 제공하는 서비스 패브릭의 개요입니다. Service Fabric은 확장 가능하고 안정적이며 관리하기 쉬운 클라우드 응용 프로그램을 빌드하는 데 사용되는 분산 시스템 플랫폼입니다.
 services: service-fabric
 documentationcenter: .net
 author: msfussell
@@ -15,18 +15,17 @@ ms.workload: NA
 ms.date: 09/20/2017
 ms.author: msfussell
 ms.custom: mvc
-ms.openlocfilehash: aab15e6981e4f5f3c69ea6a85995fd2db69ff8b8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: d5bd75dfff87e73fa4104901c1c0ac0989b1e3bb
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="overview-of-azure-service-fabric"></a>Azure Service Fabric의 개요
 Azure Service Fabric은 손쉽게 패키지하고 배포하며 확장 가능하고 안정성이 뛰어난 마이크로 서비스 및 컨테이너를 관리하도록 배포된 시스템 플랫폼입니다. 또한 Service Fabric은 클라우드 네이티브 응용 프로그램 개발 및 관리에서 발생하는 중요한 과제를 해결합니다. 개발자와 관리자가 복잡한 인프라 문제를 피하고 업무 수행에 필수적인 까다로운 워크로드를 확장 가능하고 신뢰할 수 있으며 관리가 가능하도록 구현하는 데 집중할 수 있습니다. Service Fabric은 컨테이너에서 실행되는 엔터프라이즈급 계층 1 클라우드 규모의 응용 프로그램을 빌드 및 관리하기 위한 차세대 플랫폼을 나타냅니다.
 
-이 짧은 비디오에서는 Service Fabric 및 마이크로 서비스를 소개합니다.<center><a target="_blank" href="https://aka.ms/servicefabricvideo">  
-<img src="./media/service-fabric-overview/OverviewVid.png" WIDTH="360" HEIGHT="244">  
-</a></center>
+이 짧은 비디오에서는 Service Fabric 및 마이크로 서비스를 소개합니다.
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Service-Fabric/player]
 
 ## <a name="applications-composed-of-microservices"></a>마이크로 서비스로 구성된 응용 프로그램 
 Service Fabric을 사용하면 컴퓨터의 공유 풀(클러스터라고 함)에서 높은 밀도로 실행되는 마이크로 서비스로 구성된 확장성 있고 신뢰할 수 있는 응용 프로그램을 빌드하고 관리할 수 있습니다. 컨테이너에서 실행되는 분산되고 확장 가능한 상태 비저장 및 상태 저장 마이크로 서비스를 빌드하는 정교하고 간단한 런타임을 제공합니다. 또한 컨테이너화된 서비스를 비롯하여 배포된 응용 프로그램을 프로비전, 배포, 모니터링, 업그레이드/패치 및 삭제하는 포괄적인 응용 프로그램 관리 기능을 제공합니다.
@@ -42,7 +41,7 @@ Service Fabric은 이러한 마이크로 서비스로 구성된 응용 프로그
 마이크로 서비스 접근 방식에 대한 자세한 내용은 [응용 프로그램 구축에 마이크로 서비스 접근 방식이 필요한 이유](service-fabric-overview-microservices.md)
 
 ## <a name="container-deployment-and-orchestration"></a>컨테이너 배포 및 오케스트레이션
-Service Fabric은 컴퓨터 클러스터에 걸쳐 마이크로 서비스를 배포하는 Microsoft의 [컨테이너 조정자](service-fabric-cluster-resource-manager-introduction.md)입니다. 마이크로 서비스는 [Service Fabric 프로그래밍 모델](service-fabric-choose-framework.md), [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md) 사용부터 [선택한 코드](service-fabric-deploy-existing-app.md) 배포에 이르는 다양한 방식으로 개발될 수 있습니다. 중요한 점은 프로세스의 서비스와 동일한 응용 프로그램의 컨테이너의 서비스를 혼합할 수 있습니다. [이미지를 배포 및 관리](service-fabric-containers-overview.md)하려는 경우 Service Fabric은 컨테이너 조정자로 선택하기에 가장 적합합니다.
+Service Fabric은 컴퓨터 클러스터에 걸쳐 마이크로 서비스를 배포하는 Microsoft의 [컨테이너 조정자](service-fabric-cluster-resource-manager-introduction.md)입니다. 마이크로 서비스는 [Service Fabric 프로그래밍 모델](service-fabric-choose-framework.md), [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md) 사용부터 [선택한 코드](service-fabric-guest-executables-introduction.md) 배포에 이르는 다양한 방식으로 개발될 수 있습니다. 중요한 점은 프로세스의 서비스와 동일한 응용 프로그램의 컨테이너의 서비스를 혼합할 수 있습니다. [이미지를 배포 및 관리](service-fabric-containers-overview.md)하려는 경우 Service Fabric은 컨테이너 조정자로 선택하기에 가장 적합합니다.
 
 ## <a name="any-os-any-cloud"></a>모든 OS, 모든 클라우드
 Service Fabric은 어디에서나 실행됩니다. Azure 또는 온-프레미스, Windows Server 또는 Linux 등 수많은 환경에서 Service Fabric용 클러스터를 만들 수 있습니다. 다른 공용 클라우드에서 클러스터를 만들 수도 있습니다. 또한 SDK의 개발 환경은 에뮬레이터가 포함되지 않은 프로덕션 환경과 **동일**합니다. 즉, 로컬 개발 클러스터에서 실행되는 항목은 다른 환경의 클러스터에 배포됩니다.

@@ -1,19 +1,19 @@
 ---
-title: "VMware VM을 Azure에 재해 복구하기 위해 온-프레미스 VMware 서버 준비 | Microsoft Docs"
-description: "Azure Site Recovery 서비스를 사용하여 Azure에 재해 복구하기 위해 온-프레미스 VMware 서버를 준비하는 방법을 알아봅니다."
+title: VMware VM을 Azure에 재해 복구하기 위해 온-프레미스 VMware 서버 준비 | Microsoft Docs
+description: Azure Site Recovery 서비스를 사용하여 Azure에 재해 복구하기 위해 온-프레미스 VMware 서버를 준비하는 방법을 알아봅니다.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 03/08/2018
+ms.date: 03/15/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 07f62775c9286250d33635febe01dbad4362df12
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 6898f725d1d3cbf3f8d9d90faeafc13fbc8cb201
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>Azure에 재해 복구하기 위해 온-프레미스 VMware 서버 준비
 
@@ -59,34 +59,16 @@ Site Recovery에서는 다음 작업을 위해 VMware 서버에 액세스해야 
 3. Linux VM에 설치하려면 Linux 원본 서버에서 루트 계정을 준비합니다.
 
 
-## <a name="check-vmware-server-requirements"></a>VMware 서버 요구 사항 확인
+## <a name="check-vmware-requirements"></a>VMware 요구 사항 확인
 
-VMware 서버에서 다음 요구 사항을 충족하는지 확인합니다.
+VMware 서버 및 Vm이 요구 사항을 준수하는지 확인 합니다.
 
-**구성 요소** | **요구 사항**
---- | ---
-**vCenter 서버** | vCenter 6.5, 6.0 또는 5.5
-**vSphere 호스트** | vSphere 6.5, 6.0, 5.5
+1. VMware 서버 요구 사항을 [확인](vmware-physical-azure-support-matrix.md#on-premises-virtualization-servers)합니다.
+2. Linux의 경우 파일 시스템 및 저장소 요구 사항을 [확인](vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage)합니다. 
+3. 온-프레미스 [네트워크](vmware-physical-azure-support-matrix.md#network) 및 [저장소](vmware-physical-azure-support-matrix.md#storage) 지원을 확인합니다. 
+4. 장애 조치(failover) 후 [Azure 네트워킹](vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover), [저장소](vmware-physical-azure-support-matrix.md#azure-storage) 및 [계산](vmware-physical-azure-support-matrix.md#azure-compute)에 대해 지원되는 기능을 확인합니다.
+5. Azure에 복제하려는 온-프레미스 VM은 [Azure VM 요구 사항](vmware-physical-azure-support-matrix.md#azure-vm-requirements)을 준수해야 합니다.
 
-## <a name="check-vmware-vm-requirements"></a>VMware VM 요구 사항 확인
-
-VM에서 다음 표에 요약된 Azure 요구 사항을 준수하는지 확인합니다.
-
-**VM 요구 사항** | **세부 정보**
---- | ---
-**운영 체제 디스크 크기** | 최대 2,048GB
-**운영 체제 디스크 수** | 1
-**데이터 디스크 수** | 64개 이하
-**데이터 디스크 VHD 크기** | 최대 4095GB
-**네트워크 어댑터** | 여러 어댑터가 지원됩니다.
-**공유 VHD** | 지원되지 않음
-**FC 디스크** | 지원되지 않음
-**하드 디스크 형식** | VHD 또는 VHDX<br/><br/> 현재 Azure에서는 VHDX가 지원되지 않지만 Azure로 장애 조치하면 Site Recovery가  자동으로 VHDX를 VHD로 변환합니다. 온-프레미스에 장애 복구하는 경우 VM에서 VHDX 형식을 계속 사용합니다.
-**Bitlocker** | 지원되지 않습니다. VM에 대한 복제를 활성화하기 전에 사용하지 않도록 설정합니다.
-**VM 이름** | 1 자에서 63자 사이입니다.<br/><br/> 문자, 숫자 및 하이픈으로 제한됩니다. VM 이름은 문자 또는 숫자로 시작하고 끝나야 합니다.
-**VM 유형** | 1세대 - Linux 또는 Windows<br/><br/>2세대 - Windows 전용
-
-또한 VM에서 지원되는 운영 체제도 실행하고 있어야 합니다. 지원되는 버전의 전체 목록은 [VMware 및 물리적 서버 지원 매트릭스](vmware-physical-azure-support-matrix.md#replicated-machines)를 참조하세요.
 
 ## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>장애 조치(Failover) 후 Azure VM에 연결할 준비
 

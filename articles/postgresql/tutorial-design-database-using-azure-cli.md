@@ -1,6 +1,6 @@
 ---
-title: "자습서 - Azure CLI를 사용하여 첫 번째 Azure Database for PostgreSQL 디자인"
-description: "이 자습서에서는 Azure CLI를 사용하여 첫 번째 Azure Database for PostgreSQL 서버를 만들고, 구성하고, 쿼리하는 방법을 보여줍니다."
+title: '자습서: Azure CLI를 사용하여 Azure Database for PostgreSQL 디자인'
+description: 이 자습서에서는 Azure CLI를 사용하여 첫 번째 Azure Database for PostgreSQL 서버를 만들고, 구성하고, 쿼리하는 방법을 보여줍니다.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -11,13 +11,13 @@ ms.custom: mvc
 ms.devlang: azure-cli
 ms.topic: tutorial
 ms.date: 02/28/2018
-ms.openlocfilehash: 7eeb3b01ddaea56b1e11fc37bbeba7d3f328772d
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 56425ec7ccb1d6629b82db6683a02a57ab9999b4
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="tutorial-design-your-first-azure-database-for-postgresql-using-azure-cli"></a>자습서: Azure CLI를 사용하여 첫 번째 Azure Database for PostgreSQL 디자인 
+# <a name="tutorial-design-an-azure-database-for-postgresql-using-azure-cli"></a>자습서: Azure CLI를 사용하여 Azure Database for PostgreSQL 디자인 
 이 자습서에서는 Azure CLI(명령줄 인터페이스) 및 기타 유틸리티를 사용하여 다음을 수행하는 방법에 대해 알아봅니다.
 > [!div class="checklist"]
 > * PostgreSQL용 Azure Database 서버 만들기
@@ -32,7 +32,7 @@ ms.lasthandoff: 03/02/2018
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
-CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 항목에서 Azure CLI 버전 2.0 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
+CLI를 로컬로 설치하여 사용하도록 선택하는 경우 이 문서에서 Azure CLI 버전 2.0 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
 
 구독이 여러 개인 경우 리소스가 있거나 요금이 청구되는 적절한 구독을 선택합니다. [az account set](/cli/azure/account#az_account_set) 명령을 사용하여 계정에 속한 특정 구독 ID를 선택합니다.
 ```azurecli-interactive
@@ -79,7 +79,7 @@ az postgres server create --resource-group myresourcegroup --name mydemoserver -
 ```
 
 > [!IMPORTANT]
-> 여기에 지정한 서버 관리자 로그인 및 암호는 이 빠른 시작의 뒷부분에 나오는 서버 및 데이터베이스에 로그인해야 합니다. 나중에 사용하기 위해 이 정보를 기억하거나 기록합니다.
+> 여기에 지정한 서버 관리자 로그인 및 암호는 이 빠른 시작의 뒷부분에 나오는 서버 및 데이터베이스에 로그인하는 데 필요합니다. 나중에 사용하기 위해 이 정보를 기억하거나 기록합니다.
 
 기본적으로 **postgres** 데이터베이스가 서버 아래에 만들어집니다. [postgres](https://www.postgresql.org/docs/9.6/static/app-initdb.html) 데이터베이스는 사용자, 유틸리티 및 타사 응용 프로그램에서 사용하는 기본 데이터베이스입니다. 
 
@@ -163,9 +163,9 @@ CREATE DATABASE mypgsqldb;
 ```
 
 ## <a name="create-tables-in-the-database"></a>데이터베이스에서 테이블 만들기
-이제 Azure Database for PostgreSQL에 연결하는 방법을 알았으므로 몇 가지 기본 작업을 수행하는 방법을 살펴볼 수 있습니다.
+이제 Azure Database for PostgreSQL에 연결하는 방법을 알았으므로 몇 가지 기본 작업을 완료할 수 있습니다.
 
-먼저 테이블을 만들고 일부 데이터와 함께 로드할 수 있습니다. 인벤토리 정보를 추적하는 테이블을 만들어 보겠습니다.
+먼저 테이블을 만들고 일부 데이터와 함께 로드합니다. 예를 들어 인벤토리 정보를 추적하는 테이블을 만듭니다.
 ```sql
 CREATE TABLE inventory (
     id serial PRIMARY KEY, 
@@ -180,7 +180,7 @@ CREATE TABLE inventory (
 ```
 
 ## <a name="load-data-into-the-table"></a>테이블에 데이터 로드
-이제 테이블을 만들었으므로 이 테이블에 일부 데이터를 삽입할 수 있습니다. 열린 명령 프롬프트 창에서 다음 쿼리를 실행하여 데이터 행을 삽입합니다.
+이제 테이블을 만들었으니 여기에 일부 데이터를 삽입합니다. 열린 명령 프롬프트 창에서 다음 쿼리를 실행하여 데이터 행을 삽입합니다.
 ```sql
 INSERT INTO inventory (id, name, quantity) VALUES (1, 'banana', 150); 
 INSERT INTO inventory (id, name, quantity) VALUES (2, 'orange', 154);

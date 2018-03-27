@@ -1,12 +1,12 @@
 ---
-title: "Azure 가상 네트워크 트래픽 라우팅 | Microsoft Docs"
-description: "Azure에서 가상 네트워크 트래픽을 라우팅하는 방법과 Azure 라우팅을 사용자 지정하는 방법을 알아봅니다."
+title: Azure 가상 네트워크 트래픽 라우팅 | Microsoft Docs
+description: Azure에서 가상 네트워크 트래픽을 라우팅하는 방법과 Azure 라우팅을 사용자 지정하는 방법을 알아봅니다.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: get-started-article
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
-ms.custom: 
-ms.openlocfilehash: 4f4c4e9749eb5f0f6ba1950521f459f140cb5221
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.custom: ''
+ms.openlocfilehash: 9afaa7d34665f5c8ef4c4c819fe3b7e995bd71d3
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="virtual-network-traffic-routing"></a>가상 네트워크 트래픽 라우팅
 
@@ -132,6 +132,9 @@ BGP를 사용하여 Azure와 경로를 교환하면 보급된 각 접두사에 �
 1. 사용자 정의 경로
 2. BGP 경로
 3. 시스템 경로
+
+> [!NOTE]
+> BGP 경로가 더 구체적인 경우에도, 가상 네트워크, 가상 네트워크 피어링 또는 가상 네트워크 서비스 엔드포인트와 관련된 트래픽에 대한 시스템 경로가 기본 경로입니다.
 
 예를 들어 경로 테이블에는 다음 경로가 포함되어 있습니다.
 

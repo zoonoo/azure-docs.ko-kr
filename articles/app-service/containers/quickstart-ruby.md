@@ -1,12 +1,12 @@
 ---
-title: "Ruby 앱을 만들고 Linux의 App Service에 배포 | Microsoft Docs"
-description: "Linux의 App Service로 Ruby 앱을 만드는 방법을 알아봅니다."
+title: Ruby 앱을 만들고 Linux의 App Service에 배포 | Microsoft Docs
+description: Linux의 App Service로 Ruby 앱을 만드는 방법을 알아봅니다.
 keywords: azure app service, linux, oss, ruby
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: SyntaxC4
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 6d00c73c-13cb-446f-8926-923db4101afa
 ms.service: app-service
 ms.workload: na
@@ -16,11 +16,11 @@ ms.topic: quickstart
 ms.date: 10/10/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: db3086724c22e485e2a9a69c36a990fc5b8016a9
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 6668f02bb7ac9588e1bb11b3848d0a3e25cbed67
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-a-ruby-app-in-app-service-on-linux"></a>Linux의 App Service에서 Ruby 앱 만들기
 
@@ -88,37 +88,23 @@ rails server
 
 [!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user.md)]
 
-## <a name="create-a-ruby-web-app-on-azure"></a>Azure에서 Ruby 웹앱 만들기
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux.md)]
 
-리소스 그룹은 웹앱에 필요한 자산을 포함해야 합니다. 리소스 그룹을 만들려면 [`az group create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) 명령을 사용합니다.
+[!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
 
-```azurecli-interactive
-az group create --location westeurope --name myResourceGroup
-```
+## <a name="create-a-web-app"></a>웹앱 만들기
 
-[`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) 명령을 사용하여 웹앱에 대한 App Service 계획을 만듭니다.
+[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-ruby-linux-no-h.md)] 
 
-```azurecli-interactive
-az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --is-linux
-```
-
-다음으로 [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) 명령을 실행하여 새로 만든 서비스 계획을 사용하는 웹앱을 만듭니다. 런타임은 `ruby|2.3`으로 설정됩니다. `<app name>`을 고유한 앱 이름으로 대체해야 합니다.
-
-```azurecli-interactive
-az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> \
---runtime "ruby|2.3" --deployment-local-git
-```
-
-명령의 출력에는 새로 생성된 웹앱 및 배포 URL에 대한 정보가 표시됩니다. 다음 샘플과 유사하게 나타납니다. 이 자습서에서 나중에 사용하기 위해 URL을 복사합니다.
+기본 제공 이미지를 사용하여 새로 만든 웹앱을 보려면 사이트로 이동합니다. _&lt;앱 이름>_을 해당하는 웹앱 이름으로 바꿉니다.
 
 ```bash
-https://<deployment user name>@<app name>.scm.azurewebsites.net/<app name>.git
+http://<app_name>.azurewebsites.net
 ```
 
-웹앱을 만든 후 **개요** 페이지를 볼 수 있습니다. 해당 페이지로 이동합니다. 다음 시작 페이지가 표시됩니다.
+새로운 웹앱은 다음과 같아야 합니다.
 
 ![시작 페이지](./media/quickstart-ruby/splash-page.png)
-
 
 ## <a name="deploy-your-application"></a>응용 프로그램 배포
 

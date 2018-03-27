@@ -1,6 +1,6 @@
 ---
-title: "Azure의 Kubernetes 자습서 - ACR 준비"
-description: "AKS 자습서 - ACR 준비"
+title: Azure의 Kubernetes 자습서 - ACR 준비
+description: AKS 자습서 - ACR 준비
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 02/22/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: b676898cca7e5c80d6ba872e76a9effdb852bfff
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 5a900e19bf589732d0cc652e4c32f118dc1964b3
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="deploy-and-use-azure-container-registry"></a>Azure Container Registry 배포 및 사용
 
@@ -79,7 +79,7 @@ tiangolo/uwsgi-nginx-flask   flask               788ca94b2313        9 months ag
 
 각 컨테이너 이미지에 레지스트리의 loginServer 이름으로 태그를 지정해야 합니다. 이 태그는 컨테이너 이미지를 이미지 레지스트리에 밀어넣을 때 라우팅에 사용됩니다.
 
-loginServer 이름을 가져오려면 다음 명령을 실행합니다.
+loginServer 이름을 가져오려면 [az acr list][az-acr-list] 명령을 사용합니다.
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
@@ -170,7 +170,9 @@ v1
 
 <!-- LINKS - internal -->
 [az-acr-create]: /cli/azure/acr#create
+[az-acr-list]: /cli/azure/acr#list
 [az-acr-login]: https://docs.microsoft.com/cli/azure/acr#az_acr_login
+[az-acr-list]: https://docs.microsoft.com/cli/azure/acr#az_acr_list
 [az-acr-repository-list]: /cli/azure/acr/repository#list
 [az-acr-repository-show-tags]: /cli/azure/acr/repository#show-tags
 [az-group-create]: /cli/azure/group#az_group_create

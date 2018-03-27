@@ -1,28 +1,28 @@
 ---
-title: "Azure Cosmos DB에서 테이블 데이터를 쿼리하는 방법 | Microsoft Docs"
-description: "Azure Cosmos DB에서 테이블 데이터를 쿼리하는 방법을 알아봅니다."
+title: Azure Cosmos DB에서 테이블 데이터를 쿼리하는 방법 | Microsoft Docs
+description: Azure Cosmos DB에서 테이블 데이터를 쿼리하는 방법을 알아봅니다.
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: kanshiG
 manager: jhubbard
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: 14bcb94e-583c-46f7-9ea8-db010eb2ab43
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.workload: 
+ms.workload: ''
 ms.date: 11/15/2017
 ms.author: govindk
 ms.custom: mvc
-ms.openlocfilehash: 80fed91c45ae19193f6b8dfcaef747f8c4253dee
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 969b16457b32cedb7140bb032c1830e95ebed9be
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="azure-cosmos-db-how-to-query-table-data-by-using-the-table-api"></a>Azure Cosmos DB: Table API를 사용하여 테이블 데이터를 쿼리하는 방법
+# <a name="tutorial-query-azure-cosmos-db-by-using-the-table-api"></a>자습서: Table API를 사용하여 Azure Cosmos DB 쿼리
 
 Azure Cosmos DB의 [Table API](table-introduction.md)는 키/값(테이블) 데이터에 대한 OData 및 [LINQ](https://docs.microsoft.com/rest/api/storageservices/fileservices/writing-linq-queries-against-the-table-service) 쿼리를 지원합니다.  
 

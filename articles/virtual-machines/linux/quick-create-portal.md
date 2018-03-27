@@ -1,26 +1,26 @@
 ---
-title: "Azure 빠른 시작 - VM 만들기 포털 | Microsoft Docs"
-description: "Azure 빠른 시작 - VM 만들기 포털"
+title: Azure 빠른 시작 - VM 만들기 포털 | Microsoft Docs
+description: Azure 빠른 시작 - VM 만들기 포털
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: neilpeterson
+author: iainfoulds
 manager: timlt
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/11/2017
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: a9a2e2ace4c4b6867e5d8b318c5d80a9df124ecc
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: d4bd596257b7430a03ec81a0f378286fda8cbace
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-the-azure-portal"></a>Azure Portal을 사용하여 Linux 가상 머신 만들기
 
@@ -42,7 +42,7 @@ ssh-keygen -t rsa -b 2048
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인 
 
-Azure Portal( http://portal.azure.com )에 로그인합니다.
+Azure Portal(http://portal.azure.com)에 로그인합니다.
 
 ## <a name="create-virtual-machine"></a>가상 컴퓨터 만들기
 

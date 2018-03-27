@@ -1,28 +1,28 @@
 ---
-title: "Azure Cosmos DB에서 SQL을 사용하여 쿼리하는 방법 | Microsoft Docs"
-description: "Azure Cosmos DB에서 SQL을 사용하여 쿼리하는 방법을 알아봅니다."
+title: Azure Cosmos DB에서 SQL을 사용하여 쿼리하는 방법 | Microsoft Docs
+description: Azure Cosmos DB에서 SQL을 사용하여 쿼리하는 방법을 알아봅니다.
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: rafats
 manager: jhubbard
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: cosmos-db
 ms.custom: tutorial-develop, mvc
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.workload: 
+ms.workload: ''
 ms.date: 05/10/2017
 ms.author: rafats
-ms.openlocfilehash: ffef6ec2120a80d907449470efb7b4ab6dca8037
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 60910b602f9386738f9d8895fd151d15f3ebf058
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="azure-cosmos-db-how-to-query-using-sql"></a>Azure Cosmos DB: SQL을 사용하여 쿼리하는 방법
+# <a name="tutorial-query-azure-cosmos-db-by-using-the-sql-api"></a>자습서: SQL API를 사용하여 Azure Cosmos DB 쿼리
 
 [!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 

@@ -1,194 +1,293 @@
 ---
-title: "Azure 빠른 시작 - Node.js를 사용하여 Azure Storage에 BLOB 업로드, 다운로드 및 나열 | Microsoft Docs"
-description: "이 빠른 시작에서는 저장소 계정과 컨테이너를 만듭니다. 그런 다음, Node.js용 저장소 클라이언트 라이브러리를 사용하여 Azure Storage에 BLOB을 업로드하고, BLOB을 다운로드하고, 컨테이너의 BLOB을 나열합니다."
+title: Azure 빠른 시작 - Node.js를 사용하여 Azure Storage에 Blob 업로드, 다운로드 및 나열 | Microsoft Docs
+description: 이 빠른 시작에서는 저장소 계정과 컨테이너를 만듭니다. 그런 다음, Node.js용 저장소 클라이언트 라이브러리를 사용하여 Blob을 Azure Storage에 업로드하고, Blob을 다운로드하고, Blob을 컨테이너에 나열합니다.
 services: storage
 author: craigshoemaker
 manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 02/22/2018
+ms.date: 03/15/2018
 ms.author: cshoe
-ms.openlocfilehash: ad0d4a2242aef99e0307f732175e0c50010580ce
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 28f9936c297b6f641810e0c7783f4d84be108286
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/17/2018
 ---
-# <a name="quickstart-upload-download-and-list-blobs-using-nodejs"></a>빠른 시작: Node.js를 사용하여 BLOB 업로드, 다운로드 및 나열
+# <a name="quickstart-upload-download-and-list-blobs-using-nodejs"></a>빠른 시작: Node.js를 사용하여 Blob 업로드, 다운로드 및 나열
 
-이 빠른 시작에서 Node.js를 사용하여 Azure Blob Storage에서 컨테이너에 블록 blob을 업로드, 다운로드 및 나열하는 방법을 알아봅니다.
+이 빠른 시작에서는 Node.js를 사용하여 Azure Blob 저장소를 통해 컨테이너에 블록 Blob을 업로드, 다운로드 및 나열하는 방법에 대해 알아봅니다.
 
-## <a name="prerequisites"></a>필수 조건
-
-이 빠른 시작을 완료하려면 다음이 필요합니다.
-
-* [Node.js](https://nodejs.org/en/)
-
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+이 빠른 시작을 완료하려면 [Azure 구독](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)이 필요합니다.
 
 [!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
 
 ## <a name="download-the-sample-application"></a>샘플 응용 프로그램 다운로드
 
-이 빠른 시작 가이드에서 사용되는 [샘플 응용 프로그램](https://github.com/Azure-Samples/storage-blobs-node-quickstart.git)은 기본적인 콘솔 응용 프로그램입니다. 
-
-[git](https://git-scm.com/)을 사용하여 개발 환경에 응용 프로그램 복사본을 다운로드합니다.
+이 빠른 시작의 [샘플 응용 프로그램](https://github.com/Azure-Samples/storage-blobs-node-quickstart.git)은 간단한 Node.js 콘솔 응용 프로그램입니다. 시작하려면 다음 명령을 사용하여 리포지토리를 컴퓨터에 복제합니다.
 
 ```bash
 git clone https://github.com/Azure-Samples/storage-blobs-node-quickstart.git
 ```
 
-이 명령은 로컬 git 폴더에 해당 리포지토리를 복제합니다. 응용 프로그램을 열려면 storage-blobs-node-quickstart 폴더를 찾아 그것을 열고 index.js를 두 번 클릭합니다.
+응용 프로그램을 열려면 *storage-blobs-node-quickstart* 폴더를 찾아 즐겨찾는 코드 편집 환경에서 엽니다.
 
 ## <a name="configure-your-storage-connection-string"></a>저장소 연결 문자열 구성
 
-응용 프로그램에서 저장소 계정에 대한 연결 문자열을 제공해야 합니다. `index.js` 파일을 열고 `connectionString` 변수를 찾습니다. 값을 Azure Portal에서 저장한 값으로 연결 문자열의 전체 값과 바꿉니다. 저장소 연결 문자열은 다음과 유사하게 나타납니다.
-
-```javascript
-// Create a blob client for interacting with the blob service from connection string
-// How to create a storage connection string - http://msdn.microsoft.com/library/azure/ee758697.aspx
-var connectionString = '<Your connection string here>';
-var blobService = storage.createBlobService(connectionString);
-```
+응용 프로그램을 실행하기 전에 저장소 계정에 대한 연결 문자열을 제공해야 합니다. 샘플 리포지토리에는 *.env.example*이라는 파일이 포함되어 있습니다. *.example* 확장명을 제거하여 *.env* 파일이 되도록 이 파일의 이름을 바꿀 수 있습니다. *.env* 파일 내에서 *AZURE_STORAGE_CONNECTION_STRING* 키 뒤에 연결 문자열 값을 추가합니다.
 
 ## <a name="install-required-packages"></a>필요한 패키지를 설치합니다.
 
-응용 프로그램 디렉터리에서 `package.json` 파일에 나열된 필수 패키지를 설치하려면 `npm install`을 실행합니다.
+응용 프로그램 디렉터리에서 *npm install*을 실행하여 응용 프로그램에 필요한 패키지를 설치합니다.
 
-```javascript
+```bash
 npm install
 ```
 
 ## <a name="run-the-sample"></a>샘플 실행
+종속성이 설치되었으므로 명령을 스크립트에 전달하여 샘플을 실행할 수 있습니다. 예를 들어 Blob 컨테이너를 만들려면 다음 명령을 실행합니다.
 
-이 샘플은 내 문서에 테스트 파일을 만들고, Blob Storage에 업로드한 후, 컨테이너의 blob을 나열하고, 해당 파일을 새 이름으로 다운로드하여 이전 파일과 새 파일을 비교할 수 있도록 합니다.
-
-`node index.js`을 입력하여 샘플을 실행합니다. 다음 출력은 Windows 시스템에서 옵니다.  Linux를 사용하는 경우 적절한 파일 경로를 가진 유사한 출력을 예상할 수 있습니다.
-
-```
-Azure Storage Node.js Client Library Blobs Quick Start
-
-1. Creating a container with public access: quickstartcontainer-79a3eea0-bec9-11e7-9a36-614cd00ca63d
-
-2. Creating a file in ~/Documents folder to test the upload and download
-
-   Local File: C:\Users\admin\Documents\HelloWorld-79a3c790-bec9-11e7-9a36-614cd00ca63d.txt
-
-3. Uploading BlockBlob: quickstartblob-HelloWorld-79a3c790-bec9-11e7-9a36-614cd00ca63d.txt
-
-   Uploaded Blob URL: https://mystorageaccount.blob.core.windows.net/quickstartcontainer-79a3eea0-bec9-11e7-9a36-614cd00ca63d/quickstartblob-HelloWorld-79a3c790-bec9-11e7-9a36-614cd00ca63d.txt
-
-4. Listing blobs in container
-
-   - quickstartblob-HelloWorld-79a3c790-bec9-11e7-9a36-614cd00ca63d.txt (type: BlockBlob)
-
-
-5. Downloading blob
-
-   Downloaded File: C:\Users\admin\Documents\HelloWorld-79a3c790-bec9-11e7-9a36-614cd00ca63d_DOWNLOADED.txt
-
-Sample finished running. When you hit <ENTER> key, the temporary files will be deleted and the sample application will exit.
+```bash
+node index.js --command createContainer
 ```
 
-계속하기 전에 MyDocuments에서 두 파일을 확인합니다. 이 파일을 열어 동일한지 확인할 수 있습니다.
+사용 가능한 명령은 다음과 같습니다.
 
-[Azure Storage 탐색기](http://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)와 같은 도구를 사용하여 Blob Storage의 파일을 볼 수도 있습니다. Azure Storage 탐색기는 저장소 계정 정보에 액세스할 수 있는 무료 플랫폼 간 도구입니다.
+| 명령 | 설명 |
+|---------|---------|
+|*createContainer* | *test-container*라는 컨테이너를 만듭니다(컨테이너가 이미 있는 경우에도 성공함). |
+|*upload*          | *example.txt* 파일을 *test-container* 컨테이너에 업로드합니다. |
+|*download*        | *example* Blob의 내용을 *example.downloaded.txt*로 다운로드합니다. |
+|*delete*          | *example* Blob을 삭제합니다. |
+|*list*            | *test-container* 컨테이너의 내용을 콘솔에 나열합니다. |
 
-파일을 확인한 후에 아무 키나 눌러 데모를 완료하고 테스트 파일을 삭제합니다. 이 샘플의 용도 파악했으므로 index.js 파일을 열고 코드를 확인합니다. 
 
-## <a name="understand-the-sample-code"></a>샘플 코드 이해
-
-다음으로, 작동 방식을 이해하도록 샘플 코드를 따라 진행합니다.
-
-### <a name="get-references-to-the-storage-objects"></a>저장소 개체에 대한 참조 가져오기
-
-가장 먼저 수행할 작업은 Blob 저장소를 액세스하고 관리하는 데 사용되는 **BlobService** 개체에 대한 참조를 만드는 것입니다. 이러한 개체는 서로를 기준으로 작성됩니다. 즉, 각 개체가 목록의 다음 개체에 사용됩니다.
-
-* 저장소 계정의 Blob service를 가리키는 [BlobService](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService__ctor) 개체의 인스턴스를 만듭니다.
-
-* 새 컨테이너를 만든 다음, 컨테이너에 대해 사용 권한을 설정하여 blob을 공용 blob으로 유지하고 URL을 통해서만 액세스할 수 있게 합니다. 컨테이너는 **quickstartcontainer-**로 시작합니다.
-
-이 예제에서는 샘플이 실행될 때마다 새 컨테이너를 만들려고 하기 때문에 [createContainerCreateIfNotExists](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createContainerIfNotExists)를 사용합니다. 응용 프로그램 전체에서 동일한 컨테이너를 사용하는 프로덕션 환경에서는 CreateIfNotExists를 한 번만 호출하는 것이 더 좋은 방법입니다. 또는 코드에서 만들 필요가 없도록 컨테이너를 미리 만들 수도 있습니다.
+## <a name="understanding-the-sample-code"></a>샘플 코드 이해
+이 코드 샘플에서는 몇 가지 모듈을 사용하여 파일 시스템 및 명령줄과 인터페이스로 연결합니다. 
 
 ```javascript
-// Create a container for organizing blobs within the storage account.
-console.log('1. Creating a Container with Public Access:', blockBlobContainerName, '\n');
-blobService.createContainerIfNotExists(blockBlobContainerName, { 'publicAccessLevel': 'blob' }, function (error) {
-    if (error) return callback(error);
+if (process.env.NODE_ENV !== 'production') {
+    require('dotenv').load();
+}
+const path = require('path');
+const args = require('yargs').argv;
+const storage = require('azure-storage');
 ```
 
-### <a name="upload-blobs-to-the-container"></a>컨테이너에 Blob 업로드
+모듈의 용도는 다음과 같습니다. 
 
-Blob Storage는 블록 Blob, 추가 Blob 및 페이지 Blob을 지원합니다. 블록 Blob은 가장 일반적으로 사용됩니다. 텍스트 및 바이너리 데이터를 저장하는데 이상적이며, 그 때문에 이 빠른 시작에 사용됩니다.
+- *dotenv*는 *.env*라는 파일에 정의된 환경 변수를 현재 실행 컨텍스트에 로드합니다
+- *path*는 Blob 저장소에 업로드할 파일의 절대 파일 경로를 결정하는 데 필요합니다.
+- *yargs*는 명령줄 인수에 액세스하기 위한 간단한 인터페이스를 공개합니다
+- *azure-storage*는 Node.js용 [Azure Storage SDK](/nodejs/api/azure-storage) 모듈입니다.
 
-파일을 BLOB에 업로드하려면 [createBlockBlobFromLocalFile](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService_createBlockBlobFromLocalFile) 메서드를 사용합니다. 이 작업은 Blob이 없는 경우 만들고, Blob이 이미 있는 경우 덮어씁니다.
-
-샘플 코드는 업로드 및 다운로드에 사용할 로컬 파일을 만들고 해당 파일이 **localFileToUpload**에 **localPath** 및 blob의 이름으로 업로드될 수 있게 저장합니다. 다음 예제에서는 **quickstartcontainer-**로 시작하는 저장소에 이 파일을 업로드합니다.
+다음으로, 일련의 변수가 초기화됩니다.
 
 ```javascript
-console.log('2. Creating a file in ~/Documents folder to test the upload and download\n');
-console.log('   Local File:', LOCAL_FILE_PATH, '\n');
-fs.writeFileSync(LOCAL_FILE_PATH, 'Greetings from Microsoft!');
-
-console.log('3. Uploading BlockBlob:', BLOCK_BLOB_NAME, '\n');
-blobService.createBlockBlobFromLocalFile(CONTAINER_NAME, BLOCK_BLOB_NAME, LOCAL_FILE_PATH, function (error) {
-handleError(error);
-console.log('   Uploaded Blob URL:', blobService.getUrl(CONTAINER_NAME, BLOCK_BLOB_NAME), '\n');
+const blobService = storage.createBlobService();
+const containerName = 'test-container';
+const sourceFilePath = path.resolve('./example.txt');
+const blobName = path.basename(sourceFilePath, path.extname(sourceFilePath));
 ```
 
-Blob 저장소에서 사용할 수 있는 몇 가지 업로드 메서드가 있습니다. 예를 들어 메모리 스트림이 있는 경우 [createBlockBlobFromLocalFile](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService_createBlockBlobFromLocalFile) 대신 [createBlockBlobFromStream](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService_createBlockBlobFromStream) 메서드를 사용할 수 있습니다.
+변수는 다음 값으로 설정됩니다.
+
+- *blobService*는 Azure Blob 서비스의 새 인스턴스로 설정됩니다.
+- *containerName*은 컨테이너의 이름으로 설정됩니다.
+- *sourceFilePath*는 업로드할 파일의 절대 경로로 설정됩니다.
+- *blobName*은 파일 이름을 가져와서 파일 확장명을 제거하여 만들어집니다.
+
+다음 구현에서는 [Azure Storage API](/nodejs/api/azure-storage/blobservice)의 콜백 특성을 간소화하기 위해 각 *blobService* 함수가 *Promise*에 래핑되어 JavaScript의 *async* 함수와 *await* 연산자에 액세스할 수 있습니다. 각 함수에 대한 응답이 성공적으로 반환되면, 프라미스에서 작업과 관련된 메시지와 함께 관련 데이터를 사용하여 확인합니다.
+
+### <a name="create-a-blob-container"></a>Blob 컨테이너 만들기
+
+*createContainer* 함수는 [createContainerIfNotExists](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createContainerIfNotExists)를 호출하고 Blob에 적절한 액세스 수준을 설정합니다.
+
+```javascript
+const createContainer = () => {
+    return new Promise((resolve, reject) => {
+        blobService.createContainerIfNotExists(containerName, { publicAccessLevel: 'blob' }, err => {
+            if(err) {
+                reject(err);
+            } else {
+                resolve({ message: `Container '${containerName}' created` });
+            }
+        });
+    });
+};
+```
+
+**createContainerIfNotExists**에 대한 두 번째 매개 변수(*options*)는 [publicAccessLevel](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createContainerIfNotExists)에 대한 값을 수락합니다. *publicAccessLevel*에 대한 *blob* 값은 특정 Blob 데이터가 공개적으로 노출되도록 지정합니다. 이 설정은 *컨테이너* 수준 액세스와 달리 컨테이너의 내용을 나열하는 기능을 부여합니다.
+
+**createContainerIfNotExists**를 사용하면 컨테이너가 이미 있을 때 응용 프로그램에서 오류를 반환하지 않고 *createContainer* 명령을 여러 번 실행할 수 있습니다. 프로덕션 환경에서는 응용 프로그램 전체에서 동일한 컨테이너가 사용되므로 **createContainerIfNotExists**만 호출하는 경우가 많습니다. 이러한 경우 포털 또는 Azure CLI를 통해 컨테이너를 미리 만들 수 있습니다.
+
+### <a name="upload-a-blob-to-the-container"></a>컨테이너에 Blob 업로드
+
+*upload* 함수는 [createBlockBlobFromLocalFile](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createBlockBlobFromLocalFile) 함수를 사용하여 파일을 파일 시스템에서 Blob 저장소에 업로드하고 쓰거나 덮어씁니다. 
+
+```javascript
+const upload = () => {
+    return new Promise((resolve, reject) => {
+        blobService.createBlockBlobFromLocalFile(containerName, blobName, sourceFilePath, err => {
+            if(err) {
+                reject(err);
+            } else {
+                resolve({ message: `Upload of '${blobName}' complete` });
+            }
+        });
+    });
+};
+```
+샘플 응용 프로그램의 컨텍스트에서 *example.txt*라는 파일이 *test-container*라는 컨테이너의 *example*이라는 Blob에 업로드됩니다. 콘텐츠를 Blob에 업로드하는 데 사용할 수 있는 다른 방법은 [text](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createBlockBlobFromText) 및 [streams](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createBlockBlobFromStream)를 사용하는 것입니다.
+
+파일이 Blob 저장소에 업로드되었는지 확인하려면 [Azure Storage 탐색기](https://azure.microsoft.com/en-us/features/storage-explorer/)를 사용하여 계정의 데이터를 확인하면 됩니다.
 
 ### <a name="list-the-blobs-in-a-container"></a>컨테이너의 Blob 나열
 
-다음으로 응용 프로그램은 [listBlobsSegmented](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService_listBlobsSegmented)를 사용하여 컨테이너의 파일 목록을 가져옵니다. 다음 코드는 blob 목록을 검색하고, 이 과정을 반복하여 발견된 Blob의 URI를 표시합니다. 명령 창에서 URI를 복사한 후 브라우저에 붙여 넣어 파일을 봅니다.
-
-컨테이너에 있는 blob이 5,000개 이하인 경우 모든 blob 이름이 [listBlobsSegmented](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService_listBlobsSegmented)의 단일 호출에서 검색됩니다. 컨테이너에 있는 blob이 5,000개보다 많을 경우 서비스는 모든 blob 이름이 검색될 때까지 5,000개씩 목록을 검색합니다. 이 API가 처음 호출되면 처음 5,000개 blob 이름과 연속 토큰이 반환됩니다. 두 번째로 호출될 때는 이 토큰을 제공해야 합니다. 그러면 서비스는 다음 blob 이름 집합을 검색합니다. 이와 같이 진행하다가 연속 토큰이 null이 되어 모든 blob 이름이 검색되었음을 나타내면 중단됩니다.
+*list* 함수는 [listBlobsSegmented](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createBlockBlobFromText) 메서드를 호출하여 컨테이너의 Blob 메타데이터 목록을 반환합니다. 
 
 ```javascript
-console.log('4. Listing blobs in container\n');
-blobService.listBlobsSegmented(CONTAINER_NAME, null, function (error, data) {
-    handleError(error);
+const list = () => {
+    return new Promise((resolve, reject) => {
+        blobService.listBlobsSegmented(containerName, null, (err, data) => {
+            if(err) {
+                reject(err);
+            } else {
+                resolve({ message: `Items in container '${containerName}':`, data: data });
+            }
+        });
+    });
+};
+```
 
-    for (var i = 0; i < data.entries.length; i++) {
-    console.log(util.format('   - %s (type: %s)'), data.entries[i].name, data.entries[i].blobType);
+*listBlobsSegmented*를 호출하면 Blob 메타데이터가 [BlobResult](/nodejs/api/azure-storage/blobresult) 인스턴스의 배열로 반환됩니다. 결과는 5,000개의 증분 일괄 처리(세그먼트)로 반환됩니다. 컨테이너에 5,000개보다 많은 Blob이 있는 경우 **continuationToken**에 대한 값이 결과에 포함됩니다. Blob 컨테이너에서 후속 세그먼트를 나열하려면 연속 토큰을 두 번째 인수로 **listBlobSegmented**에 다시 전달할 수 있습니다.
+
+### <a name="download-a-blob-from-the-container"></a>컨테이너에서 Blob 다운로드
+
+*download* 함수는 [getBlobToLocalFile](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_getBlobToLocalFile)을 사용하여 Blob의 내용을 지정된 절대 파일 경로로 다운로드합니다.
+
+```javascript
+const download = () => {
+    const dowloadFilePath = sourceFilePath.replace('.txt', '.downloaded.txt');
+    return new Promise((resolve, reject) => {
+        blobService.getBlobToLocalFile(containerName, blobName, dowloadFilePath, err => {
+            if(err) {
+                reject(err);
+            } else {
+                resolve({ message: `Download of '${blobName}' complete` });
+            }
+        });
+    });
+};
+```
+여기에 표시된 구현은 원본 파일 경로를 변경하여 파일 이름에 *.downloaded.txt*를 추가합니다. 실제 상황에서는 다운로드 대상을 선택할 때 파일 이름뿐만 아니라 위치도 변경할 수 있습니다.
+
+### <a name="delete-blobs-in-the-container"></a>컨테이너에서 Blob 삭제
+
+*deleteBlock* 함수(*delete* 콘솔 명령으로 별칭이 지정됨)는 [deleteBlobIfExists](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_deleteBlobIfExists) 함수를 호출합니다. 이름에서 알 수 있듯이 이 함수는 Blob이 이미 삭제된 오류를 반환하지 않습니다.
+
+```javascript
+const deleteBlock = () => {
+    return new Promise((resolve, reject) => {
+        blobService.deleteBlobIfExists(containerName, blobName, err => {
+            if(err) {
+                reject(err);
+            } else {
+                resolve({ message: `Block blob '${blobName}' deleted` });
+            }
+        });
+    });
+};
+```
+
+### <a name="upload-and-list"></a>업로드 및 나열
+
+프라미스를 사용하는 이점 중 하나는 명령을 함께 연결할 수 있다는 것입니다. **uploadAndList** 함수는 파일을 업로드한 직후 Blob의 콘텐츠를 나열하는 것이 얼마나 쉬운지를 보여줍니다.
+
+```javascript
+const uploadAndList = () => {
+    return _module.upload().then(_module.list);
+};
+```
+
+### <a name="calling-code"></a>코드 호출
+
+명령줄에 구현된 함수를 노출하기 위해 각 함수는 개체 리터럴에 맵핑됩니다.
+
+```javascript
+const _module = {
+    "createContainer": createContainer,
+    "upload": upload,
+    "download": download,
+    "delete": deleteBlock,
+    "list": list,
+    "uploadAndList": uploadAndList
+};
+```
+
+이제 *_module*을 적절한 위치에 사용하여 각 명령을 명령줄에서 사용할 수 있습니다.
+
+```javascript
+const commandExists = () => exists = !!_module[args.command];
+```
+
+지정된 명령이 없는 경우 *_module*의 속성이 사용자에 대한 도움말 텍스트로 콘솔에 렌더링됩니다. 
+
+*executeCommand* 함수는 *async* 함수이며, *await* 연산자를 사용하여 지정된 명령을 호출하고 데이터에 대한 모든 메시지를 콘솔에 로그합니다.
+
+```javascript
+const executeCommand = async () => {
+    const response = await _module[args.command]();
+
+    console.log(response.message);
+
+    if (response.data) {
+        response.data.entries.forEach(entry => {
+            console.log('Name:', entry.name, ' Type:', entry.blobType)
+        });
     }
-    console.log('\n');
+};
 ```
 
-### <a name="download-blobs"></a>Blob 다운로드
-
-[getBlobToLocalFile](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService_getBlobToLocalFile)을 사용하여 Blob을 로컬 디스크에 다운로드합니다.
-
-다음 코드는 이전 섹션에서 업로드된 blob을 다운로드하고, blob 이름에 "_DOWNLOADED" 접미사를 추가하여 로컬 디스크에서 두 파일을 모두 볼 수 있도록 합니다. 
+마지막으로, executing(실행 중) 코드는 먼저 *commandExists*를 호출하여 알려진 명령이 스크립트에 전달되었는지 확인합니다. 기존 명령을 선택하면 명령이 실행되고 모든 오류가 콘솔에 로그됩니다.
 
 ```javascript
-console.log('5. Downloading blob\n');
-blobService.getBlobToLocalFile(CONTAINER_NAME, BLOCK_BLOB_NAME, DOWNLOADED_FILE_PATH, function (error) {
-handleError(error);
-console.log('   Downloaded File:', DOWNLOADED_FILE_PATH, '\n');
+try {
+    const cmd = args.command;
+
+    console.log(`Executing '${cmd}'...`);
+
+    if (commandExists()) {
+        executeCommand();
+    } else {
+        console.log(`The '${cmd}' command does not exist. Try one of these:`);
+        Object.keys(_module).forEach(key => console.log(` - ${key}`));
+    }
+} catch (e) {
+    console.log(e);
+}
 ```
 
-### <a name="clean-up-resources"></a>리소스 정리
+## <a name="clean-up-resources"></a>리소스 정리
+이 문서에서 만든 데이터 또는 계정을 사용하지 않으려는 경우 원하지 않는 요금 청구를 방지하기 위해 삭제하는 것이 좋습니다. Blob 및 컨테이너를 삭제하려면 [deleteBlobIfExists](/nodejs/api/azure-storage/blobservice?view=azure-node-latest#deleteBlobIfExists_container__blob__options__callback_) 및 [deleteContainerIfExists](/nodejs/api/azure-storage/blobservice?view=azure-node-latest#deleteContainerIfExists_container__options__callback_) 메서드를 사용할 수 있습니다. [포털을 통해](../common/storage-create-storage-account.md) 저장소 계정을 삭제할 수도 있습니다.
 
-이 빠른 시작 가이드에서는 업로드된 blob이 더 이상 필요하지 않으므로 [deleteBlobIfExists](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_deleteBlobIfExists) 및 [deleteContainerIfExists](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_deleteContainerIfExists)를 사용하여 전체 컨테이너를 삭제해도 됩니다. 만든 파일도 더 이상 필요하지 않으면 삭제합니다. 응용 프로그램을 종료하기 위해 Enter 키를 누르면 응용 프로그램에서 이것이 처리됩니다.
+## <a name="resources-for-developing-nodejs-applications-with-blobs"></a>Blob을 사용하여 Node.js 응용 프로그램을 개발하기 위한 리소스
 
-```javascript
-console.log('6. Deleting block Blob\n');
-    blobService.deleteBlobIfExists(CONTAINER_NAME, BLOCK_BLOB_NAME, function (error) {
-        handleError(error);
+Blob 저장소를 사용하여 Node.js 응용 프로그램을 개발하기 위한 추가 리소스는 다음과 같습니다.
 
-    console.log('7. Deleting container\n');
-    blobService.deleteContainerIfExists(CONTAINER_NAME, function (error) {
-        handleError(error);
-            
-        fs.unlinkSync(LOCAL_FILE_PATH);
-        fs.unlinkSync(DOWNLOADED_FILE_PATH);
-```
+### <a name="binaries-and-source-code"></a>이진 파일 및 소스 코드
+
+- GitHub에서 Azure Storage용 [Node.js 클라이언트 라이브러리 소스 코드](https://github.com/Azure/azure-storage-node)를 검색 및 설치하세요.
+
+### <a name="client-library-reference-and-samples"></a>클라이언트 라이브러리 참조 및 샘플
+
+- Node.js 클라이언트 라이브러리에 대한 자세한 내용은 [Node.js API 참조](https://docs.microsoft.com/en-us/javascript/api/overview/azure/storage)를 참조하세요.
+- Node.js 클라이언트 라이브러리를 사용하여 작성된 [Blob 저장소 샘플](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=nodejs&term=blob)을 탐색하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작 가이드에서는 Node.js를 사용하여 로컬 디스크와 Azure Blob Storage 간에 파일을 전송하는 방법을 알아보았습니다. Blob Storage를 사용하는 방법을 자세히 알아보려면 계속해서 Blob Storage 방법을 진행하세요.
+이 빠른 시작에서는 Node.js를 사용하여 로컬 디스크와 Azure Blob 저장소 간에 파일을 업로드하는 방법을 보여줍니다. Blob Storage를 사용하는 방법을 자세히 알아보려면 계속해서 Blob Storage 방법을 진행하세요.
 
 > [!div class="nextstepaction"]
 > [Blob Storage 작업 방법](storage-nodejs-how-to-use-blob-storage.md)

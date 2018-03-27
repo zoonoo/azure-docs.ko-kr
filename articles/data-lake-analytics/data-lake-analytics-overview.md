@@ -1,8 +1,8 @@
 ---
-title: "Microsoft Azure Data Lake Analytics 개요 | Microsoft Docs"
-description: "Data Lake Analytics를 통해 모든 규모의 클라우드 데이터에서 얻는 정보를 사용하여 비즈니스를 이끌 수 있습니다."
+title: Microsoft Azure Data Lake Analytics 개요 | Microsoft Docs
+description: Data Lake Analytics를 통해 모든 규모의 클라우드 데이터에서 얻는 정보를 사용하여 비즈니스를 이끌 수 있습니다.
 services: data-lake-analytics
-documentationcenter: 
+documentationcenter: ''
 author: saveenr
 manager: saveenr
 editor: cgronlun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/23/2017
 ms.author: saveenr
-ms.openlocfilehash: a788c7ad6eca0abea6f6ab400cbe2d0e5914eed8
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 4ee0bdf486fa59c2d32b0d28ee25618996a57c6e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="overview-of-azure-data-lake-analytics"></a>Azure Data Lake Analytics 개요
 

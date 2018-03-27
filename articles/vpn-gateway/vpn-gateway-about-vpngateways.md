@@ -1,11 +1,11 @@
 ---
-title: "VPN Gateway 개요: Azure 가상 네트워크에 대한 크로스-프레미스 VPN 연결 만들기 | Microsoft Docs"
-description: "이 문서에서는 VPN Gateway가 무엇인지 설명하고 VPN 연결을 사용하여 인터넷을 통해 Azure 가상 네트워크에 연결하는 방법을 보여줍니다. 기본 연결 구성의 다이어그램이 포함됩니다."
+title: 'VPN Gateway 개요: Azure 가상 네트워크에 대한 크로스-프레미스 VPN 연결 만들기 | Microsoft Docs'
+description: 이 문서에서는 VPN Gateway가 무엇인지 설명하고 VPN 연결을 사용하여 인터넷을 통해 Azure 가상 네트워크에 연결하는 방법을 보여줍니다. 기본 연결 구성의 다이어그램이 포함됩니다.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: jpconnock
-editor: 
+editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: 2358dd5a-cd76-42c3-baf3-2f35aadc64c8
 ms.service: vpn-gateway
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/16/2018
+ms.date: 03/20/2018
 ms.author: cherylmc
-ms.openlocfilehash: dadddeaac2a7856f8e249db981b018de070e1f3f
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: ef6d61e9dfc7c30910d897478f07dabc14136b48
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="about-vpn-gateway"></a>VPN Gateway 정보
 
@@ -53,12 +53,15 @@ VPN Gateway를 구성할 때 수행할 단계는 가상 네트워크를 만드�
 
 다음 테이블은 솔루션에 대한 최상의 연결 옵션을 결정하는 데 도움이 될 수 있습니다.
 
-[!INCLUDE [vpn-gateway-cross-premises](../../includes/vpn-gateway-cross-premises-include.md)]
-
+[!INCLUDE [cross-premises](../../includes/vpn-gateway-cross-premises-include.md)]
 
 ## <a name="gwsku"></a>게이트웨이 SKU
 
-[!INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
+가상 네트워크 게이트웨이를 만들 때는 사용하려는 게이트웨이 SKU를 지정합니다. 작업 부하, 처리량, 기능 및 SLA의 종류를 기반으로 하는 요구 사항을 충족하는 SKU를 선택합니다. 지원되는 기능, 프로덕션 및 개발-테스트, 구성 단계를 포함한 게이트웨이 SKU에 대한 자세한 내용은 [게이트웨이 SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku)를 참조하세요.
+
+### <a name="benchmark"></a>터널, 연결 및 처리량별 게이트웨이 SKU
+
+[!INCLUDE [Aggregated throughput by SKU](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
 
 ## <a name="diagrams"></a>연결 토폴로지 다이어그램
 
@@ -86,7 +89,7 @@ S2S(사이트 간) VPN Gateway 연결은 IPsec/IKE(IKEv1 또는 IKEv2) VPN 터�
 
 ### <a name="deployment-models-and-methods-for-site-to-site-and-multi-site"></a>사이트 간 및 다중 사이트의 배포 모델 및 메서드
 
-[!INCLUDE [vpn-gateway-table-site-to-site](../../includes/vpn-gateway-table-site-to-site-include.md)]
+[!INCLUDE [site-to-site and multi-site table](../../includes/vpn-gateway-table-site-to-site-include.md)]
 
 ## <a name="P2S"></a>지점 및 사이트 간(IKEv2 또는 SSTP를 통한 VPN)
 

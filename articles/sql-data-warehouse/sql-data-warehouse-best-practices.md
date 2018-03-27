@@ -1,25 +1,24 @@
 ---
-title: "Azure SQL Data Warehouse에 대한 모범 사례 | Microsoft Docs"
-description: "Azure SQL Data Warehouse에 대한 솔루션을 개발하면서 알아야 할 권장 사항 및 모범 사례입니다. 이 내용은 성공적인 개발에 도움이 됩니다."
+title: Azure SQL Data Warehouse에 대한 모범 사례 | Microsoft Docs
+description: Azure SQL Data Warehouse에 대한 솔루션을 개발하면서 알아야 할 권장 사항 및 모범 사례입니다. 이 내용은 성공적인 개발에 도움이 됩니다.
 services: sql-data-warehouse
 documentationcenter: NA
 author: barbkess
 manager: jenniehubbard
-editor: 
-ms.assetid: 7b698cad-b152-4d33-97f5-5155dfa60f79
+editor: ''
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
-ms.date: 02/20/2018
+ms.date: 03/15/2018
 ms.author: barbkess
-ms.openlocfilehash: 50d02b657ec3063b0ca4078844563b4ba7932f37
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 53ad9f654c498f562d66de461a2a489895d0a46b
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="best-practices-for-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에 대한 모범 사례
 이 문서는 Azure SQL Data Warehouse에서 최적의 성능을 달성할 수 있는 여러 가지 모범 사례에 대한 모음입니다.  이 문서에 설명된 개념 중 일부는 기본적이고 설명하기 쉬우며 일부 개념은 보다 고급 내용으로 전체적인 내용을 간략히 훑어봅니다.  이 문서의 목적은 몇 가지 기본 지침을 제공하고 데이터 웨어하우스를 구축할 때 주안점을 둘 중요한 사항을 명확히 인식하는 것입니다.  각 섹션에서는 개념을 소개한 후 보다 심도 있게 개념을 다루는 자세한 문서를 안내합니다.
@@ -89,12 +88,12 @@ columnstore 테이블을 쿼리할 때 필요한 열만 선택하면 쿼리가 �
 ## <a name="use-larger-resource-class-to-improve-query-performance"></a>더 큰 리소스 클래스를 사용하여 쿼리 성능 향상
 SQL Data Warehouse는 메모리를 쿼리에 할당하는 방법으로 리소스 그룹을 사용합니다.  기본적으로 모든 사용자가 배포당 100MB의 메모리를 부여하는 소형 리소스 클래스에 할당됩니다.  항상 60개의 배포가 있고 각 배포에는 최소 100MB가 부여되므로 시스템 전체에서 총 메모리 할당량은 6,000MB이거나 6GB가 약간 못됩니다.  큰 조인 또는 클러스터형 columnstore 테이블에 로드와 같은 특정 쿼리는 큰 메모리를 할당하는 것이 도움이 됩니다.  순수 검색과 같은 일부 쿼리에는 어떤 이점도 보이지 않습니다.  한편 더 큰 리소스 클래스를 활용하면 동시성에 영향을 주므로 모든 사용자를 큰 리소스 클래스로 이동하기 전에 이를 고려하려고 합니다.
 
-또한 [동시성 및 워크로드 관리][Concurrency and workload management]도 참조하세요.
+또한 [워크로드 관리를 위한 리소스 클래스](resource-classes-for-workload-management.md)도 참조하세요.
 
 ## <a name="use-smaller-resource-class-to-increase-concurrency"></a>더 작은 리소스 클래스를 사용하여 동시성 증가
 사용자 쿼리에 긴 지연이 있는 것처럼 보이는 경우 사용자가 큰 리소스 클래스에서 실행 중이고 많은 동시성 슬롯을 사용 중이어서 다른 쿼리가 큐에 대기될 수 있습니다.  사용자 쿼리가 큐에 대기되었는지 확인하려면 `SELECT * FROM sys.dm_pdw_waits` 를 실행하여 모든 행이 반환되었는지 확인합니다.
 
-또한 [동시성 및 워크로드 관리][Concurrency and workload management], [sys.dm_pdw_waits][sys.dm_pdw_waits]도 참조하세요.
+또한 [워크로드 관리를 위한 리소스 클래스](resource-classes-for-workload-management.md), [sys.dm_pdw_waits][sys.dm_pdw_waits]도 참조하세요.
 
 ## <a name="use-dmvs-to-monitor-and-optimize-your-queries"></a>DMV를 사용하여 쿼리 모니터링 및 최적화
 SQL Data Warehouse에는 쿼리 실행을 모니터링하는 데 사용할 수 있는 여러 DMV가 있습니다.  다음 모니터링 문서는 쿼리 실행의 세부 정보를 확인하는 방법에 대한 단계별 지침을 안내합니다.  이러한 DMV에서 쿼리를 신속하게 찾으려면 쿼리에 LABEL 옵션을 사용하는 것이 도움이 될 수 있습니다.
@@ -112,7 +111,6 @@ SQL Data Warehouse에는 쿼리 실행을 모니터링하는 데 사용할 수 �
 
 <!--Article references-->
 [Create a support ticket]: ./sql-data-warehouse-get-started-create-support-ticket.md
-[Concurrency and workload management]: ./sql-data-warehouse-develop-concurrency.md
 [Create table as select (CTAS)]: ./sql-data-warehouse-develop-ctas.md
 [Table overview]: ./sql-data-warehouse-tables-overview.md
 [Table data types]: ./sql-data-warehouse-tables-data-types.md

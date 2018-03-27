@@ -1,11 +1,11 @@
 ---
-title: "Azure AD 디렉터리에 기존 Azure 구독을 추가하는 방법 | Microsoft Docs"
-description: "Azure AD 디렉터리에 기존 구독을 추가하는 방법"
+title: Azure AD 디렉터리에 기존 Azure 구독을 추가하는 방법 | Microsoft Docs
+description: Azure AD 디렉터리에 기존 구독을 추가하는 방법
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: bc4773c2-bc4a-4d21-9264-2267065f0aea
 ms.service: active-directory
 ms.workload: identity
@@ -16,11 +16,11 @@ ms.date: 12/12/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: e063e6a46b6b99c4bbe749347e6887a930adb882
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: 2b9ed5b3374c98740923790dac90cb1eb2f065d8
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="how-to-associate-or-add-an-azure-subscription-to-azure-active-directory"></a>Azure Active Directory에 Azure 구독을 연결하거나 추가하는 방법
 
@@ -34,6 +34,7 @@ ms.lasthandoff: 01/06/2018
 
 * 구독에 대해 RBAC 소유자 액세스 권한이 있는 계정으로 로그인해야 합니다.
 * 구독이 연결된 현재 디렉터리 및 추가하려는 디렉터리에 존재하는 계정으로 로그인해야 합니다. 다른 디렉터리에 대한 액세스 권한을 얻는 방법에 대해 알아보려면 [Azure Active Directory 관리자가 B2B 공동 작업 사용자를 추가하는 방법](active-directory-b2b-admin-add-users.md)을 참조하세요.
+* 이 기능은 CSP(MS-AZR-0145P, MS-AZR-0146P, MS-AZR-159P) 및 Microsoft Imagine(MS-AZR-0144P) 구독에 사용할 수 없습니다.
 
 ## <a name="to-associate-an-existing-subscription-to-your-azure-ad-directory"></a>Azure AD 디렉터리에 기존 구독을 연결하려면
 
