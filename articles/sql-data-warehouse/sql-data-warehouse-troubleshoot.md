@@ -1,25 +1,24 @@
 ---
-title: "Azure SQL Data Warehouse 문제 해결 | Microsoft Docs"
-description: "Azure SQL Data Warehouse 문제 해결"
+title: Azure SQL Data Warehouse 문제 해결 | Microsoft Docs
+description: Azure SQL Data Warehouse 문제 해결
 services: sql-data-warehouse
 documentationcenter: NA
 author: kevinvngo
 manager: jhubbard
-editor: 
-ms.assetid: 51f1e444-9ef7-4e30-9a88-598946c45196
+editor: ''
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
-ms.date: 03/30/2017
+ms.date: 03/15/2018
 ms.author: kevin;barbkess
-ms.openlocfilehash: 48318397f9c5e463c82320ad9d7c23a1a62af77e
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 0829d448e8b925d0dcc032ed143d8fff42ab1b69
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="troubleshooting-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse 문제 해결
 이 항목에서는 고객이 제기하는 가장 일반적인 문제 해결 질문 일부에 대해 설명합니다.
@@ -60,7 +59,7 @@ ms.lasthandoff: 12/18/2017
 ## <a name="polybase"></a>Polybase
 | 문제 | 해결 방법 |
 |:--- |:--- |
-| 대용량 행으로 인해 로드 실패 |현재 대용량 행 지원은 Polybase에서 사용할 수 없습니다.  즉, 테이블에 VARCHAR(MAX), NVARCHAR(MAX) 또는 VARBINARY(MAX)가 포함되어 있으면 데이터를 로드하는 데 외부 테이블을 사용할 수 없습니다.  대용량 행의 로드는 현재 Azure 데이터 팩터리(BCP 포함), Azure Stream Analytics, SSIS, BCP 또는 .NET SQLBulkCopy 클래스를 통해서만 지원됩니다. 대용량 행에 대한 PolyBase 지원은 후속 릴리스에 추가될 예정입니다. |
+| 대용량 행으로 인해 로드 실패 |현재 대용량 행 지원은 Polybase에서 사용할 수 없습니다.  즉, 테이블에 VARCHAR(MAX), NVARCHAR(MAX) 또는 VARBINARY(MAX)가 포함되어 있으면 데이터를 로드하는 데 외부 테이블을 사용할 수 없습니다.  대용량 행의 로드는 현재 Azure Data Factory(BCP 포함), Azure Stream Analytics, SSIS, BCP 또는 .NET SQLBulkCopy 클래스를 통해서만 지원됩니다. 대용량 행에 대한 PolyBase 지원은 후속 릴리스에 추가될 예정입니다. |
 | MAX 데이터 형식을 갖는 테이블의 bcp 로드 실패 |일부 시나리오에서는 테이블의 끝에 VARCHAR(MAX), NVARCHAR(MAX) 또는 VARBINARY(MAX)를 배치하도록 요구하는 알려진 문제가 있습니다.  MAX 열을 테이블 끝으로 이동해보세요. |
 
 ## <a name="differences-from-sql-database"></a>SQL Database와의 차이점
@@ -74,7 +73,7 @@ ms.lasthandoff: 12/18/2017
 | UDF가 SELECT 문을 지원하지 않음 |이 문제가 UDF의 현재 제한 사항입니다.  지원되는 구문에 대해서는 [CREATE FUNCTION][CREATE FUNCTION]을 참조하세요. |
 
 ## <a name="next-steps"></a>다음 단계
-위 문제에 대한 해결 방법을 찾을 수 없으면 다음에 나오는 몇 가지 다른 리소스를 참조할 수 있습니다.
+문제 해결 방법을 찾는 데 도움이 필요한 경우 다음과 같은 리소스를 사용해 보세요.
 
 * [블로그]
 * [기능 요청]
@@ -113,7 +112,7 @@ ms.lasthandoff: 12/18/2017
 [Temporary]: ./sql-data-warehouse-tables-temporary.md
 [Poor columnstore index quality]: ./sql-data-warehouse-tables-index.md#causes-of-poor-columnstore-index-quality
 [Rebuild indexes to improve segment quality]: ./sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality
-[Workload management]: ./sql-data-warehouse-develop-concurrency.md
+[Workload management]: ./resource-classes-for-workload-management.md
 [Using CTAS to work around unsupported UPDATE and DELETE syntax]: ./sql-data-warehouse-develop-ctas.md#using-ctas-to-work-around-unsupported-features
 [UPDATE workarounds]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-update-statements
 [DELETE workarounds]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-delete-statements

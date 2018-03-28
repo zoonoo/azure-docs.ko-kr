@@ -1,12 +1,12 @@
 ---
-title: "Azure Service Fabric에 대해 자세히 알아보기 | Microsoft Docs"
-description: "Azure Service Fabric의 주요 영역과 핵심 개념에 대해 알아봅니다. Service Fabric 및 마이크로 서비스를 만드는 방법의 확장된 개요를 제공합니다."
+title: Azure Service Fabric에 대해 자세히 알아보기 | Microsoft Docs
+description: Azure Service Fabric의 주요 영역과 핵심 개념에 대해 알아봅니다. Service Fabric 및 마이크로 서비스를 만드는 방법의 확장된 개요를 제공합니다.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/08/2017
 ms.author: ryanwi
-ms.openlocfilehash: 9360d29eb30171651b0bcc688fe7884614b50cf4
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: e9d0691876a417fe8665bed2d712d643a4364120
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Service Fabric에 대해 궁금하신가요?
 Azure Service Fabric은 손쉽게 패키지하고 배포하며 확장 가능하고 안정성이 뛰어난 마이크로 서비스를 관리하는 분산된 시스템 플랫폼입니다.  그러나 Service Fabric은 노출 영역이 대규모이므로 학습할 내용이 많습니다.  이 문서에서는 Service Fabric의 개요를 제공하고 핵심 개념, 프로그래밍 모델, 응용 프로그램 수명 주기, 테스트, 클러스터 및 상태 모니터링에 대해 설명합니다. 내용 소개 및 Service Fabric을 사용하여 마이크로 서비스를 만드는 방법은 [개요](service-fabric-overview.md) 및 [마이크로 서비스란?](service-fabric-overview-microservices.md)을 읽어보세요. 이 문서에는 포괄적인 콘텐츠 목록이 포함되어 있지 않지만 Service Fabric의 모든 영역에 대한 개요 및 시작 문서에 대한 링크가 있습니다. 
@@ -98,7 +98,7 @@ Service Fabric은 웹 및 API 응용 프로그램 빌드를 위한 첫 번째 �
 - Reliable Service에서 실행 향상된 Service Fabric 런타임 통합과 상태 저장 ASP.NET Core 서비스를 허용합니다.
 
 ### <a name="guest-executables"></a>게스트 실행 파일
-[게스트 실행 파일](service-fabric-deploy-existing-app.md)은 Service Fabric 클러스터에서 다른 서비스와 함께 호스트된 임의의 기존 실행 파일입니다. 게스트 실행 파일은 Service Fabric API와 직접 통합되지 않습니다. 그러나 사용자 지정 상태 및 로드 보고, REST API 호출에 의한 서비스 검색 가능성과 같이 플랫폼에서 제공하는 기능을 계속 활용합니다. 또한 전체 응용 프로그램 수명 주기 지원도 포함합니다. 
+[게스트 실행 파일](service-fabric-guest-executables-introduction.md)은 Service Fabric 클러스터에서 다른 서비스와 함께 호스트된 임의의 기존 실행 파일입니다. 게스트 실행 파일은 Service Fabric API와 직접 통합되지 않습니다. 그러나 사용자 지정 상태 및 로드 보고, REST API 호출에 의한 서비스 검색 가능성과 같이 플랫폼에서 제공하는 기능을 계속 활용합니다. 또한 전체 응용 프로그램 수명 주기 지원도 포함합니다. 
 
 ## <a name="application-lifecycle"></a>응용 프로그램 수명 주기
 다른 플랫폼과 마찬가지로, Service Fabric 기반의 응용 프로그램은 일반적으로 디자인, 개발, 테스트, 배포, 업그레이드, 유지 관리 및 제거 단계를 거칩니다. 서비스 패브릭은 개발부터 배포, 일상적인 관리, 유지 관리 및 최종적인 서비스 해제에 이르기까지 클라우드 응용 프로그램의 전체 응용 프로그램 수명 주기 관리에 대해 최고 수준의 지원을 제공합니다. 여러 역할이 응용 프로그램 수명 주기에 독립적으로 참가할 수 있는 서비스 모델이 제공됩니다. [Service Fabric 응용 프로그램 수명 주기](service-fabric-application-lifecycle.md)에서는 API에 대한 개요 및 API가 Service Fabric 응용 프로그램 수명 주기의 전체 단계에서 여러 역할에 의해 사용되는 방법을 제공합니다. 
@@ -134,11 +134,11 @@ Windows Server 또는 Linux를 실행하는 가상 또는 물리적 컴퓨터에
 </a></center>
 
 ### <a name="clusters-on-azure"></a>Azure의 클러스터
-Azure에서 Service Fabric 클러스터를 실행하면 클러스터의 작업 및 관리를 더 용이하고 안정적으로 해주는 다음과 같은 다른 Azure 기능 및 서비스와 통합할 수 있습니다. 클러스터는 Azure Resource Manager 리소스이므로 Azure에서 다른 리소스처럼 클러스터를 모델링할 수 있습니다. 또한 Resource Manager는 클러스터가 단일 단위로 사용하는 모든 리소스를 손쉽게 관리할 수 있습니다. Azure에서 클러스터는 Azure 진단 및 Log Analytics와 통합됩니다. 클러스터 노드 형식은 [가상 컴퓨터 확장 집합](/azure/virtual-machine-scale-sets/index)이므로 자동 크기 조정 기능을 기본 제공합니다.
+Azure에서 Service Fabric 클러스터를 실행하면 클러스터의 작업 및 관리를 더 용이하고 안정적으로 해주는 다음과 같은 다른 Azure 기능 및 서비스와 통합할 수 있습니다. 클러스터는 Azure Resource Manager 리소스이므로 Azure에서 다른 리소스처럼 클러스터를 모델링할 수 있습니다. 또한 Resource Manager는 클러스터가 단일 단위로 사용하는 모든 리소스를 손쉽게 관리할 수 있습니다. Azure에서 클러스터는 Azure 진단 및 Log Analytics와 통합됩니다. 클러스터 노드 형식은 [가상 머신 확장 집합](/azure/virtual-machine-scale-sets/index)이므로 자동 크기 조정 기능을 기본 제공합니다.
 
 [Azure Portal](service-fabric-cluster-creation-via-portal.md), [템플릿](service-fabric-cluster-creation-via-arm.md) 또는 [Visual Studio](service-fabric-cluster-creation-via-visual-studio.md)를 통해 Azure에 클러스터를 만들 수 있습니다.
 
-Linux의 Service Fabric을 사용하면 Windows와 마찬가지로 Linux에서도 Service Fabric을 통해 해당 환경에서 가용성 및 확장성이 뛰어난 응용 프로그램을 빌드, 배포 및 관리할 수 있습니다. Service Fabric 프레임워크(Reliable Services 및 Reliable Actors)는 C#(.NET Core)뿐만 아니라 Linux의 Java에서 사용할 수 있습니다. 어떤 언어 또는 프레임워크에서도 [게스트 실행 서비스](service-fabric-deploy-existing-app.md) 를 빌드할 수 있습니다. Docker 컨테이너 오케스트레이션도 지원됩니다. Docker 컨테이너는 게스트 실행 파일 또는 Service Fabric 프레임워크를 사용하는 네이티브 Service Fabric 서비스를 실행할 수 있습니다. 자세한 내용은 [Linux의 Service Fabric](service-fabric-deploy-anywhere.md)을 참조하세요.
+Linux의 Service Fabric을 사용하면 Windows와 마찬가지로 Linux에서도 Service Fabric을 통해 해당 환경에서 가용성 및 확장성이 뛰어난 응용 프로그램을 빌드, 배포 및 관리할 수 있습니다. Service Fabric 프레임워크(Reliable Services 및 Reliable Actors)는 C#(.NET Core)뿐만 아니라 Linux의 Java에서 사용할 수 있습니다. 어떤 언어 또는 프레임워크에서도 [게스트 실행 서비스](service-fabric-guest-executables-introduction.md) 를 빌드할 수 있습니다. Docker 컨테이너 오케스트레이션도 지원됩니다. Docker 컨테이너는 게스트 실행 파일 또는 Service Fabric 프레임워크를 사용하는 네이티브 Service Fabric 서비스를 실행할 수 있습니다. 자세한 내용은 [Linux의 Service Fabric](service-fabric-deploy-anywhere.md)을 참조하세요.
 
 Windows에서는 지원되지만 Linux에서 지원되지 않는 일부 기능이 있습니다. 자세한 내용은 [Linux와 Windows의 Service Fabric 간의 차이점](service-fabric-linux-windows-differences.md)을 참조하세요.
 
@@ -167,7 +167,7 @@ Linux 독립 실행형 클러스터는 아직 지원되지 않습니다.
 
 Service Fabric 클러스터는 개인이 소유하지만 Microsoft에서 부분적으로 관리하는 리소스입니다. Microsoft는 기본 OS를 패치하고 클러스터에서 패브릭 업그레이드를 수행합니다. Microsoft에서 새로운 버전을 릴리스하거나 원하는 패브릭 버전을 선택하도록 한 경우 클러스터가 자동 패브릭 업그레이드를 수신하도록 설정할 수 있습니다. 패브릭 및 구성 업그레이드는 Azure Portal이나 Resource Manager를 통해 설정할 수 있습니다. 자세한 내용은 [Service Fabric 클러스터 업그레이드](service-fabric-cluster-upgrade.md)를 참조하세요. 
 
-독립 실행형 클러스터는 사용자가 전적으로 소유하는 리소스입니다. 기본 OS에 패치를 적용하고 패브릭 업그레이드를 시작하는 작업은 사용자가 수행해야 합니다. 클러스터에서 [https://www.microsoft.com/download](https://www.microsoft.com/download)에 연결할 수 있는 경우 새 Service Fabric 런타임 패키지를 자동으로 다운로드하고 프로비저닝하도록 클러스터를 설정할 수 있습니다. 그런 다음 업그레이드를 시작합니다. 클러스터가 [https://www.microsoft.com/download](https://www.microsoft.com/download)에 액세스할 수 없는 경우 인터넷에 연결된 컴퓨터에서 수동으로 새 런타임 패키지를 다운로드한 다음 업그레이드를 시작할 수 있습니다. 자세한 내용은 [독립 실행형 Service Fabric 클러스터 업그레이드](service-fabric-cluster-upgrade-windows-server.md)를 참조하세요.
+독립 실행형 클러스터는 사용자가 전적으로 소유하는 리소스입니다. 기본 OS에 패치를 적용하고 패브릭 업그레이드를 시작하는 작업은 사용자가 수행해야 합니다. 클러스터에서 [https://www.microsoft.com/download](https://www.microsoft.com/download)에 연결할 수 있는 경우 새 Service Fabric 런타임 패키지를 자동으로 다운로드하고 프로비저닝하도록 클러스터를 설정할 수 있습니다. 그런 다음 업그레이드를 시작합니다. 클러스터가 [https://www.microsoft.com/download](https://www.microsoft.com/download)에 액세스할 수 없는 경우 인터넷에 연결된 컴퓨터에서 수동으로 새 런타임 패키지를 다운로드한 다음, 업그레이드를 시작할 수 있습니다. 자세한 내용은 [독립 실행형 Service Fabric 클러스터 업그레이드](service-fabric-cluster-upgrade-windows-server.md)를 참조하세요.
 
 ## <a name="health-monitoring"></a>상태 모니터링
 Service Fabric은 특정 엔터티(예: 클러스터 노드 및 서비스 복제본)의 비정상 클러스터 및 응용 프로그램 상태에 플래그를 적용하도록 설계된 [상태 모델](service-fabric-health-introduction.md)을 도입했습니다. 상태 모델은 Health 보고서(시스템 구성 요소 및 Watchdog)를 사용합니다. 쉽고 빠른 진단을 목표로 합니다. 서비스 작성자는 상태 및 [상태 보고 설계](service-fabric-report-health.md#design-health-reporting) 방법을 미리 고려해야 합니다. 상태에 영향을 줄 수 있는 모든 조건이 보고되어야 하며, 특히 근본 원인에 가까운 문제를 플래깅하는 데 도움이 되는 경우에는 반드시 보고가 이루어져야 합니다. 서비스가 프로덕션에서 대규모로 실행되면 상태 정보를 통해 디버깅과 조사에 들어가는 시간과 노력을 줄일 수 있습니다.

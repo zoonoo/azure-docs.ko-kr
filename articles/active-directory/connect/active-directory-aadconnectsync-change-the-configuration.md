@@ -1,24 +1,24 @@
 ---
-title: "Azure AD Connect 동기화: Azure AD Connect 동기화의 구성 변경 | Microsoft Docs"
-description: "Azure AD Connect 동기화의 구성을 변경하는 방법을 안내합니다."
+title: 'Azure AD Connect 동기화: Azure AD Connect 동기화의 구성 변경 | Microsoft Docs'
+description: Azure AD Connect 동기화의 구성을 변경하는 방법을 안내합니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 7b9df836-e8a5-4228-97da-2faec9238b31
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/13/2018
+ms.date: 03/16/2018
 ms.author: billmath
-ms.openlocfilehash: e97d3e3e35ee87864c5d38e75e08e62088e25fdb
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 06c715cf5dbf039334adfde8b3111d9bfcb86568
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Azure AD Connect 동기화: 기본 구성 변경
 이 문서의 목적은 Azure AD(Active Directory) Connect 동기화에서 기본 구성 변경 방법을 안내하는 것입니다. 몇 가지 일반적인 시나리오를 위한 단계를 제공합니다. 이러한 지식을 바탕으로 사용자의 고유한 비즈니스 규칙에 따라 자체 구성에 대해 간단한 내용을 변경할 수 있습니다.
@@ -245,7 +245,7 @@ Azure AD로 의도하지 않은 변경 내용을 내보내지 않도록, 동기�
  1. Synchronization Service Manager에 있는 **커넥터** 탭으로 이동합니다.
  2. **Azure AD 커넥터**를 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다.
  3. 팝업 대화 상자에서 **특성 선택** 탭으로 이동합니다.
- 4. 특성 목록에서 PreferredDataLocation 특성이 선택되어 있는지 확인합니다.
+ 4. 특성 목록에서 UserType 특성이 선택되어 있는지 확인합니다.
  5. **확인**을 클릭하여 저장합니다.
 
 ![Azure AD 커넥터 스키마에 원본 특성 추가](./media/active-directory-aadconnectsync-change-the-configuration/usertype2.png)
@@ -293,7 +293,7 @@ Azure AD로 의도하지 않은 변경 내용을 내보내지 않도록, 동기�
 ![인바운드 동기화 규칙 만들기](./media/active-directory-aadconnectsync-change-the-configuration/usertype3.png)
 
 ### <a name="step-5-create-an-outbound-synchronization-rule-to-flow-the-attribute-value-to-azure-ad"></a>5단계: Azure AD로 특성 값을 전달하는 아웃바운드 동기화 규칙 만들기
-아웃바운드 동기화 규칙은 메타 버스에서 Azure AD의 PreferredDataLocation 특성으로 특성 값을 전달하도록 허용합니다.
+아웃바운드 동기화 규칙은 메타버스에서 Azure AD의 UserType 특성으로 특성 값이 흐르도록 허용합니다.
 
 1. 동기화 규칙 편집기로 이동합니다.
 2. **방향** 검색 필터를 **아웃바운드**로 설정합니다.

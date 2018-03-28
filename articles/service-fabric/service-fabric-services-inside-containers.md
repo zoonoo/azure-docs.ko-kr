@@ -1,6 +1,6 @@
 ---
-title: "Azure Service Fabric 마이크로 서비스(미리 보기)를 컨테이너화하는 방법"
-description: "Azure Service Fabric은 Service Fabric 마이크로 서비스를 컨테이너화하는 새로운 기능을 추가했습니다. 이 기능은 현재 미리 보기로 제공됩니다."
+title: Azure Service Fabric 마이크로 서비스(미리 보기)를 컨테이너화하는 방법
+description: Azure Service Fabric은 Service Fabric 마이크로 서비스를 컨테이너화하는 새로운 기능을 추가했습니다. 이 기능은 현재 미리 보기로 제공됩니다.
 services: service-fabric
 documentationcenter: .net
 author: anmolah
@@ -14,21 +14,20 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/04/2017
 ms.author: anmola
-ms.openlocfilehash: 6f8ad0bad8d1ae861e6b72f7e1a32ab0675813c2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e66e488d8e547e828c014b105a816a14726e5005
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="how-to-containerize-your-service-fabric-reliable-services-and-reliable-actors-preview"></a>Service Fabric Reliable Services 및 Reliable Actors(미리 보기)를 컨테이너화하는 방법
 
 Service Fabric은 Service Fabric 마이크로 서비스(Reliable Services 및 Reliable Actor 기반 서비스)를 컨테이너화하도록 지원합니다. 자세한 내용은 [Service Fabric 컨테이너](service-fabric-containers-overview.md)를 참조하세요.
 
-
- 이 기능은 미리 보기 상태이며 이 문서에서는 컨테이너 내에서 서비스를 실행하는 다양한 단계를 제공합니다.  
+이 기능은 미리 보기 상태이며 이 문서에서는 컨테이너 내에서 서비스를 실행하는 다양한 단계를 제공합니다.  
 
 > [!NOTE]
-> 이 기능은 미리 보기로 제공되며 프로덕션에서 지원되지 않습니다. 현재 이 기능은 Windows에서만 작동합니다.
+> 이 기능은 미리 보기로 제공되며 프로덕션에서 지원되지 않습니다. 현재 이 기능은 Windows에서만 작동합니다. 컨테이너를 실행하려면 컨테이너가 포함된 Windows Server 2016에서 클러스터를 실행해야 합니다.
 
 ## <a name="steps-to-containerize-your-service-fabric-application"></a>Service Fabric 응용 프로그램을 컨테이너화하는 단계
 

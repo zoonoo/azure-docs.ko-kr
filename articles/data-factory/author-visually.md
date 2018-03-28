@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/9/2018
 ms.author: shlo
-ms.openlocfilehash: 209afba99ac2b43c252d93c32930908ec1f957f9
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 954693ee208dc7868a5a5ad0e774c5c352036627
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Azure Data Factory에서 시각적 작성
 Azure Data Factory UX(사용자 인터페이스 환경)을 사용하면 코드를 작성할 필요 없이 데이터 팩터리에 대한 리소스를 시각적으로 작성하고 배포할 수 있습니다. 파이프라인 캔버스에 작업을 끌어다 놓고, 테스트 실행을 수행하고, 반복적으로 디버그하고, 파이프라인 실행을 배포 및 모니터링할 수 있습니다. 시각적 작성을 수행하기 위해 UX를 사용하는 두 가지 방법이 있습니다.
@@ -41,7 +41,7 @@ UX **제작 캔버스**를 사용하여 Data Factory 서비스를 통해 직접 
 VSTS Git 통합을 통한 시각적 작성은 데이터 팩터리 파이프라인에서 작업하기 위한 원본 제어 및 공동 작업을 지원합니다. 사용자는 원본 제어, 공동 작업 및 버전 관리 등을 위해 VSTS Git 계정 리포지토리에 데이터 팩터리를 연결할 수 있습니다. 단일 VSTS Git 계정은 여러 리포지토리를 가질 수 있지만 VSTS Git 리포지토리는 단 하나의 데이터 팩터리와 연결할 수 있습니다. VSTS 계정 또는 리포지토리가 없는 경우 [이러한 지침](https://docs.microsoft.com/vsts/accounts/create-account-msa-or-work-student)에 따라 리소스를 만듭니다.
 
 > [!NOTE]
-> 데이터 팩터리 파이프라인은 VSTS Git 리포지토리에 저장된 파일에 액세스할 수 없습니다. 결과적으로, 데이터 팩터리 파이프라인 활동(예: 데이터 파일 및 스크립트 파일)에서 사용되는 파일을 VSTS Git 리포지토리에 저장할 수 없습니다.
+> VSTS GIT 리포지토리에 스크립트 및 데이터 파일을 저장할 수 있습니다. 그러나 Azure Storage에 파일을 수동으로 업로드해야 합니다. Data Factory 파이프라인은 VSTS GIT 리포지토리에 저장된 스크립트 또는 데이터 파일을 자동으로 Azure Storage에 업로드하지 않습니다.
 
 ### <a name="configure-a-vsts-git-repository-with-azure-data-factory"></a>Azure Data Factory를 통한 VSTS Git 리포지토리 구성
 두 가지 방법으로 데이터 팩터리를 사용해서 VSTS GIT 리포지토리를 구성할 수 있습니다.

@@ -1,25 +1,25 @@
 ---
-title: "Azure Active Directory에서 관리자 역할 할당 | Microsoft Docs"
-description: "관리자 역할은 사용자를 추가하고, 관리자 역할을 할당하며, 사용자 암호를 다시 설정하고, 사용자 라이선스 또는 도메인을 관리하는 데 사용할 수 있습니다. 관리자 역할이 할당된 사용자는 조직에서 구독한 모든 클라우드 서비스에서 동일한 권한을 갖습니다."
+title: Azure Active Directory에서 관리자 역할 할당 | Microsoft Docs
+description: 관리자 역할은 사용자를 추가하고, 관리자 역할을 할당하며, 사용자 암호를 다시 설정하고, 사용자 라이선스 또는 도메인을 관리하는 데 사용할 수 있습니다. 관리자 역할이 할당된 사용자는 조직에서 구독한 모든 클라우드 서비스에서 동일한 권한을 갖습니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 03/15/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 1fed14fc117c7652e677a245625502c1810068ff
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 8ba4787852902f194deb3eee27ff9f0fc28fa5aa
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Azure Active Directory에서 관리자 역할 할당
 
@@ -61,9 +61,9 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
   >
   >
 
-* **게스트 초대자**: 이 역할의 사용자는 "구성원이 초대할 수 있음" 사용자 설정이 '아니요'로 설정된 경우 Azure Active Directory B2B 게스트 사용자 초대를 관리할 수 있습니다. B2B 공동 작업에 대한 자세한 내용은 [Azure AD B2B 공동 작업 미리 보기 정보](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)를 참조하세요. 다른 권한은 포함되지 않습니다.
+* **게스트 초대자**: 이 역할의 사용자는 "구성원이 초대할 수 있음" 사용자 설정이 '아니요'로 설정된 경우 Azure Active Directory B2B 게스트 사용자 초대를 관리할 수 있습니다. B2B 공동 작업에 대한 자세한 내용은 [Azure AD B2B 공동 작업 정보](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)를 참조하세요. 다른 권한은 포함되지 않습니다.
 
-* **Information Protection 관리자(미리 보기)**: 이 역할의 사용자는 Azure Information Protection 서비스에 대한 사용자 권한만 가집니다. ID 보호 센터, Privileged Identity Management, Office 365 Service Health 또는 Office 365 Security & Compliance에 대한 사용자 권한은 부여받지 않습니다. Azure Information Protection 정책에 대한 레이블을 구성하고, 보호 템플릿을 관리하고, 보호를 활성화할 수 있습니다.
+* **Information Protection 관리자**: 이 역할의 사용자는 Azure Information Protection 서비스에 대한 사용자 권한만 가집니다. ID 보호 센터, Privileged Identity Management, Office 365 Service Health 또는 Office 365 Security & Compliance에 대한 사용자 권한은 부여받지 않습니다. Azure Information Protection 정책에 대한 레이블을 구성하고, 보호 템플릿을 관리하고, 보호를 활성화할 수 있습니다.
 
 * **Intune 서비스 관리자**: 이 역할의 사용자는 서비스가 있는 경우 Microsoft Intune Online 내에서 전역 사용 권한을 가집니다. 또한 이 역할은 정책을 연결하고 그룹을 만들고 관리하기 위해 사용자와 장치를 관리하는 기능을 포함합니다.
 
@@ -127,7 +127,7 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 | --- | --- |
 | <p>회사 및 사용자 정보 보기</p><p>Office 지원 티켓 관리</p><p>사용자 및 다른 기술 지원팀 관리자에 대한 암호만 변경</p>|<p>Office 제품의 대금 청구 및 구매 작업 수행</p><p>사용자 보기 만들기 및 관리</p><p>사용자 및 그룹 만들기/편집/삭제, 사용자 라이선스 관리</p><p>도메인 관리</p><p>회사 정보 관리</p><p>다른 사용자에게 관리 역할 위임</p><p>디렉터리 동기화 사용</p><p>보고서 보기</p>|
 
-### <a name="information-protection-administrator-preview"></a>Information Protection 관리자(미리 보기)
+### <a name="information-protection-administrator"></a>Information Protection 관리자
 그런 다음 | 가능한 작업
 -------- | ---------
 Azure Information Protection | <li>전역 및 범위 지정된 정책에서 레이블 및 설정 구성<li>보호 템플릿 구성 및 관리<li>보호 활성화 또는 비활성화--

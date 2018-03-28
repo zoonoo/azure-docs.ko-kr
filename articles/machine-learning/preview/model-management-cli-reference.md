@@ -1,9 +1,9 @@
 ---
-title: "Azure Machine Learning 모델 관리 명령줄 인터페이스 참조 | Microsoft Docs"
-description: "Azure Machine Learning 모델 관리 명령줄 인터페이스 참조 문서입니다."
+title: Azure Machine Learning 모델 관리 명령줄 인터페이스 참조 | Microsoft Docs
+description: Azure Machine Learning 모델 관리 명령줄 인터페이스 참조 문서입니다.
 services: machine-learning
-author: raymondl
-ms.author: raymondl, aashishb
+author: aashishb
+ms.author: aashishb
 manager: hjerez
 ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 11/08/2017
-ms.openlocfilehash: 219c61d1842369caadaf8e85dcb039242c37ef6c
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 27361c5b92a8748a026d457875fadfc1f3529076
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="model-management-command-line-interface-reference"></a>모델 관리 명령줄 인터페이스 참조
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 02/23/2018
 
 **모델 관리 계정 만들기**
 
-다음 명령을 사용하여 모델 관리 계정을 만듭니다. 이 계정은 대금을 청구하는 데 사용됩니다.
+다음 명령을 사용하여 청구용 모델 관리 계정을 만듭니다.
 
 `az ml account modelmanagement create --location [Azure region e.g. eastus2] --name [new account name] --resource-group [resource group name to store the account in]`
 
@@ -76,7 +76,7 @@ ms.lasthandoff: 02/23/2018
 
 `az ml env setup [-c] --location [location of environment resources] --name[name of environment]`
 
-이렇게 하면 구독에 만든 저장소 계정, ACR 레지스트리 및 Application Insights 서비스가 있는 Azure 기계 학습 환경이 초기화됩니다. 플래그가 지정되지 않으면 기본적으로 로컬 배포를 위한 환경(ACS 없음)만 초기화됩니다. 서비스를 크기 조정해야 하는 경우 `--cluster`(또는 `-c`) 플래그를 지정하여 ACS 클러스터를 만듭니다.
+이 명령은 구독에 만든 저장소 계정, ACR 레지스트리 및 Application Insights 서비스가 있는 Azure 기계 학습 환경을 초기화합니다. 플래그가 지정되지 않으면 기본적으로 로컬 배포를 위한 환경(ACS 없음)만 초기화됩니다. 서비스를 크기 조정해야 하는 경우 `--cluster`(또는 `-c`) 플래그를 지정하여 ACS 클러스터를 만듭니다.
 
 명령 세부 정보:
 
@@ -89,12 +89,12 @@ ms.lasthandoff: 02/23/2018
     --cluster -c                   : Flag to provision ACS cluster. Off by default; specify this to force an ACS cluster deployment.
     --key-pem                      : Path to .pem file with certificate key.
     --master-count -m              : Number of master nodes to provision in the ACS cluster. Acceptable values: 1, 3, 5. Default: 1.
-    --resource-group -g            : Resource group in which to create compute resource. Will be created if it does not exist.
-                                     If not provided, resource group will be created with 'rg' appended to 'name.'.
+    --resource-group -g            : Resource group in which to create compute resource. Is created if it does not exist.
+                                     If not provided, resource group is created with 'rg' appended to 'name.'.
     --service-principal-app-id -a  : App ID of service principal to use for configuring ML compute.
     --service-principal-password -p: Password associated with service principal.
     --storage -s                   : ARM ID of storage account to associate with this environment.
-    --yes -y                       : Flag to answer 'yes' to any prompts. Command will fail if user is not logged in.
+    --yes -y                       : Flag to answer 'yes' to any prompts. Command fails if user is not logged in.
 
 전역 인수
 ```
@@ -143,7 +143,7 @@ ms.lasthandoff: 02/23/2018
 
 **매니페스트 만들기**
 
-다음은 모델에 대한 매니페스트 파일을 만듭니다. 
+다음 명령은 모델에 대한 매니페스트 파일을 만듭니다. 
 
 `az ml manifest create --manifest-name [your new manifest name] -f [path to code file] -r [runtime for the image, e.g. spark-py]`
 
@@ -289,7 +289,7 @@ ms.lasthandoff: 02/23/2018
 
 종속성 연결용 `-d` 플래그에 대한 참고: 아직 번들로 포함되지 않은 디렉터리의 이름(zip, tar 등)을 전달하면 해당 디렉터리를 자동으로 tar로 압축하여 전달한 다음, 다른 쪽에서 자동으로 번들로부터 압축을 풉니다. 
 
-이미 번들로 포함된 디렉터리를 전달하면 파일로 처리되어 있는 그대로 함께 전달됩니다. 번들로 자동으로 포함되지 않지만, 코드에서 이를 처리할 것으로 예상됩니다.
+이미 번들로 포함된 디렉터리를 전달하면 디렉터리는 파일로 처리되고 그대로 전달됩니다. 자동으로 번들이 풀리며, 이것은 코드에서 처리되어야 합니다.
 
 **서비스 세부 정보 가져오기**
 

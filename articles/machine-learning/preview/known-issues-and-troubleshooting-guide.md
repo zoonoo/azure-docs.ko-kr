@@ -1,6 +1,6 @@
 ---
-title: "알려진 문제 및 문제 해결 가이드 | Microsoft Docs"
-description: "알려진 문제의 목록 및 문제를 해결하는 데 도움이 되는 가이드"
+title: 알려진 문제 및 문제 해결 가이드 | Microsoft Docs
+description: 알려진 문제의 목록 및 문제를 해결하는 데 도움이 되는 가이드
 services: machine-learning
 author: svankam
 ms.author: svankam
@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/12/2018
-ms.openlocfilehash: d1e3a4fd4415afb995f614ac687096f6fb8ece95
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 62207fa20c4660d1e828053ee73953cb68af1b9d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning Workbench - 알려진 문제 및 문제 해결 가이드 
 이 문서는 Azure Machine Learning Workbench 응용 프로그램 사용의 일부로 발생하는 오류 또는 실패를 찾고 수정하는 데 도움을 줍니다. 
@@ -102,7 +102,7 @@ Azure ML Workbench에서 작업할 경우, 응용 프로그램 셸의 왼쪽 하
    - 폴더 `C:\Users\<Username>\AppData\Local\amlworkbench` 제거
    - 스크립트 `C:\dsvm\tools\setup\InstallAMLFromLocal.ps1` 제거
    - 위의 스크립트를 시작하는 바탕 화면 바로 가기 제거
-   - https://aka.ms/azureml-wb-msi에서 설치 관리자를 다운로드하고 다시 설치
+   - https://aka.ms/azureml-wb-msi 설치 프로그램을 다운로드하고 다시 설치합니다.
 
 ## <a name="stuck-at-checking-experimentation-account-screen-after-logging-in"></a>로그인한 후에 "실험 계정 검사" 화면에서 중단됨
 로그인한 후에 Workbench 앱은 회전 휠을 포함한 "실험 계정 검사"를 보여주는 메시지를 표시한 빈 화면에서 중단되었을 수 있습니다. 이 문제를 해결하려면, 다음 단계를 사용하세요.
@@ -203,11 +203,14 @@ $ docker system prune -a
 또는 OS 디스크를 확장할 수 있으며 Docker 엔진 구성을 손대지 않아도 됩니다. [OS 디스크를 확장하는 방법](https://docs.microsoft.com/azure/virtual-machines/linux/expand-disks)은 다음과 같습니다.
 
 ```azure-cli
-#Deallocate VM (stopping will not work)
+# Deallocate VM (stopping will not work)
 $ az vm deallocate --resource-group myResourceGroup  --name myVM
 
-# Update Disc Size
-$ az disk update --resource-group myResourceGroup --name myVM --size-gb 250
+# Get VM's Disc Name
+az disk list --resource-group myResourceGroup --query '[*].{Name:name,Gb:diskSizeGb,Tier:accountType}' --output table
+
+# Update Disc Size using above name
+$ az disk update --resource-group myResourceGroup --name myVMdisc --size-gb 250
     
 # Start VM    
 $ az vm start --resource-group myResourceGroup  --name myVM

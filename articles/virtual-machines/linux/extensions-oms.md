@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/06/2018
+ms.date: 03/12/2018
 ms.author: danis
-ms.openlocfilehash: 5497c0151117c26e66e9669ed8da1ab7f9506b5a
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 5174e599f12314a657d142304ffec18fbff847b1
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="oms-virtual-machine-extension-for-linux"></a>Linux용 OMS 가상 머신 확장
 
@@ -43,10 +43,11 @@ OM 에이전트 확장은 다음 Linux 배포판에 대해 실행할 수 있습�
 | SUSE Linux Enterprise Server | 11 및 12 |
 
 ### <a name="agent-and-vm-extension-version"></a>에이전트 및 VM 확장 버전
-다음 표에서는 각 릴리스에서 OMS VM 확장의 각 버전과 OMS Agent 번들에 대한 매핑을 제공합니다. OMS 에이전트 번들 버전에 대한 릴리스 노트 링크가 포함되어 있습니다.  
+다음 표에서는 각 릴리스에서 OMS VM 확장의 각 버전과 OMS Agent 번들에 대한 매핑을 제공합니다. OMS 에이전트 번들 버전에 대한 릴리스 노트 링크가 포함되어 있습니다. 릴리스 정보는 버그 수정에 대한 세부 정보 및 지정된 에이전트 릴리스에 사용 가능한 새로운 기능을 포함합니다.  
 
 | OMS Linux VM 확장 버전 | OMS Agent 번들 버전 | 
 |--------------------------------|--------------------------|
+| 1.4.60.2 | [1.4.4-210](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.4-210)| 
 | 1.4.59.1 | [1.4.3-174](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.3-174)|
 | 1.4.58.7 | [14.2-125](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.2-125)|
 | 1.4.56.5 | [1.4.2-124](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.2-124)|

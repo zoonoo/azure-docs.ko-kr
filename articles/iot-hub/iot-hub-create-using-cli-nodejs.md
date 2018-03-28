@@ -1,11 +1,11 @@
 ---
-title: "Azure CLI(azure.js)를 사용하여 IoT Hub 만들기 | Microsoft Docs"
-description: "플랫폼 간 Azure CLI(azure.js)를 사용하여 Azure IoT hub를 만드는 방법"
+title: Azure CLI(azure.js)를 사용하여 IoT Hub 만들기 | Microsoft Docs
+description: 플랫폼 간 Azure CLI(azure.js)를 사용하여 Azure IoT hub를 만드는 방법
 services: iot-hub
 documentationcenter: .net
 author: BeatriceOltean
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 46a17831-650c-41d9-b228-445c5bb423d3
 ms.service: iot-hub
 ms.devlang: multiple
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/04/2017
 ms.author: boltean
-ms.openlocfilehash: 5e37c6c5e8625ce446ab203f19f9a8b2f1cd5a46
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7ad0efeeacbdb5dd0185c6336e9bf0e4d7937c99
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-an-iot-hub-using-the-azure-cli"></a>Azure CLI를 사용하여 IoT Hub 만들기
 
@@ -35,7 +35,7 @@ Azure CLI 2.0(azure.js)을 사용하여 Azure IoT Hub를 프로그래밍 방식�
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-* 활성 Azure 계정. 계정이 없는 경우 몇 분 내에 [계정][lnk-free-trial]을 만들 수 있습니다.
+* 활성 Azure 계정. 계정이 없는 경우 몇 분 내에 [무료 계정][lnk-free-trial]을 만들 수 있습니다.
 * [Azure CLI 0.10.4][lnk-CLI-install] 이상 Azure CLI가 이미 설치된 경우 다음 명령을 사용하여 명령 프롬프트에서 현재 버전을 확인할 수 있습니다.
 
 ```azurecli
@@ -88,7 +88,7 @@ azure iothub create -g <resource-group> -n <name> -l <location> -s <sku-name> -u
 ```
 
 * **resource-group**: 리소스 그룹 이름입니다. 형식은 대/소문자를 구분하지 않는 영숫자, 밑줄 및 하이픈으로 구성되며, 길이는 1-64자입니다.
-* **이름**: 만들려는 IoT Hub의 이름입니다. 형식은 대/소문자를 구분하지 않는 영숫자, 밑줄 및 하이픈으로 구성되며, 길이는 3-50자입니다.
+* **이름**: 만들려는 IoT Hub의 이름입니다. 형식은 대/소문자를 구분하지 않는 영숫자 및 하이픈으로 구성되며, 길이는 3-50자입니다.
 * **location**: IoT Hub를 프로비전할 위치(Azure 지역/데이터 센터)입니다.
 * **sku-name**: sku 이름이며, [F1, S1, S2, S3] 중 하나입니다. 최신 전체 목록은 IoT Hub 가격 책정 페이지를 참조하세요.
 * **units**: 프로비전된 단위의 수입니다. 범위: F1[1-1], S1, S2[1-200], S3[1-10]. IoT Hub 단위는 총 메시지 수와 연결하려는 장치 수를 기반으로 합니다.

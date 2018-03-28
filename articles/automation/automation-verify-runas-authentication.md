@@ -1,24 +1,18 @@
 ---
-title: "Azure Automation 계정 구성 유효성 검사 | Microsoft Docs"
-description: "이 문서에서는 Automation 계정 구성이 제대로 설정되었는지 확인하는 방법을 설명합니다."
+title: Azure Automation 계정 구성 유효성 검사
+description: 이 문서에서는 Automation 계정 구성이 제대로 설정되었는지 확인하는 방법을 설명합니다.
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: carmonm
-editor: 
-ms.assetid: 
 ms.service: automation
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.date: 08/07/2017
-ms.author: magoedte
-ms.openlocfilehash: 1413b5d9625ebc2e3b2419f50e7e78be994d8d68
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+manager: carmonm
+ms.openlocfilehash: 5359a12d5b241eff80203c9e9bf04107ce4d3159
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="test-azure-automation-run-as-account-authentication"></a>Azure Automation 실행 계정 인증 테스트
 Automation 계정이 성공적으로 만들어지면 새로 만들어지거나 업데이트된 Automation 실행 계정을 사용하여 Azure Resource Manager 또는 Azure 클래식 배포에서 성공적으로 인증할 수 있는지를 확인하는 간단한 테스트를 수행할 수 있습니다.    

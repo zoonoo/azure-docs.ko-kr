@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect: 버전 릴리스 내역 | Microsoft Docs"
-description: "이 문서에는 Azure AD Connect 및 Azure AD Sync의 모든 릴리스가 나열되어 있습니다."
+title: 'Azure AD Connect: 버전 릴리스 내역 | Microsoft Docs'
+description: 이 문서에는 Azure AD Connect 및 Azure AD Sync의 모든 릴리스가 나열되어 있습니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/16/2018
 ms.author: billmath
-ms.openlocfilehash: 81d08d3d3d08e9cc96b39cbdf2d639e939fdf3d4
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 0c6a0c43eb7d0187120c3264f1f439af66d73978
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: 버전 릴리스 내역
 Azure AD(Azure Active Directory) 팀은 새로운 기능과 성능으로 Azure AD Connect를 정기적으로 업데이트합니다. 모든 추가 내용이 모든 대상에 적용되는 것은 아닙니다.
@@ -36,8 +36,19 @@ Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스
 
 다운로드 | [Azure AD Connect 다운로드](http://go.microsoft.com/fwlink/?LinkId=615771).
 
+## <a name="117500"></a>1.1.750.0
+상태: 고객을 선택하도록 릴리스되었습니다. 이 릴리스는 현재 자동 업그레이드를 사용하도록 설정한 임의의 작은 AADConnect 테넌트 선택 영역에 배포됩니다. 모든 자동 업그레이드 고객이 이 릴리스를 받을 때까지 이 그룹의 테넌트가 앞으로 몇 주 내에 확장됩니다. 이후에 일반 다운로드를 위한 빌드를 위의 다운로드 링크에 게시할 예정입니다.
+>[!NOTE]
+>이 새 버전으로 업그레이드가 완료되면 Azure AD 커넥터에 대한 전체 동기화 및 전체 가져오기와 AD 커넥터에 대한 전체 동기화를 자동으로 트리거합니다. Azure AD Connect 환경의 크기에 따라 시간이 걸릴 수 있으므로, 이 기능을 지원하기 위해 필요한 단계를 수행했는지 확인하거나, 수행하기 적합한 시기를 찾을 때까지 업그레이드를 보류해야 합니다.
+
+### <a name="azure-ad-connect"></a>Azure AD Connect
+#### <a name="fixed-issues"></a>해결된 문제
+
+* 자동 업그레이드 상태가 일시 중단됨으로 설정되어 있으면 Set-ADSyncAutoUpgrade cmdlet은 자동 업그레이드를 차단합니다. 이후 빌드의 자동 업그레이드를 차단하지 않도록 이제 변경되었습니다.
+
 ## <a name="117490"></a>1.1.749.0
-상태: 고객을 선택하도록 릴리스되었습니다. 이 릴리스는 현재 자동 업그레이드를 사용하도록 설정한 임의의 작은 AADConnect 테넌트 섹션에 배포됩니다. 모든 자동 업그레이드 고객이 이 릴리스를 받을 때까지 이 그룹의 테넌트가 앞으로 몇 주 내에 확장됩니다. 그런 후에 현재 2018년 3월 중순으로 계획된 일반 다운로드를 위한 빌드를 위의 다운로드 링크에 게시할 예정입니다.
+상태: 고객을 선택하도록 릴리스됨
+
 >[!NOTE]
 >이 새 버전으로 업그레이드가 완료되면 Azure AD 커넥터에 대한 전체 동기화 및 전체 가져오기와 AD 커넥터에 대한 전체 동기화를 자동으로 트리거합니다. Azure AD Connect 환경의 크기에 따라 시간이 걸릴 수 있으므로, 이 기능을 지원하기 위해 필요한 단계를 수행했는지 확인하거나, 수행하기 적합한 시기를 찾을 때까지 업그레이드를 보류해야 합니다.
 
@@ -45,15 +56,15 @@ Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스
 #### <a name="fixed-issues"></a>해결된 문제
 * 다음 페이지로 전환할 때 파티션 필터링 페이지에 대한 백그라운드 작업에서 타이밍 창 수정
 
-* ConfigDB 사용자 지정 작업을 수행하는 동안 액세스 위반이 발생하는 버그 수정됨
+* ConfigDB 사용자 지정 작업을 수행하는 동안 액세스 위반이 발생하는 버그가 수정되었습니다.
 
 * SQL 연결 시간 제한에서 복구하도록 버그 수정됨
 
-* SAN 와일드 카드가 있는 인증서가 필수 구성 요소 검사에 실패하는 버그 수정됨
+* SAN 와일드카드가 있는 인증서가 필수 구성 요소 검사에 실패하는 버그 수정
 
 * Azure AD 커넥터를 내보내는 동안 miiserver.exe가 충돌하는 버그 수정됨
 
-* 구성을 변경하기 위해 Azure AD Connect 마법사를 실행할 때 DC에서 잘못된 암호 시도가 기록되는 버그 수정됨
+* 구성을 변경하기 위해 Azure AD Connect 마법사를 실행할 때 DC에서 잘못된 암호 시도가 기록되는 버그 수정
 
 
 #### <a name="new-features-and-improvements"></a>새로운 기능 및 향상 기능
@@ -223,7 +234,7 @@ Set-ADSyncRestrictedPermissions -ObjectDN "CN=TestAccount1,CN=Users,DC=bvtadwbac
 
 ### <a name="azure-ad-connect-sync"></a>Azure AD Connect 동기화
 >[!NOTE]
-> 참고: 동기화 서비스에는 사용자 지정 스케줄러를 개발할 수 있는 WMI 인터페이스가 있습니다. 이 인터페이스는 현재 사용되지 않으며 향후 2018년 6월 30일 이후에 출시되는 Azure AD Connect 이후 버전에서 제거될 예정입니다. 동기화 일정을 사용자 지정하려는 고객은 [기본 제공 스케줄러(https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-feature-scheduler)]를 사용해야 합니다.
+> 참고: 동기화 서비스에는 사용자 지정 스케줄러를 개발할 수 있는 WMI 인터페이스가 있습니다. 이 인터페이스는 현재 사용되지 않으며 향후 2018년 6월 30일 이후에 출시되는 Azure AD Connect 이후 버전에서 제거될 예정입니다. 동기화 일정을 사용자 지정하려는 고객은 [기본 제공 스케줄러(https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-feature-scheduler))를 사용해야 합니다.
 
 #### <a name="fixed-issues"></a>해결된 문제
 * Azure AD Connect 마법사가 온-프레미스 Active Directory의 변경 내용을 동기화하는 데 필요한 AD Connector 계정을 만들면 해당 계정에 PublicFolder 개체를 읽는 데 필요한 권한이 올바르게 할당되지 않습니다. 이 문제는 기본 설치와 사용자 지정 설치 모두에 영향을 줍니다. 이 변경으로 문제가 해결됩니다.

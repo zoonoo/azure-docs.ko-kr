@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 03/05/2018
 ms.author: owend
-ms.openlocfilehash: 4c317736af30b4181fa975713258a41b42ed0da3
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: bb3e50c3e481bcedc436b8382fb55d6402d058b2
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>REST API를 사용한 비동기 새로 고침
 REST 호출을 지원하는 프로그래밍 언어를 사용하여 Azure Analysis Services 테이블 형식 모델에서 비동기 데이터 새로 고침 작업을 수행할 수 있습니다. 여기에는 쿼리 스케일 아웃을 위한 읽기 전용 복제본의 동기화가 포함됩니다. 
@@ -36,7 +36,7 @@ Azure Analysis Services용 REST API에서는 데이터 새로 고침 작업을 �
 https://<rollout>.asazure.windows.net/servers/<serverName>/models/<resource>/
 ```
 
-예를 들어, 이름이 AdventureWorks이고, 미국 서부 Azure 지역의 myserver 서버에 있는 모델의 경우 서버 이름은 다음과 같습니다.
+예를 들어, 이름이 AdventureWorks이고, 미국 서부 Azure 지역의 myserver 서버에 있는 모델을 가정합니다. 서버 이름은 다음과 같습니다.
 
 ```
 asazure://westus.asazure.windows.net/myserver 
@@ -48,7 +48,7 @@ asazure://westus.asazure.windows.net/myserver
 https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/ 
 ```
 
-기준 URL을 사용하면, 다음에 따라 리소스 및 작업을 추가할 수 있습니다. 
+기준 URL을 사용하면, 다음 매개 변수에 따라 리소스 및 작업을 추가할 수 있습니다. 
 
 ![비동기 새로 고침](./media/analysis-services-async-refresh/aas-async-refresh-flow.png)
 
@@ -56,7 +56,7 @@ https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/
 - **()**로 끝나는 모든 항목은 함수입니다.
 - 다른 모든 항목은 리소스/개체입니다.
 
-예를 들어, 다음과 같이 Refreshes 컬렉션에 POST 동사를 사용하여 새로 고침 작업을 수행할 수 있습니다.
+예를 들어 새로 고침 컬렉션에서 POST 동사를 사용하여 새로 고침 작업을 수행할 수 있습니다.
 
 ```
 https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refreshes
@@ -71,7 +71,7 @@ https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refres
 - 사용자 또는 응용 프로그램은 서버 또는 모델에서 요청된 호출을 수행하기 위한 충분한 권한이 있어야 합니다. 사용 권한 수준은 서버의 모델 또는 관리 그룹 내 역할에 의해 결정됩니다.
 
     > [!IMPORTANT]
-    > 현재, **서버 관리자** 역할 권한이 필요합니다.
+    > 현재 **서버 관리자** 역할 권한이 필요합니다.
 
 ## <a name="post-refreshes"></a>POST /refreshes
 
@@ -104,9 +104,9 @@ https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refres
 
 |Name  |형식  |설명  |기본값  |
 |---------|---------|---------|---------|
-|형식     |  열거형       |  수행할 처리 형식입니다. 이 형식은 TMSL [새로 고침 명령](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/refresh-command-tmsl) 형식인 full, clearValues, calculate, dataOnly, automatic, add 및 defragment에 맞춰 지정됩니다.       |   automatic      |
+|형식     |  열거형       |  수행할 처리 형식입니다. 이 형식은 TMSL [새로 고침 명령](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/refresh-command-tmsl) 형식인 full, clearValues, calculate, dataOnly, automatic, add 및 defragment에 맞춰 정렬됩니다.       |   automatic      |
 |CommitMode     |  열거형       |  개체가 일괄로 커밋될지 또는 완료될 때만 커밋될지를 결정합니다. 모드에는 default, transactional, partialBatch가 포함됩니다.  |  transactional       |
-|MaxParallelism     |   int      |  이 값은 처리 명령을 동시에 실행할 최대 스레드 수를 결정합니다. 이 값은 TMSL [Sequence 명령](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/sequence-command-tmsl)에 설정될 수 있는 MaxParallelism 속성에 맞춰 지정되거나 다른 메서드를 사용하여 지정됩니다.       | 10        |
+|MaxParallelism     |   int      |  이 값은 처리 명령을 동시에 실행할 최대 스레드 수를 결정합니다. 이 값은 TMSL [시퀀스 명령](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/sequence-command-tmsl)에 설정될 수 있는 MaxParallelism 속성에 맞춰 정렬되거나 다른 메서드를 사용하여 정렬됩니다.       | 10        |
 |RetryCount    |    int     |   작업이 실패하기 전에 다시 시도하는 횟수를 나타냅니다.      |     0    |
 |개체     |   배열      |   처리해야 하는 개체의 배열입니다. 각 개체에 전체 테이블을 처리할 때는 "table"이, 파티션을 처리할 때는 "partition"이 포함됩니다. 개체를 지정하지 않으면 전체 모델이 새로 고쳐집니다. |   전체 모델 처리      |
 
@@ -188,7 +188,7 @@ CommitMode는 partialBatch와 같습니다. 시간까지 걸릴 수 있는 큰 �
 }
 ```
 
-syncstate의 값
+`syncstate`의 값:
 
 - 0: 복제 중. 데이터베이스 파일을 대상 폴더에 복제하고 있습니다.
 - 1: 리하이드레이션 중. 데이터베이스가 읽기 전용 서버 인스턴스에서 리하이드레이션되고 있습니다.
@@ -228,7 +228,7 @@ syncstate의 값
 
     ![API 액세스 추가](./media/analysis-services-async-refresh/aas-async-add.png)
 
-5.  **API 선택**에서 검색 상자에 **SQL Server Analysis Services**를 입력한 후 **Azure Analysis Services(SQL Server Analysis Services Azure)**를 선택합니다.
+5.  **API 선택**의 검색 상자에 **Azure Analysis Services**를 입력한 다음, 선택합니다.
 
     ![API 선택](./media/analysis-services-async-refresh/aas-async-select-api.png)
 
@@ -242,7 +242,7 @@ syncstate의 값
 
 #### <a name="service-principal"></a>서비스 주체
 
-Azure Analysis Services에서 서비스 사용자를 설정하고 필요한 사용 권한을 할당하는 방법에 대한 내용은 [Automation of Azure Analysis Services with Service Principals and PowerShell](https://azure.microsoft.com/blog/automation-of-azure-analysis-services-with-service-principals-and-powershell/)(서비스 사용자 및 PowerShell을 사용한 Azure Analysis Services 자동화) 블로그 게시물을 참조하세요. 이 블로그 게시물에 설명된 단계를 마친 후 다음과 같은 추가 단계를 완료합니다.
+서비스 주체를 설정하고 Azure AS에서 필요한 사용 권한을 할당하는 방법에 대한 자세한 정보는 [서비스 주체 만들기 - Azure Portal](../azure-resource-manager/resource-group-create-service-principal-portal.md) 및 [서버 관리자 역할에 서비스 주체 추가](analysis-services-addservprinc-admins.md)를 참조하세요. 이 단계를 완료한 다음, 다음과 같은 추가 단계를 완료합니다.
 
 1.  코드 예제에서 **string authority = …**를 찾은 후 **common**을 조직의 테넌트 ID로 바꿉니다.
 2.  ClientCredential 클래스가 자격 증명 개체를 인스턴스화하는 데 사용되도록 주석 처리하거나 주석 처리를 해제합니다. \<App ID> 및 \<App Key> 값이 안전한 방식으로 액세스되는지 확인하고, 그렇지 않은 경우 서비스 사용자에 대해 인증서 기반 인증을 사용합니다.

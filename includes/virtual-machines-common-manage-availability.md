@@ -1,3 +1,19 @@
+---
+title: 포함 파일
+description: 포함 파일
+services: virtual-machines
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 03/09/2018
+ms.author: cynthn
+ms.custom: include file
+ms.openlocfilehash: 1f4bd0d81d16997a9d627f918d77cb8e770a5b53
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 03/16/2018
+---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>VM 다시 부팅 이해 - 유지 관리 및 가동 중지
 Azure의 가상 컴퓨터가 초래할 수 있는 세 가지 시나리오, 즉, 계획되지 않은 하드웨어 유지 관리, 예기치 않은 가동 중지 및 계획된 유지 관리가 있습니다.
 
@@ -15,7 +31,7 @@ Azure의 가상 컴퓨터가 초래할 수 있는 세 가지 시나리오, 즉, 
 
 * [중복성을 위해 가용성 집합에서 여러 가상 머신 구성]
 * [가용성 집합의 VM에 Managed Disks 사용]
-* [예약된 이벤트를 사용하여 VM에 영향을 미치는 이벤트에 대한 사전 예방적 대응](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-scheduled-events)
+* [예약된 이벤트를 사용하여 VM에 영향을 미치는 이벤트에 사전 예방적 대응](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-scheduled-events)
 * [각 응용 프로그램 계층을 별도의 가용성 집합으로 구성]
 * [가용성 집합과 부하 분산 장치 결합]
 * [가용성 영역을 사용하여 데이터 센터 수준 오류로부터 사용자 보호]

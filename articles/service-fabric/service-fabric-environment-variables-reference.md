@@ -1,10 +1,10 @@
 ---
-title: "Azure Service Fabric 환경 변수 | Microsoft Docs"
-description: "Service Fabric 환경 변수에 대한 참조 설명서"
+title: Azure Service Fabric 환경 변수 | Microsoft Docs
+description: Service Fabric 환경 변수에 대한 참조 설명서
 documentationcenter: .net
 author: mikkelhegn
 manager: msfussell
-editor: 
+editor: ''
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: article
@@ -12,11 +12,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/07/2017
 ms.author: mikhegn
-ms.openlocfilehash: a4bf082f5bd5a57bb5eb7641a25176e3a06503a3
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: a9faefb43b9d5da81dddef8f326a3867b32842f7
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="service-fabric-environment-variables"></a>Service Fabric 환경 변수
 
@@ -36,7 +36,7 @@ Service Fabric에는 각 서비스 인스턴스에 대해 설정된 기본 제�
 | Fabric_NodeId                                | 프로세스를 실행 중인 노드의 노드 ID                            | bf865279ba277deb864a976fbf4c200e                                     |
 | Fabric_NodeIPOrFQDN                          | 클러스터 매니페스트 파일에 지정된 노드의 IP 또는 FQDN | localhost 또는 10.0.0.1                                                |
 | Fabric_NodeName                              | 프로세스를 실행 중인 노드의 노드 이름                          | _Node_0                                                              |
-| Fabric_ServiceName                           | 서비스가 ExclusiveProcess 모드에서 호스트되는 경우 서비스의 이름  | MyService                                               |
+| Fabric_ServiceName                           | 서비스가 ExclusiveProcess 모드에서 호스트되는 경우 서비스의 이름 이 변수 값은 ServicePackageActivationMode ExclusiveProcess를 사용하여 서비스를 생성한 경우에만 제공됩니다.  | MyService                                               |
 | Fabric_ServicePackageActivationId            | The ServicePackageActivationId                                         | GUID                                                               |
 | Fabric_ServicePackageName                    | 프로세스가 속하는 서비스 패키지의 이름                     | Web1Pkg                                                              |
 

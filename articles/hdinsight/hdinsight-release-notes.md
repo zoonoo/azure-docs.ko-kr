@@ -1,8 +1,8 @@
 ---
-title: "Azure HDInsight에서 Hadoop 구성 요소에 대한 릴리스 정보 | Microsoft Docs"
-description: "Azure HDInsight용 Hadoop 구성 요소의 최신 릴리스 정보 및 버전입니다. Spark, R 서버, Hive 등에 대한 개발 팁 및 세부 정보를 확인하세요."
+title: Azure HDInsight에서 Hadoop 구성 요소에 대한 릴리스 정보 | Microsoft Docs
+description: Azure HDInsight용 Hadoop 구성 요소의 최신 릴리스 정보 및 버전입니다. Spark, R 서버, Hive 등에 대한 개발 팁 및 세부 정보를 확인하세요.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 editor: cgronlun
 manager: jhubbard
 author: nitinme
@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2017
+ms.date: 03/08/2018
 ms.author: nitinme
-ms.openlocfilehash: e0977417ec8678db54d91677b1f9bdc709e196b5
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 38a33056ccd908b43319125b3fe517988b1507c6
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="release-notes-for-hadoop-components-on-azure-hdinsight"></a>Azure HDInsight에서 Hadoop 구성 요소에 대한 릴리스 정보
 
@@ -29,17 +29,20 @@ ms.lasthandoff: 12/11/2017
 > [!IMPORTANT]
 > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [HDInsight 버전 관리 문서](hdinsight-component-versioning.md)를 참조하세요.
 
+## <a name="notes-for-03082018---release-of-spark-22-on-hdinsight-36"></a>HDInsight 3.6에서 Spark 2.2의 2018/03/08 릴리스 정보
+
+- Spark 2.2.0은 Spark Core, SQL, ML 간 안정성을 개선하고 GA 상태에 대한 구조적 스트리밍을 제공합니다. 이제 Spark 2.2.0은 HDInsight 3.6에 제공됩니다.
 
 ## <a name="notes-for-08012017-release-of-hdinsight"></a>HDInsight의 2017/08/01 릴리스 정보
 
 | 제목 | 설명 | 영향을 받는 영역  | 클러스터 유형  | 
 | --- | --- | --- | --- | --- |
-| HDInsight의 Microsoft R Server 9.1 릴리스 |HDInsight는 이제 HDInsight에서 R Server 9.1 클러스터 프로비저닝을 지원합니다. Microsoft R Server 9.1 릴리스에 대한 자세한 내용은 [이 블로그](https://blogs.technet.microsoft.com/dataplatforminsider/2017/04/19/introducing-microsoft-r-server-9-1-release/)를 참조하세요. |부여 |R 서버 |
-| HDInsight 3.6에는 이제 Hadoop 스택의 더 새로운 버전이 포함됨|<ul><li>업데이트된 버전의 세부적인 목록은 [HDInsight에서 사용할 수 있는 Hadoop 구성 요소 버전](hdinsight-component-versioning.md#hadoop-components-available-with-different-hdinsight-versions)을 참조하세요.</li><li>Hadoop 스택 최신 버전의 버그 수정 목록은 [Apache 패치 정보](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/patch_parent.html)를 참조하세요.</li><li>HDP 2.6.1(현재 HDInsight 3.6에서 제공됨)의 주요 변경 내용은 [https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/behavior_changes.html](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/behavior_changes.html)을 참조하세요.</li><li>HDP 2.6.1의 알려진 문제 목록은 [알려진 문제](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/known_issues.html)를 참조하세요.</li></ul> |부여 |모두 |해당 없음 |
-| Interactive Hive(미리 보기) 클러스터 업데이트 |<ul><li><b>기능 개선.</b> 메타데이터를 캐시하여 백엔드 SQL의 부하를 줄이고 모든 메타데이터 작업의 성능을 개선하는 캐시된 metastore 구현.  이 개선은 현재 모든 Interactive Hive 클러스터의 기본값입니다. 자세한 내용은 [https://issues.apache.org/jira/browse/HIVE-16520](https://issues.apache.org/jira/browse/HIVE-16520)을 참조하세요.</li><li><b>기능 개선.</b> 동적 파티션 로딩이 최적화됩니다. 자세한 내용은 [https://issues.apache.org/jira/browse/HIVE-14204](https://issues.apache.org/jira/browse/HIVE-14204)를 참조하세요.</li><li><b>기능 개선.</b> Linux의 HDInsight 구성 최적화.</li><li><b>버그 수정.</b> `CredentialProviderFactory$getProviders`은(는) 스레드로부터 안전하지 않습니다. 이제 이 문제는 해결되었습니다. 자세한 내용은 [https://issues.apache.org/jira/browse/HADOOP-14195](https://issues.apache.org/jira/browse/HADOOP-14195)를 참조하세요.</li><li><b>버그 수정.</b> WASB 드라이버 `liststatus` API에서 높은 CPU 사용률과 그로 인한 ATS 성능 저하. 이제 이 문제는 해결되었습니다. 자세한 내용은 [https://github.com/Azure/azure-storage-java/pull/154](https://github.com/Azure/azure-storage-java/pull/154)를 참조하세요.</li></ul> |부여 |대화형 Hive(미리 보기) |
-| Hadoop 클러스터 업데이트 |Templeton 작업 안정성이 개선되었습니다. 자세한 내용은 [https://issues.apache.org/jira/browse/HIVE-15947](https://issues.apache.org/jira/browse/HIVE-15947)을 참조하세요. |부여 |Hadoop은 |
-| YARN 업데이트 | 이제 HDInsight는 250GB Ambari 데이터베이스(비용 증가 없음)를 만들며 그 결과 고객의 환경이 개선됩니다. 이 변경은 ATS가 꽉 차지 않도록 하며, 대부분의 경우 더 높은 성능을 제공합니다. |부여 |모두 |
-| Spark 업데이트 | Spark 2.1.1 릴리스 자세한 내용은 [Spark 릴리스 2.1.1](https://spark.apache.org/releases/spark-release-2-1-1.html)을 참조하세요. | 부여 | Spark |
+| HDInsight의 Microsoft R Server 9.1 릴리스 |HDInsight는 이제 HDInsight에서 R Server 9.1 클러스터 프로비저닝을 지원합니다. Microsoft R Server 9.1 릴리스에 대한 자세한 내용은 [이 블로그](https://blogs.technet.microsoft.com/dataplatforminsider/2017/04/19/introducing-microsoft-r-server-9-1-release/)를 참조하세요. |서비스 |R 서버 |
+| HDInsight 3.6에는 이제 Hadoop 스택의 더 새로운 버전이 포함됨|<ul><li>업데이트된 버전의 세부적인 목록은 [HDInsight에서 사용할 수 있는 Hadoop 구성 요소 버전](hdinsight-component-versioning.md#hadoop-components-available-with-different-hdinsight-versions)을 참조하세요.</li><li>Hadoop 스택 최신 버전의 버그 수정 목록은 [Apache 패치 정보](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/patch_parent.html)를 참조하세요.</li><li>HDP 2.6.1(이제 HDInsight 3.6에서 제공됨) 간의 주요 변경 사항 목록은 [https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/behavior_changes.html](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/behavior_changes.html)을 참조하세요.</li><li>HDP 2.6.1의 알려진 문제 목록은 [알려진 문제](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/known_issues.html)를 참조하세요.</li></ul> |서비스 |모두 |해당 없음 |
+| Interactive Hive(미리 보기) 클러스터 업데이트 |<ul><li><b>기능 개선.</b> 메타데이터를 캐시하여 백엔드 SQL의 부하를 줄이고 모든 메타데이터 작업의 성능을 개선하는 캐시된 metastore 구현.  이 개선은 현재 모든 Interactive Hive 클러스터의 기본값입니다. 자세한 내용은 [https://issues.apache.org/jira/browse/HIVE-16520](https://issues.apache.org/jira/browse/HIVE-16520)을 참조하세요.</li><li><b>기능 개선.</b> 동적 파티션 로딩이 최적화됩니다. 자세한 내용은 [https://issues.apache.org/jira/browse/HIVE-14204](https://issues.apache.org/jira/browse/HIVE-14204))을 참조하세요.</li><li><b>기능 개선.</b> Linux의 HDInsight 구성 최적화.</li><li><b>버그 수정.</b> `CredentialProviderFactory$getProviders`은(는) 스레드로부터 안전하지 않습니다. 이제 이 문제는 해결되었습니다. 자세한 내용은 [https://issues.apache.org/jira/browse/HADOOP-14195](https://issues.apache.org/jira/browse/HADOOP-14195)을 참조하세요.</li><li><b>버그 수정.</b> WASB 드라이버 `liststatus` API에서 높은 CPU 사용률과 그로 인한 ATS 성능 저하. 이제 이 문제는 해결되었습니다. 자세한 내용은 [https://github.com/Azure/azure-storage-java/pull/154](https://github.com/Azure/azure-storage-java/pull/154)을 참조하세요.</li></ul> |서비스 |대화형 Hive(미리 보기) |
+| Hadoop 클러스터 업데이트 |Templeton 작업 안정성이 개선되었습니다. 자세한 내용은 [https://issues.apache.org/jira/browse/HIVE-15947](https://issues.apache.org/jira/browse/HIVE-15947)을 참조하세요. |서비스 |Hadoop은 |
+| YARN 업데이트 | 이제 HDInsight는 250GB Ambari 데이터베이스(비용 증가 없음)를 만들며 그 결과 고객의 환경이 개선됩니다. 이 변경은 ATS가 꽉 차지 않도록 하며, 대부분의 경우 더 높은 성능을 제공합니다. |서비스 |모두 |
+| Spark 업데이트 | Spark 2.1.1 릴리스 자세한 내용은 [Spark 릴리스 2.1.1](https://spark.apache.org/releases/spark-release-2-1-1.html)을 참조하세요. | 서비스 | Spark |
 
   
 

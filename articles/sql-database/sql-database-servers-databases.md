@@ -2,24 +2,18 @@
 title: Azure SQL Server 및 데이터베이스 만들기 및 관리 | Microsoft Docs
 description: SQL Database 서버 및 데이터베이스 개념, 서버 및 데이터베이스 생성 및 관리에 대해 알아봅니다.
 services: sql-database
-documentationcenter: na
 author: CarlRabeler
-manager: jhubbard
-editor: ''
-ms.assetid: ''
+manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: On Demand
-ms.date: 02/28/2018
+ms.date: 03/16/2018
 ms.author: carlrab
-ms.openlocfilehash: 0e2dabc5cc0b816f2623fce5f8fb09a7004039c7
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 2e05be2131ca89a084da5eeffc0b025b38432a8d
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="create-and-manage-azure-sql-database-servers-and-databases"></a>Azure SQL Database 서버 및 데이터베이스 만들기 및 관리
 
@@ -27,7 +21,7 @@ SQL Database는 다음 세 가지 유형의 데이터베이스를 제공합니�
 
 - Azure SQL Database는 [다양한 워크로드에 대해 정의된 계산 및 저장소 리소스](sql-database-service-tiers.md) 집합을 사용하여 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md) 내에서 만들어진 단일 데이터베이스. Azure SQL Database는 Azure SQL Database 논리 서버와 연결되어 있으며 특정 Azure 지역에서 만들어집니다.
 - 풀의 모든 데이터베이스 간에 공유되는 [다양한 워크로드에 대해 정의된 계산 및 저장소 리소스](sql-database-service-tiers.md) 집합을 사용하여 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md) 내에서 [데이터베이스 풀](sql-database-elastic-pool.md)의 일부로 만들어진 데이터베이스. Azure SQL Database는 Azure SQL Database 논리 서버와 연결되어 있으며 특정 Azure 지역에서 만들어집니다.
-- 해당 서버 인스턴스의 모든 데이터베이스에 대해 정의된 계산 및 저장소 리소스 집합을 사용하여 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md) 내에서 만들어진 [SQL Server 인스턴스](sql-database-managed-instance.md). 관리되는 인스턴스는 시스템 및 사용자 데이터베이스를 둘 다 포함합니다. 관리되는 인스턴스는 응용 프로그램을 다시 설계하지 않고도 완전히 관리되는 PaaS로 데이터베이스로 리프트 앤 시프트 방식으로 이동할 수 있도록 설계되었습니다. 관리되는 인스턴스는 온-프레미스 SQL Server 프로그래밍 모델과의 호환성이 뛰어나고, 대부분의 SQL Server 기능과 함께 제공되는 도구 및 서비스에 대한 지원을 제공합니다.  
+- 해당 서버 인스턴스의 모든 데이터베이스에 대해 정의된 계산 및 저장소 리소스 집합을 사용하여 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md) 내에서 만들어진 [SQL Server 인스턴스](sql-database-managed-instance.md)(관리되는 인스턴스). 관리되는 인스턴스는 시스템 및 사용자 데이터베이스를 둘 다 포함합니다. 관리되는 인스턴스는 응용 프로그램을 다시 설계하지 않고도 완전히 관리되는 PaaS로 데이터베이스로 리프트 앤 시프트 방식으로 이동할 수 있도록 설계되었습니다. 관리되는 인스턴스는 온-프레미스 SQL Server 프로그래밍 모델과의 호환성이 뛰어나고, 대부분의 SQL Server 기능과 함께 제공되는 도구 및 서비스에 대한 지원을 제공합니다.  
 
 Microsoft Azure SQL Database는 TDS(Tabular Data Stream) 프로토콜 클라이언트 버전 7.3 이상을 지원하며 암호화된 TCP/IP 연결만 허용합니다.
 
@@ -146,7 +140,7 @@ Azure PowerShell을 사용하여 Azure SQL Server, 데이터베이스 및 방화
 |[az group create](/cli/azure/group#az_group_create)|리소스 그룹 만들기|
 |[az sql server create](/cli/azure/sql/server#az_sql_server_create)|서버 만들기|
 |[az sql server list](/cli/azure/sql/server#az_sql_server_list)|서버 나열|
-|[az sql server list-usages](/cli/azure/sql/server#az_sql_server_list-usages)|서버 사용 반환|
+|[az sql server list-usages](/cli/azure/sql/server#az_sql_server_list_usages)|서버 사용 반환|
 |[az sql server show](/cli/azure/sql/server#az_sql_server_show)|서버 가져오기|
 |[az sql server update](/cli/azure/sql/server#az_sql_server_update)|서버 업데이트|
 |[az sql server delete](/cli/azure/sql/server#az_sql_server_delete)|서버를 삭제합니다.|
@@ -202,7 +196,6 @@ Azure SQL Server, 데이터베이스 및 방화벽을 만들고 관리하려면 
 |[Servers - List](/rest/api/sql/servers/list)|서버 목록을 반환합니다.|
 |[Servers - List By Resource Group](/rest/api/sql/servers/listbyresourcegroup)|리소스 그룹의 서버 목록을 반환합니다.|
 |[Servers - Update](/rest/api/sql/servers/update)|기존 서버를 업데이트합니다.|
-|[Servers - Sql](/rest/api/sql/servers%20-%20sql)|지정된 이름의 리소스를 만들 수 있는지 여부를 결정합니다.|
 |[데이터베이스 - Create 또는 Update](/rest/api/sql/databases/createorupdate)|새 데이터베이스를 만들거나 기존 데이터베이스를 업데이트합니다.|
 |[데이터베이스 - Get](/rest/api/sql/databases/get)|데이터베이스를 가져옵니다.|
 |[데이터베이스 - Get By Elastic Pool](/rest/api/sql/databases/getbyelasticpool)|탄력적 풀 내부의 데이터베이스를 가져옵니다.|

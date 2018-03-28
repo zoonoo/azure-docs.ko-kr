@@ -1,24 +1,20 @@
 ---
-title: "Chocolatey를 사용한 Azure Automation DSC 연속 배포 | Microsoft Docs"
-description: "Azure Automation DSC 및 Chocolatey패키지 관리자를 사용한 DevOps 연속 배포  전체 JSON ARM 템플릿 및 PowerShell 소스가 있는 예"
+title: Chocolatey를 사용한 Azure Automation DSC 지속적인 배포
+description: Azure Automation DSC 및 Chocolatey패키지 관리자를 사용한 DevOps 연속 배포  전체 JSON ARM 템플릿 및 PowerShell 소스가 있는 예
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: carmonm
-editor: tysonn
-ms.assetid: c0baa411-eb76-4f91-8d14-68f68b4805b6
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: na
-ms.date: 10/29/2016
-ms.author: golive
-ms.openlocfilehash: f9957d745ed910fbdcbeeee7d9ddb24a51da141b
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+manager: carmonm
+ms.devlang: na
+ms.tgt_pltfrm: na
+ms.openlocfilehash: 8c1427bd40a6fd75a755c4709d88a4b8e4c55571
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-dsc-and-chocolatey"></a>사용 예: Automation DSC 및 Chocolatey를 사용하여 Virtual Machines에 연속 배포
 DevOps 업계에는 연속 통합 파이프라인의 여러 시점에서 개발자를 지원하는 여러 도구가 있습니다.  Azure Automation DSC(필요한 상태 구성)는 DevOps 팀이 채택할 수 있는 새로운 옵션이 추가되는 것을 환영합니다.  이 문서에서는 Windows 컴퓨터에 대 한 CD(연속 배포)를 보여줍니다.  이 방법을 간편하게 확장하여 역할(예: 웹 사이트)에서 필요한 만큼의 Windows 컴퓨터를 포함하고 추가적인 역할도 구성할 수 있습니다.
@@ -163,7 +159,7 @@ New-ConfigurationScript.ps1:
 ## <a name="step-6-tying-it-all-together"></a>6단계: 모든 항목 요약
 각 버전이 QA를 전달하고 배포를 승인할 때마다 패키지를 만들고 nuspec 및 nupkg를 NuGet 서버에 업데이트하며 배포합니다.  또한 구성(위의 4단계)은 새 버전 번호와 일치하도록 업데이트되어야 합니다.  끌어오기 서버로 전송되고 컴파일되어야 합니다.  해당 지점부터 업데이트를 끌어오고 설치하는 작업은 해당 구성에 종속되는 VM의 역할입니다.  이러한 각각의 업데이트는 하나 또는 두 줄의 PowerShell로 간단합니다.  Visual Studio Team Services의 경우 일부는 빌드에서 서로 연결될 수 있는 빌드 작업에 캡슐화됩니다.  이 [문서](https://www.visualstudio.com/en-us/docs/alm-devops-feature-index#continuous-delivery)에 자세한 내용이 나와 있습니다.  이 [GitHub 리포지토리](https://github.com/Microsoft/vso-agent-tasks) 는 사용 가능한 다양한 빌드 작업을 자세히 설명합니다.
 
-## <a name="notes"></a>참고 사항
+## <a name="notes"></a>메모
 이 사용 예에서는 Azure 갤러리의 일반 Windows Server 2012 R2 이미지에서 VM으로 시작합니다.  아무 저장된 이미지에서나 시작하고 DSC 구성을 통해 조정을 진행할 수 있습니다.  그러나 이미지에 반영되는 구성을 변경하는 작업은 DSC를 사용하여 구성을 동적으로 업데이트하는 작업보다 훨씬 어렵습니다.
 
 이 방법을 VM에 사용하기 위해 ARM 템플릿이나 VM 확장을 사용할 필요는 없습니다.  또한 VM이 CD 관리를 위해 Azure에 있을 필요도 없습니다.  오직 Chocolatey을 설치하고 풀 서버 위치를 알 수 있게 VM에 LCM을 구성하기만 하면 됩니다.  

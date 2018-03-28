@@ -1,6 +1,6 @@
 ---
-title: "Azure Virtual Network(VNet) 계획 및 디자인 가이드 | Microsoft Docs"
-description: "격리, 연결 및 위치 요구 사항을 기반으로 Azure에서 가상 네트워크를 계획 및 디자인하는 방법을 알아봅니다."
+title: Azure Virtual Network(VNet) 계획 및 디자인 가이드 | Microsoft Docs
+description: 격리, 연결 및 위치 요구 사항을 기반으로 Azure에서 가상 네트워크를 계획 및 디자인하는 방법을 알아봅니다.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/08/2016
 ms.author: jdial
-ms.openlocfilehash: ecdc3a847821fd83718f9cfc42308667460feabc
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: f11b2d1b4061b395918a274c4c53688bf34fbae1
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="plan-and-design-azure-virtual-networks"></a>Azure Virtual Network 계획 및 디자인
 실험할 VNet을 만드는 것이 매우 쉽지만 조직의 프로덕션 요구를 지원하도록 시간이 지남에 따라 여러 VNet을 배포할 가능성이 높습니다. 몇 가지 계획 및 디자인을 통해 VNet을 배포하고 필요한 리소스를 보다 효과적으로 배포할 수 있습니다. VNet에 대해 잘 모르는 경우 진행하기 전에 [VNet에 대한 정보](virtual-networks-overview.md) 및 [배포 방법](quick-create-portal.md)을 알아보는 것이 좋습니다.
@@ -248,7 +248,7 @@ VNet에는 다음 속성이 포함될 수 있습니다.
 이러한 요구 사항에 따라 네트워킹 팀에서 사용자를 각 구독의 기본 제공 **네트워크 참여자** 역할에 추가할 수 있으며 각 구독의 응용 프로그램 개발자에 대한 사용자 지정 역할을 만들어 기존 서브넷에 VM을 추가할 권한을 부여할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [가상 네트워크를 배포](virtual-networks-create-vnet-arm-template-click.md) 합니다.
+* [가상 네트워크를 배포합니다](quick-create-portal.md).
 * IaaS VM [부하를 분산](../load-balancer/load-balancer-overview.md)시키고 [여러 Azure 지역을 통한 라우팅 관리](../traffic-manager/traffic-manager-overview.md) 방법을 이해합니다.
-* [NSG에 대해 알아보고 NSG 솔루션을 계획 및 디자인하는 방법](virtual-networks-nsg.md) 에 대해 알아봅니다.
+* [NSG(네트워크 보안 그룹)](security-overview.md) 솔루션에 대해 알아봅니다.
 * [크로스-프레미스 및 VNet 연결 옵션](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti)에 대해 알아봅니다.

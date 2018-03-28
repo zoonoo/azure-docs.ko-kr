@@ -1,11 +1,11 @@
 ---
-title: "Azure Marketplace에 대한 가상 컴퓨터 이미지 만들기 | Microsoft Docs"
-description: "Azure Marketplace에서 다른 사용자가 구입할 수 있도록 가상 머신 이미지를 만드는 방법에 대한 자세한 지침입니다."
+title: Azure Marketplace에 대한 가상 컴퓨터 이미지 만들기 | Microsoft Docs
+description: Azure Marketplace에서 다른 사용자가 구입할 수 있도록 가상 머신 이미지를 만드는 방법에 대한 자세한 지침입니다.
 services: Azure Marketplace
-documentationcenter: 
-author: HannibalSII
-manager: hascipio
-editor: 
+documentationcenter: ''
+author: msmbaldwin
+manager: mbaldwin
+editor: ''
 ms.assetid: 5c937b8e-e28d-4007-9fef-624046bca2ae
 ms.service: marketplace
 ms.devlang: na
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
-ms.author: hascipio; v-divte
-ms.openlocfilehash: 0379592f1c4f6e9d3f6fd2127b8e34e99a8b0176
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: mbaldwin
+ms.openlocfilehash: f7b19066ca3fa156456766ff82afeadadc6b1efa
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Azure Marketplace에 대한 가상 머신 이미지 만들기 가이드
 이 문서의 **2단계**에서는 Azure Marketplace에 배포할 VHD(가상 하드 디스크)를 준비하는 과정을 안내합니다. VHD는 SKU의 기반입니다. Linux 기반 SKU를 제공할지 Windows 기반 SKU를 제공할지 여부에 따라 프로세스는 다릅니다. 이 문서에서는 두 시나리오를 모두 다룹니다. 이 프로세스는 [계정 만들기 및 등록][link-acct-creation]과 함께 병렬로 수행할 수 있습니다.
@@ -29,7 +29,7 @@ ms.lasthandoff: 02/21/2018
 제품은 모든 SKU의 "부모"입니다. 제품을 여러 개 보유할 수 있습니다. 제품을 구성하는 방법은 게시자가 결정합니다. 제품은 스테이징으로 푸시될 때 모든 SKU와 함께 푸시됩니다. SKU 식별자는 URL에 표시되므로 신중하게 고려하세요.
 
 * Azure.com: http://azure.microsoft.com/marketplace/partners/{PartnerNamespace}/{OfferIdentifier}-{SKUidentifier}
-* Azure Preview 포털: https://portal.azure.com/#gallery/{PublisherNamespace}.{OfferIdentifier}{SKUIDdentifier}  
+* Azure 미리 보기 포털: https://portal.azure.com/#gallery/{PublisherNamespace}.{OfferIdentifier}{SKUIDdentifier}  
 
 SKU는 VM 이미지에 대한 상업용 이름입니다. VM 이미지에는 운영 체제 디스크 하나와 0개 이상의 데이터 디스크가 포함되어 있습니다. 가상 머신에 대한 완벽한 저장소 프로필입니다. 디스크당 VHD 하나가 필요합니다. 데이터 디스크가 비어 있는 경우에도 VHD를 만들어야 합니다.
 
@@ -372,7 +372,7 @@ Azure Storage Explorer를 사용하여 SAS URL을 생성하는 단계는 다음�
 
 Microsoft Azure Storage Explorer를 사용하여 SAS URL을 생성하는 단계는 다음과 같습니다.
 
-1.  [http://storageexplorer.com/](http://storageexplorer.com/) 웹 사이트에서 Microsoft Azure Storage Explorer를 다운로드합니다. [Microsoft Azure Storage Explorer](http://storageexplorer.com/releasenotes.html)로 이동하여 **"Windows용 다운로드"**를 클릭합니다.
+1.  [http://storageexplorer.com/](http://storageexplorer.com/) 웹 사이트에서 Microsoft Azure Storage 탐색기를 다운로드합니다. [Microsoft Azure Storage Explorer](http://storageexplorer.com/releasenotes.html)로 이동하여 **"Windows용 다운로드"**를 클릭합니다.
 
     ![drawing](media/marketplace-publishing-vm-image-creation/img5.2_10.png)
 

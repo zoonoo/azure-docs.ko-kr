@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/29/2017
 ms.author: genli
-ms.openlocfilehash: 8f6f3fc8325fb2587dc09b982efa52fbe663e2a9
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 3e2f8be0f77e220da483dcfb18d6b324d3f203ed
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Windows용 Azure Performance Diagnostics VM 확장
 
@@ -227,9 +227,7 @@ PerfInsights 도구는 선택한 시나리오에 따라 다양한 로그, 구성
 
 ## <a name="view-and-share-the-results"></a>결과 확인 및 공유
 
-확장의 출력이 폴더에 저장됩니다. 폴더의 이름은 log_collection이며 기본적으로 Temp 드라이브(일반적으로 D:\log_collection)에서 찾을 수 있습니다. 이 폴더 아래에 확인 및 권장 사항이 포함된 진단 로그 및 보고서가 담긴 zip 파일이 표시됩니다.
-
-설치 중에 제공된 저장소 계정에서 zip 파일을 찾을 수 있습니다. [SAS(공유 액세스 서명)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md)를 사용하여 30일 동안 공유합니다. 이름이 *zipfilename*_saslink.txt인 텍스트 파일도 log_collection 폴더에 생성됩니다. 이 파일에는 zip 파일 다운로드를 위해 만들어진 SAS 링크가 포함됩니다. 이 링크가 있는 모든 사람은 zip 파일을 다운로드할 수 있습니다.
+확장의 출력은 설치 중 지정된 저장소 계정에 업로드된 zip 파일에서 찾을 수 있으며 [SAS(공유 액세스 서명)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md)를 사용하여 30일 동안 공유됩니다. 이 zip 파일은 진단 로그 및 결과 및 권장 사항이 있는 보고서를 포함합니다. 출력 zip 파일에 대한 SAS 링크는 폴더 **C:\Packages\Plugins\Microsoft.Azure.Performance.Diagnostics.AzurePerformanceDiagnostics\\\<version>** 아래의 *zipfilename*_saslink.txt라는 텍스트 파일 내에서 찾을 수 있습니다. 이 링크가 있는 모든 사람은 zip 파일을 다운로드할 수 있습니다.
 
 Microsoft에서는 지원 티켓에서 작업하는 지원 엔지니어를 지원하기 위해 이 SAS 링크를 사용하여 진단 데이터를 다운로드할 수 있습니다.
 
@@ -240,7 +238,7 @@ Microsoft에서는 지원 티켓에서 작업하는 지원 엔지니어를 지�
 ![성능 진단 세부 상태 스크린샷](media/performance-diagnostics-vm-extension/view-detailed-status.png)
 
 > [!NOTE]
-> 포털에 표시되는 SAS 링크가 작동하지 않을 수 있습니다. 인코딩 및 디코딩 작업 중에 형식이 잘못된 URL에서 발생할 수 있습니다. VM에서 직접 *_saslink.txt 파일의 링크를 직접 가져올 수 있습니다.
+> 경우에 따라 포털에 표시되는 SAS 링크가 작동하지 않을 수 있습니다. 인코딩 및 디코딩 작업 중에 형식이 잘못된 URL에서 발생할 수 있습니다. VM에서 직접 *_saslink.txt 파일의 링크를 직접 가져올 수 있습니다.
 
 ## <a name="troubleshoot-and-support"></a>문제 해결 및 지원
 
@@ -249,6 +247,6 @@ Microsoft에서는 지원 티켓에서 작업하는 지원 엔지니어를 지�
     확장 상태가 확장이 성공적으로 표시되었다고 표시하는 한 이 문제는 무시해도 안전합니다.
 - 확장 로그를 사용하여 설치 중 발생하는 일부 문제를 해결할 수 있습니다. 확장 실행 출력은 다음 디렉터리에 있는 파일에 기록됩니다.
 
-        C:\Packages\Plugins\Microsoft.Azure.Performance.Diagnostics.AzurePerformanceDiagnostics
+        C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Performance.Diagnostics.AzurePerformanceDiagnostics\<version>
 
 이 문서의 어디에서든 도움이 필요한 경우 [MSDN Azure 및 Stack Overflow 포럼](https://azure.microsoft.com/support/forums/)에서 Azure 전문가에게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수 있습니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/)로 가서 **지원 받기**를 선택합니다. Azure 지원을 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)를 참조하세요.

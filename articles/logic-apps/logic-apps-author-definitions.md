@@ -1,42 +1,63 @@
 ---
-title: "JSON으로 논리 앱 정의에 따라 빌드 - Azure Logic Apps | Microsoft Docs"
-description: "매개 변수 추가, 문자열 처리, 매개 변수 맵 만들기 및 Date 함수로 데이터 가져오기"
+title: 논리 앱 정의를 위한 JSON 만들기, 편집 또는 확장 - Azure Logic Apps | Microsoft Docs
+description: JSON에서 논리 앱 정의 작성 및 사용자 지정
 author: ecfan
-manager: anneta
-editor: 
+manager: SyntaxC4
+editor: ''
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.service: logic-apps
-ms.workload: integration
+ms.workload: logic-apps
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.custom: H1Hack27Feb2017
-ms.date: 01/31/2018
-ms.author: LADocs; estfan
-ms.openlocfilehash: d05f7e34cbe670db6733c199e3420c810c304a84
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.date: 01/01/2018
+ms.author: estfan; LADocs
+ms.openlocfilehash: bde275eb75c97da2a99109484b46b599a5b2f871
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="build-on-your-logic-app-definition-with-json"></a>JSON을 사용하여 논리 앱 정의에 따라 빌드
+# <a name="create-edit-or-customize-json-for-logic-app-definitions"></a>논리 앱 정의를 위한 JSON 만들기, 편집 또는 사용자 지정
 
-[Azure Logic Apps](../logic-apps/logic-apps-overview.md)로 고급 작업을 수행하려면 코드 보기를 사용하여 간단한 선언적 JSON 언어를 사용하는 논리 앱 정의를 편집합니다. 아직 사용한 적이 없는 경우 [첫 번째 논리 앱을 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md)을 먼저 검토하세요. 또한 [워크플로 정의 언어에 대한 전체 참조](http://aka.ms/logicappsdocs)도 참조하세요.
+[Azure Logic Apps](../logic-apps/logic-apps-overview.md)에서 자동화된 워크플로를 사용하여 엔터프라이즈 통합 솔루션을 만들 때 기본 논리 앱 정의는 해당 설명 및 유효성 검사에 대해 간단하고 선언적 JSON(JavaScript Object Notation)과 함께 [WDL(워크플로 정의 언어) 스키마](../logic-apps/logic-apps-workflow-definition-language.md)를 사용합니다. 이러한 형식 덕분에 코드에 대해 잘 몰라도 논리 앱 정의를 더 쉽게 읽고 이해할 수 있습니다. 논리 앱의 만들기 및 배포를 자동화하려는 경우 논리 앱 정의를 [Azure Resource Manager 템플릿](../azure-resource-manager/resource-group-overview.md#template-deployment) 내 [Azure 리소스](../azure-resource-manager/resource-group-overview.md)로 포함할 수 있습니다. 그런 다음, [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.logicapp), [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md) 또는 [Azure Logic Apps REST API](https://docs.microsoft.com/rest/api/logic/)를 사용하여 논리 앱을 생성, 관리 및 배포할 수 있습니다.
+
+JSON에서 논리 앱 정의를 사용하려면 Azure Portal 또는 Visual Studio에서 작업하는 경우 코드 보기 편집기를 열거나 원하는 편집기에로 정의를 복사합니다. 논리 앱을 처음 사용하는 경우 [첫 번째 논리 앱을 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md)을 검토하세요.
 
 > [!NOTE]
-> 매개 변수와 같은 일부 Azure Logic Apps 기능은 논리 앱 정의를 위해 코드 보기에서 작업할 때만 사용할 수 있습니다. 매개 변수를 통해 논리 앱 전체에서 값을 다시 사용할 수 있습니다. 예를 들어 여러 작업에 동일한 이메일 주소를 사용하려면 해당 이메일 주소를 매개 변수로 정의합니다.
+> 논리 앱 정의에서 매개 변수 및 여러 트리거를 정의하는 것처럼 일부 Azure Logic Apps 기능은 Logic Apps 디자이너가 아닌 JSON에서만 사용할 수 있습니다. 따라서 이러한 작업의 경우 코드 보기 또는 다른 편집기에서 작업해야 합니다.
 
-## <a name="view-and-edit-your-logic-app-definitions-in-json"></a>JSON 형식의 논리 앱 정의 보기 및 편집
+## <a name="edit-json---azure-portal"></a>JSON 편집 - Azure Portal
 
-1. [Azure Portal](https://portal.azure.com "Azure Portal")에 로그인합니다.
+1. <a href="https://portal.azure.com" target="_blank">Azure Portal</a>에 로그인합니다.
 
-2. 왼쪽 메뉴에서 **추가 서비스**를 선택합니다. **엔터프라이즈 통합** 아래에서 **Logic Apps**를 선택합니다. 논리 앱을 선택합니다.
+2. 왼쪽 메뉴에서 **모든 서비스**를 선택합니다. 검색 상자에서 “논리 앱”을 찾은 다음, 결과에서 사용자의 논리 앱을 선택합니다.
 
 3. 논리 앱 메뉴의 **개발 도구**에서 **Logic Apps 코드 보기**를 선택합니다.
 
-   코드 보기 창이 열리고 논리 앱 정의가 표시됩니다.
+   코드 보기 편집기가 열리고 논리 앱 정의가 JSON 형식으로 표시됩니다.
+
+## <a name="edit-json---visual-studio"></a>JSON 편집 - Visual Studio
+
+Visual Studio에서 논리 앱 정의를 작업하려면 [필요한 도구가 설치되었는지](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#prerequisites) 확인해야 합니다. Visual Studio를 사용하여 논리 앱을 만들려면 [빠른 시작: Azure Logic Apps - Visual Studio를 사용하여 작업 및 프로세스 자동화](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)를 검토합니다.
+
+Visual Studio에서 생성되어 직접 Azure Portal에서 또는 Visual Studio에서 Azure Resource Manager 프로젝트로 배포된 논리 앱을 열 수 있습니다.
+
+1. Visual Studio 솔루션 또는 논리 앱이 포함된 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md) 프로젝트를 엽니다.
+
+2. 기본적으로 [Resource Manager 템플릿](../azure-resource-manager/resource-group-overview.md#template-deployment)에 표시되는 **LogicApp.json**이라 명명된 논리 앱의 정의를 찾아서 엽니다. 배포를 위해 이 템플릿을 다른 환경으로 사용 및 사용자 지정할 수 있습니다.
+
+3. 논리 앱 정의 및 템플릿에 대한 바로 가기 메뉴를 엽니다. **Logic Apps 디자이너를 사용하여 열기**를 선택합니다.
+
+   ![Visual Studio 솔루션에서 논리 앱 열기](./media/logic-apps-author-definitions/open-logic-app-designer.png)
+
+4. 디자이너의 맨 아래에서 **코드 보기**를 선택합니다. 
+
+   코드 보기 편집기가 열리고 논리 앱 정의가 JSON 형식으로 표시됩니다.
+
+5. 디자이너 보기로 돌아가려면 코드 보기 편집기의 맨 아래에서 **디자인**을 선택합니다.
 
 ## <a name="parameters"></a>매개 변수
 

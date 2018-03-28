@@ -1,8 +1,8 @@
 ---
-title: "Azure Data Factory의 데이터 집합 및 연결된 서비스 | Microsoft Docs"
-description: "Data Factory의 데이터 집합 및 연결된 서비스에 대해 알아봅니다. 연결된 서비스는 계산/데이터 저장소를 데이터 팩터리에 연결합니다. 데이터 집합은 입/출력 데이터를 나타냅니다."
+title: Azure Data Factory의 데이터 집합 및 연결된 서비스 | Microsoft Docs
+description: Data Factory의 데이터 집합 및 연결된 서비스에 대해 알아봅니다. 연결된 서비스는 계산/데이터 저장소를 데이터 팩터리에 연결합니다. 데이터 집합은 입/출력 데이터를 나타냅니다.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
 manager: jhubbard
 editor: spelluru
@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: 
+ms.topic: ''
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: bfc95588378466fe1e83bcc4e899eca6b66b358a
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 98d58b97457cc64954094d7e8d8b4defca7e05ff
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="datasets-and-linked-services-in-azure-data-factory"></a>Azure Data Factory의 데이터 집합 및 연결된 서비스 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -184,31 +184,37 @@ typeProperties | 형식 속성은 형식마다 다릅니다(예: Azure Blob, Azu
 }
 ```
 ## <a name="dataset-structure"></a>데이터 집합 구조
-**structure** 섹션은 선택 사항입니다. 열의 이름 및 데이터 형식 컬렉션을 포함하여 데이터 집합의 스키마를 정의합니다. 형식을 변환하고 열을 원본에서 대상으로 매핑하는 데 사용되는 형식 정보를 structure 섹션에 제공합니다. 다음 예제에서 데이터 집합에는 세 개의 열, 즉 timestamp, projectname 및 pageviews가 있습니다. 형식은 각각 String, String 및 Decimal입니다.
-
-```json
-[
-    { "name": "timestamp", "type": "String"},
-    { "name": "projectname", "type": "String"},
-    { "name": "pageviews", "type": "Decimal"}
-]
-```
+**structure** 섹션은 선택 사항입니다. 열의 이름 및 데이터 형식 컬렉션을 포함하여 데이터 집합의 스키마를 정의합니다. 형식을 변환하고 열을 원본에서 대상으로 매핑하는 데 사용되는 형식 정보를 structure 섹션에 제공합니다.
 
 structure의 각 열에는 다음과 같은 속성이 포함됩니다.
 
 자산 | 설명 | 필수
 -------- | ----------- | --------
 이름 | 열의 이름입니다. | 예
-형식 | 열의 데이터 형식입니다. | 아니오
+형식 | 열의 데이터 형식입니다. Data Factory는 **Int16, Int32, Int64, Single, Double, Decimal, Byte[], Boolean, String, Guid, Datetime, Datetimeoffset 및 Timespan** 값을 허용하는 중간 데이터 형식을 지원합니다. | 아니오
 culture | type이 `Datetime` 또는 `Datetimeoffset` .NET 형식일 때 사용할 .NET 기반 culture(문화권)입니다. 기본값은 `en-us`입니다. | 아니요
-format | type이 `Datetime` 또는 `Datetimeoffset` .NET 형식일 때 사용할 format(서식) 문자열입니다. | 아니요
+format | type이 `Datetime` 또는 `Datetimeoffset` .NET 형식일 때 사용할 format(서식) 문자열입니다. 날짜/시간 형식을 지정하는 방법은 [사용자 지정 날짜 및 시간 형식 문자열](https://docs.microsoft.com/en-us/dotnet/standard/base-types/custom-date-and-time-format-strings)을 참조하세요. | 아니요
 
-다음 지침은 structure 정보를 포함할 시기 및 **structure** 섹션에 포함할 내용을 결정하는 데 도움이 됩니다.
+### <a name="example"></a>예
+다음 예제에서는 원본 Blob 데이터가 CSV 형식이며 userid, name 및 lastlogindate의 세 열을 포함한다고 가정합니다. 요일에 축약된 프랑스 이름을 사용하여 사용자 지정 날짜/시간 형식을 사용하는 Int64, String 및 Datetime 형식입니다.
 
-- **구조화된 데이터 원본의 경우** 원본 열을 싱크 열에 매핑하고 해당 이름이 동일하지 않은 경우에만 structure 섹션을 지정합니다. 이러한 종류의 구조화된 데이터 원본은 데이터 스키마 및 형식 정보를 데이터 자체와 함께 저장합니다. 구조화된 데이터 원본의 예로 SQL Server, Oracle 및 Azure SQL Database가 있습니다.<br/><br/>구조화된 데이터 원본에 대해 형식 정보를 이미 사용할 수 있으므로 "structure" 섹션을 포함할 때 형식 정보를 포함하면 안됩니다.
-- **읽기 데이터 원본(특히 Blob 저장소)에 대한 스키마의 경우** 스키마 또는 형식 정보를 데이터와 함께 저장하지 않고도 데이터를 저장하도록 선택할 수 있습니다. 이러한 유형의 데이터 원본인 경우 원본 열을 싱크 열로 매핑할 때 구조가 포함됩니다. 또한 데이터 집합이 복사 활동에 대한 입력인 경우 구조가 포함되고 원본 데이터 집합의 데이터 형식을 싱크의 네이티브 형식으로 변환해야 합니다.<br/><br/> Data Factory는 구조에서 형식 정보를 제공하기 위한 다음 값을 지원합니다. `Int16, Int32, Int64, Single, Double, Decimal, Byte[], Boolean, String, Guid, Datetime, Datetimeoffset, and Timespan` 
+다음과 같이 열에 대한 형식 정의와 함께 Blob 데이터 집합 구조를 정의합니다.
 
-[스키마 및 형식 매핑]( copy-activity-schema-and-type-mapping.md)에서 데이터 팩터리에서 원본 데이터를 싱크로 매핑하는 방법 및 구조 정보를 지정하는 시기에 대해 알아봅니다.
+```json
+"structure":
+[
+    { "name": "userid", "type": "Int64"},
+    { "name": "name", "type": "String"},
+    { "name": "lastlogindate", "type": "Datetime", "culture": "fr-fr", "format": "ddd-MM-YYYY"}
+]
+```
+
+### <a name="guidance"></a>지침
+
+다음 지침은 structure 정보를 포함할 시기 및 **structure** 섹션에 포함할 내용을 결정하는 데 도움이 됩니다. [스키마 및 형식 매핑](copy-activity-schema-and-type-mapping.md)에서 데이터 팩터리에서 원본 데이터를 싱크로 매핑하는 방법 및 구조 정보를 지정하는 시기에 대해 알아봅니다.
+
+- **강력한 스키마 데이터 원본의 경우** 원본 열을 싱크 열에 매핑하고 해당 이름이 동일하지 않은 경우에만 structure 섹션을 지정합니다. 이러한 종류의 구조화된 데이터 원본은 데이터 스키마 및 형식 정보를 데이터 자체와 함께 저장합니다. 구조화된 데이터 원본의 예로 SQL Server, Oracle 및 Azure SQL Database가 있습니다.<br/><br/>구조화된 데이터 원본에 대해 형식 정보를 이미 사용할 수 있으므로 "structure" 섹션을 포함할 때 형식 정보를 포함하면 안됩니다.
+- **blob 저장소의 텍스트 파일과 같은 no/weak 스키마 데이터 원본의 경우** 데이터 집합이 복사 활동에 대한 입력인 경우 구조를 포함하고 원본 데이터 집합의 데이터 형식을 싱크의 네이티브 형식으로 변환해야 합니다. 또한 원본 열을 싱크 열로 매핑하려고 할 때 구조를 포함합니다.
 
 ## <a name="create-datasets"></a>데이터 집합 만들기
 [.NET API](quickstart-create-data-factory-dot-net.md), [PowerShell](quickstart-create-data-factory-powershell.md), [REST API](quickstart-create-data-factory-rest-api.md), Azure Resource Manager 템플릿 및 Azure Portal 등의 도구 또는 SDK 중 하나를 사용하여 데이터 집합을 만들 수 있습니다.

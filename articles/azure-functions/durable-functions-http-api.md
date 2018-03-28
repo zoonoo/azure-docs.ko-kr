@@ -1,12 +1,12 @@
 ---
-title: "지속성 함수의 HTTP API - Azure"
-description: "Azure Functions의 지속성 함수 확장에서 HTTP API를 구현하는 방법을 알아봅니다."
+title: 지속성 함수의 HTTP API - Azure
+description: Azure Functions의 지속성 함수 확장에서 HTTP API를 구현하는 방법을 알아봅니다.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: bb5361022e4c9693812753ae33df5aeb037b5aaa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5fa5d9e66912bdeffdf553ddc0cb7d3feb0a5b77
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>지속성 함수의 HTTP API(Azure Functions)
 
@@ -27,6 +27,7 @@ ms.lasthandoff: 10/11/2017
 * 오케스트레이션 인스턴스의 상태를 가져옵니다.
 * 대기 중인 오케스트레이션 인스턴스에 이벤트를 보냅니다.
 * 실행 중인 오케스트레이션 인스턴스를 종료합니다.
+
 
 이러한 HTTP API 각각은 지속성 작업 확장에서 직접 처리하는 웹후크 작업입니다. 웹후크 작업은 함수 앱의 모든 함수에 특정되지 않습니다.
 
@@ -78,7 +79,7 @@ Location: https://{host}/webhookextensions/handler/DurableTaskExtension/instance
 이 프로토콜을 사용하면 HTTP 끝점 폴링 및 `Location` 헤더 추적을 지원하는 외부 클라이언트 또는 서비스에서 장기 실행 프로세스를 조정할 수 있습니다. 기본 조각은 지속성 함수 HTTP API에 이미 작성되어 있습니다.
 
 > [!NOTE]
-> 기본적으로 [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)에서 제공하는 모든 HTTP 기반 작업은 표준 비동기 작업 패턴을 지원합니다. 이를 통해 Logic Apps 워크플로의 일부로 장기 실행 지속성 함수가 포함될 수 있습니다. Logic Apps의 비동기 HTTP 패턴 지원에 대한 자세한 내용은 [Azure Logic Apps 워크플로 작업 및 트리거 설명서](../logic-apps/logic-apps-workflow-actions-triggers.md#asynchronous-patterns)에서 찾을 수 있습니다.
+> 기본적으로 [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)에서 제공하는 모든 HTTP 기반 작업은 표준 비동기 작업 패턴을 지원합니다. 이 기능을 사용하면 Logic Apps 워크플로의 일부로 장기 실행 지속성 함수를 포함할 수 있습니다. Logic Apps의 비동기 HTTP 패턴 지원에 대한 자세한 내용은 [Azure Logic Apps 워크플로 작업 및 트리거 설명서](../logic-apps/logic-apps-workflow-actions-triggers.md#asynchronous-patterns)에서 찾을 수 있습니다.
 
 ## <a name="http-api-reference"></a>HTTP API 참조
 
@@ -90,6 +91,8 @@ Location: https://{host}/webhookextensions/handler/DurableTaskExtension/instance
 | taskHub    | 쿼리 문자열    | [작업 허브](durable-functions-task-hubs.md)의 이름입니다. 지정하지 않으면 현재 함수 앱의 작업 허브 이름이 사용됩니다. |
 | connection | 쿼리 문자열    | 저장소 계정에 대한 연결 문자열의 **이름**입니다. 지정하지 않으면 함수 앱에 대한 기본 연결 문자열이 사용됩니다. |
 | systemKey  | 쿼리 문자열    | API를 호출하는 데 필요한 권한 부여 키입니다. |
+| showHistory| 쿼리 문자열    | 선택적 매개 변수. `true`로 설정하면 오케스트레이션 실행 기록이 응답 페이로드에 포함됩니다.| 
+| showHistoryOutput| 쿼리 문자열    | 선택적 매개 변수. `true`로 설정하면 작업 출력이 오케스트레이션 실행 기록에 포함됩니다.| 
 
 `systemKey`는 Azure Functions 호스트에서 자동 생성된 권한 부여 키입니다. 특히 지속성 작업 확장 API에 대한 액세스 권한을 부여하고 [다른 권한 부여 키](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Key-management-API)와 동일한 방식으로 관리할 수 있습니다. `systemKey` 값을 검색하는 가장 간단한 방법은 앞에서 언급한 `CreateCheckStatusResponse` API를 사용하는 것입니다.
 
@@ -110,10 +113,10 @@ GET /admin/extensions/DurableTaskExtension/instances/{instanceId}?taskHub={taskH
 Functions 2.0 형식에는 모두 동일한 매개 변수가 있지만 약간 다른 URL 접두사가 있습니다.
 
 ```http
-GET /webhookextensions/handler/DurableTaskExtension/instances/{instanceId}?taskHub={taskHub}&connection={connection}&code={systemKey}
+GET /webhookextensions/handler/DurableTaskExtension/instances/{instanceId}?taskHub={taskHub}&connection={connection}&code={systemKey}&showHistory={showHistory}&showHistoryOutput={showHistoryOutput}
 ```
 
-#### <a name="response"></a>응답
+#### <a name="response"></a>response
 
 몇 가지 가능한 상태 코드 값을 반환할 수 있습니다.
 
@@ -131,20 +134,59 @@ GET /webhookextensions/handler/DurableTaskExtension/instances/{instanceId}?taskH
 | output          | JSON      | 인스턴스의 JSON 출력입니다. 인스턴스가 완료된 상태가 아닌 경우 이 필드는 `null`입니다. |
 | createdTime     | string    | 인스턴스를 만든 시간입니다. ISO 8601 확장 표기법을 사용합니다. |
 | lastUpdatedTime | string    | 인스턴스가 마지막으로 유지된 시간입니다. ISO 8601 확장 표기법을 사용합니다. |
+| historyEvents   | JSON      | 오케스트레이션 실행 기록이 포함된 JSON 배열입니다. `showHistory` 쿼리 문자열 매개 변수가 `true`로 설정되지 않으면 이 필드는 `null`입니다.  | 
 
-다음은 응답 페이로드 예제입니다(읽기 쉽도록 서식 지정).
+다음은 오케스트레이션 실행 기록 및 작업 출력을 포함하는 응답 페이로드 예제입니다(읽기 쉽게 형식이 지정됨).
 
 ```json
 {
-  "runtimeStatus": "Completed",
-  "input": null,
-  "output": [
-    "Hello Tokyo!",
-    "Hello Seattle!",
-    "Hello London!"
+  "createdTime": "2018-02-28T05:18:49Z",
+  "historyEvents": [
+      {
+          "EventType": "ExecutionStarted",
+          "FunctionName": "E1_HelloSequence",
+          "Timestamp": "2018-02-28T05:18:49.3452372Z"
+      },
+      {
+          "EventType": "TaskCompleted",
+          "FunctionName": "E1_SayHello",
+          "Result": "Hello Tokyo!",
+          "ScheduledTime": "2018-02-28T05:18:51.3939873Z",
+          "Timestamp": "2018-02-28T05:18:52.2895622Z"
+      },
+      {
+          "EventType": "TaskCompleted",
+          "FunctionName": "E1_SayHello",
+          "Result": "Hello Seattle!",
+          "ScheduledTime": "2018-02-28T05:18:52.8755705Z",
+          "Timestamp": "2018-02-28T05:18:53.1765771Z"
+      },
+      {
+          "EventType": "TaskCompleted",
+          "FunctionName": "E1_SayHello",
+          "Result": "Hello London!",
+          "ScheduledTime": "2018-02-28T05:18:53.5170791Z",
+          "Timestamp": "2018-02-28T05:18:53.891081Z"
+      },
+      {
+          "EventType": "ExecutionCompleted",
+          "OrchestrationStatus": "Completed",
+          "Result": [
+              "Hello Tokyo!",
+              "Hello Seattle!",
+              "Hello London!"
+          ],
+          "Timestamp": "2018-02-28T05:18:54.3660895Z"
+      }
   ],
-  "createdTime": "2017-10-06T18:30:24Z",
-  "lastUpdatedTime": "2017-10-06T18:30:30Z"
+  "input": null,
+  "lastUpdatedTime": "2018-02-28T05:18:54Z",
+  "output": [
+      "Hello Tokyo!",
+      "Hello Seattle!",
+      "Hello London!"
+  ],
+  "runtimeStatus": "Completed"
 }
 ```
 
@@ -175,7 +217,7 @@ POST /webhookextensions/handler/DurableTaskExtension/instances/{instanceId}/rais
 | eventName   | URL             | string    | 대상 오케스트레이션 인스턴스가 대기 중인 이벤트의 이름입니다. |
 | {콘텐츠}   | 요청 콘텐츠 | JSON      | JSON 형식 이벤트 페이로드입니다. |
 
-#### <a name="response"></a>응답
+#### <a name="response"></a>response
 
 몇 가지 가능한 상태 코드 값을 반환할 수 있습니다.
 
@@ -184,7 +226,7 @@ POST /webhookextensions/handler/DurableTaskExtension/instances/{instanceId}/rais
 * **HTTP 404(찾을 수 없음)**: 지정된 인스턴스를 찾을 수 없습니다.
 * **HTTP 410(없음)**: 지정된 인스턴스가 완료되었거나 실패했으며 발생된 이벤트를 처리할 수 없습니다.
 
-다음은 **operation**([Counter](durable-functions-counter.md) 샘플에서 가져옴)이라는 이벤트를 기다리는 인스턴스에 `"incr"` JSON 문자열을 보내는 요청 예제입니다.
+다음은 **operation**이라는 이벤트를 기다리는 인스턴스에 `"incr"` JSON 문자열을 보내는 요청 예제입니다.
 
 ```
 POST /admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a/raiseEvent/operation?taskHub=DurableFunctionsHub&connection=Storage&code=XXX
@@ -220,7 +262,7 @@ DELETE /webhookextensions/handler/DurableTaskExtension/instances/{instanceId}/te
 |-------------|-----------------|-----------|-------------|
 | reason      | 쿼리 문자열    | string    | 선택 사항입니다. 오케스트레이션 인스턴스를 종료하는 이유입니다. |
 
-#### <a name="response"></a>응답
+#### <a name="response"></a>response
 
 몇 가지 가능한 상태 코드 값을 반환할 수 있습니다.
 

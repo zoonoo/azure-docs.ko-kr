@@ -1,11 +1,11 @@
 ---
-title: "Logic Apps에 Azure SQL Database 커넥터 추가 | Microsoft Docs"
-description: "REST API 매개 변수를 사용하는 Azure SQL Database 커넥터 개요"
-services: 
-documentationcenter: 
-author: MandiOhlinger
+title: Logic Apps에 Azure SQL Database 커넥터 추가 | Microsoft Docs
+description: REST API 매개 변수를 사용하는 Azure SQL Database 커넥터 개요
+services: ''
+documentationcenter: ''
+author: ecfan
 manager: anneta
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: d8a319d0-e4df-40cf-88f0-29a6158c898c
 ms.service: logic-apps
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: def2b65f009c377233c45356f8fa661b86d73f51
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: 4313ead0c31ab2e72238701d58dc2f321f116fa6
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-azure-sql-database-connector"></a>Azure SQL Database 커넥터 시작
 Azure SQL Database 커넥터를 사용하여 테이블의 데이터를 관리하는 조직의 워크플로를 만듭니다. 
@@ -29,7 +29,7 @@ SQL Database를 사용하여 다음과 같은 작업을 수행합니다.
 * 고객 데이터베이스에 새 고객을 추가하거나 주문 데이터베이스에서 주문을 업데이트하여 워크플로를 작성합니다.
 * 데이터의 행을 가져오고, 새 행을 삽입하고, 삭제하는 작업을 사용합니다. 예를 들어 Dynamics CRM Online에서 레코드가 만들어지면(트리거) Azure SQL Database에 행을 삽입합니다(작업). 
 
-이 항목에서는 논리 앱에서 SQL Database 커넥터를 사용하는 방법을 보여 주고, 트리거 및 작업을 나열합니다.
+이 아티클에서는 논리 앱에서 SQL Database 커넥터를 사용하는 방법을 보여주고 작업을 나열합니다.
 
 Logic Apps에 대해 자세히 알아보려면 [논리 앱이란 무엇인가요?](../logic-apps/logic-apps-overview.md) 및 [논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)를 참조하세요.
 
@@ -58,7 +58,7 @@ Logic Apps에 대해 자세히 알아보려면 [논리 앱이란 무엇인가요
    
     ![](./media/connectors-create-api-sqlazure/sample-table.png)
    
-    연결 정보를 묻는 메시지가 표시되면 연결을 만들기 위한 세부 정보를 입력합니다. 이 항목의 [연결 만들기](connectors-create-api-sqlazure.md#create-the-connection)에서는 이러한 속성에 대해 설명합니다. 
+    연결 정보를 묻는 메시지가 표시되면 연결을 만들기 위한 세부 정보를 입력합니다. 이 아티클의 [연결 만들기](connectors-create-api-sqlazure.md#create-the-connection)에서는 이러한 속성에 대해 설명합니다. 
    
    > [!NOTE]
    > 이 예제에서는 테이블의 행을 반환합니다. 이 행의 데이터를 보려면 테이블의 필드를 사용하여 파일을 만드는 다른 작업을 추가합니다. 예를 들어 FirstName 및 LastName 필드를 사용하여 클라우드 저장소 계정에 새 파일을 만드는 OneDrive 작업을 추가합니다. 
@@ -71,5 +71,5 @@ Logic Apps에 대해 자세히 알아보려면 [논리 앱이란 무엇인가요
 [커넥터 세부 정보](/connectors/sql/)에서 swagger에 정의된 모든 트리거 및 작업과 제한 사항도 확인할 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
-[논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md) [API 목록](apis-list.md)에서 Logic Apps의 사용 가능한 다른 커넥터를 확인하세요.
+[논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md) [API 목록](apis-list.md)에서 Logic Apps에 제공되는 다른 커넥터를 탐색하세요.
 

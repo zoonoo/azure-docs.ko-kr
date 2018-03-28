@@ -1,23 +1,20 @@
 ---
-title: "OMS Log Analytics에 Azure Automation DSC 보고 데이터 전달 | Microsoft Docs"
-description: "이 문서에서는 DSC(필요한 상태 구성) 보고 데이터를 Microsoft Operations Management Suite Log Analytics로 보내 통찰력 및 관리를 강화하는 방법을 알아봅니다."
+title: Log Analytics에 Azure Automation DSC 보고 데이터 전달
+description: 이 문서에서는 통찰력 및 관리를 강화할 수 있도록 DSC(필요한 상태 구성) 보고 데이터를 Log Analytics로 보내는 방법을 알아봅니다.
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: carmonm
-editor: tysonn
 ms.service: automation
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/24/2017
+author: georgewallace
 ms.author: gwallace
-ms.openlocfilehash: 5de22072a436e7a2dbaa7d413595c048f730189b
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.date: 03/16/2018
+ms.topic: article
+manager: carmonm
+ms.devlang: na
+ms.tgt_pltfrm: na
+ms.openlocfilehash: d06ec240477c2defca7a463b2e9338bc5e3930ab
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="forward-azure-automation-dsc-reporting-data-to-oms-log-analytics"></a>OMS Log Analytics에 Azure Automation DSC 보고 데이터 전달
 
@@ -121,7 +118,7 @@ Azure Automation의 진단은 Log Analytics에 두 가지 범주의 레코드를
 
 ### <a name="dscnodestatusdata"></a>DscNodeStatusData
 
-| 속성 | 설명 |
+| 자산 | 설명 |
 | --- | --- |
 | TimeGenerated |준수 확인이 실행된 날짜 및 시간입니다. |
 | OperationName |DscNodeStatusData |
@@ -152,7 +149,7 @@ Azure Automation의 진단은 Log Analytics에 두 가지 범주의 레코드를
 
 ### <a name="dscresourcestatusdata"></a>DscResourceStatusData
 
-| 속성 | 설명 |
+| 자산 | 설명 |
 | --- | --- |
 | TimeGenerated |준수 확인이 실행된 날짜 및 시간입니다. |
 | OperationName |DscResourceStatusData|

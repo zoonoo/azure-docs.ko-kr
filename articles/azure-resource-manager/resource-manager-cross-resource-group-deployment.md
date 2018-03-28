@@ -1,34 +1,36 @@
 ---
-title: "여러 구독 및 리소스 그룹에 Azure 리소스 배포 | Microsoft Docs"
-description: "배포 중에 둘 이상의 Azure 구독 및 리소스 그룹을 대상으로 지정하는 방법을 보여 줍니다."
+title: 여러 구독 및 리소스 그룹에 Azure 리소스 배포 | Microsoft Docs
+description: 배포 중에 둘 이상의 Azure 구독 및 리소스 그룹을 대상으로 지정하는 방법을 보여 줍니다.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
 manager: timlt
-editor: 
+editor: ''
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/06/2018
+ms.date: 03/13/2018
 ms.author: tomfitz
-ms.openlocfilehash: 40b2d04fe829c51a58fb3bec1519a590a12cfdb8
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 90cb87b3fe94b7b3b0eba1b261d29a1c8f4348d6
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="deploy-azure-resources-to-more-than-one-subscription-or-resource-group"></a>둘 이상의 구독 또는 리소스 그룹에 Azure 리소스 배포
 
 일반적으로 단일 [리소스 그룹](resource-group-overview.md)에 템플릿의 모든 리소스를 배포합니다. 그러나 일단의 리소스를 함께 배포하고 다른 리소스 그룹 또는 구독에 배치하려는 시나리오가 있습니다. 예를 들어 Azure Site Recovery의 백업 가상 컴퓨터를 별도의 리소스 그룹과 위치에 배포할 수 있습니다. Resource Manager를 사용하면 중첩된 템플릿을 사용하여 부모 템플릿에 사용된 구독 및 리소스 그룹과 다른 구독 및 리소스 그룹을 대상으로 지정할 수 있습니다.
 
 > [!NOTE]
-> 단일 배포의 5개 리소스 그룹에만 배포할 수 있습니다.
+> 단일 배포의 5개 리소스 그룹에만 배포할 수 있습니다. 일반적으로 이 제한 사항으로 인해 부모 템플릿에 지정된 하나의 리소스 그룹 및 중첩되거나 연결된 배포에서 최대 4개의 리소스 그룹에 배포할 수 있습니다. 그러나 부모 템플릿에 중첩되거나 연결된 템플릿만이 포함되고 자체적으로 리소스를 배포하지 않는 경우 중첩되거나 연결된 배포에서 최대 5개의 리소스 그룹이 포함될 수 있습니다.
 
 ## <a name="specify-a-subscription-and-resource-group"></a>구독 및 리소스 그룹 지정
 
 다른 리소스를 대상으로 지정하려면 중첩되거나 연결된 템플릿을 사용합니다. `Microsoft.Resources/deployments` 리소스 종류는 `subscriptionId` 및 `resourceGroup`에 대한 매개 변수를 제공합니다. 이러한 속성을 사용하여 중첩된 배포에 대해 다른 구독 및 리소스 그룹을 지정할 수 있습니다. 모든 리소스 그룹은 배포를 실행하기 전에 존재해야 합니다. 구독 ID 또는 리소스 그룹을 지정하지 않으면 부모 템플릿의 구독 및 리소스 그룹이 사용됩니다.
+
+템플릿을 배포하는 데 사용할 계정에는 지정된 구독 ID에 배포하는 사용 권한이 있어야 합니다. 지정된 구독이 다른 Azure Active Directory 테넌트에 있는 경우 [다른 디렉터리에서 게스트 사용자를 추가](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md)해야 합니다.
 
 다른 리소스 그룹 및 구독을 지정하려면 다음을 사용합니다.
 
@@ -175,7 +177,7 @@ ms.lasthandoff: 02/09/2018
 
 PowerShell의 경우 두 개의 저장소 계정을 **동일한 구독**의 두 리소스 그룹에 배포하려면 다음을 사용합니다.
 
-```powershell
+```azurepowershell-interactive
 $firstRG = "primarygroup"
 $secondRG = "secondarygroup"
 
@@ -192,7 +194,7 @@ New-AzureRmResourceGroupDeployment `
 
 PowerShell의 경우 두 개의 저장소 계정을 **두 개의 구독**에 배포하려면 다음을 사용합니다.
 
-```powershell
+```azurepowershell-interactive
 $firstRG = "primarygroup"
 $secondRG = "secondarygroup"
 
@@ -216,7 +218,7 @@ New-AzureRmResourceGroupDeployment `
 
 PowerShell의 경우 부모 템플릿, 인라인 템플릿 및 연결된 템플릿에서 **리소스 그룹 개체**를 확인하는 방법을 테스트하려면 다음을 사용합니다.
 
-```powershell
+```azurepowershell-interactive
 New-AzureRmResourceGroup -Name parentGroup -Location southcentralus
 New-AzureRmResourceGroup -Name inlineGroup -Location southcentralus
 New-AzureRmResourceGroup -Name linkedGroup -Location southcentralus
@@ -224,6 +226,37 @@ New-AzureRmResourceGroup -Name linkedGroup -Location southcentralus
 New-AzureRmResourceGroupDeployment `
   -ResourceGroupName parentGroup `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crossresourcegroupproperties.json
+```
+
+앞의 예제에서 **parentRG** 및 **inlineRG**는 모두 **parentGroup**으로 결정됩니다. **linkedRG**는 **linkedGroup**으로 결정됩니다. 위 예제의 출력은 다음과 같습니다.
+
+```powershell
+ Name             Type                       Value
+ ===============  =========================  ==========
+ parentRG         Object                     {
+                                               "id": "/subscriptions/<subscription-id>/resourceGroups/parentGroup",
+                                               "name": "parentGroup",
+                                               "location": "southcentralus",
+                                               "properties": {
+                                                 "provisioningState": "Succeeded"
+                                               }
+                                             }
+ inlineRG         Object                     {
+                                               "id": "/subscriptions/<subscription-id>/resourceGroups/parentGroup",
+                                               "name": "parentGroup",
+                                               "location": "southcentralus",
+                                               "properties": {
+                                                 "provisioningState": "Succeeded"
+                                               }
+                                             }
+ linkedRG         Object                     {
+                                               "id": "/subscriptions/<subscription-id>/resourceGroups/linkedGroup",
+                                               "name": "linkedGroup",
+                                               "location": "southcentralus",
+                                               "properties": {
+                                                 "provisioningState": "Succeeded"
+                                               }
+                                             }
 ```
 
 ### <a name="azure-cli"></a>Azure CLI
@@ -276,6 +309,48 @@ az group deployment create \
   --name ExampleDeployment \
   --resource-group parentGroup \
   --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crossresourcegroupproperties.json 
+```
+
+앞의 예제에서 **parentRG** 및 **inlineRG**는 모두 **parentGroup**으로 결정됩니다. **linkedRG**는 **linkedGroup**으로 결정됩니다. 위 예제의 출력은 다음과 같습니다.
+
+```azurecli
+...
+"outputs": {
+  "inlineRG": {
+    "type": "Object",
+    "value": {
+      "id": "/subscriptions/<subscription-id>/resourceGroups/parentGroup",
+      "location": "southcentralus",
+      "name": "parentGroup",
+      "properties": {
+        "provisioningState": "Succeeded"
+      }
+    }
+  },
+  "linkedRG": {
+    "type": "Object",
+    "value": {
+      "id": "/subscriptions/<subscription-id>/resourceGroups/linkedGroup",
+      "location": "southcentralus",
+      "name": "linkedGroup",
+      "properties": {
+        "provisioningState": "Succeeded"
+      }
+    }
+  },
+  "parentRG": {
+    "type": "Object",
+    "value": {
+      "id": "/subscriptions/<subscription-id>/resourceGroups/parentGroup",
+      "location": "southcentralus",
+      "name": "parentGroup",
+      "properties": {
+        "provisioningState": "Succeeded"
+      }
+    }
+  }
+},
+...
 ```
 
 ## <a name="next-steps"></a>다음 단계

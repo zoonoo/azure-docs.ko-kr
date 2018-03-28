@@ -1,23 +1,20 @@
 ---
-title: Compiling configurations in Azure Automation DSC | Microsoft Docs
+title: Azure Automation DSC에서 구성을 컴파일
 description: 이 문서에서는 Azure Automation에 대한 DSC(필요한 상태 구성) 구성을 컴파일하는 방법을 설명합니다.
 services: automation
-documentationcenter: na
-author: georgewallace
-manager: carmonm
-ms.assetid: 49f20b31-4fa5-4712-b1c7-8f4409f1aecc
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: powershell
-ms.workload: na
-ms.date: 03/02/2018
-ms.author: magoedte; gwallace
-ms.openlocfilehash: 3ba9200023b71e6f1e69ee4c54d5c90efe1bc954
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+manager: carmonm
+ms.devlang: na
+ms.tgt_pltfrm: na
+ms.openlocfilehash: 2df9512a70f8299ad9282894c0ae0805d05473bd
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="compiling-configurations-in-azure-automation-dsc"></a>Azure Automation DSC에서 구성을 컴파일
 
@@ -299,7 +296,7 @@ Azure 외부에서 컴파일한 노드 구성(MOF)을 가져올 수도 있습니
 > [!NOTE]
 > 노드 구성 파일은 Azure Automation으로 가져오기 위해 1MB보다 크지 않아야 합니다.
 
-다음 위치에서 노드 구성을 서명하는 방법을 알아볼 수 있습니다. https://msdn.microsoft.com/ko-kr/powershell/wmf/5.1/dsc-improvements#how-to-sign-configuration-and-module
+노드 구성에 서명하는 방법은 https://msdn.microsoft.com/en-us/powershell/wmf/5.1/dsc-improvements#how-to-sign-configuration-and-module에서 알아볼 수 있습니다.
 
 ### <a name="importing-a-node-configuration-in-the-azure-portal"></a>Azure Portal에서 노드 구성 가져오기
 

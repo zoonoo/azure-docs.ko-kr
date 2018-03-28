@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/26/2018
 ms.author: tdykstra
-ms.openlocfilehash: a1ffd9311f6ff171502efe64557463abc49ad636
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 5039798d76017d93b77d724b2e6bca6712af0370
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Azure Functions의 Event Grid 트리거
 
@@ -37,11 +37,11 @@ Event Grid는 *게시자*에서 발생하는 이벤트를 알리기 위해 HTTP 
 
 Event Grid 트리거는 [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid) NuGet 패키지에 제공됩니다. 이 패키지에 대한 소스 코드는 [azure-functions-eventgrid-extension](https://github.com/Azure/azure-functions-eventgrid-extension) GitHub 리포지토리에 있습니다.
 
-이 패키지는 [C# 클래스 라이브러리 개발](functions-triggers-bindings.md#local-c-development-using-visual-studio-or-vs-code) 및 [Functions v2 바인딩 확장 등록](functions-triggers-bindings.md#local-development-azure-functions-core-tools)에 사용됩니다.
-
 <!--
 If you want to bind to the `Microsoft.Azure.EventGrid.Models.EventGridEvent` type instead of `JObject`, install the [Microsoft.Azure.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) package.
 -->
+
+[!INCLUDE [functions-package](../../includes/functions-package.md)]
 
 ## <a name="example"></a>예
 
@@ -348,7 +348,7 @@ Event Grid 트리거를 로컬로 테스트하려면 클라우드의 원본에�
 
 ### <a name="create-a-requestbin-endpoint"></a>RequestBin 끝점 만들기
 
-RequestBin은 HTTP 요청을 수락하고 요청 본문을 표시하는 오픈 소스 도구입니다. Http://requestb.in URL은 Azure Event Grid에서 특수하게 처리됩니다. 테스트를 용이하게 진행하기 위해 Event Grid는 구독 유효성 검사 요청에 대한 올바른 응답을 요구하지 않고, RequestBin URL로 이벤트를 전송합니다. 다른 두 개의 테스트 도구인 http://webhookinbox.com 및 http://hookbin.com도 동일하게 처리됩니다.
+RequestBin은 HTTP 요청을 수락하고 요청 본문을 표시하는 오픈 소스 도구입니다. http://requestb.in URL은 Azure Event Grid에서 특수하게 처리됩니다. 테스트를 용이하게 진행하기 위해 Event Grid는 구독 유효성 검사 요청에 대한 올바른 응답을 요구하지 않고, RequestBin URL로 이벤트를 전송합니다. http://webhookinbox.com 및 http://hookbin.com 등 다른 두 개의 테스트 도구는 동일하게 처리됩니다.
 
 처리량이 높은 경우에는 RequestBin 사용이 적합하지 않습니다. 한 번에 둘 이상의 이벤트를 푸시하면 도구에서 모든 이벤트가 표시되지 않을 수 있습니다.
 

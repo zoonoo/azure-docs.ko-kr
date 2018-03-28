@@ -1,6 +1,6 @@
 ---
-title: ".NET을 사용하여 Azure 테이블 저장소 시작 | Microsoft Docs"
-description: "Azure 테이블 저장소, NoSQL 데이터 저장소를 사용하여 클라우드에 구조화된 데이터를 저장합니다."
+title: .NET을 사용하여 Azure 테이블 저장소 시작 | Microsoft Docs
+description: Azure 테이블 저장소, NoSQL 데이터 저장소를 사용하여 클라우드에 구조화된 데이터를 저장합니다.
 services: cosmos-db
 documentationcenter: .net
 author: mimig1
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 03/14/2018
 ms.author: mimig
-ms.openlocfilehash: 953ee3932ac1acad5cc41fba9bd5e168a94d7db7
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: d31dd1c267bcc63106616b191b6b79d5800e31e9
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-azure-table-storage-using-net"></a>.NET을 사용하여 Azure 테이블 저장소 시작
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -83,10 +83,10 @@ Visual Studio에서 새로운 Windows 콘솔 응용 프로그램을 만듭니다
 Azure 클라우드 서비스, 웹앱, 바탕화면 및 모바일 응용 프로그램을 포함하여 .NET 응용 프로그램의 모든 형식에서 Azure CosmosDB 테이블 라이브러리를 사용할 수 있습니다. 이 가이드에서는 편의상 콘솔 응용 프로그램을 사용합니다.
 
 ### <a name="use-nuget-to-install-the-required-packages"></a>NuGet을 사용하여 필요한 패키지 설치
-이 자습서를 완료하기 위해 프로젝트에서 참조해야 하는 세 개의 패키지가 있습니다.
+이 자습서를 완료하기 위해 프로젝트에서 참조해야 하는 세 개의 권장되는 패키지가 있습니다.
 
-* [Azure Storage Common Library for .NET(8.6.0-미리 보기)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/8.6.0-preview). 
-* [Microsoft Azure CosmosDB Table Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) 이 패키지는 Azure Table Storage 계정 또는 Azure Cosmos DB 테이블 API 계정에서 데이터 리소스에 대한 프로그래밍 방식의 액세스를 제공합니다.
+* [Azure Storage Common Library for .NET(미리 보기)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common) 
+* [Microsoft Azure Cosmos DB Table Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) 이 패키지는 Azure Table Storage 계정 또는 Azure Cosmos DB 테이블 API 계정에서 데이터 리소스에 대한 프로그래밍 방식의 액세스를 제공합니다.
 * [.NET용 Microsoft Azure 구성 관리자 라이브러리](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/): 이 패키지는 응용 프로그램을 실행하는 위치에 관계없이 구성 파일에서 연결 문자열을 구문 분석하기 위한 클래스를 제공합니다.
 
 NuGet을 사용하여 패키지를 모두 가져올 수 있습니다. 다음 단계를 수행하세요.
@@ -100,6 +100,11 @@ NuGet을 사용하여 패키지를 모두 가져올 수 있습니다. 다음 단
 > Storage Common Library for .NET의 ODataLib 종속성은 WCF Data Services가 아니라 NuGet에서 사용 가능한 ODataLib 패키지에 의해 확인됩니다. ODataLib 라이브러리는 직접 다운로드하거나 NuGet을 통해 코드 프로젝트에서 참조할 수 있습니다. Storage 클라이언트 라이브러리에서 사용되는 특정 ODataLib 패키지는 [OData](http://nuget.org/packages/Microsoft.Data.OData/), [Edm](http://nuget.org/packages/Microsoft.Data.Edm/) 및 [Spatial](http://nuget.org/packages/System.Spatial/)입니다. 이러한 라이브러리는 Azure Table Storage 클래스에서 사용하는 동안 Storage 공통 라이브러리를 통한 프로그래밍의 필수 종속성입니다.
 > 
 > 
+
+> [!TIP]
+> Azure 테이블 저장소에 이미 친숙한 개발자는 과거에 [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage/) 패키지를 사용했을 수도 있습니다. 모든 새 테이블 응용 프로그램은 [Azure Storage 공용 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) 및 [Azure Cosmos DB 테이블 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table)를 사용하는 것이 좋지만 WindowsAzure.Storage 패키지는 계속해서 지원됩니다. WindowsAzure.Storage 라이브러리를 사용하는 경우 using 문에 Microsoft.WindowsAzure.Storage.Table을 포함합니다.
+>
+>
 
 ### <a name="determine-your-target-environment"></a>대상 환경 확인
 이 가이드의 예제를 실행하기 위해 다음과 같은 두 가지 환경 옵션이 있습니다.

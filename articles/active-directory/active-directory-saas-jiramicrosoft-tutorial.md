@@ -1,6 +1,6 @@
 ---
-title: "자습서: JIRA에 대한 Microsoft Azure Active Directory Single Sign-On과 Azure Active Directory 통합 | Microsoft Docs"
-description: "Azure Active Directory 및 JIRA에 대한 Microsoft Azure Active Directory Single Sign-On 간에 Single Sign-On을 구성하는 방법을 알아봅니다."
+title: '자습서: JIRA에 대한 Microsoft Azure Active Directory Single Sign-On과 Azure Active Directory 통합 | Microsoft Docs'
+description: Azure Active Directory 및 JIRA에 대한 Microsoft Azure Active Directory Single Sign-On 간에 Single Sign-On을 구성하는 방법을 알아봅니다.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2018
+ms.date: 02/08/2018
 ms.author: jeedes
-ms.openlocfilehash: 710aa59fb3cc69cb1f5a20389eca13b1be93d223
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: ceb36b78b72c45e9af59724d1f1c79789ef24b24
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-microsoft-azure-active-directory-single-sign-on-for-jira"></a>자습서: JIRA에 대한 Microsoft Azure Active Directory Single Sign-On과 Azure Active Directory 통합
 
@@ -61,6 +61,7 @@ JIRA에 대한 Microsoft Azure Active Directory Single Sign-On과의 Azure AD �
 
 *   JIRA 코어 및 소프트웨어: 6.0 ~ 7.2.0
 *   JIRA Service Desk 3.0~3.2
+*   JIRA는 5.2도 지원합니다. 자세한 내용을 보려면 [JIRA 5.2용 Microsoft Azure Active Directory Single Sign-On](./active-directory-saas-jira52microsoft-tutorial.md)을 클릭하세요.
 
 ## <a name="scenario-description"></a>시나리오 설명
 이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
@@ -160,7 +161,7 @@ JIRA에 대한 Microsoft Azure Active Directory Single Sign-On에서 Azure AD Si
     
     ![Configure Single Sign-On](.\media\active-directory-saas-msaadssojira-tutorial\addon1.png)
 
-8. [Microsoft 다운로드 센터](https://www.microsoft.com/en-us/download/details.aspx?id=56506)에서 플러그 인을 다운로드합니다. **업로드 추가 기능** 메뉴를 사용하여 Microsoft에서 제공하는 플러그 인을 수동으로 업로드합니다.
+8. [Microsoft 다운로드 센터](https://www.microsoft.com/en-us/download/details.aspx?id=56506)에서 플러그 인을 다운로드합니다. **업로드 추가 기능** 메뉴를 사용하여 Microsoft에서 제공하는 플러그 인을 수동으로 업로드합니다. 플러그 인 다운로드에는 [Microsoft 서비스 계약](https://www.microsoft.com/en-us/servicesagreement/)이 적용됩니다.
 
     ![Configure Single Sign-On](.\media\active-directory-saas-msaadssojira-tutorial\addon12.png)
 
@@ -195,6 +196,9 @@ JIRA에 대한 Microsoft Azure Active Directory Single Sign-On에서 Azure AD Si
     h. 사용자가 JIRA에서 로그아웃할 때 Azure AD에서 로그아웃하려면 **Enable Single Sign out**(Single Sign-Out 사용)을 선택합니다. 
 
     i. **저장** 단추를 클릭하여 설정을 저장합니다.
+
+    > [!NOTE]
+    > 설치 및 문제 해결에 대한 자세한 내용은 [MS JIRA SSO 커넥터 관리자 가이드](ms-confluence-jira-plugin-adminguide.md)를 참조하시기 바라며, [FAQ](ms-confluence-jira-plugin-faq.md)도 도움이 될 것입니다.
 
 > [!TIP]
 > 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.

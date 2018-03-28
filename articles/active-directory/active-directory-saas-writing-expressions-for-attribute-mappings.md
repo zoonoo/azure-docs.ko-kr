@@ -1,8 +1,8 @@
 ---
-title: "Azure Active Directory의 특성 매핑에 대한 식 작성 | Microsoft Docs"
-description: "Azure Active Directory에서 SaaS 앱 개체의 자동화된 프로비전 중 허용되는 형식으로 특성 값을 변환하기 위해 식 매핑을 사용하는 방법에 대해 알아봅니다."
+title: Azure Active Directory의 특성 매핑에 대한 식 작성 | Microsoft Docs
+description: Azure Active Directory에서 SaaS 앱 개체의 자동화된 프로비전 중 허용되는 형식으로 특성 값을 변환하기 위해 식 매핑을 사용하는 방법에 대해 알아봅니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: b13c51cd-1bea-4e5e-9791-5d951a518943
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
-ms.openlocfilehash: 5549fb8f20ac2eb07b52b3b8e1c418873e467c93
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: f1cf83044eb4f001ba341cabd0771b267c3f996d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Azure Active Directory의 특성 매핑에 대한 식 작성
 SaaS 응용 프로그램에 프로비전을 구성하면 식 매핑은 지정할 수 있는 특성 매핑의 유형 중 하나입니다. 이러한 경우, 사용자의 데이터를 SaaS 응용 프로그램에 대해 사용하는 형식으로 변환할 수 있는 스크립트 방식의 식을 작성해야 합니다.
@@ -108,7 +108,7 @@ SaaS 응용 프로그램에 프로비전을 구성하면 식 매핑은 지정할
 
 - - -
 ### <a name="replace"></a>Replace
-**함수:**<br> ObsoleteReplace(source, oldValue, regexPattern, regexGroupName, replacementValue, replacementAttributeName, template)
+**함수:**<br> Replace(source, oldValue, regexPattern, regexGroupName, replacementValue, replacementAttributeName, template)
 
 **설명:**<br>
 문자열 내 값을 대체합니다. 제공된 매개 변수에 따라 다르게 작동합니다.
@@ -119,13 +119,13 @@ SaaS 응용 프로그램에 프로비전을 구성하면 식 매핑은 지정할
 * **oldValue** 및 **template**이 제공되는 경우:
   
   * **template**에서 **oldValue**의 모든 항목을 **원본** 값으로 바꿉니다.
-* **oldValueRegexPattern**, **oldValueRegexGroupName**, **replacementValue**가 제공되는 경우:
+* **regexPattern**, **regexGroupName**, **replacementValue**가 제공되는 경우:
   
   * 원본 문자열에서 OldValueRegexPattern과 일치하는 모든 값을 replacementValue로 대체합니다.
-* **oldValueRegexPattern**, **oldValueRegexGroupName**, **replacementPropertyName**이 제공되는 경우:
+* **regexPattern**, **regexGroupName**, **replacementPropertyName**이 제공되는 경우:
   
-  * **원본**에 값이 있는 경우 **원본**이 반환됩니다.
-  * **원본**에 값이 없는 경우 **oldValueRegexPattern** 및 **oldValueRegexGroupName**을 사용하여 **replacementPropertyName**으로 속성에서 대체 값을 추출합니다. 대체 값이 결과로 반환됩니다.
+  * **source**에 값이 없는 경우 **source**가 반환됩니다.
+  * **source**에 값이 있는 경우 **regexPattern** 및 **regexGroupName**을 사용하여 **replacementPropertyName**으로 속성에서 대체 값을 추출합니다. 대체 값이 결과로 반환됩니다.
 
 **매개 변수:**<br> 
 
@@ -213,6 +213,17 @@ Salesforce 샌드박스를 사용하는 경우 동기화하기 전에 모든 사
 * **입력** (givenName): "John"
 * **입력** (surname): "Doe"
 * **출력**: "JohDoe"
+
+### <a name="remove-diacritics-from-a-string-and-convert-to-lowercase"></a>문자열에서 분음 부호를 제거하고 소문자로 변환
+문자열에서 특수 문자를 제거하고 대문자를 소문자로 변환해야 합니다.
+
+**식:** <br>
+`Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace([givenName], , "([Øø])", , "oe", , ), , "[Ææ]", , "ae", , ), , "([äãàâãåáąÄÃÀÂÃÅÁĄA])", , "a", , ), , "([B])", , "b", , ), , "([CçčćÇČĆ])", , "c", , ), , "([ďĎD])", , "d", , ), , "([ëèéêęěËÈÉÊĘĚE])", , "e", , ), , "([F])", , "f", , ), , "([G])", , "g", , ), , "([H])", , "h", , ), , "([ïîìíÏÎÌÍI])", , "i", , ), , "([J])", , "j", , ), , "([K])", , "k", , ), , "([ľłŁĽL])", , "l", , ), , "([M])", , "m", , ), , "([ñńňÑŃŇN])", , "n", , ), , "([öòőõôóÖÒŐÕÔÓO])", , "o", , ), , "([P])", , "p", , ), , "([Q])", , "q", , ), , "([řŘR])", , "r", , ), , "([ßšśŠŚS])", , "s", , ), , "([TŤť])", , "t", , ), , "([üùûúůűÜÙÛÚŮŰU])", , "u", , ), , "([V])", , "v", , ), , "([W])", , "w", , ), , "([ýÿýŸÝY])", , "y", , ), , "([źžżŹŽŻZ])", , "z", , ), " ", , , "", , )`
+
+**샘플 입/출력:** <br>
+
+* **입력** (givenName): "Zoë"
+* **출력**:  "zoe"
 
 ### <a name="output-date-as-a-string-in-a-certain-format"></a>특정 형식에서 문자열로 출력 날짜
 SaaS 응용 프로그램에 특정 형식의 날짜를 전송하려고 합니다. <br>

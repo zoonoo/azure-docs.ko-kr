@@ -1,12 +1,12 @@
 ---
-title: "지속성 함수의 팬아웃/팬인 시나리오 - Azure"
-description: "Azure Functions의 지속성 함수 확장에서 팬아웃/팬인 시나리오를 구현하는 방법을 알아봅니다."
+title: 지속성 함수의 팬아웃/팬인 시나리오 - Azure
+description: Azure Functions의 지속성 함수 확장에서 팬아웃/팬인 시나리오를 구현하는 방법을 알아봅니다.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: a5d539172f03246e3c658f2485d29d3ae389ae52
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 446ddbff7d945e90ebfd12bc6e9e7a1f0e18267c
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>지속성 함수의 팬아웃/팬인 시나리오 - 클라우드 백업 예제
 
@@ -158,7 +158,7 @@ Content-Type: application/json; charset=utf-8
 
 ## <a name="next-steps"></a>다음 단계
 
-이 예제는 팬아웃/팬인 패턴의 구현 방법을 보여 줍니다. 다음 예제는 [외부 오케스트레이션](durable-functions-eternal-orchestrations.md)에서 [상태를 저장하는 단일 항목](durable-functions-singletons.md) 패턴을 구현하는 방법을 보여줍니다.
+이 예제는 팬아웃/팬인 패턴의 구현 방법을 보여 줍니다. 다음 샘플은 [지속성 타이머](durable-functions-timers.md)를 사용하여 모니터링 패턴을 구현하는 방법을 보여줍니다.
 
 > [!div class="nextstepaction"]
-> [상태 저장 단일 항목 샘플 실행](durable-functions-counter.md)
+> [모니터링 샘플 실행](durable-functions-monitor.md)

@@ -9,9 +9,9 @@
 | 저장소 계정당 최대 수신<sup>3</sup> 속도(미국 이외 지역) | GRS/ZRS<sup>4</sup>를 사용하는 경우 5Gbps, LRS<sup>2</sup>를 사용하는 경우 10Gbps |
 | 저장소 계정당 최대 송신<sup>3</sup> 속도(미국 이외 지역) | RA-GRS/GRS/ZRS<sup>4</sup>를 사용하는 경우 10Gbps, LRS<sup>2</sup>를 사용하는 경우 15Gbps |
 
-<sup>1</sup> 표준 및 프리미엄 저장소 계정이 모두 포함됩니다. 저장소 계정이 200개 이상 필요한 경우 [Azure 지원](https://azure.microsoft.com/support/faq/)에 요청합니다. Azure Storage 팀이 비즈니스 사례를 검토하고 저장소 계정을 250개까지 승인할 수 있습니다. 
+<sup>1</sup> 표준 및 프리미엄 저장소 계정이 모두 포함됩니다. 저장소 계정이 200개 이상 필요한 경우 [Azure 지원](https://azure.microsoft.com/support/faq/)에 요청합니다. Azure Storage 팀이 비즈니스 사례를 검토하고 Storage 계정을 250개까지 승인할 수 있습니다. 
 
-<sup>2</sup> 용량, 수신/송신 및 요청 속도에 공시된 제한을 초과하여 표준 저장소 계정을 확장하려면 [Azure 지원](https://azure.microsoft.com/support/faq/)에 요청합니다. Azure Storage 팀에서 해당 요청을 검토하여 상황별로 더 높은 제한을 승인할 수 있습니다.
+<sup>2</sup> 저장소 계정에 대해 한도 확장이 필요한 경우 [Azure Support](https://azure.microsoft.com/support/faq/)에 문의하세요. Azure Storage 팀에서 해당 요청을 검토하여 상황별로 더 높은 제한을 승인할 수 있습니다. 범용 및 Blob 저장소 계정은 요청에 따라 증가된 용량, 수신/송신 및 요청 속도가 지원됩니다. Blob 저장소 계정의 새로운 최댓값은 [용량 및 확장성이 향상된 저장소 계정 발표](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/)를 참조하세요.
 
 <sup>3</sup> 계정의 입/출력 제한만으로 한정됩니다. *수신*은 저장소 계정에 보내는 모든 데이터(요청)를 나타냅니다. *송신* 은 저장소 계정에서 수신되는 모든 데이터(응답)를 가리킵니다.  
 

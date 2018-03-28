@@ -1,6 +1,6 @@
 ---
-title: "Azure Application Gateway에서 SSL 정책 구성 - PowerShell | Microsoft Docs"
-description: "이 페이지에서는 Azure Application Gateway에서 SSL 정책을 구성하기 위한 지침을 제공합니다."
+title: Azure Application Gateway에서 SSL 정책 구성 - PowerShell | Microsoft Docs
+description: 이 페이지에서는 Azure Application Gateway에서 SSL 정책을 구성하기 위한 지침을 제공합니다.
 documentationcenter: na
 services: application-gateway
 author: davidmu1
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/19/2017
 ms.author: davidmu
-ms.openlocfilehash: 407b62042d3f0d5c68234c4faeaa139c5e21b3a6
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: fa192ca1ee0dc5ee7190b6c63b64297c7406291d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="configure-ssl-policy-versions-and-cipher-suites-on-application-gateway"></a>Application Gateway에서 SSL 정책 버전 및 암호 그룹 구성
 
@@ -75,7 +75,7 @@ AvailableProtocols:
 
 ## <a name="list-pre-defined-ssl-policies"></a>미리 정의된 SSL 정책 나열
 
-Application Gateway는 사용할 수 있는 미리 정의된 3가지 정책을 함께 제공합니다. `Get-AzureRmApplicationGatewaySslPredefinedPolicy` cmdlet은 이러한 정책을 검색합니다. 각 정책에는 다른 프로토콜 버전 및 암호 그룹을 사용 하도록 설정했습니다. 이러한 미리 정의된 정책은 Application Gateway에서 SSL 정책을 신속하게 구성하는 데 사용할 수 있습니다. 기본적으로 **AppGwSslPolicy20170401**은 특정 SSL 정책이 정의되지 않은 경우에 선택됩니다.
+Application Gateway는 사용할 수 있는 미리 정의된 3가지 정책을 함께 제공합니다. `Get-AzureRmApplicationGatewaySslPredefinedPolicy` cmdlet은 이러한 정책을 검색합니다. 각 정책에는 다른 프로토콜 버전 및 암호 그룹을 사용 하도록 설정했습니다. 이러한 미리 정의된 정책은 Application Gateway에서 SSL 정책을 신속하게 구성하는 데 사용할 수 있습니다. 기본적으로 **AppGwSslPolicy20150501**은 특정 SSL 정책이 정의되지 않은 경우에 선택됩니다.
 
 다음은 `Get-AzureRmApplicationGatewaySslPredefinedPolicy`를 실행하는 예제입니다.
 

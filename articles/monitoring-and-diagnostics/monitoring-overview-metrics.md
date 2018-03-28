@@ -1,9 +1,9 @@
 ---
-title: "Microsoft Azure의 메트릭 개요 | Microsoft Docs"
-description: "Microsoft Azure의 메트릭 개요 및 사용"
+title: Microsoft Azure의 메트릭 개요 | Microsoft Docs
+description: Microsoft Azure의 메트릭 개요 및 사용
 author: johnkemnetz
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: 405ec51c-0946-4ec9-b535-60f65c4a5bd1
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: johnkem
-ms.openlocfilehash: 32ca0ce5148ae2641500c98cb04b0d7db1987960
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 4a78236f9c6945bb982466b59690b221f35a1804
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="overview-of-metrics-in-microsoft-azure"></a>Microsoft Azure의 메트릭 개요
 이 문서에서는 Microsoft Azure의 메트릭에 대해 설명하고 그 이점과 사용 방법을 소개합니다.  
@@ -80,7 +80,7 @@ Azure 모니터에서는 원격 분석을 사용하여 Azure에서 워크로드�
    ![Azure Monitor에서 모든 메트릭을 한 곳에서 액세스](./media/monitoring-overview-metrics/MetricsOverview2.png)
 
 > [!NOTE]
-> 추가적인 진단 설정 없이 VM(Azure Resource Manager 기반) 및 가상 컴퓨터 확장 집합에서 호스트 설정 메트릭에 액세스할 수 있습니다. 이러한 호스트 수준 메트릭은 Windows 및 Linux 인스턴스에서 사용할 수 있습니다. 이러한 메트릭을 VM 또는 가상 컴퓨터 확장 집합에서 Azure Diagnostics를 사용할 때 액세스할 수 있는 게스트 OS 수준 메트릭과 혼동해서는 안 됩니다. Diagnostics 구성에 대한 자세한 내용은 [Microsoft Azure 진단이란?](../azure-diagnostics.md)을 참조하세요.
+> 추가적인 진단 설정 없이 VM(Azure Resource Manager 기반) 및 가상 머신 확장 집합에서 호스트 설정 메트릭에 액세스할 수 있습니다. 이러한 호스트 수준 메트릭은 Windows 및 Linux 인스턴스에서 사용할 수 있습니다. 이러한 메트릭을 VM 또는 가상 머신 확장 집합에서 Azure Diagnostics를 사용할 때 액세스할 수 있는 게스트 OS 수준 메트릭과 혼동해서는 안 됩니다. Diagnostics 구성에 대한 자세한 내용은 [Microsoft Azure 진단이란?](../azure-diagnostics.md)을 참조하세요.
 >
 >
 
@@ -120,7 +120,7 @@ Resource Manager 템플릿, [PowerShell](insights-powershell-samples.md), [Azure
 
 
 ### <a name="autoscale-your-azure-resources"></a>Azure 리소스에서 자동 크기 조정
-일부 Azure 리소스에서는 워크로드 처리를 위해 여러 인스턴스의 확대 또는 축소를 지원합니다. 자동 크기 조정은 App Service(Web Apps), 가상 컴퓨터 확장 집합 및 기존 Azure Cloud Services에 적용됩니다. 특정 메트릭이 지정한 임계값을 초과할 때 규모를 확대하거나 축소하도록 자동 크기 조정 규칙을 구성할 수 있습니다. 자세한 내용은 [자동 크기 조정 개요](monitoring-overview-autoscale.md)를 참조하세요.
+일부 Azure 리소스에서는 워크로드 처리를 위해 여러 인스턴스의 확대 또는 축소를 지원합니다. 자동 크기 조정은 App Service(Web Apps), 가상 머신 확장 집합 및 기존 Azure Cloud Services에 적용됩니다. 특정 메트릭이 지정한 임계값을 초과할 때 규모를 확대하거나 축소하도록 자동 크기 조정 규칙을 구성할 수 있습니다. 자세한 내용은 [자동 크기 조정 개요](monitoring-overview-autoscale.md)를 참조하세요.
 
  ![Azure Monitor의 메트릭 및 자동 크기 조정](./media/monitoring-overview-metrics/MetricsOverview5.png)
 

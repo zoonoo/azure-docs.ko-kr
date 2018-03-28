@@ -1,24 +1,20 @@
 ---
-title: "Jenkins 및 Azure Container Instances를 사용하여 Azure에서 프로젝트 빌드"
-description: "Jenkins용 Azure 컨테이너 에이전트 플러그 인을 사용하여 Azure Container Instances를 통해 Azure에서 프로젝트를 빌드하는 방법 알아보기"
-services: multiple
-documentationcenter: 
+title: Jenkins 및 Azure Container Instances를 사용하여 Azure에서 프로젝트 빌드
+description: Jenkins용 Azure 컨테이너 에이전트 플러그 인을 사용하여 Azure Container Instances를 통해 Azure에서 프로젝트를 빌드하는 방법 알아보기
 author: tomarcher
 manager: rloutlaw
-editor: 
 ms.service: multiple
+ms.workload: web
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: web
-ms.date: 02/28/2018
+ms.date: 03/16/2018
 ms.author: tarcher
-ms.custom: jenkins
-ms.openlocfilehash: 557b21340a0ba4e5381d7505b14a172aa3478b84
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.custom: Jenkins
+ms.openlocfilehash: a18136afc096f8315310fae134d3f683994b6d0a
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="build-a-project-in-azure-using-jenkins-and-azure-container-instances"></a>Jenkins 및 Azure Container Instances를 사용하여 Azure에서 프로젝트 빌드
 
@@ -72,6 +68,11 @@ Jenkins는 다시 자신을 가리키는 링크를 만들 경우 자신의 URL�
 1. **저장**을 선택합니다.
 
 ## <a name="update-jenkins-to-allow-java-network-launch-protocol-jnlp"></a>JNLP(Java Network Launch Protocol)를 허용하도록 Jenkins 업데이트
+
+> [!NOTE]
+> 이 자습서에서는 JNLP 에이전트를 구성하는 방법을 보여줍니다. 버전 0.4.x부터는 [Jenkins Azure 컨테이너 에이전트 플러그 인](https://plugins.jenkins.io/azure-container-agents)도 SSH를 지원합니다.
+>
+>
 
 Jenkins 에이전트는 JNLP(Java Network Launch Protocol)를 통해 Jenkins 서버와 연결합니다. 이 섹션에서는 Jenkins 서버와 통신할 때 사용할 JNLP 에이전트의 포트를 지정하는 방법을 설명합니다.
 

@@ -1,36 +1,36 @@
 ---
-title: "데이터 과학 가상 컴퓨터 도구 개요 - Azure | Microsoft Docs"
-description: "데이터 과학 가상 컴퓨터 도구 개요입니다."
-keywords: "데이터 과학 도구, 데이터 과학 가상 컴퓨터, 데이터 과학용 도구, linux 데이터 과학"
+title: 데이터 과학 Virtual Machine 도구 개요 - Azure | Microsoft Docs
+description: 데이터 과학 가상 머신 도구 개요입니다.
+keywords: 데이터 과학 도구, 데이터 과학 가상 머신, 데이터 과학용 도구, linux 데이터 과학
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/11/2017
+ms.date: 03/16/2018
 ms.author: gokuma;bradsev
-ms.openlocfilehash: c6948447ea7bfa6219bf70d46d14f82724fa0c60
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9ce99577d57179e641b86385fd1b543e327d7474
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/17/2018
 ---
-# <a name="get-to-know-your-data-science-virtual-machine"></a>데이터 과학 가상 컴퓨터에 대해 알아보기
+# <a name="get-to-know-your-data-science-virtual-machine"></a>데이터 과학 Virtual Machine에 대해 알아보기
 
-**DSVM**(데이터 과학 가상 컴퓨터)에는 인기 있는 데이터 과학, Machine Learning/AI 도구 및 데이터 플랫폼의 자세한 목록이 포함되어 있습니다. 이러한 기능은 안정성 및 일반적인 실행 가능성을 보장하기 위해 Microsoft의 데이터 과학자 및 개발자뿐 아니라 광범위한 데이터 과학 커뮤니티를 통해 엄격히 테스트된 구성에 설치되었습니다.
+DSVM(데이터 과학 가상 머신)에는 많이 사용되는 광범위한 데이터 과학, 기계 학습/AI 도구 및 데이터 플랫폼 목록이 포함되어 있습니다. 도구 구성은 안정성 및 일반적인 실행 가능성을 보장하기 위해서 Microsoft의 데이터 과학자와 개발자 및 광범위한 데이터 과학 커뮤니티를 통해 엄격하게 테스트되었습니다.
 
-또한 DSVM에는 로컬로 실행할 수 있는 Jupyter 노트북의 형태로 여러 코드 샘플 및 연습이 포함되어 있습니다. 이해를 돕기 위해 이러한 샘플에 대한 설명서도 포함되어 있습니다. 
+또한 DSVM에는 로컬에서 실행할 수 있는 Jupyter Notebook의 형태로 여러 코드 샘플 및 연습이 포함되어 있습니다. 이해를 돕기 위해 이러한 샘플에 대한 설명서도 포함되어 있습니다. 
 
-DSVM에 포함된 도구, 플랫폼, 유틸리티 및 샘플은 다음 섹션으로 구성되어 있습니다.
+데이터 과학 VM에 포함된 도구, 플랫폼, 유틸리티 및 샘플은 다음 섹션으로 구성되어 있습니다.
 
-1. **[심층 학습 및 AI 프레임워크](dsvm-deep-learning-ai-frameworks.md)**
-2. **[ML 및 데이터 과학 도구](dsvm-ml-data-science-tools.md)**
+1. **[딥 러닝 및 AI 프레임워크](dsvm-deep-learning-ai-frameworks.md)**
+2. **[Machine Learning 및 데이터 과학 도구](dsvm-ml-data-science-tools.md)**
 3. **[프로그래밍 언어](dsvm-languages.md)**
 4. **[개발 도구 및 IDE](dsvm-tools-development.md)**
 5. **[데이터 수집 도구](dsvm-tools-ingestion.md)**

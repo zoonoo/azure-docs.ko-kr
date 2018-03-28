@@ -1,4 +1,19 @@
-
+---
+title: 포함 파일
+description: 포함 파일
+services: virtual-machines
+author: jonbeck7
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 03/09/2018
+ms.author: azcspmt;jonbeck;cynthn
+ms.custom: include file
+ms.openlocfilehash: 95a78df20f5bed07213dfa3cc2c9b35e283f54e7
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 03/16/2018
+---
 B 시리즈 VM 제품군을 사용하면 워크로드에 필요한 기준 수준 성능을 제공하는 VM 크기를 선택할 수 있으며, Intel® Broadwell E5-2673 v4 2.3GHz 또는 Intel® Haswell 2.4GHz E5-2673 v3 프로세서 vCPU의 CPU 성능을 최대 100%까지 버스트할 수 있습니다.
 
 B 시리즈 VM은 웹 서버, 소규모 데이터베이스 및 개발 및 테스트 환경과 같이 CPU의 전체 성능이 지속적으로 필요하지 않은 작업에 적합합니다. 이러한 작업에는 일반적으로 버스트 가능한 성능 요구 사항이 있습니다. B 시리즈는 기준 성능을 갖춘 VM 크기를 구입할 수 있는 기능을 제공하며, 기준 성능보다 적게 사용할 경우 VM 인스턴스에서 크레딧을 적립합니다. VM에 대한 크레딧이 적립되면 응용 프로그램에 더 높은 CPU 성능이 필요할 때 VM이 vCPU의 최대 100%까지 사용하여 기준 이상으로 버스트할 수 있습니다.
@@ -20,7 +35,7 @@ B 시리즈는 다음 6가지 VM 크기로 제공됩니다.
 ## <a name="q--a"></a>질문과 대답 
 
 ### <a name="q-how-do-you-get-135-baseline-performance-from-a-vm"></a>Q: VM에서 135% 기준 성능을 얻으려면 어떻게 할까요?
-**A**: 135%는 VM 크기를 구성하는 8개 vCPU에서 공유됩니다. 예를 들어 응용 프로그램에서 일괄 처리를 수행하는 8개 코어 중 4개를 활용하고 해당 4개 vCPU에서 30% 사용률에서 실행하는 경우 총 VM CPU 성능은 120%가 됩니다.  즉 VM이 기준 성능에서 15% 델타에 따라 크레딧 시간을 적립한다는 것을 의미합니다.  그러나 동일한 VM에서 8개 vCPU를 모두 100% 사용하여 해당 VM에 최대 800% CPU 성능을 제공하는 크레딧을 사용할 수 있음도 의미합니다.
+**A**: 135%는 VM 크기를 구성하는 8개 vCPU에서 공유됩니다. 예를 들어 응용 프로그램에서 일괄 처리를 수행하는 8개 코어 중 4개를 사용하고 해당 4개 vCPU에서 30% 사용률에서 실행하는 경우 총 VM CPU 성능은 120%가 됩니다.  즉 VM이 기준 성능에서 15% 델타에 따라 크레딧 시간을 적립한다는 것을 의미합니다.  그러나 동일한 VM에서 8개 vCPU를 모두 100% 사용하여 해당 VM에 최대 800% CPU 성능을 제공하는 크레딧을 사용할 수 있음도 의미합니다.
 
 
 ### <a name="q-how-can-i-monitor-my-credit-balance-and-consumption"></a>Q: 크레딧 잔액과 소비량을 모니터링하려면 어떻게 할까요?

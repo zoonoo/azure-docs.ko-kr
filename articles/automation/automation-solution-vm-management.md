@@ -1,24 +1,18 @@
 ---
-title: "작업 시간 외 VM 시작/중지 솔루션(미리 보기) | Microsoft Docs"
-description: "VM 관리 솔루션은 Azure Resource Manager 가상 머신을 일정에 따라 시작 및 중지하고 Log Analytics에서 사전에 모니터링합니다."
+title: 작업 시간 외 VM 시작/중지 솔루션(미리 보기)
+description: VM 관리 솔루션은 Azure Resource Manager 가상 머신을 일정에 따라 시작 및 중지하고 Log Analytics에서 사전에 모니터링합니다.
 services: automation
-documentationCenter: 
-authors: eslesar
-manager: carmonm
-editor: 
-ms.assetid: 06c27f72-ac4c-4923-90a6-21f46db21883
 ms.service: automation
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.date: 12/18/2017
-ms.author: magoedte
-ms.openlocfilehash: 7ffd424de2a7224b5ac50fa228289c5397092b2e
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+manager: carmonm
+ms.openlocfilehash: ec15859a92527c4e084075b40d3439d7a19fea1a
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="startstop-vms-during-off-hours-solution-preview-in-azure-automation"></a>Azure Automation의 작업 시간 외 VM 시작/중지 솔루션(미리 보기)
 
@@ -129,7 +123,7 @@ ms.lasthandoff: 02/21/2018
 
 작업 시간 외 VM 시작/중지 솔루션을 Automation 계정에 추가하고 솔루션을 사용자 지정하도록 변수를 구성하려면 다음 단계를 수행합니다.
 
-1. Azure Portal에서 **리소스 만들기**를 클릭합니다.<br> ![Azure 포털](media/automation-solution-vm-management/azure-portal-01.png)<br>  
+1. Azure Portal에서 **리소스 만들기**를 클릭합니다.<br> ![Azure Portal](media/automation-solution-vm-management/azure-portal-01.png)<br>  
 2. Marketplace 창에서 **시작** 또는 **시작/중지**와 같은 키워드를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. 또는 솔루션의 전체 이름에서 하나 이상의 키워드를 입력한 다음 Enter 키를 누를 수도 있습니다.  검색 결과에서 **작업 시간 외 VM 시작/중지[미리 보기]**를 선택합니다.  
 3. 선택한 솔루션에 대한 **작업 시간 외 VM 시작/중지 [미리 보기]** 창에서 요약 정보를 검토한 다음 **만들기**를 클릭합니다.  
 4. **솔루션 추가** 창이 나타납니다. Automation 구독으로 솔루션을 가져오려면 솔루션을 구성하라는 메시지가 표시됩니다.<br><br> ![VM 관리 솔루션 추가 블레이드](media/automation-solution-vm-management/azure-portal-add-solution-01.png)<br><br>
