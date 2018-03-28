@@ -1,6 +1,6 @@
 ---
-title: "템플릿에서 Azure Service Fabric 클러스터 만들기 | Microsoft Docs"
-description: "이 문서에서는 클라이언트 인증에 Azure Resource Manager, Azure Key Vault, Azure Active Directory(Azure AD)를 사용하여 Azure에 보안 Service Fabric 클러스터를 설정하는 방법을 설명합니다."
+title: 템플릿에서 Azure Service Fabric 클러스터 만들기 | Microsoft Docs
+description: 이 문서에서는 클라이언트 인증에 Azure Resource Manager, Azure Key Vault, Azure Active Directory(Azure AD)를 사용하여 Azure에 보안 Service Fabric 클러스터를 설정하는 방법을 설명합니다.
 services: service-fabric
 documentationcenter: .net
 author: chackdan
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/07/2017
 ms.author: chackdan
-ms.openlocfilehash: 6675603bf741b1a668ba387c8304d2e2b7ab4e12
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: e8e5513df5ab412857403382e1940da27c85274a
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-a-service-fabric-cluster-by-using-azure-resource-manager"></a>Azure Resource Manager를 사용하여 Service Fabric 클러스터 만들기 
 > [!div class="op_single_selector"]
 > * [Azure 리소스 관리자](service-fabric-cluster-creation-via-arm.md)
-> * [Azure 포털](service-fabric-cluster-creation-via-portal.md)
+> * [Azure Portal](service-fabric-cluster-creation-via-portal.md)
 >
 >
 
@@ -117,7 +117,7 @@ az account set --subscription $subscriptionId
 
 사용되는 템플릿은 [Azure Service Fabric 템플릿 샘플: Windows 템플릿](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) 및 [Ubuntu 템플릿](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure)에서 사용할 수 있습니다.
 
-아래 명령은 Windows 및 Linux 클러스터를 만드는 경우에도 작동합니다. 해당하는 OS를 지정하면 됩니다. 또한 PowerShell/CLI 명령은 theCertificateOutputFolder에 지정된 인증서를 출력합니다. 이 명령은 VM SKU와 같은 다른 매개 변수를 사용합니다.
+아래 명령은 Windows 및 Linux 클러스터를 만드는 경우에도 작동합니다. 해당하는 OS를 지정하면 됩니다. 또한 PowerShell/CLI 명령은 CertificateOutputFolder에 지정된 인증서를 출력하지만 인증서 폴더가 이미 만들어졌는지 확인합니다. 이 명령은 VM SKU와 같은 다른 매개 변수를 사용합니다.
 
 ```Powershell
 
@@ -126,13 +126,13 @@ $resourceGroupName="mycluster"
 $vaultName="myvault"
 $vaultResourceGroupName="myvaultrg"
 $CertSubjectName="mycluster.westus.cloudapp.azure.com"
-$certPassword="Password!1" | ConvertTo-SecureString -AsPlainText -Force 
-$vmpassword="Password!4321" | ConvertTo-SecureString -AsPlainText -Force
+$certPassword="Password123!@#" | ConvertTo-SecureString -AsPlainText -Force 
+$vmpassword="Password4321!@#" | ConvertTo-SecureString -AsPlainText -Force
 $vmuser="myadmin"
 $os="WindowsServer2016DatacenterwithContainers"
 $certOutputFolder="c:\certificates"
 
-New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroupName -Location $resourceGroupLocation -CertificateOutputFolder $certOutputFolder -CertificatePassword $certpassword -CertificateSubjectName $CertSubjectName -OS $os -VmPassword $vmpassword -VmUserName $vmuser 
+New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroupName -Location $resourceGroupLocation -CertificateOutputFolder $certOutputFolder -CertificatePassword $certpassword -CertificateSubjectName $CertSubjectName -OS $os -VmPassword $vmpassword -VmUserName $vmuser –Location $resourceGroupLocation
 
 ```
 
@@ -163,7 +163,7 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 
 필요에 맞게 사용자 지정 템플릿을 작성해야 하는 경우 [Azure Service Fabric 템플릿 샘플](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master)에서 사용할 수 있는 템플릿 중 하나로 시작하는 것이 좋습니다. 아래 [클러스터 템플릿 사용자 지정][customize-your-cluster-template] 섹션의 설명 및 지침에 따릅니다.
 
-이미 사용자 지정 템플릿이 있는 경우 템플릿 및 매개 변수 파일에 있는 모든 세 개의 인증서 관련 매개 변수 이름이 다음과 같고 값에는 다음과 같이 null인지 두 번 확인하도록 합니다.
+이미 사용자 지정 템플릿이 있는 경우 템플릿 및 매개 변수 파일에 있는 모든 세 개의 인증서 관련 매개 변수 이름이 다음과 같고 값에는 다음과 같이 Null인지 두 번 확인하도록 합니다.
 
 ```Json
    "certificateThumbprint": {
@@ -178,7 +178,7 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 ```
 
 
-```Powershell
+```PowerShell
 
 
 $resourceGroupLocation="westus"
@@ -226,7 +226,8 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 #### <a name="use-the-default-5-node-1-nodetype-template-that-ships-in-the-module"></a>모듈에서 제공되는 기본 5개 노드 1 nodetype 템플릿 사용
 사용되는 템플릿은 [Azure 샘플: Windows 템플릿](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) 및 [Ubuntu 템플릿](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure)에서 사용할 수 있습니다.
 
-```Powershell
+```PowerShell
+
 $resourceGroupLocation="westus"
 $resourceGroupName="mylinux"
 $vaultName="myvault"
@@ -279,7 +280,7 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 ```
 
 
-```Powershell
+```PowerShell
 
 $resourceGroupLocation="westus"
 $resourceGroupName="mylinux"
@@ -292,7 +293,7 @@ $templateFilePath="c:\mytemplates\mytemplate.json"
 $certificateFile="C:\MyCertificates\chackonewcertificate3.pem"
 
 
-New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroupName -Location $resourceGroupLocation -TemplateFile $templateFilePath -ParameterFile $parameterFilePath -KeyVaultResouceGroupName $vaultResourceGroupName -KeyVaultName $vaultName -CertificateFile $certificateFile -CertificatePassword #certPassword
+New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroupName -Location $resourceGroupLocation -TemplateFile $templateFilePath -ParameterFile $parameterFilePath -KeyVaultResouceGroupName $vaultResourceGroupName -KeyVaultName $vaultName -CertificateFile $certificateFile -CertificatePassword $certPassword
 
 ```
 
@@ -314,34 +315,34 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
     --template-file $templateFilePath --parameter-file $parametersFilePath 
 ```
 
-#### <a name="use-a-pointer-to-the-secret-you-already-have-uploaded-into-the-keyvault"></a>키 자격 증명 모음에 이미 업로드된 암호에 포인터 사용
+#### <a name="use-a-pointer-to-the-secret-you-already-have-uploaded-into-the-key-vault"></a>키 자격 증명 모음에 이미 업로드된 암호에 포인터 사용
 
 기존 Key Vault를 사용하려면 연산 리소스 공급자가 인증서를 가져와 클러스터 노드에 설치할 수 있도록 Key Vault를 _배포에 대해 사용하도록 설정해야 합니다_.
 
-```powershell
+```PowerShell
 
 Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -EnabledForDeployment
 
 
 $parameterFilePath="c:\mytemplates\mytemplate.json"
 $templateFilePath="c:\mytemplates\mytemplateparm.json"
-$secertId="https://test1.vault.azure.net:443/secrets/testcertificate4/55ec7c4dc61a462bbc645ffc9b4b225f"
+$secretID="https://test1.vault.azure.net:443/secrets/testcertificate4/55ec7c4dc61a462bbc645ffc9b4b225f"
 
 
-New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroup -SecretIdentifier $secretID -TemplateFile $templateFile -ParameterFile $templateParmfile 
+New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroup -SecretIdentifier $secretId -TemplateFile $templateFilePath -ParameterFile $parameterFilePath 
 
 ```
 동일한 작업을 수행하는 해당 CLI 명령은 다음과 같습니다. 선언 문의 값을 적절한 값으로 변경합니다.
 
-```cli
-
+```CLI
+declare $resourceGroupName = "testRG"
 declare $parameterFilePath="c:\mytemplates\mytemplate.json"
 declare $templateFilePath="c:\mytemplates\mytemplateparm.json"
 declare $secertId="https://test1.vault.azure.net:443/secrets/testcertificate4/55ec7c4dc61a462bbc645ffc9b4b225f"
 
 
 az sf cluster create --resource-group $resourceGroupName --location $resourceGroupLocation  \
-    --secret-identifieraz $secretID  \
+    --secret-identifier az $secretID  \
     --template-file $templateFilePath --parameter-file $parametersFilePath 
 
 ```
@@ -524,7 +525,7 @@ Service Fabric 클러스터 Resource Manager 템플릿을 사용자 지정 작�
 ### <a name="populate-the-parameter-file-with-the-values"></a>이 값으로 매개 변수 파일을 채웁니다.
 마지막으로, Key Vault 및 Azure AD PowerShell 명령의 출력 값을 매개 변수 파일을 채우는 데 사용합니다.
 
-Azure Service Fabric RM PowerShell 모듈을 사용하려는 경우 클러스터 인증서 정보를 채우지 않아도 됩니다. 시스템에서 클러스터 보안을 위해 자체 서명된 인증서를 생성하려는 경우 null로만 유지합니다. 
+Azure Service Fabric RM PowerShell 모듈을 사용하려는 경우 클러스터 인증서 정보를 채우지 않아도 됩니다. 시스템에서 클러스터 보안을 위해 자체 서명된 인증서를 생성하려는 경우 Null로만 유지합니다. 
 
 > [!NOTE]
 > 이러한 빈 매개 변수 값을 선택하고 채우는 RM 모듈의 경우 매개 변수 이름은 아래 이름과 일치해야 합니다.
@@ -587,13 +588,13 @@ RM 모듈에는 사용자에게 Azure AD 구성을 생성하는 기능이 없습
 ### <a name="test-your-template"></a>템플릿 테스트  
 매개 변수 파일로 Resource Manager 템플릿을 테스트하려면 다음 PowerShell 명령을 사용합니다.
 
-```powershell
+```PowerShell
 Test-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json
 ```
 
 문제가 발생하고 복잡한 메시지가 표시된 경우에 "-Debug"를 옵션으로 사용합니다.
 
-```powershell
+```PowerShell
 Test-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json -Debug
 ```
 
@@ -605,7 +606,7 @@ Test-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -Templa
 
 이제 문서의 앞부분에서 설명한 단계를 사용하여 클러스터를 배포할 수 있습니다. 또는 매개 변수 파일의 값이 채워진 경우 [Azure 리소스 템플릿 배포][resource-group-template-deploy]를 직접 사용하여 클러스터를 만들 준비가 되었습니다.
 
-```powershell
+```PowerShell
 New-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json
 ```
 
@@ -677,7 +678,7 @@ AAD 페이지에서 “앱 등록”을 선택하고, 클러스터 응용 프로
 ### <a name="connect-the-cluster-by-using-azure-ad-authentication-via-powershell"></a>PowerShell 통해 Azure AD 인증을 사용하여 클러스터 연결
 Service Fabric 클러스터에 연결하려면 다음 PowerShell 명령 예제를 사용합니다.
 
-```powershell
+```PowerShell
 Connect-ServiceFabricCluster -ConnectionEndpoint <endpoint> -KeepAliveIntervalInSec 10 -AzureActiveDirectory -ServerCertThumbprint <thumbprint>
 ```
 

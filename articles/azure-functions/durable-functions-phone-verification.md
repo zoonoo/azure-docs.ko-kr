@@ -1,12 +1,12 @@
 ---
-title: "지속성 함수의 인간 상호 작용 및 시간 제한 - Azure"
-description: "Azure Functions의 지속성 함수 확장에서 인간 상호 작용 및 시간 제한을 처리하는 방법을 알아봅니다."
+title: 지속성 함수의 인간 상호 작용 및 시간 제한 - Azure
+description: Azure Functions의 지속성 함수 확장에서 인간 상호 작용 및 시간 제한을 처리하는 방법을 알아봅니다.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 1763c63b37c5e6b326c3623dc058974f718ac990
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: e0b919ae5ef0639c8afdc5f9b006d899c8dbc4c1
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>지속성 함수의 인간 상호 작용 - 전화 확인 샘플
 
@@ -33,23 +33,15 @@ ms.lasthandoff: 12/05/2017
 
 ## <a name="scenario-overview"></a>시나리오 개요
 
-전화 확인은 응용 프로그램의 최종 사용자가 스패머가 아니고 자신이 언급되는 당사자인지 확인하는 데 사용됩니다. 다단계 인증은 해커로부터 사용자 계정을 보호하기 위한 일반적인 사용 사례입니다. 사용자 고유의 전화 확인을 구현하는 챌린지에는 사람과의 **상태 저장 상호 작용**이 필요하다는 것입니다. 일반적으로 최종 사용자는 일부 코드(예: 4자리 숫자)를 제공받고 **적절한 시간**에 응답해야 합니다.
+전화 확인은 응용 프로그램의 최종 사용자가 스패머가 아니고 자신이 언급되는 당사자인지 확인하는 데 사용됩니다. 다단계 인증은 해커로부터 사용자 계정을 보호하기 위한 일반적인 사용 사례입니다. 사용자 고유의 전화 확인을 구현하는 챌린지에는 사람과의 **상태 저장 상호 작용**이 필요하다는 것입니다. 일반적으로 최종 사용자에게는 일부 코드(예: 4자리 숫자)가 제공되며 **적절한 시간 내에** 응답해야 합니다.
 
-일반적인 Azure Functions는 다른 플랫폼의 다른 많은 클라우드 끝점과 마찬가지로 상태 비저장이므로, 이러한 유형의 상호 작용에는 데이터베이스 또는 일부 다른 영구 저장소에서 외부적으로 상태를 관리하는 작업이 명시적으로 포함됩니다. 또한 상호 작용은 함께 조정될 수 있는 여러 함수로 분할되어야 합니다. 예를 들어 코드를 결정하고, 어딘가에 유지하고, 사용자의 전화로 보내는 함수가 하나 이상 필요합니다. 또한 사용자로부터 응답을 받기 위해 다른 함수가 하나 이상 필요하며, 코드 유효성 검사를 수행하기 위해 어떤 방식으로든 원래 함수 호출에 다시 매핑해야 합니다. 시간 제한은 보안을 유지하는 중요한 요소이기도 하지만, 매우 빠르게 상당히 복잡해질 수 있습니다.
+일반적인 Azure Functions는 다른 플랫폼의 다른 많은 클라우드 엔드포인트와 마찬가지로 상태 비저장이므로, 이러한 유형의 상호 작용에는 데이터베이스 또는 일부 다른 영구 저장소에서 외부적으로 상태를 관리하는 작업이 명시적으로 포함됩니다. 또한 상호 작용은 함께 조정될 수 있는 여러 함수로 분할되어야 합니다. 예를 들어 코드를 결정하고, 어딘가에 유지하고, 사용자의 전화로 보내는 함수가 하나 이상 필요합니다. 또한 사용자로부터 응답을 받기 위해 다른 함수가 하나 이상 필요하며, 코드 유효성 검사를 수행하기 위해 어떤 방식으로든 원래 함수 호출에 다시 매핑해야 합니다. 시간 제한은 보안을 유지하는 중요한 요소이기도 하지만, 신속하게 상당히 복잡해질 수 있습니다.
 
-지속성 함수를 사용하면 이 시나리오의 복잡성이 크게 줄어듭니다. 이 샘플에서 볼 수 있듯이 오케스트레이터 함수는 외부 데이터 저장소를 포함하지 않고 상태 저장 상호 작용을 매우 쉽게 관리할 수 있습니다. 오케스트레이터 함수는 *지속적*이므로 이러한 대화형 흐름도 매우 안정적입니다.
+지속성 함수를 사용하면 이 시나리오의 복잡성이 크게 줄어듭니다. 이 샘플에서 볼 수 있듯이 오케스트레이터 함수는 외부 데이터 저장소를 포함하지 않고 상태 저장 상호 작용을 쉽게 관리할 수 있습니다. 오케스트레이터 함수는 *지속적*이므로 이러한 대화형 흐름도 매우 안정적입니다.
 
 ## <a name="configuring-twilio-integration"></a>Twilio 통합 구성
 
-이 샘플에서는 [Twilio](https://www.twilio.com/) 서비스를 사용하여 SMS 메시지를 휴대폰으로 보냅니다. Azure Functions는 이미 [Twilio 바인딩](https://docs.microsoft.com/azure/azure-functions/functions-bindings-twilio)을 통해 Twilio를 지원하며, 샘플에서 이 기능을 사용합니다.
-
-가장 먼저 필요한 것은 Twilio 계정입니다. https://www.twilio.com/try-twilio에서 추가 비용 없이 만들 수 있습니다. 계정이 있으면 다음 세 가지 **앱 설정**을 함수 앱에 추가합니다.
-
-| 앱 설정 이름 | 값 설명 |
-| - | - |
-| **TwilioAccountSid**  | Twilio 계정의 SID |
-| **TwilioAuthToken**   | Twilio 계정의 인증 토큰 |
-| **TwilioPhoneNumber** | Twilio 계정과 연결되는 전화 번호이며, SMS 메시지를 보내는 데 사용됩니다. |
+[!INCLUDE [functions-twilio-integration](../../includes/functions-twilio-integration.md)]
 
 ## <a name="the-functions"></a>함수
 
@@ -77,7 +69,7 @@ ms.lasthandoff: 12/05/2017
 3. 현재 시간에서 90초를 트리거하는 지속성 타이머를 만듭니다.
 4. 타이머와 병행하여 사용자로부터 **SmsChallengeResponse** 이벤트를 기다립니다.
 
-사용자는 4자리 코드가 있는 SMS 메시지를 받습니다. 확인 프로세스를 완료하기 위해 동일한 4자리 코드를 오케스트레이터 함수 인스턴스로 다시 보내는 데 90초가 걸립니다. 잘못된 코드를 보내면 동일한 90초 간격으로 3번의 시도를 추가로 얻을 수 있습니다.
+사용자는 4자리 코드가 있는 SMS 메시지를 받습니다. 확인 프로세스를 완료하기 위해 동일한 4자리 코드를 오케스트레이터 함수 인스턴스로 다시 보내는 데 90초가 걸립니다. 잘못된 코드를 제출하면 동일한 90초 간격으로 3번의 시도를 추가로 얻을 수 있습니다.
 
 > [!NOTE]
 > 처음에는 명확하지 않을 수도 있지만 이 오케스트레이터 함수는 완전히 결정적입니다. 이는 `CurrentUtcDateTime` 속성이 타이머 만료 시간을 계산하는 데 사용되며, 이 속성이 오케스트레이터 코드의 이 시점에 있는 모든 재생에서 동일한 값을 반환하기 때문입니다. 이 경우 `Task.WhenAny`를 반복적으로 호출할 때마다 동일한 `winner`가 발생하도록 하는 것이 중요합니다.

@@ -1,11 +1,11 @@
 ---
-title: "Azure Logic Apps의 Wunderlist 커넥터 | Microsoft Docs"
-description: "Wunderlist에 대한 연결을 만들고 이 연결을 사용하여 Logic Apps에서 워크플로를 작성합니다."
+title: Azure Logic Apps의 Wunderlist 커넥터 | Microsoft Docs
+description: Wunderlist에 대한 연결을 만들고 이 연결을 사용하여 Logic Apps에서 워크플로를 작성합니다.
 services: logic-apps
 documentationcenter: .net,nodejs,java
-author: MandiOhlinger
+author: ecfan
 manager: anneta
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: e4773ecf-3ad3-44b4-a1b5-ee5f58baeadd
 ms.service: logic-apps
@@ -14,15 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: 3657955ca4280fecd3a0fb1ea64b90e0a5c5c765
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: 4d1ae30724faa59dcdeffd21be9c67d280d574f6
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-wunderlist-connector"></a>Wunderlist 커넥터 시작
-Wunderlist는 사람들이 작업할 수 있도록 할 일 목록 및 작업 관리자를 제공합니다.  친구와 식료품 목록 공유하거나 프로젝트에 대해 작업하고 휴가를 계획할 경우 Wunderlist를 사용하여 할 일을 쉽게 캡처하고 공유하며 완료할 수 있습니다. Wunderlist는 어디에서든 모든 작업에 액세스할 수 있도록 전화, 태블릿 및 컴퓨터 간을 즉시 동기화합니다.
+Wunderlist는 사용자가 작업을 완료할 수 있게 하는 할 일 목록 및 작업 관리자입니다.  식료품 목록을 공유하거나, 프로젝트에서 작업하거나, 휴가를 계획할 경우 Wunderlist를 사용하여 목록 항목을 쉽게 캡처하고 공유하며 완료할 수 있습니다. Wunderlist는 어디에서든 어떤 작업에 액세스할 수 있도록 전화, 태블릿과 컴퓨터 간을 즉시 동기화합니다.
 
 논리 앱을 만들어 시작합니다. [논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)를 참조하세요.
 

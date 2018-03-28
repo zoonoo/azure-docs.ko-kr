@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 03/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 188f02aa69d7b39bc5bc4873b437825107a7ae4e
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 34d1ba2e1e84c268442d47d8865d3e3bebb53e53
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>하이브리드 Azure Active Directory 가입 장치를 구성하는 방법
 
@@ -62,7 +62,13 @@ Windows 10 1주년 업데이트 및 Windows Server 2016을 실행하는 모든 �
 
 ## <a name="prerequisites"></a>필수 조건
 
-조직에서 하이브리드 Azure AD 가입 장치를 사용하도록 설정하기 전에 최신 버전의 Azure AD 연결을 실행해야 합니다.
+조직에서 하이브리드 Azure AD 가입 장치를 사용하도록 설정하기 전에 다음을 확인해야 합니다.
+
+- 최신 버전의 Azure AD Connect를 실행합니다.
+
+- Azure AD Connect는 Azure AD에 가입된 하이브리드 Azure AD를 사용하려는 장치의 컴퓨터 개체를 동기화합니다. 컴퓨터 개체가 특정 OU(조직 구성 단위)에 속한 경우 Azure AD Connect에서 이러한 OU를 동기화하기 위해 구성해야 합니다.
+
+  
 
 Azure AD Connect:
 
@@ -145,7 +151,7 @@ cmdlet:
 `Initialize-ADSyncDomainJoinedComputerSync` cmdlet:
 
 - 도메인 컨트롤러에서 실행되는 Active Directory Web Services를 사용하는 Active Directory PowerShell 모듈 및 AD DS 도구를 사용합니다. Active Directory Web Services는 Windows Server 2008 R2 이상을 실행하는 도메인 컨트롤러에서 지원됩니다.
-- **MSOnline PowerShell 모듈 버전 1.1.166.0**에서만 지원됩니다. 이 모듈을 다운로드하려면 이 [링크](http://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185)를 사용합니다.   
+- **MSOnline PowerShell 모듈 버전 1.1.166.0**에서만 지원됩니다. 이 모듈을 다운로드하려면 이 [링크](https://msconfiggallery.cloudapp.net/packages/MSOnline/1.1.166.0/)를 사용합니다.   
 - AD DS 도구가 설치되지 않은 경우 `Initialize-ADSyncDomainJoinedComputerSync`에 실패합니다.  기능 - 원격 서버 관리 도구 - 역할 관리 도구 아래에서 서버 관리자를 통해 AD DS 도구를 설치할 수 있습니다.
 
 Windows Server 2008 이전 버전을 실행하는 도메인 컨트롤러의 경우 아래 스크립트를 사용하여 서비스 연결 지점을 만들 수 있습니다.
@@ -306,7 +312,7 @@ ImmutableID 클레임(예: 대체 로그인 ID)을 이미 발급 중인 경우 �
 
 위의 클레임에서
 
-- `<verified-domain-name>`은 Azure AD에서 확인된 도메인 이름 중 하나로 교체해야 하는 자리 표시자입니다. 예를 들면 Value = "http://contoso.com/adfs/services/trust/"와 같습니다.
+- `<verified-domain-name>`은 Azure AD에서 확인된 도메인 이름 중 하나로 교체해야 하는 자리 표시자입니다. 예: 값="http://contoso.com/adfs/services/trust/"
 
 
 

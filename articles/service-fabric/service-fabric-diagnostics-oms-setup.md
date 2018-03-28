@@ -1,12 +1,12 @@
 ---
-title: "Azure Service Fabric - OMS Log Analytics로 모니터링 설정 | Microsoft Docs"
-description: "Azure Service Fabric 클러스터를 모니터링하기 위해 Operations Management Suite를 설정하여 이벤트를 시각화 및 분석하는 방법을 알아봅니다."
+title: Azure Service Fabric - OMS Log Analytics로 모니터링 설정 | Microsoft Docs
+description: Azure Service Fabric 클러스터를 모니터링하기 위해 Operations Management Suite를 설정하여 이벤트를 시각화 및 분석하는 방법을 알아봅니다.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/17/2017
 ms.author: dekapur
-ms.openlocfilehash: 288c7482058cd9f824b6001bb9ad36d1a5e0f8bf
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 98ac32b011744ce388762322edd538b467f93494
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="set-up-operations-management-suite-log-analytics-for-a-cluster"></a>클러스터에 대한 Operations Management Suite Log Analytics 설정
 
@@ -48,7 +48,7 @@ Windows를 사용하는 경우 다음 단계를 계속 진행하여 클러스터
 >[!NOTE]
 >Linux 클러스터에 대해서는 이 환경을 설정할 수 없습니다. 
 
-### <a name="add-the-oms-agent-to-your-cluster"></a>클러스터에 OMS 에이전트 추가 
+### <a name="connect-the-oms-workspace-to-your-cluster"></a>OMS 작업 영역을 클러스터에 연결 
 
 1. 클러스터에서 가져오는 진단 데이터에 작업 영역을 연결해야 합니다. Service Fabric 분석 솔루션을 만든 리소스 그룹으로 이동합니다. **ServiceFabric\<nameOfOMSWorkspace\>**를 선택하고 개요 페이지로 이동합니다. 여기서 솔루션 설정과 작업 영역 설정을 변경하고 OMS 포털에 액세스할 수 있습니다.
 

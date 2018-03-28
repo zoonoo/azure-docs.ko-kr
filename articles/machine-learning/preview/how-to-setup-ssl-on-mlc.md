@@ -1,6 +1,6 @@
 ---
-title: "Azure MLC(Machine Learning Compute) 클러스터에서 SSL 사용 | Microsoft Docs"
-description: "Azure Machine Learning Compute (MLC) 클러스터에서 점수 매기기 호출에 대한 SSL 설정 지침 확인하기"
+title: Azure MLC(Machine Learning Compute) 클러스터에서 SSL 사용 | Microsoft Docs
+description: Azure Machine Learning Compute (MLC) 클러스터에서 점수 매기기 호출에 대한 SSL 설정 지침 확인하기
 services: machine-learning
 author: SerinaKaye
 ms.author: serinak
@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 01/24/2018
-ms.openlocfilehash: b76fe7c0caa4a9aca76a9a3f50d1fced0ab67cba
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 444803eeb77e79a8bfe3271ddf27bd428042c875
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="enable-ssl-on-an-azure-machine-learning-compute-mlc-cluster"></a>Azure MLC(Machine Learning Compute) 클러스터에서 SSL 사용 
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 03/08/2018
 
 필수 조건을 완료하면 두 가지 파일을 갖게 됩니다.
 
-* 인증서 파일(예: `cert.pem`)
+* 인증서 파일(예: `cert.pem`) 파일에 전체 인증서 체인이 있는지 확인합니다.
 * 키 파일(예: `key.pem`)
 
 
@@ -55,7 +55,7 @@ Set-AzureRmMlOpCluster -ResourceGroupName my-rg -Name my-cluster -SslStatus Enab
 
 ## <a name="map-the-cname-and-the-ip-address"></a>CNAME과 IP 주소 매핑
 
-필수 조건에서 선택한 CNAME과 실시간 FE(프런트 엔드)의 IP 주소 사이에 매핑을 만듭니다. FE의 IP 주소를 찾으려면 아래 명령을 실행합니다. 실시간 클러스터 프런트 엔드의 IP 주소가 포함된 "publicIpAddress"라는 필드가 출력에 표시됩니다. CNAME 레코드를 설정하려면 DNS 공급자의 지침을 참조하세요.
+필수 조건에서 선택한 CNAME과 실시간 FE(프런트 엔드)의 IP 주소 사이에 매핑을 만듭니다. FE의 IP 주소를 찾으려면 아래 명령을 실행합니다. 실시간 클러스터 프런트 엔드의 IP 주소가 포함된 "publicIpAddress"라는 필드가 출력에 표시됩니다. CNAME에서 사용된 FQDN에서 공용 IP 주소로 레코드를 설정하려면 DNS 공급자의 지침을 참조합니다.
 
 
 

@@ -1,9 +1,9 @@
 ---
-title: "Azure 응용 프로그램 및 리소스 모니터링 | Microsoft Docs"
-description: "Azure 서비스 및 응용 프로그램에 대한 전체 모니터링 전략에 작용하는 Microsoft 서비스 및 기능을 대략적으로 설명합니다."
+title: Azure 응용 프로그램 및 리소스 모니터링 | Microsoft Docs
+description: Azure 서비스 및 응용 프로그램에 대한 전체 모니터링 전략에 작용하는 Microsoft 서비스 및 기능을 대략적으로 설명합니다.
 author: robb
 manager: carmonm
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: 1b962c74-8d36-4778-b816-a893f738f92d
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 03/05/2018
 ms.author: robb,bwren
-ms.openlocfilehash: d8da175a551f7c589c313b2289b2a0209dbd2b56
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: a6a15c1b6a017839eb072ba72b48b714c50fd6c0
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="monitoring-azure-applications-and-resources"></a>Azure 응용 프로그램 및 리소스 모니터링
 
@@ -28,67 +28,17 @@ Azure에는 모니터링 공간에서 특정 역할이나 태스크를 개별적
 
 다음 다이어그램은 Azure 리소스 모니터링을 제공하기 위해 함께 작동하는 구성 요소를 개념적으로 보여줍니다. 다음 섹션에서는 이러한 구성 요소를 설명하고 자세한 기술 정보에 대한 링크도 제공합니다.
 
-![모니터링 개요](media/monitoring-overview/overview.png)
-
-## <a name="basic-monitoring"></a>기본 모니터링
-기본 모니터링은 Azure 리소스 전반에 걸쳐 필수적이고 기본적인 모니터링을 제공합니다. 이러한 서비스는 최소한의 구성만 필요하며, 프리미엄 모니터링 서비스에 사용되는 핵심 원격 분석 데이터를 수집합니다.    
-
-### <a name="azure-monitor"></a>Azure Monitor
-[Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md)는 [메트릭](../monitoring-and-diagnostics/monitoring-overview-metrics.md), [활동 로그](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) 및 [진단 로그](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)를 수집하도록 하여 Azure 서비스에 대해 기본적인 모니터링을 수행할 수 있도록 합니다. 예를 들어, 활동 로그는 새 리소스가 만들어지거나 수정되는 시기를 알려줍니다. 
-
-다양한 리소스와 가상 머신 내부의 운영 체제에 대한 성능 통계를 제공하는 메트릭을 사용할 수 있습니다. Azure Portal의 탐색기 중 하나에서 이 데이터를 보거나, 추세 파악 및 자세한 분석을 위해 Azure Log Analytics로 전송하거나, 중대한 문제를 사전에 알리기 위한 경고 규칙을 만들 수 있습니다.
-
-### <a name="service-health"></a>서비스 상태
-응용 프로그램의 상태는 종속되는 Azure 서비스에 따라 좌우됩니다. [Azure Service Health](../service-health/service-health-overview.md) 응용 프로그램에 영향을 줄 수 있는 Azure 서비스의 문제를 식별합니다. Service Health는 예약된 유지 관리를 계획하는 데에도 도움이 됩니다.
-
-### <a name="azure-advisor"></a>Azure Advisor
-[Azure Advisor](../advisor/advisor-overview.md)는 리소스 구성 및 사용량 원격 분석 데이터를 지속적으로 모니터링합니다. 그런 다음, 모범 사례를 기반으로 맞춤형 권장 사항을 제공합니다. 이러한 권장 사항을 따르면 응용 프로그램을 지원하는 리소스의 성능, 보안 및 가용성을 향상시킬 수 있습니다.
+![모니터링 개요](media/monitoring-overview/monitoring-products-overview.png)
 
 
-## <a name="premium-monitoring-services"></a>프리미엄 모니터링 서비스
-다음과 같은 Azure 서비스는 모니터링 데이터를 수집 및 분석하기 위한 풍부한 기능을 제공합니다. 이러한 서비스는 기본 모니터링을 기반으로 구축되며 Azure의 공통 기능을 활용합니다. 수집된 데이터를 강력하게 분석하여 응용 프로그램 및 인프라에 대해 독창적인 통찰력을 제공합니다. 다양한 사용자를 대상으로 하는 시나리오의 컨텍스트에 맞게 데이터를 제공합니다.
-
-### <a name="application-insights"></a>Application Insights
-[Azure Application Insights](http://azure.microsoft.com/documentation/services/application-insights)를 사용하면 클라우드 또는 온-프레미스에서 호스트되는 응용 프로그램의 가용성, 성능 및 사용량을 모니터링할 수 있습니다. 
-
-Application Insight로 작업하도록 응용 프로그램을 계측하면 깊은 통찰력을 얻을 수 있습니다. 사용자가 보고할 때까지 기다리지 않고 오류를 빠르게 식별하고 진단할 수 있습니다. 수집한 정보를 사용하여, 응용 프로그램의 유지 관리 및 개선에 대해 현명한 결정을 내릴 수 있습니다. 
-
-Application Insight에는 수집하는 데이터와 상호 작용할 수 있는 광범위한 도구가 있습니다. Application Insights는 공용 저장소에 데이터를 저장합니다. Log Analytics 쿼리 언어를 사용하여 경고, 대시보드 및 심층 분석과 같은 공유된 기능을 활용할 수 있습니다.
-
-### <a name="log-analytics"></a>Log Analytics
-[Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics)는 다양한 리소스의 데이터를 단일 리포지토리에 수집함으로써 Azure 모니터링에서 중심 역할을 수행합니다. 여기에 강력한 쿼리 언어를 사용하여 데이터를 분석할 수 있습니다. 
-
-Application Insights 및 Azure Security Center는 Log Analytics 데이터 저장소에 데이터를 저장하고 분석 엔진을 사용합니다. 데이터는 Azure Monitor, 관리 솔루션 및 클라우드 또는 온-프레미스의 가상 머신에 설치된 에이전트에서 수집한 데이터입니다. 이렇게 공유된 기능은 환경에 대한 전체적인 그림을 만드는 데 도움이 됩니다. 
-
-
-### <a name="service-map"></a>서비스 맵
-[서비스 맵](../operations-management-suite/operations-management-suite-service-map.md)은 다른 컴퓨터의 다른 프로세스 및 종속성과 외부 프로세스를 통해 가상 머신을 분석하여 IaaS 환경을 이해할 수 있습니다. Log Analytics에서 이벤트, 성능 데이터 및 관리 솔루션을 통합합니다. 그런 다음이 각 컴퓨터의 컨텍스트 및 나머지 환경과의 관계에서 데이터를 볼 수 있습니다. 
-
-서비스 맵은 [Application Insights의 응용 프로그램 맵](../application-insights/app-insights-app-map.md)과 유사합니다. 응용 프로그램을 지원하는 인프라 구성 요소에 중점을 둡니다.
-
-### <a name="network-watcher"></a>Network Watcher
-[Network Watcher](../network-watcher/network-watcher-monitoring-overview.md)는 Azure의 여러 다른 네트워크 시나리오에 대한 시나리오 기반 모니터링 및 진단을 제공합니다. 추가 분석을 위해 Azure 메트릭 및 진단에 데이터를 저장합니다. 네트워크의 다양한 측면을 모니터링하기 위해 다음 솔루션과 함께 작동합니다.
-* [NPM(네트워크 성능 모니터)](https://blogs.msdn.microsoft.com/azuregov/2017/09/05/network-performance-monitor-general-availability/): 공용 클라우드, 데이터 센터 및 온-프레미스 환경에서 연결을 모니터링하는 클라우드 기반 네트워크 모니터링 솔루션입니다.
-* [ExpressRoute 모니터](https://azure.microsoft.com/en-in/blog/monitoring-of-azure-expressroute-in-preview/): Azure ExpressRoute 회로를 통해 종단 간 연결 및 성능을 모니터링하는 NPM 기능입니다.
-* 트래픽 분석: 클라우드 기반 솔루션으로, 클라우드 네트워크에서 사용자 및 응용 프로그램 작업에 대한 가시성을 제공합니다.
-* [DNS 분석](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-dns): DNS 서버를 기반으로 보안, 성능 및 작업 관련 자세한 정보를 제공하는 솔루션입니다.
-
-### <a name="management-solutions"></a>관리 솔루션
-[관리 솔루션](../log-analytics/log-analytics-add-solutions.md)은 특정 응용 프로그램이나 서비스를 깊이 있게 이해하도록 하는 패키지된 논리 집합입니다. 이 솔루션은 수집한 모니터링 데이터를 저장 및 분석하기 위해 Log Analytics를 활용합니다. 
-
-관리 솔루션은 Microsoft 및 다양한 Azure 및 타사 서비스에 대한 모니터링을 제공하는 파트너 업체를 통해 받을 수 있습니다. 모니터링 솔루션의 예는 다음과 같습니다.
-* [컨테이너 모니터링](../log-analytics/log-analytics-containers.md): 컨테이너 호스트를 확인하고 관리하는 데 도움이 됩니다.
-* [Azure SQL 분석](../log-analytics/log-analytics-azure-sql.md): Azure SQL 데이터베이스의 성능 메트릭을 수집하고 시각화합니다.
-
-
-## <a name="shared-functionality"></a>공유 기능
-다음과 같은 Azure 도구는 프리미엄 모니터링 서비스에 대한 중요한 기능을 제공합니다. 여러 서비스에 공유되기 때문에 여러 서비스에서 공통된 기능과 구성을 활용할 수 있습니다.
+## <a name="shared-capabilities"></a>공유 기능
+코어 및 심층 모니터링 서비스는 다음과 같은 기능을 제공하는 기능을 공유합니다. 
 
 ### <a name="alerts"></a>Alerts
 [Azure 경고](../monitoring-and-diagnostics/monitoring-overview-alerts.md)는 위험 조건을 사전에 알리고 잠재적으로 정정 작업을 수행합니다. 경고 규칙은 메트릭 및 로그를 포함하여 여러 원본의 데이터를 사용할 수 있습니다. 또한 고유한 수신자 집합과 경고에 대한 작업을 포함하는 [작업 그룹](../monitoring-and-diagnostics/monitoring-action-groups.md)을 사용합니다. 사용자의 요구 사항에 따라, 웹후크를 사용하여 경고가 외부 작업을 시작하고 ITSM 도구와 통합되도록 할 수 있습니다.
 
 ### <a name="dashboards"></a>대시보드
-[Azure 대시보드](../azure-portal/azure-portal-dashboards.md)에서는 다양한 종류의 데이터를 Azure Portal의 단일 창으로 결합할 수 있습니다. 그런 다음, 다른 Azure 사용자와 대시보드를 공유할 수 있습니다. 
+[Azure 대시보드](../azure-portal/azure-portal-dashboards.md)에서는 다양한 종류의 데이터를 [Azure Portal](https://portal.azure.com)의 단일 창으로 결합할 수 있습니다. 그런 다음, 다른 Azure 사용자와 대시보드를 공유할 수 있습니다. 
 
 예를 들어 다음 항목이 결합된 대시보드를 만들 수 있습니다.
 - 메트릭 그래프를 표시하는 타일
@@ -102,6 +52,21 @@ Log Analytics 데이터를 [Power BI](https://docs.microsoft.com/power-bi/)로 �
 [메트릭](../monitoring-and-diagnostics/monitoring-overview-metrics.md)은 Azure 리소스에서 생성된 숫자 값으로, 리소스의 작동 및 성능을 이해하는 데 도움이 됩니다. 메트릭 탐색기를 사용하면, 다른 소스의 데이터를 분석하기 위해 Log Analytics로 메트릭을 전송할 수 있습니다.
 
 
+## <a name="core-monitoring"></a>핵심 모니터링
+핵심 모니터링은 Azure 리소스 전반에 걸쳐 필수적이고 기본적인 모니터링을 제공합니다. 이러한 서비스는 최소한의 구성만 필요하며, 프리미엄 모니터링 서비스에 사용되는 핵심 원격 분석 데이터를 수집합니다.    
+
+### <a name="azure-monitor"></a>Azure Monitor
+[Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md)는 [메트릭](../monitoring-and-diagnostics/monitoring-overview-metrics.md), [활동 로그](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) 및 [진단 로그](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)를 수집하도록 하여 Azure 서비스에 대해 핵심적인 모니터링을 수행할 수 있도록 합니다. 예를 들어, 활동 로그는 새 리소스가 만들어지거나 수정되는 시기를 알려줍니다. 
+
+다양한 리소스와 가상 머신 내부의 운영 체제에 대한 성능 통계를 제공하는 메트릭을 사용할 수 있습니다. Azure Portal에서 탐색기 중 하나를 사용하여 이 데이터를 보고 이러한 메트릭을 기반으로 경고를 만들 수 있습니다. Azure Monitor는 가장 빠른 메트릭 파이프라인을 제공하므로(5분에서 1분으로 ) 시간이 중요한 경고 및 알림에 사용해야 합니다. 
+
+추세 파악 및 자세한 분석을 위해 이러한 메트릭 및 로그를 Azure Log Analytics로 전송하거나 해당 분석의 결과로 중대한 문제를 사전에 알리기 위한 추가 경고 규칙을 만들 수 있습니다.  
+
+### <a name="azure-advisor"></a>Azure Advisor
+[Azure Advisor](../advisor/advisor-overview.md)는 리소스 구성 및 사용량 원격 분석 데이터를 지속적으로 모니터링합니다. 그런 다음, 모범 사례를 기반으로 맞춤형 권장 사항을 제공합니다. 이러한 권장 사항을 따르면 응용 프로그램을 지원하는 리소스의 성능, 보안 및 가용성을 향상시킬 수 있습니다.
+
+### <a name="service-health"></a>서비스 상태
+응용 프로그램의 상태는 종속되는 Azure 서비스에 따라 좌우됩니다. [Azure Service Health](../service-health/service-health-overview.md) 응용 프로그램에 영향을 줄 수 있는 Azure 서비스의 문제를 식별합니다. Service Health는 예약된 유지 관리를 계획하는 데에도 도움이 됩니다.
 
 ### <a name="activity-log"></a>활동 로그
 [활동 로그](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)는 Azure 리소스의 작동에 대한 데이터를 제공합니다. 여기에는 다음 정보가 포함됩니다.
@@ -112,7 +77,52 @@ Log Analytics 데이터를 [Power BI](https://docs.microsoft.com/power-bi/)로 �
 
 Azure Portal에서 해당 페이지의 특정 리소스에 대한 로그를 볼 수 있습니다. 또는 활동 로그 탐색기에서 여러 리소스의 로그를 볼 수 있습니다. 
 
-Log Analytics에 활동 로그를 보낼 수도 있습니다. 여기에서 관리 솔루션, 가상 머신의 에이전트 및 기타 소스에서 수집한 데이터를 사용하여 로그를 분석할 수 있습니다.
+Log Analytics에 활동 로그 항목을 보낼 수도 있습니다. 여기에서 관리 솔루션, 가상 머신의 에이전트 및 기타 소스에서 수집한 데이터를 사용하여 로그를 분석할 수 있습니다.
+
+## <a name="deep-monitoring-services"></a>심층 모니터링 서비스
+다음과 같은 Azure 서비스는 모니터링 데이터를 수집 및 분석하기 위해 더 깊은 수준에서 풍부한 기능을 제공합니다. 이러한 서비스는 핵심 모니터링을 기반으로 구축되며 Azure의 공통 기능을 활용합니다. 수집된 데이터를 강력하게 분석하여 응용 프로그램 및 인프라에 대해 독창적인 통찰력을 제공합니다. 다양한 사용자를 대상으로 하는 시나리오의 컨텍스트에 맞게 데이터를 제공합니다.
+
+## <a name="deep-application-monitoring"></a>심층 응용 프로그램 모니터링
+### <a name="application-insights"></a>Application Insights
+[Azure Application Insights](http://azure.microsoft.com/documentation/services/application-insights)를 사용하면 클라우드 또는 온-프레미스에서 호스트되는 응용 프로그램의 가용성, 성능 및 사용량을 모니터링할 수 있습니다. 
+
+Application Insights로 작업하도록 응용 프로그램을 계측하면 깊은 통찰력을 얻고 DevOps 시나리오를 구현할 수 있습니다. 사용자가 보고할 때까지 기다리지 않고 오류를 빠르게 식별하고 진단할 수 있습니다. 수집한 정보를 사용하여, 응용 프로그램의 유지 관리 및 개선에 대해 현명한 결정을 내릴 수 있습니다. 
+
+Application Insight에는 수집하는 데이터와 상호 작용할 수 있는 광범위한 도구가 있습니다. Application Insights는 공용 저장소에 데이터를 저장합니다. Log Analytics 쿼리 언어를 사용하여 경고, 대시보드 및 심층 분석과 같은 공유된 기능을 활용할 수 있습니다.
+
+## <a name="deep-infrastructure-monitoring"></a>심층 인프라 모니터링
+### <a name="log-analytics"></a>Log Analytics
+[Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics)는 다양한 리소스(타사 도구 포함)의 데이터를 단일 리포지토리에 수집함으로써 Azure 모니터링에서 중심 역할을 수행합니다. 여기에 강력한 쿼리 언어를 사용하여 데이터를 분석할 수 있습니다. 
+
+Application Insights 및 Azure Security Center는 Log Analytics 데이터 저장소에 데이터를 저장하고 분석 엔진을 사용합니다. 데이터는 또한 Azure Monitor, 관리 솔루션 및 클라우드 또는 온-프레미스의 가상 머신에 설치된 에이전트에서 수집됩니다. 이렇게 공유된 기능은 환경에 대한 전체적인 그림을 만드는 데 도움이 됩니다.
+
+### <a name="management-solutions"></a>관리 솔루션
+[관리 솔루션](../log-analytics/log-analytics-add-solutions.md)은 특정 응용 프로그램이나 서비스를 깊이 있게 이해하도록 하는 패키지된 논리 집합입니다. 이 솔루션은 수집한 모니터링 데이터를 저장 및 분석하기 위해 Log Analytics를 활용합니다. 
+
+관리 솔루션은 Microsoft 및 다양한 Azure 및 타사 서비스에 대한 모니터링을 제공하는 파트너 업체를 통해 받을 수 있습니다. 모니터링 솔루션의 예는 다음과 같습니다.
+* [컨테이너 모니터링](../log-analytics/log-analytics-containers.md): 컨테이너 호스트를 확인하고 관리하는 데 도움이 됩니다.
+* [Azure SQL 분석](../log-analytics/log-analytics-azure-sql.md): Azure SQL 데이터베이스의 성능 메트릭을 수집하고 시각화합니다.
+
+*모니터* 화면의 Azure Portal에서 모든 사용 가능한 관리 솔루션을 볼 수 있습니다. 
+
+### <a name="network-monitoring"></a>네트워크 모니터링
+Azure 또는 온-프레미스에서 네트워크의 다양한 측면을 모니터링하기 위해 함께 작동하는 여러 도구가 있습니다.  
+
+[Network Watcher](../network-watcher/network-watcher-monitoring-overview.md)는 Azure의 여러 다른 네트워크 시나리오에 대한 시나리오 기반 모니터링 및 진단을 제공합니다. 추가 분석을 위해 Azure 메트릭 및 진단에 데이터를 저장합니다. 네트워크의 다양한 측면을 모니터링하기 위해 다음 솔루션과 함께 작동합니다. 
+
+[NPM(네트워크 성능 모니터)](https://blogs.msdn.microsoft.com/azuregov/2017/09/05/network-performance-monitor-general-availability/)은 공용 클라우드, 데이터 센터 및 온-프레미스 환경에서 연결을 모니터링하는 클라우드 기반 네트워크 모니터링 솔루션입니다.
+
+[ExpressRoute 모니터](https://azure.microsoft.com/en-in/blog/monitoring-of-azure-expressroute-in-preview/)는 Azure ExpressRoute 회로를 통해 종단 간 연결 및 성능을 모니터링하는 NPM 기능입니다.
+
+[DNS 분석](../log-analytics/log-analytics-dns.md)은 DNS 서버를 기반으로 보안, 성능 및 작업 관련 자세한 정보를 제공하는 솔루션입니다.
+
+[서비스 엔드포인트 모니터링](../networking/network-monitoring-overview.md)은 응용 프로그램의 연결을 테스트하고, 온-프레미스, 이동 통신 사업자 네트워크 및 클라우드/개인 데이터 센터에서 성능 병목 상태를 검색합니다.
+
+
+### <a name="service-map"></a>서비스 맵
+[서비스 맵](../operations-management-suite/operations-management-suite-service-map.md)은 다른 컴퓨터의 다른 프로세스 및 종속성과 외부 프로세스를 통해 가상 머신을 분석하여 IaaS 환경을 이해할 수 있습니다. Log Analytics에서 이벤트, 성능 데이터 및 관리 솔루션을 통합합니다. 그런 다음이 각 컴퓨터의 컨텍스트 및 나머지 환경과의 관계에서 데이터를 볼 수 있습니다. 
+
+서비스 맵은 [Application Insights의 응용 프로그램 맵](../application-insights/app-insights-app-map.md)과 유사합니다. 응용 프로그램을 지원하는 인프라 구성 요소에 중점을 둡니다.
 
 
 ## <a name="example-scenarios"></a>예제 시나리오
@@ -144,8 +154,6 @@ Azure에서는 Windows 및 Linux 가상 머신이 혼합되어 실행됩니다. 
 ## <a name="next-steps"></a>다음 단계
 다음에 대해 자세히 알아봅니다.
 
-* [Ignite 2016의 비디오에서 Azure Monitor](https://myignite.microsoft.com/videos/4977)
-* [Azure Monitor 시작](monitoring-get-started.md)
-* [Azure 진단](../azure-diagnostics.md) - 클라우드 서비스, 가상 머신, 가상 머신 확장 집합 또는 Azure Service Fabric 응용 프로그램에서 문제를 진단하려는 경우
+* 핵심 모니터링 메트릭 및 경고를 시작하는 [Azure Monitor](https://azure.microsoft.com/en-us/services/monitor/)
 * [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) - App Service 웹앱에서 문제를 진단하려는 경우
-* [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) - 수집한 모니터링 데이터를 분석하려는 경우
+* 수집한 모니터링 데이터 및 로그를 분석하기 위한 [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/)

@@ -1,24 +1,24 @@
 ---
-title: "Azure Active Directory용 MSI(관리 서비스 ID)의 FAQ 및 알려진 문제"
-description: "Azure Active Directory용 MSI(관리 서비스 ID)의 알려진 문제에 대해 설명합니다."
+title: Azure Active Directory용 MSI(관리 서비스 ID)의 FAQ 및 알려진 문제
+description: Azure Active Directory용 MSI(관리 서비스 ID)의 알려진 문제에 대해 설명합니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 2097381a-a7ec-4e3b-b4ff-5d2fb17403b6
 ms.service: active-directory
-ms.devlang: 
+ms.devlang: ''
 ms.topic: article
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/12/2017
 ms.author: daveba
-ms.openlocfilehash: bd931b220c417f91b47278c82707d38de5c7f65e
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 84390f73fdac6554699dd43a0a36d16eace9a2bb
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="faqs-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>Azure Active Directory용 MSI(관리 서비스 ID)의 FAQ 및 알려진 문제
 
@@ -37,6 +37,10 @@ ms.lasthandoff: 03/08/2018
 ### <a name="does-msi-work-with-the-active-directory-authentication-library-adal-or-the-microsoft-authentication-library-msal"></a>MSI는 ADAL(Active Directory Authentication Library) 또는 MSAL(Microsoft Authentication Library)에서 작동하나요?
 
 아니요, MSI는 ADAL 또는 MSAL과 아직 통합되지 않았습니다. MSI REST 끝점을 사용하여 MSI 토큰을 가져오는 방법에 대한 자세한 내용은 [토큰 획득을 위해 Azure VM MSI(관리 서비스 ID)를 사용하는 방법](how-to-use-vm-token.md)을 참조하세요.
+
+### <a name="what-is-the-security-boundary-of-a-managed-service-identity"></a>관리 서비스 ID의 보안 경계람?
+
+ID의 보안 경계는 연결되는 리소스입니다. 예를 들어 가상 머신 MSI에 대한 보안 경계는 가상 머신입니다. 해당 VM에서 실행되는 모든 코드는 MSI 끝점 및 요청 토큰을 호출할 수 있습니다. MSI를 지원하는 다른 리소스와 비슷한 환경입니다.
 
 ### <a name="what-are-the-supported-linux-distributions"></a>지원되는 Linux 배포는 무엇입니까?
 

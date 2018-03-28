@@ -1,3 +1,19 @@
+---
+title: 포함 파일
+description: 포함 파일
+services: virtual-machines-windows
+author: cynthn
+ms.service: virtual-machines-windows
+ms.topic: include
+ms.date: 03/11/2018
+ms.author: cynthn
+ms.custom: include file
+ms.openlocfilehash: 6729c4281f4aa10b653d1c4f29104fd10a08a96e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 03/16/2018
+---
 Azure VM(가상 머신)을 만들 때 [VNet(가상 네트워크)](../articles/virtual-network/virtual-networks-overview.md)을 만들거나 기존 VNet을 사용해야 합니다. 또한 VNet에서 VM을 액세스하는 방법도 결정해야 합니다. [리소스를 만들기 전에 계획을 수립](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md)하고 [네트워킹 리소스의 제한](../articles/azure-subscription-service-limits.md#networking-limits)을 이해해야 합니다.
 
 다음 그림에서 VM은 웹 서버 및 데이터베이스 서버로 표시됩니다. 각 VM 집합은 VNet에서 별도의 서브넷에 할당됩니다.
@@ -75,7 +91,7 @@ VNet을 설정할 때 사용 가능한 주소 공간과 서브넷을 포함하�
 | [Azure Portal](../articles/virtual-network/quick-create-portal.md) | Azure에서 VM을 만들 때 VNet을 만들도록 하는 경우 VNet 이름은 해당 VNet을 포함하는 리소스 그룹 이름과 **-vnet**의 조합입니다. 주소 공간은 10.0.0.0/24이고, 필수 서브넷 이름은 **default**이며, 서브넷 주소 범위는 10.0.0.0/24입니다. |
 | [Azure PowerShell](../articles/virtual-network/quick-create-powershell.md) | [New-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmVirtualNetworkSubnetConfig) 및 [New-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmVirtualNetwork)를 사용하여 서브넷 및 VNet을 만듭니다. [Add-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/add-azurermvirtualnetworksubnetconfig)를 사용하여 기존 VNet에 서브넷을 추가할 수도 있습니다. |
 | [Azure CLI](../articles/virtual-network/quick-create-cli.md) | 서브넷과 VNet은 동시에 만들어집니다. [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#create)에 서브넷 이름으로 **--subnet-name** 매개 변수를 제공합니다. |
-| [템플릿](../articles/virtual-network/virtual-networks-create-vnet-arm-template-click.md) | VNet 및 서브넷을 만드는 가장 쉬운 방법은 [두 개의 서브넷이 있는 Virtual Network](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets)와 같은 기존 템플릿을 다운로드하고 요구에 맞게 수정하는 것입니다. |
+| Template | VNet 및 서브넷을 만드는 가장 쉬운 방법은 [두 개의 서브넷이 있는 Virtual Network](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets)와 같은 기존 템플릿을 다운로드하고 요구에 맞게 수정하는 것입니다. |
 
 ## <a name="network-security-groups"></a>네트워크 보안 그룹
 

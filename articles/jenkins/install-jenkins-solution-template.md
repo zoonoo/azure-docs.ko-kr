@@ -1,26 +1,26 @@
 ---
-title: "Azure에서 Jenkins 서버 만들기"
-description: "Jenkins 솔루션 템플릿에서 Azure Linux 가상 머신에 Jenkins를 설치하고 샘플 Java 응용 프로그램을 빌드합니다."
-author: mlearned
-manager: douge
+title: Azure에서 Jenkins 서버 만들기
+description: Jenkins 솔루션 템플릿에서 Azure Linux 가상 머신에 Jenkins를 설치하고 샘플 Java 응용 프로그램을 빌드합니다.
+author: tomarcher
+manager: rloutlaw
 ms.service: multiple
 ms.workload: web
-ms.devlang: java
+ms.devlang: na
 ms.topic: article
-ms.date: 08/21/2017
-ms.author: mlearned
+ms.date: 03/12/2018
+ms.author: tarcher
 ms.custom: Jenkins
-ms.openlocfilehash: 422d133841a380b1ef02e95245207c464089138d
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: c9f86ab2536d3c598bb8c7084524395b41f18db0
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-a-jenkins-server-on-an-azure-linux-vm-from-the-azure-portal"></a>Azure Portal에서 Azure Linux VM에 Jenkins 서버 만들기
 
 이 빠른 시작은 Azure에서 사용 가능하도록 구성된 도구와 플러그 인을 사용하여 Ubuntu Linux VM에 [Jenkins](https://jenkins.io)를 설치하는 방법을 보여줍니다. 작업을 완료하면 [GitHub](https://github.com)에서 샘플 Java 앱을 빌드하는 Jenkins 서버가 Azure에서 실행됩니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 * Azure 구독
 * 컴퓨터의 명령줄에서 SSH에 대한 액세스(Bash 셸 또는 [PuTTY](http://www.putty.org/) 등)
@@ -28,32 +28,13 @@ ms.lasthandoff: 01/10/2018
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="create-the-jenkins-vm-from-the-solution-template"></a>솔루션 템플릿에서 Jenkins VM 만들기
+Jenkins는 단일 Jenkins 설치가 많은 수의 프로젝트를 호스트하거나 빌드 또는 테스트에 필요한 다양한 환경을 제공할 수 있도록 하나 이상의 에이전트에 작업을 위임하는 모델을 지원합니다. 이 섹션의 단계는 Azure에서 Jenkins 서버를 설치 및 구성하는 과정을 안내합니다.
 
-웹 브라우저에서 [Jenkins의 Marketplace 이미지](https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.jenkins?tab=Overview)를 열고 페이지의 왼쪽에서 **지금 가져오기**를 선택합니다. 가격 책정 세부 정보를 검토하고 **계속**을 선택한 후 **만들기**를 선택하여 Azure Portal에서 Jenkins 서버를 구성합니다. 
-   
-![Azure Portal 대화 상자](./media/install-jenkins-solution-template/ap-create.png)
-
-**기본 설정 구성** 탭에서 다음 필드를 작성합니다.
-
-![기본 설정 구성](./media/install-jenkins-solution-template/ap-basic.png)
-
-* **이름**에 **Jenkins**를 사용합니다.
-* **사용자 이름**을 입력합니다. 사용자 이름은 [특정 요구 사항](/azure/virtual-machines/linux/faq#what-are-the-username-requirements-when-creating-a-vm)을 충족해야 합니다.
-* **인증 유형**으로 **암호**를 선택하고 암호를 입력합니다. 암호는 대문자, 숫자 및 특수 문자 하나를 포함해야 합니다.
-* **리소스 그룹**으로 **myJenkinsResourceGroup**을 사용합니다.
-* **위치** 드롭 다운에서 **미국 동부** [Azure 지역](https://azure.microsoft.com/regions/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 선택합니다.
-
-**확인**을 선택하여 **추가 옵션 구성** 탭으로 진행합니다. 고유한 도메인 이름을 입력하여 Jenkins 서버를 식별하고 **확인**을 선택합니다.
-
-![추가 옵션 설정](./media/install-jenkins-solution-template/ap-addtional.png)  
-
- 유효성 검사에 통과하면 **요약** 탭에서 다시 **확인**을 선택합니다. 마지막으로 **구매**를 선택하여 Jenkins VM을 만듭니다. 서버가 준비되면 Azure Portal에서 알림을 받게 됩니다.   
-
-![Jenkins가 준비되었음을 알리는 메시지](./media/install-jenkins-solution-template/jenkins-deploy-notification-ready.png)
+[!INCLUDE [jenkins-install-from-azure-marketplace-image](../../includes/jenkins-install-from-azure-marketplace-image.md)]
 
 ## <a name="connect-to-jenkins"></a>Jenkins에 연결
 
-웹 브라우저에서 가상 컴퓨터로 이동합니다(예: http://jenkins2517454.eastus.cloudapp.azure.com/). Jenkins 콘솔은 보안되지 않은 HTTP를 통해 액세스할 수 없으므로 SSH 터널을 사용하여 컴퓨터에서 안전하게 Jenkins 콘솔에 액세스하는 지침이 이 페이지에서 제공됩니다.
+웹 브라우저에서 가상 머신(예: http://jenkins2517454.eastus.cloudapp.azure.com/))으로 이동합니다. Jenkins 콘솔은 보안되지 않은 HTTP를 통해 액세스할 수 없으므로 SSH 터널을 사용하여 컴퓨터에서 안전하게 Jenkins 콘솔에 액세스하는 지침이 이 페이지에서 제공됩니다.
 
 ![Jenkins 잠금 해제](./media/install-jenkins-solution-template/jenkins-ssh-instructions.png)
 

@@ -1,18 +1,18 @@
 ---
-title: "Azure Event Grid 보안 및 인증"
-description: "Azure Event Grid 및 해당 개념을 설명합니다."
+title: Azure Event Grid 보안 및 인증
+description: Azure Event Grid 및 해당 개념을 설명합니다.
 services: event-grid
 author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 03/15/2018
 ms.author: babanisa
-ms.openlocfilehash: 9d2b32df6e4b931539eac34d09135ea33069b936
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 0b7ef71cf940f82f46a7f053e5c9f7ef64342b6e
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="event-grid-security-and-authentication"></a>Event Grid 보안 및 인증 
 
@@ -24,9 +24,9 @@ Azure Event Grid에는 세 가지 유형의 인증이 있습니다.
 
 ## <a name="webhook-event-delivery"></a>WebHook 이벤트 전달
 
-WebHook은 Azure Event Grid에서 실시간으로 이벤트를 수신하는 여러 가지 방법 중 하나입니다. 새 이벤트가 전송될 준비가 될 때마다 Event Grid Webhook은 본문에 이벤트가 포함되어 구성된 HTTP 끝점으로 HTTP 요청을 시드합니다.
+웹후크는 Azure Event Grid에서 이벤트를 수신하는 여러 가지 방법 중 하나입니다. 새 이벤트가 준비되면 Event Grid 웹후크는 본문에 이벤트가 포함되어 구성된 HTTP 엔드포인트로 HTTP 요청을 보냅니다.
 
-Event Grid에서 고유한 WebHook 끝점을 등록하는 경우 끝점의 소유권을 증명하기 위해 간단한 유효성 검사 코드를 포함한 POST 요청을 전송합니다. 앱은 유효성 검사 코드를 다시 반환하여 응답해야 합니다. Event Grid는 유효성 검사를 통과하지 못한 웹후크 끝점에 이벤트를 전달하지 않습니다.
+Event Grid에서 고유한 웹후크 엔드포인트를 등록하는 경우 엔드포인트의 소유권을 증명하기 위해 간단한 유효성 검사 코드를 포함한 POST 요청을 전송합니다. 앱은 유효성 검사 코드를 다시 반환하여 응답해야 합니다. Event Grid는 유효성 검사를 통과하지 못한 웹후크 엔드포인트에 이벤트를 전달하지 않습니다.
 
 ### <a name="validation-details"></a>유효성 검사 세부 정보
 
@@ -34,6 +34,7 @@ Event Grid에서 고유한 WebHook 끝점을 등록하는 경우 끝점의 소�
 * 이벤트에는 “Aeg-Event-Type: SubscriptionValidation” 헤더 값이 포함됩니다.
 * 이벤트 본문에는 다른 Event Grid 이벤트와 동일한 스키마가 있습니다.
 * 이벤트 데이터에는 임의로 생성된 문자열을 포함한 “validationCode” 속성이 포함됩니다. 예를 들어 “validationCode: acb13...”과 같습니다.
+* 배열에는 유효성 검사 이벤트만 포함됩니다. 다른 이벤트는 유효성 검사 코드를 에코 백한 후 별도의 요청으로 전송됩니다.
 
 SubscriptionValidationEvent 예가 다음 예제에 나와 있습니다.
 
@@ -52,7 +53,7 @@ SubscriptionValidationEvent 예가 다음 예제에 나와 있습니다.
 }]
 ```
 
-끝점 소유권을 증명하기 위해 다음과 같이 validationResponse 속성의 유효성 검사 코드를 반환합니다.
+엔드포인트 소유권을 증명하기 위해 다음 예제와 같이 validationResponse 속성의 유효성 검사 코드를 에코 백합니다.
 
 ```json
 {
@@ -65,7 +66,7 @@ SubscriptionValidationEvent 예가 다음 예제에 나와 있습니다.
 
 이벤트 구독을 편집할 때 [--include-full-endpoint-url](https://docs.microsoft.com/en-us/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_show) 매개 변수가 Azure [CLI](https://docs.microsoft.com/en-us/cli/azure?view=azure-cli-latest)에 사용되지 않는 한 쿼리 매개 변수는 표시되거나 반환되지 않습니다.
 
-마지막으로 Azure Event Grid가 HTTPS Webhook 끝점을 지원한다는 점에 유의합니다.
+마지막으로 Azure Event Grid가 HTTPS 웹후크 엔드포인트를 지원한다는 점에 유의합니다.
 
 ## <a name="event-subscription"></a>이벤트 구독
 
@@ -79,7 +80,7 @@ SubscriptionValidationEvent 예가 다음 예제에 나와 있습니다.
 
 ### <a name="custom-topics"></a>사용자 지정 항목
 
-사용자 지정 항목의 경우 Event Grid 항목의 범위에서 새 이벤트 구독을 쓸 수 있는 사용 권한이 필요합니다. 리소스의 형식은 다음과 같습니다. `/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.EventGrid/topics/{topic-name}`
+사용자 지정 항목의 경우 Event Grid 항목의 범위에서 새 이벤트 구독을 쓸 수 있는 권한이 필요합니다. 리소스의 형식은 다음과 같습니다. `/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.EventGrid/topics/{topic-name}`
 
 예를 들어 **mytopic**이라는 사용자 지정 항목을 구독하려면 `/subscriptions/####/resourceGroups/testrg/providers/Microsoft.EventGrid/topics/mytopic`에 대한 Microsoft.EventGrid/EventSubscriptions/Write 권한이 필요합니다.
 
@@ -103,7 +104,7 @@ aeg-sas-key: VXbGWce53249Mt8wuotr0GPmyJ/nDT4hgdEj9DpBeRr38arnnm5OFg==
 
 Event Grid의 SAS 토큰에는 리소스, 만료 시간 및 서명이 포함됩니다. SAS 토큰의 형식은 다음과 같습니다. `r={resource}&e={expiration}&s={signature}`
 
-리소스는 이벤트를 전송한 항목의 경로입니다. 예를 들어 올바른 리소스 경로는 다음과 같습니다. `https://<yourtopic>.<region>.eventgrid.azure.net/eventGrid/api/events`
+리소스는 이벤트를 전송할 Event Grid 항목의 경로입니다. 예를 들어 올바른 리소스 경로는 다음과 같습니다. `https://<yourtopic>.<region>.eventgrid.azure.net/eventGrid/api/events`
 
 키에서 서명을 생성합니다.
 
@@ -140,7 +141,7 @@ static string BuildSharedAccessSignature(string resource, DateTime expirationUtc
 
 ## <a name="management-access-control"></a>관리 Access Control
 
-Azure Event Grid를 사용하면 여러 사용자가 이벤트 구독 나열, 새 구독 만들기 및 키 생성과 같은 다양한 관리 작업을 수행할 수 있는 액세스 수준을 제어할 수 있습니다. Event Grid는 Azure의 RBAC(역할 기반 액세스 확인)를 활용합니다.
+Azure Event Grid를 사용하면 여러 사용자가 이벤트 구독 나열, 새 구독 만들기 및 키 생성과 같은 다양한 관리 작업을 수행할 수 있는 액세스 수준을 제어할 수 있습니다. Event Grid는 Azure의 RBAC(역할 기반 액세스 확인)를 사용합니다.
 
 ### <a name="operation-types"></a>작업 형식
 

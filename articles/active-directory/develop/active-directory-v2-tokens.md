@@ -1,11 +1,11 @@
 ---
-title: "Azure Active Directory v2.0 토큰 참조 | Microsoft Docs"
-description: "Azure AD v2.0 끝점에서 내보내는 토큰 및 클레임 형식"
+title: Azure Active Directory v2.0 토큰 참조 | Microsoft Docs
+description: Azure AD v2.0 끝점에서 내보내는 토큰 및 클레임 형식
 services: active-directory
-documentationcenter: 
-author: dstrockis
+documentationcenter: ''
+author: hpsin
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: dc58c282-9684-4b38-b151-f3e079f034fd
 ms.service: active-directory
 ms.workload: identity
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
-ms.author: dastrock
+ms.author: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 01994e067bd7ce0343f12ec3334a91bd062251a8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4479b3d34824b88f0a666b6185a6bc89337358a9
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-active-directory-v20-tokens-reference"></a>Azure Active Directory v2.0 토큰 참조
 Azure AD(Azure Active Directory) v2.0 끝점은 각 [인증 흐름](active-directory-v2-flows.md)에서 여러 유형의 보안 토큰을 내보냅니다. 이 참조에서는 각 토큰 유형의 형식, 보안 특성 및 내용을 설명합니다.
@@ -54,7 +54,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VL
 >
 
 #### <a name="claims-in-id-tokens"></a>ID 토큰의 클레임
-| 이름 | 클레임 | 예제 값 | 설명 |
+| Name | 클레임 | 예제 값 | 설명 |
 | --- | --- | --- | --- |
 | audience |`aud` |`6731de76-14a6-49ae-97bc-6eba6914391e` |토큰의 의도한 수신자를 식별합니다. ID 토큰에서 대상은 Microsoft 응용 프로그램 등록 포털에서 앱에 할당된 앱의 응용 프로그램 ID입니다. 앱은 이 값의 유효성을 검사하고 값이 일치하지 않을 경우 토큰을 거부해야 합니다. |
 | 발급자 |`iss` |`https://login.microsoftonline.com/b9419818-09af-49c2-b0c3-653adc1f376e/v2.0 ` |토큰을 생성하고 반환하는 STS(보안 토큰 서비스) 및 사용자가 인증된 Azure AD 테넌트를 식별합니다. 앱은 발급자 클레임의 유효성을 검사하여 토큰이 v2.0 끝점에서 제공된 것인지 확인해야 합니다. 또한 클레임의 GUID 부분을 사용하여 앱에 로그인할 수 있는 테넌트 집합을 제한할 수 있습니다. 사용자가 Microsoft 계정의 소비자 사용자임을 나타내는 GUID는 `9188040d-6c67-4c5b-b112-36a304b66dad`입니다. |
@@ -66,7 +66,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VL
 | 코드 해시 |`c_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |코드 해시는 OAuth 2.0 권한 부여 코드와 함께 ID 토큰이 발급된 경우에만 ID 토큰에 포함됩니다. 인증 코드의 신뢰성이 유효한지 검사하는 데 사용할 수 있습니다. 이 유효성 검사를 수행하는 방법에 대한 자세한 내용은 [OpenID Connect 사양](http://openid.net/specs/openid-connect-core-1_0.html)을 참조하세요. |
 | 액세스 토큰 해시 |`at_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |액세스 토큰 해시는 OAuth 2.0 액세스 토큰과 함께 ID 토큰이 발급된 경우에만 ID 토큰에 포함됩니다. 액세스 토큰의 신뢰성이 유효한지 검사하는 데 사용할 수 있습니다. 이 유효성 검사를 수행하는 방법에 대한 자세한 내용은 [OpenID Connect 사양](http://openid.net/specs/openid-connect-core-1_0.html)을 참조하세요. |
 | nonce |`nonce` |`12345` |nonce는 토큰 재생 공격을 완화하기 위한 전략입니다. 앱은 `nonce` 쿼리 매개 변수를 사용하여 권한 부여 요청에 nonce를 지정할 수 있습니다. 요청에 제공한 값은 수정되지 않고 ID 토큰의 `nonce` 클레임에 내보내집니다. 앱은 특정 ID 토큰과 앱 세션을 연결하는 요청에 지정된 값과 비교하여 값을 확인할 수 있습니다. 앱은 ID 토큰 유효성 검사 프로세스 중에 이 유효성 검사를 수행해야 합니다. |
-| name |`name` |`Babe Ruth` |이름 클레임은 토큰의 주체를 식별하는, 사람이 읽을 수 있는 값을 제공합니다. 이 값은 반드시 고유한 것은 아니며 변경 가능하고 표시 용도로만 사용하도록 디자인되었습니다. `profile` 범위는 이 클레임을 받기 위해 필요합니다. |
+| 이름 |`name` |`Babe Ruth` |이름 클레임은 토큰의 주체를 식별하는, 사람이 읽을 수 있는 값을 제공합니다. 이 값은 반드시 고유한 것은 아니며 변경 가능하고 표시 용도로만 사용하도록 디자인되었습니다. `profile` 범위는 이 클레임을 받기 위해 필요합니다. |
 | email |`email` |`thegreatbambino@nyy.onmicrosoft.com` |만약 있다면 사용자 계정과 연결된 기본 전자 메일 주소입니다. 해당 값은 변경 가능하며 시간이 지남에 따라 변경될 수 있습니다. `email` 범위는 이 클레임을 받기 위해 필요합니다. |
 | 기본 설정된 사용자 이름 |`preferred_username` |`thegreatbambino@nyy.onmicrosoft.com` |v2.0 끝점에서 사용자를 나타내는 기본 사용자 이름입니다. 메일 주소, 전화 번호 또는 지정된 형식이 없는 일반 사용자 이름일 수 있습니다. 해당 값은 변경 가능하며 시간이 지남에 따라 변경될 수 있습니다. 해당 값은 변경 가능하므로 권한 부여 결정을 내리는 데 사용되지 않아야 합니다. `profile` 범위는 이 클레임을 받기 위해 필요합니다. |
 | subject |`sub` |`MF4f-ggWMEji12KynJUNQZphaUTvLcQug5jdF2nl01Q` | 앱 사용자 등 토큰에서 정보를 어설션하는 보안 주체입니다. 이 값은 변경할 수 없으며 재할당 또는 재사용할 수 없습니다. 예를 들어, 리소스 액세스에 토큰을 사용할 때 이 값을 사용하면 안전하게 인증 검사를 수행하고 데이터베이스 테이블에서 키로 사용할 수 있습니다. Azure AD에서 발급하는 토큰에는 항상 주체가 있기 때문에 이 값을 일반 용도의 인증 시스템에 사용하는 것이 좋습니다. 그러나 주체는 쌍으로 된 식별자이며 특정 응용 프로그램 ID에 고유합니다.  따라서 단일 사용자가 두 개의 다른 클라이언트 ID를 사용하여 두 개의 다른 앱에 로그인하는 경우 해당 앱은 주체 클레임에 두 개의 다른 값을 받게 됩니다.  아키텍처 및 개인 정보 보호 요구 사항에 따라 적합할 수도 있고 적합하지 않을 수도 있습니다. |
@@ -86,7 +86,7 @@ v2.0 끝점의 액세스 토큰을 요청하는 경우 앱이 사용할 수 있�
 
 토큰 응답에서 새로 고침을 받으려면 앱이 `offline_acesss` 범위를 요청하고 부여 받아야 합니다. `offline_access` 범위에 대한 자세한 내용은 [동의 및 범위](active-directory-v2-scopes.md) 문서를 참조하세요.
 
-새로 고침 토큰은 앱에 완전히 불투명하며 항상 그럴 것입니다. 새로 고침 토큰은 Azure AD v2.0 끝점에서 발급되며 Azure AD v2.0 끝점에서만 검사되고 해석됩니다. 또한 새로 고침 토큰은 수명이 길지만 일정 기간 지속될 것으로 예상하도록 앱을 작성해서는 안 됩니다. 다양한 이유로 언제든지 새로 고침 토큰이 무효화될 수 있기 때문입니다. 앱에서 새로 고침 토큰이 유효한지 확인하는 유일한 방법은 v2.0 끝점에 대한 토큰 요청을 수행하여 교환하는 것입니다.
+새로 고침 토큰은 앱에 완전히 불투명하며 항상 그럴 것입니다. 새로 고침 토큰은 Azure AD v2.0 끝점에서 발급되며 Azure AD v2.0 끝점에서만 검사되고 해석됩니다. 또한 새로 고침 토큰은 수명이 길지만 일정 기간 지속될 것으로 예상하도록 앱을 작성해서는 안 됩니다. 다양한 이유로 언제든지 새로 고침 토큰이 무효화될 수 있기 때문입니다. 자세한 내용은 [토큰 해지](active-directory-token-and-claims.md#token-revocation)를 참조하세요. 앱에서 새로 고침 토큰이 유효한지 확인하는 유일한 방법은 v2.0 끝점에 대한 토큰 요청을 수행하여 교환하는 것입니다.
 
 새로 고침 토큰을 새 액세스 토큰으로 교환할 때 앱에 `offline_access` 범위가 부여된 경우 토큰 응답에 새로운 새로 고침 토큰을 받게 됩니다. 새로 발급된 새로 고침 토큰을 저장하여 요청에 사용한 토큰을 대체해야 합니다. 이렇게 하면 새로 고침 토큰이 최대한 오랫동안 유효한 상태로 유지되도록 할 수 있습니다.
 
@@ -99,7 +99,7 @@ Microsoft는 토큰 유효성 검사를 쉽게 처리하는 방법을 보여 주
 ### <a name="validate-the-signature"></a>서명의 유효성을 검사
 JWT에는 `.` 문자로 구분된 세 개의 세그먼트가 포함되어 있습니다. 첫 번째 세그먼트는 *헤더*, 두 번째 세그먼트는 *본문*, 세 번째 세그먼트는 *서명*이라고 합니다. 서명 세그먼트는 앱이 신뢰할 수 있도록 ID 토큰의 신뢰성이 유효한지 검사하는 데 사용할 수 있습니다.
 
-ID 토큰은 RSA 256 등의 업계 표준 비대칭 암호화 알고리즘을 사용하여 서명됩니다. ID 토큰의 헤더에는 토큰 서명에 사용된 키 및 암호화 방법에 대한 정보가 있습니다. 예:
+ID 토큰은 RSA 256 등의 업계 표준 비대칭 암호화 알고리즘을 사용하여 서명됩니다. ID 토큰의 헤더에는 토큰 서명에 사용된 키 및 암호화 방법에 대한 정보가 있습니다. 예: 
 
 ```
 {
@@ -143,7 +143,7 @@ https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration
 ## <a name="token-lifetimes"></a>토큰 수명
 다음 토큰 수명은 앱 개발 및 디버그에 유용할 수 있으므로 순수하게 이해를 돕기 위해 제공되었습니다. 이러한 수명이 일정하게 유지된다고 예상하도록 앱을 작성해서는 안 됩니다. 토큰 수명은 언제든지 변경될 수 있고 변경됩니다.
 
-| 위임 | 수명 | 설명 |
+| 신뢰 | 수명 | 설명 |
 | --- | --- | --- |
 | ID 토큰(회사 또는 학교 계정) |1시간 |ID 토큰은 일반적으로 1시간 동안 유효합니다. 웹앱은 이 동일한 수명을 사용하여 사용자와의 자체 세션을 유지 관리하거나 완전히 다른 세션 수명을 선택할 수 있습니다. 앱이 새 ID 토큰을 가져와야 하는 경우 v2.0 권한 부여 끝점에 대한 새 로그인 요청을 만들어야 합니다. 사용자에게 v2.0 끝점과의 유효한 브라우저 세션이 있는 경우 자격 증명을 다시 입력할 필요가 없을 수도 있습니다. |
 | ID 토큰(개인 계정) |24시간 |개인 계정에 대한 ID 토큰은 일반적으로 24시간 동안 유효합니다. 웹앱은 이 동일한 수명을 사용하여 사용자와의 자체 세션을 유지 관리하거나 완전히 다른 세션 수명을 선택할 수 있습니다. 앱이 새 ID 토큰을 가져와야 하는 경우 v2.0 권한 부여 끝점에 대한 새 로그인 요청을 만들어야 합니다. 사용자에게 v2.0 끝점과의 유효한 브라우저 세션이 있는 경우 자격 증명을 다시 입력할 필요가 없을 수도 있습니다. |

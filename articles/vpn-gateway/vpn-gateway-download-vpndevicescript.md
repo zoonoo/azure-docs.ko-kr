@@ -1,11 +1,11 @@
 ---
-title: "S2S VPN 연결에 대한 VPN 장치 구성 스크립트 다운로드: Azure Resource Manager | Microsoft Docs"
-description: "이 문서에서는 Azure Resource Manager를 사용하여 Azure VPN Gateway와의 S2S VPN 연결에 대한 VPN 장치 구성 스크립트를 다운로드하는 과정을 안내합니다."
+title: 'S2S VPN 연결에 대한 VPN 장치 구성 스크립트 다운로드: Azure Resource Manager | Microsoft Docs'
+description: 이 문서에서는 Azure Resource Manager를 사용하여 Azure VPN Gateway와의 S2S VPN 연결에 대한 VPN 장치 구성 스크립트를 다운로드하는 과정을 안내합니다.
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
 manager: rossort
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 238cd9b3-f1ce-4341-b18e-7390935604fa
 ms.service: vpn-gateway
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2018
 ms.author: yushwang
-ms.openlocfilehash: ebff881cdaa7dd3e14fa1687588408cd9a911553
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 2ec428bc5d2cdfb376db3c27b9899014c7ffa2af
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="download-vpn-device-configuration-scripts-for-s2s-vpn-connections"></a>S2S VPN 연결에 대한 VPN 장치 구성 스크립트 다운로드
 
@@ -103,4 +103,4 @@ Get-AzureRmVirtualNetworkGatewayConnectionVpnDeviceConfigScript -Name $Connectio
 
 ## <a name="next-steps"></a>다음 단계
 
-연결이 완료되면 가상 네트워크에 가상 머신을 추가할 수 있습니다. 단계는 [Virtual Machine 만들기](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 를 참조하세요.
+[사이트 간 연결](vpn-gateway-howto-site-to-site-resource-manager-portal.md) 구성 작업을 계속 진행합니다.

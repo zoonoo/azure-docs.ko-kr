@@ -1,11 +1,11 @@
 ---
-title: "Service Fabric 서비스의 확장성 | Microsoft Docs"
-description: "서비스 패브릭 서비스의 규모를 조정하는 방법을 설명합니다."
+title: Service Fabric 서비스의 확장성 | Microsoft Docs
+description: 서비스 패브릭 서비스의 규모를 조정하는 방법을 설명합니다.
 services: service-fabric
 documentationcenter: .net
 author: masnider
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: ed324f23-242f-47b7-af1a-e55c839e7d5d
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,14 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 6dc89bda31af35e4c7eb0f2255db301b39ac05eb
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: aeda1184610398c0445238ea2e7ccbea866ed418
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="scaling-in-service-fabric"></a>Service Fabric에서 크기 조정
-Azure Service Fabric을 사용하면 클러스터 노드의 서비스, 파티션 및 복제본을 관리하여 확장 가능한 응용 프로그램을 쉽게 빌드할 수 있습니다. 동일한 하드웨어에서 많은 워크로드를 실행하면 리소스를 최대한 활용할 수 있을 뿐만 아니라 워크로드의 크기를 조정하기 위해 선택하는 방법에 유연성도 제공합니다. 
+Azure Service Fabric을 사용하면 클러스터 노드의 서비스, 파티션 및 복제본을 관리하여 확장 가능한 응용 프로그램을 쉽게 빌드할 수 있습니다. 동일한 하드웨어에서 많은 워크로드를 실행하면 리소스를 최대한 활용할 수 있을 뿐만 아니라 워크로드의 크기를 조정하기 위해 선택하는 방법에 유연성도 제공합니다. 이 채널 9 비디오에서는 확장 가능한 마이크로 서비스 응용 프로그램을 구축하는 방법을 설명합니다.
+
+> [!VIDEO https://channel9.msdn.com/Events/Connect/2017/T116/player]
 
 Service Fabric에서 크기를 조정하는 경우 다음과 같은 여러 가지 방법으로 수행됩니다.
 

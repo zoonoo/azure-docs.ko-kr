@@ -1,6 +1,6 @@
 ---
-title: "ASP.NET Core용 Azure Application Insights | Microsoft Docs"
-description: "응용 프로그램의 가용성, 성능 및 사용 현황을 모니터링합니다."
+title: ASP.NET Core용 Azure Application Insights | Microsoft Docs
+description: 응용 프로그램의 가용성, 성능 및 사용 현황을 모니터링합니다.
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: mbullwin
-ms.openlocfilehash: e9fb3e68db66449d9ca3b43e6974910cb9477e62
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 77c48a22f974e027b4e8858d5e38018bbf5bb54f
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="application-insights-for-aspnet-core"></a>ASP.NET Core용 Application Insights
 
@@ -214,5 +214,6 @@ Application Insights 제품 그룹은 [전체 .NET Framework SDK](https://github
 
 ## <a name="next-steps"></a>다음 단계
 * [사용자 흐름을 탐색](app-insights-usage-flows.md)하여 사용자가 앱을 탐색하는 방식을 이해합니다.
+* 예외가 throw되는 시점의 소스 코드 및 변수 상태를 보려면 [스냅숏 컬렉션을 구성](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger#configure-snapshot-collection-for-aspnet-core-20-applications)합니다.
 * [API를 사용](app-insights-api-custom-events-metrics.md) 합니다.
 * [가용성 테스트](app-insights-monitor-web-app-availability.md) 는 사용자의 앱을 전 세계에서 지속적으로 확인합니다.

@@ -1,6 +1,6 @@
 ---
-title: "Azure Service Fabric에서 신뢰할 수 있는 컬렉션에 대한 지침 및 권장 사항 | Microsoft Docs"
-description: "Service Fabric의 신뢰할 수 있는 컬렉션을 사용하기 위한 지침 및 권장 사항"
+title: Azure Service Fabric에서 신뢰할 수 있는 컬렉션에 대한 지침 및 권장 사항 | Microsoft Docs
+description: Service Fabric의 신뢰할 수 있는 컬렉션을 사용하기 위한 지침 및 권장 사항
 services: service-fabric
 documentationcenter: .net
 author: mcoskun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 12/10/2017
 ms.author: mcoskun
-ms.openlocfilehash: f9c48598a6bfb33f0151eff74ec5dd0ffb47b228
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 27ea71bcc378100e613a8edd1c57a93f3c9ed925
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Azure Service Fabric에서 신뢰할 수 있는 컬렉션에 대한 지침 및 권장 사항
 이 섹션에서는 신뢰할 수 있는 상태 관리자 및 신뢰할 수 있는 컬렉션을 사용하기 위한 지침을 제공합니다. 목표는 사용자에게 일반적인 문제가 발생하지 않도록 방지하는 것입니다.
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/11/2017
 지침은 *~하세요*, *~을(를) 고려하세요*, *~을(를) 피하세요* 및 *~하지 마세요.* 용어가 맨 끝에 추가된 간단한 권장 사항으로 구성됩니다.
 
 * 읽기 작업에 의해 반환되는 사용자 지정 형식의 개체(예: `TryPeekAsync` 또는 `TryGetValueAsync`)는 수정하지 마세요. 신뢰할 수 있는 컬렉션은 동시 컬렉션처럼 개체에 대한 복사본이 아닌 참조를 반환합니다.
-* 수정하기 전에 사용자 지정 형식의 반환된 개체에 대한 전체 복사를 수행합니다. 구조체 및 기본 제공 형식은 pass-by-value이므로 전체 복사를 수행할 필요가 없습니다.
+* 수정하기 전에 사용자 지정 형식의 반환된 개체에 대한 전체 복사를 수행합니다. 구조 및 기본 제공 형식이 값에 의한 전달이므로 수정하려는 참조 형식의 필드 또는 속성이 포함되지 않으면 전체 복사를 수행할 필요가 없습니다.
 * 시간제한에 `TimeSpan.MaxValue` 를 사용하지 마세요. 시간 제한은 교착 상태를 감지하는 데 사용되어야 합니다.
 * 트랜잭션을 커밋, 중단 또는 삭제한 후에는 사용하지 마십시오.
 * 열거형이 만들어진 트랜잭션 범위 외부에서는 해당 열거형을 사용하지 마세요.

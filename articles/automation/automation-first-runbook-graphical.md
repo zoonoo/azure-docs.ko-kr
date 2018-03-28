@@ -1,25 +1,21 @@
 ---
-title: "Azure Automation의 내 첫 번째 그래픽 Runbook | Microsoft Docs"
-description: "자습서는 간단한 그래픽 runbook의 생성, 테스트, 게시를 단계별로 안내합니다."
+title: Azure Automation의 내 첫 번째 그래픽 Runbook
+description: 자습서는 간단한 그래픽 runbook의 생성, 테스트, 게시를 단계별로 안내합니다.
+keywords: runbook, runbook 템플릿, runbook 자동화, azure runbook
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: jwhit
-editor: 
-keywords: "runbook, runbook 템플릿, runbook 자동화, azure runbook"
-ms.assetid: dcb88f19-ed2b-4372-9724-6625cd287c8a
 ms.service: automation
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.date: 05/17/2017
-ms.author: magoedte;bwren
-ms.openlocfilehash: 948510eaaf55854bbc14d49bf78a8584c43f182d
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+manager: carmonm
+ms.devlang: na
+ms.tgt_pltfrm: na
+ms.openlocfilehash: 85902975d6871eccc69ffd441aec509f9f63ec2f
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="my-first-graphical-runbook"></a>내 첫 번째 그래픽 Runbook
 
@@ -32,7 +28,7 @@ ms.lasthandoff: 01/10/2018
 
 이 자습서는 Azure Automation에서 [그래픽 Runbook](automation-runbook-types.md#graphical-runbooks)을 만드는 과정을 안내합니다. Runbook 작업의 상태를 추적하는 방법을 알아보면서 테스트하고 게시하는 간단한 Runbook을 시작합니다. 그런 다음 실제로 Azure 리소스를 관리하도록 Runbook을 수정합니다. 이 경우에 Azure Virtual Machine을 시작합니다. 그리고 Runbook 매개 변수와 조건부 링크를 추가하여 Runbook을 더욱 강력하게 만들고 자습서를 완료합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 이 자습서를 완료하려면 다음이 필요합니다.
 

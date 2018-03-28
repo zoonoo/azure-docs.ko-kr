@@ -1,11 +1,11 @@
 ---
-title: "Linux HPC 팩 클러스터를 배포하기 위한 PowerShell 스크립트 | Microsoft Docs"
-description: "PowerShell 스크립트를 실행하여 Azure 가상 컴퓨터에 Linux HPC Pack 2012 R2 클러스터 배포"
+title: Linux HPC 팩 클러스터를 배포하기 위한 PowerShell 스크립트 | Microsoft Docs
+description: PowerShell 스크립트를 실행하여 Azure 가상 머신에 Linux HPC Pack 2012 R2 클러스터 배포
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: timlt
-editor: 
+editor: ''
 tags: azure-service-management,hpc-pack
 ms.assetid: 73041960-58d3-4ecf-9540-d7e1a612c467
 ms.service: virtual-machines-linux
@@ -15,18 +15,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 12/29/2016
 ms.author: danlep
-ms.openlocfilehash: c15dc66718a855e22f8109448cb8c8a23787b9bf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 477859db8c884714d9b5140483d300ebfe6c116a
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-a-linux-high-performance-computing-hpc-cluster-with-the-hpc-pack-iaas-deployment-script"></a>HPC Pack IaaS 배포 스크립트를 사용하여 Linux HPC(고성능 컴퓨팅) 클러스터 만들기
-HPC Pack IaaS 배포 PowerShell 스크립트를 실행하여 Azure 가상 컴퓨터에 완전한 Linux 워크로드용 HPC Pack 2012 R2 클러스터를 배포합니다. 이 클러스터는 Windows Server 및 Microsoft HPC Pack을 실행하는 Active Directory 가입 헤드 노드와 HPC Pack에서 지원하는 Linux 배포판 중 하나를 실행하는 계산 노드로 구성됩니다. Azure에서 Windows 워크로드용 HPC 팩 클러스터를 배포하려면 [HPC 팩 IaaS 배포 스크립트를 사용하여 Windows HPC 클러스터 만들기](../../windows/classic/hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)를 참조하세요. Azure 리소스 관리자 템플릿을 사용하여 HPC 팩 클러스터를 배포할 수도 있습니다. 예제는 [Linux 계산 노드가 포함된 HPC 클러스터 만들기](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-linux-cn/)를 참조하세요.
-
+HPC Pack IaaS 배포 PowerShell 스크립트를 실행하여 Azure 가상 머신에 완전한 Linux 워크로드용 HPC Pack 2012 R2 클러스터를 배포합니다. 이 클러스터는 Windows Server 및 Microsoft HPC Pack을 실행하는 Active Directory 가입 헤드 노드와 HPC Pack에서 지원하는 Linux 배포판 중 하나를 실행하는 계산 노드로 구성됩니다. Azure에서 Windows 워크로드용 HPC 팩 클러스터를 배포하려면 [HPC 팩 IaaS 배포 스크립트를 사용하여 Windows HPC 클러스터 만들기](../../windows/classic/hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)를 참조하세요.
 > [!IMPORTANT] 
 > 이 문서에 설명된 PowerShell 스크립트는 클래식 배포 모델을 사용하여 Azure에 Microsoft HPC Pack 2012 R2 클러스터를 만듭니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다.
-> 또한 이 문서에 설명된 스크립트는 HPC Pack 2016을 지원하지 않습니다.
+> 또한 이 문서에 설명된 스크립트는 HPC Pack 2016을 지원하지 않습니다. HPC Pack 2012 R2 및 HPC 팩 2016에 대한 Resource Manager 템플릿에 대한 정보는 [Azure에서 HPC Pack 클러스터 배포 옵션](../hpcpack-cluster-options.md)을 참조하세요.
+
 
 [!INCLUDE [virtual-machines-common-classic-hpcpack-cluster-powershell-script](../../../../includes/virtual-machines-common-classic-hpcpack-cluster-powershell-script.md)]
 

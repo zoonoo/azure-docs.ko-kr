@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 7f3a0a1a22e14f12b86474dd5b1985029074444e
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 2d7405baee84b53311f01e748ca7975147c107d8
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="profile-aspnet-core-azure-linux-web-apps-with-application-insights-profiler"></a>Application Insights Profiler를 사용하여 ASP.NET Core Azure Linux 웹앱 프로파일링
 
@@ -144,5 +144,7 @@ ms.lasthandoff: 03/12/2018
 
     ![추적 보기](./media/app-insights-profiler-aspnetcore-linux/view-traces.png)
 
-## <a name="report-issues-to-project-github-repository"></a>프로젝트 Github 리포지토리에 문제 보고
+## <a name="next-steps"></a>다음 단계
+App Services에 의해 호스트되는 사용자 지정 컨테이너를 사용하는 경우 [컨테이너화된 ASP.NET Core 응용 프로그램에 Service Profiler 설정](https://github.com/Microsoft/ApplicationInsights-Profiler-AspNetCore/tree/master/examples/EnableServiceProfilerForContainerApp)의 지침을 따라 App Insights Profiler를 사용하도록 설정합니다.
+
 문제 또는 제안 사항이 있으면 github 리포지토리([ApplicationInsights-Profiler-AspNetCore: 문제](https://github.com/Microsoft/ApplicationInsights-Profiler-AspNetCore/issues))에 보고해 주세요.

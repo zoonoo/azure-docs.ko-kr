@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: muralikk
-ms.openlocfilehash: 7eaf4c3c9b390e87dd8494cd6bfb2ea155451608
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: d096d6fd4664fecc9c759d683ed79e76cda9b6af
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>Microsoft Azure Import/Export 서비스를 사용하여 Azure Storage로 데이터 전송
 이 문서에서는 Azure Import/Export 서비스를 사용하여 디스크 드라이브를 Azure 데이터 센터에 발송하여 많은 양의 데이터를 안전하게 Azure Blob Storage로 전송하는 단계별 지침을 제공합니다. 이 서비스를 사용하여 데이터를 Azure 저장소에서 하드 디스크 드라이브로 전송하고 온-프레미스 사이트로 발송할 수도 있습니다. 단일 내부 SATA 디스크 드라이브의 데이터를 Azure Blob Storage나 Azure 파일로 가져올 수 있습니다. 
@@ -29,7 +29,7 @@ ms.lasthandoff: 03/12/2018
 2.  전체 데이터 크기에 따라 필요한 2.5" SSD 또는 2.5"/3.5" SATA II/III 하드 디스크 드라이브 수를 확보합니다.
 3.  SATA를 사용하여 하드 드라이브를 직접, 또는 외부 USB 어댑터를 통해 Windows 컴퓨터에 연결합니다.
 1.  각 하드 드라이브에서 단일 NTFS 볼륨을 만들고 볼륨에 드라이브 문자를 할당합니다. 탑재 지점은 없습니다.
-2.  Windows 컴퓨터에서 암호화를 사용하도록 설정하려면 NTFS 볼륨에 비트 보관 암호화를 사용하도록 설정합니다. https://technet.microsoft.com/en-us/library/cc731549(v=ws.10).asp의 지침을 따릅니다.
+2.  Windows 컴퓨터에서 암호화를 사용하도록 설정하려면 NTFS 볼륨에 비트 보관 암호화를 사용하도록 설정합니다. https://technet.microsoft.com/en-us/library/cc731549(v=ws.10).aspx의 지침을 사용합니다.
 3.  복사하여 붙여넣기, 끌어서 놓기 또는 Robocopy나 기타 도구를 사용하여 디스크에서 이러한 암호화된 단일 NTFS 볼륨에 데이터를 완전히 복사합니다.
 7.  https://www.microsoft.com/en-us/download/details.aspx?id=42659에서 WAImportExport V1을 다운로드합니다.
 8.  기본 폴더 waimportexportv1에 압축을 풉니다. 예를 들어 C:\WaImportExportV1입니다.  
@@ -37,7 +37,7 @@ ms.lasthandoff: 03/12/2018
 10. 다음 명령줄을 텍스트 편집기에 복사하고 편집하여 명령줄을 만듭니다.
 
     ```
-    ./WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1 /sk:***== /t:D /bk:*** /srcdir:D:\ /dstdir:ContainerName/ 
+    ./WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1 /sk:***== /t:D /bk:*** /srcdir:D:\ /dstdir:ContainerName/ /skipwrite 
     ```
     
     명령줄 옵션은 다음 표에 설명되어 있습니다.
@@ -47,16 +47,16 @@ ms.lasthandoff: 03/12/2018
     |/j:     |확장명이 .jrn인 저널 파일의 이름입니다. 저널 파일은 드라이브마다 생성됩니다. 디스크 일련 번호를 저널 파일 이름으로 사용하는 것이 좋습니다.         |
     |/sk:     |Azure Storage 계정 키입니다.         |
     |/t:     |배송할 디스크의 드라이브 문자입니다. 예: `D` 드라이브         |
-    |/bk:     |드라이브의 BitLocker 키입니다.         |
+    |/bk:     |드라이브의 BitLocker 키입니다. ` manage-bde -protectors -get D: ` 출력의 숫자 암호입니다.      |
     |/srcdir:     |`:\` 다음에 나오는 배송될 디스크의 드라이브 문자입니다. 예: `D:\`         |
     |/dstdir:     |Azure Storage의 대상 컨테이너 이름입니다.         |
-
+    |/skipwrite:     |복사해야 하는 새 데이터가 없고 디스크의 기존 데이터가 준비되도록 지정하는 옵션입니다.         |
 1. 배송할 디스크마다 10단계를 반복합니다.
 2. 명령줄을 실행할 때마다 /j: 매개 변수와 함께 제공된 이름이 있는 저널 파일이 만들어집니다.
 
 ### <a name="step-2-create-an-import-job-on-azure-portal"></a>2단계: Azure Portal에서 가져오기 작업 만들기
 
-1. https://portal.azure.com/에 로그온하고 다른 서비스 -> STORAGE -> "가져오기/내보내기" 작업에서 **가져오기/내보내기 작업 만들기**를 클릭합니다.
+1. https://portal.azure.com/에 로그온하고 다른 서비스 -> STORAGE -> "가져오기/내보내기 작업"에서 **가져오기/내보내기 작업 만들기**를 클릭합니다.
 
 2. 기본 사항 섹션에서 "Azure로 가져오기"를 선택하고 작업 이름에 해당하는 문자열을 입력한 후 구독을 선택하고 리소스 그룹을 입력하거나 선택합니다. 가져오기 작업을 설명하는 이름을 입력합니다. 입력하는 이름에는 소문자, 숫자, 하이픈 및 밑줄만 포함될 수 있으며 문자로 시작해야 하고 공백이 포함될 수 없습니다. 작업이 진행 중인 동안 그리고 작업이 완료되면 선택한 이름을 사용하여 작업을 추적합니다.
 

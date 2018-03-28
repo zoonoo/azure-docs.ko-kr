@@ -1,24 +1,24 @@
 ---
-title: "Azure Marketplace를 사용한 비즈니스 성장"
-description: "Azure Marketplace의 새 게시자를 위한 단계별 가이드 및 게시 검사 목록"
+title: Azure Marketplace를 사용한 비즈니스 성장
+description: Azure Marketplace의 새 게시자를 위한 단계별 가이드 및 게시 검사 목록
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: 
+documentationcenter: ''
 author: ellacroi
 manager: msmbaldwin
-editor: 
+editor: ''
 ms.assetid: e8d228c8-f9e8-4a80-9319-7b94d41c43a6
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.workload: ''
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: ellacroi
-ms.openlocfilehash: 51cc413d61e4951f28e9247efcee934af23572e5
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 85baba61d5603539641f45f7ab1d722ca98514ad
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="grow-your-business-by-using-the-azure-marketplace"></a>Azure Marketplace를 사용한 비즈니스 성장
 
@@ -129,7 +129,8 @@ Marketplace의 새 명단에 오르면 Marketplace GTM 혜택을 무료로 받�
 >[!NOTE]
 >OCP 카탈로그(One Commercial Partner Catalog)는 Microsoft 파트너 네트워크에 속하는 멤버를 위한 혜택입니다. 
 
-![Marketplace GTM 혜택](./media/marketplace-publishers-guide/marketplace-gtm-promotion.png)
+[Marketplace GTM 혜택](./media/marketplace-publishers-guide/marketplace-gtm-current-march-8.png)
+
 
 지원이 필요하면 [Microsoft 시장 진출](https://www.microsoftgotomarket.com)을 참조하세요. 이곳에서 비즈니스를 홍보할 수 있는 템플릿, 웹 콘텐츠, 학습 및 도구를 찾을 수 있습니다.
 

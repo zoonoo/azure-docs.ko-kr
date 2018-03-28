@@ -1,6 +1,6 @@
 ---
-title: "자습서: Confluence SAML SSO by Microsoft와 Azure Active Directory 통합 | Microsoft Docs"
-description: "Azure Active Directory와 Confluence SAML SSO by Microsoft 사이에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
+title: '자습서: Confluence SAML SSO by Microsoft와 Azure Active Directory 통합 | Microsoft Docs'
+description: Azure Active Directory와 Confluence SAML SSO by Microsoft 사이에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/08/2018
 ms.author: jeedes
-ms.openlocfilehash: 4151811a74fc0e58f6171e11d77e070f3cb40f95
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 5b81ca4f5a9f30b2882d86639ca9386e7bbc09e8
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-confluence-saml-sso-by-microsoft"></a>자습서: Confluence SAML SSO by Microsoft와 Azure Active Directory 통합
 
@@ -200,6 +200,8 @@ Confluence SAML SSO by Microsoft에서 Azure AD Single Sign-On을 구성하고 �
 
     i. **저장** 단추를 클릭하여 설정을 저장합니다.
 
+    > [!NOTE]
+    > 설치 및 문제 해결에 대한 자세한 내용은 [MS Confluence SSO 커넥터 관리자 가이드](ms-confluence-jira-plugin-adminguide.md)를 참조하세요. [FAQ](ms-confluence-jira-plugin-faq.md)도 도움이 될 것입니다.
 
 > [!TIP]
 > 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.

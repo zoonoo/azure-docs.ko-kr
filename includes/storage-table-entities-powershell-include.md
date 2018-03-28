@@ -56,7 +56,7 @@ Get-AzureStorageTableRowAll -table $storageTable | ft
 
 이 명령은 다음 표와 비슷한 결과를 생성합니다.
 
-| userid | username | partition | rowkey |
+| userId | 사용자 이름 | partition | rowkey |
 |----|---------|---------------|----|
 | 1 | Chris | partition1 | CA |
 | 3 | Christine | partition1 | WA |
@@ -72,7 +72,7 @@ Get-AzureStorageTableRowByPartitionKey -table $storageTable -partitionKey $parti
 ```
 결과는 다음 표와 비슷합니다.
 
-| userid | username | partition | rowkey |
+| userId | 사용자 이름 | partition | rowkey |
 |----|---------|---------------|----|
 | 1 | Chris | partition1 | CA |
 | 3 | Christine | partition1 | WA |
@@ -92,8 +92,8 @@ Get-AzureStorageTableRowByColumnName -table $storageTable `
 
 |필드|값|
 |----|----|
-| userid | 1 |
-| username | Chris |
+| userId | 1 |
+| 사용자 이름 | Chris |
 | PartitionKey | partition1 |
 | RowKey      | CA |
 
@@ -104,15 +104,15 @@ Get-AzureStorageTableRowByColumnName -table $storageTable `
 ```powershell
 Get-AzureStorageTableRowByCustomFilter `
     -table $storageTable `
-    -customFilter "(userid eq '1')"
+    -customFilter "(userid eq 1)"
 ```
 
 이 쿼리는 하나의 레코드를 검색합니다.
 
 |필드|값|
 |----|----|
-| userid | 1 |
-| username | Chris |
+| userId | 1 |
+| 사용자 이름 | Chris |
 | PartitionKey | partition1 |
 | RowKey      | CA |
 
@@ -146,8 +146,8 @@ Get-AzureStorageTableRowByCustomFilter -table $storageTable `
 
 |필드|값|
 |----|----|
-| userid | 2 |
-| username | Jessie2 |
+| userId | 2 |
+| 사용자 이름 | Jessie2 |
 | PartitionKey | partition2 |
 | RowKey      | NM |
 
@@ -177,10 +177,10 @@ Get-AzureStorageTableRowAll -table $storageTable | ft
 
 #### <a name="delete-all-entities-in-the-table"></a>테이블의 모든 엔터티 삭제 
 
-테이블의 모든 엔터티를 삭제하려면 해당 테이블을 검색하여 결과를 Remove cmdlet으로 파이프합니다. 
+테이블의 모든 엔터티를 삭제하려면 해당 엔터티를 검색하고 결과를 Remove cmdlet으로 파이프합니다. 
 
 ```powershell
-# Get all rows and pipe it into the remove cmdlet.
+# Get all rows and pipe the result into the remove cmdlet.
 Get-AzureStorageTableRowAll `
     -table $storageTable | Remove-AzureStorageTableRow -table $storageTable 
 

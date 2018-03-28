@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: 2cf31b32e02923aa573d5586b8ca24bf30b7d97b
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: f251fe11c43dc4b3f29c70f937f5bfcb6af6c44e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Azure Resource Manager를 사용한 일반적인 Azure 배포 오류 해결
 
@@ -38,6 +38,7 @@ ms.lasthandoff: 03/12/2018
 | 충돌 | 리소스의 현재 상태에 허용되지 않는 작업을 요청하고 있습니다. 예를 들어 디스크 크기 조정은 VM을 만들거나 VM의 할당을 취소할 때만 허용됩니다. | |
 | DeploymentActive | 이 리소스 그룹에 대한 동시 배포가 완료될 때까지 기다립니다. | |
 | DeploymentFailed | DeploymentFailed 오류는 해결하는 데 필요한 세부 정보를 제공하지 않는 일반 오류입니다. 자세한 정보를 제공하는 오류 코드에 대해서는 오류 세부 정보를 살펴봅니다. | [오류 코드 찾기](#find-error-code) |
+| DeploymentQuotaExceeded | 리소스 그룹당 800개 배포 제한에 도달하면 기록에서 더 이상 필요하지 않은 배포를 삭제합니다. Azure CLI의 경우 [az group deployment delete](/cli/azure/group/deployment#az_group_deployment_delete) 또는 PowerShell에서 [Remove-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/remove-azurermresourcegroupdeployment)를 사용하여 기록에서 항목을 삭제할 수 있습니다. 배포 기록에서 항목을 삭제해도 배포 리소스에는 영향을 주지 않습니다. | |
 | DnsRecordInUse | DNS 레코드 이름은 고유해야 합니다. 다른 이름을 제공하거나 기존 레코드를 수정합니다. | |
 | ImageNotFound | VM 이미지 설정을 확인합니다. |  |
 | InUseSubnetCannotBeDeleted | 리소스를 업데이트하려고 할 때 이 오류가 발생할 수 있지만, 해당 리소스를 삭제한 다음 만들면 요청이 처리됩니다. 변경되지 않은 모든 값을 지정해야 합니다. | [리소스 업데이트](/azure/architecture/building-blocks/extending-templates/update-resource) |
@@ -49,10 +50,13 @@ ms.lasthandoff: 03/12/2018
 | InvalidResourceNamespace | **type** 속성에 지정한 리소스 네임스페이스를 확인합니다. | [템플릿 참조](/azure/templates/) |
 | InvalidResourceReference | 리소스가 아직 없거나 잘못 참조되었습니다. 종속성을 추가해야 하는지 확인합니다. **reference** 함수를 사용할 때 시나리오에 필요한 매개 변수가 포함되었는지 확인합니다. | [종속성 오류 해결](resource-manager-not-found-errors.md) |
 | InvalidResourceType | **type** 속성에 지정한 리소스 종류를 확인합니다. | [템플릿 참조](/azure/templates/) |
+| InvalidSubscriptionRegistrationState | 리소스 공급자에 구독을 등록합니다. | [등록 오류 해결](resource-manager-register-provider-errors.md) |
 | InvalidTemplate | 템플릿 구문에 오류가 있는지 확인합니다. | [잘못된 템플릿 오류 해결](resource-manager-invalid-template-errors.md) |
+| InvalidTemplateCircularDependency | 불필요한 종속성을 제거합니다. | [순환 종속성 해결](resource-manager-invalid-template-errors.md#circular-dependency) |
 | LinkedAuthorizationFailed | 계정이 배포하는 리소스 그룹과 동일한 테넌트에 속하는지 확인합니다. | |
 | LinkedInvalidPropertyId | 리소스에 대한 리소스 ID가 올바르게 해석되지 않습니다. 구독 ID, 리소스 그룹 이름, 리소스 종류, 부모 리소스 이름(필요한 경우) 및 리소스 이름을 포함하여 리소스 ID에 필요한 모든 값을 제공했는지 확인합니다. | |
 | LocationRequired | 리소스에 대한 위치를 제공합니다. | [위치 설정](resource-manager-templates-resources.md#location) |
+| MismatchingResourceSegments | 중첩되는 리소스의 이름 및 형식에 세그먼트 수가 올바른지 확인하십시오. | [리소스 세그먼트 해결](resource-manager-invalid-template-errors.md#incorrect-segment-lengths)
 | MissingRegistrationForLocation | 리소스 공급자 등록 상태 및 지원되는 위치를 확인합니다. | [등록 오류 해결](resource-manager-register-provider-errors.md) |
 | MissingSubscriptionRegistration | 리소스 공급자에 구독을 등록합니다. | [등록 오류 해결](resource-manager-register-provider-errors.md) |
 | NoRegisteredProviderFound | 리소스 공급자 등록 상태를 확인합니다. | [등록 오류 해결](resource-manager-register-provider-errors.md) |
@@ -73,6 +77,8 @@ ms.lasthandoff: 03/12/2018
 | StorageAccountAlreadyTaken | 저장소 계정에 고유한 이름을 제공합니다. | [저장소 계정 이름 오류 해결](resource-manager-storage-account-name-errors.md) |
 | StorageAccountNotFound | 사용하려는 구독, 리소스 그룹 및 저장소 계정 이름을 확인합니다. | |
 | SubnetsNotInSameVnet | 가상 머신에는 하나의 가상 네트워크만 있을 수 있습니다. 여러 NIC를 배포할 때는 모두 동일한 가상 네트워크에 속해야 합니다. | [여러 NIC](../virtual-machines/windows/multiple-nics.md) |
+| TemplateResourceCircularDependency | 불필요한 종속성을 제거합니다. | [순환 종속성 해결](resource-manager-invalid-template-errors.md#circular-dependency) |
+| TooManyTargetResourceGroups | 단일 배포에 대한 리소스 그룹의 수를 줄입니다. | [크로스 리소스 그룹 배포](resource-manager-cross-resource-group-deployment.md) |
 
 ## <a name="find-error-code"></a>오류 코드 찾기
 

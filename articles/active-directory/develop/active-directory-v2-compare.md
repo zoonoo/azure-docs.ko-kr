@@ -1,11 +1,11 @@
 ---
-title: "Azure AD v2.0 끝점의 차이점 | Microsoft Docs"
-description: "원래의 Azure AD와 v2.0 끝점 간의 비교입니다."
+title: Azure AD v2.0 끝점의 차이점 | Microsoft Docs
+description: 원래의 Azure AD와 v2.0 끝점 간의 비교입니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: dstrockis
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 5060da46-b091-4e25-9fa8-af4ae4359b6c
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 4216c2215f494a81935cd4cdca52427b0cbac143
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 502bfa128422a029878513d6aa4533718bdddbb5
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="whats-different-about-the-v20-endpoint"></a>v2.0 끝점의 달라진 점
 Azure Active Directory에 익숙하거나 이전에 Azure AD와 앱을 통합했다면 v2.0 끝점에서 예상하지 못한 몇 가지 차이를 느낄 수 있을 것입니다.  이 문서는 이러한 차이의 이해를 돕기 위해 작성되었습니다.
@@ -59,7 +59,7 @@ Azure Active Directory에서 앱은 **리소스** 또는 토큰 수신자로 작
 * 리소스 식별자, 또는 `AppID URI`: `https://graph.windows.net/` 
 * 범위, 또는 `OAuth2Permissions`: `Directory.Read`, `Directory.Write` 등.  
 
-이 모든 것은 v2.0 끝점에서도 유효합니다.  앱은 여전히 리소스로 작동하고, 범위를 정의하고, URI로 식별될 수 있습니다.  클라이언트 앱은 여전히 해당 범위에 액세스 요청할 수 있습니다.  그러나 클라이언트가 권한을 요청하는 방식이 변경되었습니다.  이전에는, OAuth 2.0 인증을 Azure AD로 보냈습니다.
+이 모든 것은 v2.0 엔드포인트에서도 유효합니다.  앱은 여전히 리소스로 작동하고, 범위를 정의하고, URI로 식별될 수 있습니다.  클라이언트 앱은 여전히 해당 범위에 액세스 요청할 수 있습니다.  그러나 클라이언트가 권한을 요청하는 방식이 변경되었습니다.  이전에는, OAuth 2.0 인증을 Azure AD로 보냈습니다.
 
 ```
 GET https://login.microsoftonline.com/common/oauth2/authorize?

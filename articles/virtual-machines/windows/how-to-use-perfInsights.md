@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: ee8334cbe9256b7a5ecd5e96afa2f15d6389afa8
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 06b3b246d5c350f0982faa9b1d5f5692cd0c428e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="how-to-use-perfinsights"></a>PerfInsights를 사용하는 방법 
 
@@ -238,11 +238,11 @@ PerfInsights 도구를 실행하려면 다음 단계를 수행합니다.
     >
     >기간 스위치 **/d**를 지정하지 않으면 PerfInsights는 vmslow, azurefiles 및 사용자 지정 시나리오를 실행하면서 해당 문제를 재현하도록 요구합니다. 
 
-추적 또는 작업이 완료되면 새 파일이 D:\\log\_collection(또는 임시 드라이브)에 표시됩니다. 이 파일의 이름은 **CollectedData\_yyyy-MM-dd\_hh\_mm\_ss.zip**입니다. 분석을 위해 지원 담당자에게 이 파일을 전송하거나 zip 파일 내의 보고서를 열어 결과 및 권장 사항을 검토할 수 있습니다.
+추적 또는 작업이 완료되면 PerfInsights와 동일한 폴더에 새 파일이 나타납니다. 이 파일의 이름은 **CollectedData\_yyyy-MM-dd\_hh-mm-ss-fff.zip**입니다. 분석을 위해 지원 담당자에게 이 파일을 전송하거나 zip 파일 내의 보고서를 열어 결과 및 권장 사항을 검토할 수 있습니다.
 
 ## <a name="review-the-diagnostics-report"></a>진단 보고서 검토
 
-**CollectedData\_yyyy-MM-dd\_hh\_mm\_ss.zip** 파일에는 PerfInsights가 찾은 결과를 자세히 보여 주는 HTML 보고서가 있습니다. 보고서를 검토하려면 **CollectedData\_yyyy-MM-dd\_hh\_mm\_ss.zip** 파일을 펼친 다음 **PerfInsights Report.html** 파일을 엽니다.
+**CollectedData\_yyyy-MM-dd\_hh-mm-ss-fff.zip** 파일에는 PerfInsights가 찾은 결과를 자세히 보여 주는 HTML 보고서가 있습니다. 보고서를 검토하려면 **CollectedData\_yyyy-MM-dd\_hh-mm-ss-fff.zip** 파일을 펼친 다음, **PerfInsights Report.html** 파일을 엽니다.
 
 **검색 결과** 탭을 선택합니다.
 
@@ -307,4 +307,4 @@ Xperf는 Windows 성능 도구 키트에서 추적을 캡처하는 명령줄 도
 
 메시지의 지침에 따라 파일 전송 작업 영역에 액세스합니다. 보안을 강화하기 위해 처음 사용할 때 암호를 변경해야 합니다.
 
-로그인하면 PerfInsights에서 수집한 **CollectedData\_yyyy-MM-dd\_hh\_mm\_ss.zip** 파일을 업로드하는 대화 상자가 표시됩니다.
+로그인하면 PerfInsights에서 수집한 **CollectedData\_yyyy-MM-dd\_hh-mm-ss-fff.zip** 파일을 업로드하는 대화 상자가 표시됩니다.

@@ -8,11 +8,12 @@ ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.openlocfilehash: c174f5120ba2e5bf8018cce0f0e34c1fc3f8eb3f
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.custom: data-sync
+ms.openlocfilehash: a24e16abd78a89d6143c00fc08a3ef91d7dd8202
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync-preview"></a>SQL 데이터 동기화(미리 보기) 문제 해결
 
@@ -239,7 +240,7 @@ SQL 데이터 동기화(미리 보기) 설치에 대한 알려진 문제입니�
 
 -   SQL 데이터 동기화(미리 보기) Windows 서비스가 실행 중입니다.  
 -   SQL 데이터 동기화(미리 보기) 미리 보기 Windows 서비스에 대한 서비스 계정에 네트워크 액세스 권한이 있습니다.    
--   클라이언트 에이전트가 로케이터 서비스에 연결할 수 있습니다. 다음 레지스트리 키에 https://locator.sync.azure.com/LocatorServiceApi.svc 값이 있는지 확인합니다.  
+-   클라이언트 에이전트가 로케이터 서비스에 연결할 수 있습니다. 다음 레지스트리 키에 값 https://locator.sync.azure.com/LocatorServiceApi.svc:가 있는지 확인합니다.  
     -   x86 컴퓨터: `HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\SQL Azure Data Sync\\LOCATORSVCURI`  
     -   x64 컴퓨터: `HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Wow6432Node\\Microsoft\\SQL Azure Data Sync\\LOCATORSVCURI`
 

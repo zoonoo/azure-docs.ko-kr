@@ -1,13 +1,13 @@
 ---
-title: "셀프 서비스 암호 재설정 FAQ - Azure Active Directory"
-description: "Azure AD 셀프 서비스 암호 재설정에 대해 자주 묻는 질문과 대답"
+title: 셀프 서비스 암호 재설정 FAQ - Azure Active Directory
+description: Azure AD 셀프 서비스 암호 재설정에 대해 자주 묻는 질문과 대답
 services: active-directory
-keywords: "Active Directory 암호 관리, 암호 관리, Azure AD 셀프 서비스 암호 재설정"
-documentationcenter: 
+keywords: Active Directory 암호 관리, 암호 관리, Azure AD 셀프 서비스 암호 재설정
+documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: seohack1
-ms.openlocfilehash: 686cc2a94af729e6f872c334a6e5fda947d43725
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: f5236b81c70caee4417777ffadcababebaa84620
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="password-management-frequently-asked-questions"></a>암호 관리 질문과 대답
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 02/22/2018
 
 * **Q: 내 사용자가 자신의 암호 재설정 데이터를 등록할 수 있습니까?**
 
-  > **A:** 예. 암호 재설정이 사용되고 라이선스가 부여된 경우 https://aka.ms/ssprsetup의 암호 재설정 등록 포털로 이동하여 인증 정보를 등록할 수 있습니다. 액세스 패널(http://myapps.microsoft.com)을 통해 등록할 수도 있습니다. 액세스 패널을 통해 등록하려면 프로필 사진을 선택하고 **프로필**을 선택한 다음 **암호 재설정 등록** 옵션을 사용해야 합니다.
+  > **A:** 예. 암호 재설정이 사용되고 라이선스가 부여된 경우 사용자는 암호 재설정 등록 포털(https://aka.ms/ssprsetup))로 이동하여 인증 정보를 등록할 수 있습니다. 사용자는 액세스 패널(http://myapps.microsoft.com))을 통해 등록할 수도 있습니다. 액세스 패널을 통해 등록하려면 프로필 사진을 선택하고 **프로필**을 선택한 다음 **암호 재설정 등록** 옵션을 사용해야 합니다.
   >
   >
 * **Q: 그룹에 대해 암호 재설정을 사용하도록 설정한 후 모든 사용자에게 이를 사용하도록 설정하려는 경우, 사용자가 다시 등록해야 하나요?**
@@ -269,7 +269,7 @@ ms.lasthandoff: 02/22/2018
   >
 * **Q: 비밀번호 쓰기 저장에 대해 어떤 유형의 계정이 작동합니까?**
 
-  > **A:** 페더레이션 및 암호 해시 동기화된 사용자에 대한 비밀번호 쓰기 저장이 작동합니다.
+  > **A:** 페더레이션되고 암호 해시 동기화된 통과 인증 사용자를 비롯하여 온-프레미스 Active Directory에서 Azure AD로 동기화되는 사용자 계정에 대한 비밀번호 쓰기 저장이 작동합니다.
   >
   >
 * **Q: 비밀번호 쓰기 저장을 내 도메인 암호 정책에 적용합니까?**

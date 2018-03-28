@@ -6,14 +6,14 @@ keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 03/06/2018
+ms.date: 03/12/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: e2314f589456f604c8c008e10fb8084e0524575d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 4201395085dd72eb92b774eaed5980737b2e5de0
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="deploy-azure-machine-learning-as-an-iot-edge-module---preview"></a>Azure Machine Learning을 IoT Edge 모듈로 배포 - 미리 보기
 
@@ -41,12 +41,16 @@ ms.lasthandoff: 03/08/2018
 
 Azure ML용 모듈 관리를 실행하는 컴퓨터에서, GitHub에 있는 Azure ML IoT Toolkit의 [iot_score.py](https://github.com/Azure/ai-toolkit-iot-edge/blob/master/IoT%20Edge%20anomaly%20detection%20tutorial/iot_score.py) 및 [model.pkl](https://github.com/Azure/ai-toolkit-iot-edge/blob/master/IoT%20Edge%20anomaly%20detection%20tutorial/model.pkl)을 다운로드하고 저장합니다. 이 파일은 Iot Edge 장치에 배포할 학습된 기계 학습 모델을 정의합니다. 
 
-학습된 모델을 사용하여 IoT Edge 장치에 배포할 수 있는 컨테이너를 만듭니다.
+학습된 모델을 사용하여 IoT Edge 장치에 배포할 수 있는 컨테이너를 만듭니다. 다음과 같은 작업에 다음 명령을 사용합니다.
+
+   * 장치를 등록합니다.
+   * 매니페스트를 만듭니다.
+   * *machinelearningmodule*이라는 Docker 컨테이너 이미지를 만듭니다.
+   * AKS(Azure Container Service) 클러스터에 이미지를 배포합니다.
 
 ```cmd
 az ml service create realtime --model-file model.pkl -f iot_score.py -n machinelearningmodule -r python
 ```
-이 예제의 *machinelearningmodule* 서비스 이름은 Docker 컨테이너 이미지의 이름이 됩니다.
 
 ### <a name="view-the-container-repository"></a>컨테이너 리포지토리 보기
 

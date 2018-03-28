@@ -1,13 +1,13 @@
 ---
-title: "Log Analytics의 네트워크 모니터링 | Microsoft Docs"
-description: "클라우드, 온-프레미스 및 하이브리드 환경에 걸친 네트워크를 관리하는, NPM을 비롯한 네트워크 모니터링 솔루션의 개요입니다."
+title: Log Analytics의 네트워크 모니터링 | Microsoft Docs
+description: 클라우드, 온-프레미스 및 하이브리드 환경에 걸친 네트워크를 관리하는, NPM을 비롯한 네트워크 모니터링 솔루션의 개요입니다.
 services: monitoring-and-diagnostics
 documentationcenter: na
 author: agummadi
-manager: 
-editor: 
+manager: ''
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ajaycode
-ms.openlocfilehash: 6d93821b59e1f69a48c3d5eeda96dad2edddb188
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 7b9f42607f313f5570f414e810eafc6775ea18b9
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="network-monitoring-solutions"></a>네트워크 모니터링 솔루션 
 
@@ -33,6 +33,8 @@ NPM(네트워크 성능 모니터)은 응용 프로그램에 대한 네트워크
 * 여러 데이터 센터 및 지사
 * 중요 업무용 다중 계층 응용 프로그램/마이크로 서비스
 * 사용자 위치 및 웹 기반 응용 프로그램(HTTP/HTTPS) 
+
+성능 모니터, ExpressRoute 모니터 및 서비스 엔드포인트 모니터는 NPM 내의 모니터링 기능이며 아래에 설명되어 있습니다.
 
 ## <a name="performance-monitor"></a>성능 모니터링
 
@@ -67,7 +69,7 @@ ExpressRoute를 위한 NPM은 개인 피어링 연결에 대한 종합적인 Exp
 * [ExpressRoute에 대한 네트워크 성능 모니터 구성](../expressroute/how-to-npm.md)
 * [블로그 게시물](https://aka.ms/NPMExRmonitorGA)
 
-## <a name="service-endpoint-monitor"></a>서비스 엔드포인트 모니터링
+## <a name="service-endpoint-monitor"></a>서비스 끝점 모니터
 
 서비스 엔드포인트 모니터링을 사용하면 이제 응용 프로그램의 연결을 테스트하고, 온-프레미스, 통신 회사 네트워크 및 클라우드/개인 데이터 센터에서 성능 병목 상태를 검색할 수 있습니다.
 
@@ -82,6 +84,37 @@ ExpressRoute를 위한 NPM은 개인 피어링 연결에 대한 종합적인 Exp
 
 * [서비스 엔드포인트를 모니터링하기 위한 네트워크 성능 모니터 구성](https://aka.ms/applicationconnectivitymonitorguide)
 * [블로그 게시물](https://aka.ms/svcendptmonitor)
+
+## <a name="traffic-analytics"></a>트래픽 분석
+트래픽 분석은 클라우드 네트워크에서 사용자 및 응용 프로그램 작업에 대한 가시성을 제공하는 클라우드 기반 솔루션입니다. NSG 흐름 로그는 다음에 대한 자세한 정보를 제공하도록 분석됩니다.
+
+* Azure와 인터넷, 공용 클라우드 지역, VNET 및 서브넷 사이의 네트워크를 통한 트래픽 흐름
+* 스니퍼나 전용 흐름 수집기가 필요 없는 네트워크상의 애플리케이션 및 프로토콜
+* 상위 토커, 대화량이 많은 응용 프로그램, 클라우드의 VM 대화, 트래픽 핫스폿
+* VNET, 중요한 비즈니스 서비스와 응용 프로그램 간의 상호 관계 트래픽의 원본 및 대상
+* 보안 – 악성 트래픽, 인터넷에 열려 있는 포트, 인터넷 액세스를 시도하는 응용 프로그램 또는 VM…
+* 용량 사용률 - VPN 게이트웨이 및 기타 서비스의 사용률 추세를 모니터링하여 과도한 프로비전이나 미달 사용 문제를 해결하는 데 도움이 됩니다.
+
+트래픽 분석은 조직의 네트워크 활동을 감사하고, 응용 프로그램 및 데이터를 보호하고, 워크로드 성능을 최적화하고, 준수 상태를 유지하는 데 도움이 되는 실행 가능한 정보를 제공합니다.
+
+![전체 지역의 트래픽을 보여주는 지역 지도](../network-watcher/media/traffic-analytics/geo-map-view-showcasing-traffic-distribution-to-countries-and-continents.png) 
+
+관련 링크:
+* [블로그 게시물](https://aka.ms/trafficanalytics), [설명서](https://aka.ms/trafficanalyticsdocs), [FAQ](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-faq)
+
+## <a name="dns-analytics"></a>DNS 분석
+DNS 관리자 용으로 구축된 이 솔루션은 DNS 로그를 수집, 분석 및 상호 연관시켜서 보안, 운영 및 성능 관련 자세한 정보를 제공합니다.  일부 기능은 다음과 같습니다.
+
+* 악성 도메인을 확인하려는 클라이언트 식별
+* 부실 리소스 레코드 식별
+* 자주 쿼리되는 도메인 이름 및 Talkative DNS 클라이언트에 대한 가시성
+* DNS 서버의 요청 부하에 대한 가시성
+* 동적 DNS 등록 오류에 대한 모니터링
+
+![DNS 분석 대시보드](./media/network-monitoring-overview/dns-analytics-overview.png) 
+
+관련 링크:
+* [블로그 게시물](https://blogs.technet.microsoft.com/msoms/2017/04/19/introducing-oms-dns-analytics/), [설명서](https://docs.microsoft.com/azure/log-analytics/log-analytics-dns)
 
 ## <a name="next-steps"></a>다음 단계
 

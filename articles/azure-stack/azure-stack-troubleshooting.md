@@ -1,11 +1,11 @@
 ---
-title: "Microsoft Azure 스택 문제 해결 | Microsoft Docs"
-description: "Azure 스택 문제 해결 합니다."
+title: Microsoft Azure 스택 문제 해결 | Microsoft Docs
+description: Azure 스택 문제 해결 합니다.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
+editor: ''
 ms.assetid: a20bea32-3705-45e8-9168-f198cfac51af
 ms.service: azure-stack
 ms.workload: na
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/21/2018
 ms.author: jeffgilb
 ms.reviewer: unknown
-ms.openlocfilehash: 799a7f7ed7e2373e4cf819a34d5deb362c9e6a3f
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: b63fdd630647cc970a2d935619b4d3f16b8c0375
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="microsoft-azure-stack-troubleshooting"></a>Microsoft Azure 스택 문제 해결
 
@@ -44,7 +44,7 @@ Azure 스택 기술 개발 키트 평가 환경으로 제공 되므로 Microsoft
 Windows Server 이미지와 갤러리 항목을 스택에서 Azure Vm을 배포 하기 전에 추가 되어야 합니다.
 
 ### <a name="after-restarting-my-azure-stack-host-some-vms-may-not-automatically-start"></a>내 Azure 스택 호스트를 다시 시작한 후 일부 Vm 자동으로 시작할 수 없습니다.
-호스트를 다시 부팅 한 후 Azure 스택 서비스를 즉시 사용할 수 없는 경우 발생할 수 있습니다.  Azure 스택 때문에 이것이 [인프라 Vm](azure-stack-architecture.md#virtual-machine-roles) 및 RPs 잠시 일관성을 확인 하려면 사용 하지만 결국 자동으로 시작 됩니다.
+호스트를 다시 부팅 한 후 Azure 스택 서비스를 즉시 사용할 수 없는 경우 발생할 수 있습니다.  Azure 스택 때문에 이것이 [인프라 Vm](..\azure-stack\asdk\asdk-architecture.md#virtual-machine-roles) 및 RPs 잠시 일관성을 확인 하려면 사용 하지만 결국 자동으로 시작 됩니다.
 
 해당 테 넌 트 Vm이 Azure 스택 개발 키트 호스트를 다시 부팅 한 후 자동으로 시작 하지 않는 경우도 있습니다. 이것은 알려진된 문제 이며만 온라인 상태로 전환 하는 몇 가지 수동 단계 필요 합니다.
 
@@ -63,7 +63,7 @@ Windows Server 이미지와 갤러리 항목을 스택에서 Azure Vm을 배포 
 
 자세한 내용은에서 보존 임계값 및 요청 시 다시 구성 하는 방법에 대 한 [저장소 계정을 관리](azure-stack-manage-storage-accounts.md)합니다.
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>저장소
 ### <a name="storage-reclamation"></a>저장소 확보
 포털에 표시 하려면 회수 된 용량에 대 한 최대 14 시간까지 걸릴 수 있습니다. 공간 확보는 블록 blob 저장소에 내부 컨테이너 파일 사용량 비율이 비롯 한 다양 한 요인에 따라 달라 집니다. 따라서 얼마나 많은 데이터가 삭제 됩니다에 따라 보장은 없습니다 가비지 수집기를 실행 하는 경우 회수 될 수 있는 공간의 크기입니다.
 

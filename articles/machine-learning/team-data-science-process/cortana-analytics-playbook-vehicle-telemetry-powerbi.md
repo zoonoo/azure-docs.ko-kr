@@ -1,8 +1,8 @@
 ---
-title: "차량 상태 및 주행 습관에 대한 Power BI 대시보드 - Azure | Microsoft Docs"
-description: "Cortana Intelligence의 기능을 사용하여 차량 상태 및 주행 습관에 대한 예측 가능한 통찰력 및 실시간 정보를 얻습니다."
+title: 차량 상태 및 주행 습관에 대한 Power BI 대시보드 - Azure | Microsoft Docs
+description: Cortana Intelligence의 기능을 사용하여 차량 상태 및 주행 습관에 대한 예측 가능한 통찰력 및 실시간 정보를 얻습니다.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -12,20 +12,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 03/14/2018
 ms.author: bradsev
-ms.openlocfilehash: 626987ec0648f9e770499b4a48bc4ca2d175d2b4
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 6a46a05539a7211fbc2a3a9f6ec45a28f5c64039
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="vehicle-telemetry-analytics-solution-template-power-bi-dashboard-setup-instructions"></a>차량 원격 분석 솔루션 템플릿 Power BI 대시보드 설정 지침
-이 메뉴는 이 플레이북의 장에 연결됩니다. 
+이 메뉴는 이 플레이북 장에 연결됩니다. 
 
 [!INCLUDE [cap-vehicle-telemetry-playbook-selector](../../../includes/cap-vehicle-telemetry-playbook-selector.md)]
 
-이 차량 원격 분석 솔루션은 자동차 대리점, 자동차 제조업체 및 보험 회사가 Cortana Intelligence의 기능을 사용하는 방법을 보여 줍니다. 이들은 고객 경험, 연구 및 개발, 마케팅 캠페인을 개선하기 위한 차량 상태 및 주행 습관에 대한 실시간 및 예측 통찰력을 얻을 수 있습니다. 이러한 단계별 지침은 구독에 솔루션을 배포한 후 Power BI 보고서 및 대시보드를 구성하는 방법을 보여 줍니다. 
+이 차량 원격 분석 솔루션은 자동차 대리점, 자동차 제조업체 및 보험 회사가 Cortana Intelligence의 기능을 사용하는 방법을 보여줍니다. 이들은 고객 경험, 연구 및 개발, 마케팅 캠페인을 개선하기 위한 차량 상태 및 주행 습관에 대한 실시간 및 예측 통찰력을 얻을 수 있습니다. 이러한 단계별 지침은 구독에 솔루션을 배포한 후 Power BI 보고서 및 대시보드를 구성하는 방법을 보여 줍니다. 
 
 ## <a name="prerequisites"></a>필수 조건
 * [차량 원격 분석](https://gallery.cortanaintelligence.com/Solution/5bdb23f3abb448268b7402ab8907cc90) 솔루션을 배포합니다. 
@@ -42,7 +42,7 @@ ms.lasthandoff: 12/01/2017
 * **Azure HDInsight**는 확장 시 데이터를 변환합니다.
 * **Azure Data Factory**는 일괄 처리 파이프라인의 오케스트레이션, 예약, 리소스 관리 및 모니터링을 처리합니다.
 
-**Power BI** - 실시간 데이터 및 예측 분석 시각화를 위해 이 솔루션을 다양한 대시보드에 제공합니다. 
+**Power BI** - 데이터 및 예측 분석 시각화를 위해 이 솔루션을 다양한 대시보드에 제공합니다. 
 
 이 솔루션은 서로 다른 두 개의 데이터 원본을 사용합니다.
 
@@ -101,7 +101,7 @@ Power BI 대시보드를 구성할 준비가 되었습니다.
 * 유지보수가 필요한 차량
 * 차량 상태 통계
 
-세 가지 실시간 보고서를 모두 구성하거나 임의 단계 후에 중지할 수 있습니다. 그런 다음 배치 보고서를 구성하는 방법에 대한 다음 섹션으로 이동할 수 있습니다. 솔루션의 실시간 경로 전체 통찰력을 시각화하는 세 가지 보고서를 모두 만드는 것이 좋습니다.  
+세 가지 보고서를 모두 구성하거나 임의 단계 후에 중지할 수 있습니다. 그런 다음 배치 보고서를 구성하는 방법에 대한 다음 섹션으로 이동할 수 있습니다. 솔루션의 실시간 경로 전체 통찰력을 시각화하는 세 가지 보고서를 모두 만드는 것이 좋습니다.  
 
 ### <a name="vehicles-in-operation-report"></a>운행 중인 차량 보고서
 1. **1페이지**를 두 번 클릭하고 **운행 중인 차량**으로 이름을 변경합니다.
@@ -160,7 +160,7 @@ Power BI 대시보드를 구성할 준비가 되었습니다.
 
     ![시각화 요소가 있는 대시보드](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4k.png)
 
-“운행 중인 차량” 실시간 보고서를 성공적으로 구성했습니다. 다음 실시간 보고서를 만들거나 여기서 작업을 중지하고 대시보드를 구성할 수 있습니다. 
+“운행 중인 차량” 보고서를 성공적으로 구성했습니다. 다음 실시간 보고서를 만들거나 여기서 작업을 중지하고 대시보드를 구성할 수 있습니다. 
 
 ### <a name="vehicles-requiring-maintenance-report"></a>유지보수가 필요한 차량 보고서
 
@@ -180,11 +180,11 @@ Power BI 대시보드를 구성할 준비가 되었습니다.
   
       ![페이지 수준 필터](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4n1.png)
 
-    b. **페이지 수준 필터 MaintenanceLabel** 아래쪽에 있는 **기본 필터링**을 선택합니다.
+    나. **페이지 수준 필터 MaintenanceLabel** 아래쪽에 있는 **기본 필터링**을 선택합니다.
 
       ![기본 필터링](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4n2.png) 
 
-    c. 필터 값을 **1**로 설정합니다.
+    다. 필터 값을 **1**로 설정합니다.
 
       ![필터 값](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4n3.png)  
 
@@ -198,7 +198,7 @@ Power BI 대시보드를 구성할 준비가 되었습니다.
 
 6. **필드** 탭에서 **Model**을 **축** 영역으로 끕니다. **vin**을 **값** 영역으로 끕니다. 그런 다음 시각화를 **vin 개수**별로 정렬합니다. 차트 **제목**을 **모델별 유지보수가 필요한 차량**으로 변경합니다. 
 
-7. **시각화** 탭의 **필드** ![필드](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4field.png) 섹션에서 **vin**을 **색 채도**로 끕니다.
+7. **시각화** 탭의 **필드** ![필드-이미지](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4field.png) 섹션에서 **vin**을 **색 채도**로 끕니다.
 
     ![색 채도](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4q.png)  
 
@@ -206,7 +206,7 @@ Power BI 대시보드를 구성할 준비가 되었습니다.
 
     a. **최소** 색을 **F2C812**로 변경합니다.
 
-    b. **최대** 색을 **FF6300**으로 변경합니다.
+    나. **최대** 색을 **FF6300**으로 변경합니다.
 
     ![새 데이터 색](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4r.png)
 
@@ -333,7 +333,7 @@ Power BI 대시보드를 구성할 준비가 되었습니다.
 
 ## <a name="set-up-the-power-bi-batch-processing-dashboard"></a>Power BI 일괄 처리 대시보드 설정
 > [!NOTE]
-> 종단 간 일괄 처리 파이프라인의 경우 실행을 완료하고 1년 분량의 생성된 데이터를 처리하는 데는 성공적인 배포 완료 시부터 약 두 시간이 걸립니다. 다음 단계를 진행하기 전에 처리가 완료될 때까지 기다립니다. 
+> 종단 간 일괄 처리 파이프라인의 경우 실행을 완료하고 1년 분량의 생성된 데이터를 처리하는 데는 성공적인 배포 완료 시부터 약 두 시간이 걸립니다. 다음 단계를 진행하기 전에 처리가 완료될 때까지 기다립니다.
 > 
 > 
 
@@ -422,7 +422,7 @@ Power BI 대시보드를 구성할 준비가 되었습니다.
 
    ![3페이지 vin 개수](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard3.png)
 
-    b. **모델별 적극적으로 운전한 차량 - 폭포 차트** 
+    나. **모델별 적극적으로 운전한 차량 - 폭포 차트** 
 
    ![3페이지 차트 4](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard4.png)
 
@@ -432,7 +432,7 @@ Power BI 대시보드를 구성할 준비가 되었습니다.
 
    ![5페이지 차트 5](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard5.png)
 
-    b. **모델별 연료 효율이 좋은 차량: 묶은 세로 막대형 차트**
+    나. **모델별 연료 효율이 좋은 차량: 묶은 세로 막대형 차트**
 
    ![5페이지 차트 6](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard6.png)
 
@@ -442,7 +442,7 @@ Power BI 대시보드를 구성할 준비가 되었습니다.
 
    ![4페이지 차트 7](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard7.png) 
 
-    b. **시/군/구, 모델별 리콜된 차량: 트리맵**
+    나. **시/군/구, 모델별 리콜된 차량: 트리맵**
 
    ![4페이지 차트 8](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard8.png)  
 

@@ -1,12 +1,12 @@
 ---
-title: "지속성 함수 개요 - Azure(미리 보기)"
-description: "Azure Functions의 지속성 함수 확장을 소개합니다."
+title: 지속성 함수 개요 - Azure(미리 보기)
+description: Azure Functions의 지속성 함수 확장을 소개합니다.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: f1def2a43edee58bc8b5a33880e206130a1b4687
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: b5269bb51c787c927b4224b3520d5514b6d24501
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="durable-functions-overview-preview"></a>지속성 함수 개요(미리 보기)
 
@@ -153,44 +153,43 @@ public static async Task<HttpResponseMessage> Run(
 
 [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) `starter` 매개 변수는 지속성 함수 확장의 일부인 `orchestrationClient` 출력 바인딩의 값입니다. 새 오케스트레이터 또는 기존 오케스트레이터 함수 인스턴스에 대한 시작, 이벤트 보내기, 종료 및 쿼리를 수행하는 메서드를 제공합니다. 위의 예제에서 HTTP 트리거 함수는 들어오는 URL에서 `functionName` 값을 가져와서 해당 값을 [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_)에 전달합니다. 그런 다음 이 바인딩 API는 `Location` 헤더 및 나중에 시작된 인스턴스의 상태를 찾거나 종료하는 데 사용할 수 있는 인스턴스에 대한 추가 정보가 포함된 응답을 반환합니다.
 
-## <a name="pattern-4-stateful-singletons"></a>패턴 #4: 상태 저장 단일 항목
+## <a name="pattern-4-monitoring"></a>패턴 #4: 모니터링
 
-대부분의 함수는 명시적인 시작과 끝을 가지고 있으며, 외부 이벤트 원본과 직접 상호 작용하지 않습니다. 그러나 오케스트레이션은 분산 컴퓨팅에서 신뢰할 수 있는 [행위자](https://en.wikipedia.org/wiki/Actor_model)처럼 작동할 수 있는 [상태 저장 단일 항목](durable-functions-singletons.md) 패턴을 지원합니다.
+모니터링 패턴은 워크플로의 유연한 되풀이(예: 특정 조건이 충족될 때까지 폴링) 프로세스를 말합니다. 일반 타이머 트리거는 정기적인 정리 작업과 같은 간단한 시나리오를 처리할 수 있지만 간격은 정적이며 인스턴스 수명을 관리하기가 복잡해집니다. 지속성 함수를 사용하면 유연한 되풀이 간격, 작업 수명 관리 및 단일 오케스트레이션에서 여러 모니터링 프로세스 만들기가 가능합니다.
 
-다음 다이어그램에서는 외부 원본에서 받은 이벤트를 처리하는 동안 무한 루프에서 실행되는 함수를 보여 줍니다.
+예를 들어 이전의 비동기 HTTP API 시나리오를 뒤집을 수 있습니다. 외부 클라이언트의 엔드포인트를 노출하여 장기 실행 작업을 모니터링하는 대신, 장기 실행 모니터는 외부 엔드포인트를 소비하여 일부 상태 변경을 기다립니다.
 
-![상태 저장 단일 항목 다이어그램](media/durable-functions-overview/stateful-singleton.png)
+![모니터 다이어그램](media/durable-functions-overview/monitor.png)
 
-지속성 함수는 행위자 모델의 구현이 아니지만 오케스트레이터 함수에는 동일한 런타임 특징이 많이 있습니다. 예를 들어 장기 실행(영구), 상태 저장, 안정성, 단일 스레드, 위치 투명성 및 전역 주소 지정 가능성이 있습니다. 따라서 오케스트레이터 함수는 "행위자"와 같은 시나리오에 유용합니다.
-
-일반 함수는 상태 비저장이므로 상태 저장 단일 항목 패턴을 구현하는 데 적합하지 않습니다. 그러나 지속성 함수 확장은 상태 저장 단일 항목 패턴을 비교적 쉽게 구현할 수 있습니다. 다음 코드는 카운터를 구현하는 간단한 오케스트레이터 함수입니다.
+지속성 함수를 사용하면, 임의의 엔드포인트를 관찰하는 여러 모니터를 몇 줄의 코드로 작성할 수 있습니다. 모니터는 일정 조건이 충족되면 실행을 끝내거나 [DurableOrchestrationClient](durable-functions-instance-management.md)에 의해 종료될 수 있으며 대기 간격은 일부 조건(예: 지수 백오프)에 따라 변경될 수 있습니다. 다음 코드는 기본 모니터를 구현합니다.
 
 ```cs
 public static async Task Run(DurableOrchestrationContext ctx)
 {
-    int counterState = ctx.GetInput<int>();
-
-    string operation = await ctx.WaitForExternalEvent<string>("operation");
-    if (operation == "incr")
+    int jobId = ctx.GetInput<int>();
+    int pollingInterval = GetPollingInterval();
+    DateTime expiryTime = GetExpiryTime();
+    
+    while (ctx.CurrentUtcDateTime < expiryTime) 
     {
-        counterState++;
-    }
-    else if (operation == "decr")
-    {
-        counterState--;
+        var jobStatus = await ctx.CallActivityAsync<string>("GetJobStatus", jobId);
+        if (jobStatus == "Completed")
+        {
+            // Perform action when condition met
+            await ctx.CallActivityAsync("SendAlert", machineId);
+            break;
+        }
+
+        // Orchestration will sleep until this time
+        var nextCheck = ctx.CurrentUtcDateTime.AddSeconds(pollingInterval);
+        await ctx.CreateTimer(nextCheck, CancellationToken.None);
     }
 
-    ctx.ContinueAsNew(counterState);
+    // Perform further work here, or let the orchestration end
 }
 ```
 
-이 코드는 "영구 오케스트레이션"으로 설명할 수 있는 것입니다.&mdash; 즉 시작되지만 결코 종료되지 않습니다. 실행하는 단계는 다음과 같습니다.
-
-* `counterState`의 입력 값으로 시작합니다.
-* `operation`이라는 메시지를 무한정 기다립니다.
-* 로컬 상태를 업데이트하는 일부 논리를 수행합니다.
-* `ctx.ContinueAsNew`를 호출하여 "다시 시작"합니다.
-* 다음 작업을 무한정 기다립니다.
+요청을 받으면 해당 작업 ID에 대해 새 오케스트레이션 인스턴스가 만들어집니다. 조건이 충족되고 루프가 종료될 때까지 인스턴스는 상태를 폴링합니다. 지속성 타이머는 폴링 간격을 제어하는 데 사용됩니다. 그런 다음, 추가로 작업을 수행하거나 오케스트레이션을 종료할 수 있습니다. `ctx.CurrentUtcDateTime`이 `expiryTime`을 초과하면 모니터가 종료됩니다.
 
 ## <a name="pattern-5-human-interaction"></a>패턴 #5: 인간 상호 작용
 

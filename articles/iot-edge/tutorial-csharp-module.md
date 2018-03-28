@@ -1,19 +1,19 @@
 ---
-title: "Azure IoT Edge C# 모듈 | Microsoft Docs"
-description: "C# 코드가 있는 IoT Edge 모듈을 만들어 에지 장치에 배포"
+title: Azure IoT Edge C# 모듈 | Microsoft Docs
+description: C# 코드가 있는 IoT Edge 모듈을 만들어 에지 장치에 배포
 services: iot-edge
-keywords: 
+keywords: ''
 author: kgremban
 manager: timlt
-ms.author: v-jamebr
-ms.date: 11/15/2017
+ms.author: kgremban
+ms.date: 03/14/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: fd46bb662af72ece799bb545d06d76f9e54ee62c
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 605f0cfe34e4fda14030bb38686095882846c7c0
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="develop-and-deploy-a-c-iot-edge-module-to-your-simulated-device---preview"></a>C# IoT Edge 모듈을 개발하여 시뮬레이트된 장치에 배포 - 미리 보기
 
@@ -48,7 +48,7 @@ ms.lasthandoff: 02/09/2018
 3. **만들기**를 선택합니다.
 4. 컨테이너 레지스트리를 만든 후에는 해당 레지스트리로 이동하고 **액세스 키**를 선택합니다. 
 5. **관리 사용자**를 **사용**으로 전환합니다.
-6. **로그인 서버**, **사용자 이름** 및 **암호**의 값을 복사합니다. 자습서의 뒷부분에서 이러한 값을 사용합니다. 
+6. **로그인 서버**, **사용자 이름** 및 **암호**의 값을 복사합니다. 레지스트리에 Docker 이미지를 게시할 때 및 에지 런타임에 레지스트리 자격 증명을 추가할 때 자습서의 뒷부분에 나오는 이러한 값을 사용합니다. 
 
 ## <a name="create-an-iot-edge-module-project"></a>IoT Edge 모듈 프로젝트 만들기
 다음 단계는 Visual Studio Code 및 Azure IoT Edge 확장을 사용하여 .NET Core 2.0을 기반으로 IoT Edge 모듈을 만드는 방법을 보여 줍니다.
@@ -227,15 +227,14 @@ ms.lasthandoff: 02/09/2018
 2. **Dockerfile** 파일을 마우스 오른쪽 단추로 클릭하고 **IoT Edge 모듈 Docker 이미지 빌드**를 클릭합니다. 
 3. **폴더 선택** 창에서 `./bin/Debug/netcoreapp2.0/publish`로 이동하거나 이 항목을 입력합니다. **Select Folder as EXE_DIR**(EXE_DIR로 폴더 선택)을 클릭합니다.
 4. VS Code 창의 맨 위에 있는 팝업 텍스트 상자에 이미지 이름을 입력합니다. 예: `<your container registry address>/filtermodule:latest` 컨테이너 레지스트리 주소는 레지스트리에서 복사한 로그인 서버와 같습니다. `<your container registry name>.azurecr.io` 형식이어야 합니다.
-5. VS Code 통합 터미널에 다음 명령을 입력하여 Docker에 로그인합니다. 
+5. 만들 때 Azure Container Registry에서 복사한 사용자 이름, 암호 및 로그인 서버를 사용하여 Docker에 로그인합니다. VS Code 통합 터미널에서 다음 명령을 입력합니다. 
      
    ```csh/sh
-   docker login -u <username> -p <password> <Login server>
+   docker login -u <ACR username> -p <ACR password> <ACR login server>
    ```
-        
-   만들 때 Azure Container Registry에서 복사한 사용자 이름, 암호 및 로그인 서버를 사용합니다.
 
-3. Docker 리포지토리에 이미지를 푸시합니다. **보기** > **명령 팔레트**를 선택하고 **Edge: IoT Edge 모듈 Docker 이미지 푸시** 메뉴 명령을 검색합니다. VS Code 창의 맨 위에 있는 팝업 텍스트 상자에 이미지 이름을 입력합니다. 4단계에서 사용한 동일한 이미지 이름을 사용하세요.
+6. 이미지를 컨테이너 레지스트리에 푸시합니다. **보기** > **명령 팔레트**를 선택하고 **Edge: IoT Edge 모듈 Docker 이미지 푸시** 메뉴 명령을 검색합니다. VS Code 창의 맨 위에 있는 팝업 텍스트 상자에 이미지 이름을 입력합니다. 4단계에서 사용한 동일한 이미지 이름을 사용하세요.
+7. Azure Portal의 이미지를 보려면 Azure Container Registry로 이동해서 **리포지토리**를 선택합니다. **filtermodule**이 나열되어야 합니다.
 
 ## <a name="add-registry-credentials-to-edge-runtime"></a>Edge 런타임에 레지스트리 자격 증명 추가
 Edge 장치를 실행 중인 컴퓨터의 Edge 런타임에 레지스트리의 자격 증명을 추가합니다. 이러한 자격 증명을 지정하면 컨테이너를 끌어오기 위한 런타임 액세스 권한이 제공됩니다. 

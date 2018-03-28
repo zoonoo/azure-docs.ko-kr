@@ -1,8 +1,8 @@
 ---
-title: "Azure Active Directory의 명명된 위치 | Microsoft Docs"
-description: "명명된 위치의 정의 및 구성하는 방법에 대해 알아봅니다"
+title: Azure Active Directory의 명명된 위치 구성 | Microsoft Docs
+description: 명명된 위치를 구성하는 방법을 알아봅니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: f56e042a-78d5-4ea3-be33-94004f2a0fc3
@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2018
+ms.date: 03/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: b6f80cde24edcbec68309ba033d4da16ee97b731
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 3b7bd6f4bea111815f647af09ebaa868696b25bc
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="named-locations-in-azure-active-directory"></a>Azure Active Directory의 명명된 위치
+# <a name="configure-named-locations-in-azure-active-directory"></a>Azure Active Directory의 명명된 위치 구성
 
 명명된 위치를 사용하여 조직에 신뢰할 수 있는 IP 주소 범위 레이블을 지정할 수 있습니다. Microsoft Azure Active Directory는 다음 상황에서 명명된 위치를 사용합니다.
 
@@ -89,22 +89,14 @@ ms.lasthandoff: 02/09/2018
 
 
 
-## <a name="what-you-should-know"></a>알아야 할 사항
-
-**대량 업데이트**: 명명된 위치를 만들거나 업데이트하는 경우 대량 업데이트를 위해 IP 주소가 포함된 CSV 파일을 업로드 또는 다운로드할 수 있습니다. 업로드를 수행하면 목록을 덮어쓰지 않고 목록에 파일의 IP 범위가 추가됩니다.
-
-![업로드 및 다운로드 링크](./media/active-directory-named-locations/09.png)
-
-
-**제한 사항**: 명명된 위치는 최대 60개까지 정의할 수 있으며 각 위치에는 IP 범위를 한 개만 할당할 수 있습니다. 명명된 위치가 하나만 구성된 경우 해당 위치에 대해 IP 범위를 최대 500개까지 정의할 수 있습니다.
-
-
 ## <a name="next-steps"></a>다음 단계
 
-다음에 대한 자세한 정보:
+자세한 내용은 다음을 참조하세요.
 
-- **위험 이벤트**는 [Microsoft Azure Active Directory 위험 이벤트](active-directory-reporting-risk-events.md)를 참조하세요.
+- [Azure Active Directory의 조건부 액세스](active-directory-conditional-access-azure-portal.md).
 
-- **조건부 액세스**는 [Azure Active Directory의 조건부 액세스](active-directory-conditional-access-azure-portal.md)를 참조하세요.
+- [Azure Active Directory 조건부 액세스의 위치 조건](active-directory-conditional-access-locations.md)
 
-- **위험한 로그인 보고서**는 [Microsoft Azure Active Directory 포털에서 위험한 로그인 보고서](active-directory-reporting-security-risky-sign-ins.md)를 참조하세요.  
+- [Azure Active Directory 위험 이벤트](active-directory-reporting-risk-events.md).
+
+- [Azure Active Directory 포털의 위험한 로그인 보고서](active-directory-reporting-security-risky-sign-ins.md).  

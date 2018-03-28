@@ -1,11 +1,11 @@
 ---
-title: "Azure Active Directory Domain Services: 경고 문제 해결 | Microsoft Docs"
-description: "Azure AD Domain Services에 대한 경고 문제 해결"
+title: 'Azure Active Directory Domain Services: 경고 문제 해결 | Microsoft Docs'
+description: Azure AD Domain Services에 대한 경고 문제 해결
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: eringreenlee
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: 54319292-6aa0-4a08-846b-e3c53ecca483
 ms.service: active-directory-ds
 ms.workload: identity
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: ergreenl
-ms.openlocfilehash: 2f2ebb1dcc8bed86348389d6a5a7c274194efde0
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: e4b8f31fe3eb79f9b38ae01af598290582a2cde3
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-ad-domain-services---troubleshoot-alerts"></a>Azure AD Domain Services - 경고 문제 해결
 이 문서에서는 관리되는 도메인에서 발생할 수 있는 경고에 대한 문제 해결 가이드를 제공합니다.
 
 
-발생하는 경고 ID 또는 메시지에 해당하는 문제 해결 단계를 선택합니다.
+경고의 ID 또는 메시지에 해당하는 문제 해결 단계를 선택합니다.
 
 | **경고 ID** | **경고 메시지** | **해결 방법** |
 | --- | --- | :--- |
@@ -34,12 +34,12 @@ ms.lasthandoff: 03/02/2018
 | AADDS102 | *Azure AD Domain Services가 제대로 작동하는 데 필요한 서비스 주체가 Azure AD 디렉터리에서 삭제되었습니다. 이 구성은 관리되는 도메인을 모니터링, 관리, 패치, 동기화하는 Microsoft의 기능에 영향을 줍니다.* | [누락된 서비스 주체](active-directory-ds-troubleshoot-service-principals.md) |
 | AADDS103 | *Azure AD Domain Services를 사용하도록 설정한 가상 네트워크의 IP 주소 범위가 공용 IP 범위에 있습니다. Azure AD Domain Services는 개인 IP 주소 범위를 갖는 가상 네트워크에서 사용되도록 설정해야 합니다. 이 구성은 관리되는 도메인을 모니터링, 관리, 패치, 동기화하는 Microsoft의 기능에 영향을 줍니다.* | [주소가 공용 IP 범위에 있습니다.](#aadds103-address-is-in-a-public-ip-range) |
 | AADDS104 | *Microsoft는 이 관리되는 도메인에 대한 도메인 컨트롤러에 연결할 수 없습니다. 가상 네트워크에 구성된 NSG(네트워크 보안 그룹)가 관리되는 도메인에 대한 액세스를 차단하려고 할 때 이 문제가 발생할 수 있습니다. 다른 가능한 이유는 인터넷에서 들어오는 트래픽을 차단하는 사용자 정의 경로가 있는 경우입니다.* | [네트워크 오류](active-directory-ds-troubleshoot-nsg.md) |
-| AADDS500 | *관리되는 도메인은 {0}에서 Azure AD와 마지막으로 동기화되었습니다. 사용자가 관리되는 도메인에서 로그인할 수 없거나 그룹 멤버 자격이 Azure AD와 동기화되지 않을 수 있습니다.* | [잠시 후에 동기화가 수행되지 않았습니다.](#aadds500-synchronization-has-not-completed-in-a-while) |
-| AADDS501 | *관리되는 도메인은 마지막으로 XX에 백업되었습니다.* | [잠시 후에 백업이 수행되지 않았습니다.](#aadds501-a-backup-has-not-been-taken-in-a-while) |
+| AADDS105 | *응용 프로그램 ID가 “d87dcbc6-a371-462e-88e3-28ad15ec4e64”인 서비스 주체는 삭제되었으며, Microsoft에서 다시 만들 수 없습니다. 이 서비스 주체는 암호 동기화에 사용되는 다른 서비스 주체와 응용 프로그램을 관리합니다. 관리되는 서비스 주체 및 응용 프로그램은 새로 생성된 서비스 주체로 승인되지 않으며, 동기화 인증서가 만료되면 만료됩니다. 즉, 새로 생성된 서비스 주체는 이전의 관리되는 응용 프로그램을 업데이트할 수 없으며, AAD의 개체 동기화가 영향을 받게 됩니다.* | [암호 동기화 응용 프로그램이 만료됨](active-directory-ds-troubleshoot-service-principals.md#alert-aadds105-password-synchronization-application-is-out-of-date) |
+| AADDS500 | *관리되는 도메인은 [date]에 Azure AD와 마지막으로 동기화되었습니다. 사용자가 관리되는 도메인에서 로그인할 수 없거나 그룹 멤버 자격이 Azure AD와 동기화되지 않을 수 있습니다.* | [잠시 후에 동기화가 수행되지 않았습니다.](#aadds500-synchronization-has-not-completed-in-a-while) |
+| AADDS501 | *관리되는 도메인은 마지막으로 [date]에 백업되었습니다.* | [잠시 후에 백업이 수행되지 않았습니다.](#aadds501-a-backup-has-not-been-taken-in-a-while) |
 | AADDS502 | *관리되는 도메인에 대한 보안 LDAP 인증서는 XX에 만료됩니다.* | [보안 LDAP 인증서 만료](active-directory-ds-troubleshoot-ldaps.md#aadds502-secure-ldap-certificate-expiring) |
 | AADDS503 | *해당 도메인과 연결된 Azure 구독이 활성 상태가 아니기 때문에 관리되는 도메인은 일시 중단됩니다.* | [비활성화된 구독으로 인한 일시 중단](#aadds503-suspension-due-to-disabled-subscription) |
 | AADDS504 | *관리되는 도메인은 잘못된 구성으로 인해 일시 중단됩니다. 서비스는 오랜 시간 동안 관리되는 도메인의 도메인 컨트롤러를 관리하거나, 패치하거나, 업데이트할 수 없었습니다.* | [잘못된 구성으로 인한 일시 중단](#aadds504-suspension-due-to-an-invalid-configuration) |
-
 
 
 ## <a name="aadds100-missing-directory"></a>AADDS100: 누락된 디렉터리
@@ -47,7 +47,7 @@ ms.lasthandoff: 03/02/2018
 
 *관리되는 도메인에 연결된 Azure AD 디렉터리가 삭제되었을 수 있습니다. 관리되는 도메인은 더 이상 지원되는 구성에 포함되지 않습니다. Microsoft는 관리되는 도메인을 모니터링, 관리, 패치 및 동기화할 수 없습니다.*
 
-**재구성:**
+**해결 방법:**
 
 이 오류는 일반적으로 Azure 구독을 새 Azure AD 디렉터리로 잘못 이동하고, 여전히 Azure AD Domain Services와 연결되어 있는 이전 Azure AD 디렉터리를 삭제하는 경우에 발생합니다.
 
@@ -58,7 +58,7 @@ ms.lasthandoff: 03/02/2018
 
 *Azure AD Domain Services를 Azure AD B2B 디렉터리에서 사용 가능하게 설정할 수 없습니다.*
 
-**재구성:**
+**해결 방법:**
 
 >[!NOTE]
 >Azure AD Domain Services를 계속 사용하려면 Azure AD B2C가 아닌 디렉터리에서 Azure AD Domain Services 인스턴스를 다시 만들어야 합니다.
@@ -75,7 +75,7 @@ ms.lasthandoff: 03/02/2018
 
 *Azure AD Domain Services를 사용하도록 설정한 가상 네트워크의 IP 주소 범위가 공용 IP 범위에 있습니다. Azure AD Domain Services는 개인 IP 주소 범위를 갖는 가상 네트워크에서 사용되도록 설정해야 합니다. 이 구성은 관리되는 도메인을 모니터링, 관리, 패치, 동기화하는 Microsoft의 기능에 영향을 줍니다.*
 
-**재구성:**
+**해결 방법:**
 
 > [!NOTE]
 > 이 문제를 해결하기 위해 기존의 관리되는 도메인을 삭제하고, 개인 IP 주소 범위를 사용하여 가상 네트워크에 다시 만들어야 합니다. 이 프로세스는 중단됩니다.
@@ -104,9 +104,9 @@ ms.lasthandoff: 03/02/2018
 
 **경고 메시지:**
 
-*관리되는 도메인은 {0}에서 Azure AD와 마지막으로 동기화되었습니다. 사용자가 관리되는 도메인에서 로그인할 수 없거나 그룹 멤버 자격이 Azure AD와 동기화되지 않을 수 있습니다.*
+*관리되는 도메인은 [date]에 Azure AD와 마지막으로 동기화되었습니다. 사용자가 관리되는 도메인에서 로그인할 수 없거나 그룹 멤버 자격이 Azure AD와 동기화되지 않을 수 있습니다.*
 
-**재구성:**
+**해결 방법:**
 
 관리되는 도메인의 구성에서 문제를 나타낼 수 있는 모든 경고에 대한 [도메인의 상태를 확인](active-directory-ds-check-health.md)합니다. 경우에 따라 구성 관련 문제는 관리되는 도메인을 동기화하는 Microsoft의 기능을 차단할 수 있습니다. 경고를 해결할 수 있는 경우 두 시간 동안 대기하고 동기화가 완료되었는지를 다시 확인합니다.
 
@@ -115,9 +115,9 @@ ms.lasthandoff: 03/02/2018
 
 **경고 메시지:**
 
-*관리되는 도메인은 마지막으로 XX에 백업되었습니다.*
+*관리되는 도메인은 마지막으로 [date]에 백업되었습니다.*
 
-**재구성:**
+**해결 방법:**
 
 관리되는 도메인의 구성에서 문제를 나타낼 수 있는 모든 경고에 대한 [도메인의 상태를 확인](active-directory-ds-check-health.md)합니다. 경우에 따라 구성 관련 문제는 관리되는 도메인을 동기화하는 Microsoft의 기능을 차단할 수 있습니다. 경고를 해결할 수 있는 경우 두 시간 동안 대기하고 동기화가 완료되었는지를 다시 확인합니다.
 
@@ -128,7 +128,7 @@ ms.lasthandoff: 03/02/2018
 
 *해당 도메인과 연결된 Azure 구독이 활성 상태가 아니기 때문에 관리되는 도메인은 일시 중단됩니다.*
 
-**재구성:**
+**해결 방법:**
 
 서비스를 복원하려면 관리되는 도메인에 연결된 [Azure 구독을 갱신](https://docs.microsoft.com/en-us/azure/billing/billing-subscription-become-disable)합니다.
 
@@ -138,7 +138,7 @@ ms.lasthandoff: 03/02/2018
 
 *관리되는 도메인은 잘못된 구성으로 인해 일시 중단됩니다. 서비스는 오랜 시간 동안 관리되는 도메인의 도메인 컨트롤러를 관리하거나, 패치하거나, 업데이트할 수 없었습니다.*
 
-**재구성:**
+**해결 방법:**
 
 관리되는 도메인의 구성에서 문제를 나타낼 수 있는 모든 경고에 대한 [도메인의 상태를 확인](active-directory-ds-check-health.md)합니다. 이러한 경고를 해결할 수 있는 경우 수행합니다. 이후에 구독을 다시 활성화하려면 지원에 문의하세요.
 

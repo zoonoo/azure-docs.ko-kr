@@ -1,24 +1,24 @@
 ---
-title: "Azure Marketplace 및 AppSource 게시자 가이드"
-description: "Azure Marketplace의 새 게시자를 위한 단계별 가이드 및 게시 검사 목록"
+title: Azure Marketplace 및 AppSource 게시자 가이드
+description: Azure Marketplace의 새 게시자를 위한 단계별 가이드 및 게시 검사 목록
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: 
+documentationcenter: ''
 author: ellacroi
 manager: msmbaldwin
-editor: 
+editor: ''
 ms.assetid: e8d228c8-f9e8-4a80-9319-7b94d41c43a6
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.workload: ''
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: ellacroi
-ms.openlocfilehash: d02d6e942dfc503dd87a8ebcb6e2ddcf6b6065c5
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 7faa34b5528c53c06aeda25be17cbc5f3db2acdf
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-marketplace-and-appsource-publisher-guide"></a>Azure Marketplace 및 AppSource 게시자 가이드
 
@@ -238,7 +238,7 @@ Marketplace 참여는 무료로 진행됩니다. 명단 등록, 체험 및 BYOL 
 
 |**요구 사항**  |**세부 정보**  |**게시 옵션**  |
 |---------|---------|---------|
-|**참가 정책**    | Azure Marketplace 참가 정책 [여기](https://azure.microsoft.com/support/legal/marketplace/participation-policies/)을 검토하세요.       | 명단 등록, 체험 및 거래        |
+|**참가 정책**    | [여기](https://azure.microsoft.com/support/legal/marketplace/participation-policies/)에서 Azure Marketplace 참가 정책을 검토합니다.       | 명단 등록, 체험 및 거래        |
 |**Microsoft와의 통합**    | Azure Marketplace 제품은 Compute, Networking 또는 Storage와 같은 Microsoft Azure 서비스를 활용하거나 확장하고, 데이터베이스, 보안, 네트워킹 등의 기존 Azure Marketplace 범주에 맞게 조정되어야 합니다. [여기](https://azuremarketplace.microsoft.com/marketplace/apps)에서 전체 목록을 찾을 수 있습니다.        | 명단 등록, 체험 및 거래        |
 |**대상**    | Azure Marketplace 제품은 IT 전문가, 클라우드 개발자 또는 기타 고객 기술 역할에 대한 것이어야 합니다.       |  명단 등록, 체험 및 거래 
 |**잠재 고객 관리**    | Marketplace의 잠재 고객을 받으려면 CRM(Marketo, Microsoft Dynamics 또는 Salesforce)에서 잠재 고객 데이터를 허용하도록 설정해야 합니다.        |   명단 등록, 체험 및 거래      |
@@ -260,7 +260,7 @@ Marketplace 참여는 무료로 진행됩니다. 명단 등록, 체험 및 BYOL 
 |**요구 사항**  |**세부 정보** |**게시 옵션**  |
 |---------|---------|---------|
 |**대금 청구 및 계량**    |  가상 머신은 사용자 라이선스 필요 또는 사용량 기반 월별 대금 청구를 지원해야 합니다.       |    거래    |
-|**Azure 호환 VHD(가상 하드 디스크)**     |   가상 머신은 [Windows](https://docs.microsoft.com/ko-kr/azure/marketplace-publishing/marketplace-publishing-vm-image-creation) 또는 [Linux](https://docs.microsoft.com/ko-kr/azure/marketplace-publishing/marketplace-publishing-vm-image-creation)에 빌드되어야 합니다.    |   거래      |
+|**Azure 호환 VHD(가상 하드 디스크)**     |   [창](https://docs.microsoft.com/en-us/azure/marketplace-publishing/marketplace-publishing-vm-image-creation) 또는 [Linux](https://docs.microsoft.com/en-us/azure/marketplace-publishing/marketplace-publishing-vm-image-creation)에서 Virtual Machines를 빌드해야 합니다.    |   거래      |
 
 ### <a name="prerequisites-specific-to-consulting-services-publishing"></a>컨설팅 서비스 게시 관련 필수 구성 요소
 
@@ -268,12 +268,12 @@ Marketplace 참여는 무료로 진행됩니다. 명단 등록, 체험 및 BYOL 
 |**요구 사항** |**세부 정보**  |**게시 옵션**  |
 |---------|---------|---------|
 |**서비스 제공 특징**     | 컨설팅 서비스는 고정 범위, 고정 기간, 고정 가격(또는 무료) 약정으로 전달되어야 하고, 주로 예약 판매를 목적으로 하고, 단일 고객으로 제한되며, 현장에서 수행되어야 합니다.        |    나열     |
-|**컨설팅 서비스에 대한 파트너 요구 사항**    |   **AppSource에만 해당.**  고객 관계용 Dynamics 365 [실버 또는 골드 클라우드 고객 관계 관리 역량](https://partner.microsoft.com/en-us/membership/cloud-customer-relationship-management-competency). Finance and Operations Enterprise Edition용 Dynamics 365: 실버 또는 골드[엔터프라이즈 리소스 계획](https://partner.microsoft.com/en-us/membership/enterprise-resource-planning-competency) 역량, 12개월 동안 클라우드 운영에서 최소 $25,000 달러 수익 달성 Finance, Operations, Business Edition용 Dynamics 365: 한 명 이상의 고객에 대해 [CSP(클라우드 서비스 공급자)](https://partner.microsoft.com/en-us/cloud-solution-provider) 또는 [DPOR(디지털 레코드 파트너)](https://partner.microsoft.com/en-us/membership/digital-partner-of-record)로 작동. Power BI: [솔루션 파트너](file:///C:/Users/ellacroi/Downloads/BI%20Partner%20Program%20Overview%20&%20Incentives.pdf) 기준 충족. PowerApps: [파트너 쇼케이스](https://powerapps.microsoft.com/ko-kr/partner-showcase/) 솔루션 보유 |    나열     |
+|**컨설팅 서비스에 대한 파트너 요구 사항**    |   **AppSource에만 해당.**  고객 관계용 Dynamics 365 [실버 또는 골드 클라우드 고객 관계 관리 역량](https://partner.microsoft.com/en-us/membership/cloud-customer-relationship-management-competency). Finance and Operations Enterprise Edition용 Dynamics 365: 실버 또는 골드[엔터프라이즈 리소스 계획](https://partner.microsoft.com/en-us/membership/enterprise-resource-planning-competency) 역량, 12개월 동안 클라우드 운영에서 최소 $25,000 달러 수익 달성 Finance, Operations, Business Edition용 Dynamics 365: 한 명 이상의 고객에 대해 [CSP(클라우드 서비스 공급자)](https://partner.microsoft.com/en-us/cloud-solution-provider) 또는 [DPOR(디지털 레코드 파트너)](https://partner.microsoft.com/en-us/membership/digital-partner-of-record)로 작동. Power BI: [솔루션 파트너](file:///C:/Users/ellacroi/Downloads/BI%20Partner%20Program%20Overview%20&%20Incentives.pdf) 기준 충족. PowerApps: [파트너 쇼케이스](https://powerapps.microsoft.com/en-us/partner-showcase/) 솔루션이 있습니다. |    나열     |
 
 ## <a name="using-azure-active-directory-to-enable-trials"></a>Azure Active Directory를 사용하여 체험 지원
 AAD(Azure Active Directory)는 업계 표준 프로토콜인 OAuth 및 OpenID Connect를 사용하여 Microsoft 회사 또는 학교 계정으로 인증할 수 있도록 하는 클라우드 ID 서비스입니다. AAD에 대한 자세한 내용은 [여기](https://www.microsoft.com/en-us/cloud-platform/azure-active-directory-features)를 참조하세요. 
 
-Microsoft는 AAD를 사용하여 모든 Marketplace를 인증하므로, 인증된 사용자가 Marketplace에서 체험 항목을 클릭하고 체험 환경으로 리디렉션되면, 추가 로그인 단계를 요구하지 않으면서 사용자를 체험 단계로 직접 프로비전할 수 있습니다. [인증 중에 AAD에서 앱이 수신하는 토큰](https://docs.microsoft.com/ko-kr/azure/active-directory/develop/active-directory-token-and-claims#sample-tokens)에는 앱에서 사용자 계정을 만드는 데 사용할 수 있는 귀중한 사용자 정보가 포함되어 있으므로, 프로비전 환경을 자동화하고 변환 가능성을 높일 수 있습니다. 
+Microsoft는 AAD를 사용하여 모든 Marketplace를 인증하므로, 인증된 사용자가 Marketplace에서 체험 항목을 클릭하고 체험 환경으로 리디렉션되면, 추가 로그인 단계를 요구하지 않으면서 사용자를 체험 단계로 직접 프로비전할 수 있습니다. [인증 중에 AAD에서 앱이 수신하는 토큰](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-token-and-claims#sample-tokens)에는 앱에서 사용자 계정을 만드는 데 사용할 수 있는 귀중한 사용자 정보가 포함되어 있으므로, 프로비전 환경을 자동화하고 변환 가능성을 높일 수 있습니다. 
 
 AAD를 사용하면 다음과 같이 앱 또는 체험에 대한 원클릭 인증이 가능해집니다.
 
@@ -295,7 +295,7 @@ AAD를 사용하면 다음과 같이 앱 또는 체험에 대한 원클릭 인�
 AAD 페더레이션 SSO를 처음 접하는 경우
 
 - Azure Portal에서 응용 프로그램을 등록합니다.
-- [OpenID Connect](https://docs.microsoft.com/ko-kr/azure/active-directory/develop/active-directory-protocols-openid-connect-code) 또는 [OAuth 2.0](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-protocols-oauth-code)을 사용하여 AAD에서 SSO를 개발할 수 있습니다.
+- [OpenID Connect](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-protocols-openid-connect-code) 또는 [OAuth 2.0](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-protocols-oauth-code)을 사용하여 AAD로 SSO 개발
 - AAD의 다중 테넌트 지원 기능으로 '원클릭'만으로 체험 환경을 사용할 수 있습니다.
 - [여기를 참조하세요](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devhowto-appsource-certified).
 
@@ -303,7 +303,7 @@ AAD 페더레이션 SSO를 처음 접하는 경우
 
 단일 테넌트 응용 프로그램의 경우 다음과 같은 다양한 옵션이 있습니다.
 
-- [Azure B2B](https://docs.microsoft.com/ko-kr/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)를 사용하여 사용자를 게스트 사용자로 디렉터리에 추가합니다.
+- [Azure B2B](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)를 사용하여 게스트 사용자로 디렉터리에 사용자 추가
 - ‘나에게 연락’을 통해 고객에게 평가판을 수동으로 프로비전합니다.
 - 고객별로 '시험 사용'을 개발합니다.
 - SSO를 통해 다중 테넌트 샘플 데모 앱을 빌드합니다.
@@ -422,8 +422,8 @@ Office, Dynamics 및 Power BI를 확장하는 AppSource 앱의 경우 이 섹션
 Marketplace 온보딩 프로세스의 일부로, 추천 양식을 제출하고, 응용 프로그램 또는 서비스 제품에 대한 정보, 회사 정보 및 제공하려는 지원 수준을 제출합니다.  
 이 양식이 제출되면 Marketplace 팀에서 응용 프로그램을 검토하고 요청의 유효성을 검사합니다. 요청이 검토되면, Cloud 파트너 포털에서 승인된 파트너가 되기 위해 완료해야 하는 다음 단계가 전자 메일로 전달됩니다. 다음 주소로 추천 양식을 제출하세요.
 
-Azure Marketplace 추천 양식: http://aka.ms/listonazuremarketplace   
-AppSource Nomination: http://aka.ms/listonappsource
+Azure Marketplace 추천: http://aka.ms/listonazuremarketplace   
+AppSource 추천: http://aka.ms/listonappsource
 
 #### <a name="register-in-the-developer-center"></a>개발자 센터에 등록
 
@@ -521,7 +521,7 @@ Amp-testdrive@microsoft.com |   시험 사용에 대한 온보딩 액세스를 �
 
 **@outlook.com** 도메인에서 새 메일 주소를 만드는 것이 좋습니다. 다음 단계를 수행하세요.
 
-1. [https://signup.live.com/signup](https://signup.live.com/signup)으로 이동한 후 **새 전자 메일 주소 받기**를 선택합니다.
+1. [https://signup.live.com/signup](https://signup.live.com/signup)으로 이동 및 **새 이메일 주소 가져오기** 선택
 
 
 2. 새 전자 메일 주소를 만들고 암호를 입력합니다. 그러면 outlook.com 서비스에서 새 Microsoft ID 및 전자 메일 사서함이 만들어집니다. 계정이 생성될 때까지 등록 프로세스를 계속 진행합니다.
@@ -538,7 +538,7 @@ Amp-testdrive@microsoft.com |   시험 사용에 대한 온보딩 액세스를 �
 ### <a name="instructions-on-how-to-register-in-the-development-center"></a>개발 센터에 등록하는 방법에 대한 지침
 
 1. 새 Chrome Incognito 또는 Internet Explorer InPrivate 브라우징 세션을 열어 개인 계정에 로그인되지 않았는지 확인합니다.
-2. [http://dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure) 로 이동하여 개발자 센터에서 본인을 판매자로 등록합니다. 계속 진행하기 전에 다음 중요 정보를 읽어 보세요.
+2. [http://dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure)로 이동하여 개발자 센터에서 판매자로 등록합니다. 계속 진행하기 전에 다음 중요 정보를 읽어 보세요.
 
    ![개발자 센터 전자 메일](./media/marketplace-publishers-guide/registerdevcenteremail.png)
 
@@ -548,7 +548,7 @@ Amp-testdrive@microsoft.com |   시험 사용에 대한 온보딩 액세스를 �
    ![계정 정보](./media/marketplace-publishers-guide/devcenterregistrationaccountinfo.png)
    
    >[!WARNING]
-   >"판매" 국가: Azure Marketplace에서 서비스를 판매하기 위해서는 등록된 법인이 승인된 위의 “판매” 국가 중 하나에 속해 있어야 합니다. 이 제한은 지급액 및 세금 때문에 있습니다. 자세한 내용은 [Marketplace 참여 정책]https://azure.microsoft.com/support/legal/marketplace/participation-policies/을 참조하세요.
+   >"판매" 국가: Azure Marketplace에서 서비스를 판매하기 위해서는 등록된 법인이 승인된 위의 “판매” 국가 중 하나에 속해 있어야 합니다. 이 제한은 지급액 및 세금 때문에 있습니다. 자세한 내용은 [Marketplace 참가 정책]https://azure.microsoft.com/support/legal/marketplace/participation-policies/을 참조하세요.
 
 5. "계정 형식"으로 **회사**를 선택하고 **다음** 단추를 클릭합니다.
 
@@ -614,7 +614,7 @@ Amp-testdrive@microsoft.com |   시험 사용에 대한 온보딩 액세스를 �
 
 개발자 센터 등록에 문제가 있으면 아래와 같이 지원 티켓을 기록하세요.
 
-1. 지원 링크 https://developer.microsoft.com/windows/support로 이동합니다.
+1. 지원 링크 https://developer.microsoft.com/windows/support로 이동
 2. **문의처** 섹션 아래에서 **문제 제출** 단추를 클릭합니다(아래 스크린샷 참조).
 3. **문제 형식**으로 "개발자 센터 도움말"을 선택하고 **범주**로 "앱 게시 및 관리"를 선택합니다. 그 다음에 "전자 메일 시작" 버튼을 클릭합니다.
 

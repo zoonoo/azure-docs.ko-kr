@@ -1,11 +1,11 @@
 ---
-title: "Azure Marketplace용 온-프레미스 가상 머신 이미지 만들기 | Microsoft Docs"
-description: "온-프레미스 VM 이미지를 만들어 Azure Marketplace에 배포하여 다른 사용자가 구입할 수 있도록 하는 단계를 이해하고 실행합니다."
+title: Azure Marketplace용 온-프레미스 가상 머신 이미지 만들기 | Microsoft Docs
+description: 온-프레미스 VM 이미지를 만들어 Azure Marketplace에 배포하여 다른 사용자가 구입할 수 있도록 하는 단계를 이해하고 실행합니다.
 services: marketplace-publishing
-documentationcenter: 
-author: HannibalSII
-manager: hascipio
-editor: 
+documentationcenter: ''
+author: msmbaldwin
+manager: mbaldwin
+editor: ''
 ms.assetid: 26dfbd5a-8685-4b19-987e-c20ca60540ec
 ms.service: marketplace
 ms.devlang: na
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 04/29/2016
-ms.author: hascipio; v-divte
-ms.openlocfilehash: 77771f1e690bdfb59d42989a34068634f35f845d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: mbaldwin
+ms.openlocfilehash: 6b927ce6032092ce258eeebca49da0571439dbfb
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="develop-an-on-premises-virtual-machine-image-for-the-azure-marketplace"></a>Azure Marketplace를 위해 온-프레미스 가상 컴퓨터 이미지 개발
 원격 데스크톱 프로토콜을 사용하여 Azure VHD(가상 하드 디스크)를 클라우드에서 직접 개발하는 것이 좋습니다. 그러나 꼭 필요한 경우 VHD를 다운로드하고 온-프레미스 인프라를 사용하여 개발할 수 있습니다.  

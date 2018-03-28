@@ -1,18 +1,18 @@
 ---
-title: "Hyper-V VM을 Azure에 재해 복구하기 위해 온-프레미스 Hyper-V 서버 준비 | Microsoft Docs"
-description: "Azure Site Recovery 서비스를 통해 System Center VMM에서 관리하지 않는 온-프레미스 Hyper-V VM을 Azure로의 재해 복구용으로 준비하는 방법을 알아봅니다."
+title: Hyper-V VM을 Azure에 재해 복구하기 위해 온-프레미스 Hyper-V 서버 준비 | Microsoft Docs
+description: Azure Site Recovery 서비스를 통해 System Center VMM에서 관리하지 않는 온-프레미스 Hyper-V VM을 Azure로의 재해 복구용으로 준비하는 방법을 알아봅니다.
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/14/2018
+ms.date: 03/15/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 9524ffde4a588d3ac029bc8a3df91726082e157d
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 1290a186ca8e83b09f53b286e80c5ce75f08d88c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="prepare-on-premises-hyper-v-servers-for-disaster-recovery-to-azure"></a>Azure로의 재해 복구용으로 온-프레미스 Hyper-V 서버 준비
 
@@ -28,25 +28,16 @@ ms.lasthandoff: 02/22/2018
 
 
 
-## <a name="review-server-requirements"></a>서버 요구 사항 검토
+## <a name="review-requirements-and-prerequisites"></a>검토 요구 사항 및 필수 구성 요소
 
-Hyper-V 호스트가 다음 요구 사항을 충족하는지 확인합니다. System Center VMM(Virtual Machine Manager) 클라우드에서 호스트를 관리하는 경우 VMM 요구 사항을 확인합니다.
+Hyper-V 호스트 및 VM이 요구 사항을 준수하는지 확인합니다.
 
+1. 온-프레미스 서버 요구 사항을 [확인](hyper-v-azure-support-matrix.md#on-premises-servers)합니다.
+2. Azure로 복제하려는 Hyper-V VM에 대한 [요구 사항을 확인](hyper-v-azure-support-matrix.md#replicated-vms)합니다.
+3. 온-프레미스 Hyper-V 호스트에 대한 Hyper-V 호스트 [네트워킹](hyper-v-azure-support-matrix.md#hyper-v-network-configuration) 및 호스트와 게스트 [저장소](hyper-v-azure-support-matrix.md#hyper-v-host-storage) 지원을 확인합니다.
+4. 장애 조치(failover) 후 [Azure 네트워킹](hyper-v-azure-support-matrix.md#azure-vm-network-configuration-after-failover), [저장소](hyper-v-azure-support-matrix.md#azure-storage) 및 [계산](hyper-v-azure-support-matrix.md#azure-compute-features)에 대해 지원되는 기능을 확인합니다.
+5. Azure에 복제하려는 온-프레미스 VM은 [Azure VM 요구 사항](hyper-v-azure-support-matrix.md#azure-vm-requirements)을 준수해야 합니다.
 
-**구성 요소** | **VMM에서 관리하는 Hyper-V** | **VMM을 사용하지 않는 Hyper-V**
---- | --- | ---
-**Hyper-V 호스트 운영 체제** | Windows Server 2016, 2012 R2 | 해당 없음
-**VMM** | VMM 2012, VMM 2012 R2 | 해당 없음
-
-
-## <a name="review-hyper-v-vm-requirements"></a>Hyper-V VM 요구 사항 검토
-
-VM이 표에 요약되어 있는 요구 사항을 준수하는지 확인합니다.
-
-**VM 요구 사항** | **세부 정보**
---- | ---
-**게스트 운영 체제** | [Azure에서 지원하는](https://technet.microsoft.com/library/cc794868.aspx) 모든 게스트 OS
-**Azure 요구 사항** | 온-프레미스 Hyper-V VM은 Azure VM 요구 사항(site-recovery-support-matrix-to-azure.md)을 충족해야 함
 
 ## <a name="prepare-vmm-optional"></a>VMM 준비(선택 사항)
 
@@ -82,13 +73,14 @@ VMM을 사용하는 경우 [네트워크 매핑](site-recovery-network-mapping.m
 
 장애 조치(failover) 시나리오에서는 복제된 온-프레미스 네트워크에 연결하는 것이 좋습니다.
 
-장애 조치 후 RDP를 사용하여 Windows VM에 연결하려면 다음을 수행합니다.
+장애 조치(failover) 후 RDP를 사용하여 Windows VM에 연결하려면 다음과 같이 액세스를 허용합니다.
 
 1. 인터넷을 통해 액세스하려면 장애 조치 전에 온-프레미스 VM에서 RDP를 활성화합니다. **공용** 프로필에 대한 TCP 및 UDP 규칙이 추가되었는지와 해당 RDP가 **Windows 방화벽** > **허용되는 앱**에서 모든 프로필에 대해 허용되는지 확인합니다.
 2. 사이트 간 VPN을 통해 액세스하려면 온-프레미스 컴퓨터에서 RDP를 활성화합니다. RDP가 **Windows 방화벽** -> **허용되는 앱 및 기능**에서 **도메인 또는 사설** 네트워크에 대해 허용되어야 합니다.
    운영 체제의 SAN 정책이 **OnlineAll**로 설정되어 있는지 확인합니다. [자세히 알아보기](https://support.microsoft.com/kb/3031135). 장애 조치를 트리거할 때 VM에 보류 중인 Windows 업데이트가 없어야 합니다. 있는 경우 업데이트가 완료될 때까지 가상 머신에 로그인할 수 없습니다.
 3. 장애 조치 후 Microsoft Azure VM에서 **부트 진단**을 확인하여 VM의 스크린샷을 검토합니다. 연결할 수 없는 경우 VM이 실행 중인지 확인하고 해당 [문제 해결 팁](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)(영문)을 검토합니다.
 
+장애 조치(failover) 후 복제된 온-프레미스 VM과 동일한 IP 주소 또는 다른 IP 주소를 사용하여 Azure VM에 액세스할 수 있습니다. 장애 조치(failover)에 대한 IP 주소 설정에 관해 [자세히 알아보세요](concepts-on-premises-to-azure-networking.md).
 
 ## <a name="next-steps"></a>다음 단계
 

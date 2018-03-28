@@ -1,6 +1,6 @@
 ---
-title: "Azure Storage 테이블 디자인 가이드 | Microsoft Docs"
-description: "Azure Table Storage에서 확장형 및 영구 테이블 디자인"
+title: Azure Storage 테이블 디자인 가이드 | Microsoft Docs
+description: Azure Table Storage에서 확장형 및 영구 테이블 디자인
 services: cosmos-db
 documentationcenter: na
 author: mimig1
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 11/03/2017
 ms.author: mimig
-ms.openlocfilehash: a5511b8b2e76c6c651a8e05bda1322293601c92c
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: fadb81e16a6c641ca15efb4f910a51de4fe7c997
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Azure Storage 테이블 디자인 가이드: 확장성이 뛰어난 디자인 및 성능이 뛰어난 테이블
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
@@ -232,7 +232,7 @@ Storage 클라이언트 라이브러리를 사용하여 효율적인 쿼리를 �
 * [유형이 다른 엔터티 유형 작업](#working-with-heterogeneous-entity-types)  
 
 ### <a name="choosing-an-appropriate-partitionkey"></a>적절한 PartitionKey 선택
-**PartitionKey** 를 선택할 때는 EGT 사용에 대한 요구 사항(일관성 유지)과 여러 파티션에 엔터티를 분산하는 데 대한 요구 사항(솔루션의 확장성 향상) 간에 균형을 유지해야 합니다.  
+**PartitionKey**를 선택할 때는 EGT 사용에 대한 요구 사항(일관성 유지)과 여러 파티션에 엔터티를 분산하는 데 대한 요구 사항(솔루션의 확장성 향상) 간에 균형을 유지해야 합니다.  
 
 한 쪽으로 치우치면 모든 엔터티를 단일 파티션에 저장할 수 있지만 솔루션의 확장성이 제한되어 테이블 서비스에서 요청 부하를 분산하지 못할 수 있습니다. 다른 쪽으로 치우치면 파티션당 하나의 엔터티를 저장하여 확장성을 높이고 테이블 서비스에서 요청 부하를 분산할 수 있지만 엔터티 그룹 트랜잭션을 사용하지 못합니다.  
 
@@ -261,7 +261,7 @@ Table service는 **PartitionKey**를 기준으로 한 다음 **RowKey**를 기�
 
 * [파티션 간 보조 인덱스 패턴](#intra-partition-secondary-index-pattern) - 서로 다른 RowKey 값을 사용하여 각 엔터티의 여러 복사본을 동일한 파티션에 저장하여 빠르고 효율적인 조회를 지원하며, 서로 다른 RowKey 값을 사용하여 대체 정렬 순서를 허용합니다.  
 * [파티션 간 보조 인덱스 패턴](#inter-partition-secondary-index-pattern) - 서로 다른 RowKey 값을 사용하여 각 엔터티의 여러 복사본을 별도의 파티션과 별도의 표에 저장하여 빠르고 효율적인 조회를 지원하며, 서로 다른 RowKey 값을 사용하여 대체 정렬 순서를 허용합니다.
-* [로그 테일 패턴](#log-tail-pattern) - 날짜 및 시간 역순으로 정렬된 **RowKey** 값을 사용하여 가장 최근에 파티션에 추가된 *n* 엔터티를 검색합니다.  
+* [로그 테일 패턴](#log-tail-pattern) - 날짜 및 시간 역순으로 정렬된 *RowKey* 값을 사용하여 가장 최근에 파티션에 추가된 **n** 엔터티를 검색합니다.  
 
 ## <a name="design-for-data-modification"></a>데이터 수정을 위한 디자인
 이 섹션에서는 삽입, 업데이트 및 삭제를 최적화하기 위한 디자인 고려 사항을 중점적으로 알아봅니다. 관계형 데이터베이스의 디자인과 마찬가지로(관계형 데이터베이스의 경우 디자인 장단점을 관리하는 기술이 다름), 쿼리에 최적화된 디자인과 데이터 수정에 최적화된 디자인 간의 장단점을 평가해야 하는 경우가 있을 수 있습니다. [테이블 디자인 패턴](#table-design-patterns) 섹션은 Table service에 대한 몇 가지 자세한 디자인 패턴을 알아보고 이러한 패턴의 일부 장단점을 설명합니다. 실제로 엔터티 쿼리에 최적화된 디자인은 대부분 엔터티를 수정하는 데에도 효율적입니다.  
@@ -296,7 +296,7 @@ Table service는 **PartitionKey**를 기준으로 한 다음 **RowKey**를 기�
 [테이블 디자인 패턴](#table-design-patterns) 섹션의 다음 패턴은 효율적인 쿼리를 위한 디자인과 효율적인 데이터 수정을 위한 디자인 간의 장단점을 다룹니다.  
 
 * [복합 키 패턴](#compound-key-pattern) - 복합 **RowKey** 키를 사용하여 클라이언트에서 단일 지점 쿼리로 관련 데이터를 조회하도록 할 수 있습니다.  
-* [로그 테일 패턴](#log-tail-pattern) - 날짜 및 시간 역순으로 정렬된 **RowKey** 값을 사용하여 가장 최근에 파티션에 추가된 *n* 엔터티를 검색합니다.  
+* [로그 테일 패턴](#log-tail-pattern) - 날짜 및 시간 역순으로 정렬된 *RowKey* 값을 사용하여 가장 최근에 파티션에 추가된 **n** 엔터티를 검색합니다.  
 
 ## <a name="encrypting-table-data"></a>테이블 데이터의 암호화
 .NET Azure Storage 클라이언트 라이브러리는 작업 삽입 및 삭제의 문자열 엔터티 속성 암호화를 지원합니다. 암호화된 문자열은 서비스에 이진 속성으로 저장되고 암호 해독 후에는 다시 문자열로 변환됩니다.    
@@ -718,7 +718,7 @@ $filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000123') and (RowKey lt 
 * [결과적으로 일관성 있는 트랜잭션 패턴](#eventually-consistent-transactions-pattern)  
 
 ### <a name="log-tail-pattern"></a>로그 테일 패턴
-날짜 및 시간 역순으로 정렬된 **RowKey** 값을 사용하여 가장 최근에 파티션에 추가된 *n*개의 엔터티를 검색합니다.  
+날짜 및 시간 역순으로 정렬된 *RowKey* 값을 사용하여 가장 최근에 파티션에 추가된 **n** 개의 엔터티를 검색합니다.  
 
 #### <a name="context-and-problem"></a>컨텍스트 및 문제점
 일반적인 요구 사항은 가장 최근에 생성된 엔터티(예: 직원이 제출한 가장 최근 비용 청구 10개)를 검색할 수 있는 것입니다. 테이블 쿼리는 집합에서 첫 번째 엔터티를 반환하는 **$top** 쿼리 작업을 지원합니다. 집합에 있는 마지막 *n*개의 엔터티를 반환하는 동등한 쿼리 작업은 없습니다.  

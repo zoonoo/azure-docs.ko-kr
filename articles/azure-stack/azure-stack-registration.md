@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 03/26/2018
 ms.author: jeffgilb
 ms.reviewer: avishwan
-ms.openlocfilehash: e51a15b197e875c35997cfe2ac96d673c01a80f9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 1dc3d9a96b9b27927cc8cc66b5e80987fba4f8ea
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="register-azure-stack-with-azure"></a>Azure 스택 Azure 등록
 등록 [Azure 스택](azure-stack-poc.md) Azure 사용 하면 Azure에서 마켓플레이스 항목을 다운로드 하 고 상용 데이터를 Microsoft에 다시 보고를 설정 합니다. Azure 스택 등록 한 후에 사용 현황 Azure commerce에 보고 되 고 해당 등록에 사용 되는 구독에서 볼 수 있습니다. 
@@ -27,7 +27,7 @@ ms.lasthandoff: 03/23/2018
 > [!IMPORTANT]
 > 등록은 지불으로-있습니다-사용 요금 청구 모델을 선택 하는 경우에 필수입니다. 그렇지 않으면 있습니다 Azure 스택 배포의 라이선싱 조건 위반 하는 됩니다 사용 그렇지 않은 경우 보고 되지 것입니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 Azure 스택 Azure를 등록 하기 전에 다음이 필요 합니다.
 
 - Azure 구독에 대 한 구독 ID입니다. ID를 가져오려면 Azure에 로그인을 클릭 **더 많은 서비스** > **구독**를 사용 하려는 구독을 클릭 하 고 아래에서 **Essentials** 찾을 수 있습니다는 구독 id입니다. 
@@ -58,7 +58,7 @@ Azure 스택 도구 GitHub 리포지토리; Azure 스택 기능을 지 원하는
 
 ### <a name="register-the-azure-stack-resource-provider"></a>Azure 스택 리소스 공급자 등록
 Azure 스택 리소스 공급자를 Azure에 등록 하려면 관리자 권한으로 Powershell ISE를 시작 하 고 다음 PowerShell 명령을 사용 합니다. 이러한 명령을 수행합니다.
-- 사용 하 고 설정 하기 위해 Azure 구독의 소유자로 로그인 하 라는 메시지가 표시 된 `EnvironmentName` 매개 변수를 **azure 클라우드**합니다.
+- 사용 하 고 설정 하기 위해 Azure 구독의 소유자로 로그인 하 라는 메시지가 표시 된 **EnvironmentName** 매개 변수를 **azure 클라우드**합니다.
 - Azure 리소스 공급자 등록 **Microsoft.AzureStack**합니다.
 
 1. 사용 하면 Azure 스택 등록할 Azure 계정을 추가 합니다. 실행 계정을 추가 하는 **추가 AzureRmAccount** cmdlet. Azure 전역 관리자 계정 자격 증명을 입력 하는 메시지가 및 계정의 구성에 따라 2 단계 인증을 사용 하 여 할 수 있습니다.
@@ -95,7 +95,7 @@ PowerShell을 실행 하려면:
 
 ```powershell
 $AzureContext = Get-AzureRmContext
-$CloudAdminCred = Get-Credential -UserName <Azure subscription owner>  -Message "Enter the cloud domain credentials to access the privileged endpoint"
+$CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials>  -Message "Enter the credentials to access the privileged endpoint"
 Set-AzsRegistration `
     -CloudAdminCredential $CloudAdminCred `
     -PrivilegedEndpoint <PrivilegedEndPoint computer name> `
@@ -104,7 +104,7 @@ Set-AzsRegistration `
 
 |매개 변수|설명|
 |-----|-----|
-|CloudAdminCredential|Azure 구독 소유자에 대 한 자격 증명 정보 (사용자 이름 및 암호)를 포함 하는 PowerShell 개체입니다.|
+|CloudAdminCredential|권한 있는 끝점에 액세스 하는 데 자격 증명 정보 (사용자 이름 및 암호)를 포함 하는 PowerShell 개체입니다.|
 |PrivilegedEndpoint|미리 구성 된 원격 PowerShell 콘솔을 제공 하는 로그 수집 및 기타 post와 같은 기능은 배포 작업입니다. 자세한 내용은를 참조는 [권한 있는 끝점을 사용 하 여](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint#access-the-privileged-endpoint) 문서.|
 |BillingModel|구독을 사용 하는 청구 모델입니다. 이 매개 변수 값은 허용: 용량, PayAsYouUse, 및 개발 합니다.|
 
@@ -114,7 +114,7 @@ Set-AzsRegistration `
 PowerShell을 실행 하려면:
 ```powershell
 $AzureContext = Get-AzureRmContext
-$CloudAdminCred = Get-Credential -UserName <Azure subscription owner>  -Message "Enter the cloud domain credentials to access the privileged endpoint"
+$CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials>  -Message "Enter the credentials to access the privileged endpoint"
 Set-AzsRegistration `
     -CloudAdminCredential $CloudAdminCred `
     -PrivilegedEndpoint <PrivilegedEndPoint computer name> `

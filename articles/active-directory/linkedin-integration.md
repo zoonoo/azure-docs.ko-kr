@@ -1,48 +1,59 @@
 ---
-title: "Azure Active Directory에서 Office 응용 프로그램용 LinkedIn 통합을 사용하거나 사용하지 않도록 설정하는 방법 | Microsoft Docs"
-description: "Azure Active Directory에서 Microsoft 앱용 LinkedIn 통합을 사용하거나 사용하지 않도록 설정하는 방법에 대해 설명합니다."
+title: Azure Active Directory에서 Microsoft 앱 및 서비스에 LinkedIn 연결을 사용하도록 설정 | Microsoft Docs
+description: Azure Active Directory에서 Microsoft 앱용 LinkedIn 계정 연결을 사용하거나 사용하지 않도록 설정하는 방법에 대해 설명합니다.
 services: active-directory
 author: curtand
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/15/2018
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
-ms.openlocfilehash: cdfb5458b020e9d3a3f33cecbeb0ee7b9a48909d
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 3bf224edea9e6da0d0eadb6fb6a409248de3d0e3
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/17/2018
 ---
-# <a name="linkedin-integration-for-office-applications"></a>Office 응용 프로그램용 LinkedIn 통합
-이 문서에서는 Azure AD(Azure Active Directory)에서 LinkedIn 통합이 제공되는 사용자를 제한하는 방법을 설명합니다. LinkedIn 통합은 테넌트에 추가될 때 기본적으로 활성화되며, 사용자가 일부 Microsoft 앱 내에서 공용 LinkedIn 데이터에 액세스할 수 있게 해줍니다. 각 사용자가 독립적으로 회사 또는 학교 계정을 LinkedIn 계정에 연결할 수 있습니다.
+# <a name="linkedin-account-connections-for-microsoft-apps-and-services"></a>Microsoft 앱 및 서비스에 대한 LinkedIn 계정 연결
+이 문서에서는 Azure AD(Azure Active Directory) 관리 센터에서 테넌트에 대해 LinkedIn 계정 연결을 관리하는 방법을 알아볼 수 있습니다. 
 
 > [!IMPORTANT]
-> LinkedIn 통합은 모든 Azure AD 테넌트에 동시에 배포되지 않습니다. Azure 테넌트에 롤아웃된 후 LinkedIn 통합이 기본적으로 사용됩니다. LinkedIn 통합은 지역, 독립 및 정부 테넌트에 사용할 수 없습니다. 롤아웃 정보의 최신 상태 보기는 [Office 365 로드맵](https://products.office.com/business/office-365-roadmap?filters=%26freeformsearch=linkedin#abc) 페이지를 참조하세요.
+> LinkedIn 계정 연결 기능이 현재 Azure AD 테넌트에 공개되고 있습니다. 테넌트에게 공개되면 기본적으로 사용하도록 설정됩니다. Exchange Online 사서함이 오스트레일리아, 캐나다, 중국, 프랑스, 독일, 인도, 대한민국, 영국, 일본 및 남아프리카에서 호스트되는 미국 정부 고객 및 조직은 사용할 수 없습니다. 이러한 사서함 위치에 대한 지원은 곧 제공될 예정입니다.  롤아웃 정보의 최신 상태 보기는 [Office 365 로드맵](https://products.office.com/business/office-365-roadmap?filters=%26freeformsearch=linkedin#abc) 페이지를 참조하세요.
 
-## <a name="linkedin-integration-from-the-user-perspective"></a>사용자 관점에서 보는 LinkedIn 통합
-조직 내 사용자가 자신의 LinkedIn 계정을 회사 또는 학교 계정에 연결하면 [LinkedIn은 조직에서 제공하는 Microsoft 앱 및 서비스에 사용할 데이터를 제공할 수 있습니다](https://www.linkedin.com/help/linkedin/answer/84077). [사용자가 계정 연결을 끊을 수 있으며](https://www.linkedin.com/help/linkedin/answer/85097), 연결을 끊으면 LinkedIn이 Microsoft와 데이터를 공유하는 권한이 제거됩니다. LinkedIn 통합은 공개적으로 사용할 수 있는 LinkedIn 프로필 정보를 사용합니다. LinkedIn 개인 정보 설정을 사용하여 Microsoft 앱에서 프로필을 볼 수 있는지 여부를 포함하여 [LinkedIn 프로필을 보는 방법을 제어할 수 있습니다](https://www.linkedin.com/help/linkedin/answer/83).
+## <a name="how-linkedin-account-connections-appear-to-the-user"></a>LinkedIn 계정 연결이 사용자에게 표시되는 방식
+LinkedIn 계정 연결을 통해 사용자는 일부 Microsoft 앱에서 공개 LinkedIn 프로필 정보를 볼 수 있습니다. 테넌트에 속하는 사용자는 자신의 LinkedIn 및 Microsoft 회사 또는 학교 계정을 연결하여 추가적인 LinkedIn 프로필 정보를 표시하도록 선택할 수 있습니다. 자세한 내용은 [Microsoft 앱 및 서비스의 LinkedIn 정보 및 기능](https://go.microsoft.com/fwlink/?linkid=850740)을 참조하세요.
+
+조직 내 사용자가 자신의 LinkedIn 및 Microsoft 회사 또는 학교 계정을 연결하는 경우 두 가지 옵션이 있습니다. 
+* 두 계정 간에 데이터를 공유하도록 권한을 부여합니다. 즉, Microsoft 회사 또는 학교 계정을 공유하도록 LinkedIn 계정에 권한을 부여할 뿐만 아니라 LinkedIn 계정과 데이터를 공유하도록 Microsoft 회사 또는 학교 계정에도 권한을 부여합니다. LinkedIn과 공유되는 데이터는 온라인 서비스가 종료됩니다. 
+* LinkedIn 계정의 데이터만 Microsoft 회사 및 학교 계정과 데이터를 공유하도록 권한을 부여합니다.
+
+사용자의 LinkedIn 및 Microsoft 회사 또는 학교 계정 사이에 공유되는 데이터에 대한 자세한 내용은 [회사 또는 학교 Microsoft 앱의 LinkedIn](https://www.linkedin.com/help/linkedin/answer/84077)(영문)을 참조하세요. 
+* [사용자는 언제든 계정 연결을 해제](https://www.linkedin.com/help/linkedin/answer/85097)하고 데이터 공유 권한을 제거할 수 있습니다. 
+* 사용자는 Microsoft 앱에 자신의 프로필 표시 여부를 비롯하여 [자신의 LinkedIn 프로필이 표시되는 방식을 제어할 수 있습니다](https://www.linkedin.com/help/linkedin/answer/83).
 
 ## <a name="privacy-considerations"></a>개인정보처리방침 고려 사항
-Azure AD에서 LinkedIn 통합을 사용하도록 설정하면 Microsoft 앱 및 서비스에서 사용자의 LinkedIn 정보 중 일부에 액세스할 수 있습니다. Azure AD에서 LinkedIn 통합 사용 시 개인정보 취급 방침에 대한 자세한 내용은 [Microsoft 개인정보처리방침](https://privacy.microsoft.com/privacystatement/)을 참조하세요. 
+LinkedIn 계정 연결을 사용하도록 설정하면 Microsoft 앱 및 서비스에서 일부 사용자의 LinkedIn 정보에 액세스할 수 있습니다. Azure AD에서 LinkedIn 계정 연결 사용 시 개인정보처리방침에 대한 자세한 내용은 [Microsoft 개인정보처리방침](https://privacy.microsoft.com/privacystatement/)을 참조하세요. 
 
-## <a name="manage-linkedin-integration"></a>LinkedIn 통합 관리
-Azure AD에서 엔터프라이즈에 대한 LinkedIn 통합은 기본적으로 사용됩니다. LinkedIn 통합을 사용하면 조직 내 모든 사용자가 Microsoft 서비스 내에서 LinkedIn 기능을 사용할 수 있습니다(예: Outlook에서 LinkedIn 프로필 보기). LinkedIn 통합을 사용하지 않도록 설정하면 Microsoft 앱 및 서비스에서 LinkedIn 기능이 제거되고 Microsoft 서비스를 통한 LinkedIn과 조직 간 데이터 공유가 중지됩니다.
+## <a name="manage-linkedin-account-connections"></a>LinkedIn 계정 연결 관리
+LinkedIn 계정 연결 기능은 전체 테넌트에 대해 기본적으로 사용하도록 설정되어 있습니다. 전체 테넌트에 대해 LinkedIn 계정 연결을 사용하지 않도록 설정하거나 테넌트에서 선택된 사용자에 대해 LinkedIn 계정 연결을 사용하도록 설정하게 선택할 수 있습니다. 
 
-### <a name="enable-or-disable-linkedin-integration-for-your-organization-in-the-azure-portal"></a>Azure Portal에서 조직의 LinkedIn 사용 설정 또는 해제
+### <a name="enable-or-disable-linkedin-account-connection-for-your-tenant-in-the-azure-portal"></a>Azure Portal에서 테넌트에 대한 LinkedIn 계정 연결 사용 설정 또는 해제
 
 1. Azure AD 테넌트의 전역 관리자인 계정으로 [Azure Active Directory 관리 센터](https://aad.portal.azure.com/)에 로그인합니다.
 2. **사용자**를 선택합니다.
 3. **사용자** 블레이드에서 **사용자 설정**을 선택합니다.
-4. **LinkedIn 통합**에서 **예** 또는 **아니요**를 선택하여 LinkedIn 통합을 사용 또는 사용하지 않도록 설정합니다.
-   ![LinkedIn 통합 사용](./media/linkedin-integration/LinkedIn-integration.PNG)
+4. **LinkedIn 계정 연결**에서:
+  * 테넌트의 모든 사용자에 대해 LinkedIn 계정 연결을 사용하도록 설정하려면 **예**를 선택합니다.
+  * 선택한 테넌트 사용자에 대해서만 LinkedIn 계정 연결을 사용하도록 설정하려면 **선택됨**을 선택합니다.
+  * 모든 사용자에 대해 LinkedIn 계정 연결을 사용하지 않도록 설정하려면 **아니요**를 선택합니다. ![LinkedIn 계정 연결을 사용하도록 설정](./media/linkedin-integration/LinkedIn-integration.png)
+5. 완료되면 **저장**을 선택하여 설정을 저장합니다.
 
-### <a name="enable-or-disable-linkedin-integration-for-your-organizations-office-2016-apps-using-group-policy"></a>그룹 정책을 사용하여 조직의 Office 2016 앱에 LinkedIn을 사용하도록 설정 또는 해제
+### <a name="enable-or-disable-linkedin-account-connections-for-your-organizations-office-2016-apps-using-group-policy"></a>그룹 정책을 사용하여 조직의 Office 2016 앱에 LinkedIn 계정 연결을 사용하도록 설정 또는 해제
 
 1. [Office 2016 관리 템플릿 파일(ADMX/ADML)](https://www.microsoft.com/download/details.aspx?id=49030) 다운로드
 2. **ADMX** 파일을 추출하고 **중앙 리포지토리**에 복사합니다.
@@ -60,6 +71,6 @@ Azure AD에서 엔터프라이즈에 대한 LinkedIn 통합은 기본적으로 �
 * [LinkedIn 도움말 센터](https://www.linkedin.com/help/linkedin)
 
 ## <a name="next-steps"></a>다음 단계
-다음 링크를 사용하여 Azure Portal에서 현재 LinkedIn 통합 설정을 살펴봅니다.
+다음 링크를 사용하여 Azure Portal에서 현재 LinkedIn 계정 연결 설정을 살펴봅니다.
 
-[LinkedIn 통합 구성](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/UserSettings) 
+[LinkedIn 계정 연결 구성](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/UserSettings) 

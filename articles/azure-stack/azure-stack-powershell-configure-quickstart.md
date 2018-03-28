@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2018
 ms.author: mabrigg
-ms.openlocfilehash: 7725c5a9a7b6359257efadcc46366a7a360ec69c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 2b306cc9dc9bbf435eb70315cc46e7faf4268b47
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="get-up-and-running-with-powershell-in-azure-stack"></a>Azure 스택에서 PowerShell과 함께 시작 및 실행
 
@@ -174,6 +174,9 @@ PowerShell을 구성 했으므로 리소스 그룹을 만들어 구성을 테스
 New-AzureRMResourceGroup -Name "ContosoVMRG" -Location Local
 ```
 
+> [!note]  
+> 리소스 그룹을 지정 하려면 리소스 그룹이 구독에 있는 해야 합니다. 구독에 대 한 자세한 내용은 참조 [계획, 제안, 할당량 및 구독 개요](azure-stack-plan-offer-quota-overview.md)
+
 리소스 그룹을 만든 후의 **의 프로비저닝 상태** 속성이 **Succeeded**합니다.
 
 ## <a name="next-steps"></a>다음 단계
@@ -181,10 +184,3 @@ New-AzureRMResourceGroup -Name "ContosoVMRG" -Location Local
 * [설치 및 CLI를 구성 합니다.](azure-stack-connect-cli.md)
 
 * [템플릿 개발](user/azure-stack-develop-templates.md)
-
-
-
-
-
-
-

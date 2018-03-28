@@ -1,25 +1,21 @@
 ---
-title: "Amazon 웹 서비스로 인증 구성 | Microsoft Docs"
-description: "이 문서에서는 Azure Automation에서 AWS 리소스를 관리하는 Runbook에 대한 AWS 자격 증명을 만들고 유효성을 검사하는 방법을 설명합니다."
+title: Amazon Web Services로 인증 구성
+description: 이 문서에서는 Azure Automation에서 AWS 리소스를 관리하는 Runbook에 대한 AWS 자격 증명을 만들고 유효성을 검사하는 방법을 설명합니다.
+keywords: aws 인증, aws 구성
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: jwhit
-editor: tysonn
-keywords: "aws 인증, aws 구성"
-ms.assetid: b6dde4bb-26ac-4876-9aa9-e586bed30d6b
 ms.service: automation
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/15/2018
 ms.topic: article
-ms.date: 09/29/2017
-ms.author: magoedte
-ms.openlocfilehash: 68805a6b28fc9454262cb0503daa23af93c76a7e
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+manager: carmonm
+ms.devlang: na
+ms.tgt_pltfrm: na
+ms.openlocfilehash: 476d978bd53f689038ad3ed58b3f64c40925a998
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="authenticate-runbooks-with-amazon-web-services"></a>Amazon 웹 서비스로 Runbook 인증
 AWS(Amazon 웹 서비스)의 리소스를 사용하여 일반 작업을 자동화하는 일은 Azure의 Automation Runbook으로 할 수 있습니다.  Azure의 리소스와 마찬가지로 Automation Runbook을 사용하여 AWS에서 많은 작업을 자동화할 수 있습니다.  다음 두 가지만 있으면 됩니다.
