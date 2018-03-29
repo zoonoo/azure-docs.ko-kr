@@ -1,11 +1,11 @@
 ---
-title: "Azure Portal에서 가상 머신 확장 집합 자동 크기 조정 | Microsoft Docs"
-description: "Azure Portal을 사용하여 가상 머신 확장 집합에 대한 자동 크기 조정 규칙을 만드는 방법"
+title: Azure Portal에서 가상 머신 확장 집합 자동 크기 조정 | Microsoft Docs
+description: Azure Portal을 사용하여 가상 머신 확장 집합에 대한 자동 크기 조정 규칙을 만드는 방법
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 88886cad-a2f0-46bc-8b58-32ac2189fc93
 ms.service: virtual-machine-scale-sets
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: iainfou
-ms.openlocfilehash: e43be53817e7fa65c3d7a95cab9821126ed88831
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: 984b16dae26fb6d9d33ef68ac3e8c8b658e82e08
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-the-azure-portal"></a>Azure Portal에서 가상 머신 확장 집합의 크기를 자동으로 조정
 확장 집합을 만들 때 실행하려는 VM 인스턴스 수를 정의합니다. 응용 프로그램 수요가 변경될 때는 VM 인스턴스 수를 자동으로 늘리거나 줄일 수 있습니다. 자동 크기 조정 기능을 사용하면 고객 수요에 따라 조정하거나 앱 수명 주기 동안 응용 프로그램 성능 변화에 대응할 수 있습니다.
@@ -28,7 +28,7 @@ ms.lasthandoff: 12/21/2017
 
 
 ## <a name="prerequisites"></a>필수 조건
-자동 크기 조정 규칙을 만들려면 기존 가상 머신 확장 집합이 필요합니다. [Azure Portal](virtual-machine-scale-sets-create-portal.md), [Azure PowerShell](virtual-machine-scale-sets-create-powershell.md) 또는 [Azure CLI 2.0](virtual-machine-scale-sets-create-cli.md)을 사용하여 확장 집합을 만들 수 있습니다.
+자동 크기 조정 규칙을 만들려면 기존 가상 머신 확장 집합이 필요합니다. [Azure Portal](quick-create-portal.md), [Azure PowerShell](quick-create-powershell.md) 또는 [Azure CLI 2.0](quick-create-cli.md)을 사용하여 확장 집합을 만들 수 있습니다.
 
 
 ## <a name="create-a-rule-to-automatically-scale-out"></a>자동 규모 확장 규칙 만들기

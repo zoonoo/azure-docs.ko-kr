@@ -1,23 +1,23 @@
 ---
-title: "Team Data Science Process 개별 참가자 작업 - Azure | Microsoft Docs"
-description: "개별 참가자가 데이터 과학 팀 프로젝트에서 수행하는 작업에 대한 개요입니다."
-documentationcenter: 
+title: Team Data Science Process 개별 참가자 작업 - Azure | Microsoft Docs
+description: 개별 참가자가 데이터 과학 팀 프로젝트에서 수행하는 작업에 대한 개요입니다.
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: bradsev;
-ms.openlocfilehash: 526260c3f61a203fe2770a0c6d0d23d95916a2b7
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.author: bradsev
+ms.openlocfilehash: af60b188fe8db278297e1ece400bf4398e36094a
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="individual-contributor-tasks"></a>개별 참가자 작업
 
@@ -57,7 +57,7 @@ TDSP에서 데이터 과학 프로젝트를 실행하는 방법에 대한 지침
 
 두 번째의 **TeamUtilities** 리포지토리 필수 구성 요소는 팀에 팀 고유의 유틸리티 리포지토리가 있는지 여부에 따른 선택 사항입니다. 다른 세 가지 필수 구성 요소 중 하나라도 완료되지 않은 경우 팀 리더, 프로젝트 리더 또는 해당 대리자에게 문의하여 [데이터 과학 팀에 대한 팀 리더 작업](team-lead-tasks.md) 또는 [데이터 과학 팀에 대한 프로젝트 리더 작업](project-lead-tasks.md)에 대한 지침에 따라 설정합니다.
 
-- Git가 컴퓨터에 설치되어야 합니다. DSVM(데이터 과학 가상 컴퓨터)을 사용하는 경우 Git가 사전 설치되어 있으므로 계속 진행할 수 있습니다. 그렇지 않은 경우 [플랫폼 및 도구 부록](platforms-and-tools.md#appendix)을 참조하세요.  
+- Git가 컴퓨터에 설치되어야 합니다. DSVM(데이터 과학 Virtual Machine)을 사용하는 경우 Git가 사전 설치되어 있으므로 계속 진행할 수 있습니다. 그렇지 않은 경우 [플랫폼 및 도구 부록](platforms-and-tools.md#appendix)을 참조하세요.  
 - **Windows DSVM**을 사용하는 경우 컴퓨터에 [GCM(Git Credential Manager)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows)이 설치되어 있어야 합니다. README.md 파일에서 **다운로드 및 설치** 섹션으로 스크롤한 다음 *최신 설치 관리자*를 클릭합니다. 이렇게 하면 최신 설치 관리자 페이지로 이동합니다. 여기서 .exe 설치 관리자를 다운로드하여 실행합니다. 
 - **Linux DSVM**을 사용하는 경우 DSVM에서 SSH 공개 키를 만들고 그룹 VSTS 서버에 추가합니다. SSH에 대한 자세한 내용은 [플랫폼 및 도구 부록](platforms-and-tools.md#appendix)의 **SSH 공개 키 만들기** 섹션을 참조하세요. 
 - 팀 리더 및/또는 프로젝트 리더가 DSVM에 탑재해야 하는 Azure 파일 저장소를 만든 경우 해당 Azure 파일 저장소 정보를 가져와야 합니다. 

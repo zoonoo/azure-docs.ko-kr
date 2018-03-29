@@ -1,11 +1,11 @@
 ---
-title: "Azure의 Linux VM에서 MySQL 설정 | Microsoft Docs"
-description: "Azure Linux 가상 컴퓨터(Ubuntu 또는 RedHat 제품군 OS)에 MySQL 스택을 설치하는 방법을 알아봅니다."
+title: Azure의 Linux VM에서 MySQL 설정 | Microsoft Docs
+description: Azure Linux 가상 컴퓨터(Ubuntu 또는 RedHat 제품군 OS)에 MySQL 스택을 설치하는 방법을 알아봅니다.
 services: virtual-machines-linux
-documentationcenter: 
-author: SuperScottz
-manager: timlt
-editor: 
+documentationcenter: ''
+author: iainfoulds
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: 153bae7c-897b-46b3-bd86-192a6efb94fa
 ms.service: virtual-machines-linux
@@ -14,21 +14,21 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2016
-ms.author: mingzhan
-ms.openlocfilehash: 0ee70bda954cf0a193d43b5b47702e7b2c37844d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: iainfou
+ms.openlocfilehash: d91f8cf8455a60d3e0afb2f209ba07933bcdee1c
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="how-to-install-mysql-on-azure"></a>Azure에 MySQL을 설치하는 방법
-이 문서에서는 Linux를 실행하는 Azure 가상 컴퓨터에서 MySQL을 설치 및 구성하는 방법을 알아봅니다.
+이 문서에서는 Linux를 실행하는 Azure 가상 머신에서 MySQL을 설치 및 구성하는 방법을 알아봅니다.
 
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
-## <a name="install-mysql-on-your-virtual-machine"></a>가상 컴퓨터에 MySQL 설치
+## <a name="install-mysql-on-your-virtual-machine"></a>가상 머신에 MySQL 설치
 > [!NOTE]
-> 이 자습서를 완료하려면 Linux를 실행하는 Microsoft Azure 가상 컴퓨터가 이미 있어야 합니다. 계속하기 전에 VM 이름으로 `mysqlnode`를 사용하고 사용자로 `azureuser`를 사용하여 Linux VM을 만들고 설정하려면 [Azure Linux VM 자습서](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
+> 이 자습서를 완료하려면 Linux를 실행하는 Microsoft Azure 가상 머신이 이미 있어야 합니다. 계속하기 전에 VM 이름으로 `mysqlnode`를 사용하고 사용자로 `azureuser`를 사용하여 Linux VM을 만들고 설정하려면 [Azure Linux VM 자습서](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
 > 
 > 
 

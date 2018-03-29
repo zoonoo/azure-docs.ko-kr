@@ -1,8 +1,8 @@
 ---
-title: "Azure Blob Storage에서 데이터 샘플링 | Microsoft Docs"
-description: "Azure Blob Storage에서 데이터 샘플링"
+title: Azure Blob Storage에서 데이터 샘플링 | Microsoft Docs
+description: Azure Blob Storage에서 데이터 샘플링
 services: machine-learning,storage
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: garye;bradsev
-ms.openlocfilehash: 1e5cf5da727b6720c936e43147beb8d87fb925cd
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.author: bradsev
+ms.openlocfilehash: fecff09b67f019a0d2b95d8ca33d16011b17b9ce
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="heading"></a>Azure Blob 저장소에서 데이터 샘플링
 이 문서에서는 프로그래밍 방식으로 다운로드한 다음 Python으로 작성된 절차에 따라 샘플링하여 Azure Blob 저장소에 저장된 데이터를 샘플링하는 방법에 대해 알아봅니다.

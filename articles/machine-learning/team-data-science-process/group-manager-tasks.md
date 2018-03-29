@@ -1,34 +1,34 @@
 ---
-title: "Team Data Science Process 그룹 관리자 작업 - Azure | Microsoft Docs"
-description: "데이터 과학 팀 프로젝트의 그룹 관리자 작업에 대한 개요."
-documentationcenter: 
+title: Team Data Science Process 그룹 관리자 작업 - Azure | Microsoft Docs
+description: 데이터 과학 팀 프로젝트의 그룹 관리자 작업에 대한 개요.
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: bradsev;
-ms.openlocfilehash: 58cea8b0288469a76dd8c4eb967caa8e87cd3dd7
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.author: bradsev
+ms.openlocfilehash: 3c39ae865ec26567f70706b042dab2aa8e4939d3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="group-manager-tasks"></a>그룹 관리자 작업
 
-이 토픽에서는 그룹 관리자가 자신의 데이터 과학 조직을 위해 완료해야 하는 작업에 대해 간략히 설명합니다. 목표는 TDSP([Team Data Science Process](overview.md))를 표준화하는 공동 작업 그룹 환경을 구축하는 것입니다. 이 프로세스를 표준화하는 데이터 과학 팀의 인력 역할 및 관련 작업의 개요는 [Team Data Science Process 역할 및 작업](roles-tasks.md)을 참조하세요.
+이 토픽에서는 그룹 관리자가 자신의 데이터 과학 조직을 위해 완료해야 하는 작업에 대해 간략히 설명합니다. 목표는 TDSP([Team Data Science Process](overview.md))를 표준화하는 공동 작업 그룹 환경을 구축하는 것입니다. 이 프로세스를 표준화하는 데이터 과학 팀에서 처리하는 인력 역할 및 관련 작업에 대한 개요는 [Team Data Science Process 역할 및 작업](roles-tasks.md)을 참조하세요.
 
 **그룹 관리자**는 기업 내 전체 데이터 과학 단위의 관리자입니다. 한 데이터 과학 단위에 여러 팀이 있을 수 있고, 각 팀은 고유한 비즈니스 수직 시장에서 여러 데이터 과학 프로젝트를 진행할 수 있습니다. 그룹 관리자는 서로게이트에게 작업을 위임할 수 있지만 역할에 연결된 작업은 동일합니다. 다음 다이어그램에 나와 있는 것처럼 6개의 주요 작업이 있습니다.
 
 ![0](./media/group-manager-tasks/tdsp-group-manager.png)
 
 
->[AZURE.NOTE] 아래 지침에서 VSTS를 사용하여 TDSP 그룹 환경을 설정하는 데 필요한 단계를 설명합니다. Microsoft에서 TDSP를 구현하는 방법이기 때문에 VSTS로 이러한 작업을 수행하는 방법을 지정합니다. 다른 코드 호스팅 플랫폼이 그룹에 사용되는 경우 그룹 관리자가 완료해야 하는 작업은 일반적으로 변경되지 않습니다. 그러나 이러한 작업을 완료하는 방법은 달라질 것입니다.
+>[AZURE.NOTE] 아래 지침에서 VSTS를 사용하여 TDSP 그룹 환경을 설정하는 데 필요한 단계를 설명합니다. Microsoft에서 TDSP를 구현하는 방법이기 때문에 VSTS를 사용하여 이러한 작업을 수행하는 방법을 지정합니다. 다른 코드 호스팅 플랫폼이 그룹에 사용되는 경우 그룹 관리자가 완료해야 하는 작업은 일반적으로 변경되지 않습니다. 그러나 이러한 작업을 완료하는 방법은 달라질 것입니다.
 
 1. 그룹의 **VSTS(Visual Studio Team Services) 서버**를 설정합니다.
 2. Visual Studio Team Services 서버에서 **그룹 팀 프로젝트**를 만듭니다(VSTS 사용자용).
@@ -52,7 +52,7 @@ ms.lasthandoff: 11/14/2017
 
 ### <a name="pre-requisites-for-cloning-repositories-and-checking-code-in-and-out"></a>리포지토리를 복제하고 시작 및 종료 코드를 확인하기 위한 필수 조건
  
-- Git가 컴퓨터에 설치되어야 합니다. DSVM(데이터 과학 가상 컴퓨터)을 사용하는 경우 Git가 사전 설치되어 있으므로 계속 진행할 수 있습니다. 그렇지 않은 경우 [플랫폼 및 도구 부록](platforms-and-tools.md#appendix)을 참조하세요.  
+- Git가 컴퓨터에 설치되어야 합니다. DSVM(데이터 과학 Virtual Machine)을 사용하는 경우 Git가 사전 설치되어 있으므로 계속 진행할 수 있습니다. 그렇지 않은 경우 [플랫폼 및 도구 부록](platforms-and-tools.md#appendix)을 참조하세요.  
 - **Windows DSVM**을 사용하는 경우 컴퓨터에 [GCM(Git Credential Manager)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows)이 설치되어 있어야 합니다. README.md 파일에서 **다운로드 및 설치** 섹션으로 스크롤한 다음 *최신 설치 관리자*를 클릭합니다. 이 단계를 수행하면 최신 설치 관리자 페이지로 이동됩니다. 여기에서 .exe 설치 관리자를 다운로드하여 실행합니다. 
 - **Linux DSVM**을 사용하는 경우 DSVM에서 SSH 공개 키를 만들고 그룹 VSTS 서버에 추가합니다. SSH에 대한 자세한 내용은 [플랫폼 및 도구 부록](platforms-and-tools.md#appendix)의 **SSH 공개 키 만들기** 섹션을 참조하세요. 
 

@@ -1,24 +1,24 @@
-﻿---
-title: "팀 데이터 과학 프로세스 수명 주기의 고객 승인 단계 - Azure | Microsoft Docs"
-description: "데이터 과학 프로젝트의 고객 승인 단계에 대한 목표, 작업 및 결과물입니다."
+---
+title: 팀 데이터 과학 프로세스 수명 주기의 고객 승인 단계 - Azure | Microsoft Docs
+description: 데이터 과학 프로젝트의 고객 승인 단계에 대한 목표, 작업 및 결과물입니다.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
-ms.author: bradsev;
-ms.openlocfilehash: e150b3e7c7e98443264dd5b8aaeda1bfe6047b2c
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.author: bradsev
+ms.openlocfilehash: 0030698bafc3d92a1c6daf944ba496421080912c
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="customer-acceptance"></a>고객 승인
 

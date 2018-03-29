@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2018
 ms.author: memccror
-ms.openlocfilehash: 9e4970ecc538caab537281931b89bfd57d994cfa
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f25e4d1e3906a610e7c60e348f872a78d7db8fd3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="low-priority-vms-on-scale-sets-preview"></a>확장 집합에서 우선 순위가 낮은 VM(미리 보기)
 
@@ -48,7 +48,7 @@ ms.lasthandoff: 03/16/2018
 
 ## <a name="use-the-azure-cli-20"></a>Azure CLI 2.0 사용
 
-우선 순위가 낮은 VM이 포함된 확장 집합을 만드는 프로세스는 [시작 문서](virtual-machine-scale-sets-create-cli.md)에서 자세히 설명한 프로세스와 동일합니다. 아래 예제와 같이 '--Priority' 매개 변수를 CLI 호출에 추가하고 *Low*로 설정하면 됩니다.
+우선 순위가 낮은 VM이 포함된 확장 집합을 만드는 프로세스는 [시작 문서](quick-create-cli.md)에서 자세히 설명한 프로세스와 동일합니다. 아래 예제와 같이 '--Priority' 매개 변수를 CLI 호출에 추가하고 *Low*로 설정하면 됩니다.
 
 ```azurecli
 az vmss create \
@@ -63,7 +63,7 @@ az vmss create \
 
 ## <a name="use-azure-powershell"></a>Azure PowerShell 사용
 
-우선 순위가 낮은 VM이 포함된 확장 집합을 만드는 프로세스는 [시작 문서](virtual-machine-scale-sets-create-powershell.md)에서 자세히 설명한 프로세스와 동일합니다.
+우선 순위가 낮은 VM이 포함된 확장 집합을 만드는 프로세스는 [시작 문서](quick-create-powershell.md)에서 자세히 설명한 프로세스와 동일합니다.
 아래 예제와 같이 '--Priority' 매개 변수를 [New-AzureRmVmssConfig](/powershell/module/azurerm.compute/new-azurermvmssconfig)에 추가하고 *Low*로 설정하면 됩니다.
 
 ```powershell
@@ -77,7 +77,7 @@ $vmssConfig = New-AzureRmVmssConfig `
 
 ## <a name="use-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿 사용
 
-우선 순위가 낮은 VM을 사용하는 확장 집합을 만드는 프로세스는 [Linux](virtual-machine-scale-sets-create-template-linux.md) 또는 [Windows](virtual-machine-scale-sets-create-template-windows.md)용 시작 문서에서 자세히 설명한 프로세스와 동일합니다. 템플릿의 *Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile* 리소스 종류에 'priority' 속성을 추가하고 값으로 *Low*를 지정합니다. *2017-10-30-preview* API 버전 이상을 사용해야 합니다. 
+우선 순위가 낮은 VM을 사용하는 확장 집합을 만드는 프로세스는 [Linux](quick-create-template-linux.md) 또는 [Windows](quick-create-template-windows.md)용 시작 문서에서 자세히 설명한 프로세스와 동일합니다. 템플릿의 *Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile* 리소스 종류에 'priority' 속성을 추가하고 값으로 *Low*를 지정합니다. *2017-10-30-preview* API 버전 이상을 사용해야 합니다. 
 
 삭제하도록 제거 정책을 설정하려면 'evictionPolicy' 매개 변수를 추가하고 *delete*로 설정합니다.
 

@@ -1,24 +1,24 @@
-﻿---
-title: "팀 데이터 과학 프로세스 수명 주기의 데이터 취득 및 이해 단계 - Azure | Microsoft Docs"
-description: "데이터 과학 프로젝트의 데이터 취득 및 이해 단계에 대한 목표, 작업 및 결과물입니다."
+---
+title: 팀 데이터 과학 프로세스 수명 주기의 데이터 취득 및 이해 단계 - Azure | Microsoft Docs
+description: 데이터 과학 프로젝트의 데이터 취득 및 이해 단계에 대한 목표, 작업 및 결과물입니다.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
-ms.author: bradsev;
-ms.openlocfilehash: 9618653e8f77c69a3a95fe27ee55c4f05c55a66e
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.author: bradsev
+ms.openlocfilehash: 028992561b1c2481dc72af3c4edcc16f65f25105
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="data-acquisition-and-understanding"></a>데이터 취득 및 이해
 

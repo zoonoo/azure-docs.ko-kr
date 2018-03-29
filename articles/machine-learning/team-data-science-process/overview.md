@@ -1,8 +1,8 @@
 ---
-title: "Team Data Science Process란 무엇인가요? | Microsoft Docs"
-description: "예측 분석 솔루션 및 지능형 응용 프로그램을 제공하는 데이터 과학 방법론을 제공합니다."
+title: Team Data Science Process란 무엇인가요? | Microsoft Docs
+description: 예측 분석 솔루션 및 지능형 응용 프로그램을 제공하는 데이터 과학 방법론을 제공합니다.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
-ms.author: bradsev;
-ms.openlocfilehash: 75e170f29f9a6abeeb3393e43e6a4c355749044d
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.author: bradsev
+ms.openlocfilehash: f7c081dcd74164f4b1f054f5a65f2ff6aaabebd7
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="what-is-the-team-data-science-process"></a>Team Data Science Process란 무엇인가요?
 
@@ -49,7 +49,7 @@ TDSP(Team Data Science Process)는 데이터 과학 프로젝트의 개발을 �
 * **비즈니스 이해**
 * **데이터 취득 및 이해**
 * **모델링**
-* **배포웹사이트를**
+* **배포**
 * **고객 승인**
 
 다음은 **팀 데이터 과학 프로세스 수명 주기**의 시각적 표현입니다. 
@@ -71,7 +71,7 @@ TDSP에서 주기의 각 단계에 대한 목표, 작업 및 설명서 아티팩
 
 모든 프로젝트가 디렉터리 구조를 공유하고 프로젝트의 문서에 대한 템플릿을 사용하면 팀 멤버가 회사 프로젝트에 대한 정보를 쉽게 찾을 수 있습니다. 모든 코드 및 문서는 팀 공동 작업을 활성화하도록 Git, TFS 또는 Subversion과 같은 VCS(버전 제어 시스템)에 저장됩니다. Jira, Rally, Visual Studio Team Services와 같은 기민한 프로젝트 추적 시스템의 추적 작업 및 기능을 통해 개별 기능에 대한 코드를 자세히 추적할 수 있습니다. 또한 이러한 추적을 통해 팀은 더 나은 비용 예측을 얻을 수 있습니다. TDSP는 버전 관리, 정보 보안 및 공동 작업에 대해 VCS에 각 프로젝트에 대한 별도 리포지토리를 만드는 것을 권장합니다. 모든 프로젝트에 대한 표준화된 구조를 통해 조직 전체에 걸쳐 기업 정보를 구축할 수 있습니다.
 
-폴더 구조에 대한 템플릿 및 기본 위치에 필요한 문서를 제공합니다. 이 폴더 구조는 데이터 탐색 및 기능 추출에 대한 코드를 포함하고 모델 반복을 기록하는 파일을 구성합니다. 이러한 템플릿을 통해 팀 멤버는 다른 사용자가 수행한 작업을 이해하고 팀에 새 멤버를 추가할 수 있습니다. 마크다운 형식으로 문서 템플릿을 보고 업데이트하는 것이 쉽습니다. 템플릿을 사용하여 문제가 잘 정의되고 결과물이 예상 품질을 충족하도록 각 프로젝트에 대한 주요 질문이 있는 검사 목록을 제공합니다. 예를 들면 다음과 같습니다.
+폴더 구조에 대한 템플릿 및 기본 위치에 필요한 문서를 제공합니다. 이 폴더 구조는 데이터 탐색 및 기능 추출에 대한 코드를 포함하고 모델 반복을 기록하는 파일을 구성합니다. 이러한 템플릿을 통해 팀 멤버는 다른 사용자가 수행한 작업을 이해하고 팀에 새 멤버를 추가할 수 있습니다. 마크다운 형식으로 문서 템플릿을 보고 업데이트하는 것이 쉽습니다. 템플릿을 사용하여 문제가 잘 정의되고 결과물이 예상 품질을 충족하도록 각 프로젝트에 대한 주요 질문이 있는 검사 목록을 제공합니다. 이러한 예로 다음이 포함됩니다.
 
 - 비즈니스 문제 및 프로젝트의 범위를 문서화하는 프로젝트 헌장
 - 원시 데이터의 구조 및 통계를 문서화하는 데이터 보고서

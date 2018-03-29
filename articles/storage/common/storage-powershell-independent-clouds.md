@@ -1,23 +1,23 @@
 ---
-title: "Azure PowerShell을 사용하여 Azure 독립 클라우드에서 Storage 관리 | Microsoft Docs"
-description: "Azure PowerShell을 사용한 중국 클라우드, 정부 클라우드, 독일 클라우드의 Storage 관리"
+title: Azure PowerShell을 사용하여 Azure 독립 클라우드에서 Storage 관리 | Microsoft Docs
+description: Azure PowerShell을 사용한 중국 클라우드, 정부 클라우드, 독일 클라우드의 Storage 관리
 services: storage
 documentationcenter: na
-author: robinsh
-manager: timlt
-ms.assetid: 
+author: roygara
+manager: jeconnoc
+ms.assetid: ''
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2017
-ms.author: robinsh
-ms.openlocfilehash: 08e1af929d7ddc30c7dc149f6305ca1ca0bc22ae
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.author: rogarana
+ms.openlocfilehash: 31b36e6fb6a1ebf09c559b2777ffa5f554c3cfa0
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="managing-storage-in-the-azure-independent-clouds-using-powershell"></a>PowerShell을 사용하여 Azure 독립 클라우드에서 Storage 관리
 
@@ -61,7 +61,7 @@ Get-AzureRmLocation | select Location, DisplayName
 
 다음 표에서는 독일 클라우드에 대해 반환되는 위치를 보여 줍니다.
 
-|위치 | displayName |
+|위치 | DisplayName |
 |----|----|
 | germanycentral | 독일 중부|
 | germanynortheast | 독일 북동부 | 
@@ -83,7 +83,7 @@ Get-AzureRmEnvironment | select Name, StorageEndpointSuffix
 
 이 명령은 다음 결과를 반환합니다.
 
-| 이름| StorageEndpointSuffix|
+| Name| StorageEndpointSuffix|
 |----|----|
 |AzureChinaCloud | core.chinacloudapi.cn|
 | AzureCloud | core.windows.net |
@@ -101,7 +101,7 @@ Get-AzureRmEnvironment -Name AzureGermanCloud
 
 |속성 이름|값|
 |----|----|
-| 이름 | AzureGermanCloud |
+| Name | AzureGermanCloud |
 | EnableAdfsAuthentication | False |
 | ActiveDirectoryServiceEndpointResourceI | http://management.core.cloudapi.de/ |
 | GalleryURL | https://gallery.cloudapi.de/ |

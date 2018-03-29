@@ -1,8 +1,8 @@
 ---
-title: "Windows에서 Azure IoT Edge 시뮬레이트 | Microsoft Docs"
-description: "Windows에서 시뮬레이트된 장치에 Azure IoT Edge 런타임을 설치하고 첫 번째 모듈 배포"
+title: Windows에서 Azure IoT Edge 시뮬레이트 | Microsoft Docs
+description: Windows에서 시뮬레이트된 장치에 Azure IoT Edge 런타임을 설치하고 첫 번째 모듈 배포
 services: iot-edge
-keywords: 
+keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
@@ -10,11 +10,11 @@ ms.reviewer: elioda
 ms.date: 11/16/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 0207418cf71902ce9bc9d2911124d1d46889d893
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.openlocfilehash: ae974162a460289a34443879a9e78224684d94ed
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="deploy-azure-iot-edge-on-a-simulated-device-in-windows----preview"></a>Windows에서 시뮬레이트된 장치에 Azure IoT Edge 배포 - 미리 보기
 
@@ -33,13 +33,13 @@ Azure IoT Edge에서는 클라우드로 모든 데이터를 푸시하는 대신,
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 자습서에서는 사용자가 Windows를 실행하는 컴퓨터 또는 가상 컴퓨터를 사용하여 사물 인터넷을 시뮬레이션한다고 가정합니다. 
+이 자습서에서는 사용자가 Windows를 실행하는 컴퓨터 또는 가상 머신을 사용하여 사물 인터넷을 시뮬레이션한다고 가정합니다. 
 
 >[!TIP]
->가상 컴퓨터에서 Windows를 실행하는 경우 [중첩된 가상화][lnk-nested]를 사용하도록 설정하고 최소 2GB 메모리를 할당하세요. 
+>가상 머신에서 Windows를 실행하는 경우 [중첩된 가상화][lnk-nested]를 사용하도록 설정하고 최소 2GB 메모리를 할당하세요. 
 
 1. 지원되는 Windows 버전을 사용하고 있는지 확인합니다.
-   * Windows 10 
+   * 윈도우 10 
    * Windows Server
 2. [Windows용 Docker][lnk-docker]를 설치하고, 지금 실행 중인지 확인합니다.
 3. [Windows에 Python 2.7][lnk-python]을 설치하고 pip 명령을 사용할 수 있는지 확인합니다.
@@ -86,7 +86,7 @@ IoT Edge 런타임은 모든 IoT Edge 장치에 배포되며, 두 개의 모듈�
 이전 섹션의 IoT Edge 장치 연결 문자열로 런타임을 구성합니다.
 
 ```cmd
-iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
+iotedgectl setup --connection-string "{device connection string}" --nopass
 ```
 
 런타임을 시작합니다.
@@ -115,7 +115,7 @@ docker ps
 
 이 자습서에서는 새 IoT Edge 장치를 만들고 여기에 IoT Edge 런타임을 설치했습니다. 그런 다음 장치 자체를 변경하지 않고도 장치에서 실행할 IoT Edge 모듈을 푸시할 수 있도록 Azure Portal을 사용했습니다. 이 경우 푸시한 모듈에서는 자습서에 대해 사용할 수 있는 환경 데이터를 만듭니다. 
 
-시뮬레이트된 장치를 실행 중인 컴퓨터에서 명령 프롬프트를 다시 엽니다. 클라우드에서 배포된 모듈을 IoT Edge 장치에서 실행 중인지 확인합니다. 
+시뮬레이션된 장치를 실행 중인 컴퓨터에서 명령 프롬프트를 다시 엽니다. 클라우드에서 배포된 모듈을 IoT Edge 장치에서 실행 중인지 확인합니다. 
 
 ```cmd
 docker ps

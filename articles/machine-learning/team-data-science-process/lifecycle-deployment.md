@@ -1,24 +1,24 @@
-﻿---
-title: "팀 데이터 과학 프로세스 수명 주기의 배포 단계 - Azure | Microsoft Docs"
-description: "데이터 과학 프로젝트의 배포 단계에 대한 목표, 작업 및 결과물입니다."
+---
+title: 팀 데이터 과학 프로세스 수명 주기의 배포 단계 - Azure | Microsoft Docs
+description: 데이터 과학 프로젝트의 배포 단계에 대한 목표, 작업 및 결과물입니다.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
-ms.author: bradsev;
-ms.openlocfilehash: 45d801bf0096879143f91feb230445625559379f
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.author: bradsev
+ms.openlocfilehash: 5cb6361ed674ffaaf776adafd6f3ff87272c73eb
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="deployment"></a>배포
 
@@ -68,9 +68,7 @@ TDSP의 수명 주기에서 각 단계에 대한 링크는 다음과 같습니�
    1. [비즈니스 이해](lifecycle-business-understanding.md)
    2. [데이터 취득 및 이해](lifecycle-data.md)
    3. [모델링](lifecycle-modeling.md)
-
    4. [배포](lifecycle-deployment.md)
-
    5. [고객 승인](lifecycle-acceptance.md)
 
 특정 시나리오 프로세스의 모든 단계를 보여주는 종합적인 전체 연습도 제공됩니다. [예제 연습](walkthroughs.md) 문서는 링크 및 썸네일 설명을 포함하는 시나리오 목록을 제공합니다. 이 연습에서는 클라우드 및 온-프레미스 도구와 서비스를 워크플로 또는 파이프라인에 결합하여 지능형 응용 프로그램을 만드는 방법을 설명합니다. 

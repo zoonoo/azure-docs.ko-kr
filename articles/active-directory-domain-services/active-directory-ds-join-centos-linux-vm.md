@@ -1,8 +1,8 @@
 ---
-title: "Azure Active Directory Domain Services: 관리되는 도메인에 CentOS VM 가입 | Microsoft Docs"
-description: "CentOS Linux 가상 머신을 Azure AD Domain Services에 가입"
+title: 'Azure Active Directory Domain Services: 관리되는 도메인에 CentOS VM 가입 | Microsoft Docs'
+description: CentOS Linux 가상 머신을 Azure AD Domain Services에 가입
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: maheshu
-ms.openlocfilehash: 9f3b6425f3c13080985fb168f46ea1f6be5d18ee
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: f7095e82605d12221ba7beb0c48fd3eda75a2e7b
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="join-a-centos-linux-virtual-machine-to-a-managed-domain"></a>CentOS Linux 가상 컴퓨터를 관리되는 도메인에 가입
 이 문서에서는 Azure에서 CentOS Linux 가상 머신을 Azure AD Domain Services 관리되는 도메인에 가입하는 방법을 보여 줍니다.
@@ -34,7 +34,7 @@ ms.lasthandoff: 02/01/2018
 
 ## <a name="provision-a-centos-linux-virtual-machine"></a>CentOS Linux 가상 머신 프로비전
 다음 방법 중 하나를 사용하여 Azure에서 CentOS 가상 머신을 프로비전합니다.
-* [Azure 포털](../virtual-machines/linux/quick-create-portal.md)
+* [Azure Portal](../virtual-machines/linux/quick-create-portal.md)
 * [Azure CLI](../virtual-machines/linux/quick-create-cli.md)
 * [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 
@@ -133,7 +133,7 @@ sudo vi /etc/hosts
 
 
 ## <a name="troubleshooting-domain-join"></a>도메인 가입 문제 해결
-[도메인 가입 문제 해결](active-directory-ds-admin-guide-join-windows-vm-portal.md#troubleshooting-domain-join) 문서를 참조하세요.
+[도메인 가입 문제 해결](active-directory-ds-admin-guide-join-windows-vm-portal.md#troubleshoot-joining-a-domain) 문서를 참조하세요.
 
 ## <a name="related-content"></a>관련 콘텐츠
 * [Azure AD 도메인 서비스 - 시작 가이드](active-directory-ds-getting-started.md)
