@@ -1,11 +1,11 @@
 ---
-title: "Azure Data Factory에서 Hadoop MapReduce 활동을 사용하여 데이터 변환 | Microsoft Docs"
-description: "Azure HDInsight 클러스터에서 Azure Data Factory의 Hadoop MapReduce 프로그램을 실행하여 데이터를 처리하는 방법을 알아봅니다."
+title: Azure Data Factory에서 Hadoop MapReduce 활동을 사용하여 데이터 변환 | Microsoft Docs
+description: Azure HDInsight 클러스터에서 Azure Data Factory의 Hadoop MapReduce 프로그램을 실행하여 데이터를 처리하는 방법을 알아봅니다.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: shengcmsft
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: shengc
-ms.openlocfilehash: c1fbb6864629874ef116cdf81d48df4a9ed5af1f
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 7c736f08e35f217be1ab7eef0a06ce418025973a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="transform-data-using-hadoop-mapreduce-activity-in-azure-data-factory"></a>Azure Data Factory에서 Hadoop MapReduce 활동을 사용하여 데이터 변환
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -69,16 +69,16 @@ HDInsight Pig 및 Hive를 사용하여 파이프라인에서 HDInsight 클러스
 | 자산          | 설명                              | 필수 |
 | ----------------- | ---------------------------------------- | -------- |
 | 이름              | 작업의 이름                     | 예      |
-| description       | 작업이 무엇에 사용되는지 설명하는 텍스트입니다. | 아니요       |
+| description       | 작업이 무엇에 사용되는지 설명하는 텍스트입니다. | 아니오       |
 | 형식              | MapReduce 작업의 경우 작업 유형은 HDinsightMapReduce입니다. | 예      |
 | linkedServiceName | Data Factory에서 연결된 서비스로 등록된 HDInsight 클러스터에 대한 참조입니다. 이 연결된 서비스에 대한 자세한 내용은 [연결된 Compute Services](compute-linked-services.md) 문서를 참조하세요. | 예      |
 | className         | 실행할 클래스의 이름         | 예      |
-| jarLinkedService  | Jar 파일을 저장하는 데 사용되는 Azure Storage 연결된 서비스에 대한 참조입니다. 이 연결된 서비스를 지정하지 않으면 HDInsight 연결된 서비스에 정의된 Azure Storage 연결된 서비스가 사용됩니다. | 아니요       |
+| jarLinkedService  | Jar 파일을 저장하는 데 사용되는 Azure Storage 연결된 서비스에 대한 참조입니다. 이 연결된 서비스를 지정하지 않으면 HDInsight 연결된 서비스에 정의된 Azure Storage 연결된 서비스가 사용됩니다. | 아니오       |
 | jarFilePath        | jarLinkedService에서 참조하는 Azure Storage에 저장된 Jar 파일의 경로를 제공합니다. 파일 이름은 대/소문자를 구분합니다. | 예      |
 | jarlibs           | jarLinkedService에 정의된 Azure Storage에 저장된 작업에서 참조하는 Jar 라이브러리 파일의 경로에 대한 문자열의 배열입니다. 파일 이름은 대/소문자를 구분합니다. | 아니오       |
 | getDebugInfo      | jarLinkedService에 지정되었거나 HDInsight 클러스터에 사용된 Azure Storage에 로그 파일을 언제 복사할지 지정합니다. 허용되는 값: None, Always 또는 Failure. 기본값: None. | 아니오       |
-| arguments         | Hadoop 작업에 대한 인수 배열을 지정합니다. 인수는 각 작업에 대한 명령줄 인수로 전달됩니다. | 아니요       |
-| defines           | Hive 스크립트 내에서 참조하기 위해 매개 변수를 키/값 쌍으로 지정합니다. | 아니오       |
+| arguments         | Hadoop 작업에 대한 인수 배열을 지정합니다. 인수는 각 작업에 대한 명령줄 인수로 전달됩니다. | 아니오       |
+| defines           | Hive 스크립트 내에서 참조하기 위해 매개 변수를 키/값 쌍으로 지정합니다. | 아니요       |
 
 
 

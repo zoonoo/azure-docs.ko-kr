@@ -1,24 +1,24 @@
 ---
-title: "Azure에서 Linux VM 모니터링 | Microsoft Docs"
-description: "Azure에서 Linux 가상 컴퓨터에 대한 모니터링 옵션에 대해 알아봅니다."
+title: Azure에서 Linux VM 모니터링 | Microsoft Docs
+description: Azure에서 Linux 가상 머신에 대한 모니터링 옵션에 대해 알아봅니다.
 services: virtual-machines-linux
-documentationcenter: 
-author: davidmu1
-manager: timlt
-editor: tysonn
+documentationcenter: ''
+author: iainfoulds
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.date: 08/14/2017
-ms.author: davidmu
-ms.openlocfilehash: 30b9088208b5304565de1968b26af3789c28a3ea
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: iainfou
+ms.openlocfilehash: 63734f3d4d84de0049bbf7f233b8b296dcc3de81
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="how-to-monitor-virtual-machines-in-azure"></a>Azure에서 가상 컴퓨터를 모니터링하는 방법
+# <a name="how-to-monitor-virtual-machines-in-azure"></a>Azure에서 가상 머신을 모니터링하는 방법
 
 [!INCLUDE [virtual-machines-monitor](../../../includes/virtual-machines-monitor.md)]

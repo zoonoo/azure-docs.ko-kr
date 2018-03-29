@@ -1,11 +1,10 @@
 ---
-title: "Azure Data Factory에서 Azure-SSIS 통합 런타임 만들기 | Microsoft Docs"
-description: "Azure-SSIS 통합 런타임을 만들어 Azure Cloud에서 SSIS 패키지를 실행할 수 있는 방법을 배웁니다."
+title: Azure Data Factory에서 Azure-SSIS 통합 런타임 만들기 | Microsoft Docs
+description: Azure-SSIS 통합 런타임을 만들어 Azure Cloud에서 SSIS 패키지를 실행할 수 있는 방법을 배웁니다.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: douglaslMS
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: douglasl
-ms.openlocfilehash: 879489dffbf713b5fadb72a58638e462938aaf26
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: dc4c690633d14163eddfa70e8417a645f95a0861
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-an-azure-ssis-integration-runtime-in-azure-data-factory"></a>Azure Data Factory에서 Azure Integration Runtime 만들기 | Microsoft Docs
 이 문서에서는 Azure Data Factory에서 Azure-SSIS 통합 런타임을 프로비전하는 단계를 제공합니다. 그런 다음 SSDT(SQL Server Data Tools) 또는 SSMS(SQL Server Management Studio)를 사용하여 Azure에서 이 런타임에 SSIS(SQL Server Integration Services) 패키지를 배포할 수 있습니다.
@@ -34,7 +33,7 @@ ms.lasthandoff: 02/28/2018
 ## <a name="overview"></a>개요
 이 문서에서는 Azure-SSIS IR을 프로비전하는 다양한 방법을 보여 줍니다.
 
-- [Azure 포털](#azure-portal)
+- [Azure Portal](#azure-portal)
 - [Azure PowerShell](#azure-powershell)
 - [Azure Resource Manager 템플릿](#azure-resource-manager-template)
 

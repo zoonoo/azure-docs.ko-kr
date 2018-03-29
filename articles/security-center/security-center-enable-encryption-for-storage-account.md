@@ -1,12 +1,12 @@
 ---
-title: "Azure Security Center에서 저장소 계정에 암호화 사용 | Microsoft Docs"
-description: "이 문서에서는 Azure Security Center 권장 사항 **Azure Storage 계정에 암호화 사용**을 구현하는 방법을 보여 줍니다."
+title: Azure Security Center에서 저장소 계정에 암호화 사용 | Microsoft Docs
+description: 이 문서에서는 Azure Security Center 권장 사항 **Azure Storage 계정에 암호화 사용**을 구현하는 방법을 보여 줍니다.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: security-center
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/20/2016
 ms.author: terrylan
-ms.openlocfilehash: b7b2e8a12cbab68da9c8fcc348e8e3c543607007
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 82bb201c0b518d0b45e06a1eb25d54f60cb3e028
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="enable-encryption-for-azure-storage-account-in-azure-security-center"></a>Azure Security Center에서 Azure Storage 계정에 암호화 사용
 Azure Security Center에서는 미사용 데이터에 대한 Azure Storage 서비스 암호화를 사용하도록 권장합니다.
@@ -27,7 +27,7 @@ SSE(Storage 서비스 암호화)는 Azure Storage에 기록되는 데이터를 �
 
 
 > [!Note]
-> 암호화를 사용하도록 설정하면 새 데이터만 암호화됩니다. 저장소 계정의 모든 기존 blob은 암호화되지 않은 상태로 유지됩니다. 기존 blob을 암호화하려면 [Storage 서비스 암호화 FAQ](../storage/common/storage-service-encryption.md#frequently-asked-questions-about-storage-service-encryption-for-data-at-rest)를 참조하세요.
+> 암호화를 사용하도록 설정하면 새 데이터만 암호화됩니다. 저장소 계정의 모든 기존 blob은 암호화되지 않은 상태로 유지됩니다. 기존 blob을 암호화하려면 [Storage 서비스 암호화 FAQ](../storage/common/storage-service-encryption.md#faq-for-storage-service-encryption)를 참조하세요.
 >
 >
 
@@ -53,7 +53,7 @@ Storage 서비스 암호화는 Resource Manager 저장소 계정에만 지원됩
 ## <a name="see-also"></a>참고 항목
 이 문서에서는 Security Center 권장 사항 "Azure Storage 계정에 암호화 사용"을 구현하는 방법을 보여 줍니다. Azure Storage 서비스 암호화에 대한 자세한 내용은 다음을 참조하세요.
 
-* [휴지 상태의 데이터에 대한 Azure 저장소 서비스 암호화](../storage/common/storage-service-encryption.md)
+* [휴지 상태의 데이터에 대한 Azure Storage 서비스 암호화](../storage/common/storage-service-encryption.md)
 
 보안 센터에 대한 자세한 내용은 다음을 참조하세요.
 

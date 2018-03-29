@@ -1,11 +1,11 @@
 ---
-title: "Azure Data Factory에서 조회 작업 | Microsoft Docs"
-description: "조회 작업을 사용하여 외부 소스의 값을 조회하는 방법을 배웁니다. 이 출력을 다음 작업에서 추가로 참조할 수 있습니다."
+title: Azure Data Factory에서 조회 작업 | Microsoft Docs
+description: 조회 작업을 사용하여 외부 소스의 값을 조회하는 방법을 배웁니다. 이 출력을 다음 작업에서 추가로 참조할 수 있습니다.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: 
+manager: craigg
+editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 2f551e97b833460c7c4ccd276b0df1dae562c03b
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: f55e85bb424f4f5973fd6d633b6adf9fbca4d0ef
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Azure Data Factory에서 조회 작업
 조회 작업을 사용하여 외부 소스의 레코드, 테이블 이름 또는 값을 읽거나 조회할 수 있습니다. 이 출력을 다음 작업에서 추가로 참조할 수 있습니다. 
@@ -60,7 +60,7 @@ ms.lasthandoff: 03/02/2018
 ```
 
 ## <a name="type-properties"></a>형식 속성
-Name | 설명 | 형식 | Required?
+Name | 설명 | 유형 | Required?
 ---- | ----------- | ---- | --------
 dataset | 조회를 위한 데이터 집합 참조를 제공합니다. 현재 지원되는 데이터 집합 형식은 다음과 같습니다.<ul><li>원본으로 사용되는 [Azure Blob Storage](connector-azure-blob-storage.md#dataset-properties)에 대한 `AzureBlobDataset`</li><li>원본으로 사용되는 [파일 시스템](connector-file-system.md#dataset-properties)에 대한 `FileShareDataset`</li><li>원본으로 사용되는 [Azure SQL Database](connector-azure-sql-database.md#dataset-properties) 또는 [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md#dataset-properties)에 대한 `AzureSqlTableDataset`</li><li>원본으로 사용되는 [SQL Server](connector-sql-server.md#dataset-properties)에 대한 `SqlServerTable`</li><li>원본으로 사용되는 [Azure Table Storage](connector-azure-table-storage.md#dataset-properties)에 대한 `AzureTableDataset`</li> | 키/값 쌍 | 예
 원본 | 복사 작업 원본과 동일한 데이터 집합 관련 원본 속성을 포함하고 있습니다. 자세한 내용은 해당하는 각 커넥터 문서의 "복사 작업 속성" 섹션에서 확인하세요. | 키/값 쌍 | 예

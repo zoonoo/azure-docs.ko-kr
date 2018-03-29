@@ -1,11 +1,12 @@
 ---
-title: "기계 학습 예제에서 실험 만들기 - Azure | Microsoft Docs"
-description: "기계 학습 실험 예제를 사용하여 Azure AI Gallery 및 Microsoft Azure Machine Learning을 통해 새 실험을 만드는 방법에 대해 알아봅니다."
-keywords: "기계 학습 예제, 샘플 실험, 기계 학습 샘플, AI 예제"
+title: 기계 학습 예제에서 실험 만들기 - Azure | Microsoft Docs
+description: 기계 학습 실험 예제를 사용하여 Azure AI Gallery 및 Microsoft Azure Machine Learning을 통해 새 실험을 만드는 방법에 대해 알아봅니다.
+keywords: 기계 학습 예제, 샘플 실험, 기계 학습 샘플, AI 예제
 services: machine-learning
-documentationcenter: 
-author: cjgronlund
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: 81e6c1d8-682c-4db3-bfd5-d7bfb1150ff3
 ms.service: machine-learning
@@ -14,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/05/2018
-ms.author: cgronlun
-ms.openlocfilehash: 9ea19f137acb23d3527315aae2624c746e138545
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 7cb5c869e4523333ce0651559632070e5a19163c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-machine-learning-experiments-from-working-examples-in-azure-ai-gallery"></a>Azure AI Gallery의 작업 예제에서 기계 학습 실험 만들기
 

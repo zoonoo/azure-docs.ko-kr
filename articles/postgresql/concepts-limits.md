@@ -1,6 +1,6 @@
 ---
-title: "PostgreSQL용 Azure 데이터베이스의 제한 사항"
-description: "이 문서는 Azure Database for PostgreSQL에 대한 연결 수 및 저장소 엔진 옵션과 같은 제한 사항을 설명합니다."
+title: PostgreSQL용 Azure 데이터베이스의 제한 사항
+description: 이 문서는 Azure Database for PostgreSQL에 대한 연결 수 및 저장소 엔진 옵션과 같은 제한 사항을 설명합니다.
 services: postgresql
 author: kamathsun
 ms.author: sukamat
@@ -8,15 +8,15 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: ba05308039e9743dd207333476e61a45c0ca166a
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.date: 03/20/2018
+ms.openlocfilehash: 7e06cdba7c9c9f7e5c1d621e7421a18c342c0fdb
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>PostgreSQL용 Azure 데이터베이스의 제한 사항
-PostgreSQL용 Azure 데이터베이스 서비스는 공개 미리 보기 상태입니다. 다음 섹션에서는 데이터베이스 서비스의 용량 및 기능 제한에 대해 설명합니다.
+다음 섹션에서는 데이터베이스 서비스의 용량 및 기능 제한에 대해 설명합니다.
 
 ## <a name="pricing-tier-maximums"></a>가격 책정 계층 최댓값
 Azure Database for PostgreSQL에는 서버를 만들 때 선택할 수 있는 가격 책정 계층이 여러 개 있습니다. 자세한 내용은 [Azure Database for PostgreSQL의 가격 책정 계층](concepts-pricing-tiers.md)을 참조하세요.  
@@ -43,7 +43,6 @@ Azure Database for PostgreSQL에는 서버를 만들 때 선택할 수 있는 �
 |메모리 최적화| 5세대| 4| 250|
 |메모리 최적화| 5세대| 8| 480|
 |메모리 최적화| 5세대| 16| 950|
-|메모리 최적화| 5세대| 32| 1900|
 
 연결 한도를 초과하면 다음과 같은 오류가 발생할 수 있습니다.
 > 오류: 너무 많은 클라이언트가 이미 연결되어 있습니다.

@@ -1,19 +1,20 @@
 ---
-title: "Azure Active Directory B2C를 사용하여 ASP.NET 웹 API 보호"
-description: "Active Directory B2C를 사용하여 ASP.NET 웹 API를 보호하고 ASP.NET 웹앱에서 호출하는 방법에 대한 자습서입니다."
+title: Azure Active Directory B2C를 사용하여 ASP.NET 웹 API 보호
+description: Active Directory B2C를 사용하여 ASP.NET 웹 API를 보호하고 ASP.NET 웹앱에서 호출하는 방법에 대한 자습서입니다.
 services: active-directory-b2c
-author: PatAltimore
-ms.author: patricka
-ms.reviewer: saraford
+author: davidmu1
+manager: mtillman
+editor: ''
+ms.author: davidmu
 ms.date: 1/23/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory-b2c
-ms.openlocfilehash: 0e9f324cec0d242c013a461d8580abd4faa97c8d
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: f4e1c18f151a9c815258f01ea198d3d173d0b44e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="tutorial-use-azure-active-directory-b2c-to-protect-an-aspnet-web-api"></a>자습서: Azure Active Directory B2C를 사용하여 ASP.NET 웹 API 보호
 
@@ -57,7 +58,7 @@ Azure AD B2C 테넌트의 전역 관리자로 [Azure Portal](https://portal.azur
     | **암시적 흐름 허용** | 예 | API에서 [OpenID Connect 로그인](active-directory-b2c-reference-oidc.md)을 사용하므로 **예**를 선택합니다. |
     | **회신 URL** | `https://localhost:44332` | 회신 URL은 Azure AD B2C에서 API가 요청한 토큰을 반환하는 엔드포인트입니다. 이 자습서에서는 샘플 웹 API가 로컬(로컬 호스트)에서 실행되고 44332 포트에서 수신 대기합니다. |
     | **앱 ID URI** | myAPISample | URI는 테넌트에서 API를 고유하게 식별합니다. 이 설정을 사용하면 테넌트별로 여러 API를 등록할 수 있습니다. [범위](../active-directory/develop/active-directory-dev-glossary.md#scopes)는 보호된 API 리소스에 대한 액세스를 제어하고 앱 ID URI별로 정의됩니다. |
-    | **네이티브 클라이언트** | 아니요 | 이는 웹 API이지만 기본 클라이언트가 아니기 때문에 [아니요]를 선택합니다. |
+    | **네이티브 클라이언트** | 아니오 | 이는 웹 API이지만 기본 클라이언트가 아니기 때문에 [아니요]를 선택합니다. |
     
 3. **만들기**를 클릭하여 API를 등록합니다.
 

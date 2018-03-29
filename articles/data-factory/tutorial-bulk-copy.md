@@ -1,11 +1,11 @@
 ---
-title: "Azure Data Factory를 사용하여 데이터 대량 복사 | Microsoft Docs"
-description: "Azure Data Factory 및 복사 작업을 사용하여 원본 데이터 저장소에서 대상 데이터 저장소로 데이터를 대량으로 복사하는 방법을 알아봅니다."
+title: Azure Data Factory를 사용하여 데이터 대량 복사 | Microsoft Docs
+description: Azure Data Factory 및 복사 작업을 사용하여 원본 데이터 저장소에서 대상 데이터 저장소로 데이터를 대량으로 복사하는 방법을 알아봅니다.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 96a5caca1f00b46330c839ef3380d58cf9913ad5
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 65c40885a8dde2e07deb2a4f94a3dc6a05ef78d0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 여러 테이블 대량 복사
 이 자습서에서는 **Azure SQL Database에서 Azure SQL Data Warehouse로 여러 테이블을 복사**하는 방법을 보여 줍니다. 다른 복사 시나리오에도 동일한 패턴을 적용할 수 있습니다. 예를 들어 SQL Server/Oracle에서 Azure SQL Database/Data Warehouse/Azure Blob으로 테이블을 복사하고, Blob에서 Azure SQL Database 테이블로 다른 경로를 복사합니다.
@@ -28,7 +28,7 @@ ms.lasthandoff: 02/21/2018
 이 자습서에서 수행하는 단계는 대략적으로 다음과 같습니다.
 
 > [!div class="checklist"]
-> * 데이터 팩터리 만들기
+> * 데이터 팩터리를 만듭니다.
 > * Azure SQL Database, Azure SQL Data Warehouse 및 Azure Storage 연결된 서비스를 만듭니다.
 > * Azure SQL Database 및 Azure SQL Data Warehouse 데이터 집합을 만듭니다.
 > * 복사할 테이블을 조회하는 파이프라인을 만들고, 실제 복사 작업을 수행하는 다른 파이프라인을 만듭니다. 
@@ -587,7 +587,7 @@ SQL Database와 SQL Data Warehouse 모두에서 Azure 서비스를 통해 SQL �
 이 자습서에서 다음 단계를 수행했습니다. 
 
 > [!div class="checklist"]
-> * 데이터 팩터리 만들기
+> * 데이터 팩터리를 만듭니다.
 > * Azure SQL Database, Azure SQL Data Warehouse 및 Azure Storage 연결된 서비스를 만듭니다.
 > * Azure SQL Database 및 Azure SQL Data Warehouse 데이터 집합을 만듭니다.
 > * 복사할 테이블을 조회하는 파이프라인을 만들고, 실제 복사 작업을 수행하는 다른 파이프라인을 만듭니다. 

@@ -1,11 +1,11 @@
 ---
-title: "Windows Virtual Machines 개요 | Microsoft Docs"
-description: "Azure에서 Windows 가상 머신 만들기 및 관리에 대해 알아봅니다."
+title: Windows Virtual Machines 개요 | Microsoft Docs
+description: Azure에서 Windows 가상 머신 만들기 및 관리에 대해 알아봅니다.
 services: virtual-machines-windows
-documentationcenter: 
-author: davidmu1
-manager: timlt
-editor: tysonn
+documentationcenter: ''
+author: iainfoulds
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: fbae9c8e-2341-4ed0-bb20-fd4debb2f9ca
 ms.service: virtual-machines-windows
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
-ms.author: davidmu
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 4e33186b189394172cba6cf550c01954db941c19
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 6ab964760ea06c2e82d0c9f69f89fe62dec8ceac
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Azure에서의 Windows 가상 머신 개요
 
@@ -145,7 +145,7 @@ Azure 포털의 연결 단추를 사용하여 [RDP(원격 데스크톱) 세션�
 ### <a name="manage-availability"></a>가용성 관리
 응용 프로그램의 [높은 가용성을 보장](manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)하는 방법을 이해하는 것이 중요합니다. 이렇게 구성하면 여러 VM을 만들어 하나 이상 실행되도록 합니다.
 
-99.95 VM SLA(서비스 수준 계약)에 적합한 배포가 되도록 [가용성 집합](tutorial-availability-sets.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 내에서 워크로드를 실행하는 VM을 둘 이상 배포해야 합니다. 이렇게 구성하면 VM이 여러 오류 도메인 간에 분산되고, 다양한 유지 관리 창을 사용하는 호스트에 배포됩니다. 전체 [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/)는 Azure의 보장된 가용성에 대해 전반적으로 설명합니다.
+99.95 VM SLA(서비스 수준 계약)에 적합한 배포가 되도록 [가용성 집합](tutorial-availability-sets.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 내에서 워크로드를 실행하는 VM을 둘 이상 배포해야 합니다. 이렇게 구성하면 VM이 여러 오류 도메인 간에 분산되고, 다양한 유지 관리 창을 사용하는 호스트에 배포됩니다. 전체 [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/)는 Azure의 보장된 가용성에 대해 전반적으로 설명합니다.
 
 ### <a name="back-up-the-vm"></a>VM 백업
 [Recovery Services 자격 증명 모음](../../backup/backup-introduction-to-azure-backup.md)은 Azure Backup 및 Azure Site Recovery 서비스 모두에서 데이터와 자산을 보호하는 데 사용됩니다. Recovery Services 자격 증명 모음을 사용하면 [PowerShell을 통해 Resource Manager 배포 VM에 대한 백업을 배포하고 관리할 수 있습니다](../../backup/backup-azure-vms-automation.md). 

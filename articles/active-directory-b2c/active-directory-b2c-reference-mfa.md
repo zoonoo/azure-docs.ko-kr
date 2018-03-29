@@ -1,24 +1,21 @@
 ---
 title: 'Azure Active Directory B2C: Multi-Factor Authentication | Microsoft Docs'
-description: "Azure Active Directory B2C에서 보호하는 소비자 지향 응용 프로그램에서 Multi-Factor Authentication을 사용하는 방법"
+description: Azure Active Directory B2C에서 보호하는 소비자 지향 응용 프로그램에서 Multi-Factor Authentication을 사용하는 방법
 services: active-directory-b2c
-documentationcenter: 
-author: swkrish
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: bryanla
-ms.assetid: 53ef86c4-1586-45dc-9952-dbbd62f68afc
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
-ms.author: swkrish
-ms.openlocfilehash: 8fc6c43a0197c203cda5b2200e0a5c01258d1613
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: 0f560a02a51239cff0a7d4057ec7beb2f0f5c5c5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-enable-multi-factor-authentication-in-your-consumer-facing-applications"></a>Azure Active Directory B2C: 소비자 지향 응용 프로그램에서 Multi-Factor Authentication 사용
 Azure Active Directory(Azure AD) B2C는 [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md) 에 직접 통합하여 소비자 지향 응용 프로그램에서 등록 및 로그인하는 데 두 번째 보안 계층을 추가할 수 있습니다. 이 작업을 한 줄의 코드도 작성하지 않고 수행할 수 있습니다. 현재 전화 통화 및 문자 메시지를 확인을 지원합니다. 이미 등록 및 로그인 정책을 만든 경우에도 다단계 인증을 사용할 수 있습니다.
@@ -47,7 +44,7 @@ Azure Active Directory(Azure AD) B2C는 [Azure Multi-Factor Authentication](../m
 ## <a name="modify-your-sign-in-policy-to-enable-multi-factor-authentication"></a>다단계 인증을 사용하도록 로그인 정책 수정
 1. [다음 단계에 따라 Azure 포털의 B2C 기능 블레이드로 이동합니다](active-directory-b2c-app-registration.md#navigate-to-b2c-settings).
 2. **로그인 정책**을 클릭합니다.
-3. 사용자의 로그인 정책(예: "B2C_1_SiUp")을 클릭하여 엽니다. 블레이드 위쪽에서 **편집** 을 클릭합니다.
+3. 사용자의 로그인 정책(예: "B2C_1_SiUp")을 클릭하여 엽니다. 블레이드 위쪽에서 **편집**을 클릭합니다.
 4. **Multi-Factor Authentication**을 클릭하고 **상태**를 **켜기**로 바꿉니다. **확인**을 클릭합니다.
 5. 블레이드 위쪽에서 **저장**을 클릭합니다.
 

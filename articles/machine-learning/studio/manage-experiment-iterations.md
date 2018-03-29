@@ -1,10 +1,11 @@
 ---
-title: "Machine Learning 스튜디오에서 반복 실험 관리 | Microsoft Docs"
-description: "Azure 기계 학습 스튜디오에서 반복 실험을 관리하는 방법"
+title: Machine Learning 스튜디오에서 반복 실험 관리 | Microsoft Docs
+description: Azure Machine Learning Studio에서 반복 실험을 관리하는 방법
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: 6a53530f-20d5-40ae-9b49-7b499ccb44b7
 ms.service: machine-learning
@@ -13,22 +14,21 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.author: garye
-ms.openlocfilehash: 062620f2174ecc93c1deb816069e32152dbef636
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c5419eed1de50c29cf6e5bcaf7070c48d7a335ae
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="manage-experiment-iterations-in-azure-machine-learning-studio"></a>Azure 기계 학습 스튜디오에서 반복 실험 관리
+# <a name="manage-experiment-iterations-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio에서 반복 실험 관리
 예측 분석 모델을 개발하는 과정은 반복 프로세스이며, 실험의 다양한 함수와 해당 매개 변수를 수정할 때 학습된 효과적인 모델을 마련했다고 만족할 때까지 결과가 수렴됩니다. 이 프로세스의 핵심은 다양하게 반복되는 실험 매개 변수와 구성을 추적하는 것입니다.
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
-이전 가정에 도전하고 다시 수행하여 궁극적으로 이전 가정을 확인하거나 세분화하기 위해 언제든 이전에 실행된 실험을 검토할 수 있습니다. 실험을 실행하면 기계 학습 스튜디오에서 데이터 집합, 모듈, 포트 연결 및 매개 변수를 포함하여 실행의 기록을 유지합니다. 이 기록은 시작 및 종료 시간, 로그 메시지 및 실행 상태와 같은 결과, 런타임 정보도 파악합니다. 언제든 이러한 실행을 다시 확인하여 실험과 중간 결과를 연대순으로 검토할 수 있습니다. 이전에 실행한 실험을 사용하여 간단하거나 복잡한 모델링 솔루션 또는 앙상블 모델링 솔루션을 만드는 과정에서 조회하고 검색하는 새로운 단계를 시작할 수도 있습니다.
+이전 가정에 도전하고 다시 수행하여 궁극적으로 이전 가정을 확인하거나 세분화하기 위해 언제든 이전에 실행된 실험을 검토할 수 있습니다. 실험을 실행하면 Machine Learning Studio에서 데이터 집합, 모듈, 포트 연결 및 매개 변수를 포함하여 실행의 기록을 유지합니다. 이 기록은 시작 및 종료 시간, 로그 메시지 및 실행 상태와 같은 결과, 런타임 정보도 파악합니다. 언제든 이러한 실행을 다시 확인하여 실험과 중간 결과를 연대순으로 검토할 수 있습니다. 이전에 실행한 실험을 사용하여 간단하거나 복잡한 모델링 솔루션 또는 앙상블 모델링 솔루션을 만드는 과정에서 조회하고 검색하는 새로운 단계를 시작할 수도 있습니다.
 
 > [!NOTE]
-> 이전에 실행한 실험을 볼 때, 해당 버전의 실험은 잠겨 있으며 편집할 수 없습니다. 그러나 **다른 이름으로 저장** 을 클릭하고 사본의 새 이름을 제공하여 사본을 저장할 수 있습니다. 기계 학습 스튜디오에서 사용자가 편집하여 실행할 수 있는 새로운 사본을 엽니다. 이 실험의 사본은 다른 모든 실험과 함께 **실험** 목록에서 사용할 수 있습니다.
+> 이전에 실행한 실험을 볼 때, 해당 버전의 실험은 잠겨 있으며 편집할 수 없습니다. 그러나 **다른 이름으로 저장** 을 클릭하고 사본의 새 이름을 제공하여 사본을 저장할 수 있습니다. Machine Learning Studio에서 사용자가 편집하여 실행할 수 있는 새로운 사본을 엽니다. 이 실험의 사본은 다른 모든 실험과 함께 **실험** 목록에서 사용할 수 있습니다.
 > 
 > 
 
@@ -60,12 +60,12 @@ ms.lasthandoff: 10/11/2017
 > 
 > 
 
-기계 학습 스튜디오의 **실험** 탭에 있는 실험 목록은 항상 실험의 최신 버전을 표시합니다. **이전 실행** 또는 **실행 기록 보기**를 사용하여 이전에 실행된 실험을 열면, **실행 기록 보기**를 클릭하고 **상태**가 **편집 가능**인 반복을 선택하여 초안 버전으로 돌아갈 수 있습니다.
+Machine Learning Studio의 **실험** 탭에 있는 실험 목록은 항상 실험의 최신 버전을 표시합니다. **이전 실행** 또는 **실행 기록 보기**를 사용하여 이전에 실행된 실험을 열면, **실행 기록 보기**를 클릭하고 **상태**가 **편집 가능**인 반복을 선택하여 초안 버전으로 돌아갈 수 있습니다.
 
 ## <a name="iterating-on-a-previous-run"></a>이전 실행 반복
 **이전 실행** 또는 **실행 기록 보기**를 클릭하고 이전 실행을 열면 읽기 전용 모드로 완료된 실험을 볼 수 있습니다.
 
-이전 실행을 위해 실험을 구성한 방식으로 실험 반복을 시작하려면 실행을 열고 **다른 이름으로 저장**을 클릭하여 수행할 수 있습니다. 그러면 실행 기록이 비어 있으며 이전 실행의 모든 구성 요소와 매개 변수 값을 사용하는 새로운 제목의 새 실험이 생성됩니다. 이 새 실험은 기계 학습 스튜디오 홈 페이지의 **실험** 탭에 나열되므로, 사용자가 수정하고 실행하여 이 반복 실험의 새로운 실행 기록을 시작할 수 있습니다. 
+이전 실행을 위해 실험을 구성한 방식으로 실험 반복을 시작하려면 실행을 열고 **다른 이름으로 저장**을 클릭하여 수행할 수 있습니다. 그러면 실행 기록이 비어 있으며 이전 실행의 모든 구성 요소와 매개 변수 값을 사용하는 새로운 제목의 새 실험이 생성됩니다. 이 새 실험은 Machine Learning Studio 홈 페이지의 **실험** 탭에 나열되므로, 사용자가 수정하고 실행하여 이 반복 실험의 새로운 실행 기록을 시작할 수 있습니다. 
 
 예를 들어, 이전 섹션에 표시된 실험 실행 기록이 있다고 가정합니다. **학습 속도** 매개 변수를 0.4로 설정하면 어떻게 되는지 관찰하고 **학습 epoch 수** 매개 변수에 다른 값을 사용해 보려고 합니다.
 

@@ -1,11 +1,11 @@
 ---
-title: "Data Factory를 사용하여 Azure Table 저장소 간 데이터 복사 | Microsoft Docs"
-description: "Data Factory를 사용하여 지원되는 원본 저장소에서 Azure Table 저장소로 데이터를 복사하거나, Table 저장소에서 지원되는 싱크 저장소로 데이터를 복사하는 방법을 알아봅니다."
+title: Data Factory를 사용하여 Azure Table 저장소 간 데이터 복사 | Microsoft Docs
+description: Data Factory를 사용하여 지원되는 원본 저장소에서 Azure Table 저장소로 데이터를 복사하거나, Table 저장소에서 지원되는 싱크 저장소로 데이터를 복사하는 방법을 알아봅니다.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 41e2117e14f336d33f5d6f4e1f446e32a6886079
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: ef43037ff33b693256c82459eec2e4b3beab4d9a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-to-and-from-azure-table-storage-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Table 저장소 간 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -50,7 +50,7 @@ ms.lasthandoff: 02/09/2018
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | 형식 | type 속성은 **AzureStorage**로 설정해야 합니다. |예 |
-| connectionString | connectionString 속성에 대한 Storage에 연결하는 데 필요한 정보를 지정합니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 암호를 참조](store-credentials-in-key-vault.md)합니다. |예 |
+| connectionString | connectionString 속성에 대한 Storage에 연결하는 데 필요한 정보를 지정합니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. |예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 Integration Runtime을 사용할 수 있습니다(데이터 저장소가 개인 네트워크에 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아니요 |
 
 **예제:**
@@ -93,7 +93,7 @@ ms.lasthandoff: 02/09/2018
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | 형식 | type 속성은 **AzureStorage**로 설정해야 합니다. |예 |
-| sasUri | Blob, 컨테이너 또는 테이블과 같은 Storage 리소스에 대한 공유 액세스 서명 URI를 지정합니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 암호를 참조](store-credentials-in-key-vault.md)합니다. |예 |
+| sasUri | Blob, 컨테이너 또는 테이블과 같은 Storage 리소스에 대한 공유 액세스 서명 URI를 지정합니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. |예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 Integration Runtime(데이터 저장소가 사설망에 있는 경우)을 사용할 수 있습니다. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아니오 |
 
 **예제:**
@@ -174,7 +174,7 @@ Azure Table에서 데이터를 복사하려면 복사 작업의 원본 형식을
 |:--- |:--- |:--- |
 | 형식 | 복사 활동 source의 type 속성은 **AzureTableSource**로 설정해야 합니다. |예 |
 | AzureTableSourceQuery |사용자 지정 Table 저장소 쿼리를 사용하여 데이터를 읽습니다. 다음 섹션의 예제를 참조하세요. |아니오 |
-| azureTableSourceIgnoreTableNotFound |테이블의 예외가 존재하지 않도록 허용할지 여부를 나타냅니다.<br/>허용되는 값은 **True** 및 **False**(기본값)입니다. |아니요 |
+| azureTableSourceIgnoreTableNotFound |테이블의 예외가 존재하지 않도록 허용할지 여부를 나타냅니다.<br/>허용되는 값은 **True** 및 **False**(기본값)입니다. |아니오 |
 
 ### <a name="azuretablesourcequery-examples"></a>azureTableSourceQuery 예제
 
@@ -199,9 +199,9 @@ Azure 테이블로 데이터를 복사하려면 복사 작업의 싱크 형식�
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | 형식 | 복사 활동 sink의 type 속성은 **AzureTableSink**로 설정해야 합니다. |예 |
-| azureTableDefaultPartitionKeyValue |싱크에서 사용할 수 있는 기본 파티션 키 값입니다. |아니요 |
+| azureTableDefaultPartitionKeyValue |싱크에서 사용할 수 있는 기본 파티션 키 값입니다. |아니오 |
 | azureTablePartitionKeyName |값이 파티션 키로 사용되는 열의 이름을 지정합니다. 지정하지 않으면 "AzureTableDefaultPartitionKeyValue"가 파티션 키로 사용됩니다. |아니오 |
-| azureTableRowKeyName |열 값이 행 키로 사용되는 열의 이름을 지정합니다. 지정하지 않으면 각 행에 GUID를 사용합니다. |아니요 |
+| azureTableRowKeyName |열 값이 행 키로 사용되는 열의 이름을 지정합니다. 지정하지 않으면 각 행에 GUID를 사용합니다. |아니오 |
 | azureTableInsertType |Azure Table에 데이터를 삽입하는 모드입니다. 이 속성은 출력 테이블에서 파티션 및 행 키가 일치하는 기존 행의 값을 바꿀지 또는 병합할지 제어합니다. <br/><br/>허용되는 값은 **merge**(기본값) 및 **replace**입니다. <br/><br> 이 설정은 테이블 수준이 아닌 행 수준에 적용됩니다. 두 옵션 모두 출력 테이블에서 입력에 존재하지 않는 행을 삭제하지 않습니다. merge 및 replace 설정이 작동하는 방법을 알아보려면 [Insert Or Merge Entity](https://msdn.microsoft.com/library/azure/hh452241.aspx)(엔터티 삽입 또는 병합) 및 [Insert Or Replace Entity](https://msdn.microsoft.com/library/azure/hh452242.aspx)(엔터티 삽입 또는 바꾸기)를 참조하세요. |아니요 |
 | writeBatchSize |writeBatchSize 또는 writeBatchTimeout에 도달하면 Azure Table에 데이터를 삽입합니다.<br/>허용되는 값은 정수(행 수)입니다. |아니요(기본값: 10,000) |
 | writeBatchTimeout |writeBatchSize 또는 writeBatchTimeout에 도달하면 Azure Table에 데이터를 삽입합니다.<br/>허용되는 값은 시간 범위입니다. 예를 들어 "00:20:00"(20 분)입니다. |아니요(기본값: 90초 - 저장소 클라이언트의 기본 시간 제한) |

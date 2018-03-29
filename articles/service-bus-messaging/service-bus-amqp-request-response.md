@@ -1,12 +1,12 @@
 ---
-title: "Azure Service Bus 요청-응답 기간 작업에서 AMQP 1.0 | Microsoft Docs"
-description: "Microsoft Azure Service Bus 요청/응답 기반 작업 목록입니다."
+title: Azure Service Bus 요청-응답 기간 작업에서 AMQP 1.0 | Microsoft Docs
+description: Microsoft Azure Service Bus 요청/응답 기반 작업 목록입니다.
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/22/2018
 ms.author: sethm
 ms.openlocfilehash: d72a4de8591898a55e4225ace154fd5ed53e6f91
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="amqp-10-in-microsoft-azure-service-bus-request-response-based-operations"></a>Microsoft Azure Service Bus에서 AMQP 1.0: Microsoft Azure Service Bus 요청/응답 기반 작업
 
@@ -129,7 +129,7 @@ Service Bus 엔터티 주소는 다음과 같아야 합니다.
 |키|값 형식|필수|값 내용|  
 |---------|----------------|--------------|--------------------|  
 |operation|string|예|`com.microsoft:renew-lock`|  
-|`com.microsoft:server-timeout`|uint|아니요|작업 서버 제한 시간(밀리초)입니다.|  
+|`com.microsoft:server-timeout`|uint|아니오|작업 서버 제한 시간(밀리초)입니다.|  
   
  요청 메시지 본문은 다음 엔터티와 함께 맵을 포함하는 amqp-value 섹션으로 구성되어야 합니다.  
   
@@ -144,7 +144,7 @@ Service Bus 엔터티 주소는 다음과 같아야 합니다.
 |키|값 형식|필수|값 내용|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|예|HTTP 응답 코드 [RFC2616]<br /><br /> 200: OK – 성공, 그렇지 않으면 실패입니다.|  
-|statusDescription|string|아니요|상태에 대한 설명입니다.|  
+|statusDescription|string|아니오|상태에 대한 설명입니다.|  
   
 응답 메시지 본문은 다음 엔터티와 함께 맵을 포함하는 amqp-value 섹션으로 구성되어야 합니다.  
   
@@ -179,7 +179,7 @@ Service Bus 엔터티 주소는 다음과 같아야 합니다.
 |키|값 형식|필수|값 내용|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|예|HTTP 응답 코드 [RFC2616]<br /><br /> 200: OK – 더 많은 메시지가 있음<br /><br /> 0xcc: 콘텐츠 없음 – 더 이상 메시지가 없음|  
-|statusDescription|string|아니오|상태에 대한 설명입니다.|  
+|statusDescription|string|아니요|상태에 대한 설명입니다.|  
   
 응답 메시지 본문은 다음 엔터티와 함께 **맵**을 포함하는 **amqp-value** 섹션으로 구성되어야 합니다.  
   
@@ -228,7 +228,7 @@ Service Bus 엔터티 주소는 다음과 같아야 합니다.
 |키|값 형식|필수|값 내용|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|예|HTTP 응답 코드 [RFC2616]<br /><br /> 200: OK – 성공, 그렇지 않으면 실패입니다.|  
-|statusDescription|string|아니요|상태에 대한 설명입니다.|  
+|statusDescription|string|아니오|상태에 대한 설명입니다.|  
   
 응답 메시지 본문은 다음 엔터티와 함께 맵을 포함하는 **amqp-value** 섹션으로 구성되어야 합니다.  
   
@@ -247,7 +247,7 @@ Service Bus 엔터티 주소는 다음과 같아야 합니다.
 |키|값 형식|필수|값 내용|  
 |---------|----------------|--------------|--------------------|  
 |operation|string|예|`com.microsoft:cancel-scheduled-message`|  
-|`com.microsoft:server-timeout`|uint|아니오|작업 서버 제한 시간(밀리초)입니다.|  
+|`com.microsoft:server-timeout`|uint|아니요|작업 서버 제한 시간(밀리초)입니다.|  
   
 요청 메시지 본문은 다음 엔터티와 함께 **맵**을 포함하는 **amqp-value** 섹션으로 구성되어야 합니다.  
   
@@ -262,7 +262,7 @@ Service Bus 엔터티 주소는 다음과 같아야 합니다.
 |키|값 형식|필수|값 내용|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|예|HTTP 응답 코드 [RFC2616]<br /><br /> 200: OK – 성공, 그렇지 않으면 실패입니다.|  
-|statusDescription|string|아니요|상태에 대한 설명입니다.|  
+|statusDescription|string|아니오|상태에 대한 설명입니다.|  
   
 응답 메시지 본문은 다음 엔터티와 함께 맵을 포함하는 **amqp-value** 섹션으로 구성되어야 합니다.  
   
@@ -298,7 +298,7 @@ Service Bus 엔터티 주소는 다음과 같아야 합니다.
 |키|값 형식|필수|값 내용|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|예|HTTP 응답 코드 [RFC2616]<br /><br /> 200: OK – 더 많은 메시지가 있음<br /><br /> 0xcc: 콘텐츠 없음 – 더 이상 메시지가 없음|  
-|statusDescription|string|아니요|상태에 대한 설명입니다.|  
+|statusDescription|string|아니오|상태에 대한 설명입니다.|  
   
 응답 메시지 본문은 다음 엔터티와 함께 맵을 포함하는 **amqp-value** 섹션으로 구성되어야 합니다.  
   
@@ -359,7 +359,7 @@ Service Bus 엔터티 주소는 다음과 같아야 합니다.
 |키|값 형식|필수|값 내용|  
 |---------|----------------|--------------|--------------------|  
 |operation|string|예|`com.microsoft:peek-message`|  
-|`com.microsoft:server-timeout`|uint|아니요|작업 서버 제한 시간(밀리초)입니다.|  
+|`com.microsoft:server-timeout`|uint|아니오|작업 서버 제한 시간(밀리초)입니다.|  
   
 요청 메시지 본문은 다음 엔터티와 함께 **맵**을 포함하는 **amqp-value** 섹션으로 구성되어야 합니다.  
   
@@ -388,7 +388,7 @@ Service Bus 엔터티 주소는 다음과 같아야 합니다.
 |키|값 형식|필수|값 내용|  
 |---------|----------------|--------------|--------------------|  
 |operation|string|예|`com.microsoft:get-session-state`|  
-|`com.microsoft:server-timeout`|uint|아니요|작업 서버 제한 시간(밀리초)입니다.|  
+|`com.microsoft:server-timeout`|uint|아니오|작업 서버 제한 시간(밀리초)입니다.|  
   
 요청 메시지 본문은 다음 엔터티와 함께 **맵**을 포함하는 **amqp-value** 섹션으로 구성되어야 합니다.  
   
@@ -403,7 +403,7 @@ Service Bus 엔터티 주소는 다음과 같아야 합니다.
 |키|값 형식|필수|값 내용|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|예|HTTP 응답 코드 [RFC2616]<br /><br /> 200: OK – 성공, 그렇지 않으면 실패입니다.|  
-|statusDescription|string|아니요|상태에 대한 설명입니다.|  
+|statusDescription|string|아니오|상태에 대한 설명입니다.|  
   
 응답 메시지 본문은 다음 엔터티와 함께 **맵**을 포함하는 **amqp-value** 섹션으로 구성되어야 합니다.  
   
@@ -439,7 +439,7 @@ Service Bus 엔터티 주소는 다음과 같아야 합니다.
 |키|값 형식|필수|값 내용|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|예|HTTP 응답 코드 [RFC2616]<br /><br /> 200: OK – 더 많은 메시지가 있음<br /><br /> 0xcc: 콘텐츠 없음 – 더 이상 메시지가 없음|  
-|statusDescription|string|아니요|상태에 대한 설명입니다.|  
+|statusDescription|string|아니오|상태에 대한 설명입니다.|  
   
 응답 메시지 본문은 다음 엔터티와 함께 **맵**을 포함하는 **amqp-value** 섹션으로 구성되어야 합니다.  
   
@@ -486,14 +486,14 @@ sql-filter 맵은 다음 항목을 포함해야 합니다.
   
 |키|값 형식|필수|값 내용|  
 |---------|----------------|--------------|--------------------|  
-|correlation-id|string|아니요||  
+|correlation-id|string|아니오||  
 |message-id|string|아니요||  
-|to|string|아니요||  
-|reply-to|string|아니요||  
+|to|string|아니오||  
+|reply-to|string|아니오||  
 |label|string|아니요||  
 |session-id|string|아니오||  
-|reply-to-session-id|string|아니요||  
-|content-type|string|아니오||  
+|reply-to-session-id|string|아니오||  
+|content-type|string|아니요||  
 |properties|map|아니요|Service Bus [BrokeredMessage.Properties](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Properties)로 매핑합니다.|  
   
 **sql-rule-action** 맵은 다음 항목을 포함해야 합니다.  
@@ -509,7 +509,7 @@ sql-filter 맵은 다음 항목을 포함해야 합니다.
 |키|값 형식|필수|값 내용|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|예|HTTP 응답 코드 [RFC2616]<br /><br /> 200: OK – 성공, 그렇지 않으면 실패입니다.|  
-|statusDescription|string|아니요|상태에 대한 설명입니다.|  
+|statusDescription|string|아니오|상태에 대한 설명입니다.|  
   
 ### <a name="remove-rule"></a>규칙 제거  
   
@@ -566,7 +566,7 @@ sql-filter 맵은 다음 항목을 포함해야 합니다.
 |키|값 형식|필수|값 내용|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|예|HTTP 응답 코드 [RFC2616]<br /><br /> 200: OK – 성공, 그렇지 않으면 실패입니다.|  
-|statusDescription|string|아니오|상태에 대한 설명입니다.|  
+|statusDescription|string|아니요|상태에 대한 설명입니다.|  
   
 응답 메시지 본문은 다음 엔터티와 함께 **맵**을 포함하는 **amqp-value** 섹션으로 구성되어야 합니다.  
   
@@ -592,7 +592,7 @@ sql-filter 맵은 다음 항목을 포함해야 합니다.
 |키|값 형식|필수|값 내용|  
 |---------|----------------|--------------|--------------------|  
 |operation|string|예|`com.microsoft:update-disposition`|  
-|`com.microsoft:server-timeout`|uint|아니요|작업 서버 제한 시간(밀리초)입니다.|  
+|`com.microsoft:server-timeout`|uint|아니오|작업 서버 제한 시간(밀리초)입니다.|  
   
 요청 메시지 본문은 다음 엔터티와 함께 **맵**을 포함하는 **amqp-value** 섹션으로 구성되어야 합니다.  
   
@@ -600,8 +600,8 @@ sql-filter 맵은 다음 항목을 포함해야 합니다.
 |---------|----------------|--------------|--------------------|  
 |disposition-status|string|예|완료됨<br /><br /> 중단됨<br /><br /> 일시 중단됨|  
 |lock-tokens|uuid의 배열|예|처리 상태를 업데이트할 메시지 잠금 토큰입니다.|  
-|deadletter-reason|string|아니요|처리 상태가 **일시 중단됨**으로 설정된 경우 설정할 수 있습니다.|  
-|deadletter-description|string|아니오|처리 상태가 **일시 중단됨**으로 설정된 경우 설정할 수 있습니다.|  
+|deadletter-reason|string|아니오|처리 상태가 **일시 중단됨**으로 설정된 경우 설정할 수 있습니다.|  
+|deadletter-description|string|아니요|처리 상태가 **일시 중단됨**으로 설정된 경우 설정할 수 있습니다.|  
 |properties-to-modify|map|아니오|수정할 Service Bus broker 저장 메시지 목록입니다.|  
   
 #### <a name="response"></a>response  

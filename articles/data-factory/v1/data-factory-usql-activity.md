@@ -1,11 +1,10 @@
 ---
-title: "U-SQL 스크립트를 사용하여 데이터 변환 - Azure | Microsoft Docs"
-description: "Azure Data Lake Analytics 계산 서비스에서 U-SQL 스크립트를 실행하여 데이터를 처리하거나 변환하는 방법을 알아봅니다."
+title: U-SQL 스크립트를 사용하여 데이터 변환 - Azure | Microsoft Docs
+description: Azure Data Lake Analytics 계산 서비스에서 U-SQL 스크립트를 실행하여 데이터를 처리하거나 변환하는 방법을 알아봅니다.
 services: data-factory
-documentationcenter: 
-author: spelluru
-manager: jhubbard
-editor: monicar
+documentationcenter: ''
+author: douglaslMS
+manager: craigg
 ms.assetid: e17c1255-62c2-4e2e-bb60-d25274903e80
 ms.service: data-factory
 ms.workload: data-services
@@ -13,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/01/2017
-ms.author: spelluru
+ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: ff91a3da978fd027605b3674eae14d1d74b309cd
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 7861a3380ee330241f0c735ee6c5ed84f121e512
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Azure Data Lake Analytics에서 U-SQL 스크립트를 실행하여 데이터 변환 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -47,11 +46,11 @@ Azure 데이터 레이크 분석 계산 서비스와 Azure Data Factory에 연�
 
 다음 표에는 JSON 정의에서 사용하는 일반 속성에 대한 설명이 나와 있습니다. 서비스 주체와 사용자 자격 증명 인증 중에서 추가로 선택할 수 있습니다.
 
-| 속성 | 설명 | 필수 |
+| 자산 | 설명 | 필수 |
 | --- | --- | --- |
 | **type** |type 속성은 **AzureDataLakeAnalytics**로 설정해야 합니다. |예 |
 | **accountName** |Azure 데이터 레이크 분석 계정 이름입니다. |예 |
-| **dataLakeAnalyticsUri** |Azure 데이터 레이크 분석 URI입니다. |아니요 |
+| **dataLakeAnalyticsUri** |Azure 데이터 레이크 분석 URI입니다. |아니오 |
 | **subscriptionId** |Azure 구독 ID |아니요(지정하지 않으면 Data Factory의 구독이 사용됨). |
 | **resourceGroupName** |Azure 리소스 그룹 이름 |아니요(지정하지 않으면 Data Factory의 리소스 그룹이 사용됨). |
 
@@ -63,7 +62,7 @@ Azure 데이터 레이크 분석 계산 서비스와 Azure Data Factory에 연�
 
 다음 속성을 지정하여 서비스 주체 인증을 사용합니다.
 
-| 속성 | 설명 | 필수 |
+| 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | **servicePrincipalId** | 응용 프로그램의 클라이언트 ID를 지정합니다. | 예 |
 | **servicePrincipalKey** | 응용 프로그램의 키를 지정합니다. | 예 |
@@ -91,7 +90,7 @@ Azure 데이터 레이크 분석 계산 서비스와 Azure Data Factory에 연�
 ### <a name="user-credential-authentication"></a>사용자 자격 증명 인증
 또는 다음 속성을 지정하여 Data Lake Analytics에 대해 사용자 자격 증명 인증을 사용할 수 있습니다.
 
-| 속성 | 설명 | 필수 |
+| 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | **권한 부여** | Data Factory 편집기에서 **권한 부여** 단추를 클릭하고 자격 증명을 입력합니다. 그러면 자동 생성된 authorization URL이 이 속성에 할당됩니다. | 예 |
 | **sessionId** | OAuth 권한 부여 세션에서 가져온 OAuth 세션 ID입니다. 각 세션 ID는 고유하고 한 번만 사용될 수 있습니다. 이 설정은 Data Factory 편집기를 사용하는 경우 자동으로 생성됩니다. | 예 |
@@ -207,17 +206,17 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
 
 다음 표에는 이 작업과 관련된 속성 이름과 설명이 나와 있습니다. 
 
-| 속성            | 설명                              | 필수                                 |
+| 자산            | 설명                              | 필수                                 |
 | :------------------ | :--------------------------------------- | :--------------------------------------- |
 | 형식                | type 속성은 **DataLakeAnalyticsU-SQL**로 설정되어야 합니다. | 예                                      |
 | linkedServiceName   | Data Factory에서 연결된 서비스로 등록된 Azure Data Lake Analytics에 대한 참조 | 예                                      |
 | scriptPath          | U-SQL 스크립트가 포함된 폴더 경로입니다. 파일 이름은 대/소문자를 구분합니다. | 아니요(스크립트를 사용하는 경우)                   |
 | scriptLinkedService | 스크립트가 포함된 저장소를 Data Factory에 연결하는 연결된 서비스입니다. | 아니요(스크립트를 사용하는 경우)                   |
 | script              | scriptPath 및 scriptLinkedService를 지정하는 대신 인라인 스크립트를 지정합니다. 예: `"script": "CREATE DATABASE test"` | 아니요(scriptPath 및 scriptLinkedService를 사용하는 경우) |
-| degreeOfParallelism | 작업을 실행하는 데 동시에 사용되는 최대 노드 수입니다. | 아니요                                       |
-| 우선 순위            | 대기열에 있는 모든 작업 중에서 먼저 실행해야 하는 작업을 결정합니다. 번호가 낮을수록 우선 순위가 높습니다. | 아니요                                       |
-| 매개 변수          | U-SQL 스크립트의 매개 변수          | 아니요                                       |
-| runtimeVersion      | 사용할 U-SQL 엔진의 런타임 버전 | 아니요                                       |
+| degreeOfParallelism | 작업을 실행하는 데 동시에 사용되는 최대 노드 수입니다. | 아니오                                       |
+| 우선 순위            | 대기열에 있는 모든 작업 중에서 먼저 실행해야 하는 작업을 결정합니다. 번호가 낮을수록 우선 순위가 높습니다. | 아니오                                       |
+| 매개 변수          | U-SQL 스크립트의 매개 변수          | 아니오                                       |
+| runtimeVersion      | 사용할 U-SQL 엔진의 런타임 버전 | 아니오                                       |
 | compilationMode     | <p>U-SQL의 컴파일 모드 다음 값 중 하나여야 합니다.</p> <ul><li>**의미 체계:** 의미 체계 검사 및 필수 온전성 검사만 수행합니다.</li><li>**전체:** 구문 검사, 최적화, 코드 생성 등을 비롯하여 전체 컴파일을 수행합니다.</li><li>**SingleBox:** TargetType이 SingleBox로 설정된 상태에서 전체 컴파일을 수행합니다.</li></ul><p>이 속성에 대한 값을 지정하지 않으면 서버가 최적의 컴파일 모드를 결정합니다. </p> | 아니요                                       |
 
 스크립트 정의에 대해서는 [SearchLogProcessing.txt 스크립트 정의](#sample-u-sql-script) 를 참조하세요. 
@@ -332,7 +331,7 @@ Azure Data Lake Analytics 서비스에서 실행되는 작업에 대한 파이�
 }
 ```
 
-동적 매개 변수를 대신 사용할 수 있습니다. 예: 
+동적 매개 변수를 대신 사용할 수 있습니다. 예:  
 
 ```json
 "parameters": {

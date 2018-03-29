@@ -1,11 +1,11 @@
 ---
-title: "Linux용 Azure Network Watcher 에이전트 가상 컴퓨터 확장 | Microsoft Docs"
-description: "가상 컴퓨터 확장을 사용하여 Linux 가상 컴퓨터에 Network Watcher를 배포합니다."
+title: Linux용 Azure Network Watcher 에이전트 가상 머신 확장 | Microsoft Docs
+description: 가상 머신 확장을 사용하여 Linux 가상 머신에 Network Watcher를 배포합니다.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: dennisg
 manager: amku
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 5c81e94c-e127-4dd2-ae83-a236c4512345
 ms.service: virtual-machines-linux
@@ -15,19 +15,19 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
-ms.openlocfilehash: fd160fc8cfc2e79ffa9492bb0ef4556bec5820d0
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: a51566148eec88f707b524346afc59606196e4da
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="network-watcher-agent-virtual-machine-extension-for-linux"></a>Linux용 Network Watcher 에이전트 가상 컴퓨터 확장
+# <a name="network-watcher-agent-virtual-machine-extension-for-linux"></a>Linux용 Network Watcher 에이전트 가상 머신 확장
 
 ## <a name="overview"></a>개요
 
-[Azure Network Watcher](https://review.docs.microsoft.com/azure/network-watcher/)는 Azure 네트워크에 대한 모니터링을 허용하는 네트워크 성능 모니터링, 진단 및 분석 서비스입니다. Azure Virtual Machines의 Network Watcher 기능 중 일부에는 Azure Network Watcher 에이전트 가상 컴퓨터 확장이 필요합니다. 주문형 네트워크 트래픽을 캡처하는 기능 및 기타 고급 기능이 포함됩니다.
+[Azure Network Watcher](https://docs.microsoft.com/azure/network-watcher/)는 Azure 네트워크에 대한 모니터링을 허용하는 네트워크 성능 모니터링, 진단 및 분석 서비스입니다. Azure Virtual Machines의 Network Watcher 기능 중 일부에는 Azure Network Watcher 에이전트 가상 머신 확장이 필요합니다. 주문형 네트워크 트래픽을 캡처하는 기능 및 기타 고급 기능이 포함됩니다.
 
-이 문서에서는 Linux용 Network Watcher 에이전트 가상 컴퓨터 확장에 대해 지원되는 플랫폼 및 배포 옵션을 설명합니다.
+이 문서에서는 Linux용 Network Watcher 에이전트 가상 머신 확장에 대해 지원되는 플랫폼 및 배포 옵션을 설명합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -49,7 +49,7 @@ CoreOS는 현재 지원되지 않습니다.
 
 ### <a name="internet-connectivity"></a>인터넷 연결
 
-일부 Network Watcher 에이전트 기능에서는 대상 가상 컴퓨터를 인터넷에 연결해야 합니다. 일부 Network Watcher 에이전트 기능에 나가는 연결을 설정하는 기능이 없는 경우 오작동하거나 사용할 수 없게 됩니다. 자세한 내용은 [Network Watcher 설명서](https://review.docs.microsoft.com/azure/network-watcher/)를 참조하세요.
+일부 Network Watcher 에이전트 기능에서는 대상 가상 머신을 인터넷에 연결해야 합니다. 일부 Network Watcher 에이전트 기능에 나가는 연결을 설정하는 기능이 없는 경우 오작동하거나 사용할 수 없게 됩니다. 자세한 내용은 [Network Watcher 설명서](https://review.docs.microsoft.com/azure/network-watcher/)를 참조하세요.
 
 ## <a name="extension-schema"></a>확장 스키마
 
@@ -75,11 +75,11 @@ CoreOS는 현재 지원되지 않습니다.
 
 ### <a name="property-values"></a>속성 값
 
-| 이름 | 값/예제 |
+| Name | 값/예제 |
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
 | publisher | Microsoft.Azure.NetworkWatcher |
-| type | NetworkWatcherAgentLinux |
+| 형식 | NetworkWatcherAgentLinux |
 | typeHandlerVersion | 1.4 |
 
 ## <a name="template-deployment"></a>템플릿 배포
@@ -88,7 +88,7 @@ Azure Resource Manager 템플릿을 사용하여 Azure VM 확장을 배포할 �
 
 ## <a name="azure-cli-deployment"></a>Azure CLI 배포
 
-Azure CLI를 사용하여 Network Watcher 에이전트 VM 확장을 기존 가상 컴퓨터에 배포할 수 있습니다.
+Azure CLI를 사용하여 Network Watcher 에이전트 VM 확장을 기존 가상 머신에 배포할 수 있습니다.
 
 ```azurecli
 azure vm extension set myResourceGroup1 myVM1 NetworkWatcherAgentLinux Microsoft.Azure.NetworkWatcher 1.4

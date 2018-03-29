@@ -1,11 +1,12 @@
 ---
-title: "데이터에서 응답할 수 있는 질문하기 - 데이터 과학 문제 - Azure Machine Learning | Microsoft Docs"
-description: "초급자를 위한 데이터 과학 비디오 3에서 정확한 데이터 과학 질문을 작성하는 방법을 알아봅니다. 분류 및 회귀 질문에 대한 비교가 포함되어 있습니다."
-keywords: "데이터 과학 문제, 데이터 과학 질문,질문 작성,회귀 질문,분류 질문,정확한 질문"
+title: 데이터에서 응답할 수 있는 질문하기 - 데이터 과학 문제 - Azure Machine Learning | Microsoft Docs
+description: 초급자를 위한 데이터 과학 비디오 3에서 정확한 데이터 과학 질문을 작성하는 방법을 알아봅니다. 분류 및 회귀 질문에 대한 비교가 포함되어 있습니다.
+keywords: 데이터 과학 문제, 데이터 과학 질문,질문 작성,회귀 질문,분류 질문,정확한 질문
 services: machine-learning
 documentationcenter: na
-author: cjgronlund
-manager: jhubbard
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cjgronlund
 ms.assetid: 5b9501e3-9964-417a-8ffc-8913103da77b
 ms.service: machine-learning
@@ -14,12 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2018
-ms.author: cgronlun
-ms.openlocfilehash: 2f3d8d5c2e7cf1ebc88dc1ff1d7d03bf85383884
-ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
+ms.openlocfilehash: 225414082c447016cdfdfd1a9e5dbe5e5fbcfaec
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="ask-a-question-you-can-answer-with-data"></a>데이터로 대답할 수 있는 질문하기
 ## <a name="video-3-data-science-for-beginners-series"></a>비디오 3: 초급자를 위한 데이터 과학 시리즈
@@ -97,5 +97,4 @@ Microsoft Azure Machine Learning의 “초급자를 위한 데이터 과학”�
 
 ## <a name="next-steps"></a>다음 단계
 * [Machine Learning Studio로 첫 번째 데이터 과학 실험 시도](create-experiment.md)
-* 
-            [Microsoft Azure의 Machine Learning 소개 보기](what-is-machine-learning.md)
+* [Microsoft Azure의 Machine Learning 소개 보기](what-is-machine-learning.md)

@@ -1,31 +1,28 @@
 ---
-title: "Visual Studio Mobile Center를 사용하여 실제 사용자 측정을 Azure Traffic Manager에 보내기 | Microsoft Docs"
-description: "실제 사용자 측정을 Traffic Manager에 보내도록 Visual Studio Mobile Center를 사용하여 개발한 모바일 응용 프로그램 설정"
+title: Visual Studio Mobile Center를 사용하여 실제 사용자 측정을 Azure Traffic Manager에 보내기 | Microsoft Docs
+description: 실제 사용자 측정을 Traffic Manager에 보내도록 Visual Studio Mobile Center를 사용하여 개발한 모바일 응용 프로그램 설정
 services: traffic-manager
 documentationcenter: traffic-manager
 author: KumudD
 manager: timlt
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: ''
 ms.workload: infrastructure
-ms.date: 09/29/2017
+ms.date: 03/16/2018
 ms.author: kumud
-ms.custom: 
-ms.openlocfilehash: 756496e5291d932ee9ac89265291e6892c4304fd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: ''
+ms.openlocfilehash: 893e84b07b365fb0b534e0ddc021b2249c4174cf
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-send-real-user-measurements-to-traffic-manager-with-visual-studio-mobile-center"></a>Visual Studio Mobile Center를 사용하여 실제 사용자 측정을 Traffic Manager에 보내는 방법
-
->[!NOTE]
->Traffic Manager의 실제 사용자 측정 기능은 공개 미리 보기 상태이며 일반 공급 릴리스에 있는 기능과 동일한 수준의 가용성 및 안정성을 제공하지 않을 수 있습니다. 이 기능은 지원되지 않으며, 기능이 제한될 수 있으며 모든 Azure 위치에서 사용하지는 못할 수 있습니다. 이 기능의 가용성 및 상태에 대한 최신 알림은 [Azure Traffic Manager 업데이트](https://azure.microsoft.com/updates/?product=traffic-manager) 페이지를 참조하세요.
 
 Visual Studio Mobile Center를 사용하여 개발한 모바일 응용 프로그램을 다음 단계에 따라 실제 사용자 측정을 Traffic Manager에 보내도록 설정할 수 있습니다.
 
@@ -107,5 +104,5 @@ Visual Studio Mobile Center를 처음 사용하는 경우 해당 [웹 사이트]
 - [Mobile Center](https://docs.microsoft.com/mobile-center/)에 대해 자세히 알아봅니다.
 - Mobile Center [등록](https://mobile.azure.com)
 - Traffic Manager가 지원하는 [트래픽 라우팅 방법](traffic-manager-routing-methods.md) 에 대해 자세히 알아봅니다.
-- [트래픽 관리자 프로필을 만드는](traffic-manager-create-profile.md)
+- [Traffic Manager 프로필을 만드는](traffic-manager-create-profile.md)
 

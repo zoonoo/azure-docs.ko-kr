@@ -1,3 +1,19 @@
+---
+title: 포함 파일
+description: 포함 파일
+services: vpn-gateway
+author: cherylmc
+ms.service: vpn-gateway
+ms.topic: include
+ms.date: 03/21/2018
+ms.author: cherylmc
+ms.custom: include file
+ms.openlocfilehash: dfc75a64e8bd28d7aba9984e5a1d5720330f1da3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 03/23/2018
+---
 ### <a name="is-bgp-supported-on-all-azure-vpn-gateway-skus"></a>BGP가 모든 Azure VPN Gateway SKU를 지원하나요?
 아니요. BGP는 Azure **VpnGw1**, **VpnGw2**, **VpnGw3**, **Standard** 및 **HighPerformance** VPN 게이트웨이에서 지원됩니다. **기본** SKU는 지원되지 않습니다.
 
@@ -72,4 +88,3 @@ Azure 로컬 네트워크 게이트웨이는 온-프레미스 네트워크에 �
 
 ### <a name="what-should-i-add-to-my-on-premises-vpn-device-for-the-bgp-peering-session"></a>BGP 피어링 세션에 대해 온-프레미스 VPN 장치에 무엇을 추가해야 하나요?
 IPsec S2S VPN 터널을 가리키는 VPN 장치에서 Azure BGP 피어 IP 주소의 호스트 경로를 추가해야 합니다. 예를 들어, Azure VPN 피어 IP가 "10.12.255.30"이라면 VPN 장치에서 일치하는 IPsec 터널 인터페이스의 nexthop 인터페이스와 "10.12.255.30"에 대한 호스트 경로를 추가해야 합니다.
-

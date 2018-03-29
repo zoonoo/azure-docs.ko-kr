@@ -1,11 +1,11 @@
 ---
-title: "U-SQL 스크립트를 사용하여 데이터 변환 - Azure | Microsoft Docs"
-description: "Azure Data Lake Analytics 계산 서비스에서 U-SQL 스크립트를 실행하여 데이터를 처리하거나 변환하는 방법을 알아봅니다."
+title: U-SQL 스크립트를 사용하여 데이터 변환 - Azure | Microsoft Docs
+description: Azure Data Lake Analytics 계산 서비스에서 U-SQL 스크립트를 실행하여 데이터를 처리하거나 변환하는 방법을 알아봅니다.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: nabhishek
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: abnarain
-ms.openlocfilehash: a2cf2ac8ac099a92e1534c72d80be6c9647bec59
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 7e55249ed187ad9fa74a39634bbb254c9b0b8b8e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Azure Data Lake Analytics에서 U-SQL 스크립트를 실행하여 데이터 변환 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -123,16 +123,16 @@ Azure Data Lake Analytics 연결된 서비스에는 Azure Data Lake Analytics �
 | 자산            | 설명                              | 필수 |
 | :------------------ | :--------------------------------------- | :------- |
 | 이름                | 파이프라인의 작업 이름입니다.     | 예      |
-| description         | 작업이 어떤 일을 수행하는지 설명하는 텍스트입니다.  | 아니오       |
+| description         | 작업이 어떤 일을 수행하는지 설명하는 텍스트입니다.  | 아니요       |
 | 형식                | Data Lake Analytics U-SQL 작업의 경우 작업 형식은 **DataLakeAnalyticsU-SQL**입니다. | 예      |
 | linkedServiceName   | Azure Data Lake Analytics에 연결된 서비스입니다. 이 연결된 서비스에 대한 자세한 내용은 [연결된 Compute Services](compute-linked-services.md) 문서를 참조하세요.  |예       |
 | scriptPath          | U-SQL 스크립트가 포함된 폴더 경로입니다. 파일 이름은 대/소문자를 구분합니다. | 예      |
 | scriptLinkedService | 스크립트가 포함된 저장소를 **Azure Data Lake Store** 또는 **Azure Storage**에 연결하는 연결된 서비스입니다. | 예      |
-| degreeOfParallelism | 작업을 실행하는 데 동시에 사용되는 최대 노드 수입니다. | 아니오       |
+| degreeOfParallelism | 작업을 실행하는 데 동시에 사용되는 최대 노드 수입니다. | 아니요       |
 | 우선 순위            | 대기열에 있는 모든 작업 중에서 먼저 실행해야 하는 작업을 결정합니다. 번호가 낮을수록 우선 순위가 높습니다. | 아니요       |
 | 매개 변수          | U-SQL 스크립트에 전달할 매개 변수입니다.    | 아니요       |
-| runtimeVersion      | 사용할 U-SQL 엔진의 런타임 버전입니다. | 아니요       |
-| compilationMode     | <p>U-SQL의 컴파일 모드 다음과 같은 값 중 하나여야 합니다. **의미 체계:** 의미 체계 확인 및 필요한 온전성 검사만을 수행합니다 **전체:** 구문 검사, 최적화, 코드 생성 등을 비롯하여 전체 컴파일을 수행합니다. **SingleBox:** SingleBox에 TargetType 설정을 사용하여 전체 컴파일을 수행합니다. 이 속성에 대한 값을 지정하지 않으면 서버가 최적의 컴파일 모드를 결정합니다. | 아니요 |
+| runtimeVersion      | 사용할 U-SQL 엔진의 런타임 버전입니다. | 아니오       |
+| compilationMode     | <p>U-SQL의 컴파일 모드 다음과 같은 값 중 하나여야 합니다. **의미 체계:** 의미 체계 확인 및 필요한 온전성 검사만을 수행합니다 **전체:** 구문 검사, 최적화, 코드 생성 등을 비롯하여 전체 컴파일을 수행합니다. **SingleBox:** SingleBox에 TargetType 설정을 사용하여 전체 컴파일을 수행합니다. 이 속성에 대한 값을 지정하지 않으면 서버가 최적의 컴파일 모드를 결정합니다. | 아니오 |
 
 Data Factory는 스크립트 정의에 대해 [SearchLogProcessing.txt 스크립트 정의](#sample-u-sql-script) 참조를 제출합니다. 
 

@@ -1,11 +1,11 @@
 ---
-title: "Azure Active Directory에서 관리할 수 있는 모든 엔터프라이즈 앱 보기 | Microsoft Docs"
-description: "Azure Active Directory에서 관리하는 권한이 있는 엔터프라이즈 앱의 목록을 표시하는 방법"
+title: Azure Active Directory에서 관리할 수 있는 모든 엔터프라이즈 앱 보기 | Microsoft Docs
+description: Azure Active Directory에서 관리하는 권한이 있는 엔터프라이즈 앱의 목록을 표시하는 방법
 services: active-directory
-documentationcenter: 
-author: curtand
+documentationcenter: ''
+author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: c4fb6f94-34f8-4323-8bd7-a3ee44901f7d
 ms.service: active-directory
 ms.workload: identity
@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
-ms.author: curtand
+ms.author: markvi
 ms.reviewer: asteen
 ms.custom: it-pro
-ms.openlocfilehash: 5bcde742690e57d9195725fba524ee64cc691b30
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 64946b3bbf39cf8153fcc8c7aa548ed6055fb47f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="view-all-the-enterprise-apps-that-i-can-manage-in-azure-active-directory"></a>Azure Active Directory에서 관리할 수 있는 모든 엔터프라이즈 앱 보기
 Azure AD(Azure Active Directory)에서 엔터프라이즈 응용 프로그램을 관리할 수 있습니다. 관리할 수 있는 앱을 보고, 앱에 사용자 또는 그룹을 할당하고, 응용 프로그램 이름/로고와 같은 앱에 대한 속성을 유지하고, 사용자가 로그인할 수 없도록 응용 프로그램을 비활성화할 수 있습니다.
 
 ## <a name="how-do-i-view-all-my-apps"></a>모든 앱을 보려면 어떻게 해야 합니까?
 1. 디렉터리에 대한 전역 관리자인 계정으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. **모든 서비스**를 선택하고, 텍스트 상자에 **Azure Active Directory**를 입력한 다음, **입력**을 선택합니다.
+2. **모든 서비스**를 선택하고 텍스트 상자에 **Azure Active Directory**를 입력한 다음, **입력**을 선택합니다.
 3. **Azure Active Directory -** ***directoryname*** 창, 즉 관리 중인 디렉터리에 대한 Azure AD 창에서 **엔터프라이즈 응용 프로그램**을 선택합니다.
 
     ![엔터프라이즈 앱 열기](./media/active-directory-coreapps-view-azure-portal/open-enterprise-apps.png)

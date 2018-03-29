@@ -1,6 +1,6 @@
 ---
-title: "Azure AD userPrincipalName 채우기"
-description: "다음 문서에서는 UserPrincipalName 특성이 채워지는 방법을 설명합니다."
+title: Azure AD userPrincipalName 채우기
+description: 다음 문서에서는 UserPrincipalName 특성이 채워지는 방법을 설명합니다.
 author: billmath
 ms.author: billmath
 ms.date: 02/02/2018
@@ -9,10 +9,10 @@ ms.workload: identity
 ms.service: active-Directory
 manager: mtillman
 ms.openlocfilehash: 96b12fbddd4293c55e9029b194416541ca44c622
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-ad-userprincipalname-population"></a>Azure AD userPrincipalName 채우기
 

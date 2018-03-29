@@ -1,11 +1,10 @@
 ---
-title: "데이터 변환: 데이터 처리 및 변환 | Microsoft Docs"
-description: "Hadoop, Machine Learning 또는 Azure Data Lake Analytics를 사용하여 Azure Data Factory에서 데이터를 변환 또는 처리하는 방법에 대해 알아봅니다."
+title: '데이터 변환: 데이터 처리 및 변환 | Microsoft Docs'
+description: Hadoop, Machine Learning 또는 Azure Data Lake Analytics를 사용하여 Azure Data Factory에서 데이터를 변환 또는 처리하는 방법에 대해 알아봅니다.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: 39786731-1e4b-40a4-81b7-d06e127427aa
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 4dd393f1f808e5cfc804bdf90ee31f69f15eed7c
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 5d9a72b4c1003f2741741bbe55b1ed46e5e080a4
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Azure Data Factory의 데이터 변환
 > [!div class="op_single_selector"]
@@ -27,8 +26,7 @@ ms.lasthandoff: 01/23/2018
 > * [Pig](data-factory-pig-activity.md)  
 > * [MapReduce](data-factory-map-reduce.md)  
 > * [Hadoop 스트리밍](data-factory-hadoop-streaming-activity.md)
-> * 
-            [Machine Learning](data-factory-azure-ml-batch-execution-activity.md) 
+> * [Machine Learning](data-factory-azure-ml-batch-execution-activity.md) 
 > * [저장 프로시저](data-factory-stored-proc-activity.md)
 > * [데이터 레이크 분석 U-SQL](data-factory-usql-activity.md)
 > * [.NET 사용자 지정](data-factory-use-custom-activities.md)

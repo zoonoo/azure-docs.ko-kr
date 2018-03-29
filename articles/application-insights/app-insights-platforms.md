@@ -1,8 +1,8 @@
 ---
-title: "Application Insights: 언어, 플랫폼 및 통합 | Microsoft Docs"
-description: "Application Insights에 사용할 수 있는 언어, 플랫폼 및 통합"
+title: 'Application Insights: 언어, 플랫폼 및 통합 | Microsoft Docs'
+description: Application Insights에 사용할 수 있는 언어, 플랫폼 및 통합
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: OlegAnaniev-MSFT
 manager: carmonm
 ms.assetid: 974db106-54ff-4318-9f8b-f7b3a869e536
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/01/2016
 ms.author: mbullwin
-ms.openlocfilehash: fe8f826ca3e0f44cba3d0b246afb01b262dc330b
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: e172b04144afec04579de92b2393587635d3fecf
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="developer-analytics-languages-platforms-and-integrations"></a>개발자 분석: 언어, 플랫폼 및 통합
 이러한 항목은 타사에서 제공하는 구현을 포함하여 이미 알고 있는 [Application Insights](app-insights-overview.md) 의 구현입니다.
@@ -64,7 +64,7 @@ ms.lasthandoff: 11/15/2017
 * [의미 체계 로깅(SLAB)](https://github.com/fidmor89/SLAB_AppInsights) - [의미 체계 로깅 응용 프로그램 블록](https://msdn.microsoft.com/library/dn440729.aspx)과 통합
 * [클라우드 기반 부하 테스트](http://blogs.msdn.com/b/visualstudioalm/archive/2015/07/30/getting-application-insights-counters-with-cloud-based-load-testing.aspx)
 * [LogStash 플러그 인](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-output-applicationinsights)
-* [OMS Log Analytics](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)
+* [Log Analytics](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)
 * [Logary](https://www.nuget.org/packages/Logary.Targets.AppInsights/)
 
 ## <a name="content-management-systems"></a>콘텐츠 관리 시스템

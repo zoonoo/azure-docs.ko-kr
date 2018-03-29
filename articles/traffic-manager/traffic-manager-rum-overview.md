@@ -1,31 +1,28 @@
 ---
-title: "Azure Traffic Manager의 실제 사용자 측정 | Microsoft Docs"
-description: "Traffic Manager의 실제 사용자 측정 소개"
+title: Azure Traffic Manager의 실제 사용자 측정 | Microsoft Docs
+description: Traffic Manager의 실제 사용자 측정 소개
 services: traffic-manager
 documentationcenter: traffic-manager
 author: KumudD
 manager: timlt
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: ''
 ms.workload: infrastructure
-ms.date: 09/19/2017
+ms.date: 03/16/2018
 ms.author: kumud
-ms.custom: 
-ms.openlocfilehash: a7e8ae605b6234341d9ab8b790f4c54d8627f29f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: ''
+ms.openlocfilehash: 4e8d808d65c9898d230455d128e3ffc50db303d6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="traffic-manager-real-user-measurements-overview"></a>Traffic Manager 실제 사용자 측정 개요
-
->[!NOTE]
->Traffic Manager의 실제 사용자 측정 기능은 공개 미리 보기 상태이며 일반 공급 릴리스에 있는 기능과 동일한 수준의 가용성 및 안정성을 제공하지 않을 수 있습니다. 이 기능은 지원되지 않으며, 기능이 제한될 수 있으며 모든 Azure 위치에서 사용하지는 못할 수 있습니다. 이 기능의 가용성 및 상태에 대한 최신 알림은 [Azure Traffic Manager 업데이트](https://azure.microsoft.com/updates/?product=traffic-manager) 페이지를 참조하세요.
 
 성능 라우팅 방법을 사용하도록 Traffic Manager 프로필을 설정할 경우 서비스는 DNS 쿼리 요청이 생성된 위치를 확인하고, 해당 요청자에게 가장 낮은 우선 순위를 부여하는 Azure 지역으로 해당 요청자를 라우팅하는 결정을 내립니다. 이를 위해 Traffic Manager가 다른 최종 사용자 네트워크에 대해 유지 관리하는 네트워크 대기 시간 인텔리전스를 활용합니다.
 
@@ -46,5 +43,5 @@ ms.lasthandoff: 10/11/2017
 - [Traffic Manager 작동 방식](traffic-manager-overview.md)
 - [Mobile Center](https://docs.microsoft.com/mobile-center/)에 대해 자세히 알아봅니다.
 - Traffic Manager가 지원하는 [트래픽 라우팅 방법](traffic-manager-routing-methods.md) 에 대해 자세히 알아봅니다.
-- [트래픽 관리자 프로필을 만드는](traffic-manager-create-profile.md)
+- [Traffic Manager 프로필을 만드는](traffic-manager-create-profile.md)
 

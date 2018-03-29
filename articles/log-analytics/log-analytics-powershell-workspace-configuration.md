@@ -1,11 +1,11 @@
 ---
-title: "PowerShell을 사용하여 Log Analytics 작업 영역 만들기 및 구성 | Microsoft Docs"
-description: "Log Analytics는 온-프레미스 또는 클라우드 인프라의 서버에서 데이터를 사용합니다. Azure 진단에 의해 생성된 경우에 Azure 저장소에서 컴퓨터 데이터를 수집할 수 있습니다."
+title: PowerShell을 사용하여 Log Analytics 작업 영역 만들기 및 구성 | Microsoft Docs
+description: Log Analytics는 온-프레미스 또는 클라우드 인프라의 서버에서 데이터를 사용합니다. Azure 진단에 의해 생성된 경우에 Azure 저장소에서 컴퓨터 데이터를 수집할 수 있습니다.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: richrundmsft
 manager: jochan
-editor: 
+editor: ''
 ms.assetid: 3b9b7ade-3374-4596-afb1-51b695f481c2
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: powershell
 ms.topic: article
 ms.date: 11/21/2016
 ms.author: richrund
-ms.openlocfilehash: 6807ab67e3593da82c147669b29bfdae3b6c967c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6a3f91323a017533d2d012f1e81760396c17a643
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="manage-log-analytics-using-powershell"></a>PowerShell을 사용하여 Log Analytics 관리
 [Log Analytics PowerShell cmdlet](https://msdn.microsoft.com/library/mt188224\(v=azure.300\).aspx)을 사용하여 명령줄에서 또는 스크립트의 일부로 Log Analytics의 다양한 기능을 수행할 수 있습니다.  PowerShell을 사용하여 수행할 수 있는 작업의 예:
@@ -32,7 +32,7 @@ ms.lasthandoff: 10/11/2017
 * Linux 컴퓨터의 syslog에서 이벤트 수집 
 * Windows 이벤트 로그에서 이벤트 수집
 * 사용자 지정 이벤트 로그 수집
-* Azure 가상 컴퓨터에 Log Analytics 에이전트 추가
+* Azure 가상 머신에 Log Analytics 에이전트 추가
 * Azure 진단을 사용하여 수집된 데이터를 인덱싱하도록 Log Analytics 구성
 
 이 문서에서는 PowerShell에서 수행할 수 있는 몇 가지 기능을 보여 주는 두 가지 코드 샘플을 제공합니다.  다른 기능에 대해서는 [Log Analytics PowerShell Cmdlet 참조](https://msdn.microsoft.com/library/mt188224\(v=azure.300\).aspx) 를 참조할 수 있습니다.
@@ -145,7 +145,7 @@ foreach ($solution in $Solutions) {
     Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName -IntelligencePackName $solution -Enabled $true
 }
 
-#List enabled solutions
+# List enabled solutions
 (Get-AzureRmOperationalInsightsIntelligencePacks -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName).Where({($_.enabled -eq $true)})
 
 # Import Saved Searches
@@ -191,21 +191,21 @@ New-AzureRmOperationalInsightsCustomLogDataSource -ResourceGroupName $ResourceGr
 
 | 리소스 종류 | 로그 | 메트릭 |
 | --- | --- | --- |
-| 응용 프로그램 게이트웨이    | 예 | 예 |
-| 자동화 계정     | 예 | |
-| 배치 계정          | 예 | 예 |
+| Application Gateway    | 예 | 예 |
+| Automation 계정     | 예 | |
+| Batch 계정          | 예 | 예 |
 | Data Lake Analytics     | 예 | | 
 | Data Lake Store         | 예 | |
 | 탄력적인 SQL 풀        |     | 예 |
 | 이벤트 허브 네임스페이스     |     | 예 |
 | IoT Hub                |     | 예 |
-| 키 자격 증명 모음               | 예 | |
+| Key Vault               | 예 | |
 | Load Balancer          | 예 | |
 | Logic Apps              | 예 | 예 |
 | 네트워크 보안 그룹 | 예 | |
-| Redis 캐시             |     | 예 |
+| Redis Cache             |     | 예 |
 | Search 서비스         | 예 | 예 |
-| 서비스 버스 네임스페이스   |     | 예 |
+| Service Bus 네임스페이스   |     | 예 |
 | SQL(v12)               |     | 예 |
 | 웹 사이트               |     | 예 |
 | 웹 서버 팜        |     | 예 |

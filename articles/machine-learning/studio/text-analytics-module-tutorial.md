@@ -4,7 +4,8 @@ description: 텍스트 전처리, N-Gram 또는 특성 해시를 위한 모듈�
 services: machine-learning
 documentationcenter: ''
 author: rastala
-manager: jhubbard
+ms.author: roastala
+manager: cgronlun
 editor: ''
 ms.assetid: 08cd6723-3ae6-4e99-a924-e650942e461b
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
-ms.author: roastala
-ms.openlocfilehash: 0c2dc3bad6973b7b00f0ed44231e78298f4422fb
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6a89d77c84f7a7dd15b9d73252ac7373a7f1faf9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-text-analytics-models-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio에서 텍스트 분석 모델 만들기
 Azure Machine Learning을 사용하여 텍스트 분석 모델을 빌드하고 작동할 수 있습니다. 예를 들어 이러한 모델은 문서 분류 또는 정서 분석 문제를 해결하는 데 유용할 수 있습니다.

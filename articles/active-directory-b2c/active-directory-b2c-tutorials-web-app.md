@@ -1,19 +1,18 @@
 ---
-title: "ASP.NET 웹앱 자습서에서 Azure Active Directory B2C를 사용하여 사용자 인증"
-description: "Azure Active Directory B2C를 사용하여 ASP.NET 웹앱에 대한 사용자 로그인을 제공하는 방법에 대한 자습서입니다."
+title: ASP.NET 웹앱 자습서에서 Azure Active Directory B2C를 사용하여 사용자 인증
+description: Azure Active Directory B2C를 사용하여 ASP.NET 웹앱에 대한 사용자 로그인을 제공하는 방법에 대한 자습서입니다.
 services: active-directory-b2c
-author: PatAltimore
-ms.author: patricka
-ms.reviewer: saraford
+author: davidmu1
+ms.author: davidmu
 ms.date: 1/23/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory-b2c
-ms.openlocfilehash: 1d1e0ce51d86ebcdbf0a2a423ff64b3814413d86
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: c2a52a387860de640e290746b25c164090819654
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="tutorial-authenticate-users-with-azure-active-directory-b2c-in-an-aspnet-web-app"></a>자습서: ASP.NET 웹앱에서 Azure Active Directory B2C를 사용하여 사용자 인증
 
@@ -55,7 +54,7 @@ Azure AD B2C 테넌트의 전역 관리자로 [Azure Portal](https://portal.azur
     | **웹앱/웹 API 포함** | 예 | 웹앱에 대해 **예**를 선택합니다. |
     | **암시적 흐름 허용** | 예 | 앱에서 [OpenID Connect 로그인](active-directory-b2c-reference-oidc.md)을 사용하므로 **예**를 선택합니다. |
     | **회신 URL** | `https://localhost:44316` | 회신 URL은 Azure AD B2C에서 앱이 요청한 토큰을 반환하는 엔드포인트입니다. 이 자습서에서는 샘플이 로컬(로컬 호스트)에서 실행되고 44316 포트에서 수신 대기합니다. |
-    | **네이티브 클라이언트** | 아니요 | 이는 웹앱이지만 기본 클라이언트가 아니기 때문에 [아니요]를 선택합니다. |
+    | **네이티브 클라이언트** | 아니오 | 이는 웹앱이지만 기본 클라이언트가 아니기 때문에 [아니요]를 선택합니다. |
 
 3. **만들기** 를 클릭하여 앱을 등록합니다.
 

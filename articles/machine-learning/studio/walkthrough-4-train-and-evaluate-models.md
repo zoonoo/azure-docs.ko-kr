@@ -1,10 +1,11 @@
 ---
-title: "4단계: 예측 분석 모델 학습 및 평가 | Microsoft Docs"
-description: "예측 솔루션 개발 연습 4단계: Azure 기계 학습 스튜디오에서 다중 모델을 학습하고, 점수를 매기고, 평가합니다."
+title: '4단계: 예측 분석 모델 학습 및 평가 | Microsoft Docs'
+description: '예측 솔루션 개발 연습 4단계: Azure Machine Learning Studio에서 다중 모델을 학습하고, 점수를 매기고, 평가합니다.'
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: d905f6b3-9201-4117-b769-5f9ed5ee1cac
 ms.service: machine-learning
@@ -13,17 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.author: garye
-ms.openlocfilehash: 5a545b9f9f7f935be91fed743779ebd6b4d930a6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3f722fa314b42501e0f6144f71b9d74c0a9127e9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="walkthrough-step-4-train-and-evaluate-the-predictive-analytic-models"></a>연습 4단계: 예측 분석 모델 학습 및 평가
 이 토픽에는 연습의 4번째 단계인 [Azure Machine Learning에서 예측 분석 솔루션 개발](walkthrough-develop-predictive-solution.md)이 포함되어 있습니다.
 
-1. [기계 학습 작업 영역 만들기](walkthrough-1-create-ml-workspace.md)
+1. [Machine Learning 작업 영역 만들기](walkthrough-1-create-ml-workspace.md)
 2. [기존 데이터 업로드](walkthrough-2-upload-data.md)
 3. [새 실험 만들기](walkthrough-3-create-new-experiment.md)
 4. **모델 학습 및 평가**
@@ -38,7 +38,7 @@ Azure Machine Learning Studio를 사용하여 기계 학습 모델을 만들 때
 다양한 모델을 선택할 수 있습니다. 사용할 수 있는 모델을 보려면 모듈 팔레트에서 **Machine Learning** 노드를 확장하고 **모델 초기화** 및 그 아래 노드를 확장합니다. 이 실험에서는 [2클래스 SVM(Support Vector Machine)][two-class-support-vector-machine] 및 [2클래스 향상된 의사 결정 트리][two-class-boosted-decision-tree] 모듈을 선택합니다.    
 
 > [!TIP]
-> 해결하려는 특정 문제에 가장 적합한 기계 학습 알고리즘을 결정하는 데 대한 도움말을 보려면 [Microsoft Azure 기계 학습을 위한 알고리즘 선택 방법](algorithm-choice.md)을 참조하세요.
+> 해결하려는 특정 문제에 가장 적합한 Machine Learning 알고리즘을 결정하는 데 대한 도움말을 보려면 [Microsoft Azure Machine Learning을 위한 알고리즘 선택 방법](algorithm-choice.md)을 참조하세요.
 > 
 > 
 
@@ -182,7 +182,7 @@ SVM 모델을 설정하려면 다음을 수행합니다.
 > 캔버스 아래에서 **다른 이름으로 저장**을 클릭하여 실험을 반복하도록 복사본을 만들 수 있습니다. 
 > 실험의 **요약** 및 **설명** 속성을 사용하면 실험 반복에서 시도한 항목을 기록할 수 있습니다.
 > 
-> 자세한 내용은 [Azure 기계 학습 스튜디오에서 실험 반복 관리](manage-experiment-iterations.md)를 참조하세요.  
+> 자세한 내용은 [Azure Machine Learning Studio에서 실험 반복 관리](manage-experiment-iterations.md)를 참조하세요.  
 > 
 > 
 

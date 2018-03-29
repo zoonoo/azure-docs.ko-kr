@@ -1,27 +1,27 @@
 ---
-title: "Azure Active Directory의 그룹 기반 라이선스란? | Microsoft Docs"
-description: "Azure Active Directory 그룹 기반 라이선스, 작동 방법 및 모범 사례에 대한 설명"
+title: Azure Active Directory의 그룹 기반 라이선스란? | Microsoft Docs
+description: Azure Active Directory 그룹 기반 라이선스, 작동 방법 및 모범 사례에 대한 설명
 services: active-directory
-keywords: "Azure AD 라이선스"
-documentationcenter: 
+keywords: Azure AD 라이선스
+documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/29/2017
+ms.date: 03/20/2018
 ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017;it-pro
-ms.openlocfilehash: 9cfa8c42c1f3955adad5e4ce596d96c4e98e40a1
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1d4151d6c00da618cc008257bcdad4607f8fec49
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="group-based-licensing-basics-in-azure-active-directory"></a>Azure Active Directory에서 그룹 기반 라이선스 기본
 

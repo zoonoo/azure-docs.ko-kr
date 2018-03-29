@@ -1,11 +1,11 @@
 ---
-title: "Azure Data Factory를 사용하여 증분 방식으로 여러 테이블 복사 | Microsoft Docs"
-description: "이 자습서에서는 델타 데이터를 증분 방식으로 온-프레미스 SQL Server 데이터베이스의 여러 테이블에서 Azure SQL 데이터베이스로 복사하는 Azure Data Factory 파이프라인을 만듭니다."
+title: Azure Data Factory를 사용하여 증분 방식으로 여러 테이블 복사 | Microsoft Docs
+description: 이 자습서에서는 델타 데이터를 증분 방식으로 온-프레미스 SQL Server 데이터베이스의 여러 테이블에서 Azure SQL 데이터베이스로 복사하는 Azure Data Factory 파이프라인을 만듭니다.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 0a6bcf78561ef4f57d788ef19e132d1a855b8c2a
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 8f59ffb2011ad43173881d4ced231e4820fcf5f8
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>SQL Server의 여러 테이블에서 Azure SQL 데이터베이스로 데이터 증분 로드
 이 자습서에서는 델타 데이터를 온-프레미스 SQL Server의 여러 테이블에서 Azure SQL 데이터베이스로 로드하는 파이프라인이 있는 Azure 데이터 팩터리를 만듭니다.    
@@ -25,16 +25,16 @@ ms.lasthandoff: 02/21/2018
 이 자습서에서 수행하는 단계는 다음과 같습니다.
 
 > [!div class="checklist"]
-> * 원본 및 대상 데이터 저장소 준비
-> * 데이터 팩터리 만들기
+> * 원본 및 대상 데이터 저장소를 준비합니다.
+> * 데이터 팩터리를 만듭니다.
 > * 자체 호스팅 통합 런타임을 만듭니다.
 > * Integration Runtime을 설치합니다. 
-> * 연결된 서비스 만들기 
+> * 연결된 서비스 만들기. 
 > * 원본, 싱크 및 워터마크 데이터 집합을 만듭니다.
-> * 파이프라인 만들기, 실행 및 모니터링
+> * 파이프라인을 만들고 실행하고 모니터링합니다.
 > * 결과를 검토합니다.
 > * 원본 테이블의 데이터를 추가 또는 업데이트합니다.
-> * 파이프 라인을 다시 실행하고 모니터링합니다.
+> * 파이프라인을 다시 실행하고 모니터링합니다.
 > * 최종 결과를 검토합니다.
 
 > [!NOTE]
@@ -51,11 +51,11 @@ ms.lasthandoff: 02/21/2018
 
 3. **다음 작업을 사용하여 파이프라인을 만듭니다.** 
     
-    a. 파이프라인에 매개 변수로 전달되는 원본 테이블 이름 목록을 반복하는 ForEach 작업을 만듭니다. 이 작업은 각 원본 테이블에 대해 다음 작업을 호출하여 해당 테이블의 델타 로딩을 수행합니다.
+    a. 파이프라인에 매개 변수로 전달되는 원본 테이블 이름 목록을 반복하는 ForEach 작업을 만듭니다. 각 원본 테이블에 해당 테이블에 대한 델타 로드를 수행하는 다음 작업을 호출합니다.
 
-    나. 두 가지 조회 작업을 만듭니다. 첫 번째 조회 작업을 사용하여 마지막 워터마크 값을 검색합니다. 두 번째 조회 작업을 사용하여 새 워터마크 값을 검색합니다. 이러한 워터마크 값은 복사 작업에 전달됩니다.
+    b. 두 가지 조회 작업을 만듭니다. 첫 번째 조회 작업을 사용하여 마지막 워터마크 값을 검색합니다. 두 번째 조회 작업을 사용하여 새 워터마크 값을 검색합니다. 이러한 워터마크 값은 복사 작업에 전달됩니다.
 
-    다. 이전 워터마크 값보다 크고, 새 워터마크 값보다 작은 워터마크 열 값으로 원본 데이터 저장소의 행을 복사하는 복사 작업을 만듭니다. 그런 다음 원본 데이터 저장소의 델타 데이터를 새 파일로 Azure Blob 저장소에 복사합니다.
+    c. 이전 워터마크 값보다 크고, 새 워터마크 값보다 작은 워터마크 열 값으로 원본 데이터 저장소의 행을 복사하는 복사 작업을 만듭니다. 그런 다음 원본 데이터 저장소의 델타 데이터를 새 파일로 Azure Blob 저장소에 복사합니다.
 
     d. 다음에 실행되는 파이프라인에 대한 워터마크 값을 업데이트하는 StoredProcedure 작업을 만듭니다. 
 
@@ -72,7 +72,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ### <a name="create-source-tables-in-your-sql-server-database"></a>SQL Server 데이터베이스에 원본 테이블 만들기
 
-1. SQL Server Management Studio를 열고 온-프레미스 SQL Server에 연결합니다.
+1. SQL Server Management Studio를 열고 온-프레미스 SQL Server 데이터베이스에 연결합니다.
 
 2. **서버 탐색기**에서 데이터베이스를 마우스 오른쪽 단추로 클릭하고 **새 쿼리**를 선택합니다.
 
@@ -157,7 +157,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ### <a name="create-a-stored-procedure-in-the-azure-sql-database"></a>Azure SQL 데이터베이스에 저장 프로시저 만들기 
 
-다음 명령을 실행하여 SQL 데이터베이스에 저장 프로시저를 만듭니다. 이 저장 프로시저는 파이프라인을 실행이 끝날 때마다 워터마크 값을 업데이트합니다. 
+다음 명령을 실행하여 SQL 데이터베이스에 저장 프로시저를 만듭니다. 이 저장 프로시저는 파이프라인의 실행이 끝날 때마다 워터마크 값을 업데이트합니다. 
 
 ```sql
 CREATE PROCEDURE sp_write_watermark @LastModifiedtime datetime, @TableName varchar(50)
@@ -282,10 +282,10 @@ END
 ### <a name="create-the-sql-server-linked-service"></a>SQL Server 연결된 서비스 만들기
 이 단계에서 온-프레미스 SQL Server 데이터베이스를 데이터 팩터리에 연결합니다.
 
-1. C:\ADFTutorials\IncCopyMultiTableTutorial 폴더에 다음 내용이 포함된 SqlServerLinkedService.json이라는 JSON 파일을 만듭니다. Microsoft SQL Server에 연결하는 데 사용하는 인증을 기반으로 올바른 선택을 합니다. 로컬 폴더가 아직 없으면 만듭니다. 
+1. C:\ADFTutorials\IncCopyMultiTableTutorial 폴더에 다음 내용이 포함된 SqlServerLinkedService.json이라는 JSON 파일을 만듭니다. Microsoft SQL Server에 연결하는 데 사용하는 인증을 기반으로 적절한 섹션을 선택합니다. 로컬 폴더가 아직 없으면 만듭니다. 
 
     > [!IMPORTANT]
-    > Microsoft SQL Server에 연결하는 데 사용하는 인증을 기반으로 올바른 선택을 합니다.
+    > Microsoft SQL Server에 연결하는 데 사용하는 인증을 기반으로 적절한 섹션을 선택합니다.
 
     SQL 인증을 사용하는 경우 다음 JSON 정의를 복사합니다.
 
@@ -333,7 +333,7 @@ END
     }    
     ```
     > [!IMPORTANT]
-    > - Microsoft SQL Server에 연결하는 데 사용하는 인증을 기반으로 올바른 선택을 합니다.
+    > - Microsoft SQL Server에 연결하는 데 사용하는 인증을 기반으로 적절한 섹션을 선택합니다.
     > - &lt;integration runtime name>을 사용자의 통합 런타임 이름으로 바꿉니다.
     > - 파일을 저장하기 전에 &lt;servername>, &lt;databasename>, &lt;username> 및 &lt;password>를 SQL Server 데이터베이스 값으로 바꿉니다.
     > - 슬래시 문자(`\`)를 사용자 계정 또는 서버 이름에 사용해야 할 경우 이스케이프 문자(`\`)를 사용합니다. 예는 `mydomain\\myuser`입니다.
@@ -356,7 +356,7 @@ END
     ```
 
 ### <a name="create-the-sql-database-linked-service"></a>SQL 데이터베이스 연결된 서비스 만들기
-1. C:\ADFTutorials\IncCopyMultiTableTutorial 폴더에 다음 내용이 포함된 AzureSQLDatabaseLinkedService.json이라는 JSON 파일을 만듭니다. (ADF 폴더가 없으면 해당 폴더를 만듭니다.) 파일을 저장하기 전에 &lt;server&gt;, &lt;database name&gt;, &lt;user id&gt;, and &lt;password&gt;를 SQL Server 데이터베이스 이름, 데이터베이스 이름, 사용자 ID 및 암호로 바꿉니다. 
+1. C:\ADFTutorials\IncCopyMultiTableTutorial 폴더에 다음 내용이 포함된 AzureSQLDatabaseLinkedService.json이라는 JSON 파일을 만듭니다. (ADF 폴더가 없으면 해당 폴더를 만듭니다.) 파일을 저장하기 전에 &lt;server&gt;, &lt;database name&gt;, &lt;user id&gt; 및 &lt;password&gt;를 SQL Server 데이터베이스 이름, 데이터베이스 이름, 사용자 ID 및 암호로 바꿉니다. 
 
     ```json
     {
@@ -509,7 +509,7 @@ END
     Properties        : Microsoft.Azure.Management.DataFactory.Models.AzureSqlTableDataset    
     ```
 
-## <a name="create-a-pipeline"></a>파이프라인 만들기
+## <a name="create-a-pipeline"></a>파이프라인을 만듭니다.
 파이프라인에서는 테이블 이름 목록을 매개 변수로 사용합니다. ForEach 작업은 테이블 이름 목록을 반복하고 다음 작업을 수행합니다. 
 
 1. 조회 작업을 사용하여 이전 워터마크 값을 검색합니다(초기 값 또는 마지막 반복에서 사용된 값).
@@ -875,16 +875,16 @@ project_table   2017-10-01 00:00:00.000
 이 자습서에서 다음 단계를 수행했습니다. 
 
 > [!div class="checklist"]
-> * 원본 및 대상 데이터 저장소 준비
-> * 데이터 팩터리 만들기
+> * 원본 및 대상 데이터 저장소를 준비합니다.
+> * 데이터 팩터리를 만듭니다.
 > * 자체 호스팅 IR(통합 런타임)을 만듭니다.
 > * Integration Runtime을 설치합니다.
-> * 연결된 서비스 만들기 
+> * 연결된 서비스 만들기. 
 > * 원본, 싱크 및 워터마크 데이터 집합을 만듭니다.
-> * 파이프라인 만들기, 실행 및 모니터링
+> * 파이프라인을 만들고 실행하고 모니터링합니다.
 > * 결과를 검토합니다.
 > * 원본 테이블의 데이터를 추가 또는 업데이트합니다.
-> * 파이프 라인을 다시 실행하고 모니터링합니다.
+> * 파이프라인을 다시 실행하고 모니터링합니다.
 > * 최종 결과를 검토합니다.
 
 Azure에서 Spark 클러스터를 사용하여 데이터를 변환하는 방법을 알아보려면 다음 자습서로 진행하세요.

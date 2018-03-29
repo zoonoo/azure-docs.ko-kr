@@ -1,11 +1,11 @@
 ---
-title: "Azure Data Factory를 사용하여 테이블 증분 복사 | Microsoft Docs"
-description: "이 자습서에서는 Azure SQL 데이터베이스에서 Azure Blob 저장소로 데이터 증분을 복사하는 Azure 데이터 팩터리 파이프라인을 만듭니다."
+title: Azure Data Factory를 사용하여 테이블 증분 복사 | Microsoft Docs
+description: 이 자습서에서는 Azure SQL 데이터베이스에서 Azure Blob 저장소로 데이터 증분을 복사하는 Azure 데이터 팩터리 파이프라인을 만듭니다.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: edde9d8c6fe070e5323cf63d222c7cd6a8983e8a
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 17ea97e34deb375123de12508c2c0845cd25c27a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Azure SQL 데이터베이스에서 Azure Blob 저장소로 데이터 증분 로드
 이 자습서에서는 Azure SQL 데이터베이스의 테이블에서 Azure Blob 저장소로 델타 데이터를 로드하는 파이프라인이 있는 Azure 데이터 팩터리를 만듭니다. 
@@ -31,8 +31,8 @@ ms.lasthandoff: 02/14/2018
 
 > [!div class="checklist"]
 > * 워터마크 값을 저장할 데이터 저장소를 준비합니다.
-> * 데이터 팩터리 만들기
-> * 연결된 서비스 만들기 
+> * 데이터 팩터리를 만듭니다.
+> * 연결된 서비스 만들기. 
 > * 원본, 싱크 및 워터마크 데이터 집합을 만듭니다.
 > * 파이프라인을 만듭니다.
 > * 파이프라인을 실행합니다.
@@ -184,7 +184,7 @@ END
    ![데이터 팩터리 홈페이지](./media/tutorial-incremental-copy-portal/data-factory-home-page.png)
 10. **작성 및 모니터링** 타일을 클릭하여 별도의 탭에서 Azure Data Factory UI(사용자 인터페이스)를 시작합니다.
 
-## <a name="create-a-pipeline"></a>파이프라인 만들기
+## <a name="create-a-pipeline"></a>파이프라인을 만듭니다.
 이 자습서에서는 하나의 파이프라인에 두 개의 조회 작업, 하나의 복사 작업 및 하나의 StoredProcedure 작업이 연결되어 있는 파이프라인을 만듭니다. 
 
 1. Data Factory UI의 **시작** 페이지에서 **파이프라인 만들기** 타일을 클릭합니다. 
@@ -433,8 +433,8 @@ PersonID | Name | LastModifytime
 
 > [!div class="checklist"]
 > * 워터마크 값을 저장할 데이터 저장소를 준비합니다.
-> * 데이터 팩터리 만들기
-> * 연결된 서비스 만들기 
+> * 데이터 팩터리를 만듭니다.
+> * 연결된 서비스 만들기. 
 > * 원본, 싱크 및 워터마크 데이터 집합을 만듭니다.
 > * 파이프라인을 만듭니다.
 > * 파이프라인을 실행합니다.

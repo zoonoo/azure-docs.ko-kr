@@ -1,11 +1,11 @@
 ---
-title: "Azure Data Factory의 If 조건 작업 | Microsoft Docs"
-description: "If 조건 작업을 사용하면 조건에 따라 프로세스 흐름을 제어할 수 있습니다."
+title: Azure Data Factory의 If 조건 작업 | Microsoft Docs
+description: If 조건 작업을 사용하면 조건에 따라 프로세스 흐름을 제어할 수 있습니다.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 016cd8ac8dc4b65117bf8c07e8d8d4c74c8d9623
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 537032ade9e6569def84499ca6d2d937f77312e3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="if-condition-activity-in-azure-data-factory"></a>Azure Data Factory의 If 조건 작업
 If 조건 작업은 if 문에서 프로그래밍 언어로 제공하는 것과 동일한 기능을 제공합니다. 조건이 `true`로 평가되면 작업 집합을 평가하고, 조건이 `false`로 평가되면 다른 작업 집합을 평가합니다. 

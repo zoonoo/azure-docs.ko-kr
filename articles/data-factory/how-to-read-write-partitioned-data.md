@@ -1,11 +1,11 @@
 ---
-title: "Azure Data Factory에서 분할된 데이터를 읽거나 쓰는 방법 | Microsoft Docs"
-description: "Azure Data Factory 버전 2에서 분할된 데이터를 읽거나 쓰는 방법을 알아봅니다."
+title: Azure Data Factory에서 분할된 데이터를 읽거나 쓰는 방법 | Microsoft Docs
+description: Azure Data Factory 버전 2에서 분할된 데이터를 읽거나 쓰는 방법을 알아봅니다.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: 
+manager: craigg
+editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2018
 ms.author: shlo
-ms.openlocfilehash: 3d65158a66ec16bd13ad4ad56af90c6fd28bfe7e
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: e3b6ccd1e7066ed86b3d6d2d85228688b06931c4
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-read-or-write-partitioned-data-in-azure-data-factory-version-2"></a>Azure Data Factory 버전 2에서 분할된 데이터를 읽거나 쓰는 방법
 버전 1에서 Azure Data Factory는 SliceStart/SliceEnd/WindowStart/WindowEnd 시스템 변수를 사용하여 분할된 데이터 읽기 또는 쓰기를 지원했습니다. 버전 2에서는 파이프라인 매개 변수와 트리거의 시작 시간/예약된 시간을 매개 변수의 값으로 사용하여 이 동작을 수행할 수 있습니다. 

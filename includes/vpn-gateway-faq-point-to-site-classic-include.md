@@ -1,3 +1,19 @@
+---
+title: 포함 파일
+description: 포함 파일
+services: vpn-gateway
+author: cherylmc
+ms.service: vpn-gateway
+ms.topic: include
+ms.date: 03/21/2018
+ms.author: cherylmc
+ms.custom: include file
+ms.openlocfilehash: b8a785293c4e555b547c4b002f5ef5906a7633c0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 03/23/2018
+---
 이 FAQ는 클래식 배포 모델을 사용하는 P2S 연결에 적용됩니다.
 
 ### <a name="what-client-operating-systems-can-i-use-with-point-to-site"></a>지점 및 사이트 간 연결에 사용할 수 있는 클라이언트 운영 체제는 무엇입니까?

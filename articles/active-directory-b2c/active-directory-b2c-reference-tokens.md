@@ -1,24 +1,21 @@
 ---
-title: "토큰 참조 - Azure AD B2C | Microsoft Docs"
-description: "Azure Active Directory B2C에서 발급된 토큰의 형식입니다."
+title: 토큰 참조 - Azure AD B2C | Microsoft Docs
+description: Azure Active Directory B2C에서 발급된 토큰의 형식입니다.
 services: active-directory-b2c
-documentationcenter: 
-author: parakhj
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.assetid: 6df79878-65cb-4dfc-98bb-2b328055bc2e
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
-ms.author: parakhj
-ms.openlocfilehash: ce82fcc82cf411d1596fea56ff368d96eceeff38
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: e5cc6a0974f9481491518779209ec5256870921f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-ad-b2c-token-reference"></a>Azure AD B2C: 토큰 참조
 
@@ -71,7 +68,7 @@ Azure AD B2C를 사용하는 경우 토큰의 내용에 대해 정교하게 세�
 
 ID 토큰에 있는 클레임은 특정 순서로 반환되지 않습니다. 또한 언제든지 새 클레임을 ID 토큰에 도입할 수 있습니다. 새 클레임이 도입되므로 앱을 해제하지 말아야 합니다. 다음은 Azure AD B2C에서 발급하는 ID 및 액세스 토큰에 있어야 하는 클레임입니다. 모든 추가 클레임은 정책에 따라 결정됩니다. 연습을 위해 샘플 ID 토큰에 있는 클레임을 [jwt.ms](https://jwt.ms)에 붙여넣어 검사하세요. 자세한 내용은 [OpenID Connect 사양](http://openid.net/specs/openid-connect-core-1_0.html)에서 확인할 수 있습니다.
 
-| 이름 | 클레임 | 예제 값 | 설명 |
+| Name | 클레임 | 예제 값 | 설명 |
 | --- | --- | --- | --- |
 | 대상 |`aud` |`90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` |대상 클레임은 토큰의 의도된 수신자를 식별합니다. Azure AD B2C의 경우 대상은 앱 등록 포털에서 앱에 할당된 앱의 응용 프로그램 ID입니다. 앱은 이 값의 유효성을 검사하고 일치하지 않을 경우 토큰을 거부해야 합니다. |
 | 발급자 |`iss` |`https://login.microsoftonline.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` |이 클레임은 토큰을 생성하고 반환하는 STS(보안 토큰 서비스)를 식별합니다. 또한 사용자가 인증하는 Azure AD 디렉터리도 식별합니다. 앱에서 발급자 클레임의 유효성을 검사하여 Azure Active Directory v2.0 끝점에서 제공한 토큰인지 확인해야 합니다. |

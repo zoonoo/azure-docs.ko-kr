@@ -1,10 +1,11 @@
 ---
-title: "3단계: 새 Machine Learning 실험 만들기 | Microsoft Docs"
-description: "예측 솔루션 개발 연습 3단계: Azure 기계 학습 스튜디오에서 새 학습 실험을 만듭니다."
+title: '3단계: 새 Machine Learning 실험 만들기 | Microsoft Docs'
+description: '예측 솔루션 개발 연습 3단계: Azure Machine Learning Studio에서 새 학습 실험을 만듭니다.'
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: 660e3c27-55ef-4c33-a4e9-dff4d1224630
 ms.service: machine-learning
@@ -13,17 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.author: garye
-ms.openlocfilehash: a8f1764204740a8f5ef757e5e2ad63cfd43af150
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 72d6c3acfdf095ad8652561244139304b690344a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="walkthrough-step-3-create-a-new-azure-machine-learning-experiment"></a>연습 3단계: 새 Azure 기계 학습 실험 만들기
-[Azure 기계 학습에서 예측 분석 솔루션 개발](walkthrough-develop-predictive-solution.md)
+# <a name="walkthrough-step-3-create-a-new-azure-machine-learning-experiment"></a>연습 3단계: 새 Azure Machine Learning 실험 만들기
+[Azure Machine Learning에서 예측 분석 솔루션 개발](walkthrough-develop-predictive-solution.md)
 
-1. [기계 학습 작업 영역 만들기](walkthrough-1-create-ml-workspace.md)
+1. [Machine Learning 작업 영역 만들기](walkthrough-1-create-ml-workspace.md)
 2. [기존 데이터 업로드](walkthrough-2-upload-data.md)
 3. **새 실험 만들기**
 4. [모델 학습 및 평가](walkthrough-4-train-and-evaluate-models.md)

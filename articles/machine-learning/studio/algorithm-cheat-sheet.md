@@ -1,11 +1,12 @@
 ---
-title: "Machine Learning 알고리즘 치트 시트 | Microsoft Docs"
-description: "인쇄 가능한 기계 학습 알고리즘 치트 시트를 사용하면 Azure Machine Learning Studio에서 예측 모델에 적합한 알고리즘을 선택합니다."
-keywords: "알고리즘 치트 시트, 치트 시트, 기계 학습 알고리즘"
+title: Machine Learning 알고리즘 치트 시트 | Microsoft Docs
+description: 인쇄 가능한 기계 학습 알고리즘 치트 시트를 사용하면 Azure Machine Learning Studio에서 예측 모델에 적합한 알고리즘을 선택합니다.
+keywords: 알고리즘 치트 시트, 치트 시트, 기계 학습 알고리즘
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: pakalra
+ms.author: pakalra
+manager: cgronlun
 editor: cgronlun
 ms.assetid: e1dc31ec-1acb-463f-ba77-de565d4ddf4d
 ms.service: machine-learning
@@ -14,16 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.author: garye
-ms.openlocfilehash: 5ecd569f68c2eada921193f2b7b88fe788120a9b
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 2fd42ba47b9cfc81c17078dc9d36c7650fbc6317
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-microsoft-azure-machine-learning-studio"></a>Microsoft Azure Machine Learning Studio용 기계 학습 알고리즘 치트 시트
-
-            **Microsoft Azure Machine Learning 알고리즘 치트 시트**를 사용하면 예측 분석 모델에 대한 적합한 알고리즘을 선택할 수 있습니다.
+**Microsoft Azure Machine Learning 알고리즘 치트 시트**를 사용하면 예측 분석 모델에 대한 적합한 알고리즘을 선택할 수 있습니다.
 
 [Azure Machine Learning 스튜디오](https://studio.azureml.net/)에는 ***회귀***, ***분류***, ***클러스터링***, ***이상 감지*** 제품군 등의 대규모 알고리즘 라이브러리가 있습니다. 각 항목은 다양한 유형의 기계 학습 문제를 해결하기 위해 고안되었습니다.
 

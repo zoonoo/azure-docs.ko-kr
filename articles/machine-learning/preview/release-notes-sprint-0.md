@@ -1,6 +1,6 @@
 ---
-title: "2017년 10월, 스프린트 0에 대한 Azure ML Workbench 릴리스 정보"
-description: "이 문서는 Azure ML 스프린트 0 릴리스의 업데이트에 대해 자세히 설명합니다."
+title: 2017년 10월, 스프린트 0에 대한 Azure ML Workbench 릴리스 정보
+description: 이 문서는 Azure ML 스프린트 0 릴리스의 업데이트에 대해 자세히 설명합니다.
 services: machine-learning
 author: hning86
 ms.author: haining
@@ -11,10 +11,10 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 10/12/2017
 ms.openlocfilehash: 37e0a4461e8a0de631a6194a1eb8cc16b610954f
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 03/27/2018
 ---
 # <a name="sprint-0---october-2017"></a>스프린트 0 - 2017년 10월 
 
@@ -55,7 +55,7 @@ Microsoft Ignite 2017 컨퍼런스에서 최초 공용 미리 보기를 선보�
 - 사용자가 특정 로그인 유형을 사용하는 경우 노트북 서버를 시작할 수 없습니다.
 - 노트북 서버 오류 메시지는 사용자가 볼 수 있는 로그에 표시되지 않습니다.
 
-### <a name="azure-portal"></a>Azure 포털
+### <a name="azure-portal"></a>Azure portal
 - Azure Portal의 어두운 테마를 선택하면 모델 관리 블레이드가 검은색 상자로 표시됩니다.
 
 ### <a name="operationalization"></a>운영화

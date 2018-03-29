@@ -1,24 +1,24 @@
 ---
-title: "Azure Log Analytics 로그 검색의 컴퓨터 그룹 | Microsoft Docs"
-description: "Log Analytics의 컴퓨터 그룹을 사용하여 로그 검색 범위를 특정 컴퓨터 집합으로 한정할 수 있습니다.  이 문서에서는 컴퓨터 그룹을 만드는 데 사용할 수 있는 몇 가지 방법과 로그 검색에서의 사용 방법을 설명합니다."
+title: Azure Log Analytics 로그 검색의 컴퓨터 그룹 | Microsoft Docs
+description: Log Analytics의 컴퓨터 그룹을 사용하여 로그 검색 범위를 특정 컴퓨터 집합으로 한정할 수 있습니다.  이 문서에서는 컴퓨터 그룹을 만드는 데 사용할 수 있는 몇 가지 방법과 로그 검색에서의 사용 방법을 설명합니다.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
-editor: 
+editor: ''
 ms.assetid: a28b9e8a-6761-4ead-aa61-c8451ca90125
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2018
+ms.date: 03/19/2018
 ms.author: bwren
-ms.openlocfilehash: 4d6a80082711f09e9c189d53fb4fda00a7d73c29
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: a6f0aa58762966f8da76387f3da7a7895801fcb9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="computer-groups-in-log-analytics-log-searches"></a>Log Analytics 로그 검색의 컴퓨터 그룹 
 
@@ -32,7 +32,7 @@ Log Analytics에서 다음 표의 방법 중 하나를 통해 컴퓨터 그룹�
 | 로그 검색 |컴퓨터 목록을 반환하는 로그 검색 만듭니다. |
 | 로그 검색 API |로그 검색 API를 사용하여 프로그래밍 방식으로 로그 검색 결과에 따라 컴퓨터 그룹을 만듭니다. |
 | Active Directory |Active Directory 도메인의 구성원인 에이전트 컴퓨터의 그룹 구성원을 자동으로 검색하고 각 보안 그룹에 대해 Log Analytics에 그룹을 만듭니다. |
-| Configuration Manager | System Center Configuration Manager에서 컬렉션을 가져오고 Log Analytics에서 각 컬렉션에 대한 그룹을 만듭니다. |
+| 구성 관리자 | System Center Configuration Manager에서 컬렉션을 가져오고 Log Analytics에서 각 컬렉션에 대한 그룹을 만듭니다. |
 | Windows Server 업데이트 서비스 |대상 그룹에 대해 자동으로 WSUS 서버나 클라이언트를 검색하고 각각에 대해 Log Analytics에 그룹을 만듭니다. |
 
 ### <a name="log-search"></a>로그 검색
@@ -66,12 +66,6 @@ Log Search에서 생성된 컴퓨터 그룹은 사용자가 정의한 검색 쿼
 5. 컴퓨터 그룹의 각 속성에 대한 값을 제공합니다. 
 
 
->[!NOTE]
-> 작업 영역에서 [레거시 Log Analytics 쿼리 언어](log-analytics-log-search-upgrade.md)를 여전히 사용한다면 컴퓨터 그룹을 만들기 위해 동일한 프로시저를 사용하지만, 레거시 쿼리 언어 구문을 사용해야 합니다.
-
-
-### <a name="log-search-api"></a>로그 검색 API
-로그 검색 API를 사용하여 만들어진 컴퓨터 그룹은 로그 검색으로 만든 검색과 동일합니다.  로그 검색 API를 사용하여 컴퓨터 그룹을 만드는 것에 대한 자세한 내용은 [Log Analytics 로그 검색 REST API의 컴퓨터 그룹](log-analytics-log-search-api.md#computer-groups)을 참조하세요.
 
 ### <a name="active-directory"></a>Active Directory
 Active Directory 그룹 멤버 자격을 가져오도록 Log Analytics를 구성하면 OMS 에이전트가 있는 도메인 연결 컴퓨터의 그룹 멤버 자격을 분석합니다.  컴퓨터 그룹은 Log Analytics에서 Active Directory의 각 보안 그룹에 대해 만들어지며 각 컴퓨터는 자신이 속산 보안 그룹에 해당하는 컴퓨터 그룹에 추가됩니다.  이 멤버 자격은 4시간 간격으로 계속 업데이트됩니다.  
@@ -94,7 +88,7 @@ Azure Portal의 Log Analytics **고급 설정**에서 WSUS 그룹을 가져오�
 ### <a name="system-center-configuration-manager"></a>System Center Configuration Manager
 Configuration Manager 컬렉션 멤버 자격 가져오도록 Log Analytics를 구성하면 각 컬렉션에 대한 컴퓨터 그룹을 만듭니다.  컬렉션 멤버 자격 정보는 컴퓨터 그룹을 최신 상태로 유지하기 위해 3시간 마다 검색됩니다. 
 
-Configuration Manager 컬렉션을 가져올 수 있으려면 먼저 [Configuration Manager를 Log Analytics에 연결](log-analytics-sccm.md)해야 합니다.  그런 후 Azure Portal의 Log Analytics **고급 설정**에서 가져오기를 구성할 수 있습니다.  **컴퓨터 그룹**, **SCCM**, 및  **컬렉션 멤버 자격 가져오기**를 차례로 선택합니다.  추가 구성은 필요 없습니다.
+Configuration Manager 컬렉션을 가져올 수 있으려면 먼저 [Configuration Manager를 Log Analytics에 연결](log-analytics-sccm.md)해야 합니다.  그런 후 Azure Portal의 Log Analytics **고급 설정**에서 가져오기를 구성할 수 있습니다.  **컴퓨터 그룹**, **SCCM**, 및 **구성 관리자 컬렉션 멤버 자격 가져오기**를 차례로 선택합니다.  추가 구성은 필요 없습니다.
 
 ![SCCM의 컴퓨터 그룹](media/log-analytics-computer-groups/configure-sccm.png)
 
@@ -131,25 +125,13 @@ Azure Portal의 Log Analytics **고급 설정**에서 로그 검색 또는 Log S
 
 
 
-  
-
->[!NOTE]
-> 작업 영역에서 여전히 [레거시 Log Analytics 쿼리 언어](log-analytics-log-search-upgrade.md)를 사용한다면, 다음 구문을 사용하여 로그 검색에 컴퓨터 그룹을 참조합니다.  **범주** 지정은 선택 사항이며 다른 카테고리에 이름이 같은 컴퓨터 그룹이 있는 경우에만 필수입니다. 
->
->    `$ComputerGroups[Category: Name]`
->
->일반적으로 컴퓨터 그룹은 다음 예제에서처럼 로그 검색에서 **IN** 절에서 사용됩니다.
->
->    `Type=UpdateSummary Computer IN $ComputerGroups[My Computer Group]`
-
-
 
 ## <a name="computer-group-records"></a>컴퓨터 그룹 레코드
 Active Directory 또는 WSUS에서 만든 각 컴퓨터 그룹 멤버 자격에 대한 레코드가 Log Analytics 작업 영역에 생성됩니다.  이 레코드의 형식은 **ComputerGroup**이며 다음 표의 속성을 갖습니다.  로그 검색 기반의 컴퓨터 그룹에 대해서는 레코드가 만들어지지 않습니다.
 
 | 자산 | 설명 |
 |:--- |:--- |
-| type |*ComputerGroup* |
+| 유형 |*ComputerGroup* |
 | SourceSystem |*SourceSystem* |
 | Computer |멤버 컴퓨터의 이름입니다. |
 | 그룹 |그룹의 이름입니다. |
