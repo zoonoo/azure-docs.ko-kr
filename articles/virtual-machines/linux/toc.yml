@@ -419,6 +419,8 @@
           href: extensions-nwa.md
         - name: VMAccess 확장
           href: using-vmaccess-extension.md
+        - name: 확장 설치 제한
+          href: extensions-rmpolicy-howto-cli.md
     - name: VM 마이그레이션
       items:
         - name: AWS 및 온-프레미스 VM 마이그레이션
@@ -458,6 +460,8 @@
           href: understand-vm-reboot.md
         - name: 부트 진단
           href: boot-diagnostics.md
+        - name: 직렬 콘솔
+          href: serial-console.md
         - name: 응용 프로그램에 액세스
           href: troubleshoot-app-connection.md
         - name: 할당 오류

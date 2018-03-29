@@ -21,6 +21,10 @@
   items:
     - name: R 서버 사용
       items:
+        - name: R Server 클러스터 관리
+          href: r-server-hdinsight-manage.md
+        - name: R Server 클러스터 운영
+          href: r-server-operationalize.md
         - name: 저장소 옵션
           href: r-server-storage.md
         - name: Compute 컨텍스트

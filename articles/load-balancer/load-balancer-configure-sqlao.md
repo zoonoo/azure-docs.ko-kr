@@ -1,6 +1,6 @@
 ---
-title: "SQL Server Always On에 대해 부하 분산 장치 구성 | Microsoft Docs"
-description: "SQL Server Always On에서 작동하도록 부하 분산 장치를 구성하며, PowerShell을 사용하여 SQL Server 구현에 대한 부하 분산 장치를 만드는 방법입니다."
+title: SQL Server Always On에 대해 부하 분산 장치 구성 | Microsoft Docs
+description: SQL Server Always On에서 작동하도록 부하 분산 장치를 구성하며, PowerShell을 사용하여 SQL Server 구현에 대한 부하 분산 장치를 만드는 방법입니다.
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 5e890f8314c8f191dbfa6c6818d810b91d0e829d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a0c2345b47b9103ac6a7ae998f13a12332e3907e
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="configure-a-load-balancer-for-sql-server-always-on"></a>SQL Server Always On에 대해 부하 분산 장치 구성
 
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
+
 
 이제 SQL Server Always On 가용성 그룹은 내부 부하 분산 장치로 실행할 수 있습니다. 가용성 그룹은 고가용성 및 재해 복구를 위한 SQL Server의 주력 솔루션입니다. 가용성 그룹 수신기를 통해 클라이언트 응용 프로그램은 구성의 복제본 수에 관계없이 주 복제본에 매끄럽게 연결할 수 있습니다.
 

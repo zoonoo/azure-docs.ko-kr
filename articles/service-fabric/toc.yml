@@ -93,7 +93,7 @@
       href: service-fabric-architecture.md
     - name: 용어
       href: service-fabric-technical-overview.md
-    - name: 지원되는 프로그래밍 모델
+    - name: 응용 프로그램 빌드
       href: service-fabric-choose-framework.md
       items:
         - name: 컨테이너
@@ -106,10 +106,14 @@
         - name: Reliable Services
           href: service-fabric-reliable-services-introduction.md
           items:
+            - name: 서비스 분할
+              href: service-fabric-concepts-partitioning.md
             - name: 'Reliable Services 수명 주기 - C#'
               href: service-fabric-reliable-services-lifecycle.md
             - name: Reliable Services 수명 주기 - Java
               href: service-fabric-reliable-services-lifecycle-java.md
+            - name: 복제 및 인스턴스 수명 주기
+              href: service-fabric-concepts-replica-lifecycle.md
             - name: 신뢰할 수 있는 컬렉션
               href: service-fabric-reliable-services-reliable-collections.md
             - name: 신뢰할 수 있는 컬렉션 지침 및 권장 사항
@@ -122,10 +126,6 @@
               href: service-fabric-reliable-services-reliable-concurrent-queue.md
             - name: 신뢰할 수 있는 컬렉션 직렬화
               href: service-fabric-reliable-services-reliable-collections-serialization.md
-            - name: 신뢰할 수 있는 상태 관리자 및 신뢰할 수 있는 컬렉션 내부
-              href: service-fabric-reliable-services-reliable-collections-internals.md
-            - name: 고급 사용
-              href: service-fabric-reliable-services-advanced-usage.md
         - name: Reliable Actors
           href: service-fabric-reliable-actors-introduction.md
           items:
@@ -153,18 +153,14 @@
           href: service-fabric-application-and-service-manifests.md
         - name: 호스팅 모델
           href: service-fabric-hosting-model.md
+        - name: 응용 프로그램 보안
+          href: service-fabric-application-and-service-security.md
         - name: 서비스 상태
           href: service-fabric-concepts-state.md
-        - name: 서비스 분할
-          href: service-fabric-concepts-partitioning.md
         - name: 응용 프로그램 확장성
           href: service-fabric-concepts-scalability.md
         - name: 서비스 가용성
           href: service-fabric-availability-services.md
-        - name: 복제 및 인스턴스 수명 주기
-          href: service-fabric-concepts-replica-lifecycle.md
-        - name: Reconfiguration
-          href: service-fabric-concepts-reconfiguration.md
         - name: 서비스 통신
           href: service-fabric-connect-and-communicate-with-services.md
           items:
@@ -242,55 +238,29 @@
               href: service-fabric-cluster-resource-manager-movement-cost.md
     - name: 모니터링 및 진단
       items:
-        - name: 응용 프로그램 모니터링 및 진단
+        - name: 모니터링 개요
           href: service-fabric-diagnostics-overview.md
-        - name: 이벤트 생성
+        - name: 클러스터 로그인
+          href: service-fabric-diagnostics-event-generation-infra.md
           items:
-            - name: 플랫폼 수준 이벤트 생성
-              href: service-fabric-diagnostics-event-generation-infra.md
-              items:
-                - name: 작동 채널
-                  href: service-fabric-diagnostics-event-generation-operational.md
-                - name: Reliable Services 이벤트
-                  href: service-fabric-reliable-services-diagnostics.md
-                - name: Reliable Actors 이벤트
-                  href: service-fabric-reliable-actors-diagnostics.md
-                - name: 성능 메트릭
-                  href: service-fabric-diagnostics-event-generation-perf.md
-                - name: 원격 서비스 모니터링
-                  href: service-fabric-reliable-serviceremoting-diagnostics.md
-            - name: 응용 프로그램 수준 이벤트 생성
-              href: service-fabric-diagnostics-event-generation-app.md
-        - name: 응용 프로그램 및 클러스터 상태 검사
-          items:
-            - name: Service Fabric 상태 모니터링
-              href: service-fabric-health-introduction.md
-            - name: 서비스 상태 보고 및 확인
-              href: service-fabric-diagnostics-how-to-report-and-check-service-health.md
-            - name: 사용자 지정 상태 보고서 추가
-              href: service-fabric-report-health.md
-            - name: 시스템 상태 보고서를 사용하여 문제 해결
-              href: service-fabric-understand-and-troubleshoot-with-system-health-reports.md
-            - name: 상태 보고서 보기
-              href: service-fabric-view-entities-aggregated-health.md
-        - name: 이벤트 집계
-          items:
-            - name: EventFlow를 사용하여 이벤트 집계
-              href: service-fabric-diagnostics-event-aggregation-eventflow.md
-            - name: Azure 진단을 사용하여 이벤트 집계
-              items:
-                - name: Windows
-                  href: service-fabric-diagnostics-event-aggregation-wad.md
-                - name: Linux
-                  href: service-fabric-diagnostics-event-aggregation-lad.md
-        - name: 이벤트 분석
-          items:
-            - name: Application Insights를 사용하여 이벤트 분석
-              href: service-fabric-diagnostics-event-analysis-appinsights.md
-            - name: OMS를 사용하여 이벤트 분석
-              href: service-fabric-diagnostics-event-analysis-oms.md
-        - name: 로컬 클러스터 문제 해결
-          href: service-fabric-troubleshoot-local-cluster-setup.md
+            - name: 작동 채널
+              href: service-fabric-diagnostics-event-generation-operational.md
+            - name: Reliable Services 이벤트
+              href: service-fabric-reliable-services-diagnostics.md
+            - name: Reliable Actors 이벤트
+              href: service-fabric-reliable-actors-diagnostics.md
+            - name: 성능 메트릭
+              href: service-fabric-diagnostics-event-generation-perf.md
+            - name: 원격 서비스 모니터링
+              href: service-fabric-reliable-serviceremoting-diagnostics.md
+        - name: 응용 프로그램 로깅
+          href: service-fabric-diagnostics-event-generation-app.md
+        - name: 상태 모델 개요
+          href: service-fabric-health-introduction.md
+        - name: 보고서 상태 이벤트
+          href: service-fabric-report-health.md
+        - name: OMS로 모니터링
+          href: service-fabric-diagnostics-event-analysis-oms.md
     - name: API Management와 통합
       href: service-fabric-api-management-overview.md
 - name: 방법 가이드
@@ -347,8 +317,10 @@
               href: service-fabric-deploy-multiple-apps.md
         - name: 컨테이너 서비스 빌드
           items:
-            - name: 컨테이너 보안
+            - name: 컨테이너에서 인증서 사용
               href: service-fabric-securing-containers.md
+            - name: Windows 컨테이너용 gMSA 설정
+              href: service-fabric-setup-gmsa-for-windows-containers.md
             - name: Docker Compose(미리 보기)
               href: service-fabric-docker-compose.md
             - name: 컨테이너 및 서비스에 대한 리소스 관리
@@ -383,6 +355,8 @@
                   href: service-fabric-reliable-services-secure-communication.md
                 - name: 보안 통신 - Java
                   href: service-fabric-reliable-services-secure-communication-java.md
+                - name: 보안 WCF 통신
+                  href: service-fabric-reliable-services-secure-communication-wcf.md
             - name: 구성
               href: service-fabric-reliable-services-configuration.md
             - name: 알림 보내기
@@ -419,8 +393,12 @@
           items:
             - name: 응용 프로그램 비밀 관리
               href: service-fabric-application-secret-management.md
-            - name: 응용 프로그램에 대한 보안 정책 구성
+            - name: 로컬 사용자 또는 시스템 계정으로 서비스 시작 스크립트 실행
+              href: service-fabric-run-script-at-service-startup.md
+            - name: 로컬 사용자 또는 시스템 계정으로 서비스 실행
               href: service-fabric-application-runas-security.md
+            - name: 끝점에 보안 액세스 정책 할당
+              href: service-fabric-assign-policy-to-endpoint.md
     - name: Windows/VS 개발 환경에서 작업
       items:
         - name: Visual Studio에서 응용 프로그램 관리
@@ -531,6 +509,8 @@
               href: service-fabric-cluster-security-update-certs-azure.md
             - name: 삭제
               href: service-fabric-cluster-delete.md
+            - name: 클러스터 노드 VM에 원격 연결
+              href: service-fabric-cluster-remote-connect-to-azure-cluster-node.md
         - name: 독립 실행형 클러스터
           items:
             - name: 생성
@@ -545,8 +525,14 @@
                   href: service-fabric-cluster-standalone-package-contents.md
             - name: 확장
               href: service-fabric-cluster-windows-server-add-remove-nodes.md
-            - name: 액세스 제어 설정
-              href: service-fabric-cluster-security-roles.md
+            - name: 보안 구성
+              items:
+                - name: 액세스 제어 설정
+                  href: service-fabric-cluster-security-roles.md
+                - name: AD 사용자 또는 그룹으로 서비스 실행
+                  href: service-fabric-run-service-as-ad-user-or-group.md
+                - name: 그룹 관리 서비스 계정으로 서비스 실행
+                  href: service-fabric-run-service-as-gmsa.md
             - name: 구성
               href: service-fabric-cluster-manifest.md
             - name: 업그레이드
@@ -559,7 +545,7 @@
           href: service-fabric-patch-orchestration-application.md
     - name: 모니터링 및 진단
       items:
-        - name: OMS
+        - name: OMS를 사용하여 분석
           items:
             - name: OMS Log Analytics 설정
               href: service-fabric-diagnostics-oms-setup.md
@@ -567,10 +553,26 @@
               href: service-fabric-diagnostics-oms-agent.md
             - name: 모니터 컨테이너
               href: service-fabric-diagnostics-oms-containers.md
-        - name: 성능 모니터링
+        - name: Application Insights를 사용하여 분석
+          href: service-fabric-diagnostics-event-analysis-appinsights.md
+        - name: 이벤트 집계 - EventFlow
+          href: service-fabric-diagnostics-event-aggregation-eventflow.md
+        - name: 이벤트 집계 - Azure 진단
           items:
-            - name: WAD를 사용하여 성능 모니터링
-              href: service-fabric-diagnostics-perf-wad.md
+            - name: Windows
+              href: service-fabric-diagnostics-event-aggregation-wad.md
+            - name: Linux
+              href: service-fabric-diagnostics-event-aggregation-lad.md
+        - name: WAD를 사용하여 성능 모니터링
+          href: service-fabric-diagnostics-perf-wad.md
+        - name: 상태 보고 및 확인
+          href: service-fabric-diagnostics-how-to-report-and-check-service-health.md
+        - name: 시스템 상태 보고서를 사용하여 문제 해결
+          href: service-fabric-understand-and-troubleshoot-with-system-health-reports.md
+        - name: 상태 보고서 보기
+          href: service-fabric-view-entities-aggregated-health.md
+        - name: 로컬 클러스터 문제 해결
+          href: service-fabric-troubleshoot-local-cluster-setup.md
 - name: 참고 자료
   items:
     - name: Azure PowerShell

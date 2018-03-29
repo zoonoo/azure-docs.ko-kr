@@ -1,8 +1,8 @@
 ---
-title: "Azure AD Connect: 사용자 로그인 | Microsoft Docs"
-description: "사용자 지정 설정을 위한 Azure AD Connect 사용자 로그인."
+title: 'Azure AD Connect: 사용자 로그인 | Microsoft Docs'
+description: 사용자 지정 설정을 위한 Azure AD Connect 사용자 로그인.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
 editor: curtand
@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: billmath
-ms.openlocfilehash: 4670ec3cacd8d69a4ed59aa2bbbeb2e5c893f173
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6a6e83ad73f561cd8aa4fc629fb9b48449af6d0a
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Azure AD Connect 사용자 로그인 옵션
 Azure Active Directory(Azure AD) Connect를 사용하면 사용자가 동일한 암호를 사용하여 온-프레미스 및 클라우드 리소스 모두에 로그인할 수 있습니다. 이 문서에서는 Azure AD에 로그인할 때 사용하려는 ID 선택에 도움이 되도록 모든 ID 모델의 주요 개념에 대해 설명합니다.
 
 이미 Azure AD 신원 모델에 익숙하고 특정 방법에 대해 자세히 알고 싶다면 해당 링크를 참조하십시오.
 
-* [Seamless SSO(Single Sign-on)](active-directory-aadconnect-sso.md)를 사용한 [암호 해시 동기화](#password-synchronization)
+* [Seamless SSO(Single Sign-on)](active-directory-aadconnect-sso.md)를 사용한 [암호 해시 동기화](#password-hash-synchronization)
 * [Seamless SSO(Single Sign-on)](active-directory-aadconnect-sso.md)를 사용한 [통과 인증](active-directory-aadconnect-pass-through-authentication.md)
 * [Federated SSO(Active Directory Federation Services(AD FS) 지원)](#federation-that-uses-a-new-or-existing-farm-with-ad-fs-in-windows-server-2012-r2)
 
@@ -54,7 +54,7 @@ Office 365 하이브리드 시나리오에 대한 테넌트를 설정합니다.|
 
 ![암호 해시 동기화](./media/active-directory-aadconnect-user-signin/passwordhash.png)
 
-자세한 내용은 [암호 해시 동기화](active-directory-aadconnectsync-implement-password-synchronization.md) 문서를 참조하세요.
+자세한 내용은 [암호 해시 동기화](active-directory-aadconnectsync-implement-password-hash-synchronization.md) 문서를 참조하세요.
 
 ### <a name="pass-through-authentication"></a>통과 인증
 통과 인증을 사용하면 온-프레미스 Active Directory 컨트롤러에 대해 사용자 암호의 유효성이 검사되므로 암호가 Azure AD에 어떤 형식으로든 있을 필요가 없습니다. 이를 통해 Cloud Services에 대한 인증 동안 로그온 시간 제한 같은 온-프레미스 정책을 평가할 수 있습니다.

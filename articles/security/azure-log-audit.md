@@ -1,12 +1,12 @@
 ---
-title: "Azure 로깅 및 감사 | Microsoft Docs"
-description: "로깅 데이터를 사용하여 응용 프로그램에 대해 깊이 이해할 수 있는 방법에 대해 알아봅니다."
+title: Azure 로깅 및 감사 | Microsoft Docs
+description: 로깅 데이터를 사용하여 응용 프로그램에 대해 깊이 이해할 수 있는 방법에 대해 알아봅니다.
 services: security
 documentationcenter: na
 author: UnifyCloud
 manager: swadhwa
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
 ms.openlocfilehash: 032aa4a6cedd49ff9c3b4803561b8b187e8f9af5
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-logging-and-auditing"></a>Azure 로깅 및 감사
 ## <a name="introduction"></a>소개
@@ -140,8 +140,7 @@ Azure 진단 로그는 PowerShell, CLI(명령줄 인터페이스) 및 REST API�
 |Azure Batch|[Azure Batch 진단 로깅](https://docs.microsoft.com/azure/batch/batch-diagnostics)|Microsoft.Batch/batchAccounts|ServiceLog|
 |Azure Automation|[Azure Automation에 대한 Log Analytics](https://docs.microsoft.com/azure/automation/automation-manage-send-joblogs-log-analytics)|Microsoft.Automation/automationAccounts|JobLogs|
 |||Microsoft.Automation/automationAccounts|JobStreams|
-|Event Hubs
-|[Azure Event Hubs 진단 로그](https://docs.microsoft.com/azure/event-hubs/event-hubs-diagnostic-logs)|Microsoft.EventHub/namespaces|ArchiveLogs|
+|Event Hubs|[Azure Event Hubs 진단 로그](https://docs.microsoft.com/azure/event-hubs/event-hubs-diagnostic-logs)|Microsoft.EventHub/namespaces|ArchiveLogs|
 |||Microsoft.EventHub/namespaces|OperationalLogs|
 |Stream Analytics|[작업 진단 로그](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-job-diagnostic-logs)|Microsoft.StreamAnalytics/streamingjobs|실행|
 |||Microsoft.StreamAnalytics/streamingjobs|작성|

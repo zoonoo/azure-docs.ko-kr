@@ -1,11 +1,11 @@
 ---
-title: "Azure Cloud Services 역할에 .NET 설치 | Microsoft Docs"
-description: "이 문서에서는 클라우드 서비스 웹 및 작업자 역할에 .NET Framework를 수동으로 설치하는 방법을 설명합니다."
+title: Azure Cloud Services 역할에 .NET 설치 | Microsoft Docs
+description: 이 문서에서는 클라우드 서비스 웹 및 작업자 역할에 .NET Framework를 수동으로 설치하는 방법을 설명합니다.
 services: cloud-services
 documentationcenter: .net
 author: thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 8d1243dc-879c-4d1f-9ed0-eecd1f6a6653
 ms.service: cloud-services
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2017
 ms.author: adegeo
-ms.openlocfilehash: cc4b62bc554757e6e394b78334f52f45aa08efe8
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: fa41a18b31a255fa7cda90e33a948f5c6c65434f
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="install-net-on-azure-cloud-services-roles"></a>Azure Cloud Services 역할에 .NET 설치
 이 문서에서는 Azure 게스트 OS와 함께 제공되지 않는 .NET Framework 버전을 설치하는 방법을 설명합니다. 클라우드 서비스 웹 및 작업자 역할을 구성하기 위해 게스트 OS에 .NET을 사용할 수 있습니다.
@@ -43,7 +43,7 @@ ms.lasthandoff: 11/01/2017
 *작업자* 역할에 대해 설치 관리자를 추가하려면
 * *작업자* 역할을 마우스 오른쪽 단추로 클릭하고 **추가** > **기존 항목**을 선택합니다. .NET 설치 관리자를 선택하고 역할에 추가합니다. 
 
-이러한 방식으로 역할 콘텐츠 폴더에 파일이 추가되면 클라우드 서비스 패키지에도 자동으로 추가됩니다. 그런 다음 파일은 가상 컴퓨터에서 일관된 위치에 배포됩니다. 모든 역할에 설치 관리자 복사본이 있도록 클라우드 서비스의 각 웹 및 작업자 역할에 대해 이 프로세스를 반복합니다.
+이러한 방식으로 역할 콘텐츠 폴더에 파일이 추가되면 클라우드 서비스 패키지에도 자동으로 추가됩니다. 그런 다음 파일은 가상 머신에서 일관된 위치에 배포됩니다. 모든 역할에 설치 관리자 복사본이 있도록 클라우드 서비스의 각 웹 및 작업자 역할에 대해 이 프로세스를 반복합니다.
 
 > [!NOTE]
 > 응용 프로그램이 .NET 4.6을 대상으로 하는 경우 클라우드 서비스 역할에 .NET 4.6.1을 설치해야 합니다. 게스트 OS에는 기술 자료 [업데이트 3098779](https://support.microsoft.com/kb/3098779) 및 [업데이트 3097997](https://support.microsoft.com/kb/3097997)이 포함됩니다. .NET 4.6이 기술 자료 업데이트 맨 위에 설치된 경우 .NET 응용 프로그램을 설치할 때 문제가 발생할 수 있습니다. 이러한 문제를 방지하려면 버전 4.6이 아닌 .NET 4.6.1을 설치합니다. 자세한 내용은 [기술 자료 문서 3118750](https://support.microsoft.com/kb/3118750)을 참조하세요.
@@ -98,7 +98,7 @@ ms.lasthandoff: 11/01/2017
     REM ***** To install .NET 4.6.1 set the variable netfx to "NDP461" *****
     REM ***** To install .NET 4.6.2 set the variable netfx to "NDP462" *****
     REM ***** To install .NET 4.7 set the variable netfx to "NDP47" *****
-    REM ***** To install .NET 4.7.1 set the variable netfx to "NDP47" *****
+    REM ***** To install .NET 4.7.1 set the variable netfx to "NDP471" *****
     set netfx="NDP471"
     
     REM ***** Set script start timestamp *****

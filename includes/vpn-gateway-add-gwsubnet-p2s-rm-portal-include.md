@@ -1,3 +1,19 @@
+---
+title: 포함 파일
+description: 포함 파일
+services: vpn-gateway
+author: cherylmc
+ms.service: vpn-gateway
+ms.topic: include
+ms.date: 03/21/2018
+ms.author: cherylmc
+ms.custom: include file
+ms.openlocfilehash: a8dec00373d991a7aeaf11f1a4d95463ab71d9a2
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 03/23/2018
+---
 1. [포털](http://portal.azure.com)에서 가상 네트워크 게이트웨이를 만들려는 Resource Manager 가상 네트워크로 이동합니다.
 2. VNet 페이지의 **설정** 섹션에서 **서브넷**을 클릭하여 **서브넷** 페이지를 확장합니다.
 3. **서브넷** 페이지에서 **+게이트웨이 서브넷**을 클릭하여 **서브넷 추가** 페이지를 엽니다. 

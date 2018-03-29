@@ -1,15 +1,38 @@
-# [Virtual Machines Scale Sets 설명서](index.md)
+# [Virtual Machines Scale Sets 설명서](index.yml)
 
 # 개요
-## [가상 머신 확장 집합이란?](virtual-machine-scale-sets-overview.md)
+## [가상 머신 크기 집합이란?](overview.md)
 
-# 시작
-## [Azure Portal에서 생성](virtual-machine-scale-sets-create-portal.md)
-## [Azure CLI 2.0으로 만들기](virtual-machine-scale-sets-create-cli.md)
-## [Azure PowerShell로 만들기](virtual-machine-scale-sets-create-powershell.md)
+# 빠른 시작
+## [Azure Portal에서 생성](quick-create-portal.md)
+## [Azure CLI 2.0으로 만들기](quick-create-cli.md)
+## [Azure PowerShell로 만들기](quick-create-powershell.md)
 ## 템플릿으로 만들기
-### [Linux 확장 집합](virtual-machine-scale-sets-create-template-linux.md)
-### [Windows 확장 집합](virtual-machine-scale-sets-create-template-windows.md)
+### [Linux 확장 집합](quick-create-template-linux.md)
+### [Windows 확장 집합](quick-create-template-windows.md)
+
+# 자습서
+## 1 - 확장 집합 만들기/관리
+### [Azure CLI 2.0](tutorial-create-and-manage-cli.md)
+### [Azure PowerShell](tutorial-create-and-manage-powershell.md)
+## 2 - 데이터 디스크 사용
+### [Azure CLI 2.0](tutorial-use-disks-cli.md)
+### [Azure PowerShell](tutorial-use-disks-powershell.md)
+## 3 - 사용자 지정 VM 이미지 사용
+### [Azure CLI 2.0](tutorial-use-custom-image-cli.md)
+### [Azure PowerShell](tutorial-use-custom-image-powershell.md)
+## 4 - 확장 집합에 앱 배포
+### [Azure CLI 2.0](tutorial-install-apps-cli.md)
+### [Azure PowerShell](tutorial-install-apps-powershell.md)
+### [템플릿](tutorial-install-apps-template.md)
+## 5 - 확장 집합 자동 크기 조정
+### [Azure CLI 2.0](tutorial-autoscale-cli.md)
+### [Azure PowerShell](tutorial-autoscale-powershell.md)
+### [템플릿](tutorial-autoscale-template.md)
+
+# 샘플
+## [Azure CLI 2.0](cli-samples.md)
+## [PowerShell](powershell-samples.md)
 
 # 방법
 ## 계획 및 디자인
@@ -24,12 +47,9 @@
 
 ## 배포
 ### [Visual Studio를 사용하여 만들기](virtual-machine-scale-sets-vs-create.md)
-### [관리 디스크가 포함된 확장 집합](virtual-machine-scale-sets-managed-disks.md)
 ### [가용성 영역 사용](virtual-machine-scale-sets-use-availability-zones.md)
 ### [확장 집합 자동 크기 조정](virtual-machine-scale-sets-autoscale-overview.md)
 #### [Azure Portal 사용](virtual-machine-scale-sets-autoscale-portal.md)
-#### [Azure CLI 2.0 사용](virtual-machine-scale-sets-autoscale-cli.md)
-#### [Azure PowerShell 사용](virtual-machine-scale-sets-autoscale-powershell.md)
 #### [고급 자동 크기 조정](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [확장 집합의 응용 프로그램](virtual-machine-scale-sets-deploy-app.md)
 ### [확장 집합으로 데이터 디스크 사용](virtual-machine-scale-sets-attached-disks.md)

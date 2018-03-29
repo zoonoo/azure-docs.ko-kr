@@ -14,11 +14,11 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: ellacroi
-ms.openlocfilehash: 7faa34b5528c53c06aeda25be17cbc5f3db2acdf
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 0abf25726936a3d5e69c809c9714965936c7c64c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-marketplace-and-appsource-publisher-guide"></a>Azure Marketplace 및 AppSource 게시자 가이드
 
@@ -308,7 +308,7 @@ AAD 페더레이션 SSO를 처음 접하는 경우
 - 고객별로 '시험 사용'을 개발합니다.
 - SSO를 통해 다중 테넌트 샘플 데모 앱을 빌드합니다.
 
-##<a name="publishing-processes-by-product-for-office-dynamics-and-power-bi"></a>Office, Dynamics 및 Power BI에 대한 제품별 프로세스 게시
+## <a name="publishing-processes-by-product-for-office-dynamics-and-power-bi"></a>Office, Dynamics 및 Power BI에 대한 제품별 프로세스 게시
 Office, Dynamics 및 Power BI를 확장하는 AppSource 앱의 경우 이 섹션의 제품별 설명서에서 특정 요구 사항에 대해 자세히 알아볼 수 있습니다. 
 
 

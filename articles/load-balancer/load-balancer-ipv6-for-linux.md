@@ -1,12 +1,12 @@
 ---
-title: "Linux VM에 대한 DHCPv6 구성 | Microsoft Docs"
-description: "Linux VM에 대한 DHCPv6를 구성하는 방법"
+title: Linux VM에 대한 DHCPv6 구성 | Microsoft Docs
+description: Linux VM에 대한 DHCPv6를 구성하는 방법
 services: load-balancer
 documentationcenter: na
 author: KumudD
 manager: timlt
-editor: 
-keywords: "ipv6, Azure Load Balancer, 이중 스택, 공용 IP, 기본 ipv6, 모바일, iot"
+editor: ''
+keywords: ipv6, Azure Load Balancer, 이중 스택, 공용 IP, 기본 ipv6, 모바일, iot
 ms.assetid: b32719b6-00e8-4cd0-ba7f-e60e8146084b
 ms.service: load-balancer
 ms.devlang: na
@@ -15,22 +15,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: b46c2107dcfda5f02407e08daf08bd42d722dfda
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: 6248ed2f55fb5bbcc2061af6ce1dedf2bd31ccad
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="configure-dhcpv6-for-linux-vms"></a>Linux VM에 대한 DHCPv6 구성
 
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 Azure Marketplace의 Linux 가상 머신 이미지 중 일부에는 기본적으로 DHCPv6(Dynamic Host Configuration Protocol version 6)가 구성되지 않습니다. IPv6를 지원하려면 DHCPv6가 사용 중인 Linux OS 배포에 구성되어야 합니다. 다양한 Linux 배포는 서로 다른 패키지를 사용하기 때문에 여러 가지 방법으로 DHCPv6를 구성합니다.
 
 > [!NOTE]
 > Azure Marketplace의 최근 SUSE Linux 및 CoreOS 이미지는 DHCPv6를 사용해 미리 구성되었습니다. 이러한 이미지를 사용하는 경우 추가 변경이 필요하지 않습니다.
 
-이 문서에서는 Linux 가상 컴퓨터가 IPv6 주소를 확보할 수 있게 DHCPv6를 사용하도록 설정하는 방법을 설명합니다.
+이 문서에서는 Linux 가상 머신이 IPv6 주소를 확보할 수 있게 DHCPv6를 사용하도록 설정하는 방법을 설명합니다.
 
 > [!WARNING]
 > 네트워크 구성 파일을 부적절하게 편집하여 VM에 대한 네트워크 액세스 권한을 읽을 수 있습니다. 구성 변경 테스트는 비프로덕션 시스템에서 하는 것이 좋습니다. 이 문서의 지침에서는 Linux 이미지는 Azure Marketplace의 최신 버전에서 테스트 되었습니다. 더 자세한 지침은 고유한 버전의 Linux 설명서를 참조하세요.

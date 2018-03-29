@@ -1,6 +1,6 @@
 ---
-title: "Azure DNS 위임 개요 | Microsoft Docs"
-description: "도메인 위임을 변경하고 Azure DNS 이름 서버를 사용하여 도메인 호스팅을 제공하는 방법을 이해합니다."
+title: Azure DNS 위임 개요 | Microsoft Docs
+description: 도메인 위임을 변경하고 Azure DNS 이름 서버를 사용하여 도메인 호스팅을 제공하는 방법을 이해합니다.
 services: dns
 documentationcenter: na
 author: KumudD
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: kumud
-ms.openlocfilehash: 4ba615a1fc607392fa1a2a910b4674cfbcf51da1
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: fc79999d240baf18ccf5923908c98791c4e7e7bb
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="delegation-of-dns-zones-with-azure-dns"></a>Azure DNS를 사용하여 DNS 영역 위임
 
@@ -42,7 +42,7 @@ DNS 서버에는 다음 두 가지 유형이 있습니다.
 * *권한이 있는* DNS 서버는 DNS 영역을 호스트합니다. 해당 영역의 레코드에 대한 DNS 쿼리에만 대답합니다.
 * *재귀적* DNS 서버는 DNS 영역을 호스트하지 않습니다. 권한이 있는 DNS 서버를 호출하고 필요한 데이터를 수집하여 모든 DNS 쿼리에 응답합니다.
 
-Azure DNS는 권한이 있는 DNS 서비스를 제공합니다.  재귀 DNS 서비스를 제공하지 않습니다. Azure의 Cloud Services 및 VM은 자동으로 구성하여 Azure 인프라의 일부로 제공되는 재귀 DNS 서비스를 별도로 사용합니다. 이러한 DNS 설정을 변경하는 방법에 대한 정보는 [Azure에서 이름 확인](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server)을 참조하세요.
+Azure DNS는 권한이 있는 DNS 서비스를 제공합니다.  재귀 DNS 서비스를 제공하지 않습니다. Azure의 Cloud Services 및 VM은 자동으로 구성하여 Azure 인프라의 일부로 제공되는 재귀 DNS 서비스를 별도로 사용합니다. 이러한 DNS 설정을 변경하는 방법에 대한 정보는 [Azure에서 이름 확인](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)을 참조하세요.
 
 PC 또는 모바일 장치의 DNS 클라이언트는 일반적으로 재귀적 DNS 서버를 호출하여 클라이언트 응용 프로그램에 필요한 DNS 쿼리를 수행합니다.
 

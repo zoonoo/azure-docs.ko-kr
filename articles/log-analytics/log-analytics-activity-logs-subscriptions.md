@@ -1,11 +1,11 @@
 ---
-title: "구독 전체의 Azure 활동 로그를 Log Analytics에 수집 | Microsoft Docs"
-description: "Event Hubs 및 Logic Apps를 사용하여 Azure 활동 로그에서 데이터를 수집하고 다른 테넌트의 Azure Log Analytics 작업 영역으로 보냅니다."
+title: 구독 전체의 Azure 활동 로그를 Log Analytics에 수집 | Microsoft Docs
+description: Event Hubs 및 Logic Apps를 사용하여 Azure 활동 로그에서 데이터를 수집하고 다른 테넌트의 Azure Log Analytics 작업 영역으로 보냅니다.
 services: log-analytics, logic-apps, event-hubs
-documentationcenter: 
+documentationcenter: ''
 author: richrundmsft
 manager: carmonm
-editor: 
+editor: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/08/2018
 ms.author: richrund; bwren
-ms.openlocfilehash: 89c62563b9772fa07d63a24b4aa20857b0143f85
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 23e4b7c74e6dfb88ec6ec50d5b8ae6d8288223f3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="collect-azure-activity-logs-into-log-analytics-across-subscriptions"></a>구독 전체의 Azure 활동 로그를 Log Analytics에 수집
 
@@ -113,7 +113,7 @@ Logic App을 만들기 전에 이전 단계에서 다음 정보가 있는지 확
 - Log Analytics 작업 영역 ID
 - Log Analytics 공유 키
 
-이벤트 허브 이름과 연결 문자열을 가져오려면 [Event Hubs 네임스페이스 권한 확인 및 연결 문자열 찾기](../connectors/connectors-create-api-azure-event-hubs.md#check-event-hubs-namespace-permissions-and-find-the-connection-string)의 단계를 따르세요.
+이벤트 허브 이름과 연결 문자열을 가져오려면 [Event Hubs 네임스페이스 권한 확인 및 연결 문자열 찾기](../connectors/connectors-create-api-azure-event-hubs.md#connect-to-azure-event-hubs)의 단계를 따르세요.
 
 
 ### <a name="create-a-new-blank-logic-app"></a>새 빈 Logic App 만들기

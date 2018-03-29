@@ -1,9 +1,9 @@
 ---
-title: "Azure Machine Learning 미리 보기 기능 - 명령줄 인터페이스에 대한 자습서 | Microsoft Docs"
-description: "이 자습서에서는 명령줄 인터페이스에서 종단 간 아이리스 분류를 완료하는 데 필요한 모든 단계를 안내합니다."
+title: Azure Machine Learning 미리 보기 기능 - 명령줄 인터페이스에 대한 자습서 | Microsoft Docs
+description: 이 자습서에서는 명령줄 인터페이스에서 종단 간 아이리스 분류를 완료하는 데 필요한 모든 단계를 안내합니다.
 services: machine-learning
 author: ahgyger
-ms.author: ahgyger, ritbhat
+ms.author: ahgyger
 manager: haining
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 10/15/2017
-ms.openlocfilehash: ad81cd02ba0c46cbe58de7071d2164aaefea6514
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 2d7965c0028e8f2e82db2e3ddd4eed6e20f4f443
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="tutorial-classifying-iris-using-the-command-line-interface"></a>자습서: 명령줄 인터페이스를 사용하여 아이리스 분류
 Azure Machine Learning 서비스(미리 보기)는 데이터를 준비하고, 실험을 개발하고, 클라우드 범위에서 모델을 배포할 수 있는 전문 데이터 과학자를 위한 종단 간 데이터 과학 및 고급 분석 통합 솔루션입니다.

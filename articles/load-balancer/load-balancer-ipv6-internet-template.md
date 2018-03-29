@@ -1,13 +1,13 @@
 ---
-title: "IPv6를 사용하여 인터넷 연결 부하 분산 장치 배포 - Azure 템플릿 | Microsoft Docs"
-description: "Azure Load Balancer 및 부하 분산된 VM에 대한 IPv6 지원을 배포하는 방법."
+title: IPv6를 사용하여 인터넷 연결 부하 분산 장치 배포 - Azure 템플릿 | Microsoft Docs
+description: Azure Load Balancer 및 부하 분산된 VM에 대한 IPv6 지원을 배포하는 방법.
 services: load-balancer
 documentationcenter: na
 author: KumudD
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-keywords: "ipv6, Azure Load Balancer, 이중 스택, 공용 IP, 기본 ipv6, 모바일, iot"
+keywords: ipv6, Azure Load Balancer, 이중 스택, 공용 IP, 기본 ipv6, 모바일, iot
 ms.assetid: 2998e943-13fc-4ea9-a68c-875e53a08db3
 ms.service: load-balancer
 ms.devlang: na
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 90439d792eac618671a9de9938302d8930c986d8
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 431b43979ac364d943c58c40b4199b7f30f9acf6
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="deploy-an-internet-facing-load-balancer-solution-with-ipv6-using-a-template"></a>템플릿을 사용하여 IPv6로 인터넷 연결 부하 분산 장치 솔루션을 배포합니다.
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 12/21/2017
 > * [Azure CLI](load-balancer-ipv6-internet-cli.md)
 > * [템플릿](load-balancer-ipv6-internet-template.md)
 
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
+
 
 Azure 부하 분산 장치는 계층 4(TCP, UDP) 부하 분산 장치입니다. 부하 분산 장치는 부하 분산 장치 집합에 있는 클라우드 서비스 또는 가상 머신의 정상 서비스 인스턴스 간에 들어오는 트래픽을 배포하여 고가용성을 제공합니다. Azure Load Balancer는 여러 포트, 여러 IP 주소 또는 둘 다에서 이러한 서비스를 제공할 수도 있습니다.
 
@@ -110,7 +110,7 @@ Azure Resource Manager 템플릿은 요구에 맞게 사용자 지정할 수 있
 
 이 문서에서 사용된 예제 템플릿에는 다음 변수 및 매개 변수가 들어 있습니다.
 
-| 매개 변수 / 변수 | 참고 사항 |
+| 매개 변수 / 변수 | 메모 |
 | --- | --- |
 | adminUsername |가상 머신에 로그인하는 데 사용되는 관리자 계정의 이름을 지정합니다. |
 | adminPassword |가상 머신에 로그인하는 데 사용되는 관리자 계정의 비밀번호를 지정합니다. |
