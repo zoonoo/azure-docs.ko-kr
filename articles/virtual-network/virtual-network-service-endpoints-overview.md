@@ -1,12 +1,12 @@
 ---
-title: "Azure 가상 네트워크 서비스 끝점 | Microsoft Docs"
-description: "서비스 끝점을 사용하여 가상 네트워크에서 Azure 리소스에 대한 직접 액세스를 사용하는 방법을 알아봅니다."
+title: Azure 가상 네트워크 서비스 끝점 | Microsoft Docs
+description: 서비스 끝점을 사용하여 가상 네트워크에서 Azure 리소스에 대한 직접 액세스를 사용하는 방법을 알아봅니다.
 services: virtual-network
 documentationcenter: na
 author: anithaa
 manager: narayan
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: get-started-article
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/07/2018
 ms.author: anithaa
-ms.custom: 
-ms.openlocfilehash: aa1ac804c9cd623e5fb03c97a38f9352ac8a42ad
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.custom: ''
+ms.openlocfilehash: dbcb1d87fafe085d6232fa621fbd9e211fa4174d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="virtual-network-service-endpoints"></a>Virtual Network 서비스 엔드포인트
 
@@ -119,7 +119,7 @@ Azure 서비스 리소스(예: Azure Storage 계정)의 경우 서비스는 리�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [가상 네트워크 서비스 끝점을 구성](virtual-network-service-endpoints-configure.md)하는 방법에 대한 자세한 내용
+- [가상 네트워크 서비스 끝점을 구성](tutorial-restrict-network-access-to-resources.md)하는 방법에 대한 자세한 내용
 - [가상 네트워크에 대한 Azure Storage 계정을 보호](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)하는 방법에 대한 자세한 내용
 - [가상 네트워크에 대한 Azure SQL Database 계정을 보호](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)하는 방법에 대한 자세한 내용
 - [가상 네트워크의 Azure 서비스 통합](virtual-network-for-azure-services.md)에 대한 자세한 내용

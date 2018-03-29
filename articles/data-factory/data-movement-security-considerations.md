@@ -4,8 +4,8 @@ description: Azure Data Factory의 데이터 이동 서비스가 데이터를 �
 services: data-factory
 documentationcenter: ''
 author: nabhishek
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: abnarain
-ms.openlocfilehash: 3c8215ab4a1759efef3c2c13a5ac44f6944b53d7
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 56602e269a441f9541314424190da04be2c4add5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Azure Data Factory에서 데이터 이동을 위한 보안 고려 사항
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -49,9 +49,10 @@ Azure 규정 준수 및 Azure의 자체 인프라 보안 방법에 관심이 있
 - **하이브리드 시나리오**: 이 시나리오에서는 원본 또는 대상 중 하나는 온-프레미스 회사 네트워크 내부 또는 방화벽 뒤에 있습니다. 또는 데이터 저장소는 개인 네트워크 또는 가상 네트워크(가장 자주 원본)에 있으며 공개적으로 액세스할 수 없습니다. 가상 머신에서 호스팅되는 데이터베이스 서버도 이 시나리오에 해당합니다.
 
 ## <a name="cloud-scenarios"></a>클라우드 시나리오
-### <a name="secure-data-store-credentials"></a>데이터 저장소 자격 증명 보안
-- **Azure Data Factory 관리 저장소에 암호화된 자격 증명을 저장합니다**. Data Factory는 Microsoft에서 관리하는 인증서로 암호화하여 데이터 저장소 자격 증명을 보호합니다. 이러한 인증서는 2년마다 갱신됩니다(인증서 갱신 및 자격 증명 마이그레이션 포함). 암호화된 자격 증명은 Azure Data Factory 관리 서비스에서 관리하는 Azure Storage 계정에 안전하게 저장됩니다. Azure Storage 보안에 대한 자세한 내용은 [Azure Storage 보안 개요](../security/security-storage-overview.md)를 참조하세요.
 
+### <a name="securing-data-store-credentials"></a>데이터 저장소 자격 증명 보안
+
+- **Azure Data Factory 관리 저장소에 암호화된 자격 증명을 저장합니다**. Data Factory는 Microsoft에서 관리하는 인증서로 암호화하여 데이터 저장소 자격 증명을 보호합니다. 이러한 인증서는 2년마다 갱신됩니다(인증서 갱신 및 자격 증명 마이그레이션 포함). 암호화된 자격 증명은 Azure Data Factory 관리 서비스에서 관리하는 Azure Storage 계정에 안전하게 저장됩니다. Azure Storage 보안에 대한 자세한 내용은 [Azure Storage 보안 개요](../security/security-storage-overview.md)를 참조하세요.
 - **Azure Key Vault에 자격 증명을 저장합니다**. 또한 데이터 저장소의 자격 증명을 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)에 저장할 수 있습니다. Data Factory는 활동을 실행하는 동안 자격 증명을 검색합니다. 자세한 내용은 [Azure Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md)을 참조하세요.
 
 ### <a name="data-encryption-in-transit"></a>전송 중 암호화
@@ -144,7 +145,7 @@ Azure Virtual Network는 클라우드의 사용자 네트워크를 논리적으�
 
 | 도메인 이름                  | 아웃바운드 포트 | 설명                              |
 | ----------------------------- | -------------- | ---------------------------------------- |
-| `*.servicebus.windows.net`    | 443, 80        | Data Factory의 데이터 이동 서비스에 연결하기 위해 자체 호스팅 통합 런타임에서 필요합니다. |
+| `*.servicebus.windows.net`    | 443            | Data Factory의 데이터 이동 서비스에 연결하기 위해 자체 호스팅 통합 런타임에서 필요합니다. |
 | `*.core.windows.net`          | 443            | [단계 복사](copy-activity-performance.md#staged-copy) 기능을 사용할 때 자체 호스팅 통합 런타임에서 Azure Storage 계정에 연결하는 데 사용됩니다. |
 | `*.frontend.clouddatahub.net` | 443            | 자체 호스팅 통합 런타임에서 Data Factory 서비스에 연결하는 데 필요합니다. |
 | `*.database.windows.net`      | 1433           | (선택 사항) 복사할 목적지가 Azure SQL Database 또는 Azure SQL Data Warehouse인 경우 필요합니다. 단계적 복사 기능을 사용하여 포트 1433을 열지 않고 Azure SQL Database 또는 Azure SQL Data Warehouse에 데이터를 복사합니다. |

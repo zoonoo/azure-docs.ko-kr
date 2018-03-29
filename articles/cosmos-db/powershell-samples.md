@@ -1,12 +1,12 @@
 ---
-title: "Azure Cosmos DB에 대한 Azure PowerShell 샘플 | Microsoft Docs"
-description: "Azure PowerShell 샘플 - Azure Cosmos DB 계정을 만들고 관리할 수 있도록 하는 스크립트입니다."
+title: Azure Cosmos DB에 대한 Azure PowerShell 샘플 | Microsoft Docs
+description: Azure PowerShell 샘플 - Azure Cosmos DB 계정을 만들고 관리할 수 있도록 하는 스크립트입니다.
 services: cosmos-db
 author: mimig1
 manager: jhubbard
-editor: 
+editor: ''
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: cosmos-db
 ms.custom: mvc
 ms.devlang: na
@@ -15,15 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: database
 ms.date: 10/16/2017
 ms.author: mimig
-ms.openlocfilehash: de892cc631585c55b0c15f4efe1e06ad55afdce5
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: f651a88f71e62518d0531a2d5cee5c1cd2bc5ce4
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-powershell-samples-for-azure-cosmos-db"></a>Azure Cosmos DB에 대한 Azure PowerShell 샘플
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 다음 표에는 Azure Cosmos DB의 Azure PowerShell 샘플 스크립트에 대한 링크가 나와 있습니다. 현재는 PowerShell을 통해 Azure Cosmos DB 계정 계층만 관리할 수 있으며 데이터베이스와 컬렉션 같은 기타 리소스는 PowerShell로 관리할 수 없습니다.
 

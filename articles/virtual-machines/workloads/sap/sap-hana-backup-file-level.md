@@ -1,11 +1,11 @@
 ---
-title: "파일 수준의 SAP HANA Azure 백업 | Microsoft Docs"
-description: "Azure 가상 컴퓨터에는 SAP HANA에 대한 두 가지 주요 백업 방법이 있습니다. 이 문서에서는 파일 수준의 SAP HANA Azure 백업에 대해 설명합니다"
+title: 파일 수준의 SAP HANA Azure Backup | Microsoft Docs
+description: Azure 가상 머신에는 SAP HANA에 대한 두 가지 주요 백업 방법이 있습니다. 이 문서에서는 파일 수준의 SAP HANA Azure Backup에 대해 설명합니다
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: hermanndms
 manager: timlt
-editor: 
+editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
@@ -14,18 +14,18 @@ ms.workload: infrastructure-services
 ms.date: 3/13/2017
 ms.author: rclaus
 ms.openlocfilehash: 5db0ceb1648b5afa278e1cbe1c42fce8033bfdc1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="sap-hana-azure-backup-on-file-level"></a>파일 수준의 SAP HANA Azure 백업
+# <a name="sap-hana-azure-backup-on-file-level"></a>파일 수준의 SAP HANA Azure Backup
 
 ## <a name="introduction"></a>소개
 
-이 문서는 3부로 구성된 SAP HANA 백업 관련 문서 시리즈의 일부입니다. [Azure Virtual Machines의 SAP HANA 백업 가이드](./sap-hana-backup-guide.md)에서 시작에 대한 개요와 정보를 제공하고, [저장소 스냅숏에 기반한 SAP HANA 백업](./sap-hana-backup-storage-snapshots.md)에서 저장소 스냅숏을 기반으로 하는 백업 옵션을 설명합니다.
+이 문서는 3부로 구성된 SAP HANA 백업 관련 문서 시리즈의 일부입니다. [Azure Virtual Machines의 SAP HANA Backup 가이드](./sap-hana-backup-guide.md)에서 시작에 대한 개요와 정보를 제공하고, [저장소 스냅숏에 기반한 SAP HANA 백업](./sap-hana-backup-storage-snapshots.md)에서 저장소 스냅숏을 기반으로 하는 백업 옵션을 설명합니다.
 
-Azure VM 크기를 살펴보면 GS5에서 64개 디스크가 연결된 데이터 디스크를 허용한다는 것을 알 수 있습니다. 대용량 SAP HANA 시스템의 경우 데이터와 로그 파일을 유지하는 데 많은 수의 디스크를 이미 사용하고 있으므로 소프트웨어 RAID와 결합하여 디스크 IO 처리량을 최적화할 수도 있습니다. 이 경우 SAP HANA 백업 파일을 어디에 저장할 것인지, 시간이 지남에 따라 연결된 데이터 디스크를 채울 수 있는지 등의 의문을 갖게 됩니다. Azure VM 크기 표에 대해서는 [Azure의 Linux 가상 컴퓨터 크기](../../linux/sizes.md)를 참조하세요.
+Azure VM 크기를 살펴보면 GS5에서 64개 디스크가 연결된 데이터 디스크를 허용한다는 것을 알 수 있습니다. 대용량 SAP HANA 시스템의 경우 데이터와 로그 파일을 유지하는 데 많은 수의 디스크를 이미 사용하고 있으므로 소프트웨어 RAID와 결합하여 디스크 IO 처리량을 최적화할 수도 있습니다. 이 경우 SAP HANA 백업 파일을 어디에 저장할 것인지, 시간이 지남에 따라 연결된 데이터 디스크를 채울 수 있는지 등의 의문을 갖게 됩니다. Azure VM 크기 표에 대해서는 [Azure의 Linux 가상 머신 크기](../../linux/sizes.md)를 참조하세요.
 
 현재 Azure Backup 서비스에서 사용할 수 있는 SAP HANA 백업 통합은 없습니다. 파일 수준에서 백업/복원을 관리하는 표준 방법은 SAP HANA Studio 또는 SAP HANA SQL 문을 통해 파일 기반 백업을 수행하는 것입니다. 자세한 내용은 [SAP HANA SQL 및 시스템 보기 참조](https://help.sap.com/hana/SAP_HANA_SQL_and_System_Views_Reference_en.pdf)(영문)를 참조하세요.
 
@@ -156,6 +156,6 @@ Azure Linux VM 내에 Azure 파일 공유를 탑재할 수 있습니다. [Linux�
 Azure파일에 SAP HANA 백업 파일을 저장할 때 SAP HANA 파일 백업에서 이를 직접 지원하는 경우 이 작업은 향후 흥미로운 옵션이 될 수 있습니다. 또는 NFS를 통해 Azure 파일을 탑재할 수 있는 경우 최대 할당량 제한이 5TB보다 훨씬 큽니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [Azure Virtual Machines의 SAP HANA 백업 가이드](sap-hana-backup-guide.md) - 시작에 대한 개요 및 정보를 제공합니다.
+* [Azure Virtual Machines의 SAP HANA Backup 가이드](sap-hana-backup-guide.md) - 시작에 대한 개요 및 정보를 제공합니다.
 * [저장소 스냅숏에 기반한 SAP HANA 백업](sap-hana-backup-storage-snapshots.md) - 저장소 스냅숏을 기반으로 하는 백업 옵션을 설명합니다.
 * [Azure의 SAP HANA(큰 인스턴스) 고가용성 및 재해 복구](hana-overview-high-availability-disaster-recovery.md) - Azure의 SAP HANA(큰 인스턴스)에 대한 고가용성 및 재해 복구 계획을 설정하는 방법을 알아봅니다.

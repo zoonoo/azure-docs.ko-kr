@@ -1,11 +1,11 @@
 ---
-title: "Azure IoT Hub 장치 ID 가져오기 및 내보내기 | Microsoft Docs"
-description: "Azure IoT 서비스 SDK를 사용하여 ID 레지스트리에 대한 대량 작업을 수행하고 장치 ID를 가져오기 및 내보내기를 수행하는 방법입니다. 가져오기 작업을 사용하여 대량으로 장치 ID를 생성, 업데이트 및 삭제할 수 있습니다."
+title: Azure IoT Hub 장치 ID 가져오기 및 내보내기 | Microsoft Docs
+description: Azure IoT 서비스 SDK를 사용하여 ID 레지스트리에 대한 대량 작업을 수행하고 장치 ID를 가져오기 및 내보내기를 수행하는 방법입니다. 가져오기 작업을 사용하여 대량으로 장치 ID를 생성, 업데이트 및 삭제할 수 있습니다.
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 2ade1494-45ea-46a7-ade7-cf6e11ce62da
 ms.service: iot-hub
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/03/2017
 ms.author: dobett
-ms.openlocfilehash: 699237c68258243b5f654f5dc57e616e3a22177a
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 74645f3fdece14790311592a0fdd4ce6570a5bae
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="manage-your-iot-hub-device-identities-in-bulk"></a>대량으로 IoT Hub 장치 ID를 관리합니다.
 
@@ -193,9 +193,6 @@ using (var streamReader = new StreamReader(await blob.OpenReadAsync(AccessCondit
   }
 }
 ```
-
-> [!NOTE]
-> **RegistryManager** 클래스의 **GetDevicesAsync** 메서드를 사용하여 장치의 목록을 가져올 수도 있습니다. 그러나 이 방법은 반환되는 장치 개체의 수에 1000의 하드 캡이 적용됩니다. **GetDevicesAsync** 메서드에 대해 예상되는 사용 사례는 디버깅을 돕는 개발 시나리오에 대한 것이며 생산 워크로드에는 권장되지 않습니다.
 
 ## <a name="import-devices"></a>장치 가져오기
 

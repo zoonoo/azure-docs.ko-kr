@@ -1,11 +1,11 @@
 ---
-title: "Azure 포털에서 Azure Search에 대한 서비스 관리"
-description: "Azure Search 관리, Microsoft Azure에서 호스트된 클라우드 검색 서비스, Azure 포털 사용."
+title: Azure 포털에서 Azure Search에 대한 서비스 관리
+description: Azure Search 관리, Microsoft Azure에서 호스트된 클라우드 검색 서비스, Azure 포털 사용.
 services: search
-documentationcenter: 
+documentationcenter: ''
 author: HeidiSteen
 manager: jhubbard
-editor: 
+editor: ''
 tags: azure-portal
 ms.assetid: c87d1fdd-b3b8-4702-a753-6d7e29dbe0a2
 ms.service: search
@@ -15,11 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 11/09/2017
 ms.author: heidist
-ms.openlocfilehash: 916a08aacca428530bc4f728d5de422e04bed8bc
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: d19683291e001c3c3f2a7bfc5c203b5121a8a418
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="service-administration-for-azure-search-in-the-azure-portal"></a>Azure 포털에서 Azure Search에 대한 서비스 관리
 > [!div class="op_single_selector"]
@@ -44,26 +44,12 @@ Azure Search는 사용자 지정 앱에 풍부한 검색 환경을 구축하기 
 ## <a name="administrator-rights"></a>관리자 권한
 Azure 구독 관리자 또는 공동 관리자는 서비스 자체를 프로비전 또는 프로비전 해제할 수 있습니다.
 
-서비스 내에서 서비스 URL 및 관리자 API 키에 액세스 권한이 있는 사람은 서비스에 대한 읽기/쓰기 권한이 있습니다. 읽기/쓰기 액세스는 [RBAC 정의 역할](#rbac)을 통해 구현된 API 키, 인덱스, 인덱서, 데이터 소스, 일정 및 역할 할당을 비롯한 서버 개체를 추가, 삭제 또는 수정하는 권한을 제공합니다.
+서비스 내에서 서비스 URL 및 관리자 API 키에 액세스 권한이 있는 사람은 서비스에 대한 읽기/쓰기 권한이 있습니다. 읽기/쓰기 액세스는 [RBAC 정의 역할](search-security-rbac.md)을 통해 구현된 API 키, 인덱스, 인덱서, 데이터 소스, 일정 및 역할 할당을 비롯한 서버 개체를 추가, 삭제 또는 수정하는 권한을 제공합니다.
 
-Azure Search와 상호 작용하는 모든 사용자는 서비스에 대한 읽기-쓰기 권한(관리자 권한) 또는 서비스에 대한 읽기 전용 권한(쿼리 권한) 모드 중 하나에 속합니다. 자세한 내용은 [api-key 관리](#manage-keys)를 참조하세요.
+Azure Search와 상호 작용하는 모든 사용자는 서비스에 대한 읽기-쓰기 권한(관리자 권한) 또는 서비스에 대한 읽기 전용 권한(쿼리 권한) 모드 중 하나에 속합니다. 자세한 내용은 [api-key 관리](search-security-api-keys.md)를 참조하세요.
 
 <a id="sys-info"></a>
 
-## <a name="set-rbac-roles-for-administrative-access"></a>관리 액세스에 대한 RBAC 역할 설정
-Azure에서는 포털 또는 Resource Manager API를 통해 관리되는 모든 서비스에 대해 [전역 역할 기반 권한 부여 모델](../active-directory/role-based-access-control-configure.md) 을 제공합니다. 소유자, 참가자 및 읽기 권한자 역할은 Active Directory 사용자, 그룹 및 각 역할에 할당하는 보안 주체에 대한 서비스 관리 수준을 결정합니다. 
-
-Azure Search에서는 RBAC 권한에 따라 다음 관리 작업이 결정됩니다.
-
-| 역할 | 작업 |
-| --- | --- |
-| 소유자 |api-key, 인덱스, 인덱서, 인덱서 데이터 원본 및 인덱서 일정 등 서비스 또는 해당 서비스의 개체를 만들거나 삭제합니다.<p>개수 및 저장소 크기를 포함하여 서비스 상태를 봅니다.<p>역할 멤버 자격을 추가하거나 삭제합니다(소유자만 역할 멤버 자격을 관리할 수 있음).<p>구독 관리자 및 서비스 소유자는 소유자 역할의 자동 멤버 자격을 갖습니다. |
-| 참여자 |RBAC 역할 관리를 제외하고 소유자와 같은 수준의 액세스 권한입니다. 예를 들어, 참여자는 `api-key`를 보고 다시 생성할 수 있지만 역할 멤버 자격을 수정할 수 없습니다. |
-| 리더 |서비스 상태와 쿼리 키를 봅니다. 이 역할의 멤버는 서비스 구성을 변경할 수 없고 관리 키도 볼 수 없습니다. |
-
-역할은 서비스 끝점에 대한 액세스 권한을 부여하지 않습니다. 인덱스 관리, 인덱스 채우기 및 검색 데이터 쿼리와 같은 Search 서비스 작업은 역할이 아니라 api-key를 통해 제어합니다. 자세한 내용은 [역할 기반 액세스 제어](../active-directory/role-based-access-control-what-is.md)에서 "관리 및 데이터 작업에 대한 권한 부여"를 참조하세요.
-
-<a id="secure-keys"></a>
 ## <a name="logging-and-system-information"></a>로깅 및 시스템 정보
 Azure Search에서는 포털 또는 프로그래밍 방식 인터페이스를 통해 개별 서비스에 대한 로그 파일을 노출하지 않습니다. 기본 계층 이상에서 Microsoft는 Service Level Agreement(서비스 수준 약정)당 99.9% 가용성에 대해 모든 Azure Search 서비스를 모니터링합니다. 서비스 속도가 느리거나 요청 처리량이 SLA 임계값 미만으로 떨어질 경우 지원 팀은 사용할 수 있는 로그 파일을 검토하고 문제를 해결합니다.
 
@@ -72,38 +58,6 @@ Azure Search에서는 포털 또는 프로그래밍 방식 인터페이스를 �
 * 포털의 서비스 대시보드에서 알림, 속성 및 상태 메시지를 통해 정보를 얻습니다.
 * [PowerShell](search-manage-powershell.md) 또는 [Management REST API](https://docs.microsoft.com/rest/api/searchmanagement/)를 사용하여 [서비스 속성](https://docs.microsoft.com/rest/api/searchmanagement/services) 또는 인덱스 리소스 사용 현황에 대한 상태를 가져옵니다.
 * 이전에 설명한 것처럼 [검색 트래픽 분석](search-traffic-analytics.md)을 통해 정보를 얻습니다.
-
-<a id="manage-keys"></a>
-
-## <a name="manage-api-keys"></a>api-key 관리
-검색 서비스에 대한 모든 요청에는 해당 서비스용으로 특별히 생성된 api-key가 필요합니다. 이 api-key는 검색 서비스 끝점에 액세스하는 유일한 방법입니다. 
-
-api-key는 임의로 생성된 숫자 및 문자로 구성된 문자열입니다. [RBAC 권한](#rbac)을 통해 키를 삭제하거나 읽을 수 있지만 키를 사용자 정의 암호로 바꿀 수는 없습니다. 
-
-검색 서비스에 액세스하는 데 사용되는 두 가지 키 유형은 다음과 같습니다.
-
-* 관리(서비스에 대한 모든 읽기-쓰기 작업에 유효)
-* 쿼리(인덱스에 대한 쿼리와 같은 읽기 전용 작업에 유효)
-
-관리 api-key는 서비스가 프로비전될 때 만들어집니다. 두 개의 관리 키가 있으며 단순하게 유지하기 위해 *주* 및 *보조*로 지정되지만 실제로는 서로 바꿔 사용할 수 있습니다. 각 서비스에는 서비스에 대한 액세스 권한을 잃지 않고 롤오버할 수 있는 두 개의 관리 키가 있습니다. 관리 키를 다시 생성할 수 있지만 총 관리 키 수에 추가할 수는 없습니다. 검색 서비스당 최대 두 개의 관리 키가 있습니다.
-
-쿼리 키는 검색을 직접 호출하는 클라이언트 응용 프로그램을 위해 설계되었습니다. 최대 50개까지 쿼리 키를 만들 수 있습니다. 응용 프로그램 코드에서 서비스에 대한 읽기 전용 액세스를 허용하도록 검색 URL 및 쿼리 api-key를 지정합니다. 또한 응용 프로그램 코드는 응용 프로그램에 사용된 인덱스도 지정합니다. 동시에, 끝점, 읽기 전용 액세스를 위한 api-key 및 대상 인덱스는 클라이언트 응용 프로그램에서 연결의 액세스 수준 및 범위를 정의합니다.
-
-api-key를 가져오거나 다시 생성하려면 서비스 대시보드를 엽니다. **키** 를 클릭하여 키 관리 페이지를 엽니다. 키를 다시 생성하거나 만드는 명령이 페이지 맨 위에 있습니다. 기본적으로 관리 키만 만들어집니다. 쿼리 api-key를 수동으로 만들어야 합니다.
-
- ![][9]
-
-<a id="rbac"></a>
-
-## <a name="secure-api-keys"></a>api-key 보안
-키 보안은 포털 또는 Resource Manager 인터페이스를 통해 액세스를 제한하여 보장됩니다(PowerShell 또는 명령줄 인터페이스). 설명한 것처럼 구독 관리자는 모든 api-key를 보고 다시 생성할 수 있습니다. 예방 조치로 역할 할당을 검토하여 관리 키에 대한 액세스 권한이 있는 사용자를 파악할 수 있습니다.
-
-1. 서비스 대시보드에서 액세스 아이콘을 클릭하여 사용자 블레이드를 엽니다.
-   ![][7]
-2. 사용자에서 기존 역할 할당을 검토합니다. 예상대로 구독 관리자는 소유자 역할을 통해 서비스에 대한 모든 권한을 이미 보유하고 있습니다.
-3. 자세히 보려면 **구독 관리자** 를 클릭한 후 역할 할당 목록을 확장하여 검색 서비스에 대한 공동 관리 권한이 있는 사용자를 확인합니다.
-
-액세스 권한을 보는 다른 방법은 사용자 블레이드에서 **역할** 을 클릭하는 것입니다. 이렇게 하면 사용 가능한 역할과 각 역할에 할당된 사용자 또는 그룹 수가 표시됩니다.
 
 <a id="sub-5"></a>
 
@@ -184,9 +138,6 @@ QPS(초당 쿼리 수)를 높이거나 고가용성을 구현하려면 복제본
 이전 섹션에 언급된 비디오를 보는 것도 좋습니다. 이 섹션에 언급된 기술에 대해 보다 심층적인 설명이 제공됩니다.
 
 <!--Image references-->
-[7]: ./media/search-manage/rbac-icon.png
-[8]: ./media/search-manage/Azure-Search-Manage-1-URL.png
-[9]: ./media/search-manage/Azure-Search-Manage-2-Keys.png
 [10]: ./media/search-manage/Azure-Search-Manage-3-ScaleUp.png
 
 

@@ -1,11 +1,11 @@
 ---
-title: "Azure Web Apps에 대한 구성 FAQ | Microsoft Docs"
-description: "Azure App Service Web Apps 기능의 구성 및 관리 문제에 대한 질문과 대답을 확인합니다."
+title: Azure Web Apps에 대한 구성 FAQ | Microsoft Docs
+description: Azure App Service Web Apps 기능의 구성 및 관리 문제에 대한 질문과 대답을 확인합니다.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: cshepard
-editor: 
+editor: ''
 tags: top-support-issue
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.service: app-service-web
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: 92cbc36ac2a566cf5dfbb2f7b3347973bab5ee8c
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: efbed264babe0b192590380639cdc1c8861b4f38
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Azure의 Web Apps에 대한 구성 및 관리 FAQ
 
@@ -251,7 +251,7 @@ Cron 식을 사용하여 예약된 WebJob을 만들 수 있습니다.
 
 ## <a name="how-do-i-perform-penetration-testing-for-my-app-service-app"></a>내 App Service 앱에 대한 침투 테스트를 수행하려면 어떻게 하나요?
 
-침투 테스트를 수행하려면 [요청을 제출](https://security-forms.azure.com/penetration-testing/terms)합니다.
+침투 테스트를 수행하려면 [요청을 제출](https://portal.msrc.microsoft.com/en-us/engage/pentest)합니다.
 
 ## <a name="how-do-i-configure-a-custom-domain-name-for-an-app-service-web-app-that-uses-traffic-manager"></a>Traffic Manager를 사용하는 App Service 웹앱에 대한 사용자 지정 도메인 이름을 구성하려면 어떻게 하나요?
 

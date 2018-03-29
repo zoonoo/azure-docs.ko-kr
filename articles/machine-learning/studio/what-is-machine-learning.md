@@ -1,11 +1,12 @@
 ---
-title: "Azure의 Machine Learning이란 무엇인가요? | Microsoft Docs"
-description: "클라우드에서 기계 학습의 기본 개념을 설명하고, 용도에 대해 기술하고 기계 학습 용어를 정의합니다."
-keywords: "Machine Learning이란 무엇인가요, Machine Learning 용어, 예측, 예측 분석이란, Machine Learning 용어"
+title: Azure의 Machine Learning이란 무엇인가요? | Microsoft Docs
+description: 클라우드에서 기계 학습의 기본 개념을 설명하고, 용도에 대해 기술하고 기계 학습 용어를 정의합니다.
+keywords: Machine Learning이란 무엇인가요, Machine Learning 용어, 예측, 예측 분석이란, Machine Learning 용어
 services: machine-learning
-documentationcenter: 
-author: cjgronlund
-manager: jhubbard
+documentationcenter: ''
+author: YasinMSFT
+ms.author: yahajiza
+manager: hjerez
 editor: cgronlun
 ms.assetid: eaee083e-eaa1-4408-838b-93e51423d159
 ms.service: machine-learning
@@ -14,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/23/2018
-ms.author: cgronlun;tedway;olgali
-ms.openlocfilehash: 2968a71141eb6e036bc8bff1bc620b978f3ffdd9
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 36095d24f091ac195fe95c839924b15efae05232
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="introduction-to-machine-learning-in-the-azure-cloud"></a>Azure 클라우드에서 Machine Learning 소개
 
@@ -46,8 +46,7 @@ Azure Machine Learning은 예측 분석을 모델링 하는 도구를 제공할 
 Azure Machine Learning에는 대규모 알고리즘 라이브러리부터 모델 작성을 위한 스튜디오, 모델을 웹 서비스로 배포하는 쉬운 방법에 이르기까지 클라우드에서 종합적인 예측 분석 솔루션을 만드는 데 필요한 모든 것이 있습니다. 예측 모델을 신속하게 만들고, 테스트하고, 운영하며, 관리합니다.
 
 ### <a name="machine-learning-studio-create-predictive-models"></a>Machine Learning Studio: 예측 모델 만들기
-
-            [Machine Learning Studio](what-is-ml-studio.md)에서 모듈을 끌어다 놓아 연결함으로써 예측 모델을 신속하게 만들 수 있습니다. 여러 조합으로 실험할 수 있으며 [무료로 사용할 수 있습니다](https://studio.azureml.net/?selectAccess=true&o=2).
+[Machine Learning Studio](what-is-ml-studio.md)에서 모듈을 끌어다 놓아 연결함으로써 예측 모델을 신속하게 만들 수 있습니다. 여러 조합으로 실험할 수 있으며 [무료로 사용할 수 있습니다](https://studio.azureml.net/?selectAccess=true&o=2).
 
 * [Azure AI Gallery](gallery-how-to-use-contribute-publish.md)에서 다른 사용자가 작성한 분석 솔루션을 사용해 보거나 직접 참여할 수 있습니다. 커뮤니티에 실험에 대한 질문 또는 의견을 게시하거나 LinkedIn 및 Twitter와 같은 소셜 네트워크를 통해 실험 링크를 공유합니다.
 
@@ -99,17 +98,14 @@ Azure Machine Learning에는 대규모 알고리즘 라이브러리부터 모델
 * **이상 감지**: 비정상적인 이벤트 또는 값에 플래그를 지정하고 문제를 검색하도록 해주는 모델입니다. 예를 들어, 신용 카드 부정 행위 감지의 경우 비정상적인 구매를 찾습니다.
 * **범주 데이터**: 범주별로 구성되고 그룹으로 나눌 수 있는 데이터입니다. 예를 들어 자동차에 대한 범주 데이터 집합은 연식, 제조업체, 모델 및 가격을 지정할 수 있습니다.
 * **분류**: 범주 그룹화가 이미 알려진 데이터 집합을 기반으로 데이터 요소를 범주로 구성하는 모델입니다.
-* **기능 엔지니어링**: 데이터 집합을 향상시키고 결과를 개선하기 위해 데이터 집합과 관련된 기능을 추출하거나 선택하는 프로세스입니다. 예를 들어 항공 요금 데이터를 요일 및 휴일에 따라 늘릴 수 있습니다. 
-            [Azure Machine Learning의 기능 선택 및 엔지니어링](../team-data-science-process/create-features.md)을 참조하세요.
-* 
-            **모듈**: 소규모 데이터 집합을 입력 및 편집할 수 있도록 하는 데이터 입력 모듈과 같은 Machine Learning Studio 모델의 기능 부분입니다. 알고리즘 또한 Machine Learning Studio의 모듈 유형에 해당합니다.
+* **기능 엔지니어링**: 데이터 집합을 향상시키고 결과를 개선하기 위해 데이터 집합과 관련된 기능을 추출하거나 선택하는 프로세스입니다. 예를 들어 항공 요금 데이터를 요일 및 휴일에 따라 늘릴 수 있습니다. [Azure Machine Learning의 기능 선택 및 엔지니어링](../team-data-science-process/create-features.md)을 참조하세요.
+* **모듈**: 소규모 데이터 집합을 입력 및 편집할 수 있도록 하는 데이터 입력 모듈과 같은 Machine Learning Studio 모델의 기능 부분입니다. 알고리즘 또한 Machine Learning Studio의 모듈 유형에 해당합니다.
 * **모델**: 감독 학습의 경우, 모델은 학습 데이터, 알고리즘 모듈 및 기능 모듈(예: 모델 점수 매기기 모듈)로 구성된 기계 학습 실험 제품입니다.
 * **숫자 데이터**: 측정(연속 데이터) 또는 개수(불연속 데이터)의 의미를 갖는 데이터입니다. *양적 데이터*라고도 합니다.
 * **파티션**: 데이터를 샘플로 구분하는 방법입니다. 자세한 내용은 [파티션 및 샘플](https://msdn.microsoft.com/library/azure/dn905960.aspx) 을 참조하세요.
 * **예측**: 예측은 기계 학습 모델에서 값을 예측하는 것입니다. "예측된 점수" 용어도 볼 수 있습니다. 그러나 예측된 점수는 모델의 최종 출력이 아닙니다. 모델에 대한 평가 점수는 다음과 같습니다.
 * **회귀**: 연식 및 제조업체에 따라 자동차 가격을 예측하는 것처럼 독립 변수를 기반으로 값을 예측하는 모델입니다.
-* 
-            **점수**: Machine Learning Studio의 [모델 점수 매기기 모듈](https://msdn.microsoft.com/library/azure/dn905995.aspx) 을 사용하여 학습된 분류 또는 회귀 모델에서 생성하는 예측된 값입니다. 또한 분류 모델은 예측된 값의 확률 점수도 반환합니다. 모델에서 점수를 생성한 후 [모델 평가 모듈](https://msdn.microsoft.com/library/azure/dn905915.aspx)을 사용하여 모델의 정확도를 평가할 수 있습니다.
+* **점수**: Machine Learning Studio의 [모델 점수 매기기 모듈](https://msdn.microsoft.com/library/azure/dn905995.aspx) 을 사용하여 학습된 분류 또는 회귀 모델에서 생성하는 예측된 값입니다. 또한 분류 모델은 예측된 값의 확률 점수도 반환합니다. 모델에서 점수를 생성한 후 [모델 평가 모듈](https://msdn.microsoft.com/library/azure/dn905915.aspx)을 사용하여 모델의 정확도를 평가할 수 있습니다.
 * **샘플**: 전체를 대표하는 데이터 집합의 부분입니다. 샘플을 임의로 선택하거나 데이터 집합의 특정 기능에 따라 선택할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계

@@ -1,12 +1,12 @@
 ---
-title: "연결 확인: Azure ExpressRoute 문제 해결 가이드 | Microsoft Docs"
-description: "ExpressRoute 회로에 대한 종단 간 연결의 유효성 검사 및 문제 해결에 대한 지침을 제공합니다."
+title: '연결 확인: Azure ExpressRoute 문제 해결 가이드 | Microsoft Docs'
+description: ExpressRoute 회로에 대한 종단 간 연결의 유효성 검사 및 문제 해결에 대한 지침을 제공합니다.
 documentationcenter: na
 services: expressroute
 author: rambk
 manager: tracsman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: cherylmc
-ms.openlocfilehash: 74b6589a7e06570d978dfe40c5f5bf140e092cc6
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 5d01f2e402e4b793274761703ec3ca1ea3ff8164
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="verifying-expressroute-connectivity"></a>ExpressRoute 연결 확인
 연결 공급자가 지원하는 개인 연결을 통해 온-프레미스 네트워크를 Microsoft 클라우드로 확장하는 ExpressRoute에는 다음 세 가지 고유 네트워크 영역이 필요합니다.
@@ -68,7 +68,7 @@ ExpressRoute 회로의 유효성을 검사하기 위해 다음 단계가 적용�
 
 나중에 더 많은 유효성 검사와 확인이 추가되며 매월 다시 확인해 주세요!
 
-##<a name="validate-circuit-provisioning-and-state"></a>회로 프로비전 및 상태 유효성 검사
+## <a name="validate-circuit-provisioning-and-state"></a>회로 프로비전 및 상태 유효성 검사
 연결 모델에 관계 없이 ExpressRoute 회로를 만들어야 하므로 회로 프로비전을 위해 생성된 서비스 키가 필요합니다. ExpressRoute 회로를 프로비전하면 PE-MSEE(4)와 MSEE(5) 간에 계층 2 중복 연결이 설정됩니다. ExpressRoute 회로 만들기, 수정, 프로비전 및 확인 방법에 대한 자세한 내용은 [ExpressRoute 회로 만들기 및 수정][CreateCircuit] 문서를 참조하세요.
 
 >[!TIP]
@@ -76,7 +76,7 @@ ExpressRoute 회로의 유효성을 검사하기 위해 다음 단계가 적용�
 >
 >
 
-###<a name="verification-via-the-azure-portal"></a>Azure Portal을 통한 확인
+### <a name="verification-via-the-azure-portal"></a>Azure Portal을 통한 확인
 Azure Portal에서 ExpressRoute 회로의 상태는 왼쪽 세로 막대 메뉴에서 ![2][2]를 선택한 다음 ExpressRoute 회로를 선택하여 확인할 수 있습니다. "모든 리소스" 아래에 나열된 ExpressRoute 회로를 선택하면 ExpressRoute 회로 블레이드가 열립니다. 블레이드의 ![3][3] 섹션에는 ExpressRoute Essentials가 다음 스크린샷과 같이 나열됩니다.
 
 ![4][4]    
@@ -90,7 +90,7 @@ ExpressRoute 회로가 작동하려면 *회로 상태*가 *사용*이고, *공�
 >
 >
 
-###<a name="verification-via-powershell"></a>PowerShell을 통한 확인
+### <a name="verification-via-powershell"></a>PowerShell을 통한 확인
 리소스 그룹의 모든 ExpressRoute 회로를 나열하려면 다음 명령을 사용합니다.
 
     Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG"
@@ -139,7 +139,7 @@ ExpressRoute 회로가 작동하는지 확인하려면 다음 필드에 특히 �
 >
 >
 
-###<a name="verification-via-powershell-classic"></a>PowerShell(클래식)을 통한 확인
+### <a name="verification-via-powershell-classic"></a>PowerShell(클래식)을 통한 확인
 구독 중인 모든 ExpressRoute 회로를 나열하려면 다음 명령을 사용합니다.
 
     Get-AzureDedicatedCircuit
@@ -167,10 +167,10 @@ ExpressRoute 회로가 작동하는지 확인하려면 ServiceProviderProvisioni
 >
 >
 
-##<a name="validate-peering-configuration"></a>피어링 구성 유효성 검사
+## <a name="validate-peering-configuration"></a>피어링 구성 유효성 검사
 서비스 공급자가 ExpressRoute 회로 프로비전을 완료하면 MSEE-PR(4)와 MSEE(5) 사이의 ExpressRoute 회로를 통해 라우팅 구성을 만들 수 있습니다. ExpressRoute 회로마다 하나, 둘 또는 셋의 라우팅 컨텍스트, 즉 Azure 개인 피어링(Azure에서 개인 가상 네트워크로의 트래픽), Azure 공용 피어링(Azure에서 공용 IP 주소로의 트래픽) 및 Microsoft 피어링(Office 365 및 Dynamics 365로의 트래픽)을 사용할 수 있습니다. 라우팅 구성을 만들고 수정하는 방법에 대한 자세한 내용은 [ExpressRoute 회로의 라우팅 만들기 및 수정][CreatePeering] 문서를 참조하세요.
 
-###<a name="verification-via-the-azure-portal"></a>Azure Portal을 통한 확인
+### <a name="verification-via-the-azure-portal"></a>Azure Portal을 통한 확인
 
 >[!NOTE]
 >레이어 3을 서비스 공급자가 제공하고 포털에서 피어링이 비어 있는 경우 포털의 새로 고침 단추를 사용하여 회로 구성을 새로 고칩니다. 이 작업은 회로에 올바른 라우팅 구성을 적용합니다. 
@@ -188,7 +188,7 @@ Azure Portal에서 ExpressRoute 회로의 상태는 왼쪽 세로 막대 메뉴�
 >
 >
 
-###<a name="verification-via-powershell"></a>PowerShell을 통한 확인
+### <a name="verification-via-powershell"></a>PowerShell을 통한 확인
 Azure 개인 피어링 구성 세부 정보를 가져오려면 다음 명령을 사용합니다.
 
     $ckt = Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
@@ -364,7 +364,7 @@ Microsoft 피어링 구성 세부 정보를 가져오려면 다음 명령을 사
 
     Route Table Info:
 
-##<a name="check-the-traffic-statistics"></a>트래픽 통계 확인
+## <a name="check-the-traffic-statistics"></a>트래픽 통계 확인
 피어링 컨텍스트의 기본 및 보조 경로 트래픽 통계(송/수신 바이트 수)를 가져오려면 다음 명령을 사용합니다.
 
     Get-AzureDedicatedCircuitStats -ServiceKey 97f85950-01dd-4d30-a73c-bf683b3a6e5c -AccessType Private

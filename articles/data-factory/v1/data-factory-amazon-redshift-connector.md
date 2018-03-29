@@ -1,11 +1,10 @@
 ---
-title: "Azure Data Factory를 사용하여 Amazon Redshift에서 데이터 이동 | Microsoft Docs"
-description: "Azure Data Factory 복사 작업을 사용하여 Amazon Redshift에서 데이터를 이동하는 방법을 알아봅니다."
+title: Azure Data Factory를 사용하여 Amazon Redshift에서 데이터 이동 | Microsoft Docs
+description: Azure Data Factory 복사 작업을 사용하여 Amazon Redshift에서 데이터를 이동하는 방법을 알아봅니다.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: 01d15078-58dc-455c-9d9d-98fbdf4ea51e
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 47a9feaa692eaf048371b4e534e6b2e8c4086997
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: ab21eaf935ed03b6f34af00f69e993eaffdad1db
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Azure 데이터 팩터리를 사용하여 Amazon Redshift에서 데이터 이동
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -89,7 +88,7 @@ Azure Portal, Visual Studio, Azure PowerShell 또는 다른 도구를 사용하�
 | 자산 | 설명 | 필수 |
 | --- | --- | --- |
 | **query** | 사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |아니요(데이터 집합의 **tableName** 속성이 지정된 경우) |
-| **redshiftUnloadSettings** | Redshift **UNLOAD** 명령을 사용하는 경우 속성 그룹을 포함합니다. | 아니요 |
+| **redshiftUnloadSettings** | Redshift **UNLOAD** 명령을 사용하는 경우 속성 그룹을 포함합니다. | 아니오 |
 | **s3LinkedServiceName** | 중간 저장소로 사용할 Amazon S3입니다. 연결된 서비스는 **AwsAccessKey** 형식의 Azure Data Factory 이름을 사용하여 지정됩니다. | **redshiftUnloadSettings** 속성을 사용할 때 필요합니다. |
 | **bucketName** | 중간 데이터를 저장하는 데 사용할 Amazon S3 버킷을 나타냅니다. 이 속성을 제공하지 않으면 복사 작업에서 자동으로 버킷을 생성합니다. | **redshiftUnloadSettings** 속성을 사용할 때 필요합니다. |
 

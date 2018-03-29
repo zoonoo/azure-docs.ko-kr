@@ -1,11 +1,11 @@
 ---
-title: "Azure의 IP 주소 유형 | Microsoft Docs"
-description: "Azure의 공용 및 개인 IP 주소에 대해 알아봅니다."
+title: Azure의 IP 주소 유형 | Microsoft Docs
+description: Azure의 공용 및 개인 IP 주소에 대해 알아봅니다.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 610b911c-f358-4cfe-ad82-8b61b87c3b7e
 ms.service: virtual-network
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/16/2017
 ms.author: jdial
-ms.openlocfilehash: e3baedba814cf6ac19df72c49e1c95ea2cd5cf73
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: a5cda1b5ecb686c9b03da27bdbca42ddc1a74f54
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>IP 주소 유형 및 Azure에서 할당 메서드
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 12/05/2017
 
 Azure 리소스 관리자에서 [공용 IP](virtual-network-public-ip-address.md) 주소는 고유 속성을 가진 리소스입니다. 공용 IP 주소 리소스를 연결할 수 있는 리소스는 다음과 같습니다.
 
-* 가상 컴퓨터 네트워크 인터페이스
+* 가상 머신 네트워크 인터페이스
 * 인터넷 연결 부하 분산 장치
 * VPN 게이트웨이
 * 응용 프로그램 게이트웨이
@@ -68,13 +68,10 @@ SKU 도입 전에 생성된 모든 공용 IP 주소는 기본 SKU 공용 IP 주�
 
 - 고정 할당 방법으로만 할당됩니다.
 - 네트워크 인터페이스 또는 표준 인터넷 연결 부하 분산 장치에 할당됩니다. Azure Load Balancer SKU에 대한 자세한 내용은 [Azure Load Balancer 표준 SKU](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
-- 기본적으로 중복된 영역입니다. 영역을 만들고 특정 가용성 영역에서 보장할 수 있습니다.  사용 가능한 영역에 대한 자세한 내용은 [가용성 영역 개요](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
+- 기본적으로 중복된 영역입니다. 영역을 만들고 특정 가용성 영역에서 보장할 수 있습니다. 사용 가능한 영역에 대한 자세한 내용은 [가용성 영역 개요](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
  
 > [!NOTE]
-> 가상 컴퓨터의 네트워크 인터페이스에 표준 SKU 공용 IP 주소를 할당할 때 [네트워크 보안 그룹](security-overview.md#network-security-groups)을 사용하여 원하는 트래픽을 명시적으로 허용해야 합니다.  네트워크 보안 그룹을 만들어 연결하고 원하는 트래픽을 명시적으로 허용해야 리소스와 통신할 수 있습니다.
-
-표준 SKU는 미리 보기 릴리스 상태입니다. 표준 SKU 공용 IP 주소를 만들기 전에 먼저 미리 보기에 등록하고 지원되는 위치에 주소를 만들어야 합니다. 미리 보기에 등록하려면 [표준 SKU 미리 보기에 등록](virtual-network-public-ip-address.md#register-for-the-standard-sku-preview)을 참조하세요. 지원되는 위치(지역) 목록은 [지역 가용성](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#region-availability)을 참조하고 추가 지역 지원은 [Azure Virtual Network 업데이트](https://azure.microsoft.com/updates/?product=virtual-network) 페이지를 모니터링하세요.
-
+> 가상 머신의 네트워크 인터페이스에 표준 SKU 공용 IP 주소를 할당할 때 [네트워크 보안 그룹](security-overview.md#network-security-groups)을 사용하여 원하는 트래픽을 명시적으로 허용해야 합니다. 네트워크 보안 그룹을 만들어 연결하고 원하는 트래픽을 명시적으로 허용해야 리소스와 통신할 수 있습니다.
 
 ### <a name="allocation-method"></a>할당 방법
 
@@ -104,9 +101,9 @@ Azure 관리 DNS 서버에서 공용 IP 주소에 대한 *domainnamelabel*.*loca
 > 생성된 각 도메인 이름은 Azure 위치 내에서 고유해야 합니다.  
 >
 
-### <a name="virtual-machines"></a>가상 컴퓨터
+### <a name="virtual-machines"></a>가상 머신
 
-공용 IP 주소를 **네트워크 인터페이스**에 할당하여 [Windows](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [Linux](../virtual-machines/linux/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 가상 컴퓨터와 연결할 수 있습니다. 가상 컴퓨터에 동적 또는 고정 공용 IP 주소를 할당할 수 있습니다. [네트워크 인터페이스에 IP 주소를 할당](virtual-network-network-interface-addresses.md)하는 방법에 대해 자세히 알아봅니다.
+공용 IP 주소를 **네트워크 인터페이스**에 할당하여 [Windows](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [Linux](../virtual-machines/linux/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 가상 머신과 연결할 수 있습니다. 가상 머신에 동적 또는 고정 공용 IP 주소를 할당할 수 있습니다. [네트워크 인터페이스에 IP 주소를 할당](virtual-network-network-interface-addresses.md)하는 방법에 대해 자세히 알아봅니다.
 
 ### <a name="internet-facing-load-balancers"></a>인터넷 연결 부하 분산 장치
 
@@ -123,19 +120,19 @@ Azure 관리 DNS 서버에서 공용 IP 주소에 대한 *domainnamelabel*.*loca
 ### <a name="at-a-glance"></a>요약
 다음 표는 공용 IP 주소를 최상위 리소스와 연결할 수 있는 특정 속성 및 사용 가능한 할당 메서드(동적 또는 고정)를 보여줍니다.
 
-| 최상위 리소스 | IP 주소 연결 | 않는 | 공용 |
+| 최상위 리소스 | IP 주소 연결 | 동적 | 공용 |
 | --- | --- | --- | --- |
-| 가상 컴퓨터 |Linux |예 |예 |
+| 가상 머신 |Linux |예 |예 |
 | 인터넷 연결 부하 분산 장치 |프런트 엔드 구성 |예 |예 |
 | VPN 게이트웨이 |게이트웨이 IP 구성 |예 |아니요 |
-| 프런트 엔드 |프런트 엔드 구성 |예 |아니요 |
+| 응용 프로그램 게이트웨이 |프런트 엔드 구성 |예 |아니요 |
 
 ## <a name="private-ip-addresses"></a>개인 IP 주소
 개인 IP 주소를 사용하면 Azure 리소스가 인터넷 연결이 가능한 IP 주소를 사용하지 않고 VPN 게이트웨이 또는 ExpressRoute 회로를 통해 [가상 네트워크](virtual-networks-overview.md) 또는 온-프레미스 네트워크의 다른 리소스와 통신할 수 있습니다.
 
 Azure Resource Manager 배포 모델에서 개인 IP 주소는 다음과 같은 유형의 Azure 리소스에 연결됩니다.
 
-* 가상 컴퓨터 네트워크 인터페이스
+* 가상 머신 네트워크 인터페이스
 * 내부 부하 분산 장치(ILB)
 * 응용 프로그램 게이트웨이
 
@@ -152,17 +149,17 @@ Azure Resource Manager 배포 모델에서 개인 IP 주소는 다음과 같은 
 - **동적**: Azure는 사용 가능한 다음 할당되지 않은 또는 예약되지 않은 IP 주소를 서브넷의 주소 범위에 할당합니다. 예를 들어 Azure는 주소 10.0.0.4-10.0.0.9가 다른 리소스에 이미 할당된 경우 10.0.0.10를 새 리소스에 할당합니다. 동적이 기본 할당 방법입니다. 할당되면 네트워크 인터페이스가 삭제되거나 동일한 가상 네트워크 내에서 다른 서브넷에 할당되거나 또는 할당 메서드가 고정으로 변경된 경우 동적 IP 주소만 해제되고 다른 IP 주소가 지정됩니다. 기본적으로 할당 메서드를 동적에서 고정으로 변경하는 경우 Azure는 이전에 동적으로 할당된 주소를 고정 주소로 할당합니다.
 - **고정적**: Azure는 할당되지 않은 또는 예약되지 않은 IP 주소를 선택하고 서브넷의 주소 범위에 할당합니다. 예를 들어 서브넷 주소 범위가 10.0.0.0/16이며 주소 10.0.0.4-10.0.0.9가 이미 다른 리소스에 할당된 경우 모든 주소를 10.0.0.10-10.0.255.254 사이에 할당할 수 있습니다. 고정 주소는 네트워크 인터페이스가 삭제되는 경우에만 해제됩니다. 할당 메서드를 동적으로 변경하는 경우 Azure는 주소가 서브넷 주소 범위의 사용 가능한 다음 주소가 아닌 경우에도 이전에 할당한 고정 IP 주소를 동적 주소로 할당합니다. 네트워크 인터페이스가 동일한 가상 네트워크 내의 다른 서브넷에 할당되는 경우에도 주소가 변경됩니다. 하지만 네트워크 인터페이스를 다른 서브넷에 할당하려면 먼저 할당 메서드를 고정에서 동적으로 변경해야 합니다. 네트워크 인터페이스를 다른 서브넷에 할당하면 할당 메서드를 다시 고정으로 변경하고 새로운 서브넷의 주소 범위에서 IP 주소를 할당할 수 있습니다.
 
-### <a name="virtual-machines"></a>가상 컴퓨터
+### <a name="virtual-machines"></a>가상 머신
 
-하나 이상의 개인 IP 주소는 [Windows](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [Linux](../virtual-machines/linux/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 가상 컴퓨터에 있는 하나 이상의 **네트워크 인터페이스**에 할당됩니다. 각 개인 IP 주소에 대한 할당 방법을 동적 또는 고정으로 지정할 수 있습니다.
+하나 이상의 개인 IP 주소는 [Windows](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [Linux](../virtual-machines/linux/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 가상 머신에 있는 하나 이상의 **네트워크 인터페이스**에 할당됩니다. 각 개인 IP 주소에 대한 할당 방법을 동적 또는 고정으로 지정할 수 있습니다.
 
-#### <a name="internal-dns-hostname-resolution-for-virtual-machines"></a>내부 DNS 호스트 이름 확인(가상 컴퓨터)
+#### <a name="internal-dns-hostname-resolution-for-virtual-machines"></a>내부 DNS 호스트 이름 확인(가상 머신)
 
-모든 Azure 가상 컴퓨터는 명시적으로 사용자 지정 DNS 서버를 구성하지 않으면 기본적으로 [Azure 관리 DNS 서버](virtual-networks-name-resolution-for-vms-and-role-instances.md#azure-provided-name-resolution)로 구성됩니다. 이러한 DNS 서버는 동일한 가상 네트워크 내에 있는 가상 컴퓨터에 대한 내부 이름 확인을 제공합니다.
+모든 Azure 가상 머신은 명시적으로 사용자 지정 DNS 서버를 구성하지 않으면 기본적으로 [Azure 관리 DNS 서버](virtual-networks-name-resolution-for-vms-and-role-instances.md#azure-provided-name-resolution)로 구성됩니다. 이러한 DNS 서버는 동일한 가상 네트워크 내에 있는 가상 머신에 대한 내부 이름 확인을 제공합니다.
 
-가상 컴퓨터를 만들 때 개인 IP 주소에 호스트 이름을 매핑하는 작업이 Azure 관리 DNS 서버에 추가됩니다. 가상 컴퓨터에 다중 네트워크 인터페이스 또는 네트워크 인터페이스에 대한 다중 IP 구성이 있는 경우 기본 네트워크 인터페이스의 기본 IP 구성에 대한 개인 IP 주소에 호스트 이름이 매핑됩니다.
+가상 머신을 만들 때 개인 IP 주소에 호스트 이름을 매핑하는 작업이 Azure 관리 DNS 서버에 추가됩니다. 가상 컴퓨터에 다중 네트워크 인터페이스 또는 네트워크 인터페이스에 대한 다중 IP 구성이 있는 경우 기본 네트워크 인터페이스의 기본 IP 구성에 대한 개인 IP 주소에 호스트 이름이 매핑됩니다.
 
-Azure 관리 DNS 서버를 사용하여 구성된 가상 컴퓨터는 동일한 가상 네트워크 내에 있는 모든 가상 컴퓨터의 호스트 이름을 해당 개인 IP 주소로 결정할 수 있게 됩니다. 연결된 가상 네트워크에서 가상 컴퓨터의 호스트 이름을 확인하려면 사용자 지정 DNS 서버를 사용해야 합니다.
+Azure 관리 DNS 서버를 사용하여 구성된 가상 머신은 동일한 가상 네트워크 내에 있는 모든 가상 머신의 호스트 이름을 해당 개인 IP 주소로 결정할 수 있게 됩니다. 연결된 가상 네트워크에서 가상 머신의 호스트 이름을 확인하려면 사용자 지정 DNS 서버를 사용해야 합니다.
 
 ### <a name="internal-load-balancers-ilb--application-gateways"></a>ILB(내부 부하 분산 장치) 및 응용 프로그램 게이트웨이
 
@@ -173,9 +170,9 @@ Azure 관리 DNS 서버를 사용하여 구성된 가상 컴퓨터는 동일한 
 
 | 최상위 리소스 | IP 주소 연결 | 않는 | 공용 |
 | --- | --- | --- | --- |
-| 가상 컴퓨터 |Linux |예 |예 |
+| 가상 머신 |Linux |예 |예 |
 | 부하 분산 장치 |프런트 엔드 구성 |예 |예 |
-| 프런트 엔드 |프런트 엔드 구성 |예 |예 |
+| 응용 프로그램 게이트웨이 |프런트 엔드 구성 |예 |예 |
 
 ## <a name="limits"></a>제한
 IP 주소 지정에 적용되는 제한은 Azure에서 [네트워킹에 대한 제한](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) 전체 집합에 나와 있습니다. 제한은 지역별, 구독별로 적용됩니다. 비즈니스에 따라 최대 한도까지 기본 제한을 증가시키려면 [지원에 문의](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) 하세요.

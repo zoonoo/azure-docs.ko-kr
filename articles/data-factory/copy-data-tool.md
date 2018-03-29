@@ -1,21 +1,21 @@
 ---
-title: "데이터 복사 도구 Azure Data Factory | Microsoft Docs"
-description: "Azure Data Factory UI의 데이터 복사 도구에 대한 정보를 제공합니다."
+title: 데이터 복사 도구 Azure Data Factory | Microsoft Docs
+description: Azure Data Factory UI의 데이터 복사 도구에 대한 정보를 제공합니다.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 2fb25dcc0de4ebb1d025101670a9edfe3fe2bea9
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: b82ee060ff3f25e7a92c85114d457ecb349159b3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-tool-in-azure-data-factory"></a>Azure Data Factory의 데이터 복사 도구
 Azure Data Factory 데이터 복사 도구는 일반적으로 종단 간 데이터 통합 시나리오의 첫 번째 단계인 Data Lake로의 데이터 수집 프로세스를 용이하게 하며 최적화합니다.  이 도구는 시간을 절감합니다. 특히, Azure Data Factory를 사용하여 처음으로 데이터 원본에서 데이터를 수집할 때 시간 절감 효과를 얻을 수 있습니다. 이 도구를 사용할 때의 일부 이점은 다음과 같습니다.

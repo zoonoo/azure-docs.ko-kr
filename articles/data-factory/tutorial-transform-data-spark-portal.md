@@ -1,11 +1,11 @@
 ---
-title: "Azure Data Factory에서 Spark를 사용하여 데이터 변환 | Microsoft Docs"
-description: "이 자습서에서는 Azure Data Factory에서 Spark 작업을 사용하여 데이터를 변환하는 단계별 지침을 제공합니다."
+title: Azure Data Factory에서 Spark를 사용하여 데이터 변환 | Microsoft Docs
+description: 이 자습서에서는 Azure Data Factory에서 Spark 작업을 사용하여 데이터를 변환하는 단계별 지침을 제공합니다.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: shengcmsft
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/10/2018
 ms.author: shengc
-ms.openlocfilehash: 1a6e58b775270fd23331748edae64e73d6e7f9da
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: af8045a6681443cfc9cfa681cedce5d290aac0f1
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="transform-data-in-the-cloud-by-using-a-spark-activity-in-azure-data-factory"></a>Azure Data Factory에서 Spark 작업을 사용하여 클라우드의 데이터 변환
 이 자습서에서는 Azure Portal을 사용하여 Azure Data Factory 파이프라인을 만듭니다. 이 파이프라인은 Spark 활동 및 주문형 HDInsight 연결된 서비스를 사용하여 데이터를 변환합니다. 
@@ -25,7 +25,7 @@ ms.lasthandoff: 02/09/2018
 이 자습서에서 수행하는 단계는 다음과 같습니다.
 
 > [!div class="checklist"]
-> * 데이터 팩터리 만들기 
+> * 데이터 팩터리를 만듭니다. 
 > * Spark 활동을 사용하는 파이프라인을 만듭니다.
 > * 파이프라인 실행 트리거
 > * 파이프라인 실행을 모니터링합니다.
@@ -171,7 +171,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 > [!NOTE]
 > Azure HDInsight는 지원하는 각 Azure 지역에서 사용할 수 있는 총 코어 수를 제한합니다. 주문형 HDInsight 연결된 서비스의 경우 HDInsight 클러스터는 기본 저장소로 사용되는 Azure Storage와 동일한 위치에 만들어집니다. 클러스터를 성공적으로 만드는 데 충분한 코어 할당량이 있는지 확인합니다. 자세한 내용은 [Hadoop, Spark, Kafka 등으로 HDInsight에서 클러스터 설정](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md)을 참조하세요. 
 
-## <a name="create-a-pipeline"></a>파이프라인 만들기
+## <a name="create-a-pipeline"></a>파이프라인을 만듭니다.
 
 1. **+**(더하기) 단추를 선택한 다음 메뉴에서 **파이프라인**을 선택합니다.
 
@@ -244,7 +244,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 이 샘플의 파이프라인에서 Spark 활동 및 주문형 HDInsight 연결된 서비스를 사용하여 데이터를 변환합니다. 다음 방법에 대해 알아보았습니다. 
 
 > [!div class="checklist"]
-> * 데이터 팩터리 만들기 
+> * 데이터 팩터리를 만듭니다. 
 > * Spark 활동을 사용하는 파이프라인을 만듭니다.
 > * 파이프라인 실행 트리거
 > * 파이프라인 실행을 모니터링합니다.

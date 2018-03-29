@@ -1,11 +1,11 @@
 ---
-title: "Azure Active Directory에서 엔터프라이즈 앱에 대한 Single Sign-On 관리 | Microsoft Docs"
-description: "Azure Active Directory 응용 프로그램 갤러리에서 조직 내 엔터프라이즈 앱에 대한 Single Sign-On 설정 관리"
+title: Azure Active Directory에서 엔터프라이즈 앱에 대한 Single Sign-On 관리 | Microsoft Docs
+description: Azure Active Directory 응용 프로그램 갤러리에서 조직 내 엔터프라이즈 앱에 대한 Single Sign-On 설정 관리
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: bcc954d3-ddbe-4ec2-96cc-3df996cbc899
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 09/19/2017
 ms.author: markvi
 ms.reviewer: asmalser
-ms.openlocfilehash: bb9c2e1fdf392e234e6c72e0728ab04d2fd88a81
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 45141551c502c89311ab7e43b53af50450d8babd
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="managing-single-sign-on-for-enterprise-apps"></a>엔터프라이즈 앱에 대한 Single Sign-On 관리
 
@@ -88,7 +88,7 @@ Single Sign-On 설정을 관리하려면 **Single Sign-On**을 선택합니다.
 
 ![연결된 로그온][5]
 
-##<a name="feedback"></a>사용자 의견
+## <a name="feedback"></a>사용자 의견
 
 향상된 Azure AD 환경 사용이 사용자의 마음에 들기를 바랍니다. 사용자 의견을 계속 보내주세요! [피드백 포럼](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal)의 **관리자 포털Admin Portal** 섹션에서 개선을 위한 의견과 아이디어를 게시합니다.  매일 멋진 새로운 기능을 구축하는 방법을 기대하며, 사용자의 지침에 따라 다음에 구축할 기능을 구체화하고 정의하겠습니다.
 

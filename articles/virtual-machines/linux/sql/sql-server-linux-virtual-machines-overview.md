@@ -1,8 +1,8 @@
 ---
-title: "Azure Linux Virtual Machines에서 SQL Server 개요 | Microsoft Docs"
-description: "Azure Linux Virtual Machines에서 전체 SQL Server 버전을 실행하는 방법을 알아봅니다. 모든 Linux SQL Server VM 이미지 및 관련된 내용에 대한 직접 링크를 가져옵니다."
+title: Azure Linux Virtual Machines에서 SQL Server 개요 | Microsoft Docs
+description: Azure Linux Virtual Machines에서 전체 SQL Server 버전을 실행하는 방법을 알아봅니다. 모든 Linux SQL Server VM 이미지 및 관련된 내용에 대한 직접 링크를 가져옵니다.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rothja
 manager: jhubbard
 tags: azure-service-management
@@ -10,13 +10,13 @@ ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: get-started-article
 ms.workload: iaas-sql-server
-ms.date: 10/02/2017
+ms.date: 03/22/2018
 ms.author: jroth
-ms.openlocfilehash: f044fcba92eb7aa7f4ac44608571fab3db0e03f5
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: e752ad844a6efe572564e7081ebac87193e9c2a7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="overview-of-sql-server-on-azure-virtual-machines-linux"></a>Azure Virtual Machines에서 SQL Server 개요(Linux)
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 12/18/2017
 > * [Windows](../../windows/sql/virtual-machines-windows-sql-server-iaas-overview.md)
 > * [Linux](sql-server-linux-virtual-machines-overview.md)
 
-이 항목에서는 [포털 이미지에 대한 링크](#option-1-create-a-sql-vm-with-per-minute-licensing)와 함께 Azure Linux VM(Virtual Machines)에 SQL Server를 실행하는 옵션을 설명합니다.
+이 항목에서는 [포털 이미지에 대한 링크](#create)와 함께 Azure Linux VM(Virtual Machines)에 SQL Server를 실행하는 옵션을 설명합니다.
 
 > [!NOTE]
 > SQL Server에 이미 익숙하고 SQL Server Linux VM을 배포하는 방법을 확인하려는 경우 [Azure에서 Linux SQL Server VM 프로비전](provision-sql-server-linux-virtual-machine.md)을 참조하세요. 또는 SQL Server에서 Windows VM을 만들려는 경우 [Azure에서 Windows SQL Server VM 프로비전](../../windows/sql/virtual-machines-windows-portal-sql-server-provision.md)을 참조하세요.
@@ -61,9 +61,9 @@ Linux에서 SQL Server를 구성하는 경우 요구 사항에 따라 데이터�
 
 | 배포 | [데이터베이스 엔진](https://docs.microsoft.com/sql/linux/sql-server-linux-setup) | [도구](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-tools) | [SQL Server 에이전트](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-sql-agent) | [전체 텍스트 검색](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-full-text-search) | [SSIS](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-ssis) | [HA 추가 기능](https://docs.microsoft.com/sql/linux/sql-server-linux-business-continuity-dr) |
 |---|---|---|---|---|---|---|
-| RHEL | ![yes](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![yes](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![yes](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![yes](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![yes](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![no](./media/sql-server-linux-virtual-machines-overview/no.png) |
-| SLES | ![yes](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![yes](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![yes](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![yes](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![no](./media/sql-server-linux-virtual-machines-overview/no.png) | ![no](./media/sql-server-linux-virtual-machines-overview/no.png) |
-| Ubuntu | ![yes](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![yes](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![yes](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![yes](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![yes](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![yes](./media/sql-server-linux-virtual-machines-overview/yes.png) |
+| RHEL | ![예](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![예](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![예](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![예](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![예](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![no](./media/sql-server-linux-virtual-machines-overview/no.png) |
+| SLES | ![예](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![예](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![예](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![예](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![no](./media/sql-server-linux-virtual-machines-overview/no.png) | ![no](./media/sql-server-linux-virtual-machines-overview/no.png) |
+| Ubuntu | ![예](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![예](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![예](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![예](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![예](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![예](./media/sql-server-linux-virtual-machines-overview/yes.png) |
 
 ## <a name="next-steps"></a>다음 단계
 

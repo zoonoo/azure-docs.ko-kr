@@ -1,11 +1,11 @@
 ---
-title: "Azure Data Factory를 사용하여 SAP Cloud for Customer 간에 데이터 복사 | Microsoft Docs"
-description: "Data Factory를 사용하여 SAP Cloud for Customer에서 지원되는 싱크 데이터 저장소로 데이터를 복사하거나 지원되는 원본 데이터 저장소에서 SAP Cloud for Customer로 데이터를 복사하는 방법에 대해 알아봅니다."
+title: Azure Data Factory를 사용하여 SAP Cloud for Customer 간에 데이터 복사 | Microsoft Docs
+description: Data Factory를 사용하여 SAP Cloud for Customer에서 지원되는 싱크 데이터 저장소로 데이터를 복사하거나 지원되는 원본 데이터 저장소에서 SAP Cloud for Customer로 데이터를 복사하는 방법에 대해 알아봅니다.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 4d7df73bec7306b135f5a559c2bc66ac88d88809
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 571c77a0de4bb30f5476f1bc79a7d4bd8d1cd322
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-from-sap-cloud-for-customer-c4c-using-azure-data-factory"></a>Azure Data Factory를 사용하여 SAP Cloud for Customer(C4C) 간에 데이터 복사
 
@@ -47,7 +47,7 @@ SAP Cloud for Customer에서 지원되는 모든 싱크 데이터 저장소로 �
 | 형식 | type 속성은 **SapCloudForCustomer**로 설정해야 합니다. | 예 |
 | URL | SAP C4C OData 서비스의 URL입니다. | 예 |
 | 사용자 이름 | SAP C4C에 연결할 사용자 이름을 지정합니다. | 예 |
-| 암호 | username에 지정한 사용자 계정의 암호를 지정합니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 암호를 참조](store-credentials-in-key-vault.md)합니다. | 예 |
+| 암호 | username에 지정한 사용자 계정의 암호를 지정합니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. | 원본에는 아니요이고 싱크에는 예입니다 |
 
 >[!IMPORTANT]
@@ -116,7 +116,7 @@ SAP Cloud for Customer에서 데이터를 복사하려면 복사 작업의 원�
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | 형식 | type 속성은 **SapCloudForCustomerSource**로 설정해야 합니다.  | 예 |
-| 쿼리 | 데이터를 읽을 사용자 지정 OData 쿼리를 지정합니다. | 아니요 |
+| 쿼리 | 데이터를 읽을 사용자 지정 OData 쿼리를 지정합니다. | 아니오 |
 
 특정 날짜에 대한 데이터를 가져오는 샘플 쿼리: `"query": "$filter=CreatedOn ge datetimeoffset'2017-07-31T10:02:06.4202620Z' and CreatedOn le datetimeoffset'2017-08-01T10:02:06.4202620Z'"`
 

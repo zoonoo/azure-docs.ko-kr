@@ -1,8 +1,8 @@
 ---
-title: "Azure Multi-Factor Authentication 구성 | Microsoft Docs"
-description: "이 문서에서는 보고서, 사기 행위 경고, 일회성 바이패스, 사용자 지정 음성 메시지, 캐싱, 신뢰할 수 있는 IP 및 앱 암호에 대한 Azure Multi-Factor Authentication 설정을 구성하는 방법을 설명합니다."
+title: Azure Multi-Factor Authentication 구성 | Microsoft Docs
+description: 이 문서에서는 보고서, 사기 행위 경고, 일회성 바이패스, 사용자 지정 음성 메시지, 캐싱, 신뢰할 수 있는 IP 및 앱 암호에 대한 Azure Multi-Factor Authentication 설정을 구성하는 방법을 설명합니다.
 services: multi-factor-authentication
-documentationcenter: 
+documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.assetid: 75af734e-4b12-40de-aba4-b68d91064ae8
@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 01/03/2018
 ms.author: joflore
 ms.reviewer: richagi
-ms.openlocfilehash: 4421b995e69e115fbb6c7379af79aaef537aed0d
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: e2b6651f0d341567f1d02d0ca16b8f445e3d26f4
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Azure Multi-Factor Authentication 구성 설정
 
-이 문서는 현재 준비하고 실행 중인 Azure Multi-Factor Authentication을 관리하는 데 도움이 됩니다. Azure Multi-Factor Authentication을 최대한 활용할 수 있게 하는 다양한 항목을 설명합니다. 모든 [버전의 Azure Multi-Factor Authentication](/multi-factor-authentication-get-started.md#what-features-do-i-need)에서 이러한 모든 기능을 사용할 수 있는 것은 아닙니다.
+이 문서는 현재 준비하고 실행 중인 Azure Multi-Factor Authentication을 관리하는 데 도움이 됩니다. Azure Multi-Factor Authentication을 최대한 활용할 수 있게 하는 다양한 항목을 설명합니다. 모든 [버전의 Azure Multi-Factor Authentication](multi-factor-authentication-get-started.md#what-features-do-i-need)에서 이러한 모든 기능을 사용할 수 있는 것은 아닙니다.
 
 | 기능 | 설명 | 
 |:--- |:--- |

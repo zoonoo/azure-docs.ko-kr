@@ -1,11 +1,11 @@
 ---
-title: "템플릿을 사용하여 Azure Event Hubs 네임스페이스를 만들고 캡처를 사용하도록 설정 | Microsoft Docs"
-description: "Azure Resource Manager 템플릿을 사용하여 하나의 이벤트 허브가 있는 Azure Event Hubs 네임스페이스를 만들고 캡처를 사용하도록 설정"
+title: 템플릿을 사용하여 Azure Event Hubs 네임스페이스를 만들고 캡처를 사용하도록 설정 | Microsoft Docs
+description: Azure Resource Manager 템플릿을 사용하여 하나의 이벤트 허브가 있는 Azure Event Hubs 네임스페이스를 만들고 캡처를 사용하도록 설정
 services: event-hubs
 documentationcenter: .net
 author: ShubhaVijayasarathy
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 8bdda6a2-5ff1-45e3-b696-c553768f1090
 ms.service: event-hubs
 ms.devlang: tbd
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 01/30/2018
 ms.author: sethm
-ms.openlocfilehash: 09345b32e80008d4afe61078bd4d272fafe631d2
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: c241b8c38aab355729cd1bea318e70e85cf4ff1f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-a-namespace-with-event-hub-and-enable-capture-using-a-template"></a>이벤트 허브가 있는 네임스페이스를 만들고 템플릿을 사용하여 캡처를 사용하도록 설정
 
@@ -177,7 +177,7 @@ Event Hubs 캡처를 통해 데이터를 캡처하기 시작하는 시간 간격
 }
 ```
 
-###<a name="capturenameformat"></a>captureNameFormat
+### <a name="capturenameformat"></a>captureNameFormat
 
 Avro 파일을 쓰기 위해 Event Hubs 캡처에 의해 사용되는 이름 형식입니다. 캡처 이름 형식은 `{Namespace}`, `{EventHub}`, `{PartitionId}`, `{Year}`, `{Month}`, `{Day}`, `{Hour}`, `{Minute}` 및 `{Second}` 필드를 포함해야 합니다. 구분 기호 유무에 관계 없이 정렬될 수 있습니다.
  
@@ -236,7 +236,7 @@ Azure Storage를 대상으로 선택한 경우 다음 매개 변수를 사용합
 
 Azure Data Lake Store를 대상으로 선택한 경우 다음 매개 변수를 사용합니다. 이벤트를 캡처하려는 Data Lake Store 경로에서 사용 권한을 설정해야 합니다. 사용 권한을 설정하려면 [이 문서](event-hubs-capture-enable-through-portal.md#capture-data-to-an-azure-data-lake-store-account)를 참조하세요.
 
-###<a name="subscriptionid"></a>subscriptionId
+### <a name="subscriptionid"></a>subscriptionId
 
 Event Hubs 네임스페이스와 Azure Data Lake Store에 대한 구독 ID입니다. 이러한 두 리소스가 동일한 구독 ID에 있어야 합니다.
 
@@ -249,7 +249,7 @@ Event Hubs 네임스페이스와 Azure Data Lake Store에 대한 구독 ID입니
  }
 ```
 
-###<a name="datalakeaccountname"></a>dataLakeAccountName
+### <a name="datalakeaccountname"></a>dataLakeAccountName
 
 캡처된 이벤트에 대한 Azure Data Lake Store 이름입니다.
 
@@ -262,7 +262,7 @@ Event Hubs 네임스페이스와 Azure Data Lake Store에 대한 구독 ID입니
 }
 ```
 
-###<a name="datalakefolderpath"></a>dataLakeFolderPath
+### <a name="datalakefolderpath"></a>dataLakeFolderPath
 
 캡처된 이벤트에 대한 대상 폴더 경로입니다. 캡처 작업이 진행되는 동안 이벤트가 푸시될 Data Lake Store의 폴더입니다. 이 폴더에 대한 권한을 설정하려면 [Azure Data Lake Store를 사용하여 Event Hubs에서 데이터 캡처](../data-lake-store/data-lake-store-archive-eventhub-capture.md)를 참조하세요.
 

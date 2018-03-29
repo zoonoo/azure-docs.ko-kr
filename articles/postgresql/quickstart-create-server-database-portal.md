@@ -1,6 +1,6 @@
 ---
-title: "빠른 시작 - Azure Portal을 사용하여 Azure Database for PostgreSQL 서버 만들기"
-description: "Azure Portal 사용자 인터페이스를 사용하여 PostgreSQL 서버용 Azure Database를 만들고 관리하기 위한 빠른 시작 가이드입니다."
+title: 빠른 시작 - Azure Portal을 사용하여 Azure Database for PostgreSQL 서버 만들기
+description: Azure Portal 사용자 인터페이스를 사용하여 PostgreSQL 서버용 Azure Database를 만들고 관리하기 위한 빠른 시작 가이드입니다.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 02/28/2018
-ms.openlocfilehash: 83bdc6eba35f0deaaf541f2042854764ae513fb9
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.date: 03/20/2018
+ms.openlocfilehash: c1acb568598184974b65d666075032e74aa49eb3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure Database for PostgreSQL 서버 만들기
 
@@ -200,7 +200,7 @@ pgAdmin은 PostgreSQL에서 사용되는 오픈 소스 도구입니다. [pgAdmin
     
 5. **저장**을 선택합니다.
 
-6. 왼쪽 **브라우저** 창에서 **서버** 노드를 확장합니다. 서버를 선택합니다(예:  **mydemoserver** ). 클릭하여 연결합니다.
+6. 왼쪽 **브라우저** 창에서 **서버** 노드를 확장합니다. 서버를 선택합니다(예: **mydemoserver**). 클릭하여 연결합니다.
 
 7. 서버 노드를 확장한 다음 그 아래 **데이터베이스**를 확장합니다. 목록에는 기존 *postgres* 데이터베이스와 사용자가 만든 다른 데이터베이스가 포함되어야 합니다. Azure Database for PostgreSQL에서는 서버당 여러 개의 데이터베이스를 만들 수 있습니다.
 

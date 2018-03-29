@@ -1,11 +1,11 @@
 ---
-title: "미사용 데이터베이스 암호화 - Azure Cosmos DB | Microsoft Docs"
-description: "Azure Cosmos DB가 모든 데이터의 기본 암호화를 제공하는 방법을 알아봅니다."
+title: 미사용 데이터베이스 암호화 - Azure Cosmos DB | Microsoft Docs
+description: Azure Cosmos DB가 모든 데이터의 기본 암호화를 제공하는 방법을 알아봅니다.
 services: cosmos-db
 author: voellm
 manager: jhubbard
 editor: mimig
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 99725c52-d7ca-4bfa-888b-19b1569754d3
 ms.service: cosmos-db
 ms.workload: data-services
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: voellm
-ms.openlocfilehash: 193dbede0655376714c6f8f12c826ba3f9bc8933
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: df793fb0511d1289b927caad200eb8252f2b64e6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-cosmos-db-database-encryption-at-rest"></a>미사용 Azure Cosmos DB 데이터베이스 암호화
 
@@ -53,7 +53,6 @@ A: Microsoft에는 Cosmos DB가 따르는 암호화 키 회전에 대한 일련�
 
 ### <a name="q-can-i-use-my-own-encryption-keys"></a>Q: 나만의 암호화 키를 사용할 수 있나요?
 A: Cosmos DB는 PaaS 서비스로, Microsoft는 서비스의 사용 용이성을 높이기 위해 열심히 노력해 왔습니다. 이 질문이 PCI-DSS와 같은 규정 준수 요구 사항을 충족시키기 위한 프록시 질문으로 자주 제기되는 것을 확인했습니다. 이 기능을 구축하는 과정에서 준수 감사자와 협력하여 Cosmos DB를 사용하는 고객이 키를 직접 관리할 필요 없이 요구 사항을 충족할 수 있도록 했습니다.
-따라서 현재 사용자에게 직접 키를 관리하는 부담을 주는 옵션을 제공합니다.
 
 ### <a name="q-what-regions-have-encryption-turned-on"></a>Q: 암호화가 설정된 지역은 어디인가요?
 A: 모든 Azure Cosmos DB 지역에서 모든 사용자 데이터에 대해 암호화가 켜져 있습니다.

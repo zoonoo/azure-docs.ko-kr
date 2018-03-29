@@ -1,10 +1,11 @@
 ---
-title: "Machine Learning 웹 서비스 배포 | Microsoft Docs"
-description: "학습 실험을 예측 실험으로 변환하고 배포할 준비를 한 다음 Azure 기계 학습 웹 서비스로 배포하는 방법입니다."
+title: Machine Learning 웹 서비스 배포 | Microsoft Docs
+description: 학습 실험을 예측 실험으로 변환하고 배포할 준비를 한 다음 Azure Machine Learning 웹 서비스로 배포하는 방법입니다.
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: YasinMSFT
+ms.author: yahajiza
+manager: hjerez
 editor: cgronlun
 ms.assetid: 73a3e9c6-00d0-41d4-8cf1-2ec87713867e
 ms.service: machine-learning
@@ -13,14 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
-ms.author: garye
-ms.openlocfilehash: 75577ad318f2ff23a7b7d10cf551f3bced56fb62
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 3ce4104040e90a4740442d7692b3bf4a0789bde0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="deploy-an-azure-machine-learning-web-service"></a>Azure 기계 학습 웹 서비스 배포
+# <a name="deploy-an-azure-machine-learning-web-service"></a>Azure Machine Learning 웹 서비스 배포
 Azure Machine Learning을 사용하면 예측 분석 솔루션을 빌드, 테스트 및 배포할 수 있습니다.
 
 대략적인 관점에서 이 작업은 다음 세 단계로 수행됩니다.
@@ -32,14 +32,14 @@ Azure Machine Learning을 사용하면 예측 분석 솔루션을 빌드, 테스
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 ## <a name="create-a-training-experiment"></a>학습 실험 만들기
-예측 분석 모델을 학습시키려면 Azure 기계 학습 스튜디오에서 학습 데이터를 로드하고, 필요한 대로 데이터를 준비하며, 기계 학습 알고리즘을 적용하고 결과를 평가하는 다양한 모듈을 포함하는 학습 실험을 만듭니다. 실험은 반복할 수 있으며 여러 다른 기계 학습 알고리즘을 시도하여 결과를 비교하고 평가할 수 있습니다.
+예측 분석 모델을 학습시키려면 Azure Machine Learning Studio에서 학습 데이터를 로드하고, 필요한 대로 데이터를 준비하며, 기계 학습 알고리즘을 적용하고 결과를 평가하는 다양한 모듈을 포함하는 학습 실험을 만듭니다. 실험은 반복할 수 있으며 여러 다른 기계 학습 알고리즘을 시도하여 결과를 비교하고 평가할 수 있습니다.
 
 학습 실험을 만들고 관리하는 프로세스는 다른 부분에서 더욱 철저히 다룹니다. 자세한 내용은 다음 문서를 참조하세요.
 
-* [Azure 기계 학습 스튜디오에서 간단한 실험 만들기](create-experiment.md)
-* [Azure 기계 학습을 사용하여 예측 솔루션 개발](walkthrough-develop-predictive-solution.md)
-* [Azure 기계 학습 스튜디오에 학습 데이터 가져오기](import-data.md)
-* [Azure 기계 학습 스튜디오에서 반복 실험 관리](manage-experiment-iterations.md)
+* [Azure Machine Learning Studio에서 간단한 실험 만들기](create-experiment.md)
+* [Azure Machine Learning을 사용하여 예측 솔루션 개발](walkthrough-develop-predictive-solution.md)
+* [Azure Machine Learning Studio에 학습 데이터 가져오기](import-data.md)
+* [Azure Machine Learning Studio에서 반복 실험 관리](manage-experiment-iterations.md)
 
 ## <a name="convert-the-training-experiment-to-a-predictive-experiment"></a>학습 실험에서 예측 실험으로 변환
 모델을 학습했으면 학습 실험을 예측 실험으로 변환하여 새 데이터의 점수를 매길 준비가 된 것입니다.
@@ -91,7 +91,7 @@ RRS를 테스트하려면 목록 보기 모드에서 입력에 적절한 값을 
 
 BES를 테스트하려면 **Batch**를 클릭합니다. Batch 테스트 페이지의 입력에서 찾아보기를 클릭하고 적절한 샘플 값이 포함된 CSV 파일을 선택합니다. CSV 파일이 없고 Machine Learning Studio를 사용하여 예측 실험을 만든 경우 예측 실험에 대한 데이터 집합을 다운로드하여 사용할 수 있습니다.
 
-데이터 집합을 다운로드하려면 기계 학습 스튜디오를 엽니다. 예측 실험을 열고 실험에 대한 입력을 마우스 오른쪽 단추로 클릭합니다. 상황에 맞는 메뉴에서 **데이터 집합**을 선택한 다음 **다운로드**를 선택합니다.
+데이터 집합을 다운로드하려면 Machine Learning Studio를 엽니다. 예측 실험을 열고 실험에 대한 입력을 마우스 오른쪽 단추로 클릭합니다. 상황에 맞는 메뉴에서 **데이터 집합**을 선택한 다음 **다운로드**를 선택합니다.
 
 ![웹 서비스 배포](./media/publish-a-machine-learning-web-service/figure-7-mls-download.png)
 
@@ -112,7 +112,7 @@ BES를 테스트하려면 **Batch**를 클릭합니다. Batch 테스트 페이�
 * **업데이트** 
 
 #### <a name="access-your-new-web-service"></a>새 웹 서비스 액세스
-기계 학습 스튜디오에서 웹 서비스를 배포하면 서비스에 데이터를 보내고 프로그래밍 방식으로 응답을 받을 수 있습니다.
+Machine Learning Studio에서 웹 서비스를 배포하면 서비스에 데이터를 보내고 프로그래밍 방식으로 응답을 받을 수 있습니다.
 
 **사용** 페이지에서는 웹 서비스에 액세스하는 데 필요한 모든 정보를 제공합니다. 예를 들어, 서비스에 대한 권한이 부여된 액세스를 허용하도록 API 키를 제공합니다.
 
@@ -145,14 +145,14 @@ Batch 실행 서비스를 테스트하려면 **테스트** 미리 링크를 클�
 
 **입력 스키마**, **출력 스키마** 및 **웹 서비스 매개 변수**의 각 열에 문자열을 입력하여 입력 데이터, 출력 데이터 및 웹 서비스 매개 변수에 대한 설명을 제공할 수 있습니다. 이러한 설명은 웹 서비스에 제공된 샘플 코드 설명서에서 사용합니다.
 
-로깅을 사용하도록 설정하면 웹 서비스에 액세스할 때 나타나는 실패를 진단할 수 있습니다. 자세한 내용은 [기계 학습 웹 서비스에 대해 로깅 사용](web-services-logging.md)을 참조하세요.
+로깅을 사용하도록 설정하면 웹 서비스에 액세스할 때 나타나는 실패를 진단할 수 있습니다. 자세한 내용은 [Machine Learning 웹 서비스에 대해 로깅 사용](web-services-logging.md)을 참조하세요.
 
 ![웹 서비스 구성](./media/publish-a-machine-learning-web-service/figure-4.png)
 
 또한 앞서 새 웹 서비스 섹션에 나온 절차와 유사하게 Azure Machine Learning 웹 서비스 포털에서 웹 서비스에 대한 끝점을 구성할 수 있습니다. 옵션은 여러 가지가 있습니다. 서비스 설명을 추가하거나 변경하고, 로깅을 사용하도록 설정하고, 테스트에 사용할 샘플 데이터를 사용하도록 설정할 수 있습니다.
 
 #### <a name="access-your-classic-web-service"></a>기존 웹 서비스 액세스
-기계 학습 스튜디오에서 웹 서비스를 배포하면 서비스에 데이터를 보내고 프로그래밍 방식으로 응답을 받을 수 있습니다.
+Machine Learning Studio에서 웹 서비스를 배포하면 서비스에 데이터를 보내고 프로그래밍 방식으로 응답을 받을 수 있습니다.
 
 대시보드에서는 웹 서비스에 액세스하는 데 필요한 모든 정보를 제공합니다. 예를 들어, 서비스에 대해 권한 부여된 액세스가 가능하도록 API 키가 제공되고, 코드 작성을 시작하는 데 도움이 되도록 API 도움말 페이지가 제공됩니다.
 
@@ -179,7 +179,7 @@ For more information on how to manage Azure Machine Learning web service endpoin
 > 
 > 
 
-웹 서비스를 업데이트하기 위한 한 가지 옵션은 프로그래밍 방식으로 모델을 다시 학습하는 것입니다. 자세한 내용은 [프로그래밍 방식으로 기계 학습 모델 다시 학습](retrain-models-programmatically.md)을 참조하세요.
+웹 서비스를 업데이트하기 위한 한 가지 옵션은 프로그래밍 방식으로 모델을 다시 학습하는 것입니다. 자세한 내용은 [프로그래밍 방식으로 Machine Learning 모델 다시 학습](retrain-models-programmatically.md)을 참조하세요.
 
 <!-- internal links -->
 [학습 실험 만들기]: #create-a-training-experiment

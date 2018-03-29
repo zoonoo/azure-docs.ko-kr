@@ -1,11 +1,12 @@
 ---
-title: "5가지 데이터 과학 질문 - 초급자를 위한 데이터 과학 - Azure Machine Learning | Microsoft Docs"
-description: "초급자를 위한 데이터 과학에서는 데이터 과학으로 답변할 수 있는 5가지 질문부터 시작해서 5가지 짧은 비디오를 통해 기본적인 개념을 설명합니다. Azure Machine Learning"
-keywords: "데이터 과학 수행,데이터 과학 초급자,초급자를 위한 데이터 과학, 데이터 과학 기본 사항,데이터 과학 질문,데이터 과학 비디오, 데이터 과학 소개"
+title: 5가지 데이터 과학 질문 - 초급자를 위한 데이터 과학 - Azure Machine Learning | Microsoft Docs
+description: 초급자를 위한 데이터 과학에서는 데이터 과학으로 답변할 수 있는 5가지 질문부터 시작해서 5가지 짧은 비디오를 통해 기본적인 개념을 설명합니다. Azure Machine Learning
+keywords: 데이터 과학 수행,데이터 과학 초급자,초급자를 위한 데이터 과학, 데이터 과학 기본 사항,데이터 과학 질문,데이터 과학 비디오, 데이터 과학 소개
 services: machine-learning
 documentationcenter: na
-author: cjgronlund
-manager: jhubbard
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cjgronlund
 ms.assetid: a01f93ee-01eb-4afe-abbd-cfa035c119b0
 ms.service: machine-learning
@@ -14,12 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2018
-ms.author: cgronlun
-ms.openlocfilehash: 0482a680999e58b8be45334c9ae620b6b37ac273
-ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
+ms.openlocfilehash: 494c8293a1dbfccbfe2df1e2f48f770edb6452dc
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="data-science-for-beginners-video-1-the-5-questions-data-science-answers"></a>초급자를 위한 데이터 과학 비디오 1: 데이터 과학으로 답변할 수 있는 5가지 질문
 최고의 데이터 과학자가 제공하는 5개의 짧은 비디오로 구성된 *초급자를 위한 데이터 과학*에서 데이터 과학을 빠르게 살펴보세요. 이러한 비디오는 기초적이지만 데이터 과학에 관심이 있든 데이터 과학자와 함께 일하든 상관없이 유용한 정보를 제공합니다.
@@ -140,5 +140,4 @@ ms.lasthandoff: 01/04/2018
 
 ## <a name="next-steps"></a>다음 단계
 * [Machine Learning Studio로 첫 번째 데이터 과학 실험 시도](create-experiment.md)
-* 
-            [Microsoft Azure의 Machine Learning 소개 보기](what-is-machine-learning.md)
+* [Microsoft Azure의 Machine Learning 소개 보기](what-is-machine-learning.md)

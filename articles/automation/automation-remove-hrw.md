@@ -1,24 +1,18 @@
 ---
-title: "Azure Automation Hybrid Runbook Worker 제거 | Microsoft Docs"
-description: "이 문서에서는 로컬 데이터 센터 또는 클라우드 환경의 컴퓨터에서 Runbook을 실행할 수 있도록 해주는 배포된 Azure Automation Hybrid Runbook Worker를 관리하는 방법에 대한 정보를 제공합니다."
+title: Azure Automation Hybrid Runbook Worker 제거
+description: 이 문서에서는 로컬 데이터 센터 또는 클라우드 환경의 컴퓨터에서 Runbook을 실행할 수 있도록 해주는 배포된 Azure Automation Hybrid Runbook Worker를 관리하는 방법에 대한 정보를 제공합니다.
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: carmonm
-editor: tysonn
-ms.assetid: 
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/19/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 08/07/2017
-ms.author: magoedte
-ms.openlocfilehash: 602b868073da6bd1f64099c0f344c9b492abaff0
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+manager: carmonm
+ms.openlocfilehash: 0b8f951bbd9712e3d20c3286ef3571e287499c68
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="remove-azure-automation-hybrid-runbook-workers"></a>Azure Automation Hybrid Runbook Worker 제거
 

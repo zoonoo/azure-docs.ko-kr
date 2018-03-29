@@ -1,11 +1,11 @@
 ---
-title: "Azure Data Factory를 사용하여 SQL Server에서 Blob Storage로 데이터 복사 | Microsoft Docs"
-description: "Azure Data Factory에서 자체 호스팅 통합 런타임을 사용하여 온-프레미스 데이터 저장소에서 클라우드로 데이터를 복사하는 방법을 알아봅니다."
+title: Azure Data Factory를 사용하여 SQL Server에서 Blob Storage로 데이터 복사 | Microsoft Docs
+description: Azure Data Factory에서 자체 호스팅 통합 런타임을 사용하여 온-프레미스 데이터 저장소에서 클라우드로 데이터를 복사하는 방법을 알아봅니다.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: jingwang
-ms.openlocfilehash: ced708febe848d4555429b78c0227a35b7f0c79f
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e21c08d418022430400ff14baedc1759d2d16069
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>온-프레미스 SQL Server 데이터베이스에서 Azure Blob 저장소로 데이터 복사
 이 자습서에서는 Azure Data Factory UI(사용자 인터페이스)를 사용하여 온-프레미스 SQL Server 데이터베이스에서 Azure Blob 저장소로 데이터를 복사하는 데이터 팩터리 파이프라인을 만듭니다. 온-프레미스와 클라우드 데이터 저장소 간에 데이터를 이동하는, 자체 호스팅된 통합 런타임을 생성하고 사용합니다.
@@ -30,7 +30,7 @@ ms.lasthandoff: 02/09/2018
 이 자습서에서는 다음 단계를 수행합니다.
 
 > [!div class="checklist"]
-> * 데이터 팩터리 만들기
+> * 데이터 팩터리를 만듭니다.
 > * 자체 호스팅 통합 런타임을 만듭니다.
 > * SQL Server 및 Azure Storage 연결된 서비스를 만듭니다. 
 > * SQL Server 및 Azure Blob 데이터 집합을 만듭니다.
@@ -154,7 +154,7 @@ ms.lasthandoff: 02/09/2018
 12. **작성 및 모니터링** 타일을 선택하여 별도의 탭에서 Azure Data Factory UI를 실행합니다. 
 
 
-## <a name="create-a-pipeline"></a>파이프라인 만들기
+## <a name="create-a-pipeline"></a>파이프라인을 만듭니다.
 
 1. **시작** 페이지에서 **파이프라인 만들기**를 선택합니다. 파이프라인이 자동으로 만들어집니다. 파이프라인이 트리 뷰에 표시되고 편집기가 열립니다. 
 
@@ -300,7 +300,7 @@ ms.lasthandoff: 02/09/2018
 이 샘플의 파이프라인이 Blob 저장소의 위치 간에 데이터를 복사합니다. 다음 방법에 대해 알아보았습니다.
 
 > [!div class="checklist"]
-> * 데이터 팩터리 만들기
+> * 데이터 팩터리를 만듭니다.
 > * 자체 호스팅 통합 런타임을 만듭니다.
 > * SQL Server 및 Storage 연결된 서비스를 만듭니다. 
 > * SQL Server 및 Blob 저장소 데이터 집합을 만듭니다.

@@ -1,10 +1,10 @@
 ---
-title: "Azure Cosmos DB: SQL API 문서 | Microsoft Docs"
-description: "Azure Cosmos DB에서 SQL API를 사용하여 문서 데이터베이스를 만드는 데 특정된 모든 문서 목록입니다."
+title: 'Azure Cosmos DB: SQL API 문서 | Microsoft Docs'
+description: Azure Cosmos DB에서 SQL API를 사용하여 문서 데이터베이스를 만드는 데 특정된 모든 문서 목록입니다.
 services: cosmos-db
 author: mimig1
 manager: jhubbard
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 82bec99a-ac2b-474e-b41f-d2fb296c8feb
 ms.service: cosmos-db
 ms.workload: data-services
@@ -13,15 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2017
 ms.author: mimig
-ms.openlocfilehash: 8faa8a08d4a5bc323951a594049002fc61eb56b8
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 0ad80ce15769cfe823925cf36bbd47f2ddadec21
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cosmos-db-sql-api-documentation"></a>Azure Cosmos DB: SQL API 설명서
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 이 문서는 SQL API에 특정된 모든 Azure Cosmos DB 콘텐츠에 대한 링크를 제공합니다.
 
@@ -34,7 +32,7 @@ Azure Cosmos DB에서 SQL API에 대해 학습하기 시작할 때 읽어야 하
 - [SQL API 소개](sql-api-introduction.md)
 - [데이터베이스 리소스 모델](sql-api-resources.md)
 - 웹 사이트: [쿼리 실습](https://www.documentdb.com/sql/demo)
-- 치트 시트: [SQL 문법](sql-api-sql-query-cheat-sheet.md)
+- 치트 시트: [SQL 문법](query-cheat-sheet.md)
 
 ## <a name="quickstarts"></a>빠른 시작
 
@@ -102,7 +100,7 @@ Azure Cosmos DB는 클라이언트 쪽 응용 프로그램을 개발할 수 있�
 - [Node.js](sql-api-sdk-node.md)
 - [Python](sql-api-sdk-python.md)
 
-## <a name="reference"></a>참조
+## <a name="reference"></a>참고 자료
 
 - [REST](/rest/api/documentdb/)
 - [REST 리소스 공급자](/rest/api/documentdbresourceprovider/)

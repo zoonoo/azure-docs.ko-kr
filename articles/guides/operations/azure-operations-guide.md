@@ -1,25 +1,25 @@
 ---
-title: "Azure IT 운영자를 위한 시작 가이드 | Microsoft Docs"
-description: "Azure IT 운영자를 위한 시작 가이드"
-services: 
-documentationcenter: 
+title: Azure IT 운영자를 위한 시작 가이드 | Microsoft Docs
+description: Azure IT 운영자를 위한 시작 가이드
+services: ''
+documentationcenter: ''
 author: neilpeterson
 manager: timlt
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure
-ms.devlang: 
-ms.topic: 
-ms.tgt_pltfrm: 
+ms.devlang: ''
+ms.topic: ''
+ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 06/12/2017
 ms.author: nepeters
-ms.openlocfilehash: 8d7cbe27e5acfe741aeb5ed85756bf3c7ce2160b
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 0be60fff3d49ff39691f19cb1013e023f9f984e6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="introduction-to-cloud-computing-and-microsoft-azure"></a>클라우드 컴퓨팅 및 Microsoft Azure 소개
 
@@ -148,7 +148,7 @@ Azure를 사용할 때 얻을 수 있는 장점 중 하나는 전 세계의 다�
 ### <a name="azure-portal"></a>Azure portal
 
 
-Azure Portal은 Azure 리소스 및 서비스를 만들고 관리하고 제거하는 데 사용할 수 있는 웹 기반 응용 프로그램입니다. Azure Portal의 주소는 https://portal.azure.com입니다. 여기에는 Azure 리소스 관리를 위해 사용자 지정 가능한 대시보드 및 도구가 포함되어 있습니다. 또한 청구 및 구독 정보를 제공합니다. 자세한 내용은 [Microsoft Azure Portal 개요](https://azure.microsoft.com/documentation/articles/azure-portal-overview/) 및 [포털을 통해 Azure 리소스 관리](https://docs.microsoft.com/azure/azure-portal/resource-group-portal)를 참조하세요.
+Azure Portal은 Azure 리소스 및 서비스를 만들고 관리하고 제거하는 데 사용할 수 있는 웹 기반 응용 프로그램입니다. Azure Portal은 https://portal.azure.com에 있습니다. 여기에는 Azure 리소스 관리를 위해 사용자 지정 가능한 대시보드 및 도구가 포함되어 있습니다. 또한 청구 및 구독 정보를 제공합니다. 자세한 내용은 [Microsoft Azure Portal 개요](https://azure.microsoft.com/documentation/articles/azure-portal-overview/) 및 [포털을 통해 Azure 리소스 관리](https://docs.microsoft.com/azure/azure-portal/resource-group-portal)를 참조하세요.
 
 ### <a name="resources"></a>리소스
 
@@ -485,7 +485,7 @@ ExpressRoute 또는 사이트 간 VPN 연결을 사용하여 온-프레미스 �
 
 Azure virtual network가 온-프레미스 네트워크에 연결되어 있으므로 프레미스 간 가상 네트워크는 조직에서 사용하는 고유한 주소 공간을 사용해야 합니다. 서로 다른 회사 위치에 특정 IP 서브넷이 할당되는 것과 같은 방식으로 Azure는 네트워크를 확장할 때 다른 위치가 됩니다.
 
-###<a name="deploying-a-virtual-network"></a>가상 네트워크 배포
+### <a name="deploying-a-virtual-network"></a>가상 네트워크 배포
 
 가상 네트워크를 배포하기 위한 몇 가지 옵션이 있습니다.
 

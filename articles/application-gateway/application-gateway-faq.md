@@ -1,6 +1,6 @@
 ---
-title: "Azure Application Gateway에 대한 질문과 대답 | Microsoft Docs"
-description: "이 페이지에서는 Azure Application Gateway에 대한 질문과 대답을 제공합니다."
+title: Azure Application Gateway에 대한 질문과 대답 | Microsoft Docs
+description: 이 페이지에서는 Azure Application Gateway에 대한 질문과 대답을 제공합니다.
 documentationcenter: na
 services: application-gateway
 author: davidmu1
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/19/2017
 ms.author: davidmu
-ms.openlocfilehash: f92af44df9863bbf48abb4afcf9b1505c843fadc
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 5b400b373577fc38fe108a74eb8bad936a82be0c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Application Gateway에 대한 질문과 대답
 
@@ -42,7 +42,7 @@ Application Gateway는 HTTP, HTTPS 및 WebSocket을 지원합니다.
 
 **Q. 현재 백 엔드 풀의 일부로 어떤 리소스가 지원되나요?**
 
-백 엔드 풀은 NIC, 가상 컴퓨터 확장 집합, 공용 IP, 내부 IP, FQDN(정규화된 도메인 이름) 및 다중 테넌트 백 엔드(예: Azure Web Apps)로 구성될 수 있습니다. Application Gateway 백 엔드 풀 멤버는 가용성 집합에 연결되지 않습니다. 백 엔드 풀의 멤버는 IP 연결이 있는 경우 클러스터, 데이터 센터 간 또는 Azure 외부에 있을 수 있습니다.
+백 엔드 풀은 NIC, 가상 머신 확장 집합, 공용 IP, 내부 IP, FQDN(정규화된 도메인 이름) 및 다중 테넌트 백 엔드(예: Azure Web Apps)로 구성될 수 있습니다. Application Gateway 백 엔드 풀 멤버는 가용성 집합에 연결되지 않습니다. 백 엔드 풀의 멤버는 IP 연결이 있는 경우 클러스터, 데이터 센터 간 또는 Azure 외부에 있을 수 있습니다.
 
 **Q. 어떤 지역에서 서비스를 사용할 수 있습니까?**
 
@@ -135,10 +135,6 @@ Application Gateway는 IP 연결이 있는 경우 가상 네트워크 외부 인
 **Q. 규칙은 어떻게 처리되나요?**
 
 규칙은 구성된 순서대로 처리됩니다. 기본 규칙은 다중 사이트 규칙보다 먼저 포트를 기준으로 트래픽과 일치하는지 평가되므로 트래픽이 잘못된 백 엔드로 라우팅될 가능성을 줄이려면 기본 규칙보다 먼저 다중 사이트 규칙을 구성하는 것이 좋습니다.
-
-**Q. 규칙은 어떻게 처리되나요?**
-
-규칙은 만들어진 순서대로 처리됩니다. 다중 사이트 규칙이 기본 규칙보다 먼저 구성되는 것이 좋습니다. 다중 사이트 수신기를 먼저 구성하면 트래픽이 부적절한 백 엔드로 라우팅될 가능성이 줄어듭니다. 이 라우팅 문제는 다중 사이트 규칙을 평가하기 전에 먼저 기본 규칙이 포트 기반 트래픽과 일치함으로써 발생할 수 있습니다.
 
 **Q. 사용자 지정 프로브에 대한 호스트 필드는 무엇을 나타내나요?**
 

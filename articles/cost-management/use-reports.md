@@ -10,15 +10,15 @@ ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: ''
-ms.openlocfilehash: 8078591b1e2ad120190a23dd29800bd0f1ae33ea
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: fa263a4b6f41e2b31328f46b8d1341d0d74c9a85
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="use-cost-management-reports"></a>비용 관리 보고서 사용
 
-이 문서에서는 Cloudyn 포털에서 다양한 비용 관리 보고서를 사용하는 방법을 설명합니다. 대부분의 Cloudyn 보고서는 직관적이며 모양과 느낌이 일관됩니다. Cloudyn 보고서에 관한 개요는 [비용 보고서 이해](understading-cost-reports.md)를 참조하세요. 또한 이 문서에서는 대부분의 보고서에 사용되는 여러 옵션 및 필드도 설명합니다.
+이 문서에서는 Cloudyn 포털에서 다양한 비용 관리 보고서를 사용하는 방법을 설명합니다. 대부분의 Cloudyn 보고서는 직관적이며 모양과 느낌이 일관됩니다. Cloudyn 보고서에 관한 개요는 [비용 보고서 이해](understanding-cost-reports.md)를 참조하세요. 또한 이 문서에서는 대부분의 보고서에 사용되는 여러 옵션 및 필드도 설명합니다.
 
 ## <a name="cost-analysis-reports"></a>비용 분석 보고서
 

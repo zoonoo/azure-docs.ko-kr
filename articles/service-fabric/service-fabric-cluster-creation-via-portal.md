@@ -1,6 +1,6 @@
 ---
-title: "Azure Portal에서 Service Fabric 만들기 | Microsoft Docs"
-description: "이 문서에서는 Azure Portal 및 Azure Key Vault를 사용하여 Azure에 보안 서비스 패브릭 클러스터를 설정하는 방법을 설명합니다."
+title: Azure Portal에서 Service Fabric 만들기 | Microsoft Docs
+description: 이 문서에서는 Azure Portal 및 Azure Key Vault를 사용하여 Azure에 보안 서비스 패브릭 클러스터를 설정하는 방법을 설명합니다.
 services: service-fabric
 documentationcenter: .net
 author: chackdan
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/09/2018
 ms.author: chackdan
-ms.openlocfilehash: 4a42e36307f440a29740d947314f91dffac51a42
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 864952554b04d8d6bc14aad92d168298e554710e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Azure 포털을 사용하여 Azure에서 서비스 패브릭 클러스터 만들기
 > [!div class="op_single_selector"]
 > * [Azure 리소스 관리자](service-fabric-cluster-creation-via-arm.md)
-> * [Azure 포털](service-fabric-cluster-creation-via-portal.md)
+> * [Azure Portal](service-fabric-cluster-creation-via-portal.md)
 > 
 > 
 
@@ -131,7 +131,7 @@ Azure 포털을 통해 클러스터를 만들 때 응용 프로그램 인증서�
 
 보안 테스트 클러스터를 설정하기 쉽도록 **기본** 옵션이 제공됩니다. 이미 인증서가 있고 키 자격 증명 모음에 업로드한 경우(키 자격 증명 모음을 배포에 사용하도록 설정함) **사용자 지정** 옵션을 사용합니다.
 
-#####<a name="basic-option"></a>기본 옵션
+##### <a name="basic-option"></a>기본 옵션
 화면 지침에 따라 기존 키 자격 증명 모음을 추가 또는 다시 사용하고 인증서를 추가합니다. 인증서 추가는 동기 프로세스이므로 인증서가 생성될 때까지 기다려야 합니다.
 
 
@@ -151,7 +151,7 @@ Azure 포털을 통해 클러스터를 만들 때 응용 프로그램 인증서�
 
 ![CreateKeyVault4]
 
-#####<a name="custom-option"></a>사용자 지정 옵션
+##### <a name="custom-option"></a>사용자 지정 옵션
 **기본** 옵션의 단계를 이미 수행한 경우에는 이 섹션을 건너뜁니다.
 
 ![SecurityCustomOption]

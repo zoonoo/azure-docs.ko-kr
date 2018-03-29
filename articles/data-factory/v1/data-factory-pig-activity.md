@@ -1,11 +1,10 @@
 ---
-title: "Azure Data Factory에서 Pig 활동을 사용하여 데이터 변환 | Microsoft Docs"
-description: "Azure Data Factory에서 Pig 작업을 사용하여 주문형/사용자 고유의 HDInsight 클러스터에서 Pig 스크립트를 실행하는 방법을 알아봅니다."
+title: Azure Data Factory에서 Pig 활동을 사용하여 데이터 변환 | Microsoft Docs
+description: Azure Data Factory에서 Pig 작업을 사용하여 주문형/사용자 고유의 HDInsight 클러스터에서 Pig 스크립트를 실행하는 방법을 알아봅니다.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: 5af07a1a-2087-455e-a67b-a79841b4ada5
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: c309debf53cc22d102de740ffd2907257b9821d2
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: af0c19988c52760a681477a5cea7ebbc48492c83
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="transform-data-using-pig-activity-in-azure-data-factory"></a>Azure Data Factory에서 Pig 활동을 사용하여 데이터 변환
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -87,12 +86,12 @@ Data Factory [파이프라인](data-factory-create-pipelines.md)의 HDInsight Pi
 | 이름 |작업의 이름 |예 |
 | description |작업이 무엇에 사용되는지 설명하는 텍스트입니다. |아니요 |
 | 형식 |HDinsightPig |예 |
-| inputs |Pig 활동에서 사용하는 하나 이상의 입력 |아니요 |
+| inputs |Pig 활동에서 사용하는 하나 이상의 입력 |아니오 |
 | outputs |Pig 활동에서 생성하는 하나 이상의 출력 |예 |
 | linkedServiceName |데이터 팩터리에서 연결된 서비스로 등록된 HDInsight 클러스터에 대한 참조 |예 |
-| script |Pig 스크립트 인라인 지정 |아니요 |
-| script path |Pig 스크립트를 Azure blob 저장소에 저장하고 파일에 대한 경로를 제공합니다. 'script' 또는 'scriptPath' 속성을 사용합니다. 둘 모두를 사용할 수는 없습니다. 파일 이름은 대/소문자를 구분합니다. |아니요 |
-| defines |Pig 스크립트 내에서 참조하기 위해 매개 변수를 키/값 쌍으로 지정 |아니요 |
+| script |Pig 스크립트 인라인 지정 |아니오 |
+| script path |Pig 스크립트를 Azure blob 저장소에 저장하고 파일에 대한 경로를 제공합니다. 'script' 또는 'scriptPath' 속성을 사용합니다. 둘 모두를 사용할 수는 없습니다. 파일 이름은 대/소문자를 구분합니다. |아니오 |
+| defines |Pig 스크립트 내에서 참조하기 위해 매개 변수를 키/값 쌍으로 지정 |아니오 |
 
 ## <a name="example"></a>예
 회사에서 출시한 게임을 플레이어가 플레이한 시간을 파악하려는 게임 로그 분석의 예를 살펴보겠습니다.

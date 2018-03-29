@@ -1,10 +1,11 @@
 ---
-title: "Machine Learning에서 모델 결과 해석 | Microsoft Docs"
-description: "모델 점수 매기기 출력을 사용하고 시각화하여 알고리즘에 설정된 최적의 매개 변수를 선택하는 방법"
+title: Machine Learning에서 모델 결과 해석 | Microsoft Docs
+description: 모델 점수 매기기 출력을 사용하고 시각화하여 알고리즘에 설정된 최적의 매개 변수를 선택하는 방법
 services: machine-learning
-documentationcenter: 
-author: bradsev
-manager: cgronlun
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: 6230e5ab-a5c0-4c21-a061-47675ba3342c
 ms.service: machine-learning
@@ -13,19 +14,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.author: bradsev;garye
-ms.openlocfilehash: d6563d411e9f159399f9863a5b572365dc2b05cc
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: e8f6d3accc7ad8de1161f08cceb0e856cf764255
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="interpret-model-results-in-azure-machine-learning"></a>Machine Learning에서 모델 결과 해석
 이 토픽에서는 Azure Machine Learning Studio에서 예측 결과를 시각화하고 해석하는 방법을 설명합니다. 모델을 학습시키고 모델에 대한 예측을 수행("모델 점수 매기기")한 후에는 예측 결과를 이해하고 해석해야 합니다.
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
-Azure 기계 학습에는 다음과 같이 네 가지 주된 유형의 기계 학습 모델이 있습니다.
+Azure Machine Learning에는 다음과 같이 네 가지 주된 유형의 기계 학습 모델이 있습니다.
 
 * 분류
 * 클러스터링

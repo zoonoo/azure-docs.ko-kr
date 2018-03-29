@@ -1,11 +1,11 @@
 ---
-title: "Log Analytics의 Azure SQL Analytics 솔루션 | Microsoft Docs"
-description: "Azure SQL Analytics 솔루션을 통해 Azure SQL Database를 관리할 수 있습니다."
+title: Log Analytics의 Azure SQL Analytics 솔루션 | Microsoft Docs
+description: Azure SQL Analytics 솔루션을 통해 Azure SQL Database를 관리할 수 있습니다.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: b2712749-1ded-40c4-b211-abc51cc65171
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: magoedte
-ms.openlocfilehash: 5fb7fd0be8b131ee098689b06c34c4e7c333801e
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: d6bc7824687f5418f1270e22b216f8637578aa6d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>Log Analytics에 Azure SQL Analytics(미리 보기)를 사용하여 Azure SQL Database 모니터링
 
@@ -43,9 +43,9 @@ Azure SQL 분석 솔루션은 Log Analytics 서비스에 연결하는 데 에이
 
 | 연결된 소스 | 지원 | 설명 |
 | --- | --- | --- |
-| [Windows 에이전트](log-analytics-windows-agent.md) | 아니요 | 직접 Windows 에이전트는 솔루션에 사용되지 않습니다. |
+| [Windows 에이전트](log-analytics-windows-agent.md) | 아니오 | 직접 Windows 에이전트는 솔루션에 사용되지 않습니다. |
 | [Linux 에이전트](log-analytics-linux-agents.md) | 아니요 | 직접 Linux 에이전트는 솔루션에 사용되지 않습니다. |
-| [SCOM 관리 그룹](log-analytics-om-agents.md) | 아니요 | SCOM 에이전트에서 Log Analytics로 직접 연결은 솔루션에 사용되지 않습니다. |
+| [SCOM 관리 그룹](log-analytics-om-agents.md) | 아니오 | SCOM 에이전트에서 Log Analytics로 직접 연결은 솔루션에 사용되지 않습니다. |
 | [Azure 저장소 계정](log-analytics-azure-storage.md) | 아니요 | Log Analytics는 저장소 계정의 데이터를 읽지 않습니다. |
 | [Azure 진단](log-analytics-azure-storage.md) | 예 | Azure 메트릭 및 로그 데이터는 Azure에 의해 직접 Log Analytics에 전송됩니다. |
 
@@ -86,10 +86,6 @@ PS C:\> .\Enable-AzureRMDiagnostics.ps1 -WSID $WSID
 ```
 
 ## <a name="using-the-solution"></a>솔루션 사용
-
->[!NOTE]
-> Azure SQL 분석의 최신 버전을 가져오려면 Log Analytics를 업그레이드하세요.
->
 
 솔루션을 작업 영역에 추가하면 Azure SQL Analytics 타일이 작업 영역에 추가되고 개요에 표시됩니다. 타일은 솔루션이 연결된 Azure SQL 데이터베이스 및 Azure SQL 탄력적 풀 수를 보여 줍니다.
 
@@ -141,8 +137,6 @@ Azure SQL Database [Intelligent Insights](../sql-database/sql-database-intellige
 ### <a name="analyze-data-and-create-alerts"></a>데이터 분석 및 경고 만들기
 
 Azure SQL Database 리소스에서 가져온 데이터와 경고를 쉽게 만들 수 있습니다. 다음은 경고 생성에 사용할 수 있는 몇 가지 유용한 [로그 검색](log-analytics-log-searches.md) 쿼리입니다.
-
-[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 
 *Azure SQL Database에 대한 높은 DTU*

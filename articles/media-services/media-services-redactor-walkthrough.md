@@ -1,11 +1,11 @@
 ---
-title: "Azure 미디어 분석으로 얼굴 편집 안내 | Microsoft Docs"
-description: "이 항목에서는 AMSE(Azure Media Services 탐색기) 및 Azure Media Redactor Visualizer(오픈 소스 도구)를 사용하여 전체 교정 워크플로를 실행하는 방법에 대한 단계별 지침을 보여줍니다."
+title: Azure 미디어 분석으로 얼굴 편집 안내 | Microsoft Docs
+description: 이 항목에서는 AMSE(Azure Media Services 탐색기) 및 Azure Media Redactor Visualizer(오픈 소스 도구)를 사용하여 전체 교정 워크플로를 실행하는 방법에 대한 단계별 지침을 보여줍니다.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Lichard
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: d6fa21b8-d80a-41b7-80c1-ff1761bc68f2
 ms.service: media-services
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/03/2017
 ms.author: rli; juliako;
-ms.openlocfilehash: 0bd385ba78028a722c52cdf1508f3348ff90f05f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6b33da21a32373196d86ec8c93f180b3d40b1c6e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="redact-faces-with-azure-media-analytics-walkthrough"></a>Azure 미디어 분석으로 얼굴 편집 안내
 
@@ -59,7 +59,7 @@ Redactor를 시작하는 가장 쉬운 방법은 github에서 오픈 소스 AMSE
 
 ![얼굴 편집](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough004.png)
 
-###<a name="second-pass--redact-mode"></a>2 패스 – 교정 모드
+### <a name="second-pass--redact-mode"></a>2 패스 – 교정 모드
 
 1. 1 패스의 출력으로 원본 비디오 자산을 업로드하고 기본 자산으로 설정합니다. 
 
@@ -78,7 +78,7 @@ Redactor를 시작하는 가장 쉬운 방법은 github에서 오픈 소스 AMSE
 
     ![얼굴 편집](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough008.png)
 
-##<a name="azure-media-redactor-visualizer-open-source-tool"></a>Azure Media Redactor Visualizer 오픈 소스 도구
+## <a name="azure-media-redactor-visualizer-open-source-tool"></a>Azure Media Redactor Visualizer 오픈 소스 도구
 
 오픈 소스 [Visualizer 도구](https://github.com/Microsoft/azure-media-redactor-visualizer)는 개발자가 주석 형식부터 시작해서 출력을 구문 분석하고 사용할 수 있도록 지원합니다.
 

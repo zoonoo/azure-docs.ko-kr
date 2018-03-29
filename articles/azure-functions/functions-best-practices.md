@@ -1,13 +1,13 @@
 ---
-title: "Azure Functions에 대한 모범 사례 | Microsoft Docs"
-description: "Azure Functions에 대한 모범 사례 및 패턴에 알아봅니다."
+title: Azure Functions에 대한 모범 사례 | Microsoft Docs
+description: Azure Functions에 대한 모범 사례 및 패턴에 알아봅니다.
 services: functions
 documentationcenter: na
 author: wesmc7777
 manager: cfowler
-editor: 
-tags: 
-keywords: "Azure Functions, 패턴, 모범 사례, 함수, 이벤트 처리, webhook, 동적 계산, 서버가 없는 아키텍처"
+editor: ''
+tags: ''
+keywords: Azure Functions, 패턴, 모범 사례, 함수, 이벤트 처리, webhook, 동적 계산, 서버가 없는 아키텍처
 ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
 ms.service: functions
 ms.devlang: multiple
@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 10/16/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d8088a8a83bcaefce17ac2756360a46119c8eb27
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 19ca9d70f769a19556d131d1d131f1bc9d107ef0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Azure Functions의 성능 및 안정성 최적화
 
@@ -99,7 +99,7 @@ Azure Functions 플랫폼에서 사용하는 구성 요소를 위해 이미 제�
 
 ### <a name="receive-messages-in-batch-whenever-possible"></a>가능하면 항상 일괄 처리로 메시지를 수신합니다.
 
-Event Hub와 같은 일부 트리거는 단일 호출에서 일괄 처리 메시지를 수신할 수 있습니다.  메시지를 일괄 처리하면 성능이 향상됩니다.  [host.json 참조 설명서](functions-host-json.md)에 설명된 대로 `functions.json` 파일에서 최대 일괄 처리 크기를 구성할 수 있습니다.
+Event Hub와 같은 일부 트리거는 단일 호출에서 일괄 처리 메시지를 수신할 수 있습니다.  메시지를 일괄 처리하면 성능이 향상됩니다.  [host.json 참조 설명서](functions-host-json.md)에 설명된 대로 `host.json` 파일에서 최대 일괄 처리 크기를 구성할 수 있습니다.
 
 C# 함수의 경우 강력한 형식의 배열로 형식을 변경할 수 있습니다.  예를 들어 메서드 서명은 `EventData sensorEvent` 대신 `EventData[] sensorEvent`일 수 있습니다.  다른 언어의 경우 [여기 표시된 대로](https://github.com/Azure/azure-webjobs-sdk-templates/blob/df94e19484fea88fc2c68d9f032c9d18d860d5b5/Functions.Templates/Templates/EventHubTrigger-JavaScript/function.json#L10) 일괄 처리를 사용할 수 있도록 하기 위해 `function.json`에서 명시적으로 카디널리티 속성을 `many`로 설정해야 합니다.
 

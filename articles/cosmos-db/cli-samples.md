@@ -1,12 +1,12 @@
 ---
-title: "Azure Cosmos DB에 대한 Azure CLI 샘플 | Microsoft Docs"
-description: "Azure CLI 샘플 - Azure Cosmos DB 계정, 데이터베이스, 컨테이너, 하위 지역 및 방화벽을 만들고 관리합니다."
+title: Azure Cosmos DB에 대한 Azure CLI 샘플 | Microsoft Docs
+description: Azure CLI 샘플 - Azure Cosmos DB 계정, 데이터베이스, 컨테이너, 하위 지역 및 방화벽을 만들고 관리합니다.
 services: cosmos-db
 author: mimig1
 manager: jhubbard
-editor: 
+editor: ''
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: cosmos-db
 ms.custom: mvc
 ms.devlang: azurecli
@@ -15,15 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: database
 ms.date: 11/29/2017
 ms.author: mimig
-ms.openlocfilehash: 75199225509554a96168eda7993f0340b75e5493
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 5a649279385da882687c50edd53e16f5ebaed163
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cli-samples-for-azure-cosmos-db"></a>Azure Cosmos DB에 대한 Azure CLI 샘플
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)] 
 
 다음 표는 Azure Cosmos DB의 Azure CLI 샘플 스크립트에 대한 링크를 포함합니다. 모든 Azure Cosmos DB CLI 명령에 대한 참조 페이지는 [Azure CLI 2.0 참조](https://docs.microsoft.com/cli/azure/cosmosdb)에서 제공됩니다.
 

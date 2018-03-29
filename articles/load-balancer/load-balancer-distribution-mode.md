@@ -1,6 +1,6 @@
 ---
-title: "Azure Load Balancer 배포 모드 구성 | Microsoft Docs"
-description: "원본 IP 선호도를 지원하도록 Azure Load Balancer에 대한 배포 모드를 구성하는 방법입니다."
+title: Azure Load Balancer 배포 모드 구성 | Microsoft Docs
+description: 원본 IP 선호도를 지원하도록 Azure Load Balancer에 대한 배포 모드를 구성하는 방법입니다.
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -13,15 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: d04a469c04553b7d6a14df7054ad5ef795baa500
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: ae793bad9cef86158418eb87e0c38ee0370a6bd2
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-the-distribution-mode-for-azure-load-balancer"></a>Azure Load Balancer의 배포 모드 구성
-
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 ## <a name="hash-based-distribution-mode"></a>해시 기반 배포 모드
 
@@ -33,7 +31,7 @@ Azure Load Balancer의 기본 배포 모드는 5 튜플 해시입니다. 튜플�
 
 Load Balancer는 원본 IP 선호도 배포 모드를 사용하여 구성할 수도 있습니다. 이 배포 모드는 세션 선호도 또는 클라이언트 IP 선호도라고도 합니다. 모드는 2 튜플(원본 ID 및 대상 IP) 또는 3 튜플(원본 ID, 대상 IP 프로토콜 유형) 해시를 사용하여 사용 가능한 서버에 트래픽을 매핑합니다. 원본 IP 선호도를 사용하면 동일한 클라이언트 컴퓨터에서 시작된 연결이 동일한 DIP 끝점으로 이어집니다.
 
-다음 그림은 2 튜플 구성을 보여 줍니다. 2 튜플이 부하 분산 장치를 통해 가상 컴퓨터 1(VM1)에 도달하는 방식을 확인합니다. 그런 다음 VM1이 VM2와 VM3에 의해 백업됩니다.
+다음 그림은 2 튜플 구성을 보여 줍니다. 2 튜플이 부하 분산 장치를 통해 가상 머신 1(VM1)에 도달하는 방식을 확인합니다. 그런 다음 VM1이 VM2와 VM3에 의해 백업됩니다.
 
 ![2 튜플 세션 선호도 배포 모드](./media/load-balancer-distribution-mode/load-balancer-session-affinity.png)
 
@@ -49,7 +47,7 @@ Load Balancer는 원본 IP 선호도 배포 모드를 사용하여 구성할 수
 
 ## <a name="configure-source-ip-affinity-settings"></a>원본 IP 선호도 설정 구성
 
-가상 컴퓨터의 경우 Azure PowerShell을 사용하여 시간 제한 설정을 변경합니다. Azure 끝점을 가상 컴퓨터에 추가하고 부하 분산 장치 배포 모드를 구성합니다.
+가상 머신의 경우 Azure PowerShell을 사용하여 시간 제한 설정을 변경합니다. Azure 끝점을 가상 컴퓨터에 추가하고 부하 분산 장치 배포 모드를 구성합니다.
 
 ```powershell
 Get-AzureVM -ServiceName mySvc -Name MyVM1 | Add-AzureEndpoint -Name HttpIn -Protocol TCP -PublicPort 80 -LocalPort 8080 –LoadBalancerDistribution sourceIP | Update-AzureVM
@@ -146,7 +144,7 @@ Azure 클래식 배포 모델을 사용하여 기존 배포 구성을 변경하�
 
 앞에서 설명한 것처럼, `LoadBalancerDistribution` 요소를 2 튜플 선호도의 경우 sourceIP로, 3 튜플 선호도의 경우 sourceIPProtocol로, 선호도 없음(5 튜플 선호도)의 경우 none으로 설정합니다.
 
-#### <a name="response"></a>응답
+#### <a name="response"></a>response
 
     HTTP/1.1 202 Accepted
     Cache-Control: no-cache

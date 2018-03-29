@@ -1,10 +1,10 @@
 ---
-title: "Azure Data Factory ACS 서비스 ID | Microsoft Docs"
-description: "Azure Data Factory에서 데이터 팩터리 서비스 ID에 대해 알아봅니다."
+title: Azure Data Factory ACS 서비스 ID | Microsoft Docs
+description: Azure Data Factory에서 데이터 팩터리 서비스 ID에 대해 알아봅니다.
 services: data-factory
 author: linda33wj
-manager: jhubbard
-editor: 
+manager: craigg
+editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2018
 ms.author: jingwang
-ms.openlocfilehash: aad93abd6e7bdf75e6f3b4fcd02b433a1d301ebc
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 06e07d566afe64b55470f73e232cf45feccd47fb
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-data-factory-service-identity"></a>Azure Data Factory 서비스 ID
 

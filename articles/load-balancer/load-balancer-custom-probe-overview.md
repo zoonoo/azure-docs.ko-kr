@@ -15,15 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/8/2018
 ms.author: kumud
-ms.openlocfilehash: be0359889f48f2fe16104f2bee5d1c85ab883b34
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 0aab72fdf48589a72707ae87f90af11f65f35088
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="understand-load-balancer-probes"></a>Load Balancer 프로브 이해
-
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 Azure Load Balancer는 상태 프로브를 사용하여 새 흐름 받아야 하는 백 엔드 풀 인스턴스를 결정합니다. 상태 프로브가 실패하면 Load Balancer는 해당 비정상 인스턴스로 새 흐름을 전송하는 것을 중지하며, 해당 인스턴스의 기존 흐름은 영향을 받지 않습니다.  모든 백 엔드 풀 인스턴스 프로브가 다운되면 백 엔드 풀의 모든 인스턴스에서 모든 기존 흐름이 시간 초과됩니다.
 

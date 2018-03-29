@@ -1,11 +1,11 @@
 ---
-title: "Azure Log Analytics 보기의 필터 | Microsoft Docs"
-description: "Log Analytics 보기에서 필터를 사용하면 사용자가 뷰 자체를 수정하지 않고 특정 속성의 값으로 뷰에서 데이터를 필터링할 수 있습니다.  이 문서에서는 필터를 사용하여 사용자 지정 보기에 추가하는 방법을 설명합니다."
+title: Azure Log Analytics 보기의 필터 | Microsoft Docs
+description: Log Analytics 보기에서 필터를 사용하면 사용자가 뷰 자체를 수정하지 않고 특정 속성의 값으로 뷰에서 데이터를 필터링할 수 있습니다.  이 문서에서는 필터를 사용하여 사용자 지정 보기에 추가하는 방법을 설명합니다.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: ce41dc30-e568-43c1-97fa-81e5997c946a
 ms.service: log-analytics
 ms.workload: na
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/31/2017
 ms.author: bwren
 ms.openlocfilehash: 5c2201292eb085dcc043e4257580c7971dbaffbd
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="filters-in-log-analytics-views"></a>Log Analytics 보기의 필터
 [Log Analytics 보기](log-analytics-view-designer.md)에서 **필터**를 사용하면 사용자가 뷰 자체를 수정하지 않고 특정 속성의 값으로 뷰에서 데이터를 필터링할 수 있습니다.  예를 들어, 보기의 사용자가 특정 컴퓨터 또는 컴퓨터 집합의 데이터에 대한 보기를 필터링하도록 허용할 수 있습니다.  단일 보기에 여러 필터를 만들어서 사용자가 여러 속성별로 필터링하도록 허용할 수 있습니다.  이 문서에서는 필터를 사용하여 사용자 지정 보기에 추가하는 방법을 설명합니다.
@@ -52,7 +52,7 @@ ms.lasthandoff: 11/01/2017
 
 | 필드 이름 | 값에 대한 쿼리 | 태그 |
 |:--|:--|:--|
-| 컴퓨터   | 하트비트 &#124; 고유한 컴퓨터 &#124; 컴퓨터 오름차순 정렬 | 컴퓨터 |
+| Computer   | 하트비트 &#124; 고유한 컴퓨터 &#124; 컴퓨터 오름차순 정렬 | 컴퓨터 |
 | EventLevelName | 이벤트 &#124; 고유한 EventLevelName | 심각도 |
 | SeverityLevel | Syslog &#124; 고유한 SeverityLevel | 심각도 |
 | SvcChangeType | ConfigurationChange &#124; 고유한 svcChangeType | ChangeType |

@@ -1,24 +1,21 @@
 ---
-title: "Azure Active Directory B2C: 클라이언트 인증서를 사용하여 RESTful 서비스 보호"
-description: "클라이언트 인증서를 사용하여 Azure AD B2C에서 사용자 지정 REST API 클레임 교환 보호"
+title: 'Azure Active Directory B2C: 클라이언트 인증서를 사용하여 RESTful 서비스 보호'
+description: 클라이언트 인증서를 사용하여 Azure AD B2C에서 사용자 지정 REST API 클레임 교환 보호
 services: active-directory-b2c
-documentationcenter: 
-author: yoelhor
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 09/25/2017
-ms.author: yoelh
-ms.openlocfilehash: 582aadd35821779e307ac285804e3b7fe5c24abd
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.author: davidmu
+ms.openlocfilehash: f1b9ef9a78715c08c5361e4bab6a31384c5c98d3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="secure-your-restful-service-by-using-client-certificates"></a>클라이언트 인증서를 사용하여 RESTful 서비스 보호
 관련된 문서에서 Azure AD B2C(Azure Active Directory B2C)와 상호 작용하는 [RESTful 서비스를 만듭니다](active-directory-b2c-custom-rest-api-netfw.md).

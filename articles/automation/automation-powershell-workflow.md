@@ -8,13 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.openlocfilehash: b8d78d6dfd258fb51e7b30832b6c214c67ac0fec
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 32f991f0b0017e673828b1ceb832511e118efa92
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>Automation runbook에 대한 주요 Windows PowerShell 워크플로 개념 학습 
 Azure Automation의 Runbook은 Windows PowerShell 워크플로로 구현됩니다.  Windows PowerShell 워크플로는 Windows PowerShell 스크립트와 비슷해 보이지만 신규 사용자가 혼동할 수 있는 중요한 차이점이 있습니다.  이 문서는 PowerShell 워크플로를 사용하여 runbook을 작성하는 데 도움을 주기 위해 작성되었으나 검사점이 필요한 경우가 아니면 PowerShell을 사용하여 runbook을 작성하는 것이 좋습니다.  PowerShell 워크플로 runbook을 작성할 경우 몇 가지 구문 차이가 있으며 이러한 차이점으로 인해 효과적인 워크플로를 작성하기 위해 좀 더 많은 작업이 필요합니다.  

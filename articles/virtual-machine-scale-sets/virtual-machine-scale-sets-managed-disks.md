@@ -1,11 +1,11 @@
 ---
-title: "관리 디스크를 Azure Virtual Machine Scale Sets와 함께 사용 | Microsoft Docs"
-description: "관리 디스크를 가상 머신 확장 집합과 함께 사용하는 이유 및 방법 알아보기"
+title: 관리 디스크를 Azure Virtual Machine Scale Sets와 함께 사용 | Microsoft Docs
+description: 관리 디스크를 가상 머신 확장 집합과 함께 사용하는 이유 및 방법 알아보기
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: gatneil
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
 ms.service: virtual-machine-scale-sets
@@ -16,10 +16,10 @@ ms.topic: get-started-article
 ms.date: 6/01/2017
 ms.author: negat
 ms.openlocfilehash: 82fa518e6c0498a13f950ce33c51be8581918f9b
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 03/27/2018
 ---
 # <a name="azure-vm-scale-sets-and-managed-disks"></a>Azure VM 확장 집합 및 관리 디스크
 
@@ -31,7 +31,7 @@ Azure [가상 머신 확장 집합](/azure/virtual-machine-scale-sets/)에서는
 
 * 관리 디스크를 사용하면 확장 집합이 플랫폼 이미지 기반인 경우 VM 1,000대, 사용자 지정 이미지 기반인 경우 VM 300대의 용량을 확보할 수 있습니다.
 
-## <a name="get-started"></a>시작
+## <a name="get-started"></a>시작하기
 
 관리 디스크 확장 집합을 시작하는 간단한 방법은 Azure Portal에서 배포하는 것입니다. 자세한 내용은 [이 문서](./virtual-machine-scale-sets-portal-create.md)(영문)를 읽어보세요. 또 다른 간단한 방법은 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2)을 사용하여 확장 집합을 배포하는 것입니다. 다음 예에서는 VM이 10대이고 각 VM에 50GB 및 100GB 데이터 디스크가 포함된 Ubuntu 기반 확장 집합을 만드는 방법을 보여줍니다.
 

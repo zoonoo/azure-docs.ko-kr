@@ -1,23 +1,23 @@
 ---
-title: "Azure Active Directory B2C: 사용자 지정 정책의 언어 사용자 지정 | Microsoft Docs"
-description: "사용자 지정 정책에서 여러 언어로 지역화된 콘텐츠를 사용하는 방법을 알아봅니다."
+title: 'Azure Active Directory B2C: 사용자 지정 정책의 언어 사용자 지정 | Microsoft Docs'
+description: 사용자 지정 정책에서 여러 언어로 지역화된 콘텐츠를 사용하는 방법을 알아봅니다.
 services: active-directory-b2c
-documentationcenter: 
-author: sammak
+documentationcenter: ''
+author: davidmu1
+manager: mtillman
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 11/13/2017
-ms.author: sama
-ms.openlocfilehash: 4ed9791d6590e3982a1bc79b96f8592995bc315c
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.author: davidmu
+ms.openlocfilehash: 45cfa152615da1447cc695e0dd201e5b8d046cf4
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 03/23/2018
 ---
-#<a name="language-customization-in-custom-policies"></a>사용자 지정 정책의 언어 사용자 지정
+# <a name="language-customization-in-custom-policies"></a>사용자 지정 정책의 언어 사용자 지정
 
 > [!NOTE]
 > 이 기능은 공개 미리 보기 상태입니다.
@@ -25,7 +25,7 @@ ms.lasthandoff: 11/15/2017
 
 사용자 지정 정책에서 언어 사용자 지정은 기본 제공 정책과 동일하게 작동합니다.  매개 변수 및 브라우저 설정에 따라 언어를 선택하는 방법에 대한 동작을 설명하는 기본 제공 [설명서](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-language-customization)를 참조하세요.
 
-##<a name="enable-supported-languages"></a>지원되는 언어 사용
+## <a name="enable-supported-languages"></a>지원되는 언어 사용
 ui-locales가 지정되지 않았고 사용자의 브라우저에서 이러한 언어 중 하나를 요구하는 경우 사용자에게 지원되는 언어가 표시됩니다.  
 
 지원되는 언어는 `<BuildingBlocks>`에서 다음 형식으로 정의됩니다.
@@ -43,7 +43,7 @@ ui-locales가 지정되지 않았고 사용자의 브라우저에서 이러한 �
 
 기본 언어 및 지원되는 언어는 기본 제공 정책에서 작동하는 방식과 동일하게 작동합니다.
 
-##<a name="enable-custom-language-strings"></a>사용자 지정 언어 문자열 사용
+## <a name="enable-custom-language-strings"></a>사용자 지정 언어 문자열 사용
 
 사용자 지정 언어 문자열을 만들려면 다음 두 단계가 필요합니다.
 1. 페이지에 대한 `<ContentDefinition>`을 편집하여 원하는 언어에 대한 리소스 ID를 지정합니다
@@ -51,7 +51,7 @@ ui-locales가 지정되지 않았고 사용자의 브라우저에서 이러한 �
 
 모든 상속 정책에 변경 내용을 적용할지 여부에 따라 `<ContentDefinition>` 및 `<BuildingBlock>`을 확장 파일 또는 신뢰 정책 파일 모두에 배치할 수 있습니다.
 
-###<a name="edit-the-contentdefinition-for-the-page"></a>페이지에 대한 ContentDefinition 편집
+### <a name="edit-the-contentdefinition-for-the-page"></a>페이지에 대한 ContentDefinition 편집
 
 지역화하려는 각 페이지에 대한 각 언어 코드를 찾는 언어 리소스를 `<ContentDefinition>`에 지정할 수 있습니다.
 
@@ -67,7 +67,7 @@ ui-locales가 지정되지 않았고 사용자의 브라우저에서 이러한 �
 이 샘플에서는 프랑스어(fr) 및 영어(en) 사용자 지정 문자열이 통합 등록 또는 로그인 페이지에 추가됩니다.  각 `LocalizedResourcesReference`에 대한 `LocalizedResourcesReferenceId`는 로캘과 동일하지만 모든 문자열을 ID로 사용할 수 있습니다.  각 언어 및 페이지 조합에 대해 다음과 같은 해당 `<LocalizedResources>`를 만들어야 합니다.
 
 
-###<a name="create-the-localizedresources"></a>LocalizedResources 만들기
+### <a name="create-the-localizedresources"></a>LocalizedResources 만들기
 
 재정의는 `<BuildingBlocks>`에 포함되어 있으며, 각 페이지마다 `<ContentDefinition>`에 지정한 각 페이지 및 언어에 대한 `<LocalizedResources>`가 있습니다.  재정의 각각은 다음 샘플과 같이 `<LocalizedString>`으로 지정됩니다.
 

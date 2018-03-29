@@ -1,10 +1,10 @@
 ---
-title: "PowerShell 스크립트: Data Factory를 사용하여 온-프레미스에서 Azure로 데이터 복사 | Microsoft Docs"
-description: "이 PowerShell 스크립트는 온-프레미스 SQL Server 데이터베이스의 데이터를 다른 Azure Blob Storage로 복사합니다."
+title: 'PowerShell 스크립트: Data Factory를 사용하여 온-프레미스에서 Azure로 데이터 복사 | Microsoft Docs'
+description: 이 PowerShell 스크립트는 온-프레미스 SQL Server 데이터베이스의 데이터를 다른 Azure Blob Storage로 복사합니다.
 services: data-factory
 author: linda33wj
-manager: jhubbard
-editor: 
+manager: craigg
+editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2017
 ms.author: jingwang
-ms.openlocfilehash: bf84603c587b7bee5d0f69355ff9c1375ed7e60c
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 5c0252e42dd3dd53a0a95684553b193b983e95ee
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="use-powershell-to-create-a-data-factory-pipeline-to-copy-data-from-on-premises-to-azure"></a>PowerShell에서 온-프레미스의 데이터를 Azure로 복사하는 Data Factory 파이프라인 만들기
 

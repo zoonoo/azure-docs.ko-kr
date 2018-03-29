@@ -1,21 +1,21 @@
 ---
-title: "Azure Data Factory를 사용하여 Azure Data Lake Store로 데이터 로드 | Microsoft Docs"
-description: "Azure Data Factory를 사용하여 Azure Data Lake Store로 데이터 복사"
+title: Azure Data Factory를 사용하여 Azure Data Lake Store로 데이터 로드 | Microsoft Docs
+description: Azure Data Factory를 사용하여 Azure Data Lake Store로 데이터 복사
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 4446f83563293d0834f241dcca382ccf6ea99403
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: bf0d607d63a68a222a1d44d9cb05253497d12591
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="load-data-into-azure-data-lake-store-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Data Lake Store로 데이터 로드
 
@@ -26,8 +26,8 @@ Azure Data Factory는 완전히 관리되는 클라우드 기반 데이터 통�
 Azure Data Factory를 사용하여 Azure Data Lake Store로 데이터를 로드하면 다음과 같은 이점이 있습니다.
 
 * **간편한 설정**: 스크립팅이 필요 없는 직관적인 5단계 마법사.
-* **다양한 데이터 저장소 지원**: 다양한 온-프레미스 및 클라우드 기반 데이터 저장소 집합에 대한 기본 제공 지원. 자세한 목록은 [데이터 저장소를 지원](copy-activity-overview.md#supported-data-stores-and-formats) 표를 참조하세요.
-* **안전하고 규격 준수**: 데이터가 HTTPS 또는 ExpressRoute를 통해 전송됩니다. 글로벌 서비스가 제공되므로 데이터가 지리적 경계를 벗어나지 않습니다.
+* **다양한 데이터 저장소 지원**: 다양한 온-프레미스 및 클라우드 기반 데이터 저장소 집합에 대한 기본 제공 지원. 자세한 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 표를 참조하세요.
+* **보안 및 규정 준수**: 데이터가 HTTPS 또는 ExpressRoute를 통해 전송됩니다. 글로벌 서비스가 제공되므로 데이터가 지리적 경계를 벗어나지 않습니다.
 * **고성능**: 데이터를 Azure Data Lake Store에 최대 1GBps 속도로 로드합니다. 자세한 내용은 [복사 작업 성능](copy-activity-performance.md)을 참조하세요.
 
 이 문서에서는 Data Factory 복사 데이터 도구를 사용하여 _Amazon S3의 데이터를 Azure Data Lake Store로 로드_하는 방법을 설명합니다. 다른 데이터 저장소 유형에서 데이터를 복사할 때도 이와 유사한 단계를 따를 수 있습니다.
@@ -35,7 +35,7 @@ Azure Data Factory를 사용하여 Azure Data Lake Store로 데이터를 로드�
 > [!NOTE]
 > 자세한 내용은 [Azure Data Factory를 사용하여 Azure Data Lake Store 간에 데이터 복사](connector-azure-data-lake-store.md)를 참조하세요.
 >
-> 이 문서는 현재 미리 보기 상태인 Azure Data Factory 버전 2에 적용됩니다. GA(일반 공급) 상태인 Data Factory 버전 1 서비스를 사용 중인 경우 [Azure Data Factory 버전 1의 복사 작업 성능](v1/data-factory-data-movement-activities.md)을 참조하세요.
+> 이 문서는 현재 미리 보기 상태인 Azure Data Factory 버전 2에 적용됩니다. GA(일반 공급) 상태인 Data Factory 버전 1 서비스를 사용 중인 경우 [Azure Data Factory 버전 1의 복사 작업](v1/data-factory-data-movement-activities.md)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -52,14 +52,14 @@ Azure Data Factory를 사용하여 Azure Data Lake Store로 데이터를 로드�
       
    ![새 데이터 팩터리 페이지](./media/load-data-into-azure-data-lake-store//new-azure-data-factory.png)
  
-    * **이름**: Azure 데이터 팩터리의 전역 고유 이름을 입력합니다. "데이터 팩터리 이름 \"LoadADLSDemo\"를 사용할 수 없습니다" 오류가 발생하면 데이터 팩터리의 다른 이름을 입력합니다. 예를 들어 _**yourname**_**ADFTutorialDataFactory**라는 이름을 사용할 수 있습니다. 데이터 팩터리를 다시 만들어 봅니다. Data Factory 아티팩트에 대한 명명 규칙은 [Data Factory 명명 규칙](naming-rules.md)을 참조하세요.
+    * **이름**: Azure 데이터 팩터리의 전역 고유 이름을 입력합니다. "데이터 팩터리 이름 \"LoadADLSDemo\"를 사용할 수 없습니다" 오류가 발생하면 데이터 팩터리의 다른 이름을 입력합니다. 예를 들어 _**yourname**_**ADFTutorialDataFactory**라는 이름을 사용할 수 있습니다. 데이터 팩터리를 다시 만들어 봅니다. 데이터 팩터리 아티팩트에 대한 명명 규칙은 [데이터 팩터리 명명 규칙](naming-rules.md)을 참조하세요.
     * **구독**: 데이터 팩터리를 만들 Azure 구독을 선택합니다. 
     * **리소스 그룹**: 드롭다운 목록에서 기존 리소스 그룹을 선택하거나 **새로 만들기** 옵션을 선택하고 리소스 그룹의 이름을 입력합니다. 리소스 그룹에 대한 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-resource-manager/resource-group-overview.md)를 참조하세요.  
     * **버전**: **V2(미리 보기)**를 선택합니다.
     * **위치**: 데이터 팩터리의 위치를 선택합니다. 지원되는 위치만 드롭다운 목록에 표시됩니다. 데이터 팩터리에서 사용되는 데이터 저장소가 다른 위치 및 지역에 있어도 됩니다. 이러한 데이터 저장소는 Azure Data Lake Store, Azure Storage, Azure SQL Database 등을 포함합니다.
 
 3. **만들기**를 선택합니다.
-4. 만들기가 완료되면 데이터 팩터리로 이동합니다. 다음 그림과 같이 **Data Factory** 홈페이지가 표시됩니다. 
+4. 만들기가 완료되면 데이터 팩터리로 이동합니다. 다음 그림과 같이 **데이터 팩터리** 홈페이지가 표시됩니다. 
    
    ![데이터 팩터리 홈페이지](./media/load-data-into-azure-data-lake-store/data-factory-home-page.png)
 
@@ -111,7 +111,7 @@ Azure Data Factory를 사용하여 Azure Data Lake Store로 데이터를 로드�
 10. **설정** 페이지에서 **다음**을 선택합니다.
 
     ![설정 페이지](./media/load-data-into-azure-data-lake-store/copy-settings.png)
-11. **요약** 페이지에서 설정을 검토하고 **다음**을 선택합니다.
+11. **요약** 페이지에서 설정을 검토하고, **다음**을 선택합니다.
 
     ![요약 페이지](./media/load-data-into-azure-data-lake-store/copy-summary.png)
 12. **배포 페이지**에서 **모니터**를 선택하여 파이프라인(작업)을 모니터링합니다.

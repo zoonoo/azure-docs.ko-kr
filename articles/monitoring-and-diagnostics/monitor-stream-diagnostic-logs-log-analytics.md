@@ -1,12 +1,12 @@
 ---
-title: "Log Analytics로 Azure 진단 로그 스트리밍 | Microsoft Docs"
-description: "Azure 진단 로그를 Log Analytics 작업 영역으로 스트리밍하는 방법을 알아봅니다."
+title: Log Analytics로 Azure 진단 로그 스트리밍 | Microsoft Docs
+description: Azure 진단 로그를 Log Analytics 작업 영역으로 스트리밍하는 방법을 알아봅니다.
 author: johnkemnetz
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-ms.assetid: 
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: johnkem
-ms.openlocfilehash: 9440bd7f872914887c1f6e50f08a3c273536fcf8
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 517ce3547f471dd1b40c79b2f087b02ad7f51b85
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="stream-azure-diagnostic-logs-to-log-analytics"></a>Log Analytics로 Azure 진단 로그 스트리밍
 **[Azure 진단 로그](monitoring-overview-of-diagnostic-logs.md)**는 Portal, PowerShell cmdlet 또는 Azure CLI를 사용하여 거의 실시간으로 Azure Log Analytics로 스트리밍할 수 있습니다.
@@ -40,23 +40,23 @@ Azure Log Analytics는 Azure 리소스에서 생성된 원시 로그 데이터�
 ## <a name="stream-diagnostic-logs-using-the-portal"></a>포털을 사용하여 진단 로그 스트림
 1. 포털에서 Azure Monitor로 이동하고 **진단 설정**을 클릭합니다.
 
-    ![Azure Monitor의 모니터링 섹션](media/monitoring-stream-diagnostic-logs-to-event-hubs/diagnostic-settings-blade.png)
+    ![Azure Monitor의 모니터링 섹션](media/monitoring-stream-diagnostic-logs-to-log-analytics/diagnostic-settings-blade.png)
 
 2. 필요에 따라 리소스 그룹 또는 리소스 종류를 기준으로 목록을 필터링합니다. 그런 다음 진단 설정을 지정하려는 리소스를 클릭합니다.
 
 3. 선택한 리소스에 설정이 없는 경우, 설정을 만들라는 메시지가 표시됩니다. “진단 켜기”를 클릭합니다.
 
-   ![진단 설정 추가 - 기존 설정 없음](media/monitoring-stream-diagnostic-logs-to-event-hubs/diagnostic-settings-none.png)
+   ![진단 설정 추가 - 기존 설정 없음](media/monitoring-stream-diagnostic-logs-to-log-analytics/diagnostic-settings-none.png)
 
    리소스에 기존 설정이 있는 경우 이 리소스에 이미 구성된 설정의 목록이 표시됩니다. “진단 설정 추가”를 클릭합니다.
 
-   ![진단 설정 추가 - 기존 설정](media/monitoring-stream-diagnostic-logs-to-event-hubs/diagnostic-settings-multiple.png)
+   ![진단 설정 추가 - 기존 설정](media/monitoring-stream-diagnostic-logs-to-log-analytics/diagnostic-settings-multiple.png)
 
 3. 설정에 이름을 지정하고 **Log Analytics에 보내기** 확인란을 선택한 후 Log Analytics 작업 영역을 선택합니다.
    
-   ![진단 설정 추가 - 기존 설정](media/monitoring-stream-diagnostic-logs-to-event-hubs/diagnostic-settings-configure.png)
+   ![진단 설정 추가 - 기존 설정](media/monitoring-stream-diagnostic-logs-to-log-analytics/diagnostic-settings-configure.png)
 
-4. **Save**를 클릭합니다.
+4. **저장**을 클릭합니다.
 
 몇 분 후 새 설정이 이 리소스에 대한 설정 목록에 표시되고, 새 이벤트 데이터가 생성되는 즉시 진단 로그가 해당 작업 영역에 스트리밍됩니다. 이벤트를 내보낸 시간과 Log Analytics에 이벤트가 나타난 시간 사이에는 최대 15분의 차이가 있을 수 있습니다.
 

@@ -1,11 +1,10 @@
 ---
-title: "Azure Data Factory의 데이터 이동에 대한 보안 고려 사항 | Microsoft Docs"
-description: "Azure Data Factory에서 데이터 이동 보안에 대해 알아봅니다."
+title: Azure Data Factory의 데이터 이동에 대한 보안 고려 사항 | Microsoft Docs
+description: Azure Data Factory에서 데이터 이동 보안에 대해 알아봅니다.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: nabhishek
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,11 +13,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: f483109170ed1dda7506f7ef5f02fb8b42ea331e
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: c2b6c494a9c4d0dac37315520b8d7b962f3490b7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory - 데이터 이동을 위한 보안 고려 사항
 
@@ -48,7 +47,7 @@ Azure 규정 준수 및 Azure의 자체 인프라 보안 방법에 관심이 있
 - **하이브리드 시나리오** - 이 시나리오에서는 원본 또는 대상이 방화벽 뒤에 있거나 회사 내 회사 네트워크 내에 있거나 데이터 저장소가 개인 네트워크/가상 네트워크(주로 원본)에 있으며 공개적으로 액세스할 수 없습니다. 가상 머신에서 호스팅되는 데이터베이스 서버도 이 시나리오에 해당합니다.
 
 ## <a name="cloud-scenarios"></a>클라우드 시나리오
-###<a name="securing-data-store-credentials"></a>데이터 저장소 자격 증명 보안
+### <a name="securing-data-store-credentials"></a>데이터 저장소 자격 증명 보안
 Azure Data Factory는 **Microsoft에서 관리하는 인증서**를 사용하여 **암호화**하여 데이터 저장소 자격 증명을 보호합니다. 이 인증서는 **2년마다** 갱신됩니다(인증서 갱신 및 자격 증명 마이그레이션 포함). 이러한 암호화된 자격 증명은 **Azure Data Factory 관리 서비스에서 관리하는 Azure Storage**에 안전하게 저장됩니다. Azure Storage 보안에 대한 자세한 내용은 [Azure Storage 보안 개요](../../security/security-storage-overview.md)를 참조하세요.
 
 ### <a name="data-encryption-in-transit"></a>전송 중 암호화

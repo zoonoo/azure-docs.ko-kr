@@ -1,6 +1,6 @@
 ---
-title: "비용 효율적이며 우선 순위가 낮은 VM에서 Azure Batch 워크로드 실행 | Microsoft Docs"
-description: "우선 순위가 낮은 VM을 프로비전하여 Azure Batch 워크로드의 비용을 줄이는 방법을 알아봅니다."
+title: 비용 효율적이며 우선 순위가 낮은 VM에서 Azure Batch 워크로드 실행 | Microsoft Docs
+description: 우선 순위가 낮은 VM을 프로비전하여 Azure Batch 워크로드의 비용을 줄이는 방법을 알아봅니다.
 services: batch
 author: mscurrell
 manager: timlt
@@ -9,13 +9,13 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 02/01/2018
+ms.date: 03/19/2018
 ms.author: markscu
-ms.openlocfilehash: 7e4f37ca6997f1770de8acbc10eeeb25ddf87deb
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 68240e29429b4c6321e8627b62ad65ce7ecb468e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="use-low-priority-vms-with-batch"></a>Batch에서 낮은 우선 순위 VM 사용
 
@@ -26,12 +26,6 @@ Azure Batch는 낮은 우선 순위 VM(가상 머신)을 사용하여 Batch 워�
 우선 순위가 낮은 VM은 할당이 가능하지 않거나, 사용 가능한 용량에 따라, 언제든지 선점될 수 있다는 단점이 있습니다. 이러한 이유로 우선 순위가 낮은 VM이 특정 유형의 워크로드에 가장 적절합니다. 작업 완료 시간이 유연하고 작업이 여러 VM 간에 분산되는 Batch 및 비동기 처리 워크로드에 우선 순위가 낮은 BM을 사용합니다.
  
 우선 순위가 낮은 VM은 전용 VM에 비해 상당히 저렴한 가격으로 제공됩니다. 가격 책정 세부 정보에 대해서는 [Batch 가격 책정](https://azure.microsoft.com/pricing/details/batch/)을 참조하세요.
-
-
-> [!IMPORTANT]
-> 우선 순위가 낮은 VM은 현재 Batch에서 실행되는 워크로드에만 사용할 수 있습니다. 
->
->
 
 ## <a name="use-cases-for-low-priority-vms"></a>우선 순위가 낮은 VM에 대한 사용 사례
 

@@ -1,10 +1,10 @@
 ---
-title: "PowerShell 스크립트: Azure Data Factory를 사용하여 증분 방식으로 데이터 로드 | Microsoft Docs"
-description: "이 PowerShell 스크립트에서는 Azure Data Factory를 사용하여 Azure SQL Database에서 Azure Blob Storage로 데이터를 증분 방식으로 복사하는 방법을 보여줍니다."
+title: 'PowerShell 스크립트: Azure Data Factory를 사용하여 증분 방식으로 데이터 로드 | Microsoft Docs'
+description: 이 PowerShell 스크립트에서는 Azure Data Factory를 사용하여 Azure SQL Database에서 Azure Blob Storage로 데이터를 증분 방식으로 복사하는 방법을 보여줍니다.
 services: data-factory
 author: linda33wj
-manager: jhubbard
-editor: 
+manager: craigg
+editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2017
 ms.author: jingwang
-ms.openlocfilehash: daa7368de4b6f063f6e461909dd69eb1d79e7d62
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 8bfe41f0d8cb8af3ace0164831ef527f6c4700e0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="powershell-script---incrementally-load-data-by-using-azure-data-factory"></a>PowerShell 스크립트: Azure Data Factory를 사용하여 증분 방식으로 데이터 로드
 이 샘플 PowerShell 스크립트는 원본에서 싱크로 데이터를 초기 전체 복사한 후에 원본 데이터 저장소에서 싱크 데이터 저장소로 새롭거나 업데이트된 레코드만을 로드합니다.  

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 03/08/2018
-ms.author: trinadhk
-ms.openlocfilehash: b7e9f45c61d2af1940be50a368b87cd35c85b1dd
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.author: trinadhk, sogup
+ms.openlocfilehash: 6d214072bccb8b2b42828ee003dcf349985b4f43
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="upgrade-to-vm-backup-stack-v2"></a>VM 백업 스택 V2로 업그레이드
 VM(가상 머신) 백업 스택 V2 업그레이드는 다음과 같은 향상된 기능을 제공합니다.
@@ -49,7 +49,6 @@ VM(가상 머신) 백업 스택 V2 업그레이드는 다음과 같은 향상된
 * 이 업그레이드는 VM 백업 스택의 단방향 업그레이드입니다. 따라서 이후의 모든 백업은 이 흐름으로 이동합니다. **구독 수준에서 설정되므로 모든 VM이 이 흐름으로 이동합니다**. 모든 새 기능 추가는 동일한 스택을 기반으로 합니다. 정책 수준에서 이를 제어하는 기능은 향후 릴리스에서 제공될 예정입니다. 
 * 프리미엄 디스크를 사용하는 VM의 경우 첫 번째 백업이 완료될 때까지 저장소 계정에서 VM 크기와 동일한 저장소 공간을 사용할 수 있어야 합니다. 
 * 복구 지점 만들기를 향상하고 복원 속도를 높이기 위해 스냅숏이 로컬에 저장되므로 7일 동안 스냅숏에 해당하는 저장소 비용이 표시됩니다.
-관리 디스크의 경우 restorePointCollections가 무료이므로 *가격 상승이 없습니다*. 
 * 프리미엄 VM의 스냅숏 복구 지점에서 복원을 수행하는 경우 복원 작업의 일환으로 VM을 만드는 동안 임시 저장소 위치가 사용되는 것을 볼 수 있습니다. 
 
 ## <a name="how-to-upgrade"></a>업그레이드 방법

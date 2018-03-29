@@ -1,24 +1,18 @@
 ---
-title: "Azure Automation에서 Runbook 테스트 | Microsoft Docs"
-description: "Azure Automation에서 Runbook을 게시하기 전에 테스트하여 예상대로 작동하는지 확인할 수 있습니다.  이 문서에서는 Runbook을 테스트하고 해당 출력을 보는 방법에 대해 설명합니다."
+title: Azure Automation에서 Runbook 테스트
+description: Azure Automation에서 Runbook을 게시하기 전에 테스트하여 예상대로 작동하는지 확인할 수 있습니다.  이 문서에서는 Runbook을 테스트하고 해당 출력을 보는 방법에 대해 설명합니다.
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: jwhit
-editor: tysonn
-ms.assetid: 7f7db785-52c0-4613-aa12-b02fd32a5182
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/12/2016
-ms.author: magoedte;bwren
-ms.openlocfilehash: 49e8dfa341940386f15932ec4346c8811effbf0b
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+manager: carmonm
+ms.openlocfilehash: 531fffe1ed24016d47708a729a3ee7642a1db64a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="testing-a-runbook-in-azure-automation"></a>Azure Automation에서 Runbook 테스트
 Runbook을 테스트할 때 [초안 버전](automation-creating-importing-runbook.md#publishing-a-runbook) 이 실행되며 해당 Runbook에서 수행하는 모든 작업이 완료됩니다. 작업 기록은 만들어지지 않지만 [출력](automation-runbook-output-and-messages.md#output-stream)과 [경고 및 오류](automation-runbook-output-and-messages.md#message-streams) 스트림은 테스트 출력 창에 표시됩니다. [자세한 정보 스트림](automation-runbook-output-and-messages.md#message-streams)에 대한 메시지는 [$VerbosePreference 변수](automation-runbook-output-and-messages.md#preference-variables)가 Continue로 설정되는 경우에만 출력 창에 표시됩니다.

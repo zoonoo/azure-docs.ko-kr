@@ -1,12 +1,12 @@
 ---
-title: "Azure Active Directory 앱 기반 조건부 액세스 | Microsoft Docs"
-description: "Azure Active Directory 앱 기반 조건부 액세스가 작동하는 방식을 알아봅니다."
+title: Azure Active Directory 앱 기반 조건부 액세스 | Microsoft Docs
+description: Azure Active Directory 앱 기반 조건부 액세스가 작동하는 방식을 알아봅니다.
 services: active-directory
-keywords: "앱에 조건부 액세스, Azure AD로 조건부 액세스, 회사 리소스에 대한 액세스 보호, 조건부 액세스 정책"
-documentationcenter: 
+keywords: 앱에 조건부 액세스, Azure AD로 조건부 액세스, 회사 리소스에 대한 액세스 보호, 조건부 액세스 정책
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
 ms.devlang: na
@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 01/11/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 7814b53a69506f81bc6a75387c62766e36d528d8
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: b35aed3583307c34eadbed3dd13d1ffd51494927
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-app-based-conditional-access"></a>Azure Active Directory 앱 기반 조건부 액세스  
 
@@ -50,7 +50,7 @@ Azure Active Directory 앱 기반 조건부 액세스를 통해 클라우드 앱
  
 
 
-##<a name="before-you-begin"></a>시작하기 전에
+## <a name="before-you-begin"></a>시작하기 전에
 
 이 토픽은 다음 항목에 대해 잘 알고 있다고 가정합니다.
 
@@ -64,7 +64,7 @@ Azure Active Directory 앱 기반 조건부 액세스를 통해 클라우드 앱
 - [조건부 액세스 정책의 마이그레이션](active-directory-conditional-access-best-practices.md#policy-migration).
  
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 앱 기반 조건부 액세스 정책을 만들기 위해 Enterprise Mobility + Security 또는 Azure Active Directory Premium 구독이 있어야 하며 사용자에게 EMS 또는 Azure AD에 대한 라이선스가 있어야 합니다. 
 
