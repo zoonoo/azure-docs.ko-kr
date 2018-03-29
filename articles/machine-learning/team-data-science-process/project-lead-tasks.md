@@ -1,23 +1,23 @@
 ---
-title: "Team Data Science Process 프로젝트 리더 작업 - Azure | Microsoft Docs"
-description: "프로젝트 리더가 데이터 과학 팀 프로젝트에서 수행하는 작업에 대한 개요입니다."
-documentationcenter: 
+title: Team Data Science Process 프로젝트 리더 작업 - Azure | Microsoft Docs
+description: 프로젝트 리더가 데이터 과학 팀 프로젝트에서 수행하는 작업에 대한 개요입니다.
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: bradsev;
-ms.openlocfilehash: fe7cf1e6167de7d0dfaa5ed75c0b7f5ec23b18cf
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.author: bradsev
+ms.openlocfilehash: 5c769fda09e70cfb0a43e0305ffab4923fbe3307
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="project-lead-tasks"></a>프로젝트 리더 작업
 
@@ -51,7 +51,7 @@ ms.lasthandoff: 11/14/2017
 - 그룹 관리자가 **그룹 VSTS 서버**(또는 다른 일부 코드 호스팅 플랫폼의 그룹 계정)를 설정했습니다.
 - 팀 리더가 사용하려는 코드 호스팅 플랫폼의 그룹 계정에 **TeamProjectTemplate 리포지토리**(R3)를 설정했습니다.
 - 팀 리더가 **권한을 부여**하여 구성원인 사용자가 팀의 그룹 계정에 리포지토리를 만들었습니다.
-- Git가 컴퓨터에 설치되어야 합니다. DSVM(데이터 과학 가상 컴퓨터)을 사용하는 경우 Git가 사전 설치되어 있으므로 계속 진행할 수 있습니다. 그렇지 않은 경우 [플랫폼 및 도구 부록](platforms-and-tools.md#appendix)을 참조하세요.  
+- Git가 컴퓨터에 설치되어야 합니다. DSVM(데이터 과학 Virtual Machine)을 사용하는 경우 Git가 사전 설치되어 있으므로 계속 진행할 수 있습니다. 그렇지 않은 경우 [플랫폼 및 도구 부록](platforms-and-tools.md#appendix)을 참조하세요.  
 - **Windows DSVM**을 사용하는 경우 컴퓨터에 [GCM(Git Credential Manager)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows)이 설치되어 있어야 합니다. README.md 파일에서 **다운로드 및 설치** 섹션으로 스크롤한 다음 *최신 설치 관리자*를 클릭합니다. 이렇게 하면 최신 설치 관리자 페이지로 이동합니다. 여기서 .exe 설치 관리자를 다운로드하여 실행합니다. 
 - **Linux DSVM**을 사용하는 경우 DSVM에서 SSH 공개 키를 만들고 그룹 VSTS 서버에 추가합니다. SSH에 대한 자세한 내용은 [플랫폼 및 도구 부록](platforms-and-tools.md#appendix)의 **SSH 공개 키 만들기** 섹션을 참조하세요. 
 
@@ -115,7 +115,7 @@ VSTS를 코드 호스팅 플랫폼으로 사용하는 경우 일반적으로 *�
 
 이 예제에서 사용한 URL은 다음과 같습니다.
 
-***https://mysamplegroup.visualstudio.com/MyTeam/_git/MyTeamProjectTemplate*** 
+***https://mysamplegroup.visualstudio.com/MyTeam/_git/MyTeamProjectTemplate***. 
 
 ![7](./media/project-lead-tasks/project-leads-7-clone-team-project-template.png)
             

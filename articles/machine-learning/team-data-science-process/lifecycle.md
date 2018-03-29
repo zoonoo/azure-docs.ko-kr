@@ -1,8 +1,8 @@
 ---
-title: "팀 데이터 과학 프로세스 수명 주기 - Azure | Microsoft Docs"
-description: "데이터 과학 프로젝트를 실행하는 데 필요한 단계입니다."
+title: 팀 데이터 과학 프로세스 수명 주기 - Azure | Microsoft Docs
+description: 데이터 과학 프로젝트를 실행하는 데 필요한 단계입니다.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
-ms.author: bradsev;
-ms.openlocfilehash: 5d69d4d2371b42b3595cf3dc71d99d913e225c59
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.author: bradsev
+ms.openlocfilehash: a971e40bc4338f187991eeae991044248844d8b6
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="the-team-data-science-process-lifecycle"></a>팀 데이터 과학 프로세스 수명 주기
 
@@ -31,7 +31,7 @@ TDSP 수명 주기는 반복적으로 실행되는 5가지 주요 단계로 구�
    1. [비즈니스 이해](lifecycle-business-understanding.md)
    2. [데이터 취득 및 이해](lifecycle-data.md)
    3. [모델링](lifecycle-modeling.md)
-   4. [배포웹사이트를](lifecycle-deployment.md)
+   4. [배포](lifecycle-deployment.md)
    5. [고객 승인](lifecycle-acceptance.md)
 
 다음은 TDSP 수명 주기를 시각적으로 나타낸 것입니다. 

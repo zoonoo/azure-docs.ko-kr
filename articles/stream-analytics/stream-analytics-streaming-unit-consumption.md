@@ -1,13 +1,13 @@
 ---
-title: "Azure Stream Analytics: 스트리밍 단위 이해 및 조정 | Microsoft Docs"
-description: "Azure Stream Analytics에서 성능 영향을 미치는 요소를 이해합니다."
-keywords: "스트리밍 단위, 쿼리 성능"
+title: 'Azure Stream Analytics: 스트리밍 단위 이해 및 조정 | Microsoft Docs'
+description: Azure Stream Analytics에서 성능 영향을 미치는 요소를 이해합니다.
+keywords: 스트리밍 단위, 쿼리 성능
 services: stream-analytics
-documentationcenter: 
+documentationcenter: ''
 author: JSeb225
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: e8812f10662ee7b571e8e353074c2537d1a3181b
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 5c60b1808959c73759a78141566c5c49f0350e2f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="understand-and-adjust-streaming-units"></a>스트리밍 단위 이해 및 조정
 
@@ -88,18 +88,18 @@ Azure Stream Analytics 작업의 고유한 기능 중 하나는 기간 이동 �
 
 조인에서 일치하지 않는 이벤트 수는 쿼리에 대한 메모리 사용률에 영향을 줍니다. 다음 쿼리는 클릭을 유도하는 광고 노출을 찾는 것입니다.
 
-    SELECT id
+    SELECT clicks.id
     FROM clicks 
-    INNER JOIN, impressions ON impressions.id = clicks.id AND DATEDIFF(hour, impressions, clicks) between 0 AND 10.
+    INNER JOIN impressions ON impressions.id = clicks.id AND DATEDIFF(hour, impressions, clicks) between 0 AND 10.
 
 이 예제에서 광고는 많은 데 사용자가 거의 클릭하지 않는 경우 모든 이벤트를 timewindow에 있도록 해야 합니다. 사용된 메모리는 창 크기와 이벤트 속도에 비례합니다. 
 
 이를 조치하기 위해 조인 키로 분할된 이벤트 허브에 이벤트를 보내고 다음과 같이 시스템이 **PARTITION BY**를 사용하여 별도로 각각의 입력 파티션을 처리할 수 있게 쿼리를 확장합니다.
 
-    SELECT id
+    SELECT clicks.id
     FROM clicks PARTITION BY PartitionId
     INNER JOIN impressions PARTITION BY PartitionId 
-    ON impression.PartitionId = clocks.PartitionId AND impressions.id = clicks.id AND DATEDIFF(hour, impressions, clicks) between 0 AND 10 
+    ON impression.PartitionId = clicks.PartitionId AND impressions.id = clicks.id AND DATEDIFF(hour, impressions, clicks) between 0 AND 10 
 </code>
 
 쿼리가 분할되면 여러 노드에 걸쳐 분산됩니다. 결과적으로, 각 노드로 들어오는 이벤트 수가 감소하여 조인 창에 유지되는 상태 크기가 줄어듭니다. 

@@ -1,8 +1,8 @@
 ---
-title: "Azure Active Directory Domain Services: 관리되는 도메인에 Ubuntu VM 가입 | Microsoft Docs"
-description: "Ubuntu Linux 가상 컴퓨터를 Azure AD Domain Services에 가입"
+title: 'Azure Active Directory Domain Services: 관리되는 도메인에 Ubuntu VM 가입 | Microsoft Docs'
+description: Ubuntu Linux 가상 머신을 Azure AD Domain Services에 가입
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2017
 ms.author: maheshu
-ms.openlocfilehash: a8a3610707ca7d00694779c4b3631e1483d6bbdd
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d968548f9ac369f02f10a10d8f1ecc99c48bca60
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="join-an-ubuntu-virtual-machine-in-azure-to-a-managed-domain"></a>Azure의 Ubuntu 가상 컴퓨터를 관리되는 도메인에 가입
+# <a name="join-an-ubuntu-virtual-machine-in-azure-to-a-managed-domain"></a>Azure의 Ubuntu 가상 머신을 관리되는 도메인에 가입
 이 문서에서는 Ubuntu Linux 가상 컴퓨터를 Azure AD Domain Services 관리되는 도메인에 가입하는 방법을 보여 줍니다.
 
 
@@ -33,22 +33,22 @@ ms.lasthandoff: 12/11/2017
 5. [Azure AD Domain Services 관리되는 도메인에 암호를 동기화](active-directory-ds-getting-started-password-sync.md)하는 데 필요한 단계를 완료합니다.
 
 
-## <a name="provision-an-ubuntu-linux-virtual-machine"></a>Ubuntu Linux 가상 컴퓨터 프로비전
-다음 방법 중 하나를 사용하여 Azure에서 Ubuntu Linux 가상 컴퓨터를 프로비전합니다.
-* [Azure 포털](../virtual-machines/linux/quick-create-portal.md)
+## <a name="provision-an-ubuntu-linux-virtual-machine"></a>Ubuntu Linux 가상 머신 프로비전
+다음 방법 중 하나를 사용하여 Azure에서 Ubuntu Linux 가상 머신을 프로비전합니다.
+* [Azure Portal](../virtual-machines/linux/quick-create-portal.md)
 * [Azure CLI](../virtual-machines/linux/quick-create-cli.md)
 * [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 
 > [!IMPORTANT]
-> * **Azure AD Domain Services를 활성화한 동일한 가상 네트워크**에 가상 컴퓨터를 배포합니다.
+> * **Azure AD Domain Services를 활성화한 동일한 가상 네트워크**에 가상 머신을 배포합니다.
 > * Azure AD Domain Services를 활성화한 서브넷이 아닌 **다른 서브넷**을 선택합니다.
 >
 
 
-## <a name="connect-remotely-to-the-ubuntu-linux-virtual-machine"></a>Ubuntu Linux 가상 컴퓨터에 원격으로 연결
-Ubuntu 가상 컴퓨터가 Azure에서 프로비전되었습니다. 다음 작업은 VM을 프로비전할 때 만든 로컬 관리자 계정을 사용하여 가상 컴퓨터에 원격으로 연결하는 것입니다.
+## <a name="connect-remotely-to-the-ubuntu-linux-virtual-machine"></a>Ubuntu Linux 가상 머신에 원격으로 연결
+Ubuntu 가상 머신이 Azure에서 프로비전되었습니다. 다음 작업은 VM을 프로비전할 때 만든 로컬 관리자 계정을 사용하여 가상 머신에 원격으로 연결하는 것입니다.
 
-[Linux를 실행하는 가상 컴퓨터에 로그온하는 방법](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 문서의 지침을 따르세요.
+[Linux를 실행하는 가상 머신에 로그온하는 방법](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 문서의 지침을 따르세요.
 
 
 ## <a name="configure-the-hosts-file-on-the-linux-virtual-machine"></a>Linux 가상 컴퓨터에서 호스트 파일 구성
@@ -63,11 +63,11 @@ sudo vi /etc/hosts
 ```
 127.0.0.1 contoso-ubuntu.contoso100.com contoso-ubuntu
 ```
-여기서 'contoso100.com'은 관리되는 도메인의 DNS 도메인 이름입니다. 'contoso-ubuntu'는 관리되는 도메인에 가입한 Ubuntu 가상 컴퓨터의 호스트 이름입니다.
+여기서 'contoso100.com'은 관리되는 도메인의 DNS 도메인 이름입니다. 'contoso-ubuntu'는 관리되는 도메인에 가입한 Ubuntu 가상 머신의 호스트 이름입니다.
 
 
-## <a name="install-required-packages-on-the-linux-virtual-machine"></a>Linux 가상 컴퓨터에 필요한 패키지 설치
-다음으로 가상 컴퓨터에서 도메인 가입에 필요한 패키지를 설치합니다. 다음 단계를 수행합니다.
+## <a name="install-required-packages-on-the-linux-virtual-machine"></a>Linux 가상 머신에 필요한 패키지 설치
+다음으로 가상 머신에서 도메인 가입에 필요한 패키지를 설치합니다. 다음 단계를 수행합니다.
 
 1.  SSH 터미널에서 다음 명령을 입력하여 저장소에서 패키지 목록을 다운로드합니다. 이 명령은 패키지 목록을 업데이트하여 최신 버전의 패키지 및 해당 종속성에 대한 정보를 가져옵니다.
 
@@ -88,7 +88,7 @@ sudo vi /etc/hosts
     >
 
 
-## <a name="configure-the-ntp-network-time-protocol-settings-on-the-linux-virtual-machine"></a>Linux 가상 컴퓨터에서 NTP(Network Time Protocol) 설정 구성
+## <a name="configure-the-ntp-network-time-protocol-settings-on-the-linux-virtual-machine"></a>Linux 가상 머신에서 NTP(Network Time Protocol) 설정 구성
 Ubuntu VM의 날짜 및 시간은 관리되는 도메인과 동기화해야 합니다. /etc/ntp.conf 파일에 관리되는 도메인의 NTP 호스트 이름을 추가합니다.
 
 ```
@@ -112,7 +112,7 @@ sudo systemctl start ntp
 
 
 ## <a name="join-the-linux-virtual-machine-to-the-managed-domain"></a>Linux 가상 컴퓨터를 관리되는 도메인에 가입
-이제 필요한 패키지를 Linux 가상 컴퓨터에 설치했고 다음 작업은 가상 컴퓨터를 관리되는 도메인에 가입하는 것입니다.
+이제 필요한 패키지를 Linux 가상 머신에 설치했고 다음 작업은 가상 머신을 관리되는 도메인에 가입하는 것입니다.
 
 1. AAD 도메인 서비스 관리되는 도메인을 검색합니다. SSH 터미널에서 다음 명령을 입력합니다.
 
@@ -122,8 +122,8 @@ sudo systemctl start ntp
 
    > [!NOTE] 
    > **문제 해결:** *영역 검색*을 통해 관리되는 도메인을 찾을 수 없는 경우 다음을 수행합니다.
-     * 해당 도메인을 가상 컴퓨터에서 연결 가능한지 확인합니다(ping 시도).
-     * 또한 관리되는 도메인을 사용할 수 있는 동일한 가상 네트워크에 가상 컴퓨터를 확실히 배포했는지 확인합니다.
+     * 해당 도메인을 가상 머신에서 연결 가능한지 확인합니다(ping 시도).
+     * 또한 관리되는 도메인을 사용할 수 있는 동일한 가상 네트워크에 가상 머신을 확실히 배포했는지 확인합니다.
      * 가상 네트워크가 관리되는 도메인의 도메인 컨트롤러를 가리키도록 DNS 서버 설정을 업데이트했는지 확인합니다.
    >
 
@@ -217,10 +217,10 @@ Ubuntu VM에서 멤버에게 'AAD DC Administrators' 그룹 관리 권한을 부
 
 
 ## <a name="troubleshooting-domain-join"></a>도메인 가입 문제 해결
-[도메인 가입 문제 해결](active-directory-ds-admin-guide-join-windows-vm-portal.md#troubleshooting-domain-join) 문서를 참조하세요.
+[도메인 가입 문제 해결](active-directory-ds-admin-guide-join-windows-vm-portal.md#troubleshoot-joining-a-domain) 문서를 참조하세요.
 
 
 ## <a name="related-content"></a>관련 콘텐츠
 * [Azure AD 도메인 서비스 - 시작 가이드](active-directory-ds-getting-started.md)
-* [Windows Server 가상 컴퓨터를 Azure AD 도메인 서비스 관리되는 도메인에 가입](active-directory-ds-admin-guide-join-windows-vm.md)
-* [Linux를 실행하는 가상 컴퓨터에 로그온하는 방법](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Windows Server 가상 머신을 Azure AD 도메인 서비스 관리되는 도메인에 가입](active-directory-ds-admin-guide-join-windows-vm.md)
+* [Linux를 실행하는 가상 머신에 로그온하는 방법](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

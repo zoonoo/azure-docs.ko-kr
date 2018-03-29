@@ -1,5 +1,5 @@
 ---
-title: "Azure의 네트워크 보안 개념 및 요구 사항 | Microsoft Docs"
+title: Azure의 네트워크 보안 개념 및 요구 사항 | Microsoft Docs
 description: " 이 문서를 통해 Microsoft Azure가 네트워크 보안 영역에서 제공해야 하는 사항을 훨씬 쉽게 이해할 수 있습니다. Azure에서 이러한 각 영역에서 제공해야 하는 사항에 대한 정보는 물론, 핵심 네트워크 보안 개념 및 요구 사항에 대한 기본적인 설명을 제공합니다. "
 services: security
 documentationcenter: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: e477ce9a5f9f35d88a6faeb68ee4e0403f64c030
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 0e32cd1f4267b9ae0825fbb34ed00e25dd1b63b5
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-network-security-overview"></a>Azure 네트워크 보안 개요
 Microsoft Azure에는 사용자의 응용 프로그램과 서비스 연결 요구 사항을 지원하기 위한 강력한 네트워킹 인프라가 포함되어 있습니다. 네트워크 연결은 Azure에 위치한 리소스 간, 온-프레미스와 Azure 호스팅 리소스 간, 그리고 인터넷과 Azure 간에 가능합니다.
@@ -252,11 +252,11 @@ Azure에서는 초기 검색, 모니터링 및 네트워크 트래픽을 수집 
 ### <a name="azure-network-watcher"></a>Azure Network Watcher
 Azure Network Watcher에는 보안 문제 식별에 도움이 되는 새로운 도구 집합을 제공할 뿐만 아니라 문제 해결에 도움이 되는 수 많은 기능이 포함되어 있습니다.
 
-[보안 그룹 보기](/network-watcher/network-watcher-security-group-view-overview.md)는 Virtual Machines의 감사 및 보안 준수를 돕고, 조직에서 정의한 기준 정책을 각 사용자 VM을 위한 실질적 규칙과 비교하는 프로그래밍 방식 감사를 수행하는 데 사용될 수 있습니다. 그러면 모든 구성 드리프트를 식별하는 데 도움이 됩니다.
+[보안 그룹 보기](../network-watcher/network-watcher-security-group-view-overview.md)는 Virtual Machines의 감사 및 보안 준수를 돕고, 조직에서 정의한 기준 정책을 각 사용자 VM을 위한 실질적 규칙과 비교하는 프로그래밍 방식 감사를 수행하는 데 사용될 수 있습니다. 그러면 모든 구성 드리프트를 식별하는 데 도움이 됩니다.
 
-[패킷 캡처](/network-watcher/network-watcher-packet-capture-overview.md)를 사용하면 가상 머신에서 네트워크 트래픽을 캡처할 수 있습니다. 패킷 캡처는 네트워크 통계를 수집하고 응용 프로그램 문제를 해결할 수 있도록 돕는 것 외에도 네트워크 침입에 대한 조사에도 매우 유용할 수 있습니다. 또한 이 기능을 Azure Functions와 함께 사용하면 특정 Azure 경고에 대한 응답으로 네트워크 캡처를 시작할 수 있습니다.
+[패킷 캡처](../network-watcher/network-watcher-packet-capture-overview.md)를 사용하면 가상 머신에서 네트워크 트래픽을 캡처할 수 있습니다. 패킷 캡처는 네트워크 통계를 수집하고 응용 프로그램 문제를 해결할 수 있도록 돕는 것 외에도 네트워크 침입에 대한 조사에도 매우 유용할 수 있습니다. 또한 이 기능을 Azure Functions와 함께 사용하면 특정 Azure 경고에 대한 응답으로 네트워크 캡처를 시작할 수 있습니다.
 
-Azure Network Watcher 및 사용자 실험실에서 몇 가지 기능 테스트를 시작하는 방법에 대한 자세한 내용은 [Azure Network Watcher 모니터링 개요](/network-watcher/network-watcher-monitoring-overview.md)를 참조하세요.
+Azure Network Watcher 및 사용자 실험실에서 몇 가지 기능 테스트를 시작하는 방법에 대한 자세한 내용은 [Azure Network Watcher 모니터링 개요](../network-watcher/network-watcher-monitoring-overview.md)를 참조하세요.
 
 >[!NOTE]
 Azure Network Watcher는 아직 공개 미리 보기 상태이므로 일반 공급 릴리스에 있는 서비스와 동일한 수준의 가용성 및 안정성을 제공하지 않을 수 있습니다. 특정 기능은 지원되지 않을 수 있고, 기능이 제한될 수 있으며 일부 Azure 위치에서 사용하지 못할 수도 있습니다. 이 서비스의 가용성 및 상태에 대한 최신 알림을 보려면 [Azure 업데이트 페이지](https://azure.microsoft.com/updates/?product=network-watcher)를 참조하세요.

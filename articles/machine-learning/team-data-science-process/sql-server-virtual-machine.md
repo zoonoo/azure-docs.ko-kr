@@ -1,11 +1,11 @@
 ---
-title: "Azure의 SQL Server 가상 컴퓨터에서 데이터 탐색 | Microsoft Docs"
-description: "Azure의 SQL Server 가상 머신에서 데이터를 탐색하고 기능 생성"
+title: Azure의 SQL Server 가상 컴퓨터에서 데이터 탐색 | Microsoft Docs
+description: Azure의 SQL Server 가상 머신에서 데이터를 탐색하고 기능 생성
 services: machine-learning
-documentationcenter: 
-author: garyericson
+documentationcenter: ''
+author: bradsev
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: 3949fb2c-ffab-49fb-908d-27d5e42f743b
 ms.service: machine-learning
 ms.workload: data-services
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: garye;bradsev
-ms.openlocfilehash: 6a97e1afb761191874b7a54b1951cb6ef9c4b07e
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.author: bradsev
+ms.openlocfilehash: 69ee0657479430abf4ad039efc82d85a9501c7c8
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="heading"></a>Azure의 SQL Server 가상 컴퓨터에서 데이터 처리
 이 문서에서는 Azure의 SQL Server VM에 저장된 데이터를 탐색하고 데이터에 대한 기능을 생성하는 방법에 대해 알아봅니다. 이렇게 하려면 SQL을 사용하여 데이터 랭글링을 수행하거나 Python과 같은 프로그래밍 언어를 사용합니다.

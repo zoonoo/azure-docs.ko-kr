@@ -1,7 +1,7 @@
 ---
-title: "Azure Cosmos DB: SQL API에 대한 Java 예제 | Microsoft Docs"
-description: "CRUD 작업을 포함하여 Azure Cosmos DB SQL API를 사용하는 일반적인 작업에 대한 Java 예제를 GitHub에서 찾아봅니다."
-keywords: "NoSQL 예제"
+title: 'Azure Cosmos DB: SQL API에 대한 Java 예제 | Microsoft Docs'
+description: CRUD 작업을 포함하여 Azure Cosmos DB SQL API를 사용하는 일반적인 작업에 대한 Java 예제를 GitHub에서 찾아봅니다.
+keywords: NoSQL 예제
 services: cosmos-db
 author: mimig1
 manager: jhubbard
@@ -14,11 +14,11 @@ ms.devlang: java
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: mimig
-ms.openlocfilehash: a46b6e4d64b44c07fe7a2aa63bc49bea59ad5b53
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 992451018baeea15bf63906c71ad72faccb0dbe4
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cosmos-db-java-examples-for-the-sql-api"></a>Azure Cosmos DB: SQL API에 대한 Java 예제
 
@@ -30,8 +30,6 @@ ms.lasthandoff: 02/11/2018
 > * [Azure 코드 샘플 갤러리](https://azure.microsoft.com/resources/samples/?sort=0&service=cosmos-db)
 > 
 > 
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Azure Cosmos DB 리소스에 대한 CRUD 작업 및 다른 일반적인 작업을 수행하는 최신 응용 프로그램 예제는 [azure-documentdb-java](https://github.com/Azure/azure-documentdb-java) GitHub 리포지토리에 포함되어 있습니다. 이 문서는 다음을 제공합니다.
 

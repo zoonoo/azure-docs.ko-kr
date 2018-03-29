@@ -1,12 +1,12 @@
 ---
-title: "Azure Service Fabric 모니터링 및 진단 개요 | Microsoft Docs"
-description: "Azure Service Fabric 클러스터, 응용 프로그램 및 서비스에 대한 모니터링 및 진단에 대해 알아봅니다."
+title: Azure Service Fabric 모니터링 및 진단 개요 | Microsoft Docs
+description: Azure Service Fabric 클러스터, 응용 프로그램 및 서비스에 대한 모니터링 및 진단에 대해 알아봅니다.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/10/2018
 ms.author: dekapur
-ms.openlocfilehash: 1da2fab92c6fd51c5fc18589da5f8bbec2929503
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: f784576547f0d85a825ad9dd107c6c84cd261092
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>Azure Service Fabric 모니터링 및 진단
 
@@ -86,7 +86,7 @@ Service Fabric 플랫폼에는 클러스터의 엔터티 상태에 대한 확장
 
 ![SFX 상태 대시보드](media/service-fabric-diagnostics-overview/sfx-healthstatus.png)
 
-SFX에서 최신 상태 보고서를 볼 수 있는 것은 물론, 각 보고서가 이벤트로도 제공됩니다. 운영 채널을 통해 상태 이벤트를 수집([Azure 진단을 사용한 이벤트 집계](service-fabric-diagnostics-event-aggregation-wad.md#collect-health-and-load-events) 참조)하고 나중에 경고 및 쿼리하기 위해 OMS Log Analytics에 저장할 수 있습니다. 이는 응용 프로그램 가용성에 영향을 줄 수 있는 문제 감지에 도움이 되므로 적절한 오류 시나리오에 대한 경고(OMS를 통한 사용자 지정 경고)를 설정하는 것이 좋습니다.
+SFX에서 최신 상태 보고서를 볼 수 있는 것은 물론, 각 보고서가 이벤트로도 제공됩니다. 운영 채널을 통해 상태 이벤트를 수집([Azure 진단을 사용한 이벤트 집계](service-fabric-diagnostics-event-aggregation-wad.md#log-collection-configurations) 참조)하고 나중에 경고 및 쿼리하기 위해 OMS Log Analytics에 저장할 수 있습니다. 이는 응용 프로그램 가용성에 영향을 줄 수 있는 문제 감지에 도움이 되므로 적절한 오류 시나리오에 대한 경고(OMS를 통한 사용자 지정 경고)를 설정하는 것이 좋습니다.
 
 ## <a name="monitoring-workflow"></a>모니터링 워크플로 
 

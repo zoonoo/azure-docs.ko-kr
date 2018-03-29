@@ -1,8 +1,8 @@
 ---
-title: "Cortana Intelligence 솔루션 평가 도구 | Microsoft Docs"
-description: "여기서는 Microsoft 파트너가 Cortana Intelligence 솔루션을 AppSource에 게시하기 위해 수행해야 하는 모든 단계를 설명합니다."
+title: Cortana Intelligence 솔루션 평가 도구 | Microsoft Docs
+description: 여기서는 Microsoft 파트너가 Cortana Intelligence 솔루션을 AppSource에 게시하기 위해 수행해야 하는 모든 단계를 설명합니다.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: AnupamMicrosoft
 manager: jhubbard
 editor: cgronlun
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
-ms.author: anupams;v-bruham;garye
-ms.openlocfilehash: c9ea8164d5866662a7ed81672ee1ba776603b193
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: anupams
+ms.openlocfilehash: f678cb9819a2c03f97bcca5a2092160212779328
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="cortana-intelligence-solution-evaluation-tool"></a>Cortana Intelligence 솔루션 평가 도구
 ## <a name="overview"></a>개요
@@ -54,7 +54,7 @@ Azure 구독에 연결하고 앱을 포함하는 리소스 그룹을 제공합�
 이 경우 수집은 솔루션 외부에서 데이터를 가져오는 데 사용되거나 솔루션 외부 서비스가 데이터를 솔루션에 푸시하는 데 사용하는 데이터 원본을 의미합니다.
 
 ### <a name="consumption"></a>Consumption
-이 경우 소비는 직접 또는 간접적으로 최종 사용자에게 데이터를 푸시하는 데 사용되는 데이터 집합을 의미합니다. 예:
+이 경우 소비는 직접 또는 간접적으로 최종 사용자에게 데이터를 푸시하는 데 사용되는 데이터 집합을 의미합니다. 예: 
 - PowerBI에서 직접 쿼리에 사용되는 데이터 집합
 - WebApp에서 쿼리되는 데이터 집합
 
@@ -79,7 +79,7 @@ Azure 구독에 연결하고 앱을 포함하는 리소스 그룹을 제공합�
 
 예를 들어 솔루션이 Azure SQL DW에 게시되는 경우 평가 테스트에서 Azure Analysis Services에도 게시하도록 요구합니다. 
 
-솔루션이 Azure Analysis Services 대신 SQL Server Analysis Services를 실행하는 IaaS 가상 컴퓨터를 사용할 수도 있습니다. 이는 테스트 오류에 대해 허용되는 이유가 됩니다.
+솔루션이 Azure Analysis Services 대신 SQL Server Analysis Services를 실행하는 IaaS 가상 머신을 사용할 수도 있습니다. 이는 테스트 오류에 대해 허용되는 이유가 됩니다.
 ## <a name="packaging-your-evaluation-results"></a>평가 결과 패키징
 테스트 사례를 완료하면 평가 패키지가 zip 파일로 내보내지고, 평가 도구에 대한 피드백을 제공하라는 메시지가 표시됩니다. 
 
@@ -129,11 +129,11 @@ Azure SQL 및 Azure SQL DW는 둘 다 TDE(투명한 데이터 암호화)를 지�
 TDE 외에도 Azure SQL은 데이터가 미사용 및 클라이언트와 서버 간에 이동 중일 때뿐 아니라 서버에서 명령을 실행하여 데이터가 사용 중일 때도 데이터가 암호화되도록 하는 새로운 데이터 암호화 기술인 Always Encrypted를 지원합니다.
 
 ### <a name="any-virtual-machines-must-be-deployed-from-the-azure-marketplace"></a>Virtual Machines는 Azure Marketplace에서 배포되어야 함
-AppSource 간에 일관된 수준의 보안을 제공하기 위해 Cortana Intelligence 솔루션의 일부로 배포되는 가상 컴퓨터는 Azure Marketplace에서 인증 및 게시되어야 합니다.
+AppSource 간에 일관된 수준의 보안을 제공하기 위해 Cortana Intelligence 솔루션의 일부로 배포되는 가상 머신은 Azure Marketplace에서 인증 및 게시되어야 합니다.
 
 Azure Marketplace 이미지의 현재 목록을 검색하려면 [Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/compute)를 참조하세요.
 
-Azure Marketplace용 가상 컴퓨터 이미지를 게시하는 방법에 대한 자세한 내용은 [Azure Marketplace용 가상 컴퓨터 이미지 만들기 가이드](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation)를 참조하세요.
+Azure Marketplace용 가상 머신 이미지를 게시하는 방법에 대한 자세한 내용은 [Azure Marketplace용 가상 머신 이미지 만들기 가이드](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation)를 참조하세요.
 
 ## <a name="scalability-evaluation-considerations"></a>확장성 평가 고려 사항
 ### <a name="cortana-intelligence-solutions-should-include-a-scalable-big-data-platform"></a>Cortana Intelligence 솔루션에 확장 가능한 빅 데이터 플랫폼이 포함되어야 함
@@ -177,10 +177,10 @@ Azure SQL DW는 지역 중복 저장소에 대한 매일 백업을 지원합니�
 
 Azure SQL DW 백업 및 복원에 대한 자세한 내용은 [SQL Data Warehouse Backup](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-backups)을 참조하세요.
 
-### <a name="virtual-machines-should-be-configured-with-availability-sets"></a>가상 컴퓨터를 가용성 집합으로 구성해야 함
+### <a name="virtual-machines-should-be-configured-with-availability-sets"></a>가상 머신을 가용성 집합으로 구성해야 함
 계획되었거나 계획되지 않은 유지 관리 이벤트의 영향을 최소화하려면 Azure Virtual Machines를 가용성 집합으로 구성해야 합니다.
 
-Azure 가상 컴퓨터 가용성에 대한 자세한 내용은 [Azure에서 Windows 가상 컴퓨터의 가용성 관리](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability)를 참조하세요.
+Azure 가상 머신 가용성에 대한 자세한 내용은 [Azure에서 Windows 가상 머신의 가용성 관리](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability)를 참조하세요.
 
 ## <a name="other-evaluation-considerations"></a>기타 평가 고려 사항
 ### <a name="cortana-intelligence-apps-should-use-a-centralized-tool-for-data-orchestration"></a>Cortana Intelligence 앱은 데이터 오케스트레이션에 중앙 집중식 도구를 사용해야 함

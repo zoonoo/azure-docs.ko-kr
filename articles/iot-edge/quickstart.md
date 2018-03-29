@@ -1,19 +1,19 @@
 ---
-title: "Azure IoT Edge + Windows 빠른 시작 | Microsoft Docs"
-description: "시뮬레이트된 에지 장치에서 분석을 실행하여 Azure IoT Edge를 시도합니다."
+title: Azure IoT Edge + Windows 빠른 시작 | Microsoft Docs
+description: 시뮬레이트된 에지 장치에서 분석을 실행하여 Azure IoT Edge를 시도합니다.
 services: iot-edge
-keywords: 
+keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 16d9431ec0a0425c8433557fe384864bb599bf1f
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: f9ad01d3194ee0f8be4c3b4321c83c4bb15ea55c
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>빠른 시작: Azure Portal에서 Windows 장치(미리 보기)로 첫 번째 IoT Edge 모듈을 배포합니다.
 
@@ -79,7 +79,7 @@ IoT Edge 런타임은 모든 IoT Edge 장치에 배포되며, 두 개의 모듈�
 이전 섹션의 IoT Edge 장치 연결 문자열로 런타임을 구성합니다.
 
 ```cmd
-iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
+iotedgectl setup --connection-string "{device connection string}" --nopass
 ```
 
 런타임을 시작합니다.

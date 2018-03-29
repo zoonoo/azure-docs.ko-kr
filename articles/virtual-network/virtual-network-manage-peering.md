@@ -1,13 +1,13 @@
 ---
-title: "Azure Virtual Network 피어링 만들기, 변경 또는 삭제 | Microsoft Docs"
-description: "가상 네트워크 피어링을 만들고 변경하거나 삭제하는 방법을 알아봅니다."
+title: Azure Virtual Network 피어링 만들기, 변경 또는 삭제 | Microsoft Docs
+description: 가상 네트워크 피어링을 만들고 변경하거나 삭제하는 방법을 알아봅니다.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: 8fa7496c3489a0a3e5ee6d829bbeef0f0ccdf315
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 5cd486d9953979fe8aa9c8354c5fad5a9e11af1e
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>가상 네트워크 피어링 만들기, 변경 또는 삭제
 
@@ -140,11 +140,11 @@ Azure CLI: [az network vnet peering list](/cli/azure/network/vnet/peering#az_net
     - VirtualNetwork2 및 VirtualNetwork3
 
   VirtualNetwork2를 통한 VirtualNetwork1과 VirtualNetwork3 사이의 피어링은 없습니다. VirtualNetwork1과 VirtualNetwork3 사이에 가상 네트워크 피어링을 만들려는 경우 VirtualNetwork1과 VirtualNetwork3 사이에 피어링을 만들어야 합니다.
-- 기본 Azure 이름 확인을 사용하여 피어링된 가상 네트워크에서 이름을 확인할 수 없습니다. 다른 가상 네트워크에서 이름을 확인하려면 사용자 지정 DNS 서버를 사용해야 합니다. 자체 DNS 서버를 설정하는 방법을 알아보려면 [자체 DNS 서버를 이용한 이름 확인](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) 문서를 읽어보세요.
+- 기본 Azure 이름 확인을 사용하여 피어링된 가상 네트워크에서 이름을 확인할 수 없습니다. 다른 가상 네트워크에서 이름을 확인하려면 사용자 지정 DNS 서버를 사용해야 합니다. 자체 DNS 서버를 설정하는 방법을 알아보려면 [자체 DNS 서버를 이용한 이름 확인](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) 문서를 읽어보세요.
 - 피어링의 두 가상 네트워크 둘 다에 있는 리소스는 같은 가상 네트워크에 있는 것처럼 같은 대역폭 및 대기 시간으로 서로 통신할 수 있습니다. 그러나 각 가상 머신 크기에는 고유한 최대 네트워크 대역폭이 있습니다. 다양한 가상 머신 크기의 최대 네트워크 대역폭에 대한 자세한 내용을 알아보려면 [Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 가상 머신 크기 문서를 참조하세요.
 - Resource Manager를 통해 배포된, 같은 구독 또는 다른 구독에 있는 가상 네트워크를 피어링할 수 있습니다.
 - 같거나 다른 구독에 있는 다른 배포 모델을 통해 배포된 가상 네트워크를 피어링할 수 있습니다. 
-- 두 가상 네트워크에 있는 구독은 같은 Azure Active Directory 테넌트에 연결되어야 합니다. 아직 AD 테넌트가 없는 경우 빠르게 [만들](../active-directory/develop/active-directory-howto-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#start-from-scratch) 수 있습니다. [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V)를 사용하여 다른 Active Directory 테넌트에 연결된 다른 구독에 있는 2개의 가상 네트워크를 연결할 수 있습니다.
+- 두 가상 네트워크에 있는 구독은 같은 Azure Active Directory 테넌트에 연결되어야 합니다. 아직 AD 테넌트가 없는 경우 빠르게 [만들](../active-directory/develop/active-directory-howto-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json##create-a-new-azure-ad-tenant) 수 있습니다. [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V)를 사용하여 다른 Active Directory 테넌트에 연결된 다른 구독에 있는 2개의 가상 네트워크를 연결할 수 있습니다.
 - 가상 네트워크를 다른 가상 네트워크에 피어링할 수 있으며, Azure Virtual Network 게이트웨이를 통해 다른 가상 네트워크에 연결할 수도 있습니다. 가상 네트워크가 피어링 및 게이트웨이를 통해 연결된 경우 가상 네트워크 간 트래픽은 게이트웨이가 아니라 피어링 구성을 통해 흐릅니다.
 - 가상 네트워크 피어링을 활용하는 수신 및 송신 트래픽에 대한 명목 요금이 부과됩니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/virtual-network)를 참조하세요.
 

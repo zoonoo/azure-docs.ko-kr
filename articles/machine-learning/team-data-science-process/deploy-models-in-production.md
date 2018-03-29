@@ -1,23 +1,23 @@
 ---
-title: "프로덕션에 모델 배포 - Azure Machine Learning | Microsoft Docs"
-description: "프로덕션에 모델을 배포하여 비즈니스 의사 결정에 유용하게 사용될 수 있도록 하는 방법입니다."
-documentationcenter: 
+title: 프로덕션에 모델 배포 - Azure Machine Learning | Microsoft Docs
+description: 프로덕션에 모델을 배포하여 비즈니스 의사 결정에 유용하게 사용될 수 있도록 하는 방법입니다.
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
-ms.author: bradsev;
-ms.openlocfilehash: 122c6db2a915dd2a933e261b5b735e7214407d66
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.author: bradsev
+ms.openlocfilehash: ddb45dd5fae0fbdecebbc262d7bac78ff2b10f21
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="deploy-models-in-production"></a>프로덕션 환경에서 모델 배포
 
