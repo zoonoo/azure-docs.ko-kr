@@ -1,3 +1,19 @@
+---
+title: 포함 파일
+description: 포함 파일
+services: vpn-gateway
+author: cherylmc
+ms.service: vpn-gateway
+ms.topic: include
+ms.date: 03/21/2018
+ms.author: cherylmc
+ms.custom: include file
+ms.openlocfilehash: 0270fa207b782d2d89f2408a380b766f58fa05cb
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 03/23/2018
+---
 1. 포털의 **모든 리소스**에서 **+ 추가**를 클릭합니다. 
 2. **모든 항목** 페이지 검색 상자에서 **로컬 네트워크 게이트웨이**를 입력한 후 클릭하여 검색합니다. 그러면 목록이 반환됩니다. **로컬 네트워크 게이트웨이**를 클릭하여 페이지를 열고 **만들기**를 클릭하여 **로컬 네트워크 게이트웨이 만들기** 페이지를 엽니다.
 

@@ -1,9 +1,9 @@
 ---
-title: "Azure AD Connect: 통과 인증 | Microsoft 문서"
-description: "이 문서에서는 Azure AD(Azure Active Directory) 통과 인증 및 이 통과 인증을 통해 사용자의 암호를 온-프레미스 Active Directory에 대해 유효성 검사하여 Azure AD 로그인을 허용하는 방법을 설명합니다."
+title: 'Azure AD Connect: 통과 인증 | Microsoft 문서'
+description: 이 문서에서는 Azure AD(Azure Active Directory) 통과 인증 및 이 통과 인증을 통해 사용자의 암호를 온-프레미스 Active Directory에 대해 유효성 검사하여 Azure AD 로그인을 허용하는 방법을 설명합니다.
 services: active-directory
-keywords: "Azure AD Connect 통과 인증의 정의, Active Directory 설치, Azure AD에 대한 필수 구성 요소, SSO, Single Sign-on"
-documentationcenter: 
+keywords: Azure AD Connect 통과 인증의 정의, Active Directory 설치, Azure AD에 대한 필수 구성 요소, SSO, Single Sign-on
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: billmath
-ms.openlocfilehash: 5a559c749bc7ba3cabbbb1a171605b8baf601eef
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: d19e63e10f2d42d97bb6fabca9c9e47028cbaf39
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>Azure Active Directory 통과 인증으로 사용자 로그인
 
@@ -28,7 +28,7 @@ Azure AD(Azure Active Directory) 통과 인증을 사용하면 사용자가 온-
 
 >[!VIDEO https://www.youtube.com/embed/PyeAC85Gm7w]
 
-이 기능은 조직에 클라우드 인증과 동일한 혜택을 제공하는 [Azure AD 암호 해시 동기화](active-directory-aadconnectsync-implement-password-synchronization.md)에 대한 대안입니다. 하지만 특정 조직에서 보안 및 규정 준수 정책은 이러한 조직이 내부 경계 외부의 해시된 폼에서도 사용자의 암호를 보내는 것을 허용하지 않습니다. 통과 인증은 이러한 조직에 적합한 솔루션입니다.
+이 기능은 조직에 클라우드 인증과 동일한 혜택을 제공하는 [Azure AD 암호 해시 동기화](active-directory-aadconnectsync-implement-password-hash-synchronization.md)에 대한 대안입니다. 하지만 특정 조직에서 보안 및 규정 준수 정책은 이러한 조직이 내부 경계 외부의 해시된 폼에서도 사용자의 암호를 보내는 것을 허용하지 않습니다. 통과 인증은 이러한 조직에 적합한 솔루션입니다.
 
 ![Azure AD 통과 인증](./media/active-directory-aadconnect-pass-through-authentication/pta1.png)
 

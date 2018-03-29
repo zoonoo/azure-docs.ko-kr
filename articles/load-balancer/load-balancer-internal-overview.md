@@ -1,6 +1,6 @@
 ---
-title: "Azure Load Balancer 개요 | Microsoft Docs"
-description: "Azure에서 내부 부하 분산 장치가 작동하는 방식과 내부 끝점을 구성하는 시나리오."
+title: Azure Load Balancer 개요 | Microsoft Docs
+description: Azure에서 내부 부하 분산 장치가 작동하는 방식과 내부 끝점을 구성하는 시나리오.
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -14,21 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 54e390dbdb07cb4c45c801b638099aa0dcc6db1a
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 0511165225f5a336291e86e0c504e60989933f3c
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="overview-of-azure-internal-load-balancer"></a>Azure Internal Load Balancer 개요
 
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
+
 
 Azure ILB(Internal Load Balancer)는 클라우드 서비스 내부에 있는 리소스 또는 VPN을 사용하여 Azure 인프라에 액세스하는 리소스로만 트래픽을 보냅니다. 이런 점에서 ILB는 인터넷 연결 부하 분산 장치와 다릅니다. Azure 인프라는 클라우드 서비스의 부하가 분산된 VIP(가상 IP) 주소 또는 가상 네트워크에 대한 액세스를 제한합니다. VIP 주소와 가상 네트워크는 인터넷 끝점에 직접 노출되지 않습니다. 내부 LOB(기간 업무) 응용 프로그램은 Azure에서 실행되며 Azure 내에서 또는 온-프레미스 리소스에서 액세스 할 수 있습니다.
 
 ## <a name="why-you-might-need-an-internal-load-balancer"></a>내부 부하 분산 장치가 필요한 이유
 
-내부 Load Balancer는 클라우드 서비스 또는 지역 범위의 가상 네트워크 내부에 있는 VM(가상 컴퓨터) 간의 부하 분산을 제공합니다. 지역 범위의 가상 네트워크에 대한 자세한 내용은 Azure 블로그의 [지역 가상 네트워크](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/)를 참조하세요. 선호도 그룹에 대해 구성된 기존 가상 네트워크는 ILB를 사용할 수 없습니다.
+내부 Load Balancer는 클라우드 서비스 또는 지역 범위의 가상 네트워크 내부에 있는 VM(가상 머신) 간의 부하 분산을 제공합니다. 지역 범위의 가상 네트워크에 대한 자세한 내용은 Azure 블로그의 [지역 가상 네트워크](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/)를 참조하세요. 선호도 그룹에 대해 구성된 기존 가상 네트워크는 ILB를 사용할 수 없습니다.
 
 ILB를 통해 다음과 같은 유형의 부하 분산을 사용할 수 있습니다.
 

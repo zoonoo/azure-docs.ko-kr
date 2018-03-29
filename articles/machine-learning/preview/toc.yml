@@ -3,10 +3,14 @@
 - name: 개요
   expanded: true
   items:
-    - name: Azure Machine Learning이란?
+    - name: Azure Machine Learning 정보
       href: overview-what-is-azure-ml.md
     - name: 모델 관리 개요
       href: model-management-overview.md
+    - name: 기타 ML 제품
+      href: overview-more-machine-learning.md
+    - name: 새로운 기능
+      href: azure-machine-learning-release-notes.md
 - name: 빠른 시작
   items:
     - name: 설치 및 시작
@@ -98,6 +102,8 @@
           href: how-to-setup-ssl-on-mlc.md
         - name: 웹 서비스 배포
           href: model-management-service-deploy.md
+        - name: 컨테이너 사용자 지정
+          href: model-management-custom-container.md
         - name: IoT Edge 장치에 배포
           href: deploy-to-iot-edge-device.md
         - name: 웹 서비스 사용
@@ -180,18 +186,6 @@
           href: model-management-cli-reference.md
         - name: 모델 데이터 수집 API
           href: model-data-collection-api-reference.md
-    - name: 릴리스 정보
-      items:
-        - name: 스프린트 0 - 2017년 10월
-          href: release-notes-sprint-0.md
-        - name: 스프린트 1 - 2017년 11월
-          href: release-notes-sprint-1.md
-        - name: 스프린트 2 - 2017년 12월
-          href: release-notes-sprint-2.md
-        - name: 스프린트 2 QFE - 2017년 12월
-          href: release-notes-sprint-2.1.md
-        - name: 스프린트 3 - 2018년 1월
-          href: release-notes-sprint-3.md
 - name: 리소스
   items:
     - name: 질문과 대답

@@ -1,11 +1,11 @@
 ---
-title: "Azure Data Factory를 사용하여 SQL Server에서 Blob Storage로 데이터 복사 | Microsoft Docs"
-description: "Azure Data Factory에서 자체 호스팅 Integration Runtime을 사용하여 온-프레미스 데이터 저장소에서 Azure 클라우드로 데이터를 복사하는 방법을 알아봅니다."
+title: Azure Data Factory를 사용하여 SQL Server에서 Blob Storage로 데이터 복사 | Microsoft Docs
+description: Azure Data Factory에서 자체 호스팅 Integration Runtime을 사용하여 온-프레미스 데이터 저장소에서 Azure 클라우드로 데이터를 복사하는 방법을 알아봅니다.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: a2abe0733f52c1e032a718fd8f870c3ec9686a41
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 3733531efb18a1fc14998af8bad2f61f22032048
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="tutorial-copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>자습서: 온-프레미스 SQL Server 데이터베이스에서 Azure Blob Storage로 데이터 복사
 이 자습서에서는 Azure PowerShell을 사용하여 온-프레미스 SQL Server 데이터베이스에서 Azure Blob Storage로 데이터를 복사하는 Data Factory 파이프라인을 만듭니다. 온-프레미스와 클라우드 데이터 저장소 간에 데이터를 이동하는, 자체 호스팅된 통합 런타임을 생성하고 사용합니다. 
@@ -30,7 +30,7 @@ ms.lasthandoff: 02/13/2018
 이 자습서에서는 다음 단계를 수행합니다.
 
 > [!div class="checklist"]
-> * 데이터 팩터리 만들기
+> * 데이터 팩터리를 만듭니다.
 > * 자체 호스팅 통합 런타임을 만듭니다.
 > * SQL Server 및 Azure Storage 연결된 서비스를 만듭니다. 
 > * SQL Server 및 Azure Blob 데이터 집합을 만듭니다.
@@ -203,7 +203,7 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
 2. 자체 호스팅 통합 런타임을 만듭니다. 
 
     ```powershell
-    Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $resouceGroupName -DataFactoryName $dataFactoryName -Name $integrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
+    Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $integrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
     ``` 
     샘플 출력은 다음과 같습니다.
 
@@ -535,7 +535,7 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
     Properties        : Microsoft.Azure.Management.DataFactory.Models.AzureBlobDataset
     ```
 
-## <a name="create-a-pipeline"></a>파이프라인 만들기
+## <a name="create-a-pipeline"></a>파이프라인을 만듭니다.
 이 자습서에서는 복사 활동을 사용하여 파이프라인을 만듭니다. 복사 작업은 SqlServerDataset을 입력 데이터 집합으로 사용하고 AzureBlobDataset을 출력 데이터 집합으로 사용합니다. 원본 형식은 *SqlSource*로 설정되고 싱크 형식은 *BlobSink*로 설정됩니다.
 
 1. 다음 코드를 사용하여 *C:\ADFv2Tutorial* 폴더에 *SqlServerToBlobPipeline.json*이라는 JSON 파일을 만듭니다.
@@ -673,7 +673,7 @@ $runId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -
 이 샘플의 파이프라인은 Azure Blob Storage의 위치 간에 데이터를 복사합니다. 다음 방법에 대해 알아보았습니다.
 
 > [!div class="checklist"]
-> * 데이터 팩터리 만들기
+> * 데이터 팩터리를 만듭니다.
 > * 자체 호스팅 통합 런타임을 만듭니다.
 > * SQL Server 및 Azure Storage 연결된 서비스를 만듭니다. 
 > * SQL Server 및 Azure Blob 데이터 집합을 만듭니다.

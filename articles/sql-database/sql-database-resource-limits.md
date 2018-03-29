@@ -9,11 +9,11 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 03/15/2018
 ms.author: carlrab
-ms.openlocfilehash: ba192b6dba68f01af796a1099b064d6ec0bd3f1b
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: fb9cb15e96c4098151d220c2bd47fbb7f299687c
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-sql-database-resource-limits"></a>Azure SQL Database 리소스 제한
 
@@ -113,7 +113,7 @@ ms.lasthandoff: 03/17/2018
 | 최대 | 값 |
 | :--- | :--- |
 | 서버당 데이터베이스 | 5,000 |
-| 지역별 구독당 서버 수 | 21 |
+| 지역별 구독당 서버 수 | 20 |
 |||
 
 > [!IMPORTANT]

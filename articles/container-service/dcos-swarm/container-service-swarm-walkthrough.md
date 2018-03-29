@@ -1,6 +1,6 @@
 ---
-title: "빠른 시작 - Linux용 Azure Docker Swarm 클러스터"
-description: "Azure Container Service에서 Azure CLI를 사용하여 Linux 컨테이너용 Docker Swarm 클러스터를 빠르게 만드는 방법에 대해 알아봅니다."
+title: 빠른 시작 - Linux용 Azure Docker Swarm 클러스터
+description: Azure Container Service에서 Azure CLI를 사용하여 Linux 컨테이너용 Docker Swarm 클러스터를 빠르게 만드는 방법에 대해 알아봅니다.
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 02/26/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 691c09c8dfb5335aabb431d06bd687963fe4c488
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 7bd781d2fd71c6075cb458b222a93953a22892b6
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="deploy-docker-swarm-cluster"></a>Docker Swarm 클러스터 배포
 
