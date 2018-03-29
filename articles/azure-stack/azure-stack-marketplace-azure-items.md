@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/26/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 39a82486b485a761f03244cf8d49f9c79ed9b2f7
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: cdce5ad971e345971aa5de9a9bb79379fb1ead48
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure 스택 사용할 수 있는 azure 마켓플레이스 항목
 
@@ -124,7 +124,7 @@ Microsoft Azure 스택 솔루션 템플릿과 다음 Azure 마켓플레이스 �
 | ![Fat 무료 CRM](media/azure-stack-marketplace-azure-items/fatfreecrm.png) | [Fat 무료 CRM](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.fatfreecrm) | 레일 기반 CRM에서 오픈 소스 Ruby 합니다. | Bitnami |
 | ![GitLab Community Edition](media/azure-stack-marketplace-azure-items/bitnami.png) | [GitLab Community Edition](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.gitlab) | Git 관리 소프트웨어를 신속 하 고 보호 합니다. | Bitnami |
 | ![Ghost](media/azure-stack-marketplace-azure-items/ghost.png) | [Ghost](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.ghost) | 게시에만 플랫폼입니다. | Bitnami |
-| ![Hadoop](media/azure-stack-marketplace-azure-items/hadoop.png) | [Hadoop](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.hadoop) | 신뢰할 수 있는 하 고 확장 가능한 분산 컴퓨팅을 위한 프레임 워크. | Bitnami |
+| ![Hadoop은](media/azure-stack-marketplace-azure-items/hadoop.png) | [Hadoop](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.hadoop) | 신뢰할 수 있는 하 고 확장 가능한 분산 컴퓨팅을 위한 프레임 워크. | Bitnami |
 | ![HHVM](media/azure-stack-marketplace-azure-items/hhvm.png) | [HHVM](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.hhvmstack) | 완전 하 게 통합 되 고 실행 방식 개발 환경입니다. | Bitnami |
 | ![무리 그룹웨어 Webmail](media/azure-stack-marketplace-azure-items/hordegroupwarewebmail.png) | [무리 그룹웨어 Webmail](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.hordegroupwarewebmail) | 무료 이며 엔터프라이즈 준비, 브라우저 기반 통신 모음입니다. | Bitnami |
 | ![Jenkins](media/azure-stack-marketplace-azure-items/jenkins.png) | [Jenkins](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.jenkins) | SCM 도구를 지 원하는 통합 서버: CVS, Subversion, 및 Git 합니다. | Bitnami |
@@ -217,7 +217,7 @@ Microsoft Azure 스택 솔루션 템플릿과 다음 Azure 마켓플레이스 �
 | ![Hortonworks Data Platform (HDP) 샌드박스](media/azure-stack-marketplace-azure-items/hortonworks.png) | [Hortonworks Data Platform (HDP) 샌드박스](https://azuremarketplace.microsoft.com/marketplace/apps/hortonworks.hortonworks-sandbox) | Hadoop, Spark, 스톰, HBase, Kafka, Hive, Ambari 2.5 100% 오픈 소스 플랫폼 HDP에 의해 제공. | Hortonworks |
 | ![KEMP LoadMaster 부하 분산 장치 ADC 콘텐츠 스위치](media/azure-stack-marketplace-azure-items/kemp.png) | [KEMP LoadMaster 부하 분산 장치 ADC 콘텐츠 스위치](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure) | 계층 4-7 응용 프로그램 배달 컨트롤러 (ADC) 부하 분산 장치, 콘텐츠 스위치 및 트래픽 관리자. | KEMP Technologies Inc. |
 | ![NooBaa 하이브리드 AWS S3 호환-Community Edition](media/azure-stack-marketplace-azure-items/noobaa.png) | [NooBaa 하이브리드 AWS S3 compatibe-Community Edition](https://azuremarketplace.microsoft.com/marketplace/apps/noobaa.noobaa-hybrid-s3-archive-05) | S3 호환 저장소 서비스 공개에 걸쳐 있고 온-프레미스 리소스 용량입니다. | NooBaa |
-| ![PT 응용 프로그램 방화벽](media/azure-stack-marketplace-azure-items/pt.png) | [PT 응용 프로그램 방화벽](https://azuremarketplace.microsoft.com/marketplace/apps/ptsecurity.pta) | PT 응용 프로그램 방화벽 알려진 & 알 수 없는 보안 문제를 감지 하 고 웹 응용 프로그램에 대 한 공격을 방지 합니다. <b>두 PT 마켓플레이스 항목을 다운로드 합니다.</b> | 양수 기술 |
+| ![PT 응용 프로그램 방화벽](media/azure-stack-marketplace-azure-items/pt.png) | [PT 응용 프로그램 방화벽](https://azuremarketplace.microsoft.com/marketplace/apps/ptsecurity.ptaf) | PT 응용 프로그램 방화벽 알려진 & 알 수 없는 보안 문제를 감지 하 고 웹 응용 프로그램에 대 한 공격을 방지 합니다. <b>두 PT 마켓플레이스 항목을 다운로드 합니다.</b> | 양수 기술 |
 | ![Puppet Enterprise](media/azure-stack-marketplace-azure-items/puppet.png) | [Puppet Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2017-2) | Puppet Enterprise를 사용 하면 Azure 스택 인프라의 전체 수명 주기를 자동화할 수 있습니다. <b>Puppet 마켓플레이스 항목을 모두 다운로드 합니다.</b> | Puppet |
 | ![SUSE Manager 3.0 프록시 (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SUSE Manager 3.0 프록시 (BYOS) ](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SUSEManager30ProxyBringYourOwnSubscription) | 클래스의 가장 오픈 소스 인프라 관리 합니다. | SUSE |
 | ![ZeroDown 소프트웨어 도구](media/azure-stack-marketplace-azure-items/zerodown.png) | [ZeroDown 소프트웨어 도구 ](https://azuremarketplace.microsoft.com/marketplace/apps/zerodown_software.zerodown-software-tool-7_1) | ZeroDown 소프트웨어 도구 v7.1-마이그레이션할 + HA 합니다. | ZeroDown 소프트웨어 |

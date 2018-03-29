@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2018
 ms.author: mabrigg
-ms.openlocfilehash: fb4dea9832e781b2ec9f4cfa573b5a4f630188db
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f786d99718b82dba052909e566f1b0571701127e
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>권한 있는 끝점을 사용 하 여 Azure 스택
 
@@ -76,6 +76,8 @@ PEP를 호스팅하는 가상 컴퓨터에서 원격 PowerShell 세션을 통해
 
       - **사용자 이름**: CloudAdmin 계정 형식 지정  **&lt; *Azure 스택 도메인*&gt;\accountname**합니다. (ASDK에 대 한 사용자 이름이 **azurestack\accountname**.) 
       - **암호**: AzureStackAdmin 도메인 관리자 계정에 대 한 설치 중에 제공 된 동일한 암호를 입력 합니다.
+    > [!NOTE]
+    > ERCS 끝점에 연결할 수 없는 경우에 두 단계를 이미 않았다면 연결할 ERCS VM의 IP 주소를 사용 하 여 다시 시도 하십시오.
     
 3.  연결 된 후의 프롬프트로 바뀝니다 **[*이름 지정 IP 주소 또는 ERCS VM*]: PS >** 또는 **[azs ercs01]: PS >**환경에 따라 합니다. 여기에서는 실행 `Get-Command` 사용 가능한 cmdlet의 목록을 볼 수 있습니다.
 
