@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 03/27/2018
 ms.author: mabrigg
-ms.openlocfilehash: f786d99718b82dba052909e566f1b0571701127e
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.reviewer: fiseraci
+ms.openlocfilehash: f176e0689c630a406ab6e2f82e9320a214ff8a1a
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>권한 있는 끝점을 사용 하 여 Azure 스택
 
@@ -43,18 +44,20 @@ PEP를 호스팅하는 가상 컴퓨터에서 원격 PowerShell 세션을 통해
 
 통합된 된 시스템에 대해이 절차를 시작 하기 전에 PEP IP 주소 또는 DNS를 통해 액세스할 수 있는지 확인 합니다. Azure 스택의 초기 배포 후의 DNS 통합 아직 설정 되어 있지 않아 IP 주소를 통해서만 PEP을 액세스할 수 있습니다. OEM 하드웨어 공급 업체는 JSON 파일인을 제공 합니다 **AzureStackStampDeploymentInfo** PEP IP 주소가 포함 된 합니다.
 
-으로 연결할 수는 PEP 보안는 전용된 컴퓨터 또는 하드웨어 수명 주기 호스트 에서만에서 같은 것이 좋습니다는 [권한 있는 액세스 워크스테이션](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)합니다.
 
-1. 권한 있는 액세스 워크스테이션에 액세스 합니다.
+> [!NOTE]
+> 보안상의 이유로으로 연결할 수는 PEP 하드웨어 수명 주기 호스트를 기반으로 실행 하는 확정 된 가상 컴퓨터 또는 전용의 안전한 컴퓨터 에서만 같은 해야는 [권한 있는 액세스 워크스테이션](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)합니다. 하드웨어 수명 주기 호스트의 원래 구성을 새 소프트웨어를 설치 하는 등, 원래 구성에서 수정 하지 않아야 하거나는 PEP에 연결 하는 데 사용 해야 합니다.
 
-    - 통합된 된 시스템에는 PEP 하드웨어 수명 주기 호스트 또는 권한 있는 액세스 워크스테이션에서 신뢰할 수 있는 호스트로 추가 하려면 다음 명령을 실행 합니다.
+1. 트러스트를 설정 합니다.
+
+    - 통합된 된 시스템에는 PEP 하드웨어 수명 주기 호스트 또는 권한 있는 액세스 워크스테이션에서 실행 되는 강화 된 가상 컴퓨터의 신뢰할 수 있는 호스트를 추가 하려면 관리자 권한 Windows PowerShell 세션에서 다음 명령을 실행 합니다.
 
       ````PowerShell
         winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
       ````
     - 개발 키트 호스트에는 ADSK를 실행 하는 경우에 로그인 합니다.
 
-2. 하드웨어 수명 주기 호스트 또는 권한 있는 액세스 워크스테이션에서 관리자 권한 Windows PowerShell 세션을 엽니다. PEP를 호스팅하는 가상 컴퓨터에서 원격 세션을 설정 하려면 다음 명령을 실행 합니다.
+2. 하드웨어 수명 주기 호스트 또는 권한 있는 액세스 워크스테이션에서 실행 되는 강화 된 가상 컴퓨터를 Windows PowerShell 세션을 엽니다. PEP를 호스팅하는 가상 컴퓨터에서 원격 세션을 설정 하려면 다음 명령을 실행 합니다.
  
     - 통합 시스템:
       ````PowerShell
@@ -74,11 +77,12 @@ PEP를 호스팅하는 가상 컴퓨터에서 원격 PowerShell 세션을 통해
       ```` 
    대화 상자가 나타나면 다음 자격 증명을 사용 합니다.
 
-      - **사용자 이름**: CloudAdmin 계정 형식 지정  **&lt; *Azure 스택 도메인*&gt;\accountname**합니다. (ASDK에 대 한 사용자 이름이 **azurestack\accountname**.) 
+      - **사용자 이름**: CloudAdmin 계정 형식 지정  **&lt; *Azure 스택 도메인*&gt;\cloudadmin**합니다. (ASDK에 대 한 사용자 이름이 **azurestack\cloudadmin**.)
       - **암호**: AzureStackAdmin 도메인 관리자 계정에 대 한 설치 중에 제공 된 동일한 암호를 입력 합니다.
+
     > [!NOTE]
     > ERCS 끝점에 연결할 수 없는 경우에 두 단계를 이미 않았다면 연결할 ERCS VM의 IP 주소를 사용 하 여 다시 시도 하십시오.
-    
+
 3.  연결 된 후의 프롬프트로 바뀝니다 **[*이름 지정 IP 주소 또는 ERCS VM*]: PS >** 또는 **[azs ercs01]: PS >**환경에 따라 합니다. 여기에서는 실행 `Get-Command` 사용 가능한 cmdlet의 목록을 볼 수 있습니다.
 
     이러한 cmdlet 중 많은 통합된 시스템 환경 (예: 데이터 센터 통합과 관련 cmdlet)에 사용 됩니다. ASDK에서 다음 cmdlet 유효성이 검증 되었습니다.
@@ -116,16 +120,16 @@ PEP은 위에서 설명한 대로 [PowerShell JEA](https://docs.microsoft.com/en
 
 로컬 컴퓨터의 PEP 세션을 가져오려면 다음 단계를 수행 합니다.
 
-1. 권한 있는 액세스 워크스테이션에 액세스 합니다.
+1. 트러스트를 설정 합니다.
 
-    - 통합된 된 시스템에는 PEP 하드웨어 수명 주기 호스트 또는 권한 있는 액세스 워크스테이션에서 신뢰할 수 있는 호스트로 추가 하려면 다음 명령을 실행 합니다.
+    통합된 된 시스템에는 PEP 하드웨어 수명 주기 호스트 또는 권한 있는 액세스 워크스테이션에서 실행 되는 강화 된 가상 컴퓨터의 신뢰할 수 있는 호스트를 추가 하려면 관리자 권한 Windows PowerShell 세션에서 다음 명령을 실행 합니다.
 
       ````PowerShell
         winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
       ````
     - 개발 키트 호스트에는 ADSK를 실행 하는 경우에 로그인 합니다.
 
-2. 하드웨어 수명 주기 호스트 또는 권한 있는 액세스 워크스테이션에서 관리자 권한 Windows PowerShell 세션을 엽니다. PEP를 호스팅하는 가상 컴퓨터에서 원격 세션을 설정 하려면 다음 명령을 실행 합니다.
+2. 하드웨어 수명 주기 호스트 또는 권한 있는 액세스 워크스테이션에서 실행 되는 강화 된 가상 컴퓨터를 Windows PowerShell 세션을 엽니다. PEP를 호스팅하는 가상 컴퓨터에서 원격 세션을 설정 하려면 다음 명령을 실행 합니다.
  
     - 통합 시스템:
       ````PowerShell
@@ -145,7 +149,7 @@ PEP은 위에서 설명한 대로 [PowerShell JEA](https://docs.microsoft.com/en
       ```` 
    대화 상자가 나타나면 다음 자격 증명을 사용 합니다.
 
-      - **사용자 이름**: CloudAdmin 계정 형식 지정  **&lt; *Azure 스택 도메인*&gt;\accountname**합니다. (ASDK에 대 한 사용자 이름이 **azurestack\accountname**.) 
+      - **사용자 이름**: CloudAdmin 계정 형식 지정  **&lt; *Azure 스택 도메인*&gt;\cloudadmin**합니다. (ASDK에 대 한 사용자 이름이 **azurestack\cloudadmin**.)
       - **암호**: AzureStackAdmin 도메인 관리자 계정에 대 한 설치 중에 제공 된 동일한 암호를 입력 합니다.
 
 3. 로컬 컴퓨터에 PEP 세션 가져오기
@@ -157,7 +161,7 @@ PEP은 위에서 설명한 대로 [PowerShell JEA](https://docs.microsoft.com/en
 
 ## <a name="close-the-privileged-endpoint-session"></a>권한 있는 끝점 세션 닫기
 
- 앞서 언급 했 듯이 모든 작업 (및 해당 출력)은 PowerShell 세션에서 수행 하는 PEP 기록 합니다. 사용 하 여 세션을 닫아야는 `Close-PrivilegedEndpoint` cmdlet. 이 cmdlet는 끝점을 올바르게 닫고 보존에 대 한 외부 파일 공유에 로그 파일을 전송 합니다.
+ 앞서 언급 했 듯이 모든 작업 (및 해당 출력)은 PowerShell 세션에서 수행 하는 PEP 기록 합니다. 사용 하 여 세션을 종료 해야 합니다는 `Close-PrivilegedEndpoint` cmdlet. 이 cmdlet는 끝점을 올바르게 닫고 보존에 대 한 외부 파일 공유에 로그 파일을 전송 합니다.
 
 세션을 종료할지 끝점:
 
@@ -167,7 +171,11 @@ PEP은 위에서 설명한 대로 [PowerShell JEA](https://docs.microsoft.com/en
 
     ![대 본 대상 경로 지정 하는 위치를 보여 주는 닫기 PrivilegedEndpoint cmdlet 출력](media/azure-stack-privileged-endpoint/closeendpoint.png)
 
-파일 공유에 기록 로그 파일이 성공적으로 전송, 후 자동으로 PEP에서 삭제 합니다. Cmdlet을 사용 하 여 PEP 세션을 닫으면 `Exit-PSSession` 또는 `Exit`, 또는 PowerShell 콘솔 닫기만, 기록 로그를 파일 공유로 전송 하지 않고 있습니다. 로그는 PEP에 계속 남아 있습니다. 다음에 실행할 때 `Close-PrivilegedEndpoint` 파일 공유를 포함 하 고, 기록 로그에서 이전 세션 전송도 합니다.
+파일 공유에 기록 로그 파일이 성공적으로 전송, 후 자동으로 PEP에서 삭제 합니다. 
+
+> [!NOTE]
+> Cmdlet을 사용 하 여 PEP 세션을 닫으면 `Exit-PSSession` 또는 `Exit`, 또는 PowerShell 콘솔 닫기만, 기록 로그를 파일 공유로 전송 하지 않고 있습니다. 로그는 PEP에 계속 남아 있습니다. 다음에 실행할 때 `Close-PrivilegedEndpoint` 파일 공유를 포함 하 고, 기록 로그에서 이전 세션 전송도 합니다. 사용 하지 마십시오 `Exit-PSSession` 또는 `Exit` ; PEP 세션을 닫으면 사용 `Close-PrivilegedEndpoint` 대신 합니다.
+
 
 ## <a name="next-steps"></a>다음 단계
 [Azure 스택 진단 도구](azure-stack-diagnostics.md)
