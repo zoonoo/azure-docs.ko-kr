@@ -1,23 +1,23 @@
 ---
-title: "데이터 과학 팀 프로젝트용 플랫폼 및 도구 - Azure | Microsoft Docs"
-description: "Team Data Science Process를 표준화하는 기업에서 사용할 수 있는 데이터 및 분석 리소스를 항목별로 정리하고 설명합니다."
-documentationcenter: 
+title: 데이터 과학 팀 프로젝트용 플랫폼 및 도구 - Azure | Microsoft Docs
+description: Team Data Science Process를 표준화하는 기업에서 사용할 수 있는 데이터 및 분석 리소스를 항목별로 정리하고 설명합니다.
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
-ms.author: bradsev;
-ms.openlocfilehash: 3ec2eaaf4e8d54e7b1ea3d272c47eac96451f317
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.author: bradsev
+ms.openlocfilehash: 404e3dd106edf82f4f22e4c6a17987bd0bc51f65
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="platforms-and-tools-for-data-science-team-projects"></a>데이터 과학 팀 프로젝트용 플랫폼 및 도구
 
@@ -25,17 +25,17 @@ Microsoft는 클라우드 또는 온 프레미스 플랫폼 모두에 대해 광
 
 TDSP를 사용하는 데이터 과학 팀에서 사용할 수 있는 데이터 및 분석 서비스는 다음과 같습니다.
 
-- 데이터 과학 가상 컴퓨터(Windows 및 Linux CentOS)
+- 데이터 과학 Virtual Machine(Windows 및 Linux CentOS)
 - HDInsight Spark 클러스터
 - SQL Data Warehouse
-- Azure 데이터 레이크
+- Azure Data Lake
 - HDInsight Hive 클러스터
 - Azure File Storage
 - SQL Server 2016 R Services
 
 이 문서에서는 리소스를 간략히 설명하고 TDSP 팀에서 게시한 자습서 및 연습에 대한 링크를 제공합니다. 단계별로 사용하는 방법을 배우고, 지능형 응용 프로그램을 빌드하는 데 사용할 수 있습니다. 이러한 리소스에 대한 자세한 내용은 해당 제품 페이지에서 확인할 수 있습니다. 
 
-## <a name="data-science-virtual-machine-dsvm"></a>DSVM(데이터 과학 가상 컴퓨터)
+## <a name="data-science-virtual-machine-dsvm"></a>DSVM(데이터 과학 Virtual Machine)
 
 Microsoft에서 Windows 및 Linux 모두에 제공하는 데이터 과학 가상 컴퓨터에는 데이터 과학 모델링 및 개발 작업을 위한 인기 있는 도구가 포함되어 있습니다. 이러한 도구는 다음과 같습니다.
 
@@ -50,9 +50,9 @@ Microsoft에서 Windows 및 Linux 모두에 제공하는 데이터 과학 가상
 
 현재 DSVM은 **Windows** 및 **Linux CentOS** 운영 체제에서 사용할 수 있습니다. 실행하려는 데이터 과학 프로젝트의 요구 사항에 따라 DSVM의 크기(CPU 코어 수 및 메모리 양)를 선택합니다. 
 
-DSVM의 Windows 버전에 대한 자세한 내용은 Azure 마켓플레이스의 [Microsoft 데이터 과학 가상 컴퓨터](https://azure.microsoft.com/marketplace/partners/microsoft-ads/standard-data-science-vm/)를 참조하세요. Linux DSVM 버전의 경우 [Linux 데이터 과학 가상 컴퓨터](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm/)를 참조하세요.
+DSVM의 Windows 버전에 대한 자세한 내용은 Azure 마켓플레이스의 [Microsoft 데이터 과학 Virtual Machine](https://azure.microsoft.com/marketplace/partners/microsoft-ads/standard-data-science-vm/)을 참조하세요. Linux DSVM 버전의 경우 [Linux 데이터 과학 Virtual Machine](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm/)을 참조하세요.
 
-DSVM에서 일반적인 데이터 과학 작업 중 일부를 효율적으로 수행하는 방법을 알아보려면 [데이터 과학 가상 컴퓨터에서 수행할 수 있는 10가지 작업](../data-science-virtual-machine/vm-do-ten-things.md)을 참조하세요.
+DSVM에서 일반적인 데이터 과학 작업 중 일부를 효율적으로 수행하는 방법을 알아보려면 [데이터 과학 Virtual Machine에서 수행할 수 있는 10가지 작업](../data-science-virtual-machine/vm-do-ten-things.md)을 참조하세요.
 
 
 ## <a name="azure-hdinsight-spark-clusters"></a>Azure HDInsight Spark 클러스터
@@ -71,7 +71,7 @@ Azure SQL Data Warehouse를 사용하면 과도하게 프로비전하거나 요�
 Azure SQL Data Warehouse에 대한 자세한 내용은 [SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse) 웹 사이트를 참조하세요. SQL Data Warehouse를 사용하여 종단 간 고급 분석 솔루션을 빌드하는 방법은 [실행 중인 Team Data Science Process: SQL Data Warehouse 사용](sqldw-walkthrough.md)을 참조하세요.
 
 
-## <a name="azure-data-lake"></a>Azure 데이터 레이크
+## <a name="azure-data-lake"></a>Azure Data Lake
 
 Azure Data Lake는 공식 요구 사항이나 스키마가 적용되기 전에 모든 형식의 데이터를 단일 위치에 수집하는 엔터프라이즈 수준의 리포지토리입니다. 이러한 유연성을 통해 크기, 구조 또는 수집 속도에 관계 없이 모든 형식의 데이터를 데이터 레이크에 보관할 수 있습니다. 그런 다음 조직에서는 Hadoop 또는 고급 분석을 사용하여 이러한 데이터 레이크에서 패턴을 찾을 수 있습니다. 또한 데이터 레이크는 데이터를 큐레이팅하고 데이터 웨어하우스로 이동하기 전에 저렴한 비용으로 데이터를 준비하기 위한 리포지토리 역할을 수행할 수 있습니다.
 
@@ -91,7 +91,7 @@ Azure HDInsight Hive 클러스터에 대한 자세한 내용은 [HDInsight의 Ha
 
 ## <a name="azure-file-storage"></a>Azure File Storage 
 
-Azure File Storage는 표준 SMB(서버 메시지 블록) 프로토콜을 사용하여 클라우드에서 파일 공유를 제공하는 서비스입니다. SMB 2.1과 SMB 3.0 모두를 지원합니다. Azure 파일 저장소를 사용하여 파일 공유에 의존하는 레거시 응용 프로그램을 비경제적인 다시 쓰기 작업 없이 빠르게 Azure로 마이그레이션할 수 있습니다. Azure 가상 컴퓨터 또는 클라우드 서비스 또는 온-프레미스 클라이언트에서 실행되는 응용 프로그램은 데스크톱 응용 프로그램이 일반적인 SMB 공유를 탑재하는 것처럼 클라우드에 파일 공유를 탑재할 수 있습니다. File Storage 공유를 동시에 탑재하고 액세스할 수 있는 응용 프로그램 구성 요소 수에는 제한이 없습니다.
+Azure File Storage는 표준 SMB(서버 메시지 블록) 프로토콜을 사용하여 클라우드에서 파일 공유를 제공하는 서비스입니다. SMB 2.1과 SMB 3.0 모두를 지원합니다. Azure 파일 저장소를 사용하여 파일 공유에 의존하는 레거시 응용 프로그램을 비경제적인 다시 쓰기 작업 없이 빠르게 Azure로 마이그레이션할 수 있습니다. Azure 가상 머신 또는 클라우드 서비스 또는 온-프레미스 클라이언트에서 실행되는 응용 프로그램은 데스크톱 응용 프로그램이 일반적인 SMB 공유를 탑재하는 것처럼 클라우드에 파일 공유를 탑재할 수 있습니다. File Storage 공유를 동시에 탑재하고 액세스할 수 있는 응용 프로그램 구성 요소 수에는 제한이 없습니다.
 
 Azure 파일 저장소를 프로젝트 팀 구성원과 프로젝트 데이터를 공유할 수 있는 장소로 만드는 기능은 특히 데이터 과학 프로젝트에 유용합니다. 그러면 각 구성원이 Azure 파일 저장소에 있는 동일한 데이터 복사본에 액세스할 수 있습니다. 또한 이 파일 저장소를 사용하여 프로젝트 실행 중에 생성된 기능 집합을 공유할 수도 있습니다. 클라이언트가 참여하는 프로젝트인 경우 클라이언트에서 자체의 Azure 구독으로 Azure 파일 저장소를 만들어 프로젝트 데이터와 기능을 공유할 수 있습니다. 클라이언트에는 이러한 방식으로 프로젝트 데이터 자산에 대한 모든 권한이 있게 됩니다. Azure File Storage에 대한 자세한 내용은 [Windows에서 Azure File Storage 시작](https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-files) 또는 [Linux에서 Azure File Storage를 사용하는 방법](../../storage/files/storage-how-to-use-files-linux.md)을 참조하세요.
 

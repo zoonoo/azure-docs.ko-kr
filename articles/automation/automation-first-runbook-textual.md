@@ -1,25 +1,19 @@
 ---
-title: "Azure Automation의 내 첫 번째 PowerShell 워크플로 Runbook | Microsoft Docs"
-description: "PowerShell 워크플로를 사용하여 간단한 텍스트 Runbook의 생성, 테스트, 게시 과정을 안내하는 자습서입니다."
+title: Azure Automation의 내 첫 번째 PowerShell 워크플로 Runbook
+description: PowerShell 워크플로를 사용하여 간단한 텍스트 Runbook의 생성, 테스트, 게시 과정을 안내하는 자습서입니다.
+keywords: Powershell 워크플로, Powershell 워크플로 예제, 워크플로 Powershell
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: jwhit
-editor: 
-keywords: "Powershell 워크플로, Powershell 워크플로 예제, 워크플로 Powershell"
-ms.assetid: 0002d7f7-e2b5-46e3-b5eb-4596b84fd526
 ms.service: automation
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.date: 08/31/2017
-ms.author: magoedte;bwren
-ms.openlocfilehash: 62cb96075deed6c252ae44c8a000e820cb691a90
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+manager: carmonm
+ms.openlocfilehash: b29fd8a576b4360b8465cc59db606fb1a8f2a02d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="my-first-powershell-workflow-runbook"></a>내 첫 번째 PowerShell 워크플로 Runbook
 

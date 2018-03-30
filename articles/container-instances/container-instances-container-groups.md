@@ -1,19 +1,19 @@
 ---
-title: "Azure Container Instances 컨테이너 그룹"
-description: "컨테이너 그룹이 Azure Container Instances에서 작동하는 방법 이해"
+title: Azure Container Instances 컨테이너 그룹
+description: 컨테이너 그룹이 Azure Container Instances에서 작동하는 방법 이해
 services: container-instances
 author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: article
-ms.date: 12/19/2017
+ms.date: 03/19/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: a42c01917926a4297c97cf9c5dfd1333dbef6793
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 6f7f0d9aea86594140c302e6d12e6528e802b9e7
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Azure Container Instances의 컨테이너 그룹
 
@@ -23,19 +23,24 @@ Azure Container Instances의 최상위 리소스는 *컨테이너 그룹*입니�
 
 컨테이너 그룹은 같은 호스트 컴퓨터에서 예약되어 있는 컨테이너 컬렉션입니다. 컨테이너 그룹의 컨테이너는 수명 주기, 로컬 네트워크 및 저장소 볼륨을 공유합니다. [Kubernetes][kubernetes-pod] 및 [DC/OS][dcos-pod]의 *Pod* 개념과 유사합니다.
 
-다음 다이어그램은 여러 컨테이너가 포함된 컨테이너 그룹의 예를 보여 줍니다.
+다음 다이어그램은 여러 컨테이너가 포함된 컨테이너 그룹의 예를 보여줍니다.
 
 ![컨테이너 그룹 다이어그램][container-groups-example]
 
 이 예제 컨테이너 그룹은 다음과 같습니다.
 
 * 단일 호스트 컴퓨터에서 예약됩니다.
+* DNS 이름 레이블이 할당됩니다.
 * 1개의 노출 포트가 있는 단일 공용 IP 주소를 노출합니다.
 * 두 개의 컨테이너로 구성됩니다. 하나의 컨테이너는 포트 80을 수신하고, 다른 컨테이너는 포트 5000을 수신합니다.
 * 볼륨 탑재로 2개의 Azure 파일 공유가 포함되어 있으며, 각 컨테이너는 공유 중 하나를 로컬에서 탑재합니다.
 
 > [!NOTE]
 > 현재 다중 컨테이너 그룹은 Linux 컨테이너에 제한됩니다. 모든 기능을 Windows 컨테이너에서 제공하려고 합니다. 그 동안 [Azure Container Instances에 대한 할당량 및 지역 가용성](container-instances-quotas.md)에서 현재 플랫폼의 차이점을 찾을 수 있습니다.
+
+### <a name="deployment"></a>배포
+
+**컨테이너 그룹**에는 최소 1개의 vCPU 및 1GB의 메모리 할당 리소스가 있습니다. **개별 컨테이너**는 메모리 1GB 및 vCPU 1개 및 미만을 사용하여 프로비전할 수 있습니다. 컨테이너 그룹 내에서 리소스 배포는 컨테이너 그룹 수준에서 설정된 한도 내에서 여러 컨테이너로 사용자 지정할 수 있습니다. 예를 들면, 1개의 vCPU가 할당된 컨테이너 그룹 내에 각각 0.5개의 vCPU가 있는 두 개의 컨테이너입니다.
 
 ### <a name="networking"></a>네트워킹
 
@@ -47,7 +52,7 @@ Azure Container Instances의 최상위 리소스는 *컨테이너 그룹*입니�
 
 ## <a name="common-scenarios"></a>일반적인 시나리오
 
-다중 컨테이너 그룹은 단일한 기능적 작업을 다른 팀을 통해 전달하고 별도의 리소스 요구 사항을 갖도록 작은 여러 컨테이너 이미지로 나누려는 경우에 유용합니다.
+다중 컨테이너 그룹은 단일 기능 작업을 적은 수의 컨테이너 이미지로 나누려는 경우에 유용합니다. 이러한 이미지는 다른 팀에서 제공될 수 있으며 별도의 리소스 요구 사항을 가질 수 있습니다.
 
 사용 예는 다음과 같습니다.
 

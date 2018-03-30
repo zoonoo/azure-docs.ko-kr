@@ -1,11 +1,10 @@
 ---
-title: "데이터 파이프라인 모니터링 및 관리 - Azure | Microsoft Docs"
-description: "모니터링 및 관리 앱을 사용하여 Azure Data Factory 및 파이프라인을 모니터링하고 관리하는 방법을 알아봅니다."
+title: 데이터 파이프라인 모니터링 및 관리 - Azure | Microsoft Docs
+description: 모니터링 및 관리 앱을 사용하여 Azure Data Factory 및 파이프라인을 모니터링하고 관리하는 방법을 알아봅니다.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: f3f07bc4-6dc3-4d4d-ac22-0be62189d578
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 4d4371b1372a7ed492faacf16813ae3e3f4c4697
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: f5ca5544a217d66d334ff468d2308af1836c7de8
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>모니터링 및 관리 앱을 사용하여 Azure Data Factory 파이프라인 모니터링 및 관리
 > [!div class="op_single_selector"]
@@ -31,7 +30,7 @@ ms.lasthandoff: 03/02/2018
 > [!NOTE]
 > 이 문서는 GA(일반 공급) 상태인 Data Factory 버전 1에 적용됩니다. 미리 보기 상태인 Data Factory 버전 2 서비스를 사용 중인 경우 [버전 2에서 Data Factory 파이프라인 모니터링 및 관리](../monitor-visually.md)를 참조하세요.
 
-이 문서는 모니터링 및 관리 앱을 사용하여 Data Factory 파이프라인을 모니터링하고 관리하고 디버그하는 방법을 설명합니다. 또한 경고를 생성하여 오류에 대한 알림을 받는 방법에 대한 정보도 제공합니다. 다음 비디오를 시청하여 응용 프로그램 사용을 시작할 수 있습니다.
+이 문서는 모니터링 및 관리 앱을 사용하여 Data Factory 파이프라인을 모니터링하고 관리하고 디버그하는 방법을 설명합니다. 다음 비디오를 시청하여 응용 프로그램 사용을 시작할 수 있습니다.
 
 > [!NOTE]
 > 비디오에 표시된 사용자 인터페이스는 포털에 표시된 것과 정확하게 일치하지 않을 수 있습니다. 약간 더 오래되었지만 개념은 동일합니다. 
@@ -297,42 +296,3 @@ Ctrl 키를 사용하여 두 개 이상의 파이프라인을 다중 선택할 �
 Ctrl 키를 사용하여 두 개 이상의 파이프라인을 다중 선택할 수 있습니다. 명령 모음 단추(아래 이미지에 빨간색 사각형으로 강조 표시됨)를 사용하여 일시 중지/다시 시작할 수 있습니다.
 
 ![명령 모음에서 일시 중지/다시 시작](./media/data-factory-monitor-manage-app/SuspendResumeOnCommandBar.png)
-
-## <a name="create-alerts"></a>경고 만들기
-**경고** 페이지에서 경고를 만들고 기존 경고를 보기/편집/삭제할 수 있습니다. 또한 경고를 사용하지 않거나/사용할 수 있습니다. 경고 페이지를 보려면 **경고** 탭을 클릭합니다.
-
-![경고 탭](./media/data-factory-monitor-manage-app/AlertsTab.png)
-
-### <a name="to-create-an-alert"></a>경고를 만들려면
-1. **경고 추가** 를 클릭하여 경고를 추가합니다. **세부 정보** 페이지가 표시됩니다.
-
-    ![경고 만들기 - 세부 정보 페이지](./media/data-factory-monitor-manage-app/CreateAlertDetailsPage.png)
-2. 경고에 대한 **이름** 및 **설명**을 지정하고 **다음**을 클릭합니다. **필터** 페이지를 참조해야 합니다.
-
-    ![경고 만들기 - 필터 페이지](./media/data-factory-monitor-manage-app/CreateAlertFiltersPage.png)
-3. Data Factory 서비스에서 경고를 보낼 **이벤트**, **상태** 및 **하위 상태**(선택 사항)를 선택하고 **다음**을 클릭합니다. **받는 사람** 페이지가 표시됩니다.
-
-    ![경고 만들기 - 받는 사람 페이지](./media/data-factory-monitor-manage-app/CreateAlertRecipientsPage.png)
-4. **Email subscription admins**(전자 메일 구독 관리자) 옵션을 선택하거나 **additional administrator email**(추가 관리자 전자 메일)을 입력한 다음 **마침**을 클릭합니다. 목록에서 경고가 표시되어야 합니다.
-
-    ![경고 목록](./media/data-factory-monitor-manage-app/AlertsList.png)
-
-경고 목록에서 경고와 관련된 단추를 사용하여 경고를 편집/삭제/비활성화/활성화합니다.
-
-### <a name="eventstatussubstatus"></a>이벤트/상태/하위 상태
-다음 테이블은 사용 가능한 이벤트 및 상태(및 하위 상태) 목록을 제공합니다.
-
-| 이벤트 이름 | 상태 | 하위 상태 |
-| --- | --- | --- |
-| 작업 실행 시작 |Started |시작 중 |
-| 작업 실행 완료 |Succeeded |Succeeded |
-| 작업 실행 완료 |실패 |실패한 리소스 할당<br/><br/>실패한 실행<br/><br/>Timed Out<br/><br/>Failed Validation<br/><br/>Abandoned |
-| 주문형 HDI 클러스터 만들기 시작 |Started |-|
-| 주문형 HDI 클러스터 성공적으로 생성 |Succeeded |-|
-| 주문형 HDI 클러스터 삭제 |Succeeded |-|
-
-### <a name="to-edit-delete-or-disable-an-alert"></a>경고를 편집, 삭제 또는 비활성화하려면
-
-다음 단추(빨간색으로 강조 표시됨)를 사용하여 경고를 편집, 삭제 또는 비활성화합니다.
-
-![경고 단추](./media/data-factory-monitor-manage-app/AlertButtons.png)

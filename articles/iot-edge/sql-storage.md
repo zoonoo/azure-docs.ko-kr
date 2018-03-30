@@ -9,11 +9,11 @@ ms.author: kgremban, ebertrams
 ms.date: 02/21/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: ce3c3abd00dba23887b5f811af6cab8d2c83323d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 792e754b84f1dc03a32780ed94d274c833be68f5
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="store-data-at-the-edge-with-sql-server-databases"></a>SQL Server 데이터베이스로 에지에 데이터 저장
 
@@ -67,7 +67,7 @@ x64 프로세서 아키텍처의 Windows 및 Linux 컨테이너는 모두 이 �
             "status": "running",
             "restartPolicy": "always",
             "settings": {
-              "image": "localhost:5000/filterfunction:latest",
+              "image": "<docker registry address>/filterfunction:latest",
               "createOptions": "{}"
             }
           },
@@ -94,7 +94,12 @@ x64 프로세서 아키텍처의 Windows 및 Linux 컨테이너는 모두 이 �
         }
    ```
 
-3. 실행 중인 운영 체제에 따라 SQL 모듈에 대한 설정을 다음 코드로 업데이트합니다. 
+3. `<docker registry address>`를 완성된 자습서 [IoT Edge 모듈로 Azure Function 배포 - 미리 보기](https://docs.microsoft.com/en-us/azure/iot-edge/tutorial-deploy-function)에서 채워진 주소로 바꿉니다.
+
+   >[!NOTE]
+   >컨테이너 레지스트리 주소는 레지스트리에서 복사한 로그인 서버와 같습니다. `<your container registry name>.azurecr.io` 형식이어야 합니다.
+
+4. 실행 중인 운영 체제에 따라 SQL 모듈에 대한 설정을 다음 코드로 업데이트합니다. 
 
    * Windows:
 
@@ -110,11 +115,11 @@ x64 프로세서 아키텍처의 Windows 및 Linux 컨테이너는 모두 이 �
       "createOptions": "{\"Env\": [\"ACCEPT_EULA=Y\",\"MSSQL_SA_PASSWORD=Strong!Passw0rd\"],\"HostConfig\": {\"Mounts\": [{\"Target\": \"/var/opt/mssql\",\"Source\": \"sqlVolume\",\"Type\": \"volume\"}],\"PortBindings\": {\"1433/tcp\": [{\"HostPort\": \"1401\"}]}}}"
       ```
 
-4. 파일을 저장합니다. 
-5. VS Code 명령 팔레트에서 **Edge: Edge 장치에 대한 배포 만들기**를 선택합니다. 
-6. IoT Edge 장치 ID를 선택합니다.
-7. 업데이트한 `deployment.json` 파일을 선택합니다. 출력 창에서 배포에 해당하는 출력을 볼 수 있습니다. 
-8. Edge 런타임을 시작하려면 명령 팔레트에서 **Edge: Edge 시작**을 선택합니다.
+5. 파일을 저장합니다. 
+6. VS Code 명령 팔레트에서 **Edge: Edge 장치에 대한 배포 만들기**를 선택합니다. 
+7. IoT Edge 장치 ID를 선택합니다.
+8. 업데이트한 `deployment.json` 파일을 선택합니다. 출력 창에서 배포에 해당하는 출력을 볼 수 있습니다. 
+9. Edge 런타임을 시작하려면 명령 팔레트에서 **Edge: Edge 시작**을 선택합니다.
 
 >[!TIP]
 >프로덕션 환경에서 SQL Server 컨테이너를 만들 때마다 [기본 시스템 관리자 암호를 변경](https://docs.microsoft.com/sql/linux/quickstart-install-connect-docker#change-the-sa-password)해야 합니다.

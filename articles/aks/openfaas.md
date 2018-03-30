@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/05/2018
 ms.author: juda
 ms.custom: mvc
-ms.openlocfilehash: 06706450d8af6f571f002789815290f75da9623d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: d531bb40421716bf9fb3c253a3e76207b2806912
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="using-openfaas-on-aks"></a>AKS에서 OpenFaaS 사용
 
@@ -230,7 +230,7 @@ OpenFaaS UI 내에서 함수를 테스트할 수도 있습니다.
 
 ![대체 텍스트](media/container-service-serverless/OpenFaaSUI.png)
 
-# <a name="next-steps"></a>다음 단계
+## <a name="next-steps"></a>다음 단계
 
 OpenFaas의 기본 배포는 OpenFaaS 게이트웨이 및 함수 모두에 대해 잠겨 있어야 합니다. [Alex Ellis 블로그 게시물](https://blog.alexellis.io/lock-down-openfaas/)에는 보안 구성 옵션에 대한 더 많은 세부 정보가 포함됩니다. 
 

@@ -1,8 +1,8 @@
 ---
-title: "사용자 지정 정책의 문제를 해결하기 위한 Application Insights - Azure AD B2C | Microsoft Docs"
-description: "Application Insights를 설정하여 사용자 지정 정책의 실행을 추적하는 방법"
+title: 사용자 지정 정책의 문제를 해결하기 위한 Application Insights - Azure AD B2C | Microsoft Docs
+description: Application Insights를 설정하여 사용자 지정 정책의 실행을 추적하는 방법
 services: active-directory-b2c
-documentationcenter: 
+documentationcenter: ''
 author: saeedakhter-msft
 manager: mtillman
 editor: parakhj
@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 08/04/2017
 ms.author: saeda
-ms.openlocfilehash: 65a39479b4d4b86d569501636e4a0678b052d426
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 4f71380917a5a29497da9831791cd9f86ec4c8ca
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-active-directory-b2c-collecting-logs"></a>Azure Active Directory B2C: 로그 수집
 
@@ -105,6 +105,8 @@ traces \| where timestamp > ago(1d) | 마지막 날에 Azure AD B2C에서 생성
 
 >[!NOTE]
 >커뮤니티는 ID 개발자에게 도움을 주는 사용자 경험 뷰어를 개발했습니다.  Microsoft에서 지원되지 않고 엄격하게 그대로 사용할 수 없습니다.  Application Insights 인스턴스에서 읽고 사용자 경험 이벤트의 올바른 구조 보기를 제공합니다.  소스 코드를 가져오고 고유한 솔루션에 배포합니다.
+
+Application Insights의 이벤트를 읽는 뷰어 버전은 [여기](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies/tree/master/wingtipgamesb2c/src/WingTipUserJourneyPlayerWebApplication)에 있습니다.
 
 >[!NOTE]
 >현재 여기에 설명된 자세한 활동 로그는 **오직** 사용자 지정 정책 개발에 도움이 되도록 설계되었습니다. 프로덕션에서 개발 모드를 사용하지 않습니다.  로그는 개발 중에 ID 공급자 간에 전송된 모든 클레임을 수집합니다.  프로덕션에서 사용하는 경우 개발자는 소유한 App Insights 로그에서 수집된 PII(개인적으로 식별 가능한 정보)에 대한 책임이 있다고 가정합니다.  이러한 자세한 로그는 정책이 **개발 모드**인 경우에만 수집됩니다.

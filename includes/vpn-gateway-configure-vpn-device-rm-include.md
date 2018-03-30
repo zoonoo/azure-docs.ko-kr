@@ -1,3 +1,19 @@
+---
+title: 포함 파일
+description: 포함 파일
+services: vpn-gateway
+author: cherylmc
+ms.service: vpn-gateway
+ms.topic: include
+ms.date: 03/21/2018
+ms.author: cherylmc
+ms.custom: include file
+ms.openlocfilehash: b5aea9d7fe54402693be095350f7c095334fd4b5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 03/23/2018
+---
 **VPN 장치 구성 스크립트를 다운로드하려면,**
 
 사용하고 있는 VPN 장치에 따라 VPN 장치 구성 스크립트를 다운로드할 수 있습니다. 자세한 내용은 [VPN 장치 구성 스크립트 다운로드](../articles/vpn-gateway/vpn-gateway-download-vpndevicescript.md)를 참조하세요.

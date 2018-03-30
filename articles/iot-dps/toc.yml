@@ -13,9 +13,9 @@
       href: quick-setup-auto-provision.md
     - name: 자동 프로비전 설정 - 템플릿
       href: quick-setup-auto-provision-rm.md
-    - name: 시뮬레이션된 장치 만들기
+    - name: 시뮬레이트된 장치 자동 프로비전
       items:
-        - name: TPM
+        - name: TPM 증명
           items:
             - name: C
               href: quick-create-simulated-device.md
@@ -27,7 +27,7 @@
               href: quick-create-simulated-device-tpm-node.md
             - name: 파이썬
               href: quick-create-simulated-device-tpm-python.md
-        - name: X.509
+        - name: X.509 증명
           items:
             - name: C
               href: quick-create-simulated-device-x509.md
@@ -39,9 +39,9 @@
               href: quick-create-simulated-device-x509-node.md
             - name: 파이썬
               href: quick-create-simulated-device-x509-python.md
-    - name: 장치 등록
+    - name: 프로비전 서비스 API를 사용하여 장치 등록
       items:
-        - name: TPM
+        - name: TPM 증명
           items:
             - name: 자바
               href: quick-enroll-device-tpm-java.md
@@ -51,7 +51,7 @@
               href: quick-enroll-device-tpm-node.md
             - name: 파이썬
               href: quick-enroll-device-tpm-python.md
-        - name: X.509
+        - name: X.509 증명
           items:
             - name: 자바
               href: quick-enroll-device-x509-java.md
@@ -79,12 +79,14 @@
       href: tutorial-group-enrollments.md
 - name: 개념
   items:
-    - name: 장치 개념
+    - name: 자동 프로비전
+      href: concepts-auto-provisioning.md
+    - name: 장치
       href: concepts-device.md
-    - name: 서비스 개념
-      href: concepts-service.md
-    - name: 보안 개념
+    - name: 보안
       href: concepts-security.md
+    - name: 서비스
+      href: concepts-service.md
 - name: 방법 가이드
   items:
     - name: 장치 등록 관리

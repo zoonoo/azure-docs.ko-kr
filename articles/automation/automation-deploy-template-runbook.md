@@ -1,23 +1,19 @@
 ---
-title: "Azure Automation Runbook에 Azure Resource Manager 템플릿 배포 | Microsoft Docs"
-description: "Runbook에서 Azure Storage에 저장된 Azure Resource Manager 템플릿을 배포하는 방법"
+title: Azure Automation Runbook에 Azure Resource Manager 템플릿 배포
+description: Runbook에서 Azure Storage에 저장된 Azure Resource Manager 템플릿을 배포하는 방법
 services: automation
-documentationcenter: dev-center-name
+ms.service: automation
 author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
+ms.topic: article
 manager: carmonm
 keywords: powershell,  runbook, json, azure automation
-ms.service: automation
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: powershell
-ms.workload: TBD
-ms.date: 07/09/2017
-ms.author: gwallace
-ms.openlocfilehash: 63c8f1b1190e19e1f1d2a7871bffee44ef5c7877
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 1767f2a3c14540344c2059f1f25bfc4825fa827b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="deploy-an-azure-resource-manager-template-in-an-azure-automation-powershell-runbook"></a>Azure Automation PowerShell Runbook에 Azure Resource Manager 템플릿 배포
 

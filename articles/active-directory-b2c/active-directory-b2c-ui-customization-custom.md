@@ -1,24 +1,21 @@
 ---
-title: "사용자 지정 정책을 사용하여 UI 사용자 지정 - Azure AD B2C | Microsoft Docs"
-description: "Azure AD B2C에서 사용자 지정 정책을 사용하는 동안 UI(사용자 인터페이스)를 사용자 지정하는 방법에 대해 알아봅니다."
+title: 사용자 지정 정책을 사용하여 UI 사용자 지정 - Azure AD B2C | Microsoft Docs
+description: Azure AD B2C에서 사용자 지정 정책을 사용하는 동안 UI(사용자 인터페이스)를 사용자 지정하는 방법에 대해 알아봅니다.
 services: active-directory-b2c
-documentationcenter: 
-author: saeedakhter-msft
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.assetid: 658c597e-3787-465e-b377-26aebc94e46d
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 04/04/2017
-ms.author: saeedakhter-msft
-ms.openlocfilehash: c430b488016f038ed1d7a67a8d52c057df1ea40e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: 659910f239087a1d87d650c05af157c085e8c72c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-configure-ui-customization-in-a-custom-policy"></a>Azure Active Directory B2C: 사용자 지정 정책에서 UI 사용자 지정 구성
 
@@ -66,7 +63,7 @@ ms.lasthandoff: 12/11/2017
 
 Blob 저장소에서 이 HTML 콘텐츠를 호스팅하려면 다음을 수행합니다.
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **허브** 메뉴에서 **새로 만들기** > **저장소** > **저장소 계정**을 차례로 선택합니다.
 3. 저장소 계정의 고유한 **이름**을 입력합니다.
 4. **배포 모델**은 **Resource Manager**로 유지하면 됩니다.
@@ -118,7 +115,7 @@ Blob 저장소에 공용 컨테이너를 만들려면 다음을 수행합니다.
 
 다음을 수행하여 준비가 되었는지 확인합니다.
 
-1. [test-cors.org](http://test-cors.org/) 웹 사이트로 이동한 다음 **원격 URL** 상자에 URL을 붙여넣습니다.
+1. [www.test-cors.org](http://www.test-cors.org/) 웹 사이트로 이동한 다음, **원격 URL** 상자에 URL을 붙여넣습니다.
 2. **요청 보내기**를 클릭합니다.  
     오류가 발생하는 경우 [CORS 설정](#configure-cors)이 올바른지 확인합니다. Ctrl+Shift+P를 눌러 브라우저 캐시를 비우거나 개인 검색 세션을 열어야 할 수도 있습니다.
 
@@ -149,7 +146,7 @@ Blob 저장소에 공용 컨테이너를 만들려면 다음을 수행합니다.
 2. 업로드한 사용자 지정 정책을 선택하고 **지금 실행** 단추를 클릭합니다.
 3. 이메일 주소를 사용하여 등록할 수 있습니다.
 
-## <a name="reference"></a>참조
+## <a name="reference"></a>참고 자료
 
 UI 사용자 지정을 위한 샘플 템플릿은 다음에서 찾을 수 있습니다.
 

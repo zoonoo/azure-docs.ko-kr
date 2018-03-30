@@ -1,6 +1,6 @@
 ---
-title: "Azure Cosmos DB: SQL .NET API, SDK 및 리소스 | Microsoft Docs"
-description: "릴리스 날짜, 사용 중지 날짜 및 Azure Cosmos DB .NET SDK의 각 버전 간 변경 내용을 포함하여 SQL .NET API 및 SDK에 대한 모든 것을 알아봅니다."
+title: 'Azure Cosmos DB: SQL .NET API, SDK 및 리소스 | Microsoft Docs'
+description: 릴리스 날짜, 사용 중지 날짜 및 Azure Cosmos DB .NET SDK의 각 버전 간 변경 내용을 포함하여 SQL .NET API 및 SDK에 대한 모든 것을 알아봅니다.
 services: cosmos-db
 documentationcenter: .net
 author: rnagpal
@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 03/09/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 825b2657cc6aa7b4e116f44020767beff911b1fc
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 5dd2fb353246120f58840914e8a4e5527d7a4486
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB .NET SDK for SQL API: 다운로드 및 릴리스 정보
 > [!div class="op_single_selector"]
@@ -54,6 +54,11 @@ ms.lasthandoff: 03/12/2018
 </table></br>
 
 ## <a name="release-notes"></a>릴리스 정보
+### <a name="a-name12111211"></a><a name="1.21.1"/>1.21.1
+
+* 코너 사례에서 쿼리로 파티션 간 순서에 대한 KeyNotFoundException을 수정했습니다.
+* LINQ 쿼리에 대한 select 절에 JsonPropery 특성이 적용되지 않았던 버그가 수정되었습니다.
+
 ### <a name="a-name12021202"></a><a name="1.20.2"/>1.20.2
 
 * 세션 일관성 수준을 사용하는 경우 일시적 “Microsoft.Azure.Documents.NotFoundException: 읽기 세션을 입력 세션 토큰에 사용할 수 없습니다” 오류로 이어지는 특정 경합 조건에 도달하는 버그가 수정되었습니다.
@@ -290,6 +295,8 @@ Microsoft는 최신/지원 버전으로 원활히 전환할 수 있도록 SDK �
 
 | 버전 | 릴리스 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
+| [1.21.1](#1.20.1) |2018년 3월 9일 |--- |
+| [1.20.2](#1.20.1) |2018년 2월 21일 |--- |
 | [1.20.1](#1.20.1) |2018년 2월 5일 |--- |
 | [1.19.1](#1.19.1) |2017년 11월 16일 |--- |
 | [1.19.0](#1.19.0) |2017년 11월 10일 |--- |

@@ -27,6 +27,8 @@
   items:
     - name: Azure Stack 포털 사용
       href: azure-stack-use-portal.md
+    - name: Azure 스택 API를 사용 하 여
+      href: azure-stack-rest-api-use.md
     - name: 보안 및 규정 준수
       items:
         - name: RBAC 관리

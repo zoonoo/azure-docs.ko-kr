@@ -1,8 +1,8 @@
 ---
-title: "Azure Data Lake Store 사용을 위한 모범 사례 | Microsoft Docs"
-description: "Azure Data Lake Store 사용과 관련된 데이터 수집, 날짜 보안 및 성능에 대한 모범 사례를 알아봅니다."
+title: Azure Data Lake Store 사용을 위한 모범 사례 | Microsoft Docs
+description: Azure Data Lake Store 사용과 관련된 데이터 수집, 날짜 보안 및 성능에 대한 모범 사례를 알아봅니다.
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: sachinsbigdata
 manager: jhubbard
 editor: cgronlun
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/02/2018
 ms.author: sachins
-ms.openlocfilehash: d3a0dd70a03f97a9b6bfb243eda7cbd470b0c239
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: c394142ba40fc580bdcec11430dcae2816fa9760
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="overview-of-azure-data-lake-store"></a>Azure 데이터 레이크 저장소 개요
+# <a name="best-practices-for-using-azure-data-lake-store"></a>Azure Data Lake Store를 사용하는 모범 사례
 이 문서에서는 Azure Data Lake Store 작업에 대한 모범 사례와 고려 사항에 대해 알아 봅니다. 여기서는 Data Lake Store의 보안, 성능, 복원력 및 모니터링에 대해 설명합니다. Data Lake Store 이전에는 Azure HDInsight와 같은 서비스에서 진정한 빅 데이터를 사용하는 것이 복잡했습니다. 여러 Blob 저장소 계정에서 데이터를 분할하여 페타바이트 저장소와 최적의 성능을 얻을 수 있도록 해야 했습니다. Data Lake Store를 사용하면 크기와 성능에 대한 대부분의 엄격한 제한이 제거됩니다. 그러나 이 문서에서 다루는 몇 가지 고려 사항은 Data Lake Store에서 최상의 성능을 얻을 수 있도록 하기 위한 것입니다. 
 
 ## <a name="security-considerations"></a>보안 고려 사항
@@ -99,7 +99,7 @@ Data Lake Store를 사용하여 데이터를 복원하는 경우 HA/DR 요구 �
 |  |Distcp  |Azure 데이터 팩터리  |AdlCopy  |
 |---------|---------|---------|---------|
 |**크기 조정 제한**     | 작업자 노드로 제한됨        | 최대 클라우드 데이터 이동 단위로 제한됨        | 분석 단위로 제한됨        |
-|**델타 복사 지원**     |   예      | 아니오         | 아니요         |
+|**델타 복사 지원**     |   예      | 아니요         | 아니요         |
 |**기본 제공 오케스트레이션**     |  아니요(Oozie Airflow 또는 cron 작업 사용)       | 예        | 아니요(Azure Automation 또는 Windows 작업 스케줄러 사용)         |
 |**지원되는 파일 시스템**     | ADL, HDFS, WASB, S3, GS, CFS        |많음, [커넥터](../data-factory/connector-azure-blob-storage.md) 참조         | ADL 간, WASB 및 ADL 간(동일한 지역에만 해당)        |
 |**OS 지원**     |Hadoop을 실행하는 모든 OS         | 해당 없음          | 윈도우 10         |
@@ -139,7 +139,7 @@ Data Lake Store 로그 전달이 켜져 있지 않으면 Azure HDInsight는 log4
 
     log4j.logger.com.microsoft.azure.datalake.store=DEBUG 
 
-이 구성이 설정되고 노드가 다시 시작되면 Data Lake Store 진단이 노드의 YARN 로그(/tmp/<user>/yarn.log)에 기록되고 오류 또는 제한(HTTP 429 오류 코드)과 같은 중요한 세부 정보를 모니터링할 수 있습니다. 이 동일한 정보는 OMS에서나 로그가 Data Lake Store 계정의 [진단](data-lake-store-diagnostic-logs.md) 블레이드에 전달되는 위치에서도 모니터링할 수 있습니다. 최소한 클라이언트 쪽 로깅을 설정하거나 Data Lake Store를 통해 로그 전달 옵션을 활용하여 운영 가시성을 확보하고 더 쉽게 디버그하는 것이 좋습니다.
+속성이 설정되고 노드가 다시 시작되면 Data Lake Store 진단이 노드의 YARN 로그(/tmp/<user>/yarn.log)에 기록되고 오류 또는 제한(HTTP 429 오류 코드)과 같은 중요한 세부 정보를 모니터링할 수 있습니다. 이 동일한 정보는 OMS에서나 로그가 Data Lake Store 계정의 [진단](data-lake-store-diagnostic-logs.md) 블레이드에 전달되는 위치에서도 모니터링할 수 있습니다. 최소한 클라이언트 쪽 로깅을 설정하거나 Data Lake Store를 통해 로그 전달 옵션을 활용하여 운영 가시성을 확보하고 더 쉽게 디버그하는 것이 좋습니다.
 
 ### <a name="run-synthetic-transactions"></a>가상 트랜잭션 실행 
 
@@ -155,7 +155,7 @@ IoT 작업에서는 수많은 제품, 장치, 조직 및 고객에 걸쳐 있는
 
     {Region}/{SubjectMatter(s)}/{yyyy}/{mm}/{dd}/{hh}/ 
 
-예를 들어 비행기 엔진에 대한 영국 내 착륙 원격 분석은 다음과 같이 표시될 수 있습니다. 
+예를 들어 비행기 엔진에 대한 영국 내 착륙 원격 분석은 다음 구조와 같이 표시될 수 있습니다. 
 
     UK/Planes/BA1293/Engine1/2017/08/11/12/ 
 
@@ -163,7 +163,7 @@ IoT 작업에서는 수많은 제품, 장치, 조직 및 고객에 걸쳐 있는
 
 ### <a name="batch-jobs-structure"></a>일괄 처리 작업 구조 
 
-일반적으로 사용되는 높은 수준의 일괄 처리 방식은 데이터를 "내부" 폴더에 저장하는 것입니다. 그런 다음, 데이터가 처리되면 다운스트림 프로세스에서 사용할 새 데이터를 "외부" 폴더에 저장합니다. 개별 파일에 대한 처리가 필요하지만 큰 데이터 집합에 대한 대규모 병렬 처리가 필요하지 않을 수 있는 작업에서 이러한 경우가 종종 나타납니다. 위에서 권장하는 IoT 구조와 마찬가지로, 좋은 디렉터리 구조에는 지역 및 주제(예: 조직, 제품/생산자)와 같은 항목에 대한 부모 수준 폴더가 있습니다. 이렇게 하면 조직 전체의 데이터를 보호하고 작업의 데이터를 더 효율적으로 관리할 수 있습니다. 또한 처리에서 더 나은 구성, 필터링된 검색, 보안 및 자동화를 허용하는 구조에서 날짜 및 시간을 고려해야 합니다. 날짜 구조의 세분성 수준은 데이터가 업로드되거나 처리되는 간격(예: 시간별, 일별 또는 월별)에 따라 결정됩니다. 
+일반적으로 사용되는 높은 수준의 일괄 처리 방식은 데이터를 "내부" 폴더에 저장하는 것입니다. 그런 다음, 데이터가 처리되면 다운스트림 프로세스에서 사용할 새 데이터를 "외부" 폴더에 저장합니다. 개별 파일에 대한 처리가 필요하지만 큰 데이터 집합에 대한 대규모 병렬 처리가 필요하지 않을 수 있는 작업에서 이 디렉터리 구조가 종종 나타납니다. 위에서 권장하는 IoT 구조와 마찬가지로, 좋은 디렉터리 구조에는 지역 및 주제(예: 조직, 제품/생산자)와 같은 항목에 대한 부모 수준 폴더가 있습니다. 이 구조는 조직 전체의 데이터를 보호하고 작업의 데이터를 더 효율적으로 관리하는 데 유용합니다. 또한 처리에서 더 나은 구성, 필터링된 검색, 보안 및 자동화를 허용하는 구조에서 날짜 및 시간을 고려해야 합니다. 날짜 구조의 세분성 수준은 데이터가 업로드되거나 처리되는 간격(예: 시간별, 일별 또는 월별)에 따라 결정됩니다. 
 
 데이터 손상 또는 예기치 않은 형식으로 인해 파일 처리가 실패하는 경우가 있습니다. 이러한 경우 디렉터리 구조에서 **/bad** 폴더를 지원하여 추가 검사를 위해 파일을 이동할 수 있습니다. 또한 일괄 처리 작업은 이러한 *불량* 파일에 대한 보고 또는 알림을 처리하여 수동으로 개입할 수 있습니다. 다음과 같은 템플릿 구조를 고려합니다. 
 
@@ -171,7 +171,7 @@ IoT 작업에서는 수많은 제품, 장치, 조직 및 고객에 걸쳐 있는
     {Region}/{SubjectMatter(s)}/Out/{yyyy}/{mm}/{dd}/{hh}/ 
     {Region}/{SubjectMatter(s)}/Bad/{yyyy}/{mm}/{dd}/{hh}/ 
 
-예를 들어 북아메리카 지역의 고객으로부터 고객 업데이트의 일일 데이터 추출 결과를 받는 마케팅 회사는 처리 전과 후에 다음과 같이 표시될 수 있습니다. 
+예를 들어 북아메리카 지역의 고객으로부터 고객 업데이트의 일일 데이터 추출 결과를 받는 마케팅 회사는 처리 전과 후에 다음 코드 조각처럼 표시될 수 있습니다. 
 
     NA/Extracts/ACMEPaperCo/In/2017/08/14/updates_08142017.csv 
     NA/Extracts/ACMEPaperCo/Out/2017/08/14/processed_updates_08142017.csv 

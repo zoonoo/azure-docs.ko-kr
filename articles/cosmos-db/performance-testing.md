@@ -1,12 +1,12 @@
 ---
-title: "Azure Cosmos DB 규모 및 성능 테스트 | Microsoft Docs"
-description: "Azure Cosmos DB를 사용하여 규모 및 성능 테스트를 수행하는 방법을 알아봅니다."
-keywords: "성능 테스트"
+title: Azure Cosmos DB 규모 및 성능 테스트 | Microsoft Docs
+description: Azure Cosmos DB를 사용하여 규모 및 성능 테스트를 수행하는 방법을 알아봅니다.
+keywords: 성능 테스트
 services: cosmos-db
 author: arramac
 manager: jhubbard
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 ms.assetid: f4c96ebd-f53c-427d-a500-3f28fe7b11d0
 ms.service: cosmos-db
 ms.workload: data-services
@@ -15,15 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2017
 ms.author: arramac
-ms.openlocfilehash: f72a75f2750d4838566815bece5c2221359ece29
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 36665c0c26dad4e3b667b341b63c5859ece7605b
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="performance-and-scale-testing-with-azure-cosmos-db"></a>Azure Cosmos DB를 사용한 성능 및 규모 테스트
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 성능 및 규모 테스트는 응용 프로그램 개발의 핵심 단계입니다. 많은 응용 프로그램에서 데이터베이스 계층은 전체 성능과 확장성에 큰 영향을 미칩니다. 따라서 성능 테스트의 주요 구성 요소가 됩니다. [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)는 탄력적 확장 및 예측 가능한 성능을 목적으로 구축되었습니다. 이러한 기능은 고성능 데이터베이스 계층이 필요한 응용 프로그램에 잘 맞습니다. 
 

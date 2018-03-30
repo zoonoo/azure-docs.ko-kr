@@ -1,10 +1,10 @@
 ---
-title: "Azure Storage에서 SAS(공유 액세스 서명) 사용 | Microsoft 문서"
-description: "SAS(공유 액세스 서명)를 사용하여 Blob, 큐, 테이블 및 파일을 비롯한 Azure Storage 리소스에 대한 액세스 권한을 위임하는 방법을 알아봅니다."
+title: Azure Storage에서 SAS(공유 액세스 서명) 사용 | Microsoft 문서
+description: SAS(공유 액세스 서명)를 사용하여 Blob, 큐, 테이블 및 파일을 비롯한 Azure Storage 리소스에 대한 액세스 권한을 위임하는 방법을 알아봅니다.
 services: storage
-documentationcenter: 
-author: tamram
-manager: timlt
+documentationcenter: ''
+author: craigshoemaker
+manager: jeconnoc
 editor: tysonn
 ms.assetid: 46fd99d7-36b3-4283-81e3-f214b29f1152
 ms.service: storage
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/18/2017
-ms.author: tamram
-ms.openlocfilehash: 32e92e6ffc376d27297810596691f0371770e86d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: cshoe
+ms.openlocfilehash: d3f8b3261f9e2e86dbcaa41b92111545abeffe54
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="using-shared-access-signatures-sas"></a>SAS(공유 액세스 서명) 사용
 
@@ -66,7 +66,7 @@ SAS가 유용한 일반적인 시나리오로는 다른 사용자가 저장소 �
 * **계정 SAS** 계정 SAS는 하나 이상의 저장소 서비스에서 리소스에 대한 액세스 권한을 위임합니다. 서비스 SAS를 통해 사용 가능한 모든 작업은 계정 SAS를 통해서도 사용할 수 있습니다. 또한 계정 SAS를 사용하면 **서비스 속성 가져오기/설정**, **서비스 통계 가져오기**와 같은 특정 서비스에 적용되는 작업에 대한 액세스 권한을 위임할 수 있습니다. 또한 서비스 SAS로 허용되지 않는 Blob 컨테이너, 테이블, 큐, 파일 공유에서 읽기, 쓰기, 삭제 작업에 대한 액세스 권한을 위임할 수 있습니다. 계정 SAS 토큰을 구성하는 방법에 대한 자세한 내용은 [계정 SAS 구성](https://msdn.microsoft.com/library/mt584140.aspx) 을 참조하세요.
 
 ## <a name="how-a-shared-access-signature-works"></a>공유 액세스 서명 사용 방법
-공유 액세스 서명은 하나 이상의 저장소 리소스를 가리키는 서명된 URI이며 쿼리 매개 변수의 특별 집합이 포함된 토큰이 들어 있습니다. 토큰은 클라이언트가 리소스를 액세스하는 방식을 나타냅니다. 이러한 쿼리 매개 변수 중 하나인 서명은 SAS 매개 변수에서 구성되고 계정 키로 서명됩니다. 이 서명은 Azure 저장소에서 SAS를 인증하는 데 사용됩니다.
+공유 액세스 서명은 하나 이상의 저장소 리소스를 가리키는 서명된 URI이며 쿼리 매개 변수의 특별 집합이 포함된 토큰이 들어 있습니다. 토큰은 클라이언트가 리소스를 액세스하는 방식을 나타냅니다. 이러한 쿼리 매개 변수 중 하나인 서명은 SAS 매개 변수에서 구성되고 계정 키로 서명됩니다. 이 서명은 Azure Storage에서 SAS를 인증하는 데 사용됩니다.
 
 다음은 리소스 URI과 SAS 토큰을 표시하는 SAS URI의 예입니다.
 
@@ -113,10 +113,10 @@ SAS 토큰은 *클라이언트* 쪽에서 생성된 문자열입니다. 코드 �
 https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2015-04-05&st=2015-04-29T22%3A18%3A26Z&se=2015-04-30T02%3A23%3A26Z&sr=b&sp=rw&sip=168.1.5.60-168.1.5.70&spr=https&sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D
 ```
 
-| 이름 | SAS 부분 | 설명 |
+| Name | SAS 부분 | 설명 |
 | --- | --- | --- |
 | Blob URI |`https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt` |Blob의 주소입니다. HTTPS를 사용하는 것이 좋습니다. |
-| 저장소 서비스 버전 |`sv=2015-04-05` |2012-02-12 이후의 저장소 서비스 버전의 경우 이 매개 변수는 사용할 버전을 나타냅니다. |
+| Storage 서비스 버전 |`sv=2015-04-05` |2012-02-12 이후의 저장소 서비스 버전의 경우 이 매개 변수는 사용할 버전을 나타냅니다. |
 | 시작 시간 |`st=2015-04-29T22%3A18%3A26Z` |UTC 시간으로 지정됩니다. SAS를 즉시 유효화하려면 시작 시간을 생략하십시오. |
 | 만료 시간 |`se=2015-04-30T02%3A23%3A26Z` |UTC 시간으로 지정됩니다. |
 | 리소스 |`sr=b` |Blob의 리소스입니다. |
@@ -133,7 +133,7 @@ https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2015-04-05&s
 https://myaccount.blob.core.windows.net/?restype=service&comp=properties&sv=2015-04-05&ss=bf&srt=s&st=2015-04-29T22%3A18%3A26Z&se=2015-04-30T02%3A23%3A26Z&sr=b&sp=rw&sip=168.1.5.60-168.1.5.70&spr=https&sig=F%6GRVAZ5Cdj2Pw4tgU7IlSTkWgn7bUkkAg8P6HESXwmf%4B
 ```
 
-| 이름 | SAS 부분 | 설명 |
+| Name | SAS 부분 | 설명 |
 | --- | --- | --- |
 | 리소스 URI |`https://myaccount.blob.core.windows.net/?restype=service&comp=properties` |서비스 속성을 가져오거나(GET으로 호출할 경우) 서비스 속성을 설정하기 위한(SET으로 호출하는 경우) 매개 변수를 사용하는 Blob service 끝점입니다. |
 | Services |`ss=bf` |SAS는 Blob 및 파일 서비스에 적용됩니다. |
@@ -228,7 +228,7 @@ catch (StorageException e)
 7. **SAS 사용 작업을 포함한 모든 사용량에 대한 요금이 계정에 청구됩니다.** Blob에 쓰기 권한을 제공한 경우 사용자가 200GB Blob을 업로드하도록 선택할 수 있습니다. 사용자에게 읽기 권한도 제공한 경우 사용자가 이 Blob을 10번 다운로드하도록 선택하여 2TB의 발신 비용이 청구될 수 있습니다. 또한 제한된 권한을 제공하여 악의적인 사용자의 작업 가능성을 낮추세요. 단기 실행 SAS를 사용하여 이 위협을 줄이세요. 이때 종료 시간의 클럭 오차에 유의하세요.
 8. **SAS를 사용하여 작성된 데이터의 유효성을 검사하세요.** 클라이언트 응용 프로그램이 저장소 계정에 데이터를 쓸 경우 해당 데이터에 문제가 있을 수 있습니다. 데이터를 사용할 준비가 되기 이전에 응용 프로그램에서 데이터의 유효성을 검사하거나 권한을 부여해야 하는 경우 데이터를 작성한 이후 응용 프로그램에서 데이터를 사용하기 이전에 유효성 검사를 수행해야 합니다. 그러면 SAS를 적절한 방법으로 습득한 사용자나 누설된 SAS를 악용하는 사용자로 인해 계정이 손상되거나 데이터에 악의적인 데이터가 기록되는 것을 방지할 수 있습니다.
 9. **경우에 따라 SAS를 사용하지 마세요..** 저장소 계정에 대한 특정 작업 관련 위험이 SAS의 이점을 능가하는 경우도 있습니다. 그런 작업에 대해서는 비즈니스 규칙 유효성 검사, 인증 및 감사를 수행한 이후에 저장소 계정에 쓰는 중간 계층 서비스를 만듭니다. 또한 다른 방법으로 액세스를 관리하는 것이 더 간단한 경우도 있습니다. 예를 들어 컨테이너의 모든 Blob을 공개적으로 읽기 가능하도록 설정하려면 모든 클라이언트가 액세스하도록 SAS를 제공하는 대신에 컨테이너를 공용으로 설정할 수 있습니다.
-10. **저장소 분석을 사용하여 응용 프로그램을 모니터링합니다.** 로깅 및 메트릭을 사용하여 SAS 공급자 서비스의 가동 중단이나 저장된 액세스 정책의 잘못된 제거로 인한 인증 오류의 급격한 증가를 관찰할 수 있습니다. 자세한 내용은 [Azure 저장소 팀 블로그](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/08/03/windows-azure-storage-logging-using-logs-to-track-storage-requests.aspx) (영문)를 참조하십시오.
+10. **저장소 분석을 사용하여 응용 프로그램을 모니터링합니다.** 로깅 및 메트릭을 사용하여 SAS 공급자 서비스의 가동 중단이나 저장된 액세스 정책의 잘못된 제거로 인한 인증 오류의 급격한 증가를 관찰할 수 있습니다. 자세한 내용은 [Azure Storage 팀 블로그](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/08/03/windows-azure-storage-logging-using-logs-to-track-storage-requests.aspx) (영문)를 참조하십시오.
 
 ## <a name="sas-examples"></a>SAS 예제
 다음은 공유 액세스 서명의 두 유형(계정 SAS, 서비스 SAS)에 대한 몇 가지 예입니다.
@@ -265,7 +265,7 @@ static string GetAccountSASToken()
 }
 ```
 
-계정 SAS를 사용하여 Blob 서비스에 대한 서비스 수준 API에 액세스하려면 SAS를 사용하는 Blob 클라이언트 개체와 저장소 계정의 Blob 저장소 끝점을 구성합니다.
+계정 SAS를 사용하여 Blob service에 대한 서비스 수준 API에 액세스하려면 SAS를 사용하는 Blob 클라이언트 개체와 저장소 계정의 Blob 저장소 끝점을 구성합니다.
 
 ```csharp
 static void UseAccountSAS(string sasToken)
@@ -423,7 +423,7 @@ private static string GetBlobSasUri(CloudBlobContainer container, string blobNam
 ```
 
 ## <a name="conclusion"></a>결론
-공유 액세스 서명은 계정 키가 필요하지 않은 클라이언트에게 저장소 계정에 대한 제한된 권한을 제공하는 데 유용합니다. 일반적으로 공유 액세스 서명은 Azure 저장소를 사용하는 응용 프로그램에 대한 보안 모델의 필수적인 부분입니다. 여기에 나열된 모범 사례를 따를 경우 SAS를 사용하여 응용 프로그램의 보안을 훼손하지 않으면서 저장소 계정에 있는 리소스에 유연하게 액세스할 수 있습니다.
+공유 액세스 서명은 계정 키가 필요하지 않은 클라이언트에게 저장소 계정에 대한 제한된 권한을 제공하는 데 유용합니다. 일반적으로 공유 액세스 서명은 Azure Storage를 사용하는 응용 프로그램에 대한 보안 모델의 필수적인 부분입니다. 여기에 나열된 모범 사례를 따를 경우 SAS를 사용하여 응용 프로그램의 보안을 훼손하지 않으면서 저장소 계정에 있는 리소스에 유연하게 액세스할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [공유 액세스 서명, 2부: Blob 저장소를 사용하여 SAS 만들기 및 사용](../blobs/storage-dotnet-shared-access-signature-part-2.md)

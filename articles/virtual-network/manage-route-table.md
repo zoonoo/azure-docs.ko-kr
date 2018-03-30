@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 7630fd82cf62f1fcb0df80cec5b5e0030da81a85
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: a7e45d6bccfd8113157eba63d311b6609bf35aaa
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-change-or-delete-a-route-table"></a>경로 테이블 만들기, 변경 또는 삭제
 
@@ -40,7 +40,7 @@ Azure 위치와 구독별로 만들 수 있는 경로 테이블 수에 제한이
 
 1. 포털의 왼쪽 상단 모서리에서 **+ 리소스 만들기**를 선택합니다.
 2. **네트워킹**을 선택한 후 **경로 테이블**을 선택합니다.
-3. 경로 테이블의 **이름**을 입력하고 **구독**을 선택하고 새 **리소스 그룹**을 만들거나 기존 리소스 그룹을 선택하고 **위치**를 선택한 후 **만들기**를 선택합니다. **Disable BGP route propagation**(BGP 경로 전파 사용 안 함) 옵션은 온-프레미스 경로가 BGP를 통해 Azure 가상 네트워크에 전파되는 것을 방지합니다. 가상 네트워크가 Azure 네트워크 게이트웨이(VPN 또는 ExpressRoute)에 연결되지 않은 경우 옵션을 *사용 안 함*으로 설정합니다. 
+3. 경로 테이블의 **이름**을 입력하고 **구독**을 선택하고 새 **리소스 그룹**을 만들거나 기존 리소스 그룹을 선택하고 **위치**를 선택한 후 **만들기**를 선택합니다. **BGP 경로 전파 사용 안 함** 옵션은 온-프레미스 경로가 BGP를 통해 경로 테이블이 연결된 서브넷의 네트워크 인터페이스에 전파되는 것을 방지합니다. 가상 네트워크가 Azure 네트워크 게이트웨이(VPN 또는 ExpressRoute)에 연결되지 않은 경우 옵션을 *사용 안 함*으로 설정합니다.
 
 **명령**
 

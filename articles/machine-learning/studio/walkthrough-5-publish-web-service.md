@@ -1,10 +1,11 @@
 ---
-title: "5단계: Machine Learning 웹 서비스 배포 | Microsoft Docs"
-description: "예측 솔루션 개발 연습 5단계: Azure 기계 학습 스튜디오에서 예측 실험을 웹 서비스로 배포합니다."
+title: '5단계: Machine Learning 웹 서비스 배포 | Microsoft Docs'
+description: '예측 솔루션 개발 연습 5단계: Azure Machine Learning Studio에서 예측 실험을 웹 서비스로 배포합니다.'
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: YasinMSFT
+ms.author: yahajiza
+manager: hjerez
 editor: cgronlun
 ms.assetid: 3fca74a3-c44b-4583-a218-c14c46ee5338
 ms.service: machine-learning
@@ -13,17 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.author: garye
-ms.openlocfilehash: ba8f1678d87159088c58cf0e05e0fe5a6579b358
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 416a6d1c151fae01a00d00282ab9118e7391fbb7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="walkthrough-step-5-deploy-the-azure-machine-learning-web-service"></a>연습 5단계: Azure 기계 학습 웹 서비스 배포
-[Azure 기계 학습에서 예측 분석 솔루션 개발](walkthrough-develop-predictive-solution.md)
+# <a name="walkthrough-step-5-deploy-the-azure-machine-learning-web-service"></a>연습 5단계: Azure Machine Learning 웹 서비스 배포
+[Azure Machine Learning에서 예측 분석 솔루션 개발](walkthrough-develop-predictive-solution.md)
 
-1. [기계 학습 작업 영역 만들기](walkthrough-1-create-ml-workspace.md)
+1. [Machine Learning 작업 영역 만들기](walkthrough-1-create-ml-workspace.md)
 2. [기존 데이터 업로드](walkthrough-2-upload-data.md)
 3. [새 실험 만들기](walkthrough-3-create-new-experiment.md)
 4. [모델 학습 및 평가](walkthrough-4-train-and-evaluate-models.md)
@@ -112,7 +112,7 @@ Machine Learning Studio는 [분할][split] 모듈을 제거할 때 [R 스크립�
 실험을 Azure Resource Manager에 기반하는 기존 웹 서비스 또는 새 웹 서비스로 배포할 수 있습니다.
 
 ### <a name="deploy-as-a-classic-web-service"></a>기존 웹 서비스로 배포
-실험에서 파생된 기존 웹 서비스를 배포하려면 캔버스에서 **웹 서비스 배포**를 클릭하고 **웹 서비스 배포[기존]**를 선택합니다. 기계 학습 스튜디오에서 실험을 웹 서비스로 배포하고 웹 서비스에 대한 대시보드로 이동합니다. 이 페이지에서 실험으로 돌아가서(**스냅숏 보기** 또는 **최신 항목 보기**) 간단한 웹 서비스 테스트를 실행할 수 있습니다(아래 **웹 서비스 테스트** 참조). 여기에는 웹 서비스에 액세스할 수 있는 응용 프로그램을 만들기 위한 정보도 있습니다. 자세한 내용은 이 연습의 다음 단계를 참조하세요.
+실험에서 파생된 기존 웹 서비스를 배포하려면 캔버스에서 **웹 서비스 배포**를 클릭하고 **웹 서비스 배포[기존]**를 선택합니다. Machine Learning Studio에서 실험을 웹 서비스로 배포하고 웹 서비스에 대한 대시보드로 이동합니다. 이 페이지에서 실험으로 돌아가서(**스냅숏 보기** 또는 **최신 항목 보기**) 간단한 웹 서비스 테스트를 실행할 수 있습니다(아래 **웹 서비스 테스트** 참조). 여기에는 웹 서비스에 액세스할 수 있는 응용 프로그램을 만들기 위한 정보도 있습니다. 자세한 내용은 이 연습의 다음 단계를 참조하세요.
 
 ![웹 서비스 대시보드][6]
 
@@ -133,7 +133,7 @@ Machine Learning Studio는 [분할][split] 모듈을 제거할 때 [R 스크립�
 
 3. **가격 책정 계획**의 경우 기존 가격 책정 계획을 선택하거나 "새로 만들기"를 선택하고 새 계획 이름을 지정한 후 월별 계획 옵션을 선택할 수 있습니다. 계획 계층이 기본적으로 기본 하위 지역에 대한 계획으로 설정되고 웹 서비스는 해당 하위 지역에 배포됩니다.
 
-4. **배포**를 클릭합니다.
+4. **배포**을 참조하십시오.
 
 몇 분 후에 웹 서비스에 대한 **빠른 시작** 페이지가 열립니다.
 

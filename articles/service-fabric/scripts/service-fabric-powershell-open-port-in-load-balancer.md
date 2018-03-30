@@ -1,25 +1,25 @@
 ---
-title: "Azure PowerShell 스크립트 샘플 - Load Balancer에서 응용 프로그램 포트 열기 | Microsoft Docs"
-description: "Azure PowerShell 스크립트 샘플 - Service Fabric 응용 프로그램에 대한 Azure Load Balancer에서 응용 프로그램 포트 열기"
+title: Azure PowerShell 스크립트 샘플 - Load Balancer에서 응용 프로그램 포트 열기 | Microsoft Docs
+description: Azure PowerShell 스크립트 샘플 - Service Fabric 응용 프로그램에 대한 Azure Load Balancer에서 응용 프로그램 포트 열기
 services: service-fabric
-documentationcenter: 
+documentationcenter: ''
 author: rwike77
 manager: timlt
-editor: 
+editor: ''
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
-ms.date: 12/08/2017
+ms.date: 03/19/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: c643fc9e575a8e836a361893d78348bbd627a425
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: 1edaca9c354a7b65b47213c7970e823aee3cbe87
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="open-an-application-port-in-the-azure-load-balancer"></a>Azure Load Balancer에서 응용 프로그램 포트 열기
 
@@ -35,7 +35,7 @@ Azure에서 실행되는 Service Fabric 응용 프로그램은 Azure Load Balanc
 
 이 스크립트는 다음 명령을 사용합니다. 표에 있는 각 명령은 명령에 해당하는 문서에 연결됩니다.
 
-| 명령 | 참고 사항 |
+| 명령 | 메모 |
 |---|---|
 | [Get-AzureRmResource](/powershell/module/azurerm.resources/get-azurermresource) | Azure 리소스를 가져옵니다.  |
 | [Get-AzureRmLoadBalancer](/powershell/module/azurerm.network/get-azurermloadbalancer) | Azure Load Balancer를 가져옵니다. |

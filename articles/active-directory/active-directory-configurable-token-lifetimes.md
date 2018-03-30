@@ -16,11 +16,11 @@ ms.date: 07/20/2017
 ms.author: billmath
 ms.custom: aaddev
 ms.reviewer: anchitn
-ms.openlocfilehash: 568bf5f0a4cf3eb77b528af2550d9729dcc59878
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 553283f246b701b5084f0a3a9914d7ceb8826fe4
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-public-preview"></a>Azure Active Directory에서 구성 가능한 토큰 수명(공개 미리 보기)
 Azure AD(Azure Active Directory)에서 발급한 토큰의 수명을 지정할 수 있습니다. 조직의 모든 앱, 다중 테넌트(다중 조직) 응용 프로그램 또는 조직의 특정 서비스 주체에 대해 토큰 수명을 구성할 수 있습니다.
@@ -276,7 +276,7 @@ Azure AD는 두 종류의 SSO 세션 토큰을 사용합니다. 하나는 영구
 
 2.  서비스 주체에게 정책을 할당합니다. 서비스 주체의 **ObjectId**도 가져와야 합니다. 
 
-    1.  조직의 모든 서비스 주체를 보려면 [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity)를 쿼리하면 됩니다. 또는 [Azure AD Graph Explorer](https://graphexplorer.cloudapp.net/)에서 Azure AD 계정으로 로그인합니다.
+    1.  조직의 모든 서비스 주체를 보려면 [Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/serviceprincipal#properties) 또는 [Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity)를 쿼리하면 됩니다. 또한 Azure AD 계정을 사용하여 [Azure AD Graph Explorer](https://graphexplorer.cloudapp.net/) 및 [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)에서 테스트할 수 있습니다.
 
     2.  서비스 주체의 **ObjectId**가 있으면 다음 명령을 실행합니다.
 
@@ -332,7 +332,7 @@ Azure AD는 두 종류의 SSO 세션 토큰을 사용합니다. 하나는 영구
 
     이제 조직 전체에 적용되는 정책이 생겼습니다. 특정 서비스 주체에 대해 이 30일 정책을 유지하지만 조직 기본 정책을 "until-revoked"의 상한으로 변경하고 싶은 경우가 있습니다.
 
-    1.  조직의 모든 서비스 주체를 보려면 [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity)를 쿼리하면 됩니다. 또는 [Azure AD Graph Explorer](https://graphexplorer.cloudapp.net/)에서 Azure AD 계정을 사용하여 로그인합니다.
+    1.  조직의 모든 서비스 주체를 보려면 [Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/serviceprincipal#properties) 또는 [Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity)를 쿼리하면 됩니다. 또한 Azure AD 계정을 사용하여 [Azure AD Graph Explorer](https://graphexplorer.cloudapp.net/) 및 [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)에서 테스트할 수 있습니다.
 
     2.  서비스 주체의 **ObjectId**가 있으면 다음 명령을 실행합니다.
 

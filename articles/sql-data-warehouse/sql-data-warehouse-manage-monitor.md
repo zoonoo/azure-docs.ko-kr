@@ -1,28 +1,27 @@
 ---
-title: "DMV를 사용하여 작업 모니터링 | Microsoft Docs"
-description: "DMV를 사용하여 작업을 모니터링하는 방법을 알아봅니다."
+title: DMV를 사용하여 작업 모니터링 | Microsoft Docs
+description: DMV를 사용하여 작업을 모니터링하는 방법을 알아봅니다.
 services: sql-data-warehouse
 documentationcenter: NA
 author: sqlmojo
 manager: jhubbard
-editor: 
-ms.assetid: 69ecd479-0941-48df-b3d0-cf54c79e6549
+editor: ''
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
-ms.date: 12/14/2017
+ms.date: 03/15/2018
 ms.author: joeyong;barbkess;kevin
-ms.openlocfilehash: 1895e9c6174dfb05212991040cc265b8cb6e0651
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 3bd7431b9371b1de762558b8bd3c4ed0ed360495
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="monitor-your-workload-using-dmvs"></a>DMV를 사용하여 작업 모니터링
-이 문서에서는 DMV(동적 관리 뷰)를 사용하여 작업을 모니터링하고 Azure SQL Data Warehouse의 쿼리 실행을 조사하는 방법을 설명합니다.
+이 문서에서는 동적 관리 뷰(DMV)를 사용하여 워크로드를 모니터링하는 방법을 설명합니다. 여기에는 Azure SQL Data Warehouse에서 쿼리 실행을 조사하는 것이 포함됩니다.
 
 ## <a name="permissions"></a>권한
 이 문서의 DMV를 쿼리하려면 VIEW DATABASE STATE 또는 CONTROL 권한이 필요합니다. 일반적으로 VIEW DATABASE STATE 권한 부여를 선호합니다. 훨씬 제한적이기 때문입니다.
@@ -72,7 +71,7 @@ WHERE   [label] = 'My Query';
 
 위의 쿼리 결과에서 조사할 쿼리의 **요청 ID를 적어 둡니다** .
 
-**일시 중단됨** 상태의 쿼리는 동시성 제한으로 인해 대기 중인 쿼리입니다. 이러한 쿼리는 sys.dm_pdw_waits 대기 쿼리에도 UserConcurrencyResourceType 형식으로 표시됩니다. 동시성 제한에 대한 자세한 내용은 [동시성 및 워크로드 관리][Concurrency and workload management]를 참조하세요. 쿼리는 개체 잠금 등의 기타 이유로 인해 대기 상태일 수도 있습니다.  쿼리가 리소스를 대기 중인 경우 이 문서 뒷부분의 [리소스를 대기 중인 쿼리 조사][Investigating queries waiting for resources]를 참조하세요.
+**일시 중단됨** 상태의 쿼리는 동시성 제한으로 인해 대기 중인 쿼리입니다. 이러한 쿼리는 sys.dm_pdw_waits 대기 쿼리에도 UserConcurrencyResourceType 형식으로 표시됩니다. 동시성 제한에 대한 자세한 내용은 [성능 계층](performance-tiers.md) 또는 [워크로드 관리를 위한 리소스 클래스](resource-classes-for-workload-management.md)를 참조하세요. 쿼리는 개체 잠금 등의 기타 이유로 인해 대기 상태일 수도 있습니다.  쿼리가 리소스를 대기 중인 경우 이 문서 뒷부분의 [리소스를 대기 중인 쿼리 조사][Investigating queries waiting for resources]를 참조하세요.
 
 sys.dm_pdw_exec_requests 테이블에서 쿼리 조회를 간소화하려면 [LABEL][LABEL]을 사용하여 sys.dm_pdw_exec_requests 보기에서 조회할 수 있는 주석을 쿼리에 할당합니다.
 
@@ -135,7 +134,7 @@ WHERE request_id = 'QID####' AND step_index = 2;
 ```
 
 * *total_elapsed_time* 열을 검사하여 특정 배포에서 데이터 이동 시간이 다른 배포보다 오래 걸리는지 확인합니다.
-* 장기 실행 배포의 경우 *rows_processed* 열을 검사하여 해당 배포에서 이동되는 행 수가 다른 배포보다 훨씬 큰지 확인합니다. 이동되는 행 수가 훨씬 많으면 기본 데이터가 기울어진 것일 수 있습니다.
+* 장기 실행 배포의 경우 *rows_processed* 열을 검사하여 해당 배포에서 이동되는 행 수가 다른 배포보다 훨씬 큰지 확인합니다. 그렇다면 이 결과는 기본 데이터의 왜곡을 나타낼 수 있습니다.
 
 쿼리가 실행되고 있으면 [DBCC PDW_SHOWEXECUTIONPLAN][DBCC PDW_SHOWEXECUTIONPLAN]을 사용하여 특정 배포 내에서 현재 실행 중인 SQL 단계에 대한 SQL Server 계획 캐시에서 SQL Server 예상 계획을 검색할 수 있습니다.
 
@@ -174,9 +173,9 @@ ORDER BY waits.object_name, waits.object_type, waits.state;
 쿼리가 적극적으로 다른 쿼리의 리소스를 대기 중인 경우 상태는 **AcquireResources**입니다.  쿼리가 필요한 리소스를 모두 가지고 있으면 상태는 **Granted**입니다.
 
 ## <a name="monitor-tempdb"></a>tempdb 모니터링
-높은 tempdb 사용량은 성능 저하 및 메모리 부족 문제의 근본 원인일 수 있습니다. tempdb가 쿼리 실행 중 한계에 도달한 것을 발견한 경우 데이터 웨어하우스를 확장하는 것이 좋습니다. 다음은 각 노드의 쿼리당 tempdb 사용량을 식별하는 방법을 설명합니다. 
+높은 tempdb 사용량은 성능 저하 및 메모리 부족 문제의 근본 원인일 수 있습니다. tempdb가 쿼리 실행 중 한계에 도달한 것을 발견한 경우 데이터 웨어하우스를 확장하는 것이 좋습니다. 다음 정보는 각 노드의 쿼리당 tempdb 사용량을 식별하는 방법을 설명합니다. 
 
-sys.dm_pdw_sql_requests에 대한 적절한 노드 ID를 연결하도록 다음 보기를 만듭니다. 이렇게 하면 다른 통과 DMV를 활용하고 해당 테이블을 sys.dm_pdw_sql_requests에 연결할 수 있습니다.
+sys.dm_pdw_sql_requests에 대한 적절한 노드 ID를 연결하도록 다음 보기를 만듭니다. 노드 ID가 있으면 다른 통과 DMV를 사용하고 해당 테이블을 sys.dm_pdw_sql_requests에 연결할 수 있습니다.
 
 ```sql
 -- sys.dm_pdw_sql_requests with the correct node id
@@ -200,7 +199,7 @@ CREATE VIEW sql_requests AS
 FROM sys.pdw_distributions AS d
 RIGHT JOIN sys.dm_pdw_sql_requests AS sr ON d.distribution_id = sr.distribution_id)
 ```
-다음 쿼리를 실행하여 tempdb를 모니터링합니다.
+tempdb를 모니터링하려면 다음 쿼리를 실행합니다.
 
 ```sql
 -- Monitor tempdb
@@ -285,16 +284,14 @@ GROUP BY t.pdw_node_id, nod.[type]
 
 ## <a name="next-steps"></a>다음 단계
 DMV에 대한 자세한 내용은 [시스템 뷰][System views]를 참조하세요.
-모범 사례에 대한 자세한 내용은 [SQL Data Warehouse 모범 사례][SQL Data Warehouse best practices]를 참조하세요.
+
 
 <!--Image references-->
 
 <!--Article references-->
-[Manage overview]: ./sql-data-warehouse-overview-manage.md
 [SQL Data Warehouse best practices]: ./sql-data-warehouse-best-practices.md
 [System views]: ./sql-data-warehouse-reference-tsql-system-views.md
 [Table distribution]: ./sql-data-warehouse-tables-distribute.md
-[Concurrency and workload management]: ./sql-data-warehouse-develop-concurrency.md
 [Investigating queries waiting for resources]: ./sql-data-warehouse-manage-monitor.md#waiting
 
 <!--MSDN references-->

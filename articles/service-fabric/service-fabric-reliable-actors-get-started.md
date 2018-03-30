@@ -1,24 +1,24 @@
 ---
-title: "C#에서 첫 번째 행위자 기반 Azure 마이크로 서비스 만들기 | Microsoft Docs"
-description: "이 자습서에서는 서비스 패브릭 Reliable Actors를 사용하여 간단한 행위자 기반 서비스를 생성, 디버깅 및 배포하는 과정을 단계별로 안내합니다."
+title: C#에서 첫 번째 행위자 기반 Azure 마이크로 서비스 만들기 | Microsoft Docs
+description: 이 자습서에서는 서비스 패브릭 Reliable Actors를 사용하여 간단한 행위자 기반 서비스를 생성, 디버깅 및 배포하는 과정을 단계별로 안내합니다.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: d4aebe72-1551-4062-b1eb-54d83297f139
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/20/2017
+ms.date: 03/16/2018
 ms.author: vturecek
-ms.openlocfilehash: ea17cf744779f390fe4b3f4049deb0c1ad985024
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 20786522a9a25d84a32a53e5e111b4b542501287
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="getting-started-with-reliable-actors"></a>Reliable Actors 시작
 > [!div class="op_single_selector"]
@@ -37,7 +37,7 @@ ms.lasthandoff: 12/21/2017
 
 ![Visual Studio용 서비스 패브릭 도구 - 새 프로젝트][1]
 
-다음 대화 상자에서 **행위자 서비스**를 선택하고 서비스에 대한 이름을 입력합니다.
+다음 대화 상자의 **.Net Core 2.0**에서 **행위자 서비스**를 선택하고 서비스의 이름을 입력합니다.
 
 ![서비스 패브릭 프로젝트 템플릿][5]
 

@@ -1,21 +1,21 @@
 ---
-title: "Azure 데이터 복사 도구를 사용하여 데이터 복사 | Microsoft Docs"
-description: "Azure Data Factory를 만든 다음, 데이터 복사 도구를 사용하여 Azure Blob 저장소에서 SQL 데이터베이스로 데이터를 복사합니다."
+title: Azure 데이터 복사 도구를 사용하여 데이터 복사 | Microsoft Docs
+description: Azure Data Factory를 만든 다음, 데이터 복사 도구를 사용하여 Azure Blob 저장소에서 SQL 데이터베이스로 데이터를 복사합니다.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: hero-article
 ms.date: 01/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 5b636128d0df5a404df7aa6b2cfdce016e36681f
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: d2f1d089c6a08a1dc90f82fd9d1c3cb2b6f6dc0a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>데이터 복사 도구를 사용하여 Azure Blob 저장소에서 SQL 데이터베이스로 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
@@ -33,7 +33,7 @@ ms.lasthandoff: 02/09/2018
 이 자습서에서는 다음 단계를 수행합니다.
 
 > [!div class="checklist"]
-> * 데이터 팩터리 만들기
+> * 데이터 팩터리를 만듭니다.
 > * 데이터 복사 도구를 사용하여 파이프라인 만들기
 > * 파이프라인 및 작업 실행을 모니터링합니다.
 
@@ -208,7 +208,7 @@ ms.lasthandoff: 02/09/2018
 이 샘플의 파이프라인이 Blob 저장소에서 SQL 데이터베이스로 데이터를 복사합니다. 다음 방법에 대해 알아보았습니다. 
 
 > [!div class="checklist"]
-> * 데이터 팩터리 만들기
+> * 데이터 팩터리를 만듭니다.
 > * 데이터 복사 도구를 사용하여 파이프라인 만들기
 > * 파이프라인 및 작업 실행을 모니터링합니다.
 

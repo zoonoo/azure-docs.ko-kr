@@ -1,11 +1,11 @@
 ---
-title: "Azure Service Fabric 역방향 프록시 진단 | Microsoft Docs"
-description: "역방향 프로세스에서의 요청 처리 모니터링 및 진단 방법에 대해 알아봅니다."
+title: Azure Service Fabric 역방향 프록시 진단 | Microsoft Docs
+description: 역방향 프로세스에서의 요청 처리 모니터링 및 진단 방법에 대해 알아봅니다.
 services: service-fabric
 documentationcenter: .net
 author: kavyako
 manager: vipulm
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 08/08/2017
 ms.author: kavyako
-ms.openlocfilehash: 1c62d2390709577bfde6225b783642fb55396a6b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e645d86e4527cab1e650575c4d9a10dbd4b9de4e
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="monitor-and-diagnose-request-processing-at-the-reverse-proxy"></a>역방향 프로세스에서의 요청 처리 모니터링 및 진단 
 
 Service Fabric 5.7 버전부터 역방향 프록시 이벤트를 컬렉션에 사용할 수 있습니다. 이벤트는 역방향 프록시에서의 요청 처리 실패와 관련한 오류 이벤트만을 담은 한 채널과, 성공한 요청과 실패한 요청 모두에 대한 항목을 모두 포함하는 상세 이벤트가 담긴 두 번째 채널 등, 두 채널로 제공됩니다.
 
-로컬 및 Azure Service Fabric 클러스터에서 이러한 채널로부터의 이벤트 수집을 활성화하려면 [역방향 프록시 이벤트 수집](service-fabric-diagnostics-event-aggregation-wad.md#collect-reverse-proxy-events)을 참조하세요.
+로컬 및 Azure Service Fabric 클러스터에서 이러한 채널로부터의 이벤트 수집을 활성화하려면 [역방향 프록시 이벤트 수집](service-fabric-diagnostics-event-aggregation-wad.md#log-collection-configurations)을 참조하세요.
 
 ## <a name="troubleshoot-using-diagnostics-logs"></a>진단 로그를 사용한 문제 해결 
 다음은 발생할 수 있는 일반적인 실패 로그를 해석하는 방법에 대한 몇 가지 예입니다.

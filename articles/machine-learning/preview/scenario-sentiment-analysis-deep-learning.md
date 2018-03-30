@@ -1,12 +1,12 @@
 ---
-title: "Azure Machine Learning에서 심층 학습을 사용하여 감정 분석 | Microsoft Docs"
-description: "Azure ML Workbench에서 심층 학습을 사용하여 감정 분석을 수행하는 방법입니다."
+title: Azure Machine Learning에서 심층 학습을 사용하여 감정 분석 | Microsoft Docs
+description: Azure ML Workbench에서 심층 학습을 사용하여 감정 분석을 수행하는 방법입니다.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: miprasad
 manager: kristin.tolle
 editor: miprasad
-ms.assetid: 
+ms.assetid: ''
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/20/2018
 ms.author: miprasad
-ms.openlocfilehash: 3b0a5bfc911f3edf91367cbf4fde907cbf98e114
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: ead8edcefa8705af82f4b223512a671c1245718a
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="sentiment-analysis-using-deep-learning-with-azure-machine-learning"></a>Azure Machine Learning에서 심층 학습을 사용하여 감정 분석
 
 감정 분석은 자연어 처리 영역에서 잘 알려진 작업입니다. 일련의 텍스트에서 해당 텍스트의 감정을 결정하는 작업입니다. 이 솔루션의 목표는 영화 리뷰에서 감정을 예측하기 위해 심층 학습을 사용하는 것입니다.
 
-솔루션은 https://github.com/Azure/MachineLearningSamples-SentimentAnalysis에 위치합니다.
+솔루션 파일은 https://github.com/Azure/MachineLearningSamples-SentimentAnalysis에 있습니다.
 
 ## <a name="link-to-the-gallery-github-repository"></a>갤러리 GitHub 리포지토리에 연결
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 02/01/2018
 
 데이터 급증 및 모바일 장치의 확산에 따라 고객이 언제든지 모든 대상에 대한 감정 및 태도를 표현할 기회가 많아졌습니다. 이 의견 또는 "감정"은 주로 리뷰, 채팅, 공유, 좋아요 표시, 트윗 등의 형태로 소셜 채널을 통해 생성됩니다. 제품 및 서비스를 개선하고, 더욱 합리적인 의사 결정을 내리고, 해당 브랜드를 홍보하려는 비즈니스에서 매우 유용할 수 있습니다.
 
-감정 분석을 활용하려면 비즈니스는 실행 가능한 정보를 위해 거대한 분량의 구조화되지 않은 소셜 데이터를 캐낼 수 있는 능력이 있어야 합니다. 이 샘플에서는 AML Workbench를 사용하여 영화 리뷰의 감정 분석을 수행하기 위한 심층 학습 모델을 개발하겠습니다.
+감정 분석을 활용하려면 비즈니스는 실행 가능한 정보를 위해 거대한 분량의 구조화되지 않은 소셜 데이터를 캐낼 수 있는 능력이 있어야 합니다. 이 샘플에서는 AMLWorkbench를 사용하여 영화 리뷰의 감정 분석을 수행하기 위한 심층 학습 모델을 개발합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -69,7 +69,7 @@ ms.lasthandoff: 02/01/2018
 |--|-----------|------|
 | 1 | [`SentimentAnalysisDataPreparation.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/docs/SentimentAnalysisDataPreparation.md) | 'data/sampleReviews.txt' |
 | 2 | [`SentimentAnalysisModelingKeras.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/docs/SentimentAnalysisModelingKeras.md) | 'SentimentExtraction.py' |
-| 4 | [`SentimentAnalysisOperationalization.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/docs/SentimentAnalysisOperationalization.md) | 'Operaionalization' |
+| 3 | [`SentimentAnalysisOperationalization.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/docs/SentimentAnalysisOperationalization.md) | 'Operaionalization' |
 
 ## <a name="conclusion"></a>결론
 

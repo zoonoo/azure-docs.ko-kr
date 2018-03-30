@@ -1,11 +1,11 @@
 ---
-title: "Azure Active Directory의 새로운 Enterprise Application 관리 기능 | Microsoft Docs"
-description: "Azure Active Directory의 새로운 Enterprise Application 관리 기능에 대해 알아봅니다."
+title: Azure Active Directory의 새로운 Enterprise Application 관리 기능 | Microsoft Docs
+description: Azure Active Directory의 새로운 Enterprise Application 관리 기능에 대해 알아봅니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 34ac4028-a5aa-40d9-a93b-0db4e0abd793
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/13/2017
 ms.author: asteen
 ms.reviewer: asteen
-ms.openlocfilehash: 949eae51c469205489153c271a7c20fcc843ad46
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 8d1b24708380aeed6055912fcf3538f0e5319e2d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="whats-new-in-enterprise-application-management-in-azure-active-directory"></a>Azure Active Directory의 새로운 Enterprise Application 관리 기능 
 
@@ -147,7 +147,7 @@ Azure AD(Azure Active Directory)는 앱을 보다 간단하고 효율적으로 �
 1. 시작하려면 응용 프로그램의 왼쪽 탐색 메뉴에서 **셀프 서비스** 옵션을 선택하고 **사용자가 이 응용 프로그램에 대한 액세스를 요청하도록 허용하시겠습니까?** 옵션을 ‘**예**’로 설정합니다. 
 2. 이렇게 하면 해당 응용 프로그램에 대한 액세스를 승인할 수 있는 사용자 및 셀프 서비스 사용자를 추가할 그룹을 구성할 수 있습니다. 또한 응용 프로그램을 암호 Single Sign-On(SSO)으로 구성한 경우 승인자가 응용 프로그램에 할당된 암호를 선택적으로 관리할 수 있도록 허용하는 또 다른 옵션이 표시됩니다.
 
-##<a name="feedback"></a>사용자 의견
+## <a name="feedback"></a>사용자 의견
 
 향상된 Azure AD 환경 사용이 사용자의 마음에 들기를 바랍니다. 사용자 의견을 계속 보내주세요! [피드백 포럼](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal)의 **관리자 포털Admin Portal** 섹션에서 개선을 위한 의견과 아이디어를 게시합니다.  매일 멋진 새로운 기능을 구축하는 방법을 기대하며, 사용자의 지침에 따라 다음에 구축할 기능을 구체화하고 정의하겠습니다.
 

@@ -1,6 +1,6 @@
 ---
-title: "Azure의 개발 가상 머신에서 ElasticSearch 배포"
-description: "자습서 - Azure에서 개발 Linux VM에 Elastic Stack 설치"
+title: Azure의 개발 가상 머신에서 ElasticSearch 배포
+description: 자습서 - Azure에서 개발 Linux VM에 Elastic Stack 설치
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: rloutlaw
@@ -13,11 +13,11 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 10/11/2017
 ms.author: routlaw
-ms.openlocfilehash: 7941e557dfbb71df7c2d55608c4a14c026535db8
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: eeb1b8b9105e055339cb31fa4b9d4b411cb06c54
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="install-the-elastic-stack-on-an-azure-vm"></a>Azure VM에 Elastic Stack 설치
 
@@ -128,7 +128,7 @@ sudo systemctl start elasticsearch.service
 이 명령은 출력을 생성하지 않으므로 `curl` 명령을 사용하여 Elasticsearch가 VM에서 실행되고 있는지 확인합니다.
 
 ```bash
-curl -XGET 'localhost:9200/'
+sudo curl -XGET 'localhost:9200/'
 ```
 
 Elasticsearch가 실행 중이면 다음과 같은 출력이 표시됩니다.

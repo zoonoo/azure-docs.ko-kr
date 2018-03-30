@@ -1,11 +1,11 @@
 ---
-title: ".NET을 사용하여 Media Services 개발을 위한 컴퓨터를 설정하는 방법"
-description: "Media Services .NET SDK를 사용하는 Media Services에 대한 일반적인 필수 구성 요소에 대해 알아봅니다. 또한 Visual Studio 앱을 만드는 방법에 대해서도 알아봅니다."
+title: .NET을 사용하여 Media Services 개발을 위한 컴퓨터를 설정하는 방법
+description: Media Services .NET SDK를 사용하는 Media Services에 대한 일반적인 필수 구성 요소에 대해 알아봅니다. 또한 Visual Studio 앱을 만드는 방법에 대해서도 알아봅니다.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: ec2804c7-c656-4fbf-b3e4-3f0f78599a7f
 ms.service: media-services
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: 532306427ba13aca70c50d47a33bb7edeac71720
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: b5daa2198d76534e5756684e0482d59c047d634f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="media-services-development-with-net"></a>.NET을 사용한 Media Services 개발
 [!INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
@@ -130,7 +130,7 @@ ms.lasthandoff: 03/02/2018
             }
  ```
 
-##<a name="next-steps"></a>다음 단계
+## <a name="next-steps"></a>다음 단계
 
 이제 [AMS API에 연결하고](media-services-use-aad-auth-to-access-ams-api.md) [개발](media-services-dotnet-get-started.md)을 시작할 수 있습니다.
 

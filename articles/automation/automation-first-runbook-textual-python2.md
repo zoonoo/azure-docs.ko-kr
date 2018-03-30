@@ -1,23 +1,18 @@
 ---
-title: "Azure Automation의 내 첫 번째 Python Runbook | Microsoft Docs"
-description: "간단한 Python Runbook의 생성, 테스트, 게시 방법을 안내하는 자습서입니다."
+title: Azure Automation의 내 첫 번째 Python Runbook
+description: 간단한 Python Runbook의 생성, 테스트, 게시 방법을 안내하는 자습서입니다.
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: carmonm
-editor: tysonn
 ms.service: automation
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 07/25/2017
+author: georgewallace
 ms.author: gwallace
-ms.openlocfilehash: 1f005ae28309879f36a28df499685937c37a3be0
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.date: 03/16/2018
+ms.topic: article
+manager: carmonm
+ms.openlocfilehash: 950a42b2fca430998cd2816df1aca5c3d0cc8593
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="my-first-python-runbook"></a>내 첫 번째 Python Runbook
 

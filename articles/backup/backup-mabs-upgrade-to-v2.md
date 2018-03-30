@@ -1,12 +1,12 @@
 ---
-title: "Azure Backup Server v2 설치 | Microsoft Docs"
-description: "Azure Backup Server v2에서는 VM, 파일 및 폴더, 워크로드 등을 보호하기 위한 향상된 백업 기능을 제공합니다. Azure Backup Server v2를 설치하거나 이 버전으로 업그레이드하는 방법을 알아봅니다."
+title: Azure Backup Server v2 설치 | Microsoft Docs
+description: Azure Backup Server v2에서는 VM, 파일 및 폴더, 워크로드 등을 보호하기 위한 향상된 백업 기능을 제공합니다. Azure Backup Server v2를 설치하거나 이 버전으로 업그레이드하는 방법을 알아봅니다.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: masaran;markgal
-ms.openlocfilehash: 1bbb16afef7940933b4c3ae23873f212770137e0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dd7b76d9e06bc82ffd75f12131c2c247da05cc91
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="install-azure-backup-server-v2"></a>Azure Backup Server v2 설치
 
-Azure Backup Server를 사용하여 VM(가상 컴퓨터), 워크로드, 파일 및 폴더 등을 보호할 수 있습니다. Azure Backup Server v2는 Azure Backup Server v1을 기반으로 빌드되고 v1에서 사용할 수 없는 새로운 기능을 제공합니다. v1 및 v2의 기능 비교에 대해서는 [Azure Backup Server 보호 매트릭스](backup-mabs-protection-matrix.md)를 참조하세요. 
+Azure Backup Server를 사용하여 VM(가상 머신), 워크로드, 파일 및 폴더 등을 보호할 수 있습니다. Azure Backup Server v2는 Azure Backup Server v1을 기반으로 빌드되고 v1에서 사용할 수 없는 새로운 기능을 제공합니다. v1 및 v2의 기능 비교에 대해서는 [Azure Backup Server 보호 매트릭스](backup-mabs-protection-matrix.md)를 참조하세요. 
 
 Backup Server v2의 추가 기능은 Backup Server v1의 업그레이드입니다. 하지만 Backup Server v1은 Backup Server v2를 설치하기 위한 필수 구성 요소가 아닙니다. Backup Server v1에서 Backup Server v2로 업그레이드하려면 Backup Server v2를 Backup Server 보호 서버에 설치합니다. 기존 Backup Server 설정은 그대로 유지됩니다.
 
@@ -36,7 +36,7 @@ Backup Server v2를 Windows Server 2012 R2 또는 Windows Server 2016에 설치�
 ## <a name="upgrade-backup-server-to-v2"></a>Backup Server를 v2로 업그레이드
 Backup Server v1에서 Backup Server v2로 업그레이드하려면 설치에 필수 업데이트가 있는지 확인합니다.
 
-- 보호된 서버에서 [보호 에이전트를 업데이트](backup-mabs-upgrade-to-v2.md#update-the-dpm-protection-agent)합니다.
+- 보호된 서버에서 [보호 에이전트를 업데이트](backup-mabs-upgrade-to-v2.md#update-the-data-protection-manager-protection-agent)합니다.
 - Windows Server 2012 R2를 Windows Server 2016으로 업그레이드합니다.
 - 모든 프로덕션 서버에서 Azure Backup Server 원격 관리자를 업그레이드합니다.
 - 백업이 프로덕션 서버를 다시 시작하지 않고 계속하도록 설정되어 있는지 확인합니다.

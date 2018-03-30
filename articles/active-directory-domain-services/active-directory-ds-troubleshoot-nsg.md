@@ -1,11 +1,11 @@
 ---
-title: "Azure Active Directory Domain Services: 네트워크 보안 그룹 구성 문제 해결 | Microsoft Docs"
-description: "Azure AD Domain Services에 대한 NSG 구성 문제 해결"
+title: 'Azure Active Directory Domain Services: 네트워크 보안 그룹 구성 문제 해결 | Microsoft Docs'
+description: Azure AD Domain Services에 대한 NSG 구성 문제 해결
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: eringreenlee
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: 95f970a7-5867-4108-a87e-471fa0910b8c
 ms.service: active-directory-ds
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: ergreenl
-ms.openlocfilehash: b7010c2e8d5ca479411d101ce237709ad26d7bcc
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: ca3292f1b89fc461950a47116126b6f5338fb381
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshoot-invalid-networking-configuration-for-your-managed-domain"></a>관리되는 도메인에 대한 잘못된 네트워킹 구성 문제 해결
 이 문서를 통해 다음과 같은 경고 메시지가 발생하는 네트워크 관련 구성 오류를 해결하고 문제를 해결합니다.
@@ -137,7 +137,7 @@ $PSRemotingRule = New-AzureRmNetworkSecurityRuleConfig -Name AllowPSRemoting -De
 -SourceAddressPrefix 52.180.183.8, 23.101.0.70, 52.225.184.198, 52.179.126.223, 13.74.249.156, 52.187.117.83, 52.161.13.95, 104.40.156.18, 104.40.87.209, 52.180.179.108, 52.175.18.134, 52.138.68.41, 104.41.159.212, 52.169.218.0, 52.187.120.237, 52.161.110.169, 52.174.189.149, 13.64.151.161 -SourcePortRange * -DestinationAddressPrefix * `
 -DestinationPortRange 5986
 
-#The following two rules are optional and needed only in certain situations.
+# The following two rules are optional and needed only in certain situations.
 
 # Allow management of your domain over port 3389 (remote desktop).
 $RemoteDesktopRule = New-AzureRmNetworkSecurityRuleConfig -Name AllowRD -Description "Allow management of domain through port 3389" `
@@ -165,5 +165,5 @@ Set-AzureRmVirtualNetwork -VirtualNetwork $Vnet
 ```
 
 
-## <a name="need-help"></a>도움이 필요하세요?
+## <a name="need-help"></a>도움 필요 시
 [지원이 필요하거나 피드백을 공유하려면](active-directory-ds-contact-us.md)Azure Active Directory Domain Services 제품 팀에 문의하세요.

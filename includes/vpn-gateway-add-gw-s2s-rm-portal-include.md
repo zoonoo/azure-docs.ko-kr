@@ -1,3 +1,19 @@
+---
+title: 포함 파일
+description: 포함 파일
+services: vpn-gateway
+author: cherylmc
+ms.service: vpn-gateway
+ms.topic: include
+ms.date: 03/21/2018
+ms.author: cherylmc
+ms.custom: include file
+ms.openlocfilehash: f93a7c2fe75a643553a4dd5a8ccfcea975b336bb
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 03/23/2018
+---
 1. 포털 페이지의 왼쪽에서 **+**를 클릭하고 검색에서 'Virtual Network 게이트웨이'를 입력합니다. **결과**에서 **가상 네트워크 게이트웨이**를 찾아 클릭합니다.
 2. '가상 네트워크 게이트웨이' 페이지 아래쪽에서 **만들기**를 클릭합니다. 그러면 **가상 네트워크 게이트웨이 만들기** 페이지가 열립니다.
 

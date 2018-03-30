@@ -1,12 +1,12 @@
 ---
-title: "생명 공학 엔터티 인식 - Team Data Science Process - Azure Machine Learning | Microsoft Docs"
-description: "Azure Machine Learning Workbench에서 생명 공학 엔터티 인식을 위한 심화 학습을 사용하는 Team Data Science Process 프로젝트 빠른 시작 가이드입니다."
+title: 생명 공학 엔터티 인식 - Team Data Science Process - Azure Machine Learning | Microsoft Docs
+description: Azure Machine Learning Workbench에서 생명 공학 엔터티 인식을 위한 심화 학습을 사용하는 Team Data Science Process 프로젝트 빠른 시작 가이드입니다.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: bradsev
-ms.openlocfilehash: 7de3a30e477fcec66ce703b6c3fec7d17d79d3ab
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 4e8450cc20718185a3cea02bf8fbb6b97dd91ddb
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="biomedical-entity-recognition-using-team-data-science-process-tdsp-template"></a>TDSP(Team Data Science Process) 템플릿을 사용하는 생명 공학 엔터티 인식
 
@@ -139,7 +139,7 @@ ms.lasthandoff: 12/18/2017
 * 문장 분할, 토큰화 및 대소문자 정규화를 포함하여 요약 텍스트를 전처리합니다.
 * 요약 필드가 비어 있거나 짧은 텍스트가 있는 문서는 제외합니다. 
 * 학습 요약에서 단어 어휘를 만듭니다.
-* 신경망 모델을 포함하는 단어를 학습합니다. 시작 방법에 대한 자세한 내용은 [GitHub 코드 링크](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/blob/master/code/01_data_acquisition_and_understanding/ReadMe.md)를 참조하세요.
+* 신경망 모델을 포함하는 단어를 학습합니다. 자세한 내용은 [GitHub 코드 링크](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/blob/master/code/01_data_acquisition_and_understanding/ReadMe.md)를 참조하여 시작합니다.
 
 
 XML 파일을 구문 분석한 후의 데이터 형식은 다음과 같습니다. 

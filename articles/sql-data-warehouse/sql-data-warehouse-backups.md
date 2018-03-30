@@ -1,11 +1,11 @@
 ---
-title: "Azure SQL Data Warehouse 백업 - 스냅숏, 지역 중복 | Microsoft Docs"
-description: "Azure SQL Data Warehouse를 복원 지점 또는 다른 지역에 복원할 수 있는 SQL Data Warehouse 기본 제공 데이터베이스 백업에 대해 알아봅니다."
+title: Azure SQL Data Warehouse 백업 - 스냅숏, 지역 중복 | Microsoft Docs
+description: Azure SQL Data Warehouse를 복원 지점 또는 다른 지역에 복원할 수 있는 SQL Data Warehouse 기본 제공 데이터베이스 백업에 대해 알아봅니다.
 services: sql-data-warehouse
-documentationcenter: 
+documentationcenter: ''
 author: barbkess
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: b5aff094-05b2-4578-acf3-ec456656febd
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -16,10 +16,10 @@ ms.custom: backup-restore
 ms.date: 10/23/2017
 ms.author: jrj;barbkess
 ms.openlocfilehash: 159a1d34caba829750da33dbc4ad403fb21cd147
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="backup-and-restore-in-sql-data-warehouse"></a>SQL Data Warehouse에서 백업 및 복원
 이 문서에서는 SQL Data Warehouse의 백업에 대해 구체적으로 설명합니다. 데이터 웨어하우스 백업을 사용하여 데이터베이스 스냅숏을 주 지역으로 복원하거나 지역 백업을 지역 쌍으로 연결된 지역으로 복원할 수 있습니다. 

@@ -1,11 +1,11 @@
 ---
-title: "Azure Active Directory 코드 샘플 | Microsoft Docs"
-description: "시나리오별로 구성된 Azure Active Directory 코드 샘플의 인덱스입니다."
+title: Azure Active Directory 코드 샘플 | Microsoft Docs
+description: 시나리오별로 구성된 Azure Active Directory 코드 샘플의 인덱스입니다.
 services: active-directory
 documentationcenter: dev-center-name
 author: msmbaldwin
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: a242a5ff-7300-40c2-ba83-fb6035707433
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/19/2017
 ms.author: mbaldwin
 ms.custom: aaddev
-ms.openlocfilehash: 5f47f03594e64281b55161edb1c391ed0be83a73
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 130d26828acd5394756c47f22217272338cc33e6
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-active-directory-code-samples"></a>Azure Active Directory 코드 샘플
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -38,6 +38,7 @@ GitHub에서 샘플에 참가: [Microsoft Azure Active Directory 샘플 및 설�
 | C#/.NET |[WebApp-OpenIDConnect-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect) |OpenID Connect(ASP.Net OpenID Connect OWIN 미들웨어)를 사용하여 Azure AD 테넌트의 사용자를 인증합니다. |
 | C#/.NET |[WebApp-MultiTenant-OpenIdConnect-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-multitenant-openidconnect) |OpenID Connect(ASP.Net OpenID Connect OWIN 미들웨어)를 사용하여 여러 Azure AD 테넌트의 사용자를 인증하는 다중 테넌트 .NET MVC 웹 응용 프로그램입니다. |
 | C#/.NET |[WebApp-WSFederation-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-wsfederation) |WS-Federation(ASP.Net WS-Federation OWIN 미들웨어)을 사용하여 Azure AD 테넌트의 사용자를 인증합니다. |
+| C#/.NET Core |[WebApp-OpenIDConnect-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect-aspnetcore) |OpenID Connect를 사용하여 ASP.NET Core OpenID Connect 미들웨어를 사용하는 단일 Azure AD(Azure Active Directory)의 사용자를 로그인하는 .NET MVC 웹앱입니다. |
 
 ## <a name="single-page-application-spa"></a>SPA(단일 페이지 응용 프로그램)
 이 샘플에서는 Azure AD로 보안이 설정된 단일 페이지 응용 프로그램을 작성하는 방법을 보여 줍니다.  

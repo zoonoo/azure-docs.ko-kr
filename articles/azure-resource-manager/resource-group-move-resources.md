@@ -12,13 +12,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 03/15/2018
 ms.author: tomfitz
-ms.openlocfilehash: c4bf3871b4636ce769dd8d84a637b88d4a00db97
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 4709ee707aa67c8de531b2b3e0b58dbed5c2667b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>새 리소스 그룹 또는 구독으로 리소스 이동
 
@@ -121,11 +121,10 @@ ms.lasthandoff: 03/12/2018
 * Data Lake Store
 * DNS
 * Event Hubs
-
 * HDInsight 클러스터 - [HDInsight 제한 사항](#hdinsight-limitations) 참조
 * IoT Hub
 * Key Vault
-* 부하 분산 장치
+* 부하 분산 장치 - [부하 분산 장치 제한 사항](#lb-limitations) 참조
 * Logic Apps
 * Machine Learning
 * Media Services
@@ -134,6 +133,7 @@ ms.lasthandoff: 03/12/2018
 * Operational Insights
 * 운영 관리
 * Power BI
+* 공용 IP - [공용 IP 제한 사항](#pip-limitations) 참조
 * Redis Cache
 * Scheduler
 * 검색
@@ -163,8 +163,10 @@ ms.lasthandoff: 03/12/2018
 * Express 경로
 * DevTest Labs - 동일한 구독에서 새 리소스 그룹으로 이동이 가능하지만, 구독 간 이동은 사용 가능하지 않습니다.
 * Dynamics LCS
+* 부하 분산 장치 - [부하 분산 장치 제한 사항](#lb-limitations) 참조
 * Managed Applications
 * Managed Disks - [Virtual Machines 제한 사항](#virtual-machines-limitations) 참조
+* 공용 IP - [공용 IP 제한 사항](#pip-limitations) 참조
 * Recovery Services 자격 증명 모음 - Recovery Services 자격 증명 모음과 연결된 Compute, Network 및 Storage 리소스도 이동하지 않습니다. [Recovery Services 제한 사항](#recovery-services-limitations)을 참조하세요.
 * 보안
 * StorSimple 장치 관리자
@@ -322,6 +324,16 @@ HDInsight 클러스터를 새 구독으로 이동할 때 먼저 다른 리소스
 
 Search 리소스를 이동하여 한 번에 모두 다른 지역에 배치할 수 없습니다.
 이러한 경우에는 개별적으로 이동해야 합니다.
+
+## <a name="lb-limitations"></a> 부하 분산 장치 제한 사항
+
+기본 SKU 부하 분산 장치는 이동할 수 있습니다.
+표준 SKU 부하 분산 장치는 이동할 수 없습니다.
+
+## <a name="pip-limitations"></a> 공용 IP 제한 사항
+
+기본 SKU 공용 IP는 이동할 수 있습니다.
+표준 SKU 공용 IP는 이동할 수 없습니다.
 
 ## <a name="use-portal"></a>포털 사용
 

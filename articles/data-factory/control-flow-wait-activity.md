@@ -1,11 +1,11 @@
 ---
-title: "Azure Data Factory의 대기 작업 | Microsoft Docs"
-description: "대기 작업은 지정된 기간 동안 파이프라인의 실행을 일시 중지합니다."
+title: Azure Data Factory의 대기 작업 | Microsoft Docs
+description: 대기 작업은 지정된 기간 동안 파이프라인의 실행을 일시 중지합니다.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 460d37b13a17eaf20d77ad4b1059e0461fb0181f
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 9887f735fab30c95241bd84f49f30140efc27873
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="wait-activity-in-azure-data-factory"></a>Azure Data Factory의 대기 작업
 파이프라인에서 대기 작업을 사용하는 경우 파이프라인은 후속 작업을 계속 실행하기 전에 지정된 기간 동안 대기합니다. 

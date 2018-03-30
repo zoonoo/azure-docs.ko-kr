@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/26/2018
 ms.author: asmalser
-ms.openlocfilehash: 825bf3f6a3ea07cb229f00c81ad699d792ac53f9
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 976d7e7cb304a24f235e51952ce04826776e2789
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Workday 구성
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 03/13/2018
 
 * **Workday에 이메일 주소 쓰기 저장** - Azure AD 사용자 프로비전 서비스는 선택한 Azure AD 사용자 특성(예: 이메일 주소)을 Workday에 쓸 수 있습니다.
 
-### <a name="scenarios-covered"></a>포함되는 시나리오
+### <a name="what-human-resources-scenarios-does-it-cover"></a>여기서 다루는 인적 자원 시나리오
 
 Azure AD 사용자 프로비전 서비스에서 지원되는 Workday 사용자 프로비전 워크플로는 다음과 같은 인적 자원 및 ID 수명 주기 관리 시나리오의 자동화를 지원합니다.
 
@@ -46,6 +46,20 @@ Azure AD 사용자 프로비전 서비스에서 지원되는 Workday 사용자 �
 * **직원 퇴사** - Workday에서 직원이 퇴사하면 Active Directory, Azure Active Directory 그리고 선택적으로 Office 365 및 [Azure AD에서 지원하는 기타 SaaS 응용 프로그램](active-directory-saas-app-provisioning.md)에서 해당 사용자 계정이 자동으로 비활성화됩니다.
 
 * **직원 재고용** - Workday에서 직원이 다시 고용되면 Active Directory, Azure Active Directory 그리고 선택적으로 Office 365 및 [Azure AD에서 지원하는 기타 SaaS 응용 프로그램](active-directory-saas-app-provisioning.md)에서 해당 직원의 기존 계정이 자동으로 다시 활성화되거나 다시 프로비전됩니다(기본 설정에 따라).
+
+### <a name="who-is-this-user-provisioning-solution-best-suited-for"></a>이 사용자 프로비전 솔루션에 가장 적합한 사용자
+
+이 Workday 사용자 프로비전 솔루션은 현재 공개 미리 보기 상태이며 다음과 같은 경우에 가장 적합합니다.
+
+* Workday 사용자 프로비전에 미리 작성된 클라우드 기반 솔루션을 원하는 조직
+
+* Workday에서 Active Directory 또는 Azure Active Directory로 직접 사용자 프로비전이 필요한 조직
+
+* Workday HCM 모듈에서 가져온 데이터를 사용하여 사용자를 프로비전해야 하는 조직([Get_Workers](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html) 참조) 
+
+* Workday HCM 모듈에서 감지된 변경 내용 정보에 따라서만 하나 이상의 Active Directory 포리스트, 도메인 및 OU를 동기화하도록 사용자를 조인하고, 이동시키고, 유지해야 하는 조직([Get_Workers](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html) 참조)
+
+* 이메일에 Office 365를 사용하는 조직
 
 
 ## <a name="planning-your-solution"></a>솔루션 계획
@@ -62,7 +76,6 @@ Workday 통합을 시작하기 전에 다음과 같은 필수 조건을 확인�
 * Active Directory에 사용자 프로비전의 경우 [온-프레미스 동기화 에이전트](https://go.microsoft.com/fwlink/?linkid=847801)를 호스트하려면 Windows Service 2012 이상을 실행하는 도메인에 가입된 서버가 필요합니다.
 * Active Directory와 Azure AD 간의 동기화를 위한 [Azure AD Connect](connect/active-directory-aadconnect.md)
 
-
 ### <a name="solution-architecture"></a>솔루션 아키텍처
 
 Azure AD는 Workday에서 Active Directory, Azure AD, SaaS 앱 등으로 프로비전하고 ID 수명 주기 관리 문제를 해결할 수 있는 다양한 프로비전 커넥터를 제공합니다. 사용하게 될 기능과 솔루션 설정 방법은 조직의 환경과 요구 사항에 따라 달라집니다. 첫 번째 단계로 조직에서 다음 항목 중 몇 개를 갖고 있으며 몇 개가 배포되었는지 점검합니다.
@@ -74,6 +87,7 @@ Azure AD는 Workday에서 Active Directory, Azure AD, SaaS 앱 등으로 프로�
 * Active Directory와 Azure Active Directory에 모두 프로비전해야 하는 사용자(예: "하이브리드" 사용자)가 있나요?
 * Azure Active Directory에만 프로비전하고 Active Directory에는 프로비전하면 안 되는 사용자(예: "클라우드 전용" 사용자)가 있나요?
 * 사용자 이메일 주소를 Workday에 다시 써야 하나요?
+
 
 이러한 질문에 대답한 후에는 아래 지침에 따라 Workday 프로비전 배포를 계획할 수 있습니다.
 
@@ -144,7 +158,7 @@ Azure AD의 프로비전 커넥터 인스턴스와 앱 인스턴스는 일대일
    
     ![보안 그룹 만들기](./media/active-directory-saas-workday-inbound-tutorial/IC750981.png "보안 그룹 만들기")
 2. **보안 그룹 만들기** 작업을 완료합니다.  
-3. **테넌트 보안 그룹의 유형**에서 통합 시스템 보안 그룹 - 제한되지 않음을 선택합니다.
+3. **테넌트 보안 그룹의 형식**에서 **통합 시스템 보안 그룹(제한되지 않음)**을 선택합니다.
 4. 구성원이 명시적으로 추가될 보안 그룹을 만듭니다. 
    
     ![보안 그룹 만들기](./media/active-directory-saas-workday-inbound-tutorial/IC750982.png "보안 그룹 만들기")
@@ -164,21 +178,11 @@ Azure AD의 프로비전 커넥터 인스턴스와 앱 인스턴스는 일대일
     ![시스템 보안 그룹](./media/active-directory-saas-workday-inbound-tutorial/IC750985.png "시스템 보안 그룹")  
 
 ### <a name="configure-security-group-options"></a>보안 그룹 옵션 구성
-이 단계에서는 다음 도메인 보안 정책으로 보호되는 작업자 데이터에 대해 도메인 보안 정책 권한을 부여합니다.
-
-
-| 작업 | 도메인 보안 정책 |
-| ---------- | ---------- | 
-| 가져오기 및 넣기 |  외부 계정 프로비저닝 |
-| 가져오기 및 넣기 | 작업자 데이터: 공용 작업자 보고서 |
-| 가져오기 및 넣기 | 작업자 데이터: 모든 위치 |
-| 가져오기 및 넣기 | 작업자 데이터: 현재 인력 관리 정보 |
-| 가져오기 및 넣기 | 작업자 데이터: 작업자 프로필 직함 |
-| 보기 및 수정 | 작업자 데이터: 업무용 메일 |
+이 단계에서는 보안 그룹에 대한 작업자 데이터에 도메인 보안 정책 권한을 부여합니다.
 
 **보안 그룹 옵션을 구성하려면**
 
-1. 검색 상자에 도메인 보안 정책을 입력하고 **기능 영역에 대한 보안 정책** 링크를 클릭합니다.  
+1. 검색 상자에 **도메인 보안 정책**을 입력한 다음, **기능 영역에 대한 보안 정책** 링크를 클릭합니다.  
    
     ![도메인 보안 정책](./media/active-directory-saas-workday-inbound-tutorial/IC750986.png "도메인 보안 정책")  
 2. 시스템을 검색하여 **시스템** 기능 영역을 선택합니다.  **확인**을 클릭합니다.  
@@ -190,23 +194,17 @@ Azure AD의 프로비전 커넥터 인스턴스와 앱 인스턴스는 일대일
 4. **사용 권한 편집**을 클릭한 다음, **사용 권한 편집** 대화 상자 페이지에서 **Get** 및 **Put** 통합 사용 권한이 있는 보안 그룹의 목록에 새 보안 그룹을 추가합니다. 
    
     ![사용 권한 편집](./media/active-directory-saas-workday-inbound-tutorial/IC750989.png "사용 권한 편집")  
-5. 1단계를 반복하여 기능 영역을 선택하는 화면으로 돌아간 다음, 이번에는 인력 관리를 검색하고 **인력 관리 기능 영역**을 선택한 다음 **확인**을 클릭합니다.
+    
+5. 이러한 나머지 보안 정책 각각에 대해 위의 1-4단계를 반복합니다.
+
+| 작업 | 도메인 보안 정책 |
+| ---------- | ---------- | 
+| 가져오기 및 넣기 | 작업자 데이터: 공용 작업자 보고서 |
+| 가져오기 및 넣기 | 작업자 데이터: 작업 연락처 정보 |
+| 가져오기 | 작업자 데이터: 모든 위치 |
+| 가져오기 | 작업자 데이터: 현재 인력 관리 정보 |
+| 가져오기 | 작업자 데이터: 작업자 프로필 직함 |
    
-    ![도메인 보안 정책](./media/active-directory-saas-workday-inbound-tutorial/IC750990.png "도메인 보안 정책")  
-6. 인력 관리 영역에 대한 보안 정책 목록에서 **작업자 데이터: 인력 관리**를 확장하고 다음과 같은 남은 각 보안 정책에 대해 위의 4단계를 반복합니다.
-
-   * 작업자 데이터: 공용 작업자 보고서
-   * 작업자 데이터: 모든 위치
-   * 작업자 데이터: 현재 인력 관리 정보
-   * 작업자 데이터: 작업자 프로필 직함
-   
-7. 위의 1단계를 반복하여 기능 영역을 선택하는 화면으로 돌아간 다음, 이번에는 **연락처 정보**를 검색하고 인력 관리 기능 영역을 선택한 다음 **확인**을 클릭합니다.
-
-8.  인력 관리 기능 영역에 대한 보안 정책 목록에서 **작업자 데이터: 작업자 연락처 정보**를 확장하고 아래 보안 정책에 대해 위의 4단계를 반복합니다.
-
-    * 작업자 데이터: 업무용 메일
-
-    ![도메인 보안 정책](./media/active-directory-saas-workday-inbound-tutorial/IC750991.png "도메인 보안 정책")  
     
 ### <a name="activate-security-policy-changes"></a>보안 정책 변경 사항 활성화
 
@@ -225,6 +223,41 @@ Azure AD의 프로비전 커넥터 인스턴스와 앱 인스턴스는 일대일
 ## <a name="configuring-user-provisioning-from-workday-to-active-directory"></a>Workday에서 Active Directory로 사용자 프로비전 구성
 다음 지침에 따라 Workday에서 프로비전이 필요한 각 Active Directory 포리스트로 사용자 계정 프로비전을 구성합니다.
 
+### <a name="planning"></a>계획
+
+Active Directory 포리스트로 사용자 프로비전을 구성하기 전에 다음과 같은 질문을 고려하세요. 이러한 질문에 대한 답은 범위 지정 필터 및 특성 매핑을 설정하는 방법을 결정합니다. 
+
+* **이 Active Directory 포리스트로 프로비전되어야 하는 Workday의 사용자**
+
+   * *예제: Workday "회사" 특성에 "Contoso" 값이 포함되고 "Worker_Type" 특성에 "기본"이 포함되는 사용자입니다.*
+
+* **다른 OU(조직 단위)에 사용자를 라우팅하는 방법**
+
+   * *예제: Workday "Municipality" 및 "Country_Region_Reference" 특성에 정의된 대로 사무실 위치에 해당하는 OU로 사용자를 라우팅합니다.*
+
+* **Active Directory에서 다음과 같은 특성을 채우는 방법**
+
+   * 일반 이름(cn)
+      * *예제: 인적 자원에서 설정한 대로 Workday User_ID 값을 사용합니다.*
+      
+   * 직원 ID(employeeId)
+      * *예제: Workday Worker_ID 값을 사용합니다.*
+      
+   * SAM 계정 이름(sAMAccountName)
+      * *예제: Workday User_ID 값을 사용하여 잘못된 문자를 제거하도록 Azure AD 프로비전 식을 통해 필터링됩니다.*
+      
+   * 사용자 계정 이름(userPrincipalName)
+      * *예제: 도메인 이름을 추가하도록 Azure AD 프로비전 식에서 Workday User_ID 값을 사용합니다.*
+
+* **Workday와 Active Directory 간에 사용자를 일치시키는 방법**
+
+  * *예제: 특정 workday "Worker_ID" 값과 일치하는 사용자는 "employeeID"에 같은 값을 가지는 Active Directory 사용자와 일치합니다. Worker_ID 값이 Active Directory에 없는 경우 새로운 사용자를 만듭니다.*
+  
+* **일치하는 논리가 작동하기 위해 필요한 사용자 ID가 Active Directory 포리스트에 포함되었는지 여부**
+
+  * *예제: 새 Workday 배포인 경우 Active Directory를 올바른 Workday Worker_ID 값(또는 선택한 고유 ID 값)으로 미리 채워서 일치하는 논리를 최대한 단순하게 유지하는 것이 좋습니다.*
+    
+    
 ### <a name="part-1-adding-the-provisioning-connector-app-and-creating-the-connection-to-workday"></a>1부: 프로비전 커넥터 앱을 추가하고 Workday에 대한 연결 만들기
 
 **Workday에서 Active Directory로의 프로비전을 구성하려면:**
@@ -320,39 +353,38 @@ Azure AD의 프로비전 커넥터 인스턴스와 앱 인스턴스는 일대일
 
 **아래는 몇 가지 일반적인 식을 사용한 Workday와 Active Directory 간의 특성 매핑을 보여주는 예입니다.**
 
--   parentDistinguishedName AD 특성에 매핑되는 식을 사용하여 하나 이상의 Workday 원본 특성에 따라 특정 OU에 사용자를 프로비전할 수 있습니다. 이 예에서는 Workday의 도시 데이터에 따라 사용자를 여러 OU에 배치합니다.
+-   parentDistinguishedName 특성에 매핑되는 식을 사용하여 하나 이상의 Workday 원본 특성에 따라 다른 OU에 사용자를 프로비전할 수 있습니다. 이 예제에서는 도시에 따라 사용자를 다른 OU에 배치합니다.
 
--   userPrincipalName AD 특성에 매핑되는 식은 firstName.LastName@contoso.com의 UPN을 만듭니다. 또한 잘못된 특수 문자를 바꿉니다.
+-   도메인 접미사가 있는 Workday 사용자 ID를 연결하여 Active Directory의 userPrincipalName 특성을 생성합니다.
 
--   [식을 쓰는 방법에 대한 설명서는 여기](active-directory-saas-writing-expressions-for-attribute-mappings.md)
+-   [식 작성에 대한 설명서는 여기에 있습니다](active-directory-saas-writing-expressions-for-attribute-mappings.md). 여기에는 특수 문자를 제거하는 방법에 대한 예제가 포함되어 있습니다.
 
   
 | WORKDAY 특성 | ACTIVE DIRECTORY 특성 |  ID 일치 여부 | 만들기/업데이트 |
 | ---------- | ---------- | ---------- | ---------- |
-|  **WorkerID**  |  EmployeeID | **예** | 만들기 작업 시에만 기록 | 
-|  **Municipality**   |   l   |     | 만들기 + 업데이트 |
-|  **Company**         | company   |     |  만들기 + 업데이트 |
-|  **CountryReferenceTwoLetter**      |   co |     |   만들기 + 업데이트 |
-| **CountryReferenceTwoLetter**    |  C  |     |         만들기 + 업데이트 |
-| **SupervisoryOrganization**  | department  |     |  만들기 + 업데이트 |
-|  **PreferredNameData**  |  displayName |     |   만들기 + 업데이트 |
-| **EmployeeID**    |  cn    |   |   만들기 작업 시에만 기록 |
-| **Fax**      | facsimileTelephoneNumber     |     |    만들기 + 업데이트 |
-| **FirstName**   | givenName       |     |    만들기 + 업데이트 |
+| **WorkerID**  |  EmployeeID | **예** | 만들기 작업 시에만 기록 | 
+| **UserID**    |  cn    |   |   만들기 작업 시에만 기록 |
+| **Join("@",[UserID], "contoso.com")**   | userPrincipalName     |     | 만들기 작업 시에만 기록 
+| **Replace(Mid(Replace(\[UserID\], , "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\\\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\\\&lt;\\\\&gt;\])", , "", , ), 1, 20), , "([\\\\.)\*\$](file:///\\.)*$)", , "", , )**      |    sAMAccountName            |     |         만들기 작업 시에만 기록 |
 | **Switch(\[Active\], , "0", "True", "1",)** |  accountDisabled      |     | 만들기 + 업데이트 |
-| **Mobile**  |    mobile       |     |       만들기 + 업데이트 |
-| **EmailAddress**    | mail    |     |     만들기 + 업데이트 |
+| **FirstName**   | givenName       |     |    만들기 + 업데이트 |
+| **LastName**   |   sn   |     |  만들기 + 업데이트 |
+| **PreferredNameData**  |  displayName |     |   만들기 + 업데이트 |
+| **Company**         | company   |     |  만들기 + 업데이트 |
+| **SupervisoryOrganization**  | department  |     |  만들기 + 업데이트 |
 | **ManagerReference**   | manager  |     |  만들기 + 업데이트 |
+| **BusinessTitle**   |  title     |     |  만들기 + 업데이트 | 
+| **AddressLineData**    |  streetAddress  |     |   만들기 + 업데이트 |
+| **Municipality**   |   l   |     | 만들기 + 업데이트 |
+| **CountryReferenceTwoLetter**      |   co |     |   만들기 + 업데이트 |
+| **CountryReferenceTwoLetter**    |  C  |     |         만들기 + 업데이트 |
+| **CountryRegionReference** |  st     |     | 만들기 + 업데이트 |
 | **WorkSpaceReference** | physicalDeliveryOfficeName    |     |  만들기 + 업데이트 |
 | **PostalCode**  |   postalCode  |     | 만들기 + 업데이트 |
-| **LocalReference** |  preferredLanguage  |     |  만들기 + 업데이트 |
-| **Replace(Mid(Replace(\[EmployeeID\], , "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\\\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\\\&lt;\\\\&gt;\])", , "", , ), 1, 20), , "([\\\\.)\*\$](file:///\\.)*$)", , "", , )**      |    sAMAccountName            |     |         만들기 작업 시에만 기록 |
-| **LastName**   |   sn   |     |  만들기 + 업데이트 |
-| **CountryRegionReference** |  st     |     | 만들기 + 업데이트 |
-| **AddressLineData**    |  streetAddress  |     |   만들기 + 업데이트 |
 | **PrimaryWorkTelephone**  |  telephoneNumber   |     | 만들기 + 업데이트 |
-| **BusinessTitle**   |  title     |     |  만들기 + 업데이트 |
-| **Join("@",Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Join(".", [FirstName], [LastName]), , "([Øø])", , "oe", , ), , "[Ææ]", , "ae", , ), , "([äãàâãåáąÄÃÀÂÃÅÁĄA])", , "a", , ), , "([B])", , "b", , ), , "([CçčćÇČĆ])", , "c", , ), , "([ďĎD])", , "d", , ), , "([ëèéêęěËÈÉÊĘĚE])", , "e", , ), , "([F])", , "f", , ), , "([G])", , "g", , ), , "([H])", , "h", , ), , "([ïîìíÏÎÌÍI])", , "i", , ), , "([J])", , "j", , ), , "([K])", , "k", , ), , "([ľłŁĽL])", , "l", , ), , "([M])", , "m", , ), , "([ñńňÑŃŇN])", , "n", , ), , "([öòőõôóÖÒŐÕÔÓO])", , "o", , ), , "([P])", , "p", , ), , "([Q])", , "q", , ), , "([řŘR])", , "r", , ), , "([ßšśŠŚS])", , "s", , ), , "([TŤť])", , "t", , ), , "([üùûúůűÜÙÛÚŮŰU])", , "u", , ), , "([V])", , "v", , ), , "([W])", , "w", , ), , "([ýÿýŸÝY])", , "y", , ), , "([źžżŹŽŻZ])", , "z", , ), " ", , , "", , ), "contoso.com")**   | userPrincipalName     |     | 만들기 작업 시에만 기록                                                   
+| **Fax**      | facsimileTelephoneNumber     |     |    만들기 + 업데이트 |
+| **Mobile**  |    mobile       |     |       만들기 + 업데이트 |
+| **LocalReference** |  preferredLanguage  |     |  만들기 + 업데이트 |                                               
 | **Switch(\[Municipality\], "OU=Standard Users,OU=Users,OU=Default,OU=Locations,DC=contoso,DC=com", "Dallas", "OU=Standard Users,OU=Users,OU=Dallas,OU=Locations,DC=contoso,DC=com", "Austin", "OU=Standard Users,OU=Users,OU=Austin,OU=Locations,DC=contoso,DC=com", "Seattle", "OU=Standard Users,OU=Users,OU=Seattle,OU=Locations,DC=contoso,DC=com", “London", "OU=Standard Users,OU=Users,OU=London,OU=Locations,DC=contoso,DC=com")**  | parentDistinguishedName     |     |  만들기 + 업데이트 |
   
 ### <a name="part-3-configure-the-on-premises-synchronization-agent"></a>3부: 온-프레미스 동기화 에이전트 구성
@@ -426,7 +458,7 @@ Azure Active Directory 테넌트가 EU 데이터 센터 중 하나에 있으면 
 1. **Services.msc**를 열고 **Microsoft Azure AD Connect Provisioning Agent** 서비스를 중지합니다.
 2. 에이전트 설치 폴더(예: C:\Program Files\Microsoft Azure AD Connect Provisioning Agent)로 이동합니다.
 3. 텍스트 편집기에서 **SyncAgnt.exe.config**를 엽니다.
-4. https://manage.hub.syncfabric.windowsazure.com/Management를 **https://eu.manage.hub.syncfabric.windowsazure.com/Management**로 바꿉니다.
+4. https://manage.hub.syncfabric.windowsazure.com/Management을 **https://eu.manage.hub.syncfabric.windowsazure.com/Management**으로 바꿉니다.
 5. https://provision.hub.syncfabric.windowsazure.com/Provisioning을 **https://eu.provision.hub.syncfabric.windowsazure.com/Provisioning**으로 바꿉니다.
 6. **SyncAgnt.exe.config** 파일을 저장합니다.
 7. **Services.msc**를 열고 **Microsoft Azure AD Connect Provisioning Agent** 서비스를 시작합니다.
@@ -696,6 +728,7 @@ Azure AD 프로비저닝 서비스는 인사 API의[Get_Workers](https://communi
             <wd:Include_Transaction_Log_Data>true</wd:Include_Transaction_Log_Data>
             <wd:Include_Photo>true</wd:Include_Photo>
             <wd:Include_User_Account>true</wd:Include_User_Account>
+            <wd:Include_Roles>true</wd:Include_Roles>
           </wd:Response_Group>
         </wd:Get_Workers_Request>
       </env:Body>

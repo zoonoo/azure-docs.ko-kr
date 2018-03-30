@@ -1,10 +1,11 @@
 ---
-title: "Azure Machine Learning에서 사용자 지정 R 모듈 작성 | Microsoft Docs"
-description: "Azure Machine Learning에서 사용자 지정 R 모듈을 작성하기 위한 빠른 시작입니다."
+title: Azure Machine Learning에서 사용자 지정 R 모듈 작성 | Microsoft Docs
+description: Azure Machine Learning에서 사용자 지정 R 모듈을 작성하기 위한 빠른 시작입니다.
 services: machine-learning
-documentationcenter: 
-author: bradsev
-manager: cgronlun
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: 6cbc628a-7e60-42ce-9f90-20aaea7ba630
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/29/2017
-ms.author: bradsev;ankarlof;garye
-ms.openlocfilehash: 16442a30f130e7cc9b60d2d9ae9c86d7282471ff
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 945c238411dac8f2e64666935308ef3c1cb2f0ab
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="author-custom-r-modules-in-azure-machine-learning"></a>Azure Machine Learning에서 사용자 지정 R 모듈 작성
 이 항목에서는 Azure Machine Learning에서 사용자 지정 R 모듈을 작성하여 배포하는 방법을 설명합니다. 사용자 지정 R 모듈의 정의와 이를 정의하는 데 사용되는 파일을 설명합니다. 또한 이러한 파일을 생성하여 Machine Learning 작업 영역에서 모듈을 정의하는 파일을 구조화하고 배포용 모듈을 등록하는 방법을 보여 줍니다. 그런 다음 사용자 지정 모듈의 정의에 사용되는 요소 및 특성에 대해 자세히 설명합니다. 보조 기능과 파일 및 여러 출력을 사용하는 방법도 소개합니다. 
@@ -26,8 +26,7 @@ ms.lasthandoff: 01/08/2018
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 ## <a name="what-is-a-custom-r-module"></a>사용자 지정 R 모듈이란?
-
-            **사용자 지정 모듈** 은 사용자의 작업 영역에 업로드하고 Azure Machine Learning 실험의 일부로 실행할 수 있는 사용자 정의 모듈입니다. 사용자 지정 R 모듈은 사용자 정의 R 함수를 실행하는 **사용자 지정 모듈** 입니다. **R** 은 통계학자 및 데이터 과학자가 알고리즘을 구현하는 데 널리 사용되는 통계 컴퓨팅 및 그래픽용 프로그래밍 언어입니다. 현재, R은 사용자 지정 모듈에서 지원되는 유일한 언어이지만 향후 릴리스에서는 추가 언어에 대한 지원이 예정되어 있습니다.
+**사용자 지정 모듈** 은 사용자의 작업 영역에 업로드하고 Azure Machine Learning 실험의 일부로 실행할 수 있는 사용자 정의 모듈입니다. 사용자 지정 R 모듈은 사용자 정의 R 함수를 실행하는 **사용자 지정 모듈** 입니다. **R** 은 통계학자 및 데이터 과학자가 알고리즘을 구현하는 데 널리 사용되는 통계 컴퓨팅 및 그래픽용 프로그래밍 언어입니다. 현재, R은 사용자 지정 모듈에서 지원되는 유일한 언어이지만 향후 릴리스에서는 추가 언어에 대한 지원이 예정되어 있습니다.
 
 사용자 지정 모듈은 다른 모든 모듈처럼 사용할 수 있다는 점에서 Azure Machine Learning에서 **첫 번째 클래스** 상태를 유지합니다. 다른 모듈과 함께 실행하거나, 게시된 실험이나 시각화에 포함할 수 있습니다. 사용자는 모듈에 의해 구현되는 알고리즘, 사용할 입력 및 출력 포트, 모델링 매개 변수 및 기타 여러 런타임 동작을 제어할 수 있습니다. 사용자 지정 모듈을 포함한 실험을 공유하기 쉽도록 Azure AI 갤러리에 게시할 수도 있습니다.
 

@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/04/2018
 ms.author: tdykstra
-ms.openlocfilehash: 0a436a929696f759cdbe9807faa2a15902b7ce6d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 9d63c95c849c8ef6011557c72240e56071ba614f
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript 개발자 가이드
 [!INCLUDE [functions-selector-languages](../../includes/functions-selector-languages.md)]
@@ -271,7 +271,7 @@ HTTP 트리거로 작업할 때 세 가지 방법으로 HTTP 요청 및 응답 �
 | Functions 버전 | Node.js 버전 | 
 |---|---|
 | 1.x | 6.11.2(런타임에 의해 잠김) |
-| 2.x  |8.4.0 이상(현재 LTS 8.9.4가 권장됨). WEBSITE_DEFAULT_NODE_VERSION [앱 설정](functions-how-to-use-azure-function-app-settings.md#settings)을 사용하여 버전을 설정합니다.|
+| 2.x  |8.4.0 이상(현재 LTS 8.9.4가 권장됨). WEBSITE_NODE_DEFAULT_VERSION [앱 설정](functions-how-to-use-azure-function-app-settings.md#settings)을 사용하여 버전을 설정합니다.|
 
 함수에서 `process.version`을 인쇄하여 해당 런타임이 사용하는 현재 버전을 볼 수 있습니다.
 

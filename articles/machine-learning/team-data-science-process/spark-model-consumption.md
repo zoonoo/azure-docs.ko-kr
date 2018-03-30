@@ -1,8 +1,8 @@
 ---
-title: "Spark에서 만든 Machine Learning 모델 운영 | Microsoft Docs"
-description: "Python을 사용하여 Azure Blob Storage(WASB)에 저장된 학습 모델을 로드하고 점수를 매기는 방법입니다."
+title: Spark에서 만든 Machine Learning 모델 운영 | Microsoft Docs
+description: Python을 사용하여 Azure Blob Storage(WASB)에 저장된 학습 모델을 로드하고 점수를 매기는 방법입니다.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: jhubbard
 editor: cgronlun
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
-ms.author: deguhath;bradsev;gokuma
-ms.openlocfilehash: 9ff633b4543fbc537ffdb721756706e8de5e8e88
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.author: bradsev
+ms.openlocfilehash: 3a586d40a9d195fe5ec3fa456d450cb3d86f2e9d
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="operationalize-spark-built-machine-learning-models"></a>Spark에서 만든 Machine Learning 모델 운영
 [!INCLUDE [machine-learning-spark-modeling](../../../includes/machine-learning-spark-modeling.md)]
@@ -39,7 +39,7 @@ HDInsight Spark 2.0 클러스터와 함께 사용하도록 Spark 1.6용 Jupyter 
 
 1. 이 연습을 완료하려면 Azure 계정과 Spark 1.6(또는 Spark 2.0) HDInsight 클러스터가 필요합니다. 이러한 요구 사항을 충족시키는 방법에 대한 자세한 지침은 [Azure HDInsight에서 Spark를 사용하는 데이터 과학 개요](spark-overview.md)를 참조하세요. 이 항목에는 여기에서 사용된 NYC 2013 Taxi 데이터에 대한 설명 및 Spark 클러스터의 Jupyter Notebook에서 코드를 실행하는 방법에 대한 지침이 포함되어 있습니다. 
 2. 또한 Spark 1.6 클러스터 또는 the Spark 2.0 Notebook에 대한 [Spark로 데이터 탐색 및 모델링](spark-data-exploration-modeling.md) 항목을 통해 작업하여 여기서 점수를 매길 Machine Learning 모델을 만들어야 합니다. 
-3. Spark 2.0 Notebook은 분류 태스크에 대한 추가 데이터 집합인 인 2011년부터 2012까지 유명 항공사 정시 출발 데이터 집합을 사용합니다. Notebook과 이에 연결된 링크의 설명은 이들을 포함하는 GitHub 리포지토리의 [Readme.md](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Readme.md)에 제공됩니다. 그뿐 아니라 여기에 있는 코드와 연결된 Notebook에 있는 코드는 일반적이므로 아무 Spark 클러스터에서나 작동할 것입니다. HDInsight Spark를 사용하지 않는 경우 클러스터 설치 및 관리 단계가 여기에 나오는 내용과 약간 다를 수 있습니다. 
+3. Spark 2.0 Notebook은 분류 태스크에 대한 추가 데이터 집합인 인 2011년부터 2012까지 유명 항공사 정시 출발 데이터 집합을 사용합니다. 노트북과 이에 연결된 링크의 설명은 이들을 포함하는 GitHub 리포지토리의 [Readme.md](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Readme.md)에 제공됩니다. 그뿐 아니라 여기에 있는 코드와 연결된 Notebook에 있는 코드는 일반적이므로 아무 Spark 클러스터에서나 작동할 것입니다. HDInsight Spark를 사용하지 않는 경우 클러스터 설치 및 관리 단계가 여기에 나오는 내용과 약간 다를 수 있습니다. 
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -48,7 +48,7 @@ Spark는 Azure Storage Blob(WASB)를 읽고 쓸 수 있습니다. 따라서 Spar
 
 모델 또는 파일을 WASB에 저장하려면 경로를 올바르게 지정해야 합니다. *"wasb///"*로 시작하는 경로를 사용하여 Spark 클러스터에 연결된 기본 컨테이너를 참조할 수 있습니다. 다음 코드 샘플은 읽을 데이터의 위치 및 모델 출력을 저장할 모델 저장소 디렉터리에 대한 경로를 지정합니다. 
 
-### <a name="set-directory-paths-for-storage-locations-in-wasb"></a>WASB의 저장소 위치에 대한 디렉터리 경로를 설정합니다.
+### <a name="set-directory-paths-for-storage-locations-in-wasb"></a>WASB의 저장소 위치에 대 한 디렉터리 경로를 설정합니다.
 모델 저장 위치: "wasb:///user/remoteuser/NYCTaxi/Models". 이 경로를 올바르게 설정하지 않으면 점수 매기기를 위한 모델이 로드되지 않습니다.
 
 점수를 매긴 결과가 저장된 위치: "wasb:///user/remoteuser/NYCTaxi/ScoredResults". 폴더에 대한 경로가 올바르지 않으면 결과가 해당 폴더에 저장되지 않습니다.   

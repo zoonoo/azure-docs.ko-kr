@@ -1,8 +1,8 @@
 ---
-title: "Azure Machine Learning 이상 감지 API | Microsoft Docs"
-description: "이상 감지 API는 Microsoft Azure Machine Learning을 사용하여 빌드한 예로서, 시간 간격이 불균일한 숫자 값이 있는 시계열 데이터에서 이상을 감지합니다."
+title: Azure Machine Learning 이상 감지 API | Microsoft Docs
+description: 이상 감지 API는 Microsoft Azure Machine Learning을 사용하여 빌드한 예로서, 시간 간격이 불균일한 숫자 값이 있는 시계열 데이터에서 이상을 감지합니다.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: alokkirpal
 manager: jhubbard
 editor: cgronlun
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/05/2017
-ms.author: alok;rotimpe
-ms.openlocfilehash: e2adfffa00a726fe2c452c25dd777ef054319b04
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.author: alok
+ms.openlocfilehash: e3f6f0de16fcb84872fe7b420eb0d54e86682f23
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>Machine Learning 이상 감지 API
 ## <a name="overview"></a>개요
@@ -118,7 +118,7 @@ Score API는 비계절성 시계열 데이터에 이상 감지를 실행하는 �
 ### <a name="parameters"></a>매개 변수
 이러한 입력 매개 변수에 대한 자세한 정보는 아래 테이블에 나와 있습니다.
 
-| 입력 매개 변수 | 설명 | 기본 설정 | type | 유효 범위 | 제안 범위 |
+| 입력 매개 변수 | 설명 | 기본 설정 | 유형 | 유효 범위 | 제안 범위 |
 | --- | --- | --- | --- | --- | --- |
 | detectors.historyWindow |이상 점수 계산에 사용된 내역(데이터 요소 수) |500 |정수 |10-2000 |시계열에 종속 |
 | detectors.spikesdips | 급증만, 급락만 또는 둘 다 감지할지 여부 |둘 다 |열거형 |Both, Spikes, Dips |둘 다 |
@@ -154,7 +154,7 @@ ScoreWithSeasonality API는 계절성 패턴이 있는 시계열에 대한 이�
 
 이러한 입력 매개 변수에 대한 자세한 정보는 아래 테이블에 나와 있습니다.
 
-| 입력 매개 변수 | 설명 | 기본 설정 | type | 유효 범위 | 제안 범위 |
+| 입력 매개 변수 | 설명 | 기본 설정 | 유형 | 유효 범위 | 제안 범위 |
 | --- | --- | --- | --- | --- | --- |
 | preprocess.aggregationInterval |입력 시계열 집계에 대한 초 단위 집계 간격 |0(집계가 수행되지 않음) |정수 |0: 집계 건너뜀, > 0 기타 |5분에서 1일, 시계열 종속 |
 | preprocess.aggregationFunc |지정된 AggregationInterval로 데이터를 집계하는 데 사용되는 함수 |평균 |열거형 |평균, 합계, 길이 |해당 없음 |

@@ -1,12 +1,12 @@
 ---
-title: "Azure AD Connect 동기화: Azure AD Connect 동기화 서비스 계정 변경 | Microsoft Docs"
-description: "이 항목 문서는 암호화 키 및 암호가 변경된 후 암호화 키를 제거하는 방법을 설명합니다."
+title: 'Azure AD Connect 동기화: Azure AD Connect 동기화 서비스 계정 변경 | Microsoft Docs'
+description: 이 항목 문서는 암호화 키 및 암호가 변경된 후 암호화 키를 제거하는 방법을 설명합니다.
 services: active-directory
-keywords: "Azure AD 동기화 서비스 계정, 암호"
-documentationcenter: 
+keywords: Azure AD 동기화 서비스 계정, 암호
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 76b19162-8b16-4960-9e22-bd64e6675ecc
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: c22dd91f236454c774c00371bff668da245d45c6
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: faa6d667b514563516c23e0484437ac9572e52b7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="changing-the-azure-ad-connect-sync-service-account-password"></a>Azure AD Connect 동기화 서비스 계정 암호 변경
 Azure AD Connect 동기화 서비스 계정 암호를 변경하면 암호화 키를 제거하고 Azure AD Connect 동기화 서비스 계정 암호를 다시 초기화할 때까지 동기화 서비스를 제대로 시작할 수 없습니다. 
@@ -30,7 +30,7 @@ Azure AD Connect는 동기화 서비스의 일환으로 암호화 키를 사용�
 
 서비스 계정 암호를 변경해야 하는 경우 [Azure AD Connect 동기화 암호화 키 제거](#abandoning-the-azure-ad-connect-sync-encryption-key)의 절차를 사용하여 작업을 수행할 수 있습니다.  이러한 절차는 어떤 이유로든 암호화 키를 제거해야 하는 경우에 사용되어야 합니다.
 
-##<a name="issues-that-arise-from-changing-the-password"></a>암호 변경으로 인해 발생하는 문제
+## <a name="issues-that-arise-from-changing-the-password"></a>암호 변경으로 인해 발생하는 문제
 서비스 계정 암호를 변경하는 경우 두 가지 작업을 수행해야 합니다.
 
 첫째, Windows 서비스 제어 관리자에서 암호를 변경해야 합니다.  이 문제가 해결될 때까지 다음 오류가 표시됩니다.

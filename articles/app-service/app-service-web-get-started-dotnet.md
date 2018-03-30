@@ -1,6 +1,6 @@
 ---
 title: Azure에서 ASP.NET Core 웹앱 만들기 | Microsoft Docs
-description: 기본 ASP.NET Core 웹앱을 배포하여 Azure App Service에서 웹앱을 실행하는 방법을 알아봅니다.
+description: 기본 ASP.NET 웹앱을 배포하여 Azure App Service에서 웹앱을 실행하는 방법을 알아봅니다.
 services: app-service\web
 documentationcenter: ''
 author: cephalin
@@ -12,24 +12,26 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/18/2018
+ms.date: 06/14/2017
 ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 4b7dbf7609b6ca7fb11391e01a1ac0ce2bc2e897
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 698f23507da0707a4612f8d33fe7e2995429f361
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-an-aspnet-core-web-app-in-azure"></a>Azure에서 ASP.NET Core 웹앱 만들기
 
 > [!NOTE]
-> 이 문서에서는 Windows의 App Service에 앱을 배포합니다. _Linux_의 App Service에 배포하려면 [Linux의 App Service에서 .NET Core 웹앱 만들기](./containers/quickstart-dotnetcore.md)를 참조하세요. 
->
-> ASP.NET Framework 앱에 대한 단계를 찾으려면 [Azure에서 ASP.NET Framework 웹앱 만들기](app-service-web-get-started-dotnet-framework.md)를 참조하세요. 
+> 이 문서에서는 Windows의 App Service에 앱을 배포합니다. _Linux_의 App Service에 배포하려면 [Linux의 App Service에서 .NET Core 웹앱 만들기](./containers/quickstart-dotnetcore.md)를 참조하세요.
 >
 
-[Azure Web Apps](app-service-web-overview.md)는 확장성 있는 자체 패치 웹 호스팅 서비스를 제공합니다.  이 빠른 시작은 첫 번째 ASP.NET Core 웹앱을 Azure Web Apps에 배포하는 방법을 보여 줍니다. 완료되면 배포된 웹 응용 프로그램으로 App Service 계획 및 Azure 웹앱으로 구성된 리소스 그룹을 갖습니다. Visual Studio 2017 내에서 이러한 단계를 전적으로 수행하는 방법을 보여주는 [비디오를 시청](#video)할 수 있습니다.
+[Azure Web Apps](app-service-web-overview.md)는 확장성 있는 자체 패치 웹 호스팅 서비스를 제공합니다.  이 빠른 시작은 첫 번째 ASP.NET Core 웹앱을 Azure Web Apps에 배포하는 방법을 보여 줍니다. 완료되면 배포된 웹 응용 프로그램으로 App Service 계획 및 Azure 웹앱으로 구성된 리소스 그룹을 갖습니다.
+
+> [!NOTE]
+> ASP.NET Framework 웹앱을 빌드 및 배포하는 방법을 원할 경우 [여기](app-service-web-get-started-dotnet-framework.md)에서 관련 문서를 참조하세요. 
+>
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -49,7 +51,7 @@ Visual Studio에서 **파일 > 새로 만들기 > 프로젝트**를 선택하여
 
 **새 프로젝트** 대화 상자에서 **Visual C# > 웹 > ASP.NET Core 웹 응용 프로그램**을 선택합니다.
 
-_myFirstAzureWebApp_ 응용 프로그램의 이름을 지정한 다음, **새 Git 리포지토리 만들기**, **확인**을 차례로 선택합니다.
+응용 프로그램 이름을 _myFirstAzureWebApp_으로 지정한 다음 **확인**을 선택합니다.
    
 ![새 프로젝트 대화 상자](./media/app-service-web-get-started-dotnet/new-project.png)
 
@@ -59,7 +61,7 @@ _myFirstAzureWebApp_ 응용 프로그램의 이름을 지정한 다음, **새 Gi
 
 ![새 ASP.NET 프로젝트 대화 상자](./media/app-service-web-get-started-dotnet/razor-pages-aspnet-dialog.png)
 
-ASP.NET Core 프로젝트가 만들어지면 시작하는 데 도움이 되는 리소스에 대한 다양한 링크를 제공하는 ASP.NET Core 시작 페이지가 표시됩니다. 
+ASP.NET Core 프로젝트가 생성되면 ASP.NET Core 시작 페이지가 표시되고 시작하는 데 도움이 되는 리소스에 대한 다양한 링크가 제공됩니다. 
 
 ![시작 페이지](./media/app-service-web-get-started-dotnet/aspnet-core-welcome-page.png)
 
@@ -67,82 +69,68 @@ ASP.NET Core 프로젝트가 만들어지면 시작하는 데 도움이 되는 �
 
 ![로컬에서 앱 실행](./media/app-service-web-get-started-dotnet/razor-web-app-running-locally.png)
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+## <a name="publish-to-azure"></a>Azure에 게시
 
-[!INCLUDE [Configure deployment user](../../includes/configure-deployment-user.md)] 
+**솔루션 탐색기**에서 **myFirstAzureWebApp** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
 
-[!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group.md)] 
+![솔루션 탐색기에서 게시](./media/app-service-web-get-started-dotnet/right-click-publish.png)
 
-[!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan.md)] 
+**Microsoft Azure App Service**를 선택했는지 확인하고 **게시**를 선택합니다.
 
-[!INCLUDE [Create web app](../../includes/app-service-web-create-web-app.md)] 
+![프로젝트 개요 페이지에서 게시](./media/app-service-web-get-started-dotnet/publish-to-app-service.png)
 
-![빈 웹앱 페이지](media/app-service-web-get-started-html/app-service-web-service-created.png)
+그러면 **App Service 만들기** 대화 상자가 열리고 Azure에서 ASP.NET Core 웹앱을 실행하는 데 필요한 모든 Azure 리소스를 만들 수 있습니다.
 
-## <a name="push-to-azure-from-visual-studio"></a>Visual Studio에서 Azure로 푸시
+## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-Visual Studio로 돌아가서 **보기** 메뉴에서 **팀 탐색기**를 클릭합니다. **팀 탐색기**가 표시됩니다.
+**App Service 만들기** 대화 상자에서 **계정 추가**를 선택하고 Azure 구독에 로그인합니다. 이미 로그인한 경우 드롭다운에서 원하는 구독이 포함된 계정을 선택합니다.
 
-**홈** 보기에서 **설정** > **리포지토리 설정**을 차례로 클릭합니다.
+> [!NOTE]
+> 이미 로그인한 경우 **만들기**를 선택하지 마십시오.
+>
+>
+   
+![Azure에 로그인](./media/app-service-web-get-started-dotnet/sign-in-azure.png)
 
-![팀 탐색기 홈 보기](./media/app-service-web-get-started-dotnet/team-explorer.png)
+## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-**리포지토리 설정**의 **원격** 섹션에서 **추가**를 선택합니다. **원격 추가** 대화 상자가 표시됩니다.
+[!INCLUDE [resource group intro text](../../includes/resource-group.md)]
 
-**이름** 필드를 _Azure_로 설정하고, **가져오기** 필드를 [웹앱 만들기](#create-a-web-app)에서 저장한 URL로 설정합니다. **저장**을 클릭합니다.
+**리소스 그룹** 옆에 있는 **새로 만들기**를 선택합니다.
 
-![팀 탐색기 홈 보기](./media/app-service-web-get-started-dotnet/team-explorer-set-remote.png)
+리소스 그룹의 이름을 **myResourceGroup**으로 지정하고 **확인**을 선택합니다.
 
-이 설정은 `git remote add Azure <URL>` Git 명령과 같습니다.
+## <a name="create-an-app-service-plan"></a>App Service 계획 만들기
 
-위쪽의 **홈** 단추를 클릭합니다.
+[!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
-**설정** > **전역 설정**을 차례로 선택합니다. 이름과 이메일 주소가 설정되어 있는지 확인합니다. 필요한 경우 **업데이트**를 선택합니다.
+**App Service 계획** 옆에 있는 **새로 만들기**를 선택합니다. 
 
-프로젝트를 만들 때 Visual Studio에서 이미 모든 파일을 Git 리포지토리로 커밋했습니다. 이제 파일을 Azure로 푸시하기만 하면 됩니다.
+**App Service 계획 구성** 대화 상자에서 스크린샷 다음에 나오는 테이블의 설정을 사용합니다.
 
-위쪽의 **홈** 단추를 클릭합니다. **동기화** > **작업** > **명령 프롬프트 열기**를 차례로 선택합니다. 
+![App Service 계획 만들기](./media/app-service-web-get-started-dotnet/configure-app-service-plan.png)
 
-명령 창에서 다음 명령을 입력하고, 메시지가 표시되면 배포 암호를 입력합니다.
+| 설정 | 제안 값 | 설명 |
+|-|-|-|
+|App Service 계획| myAppServicePlan | App Service 계획의 이름입니다. |
+| 위치 | 서유럽 | 웹앱이 호스팅된 데이터 센터입니다. |
+| 크기 | 무료 | [가격 책정 계층](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)은 호스팅 기능을 결정합니다. |
 
-```
-git push Azure master
-```
+**확인**을 선택합니다.
 
-이 명령을 실행하는 데 몇 분 정도 걸릴 수 있습니다. 실행 시 다음 예와 유사한 정보를 출력합니다.
+## <a name="create-and-publish-the-web-app"></a>웹앱 만들기 및 게시
 
-```
-Counting objects: 4, done.
-Delta compression using up to 8 threads.
-Compressing objects: 100% (4/4), done.
-Writing objects: 100% (4/4), 349 bytes | 349.00 KiB/s, done.
-Total 4 (delta 3), reused 0 (delta 0)
-remote: Updating branch 'master'.
-remote: Updating submodules.
-remote: Preparing deployment for commit id '9e20345e9c'.
-remote: Generating deployment script.
-remote: Project file path: .\myFirstAzureWebApp\myFirstAzureWebApp.csproj
-remote: Solution file path: .\myFirstAzureWebApp.sln
-remote: Generated deployment script files
-remote: Running deployment command...
-remote: Handling ASP.NET Core Web Application deployment.
-remote:   Restoring packages for D:\home\site\repository\myFirstAzureWebApp\myFirstAzureWebApp.csproj...
-remote:   Restoring packages for D:\home\site\repository\myFirstAzureWebApp\myFirstAzureWebApp.csproj...
-...
-remote: Finished successfully.
-remote: Running post deployment command(s)...
-remote: Deployment successful.
-To https://<app_name>.scm.azurewebsites.net/<app_name>.git
- * [new branch]      master -> master
-```
+**웹앱 이름**에서 고유한 앱 이름(유효한 문자는 `a-z`, `0-9` 및 `-`)을 입력하거나 자동으로 생성된 고유한 이름을 적용합니다. 웹앱의 URL은 `http://<app_name>.azurewebsites.net`이며, 여기서 `<app_name>`은 웹앱 이름입니다.
 
-## <a name="browse-to-the-app"></a>앱으로 이동
+**만들기**를 선택하여 Azure 리소스 만들기를 시작합니다.
 
-브라우저에서 Azure 웹앱 URL(`http://<app_name>.azurewebsites.net`)로 이동합니다.
+![웹앱 이름 구성](./media/app-service-web-get-started-dotnet/web-app-name.png)
 
-이 페이지는 Azure App Service 웹앱으로 실행됩니다.
+마법사가 완료되면 Azure에 ASP.NET Core 웹앱을 게시한 다음 기본 브라우저에서 앱을 시작합니다.
 
 ![Azure에서 게시된 ASP.NET 웹앱](./media/app-service-web-get-started-dotnet/web-app-running-live.png)
+
+[작성 및 게시 단계](#create-and-publish-the-web-app)에서 지정한 웹앱 이름이 `http://<app_name>.azurewebsites.net` 형식의 URL 접두사로 사용됩니다.
 
 축하합니다. ASP.NET Core 웹앱이 Azure App Service에서 실시간으로 실행 중입니다.
 
@@ -159,15 +147,11 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
 </div>
 ```
 
-**솔루션 탐색기**에서 _Pages/Index.cshtml_을 마우스 오른쪽 단추로 클릭하고 **커밋**을 클릭합니다. 변경 내용에 대한 커밋 메시지를 입력하고 **모두 커밋**을 클릭합니다.
+Azure에 다시 배포하려면 **솔루션 탐색기**에서 **myFirstAzureWebApp** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
 
-명령 프롬프트 창으로 돌아가서 코드 변경 내용을 Azure로 푸시합니다.
+게시 페이지에서 **게시**를 선택합니다.
 
-```bash
-git push Azure master
-```
-
-배포가 완료되면 `http://<app_name>.azurewebsites.net`으로 다시 이동합니다.
+게시가 완료되면 Visual Studio가 웹앱의 URL로 브라우저를 시작합니다.
 
 ![Azure에서 업데이트된 ASP.NET 웹앱](./media/app-service-web-get-started-dotnet/web-app-running-live-updated.png)
 
@@ -181,15 +165,11 @@ git push Azure master
 
 웹앱의 개요 페이지가 표시됩니다. 여기에서 찾아보기, 중지, 시작, 다시 시작, 삭제와 같은 기본 관리 작업을 수행할 수 있습니다. 
 
-![Azure Portal의 App Service 페이지](./media/app-service-web-get-started-dotnet/web-app-blade.png)
+![Azure Portal의 App Service 블레이드](./media/app-service-web-get-started-dotnet/web-app-blade.png)
 
 왼쪽 메뉴는 앱 구성을 위한 서로 다른 페이지를 제공합니다. 
 
 [!INCLUDE [Clean-up section](../../includes/clean-up-section-portal.md)]
-
-## <a name="video"></a>비디오
-
-> [!VIDEO https://www.youtube-nocookie.com/embed/AEfG9PWPAxg]
 
 ## <a name="next-steps"></a>다음 단계
 

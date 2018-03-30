@@ -1,11 +1,11 @@
 ---
-title: "Azure AD에서 지원하는 다른 토큰 및 클레임 유형에 대해 알아보기 | Microsoft Docs"
-description: "AAD(Azure Active Directory)에서 발급하는 SAML 2.0 및 JWT(JSON 웹 토큰)를 이해하고 평가하기 위한 가이드입니다."
+title: Azure AD에서 지원하는 다른 토큰 및 클레임 유형에 대해 알아보기 | Microsoft Docs
+description: AAD(Azure Active Directory)에서 발급하는 SAML 2.0 및 JWT(JSON 웹 토큰)를 이해하고 평가하기 위한 가이드입니다.
 documentationcenter: na
-author: dstrockis
+author: hpsin
 services: active-directory
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 166aa18e-1746-4c5e-b382-68338af921e2
 ms.service: active-directory
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/07/2017
-ms.author: dastrock
+ms.author: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 3104b47d7ff8585142674b0ee545012f1e291ddd
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ca8a34c0a29ffad21e6384feac055d7a292311a5
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-ad-token-reference"></a>Azure AD 토큰 참조
 Azure AD(Azure Active Directory)는 각 인증 흐름의 처리 과정에서 여러 유형의 보안 토큰을 내보냅니다. 이 문서에서는 각 토큰 유형의 형식, 보안 특성 및 내용을 설명합니다.
@@ -64,7 +64,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0y
 | `iat` |IssuedAt |토큰이 발급된 시간을 저장합니다. 토큰 만료 전 시간을 측정하는 데 주로 사용됩니다. <br><br> **SAML 값 예제**: <br> `<Assertion ID="_d5ec7a9b-8d8f-4b44-8c94-9812612142be" IssueInstant="2014-01-06T20:20:23.085Z" Version="2.0" xmlns="urn:oasis:names:tc:SAML:2.0:assertion">` <br><br> **JWT 값 예제**: <br> `"iat": 1390234181` |
 | `iss` |발급자 |토큰을 생성하고 반환하는 STS(보안 토큰 서비스)를 식별합니다. Azure AD가 반환하는 토큰에서 발급자는 sts.windows.net입니다. 발급자 클레임 값의 GUID는 Azure AD 디렉터리의 테넌트 ID입니다. 테넌트 ID는 디렉터리의 변경 불가능하고 안정적인 식별자입니다. <br><br> **SAML 값 예제**: <br> `<Issuer>https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/</Issuer>` <br><br> **JWT 값 예제**: <br>  `"iss":”https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/”` |
 | `family_name` |성 |Azure AD 사용자 개체에 정의된 사용자의 성을 제공합니다. <br><br> **SAML 값 예제**: <br> `<Attribute Name=” http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname”>`<br>`<AttributeValue>Miller<AttributeValue>` <br><br> **JWT 값 예제**: <br> `"family_name": "Miller"` |
-| `unique_name` |이름 |토큰의 주체를 식별하는, 사람이 인식할 수 있는 값을 제공합니다. 이 값은 테넌트 내에서 반드시 고유한 것은 아니며 표시 용도로만 사용하도록 디자인되었습니다. <br><br> **SAML 값 예제**: <br> `<Attribute Name=”http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name”>`<br>`<AttributeValue>frankm@contoso.com<AttributeValue>` <br><br> **JWT 값 예제**: <br> `"unique_name": "frankm@contoso.com"` |
+| `unique_name` |Name |토큰의 주체를 식별하는, 사람이 인식할 수 있는 값을 제공합니다. 이 값은 테넌트 내에서 반드시 고유한 것은 아니며 표시 용도로만 사용하도록 디자인되었습니다. <br><br> **SAML 값 예제**: <br> `<Attribute Name=”http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name”>`<br>`<AttributeValue>frankm@contoso.com<AttributeValue>` <br><br> **JWT 값 예제**: <br> `"unique_name": "frankm@contoso.com"` |
 | `oid` |개체 ID |Azure AD 개체의 고유 식별자를 포함합니다. 이 값은 변경할 수 없으며 재할당 또는 재사용할 수 없습니다. Azure AD에 대한 쿼리의 개체를 식별할 개체 ID를 사용하세요. <br><br> **SAML 값 예제**: <br> `<Attribute Name="http://schemas.microsoft.com/identity/claims/objectidentifier">`<br>`<AttributeValue>528b2ac2-aa9c-45e1-88d4-959b53bc7dd0<AttributeValue>` <br><br> **JWT 값 예제**: <br> `"oid":"528b2ac2-aa9c-45e1-88d4-959b53bc7dd0"` |
 | `roles` |역할 |주체가 그룹 멤버 자격을 통해 직간접적으로 부여받은 모든 응용 프로그램 역할을 나타내며 역할 기반 액세스 제어를 적용하는 데 사용됩니다. 응용 프로그램 역할은 응용 프로그램 매니페스트의 `appRoles` 속성을 통해 응용 프로그램별로 정의됩니다. 각 응용 프로그램 역할의 `value` 속성은 역할 클레임에 표시되는 값입니다. <br><br> **SAML 값 예제**: <br> `<Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/role">`<br>`<AttributeValue>Admin</AttributeValue>` <br><br> **JWT 값 예제**: <br> `“roles”: ["Admin", … ]` |
 | `scp` |범위 |클라이언트 응용 프로그램에 부여된 권한을 가장함을 나타냅니다. 기본 권한은 `user_impersonation`입니다. 보안 리소스의 소유자는 Azure AD에서 추가 값을 등록할 수 있습니다. <br><br> **JWT 값 예제**: <br> `"scp": "user_impersonation"` |
@@ -90,13 +90,13 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0y
 
 새로 고침 토큰은 다중 리소스입니다.  즉, 한 리소스에 대한 토큰 요청 중에 받은 새로 고침 토큰을 완전히 다른 리소스에 대한 액세스 토큰으로 교환할 수 있습니다. 이를 수행하려면 요청의 `resource` 매개 변수를 대상 리소스로 설정합니다.
 
-새로 고침 토큰은 앱에 완전히 불투명합니다. 또한 새로 고침 토큰은 수명이 길지만 일정 기간 지속될 것으로 예상하도록 앱을 작성해서는 안 됩니다.  다양한 이유로 언제든지 새로 고침 토큰이 무효화될 수 있기 때문입니다.  앱에서 새로 고침 토큰이 유효한지 확인하는 유일한 방법은 Azure AD 토큰 끝점에 대한 토큰 요청을 수행하여 교환하는 것입니다.
+새로 고침 토큰은 앱에 완전히 불투명합니다. 또한 새로 고침 토큰은 수명이 길지만 일정 기간 지속될 것으로 예상하도록 앱을 작성해서는 안 됩니다.  다양한 이유로 언제든지 새로 고침 토큰이 무효화될 수 있기 때문입니다. 이러한 이유는 [토큰 해지](#token-revocation)를 참조하세요.  앱에서 새로 고침 토큰이 유효한지 확인하는 유일한 방법은 Azure AD 토큰 끝점에 대한 토큰 요청을 수행하여 교환하는 것입니다.
 
 새로 고침 토큰을 새 액세스 토큰으로 교환할 때 앱에 토큰 응답에 새로운 새로 고침 토큰을 받게 됩니다.  새로 발급된 새로 고침 토큰을 저장하고 요청에 사용한 토큰을 대체해야 합니다.  이렇게 하면 새로 고침 토큰이 최대한 오랫동안 유효한 상태로 유지됩니다.
 
 ## <a name="validating-tokens"></a>토큰 유효성 검사
 
-id_token 또는 access_token의 유효성을 검사하려면 앱이 토큰의 서명과 클레임의 유효성을 모두 검사해야 합니다. 액세스 토큰의 유효성을 검사하려면 앱에서 발급자, 대상 그룹 및 서명 토큰의 유효성을 검사해야 합니다. OpenID 검색 문서에 있는 값에 대해 유효성 검사를 수행해야 합니다. 예를 들어 테넌트 독립적인 문서 버전은 [https://login.microsoftonline.com/common/.well-known/openid-configuration](https://login.microsoftonline.com/common/.well-known/openid-configuration)에 있습니다. Azure AD 미들웨어에는 액세스 토큰의 유효성을 검사하는 기본 제공 기능이 있으며 [샘플](https://docs.microsoft.com/azure/active-directory/active-directory-code-samples)을 탐색하여 원하는 언어로 기능을 찾을 수 있습니다. JWT 토큰의 유효성 검사를 명시적으로 수행하는 방법은 [수동 JWT 유효성 검사 샘플](https://github.com/Azure-Samples/active-directory-dotnet-webapi-manual-jwt-validation)을 참조하세요.  
+id_token 또는 access_token의 유효성을 검사하려면 앱이 토큰의 서명과 클레임의 유효성을 모두 검사해야 합니다. 액세스 토큰의 유효성을 검사하려면 앱에서 발급자, 대상 그룹 및 서명 토큰의 유효성을 검사해야 합니다. OpenID 검색 문서에 있는 값에 대해 유효성 검사를 수행해야 합니다. 예를 들어 문서의 테넌트 독립적 버전은 [https://login.microsoftonline.com/common/.well-known/openid-configuration](https://login.microsoftonline.com/common/.well-known/openid-configuration)에 위치합니다. Azure AD 미들웨어에는 액세스 토큰의 유효성을 검사하는 기본 제공 기능이 있으며 [샘플](https://docs.microsoft.com/azure/active-directory/active-directory-code-samples)을 탐색하여 원하는 언어로 기능을 찾을 수 있습니다. JWT 토큰의 유효성 검사를 명시적으로 수행하는 방법은 [수동 JWT 유효성 검사 샘플](https://github.com/Azure-Samples/active-directory-dotnet-webapi-manual-jwt-validation)을 참조하세요.  
 
 토큰 유효성 검사를 쉽게 처리하는 방법을 보여 주는 라이브러리 및 코드 샘플이 제공됩니다. 아래 정보는 단순히 기본 프로세스를 이해하려는 사용자를 위한 것입니다.  JWT 유효성 검사에 사용할 수 있는 여러 타사 오픈 소스 라이브러리도 있습니다. 거의 모든 플랫폼 및 언어에 대해 옵션이 하나 이상 있습니다. Azure AD 인증 라이브러리 및 코드 샘플에 대한 자세한 내용은 [Azure AD 인증 라이브러리](active-directory-authentication-libraries.md)를 참조하세요.
 
@@ -146,6 +146,24 @@ https://login.microsoftonline.com/common/.well-known/openid-configuration
 * 공유할 수 있습니다.
 
 앱이 ID 토큰에 대해 수행해야 하는 클레임 유효성 검사의 전체 목록은 [OpenID Connect 사양](http://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation)을 참조하세요. 이러한 클레임의 예상 값에 대한 자세한 내용은 위의 [id 토큰 섹션](#id-tokens)에 포함되어 있습니다.
+
+## <a name="token-revocation"></a>토큰 해지
+
+다양한 이유로 언제든지 새로 고침 토큰이 무효화되거나 취소될 수 있습니다.  이러한 이유는 시간 제한 및 해지 등 두 가지 주요 범주로 나뉩니다. 
+* 토큰 제한 시간
+  * MaxInactiveTime: MaxInactiveTime에 의해 결정된 시간 내에 새로 고침 토큰을 사용하지 않은 경우 새로 고침 토큰은 더 이상 유효하지 않습니다. 
+  * MaxSessionAge: MaxAgeSessionMultiFactor 또는 MaxAgeSessionSingleFactor가 (해지될 때까지) 기본값 이외의 값으로 설정된 경우 MaxAgeSession *에 설정된 시간이 경과된 후에 다시 인증해야 합니다.  
+  * 예제:
+    * 테넌트에 5일의 MaxInactiveTime이 설정되고 사용자가 1주일 동안 휴가를 갔습니다. 따라서 AAD에는 7일 동안 사용자의 새 토큰 요청이 없습니다.  다음에 사용자가 새 토큰을 요청하는 경우 해당 새로 고침 토큰이 해지되었음을 발견하고 자격 증명을 다시 입력해야 합니다. 
+    * 중요한 응용 프로그램에는 1일의 MaxAgeSessionSingleFactor가 지정됩니다.  월요일 및 화요일(25시간이 경과된 후에)에 사용자가 로그인하는 경우 다시 인증해야 합니다.  
+* 해지
+  * 자발적 암호 변경: 사용자가 암호를 변경하는 경우 토큰을 획득한 방식에 따라 해당 응용 프로그램 중 일부를 다시 인증해야 할 수 있습니다.  예외는 아래 메모를 참조하세요. 
+  * 비자발적 암호 변경: 관리자가 사용자의 암호를 변경하거나 다시 설정하도록 강제하는 경우 해당 암호를 사용하여 수행하면 사용자의 토큰은 무효화됩니다.  예외는 아래 메모를 참조하세요. 
+  * 보안 위반: 보안 위반(예: 암호의 온-프레미스 저장소 위반)이 발생할 때 관리자는 현재 발급된 모든 새로 고침 토큰을 해지할 수 있습니다.  그러면 모든 사용자를 다시 인증하도록 강제합니다. 
+
+참고: 
+
+인증에 비암호 메서드를 사용(Windows Hello, Authenticator 앱, 얼굴 또는 지문과 같은 생체 인식)하여 토큰을 만드는 경우 사용자의 암호를 변경하면 사용자를 다시 인증하도록 강제하지 않습니다. (하지만 해당 Authenticator 앱을 다시 인증하도록 강제합니다.)  선택한 인증 입력(예: 얼굴)이 변경되지 않았기 때문입니다. 따라서 다시 인증하는 데 사용할 수 있습니다.
 
 ## <a name="sample-tokens"></a>샘플 토큰
 

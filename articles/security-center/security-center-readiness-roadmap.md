@@ -1,11 +1,11 @@
 ---
-title: "Azure Security Center 준비 로드맵 | Microsoft Docs"
-description: "Azure Security Center에서 시작하기 위한 준비 로드맵을 제공합니다."
+title: Azure Security Center 준비 로드맵 | Microsoft Docs
+description: Azure Security Center에서 시작하기 위한 준비 로드맵을 제공합니다.
 services: security-center
 documentationcenter: na
 author: YuriDio
 manager: ndicola
-editor: 
+editor: ''
 ms.assetid: fece670cc-df70-445d-9773-b32cbaba8d4a
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2018
 ms.author: yurid
-ms.openlocfilehash: 7a6717f4a9ec0594ccd6b326520d0e0ab620739a
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: 0de8dda6f88f31208c3fe7d560a461fea46a67e6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-security-center-readiness-roadmap"></a>Azure Security Center 준비 로드맵
 이 문서에서는 Azure Security Center를 시작하는 데 도움이 되는 준비 로드맵을 제공합니다.
@@ -116,7 +116,7 @@ Azure VM은 Security Center의 고급 클라우드 방어 기능을 활용할 �
 * [PaaS 권장 사항](https://docs.microsoft.com/azure/security/security-paas-deployments)
 * [규정 준수](https://www.microsoft.com/trustcenter/Compliance/Due-Diligence-Checklist)
 
-##<a name="community-resources"></a>커뮤니티 리소스
+## <a name="community-resources"></a>커뮤니티 리소스
 
 * [Security Center UserVoice](https://feedback.azure.com/forums/347535-azure-security-center)
 * [Security Center 커뮤니티 포럼](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureSecurityCenter)

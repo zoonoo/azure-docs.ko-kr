@@ -1,12 +1,12 @@
 ---
-title: "Azure Active Directory Domain Services를 사용하여 도메인에 가입된 HDInsight 클러스터 구성- Azure | Microsoft Docs"
-description: "Azure Active Directory Domain Services를 사용하여 도메인에 가입된 HDInsight 클러스터를 설정 및 구성하는 방법을 알아봅니다."
+title: Azure Active Directory Domain Services를 사용하여 도메인에 가입된 HDInsight 클러스터 구성- Azure | Microsoft Docs
+description: Azure Active Directory Domain Services를 사용하여 도메인에 가입된 HDInsight 클러스터를 설정 및 구성하는 방법을 알아봅니다.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: bprakash
 manager: jhubbard
 editor: cgronlun
-tags: 
+tags: ''
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/10/2017
 ms.author: bhanupr
-ms.openlocfilehash: 08795e6aafc6ccb43bad59189676a8680c03c966
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a0156915c329dfad1424cfd1f10a6ebb27c56acc
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="configure-domain-joined-hdinsight-clusters-using-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services를 사용하여 도메인에 가입된 HDInsight 클러스터 구성
 
@@ -56,6 +56,9 @@ Azure AD 도메인 서비스와 HDInsight 클러스터를 동일한 Azure VNet(�
 - **조직 구성 단위**: HDInsight 클러스터에 사용하려는 OU의 고유한 이름입니다. 예: OU=HDInsightOU,DC=contoso,DC=onmicrosohift,DC=com. 이 OU가 없을 경우 HDInsight 클러스터는 이 OU를 만들려고 시도합니다. 
 - **LDAPS URL**: 예, ldaps://contoso.onmicrosoft.com:636
 - **액세스 사용자 그룹**: 클러스터에 동기화할 사용자가 속하는 보안 그룹입니다. 예: HiveUsers. 여러 사용자 그룹을 지정하려면 쉼표 ','로 구분하십시오.
+ 
+> [!NOTE]
+> Apache Zeppelin은 도메인 이름을 사용하여 관리 서비스 계정을 인증하기 때문에 제대로 작동하려면 서비스 계정의 도메인 이름이 Apache Zeppelin의 UPN 접미사와 반드시 동일해야 합니다.
  
 다음 스크린샷에는 Azure Portal의 구성이 나와 있습니다.
 

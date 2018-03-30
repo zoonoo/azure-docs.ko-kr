@@ -206,8 +206,7 @@
     - name: Event Grid
       tocHref: /azure/event-grid/
       topicHref: /azure/event-grid
-    - name: |
-        Event Hubs
+    - name: Event Hubs
       tocHref: /azure/event-hubs/
       topicHref: /azure/event-hubs/
     - name: ExpressRoute
@@ -250,6 +249,9 @@
     - name: IoT 허브
       tocHref: /azure/iot-hub/
       topicHref: /azure/iot-hub/
+    - name: IoT Hub Device Provisioning 서비스
+      tocHref: /azure/iot-dps/
+      topicHref: /azure/iot-dps/
     - name: IoT Suite
       tocHref: /azure/iot-suite/
       topicHref: /azure/iot-suite/

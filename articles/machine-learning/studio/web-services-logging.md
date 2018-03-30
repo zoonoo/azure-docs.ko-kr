@@ -1,10 +1,11 @@
 ---
-title: "Machine Learning 웹 서비스에 대한 로깅 | Microsoft Docs"
-description: "기계 학습 웹 서비스에 대해 로깅을 사용하도록 설정하는 방법을 알아봅니다. 로깅은 API 문제를 해결하는 데 도움이 되는 추가 정보를 제공합니다."
+title: Machine Learning 웹 서비스에 대한 로깅 | Microsoft Docs
+description: Machine Learning 웹 서비스에 대해 로깅을 사용하도록 설정하는 방법을 알아봅니다. 로깅은 API 문제를 해결하는 데 도움이 되는 추가 정보를 제공합니다.
 services: machine-learning
-documentationcenter: 
-author: raymondlaghaeian
-manager: jhubbard
+documentationcenter: ''
+author: YasinMSFT
+ms.author: yahajiza
+manager: hjerez
 editor: cgronlun
 ms.assetid: c54d41e1-0300-46ef-bbfc-d6f7dca85086
 ms.service: machine-learning
@@ -13,14 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/15/2017
-ms.author: raymondl;garye
-ms.openlocfilehash: 31497bcae5889590a2261b716574ec4eae21852d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 345c1b1bd72d3df19f8b087d4cbffd4e25e092ab
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="enable-logging-for-machine-learning-web-services"></a>기계 학습 웹 서비스에 대해 로깅 사용
+# <a name="enable-logging-for-machine-learning-web-services"></a>Machine Learning 웹 서비스에 대해 로깅 사용
 이 문서에서는 Machine Learning 웹 서비스의 로깅 기능을 설명합니다. 로깅은 오류 번호 및 메시지 외에 Machine Learning API 호출 문제를 해결하는 데 유용한 추가 정보를 제공합니다.  
 
 ## <a name="how-to-enable-logging-for-a-web-service"></a>웹 서비스에서 로깅을 사용하도록 설정하는 방법
@@ -43,7 +43,7 @@ ms.lasthandoff: 10/11/2017
 
    ![로깅 수준 선택](./media/web-services-logging/enable-logging.png)
 
-6. **Save**를 클릭합니다.
+6. **저장**을 클릭합니다.
 
 7. 클래식 웹 서비스의 경우 **ml-diagnostics** 컨테이너를 만듭니다.
 
@@ -70,7 +70,7 @@ Azure Storage 계정을 탐색하는 데 사용할 수 있는 여러 도구 중 
 ## <a name="log-blob-detail-information"></a>Blob 세부 정보 기록
 컨테이너의 각 blob은 정확히 다음 작업 중 하나에 대한 진단 정보를 포함합니다.
 
-* 일괄 처리 실행 메서드 실행  
+* Batch 실행 메서드 실행  
 * 요청-응답 메서드 실행  
 * 요청-응답 컨테이너 초기화
 

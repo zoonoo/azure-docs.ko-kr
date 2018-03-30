@@ -11,11 +11,11 @@ ms.service: active-directory
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: 0231dc8336bb2442099984947897e5005767a8f5
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 166171dc8d8d694ef253ed6809c53b54577535e2
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Azure AD에서 하이브리드 및 클라우드 배포를 위한 권한 있는 액세스 보안
 
@@ -178,14 +178,14 @@ Azure AD Identity Protection은 조직의 ID에 영향을 주는 잠재적 취�
 
 보안 점수는 사용하고 있는 Office 365 서비스(예: OneDrive, SharePoint 및 Exchange)를 파악한 다음, 설정 및 활동을 조사하고 Microsoft에서 설정한 기준과 비교합니다. 보안 모범 사례와 일치하는 정도에 따라 점수가 매겨집니다. Office 365 Business Premium 또는 Enterprise 구독에 대한 관리자 권한(전역 관리자 또는 사용자 지정 관리자 역할)이 있는 사용자는 [https://securescore.office.com](https://securescore.office.com/)의 보안 점수에 액세스할 수 있습니다.
 
-#### <a name="review-the-office-365-security-and-compliance-guidance-if-using-office365"></a>Office 365 보안 및 규정 준수 지침 검토(Office365를 사용하는 경우)
+#### <a name="review-the-office-365-security-and-compliance-guidance-if-using-office-365"></a>Office 365 보안 및 규정 준수 지침 검토(Office 365를 사용하는 경우)
 
 [보안 및 규정 준수에 대한 계획](https://support.office.com/article/Plan-for-security-and-compliance-in-Office-365-dc4f704c-6fcc-4cab-9a02-95a824e4fb57)은 Office 365 고객이 Office 365를 구성하고 다른 EMS 기능을 활용하는 방법에 대해 간략히 설명합니다. 그런 다음, [Office 365에서 데이터 및 서비스에 대한 액세스를 보호하는 방법](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e)의 3~6단계 및 [Office 365에서 보안 및 규정 준수를 모니터링하는 방법](https://support.office.com/article/Monitor-security-and-compliance-in-Office-365-b62f1722-fd39-44eb-8361-da61d21509b6) 가이드를 검토합니다.
 
 
 #### <a name="configure-office-365-activity-monitoring-if-using-office-365"></a>Office 365 활동 모니터링 구성(Office365를 사용하는 경우)
 
-조직의 사용자가 Office 365 서비스를 사용하는 방법을 모니터링하여 관리 계정이 있는 사용자와 해당 포털에 로그인하지 않으므로 Office 365 액세스 권한이 필요하지 않은 사용자를 확인할 수 있습니다. 자세한 내용은 [Office 365 관리 센터의 활동 보고서](https://support.office.com/article/Activity-Reports-in-the-Office-365-admin-center-0d6dfb17-8582-4172-a9a9-aed798150263)를 참조하세요.
+조직의 사용자가 Office 365 서비스를 사용하는 방법을 모니터링하여 관리 계정이 있는 사용자와 해당 포털에 로그인하지 않으므로 Office 365 액세스 권한이 필요하지 않은 사용자를 확인할 수 있습니다. 자세한 내용은 [Office 365 관리 센터의 작업 보고서](https://support.office.com/article/Activity-Reports-in-the-Office-365-admin-center-0d6dfb17-8582-4172-a9a9-aed798150263)를 참조하세요.
 
 #### <a name="establish-incidentemergency-response-plan-owners"></a>인시던트/비상 대응 계획 소유자 설정
 
@@ -201,7 +201,7 @@ Azure Active Directory 테넌트가 온-프레미스 Active Directory와 동기�
 
 엔터프라이즈 포털과 Azure Portal을 사용하여 프로덕션 응용 프로그램을 호스팅하는 조직의 구독을 식별합니다. 
 
-#### <a name="remove-microsoft-ccounts-from-admin-roles"></a>관리자 역할에서 Microsoft 계정 제거
+#### <a name="remove-microsoft-accounts-from-admin-roles"></a>관리자 역할에서 Microsoft 계정 제거
 
 Xbox, Live 및 Outlook과 같은 다른 프로그램의 Microsoft 계정은 조직 구독에 대한 관리자 계정으로 사용하면 안됩니다. 모든 Microsoft 계정에서 관리자 상태를 제거하고 Active Directory 직장 또는 학교 계정(예: chris@contoso.com)으로 바꿉니다.
 
@@ -227,7 +227,7 @@ Azure 활동 로그는 Azure에서 구독 수준 이벤트 기록을 제공합�
 
 #### <a name="complete-an-access-review-of-users-in-administrator-roles"></a>관리자 역할의 사용자에 대한 액세스 검토 수행
 
-더 많은 회사 사용자가 클라우드 서비스를 통해 권한 있는 액세스를 얻고 있으며, 이로 인해 관리되지 않는 플랫폼이 늘어날 수 있습니다. 여기에는 Office 365 전역 관리자인 사용자, Azure 구독 관리자 및 VM 또는 SaaS 응용 프로그램을 통해 관리자 액세스 권한이 있는 사용자가 포함됩니다. 대신, 조직에서는 모든 직원, 특히 관리자가 권한이 없는 사용자로 일상적인 비즈니스 트랜잭션을 처리하고, 필요한 경우에만 관리자 권한을 부여받아야 합니다. 관리자 역할의 사용자 수는 처음에 채택한 이후 증가했을 수 있으므로 관리자 권한을 활성화할 수 있는 자격이 있는 모든 사용자를 식별하고 확인하기 위해 액세스 검토를 수행합니다. 
+더 많은 회사 사용자가 클라우드 서비스를 통해 권한 있는 액세스를 얻고 있으며, 이로 인해 관리되지 않는 플랫폼이 늘어날 수 있습니다. 여기에는 Office 365 전역 관리자인 사용자, Azure 구독 관리자 및 VM 또는 SaaS 앱에 대한 관리자 액세스 권한이 있는 사용자가 포함됩니다. 대신, 조직에서는 모든 직원, 특히 관리자가 권한이 없는 사용자로 일상적인 비즈니스 트랜잭션을 처리하고, 필요한 경우에만 관리자 권한을 부여받아야 합니다. 관리자 역할의 사용자 수는 처음에 채택한 이후 증가했을 수 있으므로 관리자 권한을 활성화할 수 있는 자격이 있는 모든 사용자를 식별하고 확인하기 위해 액세스 검토를 수행합니다. 
 
 다음을 수행합니다.
 
@@ -318,7 +318,6 @@ MCAS를 사용하면 Azure Information Protection 분류 레이블을 기반으�
 * 위험 방지, 자동화된 위협 방지 및 정책 적용 최소화
 
 Cloud App Security SIEM 에이전트는 Cloud App Security와 SIEM 서버를 통합하여 Office 365 경고 및 활동을 중앙 집중식으로 모니터링할 수 있도록 합니다. 서버에서 실행되고 Cloud App Security에서 경고 및 활동을 가져와서 SIEM 서버로 스트리밍합니다. 자세한 내용은 [SIEM 통합](https://docs.microsoft.com/cloud-app-security/siem)을 참조하세요.
-
 
 ## <a name="stage-4-continue-building-defenses-to-a-more-proactive-security-posture"></a>4단계: 사전 예방적인 보안 상태에 대한 방어 체계 구축 계속
 
@@ -438,16 +437,16 @@ Microsoft Office 365에서 보안 인시던트를 처리하는 방법에 대한 
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Microsoft 보안 센터 - 제품 보안](https://www.microsoft.com/trustcenter/security) – Microsoft 클라우드 제품 및 서비스의 보안 기능
+* [Microsoft 보안 센터 - 제품 보안](https://www.microsoft.com/en-us/trustcenter/security) – Microsoft 클라우드 제품 및 서비스의 보안 기능
 
-* [Microsoft 보안 센터 - 준수](https://www.microsoft.com/trustcenter/compliance/complianceofferings) – 클라우드 서비스를 위한 포괄적인 Microsoft 규정 준수 제품 집합
+* [Microsoft 보안 센터 - 준수](https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings) – 클라우드 서비스를 위한 포괄적인 Microsoft 규정 준수 제품 집합
 
-* [위험 평가 수행 방법에 대한 지침](https://www.microsoft.com/trustcenter/guidance/risk-assessment) - Microsoft 클라우드 서비스에 대한 보안 및 규정 준수 요구 사항 관리
+* [위험 평가 수행 방법에 대한 지침](https://www.microsoft.com/en-us/trustcenter/guidance/risk-assessment) - Microsoft 클라우드 서비스에 대한 보안 및 규정 준수 요구 사항 관리
 
 ### <a name="other-ms-online-services"></a>기타 MS 온라인 서비스 
 
-* [Microsoft Intune 보안](https://www.microsoft.com/trustcenter/security/intune-security) – Intune은 클라우드에서 모바일 장치 관리, 모바일 응용 프로그램 관리 및 PC 관리 기능을 제공합니다.
+* [Microsoft Intune 보안](https://www.microsoft.com/en-us/trustcenter/security/intune-security) – Intune은 클라우드에서 모바일 장치 관리, 모바일 응용 프로그램 관리 및 PC 관리 기능을 제공합니다.
 
-* [Microsoft Dynamics 365 보안](https://www.microsoft.com/trustcenter/security/dynamics365-security) – Dynamics 365는 CRM(고객 관계 관리) 및 ERP(전사적 자원 관리) 기능을 통합하는 Microsoft 클라우드 기반 솔루션입니다.
+* [Microsoft Dynamics 365 보안](https://www.microsoft.com/en-us/trustcenter/security/dynamics365-security) – Dynamics 365는 CRM(고객 관계 관리) 및 ERP(전사적 자원 관리) 기능을 통합하는 Microsoft 클라우드 기반 솔루션입니다.
 
  

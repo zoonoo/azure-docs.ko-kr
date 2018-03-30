@@ -1,19 +1,19 @@
 ---
-title: "Azure IoT Edge + Linux 빠른 시작 | Microsoft Docs"
-description: "시뮬레이트된 에지 장치에서 분석을 실행하여 Azure IoT Edge를 시도합니다."
+title: Azure IoT Edge + Linux 빠른 시작 | Microsoft Docs
+description: 시뮬레이트된 에지 장치에서 분석을 실행하여 Azure IoT Edge를 시도합니다.
 services: iot-edge
-keywords: 
+keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.date: 01/11/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 827fe91c14a44cbaf8a9bb5921e5c9962d984414
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 750f09c91a086b22df5e7557e4b6fc6a763499e2
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-or-mac-device---preview"></a>빠른 시작: Linux 또는 Mac 장치에 첫 번째 IoT Edge 모듈 배포 - 미리 보기
 
@@ -76,7 +76,7 @@ sudo pip install -U azure-iot-edge-runtime-ctl
 
 이전 섹션의 IoT Edge 장치 연결 문자열로 런타임을 구성합니다.
 ```bash
-sudo iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
+sudo iotedgectl setup --connection-string "{device connection string}" --nopass
 ```
 
 런타임을 시작합니다.

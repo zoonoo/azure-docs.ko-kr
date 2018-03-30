@@ -1,11 +1,11 @@
 ---
-title: "Azure Application Gateway를 사용하는 다중 테넌트 백 엔드 개요 | Microsoft Docs"
-description: "이 페이지에서는 다중 테넌트 백 엔드에 대한 Application Gateway 지원의 개요를 제공합니다."
+title: Azure Application Gateway를 사용하는 다중 테넌트 백 엔드 개요 | Microsoft Docs
+description: 이 페이지에서는 다중 테넌트 백 엔드에 대한 Application Gateway 지원의 개요를 제공합니다.
 documentationcenter: na
 services: application-gateway
 author: davidmu1
 manager: timlt
-editor: 
+editor: ''
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: hero-article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2017
 ms.author: davidmu
-ms.openlocfilehash: d093af064bca46aa1f454b61b1099f47f61ccd33
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: f5ec916fcf45734ab85751e749bd6bb312f05b1a
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="application-gateway-support-for-multi-tenant-back-ends"></a>Application Gateway는 다중 테넌트 백 엔드를 지원합니다.
 
@@ -32,7 +32,7 @@ Azure Application Gateway는 가상 머신 확장 집합, 네트워크 인터페
 2. 백 엔드 풀 멤버의 IP 또는 FQDN에서 호스트 이름을 파생하는 기능. HTTP 설정은 개별 백 엔드 풀 멤버에서 호스트 이름을 파생하는 옵션을 사용하여 구성할 경우 백 엔드 풀 멤버의 FQDN에서 호스트 이름을 선택하는 옵션도 제공합니다. 종단 간 SSL을 사용하면 이 호스트 이름이 FQDN에서 파생되며 SNI 확장에 사용됩니다. 이 기능을 사용하면 백 엔드 풀이 Azure 웹앱 같은 다중 테넌트 PaaS 서비스를 두 개 이상 가질 수 있고 각 멤버에 대한 요청의 호스트 헤더에 FQDN에서 파생된 호스트 이름이 포함되는 시나리오를 지원할 수 있습니다.
 
 > [!NOTE]
-> 위의 두 사례 모두에서 설정은 실시간 트래픽 동작에만 영향을 주고 상태 프로브 동작에는 영향을 주지 않습니다. 사용자 지정 프로브는 이미 프로브 구성에서 호스트 헤더를 지정하는 기능을 지원합니다. 이제 사용자 지정 프로브는 현재 구성된 HTTP 설정에서 호스트 헤더 동작을 파생하는 기능도 지원합니다. 이 구성은 프로브 구성의 `PickHostNameFromback endAddress` 매개 변수를 사용하여 지정할 수 있습니다. 종단 간 기능이 작동하려면 올바른 구성을 반영하도록 프로브와 HTTP 설정을 모두 수정해야 합니다.
+> 위의 두 사례 모두에서 설정은 실시간 트래픽 동작에만 영향을 주고 상태 프로브 동작에는 영향을 주지 않습니다. 사용자 지정 프로브는 이미 프로브 구성에서 호스트 헤더를 지정하는 기능을 지원합니다. 이제 사용자 지정 프로브는 현재 구성된 HTTP 설정에서 호스트 헤더 동작을 파생하는 기능도 지원합니다. 이 구성은 프로브 구성의 `PickHostNameFromBackendHttpSettings` 매개 변수를 사용하여 지정할 수 있습니다. 종단 간 기능이 작동하려면 올바른 구성을 반영하도록 프로브와 HTTP 설정을 모두 수정해야 합니다.
 
 이 기능을 사용하여 고객이 HTTP 설정 및 사용자 지정 프로브의 옵션을 적절한 구성으로 지정합니다. 그러면 규칙을 사용하여 이 설정이 수신기와 백 엔드 풀에 연결됩니다.
 

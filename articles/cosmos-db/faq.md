@@ -1,25 +1,25 @@
 ---
-title: "Azure Cosmos DB 질문과 대답 | Microsoft Docs"
-description: "전역적으로 분산된 다중 모델 데이터베이스 서비스인 Azure Cosmos DB에 대해 자주 묻는 질문에 대한 대답을 살펴봅니다. 용량, 성능 수준 및 크기 조정에 대해 알아봅니다."
-keywords: "데이터베이스 질문, 질문과 대답, Documentdb, Azure, Microsoft Azure"
+title: Azure Cosmos DB 질문과 대답 | Microsoft Docs
+description: 전역적으로 분산된 다중 모델 데이터베이스 서비스인 Azure Cosmos DB에 대해 자주 묻는 질문에 대한 대답을 살펴봅니다. 용량, 성능 수준 및 크기 조정에 대해 알아봅니다.
+keywords: 데이터베이스 질문, 질문과 대답, Documentdb, Azure, Microsoft Azure
 services: cosmos-db
 author: mimig1
 manager: jhubbard
 editor: monicar
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: b68d1831-35f9-443d-a0ac-dad0c89f245b
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/12/2018
+ms.date: 03/14/2018
 ms.author: mimig
-ms.openlocfilehash: ac0088478701a1796380daa74602569800c1522e
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 466abbffd250685baf886b7fc7cc772ee9e327f2
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-cosmos-db-faq"></a>Azure Cosmos DB FAQ
 ## <a name="azure-cosmos-db-fundamentals"></a>Azure DB Cosmos 기본 사항
@@ -211,6 +211,7 @@ Azure Cosmos DB Table API를 사용하여 테이블을 만들려는 Azure Table 
 * CORS는 현재 지원되지 않습니다.
 * Azure Table Storage의 테이블 이름은 대/소문자를 구분하지 않지만 Azure Cosmos DB Table API에 위치합니다.
 * 이진 필드 같은 정보 인코딩을 위한 일부 Azure Cosmos DB의 내부 형식은 현재 생각만큼 효율이 좋지는 않습니다. 따라서 데이터 크기에 예기치 않은 제한이 발생할 수 있습니다. 예를 들어 데이터를 인코딩하면 데이터 크기가 커지기 때문에 현재는 테이블 엔터티 1Meg를 이진 데이터 저장에 모두 사용할 수 없습니다.
+* 엔터티 속성 이름 “Id”는 현재 지원되지 않습니다.
 
 REST API를 기준으로 Azure Cosmos DB Table API에서 지원하지 않는 많은 끝점/쿼리 옵션이 있습니다.
 | Rest 메서드 | Rest 끝점/쿼리 옵션 | 문서 URL | 설명 |

@@ -1,11 +1,11 @@
 ---
-title: "사용 중지된 Azure Cosmos DB 성능 수준 | Microsoft Docs"
-description: "Azure Cosmos DB에서 이전에 사용할 수 있는 S1, S2 및 S3 성능 수준에 대해 알아봅니다."
+title: 사용 중지된 Azure Cosmos DB 성능 수준 | Microsoft Docs
+description: Azure Cosmos DB에서 이전에 사용할 수 있는 S1, S2 및 S3 성능 수준에 대해 알아봅니다.
 services: cosmos-db
 author: mimig1
 manager: jhubbard
 editor: monicar
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 7dc21c71-47e2-4e06-aa21-e84af52866f4
 ms.service: cosmos-db
 ms.workload: data-services
@@ -15,19 +15,17 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4cab6297e45dc7a14826d7bb10cf22a8a300355f
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 62ef3c8988b0f11d6d8bcb69080f4e1b98a44641
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>S1, S2 및 S3 성능 수준 사용 중지
 
 > [!IMPORTANT] 
 > 이 문서에서 설명하는 S1, S2 및 S3 성능 수준은 이제 사용 중지되어 새 Azure Cosmos DB 계정에 더 이상 사용할 수 없습니다.
 >
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 이 문서에서는 S1, S2 및 S3 성능 수준에 대한 개요를 간략히 설명하고, 이러한 성능 수준을 사용하는 컬렉션을 2017년 말부터 단일 파티션 컬렉션으로 마이그레이션하는 방법에 대해 설명합니다. 이 문서를 읽은 다음에는 다음과 같은 질문에 답할 수 있습니다.
 

@@ -1,12 +1,12 @@
 ---
-title: "Azure Backup FAQ | Microsoft 문서"
-description: "Recovery Services 자격 증명 모음, 백업 대상, 작동 방식, 암호화 및 제한 등 Azure Backup 기능과 관련된 일반적인 질문에 대한 대답입니다. "
+title: Azure Backup FAQ | Microsoft 문서
+description: 'Recovery Services 자격 증명 모음, 백업 대상, 작동 방식, 암호화 및 제한 등 Azure Backup 기능과 관련된 일반적인 질문에 대한 대답입니다. '
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: 
-keywords: "백업 및 재해 복구; 백업 서비스"
+editor: ''
+keywords: 백업 및 재해 복구; 백업 서비스
 ms.assetid: 1011bdd6-7a64-434f-abd7-2783436668d7
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/21/2017
 ms.author: markgal;arunak;trinadhk;sogup;
-ms.openlocfilehash: 2e829ae90aa0366964f96b3c43f88503c7f3e894
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 39e7c95f236f53d7b7c4de0e5b792debe5c0c6f6
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Azure Backup 서비스에 대한 질문
 이 문서에서는 Azure Backup 구성 요소에 대한 일반적인 질문과 대답을 제공합니다. 대답 중 일부에는 포괄적인 정보를 포함하는 문서에 대한 링크가 있습니다. **의견**(오른쪽)을 클릭하여 Azure Backup에 대한 질문을 할 수 있습니다. 의견은 이 문서의 하단에 나타납니다. Livefyre 계정은 메모가 필수입니다. 또한 [토론 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)에 Azure Backup 서비스에 대한 질문도 게시할 수 있습니다.
@@ -132,8 +132,7 @@ Azure Backup은 Azure Backup Server 및 System Center DPM(Data Protection Manage
 | Microsoft Exchange |백업되는 Exchange 서버의 모든 Exchange 데이터베이스 합계 |
 | BMR/시스템 상태 |백업되는 컴퓨터의 각 개별 BMR 복사본 또는 시스템 상태 |
 
-Azure VM 백업의 경우 각 VM은 최대 16개의 데이터 디스크를 가질 수 있으며, 각 데이터 디스크의 크기는 1024GB 이하입니다. <br>
-최대 4TB의 디스크를 지원하기 위한 [비공개 미리 보기](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a?redir=0)가 있습니다. 
+Azure VM 백업의 경우 각 VM은 최대 16개의 데이터 디스크를 가질 수 있으며, 각 데이터 디스크의 크기는 4095GB 이하입니다. <br>
 
 ## <a name="retention-policy-and-recovery-points"></a>보존 정책 및 복구 지점
 ### <a name="is-there-a-difference-between-the-retention-policy-for-dpm-and-windows-serverclient-that-is-on-windows-server-without-dpmbr"></a>DPM과 Windows Server/클라이언트(즉, DPM이 없는 Windows Server)에 대한 보존 정책 간에 차이가 있나요?<br/>

@@ -1,27 +1,21 @@
 ---
-title: "Orchestrator에서 Azure Automation으로 마이그레이션 | Microsoft Docs"
-description: "System Center Orchestrator에서 Azure Automation으로 Runbook 및 통합 팩을 마이그레이션하는 방법에 대해 설명합니다."
+title: Orchestrator에서 Azure Automation으로 마이그레이션
+description: System Center Orchestrator에서 Azure Automation으로 Runbook 및 통합 팩을 마이그레이션하는 방법에 대해 설명합니다.
 services: automation
-documentationcenter: 
-author: bwren
-manager: stevenka
-editor: tysonn
-ms.assetid: 1a7da58c-7a98-49b5-9d9d-001a9f6e631a
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 02/09/2016
-ms.author: bwren
-ms.openlocfilehash: 457888b4d38875b912ad87d44e96ab727e3ee3ee
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+manager: carmonm
+ms.openlocfilehash: 873d234a9ba0ae50b4b11cf65b9630bb79e883e6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="migrating-from-orchestrator-to-azure-automation-beta"></a>Orchestrator에서 Azure Automation으로 마이그레이션(Beta)
-[System Center Orchestrator](http://technet.microsoft.com/library/hh237242.aspx) 의 Runbook은 특별히 Orchestrator용으로 작성된 통합 팩의 활동을 기반으로 하는 반면, Azure Automation의 Runbook은 Windows PowerShell을 기반으로 합니다.  [그래픽 Runbook](automation-runbook-types.md#graphical-runbooks) 은 해당 활동이 PowerShell cmdlet, 자식 Runbook 및 자산을 나타내는 Orchestrator Runbook과 모양이 유사합니다.
+[System Center Orchestrator](http://technet.microsoft.com/library/hh237242.aspx) 의 Runbook은 특별히 Orchestrator용으로 작성된 통합 팩의 활동을 기반으로 하는 반면, Azure Automation의 Runbook은 Windows PowerShell을 기반으로 합니다.  Azure Automation에서 [그래픽 Runbook](automation-runbook-types.md#graphical-runbooks)은 해당 활동이 PowerShell cmdlet, 자식 Runbook 및 자산을 나타내는 Orchestrator Runbook과 모양이 유사합니다.
 
 [System Center Orchestrator Migration Toolkit](http://www.microsoft.com/download/details.aspx?id=47323&WT.mc_id=rss_alldownloads_all) 에는 Orchestrator의 Runbook을 Azure Automation으로 변환하는 데 도움이 되는 도구가 포함되어 있습니다.  Runbook 자체를 변환하는 것 외에 Runbook에서 사용하는 활동이 포함된 통합 팩을 Windows PowerShell cmdlet이 포함된 통합 모듈로 변환해야 합니다.  
 

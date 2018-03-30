@@ -1,30 +1,27 @@
 ---
-title: "PowerShell을 사용하여 Azure Table Storage 작업 수행 | Microsoft Docs"
-description: "PowerShell을 사용하여 Azure Table Storage 작업을 수행합니다."
+title: PowerShell을 사용하여 Azure Table Storage 작업 수행 | Microsoft Docs
+description: PowerShell을 사용하여 Azure Table Storage 작업을 수행합니다.
 services: cosmos-db
 documentationcenter: storage
 author: robinsh
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 03/14/2018
 ms.author: robinsh
-ms.openlocfilehash: 15a4ed2370598cb98565c48b4563bee3a4445827
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: c09809e9cf513dbb9420f675bbf431c176f740bd
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="perform-azure-table-storage-operations-with-azure-powershell"></a>Azure PowerShell을 사용하여 Azure Table Storage 작업 수행 
-
->[!NOTE]
->Azure Cosmos DB Table API는 턴키 전역 배포, 짧은 읽기 및 쓰기 대기 시간, 자동 보조 인덱싱 및 전용 처리량 등 테이블 저장소에 대한 프리미엄 기능을 제공합니다. 이 문서의 PowerShell 명령은 대부분의 경우 Azure Cosmos DB Table API와 Azure Table Storage에서 모두 작동하지만, 이 문서에서는 Azure Table Storage에만 적용됩니다. Azure Cosmos DB Table API를 사용하는 경우 [Azure PowerShell을 사용하여 Azure Cosmos DB Table API 작업 수행](table-powershell.md)을 참조하세요.
->
+[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
 
 Azure Table Storage는 매우 큰 비관계형 구조적 데이터 집합을 저장하고 쿼리하는 데 사용할 수 있는 NoSQL 데이터 저장소입니다. 서비스의 주요 구성 요소로는 테이블, 엔터티 및 속성이 있습니다. 테이블은 엔터티 컬렉션입니다. 엔터티는 속성의 집합입니다. 각 엔터티는 모두 이름 값 쌍으로 구성된 속성을 최대 252개 가질 수 있습니다. 이 문서에서는 Azure Table Storage 서비스 개념에 이미 익숙하다고 가정합니다. 자세한 내용은 [Table Service 데이터 모델 이해](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model) 및 [.NET을 사용하여 Azure Table Storage 시작](table-storage-how-to-use-dotnet.md)을 참조하세요.
 
@@ -38,7 +35,7 @@ Azure Table Storage는 매우 큰 비관계형 구조적 데이터 집합을 저
 > * 테이블 엔터티 삭제
 > * 테이블 삭제
 
-이 문서에서는 새 리소스 그룹에 새 저장소 계정을 만드는 방법을 보여 주며, 이 경우 작업을 완료할 때 쉽게 제거할 수 있습니다. 기존 저장소 계정을 사용하려는 경우 해당 저장소 계정을 대신 사용할 수 있습니다.
+이 아티클에서는 새 리소스 그룹에 새 Azure Storage 계정을 만드는 방법을 보여주며, 이 경우에 작업을 완료할 때 쉽게 제거할 수 있습니다. 기존 Storage 계정을 사용하려는 경우 해당 저장소 계정을 대신 사용할 수 있습니다.
 
 이 예제에는 Azure PowerShell 모듈 버전 4.4.0 이상이 필요합니다. PowerShell 창에서 `Get-Module -ListAvailable AzureRM`을 실행하여 버전을 확인합니다. 표시되는 항목이 없거나 업그레이드가 필요한 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. 
 
@@ -105,7 +102,7 @@ New-AzureStorageTable –Name $tableName –Context $ctx
 [Get-AzureStorageTable](/powershell/module/azure.storage/Get-AzureStorageTable)을 사용하여 저장소 계정의 테이블 목록을 검색합니다.
 
 ```powershell
-$storageTable = Get-AzureStorageTable –Context $ctx | select Name
+Get-AzureStorageTable –Context $ctx | select Name
 ```
 
 ## <a name="retrieve-a-reference-to-a-specific-table"></a>특정 테이블에 대한 참조 가져오기

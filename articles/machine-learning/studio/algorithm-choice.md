@@ -1,12 +1,13 @@
 ---
-title: "Machine Learning 알고리즘 선택 방법 | Microsoft Docs"
-description: "클러스터링, 분류 또는 회귀 실험에서 감독 및 자율 학습에 대한 Azure Machine Learning 알고리즘을 선택하는 방법입니다."
+title: Machine Learning 알고리즘 선택 방법 | Microsoft Docs
+description: 클러스터링, 분류 또는 회귀 실험에서 감독 및 자율 학습에 대한 Azure Machine Learning 알고리즘을 선택하는 방법입니다.
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: pakalra
+ms.author: pakalra
+manager: cgronlun
 editor: cgronlun
-tags: 
+tags: ''
 ms.assetid: a3b23d7f-f083-49c4-b6b1-3911cd69f1b4
 ms.service: machine-learning
 ms.devlang: na
@@ -14,20 +15,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 12/18/2017
-ms.author: garye
-ms.openlocfilehash: 1b30e4dbf20cac653c323720de779aa5f8edba68
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: e1c7030a5f0c6e13653b302fcb48e7d4efa232c7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-choose-algorithms-for-microsoft-azure-machine-learning"></a>Microsoft Azure Machine Learning을 위한 알고리즘 선택 방법
 "어떤 기계 학습 알고리즘을 사용해야 하나요?"라는 질문에 대한 대답은 항상 "상황마다 다릅니다."입니다. 데이터의 크기, 품질 및 특성에 따라 다릅니다. 얻은 답변으로 무슨 작업을 수행할지에 따라 다릅니다.
  수학 알고리즘을 사용 중인 컴퓨터를 위한 명령어로 변환하는 방법에 따라 다릅니다. 시간이 얼마나 있는지에 따라 다릅니다. 아무리 숙련된 과학자라고 해도 대부분의 과학자는 직접 시도해보기 전에는 어떤 알고리즘이 최적으로 수행된다고 단언할 수 없습니다.
 
 ## <a name="the-machine-learning-algorithm-cheat-sheet"></a>Machine Learning 알고리즘 치트 시트
-
-            **Microsoft Azure Machine Learning 알고리즘 치트 시트**를 사용하면 알고리즘의 Microsoft Azure Machine Learning 라이브러리에서 예측 분석 솔루션에 대해 올바른 기계 학습 알고리즘을 선택할 수 있습니다.
+**Microsoft Azure Machine Learning 알고리즘 치트 시트**를 사용하면 알고리즘의 Microsoft Azure Machine Learning 라이브러리에서 예측 분석 솔루션에 대해 올바른 기계 학습 알고리즘을 선택할 수 있습니다.
 이 문서에서는 사용 방법을 안내합니다.
 
 > [!NOTE]
@@ -189,7 +188,7 @@ SVM(Support Vector Machine)은 가능한 넓은 여백으로 클래스를 구분
 
 ***일반적인 지원 벡터 컴퓨터 클래스 경계는 두 클래스를 구분하는 여백을 최대화합니다.***
 
-Microsoft Research의 다른 제품인 [2클래스 로컬 심층 SVM](https://msdn.microsoft.com/library/azure/dn913070.aspx) 은 선형 버전의 속도 및 메모리 효율성을 대부분 유지하는 SVM의 비선형 변형입니다. 선형 방식으로 정확하고 충분한 해답을 얻을 수 없는 경우 적합합니다. 개발자는 문제를 여러 개의 작은 선형 SVM 문제로 분석하여 신속하게 처리했습니다. 이 트릭을 수행하는 방법에 대한 자세한 내용은 [전체 설명](http://research.microsoft.com/um/people/manik/pubs/Jose13.pdf) 을 읽으세요.
+Microsoft Research의 다른 제품인 [2클래스 로컬 심층 SVM](https://msdn.microsoft.com/library/azure/dn913070.aspx) 은 선형 버전의 속도 및 메모리 효율성을 대부분 유지하는 SVM의 비선형 변형입니다. 선형 방식으로 정확하고 충분한 해답을 얻을 수 없는 경우 적합합니다. 개발자는 문제를 여러 개의 작은 선형 SVM 문제로 분석하여 신속하게 처리했습니다. 이 트릭을 수행하는 방법에 대한 자세한 내용은 [전체 설명](http://proceedings.mlr.press/v28/jose13.html) 을 읽으세요.
 
 비선형 SVM의 적절한 확장을 사용하여 [1클래스 SVM](https://msdn.microsoft.com/library/azure/dn913103.aspx) 은 전체 데이터 집합을 긴밀하게 요약하는 경계를 그립니다. 이것은 이상 감지에 유용합니다. 경계를 멀리 벗어나는 모든 새로운 데이터 요소는 비정상적이며 주목할 만합니다.
 

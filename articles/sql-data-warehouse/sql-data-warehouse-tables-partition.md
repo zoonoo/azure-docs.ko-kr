@@ -1,11 +1,11 @@
 ---
-title: "SQL Data Warehouse의 테이블 분할 | Microsoft Docs"
-description: "Azure SQL Data Warehouse에서 테이블 분할 시작"
+title: SQL Data Warehouse의 테이블 분할 | Microsoft Docs
+description: Azure SQL Data Warehouse에서 테이블 분할 시작
 services: sql-data-warehouse
 documentationcenter: NA
 author: barbkess
 manager: jenniehubbard
-editor: 
+editor: ''
 ms.assetid: 6cef870c-114f-470c-af10-02300c58885d
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: tables
 ms.date: 12/06/2017
 ms.author: barbkess
-ms.openlocfilehash: a28cb1f8a2e48332b344566620dc49b29d9d3c99
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: f94bc3770fbd7e707194032cb99c67b09f8a0618
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="partitioning-tables-in-sql-data-warehouse"></a>SQL Data Warehouse의 테이블 분할
 > [!div class="op_single_selector"]
@@ -47,12 +47,12 @@ Microsoft Azure SQL Data Warehouse에서 분할이 가져오는 주요 이점은
 분할은 쿼리 성능 향상을 위해서도 사용할 수 있습니다.  필터를 분할된 데이터에 적용하는 쿼리는 검색을 적격한 파티션에만 제한할 수 있습니다. 이 필터링 방법은 전체 테이블 검색을 방지하고 더 작은 데이터 하위 집합만을 검색할 수 있습니다. 클러스터형 columnstore 인덱스가 사용되면서 조건자 제거에 따른 성능상의 이점은 줄어들었지만 경우에 따라 쿼리에는 도움이 될 수 있습니다.  예를 들어 판매 팩트 테이블은 판매 날짜 필드를 사용하여 36개월로 분할된 다음 판매 날짜를 필터링하는 쿼리가 필터와 일치하지 않는 파티션의 검색을 건너뛸 수 있습니다.
 
 ## <a name="partition-sizing-guidance"></a>파티션 크기 조정 지침
-일부 시나리오에서 분할을 사용하여 성능을 향상시킬 수 있지만 **너무 많은** 파티션이 있는 테이블을 만들면 경우에 따라 성능이 저하될 수 있습니다.  특히 클러스터형 columnstore 테이블에서 이러한 점이 우려됩니다.  분할이 도움이 되려면 분할을 사용하는 시기 및 만들려는 파티션 수를 이해하는 것이 중요합니다.  파티션 수가 너무 많은 경우와 관련해서는 엄격한 규칙이 없지만 데이터 및 데이터를 동시에 로드하는 파티션 수에 따라 달라집니다.  성공적인 파티션 구성표에는 일반적으로 수천 개가 아닌 수십 개에서 수백 개의 파티션이 있습니다.
+일부 시나리오에서 분할을 사용하여 성능을 향상시킬 수 있지만 **너무 많은** 파티션이 있는 테이블을 만들면 경우에 따라 성능이 저하될 수 있습니다.  특히 클러스터형 columnstore 테이블에서 이러한 점이 우려됩니다.  분할이 도움이 되려면 분할을 사용하는 시기 및 만들려는 파티션 수를 이해하는 것이 중요합니다.  파티션 수가 너무 많은 경우와 관련해서는 엄격한 규칙이 없지만 데이터 및 동시에 로드하는 파티션 수에 따라 달라집니다.  성공적인 파티션 구성표에는 일반적으로 수천 개가 아닌 수십 개에서 수백 개의 파티션이 있습니다.
 
-**클러스터형 columnstore** 테이블에서 파티션을 만들 때 각 파티션에 얼마나 많은 행 수를 둘지 고려하는 것은 중요합니다.  클러스터형 columnstore 테이블에 대한 최적의 압축 및 성능을 고려할 때, 배포 및 파티션당 최소 1백만 개의 행이 필요합니다.  파티션이 생성되기 전에 SQL Data Warehouse는 미리 각 테이블을 60개의 분산된 데이터베이스로 나눕니다.  백그라운드에서 생성된 배포 외에, 테이블에 분할이 추가됩니다.  이 예제에서 사용 판매 팩트 테이블이 36개의 월별 파티션을 포함하고 SQL Data Warehouse에 60개의 배포판이 있다면 판매 팩트 테이블은 모든 달이 채워지는 경우 매월 6천만 개의 행 또는 21억 개의 행을 포함합니다.  테이블이 파티션당 권장되는 최소 행 수보다 훨씬 적은 행을 포함하면 파티션당 행 수를 늘리기 위해 더 적은 수의 파티션을 사용할 것을 고려해야 합니다.  또한 Microsoft Azure SQL Data Warehouse에서 실행될 수 있는 쿼리를 포함하는 [인덱싱][Index] 문서를 참조하여 클러스터 columnstore 인덱스의 품질을 평가하세요.
+**클러스터형 columnstore** 테이블에서 파티션을 만들 때 각 파티션에 얼마나 많은 행 수를 둘지 고려하는 것은 중요합니다.  클러스터형 columnstore 테이블에 대한 최적의 압축 및 성능을 고려할 때, 배포 및 파티션당 최소 1백만 개의 행이 필요합니다.  파티션이 생성되기 전에 SQL Data Warehouse는 미리 각 테이블을 60개의 분산된 데이터베이스로 나눕니다.  백그라운드에서 생성된 배포 외에, 테이블에 분할이 추가됩니다.  이 예제에서 사용 판매 팩트 테이블이 36개의 월별 파티션을 포함하고 SQL Data Warehouse에 60개의 배포판이 있다면 판매 팩트 테이블은 모든 달이 채워지는 경우 매월 6천만 개의 행 또는 21억 개의 행을 포함합니다.  테이블이 파티션당 권장되는 최소 행 수보다 적은 행을 포함하면 파티션당 행 수를 늘리기 위해 더 적은 수의 파티션을 사용할 것을 고려해야 합니다.  또한 Microsoft Azure SQL Data Warehouse에서 실행될 수 있는 쿼리를 포함하는 [인덱싱][Index] 문서를 참조하여 클러스터 columnstore 인덱스의 품질을 평가하세요.
 
 ## <a name="syntax-difference-from-sql-server"></a>SQL Server와의 구문 차이
-Microsoft Azure SQL Data Warehouse는 SQL Server와는 약간 다른 파티션을 정의하는 간단한 방법을 도입합니다.  파티션 함수 및 구성표는 SQL Server에서는 사용되지만 SQL Data Warehouse에서는 사용되지 않습니다.  대신 분할된 열 및 경계 지점을 식별하기만 하면 됩니다.  분할의 구문은 SQL Server와 약간 다르지만 기본 개념은 동일합니다.  SQL Server 및 SQL Data Warehouse는 테이블당 하나의 파티션 열(범위가 지정된 파티션)을 지원합니다.  분할에 대한 자세한 내용은 [분할된 테이블 및 인덱스][Partitioned Tables and Indexes]를 참조하세요.
+SQL Data Warehouse는 SQL Server보다 간단하게 파티션을 정의하는 방법을 소개합니다.  파티션 함수 및 구성표는 SQL Server에서는 사용되지만 SQL Data Warehouse에서는 사용되지 않습니다.  대신 분할된 열 및 경계 지점을 식별하기만 하면 됩니다.  분할의 구문은 SQL Server와 약간 다르지만 기본 개념은 동일합니다.  SQL Server 및 SQL Data Warehouse는 테이블당 하나의 파티션 열(범위가 지정된 파티션)을 지원합니다.  분할에 대한 자세한 내용은 [분할된 테이블 및 인덱스][Partitioned Tables and Indexes]를 참조하세요.
 
 다음 SQL Data Warehouse 분할 [CREATE TABLE][CREATE TABLE] 문 예제에서는 FactInternetSales 테이블을 OrderDateKey 열에서 분할합니다.
 
@@ -125,7 +125,7 @@ GROUP BY    s.[name]
 ## <a name="workload-management"></a>워크로드 관리
 테이블 파티션 의사 결정 시 고려해야 하는 마지막 부분이 [워크로드 관리][workload management]입니다.  SQL Data Warehouse의 워크로드 관리는 주로 메모리 및 동시성에 대한 관리입니다.  Microsoft Azure SQL Data Warehouse에서 쿼리 실행 중 각 배포에 할당된 최대 메모리는 리소스 클래스에 의해 제어됩니다.  이상적으로 파티션은 클러스터형 columnstore 인덱스 빌드에 필요한 메모리 등의 다른 요소를 고려해서 크기가 조정됩니다.  더 많은 메모리가 할당되면 클러스터형 columnstore 인덱스에 훨씬 유리합니다.  따라서 파티션 인덱스 다시 작성이 메모리를 부족하게 하지 않아야 합니다. 쿼리에 사용할 수 있는 메모리의 양을 늘리면 기본 역할, smallrc에서 다른 역할 중 하나(예: largerc)로 전환하여 구현할 수 있습니다.
 
-배포 당 메모리의 할당에 관한 정보는 리소스 관리자 동적 관리 뷰를 쿼리하여 사용 가능합니다. 실제로 다음 그림 보다 작은 프로그램 메모리가 부여됩니다. 그러나 데이터 관리 작업에 대한 파티션의 크기를 조정할 때 사용할 수 있는 지침의 수준을 제공합니다.  초대형 리소스 클래스에서 제공하는 메모리를 초과하는 파티션의 크기는 피합니다. 이 그림을 초과하여 파티션을 확대하는 경우, 최적의 압축 상태가 아닌 메모리 부족의 위험이 있습니다.
+배포 당 메모리의 할당에 관한 정보는 Resource Governor 동적 관리 뷰를 쿼리하여 사용할 수 있습니다. 실제로 메모리 부여는 다음 쿼리의 결과보다 작습니다. 하지만 이 쿼리는 데이터 관리 작업에 대한 파티션의 크기를 조정할 때 사용할 수 있는 수준의 지침을 제공합니다.  초대형 리소스 클래스에서 제공하는 메모리를 초과하는 파티션의 크기는 피합니다. 파티션이 이 수치를 초과하면 메모가 부족하여 압축 효율이 떨어질 위험이 있습니다.
 
 ```sql
 SELECT  rp.[name]                                AS [pool_name]
@@ -146,12 +146,12 @@ AND     rp.[name]    = 'SloDWPool'
 ## <a name="partition-switching"></a>파티션 전환
 SQL Data Warehouse는 파티션 분할, 병합 및 전환을 지원합니다. 이러한 각 함수는 [ALTER TABLE][ALTER TABLE] 문을 사용하여 실행됩니다.
 
-두 테이블 간에 파티션을 전환하려면 파티션을 각 해당 경계에 맞추고 테이블 정의와 일치하는지 확인해야 합니다. Check 제약 조건은 테이블에 있는 값의 범위를 적용하는 데 사용할 수 없으므로 원본 테이블은 대상 테이블과 동일한 파티션 경계를 포함해야 합니다. 이 경우가 아닌 경우 파티션 전환은 파티션 메타데이터가 동기화되지 않아 실패합니다.
+두 테이블 간에 파티션을 전환하려면 파티션을 각 해당 경계에 맞추고 테이블 정의와 일치하는지 확인해야 합니다. Check 제약 조건은 테이블에 있는 값의 범위를 적용하는 데 사용할 수 없으므로 원본 테이블은 대상 테이블과 동일한 파티션 경계를 포함해야 합니다. 파티션 경계가 동일하지 않으면 파티션 전환은 파티션 메타데이터가 동기화되지 않아서 실패합니다.
 
 ### <a name="how-to-split-a-partition-that-contains-data"></a>데이터를 포함하는 파티션을 분할하는 방법
-데이터가 이미 들어 있는 파티션을 분할 하는 가장 효율적인 방법은 `CTAS` 문을 사용하는 것입니다. 분할된 테이블이 CCL(clustered columnstore)인 경우 테이블 파티션이 비어 있어야 분할될 수 있습니다.
+데이터가 이미 들어 있는 파티션을 분할 하는 가장 효율적인 방법은 `CTAS` 문을 사용하는 것입니다. 분할된 테이블이 클러스터형 columnstore인 경우 테이블 파티션이 비어 있어야 분할될 수 있습니다.
 
-다음은 각 파티션에 하나의 행을 포함하는 샘플 분할된 columnstore 테이블입니다.
+다음 예제에서는 분할된 columnstore 테이블을 만듭니다. 각 파티션에 하나의 행을 삽입합니다.
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales]
@@ -185,11 +185,11 @@ CREATE STATISTICS Stat_dbo_FactInternetSales_OrderDateKey ON dbo.FactInternetSal
 ```
 
 > [!NOTE]
-> 통계 개체를 만들어 해당 테이블 메타데이터가 더 정확함을 확인합니다. 통계 작성을 생략하는 경우 SQL Data Warehouse는 기본값을 사용합니다. 통계에 대한 자세한 내용은 [통계][statistics]를 검토하세요.
+> 통계 개체를 만들면 테이블 메타 데이터가 더 정확해집니다. 통계를 생략하면 SQL Data Warehouse는 기본값을 사용합니다. 통계에 대한 자세한 내용은 [통계][statistics]를 검토하세요.
 > 
 > 
 
-`sys.partitions` 카탈로그 뷰를 사용하여 행 개수에 대해 쿼리할 수 있습니다.
+다음 쿼리는 `sys.partitions` 카탈로그 뷰를 사용하여 행 수를 찾습니다.
 
 ```sql
 SELECT  QUOTENAME(s.[name])+'.'+QUOTENAME(t.[name]) as Table_name
@@ -206,7 +206,7 @@ WHERE t.[name] = 'FactInternetSales'
 ;
 ```
 
-이 테이블을 분할하는 경우 오류가 발생합니다.
+다음 SPLIT 명령은 오류 메시지를 수신합니다.
 
 ```sql
 ALTER TABLE FactInternetSales SPLIT RANGE (20010101);
@@ -214,7 +214,7 @@ ALTER TABLE FactInternetSales SPLIT RANGE (20010101);
 
 파티션이 비어 있어 Msg 35346, 수준 15, 상태 1, 44행 ALTER PARTITION 문의 SPLIT 절이 실패했습니다.  Columnstore 인덱스가 테이블에 있는 경우 빈 파티션만 분할할 수 있습니다. ALTER PARTITION 문을 실행한 다음 ALTER PARTITION 완료된 후에 Columnstore 인덱스를 다시 작성하기 전에 Columnstore 인덱스를 비활성화하는 것이 좋습니다.
 
-그러나 `CTAS` 를 사용하여 데이터를 저장할 새 테이블을 만듭니다.
+그러나 `CTAS`를 사용하여 데이터를 저장할 새 테이블을 만들 수 있습니다.
 
 ```sql
 CREATE TABLE dbo.FactInternetSales_20000101
@@ -232,7 +232,7 @@ WHERE   1=2
 ;
 ```
 
-파티션 경계가 정렬되므로 전환이 허용됩니다. 이후에 나눌 수 있는 빈 파티션이 있는 원본 테이블이 남습니다.
+파티션 경계가 정렬되므로 전환이 허용됩니다. 이렇게 하면 이후에 분할할 수 있는 빈 파티션이 원본 테이블에 남습니다.
 
 ```sql
 ALTER TABLE FactInternetSales SWITCH PARTITION 2 TO  FactInternetSales_20000101 PARTITION 2;
@@ -240,7 +240,7 @@ ALTER TABLE FactInternetSales SWITCH PARTITION 2 TO  FactInternetSales_20000101 
 ALTER TABLE FactInternetSales SPLIT RANGE (20010101);
 ```
 
-`CTAS` 를 사용하여 새 파티션 경계에 데이터를 정렬하고 데이터를 다시 기본 테이블로 전환하는 것이 남았습니다.
+`CTAS`를 사용하여 새로운 파티션 경계에 데이터를 정렬한 다음, 데이터를 다시 기본 테이블로 전환하는 것이 남았습니다.
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales_20000101_20010101]
@@ -261,14 +261,14 @@ AND     [OrderDateKey] <  20010101
 ALTER TABLE dbo.FactInternetSales_20000101_20010101 SWITCH PARTITION 2 TO dbo.FactInternetSales PARTITION 2;
 ```
 
-데이터의 이동을 완료한 후에 각 분할에 있는 데이터의 새 배포를 정확히 반영되도록 대상 테이블에서 통계를 새로 고치는 것이 좋습니다.
+데이터 이동이 완료되면 대상 테이블에 대한 통계를 새로 고치는 것이 좋습니다. 통계를 업데이트하면 해당 파티션의 새로운 데이터 배포가 통계에 정확하게 반영됩니다.
 
 ```sql
 UPDATE STATISTICS [dbo].[FactInternetSales];
 ```
 
 ### <a name="table-partitioning-source-control"></a>소스 제어를 분할하는 테이블
-소스 제어 시스템에서 사용자 테이블 정의가 **녹슬지** 않도록 다음 방법을 고려하는 것이 좋습니다.
+소스 제어 시스템에서 테이블 정의가 **부식되지** 않도록 다음 방법을 고려하는 것이 좋습니다.
 
 1. 파티션 값이 없는 분할된 테이블로 테이블을 만듭니다.
 
@@ -362,7 +362,7 @@ DROP TABLE #partitions;
 [Partition]: ./sql-data-warehouse-tables-partition.md
 [Statistics]: ./sql-data-warehouse-tables-statistics.md
 [Temporary]: ./sql-data-warehouse-tables-temporary.md
-[workload management]: ./sql-data-warehouse-develop-concurrency.md
+[workload management]: ./resource-classes-for-workload-management.md
 [SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
 
 <!-- MSDN Articles -->

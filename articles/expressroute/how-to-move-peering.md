@@ -1,25 +1,25 @@
 ---
-title: "Azure ExpressRoute에서 공용 피어링을 Microsoft 피어링으로 이동 | Microsoft Docs"
-description: "이 문서에서는 ExpressRoute에서 공용 피어링을 Microsoft 피어링으로 이동하는 단계를 보여 줍니다."
+title: Azure ExpressRoute에서 공용 피어링을 Microsoft 피어링으로 이동 | Microsoft Docs
+description: 이 문서에서는 ExpressRoute에서 공용 피어링을 Microsoft 피어링으로 이동하는 단계를 보여 줍니다.
 services: expressroute
 documentationcenter: na
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/09/2017
+ms.date: 03/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: 4fd0f1cbba36957ae5ecc1b7436d1f1734a3ef79
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 02d7c3f587a4cbfb11fc3b6863f75ca30b4d6c51
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="move-a-public-peering-to-microsoft-peering"></a>공용 피어링을 Microsoft 피어링으로 이동
 
@@ -50,7 +50,7 @@ Microsoft 피어링을 만들지 않은 경우 다음 문서 중 하나를 사�
 
 Microsoft 피어링을 사용하도록 설정되고 보급된 공용 접두사가 구성되어 있는지 확인합니다.
 
-  * [Azure 포털](expressroute-howto-routing-portal-resource-manager.md#getmsft)
+  * [Azure Portal](expressroute-howto-routing-portal-resource-manager.md#getmsft)
   * [Azure PowerShell](expressroute-howto-routing-arm.md#getmsft)
   * [Azure CLI](howto-routing-cli.md#getmsft)
 
@@ -73,6 +73,10 @@ Microsoft 피어링이 구성되어 있고 사용하려는 접두사가 Microsof
   * [Azure Portal을 사용하여 Azure 공용 피어링 삭제](expressroute-howto-routing-portal-resource-manager.md#deletepublic)
   * [Azure PowerShell을 사용하여 Azure 공용 피어링 삭제](expressroute-howto-routing-arm.md#deletepublic)
   * [CLI를 사용하여 Azure 공용 피어링 삭제](howto-routing-cli.md#deletepublic)
+  
+## <a name="view"></a>5. 피어링 보기
+  
+Azure Portal에서 모든 ExpressRoute 회로 및 피어링 목록을 확인할 수 있습니다. 자세한 내용은 [Microsoft 피어링 세부 정보 보기](expressroute-howto-routing-portal-resource-manager.md#getmsft)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

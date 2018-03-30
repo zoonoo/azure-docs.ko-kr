@@ -1,24 +1,24 @@
 ---
-title: "인덱서를 사용하여 Azure Search에 Azure SQL Database 연결 | Microsoft Docs"
-description: "인덱서를 사용하여 Azure SQL Database에서 Azure Search 인덱스로 데이터를 가져오는 방법에 대해 알아봅니다."
+title: 인덱서를 사용하여 Azure Search에 Azure SQL Database 연결 | Microsoft Docs
+description: 인덱서를 사용하여 Azure SQL Database에서 Azure Search 인덱스로 데이터를 가져오는 방법에 대해 알아봅니다.
 services: search
-documentationcenter: 
+documentationcenter: ''
 author: chaosrealm
 manager: pablocas
-editor: 
+editor: ''
 ms.assetid: e9bbf352-dfff-4872-9b17-b1351aae519f
 ms.service: search
 ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 07/13/2017
+ms.date: 03/26/2018
 ms.author: eugenesh
-ms.openlocfilehash: 2ec1e02ccc8d8916f6d9d50ce787f2562f33fd7d
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: a5198cc6e3b019fc6fd241f22c4da088f0839066
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="connecting-azure-sql-database-to-azure-search-using-indexers"></a>인덱서를 사용하여 Azure Search에 Azure SQL Database 연결
 
@@ -57,6 +57,9 @@ Azure SQL 데이터베이스 외에도 Azure Search는 [Azure Cosmos DB](search-
 | 호환되는 데이터 형식 | Azure Search 인덱스에서는 전부는 아니지만 대부분의 SQL 형식이 지원됩니다. 목록은 [데이터 형식 매핑](#TypeMapping)을 참조하세요. |
 | 실시간 데이터 동기화가 필요하지 않습니다. | 인덱서는 최대 5분마다 테이블을 다시 인덱싱할 수 있습니다. 데이터가 자주 변경되고 변경 내용을 몇 초 또는 몇 분 이내에 인덱스에 반영해야 하는 경우에는 [REST API](https://docs.microsoft.com/rest/api/searchservice/AddUpdate-or-Delete-Documents) 또는 [.NET SDK](search-import-data-dotnet.md)를 사용하여 업데이트된 행을 직접 푸시하는 것이 좋습니다. |
 | 증분 인덱싱 가능 | 데이터 집합이 크고 일정에 따라 인덱서를 실행하려는 경우 Azure Search에서 새 행, 변경된 행 및 삭제된 행을 효율적으로 식별할 수 있어야 합니다. 비-증분 인덱싱은 주문 시(일정을 따르지 않고) 인덱싱하거나 100,000 미만의 행을 인덱싱하는 경우에만 허용됩니다. 자세한 내용은 아래의 [변경 및 삭제된 행 캡처](#CaptureChangedRows)를 참조하세요. |
+
+> [!NOTE] 
+> Azure Search는 SQL Server 인증만 지원합니다. Azure Active Directory 암호 인증에 대한 지원이 필요한 경우 이 [UserVoice 제안](https://feedback.azure.com/forums/263029-azure-search/suggestions/33595465-support-azure-active-directory-password-authentica)에 투표하세요.
 
 ## <a name="create-an-azure-sql-indexer"></a>Azure SQL 인덱서 만들기
 
@@ -302,7 +305,7 @@ SQL 인덱서는 여러 구성 설정을 노출합니다.
 
 | 설정 | 데이터 형식 | 목적 | 기본값 |
 | --- | --- | --- | --- |
-| queryTimeout |문자열 |SQL 쿼리 실행의 제한 시간 설정 |5분("00:05:00") |
+| queryTimeout |string |SQL 쿼리 실행의 제한 시간 설정 |5분("00:05:00") |
 | disableOrderByHighWaterMarkColumn |bool |상위 워터 마크 정책에서 사용하는 SQL 쿼리에서 ORDER BY 절이 생략되도록 합니다. [상위 워터 마크 정책](#HighWaterMarkPolicy)을 참조하세요. |false |
 
 이러한 설정은 인덱서 정의의 `parameters.configuration` 개체에 사용됩니다. 예를 들어 쿼리 제한 시간을 10분으로 설정하려면 다음 구성을 사용하여 인덱서를 만들거나 업데이트합니다.

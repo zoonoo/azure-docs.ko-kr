@@ -1,6 +1,6 @@
 ---
-title: "Azure App Service에서 웹앱에 대한 진단 로깅 설정"
-description: "진단 로그를 사용하도록 설정하는 방법, 응용 프로그램에 계측을 추가하는 방법 및 Azure에서 기록된 정보에 액세스하는 방법에 대해 알아봅니다."
+title: Azure App Service에서 웹앱에 대한 진단 로깅 설정
+description: 진단 로그를 사용하도록 설정하는 방법, 응용 프로그램에 계측을 추가하는 방법 및 Azure에서 기록된 정보에 액세스하는 방법에 대해 알아봅니다.
 services: app-service
 documentationcenter: .net
 author: cephalin
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: a5ac6c02e28c19346abae9e5ea3dba9af4022dde
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 8dc955b3556477e04e6ef3e92b1c7dbe82ac7f35
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Azure App Service에서 웹앱에 대한 진단 로깅 설정
 ## <a name="overview"></a>개요
@@ -39,7 +39,7 @@ App Service 웹앱은 웹 서버와 웹 응용 프로그램 모두의 정보를 
 * **웹 서버 로깅** - [W3C 확장 로그 파일 형식](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx)을 사용하는 HTTP 트랜잭션에 대한 정보입니다. 이는 처리된 요청 수, 특정 IP 주소에서 들어온 요청 수 등의 전체 사이트 메트릭을 확인하는 경우에 유용합니다.
 
 ### <a name="application-diagnostics"></a>응용 프로그램 진단
-응용 프로그램 진단을 통해 웹 응용 프로그램에서 생성된 정보를 캡처할 수 있습니다. ASP.NET 응용 프로그램은 [System.Diagnostics.Trace](http://msdn.microsoft.com/library/36hhw2t6.aspx) 클래스를 사용하여 응용 프로그램 진단 로그에 정보를 로깅할 수 있습니다. 예:
+응용 프로그램 진단을 통해 웹 응용 프로그램에서 생성된 정보를 캡처할 수 있습니다. ASP.NET 응용 프로그램은 [System.Diagnostics.Trace](http://msdn.microsoft.com/library/36hhw2t6.aspx) 클래스를 사용하여 응용 프로그램 진단 로그에 정보를 로깅할 수 있습니다. 예: 
 
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
 
@@ -97,7 +97,7 @@ App Service 웹앱은 웹 서버와 웹 응용 프로그램 모두의 정보를 
 * **실패한 요청 추적** - /LogFiles/W3SVC#########/입니다. 이 폴더에는 하나의 XSL 파일 및 하나 이상의 XML 파일이 포함되어 있습니다. XSL 파일은 XML 파일을 Internet Explorer에서 볼 때 XML 파일의 내용에 서식을 지정하고 필터링하는 기능을 제공하므로 XSL 파일은 XML 파일과 동일한 디렉터리에 다운로드해야 합니다.
 * **Detailed Error Logs** - /LogFiles/DetailedErrors/입니다. 이 폴더에는 발생한 HTTP 오류에 대해 방대한 정보를 제공하는 하나 이상의 .htm 파일이 포함되어 있습니다.
 * **웹 서버 로그** - /LogFiles/http/RawLogs입니다. 이 폴더에는 [W3C 확장 로그 파일 형식](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx)을 사용하여 서식이 지정된 하나 이상의 텍스트 파일이 포함되어 있습니다.
-* **Deployment logs** - /LogFiles/Git입니다. 이 폴더에는 Azure 웹 앱에서 사용된 내부 배포 프로세스에서 생성된 로그와 Git 배포용 로그가 포함되어 있습니다.
+* **Deployment logs** - /LogFiles/Git입니다. 이 폴더에는 Azure 웹 앱에서 사용된 내부 배포 프로세스에서 생성된 로그와 Git 배포용 로그가 포함되어 있습니다. D:\home\site\deployments에서 배포 로그를 찾을 수 있습니다.
 
 ### <a name="ftp"></a>FTP
 
@@ -120,7 +120,7 @@ App Service 웹앱은 웹 서버와 웹 응용 프로그램 모두의 정보를 
 ### <a name="download-with-azure-command-line-interface"></a>Azure 명령줄 인터페이스로 다운로드
 Azure 명령줄 인터페이스를 사용하여 로그 파일을 다운로드하려면 새 명령 프롬프트, PowerShell, Bash 또는 터미널 세션을 열고 다음 명령을 입력합니다.
 
-    azure site log download webappname
+    az webapp log download --resource-group resourcegroupname --name webappname
 
 이 명령은 'webappname'이라는 웹앱의 로그를 현재 디렉터리의 **diagnostics.zip**이라는 파일에 저장합니다.
 
@@ -159,11 +159,11 @@ Visual Studio Application Insights는 로그 필터링과 검색을 위한 도�
 
 이 명령은 **-Name** 매개 변수로 지정된 웹앱에 연결되고 로그 이벤트가 웹앱에 발생하면 PowerShell 창에 정보를 스트리밍하기 시작합니다. /LogFiles 디렉터리(d:/home/logfiles)에 저장된 .txt, .log 또는 .htm으로 끝나는 파일에 기록된 정보는 로컬 콘솔로 스트리밍됩니다.
 
-오류와 같은 특정 이벤트를 필터링하려면 **-Message** 매개 변수를 사용합니다. 예:
+오류와 같은 특정 이벤트를 필터링하려면 **-Message** 매개 변수를 사용합니다. 예: 
 
     Get-AzureWebSiteLog -Name webappname -Tail -Message Error
 
-HTTP와 같은 특정 로그 유형을 필터링하려면 **-Path** 매개 변수를 사용합니다. 예:
+HTTP와 같은 특정 로그 유형을 필터링하려면 **-Path** 매개 변수를 사용합니다. 예: 
 
     Get-AzureWebSiteLog -Name webappname -Tail -Path http
 
@@ -181,11 +181,11 @@ HTTP와 같은 특정 로그 유형을 필터링하려면 **-Path** 매개 변�
 
 이 명령은 'webappname'이라는 웹앱에 연결하고 로그 이벤트가 웹앱에서 발생하면 창에 정보를 스트리밍하기 시작합니다. /LogFiles 디렉터리(d:/home/logfiles)에 저장된 .txt, .log 또는 .htm으로 끝나는 파일에 기록된 정보는 로컬 콘솔로 스트리밍됩니다.
 
-오류와 같은 특정 이벤트를 필터링하려면 **--Filter** 매개 변수를 사용합니다. 예:
+오류와 같은 특정 이벤트를 필터링하려면 **--Filter** 매개 변수를 사용합니다. 예: 
 
     az webapp log tail --name webappname --resource-group myResourceGroup --filter Error
 
-HTTP와 같은 특정 로그 유형을 필터링하려면 **-Path** 매개 변수를 사용합니다. 예:
+HTTP와 같은 특정 로그 유형을 필터링하려면 **-Path** 매개 변수를 사용합니다. 예: 
 
     az webapp log tail --name webappname --resource-group myResourceGroup --path http
 
@@ -218,7 +218,7 @@ HTTP와 같은 특정 로그 유형을 필터링하려면 **-Path** 매개 변�
 | --- | --- |
 | PartitionKey |yyyyMMddHH 형식의 이벤트 날짜/시간 |
 | RowKey |이 엔터티를 고유하게 식별하는 GUID 값 |
-| Timestamp |이벤트가 발생한 날짜 및 시간 |
+| 타임 스탬프 |이벤트가 발생한 날짜 및 시간 |
 | EventTickCount |이벤트가 발생한 날짜 및 시간(눈금 형식, 더 높은 정밀도) |
 | ApplicationName |웹 앱 이름 |
 | Level |이벤트 수준(예: 오류, 경고, 정보) |

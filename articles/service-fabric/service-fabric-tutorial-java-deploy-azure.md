@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 5245e53429278f2a346077cdb70426aaca339488
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 92445ffa7954d42ec1a864264fbfc7555986ad58
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="tutorial-deploy-a-java-application-to-a-service-fabric-cluster-in-azure"></a>자습서: Azure의 Service Fabric 클러스터에 Java 응용 프로그램 배포
 이 자습서는 시리즈의 3부로, Azure에서 클러스터에 Service Fabric 응용 프로그램을 배포하는 방법을 보여줍니다.
@@ -106,7 +106,7 @@ ms.lasthandoff: 03/16/2018
 8. 계정 SAS URL을 복사하고 Service Fabric 클러스터를 만들 때 사용하기 위해 따로 보관해 둡니다. 다음 URL과 유사합니다.
 
     ```
-    https://teststorageaccount.table.core.windows.net/?sv=2017-04-17&ss=bfqt&srt=sco&sp=rwdlacup&se=2018-01-31T03:24:04Z&st=2018-01-30T19:24:04Z&spr=https,http&sig=IrkO1bVQCHcaKaTiJ5gilLSC5Wxtghu%2FJAeeY5HR%2BPU%3D
+    ?sv=2017-04-17&ss=bfqt&srt=sco&sp=rwdlacup&se=2018-01-31T03:24:04Z&st=2018-01-30T19:24:04Z&spr=https,http&sig=IrkO1bVQCHcaKaTiJ5gilLSC5Wxtghu%2FJAeeY5HR%2BPU%3D
     ```
 
 9. Event Hub 리소스를 포함하는 리소스 그룹을 만듭니다. Event Hubs는 Service Fabric에서 ELK 리소스를 실행하는 서버로 메시지를 보내는 데 사용됩니다.
@@ -163,10 +163,10 @@ ms.lasthandoff: 03/16/2018
     반환된 JSON에서 **sr** 필드 값을 복사합니다. **sr** 필드 값은 EventHubs에 대한 SAS 토큰입니다. 다음 URL은 **sr** 필드의 예제입니다.
 
     ```bash
-    https%3A%2F%2Ftesteventhubs.servicebus.windows.net%2Ftesteventhubs&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=<policy_name>
+    https%3A%2F%testeventhub.servicebus.windows.net%testeventhub&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=sender
     ```
 
-    EventHubs에 대한 SAS URL은 다음 https://<namespacename>.servicebus.windows.net/<eventhubsname>?sr=<sastoken> 구조를 따릅니다. 예를 들어 https://testeventhubs.servicebus.windows.net/testeventhubs?sr=https%3A%2F%2Ftesteventhubs.servicebus.windows.net%2Ftesteventhubs&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=sender
+    EventHubs에 대한 SAS URL은 다음 https://<namespacename>.servicebus.windows.net/<eventhubsname>?sr=<sastoken> 구조를 따릅니다. 예를 들어 https://testeventhubnamespace.servicebus.windows.net/testeventhub?sr=https%3A%2F%testeventhub.servicebus.windows.net%testeventhub&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=sender
 
 12. *sfdeploy.parameters.json* 파일을 열고 이전 단계에서 다음 내용을 바꾸기 
 

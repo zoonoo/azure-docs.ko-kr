@@ -1,11 +1,11 @@
 ---
-title: "Azure Data Factory에서 ForEach 작업 | Microsoft Docs"
-description: "ForEach 작업은 파이프라인의 반복 제어 흐름을 정의합니다. 컬렉션에 대한 반복 작업에 사용되며 특정 작업을 실행합니다."
+title: Azure Data Factory에서 ForEach 작업 | Microsoft Docs
+description: ForEach 작업은 파이프라인의 반복 제어 흐름을 정의합니다. 컬렉션에 대한 반복 작업에 사용되며 특정 작업을 실행합니다.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: b9a151ac04bc539e337b0007a264e196dc0ae6a3
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 2eaa4f6bb49867e0f0f061116551794d6f1dd0ca
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>Azure Data Factory의 ForEach 작업
 ForEach 작업은 파이프라인의 반복 제어 흐름을 정의합니다. 이 작업을 사용하여 컬렉션을 반복하고 루프의 지정된 작업을 실행합니다. 이 작업의 루프 구현은 프로그래밍 언어에서 구조를 반복하는 Foreach와 비슷합니다.

@@ -1,11 +1,11 @@
 ---
-title: "Azure Portal을 사용하여 Azure 가상 머신 확장 집합에서 MSI 구성"
-description: "Azure Portal을 사용하여 Azure VMSS에서 MSI(관리 서비스 ID)를 구성하기 위한 단계별 지침입니다."
+title: Azure Portal을 사용하여 Azure 가상 머신 확장 집합에서 MSI 구성
+description: Azure Portal을 사용하여 Azure VMSS에서 MSI(관리 서비스 ID)를 구성하기 위한 단계별 지침입니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: daveba
-ms.openlocfilehash: 4d308d9cdc0405ee0041c877f5678647343631ab
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: d9b493203a78aebdfadef15cf53d9cc023bb66f8
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="configure-an-azure-virtual-machine-scale-set-managed-service-identity-msi-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure 가상 머신 확장 집합 MSI(관리 서비스 ID) 구성
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 03/08/2018
 
 이 문서를 작성하는 시점에서는, Azure Portal에서 가상 머신 확장 집합을 만드는 중에 MSI를 사용하도록 설정할 수 없었습니다. 대신, 다음의 Azure 가상 머신 확장 집합 만들기 빠른 시작 문서를 참조하여 Azure 가상 머신 확장 집합을 먼저 만듭니다.
 
-- [Azure Portal에서 가상 머신 확장 집합 만들기](../../virtual-machine-scale-sets/virtual-machine-scale-sets-create-portal.md)  
+- [Azure Portal에서 가상 머신 확장 집합 만들기](../../virtual-machine-scale-sets/quick-create-portal.md)  
 
 그런 다음, 다음 섹션으로 진행하여 가상 머신 확장 집합에서 MSI를 사용하도록 설정하는 방법에 대해 자세히 알아봅니다.
 

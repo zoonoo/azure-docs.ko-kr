@@ -1,11 +1,11 @@
 ---
-title: "SQL Data Warehouse 참조 항목 | Microsoft Docs"
-description: "SQL 데이터 웨어하우스에 대한 참조 콘텐츠 링크"
+title: SQL Data Warehouse 참조 항목 | Microsoft Docs
+description: SQL Data Warehouse에 대한 참조 콘텐츠 링크
 services: sql-data-warehouse
 documentationcenter: NA
 author: barbkess
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: abecd886-77bd-484f-b006-93600533a044
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -16,13 +16,13 @@ ms.custom: reference
 ms.date: 10/31/2016
 ms.author: barbkess
 ms.openlocfilehash: c56c1c262aa1a88e3f7a3d6638176cb9f97011d3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="reference-topics-for-sql-data-warehouse"></a>SQL 데이터 웨어하우스에 대한 참조 항목
-이러한 문서에는 SQL 데이터 웨어하우스에 대한 참조 정보가 포함되어 있습니다.
+# <a name="reference-topics-for-sql-data-warehouse"></a>SQL Data Warehouse에 대한 참조 항목
+이러한 문서에는 SQL Data Warehouse에 대한 참조 정보가 포함되어 있습니다.
 
 * [TRANSACT-SQL 언어 요소][Transact-SQL language elements]
 * [TRANSACT-SQL 문][Transact-SQL statements]

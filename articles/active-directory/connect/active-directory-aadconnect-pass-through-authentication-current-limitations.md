@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/12/2018
 ms.author: billmath
-ms.openlocfilehash: ac085bf972885819f7c79996b0f6638fc01fc00d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 3e533b8b23c095a3de845d9b26a96aea9d8ee086
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Azure Active Directory 통과 인증: 현재 제한 사항
 
@@ -29,24 +29,25 @@ ms.lasthandoff: 03/08/2018
 
 다음 시나리오는 완전히 지원됩니다.
 
-- 사용자가 모든 웹 브라우저 기반 응용 프로그램에 로그인
-- 사용자가 [최신 인증](https://aka.ms/modernauthga)을 지원하는 Office 응용 프로그램(최신 인증을 _사용하는_ Office 2013 및 Office 2016)에 로그인
+- 사용자가 모든 웹 브라우저 기반 응용 프로그램에 로그인합니다.
+- 사용자가 [최신 인증](https://aka.ms/modernauthga)을 지원하는 Office 응용 프로그램(최신 인증을 _사용하는_ Office 2013 및 Office 2016)에 로그인합니다.
 - 사용자는 로그인 Exchange ActiveSync, SMTP, POP 및 IMAP 등의 레거시 프로토콜을 사용하여 Outlook 클라이언트에 로그인합니다.
-- 사용자가 온라인 및 하이브리드 토폴로지를 포함하여 최신 인증을 지원하는 비즈니스용 Skype로 로그인. 지원되는 토폴로지는 [여기](https://technet.microsoft.com/library/mt803262.aspx)를 참조하세요.
-- Windows 10 장치에 대한 Azure AD 도메인 가입
+- 사용자가 온라인 및 하이브리드 토폴로지를 포함하여 최신 인증을 지원하는 비즈니스용 Skype로 로그인합니다. 지원되는 토폴로지는 [여기](https://technet.microsoft.com/library/mt803262.aspx)를 참조하세요.
+- Windows 10 장치에 대한 Azure AD 도메인 가입.
 - Multi-Factor Authentication에 사용할 앱 암호.
 
 ## <a name="unsupported-scenarios"></a>지원되지 않는 시나리오
 
 다음 시나리오는 지원되지 _않습니다_.
 
-- 사용자가 최신 인증 _없이_ Outlook을 제외한 레거시 Office 클라이언트 응용 프로그램(Office 2010 및 Office 2013)에 로그인합니다. 가능할 경우 조직은 최신 인증으로 전환하는 것이 좋습니다. 최신 인증은 통과 인증 지원을 허용합니다. Azure Multi-Factor Authentication 같은 [조건부 액세스](../active-directory-conditional-access-azure-portal.md) 기능을 사용하여 사용자 계정을 보호하는 데에도 도움이 됩니다.
+- 사용자가 최신 인증 _없이_ Outlook을 제외한 레거시 Office 클라이언트 응용 프로그램(Office 2010 및 Office 2013)에 로그인합니다(위의 **지원되는 시나리오** 참조). 가능할 경우 조직은 최신 인증으로 전환하는 것이 좋습니다. 최신 인증은 통과 인증 지원을 허용합니다. Azure Multi-Factor Authentication 같은 [조건부 액세스](../active-directory-conditional-access-azure-portal.md) 기능을 사용하여 사용자 계정을 보호하는 데에도 도움이 됩니다.
+- Office 2010의 Exchange 하이브리드 환경에서만 일정 공유 및 약속 있음/없음 정보에 액세스하세요.
 - 사용자가 최신 인증이 _없는_ 비즈니스용 Skype 클라이언트 응용 프로그램에 로그인
 - 사용자가 PowerShell 버전 1.0에 로그인. PowerShell 버전 2.0을 사용하는 것이 좋습니다.
 - [자격 증명이 손실된](../active-directory-reporting-risk-events.md#leaked-credentials) 사용자 검색
 - Azure AD Domain Services를 사용하려면 테넌트에서 암호 해시 동기화를 사용하도록 설정해야 합니다. 따라서 통과 인증_만_ 사용하는 테넌트는 Azure AD Domain Services가 필요한 시나리오에서 사용할 수 없습니다.
 - 통과 인증은 [Azure AD Connect Health](../connect-health/active-directory-aadconnect-health.md)와 통합되지 않습니다.
-- Apple DEP(Apple 장치 등록 프로그램)는 최신 인증을 지원하지 않습니다.  Apple DEP 장치는 통과 인증을 사용하여 도메인에 대해 Intune에 등록하지 못합니다.
+- iOS 설정 도우미를 사용하는 Apple DEP(Apple 장비 등록 프로그램)는 최신 인증을 지원하지 않습니다. 따라서 Apple DEP 장치는 통과 인증을 사용하여 관리되는 도메인의 Intune에 등록하지 못합니다. 대신 [회사 포털 앱](https://blogs.technet.microsoft.com/intunesupport/2018/02/08/support-for-multi-token-dep-and-authentication-with-company-portal/)을 사용하는 것이 좋습니다.
 
 >[!IMPORTANT]
 >지원되지 않는 시나리오에_만_ 해당하는 해결 방법으로, Azure AD Connect 마법사의 [선택적 기능](active-directory-aadconnect-get-started-custom.md#optional-features) 페이지에서 암호 해시 동기화를 사용하도록 설정합니다.

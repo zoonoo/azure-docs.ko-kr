@@ -1,8 +1,8 @@
 ---
-title: "실행 중인 팀 데이터 과학 프로세스: SQL Data Warehouse 사용 | Microsoft Docs"
-description: "활성 중인 고급 분석 프로세스 및 기술"
+title: '실행 중인 팀 데이터 과학 프로세스: SQL Data Warehouse 사용 | Microsoft Docs'
+description: 활성 중인 고급 분석 프로세스 및 기술
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
-ms.author: bradsev;weig
-ms.openlocfilehash: 9c858427b01f7b94aae87136a46e1d9ae5e09a1c
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.author: bradsev
+ms.openlocfilehash: 6566db5f186b92179df3125deaf5ad17c6f9e974
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>실행 중인 팀 데이터 과학 프로세스: SQL Data Warehouse 사용
 이 자습서에서는 공개적으로 사용 가능한 데이터 집합인 [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) 데이터 집합에 SQL Data Warehouse(SQL DW)를 사용하여 기계 학습 모델을 구축 및 배포하는 방법을 안내합니다. 생성된 이진 분류 모델을 통해 여정에 대해 팁이 지불되었는지 여부를 예측하며 지불된 팁 금액의 분배를 예측하는 다중 클래스 분류 및 회귀에 대한 모델도 설명됩니다.
 
-이 절차에서는 [TDSP(팀 데이터 과학 프로세스)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) 워크플로를 따릅니다. 데이터 과학 환경을 설정하는 방법, SQL DW에 데이터를 로드하는 방법 및 SQL DW 또는 IPython Notebook을 사용하여 모델링할 데이터와 엔지니어링 기능을 탐색하는 방법을 보여 줍니다. 그런 다음 Azure 기계 학습으로 모델을 빌드하고 배포하는 방법을 보여 줍니다.
+이 절차에서는 [TDSP(팀 데이터 과학 프로세스)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) 워크플로를 따릅니다. 데이터 과학 환경을 설정하는 방법, SQL DW에 데이터를 로드하는 방법 및 SQL DW 또는 IPython Notebook을 사용하여 모델링할 데이터와 엔지니어링 기능을 탐색하는 방법을 보여 줍니다. 그런 다음 Azure Machine Learning으로 모델을 빌드하고 배포하는 방법을 보여 줍니다.
 
 ## <a name="dataset"></a>NYC Taxi Trips 데이터 집합
 NYC Taxi Trip 데이터는 1억 7,300만 개가 넘는 개별 여정 및 각 여정의 요금으로 기록된 약 20GB의 압축된 CSV 파일(압축되지 않은 경우 약 48GB)로 구성됩니다. 각 여정 레코드는 승차 및 하차 위치, 익명 처리된 hack(기사) 면허증 번호 및 medallion(택시의 고유 ID) 번호를 포함합니다. 데이터는 2013년의 모든 여정을 포괄하며, 매월 다음 두 개의 데이터 집합으로 제공됩니다.
@@ -101,7 +101,7 @@ Azure 데이터 과학 환경을 설정하려면 다음 단계를 수행합니�
            --If the master key exists, do nothing
     END CATCH;
 
-**Azure 구독에서 Azure Machine Learning 작업 영역을 만듭니다.** 자세한 지침은 [Azure 기계 학습 작업 영역 만들기](../studio/create-workspace.md)에 요약된 단계를 수행합니다.
+**Azure 구독에서 Azure Machine Learning 작업 영역을 만듭니다.** 자세한 지침은 [Azure Machine Learning 작업 영역 만들기](../studio/create-workspace.md)에 요약된 단계를 수행합니다.
 
 ## <a name="getdata"></a>SQL Data Warehouse에 데이터 로드
 Windows PowerShell 명령 콘솔을 엽니다. 다음 PowerShell 명령을 실행하여 GitHub에서 *-DestDir* 매개 변수를 사용하여 지정한 로컬 디렉터리에 공유하는 예제 SQL 스크립트 파일을 다운로드합니다. 매개 변수 *-DestDir* 의 값을 로컬 디렉터리로 변경할 수 있습니다. *-DestDir* 이 존재하지 않는 경우 PowerShell 스크립트를 통해 생성됩니다.
@@ -319,7 +319,7 @@ PowerShell 스크립트가 처음으로 실행되면 Azure SQL DW 및 Azure Blob
 중복된 원본 및 대상 파일이 있는 경우 수행할 작업을 결정해야 합니다.
 
 > [!NOTE]
-> 공용 Blob 저장소에서 개인 Blob 저장소 계정으로 복사할 .csv 파일이 개인 Blob 저장소 계정에 이미 있으면 AzCopy는 덮어쓸 것인지를 묻습니다. 덮어쓰지 않으려는 경우 메시지가 표시되면 **n**을 입력합니다. **모두** 덮어쓰려는 경우 메시지가 표시되면 **a**를 입력합니다. 또한 **y** 를 입력하여 개별적으로 .csv 파일을 덮어쓸 수 있습니다.
+> 공용 Blob 저장소에서 개인 Blob 저장소 계정으로 복사할 .csv 파일이 개인 Blob 저장소 계정에 이미 있으면 AzCopy는 덮어쓸 것인지를 묻습니다. 덮어쓰지 않으려는 경우 메시지가 표시되면 **n** 을 입력합니다. **모두** 덮어쓰려는 경우 메시지가 표시되면 **a**를 입력합니다. 또한 **y** 를 입력하여 개별적으로 .csv 파일을 덮어쓸 수 있습니다.
 > 
 > 
 
@@ -542,7 +542,7 @@ SQL 쿼리에서 기능을 생성하는 이 함수를 호출하는 예는 다음
 | 3 |40.761456 |-73.999886 |40.766544 |-73.988228 |0.7037227967 |
 
 ### <a name="prepare-data-for-model-building"></a>모델 구축에 사용할 데이터를 준비합니다.
-다음 쿼리는 **nyctaxi\_trip** 및 **nyctaxi\_fare** 테이블을 조인하고, 이진 분류 레이블 **tipped**와 다중 클래스 분류 레이블 **tip\_class**를 생성하며, 조인된 전체 데이터 집합에서 샘플을 추출합니다. 샘플링은 승차 시간에 따라 여정의 하위 집합을 검색하여 수행됩니다.  Azure의 SQL Database 인스턴스에서 데이터를 직접 수집하기 위해 이 쿼리를 복사한 다음 [Azure 기계 학습 스튜디오](https://studio.azureml.net) [데이터 가져오기][import-data] 모듈에 직접 붙여넣을 수 있습니다. 잘못된 (0, 0) 좌표가 있는 레코드는 쿼리에서 제외됩니다.
+다음 쿼리는 **nyctaxi\_trip** 및 **nyctaxi\_fare** 테이블을 조인하고, 이진 분류 레이블 **tipped**와 다중 클래스 분류 레이블 **tip\_class**를 생성하며, 조인된 전체 데이터 집합에서 샘플을 추출합니다. 샘플링은 승차 시간에 따라 여정의 하위 집합을 검색하여 수행됩니다.  Azure의 SQL Database 인스턴스에서 데이터를 직접 수집하기 위해 이 쿼리를 복사한 다음 [Azure Machine Learning Studio](https://studio.azureml.net)[데이터 가져오기][import-data] 모듈에 직접 붙여넣을 수 있습니다. 잘못된 (0, 0) 좌표가 있는 레코드는 쿼리에서 제외됩니다.
 
     SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount,     f.total_amount, f.tip_amount,
         CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END AS tipped,
@@ -559,10 +559,10 @@ SQL 쿼리에서 기능을 생성하는 이 함수를 호출하는 예는 다음
     AND   t.pickup_datetime = f.pickup_datetime
     AND   pickup_longitude != '0' AND dropoff_longitude != '0'
 
-Azure 기계 학습을 진행할 준비가 되었으면 다음을 수행할 수 있습니다.  
+Azure Machine Learning을 진행할 준비가 되었으면 다음을 수행할 수 있습니다.  
 
-1. 데이터를 추출 및 샘플링할 최종 SQL 쿼리를 저장하고 Azure 기계 학습의 [데이터 가져오기][import-data] 모듈에 쿼리를 직접 복사하여 붙여 넣습니다. 또는
-2. 모델을 빌드하는 데 사용할 샘플링 및 엔지니어링된 데이터를 새 SQL DW 테이블에 유지하고 Azure 기계 학습의 [데이터 가져오기][import-data] 모듈에서 새 테이블을 사용합니다. 이전 단계에서 PowerShell 스크립트가 이를 수행했습니다. 데이터 가져오기 모듈의 이 테이블에서 직접 읽을 수 있습니다.
+1. 데이터를 추출 및 샘플링할 최종 SQL 쿼리를 저장하고 Azure Machine Learning의 [데이터 가져오기][import-data] 모듈에 쿼리를 직접 복사하여 붙여 넣습니다. 또는
+2. 모델을 빌드하는 데 사용할 샘플링 및 엔지니어링된 데이터를 새 SQL DW 테이블에 유지하고 Azure Machine Learning의 [데이터 가져오기][import-data] 모듈에서 새 테이블을 사용합니다. 이전 단계에서 PowerShell 스크립트가 이를 수행했습니다. 데이터 가져오기 모듈의 이 테이블에서 직접 읽을 수 있습니다.
 
 ## <a name="ipnb"></a>IPython Notebook에서 데이터 탐색 및 기능 엔지니어링
 이 섹션에서는 Python과 SQL 쿼리를 모두 사용하여 이전에 만든 SQL DW에 대해 데이터 탐색 및 기능 생성을 수행합니다. **SQLDW_Explorations.ipynb**라는 샘플 IPython Notebook 및 Python 스크립트 파일 **SQLDW_Explorations_Scripts.py**는 로컬 디렉터리에 다운로드되었습니다. 또한 [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/SQLDW)에서 사용할 수 있습니다. 이 두 파일은 Python 스크립트에서 동일합니다. IPython Notebook 서버가 없는 경우 Python 스크립트 파일이 제공됩니다. 이 두 샘플 Python 파일은 **Python 2.7**에서 디자인됩니다.
@@ -598,7 +598,7 @@ AzureML 작업 영역을 이미 설정한 경우 샘플 IPython Notebook을 Azur
 * 샘플링된 데이터를 사용하여 일부 시각화 및 탐색을 수행합니다.
 * 샘플링된 데이터를 사용하여 기능 엔지니어링을 실험합니다.
 * 더 큰 데이터 탐색, 데이터 조작 및 기능 엔지니어링의 경우 Python을 사용하여 SQL DW에 대해 SQL 쿼리를 직접 실행합니다.
-* Azure 기계 학습 모델 빌드에 적합한 샘플 크기를 결정합니다.
+* Azure Machine Learning 모델 빌드에 적합한 샘플 크기를 결정합니다.
 
 다음은 데이터 탐색, 데이터 시각화 및 기능 엔지니어링에 대한 몇 가지 예제입니다. 더 많은 데이터 탐색은 샘플 IPython Notebook 및 샘플 Python 스크립트 파일에 있을 수 있습니다.
 
@@ -805,17 +805,17 @@ and
     pd.read_sql(query,conn)
 
 ## <a name="mlmodel"></a>Azure 기계 학습에서 모델 빌드
-이제 [Azure 기계 학습](https://studio.azureml.net)에서 모델 빌드 및 모델 배포를 진행할 준비가 완료되었습니다. 이전에 식별된 다음과 같은 예측 문제에 데이터를 사용할 준비가 되었습니다.
+이제 [Azure Machine Learning](https://studio.azureml.net)에서 모델 빌드 및 모델 배포를 진행할 준비가 완료되었습니다. 이전에 식별된 다음과 같은 예측 문제에 데이터를 사용할 준비가 되었습니다.
 
 1. **이진 분류**: 여정에 대해 팁이 지불되었는지 여부를 예측합니다.
 2. **다중 클래스 분류**: 이전에 정의한 클래스에 따라 지불된 팁의 범위를 예측합니다.
 3. **회귀 작업**: 여정에 대해 지불된 팁의 금액을 예측합니다.  
 
-모델링 연습을 시작하려면 **Azure 기계 학습** 작업 영역에 로그인합니다. 기계 학습 작업 영역을 아직 만들지 않은 경우 [Azure 기계 학습 작업 영역 만들기](../studio/create-workspace.md)를 참조하세요.
+모델링 연습을 시작하려면 **Azure Machine Learning** 작업 영역에 로그인합니다. 기계 학습 작업 영역을 아직 만들지 않은 경우 [Azure ML 작업 영역 만들기](../studio/create-workspace.md)를 참조하세요.
 
-1. Azure 기계 학습을 시작하려면 [Azure 기계 학습 스튜디오란?](../studio/what-is-ml-studio.md)
-2. [Azure 기계 학습 스튜디오](https://studio.azureml.net)에 로그인합니다.
-3. 스튜디오 홈 페이지에서는 다양한 정보, 비디오, 자습서, 모듈 참조 링크 및 기타 리소스를 제공합니다. Azure 기계 학습에 대한 자세한 내용은 [Azure 기계 학습 설명서 센터](https://azure.microsoft.com/documentation/services/machine-learning/)를 참조하세요.
+1. Azure Machine Learning을 시작하려면 [Azure Machine Learning Studio란?](../studio/what-is-ml-studio.md)
+2. [Azure Machine Learning Studio](https://studio.azureml.net)에 로그인합니다.
+3. 스튜디오 홈 페이지에서는 다양한 정보, 비디오, 자습서, 모듈 참조 링크 및 기타 리소스를 제공합니다. Azure Machine Learning에 대한 자세한 내용은 [Azure Machine Learning 설명서 센터](https://azure.microsoft.com/documentation/services/machine-learning/)를 참조하세요.
 
 일반적인 학습 실험은 다음 단계로 구성됩니다.
 
@@ -824,7 +824,7 @@ and
 3. 필요에 따라 데이터를 전처리, 변환 및 조작합니다.
 4. 필요에 따라 기능을 생성합니다.
 5. 데이터를 학습/유효성 검사/테스트 데이터 집합으로 분할하거나, 각각에 대한 별도의 데이터 집합을 만듭니다.
-6. 해결할 학습 문제에 따라 하나 이상의 기계 학습 알고리즘(예: 이진 분류, 다중 클래스 분류, 회귀)을 선택합니다.
+6. 해결할 학습 문제에 따라 하나 이상의 기계 학습 알고리즘을 선택하세요. 이진 분류, 다중 클래스 분류, 회귀)을 선택합니다.
 7. 학습 데이터 집합을 사용하여 하나 이상의 모델을 학습합니다.
 8. 학습된 모델을 사용하여 유효성 검사 데이터 집합의 점수를 매깁니다.
 9. 모델을 평가하여 학습 문제에 대한 관련 메트릭을 계산합니다.
@@ -853,7 +853,7 @@ SQL Data Warehouse 데이터베이스에서 직접 데이터를 읽는 이진 �
 > 
 
 ## <a name="mldeploy"></a>Azure 기계 학습에서 모델 배포
-모델이 준비된 경우 실험에서 직접 웹 서비스로 쉽게 배포할 수 있습니다. Azure 기계 학습 웹 서비스 배포에 대한 자세한 내용은 [Azure 기계 학습 웹 서비스 배포](../studio/publish-a-machine-learning-web-service.md)를 참조하세요.
+모델이 준비된 경우 실험에서 직접 웹 서비스로 쉽게 배포할 수 있습니다. Azure ML 웹 서비스 배포에 대한 자세한 내용은 [Azure Machine Learning 웹 서비스 배포](../studio/publish-a-machine-learning-web-service.md)를 참조하세요.
 
 새 웹 서비스를 배포하려면 다음을 수행해야 합니다.
 
@@ -864,7 +864,7 @@ SQL Data Warehouse 데이터베이스에서 직접 데이터를 읽는 이진 �
 
 ![Azure 점수 매기기][18]
 
-Azure 기계 학습에서는 학습 실험의 구성 요소를 기반으로 점수 매기기 실험을 만듭니다. 특히 다음 작업을 수행합니다.
+Azure Machine Learning에서는 학습 실험의 구성 요소를 기반으로 점수 매기기 실험을 만듭니다. 특히 다음 작업을 수행합니다.
 
 1. 학습된 모델을 저장하고 모델 학습 모듈을 제거합니다.
 2. 필요한 입력 데이터 스키마를 나타내는 논리적 **입력 포트** 를 식별합니다.
@@ -877,7 +877,7 @@ Azure 기계 학습에서는 학습 실험의 구성 요소를 기반으로 점�
 ![Azure ML 게시][11]
 
 ## <a name="summary"></a>요약
-이 연습 자습서에서 수행한 작업을 설명하면 Azure 데이터 과학 환경을 만들고 대용량 공용 데이터 집합으로 작업하며, 팀 데이터 과학 프로세스를 통해 가져오고, 데이터 취득에서 모델 학습, Azure 기계 학습 웹 서비스의 배포에 이르는 모든 과정을 수행했습니다.
+이 연습 자습서에서 수행한 작업을 설명하면 Azure 데이터 과학 환경을 만들고 대용량 공용 데이터 집합으로 작업하며, 팀 데이터 과학 프로세스를 통해 가져오고, 데이터 취득에서 모델 학습, Azure Machine Learning 웹 서비스의 배포에 이르는 모든 과정을 수행했습니다.
 
 ### <a name="license-information"></a>라이선스 정보
 이 샘플 연습 및 이와 함께 제공되는 스크립트와 IPython Notebook은 MIT 라이선스에 따라 Microsoft에서 공유한 것입니다. 자세한 내용은 GitHub의 샘플 코드 디렉터리에 있는 LICENSE.txt 파일을 참조하세요.

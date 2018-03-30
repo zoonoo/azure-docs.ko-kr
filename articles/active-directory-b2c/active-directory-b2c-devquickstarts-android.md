@@ -1,24 +1,22 @@
 ---
-title: "Azure Active Directory B2C: Android 응용 프로그램을 사용하여 토큰 가져오기 | Microsoft Docs"
-description: "이 문서에서는 Azure Active Directory B2C와 함께 AppAuth를 사용하는 Android 앱을 만들어 사용자 ID를 관리하고 사용자를 인증하는 방법을 보여 줍니다."
+title: 'Azure Active Directory B2C: Android 응용 프로그램을 사용하여 토큰 가져오기 | Microsoft Docs'
+description: 이 문서에서는 Azure Active Directory B2C와 함께 AppAuth를 사용하는 Android 앱을 만들어 사용자 ID를 관리하고 사용자를 인증하는 방법을 보여 줍니다.
 services: active-directory-b2c
 documentationcenter: android
-author: parakhj
+author: davidmu1
 manager: mtillman
-editor: 
-ms.assetid: d00947c3-dcaa-4cb3-8c2e-d94e0746d8b2
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: mobile-android
-ms.devlang: java
 ms.topic: article
 ms.date: 03/06/2017
-ms.author: parakhj
-ms.openlocfilehash: dd08c666c09b651e6c0def72a89eda56ba73e34d
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.author: davidmu
+ms.openlocfilehash: 6c4c9359571882fbbea4e7701305e30e0f49f460
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-ad-b2c-sign-in-using-an-android-application"></a>Azure AD B2C: Android 응용 프로그램을 사용하여 로그인
 

@@ -1,11 +1,11 @@
 ---
-title: "Azure Cosmos DB 소개 | Microsoft Docs"
-description: "Azure Cosmos DB에 대해 알아봅니다. 이 전세계에 배포된 멀티모델 데이터베이스는 낮은 대기 시간, 탄력적 확장성 및 고가용성을 위해 구축되었습니다."
+title: Azure Cosmos DB 소개 | Microsoft Docs
+description: Azure Cosmos DB에 대해 알아봅니다. 이 전세계에 배포된 멀티모델 데이터베이스는 낮은 대기 시간, 탄력적 확장성 및 고가용성을 위해 구축되었습니다.
 services: cosmos-db
 author: mimig1
 manager: jhubbard
 editor: monicar
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: a855183f-34d4-49cc-9609-1478e465c3b7
 ms.service: cosmos-db
 ms.workload: data-services
@@ -15,15 +15,13 @@ ms.topic: overview
 ms.date: 12/15/2017
 ms.author: mimig
 ms.custom: mvc
-ms.openlocfilehash: e8b1454583e52f2c7a38b375df259a8b66f7d24f
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: e78480ceb47e472029795848739b4416e0c4256e
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Azure Cosmos DB 시작
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Azure Cosmos DB는 전 세계에 배포된 Microsoft의 멀티모델 데이터베이스입니다. Azure Cosmos DB에서는 단추를 클릭하는 간단한 방식으로 Azure의 지리적 위치 수에 관계없이 처리량 및 저장소를 탄력적 및 독립적으로 확장할 수 있습니다. 다른 데이터베이스 서비스에서는 제공하지 않는 포괄적 [Service Level Agreement(서비스 수준 약정)](https://aka.ms/acdbsla)(SLA)를 통해 처리량, 대기 시간, 가용성 및 일관성을 보장합니다. Azure 구독, 요금 및 약정 없이 [무료로 Azure Cosmos DB를 사용해 볼 수 있습니다](https://azure.microsoft.com/try/cosmosdb/).
 
@@ -83,12 +81,12 @@ Azure Cosmos DB는 관계형 및 비관계형 데이터베이스의 최고 기�
 
 | 기능 | 관계형 데이터베이스   | 비관계형(NoSQL) 데이터베이스 |    Azure Cosmos DB |
 | --- | --- | --- | --- |
-| 글로벌 분포 | 아니요 | 아니오 | 예, 멀티 호밍 API를 사용하여 30개 이상의 지역에서 턴키 배포|
-| 수평적 확장 | 아니요 | 예 | 예, 독립적으로 저장소 및 처리량을 확장할 수 있습니다. | 
-| 대기 시간 보장 | 아니요 | 예 | 예, <10ms인 읽기의 99% 및 <15 ms인 쓰기 | 
-| 고가용성 | 아니오 | 예 | 예, Azure Cosmos DB는 항상 켜져 있고, PACELC 장단점이 잘 정의되어 있으며, 자동 및 수동 장애 조치 옵션을 제공합니다.|
+| 글로벌 분포 | 아니오 | 아니오 | 예, 멀티 호밍 API를 사용하여 30개 이상의 지역에서 턴키 배포|
+| 수평적 확장 | 아니오 | 예 | 예, 독립적으로 저장소 및 처리량을 확장할 수 있습니다. | 
+| 대기 시간 보장 | 아니오 | 예 | 예, <10ms인 읽기의 99% 및 <15 ms인 쓰기 | 
+| 고가용성 | 아니요 | 예 | 예, Azure Cosmos DB는 항상 켜져 있고, PACELC 장단점이 잘 정의되어 있으며, 자동 및 수동 장애 조치 옵션을 제공합니다.|
 | 데이터 모델 + API | 관계형 + SQL | 다중 모델 + OSS API | 다중 모델 + SQL + OSS API(추가 서비스 예정) |
-| SLA | 예 | 아니요 | 예, 대기 시간, 처리량, 일관성, 가용성에 대한 포괄적 SLA |
+| SLA | 예 | 아니오 | 예, 대기 시간, 처리량, 일관성, 가용성에 대한 포괄적 SLA |
 
 ## <a name="solutions-that-benefit-from-azure-cosmos-db"></a>Azure Cosmos DB를 활용하는 솔루션
 

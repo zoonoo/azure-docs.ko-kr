@@ -9,11 +9,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: nisoneji
-ms.openlocfilehash: b7292514e72476f38e9a0572b201be8468f0030a
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 4d54ecb3f92754fa6575ec17ec5572b6fb9abb88
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="install-a-linux-master-target-server"></a>Linux 마스터 대상 서버 설치
 Azure에 가상 머신을 장애 조치(failover)한 후 가상 머신을 다시 온-프레미스 사이트에 장애 복구할 수 있습니다. 장애 복구하려면 가상 머신을 Azure에서 온-프레미스 사이트로 다시 보호해야 합니다. 이 프로세스를 수행하려면 트래픽을 수신할 온-프레미스 마스터 대상 서버가 필요합니다. 
@@ -41,7 +41,7 @@ Azure에 가상 머신을 장애 조치(failover)한 후 가상 머신을 다시
 
 다음 크기 조정 지침에 따라 마스터 대상을 만듭니다.
 - **RAM**: 6GB 이상
-- **OS 디스크 크기**: 100GB 이상(CentOS6.6 설치에 필요)
+- **OS 디스크 크기**: 100GB 이상(OS 설치에 필요)
 - **보존 드라이브에 대한 추가 디스크 크기**: 1TB
 - **CPU 코어**: 코어 4개 이상
 
@@ -112,24 +112,31 @@ DVD 드라이브에서 Ubuntu 16.04.2 최소 64비트 ISO를 유지하고 시스
 
 1.  **예**를 선택하여 디스크에 변경 내용을 쓰고 **Enter** 키를 선택합니다.
 
-1.  구성 프록시 선택 영역에서 기본 옵션을 선택하고 **계속**을 선택한 다음, **Enter** 키를 선택합니다.
+    ![기본 옵션 선택](./media/vmware-azure-install-linux-master-target/image16-ubuntu.png)
 
-     ![기본 옵션 선택](./media/vmware-azure-install-linux-master-target/image17.png)
+1.  구성 프록시 선택 영역에서 기본 옵션을 선택하고 **계속**을 선택한 다음, **Enter** 키를 선택합니다.
+     
+     ![업그레이드를 관리하는 방법 선택](./media/vmware-azure-install-linux-master-target/image17-ubuntu.png)
 
 1.  시스템 업그레이드를 관리하기 위한 선택 영역에서 **자동 업데이트 없음** 옵션을 선택하고 **Enter** 키를 선택합니다.
 
-     ![업그레이드를 관리하는 방법 선택](./media/vmware-azure-install-linux-master-target/image18.png)
+     ![업그레이드를 관리하는 방법 선택](./media/vmware-azure-install-linux-master-target/image18-ubuntu.png)
 
     > [!WARNING]
     > Azure Site Recovery 마스터 대상 서버에 Ubuntu의 매우 구체적인 버전이 필요하기 때문에 가상 머신에서 커널 업그레이드를 비활성화해야 합니다. 활성화한 경우 일반 업그레이드로 인해 마스터 대상 서버에 오작동이 발생합니다. **자동 업데이트 없음** 옵션을 선택했는지 확인합니다.
 
 1.  기본 옵션을 선택합니다. SSH 연결에 openSSH를 설정하려는 경우 **OpenSSH 서버** 옵션을 선택한 다음 **계속**을 선택합니다.
 
-    ![소프트웨어 선택](./media/vmware-azure-install-linux-master-target/image19.png)
+    ![소프트웨어 선택](./media/vmware-azure-install-linux-master-target/image19-ubuntu.png)
 
 1. GRUB 부팅 로더를 설치하기 위한 선택 영역에서 **예**를 선택하고 **Enter** 키를 선택합니다.
+     
+    ![GRUB 부팅 설치 관리자](./media/vmware-azure-install-linux-master-target/image20.png)
+
 
 1. 부팅 로더를 설치할 적절한 장치(가급적 **/dev/sda**)를 선택하고 **Enter** 키를 선택합니다.
+     
+    ![해당 장치 선택](./media/vmware-azure-install-linux-master-target/image21.png)
 
 1. **계속**을 선택한 다음, **Enter** 키를 선택하여 설치를 완료합니다.
 
@@ -154,7 +161,7 @@ Linux 가상 머신에 있는 각 SCSI 하드 디스크의 ID를 가져오려면
 
 4. 왼쪽 창에서 **고급** > **일반**을 선택한 다음 화면의 오른쪽 아래에서 **구성 매개 변수** 단추를 선택합니다.
 
-    ![옵션 탭](./media/vmware-azure-install-linux-master-target/image20.png)
+    ![구성 매개 변수 열기](./media/vmware-azure-install-linux-master-target/image24-ubuntu.png) 
 
     **구성 매개 변수** 옵션은 컴퓨터가 실행 중인 동안에는 사용할 수 없습니다. 이 탭을 활성화하려면 가상 머신을 종료합니다.
 
@@ -168,7 +175,7 @@ Linux 가상 머신에 있는 각 SCSI 하드 디스크의 ID를 가져오려면
 
     - 이름 열에서 **disk.EnableUUID**를 추가하고 값을 **TRUE**로 설정합니다.
 
-    ![disk.EnableUUID가 있는지 확인](./media/vmware-azure-install-linux-master-target/image21.png)
+    ![disk.EnableUUID가 있는지 확인](./media/vmware-azure-install-linux-master-target/image25.png)
 
 #### <a name="disable-kernel-upgrades"></a>커널 업그레이드 비활성화
 
@@ -244,7 +251,7 @@ Linux를 사용하여 다운로드하려면 다음을 입력합니다.
     
     `mkfs.ext4 /dev/mapper/<Retention disk's multipath id>`
     
-    ![드라이브에 파일 시스템 만들기](./media/vmware-azure-install-linux-master-target/media/image23.png)
+    ![드라이브에 파일 시스템 만들기](./media/vmware-azure-install-linux-master-target/image23-centos.png)
 
 4. 파일 시스템을 만든 후 보존 디스크를 탑재합니다.
 
@@ -252,7 +259,6 @@ Linux를 사용하여 다운로드하려면 다음을 입력합니다.
     mkdir /mnt/retention
     mount /dev/mapper/<Retention disk's multipath id> /mnt/retention
     ```
-    ![보존 디스크 탑재](./media/vmware-azure-install-linux-master-target/image24.png)
 
 5. 시스템을 시작할 때마다 보존 드라이브를 탑재하도록 **fstab** 항목을 만듭니다.
     

@@ -1,11 +1,10 @@
 ---
-title: "Azure Data Factory를 사용하여 DB2에서 데이터 이동 | Microsoft Docs"
-description: "Azure Data Factory 복사 활동을 사용하여 온-프레미스 DB2 데이터베이스에서 데이터를 이동하는 방법을 알아봅니다."
+title: Azure Data Factory를 사용하여 DB2에서 데이터 이동 | Microsoft Docs
+description: Azure Data Factory 복사 활동을 사용하여 온-프레미스 DB2 데이터베이스에서 데이터를 이동하는 방법을 알아봅니다.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: c1644e17-4560-46bb-bf3c-b923126671f1
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 17ffd0de41964736d2f59b0cf891d0c6b2e7d16b
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 0e597574c1993e2f2a5421d24063cf9f42a7e57b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Azure Data Factory 복사 활동을 사용하여 DB2에서 데이터 이동
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -85,10 +84,10 @@ Data Factory DB2 커넥터는 DRDA(Distributed Relational Database Architecture)
 | **type** |이 속성을 **OnPremisesDb2**로 설정해야 합니다. |예 |
 | **server** |DB2 서버의 이름입니다. |예 |
 | **database** |DB2 데이터베이스의 이름입니다. |예 |
-| **schema** |DB2 데이터베이스의 스키마 이름입니다. 대/소문자를 구분합니다. |아니오 |
+| **schema** |DB2 데이터베이스의 스키마 이름입니다. 대/소문자를 구분합니다. |아니요 |
 | **authenticationType** |DB2 데이터베이스에 연결하는 데 사용되는 인증 유형입니다. 가능한 값은 Anonymous, Basic 및 Windows입니다. |예 |
-| **사용자 이름** |Basic 또는 Windows 인증을 사용하는 경우 사용자 계정의 이름입니다. |아니요 |
-| **암호** |사용자 계정의 암호입니다. |아니요 |
+| **사용자 이름** |Basic 또는 Windows 인증을 사용하는 경우 사용자 계정의 이름입니다. |아니오 |
+| **암호** |사용자 계정의 암호입니다. |아니오 |
 | **gatewayName** |Data Factory 서비스에서 온-프레미스 DB2 데이터베이스에 연결하는 데 사용해야 하는 게이트웨이의 이름입니다. |예 |
 
 ## <a name="dataset-properties"></a>데이터 집합 속성

@@ -6,13 +6,13 @@ author: lakasa
 manager: jeconnoc
 ms.service: storage
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 03/14/2018
 ms.author: lakasa
-ms.openlocfilehash: 6b56cbb4220ce1c8767724938dd531b8ae5c3920
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: d9df2218acc218a796e502fa4e3b94573af86ca8
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>휴지 상태의 데이터에 대한 Azure Storage 서비스 암호화
 
@@ -62,17 +62,13 @@ A: Storage 서비스 암호화는 기본적으로 모든 저장소 계정(클래
 
 A: 추가 비용은 없습니다.
 
-**Q: 암호화 키는 누가 관리하나요?**
-
-A. Microsoft에서 키를 관리합니다.
-
 **Q: 나만의 암호화 키를 사용할 수 있나요?**
 
-A: 지금은 없습니다.
+A: 예. 사용자 고유의 암호화 키를 사용할 수 있습니다. 자세한 내용은 [Azure Key Vault의 고객 관리 키를 사용하는 Storage 서비스 암호화](storage-service-encryption-customer-managed-keys.md)를 참조하세요.
 
 **Q: 암호화 키에 대한 액세스를 해지할 수 있나요?**
 
-A: 지금은 없습니다. Microsoft에서 키를 완전히 관리합니다.
+A: 예. Azure Key Vault에서 [사용자 고유의 암호화 키를 사용하는](storage-service-encryption-customer-managed-keys.md) 경우입니다.
 
 **Q: 저장소 계정을 만들 경우 Storage 서비스 암호화가 기본적으로 사용되나요?**
 

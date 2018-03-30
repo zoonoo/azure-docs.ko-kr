@@ -19,12 +19,16 @@
       href: tutorial-simulate-device-windows.md
     - name: 'C# 모듈 개발'
       href: tutorial-csharp-module.md
+    - name: Python 모듈 개발
+      href: tutorial-python-module.md
     - name: Azure Stream Analytics 배포
       href: tutorial-deploy-stream-analytics.md
     - name: Azure Machine Learning 배포
       href: tutorial-deploy-machine-learning.md
     - name: Azure Functions 배포
       href: tutorial-deploy-function.md
+    - name: VS Code에서 여러 모듈 작업
+      href: tutorial-multiple-modules-in-vscode.md
 - name: 방법 가이드
   items:
     - name: 게이트웨이 만들기

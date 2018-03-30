@@ -1,6 +1,6 @@
 ---
-title: "Azure Service Fabric 상태 저장 서비스의 신뢰할 수 있는 컬렉션 소개 | Microsoft Docs"
-description: "서비스 패브릭 상태 저장 서비스는가용성 높고, 확장 가능하며, 대기 시간이 낮은 클라우드 응용 프로그램을 작성할 수 있는 믿을 수 렉션을 제공합니다."
+title: Azure Service Fabric 상태 저장 서비스의 신뢰할 수 있는 컬렉션 소개 | Microsoft Docs
+description: 서비스 패브릭 상태 저장 서비스는가용성 높고, 확장 가능하며, 대기 시간이 낮은 클라우드 응용 프로그램을 작성할 수 있는 믿을 수 렉션을 제공합니다.
 services: service-fabric
 documentationcenter: .net
 author: mcoskun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/6/2017
 ms.author: mcoskun
-ms.openlocfilehash: 0e89df79d2ff619343f914ce3a5ffe87b7bf25de
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: c6425f7642d9dbecafc6779184a2a5b0cc1a2cab
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="introduction-to-reliable-collections-in-azure-service-fabric-stateful-services"></a>Azure 서비스 패브릭 상태 저장 서비스의 신뢰할 수 있는 컬렉션 소개
 신뢰할 수 있는 컬렉션을 사용하면 단일 컴퓨터 응용 프로그램을 작성하는 것처럼 가용성이 높고, 확장 가능하며, 대기 시간이 낮은 클라우드 응용 프로그램을 작성할 수 있습니다. **Microsoft.ServiceFabric.Data.Collections** 네임스페이스의 클래스는 상태를 자동으로 항상 사용할 수 있도록 하는 컬렉션 집합을 제공합니다. 개발자는 신뢰할 수 있는 컬렉션 API로 프로그래밍하고 신뢰할 수 있는 컬렉션이 복제된 로컬 상태를 관리하도록 하기만 하면 됩니다.
@@ -57,7 +57,6 @@ ms.lasthandoff: 11/07/2017
 * [신뢰할 수 있는 컬렉션 지침 및 권장 사항](service-fabric-reliable-services-reliable-collections-guidelines.md)
 * [신뢰할 수 있는 컬렉션 작업](service-fabric-work-with-reliable-collections.md)
 * [트랜잭션 및 잠금](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
-* [신뢰할 수 있는 상태 관리자 및 컬렉션 내부](service-fabric-reliable-services-reliable-collections-internals.md)
 * 데이터 관리
   * [Backup 및 복원](service-fabric-reliable-services-backup-restore.md)
   * [Notifications](service-fabric-reliable-services-notifications.md)

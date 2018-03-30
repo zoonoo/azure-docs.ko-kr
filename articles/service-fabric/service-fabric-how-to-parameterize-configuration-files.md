@@ -1,10 +1,10 @@
 ---
-title: "Azure Service Fabric에서 구성 파일을 매개 변수화하는 방법 | Microsoft Docs"
-description: "Service Fabric에서 구성 파일을 매개 변수화하는 방법을 보여 줍니다."
+title: Azure Service Fabric에서 구성 파일을 매개 변수화하는 방법 | Microsoft Docs
+description: Service Fabric에서 구성 파일을 매개 변수화하는 방법을 보여 줍니다.
 documentationcenter: .net
 author: mikkelhegn
 manager: msfussell
-editor: 
+editor: ''
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: article
@@ -12,11 +12,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: mikhegn
-ms.openlocfilehash: 1e7d59ecb231440711b8ed3dc0b27a2b105890c4
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 14fbdf27b8735bb3f2dc91ce0891711e9aaf2af3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-parameterize-configuration-files-in-service-fabric"></a>Service Fabric에서 구성 파일을 매개 변수화하는 방법
 
@@ -71,8 +71,6 @@ ms.lasthandoff: 01/16/2018
 > ConfigOverride를 추가하는 경우, Service Fabric은 항상 응용 프로그램 매니페스트에 지정된 응용 프로그램 매개 변수 또는 기본값을 선택합니다.
 >
 >
-
-Cloud.xml 게시 프로필을 사용하여 Visual Studio에서 응용 프로그램을 게시할 경우 서비스는 포트 80을 사용하도록 구성됩니다. MyWebAPI_PortNumber 매개 변수를 지정하지 않고 응용 프로그램을 배포하는 경우 서비스는 포트 8080을 사용합니다.
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서 설명하는 핵심 개념 중 일부에 대한 자세한 내용은 [여러 환경에 대한 응용 프로그램 관리](service-fabric-manage-multiple-environment-app-configuration.md) 문서를 참조하세요.

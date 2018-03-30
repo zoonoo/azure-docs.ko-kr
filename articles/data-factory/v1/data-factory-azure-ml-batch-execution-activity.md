@@ -1,11 +1,10 @@
 ---
-title: "Azure Data Factory를 사용하여 예측 데이터 파이프라인 만들기 | Microsoft Docs"
-description: "Azure Data Factory 및 Azure Machine Learning을 사용하여 예측 파이프라인을 만드는 방법을 설명합니다."
+title: Azure Data Factory를 사용하여 예측 데이터 파이프라인 만들기 | Microsoft Docs
+description: Azure Data Factory 및 Azure Machine Learning을 사용하여 예측 파이프라인을 만드는 방법을 설명합니다.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: 4fad8445-4e96-4ce0-aa23-9b88e5ec1965
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 05ae7cdc78e909c9aaa2b690d03eff8da09b6242
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: e38da0234f2a71abc40dfa0b86a03cc91adda834
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Azure Machine Learning 및 Azure Data Factory를 사용하여 예측 파이프라인 만들기
 
@@ -41,8 +40,7 @@ ms.lasthandoff: 01/23/2018
 
 
 ### <a name="azure-machine-learning"></a>Azure Machine Learning
-
-            [Azure Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/)을 사용하여 예측 분석 솔루션을 빌드, 테스트 및 배포할 수 있습니다. 대략적인 관점에서 이 작업은 다음 세 단계로 수행됩니다.
+[Azure Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/)을 사용하여 예측 분석 솔루션을 빌드, 테스트 및 배포할 수 있습니다. 대략적인 관점에서 이 작업은 다음 세 단계로 수행됩니다.
 
 1. **학습 실험 만들기**. Azure ML Studio를 사용하여 이 단계를 수행합니다. ML Studio는 학습 데이터를 사용하여 예측 분석 모델을 학습하고 테스트하는 데 사용하는 시각적 공동 개발 환경입니다.
 2. **예측 실험으로 변환**. 기존 데이터로 모델을 학습시키고 새 데이터의 점수를 매기는 데 사용할 준비가 되면, 점수 매기기를 위해 실험을 준비하고 간소화합니다.
@@ -71,8 +69,7 @@ Azure 데이터 팩터리를 사용하여 데이터 이동 및 처리를 오케�
 1. Azure Machine Learning 연결된 서비스를 만듭니다. 다음 값이 필요합니다.
 
    1. **요청 URI** . 웹 서비스 페이지에서 **배치 실행** 링크를 클릭하여 요청 URI를 찾을 수 있습니다.
-   2. 
-            **API key** for the published Azure Machine Learning web service. 게시한 웹 서비스를 클릭하여 API 키를 찾을 수 있습니다.
+   2. **API key** for the published Azure Machine Learning web service. 게시한 웹 서비스를 클릭하여 API 키를 찾을 수 있습니다.
    3. **AzureMLBatchExecution** 작업을 사용합니다.
 
       ![Machine Learning 대시보드](./media/data-factory-azure-ml-batch-execution-activity/AzureMLDashboard.png)
@@ -633,8 +630,7 @@ AzureMLBatchScoring 작업을 사용하여 계속하려면 이 섹션을 계속 
 >
 
 ## <a name="see-also"></a>참고 항목
-* 
-            [Azure 블로그 게시물: Azure 데이터 팩터리 및 Azure Machine Learning 시작하기](https://azure.microsoft.com/blog/getting-started-with-azure-data-factory-and-azure-machine-learning-4/)
+* [Azure 블로그 게시물: Azure 데이터 팩터리 및 Azure Machine Learning 시작하기](https://azure.microsoft.com/blog/getting-started-with-azure-data-factory-and-azure-machine-learning-4/)
 
 [adf-build-1st-pipeline]: data-factory-build-your-first-pipeline.md
 

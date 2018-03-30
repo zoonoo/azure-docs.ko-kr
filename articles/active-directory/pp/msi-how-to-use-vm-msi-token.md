@@ -1,11 +1,11 @@
 ---
-title: "사용자 할당 관리 서비스 ID를 사용하여 VM에서 액세스 토큰을 가져오는 방법을 설명합니다."
-description: "Azure VM에서 사용자 할당 MSI를 사용하여 OAuth 액세스 토큰을 가져오는 단계별 지침과 예제를 제공합니다."
+title: 사용자 할당 관리 서비스 ID를 사용하여 VM에서 액세스 토큰을 가져오는 방법을 설명합니다.
+description: Azure VM에서 사용자 할당 MSI를 사용하여 OAuth 액세스 토큰을 가져오는 단계별 지침과 예제를 제공합니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/22/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: a9513a59ec4540c6d63236519873c6e1e177b65a
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 68454d3f3880df82ca895d1c5f140ebdb6030e77
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="acquire-an-access-token-for-a-vm-user-assigned-managed-service-identity-msi"></a>VM 사용자 할당 MSI(관리 서비스 ID)용 토큰 가져오기
 
@@ -26,9 +26,7 @@ ms.lasthandoff: 02/03/2018
 이 문서에서는 토큰 획득을 위한 다양한 코드 및 스크립트 예제뿐만 아니라 토큰 만료 및 HTTP 오류를 처리하는 등 중요한 항목에 대한 지침을 제공합니다.
 
 ## <a name="prerequisites"></a>필수 조건
-
 [!INCLUDE [msi-core-prereqs](~/includes/active-directory-msi-core-prereqs-ua.md)]
-
 이 문서에서 Azure PowerShell 예제를 사용하려는 경우 최신 버전의 [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM)을 설치해야 합니다.
 
 > [!IMPORTANT]
@@ -48,21 +46,28 @@ ms.lasthandoff: 02/03/2018
 
 ## <a name="get-a-token-using-http"></a>HTTP를 사용하여 토큰 가져오기 
 
-액세스 토큰을 획득할 기본 인터페이스는 REST 기반으로 하며 HTTP REST를 호출할 수 있는 VM에서 실행되는 모든 클라이언트 응용 프로그램에 액세스할 수 있도록 합니다. 클라이언트가 가상 머신(및 Azure AD 끝점)에서 localhost 끝점을 사용하는 점을 제외하고 Azure AD 프로그래밍 모델과 유사합니다.
+액세스 토큰을 획득할 기본 인터페이스는 REST 기반으로 하며 HTTP REST를 호출할 수 있는 VM에서 실행되는 모든 클라이언트 응용 프로그램에 액세스할 수 있도록 합니다. 클라이언트가 가상 머신(및 Azure AD 끝점)에서 엔드포인트를 사용하는 점을 제외하고 Azure AD 프로그래밍 모델과 유사합니다.
 
-샘플 요청:
+IMDS(인스턴스 메타데이터 서비스) 엔드포인트를 사용하는 샘플 요청:
 
 ```
-GET http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.com%2F&client_id=712eac09-e943-418c-9be6-9fd5c91078bl HTTP/1.1
-Metadata: true
+GET http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F&client_id=712eac09-e943-418c-9be6-9fd5c91078bl HTTP/1.1 Metadata: true
+```
+
+MSI VM 확장 엔드포인트(사용 중단 예정)를 사용하는 샘플 요청:
+
+```
+GET http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.com%2F&client_id=712eac09-e943-418c-9be6-9fd5c91078bl HTTP/1.1 Metadata: true
 ```
 
 | 요소 | 설명 |
 | ------- | ----------- |
 | `GET` | HTTP 동사는 끝점에서 데이터를 검색한다는 것을 나타냅니다. 이 경우에는 OAuth 액세스 토큰입니다. | 
-| `http://localhost:50342/oauth2/token` | MSI 끝점에서 50342는 기본 포트이며 구성 가능합니다. |
+| `http://169.254.169.254/metadata/identity/oauth2/token` | 인스턴스 메타데이터 서비스의 MSI 엔드포인트입니다. |
+| `http://localhost:50342/oauth2/token` | VM 확장의 MSI 엔드포인트에서 50342는 기본 포트이며 구성 가능합니다. |
+| `api-version`  | IMDS 엔드포인트의 API 버전을 나타내는 쿼리 문자열 매개 변수입니다.  |
 | `resource` | 쿼리 문자열 매개 변수는 대상 리소스의 앱 ID URI를 나타냅니다. 또한 발급된 토큰의 `aud` (대상) 클레임에서 표시됩니다. 이 예제에서는 Azure Resource Manager에 액세스할 수 있는 토큰을 요청합니다. 여기에는 https://management.azure.com/이라는 앱 ID URI가 포함됩니다. |
-| `client_id` | 사용자 할당 MSI를 표시하는 서비스 주체의 클라이언트 ID(앱 ID라고도 함)를 나타내는 쿼리 문자열 매개 변수입니다. 이 값은 사용자 할당 MSI를 만들 때 `clientId` 속성에서 반환됩니다. 이 예제에서는 클라이언트 ID "712eac09-e943-418c-9be6-9fd5c91078bl"의 토큰을 요청합니다. |
+| `client_id` |  사용자 할당 MSI를 표시하는 서비스 주체의 클라이언트 ID(앱 ID라고도 함)를 나타내는 *선택적* 쿼리 문자열 매개 변수입니다. 자동으로 지정된 MSI를 사용하는 경우 이 매개 변수가 필요하지 않습니다. 이 값은 사용자 할당 MSI를 만들 때 `clientId` 속성에서 반환됩니다. 이 예제에서는 클라이언트 ID "712eac09-e943-418c-9be6-9fd5c91078bl"의 토큰을 요청합니다. |
 | `Metadata` | SSRF(서버 쪽 요청 위조) 공격에 대한 완화 수단으로 MSI에서 HTTP 요청 헤더 필드가 필요합니다. 이 값은 모두 소문자이며 "true"로 설정되어야 합니다.
 
 샘플 응답:
@@ -94,6 +99,16 @@ Content-Type: application/json
 ## <a name="get-a-token-using-curl"></a>CURL을 사용하여 토큰 가져오기
 
 `client_id` 매개 변수의 <MSI CLIENT ID> 값은 사용자 할당 MSI 서비스 주체의 클라이언트 ID(앱 ID라고도 함)로 대체합니다. 이 값은 사용자 할당 MSI를 만들 때 `clientId` 속성에서 반환됩니다.
+  
+IMDS(인스턴스 메타데이터 서비스) 엔드포인트를 사용하는 샘플 요청:
+
+   ```bash
+   response=$(curl -H Metadata:true "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com/&client_id=<MSI CLIENT ID>")
+   access_token=$(echo $response | python -c 'import sys, json; print (json.load(sys.stdin)["access_token"])')
+   echo The MSI access token is $access_token
+   ```
+   
+MSI VM 확장 엔드포인트(사용 중단 예정)를 사용하는 샘플 요청:
 
    ```bash
    response=$(curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/&client_id=<MSI CLIENT ID>" -H Metadata:true -s)
@@ -104,7 +119,7 @@ Content-Type: application/json
    예제 응답:
 
    ```bash
-   user@vmLinux:~$ response=$(curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/&client_id=9d484c98-b99d-420e-939c-z585174b63bl" -H Metadata:true -s)
+   user@vmLinux:~$ response=$(curl -H Metadata:true "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com/&client_id=9d484c98-b99d-420e-939c-z585174b63bl")
    user@vmLinux:~$ access_token=$(echo $response | python -c 'import sys, json; print (json.load(sys.stdin)["access_token"])')
    user@vmLinux:~$ echo The MSI access token is $access_token
    The MSI access token is eyJ0eXAiOiJKV1QiLCJhbGciO...
@@ -112,7 +127,7 @@ Content-Type: application/json
 
 ## <a name="handling-token-expiration"></a>토큰 만료 처리
 
-로컬 MSI 하위 시스템은 토큰을 캐시합니다. 따라서 원하는 대로 자주 호출할 수 있으며 다음과 같은 경우에 Azure AD에 대한 실시간 호출이 발생합니다.
+MSI 하위 시스템은 토큰을 캐시합니다. 따라서 원하는 대로 자주 호출할 수 있으며 다음과 같은 경우에 Azure AD에 대한 실시간 호출이 발생합니다.
 - 캐시에서 토큰 부재로 인해 캐시 누락이 발생하는 경우
 - 토큰이 만료된 경우
 
@@ -142,7 +157,7 @@ MSI 끝점은 HTTP 응답 메시지 헤더의 상태 코드 필드를 통해 4xx
 | ----------- | ----- | ----------------- | -------- |
 | 400 잘못된 요청 | invalid_resource | AADSTS50001: *\<URI\>*라는 응용 프로그램을 *\<TENANT-ID\>*라는 테넌트에서 찾을 수 없습니다. 이 오류는 테넌트의 관리자가 응용 프로그램을 설치하지 않았거나 테넌트의 사용자가 동의하지 않은 경우에 발생할 수 있습니다. 잘못된 테넌트에 인증 요청을 보냈을 수도 있습니다. | (Linux만 해당) |
 | 400 잘못된 요청 | bad_request_102 | 필수 메타데이터 헤더가 지정되지 않았습니다. | `Metadata` 요청 헤더 필드가 요청에서 누락되거나 형식이 잘못되었습니다. 값은 모두 소문자이며 `true`으로 지정해야 합니다. 관련 예제는 [HTTP를 사용하여 토큰 가져오기](#get-a-token-using-http) 섹션의 "샘플 요청"을 참조하세요.|
-| 401 권한 없음 | unknown_source | 알 수 없는 원본 *\<URI\>* | HTTP GET 요청 URI의 형식이 올바른지 확인합니다. `scheme:host/resource-path` 부분은 `http://localhost:50342/oauth2/token`으로 지정해야 합니다. 관련 예제는 [HTTP를 사용하여 토큰 가져오기](#get-a-token-using-http) 섹션의 "샘플 요청"을 참조하세요.|
+| 401 권한 없음 | unknown_source | 알 수 없는 원본 *\<URI\>* | HTTP GET 요청 URI의 형식이 올바른지 확인합니다. `scheme:host/resource-path` 부분은 `http://169.254.169.254/metadata/identity/oath2/token` 또는 `http://localhost:50342/oauth2/token`으로 지정해야 합니다. 관련 예제는 [HTTP를 사용하여 토큰 가져오기](#get-a-token-using-http) 섹션의 "샘플 요청"을 참조하세요.|
 |           | invalid_request | 요청이 필수 매개 변수를 누락하거나, 잘못된 매개 변수 값이 포함되거나, 매개 변수를 두 번 이상 포함되거나 형식이 잘못되었습니다. |  |
 |           | unauthorized_client | 클라이언트에는 이 메서드를 사용하여 액세스 토큰을 요청할 권한이 없습니다. | 로컬 루프백을 사용하여 확장을 호출하지 않은 요청에 의해 발생하거나 MSI를 올바르게 구성하지 않은 VM에서 발생합니다. VM을 구성하는 데 도움이 필요한 경우 [Azure Portal을 사용하여 VM MSI(관리 서비스 ID) 구성](msi-qs-configure-portal-windows-vm.md)을 참조하세요. |
 |           | access_denied | 리소스 소유자 또는 권한 부여 서버에서 요청을 거부했습니다. |  |

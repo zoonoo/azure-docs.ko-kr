@@ -1,6 +1,6 @@
 ---
 title: 'Azure Resource Manager VNet에 클래식 가상 네트워크를 연결하는 방법: 포털 | Microsoft Docs'
-description: VPN Gateway 및 포털을 사용하여 클래식 VNet 및 Resource Manager VNet 간에 VPN 연결 만들기
+description: VPN Gateway 및 포털을 사용하여 클래식 VNet을 Resource Manager VNet에 연결하는 단계
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/13/2018
+ms.date: 03/13/2018
 ms.author: cherylmc
-ms.openlocfilehash: 90a3c51fa9acbcd9701d4c2b135688ef5148bbf8
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 65cfbafbd5fbdd576f01b5cba638c1b5869f377b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>포털을 사용하여 다양한 배포 모델에서 가상 네트워크 연결
 
@@ -157,9 +157,9 @@ Resource Manager VNet이 없는 상태에서 이러한 단계를 연습으로 �
 
 가상 네트워크 게이트웨이를 구성하려면 먼저 게이트웨이 서브넷을 만들어야 합니다. CIDR 개수가 /28 이상인 게이트웨이 서브넷을 만듭니다(/27, /26 등). 연습의 일환으로 이것을 만드는 경우 예제 값을 사용할 수 있습니다.
 
-[!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
-
 [!INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-rm-portal-include.md)]
+
+[!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
 
 ### <a name="creategw"></a>3. 가상 네트워크 게이트웨이 만들기
 
@@ -301,7 +301,7 @@ Azure Portal 또는 PowerShell을 사용하여 연결을 확인할 수 있습니
 
 [!INCLUDE [vpn-gateway-verify-connection-azureportal-classic](../../includes/vpn-gateway-verify-connection-azureportal-classic-include.md)]
 
-###<a name="to-verify-the-connection-from-your-resource-manager-vnet-to-your-classic-vnet"></a>Resource Manager VNet에서 클래식 VNet으로의 연결을 확인하려면
+### <a name="to-verify-the-connection-from-your-resource-manager-vnet-to-your-classic-vnet"></a>Resource Manager VNet에서 클래식 VNet으로의 연결을 확인하려면
 
 [!INCLUDE [vpn-gateway-verify-connection-portal-rm](../../includes/vpn-gateway-verify-connection-portal-rm-include.md)]
 

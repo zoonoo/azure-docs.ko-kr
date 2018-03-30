@@ -1,11 +1,11 @@
 ---
-title: "Azure에서 첫 번째 Java 웹앱 만들기"
-description: "기본 Java 앱을 배포하여 App Service에서 웹앱을 실행하는 방법을 알아봅니다."
+title: Azure에서 첫 번째 Java 웹앱 만들기
+description: 기본 Java 앱을 배포하여 App Service에서 웹앱을 실행하는 방법을 알아봅니다.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: rmcmurray
 manager: routlaw
-editor: 
+editor: ''
 ms.assetid: 8bacfe3e-7f0b-4394-959a-a88618cb31e1
 ms.service: app-service-web
 ms.workload: web
@@ -15,15 +15,15 @@ ms.topic: quickstart
 ms.date: 11/08/2017
 ms.author: cephalin;robmcm
 ms.custom: mvc, devcenter
-ms.openlocfilehash: de72b97051daef675ceae7c7af08fb04e21cf849
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e63f8706e28a5d34cc9774cbaecde31415a4b48e
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="create-your-first-java-web-app-in-azure"></a>Azure에서 첫 번째 Java 웹앱 만들기
 
-Azure [Web Apps](app-service-web-overview.md)는 확장성 있는 자체 패치 웹 호스팅 서비스를 제공합니다. 이 빠른 시작에서는 [Eclipse IDE for Java EE Developers](http://www.eclipse.org/)를 사용하여 App Service에 Java 웹앱을 배포하는 방법을 보여 줍니다.
+[Azure Web Apps](app-service-web-overview.md)는 확장성 있는 자체 패치 웹 호스팅 서비스를 제공합니다. 이 빠른 시작에서는 [Eclipse IDE for Java EE Developers](http://www.eclipse.org/)를 사용하여 App Service에 Java 웹앱을 배포하는 방법을 보여 줍니다.
 
 이 빠른 시작을 완료하면 웹 브라우저에서 응용 프로그램을 봤을 때 다음 그림과 같이 표시됩니다.
 
@@ -201,3 +201,4 @@ Azure 도구 키트는 웹앱을 만들고 진행률 대화 상자를 표시합�
 
 > [!div class="nextstepaction"]
 > [사용자 지정 도메인 매핑](app-service-web-tutorial-custom-domain.md)
+

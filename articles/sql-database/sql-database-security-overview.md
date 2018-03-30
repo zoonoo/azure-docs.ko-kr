@@ -2,25 +2,19 @@
 title: Azure SQL Database 보안 개요 | Microsoft Docs
 description: 클라우드와 온-프레미스 SQL Server 간 차이를 포함하여 Azure SQL Database 및 SQL Server 보안에 대해 알아보세요.
 services: sql-database
-documentationcenter: ''
 author: giladm
-manager: shaik
+manager: craigg
 ms.reviewer: carlrab
-editor: ''
-ms.assetid: a012bb85-7fb4-4fde-a2fc-cf426c0a56bb
 ms.service: sql-database
 ms.custom: security
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: On Demand
-ms.date: 01/29/2018
+ms.date: 03/12/2018
 ms.author: giladm
-ms.openlocfilehash: 41051944af863c4c50595ea843e2adf3513b3a12
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 1dc34f021fa6482c65cce0e922951ae329987c43
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="securing-your-sql-database"></a>SQL Database 보안 설정
 
@@ -62,7 +56,6 @@ SQL Database는 방화벽 규칙, 사용자에게 ID 확인을 요구하는 인�
 
 ### <a name="authentication"></a>인증
 SQL Database 인증은 데이터베이스에 연결할 때 사용자의 ID를 증명하는 방법을 나타냅니다. SQL Database는 두 가지 인증 유형을 지원합니다.
-
 * **SQL 인증**은 사용자 이름과 암호를 사용합니다. 데이터베이스의 논리 서버를 만들 때 사용자 이름 및 암호를 사용하여 "서버 관리자" 로그인을 지정했습니다. 이러한 자격 증명을 사용하면 해당 서버의 모든 데이터베이스에 데이터베이스 소유자 또는 "dbo"로 인증할 수 있습니다. 
 * **Azure Active Directory 인증**은 Azure Active Directory에서 관리하는 ID를 사용하고 관리되고 통합된 도메인을 지원합니다. [가능한 경우](https://msdn.microsoft.com/library/ms144284.aspx) Active Directory 인증(통합 보안)을 사용합니다. Azure Active Directory 인증을 사용하려는 경우 Azure AD 사용자 및 그룹을 허용하는 "Azure AD 관리자"라는 다른 서버 관리자를 만들어야 합니다. 이 관리자는 일반 서버 관리자가 할 수 있는 모든 작업을 수행할 수도 있습니다. Azure AD 관리자를 만들어 Azure Active Directory 인증을 활성화하는 방법에 대한 연습은 [Azure Active Directory 인증을 사용하여 SQL Database에 연결](sql-database-aad-authentication.md) 을 참조하세요.
 
@@ -86,6 +79,21 @@ SQL Database 감사는 데이터베이스 활동을 추적하고 데이터베이
  
 ## <a name="compliance"></a>규정 준수
 위의 기능 및 응용 프로그램이 다양한 보안 요구 사항을 충족하도록 도울 수 있는 기능 외에도 Azure SQL Database는 정기적인 감사에 참여하고 여러 규정 준수 표준에 대해 인증받았습니다. 자세한 내용은 [Microsoft Azure 보안 센터](https://azure.microsoft.com/support/trust-center/)를 참조하세요. 여기서 최신 [SQL Database 규정 준수 인증서](https://azure.microsoft.com/support/trust-center/services/) 목록을 찾을 수 있습니다.
+
+
+## <a name="security-management"></a>보안 관리
+
+SQL Database는 [SQL 취약성 평가](sql-vulnerability-assessment.md)를 사용한 데이터베이스 검사 및 중앙 보안 대시보드를 제공하여 데이터 보안을 관리하는 데 도움이 됩니다.
+
+**취약성 평가**: [SQL 취약성 평가](sql-vulnerability-assessment.md)(현재 미리 보기)는 잠재적인 데이터베이스 취약성을 검색, 추적 및 수정하는 데 유용할 수 있는 Azure SQL Database에 기본 제공되는 간편한 구성 도구입니다. 평가는 데이터베이스에서 취약성 검사를 실행하고, 보안 상태에 대한 가시성을 제공하는 보고서를 생성합니다. 여기에는 보안 문제를 해결하고 데이터베이스 보안을 강화하기 위한 실행 가능한 단계가 포함됩니다. 권한 구성, 기능 구성 및 데이터베이스 설정에 대한 허용 가능한 기준을 설정하여 평가 보고서를 환경에 맞게 사용자 지정할 수 있습니다. 이는 다음을 수행하는 데 유용할 수 있습니다.
+
+- 데이터베이스 검색 보고서가 필요한 준수 요구 사항을 충족합니다. 
+
+- 데이터 개인 정보 보호 표준을 충족합니다. 
+
+- 변경을 추적하기 어려운 동적 데이터베이스 환경을 모니터링합니다.
+
+자세한 내용은 [SQL 취약성 평가](sql-vulnerability-assessment.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,22 +1,22 @@
 ---
-title: "Azure 서비스 알림에 대한 활동 로그 경고 수신 | Microsoft Docs"
-description: "Azure 서비스가 발생할 때 SMS, 전자 메일 또는 웹후크를 통해 알림을 받습니다."
+title: Azure 서비스 알림에 대한 활동 로그 경고 수신 | Microsoft Docs
+description: Azure 서비스가 발생할 때 SMS, 전자 메일 또는 웹후크를 통해 알림을 받습니다.
 author: johnkemnetz
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-ms.assetid: 
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/31/2017
+ms.date: 03/27/2018
 ms.author: johnkem
-ms.openlocfilehash: 6e011ea3d9d8f8453068d43e390cfba46dfb3277
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: b4c4fdeb825bbcab54f074c5224140282a24d196
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="create-activity-log-alerts-on-service-notifications"></a>서비스 알림에 대한 활동 로그 경고 만들기
 ## <a name="overview"></a>개요
@@ -67,9 +67,9 @@ Azure 리소스 관리자 템플릿을 사용하여 서비스 상태 알림 경�
 
     a. **이름**: 받는 사람의 이름, 별칭 또는 식별자를 입력합니다.
 
-    b. **작업 유형**: SMS, 메일, 웹후크, Azure 앱 등을 선택합니다.
+    나. **작업 유형**: SMS, 메일, 웹후크, Azure 앱 등을 선택합니다.
 
-    c. **세부 정보**: 선택한 작업 유형에 따라 전화 번호, 메일 주소, 웹후크 URI 등을 입력합니다.
+    다. **세부 정보**: 선택한 작업 유형에 따라 전화 번호, 메일 주소, 웹후크 URI 등을 입력합니다.
 
 10. **확인**을 선택하여 경고를 만듭니다.
 

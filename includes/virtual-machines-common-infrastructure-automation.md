@@ -1,5 +1,5 @@
-# <a name="use-infrastructure-automation-tools-with-virtual-machines-in-azure"></a>Azure의 가상 컴퓨터에서 인프라 자동화 도구 사용
-Azure VM(가상 컴퓨터)을 대규모의 일관된 방식으로 만들고 관리하려면 일종의 자동화가 필요합니다. 완벽한 Azure 인프라 배포 및 관리 수명 주기를 자동화할 수 있는 다양한 도구와 솔루션이 있습니다. 이 문서에서는 Azure에서 사용할 수 있는 인프라 자동화 도구 중 일부를 소개합니다. 이러한 도구는 일반적으로 다음 방법 중 하나에 적합합니다.
+# <a name="use-infrastructure-automation-tools-with-virtual-machines-in-azure"></a>Azure의 가상 머신에서 인프라 자동화 도구 사용
+Azure VM(가상 머신)을 대규모의 일관된 방식으로 만들고 관리하려면 일종의 자동화가 필요합니다. 완벽한 Azure 인프라 배포 및 관리 수명 주기를 자동화할 수 있는 다양한 도구와 솔루션이 있습니다. 이 문서에서는 Azure에서 사용할 수 있는 인프라 자동화 도구 중 일부를 소개합니다. 이러한 도구는 일반적으로 다음 방법 중 하나에 적합합니다.
 
 - VM 구성 자동화
     - 도구에는 [Ansible](#ansible), [Chef](#chef) 및 [Puppet](#puppet)이 포함됩니다.
@@ -7,14 +7,14 @@ Azure VM(가상 컴퓨터)을 대규모의 일관된 방식으로 만들고 관�
  
 - 인프라 관리 자동화
     - 도구에는 사용자 지정 VM 이미지 빌드를 자동화하는 [Packer](#packer) 및 인프라 빌드 프로세스를 자동화하는 [Terraform](#terraform)이 포함됩니다.
-    - [Azure Automation](#azure-automation)은 Azure 및 온-프레미스 인프라 전체에서 작업을 수행할 수 있습니다.
+    - [Azure Automation](#azure-automation)은 Azure와 온-프레미스 인프라에 걸쳐 작업을 수행할 수 있습니다.
 
 - 응용 프로그램 배포 및 전달 자동화
     - 예로는 [Visual Studio Team Services](#visual-studio-team-services)와 [Jenkins](#jenkins)가 있습니다.
 
 
 ## <a name="ansible"></a>Ansible
-[Ansible](https://www.ansible.com/)은 구성 관리, VM 만들기 또는 응용 프로그램 배포를 위한 자동화 엔진입니다. Ansible은 대개 SSH 키가 있는 에이전트 없는 모델을 사용하여 대상 컴퓨터를 인증하고 관리합니다. 구성 작업은 Runbook에서 정의되며, 특정 작업을 수행하는 데 사용할 수 있는 다양한 Ansible 모듈을 포함합니다. 자세한 내용은 [Ansible 작동 방법(영문)](https://www.ansible.com/how-ansible-works)을 참조하세요.
+[Ansible](https://www.ansible.com/)은 구성 관리, VM 만들기 또는 응용 프로그램 배포를 위한 자동화 엔진입니다. Ansible은 대개 SSH 키가 있는 에이전트 없는 모델을 사용하여 대상 컴퓨터를 인증하고 관리합니다. 구성 작업은 플레이북에서 정의되며, 특정 작업을 수행하는 데 사용할 수 있는 다양한 Ansible 모듈이 포함됩니다. 자세한 내용은 [Ansible 작동 방법(영문)](https://www.ansible.com/how-ansible-works)을 참조하세요.
 
 방법 배우기:
 
@@ -49,9 +49,9 @@ Cloud-init는 배포에서도 작동합니다. 예를 들어, 패키지를 설�
 
 | 게시자 | 제안 | SKU | 버전 | cloud-init 준비 여부
 |:--- |:--- |:--- |:--- |:--- |:--- |
-|Canonical |UbuntuServer |16.04-LTS |최신 |yes | 
-|Canonical |UbuntuServer |14.04.5-LTS |최신 |yes |
-|CoreOS |CoreOS |Stable |최신 |yes |
+|Canonical |UbuntuServer |16.04-LTS |최신 |예 | 
+|Canonical |UbuntuServer |14.04.5-LTS |최신 |예 |
+|CoreOS |CoreOS |Stable |최신 |예 |
 |OpenLogic |CentOS |7-CI |최신 |미리 보기 |
 |RedHat |RHEL |7-RAW-CI |최신 |미리 보기 |
 
@@ -103,7 +103,7 @@ DSC 구성은 컴퓨터에 설치할 항목과 호스트를 구성하는 방법�
 
 
 ## <a name="azure-automation"></a>Azure Automation
-[Azure Automation](https://azure.microsoft.com/services/automation/)은 Runbook을 사용하여 대상 VM에서 일단의 작업을 처리합니다. Azure Automation은 인프라를 만드는 대신 기존 VM을 관리하는 데 사용됩니다. Azure Automation은 또한 Linux 및 Windows VM 외에도, Hybrid Runbook Worker를 사용하여 온-프레미스 가상 컴퓨터 또는 물리적 컴퓨터에서 실행될 수 있습니다. Runbook은 GitHub와 같은 원본 제어 리포지토리에 저장할 수 있습니다. 그런 다음 이러한 Runbook은 수동으로 또는 정의된 일정에 따라 실행될 수 있습니다.
+[Azure Automation](https://azure.microsoft.com/services/automation/)은 Runbook을 사용하여 대상 VM에서 일단의 작업을 처리합니다. Azure Automation은 인프라를 만드는 대신 기존 VM을 관리하는 데 사용됩니다. Azure Automation은 또한 Linux 및 Windows VM 외에도, Hybrid Runbook Worker를 사용하여 온-프레미스 가상 또는 물리적 컴퓨터에서 실행될 수 있습니다. Runbook은 GitHub와 같은 원본 제어 리포지토리에 저장할 수 있습니다. 그런 다음 이러한 Runbook은 수동으로 또는 정의된 일정에 따라 실행될 수 있습니다.
 
 또한 Azure Automation은 지정된 VM 집합을 구성하는 방법에 대한 정의를 만들 수 있는 DSC(Desired State Configuration) 서비스도 제공합니다. 그러면 DSC에서 필요한 구성이 적용되고 VM이 일관성을 유지하고 있는지 확인합니다. Azure Automation DSC는 Windows 및 Linux 컴퓨터 모두에서 실행됩니다.
 

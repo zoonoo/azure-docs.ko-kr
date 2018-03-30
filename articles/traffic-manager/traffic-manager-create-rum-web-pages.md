@@ -1,31 +1,28 @@
 ---
-title: "웹 페이지에서 Azure Traffic Manager의 실제 사용자 측정 | Microsoft Docs"
-description: "Traffic Manager로 실제 사용자 측정을 보내도록 웹 페이지 설정"
+title: 웹 페이지에서 Azure Traffic Manager의 실제 사용자 측정 | Microsoft Docs
+description: Traffic Manager로 실제 사용자 측정을 보내도록 웹 페이지 설정
 services: traffic-manager
 documentationcenter: traffic-manager
 author: KumudD
 manager: jeconnoc
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: ''
 ms.workload: infrastructure
-ms.date: 09/19/2017
+ms.date: 03/16/2018
 ms.author: kumud
-ms.custom: 
-ms.openlocfilehash: c8b345cd973b8cd939ad111132f1afdadae9f2b7
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.custom: ''
+ms.openlocfilehash: 71661d8640dbe14082292cb9637964adac9fa803
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-send-real-user-measurements-to-azure-traffic-manager-using-web-pages"></a>웹 페이지를 사용하여 Azure Traffic Manager의 실제 사용자 측정을 보내는 방법
-
->[!NOTE]
->Traffic Manager의 실제 사용자 측정 기능은 공개 미리 보기 상태이며 일반 공급 릴리스에 있는 기능과 동일한 수준의 가용성 및 안정성을 제공하지 않을 수 있습니다. 이 기능은 지원되지 않으며, 기능이 제한될 수 있으며 모든 Azure 위치에서 사용하지는 못할 수 있습니다. 이 기능의 가용성 및 상태에 대한 최신 알림은 [Azure Traffic Manager 업데이트](https://azure.microsoft.com/updates/?product=traffic-manager) 페이지를 참조하세요.
 
 RUM(실제 사용자 측정) 키를 가져오고 웹 페이지에 생성된 코드를 포함하여 실제 사용자 측정을 Traffic Manager로 보내도록 웹 페이지를 구성할 수 있습니다.
 

@@ -1,11 +1,12 @@
 ---
-title: "Machine Learning을 사용한 신용 위험에 대 한 예측 솔루션 | Microsoft Docs"
-description: "Azure Machine Learning Studio의 신용 위험 평가에 대한 예측 분석 솔루션을 만드는 방법을 보여주는 자세한 연습."
-keywords: "신용 위험, 예측 분석 솔루션, 위험 평가"
+title: Machine Learning을 사용한 신용 위험에 대 한 예측 솔루션 | Microsoft Docs
+description: Azure Machine Learning Studio의 신용 위험 평가에 대한 예측 분석 솔루션을 만드는 방법을 보여주는 자세한 연습.
+keywords: 신용 위험, 예측 분석 솔루션, 위험 평가
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: 43300854-a14e-4cd2-9bb1-c55c779e0e93
 ms.service: machine-learning
@@ -14,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/23/2017
-ms.author: garye
-ms.openlocfilehash: ea5274f6bfd2d6c68509f52d93b6875d3a43a5a0
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: d8a9776d97f10c64f7c29fa32fb1187bd76af714
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="walkthrough-develop-a-predictive-analytics-solution-for-credit-risk-assessment-in-azure-machine-learning"></a>연습: Azure Machine Learning의 신용 위험 평가에 대한 예측 분석 솔루션 개발
 
@@ -47,8 +47,7 @@ ms.lasthandoff: 01/06/2018
 
 이 신용 위험 평가 솔루션을 만들려면 다음 단계를 따릅니다.  
 
-1. 
-            [Machine Learning 작업 영역 만들기](walkthrough-1-create-ml-workspace.md)
+1. [Machine Learning 작업 영역 만들기](walkthrough-1-create-ml-workspace.md)
 2. [기존 데이터 업로드](walkthrough-2-upload-data.md)
 3. [실험 만들기](walkthrough-3-create-new-experiment.md)
 4. [모델 학습 및 평가](walkthrough-4-train-and-evaluate-models.md)

@@ -1,11 +1,11 @@
 ---
-title: "Azure CDN에서 HTTP/2 지원 | Microsoft Docs"
-description: "HTTP/2 및 CDN 지원에 대해 알아봅니다."
+title: Azure CDN에서 HTTP/2 지원 | Microsoft Docs
+description: HTTP/2 및 CDN 지원에 대해 알아봅니다.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: lichard
 manager: erikre
-editor: 
+editor: ''
 ms.service: cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/04/2017
 ms.author: rli
-ms.openlocfilehash: 4f8dd685c3ae89535217d7a17a01c5129ca7e6e4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a58ab1165f3886484fb695170100422c2f1b0486
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="http2-support-in-azure-cdn"></a>Azure CDN에서 HTTP/2 지원
 
 HTTP/2는 HTTP/1.1\에 대한 주요 수정 버전입니다. 친숙한 HTTP 메서드, 상태 코드 및 의미 체계를 유지하면서 더 빨라진 웹 성능, 응답 시간 단축 및 향상된 사용자 경험을 제공합니다. HTTP/2는 HTTP 및 HTTPS와 함께 작동하도록 설계되었지만 많은 클라이언트 웹 브라우저는 TLS를 통한 HTTP/2만 지원합니다.
 
-###<a name="http2-benefits"></a>HTTP/2 이점
+### <a name="http2-benefits"></a>HTTP/2 이점
 
 HTTP/2의 이점은 다음과 같습니다.
 
@@ -40,7 +40,7 @@ HTTP/2의 이점은 다음과 같습니다.
     스트림 종속성을 통해 클라이언트가 우선 순위가 높은 리소스를 서버에 나타낼 수 있습니다.
 
 
-##<a name="http2-browser-support"></a>HTTP/2 브라우저 지원
+## <a name="http2-browser-support"></a>HTTP/2 브라우저 지원
 
 모든 주요 브라우저는 최신 버전에서 HTTP/2 지원을 구현했습니다. 지원되지 않는 브라우저는 HTTP/1.1로 자동으로 대체됩니다.
 
@@ -52,11 +52,11 @@ HTTP/2의 이점은 다음과 같습니다.
 |Opera| 32|
 |Safari| 9|
 
-##<a name="enabling-http2-support-in-azure-cdn"></a>Azure CDN에서 HTTP/2 지원 활성화
+## <a name="enabling-http2-support-in-azure-cdn"></a>Azure CDN에서 HTTP/2 지원 활성화
 
 현재 **Akamai의 Azure CDN** 및 **Verizon의 Azure CDN** 프로필에 대해 HTTP/2 지원이 활성화되어 있습니다. 고객의 별도의 작업이 필요하지 않습니다.
 
-##<a name="next-steps"></a>다음 단계
+## <a name="next-steps"></a>다음 단계
 
 실제 HTTP/2의 이점을 보려면 [Akamai의 데모](https://http2.akamai.com/demo)를 참조하세요.
 

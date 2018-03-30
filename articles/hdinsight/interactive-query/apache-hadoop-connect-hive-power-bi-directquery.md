@@ -1,26 +1,26 @@
 ---
-title: "Azure HDInsight에서 Power BI를 사용하여 대화형 쿼리 Hive 데이터 시각화 | Microsoft Docs"
-description: "Microsoft Power BI를 사용하여 Azure HDInsight에서 처리한 대화형 쿼리 Hive 데이터를 시각화하는 방법에 대해 알아봅니다."
-keywords: "hdinsight,hadoop,hive,대화형 쿼리,대화형 hive,LLAP,directquery"
+title: Azure HDInsight에서 Power BI를 사용하여 대화형 쿼리 Hive 데이터 시각화 | Microsoft Docs
+description: Microsoft Power BI를 사용하여 Azure HDInsight에서 처리한 대화형 쿼리 Hive 데이터를 시각화하는 방법에 대해 알아봅니다.
+keywords: hdinsight,hadoop,hive,대화형 쿼리,대화형 hive,LLAP,directquery
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive,
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2017
+ms.date: 03/14/2018
 ms.author: jgao
-ms.openlocfilehash: 290e600b7be4a6f9fb57afa50bb771e42e6a0624
-ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
+ms.openlocfilehash: c74e02ea32a5aacf1a5208c0e194a25b0b6bcb48
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="visualize-interactive-query-hive-data-with-microsoft-power-bi-using-direct-query-in-azure-hdinsight"></a>Azure HDInsight에서 직접 쿼리를 사용하여 Microsoft Power BI에서 대화형 쿼리 Hive 데이터 시각화
 
@@ -28,7 +28,7 @@ Microsoft Power BI를 Azure HDInsight 대화형 쿼리 클러스터에 연결하
 
 ![HDInsight Power BI 맵 보고서](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-power-bi-visualization.png)
 
-ODBC를 사용하여 Hive에 연결하는 방법은 [Azure HDInsight에서 ODBC를 사용하여 Microsoft Power BI로 Hive 데이터 시각화](../hadoop/apache-hadoop-connect-hive-power-bi.md)를 참조하세요. 
+[Hive ODBC 드라이버](../hadoop/apache-hadoop-connect-hive-power-bi.md)를 활용하여 Power BI Desktop에서 제네릭 ODBC 커넥터를 통해 가져오기를 수행할 수 있습니다. 그러나 BI 워크로드의 경우 Hive 쿼리 엔진의 비대화형 특성을 지정하지 않는 것이 좋습니다. 성능을 개선하기 위해 [대화형 쿼리 HDInsight 커넥터](./apache-hadoop-connect-hive-power-bi-directquery.md) 및 [HDInsight Spark 커넥터](https://docs.microsoft.com/power-bi/spark-on-hdinsight-with-direct-connect)를 선택할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 이 문서를 시작하기 전에 다음 항목이 있어야 합니다.

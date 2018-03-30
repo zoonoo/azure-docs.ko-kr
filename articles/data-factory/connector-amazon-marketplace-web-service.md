@@ -1,11 +1,11 @@
 ---
-title: "Azure Data Factory(베타)를 사용하여 아마존 마켓플레이스 웹 서비스에서 데이터 복사 | Microsoft Docs"
-description: "Azure Data Factory 파이프라인의 복사 작업을 사용하여 아마존 마켓플레이스 웹 서비스에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법에 대해 알아봅니다."
+title: Azure Data Factory(베타)를 사용하여 아마존 마켓플레이스 웹 서비스에서 데이터 복사 | Microsoft Docs
+description: Azure Data Factory 파이프라인의 복사 작업을 사용하여 아마존 마켓플레이스 웹 서비스에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법에 대해 알아봅니다.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 62036e8a4e0611958ffacf7f7d7896e6ebde5e16
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 1671659bee714b457693c668e259da948141d25e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-from-amazon-marketplace-web-service-using-azure-data-factory-beta"></a>Azure Data Factory(베타)를 사용하여 아마존 마켓플레이스 웹 서비스에서 데이터 복사
 
@@ -51,11 +51,11 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 | endpoint | Amazon MWS 서버의 끝점(즉, mws.amazonservices.com)입니다.  | 예 |
 | marketplaceID | 데이터를 검색하려는 Amazon Marketplace ID입니다. 여러 Marketplace ID에서 데이터를 검색하려면 쉼표(`,`)로 구분하세요. 즉, A2EUQ1WTGCTBG2입니다.  | 예 |
 | sellerID | Amazon 판매자 ID입니다.  | 예 |
-| mwsAuthToken | Amazon MWS 인증 토큰입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 암호를 참조](store-credentials-in-key-vault.md)합니다. | 예 |
+| mwsAuthToken | Amazon MWS 인증 토큰입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
 | accessKeyId | 데이터 액세스에 사용되는 액세스 키 ID입니다.  | 예 |
-| secretKey | 데이터 액세스에 사용되는 비밀 키입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 암호를 참조](store-credentials-in-key-vault.md)합니다. | 예 |
-| useEncryptedEndpoints | 데이터 원본 끝점이 HTTPS를 사용하여 암호화되는지 여부를 지정합니다. 기본값은 true입니다.  | 아니오 |
-| useHostVerification | SSL을 통해 연결할 때 서버 인증서의 호스트 이름이 서버의 호스트 이름과 일치하도록 할지 여부를 지정합니다. 기본값은 true입니다.  | 아니요 |
+| secretKey | 데이터 액세스에 사용되는 비밀 키입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
+| useEncryptedEndpoints | 데이터 원본 끝점이 HTTPS를 사용하여 암호화되는지 여부를 지정합니다. 기본값은 true입니다.  | 아니요 |
+| useHostVerification | SSL을 통해 연결할 때 서버 인증서의 호스트 이름이 서버의 호스트 이름과 일치하도록 할지 여부를 지정합니다. 기본값은 true입니다.  | 아니오 |
 | usePeerVerification | SSL을 통해 연결할 때 서버의 ID를 확인할지 여부를 지정합니다. 기본값은 true입니다.  | 아니오 |
 
 **예제:**

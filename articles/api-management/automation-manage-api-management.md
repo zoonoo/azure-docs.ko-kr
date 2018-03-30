@@ -1,11 +1,11 @@
 ---
-title: "Azure Automation을 사용하여 Azure API Management를 관리"
-description: "Azure Automation 서비스를 사용하여 Azure API Management를 관리하는 방법에 대해 알아봅니다."
+title: Azure Automation을 사용하여 Azure API Management를 관리
+description: Azure Automation 서비스를 사용하여 Azure API Management를 관리하는 방법에 대해 알아봅니다.
 services: api-management, automation
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: eamono
-editor: 
+editor: ''
 ms.assetid: 2e53c9af-f738-47f8-b1b6-593050a7c51b
 ms.service: api-management
 ms.workload: mobile
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
-ms.openlocfilehash: 8bd251fa05e8e144471cd577cec607d91e5ab84c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 10b483c70f7b5a3d767815306d8a690b1b9a5faf
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="managing-azure-api-management-using-azure-automation"></a>Azure Automation을 사용하여 Azure API Management를 관리
 이 가이드에서는 Azure Automation 서비스 및 이를 사용하여 Azure API Management의 관리를 간소화하는 방법에 대해 소개합니다.
@@ -31,7 +31,7 @@ Azure Automation은 요구 사항에 맞게 크기가 조정되는 매우 안정
 Azure Automation에서 자동으로 실행되도록 클라우드 관리 작업을 이동하여 작업 오버헤드를 줄이고 IT 및 DevOps 직원들이 비즈니스 가치를 추가하는 작업에 집중할 수 있게 합니다.
 
 ## <a name="how-can-azure-automation-help-manage-azure-api-management"></a>Azure Automation을 통해 Azure API Management를 쉽게 관리하려면 어떻게 해야 하나요?
-API Management는 [Azure API Management API용 Windows PowerShell cmdlet](https://azure.microsoft.com/updates/full-set-of-windows-powershell-cmdlets-for-azure-api-management-api/)을 사용하여 Azure Automation에서 관리할 수 있습니다. Azure Automation 내에서 cmdlet을 사용하여 API Management 작업을 수행하도록 PowerShell 워크플로 스크립트를 작성할 수 있습니다. Azure Automation에서 이러한 cmdlet을 다른 Azure 서비스용 cmdlet과 연결하여 Azure 서비스와 타사 시스템 간의 복잡한 작업을 자동화할 수도 있습니다.
+API Management는 [Azure API Management API용 Windows PowerShell cmdlet](https://docs.microsoft.com/powershell/module/azurerm.apimanagement/?view=azurermps-5.5.0#api_management/)을 사용하여 Azure Automation에서 관리할 수 있습니다. Azure Automation 내에서 cmdlet을 사용하여 API Management 작업을 수행하도록 PowerShell 워크플로 스크립트를 작성할 수 있습니다. Azure Automation에서 이러한 cmdlet을 다른 Azure 서비스용 cmdlet과 연결하여 Azure 서비스와 타사 시스템 간의 복잡한 작업을 자동화할 수도 있습니다.
 
 다음은 Automation을 통해 API Management를 사용하는 몇 가지 예입니다.
 

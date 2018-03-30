@@ -1,8 +1,8 @@
 ---
-title: "Azure Log Analytics의 경고 관리 솔루션 | Microsoft Docs"
-description: "Log Analytics의 경고 관리 솔루션을 사용하여 환경의 모든 경고를 분석할 수 있습니다.  Log Analytics 내에서 생성된 경고를 통합하는 것 외에도, 연결된 System Center Operations Manager 관리 그룹에서 Log Analytics로 경고를 가져옵니다."
+title: Azure Log Analytics의 경고 관리 솔루션 | Microsoft Docs
+description: Log Analytics의 경고 관리 솔루션을 사용하여 환경의 모든 경고를 분석할 수 있습니다.  Log Analytics 내에서 생성된 경고를 통합하는 것 외에도, 연결된 System Center Operations Manager 관리 그룹에서 Log Analytics로 경고를 가져옵니다.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: c34916913915331020d9fc9789221f790b75a070
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 0d9028b821e4c488186143311c81bfa6d17908ff
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Azure Log Analytics의 경고 관리 솔루션
 
@@ -84,7 +84,7 @@ System Center Operations Manager 관리 그룹이 Log Analytics 작업 영역에
 
 | 자산 | 설명 |
 |:--- |:--- |
-| 형식 |*경고* |
+| 유형 |*경고* |
 | SourceSystem |*OpsManager* |
 | AlertContext |경고가 XML 형식으로 생성되게 하는 데이터 항목에 대한 세부 정보입니다. |
 | AlertDescription |경고에 대한 자세한 설명입니다. |
@@ -109,20 +109,6 @@ System Center Operations Manager 관리 그룹이 Log Analytics 작업 영역에
 다음 표는 이 솔루션에 의해 수집된 경고 레코드에 대한 샘플 로그 검색을 제공합니다. 
 
 | 쿼리 | 설명 |
-|:--- |:--- |
-| Type=Alert SourceSystem=OpsManager AlertSeverity=error TimeRaised>NOW-24HOUR |지난 24 시간 동안 발생한 중요한 알림 |
-| Type=Alert AlertSeverity=warning TimeRaised>NOW-24HOUR |지난 24 시간 동안 발생한 중요한 경고 |
-| Type=Alert SourceSystem=OpsManager AlertState!=Closed TimeRaised>NOW-24HOUR &#124; measure count() as Count by SourceDisplayName |지난 24 시간 동안 발생한 활성 경고를 가진 소스 |
-| Type=Alert SourceSystem=OpsManager AlertSeverity=error TimeRaised>NOW-24HOUR AlertState!=Closed |지난 24시간 동안 발생했고 여전히 활성화되어 있는 중요 경고 |
-| Type=Alert SourceSystem=OpsManager TimeRaised>NOW-24HOUR AlertState=Closed |지난 24시간 동안 발생했고 지금은 해결된 경고 |
-| Type=Alert SourceSystem=OpsManager TimeRaised>NOW-1DAY &#124; measure count() as Count by AlertSeverity |지난 1 일 동안 발생했고 심각도별로 그룹화된 경고 |
-| Type=Alert SourceSystem=OpsManager TimeRaised>NOW-1DAY &#124; sort RepeatCount desc |지난 1 일 동안 발생했고 반복 횟수 값별로 정렬된 경고 |
-
-
->[!NOTE]
-> 작업 영역을 [새 Log Analytics 쿼리 언어](log-analytics-log-search-upgrade.md)로 업그레이드한 경우에는 위의 쿼리가 다음과 같이 변경됩니다.
->
->| 쿼리 | 설명 |
 |:---|:---|
 | Alert &#124; where SourceSystem == "OpsManager" and AlertSeverity == "error" and TimeRaised > ago(24h) |지난 24 시간 동안 발생한 중요한 알림 |
 | Alert &#124; where AlertSeverity == "warning" and TimeRaised > ago(24h) |지난 24 시간 동안 발생한 중요한 경고 |
@@ -131,6 +117,7 @@ System Center Operations Manager 관리 그룹이 Log Analytics 작업 영역에
 | Alert &#124; where SourceSystem == "OpsManager" and TimeRaised > ago(24h) and AlertState == "Closed" |지난 24시간 동안 발생했고 지금은 해결된 경고 |
 | Alert &#124; where SourceSystem == "OpsManager" and TimeRaised > ago(1d) &#124; summarize Count = count() by AlertSeverity |지난 1 일 동안 발생했고 심각도별로 그룹화된 경고 |
 | Alert &#124; where SourceSystem == "OpsManager" and TimeRaised > ago(1d) &#124; sort by RepeatCount desc |지난 1 일 동안 발생했고 반복 횟수 값별로 정렬된 경고 |
+
 
 
 ## <a name="next-steps"></a>다음 단계

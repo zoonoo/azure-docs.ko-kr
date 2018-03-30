@@ -1,11 +1,11 @@
 ---
-title: "Logic Apps에서 Office 365 Outlook 커넥터 추가 | Microsoft Docs"
-description: "Office 365와 상호 작용할 수 있도록 Office 365 커넥터로 논리 앱을 만듭니다. 예: 연락처 및 일정 항목 만들기, 편집 및 업데이트."
-services: 
-documentationcenter: 
-author: MandiOhlinger
+title: Logic Apps에서 Office 365 Outlook 커넥터 추가 | Microsoft Docs
+description: 'Office 365와 상호 작용할 수 있도록 Office 365 커넥터로 논리 앱을 만듭니다. 예: 연락처 및 일정 항목 만들기, 편집 및 업데이트.'
+services: ''
+documentationcenter: ''
+author: ecfan
 manager: anneta
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: b2f6cc2c-bba2-493a-b0ba-841785462a80
 ms.service: logic-apps
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/18/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: 51b8e3de639b5cce954547adb77ff13b79ad6747
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: ea0b2f657f808bb6ba4bf427497955b9e520c669
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-office-365-outlook-connector"></a>Office 365 Outlook 커넥터 시작
 Office 365 Outlook 커넥터를 통해 Office 365에서 Outlook과 상호 작용할 수 있습니다. 이 커넥터를 사용하여 연락처 및 일정 항목을 만들기, 편집 및 업데이트하고 전자 메일을 가져오고 보내며 회신할 수도 있습니다.
@@ -30,7 +30,7 @@ Office 365 Outlook을 사용하여 다음을 수행합니다.
 * 새 전자 메일이 있거나 일정 항목이 업데이트될 때 트리거를 사용하여 워크플로를 시작합니다.
 * 전자 메일을 보내고 새 일정 이벤트를 만드는 등의 작업을 사용합니다. 예를 들어 Salesforce에 새 개체(트리거)가 있는 경우 Office 365 Outlook으로 전자 메일을 보냅니다(작업). 
 
-이 항목에서는 논리 앱에서 Office 365 Outlook 커넥터를 사용하는 방법을 보여 주고, 트리거 및 작업을 나열합니다.
+이 아티클에서는 논리 앱에서 Office 365 Outlook 커넥터를 사용하는 방법을 보여주고, 트리거 및 작업을 나열합니다.
 
 > [!NOTE]
 > 이 버전의 문서는 Logic Apps GA(일반 공급)에 적용됩니다.

@@ -1,23 +1,23 @@
 ---
-title: "Azure IoT Hub 클라우드-장치 메시징 이해 | Microsoft Docs"
-description: "개발자 가이드 - IoT Hub를 사용하여 클라우드-장치 메시징을 사용하는 방법입니다. 메시지 수명 주기 및 구성 옵션에 대한 정보를 포함합니다."
+title: Azure IoT Hub 클라우드-장치 메시징 이해 | Microsoft Docs
+description: 개발자 가이드 - IoT Hub를 사용하여 클라우드-장치 메시징을 사용하는 방법입니다. 메시지 수명 주기 및 구성 옵션에 대한 정보를 포함합니다.
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/06/2017
+ms.date: 03/15/2018
 ms.author: dobett
-ms.openlocfilehash: 1b34e579f2ba40f4d77f7a3ba1841f59f795d292
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: d265d35c7d5a394afa0e59f40ff1a5741e0ec35c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="send-cloud-to-device-messages-from-iot-hub"></a>IoT Hub에서 클라우드-장치 메시지 보내기
 
@@ -81,11 +81,11 @@ IoT Hub의 **최대 배달 횟수** 속성은 **큐에 넣음** 및 **숨김** �
 
 **Ack**가 **full**이고 피드백 메시지를 수신하지 못한 경우 피드백 메시지가 만료되었음을 의미합니다. 서비스는 원본 메시지에서 발생한 상황을 알지 못합니다. 실제로 서비스는 만료되기 전에 피드백을 처리할 수 있는지 확인해야 합니다. 오류가 발생한 경우 서비스를 다시 가동하는 시간을 남겨두는 최대 만료 시간이 2일로 지정되어 있습니다.
 
-[끝점][lnk-endpoints]에 설명된 대로 IoT Hub는 서비스 지향 끝점(**/messages/servicebound/feedback**)을 통해 피드백을 메시지로 전달합니다. 피드백 수신을 위한 의미 체계는 클라우드-장치 메시지의 경우와 같으며 동일한 [메시지 수명 주기][lnk-lifecycle]를 갖습니다. 가능한 경우 메시지 피드백은 다음 형식으로 단일 메시지에서 일괄 처리됩니다.
+[끝점][lnk-endpoints]에 설명된 대로 IoT Hub는 서비스 지향 끝점(**/messages/servicebound/feedback**)을 통해 피드백을 메시지로 전달합니다. 피드백 수신을 위한 의미 체계는 클라우드-장치 메시지의 경우와 같습니다. 가능한 경우 메시지 피드백은 다음 형식으로 단일 메시지에서 일괄 처리됩니다.
 
 | 자산     | 설명 |
 | ------------ | ----------- |
-| EnqueuedTime | 메시지를 만든 시간을 나타내는 타임스탬프입니다. |
+| EnqueuedTime | 허브에서 피드백 메시지를 받은 시기를 나타내는 타임스탬프입니다. |
 | UserId       | `{iot hub name}` |
 | ContentType  | `application/vnd.microsoft.iothub.feedback.json` |
 
@@ -93,7 +93,7 @@ IoT Hub의 **최대 배달 횟수** 속성은 **큐에 넣음** 및 **숨김** �
 
 | 자산           | 설명 |
 | ------------------ | ----------- |
-| EnqueuedTimeUtc    | 메시지의 결과가 발생하는 경우를 나타내는 타임스탬프입니다. 예를 들어 완료된 장치 또는 만료된 메시지입니다. |
+| EnqueuedTimeUtc    | 메시지의 결과가 발생하는 경우를 나타내는 타임스탬프입니다. 예를 들어 허브는 피드백 메시지 또는 원본 메시지가 만료되었음을 수신했습니다. |
 | OriginalMessageId  | 이 피드백 정보와 관련된 클라우드-장치 메시지의 **MessageId**입니다. |
 | StatusCode         | 필수 문자열 IoT Hub에 의해 생성된 피드백 메시지에서 사용됩니다. <br/> 'Success' <br/> 'Expired' <br/> 'DeliveryCountExceeded' <br/> 'Rejected' <br/> 'Purged' |
 | 설명        | **StatusCode**에 대한 문자열 값입니다. |

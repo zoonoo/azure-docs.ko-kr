@@ -1,11 +1,11 @@
 ---
-title: "예제 및 일반적인 시나리오 - Azure Logic Apps | Microsoft Docs"
-description: "예제, 시나리오, 자습서 및 연습을 통해 논리 앱에 대해 자세히 알아보세요."
+title: 예제 및 일반적인 시나리오 - Azure Logic Apps | Microsoft Docs
+description: 예제, 시나리오, 자습서 및 연습을 통해 논리 앱에 대해 자세히 알아보세요.
 services: logic-apps
 author: jeffhollan
 manager: anneta
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 ms.assetid: e06311bc-29eb-49df-9273-1f05bbb2395c
 ms.service: logic-apps
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: logic-apps
 ms.date: 01/31/18
 ms.author: LADocs; jehollan
-ms.openlocfilehash: b979096731caa7513c02a9fb398c14da4d4819ae
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 02690284e5487dba8e5fb5d973958f944bfa339f
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Azure Logic Apps의 일반적인 시나리오, 예제, 자습서 및 연습
 
@@ -81,7 +81,7 @@ ms.lasthandoff: 03/05/2018
 
 Visual Studio, Visual Studio Team Services 또는 기타 소스 제어 및 자동화된 빌드 도구를 사용하여 논리 앱을 완전하게 개발 및 배포할 수 있습니다. 리소스 템플릿에서 워크플로 및 종속 연결에 대한 배포를 지원하기 위해 논리 앱은 Azure 리소스 배포 템플릿을 사용합니다. Visual Studio 도구는 이러한 템플릿을 자동으로 생성하므로 버전 관리를 위해 소스 제어에 체크인할 수 있습니다.
 
-* [Visual Studio의 논리 앱 빌드 및 배포](../logic-apps/logic-apps-deploy-from-vs.md)
+* [Visual Studio에서 논리 앱 만들기 및 배포](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)
 * [기존 논리 앱에 대한 모니터링, 로깅 및 경고 켜기](../logic-apps/logic-apps-monitor-your-logic-apps.md)
 * [자동화된 배포 템플릿 만들기](../logic-apps/logic-apps-create-deploy-template.md)
 
@@ -91,7 +91,7 @@ Azure Logic Apps [워크플로 정의 언어](http://aka.ms/logicappsdocs)의 �
 
 * [논리 앱에서 워크플로 식이 작동하는 방식](../logic-apps/logic-apps-author-definitions.md)
 * [비JSON 콘텐츠 형식 처리](../logic-apps/logic-apps-content-type.md)(`application/xml`, `application/octet-stream` 및 `multipart/formdata`)
-* [참조: Azure Logic Apps 워크플로 정의 언어](http://aka.ms/logicappsdocs)
+* [Azure Logic Apps에 대한 워크플로 정의 언어 스키마](http://aka.ms/logicappsdocs)
 
 ## <a name="other-integrations-and-capabilities"></a>기타 통합 및 기능
 

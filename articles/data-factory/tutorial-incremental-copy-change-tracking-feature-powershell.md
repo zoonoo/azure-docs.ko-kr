@@ -1,11 +1,11 @@
 ---
-title: "변경 내용 추적 및 Azure Data Factory를 사용하여 데이터 증분 복사 | Microsoft Docs"
-description: "이 자습서에서는 델타 데이터를 증분 방식으로 온-프레미스 SQL Server 데이터베이스의 여러 테이블에서 Azure SQL 데이터베이스로 복사하는 Azure Data Factory 파이프라인을 만듭니다. "
+title: 변경 내용 추적 및 Azure Data Factory를 사용하여 데이터 증분 복사 | Microsoft Docs
+description: '이 자습서에서는 델타 데이터를 증분 방식으로 온-프레미스 SQL Server 데이터베이스의 여러 테이블에서 Azure SQL 데이터베이스로 복사하는 Azure Data Factory 파이프라인을 만듭니다. '
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 69a2967be1709c3b3e3bd9fa5854482ecc5e3aba
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: d8299778ce5b713f4275a28c7f174a300197a6a2
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>변경 내용 추적 정보를 사용하여 Azure SQL Database에서 Azure Blob Storage로 데이터 증분 로드 
 이 자습서에서는 원본 Azure SQL 데이터베이스의 **변경 내용 추적** 정보를 기반으로 Azure Blob 저장소에 델타 데이터를 로드하는 파이프라인이 있는 Azure 데이터 팩터리를 만듭니다.  
@@ -26,8 +26,8 @@ ms.lasthandoff: 02/21/2018
 
 > [!div class="checklist"]
 > * 원본 데이터 저장소를 준비합니다.
-> * 데이터 팩터리 만들기
-> * 연결된 서비스 만들기 
+> * 데이터 팩터리를 만듭니다.
+> * 연결된 서비스 만들기. 
 > * 원본, 싱크 및 변경 내용 추적 데이터 집합을 만듭니다.
 > * 전체 복사 파이프라인을 생성, 실행 및 모니터링합니다.
 > * 원본 테이블의 데이터를 추가 또는 업데이트합니다.

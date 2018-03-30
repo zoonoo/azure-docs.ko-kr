@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/08/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: e6b2d6e31a843259001a36ffb8c588c879a3f2b9
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: a2f46aba80ad47335b7cd9b5e8d615c1d895cccb
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="volumes-with-azure-disks"></a>Azure 디스크가 포함된 볼륨
 
@@ -56,7 +56,7 @@ az disk create \
 /subscriptions/<subscriptionID>/resourceGroups/MC_myAKSCluster_myAKSCluster_eastus/providers/Microsoft.Compute/disks/myAKSDisk
 ```
 
-## <a name="mount-file-share-as-volume"></a>파일 공유를 볼륨으로 탑재
+## <a name="mount-disk-as-volume"></a>볼륨으로 디스크 탑재
 
 컨테이너 사양에서 볼륨을 구성하여 Azure 디스크를 pod에 탑재합니다. 
 

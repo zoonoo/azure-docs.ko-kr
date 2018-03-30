@@ -1,9 +1,9 @@
 ---
-title: "Azure 관리 그룹으로 리소스 구성 | Microsoft Docs"
-description: "관리 그룹 및 사용 방법에 대해 알아봅니다."
+title: Azure 관리 그룹으로 리소스 구성 | Microsoft Docs
+description: 관리 그룹 및 사용 방법에 대해 알아봅니다.
 author: rthorn17
 manager: rithorn
-editor: 
+editor: ''
 ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
 ms.service: azure-resource-manager
 ms.devlang: na
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: rithorn
-ms.openlocfilehash: 1264bf77b6d922f5beb22177d1ac63efa9386ef2
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: a86fc568a0c7f4ada0b853cda8a7b2e06ed7dfcb
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Azure 관리 그룹으로 리소스 구성 
 
-여러 구독이 있는 경우 "관리 그룹"이라는 컨테이너로 구성하여 구독 전반에서 액세스, 정책 및 규정 준수를 보다 편리하게 관리할 수 있습니다. 관리 그룹은 어떤 형식의 구독을 사용하든 관계 없이 대규모의 엔터프라이즈급 관리를 제공합니다.  
+조직에 구독이 많으면 구독에 대한 액세스, 정책 및 준수를 효율적으로 관리하는 방법이 필요할 수 있습니다. Azure 관리 그룹은 구독 상위 수준의 범위를 제공합니다. "관리 그룹"이라는 컨테이너에 구독을 구성하고 거버넌스 조건을 관리 그룹에 적용합니다. 관리 그룹에 속하는 모든 구독은 관리 그룹에 적용되는 조건을 자동으로 상속합니다. 관리 그룹은 어떤 형식의 구독을 사용하든 관계 없이 대규모의 엔터프라이즈급 관리를 제공합니다.
 
 관리 그룹 기능은 공개 미리 보기에서 사용할 수 있습니다. 관리 그룹을 사용하려면 [Azure Portal](https://portal.azure.com)에 로그인하고 **모든 서비스** 섹션에서 **관리 그룹**을 검색합니다. 
 

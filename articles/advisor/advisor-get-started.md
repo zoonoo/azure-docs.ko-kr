@@ -1,12 +1,12 @@
 ---
-title: "Azure Advisor 시작 | Microsoft Docs"
-description: "Azure Adviser를 시작합니다."
+title: Azure Advisor 시작 | Microsoft Docs
+description: Azure Adviser를 시작합니다.
 services: advisor
 documentationcenter: NA
 author: manbeenkohli
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: advisor
 ms.devlang: NA
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/10/2017
 ms.author: makohli
-ms.openlocfilehash: 5a7864597e50294c8e1227cbab7a3be73dde0a7f
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: cd64515beabec43a5209d62dccf2b55b21702c16
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="get-started-with-azure-advisor"></a>Azure Adviser 시작
 
@@ -35,10 +35,7 @@ Azure Portal을 통해 Advisor에 액세스하고, 권장 사항을 검색하고
 
 4. Advisor 대시보드에는 선택한 모든 구독에 대한 권장 사항 요약이 표시됩니다.  구독 필터 드롭다운을 사용하여 권장 사항을 표시할 구독을 선택할 수 있습니다.
 
-5. 특정 범주에 대한 권장 사항을 얻으려면 **고가용성**, **보안**, **성능** 또는 **비용** 탭 중 하나를 클릭합니다.
- 
-> [!NOTE]
-> Azure Advisor를 구독과 함께 사용하려면 구독 *소유자*가 Advisor 대시보드를 시작해야 합니다.  이 작업은 Advisor에 구독을 등록합니다.  이 시점부터는 구독 *소유자*, *참여자* 또는 *읽기 권한자*가 구독에 대한 Advisor 권장 사항에 액세스할 수 있습니다.  
+5. 특정 범주에 대한 권장 사항을 얻으려면 **고가용성**, **보안**, **성능** 또는 **비용** 탭 중 하나를 클릭합니다. 
 
   ![Azure Advisor 대시보드](./media/advisor-overview/advisor-dashboard.png)
 

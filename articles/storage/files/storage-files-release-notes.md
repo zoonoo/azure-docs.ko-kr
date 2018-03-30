@@ -1,24 +1,18 @@
 ---
-title: "Azure File Sync 에이전트(미리 보기)에 대한 릴리스 정보 | Microsoft Docs"
-description: "Azure File Sync 에이전트(미리 보기)에 대한 릴리스 정보"
+title: Azure File Sync 에이전트(미리 보기)에 대한 릴리스 정보 | Microsoft Docs
+description: Azure File Sync 에이전트(미리 보기)에 대한 릴리스 정보
 services: storage
-documentationcenter: 
 author: wmgries
-manager: klaasl
-editor: tamram
-ms.assetid: 
+manager: jeconnoc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: get-started-article
-ms.date: 10/08/2017
+ms.topic: article
+ms.date: 03/12/2018
 ms.author: wgries
-ms.openlocfilehash: fabfb02a199744c63c3a2191589fd450cfdd0304
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: b42287580078b4391ddbc5b8ff2835131c64236d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent-preview"></a>Azure File Sync 에이전트(미리 보기)에 대한 릴리스 정보
 Azure File Sync를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 희생하지 않고 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Windows Server 설치는 Azure 파일 공유의 빠른 캐시로 변환됩니다. 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다(SMB, NFS 및 FTPS 포함). 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -28,14 +22,25 @@ Azure File Sync를 사용하여 온-프레미스 파일 서버의 유연성, 성
 ## <a name="supported-versions"></a>지원되는 버전
 다음 버전은 Azure File Sync 에이전트에 대해 지원됩니다.
 
-| 버전 | 릴리스 날짜 | 지원 종료 날짜 |
-|---------|--------------|------------------|
-| 2.1.0.0 | 2018년 2월 28일 | 현재 버전 |
-| 2.0.11.0 | 2018년 2월 8일 | 현재 버전 |
-| 1.1.0.0 | 2017년 9월 26일 | 2018년 7월 30일 |
+| Milestone | 에이전트 버전 번호 | 릴리스 날짜 | 상태 |
+|----|----------------------|--------------|------------------|
+| 3월 업데이트 롤업 | 2.2.0.0 | 2018년 3월 12일 | 지원됨(권장 버전) |
+| 2월 업데이트 롤업 | 2.1.0.0 | 2018년 2월 28일 | 지원됨 |
+| 새로 고침 1 | 2.0.11.0 | 2018년 2월 8일 | 지원됨 |
+| 1월 업데이트 롤업 | 1.4.0.0 | 2018년 1월 8일 | 2018년 5월 8일까지 지원<sup>1</sup> |
+| 11월 업데이트 롤업 | 1.3.0.0 | 2017년 11월 30일 | 2018년 5월 8일까지 지원<sup>1</sup> |
+| 10월 업데이트 롤업 | 1.2.0.0 | 2017년 10월 31일 | 2018년 5월 8일까지 지원<sup>1</sup> |
+| 초기 미리 보기 릴리스 | 1.1.0.0 | 2017년 9월 26일 | 2018년 5월 8일까지 지원<sup>1</sup> |
+
+\[1\]: 미리 보기 기간 동안 Azure File Sync 에이전트의 릴리스는 의도적으로 업데이트 정책을 준수하지 않습니다. 업데이트 정책은 Azure File Sync가 일반적으로 사용 가능한 것으로 선언된 후 첫 번째 에이전트 릴리스부터 적용됩니다.
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Azure 파일 동기화 에이전트 업데이트 정책
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
+
+## <a name="agent-version-2200"></a>에이전트 버전 2.2.0.0
+다음 릴리스 정보는 2018년 3월 12일 릴리스된 Azure File Sync 에이전트의 버전 2.2.0.0에 대한 것입니다.  이러한 정보는 버전 2.1.0.0 및 2.0.11.0에 대해 나열된 릴리스 정보에 대한 추가입니다.
+
+일부 고객에 대한 v2.1.0.0의 설치는 FileSyncSvc의 비중지로 인해 실패합니다. 이 업데이트에는 해당 문제를 해결합니다.
 
 ## <a name="agent-version-2100"></a>에이전트 버전 2.1.0.0
 다음 릴리스 정보는 2018년 2월 28일 릴리스된 Azure File Sync 에이전트의 버전 2.1.0.0에 대한 것입니다. 이러한 정보는 버전 2.0.11.0에 대해 나열된 릴리스 정보에 대한 추가입니다.

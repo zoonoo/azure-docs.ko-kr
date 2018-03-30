@@ -1,6 +1,6 @@
 ---
-title: "2017년 11월 1일, 스프린트 1에 대한 Azure ML Workbench 릴리스 정보"
-description: "이 문서에서는 Azure ML의 스프린트 1 릴리스에 대한 업데이트를 자세히 설명합니다."
+title: 2017년 11월 1일, 스프린트 1에 대한 Azure ML Workbench 릴리스 정보
+description: 이 문서에서는 Azure ML의 스프린트 1 릴리스에 대한 업데이트를 자세히 설명합니다.
 services: machine-learning
 author: hning86
 ms.author: haining
@@ -11,10 +11,10 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 11/06/2017
 ms.openlocfilehash: a4945c77be5763ffeda328184149f712572937c0
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 03/27/2018
 ---
 # <a name="sprint-1---november-2017"></a>스프린트 1 - 2017년 11월 
 
@@ -112,7 +112,7 @@ ms.lasthandoff: 11/16/2017
 - 더 쉬운 디버깅을 위해 커널 오류가 Notebook 작업 상태에 표시됩니다.
 - 사용자가 앱에서 로그아웃할 때 Jupyter 서버가 제대로 종료됩니다.
 
-### <a name="azure-portal"></a>Azure 포털
+### <a name="azure-portal"></a>Azure portal
 - 유럽 서부와 동남 아시아의 새로운 두 Azure 지역에서 실험 계정과 모델 관리 계정을 만들 수 있습니다.
 - 모델 관리 계정 DevTest 계획은 구독에서 처음 만드는 경우에만 사용할 수 있습니다. 
 - Azure Portal의 [도움말] 링크에서 올바른 설명서 페이지를 가리키도록 업데이트되었습니다.

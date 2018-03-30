@@ -1,8 +1,8 @@
 ---
-title: "Azure Cost Management 개요 | Microsoft Docs"
-description: "Azure Cost Management는 Azure 및 다른 클라우드 리소스를 사용하는 데 도움이 되는 다중 클라우드 비용 관리 솔루션입니다."
+title: Azure Cost Management 개요 | Microsoft Docs
+description: Azure Cost Management는 Azure 및 다른 클라우드 리소스를 사용하는 데 도움이 되는 다중 클라우드 비용 관리 솔루션입니다.
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 01/30/2018
@@ -10,17 +10,17 @@ ms.topic: overview
 ms.service: cost-management
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: e2f12a989eb275e645c8b3bde3494928c5cbdb47
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 3e5caff5ff1af79154baddf39bf465ddea5aadae
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="what-is-azure-cost-management"></a>Azure Cost Management란?
 
 Microsoft 자회사인 Cloudyn에서 라이선스를 부여한 Azure Cost Management를 사용하면 Azure 리소스와 AWS 및 Google을 포함한 다른 클라우드 공급자에 대한 클라우드 사용량 및 비용을 추적할 수 있습니다. 이해하기 쉬운 대시보드 보고서는 비용 할당 및 쇼백/환불을 도울 수 있습니다. Cost Management를 통해 관리하고 조정할 수 있는 사용률이 낮은 리소스를 식별하여 클라우드 소비를 최적화할 수 있습니다.
 
-소개 비디오를 시청하려면 [Azure Cost Management 소개](https://youtu.be/NWIRny6Wpsk)를 참조하세요.
+소개 비디오를 시청하려면 [Azure Cost Management 소개](https://azure.microsoft.com/en-us/resources/videos/azure-cost-management-overview-and-demo)를 참조하세요.
 
 ## <a name="monitor-usage-and-spending"></a>사용량 및 소비 모니터링
 
