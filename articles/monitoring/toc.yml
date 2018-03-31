@@ -1,5 +1,5 @@
 - name: Azure 모니터링 설명서
-  href: management-overview-monitoring.md
+  href: index.md
 - name: 개요
   items:
     - name: Azure에서 모니터링
