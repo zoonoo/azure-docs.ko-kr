@@ -8,6 +8,7 @@
 # 시작
 ## [경로 기반 VPN 게이트웨이 만들기 - Azure Portal](create-routebased-vpn-gateway-portal.md)
 ## [경로 기반 VPN 게이트웨이 만들기 - PowerShell](create-routebased-vpn-gateway-powershell.md)
+## [경로 기반 VPN Gateway 만들기 - CLI](create-routebased-vpn-gateway-cli.md)
 
 # 개념
 ## [VPN Gateway 계획 및 설계](vpn-gateway-plan-design.md)

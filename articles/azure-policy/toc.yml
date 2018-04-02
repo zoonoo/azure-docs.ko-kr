@@ -25,6 +25,10 @@
   items:
     - name: Azure Policy 정의 구조
       href: policy-definition.md
+- name: 방법 가이드
+  items:
+    - name: 프로그래밍 방식으로 정책 만들기
+      href: policy-insights.md
 - name: 참고 자료
   items:
     - name: Azure CLI
