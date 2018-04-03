@@ -1,6 +1,6 @@
 ---
-title: API 버전 프로필을 사용 하 여 Azure 스택의 | Microsoft Docs
-description: Azure 스택에서 API 버전 프로필에 알아봅니다.
+title: API 버전 프로필을 사용 하 여 Azure 스택의 powershell | Microsoft Docs
+description: API 버전 프로필을 사용 하 여 스택에서 Azure PowerShell을 사용 하는 방법을 알아봅니다.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -14,13 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: mabrigg
-ms.openlocfilehash: 68f4250c2a2a6bed1a1e21dc444e93cc87b6f59b
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.reviewer: sijuman
+ms.openlocfilehash: 890237ff40f9c9893c57f49c96e6ddc99849c2bd
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/03/2018
 ---
-# <a name="manage-api-version-profiles-in-azure-stack"></a>Azure 스택에서 API 버전 프로필을 관리
+# <a name="use-api-version-profiles-for-powershell-in-azure-stack"></a>Azure 스택에서 PowerShell에 대 한 API 버전 프로필을 사용 하 여
 
 *적용 대상: Azure 스택 통합 시스템과 Azure 스택 개발 키트*
 
@@ -114,4 +115,4 @@ Uninstall-AzureRmProfile -Profile 2017-03-09-profile
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure Stack용 PowerShell 설치](azure-stack-powershell-install.md)
-* [Azure 스택 사용자의 PowerShell 환경 구성](user/azure-stack-powershell-configure-user.md)  
+* [Azure 스택 사용자의 PowerShell 환경 구성](azure-stack-powershell-configure-user.md)  

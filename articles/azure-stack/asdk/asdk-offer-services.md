@@ -1,26 +1,26 @@
 ---
-title: "이 자습서에서는 Azure 스택 제공 만들 | Microsoft Docs"
-description: "계획 및 할당량을 비롯 한 Azure 스택 제공을 만드는 방법에 알아봅니다."
+title: 이 자습서에서는 Azure 스택 제공 만들 | Microsoft Docs
+description: 계획 및 할당량을 비롯 한 Azure 스택 제공을 만드는 방법에 알아봅니다.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 03/16/2018
+ms.date: 03/27/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 083b5e20b89f22cb8e523926858fe9ffb1441319
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 8bcc2f3077e79ff83ac2e90db0bb0fa53ae83adc
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="tutorial-offer-azure-stack-iaas-services"></a>자습서: Azure 스택 IaaS 서비스를 제공 합니다.
 Azure 스택 클라우드 관리자 (테 넌 트 라고도 함) 사용자가 구독할 수 있는 서비스를 만들 수 있습니다. 구독을 사용 하 여 사용자가 Azure 스택 서비스를 사용할 수 있습니다.
@@ -112,14 +112,24 @@ Azure 스택 서비스 구독, 이벤트, 및 계획을 사용 하 여 사용자
 > 제품에 대 한 변경 내용을 사용자에 게 즉시 표시 되지 않습니다. 변경 내용을 보려면, 사용자가 로그 아웃 및 로그인을 다시 해야 할 수는 [사용자 포털](https://portal.local.azurestack.external) 에 새 제품을 볼 수 있습니다.
 
 설정 하려면 새 제안을 public에: 
+   - 1803 이상 버전: 
+     1. 대시보드 메뉴를 클릭 **제공** 다음 만든 제품을 클릭 합니다.
 
-1. 대시보드 메뉴를 클릭 **제공** 다음 만든 제품을 클릭 합니다.
+     2. 클릭 **내게 필요한 옵션 상태**, 클릭 하 고 **공용**합니다.
 
-2. 클릭 **상태 변경**, 클릭 하 고 **공용**합니다.
+        ![상태 변경](media/asdk-offer-services/change-state.png)
 
-   ![공개 상태](media/asdk-offer-services/set-public.png)
+     3. 제안을은 Azure 스택 사용자 포털에서 제공 됩니다.
 
-3. 제안을은 Azure 스택 사용자 포털에서 제공 됩니다.
+
+   - 이전 버전 1803:  
+     1. 대시보드 메뉴를 클릭 **제공** 다음 만든 제품을 클릭 합니다.
+
+     2. 클릭 **상태 변경**, 클릭 하 고 **공용**합니다.
+
+        ![공개 상태](media/asdk-offer-services/set-public.png)
+
+     3. 제안을은 Azure 스택 사용자 포털에서 제공 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

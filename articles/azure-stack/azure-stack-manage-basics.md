@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 03/30/2018
 ms.author: mabrigg
-ms.openlocfilehash: 799651caf937ca2bafc79dc76f99ae43e700673a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: df4a5a17ad034ae5d6ab82791c020634a8758b71
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-stack-administration-basics"></a>Azure 스택 관리 기본 사항
 처음 사용 Azure 스택 관리 하는 경우 알아야 할 몇 가지 있습니다. 이 지침은 Azure 스택 운영자 사용자 역할에 대 한 개요 및 생산성을 높이려는 신속 하 게 해당 항목에 대 한 사용자에 게 알릴 사항 제공 합니다.
@@ -31,9 +31,9 @@ Azure 스택 통합 시스템을 사용 하는 경우 업데이트 된 버전의
  
 ### <a name="development-kit"></a>개발 키트
 
-Azure 스택 개발 키트를 사용 하는 경우 참조는 [Azure 스택 란?](azure-stack-poc.md) 문서를 개발 키트 및 제한 사항의 용도 이해 하 고 있는지 확인 합니다. "샌드박스" 수 계산 Azure 스택 및 개발 하 고 있는 비-프로덕션 환경에서 앱을 테스트 개발 키트를 사용 해야 합니다. (배포 정보에 대 한 참조는 [Azure 스택 개발 키트 배포](azure-stack-deploy-overview.md) 빠른 시작 합니다.)
+Azure 스택 개발 키트를 사용 하는 경우 참조는 [Azure 스택 란?](.\asdk\asdk-what-is.md) 문서를 개발 키트 및 제한 사항의 용도 이해 하 고 있는지 확인 합니다. "샌드박스" 수 계산 Azure 스택 및 개발 하 고 있는 비-프로덕션 환경에서 앱을 테스트 개발 키트를 사용 해야 합니다. (배포 정보에 대 한 참조는 [Azure 스택 개발 키트 배포](.\asdk\asdk-deploy.md) 자습서입니다.)
 
-Azure와 같은 우리 혁신 신속 하 게 합니다. 새 빌드를 정기적으로 릴리스 합니다 했습니다. 개발 키트를 실행 하는 경우 수행 해야 최신 빌드를 이동 하려면 [Azure 스택 재배포](azure-stack-redeploy.md)합니다. 업데이트 패키지를 적용할 수 없습니다. 이 프로세스는 시간이 소요 되지만 기능은 최신 기능을 사용해 시도할 수 있습니다. 개발 키트 설명서 웹 사이트에서 최신 릴리스 빌드를 반영합니다.
+Azure와 같은 우리 혁신 신속 하 게 합니다. 새 빌드를 정기적으로 릴리스 합니다 했습니다. 개발 키트를 실행 하는 경우 수행 해야 최신 빌드를 이동 하려면 [Azure 스택 재배포](.\asdk\asdk-redeploy.md)합니다. 업데이트 패키지를 적용할 수 없습니다. 이 프로세스는 시간이 소요 되지만 기능은 최신 기능을 사용해 시도할 수 있습니다. 개발 키트 설명서 웹 사이트에서 최신 릴리스 빌드를 반영합니다.
 
 ## <a name="learn-about-available-services"></a>사용 가능한 서비스에 대 한 자세한 내용은
 
@@ -63,6 +63,18 @@ Azure와 같은 우리 혁신 신속 하 게 합니다. 새 빌드를 정기적�
 **서비스 로드맵**
 
 Azure 서비스에 대 한 지원을 추가 하려면 azure 스택 계속 됩니다. 프로젝션 된 로드맵에 대 한 참조는 [Azure 스택: Azure의 확장](https://go.microsoft.com/fwlink/?LinkId=842846&clcid=0x409) 백서입니다. 모니터링할 수도 있습니다는 [Azure 스택 블로그 게시물](https://azure.microsoft.com/blog/tag/azure-stack-technical-preview) 새 공지에 대 한 합니다.
+
+## <a name="what-account-should-i-use"></a>사용할 계정은?
+Azure 스택을 관리할 때 알고 있어야 하는 몇 가지 계정 고려 사항이 있습니다. 특히 배포에서는 Windows Server Active Directory Federation Services (AD FS)를 사용 하 여 Azure Active Directory (Azure AD) 대신 id 공급자로 합니다. 다음 계정 고려 사항 통합 Azure 스택 시스템과 ASDK 배포 모두에 적용 됩니다.
+
+
+|계좌|Azure AD|AD FS|
+|-----|-----|-----|
+|로컬 관리자 (. \Administrator)|ASDK 호스트 관리자|ASDK 호스트 관리자|
+|AzureStack\AzureStackAdmin|ASDK 호스트 관리자<br><br>Azure 스택 관리 포털에 로그인 할 수 있습니다.<br><br>보기 및 관리 서비스 패브릭 링에 대 한 액세스|ASDK 호스트 관리자<br><br>Azure 스택 관리 포털에 액세스할 수 없습니다<br><br>보기 및 관리 서비스 패브릭 링에 대 한 액세스<br><br>더 이상 기본 공급자 구독 (DP)의 소유자|
+|AzureStack\CloudAdmin|에 액세스 하 고 권한 있는 끝점 내에서 허용 된 명령을 실행할 수 있습니다.|에 액세스 하 고 권한 있는 끝점 내에서 허용 된 명령을 실행할 수 있습니다.<br><br>ASDK 호스트에 로그인 할 수 없습니다.<br><br>기본 공급자 구독 (DP)의 소유자|
+|Azure AD 전역 관리자|설치 중에 사용<br><br>기본 공급자 구독 (DP)의 소유자|해당 없음|
+|
 
 ## <a name="what-tools-do-i-use-to-manage"></a>관리 도구에 대해 사용 합니까?
  
