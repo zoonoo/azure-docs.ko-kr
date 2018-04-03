@@ -1,23 +1,23 @@
 ---
-title: "Azure Files을 Azure로 백업"
-description: "이 문서에서는 Azure 파일 공유를 백업 및 복원하는 방법과 관리 작업에 대해 설명합니다."
+title: Azure Files을 Azure로 백업
+description: 이 문서에서는 Azure 파일 공유를 백업 및 복원하는 방법과 관리 작업에 대해 설명합니다.
 services: backup
-keywords: "SEO champ와 상담하지 않고 키워드를 추가하거나 편집하지 마세요."
+keywords: SEO champ와 상담하지 않고 키워드를 추가하거나 편집하지 마세요.
 author: markgalioto
 ms.author: markgal
-ms.date: 2/21/2018
+ms.date: 3/23/2018
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: b9bf1582aa1c1b8878b8426f60a18282598eb2b9
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: ba457daca030d3219fe32177b0b5f8b5565ff544
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="back-up-azure-file-shares"></a>Azure 파일 공유 백업
+# <a name="back-up-azure-file-shares-preview"></a>Azure 파일 공유 백업(미리 보기)
 
-이 문서에서는 [Azure 파일 공유](../storage/files/storage-files-introduction.md)를 백업하는 방법을 설명합니다.
+이 문서에서는 Azure Portal을 사용하여 Azure에서 [Azure 파일 공유](../storage/files/storage-files-introduction.md)를 백업 및 복원하는 방법을 설명합니다.
 
 이 가이드에서는 다음 작업 방법을 배웁니다.
 > [!div class="checklist"]
@@ -30,6 +30,16 @@ ms.lasthandoff: 02/22/2018
 
 ## <a name="prerequisites"></a>필수 조건
 Azure 파일 공유를 백업하려면 파일 공유가 [지원되는 저장소 계정 유형](troubleshoot-azure-files.md#preview-boundaries) 중 하나에 있는지 확인합니다. 이를 확인한 후에는 파일 공유를 보호할 수 있습니다.
+
+## <a name="limitations-for-azure-file-share-backup-during-preview"></a>Azure 파일 공유 백업 미리 보기의 제한 사항
+Azure Files 백업은 미리 보기입니다. 미리 보기인 동안에는 다음과 같은 제한이 있습니다.
+- 저장소 계정에서 [ZRS(영역 중복 저장소)](../storage/common/storage-redundancy.md#zone-redundant-storage) 또는 [RA-GRS(읽기 액세스 지역 중복 저장소)](../storage/common/storage-redundancy.md#read-access-geo-redundant-storage) 복제를 사용하여 파일 공유를 보호할 수 없습니다.
+- Virtual Networks를 사용하도록 설정된 저장소 계정에서 파일 공유를 보호할 수 없습니다.
+- Azure Files 보호에 PowerShell 또는 CLI를 사용할 수 없습니다.
+- 일별 최대 예약 백업의 수는 1개입니다.
+- 일별 최대 주문형 백업의 수는 4개입니다.
+- 저장소 계정에서 [리소스 잠금](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest)을 사용하면 Recovery Services 자격 증명 모음에서 Backup이 실수로 삭제되는 것을 방지할 수 있습니다.
+- Azure Backup으로 생성된 스냅숏은 삭제하지 마십시오. 스냅숏을 삭제하면 복구 지점이 손실되거나 복원이 실패할 수 있습니다. 
 
 ## <a name="configuring-azure-file-shares-backup"></a>Azure 파일 공유 백업 구성
 

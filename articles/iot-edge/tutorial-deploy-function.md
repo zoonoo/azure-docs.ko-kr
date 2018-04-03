@@ -1,8 +1,8 @@
 ---
-title: "Azure IoT Edge를 사용하여 Azure 함수 배포 | Microsoft Docs"
-description: "Azure 함수를 모듈로 Edge 장치에 배포"
+title: Azure IoT Edge를 사용하여 Azure 함수 배포 | Microsoft Docs
+description: Azure 함수를 모듈로 Edge 장치에 배포
 services: iot-edge
-keywords: 
+keywords: ''
 author: kgremban
 manager: timlt
 ms.author: v-jamebr
@@ -10,11 +10,11 @@ ms.date: 11/15/2017
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 1dfe46d307a076ae02362c4bba292602001ed915
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: a43ae8f28fc32b61fb5db985ffae98f093293798
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="deploy-azure-function-as-an-iot-edge-module---preview"></a>Azure 함수를 IoT Edge 모듈로 배포 - 미리 보기
 비즈니스 논리를 직접 IoT Edge 장치에 구현하는 코드를 배포하려면 Azure Functions를 사용할 수 있습니다. 이 자습서에서는 “[Windows][lnk-tutorial1-win] 또는 [Linux][lnk-tutorial1-lin]에서 시뮬레이트된 장치에 Azure IoT Edge 배포” 자습서에서 만든 IoT Edge 장치에서 센서 데이터를 필터링하는 Azure 함수를 만들고 배포하는 과정을 안내합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.     
@@ -141,7 +141,7 @@ ms.lasthandoff: 12/09/2017
    docker login -u <username> -p <password> <Login server>
    ```
         
-   이 명령에서 사용할 사용자 이름, 암호 및 로그인 서버를 찾으려면 [Azure Portal](https://portal.azure.com)로 이동합니다. **모든 리소스**에서 Azure Container Registry에 대한 타일을 클릭하여 속성을 연 다음 **액세스 키**를 클릭합니다. **사용자 이름**, **암호** 및 **로그인 서버** 필드의 값을 복사합니다. 
+   이 명령에서 사용할 사용자 이름, 암호 및 로그인 서버를 찾으려면 [Azure Portal](https://portal.azure.com))로 이동합니다. **모든 리소스**에서 Azure Container Registry에 대한 타일을 클릭하여 속성을 연 다음 **액세스 키**를 클릭합니다. **사용자 이름**, **암호** 및 **로그인 서버** 필드의 값을 복사합니다. 
 
 3. Docker 리포지토리에 이미지를 푸시합니다. **보기** > **명령 팔레트...**를 선택한 후 **Edge: IoT Edge 모듈 Docker 이미지 푸시**를 검색합니다.
 4. 팝업 텍스트 상자에 1.d 단계에서 사용한 것과 같은 이미지 이름을 입력합니다.
@@ -174,9 +174,9 @@ Edge 장치를 실행 중인 컴퓨터의 Edge 런타임에 레지스트리의 �
 1. **filterFunction** 모듈을 추가합니다.
     1. **IoT Edge 모듈 추가**를 다시 선택합니다.
     2. **이름** 필드에 `filterFunction`을 입력합니다.
-    3. **이미지** 필드에 이미지 주소(예: `<docker registry address>/filterfunction:latest`)를 입력합니다.
-    74. **Save**를 클릭합니다.
-2. **다음**을 누릅니다.
+    3. **이미지 URI** 필드에 이미지 주소(예: `<your container registry address>/filtermodule:0.0.1-amd64`)를 입력합니다. 전체 이미지 주소는 이전 섹션에서 찾을 수 있습니다.
+    74. **저장**을 클릭합니다.
+2. **다음**을 클릭합니다.
 3. **경로 지정** 단계에서 다음 JSON을 텍스트 상자에 복사합니다. 첫 번째 경로는 “input1” 끝점을 통해 온도 센서에서 필터 모듈로 메시지를 전송합니다. 두 번째 경로는 필터 모듈에서 IoT Hub로 메시지를 전송합니다. 이 경로에서 `$upstream`은 메시지를 IoT Hub로 보내라고 Edge Hub에 알리는 특수 대상입니다. 
 
     ```json
@@ -188,7 +188,7 @@ Edge 장치를 실행 중인 컴퓨터의 Edge 런타임에 레지스트리의 �
     }
     ```
 
-4. **다음**을 누릅니다.
+4. **다음**을 클릭합니다.
 5. **템플릿 검토** 단계에서 **제출**을 클릭합니다. 
 6. IoT Edge 장치 세부 정보 페이지로 돌아가서 **새로 고침**을 클릭합니다. **tempSensor** 모듈 및 **IoT Edge runtime**과 함께 실행되는 새로운 **filterfunction** 모듈이 표시됩니다. 
 

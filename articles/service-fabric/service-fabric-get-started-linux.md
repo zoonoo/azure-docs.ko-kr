@@ -1,11 +1,11 @@
 ---
-title: "Linux에서 개발 환경 설정 | Microsoft Docs"
-description: "Linux에서 런타임 및 SDK를 설치하고 로컬 개발 클러스터를 만듭니다. 이 설정을 마치면 응용 프로그램을 빌드할 수 있습니다."
+title: Linux에서 개발 환경 설정 | Microsoft Docs
+description: Linux에서 런타임 및 SDK를 설치하고 로컬 개발 클러스터를 만듭니다. 이 설정을 마치면 응용 프로그램을 빌드할 수 있습니다.
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: d552c8cd-67d1-45e8-91dc-871853f44fc6
 ms.service: service-fabric
 ms.devlang: dotNet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 20239acba46996ed7ec84a2fbaf300190deebc7f
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: c98a5e742356e24cee9e9d1414121faabac03084
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Linux에서 개발 환경 준비
 > [!div class="op_single_selector"]
@@ -29,6 +29,10 @@ ms.lasthandoff: 02/24/2018
 >  
 
 Linux 개발 컴퓨터에서 [Azure Service Fabric 응용 프로그램](service-fabric-application-model.md) 을 배포하고 실행하려면 런타임 및 일반적인 SDK를 설치해야 합니다. 또한 Java 및 .NET Core 배포에 선택적 SDK를 설치할 수 있습니다.
+
+> [!NOTE]
+> Linux용 Windows 하위 시스템에 Service Fabric 런타임 및 SDK를 설치하는 것은 지원되지 않습니다. 그러나 클라우드 또는 온-프레미스의 다른 곳에서 호스팅된 Service Fabric 엔터티를 관리할 수 있는 Azure Service Fabric CLI(명령줄 인터페이스)는 지원됩니다. CLI를 설치하는 방법에 대한 정보는 [Service Fabric CLI 설정](./service-fabric-cli.md)을 참조하세요.
+>
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -108,6 +112,12 @@ sudo apt-get install servicefabricsdkcommon
 >   echo "servicefabricsdkcommon servicefabricsdkcommon/accepted-eula-ga select true" | sudo debconf-set-selections
 >   ```
 
+위의 설치와 함께 제공되는 Service Fabric 런타임에는 아래 표에 나온 패키지가 포함됩니다. 
+
+ | | DotNetCore | 자바 | 파이썬 | NodeJS | 
+--- | --- | --- | --- |---
+Ubuntu | 2.0.0 | OpenJDK 1.8 | npm에서 암시적 | 최신 |
+
 ## <a name="set-up-a-local-cluster"></a>로컬 클러스터를 설정합니다.
   설치가 완료되면 로컬 클러스터를 시작할 수 있습니다.
 
@@ -184,7 +194,7 @@ Java 개발자용 Eclipse IDE 내에 Service Fabric용 Eclipse 플러그 인을 
 
 2. Service Fabric 플러그 인을 설치하려면 **도움말** > **새 소프트웨어 설치**를 차례로 선택합니다.
 
-3. **Work with**(사용할 플러그 인) 상자에서 **http://dl.microsoft.com/eclipse**를 입력합니다.
+3. **작업 대상** 상자에서 **http://dl.microsoft.com/eclipse**을 입력합니다.
 
 4. **추가**를 클릭합니다.
 

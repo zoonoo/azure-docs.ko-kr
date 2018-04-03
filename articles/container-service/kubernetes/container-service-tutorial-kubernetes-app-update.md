@@ -1,6 +1,6 @@
 ---
-title: "Azure Container Service 자습서 - 응용 프로그램 업데이트"
-description: "Azure Container Service 자습서 - 응용 프로그램 업데이트"
+title: Azure Container Service 자습서 - 응용 프로그램 업데이트
+description: Azure Container Service 자습서 - 응용 프로그램 업데이트
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 5f22bb3ac378bc9b1ff94db486d6ea6053c64514
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 87de0f23a00b035b12bac6cf655781961b1fb9e5
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="update-an-application-in-kubernetes"></a>Kubernetes에서 응용 프로그램 업데이트
 
@@ -29,7 +29,7 @@ Kubernetes에서 응용 프로그램을 배포한 후 새 컨테이너 이미지
 > * Azure Container Registry에 컨테이너 이미지 밀어넣기
 > * 업데이트된 컨테이너 이미지 배포
 
-후속 자습서에서는 Kubernetes 클러스터를 모니터링하도록 Operations Management Suite를 구성합니다.
+후속 자습서에서는 Kubernetes 클러스터를 모니터링하도록 Log Analytics를 구성합니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -71,7 +71,7 @@ docker-compose up --build -d
 
 ## <a name="test-application-locally"></a>로컬에서 응용 프로그램 테스트
 
-http://localhost:8080 으로 이동하여 업데이트된 응용 프로그램을 확인합니다.
+http://localhost:8080으로 이동하여 업데이트된 응용 프로그램을 확인합니다.
 
 ![Azure의 Kubernetes 클러스터 이미지](media/container-service-kubernetes-tutorials/vote-app-updated.png)
 
@@ -166,7 +166,7 @@ IP 주소로 이동하여 업데이트된 응용 프로그램을 확인합니다
 > * Azure Container Registry에 컨테이너 이미지 밀어넣기
 > * 업데이트된 응용 프로그램 배포
 
-다음 자습서로 이동하여 Operations Management Suite로 Kubernetes를 모니터링하는 방법에 대해 알아봅니다.
+다음 자습서로 이동하여 Log Analytics로 Kubernetes를 모니터링하는 방법에 대해 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [OMS로 Kubernetes 모니터링](./container-service-tutorial-kubernetes-monitor.md)
+> [Log Analytics를 사용하여 Kubernetes 모니터링](./container-service-tutorial-kubernetes-monitor.md)

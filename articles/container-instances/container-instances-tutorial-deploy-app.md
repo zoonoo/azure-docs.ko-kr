@@ -1,62 +1,66 @@
 ---
-title: "Azure Container Instances 자습서 - 앱 배포"
-description: "Azure Container Instances 자습서 3/3부 - 응용 프로그램 배포"
+title: Azure Container Instances 자습서 - 앱 배포
+description: Azure Container Instances 자습서 3/3부 - 응용 프로그램 배포
 services: container-instances
-author: seanmck
+author: mmacy
 manager: timlt
 ms.service: container-instances
 ms.topic: tutorial
-ms.date: 02/22/2018
-ms.author: seanmck
+ms.date: 03/21/2018
+ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 0532d255b271b2155ae3115f8f96c4cbb53916e4
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 29d7114f288f7387d0c7cd5c6afe2eaaa7a8c560
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="deploy-a-container-to-azure-container-instances"></a>Azure Container Instances에 컨테이너 배포
+# <a name="tutorial-deploy-a-container-to-azure-container-instances"></a>자습서: Azure Container Instances에 컨테이너 배포
 
-3부작 시리즈의 마지막 자습서입니다. 시리즈의 앞부분에서는 [컨테이너 이미지를 만들어](container-instances-tutorial-prepare-app.md) [Azure Container Registry에 푸시했습니다](container-instances-tutorial-prepare-acr.md). 이 문서에서는 Azure Container Instances에 컨테이너를 배포하여 이 자습서 시리즈를 완료합니다.
+3부작 시리즈의 마지막 자습서입니다. 시리즈의 앞부분에서는 [컨테이너 이미지를 만들어](container-instances-tutorial-prepare-app.md) [Azure Container Registry에 푸시했습니다](container-instances-tutorial-prepare-acr.md). 이 문서에서는 Azure Container Instances에 컨테이너를 배포하여 이 시리즈를 완료합니다.
 
 이 자습서에서는 다음을 수행했습니다.
 
 > [!div class="checklist"]
-> * Azure CLI를 사용하여 Azure Container Registry의 컨테이너 배포
-> * 브라우저에서 응용 프로그램 보기
-> * 컨테이너 로그 보기
+> * Azure Container Registry에서 Azure Container Instances에 컨테이너 배포
+> * 브라우저에서 실행 중인 응용 프로그램 보기
+> * 컨테이너의 로그 표시
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이 자습서의 작업을 수행하려면 Azure CLI 버전 2.0.27 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치하거나 업그레이드해야 하는 경우 [Azure CLI 2.0 설치][azure-cli-install]를 참조하세요.
-
-이 자습서를 완료하려면 로컬에 Docker 개발 환경이 설치되어 있어야 합니다. Docker는 모든 [Mac][docker-mac], [Windows][docker-windows] 또는 [Linux][docker-linux] 시스템에서 쉽게 Docker를 구성하는 패키지를 제공합니다.
-
-Azure Cloud Shell에는 이 자습서의 모든 단계를 완료하는 데 필요한 Docker 구성 요소가 포함되어 있지 않습니다. 이 자습서를 완료하려면 로컬 컴퓨터에 Azure CLI 및 Docker 개발 환경을 설치해야 합니다.
+[!INCLUDE [container-instances-tutorial-prerequisites](../../includes/container-instances-tutorial-prerequisites.md)]
 
 ## <a name="deploy-the-container-using-the-azure-cli"></a>Azure CLI를 사용하여 컨테이너 배포
 
-Azure CLI를 통해 단일 명령으로 Azure Container Instances에 컨테이너를 배포할 수 있습니다. 컨테이너 이미지가 개인 Azure Container Registry에 호스트되기 때문에 액세스하는 데 필요한 자격 증명을 포함해야 합니다. 다음 Azure CLI 명령을 사용하여 자격 증명을 얻습니다.
+이 섹션에서는 Azure CLI를 사용하여 [첫 번째 자습서](container-instances-tutorial-prepare-app.md)에서 작성되고 [두 번째 자습서](container-instances-tutorial-prepare-acr.md)에서 Azure Container Registry에 푸시된 이미지를 배포합니다. 계속 진행하려면 먼저 이러한 자습서를 완료해야 합니다.
 
-컨테이너 레지스트리 로그인 서버(레지스트리 이름을 업데이트):
+### <a name="get-registry-credentials"></a>레지스트리 자격 증명 가져오기
+
+[두 번째 자습서](container-instances-tutorial-prepare-acr.md) 만든 이미지처럼 개인 컨테이너 레지스트리에 호스트되는 이미지를 배포하는 경우 레지스트리 자격 증명을 제공해야 합니다.
+
+먼저, 컨테이너 레지스트리 로그인 서버의 전체 이름을 가져옵니다(`<acrName>`을 레지스트리 이름으로 바꾸기).
 
 ```azurecli
 az acr show --name <acrName> --query loginServer
 ```
 
-컨테이너 레지스트리 암호:
+다음으로, 컨테이너 레지스트리 암호를 가져옵니다.
 
 ```azurecli
 az acr credential show --name <acrName> --query "passwords[0].value"
 ```
 
-응용 프로그램이 [미리 준비되어 있어야 합니다][prepare-app]. 1CPU 코어 및 1GB 메모리의 리소스 요청을 통해 컨테이너 레지스트리에서 컨테이너 이미지를 배포하려면 다음 [az container create][az-container-create] 명령을 실행합니다. `<acrLoginServer>` 및 `<acrPassword>`를 이전 두 개의 명령에서 얻은 값으로 바꿉니다. `<acrName>`을 컨테이너 레지스트리의 이름으로 바꿉니다. 또한 `aci-tutorial-app`도 새 응용 프로그램에 제공하려는 이름으로 바꿀 수 있습니다.
+### <a name="deploy-container"></a>컨테이너 배포
+
+이제 [az container create][az-container-create] 명령을 사용하여 컨테이너를 배포합니다. `<acrLoginServer>` 및 `<acrPassword>`를 이전 두 개의 명령에서 얻은 값으로 바꿉니다. `<acrName>`을 컨테이너 레지스트리의 이름으로 바꿉니다.
 
 ```azurecli
 az container create --resource-group myResourceGroup --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-username <acrName> --registry-password <acrPassword> --dns-name-label aci-demo --ports 80
 ```
 
-몇 초 정도 지나면 Azure Resource Manager에서 초기 응답이 수신됩니다. `--dns-name-label` 값은 컨테이너 인스턴스를 만드는 Azure 지역 내에서 고유해야 합니다. 명령을 실행하면 **DNS 이름 레이블** 오류 메시지가 표시되는 경우 이전 예제의 값을 업데이트합니다.
+몇 초 정도 지나면 Azure에서 초기 응답이 수신됩니다. `--dns-name-label` 값은 컨테이너 인스턴스를 만드는 Azure 지역 내에서 고유해야 합니다. 명령을 실행한 결과 **DNS 이름 레이블** 오류 메시지가 표시되는 경우에는 이전 명령의 값을 수정합니다.
+
+### <a name="verify-deployment-progress"></a>배포 진행률 확인
 
 배포 상태를 확인하려면 [az container show][az-container-show] 명령을 사용합니다.
 
@@ -74,7 +78,11 @@ az container show --resource-group myResourceGroup --name aci-tutorial-app --que
 az container show --resource-group myResourceGroup --name aci-tutorial-app --query ipAddress.fqdn
 ```
 
-예제 출력: `"aci-demo.eastus.azurecontainer.io"`
+예: 
+```console
+$ az container show --resource-group myResourceGroup --name aci-tutorial-app --query ipAddress.fqdn
+"aci-demo.eastus.azurecontainer.io"
+```
 
 실행 중인 응용 프로그램을 보려면 원하는 브라우저에서 표시된 DNS 이름으로 이동합니다.
 
@@ -86,12 +94,13 @@ az container show --resource-group myResourceGroup --name aci-tutorial-app --que
 az container logs --resource-group myResourceGroup --name aci-tutorial-app
 ```
 
-출력
+예제 출력:
 
 ```bash
+$ az container logs --resource-group myResourceGroup --name aci-tutorial-app
 listening on port 80
 ::ffff:10.240.0.4 - - [21/Jul/2017:06:00:02 +0000] "GET / HTTP/1.1" 200 1663 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"
-::ffff:10.240.0.4 - - [21/Jul/2017:06:00:02 +0000] "GET /favicon.ico HTTP/1.1" 404 150 "http://13.88.176.27/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"
+::ffff:10.240.0.4 - - [21/Jul/2017:06:00:02 +0000] "GET /favicon.ico HTTP/1.1" 404 150 "http://aci-demo.eastus.azurecontainer.io/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"
 ```
 
 ## <a name="clean-up-resources"></a>리소스 정리
@@ -110,6 +119,11 @@ az group delete --name myResourceGroup
 > * Azure CLI를 사용하여 Azure Container Registry의 컨테이너 배포
 > * 브라우저에서 응용 프로그램 보기
 > * 컨테이너 로그 보기
+
+기본 사항을 알아보았으니, 컨테이너 그룹의 작동 방식 등 Azure Container Instances에 대해 자세히 알아보겠습니다.
+
+> [!div class="nextstepaction"]
+> [Azure Container Instances의 컨테이너 그룹](container-instances-container-groups.md)
 
 <!-- IMAGES -->
 [aci-app-browser]: ./media/container-instances-quickstart/aci-app-browser.png

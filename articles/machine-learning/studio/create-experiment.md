@@ -1,11 +1,12 @@
 ---
-title: "Machine Learning Studio에서 간단한 실험 | Microsoft Docs"
-description: "이 기계 학습 자습서에서는 쉬운 데이터 과학 실험을 안내합니다. 회귀 알고리즘을 사용하여 자동차의 가격을 예측합니다."
-keywords: "실험, 선형 회귀, 기계 학습 알고리즘, 기계 학습 자습서, 예측 모델링 기술, 데이터 과학 실험"
+title: Machine Learning Studio에서 간단한 실험 | Microsoft Docs
+description: 이 기계 학습 자습서에서는 쉬운 데이터 과학 실험을 안내합니다. 회귀 알고리즘을 사용하여 자동차의 가격을 예측합니다.
+keywords: 실험, 선형 회귀, 기계 학습 알고리즘, 기계 학습 자습서, 예측 모델링 기술, 데이터 과학 실험
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: b6176bb2-3bb6-4ebf-84d1-3598ee6e01c6
 ms.service: machine-learning
@@ -14,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 03/20/2017
-ms.author: garye
-ms.openlocfilehash: 3cc4278ca7d4603f4bfb916885d44e6a85864b25
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 57461cf94898012619b865c455955f511e978995
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="machine-learning-tutorial-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>기계 학습 자습서: Azure Machine Learning Studio에서 첫 번째 데이터 과학 실험 만들기
 
@@ -34,11 +34,9 @@ ms.lasthandoff: 02/21/2018
 >
 >기계 학습에 익숙하지만 Machine Learning Studio에 대한 일반 상세 정보와 이러한 정보가 포함된 기계 학습 알고리즘을 찾고 있는 경우 다음과 같은 몇 가지 유용한 자료를 참고하세요.
 >
-- 
-            [Machine Learning Studio란 무엇인가요?](what-is-ml-studio.md) - Studio의 차원 높은 개요입니다.
+- [Machine Learning Studio란 무엇인가요?](what-is-ml-studio.md) - Studio의 차원 높은 개요입니다.
 - [알고리즘 예제가 포함된 기계 학습 기본 사항](basics-infographic-with-algorithm-examples.md) - 이 인포그래픽은 Machine Learning Studio에 포함된 기계 학습 알고리즘의 다양한 유형에 대해 자세히 알아보고자 할 경우에 유용합니다.
-- 
-            [Machine Learning 가이드](https://gallery.cortanaintelligence.com/Tutorial/Machine-Learning-Guide-1) -이 가이드에서는 위의 인포그래픽과 유사한 정보를 대화형 형식으로 다룹니다.
+- [Machine Learning 가이드](https://gallery.cortanaintelligence.com/Tutorial/Machine-Learning-Guide-1) -이 가이드에서는 위의 인포그래픽과 유사한 정보를 대화형 형식으로 다룹니다.
 - [기계 학습 알고리즘 치트 시트](algorithm-cheat-sheet.md) 및 [Microsoft Azure Machine Learning용 알고리즘 선택 방법](algorithm-choice.md) - 다운로드 가능한 이 포스터 및 관련 문서는 Studio 알고리즘을 깊이 있게 설명합니다.
 - [Machine Learning Studio: 알고리즘 및 모듈 도움말](https://msdn.microsoft.com/library/azure/dn905974.aspx) -기계 학습 알고리즘을 포함하여 모든 Studio 모듈에 대 한 완전한 참조입니다.
 
@@ -57,7 +55,7 @@ Machine Learning Studio를 사용하면 예측 모델링 기술로 프로그램�
 
 ## <a name="open-machine-learning-studio"></a>Machine Learning Studio 열기
 
-Studio를 시작하려면 [https://studio.azureml.net](https://studio.azureml.net)로 이동하세요. 이전에 Machine Learning Studio에 등록했다면 **로그인**을 클릭합니다. 그렇지 않은 경우 **여기서 등록**을 클릭하고 무료와 유료 옵션 중 하나를 선택합니다.
+Studio을 시작하려면 [https://studio.azureml.net](https://studio.azureml.net)으로 이동합니다. 이전에 Machine Learning Studio에 등록했다면 **로그인**을 클릭합니다. 그렇지 않은 경우 **여기서 등록**을 클릭하고 무료와 유료 옵션 중 하나를 선택합니다.
 
 ![Machine Learning Studio에 로그인][sign-in-to-studio]
 <br/>

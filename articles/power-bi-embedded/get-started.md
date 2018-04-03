@@ -1,12 +1,12 @@
 ---
-title: "Microsoft Power BI Embedded 시작 | Microsoft Docs"
-description: "Power BI Embedded를 비즈니스 인텔리전스 응용 프로그램에 추가"
+title: Microsoft Power BI Embedded 시작 | Microsoft Docs
+description: Power BI Embedded를 비즈니스 인텔리전스 응용 프로그램에 추가
 services: power-bi-embedded
-documentationcenter: 
+documentationcenter: ''
 author: guyinacube
 manager: erikre
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: 4787cf44-5d1c-4bc3-b3fd-bf396e5c1176
 ms.service: power-bi-embedded
 ms.devlang: NA
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 01/11/2018
 ms.author: asaxton
-ms.openlocfilehash: 79ec87ad7d7dc4a4dc003e4163c8e609c828f545
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 3ea302d8cdd9a08d41f863917adeb4505552649d
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="get-started-with-microsoft-power-bi-embedded"></a>Microsoft Power BI Embedded 시작
 

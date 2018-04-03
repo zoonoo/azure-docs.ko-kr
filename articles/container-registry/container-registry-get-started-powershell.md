@@ -1,6 +1,6 @@
 ---
-title: "빠른 시작 - PowerShell을 사용하여 Azure에서 개인 Docker 레지스트리 만들기"
-description: "PowerShell을 사용한 개인 Docker 컨테이너 레지스트리 만들기에 대해 빠르게 알아봅니다."
+title: 빠른 시작 - PowerShell을 사용하여 Azure에서 개인 Docker 레지스트리 만들기
+description: PowerShell을 사용한 개인 Docker 컨테이너 레지스트리 만들기에 대해 빠르게 알아봅니다.
 services: container-registry
 author: neilpeterson
 manager: timlt
@@ -9,13 +9,13 @@ ms.topic: quickstart
 ms.date: 03/03/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 2bae45955cf3c2b157acce2544b1f35fbddd0170
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 9603ac779c7dbc640a7c24856c32f04edbac849d
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="create-an-azure-container-registry-using-powershell"></a>PowerShell을 사용하여 Azure Container Registry 만들기
+# <a name="quickstart-create-an-azure-container-registry-using-powershell"></a>빠른 시작: PowerShell을 사용하여 Azure Container Registry 만들기
 
 Azure Container Registry는 개인 Docker 컨테이너 이미지를 저장하는 데 사용되는 관리되는 Docker 컨테이너 레지스트리 서비스입니다. 이 가이드는 PowerShell을 사용하여 Azure Container Registry 인스턴스 만들기, 컨테이너 이미지를 레지스트리로 푸시, 마지막으로 레지스트리의 컨테이너에서 ACI(Azure Container Instances)로 배포를 설명합니다.
 
@@ -73,7 +73,7 @@ Azure Container Registry에 이미지를 푸시하려면 먼저 이미지가 있
 docker pull microsoft/aci-helloworld
 ```
 
-이미지는 ACR 로그인 서버 이름으로 태그가 지정되어야 합니다. [docker tag][docker-tag] 명령을 사용하여 이를 수행합니다. 
+이미지는 ACR 로그인 서버 이름으로 태그가 지정되어야 합니다. [docker tag][docker-tag] 명령을 사용하여 이를 수행합니다.
 
 ```powershell
 $image = $registry.LoginServer + "/aci-helloworld:v1"

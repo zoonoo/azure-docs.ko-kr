@@ -1,12 +1,12 @@
 ---
-title: "VMware에서 Azure로의 Azure Site Recovery Deployment Planner | Microsoft Docs"
-description: "Azure Site Recovery의 Deployment Planner 사용자 가이드입니다."
+title: VMware에서 Azure로의 Azure Site Recovery Deployment Planner | Microsoft Docs
+description: Azure Site Recovery의 Deployment Planner 사용자 가이드입니다.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: nsoneji
 manager: garavd
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: site-recovery
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 03/09/2018
 ms.author: nisoneji
-ms.openlocfilehash: 63963804b81aa57e914e18fa474963a3830d04d5
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 337217e66fe4d3780af197911a0e72c6f936e411
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="cost-estimation-report-of-azure-site-recovery-deployment-planner"></a>Azure Site Recovery Deployment Planner의 비용 예측 보고서  
 
@@ -110,7 +110,7 @@ VM을 수동으로 추가하려면:
 * 각 DR 드릴 지속 시간(일) 
 * OS 종류
 * 데이터 중복 
-* AHUB(Azure Hybrid Use Benefit)
+* Azure 하이브리드 혜택
 
 3.  연간 DR 드릴 횟수, 각 DR 드릴 지속 시간(일), 데이터 중복성 및 Azure 하이브리드 사용 혜택의 경우, 'Apply to all(모든 항목에 적용)' 단추를 클릭하면 테이블의 모든 VM에 동일한 값을 적용할 수 있습니다.
 
@@ -136,7 +136,7 @@ VM을 수동으로 추가하려면:
 
 **데이터 중복성**: LRS(로컬 중복 저장소), GRS(지역 중복 저장소) 또는 RA-GRS(읽기 액세스 지역 중복 저장소) 중 하나가 될 수 있습니다. 기본값은 LRS입니다. 특정 VM에 대한 저장소 계정을 기반으로 유형을 변경하거나 맨 위 행의 유형을 변경하고 'Apply to all'(모든 항목에 적용) 단추를 클릭하여 모든 VM에 새 유형을 적용할 수 있습니다.  복제에 대한 저장 비용은 선택한 데이터 중복성에 대한 가격을 기반으로 계산됩니다. 
 
-**Azure 하이브리드 사용 혜택**: 해당되는 경우 Azure 하이브리드 사용 혜택을 Windows VM에 적용할 수 있습니다.  기본값은 [예]입니다. 특정 VM의 설정을 변경하거나 'Apply to all(모든 항목에 적용)' 단추를 클릭하여 모든 VM을 업데이트할 수 있습니다.
+**Azure 하이브리드 혜택**: 해당되는 경우 Azure 하이브리드 혜택을 Windows VM에 적용할 수 있습니다.  기본값은 [예]입니다. 특정 VM의 설정을 변경하거나 'Apply to all(모든 항목에 적용)' 단추를 클릭하여 모든 VM을 업데이트할 수 있습니다.
 
 **총 Azure 사용량**: DR에 대한 계산, 저장소 및 Azure Site Recovery 라이선스 비용이 포함됩니다. 선택에 따라 월간 또는 연간 비용이 표시됩니다.
 

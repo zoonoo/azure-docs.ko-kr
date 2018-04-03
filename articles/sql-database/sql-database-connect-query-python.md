@@ -8,17 +8,17 @@ ms.service: sql-database
 ms.custom: mvc,develop apps
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 08/09/2017
+ms.date: 03/26/2018
 ms.author: carlrab
-ms.openlocfilehash: 532323a8511bc7ba8c2c322fe9f69d354691136b
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f22a6d38648cf60bac09a751697e1c1d63d1db4f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="use-python-to-query-an-azure-sql-database"></a>Python을 사용하여 Azure SQL Database 쿼리
 
- 이 빠른 시작에서는 [Python](https://python.org)을 사용하여 Azure SQL Database에 연결하고 Transact-SQL 문을 사용하여 데이터를 쿼리하는 방법을 보여 줍니다. sdk에 대한 자세한 내용은 [참조](https://docs.microsoft.com/python/api/overview/azure/sql) 설명서, pyodbc [샘플](https://github.com/mkleehammer/pyodbc/wiki/Getting-started), [pyodbc](https://github.com/mkleehammer/pyodbc/wiki/) GitHub 리포지토리에서 확인하세요.
+ 이 빠른 시작 자습서에서는 [Python](https://python.org)을 사용하여 Azure SQL Database에 연결하고 Transact-SQL 문을 사용하여 데이터를 쿼리하는 방법을 보여 줍니다. sdk에 대한 자세한 내용은 [참조](https://docs.microsoft.com/python/api/overview/azure/sql) 설명서, pyodbc [샘플](https://github.com/mkleehammer/pyodbc/wiki/Getting-started), [pyodbc](https://github.com/mkleehammer/pyodbc/wiki/) GitHub 리포지토리에서 확인하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -51,7 +51,7 @@ database = 'your_database'
 username = 'your_username'
 password = 'your_password'
 driver= '{ODBC Driver 13 for SQL Server}'
-cnxn = pyodbc.connect('DRIVER='+driver+';PORT=1433;SERVER='+server+';PORT=1443;DATABASE='+database+';UID='+username+';PWD='+ password)
+cnxn = pyodbc.connect('DRIVER='+driver+';SERVER='+server+';PORT=1443;DATABASE='+database+';UID='+username+';PWD='+ password)
 cursor = cnxn.cursor()
 cursor.execute("SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName FROM [SalesLT].[ProductCategory] pc JOIN [SalesLT].[Product] p ON pc.productcategoryid = p.productcategoryid")
 row = cursor.fetchone()

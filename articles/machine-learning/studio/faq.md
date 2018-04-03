@@ -1,11 +1,12 @@
 ---
-title: "Azure Machine Learning FAQ(질문과 대답) | Microsoft Docs"
-description: "Azure 기계 학습 소개: 간소화된 예측 모델링에 대한 클라우드 서비스의 요금 청구, 기능 및 제한 사항을 다루는 FAQ."
-keywords: "기계 학습 소개, 예측 모델링, 기계 학습이란 무엇인가요"
+title: Azure Machine Learning FAQ(질문과 대답) | Microsoft Docs
+description: 'Azure Machine Learning 소개: 간소화된 예측 모델링에 대한 클라우드 서비스의 요금 청구, 기능 및 제한 사항을 다루는 FAQ.'
+keywords: 기계 학습 소개, 예측 모델링, 기계 학습이란 무엇인가요
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: paulettm
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: a4a32a06-dbed-4727-a857-c10da774ce66
 ms.service: machine-learning
@@ -14,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/02/2017
-ms.author: garye
-ms.openlocfilehash: b162d7534eff0d1f79808fc86bacf92dbfc2f84a
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: ceec69ee822e118adfa3825620a31575109894ea
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-machine-learning-frequently-asked-questions-billing-capabilities-limitations-and-support"></a>Azure Machine Learning 질문과 대답: 대금 청구, 기능, 제한 사항 및 지원
 Azure Machine Learning, 예측 모델 개발을 위한 클라우드 서비스 및 웹 서비스를 통한 운용성 솔루션에 대한 질문(FAQ)과 해당하는 대답입니다. 이 FAQ는 청구 모델, 기능, 제한 및 지원을 포함한 서비스 사용 방법에 대한 질문을 제공합니다.
@@ -29,19 +29,19 @@ Azure Machine Learning, 예측 모델 개발을 위한 클라우드 서비스 �
 Azure Machine Learning은 데이터 과학 커뮤니티의 멤버가 Azure Machine Learning에 대한 질문을 할 수 있는 MSDN 포럼을 운영합니다. Azure Machine Learning 팀에서 포럼을 모니터링합니다. 답변을 검색하거나 새로운 질문을 게시하려면 [Azure Machine Learning 포럼](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning)으로 이동하세요.
 
 ## <a name="general-questions"></a>일반적인 질문
-**Azure 기계 학습이란 무엇인가요?**
+**Azure Machine Learning이란 무엇인가요?**
 
-Azure 기계 학습은 완벽하게 관리되는 서비스로, 이 서비스를 통해 클라우드에 예측 분석 솔루션을 만들고, 테스트하고, 운영하고, 관리할 수 있습니다. 브라우저만 있으면 로그인하고 데이터를 업로드하고 즉시 기계 학습 실험을 시작할 수 있습니다. 끌어서 놓기 예측 모델링, 모듈의 대형 팔레트 및 시작 템플릿의 라이브러리를 활용하면 일반적인 기계 학습 작업을 간단히, 빠르게 수행할 수 있습니다. 자세한 내용은 [Azure 기계 학습 서비스 개요](https://azure.microsoft.com/services/machine-learning/)를 참조하세요. 주요 용어 및 개념을 설명하는 기계 학습 소개는 [Azure Machine Learning 소개](what-is-machine-learning.md)를 참조하세요.
+Azure Machine Learning은 완벽하게 관리되는 서비스로, 이 서비스를 통해 클라우드에 예측 분석 솔루션을 만들고, 테스트하고, 운영하고, 관리할 수 있습니다. 브라우저만 있으면 로그인하고 데이터를 업로드하고 즉시 기계 학습 실험을 시작할 수 있습니다. 끌어서 놓기 예측 모델링, 모듈의 대형 팔레트 및 시작 템플릿의 라이브러리를 활용하면 일반적인 기계 학습 작업을 간단히, 빠르게 수행할 수 있습니다. 자세한 내용은 [Azure Machine Learning 서비스 개요](https://azure.microsoft.com/services/machine-learning/)를 참조하세요. 주요 용어 및 개념을 설명하는 기계 학습 소개는 [Azure Machine Learning 소개](what-is-machine-learning.md)를 참조하세요.
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
-**기계 학습 스튜디오란 무엇인가요?**
+**Machine Learning Studio란 무엇인가요?**
 
 Machine Learning Studio는 웹 브라우저를 사용하여 액세스하는 워크벤치 환경입니다. Machine Learning Studio는 실험 형태의 종단 간 데이터 과학 워크플로를 구성할 수 있는 시각적 컴퍼지션 인터페이스로 모듈 팔레트를 호스트합니다.
 
-기계 학습 스튜디오에 대한 자세한 내용은 [기계 학습 스튜디오란 무엇인가요?](what-is-ml-studio.md)
+Machine Learning Studio에 대한 자세한 내용은 [Machine Learning Studio란 무엇인가요?](what-is-ml-studio.md)
 
-**Azure 기계 학습 API 서비스란 무엇인가요?**
+**Azure Machine Learning API 서비스란 무엇인가요?**
 
 Machine Learning API 서비스를 통해 Machine Learning Studio에 기본 제공되는 것과 같은 예측 모델을 확장성 있는 내결함성 웹 서비스로 배포할 수 있습니다. Machine Learning API 서비스로 만든 웹 서비스는, 외부 응용 프로그램과 예측 분석 모델 간의 통신용 인터페이스를 제공하는 REST API입니다.
 
@@ -75,9 +75,9 @@ REST API를 사용하고 웹 서비스에 액세스하는 여러 가지 방법�
 
 최신 업데이트는 [Azure Machine Learning의 새로운 기능](whats-new.md)을 참조하세요.
 
-## <a name="machine-learning-studio-questions"></a>기계 학습 스튜디오 질문
+## <a name="machine-learning-studio-questions"></a>Machine Learning Studio 질문
 ### <a name="import-and-export-data-for-machine-learning"></a>Machine Learning에 대한 데이터 가져오기 및 내보내기
-**기계 학습에서 지원하는 데이터 원본은 무엇인가요?**
+**Machine Learning에서 지원하는 데이터 원본은 무엇인가요?**
 
 세 가지 방법으로 Machine Learning Studio 실험으로 데이터를 다운로드할 수 있습니다.
 
@@ -88,7 +88,7 @@ REST API를 사용하고 웹 서비스에 액세스하는 여러 가지 방법�
 지원된 파일 형식에 대한 자세한 내용은 [Machine Learning Studio로 학습 데이터 가져오기](import-data.md)를 참조하세요.
 
 #### <a id="ModuleLimit"></a>모듈에 대해 설정할 수 있는 데이터 집합의 크기는 어느 정도인가요?
-기계 학습 스튜디오의 모듈은 일반적인 사용 사례의 경우 최대 10GB 숫자 데이터의 데이터 집합을 지원합니다. 모듈에서 둘 이상의 입력을 사용하는 경우에는 모든 입력 크기의 합계 값이 10GB입니다. Hive 또는 Azure SQL Database 쿼리를 사용하여 더 큰 데이터 집합을 샘플링하거나 수집하기 전에 Learning by Counts 전처리를 사용할 수 있습니다.  
+Machine Learning Studio의 모듈은 일반적인 사용 사례의 경우 최대 10GB 숫자 데이터의 데이터 집합을 지원합니다. 모듈에서 둘 이상의 입력을 사용하는 경우에는 모든 입력 크기의 합계 값이 10GB입니다. Hive 또는 Azure SQL Database 쿼리를 사용하여 더 큰 데이터 집합을 샘플링하거나 수집하기 전에 Learning by Counts 전처리를 사용할 수 있습니다.  
 
 다음 데이터 형식은 기능 정규화 중에 확장할 수 있으며 10GB 미만으로 제한됩니다.
 
@@ -125,9 +125,9 @@ REST API를 사용하고 웹 서비스에 액세스하는 여러 가지 방법�
 
 [사용자 피드백 포럼](http://go.microsoft.com/fwlink/?LinkId=404231)으로 이동하여 Microsoft에서 추적 중인 기능 요청을 확인할 수 있습니다. 원하는 기능이 이미 요청된 경우 해당 요청에 투표할 수 있습니다. 원하는 기능이 없는 경우 새로운 요청을 만드세요. 이 포럼에서 요청의 상태를 확인할 수도 있습니다. Microsoft는 이 목록을 긴밀하게 추적하여 기능의 사용 가능성 상태를 자주 업데이트합니다. R 및 Python에 대한 기본적인 지원 외에 필요에 따라 사용자 지정 변환을 만들 수 있습니다.
 
-**기존 코드를 기계 학습 스튜디오로 가져올 수 있나요?**
+**기존 코드를 Machine Learning Studio로 가져올 수 있나요?**
 
-예, 기계 학습 스튜디오로 기존 R 또는 Python 코드를 가져와서, Azure 기계 학습 학습자와 동일한 실험에서 실행하고 Azure 기계 학습을 통해 솔루션을 웹 서비스로 배포할 수 있습니다. 자세한 내용은 [R을 사용하여 실험 확장](extend-your-experiment-with-r.md) 및 [Azure Machine Learning Studio에서 Python 기계 학습 스크립트 실행](execute-python-scripts.md)을 참조하세요.
+예, Machine Learning Studio로 기존 R 또는 Python 코드를 가져와서, Azure Machine Learning 학습자와 동일한 실험에서 실행하고 Azure Machine Learning을 통해 솔루션을 웹 서비스로 배포할 수 있습니다. 자세한 내용은 [R을 사용하여 실험 확장](extend-your-experiment-with-r.md) 및 [Azure Machine Learning Studio에서 Python 기계 학습 스크립트 실행](execute-python-scripts.md)을 참조하세요.
 
 **[PMML](http://en.wikipedia.org/wiki/Predictive_Model_Markup_Language)과 유사한 기능을 사용하여 모델을 정의할 수 있나요?**
 
@@ -147,11 +147,11 @@ REST API를 사용하고 웹 서비스에 액세스하는 여러 가지 방법�
 많은 양의 데이터를 브라우저에 전송할 수 있으므로 Machine Learning Studio의 속도 저하를 방지하기 위해 데이터 크기가 제한됩니다. 모든 데이터/결과를 시각화하려면, 데이터를 다운로드하고 Excel 또는 다른 도구를 사용하는 것이 좋습니다.
 
 ### <a name="algorithms"></a>알고리즘
-**기계 학습 스튜디오에서 지원되는 기존 기계 학습 알고리즘은 무엇인가요?**
+**Machine Learning Studio에서 지원되는 기존 알고리즘은 무엇인가요?**
 
-Machine Learning Studio는 Microsoft Research에서 개발된 확장 가능한 고급 의사 결정 트리, Bayesian 권장 시스템, 심층적인 신경망, 의사 결정 정글 등 최신 알고리즘을 제공합니다. Vowpal Wabbit과 같은 확장성 있는 오픈 소스 기계 학습 패키지도 포함되어 있습니다. 기계 학습 스튜디오는 여러 클래스의 이진 분류, 회귀 및 클러스터링을 위한 기계 학습 알고리즘을 지원합니다. 전체 목록은 [Machine Learning 모듈][machine-learning-modules]을 참조하세요.
+Machine Learning Studio는 Microsoft Research에서 개발된 확장 가능한 고급 의사 결정 트리, Bayesian 권장 시스템, 심층적인 신경망, 의사 결정 정글 등 최신 알고리즘을 제공합니다. Vowpal Wabbit과 같은 확장성 있는 오픈 소스 기계 학습 패키지도 포함되어 있습니다. Machine Learning Studio는 여러 클래스의 이진 분류, 회귀 및 클러스터링을 위한 기계 학습 알고리즘을 지원합니다. 전체 목록은 [Machine Learning 모듈][machine-learning-modules]을 참조하세요.
 
-**데이터에 사용할 올바른 기계 학습 알고리즘이 자동으로 제안되나요?**
+**데이터에 사용할 올바른 Machine Learning 알고리즘이 자동으로 제안되나요?**
 
 아니요, 그러나 Machine Learning Studio에서 각 알고리즘의 결과를 비교하여 문제에 적합한 알고리즘을 확인할 수 있는 다양한 방법이 있습니다.
 
@@ -173,20 +173,20 @@ Machine Learning Studio는 Microsoft Research에서 개발된 확장 가능한 �
 
 **기본 제공 모듈을 사용하여 신경망 모델의 계층을 시각화할 수 있나요?**
 
-아니요.
+번호
 
 **C# 또는 일부 다른 언어로 모듈을 만들 수 있나요?**
 
 현재는 R을 사용해서만 새 사용자 지정 모듈을 만들 수 있습니다.
 
 ### <a name="r-module"></a>R 모듈
-**기계 학습 스튜디오에서 사용 가능한 R 패키지는 무엇인가요?**
+**Machine Learning Studio에서 사용 가능한 R 패키지는 무엇인가요?**
 
 Machine Learning Studio는 현재 400개가 넘는 CRAN R 패키지를 지원하며 다음은 모든 포함된 패키지의 [현재 목록](http://az754797.vo.msecnd.net/docs/RPackages.xlsx) 입니다. 이 목록을 직접 검색하는 방법에 대해 알아보려면 [R을 사용하여 실험 확장](extend-your-experiment-with-r.md) 을 참조하세요. 원하는 패키지가 이 목록에 없는 경우 [사용자 피드백 포럼](http://go.microsoft.com/fwlink/?LinkId=404231)에서 패키지 이름을 제공해 주세요.
 
 **사용자 지정 R 모듈을 빌드할 수 있나요?**
 
-예, 자세한 내용은 [Azure 기계 학습에서 사용자 지정 R 모듈 작성](custom-r-modules.md) 을 참조하세요.
+예, 자세한 내용은 [Azure Machine Learning에서 사용자 지정 R 모듈 작성](custom-r-modules.md)을 참조하세요.
 
 **R에 대한 REPL 환경이 있나요?**
 
@@ -199,18 +199,18 @@ Machine Learning Studio는 현재 400개가 넘는 CRAN R 패키지를 지원하
 
 **Python에 대한 REPL 환경이 있나요?**
 
-기계 학습 스튜디오에서 Jupyter 노트북을 사용할 수 있습니다. 자세한 내용은 [Azure Machine Learning Studio에 Jupyter 노트북 도입](http://blogs.technet.com/b/machinelearning/archive/2015/07/24/introducing-jupyter-notebooks-in-azure-ml-studio.aspx)을 참조하세요.
+Machine Learning Studio에서 Jupyter 노트북을 사용할 수 있습니다. 자세한 내용은 [Azure Machine Learning Studio에 Jupyter 노트북 도입](http://blogs.technet.com/b/machinelearning/archive/2015/07/24/introducing-jupyter-notebooks-in-azure-ml-studio.aspx)을 참조하세요.
 
 ## <a name="web-service"></a>웹 서비스
 ### <a name="retrain"></a>다시 학습
 **Azure Machine Learning 모델 프로그래밍 방식을 다시 학습하려면 어떻게 하나요?**
 
-API 다시 학습을 사용합니다. 자세한 내용은 [프로그래밍 방식으로 기계 학습 모델 다시 학습](retrain-models-programmatically.md)을 참조하세요. 샘플 코드는 [Microsoft Azure Machine Learning 다시 학습 데모](https://azuremlretrain.codeplex.com/)에서도 제공됩니다.
+API 다시 학습을 사용합니다. 자세한 내용은 [프로그래밍 방식으로 Machine Learning 모델 다시 학습](retrain-models-programmatically.md)을 참조하세요. 샘플 코드는 [Microsoft Azure Machine Learning 다시 학습 데모](https://azuremlretrain.codeplex.com/)에서도 제공됩니다.
 
 ### <a name="create"></a>생성
 **모델을 로컬로 배포하거나 인터넷에 연결하지 않고 응용 프로그램에서 배포할 수 있나요?**
 
-아니요.
+번호
 
 **모든 웹 서비스에 예상되는 기준 대기 시간이 있나요?**
 
@@ -226,7 +226,7 @@ RRS(요청-응답 서비스)는 대기 시간이 짧고, 확장성이 높은 웹
 이미 배포된 서비스의 예측 모델을 업데이트하려면 학습된 모델을 작성하여 저장하는 데 사용된 실험을 수정하고 다시 실행합니다. 새 버전의 학습된 모델이 확보된 후에는, Machine Learning Studio에서 웹 서비스를 업데이트할지 여부를 묻습니다. 배포된 웹 서비스를 업데이트하는 방법에 대한 자세한 내용은 [Machine Learning 웹 서비스 배포](publish-a-machine-learning-web-service.md)를 참조하세요.
 
 다시 학습 API도 사용할 수 있습니다.
-자세한 내용은 [프로그래밍 방식으로 기계 학습 모델 다시 학습](retrain-models-programmatically.md)을 참조하세요. 샘플 코드는 [Microsoft Azure Machine Learning 다시 학습 데모](https://azuremlretrain.codeplex.com/)에서도 제공됩니다.
+자세한 내용은 [프로그래밍 방식으로 Machine Learning 모델 다시 학습](retrain-models-programmatically.md)을 참조하세요. 샘플 코드는 [Microsoft Azure Machine Learning 다시 학습 데모](https://azuremlretrain.codeplex.com/)에서도 제공됩니다.
 
 **프로덕션에 배포된 웹 서비스를 모니터링하려면 어떻게 해야 하나요?**
 
@@ -255,7 +255,7 @@ RRS의 경우 웹 서비스 응답은 일반적으로 결과를 보는 위치입
 
 **학습에 사용할 수 있는 데이터의 양은 얼마인가요?**
 
-기계 학습 스튜디오의 모듈은 일반적인 사용 사례의 경우 최대 10GB 숫자 데이터의 데이터 집합을 지원합니다. 모듈에서 둘 이상의 입력을 사용하는 경우에는 모든 입력에 대한 총 크기가 10GB입니다. Hive 쿼리 또는 Azure SQL Database 쿼리를 통하거나 수집 전에 [개수로 알아보기][counts] 모듈로 전처리하여 더 큰 데이터 집합을 샘플링할 수도 있습니다.  
+Machine Learning Studio의 모듈은 일반적인 사용 사례의 경우 최대 10GB 숫자 데이터의 데이터 집합을 지원합니다. 모듈에서 둘 이상의 입력을 사용하는 경우에는 모든 입력에 대한 총 크기가 10GB입니다. Hive 쿼리 또는 Azure SQL Database 쿼리를 통하거나 수집 전에 [개수로 알아보기][counts] 모듈로 전처리하여 더 큰 데이터 집합을 샘플링할 수도 있습니다.  
 
 다음 데이터 형식은 기능 정규화 중에 확장할 수 있으며 10GB 미만으로 제한됩니다.
 
@@ -278,9 +278,9 @@ RRS의 경우 웹 서비스 응답은 일반적으로 결과를 보는 위치입
 
 행 및 열은 각각 .NET 제한인 Max Int: 2,147,483,647로 제한됩니다.
 
-**웹 서비스를 실행하는 가상 컴퓨터의 크기를 조정할 수 있나요?**
+**웹 서비스를 실행하는 가상 머신의 크기를 조정할 수 있나요?**
 
-아니요.  
+번호  
 
 ## <a name="security-and-availability"></a>보안 및 사용 가능성
 **웹 서비스에 대한 http 끝점에 기본적으로 액세스할 수 있는 사람은 누구인가요? 끝점에 대한 액세스는 어떻게 제한하나요?**
@@ -300,22 +300,22 @@ Machine Learning Studio는 워크플로를 실행할 때 사용자가 제공한 
 저장소 계정 액세스 키를 변경한 경우에는, Azure Portal을 사용하여 작업 영역에서 액세스 키를 다시 동기화합니다.  
 
 ## <a name="support-and-training"></a>지원 및 교육
-**Azure 기계 학습에 대한 교육은 어디에서 받을 수 있나요?**
+**Azure Machine Learning에 대한 교육은 어디에서 받을 수 있나요?**
 
 [Azure Machine Learning 설명서 센터](https://azure.microsoft.com/services/machine-learning/)에서 비디오 자습서와 방법 가이드를 호스트합니다. 이러한 단계별 가이드에서는 서비스를 소개하고, 데이터 가져오기, 데이터 정리, 예측 모델 구성, Azure Machine Learning을 사용하여 프로덕션에 배포의 데이터 과학 수명 주기 전체를 설명해 줍니다.
 
-Microsoft는 Machine Learning Center에 새로운 자료를 추가하고 있습니다. [사용자 피드백 포럼](https://windowsazure.uservoice.com/forums/257792-machine-learning)에서 기계 학습 센터의 추가 학습 자료에 대한 요청을 제출할 수 있습니다.
+Microsoft는 Machine Learning Center에 새로운 자료를 추가하고 있습니다. [사용자 피드백 포럼](https://windowsazure.uservoice.com/forums/257792-machine-learning)에서 Machine Learning 센터의 추가 학습 자료에 대한 요청을 제출할 수 있습니다.
 
 [Microsoft Virtual Academy](http://www.microsoftvirtualacademy.com/training-courses/getting-started-with-microsoft-azure-machine-learning)에서 교육을 찾을 수도 있습니다.
 
-**Azure 기계 학습에 대한 지원을 받으려면 어떻게 해야 하나요?**
+**Azure Machine Learning에 대한 지원을 받으려면 어떻게 해야 하나요?**
 
 Azure Machine Learning에 대한 기술 지원을 받으려면 [Azure 지원](/support/options/) 으로 이동하여 **기계 학습**을 선택합니다.
 
 또한 Azure Machine Learning은 MSDN에 커뮤니티 포럼을 갖고 있으며, 여기에서 Azure 기계 학습 관련 질문을 할 수 있습니다. Azure Machine Learning 팀에서 포럼을 모니터링합니다. [Azure 포럼](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning)으로 이동하세요.
 
 ## <a name="billing-questions"></a>대금 청구 관련 질문
-**기계 학습 결제는 어떤 방식으로 이루어지나요?**
+**Machine Learning 결제는 어떤 방식으로 이루어지나요?**
 
 Azure Machine Learning은 Machine Learning Studio 및 Machine Learning 웹 서비스라는 두 구성 요소로 이루어집니다.
 
@@ -334,9 +334,9 @@ Azure Machine Learning이 필요를 충족한다고 결정했으면 표준 계�
 > [!NOTE]
 포함된 수량은 30일마다 다시 할당되고 사용하지 않은 포함된 수량은 다음 기간에 롤오버되지 않습니다.
 
-추가 대금 청구 및 가격 책정 정보는 [기계 학습 가격](https://azure.microsoft.com/pricing/details/machine-learning/)을 참조하세요.
+추가 대금 청구 및 가격 책정 정보는 [Machine Learning 가격](https://azure.microsoft.com/pricing/details/machine-learning/)을 참조하세요.
 
-**Azure 기계 학습의 무료 평가판이 있나요?**
+**Azure Machine Learning의 무료 평가판이 있나요?**
 
  Azure Machine Learning에는 무료 구독 옵션이 포함되며 이에 대한 내용은 [Machine Learning 가격 책정](https://azure.microsoft.com/pricing/details/machine-learning/)에 설명됩니다. Machine Learning Studio에는 [Machine Learning Studio](https://studio.azureml.net/?selectAccess=true&o=2)에 로그인할 때 사용 가능한 8시간의 빠른 평가판이 포함됩니다.
 
@@ -356,7 +356,7 @@ API 계산 시간은 Machine Learning 계산 리소스를 사용하여 API 호�
 
 **일반 프로덕션 API 호출은 얼마나 걸리나요?**
 
-일반적으로 프로덕션 API 호출 시간은 수백 밀리초에서 몇 초에 이르기까지 상당히 다양합니다. 일부 API 호출은 데이터 처리 및 기계 학습 모델의 복잡도에 따라 몇 분이 필요할 수도 있습니다. 프로덕션 API 호출 시간을 예측하는 가장 좋은 방법은 기계 학습 서비스에서 모델을 벤치마킹하는 것입니다.
+일반적으로 프로덕션 API 호출 시간은 수백 밀리초에서 몇 초에 이르기까지 상당히 다양합니다. 일부 API 호출은 데이터 처리 및 기계 학습 모델의 복잡도에 따라 몇 분이 필요할 수도 있습니다. 프로덕션 API 호출 시간을 예측하는 가장 좋은 방법은 Machine Learning 서비스에서 모델을 벤치마킹하는 것입니다.
 
 **스튜디오 계산 시간이란?**
 
@@ -368,7 +368,7 @@ Resource Manager 기반 웹 서비스는 청구 계획을 프로비전하는 데
 
 **저장소 요금은 별도입니까?**
 
-Machine Learning 무료 계층은 별도의 저장소를 필요로 하지 않거나 허용하지 않습니다. 기계 학습 표준 계층을 사용하려면 Azure 저장소 계정이 있어야 합니다. Azure Storage는 [별도로 청구됩니다](https://azure.microsoft.com/pricing/details/storage/).
+Machine Learning 무료 계층은 별도의 저장소를 필요로 하지 않거나 허용하지 않습니다. Machine Learning 표준 계층을 사용하려면 Azure 저장소 계정이 있어야 합니다. Azure Storage는 [별도로 청구됩니다](https://azure.microsoft.com/pricing/details/storage/).
 
 **Machine Learning에서 고가용성 작업을 지원하나요?**
 
@@ -458,11 +458,11 @@ Azure Machine Learning 웹 서비스 포털의 계획 페이지에서 모든 계
 
 RRS 워크로드의 경우 요청하신 모든 API 트랜잭션 호출 및 해당 요청과 연관된 계산 시간에 대한 비용이 청구됩니다. RRS 프로덕션 API 트랜잭션 비용은 요청하신 총 API 호출 수에 트랜잭션 1,000개당 가격을 곱하여 계산됩니다(트랜잭션별 일할 계산). RRS API 프로덕션 API 계산 시간 비용은 각 API 호출 실행에 필요한 시간에 총 API 트랜잭션 수를 곱하고 프로덕션 API 계산 시간당 가격을 곱하여 계산됩니다.
 
-예를 들어 표준 S1 초과분의 경우 한 번 실행하는 데 0.72초가 걸리는 API 트랜잭션이 1,000,000개 있다면 프로덕션 API 트랜잭션 비용은 $500(1,000,000 \* $0.50/1K API 트랜잭션)이고 프로덕션 API 계산 시간은 $400(1,000,000 0.72초 * $2/시간)로 총 $900의 금액이 산정됩니다.
+예를 들어 표준 S1 초과분의 경우 한 번 실행하는 데 0.72초가 걸리는 API 트랜잭션이 1,000,000개 있다면 프로덕션 API 트랜잭션 비용은 $500(1,000,000 $0.50/1K API 트랜잭션)이고 프로덕션 API 계산 시간은 $400(1,000,000 0.72초 * $2/시간)로 총 $900의 금액이 산정됩니다.
 
 BES 워크로드도 같은 방식으로 청구됩니다. 하지만 API 트랜잭션 비용은 제출한 일괄 작업 수를, 계산 비용은 해당 일괄 작업과 연관된 계산 시간을 나타냅니다. BES 프로덕션 API 트랜잭션 비용은 제출한 총 작업 수에 트랜잭션 1,000개당 가격을 곱하여 계산됩니다(트랜잭션별 일할 계산). BES API 프로덕션 API 계산 시간 비용은 작업의 각 행 실행에 필요한 시간에 작업의 총 행 수, 총 작업 수, 프로덕션 API 계산 시간당 가격을 곱하여 계산됩니다. Machine Learning 계산기를 사용할 때 트랜잭션 미터는 제출하려는 작업 수를, 트랜잭션 필드당 시간은 각 작업의 모든 행을 실행하는 데 필요한 총 시간을 나타냅니다.
 
-예를 들어 표준 S1 초과분에 대해 각 0.72초가 필요한 행 500개로 구성된 각 작업을 하루에 100개 제출한다고 가정해 보겠습니다. 월간 초과 비용은 프로덕션 API 트랜잭션 비용 $1.55(하루 100개 작업 = 3,100개 작업/1개월  \* $0.50/1K API 트랜잭션)이며 프로덕션 API 계산 시간은 $620(500행 \* 0.72초 3,100개 \* 작업 \* $2/시간)로 총 $621.55의 금액이 산정됩니다.
+예를 들어 표준 S1 초과분에 대해 각 0.72초가 필요한 행 500개로 구성된 각 작업을 하루에 100개 제출한다고 가정해 보겠습니다. 월간 초과 비용은 프로덕션 API 트랜잭션 비용 $1.55(하루 100개 작업 = 3,100개 작업/1개월 $0.50/1K API 트랜잭션)이며 프로덕션 API 계산 시간은 $620(500행 0.72초 3,100개 작업 $2/시간)로 총 $621.55의 금액이 산정됩니다.
 
 ### <a name="azure-machine-learning-classic-web-services"></a>Azure Machine Learning 클래식 웹 서비스
 **종량제를 계속 사용할 수 있나요?**
@@ -470,9 +470,9 @@ BES 워크로드도 같은 방식으로 청구됩니다. 하지만 API 트랜잭
 예, 기존 웹 서비스는 Azure Machine Learning에서 계속 사용할 수 있습니다.  
 
 ### <a name="azure-machine-learning-free-and-standard-tier"></a>Azure Machine Learning 무료 및 표준 계층
-**Azure 기계 학습 무료 계층에는 무엇이 포함되나요?**
+**Azure Machine Learning 무료 계층에는 무엇이 포함되나요?**
 
-Azure 기계 학습 무료 계층은 Azure 기계 학습 스튜디오를 자세히 소개하기 위한 것입니다. Microsoft 계정을 등록하기만 하면 됩니다. 무료 계층에는 [Microsoft 계정](https://www.microsoft.com/account/default.aspx)당 하나의 Azure 기계 학습 스튜디오 작업 영역에 대한 무료 액세스 권한이 포함됩니다. 이 계층에서 최대 10GB의 저장소를 사용하고 스테이징 API로서 모델을 운영할 수 있습니다. 무료 계층 작업은 SLA의 적용을 받지 않으며 개발 및 개인 용도로만 사용할 수 있습니다. 
+Azure Machine Learning 무료 계층은 Azure Machine Learning Studio를 자세히 소개하기 위한 것입니다. Microsoft 계정을 등록하기만 하면 됩니다. 무료 계층에는 [Microsoft 계정](https://www.microsoft.com/account/default.aspx)당 하나의 Azure Machine Learning Studio 작업 영역에 대한 무료 액세스 권한이 포함됩니다. 이 계층에서 최대 10GB의 저장소를 사용하고 스테이징 API로서 모델을 운영할 수 있습니다. 무료 계층 작업은 SLA의 적용을 받지 않으며 개발 및 개인 용도로만 사용할 수 있습니다. 
 
 무료 계층 작업 영역의 제한 사항:
 
@@ -480,9 +480,9 @@ Azure 기계 학습 무료 계층은 Azure 기계 학습 스튜디오를 자세�
 * 새 리소스 관리자 기반 웹 서비스를 배포할 수 없습니다.
 
 
-**Azure 기계 학습 표준 계층 및 계획에는 무엇이 포함됩니까?**
+**Azure Machine Learning 표준 계층 및 계획에는 무엇이 포함됩니까?**
 
-Azure 기계 학습 표준 계층은 Azure 기계 학습 스튜디오의 유료 프로덕션 버전입니다. Azure Machine Learning Studio는 작업 영역별 및 월별 기준으로 요금이 청구되고 한 달이 안되는 경우 일할 계산됩니다. Azure Machine Learning 스튜디오 실험 시간은 실제 실험의 계산 시간을 기준으로 요금이 청구됩니다. 요금은 부분 시간별로 일할 계산됩니다.  
+Azure Machine Learning 표준 계층은 Azure Machine Learning Studio의 유료 프로덕션 버전입니다. Azure Machine Learning Studio는 작업 영역별 및 월별 기준으로 요금이 청구되고 한 달이 안되는 경우 일할 계산됩니다. Azure Machine Learning 스튜디오 실험 시간은 실제 실험의 계산 시간을 기준으로 요금이 청구됩니다. 요금은 부분 시간별로 일할 계산됩니다.  
 
 Azure Machine Learning API 서비스는 클래식 웹 서비스 또는 새로운 Resource Manager 기반 웹 서비스인지에 따라 요금이 청구됩니다.
 
@@ -505,7 +505,7 @@ Resource Manager 기반 웹 서비스의 경우 앞의 요금 외에도 선택�
 
 **Azure Machine Learning 무료 계층에 등록하려면 어떻게 하나요?**
 
-Microsoft 계정만 있으면 됩니다. [Azure Machine Learning 홈](https://azure.microsoft.com/services/machine-learning/)으로 이동하고 **지금 시작**을 클릭하세요. Microsoft 계정으로 로그인하면 무료 계층에 작업 영역이 생성됩니다. 기계 학습 실험을 바로 탐색하고 만들 수 있습니다.
+Microsoft 계정만 있으면 됩니다. [Azure Machine Learning 홈](https://azure.microsoft.com/services/machine-learning/)으로 이동하고 **지금 시작**을 클릭하세요. Microsoft 계정으로 로그인하면 무료 계층에 작업 영역이 생성됩니다. Machine Learning 실험을 바로 탐색하고 만들 수 있습니다.
 
 **Azure Machine Learning 표준 계층에 등록하려면 어떻게 하나요?**
 
@@ -515,7 +515,7 @@ Microsoft 계정만 있으면 됩니다. [Azure Machine Learning 홈](https://az
 
 **무료 계층에서 사용하기 위해 고유한 Azure Blob Storage 계정을 지정할 수 있나요?**
 
-아니요, 표준 계층은 표준 계층이 도입되기 전에 이용 가능했던 기계 학습 서비스 버전과 같습니다.
+아니요, 표준 계층은 표준 계층이 도입되기 전에 이용 가능했던 Machine Learning 서비스 버전과 같습니다.
 
 **무료 계층에서 내 기계 학습 모델을 API로 배포할 수 있나요?**
 
@@ -546,9 +546,9 @@ Microsoft 계정만 있으면 됩니다. [Azure Machine Learning 홈](https://az
 Machine Learning 서비스는 다중 테넌트 서비스입니다. 백 엔드에서 사용되는 실제 계산 리소스는 다양하며 성능 및 예측성을 위해 최적화됩니다.
 
 ### <a name="guest-access"></a>게스트 액세스
-**Azure 기계 학습 스튜디오의 게스트 액세스란?**
+**Azure Machine Learning Studio의 게스트 액세스란?**
 
-게스트 액세스는 제한적인 체험 서비스입니다. Azure Machine Learning Studio에서 인증 없이 무료로 실험을 만들어 실행할 수 있습니다. 게스트 세션은 저장할 수 없으며 임시로 유지되고, 8시간으로 제한됩니다. 또한 R 및 Python이 제대로 지원되지 않고 스테이징 API가 충분하지 않으며 데이터 집합 크기와 저장소 용량도 제한됩니다. 하지만 Microsoft 계정으로 로그인한 사용자는 저장이 가능한 작업 영역과 보다 포괄적인 기능이 포함되어 있는 이전에 설명된 Machine Learning Studio의 무료 계층에 모두 액세스할 수 있습니다. 무료 Machine Learning 환경을 선택하려면 [https://studio.azureml.net](https://studio.azureml.net) 에서 **시작하기**를 클릭하고 **게스트 액세스**를 선택하거나 Microsoft 계정으로 로그인합니다.
+게스트 액세스는 제한적인 체험 서비스입니다. Azure Machine Learning Studio에서 인증 없이 무료로 실험을 만들어 실행할 수 있습니다. 게스트 세션은 저장할 수 없으며 임시로 유지되고, 8시간으로 제한됩니다. 또한 R 및 Python이 제대로 지원되지 않고 스테이징 API가 충분하지 않으며 데이터 집합 크기와 저장소 용량도 제한됩니다. 하지만 Microsoft 계정으로 로그인한 사용자는 저장이 가능한 작업 영역과 보다 포괄적인 기능이 포함되어 있는 이전에 설명된 Machine Learning Studio의 무료 계층에 모두 액세스할 수 있습니다. 무료 Machine Learning 환경을 선택하려면 [https://studio.azureml.net](https://studio.azureml.net)에서 **시작하기**를 클릭하고 **게스트 액세스**를 선택하거나 Microsoft 계정으로 로그인합니다.
 
 <!-- Module References -->
 [image-reader]: https://msdn.microsoft.com/library/azure/893f8c57-1d36-456d-a47b-d29ae67f5d84/

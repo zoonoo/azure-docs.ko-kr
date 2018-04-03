@@ -1,10 +1,10 @@
 ---
-title: "개발자용 Azure Active Directory | Microsoft Docs"
-description: "이 문서에서는 Azure Active Directory를 사용하여 Microsoft 회사 및 학교 계정에 로그인하는 방법의 개요를 제공합니다."
+title: 개발자용 Azure Active Directory | Microsoft Docs
+description: 이 문서에서는 Azure Active Directory를 사용하여 Microsoft 회사 및 학교 계정에 로그인하는 방법의 개요를 제공합니다.
 services: active-directory
 author: dstrockis
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 5c872c89-ef04-4f4c-98de-bc0c7460c7c2
 ms.service: active-directory
 ms.devlang: na
@@ -14,14 +14,17 @@ ms.workload: identity
 ms.date: 04/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: e1f9fbf6cb80065ea796e2d53d09f48fe57b207b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 8d70f36c5e434a26fce4d6b4bd1ddefc22234ab5
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-active-directory-for-developers"></a>개발자용 Azure Active Directory
-Azure AD(Azure Active Directory)는 개발자가 Microsoft 회사 또는 학교 계정으로 사용자에게 안전하게 로그인하도록 허용하는 클라우드 ID 서비스입니다. 이 설명서에서는 OAuth2.0 및 OpenID Connect 업계 표준 프로토콜을 사용하여 응용 프로그램에 Azure AD 지원을 추가하는 방법을 보여 줍니다.
+Azure AD(Azure Active Directory)는 개발자가 Microsoft 회사 또는 학교 계정으로 사용자를 안전하게 로그인하는 앱을 빌드할 수 있는 클라우드 ID 서비스입니다. Azure AD는 단일 테넌트 및 기간 업무 앱을 모두 빌드하는 개발자와 다중 테넌트 앱을 개발하는 개발자를 지원합니다. 기본 로그인 외에도, Azure AD는 앱에서 [Microsoft Graph](https://developer.microsoft.com/en-us/graph/docs/concepts/overview) 같은 Microsoft API와 Azure AD 플랫폼에서 빌드되는 사용자 지정 API를 호출하는 것을 허용합니다.  이 설명서에서는 OAuth2.0 및 OpenID Connect 같은 산업 표준 프로토콜을 사용하여 응용 프로그램에 Azure AD 지원을 추가하는 방법을 보여줍니다. 
+
+> [!NOTE]
+> 이 페이지의 콘텐츠는 대부분 Microsoft 회사 또는 학교 계정만 지원하는 Azure AD v1 엔드포인트에 집중합니다. 소비자 또는 개인 Microsoft 계정에 로그인하려면 [Azure AD v2.0 엔드포인트](active-directory-appmodel-v2-overview.md)에 대한 추가 정보를 참조하세요. Azure AD v2.0 엔드포인트는 Azure AD 계정(회사 및 학교)과 개인용 Microsoft 계정으로 두 사용자를 모두 로그인해야 하는 앱을 위한 통합 개발자 환경을 제공합니다. 
 
 | | |
 | --- | --- |
@@ -29,7 +32,7 @@ Azure AD(Azure Active Directory)는 개발자가 Microsoft 회사 또는 학교 
 |[응용 프로그램 유형](active-directory-authentication-scenarios.md#application-types-and-scenarios) | Azure AD에서 지원하는 인증 시나리오에 대한 개요입니다. |                                
                                                                               
 ## <a name="get-started"></a>시작하기
-다음 안내 설정을 통해 Microsoft 인증 라이브러리를 사용하여 Azure AD 사용자를 로그인하는 과정을 안내합니다.
+아래에 제공된 설정은 ADAL(Azure Active Directory 라이브러리) SDK를 사용하여 선호하는 플랫폼에서 앱을 빌드하는 과정을 안내합니다. MSAL(Microsoft 인증 라이브러리) 사용에 대한 내용은 [Azure AD v2.0 엔드포인트](active-directory-appmodel-v2-overview.md)에 대한 설명서를 참조하세요.
 
 |  |  |  |  |
 | --- | --- | --- | --- |
@@ -40,7 +43,7 @@ Azure AD(Azure Active Directory)는 개발자가 Microsoft 회사 또는 학교 
 | <center>![서비스 간](./media/active-directory-developers-guide/Service_App.png)<br />서비스 간</center> | [개요](active-directory-authentication-scenarios.md#daemon-or-server-application-to-web-api)<br /><br />[.NET](active-directory-code-samples.md#server-or-daemon-application-to-web-api)|  |
 
 ## <a name="how-to-guides"></a>방법 가이드
-다음 가이드는 Azure AD로 일반적인 작업을 수행하는 방법을 알려줍니다.
+아래 가이드는 Azure AD에서 가장 일반적인 작업 몇 가지를 안내합니다.
 
 |                                                                           |  |
 |---------------------------------------------------------------------------| --- |
@@ -58,10 +61,6 @@ Azure AD(Azure Active Directory)는 개발자가 Microsoft 회사 또는 학교 
 | [코드 샘플](active-directory-code-samples.md)                                  | 모든 Azure AD 코드 샘플의 목록입니다. |
 | [용어](active-directory-dev-glossary.md)                                      | 이 설명서에 사용된 용어 및 단어에 대한 정의입니다. |
 | [추가 참조 항목](active-directory-developers-guide-index.md#reference)| Azure AD에서 사용할 수 있는 참조 항목 목록입니다.   |
-
-
-> [!NOTE]
-> Microsoft 개인 계정에 로그인해야 하는 경우 [Azure AD v2.0 엔드포인트](active-directory-appmodel-v2-overview.md)를 사용하는 것이 좋습니다. Azure AD v2.0 끝점은 Microsoft 개인 계정과 Microsoft 회사 계정(Azure AD의)을 단일 인증 시스템으로 통합한 것입니다.
 
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

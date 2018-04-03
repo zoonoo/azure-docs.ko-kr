@@ -9,11 +9,11 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 03/15/2018
 ms.author: tamram
-ms.openlocfilehash: 716e61840f4bfb5a68a995683e67dae0b43d3854
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: b84a56996a335f8a137c4219c55b9878e39b5a3b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-net"></a>빠른 시작: .NET을 사용하여 BLOB 업로드, 다운로드 및 나열
 
@@ -25,21 +25,23 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 이 빠른 시작을 완료하려면 먼저 [Azure Portal](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM)에서 Azure 저장소 계정을 만듭니다. 저장소 계정을 만드는 데 도움이 필요한 경우 [저장소 계정 만들기](../common/storage-quickstart-create-account.md)를 참조하세요.
 
-다음으로 운영 체제용 .NET Core 2.0을 다운로드 및 설치합니다. 또한 운영 체제와 사용할 편집기를 설치하도록 선택할 수도 있습니다.
+다음으로 운영 체제용 .NET Core 2.0을 다운로드 및 설치합니다. Windows를 실행하는 경우 원한다면 Visual Studio를 설치하고 .NET Framework를 사용할 수 있습니다. 또한 운영 체제와 사용할 편집기를 설치하도록 선택할 수도 있습니다.
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
-- [Windows용 .NET Core](https://www.microsoft.com/net/download/windows/build) 설치 
-- 필요에 따라 [Windows용 Visual Studio](https://www.visualstudio.com/) 설치 
+- [Windows용 .NET Core](https://www.microsoft.com/net/download/windows) 또는 [.NET Framework](https://www.microsoft.com/net/download/windows)(Windows용 Visual Studio에 포함)를 설치합니다.
+- [Windows용 Visual Studio](https://www.visualstudio.com/)를 설치합니다. .NET Core를 사용하는 경우 Visual Studio는 선택 사항입니다.  
+
+.NET Core와 .NET Framework 중에서 선택하는 방법에 대한 내용은 [서버 앱에 .NET Core와 .NET Framework 중에서 무엇을 사용할지 선택하는 방법](https://docs.microsoft.com/dotnet/standard/choosing-core-framework-server)을 참조하세요.
 
 # <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
-- [Linux용 .NET Core](https://www.microsoft.com/net/download/linux/build) 설치
+- [Linux용 .NET Core](https://www.microsoft.com/net/download/linux) 설치
 - 필요에 따라 [Visual Studio Code](https://www.visualstudio.com/) 및 [C# 확장](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp&dotnetid=963890049.1518206068) 설치
 
 # <a name="macostabmacos"></a>[macOS](#tab/macos)
 
-- [macOS용 .NET Core](https://www.microsoft.com/net/download/macos/build)를 설치합니다.
+- [macOS용 .NET Core](https://www.microsoft.com/net/download/macos)를 설치합니다.
 - 필요에 따라 [Mac용 Visual Studio](https://www.visualstudio.com/vs/visual-studio-mac/) 설치
 
 ---
@@ -58,7 +60,22 @@ git clone https://github.com/Azure-Samples/storage-blobs-dotnet-quickstart.git
 
 ## <a name="configure-your-storage-connection-string"></a>저장소 연결 문자열 구성
 
-응용 프로그램을 실행하려면 저장소 계정에 대한 연결 문자열을 제공해야 합니다. 응용 프로그램을 실행하는 로컬 컴퓨터의 환경 변수 내에 이 연결 문자열을 저장할 수 있습니다. 운영 체제에 따라 다음 명령 중 하나를 사용하여 환경 변수를 만듭니다. `<yourconnectionstring>`을 실제 연결 문자열로 바꿉니다.
+응용 프로그램을 실행하려면 저장소 계정에 대한 연결 문자열을 제공해야 합니다. Azure Portal에서 연결 문자열을 복사하여 새 환경 변수에 씁니다. 이 샘플은 환경 변수의 연결 문자열을 읽어서 Azure Storage에 대한 요청을 인증하는 데 사용합니다.
+
+### <a name="copy-your-connection-string-from-the-azure-portal"></a>Azure Portal에서 연결 문자열 복사
+
+연결 문자열을 복사하려면:
+
+1. [Azure Portal](https://portal.azure.com)로 이동합니다.
+2. 저장소 계정을 찾습니다.
+3. 저장소 계정 개요의 **설정** 섹션에서 **액세스 키**를 선택합니다.
+4. **key1** 아래에서 **연결 문자열** 값을 찾고, **복사** 단추를 클릭하여 연결 문자열을 복사합니다.  
+
+    ![Azure Portal에서 연결 문자열을 복사하는 방법을 보여주는 스크린샷](media/storage-quickstart-blobs-dotnet/portal-connection-string.png)
+
+## <a name="write-your-connection-string-to-an-environment-variable"></a>환경 변수에 연결 문자열 쓰기
+
+다음으로, 응용 프로그램을 실행하는 로컬 컴퓨터에서 새 환경 변수를 씁니다. 환경 변수를 설정하려면 콘솔 창을 열고 사용 중인 운영 체제의 지침을 따릅니다. `<yourconnectionstring>`을 실제 연결 문자열로 바꿉니다.
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
@@ -66,21 +83,25 @@ git clone https://github.com/Azure-Samples/storage-blobs-dotnet-quickstart.git
 setx storageconnectionstring "<yourconnectionstring>"
 ```
 
+환경 변수를 추가한 후에는 콘솔 창을 포함하여 실행 중인 프로그램 중에서 환경 변수를 읽어야 하는 프로그램을 다시 시작해야 할 수도 있습니다. 예를 들어 편집기로 Visual Studio를 사용하는 경우 Visual Studio를 다시 시작한 후 샘플을 실행합니다. 
+
 # <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
 ```bash
 export storageconnectionstring=<yourconnectionstring>
 ```
 
+환경 변수를 추가한 후에는 콘솔 창에서 `source ~/.bashrc` 명령을 실행하여 변경 내용을 적용합니다.
+
 # <a name="macostabmacos"></a>[macOS](#tab/macos)
 
 .bash_profile을 편집하고, 환경 변수를 추가합니다.
 
-```
-export STORAGE_CONNECTION_STRING=
+```bash
+export STORAGE_CONNECTION_STRING=<yourconnectionstring>
 ```
 
-환경 변수를 추가한 후에 로그아웃하고 변경 내용을 적용하기 위해 다시 로그인합니다. 또는 터미널에서 "source .bash_profile"을 입력할 수 있습니다.
+환경 변수를 추가한 후에는 콘솔 창에서 `source .bash_profile` 명령을 실행하여 변경 내용을 적용합니다.
 
 ---
 
@@ -88,23 +109,50 @@ export STORAGE_CONNECTION_STRING=
 
 이 샘플은 로컬 **MyDocuments** 폴더에 테스트 파일을 만들고 Blob 저장소에 업로드합니다. 그런 다음, 샘플은 컨테이너에 Blob을 나열하고 이전 파일과 새 파일을 비교할 수 있도록 새 이름으로 해당 파일을 다운로드합니다. 
 
+# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+
+편집기로 Visual Studio를 사용하는 경우 **F5** 키를 눌러 실행할 수 있습니다. 
+
+그렇지 않으면 응용 프로그램 디렉터리로 이동하여 `dotnet run` 명령으로 응용 프로그램을 실행합니다.
+
+```
+dotnet run
+```
+
+# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+
 응용 프로그램 디렉터리로 이동하여 `dotnet run` 명령으로 응용 프로그램을 실행합니다.
 
 ```
 dotnet run
 ```
 
-표시된 출력은 다음 예제와 유사합니다.
+# <a name="macostabmacos"></a>[macOS](#tab/macos)
+
+응용 프로그램 디렉터리로 이동하여 `dotnet run` 명령으로 응용 프로그램을 실행합니다.
 
 ```
-Azure Blob storage quick start sample
-Temp file = /home/admin/QuickStart_b73f2550-bf20-4b3b-92ec-b9b31c56b374.txt
-Uploading to Blob storage as blob 'QuickStart_b73f2550-bf20-4b3b-92ec-b9b31c56b374.txt'
-List blobs in container.
-https://mystorageaccount.blob.core.windows.net/quickstartblobs/QuickStart_b73f2550-bf20-4b3b-92ec-b9b31c56b374.txt
-Downloading blob to /home/admin/QuickStart_b73f2550-bf20-4b3b-92ec-b9b31c56b374_DOWNLOADED.txt
-The program has completed successfully.
-Press the 'Enter' key while in the console to delete the sample files, example container, and exit the application.
+dotnet run
+```
+
+---
+
+응용 프로그램 예제의 출력은 다음 예제와 비슷합니다.
+
+```
+Azure Blob storage - .NET Quickstart sample
+
+Created container 'quickstartblobs33c90d2a-eabd-4236-958b-5cc5949e731f'
+
+Temp file = C:\Users\myusername\Documents\QuickStart_c5e7f24f-a7f8-4926-a9da-9697c748f4db.txt
+Uploading to Blob storage as blob 'QuickStart_c5e7f24f-a7f8-4926-a9da-9697c748f4db.txt'
+
+Listing blobs in container.
+https://storagesamples.blob.core.windows.net/quickstartblobs33c90d2a-eabd-4236-958b-5cc5949e731f/QuickStart_c5e7f24f-a7f8-4926-a9da-9697c748f4db.txt
+
+Downloading blob to C:\Users\myusername\Documents\QuickStart_c5e7f24f-a7f8-4926-a9da-9697c748f4db_DOWNLOADED.txt
+
+Press any key to delete the sample files and example container.
 ```
 
 **Enter** 키를 누르면 응용 프로그램은 저장소 컨테이너 및 파일을 삭제합니다. 삭제하기 전에 **MyDocuments** 폴더에서 두 파일을 확인합니다. 이 파일을 열어 동일한지 확인할 수 있습니다. 콘솔 창에서 Blob의 URL을 복사하고 브라우저에 붙여넣어 Blob의 콘텐츠를 봅니다.
@@ -123,8 +171,8 @@ Press the 'Enter' key while in the console to delete the sample files, example c
 // Retrieve the connection string for use with the application. The storage connection string is stored
 // in an environment variable on the machine running the application called storageconnectionstring.
 // If the environment variable is created after the application is launched in a console or with Visual
-// Studio, the shell needs to be closed and reloaded to take the environment variable into account.
-string storageConnectionString = Environment.GetEnvironmentVariable("storageconnectionstring", EnvironmentVariableTarget.User);
+// Studio, the shell or application needs to be closed and reloaded to take the environment variable into account.
+string storageConnectionString = Environment.GetEnvironmentVariable("storageconnectionstring");
 
 // Check whether the connection string can be parsed.
 if (CloudStorageAccount.TryParse(storageConnectionString, out storageAccount))

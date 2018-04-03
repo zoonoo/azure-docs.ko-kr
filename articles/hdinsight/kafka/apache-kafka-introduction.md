@@ -1,8 +1,8 @@
 ---
-title: "HDInsight의 Apache Kafka 소개 - Azure | Microsoft Docs"
-description: "HDInsight의 Apache Kafka에 대해 알아보세요. 이것이 무엇인지, 무엇을 하는지, 어디서 예제와 시작 정보를 찾는지에 대해 설명합니다."
+title: HDInsight의 Apache Kafka 소개 - Azure | Microsoft Docs
+description: HDInsight의 Apache Kafka에 대해 알아보세요. 이것이 무엇인지, 무엇을 하는지, 어디서 예제와 시작 정보를 찾는지에 대해 설명합니다.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: 35dc83dea7dc1310852437cd7eede32cfa890e8f
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 4a4f2c6734de211cd20ee4b9f6815bdefefb25bc
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="introducing-apache-kafka-on-hdinsight"></a>HDInsight의 Apache Kafka 소개
 
@@ -31,7 +31,7 @@ HDInsight의 Kafka는 다음과 같은 기능을 제공합니다.
 
 * __Kafka 작동 시간에 99.9% Service Level Agreement(서비스 수준 약정)__: 자세한 내용은 [HDInsight에 대한 SLA 정보](https://azure.microsoft.com/support/legal/sla/hdinsight/v1_0/) 문서를 참조하세요.
 
-* __내결함성 및 랙 인식__: Kafka는 일부 환경에서 잘 작동하는 랙의 1차원 뷰로 설계되었습니다. 하지만 Azure와 같은 환경에서는 랙이 업데이트 도메인(UD)과 장애 도메인(FD)의 두 차원으로 분리됩니다. Microsoft에서는 UD와 FD의 Kafka 파티션 및 복제본 균형을 재조정하는 도구를 제공합니다. 
+* __내결함성__: Kafka는 일부 환경에서 잘 작동하는, 랙의 단일 차원 보기로 설계되었습니다. 하지만 Azure와 같은 환경에서는 랙이 업데이트 도메인(UD)과 장애 도메인(FD)의 두 차원으로 분리됩니다. Microsoft에서는 UD와 FD의 Kafka 파티션 및 복제본 균형을 재조정할 수 있는 도구를 제공합니다. 
 
     자세한 내용은 [HDInsight에서 Kafka의 고가용성](apache-kafka-high-availability.md)을 참조하세요.
 

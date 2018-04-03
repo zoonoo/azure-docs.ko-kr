@@ -1,6 +1,6 @@
 ---
-title: "Azure의 Kubernetes 자습서 - 클러스터 업데이트"
-description: "Azure의 Kubernetes 자습서 - 클러스터 업데이트"
+title: Azure의 Kubernetes 자습서 - 클러스터 업데이트
+description: Azure의 Kubernetes 자습서 - 클러스터 업데이트
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 02/22/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 16c8892743ac25c21b7004e10796c77c3ac9f900
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 9c63bf2204f1e18cda6bfc80d54b01240193833f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="upgrade-kubernetes-in-azure-container-service-aks"></a>AKS(Azure Container Service)에서 Kubernetes 업그레이드
+# <a name="tutorial-upgrade-kubernetes-in-azure-container-service-aks"></a>자습서: AKS(Azure Container Service)에서 Kubernetes 업그레이드
 
 Azure CLI를 사용하여 AKS(Azure Container Service) 클러스터를 업그레이드할 수 있습니다. 업그레이드 프로세스 중에는 Kubernetes 노드를 신중하게 [통제하고 드레이닝][kubernetes-drain]하여 실행 중인 응용 프로그램의 중단을 최소화합니다.
 

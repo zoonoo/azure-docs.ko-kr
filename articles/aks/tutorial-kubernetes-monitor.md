@@ -1,6 +1,6 @@
 ---
-title: "Azure의 Kubernetes 자습서 - Kubernetes 모니터링"
-description: "AKS 자습서 - Microsoft OMS(Operations Management Suite)를 사용하여 Kubernetes 모니터링"
+title: Azure의 Kubernetes 자습서 - Kubernetes 모니터링
+description: AKS 자습서 - Azure Log Analytics를 사용하여 Kubernetes 모니터링
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 02/22/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 227601858dbe07e6cb774a2d24878ddca05aaf56
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 86ae0c5ab302c49fa58df887d9dffef6cec31708
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="monitor-azure-container-service-aks"></a>AKS(Azure Container Service) 모니터링
+# <a name="tutorial-monitor-azure-container-service-aks"></a>자습서: AKS(Azure Container Service) 모니터링
 
 Kubernetes 클러스터 및 컨테이너를 모니터링하는 것은 중요하며, 특히 여러 응용 프로그램을 사용하여 대규모의 프로덕션 클러스터를 실행하는 경우 그렇습니다.
 
@@ -40,11 +40,11 @@ Azure Portal에서 **리소스 만들기**를 선택하고 `Container Monitoring
 
 ![솔루션 추가](./media/container-service-tutorial-kubernetes-monitor/add-solution.png)
 
-새 OMS 작업 영역을 만들거나 기존 작업 영역을 선택합니다. OMS 작업 영역 양식이 이 프로세스를 안내합니다.
+새 Log Analytics 작업 영역을 만들거나 기존 작업 영역을 선택합니다. Log Analytics 작업 영역 양식이 이 프로세스를 안내합니다.
 
 작업 영역을 만들 때 쉽게 검색할 수 있게 **대시보드에 고정**을 선택합니다.
 
-![OMS 작업 영역](./media/container-service-tutorial-kubernetes-monitor/oms-workspace.png)
+![Log Analytics 작업 영역](./media/container-service-tutorial-kubernetes-monitor/oms-workspace.png)
 
 완료되면 **확인**을 선택합니다. 유효성 검사가 완료되면 **만들기**를 선택하여 컨테이너 모니터링 솔루션을 만듭니다.
 
@@ -58,7 +58,7 @@ Log Analytics 작업 영역 ID 및 키는 Kubernetes 노드에서 솔루션 에�
 
 ## <a name="create-kubernetes-secret"></a>Kubernetes 비밀 만들기
 
-[kubectl create secret][kubectl-create-secret] 명령을 사용하여 `omsagent-secret`이라는 Kubernetes 암호에 OMS 작업 영역 설정을 저장합니다. OMS 작업 영역 ID를 사용하여 `WORKSPACE_ID` 및 작업 영역 키를 사용하여 `WORKSPACE_KEY`를 업데이트합니다.
+[kubectl create secret][kubectl-create-secret] 명령을 사용하여 `omsagent-secret`이라는 Kubernetes 비밀에 Log Analytics 작업 영역 설정을 저장합니다. Log Analytics 작업 영역 ID를 사용하여 `WORKSPACE_ID` 및 작업 영역 키를 사용하여 `WORKSPACE_KEY`를 업데이트합니다.
 
 ```console
 kubectl create secret generic omsagent-secret --from-literal=WSID=WORKSPACE_ID --from-literal=KEY=WORKSPACE_KEY
@@ -154,7 +154,7 @@ NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE-SELECTOR 
 omsagent   3         3         3         3            3           beta.kubernetes.io/os=linux   8m
 ```
 
-에이전트가 실행된 후 OMS에서 데이터를 수집하고 처리하는 데 몇 분 정도 걸립니다.
+에이전트가 실행된 후 Log Analytics에서 데이터를 수집하고 처리하는 데 몇 분 정도 걸립니다.
 
 ## <a name="access-monitoring-data"></a>모니터링 데이터 액세스
 
@@ -166,7 +166,7 @@ Azure Portal에서 포털 대시보드에 고정된 Log Analytics 작업 영역�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 OMS를 사용하여 Kubernetes 클러스터를 모니터링했습니다. 설명한 작업은 다음과 같습니다.
+이 자습서에서는 Log Analytics를 사용하여 Kubernetes 클러스터를 모니터링했습니다. 설명한 작업은 다음과 같습니다.
 
 > [!div class="checklist"]
 > * 컨테이너 모니터링 솔루션 구성

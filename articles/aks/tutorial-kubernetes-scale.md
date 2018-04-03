@@ -1,6 +1,6 @@
 ---
-title: "Azure의 Kubernetes 자습서 - 응용 프로그램 크기 조정"
-description: "AKS 자습서 - 응용 프로그램 크기 조정"
+title: Azure의 Kubernetes 자습서 - 응용 프로그램 크기 조정
+description: AKS 자습서 - 응용 프로그램 크기 조정
 services: container-service
 author: dlepow
 manager: timlt
@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 02/22/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 556f4bfb204504de55c41da9615e61d5a88c75b2
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 5e35be84df53386398deaca19d60d4a93f53e541
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="scale-application-in-azure-container-service-aks"></a>Azure Container Service(AKS)에서 응용 프로그램 크기 조정
+# <a name="tutorial-scale-application-in-azure-container-service-aks"></a>자습서: Azure Container Service(AKS)에서 응용 프로그램 크기 조정
 
 자습서를 수행하고 있다면 AKS에서 작동하는 Kubernetes 클러스터가 있으며 Azure Voting 앱을 배포한 상태입니다.
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 02/24/2018
 > * 수동으로 Kubernetes Pod 크기 조정
 > * 앱 프런트 엔드를 실행하는 Pod 자동 크기 조정 구성
 
-후속 자습서에서는 Azure Vote 응용 프로그램을 업데이트하고, Kubernetes 클러스터를 모니터링하도록 Operations Management Suite를 구성합니다.
+후속 자습서에서는 Azure Vote 응용 프로그램을 업데이트하고, Kubernetes 클러스터를 모니터링하도록 Log Analytics를 구성합니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 

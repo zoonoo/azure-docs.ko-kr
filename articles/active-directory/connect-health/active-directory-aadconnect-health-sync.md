@@ -1,8 +1,8 @@
 ---
-title: "동기화된 Azure AD Connect Health 사용 | Microsoft Docs"
-description: "Azure AD Connect 동기화를 모니터링하는 방법을 설명하는 Azure AD Connect Health 페이지입니다."
+title: 동기화된 Azure AD Connect Health 사용 | Microsoft Docs
+description: Azure AD Connect 동기화를 모니터링하는 방법을 설명하는 Azure AD Connect Health 페이지입니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: karavar
 manager: mtillman
 ms.assetid: 1dfbeaba-bda2-4f68-ac89-1dbfaf5b4015
@@ -14,11 +14,11 @@ ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 821d4bd7e6b526ad826caf005456edf8235291b8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: cff8be88e23d57545a9926df366289c6ba264886
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="monitor-azure-ad-connect-sync-with-azure-ad-connect-health"></a>Azure AD Connect Health를 사용하여 Azure AD Connect 동기화 모니터링
 다음 문서는 Azure AD Connect Health와 함께 Azure AD Connect (동기화) 모니터링에 중점을 둡니다.  Azure AD Connect Health와 함께 AD FS 모니터링에 대한 내용은 [AD FS와 함께 Azure AD Connect Health 사용](active-directory-aadconnect-health-adfs.md)을 참조하세요. 또한 Azure AD Connect Health와 함께 Active Directory Domain Services를 모니터링하는 방법에 대한 정보는 [AD DS와 함께 Azure AD Connect Health 사용](active-directory-aadconnect-health-adds.md)을 참조하세요.
@@ -83,11 +83,12 @@ Azure AD Connect가 기본 구성을 사용하지 않으면(예: 특성 필터�
 | 중복 특성 |proxyAddresses, UserPrincipalName 같은 테넌트 내에서 고유해야 하는 Azure AD에서 하나 이상의 특성의 값이 중복된 개체를 만들거나 업데이트하려고 시도할 때의 오류 |
 | 데이터 불일치 |소프트 일치가 동기화 오류가 발생하는 개체와 일치하도록 하는 데 실패할 경우발생하는 오류 |
 | 데이터 유효성 검사 실패 |UserPrincipalName와 같은 중요한 특성에서 지원되지 않는 문자 등 잘못된 데이터로 인한 오류, Azure AD에 기록되기 전에 유효성 검사에 실패하는 서식 오류. |
+| 페더레이션된 도메인 변경 | 여러 계정에서 서로 다른 페더레이션된 도메인을 사용하는 경우 오류가 발생합니다. |
 | 큰 특성 |하나 이상의 특성의 허용 되는 크기, 길이 또는 개수보다 클 때 발생하는 오류 |
 | 기타 |위 범주에 맞지 않는 다른 모든 오류 의견에 따라 이 범주는 하위 범주로 분할됩니다. |
 
 ![동기화 오류 보고서 요약](./media/active-directory-aadconnect-health-sync/errorreport01.png)
-![동기화 오류 보고서 범주](./media/active-directory-aadconnect-health-sync/errorreport02.png)
+![동기화 오류 보고서 범주](./media/active-directory-aadconnect-health-sync/SyncErrorByTypes.PNG)
 
 ### <a name="list-of-objects-with-error-per-category"></a>범주별 오류에 따른 개체의 목록
 각 범주에 대해 자세히 알아보면 해당 범주의 오류가 포함된 개체의 목록을 제공합니다.

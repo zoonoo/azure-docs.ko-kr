@@ -1,11 +1,11 @@
 ---
-title: "bcp를 사용하여 SQL Data Warehouse로 데이터 로드 | Microsoft Docs"
-description: "bcp 정의 및 데이터 웨어하우징 시나리오에 대해 사용하는 방법에 대해 알아봅니다."
+title: bcp를 사용하여 SQL Data Warehouse로 데이터 로드 | Microsoft Docs
+description: bcp 정의 및 데이터 웨어하우징 시나리오에 대해 사용하는 방법에 대해 알아봅니다.
 services: sql-data-warehouse
 documentationcenter: NA
 author: ckarst
 manager: barbkess
-editor: 
+editor: ''
 ms.assetid: f9467d11-fcd6-4131-a65a-2022d2c32d24
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: loading
 ms.date: 01/22/2018
 ms.author: cakarst;barbkess
-ms.openlocfilehash: 146c6fdada651551c05b2cbcadc3e1248a40b613
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 752a2f0d7b49f9e053788b26e3df389246c72a73
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="load-data-with-bcp"></a>bcp를 사용하여 데이터 로드
 
@@ -174,7 +174,7 @@ bcp DimDate2 out C:\Temp\DimDate2_export.txt -S <Server Name> -d <Database Name>
 > 
 
 ## <a name="next-steps"></a>다음 단계
-로드 프로세스를 디자인하려면 [로드 개요](sql-data-warehouse-design-elt-data-loading)를 참조하세요.  
+로딩 프로세스를 설계하려면 [Azure SQL Data Warehouse에 데이터를 로드하는 모범 사례](guidance-for-loading-data.md)를 참조하세요.  
 
 
 

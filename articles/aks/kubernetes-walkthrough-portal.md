@@ -1,6 +1,6 @@
 ---
-title: "빠른 시작 - Azure Kubernetes 클러스터 포털 빠른 시작"
-description: "AKS에서 Azure Portal을 사용하여 Linux 컨테이너용 Kubernetes 클러스터를 빠르게 만드는 방법에 대해 알아봅니다."
+title: 빠른 시작 - Azure Kubernetes 클러스터 포털 빠른 시작
+description: AKS에서 Azure Portal을 사용하여 Linux 컨테이너용 Kubernetes 클러스터를 빠르게 만드는 방법에 대해 알아봅니다.
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,13 +9,13 @@ ms.topic: quickstart
 ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 35886217328d35229a59b9713f5bb4bf0244569a
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 4aad45559d167e6c046822200c9bbb98113d463b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="deploy-an-azure-container-service-aks-cluster"></a>AKS(Azure Container Service) 클러스터 배포
+# <a name="quickstart-deploy-an-azure-container-service-aks-cluster"></a>빠른 시작: AKS(Azure Container Service) 클러스터 배포
 
 이 빠른 시작에서는 Azure Portal을 사용하여 AKS 클러스터를 배포합니다. 웹 프런트 엔드 및 Redis 인스턴스로 구성된 다중 컨테이너 응용 프로그램이 클러스터에서 실행됩니다. 완료되면 인터넷을 통해 응용 프로그램에 액세스할 수 있습니다.
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 02/27/2018
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-Azure Portal(http://portal.azure.com)에 로그인합니다.
+http://portal.azure.com에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-service-principal"></a>서비스 주체 만들기
 

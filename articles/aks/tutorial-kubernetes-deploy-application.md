@@ -1,6 +1,6 @@
 ---
-title: "Azure의 Kubernertes 자습서 - 응용 프로그램 배포"
-description: "AKS 자습서 - 응용 프로그램 배포"
+title: Azure의 Kubernertes 자습서 - 응용 프로그램 배포
+description: AKS 자습서 - 응용 프로그램 배포
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 02/22/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 095bfe328f3e3ed220de71b3410e34b9be86cff1
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 9fad9627be453fb00508d1f6ec9594bd2bde6fad
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="run-applications-in-azure-container-service-aks"></a>AKS(Azure Container Service)에서 응용 프로그램 실행
+# <a name="tutorial-run-applications-in-azure-container-service-aks"></a>자습서: AKS(Azure Container Service)에서 응용 프로그램 실행
 
 총 8부 중 4부인 이 자습서에서는 응용 프로그램 예제를 Kubernetes 클러스터에 배포합니다. 완료되는 단계는 다음과 같습니다.
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 03/12/2018
 > * Kubernetes에서 응용 프로그램 실행
 > * 응용 프로그램 테스트
 
-후속 자습서에서는 이 응용 프로그램을 스케일 아웃하고 업데이트하며, Kubernetes 클러스터를 모니터링하도록 Operations Management Suite를 구성합니다.
+후속 자습서에서는 이 응용 프로그램을 규모 확장하고, Kubernetes 클러스터를 모니터링하도록 Log Analytics를 구성합니다.
 
 이 자습서에서는 Kubernetes 개념에 대한 기본적인 이해가 있다고 가정하며 Kubernetes에 대한 자세한 내용은 [Kubernetes 설명서][kubernetes-documentation]를 참조하세요.
 
