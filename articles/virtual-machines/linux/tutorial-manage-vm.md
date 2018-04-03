@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/02/2017
+ms.date: 03/23/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: e7dab67b46a2853e9585c88c8e4d4263f844c3b2
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 487ffffca445fb3f98dcaa6550b0b1b74290b803
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-and-manage-linux-vms-with-the-azure-cli"></a>Azure CLI로 Linux VM 만들기 및 관리
 
@@ -91,7 +91,7 @@ exit
 
 ## <a name="understand-vm-images"></a>VM 이미지 이해
 
-Azure Marketplace에는 VM을 만드는 데 사용할 수 있는 여러 VM 이미지가 포함되어 있습니다. 이전 단계에서는 Ubuntu 이미지를 사용하여 가상 컴퓨터를 만들었습니다. 이 단계에서는 Azure CLI를 사용하여 Marketplace에서 CentOS 이미지를 검색한 후 두 번째 가상 컴퓨터를 배포합니다.  
+Azure Marketplace에는 VM을 만드는 데 사용할 수 있는 여러 VM 이미지가 포함되어 있습니다. 이전 단계에서는 Ubuntu 이미지를 사용하여 가상 컴퓨터를 만들었습니다. 이 단계에서는 Azure CLI를 사용하여 Marketplace에서 CentOS 이미지를 검색한 후 두 번째 가상 컴퓨터를 배포합니다. 
 
 가장 일반적으로 사용되는 이미지 목록을 보려면 [az vm image list](/cli/azure/vm/image#az_vm_image_list) 명령을 사용하세요.
 
@@ -136,7 +136,7 @@ CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.20160309     
 CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.20170207       6.5.20170207
 ```
 
-특정 이미지를 사용하여 VM을 배포하려면 *Urn* 열에서 값을 기록해 둡니다. 이미지를 지정하면 이미지 버전 번호는 최신 버전의 배포를 선택하도록 “최신”으로 대체될 수 있습니다. 이 예제에서는 CentOS 6.5 이미지의 최신 버전을 지정하기 위해 `--image` 인수를 사용합니다.  
+특정 이미지를 사용하여 VM을 배포하려면 이미지를 [식별](cli-ps-findimage.md#terminology)하기 위한 게시자, 제품, SKU 및 버전 번호(선택 사항)로 구성된 *Urn* 열의 값을 적어 둡니다. 이미지를 지정하면 이미지 버전 번호는 최신 버전의 배포를 선택하도록 “최신”으로 대체될 수 있습니다. 이 예제에서는 CentOS 6.5 이미지의 최신 버전을 지정하기 위해 `--image` 인수를 사용합니다.  
 
 ```azurecli-interactive 
 az vm create --resource-group myResourceGroupVM --name myVM2 --image OpenLogic:CentOS:6.5:latest --generate-ssh-keys
@@ -150,7 +150,7 @@ az vm create --resource-group myResourceGroupVM --name myVM2 --image OpenLogic:C
 
 다음 표에서는 크기를 사용 사례로 분류합니다.  
 
-| 형식                     | 크기           |    설명       |
+| 유형                     | 크기           |    설명       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [범용](sizes-general.md)         |Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0-7| CPU 대 메모리 비율이 적당합니다. 개발/테스트와 소규모에서 중간 정도의 응용 프로그램 및 데이터 솔루션에 적합합니다.  |
 | [Compute에 최적화](sizes-compute.md)   | Fs, F             | CPU 대 메모리 비율이 높습니다. 트래픽이 중간 정도인 응용 프로그램, 네트워크 어플라이언스 및 일괄 처리 프로세스에 적합합니다.        |
@@ -259,7 +259,7 @@ Azure VM의 전원 상태는 여러 상태 중 하나일 수 있습니다. 이 �
 
 ### <a name="find-power-state"></a>전원 상태 찾기
 
-특정 VM의 상태를 검색하려면 [az vm get instance-view](/cli/azure/vm#az_vm_get_instance_view) 명령을 사용합니다. 가상 머신 및 리소스 그룹에 대한 올바른 이름을 지정해야 합니다. 
+특정 VM의 상태를 검색하려면 [az vm get-instance-view](/cli/azure/vm#az_vm_get_instance_view) 명령을 사용합니다. 가상 머신 및 리소스 그룹에 대한 올바른 이름을 지정해야 합니다. 
 
 ```azurecli-interactive 
 az vm get-instance-view \

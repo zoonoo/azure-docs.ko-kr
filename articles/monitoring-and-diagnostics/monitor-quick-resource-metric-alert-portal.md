@@ -1,6 +1,6 @@
 ---
-title: "메트릭 값이 조건을 충족할 경우 알림 받기 | Microsoft Docs"
-description: "사용자가 논리 앱에 대한 메트릭을 만드는 데 도움이 되는 빠른 시작 가이드"
+title: 메트릭 값이 조건을 충족할 경우 알림 받기 | Microsoft Docs
+description: 사용자가 논리 앱에 대한 메트릭을 만드는 데 도움이 되는 빠른 시작 가이드
 author: anirudhcavale
 manager: orenr
 services: monitoring-and-diagnostics
@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.date: 02/08/2018
 ms.author: ancav
 ms.custom: mvc
-ms.openlocfilehash: 3c1a6271d0cb2157cb23f1dd4193eadba2c1679b
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 0bbb7d7036c18675a64171a8bbf5c7fa46d53336
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="receive-a-notification-when-a-metric-value-meets-a-condition"></a>메트릭 값이 조건을 충족할 경우 알림 받기
 
@@ -24,30 +24,30 @@ Azure Monitor를 통해 많은 Azure 리소스에 대한 메트릭을 사용할 
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="sign-in-to-the-azure-portal"></a>Azure 포털에 로그인합니다.
+## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인합니다.
 
 [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 
 ## <a name="create-a-logic-app"></a>논리 앱 만들기
 
-1. Azure Portal의 왼쪽 위 모서리에 있는 **리소스 만들기** 단추를 클릭합니다.
+1. Azure Portal의 왼쪽 위에 있는 **리소스 만들기** 단추를 클릭합니다.
 
 2. **논리 앱**을 검색하여 선택합니다. **만들기** 단추를 클릭합니다.
 
-3. 다음 그림에 보이는 논리 앱 정보를 입력합니다.  기본 위치를 사용합니다. **대시보드에 고정** 옵션을 선택합니다.  완료되면 **만들기**를 클릭합니다. 
+3. 이름으로 myLogicApp 및 리소스 그룹 myResourceGroup을 입력합니다. 구독을 사용합니다.  기본 위치를 사용합니다. **대시보드에 고정** 옵션을 선택합니다.  완료되면 **만들기**를 클릭합니다. 
 
-    ![포털에서 논리 앱에 대한 기본 정보 입력](./media/monitoring-quick-resource-metric-alert-portal/create-logic-app-portal.png)  
+    ![포털에서 논리 앱에 대한 기본 정보 입력](./media/monitor-quick-resource-metric-alert-portal/create-logic-app-portal.png)  
 
 
 4. 논리 앱은 대시보드에 고정되어야 합니다. 클릭하여 논리 앱으로 이동합니다.
 
 5. 논리 앱 패널에서 **논리 앱 디자이너**를 선택합니다.
 
-     ![포털 패널에서 논리 앱 디자이너에 되풀이 트리거 생성됨](./media/monitoring-quick-resource-metric-alert-portal/logic-app-designer.png)  
+     ![포털 패널에서 논리 앱 디자이너에 되풀이 트리거 생성됨](./media/monitor-quick-resource-metric-alert-portal/logic-app-designer.png)  
 
 6. 다음 다이어그램에 표시된 대로 값을 설정합니다.
 
-    ![포털 패널에서 논리 앱 트리거 구성](./media/monitoring-quick-resource-metric-alert-portal/create-logic-app-triggers.png)에서도 확인할 수 있습니다. 
+    ![포털 패널에서 논리 앱 트리거 구성](./media/monitor-quick-resource-metric-alert-portal/create-logic-app-triggers.png)에서도 확인할 수 있습니다. 
 
 7. 디자이너에서 **되풀이** 트리거를 선택합니다.
 
@@ -75,7 +75,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 5. 이제 지난 시간 동안 논리 앱이 시작된 총 실행 횟수가 플롯된 차트가 표시됩니다. 차트가 표시되지 않으면 위의 단계에서 5분 이상 기다렸는지 확인합니다. 그런 다음, 브라우저를 새로 고칩니다. 
 
-    ![논리 앱 리소스에 대한 메트릭 차트 플롯](./media/monitoring-quick-resource-metric-alert-portal/logic-app-metric-chart.png)
+    ![논리 앱 리소스에 대한 메트릭 차트 플롯](./media/monitor-quick-resource-metric-alert-portal/logic-app-metric-chart.png)
 
 ## <a name="create-a-metric-alert-for-your-logic-app"></a>논리 앱에 대한 메트릭 경고 만들기
 
@@ -87,7 +87,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 4. 마지막으로, **추가 관리자 전자 메일** 아래에 이메일 주소를 입력합니다. 이 경고는 5분 이내에 논리 앱이 10회 이상 실행 실패한 경우 전자 메일을 수신하도록 합니다.
 
-    ![포털 패널에서 논리 앱 경고 구성](./media/monitoring-quick-resource-metric-alert-portal/logic-app-metrics-alert-portal.png)
+    ![포털 패널에서 논리 앱 경고 구성](./media/monitor-quick-resource-metric-alert-portal/logic-app-metrics-alert-portal.png)
 
 ## <a name="receive-metric-alert-notifications-for-your-logic-app"></a>논리 앱에 대한 메트릭 경고 알림 받기
 1. 잠시 후 'Microsoft Azure Alerts'로부터 경고가 '활성화'되었음을 알리는 전자 메일을 받게 됩니다.

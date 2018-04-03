@@ -1,6 +1,6 @@
 ---
-title: "Azure Application Insights로 Java 웹앱 분석 | Microsoft Docs"
-description: "Application Insights를 사용하여 Java 웹앱에 대한 응용 프로그램 성능 모니터링. "
+title: Azure Application Insights로 Java 웹앱 분석 | Microsoft Docs
+description: 'Application Insights를 사용하여 Java 웹앱에 대한 응용 프로그램 성능 모니터링. '
 services: application-insights
 documentationcenter: java
 author: harelbr
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 1ec845a6491b406c1aef34609b155a9c3d087427
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 227ca3533c7a06b726c758be931df8ec0314e90f
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Java 웹 프로젝트에서 Application Insights 시작하기
 
@@ -30,7 +30,7 @@ Application Insights는 Linux, Unix 또는 Windows에서 실행되는 Java 앱�
 
 다음 작업을 수행해야 합니다.
 
-* Oracle JRE 1.6 이상 또는 Zulu JRE 1.6 이상
+* Oracle 또는 Zulu JRE 버전 1.7 또는 1.8
 * [Microsoft Azure](https://azure.microsoft.com/)구독.
 
 *이미 라이브 상태인 웹앱이 있는 경우 다른 절차에 따라 [웹 서버에서 런타임으로 SDK를 추가](app-insights-java-live.md)할 수 있습니다. 해당 다른 절차는 코드를 다시 작성할 필요가 없지만 사용자 활동을 추적하는 코드를 작성하는 옵션이 없습니다.*
@@ -169,8 +169,7 @@ Application Insights SDK는 다음 순서로 키를 찾습니다.
 또한 [코드로 설정](app-insights-api-custom-events-metrics.md#ikey)할 수 있습니다.
 
 ```Java
-
-    telemetryClient.InstrumentationKey = "...";
+    TelemetryConfiguration.getActive().setInstrumentationKey(iKey);
 ```
 
 ## <a name="4-add-an-http-filter"></a>4. HTTP 필터 추가

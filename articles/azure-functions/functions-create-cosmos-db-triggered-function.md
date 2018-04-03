@@ -1,12 +1,12 @@
 ---
-title: "Azure Cosmos DB에 의해 트리거되는 함수 만들기 | Microsoft Docs"
-description: "Azure Functions를 사용하여 Azure Cosmos DB의 데이터베이스에 데이터가 추가될 때 호출되는, 서버를 사용하지 않는 함수를 만듭니다."
+title: Azure Cosmos DB에 의해 트리거되는 함수 만들기 | Microsoft Docs
+description: Azure Functions를 사용하여 Azure Cosmos DB의 데이터베이스에 데이터가 추가될 때 호출되는, 서버를 사용하지 않는 함수를 만듭니다.
 services: azure-functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: bc497d71-75e7-47b1-babd-a060a664adca
 ms.service: functions; cosmos-db
 ms.devlang: multiple
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/07/2017
 ms.author: glenga
-ms.custom: 
-ms.openlocfilehash: 9ee3eddda53052c47f2cecff80f971f5eadac414
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.custom: ''
+ms.openlocfilehash: 435c4bf1c2619e91bbdd089375914ce06fdac6c7
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Azure Cosmos DB에 의해 트리거되는 함수 만들기
 
@@ -74,7 +74,7 @@ ms.lasthandoff: 03/02/2018
     | 설정      | 제안 값  | 설명                                |
     | ------------ | ---------------- | ------------------------------------------ |
     | **ID** | 데이터베이스의 이름 | Azure Cosmos DB 데이터베이스의 고유한 ID  |
-    | **API** | SQL(DocumentDB) | 이 토픽에서는 문서 데이터베이스 API를 사용합니다.  |
+    | **API** | SQL | 이 항목에서는 SQL API를 사용합니다.  |
     | **구독** | Azure 구독 | 이 새 Cosmos DB 계정이 만들어지는 구독입니다.  |
     | **리소스 그룹** | myResourceGroup |  함수 앱이 포함된 기존 리소스 그룹을 사용합니다. |
     | **위치**:  | WestEurope | 함수 앱 또는 저장된 문서를 사용하는 다른 앱과 가까운 위치를 선택합니다.  |

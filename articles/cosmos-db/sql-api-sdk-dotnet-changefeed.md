@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/16/2018
 ms.author: maquaran
-ms.openlocfilehash: 7e53cf67bc6e03a5f45de5ad4e23ff91624874f4
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 54e366de60e34ef0aac258e16ac585c3b930ebf7
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET 변경 피드 프로세서 SDK: 다운로드 및 릴리스 정보
 > [!div class="op_single_selector"]
@@ -33,8 +33,6 @@ ms.lasthandoff: 03/08/2018
 > * [REST 리소스 공급자](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
-
 |   |   |
 |---|---|
 |**SDK 다운로드**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)|
@@ -44,7 +42,7 @@ ms.lasthandoff: 03/08/2018
 
 ## <a name="release-notes"></a>릴리스 정보
 
-### <a name="a-name130130"></a><a name="1.3.0"/>1.3.0
+### <a name="a-name131131"></a><a name="1.3.1"/>1.3.1
 * 안정성 향상
 * 수동 검사점 설정 지원
 * [SQL .NET SDK](sql-api-sdk-dotnet.md) 버전 1.21 이상과 호환
@@ -77,7 +75,7 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 
 | 버전 | 릴리스 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
-| [1.3.0](#1.3.0) |2018년 3월 7일 |--- |
+| [1.3.1](#1.3.1) |2018년 3월 13일 |--- |
 | [1.2.0](#1.2.0) |2017년 10월 31일 |--- |
 | [1.1.1](#1.1.1) |2017년 8월 29일 |--- |
 | [1.1.0](#1.1.0) |2017년 8월 13일 |--- |

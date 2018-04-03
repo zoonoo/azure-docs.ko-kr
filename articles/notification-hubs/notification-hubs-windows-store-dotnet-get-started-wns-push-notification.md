@@ -1,11 +1,11 @@
 ---
-title: "유니버설 Windows 플랫폼 앱용 Azure Notification Hubs 시작 | Microsoft Docs"
-description: "이 자습서에서는 Azure Notification Hubs를 사용하여 Windows 유니버설 플랫폼 응용 프로그램으로 알림을 푸시하는 방법을 알아봅니다."
+title: 유니버설 Windows 플랫폼 앱용 Azure Notification Hubs 시작 | Microsoft Docs
+description: 이 자습서에서는 Azure Notification Hubs를 사용하여 Windows 유니버설 플랫폼 응용 프로그램으로 알림을 푸시하는 방법을 알아봅니다.
 services: notification-hubs
 documentationcenter: windows
 author: jwhitedev
 manager: kpiteira
-editor: 
+editor: ''
 ms.assetid: cf307cf3-8c58-4628-9c63-8751e6a0ef43
 ms.service: notification-hubs
 ms.workload: mobile
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 12/22/2017
 ms.author: jawh
-ms.openlocfilehash: c09621d1152aafbe15039130f6ca24082dc5bd21
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 8464a7e48a02be39fb624322fac6c26f4c6c6806
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="get-started-with-notification-hubs-for-universal-windows-platform-apps"></a>유니버설 Windows 플랫폼 앱용 Notification Hubs 시작
 
@@ -94,11 +94,11 @@ UWP 앱으로 푸시 알림을 보내려면 앱을 Windows 스토어와 연결�
 1. Visual Studio에서 솔루션을 마우스 오른쪽 단추로 클릭한 후 **NuGet 패키지 관리**를 선택합니다.  
     **NuGet 패키지 관리** 창이 열립니다.
 
-2. 검색 상자에 **WindowsAzure.Messaging.Managed**를 입력하고 **설치**를 선택한 다음, 사용 약관에 동의합니다.
+2. 검색 상자에 **Microsoft.Azure.NotificationHubs**를 입력하고 **설치**를 선택한 다음, 사용 약관에 동의합니다.
    
     ![NuGet 패키지 관리 창][20]
    
-    이 작업은 [WindowsAzure.Messaging.Managed NuGet 패키지](http://nuget.org/packages/WindowsAzure.Messaging)를 사용하여 Windows용 Azure 메시징 라이브러리에 대한 참조를 다운로드, 설치 및 추가합니다.
+    이 작업은 [Microsoft.Azure.NotificationHubs NuGet 패키지](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs)를 사용하여 Windows용 Azure Notification Hubs 라이브러리를 다운로드하고, 설치하고, 참조를 추가합니다.
 
 3. App.xaml.cs 프로젝트 파일을 열고 다음 `using` 문을 추가합니다. 
    

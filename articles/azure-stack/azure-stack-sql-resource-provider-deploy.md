@@ -1,11 +1,11 @@
 ---
-title: "SQL 데이터베이스를 사용 하 여 Azure 스택에 | Microsoft Docs"
-description: "SQL 데이터베이스에서 SQL Server 리소스 공급자 어댑터를 배포 하는 Azure 스택 및 빠른 단계 서비스로 배포 하는 방법을 알아봅니다."
+title: SQL 데이터베이스를 사용 하 여 Azure 스택에 | Microsoft Docs
+description: SQL 데이터베이스에서 SQL Server 리소스 공급자 어댑터를 배포 하는 Azure 스택 및 빠른 단계 서비스로 배포 하는 방법을 알아봅니다.
 services: azure-stack
-documentationCenter: 
+documentationCenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/07/2018
 ms.author: mabrigg
 ms.reviewer: jeffgo
-ms.openlocfilehash: 4d2a00f04e5b07aeb3585fb3ab6c8966e0de7e19
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 1754d4b121fdaf4f7b8e4c1954dfd4202ba344b1
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="use-sql-databases-on-microsoft-azure-stack"></a>SQL 데이터베이스를 사용 하 여 Microsoft Azure 스택
 
@@ -71,7 +71,7 @@ SQL Server 리소스 공급자 어댑터를 사용 하 여 SQL 데이터베이�
     | 1710: 1.0.171028.1 | [SQL RP 1.1.8.0 버전](https://aka.ms/azurestacksqlrp1710) |
   
 
-4. Azure 스택 루트 인증서는 권한 있는 끝점에서 검색 됩니다. Azure 스택 SDK에 대 한 자체 서명 된 인증서는이 프로세스의 일부로 생성 됩니다. 통합된 시스템에 대 한 적절 한 인증서를 제공 해야 합니다.
+4. 필요한 인증서를 제공 합니다. Azure 스택 SDK에 대 한 자체 서명 된 인증서는이 프로세스의 일부로 만들어집니다, 그리고 없습니다 추가 인증서가 필요 합니다. 통합된 시스템에 대 한 적절 한 인증서를 제공 해야 합니다.
 
    고유한 인증서를 제공 하려면에서.pfx 파일을 배치는 **DependencyFilesLocalPath** 다음과 같습니다.
 
@@ -307,7 +307,7 @@ Defender 정의 업데이트 하려면 다음이 단계를 수행 합니다.
 
     이 페이지에서 다운로드에 "수동으로 다운로드 및 설치 정의"에서 "Windows 10 및 Windows 8.1" 64 비트 파일에 대 한 Windows Defender 바이러스 백신 합니다. 
     
-    Direct link: https://go.microsoft.com/fwlink/?LinkID=121721&arch=x64
+    직접 링크: https://go.microsoft.com/fwlink/?LinkID=121721&arch=x64
 
 2. SQL RP 어댑터 가상 컴퓨터의 유지 관리 끝점에 대 한 PowerShell 세션 만들기
 3. 유지 관리 끝점 세션을 사용 하 여 DB 어댑터 컴퓨터로 정의 업데이트 파일을 복사 합니다.

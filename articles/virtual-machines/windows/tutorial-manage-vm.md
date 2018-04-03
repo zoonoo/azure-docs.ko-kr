@@ -1,26 +1,26 @@
 ---
-title: "Azure PowerShell 모듈을 사용하여 Windows VM 만들기 및 관리 | Microsoft Docs"
-description: "자습서 - Azure PowerShell 모듈을 사용하여 Windows VM 만들기 및 관리"
+title: Azure PowerShell 모듈을 사용하여 Windows VM 만들기 및 관리 | Microsoft Docs
+description: 자습서 - Azure PowerShell 모듈을 사용하여 Windows VM 만들기 및 관리
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: iainfoulds
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 02/09/2018
+ms.date: 03/23/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 4cf406dfbab40631c99da70085e99ba90f563411
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 9bc5154486bf09072bdf3da6bbeb05407a140354
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-and-manage-windows-vms-with-the-azure-powershell-module"></a>Azure PowerShell 모듈을 사용하여 Windows VM 만들기 및 관리
 
@@ -84,15 +84,17 @@ New-AzureRmVm `
 Get-AzureRmPublicIpAddress -ResourceGroupName "myResourceGroupVM"  | Select IpAddress
 ```
 
-다음 명령을 사용하여 로컬 컴퓨터에서 가상 머신과의 원격 데스크톱 세션을 만듭니다. 해당 IP 주소를 가상 머신의 *publicIPAddress*로 바꿉니다. 가상 컴퓨터를 만들 때 사용되는 자격 증명을 묻는 메시지가 표시되면 입력합니다.
+다음 명령을 사용하여 로컬 컴퓨터에서 가상 머신과의 원격 데스크톱 세션을 만듭니다. 해당 IP 주소를 가상 머신의 *publicIPAddress*로 바꿉니다. 가상 머신을 만들 때 사용되는 자격 증명을 묻는 메시지가 표시되면 입력합니다.
 
 ```powershell
 mstsc /v:<publicIpAddress>
 ```
 
+**Windows 보안** 창에서 **추가 선택 사항** 및 **다른 계정 사용**을 차례로 선택합니다. 가상 머신을 만들 때 설정한 사용자 이름 및 암호를 입력한 다음, **확인**을 클릭합니다.
+
 ## <a name="understand-vm-images"></a>VM 이미지 이해
 
-Azure Marketplace에는 새 가상 컴퓨터를 만드는 데 사용할 수 있는 여러 가상 컴퓨터 이미지가 포함되어 있습니다. 이전 단계에서는 Windows Server 2016-Datacenter 이미지를 사용하여 가상 머신을 만들었습니다. 이번 단계에서는 PowerShell 모듈을 사용하여 Marketplace에서 새 VM의 기반이 될 수도 있는 다른 Windows 이미지를 검색합니다. 이 프로세스는 게시자, 제안 및 이미지 이름(SKU) 검색으로 이루어져 있습니다. 
+Azure Marketplace에는 새 가상 컴퓨터를 만드는 데 사용할 수 있는 여러 가상 컴퓨터 이미지가 포함되어 있습니다. 이전 단계에서는 Windows Server 2016-Datacenter 이미지를 사용하여 가상 머신을 만들었습니다. 이 단계에서는 PowerShell 모듈을 사용하여 Marketplace에서 새 VM의 기반이 될 수도 있는 다른 Windows 이미지를 검색합니다. 이 프로세스는 이미지를 [식별](cli-ps-findimage.md#terminology)하기 위한 게시자, 제품, SKU 및 버전 번호(선택 사항)로 구성되어 있습니다. 
 
 [Get-AzureRmVMImagePublisher](/powershell/module/azurerm.compute/get-azurermvmimagepublisher) 명령을 사용하여 이미지 게시자 목록을 반환합니다.
 
@@ -139,7 +141,7 @@ Skus                                      Offer         PublisherName          L
 2016-Nano-Server                          WindowsServer MicrosoftWindowsServer EastUS
 ```
 
-이 정보를 사용하여 특정 이미지가 있는 VM을 배포할 수 있습니다. 다음 예제에서는 컨테이너 이미지가 있는 Windows Server 2016을 사용하여 가상 머신을 배포합니다.
+이 정보를 사용하여 특정 이미지가 있는 VM을 배포할 수 있습니다. 이 예제에서는 컨테이너 이미지가 있는 Windows Server 2016의 최신 버전을 사용하여 가상 머신을 배포합니다.
 
 ```azurepowershell-interactive
 New-AzureRmVm `
@@ -165,7 +167,7 @@ New-AzureRmVm `
 ### <a name="vm-sizes"></a>VM 크기
 
 다음 표에서는 크기를 사용 사례로 분류합니다.  
-| 형식                     | 일반적인 크기           |    설명       |
+| 유형                     | 일반적인 크기           |    설명       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [범용](sizes-general.md)         |Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0-7| CPU 대 메모리 비율이 적당합니다. 개발/테스트와 소규모에서 중간 정도의 응용 프로그램 및 데이터 솔루션에 적합합니다.  |
 | [Compute에 최적화](sizes-compute.md)   | Fs, F             | CPU 대 메모리 비율이 높습니다. 트래픽이 중간 정도인 응용 프로그램, 네트워크 어플라이언스 및 일괄 처리 프로세스에 적합합니다.        |

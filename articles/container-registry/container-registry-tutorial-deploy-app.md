@@ -1,6 +1,6 @@
 ---
-title: "Azure Container Registry 자습서 - Azure Container Registry에서 웹앱 배포"
-description: "지리적 복제 Azure Container Registry의 컨테이너 이미지를 사용하여 Linux 기반 웹앱을 배포합니다. 3부로 구성된 시리즈 중 제2부입니다."
+title: Azure Container Registry 자습서 - Azure Container Registry에서 웹앱 배포
+description: 지리적 복제 Azure Container Registry의 컨테이너 이미지를 사용하여 Linux 기반 웹앱을 배포합니다. 3부로 구성된 시리즈 중 제2부입니다.
 services: container-registry
 author: mmacy
 manager: timlt
@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: d775a17cb8069a7521788d850d7d52b92cc67526
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 51aa3c6fc56e974fc1729a1d2fe35c889adf35e2
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="deploy-web-app-from-azure-container-registry"></a>Azure Container Registry에서 웹앱 배포
+# <a name="tutorial-deploy-web-app-from-azure-container-registry"></a>자습서: Azure Container Registry에서 웹앱 배포
 
 세 부분으로 이루어진 자습서 시리즈의 두 번째 부분입니다. [1부](container-registry-tutorial-prepare-registry.md)에서 지리적 복제 개인 컨테이너 레지스트리가 작성되었으며 컨테이너 이미지가 원본에서 빌드되어 레지스트리로 푸시되었습니다. 이 문서에서는 지리적 복제 레지스트리의 네트워크 닫기 측면을 활용하기 위해 두 개의 다른 Azure 지역에 있는 두 개의 웹앱 인스턴스에 컨테이너를 배포합니다.
 

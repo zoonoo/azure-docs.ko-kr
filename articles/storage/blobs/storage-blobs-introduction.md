@@ -1,30 +1,31 @@
 ---
-title: "Azure Blob 저장소 소개 | Microsoft Docs"
-description: "Azure Blob 저장소 소개"
+title: Blob 저장소 소개 - Azure의 개체 저장소 | Microsoft Docs
+description: Azure Blob 저장소는 텍스트 또는 이진 데이터와 같이 구조화되지 않은 대량의 개체 데이터를 저장하도록 설계되었습니다. 응용 프로그램은 Blob 저장소의 개체를 PowerShell 또는 Azure CLI에서 액세스하거나, Azure Storage 클라이언트 라이브러리 또는 REST를 통해 코드에서 액세스할 수 있습니다.
 services: storage
 author: tamram
 manager: jeconnoc
 ms.service: storage
 ms.topic: overview
-ms.date: 09/28/2017
+ms.date: 03/27/2018
 ms.author: tamram
-ms.openlocfilehash: aabc10b1c1c501e4fa0eb31835c2818cfb8942c6
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 0fff0032ec2452413bcd1df3175634b14a64208f
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="introduction-to-blob-storage"></a>Blob 저장소 소개
 
-Azure Blob 저장소는 HTTP 또는 HTTPS를 통해 전 세계 어디에서든 액세스할 수 있는 다량의 구조화되지 않은 개체 데이터(예: 텍스트 또는 이진 데이터)를 저장할 수 있는 서비스입니다. Blob 저장소를 사용하여 세상에 공개적으로 표시하거나 응용 프로그램 데이터를 비공개적으로 저장할 수 있습니다.
+Azure Blob 저장소는 데이터 개체를 위한 Microsoft의 클라우드 저장소 솔루션입니다. Blob 저장소는 텍스트 또는 이진 데이터와 같이 구조화되지 않은 대량의 개체 데이터를 저장할 수 있습니다. Blob 저장소의 데이터는 HTTP 또는 HTTPS를 통해 전 세계 어디에서든 액세스할 수 있습니다. Blob 저장소를 사용하여 세상에 공개적으로 표시하거나 응용 프로그램 데이터를 비공개적으로 저장할 수 있습니다.
 
 Blob 저장소의 일반적인 사용은 다음과 같습니다.
 
 * 브라우저에 직접 이미지 또는 문서 제공
 * 분산 액세스를 위해 파일 저장
 * 동영상 및 오디오 스트리밍
-* 백업 및 복원, 재해 복구 및 보관을 위한 데이터 저장
+* 백업/복원, 재해 복구 및 보관을 위한 저장
 * 온-프레미스 또는 Azure 호스티드 서비스에서 분석하기 위해 데이터 저장
+* Azure Virtual Machines에 사용할 VHD 저장
 
 ## <a name="blob-service-concepts"></a>Blob service 개념
 

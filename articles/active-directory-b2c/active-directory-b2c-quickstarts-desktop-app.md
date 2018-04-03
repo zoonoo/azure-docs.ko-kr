@@ -1,22 +1,21 @@
 ---
-title: "Azure AD B2C 사용 데스크톱 앱 시험 사용"
-description: "Azure Active Directory B2C를 사용하여 사용자 로그인을 제공하는 샘플 ASP.NET 데스크톱 앱을 사용해 보는 빠른 시작입니다."
+title: Azure AD B2C 사용 데스크톱 앱 시험 사용
+description: Azure Active Directory B2C를 사용하여 사용자 로그인을 제공하는 샘플 ASP.NET 데스크톱 앱을 사용해 보는 빠른 시작입니다.
 services: active-directory-b2c
-author: PatAltimore
+author: davidmu1
 manager: mtillman
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 2/13/2018
-ms.author: patricka
-ms.openlocfilehash: 18c378f82255df3a999703bc319d551af4b2705c
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.author: davidmu
+ms.openlocfilehash: 8726a5816623d42deb495aa062ef82f1f95b76b7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="quickstart-test-drive-an-azure-ad-b2c-enabled-desktop-app"></a>빠른 시작: Azure AD B2C 사용 데스크톱 앱 시험 사용
 
@@ -87,7 +86,7 @@ Azure Active Directory B2C에는 사용자가 프로필을 업데이트할 수 �
 
 3. **표시 이름** 또는 **구/군/시**를 변경하고 **계속**을 클릭합니다.
 
-    새 액세스 토큰이 *토큰 정보* 텍스트 상자에 표시됩니다. 프로필의 변경 내용을 확인하려는 경우 액세스 토큰을 복사한 후 토큰 디코더 https://jwt.ms에 붙여 넣습니다.
+    새 액세스 토큰이 *토큰 정보* 텍스트 상자에 표시됩니다. 프로필의 변경 내용을 확인하려는 경우 액세스 토큰을 복사한 후 토큰 디코더 https://jwt.ms에 붙여넣습니다.
 
 ## <a name="access-a-protected-web-api-resource"></a>보호된 웹 API 리소스 액세스
 

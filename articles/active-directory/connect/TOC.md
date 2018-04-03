@@ -56,7 +56,7 @@
 ## Azure AD Connect 동기화 관리
 ### [GDPR 규정 준수 및 Azure AD Connect](active-directory-aadconnect-gdpr.md)
 ### [실수로 인한 삭제 방지](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)
-### [암호 동기화](active-directory-aadconnectsync-implement-password-synchronization.md)
+### [암호 해시 동기화](active-directory-aadconnectsync-implement-password-hash-synchronization.md)
 ### [Azure AD 서비스 계정](active-directory-aadconnectsync-howto-azureadaccount.md)
 ### [설치 마법사](active-directory-aadconnectsync-installation-wizard.md)
 ### [UserPrincipalName 채워지는 방법](active-directory-aadconnect-userprincipalname.md)
@@ -86,7 +86,7 @@
 ### [동기화 중 오류](active-directory-aadconnect-troubleshoot-sync-errors.md)
 ### [개체가 동기화되지 않음](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md)
 ### [문제 해결 작업을 사용한 개체 동기화](active-directory-aadconnect-troubleshoot-objectsync.md)
-### [암호 동기화](active-directory-aadconnectsync-troubleshoot-password-synchronization.md)
+### [암호 해시 동기화](active-directory-aadconnectsync-troubleshoot-password-hash-synchronization.md)
 ### [userCertificate로 인해 발생한 LargeObject 오류](active-directory-aadconnectsync-largeobjecterror-usercertificate.md)
 ### [LocalDB 10GB 제한에서 복구하는 방법](active-directory-aadconnect-recover-from-localdb-10gb-limit.md)
 

@@ -1,8 +1,8 @@
 ---
-title: "Azure Portal을 사용하여 Data Lake Store 시작 | Microsoft Docs"
-description: "Azure Portal을 사용하여 Data Lake Store 계정을 만들고 Data Lake Store에서 기본 작업을 수행합니다."
+title: Azure Portal을 사용하여 Data Lake Store 시작 | Microsoft Docs
+description: Azure Portal을 사용하여 Data Lake Store 계정을 만들고 Data Lake Store에서 기본 작업을 수행합니다.
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/09/2018
+ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: c5b0f5250a08915e987a1eb5229f2c4648e660fd
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 91ed55e5f12c10e67653bdadfca80bd072779711
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="get-started-with-azure-data-lake-store-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Data Lake Store 시작
 > [!div class="op_single_selector"]
@@ -38,7 +38,7 @@ Azure Portal을 사용하여 Azure Data Lake Store 계정을 만들고 폴더 �
 ## <a name="create-an-azure-data-lake-store-account"></a>Azure 데이터 레이크 저장소 계정 만들기
 
 1. 새로운 [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. **리소스 만들기**를 클릭하고 **데이터 + 저장소**를 클릭한 다음, **Azure Data Lake Store**를 클릭합니다. **Azure Data Lake Store** 블레이드에서 정보를 읽은 다음 블레이드의 왼쪽 아래 모서리에서 **만들기**를 클릭합니다.
+2. **리소스 만들기 > 저장소 > Data Lake Store**를 클릭합니다.
 3. **새 Data Lake Store** 블레이드에서 아래 스크린샷에 표시된 대로 값을 제공합니다.
    
     ![새 Azure Data Lake Store 계정 만들기](./media/data-lake-store-get-started-portal/ADL.Create.New.Account.png "새 Azure Data Lake 계정 만들기")
@@ -50,7 +50,7 @@ Azure Portal을 사용하여 Azure Data Lake Store 계정을 만들고 폴더 �
    * **암호화 설정**. 세 개의 옵션이 있습니다.
      
      * **암호화를 활성화하지 않습니다**.
-     * **Azure Data Lake에서 관리하는 키를 사용합니다**.  Azure Data Lake Store에서 암호화 키를 관리하려는 경우
+     * **Data Lake Store에서 관리되는 키를 사용합니다**.  Azure Data Lake Store에서 암호화 키를 관리하려는 경우
      * **고유한 Key Vault의 키를 사용합니다**. 기존 Azure Key Vault를 선택하거나 새 Key Vault를 선택할 수 있습니다. Azure Key Vault에서 키를 사용하려면 Azure Data Lake Store 계정이 Azure Key Vault에 액세스할 수 있는 권한을 할당해야 합니다. 자세한 내용은 [Azure Key Vault에 권한 할당](#assign-permissions-to-azure-key-vault)을 참조하세요.
        
         ![Data Lake Store 암호화](./media/data-lake-store-get-started-portal/adls-encryption-2.png "Data Lake Store 암호화")
@@ -61,7 +61,7 @@ Azure Portal을 사용하여 Azure Data Lake Store 계정을 만들고 폴더 �
 
 4. **만들기**를 클릭합니다. 계정을 대시보드에 고정하도록 선택한 경우 대시보드로 다시 돌아가고 Data Lake Store 계정 프로비전의 진행률을 볼 수 있습니다. 데이터 레이크 저장소 계정이 프로비전되면 계정 블레이드가 표시됩니다.
 
-### <a name="assign-permissions-to-azure-key-vault"></a>Azure Key Vault에 권한 할당
+## <a name="assign-permissions-to-azure-key-vault"></a>Azure Key Vault에 권한 할당
 Azure Key Vault에서 키를 사용하여 Data Lake Store 계정에 대한 암호화를 구성한 경우 Data Lake Store 계정과 Azure Key Vault 계정 사이에 액세스를 구성해야 합니다. 이렇게 하려면 다음 단계를 수행합니다.
 
 1. Azure Key Vault에서 키를 사용한 경우 Data Lake Store 계정에 대한 블레이드에서 위쪽에 경고를 표시합니다. 경고를 클릭하여 **암호화**를 엽니다.
@@ -87,7 +87,7 @@ Azure Key Vault에서 키를 사용하여 Data Lake Store 계정에 대한 암�
 ## <a name="createfolder"></a>Azure 데이터 레이크 저장소 계정에서 폴더 만들기
 데이터 레이크 저장소 계정에서 폴더를 만들어 데이터를 관리하고 저장할 수 있습니다.
 
-1. 만든 Data Lake Store 계정을 엽니다. 왼쪽 창에서 **찾아보기**, **Data Lake Store**를 차례로 클릭한 다음 Data Lake Store 블레이드에서 폴더를 만들려는 계정 이름을 클릭합니다. 시작 보드에 계정을 고정한 경우 해당 계정 타일을 클릭합니다.
+1. 만든 Data Lake Store 계정을 엽니다. 왼쪽 창에서 **모든 리소스**를 클릭한 다음, 모든 리소스 블레이드에서 폴더를 만들려는 계정 이름을 클릭합니다. 시작 보드에 계정을 고정한 경우 해당 계정 타일을 클릭합니다.
 2. Data Lake Store 계정 블레이드에서 **데이터 탐색기**를 클릭합니다.
    
     ![Data Lake Store 계정에 폴더 만들기](./media/data-lake-store-get-started-portal/ADL.Create.Folder.png "Data Lake Store 계정에 폴더 만들기")

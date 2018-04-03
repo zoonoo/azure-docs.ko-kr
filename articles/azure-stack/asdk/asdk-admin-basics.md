@@ -1,25 +1,25 @@
 ---
-title: "Azure 스택 개발 키트 기본 사항 | Microsoft Docs"
-description: "Azure 스택 개발 키트의 기본 관리를 수행 하는 방법에 설명 합니다."
+title: Azure 스택 개발 키트 기본 사항 | Microsoft Docs
+description: Azure 스택 개발 키트 (ASDK)에 대 한 기본 관리 작업을 수행 하는 방법에 설명 합니다.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 03/30/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: cb169c2d2a5aa918fb6d330ebc4677d6c16d308d
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 05dd42b049c75b9ea592ffe341f44e3b02b9757f
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="asdk-administration-basics"></a>ASDK 관리 기본 사항 
 처음 사용 Azure 스택 개발 키트 (ASDK) 관리 하는 경우 알아야 할 몇 가지 있습니다. 이 설명서는 평가 환경에서 Azure 스택 운영자 사용자 역할의 개요를 제공 하 고 테스트 사용자를 확인 하는 방법을 신속 하 게 생산성을 유지 될 수 있습니다.
@@ -27,6 +27,17 @@ ms.lasthandoff: 03/17/2018
 먼저 검토 해야는 [Azure 스택 개발 키트 란?](asdk-what-is.md) 문서는 ASDK 및 제한 사항의 용도 이해 해야 합니다. 사용 해야 개발 키트 "샌드박스" 개발 하 고 비-프로덕션 환경에서 앱을 테스트 Azure 스택을 평가할 수 있습니다. 
 
 Azure와 같은 Azure 스택 신속 하 게 innovates 하므로 ASDK는의 새로운 빌드를 정기적으로 해제 합니다. 그러나 Azure 스택 통합 시스템 배포 수는 ASDK를 업그레이드할 수 없습니다. 따라서 최신 빌드를 이동 하려는 경우 수행 해야 완전히 [는 ASDK 재배포](asdk-redeploy.md)합니다. 업데이트 패키지를 적용할 수 없습니다. 이 프로세스는 시간이 소요 되지만 이점은 사용 가능 하 게 되는 즉시 최신 기능을 사용해 시도 수입니다. 
+
+## <a name="what-account-should-i-use"></a>사용할 계정은?
+Azure 스택을 관리할 때 알고 있어야 하는 몇 가지 계정 고려 사항이 있습니다. 특히 배포에서는 Windows Server Active Directory Federation Services (AD FS)를 사용 하 여 Azure Active Directory (Azure AD) 대신 id 공급자로 합니다. 다음 계정 고려 사항 통합 Azure 스택 시스템과 ASDK 배포 모두에 적용 됩니다.
+
+|계좌|Azure AD|AD FS|
+|-----|-----|-----|
+|로컬 관리자 (. \Administrator)|ASDK 호스트 관리자|ASDK 호스트 관리자|
+|AzureStack\AzureStackAdmin|ASDK 호스트 관리자<br><br>Azure 스택 관리 포털에 로그인 할 수 있습니다.<br><br>보기 및 관리 서비스 패브릭 링에 대 한 액세스|ASDK 호스트 관리자<br><br>Azure 스택 관리 포털에 액세스할 수 없습니다<br><br>보기 및 관리 서비스 패브릭 링에 대 한 액세스<br><br>더 이상 기본 공급자 구독 (DP)의 소유자|
+|AzureStack\CloudAdmin|에 액세스 하 고 권한 있는 끝점 내에서 허용 된 명령을 실행할 수 있습니다.|에 액세스 하 고 권한 있는 끝점 내에서 허용 된 명령을 실행할 수 있습니다.<br><br>ASDK 호스트에 로그인 할 수 없습니다.<br><br>기본 공급자 구독 (DP)의 소유자|
+|Azure AD 전역 관리자|설치 중에 사용<br><br>기본 공급자 구독 (DP)의 소유자|해당 없음|
+|
 
 ## <a name="what-tools-do-i-use-to-manage"></a>관리 도구에 대해 사용 합니까?
 사용할 수 있습니다는 [Azure 스택 관리자 포털](https://adminportal.local.azurestack.external) 또는 PowerShell을 Azure 스택을 관리 합니다. 기본 개념을 파악 하는 가장 쉬운 방법은 포털을 통해 됩니다. PowerShell을 사용 하려는 경우 설치 해야 할 [Azure 스택에 대 한 PowerShell](asdk-post-deploy.md#install-azure-stack-powershell) 및 [GitHub에서 Azure 스택 도구 다운로드](asdk-post-deploy.md#download-the-azure-stack-tools)합니다.

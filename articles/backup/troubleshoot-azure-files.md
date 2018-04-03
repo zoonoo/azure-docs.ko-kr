@@ -1,30 +1,29 @@
 ---
-title: "Azure Files Backup 문제 해결"
-description: "이 문서에서는 Azure에서 Azure Files(파일 공유)를 보호할 때 발생하는 문제 해결에 대한 내용을 다룹니다."
+title: Azure Files Backup 문제 해결
+description: 이 문서에서는 Azure 파일 공유를 보호할 때 발생하는 문제를 해결하는 방법에 대한 내용을 설명합니다.
 services: backup
 ms.service: backup
-keywords: "SEO champ와 상담하지 않고 키워드를 추가하거나 편집하지 마세요."
+keywords: SEO champ와 상담하지 않고 키워드를 추가하거나 편집하지 마세요.
 author: markgalioto
 ms.author: markgal
 ms.date: 2/21/2018
 ms.topic: tutorial
 ms.workload: storage-backup-recovery
 manager: carmonm
-ms.openlocfilehash: 3bc259245df86406e23418bac598c8b1e062d512
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: c803118ccdafa8db0e8f8ddee608f60311f65e05
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="troubleshoot-problems-backing-up-azure-files"></a>Azure Files 백업 문제 해결
-
 다음 표에 나열된 정보를 참조하여 Azure Files 백업을 사용하는 동안 발생하는 문제 및 오류를 해결할 수 있습니다.
 
 ## <a name="preview-boundaries"></a>미리 보기 경계
-Azure Files 백업은 미리 보기입니다. 다음 백업 시나리오는 Azure 파일 백업에 지원되지 않습니다.
-- 저장소 계정에서 [ZRS(영역 중복 저장소)](../storage/common/storage-redundancy.md#zone-redundant-storage) 또는 [RA-GRS(읽기 액세스 지역 중복 저장소)](../storage/common/storage-redundancy.md#read-access-geo-redundant-storage) 복제를 사용하여 파일 공유 보호.
-- Virtual Networks를 사용하도록 설정된 저장소 계정에서 파일 공유 보호.
-- PowerShell 또는 CLI를 사용하여 Azure Files 백업.
+Azure Files 백업은 미리 보기입니다. 다음 백업 시나리오에는 Azure 파일 공유가 지원되지 않습니다.
+- 저장소 계정에서 [ZRS(영역 중복 저장소)](../storage/common/storage-redundancy.md#zone-redundant-storage) 또는 [RA-GRS(읽기 액세스 지역 중복 저장소)](../storage/common/storage-redundancy.md#read-access-geo-redundant-storage) 복제를 사용하여 Azure 파일 공유 보호
+- Virtual Networks를 사용하도록 설정된 저장소 계정에서 Azure 파일 공유 보호
+- PowerShell 또는 CLI를 사용하여 Azure 파일 공유 백업
 
 ### <a name="limitations"></a>제한 사항
 - 하루 최대 예약된 백업은 1입니다.
@@ -51,7 +50,7 @@ Azure Files 백업은 미리 보기입니다. 다음 백업 시나리오는 Azur
 | -------------- | ----------------------------- |
 | 파일 공유를 찾을 수 없어 작업이 실패했습니다. | 보호하려는 파일 공유가 삭제되지는 않았는지 확인합니다.|
 | 저장소 계정을 찾을 수 없거나 지원되지 않습니다. | <ul><li>리소스 그룹에 저장소 계정이 있는지, 마지막 유효성 검사 후 리소스 그룹에서 삭제 또는 제거되지는 않았는지 확인합니다. <li> 저장소 계정이 파일 공유 백업에 지원되는 저장소 계정인지 확인합니다.|
-| 이 파일 공유의 스냅숏 상한에 도달했으며, 기존 스냅숏이 만료되면 더 만들 수 있습니다. | <ul><li> 파일에 대한 여러 주문형 백업을 만들 때 이 오류가 발생할 수 있습니다. <li> Azure Backup에서 만드는 스냅숏을 포함하여 파일 공유당 최대 200개의 스냅숏 제한이 있습니다. 오래된 이전 백업(또는 스냅숏)은 자동으로 정리됩니다. 최대 한도에 도달할 경우 주문형 백업(또는 스냅숏)을 삭제해야 합니다.<li> Azure Files 포털에서 주문형 백업(Azure 파일 공유 스냅숏)을 삭제합니다. **참고**: Azure Backup에서 만든 스냅숏을 삭제하면 복구 지점이 손실됩니다. |
+| 이 파일 공유의 스냅숏 상한에 도달했으며, 기존 스냅숏이 만료되면 더 만들 수 있습니다. | <ul><li> 파일에 대한 여러 주문형 백업을 만들 때 이 오류가 발생할 수 있습니다. <li> Azure Backup에서 만드는 스냅숏을 포함하여 파일 공유당 최대 200개의 스냅숏 제한이 있습니다. 오래된 이전 백업(또는 스냅숏)은 자동으로 정리됩니다. 최대 한도에 도달할 경우 주문형 백업(또는 스냅숏)을 삭제해야 합니다.<li> Azure Files 포털에서 요청 시 백업(Azure 파일 공유 스냅숏)을 삭제합니다. **참고**: Azure Backup에서 만든 스냅숏을 삭제하면 복구 지점이 손실됩니다. |
 | 저장소 서비스 제한으로 인해 파일 공유 백업 또는 복원이 실패했습니다. 저장소 서비스가 특정 저장소 계정에 대한 다른 요청을 처리 중이기 때문에 이 오류가 발생할 수 있습니다.| 잠시 후 작업을 다시 시도하세요. |
 | 대상 파일 공유를 찾을 수 없다는 오류 메시지와 함께 복원이 실패했습니다. | <ul><li>선택한 저장소 계정이 이미 있으며 대상 파일 공유가 삭제되지 않았는지 확인합니다. <li> 저장소 계정이 파일 공유 백업에 지원되는 저장소 계정인지 확인합니다. |
 | 현재 Azure Backup은 가상 네트워크가 활성화된 저장소 계정의 Azure 파일에 지원되지 않습니다. | 백업 또는 복원 작업을 성공하려면 저장소 계정에서 가상 네트워크를 사용하지 않도록 설정합니다. |

@@ -1,9 +1,9 @@
 ---
 title: '자습서: Event Hubs를 사용하여 Azure Databricks로 데이터 스트리밍 | Microsoft Docs'
-description: Event Hubs를 통해 Azure Databricks를 사용하여 Twitter에서 스트리밍 데이터를 수집하고 실시간으로 데이터를 읽습니다.
+description: Event Hubs를 통해 Azure Databricks를 사용하여 Twitter에서 스트리밍 데이터를 수집하고 거의 실시간으로 데이터를 읽습니다.
 services: azure-databricks
 documentationcenter: ''
-author: nitinme
+author: lenadroid
 manager: cgronlun
 editor: cgronlun
 ms.service: azure-databricks
@@ -12,28 +12,30 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 03/15/2018
-ms.author: nitinme
-ms.openlocfilehash: b740d638c24def9aec05ad134f8c8372b2a25082
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.date: 03/23/2018
+ms.author: alehall
+ms.openlocfilehash: 94b09b824becc8a67adf4edfd2d4b44496a6169c
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="tutorial-stream-data-into-azure-databricks-using-event-hubs"></a>자습서: Event Hubs를 사용하여 Azure Databricks로 데이터 스트리밍
 
-이 자습서에서는 데이터 수집 시스템을 Azure Databricks와 연결하여 실시간 데이터를 Apache Spark 클러스터로 스트리밍합니다. Azure Event Hubs를 사용하여 실시간 데이터 수집 시스템을 설정한 다음, Azure Databricks에 연결하여 들어오는 메시지를 처리합니다. 실시간 데이터 스트림에 액세스하려면 Twitter API를 사용하여 트윗을 Event Hubs로 수집합니다. Azure Databricks에 데이터가 있으면 분석 작업을 실행하여 데이터를 자세히 분석할 수 있습니다. 이 자습서에서는 "Azure"라는 용어가 포함된 트윗을 추출합니다.
+이 자습서에서는 데이터 수집 시스템을 Azure Databricks와 연결하여 데이터를 거의 실시간으로 Apache Spark 클러스터로 스트리밍합니다. Azure Event Hubs를 사용하여 데이터 수집 시스템을 설정한 다음, Azure Databricks에 연결하여 들어오는 메시지를 처리합니다. 데이터 스트림에 액세스하려면 Twitter API를 사용하여 트윗을 Event Hubs로 수집합니다. Azure Databricks에 데이터가 있으면 분석 작업을 실행하여 데이터를 자세히 분석할 수 있습니다. 
 
-다음 스크린샷에서는 응용 프로그램 흐름을 보여줍니다.
+이 자습서를 마치면 Twitter에서 "Azure"라는 용어가 포함된 트윗을 스트리밍하고 Azure Databricks에서 트윗을 읽었을 것입니다.
 
-![Event Hubs를 사용하는 Azure Databricks](./media/databricks-stream-from-eventhubs/databricks-eventhubs-tutorial.png "Event Hubs를 사용하는 Azure Databricks") 
+다음 그림에서는 응용 프로그램 흐름을 보여줍니다.
 
-이 자습서에서 다루는 작업은 다음과 같습니다. 
+![Event Hubs를 사용하는 Azure Databricks](./media/databricks-stream-from-eventhubs/databricks-eventhubs-tutorial.png "Event Hubs를 사용하는 Azure Databricks")
+
+이 자습서에서 다루는 작업은 다음과 같습니다.
 
 > [!div class="checklist"]
 > * Azure Databricks 작업 영역 만들기
 > * Azure Databricks에 Spark 클러스터 만들기
-> * 실시간 데이터에 액세스할 수 있는 Twitter 앱 만들기
+> * 스트리밍 데이터에 액세스하는 Twitter 앱 만들기
 > * Azure Databricks에 노트북 만들기
 > * Event Hubs 및 Twitter API에 대한 라이브러리 연결
 > * Event Hubs에 트윗 보내기
@@ -46,7 +48,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 이 자습서를 시작하기 전에 다음 요구 사항이 충족되는지 확인합니다.
 - Azure Event Hubs 네임스페이스.
 - 네임스페이스 내의 Event Hub
-- Event Hubs 네임스페이스에 액세스하기 위한 연결 문자열. 연결 문자열의 형식은 `Endpoint=sb://<namespace>.servicebus.windows.net/;SharedAccessKeyName=<key name>;SharedAccessKey=<key value>”`와 비슷해야 합니다.
+- Event Hubs 네임스페이스에 액세스하기 위한 연결 문자열. 연결 문자열의 형식은 `Endpoint=sb://<namespace>.servicebus.windows.net/;SharedAccessKeyName=<key name>;SharedAccessKey=<key value>`와 비슷해야 합니다.
 - Event Hubs에 대한 공유 액세스 정책 이름 및 정책 키
 
 [Azure Event Hubs 네임스페이스 및 이벤트 허브 만들기](../event-hubs/event-hubs-create.md) 문서의 단계를 수행하여 이러한 요구 사항을 충족시킬 수 있습니다.
@@ -57,20 +59,18 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="create-an-azure-databricks-workspace"></a>Azure Databricks 작업 영역 만들기
 
-이 섹션에서는 Azure Portal을 사용하여 Azure Databricks 작업 영역을 만듭니다. 
+이 섹션에서는 Azure Portal을 사용하여 Azure Databricks 작업 영역을 만듭니다.
 
-1. Azure Portal에서 **리소스 만들기** > **데이터 + 분석** > **Azure Databricks(미리 보기)**를 차례로 선택합니다. 
+1. Azure Portal에서 **리소스 만들기** > **데이터 + 분석** > **Azure Databricks**를 차례로 선택합니다.
 
     ![Azure Portal의 Databricks](./media/databricks-stream-from-eventhubs/azure-databricks-on-portal.png "Azure Portal의 Databricks")
-
-2. **Azure Databricks(미리 보기)** 아래에서 **만들기**를 선택합니다.
 
 3. **Azure Databricks 서비스** 아래에서 Databricks 작업 영역을 만들기 위한 값을 제공합니다.
 
     ![Azure Databricks 작업 영역 만들기](./media/databricks-stream-from-eventhubs/create-databricks-workspace.png "Azure Databricks 작업 영역 만들기")
 
-    다음 값을 제공합니다. 
-     
+    다음 값을 제공합니다.
+
     |자산  |설명  |
     |---------|---------|
     |**작업 영역 이름**     | Databricks 작업 영역의 이름을 제공합니다.        |
@@ -100,14 +100,14 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     다음 항목 이외의 다른 모든 기본값을 허용합니다.
 
     * 클러스터의 이름을 입력합니다.
-    * 이 문서에서는 **4.0** 런타임을 사용하여 클러스터를 만듭니다. 
+    * 이 문서에서는 **4.0** 런타임을 사용하여 클러스터를 만듭니다.
     * **Terminate after ____ minutes of inactivity**(비활성 ____분 후 종료) 확인란을 선택했는지 확인합니다. 클러스터를 사용하지 않는 경우 클러스터를 종료하는 기간(분)을 제공합니다.
-    
+
     **클러스터 만들기**를 선택합니다. 클러스터가 실행되면 노트북을 클러스터에 첨부하고 Spark 작업을 실행할 수 있습니다.
 
 ## <a name="create-a-twitter-application"></a>Twitter 응용 프로그램 만들기
 
-실시간 트윗 스트림을 받으려면 Twitter에 응용 프로그램을 만듭니다. 다음 지침에 따라 Twitter 응용 프로그램을 만들고 이 자습서를 완료하는 데 필요한 값을 기록합니다.
+트윗 스트림을 받으려면 Twitter에 응용 프로그램을 만듭니다. 다음 지침에 따라 Twitter 응용 프로그램을 만들고 이 자습서를 완료하는 데 필요한 값을 기록합니다.
 
 1. 웹 브라우저에서 [Twitter 응용 프로그램 관리](http://twitter.com/app)로 이동하고 **새 앱 만들기**를 선택합니다.
 
@@ -133,7 +133,7 @@ Twitter 응용 프로그램에 대해 검색한 값을 저장합니다. 이러�
 
 2. [새 라이브러리] 페이지에서 **원본**에 대해 **Maven 코디네이트**를 선택합니다. **코디네이트**에서 추가하려는 패키지에 대한 코디네이트를 입력합니다. 이 자습서에서 사용된 라이브러리에 대한 Maven 코디네이트는 다음과 같습니다.
 
-    * Spark Event Hubs 커넥터 - `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.0`
+    * Spark Event Hubs 커넥터 - `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.1`
     * Twitter API - `org.twitter4j:twitter4j-core:4.0.6`
 
     ![Maven 코디네이트 제공](./media/databricks-stream-from-eventhubs/databricks-eventhub-specify-maven-coordinate.png "Maven 코디네이트 제공")
@@ -177,7 +177,7 @@ Twitter 응용 프로그램에 대해 검색한 값을 저장합니다. 이러�
     import scala.collection.JavaConverters._
     import com.microsoft.azure.eventhubs._
     import java.util.concurrent._
-    
+
     val namespaceName = "<EVENT HUBS NAMESPACE>"
     val eventHubName = "<EVENT HUB NAME>"
     val sasKeyName = "<POLICY NAME>"
@@ -187,51 +187,51 @@ Twitter 응용 프로그램에 대해 검색한 값을 저장합니다. 이러�
                 .setEventHubName(eventHubName)
                 .setSasKeyName(sasKeyName)
                 .setSasKey(sasKey)
-    
+
     val pool = Executors.newFixedThreadPool(1)
     val eventHubClient = EventHubClient.create(connStr.toString(), pool)
-    
+
     def sendEvent(message: String) = {
       val messageData = EventData.create(message.getBytes("UTF-8"))
-      eventHubClient.get().send(messageData) 
+      eventHubClient.get().send(messageData)
       System.out.println("Sent event: " + message + "\n")
     }
-    
+
     import twitter4j._
     import twitter4j.TwitterFactory
     import twitter4j.Twitter
     import twitter4j.conf.ConfigurationBuilder
-    
+
     // Twitter configuration!
     // Replace values below with yours
-    
+
     val twitterConsumerKey = "<CONSUMER KEY>"
     val twitterConsumerSecret = "<CONSUMER SECRET>"
     val twitterOauthAccessToken = "<ACCESS TOKEN>"
     val twitterOauthTokenSecret = "<TOKEN SECRET>"
-    
+
     val cb = new ConfigurationBuilder()
       cb.setDebugEnabled(true)
       .setOAuthConsumerKey(twitterConsumerKey)
       .setOAuthConsumerSecret(twitterConsumerSecret)
       .setOAuthAccessToken(twitterOauthAccessToken)
       .setOAuthAccessTokenSecret(twitterOauthTokenSecret)
-    
+
     val twitterFactory = new TwitterFactory(cb.build())
     val twitter = twitterFactory.getInstance()
-    
+
     // Getting tweets with keyword "Azure" and sending them to the Event Hub in realtime!
-    
+
     val query = new Query(" #Azure ")
     query.setCount(100)
     query.lang("en")
     var finished = false
     while (!finished) {
-      val result = twitter.search(query) 
+      val result = twitter.search(query)
       val statuses = result.getTweets()
       var lowestStatusId = Long.MaxValue
       for (status <- statuses.asScala) {
-        if(!status.isRetweet()){ 
+        if(!status.isRetweet()){
           sendEvent(status.getText())
         }
         lowestStatusId = Math.min(status.getId(), lowestStatusId)
@@ -239,24 +239,24 @@ Twitter 응용 프로그램에 대해 검색한 값을 저장합니다. 이러�
       }
       query.setMaxId(lowestStatusId - 1)
     }
-    
+
     // Closing connection to the Event Hub
     eventHubClient.get().close()
 
-노트북을 실행하려면 **Shift+Enter**를 누릅니다. 아래 코드 조각과 같은 출력이 표시됩니다. 출력의 각 이벤트는 "Azure"라는 용어가 포함된 Event Hubs로 수집되는 실시간 트윗입니다. 
+노트북을 실행하려면 **Shift+Enter**를 누릅니다. 아래 코드 조각과 같은 출력이 표시됩니다. 출력의 각 이벤트는 "Azure"라는 용어가 포함된 Event Hubs로 수집되는 트윗입니다.
 
     Sent event: @Microsoft and @Esri launch Geospatial AI on Azure https://t.co/VmLUCiPm6q via @geoworldmedia #geoai #azure #gis #ArtificialIntelligence
 
     Sent event: Public preview of Java on App Service, built-in support for Tomcat and OpenJDK
-    https://t.co/7vs7cKtvah 
+    https://t.co/7vs7cKtvah
     #cloudcomputing #Azure
-    
+
     Sent event: 4 Killer #Azure Features for #Data #Performance https://t.co/kpIb7hFO2j by @RedPixie
-    
+
     Sent event: Migrate your databases to a fully managed service with Azure SQL Database Managed Instance | #Azure | #Cloud https://t.co/sJHXN4trDk
-    
+
     Sent event: Top 10 Tricks to #Save Money with #Azure Virtual Machines https://t.co/F2wshBXdoz #Cloud
-    
+
     ...
     ...
 
@@ -266,26 +266,26 @@ Twitter 응용 프로그램에 대해 검색한 값을 저장합니다. 이러�
 
     import org.apache.spark.eventhubs._
 
-    // Build connection string with the above information 
+    // Build connection string with the above information
     val connectionString = ConnectionStringBuilder("<EVENT HUBS CONNECTION STRING>")
       .setEventHubName("<EVENT HUB NAME>")
       .build
-    
-    val customEventhubParameters = 
+
+    val customEventhubParameters =
       EventHubsConf(connectionString)
       .setMaxEventsPerTrigger(5)
-    
+
     val incomingStream = spark.readStream.format("eventhubs").options(customEventhubParameters.toMap).load()
-    
+
     incomingStream.printSchema
-    
+
     // Sending the incoming stream into the console.
     // Data comes in batches!
     incomingStream.writeStream.outputMode("append").format("console").option("truncate", false).start().awaitTermination()
 
 다음과 같은 출력을 얻습니다.
 
-  
+
     root
      |-- body: binary (nullable = true)
      |-- offset: long (nullable = true)
@@ -293,7 +293,7 @@ Twitter 응용 프로그램에 대해 검색한 값을 저장합니다. 이러�
      |-- enqueuedTime: long (nullable = true)
      |-- publisher: string (nullable = true)
      |-- partitionKey: string (nullable = true)
-   
+
     -------------------------------------------
     Batch: 0
     -------------------------------------------
@@ -301,9 +301,9 @@ Twitter 응용 프로그램에 대해 검색한 값을 저장합니다. 이러�
     |body  |offset|sequenceNumber|enqueuedTime   |publisher|partitionKey|
     +------+------+--------------+---------------+---------+------------+
     |[50 75 62 6C 69 63 20 70 72 65 76 69 65 77 20 6F 66 20 4A 61 76 61 20 6F 6E 20 41 70 70 20 53 65 72 76 69 63 65 2C 20 62 75 69 6C 74 2D 69 6E 20 73 75 70 70 6F 72 74 20 66 6F 72 20 54 6F 6D 63 61 74 20 61 6E 64 20 4F 70 65 6E 4A 44 4B 0A 68 74 74 70 73 3A 2F 2F 74 2E 63 6F 2F 37 76 73 37 63 4B 74 76 61 68 20 0A 23 63 6C 6F 75 64 63 6F 6D 70 75 74 69 6E 67 20 23 41 7A 75 72 65]                              |0     |0             |2018-03-09 05:49:08.86 |null     |null        |
-    |[4D 69 67 72 61 74 65 20 79 6F 75 72 20 64 61 74 61 62 61 73 65 73 20 74 6F 20 61 20 66 75 6C 6C 79 20 6D 61 6E 61 67 65 64 20 73 65 72 76 69 63 65 20 77 69 74 68 20 41 7A 75 72 65 20 53 51 4C 20 44 61 74 61 62 61 73 65 20 4D 61 6E 61 67 65 64 20 49 6E 73 74 61 6E 63 65 20 7C 20 23 41 7A 75 72 65 20 7C 20 23 43 6C 6F 75 64 20 68 74 74 70 73 3A 2F 2F 74 2E 63 6F 2F 73 4A 48 58 4E 34 74 72 44 6B]            |168   |1             |2018-03-09 05:49:24.752|null     |null        | 
+    |[4D 69 67 72 61 74 65 20 79 6F 75 72 20 64 61 74 61 62 61 73 65 73 20 74 6F 20 61 20 66 75 6C 6C 79 20 6D 61 6E 61 67 65 64 20 73 65 72 76 69 63 65 20 77 69 74 68 20 41 7A 75 72 65 20 53 51 4C 20 44 61 74 61 62 61 73 65 20 4D 61 6E 61 67 65 64 20 49 6E 73 74 61 6E 63 65 20 7C 20 23 41 7A 75 72 65 20 7C 20 23 43 6C 6F 75 64 20 68 74 74 70 73 3A 2F 2F 74 2E 63 6F 2F 73 4A 48 58 4E 34 74 72 44 6B]            |168   |1             |2018-03-09 05:49:24.752|null     |null        |
     +------+------+--------------+---------------+---------+------------+
-    
+
     -------------------------------------------
     Batch: 1
     -------------------------------------------
@@ -314,19 +314,19 @@ Twitter 응용 프로그램에 대해 검색한 값을 저장합니다. 이러�
 
     import org.apache.spark.sql.types._
     import org.apache.spark.sql.functions._
-    
+
     // Event Hub message format is JSON and contains "body" field
     // Body is binary, so we cast it to string to see the actual content of the message
-    val messages = 
+    val messages =
       incomingStream
       .withColumn("Offset", $"offset".cast(LongType))
       .withColumn("Time (readable)", $"enqueuedTime".cast(TimestampType))
       .withColumn("Timestamp", $"enqueuedTime".cast(LongType))
       .withColumn("Body", $"body".cast(StringType))
       .select("Offset", "Time (readable)", "Timestamp", "Body")
-    
+
     messages.printSchema
-    
+
     messages.writeStream.outputMode("append").format("console").option("truncate", false).start().awaitTermination()
 
 이제 출력은 다음 코드 조각과 비슷합니다.
@@ -336,7 +336,7 @@ Twitter 응용 프로그램에 대해 검색한 값을 저장합니다. 이러�
      |-- Time (readable): timestamp (nullable = true)
      |-- Timestamp: long (nullable = true)
      |-- Body: string (nullable = true)
-    
+
     -------------------------------------------
     Batch: 0
     -------------------------------------------
@@ -344,7 +344,7 @@ Twitter 응용 프로그램에 대해 검색한 값을 저장합니다. 이러�
     |Offset|Time (readable)  |Timestamp |Body
     +------+-----------------+----------+-------+
     |0     |2018-03-09 05:49:08.86 |1520574548|Public preview of Java on App Service, built-in support for Tomcat and OpenJDK
-    https://t.co/7vs7cKtvah 
+    https://t.co/7vs7cKtvah
     #cloudcomputing #Azure          |
     |168   |2018-03-09 05:49:24.752|1520574564|Migrate your databases to a fully managed service with Azure SQL Database Managed Instance | #Azure | #Cloud https://t.co/sJHXN4trDk    |
     |0     |2018-03-09 05:49:02.936|1520574542|@Microsoft and @Esri launch Geospatial AI on Azure https://t.co/VmLUCiPm6q via @geoworldmedia #geoai #azure #gis #ArtificialIntelligence|
@@ -356,7 +356,7 @@ Twitter 응용 프로그램에 대해 검색한 값을 저장합니다. 이러�
     ...
     ...
 
-이것으로 끝입니다. Azure Databricks를 사용하여 실시간 데이터를 Azure Event Hubs로 성공적으로 스트리밍했습니다. 그런 다음, Apache Spark용 Event Hubs 커넥터를 사용하여 스트림 데이터를 사용했습니다.
+이것으로 끝입니다. Azure Databricks를 사용하여 데이터를 거의 실시간으로 Azure Event Hubs로 성공적으로 스트리밍했습니다. 그런 다음, Apache Spark용 Event Hubs 커넥터를 사용하여 스트림 데이터를 사용했습니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -366,7 +366,7 @@ Twitter 응용 프로그램에 대해 검색한 값을 저장합니다. 이러�
 
 클러스터를 수동으로 종료하지 않은 경우 클러스터를 만드는 중에 **Terminate after __ minutes of inactivity**(비활성 __분 후 종료) 확인란을 선택하면 자동으로 중지됩니다. 이 경우 지정한 시간 동안 클러스터가 비활성 상태이면 클러스터가 자동으로 중지됩니다.
 
-## <a name="next-steps"></a>다음 단계 
+## <a name="next-steps"></a>다음 단계
 이 자습서에서는 다음 방법에 대해 알아보았습니다.
 
 > [!div class="checklist"]
@@ -381,4 +381,4 @@ Twitter 응용 프로그램에 대해 검색한 값을 저장합니다. 이러�
 Azure Databricks 및 [Microsoft Cognitive Services API](../cognitive-services/text-analytics/overview.md)를 사용하여 스트리밍된 데이터에 대한 감정 분석을 수행하는 방법을 알아보려면 다음 자습서로 계속 진행하세요.
 
 > [!div class="nextstepaction"]
->[Azure Databricks를 사용하여 스트리밍 데이터에 대한 감정 분석](databricks-stream-from-eventhubs.md)
+>[Azure Databricks를 사용하여 스트리밍 데이터에 대한 감정 분석](databricks-sentiment-analysis-cognitive-services.md)

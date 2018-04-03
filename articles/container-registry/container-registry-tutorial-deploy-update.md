@@ -1,6 +1,6 @@
 ---
-title: "Azure Container Registry 자습서 - 지역 배포에 업데이트된 이미지 푸시"
-description: "수정된 Docker 이미지를 지역에서 복제된 Azure 컨테이너 레지스트리에 푸시한 다음 여러 지역에서 실행되는 웹앱에 자동으로 배포되는 변경 내용을 확인합니다. 3부로 구성된 시리즈 중 제3부입니다."
+title: Azure Container Registry 자습서 - 지역 배포에 업데이트된 이미지 푸시
+description: 수정된 Docker 이미지를 지역에서 복제된 Azure 컨테이너 레지스트리에 푸시한 다음 여러 지역에서 실행되는 웹앱에 자동으로 배포되는 변경 내용을 확인합니다. 3부로 구성된 시리즈 중 제3부입니다.
 services: container-registry
 author: mmacy
 manager: timlt
@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 359fdcabd579d277e40f02eba2d4603ebd9f5f1f
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: f8eab93d1e6633ae4f17c5bb4836d96629d55cd4
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="push-an-updated-image-to-regional-deployments"></a>지역 배포에 업데이트된 이미지 푸시
+# <a name="tutorial-push-an-updated-image-to-regional-deployments"></a>자습서: 지역 배포에 업데이트된 이미지 푸시
 
 세 부분으로 이루어진 자습서 시리즈의 세 번째 부분입니다. [이전 자습서](container-registry-tutorial-deploy-app.md)에서 두 개의 서로 다른 지역 웹앱 배포에 대해 지역에서 복제가 구성되었습니다. 이 자습서에서는 먼저 응용 프로그램을 수정한 다음 새 컨테이너 이미지를 빌드하고 지역에서 복제된 레지스트리를 푸시합니다. 마지막으로 웹앱 인스턴스 모두에서 Azure Container Registry webhook에 의해 자동으로 배포된 변경 내용을 확인합니다.
 

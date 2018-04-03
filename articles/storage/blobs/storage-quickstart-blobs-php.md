@@ -10,11 +10,11 @@ ms.devlang: php
 ms.topic: quickstart
 ms.date: 03/15/2018
 ms.author: rogarana
-ms.openlocfilehash: 4adad6fe3da16653bbd654a3e93e14f9e68b7c90
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: a1d0232f093ab99bfbeba3012d78c35d6476496e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 #  <a name="transfer-objects-tofrom-azure-blob-storage-using-php"></a>PHP를 사용하여 Azure Blob 저장소에서 개체 전송
 이 빠른 시작에서 PHP를 사용하여 Azure Blob 저장소의 컨테이너에 블록 Blob을 업로드, 다운로드 및 나열하는 방법에 대해 알아봅니다. 
@@ -206,10 +206,10 @@ Blob 저장소를 사용하여 PHP 응용 프로그램을 개발하기 위한 �
 
 ## <a name="next-steps"></a>다음 단계
  
-이 빠른 시작에서는 PHP를 사용하여 로컬 디스크와 Azure Blob 저장소 간에 파일을 전송하는 방법을 알아보았습니다. Blob Storage를 사용하는 방법을 자세히 알아보려면 계속해서 Blob Storage 방법을 진행하세요.
+이 빠른 시작에서는 PHP를 사용하여 로컬 디스크와 Azure Blob 저장소 간에 파일을 전송하는 방법을 알아보았습니다. PHP 사용에 대해 자세히 알아보려면 PHP 개발자 센터를 계속 진행하세요.
 
 > [!div class="nextstepaction"]
-> [Blob Storage 작업 방법](./storage-php-how-to-use-blobs.md)
+> [PHP 개발자 센터](https://azure.microsoft.com/en-us/develop/php/)
 
 
 Storage 탐색기 및 Blob에 대한 자세한 내용은 [Storage 탐색기를 사용하여 Azure Blob Storage 리소스 관리](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)를 참조하세요.

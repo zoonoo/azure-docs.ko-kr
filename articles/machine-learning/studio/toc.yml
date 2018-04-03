@@ -3,8 +3,6 @@
 - name: 개요
   expanded: true
   items:
-    - name: Machine Learning은 무엇인가요?
-      href: what-is-machine-learning.md
     - name: Machine Learning Studio
       href: what-is-ml-studio.md
     - name: ML Studio 기능

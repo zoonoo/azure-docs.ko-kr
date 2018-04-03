@@ -1,6 +1,6 @@
 ---
-title: "Azure Container Registry 자습서 - 지리적 복제 Azure Container Registry 준비"
-description: "Azure Container Registry를 만들고 지리적 복제를 구성하고 Docker 이미지를 준비한 다음 레지스트리에 배포합니다. 3부로 구성된 시리즈 중 제1부입니다."
+title: Azure Container Registry 자습서 - 지리적 복제 Azure Container Registry 준비
+description: Azure Container Registry를 만들고 지리적 복제를 구성하고 Docker 이미지를 준비한 다음 레지스트리에 배포합니다. 3부로 구성된 시리즈 중 제1부입니다.
 services: container-registry
 author: mmacy
 manager: timlt
@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 10/26/2017
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: b73222d9b31ff840273bdb91a15f7eaf37ad2508
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 3463acc3db3dae9633635aaf7410d876aacf9b38
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="prepare-a-geo-replicated-azure-container-registry"></a>지리적 복제 Azure Container Registry 준비
+# <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>자습서: 지역 복제 Azure Container Registry 준비
 
 Azure Container Registry는 네트워크를 배포에 가깝게 유지할 수 있는 Azure에 배포된 개인 Docker 레지스트리입니다. 3부로 구성된 이 자습서에서는 지리적 복제를 사용하여 Linux 컨테이너에서 실행되는 ASP.NET Core 웹 응용 프로그램을 두 개의 [Web Apps for Containers](../app-service/containers/index.yml) 인스턴스에 배포하는 방법을 알아봅니다. Azure에서 가장 가까운 지리적 복제 리포지토리의 각 웹앱 인스턴스에 이미지를 자동으로 배포하는 방법을 확인할 수 있습니다.
 

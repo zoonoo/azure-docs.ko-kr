@@ -1,11 +1,11 @@
 ---
-title: "Web Apps 개요 | Microsoft Docs"
-description: "Azure App Service로 웹 응용 프로그램을 개발 및 호스팅하는 방법에 대해 알아보세요."
+title: Web Apps 개요 | Microsoft Docs
+description: Azure App Service로 웹 응용 프로그램을 개발 및 호스팅하는 방법에 대해 알아보세요.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 94af2caf-a2ec-4415-a097-f60694b860b3
 ms.service: app-service-web
 ms.workload: web
@@ -15,11 +15,11 @@ ms.topic: overview
 ms.date: 01/04/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: f8510bb6b412e9af8aad30ba32bc74206c22042f
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: e789d3c6e10399491eb055b850a590ae10aacd11
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="web-apps-overview"></a>Web Apps 개요
 
@@ -29,17 +29,12 @@ Web Apps는 보안, 부하 분산, 자동 크기 조정 및 자동화된 관리�
 
 App Service를 사용하면 Azure 계산 리소스에 대한 비용을 지불하게 됩니다. 사용할 계산 리소스는 Web Apps를 실행하는 _App Service 계획_에 따라 결정됩니다. 자세한 내용은 [Azure Web Apps의 App Service 계획](azure-web-sites-web-hosting-plans-in-depth-overview.md)을 참조하세요.
 
-다음 5분 비디오에서는 Azure App Service Web Apps를 소개합니다.
-
->[!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Azure-App-Service-Web-Apps-with-Yochay-Kiriaty/player]
->
->
-
 ## <a name="why-use-web-apps"></a>Web Apps를 사용하는 이유
+
 App Service Web Apps의 주요 기능은 다음과 같습니다.
 
 * **여러 언어 및 프레임워크** - Web Apps는 ASP.NET, ASP.NET Core, Java, Ruby, Node.js, PHP 또는 Python에 대한 고급 지원을 제공합니다. [PowerShell 및 기타 스크립트 또는 실행 파일](web-sites-create-web-jobs.md)을 백그라운드 서비스로 실행할 수도 있습니다.
-* **DevOps 최적화** - Visual Studio Team Services, GitHub, BitBucket, Docker 허브 또는 Azure Container Service를 사용하여 [연속 통합 및 배포](app-service-continuous-deployment.md)를 설정합니다. [테스트 및 스테이징 환경](web-sites-staged-publishing.md)을 통해 업데이트를 승격합니다. [Azure PowerShell](/powershell/azureps-cmdlets-docs) 또는 [플랫폼 간 CLI(명령줄 인터페이스)](/cli/azure/install-azure-cli)를 사용하여 Web Apps에서 앱을 관리합니다.
+* **DevOps 최적화** - Visual Studio Team Services, GitHub, BitBucket, Docker 허브 또는 Azure Container Registry를 사용하여 [연속 통합 및 배포](app-service-continuous-deployment.md)를 설정합니다. [테스트 및 스테이징 환경](web-sites-staged-publishing.md)을 통해 업데이트를 승격합니다. [Azure PowerShell](/powershell/azureps-cmdlets-docs) 또는 [플랫폼 간 CLI(명령줄 인터페이스)](/cli/azure/install-azure-cli)를 사용하여 Web Apps에서 앱을 관리합니다.
 * **고가용성을 가진 글로벌 규모 조정** - 수동 또는 자동으로 규모를 [강화](web-sites-scale.md) 또는 [확장](../monitoring-and-diagnostics/insights-how-to-scale.md)합니다. Microsoft의 글로벌 데이터 센터 인프라의 모든 위치에서 앱을 호스팅하고 App Service [SLA](https://azure.microsoft.com/support/legal/sla/app-service/) 를 사용하면 고가용성이 보장됩니다.
 * **SaaS 플랫폼 및 온-프레미스 데이터에 연결** - 엔터프라이즈 시스템(예: SAP), SaaS 서비스(예: Salesforce) 및 인터넷 서비스(예: Facebook)를 위해 50개 이상의 [커넥터](../connectors/apis-list.md)에서 선택합니다. [하이브리드 연결](../biztalk-services/integration-hybrid-connection-overview.md) 및 [Azure Virtual Networks](web-sites-integrate-with-vnet.md)를 사용하여 온-프레미스 데이터에 액세스합니다.
 * **보안 및 규정 준수** - App Service는 [ISO, SOC 및 PCI 규격](https://www.microsoft.com/TrustCenter/)입니다. [Azure Active Directory](app-service-mobile-how-to-configure-active-directory-authentication.md) 또는 소셜 로그인([Google](app-service-mobile-how-to-configure-google-authentication.md), [Facebook](app-service-mobile-how-to-configure-facebook-authentication.md), [Twitter](app-service-mobile-how-to-configure-twitter-authentication.md) 및 [Microsoft](app-service-mobile-how-to-configure-microsoft-authentication.md))을 사용하여 사용자를 인증합니다. [IP 주소 제한](app-service-ip-restrictions.md)을 만들고 [서비스 ID를 관리](app-service-managed-service-identity.md)합니다.
@@ -61,7 +56,7 @@ Azure는 App Service의 Web Apps 뿐만 아니라 웹 사이트와 웹 응용 �
 > [PHP](app-service-web-get-started-php.md)
 
 > [!div class="nextstepaction"]
-> [Node.JS](app-service-web-get-started-nodejs.md)
+> [Node.js](app-service-web-get-started-nodejs.md)
 
 > [!div class="nextstepaction"]
 > [Java](app-service-web-get-started-java.md)
@@ -71,4 +66,3 @@ Azure는 App Service의 Web Apps 뿐만 아니라 웹 사이트와 웹 응용 �
 
 > [!div class="nextstepaction"]
 > [HTML](app-service-web-get-started-html.md)
-

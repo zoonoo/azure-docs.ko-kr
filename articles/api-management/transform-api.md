@@ -1,11 +1,11 @@
 ---
-title: "Azure API Management로 API 변환 및 보호 | Microsoft Docs"
-description: "할당량 및 제한(속도 제한) 정책을 사용하여 API를 보호하는 방법을 알아봅니다."
+title: Azure API Management로 API 변환 및 보호 | Microsoft Docs
+description: 할당량 및 제한(속도 제한) 정책을 사용하여 API를 보호하는 방법을 알아봅니다.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 772f3828d85c54e7b8bb44c857e555175b7444cc
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: fb56b8489b086b724df9f3c9179f2c3265cd05a7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="transform-and-protect-your-api"></a>API 변환 및 보호 
 
@@ -52,7 +52,7 @@ ms.lasthandoff: 12/04/2017
 
 ### <a name="test-the-original-response"></a>원래 응답 테스트
 
-원래 응답을 확인하려면
+원래 응답을 확인하려면 다음을 수행합니다.
 
 1. **API** 탭을 선택합니다.
 2. API 목록에서 **Demo Conference API**를 선택합니다.
@@ -71,11 +71,11 @@ ms.lasthandoff: 12/04/2017
 3. API 목록에서 **Demo Conference API**를 선택합니다.
 4. **모든 작업**을 선택합니다.
 5. 화면 맨 위에서 **디자인** 탭을 선택합니다.
-6. **인바운드 처리** 창에서 삼각형(연필 옆에 있는)을 클릭합니다.
+6. **아웃바운드 처리** 창에서 삼각형(연필 옆에 있음)을 클릭합니다.
 7. **코드 편집기**를 선택합니다.
     
      ![정책 편집](./media/set-edit-policies/set-edit-policies01.png)
-9. **<outbound>** 요소 내부에 커서를 놓습니다.
+9. **&lt;아웃바운드&gt;** 요소 내부에 커서를 놓습니다.
 10. 오른쪽 창에서 **변환 정책** 아래에 있는 **+ HTTP 헤더 설정**을 두 번 클릭합니다(2개의 정책 조각 삽입).
 
     ![정책](./media/transform-api/transform-api.png)
@@ -90,7 +90,7 @@ ms.lasthandoff: 12/04/2017
 
 ### <a name="test-the-original-response"></a>원래 응답 테스트
 
-원래 응답을 확인하려면
+원래 응답을 확인하려면 다음을 수행합니다.
 
 1. **API** 탭을 선택합니다.
 2. API 목록에서 **Demo Conference API**를 선택합니다.
@@ -109,9 +109,9 @@ ms.lasthandoff: 12/04/2017
 3. API 목록에서 **Demo Conference API**를 선택합니다.
 4. **모든 작업**을 선택합니다.
 5. 화면 맨 위에서 **디자인** 탭을 선택합니다.
-6. **인바운드 처리** 창에서 삼각형(연필 옆에 있는)을 클릭합니다.
+6. **아웃바운드 처리** 창에서 삼각형(연필 옆에 있음)을 클릭합니다.
 7. **코드 편집기**를 선택합니다.
-8. **<outbound>** 요소 내부에 커서를 놓습니다.
+8. **&lt;아웃바운드&gt;** 요소 내부에 커서를 놓습니다.
 9. 오른쪽 창의 **변환 정책** 아래에서 **+ 본문에서 문자열 찾기 및 바꾸기**를 클릭합니다.
 10. **<find-and-replace** 코드(**<outbound>** 요소)를 수정하여 APIM 게이트웨이와 일치하도록 URL을 바꿉니다. 예:
 
@@ -126,9 +126,9 @@ ms.lasthandoff: 12/04/2017
 3. API 목록에서 **Demo Conference API**를 선택합니다.
 4. **모든 작업**을 선택합니다.
 5. 화면 맨 위에서 **디자인** 탭을 선택합니다.
-6. **인바운드 처리** 창에서 삼각형(연필 옆에 있는)을 클릭합니다.
+6. **아웃바운드 처리** 창에서 삼각형(연필 옆에 있음)을 클릭합니다.
 7. **코드 편집기**를 선택합니다.
-8. **<inbound>** 요소 내부에 커서를 놓습니다.
+8. **&lt;인바운드&gt;** 요소 내부에 커서를 놓습니다.
 9. 오른쪽 창의 **액세스 제한 정책**에서 **+ 키당 호출 속도 제한**을 클릭합니다.
 10. **<rate-limit-by-key** 코드(**<inbound>** 요소)를 다음 코드로 수정합니다.
 
@@ -168,7 +168,7 @@ ms.lasthandoff: 12/04/2017
 5. **테스트** 탭을 선택합니다.
 6. **보내기**를 누릅니다.
 
-    알고 있는 것처럼 헤더가 삭제되었습니다.
+    다음에 보이는 것처럼 헤더가 삭제되었습니다.
 
     ![정책](./media/transform-api/final-response1.png)
 
@@ -181,7 +181,7 @@ ms.lasthandoff: 12/04/2017
 5. **테스트** 탭을 선택합니다.
 6. **보내기**를 누릅니다.
 
-    알고 있는 것처럼 URL이 대체되었습니다.
+    보이는 것처럼 URL이 대체되었습니다.
 
     ![정책](./media/transform-api/final-response2.png)
 
@@ -192,7 +192,7 @@ ms.lasthandoff: 12/04/2017
 3. API 목록에서 **Demo Conference API**를 선택합니다.
 4. **GetSpeakers** 작업을 클릭합니다.
 5. **테스트** 탭을 선택합니다.
-6. 한 행에서 **보내기**를 3번 누릅니다.
+6. **보내기**를 계속해서 3번 누릅니다.
 
     요청을 3번 보낸 후에 **429 요청이 너무 많음** 응답이 표시됩니다.
 7. 15초 정도 기다렸다가 **보내기**를 다시 누릅니다. 이번에는 **200 정상** 응답이 표시됩니다.

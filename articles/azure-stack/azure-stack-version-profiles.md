@@ -1,11 +1,11 @@
 ---
-title: "API 버전 프로필을 사용 하 여 Azure 스택의 | Microsoft Docs"
-description: "Azure 스택에서 API 버전 프로필에 알아봅니다."
+title: API 버전 프로필을 사용 하 여 Azure 스택의 | Microsoft Docs
+description: Azure 스택에서 API 버전 프로필에 알아봅니다.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: EBAEA4D2-098B-4B5A-A197-2CEA631A1882
 ms.service: azure-stack
 ms.workload: na
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/25/2017
 ms.author: mabrigg
 ms.openlocfilehash: 68f4250c2a2a6bed1a1e21dc444e93cc87b6f59b
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="manage-api-version-profiles-in-azure-stack"></a>Azure 스택에서 API 버전 프로필을 관리
 

@@ -1,21 +1,21 @@
 ---
-title: "Azure Migrate 정보 | Microsoft Azure"
-description: "Azure Migrate 서비스의 개요를 제공합니다."
+title: Azure Migrate 정보 | Microsoft Azure
+description: Azure Migrate 서비스의 개요를 제공합니다.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 02/26/2018
+ms.date: 03/27/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 45eac1d1ecb173ba0a62ab13f47b7ee6e12f7af3
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 857dab5474cba24445daf7d139ae49d923038196
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="about-azure-migrate"></a>Azure Migrate 정보
 
-Azure Migrate 서비스는 Azure로 마이그레이션하는 온-프레미스 워크로드를 평가합니다. 이 서비스는 온-프레미스에서 Azure로의 마이그레이션 적합성 및 성능 기반 크기 조정을 평가하며, Azure에서 온-프레미스 컴퓨터를 실행할 때 드는 비용을 예측합니다. 리프트 앤 시프트 마이그레이션을 고려 중이거나 마이그레이션의 초기 평가 단계에 있는 경우 이 서비스가 가장 이상적입니다. 평가 후에는 [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) 및 [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview) 같은 서비스를 사용하여 컴퓨터를 Azure로 마이그레이션할 수 있습니다.
+Azure Migrate 서비스는 Azure로 마이그레이션하는 온-프레미스 워크로드를 평가합니다. 이 서비스는 온-프레미스 컴퓨터의 마이그레이션 적합성 및 성능 기반 크기 조정을 평가하며, Azure에서 온-프레미스 컴퓨터를 실행할 때 드는 비용을 예측합니다. 리프트 앤 시프트 마이그레이션을 고려 중이거나 마이그레이션의 초기 평가 단계에 있는 경우 이 서비스가 가장 이상적입니다. 평가 후에는 [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) 및 [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview) 같은 서비스를 사용하여 컴퓨터를 Azure로 마이그레이션할 수 있습니다.
 
 ## <a name="why-use-azure-migrate"></a>Azure Migrate를 사용하는 이유
 
@@ -28,14 +28,12 @@ Azure Migrate의 기능:
 
 ## <a name="current-limitations"></a>현재 제한 사항
 
-- 현재 온-프레미스 VMware VM(가상 머신)에서 Azure VM으로의 마이그레이션만 평가할 수 있습니다. VM이 vCenter Server 버전 5.5, 6.0 또는 6.5를 통해 관리되어야 합니다.
-
-> [!NOTE]
-> Hyper-V에 대한 지원은 준비 중이며 곧 사용할 수 있습니다. 그 동안 [Azure Site Recovery Deployment Planner](http://aka.ms/asr-dp-hyperv-doc)를 사용하여 Hyper-V 워크로드의 마이그레이션을 계획하는 것이 좋습니다. 
-
+- 현재 온-프레미스 VMware VM(가상 머신)에서 Azure VM으로의 마이그레이션만 평가할 수 있습니다. VMware VM은 vCenter Server(버전 5.5, 6.0 또는 6.5)에서 관리되어야 합니다.
+- Hyper-V에 대한 지원은 로드맵에 있습니다. 그동안 [Azure Site Recovery Deployment Planner](http://aka.ms/asr-dp-hyperv-doc)를 사용하여 Hyper-V 워크로드의 마이그레이션을 계획하는 것이 좋습니다. 
 - 단일 검색에서 최대 1,000개의 VM을 검색하고’ 단일 프로젝트에서 최대 1,500개의 VM을 검색할 수 있습니다. 또한 단일 평가에서 최대 400개의 VM을 평가할 수 있습니다. 더 많이 검색하거나 평가해야 하는 경우 검색 또는 평가의 수를 늘릴 수 있습니다. [자세히 알아보기](how-to-scale-assessment.md).
 - 미국 중서부 또는 미국 동부 지역에서는 Azure Migrate 프로젝트만 만들 수 있습니다. 그러나 다른 대상 Azure 위치에 대한 마이그레이션을 계획하는 기능에는 영향이 없습니다. 마이그레이션 프로젝트의 위치는 온-프레미스 환경에서 발견된 메타데이터를 저장하는 용도로만 사용됩니다.
 - 마이그레이션을 평가하는 경우 Azure Migrate는 관리 디스크만 지원합니다.
+
 
 ## <a name="what-do-i-need-to-pay-for"></a>어떤 요금이 발생하나요?
 
@@ -48,7 +46,7 @@ Azure Migrate의 기능:
 
 **속성** | **세부 정보**
 --- | ---
-**대상 위치** | 마이그레이션할 Azure 위치입니다.<br/><br/>Azure Migrate은 현재 오스트레일리아 동부, 오스트레일리아 남동부, 브라질 남부, 캐나다 중부, 캐나다 동부, 인도 중부, 미국 중부, 중국 동부, 중국 북부, 동아시아, 미국 동부, 독일 중부, 독일 북동부, 미국 동부 2, 일본 동부, 일본 서부, 한국 중부, 한국 남부, 미국 중북부, 북유럽, 미국 중남부, 동남 아시아, 인도 남부, 영국 남부, 영국 서부, 미국 서중부, 유럽 서부, 인도 서부, 미국 서부 및 미국 서부 2를 비롯한 30개 지역을 지원합니다. 기본적으로 대상 위치는 미국 서부 2로 설정되어 있습니다. 
+**대상 위치** | 마이그레이션할 Azure 위치입니다.<br/><br/>Azure Migrate는 현재 오스트레일리아 동부, 오스트레일리아 남동부, 브라질 남부, 캐나다 중부, 캐나다 동부, 인도 중부, 미국 중부, 중국 동부, 중국 북부, 동아시아, 미국 동부, 독일 중부, 독일 북동부, 미국 동부 2, 일본 동부, 일본 서부, 한국 중부, 한국 남부, 미국 중북부, 북유럽, 미국 중남부, 동남 아시아, 인도 남부, 영국 남부, 영국 서부, 미국 서중부, 유럽 서부, 인도 서부, 미국 서부 및 미국 서부 2를 비롯한 30개 지역을 지원합니다. 기본적으로 대상 위치는 미국 서부 2로 설정되어 있습니다. 
 **저장소 이중화** | 마이그레이션 후 Azure VM이 사용하게 될 [저장소 중복](https://docs.microsoft.com/azure/storage/common/storage-redundancy) 유형입니다. 기본값은 LRS(로컬 중복 저장소)입니다. Azure Migrate는 관리 디스크 기반 평가만 지원하고 관리 디스크는 LRS만 지원하므로 현재는 속성에 LRS 옵션만 있습니다. 
 **크기 조정 기준** | Azure Migrate가 Azure에 사용할 VM의 적정 크기를 산정하는 데 사용되는 기준입니다. 온-프레미스 VM의 *성능 기록*에 따라 크기를 조정할 수도 있고, 성능 기록을 고려하지 않고 *온-프레미스로* VM의 크기를 조정할 수도 있습니다. 기본값은 성능 기반 크기 조정입니다.
 **가격 책정 계획** | 비용을 계산하기 위해 평가 시 소프트웨어 보험이 있는지, [Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-use-benefit/) 자격이 되는지 여부를 고려합니다. 또한 개발자가 등록할 수 있는 [Azure 제품](https://azure.microsoft.com/support/legal/offer-details/)을 고려하고, 해당 제품에서 받을 구독별 할인율(%)을 지정할 수 있습니다. 

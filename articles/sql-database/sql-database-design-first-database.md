@@ -1,21 +1,21 @@
 ---
-title: 첫 번째 Azure SQL Database 디자인 | Microsoft Docs
-description: Azure Portal에서 SQL Server Management Studio를 사용하여 최초의 Azure SQL 데이터베이스를 설계하는 방법에 대해 알아봅니다.
+title: SSMS를 사용하여 첫 번째 Azure SQL Database 디자인 | Microsoft Docs
+description: SQL Server Management Studio를 사용하여 첫 번째 Azure SQL Database를 디자인하는 방법에 대해 알아봅니다.
 services: sql-database
 author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: mvc,develop databases
 ms.topic: tutorial
-ms.date: 03/15/2018
+ms.date: 03/23/2018
 ms.author: carlrab
-ms.openlocfilehash: 12301d46b497b49032b1b8bdefe2056a7df143d1
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 40da83c0214e3c493fdb72504753b5b59ea20b3e
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="design-your-first-azure-sql-database"></a>첫 번째 Azure SQL Database 디자인
+# <a name="design-your-first-azure-sql-database-using-ssms"></a>SSMS를 사용하여 첫 번째 Azure SQL Database 디자인
 
 Azure SQL Database는 Microsoft Cloud(Azure)의 관계형 DBaaS(Database-As-A-Service)입니다. 이 자습서에서는 Azure Portal 및 SSMS[(SQL Server Management Studio)](https://msdn.microsoft.com/library/ms174173.aspx)를 사용하는 방법을 알아봅니다. 
 

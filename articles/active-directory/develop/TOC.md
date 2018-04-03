@@ -45,7 +45,7 @@
 ### [SAML 기반 SSO 디버그](active-directory-saml-debugging.md)
 ### [Single Sign-On SAML 프로토콜](active-directory-single-sign-on-protocol-reference.md)
 ### [Single Sign-Out SAML 프로토콜](active-directory-single-sign-out-protocol-reference.md)
-### [테넌트 만들기](active-directory-howto-tenant.md)
+## [테넌트 만들기](active-directory-howto-tenant.md)
 ## [브랜딩 지침](active-directory-branding-guidelines.md)
 ## 모바일 및 데스크톱 SSO
 ### [Android에서 SSO 사용](active-directory-sso-android.md)

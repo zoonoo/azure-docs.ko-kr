@@ -9,11 +9,11 @@ ms.date: 03/13/2018
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: f56f00aabbef2cfa86264d3e962af9a9c0bafa98
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1ff1240073e25bf406e7da6b79135264376a5b3f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment-with-the-azure-cli"></a>Azure CLI를 사용하여 Azure 환경 내에서 규정 비준수 리소스를 식별하는 정책 할당 만들기
 
@@ -46,7 +46,7 @@ az policy assignment create --name 'Audit Virtual Machines without Managed Disks
 - **이름** - 정책 할당에 대한 이름을 표시합니다. 이 경우에 *Managed Disks 할당이 없는 Virtual Machines 감사*를 사용합니다.
 - **정책** – 할당을 만드는 데 기준으로 사용되는 정책 정의 ID입니다. 이 경우 정책 정의는 *Managed Disks가 없는 Virtual Machines 감사*입니다. 정책 정의 ID를 가져오려면 이 명령을 실행합니다. `az policy definition show --name 'Audit Virtual Machines without Managed Disks Assignment'`
 - **범위** - 범위는 정책 할당이 적용되는 리소스 또는 리소스 그룹을 결정합니다. 구독에서 리소스 그룹까지 다양한 범위가 있습니다. 리소스 그룹의 이름으로 &lt;범위&gt;를 바꿉니다.
-- **Sku** - 이 명령은 표준 계층을 사용하여 정책 할당을 만듭니다. 표준 계층을 사용하면 대규모 관리, 준수 평가 및 재구성을 달성할 수 있습니다. 현재 표준 계층은 무료입니다. 향후 표준 계층은 비용을 발생시킵니다. 가격 책정 변경이 발생한 경우 변경이 발표되고 자세한 정보는 [Azure Policy 가격 책정](https://azure.microsoft.com/pricing/details/azure-policy)에 제공됩니다.
+- **Sku** - 이 명령은 표준 계층을 사용하여 정책 할당을 만듭니다. 표준 계층을 사용하면 대규모 관리, 준수 평가 및 재구성을 달성할 수 있습니다. 가격 책정 계층에 대한 자세한 내용은 [Azure Policy 가격 책정](https://azure.microsoft.com/pricing/details/azure-policy)을 참조하세요.
 
 
 ## <a name="identify-non-compliant-resources"></a>규정 비준수 리소스 식별

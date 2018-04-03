@@ -1,6 +1,6 @@
 ---
-title: "Azure의 Kubernetes 자습서 - 앱 준비"
-description: "AKS 자습서 - 앱 준비"
+title: Azure의 Kubernetes 자습서 - 앱 준비
+description: AKS 자습서 - 앱 준비
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 02/22/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 0c4a1459a49fb60578f9f38ea65cd1400b538382
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 8a2c2e53ed04cf00cc02135c5e5f82ded18fc2bc
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="prepare-application-for-azure-container-service-aks"></a>AKS(Azure Container Service)에 대한 응용 프로그램 준비
+# <a name="tutorial-prepare-application-for-azure-container-service-aks"></a>자습서: AKS(Azure Container Service)에 대한 응용 프로그램 준비
 
 총 8부 중 1부인 이 자습서에서는 Kubernetes에서 사용할 수 있도록 다중 컨테이너 응용 프로그램이 준비됩니다. 완료되는 단계는 다음과 같습니다.  
 

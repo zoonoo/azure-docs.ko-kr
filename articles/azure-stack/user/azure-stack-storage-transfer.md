@@ -1,24 +1,24 @@
 ---
-title: "Azure 스택 저장소 용 도구"
-description: "Azure 스택 저장소 데이터에 대 한 자세한 내용은 전송 도구"
+title: Azure 스택 저장소 용 도구
+description: Azure 스택 저장소 데이터에 대 한 자세한 내용은 전송 도구
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/21/2018
+ms.date: 03/30/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 9318b7af3c3dd545207f1896c9008207f562b735
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: e26a38b8fd7d008a46eba2c41075c5af09a6616a
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="tools-for-azure-stack-storage"></a>Azure 스택 저장소 용 도구
 
@@ -181,7 +181,7 @@ Azure CLI에는 Azure의 Azure 리소스를 관리 하기 위한 명령줄 환�
 
 관리 하 고 명령줄에서 Azure 리소스를 관리 하 고 Azure 리소스 관리자에 대해 작동 하는 자동화 스크립트를 작성 하기 위한 azure CLI 최적화 됩니다. 여러 가지 다양 한 데이터 액세스를 포함 하 여 Azure 스택 포털의 동일한 기능을 제공 합니다.
 
-Azure 스택 Azure CLI 버전 2.0 필요합니다. 설치 하 고 Azure 스택에 Azure CLI를 구성 하는 방법에 대 한 자세한 내용은 참조 [설치 하 고 Azure 스택 CLI 구성](azure-stack-connect-cli.md)합니다. Azure 스택 저장소 계정의 리소스를 사용 하는 여러 작업을 수행할 Azure CLI 2.0을 사용 하는 방법에 대 한 자세한 내용은 참조 하세요. [Azure CLI2.0를 사용 하 여 Azure 저장소](../../storage/storage-azure-cli.md)
+Azure 스택 Azure CLI 버전 2.0 필요합니다. 설치 하 고 Azure 스택에 Azure CLI를 구성 하는 방법에 대 한 자세한 내용은 참조 [설치 하 고 Azure 스택 CLI 구성](azure-stack-version-profiles-azurecli2.md)합니다. Azure 스택 저장소 계정의 리소스를 사용 하는 여러 작업을 수행할 Azure CLI 2.0을 사용 하는 방법에 대 한 자세한 내용은 참조 하세요. [Azure CLI2.0를 사용 하 여 Azure 저장소](../../storage/storage-azure-cli.md)
 
 ### <a name="azure-cli-sample-script-for-azure-stack"></a>Azure 스택에 대 한 azure CLI 샘플 스크립트 
 CLI 설치 및 구성을 완료 하면 Azure 스택 저장소 리소스와 상호 작용 하는 작은 셸 샘플 스크립트를 작성 하려면 다음 단계를 시도할 수 있습니다. 스크립트 먼저 저장소 계정에 새 컨테이너를 만듭니다 (blob)으로 해당 컨테이너에 기존 파일을 업로드, 컨테이너의 모든 blob을 나열 하 고 마지막으로, 대상 지정 하는 로컬 컴퓨터에 해당 파일을 다운로드 합니다. 이 스크립트를 실행 하기 전에 성공적으로 연결 되었는지 확인 하 고 Azure 스택 대상에 로그인 합니다. 

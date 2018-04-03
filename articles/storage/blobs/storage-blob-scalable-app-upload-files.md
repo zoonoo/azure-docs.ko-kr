@@ -1,21 +1,21 @@
 ---
-title: "Azure Storage에 대량의 임의 데이터를 병렬로 업로드 | Microsoft Docs"
-description: "Azure SDK를 사용하여 Azure Storage 계정에 대량의 임의 데이터를 병렬로 업로드하는 방법에 대해 알아봅니다."
+title: Azure Storage에 대량의 임의 데이터를 병렬로 업로드 | Microsoft Docs
+description: Azure SDK를 사용하여 Azure Storage 계정에 대량의 임의 데이터를 병렬로 업로드하는 방법에 대해 알아봅니다.
 services: storage
-author: tamram
+author: roygara
 manager: jeconnoc
 ms.service: storage
 ms.workload: web
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 02/20/2018
-ms.author: tamram
+ms.author: rogarana
 ms.custom: mvc
-ms.openlocfilehash: 39a48007bdcd055df4529074a67b5b8a6db2d8b4
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 668700cf3ff3d1a90f9639129ef2953ddca016f1
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="upload-large-amounts-of-random-data-in-parallel-to-azure-storage"></a>Azure Storage에 대량의 임의 데이터를 병렬로 업로드
 
@@ -73,7 +73,7 @@ dotnet run
 |---|---|---|
 |[ParallelOperationThreadCount](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.paralleloperationthreadcount?view=azure-dotnet)| 8| 설정은 업로드할 때 Blob을 블록으로 나눕니다. 최고 성능을 위해 이 값은 코어 수의 8배여야 합니다. |
 |[DisableContentMD5Validation](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.disablecontentmd5validation?view=azure-dotnet)| true| 이 속성은 업로드된 콘텐츠의 MD5 해시를 검사하지 않도록 설정합니다. MD5 유효성 검사를 사용하지 않으면 더 빠른 전송이 생성됩니다. 그러나 전송 중인 파일의 유효성 또는 무결성을 확인하지 않습니다.   |
-|[StorBlobContentMD5](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.storeblobcontentmd5?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_StoreBlobContentMD5)| false| 이 속성은 MD5 해시를 계산하고 파일과 함께 저장할지를 결정합니다.   |
+|[StoreBlobContentMD5](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.storeblobcontentmd5?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_StoreBlobContentMD5)| false| 이 속성은 MD5 해시를 계산하고 파일과 함께 저장할지를 결정합니다.   |
 | [RetryPolicy](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.retrypolicy?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_RetryPolicy)| 최대 10회 재시도를 사용한 2초 백오프 |요청의 재시도 정책을 결정합니다. 연결 실패가 다시 시도됩니다. 이 예제에서 [ExponentialRetry](/dotnet/api/microsoft.windowsazure.storage.retrypolicies.exponentialretry?view=azure-dotnet) 정책은 2초 백오프 및 최대 10회 재시도를 사용하여 구성됩니다. 응용 프로그램이 [Blob Storage 확장성 대상](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-blob-storage-scale-targets)을 적중하기 위해 접근할 경우 이 설정이 중요합니다.  |
 
 `UploadFilesAsync` 작업은 다음 예제에 표시됩니다.

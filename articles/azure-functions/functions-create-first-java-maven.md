@@ -1,11 +1,11 @@
 ---
-title: "Java 및 Maven을 사용하여 Azure에서 첫 번째 함수 만들기 | Microsoft Docs"
-description: "Java 및 Maven을 사용하여 Azure에 간단한 HTTP 트리거 함수를 만들어 게시합니다."
+title: Java 및 Maven을 사용하여 Azure에서 첫 번째 함수 만들기 | Microsoft Docs
+description: Java 및 Maven을 사용하여 Azure에 간단한 HTTP 트리거 함수를 만들어 게시합니다.
 services: functions
 documentationcenter: na
 author: rloutlaw
 manager: justhe
-keywords: "Azure 함수, 함수, 이벤트 처리, 계산, 서버를 사용하지 않는 아키텍처"
+keywords: Azure 함수, 함수, 이벤트 처리, 계산, 서버를 사용하지 않는 아키텍처
 ms.service: functions
 ms.devlang: java
 ms.topic: quickstart
@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 11/07/2017
 ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: c0984075cd8e372cce09ea100378dcd4e8cddabe
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 81d9d8790a750f34133f3f00dafc15c56185d7b1
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-your-first-function-with-java-and-maven-preview"></a>Java 및 Maven을 사용하여 Azure에서 첫 번째 함수 만들기(미리 보기)
 
@@ -34,18 +34,25 @@ ms.lasthandoff: 01/05/2018
 ## <a name="prerequisites"></a>필수 조건
 Java 통해 함수 앱을 개발하려면 다음을 설치해야 합니다.
 
--  [.NET Core](https://www.microsoft.com/net/core) 최신 버전
 -  [Java Developer Kit](https://www.azul.com/downloads/zulu/) 버전 8
--  [Azure CLI](https://docs.microsoft.com/cli/azure)
 -  [Apache Maven](https://maven.apache.org) 버전 3.0 이상
--  [Node.js](https://nodejs.org/download/) 버전 8.6 이상
+-  [Azure CLI](https://docs.microsoft.com/cli/azure)
 
 > [!IMPORTANT] 
 > 이 퀵 스타트를 완료하려면 JAVA_HOME 환경 변수를 JDK 설치 위치로 설정해야 합니다.
 
 ## <a name="install-the-azure-functions-core-tools"></a>Azure Functions 핵심 도구 설치
 
-[Azure Functions Core Tools 2.0](https://www.npmjs.com/package/azure-functions-core-tools)는 Azure Functions의 작성, 실행 및 디버그를 위한 로컬 개발 환경을 제공합니다. [Node.js](https://nodejs.org/)에 포함된 [npm](https://www.npmjs.com/)을 사용하여 도구를 설치합니다.
+[Azure Functions Core Tools 2.0](https://www.npmjs.com/package/azure-functions-core-tools)는 Azure Functions의 작성, 실행 및 디버그를 위한 로컬 개발 환경을 제공합니다. 
+
+설치하려면 [설치](https://github.com/azure/azure-functions-core-tools#installing) 섹션을 방문하여 선택한 운영 체제(Windows, Linux, Mac)에 대한 지침을 찾아봅니다.
+
+다음과 같은 요구 사항을 설치한 후 [Node.js](https://nodejs.org/)에 포함된 [npm](https://www.npmjs.com/)을 사용하여 수동으로 설치할 수도 있습니다.
+
+-  [.NET Core](https://www.microsoft.com/net/core) 최신 버전
+-  [Node.js](https://nodejs.org/download/) 버전 8.6 이상
+
+npm 기반 설치를 계속 진행하려면 다음을 실행합니다.
 
 ```
 npm install -g azure-functions-core-tools@core
@@ -185,6 +192,4 @@ Hello AzureFunctions!
 - Java 함수 개발에 대한 자세한 내용은 [Java 함수 개발자 가이드](functions-reference-java.md)를 참조합니다.
 - `azure-functions:add` Maven 대상을 사용하여 프로젝트에 다른 트리거가 있는 다른 함수를 추가합니다.
 - Visual Studio 코드를 사용하여 로컬로 함수를 디버그합니다. [Java 확장 팩](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)을 설치하고 Visual Studio Code에서 Functions 프로젝트를 연 상태에서 [디버거](https://code.visualstudio.com/Docs/editor/debugging#_launch-configurations)를 포트 5005에 연결합니다. 그런 다음 편집기에서 중단점을 설정하고 로컬로 실행하는 동안 함수를 트리거합니다(![Visual Studio Code에서 함수 디버그](media/functions-create-java-maven/vscode-debug.png)).
-
-
-
+- Visual Studio Code를 사용하여 원격으로 함수를 디버그합니다. 자세한 지침은 [서버 없는 Java 응용 프로그램 작성](https://code.visualstudio.com/docs/java/java-serverless#_remote-debug-functions-running-in-the-cloud) 설명서를 참조하세요.

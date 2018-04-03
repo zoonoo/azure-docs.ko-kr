@@ -1,26 +1,26 @@
 ---
-title: "Azure Cosmos DB용 Visual Studio 연결된 서비스"
-description: "개발자가 쉽게 해당 Azure Cosmos DB 계정을 연결하고 Visual Studio 연결된 서비스를 통해 리소스를 관리할 수 있습니다."
+title: Azure Cosmos DB용 Visual Studio 연결된 서비스
+description: 개발자가 쉽게 해당 Azure Cosmos DB 계정을 연결하고 Visual Studio 연결된 서비스를 통해 리소스를 관리할 수 있습니다.
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: jejiang
 manager: DJ
 +tags: cosmos-db
 editor: Jenny Jiang
-ms.assetid: 
+ms.assetid: ''
 ms.service: cosmos-db
 ms.custom: Azure Cosmos DB
-ms.workload: 
+ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 09/19/2017
 ms.author: jejiang
-ms.openlocfilehash: f63c20831a2700f1024507bef614a5a7cc87d00e
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 93be368d34f02e64d11abe9a04b11272ce18124d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-cosmos-db-visual-studio-connected-service-preview"></a>Azure Cosmos DB: Visual Studio 연결된 서비스(미리 보기)
 
@@ -41,6 +41,8 @@ Visual Studio 연결된 서비스를 사용하면 개발자가 쉽게 Azure Cosm
     [Visual Studio Marketplace](https://go.microsoft.com/fwlink/?linkid=858709)에서 Azure Cosmos DB 연결된 서비스를 설치할 수도 있습니다.
 
     ![연결된 서비스 다운로드 bits.png의 스크린샷](./media/connected-service/connected-service-downloadbits.png) 
+
+Azure Cosmos DB 연결된 서비스 확장을 다운로드했으면 Visual Studio를 닫고 확장을 설치합니다.
 
 ## <a id="SetupVS"></a>Visual Studio 솔루션 설치
 1. 컴퓨터에서 **Visual Studio**를 엽니다.

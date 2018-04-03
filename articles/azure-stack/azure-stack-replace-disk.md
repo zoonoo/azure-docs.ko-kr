@@ -1,24 +1,24 @@
 ---
-title: "Azure 스택에서 실제 디스크를 교체 | Microsoft Docs"
-description: "Azure 스택의 실제 디스크를 교체 하는 방법에 대 한 프로세스를 간략하게 설명 합니다."
+title: Azure 스택에서 실제 디스크를 교체 | Microsoft Docs
+description: Azure 스택의 실제 디스크를 교체 하는 방법에 대 한 프로세스를 간략하게 설명 합니다.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 449ae53e-b951-401a-b2c9-17fee2f491f1
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 03/30/2018
 ms.author: mabrigg
-ms.openlocfilehash: a95617a8dd2a8f296164c672e2b4b2628574ce5a
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: f168c005c729ae75a5369b80b3dc5eab03ee0243
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="replace-a-physical-disk-in-azure-stack"></a>Azure 스택에서 실제 디스크 교체
 
@@ -40,6 +40,9 @@ ms.lasthandoff: 12/11/2017
  ## <a name="replace-the-disk"></a>디스크를 교체
 
 실제 디스크 교체에 대 한 OEM 하드웨어 공급 업체의 FRU 지침을 따릅니다.
+
+> [!note]
+> 한 번에 하나의 배율 단위 노드에 대 한 디스크를 대체 합니다. 다음 눈금 단위 노드로 이동 하기 전에 완료 하려면 가상 디스크 복구 작업에 대 한 대기
 
 통합된 시스템에서 지원 되지 않는 디스크의 사용을 방지 하려면 시스템 공급 업체에서 지원 되지 않는 디스크를 차단 합니다. 지원 되지 않는 디스크를 사용 하려고 하면 새 경고가 지원 되지 않는 모델 또는 펌웨어 때문에 격리 된 디스크에 알려 줍니다.
 

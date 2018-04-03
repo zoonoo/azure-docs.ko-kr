@@ -1,12 +1,12 @@
 ---
-title: "Azure에서 GitHub webhook를 통해 트리거되는 함수 만들기 | Microsoft 문서"
-description: "Azure Functions를 사용하여 GitHub webhook를 통해 호출되는 서버 없는 함수를 만듭니다."
+title: Azure에서 GitHub webhook를 통해 트리거되는 함수 만들기 | Microsoft 문서
+description: Azure Functions를 사용하여 GitHub webhook를 통해 호출되는 서버 없는 함수를 만듭니다.
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: 36ef34b8-3729-4940-86d2-cb8e176fcc06
 ms.service: functions
 ms.devlang: multiple
@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 05/31/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 98632c3276e7d9cccf29d05b903c2fac62a7d68e
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: cd446c64b8e7627db1c76d652ea1ab6f496eee65
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-a-function-triggered-by-a-github-webhook"></a>GitHub webhook를 통해 트리거되는 함수 만들기
 
@@ -69,11 +69,15 @@ GitHub별 페이로드와 함께 HTTP 웹후크 요청에 의해 트리거되는
 
 1. GitHub에서 소유한 리포지토리로 이동합니다. 분기된 모든 리포지토리를 사용할 수도 있습니다. 리포지토리를 분기해야 하는 경우 <https://github.com/Azure-Samples/functions-quickstart>를 사용합니다.
 
-1. **설정**, **Webhooks**, **webhook 추가**를 차례로 클릭합니다.
+2. **설정** > **옵션**을 선택하고 **기능** 아래에서 **문제**를 사용하도록 설정합니다.
+
+   ![문제 사용](./media/functions-create-github-webhook-triggered-function/functions-create-new-github-webhook.png)
+
+1. **설정**에서 **웹후크** > **웹후크 추가**를 선택합니다.
 
     ![GitHub 웹후크를 추가합니다.](./media/functions-create-github-webhook-triggered-function/functions-create-new-github-webhook-2.png)
 
-1. 표에 지정된 것처럼 설정을 사용한 후 **웹후크 추가**를 클릭합니다.
+1. 다음 표에 지정된 것처럼 설정을 사용한 다음, **웹후크 추가**를 클릭합니다.
 
     ![웹후크 URL 및 암호를 설정합니다.](./media/functions-create-github-webhook-triggered-function/functions-create-new-github-webhook-3.png)
 

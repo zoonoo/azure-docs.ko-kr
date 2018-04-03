@@ -1,31 +1,31 @@
 ---
-title: "Azure Cosmos DB: Python 및 Azure Cosmos DB MongoDB API로 Flask 웹앱 빌드 | Microsoft Docs"
-description: "Azure Cosmos DB MongoDB API에 연결하고 및 쿼리하는 데 사용할 수 있는 Python Flask 코드 샘플을 제시합니다."
+title: 'Azure Cosmos DB: Python 및 Azure Cosmos DB MongoDB API로 Flask 웹앱 빌드 | Microsoft Docs'
+description: Azure Cosmos DB MongoDB API에 연결하고 및 쿼리하는 데 사용할 수 있는 Python Flask 코드 샘플을 제시합니다.
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: hshapiro
 manager: scicoria
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: cosmos-db
 ms.custom: quick start connect, mvc
-ms.workload: 
+ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 10/2/2017
 ms.author: hshapiro
-ms.openlocfilehash: f86c6cce82812e02f373d7307c76ace26ea3e99b
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: ea6920c179bfee22c0aa545ccc3d0386940205e4
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-cosmos-db-build-a-flask-app-with-the-mongodb-api"></a>Azure Cosmos DB: MongoDB API로 Flask 앱 빌드
 
 Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터베이스 서비스입니다. Azure Cosmos DB의 핵심인 전역 배포 및 수평적 크기 조정 기능의 이점을 활용하여 문서, 키/값 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있습니다.
 
-이 빠른 시작 가이드는 다음 [Flask 예제](https://github.com/Azure-Samples/CosmosDB-Flask-Mongo-Sample)를 사용하고 MongoDB 대신 [Azure Cosmos DB Emulator](/local-emulator.md)를 사용하여 간단한 To-Do(할 일) Flask 앱을 빌드하는 방법을 보여 줍니다.
+이 빠른 시작 가이드에서는 다음 [Flask 예제](https://github.com/Azure-Samples/CosmosDB-Flask-Mongo-Sample)를 사용하고, MongoDB 대신 [Azure Cosmos DB Emulator](/local-emulator.md) 및 Azure Cosmos DB [MongoDB API](mongodb-introduction.md)를 통해 간단한 To-Do(할 일) Flask 앱을 빌드하는 방법을 보여 줍니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -90,7 +90,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 3. 그런 다음 Mac을 사용하는 경우 Flask 앱에 대한 환경 변수를 `set FLASK_APP=app.py` 또는 `export FLASK_APP=app.py`로 설정합니다.
 
-4. `flask run`으로 앱을 실행하고 [http://127.0.0.1:5000/](http://127.0.0.1:5000/)으로 이동합니다.
+4. `flask run`을 사용하여 앱을 실행하고 [http://127.0.0.1:5000/](http://127.0.0.1:5000/)으로 이동합니다.
 
 5. 작업을 추가하거나 제거하고, 컬렉션에서 추가하거나 변경된 작업을 확인합니다.
 

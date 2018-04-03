@@ -6,6 +6,11 @@
 ## [구독 및 서비스 한도](../azure-subscription-service-limits.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
 
 # 시작
+## [경로 기반 VPN 게이트웨이 만들기 - Azure Portal](create-routebased-vpn-gateway-portal.md)
+## [경로 기반 VPN 게이트웨이 만들기 - PowerShell](create-routebased-vpn-gateway-powershell.md)
+## [경로 기반 VPN Gateway 만들기 - CLI](create-routebased-vpn-gateway-cli.md)
+
+# 개념
 ## [VPN Gateway 계획 및 설계](vpn-gateway-plan-design.md)
 ## [VPN Gateway 설정 정보](vpn-gateway-about-vpn-gateway-settings.md)
 ## [VPN 장치 정보](vpn-gateway-about-vpn-devices.md)
@@ -109,7 +114,7 @@
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=networking)
 ## [블로그](https://azure.microsoft.com/blog/topics/networking)
 ## [포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)
-## [가격 책정](https://azure.microsoft.com/pricing/details/vpn-gateway)
+## [가격](https://azure.microsoft.com/pricing/details/vpn-gateway)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [SLA](https://azure.microsoft.com/support/legal/sla)
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=vpn-gateway)

@@ -1,11 +1,11 @@
 ---
-title: "지점 및 사이트 간 및 네이티브 Azure 인증서 인증을 사용하여 Azure Virtual Network에 컴퓨터 연결: Azure Portal| Microsoft Docs"
-description: "P2S 및 자체 서명 또는 CA 발급 인증서를 사용하여 Windows 및 Mac OS X 클라이언트를 Azure 가상 네트워크에 안전하게 연결합니다. 이 문서에서는 Azure Portal을 사용합니다."
+title: '지점 및 사이트 간 및 네이티브 Azure 인증서 인증을 사용하여 Azure Virtual Network에 컴퓨터 연결: Azure Portal| Microsoft Docs'
+description: P2S 및 자체 서명 또는 CA 발급 인증서를 사용하여 Windows 및 Mac OS X 클라이언트를 Azure 가상 네트워크에 안전하게 연결합니다. 이 문서에서는 Azure Portal을 사용합니다.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: jpconnock
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: a15ad327-e236-461f-a18e-6dbedbf74943
 ms.service: vpn-gateway
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/27/2018
+ms.date: 03/19/2018
 ms.author: cherylmc
-ms.openlocfilehash: 0a45430491e1e06080ae2eca2124088402c17f54
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 4603131c31ab3792efc1df504eb95dfde2eccb17
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>네이티브 Azure 인증서 인증을 사용하여 VNet에 지점 및 사이트 간 연결 구성: Azure portal
 
@@ -78,6 +78,10 @@ ms.lasthandoff: 02/28/2018
 
 [!INCLUDE [create-gateway](../../includes/vpn-gateway-add-gw-p2s-rm-portal-include.md)]
 
+>[!NOTE]
+>기본 SKU는 IKEv2 또는 RADIUS 인증을 지원하지 않습니다.
+>
+
 ## <a name="generatecert"></a>5. 인증서 생성
 
 지점 및 사이트 간 VPN 연결을 통해 VNet에 연결되는 클라이언트를 인증하기 위해 Azure에 의해 인증서가 사용됩니다. 루트 인증서를 얻었으면 Azure에 공개 키 정보를 [업로드](#uploadfile)합니다. 그러면 루트 인증서는 P2S를 통한 가상 네트워크 연결을 위해 Azure에서 '신뢰할 수 있는' 것으로 간주됩니다. 또한 신뢰할 수 있는 루트 인증서에서 클라이언트 인증서를 생성한 후 각 클라이언트 컴퓨터에 인증서를 설치합니다. 클라이언트 인증서는 VNet에 대한 연결을 시작할 때 해당 클라이언트를 인증하는 데 사용됩니다. 
@@ -103,6 +107,10 @@ ms.lasthandoff: 02/28/2018
 3. **지점 및 사이트 간 구성** 페이지의 **주소 풀** 상자에서 사용하려는 개인 IP 주소 범위를 추가합니다. VPN 클라이언트는 동적으로 지정된 범위에서 IP 주소를 수신합니다. **저장**을 클릭하여 설정을 확인하고 저장합니다.
 
   ![클라이언트 주소 풀](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/addresspool.png)
+
+  >[!NOTE]
+  >포털의 이 페이지에 터널 종류 또는 인증 형식이 표시되지 않으면 게이트웨이에서 기본 SKU를 사용 중인 것입니다. 기본 SKU는 IKEv2 또는 RADIUS 인증을 지원하지 않습니다.
+  >
 
 ## <a name="tunneltype"></a>7. 터널 종류 구성
 

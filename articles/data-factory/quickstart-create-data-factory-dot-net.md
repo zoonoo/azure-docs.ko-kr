@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 01/22/2018
+ms.date: 03/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 7e3fd12b2157d28c5d61bfa8d5fb69a00557a1f9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: c5b7af290a5e5c45d3f64ccb50586db0811dd592
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="create-a-data-factory-and-pipeline-using-net-sdk"></a>.NET SDK를 사용하여 데이터 팩터리 및 파이프라인 만들기
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -102,12 +102,12 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
 [Azure .NET SDK](http://azure.microsoft.com/downloads/)를 컴퓨터에 다운로드하여 설치합니다.
 
 ### <a name="create-an-application-in-azure-active-directory"></a>Azure Active Directory에서 응용 프로그램 만들기
-다음 작업을 수행하기 위해 [이 문서](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application)의 지침을 따름: 
+[이 아티클](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application)의 섹션에 있는 지침을 따라 다음과 같은 작업을 수행합니다. 
 
 1. **Azure Active Directory 응용 프로그램을 만듭니다**. 이 자습서에서 만드는.NET 응용 프로그램을 나타내는 Microsoft Azure Active Directory에 응용 프로그램을 만듭니다. sign-on URL의 경우 (`https://contoso.org/exampleapp`)에 보이는 더미 URL을 제공할 수 있습니다.
-2. 문서의 **응용 프로그램 ID 및 인증 키 가져오기** 섹션에 나오는 지침을 사용하여 **응용 프로그램 ID** 및 **인증 키****를 가져옵니다. 이 자습서에서 나중에 사용할 이러한 값을 적어둡니다. 
-3. 문서의 **테넌트 ID 가져오기** 섹션에 나오는 지침을 사용하여 **테넌트 ID**를 가져옵니다. 이 값을 적어둡니다. 
-4. 응용 프로그램이 구독에 데이터 팩터리를 생성할 수 있도록 구독 수준에서 응용 프로그램을 **참여자** 역할에 할당합니다. 문서의 **응용 프로그램을 역할에 할당하기** 섹션에 나오는 지침을 따릅니다. 
+2. **응용 프로그램 ID** 및 **인증 키**를 가져오고, 이 자습서의 뒷부분에서 사용하기 위해 이러한 값을 적어둡니다. 
+3. **테넌트 ID**를 가져오고, 이 자습서의 뒷부분에서 사용하기 위해 이 값을 적어둡니다.
+4. 응용 프로그램이 구독에 데이터 팩터리를 생성할 수 있도록 구독 수준에서 응용 프로그램을 **참여자** 역할에 할당합니다.
 
 ## <a name="create-a-visual-studio-project"></a>Visual Studio 프로젝트 만들기
 

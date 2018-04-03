@@ -1,12 +1,12 @@
 ---
-title: "Azure 파일 공유를 탑재하고 Windows에서 공유에 액세스 | Microsoft Docs"
-description: "Azure 파일 공유를 탑재하고 Windows에서 공유에 액세스합니다."
+title: Azure 파일 공유를 탑재하고 Windows에서 공유에 액세스 | Microsoft Docs
+description: Azure 파일 공유를 탑재하고 Windows에서 공유에 액세스합니다.
 services: storage
 documentationcenter: na
 author: RenaShahMSFT
 manager: aungoo
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: renash
-ms.openlocfilehash: 5134fab447f1d1842369aeda4ebc1948a5d78262
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 5d6d81678d1b3c63b52b34e79979d06fdc981ad0
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="mount-an-azure-file-share-and-access-the-share-in-windows"></a>Azure 파일 공유를 탑재하고 Windows에서 공유에 액세스
 [Azure Files](storage-files-introduction.md)는 사용하기 쉬운 Microsoft 클라우드 파일 시스템입니다. Azure 파일 공유는 Windows 및 Windows Server에 탑재할 수 있습니다. 이 문서에서는 세 가지 방법, 즉 파일 탐색기 UI, PowerShell 및 명령 프롬프트를 사용하여 Windows에 Azure File 공유를 탑재합니다. 
@@ -35,8 +35,8 @@ Azure VM 또는 온-프레미스에서 실행되는 Windows 설치에서 Azure F
 | Windows 8.1            | SMB 3.0     | 예                   | 예                  |
 | Windows Server 2012 R2 | SMB 3.0     | 예                   | 예                  |
 | Windows Server 2012    | SMB 3.0     | 예                   | 예                  |
-| Windows 7              | SMB 2.1     | 예                   | 아니요                   |
-| Windows Server 2008 R2 | SMB 2.1     | 예                   | 아니요                   |
+| Windows 7              | SMB 2.1     | 예                   | 아니오                   |
+| Windows Server 2008 R2 | SMB 2.1     | 예                   | 아니오                   |
 
 <sup>1</sup>Windows Server 버전 1709  
 <sup>2</sup>Windows 10 버전 1507, 1607, 1703 및 1709
@@ -45,11 +45,36 @@ Azure VM 또는 온-프레미스에서 실행되는 Windows 설치에서 Azure F
 > 사용자의 Windows 버전에 대해 가장 최근의 KB를 선택하는 것이 좋습니다.
 
 ## <a name="aprerequisites-for-mounting-azure-file-share-with-windows"></a></a>Windows에 Azure 파일 공유를 탑재하기 위한 필수 구성 요소 
-* **저장소 계정 이름**: Azure 파일 공유를 탑재하려면 저장소 계정의 이름이 필요합니다.
+* **Storage 계정 이름**: Azure 파일 공유를 탑재하려면 Storage 계정의 이름이 필요합니다.
 
-* **저장소 계정 키**: Azure 파일 공유를 탑재하려면 기본(또는 보조) 저장소 키가 필요합니다. SAS 키는 현재 탑재를 지원하지 않습니다.
+* **Storage 계정 키**: Azure File 공유를 탑재하려면 기본(또는 보조) 저장소 키가 필요합니다. SAS 키는 현재 탑재를 지원하지 않습니다.
 
 * **445 포트가 열려 있는지 확인**: Azure Files는 SMB 프로토콜을 사용합니다. SMB는 445 TCP 포트를 통해 통신합니다. 클라이언트 컴퓨터에서 방화벽이 445 TCP 포트를 차단하고 있지 않은지 확인합니다.
+
+## <a name="persisting-connections-across-reboots"></a>다시 부팅 시 연결 유지
+### <a name="cmdkey"></a>CmdKey
+영구 연결을 설정하는 가장 쉬운 방법은 “CmdKey” 명령줄 유틸리티를 사용하여 창에 저장소 계정 자격 증명을 저장하는 것입니다. 다음은 VM으로 저장소 계정 자격 증명을 유지하는 예제 명령줄입니다.
+```
+C:\>cmdkey /add:<yourstorageaccountname>.file.core.windows.net /user:<domainname>\<yourstorageaccountname> /pass:<YourStorageAccountKeyWhichEndsIn==>
+```
+> [!Note]
+> Domainname은 여기에서 “AZURE”가 됩니다.
+
+또한 CmdKey에서 저장한 자격 증명을 나열할 수 있습니다.
+
+```
+C:\>cmdkey /list
+```
+다음과 같은 결과가 표시됩니다.
+
+```
+Currently stored credentials:
+
+Target: Domain:target=<yourstorageaccountname>.file.core.windows.net
+Type: Domain Password
+User: AZURE\<yourstorageaccountname>
+```
+자격 증명이 지속되면 더 이상 공유에 연결할 때 자격 증명을 제공할 필요가 없습니다. 대신 모든 자격 증명을 지정하지 않고 연결할 수 있습니다.
 
 ## <a name="mount-the-azure-file-share-with-file-explorer"></a>파일 탐색기를 통해 Azure 파일 공유 탑재
 > [!Note]  
@@ -69,7 +94,7 @@ Azure VM 또는 온-프레미스에서 실행되는 Windows 설치에서 Azure F
     
     !["네트워크 드라이브 연결" 대화 상자의 스크린샷](./media/storage-how-to-use-files-windows/2_MountOnWindows10.png)
 
-5. **사용자 이름으로 `Azure\`가 앞에 붙은 저장소 계정 이름을 사용하고, 암호로 저장소 계정 키를 사용합니다.**
+5. **사용자 이름으로 `Azure\`가 앞에 붙은 Storage 계정 이름을 사용하고, 암호로 Storage 계정 키를 사용합니다.**
     
     ![네트워크 자격 증명 대화 상자의 스크린샷](./media/storage-how-to-use-files-windows/3_MountOnWindows10.png)
 
@@ -131,8 +156,8 @@ Azure Files에 대한 자세한 내용은 다음 링크를 참조합니다.
 * [Linux에서 Azure Files 사용 방법](../storage-how-to-use-files-linux.md)
 
 ### <a name="tooling-support-for-azure-files"></a>Azure Files의 도구 지원
-* [Microsoft Azure 저장소와 함께 AzCopy를 사용하는 방법](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
-* [Azure 저장소에서 Azure CLI 사용](../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#create-and-manage-file-shares)
+* [Microsoft Azure Storage와 함께 AzCopy를 사용하는 방법](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
+* [Azure Storage에서 Azure CLI 사용](../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#create-and-manage-file-shares)
 * [Azure Files 문제 해결 - Windows](storage-troubleshoot-windows-file-connection-problems.md)
 * [Azure Files 문제 해결 - Linux](storage-troubleshoot-linux-file-connection-problems.md)
 
@@ -142,6 +167,6 @@ Azure Files에 대한 자세한 내용은 다음 링크를 참조합니다.
 * [Microsoft Azure 파일 서비스 소개](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 * [Azure 파일로 데이터 마이그레이션(영문)](https://azure.microsoft.com/blog/migrating-data-to-microsoft-azure-files/)
 
-### <a name="reference"></a>참조
+### <a name="reference"></a>참고 자료
 * [Storage Client Library for .NET 참조](https://msdn.microsoft.com/library/azure/dn261237.aspx)
 * [파일 서비스 REST API 참조](http://msdn.microsoft.com/library/azure/dn167006.aspx)

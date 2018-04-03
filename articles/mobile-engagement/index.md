@@ -1,24 +1,28 @@
 ---
-title: "Azure Mobile Engagement 설명서 - 자습서, API 참조 | Microsoft Docs"
-description: "모바일 앱 사용량과 실시간 사용자 구분에 대한 정보를 가져오는 방법 및 컨텍스트 인식 푸시 알림과 앱 내 메시징을 사용하도록 설정하는 방법에 대해 알아봅니다."
+title: Azure Mobile Engagement 설명서 - 자습서, API 참조 | Microsoft Docs
+description: 모바일 앱 사용량과 실시간 사용자 구분에 대한 정보를 가져오는 방법 및 컨텍스트 인식 푸시 알림과 앱 내 메시징을 사용하도록 설정하는 방법에 대해 알아봅니다.
 services: mobile-engagement
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: mobile-engagement
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 5f682ba16b52b9a084505b8212c4b6f043bb94c9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 874b40e0e1407be9f546c5a5f57cee2d1034a840
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="mobile-engagement-documentation"></a>Mobile Engagement 설명서
+
+> [!IMPORTANT]
+> Azure Mobile Engagement는 2018/3/31에 사용이 중지됩니다. 이 페이지는 이후에 삭제됩니다.
+> 
 
 Mobile Engagement를 사용하여 모바일 앱의 사용량, 보존 및 경제적 가치 창출을 증가시키는 방법에 대해 알아봅니다. 자습서, SDK 및 기타 설명서에서는 앱 사용량과 실시간 사용자 구분에 대한 정보를 가져오는 방법 및 컨텍스트 인식 푸시 알림과 앱 내 메시징을 사용하도록 설정하는 방법을 보여 줍니다.
 
@@ -189,7 +193,7 @@ Mobile Engagement를 사용하여 모바일 앱의 사용량, 보존 및 경제�
 
 ---
 
-<h2>참조</h2>
+<h2>참고 자료</h2>
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">
