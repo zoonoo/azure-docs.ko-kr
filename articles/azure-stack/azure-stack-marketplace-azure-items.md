@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/26/2018
+ms.date: 04/02/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: cdce5ad971e345971aa5de9a9bb79379fb1ead48
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: b91cfdfe89f1f15354595400ed9547496fdcd796
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure 스택 사용할 수 있는 azure 마켓플레이스 항목
 
@@ -220,4 +220,5 @@ Microsoft Azure 스택 솔루션 템플릿과 다음 Azure 마켓플레이스 �
 | ![PT 응용 프로그램 방화벽](media/azure-stack-marketplace-azure-items/pt.png) | [PT 응용 프로그램 방화벽](https://azuremarketplace.microsoft.com/marketplace/apps/ptsecurity.ptaf) | PT 응용 프로그램 방화벽 알려진 & 알 수 없는 보안 문제를 감지 하 고 웹 응용 프로그램에 대 한 공격을 방지 합니다. <b>두 PT 마켓플레이스 항목을 다운로드 합니다.</b> | 양수 기술 |
 | ![Puppet Enterprise](media/azure-stack-marketplace-azure-items/puppet.png) | [Puppet Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2017-2) | Puppet Enterprise를 사용 하면 Azure 스택 인프라의 전체 수명 주기를 자동화할 수 있습니다. <b>Puppet 마켓플레이스 항목을 모두 다운로드 합니다.</b> | Puppet |
 | ![SUSE Manager 3.0 프록시 (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SUSE Manager 3.0 프록시 (BYOS) ](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SUSEManager30ProxyBringYourOwnSubscription) | 클래스의 가장 오픈 소스 인프라 관리 합니다. | SUSE |
+| ![Veeam 백업 및 복제](media/azure-stack-marketplace-azure-items/veeam.png) | [Veeam 백업 및 복제 ](https://azuremarketplace.microsoft.com/marketplace/apps/veeam.veeam-backup-replication) | Veeam backup& 9.5 복제 합니다. | Veeam |
 | ![ZeroDown 소프트웨어 도구](media/azure-stack-marketplace-azure-items/zerodown.png) | [ZeroDown 소프트웨어 도구 ](https://azuremarketplace.microsoft.com/marketplace/apps/zerodown_software.zerodown-software-tool-7_1) | ZeroDown 소프트웨어 도구 v7.1-마이그레이션할 + HA 합니다. | ZeroDown 소프트웨어 |

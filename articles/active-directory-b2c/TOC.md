@@ -33,7 +33,7 @@
 ### [ASP.NET API 보호](active-directory-b2c-tutorials-web-api.md)
 ### [ASP.NET](active-directory-b2c-devquickstarts-api-dotnet.md)
 ### [ASP.NET Core](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapi)
-### [Node.js](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi)
+### [Node.js](active-directory-b2c-devquickstarts-api-node.md)
 ### [.NET Web API 호출](active-directory-b2c-devquickstarts-web-api-dotnet.md)
 
 # 가이드
@@ -67,6 +67,7 @@
 ## [사용자 지정 정책](active-directory-b2c-overview-custom.md)
 ## 가이드
 ### [시작](active-directory-b2c-get-started-custom.md)
+### [스타터 팩](active-directory-b2c-reference-custom-policies-understanding-contents.md)
 ### OIDC/OAUTH 공급자 구성
 #### [Azure AD](active-directory-b2c-setup-aad-custom.md)
 #### [Microsoft 계정](active-directory-b2c-custom-setup-msa-idp.md)
@@ -120,7 +121,7 @@
 ## [Azure AD B2C 피드백 포럼](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c)
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [질문과 대답](active-directory-b2c-faqs.md)
-## [가격 책정](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
+## [가격](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=active-directory-b2c)
 ## [스택 오버플로](https://stackoverflow.com/questions/tagged/azure-ad-b2c)

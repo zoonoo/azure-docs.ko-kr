@@ -1,6 +1,6 @@
 ---
-title: "Azure의 Kubernetes 자습서 - 응용 프로그램 업데이트"
-description: "AKS 자습서 - 응용 프로그램 업데이트"
+title: Azure의 Kubernetes 자습서 - 응용 프로그램 업데이트
+description: AKS 자습서 - 응용 프로그램 업데이트
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 82a6b6580fbe69b11fdb8a47e2ca09c19b341bbc
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 97a7e0b8e33042739ccea9a086642d9019c15e5b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="update-an-application-in-azure-container-service-aks"></a>Azure Container Service(AKS)에서 응용 프로그램 업데이트
+# <a name="tutorial-update-an-application-in-azure-container-service-aks"></a>자습서: Azure Container Service(AKS)에서 응용 프로그램 업데이트
 
 Kubernetes에서 응용 프로그램을 배포한 후 새 컨테이너 이미지 또는 이미지 버전을 지정하여 해당 응용 프로그램을 업데이트할 수 있습니다. 응용 프로그램을 업데이트할 때는 배포의 일부분만 동시에 업데이트되도록 업데이트가 스테이징됩니다. 이처럼 스테이징 업데이트가 수행되므로 업데이트 중에도 응용 프로그램을 계속 실행할 수 있습니다. 또한 배포 오류가 발생하는 경우에는 롤백 메커니즘도 제공됩니다. 
 
@@ -27,7 +27,7 @@ Kubernetes에서 응용 프로그램을 배포한 후 새 컨테이너 이미지
 > * Azure Container Registry에 컨테이너 이미지 밀어넣기
 > * 업데이트된 컨테이너 이미지 배포
 
-후속 자습서에서는 Kubernetes 클러스터를 모니터링하도록 Operations Management Suite를 구성합니다.
+후속 자습서에서는 Kubernetes 클러스터를 모니터링하도록 Log Analytics를 구성합니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -89,7 +89,7 @@ az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginSe
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v2
 ```
 
-[docker push][docker-push]를 사용하여 레지스트리에 이미지를 업로드합니다. `<acrLoginServer>`는 실제 Azure Container Registry 로그인 서버 이름으로 바꿉니다.
+[docker push][docker-push]를 사용하여 레지스트리에 이미지를 업로드합니다. `<acrLoginServer>`는 실제 Azure Container Registry 로그인 서버 이름으로 바꿉니다. ACR 레지스트리로 푸시하는 데 문제가 있는 경우 [az acr login][az-acr-login] 명령을 실행했는지 확인합니다.
 
 ```console
 docker push <acrLoginServer>/azure-vote-front:v2
@@ -164,7 +164,7 @@ IP 주소로 이동하여 업데이트된 응용 프로그램을 확인합니다
 > * Azure Container Registry에 컨테이너 이미지 밀어넣기
 > * 업데이트된 응용 프로그램 배포
 
-다음 자습서로 이동하여 Operations Management Suite로 Kubernetes를 모니터링하는 방법에 대해 알아봅니다.
+다음 자습서로 이동하여 Log Analytics로 Kubernetes를 모니터링하는 방법에 대해 알아봅니다.
 
 > [!div class="nextstepaction"]
 > [Log Analytics를 사용하여 Kubernetes 모니터링][aks-tutorial-monitor]
@@ -179,3 +179,4 @@ IP 주소로 이동하여 업데이트된 응용 프로그램을 확인합니다
 <!-- LINKS - internal -->
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
 [aks-tutorial-monitor]: ./tutorial-kubernetes-monitor.md
+[az-acr-login]: https://docs.microsoft.com/cli/azure/acr#az_acr_login

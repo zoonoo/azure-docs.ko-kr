@@ -1,6 +1,6 @@
 ---
-title: "Azure 구독에서 중요한 작업에 대한 알림 감사 및 수신 | Microsoft Docs"
-description: "활동 로그에서 리소스 관리, 서비스 상태 및 기타 구독 활동 기록을 파악한 다음 활동 로그 경고를 사용하여 구독에 대해 높은 권한의 작업이 수행될 때 전자 메일 알림을 받습니다."
+title: Azure 구독에서 중요한 작업에 대한 알림 감사 및 수신 | Microsoft Docs
+description: 활동 로그에서 리소스 관리, 서비스 상태 및 기타 구독 활동 기록을 파악한 다음 활동 로그 경고를 사용하여 구독에 대해 높은 권한의 작업이 수행될 때 전자 메일 알림을 받습니다.
 author: johnkemnetz
 manager: orenr
 services: monitoring-and-diagnostics
@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
-ms.openlocfilehash: b0a79f46788dc7efb588110dc50805c45c373a49
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: dd04cd9c8074d49df168b32840d12901da83c834
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="audit-and-receive-notifications-about-important-actions-in-your-azure-subscription"></a>Azure 구독에서 중요한 작업에 대한 알림 감사 및 수신
 
@@ -28,7 +28,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="create-a-network-security-group"></a>네트워크 보안 그룹 만들기
 
-1. Azure Portal의 왼쪽 위 모서리에 있는 **리소스 만들기** 단추를 클릭합니다.
+1. Azure Portal의 왼쪽 위에 있는 **리소스 만들기** 단추를 클릭합니다.
 
 2. **네트워킹**을 선택하고 **네트워크 보안 그룹**을 선택합니다.
 
@@ -74,7 +74,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 5. **다음을 통해 경고** 아래에서 **새** 작업 그룹을 선택하고 작업 그룹에 대한 **이름** 및 **짧은 이름**을 제공합니다. 작업 그룹은 경고가 활성화될 때 수행된 작업 집합을 정의합니다(기준이 새 이벤트와 일치하는 경우).
 
-6. **작업** 아래에서 작업에 대한 **이름**, **작업 유형**(예: 전자 메일 또는 SMS), 특정 작업 유형에 대한 **세부 정보**(예: webhook URL, 이메일 주소 또는 SMS 번호)를 제공하여 하나 이상의 작업을 추가합니다.
+6. **작업** 아래에서 작업의 **이름**, **작업 유형**(예: 이메일, SMS 또는 웹후크), 특정 작업 유형에 대한 **세부 정보**(예: webhook URL, 이메일 주소 또는 SMS 번호)를 제공하여 하나 이상의 작업을 추가합니다.
 
     ![포털에서 네트워크 보안 그룹 만들기](./media/monitor-quick-audit-notify-action-in-subscription/activity-log-alert-actions.png)
 
@@ -83,7 +83,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 ## <a name="test-the-activity-log-alert"></a>활동 로그 경고 테스트
 
 > [!NOTE]
-> 활동 로그 경고를 완전히 사용하도록 설정하는 데 약 10분이 소요됩니다. 활동 로그 경고를 완전히 사용하도록 설정하기 전에 발생하는 새 이벤트에 대해서는 알림이 보장되지 않습니다.
+> 활동 로그 경고를 완전히 사용하도록 설정하는 데 약 5분이 소요됩니다. 활동 로그 경고를 완전히 사용하도록 설정하기 전에 발생하는 새 이벤트에 대해서는 알림이 보장되지 않습니다.
 >
 >
 

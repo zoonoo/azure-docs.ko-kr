@@ -1,11 +1,11 @@
 ---
-title: "Azure Portal을 사용하여 Data Factory 파이프라인 만들기 | Microsoft Docs"
-description: "이 자습서에서는 Azure Portal을 사용하여 파이프라인이 있는 데이터 팩터리를 만드는 방법에 대한 단계별 지침을 제공합니다. 파이프라인은 복사 활동을 사용하여 Azure Blob 저장소에서 SQL 데이터베이스로 데이터를 복사합니다."
+title: Azure Portal을 사용하여 Data Factory 파이프라인 만들기 | Microsoft Docs
+description: 이 자습서에서는 Azure Portal을 사용하여 파이프라인이 있는 데이터 팩터리를 만드는 방법에 대한 단계별 지침을 제공합니다. 파이프라인은 복사 활동을 사용하여 Azure Blob 저장소에서 SQL 데이터베이스로 데이터를 복사합니다.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 116832175a4b7e4497c9005be7841cb56c1d235b
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 34c78a114c1d106c400a94941aa113153383e206
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Blob 저장소에서 SQL 데이터베이스로 데이터 복사
 이 자습서에서는 Azure Data Factory UI(사용자 인터페이스)를 사용하여 데이터 팩터리를 만듭니다. 데이터 팩터리의 파이프라인은 Azure Blob 저장소에서 SQL 데이터베이스로 데이터를 복사합니다. 이 자습서의 구성 패턴은 파일 기반 데이터 저장소에서 관계형 데이터 저장소로 복사하는 데 적용됩니다. 원본 및 싱크로 지원되는 데이터 저장소의 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 표를 참조하세요.
@@ -30,7 +30,7 @@ ms.lasthandoff: 02/09/2018
 이 자습서에서는 다음 단계를 수행합니다.
 
 > [!div class="checklist"]
-> * 데이터 팩터리 만들기
+> * 데이터 팩터리를 만듭니다.
 > * 복사 활동이 있는 파이프라인 만들기
 > * 파이프라인 실행 테스트
 > * 수동으로 파이프라인 트리거
@@ -115,7 +115,7 @@ ms.lasthandoff: 02/09/2018
     ![데이터 팩터리 홈페이지](./media/tutorial-copy-data-portal/data-factory-home-page.png)
 12. **작성 및 모니터링**을 선택하여 별도의 탭에서 Data Factory UI를 선택합니다.
 
-## <a name="create-a-pipeline"></a>파이프라인 만들기
+## <a name="create-a-pipeline"></a>파이프라인을 만듭니다.
 이 단계에서는 복사 활동이 있는 파이프라인을 데이터 팩터리에 만듭니다. 복사 활동은 Blob 저장소에서 SQL Database로 데이터를 복사합니다. [빠른 시작 자습서](quickstart-create-data-factory-portal.md)에서 다음 단계에 따라 파이프라인을 만들었습니다.
 
 1. 연결된 서비스를 만듭니다. 
@@ -303,7 +303,7 @@ ms.lasthandoff: 02/09/2018
     ![알림 표시](./media/tutorial-copy-data-portal/show-notifications.png)
 
 ## <a name="configure-code-repository"></a>코드 리포지토리 구성
-데이터 팩터리 아티팩트와 연결된 코드를 Visual Studio Team Services 코드 리포지토리에 게시할 수 있습니다. 이 단계에서는 코드 리포지토리를 만듭니다. 
+데이터 팩터리 아티팩트와 연결된 코드를 Visual Studio Team Services 코드 리포지토리에 게시할 수 있습니다. 이 단계에서는 코드 리포지토리를 만듭니다.  VSTS 통합을 사용한 시각적 작성에 대한 자세한 내용은 [VSTS Git 통합을 통한 작성](author-visually.md#author-with-vsts-git-integration)을 참조하세요.
 
 Visual Studio Team Services 코드 리포지토리를 사용하지 않으려면 이 단계를 건너뛸 수 있습니다. 이전 단계에서 수행한 대로 데이터 팩터리에 계속 게시할 수 있습니다. 
 
@@ -431,7 +431,7 @@ Visual Studio Team Services 코드 리포지토리를 사용하지 않으려면 
 이 샘플의 파이프라인이 Blob 저장소의 위치 간에 데이터를 복사합니다. 다음 방법에 대해 알아보았습니다. 
 
 > [!div class="checklist"]
-> * 데이터 팩터리 만들기
+> * 데이터 팩터리를 만듭니다.
 > * 복사 활동이 있는 파이프라인 만들기
 > * 파이프라인 실행 테스트
 > * 수동으로 파이프라인 트리거

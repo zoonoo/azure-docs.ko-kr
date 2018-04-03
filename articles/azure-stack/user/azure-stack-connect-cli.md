@@ -1,11 +1,11 @@
 ---
-title: "Azure CLI 스택을에 연결 | Microsoft Docs"
-description: "크로스 플랫폼 명령줄 인터페이스 (CLI)를 사용 하 여 관리 하 고 스택에서 Azure 리소스를 배포 하는 방법을 알아봅니다"
+title: Azure CLI 스택을에 연결 | Microsoft Docs
+description: 크로스 플랫폼 명령줄 인터페이스 (CLI)를 사용 하 여 관리 하 고 스택에서 Azure 리소스를 배포 하는 방법을 알아봅니다
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: f576079c-5384-4c23-b5a4-9ae165d1e3c3
 ms.service: azure-stack
 ms.workload: na
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/26/2018
 ms.author: mabrigg
 ms.openlocfilehash: ad258cf6c73b2c1ea5f208ebef9906a0e3d35ea4
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/02/2018
 ---
 # <a name="install-and-configure-cli-for-use-with-azure-stack"></a>설치 하 고 Azure 스택과 함께 사용 하기 위해 CLI를 구성
 
@@ -89,7 +89,7 @@ Write-Host "Python Cert store was updated for allowing the azure stack CA root c
 
 ## <a name="get-the-virtual-machine-aliases-endpoint"></a>가상 컴퓨터 별칭 끝점 가져오기
 
-사용자는 CLI를 사용 하 여 가상 컴퓨터를 만들 수 있습니다, 전에 Azure 스택 운영자에 게 문의 하 고 가상 컴퓨터 별칭 끝점 URI를 가져올 해야 이러한 합니다. Azure는 다음 URI를 사용 하는 예를 들어: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json 합니다. 클라우드 관리자 Azure 스택 시장에서 사용할 수 있는 이미지와 Azure 스택에 대 한 유사한 끝점을 설정 해야 합니다. 사용자가 끝점 URI를 통과 해야 하는 `endpoint-vm-image-alias-doc` 매개 변수를는 `az cloud register` 다음 섹션에 나와 있는 것 처럼 명령입니다. 
+사용자는 CLI를 사용 하 여 가상 컴퓨터를 만들 수 있습니다, 전에 Azure 스택 운영자에 게 문의 하 고 가상 컴퓨터 별칭 끝점 URI를 가져올 해야 이러한 합니다. Azure는 다음 URI를 사용 하는 예를 들어: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json합니다. 클라우드 관리자 Azure 스택 시장에서 사용할 수 있는 이미지와 Azure 스택에 대 한 유사한 끝점을 설정 해야 합니다. 사용자가 끝점 URI를 통과 해야 하는 `endpoint-vm-image-alias-doc` 매개 변수를는 `az cloud register` 다음 섹션에 나와 있는 것 처럼 명령입니다. 
    
 
 ## <a name="connect-to-azure-stack"></a>Azure Stack에 연결

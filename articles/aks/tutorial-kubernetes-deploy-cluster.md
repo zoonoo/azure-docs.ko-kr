@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 6ea26a2d4214c41faa5d63b7c72667955a43d6a2
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1f31af4fcc7ef70889ad8bc021bea0796721e5f5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="deploy-an-azure-container-service-aks-cluster"></a>AKS(Azure Container Service) 클러스터 배포
+# <a name="tutorial-deploy-an-azure-container-service-aks-cluster"></a>자습서: AKS(Azure Container Service) 클러스터 배포
 
 Kubernetes는 컨테이너화된 응용 프로그램용 분산 플랫폼을 제공합니다. AKS를 통해 프로덕션이 준비된 Kubernetes 클러스터를 간단하고 빠르게 프로비저닝할 수 있습니다. 총 8부 중 3부인 이 자습서에서는 Kubernetes 클러스터가 AKS에 배포됩니다. 완료되는 단계는 다음과 같습니다.
 
@@ -24,7 +24,7 @@ Kubernetes는 컨테이너화된 응용 프로그램용 분산 플랫폼을 제�
 > * Kubernetes CLI(kubectl) 설치
 > * kubectl 구성
 
-후속 자습서에서는 Azure 투표 응용 프로그램을 클러스터에 배포하고 확장/업데이트하며, Kubernetes 클러스터를 모니터링하도록 Operations Management Suite를 구성합니다.
+후속 자습서에서는 Azure 투표 응용 프로그램을 클러스터에 배포하고 확장/업데이트하며, Kubernetes 클러스터를 모니터링하도록 Log Analytics를 구성합니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 

@@ -1,9 +1,9 @@
 ---
-title: "HDInsight의 Apache Storm에서 Storm-starter예제 - Azure | Microsoft Docs"
-description: "HDInsight에서 Apache Storm 및 storm-starter 예제를 사용하여 빅 데이터 분석 및 데이터 처리를 수행하는 방법을 알아봅니다."
-keywords: "storm-starter, apache storm 예제"
+title: HDInsight의 Apache Storm에서 Storm-starter예제 - Azure | Microsoft Docs
+description: HDInsight에서 Apache Storm 및 storm-starter 예제를 사용하여 빅 데이터 분석 및 데이터 처리를 수행하는 방법을 알아봅니다.
+keywords: storm-starter, apache storm 예제
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -16,13 +16,13 @@ ms.workload: big-data
 ms.date: 02/27/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 6abdb15917508152529990c434eb48a9983b9432
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 0490ba63e651b0ef16175dca46b85a3e48bfd26f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
-#<a name="get-started-with-apache-storm-on-hdinsight-using-the-storm-starter-examples"></a>storm-starter 예제를 사용하여 HDInsight의 Apache Storm 시작
+# <a name="get-started-with-apache-storm-on-hdinsight-using-the-storm-starter-examples"></a>storm-starter 예제를 사용하여 HDInsight의 Apache Storm 시작
 
 storm-starter 예제를 사용하여 HDInsight의 Apache Storm을 시작하는 방법을 알아봅니다.
 
@@ -108,7 +108,7 @@ Apache Storm은 데이터 스트림 처리용 확장 가능한 분산형 실시�
     >
     > WordCount 예제 및 다른 storm-starter 예제는 `/usr/hdp/current/storm-client/contrib/storm-starter/`에서 클러스터에 이미 포함되어 있습니다.
 
-storm-starter 예제의 소스를 보려면 [https://github.com/apache/storm/tree/1.1.x-branch/examples/storm-starter](https://github.com/apache/storm/tree/1.1.x-branch/examples/storm-starter)에서 코드를 찾을 수 있습니다. 이 링크는 Storm 1.1.x에 해당하며 HDInsight 3.6과 함께 제공됩니다. Storm의 다른 버전의 경우 페이지 맨 위에 있는 __분기__ 단추를 사용하여 다른 Storm 버전을 선택합니다.
+storm-starter 예제의 소스를 보려면 [https://github.com/apache/storm/tree/1.1.x-branch/examples/storm-starter](https://github.com/apache/storm/tree/1.1.x-branch/examples/storm-starter)에서 코드를 찾아보세요. 이 링크는 Storm 1.1.x에 해당하며 HDInsight 3.6과 함께 제공됩니다. Storm의 다른 버전의 경우 페이지 맨 위에 있는 __분기__ 단추를 사용하여 다른 Storm 버전을 선택합니다.
 
 ## <a name="monitor-the-topology"></a>토폴로지 모니터링
 

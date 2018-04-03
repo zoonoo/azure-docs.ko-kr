@@ -1,6 +1,6 @@
 ---
-title: "Azure 빠른 시작 - Go를 사용하여 Azure Storage에 BLOB 업로드, 다운로드 및 나열 | Microsoft Docs"
-description: "이 빠른 시작에서는 저장소 계정과 컨테이너를 만듭니다. 그런 다음, Go용 저장소 클라이언트 라이브러리를 사용하여 Azure Storage에 BLOB을 업로드하고, BLOB을 다운로드하고, 컨테이너의 BLOB을 나열합니다."
+title: Azure 빠른 시작 - Go를 사용하여 Azure Storage에 BLOB 업로드, 다운로드 및 나열 | Microsoft Docs
+description: 이 빠른 시작에서는 저장소 계정과 컨테이너를 만듭니다. 그런 다음, Go용 저장소 클라이언트 라이브러리를 사용하여 Azure Storage에 BLOB을 업로드하고, BLOB을 다운로드하고, 컨테이너의 BLOB을 나열합니다.
 services: storage
 author: seguler
 manager: jeconnoc
@@ -9,11 +9,11 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 02/22/2018
 ms.author: seguler
-ms.openlocfilehash: a30d012ea663b04028a4b0ebb2880532a596500b
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 5572eaafa49200be0b2a8156dbc96bffd48be925
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-go"></a>빠른 시작: Go를 사용하여 BLOB 업로드, 다운로드 및 나열
 
@@ -211,6 +211,13 @@ containerURL.Delete(ctx, azblob.ContainerAccessConditions{})
 file.Close()
 os.Remove(fileName)
 ```
+
+## <a name="resources-for-developing-go-applications-with-blobs"></a>BLOB을 사용하여 Go 응용 프로그램을 개발하기 위한 리소스
+
+BLOB 저장소를 사용하여 Go 응용 프로그램을 개발하기 위한 추가 리소스는 다음과 같습니다.
+
+- GitHub에서 Azure Storage용 [Go 클라이언트 라이브러리 소스 코드](https://github.com/Azure/azure-storage-blob-go)를 검색 및 설치하세요.
+- Go 클라이언트 라이브러리를 사용하여 작성된 [BLOB 저장소 샘플](https://godoc.org/github.com/Azure/azure-storage-blob-go/2016-05-31/azblob#pkg-examples)을 탐색하세요.
 
 ## <a name="next-steps"></a>다음 단계
  

@@ -1,11 +1,11 @@
 ---
-title: "Blob에 대한 Azure 핫, 쿨 및 보관 저장소 | Microsoft Docs"
-description: "Azure Storage 계정에 대한 핫, 쿨 및 보관 저장소입니다."
+title: Blob에 대한 Azure 핫, 쿨 및 보관 저장소 | Microsoft Docs
+description: Azure Storage 계정에 대한 핫, 쿨 및 보관 저장소입니다.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: kuhussai
 manager: jwillis
-editor: 
+editor: ''
 ms.assetid: eb33ed4f-1b17-4fd6-82e2-8d5372800eef
 ms.service: storage
 ms.workload: storage
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/11/2017
 ms.author: kuhussai
-ms.openlocfilehash: 2adb301f1d047c7762a35880da6e6094a5afbd75
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: c62f3a92e6199f6467556054c9f58c20b6ceba2c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-storage-tiers"></a>Azure Blob Storage: 핫, 쿨 및 보관 저장소 계층
 
@@ -79,7 +79,7 @@ Blob 수준 계층화를 사용하면 [Blob 계층 설정](/rest/api/storageserv
 
 ### <a name="blob-level-tiering-billing"></a>Blob 수준 계층화 청구
 
-Blob이 쿨 계층으로 이동하면(핫->쿨, 핫->보관, 또는 쿨->보관) 작업은 대상 계층에 대한 쓰기로 청구되며 대상 계층의 쓰기 작업(10,000개당) 및 데이터 쓰기(GB당) 요금이 적용됩니다. Blob이 핫 계층으로 이동하면(보관->쿨, 보관->핫, 또는 쿨->핫) 작업은 원본 계층에서 읽기로 청구되며 원본 계층의 읽기 작업(10,000개당) 및 데이터 검색(GB당) 비용이 적용됩니다.
+BLOB이 쿨 계층으로 이동하면(핫->쿨, 핫->아카이브, 또는 쿨->아카이브) 작업은 대상 계층 쓰기로 청구되며 대상 계층의 쓰기 작업(10,000개당) 및 데이터 쓰기(GB당) 요금이 적용됩니다. BLOB이 핫 계층으로 이동하면(아카이브->쿨, 아카이브->핫, 또는 쿨->핫) 작업은 원본 계층에서 읽기로 청구되며 원본 계층의 읽기 작업(10,000개당) 및 데이터 검색(GB당) 비용이 적용됩니다.
 
 계정 계층이 핫에서 쿨로 전환되면 GPv2 계정에서만 집합 계층 없이 모든 Blob의 경우 쓰기 작업(10,000개당)에 대한 요금이 청구됩니다. Blob Storage 계정에서는 무료입니다. 쿨에서 핫으로 Blob Storage 또는 GPv2 계정을 전환하는 경우 읽기 작업(10,000개당) 및 데이터 검색(GB당) 모두에 대한 요금이 청구 됩니다. 쿨 또는 보관 계층에서 이동한 모든 Blob에 대한 초기 삭제 요금도 적용해야 합니다.
 

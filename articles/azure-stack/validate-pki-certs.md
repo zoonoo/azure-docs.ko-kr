@@ -16,10 +16,10 @@ ms.date: 03/22/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.openlocfilehash: b38e3cc45d14645611c0cd804f2bfa66047810f0
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/02/2018
 ---
 # <a name="validate-azure-stack-pki-certificates"></a>Azure 스택 PKI 인증서의 유효성을 검사합니다
 이 문서에서 설명 하는 Azure 스택 인증서 검사기 도구를 확인 하기 위해 deploymentdata.json 파일에 포함 된 OEM에서 제공는 [PKI 인증서를 생성](azure-stack-get-pki-certs.md) 전 배포에 적합 합니다. 인증서는 충분 한 시간을 테스트 하 고 필요한 경우 발급 된 인증서를 가져오도록 유효성을 검사 해야 합니다. 

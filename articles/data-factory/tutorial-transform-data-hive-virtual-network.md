@@ -1,11 +1,11 @@
 ---
-title: "Azure Virtual Network에서 Hive를 사용하여 데이터 변환 | Microsoft Docs"
-description: "이 자습서에서는 Azure Data Factory에서 Hive 작업을 사용하여 데이터를 변환하는 단계별 지침을 제공합니다."
+title: Azure Virtual Network에서 Hive를 사용하여 데이터 변환 | Microsoft Docs
+description: 이 자습서에서는 Azure Data Factory에서 Hive 작업을 사용하여 데이터를 변환하는 단계별 지침을 제공합니다.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: shengcmsft
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: shengc
-ms.openlocfilehash: 04323e5f6b729cdadf5ede748a1178dfa9460cd2
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: fda9cab53290d7af69e243ce47df702b25d1de67
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>Azure Data Factory에서 Hive 작업을 사용하여 Azure Virtual Network에서 데이터 변환
 이 자습서에서는 Azure PowerShell을 사용하여 Azure VNet(Virtual Network)에 있는 HDInsight 클러스터에서 Hive 작업을 통해 데이터를 변환하는 Data Factory 파이프라인을 만듭니다. 이 자습서에서 수행하는 단계는 다음과 같습니다.
 
 > [!div class="checklist"]
-> * 데이터 팩터리 만들기 
+> * 데이터 팩터리를 만듭니다. 
 > * 자체 호스팅 통합 런타임을 작성하고 설정합니다.
 > * 연결된 서비스를 작성하고 배포합니다.
 > * Hive 작업이 포함된 파이프라인을 작성하고 배포합니다.
@@ -223,7 +223,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 - **userName** - 클러스터를 만들 때 지정한 클러스터 로그인 사용자의 이름입니다. 
 - **password** - 이 사용자에 대한 암호입니다.
-- **clusterUri** - HDInsight 클러스터의 URL을 https://<clustername>.azurehdinsight.net. 형식으로 지정합니다.  이 문서에서는 인터넷을 통해 클러스터에 액세스할 수 있다고 가정합니다. 예를 들어 `https://clustername.azurehdinsight.net`에 있는 클러스터에 연결할 수 있습니다. 이 주소는 NSG(네트워크 보안 그룹) 또는 UDR(사용자 정의 경로)을 사용하여 인터넷 액세스를 제한한 경우 사용할 수 없는 공용 게이트웨이를 사용합니다. Data Factory에서 Azure Virtual Network의 HDInsight 클러스터에 작업을 제출하려면, URL을 HDInsight에서 사용하는 게이트웨이의 사설 IP 주소로 확인할 수 있도록 Azure Virtual Network를 구성해야 합니다.
+- **clusterUri** - HDInsight 클러스터의 URL을 https://<clustername>.azurehdinsight.net 형식으로 지정합니다.  이 문서에서는 인터넷을 통해 클러스터에 액세스할 수 있다고 가정합니다. 예를 들어 `https://clustername.azurehdinsight.net`에 있는 클러스터에 연결할 수 있습니다. 이 주소는 NSG(네트워크 보안 그룹) 또는 UDR(사용자 정의 경로)을 사용하여 인터넷 액세스를 제한한 경우 사용할 수 없는 공용 게이트웨이를 사용합니다. Data Factory에서 Azure Virtual Network의 HDInsight 클러스터에 작업을 제출하려면, URL을 HDInsight에서 사용하는 게이트웨이의 사설 IP 주소로 확인할 수 있도록 Azure Virtual Network를 구성해야 합니다.
 
   1. Azure Portal에서 HDInsight가 있는 Virtual Network를 엽니다. 이름이 `nic-gateway-0`으로 시작하는 네트워크 인터페이스를 엽니다. 사설 IP 주소를 적어 둡니다. 예를 들어 10.6.0.15입니다. 
   2. Azure Virtual Network에 DNS 서버가 있는 경우 `https://<clustername>.azurehdinsight.net` HDInsight 클러스터 URL을 `10.6.0.15`로 확인할 수 있도록 DNS 레코드를 업데이트합니다. 이 방법을 사용하는 것이 좋습니다. Azure Virtual Network에 DNS 서버가 없는 경우, 자체 호스팅 통합 런타임 노드로 등록된 모든 VM의 호스트 파일(C:\Windows\System32\drivers\etc)을 편집하여 다음과 같은 항목을 추가함으로써 이 문제를 일시적으로 해결할 수 있습니다. 
@@ -398,7 +398,7 @@ Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGrou
 이 자습서에서 다음 단계를 수행했습니다. 
 
 > [!div class="checklist"]
-> * 데이터 팩터리 만들기 
+> * 데이터 팩터리를 만듭니다. 
 > * 자체 호스팅 통합 런타임을 작성하고 설정합니다.
 > * 연결된 서비스를 작성하고 배포합니다.
 > * Hive 작업이 포함된 파이프라인을 작성하고 배포합니다.

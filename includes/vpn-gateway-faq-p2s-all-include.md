@@ -1,3 +1,19 @@
+---
+title: 포함 파일
+description: 포함 파일
+services: vpn-gateway
+author: cherylmc
+ms.service: vpn-gateway
+ms.topic: include
+ms.date: 03/21/2018
+ms.author: cherylmc
+ms.custom: include file
+ms.openlocfilehash: 072c16a0e50a4922d44dd354b632f39b33d23cdd
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 03/28/2018
+---
 ### <a name="supportedclientos"></a>지점 및 사이트 간 연결에 사용할 수 있는 클라이언트 운영 체제는 무엇인가요?
 
 다음과 같은 클라이언트 운영 체제가 지원됩니다.
@@ -10,8 +26,8 @@
 * Windows Server 2012 R2(64비트 전용)
 * Windows Server 2016(64비트 전용)
 * 윈도우 10
-* Mac용 OSX 버전 10.11(El Capitan)
-* Mac용 macOS 버전 10.12(Sierra)
+* Mac OS X 버전 10.11(El Capitan)
+* Mac OS X 버전 10.12(Sierra)
 
 ### <a name="how-many-vpn-client-endpoints-can-i-have-in-my-point-to-site-configuration"></a>지점 및 사이트 간 구성에서 VPN 클라이언트 끝점을 몇 개까지 지정할 수 있습니까?
 

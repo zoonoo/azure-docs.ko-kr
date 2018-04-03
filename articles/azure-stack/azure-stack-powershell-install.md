@@ -1,24 +1,24 @@
 ---
-title: "Azure 스택 용 PowerShell 설치 | Microsoft Docs"
-description: "Azure 스택에 대 한 PowerShell을 설치 하는 방법에 알아봅니다."
+title: Azure 스택 용 PowerShell 설치 | Microsoft Docs
+description: Azure 스택에 대 한 PowerShell을 설치 하는 방법에 알아봅니다.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 0CDD8B9B-EC32-4453-918A-D0A606C7BC10
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/23/2018
+ms.date: 3/30/2018
 ms.author: mabrigg
-ms.openlocfilehash: 18a697813fbeb11be7a599359285f824ed804216
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 2b620a13cb752d573305154f57cac7f6a106968c
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="install-powershell-for-azure-stack"></a>Azure 스택에 대 한 PowerShell을 설치 합니다.  
 
@@ -55,10 +55,10 @@ Set-PSRepository `
 
 ## <a name="install-powershell-in-a-connected-scenario-with-internet-connectivity"></a>인터넷 연결) (에 연결 된 시나리오에서 PowerShell 설치
 
-Azure 스택 호환 AzureRM 모듈 API 버전 프로필을 통해 설치 됩니다. Azure 스택 필요는 **2017-03-09-프로필** AzureRM.Bootstrapper 모듈을 설치 하 여 액세스할 수 있는 API 버전 프로필입니다. API 버전 프로필 및 이들 프로그램에서 제공 하는 cmdlet에 대 한 자세한 내용은 참조는 [API 버전 프로필을 관리](azure-stack-version-profiles.md)합니다. AzureRM 모듈 외에 Azure 스택 관련 PowerShell 모듈을 설치 해야 합니다. 개발 워크스테이션에 이러한 모듈을 설치 하려면 다음 PowerShell 스크립트를 실행 합니다.
+Azure 스택 호환 AzureRM 모듈 API 버전 프로필을 통해 설치 됩니다. Azure 스택 필요는 **2017-03-09-프로필** AzureRM.Bootstrapper 모듈을 설치 하 여 액세스할 수 있는 API 버전 프로필입니다. API 버전 프로필 및 이들 프로그램에서 제공 하는 cmdlet에 대 한 자세한 내용은 참조는 [API 버전 프로필을 관리](user/azure-stack-version-profiles.md)합니다. AzureRM 모듈 외에 Azure 스택 관련 PowerShell 모듈을 설치 해야 합니다. 개발 워크스테이션에 이러한 모듈을 설치 하려면 다음 PowerShell 스크립트를 실행 합니다.
 
 > [!IMPORTANT]
-> 릴리스 1.2.11 AzureRM PowerShell 모듈의 주요 변경 내용 목록이 포함 되어 있습니다. 1.2.10에서 업그레이드 하 버전에서 마이그레이션 가이드를 참조 하십시오. [https://aka.ms/azspowershellmigration](https://aka.ms/azspowershellmigration)합니다.
+> 릴리스 1.2.11 AzureRM PowerShell 모듈의 주요 변경 내용 목록이 포함 되어 있습니다. 1.2.10에서 업그레이드 하 버전에서 마이그레이션 가이드를 참조 하십시오. [ https://aka.ms/azspowershellmigration ](https://aka.ms/azspowershellmigration)합니다.
 
   ```powershell
   # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet 
@@ -87,7 +87,7 @@ Azure 스택 호환 AzureRM 모듈 API 버전 프로필을 통해 설치 됩니�
 연결이 끊긴 시나리오에서는 먼저 인터넷 연결 되어 있는 컴퓨터에 PowerShell 모듈을 다운로드 하 고 설치를 위한 Azure 스택 개발 키트를 전송 해야 합니다.
 
 > [!IMPORTANT]
-> 릴리스 1.2.11 AzureRM PowerShell 모듈의 주요 변경 내용 목록이 포함 되어 있습니다. 1.2.10에서 업그레이드 하 버전에서 마이그레이션 가이드를 참조 하십시오. [https://aka.ms/azspowershellmigration](https://aka.ms/azspowershellmigration)합니다.
+> 릴리스 1.2.11 AzureRM PowerShell 모듈의 주요 변경 내용 목록이 포함 되어 있습니다. 1.2.10에서 업그레이드 하 버전에서 마이그레이션 가이드를 참조 하십시오. [ https://aka.ms/azspowershellmigration ](https://aka.ms/azspowershellmigration)합니다.
 
 1. 인터넷에 연결 하 고 AzureRM, 다운로드 및 AzureStack 패키지를 위한 다음 스크립트를 사용 하 여 로컬 컴퓨터에 있는 컴퓨터에 로그인 합니다.
 
@@ -138,4 +138,4 @@ Azure 스택 호환 AzureRM 모듈 API 버전 프로필을 통해 설치 됩니�
 * [GitHub에서 Azure 스택 도구 다운로드](azure-stack-powershell-download.md)
 * [Azure 스택 사용자의 PowerShell 환경 구성](user/azure-stack-powershell-configure-user.md)  
 * [Azure 스택 운영자의 PowerShell 환경 구성](azure-stack-powershell-configure-admin.md) 
-* [Azure 스택에서 API 버전 프로필을 관리](azure-stack-version-profiles.md)  
+* [Azure 스택에서 API 버전 프로필을 관리](user/azure-stack-version-profiles.md)  

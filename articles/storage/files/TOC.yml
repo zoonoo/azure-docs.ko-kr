@@ -18,44 +18,56 @@
       href: storage-how-to-use-files-linux.md
     - name: Mac에 탑재
       href: storage-how-to-use-files-mac.md
-    - name: 포털로 관리
+    - name: Azure Portal로 관리
       href: storage-how-to-use-files-portal.md
+    - name: Powershell로 관리
+      href: storage-how-to-use-files-powershell.md
+    - name: Azure CLI로 관리
+      href: storage-how-to-use-files-cli.md
+    - name: 저장소 탐색기로 관리
+      href: storage-how-to-use-files-storage-explorer.md
 - name: 방법
   items:
-    - name: 계획 및 디자인
+    - name: 계획
       items:
-        - name: Storage 계정 옵션
+        - name: Azure Files 배포에 대한 계획
+          href: storage-files-planning.md
+        - name: Azure 파일 동기화 배포에 대한 계획
+          href: storage-sync-files-planning.md
+        - name: 저장소 계정 이해
           href: ../common/storage-account-options.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Azure Files 배포
-          items:
-            - name: Azure Files 배포에 대한 계획
-              href: storage-files-planning.md
-            - name: Azure Files를 배포하는 방법
-              href: storage-files-deployment-guide.md
-        - name: Azure File Sync 배포
-          items:
-            - name: Azure 파일 동기화 배포에 대한 계획
-              href: storage-sync-files-planning.md
-            - name: Azure 파일 동기화를 배포하는 방법
-              href: storage-sync-files-deployment-guide.md
-            - name: Azure File Sync 프록시 및 방화벽 설정
-              href: storage-sync-files-firewall-and-proxy.md
-        - name: 파일 공유 스냅숏 정보
+        - name: 파일 공유 스냅숏 이해
           href: storage-snapshots-files.md
-        - name: 파일 공유 스냅숏 작업 방법
-          href: storage-how-to-use-files-snapshots.md
-        - name: 복제
+        - name: 저장소 중복 옵션
           href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: 확장성 및 성능 대상
           href: storage-files-scale-targets.md
-        - name: 성능 및 확장성 검사 목록
-          href: ../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: 동시성
-          href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: 재해 복구 지침
           href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Azure File Sync 릴리스 정보
+          href: storage-files-release-notes.md
+    - name: 배포
+      items:
+        - name: Azure Files를 배포하는 방법
+          href: storage-files-deployment-guide.md
+        - name: Azure 파일 동기화를 배포하는 방법
+          href: storage-sync-files-deployment-guide.md
+        - name: Azure File Sync 프록시 및 방화벽 설정
+          href: storage-sync-files-firewall-and-proxy.md
+    - name: 관리
+      items:
+        - name: Azure 파일 동기화로 서버 등록
+          href: storage-sync-files-server-registration.md
+        - name: Azure 파일 동기화 서버 끝점 추가
+          href: storage-sync-files-server-endpoint.md
+        - name: '중국, 정부 및 독일 클라우드용 PowerShell'
+          href: ../common/storage-powershell-independent-clouds.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Azure Automation
+          href: ../common/storage-manage-with-automation.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: 개발
       items:
+        - name: 동시성 관리
+          href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: .NET
           href: storage-dotnet-how-to-use-files.md
         - name: 자바
@@ -72,26 +84,6 @@
               href: ../common/storage-samples-java.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: 연결 문자열 구성
           href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: 관리
-      items:
-        - name: Azure Files용 PowerShell
-          href: storage-how-to-use-files-powershell.md
-        - name: Azure Storage용 PowerShell
-          href: ../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: '중국, 정부 및 독일 클라우드용 PowerShell'
-          href: ../common/storage-powershell-independent-clouds.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Azure CLI 2.0
-          href: ../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Azure CLI 1.0
-          href: ../common/storage-azure-cli-nodejs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Azure 파일 동기화로 서버 등록
-          href: storage-sync-files-server-registration.md
-        - name: Azure 파일 동기화 서버 끝점 추가
-          href: storage-sync-files-server-endpoint.md
-        - name: Azure File Storage와 함께 Storage 탐색기 사용
-          href: ../../vs-azure-tools-storage-explorer-files.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Azure Automation
-          href: ../common/storage-manage-with-automation.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: 보안
       items:
         - name: 보안 지침
@@ -238,5 +230,3 @@
           href: 'https://github.com/Azure/azure-storage-ruby'
         - name: iOS
           href: 'https://github.com/Azure/azure-storage-ios'
-    - name: Azure File Sync 릴리스 정보
-      href: storage-files-release-notes.md

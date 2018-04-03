@@ -20,8 +20,6 @@
 
     ![Azure Cosmos DB에 대한 새 계정 블레이드](./media/cosmos-db-create-dbaccount-graph/create-nosql-db-databases-json-tutorial-2.png)
 
-4. 계정 생성에는 몇 분 정도가 소요됩니다. 계정을 만드는 동안 Portal 오른쪽에는 **Azure Cosmos DB 배포 중**이 표시되며 타일을 보기 위해 대시보드에서 오른쪽으로 스크롤해야 할 수도 있습니다. 화면 위쪽에 진행률 표시줄이 표시되기도 합니다. 두 영역에서 진행 상태를 볼 수 있습니다.
+4. 계정 생성에는 몇 분 정도가 소요됩니다. 포털에서 **축하합니다! Azure Cosmos DB 계정이 만들어졌습니다.** 페이지가 표시될 때까지 기다립니다.
 
-    ![Azure Portal 알림 창](./media/cosmos-db-create-dbaccount-graph/deploying-cosmos-db.png)
-
-    계정이 만들어지면 **축하합니다. Azure Cosmos DB 계정을 만들었습니다.** 페이지가 표시됩니다. 
+    ![Azure Portal 알림 창](./media/cosmos-db-create-dbaccount-graph/azure-cosmos-db-graph-created.png)

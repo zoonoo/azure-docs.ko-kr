@@ -1,18 +1,18 @@
 ---
-title: "Azure Site Recovery를 사용하여 Azure 지역 간에 Azure VM 마이그레이션 | Microsoft Docs"
-description: "Azure Site Recovery를 사용하여 Azure 지역 간에 Azure IaaS VM을 마이그레이션합니다."
+title: Azure Site Recovery를 사용하여 Azure 지역 간에 Azure VM 마이그레이션 | Microsoft Docs
+description: Azure Site Recovery를 사용하여 Azure 지역 간에 Azure IaaS VM을 마이그레이션합니다.
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 02/27/2018
+ms.date: 03/24/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: abae7cbd21a2c7f49dc1fe85711b80dc43a10517
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 8de067ece55e13d32af6822e114cb9dab000bdff
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="migrate-azure-vms-to-another-region"></a>다른 지역으로 Azure VM 마이그레이션
 
@@ -35,7 +35,15 @@ BCDR(비즈니스 지속성 및 재해 복구)을 위해 [Azure Site Recovery](s
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 자습서를 완료하려면 마이그레이션할 Azure 지역에 Azure VM이 있어야 합니다. 또한 시작하기 전에 확인해야 할 여러 설정이 있습니다.
+- 마이그레이션하려는 Azure 지역에서 Azure VM이 있는지 확인합니다.
+- [시나리오 아키텍처 및 구성 요소](azure-to-azure-architecture.md)를 이해해야 합니다.
+- [제한 사항 및 요구 사항 지원](azure-to-azure-support-matrix.md)을 검토합니다.
+
+
+
+## <a name="before-you-start"></a>시작하기 전에
+
+복제를 설정하기 전에 다음 단계를 완료합니다.
 
 
 ### <a name="verify-target-resources"></a>대상 리소스 확인
@@ -114,9 +122,7 @@ Site Recovery는 구독 및 리소스 그룹과 연관된 VM 목록을 검색합
 
     ![복제 활성화](media/tutorial-migrate-azure-to-azure/settings.png)
 
->[!NOTE]
-  >
-  > 현재 관리 디스크를 사용한 Azure VM 복제는 지원되지 않습니다. 
+ 
 
 ## <a name="run-a-failover"></a>장애 조치(Failover) 실행
 

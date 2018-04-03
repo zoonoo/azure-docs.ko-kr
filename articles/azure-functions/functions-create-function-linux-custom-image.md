@@ -1,8 +1,8 @@
 ---
-title: "사용자 지정 이미지를 사용하여 Linux에서 함수 만들기(미리 보기) | Microsoft Docs"
-description: "사용자 지정 Linux 이미지에서 실행되는 Azure Functions를 만드는 방법을 알아봅니다."
+title: 사용자 지정 이미지를 사용하여 Linux에서 함수 만들기(미리 보기) | Microsoft Docs
+description: 사용자 지정 Linux 이미지에서 실행되는 Azure Functions를 만드는 방법을 알아봅니다.
 services: functions
-keywords: 
+keywords: ''
 author: ggailey777
 ms.author: glenga
 ms.date: 11/15/2017
@@ -11,11 +11,11 @@ ms.service: functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: cfowler
-ms.openlocfilehash: 4b9cb7923b177c73f83a7ac17b1022a5455c7f30
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 758906126b42c103853e0047bb19d2e96a84fae6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image-preview"></a>사용자 지정 이미지를 사용하여 Linux에서 함수 만들기(미리 보기)
 

@@ -1,24 +1,24 @@
 ---
-title: "Azure ExpressRoute에 대한 라우팅 요구 사항 | Microsoft Docs"
-description: "이 페이지는 ExpressRoute 회로에 라우팅을 구성하고 관리하는 자세한 요구 사항을 제공합니다."
+title: Azure ExpressRoute에 대한 라우팅 요구 사항 | Microsoft Docs
+description: 이 페이지는 ExpressRoute 회로에 라우팅을 구성하고 관리하는 자세한 요구 사항을 제공합니다.
 documentationcenter: na
 services: expressroute
 author: ganesr
 manager: ganesr
-editor: 
+editor: ''
 ms.assetid: 5b382e79-fa3f-495a-a764-c5ff86af66a2
 ms.service: expressroute
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/03/2017
+ms.date: 03/28/2018
 ms.author: ganesr
-ms.openlocfilehash: 87cf32c23c2b3f50057016a23212c95b706f2910
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 829646be6404f86d9f370b3a402cfc0c0c980699
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="expressroute-routing-requirements"></a>ExpressRoute 라우팅 요구 사항
 ExpressRoute를 사용하여 Microsoft 클라우드 서비스에 연결하려면 라우팅을 설치하고 관리해야 합니다. 일부 연결 공급자는 라우팅을 관리 서비스로 설치하고 관리해 줍니다. 연결 공급자를 확인하여 이 서비스를 제공하는지를 확인합니다. 제공하지 않는 경우 다음 요구 사항을 준수해야 합니다.
@@ -107,7 +107,7 @@ IP 주소 및 AS 번호가 다음 레지스트리 중 하나에 등록되었는�
 
 접두사 및 AS 번호가 위 레지스트리에서 사용자에게 할당되지 않은 경우 사용자의 접두사 및 ASN의 수동 유효성 검사에 관한 지원 사례를 살펴봐야 합니다. 지원을 이용하려면 리소스를 사용할 수 있음을 증명하는 승인 문서와 같은 문서가 필요합니다.
 
-개인 AS 번호는 Microsoft 피어링에서 허용되었지만 수동 유효성 검사에도 필요합니다.
+개인 AS 번호는 Microsoft 피어링에서 허용되었지만 수동 유효성 검사에도 필요합니다. 또한 받은 접두사에 대한 AS PATH에서 개인 AS 번호를 제거합니다. 따라서 [Microsoft 피어링에 대한 라우팅에 영향을 주기](expressroute-optimize-routing.md) 위해 AS PATH에 개인 AS 번호를 추가할 수는 없습니다. 
 
 > [!IMPORTANT]
 > ExpressRoute를 통해 Microsoft에 보급된 공용 IP 주소는 인터넷에 보급하지 않아야 합니다. 다른 Microsoft 서비스에 대한 연결을 중단할 수 있습니다. 그러나 ExpressRoute를 통해 Microsoft 내에서 O365 끝점과 통신하는 네트워크의 서버에서 사용하는 공용 IP 주소를 보급할 수 있습니다. 
@@ -118,7 +118,7 @@ IP 주소 및 AS 번호가 다음 레지스트리 중 하나에 등록되었는�
 라우팅 Exchange는 eBGP 프로토콜을 통합니다. EBGP 세션은 MSEE와 라우터 간에 설정됩니다. BGP 세션의 인증은 요구되지 않습니다. 필요한 경우 MD5 해시를 구성할 수 있습니다. BGP 세션을 구성하는 방법에 대한 정보는 [구성 라우팅](expressroute-howto-routing-classic.md) 및 [회로 프로비전 워크플로 및 회로 상태](expressroute-workflows.md)를 참조하세요.
 
 ## <a name="autonomous-system-numbers"></a>자치 시스템 번호
-Microsoft는 Azure 공용, Azure 개인 및 Microsoft 피어링에 AS 12076을 사용합니다. 내부 사용을 위해 65515에서 65520으로 ASN을 예약했습니다. 16 및 32비트 AS 번호를 모두 지원합니다. Microsoft 피어링에 공식적으로 등록된 ASN만 필요합니다. 개인 및 공용 피어링은 개인 ASN을 사용할 수 있습니다.
+Microsoft는 Azure 공용, Azure 개인 및 Microsoft 피어링에 AS 12076을 사용합니다. 내부 사용을 위해 65515에서 65520으로 ASN을 예약했습니다. 16 및 32비트 AS 번호를 모두 지원합니다.
 
 데이터 전송 대칭에 요구 사항이 없습니다. 전달 및 반환 경로는 다른 라우터 쌍을 트래버스할 수 있습니다. 동일한 경로는 사용자에게 속한 여러 회로 쌍에 걸쳐 한 쪽에서 보급해야 합니다. 경로 메트릭이 동일할 필요는 없습니다.
 

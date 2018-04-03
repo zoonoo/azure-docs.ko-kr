@@ -1,33 +1,31 @@
 ---
-title: "Java로 Azure Cosmos DB 문서 데이터베이스 만들기 | Microsoft Docs | Microsoft Docs'"
-description: "Azure Cosmos DB SQL API에 연결하고 쿼리하는 데 사용할 수 있는 Java 샘플 코드를 제공합니다."
+title: Java로 Azure Cosmos DB 문서 데이터베이스 만들기 | Microsoft Docs | Microsoft Docs'
+description: Azure Cosmos DB SQL API에 연결하고 쿼리하는 데 사용할 수 있는 Java 코드 샘플을 제공합니다.
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: mimig1
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: 89ea62bb-c620-46d5-baa0-eefd9888557c
 ms.service: cosmos-db
 ms.custom: quick start connect, mvc, devcenter
-ms.workload: 
+ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 12/15/2017
+ms.date: 03/26/2018
 ms.author: mimig
-ms.openlocfilehash: 85f8310235e0f5b038f2b55c94fe044d1a9d9719
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 669a11368ed6ccec041701e691323a2bb2cac56a
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cosmos-db-create-a-document-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB: Java 및 Azure Portal을 사용하여 문서 데이터베이스 만들기
 
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)] 
-
 Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터베이스 서비스입니다. Azure Cosmos DB를 사용하여 관리되는 문서, 테이블 및 그래프 데이터베이스를 신속하게 만들고 쿼리할 수 있습니다.
 
-이 빠른 시작은 Azure Cosmos DB용 Azure Portal 도구를 사용하여 문서 데이터베이스를 만듭니다. 또한 이 빠른 시작에서는 [SQL Java API](sql-api-sdk-java.md)를 사용하여 Java 콘솔 앱을 빠르게 만드는 방법도 보여 줍니다. 이 빠른 시작의 지침은 Java를 실행할 수 있는 모든 운영 체제에 적용될 수 있습니다. 이 빠른 시작을 완료하면 원하는 것이 무엇이든지 UI 또는 프로그래밍 방식으로 문서 데이터베이스 리소스를 만들고 수정하는 작업을 익히게 될 것입니다.
+이 빠른 시작은 Azure Cosmos DB용 Azure Portal 도구를 사용하여 문서 데이터베이스를 만듭니다. 이 빠른 시작은 또한 [SQL Java API](sql-api-sdk-java.md)를 사용하여 Java 콘솔 앱을 빠르게 만드는 방법을 보여줍니다. 이 빠른 시작의 지침은 Java를 실행할 수 있는 모든 운영 체제에 적용될 수 있습니다. 이 빠른 시작을 완료하면 원하는 것이 무엇이든지 UI 또는 프로그래밍 방식으로 문서 데이터베이스 리소스를 만들고 수정하는 작업을 익히게 될 것입니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -46,7 +44,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 ## <a name="create-a-database-account"></a>데이터베이스 계정 만들기
 
-문서 데이터베이스를 만들려면 먼저 Azure Cosmos DB를 사용하여 SQL 데이터베이스 계정을 만들어야 합니다.
+문서 데이터베이스를 만들기 전에 Azure Cosmos DB를 사용하여 SQL API 계정을 만들어야 합니다.
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
@@ -63,7 +61,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
    ![Azure Portal의 데이터 탐색기에서 새 문서 만들기](./media/create-sql-api-java/azure-cosmosdb-data-explorer-new-document.png)
   
-2. 이제 다음과 같은 구조를 사용하여 컬렉션에 문서를 추가하고 **저장**을 클릭합니다.
+2. 이제 다음과 같은 구조를 사용하여 컬렉션에 문서를 추가하고 **저장**을 클릭합니다. 코드 상자의 **복사** 단추를 사용하여 json을 클립보드에 복사합니다.
 
      ```json
      {
@@ -87,7 +85,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
     ![데이터 탐색기에서 기본 쿼리는 `SELECT * FROM c`입니다.](./media/create-sql-api-java/azure-cosmosdb-data-explorer-query.png)
 
-2. **필터 편집** 단추를 클릭하고, `ORDER BY c._ts DESC`를 쿼리 조건자 상자에 추가하고, **필터 적용**을 클릭하여 쿼리를 변경합니다.
+2. 계속해서 **문서** 탭에서 **필터 편집** 단추를 클릭하고, 쿼리 조건자 상자에 `ORDER BY c._ts DESC`를 추가하고, **필터 적용**을 클릭하여 쿼리를 변경합니다.
 
     ![ORDER BY c._ts DESC를 추가하고 필터 적용을 클릭하여 기본 쿼리를 변경합니다.](./media/create-sql-api-java/azure-cosmosdb-data-explorer-edit-query.png)
 
@@ -97,7 +95,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 ## <a name="clone-the-sample-application"></a>샘플 응용 프로그램 복제
 
-이제 코드 사용으로 전환해 보겠습니다. GitHub에서 SQL API 앱을 복제하고 연결 문자열을 설정한 다음 실행해 보겠습니다. 프로그래밍 방식으로 데이터를 사용하여 얼마나 쉽게 작업할 수 있는지 알게 될 것입니다. 
+이제 코드 사용으로 전환해 보겠습니다. GitHub에서 SQL API 앱을 복제하고 연결 문자열을 설정한 다음 실행해보겠습니다. 프로그래밍 방식으로 데이터를 사용하여 얼마나 쉽게 작업할 수 있는지 알게 될 것입니다. 
 
 1. 명령 프롬프트를 git-samples라는 새 폴더를 만든 다음 명령 프롬프트를 닫습니다.
 
@@ -119,9 +117,11 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 ## <a name="review-the-code"></a>코드 검토
 
-이 단계는 옵션입니다. 데이터베이스 리소스를 코드로 만드는 방법을 알아보려는 경우 다음 코드 조각을 검토할 수 있습니다. 코드 조각은 모두 C:\git-samples\azure-cosmos-db-documentdb-java-getting-started\src\GetStarted 폴더에 설치된 `Program.java` 파일에서 가져옵니다. 그렇지 않으면 [연결 문자열 업데이트](#update-your-connection-string)로 건너뛸 수 있습니다. 
+이 단계는 옵션입니다. 데이터베이스 리소스를 코드로 만드는 방법을 알아보려는 경우 다음 코드 조각을 검토할 수 있습니다. 그렇지 않으면 [연결 문자열 업데이트](#update-your-connection-string)로 건너뛸 수 있습니다. 
 
-* `DocumentClient` 초기화 [DocumentClient](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client)에서는 Azure Cosmos DB 데이터베이스 서비스에 대한 클라이언트 쪽 논리적 표현을 제공합니다. 이 클라이언트는 서비스에 대한 요청을 구성하고 실행하는 데 사용됩니다.
+다음 코드 조각은 모두 C:\git-samples\azure-cosmos-db-documentdb-java-getting-started\src\GetStarted\Program.java 파일에서 가져온 것입니다.
+
+* `DocumentClient` 초기화 [DocumentClient](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client)에서는 Azure Cosmos DB 데이터베이스 서비스에 대한 클라이언트 쪽 논리적 표현을 제공합니다. 이 클라이언트는 서비스에 대한 요청을 구성하고 실행하는 데 사용됩니다. 이 코드의 `FILLME` 부분은 빠른 시작의 뒷부분에서 업데이트됩니다.
 
     ```java
     this.client = new DocumentClient("https://FILLME.documents.azure.com",
@@ -231,13 +231,15 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
     터미널 창은 FamilyDB 데이터베이스가 만들어졌다는 알림을 표시합니다. 
     
-4. 아무 키나 눌러 컬렉션을 만듭니다. 
+4. 데이터베이스를 만들려면 아무 키를 누른 다음, 또 다른 키를 눌러 컬렉션을 만듭니다. 
 
-5. 데이터 탐색기로 전환하면 FamilyDB 데이터베이스가 포함되어 있음을 확인할 수 있습니다.
-    
-6. 콘솔 창에서 계속 키를 눌러 코드가 문서를 생성하도록 하고 쿼리를 수행합니다.
-    
-    프로그램의 끝에서 앱의 모든 리소스는 계정에서 삭제됩니다. 따라서 비용이 발생하지 않습니다. 
+    프로그램이 끝나면 모든 리소스가 삭제되므로 브라우저에서 데이터 탐색기로 전환하여 FamilyDB 데이터베이스 및 FamilyCollection 컬렉션이 포함되어 있는지 확인합니다.
+
+5. 콘솔 창으로 전환하고 아무 키를 눌러 첫 번째 문서를 만든 다음, 또 다른 키를 눌러 두 번째 문서를 만듭니다. 그리고 데이터 탐색기로 전환하여 문서를 살펴봅니다. 
+
+6. 아무 키를 눌러 쿼리를 실행하고 콘솔 창에서 출력을 봅니다. 
+
+7. 그 다음으로 키를 누르면 리소스가 삭제됩니다. 리소스를 유지하려면 콘솔 창에서 CTRL+C를 눌러 프로그램을 종료하면 됩니다. 유지할 생각이 없으면 요금이 발생하지 않도록 아무 키를 눌러 계정에서 리소스를 삭제합니다. 
 
     ![콘솔 출력](./media/create-sql-api-java/console-output.png)
 

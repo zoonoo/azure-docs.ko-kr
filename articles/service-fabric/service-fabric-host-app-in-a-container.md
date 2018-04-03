@@ -1,24 +1,24 @@
 ---
-title: "Azure Service Fabric에 컨테이너의 .NET 앱 배포 | Microsoft Docs"
-description: "Docker 컨테이너의 Visual Studio에서 .NET 앱을 패키지하는 방법을 설명합니다. 그런 다음 이 새로운 \"컨테이너\" 앱은 Service Fabric 클러스터에 배포됩니다."
+title: Azure Service Fabric에 컨테이너의 .NET 앱 배포 | Microsoft Docs
+description: Docker 컨테이너의 Visual Studio에서 .NET 앱을 패키지하는 방법을 설명합니다. 그런 다음 이 새로운 "컨테이너" 앱은 Service Fabric 클러스터에 배포됩니다.
 services: service-fabric
 documentationcenter: .net
 author: mikkelhegn
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/19/2017
+ms.date: 02/23/2018
 ms.author: mikhegn
-ms.openlocfilehash: cd1c3b063132ae549bfbf1e059667c5056c91046
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 11bb34939e5fa3699973051664e85f9ef2147ff7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Azure Service Fabric에 Windows 컨테이너로 .NET 응용 프로그램 배포
 
@@ -49,13 +49,6 @@ Service Fabric 응용 프로그램은 네트워크에 연결된 가상 머신 �
 이제 Azure에서 실행되는 서비스 패브릭 클러스터가 있으니, 컨테이너화된 응용 프로그램을 만들고 배포할 준비가 되었습니다. 컨테이너에서 응용 프로그램 실행을 시작하려면 Visual Studio에서 **Docker 지원**을 프로젝트에 추가해야 합니다. 응용 프로그램에 **Docker 지원**을 추가하면 두 가지 동작이 수행됩니다. 첫째, _Dockerfile_ 파일이 프로젝트에 추가됩니다. 이 새로운 파일은 컨테이너 이미지를 빌드하는 방법을 설명합니다. 둘째, 새로운 _docker-compose_ 프로젝트가 솔루션에 추가됩니다. 새 프로젝트에는 몇 가지 docker-compose 파일이 포함되어 있습니다. Docker-compose 파일을 사용하여 컨테이너가 실행되는 방법을 설명할 수 있습니다.
 
 [Visual Studio 컨테이너 도구][link-visualstudio-container-tools] 작업에 대한 자세한 정보
-
->[!NOTE]
->컴퓨터에서 Windows 컨테이너 이미지를 처음 실행하는 경우 Docker CE가 컨테이너에 대한 기본 이미지를 끌어와야 합니다. 이 자습서에서 사용되는 이미지의 크기는 14GB입니다. 다음 터미널 명령을 실행하여 기본 이미지를 끌어옵니다.
->```cmd
->docker pull microsoft/mssql-server-windows-developer
->docker pull microsoft/aspnet:4.6.2
->```
 
 ### <a name="add-docker-support"></a>Docker 지원 추가
 
@@ -205,7 +198,7 @@ Azure 구독을 선택합니다.
    >컨테이너 이미지를 빌드하는 데는 약 15분이 소요됩니다.
    >Service Fabric 클러스터에 처음 배포하면 기본 Windows Server Core 컨테이너 이미지가 다운로드됩니다. 다운로드를 완료하는 데 5-10분이 더 소요됩니다.
 
-클러스터 URL(예: *http://mycluster.westeurope.cloudapp.azure.com*)을 사용하여 Fabrikam Call Center 응용 프로그램으로 이동합니다.
+클러스터 url(*http://mycluster.westeurope.cloudapp.azure.com*)을 사용하여 Fabrikam Call Center 응용 프로그램으로 이동합니다.
 
 이제 Fabrikam Call Center 솔루션을 컨테이너화하고 배포했으므로 [Azure Portal][link-azure-portal]을 열고 응용 프로그램이 Service Fabric에서 실행되는 것을 확인할 수 있습니다. 응용 프로그램을 실행하려면 웹 브라우저를 열고 Service Fabric 클러스터의 URL로 이동합니다.
 

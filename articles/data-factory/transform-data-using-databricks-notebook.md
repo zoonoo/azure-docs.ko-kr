@@ -1,8 +1,8 @@
 ---
-title: "Azure Data Factory에서 Databricks Notebook 활동으로 Databricks Notebook 실행"
-description: "Azure Data Factory에서 Databricks Notebook 활동을 사용하여 databricks 작업 클러스터에 대해 Databricks Notebook을 실행하는 방법을 알아봅니다."
+title: Azure Data Factory에서 Databricks Notebook 활동으로 Databricks Notebook 실행
+description: Azure Data Factory에서 Databricks Notebook 작업을 사용하여 databricks 작업 클러스터에 대해 Databricks Notebook을 실행하는 방법을 알아봅니다.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: nabhishek
 manager: craigg
 ms.service: data-factory
@@ -13,13 +13,13 @@ ms.topic: get-started-article
 ms.date: 3/12/2018
 ms.author: abnarain
 ms.reviewer: douglasl
-ms.openlocfilehash: d1dcec26529c747a209dd10fcefbbadaa40365a3
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 7a90906f0bb41b0ced368e9010e0c8a4981f038c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="run-a-databricks-notebook-with-the-databricks-notebook-activity-in-azure-data-factory"></a>Azure Data Factory에서 Databricks Notebook 활동으로 Databricks Notebook 실행
+# <a name="run-a-databricks-notebook-with-the-databricks-notebook-activity-in-azure-data-factory"></a>Azure Data Factory에서 Databricks Notebook 작업으로 Databricks Notebook 실행
 
 이 자습서에서는 Azure Portal을 사용하여 databricks 작업 클러스터에 대해 Databricks Notebook을 실행하는 Azure Data Factory 파이프라인을 만듭니다. 또한 실행 중에 Azure Data Factory 매개 변수를 Databricks Notebook에 전달합니다.
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 03/12/2018
 
   - 데이터 팩터리를 만듭니다.
 
-  - Databricks Notebook 활동을 사용하는 파이프라인을 만듭니다.
+  - Databricks Notebook 작업을 사용하는 파이프라인을 만듭니다.
 
   - 파이프라인 실행 트리거
 
@@ -125,7 +125,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
     ![새 파이프라인 만들기에 대한 단추](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image9.png)
 
-2.  **파이프라인**에서 사용할 **매개 변수**를 만듭니다. 나중에 이 매개 변수를 Databricks Notebook 활동에 전달합니다. 빈 파이프라인에서 **매개 변수** 탭, **새로 만들기**를 차례로 클릭한 다음, 이름으로 '**name**'을 지정합니다.
+2.  **파이프라인**에서 사용할 **매개 변수**를 만듭니다. 나중에 이 매개 변수를 Databricks Notebook 작업에 전달합니다. 빈 파이프라인에서 **매개 변수** 탭, **새로 만들기**를 차례로 클릭한 다음, 이름으로 '**name**'을 지정합니다.
 
     ![새 매개 변수 만들기](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image10.png)
 

@@ -10,15 +10,15 @@ ms.custom: mvc,DBs & servers
 ms.topic: quickstart
 ms.date: 01/10/2018
 ms.author: ayolubek
-ms.openlocfilehash: e5c1a5a991284fcbeac53d2ce35be4e2634514fa
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 97b14de64c4aa6bf134f2c293e4bb8b5725810d3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-portal-use-the-sql-query-editor-to-connect-and-query-data"></a>Azure Portal: SQL 쿼리 편집기를 사용하여 데이터 연결 및 쿼리
 
-SQL 쿼리 편집기는 Azure Portal에서 Azure SQL Database 또는 Azure SQL Data Warehouse에 대한 SQL 쿼리를 실행하는 효율적이고 간단한 방법을 제공하는 브라우저 쿼리 도구입니다. 이 빠른 시작에서는 쿼리 편집기를 사용하여 SQL 데이터베이스에 연결한 다음, Transact-SQL 문을 사용하여 데이터베이스에서 데이터를 쿼리, 삽입, 업데이트 및 삭제하는 방법을 보여 줍니다.
+SQL 쿼리 편집기는 Azure Portal에서 Azure SQL Database 또는 Azure SQL Data Warehouse에 대한 SQL 쿼리를 실행하는 효율적이고 간단한 방법을 제공하는 브라우저 쿼리 도구입니다. 이 빠른 시작 자습서에서는 쿼리 편집기를 사용하여 SQL Database에 연결한 다음, Transact-SQL 문을 사용하여 데이터베이스에서 데이터를 쿼리, 삽입, 업데이트 및 삭제하는 방법을 보여 줍니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -142,19 +142,25 @@ Active Directory 관리자를 구성하면 단일 ID를 사용하여 Azure Porta
 
 ## <a name="query-editor-considerations"></a>쿼리 편집기에 대한 고려 사항
 
-미리 보기 상태로 유지되는 동안 쿼리 편집기를 사용할 때 알아야 할 몇 가지 사항이 있습니다.
+쿼리 편집기를 사용할 때 알아야 할 몇 가지 사항이 있습니다.
 
 1. Azure SQL Server 방화벽 설정에서 "Azure 서비스 방문 허용" 옵션을 "켜기"로 설정했는지 확인합니다. 이 옵션을 사용하면 SQL 쿼리 편집기에서 SQL 데이터베이스 및 데이터 웨어하우스에 액세스할 수 있습니다.
 
-2. 2단계 인증을 사용하는 계정에서는 Azure Active Directory 관리자 로그인이 작동하지 않습니다.
+2. SQL Server가 Virtual Network에 있으면 해당 서버에서 데이터베이스를 쿼리하는 데 쿼리 편집기를 사용할 수 없습니다.
 
-3. 전자 메일 계정(예: outlook.com, hotmail.com, live.com, gmail.com, yahoo.com)은 아직 Active Directory 관리자로 지원되지 않습니다. Azure Active Directory에서 기본적으로 만들어졌거나 Azure Active 디렉터리에 페더레이션된 사용자를 선택합니다.
+3. F5 키를 누르면 쿼리 편집기 페이지를 새로 고치고 처리 중인 쿼리가 손실됩니다. 도구 모음의 [실행] 단추를 사용하여 쿼리를 실행합니다.
 
-4. 공간 데이터 형식 쿼리는 쿼리 편집기에서 아직 지원되지 않습니다. 공간 형식 열을 쿼리하면 'System.IO.FileNotFoundException' 오류가 발생합니다.
+4. 쿼리 편집기는 마스터 DB에 대한 연결을 지원하지 않습니다.
 
-5. 데이터베이스 테이블 및 뷰에 대한 IntelliSense는 지원되지 않습니다. 그러나 이미 입력된 이름에 대한 자동 완성은 편집기에서 지원합니다.
+5. 쿼리 실행에 대한 제한 시간은 5분입니다.
 
-6. F5 키를 누르면 쿼리 편집기 페이지를 새로 고치고 처리 중인 쿼리가 손실됩니다. 도구 모음의 [실행] 단추를 사용하여 쿼리를 실행합니다.
+6. 2단계 인증을 사용하는 계정에서는 Azure Active Directory 관리자 로그인이 작동하지 않습니다.
+
+7. 전자 메일 계정(예: outlook.com, hotmail.com, live.com, gmail.com, yahoo.com)은 아직 Active Directory 관리자로 지원되지 않습니다. Azure Active Directory에서 기본적으로 만들어졌거나 Azure Active 디렉터리에 페더레이션된 사용자를 선택합니다.
+
+8. 쿼리 편집기는 지리 데이터 형식에 대한 원통 도법만 지원합니다.
+
+9. 데이터베이스 테이블 및 뷰에 대한 IntelliSense는 지원되지 않습니다. 그러나 이미 입력된 이름에 대한 자동 완성은 편집기에서 지원합니다.
 
 
 ## <a name="next-steps"></a>다음 단계

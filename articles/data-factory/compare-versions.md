@@ -1,11 +1,10 @@
 ---
-title: "Azure Data Factory 버전 1과 2 비교 | Microsoft Docs"
-description: "이 문서에서는 Azure Data Factory V1과 Azure Data Factory V2를 비교합니다."
+title: Azure Data Factory 버전 1과 2 비교 | Microsoft Docs
+description: 이 문서에서는 Azure Data Factory V1과 Azure Data Factory V2를 비교합니다.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: kromerm
-manager: jhubbard
-editor: spelluru
+manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/24/2018
 ms.author: makromer
-ms.openlocfilehash: 673bc4e0d1609e445e3d18e7cf516ad532be4bc2
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 9aed1e903b5af3e5bcf53987ba80c1dcdb06f202
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="compare-azure-data-factory-v1-and-v2"></a>Azure Data Factory V1과 V2 비교
 이 문서에서는 Azure Data Factory V1과 V2를 비교합니다. V1에 대한 소개는 [Azure Data Factory 소개](v1/data-factory-introduction.md)를 참조하세요. V2에 대한 소개는 [Data Factory(V2 - 미리 보기) 소개](introduction.md)를 참조하세요.
@@ -112,7 +111,7 @@ V1에서는 IDotNetActivity 인터페이스의 Execute 메서드를 구현하는
 
 V2 사용자 지정 작업에서는 .NET 인터페이스를 구현할 필요가 없습니다. 명령, 스크립트 및 실행 파일로 컴파일된 자체 사용자 지정 코드를 직접 실행할 수 있습니다. 
 
-자세한 내용은 [V1과 V2의 사용자 지정 활동의 차이](transform-data-using-dotnet-custom-activity.md#difference-between-custom-activity-in-azure-data-factory-v2-and-custom-dotnet-activity-in-azure-data-factory-v1)를 참조하세요.
+자세한 내용은 [V1과 V2의 사용자 지정 활동의 차이](transform-data-using-dotnet-custom-activity.md#compare-v2-v1)를 참조하세요.
 
 ## <a name="sdks"></a>SDK
  Data Factory V2는 파이프라인을 작성, 관리 및 모니터링하는 데 사용할 수 있는 다양한 SDK 집합을 제공합니다.
@@ -138,6 +137,13 @@ V2용으로 업데이트된 SDK는 V1 클라이언트와 호환되지 않습니�
 | Python SDK | [예](quickstart-create-data-factory-python.md) | 아니오 |
 | Resource Manager 템플릿 | [예](quickstart-create-data-factory-resource-manager-template.md) | [예](data-factory-build-your-first-pipeline-using-arm.md) | 
 
+## <a name="roles-and-permissions"></a>역할 및 권한
+
+v2 Data Factory에 대한 자식 리소스를 만들고 관리하려면:
+
+-   버전 1 Data Factory 참가자 역할은 v2 리소스를 만들고 관리하는 데 사용할 수 없습니다.
+-   Data Factory 리소스에서 만든 표준 ARM 참가자 역할은 PowerShell 또는 SDK를 사용하여 v2 Data Factory에 대한 자식 리소스를 만들고 관리하기에 충분합니다. Azure Portal에서 또는 ARM 템플릿 배포를 사용하여 배포된 v2 Data Factory에 대한 자식 리소스를 만들고 관리하기에는 충분하지 않습니다.
+-   Azure Portal에서 또는 ARM 템플릿 배포를 사용하여 배포된 v2 Data Factory에 대한 자식 리소스를 만들고 관리하려면 리소스 그룹 수준에서 또는 구독 수준에서 '자동화 작업 연산자' 역할의 구성원이어야 합니다. 또한 조직에서는 [Azure 역할 기반 액세스 제어의 사용자 지정 역할 만들기](../active-directory/role-based-access-control-custom-roles.md)에 설명된 대로 "작업" 목록에 "Microsoft.Resources/deployments/*"를 포함하는 사용자 지정 역할을 만들 수 있습니다.
 
 ## <a name="monitoring-experience"></a>모니터링 환경
 V2에서는 [Azure Monitor](monitor-using-azure-monitor.md)를 사용하여 데이터 팩터리를 모니터링할 수도 있습니다. 새로운 PowerShell cmdlet은 [통합 런타임](monitor-integration-runtime.md)에 대한 모니터링을 지원합니다. V1과 V2 모두 Azure Portal에서 시작할 수 있는 모니터링 응용 프로그램을 통해 시각적인 모니터링을 지원합니다.

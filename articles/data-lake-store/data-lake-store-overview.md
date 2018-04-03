@@ -1,8 +1,8 @@
 ---
-title: "Azure Data Lake Store 개요 | Microsoft Docs"
-description: "Azure 데이터 레이크 저장소 및 기타 데이터 저장소를 통해 제공하는 값 이해"
+title: Azure Data Lake Store 개요 | Microsoft Docs
+description: Azure 데이터 레이크 저장소 및 기타 데이터 저장소를 통해 제공하는 값 이해
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/09/2018
+ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 88c44f2e47562f9992e7c6e228b9a4c917f806ba
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 111906bc9e7e85e30a879d7bacff37edb4b204ac
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="overview-of-azure-data-lake-store"></a>Azure 데이터 레이크 저장소 개요
 Azure 데이터 레이크 저장소는 빅 데이터 분석 작업을 위한 엔터프라이즈 수준 하이퍼 스케일 리포지토리입니다. Azure 데이터 레이크를 사용하면 작동 및 예비 분석에 대해 한 곳에서 모든 크기, 형식 및 수집 속도의 데이터를 캡처할 수 있습니다.
@@ -61,7 +61,7 @@ Azure 데이터 레이크 저장소는 인증 및 액세스 제어 목록(ACL)�
 | 기능 | 설명 |
 | --- | --- |
 | 인증 |Azure 데이터 레이크 저장소는 Azure 데이터 레이크 저장소에 저장된 모든 데이터에 대한 ID 및 액세스 관리를 위해 Azure Active Directory(AAD)와 통합합니다. 통합의 결과로 Azure 데이터 레이크는 다단계 인증, 조건부 액세스, 역할 기반 액세스 제어, 응용 프로그램 사용 모니터링, 보안 모니터링 및 경고 등을 포함한 모든 AAD 기능의 이점을 얻습니다. Azure 데이터 레이크 저장소는 REST 인터페이스에서 인증을 위한 OAuth 2.0 프로토콜을 지원합니다. [Data Lake Store 인증](data-lakes-store-authentication-using-azure-active-directory.md) 참조|
-| Access Control |Azure 데이터 레이크 저장소는 WebHDFS 프로토콜에 의해 노출되는 POSIX 스타일 권한을 지원하여 액세스 제어를 제공합니다. Data Lake Store 공개 미리 보기(현재 릴리스)에서 ACL은 루트 폴더, 하위 폴더 및 개별 파일에서도 사용할 수 있습니다. Data Lake Store의 컨텍스트에서 ACL 작동 방법에 대한 자세한 내용은 [Data Lake Store의 액세스 제어](data-lake-store-access-control.md)를 참조하세요. |
+| Access Control |Azure 데이터 레이크 저장소는 WebHDFS 프로토콜에 의해 노출되는 POSIX 스타일 권한을 지원하여 액세스 제어를 제공합니다. ACL은 루트 폴더, 하위 폴더 및 개별 파일에서도 사용할 수 있습니다. Data Lake Store의 컨텍스트에서 ACL 작동 방법에 대한 자세한 내용은 [Data Lake Store의 액세스 제어](data-lake-store-access-control.md)를 참조하세요. |
 | 암호화 |또한 Data Lake Store는 계정에 저장된 데이터에 대한 암호화를 제공합니다. Data Lake Store 계정을 만드는 동안 암호화 설정을 지정합니다. 암호화된 데이터 또는 암호화 없음을 선택할 수 있습니다. 자세한 내용은 [Data Lake Store의 암호화](data-lake-store-encryption.md)를 참조하세요. 암호화 관련 구성을 제공하는 방법에 대한 자세한 내용은 [Azure Portal을 사용하여 Azure Data Lake Store 시작](data-lake-store-get-started-portal.md)을 참조하세요. |
 
 Data Lake 저장소의 데이터를 보호하는 방법에 대한 자세히 알아보려 합니다. 아래 링크를 따라갑니다.

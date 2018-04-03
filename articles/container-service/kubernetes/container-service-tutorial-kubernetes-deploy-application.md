@@ -1,6 +1,6 @@
 ---
-title: "Azure Container Service 자습서 - 응용 프로그램 배포"
-description: "Azure Container Service 자습서 - 응용 프로그램 배포"
+title: Azure Container Service 자습서 - 응용 프로그램 배포
+description: Azure Container Service 자습서 - 응용 프로그램 배포
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 02ec97fecd4759e9f35ab313ffe2d18fa076170a
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 7119976ada00e10ebeadf6fcff2daf125f439c17
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="run-applications-in-kubernetes"></a>Kubernetes에서 응용 프로그램 실행
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 02/27/2018
 > * Kubernetes에서 응용 프로그램 실행
 > * 응용 프로그램 테스트
 
-후속 자습서에서는 이 응용 프로그램을 스케일 아웃하고 업데이트하며, Kubernetes 클러스터를 모니터링하도록 Operations Management Suite를 구성합니다.
+후속 자습서에서는 이 응용 프로그램을 규모 확장하고, Kubernetes 클러스터를 모니터링하도록 Log Analytics를 구성합니다.
 
 이 자습서에서는 Kubernetes 개념에 대한 기본적인 이해가 있다고 가정하며 Kubernetes에 대한 자세한 정보는 [Kubernetes 설명서](https://kubernetes.io/docs/home/)를 참조하세요.
 
