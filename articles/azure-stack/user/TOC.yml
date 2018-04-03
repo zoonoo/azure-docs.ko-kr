@@ -99,12 +99,19 @@
               href: azure-stack-powershell-download.md
             - name: PowerShell 구성 - 사용자
               href: azure-stack-powershell-configure-user.md
-            - name: Azure Stack CLI 설치 및 구성
-              href: azure-stack-connect-cli.md
             - name: Visual Studio 설치
               href: azure-stack-install-visual-studio.md
-            - name: API 버전 프로필 관리
+            - name: API 버전 프로필을 사용 하 여
               href: azure-stack-version-profiles.md
+              items:
+                - name: PowerShell
+                  href: azure-stack-version-profiles-powershell.md
+                - name: Azure CLI 2.0
+                  href: azure-stack-version-profiles-azurecli2.md
+                - name: 이동
+                  href: azure-stack-version-profiles-go.md
+                - name: 리소스 공급자 프로필에서 지 원하는 Api
+                  href: azure-stack-profiles-azure-resource-manager-versions.md
         - name: 정책 모듈 사용
           href: azure-stack-policy-module.md
         - name: 템플릿 사용
