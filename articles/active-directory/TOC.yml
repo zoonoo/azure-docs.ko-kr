@@ -5,12 +5,18 @@
 - name: 역할 기반 Access Control(RBAC)
   href: role-based-access-control-what-is.md
   items:
-    - name: 액세스 할당 관리
+    - name: 역할 할당 관리
       items:
         - name: 사용자별
           href: role-based-access-control-manage-assignments.md
         - name: 리소스별
           href: role-based-access-control-configure.md
+        - name: Azure CLI 사용
+          href: role-based-access-control-manage-access-azure-cli.md
+        - name: PowerShell 사용
+          href: role-based-access-control-manage-access-powershell.md
+        - name: REST 사용
+          href: role-based-access-control-manage-access-rest.md
     - name: 기본 제공 역할
       href: role-based-access-built-in-roles.md
     - name: 사용자 지정 역할
@@ -19,14 +25,6 @@
       href: role-based-access-control-create-custom-roles-for-internal-external-users.md
     - name: 보고
       href: role-based-access-control-access-change-history-report.md
-    - name: 역할을 관리하는 다양한 방법
-      items:
-        - name: Azure CLI 사용
-          href: role-based-access-control-manage-access-azure-cli.md
-        - name: PowerShell 사용
-          href: role-based-access-control-manage-access-powershell.md
-        - name: REST 사용
-          href: role-based-access-control-manage-access-rest.md
     - name: 테넌트 관리자 액세스 권한 상승
       href: role-based-access-control-tenant-admin-access.md
     - name: 문제 해결

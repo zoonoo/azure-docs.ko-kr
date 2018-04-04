@@ -1,13 +1,13 @@
 ---
-title: "Azure HDInsight의 Phoenix 성능 | Microsoft Docs"
-description: "Phoenix 성능을 최적화하는 모범 사례입니다."
+title: Azure HDInsight의 Phoenix 성능 | Microsoft Docs
+description: Phoenix 성능을 최적화하는 모범 사례입니다.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.workload: big-data

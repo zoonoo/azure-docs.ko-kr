@@ -1,11 +1,11 @@
 ---
-title: "VPN Gateway에 대한 활성-활성 S2S VPN 연결 구성: Azure Resource Manager: PowerShell | Microsoft Docs"
-description: "이 문서에서는 Azure Resource Manager 및 PowerShell을 사용하여 Azure VPN Gateway와의 활성-활성 연결을 구성하는 방법을 안내합니다."
+title: 'VPN Gateway에 대한 활성-활성 S2S VPN 연결 구성: Azure Resource Manager: PowerShell | Microsoft Docs'
+description: 이 문서에서는 Azure Resource Manager 및 PowerShell을 사용하여 Azure VPN Gateway와의 활성-활성 연결을 구성하는 방법을 안내합니다.
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
 manager: rossort
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 238cd9b3-f1ce-4341-b18e-7390935604fa
 ms.service: vpn-gateway
