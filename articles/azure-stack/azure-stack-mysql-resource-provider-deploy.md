@@ -1,24 +1,24 @@
 ---
-title: "MySQL 데이터베이스를 사용 하 여 Azure 스택에 PaaS로 | Microsoft Docs"
-description: "MySQL 리소스 공급자를 배포 Azure 스택에 서비스로 MySQL 데이터베이스를 제공 하는 방법에 대해 알아봅니다."
+title: MySQL 데이터베이스를 사용 하 여 Azure 스택에 PaaS로 | Microsoft Docs
+description: MySQL 리소스 공급자를 배포 Azure 스택에 서비스로 MySQL 데이터베이스를 제공 하는 방법에 대해 알아봅니다.
 services: azure-stack
-documentationCenter: 
+documentationCenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/27/2018
 ms.author: mabrigg
 ms.reviewer: jeffgo
-ms.openlocfilehash: 15a1648193555ecc5847170ab65f48dfa4f6417b
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 66e1d5691b431be0c3d040570b13e8d16b1669ef
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>MySQL 데이터베이스를 사용 하 여 Microsoft Azure 스택
 
@@ -80,7 +80,7 @@ Azure 스택 MySQL 리소스 공급자를 배포할 수 있습니다. 리소스 
     | 1711: 1.0.171122.1 | [MySQL RP 1.1.12.0 버전](https://aka.ms/azurestackmysqlrp1711) |
     | 1710: 1.0.171028.1 | [MySQL RP 1.1.8.0 버전](https://aka.ms/azurestackmysqlrp1710) |
 
-4.  Azure 스택 루트 인증서는 권한 있는 끝점에서 검색 됩니다. Azure SDK에 대 한 자체 서명 된 인증서는이 프로세스의 일부로 생성 됩니다. 다중 노드에 대 한 적절 한 인증서를 제공 해야 합니다.
+4.  Azure SDK에 대 한 자체 서명 된 인증서는이 프로세스의 일부로 생성 됩니다. 다중 노드에 대 한 적절 한 인증서를 제공 해야 합니다.
 
     고유한 인증서를 제공 해야 하는 경우에.pfx 파일을 배치는 **DependencyFilesLocalPath** 다음 조건을 만족 하 합니다.
 
@@ -399,7 +399,7 @@ Defender 정의 업데이트 하려면 다음이 단계를 수행 합니다.
 
     이 페이지에서 다운로드에 "수동으로 다운로드 및 설치 정의"에서 "Windows 10 및 Windows 8.1" 64 비트 파일에 대 한 Windows Defender 바이러스 백신 합니다. 
     
-    Direct link: https://go.microsoft.com/fwlink/?LinkID=121721&arch=x64
+    직접 링크: https://go.microsoft.com/fwlink/?LinkID=121721&arch=x64
 
 2. MySQL RP 어댑터 가상 컴퓨터의 유지 관리 끝점에 대 한 PowerShell 세션 만들기
 3. 유지 관리 끝점 세션을 사용 하 여 DB 어댑터 컴퓨터로 정의 업데이트 파일을 복사 합니다.

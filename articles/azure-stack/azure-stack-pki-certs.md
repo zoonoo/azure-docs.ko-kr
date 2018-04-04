@@ -3,7 +3,7 @@ title: Azure 스택에 대 한 azure 스택 공개 키 인프라 인증서 요�
 description: Azure 스택 통합 시스템에 대 한 Azure 스택 PKI 인증서 배포 요구 사항에 설명합니다.
 services: azure-stack
 documentationcenter: ''
-author: mabriggs
+author: jeffgilb
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -12,16 +12,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/20/2018
-ms.author: mabrigg
+ms.date: 03/29/2018
+ms.author: jeffgilb
 ms.reviewer: ppacent
-ms.openlocfilehash: a5712e556d7b3bdcce38b8b8d39a08414ce0fd2f
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 583f827fe77ef7721b3098dee01c418c9e5cccd8
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Azure 스택 공개 키 인프라에 대 한 인증서 요구 사항
+
 Azure 스택 소수의 Azure 스택 서비스 및 테 넌 트 Vm에 할당 된 외부에서 액세스할 수 있는 공용 IP 주소를 사용 하는 공용 인프라 네트워크를 있습니다. Azure 스택 배포 하는 동안 이러한 Azure 스택 공개 인프라 끝점에 대 한 적절 한 DNS 이름으로 PKI 인증서가 필요 합니다. 이 문서에 대 한 정보를 제공합니다.
 
 - 어떤 인증서는 배포 Azure 스택
@@ -37,7 +38,7 @@ Azure 스택 소수의 Azure 스택 서비스 및 테 넌 트 Vm에 할당 된 �
 - Azure 스택 인프라 네트워크 인증서를 서명에 사용 되는 인증 기관에 액세스할 수 있어야 합니다.
 - 인증서를 회전 하는 경우 인증서 배포 또는 위쪽에서 모든 공용 인증 기관에서 제공 하는 인증서에 서명 하는 데 사용 되는 동일한 내부 인증 기관에서 발행 중 하나 이어야 합니다.
 - 자체 서명 된 인증서의 사용은 지원 되지 않습니다.
-- 인증서 이름 SAN (주체 대체) 필드에서 모든 네임 스페이스를 포함 하는 단일 와일드 카드 인증서를 수 있습니다. 또는 와일드 카드를 사용 하 여 acs는 필요한 키 자격 증명 모음 등 끝점에 대 한 개별 인증서를 사용할 수 있습니다. 
+- 인증서 이름 SAN (주체 대체) 필드에서 모든 네임 스페이스를 포함 하는 단일 와일드 카드 인증서를 수 있습니다. 또는 같은 끝점에 대 한 와일드 카드를 사용 하는 개별 인증서를 사용할 수 있습니다 **acs** 및 키 자격 증명 모음은 필요 합니다. 
 - 인증서 서명 알고리즘 보다 강력한 이루어야 SHA1, 일 수 없습니다. 
 - Azure 스택 설치에 필요한을 공개 및 개인 키 인증서 형식이 PFX를 해야 합니다. 
 - 인증서 pfx 파일의 "키 사용" 필드에 값 "디지털 서명을" 및 "KeyEncipherment" 있어야 합니다.
@@ -58,6 +59,23 @@ Azure 스택 소수의 Azure 스택 서비스 및 테 넌 트 Vm에 할당 된 �
 각 Azure 스택 공개 인프라 끝점에 대 한 적절 한 DNS 이름 가진 인증서가 필요 합니다. 각 끝점의 DNS 이름 형식으로 표현 됩니다:  *&lt;접두사 >.&lt; 지역 > 합니다. &lt;fqdn >*합니다. 
 
 배포 [region]에 [externalfqdn] 값 영역과 Azure 스택 시스템에 대해 선택한 외부 도메인 이름을 일치 해야 합니다. 예를 들어 영역 이름이 경우 *Redmond* 외부 도메인 이름 되었으며 *contoso.com*, DNS 이름 형식을 갖기 *&lt;접두사 >. redmond.contoso.com*.  *&lt;접두사 >* 값은 인증서로 보호 하는 끝점을 설명 하기 위해 Microsoft에서 폴더도 있습니다. 또한는  *&lt;접두사 >* 값 외부 인프라 끝점의 특정 끝점을 사용 하는 Azure 스택을 서비스에 따라 다릅니다. 
+
+> [!note]  
+> 인증서 끝점 해당 디렉터리에 복사 모든 디렉터리에 복사 주체 및 주체 대체 이름 (SAN) 필드에는 모든 네임 스페이스를 포함 하는 단일 와일드 카드 인증서 또는 각 개별 인증서로 제공 될 수 있습니다. 기억 두 옵션 모두와 같은 끝점에 대 한 와일드 카드 인증서를 사용 해야 **acs** 및 키 자격 증명 모음은 필요 합니다. 
+
+| 배포 폴더 | 필요한 인증서 주체 및 주체 대체 이름 (SAN) | 범위 (지역) 당 | 하위 도메인 네임 스페이스 |
+|-------------------------------|------------------------------------------------------------------|----------------------------------|-----------------------------|
+| 공용 포털 | portal.&lt;region>.&lt;fqdn> | 포털 | &lt;region>.&lt;fqdn> |
+| 관리 포털 | adminportal.&lt;region>.&lt;fqdn> | 포털 | &lt;region>.&lt;fqdn> |
+| Azure Resource Manager Public | management.&lt;region>.&lt;fqdn> | Azure 리소스 관리자 | &lt;region>.&lt;fqdn> |
+| Azure 리소스 관리자 관리 | adminmanagement.&lt;region>.&lt;fqdn> | Azure 리소스 관리자 | &lt;region>.&lt;fqdn> |
+| ACSBlob | *.blob.&lt;region>.&lt;fqdn><br>(와일드 카드 SSL 인증서 포함) | Blob Storage | blob.&lt;region>.&lt;fqdn> |
+| ACSTable | *.table.&lt;region>.&lt;fqdn><br>(와일드 카드 SSL 인증서 포함) | Table Storage | table.&lt;region>.&lt;fqdn> |
+| ACSQueue | *.queue.&lt;region>.&lt;fqdn><br>(와일드 카드 SSL 인증서 포함) | Queue Storage | queue.&lt;region>.&lt;fqdn> |
+| KeyVault | *.vault.&lt;region>.&lt;fqdn><br>(와일드 카드 SSL 인증서 포함) | Key Vault | vault.&lt;region>.&lt;fqdn> |
+| KeyVaultInternal | *.adminvault.&lt;region>.&lt;fqdn><br>(와일드 카드 SSL 인증서 포함) |  내부 Keyvault |  adminvault.&lt;region>.&lt;fqdn> |
+
+### <a name="for-azure-stack-environment-on-pre-1803-versions"></a>Azure 스택 환경 사전 1803 버전에 대 한
 
 |배포 폴더|필요한 인증서 주체 및 주체 대체 이름 (SAN)|범위 (지역) 당|하위 도메인 네임 스페이스|
 |-----|-----|-----|-----|
@@ -93,7 +111,7 @@ Azure 스택 Azure AD 배포 모드를 사용 하 여 배포 하는 경우 앞�
 |범위 (지역) 당|인증서|필요한 인증서 주체 및 주체 대체 이름 (San)|하위 도메인 네임 스페이스|
 |-----|-----|-----|-----|
 |SQL, MySQL|SQL 및 MySQL|&#42;.dbadapter.*&lt;region>.&lt;fqdn>*<br>(와일드 카드 SSL 인증서 포함)|dbadapter.*&lt;region>.&lt;fqdn>*|
-|App Service|웹 트래픽 기본 SSL 인증서|&#42;.appservice.*&lt;region>.&lt;fqdn>*<br>&#42;.scm.appservice.*&lt;region>.&lt;fqdn>*<br>(다중 도메인 와일드 카드 SSL 인증서<sup>1</sup>)|appservice.*&lt;region>.&lt;fqdn>*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
+|App Service|웹 트래픽 기본 SSL 인증서|&#42;.appservice.*&lt;region>.&lt;fqdn>*<br>&#42;.scm.appservice.*&lt;region>.&lt;fqdn>*<br>&#42;.sso.appservice.*&lt;region>.&lt;fqdn>*<br>(다중 도메인 와일드 카드 SSL 인증서<sup>1</sup>)|appservice.*&lt;region>.&lt;fqdn>*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
 |App Service|API|api.appservice.*&lt;region>.&lt;fqdn>*<br>(SSL 인증서<sup>2</sup>)|appservice.*&lt;region>.&lt;fqdn>*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
 |App Service|FTP|ftp.appservice.*&lt;region>.&lt;fqdn>*<br>(SSL 인증서<sup>2</sup>)|appservice.*&lt;region>.&lt;fqdn>*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
 |App Service|SSO|sso.appservice.*&lt;region>.&lt;fqdn>*<br>(SSL 인증서<sup>2</sup>)|appservice.*&lt;region>.&lt;fqdn>*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
