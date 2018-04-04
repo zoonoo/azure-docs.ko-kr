@@ -48,7 +48,7 @@ Eclipse에서 **파일** > **새로 만들기** > **동적 웹 프로젝트**를
 
 ### <a name="add-a-jsp-page"></a>JSP 페이지 추가
 
-프로젝트 탐색기 표시되지 않으면 복원합니다.
+프로젝트 탐색기가 표시되지 않으면 복원합니다.
 
 ![Eclipse용 Java EE 작업 영역](./media/app-service-web-get-started-java/pe.png)
 
@@ -80,7 +80,7 @@ index.jsp 파일에서 `<body></body>` 요소를 다음 태그로 바꿉니다.
 
 ![Azure 웹앱으로 게시 상황에 맞는 메뉴](./media/app-service-web-get-started-java/publish-as-azure-web-app-context-menu.png)
 
-**Azure 로그인** 대화 상자에서 **대화형** 옵션을 유지한 다음 **로그인**을 선택합니다.
+**Azure 로그인** 대화 상자에서 **대화형** 옵션을 유지한 다음 **로그인**합니다.
 
 로그인 지침을 따릅니다.
 
@@ -94,7 +94,7 @@ Azure 계정에 로그인하면 **웹앱 배포** 대화 상자가 나타납니�
 
 ### <a name="create-app-service-dialog-box"></a>App Service 만들기 대화 상자
 
-기본 값으로 **App Service 만들기** 대화 상자가 나타납니다. 다음 이미지에 표시된 숫자 **170602185241**은 대화 상자에 따라 달라집니다.
+기본 값으로 **App Service 만들기** 대화 상자가 나타납니다. 다음 이미지에 나타난 숫자 **170602185241**과는 다른 숫자가 대화 상자에 나타날 수 있습니다.
 
 ![App Service 만들기 대화 상자](./media/app-service-web-get-started-java/cas1.png)
 
@@ -106,7 +106,7 @@ Azure 계정에 로그인하면 **웹앱 배포** 대화 상자가 나타납니�
 * **App Service 계획** 탭에서:
 
   * **새로 만들기**: App Service 계획의 이름인 기본값을 유지합니다.
-  * **위치**: **유럽 서부** 또는 인접 위치를 선택합니다.
+  * **위치**: **서유럽** 또는 인접 위치를 선택합니다.
   * **가격 책정 계층**: 무료 옵션을 선택합니다. 기능의 경우 [App Service 가격 책정](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 참조하세요.
 
    ![App Service 만들기 대화 상자](./media/app-service-web-get-started-java/create-app-service-dialog-box.png)
@@ -201,3 +201,4 @@ Azure 도구 키트는 웹앱을 만들고 진행률 대화 상자를 표시합�
 
 > [!div class="nextstepaction"]
 > [사용자 지정 도메인 매핑](app-service-web-tutorial-custom-domain.md)
+
