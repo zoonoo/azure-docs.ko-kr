@@ -1,12 +1,12 @@
 ---
-title: "Azure VM 네트워크 처리량 테스트 | Microsoft Docs"
-description: "Azure Virtual Machine 네트워크 처리량을 테스트하는 방법을 알아봅니다."
+title: Azure VM 네트워크 처리량 테스트 | Microsoft Docs
+description: Azure Virtual Machine 네트워크 처리량을 테스트하는 방법을 알아봅니다.
 services: virtual-network
 documentationcenter: na
 author: steveesp
 manager: Gerald DeGrace
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article

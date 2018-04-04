@@ -1,9 +1,9 @@
 ---
-title: "회사 또는 학교 계정에 대한 2단계 인증 설정 | Microsoft Docs"
-description: "회사에서 Azure Multi-Factor Authentication을 구성하는 경우 2단계 인증에 등록하라는 메시지가 나타납니다. 설정하는 방법에 대해 알아봅니다. "
+title: 회사 또는 학교 계정에 대한 2단계 인증 설정 | Microsoft Docs
+description: '회사에서 Azure Multi-Factor Authentication을 구성하는 경우 2단계 인증에 등록하라는 메시지가 나타납니다. 설정하는 방법에 대해 알아봅니다. '
 services: multi-factor-authentication
-keywords: "Active Directory 사용 방법, 클라우드의 Active Directory, Active Directory 자습서"
-documentationcenter: 
+keywords: Active Directory 사용 방법, 클라우드의 Active Directory, Active Directory 자습서
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
 ms.reviewer: richagi

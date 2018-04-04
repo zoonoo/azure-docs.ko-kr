@@ -1,11 +1,11 @@
 ---
-title: "Azure Service Bus 메시지 순서 지정 및 타임스탬프 | Microsoft Docs"
-description: "타임스탬프를 통한 Service Bus 메시지 시퀀스 및 순서 유지"
+title: Azure Service Bus 메시지 순서 지정 및 타임스탬프 | Microsoft Docs
+description: 타임스탬프를 통한 Service Bus 메시지 시퀀스 및 순서 유지
 services: service-bus-messaging
-documentationcenter: 
+documentationcenter: ''
 author: clemensv
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na

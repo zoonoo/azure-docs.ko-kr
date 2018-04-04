@@ -1,12 +1,12 @@
 ---
-title: "Azure 진단 확장 1.3 이상 구성 스키마 | Microsoft Docs"
-description: "Azure 진단용 스키마 버전 1.3 이상은 Microsoft Azure SDK 2.4 이상의 일부로 제공됩니다."
+title: Azure 진단 확장 1.3 이상 구성 스키마 | Microsoft Docs
+description: Azure 진단용 스키마 버전 1.3 이상은 Microsoft Azure SDK 2.4 이상의 일부로 제공됩니다.
 services: monitoring-and-diagnostics
 documentationcenter: .net
 author: rboucher
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na

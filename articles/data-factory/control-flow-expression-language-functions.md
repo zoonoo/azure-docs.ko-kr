@@ -51,7 +51,7 @@ ms.lasthandoff: 03/28/2018
 |----------------|------------|  
 |"parameters"|'parameters' 문자가 반환됩니다.|  
 |"parameters[1]"|'parameters[1]' 문자가 반환됩니다.|  
-|"@@"|\'\@\'를 포함하는 1개 문자열이 반환됩니다.|  
+|\"\@\@\"|\'\@\'를 포함하는 1개 문자열이 반환됩니다.|  
 |\" \@\"|\' \@\'를 포함하는 2개 문자열이 반환됩니다.|  
   
  *문자열 보간*이라는 기능을 사용하면 식이 `@{ ... }`로 묶인 문자열 내부에 나타날 수도 있습니다. 예: `"name" : "First Name: @{pipeline().parameters.firstName} Last Name: @{pipeline().parameters.lastName}"`  

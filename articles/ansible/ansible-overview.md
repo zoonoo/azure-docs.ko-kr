@@ -1,8 +1,8 @@
 ---
-title: "Azure에서 Ansible 사용"
-description: "Ansible을 사용하여 클라우드 프로비전, 구성 관리 및 응용 프로그램 배포를 자동화하는 방법을 소개합니다."
+title: Azure에서 Ansible 사용
+description: Ansible을 사용하여 클라우드 프로비전, 구성 관리 및 응용 프로그램 배포를 자동화하는 방법을 소개합니다.
 ms.service: ansible
-keywords: "Ansible, Azure, DevOps, 개요, 클라우드 프로비전, 구성 관리, 응용 프로그램 배포, Ansible 모듈, Ansible 플레이북"
+keywords: Ansible, Azure, DevOps, 개요, 클라우드 프로비전, 구성 관리, 응용 프로그램 배포, Ansible 모듈, Ansible 플레이북
 author: tomarcher
 manager: routlaw
 ms.author: tarcher
