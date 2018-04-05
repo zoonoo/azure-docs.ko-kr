@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 04/04/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 560261b5d353c7e9510124985c644d895612e2bb
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: cff6d780826164de6ef0122849e40d453192f81c
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-stack-1803-update"></a>Azure 스택 1803 업데이트
 
@@ -36,7 +36,7 @@ Azure 스택 1803 업데이트 빌드 번호는 **20180329.1**합니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에    
 > [!IMPORTANT]    
-> 이 업데이트의 설치 하는 동안 가상 컴퓨터를 만들 하려고 하지 마십시오. 업데이트를 관리 하는 방법에 대 한 자세한 내용은 참조 [Azure 스택 개요에서 업데이트를 관리](/azure-stack-updates#plan-for-updates)합니다.
+> 이 업데이트의 설치 하는 동안 가상 컴퓨터를 만들 하려고 하지 마십시오. 업데이트를 관리 하는 방법에 대 한 자세한 내용은 참조 [Azure 스택 개요에서 업데이트를 관리](azure-stack-updates.md#plan-for-updates)합니다.
 
 
 ### <a name="prerequisites"></a>필수 조건
@@ -64,28 +64,25 @@ Azure 스택 1803 업데이트 빌드 번호는 **20180329.1**합니다.
  
    스파스 파일은 저장소 공간 사용을 줄이고 I/O를 향상 시키기 위해 하는 데 사용 하는 효율적인 파일 형식입니다.  자세한 내용은 참조 [Fsutil 스파스](https://docs.microsoft.com/windows-server/administration/windows-commands/fsutil-sparse) Windows 서버에 대 한 합니다. 
 
-
 ### <a name="fixed-issues"></a>해결된 문제
 
-- <!-- 1739988 -->  **Fixed** - Internal Load Balancing (ILB) now properly handles MAC addresses for back-end VMs, which causes ILB to drop packets to the back-end network when using Linux instances on the back-end network. ILB works fine with Windows instances on the back-end network. 
+- <!-- 1739988 --> Internal Load Balancing (ILB) now properly handles MAC addresses for back-end VMs, which causes ILB to drop packets to the back-end network when using Linux instances on the back-end network. ILB works fine with Windows instances on the back-end network. 
 
-- <!-- 1805496 --> **Fixed** - An issue where VPN Connections between Azure Stack would become disconnected due to Azure Stack using different settings for the IKE policy than Azure.  The values now match the values in Azure. 
+- <!-- 1805496 --> An issue where VPN Connections between Azure Stack would become disconnected due to Azure Stack using different settings for the IKE policy than Azure.  The values now match the values in Azure. 
 
-- <!-- 2209262 --> **Fixed** - The IP issue where VPN Connections was previously visible in the portal; however enabling or toggling IP Forwarding has no effect. The feature is turned on by default and the ability to change this not yet supported.  The control has been removed from the portal. 
+- <!-- 2209262 --> The IP issue where VPN Connections was previously visible in the portal; however enabling or toggling IP Forwarding has no effect. The feature is turned on by default and the ability to change this not yet supported.  The control has been removed from the portal. 
 
-- <!-- 1766332 --> **Fixed** - Azure Stack does not support Policy Based VPN Gateways, even though the option appears in the Portal.  The option has been removed from the Portal. 
+- <!-- 1766332 --> Azure Stack does not support Policy Based VPN Gateways, even though the option appears in the Portal.  The option has been removed from the Portal. 
 
-- <!-- 2096388 --> **Fixed** - Unable to update Network Security Group Rules from the Portal is now fixed. 
+- <!-- 1868283 --> Azure Stack now prevents resizing of a virtual machine that is created with dynamic disks. 
 
-- <!-- 1868283 --> **Fixed** - Azure Stack now prevents resizing of a virtual machine that is created with dynamic disks. 
+- <!-- 1756324 --> Usage data for virtual machines is now separated at hourly intervals. This is consistent with Azure. 
 
-- <!-- 1756324--> **Fixed** - Usage data for virtual machines is now separated at hourly intervals. This is consistent with Azure. 
+- <!--  2253274 --> The issue where in the admin and user portals, the Settings blade for vNet Subnets fails to load. As a workaround, use PowerShell and the [Get-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetworksubnetconfig?view=azurermps-5.5.0) cmdlet to view and manage this information.
 
-- <!--  2253274 --> **Fixed** - The issue where in the admin and user portals, the Settings blade for vNet Subnets fails to load. As a workaround, use PowerShell and the [Get-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetworksubnetconfig?view=azurermps-5.5.0) cmdlet to view and manage this information.
+- 가상 컴퓨터, 메시지를 만들 때 *가격 책정을 표시할 수 없습니다* 더 이상 VM 크기에 대 한 크기를 선택할 때 나타납니다.
 
-- **고정** -이 메시지는 가상 컴퓨터를 만들면 *가격 책정을 표시할 수 없습니다* 더 이상 VM 크기에 대 한 크기를 선택할 때 나타납니다.
-
-- **다양 한 수정 프로그램이** 성능, 안정성, 보안 및 Azure 스택에서 사용 되는 운영 체제에 대 한 합니다.
+- 성능, 안정성, 보안 및 Azure 스택에서 사용 되는 운영 체제에 대 한 다양 한 수정 합니다.
 
 
 ### <a name="changes"></a>변경 내용
@@ -93,7 +90,7 @@ Azure 스택 1803 업데이트 빌드 번호는 **20180329.1**합니다.
 
 
 ### <a name="known-issues-with-the-update-process"></a>업데이트 프로세스의 알려진된 문제    
-*1803 업데이트의 설치에 대 한 알려진된 문제가 없는지 합니다.*
+1803 업데이트를 설치 하는 동안에 blob 서비스 및 blob 서비스를 사용 하는 내부 서비스의 가동 중지 시간이 있을 수 있습니다. 일부 가상 컴퓨터 작업이 포함 됩니다.  이 작동 중단 시간 수로 인해 실패할 테 넌 트의 작업 또는 경고 데이터를 액세스할 수 없는 서비스에서 합니다. 업데이트 설치를 완료 하는 경우이 문제는 자체 해결 합니다. 
 
 
 ### <a name="known-issues-post-installation"></a>알려진된 문제 (설치 후)
@@ -133,7 +130,9 @@ Azure 스택 1803 업데이트 빌드 번호는 **20180329.1**합니다.
 #### <a name="compute"></a>컴퓨팅
 - 크기 조정 설정을 가상 컴퓨터 크기 집합에 대 한 포털에서 사용할 수 없는 경우 한 대 안으로 사용할 수 있습니다 [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set)합니다. PowerShell 버전 차이 때문에 사용 해야 합니다는 `-Name` 매개 변수 대신 `-VMScaleSetName`합니다.
 
-- <!-- 2290877  --> You cannot scale up a virtual machine scale set (VMSS) that was created when using Azure Stack prior to version 1803. This is due to the change in support for using availability sets with virtual machine scale sets. This support is added with version 1803.  When you attempt to add additional instances to scale a VMSS that was created prior to this support being added, the action fails with the message Provisioning state failed. We are investigating a fix for this issue to enable an older VMSS to scale, and will update this content if and when that is available. 
+- <!-- 2290877  --> You cannot scale up a virtual machine scale set (VMSS) that was created when using Azure Stack prior to version 1802. This is due to the change in support for using availability sets with virtual machine scale sets. This support was added with version 1802.  When you attempt to add additional instances to scale a VMSS that was created prior to this support being added, the action fails with the message *Provisioning state failed*. 
+
+  이 문제를 해결 하려면 핫픽스를 요청 하는 지원에 문의 **1.0.180302.4** Azure 스택에 대 한 합니다. 
 
 - 가용성으로 이동 하 여 포털에서 집합을 만들 때 **새로** > **계산** > **가용성 집합**를 만들 수 있습니다는 가용성 장애 도메인과 업데이트 도메인 1으로 설정합니다. 해결 방법으로, 새 가상 컴퓨터를 만들 때, 가용성 집합 내에서 또는 PowerShell, CLI를 사용 하 여 만듭니다 포털입니다.
 
@@ -164,6 +163,69 @@ Azure 스택 1803 업데이트 빌드 번호는 **20180329.1**합니다.
 - DNS 서버 설정을 사용 하 여 만든 가상 네트워크에 *자동*로 변경 하는 사용자 지정 DNS 서버에 오류가 발생 합니다. 설정이 업데이트는 해당 Vnet의 Vm에 푸시되 지 않습니다.
 
 - Azure 스택 VM을 배포한 후 VM 인스턴스를 추가 네트워크 인터페이스를 추가 하는 것을 지원 하지 않습니다. VM에서 둘 이상의 네트워크 인터페이스를 필요로 하는 경우 배포 시에 정의 되어야 합니다.
+
+- <!-- 2096388 --> You cannot use the admin portal to update rules for a network security group. 
+
+    응용 프로그램 서비스에 대 한 해결 방법: PowerShell 사용한 네트워크 보안 그룹 내에서 보안 규칙을 수정 컨트롤러 인스턴스를 원격 데스크톱을 해야 하는 경우.  다음은 하는 방법의 예 *허용*, 다음 구성을 사용 하 여 복원 *거부*:  
+    
+    - *허용:*
+ 
+      ```powershell    
+      Login-AzureRMAccount -EnvironmentName AzureStackAdmin
+      
+      $nsg = Get-AzureRmNetworkSecurityGroup -Name "ControllersNsg" -ResourceGroupName "AppService.local"
+      
+      $RuleConfig_Inbound_Rdp_3389 =  $nsg | Get-AzureRmNetworkSecurityRuleConfig -Name "Inbound_Rdp_3389"
+      
+      ##This doesn’t work. Need to set properties again even in case of edit
+      
+      #Set-AzureRmNetworkSecurityRuleConfig -Name "Inbound_Rdp_3389" -NetworkSecurityGroup $nsg -Access Allow  
+      
+      Set-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg `
+        -Name $RuleConfig_Inbound_Rdp_3389.Name `
+        -Description "Inbound_Rdp_3389" `
+        -Access Allow `
+        -Protocol $RuleConfig_Inbound_Rdp_3389.Protocol `
+        -Direction $RuleConfig_Inbound_Rdp_3389.Direction `
+        -Priority $RuleConfig_Inbound_Rdp_3389.Priority `
+        -SourceAddressPrefix $RuleConfig_Inbound_Rdp_3389.SourceAddressPrefix `
+        -SourcePortRange $RuleConfig_Inbound_Rdp_3389.SourcePortRange `
+        -DestinationAddressPrefix $RuleConfig_Inbound_Rdp_3389.DestinationAddressPrefix `
+        -DestinationPortRange $RuleConfig_Inbound_Rdp_3389.DestinationPortRange
+      
+      # Commit the changes back to NSG
+      Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
+      ```
+
+    - *거부:*
+
+        ```powershell
+        
+        Login-AzureRMAccount -EnvironmentName AzureStackAdmin
+        
+        $nsg = Get-AzureRmNetworkSecurityGroup -Name "ControllersNsg" -ResourceGroupName "AppService.local"
+        
+        $RuleConfig_Inbound_Rdp_3389 =  $nsg | Get-AzureRmNetworkSecurityRuleConfig -Name "Inbound_Rdp_3389"
+        
+        ##This doesn’t work. Need to set properties again even in case of edit
+    
+        #Set-AzureRmNetworkSecurityRuleConfig -Name "Inbound_Rdp_3389" -NetworkSecurityGroup $nsg -Access Allow  
+    
+        Set-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg `
+          -Name $RuleConfig_Inbound_Rdp_3389.Name `
+          -Description "Inbound_Rdp_3389" `
+          -Access Deny `
+          -Protocol $RuleConfig_Inbound_Rdp_3389.Protocol `
+          -Direction $RuleConfig_Inbound_Rdp_3389.Direction `
+          -Priority $RuleConfig_Inbound_Rdp_3389.Priority `
+          -SourceAddressPrefix $RuleConfig_Inbound_Rdp_3389.SourceAddressPrefix `
+          -SourcePortRange $RuleConfig_Inbound_Rdp_3389.SourcePortRange `
+          -DestinationAddressPrefix $RuleConfig_Inbound_Rdp_3389.DestinationAddressPrefix `
+          -DestinationPortRange $RuleConfig_Inbound_Rdp_3389.DestinationPortRange
+          
+        # Commit the changes back to NSG
+        Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg 
+        ```
 
 
 #### <a name="sql-and-mysql"></a>SQL 및 MySQL

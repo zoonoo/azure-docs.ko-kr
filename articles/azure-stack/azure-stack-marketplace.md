@@ -1,25 +1,25 @@
 ---
-title: "Azure 스택 (클라우드 연산자)에서 사용자 지정 마켓플레이스 항목을 게시 | Microsoft Docs"
-description: "Azure 스택 연산자 Azure 스택에 사용자 지정 마켓플레이스 항목을 게시 하는 방법에 설명 합니다."
+title: Azure 스택 (클라우드 연산자)에서 사용자 지정 마켓플레이스 항목을 게시 | Microsoft Docs
+description: Azure 스택 연산자 Azure 스택에 사용자 지정 마켓플레이스 항목을 게시 하는 방법에 설명 합니다.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 60871cbb-eed2-433c-a76d-d605c7aec06c
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/25/2017
+ms.date: 04/03/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: c791708e11b7e9e8bbe046f06233d948d4632c90
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 37587cf5f99ce105413382cbd5a0de9cacc76b7d
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="the-azure-stack-marketplace-overview"></a>Azure 스택 마켓플레이스 개요
 
@@ -43,6 +43,8 @@ Azure 스택 마켓플레이스 항목 서비스, 응용 프로그램 또는 사
 * 포털에서 항목을 표시 하는 서식 지정 정보
 
 Marketplace에 게시되는 모든 항목은 Azure 갤러리 패키지(azpkg)라는 서식을 사용합니다. 마켓플레이스 항목의 일부가 아니라 Azure 스택에 배포 또는 런타임 리소스 (예: 코드, 소프트웨어 또는 가상 컴퓨터 이미지와 zip 파일)를 개별적으로 추가 합니다. 
+
+1803 부터는 이미지 변환할지 스파스 파일에 Azure에서 다운로드 하는 동안 또는 사용자 지정 이미지를 업로드 하는 동안 합니다. 이 프로세스는 시간 추가 이미지를 추가할 때 하지만 공간을 절약 하며 해당 이미지의 배포 빨라집니다. 변환 새 이미지에만 적용 됩니다. 기존 이미지는 변경 되지 않습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 [만들기 및 마켓플레이스 항목을 게시](azure-stack-create-and-publish-marketplace-item.md)
