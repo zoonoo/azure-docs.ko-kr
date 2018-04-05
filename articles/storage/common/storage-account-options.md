@@ -1,6 +1,6 @@
 ---
-title: "Azure Storage 계정 옵션 | Microsoft Docs"
-description: "Azure Storage를 사용하기 위한 옵션을 이해합니다."
+title: Azure Storage 계정 옵션 | Microsoft Docs
+description: Azure Storage를 사용하기 위한 옵션을 이해합니다.
 services: storage
 author: jirwin
 manager: jwillis
@@ -9,11 +9,11 @@ ms.workload: storage
 ms.topic: get-started-article
 ms.date: 01/17/2018
 ms.author: jirwin
-ms.openlocfilehash: 2c69519b865169b477950bc8fa659d5ad9081bbf
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 75d1580df5e36b2c88939fde9077c5a1948f6348
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-storage-account-options"></a>Azure Storage 계정 옵션
 
@@ -218,7 +218,7 @@ GPv2 저장소 계정에 저장된 데이터를 저장하고 액세스하는 비
 자세한 내용은 [저장소 분석 메트릭 정보](https://msdn.microsoft.com/library/azure/hh343258.aspx) 및 [저장소 분석 메트릭 테이블 스키마](https://msdn.microsoft.com/library/azure/hh343264.aspx)를 참조하세요.
 
 > [!NOTE]
-> Blob 저장소 계정은 해당 계정의 메트릭 데이터를 저장하고 액세스하는 경우에만 Table service 엔드포인트를 노출합니다. ZRS(영역 중복 저장소) 계정은 메트릭 데이터 수집을 지원하는 반면 ZRS 클래식 저장소 계정은 지원하지 않습니다. ZRS에 대한 자세한 내용은 [영역 중복 저장소](storage-redundancy.md#zone-redundant-storage)를 참조하세요. 
+> Blob 저장소 계정은 해당 계정의 메트릭 데이터를 저장하고 액세스하는 경우에만 Table service 엔드포인트를 노출합니다. 
 
 Blob 저장소에 대한 저장소 사용량을 모니터링하려면 용량 메트릭을 활성화해야 합니다.
 이를 활성화하면 용량 데이터는 저장소 계정의 Blob service에 대해 매일 기록되고 동일한 저장소 계정 내에서 *$MetricsCapacityBlob* 테이블에 작성된 테이블 항목으로 기록됩니다.

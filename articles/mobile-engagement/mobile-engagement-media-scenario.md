@@ -1,11 +1,11 @@
 ---
-title: "미디어 앱에 대한 Azure Mobile Engagement 구현"
-description: "Azure Mobile Engagement 구현을 위한 미디어 앱 시나리오"
+title: 미디어 앱에 대한 Azure Mobile Engagement 구현
+description: Azure Mobile Engagement 구현을 위한 미디어 앱 시나리오
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 48201cc8-4e04-485c-a8dc-d6406d23f3ed
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: c1591c3e436981e621830916cf0cdc4b7f395d7b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8e5d4585b47a4ca26b81b7168aa499f25722415a
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="implement-mobile-engagement-with-media-app"></a>미디어 앱에 Mobile Engagement 구현
+> [!IMPORTANT]
+> Azure Mobile Engagement는 2018/3/31에 사용이 중지됩니다. 이 페이지는 이후에 삭제됩니다.
+> 
+
 ## <a name="overview"></a>개요
 John은 큰 미디어 회사의 모바일 프로젝트 관리자입니다. 최근에 새로운 앱을 출시했는데 다운로드 수가 매우 높습니다. 다운로드 목표는 달성했지만 사용자당 투자 수익률(ROI)은 필요 조건을 충족하지 못하고 있습니다. 
 

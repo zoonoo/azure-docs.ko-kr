@@ -43,11 +43,12 @@
 ## MXChip IoT DevKit 사용
 ### [Azure Cognitive Services로 음성 메시지 변환](iot-hub-arduino-iot-devkit-az3166-translator.md)
 ### [Azure Functions를 사용하여 Twitter 메시지 검색](iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message.md)
+### [Azure Functions로 자기 센서 모니터링 및 전자 메일 알림 보내기](iot-hub-arduino-iot-devkit-az3166-door-monitor.md)
 
 # 방법 가이드
 ## 계획
 ### [IoT Hub와 Event Hubs 비교](iot-hub-compare-event-hubs.md)
-### [솔루션 확장](iot-hub-scaling.md)
+### [올바른 계층 선택](iot-hub-scaling.md)
 ### [고가용성 및 재해 복구](iot-hub-ha-dr.md)
 ### [추가 프로토콜 지원](iot-hub-protocol-gateway.md)
 ### [메시지와 이벤트 라우팅 비교](iot-hub-event-grid-routing-comparison.md)
@@ -147,6 +148,7 @@
 ### [진단 및 모니터링](iot-hub-monitor-resource-health.md)
 #### [진단 설정으로 마이그레이션](iot-hub-migrate-to-diagnostics-settings.md)
 #### [작업 모니터링](iot-hub-operations-monitoring.md)
+### [IoT hub 업그레이드](iot-hub-upgrade.md)
 ### [사용 현황 메트릭](iot-hub-metrics.md)
 ### [IoT 장치 대량 관리](iot-hub-bulk-identity-mgmt.md)
 ### [IP 필터링 구성](iot-hub-ip-filtering.md)

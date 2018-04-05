@@ -1,12 +1,12 @@
 ---
-title: "Azure Cosmos DB 디자인 패턴: 소셜 미디어 앱 | Microsoft Docs"
-description: "Azure Cosmos DB 및 기타 Azure 서비스의 저장소 유연성을 활용하여 소셜 네트워크에 대한 디자인 패턴을 알아봅니다."
-keywords: "소셜 미디어 앱"
+title: 'Azure Cosmos DB 디자인 패턴: 소셜 미디어 앱 | Microsoft Docs'
+description: Azure Cosmos DB 및 기타 Azure 서비스의 저장소 유연성을 활용하여 소셜 네트워크에 대한 디자인 패턴을 알아봅니다.
+keywords: 소셜 미디어 앱
 services: cosmos-db
 author: ealsur
 manager: jhubbard
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 ms.assetid: 2dbf83a7-512a-4993-bf1b-ea7d72e095d9
 ms.service: cosmos-db
 ms.workload: data-services
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2017
 ms.author: mimig
-ms.openlocfilehash: c89b2db6d5a80f184ca98ef757605272d385a81c
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: d223187ab1f8338c57e6aa32903ea9b762393ab5
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Azure Cosmos DB를 사용하여 소셜 네트워크 디자인
 광범위하게 상호 연결된 사회에서 살고 있다는 것은 삶의 어느 시점에서 **소셜 네트워크**의 일부가 된다는 것을 의미합니다. 우리는 소셜 네트워크를 사용하여 친구, 동료, 가족 등과 연락하거나, 때로는 공통의 관심사를 가진 사람들과 열정을 공유합니다.
@@ -229,7 +229,7 @@ Cosmos DB는 지정된 **파티션 키**(문서의 특성 중 하나로 정의�
 
 한 가지 흥미로운 점은 Cosmos DB가 모든 파티션에 투명하게 쿼리([집계](https://azure.microsoft.com/blog/planet-scale-aggregates-with-azure-documentdb/) 포함)를 실행한다는 것입니다. 데이터의 증가에 따라 논리를 추가할 필요가 없습니다.
 
-시간이 지나면 결국 트래픽이 증가하고 리소스 사용([RU](request-units.md) 또는 요청 단위)도 증가합니다. userbase가 증가하면 더 자주 읽고 쓰게 되고 더 많은 콘텐츠를 만들고 읽기 시작합니다. **처리량 크기 조정** 기능이 매우 중요합니다. RU를 증가시키는 것은 매우 쉽습니다. Azure Portal에서 몇 번 클릭하거나 [API를 통해 명령을 실행](https://docs.microsoft.com/rest/api/documentdb/replace-an-offer)하여 수행할 수 있습니다.
+시간이 지나면 결국 트래픽이 증가하고 리소스 사용([RU](request-units.md) 또는 요청 단위)도 증가합니다. userbase가 증가하면 더 자주 읽고 쓰게 되고 더 많은 콘텐츠를 만들고 읽기 시작합니다. **처리량 크기 조정** 기능이 매우 중요합니다. RU를 증가시키는 것은 매우 쉽습니다. Azure Portal에서 몇 번 클릭하거나 [API를 통해 명령을 실행](https://docs.microsoft.com/rest/api/cosmos-db/replace-an-offer)하여 수행할 수 있습니다.
 
 ![파티션 키 확장 및 정의](./media/social-media-apps/social-media-apps-scaling.png)
 

@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Engagement 웹 SDK 업그레이드 절차 | Microsoft Docs"
-description: "Azure Mobile Engagement용 웹 SDK의 최신 업데이트 및 절차"
+title: Azure Mobile Engagement 웹 SDK 업그레이드 절차 | Microsoft Docs
+description: Azure Mobile Engagement용 웹 SDK의 최신 업데이트 및 절차
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: a20529b4-ec8d-4503-8ae9-09b5f0846d5b
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: js
 ms.topic: article
 ms.date: 06/07/2016
 ms.author: piyushjo
-ms.openlocfilehash: afa8037dcb7a53042fa606e2c4014b442d4be326
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 42f78b5e6bfa028f3a798f6cb6c0dee3f17b3ebe
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-mobile-engagement-web-sdk-upgrade-procedures"></a>Azure Mobile Engagement 웹 SDK 업그레이드 절차
+> [!IMPORTANT]
+> Azure Mobile Engagement는 2018/3/31에 사용이 중지됩니다. 이 페이지는 이후에 삭제됩니다.
+> 
+
 이전 버전의 Azure Mobile Engagement SDK를 웹 응용 프로그램에 이미 통합한 경우 SDK를 업그레이드할 때 다음 사항을 고려해야 합니다.
 
 Mobile Engagement 웹 SDK의 여러 버전을 생략한 경우 업그레이드 프로세스 동안 몇 가지 절차를 완료해야 할 수 있습니다. 예를 들어 1.4.0에서 1.6.0으로 마이그레이션하는 경우 먼저 1.4.0에서 1.5.0으로 업그레이드하는 절차를 따릅니다. 그런 다음 1.5.0에서 1.6.0으로 업그레이드하는 절차를 따릅니다.
@@ -114,7 +118,7 @@ Mobile Engagement에서는 연결 문자열을 사용하여 응용 프로그램 
       [...]
     };
 
-응용 프로그램의 연결 문자열은 Azure 포털에 표시됩니다.
+응용 프로그램의 연결 문자열은 Azure Portal에 표시됩니다.
 
 ### <a name="javascript-apis"></a>JavaScript API
 전역 JavaScript 개체 `window.capptain`은 이름이 `window.azureEngagement`로 변경되었지만 API 호출에 `window.engagement` 별칭을 사용할 수 있습니다. SDK 구성 정의에는 별칭을 사용할 수 없습니다.

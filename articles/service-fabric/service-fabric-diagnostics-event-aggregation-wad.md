@@ -1,24 +1,24 @@
 ---
-title: "Miscrosoft Azure 진단을 사용하여 Azure Service Fabric 이벤트 집계 | Microsoft Docs"
-description: "Azure Service Fabric 클러스터 모니터링 및 진단을 위해 MAD를 사용하여 이벤트를 집계 및 수집하는 방법에 대해 알아봅니다."
+title: Miscrosoft Azure 진단을 사용하여 Azure Service Fabric 이벤트 집계 | Microsoft Docs
+description: Azure Service Fabric 클러스터 모니터링 및 진단을 위해 MAD를 사용하여 이벤트를 집계 및 수집하는 방법에 대해 알아봅니다.
 services: service-fabric
 documentationcenter: .net
-author: dkkapur
+author: srrengar
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/02/2017
-ms.author: dekapur
-ms.openlocfilehash: 8e6c82aa60544d672bb249d589b63d55b48309fe
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.date: 03/19/2018
+ms.author: dekapur;srrengar
+ms.openlocfilehash: ede128d23ca73dc46f2d4dc4b1dd4b1f83a2bc3f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Miscrosoft Azure 진단을 사용하여 이벤트 집계 및 수집
 > [!div class="op_single_selector"]
@@ -170,67 +170,87 @@ Resource Manager 템플릿에서 진단 설정을 표시하려면 azuredeploy.js
 
 template.json 파일을 설명대로 수정한 후에는 Resource Manager 템플릿을 다시 게시합니다. 템플릿을 내보낸 후 deploy.ps1 파일을 실행하면 템플릿이 다시 게시됩니다. 배포 후에는 **ProvisioningState**가 **성공**했는지 확인합니다.
 
-## <a name="collect-health-and-load-events"></a>상태 및 부하 이벤트 수집
+> [!TIP]
+> 클러스터에 컨테이너를 배포하려는 경우, **WadCfg > DiagnosticMonitorConfiguration** 섹션에 이 컨테이너를 추가하는 방식으로 WAD를 통해 Docker 통계를 선택할 수 있습니다.
+>
+>```json
+>"DockerSources": {
+>    "Stats": {
+>        "enabled": true,
+>        "sampleRate": "PT1M"
+>    }
+>},
+>```
 
-Service Fabric 5.4 버전부터 상태 및 부하 메트릭 이벤트를 컬렉션에 사용할 수 있습니다. 이러한 이벤트는 시스템이나 코드에서 [ReportPartitionHealth](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportpartitionhealth.aspx) 또는 [ReportLoad](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportload.aspx) 등의 상태 또는 부하 보고 API를 사용하여 시스템 또는 코드에서 생성한 이벤트를 반영합니다. 이를 통해 시간 경과에 따른 시스템 상태의 집계 및 확인과 상태 또는 부하 이벤트 기반의 경고가 가능합니다. Visual Studio의 Diagnostic Event Viewer에서 이 이벤트를 보려면 ETW 공급자 목록에 "Microsoft-ServiceFabric:4:0x4000000000000008"을 추가합니다.
+## <a name="log-collection-configurations"></a>로그 컬렉션 구성
+컬렉션에 대한 추가 채널의 로그도 사용할 수 있습니다. 여기서는 Azure에서 실행되는 클러스터용 템플릿에서 수행할 수 있는 가장 일반적인 몇 가지 구성을 소개합니다.
 
-클러스터에서 이벤트를 수집하려면 Resource Manager 템플릿의 WadCfg에서 `scheduledTransferKeywordFilter`를 `4611686018427387912`로 수정합니다.
+* 작동 채널 - 기본: 기본적으로 사용하도록 설정됩니다. 노드에 대해 발생하는 이벤트, 배포되는 새 응용 프로그램, 업그레이드 롤백 등을 포함하여 Service Fabric 및 클러스터에서 수행하는 상위 수준 작업입니다. 이벤트 목록은 [작동 채널 이벤트](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-diagnostics-event-generation-operational)를 참조하세요.
+  
+```json
+      scheduledTransferKeywordFilter: "4611686018427387904"
+  ```
+* 작동 채널 - 상세: 기본 작동 채널의 모든 내용과 상태 보고서 및 부하 분산 결정이 포함됩니다. 이러한 이벤트는 시스템이나 코드에서 [ReportPartitionHealth](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportpartitionhealth.aspx) 또는 [ReportLoad](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportload.aspx)와 같은 상태 또는 부하 보고 API를 사용하여 생성됩니다. Visual Studio의 Diagnostic Event Viewer에서 이 이벤트를 보려면 ETW 공급자 목록에 "Microsoft-ServiceFabric:4:0x4000000000000008"을 추가합니다.
 
 ```json
-  "EtwManifestProviderConfiguration": [
-    {
-      "provider": "cbd93bc2-71e5-4566-b3a7-595d8eeca6e8",
-      "scheduledTransferLogLevelFilter": "Information",
-      "scheduledTransferKeywordFilter": "4611686018427387912",
-      "scheduledTransferPeriod": "PT5M",
-      "DefaultEvents": {
-        "eventDestination": "ServiceFabricSystemEventTable"
-      }
-    }
-```
+      scheduledTransferKeywordFilter: "4611686018427387912"
+  ```
 
-## <a name="collect-reverse-proxy-events"></a>역방향 프록시 이벤트 수집
-
-Service Fabric 5.7 릴리스부터 [역방향 프록시](service-fabric-reverseproxy.md) 이벤트를 데이터 및 메시징 채널을 통해 컬렉션에 사용할 수 있습니다. 
-
-역방향 프록시는 요청 처리 실패 및 중요한 문제를 반영하는 기본 데이터 및 메시징 채널을 통해 오류 이벤트만을 푸시합니다. 자세한 채널은 역방향 프록시에 의해 처리된 모든 요청에 대한 자세한 정보 표시 이벤트를 포함합니다. 
-
-Visual Studio의 Diagnostic Event Viewer에서 오류 이벤트를 보려면 ETW 공급자 목록에 "Microsoft-ServiceFabric:4:0x4000000000000010"을 추가합니다. 모든 요청 원격 분석의 경우 ETW 공급자 목록의 Microsoft-ServiceFabric 항목을 "Microsoft-ServiceFabric:4:0x4000000000000020"으로 업데이트합니다.
-
-Azure에서 실행되는 클러스터의 경우:
-
-기본 데이터 및 메시징 채널에서 추적을 선택하려면 Resource Manager 템플릿의 WadCfg에서 `scheduledTransferKeywordFilter` 값을 `4611686018427387920`으로 수정합니다.
+* 데이터 및 메시징 채널 - 기본: 상세 작동 채널 로그 외에 메시징(현재 ReverseProxy만) 및 데이터 경로에 생성된 중요 로그 및 이벤트입니다. 이러한 이벤트는 요청 처리 실패와 ReverseProxy 및 처리된 요청의 기타 중요 문제입니다. **포괄적인 로깅을 위한 권장 사항입니다**. Visual Studio의 진단 이벤트 뷰어에서 이 이벤트를 보려면 ETW 공급자 목록에 “Microsoft-ServiceFabric:4:0x4000000000000010”을 추가합니다.
 
 ```json
-  "EtwManifestProviderConfiguration": [
-    {
-      "provider": "cbd93bc2-71e5-4566-b3a7-595d8eeca6e8",
-      "scheduledTransferLogLevelFilter": "Information",
-      "scheduledTransferKeywordFilter": "4611686018427387920",
-      "scheduledTransferPeriod": "PT5M",
-      "DefaultEvents": {
-        "eventDestination": "ServiceFabricSystemEventTable"
-      }
-    }
-```
+      scheduledTransferKeywordFilter: "4611686018427387928"
+  ```
 
-모든 요청 처리 이벤트를 수집하려면 Resource Manager 템플릿의 WadCfg에서 `scheduledTransferKeywordFilter` 값을 `4611686018427387936`으로 변경하여 데이터 및 메시징 - 자세한 채널을 켭니다.
+* 데이터 및 메시징 채널 - 상세: 클러스터 및 상세 작동 채널의 메시징 데이터에서 중요하지 않은 모든 로그를 포함하는 상세 채널입니다. 모든 역방향 프록시 이벤트의 문제 해결에 대한 자세한 내용은 [역방향 프록시 진단 가이드](service-fabric-reverse-proxy-diagnostics.md)를 참조하세요.  Visual Studio의 진단 이벤트 뷰어에서 이 이벤트를 보려면 ETW 공급자 목록에 “Microsoft-ServiceFabric:4:0x4000000000000020”을 추가합니다.
 
 ```json
-  "EtwManifestProviderConfiguration": [
-    {
-      "provider": "cbd93bc2-71e5-4566-b3a7-595d8eeca6e8",
-      "scheduledTransferLogLevelFilter": "Information",
-      "scheduledTransferKeywordFilter": "4611686018427387936",
-      "scheduledTransferPeriod": "PT5M",
-      "DefaultEvents": {
-        "eventDestination": "ServiceFabricSystemEventTable"
-      }
-    }
-```
+      scheduledTransferKeywordFilter: "4611686018427387944"
+  ```
 
-이 자세한 채널에서 이벤트 수집을 사용하면 신속하게 생성되는 많은 추적이 발생하고, 저장소 용량을 소비할 수 있습니다. 반드시 필요한 경우에만 켭니다.
-역방향 프록시 이벤트의 문제 해결에 관한 자세한 내용은 [역방향 프록시 진단 가이드](service-fabric-reverse-proxy-diagnostics.md)를 참조하세요.
+>[!NOTE]
+>이 채널에는 많은 이벤트가 있으므로 이 상세 채널에서 이벤트 수집을 설정하면 많은 추적이 빠르게 생성되어 저장소 용량을 소비할 수 있습니다. 반드시 필요한 경우에만 이 옵션을 설정하세요.
+
+
+포괄적인 로깅을 위한 권장 사항인 **기본 데이터 및 메시징 채널**을 사용하도록 설정하려면, 템플릿의 `WadCfg`에 있는 `EtwManifestProviderConfiguration`은 다음과 같습니다.
+
+```json
+  "WadCfg": {
+        "DiagnosticMonitorConfiguration": {
+          "overallQuotaInMB": "50000",
+          "EtwProviders": {
+            "EtwEventSourceProviderConfiguration": [
+              {
+                "provider": "Microsoft-ServiceFabric-Actors",
+                "scheduledTransferKeywordFilter": "1",
+                "scheduledTransferPeriod": "PT5M",
+                "DefaultEvents": {
+                  "eventDestination": "ServiceFabricReliableActorEventTable"
+                }
+              },
+              {
+                "provider": "Microsoft-ServiceFabric-Services",
+                "scheduledTransferPeriod": "PT5M",
+                "DefaultEvents": {
+                  "eventDestination": "ServiceFabricReliableServiceEventTable"
+                }
+              }
+            ],
+            "EtwManifestProviderConfiguration": [
+              {
+                "provider": "cbd93bc2-71e5-4566-b3a7-595d8eeca6e8",
+                "scheduledTransferLogLevelFilter": "Information",
+                "scheduledTransferKeywordFilter": "4611686018427387928",
+                "scheduledTransferPeriod": "PT5M",
+                "DefaultEvents": {
+                  "eventDestination": "ServiceFabricSystemEventTable"
+                }
+              }
+            ]
+          }
+        }
+      },
+```
 
 ## <a name="collect-from-new-eventsource-channels"></a>새 EventSource 채널에서 수집
 

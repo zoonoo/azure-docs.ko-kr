@@ -3,8 +3,8 @@ title: Visual Studio WebApi 프로젝트에서 Azure AD 시작 | Microsoft Docs
 description: Visual Studio 연결 서비스를 사용하여 Azure AD를 만들거나 연결한 후에 WebApi 프로젝트에 Azure Active Directory를 사용하여 시작하는 방법입니다.
 services: active-directory
 documentationcenter: ''
-author: kraigb
-manager: ghogen
+author: ghogen
+manager: douge
 editor: ''
 ms.assetid: bf1eb32d-25cd-4abf-8679-2ead299fedaa
 ms.service: active-directory
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
-ms.author: kraigb
+ms.author: ghogen
 ms.custom: aaddev
-ms.openlocfilehash: a5953a8ae4ef3fc221c984cc7520422251ef2c82
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f44c60cc02ef93fb8bd08954d8b059889eb82df1
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="get-started-with-azure-active-directory-webapi-projects"></a>Azure Active Directory 시작(WebApi 프로젝트)
 
@@ -38,4 +38,4 @@ ms.lasthandoff: 03/16/2018
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Active Directory 인증 시나리오](active-directory-authentication-scenarios.md)
-- [ASP.NET 웹앱에 Microsoft를 사용한 로그인 추가](guidedsetups/active-directory-aspnetwebapp-v1.md)
+- [ASP.NET 웹앱에 Microsoft에 로그인 추가](guidedsetups/active-directory-aspnetwebapp-v1.md)

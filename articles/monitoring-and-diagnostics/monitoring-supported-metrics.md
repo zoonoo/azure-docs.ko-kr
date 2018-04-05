@@ -1,9 +1,9 @@
 ---
-title: "Azure Monitor 메트릭 - 리소스 유형별 지원 메트릭 | Microsoft Docs"
-description: "Azure Monitor의 각 리소스 유형별로 사용 가능한 메트릭 목록."
+title: Azure Monitor 메트릭 - 리소스 유형별 지원 메트릭 | Microsoft Docs
+description: Azure Monitor의 각 리소스 유형별로 사용 가능한 메트릭 목록.
 author: anirudhcavale
 manager: ashwink
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: 63d4ac65-1688-40d1-85c8-7cd408285b0f
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/31/2018
+ms.date: 03/19/2018
 ms.author: ancav
-ms.openlocfilehash: 97dca282bd7bbf00ce1d03899f6de0444a41163a
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 285f4540c7f9be19cde0aafeff67ce2b39abe957
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Azure Monitor에서 지원되는 메트릭
 Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세스, PowerShell이나 CLI를 통한 쿼리 등, 메트릭과 상호 작용하는 몇 가지 방법을 제공합니다. 다음은 현재 Azure Monitor의 메트릭 파이프라인을 통해 사용할 수 있는 모든 메트릭의 전체 목록입니다. 
@@ -133,6 +133,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |cachemisses|캐시 누락|개수|합계||차원 없음|
 |getcommands|가져오기|개수|합계||차원 없음|
 |setcommands|설정|개수|합계||차원 없음|
+|operationsPerSecond|초당 작업|개수|합계||차원 없음|
 |evictedkeys|제거된 키|개수|합계||차원 없음|
 |totalkeys|전체 키|개수|최대||차원 없음|
 |expiredkeys|만료된 키|개수|합계||차원 없음|
@@ -148,6 +149,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |cachemisses0|캐시 누락(분할 0)|개수|합계||차원 없음|
 |getcommands0|가져오기(분할 0)|개수|합계||차원 없음|
 |setcommands0|설정(분할 0)|개수|합계||차원 없음|
+|operationsPerSecond0|초당 작업(분할 0)|개수|합계||차원 없음|
 |evictedkeys0|제거된 키(분할 0)|개수|합계||차원 없음|
 |totalkeys0|총 키(분할 0)|개수|최대||차원 없음|
 |expiredkeys0|만료된 키(분할 0)|개수|합계||차원 없음|
@@ -163,6 +165,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |cachemisses1|캐시 누락(분할 1)|개수|합계||차원 없음|
 |getcommands1|가져오기(분할 1)|개수|합계||차원 없음|
 |setcommands1|집합(분할 1)|개수|합계||차원 없음|
+|operationsPerSecond1|초당 작업(분할 1)|개수|합계||차원 없음|
 |evictedkeys1|제거된 키(분할 1)|개수|합계||차원 없음|
 |totalkeys1|총 키(분할 1)|개수|최대||차원 없음|
 |expiredkeys1|만료된 키(분할 1)|개수|합계||차원 없음|
@@ -178,6 +181,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |cachemisses2|캐시 누락(분할 2)|개수|합계||차원 없음|
 |getcommands2|가져오기(분할 2)|개수|합계||차원 없음|
 |setcommands2|설정(분할 2)|개수|합계||차원 없음|
+|operationsPerSecond2|초당 작업(분할 2)|개수|합계||차원 없음|
 |evictedkeys2|제거된 키(분할 2)|개수|합계||차원 없음|
 |totalkeys2|총 키(분할 2)|개수|최대||차원 없음|
 |expiredkeys2|만료된 키(분할 2)|개수|합계||차원 없음|
@@ -193,6 +197,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |cachemisses3|캐시 누락(분할 3)|개수|합계||차원 없음|
 |getcommands3|가져오기(분할 3)|개수|합계||차원 없음|
 |setcommands3|설정(분할 3)|개수|합계||차원 없음|
+|operationsPerSecond3|초당 작업(분할 3)|개수|합계||차원 없음|
 |evictedkeys3|제거된 키(분할 3)|개수|합계||차원 없음|
 |totalkeys3|총 키(분할 3)|개수|최대||차원 없음|
 |expiredkeys3|만료된 키(분할 3)|개수|합계||차원 없음|
@@ -208,6 +213,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |cachemisses4|캐시 누락(분할 4)|개수|합계||차원 없음|
 |getcommands4|가져오기(분할 4)|개수|합계||차원 없음|
 |setcommands4|설정(분할 4)|개수|합계||차원 없음|
+|operationsPerSecond4|초당 작업(분할 4)|개수|합계||차원 없음|
 |evictedkeys4|제거된 키(분할 4)|개수|합계||차원 없음|
 |totalkeys4|총 키(분할 4)|개수|최대||차원 없음|
 |expiredkeys4|만료된 키(분할 4)|개수|합계||차원 없음|
@@ -223,6 +229,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |cachemisses5|캐시 누락(분할 5)|개수|합계||차원 없음|
 |getcommands5|가져오기(분할 5)|개수|합계||차원 없음|
 |setcommands5|설정(분할 5)|개수|합계||차원 없음|
+|operationsPerSecond5|초당 작업(분할 5)|개수|합계||차원 없음|
 |evictedkeys5|제거된 키(분할 5)|개수|합계||차원 없음|
 |totalkeys5|총 키(분할 5)|개수|최대||차원 없음|
 |expiredkeys5|만료된 키(분할 5)|개수|합계||차원 없음|
@@ -238,6 +245,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |cachemisses6|캐시 누락(분할 6)|개수|합계||차원 없음|
 |getcommands6|가져오기(분할 6)|개수|합계||차원 없음|
 |setcommands6|설정(분할 6)|개수|합계||차원 없음|
+|operationsPerSecond6|초당 작업(분할 6)|개수|합계||차원 없음|
 |evictedkeys6|제거된 키(분할 6)|개수|합계||차원 없음|
 |totalkeys6|총 키(분할 6)|개수|최대||차원 없음|
 |expiredkeys6|만료된 키(분할 6)|개수|합계||차원 없음|
@@ -253,6 +261,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |cachemisses7|캐시 누락(분할 7)|개수|합계||차원 없음|
 |getcommands7|가져오기(분할 7)|개수|합계||차원 없음|
 |setcommands7|설정(분할 7)|개수|합계||차원 없음|
+|operationsPerSecond7|초당 작업(분할 7)|개수|합계||차원 없음|
 |evictedkeys7|제거된 키(분할 7)|개수|합계||차원 없음|
 |totalkeys7|총 키(분할 7)|개수|최대||차원 없음|
 |expiredkeys7|만료된 키(분할 7)|개수|합계||차원 없음|
@@ -268,6 +277,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |cachemisses8|캐시 누락(분할 8)|개수|합계||차원 없음|
 |getcommands8|가져오기(분할 8)|개수|합계||차원 없음|
 |setcommands8|설정(분할 8)|개수|합계||차원 없음|
+|operationsPerSecond8|초당 작업(분할 8)|개수|합계||차원 없음|
 |evictedkeys8|제거된 키(분할 8)|개수|합계||차원 없음|
 |totalkeys8|총 키(분할 8)|개수|최대||차원 없음|
 |expiredkeys8|만료된 키(분할 8)|개수|합계||차원 없음|
@@ -283,6 +293,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |cachemisses9|캐시 누락(분할 9)|개수|합계||차원 없음|
 |getcommands9|가져오기(분할 9)|개수|합계||차원 없음|
 |setcommands9|설정(분할 9)|개수|합계||차원 없음|
+|operationsPerSecond9|초당 작업(분할 9)|개수|합계||차원 없음|
 |evictedkeys9|제거된 키(분할 9)|개수|합계||차원 없음|
 |totalkeys9|총 키(분할 9)|개수|최대||차원 없음|
 |expiredkeys9|만료된 키(분할 9)|개수|합계||차원 없음|
@@ -294,6 +305,18 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |percentProcessorTime9|CPU(분할 9)|백분율|최대||차원 없음|
 
 ## <a name="microsoftclassiccomputevirtualmachines"></a>Microsoft.ClassicCompute/virtualMachines
+
+|메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|---|---|---|---|---|---|
+|백분율 CPU|백분율 CPU|백분율|평균|현재 Virtual Machine에서 사용 중인 할당된 계산 단위의 백분율.|차원 없음|
+|네트워크 인|네트워크 인|바이트|합계|Virtual Machine이 모든 네트워크 인터페이스에서 수신한(들어오는 트래픽) 바이트 수.|차원 없음|
+|네트워크 아웃|네트워크 아웃|바이트|합계|Virtual Machine이 모든 네트워크 인터페이스에서 내보낸(나가는 트래픽) 바이트 수.|차원 없음|
+|디스크 읽기 바이트/초|디스크 읽기|초당 바이트 수|평균|모니터링 기간 동안 디스크에서 읽은 평균 바이트.|차원 없음|
+|디스크 쓰기 바이트/초|디스크 쓰기|초당 바이트 수|평균|모니터링 기간 동안 디스크에 쓴 평균 바이트.|차원 없음|
+|디스크 읽기 작업/초|디스크 읽기 작업/초|초당 개수|평균|디스크 읽기 IOPS.|차원 없음|
+|디스크 쓰기 작업/초|디스크 쓰기 작업/초|초당 개수|평균|디스크 쓰기 IOPS.|차원 없음|
+
+## <a name="microsoftclassiccomputedomainnamesslotsroles"></a>Microsoft.ClassicCompute/domainNames/slots/roles
 
 |메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원|
 |---|---|---|---|---|---|
@@ -364,6 +387,13 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |남은 CPU 크레딧|남은 CPU 크레딧|개수|평균|버스트에 사용할 수 있는 총 크레딧 수|차원 없음|
 |사용된 CPU 크레딧|사용된 CPU 크레딧|개수|평균|Virtual Machine에서 사용하는 총 크레딧 수|차원 없음|
 
+## <a name="microsoftcontainerinstancecontainergroups"></a>Microsoft.ContainerInstance/containerGroups
+
+|메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|---|---|---|---|---|---|
+|CpuUsage|CPU 사용량|개수|평균|모든 코어의 CPU 사용량(밀리코어)|containerName|
+|MemoryUsage|메모리 사용량|바이트|평균|총 메모리 사용량(바이트)|containerName|
+
 ## <a name="microsoftcustomerinsightshubs"></a>Microsoft.CustomerInsights/hubs
 
 |메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원|
@@ -403,19 +433,21 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 
 |메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원|
 |---|---|---|---|---|---|
-|SuccessfulRuns|성공한 실행|개수|합계|성공한 실행 수.|차원 없음|
-|FailedRuns|실패한 실행|개수|합계|실패한 실행 수.|차원 없음|
+|FailedRuns|실패한 실행|개수|합계||pipelineName, activityName, windowEnd, windowStart |
+|SuccessfulRuns|성공한 실행|개수|합계||pipelineName, activityName, windowEnd, windowStart |
 
 ## <a name="microsoftdatafactoryfactories"></a>Microsoft.DataFactory/factories
 
 |메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원|
 |---|---|---|---|---|---|
-|PipelineFailedRuns|실패한 파이프라인 실행 메트릭|개수|합계||차원 없음|
-|PipelineSucceededRuns|성공한 파이프라인 실행 메트릭|개수|합계||차원 없음|
-|ActivityFailedRuns|실패한 활동 실행 메트릭|개수|합계||차원 없음|
-|ActivitySucceededRuns|성공한 활동 실행 메트릭|개수|합계||차원 없음|
-|TriggerFailedRuns|실패한 트리거 실행 메트릭|개수|합계||차원 없음|
-|TriggerSucceededRuns|성공한 트리거 실행 메트릭|개수|합계||차원 없음|
+|PipelineFailedRuns|실패한 파이프라인 실행 메트릭|개수|합계||FailureType, Name|
+|PipelineSucceededRuns|성공한 파이프라인 실행 메트릭|개수|합계||FailureType, Name|
+|ActivityFailedRuns|실패한 활동 실행 메트릭|개수|합계||ActivityType, PipelineName, FailureType, Name|
+|ActivitySucceededRuns|성공한 활동 실행 메트릭|개수|합계||ActivityType, PipelineName, FailureType, Name|
+|TriggerFailedRuns|실패한 트리거 실행 메트릭|개수|합계||Name, FailureType|
+|TriggerSucceededRuns|성공한 트리거 실행 메트릭|개수|합계||Name, FailureType|
+|IntegrationRuntimeCpuPercentage|통합 런타임 CPU 사용률|백분율|평균||IntegrationRuntimeName, NodeName|
+|IntegrationRuntimeAvailableMemory|통합 런타임 사용 가능한 메모리|바이트|평균||IntegrationRuntimeName, NodeName|
 
 ## <a name="microsoftdatalakeanalyticsaccounts"></a>Microsoft.DataLakeAnalytics/accounts
 
@@ -634,12 +666,13 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |OutgoingMessages|보내는 메시지(미리 보기)|개수|합계|Microsoft.EventHub에 대한 보내는 메시지. (미리 보기)|EntityName|
 |IncomingBytes|들어오는 바이트 (미리 보기)|바이트|합계|Microsoft.EventHub에 대한 들어오는 바이트. (미리 보기)|EntityName|
 |OutgoingBytes|보내는 바이트 (미리 보기)|바이트|합계|Microsoft.EventHub에 대한 보내는 바이트. (미리 보기)|EntityName|
-|ActiveConnections|활성 연결(미리 보기)|개수|합계|Microsoft.EventHub에 대한 총 활성 연결. (미리 보기)|EntityName|
-|ConnectionsOpened|열린 연결. (미리 보기)|개수|합계|Microsoft.EventHub에 대한 열린 연결. (미리 보기)|EntityName|
-|ConnectionsClosed|끊어진 연결. (미리 보기)|개수|합계|Microsoft.EventHub에 대한 끊어진 연결. (미리 보기)|EntityName|
+|ActiveConnections|활성 연결(미리 보기)|개수|평균|Microsoft.EventHub에 대한 총 활성 연결. (미리 보기)|차원 없음|
+|ConnectionsOpened|열린 연결. (미리 보기)|개수|평균|Microsoft.EventHub에 대한 열린 연결. (미리 보기)|EntityName|
+|ConnectionsClosed|끊어진 연결. (미리 보기)|개수|평균|Microsoft.EventHub에 대한 끊어진 연결. (미리 보기)|EntityName|
 |CaptureBacklog|캡처 백로그. (미리 보기)|개수|합계|Microsoft.EventHub에 대한 캡처 백로그. (미리 보기)|EntityName|
 |CapturedMessages|캡처된 메시지. (미리 보기)|개수|합계|Microsoft.EventHub에 대한 캡처된 메시지. (미리 보기)|EntityName|
 |CapturedBytes|캡처된 바이트. (미리 보기)|바이트|합계|Microsoft.EventHub에 대한 캡처된 바이트. (미리 보기)|EntityName|
+|크기|크기(미리 보기)|바이트|평균|EventHub 크기(바이트) (미리 보기)|EntityName|
 |INREQS|들어오는 요청|개수|합계|네임스페이스에 대한 총 들어오는 전송 요청|차원 없음|
 |SUCCREQ|성공한 요청|개수|합계|네임스페이스에 대한 총 성공한 요청|차원 없음|
 |FAILREQ|실패한 요청|개수|합계|네임스페이스에 대한 총 실패한 요청|차원 없음|
@@ -658,6 +691,13 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |EHAMSGS|메시지 보관|개수|합계|Event Hub 네임스페이스에 보관된 메시지|차원 없음|
 |EHAMBS|메시지 보관 처리량|바이트|합계|Event Hub 네임스페이스에서 보관된 메시지 처리량|차원 없음|
 
+## <a name="microsofthdinsightclusters"></a>Microsoft.HDInsight/clusters
+
+|메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|---|---|---|---|---|---|
+|GatewayRequests|게이트웨이 요청|개수|합계|게이트웨이 요청 수|ClusterDnsName, HttpStatus|
+|CategorizedGatewayRequests|분류된 게이트웨이 요청|개수|합계|범주별 게이트웨이 요청 수(1xx/2xx/3xx/4xx/5xx)|ClusterDnsName, HttpStatus|
+
 ## <a name="microsoftinsightsautoscalesettings"></a>Microsoft.Insights/AutoscaleSettings
 
 |메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원|
@@ -671,9 +711,9 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 
 |메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원|
 |---|---|---|---|---|---|
-|ServiceApiHit|Service API 총 방문 횟수|개수|Count,Total|Service API의 총 방문 횟수|ActivityType, ActivityName|
-|ServiceApiLatency|전체 Service API 대기 시간|밀리초|Count,Average,Minimum,Maximum|Service API 요청의 전체 대기 시간|ActivityType, ActivityName, StatusCode|
-|ServiceApiResult|Service API 총 결과|개수|Count,Total|Service API의 총 결과 수|ActivityType, ActivityName, StatusCode|
+|ServiceApiHit|Service API 총 방문 횟수|개수|개수|Service API의 총 방문 횟수|ActivityType, ActivityName|
+|ServiceApiLatency|전체 Service API 대기 시간|밀리초|평균|Service API 요청의 전체 대기 시간|ActivityType, ActivityName, StatusCode|
+|ServiceApiResult|Service API 총 결과|개수|개수|Service API의 총 결과 수|ActivityType, ActivityName, StatusCode|
 
 ## <a name="microsoftlocationbasedservicesaccounts"></a>Microsoft.LocationBasedServices/accounts
 
@@ -727,6 +767,14 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |SYNCount|SYN 수|개수|합계|기간 내에 전송된 총 SYN 패킷 수|VipAddress, VipPort, 방향|
 |SnatConnectionCount|SNAT 연결 수|개수|합계|기간 내에 만들어진 새 SNAT 연결의 총 수|VipAddress, DipAddress, ConnectionState|
 
+## <a name="microsoftnetworkdnszones"></a>Microsoft.Network/dnszones
+
+|메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|---|---|---|---|---|---|
+|QueryVolume|쿼리 볼륨|개수|합계|DNS 영역에 대해 제공된 쿼리 수|차원 없음|
+|RecordSetCount|레코드 집합 수|개수|최대|DNS 영역의 레코드 집합 수|차원 없음|
+|RecordSetCapacityUtilization|레코드 집합 용량 사용률|백분율|최대|DNS 영역에서 사용된 레코드 집합 용량 백분율|차원 없음|
+
 ## <a name="microsoftnetworkpublicipaddresses"></a>Microsoft.Network/publicIPAddresses
 
 |메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원|
@@ -763,6 +811,12 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원|
 |---|---|---|---|---|---|
 |처리량|처리량|초당 바이트 수|합계|Application Gateway에서 제공하는 초당 바이트 수|차원 없음|
+|UnhealthyHostCount|비정상 호스트 수|개수|평균|비정상 백 엔드 호스트 수|BackendSettingsPool|
+|HealthyHostCount|정상 호스트 수|개수|평균|정상 백 엔드 호스트 수|BackendSettingsPool|
+|TotalRequests|총 요청 수|개수|합계|Application Gateway가 제공하는 성공한 요청 수|BackendSettingsPool|
+|FailedRequests|실패한 요청|개수|합계|Application Gateway가 제공하는 실패한 요청 수|BackendSettingsPool|
+|ResponseStatus|응답 상태|개수|합계|Application Gateway에서 반환된 HTTP 응답 상태|HttpStatusGroup|
+|CurrentConnections|현재 연결|개수|합계|Application Gateway와 설정된 현재 연결 수|차원 없음|
 
 ## <a name="microsoftnetworkvirtualnetworkgateways"></a>Microsoft.Network/virtualNetworkGateways
 
@@ -789,6 +843,13 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |---|---|---|---|---|---|
 |QpsByEndpoint|반환된 끝점별 쿼리|개수|합계|Traffic Manager 끝점이 주어진 시간 내에 반환된 횟수|EndpointName|
 |ProbeAgentCurrentEndpointStateByProfileResourceId|끝점별 끝점 상태|개수|최대|끝점의 프로브 상태가 "사용"이면 1이고 그렇지 않으면 0입니다.|EndpointName|
+
+## <a name="microsoftnetworknetworkwatchersconnectionmonitors"></a>Microsoft.Network/networkWatchers/connectionMonitors
+
+|메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|---|---|---|---|---|---|
+|ProbesFailedPercent|실패한 프로브 %|백분율|평균|실패한 연결 모니터링 프로브 %|차원 없음|
+|AverageRoundtripMs|평균 왕복 시간(ms)|밀리초|평균|원본과 대상 간에 전송된 연결 모니터링 프로브의 평균 네트워크 왕복 시간(ms)|차원 없음|
 
 ## <a name="microsoftnotificationhubsnamespacesnotificationhubs"></a>Microsoft.NotificationHubs/Namespaces/NotificationHubs
 
@@ -864,6 +925,82 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |QueryDuration|쿼리 기간|밀리초|평균|마지막 간격의 DAX 쿼리 기간|차원 없음|
 |QueryPoolJobQueueLength|스레드: 쿼리 풀 작업 큐 길이|개수|평균|쿼리 스레드 풀의 큐에 있는 작업 수입니다.|차원 없음|
 
+## <a name="microsoftoperationalinsightsworkspaces"></a>Microsoft.OperationalInsights/workspaces
+(공개 미리 보기)
+
+|메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|---|---|---|---|---|---|
+|Average_% Free Inodes|Average_% Free Inodes|개수|평균|Average_% Free Inodes|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_% Free Space|Average_% Free Space|개수|평균|Average_% Free Space|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_% Used Inodes|Average_% Used Inodes|개수|평균|Average_% Used Inodes|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_% Used Space|Average_% Used Space|개수|평균|Average_% Used Space|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Disk Read Bytes/sec|Average_Disk Read Bytes/sec|개수|평균|Average_Disk Read Bytes/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Disk Reads/sec|Average_Disk Reads/sec|개수|평균|Average_Disk Reads/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Disk Transfers/sec|Average_Disk Transfers/sec|개수|평균|Average_Disk Transfers/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Disk Write Bytes/sec|Average_Disk Write Bytes/sec|개수|평균|Average_Disk Write Bytes/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Disk Writes/sec|Average_Disk Writes/sec|개수|평균|Average_Disk Writes/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Free Megabytes|Average_Free Megabytes|개수|평균|Average_Free Megabytes|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Logical Disk Bytes/sec|Average_Logical Disk Bytes/sec|개수|평균|Average_Logical Disk Bytes/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_% Available Memory|Average_% Available Memory|개수|평균|Average_% Available Memory|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_% Available Swap Space|Average_% Available Swap Space|개수|평균|Average_% Available Swap Space|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_% Used Memory|Average_% Used Memory|개수|평균|Average_% Used Memory|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_% Used Swap Space|Average_% Used Swap Space|개수|평균|Average_% Used Swap Space|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Available MBytes Memory|Average_Available MBytes Memory|개수|평균|Average_Available MBytes Memory|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Available MBytes Swap|Average_Available MBytes Swap|개수|평균|Average_Available MBytes Swap|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Page Reads/sec|Average_Page Reads/sec|개수|평균|Average_Page Reads/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Page Writes/sec|Average_Page Writes/sec|개수|평균|Average_Page Writes/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Pages/sec|Average_Pages/sec|개수|평균|Average_Pages/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Used MBytes Swap Space|Average_Used MBytes Swap Space|개수|평균|Average_Used MBytes Swap Space|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Used Memory MBytes|Average_Used Memory MBytes|개수|평균|Average_Used Memory MBytes|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Total Bytes Transmitted|Average_Total Bytes Transmitted|개수|평균|Average_Total Bytes Transmitted|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Total Bytes Received|Average_Total Bytes Received|개수|평균|Average_Total Bytes Received|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Total Bytes|Average_Total Bytes|개수|평균|Average_Total Bytes|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Total Packets Transmitted|Average_Total Packets Transmitted|개수|평균|Average_Total Packets Transmitted|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Total Packets Received|Average_Total Packets Received|개수|평균|Average_Total Packets Received|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Total Rx Errors|Average_Total Rx Errors|개수|평균|Average_Total Rx Errors|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Total Tx Errors|Average_Total Tx Errors|개수|평균|Average_Total Tx Errors|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Total Collisions|Average_Total Collisions|개수|평균|Average_Total Collisions|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Avg. 디스크 초/읽기|Average_Avg. 디스크 초/읽기|개수|평균|Average_Avg. 디스크 초/읽기|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Avg. 디스크 초/전송|Average_Avg. 디스크 초/전송|개수|평균|Average_Avg. 디스크 초/전송|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Avg. 디스크 초/쓰기|Average_Avg. 디스크 초/쓰기|개수|평균|Average_Avg. 디스크 초/쓰기|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Physical Disk Bytes/sec|Average_Physical Disk Bytes/sec|개수|평균|Average_Physical Disk Bytes/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Pct Privileged Time|Average_Pct Privileged Time|개수|평균|Average_Pct Privileged Time|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Pct User Time|Average_Pct User Time|개수|평균|Average_Pct User Time|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Used Memory kBytes|Average_Used Memory kBytes|개수|평균|Average_Used Memory kBytes|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Virtual Shared Memory|Average_Virtual Shared Memory|개수|평균|Average_Virtual Shared Memory|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_% DPC Time|Average_% DPC Time|개수|평균|Average_% DPC Time|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_% Idle Time|Average_% Idle Time|개수|평균|Average_% Idle Time|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_% Interrupt Time|Average_% Interrupt Time|개수|평균|Average_% Interrupt Time|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_% IO Wait Time|Average_% IO Wait Time|개수|평균|Average_% IO Wait Time|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_% Nice Time|Average_% Nice Time|개수|평균|Average_% Nice Time|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_% Privileged Time|Average_% Privileged Time|개수|평균|Average_% Privileged Time|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_% Processor Time|Average_% Processor Time|개수|평균|Average_% Processor Time|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_% User Time|Average_% User Time|개수|평균|Average_% User Time|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Free Physical Memory|Average_Free Physical Memory|개수|평균|Average_Free Physical Memory|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Free Space in Paging Files|Average_Free Space in Paging Files|개수|평균|Average_Free Space in Paging Files|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Free Virtual Memory|Average_Free Virtual Memory|개수|평균|Average_Free Virtual Memory|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Processes|Average_Processes|개수|평균|Average_Processes|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Size Stored In Paging Files|Average_Size Stored In Paging Files|개수|평균|Average_Size Stored In Paging Files|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Uptime|Average_Uptime|개수|평균|Average_Uptime|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Users|Average_Users|개수|평균|Average_Users|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Avg. 디스크 초/읽기|Average_Avg. 디스크 초/읽기|개수|평균|Average_Avg. 디스크 초/읽기|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Avg. 디스크 초/쓰기|Average_Avg. 디스크 초/쓰기|개수|평균|Average_Avg. 디스크 초/쓰기|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Current Disk Queue Length|Average_Current Disk Queue Length|개수|평균|Average_Current Disk Queue Length|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Disk Reads/sec|Average_Disk Reads/sec|개수|평균|Average_Disk Reads/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Disk Transfers/sec|Average_Disk Transfers/sec|개수|평균|Average_Disk Transfers/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Disk Writes/sec|Average_Disk Writes/sec|개수|평균|Average_Disk Writes/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Free Megabytes|Average_Free Megabytes|개수|평균|Average_Free Megabytes|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_% Free Space|Average_% Free Space|개수|평균|Average_% Free Space|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Available MBytes|Average_Available MBytes|개수|평균|Average_Available MBytes|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_% Committed Bytes In Use|Average_% Committed Bytes In Use|개수|평균|Average_% Committed Bytes In Use|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Bytes Received/sec|Average_Bytes Received/sec|개수|평균|Average_Bytes Received/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Bytes Sent/sec|Average_Bytes Sent/sec|개수|평균|Average_Bytes Sent/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Bytes Total/sec|Average_Bytes Total/sec|개수|평균|Average_Bytes Total/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_% Processor Time|Average_% Processor Time|개수|평균|Average_% Processor Time|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Processor Queue Length|Average_Processor Queue Length|개수|평균|Average_Processor Queue Length|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Heartbeat|Heartbeat|개수|평균|Heartbeat|Computer, OSType, Version, SourceComputerId|
+|주 지역에서|주 지역에서|개수|평균|주 지역에서|Computer, Product, Classification, UpdateState, Optional, Approved|
+
 ## <a name="microsoftrelaynamespaces"></a>Microsoft.Relay/namespaces
 
 |메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원|
@@ -894,16 +1031,17 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 
 |메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원|
 |---|---|---|---|---|---|
-|SuccessfulRequests|성공한 요청(미리 보기)|개수|합계|네임스페이스에 대한 총 성공한 요청(미리 보기)|EntityName|
-|ServerErrors|서버 오류. (미리 보기)|개수|합계|Microsoft.ServiceBus에 대한 서버 오류. (미리 보기)|EntityName|
-|UserErrors|사용자 오류. (미리 보기)|개수|합계|Microsoft.ServiceBus에 대한 사용자 오류. (미리 보기)|EntityName|
-|ThrottledRequests|제한된 요청. (미리 보기)|개수|합계|Microsoft.ServiceBus에 대한 제한된 요청. (미리 보기)|EntityName|
+|SuccessfulRequests|성공한 요청(미리 보기)|개수|합계|네임스페이스에 대한 총 성공한 요청(미리 보기)|EntityName, |
+|ServerErrors|서버 오류. (미리 보기)|개수|합계|Microsoft.ServiceBus에 대한 서버 오류. (미리 보기)|EntityName, |
+|UserErrors|사용자 오류. (미리 보기)|개수|합계|Microsoft.ServiceBus에 대한 사용자 오류. (미리 보기)|EntityName, |
+|ThrottledRequests|제한된 요청. (미리 보기)|개수|합계|Microsoft.ServiceBus에 대한 제한된 요청. (미리 보기)|EntityName, |
 |IncomingRequests|들어오는 요청(미리 보기)|개수|합계|Microsoft.ServiceBus에 대한 들어오는 요청. (미리 보기)|EntityName|
 |IncomingMessages|들어오는 메시지(미리 보기)|개수|합계|Microsoft.ServiceBus에 대한 들어오는 메시지. (미리 보기)|EntityName|
 |OutgoingMessages|보내는 메시지(미리 보기)|개수|합계|Microsoft.ServiceBus에 대한 보내는 메시지. (미리 보기)|EntityName|
-|ActiveConnections|활성 연결(미리 보기)|개수|합계|Microsoft.ServiceBus에 대한 총 활성 연결. (미리 보기)|EntityName|
-|ConnectionsOpened|열린 연결. (미리 보기)|개수|합계|Microsoft.ServiceBus에 대한 열린 연결. (미리 보기)|EntityName|
-|ConnectionsClosed|끊어진 연결. (미리 보기)|개수|합계|Microsoft.ServiceBus에 대한 끊어진 연결. (미리 보기)|EntityName|
+|ActiveConnections|활성 연결(미리 보기)|개수|합계|Microsoft.ServiceBus에 대한 총 활성 연결. (미리 보기)|차원 없음|
+|크기|크기(미리 보기)|바이트|평균|큐/토픽 크기(바이트) (미리 보기)|EntityName|
+|메시지|큐/토픽에 있는 메시지 수 (미리 보기)|개수|평균|큐/토픽에 있는 메시지 수 (미리 보기)|EntityName|
+|ActiveMessages|큐/토픽에 있는 활성 메시지 수 (미리 보기)|개수|평균|큐/토픽에 있는 활성 메시지 수 (미리 보기)|EntityName|
 |CPUXNS|네임스페이스당 CPU 사용량|백분율|최대|서비스 버스 프리미엄 네임스페이스 CPU 사용량 메트릭|차원 없음|
 |WSXNS|네임스페이스당 메모리 크기 사용|백분율|최대|서비스 버스 프리미엄 네임스페이스 메모리 사용량 메트릭|차원 없음|
 
@@ -929,8 +1067,8 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |dwu_limit|DWU 제한|개수|최대|DWU 제한|차원 없음|
 |dwu_consumption_percent|DWU 백분율|백분율|최대|DWU 백분율|차원 없음|
 |dwu_used|DWU 사용됨|개수|최대|DWU 사용됨|차원 없음|
-|dw_cpu_percent|DW 노드 수준 CPU 비율|백분율|평균|DW 노드 수준 CPU 비율|dw_logical_node_id|
-|dw_physical_data_read_percent|DW 노드 수준 데이터 IO 백분율|백분율|평균|DW 노드 수준 데이터 IO 백분율|dw_logical_node_id|
+|dw_cpu_percent|DW 노드 수준 CPU 비율|백분율|평균|DW 노드 수준 CPU 비율|DwLogicalNodeId|
+|dw_physical_data_read_percent|DW 노드 수준 데이터 IO 백분율|백분율|평균|DW 노드 수준 데이터 IO 백분율|DwLogicalNodeId|
 
 ## <a name="microsoftsqlserverselasticpools"></a>Microsoft.Sql/servers/elasticPools
 
@@ -972,8 +1110,8 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 
 |메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원|
 |---|---|---|---|---|---|
-|BlobCapacity|Blob 용량|바이트|평균|저장소 계정의 Blob service가 사용하는 저장소의 양(바이트)입니다.|BlobType|
-|BlobCount|Blob 수|개수|평균|저장소 계정의 Blob service에 있는 Blob 수입니다.|BlobType|
+|BlobCapacity|Blob 용량|바이트|합계|저장소 계정의 Blob service가 사용하는 저장소의 양(바이트)입니다.|BlobType|
+|BlobCount|Blob 수|개수|합계|저장소 계정의 Blob service에 있는 Blob 수입니다.|BlobType|
 |ContainerCount|Blob 컨테이너 수|개수|평균|저장소 계정의 Blob service에 있는 컨테이너 수입니다.|차원 없음|
 |트랜잭션|트랜잭션|개수|합계|저장소 서비스 또는 지정된 API 작업에 대해 제기된 요청 수입니다. 이 수는 성공 및 실패 요청뿐만 아니라 오류를 발생시킨 요청도 포함합니다. 다른 종류의 응답 수에 ResponseType 차원을 사용합니다.|ResponseType, GeoType, ApiName|
 |수신|수신|바이트|합계|수신 데이터 양(바이트)입니다. 이 수는 외부 클라이언트에서 Azure Storage로 수신뿐만 아니라 Azure 내의 수신도 포함합니다.|GeoType, ApiName|
@@ -1039,6 +1177,8 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |AMLCalloutRequests|기능 요청|개수|합계|기능 요청|차원 없음|
 |AMLCalloutFailedRequests|실패한 기능 요청|개수|합계|실패한 기능 요청|차원 없음|
 |AMLCalloutInputEvents|함수 이벤트|개수|합계|함수 이벤트|차원 없음|
+|DeserializationError|입력 역직렬화 오류|개수|합계|입력 역직렬화 오류|차원 없음|
+|EarlyInputEvents|응용 프로그램 시간이 도착 시간보다 이전인 이벤트|개수|합계|응용 프로그램 시간이 도착 시간보다 이전인 이벤트|차원 없음|
 
 ## <a name="microsoftwebserverfarms"></a>Microsoft.Web/serverfarms
 
@@ -1072,6 +1212,8 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |AverageMemoryWorkingSet|평균 메모리 작업 집합|바이트|평균|평균 메모리 작업 집합|인스턴스|
 |AverageResponseTime|평균 응답 시간|초|평균|평균 응답 시간|인스턴스|
 |AppConnections|연결|개수|평균|연결|인스턴스|
+|핸들|핸들 개수|개수|평균|핸들 개수|인스턴스|
+|스레드|스레드 개수|개수|평균|스레드 개수|인스턴스|
 
 ## <a name="microsoftwebsites-functions"></a>Microsoft.Web/sites(functions)
 
@@ -1108,6 +1250,8 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |FunctionExecutionUnits|함수 실행 단위|개수|합계|함수 실행 단위|인스턴스|
 |FunctionExecutionCount|함수 실행 횟수|개수|합계|함수 실행 횟수|인스턴스|
 |AppConnections|연결|개수|평균|연결|인스턴스|
+|핸들|핸들 개수|개수|평균|핸들 개수|인스턴스|
+|스레드|스레드 개수|개수|평균|스레드 개수|인스턴스|
 
 ## <a name="microsoftwebhostingenvironmentsmultirolepools"></a>Microsoft.Web/hostingEnvironments/multiRolePools
 

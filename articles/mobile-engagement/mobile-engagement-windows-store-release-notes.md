@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Engagement - Windows 유니버설 앱 SDK 릴리스 정보 | Microsoft Docs"
-description: "Azure Mobile Engagement - Windows 유니버설 앱 SDK 릴리스 정보"
+title: Azure Mobile Engagement - Windows 유니버설 앱 SDK 릴리스 정보 | Microsoft Docs
+description: Azure Mobile Engagement - Windows 유니버설 앱 SDK 릴리스 정보
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: de938ce5-93d5-4218-9e33-10eef102bd61
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/03/2016
 ms.author: piyushjo
-ms.openlocfilehash: dc5529a9e8f4eba867732f719ca8fff718c00d5a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 42306cb25ef61d6ce48303453b49ab6edee80040
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="windows-universal-apps-sdk-release-notes"></a>Windows 유니버설 앱 SDK 릴리스 정보
+> [!IMPORTANT]
+> Azure Mobile Engagement는 2018/3/31에 사용이 중지됩니다. 이 페이지는 이후에 삭제됩니다.
+> 
+
 ## <a name="341-11032016"></a>3.4.1 (11/03/2016)
 
 * 안정성 향상
@@ -42,7 +46,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="320-11202015"></a>3.2.0(11/20/2015)
 * Windows 10 유니버설 Windows 플랫폼 응용 프로그램에 대한 지원이 추가되었습니다.
-* 채널 충돌(이제 Azure 알림 허브와 호환됨)을 해결하는 푸시 채널 공유 기능이 추가되었습니다.
+* 채널 충돌(이제 Azure Notification Hubs와 호환됨)을 해결하는 푸시 채널 공유 기능이 추가되었습니다.
 * 초기화 바로 다음에 장치 ID를 요청하는 동안 크래시를 수정하였습니다.
 * 콘솔은 향상된 기능을 기록합니다.
 * 일부 처리되지 않은 예외를 구문 분석하는 동안 크래시를 수정하였습니다.

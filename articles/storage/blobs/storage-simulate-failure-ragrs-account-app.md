@@ -10,15 +10,15 @@ ms.devlang: ''
 ms.topic: tutorial
 ms.date: 12/23/2017
 ms.author: tamram
-ms.openlocfilehash: 57296d828156184aa36532cd649fbec0c81b5e27
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 0e7ab68075fbce729d3905375acce0dace22c483
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="simulate-a-failure-in-accessing-read-access-redundant-storage"></a>읽기 액세스 중복 저장소 액세스 오류 시뮬레이션
 
-이 자습서는 시리즈의 2부입니다.  이 자습서에서는 [Fiddler](#simulate-a-failure-with-fiddler) 또는 [고정 라우팅](#simulate-a-failure-with-an-invalid-static-route)을 사용하여 [RA-GRS(읽기 액세스 지역 중복 저장소)](../common/storage-redundancy.md#read-access-geo-redundant-storage) 계정의 기본 엔드포인트에 대한 요청 실패를 시뮬레이션할 수 있고, 보조 엔드포인트에서 응용 프로그램을 읽도록 합니다.
+이 자습서는 시리즈의 2부입니다.  이 자습서에서는 [Fiddler](#simulate-a-failure-with-fiddler) 또는 [고정 라우팅](#simulate-a-failure-with-an-invalid-static-route)을 사용하여 [RA-GRS(읽기 액세스 지역 중복 저장소)](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) 계정의 기본 엔드포인트에 대한 요청 실패를 시뮬레이션할 수 있고, 보조 엔드포인트에서 응용 프로그램을 읽도록 합니다.
 
 ![시나리오 앱](media/storage-simulate-failure-ragrs-account-app/scenario.png)
 
@@ -117,7 +117,7 @@ Fiddler로 이동하여 **규칙**, **규칙 사용자 지정...**을 선택합�
 
 
 ## <a name="simulate-a-failure-with-an-invalid-static-route"></a>잘못된 고정 경로를 사용하여 실패 시뮬레이션 
-[RA-GRS(읽기 액세스 지역 중복 저장소)](../common/storage-redundancy.md#read-access-geo-redundant-storage) 계정의 기본 엔드포인트에 대한 모든 요청에 대해 잘못된 고정 경로를 만들 수 있습니다. 이 자습서에서는 로컬 호스트가 저장소 계정에 대한 요청을 라우팅하기 위한 게이트웨이로 사용됩니다. 로컬 호스트를 게이트웨이로 사용하면 저장소 계정의 기본 엔드포인트에 대한 모든 요청이 호스트 내부로 루프 백되어 실패가 발생하게 됩니다. 다음 단계에 따라 실패를 시뮬레이션하고 잘못된 고정 경로를 사용하여 기본 엔드포인트를 복원합니다. 
+[RA-GRS(읽기 액세스 지역 중복 저장소)](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) 계정의 기본 엔드포인트에 대한 모든 요청에 대해 잘못된 고정 경로를 만들 수 있습니다. 이 자습서에서는 로컬 호스트가 저장소 계정에 대한 요청을 라우팅하기 위한 게이트웨이로 사용됩니다. 로컬 호스트를 게이트웨이로 사용하면 저장소 계정의 기본 엔드포인트에 대한 모든 요청이 호스트 내부로 루프 백되어 실패가 발생하게 됩니다. 다음 단계에 따라 실패를 시뮬레이션하고 잘못된 고정 경로를 사용하여 기본 엔드포인트를 복원합니다. 
 
 ### <a name="start-and-pause-the-application"></a>응용 프로그램 시작 및 일시 중지
 

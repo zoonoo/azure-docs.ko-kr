@@ -141,13 +141,15 @@
       href: sql-data-warehouse-troubleshoot.md
 - name: 방법 가이드
   items:
-    - name: 서비스 기능
+    - name: 업그레이드
+      href: upgrade-to-latest-generation.md
+    - name: 복원
       items:
-        - name: 데이터 웨어하우스 복원 - 포털
+        - name: 포털
           href: sql-data-warehouse-restore-database-portal.md
-        - name: 데이터 웨어하우스 복원 - PowerShell
+        - name: PowerShell
           href: sql-data-warehouse-restore-database-powershell.md
-        - name: 데이터 웨어하우스 복원 - REST API
+        - name: REST API
           href: sql-data-warehouse-restore-database-rest-api.md
     - name: 보안
       items:

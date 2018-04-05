@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Engagement - 모범 사례 시작 가이드"
-description: "Azure Mobile Engagement 시작 가이드 및 온보딩 모범 사례"
+title: Azure Mobile Engagement - 모범 사례 시작 가이드
+description: Azure Mobile Engagement 시작 가이드 및 온보딩 모범 사례
 services: mobile-engagement
 documentationcenter: mobile
 author: wesmc7777
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: dfce1183-6398-466e-aa7e-ed702fb52818
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 10/04/2016
 ms.author: wesmc;ricksal
-ms.openlocfilehash: 0cb54f6c4b84597fbc21fa691f88f6f7a37beedd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cf9dc5febeae27473d2adb8a024536b945bb9d13
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-mobile-engagement---getting-started-guide-with-best-practices"></a>Azure Mobile Engagement - 모범 사례 시작 가이드
+> [!IMPORTANT]
+> Azure Mobile Engagement는 2018/3/31에 사용이 중지됩니다. 이 페이지는 이후에 삭제됩니다.
+> 
+
 ## <a name="overview"></a>개요
 **모바일 화면은 매우 혼잡한 환경:** 2013년의 연구에서 평균적인 모바일 장치에 응용 프로그램 27개가 설치되어 있다고 밝혀졌습니다. 일반적으로 사용자는 월간 30시간을 이러한 앱에서 보냅니다. 이 시간의 대부분은 소셜 네트워킹과 게임에 소비됩니다(약 20시간). 2014년까지 Android 시장에서 약 150만 종의 응용 프로그램을 사용자가 선택했습니다. Apple 스토어에는 약 120만 종의 앱이 있습니다. 모바일 앱 사용은 개발자들이 이 성장 시장에서 경쟁하고 있으므로 여전히 증가하고 있습니다. 
 
@@ -239,7 +243,7 @@ Azure Mobile Engagement는 각 장치에 대해 고유한 식별자를 생성하
 ###### <a name="events"></a>이벤트
 이벤트는 앱과의 사용자 상호 작용을 보고하는 데 사용됩니다. 이는 콘텐츠 공유 또는 비디오 시작 같은 순간적인 작업일 수 있습니다. 태그 지정 이벤트는 사용자가 앱과 상호 작용하는 방법을 보여 주는 데이터 컬렉션을 제공합니다. 
 
-###### <a name="jobs"></a>작업
+###### <a name="jobs"></a>교육
 작업은 기간이 있는 작업을 보고하는 데 사용됩니다. 몇 가지 예:
 
 * API 호출의 실행

@@ -1,12 +1,12 @@
 ---
-title: "미리 구성된 Azure IoT Suite 솔루션 개요 | Microsoft Docs"
-description: "미리 구성된 Azure IoT Suite 솔루션 및 추가 리소스에 대한 링크가 포함된 이러한 솔루션의 아키텍처에 대한 설명입니다."
-services: 
+title: 미리 구성된 Azure IoT Suite 솔루션 개요 | Microsoft Docs
+description: 미리 구성된 Azure IoT Suite 솔루션 및 추가 리소스에 대한 링크가 포함된 이러한 솔루션의 아키텍처에 대한 설명입니다.
+services: ''
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 59009f37-9ba0-4e17-a189-7ea354a858a2
 ms.service: iot-suite
 ms.devlang: na
@@ -81,8 +81,7 @@ Azure IoT Suite는 다음과 같이 *미리 구성된 솔루션*의 집합입니
 |                      | 원격 모니터링  | 예측 유지 관리 | 연결된 공장 |
 | -------------------- | ------------------ | ---------------------- | ----------------- |
 | IoT 허브              | 예                | 예                    | 예               |
-| Event Hubs
-           |                    | 예                    |                   |
+| Event Hubs           |                    | 예                    |                   |
 | Time Series Insights |                    |                        | 예               |
 | Container Services   | 예                |                        |                   |
 | Stream Analytics     |                    | 예                    |                   |

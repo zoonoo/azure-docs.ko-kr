@@ -1,8 +1,8 @@
 ---
-title: "Azure Storage 계정을 모니터링하는 방법 | Microsoft Docs"
-description: "Azure 포털을 사용하여 Azure에서 저장소 계정을 모니터링하는 방법에 대해 알아봅니다."
+title: Azure Storage 계정을 모니터링하는 방법 | Microsoft Docs
+description: Azure 포털을 사용하여 Azure에서 저장소 계정을 모니터링하는 방법에 대해 알아봅니다.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: tamram
 manager: timlt
 editor: tysonn
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: tamram
-ms.openlocfilehash: 20cb425b64bfba06d64b3c6c41f9ef496395ad8e
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: ffc7d46bbfa4db47a47e416c395efdfc451cadc1
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Azure 포털에서 저장소 계정 모니터링
 
@@ -28,8 +28,6 @@ ms.lasthandoff: 01/24/2018
 > Azure Portal에서 모니터링 데이터를 검사하는 데 관련된 비용이 있습니다. 자세한 내용은 [저장소 분석 및 청구](/rest/api/storageservices/Storage-Analytics-and-Billing)를 참조하세요.
 >
 > Azure Files는 현재 저장소 분석 메트릭을 지원하지만 아직 로깅을 지원하지 않습니다.
->
-> ZRS(영역 중복 저장소)의 복제 유형의 저장소 계정은 메트릭 및 로깅을 지원합니다. ZRS 클래식으로 이름이 변경된 이전 ZRS 계정은 메트릭이나 로깅을 지원하지 않습니다. ZRS에 대한 자세한 내용은 [영역 중복 저장소](storage-redundancy.md#zone-redundant-storage)를 참조하세요. 
 > 
 > 저장소 분석 및 기타 도구를 사용하여 Azure Storage 관련 문제를 식별, 진단 및 해결하는 방법에 대한 자세한 지침은 [Microsoft Azure Storage 모니터링, 진단 및 문제 해결](../storage-monitoring-diagnosing-troubleshooting.md)을 참조하세요.
 >

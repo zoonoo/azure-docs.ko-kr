@@ -20,13 +20,19 @@
 
 # 방법
 
+## [영역 중복 공용 표준 부하 분산 장치 만들기](load-balancer-get-started-internet-az-portal.md)
+### [영역 중복 공용 표준 부하 분산 장치 만들기(PowerShell)](load-balancer-get-started-internet-az-powershell.md)
+### [영역 중복 공용 표준 부하 분산 장치 만들기(CLI)](load-balancer-get-started-internet-az-cli.md)
+## [영역 공용 표준 부하 분산 장치 만들기](load-balancer-get-started-internet-availability-zones-zonal-portal.md)
+### [영역 공용 표준 부하 분산 장치 만들기(PowerShell)](load-balancer-get-started-internet-availability-zones-zonal-powershell.md)
+### [영역 중복 공용 표준 부하 분산 장치 만들기(CLI)](load-balancer-get-started-internet-availability-zones-zonal-cli.md)
+## [가용성 영역에 VM 부하 분산](load-balancer-standard-public-availability-zones-portal.md)
+###  [가용성 영역에 VM 부하 분산(CLI)](load-balancer-standard-public-zone-redundant-cli.md)
+##  [영역 내에 VM 부하 분산(CLI)](load-balancer-standard-public-zonal-cli.md)   
+## [기본 Load Balancer 만들기(템플릿)](load-balancer-get-started-internet-arm-template.md)
 ## [IPv6를 사용하는 공용 부하 분산 장치 만들기](load-balancer-ipv6-internet-ps.md)
 ### [IPv6를 사용하는 공용 부하 분산 장치 만들기(CLI)](load-balancer-ipv6-internet-cli.md)
 ### [IPv6를 사용하는 공용 부하 분산 장치 만들기(템플릿)](load-balancer-ipv6-internet-template.md)
-## [영역 중복 공용 부하 분산 장치 표준 만들기](load-balancer-get-started-internet-az-portal.md)
-### [영역 중복 공용 부하 분산 장치 표준 만들기(PowerShell)](load-balancer-get-started-internet-az-powershell.md)
-### [영역 중복 공용 부하 분산 장치 표준 만들기(CLI)](load-balancer-get-started-internet-az-cli.md)
-## [기본 Load Balancer 만들기(템플릿)](load-balancer-get-started-internet-arm-template.md)
 ## [내부 부하 분산 장치 구성](load-balancer-get-started-ilb-arm-portal.md)
 ### [내부 부하 분산 장치 구성(PowerShell)](load-balancer-get-started-ilb-arm-ps.md)
 ### [내부 부하 분산 장치 구성(CLI)](load-balancer-get-started-ilb-arm-cli.md)
@@ -75,6 +81,6 @@
 
 # 리소스
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=networking)
-## [가격 책정](https://azure.microsoft.com/pricing/details/load-balancer/)
+## [가격](https://azure.microsoft.com/pricing/details/load-balancer/)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=load-balancer)

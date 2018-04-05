@@ -1,12 +1,12 @@
 ---
-title: "Azure Backup이란? | Microsoft Docs"
-description: "Azure Backup을 사용하여 Windows Servers, Windows 워크스테이션, System Center DPM 서버 및 Azure Virtual Machines의 데이터 및 워크로드를 백업 및 복원합니다."
+title: Azure Backup이란? | Microsoft Docs
+description: Azure Backup을 사용하여 Windows Servers, Windows 워크스테이션, System Center DPM 서버 및 Azure Virtual Machines의 데이터 및 워크로드를 백업 및 복원합니다.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: 
-keywords: "백업 및 복원; 복구 서비스; 백업 솔루션"
+editor: ''
+keywords: 백업 및 복원; 복구 서비스; 백업 솔루션
 ms.assetid: 0d2a7f08-8ade-443a-93af-440cbf7c36c4
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -16,11 +16,11 @@ ms.topic: overview
 ms.date: 3/1/2018
 ms.author: markgal;trinadhk;anuragm
 ms.custom: mvc
-ms.openlocfilehash: 600c4a29d7d7daabbbf6d1825671d109ea499c4b
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 00ed2a64c672e1d2ae9a0037905a544b6c4424b7
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Azure Backup의 기능에 대한 개요
 Azure Backup은 Microsoft 클라우드에서 데이터를 백업(또는 보호)하고 복원하는 데 사용할 수 있는 Azure 기반 서비스이며, 기존의 온-프레미스 또는 오프사이트 백업 솔루션을 신뢰할 수 있고 안전하며 가격 경쟁력이 있는 클라우드 기반 솔루션으로 대체합니다. Azure Backup에서는 컴퓨터, 서버 또는 클라우드에 적절히 다운로드하고 배포하는 여러 구성 요소를 제공합니다. 배포하는 구성 요소 또는 에이전트는 보호하려는 대상에 따라 달라집니다. 온-프레미스 또는 클라우드에서 데이터를 보호하는지 여부에 관계 없이 모든 Azure Backup 구성 요소는 Azure에서 Recovery Services 자격 증명 모음에 데이터를 백업하는 데 사용할 수 있습니다. 특정 데이터, 응용 프로그램 또는 워크로드 보호하는 데 사용할 구성 요소에 대한 내용은 이 문서의 뒷부분에 있는 [Azure Backup 구성 요소 표](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use)를 참조하세요.
@@ -34,7 +34,7 @@ Azure Backup은 Microsoft 클라우드에서 데이터를 백업(또는 보호)�
 
 **무제한 확장** - Azure Backup은 유지 관리 및 모니터링 비용을 부담할 필요 없이 기본 전력과 Azure 클라우드의 무제한 확장을 사용하여 높은 가용성을 제공합니다. 이벤트 정보를 제공하도록 경고를 설정할 수 있지만 클라우드에 있는 데이터의 고가용성에 대해 걱정할 필요가 없습니다.
 
-**여러 저장소 옵션** - 높은 가용성의 한 양상으로 저장소 복제가 있습니다. Azure Backup에는 두 가지 유형의 복제, 즉 [로컬 중복 저장소](../storage/common/storage-redundancy.md#locally-redundant-storage)와 [지역 중복 저장소](../storage/common/storage-redundancy.md#geo-redundant-storage)가 있습니다. 필요에 따라 다음과 같은 백업 저장소 옵션을 선택합니다.
+**여러 저장소 옵션** - 높은 가용성의 한 양상으로 저장소 복제가 있습니다. Azure Backup에는 두 가지 유형의 복제, 즉 [로컬 중복 저장소](../storage/common/storage-redundancy-lrs.md)와 [지역 중복 저장소](../storage/common/storage-redundancy-grs.md)가 있습니다. 필요에 따라 다음과 같은 백업 저장소 옵션을 선택합니다.
 
 * LRS(로컬 중복 저장소)는 데이터 센터의 저장소 배율 단위로 데이터를 세 번 복제합니다(세 개의 데이터 복사본을 만듦). 모든 데이터 복사본은 동일한 지역 내에 있습니다. LRS는 로컬 하드웨어 오류로부터 데이터를 보호하기 위한 저비용 옵션입니다.
 
@@ -219,7 +219,7 @@ Azure Backup에는 *보호된 인스턴스*당 최대 9999개 복구 지점(백�
 
 
 ## <a name="what-is-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음이란?
-Recovery Services 자격 증명 모음은 백업 복사본, 복구 지점 및 백업 정책과 같은 데이터를 보관하는 데 사용되는 Azure의 온라인 저장소 엔터티입니다. Recovery Services 자격 증명 모음을 사용하여 Azure 서비스 및 온-프레미스 서버와 워크스테이션에 대한 백업 데이터를 보관할 수 있습니다. Recovery Services 자격 증명 모음을 사용하면 관리 오버헤드를 최소화하면서 백업 데이터를 쉽게 구성할 수 있습니다. 각 Azure 구독 내에서 Azure 지역당 최대 25개의 Recovery Services 자격 증명 모음을 만들 수 있습니다. 데이터를 저장할 위치를 고려할 때 모든 지역이 동일하지는 않습니다. 지역 쌍 및 추가 저장소 고려 사항에 대한 자세한 내용은 [지역 중복 저장소](../storage/common/storage-redundancy.md#geo-redundant-storage)를 참조하세요.
+Recovery Services 자격 증명 모음은 백업 복사본, 복구 지점 및 백업 정책과 같은 데이터를 보관하는 데 사용되는 Azure의 온라인 저장소 엔터티입니다. Recovery Services 자격 증명 모음을 사용하여 Azure 서비스 및 온-프레미스 서버와 워크스테이션에 대한 백업 데이터를 보관할 수 있습니다. Recovery Services 자격 증명 모음을 사용하면 관리 오버헤드를 최소화하면서 백업 데이터를 쉽게 구성할 수 있습니다. 각 Azure 구독 내에서 Azure 지역당 최대 25개의 Recovery Services 자격 증명 모음을 만들 수 있습니다. 데이터를 저장할 위치를 고려할 때 모든 지역이 동일하지는 않습니다. 지역 쌍 및 추가 저장소 고려 사항에 대한 자세한 내용은 [지역 중복 저장소](../storage/common/storage-redundancy-grs.md)를 참조하세요.
 
 Azure Service Manager를 기반으로 한 Backup 자격 증명 모음이 자격 증명 모음의 첫 번째 버전이었습니다. Azure Resource Manager 모델 기능을 추가한 Recovery Services 자격 증명 모음이 자격 증명 모음의 두 번째 버전입니다. 기능 차이에 대한 자세한 설명은 [Recovery Services 자격 증명 모음 개요 문서](backup-azure-recovery-services-vault-overview.md)를 참조하세요. 더 이상 Backup 자격 증명 모음을 만들 수 없으며, 기존의 모든 자격 증명 모음이 Recovery Services 자격 증명 모음으로 업그레이드되었습니다. Azure Portal을 사용하여 Recovery Services 자격 증명 모음으로 업그레이드된 자격 증명 모음을 관리할 수 있습니다.
 
