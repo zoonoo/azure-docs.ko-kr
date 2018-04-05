@@ -1,8 +1,8 @@
 ---
-title: "도메인에 연결된 Azure HDInsight 아키텍처 | Microsoft Docs"
-description: "도메인에 가입된 HDInsight를 계획하는 방법을 알아봅니다."
+title: 도메인에 연결된 Azure HDInsight 아키텍처 | Microsoft Docs
+description: 도메인에 가입된 HDInsight를 계획하는 방법을 알아봅니다.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: bhanupr
 manager: jhubbard
 editor: cgronlun
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/14/2017
+ms.date: 03/20/2018
 ms.author: bprakash
-ms.openlocfilehash: 5285199d22528ed6b9fa3b7dbc85e382e7b28569
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: b4f79388e45e24dc906a3a03dc0c0e51df52160d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="plan-azure-domain-joined-hadoop-clusters-in-hdinsight"></a>HDInsight에서 Azure 도메인에 가입된 Hadoop 클러스터 계획
 
@@ -47,16 +47,14 @@ Active Directory와 HDInsight를 통합하면 HDInsight 클러스터 노드는 A
 
 ![도메인에 가입된 HDInsight 클러스터 OU](./media/apache-domain-joined-architecture/hdinsight-domain-joined-ou.png)에서도 확인할 수 있습니다.
 
-### <a name="two-ways-of-bringing-your-own-active-directory-domain-controllers"></a>Active Directory 도메인 컨트롤러를 가져오는 두 가지 방법
-
-두 가지 방법으로 도메인에 가입된 HDInsight 클러스터를 만드는 Active Directory 도메인 컨트롤러를 가져올 수 있습니다. 
+### <a name="the-way-of-bringing-your-own-active-directory-domain-controllers"></a>고유한 Active Directory 도메인 컨트롤러를 가져오는 방법
 
 - **Azure Active Directory Domain Services**: 이 서비스는 Windows Server Active Directory와 완벽하게 호환되는 관리되는 Active Directory 도메인을 제공합니다. Microsoft에서 AD 도메인 관리, 패치 및 모니터링을 담당합니다. 도메인 컨트롤러를 유지 관리할 걱정 없이 클러스터를 배포할 수 있습니다. 사용자가 회사 자격 증명을 사용하여 클러스터에 로그인할 수 있도록 사용자, 그룹 및 암호가 Azure Active Directory에서 동기화됩니다. 자세한 내용은 [Azure Active Directory Domain Services를 사용하여 도메인에 가입된 HDInsight 클러스터 구성](./apache-domain-joined-configure-using-azure-adds.md)을 참조하세요.
 
-- **Azure IaaS VM의 Active Directory:** 이 옵션에서는 Azure IaaS VM에서 자체 Windows Server Active Directory 도메인을 배포 및 관리합니다. 자세한 내용은 [도메인 가입 샌드박스 환경 구성](./apache-domain-joined-configure.md)을 참조하세요.
+> [!NOTE]
+> Azure IaaS VM에서 Active Directory는 더 이상 지원되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
-* 도메인에 가입된 HDInsight 클러스터를 구성하려면 [도메인에 가입된 HDInsight 클러스터 구성](apache-domain-joined-configure.md)을 참조하세요.
 * 도메인에 가입된 HDInsight 클러스터를 관리하려면 [도메인에 가입된 HDInsight 클러스터 관리](apache-domain-joined-manage.md)를 참조하세요.
 * Hive 정책을 구성하고 Hive 쿼리를 실행하려면 [도메인에 가입된 HDInsight 클러스터에 대한 Hive 정책 구성](apache-domain-joined-run-hive.md)을 참조하세요.
 * 도메인에 가입된 HDInsight 클러스터에서 SSH를 사용하여 Hive 쿼리를 실행하려면 [HDInsight와 함께 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.

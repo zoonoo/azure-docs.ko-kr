@@ -1,6 +1,6 @@
 ---
-title: "Apache Storm에서 Storage/Data Lake Store에 쓰기 - Azure HDInsight | Microsoft Docs"
-description: "Apache Storm을 사용하여 HDInsight용 HDFS 호환 저장소에 쓰는 방법을 알아봅니다. Azure Storage 또는 Azure Data Lake Store는 HDInsight용 HDFS 호환 저장소를 제공합니다. 이 문서 및 관련 예제에서는 HdfsBolt 구성 요소를 사용하여 HDInsight 클러스터에서 Storm의 기본 저장소에 쓰는 방법을 보여 줍니다."
+title: Apache Storm에서 Storage/Data Lake Store에 쓰기 - Azure HDInsight | Microsoft Docs
+description: Apache Storm을 사용하여 HDInsight용 HDFS 호환 저장소에 쓰는 방법을 알아봅니다. Azure Storage 또는 Azure Data Lake Store는 HDInsight용 HDFS 호환 저장소를 제공합니다. 이 문서 및 관련 예제에서는 HdfsBolt 구성 요소를 사용하여 HDInsight 클러스터에서 Storm의 기본 저장소에 쓰는 방법을 보여 줍니다.
 services: hdinsight
 documentationcenter: na
 author: Blackmist
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: 908a1130171cc091b4d95d4532cc3bb95edb44f9
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 2310894e7257d0ddb919406a8f297089189a9484
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="write-to-hdfs-from-apache-storm-on-hdinsight"></a>HDInsight의 Apache Storm에서 HDFS에 쓰기
 
@@ -30,7 +30,7 @@ Storm을 사용하여 HDInsight의 Apache Storm에서 사용하는 HDFS 호환 �
 
 ## <a name="get-the-code"></a>코드 가져오기
 
-이 토폴로지를 포함하는 프로젝트는 [https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store](https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store)에서 다운로드로 제공됩니다.
+이 토폴로지를 포함하는 프로젝트는 [https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store](https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store)에서 다운로드할 수 있습니다.
 
 이 프로젝트를 컴파일하기 위해 개발 환경에 필요한 구성 요소는 다음과 같습니다.
 
@@ -148,7 +148,7 @@ HDInsight에서 이 스크립트를 사용하는 방법에 대한 자세한 내�
 
 ## <a name="build-and-package-the-topology"></a>토폴로지 빌드 및 패키지
 
-1. [https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store ](https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store) 에서 개발 환경에 예제 프로젝트를 다운로드합니다.
+1. [https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store ](https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store)에서 예제 프로젝트를 개발 환경에 다운로드합니다.
 
 2. 명령 프롬프트, 터미널 또는 셸 세션에서 다운로드한 디렉터리를 변경합니다. 토폴로지를 빌드하고 패키지하려면 다음 명령을 사용합니다.
    

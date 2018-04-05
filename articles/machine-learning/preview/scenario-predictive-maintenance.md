@@ -1,6 +1,6 @@
 ---
-title: "실제 시나리오에 대한 예측 유지 관리 | Microsoft Docs"
-description: "PySpark를 사용한 실제 시나리오에 대한 예측 유지 관리"
+title: 실제 시나리오에 대한 예측 유지 관리 | Microsoft Docs
+description: PySpark를 사용한 실제 시나리오에 대한 예측 유지 관리
 services: machine-learning
 author: ehrlinger
 ms.author: jehrling
@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.topic: article
 ms.custom: mvc
 ms.date: 10/05/2017
-ms.openlocfilehash: 81e227194ff64d7b7af842a208349ccc63528ab8
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: bb6e4f9f147db2fb70d991922cf0bb8d16b29671
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="predictive-maintenance-for-real-world-scenarios"></a>실제 시나리오에 대한 예측 유지 관리
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 02/24/2018
 
 ### <a name="cortana-intelligence-gallery-github-repository"></a>Cortana Intelligence Gallery GitHub 리포지토리
 
-PM용 Cortana Intelligence Gallery 자습서는 문제를 보고하고 참여할 수 있는 공용 GitHub 리포지토리([https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance](https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance))입니다.
+PM 자습서를 위한 Cortana Intelligence Gallery는 문제를 보고하고 기여할 수 있는 공용 GitHub 리포지토리([https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance))입니다.
 
 
 ## <a name="use-case-overview"></a>사용 사례 개요

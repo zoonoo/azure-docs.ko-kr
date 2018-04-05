@@ -8,17 +8,15 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.openlocfilehash: d06ec240477c2defca7a463b2e9338bc5e3930ab
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: ac0da2b73341f0c6ed4f1e99e077996525890ab7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="forward-azure-automation-dsc-reporting-data-to-oms-log-analytics"></a>OMS Log Analytics에 Azure Automation DSC 보고 데이터 전달
+# <a name="forward-azure-automation-dsc-reporting-data-to-log-analytics"></a>Log Analytics에 Azure Automation DSC 보고 데이터 전달
 
-Automation 기능을 통해 Microsoft OMS(Operations Management Suite) Log Analytics 작업 영역으로 DSC 노드 상태 데이터를 보낼 수 있습니다.  
+Automation에서는 DSC 노드 상태 데이터를 Log Analytics 작업 영역으로 보낼 수 있습니다.  
 Azure Portal에서 또는 PowerShell을 사용하여 노드 및 노드 구성의 개별 DSC 리소스에 대해 준수 상태를 볼 수 있습니다. Log Anaytics를 사용하여 다음을 수행할 수 있습니다.
 
 * 관리되는 노드 및 개별 리소스에 대한 준수 정보 가져오기
@@ -34,7 +32,7 @@ Automation DSC 보고서를 Log Analytics로 보내려면 다음이 필요합니
 * [Azure PowerShell](/powershell/azure/overview)의 2016년 11월(v2.3.0) 이후 릴리스
 * Azure Automation 계정. 자세한 내용은 [Azure Automation 시작](automation-offering-get-started.md)을 참조하세요.
 * **Automation & Control** 서비스가 제공되는 Log Analytics 작업 공간 자세한 내용은 [Log Analytics 시작](../log-analytics/log-analytics-get-started.md)을 참조하세요.
-* 하나 이상의 Azure Automation DSC 노드. 자세한 내용은 [Azure Automation DSC를 통한 관리를 위한 컴퓨터 온보드](automation-dsc-onboarding.md)를 참조하세요. 
+* 하나 이상의 Azure Automation DSC 노드. 자세한 내용은 [Azure Automation DSC를 통한 관리를 위한 컴퓨터 온보드](automation-dsc-onboarding.md)를 참조하세요.
 
 ## <a name="set-up-integration-with-log-analytics"></a>Log Analytics와의 통합 설정
 
@@ -191,5 +189,5 @@ Log Analytics는 Automation DSC 데이터의 작동을 보다 정확히 이해�
 
 * Log Analytics를 사용하여 여러 검색 쿼리를 작성하고 Automation DSC 로그를 검토하는 방법에 대한 자세한 내용은 [Log Analytics의 로그 검색](../log-analytics/log-analytics-log-searches.md)을 참조하세요.
 * Azure Automation DSC 사용 방법에 대한 자세한 내용은 [Azure Automation DSC 시작하기](automation-dsc-getting-started.md)를 참조하세요.
-* OMS Log Analytics 및 데이터 수집 소스에 대한 자세한 내용은 [Log Analytics에서 Azure Storage 데이터 수집 개요](../log-analytics/log-analytics-azure-storage.md)
+* Log Analytics 및 데이터 수집 소스에 대한 자세한 내용은 [Log Analytics에서 Azure Storage 데이터 수집 개요](../log-analytics/log-analytics-azure-storage.md)를 참조하세요.
 

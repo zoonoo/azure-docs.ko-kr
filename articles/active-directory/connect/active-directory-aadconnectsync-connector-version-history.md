@@ -1,24 +1,24 @@
 ---
-title: "커넥터 버전 릴리스 내역 | Microsoft Docs"
-description: "이 항목에서는 FIM(Forefront Identity Manager) 및 MIM(Microsoft Identity Manager)에 대한 커넥터의 모든 버전을 보여 줍니다."
+title: 커넥터 버전 릴리스 내역 | Microsoft Docs
+description: 이 항목에서는 FIM(Forefront Identity Manager) 및 MIM(Microsoft Identity Manager)에 대한 커넥터의 모든 버전을 보여 줍니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 6a0c66ab-55df-4669-a0c7-1fe1a091a7f9
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/06/2017
-ms.author: billmath
-ms.openlocfilehash: 5b43284a86a7e5d4cdbf50a29d73f970c9ad9d58
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.date: 03/22/2018
+ms.author: davidste
+ms.openlocfilehash: 5b13338646abda7eefec44c42dc0159e9338adfa
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="connector-version-release-history"></a>커넥터 버전 릴리스 내역
 FIM(Forefront Identity Manager) 및 MIM(Microsoft Identity Manager)의 커넥터는 자주 업데이트됩니다.
@@ -34,9 +34,26 @@ FIM(Forefront Identity Manager) 및 MIM(Microsoft Identity Manager)의 커넥터
 * [최신 커넥터 다운로드](http://go.microsoft.com/fwlink/?LinkId=717495)
 * [일반 LDAP 커넥터](active-directory-aadconnectsync-connector-genericldap.md) 참조 설명서
 * [일반 SQL 커넥터](active-directory-aadconnectsync-connector-genericsql.md) 참조 설명서
-* [웹 서비스 커넥터](http://go.microsoft.com/fwlink/?LinkID=226245) 참조 설명서
+* [웹 서비스 커넥터](https://docs.microsoft.com/en-us/microsoft-identity-manager/reference/microsoft-identity-manager-2016-ma-ws) 참조 설명서
 * [PowerShell 커넥터](active-directory-aadconnectsync-connector-powershell.md) 참조 설명서
 * [Lotus Domino 커넥터](active-directory-aadconnectsync-connector-domino.md) 참조 설명서
+
+
+## <a name="118300"></a>1.1.830.0
+
+### <a name="fixed-issues"></a>수정된 문제:
+* ConnectorsLog System.Diagnostics.EventLogInternal.InternalWriteEvent를 해결했습니다. (메시지: 시스템에 연결된 장치가 작동하지 않습니다.)
+* 커넥터의 이 릴리스의 miiserver.exe.config에서 3.3.0.0-4.1.3.0에서 4.1.4.0으로 바인딩 리디렉션을 업데이트해야 합니다.
+* 일반 웹 서비스:
+    * 해결된 유효한 JSON 응답을 구성 도구에 저장할 수 없습니다.
+* 일반 SQL:
+    * 내보내기는 항상 삭제 작업의 업데이트 쿼리만을 생성합니다. 삭제 쿼리를 생성하도록 추가했습니다
+    * '델타 전략'이 '변경 내용 추적'인 경우 델타 가져오기 작업에 대한 개체를 가져오는 SQL 쿼리가 수정되었습니다. 이 구현이 알려진 제한에서 '변경 내용 추적' 모드를 사용하는 델타 가져오기는 다중 값 특성에서 변경 내용을 추적하지 않습니다
+    * 다중 값 특성의 마지막 값을 삭제하는 데 필요하고 이 행이 삭제하는 데 필요한 값을 제외한 다른 데이터를 포함하지 않는 경우에 삭제 쿼리를 생성할 가능성이 증가되었습니다.
+    * SP에 의해 출력 매개 변수를 구현할 때 처리하는 System.ArgumentException 
+    * varbinary(max) 형식이 있는 필드에 내보내기 작업을 수행하는 잘못된 쿼리
+    * (함수 ExportAttributes 및 GetQueryForMultiValue에서) parameterList 변수를 두 번 초기화하는 문제
+
 
 ## <a name="116490-aadconnect-116490"></a>1.1.649.0(AADConnect 1.1.649.0)
 
@@ -80,6 +97,8 @@ FIM(Forefront Identity Manager) 및 MIM(Microsoft Identity Manager)의 커넥터
   * Wsconfig 도구는 REST 서비스 메서드에 대한 "샘플 요청"의 Json 배열을 제대로 변환하지 못했습니다. 이로 인해 REST 요청에 대한 이 Json 배열의 직렬화와 관련된 문제가 발생했습니다.
   * 웹 서비스 커넥터 구성 도구는 JSON 속성 이름에 공백 기호를 사용하는 것을 지원하지 않습니다. 
     * WSConfigTool.exe.config 파일에 대체 패턴을 수동으로 추가할 수 있습니다(예: ```<appSettings> <add key=”JSONSpaceNamePattern” value="__" /> </appSettings>```).
+> [!NOTE]
+> 다음 오류를 수신하는 내보내기에 JSONSpaceNamePattern 키가 필요합니다. 메시지: 이름이 비어 있으면 안됩니다. 
 
 * Lotus Notes:
   * **조직/조직 구성 단위에 대해 사용자 지정 인증자 허용** 옵션이 해제된 경우 내보내기(업데이트) 중 커넥터가 실패합니다. 내보내기 흐름 후에 모든 특성이 Domino로 내보내지지만, 내보내기 시 KeyNotFoundException이 동기화에 반환됩니다. 

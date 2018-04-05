@@ -1,24 +1,24 @@
 ---
-title: "Azure Virtual Machines에 Windows Server Active Directory를 배포하기 위한 지침 | Microsoft Docs"
-description: "온-프레미스에 AD 도메인 서비스 및 AD 페더레이션 서비스를 배포하는 방법을 아는 경우 Azure 가상 머신에서 작동하는 방법을 학습합니다."
+title: Azure Virtual Machines에 Windows Server Active Directory를 배포하기 위한 지침 | Microsoft Docs
+description: 온-프레미스에 AD 도메인 서비스 및 AD 페더레이션 서비스를 배포하는 방법을 아는 경우 Azure 가상 머신에서 작동하는 방법을 학습합니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: femila
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 04df4c46-e6b6-4754-960a-57b823d617fa
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/26/2017
+ms.date: 03/20/2018
 ms.author: femila
-ms.openlocfilehash: 7a56876dfa545d273807444b105de3645dd79d34
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: c2d58e056cdb285be51d259492e11e6ae37b253e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="guidelines-for-deploying-windows-server-active-directory-on-azure-virtual-machines"></a>Azure 가상 머신에 Windows Server Active Directory를 배포하기 위한 지침
 이 문서에서는 Windows Server AD DS(Active Directory Domain Services) 및 AD FS(Active Directory Federation Services) 온-프레미스 배포와 Microsoft Azure 가상 머신에 배포 간의 중요한 차이점을 설명합니다.
@@ -71,8 +71,10 @@ Azure 가상 머신을 온-프레미스 회사 네트워크에 다시 연결하�
 > 
 > 
 
-### <a name="static-ip-addresses-must-be-configured-with-azure-powershell"></a>고정 IP 주소는 Azure PowerShell을 통해 구성되어야 합니다.
-동적 주소는 기본적으로 할당되지만 Set-AzureStaticVNetIP cmdlet을 사용하여 고정 IP 주소를 대신 할당합니다. 서비스 복구 및 VM 종료/다시 시작을 통해 유지되는 고정 IP 주소를 설정합니다. 자세한 내용은 [가상 머신에 대한 고정 내부 IP 주소](http://azure.microsoft.com/blog/static-internal-ip-address-for-virtual-machines/)를 참조하세요.
+### <a name="static-ip-addresses-can-be-configured-with-azure-powershell"></a>고정 IP 주소는 Azure PowerShell을 통해 구성할 수 있습니다.
+기본적으로 동적 주소가 할당되지만, 고정 IP 주소를 할당하려면 Set-AzureStaticVNetIP cmdlet을 사용하면 됩니다. 이 cmdlet은 서비스 복구 및 VM 종료/다시 시작을 통해 유지되는 고정 IP 주소를 설정합니다. 자세한 내용은 [가상 머신에 대한 고정 내부 IP 주소](http://azure.microsoft.com/blog/static-internal-ip-address-for-virtual-machines/)를 참조하세요. 아래와 같이 Azure Portal에서 VM을 만드는 동안 고정 IP 주소를 구성할 수도 있습니다. 자세한 내용은 [Azure Portal을 사용하여 고정 공용 IP 주소를 사용하는 VM 만들기](../virtual-network/virtual-network-deploy-static-pip-arm-portal.md)를 참조하세요.
+
+![VM을 만들 때 고정 IP 주소를 추가하는 단계의 스크린샷](media/active-directory-deploying-ws-ad-guidelines/static-ip.png)
 
 ## <a name="BKMK_Glossary"></a>용어 및 정의
 다음은 이 문서에서 참조되는 다양한 Azure 기술에 대한 용어의 전체 목록이 아닙니다.
@@ -408,7 +410,7 @@ Azure는 서로 다른 가상 네트워크에 여러 DC를 호스팅하는 경�
 
 Azure는 지사의 물리적 보안 위험을 제공하지 않지만 RODC가 제공하는 기능은 매우 다양한 이유로 이러한 환경에 적합하므로 RODC는 여전히 더욱 비용 효율적인 것으로 입증될 수 있습니다. 예를 들어 RODC는 아웃바운드 복제가 없으며 선택적으로 비밀(암호)을 채울 수 있습니다. 단점으로 이러한 암호의 부족은 사용자 또는 컴퓨터 인증으로 유효성을 검사하는 주문형 아웃바운드 트래픽이 필요할 수 있습니다. 그러나 암호는 선택적으로 미리 채워지고 캐시할 수 있습니다.
 
-RODC는 RODC FAS(필터링된 특성 집합)에 대한 중요한 데이터를 포함하는 특성을 추가할 수 있으므로 HBI 및 PII 문제와 관련된 추가적인 이점을 제공합니다. FAS는 RODC에 복제되지 않은 사용자 지정 가능한 특성 집합입니다. 허용되지 않거나 Azure에 PII 또는 HBI를 저장하지 않으려는 경우 FAS를 보호 장치로 사용할 수 있습니다. 자세한 내용은 RODC 필터링된 특성 집합[(https://technet.microsoft.com/library/cc753459)]을 참조하세요.
+RODC는 RODC FAS(필터링된 특성 집합)에 대한 중요한 데이터를 포함하는 특성을 추가할 수 있으므로 HBI 및 PII 문제와 관련된 추가적인 이점을 제공합니다. FAS는 RODC에 복제되지 않은 사용자 지정 가능한 특성 집합입니다. 허용되지 않거나 Azure에 PII 또는 HBI를 저장하지 않으려는 경우 FAS를 보호 장치로 사용할 수 있습니다. 자세한 내용은 [RODC 복제가 제한된 특성 집합[(https://technet.microsoft.com/library/cc753459)]을 참조하세요.
 
 응용 프로그램이 사용하려는 RODC와 호환되는지 확인합니다. 많은 Windows Server Active Directory 사용 응용 프로그램은 RODC와 잘 작동하지만 쓰기 가능한 DC에 대한 액세스가 없는 경우 일부 응용 프로그램은 비효율적으로 수행하거나 실패할 수 있습니다. 자세한 내용은 [읽기 전용 DC 응용 프로그램 호환성 가이드](https://technet.microsoft.com/library/cc755190)를 참조하세요.
 

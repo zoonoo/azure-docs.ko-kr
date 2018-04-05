@@ -1,18 +1,18 @@
 ---
-title: "Classic Azure Container Registry 업그레이드"
-description: "관리되지 않는 Classic 컨테이너 레지스트리를 업그레이드하여 Basic, Standard 및 Premium의 관리되는 컨테이너 레지스트리의 확장된 기능 집합을 활용할 수 있습니다."
+title: Classic Azure Container Registry 업그레이드
+description: 관리되지 않는 Classic 컨테이너 레지스트리를 업그레이드하여 Basic, Standard 및 Premium의 관리되는 컨테이너 레지스트리의 확장된 기능 집합을 활용할 수 있습니다.
 services: container-registry
 author: mmacy
 manager: timlt
 ms.service: container-registry
 ms.topic: article
-ms.date: 12/20/2017
+ms.date: 03/15/2018
 ms.author: marsma
-ms.openlocfilehash: 19090bb69d7165c1e904450dc93b925e23e44782
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: c5a61941bab2aa49cd8205e0a07dd2b5f7378ce9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="upgrade-a-classic-container-registry"></a>Classic 컨테이너 레지스트리 업그레이드
 
@@ -29,14 +29,16 @@ Classic의 관리되지 않는 레지스트리는 기능이 제한되어 있으�
 * [지역에서 복제](container-registry-geo-replication.md)
 * [Webhook](container-registry-webhook.md)
 
-무엇보다도 Classic 레지스트리는 해당 레지스트리를 만들 때 Azure 구독에서 Azure가 자동으로 프로비전한 저장소 계정에 따라 결정됩니다. 반면, Basic, Standard 및 Premium SKU는 *관리되는 저장소*를 활용합니다. 즉, Azure는 사용자를 위해 이미지의 저장소를 투명하게 관리하여 별도의 저장소 계정이 자체 구독에서 만들어지지 않습니다.
+무엇보다도 클래식 레지스트리는 해당 레지스트리를 만들 때 Azure 구독에서 Azure가 자동으로 프로비전한 저장소 계정에 따라 다릅니다. 반면, Basic, Standard 및 Premium SKU는 사용자의 이미지 저장소를 투명하게 처리하여 Azure의 [고급 저장소 기능](container-registry-storage.md)을 활용합니다. 별도 저장소 계정이 고유한 구독에서 생성되지 않습니다.
 
 관리되는 레지스트리 저장소는 다음과 같은 이점을 제공합니다.
 
-* 컨테이너 이미지는 [암호화된 상태로 유지](../storage/common/storage-service-encryption.md)됩니다.
-* 이미지는 [지역 중복 저장소](../storage/common/storage-redundancy.md#geo-redundant-storage)를 사용하여 저장되므로 여러 지역 복제 시 이미지를 확실하게 백업할 수 있습니다.
+* 컨테이너 이미지는 [암호화된 상태로 유지](container-registry-storage.md#encryption-at-rest)됩니다.
+* 이미지는 [지역 중복 저장소](container-registry-storage.md#geo-redundant-storage)를 사용하여 저장되므로 여러 지역 복제 시 이미지를 확실하게 백업할 수 있습니다.
 * 자유로운 [SKU 간 이동](container-registry-skus.md#changing-skus) 기능으로 더 높은 수준의 SKU를 선택하면 더 높은 처리량을 지원할 수 있습니다. 각 SKU를 사용하여 ACR은 요구 사항 증가에 따라 처리량 요구 사항을 충족할 수 있습니다.
 * 레지스트리 및 해당 저장소에 대한 통합 보안 모델은 간소화된 권한 관리를 제공합니다. 또한 별도 저장소 계정에 대한 사용 권한을 관리할 필요 없이, 컨테이너 레지스트리의 사용 권한만 관리하면 됩니다.
+
+ACR의 이미지 저장소에 대한 자세한 내용은 [Azure Container Registry의 컨테이너 이미지 저장소](container-registry-storage.md)를 참조하세요.
 
 ## <a name="migration-considerations"></a>마이그레이션 고려 사항
 

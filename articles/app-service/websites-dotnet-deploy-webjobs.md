@@ -1,9 +1,9 @@
 ---
-title: "Visual Studio를 사용하여 WebJobs 개발 및 배포 - Azure"
-description: "Visual Studio를 사용하여 Azure App Service에 Azure WebJobs를 개발하고 배포하는 방법에 대해 알아봅니다."
+title: Visual Studio를 사용하여 WebJobs 개발 및 배포 - Azure
+description: Visual Studio를 사용하여 Azure App Service에 Azure WebJobs를 개발하고 배포하는 방법에 대해 알아봅니다.
 services: app-service
-documentationcenter: 
-author: ggailey777
+documentationcenter: ''
+author: tdykstra
 manager: erikre
 editor: jimbe
 ms.assetid: a3a9d320-1201-4ac8-9398-b4c9535ba755
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/12/2017
 ms.author: glenga;david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: 8793485f2f1967e8c14ef335f14f81c9b946f974
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: babe190c0865f5be4aeecb40ca48b52673c6920e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio---azure-app-service"></a>Visual Studio를 사용하여 WebJobs 개발 및 배포 - Azure App Service
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 11/22/2017
 Visual Studio는 WebJob 지원 콘솔 응용 프로그램 프로젝트를 배포할 때 다음 두 가지 작업을 수행합니다.
 
 * 웹 앱의 해당 폴더에 런타임 파일을 복사합니다(연속 WebJob의 경우 *App_Data/jobs/continuous*, 예약된 주문형 WebJob의 경우 *App_Data/jobs/triggered*).
-* 특정 시간에 실행되도록 예약된 WebJob에 대해 [Azure Scheduler 작업](#scheduler) 을 설정합니다. (연속 WebJob에는 필요하지 않습니다.)
+* 특정 시간에 실행되도록 예약된 WebJob에 대해 [Azure Scheduler](https://docs.microsoft.com/azure/scheduler/) 작업을 설정합니다. (연속 WebJob에는 필요하지 않습니다.)
 
 WebJob 지원 프로젝트에는 다음 항목이 추가됩니다.
 
@@ -140,7 +140,7 @@ WebJob 배포를 위해 콘솔 응용 프로그램을 구성하는 경우, Visua
           "runMode": "Continuous"
         }
 
-이 파일을 직접 편집할 수도 있고 Visual Studio에 제공되는 IntelliSense를 사용할 수도 있습니다. 파일 스키마는 [http://schemastore.org](http://schemastore.org/schemas/json/webjob-publish-settings.json) 에 저장되며 이 위치에서 볼 수 있습니다.  
+이 파일을 직접 편집할 수도 있고 Visual Studio에 제공되는 IntelliSense를 사용할 수도 있습니다. 파일 스키마는 [http://schemastore.org](http://schemastore.org/schemas/json/webjob-publish-settings.json)에 저장되며 이 위치에서 볼 수 있습니다.  
 
 ## <a id="webjobslist"></a>webjobs-list.json
 WebJob 지원 프로젝트를 웹 프로젝트에 연결하면 Visual Studio는 WebJob 프로젝트의 이름을 웹 프로젝트의 *Properties* 폴더에 있는 *webjobs-list.json* 파일에 저장합니다. 이 목록에는 다음 예와 같은 여러 WebJob 프로젝트가 포함될 수 있습니다.
@@ -157,7 +157,7 @@ WebJob 지원 프로젝트를 웹 프로젝트에 연결하면 Visual Studio는 
           ]
         }
 
-이 파일을 직접 편집할 수도 있고 Visual Studio에 제공되는 IntelliSense를 사용할 수도 있습니다. 파일 스키마는 [http://schemastore.org](http://schemastore.org/schemas/json/webjobs-list.json) 에 저장되며 이 위치에서 볼 수 있습니다.
+이 파일을 직접 편집할 수도 있고 Visual Studio에 제공되는 IntelliSense를 사용할 수도 있습니다. 파일 스키마는 [http://schemastore.org](http://schemastore.org/schemas/json/webjobs-list.json)에 저장되며 이 위치에서 볼 수 있습니다.
 
 ## <a id="deploy"></a>WebJob 프로젝트 배포
 웹 프로젝트에 연결한 WebJob 프로젝트는 웹 프로젝트와 함께 자동으로 배포됩니다. 웹 프로젝트 배포에 대한 자세한 내용은 **방법 가이드** > **앱 배포**를 참조하세요.

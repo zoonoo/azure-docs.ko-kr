@@ -1,16 +1,16 @@
 ---
-title: "Azure Site Recovery의 Hyper-V와 Azure 간 복제 아키텍처 | Microsoft Docs"
-description: "이 문서에서는 Azure Site Recovery 서비스를 사용하여 온-프레미스 Hyper-V VM(VMM 없음)을 Azure로 복제할 때 사용되는 구성 요소 및 아키텍처 개요를 제공합니다."
+title: Azure Site Recovery의 Hyper-V와 Azure 간 복제 아키텍처 | Microsoft Docs
+description: 이 문서에서는 Azure Site Recovery 서비스를 사용하여 온-프레미스 Hyper-V VM(VMM 없음)을 Azure로 복제할 때 사용되는 구성 요소 및 아키텍처 개요를 제공합니다.
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/14/2018
+ms.date: 03/194/2018
 ms.author: raynew
-ms.openlocfilehash: dd3dcf325ed5a628c98ac63683440e1796aa8c3f
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 978d290287a4ff8875eea7e93f003c78e7177dae
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="hyper-v-to-azure-replication-architecture"></a>Hyper-V와 Azure 간 복제 아키텍처
 
@@ -28,7 +28,7 @@ Hyper-V호스트는 선택적으로 System Center VMM(Virtual Machine Manager) �
 **구성 요소** | **요구 사항** | **세부 정보**
 --- | --- | ---
 **Azure** | Azure 구독, Azure Storage 계정 및 Azure 네트워크  | 온-프레미스 VM 워크로드에서 복제된 데이터는 저장소 계정에 저장됩니다. 온-프레미스 사이트에서 장애 조치가 발생한 경우 복제된 워크로드 데이터를 사용하여 Azure VM을 만듭니다.<br/><br/> Azure VM을 만들 때 Azure 가상 네트워크에 연결합니다.
-**Hyper-V** | Site Recovery 배포 중에 Hyper-V 호스트와 클러스터를 Hyper-V 사이트에 모읍니다. Azure Site Recovery 공급자와 Recovery Services 에이전트를 각 Hyper-V 컴퓨터에 설치합니다. | 공급자는 인터넷을 통한 사이트 복구로 복제를 오케스트레이션합니다. Recovery Services 에이전트는 데이터 복제를 처리합니다.<br/><br/> 공급자 및 에이전트로부터의 통신은 모두 보호 및 암호화됩니다. Azure 저장소에 복제된 데이터도 암호화됩니다.
+**Hyper-V** | Site Recovery 배포 중에 Hyper-V 호스트와 클러스터를 Hyper-V 사이트에 모읍니다. Azure Site Recovery 공급자와 Recovery Services 에이전트를 각 독립 실행형 Hyper-V 호스트 또는 각 Hyper-V 클러스터 노드에 설치합니다. | 공급자는 인터넷을 통한 사이트 복구로 복제를 오케스트레이션합니다. Recovery Services 에이전트는 데이터 복제를 처리합니다.<br/><br/> 공급자 및 에이전트로부터의 통신은 모두 보호 및 암호화됩니다. Azure 저장소에 복제된 데이터도 암호화됩니다.
 **Hyper-V VM** | Hyper-V에서 실행 중인 하나 이상의 VM. | 명시적으로 VM에 설치해야 하는 것은 없습니다.
 
 
@@ -46,7 +46,7 @@ Hyper-V호스트는 선택적으로 System Center VMM(Virtual Machine Manager) �
 --- | --- | ---
 **Azure** | Azure 구독, Azure Storage 계정 및 Azure 네트워크  | 온-프레미스 VM 워크로드에서 복제된 데이터는 저장소 계정에 저장됩니다. 온-프레미스 사이트에서 장애 조치가 발생한 경우 복제된 데이터를 사용하여 Azure VM을 만듭니다.<br/><br/> Azure VM을 만들 때 Azure 가상 네트워크에 연결합니다.
 **VMM 서버** | VMM 서버에는 Hyper-V 호스트를 포함하는 하나 이상의 클라우드가 있습니다. | VMM 서버에 복제를 Site Recovery와 오케스트레이션하는 Site Recovery 공급자를 설치하고 Recovery Services 자격 증명 모음에 서버를 등록합니다.
-**Hyper-V 호스트** | VMM에서 관리되는 하나 이상의 Hyper-V 호스트/클러스터. |  각 호스트 또는 클러스터 구성원에서 Recovery Services 에이전트를 설치합니다.
+**Hyper-V 호스트** | VMM에서 관리되는 하나 이상의 Hyper-V 호스트/클러스터. |  각 Hyper-V 호스트 또는 클러스터 노드에서 Recovery Services 에이전트를 설치합니다.
 **Hyper-V VM** | Hyper-V 호스트 서버에서 실행되는 하나 이상의 VM. | 명시적으로 VM에 설치해야 하는 것은 없습니다.
 **네트워킹** | VMM 서버에 설정된 논리 및 VM 네트워크. VM 네트워크는 클라우드와 연결된 논리 네트워크에 연결되어야 합니다. | VM 네트워크는 Azure 가상 네트워크에 매핑됩니다. 장애 조치 후 Azure VM이 만들어지면 VM 네트워크에 매핑되지 않은 Azure 네트워크에 추가됩니다.
 

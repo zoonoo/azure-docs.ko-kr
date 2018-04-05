@@ -1,24 +1,24 @@
 ---
-title: "Azure IoT Hub 메시징 형식 이해 | Microsoft Docs"
-description: "개발자 가이드 - IoT Hub 메시지의 형식 및 예상된 콘텐츠를 설명합니다."
+title: Azure IoT Hub 메시징 형식 이해 | Microsoft Docs
+description: 개발자 가이드 - IoT Hub 메시지의 형식 및 예상된 콘텐츠를 설명합니다.
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 3fc5f1a3-3711-4611-9897-d4db079b4250
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/29/2018
+ms.date: 03/20/2018
 ms.author: dobett
-ms.openlocfilehash: 3d5b500964ee37dbd347858edd35812e1d217499
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 832010181059e2ec42834e54622f374c367c8d4f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-and-read-iot-hub-messages"></a>IoT Hub 메시지 만들기 및 읽기
 
@@ -50,6 +50,7 @@ ms.lasthandoff: 02/01/2018
 | ConnectionDeviceId |IoT Hub에서 장치-클라우드 메시지에 설정하는 ID입니다. 메시지를 보낸 장치의 **deviceId** 를 포함합니다. |
 | ConnectionDeviceGenerationId |IoT Hub에서 장치-클라우드 메시지에 설정하는 ID입니다. 메시지를 보낸 장치의 **generationId**([장치 ID 속성][lnk-device-properties]당)를 포함합니다. |
 | ConnectionAuthMethod |IoT Hub에서 장치-클라우드 메시지에 설정하는 인증 방법입니다. 이 속성에는 메시지를 보내는 장치를 인증하는 데 사용되는 인증 방법에 대한 정보가 포함됩니다. 자세한 내용은 [장치-클라우드 스푸핑 방지][lnk-antispoofing]를 참조하세요. |
+| CreationTimeUtc | 장치에서 메시지를 만든 날짜 및 시간입니다. 장치는 명시적으로 이 값을 설정해야 합니다. |
 
 ## <a name="message-size"></a>메시지 크기
 

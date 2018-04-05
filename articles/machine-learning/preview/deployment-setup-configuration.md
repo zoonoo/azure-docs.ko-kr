@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/6/2017
-ms.openlocfilehash: d231fd525d310d2496c9ace40808b7deab0dd48f
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 0859031ac26b061861aa51dce1093f2fe4350935
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="model-management-setup"></a>모델 관리 설치
 
@@ -154,12 +154,9 @@ az ml account modelmanagement create -l [Azure region, e.g. eastus2] -n [your ac
 az ml account modelmanagement set -n [your account name] -g [resource group it was created in]
 ```
 
-### <a name="deploy-your-model"></a>모델 배포
-이제 저장된 모델을 웹 서비스로 배포할 준비가 되었습니다. 
-
-```azurecli
-az ml service create realtime --model-file [model file/folder path] -f [scoring file e.g. score.py] -n [your service name] -s [schema file e.g. service_schema.json] -r [runtime for the Docker container e.g. spark-py or python] -c [conda dependencies file for additional python packages]
-```
+이 프로세스의 결과로 Machine Learning 모델을 관리하고 배포하는 데 필요한 기능을 제공하기 위해 환경이 준비되고 모델 관리 계정이 생성되었습니다(개요는 [Azure Machine Learning 모델 관리](model-management-overview.md) 참조).
 
 ## <a name="next-steps"></a>다음 단계
-갤러리의 많은 샘플 중 하나를 수행합니다.
+
+* 로컬 컴퓨터 또는 클러스터에서 실행하기 위해 웹 서비스를 배포하는 방법에 지침은 [웹 서비스로 Machine Learning 모델 배포](model-management-service-deploy.md)로 계속합니다.
+* 갤러리의 많은 샘플 중 하나를 수행합니다.

@@ -1,24 +1,18 @@
 ---
-title: "Azure Automation에서 SCCM 컬렉션을 사용하여 대상 업데이트 - 업데이트 관리 | Microsoft Docs"
-description: "이 문서는 SCCM 관리되는 컴퓨터의 업데이트를 관리하는 이 솔루션으로 System Center Configuration Manager를 구성하는 데 도움을 주기 위해 작성되었습니다."
+title: Azure Automation에서 SCCM 컬렉션을 사용하여 대상 업데이트 - 업데이트 관리
+description: 이 문서는 SCCM 관리되는 컴퓨터의 업데이트를 관리하는 이 솔루션으로 System Center Configuration Manager를 구성하는 데 도움을 주기 위해 작성되었습니다.
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: carmonm
-editor: 
-ms.assetid: 
 ms.service: automation
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 02/28/2018
+author: georgewallace
 ms.author: gwallace
-ms.openlocfilehash: c1636ce84f6d0d228dcb15e62af4a88b50fd84bd
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.date: 03/19/2018
+ms.topic: article
+manager: carmonm
+ms.openlocfilehash: 481195538a8c0ece572b4589ea2c2303e559fc44
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="integrate-system-center-configuration-manager-with-update-management"></a>업데이트 관리와 System Center Configuration Manager 통합
 

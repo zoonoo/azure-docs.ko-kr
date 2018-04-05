@@ -1,8 +1,8 @@
 ---
-title: "Linux Azure Virtual Machines의 SQL Server FAQ | Microsoft Docs"
-description: "이 문서는 Linux Azure VM에서 SQL Server를 실행하는 방법에 대한 질문과 대답을 제공합니다."
+title: Linux Azure Virtual Machines의 SQL Server FAQ | Microsoft Docs
+description: 이 문서는 Linux Azure VM에서 SQL Server를 실행하는 방법에 대한 질문과 대답을 제공합니다.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rothja
 manager: jhubbard
 tags: azure-service-management
@@ -12,11 +12,11 @@ ms.topic: troubleshooting
 ms.workload: iaas-sql-server
 ms.date: 12/13/2017
 ms.author: jroth
-ms.openlocfilehash: 8b556b01aa47aeb3588138dfa61e517c00dc44dc
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 56a0629249cdb5f0f098d2b7b6d36b3fbb215009
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-linux-azure-virtual-machines"></a>Linux Azure Virtual Machines의 SQL Server에 대한 FAQ(질문과 대답)
 
@@ -71,13 +71,17 @@ ms.lasthandoff: 12/21/2017
 
 1. **종량제 갤러리 이미지 중 하나에서 만들어진 경우 사용자 고유의 SQL Server 라이선스를 사용하도록 VM을 변경할 수 있나요?**
 
-   아니요. 분 단위로 요금이 부과되는 라이선스에서 사용자 라이선스 사용으로 전환할 수 없습니다. 새로운 Linux VM을 만들고, SQL Server를 설치하고, 데이터를 마이그레이션해야 합니다. 사용자 고유 라이선스를 가져오기에 대한 자세한 내용은 이전 질문을 참조하세요.
+   번호 초 단위로 요금이 부과되는 라이선스에서 사용자 라이선스 사용으로 전환할 수 없습니다. 새로운 Linux VM을 만들고, SQL Server를 설치하고, 데이터를 마이그레이션해야 합니다. 사용자 고유 라이선스를 가져오기에 대한 자세한 내용은 이전 질문을 참조하세요.
 
 ## <a name="administration"></a>관리
 
 1. **SSMS(SQL Server Management Studio)를 사용하여 Linux SQL Server 가상 머신을 관리할 수 있나요?**
 
    예, 하지만 SSMS는 현재 Windows 전용 도구입니다. Linux SQL Server VM에서 SSMS를 사용하도록 Windows 컴퓨터에서 원격으로 연결해야 합니다. 새 [mssql-conf](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-mssql-conf) 도구는 Linux에서 로컬로 다양한 관리 작업을 수행할 수 있습니다. 플랫폼 간 데이터베이스 관리 도구를 미리 보려면 [SQL Server Operations Studio(미리 보기)](https://docs.microsoft.com/sql/sql-operations-studio/what-is)를 참조하세요.
+
+1. **SQL VM에서 SQL Server를 완전히 제거할 수 있나요?**
+
+   예, 그러나 [SQL Server Azure VM에 대한 가격 책정 지침](../../windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md?toc=%2fazure%2fvirtual-machines%2flinux%2fsql%2ftoc.json)에 설명된 대로 SQL VM에 대한 비용 청구가 계속됩니다. SQL Server가 더 이상 필요하지 않는 경우 새 가상 컴퓨터를 배포하고 데이터와 응용 프로그램을 새 가상 컴퓨터에 마이그레이션할 수 있습니다. 그런 다음 SQL Server 가상 머신을 제거할 수 있습니다.
 
 ## <a name="updating-and-patching"></a>업데이트 및 패치
 

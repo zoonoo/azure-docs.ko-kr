@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/03/2018
-ms.openlocfilehash: 7b481fb3287b8ee2c22e5f25f8cf1935eed05428
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 5211fa29af1d8cba17049b69974189990d30f34a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="deploying-a-machine-learning-model-as-a-web-service"></a>웹 서비스로 Machine Learning 웹 학습 모델 배포
 
@@ -22,10 +22,17 @@ Azure Machine Learning 모델 관리는 모델을 컨테이너화된 Docker 기�
 
 이 문서에서는 Azure Machine Learning 모델 관리 CLI(명령줄 인터페이스)를 사용하여 모델을 웹 서비스로 배포하는 단계에 대해 설명합니다.
 
+## <a name="what-you-need-to-get-started"></a>시작에 필요한 항목
+
+이 가이드를 최대한 활용하려면 모델을 배포할 수 있는 Azure 구독 또는 리소스 그룹에 참여자로 액세스할 수 있어야 합니다.
+CLI는 Azure Machine Learning Workbench 및 [Azure DSVM](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-virtual-machine-overview)이 미리 설치되어 있습니다.  독립 실행형 패키지로 설치할 수도 있습니다.
+
+또한 모델 관리 계정 및 배포 환경은 미리 설정되어 있어야 합니다.  로컬 및 클러스터 배포를 위한 모델 관리 계정 및 환경의 설정에 대한 자세한 내용은 [모델 관리 구성](deployment-setup-configuration.md)을 참조하세요.
+
 ## <a name="deploying-web-services"></a>웹 서비스 배포
 CLI를 사용하여 웹 서비스를 배포하여 로컬 컴퓨터 또는 클러스터에서 실행할 수 있습니다.
 
-로컬 배포부터 시작하는 것이 좋습니다. 먼저 모델과 코드가 작동하는지에 대한 유효성을 검사한 다음 프로덕션 규모로 사용할 클러스터에 웹 서비스를 배포합니다. 클러스터 배포를 위한 환경 설정에 대한 자세한 내용은 [모델 관리 구성](deployment-setup-configuration.md)을 참조하세요. 
+로컬 배포부터 시작하는 것이 좋습니다. 먼저 모델과 코드가 작동하는지에 대한 유효성을 검사한 다음 프로덕션 규모로 사용할 클러스터에 웹 서비스를 배포합니다.
 
 배포 단계는 다음과 같습니다.
 1. 학습되고 저장된 Machine Learning 모델 사용
@@ -49,7 +56,8 @@ saved_model = pickle.dumps(clf)
 ```
 
 ### <a name="2-create-a-schemajson-file"></a>2. schema.json 파일 만들기
-이 단계는 옵션입니다. 
+
+스키마 생성은 선택 사항이지만, 더 효율적인 처리를 위해 요청 및 입력 변수 형식을 정의하는 것이 좋습니다.
 
 웹 서비스에 대한 입력과 출력의 유효성을 자동으로 검사하는 스키마를 만듭니다. 또한 CLI는 이 스키마를 사용하여 웹 서비스에 대한 Swagger 문서를 생성합니다.
 
@@ -77,6 +85,13 @@ generate_schema(run_func=run, inputs=inputs, filepath='./outputs/service_schema.
 
 ```python
 inputs = {"input_df": SampleDefinition(DataTypes.PANDAS, yourinputdataframe)}
+generate_schema(run_func=run, inputs=inputs, filepath='./outputs/service_schema.json')
+```
+
+다음 예제에서는 일반 JSON 형식을 사용합니다.
+
+```python
+inputs = {"input_json": SampleDefinition(DataTypes.STANDARD, yourinputjson)}
 generate_schema(run_func=run, inputs=inputs, filepath='./outputs/service_schema.json')
 ```
 
@@ -147,10 +162,13 @@ az ml manifest create --manifest-name [your new manifest name] -f [path to score
 az ml image create -n [image name] --manifest-id [the manifest ID]
 ```
 
-또는 단일 명령을 사용하여 매니페스트와 이미지를 만들 수 있습니다. 
+>[!NOTE] 
+>또한 단일 명령을 사용하여 모델 등록, 매니페스트 및 모델 생성을 수행할 수 있습니다. 자세한 내용을 보려면 service create 명령과 함께 -h를 사용하세요.
+
+대신, 다음과 같이 하나의 단계로 모델을 등록하고, 매니페스트를 만들고, 이미지를 만드는 단일 명령이 있습니다(단, 웹 서비스 만들기 및 배포는 아직 해당하지 않음).
 
 ```
-az ml image create -n [image name] --model-file [model file or folder path] -f [code file, e.g. the score.py file] -r [the runtime eg.g. spark-py which is the Docker container image base]
+az ml image create -n [image name] --model-file [model file or folder path] -f [code file, e.g. the score.py file] -r [the runtime e.g. spark-py which is the Docker container image base]
 ```
 
 >[!NOTE]
@@ -165,7 +183,14 @@ az ml service create realtime --image-id <image id> -n <service name>
 ```
 
 >[!NOTE] 
->단일 명령을 사용하여 이전 4단계를 수행할 수도 있습니다. 자세한 내용을 보려면 service create 명령과 함께 -h를 사용하세요.
+>단일 명령을 사용하여 이전 4단계를 모두 수행할 수도 있습니다. 자세한 내용을 보려면 service create 명령과 함께 -h를 사용하세요.
+
+대신, 다음과 같이 하나의 단계로 모델을 등록하고, 매니페스트를 만들고, 이미지를 만들 뿐 아니라 웹 서비스도 만들고 배포하는 단일 명령이 있습니다.
+
+```azurecli
+az ml service create realtime --model-file [model file/folder path] -f [scoring file e.g. score.py] -n [your service name] -s [schema file e.g. service_schema.json] -r [runtime for the Docker container e.g. spark-py or python] -c [conda dependencies file for additional python packages]
+```
+
 
 ### <a name="8-test-the-service"></a>8. 서비스 테스트
 다음 명령을 사용하여 서비스를 호출하는 방법에 대한 정보를 가져옵니다.

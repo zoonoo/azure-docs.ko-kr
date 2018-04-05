@@ -1,11 +1,11 @@
 ---
-title: "Azure Data Factory를 프로그래밍 방식으로 모니터링 | Microsoft Docs"
-description: "다른 SDK(소프트웨어 개발 키트)를 사용하여 Data Factory에서 파이프라인을 모니터링하는 방법을 알아봅니다."
+title: Azure Data Factory를 프로그래밍 방식으로 모니터링 | Microsoft Docs
+description: 다른 SDK(소프트웨어 개발 키트)를 사용하여 Data Factory에서 파이프라인을 모니터링하는 방법을 알아봅니다.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: douglaslMS
-manager: jhubbard
-editor: 
+manager: craigg
+editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,17 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: douglasl
-ms.openlocfilehash: 95934de9b84270ff112489a7b67f622dad609970
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 87e69349245c5f67e23022e3a45ed798400e6a2c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="programmatically-monitor-an-azure-data-factory"></a>Azure Data Factory를 프로그래밍 방식으로 모니터링
 이 문서에서는 다른 SDK(소프트웨어 개발 키트)를 사용하여 Data Factory에서 파이프라인을 모니터링하는 방법을 설명합니다. 
 
 > [!NOTE]
 > 이 문서는 현재 미리 보기 상태인 Data Factory 버전 2에 적용됩니다. GA(일반 공급) 상태인 Data Factory 버전 1 서비스를 사용 중인 경우 [Data Factory 버전 1의 파이프라인 모니터링 및 관리](v1/data-factory-monitor-manage-pipelines.md)를 참조하세요.
+
+## <a name="data-range"></a>데이터 범위
+
+Data Factory는 45일 동안 파이프라인 실행 데이터를 저장하기만 합니다. Data Factory 파이프라인 실행에 대한 데이터를 프로그래밍 방식으로 쿼리할 때(예: PowerShell 명령 `Get-AzureRmDataFactoryV2PipelineRun` 사용) 선택적 `LastUpdatedAfter` 및 `LastUpdatedBefore` 매개 변수에 대한 최대 날짜가 없습니다. 하지만 예를 들어 작년 데이터를 쿼리하는 경우 쿼리는 오류를 반환하지 않지만 최근 45일 동안의 파이프라인 실행 데이터를 반환합니다.
+
+45일을 넘는 파이프라인 실행 데이터를 유지하려는 경우 [Azure Monitor](monitor-using-azure-monitor.md)를 사용하여 고유한 진단 로깅을 설정합니다.
 
 ## <a name="net"></a>.NET
 .NET SDK를 사용하여 파이프라인을 만들고 모니터링하는 전체 연습 과정을 보려면 [.NET을 사용하여 Data Factory 및 파이프라인 만들기](quickstart-create-data-factory-dot-net.md)를 참조하세요.

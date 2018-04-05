@@ -1,24 +1,21 @@
 ---
-title: "Azure Active Directory B2C: 사용자 지정 정책을 사용하여 OAuth2 ID 공급자로 Google+ 추가"
-description: "OAuth2 프로토콜을 사용하여 ID 공급자로 Google+를 사용하는 샘플"
+title: 'Azure Active Directory B2C: 사용자 지정 정책을 사용하여 OAuth2 ID 공급자로 Google+ 추가'
+description: OAuth2 프로토콜을 사용하여 ID 공급자로 Google+를 사용하는 샘플
 services: active-directory-b2c
-documentationcenter: 
-author: yoelhor
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 08/04/2017
-ms.author: yoelh
-ms.openlocfilehash: d389a44ce38d84e510060f3b0a53cda58513dee5
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.author: davidmu
+ms.openlocfilehash: f12bbc2472aa2d83088c7d4d7b8f173744fb36b4
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-add-google-as-an-oauth2-identity-provider-using-custom-policies"></a>Azure Active Directory B2C: 사용자 지정 정책을 사용하여 OAuth2 ID 공급자로 Google+ 추가
 
@@ -26,7 +23,7 @@ ms.lasthandoff: 01/09/2018
 
 이 가이드에서는 [사용자 지정 정책](active-directory-b2c-overview-custom.md)을 사용하여 Google+ 계정의 사용자가 로그인할 수 있도록 하는 방법을 설명합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 [사용자 지정 정책 시작](active-directory-b2c-get-started-custom.md) 문서의 단계를 완료합니다.
 
@@ -39,7 +36,7 @@ ms.lasthandoff: 01/09/2018
 5.  Azure AD B2C 테넌트에 정책 업로드 및 테스트
 
 ## <a name="create-a-google-account-application"></a>Google+ 계정 응용 프로그램 만들기
-Azure AD(Azure Active Directory) B2C에서 Google+를 ID 공급자로 사용하려면 Google+ 응용 프로그램을 만들고 올바른 매개 변수를 제공해야 합니다. Google+ 응용 프로그램을 [https://accounts.google.com/SignUp](https://accounts.google.com/SignUp)에 등록할 수 있습니다.
+Azure AD(Azure Active Directory) B2C에서 Google+를 ID 공급자로 사용하려면 Google+ 응용 프로그램을 만들고 올바른 매개 변수를 제공해야 합니다. Google+ 응용 프로그램을 여기에서 등록할 수 있습니다. [https://accounts.google.com/SignUp](https://accounts.google.com/SignUp)
 
 1.  [Google 개발자 콘솔](https://console.developers.google.com/) 로 이동하고 Google + 계정 자격 증명으로 로그인합니다.
 2.  **프로젝트 만들기**를 클릭하고 **프로젝트 이름**을 입력한 다음 **만들기**를 클릭합니다.

@@ -1,24 +1,24 @@
 ---
-title: "SQL 위임된 관리자 권한을 사용하여 Azure AD Connect 설치 | Microsoft Docs"
-description: "이 항목에서는 SQL dbo 권한만이 있는 계정을 사용하여 설치를 허용하는 Azure AD Connect에 대한 업데이트를 설명합니다."
-documentationcenter: 
+title: SQL 위임된 관리자 권한을 사용하여 Azure AD Connect 설치 | Microsoft Docs
+description: 이 항목에서는 SQL dbo 권한만이 있는 계정을 사용하여 설치를 허용하는 Azure AD Connect에 대한 업데이트를 설명합니다.
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.reviewer: jparsons
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2018
+ms.date: 03/19/2018
 ms.author: billmath
-ms.openlocfilehash: c2d77c37f2f65c9a7db1fd5c4010fc43bcbc7ebf
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 2686bdef9c25f4540f9b2a21594b18cbe0404e08
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="install-azure-ad-connect-using-sql-delegated-administrator-permissions"></a>SQL 위임된 관리자 권한을 사용하여 Azure AD Connect 설치
 최신 Azure AD Connect 빌드에 앞서 SQL을 필요로 하는 구성을 배포할 때 관리 위임은 지원되지 않습니다.  Azure AD Connect를 설치하려는 사용자는 SQL server에서 SA(서버 관리자) 권한이 있어야 합니다.
@@ -51,6 +51,8 @@ Azure AD Connect 관리자|Azure AD Connect를 설치하고 사용자 정의 설
 
 ## <a name="additional-information"></a>추가 정보
 데이터베이스가 프로비전되면 Azure AD Connect 관리자는 편한 때에 온-프레미스 동기화를 설치 및 구성할 수 있습니다.  
+
+**/UseExistingDatabase** 플래그는 미리 만든 데이터베이스를 사용할 때 필요합니다.  복구 상황에서만 사용되는 것은 아닙니다.
 
 Azure AD Connect의 새로운 설치를 지원할 뿐 아니라 이 기능은 **/UseExistingDatabase** 플래그와 관련된 모든 시나리오에 대한 위임을 가능하게 합니다.  기존 데이터베이스와 함께 Azure AD Connect를 설치하는 방법에 대한 자세한 내용은 [기존 ADSync 데이터베이스를 사용하여 Azure AD Connect 설치](active-directory-aadconnect-existing-database.md)를 참조하세요.
 

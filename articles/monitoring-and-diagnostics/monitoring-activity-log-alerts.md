@@ -1,33 +1,32 @@
 ---
-title: "활동 로그 경고 만들기 | Microsoft Docs"
-description: "활동 로그에서 특정 이벤트가 발생하면 SMS, 웹후크 및 전자 메일을 통해 알림을 받습니다."
+title: 클래식 활동 로그 경고 만들기 | Microsoft Docs
+description: 활동 로그에서 특정 이벤트가 발생하면 SMS, 웹후크 및 전자 메일을 통해 알림을 받습니다.
 author: johnkemnetz
-manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-ms.assetid: 
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2017
+ms.date: 03/18/2017
 ms.author: johnkem
-ms.openlocfilehash: c8a2ce3ca90895262e77c3895867d29c9d3530a2
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e0d92fcd6d3cbd50a2bcb8166b27b11bc86aad83
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="create-activity-log-alerts"></a>활동 로그 경고 만들기
+# <a name="create-activity-log-alerts-classic"></a>활동 로그 경고 만들기(클래식)
 
 ## <a name="overview"></a>개요
 활동 로그 경고는 경고에 지정된 조건과 일치하는 새 활동 로그 이벤트가 발생한 경우에 활성화되는 경고입니다. 이는 Azure 리소스이므로 Azure 리소스 관리자 템플릿을 사용하여 만들 수 있습니다. 또한 Azure Portal에서 생성, 업데이트 또는 삭제할 수 있습니다. 이 문서에서는 활동 로그 경고에 대한 개념을 소개합니다. 그런 다음 Azure Portal을 사용하여 활동 로그 이벤트에 대한 경고를 설정하는 방법에 대해 설명합니다.
 
 > [!NOTE]
 
->  현재 [경고(미리 보기)](monitoring-overview-unified-alerts.md)에서 활동 로그 만들기 및 관리 환경이 향상되었습니다.  [자세히 알아보기](monitoring-activity-log-alerts-new-experience.md).
+>  새 [경고](monitoring-overview-unified-alerts.md) 경험이 이 절차를 대체합니다. 이 문서는 이전 경험에 대한 참조로 제공됩니다. [자세히 알아보기](monitoring-activity-log-alerts-new-experience.md).
 
 일반적으로 다음과 같은 경우에 알림을 수신하도록 활동 로그 경고를 만들 수 있습니다.
 
@@ -59,11 +58,11 @@ ms.lasthandoff: 02/09/2018
 
 서비스 상태 알림에 대해 자세히 알아보려면 [서비스 상태 알림에서 활동 로그 경고 수신](monitoring-activity-log-alerts-on-service-notifications.md)을 참조하세요.
 
-## <a name="create-an-alert-on-an-activity-log-event-with-a-new-action-group-by-using-the-azure-portal"></a>Azure Portal을 사용하여 새 작업 그룹의 활동 로그 이벤트에 대한 경고 만들기
+## <a name="create-an-alert-classic-on-an-activity-log-event-with-a-new-action-group-by-using-the-azure-portal"></a>Azure Portal을 사용하여 새 작업 그룹의 활동 로그 이벤트에 대한 경고(클래식) 만들기
 1. [포털](https://portal.azure.com)에서 **모니터**를 선택합니다.
 
     ![“모니터링” 서비스](./media/monitoring-activity-log-alerts/home-monitor.png)
-2. **활동 로그** 섹션에서 **경고**를 선택합니다.
+2. **활동 로그** 섹션에서 **경고(클래식)**를 선택합니다.
 
     ![“경고” 탭](./media/monitoring-activity-log-alerts/alerts-blades.png)
 3. **활동 로그 경고 추가**를 선택하고 필드를 입력합니다.

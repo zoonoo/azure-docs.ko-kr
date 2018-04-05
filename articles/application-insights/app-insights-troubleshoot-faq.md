@@ -1,6 +1,6 @@
 ---
 title: Azure Application Insights FAQ | Microsoft Docs
-description: "Application Insights에 대한 질문과 대답입니다."
+description: Application Insights에 대한 질문과 대답입니다.
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: ed10b364a809c519fe9fe49e019df22598b8c04e
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 721799703923339d397113fc278cdeb6c6dbb88f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: 질문과 대답
 
@@ -121,7 +121,7 @@ ms.lasthandoff: 02/03/2018
 * [Azure 진단](app-insights-azure-diagnostics.md)
 * [Docker 컨테이너](app-insights-docker.md)
 * [분석으로 테이블 가져오기](app-insights-analytics-import.md)
-* [OMS(Log Analytics)](https://azure.microsoft.com/blog/omssolutionforappinsightspublicpreview/)
+* [Log Analytics](https://azure.microsoft.com/blog/omssolutionforappinsightspublicpreview/)
 * [Logstash](app-insights-analytics-import.md)
 
 ## <a name="can-i-filter-out-or-modify-some-telemetry"></a>일부 원격 분석을 필터링하거나 수정할 수 있나요?
@@ -250,7 +250,7 @@ Azure 경고는 메트릭에 대해서만 설정됩니다. 이벤트가 발생�
 
 ### <a name="firewall-door"></a>방화벽 문
 
-원격 분석에서 끝점 https://dc.services.visualstudio.com:443 및 https://rt.services.visualstudio.com:443 으로 원격 분석으로 보내도록 허용합니다. 
+그러면 웹 서버가 https://dc.services.visualstudio.com:443 및 https://rt.services.visualstudio.com:443 끝점에 원격 분석을 전송할 수 있습니다. 
 
 ### <a name="proxy"></a>Proxy
 

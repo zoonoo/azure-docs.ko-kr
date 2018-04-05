@@ -1,10 +1,11 @@
 ---
-title: "Cortana Intelligence 대회 관련 FAQ | Microsoft Docs"
-description: "Microsoft Cortana Intelligence 대회와 관련하여 자주 묻는 질문입니다."
+title: Cortana Intelligence 대회 관련 FAQ | Microsoft Docs
+description: Microsoft Cortana Intelligence 대회와 관련하여 자주 묻는 질문입니다.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: hning86
-manager: jhubbard
+ms.author: haining
+manager: mwinkle
 editor: cgronlun
 ms.assetid: 9bac5154-a56c-4e78-9d67-34368b9d1624
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.author: haining;garye
-ms.openlocfilehash: f7c839a8471dc54daebc47d0bb5a450358f5250d
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: db6fb6cd6c500ffe4537b57a968ef3b8792bcad6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="microsoft-cortana-intelligence-competitions-faq"></a>Microsoft Cortana Intelligence 대회 관련 FAQ
 **Cortana Intelligence 대회는 무엇입니까?**
@@ -35,7 +35,7 @@ Microsoft Cortana Intelligence 대회는 전 세계의 데이터 전문가 커�
 
 **경쟁에 참가하려면 어떻게 해야 하나요?**
 
-[Azure AI 갤러리](https://gallery.cortanaintelligence.com/)에서 [대회](https://gallery.cortanaintelligence.com/competitions) 홈페이지에 액세스하거나 [http://aka.ms/CIComp](http://aka.ms/CIComp)로 이동합니다. 홈페이지에는 현재 실행 중인 모든 대회가 나열됩니다. 각 대회의 로그인 페이지에 구체적인 지침과 참가 규칙, 상품 및 대회 기간이 나와 있을 것입니다.
+[Azure AI Gallery](https://gallery.cortanaintelligence.com/)에서 [대회](https://gallery.cortanaintelligence.com/competitions) 홈페이지에 액세스하거나 [http://aka.ms/CIComp](http://aka.ms/CIComp)로 이동합니다. 홈페이지에는 현재 실행 중인 모든 대회가 나열됩니다. 각 대회의 로그인 페이지에 구체적인 지침과 참가 규칙, 상품 및 대회 기간이 나와 있을 것입니다.
 
 1. 참가하려는 대회를 찾아서 모든 지침을 읽고 자습서 비디오를 시청하세요. 그런 다음 **대회 참가** 단추를 클릭하고 기존 Azure Machine Learning 작업 영역에 시작 실험을 복사합니다. 아직 작업 영역에 액세스할 수 없는 경우 작업 영역부터 만들어야 합니다. 시작 실험을 실행하고, 성능 메트릭을 관찰한 다음, 창의력을 발휘하여 모델의 성능을 개선합니다. 아마도 대부분의 시간을 이 단계에서 보내게 될 것입니다.   
 

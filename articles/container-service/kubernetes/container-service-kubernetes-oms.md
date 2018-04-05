@@ -1,6 +1,6 @@
 ---
-title: "Azure Kubernetes 클러스터 모니터링 - 운영 관리"
-description: "Microsoft Operations Management Suite를 사용하여 Azure Container Service에서 Kubernetes 클러스터 모니터링"
+title: Azure Kubernetes 클러스터 모니터링 - 운영 관리
+description: Log Analytics를 사용하여 Azure Container Service에서 Kubernetes 클러스터 모니터링
 services: container-service
 author: bburns
 manager: timlt
@@ -9,13 +9,13 @@ ms.topic: article
 ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
-ms.openlocfilehash: e8a68896c923d785fea84cef60f8d2015906f342
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: efe4b3a1a63fa1986682a2fdde1a20221dc5d93a
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="monitor-an-azure-container-service-cluster-with-microsoft-operations-management-suite-oms"></a>Microsoft OMS(Operations Management Suite)를 사용하여 Azure Container Service 클러스터 모니터링
+# <a name="monitor-an-azure-container-service-cluster-with-log-analytics"></a>Log Analytics를 사용하여 Azure Container Service 클러스터 모니터링
 
 [!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
@@ -56,18 +56,19 @@ CLUSTER_NAME=my-acs-name
 az acs kubernetes get-credentials --resource-group=$RESOURCE_GROUP --name=$CLUSTER_NAME
 ```
 
-## <a name="monitoring-containers-with-operations-management-suite-oms"></a>OMS(Operations Management Suite)를 사용하여 컨테이너 모니터링
+## <a name="monitoring-containers-with-log-analytics"></a>Log Analytics를 사용하여 컨테이너 모니터링
 
-OMS(Microsoft Operations Management)는 온-프레미스 및 클라우드 인프라를 관리 및 보호하는 데 유용한 Microsoft의 클라우드 기반 IT 관리 솔루션입니다. Container Solution은 컨테이너 인벤토리, 성능 및 로그를 한 곳에서 볼 수 있는 OMS Log Analytics에 포함된 솔루션입니다. 중앙 위치에서 로그를 확인하여 컨테이너를 감사하고 문제를 해결하며 호스트에서 매우 과도하게 사용되는 컨테이너를 찾을 수 있습니다.
+Log Analytics는 온-프레미스 및 클라우드 인프라를 관리하고 보호하도록 도와주는 Microsoft의 클라우드 기반 IT 관리 솔루션입니다. Container Solution은 컨테이너 인벤토리, 성능 및 로그를 단일 위치에서 볼 수 있는 Log Analytics의 솔루션입니다. 중앙 위치에서 로그를 확인하여 컨테이너를 감사하고 문제를 해결하며 호스트에서 매우 과도하게 사용되는 컨테이너를 찾을 수 있습니다.
 
 ![](media/container-service-monitoring-oms/image1.png)
 
 Container Solution에 대한 자세한 내용은 [Container Solution Log Analytics](../../log-analytics/log-analytics-containers.md)를 참조하세요.
 
-## <a name="installing-oms-on-kubernetes"></a>Kubernetes에 OMS 설치
+## <a name="installing-log-analytics-on-kubernetes"></a>Kubernetes에 Log Analytics 설치
 
 ### <a name="obtain-your-workspace-id-and-key"></a>작업 영역 ID 및 키 가져오기
-OMS 에이전트가 서비스와 통신하려면 작업 영역 ID 및 작업 영역 키로 구성되어야 합니다. 작업 영역 ID 및 키를 모두 가져오려면 <https://mms.microsoft.com>에서 OMS 계정을 만들어야 합니다. 다음 단계에 따라 계정을 만듭니다. 계정을 만들었으면 아래와 같이 **설정**, **연결된 원본**, **Linux 서버**를 차례로 클릭하여 ID 및 키를 획득해야 합니다.
+OMS 에이전트가 서비스와 통신하려면 작업 영역 ID 및 작업 영역 키로 구성되어야 합니다. 작업 영역 ID 및 키를 가져오려면 <https://mms.microsoft.com>에서 계정을 만들어야 합니다.
+다음 단계에 따라 계정을 만듭니다. 계정을 만들었으면 아래와 같이 **설정**, **연결된 원본**, **Linux 서버**를 차례로 클릭하여 ID 및 키를 획득해야 합니다.
 
  ![](media/container-service-monitoring-oms/image5.png)
 
@@ -84,13 +85,13 @@ $ kubectl create -f oms-daemonset.yaml
 ```
 
 ### <a name="installing-the-oms-agent-using-a-kubernetes-secret"></a>Kubernetes 비밀을 사용하여 OMS 에이전트 설치
-OMS 작업 영역 ID 및 키를 보호하려면 Kubernetes 비밀을 DaemonSet YAML 파일의 일부로 사용하면 됩니다.
+Log Analytics 작업 영역 ID 및 키를 보호하려면 Kubernetes 암호를 DaemonSet YAML 파일의 일부로 사용하면 됩니다.
 
  - [리포지토리](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes)에서 스크립트, 비밀 템플릿 파일 및 DaemonSet YAML 파일을 복사하고 이러한 항목이 같은 디렉터리에 있는지 확인합니다. 
       - 비밀 생성 스크립트 - secret-gen.sh
       - 비밀 템플릿 - secret-template.yaml
    - DaemonSet YAML 파일 - omsagent-ds-secrets.yaml
- - 스크립트를 실행합니다. 스크립트에서 OMS 작업 영역 ID 및 기본 키를 요청합니다. 이러한 ID와 키를 삽입하면 스크립트는 사용자가 실행할 수 있도록 비밀 yaml 파일을 만듭니다.   
+ - 스크립트를 실행합니다. 스크립트에서는 Log Analytics 작업 영역 ID 및 기본 키를 요청합니다. 이러한 ID와 키를 삽입하면 스크립트는 사용자가 실행할 수 있도록 비밀 yaml 파일을 만듭니다.   
    ```
    #> sudo bash ./secret-gen.sh 
    ```

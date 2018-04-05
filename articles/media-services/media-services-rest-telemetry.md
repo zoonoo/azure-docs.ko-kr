@@ -1,11 +1,11 @@
 ---
-title: "REST를 사용하여 Azure Media Services 원격 분석 구성 | Microsoft Docs"
-description: "이 문서는 REST API를 사용하여 Azure Media Services 원격 분석을 사용하는 방법을 보여 줍니다."
+title: REST를 사용하여 Azure Media Services 원격 분석 구성 | Microsoft Docs
+description: 이 문서는 REST API를 사용하여 Azure Media Services 원격 분석을 사용하는 방법을 보여 줍니다.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: e1a314fb-cc05-4a82-a41b-d1c9888aab09
 ms.service: media-services
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako
-ms.openlocfilehash: 7d785c6eb9a9e16ae4853cded3c7c142080c7a09
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: abd093a0b8408e9dcffd4eb9765a767f78fd6fc1
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configuring-azure-media-services-telemetry-with-rest"></a>REST를 사용하여 Azure Media Services 원격 분석 구성
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 10/11/2017
 - 알림 끝점 가져오기
 - 모니터링을 위한 알림 끝점 만들기 
 
-    알림 끝점을 만들려면 EndPointType을 AzureTable(2)로 설정하고 endPontAddress를 저장소 테이블(예: https://telemetryvalidationstore.table.core.windows.net/)로 설정합니다.
+    알림 엔드포인트를 만들려면 EndPointType을 AzureTable(2)로 설정하고 endPontAddress를 저장소 테이블(예: https://telemetryvalidationstore.table.core.windows.net/))로 설정합니다.
   
 - 모니터링 구성 가져오기
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 10/11/2017
  
 ## <a name="get-the-storage-account-associated-with-a-media-services-account"></a>저장소 계정을 Media Services 계정에 연결
 
-###<a name="request"></a>요청
+### <a name="request"></a>요청
 
     GET https://wamsbnp1clus001rest-hs.cloudapp.net/api/StorageAccounts HTTP/1.1
     x-ms-version: 2.13
@@ -73,7 +73,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="get-the-notification-endpoints"></a>알림 끝점 가져오기
 
-###<a name="request"></a>요청
+### <a name="request"></a>요청
 
     GET https://wamsbnp1clus001rest-hs.cloudapp.net/api/NotificationEndPoints HTTP/1.1
     x-ms-version: 2.13
@@ -83,7 +83,7 @@ ms.lasthandoff: 10/11/2017
     Authorization: (redacted)
     Host: wamsbnp1clus001rest-hs.cloudapp.net
     
-###<a name="response"></a>응답
+### <a name="response"></a>response
     HTTP/1.1 200 OK
     Cache-Control: no-cache
     Content-Length: 20
@@ -106,7 +106,7 @@ ms.lasthandoff: 10/11/2017
  
 ## <a name="create-a-notification-endpoint-for-monitoring"></a>모니터링을 위한 알림 끝점 만들기
 
-###<a name="request"></a>요청
+### <a name="request"></a>요청
 
     POST https://wamsbnp1clus001rest-hs.cloudapp.net/api/NotificationEndPoints HTTP/1.1
     x-ms-version: 2.13
@@ -125,9 +125,9 @@ ms.lasthandoff: 10/11/2017
     }
 
 >[!NOTE]
->"https://telemetryvalidationstore.table.core.windows.net" 값을 반드시 저장소 계정으로 변경해야 합니다.
+>“https://telemetryvalidationstore.table.core.windows.net” 값을 사용자의 저장소 계정으로 변경해야 합니다.
 
-###<a name="response"></a>응답
+### <a name="response"></a>response
 
     HTTP/1.1 201 Created
     Cache-Control: no-cache
@@ -158,7 +158,7 @@ ms.lasthandoff: 10/11/2017
     Authorization: (redacted)
     Host: wamsbnp1clus001rest-hs.cloudapp.net
 
-###<a name="response"></a>응답
+### <a name="response"></a>response
     
     HTTP/1.1 200 OK
     Cache-Control: no-cache
@@ -200,7 +200,7 @@ ms.lasthandoff: 10/11/2017
        ]
     }
 
-### <a name="response"></a>응답
+### <a name="response"></a>response
 
     HTTP/1.1 201 Created
     Cache-Control: no-cache
@@ -221,7 +221,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="stop-telemetry"></a>원격 분석 중지
 
-###<a name="request"></a>요청
+### <a name="request"></a>요청
 
     DELETE https://wamsbnp1clus001rest-hs.cloudapp.net/api/MonitoringConfigurations('nb%3Amcid%3AUUID%3A1a8931ae-799f-45fd-8aeb-9641740295c2')
     x-ms-version: 2.13

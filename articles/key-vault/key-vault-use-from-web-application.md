@@ -1,6 +1,6 @@
 ---
-title: "웹 응용 프로그램에서 Azure Key Vault 사용 | Microsoft Docs"
-description: "이 자습서에서는 웹 응용 프로그램에서 Azure Key Vault를 사용하는 방법을 알아볼 수 있습니다."
+title: 웹 응용 프로그램에서 Azure Key Vault 사용 | Microsoft Docs
+description: 이 자습서에서는 웹 응용 프로그램에서 Azure Key Vault를 사용하는 방법을 알아볼 수 있습니다.
 services: key-vault
 author: adhurwit
 manager: mbaldwin
@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: adhurwit
-ms.openlocfilehash: 107be940b4c105056c63f793fb0111b03469bf66
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 93ef76729123c7187c3dd616419b5771324fe2cb
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="use-azure-key-vault-from-a-web-application"></a>웹 응용 프로그램에서 Azure Key Vault 사용
 
@@ -151,7 +151,7 @@ makecert -sv mykey.pvk -n "cn=KVWebApp" KVWebApp.cer -b 07/31/2017 -e 07/31/2018
 pvk2pfx -pvk mykey.pvk -spc KVWebApp.cer -pfx KVWebApp.pfx -po test123
 ```
 
-.pfx에 대한 종료 날짜와 암호를 메모해 둡니다(이 예에서는 07/31/2017 및 test123). 아래에서 필요합니다.
+.pfx에 대한 종료 날짜와 암호를 메모해 둡니다(이 예에서는 07/31/2018 및 test123). 아래에서 필요합니다.
 
 테스트 인증서 만들기에 대한 자세한 내용은 [방법: 사용자 고유의 테스트 인증서 만들기](https://msdn.microsoft.com/library/ff699202.aspx)
 

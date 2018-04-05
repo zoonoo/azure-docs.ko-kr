@@ -1,8 +1,8 @@
 ---
-title: "실패한 Azure Data Lake U-SQL 작업에 대한 사용자 지정 C# 코드 디버깅 | Microsoft Docs"
-description: "Azure Data Lake Tools for Visual Studio를 사용하여 U-SQL의 실패한 꼭짓점을 디버그하는 방법을 알아봅니다."
+title: 실패한 Azure Data Lake U-SQL 작업에 대한 사용자 지정 C# 코드 디버깅 | Microsoft Docs
+description: Azure Data Lake Tools for Visual Studio를 사용하여 U-SQL의 실패한 꼭짓점을 디버그하는 방법을 알아봅니다.
 services: data-lake-analytics
-documentationcenter: 
+documentationcenter: ''
 author: yanancai
 manager: jhubbard
 editor: cgronlun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/31/2017
 ms.author: yanacai
-ms.openlocfilehash: 739d46753729b70a24dbd3d6e2d78f8513e143e6
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: b614583079347c2634f8d03531517d1d32c75132
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="debug-user-defined-c-code-for-failed-u-sql-jobs"></a>실패한 U-SQL 작업에 대한 사용자 정의 C# 코드 디버그
 
@@ -41,7 +41,7 @@ Azure Data Lake Tools for Visual Studio에서 실패한 작업을 열면 오류 
 
 1. **다운로드** 를 클릭하여 모든 필수 리소스 및 입력 스트림을 다운로드합니다. 다운로드가 완료되지 않으면 **다시 시도**를 클릭합니다.
 
-2. 다운로드가 완료되면 **열기**를 클릭하여 로컬 디버깅 환경을 생성합니다. 디버깅 솔루션이 있는 새로운 Visual Studio 인스턴스가 자동으로 생성되고 열립니다.
+2. 다운로드가 완료되면 **열기**를 클릭하여 로컬 디버깅 환경을 생성합니다. 새 디버깅 솔루션이 공개될 예정이며, Visual Studio에서 기존 솔루션을 연 경우에는 디버깅하기 전에 저장했는지 확인하고 닫아야 합니다.
 
 ![Azure Data Lake Analytics U-SQL 디버그 Visual Studio 정점 다운로드](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-download-vertex.png)
 

@@ -1,11 +1,12 @@
 ---
-title: "Machine Learning에서 선형 회귀 사용 | Microsoft Docs"
-description: "Excel과 Azure 기계 학습 스튜디오의 선형 회귀 모델 비교"
-metakeywords: 
+title: Machine Learning에서 선형 회귀 사용 | Microsoft Docs
+description: Excel과 Azure Machine Learning Studio의 선형 회귀 모델 비교
+metakeywords: ''
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: 417ae6ab-de4f-4bdd-957a-d96133234656
 ms.service: machine-learning
@@ -14,15 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.author: kbaroni;garye
-ms.openlocfilehash: 218f2b141e3551180a2152570f99fdb427980dd7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2ea5a2720542217d3bb6a0a2b1309312fb74a953
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="using-linear-regression-in-azure-machine-learning"></a>Azure 기계 학습에서 선형 회귀 사용
-> *Kate Baroni*와 *Ben Boatman*은 Microsoft Data Insights Center of Excellence의 엔터프라이즈 솔루션 설계자입니다. 이 문서에서는 이 두 사람이 Azure 기계 학습을 사용하여 기존 선형 분석 모음을 클라우드 기반 솔루션으로 마이그레이션한 경험을 설명합니다. 
+# <a name="using-linear-regression-in-azure-machine-learning"></a>Azure Machine Learning에서 선형 회귀 사용
+> *Kate Baroni*와 *Ben Boatman*은 Microsoft Data Insights Center of Excellence의 엔터프라이즈 솔루션 설계자입니다. 이 문서에서는 이 두 사람이 Azure Machine Learning을 사용하여 기존 선형 분석 모음을 클라우드 기반 솔루션으로 마이그레이션한 경험을 설명합니다. 
 > 
 > 
 
@@ -48,7 +48,7 @@ Excel 회귀에서는 Excel 분석 도구에 있는 표준 선형 회귀 모델�
 
 *절대 평균 오차율(%)* 을 계산하여 이를 모델의 성능 척도로 사용했습니다. Excel을 사용하여 작동하는 모델을 만드는 데 3개월이 걸렸습니다. 대부분의 학습을 Azure Machine Learning Studio 실험으로 가져와 궁극적으로 요구 사항을 이해하는 데 활용했습니다.
 
-### <a name="create-comparable-experiment-in-azure-machine-learning"></a>Azure 기계 학습에서 비교 가능한 실험 만들기
+### <a name="create-comparable-experiment-in-azure-machine-learning"></a>Azure Machine Learning에서 비교 가능한 실험 만들기
 다음 단계에 따라 Machine Learning Studio에서 실험을 만들었습니다. 
 
 1. 데이터 집합을 csv 파일(매우 작은 파일)로 Machine Learning Studio에 업로드했습니다.
@@ -112,7 +112,7 @@ Excel 내에서 Machine Learning 웹 서비스를 사용하려고 했습니다. 
 
 ![][1]
 
-통합 문서가 열리면 아래 그림과 같이 파란색 매개 변수 섹션에 미리 정의된 매개 변수를 복사합니다. 매개 변수를 입력하면 Excel에서 Machine Learning 웹 서비스를 호출하고 예측 점수가 매겨진 레이블이 녹색 예측 값 섹션에 표시됩니다. 이 통합 문서는 매개 변수 아래에 입력된 모든 행 항목에 대해 학습된 모델을 기반으로 매개 변수의 예측 값을 계속 생성합니다. 이 기능을 사용하는 방법에 대한 자세한 내용은 [Excel에서 Azure 기계 학습 웹 서비스 사용](consuming-from-excel.md)을 참조하세요. 
+통합 문서가 열리면 아래 그림과 같이 파란색 매개 변수 섹션에 미리 정의된 매개 변수를 복사합니다. 매개 변수를 입력하면 Excel에서 Machine Learning 웹 서비스를 호출하고 예측 점수가 매겨진 레이블이 녹색 예측 값 섹션에 표시됩니다. 이 통합 문서는 매개 변수 아래에 입력된 모든 행 항목에 대해 학습된 모델을 기반으로 매개 변수의 예측 값을 계속 생성합니다. 이 기능을 사용하는 방법에 대한 자세한 내용은 [Excel에서 Azure Machine Learning 웹 서비스 사용](consuming-from-excel.md)을 참조하세요. 
 
 ![][2]
 
@@ -131,7 +131,7 @@ Excel 모델을 사용하여 기준을 만들었으므로 이제 Machine Learnin
 | 선형 회귀(최소 자승법) |1.428273 |1.984461 |0.163767 |0.042074 |0.957926 |
 
 ## <a name="key-takeaways"></a>핵심 내용
-Excel 회귀와 Azure 기계 학습 실험을 함께 실행하여 많은 것을 배울 수 있었습니다. Excel에서 기준 모델을 만들고 Machine Learning [선형 회귀][linear-regression]를 사용하는 모델과 비교하여 Azure Machine Learning에 대해 배우고 데이터 선택 및 모델 성능을 향상시킬 수 있었습니다. 
+Excel 회귀와 Azure Machine Learning 실험을 함께 실행하여 많은 것을 배울 수 있었습니다. Excel에서 기준 모델을 만들고 Machine Learning [선형 회귀][linear-regression]를 사용하는 모델과 비교하여 Azure Machine Learning에 대해 배우고 데이터 선택 및 모델 성능을 향상시킬 수 있었습니다. 
 
 또한 향후 예측 프로젝트를 가속화하려면 [Filter-Based Feature Selection][filter-based-feature-selection]을 사용하는 것이 좋다는 것도 알았습니다. 기능 선택을 데이터에 적용하면 Machine Learning에서 더 나은 성능으로 향상된 모델을 만들 수 있습니다. 
 
@@ -140,9 +140,9 @@ Machine Learning에서 Excel로 예측 분석을 체계적으로 전송하는 �
 ## <a name="resources"></a>리소스
 회귀 작업에 유용한 일부 리소스는 다음과 같습니다. 
 
-* Excel의 회귀 Excel에서 회귀를 사용해 본 적이 없는 경우 [http://www.excel-easy.com/examples/regression.html](http://www.excel-easy.com/examples/regression.html) 자습서를 통해 쉽게 사용할 수 있습니다.
+* Excel의 회귀 Excel에서 회귀를 시도해보지 않은 경우 다음 자습서를 통해 쉽게 수행해 보세요. [http://www.excel-easy.com/examples/regression.html](http://www.excel-easy.com/examples/regression.html)
 * 회귀와 예측 Tyler Chessman이 Excel에서 시계열 예측을 수행하는 방법을 설명하는 블로그 문서를 작성했습니다. 여기에는 초보자를 위해 선형 회귀가 자세히 설명되어 있습니다. [http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts](http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts) 
-* 최소 자승법 선형 회귀: 결함, 문제점 및 단점 회귀에 대한 개요 및 설명은 [http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/](http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/)를 참조하세요.
+* 최소 자승법 선형 회귀: 결함, 문제점 및 단점 회귀에 대한 소개 및 설명은 다음을 참조하세요. [http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/ ](http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/)
 
 [1]: ./media/linear-regression-in-azure/machine-learning-linear-regression-in-azure-1.png
 [2]: ./media/linear-regression-in-azure/machine-learning-linear-regression-in-azure-2.png

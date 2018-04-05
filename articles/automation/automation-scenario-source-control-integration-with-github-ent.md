@@ -1,24 +1,18 @@
 ---
-title: "GitHub Enterprise와 Azure Automation 소스 제어 통합 | Microsoft Docs"
-description: "Automation runbook의 소스 제어를 위해 GitHub Enterprise와의 통합을 구성하는 방법을 자세히 설명합니다."
+title: GitHub Enterprise와 Azure Automation 소스 제어 통합
+description: Automation runbook의 소스 제어를 위해 GitHub Enterprise와의 통합을 구성하는 방법을 자세히 설명합니다.
 services: automation
-documentationCenter: 
-authors: georgewallace
-manager: jwhit
-editor: 
-ms.assetid: e01d817c-7d38-421c-adf5-647a4b526eb4
 ms.service: automation
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.date: 07/26/2017
-ms.author: magoedte
-ms.openlocfilehash: 2944b62cb3dc6146573041533d56d45b6cc87f18
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+manager: carmonm
+ms.openlocfilehash: eab61daafe7ef8b5ca2fc1416dc7c04f97b8c671
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-automation-scenario---automation-source-control-integration-with-github-enterprise"></a>Azure Automation 시나리오 - GitHub Enterprise와 Automation 소스 제어 통합
 
@@ -52,10 +46,10 @@ GitHRWCredential | 하이브리드 작업자에 대한 권한이 있는 사용�
 
 1. Sync-LocalGitFolderToAutomationAccount runbook은 [Azure 실행 계정](automation-sec-configure-azure-runas-account.md)을 사용하여 인증을 합니다. 
 
-2. Azure Automation 솔루션이 사용되도록 설정되고 구성된 Microsoft OMS(Operations Management Suite) 작업 공간도 필요합니다. 이 시나리오를 설치하고 구성하는 데 사용되는 Automation 계정과 연결된 작업 영역이 없으면 Hybrid Runbook Worker에서 **New-OnPremiseHybridWorker.ps1** 스크립트를 실행할 때 해당 작업 영역이 만들어지고 구성됩니다.        
+2. Azure Automation 솔루션을 사용하도록 설정하고 구성한 Log Analytics 작업 영역도 필요합니다. 이 시나리오를 설치하고 구성하는 데 사용되는 Automation 계정과 연결된 작업 영역이 없으면 Hybrid Runbook Worker에서 **New-OnPremiseHybridWorker.ps1** 스크립트를 실행할 때 해당 작업 영역이 만들어지고 구성됩니다.        
 
     > [!NOTE]
-    > 현재 OMS와 Automation의 통합만 지원되는 지역은 **오스트레일리아 남동부**, **미국 동부 2**, **동남 아시아** 및 **유럽 서부**입니다. 
+    > 현재 Log Analytics와 Automation의 통합을 지원하는 지역은 **오스트레일리아 남동부**, **미국 동부 2**, **동남 아시아** 및 **유럽 서부**입니다. 
 
 3. 전용 Hybrid Runbook Worker로 사용할 수 있는 컴퓨터는 GitHub 소프트웨어를 호스트하고 runbook 파일(*runbook*.ps1)을 파일 시스템의 소스 디렉터리에 유지하여 GitHub와 Automation 계정 간에 동기화를 수행합니다.
 

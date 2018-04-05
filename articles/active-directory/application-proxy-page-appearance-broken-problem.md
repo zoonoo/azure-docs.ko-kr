@@ -1,23 +1,23 @@
 ---
-title: "응용 프로그램 페이지가 응용 프로그램 프록시 응용 프로그램에 올바르게 표시되지 않음 | Microsoft Docs"
-description: "페이지에서 Azure AD와 통합한 응용 프로그램 프록시 응용 프로그램을 제대로 표시하지 않는 경우 가이드입니다."
+title: 응용 프로그램 페이지가 응용 프로그램 프록시 응용 프로그램에 올바르게 표시되지 않음 | Microsoft Docs
+description: 페이지에서 Azure AD와 통합한 응용 프로그램 프록시 응용 프로그램을 제대로 표시하지 않는 경우 가이드입니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2017
+ms.date: 03/23/2018
 ms.author: asteen
-ms.openlocfilehash: 017267620a1bcd6242bceb395966cc4190677c1a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d187b545a486be28fc80e6baf8e58079ff94ec5e
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="application-page-does-not-display-correctly-for-an-application-proxy-application"></a>응용 프로그램 페이지가 응용 프로그램 프록시 응용 프로그램에 올바르게 표시되지 않음
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 12/11/2017
 
 동일한 응용 프로그램 내에서 모든 리소스를 게시할 수 없는 경우 여러 응용 프로그램을 게시하고 이들 간의 링크를 사용해야 합니다.
 
-이렇게 하려면 [사용자 지정 도메인](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-custom-domains) 솔루션을 사용하는 것이 좋습니다. 그러나 이 솔루션에서 사용자는 도메인의 인증서를 소유하고 응용 프로그램은 FQDN(정규화된 도메인 이름)을 사용해야 합니다. 다른 옵션은 [끊어진 링크 문제 해결 설명서](https://microsoft-my.sharepoint.com/personal/harshja_microsoft_com/_layouts/15/guestaccess.aspx?guestaccesstoken=IxuG3mFVbnPWI3Yn4Qi7wCNi8VIfHS5mwPt5quh8DMw%3d&docid=2_14558cd6ddea34c1c9887dc640feb5831&rev=1)를 참조하세요.
+이렇게 하려면 [사용자 지정 도메인](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-custom-domains) 솔루션을 사용하는 것이 좋습니다. 그러나 이 솔루션에서 사용자는 도메인의 인증서를 소유하고 응용 프로그램은 FQDN(정규화된 도메인 이름)을 사용해야 합니다. 다른 옵션은 [끊어진 링크 문제 해결 설명서](application-proxy-page-links-broken-problem.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 [Azure AD 응용 프로그램 프록시를 사용하여 응용 프로그램 게시](application-proxy-publish-azure-portal.md)

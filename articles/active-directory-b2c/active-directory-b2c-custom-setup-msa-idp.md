@@ -1,24 +1,21 @@
 ---
-title: "Azure Active Directory B2C: 사용자 지정 정책을 사용하여 ID 공급자로 MSA(Microsoft 계정) 추가"
-description: "OIDC(Microsoft OpenID 연결) 프로토콜을 사용하는 ID 공급자로 Microsoft를 사용하는 샘플"
+title: 'Azure Active Directory B2C: 사용자 지정 정책을 사용하여 ID 공급자로 MSA(Microsoft 계정) 추가'
+description: OIDC(Microsoft OpenID 연결) 프로토콜을 사용하는 ID 공급자로 Microsoft를 사용하는 샘플
 services: active-directory-b2c
-documentationcenter: 
-author: yoelhor
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 08/04/2017
-ms.author: yoelh
-ms.openlocfilehash: cdc77d093358fa15bb1acbc9ba6b1867bae062f8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: a49e9589322eeb90a713321b4fbe4c4820609f7a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-add-microsoft-account-msa-as-an-identity-provider-using-custom-policies"></a>Azure Active Directory B2C: 사용자 지정 정책을 사용하여 ID 공급자로 MSA(Microsoft 계정) 추가
 
@@ -71,7 +68,7 @@ Azure AD(Active Directory) B2C에서 Microsoft 계정을 ID 공급자로 사용�
 
     ![Microsoft 계정 - 새 암호 복사](media/active-directory-b2c-custom-setup-ms-account-idp/msa-new-password.png)
 
-9.  **고급 옵션** 섹션 아래에서 **Live SDK 지원**라는 상자를 선택합니다. **Save**를 클릭합니다.
+9.  **고급 옵션** 섹션 아래에서 **Live SDK 지원**라는 상자를 선택합니다. **저장**을 클릭합니다.
 
     ![Microsoft 계정-Live SDK 지원](media/active-directory-b2c-custom-setup-ms-account-idp/msa-live-sdk-support.png)
 
@@ -84,7 +81,7 @@ Microsoft 계정으로 페더레이션하려면 응용 프로그램 대신 Azure
 4.  **옵션**에는 **수동**을 사용합니다.
 5.  **이름**에는 `MSASecret`를 사용합니다.  
     `B2C_1A_` 접두사가 자동으로 추가될 수 있습니다.
-6.  **비밀** 상자에서 https://apps.dev.microsoft.com의 Microsoft 응용 프로그램 암호를 입력합니다
+6.  **암호** 상자에서 https://apps.dev.microsoft.com의 Microsoft 응용 프로그램 암호를 입력합니다
 7.  **키 사용**에는 **서명**을 사용합니다.
 8.  **만들기**
 9.  `B2C_1A_MSASecret` 키를 만들었는지 확인합니다.

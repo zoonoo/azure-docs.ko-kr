@@ -1,11 +1,11 @@
 ---
-title: "Azure Service Bus 메시지 세션 | Microsoft Docs"
-description: "Azure Service Bus 메시지 시퀀스를 세션으로 처리합니다."
+title: Azure Service Bus 메시지 세션 | Microsoft Docs
+description: Azure Service Bus 메시지 시퀀스를 세션으로 처리합니다.
 services: service-bus-messaging
-documentationcenter: 
+documentationcenter: ''
 author: clemensv
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/02/2018
 ms.author: sethm
-ms.openlocfilehash: 7a594e5951f6e90c9151fbaf231675d6ed091d1f
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 551432cd13c16fdd5423c46ed9c6f740353808f8
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="message-sessions-first-in-first-out-fifo"></a>메시지 세션: FIFO(처음 들어간 것부터 사용) 
 
 Microsoft Azure Service Bus 세션을 사용하면 관련 메시지의 무제한 시퀀스를 공동으로 순서를 지정하여 처리할 수 있습니다. Service Bus에서 FIFO 보장을 실현하려면 세션을 사용합니다. Service Bus는 메시지 간 관계의 특징에 대한 규범이 아니며 메시지 시퀀스가 시작되거나 끝나는 위치를 결정하는 특정 모델을 정의하지 않습니다.
 
-발신자는 메시지를 토픽이나 큐에 제출할 때 [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid#Microsoft_Azure_ServiceBus_Message_SessionId) 속성을 세션에 고유한 응용 프로그램 정의 식별자로 설정하여 세션을 만들 수 있습니다. AMQP 1.0 프로토콜 수준에서 이 값은  *group-id*  속성에 매핑됩니다.
+발신자는 메시지를 토픽이나 큐에 제출할 때 [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid#Microsoft_Azure_ServiceBus_Message_SessionId) 속성을 세션에 고유한 응용 프로그램 정의 식별자로 설정하여 세션을 만들 수 있습니다. AMQP 1.0 프로토콜 수준에서 이 값은 *group-id* 속성에 매핑됩니다.
 
 세션 인식 큐 또는 구독에서 세션의 [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid#Microsoft_Azure_ServiceBus_Message_SessionId)가 있는 메시지가 하나 이상일 때 해당 세션이 존재하게 됩니다. 세션이 존재하면 세션이 언제 만료되거나 사라지는지에 대해 정의된 시간이나 API가 없습니다. 이론적으로 메시지는 오늘 세션에서 수신되고 1년 후 다음 메시지가 수신될 수 있으며 **SessionId**가 일치하면 세션은 Service Bus 측면에서 동일합니다.
 
@@ -53,13 +53,7 @@ Service Bus의 세션 기능을 사용하면 C# 및 Java API의 [MessageSession]
 
 다수의 동시 수신자가 큐에서 풀링되면 특정 세션에 속하는 메시지는 해당 세션에 대한 잠금을 보유하고 있는 특정 수신자에게 전달됩니다. 이러한 작업을 통해 하나의 큐 또는 구독에 상주하는 인터리브된 메시지 스트림이 다른 수신자로 완전히 역멀티플렉싱되며 잠금 관리가 Service Bus 내의 서비스 쪽에서 발생하기 때문에 해당 수신자는 다른 클라이언트 시스템에서도 작동할 수 있습니다.
 
-하지만 큐는 여전히 큐이며 임의 액세스는 없습니다. 다수의 동시 수신자가 특정 세션을 수락하기를 기다리거나 특정 세션의 메시지를 기다리는 경우 어떠한 수신기에서도 아직 클레임하지 않은 세션에 속하는 큐의 맨 위에 메시지가 있으면 세션 수신자가 해당 세션을 클레임할 때까지 배달이 보류됩니다.
-
-위의 그림은 3개의 동시 세션 수신자를 보여주며 모든 수신자가 진행할 수 있도록 이들 모두는 큐의 메시지를 적극적으로 받아야 합니다. `SessionId` = 4가 포함된 이전 세션에는 활성 소유 클라이언트가 없습니다. 다시 말해 세션을 소유하는 새로 생성된 수신자가 해당 메시지를 가져갈 때까지 누구에게도 메시지가 배달되지 않습니다.
-
-이는 제약이 있는 것처럼 보일 수 있지만 단일 수신기 프로세스는 다수의 동시 세션을 쉽게 처리할 수 있습니다. 특히 엄격한 비동기 코드로 작성된 경우 그렇습니다. 콜백 모델을 사용하면 수십 개의 동시 세션을 효율적으로 자동으로 저글링할 수 있습니다.
-
-각 세션에서 메시지를 산발적으로 수신하는 다수의 동시 세션을 처리하는 전략은 처리기가 유휴 시간이 지나면 세션을 삭제하고 다음 세션이 도착하면서 세션이 수락될 때 처리를 다시 시작하는 것입니다.
+앞의 그림에는 3개의 동시 세션 수신기가 나와 있습니다. `SessionId` = 4인 한 세션에 활성, 소유 클라이언트가 없습니다. 즉, 이 특정 세션에서 전달된 메시지가 없습니다. 세션은 하위 큐와 같이 여러 가지 방법으로 작동합니다.
 
 세션 수신자가 보유한 세션 잠금은 *peek-lock* 정산 모드에서 사용되는 메시지 잠금에 대한 우산입니다. 수신자는 "진행 중" 동시에 두 개의 메시지를 가질 수 없지만 메시지는 순서대로 처리되어야 합니다. 이전 메시지가 완료되거나 배달 못 한 편지로 처리된 경우에만 새 메시지를 얻을 수 있습니다. 메시지를 버리면 다음 수신 작업으로 동일한 메시지가 다시 제공됩니다.
 
